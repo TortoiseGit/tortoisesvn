@@ -48,7 +48,6 @@
 #include "EditModel.h"
 #include "MarginView.h"
 #include "EditView.h"
-#include "Editor.h"
 
 #ifdef SCI_NAMESPACE
 using namespace Scintilla;
@@ -192,7 +191,6 @@ EditView::EditView() {
 	tabArrowHeight = 4;
 	customDrawTabArrow = NULL;
 	customDrawWrapMarker = NULL;
-	editor = NULL;
 }
 
 EditView::~EditView() {
@@ -378,14 +376,14 @@ void EditView::LayoutLine(const EditModel &model, int line, Surface *surface, co
 			// See if chars, styles, indicators, are all the same
 			bool allSame = true;
 			// Check base line layout
-			char styleByte = 0;
+			int styleByte = 0;
 			int numCharsInLine = 0;
 			while (numCharsInLine < lineLength) {
 				int charInDoc = numCharsInLine + posLineStart;
 				char chDoc = model.pdoc->CharAt(charInDoc);
-				styleByte = model.pdoc->StyleAt(charInDoc);
+				styleByte = model.pdoc->StyleIndexAt(charInDoc);
 				allSame = allSame &&
-					(ll->styles[numCharsInLine] == static_cast<unsigned char>(styleByte));
+					(ll->styles[numCharsInLine] == styleByte);
 				if (vstyle.styles[ll->styles[numCharsInLine]].caseForce == Style::caseMixed)
 					allSame = allSame &&
 					(ll->chars[numCharsInLine] == chDoc);
@@ -396,7 +394,7 @@ void EditView::LayoutLine(const EditModel &model, int line, Surface *surface, co
 					allSame = allSame &&
 					(ll->chars[numCharsInLine] == static_cast<char>(toupper(chDoc)));
 				else	{ // Style::caseCamel
-					if ((model.pdoc->WordCharClass(ll->chars[numCharsInLine]) == CharClassify::ccWord) && 
+					if ((model.pdoc->WordCharClass(ll->chars[numCharsInLine]) == CharClassify::ccWord) &&
 					  ((numCharsInLine == 0) || (model.pdoc->WordCharClass(ll->chars[numCharsInLine - 1]) != CharClassify::ccWord))) {
 						allSame = allSame && (ll->chars[numCharsInLine] == static_cast<char>(toupper(chDoc)));
 					} else {
@@ -446,13 +444,13 @@ void EditView::LayoutLine(const EditModel &model, int line, Surface *surface, co
 				else if (vstyle.styles[ll->styles[charInLine]].caseForce == Style::caseLower)
 					ll->chars[charInLine] = static_cast<char>(tolower(chDoc));
 				else if (vstyle.styles[ll->styles[charInLine]].caseForce == Style::caseCamel) {
-					if ((model.pdoc->WordCharClass(ll->chars[charInLine]) == CharClassify::ccWord) && 
+					if ((model.pdoc->WordCharClass(ll->chars[charInLine]) == CharClassify::ccWord) &&
 					  ((charInLine == 0) || (model.pdoc->WordCharClass(ll->chars[charInLine - 1]) != CharClassify::ccWord))) {
 						ll->chars[charInLine] = static_cast<char>(toupper(chDoc));
 					} else {
 						ll->chars[charInLine] = static_cast<char>(tolower(chDoc));
 					}
-				}				
+				}
 			}
 		}
 		ll->xHighlightGuide = 0;
@@ -988,11 +986,10 @@ static void DrawIndicators(Surface *surface, const EditModel &model, const ViewS
 				startPos = deco->rs.EndRun(startPos);
 			}
 			while ((startPos < posLineEnd) && (deco->rs.ValueAt(startPos))) {
-				int endPos = deco->rs.EndRun(startPos);
-				if (endPos > posLineEnd)
-					endPos = posLineEnd;
+				const Range rangeRun(deco->rs.StartRun(startPos), deco->rs.EndRun(startPos));
+				const int endPos = std::min(rangeRun.end, posLineEnd);
 				const bool hover = vsDraw.indicators[deco->indicator].IsDynamic() &&
-					((hoverIndicatorPos >= startPos) && (hoverIndicatorPos <= endPos));
+					rangeRun.ContainsCharacter(hoverIndicatorPos);
 				const int value = deco->rs.ValueAt(startPos);
 				Indicator::DrawState drawState = hover ? Indicator::drawHover : Indicator::drawNormal;
 				DrawIndicator(deco->indicator, startPos - posLineStart, endPos - posLineStart,
@@ -1478,7 +1475,7 @@ void EditView::DrawForeground(Surface *surface, const EditModel &model, const Vi
 					if (indicatorValue) {
 						const Indicator &indicator = vsDraw.indicators[deco->indicator];
 						const bool hover = indicator.IsDynamic() &&
-							((model.hoverIndicatorPos >= ts.start + posLineStart) && 
+							((model.hoverIndicatorPos >= ts.start + posLineStart) &&
 							(model.hoverIndicatorPos <= ts.end() + posLineStart));
 						if (hover) {
 							if (indicator.sacHover.style == INDIC_TEXTFORE) {
@@ -1687,18 +1684,7 @@ void EditView::DrawLine(Surface *surface, const EditModel &model, const ViewStyl
 	}
 
 	// See if something overrides the line background color.
-	ColourOptional background = vsDraw.Background(model.pdoc->GetMark(line), model.caret.active, ll->containsCaret);
-	SCNotification scn = { 0 };
-	scn.nmhdr.code = SCN_GETBKCOLOR;
-	scn.line = line;
-	scn.lParam = -1;
-	if (editor)
-		((Editor*)editor)->NotifyParent(&scn);
-	if (scn.lParam != -1)
-	{
-		background.Set(scn.lParam);
-		background.isSet = true;
-	}
+	const ColourOptional background = vsDraw.Background(model.pdoc->GetMark(line), model.caret.active, ll->containsCaret);
 
 	const int posLineStart = model.pdoc->LineStart(line);
 
