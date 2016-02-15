@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-05 12:39+0000\n"
+"PO-Revision-Date: 2016-02-09 11:05+0000\n"
 "Last-Translator: Bagavathikumar Ramakrishnan <bagavathikumar@gmail.com>\n"
 "Language-Team: Tamil (India) (http://www.transifex.com/luebbe/tortoisesvn/language/ta_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgstr "%ls, ஆனால் இந்த directory ஏற்கனவே versio
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSINGMOVED)
 #, c-format
 msgid "%ls, but the directory is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%ls, ஆனால் இந்த directory local-இல் காணப்படவில்லை (deleted or removed away?)."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSING)
 #, c-format
@@ -280,12 +280,12 @@ msgstr "%ls, ஆனால் இந்த directory local-இல் ஏற்க
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_EDITED)
 #, c-format
 msgid "%ls, but the directory was already edited."
-msgstr "%ls, ஆனால் இந்த directory ஏற்கனவே  திருத்தப்பட்டுள்ளது"
+msgstr "%ls, ஆனால் இந்த directory ஏற்கனவே திருத்தப்பட்டுள்ளது."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_DELETED)
 #, c-format
 msgid "%ls, but the directory was deleted, moved or renamed locally."
-msgstr "%ls, ஆனால் இந்த directory local-இல் நீக்கப்பட்டோ, நகர்த்தப்பட்டோ அல்லது பெயர் மாற்றப்பட்டோ உள்ளது"
+msgstr "%ls, ஆனால் இந்த directory local-இல் நீக்கப்பட்டோ, நகர்த்தப்பட்டோ அல்லது பெயர் மாற்றப்பட்டோ உள்ளது."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDAWAY)
 #, c-format
@@ -315,7 +315,7 @@ msgstr "%ls, ஆனால் இந்த file ஏற்கனவே version-ஆ
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSINGMOVED)
 #, c-format
 msgid "%ls, but the file is missing locally (deleted or moved away?)."
-msgstr ""
+msgstr "%ls, ஆனால் இந்த file local-இல் காணப்படவில்லை (deleted or removed away?)."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSING)
 #, c-format
@@ -400,7 +400,7 @@ msgstr "&..."
 
 #. Resource IDs: (57664 - Menu)
 msgid "&About TortoiseMerge..."
-msgstr "& TortoiseMerge பற்றி..."
+msgstr "&TortoiseMerge பற்றி..."
 
 #. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED)
 msgid "&Accept current working copy state (mark as resolved)"
@@ -420,7 +420,7 @@ msgstr "&சேர் >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
-msgstr "& Filter-ஐ சேர்"
+msgstr "&Filter-ஐ சேர்"
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -437,7 +437,7 @@ msgstr "&மேம்பட்ட..."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1505)
 msgid "&All"
-msgstr ""
+msgstr "&முழுவதும்"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1471)
 msgid "&Allow ambiguous URLs"
@@ -479,11 +479,11 @@ msgstr "&double-click event-உடன் தொடர்புபடுத்த
 
 #. Resource IDs: (17041)
 msgid "&Auto Hide"
-msgstr ""
+msgstr "&தானாக மறை"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
-msgstr ""
+msgstr "&தானாகமூடு;"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1015)
 msgid "&Backup original file"
@@ -552,7 +552,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
-msgstr ""
+msgstr "&CD-ROM"
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 2, Dialog IDD_GOOFFLINE: Control
 #. id 2, IDS_MONITOR_DELETE_TASK4, IDS_MSGBOX_CANCEL)
@@ -573,7 +573,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
-msgstr ""
+msgstr "&பொருட்களை தேர்வு..."
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1562)
 msgid "&Clean up working copy status"
@@ -593,7 +593,7 @@ msgstr "&மூடு"
 
 #. Resource IDs: (16922)
 msgid "&Close Window(s)"
-msgstr ""
+msgstr "&மூடு விண்டோ(ஸ்)"
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
@@ -601,7 +601,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Command:"
-msgstr "&ஆணை;"
+msgstr "&ஆணை:"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -715,7 +715,7 @@ msgstr "&அடைவுகள்"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1562)
 msgid "&Do not ask again"
-msgstr ""
+msgstr "&மீண்டும் கேட்காதே"
 
 #. Resource IDs: (17040)
 msgid "&Docking"
@@ -728,30 +728,30 @@ msgstr "&EOL"
 #. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSMAIN: Control id 1031,
 #. IDS_REPOBROWSE_EDITFILE)
 msgid "&Edit"
-msgstr ""
+msgstr "&தொகு"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1506)
 msgid "&Edit Filter"
-msgstr ""
+msgstr "&Filter-ஐ தொகு"
 
 #. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1399, Dialog
 #. IDD_EDITPROPCONFLICT: Control id 1542)
 msgid "&Edit conflict"
-msgstr ""
+msgstr "&தொகு முரண்பாடு"
 
 #. Resource IDs: (IDS_MENUCONFLICT)
 msgid "&Edit conflicts"
-msgstr ""
+msgstr "&தொகு முரண்பாடுகள்"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITOREDIT)
 msgid "&Edit project"
-msgstr ""
+msgstr "&தொகு திட்டம்"
 
 #. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
-msgstr ""
+msgstr "&தொகு..."
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1542)
 msgid "&Empty the recycle bin now"
@@ -763,7 +763,7 @@ msgstr ""
 
 #. Resource IDs: (ID_EDIT_ENABLE - Menu)
 msgid "&Enable edit"
-msgstr ""
+msgstr "&Edit-ஐ இயலச்செய்"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1434)
 msgid "&Enable log caching"
@@ -775,7 +775,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXECUTABLE: Control id 1554)
 msgid "&Executable"
-msgstr ""
+msgstr "&இயங்கக்கூடிய"
 
 #. Resource IDs: (ID_MENUEXIT - Menu)
 msgid "&Exit"
@@ -789,7 +789,7 @@ msgstr ""
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
 #. Control id 1095)
 msgid "&External"
-msgstr ""
+msgstr "&புறம்பான"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&File"
@@ -839,11 +839,11 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1530, IDS_COPYDLG_FROMURL)
 msgid "&From URL:"
-msgstr ""
+msgstr "&URL- இருந்து:"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1259)
 msgid "&From WC / URL:"
-msgstr ""
+msgstr "&WC / URL- இருந்து:"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 65535)
 msgid "&From revision"
@@ -859,7 +859,7 @@ msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Green:"
-msgstr ""
+msgstr "&பச்சை:"
 
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
@@ -889,7 +889,7 @@ msgstr "&உதவி"
 
 #. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
-msgstr ""
+msgstr "&உதவி தலைப்புகள்"
 
 #. Resource IDs: (17042, 61457)
 msgid "&Hide"
@@ -926,11 +926,11 @@ msgstr "&உருவக தகவல்⇥(I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
-msgstr ""
+msgstr "&உருவம் மட்டும்"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
-msgstr ""
+msgstr "&இறக்குமதி..."
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -946,7 +946,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
-msgstr ""
+msgstr "&அனைத்து சேர"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_RIGHT)
 msgid "&Join with sub-trees"
@@ -958,7 +958,7 @@ msgstr ""
 
 #. Resource IDs: (ID_NEW_KEYWORDS - Menu)
 msgid "&Keywords"
-msgstr "&சிறப்புச் சொற்கள்:"
+msgstr "&சிறப்புச் சொற்கள்"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
@@ -966,7 +966,7 @@ msgstr "&மொழி:"
 
 #. Resource IDs: (16653)
 msgid "&Large Icons"
-msgstr ""
+msgstr "&பெரிய சின்னங்கள்"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -991,7 +991,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1590)
 msgid "&Linux (LF)"
-msgstr ""
+msgstr "&லினக்ஸ்(LF)"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1172)
 msgid "&List View"
@@ -999,7 +999,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1309)
 msgid "&Load..."
-msgstr ""
+msgstr "&சுமை..."
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1554)
 msgid "&Locking required (read-only update)"
@@ -1015,7 +1015,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
-msgstr ""
+msgstr "&Mac (CR)"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 1562, Dialog IDD_UPDATE:
 #. Control id 1562)
@@ -1044,19 +1044,19 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
-msgstr ""
+msgstr "&இணை"
 
 #. Resource IDs: (ID_VIEW_MERGEPATH - Menu)
 msgid "&Merge paths"
-msgstr ""
+msgstr "&பாதைகள் இணை"
 
 #. Resource IDs: (IDS_MENUMERGE)
 msgid "&Merge..."
-msgstr ""
+msgstr "&இணை..."
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1012)
 msgid "&Merging"
-msgstr ""
+msgstr "&இணைத்தல்"
 
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
@@ -1064,7 +1064,7 @@ msgstr ""
 
 #. Resource IDs: (16925)
 msgid "&Minimize"
-msgstr ""
+msgstr "&சிறிதாக்கு"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1126,7 +1126,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1566)
 msgid "&Numeric"
-msgstr ""
+msgstr "&எண்"
 
 #. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
 #. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
@@ -1162,7 +1162,7 @@ msgstr "&சரி"
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1)
 msgid "&Offline for now"
-msgstr ""
+msgstr "&இப்போது ஆஃப்லைன்"
 
 #. Resource IDs: (61505)
 msgid "&One Page"
@@ -1236,7 +1236,7 @@ msgstr ""
 
 #. Resource IDs: (17091)
 msgid "&Print Preview"
-msgstr ""
+msgstr "&அச்சு முன்னோட்டம்"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1244,21 +1244,21 @@ msgstr "&அச்சிடு..."
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
-msgstr ""
+msgstr "&பண்புகள்"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 11021)
 msgid "&Properties..."
-msgstr ""
+msgstr "&பண்புகள்..."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1246, Dialog IDD_COPY:
 #. Control id 1246, Dialog IDD_IMPORT: Control id 1246, Dialog
 #. IDD_INPUTLOGDLG: Control id 1246, Dialog IDD_LOCK: Control id 1246)
 msgid "&Recent messages"
-msgstr ""
+msgstr "&சமீபத்திய செய்திகள்"
 
 #. Resource IDs: (65535)
 msgid "&Red:"
-msgstr "&சிவப்பு;"
+msgstr "&சிவப்பு:"
 
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
@@ -1290,7 +1290,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_REPOBROWSE_RENAME)
 msgid "&Rename"
-msgstr ""
+msgstr "&மறுபெயர்"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1302,7 +1302,7 @@ msgstr ""
 
 #. Resource IDs: (16613, 16624)
 msgid "&Reset"
-msgstr ""
+msgstr "&மறுபடியும்"
 
 #. Resource IDs: (16300)
 msgid "&Reset Toolbar"
@@ -1353,7 +1353,7 @@ msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&SVN"
-msgstr ""
+msgstr "&SVN"
 
 #. Resource IDs: (65535)
 msgid "&Saturation:"
@@ -1361,7 +1361,7 @@ msgstr ""
 
 #. Resource IDs: (16921)
 msgid "&Save"
-msgstr ""
+msgstr "&சேமி"
 
 #. Resource IDs: (Dialog IDD_PROMPT: Control id 1023, Dialog IDD_SIMPLEPROMPT:
 #. Control id 1023)
@@ -1468,11 +1468,11 @@ msgstr ""
 
 #. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
-msgstr ""
+msgstr "&உரை"
 
 #. Resource IDs: (16506)
 msgid "&Text only"
-msgstr ""
+msgstr "&உரை மட்டும்"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1489,12 +1489,12 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1384, Dialog IDD_URLDIFF:
 #. Control id 1305)
 msgid "&To URL:"
-msgstr ""
+msgstr "&URL க்கு:"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1384, Dialog IDD_SWITCH: Control
 #. id 1305)
 msgid "&To path:"
-msgstr ""
+msgstr "&Path க்கு:"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1495)
 msgid "&To: (end URL and revision of the range to merge)"
@@ -1502,19 +1502,19 @@ msgstr ""
 
 #. Resource IDs: (59392 - Menu)
 msgid "&Toolbar"
-msgstr ""
+msgstr "&டூல்பார்"
 
 #. Resource IDs: (65535)
 msgid "&Toolbar Name:"
-msgstr ""
+msgstr "&டூல்பார் பெயர்:"
 
 #. Resource IDs: (65535)
 msgid "&Toolbars:"
-msgstr ""
+msgstr "&டூல்பார்கள்:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
-msgstr ""
+msgstr "&மேல்"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1091, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1093, Dialog IDD_SETTINGSPROGSMERGE:
@@ -1536,7 +1536,7 @@ msgstr ""
 
 #. Resource IDs: (61506)
 msgid "&Two Page"
-msgstr ""
+msgstr "&இரண்டு பக்கம்"
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1376, Dialog IDD_EXPORT:
 #. Control id 1394, Dialog IDD_IMPORT: Control id 1058)
@@ -1551,7 +1551,7 @@ msgstr ""
 
 #. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
 msgid "&Undo"
-msgstr ""
+msgstr "&தளர்த்து"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_UNIDIFFREVS, ID_VIEW_UNIFIEDDIFF - Menu)
 msgid "&Unified diff"
@@ -1563,7 +1563,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUUPDATE)
 msgid "&Update"
-msgstr ""
+msgstr "&மேம்படுத்து"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -1589,7 +1589,7 @@ msgstr ""
 #. IDD_SETTINGSPROXY: Control id 1410, Dialog IDD_SIMPLEPROMPT: Control id
 #. 65535)
 msgid "&Username:"
-msgstr ""
+msgstr "&பயனர்பெயர்:"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1647)
 msgid "&Vacuum pristine copies"
@@ -1597,11 +1597,11 @@ msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
-msgstr ""
+msgstr "&நோக்கு"
 
 #. Resource IDs: (65535)
 msgid "&View:"
-msgstr ""
+msgstr "&நோக்கு:"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
 msgid "&Whole word"
@@ -1609,11 +1609,11 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1589)
 msgid "&Windows (CRLF)"
-msgstr ""
+msgstr "&விண்டோஸ் (CRLF)"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1183)
 msgid "&Working copy"
-msgstr ""
+msgstr "&நகல் வேலை"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1540)
 msgid "&file list control"
@@ -1659,7 +1659,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_COPY)
 msgid "(copy)"
-msgstr ""
+msgstr "(நகலெடு)"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_BRANCH)
 msgid "(create branch)"
@@ -1671,11 +1671,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_DELETE)
 msgid "(delete)"
-msgstr ""
+msgstr "(நீக்கு)"
 
 #. Resource IDs: (IDS_STATUSLIST_EXTERNAL_GROUP)
 msgid "(externals)"
-msgstr ""
+msgstr "(புறம்பான)"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_MODIFIED)
 msgid "(modified)"
@@ -1711,7 +1711,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_NOTFOUNDVIEWTITLEINDICATOR)
 msgid "(not found)"
-msgstr ""
+msgstr "(கிடைக்கவில்லை)"
 
 #. Resource IDs: (IDS_PROPMODS, IDS_PROPONLY)
 msgid "(properties only)"
@@ -1727,7 +1727,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_RENAME)
 msgid "(rename)"
-msgstr ""
+msgstr "(மறுபெயர்)"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_TAG)
 msgid "(tagged)"
@@ -1789,7 +1789,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_DIFF_WORKINGCOPY)
 msgid ": working copy"
-msgstr ""
+msgstr ": நகல் வேலை"
 
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
@@ -1908,7 +1908,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
 msgid "About"
-msgstr ""
+msgstr "பற்றி"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 136)
 msgid "About TortoiseMerge"
@@ -1937,7 +1937,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_FILEDIFF_ACTION, IDS_PROGRS_ACTION)
 msgid "Action"
-msgstr ""
+msgstr "செயல்"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 65535)
 msgid "Action log"
@@ -1945,7 +1945,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_LOG_ACTIONS)
 msgid "Actions"
-msgstr ""
+msgstr "செயல்கள்"
 
 #. Resource IDs: (61203)
 msgid "Activate Task List"
@@ -1965,11 +1965,11 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
 msgid "Add"
-msgstr ""
+msgstr "சேர்"
 
 #. Resource IDs: (IDS_REPOBROWSE_IMPORT)
 msgid "Add &file..."
-msgstr ""
+msgstr "சேர் &கோப்பு..."
 
 #. Resource IDs: (IDS_SCIEDIT_ADDWORD)
 #, c-format
@@ -2030,7 +2030,7 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
-msgstr ""
+msgstr "சேர்..."
 
 #. Resource IDs: (Dialog IDD_TOOLASSOC: Control id 171)
 msgid "Add/Edit Extension Specific Diff/Merge Program"
@@ -2097,7 +2097,7 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 307, ID_EDIT_ADVANCED
 #. - Menu)
 msgid "Advanced"
-msgstr ""
+msgstr "மேம்பட்ட"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 170)
 msgid "Advanced Diff/Merge Settings"
@@ -2113,7 +2113,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Age"
-msgstr ""
+msgstr "வயது"
 
 #. Resource IDs: (ID_VIEW_TOPALIGNTREES - Menu)
 msgid "Align trees on top"
@@ -2121,7 +2121,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1505)
 msgid "All"
-msgstr ""
+msgstr "முழுவதும்"
 
 #. Resource IDs: (16110)
 msgid "All Commands"
@@ -2381,15 +2381,15 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_EDITPROPKEYWORDS: Control id 1562,
 #. IDS_HEADER_AUTHOR, IDS_LOG_AUTHOR, IDS_STATUSLIST_COLAUTHOR)
 msgid "Author"
-msgstr ""
+msgstr "ஆசிரியர்"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Author:\t\t\t\tStefan Kueng"
-msgstr ""
+msgstr "ஆசிரியர்: Stefan Kueng"
 
 #. Resource IDs: (IDS_LOG_FILTER_AUTHORS, IDS_LOG_POPUP_CLIPBOARD_AUTHORS)
 msgid "Authors"
-msgstr ""
+msgstr "ஆசிரியர்கள்"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1265)
 msgid "Authors case sensitive"
@@ -2397,11 +2397,11 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1444)
 msgid "Authors:"
-msgstr ""
+msgstr "ஆசிரியர்கள்:"
 
 #. Resource IDs: (16033)
 msgid "Auto Hide"
-msgstr ""
+msgstr "தானாக மறை"
 
 #. Resource IDs: (16036)
 msgid "Auto Hide All"
@@ -2409,7 +2409,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "தானாக இணை"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_NOCONFLICTS)
 msgid "Auto-close if no conflicts"
@@ -2444,21 +2444,21 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1157)
 msgid "Average"
-msgstr ""
+msgstr "சராசரி"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1003, Dialog IDD_OPENDLG:
 #. Control id 1011)
 msgid "B&rowse..."
-msgstr ""
+msgstr "&உலவு..."
 
 #. Resource IDs: (17020)
 msgid "Back"
-msgstr ""
+msgstr "பின்"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Background"
-msgstr ""
+msgstr "பின்புலம்"
 
 #. Resource IDs: (IDS_REPOBROWSE_TT_BACKWARD)
 msgid "Backwards in browsing history"
@@ -2533,7 +2533,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1007)
 msgid "Br&owse..."
-msgstr ""
+msgstr "&உலவு..."
 
 #. Resource IDs: (IDS_LOG_COPY_SUCCESS)
 msgid "Branch / tag created successfully!"
@@ -2553,7 +2553,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1069)
 msgid "Browse..."
-msgstr ""
+msgstr "உலவு..."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1119, Dialog IDD_COPY:
 #. Control id 1119, Dialog IDD_INPUTLOGDLG: Control id 1119)
@@ -2707,7 +2707,7 @@ msgstr ""
 #. Control id 2, IDS_MERGE_WCDIRTYASK_TASK4, IDS_PROPPAGE_CANCEL,
 #. IDS_WARN_LOCKOUTDATED_TASK4)
 msgid "Cancel"
-msgstr ""
+msgstr "ரத்துசெய்"
 
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK4)
 msgid ""
@@ -2909,7 +2909,7 @@ msgstr ""
 
 #. Resource IDs: (16926)
 msgid "Casca&de"
-msgstr ""
+msgstr "&அடுக்கை"
 
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
@@ -2993,7 +2993,7 @@ msgstr ""
 
 #. Resource IDs: (62178)
 msgid "Check"
-msgstr ""
+msgstr "சரிபார்"
 
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 174)
 msgid "Check For Updates"
@@ -3052,7 +3052,7 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1504, Dialog IDD_COPY:
 #. Control id 1504)
 msgid "Check:"
-msgstr ""
+msgstr "சரிபார்:"
 
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1536)
 msgid "Checking if a newer version of TortoiseSVN is available..."
@@ -3220,7 +3220,7 @@ msgstr ""
 
 #. Resource IDs: (16032, 16105, 17023, 2)
 msgid "Close"
-msgstr ""
+msgstr "மூடு"
 
 #. Resource IDs: (17025)
 msgid "Close Full Screen"
@@ -5718,174 +5718,174 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPKEYWORDS: Control id 1592)
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. Accelerator Entry for Menu ID:105; 'E&xit\t(Ctrl+W)'
 msgid "ID:105:V C +W"
-msgstr ""
+msgstr "ID:105:V C +W"
 
 #. Accelerator Entry for Menu ID:32771; '&Find...\t(Ctrl+F)'
 msgid "ID:32771:V C +F"
-msgstr ""
+msgstr "ID:32771:V C +F"
 
 #. Accelerator Entry for Menu ID:32772; '&Overlay images\t(O)'
 msgid "ID:32772:V   +O"
-msgstr ""
+msgstr "ID:32772:V   +O"
 
 #. Accelerator Entry for Menu ID:32773; '&Open\t(Ctrl+O)'
 msgid "ID:32773:V C +O"
-msgstr ""
+msgstr "ID:32773:V C +O"
 
 #. Accelerator Entry for Menu ID:32774; 'Show Whitespaces'
 msgid "ID:32774:V C +T"
-msgstr ""
+msgstr "ID:32774:V C +T"
 
 #. Accelerator Entry for Menu ID:32775; 'Switch between single and double pane
 #. view'
 msgid "ID:32775:V C +D"
-msgstr ""
+msgstr "ID:32775:V C +D"
 
 #. Accelerator Entry for Menu ID:32778; '&Fit images in window\t(F)'
 msgid "ID:32778:V   +F"
-msgstr ""
+msgstr "ID:32778:V   +F"
 
 #. Accelerator Entry for Menu ID:32779; 'Ori&ginal size\t(S)'
 msgid "ID:32779:V   +S"
-msgstr ""
+msgstr "ID:32779:V   +S"
 
 #. Accelerator Entry for Menu ID:32779; '&Go To Line...\t(Ctrl+G)'
 msgid "ID:32779:V C +G"
-msgstr ""
+msgstr "ID:32779:V C +G"
 
 #. Accelerator Entry for Menu ID:32785; 'Color by &age, indexed'
 msgid "ID:32785:V C +O"
-msgstr ""
+msgstr "ID:32785:V C +O"
 
 #. Accelerator Entry for Menu ID:32793; 'Arrange &vertical\t(V)'
 msgid "ID:32793:V C +V"
-msgstr ""
+msgstr "ID:32793:V C +V"
 
 #. Accelerator Entry for Menu ID:32794; 'Reload'
 msgid "ID:32794:V C +R"
-msgstr ""
+msgstr "ID:32794:V C +R"
 
 #. Accelerator Entry for Menu ID:32796; 'Show &all revisions'
 msgid "ID:32796:V C +A"
-msgstr ""
+msgstr "ID:32796:V C +A"
 
 #. Accelerator Entry for Menu ID:32809; '&Filter'
 msgid "ID:32809:V C +F"
-msgstr ""
+msgstr "ID:32809:V C +F"
 
 #. Accelerator Entry for Menu ID:32811; 'Switch left and right view'
 msgid "ID:32811:V C +U"
-msgstr ""
+msgstr "ID:32811:V C +U"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:V C +L"
-msgstr ""
+msgstr "ID:32814:V C +L"
 
 #. Accelerator Entry for Menu ID:32814; 'Oldest on to&p'
 msgid "ID:32814:VA  +D"
-msgstr ""
+msgstr "ID:32814:VA  +D"
 
 #. Accelerator Entry for Menu ID:32817; 'Fit image &widths\t(W)'
 msgid "ID:32817:V   +W"
-msgstr ""
+msgstr "ID:32817:V   +W"
 
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
-msgstr ""
+msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
-msgstr ""
+msgstr "ID:32824:V C +F"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +E"
-msgstr ""
+msgstr "ID:32825:V C +E"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +K"
-msgstr ""
+msgstr "ID:32825:V C +K"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:V C +L"
-msgstr ""
+msgstr "ID:32825:V C +L"
 
 #. Accelerator Entry for Menu ID:32825; ''
 msgid "ID:32825:VA  +D"
-msgstr ""
+msgstr "ID:32825:VA  +D"
 
 #. Accelerator Entry for Menu ID:32870; 'Collapse'
 msgid "ID:32870:V C +L"
-msgstr ""
+msgstr "ID:32870:V C +L"
 
 #. Accelerator Entry for Menu ID:32881; 'Wrap long lines'
 msgid "ID:32881:V C +P"
-msgstr ""
+msgstr "ID:32881:V C +P"
 
 #. Accelerator Entry for Menu ID:32883; ''
 msgid "ID:32883:V C +A"
-msgstr ""
+msgstr "ID:32883:V C +A"
 
 #. Accelerator Entry for Menu ID:32893; 'Goto Line'
 msgid "ID:32893:V C +G"
-msgstr ""
+msgstr "ID:32893:V C +G"
 
 #. Accelerator Entry for Menu ID:32976; '&Enable edit'
 msgid "ID:32976:V C +E"
-msgstr ""
+msgstr "ID:32976:V C +E"
 
 #. Accelerator Entry for Menu ID:57601; 'Open'
 msgid "ID:57601:V C +O"
-msgstr ""
+msgstr "ID:57601:V C +O"
 
 #. Accelerator Entry for Menu ID:57603; 'Save'
 msgid "ID:57603:V C +S"
-msgstr ""
+msgstr "ID:57603:V C +S"
 
 #. Accelerator Entry for Menu ID:57604; 'Save &as...'
 msgid "ID:57604:V CS+S"
-msgstr ""
+msgstr "ID:57604:V CS+S"
 
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; ''
 #. Accelerator Entry for Menu ID:57634; '&Copy'
 msgid "ID:57634:V C +C"
-msgstr ""
+msgstr "ID:57634:V C +C"
 
 #. Accelerator Entry for Menu ID:57634; ''
 msgid "ID:57634:V CS+C"
-msgstr ""
+msgstr "ID:57634:V CS+C"
 
 #. Accelerator Entry for Menu ID:57635; ''
 msgid "ID:57635:V C +X"
-msgstr ""
+msgstr "ID:57635:V C +X"
 
 #. Accelerator Entry for Menu ID:57636; 'Find'
 msgid "ID:57636:V C +F"
-msgstr ""
+msgstr "ID:57636:V C +F"
 
 #. Accelerator Entry for Menu ID:57637; '&Paste'
 msgid "ID:57637:V C +V"
-msgstr ""
+msgstr "ID:57637:V C +V"
 
 #. Accelerator Entry for Menu ID:57643; '&Undo'
 msgid "ID:57643:V C +Z"
-msgstr ""
+msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
-msgstr ""
+msgstr "ID:57665:V C +Q"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +W"
-msgstr ""
+msgstr "ID:57665:V C +W"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 106)
 msgid "Icon Overlays"
@@ -12812,7 +12812,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "paths: "
-msgstr ""
+msgstr "பாதைகள்:"
 
 #. Resource IDs: (61888)
 msgid "pixels"
