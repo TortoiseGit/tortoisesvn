@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2015 - TortoiseSVN
+// Copyright (C) 2007-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -312,6 +312,9 @@ bool CleanupCommand::CleanupPaths(CProgressDlg &progress, int &actionCounter, in
                 continue;   // ignore failures for unversioned paths
             strFailedString = pathList[i].GetWinPathString();
             strFailedString += L"\n" + svn.GetLastErrorMessage();
+            if (!bBreakLocks)
+                strFailedString += L"\n" + CString(MAKEINTRESOURCE(IDS_SVNERR_CLEANUPWITHBREAKLOCKS));
+
             bCleanupFailed = true;
             break;
         }
@@ -328,6 +331,8 @@ bool CleanupCommand::CleanupPaths(CProgressDlg &progress, int &actionCounter, in
             {
                 strFailedString = wcroot.GetWinPathString();
                 strFailedString += L"\n" + svn.GetLastErrorMessage();
+                if (!bBreakLocks)
+                    strFailedString += L"\n" + CString(MAKEINTRESOURCE(IDS_SVNERR_CLEANUPWITHBREAKLOCKS));
                 bCleanupFailed = true;
             }
         }

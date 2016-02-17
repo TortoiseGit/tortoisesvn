@@ -39,13 +39,17 @@
         </listitem>
       </varlistentry>
       <varlistentry>
-        <term>Break locks</term>
+        <term>Break write locks</term>
         <listitem>
           <para>
-            If checked, all locks on files are removed, even if the lock
-            is held in another working copy or by another user.
-            Note that the lock is only removed from the working copy, it is
-            still kept in the repository.
+            If checked, all write locks are removed from the working
+            copy database. For most situations, this is required for
+            the cleanup to work!
+          </para>
+          <para>
+            Only uncheck this option if the working copy is used by other
+            users/clients at the time. But if the cleanup then fails,
+            you have to check this option for the cleanup to succeed.
           </para>
         </listitem>
       </varlistentry>
