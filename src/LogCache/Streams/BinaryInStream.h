@@ -74,16 +74,6 @@ protected:
         return *(current++);
     }
 
-    const unsigned char* GetData (size_t size)
-    {
-        if (GetRemaining() < size)
-            return NULL;
-
-        current += size;
-
-        return current;
-    }
-
 public:
 
     // destruction
