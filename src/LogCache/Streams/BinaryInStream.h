@@ -64,8 +64,13 @@ protected:
         return last - current;
     }
 
-    unsigned char GetByte() throw()
+    unsigned char GetByte()
     {
+        if (GetRemaining() < 1)
+        {
+            throw CStreamException("unexpected end of stream");
+        }
+
         return *(current++);
     }
 
@@ -133,5 +138,5 @@ public:
     using TBase::GetSize;
     using TBase::GetRemaining;
     using TBase::GetByte;
-    using TBase::GetData;
+    //using TBase::GetData;
 };
