@@ -3,7 +3,7 @@ GEM
   specs:
     colorator (0.1)
     ffi (1.9.10-x64-mingw32)
-    jekyll (3.1.1)
+    jekyll (3.1.2)
       colorator (~> 0.1)
       jekyll-sass-converter (~> 1.0)
       jekyll-watch (~> 1.1)
@@ -19,12 +19,12 @@ GEM
       listen (~> 3.0)
     kramdown (1.9.0)
     liquid (3.0.6)
-    listen (3.0.5)
+    listen (3.0.6)
       rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
+      rb-inotify (>= 0.9.7)
     mercenary (0.3.5)
     rb-fsevent (0.9.7)
-    rb-inotify (0.9.6)
+    rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     rouge (1.10.1)
     safe_yaml (1.0.4)
@@ -34,7 +34,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
-  jekyll (~> 3.1.1)
+  jekyll (~> 3.1.2)
   jekyll-sitemap (~> 0.10.0)
 
 BUNDLED WITH
