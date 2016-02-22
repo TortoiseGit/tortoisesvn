@@ -355,6 +355,9 @@ void CCachedLogInfo::Load (int maxFailures)
     {
         // if there was a problem, the cache file is probably corrupt
         // -> don't use its data
+        revisions.Clear();
+        logInfo.Clear();
+        skippedRevisions.Clear();
     }
 }
 
