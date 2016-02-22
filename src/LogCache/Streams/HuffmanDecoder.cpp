@@ -19,12 +19,11 @@
 #include "stdafx.h"
 #include "HuffmanDecoder.h"
 
-void CHuffmanDecoder::BuildDecodeTable (const BYTE*& first)
+void CHuffmanDecoder::BuildDecodeTable (CInputBuffer & source)
 {
     // get the table size (full table is indicated by length == 0)
 
-    size_t entryCount = *first;
-    ++first;
+    size_t entryCount = source.GetByte();
 
     if (entryCount == 0)
         entryCount = BUCKET_COUNT;
@@ -35,15 +34,14 @@ void CHuffmanDecoder::BuildDecodeTable (const BYTE*& first)
     BYTE keyLength[BUCKET_COUNT];
     for (size_t i = 0; i < entryCount; ++i)
     {
-        values[i] = *first;
-        ++first;
+        values[i] = source.GetByte();
     }
 
     for (size_t i = 0; i < entryCount; i += 2)
     {
-        keyLength[i] = *first & 0x0f;
-        keyLength[i+1] = *first / 0x10;
-        ++first;
+        BYTE b = source.GetByte();
+        keyLength[i] = b & 0x0f;
+        keyLength[i+1] = b / 0x10;
     }
 
     // reconstruct the keys
@@ -83,8 +81,8 @@ void CHuffmanDecoder::BuildDecodeTable (const BYTE*& first)
     }
 }
 
-void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
-                                         , BYTE* dest
+void CHuffmanDecoder::WriteDecodedStream ( CInputBuffer & source
+                                         , COutputBuffer & target
                                          , DWORD decodedSize)
 {
     key_block_type cachedCode = 0;
@@ -92,10 +90,13 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
     // main loop
 
+    // Obtain large enough buffer in destination.
+    BYTE *dest = target.GetBuffer(decodedSize);
+
     BYTE* blockDest = dest;
     BYTE* blockEnd = blockDest + (decodedSize & (0-sizeof (encode_block_type)));
 
-    key_block_type nextCodes = *reinterpret_cast<const key_block_type*>(first);
+    key_block_type nextCodes = *reinterpret_cast<const key_block_type*>(source.GetData(sizeof(key_block_type)));
     for (; blockDest != blockEnd; blockDest += sizeof (encode_block_type))
     {
         // pre-fetch, part III
@@ -110,7 +111,6 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
         // pre-fetch, part I
 
-        first += ((size_t)(KEY_BLOCK_BITS-1) - (size_t)cachedBits) / 8;
         cachedBits |= KEY_BLOCK_BITS - 8;       // KEY_BLOCK_BITS must be 2^n
 
         // continue byte 0
@@ -125,7 +125,7 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
         // pre-fetch, part II
 
-        nextCodes = *reinterpret_cast<const key_block_type*>(first);
+        nextCodes = *reinterpret_cast<const key_block_type*>(source.GetData(((size_t)(KEY_BLOCK_BITS - 1) - (size_t)cachedBits) / 8));
 
         // continue byte 1
 
@@ -172,15 +172,12 @@ void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
 
 // decompress the source data and return the target buffer.
 
-void CHuffmanDecoder::Decode (const BYTE*& source, BYTE*& target)
+void CHuffmanDecoder::Decode (CInputBuffer & source, COutputBuffer & target)
 {
     // get size info from stream
 
-    const BYTE* localSource = source;
-    DWORD decodedSize = *reinterpret_cast<const DWORD*>(localSource);
-    localSource += sizeof (DWORD);
-    size_t encodedSize = *reinterpret_cast<const DWORD*>(localSource);
-    localSource += sizeof (DWORD);
+    DWORD decodedSize = source.GetDWORD();
+    size_t encodedSize = source.GetDWORD();
 
     // special case: empty stream (hence, empty tables etc.)
 
@@ -189,25 +186,21 @@ void CHuffmanDecoder::Decode (const BYTE*& source, BYTE*& target)
 
     // special case: unpacked data
 
-    if ((encodedSize == decodedSize+MIN_HEADER_LENGTH) && (*localSource == 0))
+    if ((encodedSize == decodedSize+MIN_HEADER_LENGTH) && (source.PeekByte() == 0))
     {
+        source.GetByte();
         // plain copy (and skip empty huffman table)
 
-        memcpy (target, ++localSource, decodedSize);
+        memcpy (target.GetBuffer(decodedSize), source.GetData(decodedSize), decodedSize);
     }
     else
     {
         // read all the decode-info
 
-        BuildDecodeTable (localSource);
+        BuildDecodeTable (source);
 
         // actually decode
 
-        WriteDecodedStream (localSource, target, decodedSize);
+        WriteDecodedStream (source, target, decodedSize);
     }
-
-    // update source and target buffer pointers
-
-    source += encodedSize;
-    target += decodedSize;
 }
