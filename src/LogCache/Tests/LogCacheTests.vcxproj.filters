@@ -5,6 +5,9 @@
     <ClInclude Include="..\..\Utils\PathUtils.h">
       <Filter>Utils</Filter>
     </ClInclude>
+    <ClInclude Include="TestTempFile.h">
+      <Filter>TestUtils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CachedLogInfoTests.cpp" />
@@ -12,10 +15,16 @@
     <ClCompile Include="..\..\Utils\PathUtils.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
+    <ClCompile Include="TestTempFile.cpp">
+      <Filter>TestUtils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utils">
       <UniqueIdentifier>{75f6aae1-b04c-498c-81bc-1fce26989fc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TestUtils">
+      <UniqueIdentifier>{77695092-8e6e-43a9-9f81-f89085df1e49}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

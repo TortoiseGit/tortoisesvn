@@ -19,39 +19,10 @@
 
 #include "stdafx.h"
 
+#include "TestTempFile.h"
 #include "CachedLogInfo.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
-class CTempFile
-{
-private:
-    std::wstring m_TempFileName;
-public:
-    CTempFile()
-    {
-        WCHAR tempPath[MAX_PATH + 1] = { 0 };
-        WCHAR tempFile[MAX_PATH + 1] = { 0 };
-
-        ::GetTempPath(_countof(tempPath), tempPath);
-        ::GetTempFileName(tempPath, L"tsvn", 0, tempFile);
-
-        m_TempFileName = tempFile;
-    }
-
-    ~CTempFile()
-    {
-        // Remove read-only attribute
-        ::SetFileAttributes(m_TempFileName.c_str(), FILE_ATTRIBUTE_NORMAL);
-        ::DeleteFile(m_TempFileName.c_str());
-    }
-
-    const std::wstring & GetFileName()
-    {
-        return m_TempFileName;
-    }
-};
-
 
 namespace LogCacheTests
 {
@@ -60,7 +31,7 @@ namespace LogCacheTests
     public:
         TEST_METHOD(SimpleTest)
         {
-            CTempFile tmpFile;
+            CTestTempFile tmpFile;
             {
                 LogCache::CCachedLogInfo logInfo(tmpFile.GetFileName());
 
