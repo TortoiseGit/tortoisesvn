@@ -120,7 +120,9 @@ void CStringDictionary::RebuildIndexes()
         * (begin+i) = offset;
         temp.push_back (packedStringsStart + offset);
 
-        offset += static_cast<index_t> (strlen (packedStringsStart + offset) +1);
+        size_t len = strnlen(packedStringsStart + offset, packedStrings.size() - offset);
+
+        offset += static_cast<index_t> (len + 1);
     }
 
     hashIndex.clear();
