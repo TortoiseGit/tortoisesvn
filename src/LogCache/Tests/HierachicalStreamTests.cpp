@@ -36,6 +36,7 @@ namespace LogCacheTests
     public:
         TEST_METHOD(SimpleTest)
         {
+            std::string data2;
             CTestTempFile tmpFile;
             {
                 CRootOutStream strm(tmpFile.GetFileName());
@@ -47,7 +48,10 @@ namespace LogCacheTests
 
                 subStream = strm.OpenSubStream<CBLOBOutStream>(2);
 
-                std::string data2(1024, 'A');
+                for (int i = 0; i < 123; i++)
+                {
+                    data2.append(2, 'A' + (i % 20));
+                }
                 subStream->Add((BYTE*) &data2.front(), data2.length());
 
                 // Save data to stream.
@@ -66,7 +70,10 @@ namespace LogCacheTests
                 Assert::AreEqual("1234567890", actual.c_str());
 
                 subStream = strm.GetSubStream<CBLOBInStream>(2);
-                Assert::AreEqual((size_t)1024, subStream->GetSize());
+                Assert::AreEqual((size_t)246, subStream->GetSize());
+                actual = std::string((const char *)subStream->GetData(), subStream->GetSize());
+
+                Assert::AreEqual(data2, actual);
             }
         }
 
