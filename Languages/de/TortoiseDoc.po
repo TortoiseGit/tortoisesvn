@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 10:36+0000\n"
+"PO-Revision-Date: 2016-02-18 09:01+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -7499,15 +7499,21 @@ msgid ""
 msgstr "Wie oben erwähnt, versucht diese Option, eine inkonsistente Arbeitskopie in einen nutzbaren Zustand zu versetzen. Dies hat keine Auswirkungen auf Ihre Daten, sondern auf den internen Zustand der Datenbank innerhalb der Arbeitskopie. Es handelt sich um den <literal>Bereinigen</literal> Befehl, den Sie von älteren SVN Clients kennen."
 
 #. (term)
-msgid "Break locks"
-msgstr "Sperre aufbrechen"
+msgid "Break write locks"
+msgstr ""
 
 #. (para)
 msgid ""
-"If checked, all locks on files are removed, even if the lock is held in "
-"another working copy or by another user. Note that the lock is only removed "
-"from the working copy, it is still kept in the repository."
-msgstr "Wenn diese Option aktiv ist, werden sämtliche Dateisperren aufgebrochen, auch solche aus anderen Arbeitskopien oder von anderen Benutzern. Beachten Sie bitte, dass die Sperre nur in der aktuellen Arbeitskopie entfernt wird. Sie bleibt im Projektarchiv bestehen."
+"If checked, all write locks are removed from the working copy database. For "
+"most situations, this is required for the cleanup to work!"
+msgstr ""
+
+#. (para)
+msgid ""
+"Only uncheck this option if the working copy is used by other users/clients "
+"at the time. But if the cleanup then fails, you have to check this option "
+"for the cleanup to succeed."
+msgstr ""
 
 #. (term)
 msgid "Fix time stamps"

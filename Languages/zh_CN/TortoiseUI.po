@@ -37,7 +37,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 10:33+0000\n"
+"PO-Revision-Date: 2016-02-19 01:06+0000\n"
 "Last-Translator: YF <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -544,8 +544,8 @@ msgid "&Branches"
 msgstr "分支(&B)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
-msgid "&Break locks"
-msgstr "解锁(&B)"
+msgid "&Break write locks"
+msgstr "破除写锁(&B)"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -1582,6 +1582,10 @@ msgstr "未知磁盘(&U)"
 #. Resource IDs: (IDS_MENUUPDATE)
 msgid "&Update"
 msgstr "更新(&U)"
+
+#. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
+msgid "&Update all"
+msgstr "全部更新(&U)"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -6030,7 +6034,7 @@ msgstr "如果在这台电脑上使用TortoiseSVN以外的SVN客户端，您也�
 msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
-msgstr "如果你想要破除锁定，请使用'检查修改'对话框或者版本库浏览器。"
+msgstr "如果你想要破除锁定，请使用“检查修改”对话框或者版本库浏览器。"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Ignore"
@@ -8515,7 +8519,7 @@ msgstr "解除锁定(&K)..."
 #. Resource IDs: (IDS_MENUDESC_UNLOCKFORCE)
 msgid ""
 "Releases locks even if you're not the owner of the locks (breaks them)."
-msgstr "解除文件锁定，即使不是锁定所有者(破除锁定)"
+msgstr "解除文件锁定，即使不是锁定的所有者（破除锁定）。"
 
 #. Resource IDs: (IDS_MENUDESC_UNLOCK)
 msgid "Releases locks on files so other users can edit them again."
@@ -11418,6 +11422,10 @@ msgstr "主干节点"
 #. Resource IDs: (IDS_SVNERR_CLEANUPORFRESHCHECKOUT)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "试试“清理”，如果无效，你需要重新检出文件。"
+
+#. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
+msgid "Try enabling the \"Break write locks\" option for the cleanup."
+msgstr "尝试启用“破除写锁”选项以清理。"
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"

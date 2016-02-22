@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 09:16+0000\n"
+"PO-Revision-Date: 2016-02-18 09:01+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/luebbe/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -7487,14 +7487,20 @@ msgid ""
 msgstr "Như đã nêu ở trên, tùy chọn này cố gắng để có được một bản sao làm việc không nhất quán vào một trạng thái khả thi và có thể sử dụng. Điều này không ảnh hưởng đến bất kỳ dữ liệu nào mà bạn có nhưng chỉ trạng thái nội bộ của cơ sở dữ liệu bản sao làm việc. Điều này thực tế là lệnh <literal> Dọn dẹp </literal> mà bạn biết từ các trịnh khách TortoiseSVN cũ hoặc các trình khách SVN khác."
 
 #. (term)
-msgid "Break locks"
+msgid "Break write locks"
 msgstr ""
 
 #. (para)
 msgid ""
-"If checked, all locks on files are removed, even if the lock is held in "
-"another working copy or by another user. Note that the lock is only removed "
-"from the working copy, it is still kept in the repository."
+"If checked, all write locks are removed from the working copy database. For "
+"most situations, this is required for the cleanup to work!"
+msgstr ""
+
+#. (para)
+msgid ""
+"Only uncheck this option if the working copy is used by other users/clients "
+"at the time. But if the cleanup then fails, you have to check this option "
+"for the cleanup to succeed."
 msgstr ""
 
 #. (term)

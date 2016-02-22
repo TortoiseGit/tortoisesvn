@@ -27,7 +27,7 @@
 # guillaumefrancois55 <guillaume.francois55@gmail.com>, 2011
 # Jeremy Shields <jeremy.shields@orange.fr>, 2016
 # Florentin GUTH <kegnarok.rm@laposte.net>, 2013
-# Le Gall Nicolas <nicolaslegall34@gmail.com>, 2014
+# Le Gall Nicolas <contact@nlegall.fr>, 2014
 # Linus Fredrich Levisse <linukcs@live.fr>, 2011
 # Louis Boucherie, 2015
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
@@ -35,7 +35,7 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lucas Mascaro <mascaro.lucas@yahoo.fr>, 2015
 # Mickael Patron <mickael_patron@hotmail.com>, 2012
-# Le Gall Nicolas <nicolaslegall34@gmail.com>, 2014
+# Le Gall Nicolas <contact@nlegall.fr>, 2014
 # Philippe <kissifrot@gmail.com>, 2012-2014
 # Philippe <kissifrot@gmail.com>, 2012
 # ShevAbam, 2015
@@ -46,8 +46,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-10 14:53+0000\n"
-"Last-Translator: Jeremy Shields <jeremy.shields@orange.fr>\n"
+"PO-Revision-Date: 2016-02-18 10:10+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -553,8 +553,8 @@ msgid "&Branches"
 msgstr "&Branches"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
-msgid "&Break locks"
-msgstr "&Briser les verrous"
+msgid "&Break write locks"
+msgstr ""
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -1591,6 +1591,10 @@ msgstr "&Disques inconnus"
 #. Resource IDs: (IDS_MENUUPDATE)
 msgid "&Update"
 msgstr "Mettre à jo&ur"
+
+#. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
+msgid "&Update all"
+msgstr ""
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -11427,6 +11431,10 @@ msgstr "Noeud racine"
 #. Resource IDs: (IDS_SVNERR_CLEANUPORFRESHCHECKOUT)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Essayez un 'Nettoyer'. Si cela ne fonctionne pas vous devrez faire une nouvelle extraction."
+
+#. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
+msgid "Try enabling the \"Break write locks\" option for the cleanup."
+msgstr ""
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"

@@ -18,8 +18,8 @@
 # Emilio Plaza García <emilpg@gmail.com>, 2013
 # Emilio Plaza García <emilpg@gmail.com>, 2013
 # Erik Chacon <erikchacon@gmail.com>, 2011
-# Javi <japaol@gmail.com>, 2014
-# Javi <japaol@gmail.com>, 2014
+# Javi <inactive+japaol@transifex.com>, 2014
+# Javi <inactive+japaol@transifex.com>, 2014
 # juancentro <jmtruppia@gmail.com>, 2011
 # Jose Luis <joseluis.tirado@gmail.com>, 2015
 # juancentro <jmtruppia@gmail.com>, 2011
@@ -39,7 +39,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 09:18+0000\n"
+"PO-Revision-Date: 2016-02-18 10:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -546,8 +546,8 @@ msgid "&Branches"
 msgstr "&Ramas"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
-msgid "&Break locks"
-msgstr "&Romper bloqueos"
+msgid "&Break write locks"
+msgstr ""
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -1584,6 +1584,10 @@ msgstr "&Unidades desconocidas"
 #. Resource IDs: (IDS_MENUUPDATE)
 msgid "&Update"
 msgstr "&Actualizar"
+
+#. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
+msgid "&Update all"
+msgstr ""
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -11420,6 +11424,10 @@ msgstr "Nodos tronco"
 #. Resource IDs: (IDS_SVNERR_CLEANUPORFRESHCHECKOUT)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Intente un 'Cleanup' (limpieza). Si esto no funciona necesita efectuar una Obtención desde cero."
+
+#. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
+msgid "Try enabling the \"Break write locks\" option for the cleanup."
+msgstr ""
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"

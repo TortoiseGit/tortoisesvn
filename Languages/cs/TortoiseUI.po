@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 11:33+0000\n"
+"PO-Revision-Date: 2016-02-18 14:39+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -524,8 +524,8 @@ msgid "&Branches"
 msgstr "&Větve"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
-msgid "&Break locks"
-msgstr "&Rozbít zámky"
+msgid "&Break write locks"
+msgstr "&Rozbít zámky zápisu"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -1562,6 +1562,10 @@ msgstr "&Neznámé disky"
 #. Resource IDs: (IDS_MENUUPDATE)
 msgid "&Update"
 msgstr "Akt&ualizovat"
+
+#. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
+msgid "&Update all"
+msgstr "&Aktualizovat vše"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -11398,6 +11402,10 @@ msgstr "Uzly kmene"
 #. Resource IDs: (IDS_SVNERR_CLEANUPORFRESHCHECKOUT)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Zkuste 'Vyčistit'. Pokud to nepomůže, potřebujete provést nové získání."
+
+#. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
+msgid "Try enabling the \"Break write locks\" option for the cleanup."
+msgstr "Zkuste při vyčištění povolit možnost \"Rozbít zámky zápisu\"."
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"

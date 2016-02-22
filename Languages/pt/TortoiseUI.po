@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 09:18+0000\n"
+"PO-Revision-Date: 2016-02-18 10:10+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/luebbe/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -532,7 +532,7 @@ msgid "&Branches"
 msgstr "&Ramos"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
-msgid "&Break locks"
+msgid "&Break write locks"
 msgstr ""
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
@@ -1570,6 +1570,10 @@ msgstr "Dispositivos &desconhecidos"
 #. Resource IDs: (IDS_MENUUPDATE)
 msgid "&Update"
 msgstr "&Actualizar"
+
+#. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
+msgid "&Update all"
+msgstr ""
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -11406,6 +11410,10 @@ msgstr "Nós do tronco"
 #. Resource IDs: (IDS_SVNERR_CLEANUPORFRESHCHECKOUT)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Tente uma 'Limpeza'. Se não funcionar, precisará de fazer uma nova exportação."
+
+#. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
+msgid "Try enabling the \"Break write locks\" option for the cleanup."
+msgstr ""
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"

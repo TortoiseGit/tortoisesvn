@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-01 10:38+0000\n"
+"PO-Revision-Date: 2016-02-18 10:19+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -528,8 +528,8 @@ msgid "&Branches"
 msgstr "&Branques"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
-msgid "&Break locks"
-msgstr "Trenca &bloqueigs"
+msgid "&Break write locks"
+msgstr "&Trenca bloquejos d'escriptura"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -1430,7 +1430,7 @@ msgstr "&Barra d'Estat"
 
 #. Resource IDs: (Dialog IDD_LOCK: Control id 1211)
 msgid "&Steal the locks"
-msgstr "&Roba bloqueigs"
+msgstr "&Roba bloquejos"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1130)
 msgid "&Stop on copy/rename"
@@ -1566,6 +1566,10 @@ msgstr "Unitats &desconegudes"
 #. Resource IDs: (IDS_MENUUPDATE)
 msgid "&Update"
 msgstr "&Actualitza"
+
+#. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
+msgid "&Update all"
+msgstr "&Actualitza tot"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -6382,7 +6386,7 @@ msgstr "Vés al primer &conflicte"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1203)
 msgid "Keep &locks"
-msgstr "Manté &bloqueigs"
+msgstr "Manté &bloquejos"
 
 #. Resource IDs: (IDS_TREECONFLICT_RESOLVE_KEEPMOVES)
 msgid "Keep any moves affected by this operation"
@@ -8503,7 +8507,7 @@ msgstr "Treu blogueigs encara que no en siguis el propietari (trenca'ls)  "
 
 #. Resource IDs: (IDS_MENUDESC_UNLOCK)
 msgid "Releases locks on files so other users can edit them again."
-msgstr "Treu bloqueigs a fitxers perquè els altres usuaris els puguin editar."
+msgstr "Treu bloquejos a fitxers perquè els altres usuaris els puguin editar."
 
 #. Resource IDs: (IDS_MENURELOCATE)
 msgid "Relo&cate..."
@@ -9686,7 +9690,7 @@ msgstr "Mostra &externs"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1529)
 msgid "Show &locks"
-msgstr "Mostra &bloqueigs"
+msgstr "Mostra &bloquejos"
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1228, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1228, Dialog IDD_EXPORT: Control id
@@ -11402,6 +11406,10 @@ msgstr "Nodes tronc"
 #. Resource IDs: (IDS_SVNERR_CLEANUPORFRESHCHECKOUT)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
 msgstr "Mireu de fer 'Neteja'. Si això no funciona caldrà fer una nova obtenció."
+
+#. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
+msgid "Try enabling the \"Break write locks\" option for the cleanup."
+msgstr "Prova activant l'opció \"Trenca bloquejos d'escriptura\" per a la neteja."
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"
@@ -13124,7 +13132,7 @@ msgid ""
 "tsvn:logtemplatelock\r\n"
 "String which is inserted in the log message boxes in the get-lock dialogs.\r\n"
 "Use this as a log message template for get-locks for users to fill in."
-msgstr "tsvn:logtemplatelock\nCadena que s'insereix a les caixes del missatge de log als diàlegs obté-bloqueig.\nUtilitza-ho com a plantilla de missatge de log en els obté-bloqueigs perquè els usuaris l'omplin."
+msgstr "tsvn:logtemplatelock\nCadena que s'insereix a les caixes del missatge de log als diàlegs obté-bloqueig.\nUtilitza-ho com a plantilla de missatge de log en els obté-bloquejos perquè els usuaris l'omplin."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGTEMPLATEMKDIR)
 msgid ""

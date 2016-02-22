@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-01-05 09:16+0000\n"
+"PO-Revision-Date: 2016-02-18 09:01+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -7491,14 +7491,20 @@ msgid ""
 msgstr "前述のように、このオプションは、矛盾した作業コピーを使用可能な状態にしようとします。これは、作業コピーのデータベースの内部状態にのみ影響し、それ以外のデータには影響しません。これは、以前の TortoiseSVN クライアントや他の SVN クライアントで<literal>クリーンアップ</literal>コマンドを実行した時と同じ動作です。"
 
 #. (term)
-msgid "Break locks"
+msgid "Break write locks"
 msgstr ""
 
 #. (para)
 msgid ""
-"If checked, all locks on files are removed, even if the lock is held in "
-"another working copy or by another user. Note that the lock is only removed "
-"from the working copy, it is still kept in the repository."
+"If checked, all write locks are removed from the working copy database. For "
+"most situations, this is required for the cleanup to work!"
+msgstr ""
+
+#. (para)
+msgid ""
+"Only uncheck this option if the working copy is used by other users/clients "
+"at the time. But if the cleanup then fails, you have to check this option "
+"for the cleanup to succeed."
 msgstr ""
 
 #. (term)
