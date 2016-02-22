@@ -81,7 +81,7 @@ void CHuffmanDecoder::BuildDecodeTable (CInputBuffer & source)
     }
 }
 
-void CHuffmanDecoder::WriteDecodedStream ( CInputBuffer & source
+void CHuffmanDecoder::WriteDecodedStream ( const BYTE* first
                                          , COutputBuffer & target
                                          , DWORD decodedSize)
 {
@@ -96,7 +96,7 @@ void CHuffmanDecoder::WriteDecodedStream ( CInputBuffer & source
     BYTE* blockDest = dest;
     BYTE* blockEnd = blockDest + (decodedSize & (0-sizeof (encode_block_type)));
 
-    key_block_type nextCodes = *reinterpret_cast<const key_block_type*>(source.GetData(sizeof(key_block_type)));
+    key_block_type nextCodes = *reinterpret_cast<const key_block_type*>(first);
     for (; blockDest != blockEnd; blockDest += sizeof (encode_block_type))
     {
         // pre-fetch, part III
@@ -111,6 +111,7 @@ void CHuffmanDecoder::WriteDecodedStream ( CInputBuffer & source
 
         // pre-fetch, part I
 
+        first += ((size_t)(KEY_BLOCK_BITS-1) - (size_t)cachedBits) / 8;
         cachedBits |= KEY_BLOCK_BITS - 8;       // KEY_BLOCK_BITS must be 2^n
 
         // continue byte 0
@@ -125,7 +126,7 @@ void CHuffmanDecoder::WriteDecodedStream ( CInputBuffer & source
 
         // pre-fetch, part II
 
-        nextCodes = *reinterpret_cast<const key_block_type*>(source.GetData(((size_t)(KEY_BLOCK_BITS - 1) - (size_t)cachedBits) / 8));
+        nextCodes = *reinterpret_cast<const key_block_type*>(first);
 
         // continue byte 1
 
@@ -175,7 +176,7 @@ void CHuffmanDecoder::WriteDecodedStream ( CInputBuffer & source
 void CHuffmanDecoder::Decode (CInputBuffer & source, COutputBuffer & target)
 {
     // get size info from stream
-
+    size_t totalSourceLen = source.GetRemaining();
     DWORD decodedSize = source.GetDWORD();
     size_t encodedSize = source.GetDWORD();
 
@@ -200,7 +201,8 @@ void CHuffmanDecoder::Decode (CInputBuffer & source, COutputBuffer & target)
         BuildDecodeTable (source);
 
         // actually decode
-
-        WriteDecodedStream (source, target, decodedSize);
+        size_t headerLen  = totalSourceLen - source.GetRemaining();
+        const BYTE *localSource = reinterpret_cast<const BYTE *>(source.GetData(encodedSize - headerLen));
+        WriteDecodedStream (localSource, target, decodedSize);
     }
 }

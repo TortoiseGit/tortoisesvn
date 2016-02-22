@@ -43,7 +43,7 @@ public:
         {
         }
 
-        const void * GetData(DWORD len)
+        const void * GetData(size_t len)
         {
             if (remaining < len)
             {
@@ -77,6 +77,10 @@ public:
             return *reinterpret_cast<const DWORD*>(GetData(sizeof(DWORD)));
         }
 
+        size_t GetRemaining()
+        {
+            return remaining;
+        }
     private:
         const BYTE *current;
         size_t remaining;
@@ -136,7 +140,7 @@ private:
     // efficiently decode the source stream until the
     // plain text stream reaches decodedSize.
 
-    void WriteDecodedStream ( CInputBuffer & source
+    void WriteDecodedStream ( const BYTE* first
                             , COutputBuffer & target
                             , DWORD decodedSize);
 
