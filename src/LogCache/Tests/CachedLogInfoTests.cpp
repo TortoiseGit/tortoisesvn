@@ -33,14 +33,14 @@ namespace LogCacheTests
         {
             CTestTempFile tmpFile;
             {
-                LogCache::CCachedLogInfo logInfo(tmpFile.GetFileName());
+                LogCache::CCachedLogInfo logInfo;
 
                 logInfo.Insert(1, "author", "comment1", 1111);
                 logInfo.AddChange(LogCache::CCachedLogInfo::TChangeAction::ACTION_ADDED,
                                   LogCache::node_dir, "/trunk", "",
                                   LogCache::NO_REVISION, FALSE, FALSE);
 
-                logInfo.Save();
+                logInfo.Save(tmpFile.GetFileName());
             }
 
             {
