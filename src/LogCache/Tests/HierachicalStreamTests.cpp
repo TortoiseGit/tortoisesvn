@@ -69,5 +69,66 @@ namespace LogCacheTests
                 Assert::AreEqual((size_t)1024, subStream->GetSize());
             }
         }
+
+        TEST_METHOD(SingleByteCorruptionTest)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                CTestTempFile tmpFile;
+                {
+                    CRootOutStream strm(tmpFile.GetFileName());
+
+                    CBLOBOutStream *subStream;
+                    subStream = strm.OpenSubStream<CBLOBOutStream>(1);
+
+                    subStream->Add((BYTE*) "1234567890", 10);
+
+                    subStream = strm.OpenSubStream<CBLOBOutStream>(2);
+
+                    std::string data2(1024, 'A');
+                    subStream->Add((BYTE*)&data2.front(), data2.length());
+
+                    // Save data to stream.
+                    strm.AutoClose();
+                }
+
+                // Corrupt single byte in file.
+                {
+                    std::fstream file;
+                    file.open(tmpFile.GetFileName(), std::fstream::in | std::fstream::out | std::fstream::binary);
+
+                    file.seekp(i, std::ios::beg);
+                    char buf[1];
+                    file.read(buf, 1);
+                    buf[0] ^= 0x23;
+                    file.seekp(i, std::ios::beg);
+                    file.write(buf, 1);
+                    file.close();
+                }
+
+                try
+                {
+                    CRootInStream strm(tmpFile.GetFileName());
+
+                    CBLOBInStream *subStream;
+                    subStream = strm.GetSubStream<CBLOBInStream>(1);
+                    // Just try to access data.
+                    subStream->GetData();
+                    subStream->GetSize();
+                    subStream->AutoClose();
+
+                    subStream = strm.GetSubStream<CBLOBInStream>(2);
+                    // Just try to access data.
+                    subStream->GetData();
+                    subStream->GetSize();
+                    subStream->AutoClose();
+                }
+                catch (const std::exception & e)
+                {
+                    // Exceptions are excepcted when reading data from corrupted storage.
+                    Logger::WriteMessage(e.what());
+                }
+            }
+        }
     };
 }
