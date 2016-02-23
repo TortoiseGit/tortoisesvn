@@ -25,8 +25,6 @@
 #include "BLOBOutStream.h"
 #include "BLOBInStream.h"
 
-#include <fstream>
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace LogCacheTests

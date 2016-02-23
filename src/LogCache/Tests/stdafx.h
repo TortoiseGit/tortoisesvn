@@ -59,5 +59,6 @@
 #include <map>
 #include <memory>
 #include <algorithm>
+#include <fstream>
 
 #include <CppUnitTest.h>
