@@ -182,6 +182,7 @@
     <ClCompile Include="CachedLogInfoTests.cpp" />
     <ClCompile Include="StringDictionaryTests.cpp" />
     <ClCompile Include="TestTempFile.cpp" />
+    <ClCompile Include="TokenizedStringContainerTests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Access\LogCacheAccessLib.vcxproj">
