@@ -261,6 +261,7 @@ private:
     /// range check
 
     void CheckIndex (index_t index) const;
+    bool IsValidTokenIndex(index_t token) const;
 
     /// call this to re-assign indices in an attempt to reduce file size
 

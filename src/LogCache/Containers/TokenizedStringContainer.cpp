@@ -515,6 +515,25 @@ void CTokenizedStringContainer::CheckIndex (index_t index) const
 #endif
 }
 
+bool CTokenizedStringContainer::IsValidTokenIndex(index_t token) const
+{
+    if (!IsToken(token))
+    {
+        // empty token
+        return true;
+    }
+    else if (IsDictionaryWord(token))
+    {
+        // uncompressed token
+        return GetWordIndex(token) < words.size();
+    }
+    else
+    {
+        // token is a compressed pair of tokens
+        return GetPairIndex(token) < pairs.size();
+    }
+}
+
 // call this to re-assign indices in an attempt to reduce file size
 
 void CTokenizedStringContainer::OptimizePairs()
@@ -1067,6 +1086,41 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
         = stream.GetSubStream<CDiffDWORDInStream>
             (CTokenizedStringContainer::OFFSETS_STREAM_ID);
     *offsetsStream >> container.offsets;
+
+    // validate pair references.
+    for (index_t pairIdx = 0; pairIdx < container.pairs.size(); pairIdx++)
+    {
+        if (!container.IsValidTokenIndex(container.pairs[pairIdx].first))
+            throw CContainerException("invalid token reference");
+
+        if (!container.IsValidTokenIndex(container.pairs[pairIdx].second))
+            throw CContainerException("invalid token reference");
+    }
+
+    // validate string data
+    for (CTokenizedStringContainer::CIT token = container.stringData.begin();
+         token != container.stringData.end(); ++token)
+    {
+        if (!container.IsValidTokenIndex(*token))
+            throw CContainerException("invalid token reference");
+    }
+
+    // validate offsets
+    index_t last_offset = 0;
+    for (size_t i = 0; i + 1 < container.offsets.size(); i++)
+    {
+        if (container.offsets[i] >= container.stringData.size() &&
+            container.offsets[i] != container.offsets[i + 1])
+            throw CContainerException("invalid offset in tokenized string container");
+
+        if (container.offsets[i] < last_offset)
+            throw CContainerException("invalid offset in tokenized string container");
+
+        last_offset = container.offsets[i];
+    }
+
+    if (last_offset > container.stringData.size())
+        throw CContainerException("invalid offset in tokenized string container");
 
     // ready
 
