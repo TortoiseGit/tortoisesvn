@@ -105,5 +105,58 @@ namespace LogCacheTests
                 Assert::AreEqual((LogCache::index_t) 5, dict.size());
             }
         }
+
+        TEST_METHOD(SingleByteCorruptionTest)
+        {
+            for (int i = 0; i < 266; i++)
+            {
+                CTestTempFile tmpFile;
+                {
+                    CRootOutStream strm(tmpFile.GetFileName());
+                    LogCache::CPathDictionary dict;
+
+                    LogCache::CDictionaryBasedPath path1(&dict, "/", false);
+                    LogCache::CDictionaryBasedPath path2(&dict, "/trunk/test", false);
+                    LogCache::CDictionaryBasedPath path3(&dict, "/branches", false);
+                    LogCache::CDictionaryBasedPath path4(&dict, "/trunk", false);
+
+                    // Save data to stream.
+                    strm << dict;
+                }
+
+                // Modify single byte in file.
+                {
+                    std::fstream file;
+                    file.open(tmpFile.GetFileName(), std::fstream::in | std::fstream::out | std::fstream::binary);
+                    file.seekp(i, std::ios::beg);
+                    char buf[1];
+                    file.read(buf, 1);
+                    buf[0] ^= 0x23;
+                    file.seekp(i, std::ios::beg);
+                    file.write(buf, 1);
+                    file.close();
+                }
+
+                LogCache::CPathDictionary dict;
+                try
+                {
+                    CRootInStream strm(tmpFile.GetFileName());
+
+                    // Load data to stream.
+                    strm >> dict;
+                }
+                catch(const std::exception & e)
+                {
+                    Logger::WriteMessage(e.what());
+                    dict.Clear();
+                }
+
+                for (LogCache::index_t idx = 0; idx < dict.size(); idx++)
+                {
+                    LogCache::CDictionaryBasedPath dictPath(&dict, idx);
+                    std::string path(dictPath.GetPath());
+                }
+            }
+        }
     };
 }
