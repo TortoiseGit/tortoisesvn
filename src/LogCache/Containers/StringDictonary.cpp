@@ -123,6 +123,9 @@ void CStringDictionary::RebuildIndexes()
         size_t len = strnlen(packedStringsStart + offset, packedStrings.size() - offset);
 
         offset += static_cast<index_t> (len + 1);
+
+        if (offset > packedStrings.size())
+            throw CContainerException("missing nul terminator in string dictionary");
     }
 
     hashIndex.clear();
