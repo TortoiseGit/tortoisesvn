@@ -466,6 +466,7 @@ void CCachedLogInfo::Clear()
 
     revisions.Clear();
     logInfo.Clear();
+    skippedRevisions.Clear();
 }
 
 // return false if concurrent read accesses
