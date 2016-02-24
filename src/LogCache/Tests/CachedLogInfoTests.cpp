@@ -61,5 +61,69 @@ namespace LogCacheTests
                 Assert::AreEqual("author", logInfo.GetLogInfo().GetAuthor(idx));
             }
         }
+
+        TEST_METHOD(LoadPreCookedTest)
+        {
+            LogCache::CCachedLogInfo logInfo(GetTestDataDir() + L"src-LogCache-all");
+
+            logInfo.Load(0);
+
+            Assert::AreEqual(false, logInfo.IsEmpty());
+
+            ValidateCachedLogInfo(logInfo);
+        }
+
+    private:
+        void ValidateCachedLogInfo(const LogCache::CCachedLogInfo & logInfo)
+        {
+            const LogCache::CRevisionIndex & index = logInfo.GetRevisions();
+            const LogCache::CRevisionInfoContainer & revInfo = logInfo.GetLogInfo();
+
+            LogCache::revision_t firstRev = index.GetFirstCachedRevision();
+            LogCache::revision_t lastRev = index.GetLastCachedRevision();
+
+            for (LogCache::revision_t rev = firstRev; rev < lastRev; rev++)
+            {
+                LogCache::index_t idx = index[rev];
+                if (idx != LogCache::NO_INDEX)
+                {
+                    std::string author(revInfo.GetAuthor(idx));
+                    std::string comment(revInfo.GetComment(idx));
+                    char presenceFlags = revInfo.GetPresenceFlags(idx);
+                    __time64_t timeStamp = revInfo.GetTimeStamp(idx);
+
+                    LogCache::CRevisionInfoContainer::CChangesIterator changeIt = revInfo.GetChangesBegin(idx);
+                    LogCache::CRevisionInfoContainer::CChangesIterator changesEnd = revInfo.GetChangesEnd(idx);
+                    for (; changeIt != changesEnd; ++changeIt)
+                    {
+                        LogCache::CRevisionInfoContainer::TChangeAction action = changeIt->GetAction();
+                        std::string changePath(changeIt->GetPath().GetPath());
+                        LogCache::node_kind_t nodeKind = changeIt->GetPathType();
+                        unsigned char textModifies = changeIt->GetTextModifies();
+                        unsigned char propsModifies = changeIt->GetPropsModifies();
+
+                        if (changeIt->HasFromPath())
+                        {
+                            LogCache::revision_t fromRev(changeIt->GetFromRevision());
+                            std::string fromPath(changeIt->GetFromPath().GetPath());
+                        }
+                    }
+                }
+            }
+        }
+
+        static std::wstring GetTestDataDir()
+        {
+            WCHAR moduleFileName[MAX_PATH] = { 0 };
+            HMODULE hModule = NULL;
+            GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
+                (LPCWSTR)GetTestDataDir,
+                &hModule);
+            ::GetModuleFileName(hModule, moduleFileName, _countof(moduleFileName));
+
+            std::wstring moduleDir(moduleFileName);
+
+            return moduleDir.substr(0, moduleDir.rfind(L'\\')) + L"\\..\\..\\..\\src\\LogCache\\Tests\\TestData\\";
+        }
     };
 }
