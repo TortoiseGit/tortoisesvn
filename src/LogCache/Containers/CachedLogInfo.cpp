@@ -349,6 +349,20 @@ void CCachedLogInfo::Load (int maxFailures)
             IHierarchicalInStream* skipRevisionsStream
                 = stream.GetSubStream (SKIP_REVISIONS_STREAM_ID);
             *skipRevisionsStream >> skippedRevisions;
+
+            // validate data
+            for(revision_t rev = revisions.GetFirstRevision();
+                rev < revisions.GetLastRevision(); rev++)
+            {
+                index_t revIndex = revisions[rev];
+                if (revIndex != NO_INDEX)
+                {
+                    if (revIndex >= logInfo.size())
+                    {
+                        throw CContainerException("invalid reference in revision index");
+                    }
+                }
+            }
         }
     }
     catch (...)
