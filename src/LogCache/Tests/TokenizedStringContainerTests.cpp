@@ -65,5 +65,63 @@ namespace LogCacheTests
                 Assert::AreEqual((LogCache::index_t) 4, tsc.size());
             }
         }
+
+        TEST_METHOD(SingleByteCorruptionTest)
+        {
+            for (int i = 0; i < 368; i++)
+            {
+                CTestTempFile tmpFile;
+                {
+                    CRootOutStream strm(tmpFile.GetFileName());
+                    LogCache::CTokenizedStringContainer tsc;
+
+                    Assert::AreEqual((LogCache::index_t) 0, tsc.Insert("This is test string."));
+                    Assert::AreEqual((LogCache::index_t) 1, tsc.Insert("Another test string."));
+                    Assert::AreEqual((LogCache::index_t) 2, tsc.Insert("LogMessage"));
+                    Assert::AreEqual((LogCache::index_t) 3, tsc.Insert(""));
+
+                    Assert::AreEqual((LogCache::index_t) 4, tsc.size());
+
+                    tsc.Compress();
+                    // Save data to stream.
+                    strm << tsc;
+                }
+
+                // Corrupt single byte in file.
+                {
+                    std::fstream file;
+                    file.open(tmpFile.GetFileName(), std::fstream::in | std::fstream::out | std::fstream::binary);
+                    file.seekp(i, std::ios::beg);
+                    char buf[1];
+                    file.read(buf, 1);
+                    buf[0] ^= 0x23;
+                    file.seekp(i, std::ios::beg);
+                    file.write(buf, 1);
+                    file.close();
+                }
+
+                LogCache::CTokenizedStringContainer tsc;
+                try
+                {
+                    CRootInStream strm(tmpFile.GetFileName());
+
+                    // Load data to stream.
+                    strm >> tsc;
+                }
+                catch (const std::exception & e)
+                {
+                    // Exceptions are excpected when reading data from corrupted storage.
+                    Logger::WriteMessage(e.what());
+                    tsc.Clear();
+                }
+
+                // Access all strings in the container. We cannot check their content
+                // since storage is corrupted.
+                for (LogCache::index_t idx = 0; idx < tsc.size(); idx++)
+                {
+                    std::string str(tsc[idx]);
+                }
+            }
+        }
     };
 }
