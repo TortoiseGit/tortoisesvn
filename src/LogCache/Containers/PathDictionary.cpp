@@ -183,11 +183,10 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
         = stream.GetSubStream (CPathDictionary::PATHS_STREAM_ID);
     *pathsStream >> dictionary.paths;
 
-    // ready
-
-#ifdef _DEBUG
+    // validate data loaded from disk
     dictionary.Validate();
-#endif
+
+    // ready
 
     return stream;
 }
