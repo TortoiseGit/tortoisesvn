@@ -73,6 +73,48 @@ namespace LogCacheTests
             ValidateCachedLogInfo(logInfo);
         }
 
+        TEST_METHOD(RandomSingleByteCorruptionTest)
+        {
+            std::srand((unsigned int) std::time(0));
+
+            for (int i = 0; i < 100; i++)
+            {
+                CTestTempFile tmpFile;
+
+                // Copy test data to temporary file.
+                CopyFile((GetTestDataDir() + L"src-LogCache-all").c_str(), tmpFile.GetFileName().c_str(), false);
+
+                // Modify single byte in file.
+                std::fstream file;
+                file.open(tmpFile.GetFileName(), std::fstream::in | std::fstream::out | std::fstream::binary);
+
+                file.seekp(0, std::ios::end);
+                std::streamoff size = file.tellg();
+
+                off_t off = std::rand() % size;
+                file.seekp(off, std::ios::beg);
+                char buf[1];
+                file.read(buf, 1);
+                buf[0] ^= 0x23;
+                file.seekp(i, std::ios::beg);
+                file.write(buf, 1);
+                file.close();
+
+                try
+                {
+                    LogCache::CCachedLogInfo logInfo(tmpFile.GetFileName());
+                    logInfo.Load(0);
+
+                    ValidateCachedLogInfo(logInfo);
+                }
+                catch (...)
+                {
+                    Logger::WriteMessage((std::string("offset: ") + std::to_string(off)).c_str());
+                    throw;
+                }
+            }
+        }
+
     private:
         void ValidateCachedLogInfo(const LogCache::CCachedLogInfo & logInfo)
         {

@@ -60,5 +60,6 @@
 #include <memory>
 #include <algorithm>
 #include <fstream>
+#include <ctime>
 
 #include <CppUnitTest.h>
