@@ -1257,6 +1257,19 @@ IHierarchicalInStream& operator>> ( IHierarchicalInStream& stream
                   , container.changedPaths.size()
                   , (unsigned char)0);
 
+    // validate
+    if (container.authors.size() < container.size() ||
+        container.comments.size() < container.size() ||
+        container.timeStamps.size() < container.size() ||
+        container.presenceFlags.size() < container.size() ||
+        container.rootPaths.size() < container.size() ||
+        container.changesOffsets.size() < container.size() ||
+        container.mergedRevisionsOffsets.size() < container.size() ||
+        container.userRevPropOffsets.size() < container.size())
+    {
+        throw CContainerException("revision container mismatch");
+    }
+
     // update size info
 
     container.storedSize = container.size();
