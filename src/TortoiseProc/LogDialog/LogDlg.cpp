@@ -5205,6 +5205,7 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
         }
 
         popup.AppendMenuIcon(ID_REPOBROWSE, IDS_LOG_BROWSEREPO, IDI_REPOBROWSE);
+        popup.AppendMenuIcon(ID_GETMERGELOGS, IDS_LOG_POPUP_GETMERGELOGS, IDI_LOG);
         popup.AppendMenuIcon(ID_COPY, IDS_LOG_POPUP_COPY, IDI_COPY);
         if (m_hasWC)
         {
@@ -5368,6 +5369,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_REPOBROWSE:
             ExecuteRepoBrowseMenuRevisions(pCmi);
+            break;
+        case ID_GETMERGELOGS:
+            ExecuteGetMergeLogs(pCmi);
             break;
         case ID_EDITLOG:
             EditLogMessage(selIndex);
@@ -6104,6 +6108,21 @@ void CLogDlg::ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pC
     url.Replace(L"%PATH%", relurl);
     if (!url.IsEmpty())
         ShellExecute(this->m_hWnd, L"open", url, NULL, NULL, SW_SHOWDEFAULT);
+}
+
+void CLogDlg::ExecuteGetMergeLogs(ContextMenuInfoForRevisionsPtr & pCmi)
+{
+    DialogEnableWindow(IDOK, FALSE);
+    SetPromptApp(&theApp);
+    OnOutOfScope(EnableOKButton());
+    m_bCancelled = false;
+    svn_revnum_t logrev = pCmi->RevSelected;
+    CString sCmd;
+
+    sCmd.Format(L"/command:log /path:\"%s\" /pegrev:%ld /startrev:%ld /endrev:%ld /merge",
+                (LPCTSTR)pCmi->PathURL, logrev, logrev, logrev);
+
+    CAppUtils::RunTortoiseProc(sCmd);
 }
 
 void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
