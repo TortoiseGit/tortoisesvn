@@ -181,6 +181,10 @@ public:
      */
     static bool WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 = true);
     static bool WriteStringToTextFile(const std::wstring& path, const std::string& text);
+
+    /* Attempts to format string with variable arguments and returns true if
+     * format operations succedeed with SEH or errors. */
+    static bool ValidateFormatString(LPCWSTR pszFormat, ...);
 #endif
 
     /**

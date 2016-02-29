@@ -756,6 +756,38 @@ std::string CStringUtils::Decrypt(const std::string& s, const std::string& passw
     return decryptstring;
 }
 
+bool CStringUtils::ValidateFormatString(LPCWSTR pszFormat, ...)
+{
+    __try
+    {
+        DWORD dwResult;
+        LPWSTR pszTemp = NULL;
+        va_list args;
+
+        va_start(args, pszFormat);
+        dwResult = FormatMessage(FORMAT_MESSAGE_FROM_STRING |
+            FORMAT_MESSAGE_ALLOCATE_BUFFER,
+            pszFormat, 0, 0,
+            reinterpret_cast<LPWSTR>(&pszTemp),
+            0,
+            &args);
+        va_end(args);
+        if (dwResult == 0)
+        {
+            // invalid format string
+            return false;
+        }
+
+        LocalFree(pszTemp);
+    }
+    __except (TRUE)
+    {
+        // invalid format string
+        return false;
+    }
+
+    return true;
+}
 
 #if defined(_DEBUG) && defined(_MFC_VER)
 // Some test cases for these classes
@@ -802,6 +834,8 @@ public:
         std::string encrypted = CStringUtils::Encrypt("test", "test");
         std::string decrypted = CStringUtils::Decrypt(encrypted, "test");
         ATLASSERT(decrypted.compare("test") == 0);
+
+        ATLASSERT(CStringUtils::ValidateFormatString(L"%1!ld! %2!s!", 0, L"test") == true);
     }
 } StringUtilsTest;
 

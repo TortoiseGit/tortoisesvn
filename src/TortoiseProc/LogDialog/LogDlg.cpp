@@ -172,7 +172,6 @@ enum LogDlgShowBtnCommands
     ID_CMD_SHOWRANGE,
 };
 
-
 IMPLEMENT_DYNAMIC(CLogDlg, CResizableStandAloneDialog)
 CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CLogDlg::IDD, pParent)
@@ -256,14 +255,10 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     m_sMultiLogFormat = CRegString(L"Software\\TortoiseSVN\\LogMultiRevFormat", L"r%1!ld!\n%2!s!\n---------------------\n");
     m_sMultiLogFormat.Replace(L"\\r", L"\r");
     m_sMultiLogFormat.Replace(L"\\n", L"\n");
+
     // just in case the user sets an impossible/illegal format string: try to use that format
     // string and handle possible exceptions. In case of an exception, fall back to the default.
-    try
-    {
-        CString sRevMsg;
-        sRevMsg.FormatMessage(m_sMultiLogFormat, 0, L"test");
-    }
-    catch (...)
+    if (!CStringUtils::ValidateFormatString(m_sMultiLogFormat, 0, L"test"))
     {
         // fall back to the default
         m_sMultiLogFormat = L"r%1!ld!\n%2!s!\n---------------------\n";
