@@ -363,6 +363,7 @@ private:
     void ExecuteViewPathRevisionChangedPaths(INT_PTR selIndex);
     void ExecuteBrowseRepositoryChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath);
     void ExecuteShowLogChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath, bool bMergeLog);
+    void ExecuteShowMergedLogs(ContextMenuInfoForChangedPathsPtr pCmi);
     void ExecuteBlameChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, const CLogChangedPath& changedlogpath);
     void ExecuteOpenChangedPaths(INT_PTR selIndex, ContextMenuInfoForChangedPathsPtr pCmi, bool bOpenWith);
     void ExecuteExportTreeChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi);

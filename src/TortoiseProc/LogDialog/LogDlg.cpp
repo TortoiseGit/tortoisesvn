@@ -6188,7 +6188,7 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
         ExecuteBlameChangedPaths(pCmi, changedlogpath);
         break;
     case ID_GETMERGELOGS:
-        ExecuteShowLogChangedPaths(pCmi, changedlogpath, true);
+        ExecuteShowMergedLogs(pCmi);
         break;
     case ID_LOG:
         ExecuteShowLogChangedPaths(pCmi, changedlogpath, false);
@@ -7504,6 +7504,26 @@ void CLogDlg::ExecuteShowLogChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi
 
     if (bMergeLog)
         sCmd += L" /merge";
+    CAppUtils::RunTortoiseProc(sCmd);
+}
+
+void CLogDlg::ExecuteShowMergedLogs(ContextMenuInfoForChangedPathsPtr pCmi)
+{
+    DialogEnableWindow(IDOK, FALSE);
+    SetPromptApp(&theApp);
+    OnOutOfScope(EnableOKButton());
+    if (pCmi->sUrl.IsEmpty())
+    {
+        ReportNoUrlOfFile(m_path.GetWinPath());
+        return;
+    }
+    m_bCancelled = false;
+    svn_revnum_t logrev = pCmi->Rev1;
+    CString sCmd;
+
+    sCmd.Format(L"/command:log /path:\"%s\" /pegrev:%ld /startrev:%ld /endrev:%ld /merge",
+                (LPCTSTR)pCmi->fileUrl, logrev, logrev, logrev);
+
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
