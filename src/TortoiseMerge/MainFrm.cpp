@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2015 - TortoiseSVN
+// Copyright (C) 2004-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -881,6 +881,7 @@ bool CMainFrame::LoadViews(int line)
             m_pwndLeftView->SetHidden(FALSE);
             m_pwndRightView->SetHidden(FALSE);
             m_pwndBottomView->SetHidden(TRUE);
+            progDlg.Stop();
         }
     }
     if (m_Data.IsBaseFileInUse() && !m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())

@@ -16,6 +16,8 @@ Version 1.9.4
        shown in case logwidthmarker is set. (Sven Strickroth)
 - BUG: The font size in the statistics dialog
        was wrong, font unreadable. (Stefan)
+- CHG: Improved stability of the log cache. (Ivan Zhakov)
+- BUG: TMerge could hang applying a patch. (Stefan)
 
 Version 1.9.3
 - BUG: The DEL key didn't work in the filter box
