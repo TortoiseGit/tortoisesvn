@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2565,6 +2565,20 @@ void SVN::formatDate(TCHAR date_native[], FILETIME& filetime, bool force_short_f
     wcsncpy_s(date_native, SVN_DATE_BUFFER, result, SVN_DATE_BUFFER - 1);
 }
 
+bool SVN::AprTimeExplodeLocal(apr_time_exp_t *exploded_time, apr_time_t date_svn)
+{
+    // apr_time_exp_lt() can crash because it does not check the return values of APIs it calls.
+    // Put the call to apr_time_exp_lt() in a __try/__except to avoid those crashes.
+    __try
+    {
+        return apr_time_exp_lt(exploded_time, date_svn) == APR_SUCCESS;
+    }
+    __except(TRUE)
+    {
+        return false;
+    }
+}
+
 CString SVN::formatDate(apr_time_t date_svn)
 {
     apr_time_exp_t exploded_time = {0};
@@ -2574,21 +2588,15 @@ CString SVN::formatDate(apr_time_t date_svn)
 
     LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
 
-    try
-    {
-        apr_time_exp_lt (&exploded_time, date_svn);
+    if (!AprTimeExplodeLocal(&exploded_time, date_svn))
+        return L"(no date)";
 
-        systime.wDay = (WORD)exploded_time.tm_mday;
-        systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
-        systime.wMonth = (WORD)exploded_time.tm_mon+1;
-        systime.wYear = (WORD)exploded_time.tm_year+1900;
+    systime.wDay = (WORD)exploded_time.tm_mday;
+    systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
+    systime.wMonth = (WORD)exploded_time.tm_mon+1;
+    systime.wYear = (WORD)exploded_time.tm_year+1900;
 
-        GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
-    }
-    catch ( ... )
-    {
-        wcscpy_s(datebuf, L"(no date)");
-    }
+    GetDateFormat(locale, DATE_SHORTDATE, &systime, NULL, datebuf, SVN_DATE_BUFFER);
 
     return datebuf;
 }
@@ -2602,25 +2610,19 @@ CString SVN::formatTime (apr_time_t date_svn)
 
     LCID locale = s_useSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : s_locale;
 
-    try
-    {
-        apr_time_exp_lt (&exploded_time, date_svn);
+    if (!AprTimeExplodeLocal(&exploded_time, date_svn))
+        return L"(no time)";
 
-        systime.wDay = (WORD)exploded_time.tm_mday;
-        systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
-        systime.wHour = (WORD)exploded_time.tm_hour;
-        systime.wMilliseconds = (WORD)(exploded_time.tm_usec/1000);
-        systime.wMinute = (WORD)exploded_time.tm_min;
-        systime.wMonth = (WORD)exploded_time.tm_mon+1;
-        systime.wSecond = (WORD)exploded_time.tm_sec;
-        systime.wYear = (WORD)exploded_time.tm_year+1900;
+    systime.wDay = (WORD)exploded_time.tm_mday;
+    systime.wDayOfWeek = (WORD)exploded_time.tm_wday;
+    systime.wHour = (WORD)exploded_time.tm_hour;
+    systime.wMilliseconds = (WORD)(exploded_time.tm_usec/1000);
+    systime.wMinute = (WORD)exploded_time.tm_min;
+    systime.wMonth = (WORD)exploded_time.tm_mon+1;
+    systime.wSecond = (WORD)exploded_time.tm_sec;
+    systime.wYear = (WORD)exploded_time.tm_year+1900;
 
-        GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
-    }
-    catch ( ... )
-    {
-        wcscpy_s(timebuf, L"(no time)");
-    }
+    GetTimeFormat(locale, 0, &systime, NULL, timebuf, SVN_DATE_BUFFER);
 
     return timebuf;
 }

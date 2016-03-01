@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -992,6 +992,7 @@ protected:
     void                 CallPreConnectHookIfUrl(const CTSVNPathList& pathList, const CTSVNPath& path = CTSVNPath());
     void                 Prepare();
     void                 SVNInit();
+    static bool          AprTimeExplodeLocal(apr_time_exp_t *exploded_time, apr_time_t date_svn);
 
     void cancel();
     static svn_error_t* cancel(void *baton);
