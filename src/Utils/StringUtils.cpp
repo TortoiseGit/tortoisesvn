@@ -469,6 +469,39 @@ bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::st
     return true;
 }
 
+bool CStringUtils::ValidateFormatString(LPCWSTR pszFormat, ...)
+{
+    __try
+    {
+        DWORD dwResult;
+        LPWSTR pszTemp = NULL;
+        va_list args;
+
+        va_start(args, pszFormat);
+        dwResult = FormatMessage(FORMAT_MESSAGE_FROM_STRING |
+            FORMAT_MESSAGE_ALLOCATE_BUFFER,
+            pszFormat, 0, 0,
+            reinterpret_cast<LPWSTR>(&pszTemp),
+            0,
+            &args);
+        va_end(args);
+        if (dwResult == 0)
+        {
+            // invalid format string
+            return false;
+        }
+
+        LocalFree(pszTemp);
+    }
+    __except (TRUE)
+    {
+        // invalid format string
+        return false;
+    }
+
+    return true;
+}
+
 #endif // #if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
 
 inline static void PipeToNull(TCHAR* ptr)
@@ -754,39 +787,6 @@ std::string CStringUtils::Decrypt(const std::string& s, const std::string& passw
         DebugBreak();
 
     return decryptstring;
-}
-
-bool CStringUtils::ValidateFormatString(LPCWSTR pszFormat, ...)
-{
-    __try
-    {
-        DWORD dwResult;
-        LPWSTR pszTemp = NULL;
-        va_list args;
-
-        va_start(args, pszFormat);
-        dwResult = FormatMessage(FORMAT_MESSAGE_FROM_STRING |
-            FORMAT_MESSAGE_ALLOCATE_BUFFER,
-            pszFormat, 0, 0,
-            reinterpret_cast<LPWSTR>(&pszTemp),
-            0,
-            &args);
-        va_end(args);
-        if (dwResult == 0)
-        {
-            // invalid format string
-            return false;
-        }
-
-        LocalFree(pszTemp);
-    }
-    __except (TRUE)
-    {
-        // invalid format string
-        return false;
-    }
-
-    return true;
 }
 
 #if defined(_DEBUG) && defined(_MFC_VER)
