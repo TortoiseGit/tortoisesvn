@@ -624,7 +624,7 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
         // * Clear unknown flags
         // This is more or less paranoia code but maybe something
         // is feeding garbage into our queue.
-        for (size_t i = MAX_PATH+1; (i > 0) && (request.path[i-1] != 0); --i)
+        for (size_t i = MAX_PATH; (i > 0) && (request.path[i-1] != 0); --i)
             request.path[i-1] = 0;
 
         size_t pathLength = wcslen (request.path);
@@ -698,7 +698,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
         // * Set all trailing chars to 0.
         // This is more or less paranoia code but maybe something
         // is feeding garbage into our queue.
-        for (size_t i = MAX_PATH+1; (i > 0) && (command.path[i-1] != 0); --i)
+        for (size_t i = MAX_PATH; (i > 0) && (command.path[i-1] != 0); --i)
             command.path[i-1] = 0;
 
         size_t pathLength = wcslen (command.path);
