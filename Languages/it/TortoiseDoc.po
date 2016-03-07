@@ -19,14 +19,15 @@
 # Leonardo <philyo1@gmail.com>, 2012
 # Roberto Casazza <roberto.casazza@alice.it>, 2011
 # Roberto <roberto@elkgrove.us>, 2011-2012
+# Sebastiano Pistore <olatusrooc@virgilio.it>, 2016
 # Silvia, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-18 09:01+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-03-02 10:09+0000\n"
+"Last-Translator: Sebastiano Pistore <olatusrooc@virgilio.it>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -664,7 +665,7 @@ msgstr "Concetti di base"
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
 "get an overview of how Subversion works and the terms that are used."
-msgstr ""
+msgstr "Prima di iniziare a lavorare con file veri, è importante fare un'introduzione al funzionamento di subversion ed ai termini utilizzati."
 
 #. (term)
 #. (title)
@@ -1500,7 +1501,7 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 "      "
-msgstr ""
+msgstr "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n...\n      "
 
 #. (para)
 msgid ""
@@ -1617,7 +1618,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:4\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:4\n      "
 
 #. (para)
 msgid ""
@@ -1636,7 +1637,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:5\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:5\n      "
 
 #. (para)
 msgid ""
@@ -1654,7 +1655,7 @@ msgid ""
 "integer.c:6\n"
 "button.c:6\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:6\ninteger.c:6\nbutton.c:6\n      "
 
 #. (para)
 msgid ""
@@ -1992,7 +1993,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "    "
-msgstr ""
+msgstr "\n/trunk\n/branches\n/tags\n    "
 
 #. (para)
 msgid ""
@@ -2018,7 +2019,7 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 "    "
-msgstr ""
+msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n    "
 
 #. (para)
 msgid "...or by project:"
@@ -2035,7 +2036,7 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 "    "
-msgstr ""
+msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n    "
 
 #. (para)
 msgid ""
@@ -2369,15 +2370,15 @@ msgstr ""
 
 #. (citetitle)
 msgid "VisualSVN"
-msgstr ""
+msgstr "VisualSVN"
 
 #. (citetitle)
 msgid "CollabNet"
-msgstr ""
+msgstr "CollabNet"
 
 #. (citetitle)
 msgid "UberSVN"
-msgstr ""
+msgstr "UberSVN"
 
 #. (para)
 msgid ""
@@ -2452,7 +2453,7 @@ msgstr ""
 
 #. (title)
 msgid "General Features"
-msgstr ""
+msgstr "Caratteristiche principali"
 
 #. (para)
 msgid ""
@@ -3200,7 +3201,7 @@ msgstr ""
 
 #. (title)
 msgid "Committing Your Changes To The Repository"
-msgstr ""
+msgstr "Invia i cambiamenti al repository"
 
 #. (primary)
 msgid "commit"
@@ -4032,7 +4033,7 @@ msgstr ""
 
 #. (title)
 msgid "Property Conflicts"
-msgstr ""
+msgstr "Conflitti di proprietà"
 
 #. (para)
 msgid ""
