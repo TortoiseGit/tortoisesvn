@@ -12,45 +12,46 @@ allsources = be_all_s.c be_none.c be_nos_s.c be_ssh.c callback.c \
 		charset/slookup.c charset/toucs.c charset/utf8.c \
 		charset/xenc.c cmdgen.c cmdline.c conf.c config.c cproxy.c \
 		dialog.c dialog.h errsock.c import.c int64.c int64.h ldisc.c \
-		ldisc.h ldiscucs.c logging.c macosx/osx.h macosx/osxclass.h \
-		macosx/osxctrls.m macosx/osxdlg.m macosx/osxmain.m \
-		macosx/osxsel.m macosx/osxwin.m minibidi.c misc.c misc.h \
-		miscucs.c network.h nocproxy.c nogss.c noshare.c noterm.c \
-		notiming.c pgssapi.c pgssapi.h pinger.c portfwd.c proxy.c \
-		proxy.h pscp.c psftp.c psftp.h putty.h puttymem.h puttyps.h \
-		raw.c rlogin.c sercfg.c settings.c sftp.c sftp.h ssh.c ssh.h \
-		sshaes.c ssharcf.c sshblowf.c sshbn.c sshbn.h sshcrc.c \
-		sshcrcda.c sshdes.c sshdh.c sshdss.c sshdssg.c sshgss.h \
-		sshgssc.c sshgssc.h sshmd5.c sshprime.c sshpubk.c sshrand.c \
-		sshrsa.c sshrsag.c sshsh256.c sshsh512.c sshsha.c sshshare.c \
-		sshzlib.c storage.h telnet.c terminal.c terminal.h \
-		testback.c time.c timing.c tree234.c tree234.h unix/gtkcfg.c \
-		unix/gtkcols.c unix/gtkcols.h unix/gtkdlg.c unix/gtkfont.c \
-		unix/gtkfont.h unix/gtkwin.c unix/unix.h unix/ux_x11.c \
-		unix/uxagentc.c unix/uxcfg.c unix/uxcons.c unix/uxgen.c \
-		unix/uxgss.c unix/uxmisc.c unix/uxnet.c unix/uxnoise.c \
-		unix/uxpeer.c unix/uxplink.c unix/uxprint.c unix/uxproxy.c \
-		unix/uxpterm.c unix/uxpty.c unix/uxputty.c unix/uxsel.c \
-		unix/uxser.c unix/uxsftp.c unix/uxshare.c unix/uxsignal.c \
-		unix/uxstore.c unix/uxucs.c unix/xkeysym.c unix/xpmptcfg.c \
-		unix/xpmpterm.c unix/xpmpucfg.c unix/xpmputty.c version.c \
-		version.h wcwidth.c wildcard.c windows/pageant.rc \
-		windows/plink.rc windows/pscp.rc windows/psftp.rc \
-		windows/putty.rc windows/puttygen.rc windows/puttytel.rc \
-		windows/rcstuff.h windows/sizetip.c windows/version.rc2 \
-		windows/win_res.h windows/win_res.rc2 windows/wincfg.c \
-		windows/wincons.c windows/winctrls.c windows/windefs.c \
-		windows/windlg.c windows/window.c windows/wingss.c \
-		windows/winhandl.c windows/winhelp.c windows/winhelp.h \
-		windows/winhsock.c windows/winjump.c windows/winmisc.c \
-		windows/winnet.c windows/winnoise.c windows/winnojmp.c \
-		windows/winnpc.c windows/winnps.c windows/winpgen.c \
-		windows/winpgnt.c windows/winpgntc.c windows/winplink.c \
-		windows/winprint.c windows/winproxy.c windows/winsecur.c \
-		windows/winsecur.h windows/winser.c windows/winsftp.c \
-		windows/winshare.c windows/winstore.c windows/winstuff.h \
-		windows/wintime.c windows/winucs.c windows/winutils.c \
-		windows/winx11.c x11fwd.c
+		ldisc.h ldiscucs.c licence.h logging.c macosx/osx.h \
+		macosx/osxclass.h macosx/osxctrls.m macosx/osxdlg.m \
+		macosx/osxmain.m macosx/osxsel.m macosx/osxwin.m minibidi.c \
+		misc.c misc.h miscucs.c network.h nocproxy.c nogss.c \
+		noshare.c noterm.c notiming.c pgssapi.c pgssapi.h pinger.c \
+		portfwd.c proxy.c proxy.h pscp.c psftp.c psftp.h putty.h \
+		puttymem.h puttyps.h raw.c rlogin.c sercfg.c settings.c \
+		sftp.c sftp.h ssh.c ssh.h sshaes.c ssharcf.c sshblowf.c \
+		sshbn.c sshbn.h sshcrc.c sshcrcda.c sshdes.c sshdh.c \
+		sshdss.c sshdssg.c sshgss.h sshgssc.c sshgssc.h sshmd5.c \
+		sshprime.c sshpubk.c sshrand.c sshrsa.c sshrsag.c sshsh256.c \
+		sshsh512.c sshsha.c sshshare.c sshzlib.c storage.h telnet.c \
+		terminal.c terminal.h testback.c time.c timing.c tree234.c \
+		tree234.h unix/gtkcfg.c unix/gtkcols.c unix/gtkcols.h \
+		unix/gtkdlg.c unix/gtkfont.c unix/gtkfont.h unix/gtkwin.c \
+		unix/unix.h unix/ux_x11.c unix/uxagentc.c unix/uxcfg.c \
+		unix/uxcons.c unix/uxgen.c unix/uxgss.c unix/uxmisc.c \
+		unix/uxnet.c unix/uxnoise.c unix/uxpeer.c unix/uxplink.c \
+		unix/uxprint.c unix/uxproxy.c unix/uxpterm.c unix/uxpty.c \
+		unix/uxputty.c unix/uxsel.c unix/uxser.c unix/uxsftp.c \
+		unix/uxshare.c unix/uxsignal.c unix/uxstore.c unix/uxucs.c \
+		unix/xkeysym.c unix/xpmptcfg.c unix/xpmpterm.c \
+		unix/xpmpucfg.c unix/xpmputty.c version.c version.h \
+		wcwidth.c wildcard.c windows/pageant.rc windows/plink.rc \
+		windows/pscp.rc windows/psftp.rc windows/putty.rc \
+		windows/puttygen.rc windows/puttytel.rc windows/rcstuff.h \
+		windows/sizetip.c windows/version.rc2 windows/win_res.h \
+		windows/win_res.rc2 windows/wincapi.c windows/wincapi.h \
+		windows/wincfg.c windows/wincons.c windows/winctrls.c \
+		windows/windefs.c windows/windlg.c windows/window.c \
+		windows/wingss.c windows/winhandl.c windows/winhelp.c \
+		windows/winhelp.h windows/winhsock.c windows/winjump.c \
+		windows/winmisc.c windows/winnet.c windows/winnoise.c \
+		windows/winnojmp.c windows/winnpc.c windows/winnps.c \
+		windows/winpgen.c windows/winpgnt.c windows/winpgntc.c \
+		windows/winplink.c windows/winprint.c windows/winproxy.c \
+		windows/winsecur.c windows/winsecur.h windows/winser.c \
+		windows/winsftp.c windows/winshare.c windows/winstore.c \
+		windows/winstuff.h windows/wintime.c windows/winucs.c \
+		windows/winutils.c windows/winx11.c x11fwd.c
 
 if HAVE_GTK
 bin_PROGRAMS = plink pscp psftp puttygen pterm putty puttytel

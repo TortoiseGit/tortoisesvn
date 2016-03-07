@@ -149,7 +149,7 @@ char *get_username(void)
 
 BOOL init_winver(void)
 {
-    SecureZeroMemory(&osVersion, sizeof(osVersion));
+    ZeroMemory(&osVersion, sizeof(osVersion));
     osVersion.dwOSVersionInfoSize = sizeof (OSVERSIONINFO);
     return GetVersionEx ( (OSVERSIONINFO *) &osVersion);
 }

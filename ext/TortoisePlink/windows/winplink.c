@@ -24,14 +24,11 @@ struct agent_callback {
 void fatalbox(char *p, ...)
 {
     va_list ap;
-    char *stuff, morestuff[100];
-    
+    fprintf(stderr, "FATAL ERROR: ");
     va_start(ap, p);
-    stuff = dupvprintf(p, ap);
+    vfprintf(stderr, p, ap);
     va_end(ap);
-    sprintf(morestuff, "%.70s Fatal Error", appname);
-    MessageBox(GetParentHwnd(), stuff, morestuff, MB_ICONERROR | MB_OK);
-    sfree(stuff);
+    fputc('\n', stderr);
     if (logctx) {
         log_free(logctx);
         logctx = NULL;
@@ -41,15 +38,11 @@ void fatalbox(char *p, ...)
 void modalfatalbox(char *p, ...)
 {
     va_list ap;
-    char *stuff, morestuff[100];
-    
+    fprintf(stderr, "FATAL ERROR: ");
     va_start(ap, p);
-    stuff = dupvprintf(p, ap);
+    vfprintf(stderr, p, ap);
     va_end(ap);
-    sprintf(morestuff, "%.70s Fatal Error", appname);
-    MessageBox(GetParentHwnd(), stuff, morestuff,
-        MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
-    sfree(stuff);
+    fputc('\n', stderr);
     if (logctx) {
         log_free(logctx);
         logctx = NULL;
@@ -59,28 +52,20 @@ void modalfatalbox(char *p, ...)
 void nonfatal(char *p, ...)
 {
     va_list ap;
-    char *stuff, morestuff[100];
-
+    fprintf(stderr, "ERROR: ");
     va_start(ap, p);
-    stuff = dupvprintf(p, ap);
+    vfprintf(stderr, p, ap);
     va_end(ap);
-    sprintf(morestuff, "%.70s Fatal Error", appname);
-    MessageBox(GetParentHwnd(), stuff, morestuff,
-        MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
-    sfree(stuff);
+    fputc('\n', stderr);
 }
 void connection_fatal(void *frontend, char *p, ...)
 {
     va_list ap;
-    char *stuff, morestuff[100];
-    
+    fprintf(stderr, "FATAL ERROR: ");
     va_start(ap, p);
-    stuff = dupvprintf(p, ap);
+    vfprintf(stderr, p, ap);
     va_end(ap);
-    sprintf(morestuff, "%.70s Fatal Error", appname);
-    MessageBox(GetParentHwnd(), stuff, morestuff,
-        MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
-    sfree(stuff);
+    fputc('\n', stderr);
     if (logctx) {
         log_free(logctx);
         logctx = NULL;
@@ -90,14 +75,11 @@ void connection_fatal(void *frontend, char *p, ...)
 void cmdline_error(char *p, ...)
 {
     va_list ap;
-    char *stuff, morestuff[100];
-    
+    fprintf(stderr, "plink: ");
     va_start(ap, p);
-    stuff = dupvprintf(p, ap);
+    vfprintf(stderr, p, ap);
     va_end(ap);
-    sprintf(morestuff, "%.70s Command Line Error", appname);
-    MessageBox(GetParentHwnd(), stuff, morestuff, MB_ICONERROR | MB_OK);
-    sfree(stuff);
+    fputc('\n', stderr);
     exit(1);
 }
 
@@ -190,55 +172,55 @@ void agent_schedule_callback(void (*callback)(void *, void *, int),
  */
 static void usage(void)
 {
-    char buf[10000];
-    int j = 0;
-
-    j += sprintf(buf+j, "TortoisePlink: command-line connection utility (based on PuTTY Plink)\n");
-    j += sprintf(buf+j, "%s\n", ver);
-    j += sprintf(buf+j, "Usage: tortoiseplink [options] [user@]host [command]\n");
-    j += sprintf(buf+j, "       (\"host\" can also be a PuTTY saved session name)\n");
-    j += sprintf(buf+j, "Options:\n");
-    j += sprintf(buf+j, "  -V        print version information and exit\n");
-    j += sprintf(buf+j, "  -pgpfp    print PGP key fingerprints and exit\n");
-    j += sprintf(buf+j, "  -v        show verbose messages\n");
-    j += sprintf(buf+j, "  -load sessname  Load settings from saved session\n");
-    j += sprintf(buf+j, "  -ssh -telnet -rlogin -raw -serial\n");
-    j += sprintf(buf+j, "            force use of a particular protocol\n");
-    j += sprintf(buf+j, "  -P port   connect to specified port\n");
-    j += sprintf(buf+j, "  -l user   connect with specified username\n");
-    j += sprintf(buf+j, "  -sercfg configuration-string (e.g. 19200,8,n,1,X)\n");
-    j += sprintf(buf+j, "            Specify the serial configuration (serial only)\n");
-    j += sprintf(buf+j, "The following options only apply to SSH connections:\n");
-    j += sprintf(buf+j, "  -pw passw login with specified password\n");
-    j += sprintf(buf+j, "  -D [listen-IP:]listen-port\n");
-    j += sprintf(buf+j, "            Dynamic SOCKS-based port forwarding\n");
-    j += sprintf(buf+j, "  -L [listen-IP:]listen-port:host:port\n");
-    j += sprintf(buf+j, "            Forward local port to remote address\n");
-    j += sprintf(buf+j, "  -R [listen-IP:]listen-port:host:port\n");
-    j += sprintf(buf+j, "            Forward remote port to local address\n");
-    j += sprintf(buf+j, "  -X -x     enable / disable X11 forwarding\n");
-    j += sprintf(buf+j, "  -A -a     enable / disable agent forwarding\n");
-    j += sprintf(buf+j, "  -t -T     enable / disable pty allocation\n");
-    j += sprintf(buf+j, "  -1 -2     force use of particular protocol version\n");
-    j += sprintf(buf+j, "  -4 -6     force use of IPv4 or IPv6\n");
-    j += sprintf(buf+j, "  -C        enable compression\n");
-    j += sprintf(buf+j, "  -i key    private key file for user authentication\n");
-    j += sprintf(buf+j, "  -noagent  disable use of Pageant\n");
-    j += sprintf(buf+j, "  -agent    enable use of Pageant\n");
-    j += sprintf(buf+j, "  -hostkey aa:bb:cc:...\n");
-    j += sprintf(buf+j, "            manually specify a host key (may be repeated)\n");
-    j += sprintf(buf+j, "  -m file   read remote command(s) from file\n");
-    j += sprintf(buf+j, "  -s        remote command is an SSH subsystem (SSH-2 only)\n");
-    j += sprintf(buf+j, "  -N        don't start a shell/command (SSH-2 only)\n");
-    j += sprintf(buf+j, "  -nc host:port\n");
-    j += sprintf(buf+j, "            open tunnel in place of session (SSH-2 only)\n");
-    MessageBox(NULL, buf, "TortoisePlink", MB_ICONINFORMATION);
+    printf("Plink: command-line connection utility\n");
+    printf("%s\n", ver);
+    printf("Usage: plink [options] [user@]host [command]\n");
+    printf("       (\"host\" can also be a PuTTY saved session name)\n");
+    printf("Options:\n");
+    printf("  -V        print version information and exit\n");
+    printf("  -pgpfp    print PGP key fingerprints and exit\n");
+    printf("  -v        show verbose messages\n");
+    printf("  -load sessname  Load settings from saved session\n");
+    printf("  -ssh -telnet -rlogin -raw -serial\n");
+    printf("            force use of a particular protocol\n");
+    printf("  -P port   connect to specified port\n");
+    printf("  -l user   connect with specified username\n");
+    printf("  -batch    disable all interactive prompts\n");
+    printf("  -sercfg configuration-string (e.g. 19200,8,n,1,X)\n");
+    printf("            Specify the serial configuration (serial only)\n");
+    printf("The following options only apply to SSH connections:\n");
+    printf("  -pw passw login with specified password\n");
+    printf("  -D [listen-IP:]listen-port\n");
+    printf("            Dynamic SOCKS-based port forwarding\n");
+    printf("  -L [listen-IP:]listen-port:host:port\n");
+    printf("            Forward local port to remote address\n");
+    printf("  -R [listen-IP:]listen-port:host:port\n");
+    printf("            Forward remote port to local address\n");
+    printf("  -X -x     enable / disable X11 forwarding\n");
+    printf("  -A -a     enable / disable agent forwarding\n");
+    printf("  -t -T     enable / disable pty allocation\n");
+    printf("  -1 -2     force use of particular protocol version\n");
+    printf("  -4 -6     force use of IPv4 or IPv6\n");
+    printf("  -C        enable compression\n");
+    printf("  -i key    private key file for user authentication\n");
+    printf("  -noagent  disable use of Pageant\n");
+    printf("  -agent    enable use of Pageant\n");
+    printf("  -hostkey aa:bb:cc:...\n");
+    printf("            manually specify a host key (may be repeated)\n");
+    printf("  -m file   read remote command(s) from file\n");
+    printf("  -s        remote command is an SSH subsystem (SSH-2 only)\n");
+    printf("  -N        don't start a shell/command (SSH-2 only)\n");
+    printf("  -nc host:port\n");
+    printf("            open tunnel in place of session (SSH-2 only)\n");
+    printf("  -sshlog file\n");
+    printf("  -sshrawlog file\n");
+    printf("            log protocol details to a file\n");
     exit(1);
 }
 
 static void version(void)
 {
-    printf("TortoisePlink: %s\n", ver);
+    printf("plink: %s\n", ver);
     exit(1);
 }
 
@@ -367,14 +349,14 @@ int main(int argc, char **argv)
 					    1, conf);
 	    if (ret == -2) {
 		fprintf(stderr,
-			"tortoiseplink: option \"%s\" requires an argument\n", p);
+			"plink: option \"%s\" requires an argument\n", p);
 		errors = 1;
 	    } else if (ret == 2) {
 		--argc, ++argv;
 	    } else if (ret == 1) {
 		continue;
 	    } else if (!strcmp(p, "-batch")) {
-			// ignore and do not print an error message
+		console_batch_mode = 1;
 	    } else if (!strcmp(p, "-s")) {
 		/* Save status to write to conf later. */
 		use_subsystem = 1;
@@ -386,7 +368,7 @@ int main(int argc, char **argv)
                 pgp_fingerprints();
                 exit(1);
 	    } else {
-		fprintf(stderr, "tortoiseplink: unknown option \"%s\"\n", p);
+		fprintf(stderr, "plink: unknown option \"%s\"\n", p);
 		errors = 1;
 	    }
 	} else if (*p) {

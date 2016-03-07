@@ -177,6 +177,7 @@
     <ClCompile Include="..\..\..\tree234.c" />
     <ClCompile Include="..\..\..\version.c" />
     <ClCompile Include="..\..\..\wildcard.c" />
+    <ClCompile Include="..\..\wincapi.c" />
     <ClCompile Include="..\..\wincons.c" />
     <ClCompile Include="..\..\windefs.c" />
     <ClCompile Include="..\..\wingss.c" />
@@ -200,6 +201,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\charset\charset.h" />
     <ClInclude Include="..\..\..\int64.h" />
+    <ClInclude Include="..\..\..\licence.h" />
     <ClInclude Include="..\..\..\macosx\osx.h" />
     <ClInclude Include="..\..\..\misc.h" />
     <ClInclude Include="..\..\..\network.h" />
@@ -220,6 +222,7 @@
     <ClInclude Include="..\..\..\unix\unix.h" />
     <ClInclude Include="..\..\..\version.h" />
     <ClInclude Include="..\..\rcstuff.h" />
+    <ClInclude Include="..\..\wincapi.h" />
     <ClInclude Include="..\..\winhelp.h" />
     <ClInclude Include="..\..\winsecur.h" />
     <ClInclude Include="..\..\winstuff.h" />

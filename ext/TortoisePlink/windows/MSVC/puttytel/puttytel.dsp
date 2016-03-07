@@ -258,6 +258,10 @@ SOURCE=..\..\..\windows\winproxy.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\windows\winsecur.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\windows\winser.c
 # End Source File
 # Begin Source File
@@ -295,6 +299,10 @@ SOURCE=..\..\..\int64.h
 # Begin Source File
 
 SOURCE=..\..\..\ldisc.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\licence.h
 # End Source File
 # Begin Source File
 
@@ -359,6 +367,10 @@ SOURCE=..\..\..\windows\win_res.h
 # Begin Source File
 
 SOURCE=..\..\..\windows\winhelp.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\windows\winsecur.h
 # End Source File
 # Begin Source File
 

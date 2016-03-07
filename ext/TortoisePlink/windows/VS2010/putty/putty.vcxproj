@@ -188,6 +188,7 @@
     <ClCompile Include="..\..\..\wcwidth.c" />
     <ClCompile Include="..\..\..\wildcard.c" />
     <ClCompile Include="..\..\sizetip.c" />
+    <ClCompile Include="..\..\wincapi.c" />
     <ClCompile Include="..\..\wincfg.c" />
     <ClCompile Include="..\..\winctrls.c" />
     <ClCompile Include="..\..\windefs.c" />
@@ -221,6 +222,7 @@
     <ClInclude Include="..\..\..\dialog.h" />
     <ClInclude Include="..\..\..\int64.h" />
     <ClInclude Include="..\..\..\ldisc.h" />
+    <ClInclude Include="..\..\..\licence.h" />
     <ClInclude Include="..\..\..\macosx\osx.h" />
     <ClInclude Include="..\..\..\misc.h" />
     <ClInclude Include="..\..\..\network.h" />
@@ -241,6 +243,7 @@
     <ClInclude Include="..\..\..\version.h" />
     <ClInclude Include="..\..\rcstuff.h" />
     <ClInclude Include="..\..\win_res.h" />
+    <ClInclude Include="..\..\wincapi.h" />
     <ClInclude Include="..\..\winhelp.h" />
     <ClInclude Include="..\..\winsecur.h" />
     <ClInclude Include="..\..\winstuff.h" />

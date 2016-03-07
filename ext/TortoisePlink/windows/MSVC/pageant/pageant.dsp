@@ -186,6 +186,10 @@ SOURCE=..\..\..\int64.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\licence.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\macosx\osx.h
 # End Source File
 # Begin Source File

@@ -82,6 +82,10 @@
 #  - XFLAGS=-DDEBUG
 #      Causes PuTTY to enable internal debugging.
 #
+#  - XFLAGS=-DUNPROTECT
+#      Disable tightened ACL on PuTTY process so that e.g. debuggers
+#      can attach to it.
+#
 #  - XFLAGS=-DMALLOC_LOG
 #      Causes PuTTY to emit a file called putty_mem.log, logging every
 #      memory allocation and free, so you can track memory leaks.
@@ -142,9 +146,9 @@ plink.exe: be_all_s.o callback.o cmdline.o conf.o cproxy.o errsock.o ldisc.o \
 		ssharcf.o sshblowf.o sshbn.o sshcrc.o sshcrcda.o sshdes.o \
 		sshdh.o sshdss.o sshgssc.o sshmd5.o sshpubk.o sshrand.o \
 		sshrsa.o sshsh256.o sshsh512.o sshsha.o sshshare.o sshzlib.o \
-		telnet.o timing.o tree234.o version.o wildcard.o wincons.o \
-		windefs.o wingss.o winhandl.o winhsock.o winmisc.o winnet.o \
-		winnoise.o winnojmp.o winnpc.o winnps.o winpgntc.o \
+		telnet.o timing.o tree234.o version.o wildcard.o wincapi.o \
+		wincons.o windefs.o wingss.o winhandl.o winhsock.o winmisc.o \
+		winnet.o winnoise.o winnojmp.o winnpc.o winnps.o winpgntc.o \
 		winplink.o winproxy.o winsecur.o winser.o winshare.o \
 		winstore.o wintime.o winx11.o x11fwd.o
 	$(CC) $(LDFLAGS) -o $@ -Wl,-Map,plink.map be_all_s.o callback.o \
@@ -154,13 +158,13 @@ plink.exe: be_all_s.o callback.o cmdline.o conf.o cproxy.o errsock.o ldisc.o \
 		sshblowf.o sshbn.o sshcrc.o sshcrcda.o sshdes.o sshdh.o \
 		sshdss.o sshgssc.o sshmd5.o sshpubk.o sshrand.o sshrsa.o \
 		sshsh256.o sshsh512.o sshsha.o sshshare.o sshzlib.o telnet.o \
-		timing.o tree234.o version.o wildcard.o wincons.o windefs.o \
-		wingss.o winhandl.o winhsock.o winmisc.o winnet.o winnoise.o \
-		winnojmp.o winnpc.o winnps.o winpgntc.o winplink.o \
-		winproxy.o winsecur.o winser.o winshare.o winstore.o \
-		wintime.o winx11.o x11fwd.o -ladvapi32 -lcomctl32 -lcomdlg32 \
-		-lgdi32 -limm32 -lole32 -lshell32 -luser32 -lwinmm \
-		-lwinspool
+		timing.o tree234.o version.o wildcard.o wincapi.o wincons.o \
+		windefs.o wingss.o winhandl.o winhsock.o winmisc.o winnet.o \
+		winnoise.o winnojmp.o winnpc.o winnps.o winpgntc.o \
+		winplink.o winproxy.o winsecur.o winser.o winshare.o \
+		winstore.o wintime.o winx11.o x11fwd.o -ladvapi32 -lcomctl32 \
+		-lcomdlg32 -lgdi32 -limm32 -lole32 -lshell32 -luser32 \
+		-lwinmm -lwinspool
 
 pscp.exe: be_ssh.o callback.o cmdline.o conf.o cproxy.o errsock.o int64.o \
 		logging.o misc.o pgssapi.o pinger.o portfwd.o proxy.o pscp.o \
@@ -168,8 +172,8 @@ pscp.exe: be_ssh.o callback.o cmdline.o conf.o cproxy.o errsock.o int64.o \
 		sshblowf.o sshbn.o sshcrc.o sshcrcda.o sshdes.o sshdh.o \
 		sshdss.o sshgssc.o sshmd5.o sshpubk.o sshrand.o sshrsa.o \
 		sshsh256.o sshsh512.o sshsha.o sshshare.o sshzlib.o timing.o \
-		tree234.o version.o wildcard.o wincons.o windefs.o wingss.o \
-		winhandl.o winhsock.o winmisc.o winnet.o winnoise.o \
+		tree234.o version.o wildcard.o wincapi.o wincons.o windefs.o \
+		wingss.o winhandl.o winhsock.o winmisc.o winnet.o winnoise.o \
 		winnojmp.o winnpc.o winnps.o winpgntc.o winproxy.o \
 		winsecur.o winsftp.o winshare.o winstore.o wintime.o \
 		x11fwd.o
@@ -180,12 +184,12 @@ pscp.exe: be_ssh.o callback.o cmdline.o conf.o cproxy.o errsock.o int64.o \
 		sshbn.o sshcrc.o sshcrcda.o sshdes.o sshdh.o sshdss.o \
 		sshgssc.o sshmd5.o sshpubk.o sshrand.o sshrsa.o sshsh256.o \
 		sshsh512.o sshsha.o sshshare.o sshzlib.o timing.o tree234.o \
-		version.o wildcard.o wincons.o windefs.o wingss.o winhandl.o \
-		winhsock.o winmisc.o winnet.o winnoise.o winnojmp.o winnpc.o \
-		winnps.o winpgntc.o winproxy.o winsecur.o winsftp.o \
-		winshare.o winstore.o wintime.o x11fwd.o -ladvapi32 \
-		-lcomctl32 -lcomdlg32 -lgdi32 -limm32 -lole32 -lshell32 \
-		-luser32 -lwinmm -lwinspool
+		version.o wildcard.o wincapi.o wincons.o windefs.o wingss.o \
+		winhandl.o winhsock.o winmisc.o winnet.o winnoise.o \
+		winnojmp.o winnpc.o winnps.o winpgntc.o winproxy.o \
+		winsecur.o winsftp.o winshare.o winstore.o wintime.o \
+		x11fwd.o -ladvapi32 -lcomctl32 -lcomdlg32 -lgdi32 -limm32 \
+		-lole32 -lshell32 -luser32 -lwinmm -lwinspool
 
 psftp.exe: be_ssh.o callback.o cmdline.o conf.o cproxy.o errsock.o int64.o \
 		logging.o misc.o pgssapi.o pinger.o portfwd.o proxy.o \
@@ -193,11 +197,11 @@ psftp.exe: be_ssh.o callback.o cmdline.o conf.o cproxy.o errsock.o int64.o \
 		ssharcf.o sshblowf.o sshbn.o sshcrc.o sshcrcda.o sshdes.o \
 		sshdh.o sshdss.o sshgssc.o sshmd5.o sshpubk.o sshrand.o \
 		sshrsa.o sshsh256.o sshsh512.o sshsha.o sshshare.o sshzlib.o \
-		timing.o tree234.o version.o wildcard.o wincons.o windefs.o \
-		wingss.o winhandl.o winhsock.o winmisc.o winnet.o winnoise.o \
-		winnojmp.o winnpc.o winnps.o winpgntc.o winproxy.o \
-		winsecur.o winsftp.o winshare.o winstore.o wintime.o \
-		x11fwd.o
+		timing.o tree234.o version.o wildcard.o wincapi.o wincons.o \
+		windefs.o wingss.o winhandl.o winhsock.o winmisc.o winnet.o \
+		winnoise.o winnojmp.o winnpc.o winnps.o winpgntc.o \
+		winproxy.o winsecur.o winsftp.o winshare.o winstore.o \
+		wintime.o x11fwd.o
 	$(CC) $(LDFLAGS) -o $@ -Wl,-Map,psftp.map be_ssh.o callback.o \
 		cmdline.o conf.o cproxy.o errsock.o int64.o logging.o misc.o \
 		pgssapi.o pinger.o portfwd.o proxy.o psftp.o psftp.res.o \
@@ -205,12 +209,12 @@ psftp.exe: be_ssh.o callback.o cmdline.o conf.o cproxy.o errsock.o int64.o \
 		sshbn.o sshcrc.o sshcrcda.o sshdes.o sshdh.o sshdss.o \
 		sshgssc.o sshmd5.o sshpubk.o sshrand.o sshrsa.o sshsh256.o \
 		sshsh512.o sshsha.o sshshare.o sshzlib.o timing.o tree234.o \
-		version.o wildcard.o wincons.o windefs.o wingss.o winhandl.o \
-		winhsock.o winmisc.o winnet.o winnoise.o winnojmp.o winnpc.o \
-		winnps.o winpgntc.o winproxy.o winsecur.o winsftp.o \
-		winshare.o winstore.o wintime.o x11fwd.o -ladvapi32 \
-		-lcomctl32 -lcomdlg32 -lgdi32 -limm32 -lole32 -lshell32 \
-		-luser32 -lwinmm -lwinspool
+		version.o wildcard.o wincapi.o wincons.o windefs.o wingss.o \
+		winhandl.o winhsock.o winmisc.o winnet.o winnoise.o \
+		winnojmp.o winnpc.o winnps.o winpgntc.o winproxy.o \
+		winsecur.o winsftp.o winshare.o winstore.o wintime.o \
+		x11fwd.o -ladvapi32 -lcomctl32 -lcomdlg32 -lgdi32 -limm32 \
+		-lole32 -lshell32 -luser32 -lwinmm -lwinspool
 
 putty.exe: be_all_s.o callback.o cmdline.o conf.o config.o cproxy.o dialog.o \
 		errsock.o ldisc.o ldiscucs.o logging.o minibidi.o misc.o \
@@ -220,11 +224,11 @@ putty.exe: be_all_s.o callback.o cmdline.o conf.o config.o cproxy.o dialog.o \
 		sshdh.o sshdss.o sshgssc.o sshmd5.o sshpubk.o sshrand.o \
 		sshrsa.o sshsh256.o sshsh512.o sshsha.o sshshare.o sshzlib.o \
 		telnet.o terminal.o timing.o tree234.o version.o wcwidth.o \
-		wildcard.o wincfg.o winctrls.o windefs.o windlg.o window.o \
-		wingss.o winhandl.o winhelp.o winhsock.o winjump.o winmisc.o \
-		winnet.o winnoise.o winnpc.o winnps.o winpgntc.o winprint.o \
-		winproxy.o winsecur.o winser.o winshare.o winstore.o \
-		wintime.o winucs.o winutils.o winx11.o x11fwd.o
+		wildcard.o wincapi.o wincfg.o winctrls.o windefs.o windlg.o \
+		window.o wingss.o winhandl.o winhelp.o winhsock.o winjump.o \
+		winmisc.o winnet.o winnoise.o winnpc.o winnps.o winpgntc.o \
+		winprint.o winproxy.o winsecur.o winser.o winshare.o \
+		winstore.o wintime.o winucs.o winutils.o winx11.o x11fwd.o
 	$(CC) -mwindows $(LDFLAGS) -o $@ -Wl,-Map,putty.map be_all_s.o \
 		callback.o cmdline.o conf.o config.o cproxy.o dialog.o \
 		errsock.o ldisc.o ldiscucs.o logging.o minibidi.o misc.o \
@@ -234,13 +238,13 @@ putty.exe: be_all_s.o callback.o cmdline.o conf.o config.o cproxy.o dialog.o \
 		sshdh.o sshdss.o sshgssc.o sshmd5.o sshpubk.o sshrand.o \
 		sshrsa.o sshsh256.o sshsh512.o sshsha.o sshshare.o sshzlib.o \
 		telnet.o terminal.o timing.o tree234.o version.o wcwidth.o \
-		wildcard.o wincfg.o winctrls.o windefs.o windlg.o window.o \
-		wingss.o winhandl.o winhelp.o winhsock.o winjump.o winmisc.o \
-		winnet.o winnoise.o winnpc.o winnps.o winpgntc.o winprint.o \
-		winproxy.o winsecur.o winser.o winshare.o winstore.o \
-		wintime.o winucs.o winutils.o winx11.o x11fwd.o -ladvapi32 \
-		-lcomctl32 -lcomdlg32 -lgdi32 -limm32 -lole32 -lshell32 \
-		-luser32 -lwinmm -lwinspool
+		wildcard.o wincapi.o wincfg.o winctrls.o windefs.o windlg.o \
+		window.o wingss.o winhandl.o winhelp.o winhsock.o winjump.o \
+		winmisc.o winnet.o winnoise.o winnpc.o winnps.o winpgntc.o \
+		winprint.o winproxy.o winsecur.o winser.o winshare.o \
+		winstore.o wintime.o winucs.o winutils.o winx11.o x11fwd.o \
+		-ladvapi32 -lcomctl32 -lcomdlg32 -lgdi32 -limm32 -lole32 \
+		-lshell32 -luser32 -lwinmm -lwinspool
 
 puttygen.exe: conf.o import.o misc.o notiming.o puttygen.res.o sshaes.o \
 		sshbn.o sshdes.o sshdss.o sshdssg.o sshmd5.o sshprime.o \
@@ -264,7 +268,8 @@ puttytel.exe: be_nos_s.o callback.o cmdline.o conf.o config.o dialog.o \
 		terminal.o timing.o tree234.o version.o wcwidth.o wincfg.o \
 		winctrls.o windefs.o windlg.o window.o winhandl.o winhelp.o \
 		winhsock.o winjump.o winmisc.o winnet.o winprint.o \
-		winproxy.o winser.o winstore.o wintime.o winucs.o winutils.o
+		winproxy.o winsecur.o winser.o winstore.o wintime.o winucs.o \
+		winutils.o
 	$(CC) -mwindows $(LDFLAGS) -o $@ -Wl,-Map,puttytel.map be_nos_s.o \
 		callback.o cmdline.o conf.o config.o dialog.o errsock.o \
 		ldisc.o ldiscucs.o logging.o minibidi.o misc.o miscucs.o \
@@ -272,10 +277,10 @@ puttytel.exe: be_nos_s.o callback.o cmdline.o conf.o config.o dialog.o \
 		rlogin.o sercfg.o settings.o sizetip.o telnet.o terminal.o \
 		timing.o tree234.o version.o wcwidth.o wincfg.o winctrls.o \
 		windefs.o windlg.o window.o winhandl.o winhelp.o winhsock.o \
-		winjump.o winmisc.o winnet.o winprint.o winproxy.o winser.o \
-		winstore.o wintime.o winucs.o winutils.o -ladvapi32 \
-		-lcomctl32 -lcomdlg32 -lgdi32 -limm32 -lole32 -lshell32 \
-		-luser32 -lwinmm -lwinspool
+		winjump.o winmisc.o winnet.o winprint.o winproxy.o \
+		winsecur.o winser.o winstore.o wintime.o winucs.o winutils.o \
+		-ladvapi32 -lcomctl32 -lcomdlg32 -lgdi32 -limm32 -lole32 \
+		-lshell32 -luser32 -lwinmm -lwinspool
 
 be_all_s.o: ../be_all_s.c ../putty.h ../puttyps.h ../network.h ../misc.h \
 		../windows/winstuff.h ../macosx/osx.h ../unix/unix.h \
@@ -362,10 +367,10 @@ gtkcols.o: ../unix/gtkcols.c ../unix/gtkcols.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../unix/gtkcols.c
 
 gtkdlg.o: ../unix/gtkdlg.c ../unix/gtkcols.h ../unix/gtkfont.h ../putty.h \
-		../storage.h ../dialog.h ../tree234.h ../puttyps.h \
-		../network.h ../misc.h ../windows/winstuff.h ../macosx/osx.h \
-		../unix/unix.h ../puttymem.h ../windows/winhelp.h \
-		../charset/charset.h
+		../storage.h ../dialog.h ../tree234.h ../licence.h \
+		../puttyps.h ../network.h ../misc.h ../windows/winstuff.h \
+		../macosx/osx.h ../unix/unix.h ../puttymem.h \
+		../windows/winhelp.h ../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../unix/gtkdlg.c
 
 gtkfont.o: ../unix/gtkfont.c ../putty.h ../unix/gtkfont.h ../tree234.h \
@@ -488,7 +493,8 @@ osxwin.o: ../macosx/osxwin.m ../putty.h ../terminal.h ../macosx/osxclass.h \
 
 pageant.res.o: ../windows/pageant.rc ../windows/rcstuff.h \
 		../windows/pageant.ico ../windows/pageants.ico \
-		../windows/version.rc2 ../windows/pageant.mft ../version.h
+		../windows/version.rc2 ../windows/pageant.mft ../version.h \
+		../licence.h
 	$(RC) $(RCFL) $(RCFLAGS) ../windows/pageant.rc -o pageant.res.o
 
 pgssapi.o: ../pgssapi.c ../putty.h ../pgssapi.h ../puttyps.h ../network.h \
@@ -504,7 +510,7 @@ pinger.o: ../pinger.c ../putty.h ../puttyps.h ../network.h ../misc.h \
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../pinger.c
 
 plink.res.o: ../windows/plink.rc ../windows/rcstuff.h ../windows/putty.ico \
-		../windows/version.rc2 ../version.h
+		../windows/version.rc2 ../version.h ../licence.h
 	$(RC) $(RCFL) $(RCFLAGS) ../windows/plink.rc -o plink.res.o
 
 portfwd.o: ../portfwd.c ../putty.h ../ssh.h ../puttyps.h ../network.h \
@@ -526,7 +532,7 @@ pscp.o: ../pscp.c ../putty.h ../psftp.h ../ssh.h ../sftp.h ../storage.h \
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../pscp.c
 
 pscp.res.o: ../windows/pscp.rc ../windows/rcstuff.h ../windows/pscp.ico \
-		../windows/version.rc2 ../version.h
+		../windows/version.rc2 ../version.h ../licence.h
 	$(RC) $(RCFL) $(RCFLAGS) ../windows/pscp.rc -o pscp.res.o
 
 psftp.o: ../psftp.c ../putty.h ../psftp.h ../storage.h ../ssh.h ../sftp.h \
@@ -536,24 +542,25 @@ psftp.o: ../psftp.c ../putty.h ../psftp.h ../storage.h ../ssh.h ../sftp.h \
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../psftp.c
 
 psftp.res.o: ../windows/psftp.rc ../windows/rcstuff.h ../windows/pscp.ico \
-		../windows/version.rc2 ../version.h
+		../windows/version.rc2 ../version.h ../licence.h
 	$(RC) $(RCFL) $(RCFLAGS) ../windows/psftp.rc -o psftp.res.o
 
 putty.res.o: ../windows/putty.rc ../windows/rcstuff.h ../windows/win_res.rc2 \
 		../windows/putty.mft ../windows/win_res.h \
 		../windows/putty.ico ../windows/puttycfg.ico \
-		../windows/version.rc2 ../version.h
+		../windows/version.rc2 ../version.h ../licence.h
 	$(RC) $(RCFL) $(RCFLAGS) ../windows/putty.rc -o putty.res.o
 
 puttygen.res.o: ../windows/puttygen.rc ../windows/rcstuff.h \
 		../windows/puttygen.ico ../windows/version.rc2 \
-		../windows/puttygen.mft ../version.h
+		../windows/puttygen.mft ../version.h ../licence.h
 	$(RC) $(RCFL) $(RCFLAGS) ../windows/puttygen.rc -o puttygen.res.o
 
 puttytel.res.o: ../windows/puttytel.rc ../windows/rcstuff.h \
 		../windows/win_res.rc2 ../windows/putty.mft \
 		../windows/win_res.h ../windows/putty.ico \
-		../windows/puttycfg.ico ../windows/version.rc2 ../version.h
+		../windows/puttycfg.ico ../windows/version.rc2 ../version.h \
+		../licence.h
 	$(RC) $(RCFL) $(RCFLAGS) ../windows/puttytel.rc -o puttytel.res.o
 
 raw.o: ../raw.c ../putty.h ../puttyps.h ../network.h ../misc.h \
@@ -887,6 +894,12 @@ wildcard.o: ../wildcard.c ../putty.h ../puttyps.h ../network.h ../misc.h \
 		../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../wildcard.c
 
+wincapi.o: ../windows/wincapi.c ../putty.h ../windows/wincapi.h ../puttyps.h \
+		../network.h ../misc.h ../windows/winstuff.h ../macosx/osx.h \
+		../unix/unix.h ../puttymem.h ../tree234.h \
+		../windows/winhelp.h ../charset/charset.h
+	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../windows/wincapi.c
+
 wincfg.o: ../windows/wincfg.c ../putty.h ../dialog.h ../storage.h \
 		../puttyps.h ../network.h ../misc.h ../windows/winstuff.h \
 		../macosx/osx.h ../unix/unix.h ../puttymem.h ../tree234.h \
@@ -913,17 +926,17 @@ windefs.o: ../windows/windefs.c ../putty.h ../puttyps.h ../network.h \
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../windows/windefs.c
 
 windlg.o: ../windows/windlg.c ../putty.h ../ssh.h ../windows/win_res.h \
-		../storage.h ../dialog.h ../puttyps.h ../network.h ../misc.h \
-		../puttymem.h ../tree234.h ../int64.h ../windows/winstuff.h \
-		../macosx/osx.h ../unix/unix.h ../windows/winhelp.h \
-		../charset/charset.h
+		../storage.h ../dialog.h ../licence.h ../puttyps.h \
+		../network.h ../misc.h ../puttymem.h ../tree234.h ../int64.h \
+		../windows/winstuff.h ../macosx/osx.h ../unix/unix.h \
+		../windows/winhelp.h ../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../windows/windlg.c
 
 window.o: ../windows/window.c ../putty.h ../terminal.h ../storage.h \
-		../windows/win_res.h ../puttyps.h ../network.h ../misc.h \
-		../tree234.h ../windows/winstuff.h ../macosx/osx.h \
-		../unix/unix.h ../puttymem.h ../windows/winhelp.h \
-		../charset/charset.h
+		../windows/win_res.h ../windows/winsecur.h ../puttyps.h \
+		../network.h ../misc.h ../tree234.h ../windows/winstuff.h \
+		../macosx/osx.h ../unix/unix.h ../puttymem.h \
+		../windows/winhelp.h ../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../windows/window.c
 
 wingss.o: ../windows/wingss.c ../putty.h ../pgssapi.h ../sshgss.h \
@@ -993,14 +1006,15 @@ winnps.o: ../windows/winnps.c ../tree234.h ../putty.h ../network.h \
 		../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../windows/winnps.c
 
-winpgen.o: ../windows/winpgen.c ../putty.h ../ssh.h ../puttyps.h \
-		../network.h ../misc.h ../puttymem.h ../tree234.h ../int64.h \
-		../windows/winstuff.h ../macosx/osx.h ../unix/unix.h \
-		../windows/winhelp.h ../charset/charset.h
+winpgen.o: ../windows/winpgen.c ../putty.h ../ssh.h ../licence.h \
+		../puttyps.h ../network.h ../misc.h ../puttymem.h \
+		../tree234.h ../int64.h ../windows/winstuff.h \
+		../macosx/osx.h ../unix/unix.h ../windows/winhelp.h \
+		../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../windows/winpgen.c
 
 winpgnt.o: ../windows/winpgnt.c ../putty.h ../ssh.h ../misc.h ../tree234.h \
-		../windows/winsecur.h ../puttyps.h ../network.h \
+		../windows/winsecur.h ../licence.h ../puttyps.h ../network.h \
 		../puttymem.h ../int64.h ../windows/winstuff.h \
 		../macosx/osx.h ../unix/unix.h ../windows/winhelp.h \
 		../charset/charset.h
@@ -1049,7 +1063,7 @@ winsftp.o: ../windows/winsftp.c ../putty.h ../psftp.h ../ssh.h ../int64.h \
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../windows/winsftp.c
 
 winshare.o: ../windows/winshare.c ../tree234.h ../putty.h ../network.h \
-		../proxy.h ../ssh.h ../windows/winsecur.h ../noshare.c \
+		../proxy.h ../ssh.h ../windows/wincapi.h ../noshare.c \
 		../puttyps.h ../misc.h ../puttymem.h ../int64.h \
 		../windows/winstuff.h ../macosx/osx.h ../unix/unix.h \
 		../windows/winhelp.h ../charset/charset.h

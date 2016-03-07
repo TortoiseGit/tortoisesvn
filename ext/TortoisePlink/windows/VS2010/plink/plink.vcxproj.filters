@@ -95,6 +95,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\wildcard.c">
       <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\wincapi.c">
+      <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\wincons.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\windefs.c">
@@ -145,6 +147,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\ldisc.h">
       <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\licence.h">
+      <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\macosx\osx.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\misc.h">
@@ -182,6 +186,8 @@
     </ClInclude>    <ClInclude Include="..\..\..\version.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\rcstuff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\wincapi.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\winhelp.h">
       <Filter>Header Files</Filter>

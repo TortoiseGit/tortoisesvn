@@ -276,6 +276,10 @@ SOURCE=..\..\..\wildcard.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\windows\wincapi.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\windows\wincons.c
 # End Source File
 # Begin Source File
@@ -364,6 +368,10 @@ SOURCE=..\..\..\int64.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\licence.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\macosx\osx.h
 # End Source File
 # Begin Source File
@@ -437,6 +445,10 @@ SOURCE=..\..\..\version.h
 # Begin Source File
 
 SOURCE=..\..\..\windows\rcstuff.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\windows\wincapi.h
 # End Source File
 # Begin Source File
 

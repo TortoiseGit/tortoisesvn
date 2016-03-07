@@ -10,10 +10,7 @@
 #include "putty.h"
 #include "storage.h"
 
-#pragma warning(push)
-#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <shlobj.h>
-#pragma warning(pop)
 #ifndef CSIDL_APPDATA
 #define CSIDL_APPDATA 0x001a
 #endif

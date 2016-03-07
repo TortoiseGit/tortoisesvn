@@ -179,6 +179,7 @@
     <ClCompile Include="..\..\winnet.c" />
     <ClCompile Include="..\..\winprint.c" />
     <ClCompile Include="..\..\winproxy.c" />
+    <ClCompile Include="..\..\winsecur.c" />
     <ClCompile Include="..\..\winser.c" />
     <ClCompile Include="..\..\winstore.c" />
     <ClCompile Include="..\..\wintime.c" />
@@ -190,6 +191,7 @@
     <ClInclude Include="..\..\..\dialog.h" />
     <ClInclude Include="..\..\..\int64.h" />
     <ClInclude Include="..\..\..\ldisc.h" />
+    <ClInclude Include="..\..\..\licence.h" />
     <ClInclude Include="..\..\..\macosx\osx.h" />
     <ClInclude Include="..\..\..\misc.h" />
     <ClInclude Include="..\..\..\network.h" />
@@ -206,6 +208,7 @@
     <ClInclude Include="..\..\rcstuff.h" />
     <ClInclude Include="..\..\win_res.h" />
     <ClInclude Include="..\..\winhelp.h" />
+    <ClInclude Include="..\..\winsecur.h" />
     <ClInclude Include="..\..\winstuff.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
