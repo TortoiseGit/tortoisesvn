@@ -1503,21 +1503,24 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string
     if (m_startrev == -1)
         m_startrev = rev;
 
+    PLOGENTRYDATA logItem = m_logEntries[m_logEntries.size() - 1];
+    if (logItem->GetDepth() > 0)
+        m_cMergedRevisionsReceived++;
+
     if (m_limit != 0)
     {
-        m_LogProgress.SetPos ((int)(m_logEntries.size() - m_prevLogEntriesSize));
+        m_LogProgress.SetPos ((int)(m_logEntries.size() - m_prevLogEntriesSize - m_cMergedRevisionsReceived));
         if (!m_bMonitoringMode && m_pTaskbarList)
         {
             int l,u;
             m_LogProgress.GetRange(l, u);
             m_pTaskbarList->SetProgressState(m_hWnd, TBPF_NORMAL);
-            m_pTaskbarList->SetProgressValue(m_hWnd, m_logEntries.size() - m_prevLogEntriesSize - l, u-l);
+            m_pTaskbarList->SetProgressValue(m_hWnd, m_logEntries.size() - m_prevLogEntriesSize - l - m_cMergedRevisionsReceived, u-l);
         }
     }
     else if (m_startrev.IsNumber() && m_endrev.IsNumber())
     {
-        svn_revnum_t range = (svn_revnum_t)m_startrev - (svn_revnum_t)m_endrev;
-        if ((rev > m_temprev) || (m_temprev - rev) > (range / 100))
+        if (!logItem->HasParent() && rev < m_temprev)
         {
             m_temprev = rev;
             m_LogProgress.SetPos((svn_revnum_t)m_startrev-rev+(svn_revnum_t)m_endrev);
@@ -1694,9 +1697,15 @@ void CLogDlg::LogThread()
         m_pTaskbarList->SetProgressState(m_hWnd, TBPF_INDETERMINATE);
     }
     if (m_limit != 0)
+    {
+        m_cMergedRevisionsReceived = 0;
         m_LogProgress.SetRange32(0, m_limit);
+    }
     else
+    {
         m_LogProgress.SetRange32(m_endrev, m_startrev);
+        m_temprev = m_startrev;
+    }
 
     if (!m_pegrev.IsValid())
         m_pegrev = m_startrev;

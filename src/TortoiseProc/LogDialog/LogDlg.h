@@ -464,6 +464,7 @@ private:
     svn_revnum_t        m_head;     ///< only used in Range case of log
     RefreshEnum         m_nRefresh;
     svn_revnum_t        m_temprev;  ///< only used during ReceiveLog
+    int                 m_cMergedRevisionsReceived;  ///< only used during ReceiveLog
     SVNRev              m_LogRevision;
     SVNRev              m_endrev;
     SVNRev              m_wcRev;
