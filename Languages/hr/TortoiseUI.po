@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-03-04 22:15+0000\n"
+"PO-Revision-Date: 2016-03-07 21:16+0000\n"
 "Last-Translator: Boris Nociar <boris.nociar@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/luebbe/tortoisesvn/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -1567,7 +1567,7 @@ msgstr "&Obnovi"
 
 #. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
 msgid "&Update all"
-msgstr ""
+msgstr "&Ažuriraj sve"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -6936,7 +6936,7 @@ msgstr "Stopljene revizije {revrange} iz {mergeurl}:\n"
 msgid ""
 "Merges all missing revisions from trunk into the working copy of a feature "
 "branch using merge-tracking information"
-msgstr ""
+msgstr "Stapa sve nedostajuće revizije iz glavne grane u radnu kopiju buduće grane koristeći informacije praćenja spajanja"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1073)
 msgid "Merging"
@@ -7050,7 +7050,7 @@ msgstr "Izmijenjeni čvor"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
-msgstr ""
+msgstr "Interval nadgledanja u minutama:"
 
 #. Resource IDs: (17107)
 msgid "More"
@@ -7118,7 +7118,7 @@ msgstr "Premjesti gore"
 msgid ""
 "Move and add\n"
 "The file is moved to the destination and added to version control."
-msgstr ""
+msgstr "Premjesti i dodaj\nDatoteka je premještena na odredište i dodana je kontrola verzije."
 
 #. Resource IDs: (IDS_PROC_MOVERENAME)
 msgid "Move and rename"
@@ -7166,7 +7166,7 @@ msgstr "Premještanje: novo ime za %ls"
 msgid ""
 "Move\n"
 "The file is moved to the destination and left unversioned."
-msgstr ""
+msgstr "Premjesti\nDatoteka je premještena na odredište i ostala je neverzionirana."
 
 #. Resource IDs: (IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK3)
 msgid ""
@@ -7283,7 +7283,7 @@ msgstr "Novi izbornik"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
-msgstr ""
+msgstr "Nova granu/oznak nije spremna, ponovni pokušaj prebacivanja..."
 
 #. Resource IDs: (IDS_WARN_RENAMEREQUIRED)
 msgid "New name must not be empty or the same as the original name!"
@@ -7825,7 +7825,7 @@ msgstr "Umetni popis imena datoteka"
 msgid ""
 "Pastes the svn path from the clipboard, resulting in a move (cut) or copy "
 "operation"
-msgstr "Zalijepi svn putanju iz klipbordapath, rezultirajući operacijom micanja (rezanja) ili kopiranja"
+msgstr "Zalijepi svn putanju iz klipborda, rezultirajući operacijom micanja (rezanja) ili kopiranja"
 
 #. Resource IDs: (Dialog IDD_FILEPATCHES: Control id 1076)
 msgid "Patch &all items"
@@ -9959,7 +9959,7 @@ msgstr "Prikazuje vrijednost svojstva za vrstu završetaka linija (EOL)"
 msgid ""
 "Shows the lock owner of locked files. Disable this to improve performance "
 "with older servers."
-msgstr ""
+msgstr "Prikaži vlasnike lokota zaključanih datoteka. Onemogući za poboljšavanje izvođenja sa starijim poslužiteljima."
 
 #. Resource IDs: (IDS_MENUDESCLOG)
 msgid "Shows the log for the selected file / folder"
@@ -10002,7 +10002,7 @@ msgstr "Veličina spremnika (bez sažimanja)"
 msgid ""
 "Skip\n"
 "The file is left where it is."
-msgstr ""
+msgstr "Preskoči\nDatoteka ostaje gdje je."
 
 #. Resource IDs: (IDS_SVNACTION_SKIP)
 msgid "Skipped"
@@ -10018,7 +10018,7 @@ msgstr "Preskočio smetajuću radnu kopiju"
 
 #. Resource IDs: (IDS_SVNACTION_ACCESSDENIED)
 msgid "Skipped, access denied"
-msgstr ""
+msgstr "Preskočeno, pristup odbijen"
 
 #. Resource IDs: (IDS_SVNACTION_SKIPNOPARENT)
 msgid "Skipped, no versioned parent"
@@ -10026,7 +10026,7 @@ msgstr "Preskočeno, nema verzioniranog roditelja"
 
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
-msgstr ""
+msgstr "Preskočeno, ostaje u konfliktu"
 
 #. Resource IDs: (17112)
 msgid "Slide"
@@ -10034,7 +10034,7 @@ msgstr "Klizanje"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
 msgid "Smart tab char"
-msgstr ""
+msgstr "Pametan tab zank"
 
 #. Resource IDs: (IDS_WARNMODIFIEDOUTSIDE)
 msgid ""
@@ -10050,7 +10050,7 @@ msgstr "Neke datoteke su izmijenjene izvan T-Merge.\nŽelite li ponovo učitati 
 
 #. Resource IDs: (IDS_ERR_ERROROCCURED)
 msgid "Something went wrong"
-msgstr ""
+msgstr "Nešto je pošlo po zlu"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1126)
 msgid "Sort by commit count"
@@ -10088,7 +10088,7 @@ msgid ""
 "{author}:\tThe author of the merged revision\r\n"
 "{rev}:\tThe merged revision itself\r\n"
 "{bugid}:\tThe bug ids of the merged revision"
-msgstr ""
+msgstr "Određuje kako treba izgledati tekst za svaku spojenu reviziju.\nSljedeće ključne riječi možete koristiti:\n{msg}:\tPoruka dnevnika spojenih revizija, kao što je uneseno.\n{msgoneline}:\tPoruka dnevnika u jednoj liniji\n{author}:\tAutor spojene revizije\n{rev}:\tSama stopljena revizija\n{bugid}:\tPogreške ID oznaka spojenih revizija"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1572)
 msgid ""
@@ -10166,25 +10166,25 @@ msgstr "Pokreni uređivač registryja"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 1562)
 msgid "Start with &Windows"
-msgstr ""
+msgstr "Pokreni sa &Windowsima"
 
 #. Resource IDs: (IDS_PROGRS_STARTING_EXTERNALS)
 msgid "Starting externals..."
-msgstr ""
+msgstr "Pokretanje vanjskih..."
 
 #. Resource IDs: (IDS_MENUDESCDIFFNOW)
 msgid ""
 "Starts the diff viewer with the currently selected file and the one marked "
 "before for diffing later."
-msgstr ""
+msgstr "Pokreni preglednik razlika sa trenutno odabranom datotekom i ranije označenom za kasniju usporedbu."
 
 #. Resource IDs: (IDS_EDITPROPCONFLICT_TT_STARTEDITOR)
 msgid "Starts the merge tool where you can resolve the property conflict"
-msgstr ""
+msgstr "Pokreće alat stapanja gdje možete riješiti vlasništvo sukoba"
 
 #. Resource IDs: (IDS_EDITPROPCONFLICT_TT_MANUAL)
 msgid "Starts the property dialog where you can edit the property manually."
-msgstr ""
+msgstr "Pokreće dijalog svojstva gdje možete urediti svojstvo ručno."
 
 #. Resource IDs: (IDS_STATE)
 msgid "State"
@@ -10205,7 +10205,7 @@ msgstr "Status"
 
 #. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
 msgid "Status Bar"
-msgstr ""
+msgstr "Traka stanja"
 
 #. Resource IDs: (17087)
 msgid "Status Bar Configuration"
@@ -10248,7 +10248,7 @@ msgstr "Stefan Küng, Lübbe Onken"
 msgid ""
 "Stores the path of the file to be used for a diff on a later right-click. "
 "Hold down the Ctrl key to remove the last saved path."
-msgstr ""
+msgstr "Sprema put datoteke za kasniju usporedbu s klikom desne tipke miša. Držite pritisnutu tipku Ctrl da biste uklonili spremljeni put."
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
@@ -10322,7 +10322,7 @@ msgstr "Subversion je naišao na ozbiljan problem.\nMolimo vas da o ovome izvije
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "Subversion passwor&d"
-msgstr ""
+msgstr "Subversion lozin&ka"
 
 #. Resource IDs: (IDS_PROC_REPOCREATEERR)
 msgid ""
@@ -10340,7 +10340,7 @@ msgstr "Datoteka Subversion poslužitelja:"
 
 #. Resource IDs: (IDS_SUCCESS)
 msgid "Success"
-msgstr ""
+msgstr "Uspješno"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1232)
 msgid "Swit&ch working copy to new branch/tag"
@@ -10425,15 +10425,15 @@ msgstr "Zamjenjuje usporedbu lijevo <-> desno"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 368)
 msgid "Sync"
-msgstr ""
+msgstr "Sinkronizacija"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 65535)
 msgid "Sync setup"
-msgstr ""
+msgstr "Postavke sinkronizacije"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1529)
 msgid "Sync stored auth data"
-msgstr ""
+msgstr "Sinkronizacija pohrane podataka autorizacije"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "System &sounds"
@@ -10547,7 +10547,7 @@ msgstr "Datoteka %ls ne postoji!"
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK1)
 #, c-format
 msgid "The file %ls is not versioned. How do you want to proceed?"
-msgstr ""
+msgstr "Datoteka %ls nije verzionirana. Kako želite nastaviti?"
 
 #. Resource IDs: (IDS_ERR_PATCH_FILENOTINPATCH)
 #, c-format
@@ -10576,7 +10576,7 @@ msgstr "Datoteka je prevelika da bi se otvorila."
 msgid ""
 "The file or directory \"%ls\" already exists at the drop location! You have "
 "to remove it first before you can add an external there with the same name."
-msgstr ""
+msgstr "Datoteka ili direktorij \"%ls\" već postoji u lokaciji otpuštanja! Najprije ga trebate ukloniti prije nego možete tamo da dodate vanjske sa istim imenom. "
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM)
 #, c-format
@@ -10592,7 +10592,7 @@ msgid ""
 "The file\n"
 "%ls\n"
 "is not a valid text file!"
-msgstr ""
+msgstr "Datoteka\n%ls\nnije valjana tekstualna datoteka!"
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT)
 #, c-format
@@ -10604,7 +10604,7 @@ msgstr "Mapa\n%ls\nveć postoji!"
 
 #. Resource IDs: (IDS_COMMITDLG_HOOKSUCCESSFUL_TT)
 msgid "The hook script executed successfully"
-msgstr ""
+msgstr "Zakvačena skripta uspješno izvršena"
 
 #. Resource IDs: (IDS_ERR_HOOKFAILED, IDS_HOOK_ERRORMSG)
 #, c-format
@@ -10615,7 +10615,7 @@ msgstr "Skripta je vratila grešku:\n%ls"
 
 #. Resource IDs: (IDS_ERR_HOOKNOTAPPROVED)
 msgid "The hook script was not approved to run"
-msgstr ""
+msgstr "Zakvačena skripta nema odobrenje za pokretanje"
 
 #. Resource IDs: (IDS_INVALIDIMAGEINFO)
 msgid "The image can not be shown."
@@ -10636,7 +10636,7 @@ msgstr "Usluga za praćenje zahtjeva nije u stanju provjeriti string parametar"
 msgid ""
 "The item '%ls' has property conflicts:\r\n"
 "%ls"
-msgstr ""
+msgstr "Stavka '%ls' ima svojstvo konflikta:\n%ls"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRMERGEADD)
 #, c-format
@@ -10806,11 +10806,11 @@ msgstr "Parameteri '/path' i '/pathfile' se međusobno isključuju.\nMorate se o
 msgid ""
 "The password is wrong.\n"
 "Please enter the correct password in the settings dialog."
-msgstr ""
+msgstr "Lozinka nije u redu.\nMolimo unesite ispravnu lozinku u dijaloškom okviru postavki."
 
 #. Resource IDs: (IDS_ERR_SYNCPW_NOMATCH)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "Lozinke se ne podudaraju"
 
 #. Resource IDs: (IDS_ERR_PATCH_DOESNOTMATCH)
 #, c-format
@@ -10880,7 +10880,7 @@ msgstr "Izabrana datoteka izgleda da još uvijek sadrži oznake jednog ili više
 msgid ""
 "The settings file can not be decrypted with the specified password!\n"
 "Do you want to overwrite the sync file?"
-msgstr ""
+msgstr "Datoteka postavki se ne može dešifrirati uz priloženu lozinku!\nŽelite li prebrisati datoteku sinkronizacije?"
 
 #. Resource IDs: (IDS_ERR_INVALIDURLORPATH)
 #, c-format
@@ -10888,7 +10888,7 @@ msgid ""
 "The specified path/url\n"
 "%ls\n"
 "is invalid!"
-msgstr ""
+msgstr "Navedeni put/url\n%ls\nnije valjan."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK2)
 msgid "The target already exists."
@@ -10931,7 +10931,7 @@ msgstr "Ciljna radna kopija ima lokalne promjene!"
 msgid ""
 "The text is identical, but the files do not match!\r\n"
 "The following differences were found:"
-msgstr ""
+msgstr "Tekst je isti, ali datoteke se ne podudaraju!\nPronađene su sljedeće razlike:"
 
 #. Resource IDs: (IDS_SETTINGS_AUTOCOMPLETIONTIMEOUT_TT)
 msgid ""
@@ -10979,7 +10979,7 @@ msgstr "Osim Tortoiseovog, trenutno je instalirano još %d rukovatelja preklapan
 msgid ""
 "There are more editable views.\n"
 "What view do you want to save?"
-msgstr ""
+msgstr "Postoji više pregleda za uređivanje.\nKoji prikaz želite spremiti?"
 
 #. Resource IDs: (IDS_ERR_NO_AVAILABLE_BUGTRAQ_PROVIDERS)
 msgid "There are no issue-tracker providers available."
@@ -11018,7 +11018,7 @@ msgstr "Nema ništa za dodati. Sve datoteke i mape su ili pod kontrolom sustava 
 
 #. Resource IDs: (IDS_ERR_PROVIDER_PATH_ALREADY_CONFIGURED)
 msgid "There's already a plugin configured for this path"
-msgstr ""
+msgstr "Već postoji dodatak konfiguriran za ovu putanju"
 
 #. Resource IDs: (IDS_ERR_NOTHINGTOUNLOCK)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
@@ -11039,7 +11039,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr ""
+msgstr "Pohranjivanje nije rekurzivno i postoje premještene/preimenovane/kopirane mape odabrane za pohranjivanje. Takvo premještanje/preimenovanje su uvijek izvodi rekurzivno u spremištu. Želiš li pohraniti bez obzira?"
 
 #. Resource IDs: (IDS_SVNERR_HOOKFAILED)
 msgid ""
@@ -11112,13 +11112,13 @@ msgstr "Ovaj proizvod sadrži softver Apache™ Subversion® (http://subversion.
 msgid ""
 "This program is linked to the missing export %Ts in the file %Ts. This "
 "machine may have an incompatible version of %Ts."
-msgstr ""
+msgstr "Ovaj program je povezan s nepostojećim izvozom %Ts u datoteku %Ts. Ovo računalo možda ima nekompatibilnu verziju %Ts."
 
 #. Resource IDs: (61709)
 #, c-format
 msgid ""
 "This program requires the file %Ts, which was not found on this system."
-msgstr ""
+msgstr "Ovaj program zahtijeva datoteku %Ts, koja nije pronađena na ovom sustavu."
 
 #. Resource IDs: (IDS_ERR_PROPNOTONFILE)
 msgid "This property is only allowed on folders, not files."
@@ -11139,7 +11139,7 @@ msgstr "Ovo će obrisati zapis o komandi koji ste koristili u ovoj aplikaciji, i
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Ova opcija će ažurirati vašu radnu kopiju na novi 1.8 format i učiniti ga neupotrebljivim za starije klijente."
 
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK1)
 #, c-format
@@ -11163,11 +11163,11 @@ msgstr "Vremena isteka"
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "Tip"
-msgstr ""
+msgstr "Savjet"
 
 #. Resource IDs: (IDS_MONITOR_ADDHINT)
 msgid "To add projects to be monitored, click the \"Add\" button above"
-msgstr ""
+msgstr "Za dodavanje projekata koje treba pratiti, kliknite na \"Dodaj\" gumb iznad"
 
 #. Resource IDs: (IDS_PROGRS_NONRECURSIVEHINT)
 msgid ""
@@ -11234,7 +11234,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr ""
+msgstr "TortoiseBlame se ne smije pokretati izravno! Korištenje\nTortoiseProc.exe /command:blame /path: \"put\\do\\datoteke\"\nUmjesto toga.\n\nTortoiseBlame.exe blamedatoteka [logdatoteka [viewtitle]] [/line: brojlinije] [/path: originalput] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 153, IDS_APP_TITLE)
 msgid "TortoiseIDiff"
@@ -11275,7 +11275,7 @@ msgid ""
 "libsvn_diff %d.%d.%d, %ls\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %ls, %ls\nlibsvn_diff %d.%d.%d, %ls\napr %d.%d.%d\napr-util %d.%d.%d"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535, IDS_APPNAME)
 msgid "TortoiseSVN"
@@ -11292,29 +11292,29 @@ msgid ""
 "%ls\r\n"
 "zlib %ls\r\n"
 "SQLite %ls"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %ls, %ls%ls\nSubversion %d.%d.%d, %ls\napr %d.%d.%d\napr-util %d.%d.%d\nserf %d.%d.%d\n%ls\nzlib %ls\nSQLite %ls"
 
 #. Resource IDs: (IDS_MONITOR_DLGTITLE)
 msgid "TortoiseSVN Project Monitor"
-msgstr ""
+msgstr "TortoiseSVN Nadzor Projekta"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 366)
 msgid "TortoiseSVN Project Monitor Options"
-msgstr ""
+msgstr "TortoiseSVN Nadzor Projekta Opcije"
 
 #. Resource IDs: (IDS_MONITOR_NEWCOMMIT)
 #, c-format
 msgid ""
 "TortoiseSVN Project Monitor\r\n"
 "%d new commit in %d project"
-msgstr ""
+msgstr "TortoiseSVN Nadzor Projekta\n%d novo snimanje u %d projekat"
 
 #. Resource IDs: (IDS_MONITOR_NEWCOMMITS)
 #, c-format
 msgid ""
 "TortoiseSVN Project Monitor\r\n"
 "%d new commits in %d projects"
-msgstr ""
+msgstr "TortoiseSVN Nadzor Projekta\n%d nova snimanja u %d projekata"
 
 #. Resource IDs: (IDS_COPY_COMMITMSG)
 msgid "TortoiseSVN auto commit: changed externals to fixed revision."
@@ -11407,7 +11407,7 @@ msgstr "Pokušajte s 'Počisti'. Ukoliko to ne pomogne, potrebno je napraviti no
 
 #. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
 msgid "Try enabling the \"Break write locks\" option for the cleanup."
-msgstr ""
+msgstr "Pokušajte omogućiti opciju \"Ukloni ključ za upisivanje\" za čišćenje."
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"
@@ -11509,7 +11509,7 @@ msgstr "Makni oznaku"
 msgid ""
 "Unchecked items are shown in the submenu, checked items on the main context "
 "menu"
-msgstr ""
+msgstr "Neoznačene stavke su prikazane u podizborniku, označene stavke na glavnom kontekstom izborniku"
 
 #. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
 msgid "Undo"
@@ -11555,7 +11555,7 @@ msgstr "Objedinjene &razlike glavnih (HEAD) revizija"
 
 #. Resource IDs: (IDS_MENUUNIDIFF)
 msgid "Unified Diff"
-msgstr ""
+msgstr "Ujedinjene razlike"
 
 #. Resource IDs: (IDS_ERR_SSL_UNKNOWNCA)
 #, c-format
@@ -11588,7 +11588,7 @@ msgstr "Odključano"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_UNMARKBLOCK)
 msgid "Unmark this change"
-msgstr ""
+msgstr "Odznačite ovu promjenu"
 
 #. Resource IDs: (IDS_EDITPROPS_ERRIMPORTFORMAT)
 msgid "Unrecognized or invalid property file format!"
@@ -11652,7 +11652,7 @@ msgstr "Obnovi RK na inačicu"
 
 #. Resource IDs: (IDS_MONITOR_THREADRUNNING)
 msgid "Update check is currently running!"
-msgstr ""
+msgstr "Ažuriranje trenutno u tijeku!"
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK2)
 msgid "Update externals"
@@ -11674,7 +11674,7 @@ msgstr "Obnovi\nObnovi radnu kopiju i ponovno otvori prozor za pohranu kako bist
 msgid ""
 "Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "Ažuriranje\nAžuriranje na HEAD reviziju"
 
 #. Resource IDs: (IDS_SVNACTION_UPDATE)
 msgid "Updated"
@@ -11682,7 +11682,7 @@ msgstr "Obnovljeno"
 
 #. Resource IDs: (IDS_MONITOR_UPDATEALLTT)
 msgid "Updates all monitored working copies"
-msgstr ""
+msgstr "Ažurira sve praćene radne kopije"
 
 #. Resource IDs: (IDS_MENUDESCUPDATEEXT)
 msgid "Updates the working copy to a specific revision"
@@ -11712,7 +11712,7 @@ msgstr "Obnavljanje spremnika dnevnika"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Nadograditi radnu kopiju\nna novi 1.8 format."
 
 #. Resource IDs: (IDS_MENUUPGRADE, IDS_PROC_UPGRADE,
 #. IDS_PROC_UPGRADECONFIRMATION_TASK2)
@@ -11776,7 +11776,7 @@ msgstr "Koristi Aero dijaloge"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1066)
 msgid "Use Ribbons"
-msgstr ""
+msgstr "Korištenje ribona"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -11917,7 +11917,7 @@ msgid ""
 "Example: 4-7,9,11,15-HEAD@pegrevision\r\n"
 "\r\n"
 "To merge all revisions (reintegrate/automatic merge), leave the box empty."
-msgstr ""
+msgstr "Koristite dnevnik dijaloga za odabir revizije za spajanje ili unesite revizije za spajanje odvojene zarezima. Niz revizija se može odrediti crticom.\n\nPrimjer: 4-7,9,11,15-HEAD@pegrevision\n\nZa spajanje svih revizija (reintegrirati/Automatsko spajanje), ostavite okvir prazan."
 
 #. Resource IDs: (IDS_WARNBETTERPATCHPATHFOUND_TASK4)
 #, c-format
@@ -11977,7 +11977,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "Važeće opcije naredbenog retka:\n/base:<put do bazne datoteke>\n/basename:<ime za prikazivanje na naslovu pregleda>\n/theirs:<put do njihove datoteke>\n/theirsname:<ime za prikazivanje na naslovu pregleda>\n/mine:<put do vaše datoteke>\n/minename:<ime za prikazivanje na naslovu pregleda>\n/merged:<Put do nastala spojene datoteke>\n/mergedname:<ime za prikazivanje na naslovu pregleda>\n/diff:<put do datoteke objedinjenih razlika>\n/patchpath:<put do mape>\n/saverequired\n/saverequiredonconflicts\n/oneway <osigurava jednostruki pregled>\n/line:<broj linije za skok>"
 
 #. Resource IDs: (IDS_ERR_VALIDATIONFAILED)
 msgid "Validation of the property value failed!"
@@ -11989,7 +11989,7 @@ msgstr "Vrijednost"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_TITLE)
 msgid "Vendor branch"
-msgstr ""
+msgstr "Prodajna grana"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1004, Dialog IDD_ABOUT: Control
 #. id 1075)
@@ -12015,7 +12015,7 @@ msgstr "Pogled"
 
 #. Resource IDs: (ID_VIEW_BARS - Ribbon name)
 msgid "View Bars"
-msgstr ""
+msgstr "Prikaz rešetaka"
 
 #. Resource IDs: (IDS_LOG_POPUP_VIEWPATHREV)
 msgid "View revision for path in &webviewer"
@@ -12048,7 +12048,7 @@ msgstr "UPOZORENJE:\r\nPromijenite ove postavke samo ako se u potpunosti sigurni
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "WC Revision:"
-msgstr ""
+msgstr "WC revizije:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "WC node"
@@ -12069,7 +12069,7 @@ msgstr "Čekaj da skript završi"
 
 #. Resource IDs: (IDS_LOG_MONITOR_BUSY)
 msgid "Waiting for monitoring thread to finish..."
-msgstr ""
+msgstr "Čekanje da se nit praćenja završi..."
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 280)
 msgid "Want to go offline?"
@@ -12106,7 +12106,7 @@ msgstr "Kada veza s poslužiteljem nije moguća,\nTSVN može raditi s lokalno po
 msgid ""
 "When enabled, TortoiseSVN move/copy context menu items will be available "
 "when dragging folders / files"
-msgstr ""
+msgstr "Kada je omogućeno, TortoiseSVN premještanje/kopiranje stavki konteksnog menija biti će dostupne prilikom povlačenja mapa/datoteka"
 
 #. Resource IDs: (IDS_SETTINGS_SELECTFILESONCOMMIT_TT)
 msgid ""
@@ -12122,7 +12122,7 @@ msgstr "Kad zaključavate jednu ili više odabranih datoteka prikazuje dijalog\n
 
 #. Resource IDs: (IDS_TEXTIDENTICAL_WHITESPACE)
 msgid "Whitespace changes (tabs, spaces)"
-msgstr ""
+msgstr "Promjena razmaka (tabulatora, razmaka)"
 
 #. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
 #. 65535)
@@ -12226,7 +12226,7 @@ msgstr "Ispustili ste više od jedne datoteke ili mape za dodati u repozitorij.\
 
 #. Resource IDs: (IDS_WARNMARKEDBLOCKS)
 msgid "You have marked changed blocks. How should those blocks be saved?"
-msgstr ""
+msgstr "Označili ste promijenjene blokove. Kako želite da blokovi budu spremljeni?"
 
 #. Resource IDs: (IDS_PROPSNOTSAVED)
 msgid ""
@@ -12240,7 +12240,7 @@ msgid ""
 "You have selected %d items to show the diff for.\n"
 "For every of these items a new instance of the diff viewer will be started.\n"
 "Do you really want to show the diff for so many items at once?"
-msgstr ""
+msgstr "Odabrali ste %d stavki za prikaz razlika.\nZa svaku ovu stavku, pokrenuti će se nova instanca prikaza razlika.\nStvarno želite pokazati razlike za toliko stavki odjednom?"
 
 #. Resource IDs: (IDS_SVNERR_UPDATEFIRST)
 msgid "You have to update your working copy first."
@@ -12288,7 +12288,7 @@ msgstr "Pokušavate dodati stavku\n'%1!ls!',\nali stavka\n'%2!ls!'\nveć postoji
 msgid ""
 "You've committed changes to external item that is tagged to a specific revision.\n"
 "Do you want to change the tagged revision now to the just committed revision?"
-msgstr ""
+msgstr "Snimili ste promjene u vanjski predmet koji je označen na određenoj reviziji.\nŽelite li sada promijeniti označenu reviziju u upravo snimljenu reviziju?"
 
 #. Resource IDs: (IDS_COMMITDLG_HISTORYHINT_TT)
 msgid ""
@@ -12406,7 +12406,7 @@ msgstr "[Nepridjeljen]"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
-msgstr ""
+msgstr "\"Zanemari-kod-snimanja\" datoteke ne obilježavaju da je nadređena mapa promijenjena"
 
 #. Resource IDs: (IDS_SETTINGS_PATTERN_INFO)
 msgid ""
@@ -12614,7 +12614,7 @@ msgstr "vanjsko"
 #. Resource IDs: (IDS_STATE_ERROR)
 #, c-format
 msgid "failed hunks: %d"
-msgstr ""
+msgstr "neispravnih komada: %d"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "file external:"
@@ -12634,7 +12634,7 @@ msgstr "dohvati HEAD reviziju:"
 
 #. Resource IDs: (IDS_EDITPROPS_PROG_FINDHEADROOTS)
 msgid "get repository root URLs:"
-msgstr ""
+msgstr "dohvati korijen URL skladišta:"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1005)
 msgid "http://tortoisesvn.net"
@@ -12650,7 +12650,7 @@ msgstr "zanemari porijeklo"
 
 #. Resource IDs: (IDS_PATCH_INCLUDEPROPS)
 msgid "include properties"
-msgstr ""
+msgstr "uključiti svojstva"
 
 #. Resource IDs: (IDS_STATUSINCOMPLETE)
 msgid "incomplete"
@@ -12658,11 +12658,11 @@ msgstr "nedovršeno"
 
 #. Resource IDs: (IDS_EDITPROPS_INHERITED)
 msgid "inherited from"
-msgstr ""
+msgstr "naslijedio od"
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_MISSING)
 msgid "it does not exist (missing or moved away?)."
-msgstr ""
+msgstr "Ne postoji (nedostaje ili je preseljen?)."
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_DELETED)
 msgid "it is already deleted."
@@ -12692,7 +12692,7 @@ msgstr "zadnja obnova:"
 msgid ""
 "leave username and password empty if the repository allows anonymous access,"
 " or if the authentication is stored already"
-msgstr ""
+msgstr "Ostavite korisničko ime i lozinku praznu ako skladište omogućava anonimni pristup ili je provjera autentičnosti pohranjena od ranije"
 
 #. Resource IDs: (IDS_PROPLOCKED, IDS_SETTINGS_LOCKEDNAME)
 msgid "locked"
@@ -12700,7 +12700,7 @@ msgstr "zaključano"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "locked (cleanup required):"
-msgstr ""
+msgstr "zaključana (čišćenje potrebno):"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1539, Dialog IDD_COPY:
 #. Control id 1539)
@@ -12778,7 +12778,7 @@ msgstr "bez verzije"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK2)
 msgid "non-versioned item"
-msgstr ""
+msgstr "Neverzionirana stavka"
 
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
@@ -12812,7 +12812,7 @@ msgstr "uparene riječi:"
 
 #. Resource IDs: (IDS_STATE_PATCHED)
 msgid "patched"
-msgstr ""
+msgstr "zakrpan"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "path elements: "
@@ -12840,7 +12840,7 @@ msgstr "tromjesečje"
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYDATEXQUARTERS)
 msgid "quarters of year"
-msgstr ""
+msgstr "četvrtine godine"
 
 #. Resource IDs: (IDS_SETTINGS_READONLYNAME)
 msgid "readonly"
@@ -12848,7 +12848,7 @@ msgstr "samo za čitanje"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COPYRELPATHS)
 msgid "relative paths"
-msgstr ""
+msgstr "relativna putanja"
 
 #. Resource IDs: (IDS_STATUSREPLACED)
 msgid "replaced"
@@ -12902,7 +12902,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr ""
+msgstr "svn:auto-props\nPopis svojstva odvojeni novim retkom koji se primjenjuju rekurzivno automatski prilikom dodavanja/uvozu datoteka.\nFormat: <filemask> = svojstvo=vrijednost;svojstvo=vrijednost\nPrimjer: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 316)
 msgid "svn:eol-style"
@@ -12949,7 +12949,7 @@ msgstr "svn:externals\nPopis modula odvojenih enterima od kojih se svaki sastoji
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr ""
+msgstr "svn:global-ignores\nLista odvojena novim redom od datoteke uzoraka za rekurzivno ignoriranje. "
 
 #. Resource IDs: (IDS_PROP_TT_IGNORE)
 msgid ""
@@ -13019,7 +13019,7 @@ msgstr "prebačeno:"
 
 #. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK1)
 msgid "tagging externals"
-msgstr ""
+msgstr "vanjsko označavanje"
 
 #. Resource IDs: (IDS_CONNECTIONSTATE_TEMPOFFLINE)
 msgid "temp. offline"
