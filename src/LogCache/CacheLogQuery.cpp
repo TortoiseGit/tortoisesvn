@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2015 - TortoiseSVN
+// Copyright (C) 2007-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -160,7 +160,7 @@ void CCacheLogQuery::CLogFiller::MergeFromUpdateCache()
 
 void CCacheLogQuery::CLogFiller::AutoAddSkipRange (revision_t revision)
 {
-    if ((firstNARevision > revision) && (currentPath.get() != NULL))
+    if ((depth == 0) && (firstNARevision > revision) && (currentPath.get() != NULL))
     {
         // due to only the parent path being renamed, the currentPath
         // may not have shown up in the log -> don't mark the range
@@ -355,9 +355,24 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 
         receiverError = false;
 
+        if (rev == SVN_INVALID_REVNUM)
+        {
+            --depth;
+            if (options.GetReceiver() != NULL)
+            {
+                options.GetReceiver()->ReceiveLog(changes
+                    , rev
+                    , stdRevProps
+                    , userRevProps
+                    , mergeInfo);
+            }
+            return;
+        }
+
         // one entry more that we received
 
-        ++receiveCount;
+        if (depth == 0)
+            ++receiveCount;
 
         // store the data we just received
 
@@ -383,11 +398,13 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 
         // the first revision we may not have information about is the one
         // immediately preceding the one we just received from the server
-
-        if (revision > 0)
-            firstNARevision = revision - 1;
-        else
-            firstNARevision = 0;
+        if (depth == 0)
+        {
+            if (revision > 0)
+                firstNARevision = revision - 1;
+            else
+                firstNARevision = 0;
+        }
 
         // hand on to the original log receiver.
         // Even if there is no receiver, track the oldest revision
@@ -397,7 +414,8 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 
         if (currentPath.get())
         {
-            oldestReported = std::min (oldestReported, revision);
+            if (depth == 0)
+                oldestReported = std::min(oldestReported, revision);
             if (options.GetReceiver() != NULL)
             {
                 if (options.GetRevsOnly())
@@ -428,7 +446,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
                     | CRevisionInfoContainer::ACTION_REPLACED
                     | CRevisionInfoContainer::ACTION_MOVED
                     | CRevisionInfoContainer::ACTION_MOVEREPLACED)) != 0)
-             && (currentPath.get() != NULL))
+             && (currentPath.get() != NULL) && (depth == 0))
         {
             // create the appropriate iterator to follow the potential path change
 
@@ -455,6 +473,8 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
         receiverError = true;
         throw;
     }
+    if (mergeInfo->mergesFollow)
+        ++depth;
 }
 
 // default construction / destruction
@@ -468,6 +488,7 @@ CCacheLogQuery::CLogFiller::CLogFiller (CRepositoryInfo* repositoryInfoCache)
     , oldestReported ((revision_t)NO_REVISION)
     , receiverError (false)
     , receiveCount (0)
+    , depth(0)
 {
 }
 
@@ -498,6 +519,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* _cache
     this->receiveCount = 0;
 
     firstNARevision = startRevision;
+    depth = 0;
     oldestReported = (revision_t)NO_REVISION;
     currentPath.reset (new CDictionaryBasedTempPath (startPath));
 
@@ -522,7 +544,7 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* _cache
                       , options.GetStrictNodeHistory()
                       , this
                       , true
-                      , false
+                      , options.GetIncludeMerges()
                       , options.GetIncludeStandardRevProps()
                       , options.GetIncludeUserRevProps()
                       , TRevPropNames());
@@ -574,60 +596,6 @@ CCacheLogQuery::CLogFiller::FillLog ( CCachedLogInfo* _cache
     return std::min (oldestReported, firstNARevision+1);
 }
 
-///////////////////////////////////////////////////////////////
-// CMergeLogger
-///////////////////////////////////////////////////////////////
-// implement ILogReceiver
-///////////////////////////////////////////////////////////////
-
-void CCacheLogQuery::CMergeLogger::ReceiveLog
-    ( TChangedPaths* changes
-    , svn_revnum_t rev
-    , const StandardRevProps* stdRevProps
-    , UserRevPropArray* userRevProps
-    , const MergeInfo* mergeInfo)
-{
-    // we want to receive revision numbers and "mergesFollow" only
-
-    assert (changes == NULL);
-    assert (stdRevProps == NULL);
-    assert (userRevProps == NULL);
-
-    UNREFERENCED_PARAMETER(changes);
-    UNREFERENCED_PARAMETER(stdRevProps);
-    UNREFERENCED_PARAMETER(userRevProps);
-
-    // special case: end of merge list?
-
-    if (rev == SVN_INVALID_REVNUM)
-    {
-        if (options.GetReceiver() != NULL)
-        {
-            options.GetReceiver()->ReceiveLog ( NULL
-                                              , NO_REVISION
-                                              , NULL
-                                              , NULL
-                                              , mergeInfo);
-        }
-    }
-    else
-    {
-        parentQuery->LogRevision ( static_cast<revision_t>(rev)
-                                 , options
-                                 , mergeInfo);
-    }
-}
-
-///////////////////////////////////////////////////////////////
-// construction
-///////////////////////////////////////////////////////////////
-
-CCacheLogQuery::CMergeLogger::CMergeLogger ( CCacheLogQuery* parentQuery
-                                           , const CLogOptions& options)
-    : parentQuery (parentQuery)
-    , options (options)
-{
-}
 
 ///////////////////////////////////////////////////////////////
 // CCacheLogQuery
@@ -1081,44 +1049,6 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
     }
 }
 
-void CCacheLogQuery::InternalLogWithMerge ( revision_t startRevision
-                                          , revision_t endRevision
-                                          , const CDictionaryBasedTempPath& startPath
-                                          , int limit
-                                          , const CLogOptions& options)
-{
-    // clear string translation caches
-
-    ResetObjectTranslations();
-
-    // this object will only receive the revision numbers
-    // and give us a callback to add the other info from cache
-    // (auto-fill the latter)
-
-    CMergeLogger logger (this, options);
-
-    // fetch revisions only but include merge children
-
-    CTSVNPath path;
-    if (startPath.IsRoot())
-        path.SetFromSVN (URL);
-    else
-        path.SetFromSVN (URL + startPath.GetPath().c_str());
-
-    svnQuery->Log ( CTSVNPathList (path)
-                  , static_cast<long>(startRevision)
-                  , static_cast<long>(startRevision)
-                  , static_cast<long>(endRevision)
-                  , limit
-                  , options.GetStrictNodeHistory()
-                  , &logger
-                  , false
-                  , true
-                  , false
-                  , false
-                  , TRevPropNames());
-}
-
 // follow copy history until the startRevision is reached
 
 CDictionaryBasedTempPath CCacheLogQuery::TranslatePegRevisionPath
@@ -1512,18 +1442,11 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
                         , includeUserRevProps
                         , userRevProps);
 
-    if (includeMerges)
-        InternalLogWithMerge ( startRevision
-                             , endRevision
-                             , startPath
-                             , limit
-                             , options);
-    else
-        InternalLog ( startRevision
-                    , endRevision
-                    , startPath
-                    , limit
-                    , options);
+    InternalLog ( startRevision
+                , endRevision
+                , startPath
+                , limit
+                , options);
 }
 
 // relay the content of a single revision to the receiver

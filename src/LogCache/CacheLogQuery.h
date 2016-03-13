@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2011-2012, 2015 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011-2012, 2015-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -179,6 +179,7 @@ private:
         /// in the log for that path
         std::unique_ptr<CDictionaryBasedTempPath> currentPath;
         revision_t firstNARevision;
+        int depth;
 
         /// the last revision we forwarded to the receiver.
         /// Will also be set, if receiver is NULL.
@@ -234,38 +235,6 @@ private:
                            , const CDictionaryBasedTempPath& startPath
                            , int limit
                            , const CLogOptions& _options);
-    };
-
-    /** utility class that receives (only) the revisions in the log
-     * including merged revisions. The parent CCacheLogQuery is used
-     * to add the other info from cache (auto-fill the cache if data
-     * is missing) and send it to the receiver.
-     */
-
-    class CMergeLogger : public ILogReceiver
-    {
-    private:
-
-        /// we will use the parent to actually update the cache
-        /// and to send data to the receiver
-        CCacheLogQuery* parentQuery;
-
-        /// log options (including receiver)
-        CLogOptions options;
-
-        /// implement ILogReceiver
-        virtual void ReceiveLog ( TChangedPaths* changes
-                                , svn_revnum_t rev
-                                , const StandardRevProps* stdRevProps
-                                , UserRevPropArray* userRevProps
-                                , const MergeInfo* mergeInfo) override;
-
-    public:
-
-        /// construction
-
-        CMergeLogger ( CCacheLogQuery* parentQuery
-                     , const CLogOptions& options);
     };
 
     /// we get our cache from here
@@ -334,12 +303,6 @@ private:
                      , const CDictionaryBasedTempPath& startPath
                      , int limit
                      , const CLogOptions& options);
-
-    void InternalLogWithMerge ( revision_t startRevision
-                              , revision_t endRevision
-                              , const CDictionaryBasedTempPath& startPath
-                              , int limit
-                              , const CLogOptions& options);
 
     /// follow copy history until the startRevision is reached
     CDictionaryBasedTempPath TranslatePegRevisionPath
