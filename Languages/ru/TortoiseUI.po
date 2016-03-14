@@ -22,6 +22,7 @@
 # Nikolay Osinin <nikolay.osinin@gmail.com>, 2011-2012
 # rlagutin <inactive+drbeep@transifex.com>, 2014
 # Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
+# Sergey Aksenov <aksenov007bond@gmail.com>, 2016
 # Alexander Shchekaturov <shcham@gmail.com>, 2013
 # Дмитрий Сытьков <sytkov@gmail.com>, 2011
 # Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>, 2015
@@ -33,8 +34,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-18 10:10+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-03-13 08:15+0000\n"
+"Last-Translator: Sergey Aksenov <aksenov007bond@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -204,14 +205,14 @@ msgstr "%I64d КБайт передано"
 #. Resource IDs: (62186)
 #, c-format
 msgid "%Ts [Recovered]"
-msgstr ""
+msgstr "%Ts [Возвращено]"
 
 #. Resource IDs: (61585, 61586)
 #, c-format
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_MULTITITLE)
 #, c-format
@@ -541,7 +542,7 @@ msgstr "&Ответвления"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
 msgid "&Break write locks"
-msgstr ""
+msgstr "&Снять блокировки на запись"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -823,11 +824,11 @@ msgstr "&Найти"
 
 #. Resource IDs: (ID_EDIT_FIND - Menu)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "&Найти...⇥(Ctrl+F)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
-msgstr ""
+msgstr "Вписать изображения в &окно⇥(F)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1646)
 msgid "&Fix time stamps"
@@ -869,7 +870,7 @@ msgstr "&Из: (начальные URL и ревизия в ряду для сл
 
 #. Resource IDs: (ID_EDIT_GOTOLINE - Menu)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr ""
+msgstr "&Перейти к строке...⇥(Ctrl+G)"
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -936,7 +937,7 @@ msgstr "&Изображение"
 
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
-msgstr ""
+msgstr "Информация об &изображении⇥(I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1188,7 +1189,7 @@ msgstr "&Открыть"
 
 #. Resource IDs: (ID_FILE_OPEN - Menu)
 msgid "&Open\t(Ctrl+O)"
-msgstr ""
+msgstr "&Открыть⇥(Ctrl+O)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1602)
 msgid "&Operative:"
@@ -1204,7 +1205,7 @@ msgstr "&Прочее"
 
 #. Resource IDs: (ID_VIEW_OVERLAPIMAGES - Menu)
 msgid "&Overlay images\t(O)"
-msgstr ""
+msgstr "На&ложить изображения⇥(O)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
@@ -1581,7 +1582,7 @@ msgstr "&Обновить"
 
 #. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
 msgid "&Update all"
-msgstr ""
+msgstr "&Обновить все"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -2031,7 +2032,7 @@ msgstr "Добавить проект в папку..."
 #. Resource IDs: (IDS_DROPDESC_ADD)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "Добавить в %1"
 
 #. Resource IDs: (IDS_MENUIGNORE)
 msgid "Add to &ignore list"
@@ -2169,14 +2170,14 @@ msgstr "Все ваши изменения будут потеряны! Вы д�
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
+msgstr "Все ваши изменения будут потеряны! Вы действительно желаете выполнить сброс меню '%Ts'?"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar "
 "'%Ts'?"
-msgstr ""
+msgstr "Все ваши изменения будут потеряны! Вы действительно желаете выполнить сброс панели инструментов '%Ts'?"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -2344,7 +2345,7 @@ msgstr "Вы действительно желаете убрать измене
 
 #. Resource IDs: (ID_VIEW_ARRANGEVERTICAL - Menu)
 msgid "Arrange &vertical\t(V)"
-msgstr ""
+msgstr "Выровнять по &вертикали⇥(V)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1587)
 msgid "As &is (no specific EOL)"
@@ -3672,7 +3673,7 @@ msgstr "Скопировать выбранное в буфер обмена\nК
 #. Resource IDs: (IDS_DROPDESC_COPY)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "Копировать в %1"
 
 #. Resource IDs: (IDS_LOG_POPUP_COPYTOCLIPBOARD)
 msgid "Copy to clipboard"
@@ -4193,7 +4194,7 @@ msgstr "Различие"
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
 msgid "Diff &Options"
-msgstr ""
+msgstr "&Параметры сравнения"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
@@ -4365,7 +4366,7 @@ msgstr "Сделать это для всех неверсированных/и�
 #. Resource IDs: (16109)
 #, c-format
 msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
+msgstr "Вы действительно желаете удалить панель инструментов '%Ts'?"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4529,7 +4530,7 @@ msgstr "В&ыход"
 
 #. Resource IDs: (105 - Menu)
 msgid "E&xit\t(Ctrl+W)"
-msgstr ""
+msgstr "Вы&ход⇥(Ctrl+W)"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_ALL)
 msgid "E&xpand all"
@@ -4618,7 +4619,7 @@ msgstr "Изменить сообщение журнала"
 msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "Редактирование свойства '%1!S!' для↩\n%2!s!"
 
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1382, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1331)
@@ -4691,7 +4692,7 @@ msgid ""
 "Encoding\n"
 "Convert to the specified encoding\n"
 "Hold down the Ctrl key to reload the file with the specified encoding."
-msgstr ""
+msgstr "Кодирование\nПреобразовать в указанную кодировку\nУдерживайте нажатой клавишу Ctrl для перезагрузки файла с указанной кодировкой."
 
 #. Resource IDs: (61866)
 #, c-format
@@ -4901,7 +4902,7 @@ msgstr "Развернуть &последующее дерево"
 #. Resource IDs: (16025)
 #, c-format
 msgid "Expand (%Ts)"
-msgstr ""
+msgstr "Раскрыть (%Ts)"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -5319,11 +5320,11 @@ msgstr "По высоте"
 
 #. Resource IDs: (ID_VIEW_FITIMAGEHEIGHTS - Menu)
 msgid "Fit image &heights\t(H)"
-msgstr ""
+msgstr "Подобрать &высоту изображения⇥(H)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGEWIDTHS - Menu)
 msgid "Fit image &widths\t(W)"
-msgstr ""
+msgstr "Подобрать &ширину изображения⇥(W)"
 
 #. Resource IDs: (ID_VIEW_ZOOMWIDTH - Menu)
 msgid "Fit width"
@@ -6076,7 +6077,7 @@ msgstr "Игнорировать изменения\nИгнорировать в
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
-msgstr ""
+msgstr "Игнорировать комментарии"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1127, Dialog IDD_MERGEALL:
 #. Control id 1126, Dialog IDD_MERGEWIZARD_OPTIONS: Control id 1126)
@@ -6192,7 +6193,7 @@ msgstr "Импорт папки %1!ls!\r\nв %2!ls!"
 #. Resource IDs: (IDS_DROPDESC_IMPORT)
 #, c-format
 msgid "Import to %1"
-msgstr ""
+msgstr "Импорт в %1"
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
 msgid ""
@@ -6594,7 +6595,7 @@ msgstr "Локальные &ловушки"
 
 #. Resource IDs: (Dialog IDD_EDITPROPLOCALHOOKS: Control id 334)
 msgid "Local hook scripts"
-msgstr ""
+msgstr "Локальные скрипты ловушек"
 
 #. Resource IDs: (IDS_CHECKOUT_TT_DIR)
 msgid ""
@@ -7157,7 +7158,7 @@ msgstr "Переместить специальный файл или дирек
 #. Resource IDs: (IDS_DROPDESC_MOVE)
 #, c-format
 msgid "Move to %1"
-msgstr ""
+msgstr "Переместить в %1"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_MOVETOCS)
 msgid "Move to changelist"
@@ -7723,7 +7724,7 @@ msgstr "Параметры"
 
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
-msgstr ""
+msgstr "Исходный &размер⇥(S)"
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -7868,7 +7869,7 @@ msgstr "Применение заплатки"
 #. Resource IDs: (IDS_PATCH_PATHINGFILE)
 #, c-format
 msgid "Patching file '%1!ls!'"
-msgstr ""
+msgstr "Применение заплатки к файлу '%1!ls!'"
 
 #. Resource IDs: (IDS_HEADER_PATH, IDS_PATH, IDS_PROGRS_PATH,
 #. IDS_SETTINGS_BUGTRAQ_PATHCOL, IDS_SETTINGS_HOOKS_PATHCOL,
@@ -7932,7 +7933,7 @@ msgstr "Картинка:"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
-msgstr ""
+msgstr "Картинки (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Все файлы (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"
@@ -9614,7 +9615,7 @@ msgstr "Устанавливать даты файлов на \"время по�
 msgid ""
 "Set property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "Установка свойства '%1!S!' для↩\n%2!ls!"
 
 #. Resource IDs: (IDS_SETPROPTITLE)
 msgid "Setting properties..."
@@ -10219,7 +10220,7 @@ msgstr "Статус"
 
 #. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
 msgid "Status Bar"
-msgstr ""
+msgstr "Строка состояния"
 
 #. Resource IDs: (17087)
 msgid "Status Bar Configuration"
@@ -11126,13 +11127,13 @@ msgstr "Этот продукт содержит программное обес
 msgid ""
 "This program is linked to the missing export %Ts in the file %Ts. This "
 "machine may have an incompatible version of %Ts."
-msgstr ""
+msgstr "Эта программа связана с отсутствующим экспортом %Ts в файле %Ts. Возможно, эта машина имеет несовместимую версию %Ts."
 
 #. Resource IDs: (61709)
 #, c-format
 msgid ""
 "This program requires the file %Ts, which was not found on this system."
-msgstr ""
+msgstr "Эта программа требует файл %Ts, не найденный в этой системе."
 
 #. Resource IDs: (IDS_ERR_PROPNOTONFILE)
 msgid "This property is only allowed on folders, not files."
@@ -11421,7 +11422,7 @@ msgstr "Попробуйте команду 'Очистить'. Если это 
 
 #. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
 msgid "Try enabling the \"Break write locks\" option for the cleanup."
-msgstr ""
+msgstr "Пытаюсь включить опцию \"Снять блокировки на запись\" для этой очистки."
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"
@@ -12029,7 +12030,7 @@ msgstr "Вид"
 
 #. Resource IDs: (ID_VIEW_BARS - Ribbon name)
 msgid "View Bars"
-msgstr ""
+msgstr "Просмотр Панелей"
 
 #. Resource IDs: (IDS_LOG_POPUP_VIEWPATHREV)
 msgid "View revision for path in &webviewer"
@@ -12343,7 +12344,7 @@ msgstr "Ваша рабочая копия указывает на %ls, что �
 
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
-msgstr ""
+msgstr "У&меньшить⇥(-)"
 
 #. Resource IDs: (17093)
 msgid "Zoom"
@@ -12384,7 +12385,7 @@ msgstr "Уменьшить\nУменьшить"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
-msgstr ""
+msgstr "У&величить⇥(+)"
 
 #. Resource IDs: (32772)
 msgid "Zoom in"
@@ -12628,7 +12629,7 @@ msgstr "внешний"
 #. Resource IDs: (IDS_STATE_ERROR)
 #, c-format
 msgid "failed hunks: %d"
-msgstr ""
+msgstr "не удалось разделить: %d"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "file external:"
@@ -12826,7 +12827,7 @@ msgstr "Парных токенов:"
 
 #. Resource IDs: (IDS_STATE_PATCHED)
 msgid "patched"
-msgstr ""
+msgstr "заплатка применена"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "path elements: "
