@@ -1385,7 +1385,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
 
         // select query and run it
 
-        ILogQuery* query = !(GetLogCachePool()->IsEnabled() || m_bAssumeCacheEnabled) || refresh
+        ILogQuery* query = !IsLogCacheEnabled() || refresh
                          ? tempQuery.get()
                          : cacheQuery.get();
 
@@ -1418,7 +1418,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
 
         // merge temp results with permanent cache, if applicable
 
-        if (refresh && (GetLogCachePool()->IsEnabled() || m_bAssumeCacheEnabled))
+        if (refresh && IsLogCacheEnabled())
         {
             // handle cache refresh results
 
@@ -1441,7 +1441,7 @@ SVN::ReceiveLog (const CTSVNPathList& pathlist, const SVNRev& revisionPeg,
         // return the cache that contains the log info
 
         return std::unique_ptr<const CCacheLogQuery>
-            ((GetLogCachePool()->IsEnabled() || m_bAssumeCacheEnabled)
+            (IsLogCacheEnabled()
                 ? cacheQuery.release()
                 : tempQuery.release() );
     }
@@ -2066,7 +2066,7 @@ bool SVN::IsRepository(const CTSVNPath& path)
 
 CString SVN::GetRepositoryRootAndUUID(const CTSVNPath& path, bool useLogCache, CString& sUUID)
 {
-    if (useLogCache && (GetLogCachePool()->IsEnabled() || m_bAssumeCacheEnabled))
+    if (useLogCache && IsLogCacheEnabled())
         return GetLogCachePool()->GetRepositoryInfo().GetRepositoryRootAndUUID (path, sUUID);
 
     const char * returl = nullptr;
@@ -2577,6 +2577,11 @@ bool SVN::AprTimeExplodeLocal(apr_time_exp_t *exploded_time, apr_time_t date_svn
     {
         return false;
     }
+}
+
+bool SVN::IsLogCacheEnabled()
+{
+    return GetLogCachePool()->IsEnabled() || m_bAssumeCacheEnabled;
 }
 
 CString SVN::formatDate(apr_time_t date_svn)

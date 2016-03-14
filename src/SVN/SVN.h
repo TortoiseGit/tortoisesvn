@@ -993,6 +993,7 @@ protected:
     void                 Prepare();
     void                 SVNInit();
     static bool          AprTimeExplodeLocal(apr_time_exp_t *exploded_time, apr_time_t date_svn);
+    bool                 IsLogCacheEnabled();
 
     void cancel();
     static svn_error_t* cancel(void *baton);
