@@ -160,7 +160,7 @@ void CCacheLogQuery::CLogFiller::MergeFromUpdateCache()
 
 void CCacheLogQuery::CLogFiller::AutoAddSkipRange (revision_t revision)
 {
-    if ((depth == 0) && (firstNARevision > revision) && (currentPath.get() != NULL))
+    if (!options.GetIncludeMerges() && (firstNARevision > revision) && (currentPath.get() != NULL))
     {
         // due to only the parent path being renamed, the currentPath
         // may not have shown up in the log -> don't mark the range
@@ -1049,6 +1049,38 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
     }
 }
 
+void CCacheLogQuery::InternalLogWithMerge(revision_t startRevision
+                                          , revision_t endRevision
+                                          , const CDictionaryBasedTempPath& startPath
+                                          , int limit
+                                          , const CLogOptions& options)
+{
+    // clear string translation caches
+
+    ResetObjectTranslations();
+
+    // fetch revisions only but include merge children
+
+    CTSVNPath path;
+    if (startPath.IsRoot())
+        path.SetFromSVN(URL);
+    else
+        path.SetFromSVN(URL + startPath.GetPath().c_str());
+
+    // Request all interesting revisions: we cannot use log caching for
+    // merge logs.
+    CLogFiller(repositoryInfoCache)
+        .FillLog(cache
+            , URL
+            , uuid
+            , svnQuery
+            , startRevision
+            , endRevision
+            , startPath
+            , limit
+            , options);
+}
+
 // follow copy history until the startRevision is reached
 
 CDictionaryBasedTempPath CCacheLogQuery::TranslatePegRevisionPath
@@ -1442,11 +1474,22 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
                         , includeUserRevProps
                         , userRevProps);
 
-    InternalLog ( startRevision
-                , endRevision
-                , startPath
-                , limit
-                , options);
+    if (options.GetIncludeMerges())
+    {
+        InternalLogWithMerge(startRevision
+                             , endRevision
+                             , startPath
+                             , limit
+                             , options);
+    }
+    else
+    {
+        InternalLog(startRevision
+                    , endRevision
+                    , startPath
+                    , limit
+                    , options);
+    }
 }
 
 // relay the content of a single revision to the receiver

@@ -304,6 +304,12 @@ private:
                      , int limit
                      , const CLogOptions& options);
 
+    void InternalLogWithMerge(revision_t startRevision
+                              , revision_t endRevision
+                              , const CDictionaryBasedTempPath& startPath
+                              , int limit
+                              , const CLogOptions& options);
+
     /// follow copy history until the startRevision is reached
     CDictionaryBasedTempPath TranslatePegRevisionPath
         ( revision_t pegRevision
