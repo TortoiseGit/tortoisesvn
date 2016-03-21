@@ -18,6 +18,9 @@ Version 1.9.4
        was wrong, font unreadable. (Stefan)
 - CHG: Improved stability of the log cache. (Ivan Zhakov)
 - BUG: TMerge could hang applying a patch. (Stefan)
+- BUG: Crash in log dialog when repo root
+       isn't readable. (Ivan Zhakov, Stefan)
+- BUG: Repo browser slow to close. (Stefan)
 
 Version 1.9.3
 - BUG: The DEL key didn't work in the filter box
