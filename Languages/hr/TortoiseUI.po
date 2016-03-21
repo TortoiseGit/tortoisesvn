@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-03-07 21:16+0000\n"
+"PO-Revision-Date: 2016-03-15 20:41+0000\n"
 "Last-Translator: Boris Nociar <boris.nociar@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/luebbe/tortoisesvn/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -68,7 +68,7 @@ msgstr "%1 je sadržavao neočekivani objekt."
 #. Resource IDs: (61859)
 #, c-format
 msgid "%1 contains an incorrect path."
-msgstr "%1 sadrži pogrešnu stazu."
+msgstr "%1 sadrži pogrešnu putanju."
 
 #. Resource IDs: (61879)
 #, c-format
@@ -94,7 +94,7 @@ msgstr "%1!d! datoteka označeno, %2!d! datoteka ukupno"
 #, c-format
 msgid ""
 "%1!d! most active author(s) with at least %2!d! commits each (%3!d! %%)"
-msgstr "%1!d! najažurnijih autora s najmanje %2!d! pohranjivanja svaki (%3!d! %%)"
+msgstr "%1!d! najaktivnijih autora s najmanje %2!d! pohranjivanja svaki (%3!d! %%)"
 
 #. Resource IDs: (IDS_PROGRS_TIME)
 #, c-format
@@ -170,7 +170,7 @@ msgid ""
 "%1\n"
 "Cannot find this file.\n"
 "Verify that the correct path and file name are given."
-msgstr "%1\nNe mogu pronaći navedenu datoteku.\nMolim, provjerite da li su ispravne staza i ime datoteke."
+msgstr "%1\nNe mogu pronaći navedenu datoteku.\nMolim, provjerite da li je ispravna putanja i ime datoteke."
 
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALBYTESTRANSFERRED)
 #, c-format
@@ -220,7 +220,7 @@ msgstr "%ld od %ld"
 #. Resource IDs: (IDS_EDITPROPS_NUMPATHS)
 #, c-format
 msgid "%ld paths"
-msgstr "%ld staze"
+msgstr "%ld putanje"
 
 #. Resource IDs: (IDS_REVGRAPH_TAG)
 #, c-format
@@ -230,7 +230,7 @@ msgstr "%ls"
 #. Resource IDs: (IDS_REVGRAPH_DLGTITLEOFFLINE)
 #, c-format
 msgid "%ls (offline)"
-msgstr "%ls (offline)"
+msgstr "%ls (odspojen)"
 
 #. Resource IDs: (IDS_MENUIGNOREGLOBAL)
 #, c-format
@@ -240,7 +240,7 @@ msgstr "%ls (rekurzivno)"
 #. Resource IDs: (IDS_DIFF_MERGEDNAME)
 #, c-format
 msgid "%ls : Merged file"
-msgstr "%ls : Objedinjena datoteka"
+msgstr "%ls : Spojena datoteka"
 
 #. Resource IDs: (IDS_DIFF_REMOTENAME)
 #, c-format
@@ -260,7 +260,7 @@ msgstr "%ls : Radna kopija"
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_UNVERSIONED)
 #, c-format
 msgid "%ls, but the directory already exists unversioned locally."
-msgstr "%ls, ali direktorij već postoji lokalno bez verzioniranja."
+msgstr "%ls, ali mapa već postoji lokalno bez verzioniranja."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSINGMOVED)
 #, c-format
@@ -270,22 +270,22 @@ msgstr "%ls, ali mapa nedostaje lokalno (izbrisana ili premještena na drugu lok
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSING)
 #, c-format
 msgid "%ls, but the directory is missing locally."
-msgstr "%ls, ali direktorij nedostaje lokalno."
+msgstr "%ls, ali mapa nedostaje lokalno."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_ADDED)
 #, c-format
 msgid "%ls, but the directory was already added locally."
-msgstr "%ls, ali direktorij je već dodan lokalno."
+msgstr "%ls, ali mapa je već dodana lokalno."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_EDITED)
 #, c-format
 msgid "%ls, but the directory was already edited."
-msgstr "%ls, ali direktorij je već uređivan."
+msgstr "%ls, ali mapa je već uređivana."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_DELETED)
 #, c-format
 msgid "%ls, but the directory was deleted, moved or renamed locally."
-msgstr "%ls, ali direktorij je lokalno obrisan, premješten ili preimenovan."
+msgstr "%ls, ali mapa je lokalno obrisana, premještena ili preimenovana."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDAWAY)
 #, c-format
@@ -300,12 +300,12 @@ msgstr "%ls, ali mapa je premještena ovdje"
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_OBSTRUCTED)
 #, c-format
 msgid "%ls, but the directory was obstructed in the working copy."
-msgstr "%ls, ali direktorij je zapriječen u radnoj kopiji."
+msgstr "%ls, ali mapa je zapriječena u radnoj kopiji."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_REPLACED)
 #, c-format
 msgid "%ls, but the directory was replaced"
-msgstr "%ls, ali direktorij je zamijenjen"
+msgstr "%ls, ali mapa je zamijenjena"
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_UNVERSIONED)
 #, c-format
@@ -392,7 +392,7 @@ msgid ""
 "%ls\n"
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
-msgstr "%ls\nje direktorij a ne datoteka!\nTortoiseMerge ne može uspoređivati direktorije."
+msgstr "%ls\nje mapa a ne datoteka!\nTortoiseMerge ne može uspoređivati mape."
 
 #. Resource IDs: (16923)
 msgid "&..."
@@ -471,11 +471,11 @@ msgstr "&Argumenti:"
 
 #. Resource IDs: (16645)
 msgid "&Assign"
-msgstr "&Pridijeli"
+msgstr "&Dodijeli"
 
 #. Resource IDs: (16633)
 msgid "&Associate double-click event with:"
-msgstr "&Pridruži dupli klik akciju:"
+msgstr "&Pridruži dupli klik s:"
 
 #. Resource IDs: (17041)
 msgid "&Auto Hide"
@@ -495,7 +495,7 @@ msgstr "&Binarno"
 
 #. Resource IDs: (IDS_FILEDIFF_POPBLAME, IDS_LOG_POPUP_BLAMEDIFF)
 msgid "&Blame changes"
-msgstr "&Okrivi za promjene"
+msgstr "&Krivac promjena"
 
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
@@ -507,7 +507,7 @@ msgstr "&Krivci revizija"
 
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
-msgstr "&Okrivi..."
+msgstr "&Krivci..."
 
 #. Resource IDs: (65535)
 msgid "&Blue:"
@@ -2187,11 +2187,11 @@ msgstr "Dozvoli da različita skladišta upotrebljavaju isti URL, napr. kopirana
 
 #. Resource IDs: (IDS_LOG_ALREADYMERGED)
 msgid "Already merged"
-msgstr "Već stopljeno"
+msgstr "Već spojeno"
 
 #. Resource IDs: (IDS_LOG_ALREADYMERGEDREVERSED)
 msgid "Already reverse merged"
-msgstr "Već je obrnuto stopljeno"
+msgstr "Već je obrnuto spojeno"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1480)
 msgid "Always close dialogs for local operations"
@@ -2232,7 +2232,7 @@ msgid ""
 "%theirs : the file as it is in the repository\r\n"
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
-msgstr "Vanjski program za stapanje datoteka koji se\r\nkoristi za razrješavanje sukobljenih datoteka.\r\n\r\nMožete odrediti sljedeće parametre u stazi:\r\n%merged : sukobljena datoteka, gdje će biti snimljena\r\n%theirs : datoteka kakva je u skladištu\r\n%mine : vlastita datoteka, s Vašim izmjenama\r\n%base : originalna datoteka bez Vaših izmjena"
+msgstr "Vanjski program za spajanje datoteka koji se\nkoristi za razrješavanje datoteka u konfliktu.\n\nMožete odrediti sljedeće parametre u putanji:\n%merged : datoteka u konfliktu, gdje će biti snimljena\n%theirs : datoteka kakva je u skladištu\n%mine : vlastita datoteka, s Vašim izmjenama\n%base : originalna datoteka bez Vaših izmjena"
 
 #. Resource IDs: (61862)
 #, c-format
@@ -3965,7 +3965,7 @@ msgid ""
 "{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
-msgstr "Vlastiti string za naslov. Dostupne ključne riječi su:\n {mergeurl}:»izvorni url za stapanje\n {revisions}:»zarezima odvojena lista stopljenih revizija, primjerice: 3, 5, 6, 7\n {revisionsr}:»poput {revisions} no uz 'r' ispred revizija\n {revrange}:»zarezima odvojena lista stopljenih revizija, grupirana u raspone, ako je moguće; primjerice: 3, 5-7"
+msgstr "Vlastiti niz za naslov. Dostupne ključne riječi su:\n {mergeurl}:»izvorni url za spajanje\n {revisions}:»zarezima odvojena lista stopljenih revizija, primjerice: 3, 5, 6, 7\n {revisionsr}:»poput {revisions} no uz 'r' ispred revizija\n {revrange}:»zarezima odvojena lista stopljenih revizija, grupirana u raspone, ako je moguće; primjerice: 3, 5-7"
 
 #. Resource IDs: (16103, 17074)
 msgid "Customize"
@@ -6219,7 +6219,7 @@ msgstr "Uključi lokalne postavke"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1126)
 msgid "Include merged revisions"
-msgstr "Uključi stopljene revizije"
+msgstr "Uključi spojene revizije"
 
 #. Resource IDs: (Dialog IDD_REVGRAPHFILTER: Control id 65535)
 msgid "Include only the following revision range:"
@@ -6816,7 +6816,7 @@ msgstr "Označi konflikt kao riješeno.↩\nNapomena: ovo ne riješava konflikt,
 msgid ""
 "Marks the revisions as merged, without actually doing the merge.\r\n"
 "This blocks the revisions from getting merged in the future."
-msgstr "Označava inačicu stopljenom, no zapravo ne radi stapanje.\r\nOvo sprječava inačicu od budućeg stapanja ovih izmjena."
+msgstr "Označava reviziju spojenom, no zapravo ne radi spajanje.\nTime se blokiraju revizije da izvrše spajanja u budućnosti."
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1064)
 msgid "Match &case"
@@ -6926,11 +6926,11 @@ msgstr "Tip stapanja"
 
 #. Resource IDs: (IDS_SVNACTION_MERGED, IDS_VIEWTITLE_MERGED)
 msgid "Merged"
-msgstr "Stopljeno"
+msgstr "Spojeno"
 
 #. Resource IDs: (IDS_SVNPROGRESS_MERGELOGRANGE)
 msgid "Merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr "Stopljene revizije {revrange} iz {mergeurl}:\n"
+msgstr "Spojena revizija(e) {revrange} iz {mergeurl}:\n"
 
 #. Resource IDs: (IDS_MENUDESCMERGEALL)
 msgid ""
@@ -7469,7 +7469,7 @@ msgstr "Broj autora:"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESREVISIONS)
 msgid "Number of cached merged revisions"
-msgstr "Broj spremljenih stopljenih revizija"
+msgstr "Broj spremljenih spojenih revizija"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_REVISIONCOUNT)
 msgid "Number of cached revisions"
@@ -7503,7 +7503,7 @@ msgstr "Broj različitih riječi upotrebljenih u porukama dnevnika"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESMISSING)
 msgid "Number of merged revisions that are not cached yet"
-msgstr "Broj stopljenih inačica koje još nisu u spremniku"
+msgstr "Broj spojenih revizija koje još nisu u spremniku"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_PATHELEMENTS)
 msgid ""
@@ -8896,7 +8896,7 @@ msgstr "Obnovljeno"
 
 #. Resource IDs: (IDS_SVNPROGRESS_MERGELOGRANGEREVERSE)
 msgid "Reverse merged revision(s) {revrange} from {mergeurl}:\n"
-msgstr "Obrnuto stopljene revizije {revrange} iz {mergeurl}:\n"
+msgstr "Obrnuto spojena revizija(e) {revrange} iz {mergeurl}:\n"
 
 #. Resource IDs: (IDS_SVNACTION_MERGEBEGINMULTIPLEREVERSE)
 #, c-format
@@ -10088,7 +10088,7 @@ msgid ""
 "{author}:\tThe author of the merged revision\r\n"
 "{rev}:\tThe merged revision itself\r\n"
 "{bugid}:\tThe bug ids of the merged revision"
-msgstr "Određuje kako treba izgledati tekst za svaku spojenu reviziju.\nSljedeće ključne riječi možete koristiti:\n{msg}:\tPoruka dnevnika spojenih revizija, kao što je uneseno.\n{msgoneline}:\tPoruka dnevnika u jednoj liniji\n{author}:\tAutor spojene revizije\n{rev}:\tSama stopljena revizija\n{bugid}:\tPogreške ID oznaka spojenih revizija"
+msgstr "Određuje kako treba izgledati tekst za svaku spojenu reviziju.\nSljedeće ključne riječi možete koristiti:\n{msg}:\tPoruka dnevnika spojenih revizija, kao što je uneseno.\n{msgoneline}:\tPoruka dnevnika u jednoj liniji\n{author}:\tAutor spojene revizije\n{rev}:\tSamostalno spojena revizija\n{bugid}:\tPogreške ID oznaka spojenih revizija"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1572)
 msgid ""
@@ -11366,7 +11366,7 @@ msgstr "Ukupan broj izmjena u svim pohranjenim revizijama"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESTOTAL)
 msgid "Total number of merged revisions"
-msgstr "Ukupan broj stopljenih revizija"
+msgstr "Ukupan broj spojenih revizija"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_USERREVPROPSTOTAL)
 msgid "Total number of user revision properties"
@@ -11977,7 +11977,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr "Važeće opcije naredbenog retka:\n/base:<put do bazne datoteke>\n/basename:<ime za prikazivanje na naslovu pregleda>\n/theirs:<put do njihove datoteke>\n/theirsname:<ime za prikazivanje na naslovu pregleda>\n/mine:<put do vaše datoteke>\n/minename:<ime za prikazivanje na naslovu pregleda>\n/merged:<Put do nastala spojene datoteke>\n/mergedname:<ime za prikazivanje na naslovu pregleda>\n/diff:<put do datoteke objedinjenih razlika>\n/patchpath:<put do mape>\n/saverequired\n/saverequiredonconflicts\n/oneway <osigurava jednostruki pregled>\n/line:<broj linije za skok>"
+msgstr "Važeće opcije naredbenog retka:\n/base:<putanja do bazne datoteke>\n/basename:<ime za prikazivanje na naslovu pregleda>\n/theirs:<putanja do njihove datoteke>\n/theirsname:<ime za prikazivanje na naslovu pregleda>\n/mine:<putanja do vaše datoteke>\n/minename:<ime za prikazivanje na naslovu pregleda>\n/merged:<putanja do nastale spojene datoteke>\n/mergedname:<ime za prikazivanje na naslovu pregleda>\n/diff:<putanja do datoteke objedinjenih razlika>\n/patchpath:<putanja do mape>\n/saverequired\n/saverequiredonconflicts\n/oneway <osigurava jednostruki pregled>\n/line:<broj linije za skok>"
 
 #. Resource IDs: (IDS_ERR_VALIDATIONFAILED)
 msgid "Validation of the property value failed!"
@@ -12722,7 +12722,7 @@ msgstr "max. pohranjena revizija"
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535,
 #. IDS_STATUSMERGED)
 msgid "merged"
-msgstr "stopljeno"
+msgstr "spojeno"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "merges total: "
@@ -12869,7 +12869,7 @@ msgstr "Broj revizija:"
 
 #. Resource IDs: (IDS_ACC_LOGENTRYALREADYMERGED)
 msgid "revision has already been merged"
-msgstr "revizija je već stopljena"
+msgstr "revizija je već spojena"
 
 #. Resource IDs: (IDS_SVNDIFF_ONEURL)
 #, c-format
