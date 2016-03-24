@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013-2014 - TortoiseSVN
+// Copyright (C) 2013-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,7 +49,7 @@ CString CodeCollaboratorInfo::GetPathToCollabGuiExe()
     CString path = pszPath;
     CoTaskMemFree(pszPath);
 
-    path += L"Collaborator Client\\ccollabgui.exe";
+    path += L"\\Collaborator Client\\ccollabgui.exe";
     if (PathFileExists(path))
         return path;
 
@@ -59,7 +59,7 @@ CString CodeCollaboratorInfo::GetPathToCollabGuiExe()
     if (SHGetKnownFolderPath(FOLDERID_ProgramFilesX86, KF_FLAG_CREATE, NULL, &pszPath) != S_OK)
         return CString();
 
-    path += L"Collaborator Client\\ccollabgui.exe";
+    path += L"\\Collaborator Client\\ccollabgui.exe";
     if (PathFileExists(path))
         return path;
 #endif
