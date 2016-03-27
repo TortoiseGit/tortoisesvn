@@ -51,7 +51,7 @@ inline bool CCreateProcessHelper::CreateProcess(LPCTSTR applicationName,
 
     SecureZeroMemory(processInfo, sizeof(PROCESS_INFORMATION));
     const BOOL result = ::CreateProcess( applicationName,
-                    commandLine, NULL, NULL, FALSE, 0, 0, currentDirectory,
+                    commandLine, nullptr, nullptr, FALSE, CREATE_UNICODE_ENVIRONMENT, nullptr, currentDirectory,
                     &startupInfo, processInfo );
     return result != 0;
 }
