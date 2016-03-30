@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -636,7 +636,7 @@ void TortoiseBlame::SelectLine(int yPos, bool bAlwaysSelect) const
         if ((bAlwaysSelect)||(selChange))
         {
             app.m_selectedRev = bUseMerged ? app.m_mergedRevs[line] : app.m_revs[line];
-            app.m_selectedOrigRev = bUseMerged ? app.m_mergedRevs[line] : app.m_revs[line];
+            app.m_selectedOrigRev = app.m_revs[line];
             app.m_selectedAuthor = bUseMerged ? app.m_mergedAuthors[line] : app.m_authors[line];
             app.m_selectedDate = bUseMerged ? app.m_mergedDates[line] : app.m_dates[line];
         }
@@ -1035,6 +1035,11 @@ void TortoiseBlame::ShowLog()
         svnCmd += L" /groupuuid:\"";
         svnCmd += uuid;
         svnCmd += L"\"";
+    }
+
+    if (m_selectedOrigRev != m_selectedRev)
+    {
+        svnCmd += L" /merge";
     }
     RunCommand(svnCmd);
 }
