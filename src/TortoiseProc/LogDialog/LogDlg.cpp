@@ -6128,8 +6128,11 @@ void CLogDlg::ExecuteGetMergeLogs(ContextMenuInfoForRevisionsPtr & pCmi)
     svn_revnum_t logrev = pCmi->RevSelected;
     CString sCmd;
 
-    sCmd.Format(L"/command:log /path:\"%s\" /pegrev:%ld /startrev:%ld /endrev:%ld /merge",
-                (LPCTSTR)pCmi->PathURL, logrev, logrev, logrev);
+    sCmd.Format(L"/command:log /path:\"%s\" /startrev:%ld /endrev:%ld /merge",
+                (LPCTSTR)pCmi->PathURL, logrev, logrev);
+
+    if (m_pegrev.IsValid())
+        sCmd.AppendFormat(L" /pegrev:%s", (LPCWSTR) m_pegrev.ToString());
 
     CAppUtils::RunTortoiseProc(sCmd);
 }
