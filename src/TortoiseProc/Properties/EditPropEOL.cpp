@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,7 +60,8 @@ BOOL CEditPropEOL::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    std::transform(m_PropValue.begin(), m_PropValue.end(), m_PropValue.begin(), std::tolower);
+    std::transform(m_PropValue.begin(), m_PropValue.end(), m_PropValue.begin(),
+                   [](char c) { return std::tolower(c); });
 
     CheckRadioButton(IDC_RADIONOEOL, IDC_RADIOCR, IDC_RADIONOEOL);
 
