@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2006 - TortoiseSVN
+// Copyright (C) 2005-2006, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,7 +48,7 @@ private:
     CAutoGeneralHandle m_hTerminationEvent;
     CAutoGeneralHandle m_hWakeEvent;
 
-    bool m_bItemsAddedSinceLastUpdate;
+    volatile LONG m_bItemsAddedSinceLastUpdate;
     volatile LONG m_bRunning;
 };
 

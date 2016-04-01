@@ -29,7 +29,7 @@ CShellUpdater::CShellUpdater(void)
     m_hWakeEvent = CreateEvent(NULL,FALSE,FALSE,NULL);
     m_hTerminationEvent = CreateEvent(NULL,TRUE,FALSE,NULL);
     m_bRunning = FALSE;
-    m_bItemsAddedSinceLastUpdate = false;
+    m_bItemsAddedSinceLastUpdate = FALSE;
 }
 
 CShellUpdater::~CShellUpdater(void)
@@ -77,7 +77,7 @@ void CShellUpdater::AddPathForUpdate(const CTSVNPath& path)
 
         // set this flag while we are synced
         // with the worker thread
-        m_bItemsAddedSinceLastUpdate = true;
+        InterlockedExchange(&m_bItemsAddedSinceLastUpdate, TRUE);
     }
 
     SetEvent(m_hWakeEvent);
@@ -124,11 +124,10 @@ void CShellUpdater::WorkerThread()
                     // Nothing left to do
                     break;
                 }
-
-                if(m_bItemsAddedSinceLastUpdate)
+                
+                if(InterlockedExchange(&m_bItemsAddedSinceLastUpdate, FALSE))
                 {
                     m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_pathsToUpdate.end());
-                    m_bItemsAddedSinceLastUpdate = false;
                 }
 
                 workingPath = m_pathsToUpdate.front();
