@@ -41,6 +41,6 @@ SAPI5Object.Speak(LastRevision + ArgumentsObject.Item(2), 0);
 SAPI5Object.Speak(WorkingFolder + ArgumentsObject.Item(4), 0);
 PathParts = WScript.ScriptFullName.split("\\");
 Version = PathParts[PathParts.length - 4];
-PathToSCompile = "\"" + ShellObject.RegRead ("HKLM\\SOFTWARE\\Freedom Scientific\\JAWS\\" + Version + "\\Target") + "scompile.exe\"";
+PathToSCompile = "\"" + ShellObject.RegRead("HKLM\\SOFTWARE\\Freedom Scientific\\JAWS\\" + Version + "\\Target") + "scompile.exe\"";
 ShellObject.Run(PathToSCompile + ScriptName, 0, true);
 SAPI5Object.Speak(Finished, 0);

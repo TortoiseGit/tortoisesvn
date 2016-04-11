@@ -2,7 +2,7 @@
 //
 // TortoiseSVN Merge script for Word Doc files
 //
-// Copyright (C) 2004-2008, 2011-2015 the TortoiseSVN team
+// Copyright (C) 2004-2008, 2011-2016 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -53,13 +53,13 @@ objScript = new ActiveXObject("Scripting.FileSystemObject");
 
 if (!objScript.FileExists(sTheirDoc))
 {
-    WScript.Echo("File " + sTheirDoc + " does not exist.  Cannot compare the documents.", vbExclamation, "File not found");
+    WScript.Echo("File " + sTheirDoc + " does not exist. Cannot compare the documents.", vbExclamation, "File not found");
     WScript.Quit(1);
 }
 
 if (!objScript.FileExists(sMergedDoc))
 {
-    WScript.Echo("File " + sMergedDoc + " does not exist.  Cannot compare the documents.", vbExclamation, "File not found");
+    WScript.Echo("File " + sMergedDoc + " does not exist. Cannot compare the documents.", vbExclamation, "File not found");
     WScript.Quit(1);
 }
 
@@ -95,8 +95,9 @@ else if (parseInt(word.Version, 10) < vOffice2010)
 }
 else
 {
-    //2010 - handle slightly differently as the basic merge isn't that good
-    //note this is designed specifically for svn 3 way merges, during the commit conflict resolution process
+    // 2010 - handle slightly differently as the basic merge isn't that good.
+    // Note this is designed specifically for SVN 3 way merges,
+    // during the commit conflict resolution process
     baseDoc = word.Documents.Open(sBaseDoc);
     myDoc = word.Documents.Open(sMyDoc);
 

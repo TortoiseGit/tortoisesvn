@@ -2,7 +2,7 @@
 //
 // TortoiseSVN Diff script for Excel files
 //
-// Copyright (C) 2004-2008, 2012-2015 the TortoiseSVN team
+// Copyright (C) 2004-2008, 2012-2016 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -161,7 +161,7 @@ for (var i = 1; i <= length; i++)
         objDummyWorksheet.Visible = true;
         if (fExcelVersion >= vOffice2003)
         {
-            objDummyWorksheet.Tab.ColorIndex = 16;  // 16:Dark gray RGB(128,128,128)
+            objDummyWorksheet.Tab.ColorIndex = 16;  // 16: Dark gray RGB(128,128,128)
         }
     }
 
@@ -230,8 +230,8 @@ function Abort(sMessage, sTitle)
 
 // Unhide the Worksheet if it is hidden.
 // This also sets color to the tab, if Office2003 or later.
-//  - 46(Orange)      : Hidden Worksheet
-//  - xlNone(default) : Not hidden Worksheet
+//  - 46 (Orange)      : Hidden Worksheet
+//  - xlNone (default) : Not hidden Worksheet
 function UnhideWorksheet(objWorksheet)
 {
     if (objWorksheet.Visible)
@@ -298,16 +298,18 @@ function StoreWarning(sMessage)
 // To avoid make huge message dialog, this limits message count to show.
 function ShowWarning()
 {
-    if (aWarningMessages.length === 0)
+    var aWarningMessagesLength = aWarningMessages.length;
+    if (aWarningMessagesLength === 0)
     {
         return;
     }
+
     var sMessage = "The following warnings occurred while processing.\n";
-    for (var j = 0; j < aWarningMessages.length; j++)
+    for (var j = 0; j < aWarningMessagesLength; j++)
     {
         if (j >= 10)
         {
-            sMessage += "... And more " + (aWarningMessages.length - j) + " messages";
+            sMessage += "... And more " + (aWarningMessagesLength - j) + " messages";
             break;
         }
         sMessage += "[" + (j + 1) + "] " + aWarningMessages[j] + "\n";

@@ -2,7 +2,7 @@
 //
 // TortoiseSVN Diff script for Word Doc files
 //
-// Copyright (C) 2004-2008, 2011-2015 the TortoiseSVN team
+// Copyright (C) 2004-2008, 2011-2016 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -52,13 +52,13 @@ objScript = new ActiveXObject("Scripting.FileSystemObject");
 
 if (!objScript.FileExists(sBaseDoc))
 {
-    WScript.Echo("File " + sBaseDoc + " does not exist.  Cannot compare the documents.");
+    WScript.Echo("File " + sBaseDoc + " does not exist. Cannot compare the documents.");
     WScript.Quit(1);
 }
 
 if (!objScript.FileExists(sNewDoc))
 {
-    WScript.Echo("File " + sNewDoc + " does not exist.  Cannot compare the documents.");
+    WScript.Echo("File " + sNewDoc + " does not exist. Cannot compare the documents.");
     WScript.Quit(1);
 }
 
@@ -77,7 +77,7 @@ try
 }
 catch (e)
 {
-    // before giving up, try with OpenOffice
+    // Before giving up, try with OpenOffice
     var OO;
     try
     {
@@ -88,17 +88,17 @@ catch (e)
         WScript.Echo("You must have Microsoft Word or OpenOffice installed to perform this operation.");
         WScript.Quit(1);
     }
-    // yes, OO is installed - do the diff with that one instead
+    // Yes, OO is installed - do the diff with that one instead
     var objFile = objScript.GetFile(sNewDoc);
     if ((objFile.Attributes & 1) === 1)
     {
-        // reset the readonly attribute
+        // Reset the readonly attribute
         objFile.Attributes &= ~1;
     }
-    //Create the DesktopSet
+    // Create the DesktopSet
     var objDesktop = OO.createInstance("com.sun.star.frame.Desktop");
     var objUriTranslator = OO.createInstance("com.sun.star.uri.ExternalUriReferenceTranslator");
-    //Adjust the paths for OO
+    // Adjust the paths for OO
     sBaseDoc = sBaseDoc.replace(/\\/g, "/");
     sBaseDoc = sBaseDoc.replace(/:/g, "|");
     sBaseDoc = sBaseDoc.replace(/ /g, "%20");
@@ -112,19 +112,19 @@ catch (e)
     sNewDoc = "file:///" + sNewDoc;
     sNewDoc = objUriTranslator.translateToInternal(sNewDoc);
 
-    //Open the %base document
+    // Open the %base document
     var oPropertyValue = [];
     oPropertyValue[0] = OO.Bridge_GetStruct("com.sun.star.beans.PropertyValue");
     oPropertyValue[0].Name = "ShowTrackedChanges";
     oPropertyValue[0].Value = true;
     objDesktop.loadComponentFromURL(sNewDoc, "_blank", 0, oPropertyValue);
 
-    //Set the frame
+    // Set the frame
     var Frame = objDesktop.getCurrentFrame();
 
     var dispatcher = OO.CreateInstance("com.sun.star.frame.DispatchHelper");
 
-    //Execute the comparison
+    // Execute the comparison
     dispatcher.executeDispatch(Frame, ".uno:ShowTrackedChanges", "", 0, oPropertyValue);
     oPropertyValue[0].Name = "URL";
     oPropertyValue[0].Value = sBaseDoc;
@@ -151,7 +151,7 @@ catch (e)
 {
     try
     {
-        // open empty document to prevent bug where first Open() call fails
+        // Open empty document to prevent bug where first Open() call fails
         word.Documents.Add();
         destination = word.Documents.Open(sNewDoc, true, parseInt(word.Version, 10) < vOffice2013);
     }
