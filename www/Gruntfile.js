@@ -29,8 +29,11 @@ module.exports = function(grunt) {
         htmlmin: {
             dist: {
                 options: {
-                    collapseWhitespace: true,
                     collapseBooleanAttributes: true,
+                    collapseInlineTagWhitespace: false,
+                    collapseWhitespace: true,
+                    conservativeCollapse: false,
+                    decodeEntities: true,
                     ignoreCustomComments: [/^\s*google(off|on):\s/],
                     minifyCSS: {
                         //advanced: false,
@@ -39,20 +42,22 @@ module.exports = function(grunt) {
                     },
                     minifyJS: true,
                     minifyURLs: false,
+                    processConditionalComments: true,
                     removeAttributeQuotes: true,
                     removeComments: true,
                     removeOptionalAttributes: true,
                     removeOptionalTags: true,
                     removeRedundantAttributes: true,
                     removeScriptTypeAttributes: true,
-                    removeStyleLinkTypeAttributes: true
+                    removeStyleLinkTypeAttributes: true,
+                    removeTagWhitespace: false,
+                    sortAttributes: true,
+                    sortClassName: true
                 },
                 expand: true,
                 cwd: '<%= dirs.dest %>',
                 dest: '<%= dirs.dest %>',
-                src: [
-                    '**/*.html'
-                ]
+                src: ['**/*.html']
             }
         },
 
@@ -129,17 +134,17 @@ module.exports = function(grunt) {
 
         filerev: {
             css: {
-                src: '<%= dirs.dest %>/assets/css/**/{,*/}*.css'
+                src: '<%= dirs.dest %>/assets/css/**/*.css'
              },
             js: {
                 src: [
-                    '<%= dirs.dest %>/assets/js/**/{,*/}*.js',
+                    '<%= dirs.dest %>/assets/js/**/*.js',
                     '!<%= dirs.dest %>/assets/js/vendor/jquery*.min.js'
                 ]
             },
             images: {
                 src: [
-                    '<%= dirs.dest %>/assets/img/**/*.{jpg,jpeg,gif,png}',
+                    '<%= dirs.dest %>/assets/img/**/*.{jpg,jpeg,gif,png,svg}',
                     '!<%= dirs.dest %>/assets/img/logo-256x256.png'
                 ]
             }
