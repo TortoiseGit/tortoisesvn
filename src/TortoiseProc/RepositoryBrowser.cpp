@@ -431,7 +431,6 @@ BOOL CRepositoryBrowser::OnInitDialog()
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
 
     DWORD xPos = CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\RepobrowserDivider");
-    bDragMode = true;
     if (!m_bSparseCheckoutMode)
     {
         // 10 dialog units: 6 units left border of the tree control, 4 units between
