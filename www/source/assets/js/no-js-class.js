@@ -1,4 +1,4 @@
-/* jshint browser: true */
+/* jshint browser:true */
 
 (function() {
     'use strict';
