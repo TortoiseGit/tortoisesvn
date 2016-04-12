@@ -17,14 +17,14 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Mandy Cho <chohy@yahoo.com>, 2013
 # Seongki Shin <skshin@gmail.com>, 2011-2013,2015
-# TaeDong Kim <fly1004@gmail.com>, 2011,2013-2015
+# TaeDong Kim <fly1004@gmail.com>, 2011,2013-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-18 10:10+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-04-06 08:31+0000\n"
+"Last-Translator: TaeDong Kim <fly1004@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/luebbe/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -531,7 +531,7 @@ msgstr "브랜치(&B)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
 msgid "&Break write locks"
-msgstr ""
+msgstr "쓰기 잠금 해제(&B)"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -1298,7 +1298,7 @@ msgstr "이름 바꾸기(&R)"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
-msgstr ""
+msgstr "바꾸기(&R)"
 
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
@@ -2029,7 +2029,7 @@ msgstr "무시 목록에 추가(&I)"
 
 #. Resource IDs: (IDS_REPOBROWSE_ADDBOOKMARK)
 msgid "Add to Bookmarks"
-msgstr ""
+msgstr "북마크에 추가"
 
 #. Resource IDs: (17083)
 msgid "Add to Quick Access Toolbar"
@@ -4183,7 +4183,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
 msgid "Diff &Options"
-msgstr ""
+msgstr "Diff 옵션(&O)"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
@@ -4199,15 +4199,15 @@ msgstr "수정사항(Diff) 뷰어::병합 도구"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Diff added lines"
-msgstr ""
+msgstr "Diff 추가된 라인들"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Diff command"
-msgstr ""
+msgstr "Diff 명령"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Diff comment"
-msgstr ""
+msgstr "Diff 주석"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 65535)
 msgid "Diff file:"
@@ -4215,7 +4215,7 @@ msgstr "비교 파일:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Diff header"
-msgstr ""
+msgstr "Diff 헤더"
 
 #. Resource IDs: (IDS_MENUDIFFLATER)
 msgid "Diff later"
@@ -4227,11 +4227,11 @@ msgstr "비교 옵션"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Diff position"
-msgstr ""
+msgstr "Diff 위치"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Diff removed lines"
-msgstr ""
+msgstr "Diff 삭제된 라인들"
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 279)
 msgid "Diff with URL"
@@ -4920,7 +4920,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1667)
 msgid "Export settings to file..."
-msgstr ""
+msgstr "파일로 설정 내보내기..."
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_EXPORT)
 msgid ""
@@ -5228,7 +5228,7 @@ msgstr "파일이름/확장자"
 
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FILENAMES)
 msgid "Filenames"
-msgstr ""
+msgstr "파일이름"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1512)
 msgid "Files"
@@ -5260,7 +5260,7 @@ msgstr "필터 경로"
 
 #. Resource IDs: (Dialog IDD_HISTORYDLG: Control id 1644)
 msgid "Filter:"
-msgstr ""
+msgstr "필터:"
 
 #. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
 #. - Ribbon name)
@@ -6152,7 +6152,7 @@ msgstr "임포트 메시지(&M)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "파일에서 설정 가져오기..."
 
 #. Resource IDs: (IDS_PROP_TT_IMPORT)
 msgid "Import a previously saved set of properties from a file"
@@ -6249,7 +6249,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_INFORMATION)
 msgid "Information"
-msgstr ""
+msgstr "정보"
 
 #. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
 msgid "Inline diff"
@@ -6564,7 +6564,7 @@ msgstr "이미지 불러오기"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1663)
 msgid "Load Settings from file"
-msgstr ""
+msgstr "파일에서 설정 읽어오기"
 
 #. Resource IDs: (IDS_WARNMODIFIEDOUTSIDE_TASK3)
 msgid ""
@@ -6727,7 +6727,7 @@ msgstr "메일 시스템 DLL이 유효하지 않습니다."
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOOKANDFEEL: Control id 65535)
 msgid "Main context menu"
-msgstr ""
+msgstr "메인 컨텍스트 메뉴"
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1431)
 msgid "Make this the default"
@@ -6743,7 +6743,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 65535)
 msgid "Manual import/export"
-msgstr ""
+msgstr "수동 가져오기/내보내기"
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK2)
 msgid "Many items selected to show diff"
@@ -6892,7 +6892,7 @@ msgstr "전체 병합"
 
 #. Resource IDs: (IDS_MENUMERGEALL)
 msgid "Merge all..."
-msgstr ""
+msgstr "모두 병합..."
 
 #. Resource IDs: (IDS_MENUDESCMERGE)
 msgid "Merge changes into the working copy"
@@ -7876,7 +7876,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 65535)
 msgid "Path:"
-msgstr ""
+msgstr "경로:"
 
 #. Resource IDs: (IDS_LOG_FILTER_PATHS)
 msgid "Paths"
@@ -9318,7 +9318,7 @@ msgstr "이 리비전을 저장(&T)..."
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1664)
 msgid "Save settings to file"
-msgstr ""
+msgstr "파일에 설정 저장하기"
 
 #. Resource IDs: (57603, 57604)
 msgid ""
@@ -10209,7 +10209,7 @@ msgstr "상태"
 
 #. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
 msgid "Status Bar"
-msgstr ""
+msgstr "상태바"
 
 #. Resource IDs: (17087)
 msgid "Status Bar Configuration"
@@ -10429,15 +10429,15 @@ msgstr "비교창의 좌<->우를 전환합니다"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 368)
 msgid "Sync"
-msgstr ""
+msgstr "동기화"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 65535)
 msgid "Sync setup"
-msgstr ""
+msgstr "동기화 설정"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1529)
 msgid "Sync stored auth data"
-msgstr ""
+msgstr "저장된 인증 데이타 동기"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "System &sounds"
@@ -11354,7 +11354,7 @@ msgstr "TortoiseSVN은 %ls 오버레이를 표시할 수 없습니다."
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 371)
 msgid "TortoiseUDiff"
-msgstr ""
+msgstr "TortoiseUDiff"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1162)
 msgid "Total commits analyzed:"
@@ -11513,7 +11513,7 @@ msgstr "선택 해제"
 msgid ""
 "Unchecked items are shown in the submenu, checked items on the main context "
 "menu"
-msgstr ""
+msgstr "체크되지 않은 아이템들은 서브메뉴에, 체크된 아이템들은 메인 컨텍스트 메뉴에 보여집니다."
 
 #. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
 msgid "Undo"
@@ -12450,7 +12450,7 @@ msgstr "모든 리비전(&R)"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COPYEXT)
 msgid "all information"
-msgstr ""
+msgstr "모든 정보"
 
 #. Resource IDs: (61446)
 msgid "an unnamed file"
@@ -12630,7 +12630,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COPYFULLPATHS)
 msgid "full paths"
-msgstr ""
+msgstr "전체 경로"
 
 #. Resource IDs: (IDS_EDITPROPS_PROG_FINDHEADREVS)
 msgid "get HEAD revision:"

@@ -10,15 +10,15 @@
 # 
 # Authors:
 # Translators:
-# Ardit Dani <ardit.dani@gmail.com>, 2014
+# Ardit Dani <ardit.dani@gmail.com>, 2014,2016
 # hahaha <1mail2me@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-18 10:09+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-04-08 11:30+0000\n"
+"Last-Translator: Ardit Dani <ardit.dani@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/luebbe/tortoisesvn/language/sq/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,14 +139,14 @@ msgstr "%1!ls!\\%2!ls! - Eksporto (%3!d!)"
 msgid ""
 "%1!ls!\r\n"
 "Revision %2!ls!, Author %3!ls!, Date %4!ls!"
-msgstr ""
+msgstr "%1!ls!\nRishikim %2!ls!, Autor %3!ls!, Datë %4!ls!"
 
 #. Resource IDs: (IDS_REPOBROWSE_INFOFILE)
 #, c-format
 msgid ""
 "%1!ls!\r\n"
 "Revision %2!ls!, Author %3!ls!, Size %4!ls!, Date %5!ls!"
-msgstr ""
+msgstr "%1!ls!\nRishikim %2!ls!, Autor %3!ls!, Masa %4!ls!, Datë %5!ls!"
 
 #. Resource IDs: (IDS_REPOBROWSE_INFO)
 #, c-format
@@ -195,7 +195,7 @@ msgstr ""
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_MULTITITLE)
 #, c-format

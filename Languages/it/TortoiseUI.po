@@ -13,6 +13,7 @@
 # Alessandro Menti <alessandro.menti@hotmail.it>, 2015
 # Alessio <alessio@alessiodamato.com>, 2014-2015
 # Alessio <alessio@alessiodamato.com>, 2014
+# Andrea Tuscano <andrea.tuscano1997@gmail.com>, 2016
 # Cecilia Saltori <csaltori@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
@@ -28,8 +29,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-03-24 09:33+0000\n"
-"Last-Translator: Sebastiano Pistore <olatusrooc@virgilio.it>\n"
+"PO-Revision-Date: 2016-04-11 08:35+0000\n"
+"Last-Translator: Andrea Tuscano <andrea.tuscano1997@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1225,7 +1226,7 @@ msgstr "&Dipendente dalla piattaforma (nativo)"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 1654)
 msgid "&Play sound on notification"
-msgstr ""
+msgstr "Emetti un suono alla notifica"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1414)
 msgid "&Port:"
@@ -1295,7 +1296,7 @@ msgstr "&Rimuovi Progetto"
 msgid ""
 "&Remove\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "&Rimuovi\nIl progetto è rimosso. Se contiene sotto-progetti anch'essi saranno rimossi."
 
 #. Resource IDs: (IDS_REPOBROWSE_RENAME)
 msgid "&Rename"
@@ -1635,7 +1636,7 @@ msgstr "controllo elenco &file"
 #. Resource IDs: (IDS_MONITOR_NOTIFY_TEXT)
 #, c-format
 msgid "'%ls' : %ld new commits"
-msgstr ""
+msgstr "'%ls' : %ld nuovi commit"
 
 #. Resource IDs: (IDS_ERR_MUSTBEURLORPATH)
 #, c-format
@@ -2171,7 +2172,7 @@ msgstr "Tutte le modifiche andranno perse! Ripristinare il menu '%Ts'?"
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar "
 "'%Ts'?"
-msgstr ""
+msgstr "Tutte le modifiche andranno perse! Sei sicuro di voler ripristinare la barra '%Ts'?"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -3489,7 +3490,7 @@ msgstr "Configura &TortoiseSVN per non usare il cestino"
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
-msgstr ""
+msgstr "Configura il filtro per Regex"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKCONFIG: Control id 236)
 msgid "Configure Hook Scripts"
@@ -3589,7 +3590,7 @@ msgstr "Copiato da: %1!ls!@%2!ld!\r\n"
 
 #. Resource IDs: (IDS_MENUDESCCOPYURL)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr ""
+msgstr "Copia l'URL di tuti gli Oggetti selezionati nella Clipboard"
 
 #. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
 msgid "Copy"
@@ -3636,7 +3637,7 @@ msgstr "Copia l'URL negli Appunti"
 msgid ""
 "Copy and add\n"
 "The file is copied to the destination and added to version control."
-msgstr ""
+msgstr "Copia e Aggiungi\nIl file verrà copiato nel direttorio di destinazione e aggiunto al controllo di Versione"
 
 #. Resource IDs: (IDS_PROC_COPYRENAME)
 msgid "Copy and rename"
@@ -3686,7 +3687,7 @@ msgstr "Copia: nuovo nome per %ls"
 msgid ""
 "Copy\n"
 "The file is copied to the destination and left unversioned."
-msgstr ""
+msgstr "Copia e Aggiungi\nIl file verrà copiato nel direttorio di destinazione ma non aggiunto al controllo di Versione"
 
 #. Resource IDs: (IDS_PROC_COPYINGPROG)
 #, c-format
@@ -4037,7 +4038,7 @@ msgstr "Struttura predefinito della cartella creata corretamente!"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 65535)
 msgid "Default monitor interval in minutes:"
-msgstr ""
+msgstr "Intervallo di monitoraggio standard"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1515)
 msgid "Default path:"
@@ -4188,7 +4189,7 @@ msgstr "Differenze"
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
 msgid "Diff &Options"
-msgstr ""
+msgstr "Differenze e opzioni"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
@@ -4204,11 +4205,11 @@ msgstr "Visualizzatore differenze::Strumento unione"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Diff added lines"
-msgstr ""
+msgstr "Linee aggiunte"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Diff command"
-msgstr ""
+msgstr "Differenze"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Diff comment"
@@ -4224,7 +4225,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUDIFFLATER)
 msgid "Diff later"
-msgstr ""
+msgstr "Differenzia in seguito"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1533)
 msgid "Diff options"
@@ -5363,7 +5364,7 @@ msgstr "Forza rimozione"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Foreground"
-msgstr ""
+msgstr "Primo piano"
 
 #. Resource IDs: (17021)
 msgid "Forward"
@@ -9523,7 +9524,7 @@ msgstr "Seleziona intervallo di revisione"
 
 #. Resource IDs: (IDS_SYNC_SETTINGSFILE)
 msgid "Select settings file"
-msgstr ""
+msgstr "Seleziona il file delle impostazioni"
 
 #. Resource IDs: (IDS_MERGE_SELECTSTARTREVISION)
 msgid "Select start revision"
@@ -11305,11 +11306,11 @@ msgstr "TortoiseSVN %d.%d.%d, Build %d - %ls, %ls%ls\nSubversion %d.%d.%d, %ls\n
 
 #. Resource IDs: (IDS_MONITOR_DLGTITLE)
 msgid "TortoiseSVN Project Monitor"
-msgstr ""
+msgstr "TortoiseSVN Project Monitor"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 366)
 msgid "TortoiseSVN Project Monitor Options"
-msgstr ""
+msgstr "TortoiseSVN Project Monitor Opzioni"
 
 #. Resource IDs: (IDS_MONITOR_NEWCOMMIT)
 #, c-format
@@ -12671,7 +12672,7 @@ msgstr "Ereditato da"
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_MISSING)
 msgid "it does not exist (missing or moved away?)."
-msgstr ""
+msgstr "Non esiste (spostato o cancellato?)."
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_DELETED)
 msgid "it is already deleted."
@@ -12701,7 +12702,7 @@ msgstr "ultimo aggiornamento:"
 msgid ""
 "leave username and password empty if the repository allows anonymous access,"
 " or if the authentication is stored already"
-msgstr ""
+msgstr "lasciare username e password vuote se il repository permette l'accesso anonimo, o se i valori sono salvati in locale"
 
 #. Resource IDs: (IDS_PROPLOCKED, IDS_SETTINGS_LOCKEDNAME)
 msgid "locked"
