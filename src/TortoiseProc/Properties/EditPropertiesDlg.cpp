@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -753,8 +753,20 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         dlg->SetMultiple();
     else if (m_pathlist.GetCount() == 1)
     {
-        if (PathIsDirectory(m_pathlist[0].GetWinPath()))
-            dlg->SetFolder();
+        if (m_pathlist[0].IsUrl())
+        {
+            if (m_bUrlIsFolder)
+            {
+                dlg->SetFolder();
+            }
+        }
+        else
+        {
+            if (PathIsDirectory(m_pathlist[0].GetWinPath()))
+            {
+                dlg->SetFolder();
+            }
+        }
     }
 
     dlg->RevProps(m_bRevProps);
