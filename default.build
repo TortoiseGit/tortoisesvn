@@ -397,15 +397,22 @@
                 </exec>
               </try>
               <catch>
-                <sleep minutes="5" />
-                <exec program="ext\CrashServer\SymUpload.exe">
-                  <arg value="-publish" />
-                  <arg value="-noprogress" />
-                  <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
-                  <arg value="${verstring}" />
-                  <arg value="0" />
-                  <arg value="bin\${configuration}${platformfoldername}\bin\*.pdb" />
-                </exec>
+                <trycatch>
+                  <try>
+                    <sleep minutes="5" />
+                    <exec program="ext\CrashServer\SymUpload.exe">
+                      <arg value="-publish" />
+                      <arg value="-noprogress" />
+                      <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+                      <arg value="${verstring}" />
+                      <arg value="0" />
+                      <arg value="bin\${configuration}${platformfoldername}\bin\*.pdb" />
+                    </exec>
+                  </try>
+                  <catch>
+                    <echo message="Symbol-upload failed!" Level="Warning" />
+                  </catch>
+                </trycatch>
               </catch>
             </trycatch>
           </catch>
@@ -452,14 +459,21 @@
               </try>
               <catch>
                 <sleep minutes="5" />
-                <exec program="ext\CrashServer\SymUpload.exe">
-                  <arg value="-publish" />
-                  <arg value="-noprogress" />
-                  <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
-                  <arg value="${verstring}" />
-                  <arg value="0" />
-                  <arg value="bin\${configuration}${platformfoldername}\bin\*.exe" />
-                </exec>
+                <trycatch>
+                  <try>
+                    <exec program="ext\CrashServer\SymUpload.exe">
+                      <arg value="-publish" />
+                      <arg value="-noprogress" />
+                      <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+                      <arg value="${verstring}" />
+                      <arg value="0" />
+                      <arg value="bin\${configuration}${platformfoldername}\bin\*.exe" />
+                    </exec>
+                  </try>
+                  <catch>
+                    <echo message="Symbol-upload failed!" Level="Warning" />
+                  </catch>
+                </trycatch>
               </catch>
             </trycatch>
           </catch>
@@ -506,14 +520,21 @@
               </try>
               <catch>
                 <sleep minutes="5" />
-                <exec program="ext\CrashServer\SymUpload.exe">
-                  <arg value="-publish" />
-                  <arg value="-noprogress" />
-                  <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
-                  <arg value="${verstring}" />
-                  <arg value="0" />
-                  <arg value="bin\${configuration}${platformfoldername}\bin\*.dll" />
-                </exec>
+                <trycatch>
+                  <try>
+                    <exec program="ext\CrashServer\SymUpload.exe">
+                      <arg value="-publish" />
+                      <arg value="-noprogress" />
+                      <arg value="71040f62-f78a-4953-b5b3-5c148349fed7" />
+                      <arg value="${verstring}" />
+                      <arg value="0" />
+                      <arg value="bin\${configuration}${platformfoldername}\bin\*.dll" />
+                    </exec>
+                  </try>
+                  <catch>
+                    <echo message="Symbol-upload failed!" Level="Warning" />
+                  </catch>
+                </trycatch>
               </catch>
             </trycatch>
           </catch>
