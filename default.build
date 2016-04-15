@@ -410,7 +410,7 @@
                     </exec>
                   </try>
                   <catch>
-                    <echo message="Symbol-upload failed!" Level="Warning" />
+                    <echo message="Symbol-upload failed!" level="Warning" />
                   </catch>
                 </trycatch>
               </catch>
@@ -471,7 +471,7 @@
                     </exec>
                   </try>
                   <catch>
-                    <echo message="Symbol-upload failed!" Level="Warning" />
+                    <echo message="Symbol-upload failed!" level="Warning" />
                   </catch>
                 </trycatch>
               </catch>
@@ -532,7 +532,7 @@
                     </exec>
                   </try>
                   <catch>
-                    <echo message="Symbol-upload failed!" Level="Warning" />
+                    <echo message="Symbol-upload failed!" level="Warning" />
                   </catch>
                 </trycatch>
               </catch>
