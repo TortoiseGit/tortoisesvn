@@ -1561,7 +1561,10 @@ void CCacheLogQuery::UpdateCache (CCacheLogQuery* targetQuery) const
 
     // UUID may be unknown if there is no repository list entry
     // (e.g. this is a temp. cache object) and there is no server connection
-
+    // it's also empty if we don't get access to the repo root. In that
+    // case, try first with the already fetched uuid
+    if (sUUID.IsEmpty() && !uuid.IsEmpty())
+        sUUID = uuid;
     if (sUUID.IsEmpty())
         return;
 
