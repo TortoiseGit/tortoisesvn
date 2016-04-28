@@ -1,3 +1,28 @@
+Version 1.9.4
+- BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
+- BUG: lifetime issue with path string for long paths. (Ivan Zhakov)
+- BUG: Race condition in the shell extension. (Ivan Zhakov)
+- BUG: Crash in Project Monitor when drag&drop
+       item with children. (Ivan Zhakov)
+- BUG: Small memory leak in commit dialog when
+       doing refresh. (Ivan Zhakov)
+- BUG: Repobrowser lost info about working copy when the
+       revision was changed. (Stefan)
+- BUG: Drop-strings were shown wrong. (Stefan)
+- BUG: Conflicts were marked as resolved even if
+       the changes could not be saved. (Stefan)
+- CHG: Improve text for screen readers in log dialog. (Stefan)
+- BUG: Unnecessary horizontal scrollbar was
+       shown in case logwidthmarker is set. (Sven Strickroth)
+- BUG: The font size in the statistics dialog
+       was wrong, font unreadable. (Stefan)
+- CHG: Improved stability of the log cache. (Ivan Zhakov)
+- BUG: TMerge could hang applying a patch. (Stefan)
+- BUG: Crash in log dialog when repo root
+       isn't readable. (Ivan Zhakov, Stefan)
+- BUG: Repo browser slow to close. (Stefan)
+- BUG: CodeCollaborator was not properly detected. (Stefan)
+
 Version 1.9.3
 - BUG: The DEL key didn't work in the filter box
        in the log dialog. (Stefan)
