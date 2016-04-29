@@ -1265,7 +1265,7 @@ LONG TortoiseBlame::GetBlameWidth()
     HDC hDC = ::GetDC(wBlame);
     HFONT oldfont = (HFONT)::SelectObject(hDC, m_font);
     TCHAR buf[MAX_PATH] = { 0 };
-    swprintf_s(buf, L"*%8ld ", 88888888);
+    swprintf_s(buf, L"*%8d ", 88888888);
     ::GetTextExtentPoint(hDC, buf, (int)wcslen(buf), &width);
     m_revWidth = width.cx + BLAMESPACE;
     blamewidth += m_revWidth;
