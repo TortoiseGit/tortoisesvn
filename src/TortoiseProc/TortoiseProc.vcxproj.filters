@@ -1097,6 +1097,9 @@
     <ClCompile Include="..\Utils\MiscUI\ToastNotifications.cpp">
       <Filter>Utils\UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\LruCache.cpp">
+      <Filter>Utils\General</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2094,6 +2097,9 @@
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\ToastNotifications.h">
       <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\LruCache.h">
+      <Filter>Utils\General</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
