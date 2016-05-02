@@ -30,8 +30,11 @@
     <copy todir="..\..\..\bin\${configuration}${bindirextension}\bin" overwrite="true" flatten="true" failonerror="true">
       <fileset>
         <include name="out\${platform}\${configuration}\crshhndl.dll" />
+        <include name="out\${platform}\${configuration}\crshhndl.pdb" />
         <include name="out\${platform}\${configuration}\SendRpt.exe" />
+        <include name="out\${platform}\${configuration}\SendRpt.pdb" />
         <include name="out\${platform}\${configuration}\dbghelp.dll" />
+        <include name="out\${platform}\${configuration}\dbghelp.pdb" />
       </fileset>
     </copy>
   </target>
