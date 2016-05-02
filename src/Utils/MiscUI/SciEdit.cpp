@@ -538,20 +538,10 @@ void CSciEdit::SetAutoCompletionList(std::map<CString, int>&& list, TCHAR separa
     m_typeSeparator = typeSeparator;
 }
 
-BOOL CSciEdit::IsMisspelled(const CString& sWord)
+// Helper for CSciEdit::IsMisspelled()
+// Returns TRUE if sWord has spelling errors.
+BOOL CSciEdit::CheckWordSpelling(const CString& sWord)
 {
-    // convert the string from the control to the encoding of the spell checker module.
-    CStringA sWordA = GetWordForSpellChecker(sWord);
-
-    // words starting with a digit are treated as correctly spelled
-    if (_istdigit(sWord.GetAt(0)))
-        return FALSE;
-    // words in the personal dictionary are correct too
-    if (m_personalDict.FindWord(sWord))
-        return FALSE;
-
-    // now we actually check the spelling...
-    bool misspelled = false;
     if (m_SpellChecker)
     {
         IEnumSpellingErrorPtr enumSpellingError = nullptr;
@@ -566,15 +556,37 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
                 spellingError->get_CorrectiveAction(&action);
                 if (action != CORRECTIVE_ACTION_NONE)
                 {
-                    misspelled = true;
+                    return TRUE;
                 }
             }
         }
     }
-    else if (pChecker && !pChecker->spell(sWordA))
+    else if (pChecker)
     {
-        misspelled = true;
+        // convert the string from the control to the encoding of the spell checker module.
+        CStringA sWordA = GetWordForSpellChecker(sWord);
+
+        if (!pChecker->spell(sWordA))
+        {
+            return TRUE;
+        }
     }
+
+    return FALSE;
+}
+
+BOOL CSciEdit::IsMisspelled(const CString& sWord)
+{
+    // words starting with a digit are treated as correctly spelled
+    if (_istdigit(sWord.GetAt(0)))
+        return FALSE;
+    // words in the personal dictionary are correct too
+    if (m_personalDict.FindWord(sWord))
+        return FALSE;
+
+    // now we actually check the spelling...
+    BOOL misspelled = CheckWordSpelling(sWord);
+
     if (misspelled)
     {
         // the word is marked as misspelled, we now check whether the word
@@ -596,33 +608,13 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
                         return FALSE;
                     return TRUE;
                 }
-                if (m_SpellChecker)
+
+                CString token(sWord.Mid(wordstart, wordend - wordstart));
+                if (token.GetLength() > 2 && CheckWordSpelling(token))
                 {
-                    IEnumSpellingErrorPtr enumSpellingError = nullptr;
-                    HRESULT hr = m_SpellChecker->Check(sWord.Mid(wordstart, wordend - wordstart), &enumSpellingError);
-                    if (SUCCEEDED(hr))
-                    {
-                        ISpellingErrorPtr spellingError = nullptr;
-                        hr = enumSpellingError->Next(&spellingError);
-                        if (hr == S_OK)
-                        {
-                            CORRECTIVE_ACTION action = CORRECTIVE_ACTION_NONE;
-                            spellingError->get_CorrectiveAction(&action);
-                            if (action != CORRECTIVE_ACTION_NONE)
-                            {
-                                return TRUE;
-                            }
-                        }
-                    }
+                    return TRUE;
                 }
-                else if (pChecker)
-                {
-                    sWordA = GetWordForSpellChecker(sWord.Mid(wordstart, wordend - wordstart));
-                    if ((sWordA.GetLength() > 2) && (!pChecker->spell(sWordA)))
-                    {
-                        return TRUE;
-                    }
-                }
+
                 wordstart = wordend;
                 wordend++;
             }

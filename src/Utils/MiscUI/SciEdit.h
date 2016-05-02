@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013, 2015 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013, 2015-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -163,6 +163,7 @@ protected:
     bool        WrapLines(int startpos, int endpos);
     bool        FindStyleChars(const char * line, char styler, int& start, int& end);
     void        AdvanceUTF8(const char * str, int& pos);
+    BOOL        CheckWordSpelling(const CString & sWord);
     BOOL        IsMisspelled(const CString& sWord);
     DWORD       GetStyleAt(int pos) { return (DWORD)Call(SCI_GETSTYLEAT, pos) & 0x1f; }
     bool        IsUrl(const CStringA& sText);
