@@ -79,6 +79,7 @@ CSciEdit::CSciEdit(void) : m_DirectFunction(NULL)
     , m_nAutoCompleteMinChars(3)
     , m_spellCheckerFactory(nullptr)
     , m_SpellChecker(nullptr)
+    , m_SpellingCache(2000)
 {
     m_hModule = ::LoadLibrary(L"SciLexer.DLL");
 }
@@ -584,6 +585,11 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
     if (m_personalDict.FindWord(sWord))
         return FALSE;
 
+    // Check spell checking cache first.
+    const BOOL *cacheResult = m_SpellingCache.try_get(std::wstring(sWord, sWord.GetLength()));
+    if (cacheResult)
+        return *cacheResult;
+
     // now we actually check the spelling...
     BOOL misspelled = CheckWordSpelling(sWord);
 
@@ -593,6 +599,7 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
         // is maybe a composite identifier
         // a composite identifier consists of multiple words, with each word
         // separated by a change in lower to uppercase letters
+        misspelled = FALSE;
         if (sWord.GetLength() > 1)
         {
             int wordstart = 0;
@@ -605,14 +612,20 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
                 {
                     // words in the auto list are also assumed correctly spelled
                     if (m_autolist.find(sWord) != m_autolist.end())
-                        return FALSE;
-                    return TRUE;
+                    {
+                        misspelled = FALSE;
+                        break;
+                    }
+
+                    misspelled = TRUE;
+                    break;
                 }
 
                 CString token(sWord.Mid(wordstart, wordend - wordstart));
                 if (token.GetLength() > 2 && CheckWordSpelling(token))
                 {
-                    return TRUE;
+                    misspelled = TRUE;
+                    break;
                 }
 
                 wordstart = wordend;
@@ -620,7 +633,11 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
             }
         }
     }
-    return FALSE;
+
+    // Update cache.
+    m_SpellingCache.insert_or_assign(std::wstring(sWord, sWord.GetLength()), misspelled);
+
+    return misspelled;
 }
 
 void CSciEdit::CheckSpelling(int startpos, int endpos)

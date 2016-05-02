@@ -26,6 +26,7 @@
 #include "PersonalDictionary.h"
 #include <regex>
 #include <spellcheck.h>
+#include "LruCache.h"
 
 #define AUTOCOMPLETE_SPELLING       0
 #define AUTOCOMPLETE_FILENAME       1
@@ -149,6 +150,8 @@ private:
     int         m_nAutoCompleteMinChars;
     ISpellCheckerFactoryPtr     m_spellCheckerFactory;
     ISpellCheckerPtr            m_SpellChecker;
+    LruCache<std::wstring, BOOL> m_SpellingCache;
+
     static bool IsValidURLChar(unsigned char ch);
 protected:
     virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
