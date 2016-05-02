@@ -610,7 +610,7 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
                             spellingError->get_CorrectiveAction(&action);
                             if (action != CORRECTIVE_ACTION_NONE)
                             {
-                                misspelled = true;
+                                return TRUE;
                             }
                         }
                     }
