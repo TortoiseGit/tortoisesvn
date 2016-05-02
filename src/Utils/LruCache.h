@@ -31,14 +31,20 @@ public:
     {
     }
 
-    void insert(const key_t & key, const value_t & val)
+    void insert_or_assign(const key_t & key, const value_t & val)
     {
-        assert(itemsMap.find(key) == itemsMap.end());
+        ItemsMap::iterator mapIt = itemsMap.find(key);
+        if (mapIt == itemsMap.end())
+        {
+            evict(maxSize - 1);
 
-        evict(maxSize - 1);
-
-        ItemsList::iterator it = itemsList.insert(itemsList.cend(), ListItem(key, val));
-        itemsMap.insert(std::make_pair(key, it));
+            ItemsList::iterator listIt = itemsList.insert(itemsList.cend(), ListItem(key, val));
+            itemsMap.insert(std::make_pair(key, listIt));
+        }
+        else
+        {
+            mapIt->second->val = val;
+        }
     }
 
     const value_t * try_get(const key_t & key)
