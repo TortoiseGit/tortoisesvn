@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-03-04 10:23+0000\n"
+"PO-Revision-Date: 2016-05-06 12:33+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -672,7 +672,7 @@ msgstr "&Data"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr "&Dies d'inactivitat fins que els petits caches s'esborrin"
+msgstr "&Dies d'inactivitat fins que s'esborren les memòries cau petites"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1269)
 msgid "&Default"
@@ -1034,7 +1034,7 @@ msgstr "&Màx longitud de línia per diferències a la línia"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
-msgstr "&Mida màxima [kBytes] del cache inactiu esborrat"
+msgstr "&Mida màxima [kByte] d'una memòria cau inactiva esborrada"
 
 #. Resource IDs: (16543)
 msgid "&Menu animations:"
@@ -2210,7 +2210,7 @@ msgstr "Utilitza sempre la configuració local per mostrar hores i dates"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_RAM)
 msgid "Amount of memory required to load the cache"
-msgstr "Quantitat de memòria requerida per carregar el cache"
+msgstr "Quantitat de memòria requerida per a carregar la memòria cau"
 
 #. Resource IDs: (IDS_SETTINGS_EXTDIFF_TT)
 #, c-format
@@ -2637,7 +2637,7 @@ msgstr "Mida de la memòria cau [kB]"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1440)
 msgid "Cached Repositories"
-msgstr "Repositoris en cache"
+msgstr "Repositoris a la memòria cau"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1127)
 msgid "Can double-click in log list to compare with previous revision"
@@ -2809,7 +2809,7 @@ msgstr "Cancel·lar\nManté el fitxer buit."
 msgid ""
 "Cancel\n"
 "Leave the cache on disk."
-msgstr "Cancel·la\nDeixa el cache al disc."
+msgstr "Cancel·la\nDeixa la memòria cau al disc."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
 msgid ""
@@ -3095,7 +3095,7 @@ msgstr "Obtén\nObtén a la carpeta no buida."
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Checksum:"
-msgstr "Checksum:"
+msgstr "Suma de verificació:"
 
 #. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1402)
 msgid "Choose item:"
@@ -3138,7 +3138,7 @@ msgstr "Neteja ha processat satisfactòriament els següents camins:\n%ls"
 
 #. Resource IDs: (IDS_MENUDESCCLEANUP)
 msgid "Cleanup interrupted operations, locked files, ..."
-msgstr "Neteja interrompuda per operacions, fitxers bloquejats, ..."
+msgstr "Neteja operacions interrompudes, fitxers bloquejats, ..."
 
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1273, Dialog
 #. IDD_SETTINGSSAVEDDATA: Control id 1275, Dialog IDD_SETTINGSSAVEDDATA:
@@ -3152,7 +3152,7 @@ msgstr "Esborra"
 msgid ""
 "Clear Tool\n"
 "Clear"
-msgstr "Neteja Eina\nNeteja"
+msgstr "Eina de neteja\nNeteja"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
@@ -4022,7 +4022,7 @@ msgstr "URL per defecte:"
 
 #. Resource IDs: (16107)
 msgid "Default application menu. Appears when no documents are open."
-msgstr "Mení d'aplicació per defecte. Apareix quan no hi han documents oberts."
+msgstr "Menú d'aplicació per defecte. Apareix quan no hi ha documents oberts."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4054,7 +4054,7 @@ msgstr "Suprimeix fitxers i &carpetes sense versionar"
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK2)
 msgid "Delete Repository cache"
-msgstr "Suprimeix cache del repositori"
+msgstr "Suprimeix la memòria cau del repositori"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 240)
 msgid "Delete Unversioned Items"
@@ -4082,7 +4082,7 @@ msgstr "Suprimeix elements sense versionar..."
 msgid ""
 "Delete\n"
 "Remove the cache files."
-msgstr "Suprimir\nSuprimeix els arxius de cache."
+msgstr "Suprimir\nSuprimeix els arxius de la memòria cau."
 
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK3)
 msgid ""
@@ -4123,7 +4123,7 @@ msgstr "Esborrant"
 
 #. Resource IDs: (IDS_SETTINGS_DELCACHE)
 msgid "Deleting cached data"
-msgstr "Esborrant dades en cache"
+msgstr "Esborrant dades de la memòria cau"
 
 #. Resource IDs: (IDS_SETTINGS_DELFILE)
 msgid "Deleting file"
@@ -4923,7 +4923,7 @@ msgstr "Exporta la configuració al fitxer..."
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_EXPORT)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
-msgstr "Exporta el cache seleccionat com un fitxer de valors separats per coma (CSV)"
+msgstr "Exporta la memòria cau seleccionada com a conjunt de fitxers CSV (Comma Separated Value)"
 
 #. Resource IDs: (IDS_PROC_EXPORT_2)
 msgid "Export unversioned files too"
@@ -5659,7 +5659,7 @@ msgstr "Amaga/Mostra el llistat de fitxers pedaç\nAmaga o mostra el llistat de 
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
-msgstr "Número revisió més alt en el cache"
+msgstr "Número de revisió més alt a la memòria cau"
 
 #. Resource IDs: (16519)
 msgid ""
@@ -6432,7 +6432,7 @@ msgstr "Idioma:"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Last changed author:"
-msgstr "Darrer autor canviat:"
+msgstr "Autor darrer canvi:"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Last changed revision:"
@@ -6444,11 +6444,11 @@ msgstr "Darrera revisió desada de l'element"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_LASTWRITE)
 msgid "Last time the cache content was changed"
-msgstr "Darrer cop que el contingut del cache va ser canviat"
+msgstr "Darrer cop que ha canviat el contingut de la memòria cau"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_LASTREAD)
 msgid "Last time the cache was accessed"
-msgstr "Darrer cop que el cache va ser accedit"
+msgstr "Darrer cop que s'ha accedit la memòria cau"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_LASTHEADUPDATE)
 msgid "Last time the repository was asked for the HEAD revision number"
@@ -6601,11 +6601,11 @@ msgstr "Barra de localització"
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 65535,
 #. IDS_PROGRS_CMD_LOCK, IDS_PROGRS_TITLE_LOCK, IDS_STATUSLIST_COLLOCK)
 msgid "Lock"
-msgstr "Bloqueja"
+msgstr "Bloqueig"
 
 #. Resource IDs: (IDS_STATUSLIST_COLLOCKDATE)
 msgid "Lock Date"
-msgstr "Bloqueja data"
+msgstr "Data del bloqueig"
 
 #. Resource IDs: (Dialog IDD_LOCK: Control id 191)
 msgid "Lock Files"
@@ -6621,7 +6621,7 @@ msgstr "Bloqueig eliminat."
 
 #. Resource IDs: (IDS_STATUSLIST_COLLOCKCOMMENT)
 msgid "Lock comment"
-msgstr "Bloqueja comentari"
+msgstr "Comentari del bloqueig"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Lock creation date:"
@@ -6818,7 +6818,7 @@ msgstr "Marca el conflicte com a resolt.\nNota: això no resol el conflicte, nom
 msgid ""
 "Marks the revisions as merged, without actually doing the merge.\r\n"
 "This blocks the revisions from getting merged in the future."
-msgstr "Assenyala les revisions com a foses, sense fer realment la fusió.\nAixò fa que les revisions no es puguin fusionar en el futur."
+msgstr "Assenyala les revisions com a fusionades, sense fer-ne realment la fusió.\nAixò bloqueja la possible fusió de les revisions més endavant."
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1064)
 msgid "Match &case"
@@ -6838,7 +6838,7 @@ msgstr "Màx. nombre de línies al log d'accions"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
-msgstr "Màxim nombre de &falles d'eina fins que s'esborri el cache"
+msgstr "Màxim nombre d'&errors de l'eina fins que s'esborri la memòria cau"
 
 #. Resource IDs: (16655)
 msgid "Me&nus show recently used commands first"
@@ -7060,7 +7060,7 @@ msgstr "Més"
 
 #. Resource IDs: (16026)
 msgid "More Buttons"
-msgstr "Més Botons"
+msgstr "Més botons"
 
 #. Resource IDs: (17097)
 msgid "More Commands..."
@@ -7248,7 +7248,7 @@ msgstr "Opcions de Navegació..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
-msgstr "Necessita-&Bloqueig"
+msgstr "Necessita-&bloqueig"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAYHANDLERS: Control id 1550)
 msgid "Needs-lock"
@@ -7463,7 +7463,7 @@ msgstr "Nombre de %ls:"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_AUTHORS)
 msgid "Number of authors in the cache"
-msgstr "Nombre d'autors al cache"
+msgstr "Nombre d'autors a la memòria cau"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1161)
 msgid "Number of authors:"
@@ -7471,7 +7471,7 @@ msgstr "Nombre d'autors:"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESREVISIONS)
 msgid "Number of cached merged revisions"
-msgstr "Nombre de  revisions fusionades al cache"
+msgstr "Nombre de revisions fusionades a la memòria cau"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_REVISIONCOUNT)
 msgid "Number of cached revisions"
@@ -7479,20 +7479,20 @@ msgstr "Nombre de revisions fusionades"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_CHANGEDREVISIONS)
 msgid "Number of cached revisions that have a non-empty change list"
-msgstr "Nombre de revisions al cache que tenen una llista de canvis no buida"
+msgstr "Nombre de revisions a la memòria cau que tenen una llista de canvis no buida"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_USERREVPROPSREVISIONS)
 msgid "Number of cached revisions that have user revision properties"
-msgstr "Nombre de revisions al cache que tenen propietats de revisió de l'usuari"
+msgstr "Nombre de revisions a la memòria cau que tenen propietats de revisió de l'usuari"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_CHANGESMISSING)
 msgid "Number of cached revisions whose change list is not cached yet"
-msgstr "Nombre de revisions al cache la llista de canvis de les quals no és encara al cache"
+msgstr "Nombre de revisions a la memòria cau que encara no tenen la llista de canvis a la memòria cau"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_USERREVPROPSMISSING)
 msgid ""
 "Number of cached revisions whose user revision properties are not cached yet"
-msgstr "Nombre revisions al cache les propietats de revisió de les quals  no són encara al cache"
+msgstr "Nombre revisions a la memòria cau que encara no tenen les propietats de revisió d'usuari a la memòria cau"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_PATHS)
 msgid ""
@@ -7505,7 +7505,7 @@ msgstr "Nombre de paraules diferents usada als missatges de log"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESMISSING)
 msgid "Number of merged revisions that are not cached yet"
-msgstr "Nombre de revisions foses que encara no son al cache"
+msgstr "Nombre de revisions fusionades que encara no són a la memòria cau"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_PATHELEMENTS)
 msgid ""
@@ -8498,7 +8498,7 @@ msgstr "Trossos de pedaços rebutjats per '%ls'"
 
 #. Resource IDs: (IDS_MENU_UNLOCK)
 msgid "Release loc&k..."
-msgstr "Allibera blo&queig"
+msgstr "Allibera blo&queig..."
 
 #. Resource IDs: (IDS_MENUDESC_UNLOCKFORCE)
 msgid ""
@@ -8615,7 +8615,7 @@ msgstr "Suprimeix propiestat '%1!S!' de\n%2!ls!"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_DELETE)
 msgid "Remove the selected cache(s) from disk"
-msgstr "Treu el(s) cache(s) seleccionat(s) del disc"
+msgstr "Suprimeix la(s) memòria(s) cau seleccionada(s) del disc"
 
 #. Resource IDs: (Dialog IDD_REVGRAPHFILTER: Control id 1352)
 msgid "Remove the whole subtree(s)"
@@ -9087,11 +9087,11 @@ msgstr "S&elecciona..."
 
 #. Resource IDs: (17027)
 msgid "S&how Buttons on One Row"
-msgstr "M&ostra Botons en una Filera"
+msgstr "M&ostra botons en una Filera"
 
 #. Resource IDs: (17028)
 msgid "S&how Buttons on Two Rows"
-msgstr "M&ostra Botons en Dues Fileres"
+msgstr "M&ostra botons en dues fileres"
 
 #. Resource IDs: (17078)
 msgid "S&how Quick Access Toolbar below the Ribbon"
@@ -9729,7 +9729,7 @@ msgstr "Mostra log de &branca"
 
 #. Resource IDs: (17030)
 msgid "Show Fewer Buttons"
-msgstr "Mostra Menys Botons"
+msgstr "Mostra menys botons"
 
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
@@ -9757,7 +9757,7 @@ msgstr "Mostra el diàleg del monitor"
 
 #. Resource IDs: (17029)
 msgid "Show More Buttons"
-msgstr "Mostra Més Botons"
+msgstr "Mostra més botons"
 
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
@@ -9994,11 +9994,11 @@ msgstr "Mida de missatges de log"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_DISK)
 msgid "Size of the cache file on disk"
-msgstr "Mida del fitxer de cache al disc"
+msgstr "Mida del fitxer de memòria cau al disc"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_UNCOMPRESSEDSIZE)
 msgid "Size of the cache if it were not compressed"
-msgstr "Mida del cache sense comprimir"
+msgstr "Mida de la memòria cau si no es comprimís"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK5)
 msgid ""
@@ -10643,125 +10643,125 @@ msgstr "L'element '%ls' té conflictes de propietat:\n%ls"
 #. Resource IDs: (IDS_TREECONFLICT_DIRMERGEADD)
 #, c-format
 msgid "The last merge operation tried to add the directory '%ls'"
-msgstr "La darrera operació de fusió ha tractat d'afegir el directori '%ls'"
+msgstr "La darrera operació de fusió ha intentat afegir el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILEMERGEADD)
 #, c-format
 msgid "The last merge operation tried to add the file '%ls'"
-msgstr "La darrera operació de fusió ha tractat d'afegir el fitxer '%ls'"
+msgstr "La darrera operació de fusió ha intentat afegir el fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRMERGEDELETE)
 #, c-format
 msgid ""
 "The last merge operation tried to delete/move/rename the directory '%ls'"
-msgstr "La darrera operació de fusió ha tractat d'esborrar/desplaçar/canviar el nom del directori '%ls'"
+msgstr "La darrera operació de fusió ha intentat esborrar/desplaçar/canviar el nom del directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILEMERGEDELETE)
 #, c-format
 msgid "The last merge operation tried to delete/move/rename the file '%ls'"
-msgstr "La darrera operació de fusió ha tractat d'esborrar/desplaçar/canviar el nom del fitxer '%ls'"
+msgstr "La darrera operació de fusió ha intentat esborrar/desplaçar/canviar el nom del fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRMERGEEDIT)
 #, c-format
 msgid "The last merge operation tried to modify the directory '%ls'"
-msgstr "La darrera operació de fusió ha tractat de modificar el directori '%ls'"
+msgstr "La darrera operació de fusió ha intentat modificar el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILEMERGEEDIT)
 #, c-format
 msgid "The last merge operation tried to modify the file '%ls'"
-msgstr "La darrera operació de fusió ha tractat de modificar el fitxer '%ls'"
+msgstr "La darrera operació de fusió ha intentat modificar el fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRMERGEREPLACE)
 #, c-format
 msgid "The last merge operation tried to replace the directory '%ls'"
-msgstr "La darrera operació de fusió ha tractat de substituir el directori '%ls'"
+msgstr "La darrera operació de fusió ha intentat substituir el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILEMERGEREPLACE)
 #, c-format
 msgid "The last merge operation tried to replace the file '%ls'"
-msgstr "La darrera operació de fusió ha tractat de substituir el fitxer '%ls'"
+msgstr "La darrera operació de fusió ha intentat substituir el fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHADD)
 #, c-format
 msgid "The last switch operation tried to add the directory '%ls'"
-msgstr "La darrera operació de Canvia ha tractat d'afegir el directori '%ls'"
+msgstr "La darrera operació de canvi ha intentat afegir el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILESWITCHADD)
 #, c-format
 msgid "The last switch operation tried to add the file '%ls'"
-msgstr "La darrera operació de Canvia ha tractat d'afegir el fitxer '%ls'"
+msgstr "La darrera operació de canvi ha intentat afegir el fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHDELETE)
 #, c-format
 msgid ""
 "The last switch operation tried to delete/move/rename the directory '%ls'"
-msgstr "La darrera operació de Canvi ha tractat d'esborrar/desplaçar/canviar el nom del directori '%ls'"
+msgstr "La darrera operació de canvi ha intentat esborrar/desplaçar/canviar el nom del directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILESWITCHDELETE)
 #, c-format
 msgid "The last switch operation tried to delete/move/rename the file '%ls'"
-msgstr "La darrera operació de Canvi ha tractat d'esborrar/desplaçar/canviar el nom del fitxer '%ls'"
+msgstr "La darrera operació de canvi ha intentat esborrar/desplaçar/canviar el nom del fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHEDIT)
 #, c-format
 msgid "The last switch operation tried to modify the directory '%ls'"
-msgstr "La darrera operació de Canvia ha tractat de modificar el directori '%ls'"
+msgstr "La darrera operació de canvi ha intentat modificar el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILESWITCHEDIT)
 #, c-format
 msgid "The last switch operation tried to modify the file '%ls'"
-msgstr "La darrera operació Canvia ha tractat de modificar el fitxer '%ls'"
+msgstr "La darrera operació de canvi ha intentat modificar el fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHREPLACE)
 #, c-format
 msgid "The last switch operation tried to replace the directory '%ls'"
-msgstr "La darrera operació de canvi ha tractat de substituir el directori '%ls'"
+msgstr "La darrera operació de canvi ha intentat substituir el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILESWITCHREPLACE)
 #, c-format
 msgid "The last switch operation tried to replace the file '%ls'"
-msgstr "La darrera operació de fusió ha tractat de substituir el fitxer '%ls'"
+msgstr "La darrera operació de fusió ha intentat substituir el fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEADD)
 #, c-format
 msgid "The last update operation tried to add the directory '%ls'"
-msgstr "La darrera operació d'actualització ha tractat d'afegir el directori '%ls'"
+msgstr "La darrera operació d'actualització ha intentat afegir el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEADD)
 #, c-format
 msgid "The last update operation tried to add the file '%ls'"
-msgstr "La darrera operació d'actualització ha tractat d'afegir el fitxer '%ls'"
+msgstr "La darrera operació d'actualització ha intentat afegir el fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEDELETE)
 #, c-format
 msgid ""
 "The last update operation tried to delete/move/rename the directory '%ls'"
-msgstr "La darrera operació d'actualització ha tractat d'esborrar/desplaçar/canviar el nom del directori '%ls'"
+msgstr "La darrera operació d'actualització ha intentat esborrar/desplaçar/canviar el nom del directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEDELETE)
 #, c-format
 msgid "The last update operation tried to delete/move/rename the file '%ls'"
-msgstr "La darrera operació d'actualització ha tractat d'esborrar/desplaçar/canviar el nom del fitxer '%ls'"
+msgstr "La darrera operació d'actualització ha intentat esborrar/desplaçar/canviar el nom del fitxer '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEEDIT)
 #, c-format
 msgid "The last update operation tried to modify the directory '%ls'"
-msgstr "La darrera operació d'actualització ha tractat de modificar el directori '%ls'"
+msgstr "La darrera operació d'actualització ha intentat modificar el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEEDIT)
 #, c-format
 msgid "The last update operation tried to modify the file '%ls'"
-msgstr "La darrera operació d'actualització ha tractat de modificar el directori '%ls'"
+msgstr "La darrera operació d'actualització ha intentat modificar el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEREPLACE)
 #, c-format
 msgid "The last update operation tried to replace the directory '%ls'"
-msgstr "La darrera operació d'actualització ha tractat de substituir el directori '%ls'"
+msgstr "La darrera operació d'actualització ha intentat substituir el directori '%ls'"
 
 #. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEREPLACE)
 #, c-format
 msgid "The last update operation tried to replace the file '%ls'"
-msgstr "La darrera operació d'actualització ha tractat de substituir el fitxer '%ls'"
+msgstr "La darrera operació d'actualització ha intentat substituir el fitxer '%ls'"
 
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
@@ -11009,7 +11009,7 @@ msgid ""
 "\n"
 "Please understand that the cached data may be outdated,\n"
 "incomplete or even misleading due to incomplete history data."
-msgstr "No s'ha pogut contactar amb  el servidor.\nVoleu que s'utilitzin les dades del cache?\n\nTingueu en compte que les dades del cache poden ser antigues,\nincompletes o fins i tot errònies degut a que l' historial pot ser incomplet."
+msgstr "No s'ha pogut contactar amb  el servidor.\nVoleu que s'utilitzin les dades de la memòria cau?\n\nTingueu en compte que les dades de la memòria cau poden ser antigues,\nincompletes o fins i tot errònies degut a que l'historial pot ser incomplet."
 
 #. Resource IDs: (IDS_ERR_NOTHINGTOADD)
 msgid ""
@@ -11364,7 +11364,7 @@ msgstr "Nombre total de canvis a fitxers:"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_CHANGESTOTAL)
 msgid "Total number of changes over all cached revisions"
-msgstr "Nombre total de canvis a totes les revisions del cache"
+msgstr "Nombre total de canvis a totes les revisions en memòria cau"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESTOTAL)
 msgid "Total number of merged revisions"
@@ -11573,12 +11573,12 @@ msgstr "Profunditat desconeguda"
 
 #. Resource IDs: (IDS_REPOBROWSE_ERR_UNKNOWN)
 msgid "Unknown failure in SVN::List"
-msgstr "Falla desconeguda a SVN::List"
+msgstr "Error desconegut a SVN::List"
 
 #. Resource IDs: (Dialog IDD_UNLOCK: Control id 242, IDS_PROGRS_CMD_UNLOCK,
 #. IDS_PROGRS_TITLE_UNLOCK)
 msgid "Unlock"
-msgstr "Desbloqueja"
+msgstr "Desbloqueig"
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDUNLOCK)
 msgid "Unlock failed"
@@ -11708,7 +11708,7 @@ msgstr "Actualitzant i tornant a provar el bloqueig..."
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_UPDATETITLE)
 msgid "Updating log cache"
-msgstr "Actualitzant cache log"
+msgstr "Actualitzant memòria cau del log"
 
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK3)
 msgid ""
@@ -12102,7 +12102,7 @@ msgid ""
 "When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
-msgstr "Quan no és possible connectar amb el servidor del repositori,\nTSVN pot fer que s'utilitzin només dades del cache.\nSeleccioneu aquí el comportament per defecte."
+msgstr "Quan no és possible connectar amb el servidor del repositori,\nel TSVN pot fer que s'utilitzin només dades de la memòria cau.\nSeleccioneu aquí el comportament per defecte."
 
 #. Resource IDs: (IDS_SETTINGS_ENABLEDRAGCONTEXTMENU_TT)
 msgid ""
@@ -12470,7 +12470,7 @@ msgstr "un altre element ja existeix en el seu lloc."
 msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
-msgstr "pregunta primer al repositori si es troba  'online' -\ntreballa totalment amb el cache si  'offline'"
+msgstr "pregunta primer al repositori en cas d'estar 'en línia' -\ntreballa totalment amb la memòria cau en cas de 'fora de línia'"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEWC_AT)
 msgid "at this revision"
@@ -12620,7 +12620,7 @@ msgstr "trossos fallits: %d"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "file external:"
-msgstr "fitxer external:"
+msgstr "fitxer extern:"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COPYFILENAMES)
 msgid "file/foldernames"
