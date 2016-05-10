@@ -3694,8 +3694,8 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
     // Fill the background
     if (IsAppThemed())
     {
-        HTHEME hTheme = OpenThemeData(m_hWnd, L"Explorer");
-        int state = LISS_NORMAL;
+        HTHEME hTheme = OpenThemeData(m_hWnd, L"ListView");
+        OnOutOfScope(CloseThemeData(hTheme));
         if (rItem.state & LVIS_SELECTED)
         {
             if (::GetFocus() == listCtrl.m_hWnd)
@@ -3723,11 +3723,14 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
             }
         }
 
-        if (IsThemeBackgroundPartiallyTransparent(hTheme, LVP_LISTDETAIL, state))
+        if (IsThemeBackgroundPartiallyTransparent(hTheme, LVP_LISTITEM, state))
             DrawThemeParentBackground(m_hWnd, pLVCD->nmcd.hdc, &rect);
 
-        DrawThemeBackground(hTheme, pLVCD->nmcd.hdc, LVP_LISTDETAIL, state, &rect, NULL);
-        CloseThemeData(hTheme);
+        // don't draw the background here:
+        // if we changed the background, we've already painted it.
+        // for the default background: just leave it as is because it was already
+        // painted!
+        // DrawThemeBackground(hTheme, pLVCD->nmcd.hdc, LVP_LISTITEM, state, &rect, NULL);
     }
     else
     {
