@@ -3696,6 +3696,8 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW * pL
     {
         HTHEME hTheme = OpenThemeData(m_hWnd, L"ListView");
         OnOutOfScope(CloseThemeData(hTheme));
+
+        int state = LISS_NORMAL;
         if (rItem.state & LVIS_SELECTED)
         {
             if (::GetFocus() == listCtrl.m_hWnd)
