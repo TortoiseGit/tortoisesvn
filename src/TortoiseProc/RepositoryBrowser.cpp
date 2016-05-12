@@ -867,7 +867,9 @@ void CRepositoryBrowser::OnCancel()
         SaveDividerPosition();
     }
 
+    ++m_blockEvents;
     ClearUI();
+    --m_blockEvents;
 
     __super::OnCancel();
 }
