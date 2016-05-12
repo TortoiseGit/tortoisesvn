@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011-2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -161,7 +161,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
             entry.push_back(line.get());
         }
     } while (File.gcount() > 0);
-    printf(File.getloc().name().c_str());
+    printf("%s", File.getloc().name().c_str());
     File.close();
     RESOURCEENTRY emptyentry = {0};
     (*this)[std::wstring(L"")] = emptyentry;
