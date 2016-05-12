@@ -5071,6 +5071,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
         pTreeItem->repository = m_repository;
         pTreeItem->kind = svn_node_dir;
         pTreeItem->svnparentpathroot = true;
+        pTreeItem->children_fetched = true;
         TVINSERTSTRUCT tvinsert = {0};
         tvinsert.hParent = TVI_ROOT;
         tvinsert.hInsertAfter = TVI_ROOT;
