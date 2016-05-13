@@ -3876,7 +3876,6 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         rect.left += leftmargin;
         RECT rc = rect;
 
-        HTHEME hTheme = OpenThemeData(listCtrl.GetSafeHwnd(), L"Explorer");
         // is the column left- or right-aligned? (we don't handle centered (yet))
         LVCOLUMN Column;
         Column.mask = LVCF_FMT;
@@ -3923,7 +3922,6 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         }
         DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), -1, &rc,
                             DT_SINGLELINE|DT_VCENTER|DT_NOPREFIX|DT_END_ELLIPSIS);
-        CloseThemeData(hTheme);
         return CDRF_SKIPDEFAULT;
     }
     return CDRF_DODEFAULT;
