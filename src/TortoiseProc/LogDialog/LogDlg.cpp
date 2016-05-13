@@ -64,6 +64,7 @@
 #include "RenameDlg.h"
 #include "..\..\ext\snarl\SnarlInterface.h"
 #include "ToastNotifications.h"
+#include "AutoThemeData.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 #include <fstream>
@@ -3800,10 +3801,9 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
         int borderWidth = 0;
         if (IsAppThemed())
         {
-            HTHEME hTheme = OpenThemeData(m_hWnd, L"LISTVIEW");
+            CAutoThemeData hTheme = OpenThemeData(m_hWnd, L"LISTVIEW");
             GetThemeMetric(hTheme, pLVCD->nmcd.hdc, LVP_LISTITEM, LISS_NORMAL, TMT_BORDERSIZE,
                                     &borderWidth);
-            CloseThemeData(hTheme);
         }
         else
         {
@@ -3866,9 +3866,8 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW * p
                 }
                 if ((state)&&(listCtrl.GetExtendedStyle() & LVS_EX_CHECKBOXES))
                 {
-                    HTHEME hTheme = OpenThemeData(m_hWnd, L"BUTTON");
+                    CAutoThemeData hTheme = OpenThemeData(m_hWnd, L"BUTTON");
                     DrawThemeBackground(hTheme, pLVCD->nmcd.hdc, BP_CHECKBOX, state, &irc, NULL);
-                    CloseThemeData(hTheme);
                 }
             }
         }
