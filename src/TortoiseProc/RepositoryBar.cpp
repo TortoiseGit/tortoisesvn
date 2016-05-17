@@ -24,6 +24,7 @@
 #include "SVN.h"
 #include "SVNHelpers.h"
 #include "WaitCursorEx.h"
+#include "CommonAppUtils.h"
 
 #define IDC_URL_COMBO     10000
 #define IDC_REVISION_BTN  10001
@@ -101,7 +102,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         // Create the "Back" button control to be added
         rect = CRect(0, 0, 24, 24);
         m_btnBack.Create(L"BACK", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_BACK_BTN);
-        m_btnBack.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+        m_btnBack.SetImage(CCommonAppUtils::LoadIconEx(IDI_BACKWARD, 16, 16, LR_DEFAULTCOLOR));
         m_btnBack.SetWindowText(L"");
         m_btnBack.Invalidate();
         rbbi.lpText     = L"";
@@ -116,7 +117,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         // Create the "Forward" button control to be added
         rect = CRect(0, 0, 24, 24);
         m_btnForward.Create(L"FORWARD", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_FORWARD_BTN);
-        m_btnForward.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_FORWARD), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+        m_btnForward.SetImage(CCommonAppUtils::LoadIconEx(IDI_FORWARD, 16, 16, LR_DEFAULTCOLOR));
         m_btnForward.SetWindowText(L"");
         m_btnForward.Invalidate();
         rbbi.lpText     = L"";
@@ -153,7 +154,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         // Create the "Up" button control to be added
         rect = CRect(0, 0, 24, m_cbxUrl.GetItemHeight(-1) + 8);
         m_btnUp.Create(L"UP", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_UP_BTN);
-        m_btnUp.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_UP), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+        m_btnUp.SetImage(CCommonAppUtils::LoadIconEx(IDI_UP, 16, 16, LR_DEFAULTCOLOR));
         m_btnUp.SetWindowText(L"");
         m_btnUp.Invalidate();
         rbbi.lpText     = L"";
