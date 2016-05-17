@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -101,16 +101,16 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         // Create the "Back" button control to be added
         rect = CRect(0, 0, 24, 24);
         m_btnBack.Create(L"BACK", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_BACK_BTN);
-        m_btnBack.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+        m_btnBack.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 24, 24, LR_DEFAULTCOLOR));
         m_btnBack.SetWindowText(L"");
         m_btnBack.Invalidate();
         rbbi.lpText     = L"";
         rbbi.hwndChild  = m_btnBack.m_hWnd;
         rbbi.clrFore    = ::GetSysColor(COLOR_WINDOWTEXT);
         rbbi.clrBack    = ::GetSysColor(COLOR_BTNFACE);
-        rbbi.cx         = rect.right - rect.left;
-        rbbi.cxMinChild = rect.right - rect.left;
-        rbbi.cyMinChild = rect.bottom - rect.top;
+        rbbi.cx         = rect.Width();
+        rbbi.cxMinChild = rect.Width();
+        rbbi.cyMinChild = rect.Height();
         if (!InsertBand(bandpos++, &rbbi))
             return false;
         // Create the "Forward" button control to be added
@@ -123,9 +123,9 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         rbbi.hwndChild  = m_btnForward.m_hWnd;
         rbbi.clrFore    = ::GetSysColor(COLOR_WINDOWTEXT);
         rbbi.clrBack    = ::GetSysColor(COLOR_BTNFACE);
-        rbbi.cx         = rect.right - rect.left;
-        rbbi.cxMinChild = rect.right - rect.left;
-        rbbi.cyMinChild = rect.bottom - rect.top;
+        rbbi.cx         = rect.Width();
+        rbbi.cxMinChild = rect.Width();
+        rbbi.cyMinChild = rect.Height();
         if (!InsertBand(bandpos++, &rbbi))
             return false;
 
@@ -140,8 +140,8 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         rbbi.hwndChild  = m_cbxUrl.m_hWnd;
         rbbi.clrFore    = ::GetSysColor(COLOR_WINDOWTEXT);
         rbbi.clrBack    = ::GetSysColor(COLOR_BTNFACE);
-        rbbi.cx         = rect.right - rect.left;
-        rbbi.cxMinChild = rect.right - rect.left;
+        rbbi.cx         = rect.Width();
+        rbbi.cxMinChild = rect.Width();
         rbbi.cyMinChild = m_cbxUrl.GetItemHeight(-1) + 10;
         if (!InsertBand(bandpos++, &rbbi))
             return false;
@@ -160,9 +160,9 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         rbbi.hwndChild  = m_btnUp.m_hWnd;
         rbbi.clrFore    = ::GetSysColor(COLOR_WINDOWTEXT);
         rbbi.clrBack    = ::GetSysColor(COLOR_BTNFACE);
-        rbbi.cx         = rect.right - rect.left;
-        rbbi.cxMinChild = rect.right - rect.left;
-        rbbi.cyMinChild = rect.bottom - rect.top;
+        rbbi.cx         = rect.Width();
+        rbbi.cxMinChild = rect.Width();
+        rbbi.cyMinChild = rect.Height();
         if (!InsertBand(bandpos++, &rbbi))
             return false;
 
@@ -175,9 +175,9 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         rbbi.hwndChild  = m_btnRevision.m_hWnd;
         rbbi.clrFore    = ::GetSysColor(COLOR_WINDOWTEXT);
         rbbi.clrBack    = ::GetSysColor(COLOR_BTNFACE);
-        rbbi.cx         = rect.right - rect.left;
-        rbbi.cxMinChild = rect.right - rect.left;
-        rbbi.cyMinChild = rect.bottom - rect.top;
+        rbbi.cx         = rect.Width();
+        rbbi.cxMinChild = rect.Width();
+        rbbi.cyMinChild = rect.Height();
         if (!InsertBand(bandpos++, &rbbi))
             return false;
 
