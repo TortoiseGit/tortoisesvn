@@ -101,7 +101,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         // Create the "Back" button control to be added
         rect = CRect(0, 0, 24, 24);
         m_btnBack.Create(L"BACK", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_BACK_BTN);
-        m_btnBack.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 24, 24, LR_DEFAULTCOLOR));
+        m_btnBack.SetImage((HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_BACKWARD), IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
         m_btnBack.SetWindowText(L"");
         m_btnBack.Invalidate();
         rbbi.lpText     = L"";
