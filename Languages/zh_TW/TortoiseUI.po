@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-04-29 05:04+0000\n"
+"PO-Revision-Date: 2016-05-09 10:26+0000\n"
 "Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -242,7 +242,7 @@ msgstr "%ls (離線)"
 #. Resource IDs: (IDS_MENUIGNOREGLOBAL)
 #, c-format
 msgid "%ls (recursively)"
-msgstr "%ls (包含子項目)"
+msgstr "%ls (含所有子項目)"
 
 #. Resource IDs: (IDS_DIFF_MERGEDNAME)
 #, c-format
@@ -272,7 +272,7 @@ msgstr "%ls, 但是本地端已經存在未纳入版本控制的目錄."
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSINGMOVED)
 #, c-format
 msgid "%ls, but the directory is missing locally (deleted or moved away?)."
-msgstr "%ls，但本機目錄已遺失（被刪除或搬移？）"
+msgstr "%ls，但本機目錄已遺失（被刪除或移動？）"
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSING)
 #, c-format
@@ -322,7 +322,7 @@ msgstr "%ls, 但是本地端已經存在未纳入版本控制的檔案了."
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSINGMOVED)
 #, c-format
 msgid "%ls, but the file is missing locally (deleted or moved away?)."
-msgstr "%ls, 但是本地端沒有這個檔案(已刪除或搬移?)"
+msgstr "%ls, 但是本地端沒有這個檔案(已刪除或移動?)"
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSING)
 #, c-format
@@ -462,7 +462,7 @@ msgstr "允許模糊的 URL(&A)"
 #. IDD_EDITPROPUSERSINGLELINE: Control id 1294, Dialog IDD_EDITPROPUSERSTATE:
 #. Control id 1294)
 msgid "&Apply property recursively"
-msgstr "套用屬性至子項目(&A)"
+msgstr "套用屬性至所有子項目(&A)"
 
 #. Resource IDs: (IDS_TREECONFLICT_RESOLVE_APPLYTOMOVE)
 msgid "&Apply the update to the move destination"
@@ -470,7 +470,7 @@ msgstr "套用更新至移動目標(&A)"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1013)
 msgid "&Apply unified diff"
-msgstr "套用單一差異檔(&A)"
+msgstr "套用 Unified 差異檔(&A)"
 
 #. Resource IDs: (65535)
 msgid "&Arguments:"
@@ -518,7 +518,7 @@ msgstr "追溯(&B)..."
 
 #. Resource IDs: (65535)
 msgid "&Blue:"
-msgstr "藍(&B):"
+msgstr "藍色(&B):"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -690,7 +690,7 @@ msgstr "刪除(&D)"
 
 #. Resource IDs: (IDS_MENUREMOVEKEEP)
 msgid "&Delete (keep local)"
-msgstr "刪除並保留檔案(&D)"
+msgstr "刪除-保留本地(&D)"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1507)
 msgid "&Delete Filter"
@@ -774,7 +774,7 @@ msgstr "開啟編輯(&E)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1434)
 msgid "&Enable log caching"
-msgstr "啟動記錄快取(&E)"
+msgstr "開啟記錄快取(&E)"
 
 #. Resource IDs: (Dialog IDD_LOCK: Control id 1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -796,7 +796,7 @@ msgstr "匯出選取範圍至(&E)..."
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
 #. Control id 1095)
 msgid "&External"
-msgstr "外部連結(&E)"
+msgstr "外部(&E)"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&File"
@@ -828,7 +828,7 @@ msgstr "修正時間標記(&F)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1050)
 msgid "&Fixed drives"
-msgstr "硬式磁碟(&F)"
+msgstr "硬碟(&F)"
 
 #. Resource IDs: (17039)
 msgid "&Floating"
@@ -836,7 +836,7 @@ msgstr "浮動(&F)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
-msgstr "記錄訊息字型(&F):"
+msgstr "記錄訊息的字型(&F):"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
@@ -850,7 +850,7 @@ msgstr "從 URL(&F):"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1259)
 msgid "&From WC / URL:"
-msgstr "從工作複本/URL(&F):"
+msgstr "從工作複本 / URL(&F):"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 65535)
 msgid "&From revision"
@@ -866,7 +866,7 @@ msgstr "前往行數...\t(Ctrl+&G)"
 
 #. Resource IDs: (65535)
 msgid "&Green:"
-msgstr "綠(&G):"
+msgstr "綠色(&G):"
 
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
@@ -977,7 +977,7 @@ msgstr "大圖示(&L)"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
-msgstr "僅搜尋異動過的行(&L)"
+msgstr "限制僅搜尋已修改的行(&L)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Limit:"
@@ -1010,7 +1010,7 @@ msgstr "載入(&L)..."
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1554)
 msgid "&Locking required (read-only update)"
-msgstr "需要鎖定[唯讀更新](&L)"
+msgstr "需要鎖定 [唯讀更新](&L)"
 
 #. Resource IDs: (ID_NEW_LOGSIZES - Menu)
 msgid "&Log Sizes"
@@ -1075,19 +1075,19 @@ msgstr "最小化(&M)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
-msgstr "調整標籤工作副本的顏色(&M)"
+msgstr "修改標籤複本的顏色(&M)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1492)
 msgid "&Modify color for trunk copies"
-msgstr "修改主幹工作副本的顏色(&M)"
+msgstr "修改主幹複本的顏色(&M)"
 
 #. Resource IDs: (ID_VIEW_MOVEDBLOCKS - Menu)
 msgid "&Moved blocks"
-msgstr "已移動之區塊(&M)"
+msgstr "已移動的區塊(&M)"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
-msgstr "導航(&N)"
+msgstr "導覽(&N)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1049)
 msgid "&Network drives"
@@ -1125,7 +1125,7 @@ msgstr "不需要鎖定(&N)"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1506)
 msgid "&None"
-msgstr "全不選(&N)"
+msgstr "無(&N)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXECUTABLE: Control id 1555)
 msgid "&Not executable"
@@ -1219,11 +1219,11 @@ msgstr "永久離線(&P)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1588)
 msgid "&Platform dependent (native)"
-msgstr "依平臺設定 (&P)"
+msgstr "平臺相依-原生 (&P)"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 1654)
 msgid "&Play sound on notification"
-msgstr "有通知時播放音效(&P)"
+msgstr "通知時播放音效(&P)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1414)
 msgid "&Port:"
@@ -1231,7 +1231,7 @@ msgstr "埠(&P):"
 
 #. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 3)
 msgid "&Postpone all remaining conflicts"
-msgstr "延後處理剩餘的衝突(&P)"
+msgstr "延後處理所有剩餘的衝突(&P)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1489)
 msgid "&Power user defaults"
@@ -1261,11 +1261,11 @@ msgstr "屬性(&P)..."
 #. Control id 1246, Dialog IDD_IMPORT: Control id 1246, Dialog
 #. IDD_INPUTLOGDLG: Control id 1246, Dialog IDD_LOCK: Control id 1246)
 msgid "&Recent messages"
-msgstr "最近的記錄訊息(&R)"
+msgstr "最近的訊息(&R)"
 
 #. Resource IDs: (65535)
 msgid "&Red:"
-msgstr "紅(&R):"
+msgstr "紅色(&R):"
 
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
@@ -1277,7 +1277,7 @@ msgstr "重新整理(&R)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr "提醒我輸入 bug 編號(&R)"
+msgstr "提醒我輸入問題編號(&R)"
 
 #. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
@@ -1293,7 +1293,7 @@ msgstr "移除專案(&R)"
 msgid ""
 "&Remove\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr "刪除(&R)\n專案已刪除. 專案中如果有子專案也已被一併刪除."
+msgstr "移除(&R)\n專案已移除. 專案中如果有子專案也已被一併移除."
 
 #. Resource IDs: (IDS_REPOBROWSE_RENAME)
 msgid "&Rename"
@@ -1321,7 +1321,7 @@ msgstr "重設個人使用記錄(&R)"
 
 #. Resource IDs: (16910 - Menu)
 msgid "&Reset to Default"
-msgstr "還原至預設值(&R)"
+msgstr "重設至預設值(&R)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
@@ -1334,15 +1334,15 @@ msgstr "以無掛勾指令檔方式重試(&R)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1529)
 msgid "&Revert all changes recursively"
-msgstr "復原所有項目及子項目(&R)"
+msgstr "還原所有所有子項目的變更(&R)"
 
 #. Resource IDs: (IDS_LOG_POPUP_REVERTREVS)
 msgid "&Revert changes from these revisions"
-msgstr "復原這些修訂的變更(&R)"
+msgstr "還原這些修訂的變更(&R)"
 
 #. Resource IDs: (IDS_LOG_POPUP_REVERTREV)
 msgid "&Revert changes from this revision"
-msgstr "復原自此修訂以來的變更(&R)"
+msgstr "還原自此修訂以來的變更(&R)"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
@@ -1387,7 +1387,7 @@ msgstr "儲存選擇的檔案清單至(&S)"
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1308,
 #. IDS_PROP_SAVEVALUE)
 msgid "&Save value..."
-msgstr "另存設定值(&S)..."
+msgstr "儲值設定值(&S)..."
 
 #. Resource IDs: (IDS_MENUSETTINGS, ID_FILE_SETTINGS - Menu)
 msgid "&Settings"
@@ -1463,7 +1463,7 @@ msgstr "Tab 寬度(&T):"
 
 #. Resource IDs: (17088)
 msgid "&Tabbed Document"
-msgstr "分頁的文件(&T)"
+msgstr "頁籤顯示文件(&T)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
@@ -1562,7 +1562,7 @@ msgstr "復原(&U)"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_UNIDIFFREVS, ID_VIEW_UNIFIEDDIFF - Menu)
 msgid "&Unified diff"
-msgstr "單一差異檔(&U)"
+msgstr "Unified 差異檔(&U)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1061)
 msgid "&Unknown drives"
@@ -1690,7 +1690,7 @@ msgstr "(外部)"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_MODIFIED)
 msgid "(modified)"
-msgstr "(異動)"
+msgstr "(已修改)"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_HEAD)
 msgid "(modified, HEAD revision)"
@@ -1710,11 +1710,11 @@ msgstr "(無行號)"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_COPYSOURCE)
 msgid "(no modification but copy created from here)"
-msgstr "(無變更但是複本自此建立)"
+msgstr "(無修改但是複本自此建立)"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEIS_WORKINGCOPY)
 msgid "(no modification but relevant for working copy)"
-msgstr "(無變更但是與工作複本相關)"
+msgstr "(無修改但是與工作複本相關)"
 
 #. Resource IDs: (IDS_STATUSLIST_NOPROPVALUE)
 msgid "(no value)"
@@ -2226,7 +2226,7 @@ msgid ""
 "You can specify the following parameters to the path:\r\n"
 "%base : the base file\r\n"
 "%mine : the modified file"
-msgstr "用來比對不同修訂間檔案差異的外部程式.\n\n您可以指定以下的參數至路徑中:\n%base : 基礎檔案名稱\n%mine : 異動過的檔案."
+msgstr "用來比對不同修訂間檔案差異的外部程式.\n\n您可以指定以下的參數至路徑中:\n%base : 基礎檔案名稱\n%mine : 已修改的檔案"
 
 #. Resource IDs: (IDS_SETTINGS_EXTMERGE_TT)
 #, c-format
@@ -2321,7 +2321,7 @@ msgstr "任意文字(&I)"
 
 #. Resource IDs: (IDS_PROC_RESOLVE)
 msgid "Are you sure you want to mark the conflicted file(s) as resolved?"
-msgstr "是否確定要把衝突的檔案標記為已消除?"
+msgstr "是否確定要把衝突的檔案標記為已解決?"
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION)
 #, c-format
@@ -2333,7 +2333,7 @@ msgstr "是否確定要移除選擇 %d 項的快取?"
 msgid ""
 "Are you sure you want to revert %d item(s)? You will lose all changes since "
 "the last update!"
-msgstr "是否確定要復原 %d 項目嗎? 從上一版本之後的所有變更都會消失!"
+msgstr "是否確定要還原 %d 項目嗎? 從上一版本之後的所有變更都會消失!"
 
 #. Resource IDs: (ID_VIEW_ARRANGEVERTICAL - Menu)
 msgid "Arrange &vertical\t(V)"
@@ -2748,7 +2748,7 @@ msgstr "取消\n不進行移除作業"
 msgid ""
 "Cancel\n"
 "Do not revert."
-msgstr "取消\n不復原變更."
+msgstr "取消\n不還原變更."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
 msgid ""
@@ -2820,7 +2820,7 @@ msgstr "取消\n保留磁碟上的快取."
 msgid ""
 "Cancel\n"
 "Local modifications are kept."
-msgstr "取消\n保留本地端所做的變更。"
+msgstr "取消\n保留本地端所做的修改。"
 
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)
 msgid ""
@@ -2844,7 +2844,7 @@ msgstr "取消\n保留目前設定"
 msgid ""
 "Cancel\n"
 "The conflict is not resolved."
-msgstr "取消\n衝突尚未被消除."
+msgstr "取消\n衝突尚未解決."
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
 msgid ""
@@ -2988,7 +2988,7 @@ msgstr "變更清單:"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
-msgstr "異動(雙擊檔案來比對差異):"
+msgstr "已做的變更 (雙擊檔案來比對差異):"
 
 #. Resource IDs: (32956)
 msgid "Changes the style of the application"
@@ -3016,15 +3016,15 @@ msgstr "檢查更新..."
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_CFM)
 msgid "Check for &modifications"
-msgstr "檢查變更(&M)"
+msgstr "檢查修改(&M)"
 
 #. Resource IDs: (IDS_MENUSHOWCHANGED)
 msgid "Check for modi&fications"
-msgstr "檢查異動(&F)"
+msgstr "檢查修改(&F)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 65535)
 msgid "Check for modifications"
-msgstr "檢查變更"
+msgstr "檢查修改"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "Check for updates"
@@ -3054,7 +3054,7 @@ msgstr "勾選可在記錄訊息中使用較簡短的日期及時間"
 
 #. Resource IDs: (32831)
 msgid "Check working copy for modifications"
-msgstr "檢查工作複本中的變更"
+msgstr "檢查工作複本中的修改"
 
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
@@ -3397,7 +3397,7 @@ msgstr "將您所做的修改送交至檔案庫"
 msgid ""
 "Committing an unversioned folder will not recursively add its child items!\n"
 "You might want to add these folders recursively by using the 'Add...' context menu item."
-msgstr "送交未纳入版本控制的資料夾不會自動新增子項目！\n建議您使用選單中的「加入...」功能自行加入子項目."
+msgstr "送交未纳入版本控制的資料夾不會自動新增所有子項目！\n建議您使用選單中的「加入...」功能自行加入所有子項目."
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK2)
 msgid "Committing to a tag"
@@ -3467,7 +3467,7 @@ msgstr "比對差異時比對所有空白字元\n比對空白字元"
 msgid ""
 "Compares the file with the last committed revision to show you the changes "
 "you made"
-msgstr "比對此檔案與上次送交的修訂並列出您所做的異動"
+msgstr "比對此檔案與上次送交的修訂並列出您所做的變更"
 
 #. Resource IDs: (IDS_MENUDESCURLDIFF)
 msgid "Compares the selected file with a file in the repository"
@@ -3516,7 +3516,7 @@ msgstr "設定檢視 GNU 差異檔(修補檔)的程式."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK2)
 msgid "Confirm revert"
-msgstr "確認復原"
+msgstr "確認還原"
 
 #. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1503)
 msgid "Conflict Sources"
@@ -3524,16 +3524,16 @@ msgstr "衝突原始碼"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Conflict resolved"
-msgstr "已消除衝突"
+msgstr "已解決衝突"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
 #. IDS_SVNACTION_CONFLICTED)
 msgid "Conflicted"
-msgstr "衝突"
+msgstr "已衝突"
 
 #. Resource IDs: (IDS_SVNACTION_DRYRUN_CONFLICTED)
 msgid "Conflicted (maybe)"
-msgstr "衝突 (推測)"
+msgstr "已衝突 (推測)"
 
 #. Resource IDs: (IDS_STATUSBAR_CONFLICTS)
 #, c-format
@@ -4380,7 +4380,7 @@ msgstr "是否確定要清除這份工作複本的版本控制資訊?\n將會自
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK1)
 #, c-format
 msgid "Do you want to mark '%ls' as resolved?"
-msgstr "是否確定要將 '%ls' 的衝突標記為已消除?"
+msgstr "是否確定要將 '%ls' 的衝突標記為已解決?"
 
 #. Resource IDs: (IDS_MARKASRESOLVED)
 #, c-format
@@ -4412,12 +4412,12 @@ msgstr "確定要刪除監控中的專案 '%ls' 嗎?"
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVEQUESTION)
 #, c-format
 msgid "Do you want to remove the property %ls recursively?"
-msgstr "是否確定要移除這個屬性 %ls (包含子項目)?"
+msgstr "是否確定要移除所有子項目的這個屬性 %ls ?"
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK1)
 #, c-format
 msgid "Do you want to revert '%ls'?"
-msgstr "是否確定要復原 '%ls'?"
+msgstr "是否確定要還原 '%ls'?"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK6)
 #, c-format
@@ -4425,7 +4425,7 @@ msgid ""
 "Do you want to revert all changes in\n"
 "%ls\n"
 "and go back to this revision?"
-msgstr "是否確定要復原\n%ls\n的所有變更並回復到此修訂？"
+msgstr "是否確定要還原\n%ls\n的所有變更並還原到此修訂？"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK1)
 #, c-format
@@ -4433,7 +4433,7 @@ msgid ""
 "Do you want to revert all changes in\n"
 "%ls\n"
 "which were made in this revision?"
-msgstr "是否確定要復原\n%ls\n對此修訂做的的所有變更？"
+msgstr "是否確定要還原\n%ls\n對此修訂做的的所有變更？"
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK1)
 #, c-format
@@ -4475,13 +4475,13 @@ msgstr "不執行\n不執行指令檔"
 msgid ""
 "Don't save\n"
 "Close the views without saving the modifications"
-msgstr "不儲存\n關閉視窗並且不儲存變更"
+msgstr "不儲存\n關閉視窗並且不儲存修改"
 
 #. Resource IDs: (IDS_ASKFORSAVE_TASK7)
 msgid ""
 "Don't save\n"
 "Reload the views without saving the modifications"
-msgstr "不儲存\n不儲存變更直接重新載入顯示"
+msgstr "不儲存\n不儲存修改直接重新載入顯示"
 
 #. Resource IDs: (16028)
 msgid "Drag to make this menu float"
@@ -5007,7 +5007,7 @@ msgstr "淡出"
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
-msgstr "復原失敗"
+msgstr "還原失敗"
 
 #. Resource IDs: (61825)
 msgid ""
@@ -5394,7 +5394,7 @@ msgstr "所有的修訂資料但不含變動的路徑"
 
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
-msgstr "包含所有子項目"
+msgstr "含所有子項目"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5994,13 +5994,13 @@ msgstr "設定此選項時, 位於未纳入版本控制資料夾下的檔案也�
 msgid ""
 "If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
 "i.e., they get the normal icon unless another file or folder is modified."
-msgstr "設定此選項時, 列在 \"ignore-on-commit\" 變更清單的檔案不會使上層的資料夾顯示為有異動\n也就是說, 除非其它檔案或資料夾有變更, 否則顯示的都是正常圖示."
+msgstr "設定此選項時, 列在 \"ignore-on-commit\" 變更清單的檔案不會使上層的資料夾顯示為已修改\n也就是說, 除非其它檔案或資料夾有做修改, 否則顯示的都是正常圖示."
 
 #. Resource IDs: (IDS_SETTINGS_UNVERSIONEDASMODIFIED_TT)
 msgid ""
 "If set, then unversioned files will mark the status of the parent directory as modified\r\n"
 "i.e. they get the modified overlay icon."
-msgstr "設定此選項時, 含有未纳入版本控制的檔案會使上層的資料夾顯示為異動\r\n也就是會顯示異動的圖示."
+msgstr "設定此選項時, 含有未纳入版本控制的檔案會使上層的資料夾顯示為已修改\n也就是會顯示已修改的圖示."
 
 #. Resource IDs: (32821)
 msgid ""
@@ -6023,7 +6023,7 @@ msgstr "如果在這臺電腦上有使用TortoiseSVN以外的其它SVN客戶端�
 msgid ""
 "If you want to break the lock, use the 'Check For Modifications' dialog or "
 "the repository browser."
-msgstr "如果你想要破壞鎖定, 請使用檔案庫瀏覽器的「檢查變更」選項。"
+msgstr "如果你想要破壞鎖定, 請使用檔案庫瀏覽器的「檢查修改」選項。"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Ignore"
@@ -6495,7 +6495,7 @@ msgstr "左側影像"
 
 #. Resource IDs: (IDS_SVNACTION_LEFTLOCALMODS)
 msgid "Left local modifications"
-msgstr "左側本地端變更"
+msgstr "左側本地端修改"
 
 #. Resource IDs: (IDS_EDITPROPS_MERGETITLEHINTREVERSE)
 msgid "Like above, but used for reverse merges"
@@ -6764,18 +6764,18 @@ msgstr "標記為已解決, 移動操作會改變為複製(&R)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 1400)
 msgid "Mark as Resolved"
-msgstr "標記為已消除"
+msgstr "標記為已解決"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
 #. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
 msgid "Mark as resolved"
-msgstr "標記為已消除"
+msgstr "標記為已解決"
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
 msgid ""
 "Mark as resolved\n"
 "The conflict is resolved."
-msgstr "標記為已消除\n衝突已消除."
+msgstr "標記為已解決\n衝突已解決."
 
 #. Resource IDs: (IDS_MARKASRESOLVED_TASK3)
 msgid ""
@@ -6811,13 +6811,13 @@ msgstr "標籤"
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
-msgstr "將檔案標記為已消除衝突狀態\n標記為已消除"
+msgstr "將檔案標記為已解決衝突狀態\n標記為已解決"
 
 #. Resource IDs: (IDS_EDITPROPCONFLICT_TT_RESOLVED)
 msgid ""
 "Marks the conflict as resolved.\r\n"
 "Note: this does not resolve the conflict, only marks it as resolved!"
-msgstr "將衝突標記為已消除.\n請注意: 這個動作不會真正消除衝突, 只是當作沒有!"
+msgstr "將衝突標記為已解決.\n請注意: 這個動作不會真正解決衝突, 只是當作沒有!"
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_RECORDONLY_TT)
 msgid ""
@@ -7043,17 +7043,17 @@ msgstr "混合"
 
 #. Resource IDs: (IDS_STATUSLIST_COLMODIFICATIONDATE)
 msgid "Modification date"
-msgstr "變更日期"
+msgstr "修改日期"
 
 #. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
-msgstr "異動"
+msgstr "已修改"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Modified node"
-msgstr "異動過的節點"
+msgstr "已修改的節點"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
@@ -7201,7 +7201,7 @@ msgstr "往 %ls\n移動"
 
 #. Resource IDs: (IDS_SETTINGS_USERECYCLEBIN_TT)
 msgid "Moves the modified files to the recycle bin first before reverting"
-msgstr "將修改過的檔案移至資源回收筒再進行復原"
+msgstr "將修改過的檔案移至資源回收筒再進行還原"
 
 #. Resource IDs: (IDS_PROC_MOVINGPROG)
 #, c-format
@@ -7403,7 +7403,7 @@ msgstr "節點顏色"
 
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK2)
 msgid "Non-recursive commit of moved/renamed folders."
-msgstr "對移動/重新命名的資料夾作不包含子項目的送交."
+msgstr "送交移動/重新命名的資料夾時不含所有子項目."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1507)
 msgid "Non-versioned"
@@ -7950,7 +7950,7 @@ msgid ""
 "to be committed to the copy or branch you have just created,\n"
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
-msgstr "請注意:\n您的工作複本還是設為先前的路徑. 如果您想要之後的異動\n改送交到剛才建立的複本, 您必須先切換到新的路徑.\n請使用切換指令."
+msgstr "請注意:\n您的工作複本還是設為先前的路徑. 如果您想要之後的變更\n改送交到剛才建立的複本, 您必須先切換到新的路徑.\n請使用切換指令."
 
 #. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1287)
 msgid "Please resolve the conflict by choosing one of the following options:"
@@ -8119,7 +8119,7 @@ msgstr "繼續執行\n忽略掛勾指令檔的錯誤並繼續執行命令"
 msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
-msgstr "進行送交作業\n已送交移動/重新命名的資料夾和子項目."
+msgstr "進行送交作業\n已送交移動/重新命名的資料夾和所有子項目."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
 msgid ""
@@ -8277,7 +8277,7 @@ msgstr "結束程式; 提示儲存文件\n離開"
 msgid ""
 "Quit\n"
 "Exit TortoiseMerge without saving the modifications"
-msgstr "離開\n不儲存變更直接離開 TortoiseMerge"
+msgstr "離開\n不儲存修改直接離開 TortoiseMerge"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
@@ -8293,7 +8293,7 @@ msgstr "反向合併(&E)"
 
 #. Resource IDs: (IDS_LOG_POPUP_REVERTTOREV)
 msgid "R&evert to this revision"
-msgstr "復原至此修訂(&E)"
+msgstr "還原至此修訂(&E)"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "RAM [kB]: "
@@ -8329,7 +8329,7 @@ msgstr "還原預設值(&S)"
 
 #. Resource IDs: (IDS_MENUREVERT)
 msgid "Re&vert..."
-msgstr "復原(&V)..."
+msgstr "還原(&V)..."
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1033)
 msgid "Re&vision"
@@ -8349,7 +8349,7 @@ msgstr "最近"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
-msgstr "最近異動過的行"
+msgstr "最近已修改的行"
 
 #. Resource IDs: (IDS_MERGE_RECORDONLY)
 msgid "Record Only"
@@ -8397,13 +8397,13 @@ msgstr "遞迴搜尋未纳入版本控制的資料夾"
 
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK2)
 msgid "Recursive operation"
-msgstr "對子項目作業"
+msgstr "子項目作業"
 
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recursive\n"
 "Remove the property also from items in Subfolders."
-msgstr "子項目\n從子資料夾中的項目上刪除屬性."
+msgstr "所有子項目\n從子資料夾中的項目上刪除屬性."
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 333)
 msgid "Recycle bin"
@@ -8861,18 +8861,18 @@ msgstr "稍後解決(&A)"
 msgid ""
 "Resolve\n"
 "The item is marked as resolved."
-msgstr "消除\n項目已被標記為已消除."
+msgstr "解決\n項目已被標記為已解決."
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_RESOLVED, IDS_SVNACTION_RESOLVE)
 msgid "Resolved"
-msgstr "衝突已消除"
+msgstr "已解決"
 
 #. Resource IDs: (IDS_SVNPROGRESS_RESOLVED)
 #, c-format
 msgid ""
 "Resolved:\n"
 "%ls"
-msgstr "衝突已消除:\n%ls"
+msgstr "已解決:\n%ls"
 
 #. Resource IDs: (IDS_MENUDESCRESOLVE)
 msgid "Resolves conflicted files"
@@ -8918,44 +8918,44 @@ msgstr "反向合併 %ld"
 #. Resource IDs: (Dialog IDD_REVERT: Control id 175, IDS_PROGRS_CMD_REVERT,
 #. IDS_PROGRS_TITLE_REVERT)
 msgid "Revert"
-msgstr "復原"
+msgstr "還原"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_STDDEFAULT)
 msgid "Revert to default settings. Recommended for unexperienced users."
-msgstr "回復至預設設定. 建議新手使用者選用."
+msgstr "還原至預設設定. 建議新手使用者選用."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK3)
 msgid ""
 "Revert\n"
 "All local modifications will be lost."
-msgstr "復原\n所有本地端變更都會消失."
+msgstr "還原\n所有本地端修改都會消失."
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
 msgid ""
 "Revert\n"
 "Changes will be applied to the working copy."
-msgstr "復原\n將會對工作複本進行變更."
+msgstr "還原\n將會對工作複本進行變更."
 
 #. Resource IDs: (IDS_SVNACTION_REVERT)
 msgid "Reverted"
-msgstr "復原"
+msgstr "已還原"
 
 #. Resource IDs: (IDS_PROC_CLEANUP_INFOREVERT)
 #, c-format
 msgid "Reverting %1!ls!"
-msgstr "正在復原 %1!ls!"
+msgstr "正在還原 %1!ls!"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK2)
 msgid "Reverting changes"
-msgstr "正在復原變更."
+msgstr "正在還原變更."
 
 #. Resource IDs: (IDS_MENUDESCREVERT)
 msgid "Reverts all changes you made since the last update"
-msgstr "復原從上次更新之後全部的變動"
+msgstr "還原從上次更新之後全部的變動"
 
 #. Resource IDs: (IDS_MENUDESCUNDOADD)
 msgid "Reverts an addition to version control"
-msgstr "取消加入檔案至 Subversion 版本控制"
+msgstr "還原加入檔案至 Subversion 版本控制"
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1375, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1375, Dialog IDD_EDITPROPKEYWORDS:
@@ -9244,7 +9244,7 @@ msgid ""
 "Save Left File\n"
 "The modifications are saved to\n"
 "%ls"
-msgstr "儲存左側檔案\n儲存左側檔案變更至\n%ls"
+msgstr "儲存左側檔案\n儲存左側檔案修改至\n%ls"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVERIGHTAS)
 msgid ""
@@ -9258,7 +9258,7 @@ msgid ""
 "Save Right File\n"
 "The modifications are saved to\n"
 "%ls"
-msgstr "儲存右側檔案\n儲存右側檔案變更至\n%ls"
+msgstr "儲存右側檔案\n儲存右側檔案修改至\n%ls"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVEALL2)
 msgid ""
@@ -9313,7 +9313,7 @@ msgstr "以 Git 格式儲存"
 
 #. Resource IDs: (IDS_ASKFORSAVE_TASK2)
 msgid "Save modifications."
-msgstr "儲存變更."
+msgstr "儲存修改."
 
 #. Resource IDs: (IDS_LOG_POPUP_SAVE)
 msgid "Save revision &to..."
@@ -9327,7 +9327,7 @@ msgstr "儲存設定檔案"
 msgid ""
 "Save the modified file\n"
 "Save file"
-msgstr "儲存異動的檔案\n儲存檔案"
+msgstr "儲存已修改的檔案\n儲存檔案"
 
 #. Resource IDs: (Dialog IDD_PATCH_FILE_OPEN_CUSTOM: Control id 1132,
 #. IDS_PATCH_COPYTOCLIPBOARD)
@@ -9346,7 +9346,7 @@ msgid ""
 "Save\n"
 "The modifications are saved to\n"
 "%ls"
-msgstr "儲存\n儲存變更至\n%ls"
+msgstr "儲存\n儲存修改至\n%ls"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 108)
 msgid "Saved Data"
@@ -9782,7 +9782,7 @@ msgstr "在工具列上顯示畫面提示(&T)"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
-msgstr "顯示工作複本變更(&M)"
+msgstr "顯示工作複本修改(&M)"
 
 #. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
 #. name)
@@ -10229,11 +10229,11 @@ msgstr "狀態快取"
 #. Resource IDs: (IDS_SETTINGS_CACHEDEFAULT_TT)
 msgid ""
 "Status cache kept in an external process, can show the overlay recursively"
-msgstr "以外部程式保存狀態快取, 可包含子項目"
+msgstr "以外部程式保存狀態快取, 可包含所有子項目"
 
 #. Resource IDs: (IDS_SETTINGS_CACHESHELL_TT)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "僅保存資料夾的狀態, 不包含子項目"
+msgstr "僅保存資料夾的狀態, 不包含所有子項目"
 
 #. Resource IDs: (IDS_COLDESCSTATUS)
 msgid "Status of item in SVN"
@@ -10881,7 +10881,7 @@ msgstr "回傳的錯誤值是:\n%ls"
 msgid ""
 "The selected file appears to still have one or more conflict markers in it.\n"
 "Are you sure you want to mark the file resolved?"
-msgstr "選擇的檔案尚有一個以上的衝突標記.\n您確定要將之視為已消除?"
+msgstr "選擇的檔案尚有一個以上的衝突標記.\n您確定要將之視為已解決?"
 
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK1)
 msgid ""
@@ -10921,18 +10921,18 @@ msgstr "目標資料夾\n%ls\n有其它檔案!\n是否確定要取出/匯出檔�
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK2)
 msgid "The target has local modifications"
-msgstr "目標有本地變更."
+msgstr "目標有本地修改."
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK1)
 #, c-format
 msgid ""
 "The target working copy '%ls' has local modifications. It is recommended to "
 "commit those changes first before merging new changes."
-msgstr "目標工作目錄 '%ls' 已有本地變更. 建議先送交變更之後再進行合併作業."
+msgstr "目標工作目錄 '%ls' 已有本地修改. 建議先送交變更之後再進行合併作業."
 
 #. Resource IDs: (IDS_MERGE_WCDIRTY)
 msgid "The target working copy has local modifications!"
-msgstr "目標工作複本含有本地變更!"
+msgstr "目標工作複本含有本地修改!"
 
 #. Resource IDs: (IDS_TEXTIDENTICAL_MAIN)
 msgid ""
@@ -10973,7 +10973,7 @@ msgstr "對方的"
 msgid ""
 "There are changes or unversioned items inside one or more directories which you have included with svn:externals.\n"
 "Those files are not listed for commit. You need to commit those files separately."
-msgstr "以 svn:externals 指定的目錄中有異動或是未納入版本控制的檔案.\n那些檔案不會列在送交清單中, 您必須自行送交那些檔案."
+msgstr "以 svn:externals 指定的目錄中有變更或是未納入版本控制的檔案.\n那些檔案不會列在送交清單中, 您必須自行送交那些檔案."
 
 #. Resource IDs: (IDS_SETTINGS_OVERLAYINFO)
 #, c-format
@@ -10999,13 +10999,13 @@ msgid ""
 "You should resolve those conflicts first before saving.\n"
 "Do you want to save the file with the conflicts still there?\n"
 "If you click YES, then you have to manually resolve the conflicts in another editor!"
-msgstr "%d 行還有尚未處理的衝突!\n請在儲存之前先消除它們.\n是否確定要在還有衝突時儲存檔案?\n如果您選擇 \"是\", 之後必須自行在其它編輯器中處理衝突!"
+msgstr "%d 行還有尚未處理的衝突!\n請在儲存之前先解決它們.\n是否確定要在還有衝突時儲存檔案?\n如果您選擇 \"是\", 之後必須自行在其它編輯器中處理衝突!"
 
 #. Resource IDs: (IDS_WARNMODIFIEDLOOSECHANGES)
 msgid ""
 "There are unsaved modifications!\n"
 "Do you want to save your changes?"
-msgstr "還有尚未儲存的變更!\n是否要儲存您所做的異動?"
+msgstr "還有尚未儲存的修改!\n是否要儲存您所做的變更?"
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 65535)
 msgid ""
@@ -11046,7 +11046,7 @@ msgid ""
 "This commit is not recursive, and there are moved/renamed/copied folders "
 "selected for commit. Such moves/renames are always performed recursively in "
 "the repository. Do you want to commit anyway?"
-msgstr "送交動作不包含所有子資料夾, 而且有移動/更名/複製過的資料夾列在此次送交當中. 這些動作會自動包含子資料夾進行. 確定要送交嗎?"
+msgstr "送交動作不包含所有子項目, 而且有移動/更名/複製過的資料夾列在此次送交當中. 這些動作通常會包含所有子項目進行. 您確定要送交嗎?"
 
 #. Resource IDs: (IDS_SVNERR_HOOKFAILED)
 msgid ""
@@ -11183,7 +11183,7 @@ msgid ""
 "are also checked in the commit dialog.\n"
 "Otherwise, TortoiseSVN must do a non-recursive commit\n"
 "which does not allow directory deletion."
-msgstr "如果您要送交所有子項目並避免此錯誤,\n請確定選擇資料夾下的所有檔案及資料夾\n在送交視窗中全部都有勾選.\n否則 TortoiseSVN 將會進行不含子項目的送交,\n也不允許刪除資料夾."
+msgstr "如果您要送交所有子項目並避免此錯誤,\n請確定選擇資料夾下的所有檔案及資料夾\n在送交視窗中全部都有勾選.\n否則 TortoiseSVN 將會進行不含所有子項目的送交,\n也不允許刪除資料夾."
 
 #. Resource IDs: (IDS_SVNPROGRESS_LOCKHINT)
 msgid ""
@@ -11493,7 +11493,7 @@ msgid ""
 "This can happen if the file has been renamed.\n"
 "Please start the log dialog on this specific file alone and then revert the changes\n"
 "from the top pane in the log dialog."
-msgstr "無法重建工作複本路徑!\n如果檔案名稱有變動, 可能造成這個問題.\n請對特定檔案查詢記錄, 並從記錄視窗上方將變更復原."
+msgstr "無法重建工作複本路徑!\n如果檔案名稱有變動, 可能造成這個問題.\n請對特定檔案查詢記錄, 並從記錄視窗上方將變更還原."
 
 #. Resource IDs: (61837)
 msgid "Unable to write read-only property."
@@ -11539,7 +11539,7 @@ msgstr "取消加入..."
 msgid ""
 "Undo the last modifications\n"
 "Undo"
-msgstr "復原最近一次變更\n復原"
+msgstr "復原最近一次修改\n復原"
 
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
@@ -11603,7 +11603,7 @@ msgstr "屬性檔案格式無法辨識或錯誤！"
 
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)
 msgid "Unresolved conflicts!"
-msgstr "未消除的衝突！"
+msgstr "已解決的衝突！"
 
 #. Resource IDs: (61443)
 msgid "Untitled"
@@ -11633,7 +11633,7 @@ msgstr "未纳入版本控制"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1313)
 msgid "Unversioned files mark parent folder as modified"
-msgstr "含有未纳入版本控制的檔案時, 上層資料夾顯示為異動"
+msgstr "含有未纳入版本控制的檔案時, 上層資料夾顯示為已修改"
 
 #. Resource IDs: (IDS_SVNPROGRESS_UNVERSION)
 #, c-format
@@ -11841,7 +11841,7 @@ msgstr "使用左方檔案"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1432)
 msgid "Use recycle bin when reverting"
-msgstr "復原時使用資源回收筒"
+msgstr "還原時使用資源回收筒"
 
 #. Resource IDs: (IDS_LOG_FILTER_REGEX)
 msgid "Use regular expression"
@@ -11944,7 +11944,7 @@ msgstr "使用左方區塊"
 
 #. Resource IDs: (IDS_MENUDESCRELOCATE)
 msgid "Use this if the URL of the repository has changed"
-msgstr "檔案庫的 URL 異動時可使用此功能修改"
+msgstr "檔案庫的 URL 變更時可使用此功能修改"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_USEOTHERFILE)
 msgid "Use whole other &file"
@@ -11984,7 +11984,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr "以下是有效的命令列參數:\n/base:<基準檔路徑>\n/basename:<基準檔顯示名稱>\n/theirs:<遠端檔路徑>\n/theirsname:<遠端檔顯示名稱>\n/mine:<本地端檔案路徑>\n/minename:<本地端檔案顯示名稱>\n/merged:<合併後存檔路徑>\n/mergedname:<合併後檔案顯示名稱>\n/diff:<差異檔路徑>\n/patchpath:<資料夾路徑>\n/saverequired\n/saverequiredonconflicts\n/oneway <強制使用單一格式顯示>\n/line:<跳躍至行號>"
+msgstr "以下是有效的命令列參數:\n/base:<基準檔路徑>\n/basename:<基準檔顯示名稱>\n/theirs:<遠端檔路徑>\n/theirsname:<遠端檔顯示名稱>\n/mine:<本地端檔案路徑>\n/minename:<本地端檔案顯示名稱>\n/merged:<合併後存檔路徑>\n/mergedname:<合併後檔案顯示名稱>\n/diff:<Unified 差異檔路徑>\n/patchpath:<資料夾路徑>\n/saverequired\n/saverequiredonconflicts\n/oneway <強制使用單一格式顯示>\n/line:<跳躍至行號>"
 
 #. Resource IDs: (IDS_ERR_VALIDATIONFAILED)
 msgid "Validation of the property value failed!"
@@ -12222,7 +12222,7 @@ msgid ""
 "You can't set this property on folders, only on files!\n"
 "If you want to set it on all files within that folder,\n"
 "you must activate the 'recursive' checkbox."
-msgstr "這個屬性不能設定在資料夾上, 只能用在檔案上!\n如果您想要套用在資料夾內的所有檔案, 請勾選「子項目」."
+msgstr "這個屬性不能設定在資料夾上, 只能用在檔案上!\n如果您想要套用在資料夾內的所有檔案, 請勾選「所有子項目」."
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK1)
 msgid ""
@@ -12318,14 +12318,14 @@ msgid ""
 "Your working copy contains modifications.\n"
 "Lowest revision in working copy: %1!ld!\n"
 "Path: %2!ls!"
-msgstr "您的工作複本已經有變更.\n工作複本中最低的修訂是: %1!ld!\n路徑: %2!ls!"
+msgstr "您的工作複本已經有修改.\n工作複本中最低的修訂是: %1!ld!\n路徑: %2!ls!"
 
 #. Resource IDs: (IDS_WARN_COPYHEADWITHLOCALMODS)
 msgid ""
 "Your working copy has local modifications.\n"
 "If you branch/tag from the HEAD revision, your local changes won't\n"
 "show up in the branch/tag!"
-msgstr "您的工作複本有本地端的變更.\n如果您從 HEAD 修訂分支或標籤, 本地的變更將\n不會作用在檔案庫中!"
+msgstr "您的工作複本有本地端的修改.\n如果您從 HEAD 修訂分支或標籤, 本地的變更將\n不會作用在檔案庫中!"
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK1)
 #, c-format
@@ -12565,7 +12565,7 @@ msgstr "已送交修訂"
 
 #. Resource IDs: (IDS_STATUSCONFLICTED)
 msgid "conflicted"
-msgstr "衝突"
+msgstr "已衝突"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "connection: "
@@ -12669,7 +12669,7 @@ msgstr "繼承自"
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_MISSING)
 msgid "it does not exist (missing or moved away?)."
-msgstr "不存在 (消失或搬移?)"
+msgstr "不存在 (遺失或移動?)"
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_DELETED)
 msgid "it is already deleted."
@@ -12757,11 +12757,11 @@ msgstr "缺少於:"
 
 #. Resource IDs: (IDS_REVGRAPH_TAGMODIFIED, IDS_STATUSMODIFIED)
 msgid "modified"
-msgstr "異動"
+msgstr "已修改"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "modified / copied"
-msgstr "已異動/複製"
+msgstr "已修改/已複製"
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYDATEXMONTH)
 msgid "month"
@@ -12909,7 +12909,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr "svn:auto-props\n每行一筆的屬性清單. 這些屬性在新增/匯入檔案時會自動套用在所有檔案及子項目上.\n格式: <檔案樣式>=屬性=值;屬性=值\n範例: *.xml=svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "svn:auto-props\n每行一筆的屬性清單. 這些屬性在新增/匯入檔案時會自動套用在所有子項目上.\n格式: <檔案樣式>=屬性=值;屬性=值\n範例: *.xml=svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 316)
 msgid "svn:eol-style"
@@ -12930,7 +12930,7 @@ msgid ""
 "svn:executable\r\n"
 "If present, make the file executable. This property cannot be set on a directory.\r\n"
 "A non-recursive attempt will fail, and a recursive attempt will set the property only on the file children of the directory."
-msgstr "svn:executable\n如果有設定, 此檔案視為可執行. 這個屬性不能設定在目錄上. \n不包含子項目的作業會失敗, 包含子項目時會將此屬性設定在此目錄的所有檔案上."
+msgstr "svn:executable\n如果有設定, 此檔案視為可執行. 這個屬性不能設定在目錄上. \n不包含所有子項目的作業會失敗, 包含所有子項目時會將此屬性設定在此目錄的所有檔案上."
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALS: Control id 318)
 msgid "svn:externals"
@@ -12956,7 +12956,7 @@ msgstr "svn:externals\n以換行字元分隔的模組名稱清單, 每項可包�
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr "svn:global-ignores\n每行一筆的檔案樣式, 會在所有場合下被忽略."
+msgstr "svn:global-ignores\n要忽略的檔案清單 (含所有子項目)，每行一筆."
 
 #. Resource IDs: (IDS_PROP_TT_IGNORE)
 msgid ""
@@ -13042,7 +13042,7 @@ msgstr "工作複本是這個修訂"
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_EDITED)
 msgid "there are conflicting modifications."
-msgstr "有變更發生衝充."
+msgstr "有修改發生衝突."
 
 #. Resource IDs: (61513)
 #, c-format
@@ -13077,7 +13077,7 @@ msgid ""
 "tsvn:logfilelistenglish\r\n"
 "Set to 'false' if you don't want the list of changed files to be pasted in English\r\n"
 "in the commit dialog."
-msgstr "tsvn:logfilelistenglish\r\n如果您不想要異動檔案清單以英文貼入送交對話窗,\r\n請設定為 'false'."
+msgstr "tsvn:logfilelistenglish\n如果您不想要變更檔案清單以英文貼入送交對話窗,\n請設定為 'false'."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGMINSIZE)
 msgid ""
@@ -13158,7 +13158,7 @@ msgid ""
 "tsvn:logtemplatepropset\r\n"
 "String which is inserted in the log message boxes in the commit dialogs.\r\n"
 "Use this as a log message template for property modifications for users to fill in."
-msgstr "tsvn:logtemplatepropset\n自動加入記錄訊息對話框中的字串.\n可以用作讓使用者變更屬性時填寫的記錄訊息模板."
+msgstr "tsvn:logtemplatepropset\n自動加入記錄訊息對話框中的字串.\n可以用作讓使用者修改屬性時填寫的記錄訊息模板."
 
 #. Resource IDs: (IDS_PROP_TT_TSVNLOGWIDTHMARKER)
 msgid ""
