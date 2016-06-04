@@ -190,14 +190,15 @@ void CSciEdit::Init(LONG lLanguage)
     m_nAutoCompleteMinChars= (int)(DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\AutoCompleteMinChars", 3);
     // look for dictionary files and use them if found
     long langId = GetUserDefaultLCID();
-
+    long origLangId = langId;
     if (lLanguage >= 0)
     {
-        if ((lLanguage != 0)||(((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\Spellchecker", FALSE))==FALSE))
+        if (((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\Spellchecker", FALSE))==FALSE)
         {
             // first try the Win8 spell checker
             BOOL supported = FALSE;
             HRESULT hr = CoCreateInstance(__uuidof(SpellCheckerFactory), nullptr, CLSCTX_INPROC_SERVER, IID_PPV_ARGS(&m_spellCheckerFactory));
+            bool bFallbackUsed = false;
             if (SUCCEEDED(hr))
             {
                 wchar_t localename[LOCALE_NAME_MAX_LENGTH] = { 0 };
@@ -228,12 +229,17 @@ void CSciEdit::Init(LONG lLanguage)
                         else if (langId == 1033)
                             langId = 0;
                         else
+                        {
                             langId = 1033;
+                            bFallbackUsed = true;
+                        }
                     } while ((langId) && (!supported || FAILED(hr)));
                 }
             }
-            if (FAILED(hr) || !supported)
+            if (FAILED(hr) || !supported || bFallbackUsed)
             {
+                if (bFallbackUsed)
+                    langId = origLangId;
                 if (!((lLanguage) && (!LoadDictionaries(lLanguage))))
                 {
                     do
@@ -248,7 +254,12 @@ void CSciEdit::Init(LONG lLanguage)
                         else if (langId == 1033)
                             langId = 0;
                         else
-                            langId = 1033;
+                        {
+                            if (bFallbackUsed && supported)
+                                langId = 0;
+                            else
+                                langId = 1033;
+                        }
                     } while ((langId) && ((pChecker == NULL) || (pThesaur == NULL)));
                 }
             }
