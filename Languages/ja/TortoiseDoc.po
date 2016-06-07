@@ -14,15 +14,16 @@
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2011-2015
-# Masahiro Fujimoto <fujimoto@internet.ne.jp>, 2012-2013
+# Masahiro Fujimoto <mfujimot@gmail.com>, 2011-2015
+# Masahiro Fujimoto <mfujimot@gmail.com>, 2012-2013
+# Masahiro Fujimoto <mfujimot@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-18 09:01+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-06-06 16:43+0000\n"
+"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -7492,13 +7493,13 @@ msgstr "前述のように、このオプションは、矛盾した作業コピ
 
 #. (term)
 msgid "Break write locks"
-msgstr ""
+msgstr "書き込みロックを強制解除"
 
 #. (para)
 msgid ""
 "If checked, all write locks are removed from the working copy database. For "
 "most situations, this is required for the cleanup to work!"
-msgstr ""
+msgstr "チェックすると、作業コピーデータベースからすべての書き込みロックを強制解除します。多くの場合、作業をクリーンアップするために必要です。"
 
 #. (para)
 msgid ""
@@ -7509,15 +7510,15 @@ msgstr ""
 
 #. (term)
 msgid "Fix time stamps"
-msgstr ""
+msgstr "タイムスタンプを修正"
 
 #. (para)
 msgid "Changes all file times to the time of the last commit."
-msgstr ""
+msgstr "すべてのファイルの更新時刻を最終コミット時に変更します。"
 
 #. (term)
 msgid "Vacuum pristine copies"
-msgstr ""
+msgstr "未使用のコピーを削除"
 
 #. (para)
 msgid ""
@@ -8055,7 +8056,7 @@ msgid ""
 "url=\"http://msdn2.microsoft.com/en-"
 "us/library/ms776260.aspx\"><citetitle>MSDN: Language "
 "Identifiers</citetitle></ulink>."
-msgstr ""
+msgstr "TortoiseSVN はスペルチェッカーを使用できます。 Windows 10 では、 OS のスペルチェッカーが使用されます。それ以前のバージョンの Windows では、 OpenOffice や Mozilla で使われるスペルチェッカーモジュールを使用できます。スペルチェッカーをインストールしている場合、このプロパティでどのスペルチェッカーを使用するか決定します。つまり、どの言語でこのプロジェクトのログメッセージを書くかということでもあります。　<literal>tsvn:projectlanguage</literal> では、ログメッセージ入力時にスペルチェックエンジンがどの言語でチェックを行うかを設定します。自分の言語の値は <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink> で確認できます。"
 
 #. (para)
 msgid ""
@@ -18167,11 +18168,11 @@ msgstr "/externals"
 
 #. (option)
 msgid "/fixtimestamps"
-msgstr ""
+msgstr "/fixtimestamps"
 
 #. (option)
 msgid "/vacuum"
-msgstr ""
+msgstr "/vacuum"
 
 #. (entry)
 msgid ""
