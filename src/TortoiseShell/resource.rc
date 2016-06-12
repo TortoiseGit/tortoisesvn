@@ -27,46 +27,87 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_APP                 ICON                    "..\\Resources\\Tortoise.ico"
+
 IDI_CHECKOUT            ICON                    "..\\Resources\\menucheckout.ico"
+
 IDI_UPDATE              ICON                    "..\\Resources\\menuupdate.ico"
+
 IDI_COMMIT              ICON                    "..\\Resources\\menucommit.ico"
+
 IDI_ADD                 ICON                    "..\\Resources\\menuadd.ico"
+
 IDI_REVERT              ICON                    "..\\Resources\\menurevert.ico"
+
 IDI_CLEANUP             ICON                    "..\\Resources\\menucleanup.ico"
+
 IDI_RESOLVE             ICON                    "..\\Resources\\menuresolve.ico"
+
 IDI_SWITCH              ICON                    "..\\Resources\\menuswitch.ico"
+
 IDI_MERGE               ICON                    "..\\Resources\\menumerge.ico"
+
 IDI_IMPORT              ICON                    "..\\Resources\\menuimport.ico"
+
 IDI_EXPORT              ICON                    "..\\Resources\\menuexport.ico"
+
 IDI_COPY                ICON                    "..\\Resources\\menucopy.ico"
+
 IDI_DELETE              ICON                    "..\\Resources\\menudelete.ico"
+
 IDI_RENAME              ICON                    "..\\Resources\\menurename.ico"
+
 IDI_DIFF                ICON                    "..\\Resources\\menucompare.ico"
+
 IDI_LOG                 ICON                    "..\\Resources\\menulog.ico"
+
 IDI_ABOUT               ICON                    "..\\Resources\\menuabout.ico"
+
 IDI_SETTINGS            ICON                    "..\\Resources\\menusettings.ico"
+
 IDI_CREATEREPOS         ICON                    "..\\Resources\\menucreaterepos.ico"
+
 IDI_CONFLICT            ICON                    "..\\Resources\\menuconflict.ico"
+
 IDI_RELOCATE            ICON                    "..\\Resources\\menurelocate.ico"
+
 IDI_HELP                ICON                    "..\\Resources\\menuhelp.ico"
+
 IDI_SHOWCHANGED         ICON                    "..\\Resources\\menushowchanged.ico"
+
 IDI_IGNORE              ICON                    "..\\Resources\\menuignore.ico"
+
 IDI_REPOBROWSE          ICON                    "..\\Resources\\menurepobrowse.ico"
+
 IDI_BLAME               ICON                    "..\\Resources\\menublame.ico"
+
 IDI_PATCH               ICON                    "..\\Resources\\menupatch.ico"
+
 IDI_CREATEPATCH         ICON                    "..\\Resources\\menudiff.ico"
+
 IDI_REVISIONGRAPH       ICON                    "..\\Resources\\menurevisiongraph.ico"
+
 IDI_LOCK                ICON                    "..\\Resources\\menulock.ico"
+
 IDI_UNLOCK              ICON                    "..\\Resources\\menuunlock.ico"
+
 IDI_MENUFILE            ICON                    "..\\Resources\\tsvnmenufile.ico"
+
 IDI_MENUFOLDER          ICON                    "..\\Resources\\tsvnmenufolder.ico"
+
 IDI_MENULINK            ICON                    "..\\Resources\\tsvnmenulink.ico"
+
 IDI_MENUMULTIPLE        ICON                    "..\\Resources\\tsvnmenumultiple.ico"
+
 IDI_PROPERTIES          ICON                    "..\\Resources\\menuproperties.ico"
+
 IDI_DELUNVERSIONED      ICON                    "..\\Resources\\menudelunversioned.ico"
+
 IDI_APPSMALL            ICON                    "..\\Resources\\TortoiseSmall.ico"
+
 IDI_CLIPPASTE           ICON                    "..\\Resources\\clippaste.ico"
+
 IDI_COPYURL             ICON                    "..\\Resources\\copy.ico"
+
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -400,6 +441,11 @@ BEGIN
     IDS_DROPEXTERNAL        "SVN Add as &external here"
     IDS_MENUCOPYURL         "Copy URL to clipboard"
     IDS_MENUDESCCOPYURL     "Copies the URLs of all selected items to the clipboard"
+    IDS_MENUIGNOREMULTIPLEMASK2 "Ignore multiple items by &extension"
+    IDS_MENUIGNOREMULTIPLE2 "&Ignore multiple items by name"
+    IDS_MENUDELETEIGNOREMULTIPLE2 "Delete and &ignore multiple items by name"
+    IDS_MENUDELETEIGNOREMULTIPLEMASK2 
+                            "Delete and ignore multiple items by &extension"
 END
 
 STRINGTABLE

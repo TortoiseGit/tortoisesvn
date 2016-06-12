@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2333,10 +2333,22 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         }
         else
         {
+            // note: as of Windows 7, the shell does not pass more than 16 items from a multiselection
+            // in the Initialize() call before the QueryContextMenu() call. Which means even if the user
+            // has selected more than 16 files, we won't know about that here.
+            // Note: after QueryContextMenu() exits, Initialize() is called again with all selected files.
             if (itemStates & ITEMIS_INSVN)
             {
-                MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLE);
-                swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                if (files_.size() >= 16)
+                {
+                    MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLE2);
+                    wcscpy_s(ignorepath, stringtablebuffer);
+                }
+                else
+                {
+                    MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLE);
+                    swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                }
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 tstring verb = L"tsvn_" + tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2346,8 +2358,16 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnore;
                 myIDMap[idCmd++] = ShellMenuDeleteIgnore;
 
-                MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK);
-                swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                if (files_.size() >= 16)
+                {
+                    MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK2);
+                    wcscpy_s(ignorepath, stringtablebuffer);
+                }
+                else
+                {
+                    MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK);
+                    swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                }
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 verb = tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2357,8 +2377,16 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnoreCaseSensitive;
                 myIDMap[idCmd++] = ShellMenuDeleteIgnoreCaseSensitive;
 
-                MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK);
-                swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                if (files_.size() >= 16)
+                {
+                    MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK2);
+                    wcscpy_s(ignorepath, stringtablebuffer);
+                }
+                else
+                {
+                    MAKESTRING(IDS_MENUDELETEIGNOREMULTIPLEMASK);
+                    swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                }
                 CString temp;
                 temp.Format(IDS_MENUIGNOREGLOBAL, ignorepath);
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
@@ -2372,8 +2400,16 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
             }
             else
             {
-                MAKESTRING(IDS_MENUIGNOREMULTIPLE);
-                swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                if (files_.size() >= 16)
+                {
+                    MAKESTRING(IDS_MENUIGNOREMULTIPLE2);
+                    wcscpy_s(ignorepath, stringtablebuffer);
+                }
+                else
+                {
+                    MAKESTRING(IDS_MENUIGNOREMULTIPLE);
+                    swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                }
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 tstring verb = L"tsvn_" + tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2383,8 +2419,16 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuIgnore;
                 myIDMap[idCmd++] = ShellMenuIgnore;
 
-                MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK);
-                swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                if (files_.size() >= 16)
+                {
+                    MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK2);
+                    wcscpy_s(ignorepath, stringtablebuffer);
+                }
+                else
+                {
+                    MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK);
+                    swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                }
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, ignorepath);
                 verb = tstring(ignorepath);
                 myVerbsMap[verb] = idCmd - idCmdFirst;
@@ -2394,8 +2438,16 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
                 myIDMap[idCmd - idCmdFirst] = ShellMenuIgnoreCaseSensitive;
                 myIDMap[idCmd++] = ShellMenuIgnoreCaseSensitive;
 
-                MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK);
-                swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                if (files_.size() >= 16)
+                {
+                    MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK2);
+                    wcscpy_s(ignorepath, stringtablebuffer);
+                }
+                else
+                {
+                    MAKESTRING(IDS_MENUIGNOREMULTIPLEMASK);
+                    swprintf_s(ignorepath, stringtablebuffer, files_.size());
+                }
                 CString temp;
                 temp.Format(IDS_MENUIGNOREGLOBAL, ignorepath);
                 InsertMenu(ignoresubmenu, indexignoresub++, MF_BYPOSITION | MF_STRING , idCmd, temp);
