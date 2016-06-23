@@ -17,7 +17,7 @@
 # lonken <l.onken@rac.de>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2016.
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2016
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015-2016
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015, 2016
@@ -31,16 +31,16 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-22 10:45+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
-"Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
+"PO-Revision-Date: 2016-06-23 11:29+0200\n"
+"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
+"Language-Team: RA Consulting GmbH\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
-#. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -54,6 +54,7 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
+#. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -927,6 +928,10 @@ msgstr "Ignoriere &Vorfahren"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 2)
 msgid "&Ignore and proceed"
 msgstr "&Ignorieren und fortsetzen"
+
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
+msgid "&Ignore multiple items by name"
+msgstr "&Ignoriere mehrere Elemente nach Name"
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -4075,10 +4080,18 @@ msgstr "Nicht versionierte Elemente löschen"
 msgid "Delete and &ignore %d items by name"
 msgstr "Lösche und &ignoriere %d Elemente nach Name"
 
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
+msgid "Delete and &ignore multiple items by name"
+msgstr "Lösche und &ignoriere mehrere Elemente nach Name"
+
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Lösche und ignoriere %d Elemente nach &Erweiterung"
+
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
+msgid "Delete and ignore multiple items by &extension"
+msgstr "Lösche und ignoriere mehrere Elemente nach &Erweiterung"
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
 msgid "Delete unversioned items"
@@ -5260,7 +5273,9 @@ msgstr "Suchtreffer"
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
-msgstr "Pfade ausfiltern, die eine der folgenden Zeichenketten enthalten\n(mehrfache Pfade durch '*' trennen):"
+msgstr ""
+"Pfade ausfiltern, die eine der folgenden Zeichenketten enthalten\n"
+"(mehrere Pfade durch '*' trennen):"
 
 #. Resource IDs: (IDS_FILEDIFF_FILTERCUE)
 msgid "Filter paths"
@@ -6084,6 +6099,10 @@ msgstr "Ignoriere &Zeilenenden"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignoriere &Zeilenenden (empfohlen)"
+
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
+msgid "Ignore multiple items by &extension"
+msgstr "Ignoriere mehrere Elemente nach &Erweiterung"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
@@ -7347,6 +7366,12 @@ msgstr "Kein Fehler aufgetreten."
 #. Resource IDs: (IDS_COPY_NOEXTERNALSFOUND)
 msgid "No externals found"
 msgstr "Keine Externals gefunden"
+
+#. Resource IDs: (IDS_COPY_NOEXTERNALSFORURLS)
+msgid ""
+"No externals: For URLs, no externals are gathered.\n"
+"If you want to tag externals, start the command directly from a working copy."
+msgstr "Keine Externals: Für URLs werden keine Externals ermittelt.\nWenn Sie Externals markieren wollen, starten Sie den Befehl direkt aus der Arbeitskopie."
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)
 msgid ""
