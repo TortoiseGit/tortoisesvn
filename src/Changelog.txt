@@ -1,3 +1,9 @@
+Version 1.9.5
+- BUG: The "go to next diff" in TortoiseMerge stopped at
+       lines filtered with a regex. (Stefan)
+- BUG: Changing the font in TortoiseMerge wasn't taking
+       effect until a restart. (Stefan)
+
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
 - BUG: lifetime issue with path string for long paths. (Ivan Zhakov)
