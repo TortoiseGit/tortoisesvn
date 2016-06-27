@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-18 10:10+0000\n"
+"PO-Revision-Date: 2016-06-20 08:41+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/luebbe/tortoisesvn/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -916,6 +916,10 @@ msgstr "&Ignorer nedarvning"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 2)
 msgid "&Ignore and proceed"
 msgstr "&Ignorer og fortsæt"
+
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
+msgid "&Ignore multiple items by name"
+msgstr ""
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -4064,10 +4068,18 @@ msgstr "Slet ikke-versionerede emner"
 msgid "Delete and &ignore %d items by name"
 msgstr "Slet og &ignorer %d elementer efter navn"
 
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
+msgid "Delete and &ignore multiple items by name"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Slet og ignorer %d elementer efter &filtypenavne"
+
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
+msgid "Delete and ignore multiple items by &extension"
+msgstr ""
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
 msgid "Delete unversioned items"
@@ -6074,6 +6086,10 @@ msgstr "Ignorer linje&afslutninger"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorer linje&afslutninger (anbefales)"
 
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
+msgid "Ignore multiple items by &extension"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
 msgstr "Ignorer mellemrum & ændringer"
@@ -7336,6 +7352,12 @@ msgstr "Der opstod ingen fejl."
 #. Resource IDs: (IDS_COPY_NOEXTERNALSFOUND)
 msgid "No externals found"
 msgstr "Ingen eksterne fundet"
+
+#. Resource IDs: (IDS_COPY_NOEXTERNALSFORURLS)
+msgid ""
+"No externals: For URLs, no externals are gathered.\n"
+"If you want to tag externals, start the command directly from a working copy."
+msgstr ""
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)
 msgid ""

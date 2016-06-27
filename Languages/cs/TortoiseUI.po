@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-18 14:39+0000\n"
+"PO-Revision-Date: 2016-06-20 09:24+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -913,6 +913,10 @@ msgstr "&Ignorovat původ"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 2)
 msgid "&Ignore and proceed"
 msgstr "&Ignorovat a pokračovat"
+
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
+msgid "&Ignore multiple items by name"
+msgstr "&Ignorovat mnoho položek dle jména"
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -4061,10 +4065,18 @@ msgstr "Smazat položky bez verze"
 msgid "Delete and &ignore %d items by name"
 msgstr "Smazat a &ignorovat %d položky dle jména"
 
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
+msgid "Delete and &ignore multiple items by name"
+msgstr "Smazat a &ignorovat mnoho položek dle jména"
+
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "Smazat a ignorovat %d položky dl&e přípony"
+
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
+msgid "Delete and ignore multiple items by &extension"
+msgstr "Smazat a ignorovat &mnoho položek dle přípony"
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
 msgid "Delete unversioned items"
@@ -6071,6 +6083,10 @@ msgstr "Ignorovat &konce řádků"
 msgid "Ignore line &endings (recommended)"
 msgstr "Ignorovat &konce řádků (doporučeno)"
 
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
+msgid "Ignore multiple items by &extension"
+msgstr "Ignorovat mnoho položek dle &přípony"
+
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
 msgstr "Ignorovat změny &mezer"
@@ -7333,6 +7349,12 @@ msgstr "Nenastala žádná chyba."
 #. Resource IDs: (IDS_COPY_NOEXTERNALSFOUND)
 msgid "No externals found"
 msgstr "Žádné externí nenalezeny"
+
+#. Resource IDs: (IDS_COPY_NOEXTERNALSFORURLS)
+msgid ""
+"No externals: For URLs, no externals are gathered.\n"
+"If you want to tag externals, start the command directly from a working copy."
+msgstr "Žádné externí: Pro URL, nejsou shromažďovány žádné externí.\nPokud je chcete označit, spusťte příkaz přímo z pracovní kopie."
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)
 msgid ""

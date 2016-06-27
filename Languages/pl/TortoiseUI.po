@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-22 21:43+0000\n"
+"PO-Revision-Date: 2016-06-21 20:31+0000\n"
 "Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/luebbe/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -922,6 +922,10 @@ msgstr "&Ignoruj pochodzenie"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 2)
 msgid "&Ignore and proceed"
 msgstr "&Ignoruj ​​i kontynuuj"
+
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
+msgid "&Ignore multiple items by name"
+msgstr "Pom&iń wiele elementów wg nazwy"
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -4070,10 +4074,18 @@ msgstr "Usuń niewersjonowane elementy"
 msgid "Delete and &ignore %d items by name"
 msgstr "Usuń i pom&iń %d elementów wg nazwy"
 
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
+msgid "Delete and &ignore multiple items by name"
+msgstr "Usuń i pom&iń wiele elementów wg nazwy"
+
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
-msgstr "Usuwa i ignoruje %d elementy(-ów) wg &rozszerzenia"
+msgstr "Usuń i ignoruj %d elementów wg rozsz&erzenia"
+
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
+msgid "Delete and ignore multiple items by &extension"
+msgstr "Usuń i ignoruj wiele elementów wg rozsz&erzenia"
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
 msgid "Delete unversioned items"
@@ -6032,7 +6044,7 @@ msgstr "Ignoruj"
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK)
 #, c-format
 msgid "Ignore %d items by &extension"
-msgstr "Ignoruj %d elementy(-ów) wg &rozszerzenia"
+msgstr "Ignoruj %d elementów wg rozsz&erzenia"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1126)
 msgid "Ignore &EOL changes"
@@ -6079,6 +6091,10 @@ msgstr "Ignoruj zakończenia &linii"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1018)
 msgid "Ignore line &endings (recommended)"
 msgstr "Pomiń znaki &końca linii (zalecane)"
+
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
+msgid "Ignore multiple items by &extension"
+msgstr "Ignoruj wiele elementów wg &rozszerzenia"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
@@ -7342,6 +7358,12 @@ msgstr "Nie wystąpiły błędy."
 #. Resource IDs: (IDS_COPY_NOEXTERNALSFOUND)
 msgid "No externals found"
 msgstr "Nie znaleziono zewnętrznych"
+
+#. Resource IDs: (IDS_COPY_NOEXTERNALSFORURLS)
+msgid ""
+"No externals: For URLs, no externals are gathered.\n"
+"If you want to tag externals, start the command directly from a working copy."
+msgstr "Brak zewnętrznych: Nie zebrano zewnętrznych z URLi.\nJeśli chcesz otagować zewnętrzne, wykonaj polecenie bezpośrednio z kopii roboczej."
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)
 msgid ""

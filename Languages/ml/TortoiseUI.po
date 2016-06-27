@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-18 10:09+0000\n"
+"PO-Revision-Date: 2016-06-20 08:41+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Malayalam (http://www.transifex.com/luebbe/tortoisesvn/language/ml/)\n"
 "MIME-Version: 1.0\n"
@@ -912,6 +912,10 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 2)
 msgid "&Ignore and proceed"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
+msgid "&Ignore multiple items by name"
 msgstr ""
 
 #. Resource IDs: (16914 - Menu)
@@ -4061,9 +4065,17 @@ msgstr ""
 msgid "Delete and &ignore %d items by name"
 msgstr ""
 
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
+msgid "Delete and &ignore multiple items by name"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
+msgid "Delete and ignore multiple items by &extension"
 msgstr ""
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
@@ -6071,6 +6083,10 @@ msgstr ""
 msgid "Ignore line &endings (recommended)"
 msgstr ""
 
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
+msgid "Ignore multiple items by &extension"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
 msgstr ""
@@ -7332,6 +7348,12 @@ msgstr ""
 
 #. Resource IDs: (IDS_COPY_NOEXTERNALSFOUND)
 msgid "No externals found"
+msgstr ""
+
+#. Resource IDs: (IDS_COPY_NOEXTERNALSFORURLS)
+msgid ""
+"No externals: For URLs, no externals are gathered.\n"
+"If you want to tag externals, start the command directly from a working copy."
 msgstr ""
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-06-06 16:43+0000\n"
+"PO-Revision-Date: 2016-06-21 08:46+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -101,7 +101,7 @@ msgid ""
 " examine the history of how and when your data changed, and who changed it. "
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
-msgstr "TortoiseSVN は、 <firstterm>Apache™ Subversion®</firstterm> バージョン管理システムの無料でオープンソースのWindows版クライアントです。 TortoiseSVN はファイルやディレクトリを時間を超えて管理します。ファイルは <firstterm>リポジトリ</firstterm> に集中的に格納されます。リポジトリは普通のファイルサーバーとよく似ていますが、ファイルを古いバージョンに戻したり、いつ、だれがデータに変更を加えたのかを履歴から確認したりすることができます。このため、 Subversion などのバージョン管理システムは、一般的に<quote>タイムマシン</quote>のようなものと考えられています。"
+msgstr "TortoiseSVN は、 <firstterm>Apache™ Subversion®</firstterm> バージョン管理システムの無料でオープンソースの Windows 版クライアントです。 TortoiseSVN はファイルやディレクトリを時間を超えて管理します。ファイルは <firstterm>リポジトリ</firstterm> に集中的に格納されます。リポジトリは普通のファイルサーバーとよく似ていますが、ファイルを古いバージョンに戻したり、いつ、だれがデータに変更を加えたのかを履歴から確認したりすることができます。このため、 Subversion などのバージョン管理システムは、一般的に<quote>タイムマシン</quote>のようなものと考えられています。"
 
 #. (para)
 msgid ""
@@ -296,7 +296,7 @@ msgid ""
 "url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr "ほとんどの人はインストーラーだけをダウンロードしますが、このプログラムのソースコードもすべて読めるようになっています。こちらのリンクから閲覧可能です。<ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink> 現在開発中のバージョンは <filename>/trunk/</filename> に、リリース済みのバージョンは <filename>/tags/</filename> にあります。"
+msgstr "ほとんどの人はインストーラーだけをダウンロードしますが、このプログラムのソースコードもすべて読めるようになっています。こちらのリンク <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink> から閲覧可能です。現在開発中のバージョンは <filename>/trunk/</filename> 以下に、リリース済みのバージョンは <filename>/tags/</filename> 以下にあります。"
 
 #. (title)
 msgid "Development"
@@ -351,7 +351,7 @@ msgid ""
 "which allows all Tortoise clients to use the same icon overlays. Now all "
 "open source Tortoise clients and even some non-Tortoise clients use that "
 "shared component."
-msgstr "時間が経つにつれて、他のバージョン管理システムもそれぞれのTortoiseクライアントを持つようになり、エクスプローラーのアイコンオーバーレイで問題を起こすようになりました。オーバーレイの数は上限があり、Tortoiseクライアント1つでも容易に上限に達してしまいます。Stefan KüngがTortoiseOverlaysコンポーネントを実装し、すべてのTortoiseクライアントで同じアイコンオーバーレイが使えるようになりました。現在はすべてのTortoiseクライアントがオープンソースであり、Tortoise以外のクライアントもコンポーネントを共有できるものがあります。"
+msgstr "時間が経つにつれて、他のバージョン管理システムもそれぞれの Tortoise クライアントを持つようになり、エクスプローラーのアイコンオーバーレイで問題を起こすようになりました。オーバーレイの数は上限があり、 Tortoise クライアント1つでも容易に上限に達してしまいます。 Stefan Küng が TortoiseOverlays コンポーネントを実装し、すべての Tortoise クライアントで同じアイコンオーバーレイが使えるようになりました。現在はすべての Tortoise クライアントがオープンソースであり、 Tortoise 以外のクライアントもコンポーネントを共有できるものがあります。"
 
 #. (title)
 msgid "Acknowledgments"
@@ -477,7 +477,7 @@ msgid ""
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
 "which is also relevant to repositories located on a server."
-msgstr "<xref linkend=\"tsvn-repository\"/> では、単独のPCで Subversion や TortoiseSVN を試すのに便利なように、ローカルリポジトリのセットアップ方法を説明しています。また、リポジトリ管理についても若干の説明をしています。サーバー上のリポジトリを使用する場合も関係します。"
+msgstr "<xref linkend=\"tsvn-repository\"/> では、単独の PC で Subversion や TortoiseSVN を試すのに便利なように、ローカルリポジトリのセットアップ方法を説明しています。また、サーバー上のリポジトリを使用する場合でも関係するリポジトリの管理についても少し解説します。"
 
 #. (para)
 msgid ""
@@ -608,7 +608,7 @@ msgid ""
 "32-bit extension parts. Which means you don't need to install the 32-bit "
 "version separately to get the TortoiseSVN context menu and overlays in "
 "32-bit applications."
-msgstr "TortoiseSVNはWindows Vista以上で動作し、32ビット版と64ビット版のどちらでも使用できます。64ビット版Windows用のインストーラーは32ビットの拡張部分も含みます。つまり、32ビットアプリケーションでTortoiseSVNのコンテキストメニューやオーバーレイを使用するために、別途32ビット版をインストールする必要はありません。"
+msgstr "TortoiseSVN は Windows Vista 以上で動作し、32ビット版と64ビット版のどちらでも使用できます。64ビット版 Windows 用のインストーラーは32ビットの拡張部分も含みます。つまり、32ビットアプリケーションで TortoiseSVN のコンテキストメニューやオーバーレイを使用するために、別途32ビット版をインストールする必要はありません。"
 
 #. (para)
 msgid ""
@@ -7506,7 +7506,7 @@ msgid ""
 "Only uncheck this option if the working copy is used by other users/clients "
 "at the time. But if the cleanup then fails, you have to check this option "
 "for the cleanup to succeed."
-msgstr ""
+msgstr "作業コピーを他のユーザーやクライアントが同時に使用している場合のみ、このオプションのチェックを外してください。しかし、クリーンアップが失敗した場合は、クリーンアップを成功させるためにこのオプションをチェックする必要があります。"
 
 #. (term)
 msgid "Fix time stamps"
@@ -7524,7 +7524,7 @@ msgstr "未使用のコピーを削除"
 msgid ""
 "Removes unused pristine copies and compresses all remaining pristine copies "
 "of working copy files."
-msgstr ""
+msgstr "作業コピーで未使用の当初のコピーを削除し、残りの当初のコピーを圧縮します。"
 
 #. (term)
 msgid "Refresh shell overlays"
@@ -18185,7 +18185,7 @@ msgid ""
 " be specified with the options <placeholder-5/> for status cleanup, "
 "<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, "
 "<placeholder-10/>, <placeholder-11/> and <placeholder-12/>."
-msgstr ""
+msgstr "<placeholder-1/> で指定された作業コピーの、中断されたり失敗したりした操作をクリーンアップし、作業コピーのロックを解除します。 <placeholder-2/> を指定すると、（クリーンアップの終了を通知したりエラーを表示したりする）ポップアップダイアログを抑制します。 <placeholder-3/> を指定すると、進行状況ダイアログの表示も抑制します。 <placeholder-4/> を指定すると、ユーザーがクリーンアップ処理の内容を選択するためのダイアログを表示しません。クリーンアップ時の動作は、 <placeholder-5/>、 <placeholder-6/>、 <placeholder-7/>、 <placeholder-8/>、 <placeholder-9/>、 <placeholder-10/>、 <placeholder-11/>、 <placeholder-12/> で指定することができます。"
 
 #. (option)
 #. (option)

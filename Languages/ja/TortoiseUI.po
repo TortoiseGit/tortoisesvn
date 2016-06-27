@@ -34,7 +34,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-05-16 08:53+0000\n"
+"PO-Revision-Date: 2016-06-21 08:46+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -542,7 +542,7 @@ msgstr "ブランチ(&B)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
 msgid "&Break write locks"
-msgstr "書き込みロックを強制解除する(&B)"
+msgstr "書き込みロックを強制解除(&B)"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -930,6 +930,10 @@ msgstr "履歴を無視する(&I)"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 2)
 msgid "&Ignore and proceed"
 msgstr "無視して続行する(&I)"
+
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
+msgid "&Ignore multiple items by name"
+msgstr "名前で複数の項目を無視(&I)"
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -1582,7 +1586,7 @@ msgstr "更新(&U)"
 
 #. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
 msgid "&Update all"
-msgstr ""
+msgstr "すべて更新(&U)"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -2032,7 +2036,7 @@ msgstr "プロジェクトやフォルダーを追加..."
 #. Resource IDs: (IDS_DROPDESC_ADD)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "%1 に追加"
 
 #. Resource IDs: (IDS_MENUIGNORE)
 msgid "Add to &ignore list"
@@ -3673,7 +3677,7 @@ msgstr "選択範囲をクリップボードにコピーする\nコピー"
 #. Resource IDs: (IDS_DROPDESC_COPY)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "%1 にコピー"
 
 #. Resource IDs: (IDS_LOG_POPUP_COPYTOCLIPBOARD)
 msgid "Copy to clipboard"
@@ -4078,10 +4082,18 @@ msgstr "バージョン管理外の項目を削除"
 msgid "Delete and &ignore %d items by name"
 msgstr "削除して同じ名前の%d件の項目を無視(&I)"
 
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
+msgid "Delete and &ignore multiple items by name"
+msgstr "削除して同じ名前の項目を無視(&I)"
+
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
 msgid "Delete and ignore %d items by &extension"
 msgstr "削除して同じ拡張子の%d件の項目を無視(&E)"
+
+#. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
+msgid "Delete and ignore multiple items by &extension"
+msgstr "削除して同じ拡張子の項目を無視(&E)"
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
 msgid "Delete unversioned items"
@@ -4194,7 +4206,7 @@ msgstr "差分"
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
 msgid "Diff &Options"
-msgstr ""
+msgstr "差分設定(&O)"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
@@ -4692,7 +4704,7 @@ msgid ""
 "Encoding\n"
 "Convert to the specified encoding\n"
 "Hold down the Ctrl key to reload the file with the specified encoding."
-msgstr ""
+msgstr "エンコーディング\n指定されたエンコーディングに変換します。\nCtrlを押しながら選択すると、指定されたエンコーディングで再読み込みします。"
 
 #. Resource IDs: (61866)
 #, c-format
@@ -6088,6 +6100,10 @@ msgstr "改行コードを無視する(&E)"
 msgid "Ignore line &endings (recommended)"
 msgstr "改行コードを無視する（推奨）(&E)"
 
+#. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
+msgid "Ignore multiple items by &extension"
+msgstr "無視する項目を拡張子で指定(&E)"
+
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
 msgstr "空白の変更を無視する(&C)"
@@ -6193,7 +6209,7 @@ msgstr "フォルダー %1!ls! を\r\n%2!ls! にインポート"
 #. Resource IDs: (IDS_DROPDESC_IMPORT)
 #, c-format
 msgid "Import to %1"
-msgstr ""
+msgstr "%1 にインポート"
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
 msgid ""
@@ -7158,7 +7174,7 @@ msgstr "特別なファイルもしくはディレクトリを移動する"
 #. Resource IDs: (IDS_DROPDESC_MOVE)
 #, c-format
 msgid "Move to %1"
-msgstr ""
+msgstr "%1 に移動"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_MOVETOCS)
 msgid "Move to changelist"
@@ -7350,6 +7366,12 @@ msgstr "エラーは何も起きませんでした。"
 #. Resource IDs: (IDS_COPY_NOEXTERNALSFOUND)
 msgid "No externals found"
 msgstr "外部参照は見つかりませんでした"
+
+#. Resource IDs: (IDS_COPY_NOEXTERNALSFORURLS)
+msgid ""
+"No externals: For URLs, no externals are gathered.\n"
+"If you want to tag externals, start the command directly from a working copy."
+msgstr ""
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)
 msgid ""
@@ -7933,7 +7955,7 @@ msgstr "画像:"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
-msgstr ""
+msgstr "画像 (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|すべてのファイル (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"
@@ -11422,7 +11444,7 @@ msgstr "「クリーンアップ」を実行してみてください。これで
 
 #. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
 msgid "Try enabling the \"Break write locks\" option for the cleanup."
-msgstr ""
+msgstr "クリーンアップで「書き込みロックを強制解除」のオプションを有効にしてみてください。"
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"
