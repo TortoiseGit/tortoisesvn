@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -5308,8 +5308,16 @@ void CBaseView::OnEditFind()
     if (m_pFindDialog)
         return;
 
+    int id = 0;
+    if (this == m_pwndLeft)
+        id = 1;
+    if (this == m_pwndRight)
+        id = 2;
+    if (this == m_pwndBottom)
+        id = 3;
+
     m_pFindDialog = new CFindDlg(this);
-    m_pFindDialog->Create(this);
+    m_pFindDialog->Create(this, id);
 
     m_pFindDialog->SetFindString(HasTextSelection() ? GetSelectedText() : L"");
     m_pFindDialog->SetReadonly(m_bReadonly);
