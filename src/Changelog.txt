@@ -3,6 +3,13 @@ Version 1.9.5
        lines filtered with a regex. (Stefan)
 - BUG: Changing the font in TortoiseMerge wasn't taking
        effect until a restart. (Stefan)
+- BUG: When a filter was active in TMerge, filtered lines
+       could still be handled as a diff. (Stefan)
+- BUG: Changing the font in TMerge required a restart
+       for the changes to take effect. (Stefan)
+- BUG: On Win8 and later, the spell checker wasn't properly
+       handled in case there's no appropriate dict available. (Stefan)
+- BUG: Wording of the transfer speeds was wrong. (Stefan)
 
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
