@@ -4,19 +4,18 @@ setlocal
 pushd %~dp0
 
 rem you can set the COVDIR variable to your coverity path
+if exist ..\..\cov-analysis-win64-8.5.0 (
+  set "COVDIR=..\..\cov-analysis-win64-8.5.0"
+)
+if not defined COVDIR if exist ..\..\cov-analysis-win32-8.5.0 (
+  set "COVDIR=..\..\cov-analysis-win32-8.5.0"
+)
 if not defined COVDIR set "COVDIR=C:\cov-analysis"
 if defined COVDIR if not exist "%COVDIR%" (
   echo.
   echo ERROR: Coverity not found in "%COVDIR%"
   goto End
 )
-
-rem add the tools paths in PATH
-set "NANT_PATH=C:\nant\bin"
-set "PERL_PATH=C:\Perl\perl\bin"
-set "PYTHON_PATH=C:\Python27"
-set "PATH=%NANT_PATH%;%PERL_PATH%;%PYTHON_PATH%;%PATH%"
-
 
 :cleanup
 if exist "cov-int" rd /q /s "cov-int"
@@ -62,6 +61,9 @@ set PATH=C:\MSYS\bin;%PATH%
 tar --version 1>&2 2>nul || (echo. & echo ERROR: tar not found & goto SevenZip)
 title Creating "TortoiseSVN.lzma"...
 tar caf "TortoiseSVN.lzma" "cov-int"
+if exist cov-upload.tmpl (
+  SubWCRev .. cov-upload.tmpl cov-upload.bat
+)
 goto End
 
 
@@ -75,6 +77,9 @@ if exist "%SEVENZIP%" (
   "%SEVENZIP%" a -ttar "TortoiseSVN.tar" "cov-int"
   "%SEVENZIP%" a -tgzip "TortoiseSVN.tgz" "TortoiseSVN.tar"
   if exist "TortoiseSVN.tar" del "TortoiseSVN.tar"
+  if exist cov-upload.tmpl (
+    SubWCRev .. cov-upload.tmpl cov-upload.bat
+  )
   goto End
 )
 
