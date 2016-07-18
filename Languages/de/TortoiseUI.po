@@ -17,7 +17,7 @@
 # lonken <l.onken@rac.de>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2016.
+# Lübbe Onken <l.onken@rac.de>, 2011-2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2016
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015-2016
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015, 2016
@@ -31,16 +31,16 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-06-23 11:29+0200\n"
-"Last-Translator: Lübbe Onken <l.onken@rac.de>\n"
-"Language-Team: RA Consulting GmbH\n"
-"Language: de\n"
+"PO-Revision-Date: 2016-07-18 09:47+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
 
+#. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 # msgid/msgstr fields for Accelerator keys
 # Format is: "ID:xxxxxx:VACS+X" where:
 #    ID:xxxxx = the menu ID corresponding to the accelerator
@@ -54,7 +54,6 @@ msgstr ""
 # updated i.e. function keys (F2), special keys (Delete, HoMe) etc. will not.
 # ONLY change the msgstr field. Do NOT change any other.
 # If you do not want to change an Accelerator Key, copy msgid to msgstr
-#. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 #, c-format
 msgid "! %d"
 msgstr "! %d"
@@ -136,8 +135,8 @@ msgstr "%1!ls! in %2!ls!"
 
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALANDSPEED)
 #, c-format
-msgid "%1!ls!, at %2!ls!"
-msgstr "%1!ls!, mit %2!ls!"
+msgid "%1!ls!, %2!ls!"
+msgstr "%1!ls!, %2!ls!"
 
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME)
 #, c-format
@@ -5273,9 +5272,7 @@ msgstr "Suchtreffer"
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
-msgstr ""
-"Pfade ausfiltern, die eine der folgenden Zeichenketten enthalten\n"
-"(mehrere Pfade durch '*' trennen):"
+msgstr "Pfade ausfiltern, die eine der folgenden Zeichenketten enthalten\n(mehrere Pfade durch '*' trennen):"
 
 #. Resource IDs: (IDS_FILEDIFF_FILTERCUE)
 msgid "Filter paths"
