@@ -10,6 +10,8 @@ Version 1.9.5
 - BUG: On Win8 and later, the spell checker wasn't properly
        handled in case there's no appropriate dict available. (Stefan)
 - BUG: Wording of the transfer speeds was wrong. (Stefan)
+- BUG: The externals property dialog did not handle
+       HEAD revisions properly. (Stefan)
 
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
