@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2015 - TortoiseSVN
+// Copyright (C) 2010-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -453,6 +453,7 @@ void ShellCache::ValidatePathFilter()
 
 void ShellCache::CPathFilter::AddEntry(const tstring& s, bool include)
 {
+    static wchar_t pathbuf[MAX_PATH*4] = { 0 };
     if (s.empty())
         return;
 
@@ -472,6 +473,9 @@ void ShellCache::CPathFilter::AddEntry(const tstring& s, bool include)
     if (!entry.path.empty() && (*entry.path.rbegin() == '\\'))
         entry.path.erase(entry.path.length() - 1);
 
+    auto ret = ExpandEnvironmentStrings(entry.path.c_str(), pathbuf, _countof(pathbuf));
+    if ((ret > 0) && (ret < _countof(pathbuf)))
+        entry.path = pathbuf;
     data.push_back(entry);
 }
 
