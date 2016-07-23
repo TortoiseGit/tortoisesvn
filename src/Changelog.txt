@@ -12,6 +12,8 @@ Version 1.9.5
 - BUG: Wording of the transfer speeds was wrong. (Stefan)
 - BUG: The externals property dialog did not handle
        HEAD revisions properly. (Stefan)
+- BUG: Autocompletion of filenames with umlauts
+       in the commit dialog did not work. (Stefan)
 
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
