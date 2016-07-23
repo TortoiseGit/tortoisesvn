@@ -1,5 +1,5 @@
 // TortoiseOverlays - an overlay handler for Tortoise clients
-// Copyright (C) 2007, 2010-2011, 2013 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011, 2013, 2016 - TortoiseSVN
 #include "stdafx.h"
 
 // Initialize GUIDs (should be done only and at-least once per DLL/EXE)
@@ -9,9 +9,8 @@
 
 // *********************** CShellExt *************************
 CShellExt::CShellExt(FileState state)
+    : m_State(state)
 {
-    m_State = state;
-
     m_cRef = 0L;
     InterlockedIncrement(&g_cRefThisDll);
 }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2011 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2011, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,9 +22,8 @@
 
 
 CShellExtClassFactory::CShellExtClassFactory(FileState state)
+    : m_StateToMake(state)
 {
-    m_StateToMake = state;
-
     m_cRef = 0L;
 
     InterlockedIncrement(&g_cRefThisDll);

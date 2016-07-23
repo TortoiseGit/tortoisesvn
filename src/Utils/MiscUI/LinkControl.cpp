@@ -25,6 +25,7 @@ const UINT CLinkControl::LK_LINKITEMCLICKED
 
 CLinkControl::CLinkControl(void)
     : m_bOverControl(false)
+    , m_hLinkCursor(nullptr)
 {
 }
 
