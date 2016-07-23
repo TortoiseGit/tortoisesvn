@@ -3863,11 +3863,18 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             break;
         case ID_EDITFILE:
             {
-                new async::CAsyncCall ( this
-                                      , &CRepositoryBrowser::EditFile
-                                      , selection.GetURL (0,0)
-                                      , selection.GetURLEscaped (0,0)
-                                      , &m_backgroundJobs);
+                if (!m_EditFileCommand || !m_EditFileCommand->IsWaiting())
+                {
+                    new async::CAsyncCall(this
+                                          , &CRepositoryBrowser::EditFile
+                                          , selection.GetURL(0, 0)
+                                          , selection.GetURLEscaped(0, 0)
+                                          , &m_backgroundJobs);
+                }
+                else
+                {
+                    ::MessageBox(GetSafeHwnd(), CString(MAKEINTRESOURCE(IDS_ERR_EDIT_LIMIT_REACHED)), L"TortoiseSVN", MB_ICONERROR);
+                }
             }
             break;
         case ID_DELETE:

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012 - TortoiseSVN
+// Copyright (C) 2009, 2012, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,6 +75,7 @@ public:
 
     /// stop waiting for the editor to finish
     bool StopWaitingForEditor();
+    bool IsWaiting() { return hWaitHandle != NULL; }
 };
 
 
