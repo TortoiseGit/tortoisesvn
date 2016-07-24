@@ -168,21 +168,28 @@ module.exports = function(grunt) {
 
         connect: {
             options: {
-                hostname: 'localhost',
-                livereload: 35729,
-                port: 8000
+                base: '<%= dirs.dest %>/',
+                hostname: 'localhost'
             },
             livereload: {
                 options: {
                     base: '<%= dirs.dest %>/',
-                    open: true  // Automatically open the webpage in the default browser
+                    livereload: 35729,
+                    open: true,  // Automatically open the webpage in the default browser
+                    port: 8000
+                }
+            },
+            linkChecker: {
+                options: {
+                    base: '<%= dirs.dest %>/',
+                    port: 9001
                 }
             }
         },
 
         watch: {
             options: {
-                livereload: '<%= connect.options.livereload %>'
+                livereload: '<%= connect.livereload.options.livereload %>'
             },
             dev: {
                 files: ['<%= dirs.src %>/**', '.jshintrc', '_config.yml', 'Gruntfile.js'],
@@ -214,6 +221,27 @@ module.exports = function(grunt) {
             src: '<%= dirs.dest %>/**/*.html'
         },
 
+        linkChecker: {
+            options: {
+                callback: function (crawler) {
+                    crawler.addFetchCondition(function (queueItem) {
+                        return !queueItem.path.match(/\/docs\/(release|nightly)\//) &&
+                               queueItem.path !== '/assets/js/vendor/g.src' &&
+                               queueItem.path !== '/assets/js/%7Bhref%7D' &&
+                               queueItem.path !== '/a';
+                    });
+                },
+                interval: 1,        // 1 ms; default 250
+                maxConcurrency: 5   // default; bigger doesn't seem to improve time
+            },
+            dev: {
+                site: 'localhost',
+                options: {
+                    initialPort: '<%= connect.linkChecker.options.port %>'
+                }
+            }
+        },
+
         clean: {
             dist: '<%= dirs.dest %>/'
         }
@@ -242,7 +270,9 @@ module.exports = function(grunt) {
         'build',
         'csslint',
         'jshint',
-        'htmllint'
+        'htmllint',
+        'connect:linkChecker',
+        'linkChecker'
     ]);
 
     grunt.registerTask('dev', [
@@ -256,13 +286,13 @@ module.exports = function(grunt) {
 
     grunt.registerTask('server', [
         'build',
-        'connect',
+        'connect:livereload',
         'watch:build'
     ]);
 
     grunt.registerTask('default', [
         'dev',
-        'connect',
+        'connect:livereload',
         'watch:dev'
     ]);
 
