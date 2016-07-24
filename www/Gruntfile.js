@@ -11,9 +11,12 @@ module.exports = function(grunt) {
         // Copy files that don't need compilation to dist/
         copy: {
             dist: {
-                files: [
-                    { dest: '<%= dirs.dest %>/', src: 'assets/js/vendor/jquery*.min.js', expand: true, cwd: '<%= dirs.src %>/' }
-                ]
+                files: [{
+                    dest: '<%= dirs.dest %>/',
+                    src: 'assets/js/vendor/jquery*.min.js',
+                    expand: true,
+                    cwd: '<%= dirs.src %>/'
+                }]
             }
         },
 
@@ -72,11 +75,11 @@ module.exports = function(grunt) {
                 dest: '<%= dirs.dest %>/assets/css/pack.css'
             },
             mainJs: {
-              src: ['<%= dirs.src %>/assets/js/no-js-class.js',
-                    '<%= dirs.src %>/assets/js/onLoad.js',
-                    '<%= dirs.src %>/assets/js/google-analytics.js'
-              ],
-              dest: '<%= dirs.dest %>/assets/js/main.js'
+                src: ['<%= dirs.src %>/assets/js/no-js-class.js',
+                      '<%= dirs.src %>/assets/js/onLoad.js',
+                      '<%= dirs.src %>/assets/js/google-analytics.js'
+                ],
+                dest: '<%= dirs.dest %>/assets/js/main.js'
             },
             fancybox: {
                 src: ['<%= dirs.src %>/assets/js/vendor/plugins.js',
@@ -135,7 +138,7 @@ module.exports = function(grunt) {
         filerev: {
             css: {
                 src: '<%= dirs.dest %>/assets/css/**/*.css'
-             },
+            },
             js: {
                 src: [
                     '<%= dirs.dest %>/assets/js/**/*.js',
@@ -249,7 +252,7 @@ module.exports = function(grunt) {
     });
 
     // Load any grunt plugins found in package.json.
-    require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
+    require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
     require('time-grunt')(grunt);
 
     grunt.registerTask('build', [
