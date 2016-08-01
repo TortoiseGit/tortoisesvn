@@ -27,19 +27,33 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDR_MAINFRAME           ICON                    "TortoiseMerge.ico"
+
 IDI_REMOVEDLINE         ICON                    "lineremoved.ico"
+
 IDI_ADDEDLINE           ICON                    "lineadded.ico"
+
 IDI_CONFLICTEDLINE      ICON                    "lineconflicted.ico"
+
 IDI_WHITESPACELINE      ICON                    "linewhitespace.ico"
+
 IDI_EQUALLINE           ICON                    "lineequal.ico"
+
 IDI_LINEENDINGCR        ICON                    "LineEndingCR.ico"
+
 IDI_LINEENDINGCRLF      ICON                    "LineEndingCRLF.ico"
+
 IDI_LINEENDINGLF        ICON                    "LineEndingLF.ico"
+
 IDI_CONFLICTEDIGNOREDLINE ICON                    "lineconflictedignored.ico"
+
 IDI_LINEEDITED          ICON                    "lineedited.ico"
+
 IDI_MOVEDLINE           ICON                    "moved.ico"
+
 IDI_AEROBACKGROUND      ICON                    "aerobackground.ico"
+
 IDI_LINEMARKED          ICON                    "linemarked.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -102,7 +116,9 @@ END
 //
 
 IDB_LOGOFLIPPED         BITMAP                  "tortoisemerge_logoflipped.bmp"
+
 IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -111,16 +127,22 @@ IDB_TTF_BMP             BITMAP                  "ttf_glyph.bmp"
 
 IDC_MARGINCURSOR        CURSOR                  "Margin.cur"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // PNG
 //
 
 IDB_RIBBONLARGE         PNG                     "ribbon\\ribbonlarge.png"
+
 IDB_RIBBONSMALL         PNG                     "ribbon\\ribbonsmall.png"
+
 IDB_LOGO                PNG                     "ribbon\\TortoiseMerge.png"
+
 IDB_RIBBONSMALLHDPI     PNG                     "ribbon\\ribbonsmallhdpi.png"
+
 IDB_RIBBONLARGEHDPI     PNG                     "ribbon\\ribbonlargehdpi.png"
+
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -445,6 +467,7 @@ END
 
 IDR_MAINFRAME           BITMAP                  "Toolbar.bmp"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // Toolbar
@@ -690,7 +713,9 @@ IDR_RIBBON              RT_RIBBON_XML           "ribbon.mfcribbon-ms"
 //
 
 IDR_REGEXFILTERINI      CONFIG                  "RegexFilter.ini"
+
 IDR_IGNORECOMMENTSTXT   CONFIG                  "ignorecomments.txt"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
