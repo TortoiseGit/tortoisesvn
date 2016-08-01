@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2015 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,42 +34,6 @@ void CMergeWizardBasePage::SetButtonTexts()
         CAppUtils::SetAccProperty(psheet->GetDlgItem(IDHELP)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"F1");
         psheet->GetDlgItem(IDCANCEL)->SetWindowText(CString(MAKEINTRESOURCE(IDS_PROPPAGE_CANCEL)));
         CAppUtils::SetAccProperty(psheet->GetDlgItem(IDCANCEL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"ESC");
-    }
-}
-
-void CMergeWizardBasePage::AdjustControlSize(UINT nID)
-{
-    CWnd * pwndDlgItem = GetDlgItem(nID);
-    // adjust the size of the control to fit its content
-    CString sControlText;
-    pwndDlgItem->GetWindowText(sControlText);
-    // next step: find the rectangle the control text needs to
-    // be displayed
-
-    CDC * pDC = pwndDlgItem->GetWindowDC();
-    RECT controlrect;
-    RECT controlrectorig;
-    pwndDlgItem->GetWindowRect(&controlrect);
-    ::MapWindowPoints(NULL, GetSafeHwnd(), (LPPOINT)&controlrect, 2);
-    controlrectorig = controlrect;
-    if (pDC)
-    {
-        CFont * font = pwndDlgItem->GetFont();
-        CFont * pOldFont = pDC->SelectObject(font);
-        if (pDC->DrawText(sControlText, -1, &controlrect, DT_WORDBREAK | DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_CALCRECT))
-        {
-            // now we have the rectangle the control really needs
-            if ((controlrectorig.right - controlrectorig.left) > (controlrect.right - controlrect.left))
-            {
-                // we're dealing with radio buttons and check boxes,
-                // which means we have to add a little space for the checkbox
-                const int checkWidth = GetSystemMetrics(SM_CXMENUCHECK) + 2*GetSystemMetrics(SM_CXEDGE);
-                controlrectorig.right = controlrectorig.left + (controlrect.right - controlrect.left) + checkWidth;
-                pwndDlgItem->MoveWindow(&controlrectorig);
-            }
-        }
-        pDC->SelectObject(pOldFont);
-        ReleaseDC(pDC);
     }
 }
 
@@ -117,21 +81,6 @@ UINT CMergeWizardBasePage::FindRevThread()
     }
     InterlockedExchange(&m_bThreadRunning, FALSE);
     return 0;
-}
-
-/**
- * Display a balloon with close button, anchored at a given edit control on this dialog.
- */
-void CMergeWizardBasePage::ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon /* = TTI_WARNING */)
-{
-    CString text(MAKEINTRESOURCE(nIdText));
-    CString title(MAKEINTRESOURCE(nIdTitle));
-    EDITBALLOONTIP bt;
-    bt.cbStruct = sizeof(bt);
-    bt.pszText  = text;
-    bt.pszTitle = title;
-    bt.ttiIcon = nIcon;
-    SendDlgItemMessage(nIdControl, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
 }
 
 /**

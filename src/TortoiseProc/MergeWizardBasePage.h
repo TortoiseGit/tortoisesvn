@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2013, 2015 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2013, 2015-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #pragma once
 #include "SVN.h"
 #include "ResizablePageEx.h"
+#include "CommonDialogFunctions.h"
 #include "AppUtils.h"
 
 #define WM_TSVN_MAXREVFOUND         (WM_APP + 1)
@@ -26,22 +27,25 @@
 /**
  * base class for the merge wizard property pages
  */
-class CMergeWizardBasePage : public CResizablePageEx, public SVN
+class CMergeWizardBasePage : public CResizablePageEx, public SVN, protected CommonDialogFunctions<CResizablePageEx>
 {
     DECLARE_DYNAMIC(CMergeWizardBasePage)
 public:
     CMergeWizardBasePage()
         : CResizablePageEx()
+        , CommonDialogFunctions(this)
         , m_bCancelled(false)
         , m_bThreadRunning(false)
         , m_pThread(NULL) {;}
     explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0)
         : CResizablePageEx(nIDTemplate, nIDCaption, 0)
+        , CommonDialogFunctions(this)
         , m_bCancelled(false)
         , m_bThreadRunning(false)
         , m_pThread(NULL) {;}
     explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0)
         : CResizablePageEx(lpszTemplateName, nIDCaption, 0)
+        , CommonDialogFunctions(this)
         , m_bCancelled(false)
         , m_bThreadRunning(false)
         , m_pThread(NULL) {;}
@@ -51,10 +55,8 @@ public:
 
 protected:
     virtual void    SetButtonTexts();
-    void            AdjustControlSize(UINT nID);
     void            StartWCCheckThread(const CTSVNPath& path);
     void            StopWCCheckThread();
-    void            ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING);
     void            ShowComboBalloon(CComboBoxEx * pCombo, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING);
 
     static UINT     FindRevThreadEntry(LPVOID pVoid);
