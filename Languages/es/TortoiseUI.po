@@ -18,6 +18,7 @@
 # Emilio Plaza García <emilpg@gmail.com>, 2013
 # Emilio Plaza García <emilpg@gmail.com>, 2013
 # Erik Chacon <erikchacon@gmail.com>, 2011
+# Fernando Reyes <fernando.reyes@gmail.com>, 2016
 # Javi <inactive+japaol@transifex.com>, 2014
 # Javi <inactive+japaol@transifex.com>, 2014
 # juancentro <jmtruppia@gmail.com>, 2011
@@ -39,8 +40,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-07-17 08:34+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-07-27 23:10+0000\n"
+"Last-Translator: Fernando Reyes <fernando.reyes@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,7 +145,7 @@ msgstr "%1!ls! en %2!ls!"
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALANDSPEED)
 #, c-format
 msgid "%1!ls!, %2!ls!"
-msgstr ""
+msgstr "%1!ls!, %2!ls!"
 
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME)
 #, c-format
@@ -547,7 +548,7 @@ msgstr "&Ramas"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
 msgid "&Break write locks"
-msgstr ""
+msgstr "Romper &bloqueo  de escritura"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -938,7 +939,7 @@ msgstr "&Ignorar y seguir"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
 msgid "&Ignore multiple items by name"
-msgstr ""
+msgstr "&Ignorar múltiples elementos por nombre"
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -1310,7 +1311,7 @@ msgstr "&Eliminar proyecto"
 msgid ""
 "&Remove\n"
 "The project is removed. If it has sub-projects, those are removed as well."
-msgstr ""
+msgstr "Elimina&r\nEl proyecto ha sido eliminado. Si contiene subproyectos, estos han sido eliminados también."
 
 #. Resource IDs: (IDS_REPOBROWSE_RENAME)
 msgid "&Rename"
@@ -1591,7 +1592,7 @@ msgstr "&Actualizar"
 
 #. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
 msgid "&Update all"
-msgstr ""
+msgstr "Act&ualizar todo"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -1847,7 +1848,7 @@ msgstr "<nueva lista de cambios>"
 msgid ""
 "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
 "all=&Options=="
-msgstr ""
+msgstr "=&Revisar Ahora=&Agregar Proyecto=E&ditar=Elimina&r=&Marcar todo como leído=Act&ualizar todo=&Opciones=="
 
 #. Resource IDs: (ID_ABOUT - Menu)
 msgid "?"
@@ -2041,7 +2042,7 @@ msgstr "Añadir proyecto o carpeta..."
 #. Resource IDs: (IDS_DROPDESC_ADD)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "Agregar a %1"
 
 #. Resource IDs: (IDS_MENUIGNORE)
 msgid "Add to &ignore list"
@@ -2179,14 +2180,14 @@ msgstr "¡Se perderán todos sus cambios! ¿Realmente desea restaurar todas las 
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
+msgstr "¡Todos sus cambios se perderán! ¿Está seguro  que desea restaurar el menú '%Ts'?"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar "
 "'%Ts'?"
-msgstr ""
+msgstr "¡Todos sus cambios se perderán! ¿Está seguro que desea restaurar la barra de herramientas '%Ts'?"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -2354,7 +2355,7 @@ msgstr "¿Está seguro de que desea revertir %d ítem(s)? ¡Perderá todos los c
 
 #. Resource IDs: (ID_VIEW_ARRANGEVERTICAL - Menu)
 msgid "Arrange &vertical\t(V)"
-msgstr ""
+msgstr "Acomodar &vertical\t(V)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1587)
 msgid "As &is (no specific EOL)"
@@ -2903,7 +2904,7 @@ msgstr "Cancelar\nEl archivo destino se deja como está."
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
-msgstr ""
+msgstr "Cancelar\nPuede introducir otro password y volver a intentarlo"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
 msgid ""
@@ -3604,7 +3605,7 @@ msgstr "Copiado de: %1!ls!@%2!ld!\r\n"
 
 #. Resource IDs: (IDS_MENUDESCCOPYURL)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr ""
+msgstr "Copia la dirección URL de todos los elementos seleccionados al portapapeles"
 
 #. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
 msgid "Copy"
@@ -3682,7 +3683,7 @@ msgstr "Copiar la selección y la coloca en el Portapapeles\nCopiar"
 #. Resource IDs: (IDS_DROPDESC_COPY)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "Copiar a %1"
 
 #. Resource IDs: (IDS_LOG_POPUP_COPYTOCLIPBOARD)
 msgid "Copy to clipboard"
@@ -4089,7 +4090,7 @@ msgstr "Eliminar e &ignorar %d ítems por el nombre"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
 msgid "Delete and &ignore multiple items by name"
-msgstr ""
+msgstr "Eliminar e &ignorar múltiples elementos por nombre"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
@@ -4098,7 +4099,7 @@ msgstr "Eliminar e ignorar %d ítems por &extensión"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
 msgid "Delete and ignore multiple items by &extension"
-msgstr ""
+msgstr "Eliminar e Ignorar múltiples elementos por &extensión"
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
 msgid "Delete unversioned items"
@@ -4383,7 +4384,7 @@ msgstr "Hacer esto para todos los ítems sin versionar / modificados"
 #. Resource IDs: (16109)
 #, c-format
 msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
+msgstr "¿Está seguro que quiere eliminar la barra de herramientas '%Ts'?"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4547,7 +4548,7 @@ msgstr "&Salir"
 
 #. Resource IDs: (105 - Menu)
 msgid "E&xit\t(Ctrl+W)"
-msgstr ""
+msgstr "Sa&lir\t(Ctrl+W)"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_ALL)
 msgid "E&xpand all"
@@ -4636,7 +4637,7 @@ msgstr "Editar mensaje de registro"
 msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "Editar propiedad '%1!S!' en\n%2!ls!"
 
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1382, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1331)
@@ -4709,7 +4710,7 @@ msgid ""
 "Encoding\n"
 "Convert to the specified encoding\n"
 "Hold down the Ctrl key to reload the file with the specified encoding."
-msgstr ""
+msgstr "Codificado\nConvertir al codificado especificado\nMantenga presionada la tecla Ctrl para volver a cargar el archivo con el codificado especificado."
 
 #. Resource IDs: (61866)
 #, c-format
@@ -4919,7 +4920,7 @@ msgstr "Expandir árbol &siguiente"
 #. Resource IDs: (16025)
 #, c-format
 msgid "Expand (%Ts)"
-msgstr ""
+msgstr "Expandir (%Ts)"
 
 #. Resource IDs: (16012)
 msgid "Expand docked window"
@@ -4948,7 +4949,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1667)
 msgid "Export settings to file..."
-msgstr ""
+msgstr "Exportar configuraciones a archivo..."
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_EXPORT)
 msgid ""
@@ -5050,7 +5051,7 @@ msgid ""
 "Failed to copy the file '%ls' to '%ls'.\n"
 "\n"
 "%ls"
-msgstr ""
+msgstr "Falló la copia del archivo '%ls' a '%ls'.\n\n%ls"
 
 #. Resource IDs: (61700)
 msgid "Failed to create empty document."
@@ -5072,7 +5073,7 @@ msgstr "Fallo al iniciar la aplicación servidor."
 
 #. Resource IDs: (IDS_ERR_MONITORINILOAD)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "¡Falló la carga del archivo de configuraciones del monitor de proyectos!"
 
 #. Resource IDs: (61697)
 msgid "Failed to open document."
@@ -5337,11 +5338,11 @@ msgstr "Ajustar alto"
 
 #. Resource IDs: (ID_VIEW_FITIMAGEHEIGHTS - Menu)
 msgid "Fit image &heights\t(H)"
-msgstr ""
+msgstr "Ajustar alto de las ima&genes\t(H)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGEWIDTHS - Menu)
 msgid "Fit image &widths\t(W)"
-msgstr ""
+msgstr "Ajustar ancho de las i&mágenes\t(W)"
 
 #. Resource IDs: (ID_VIEW_ZOOMWIDTH - Menu)
 msgid "Fit width"
@@ -5386,7 +5387,7 @@ msgstr "Forzar la eliminación"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Foreground"
-msgstr ""
+msgstr "Al frente"
 
 #. Resource IDs: (17021)
 msgid "Forward"
@@ -6094,7 +6095,7 @@ msgstr "Ignorar cambios\nIgnorar los cambios externos."
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
-msgstr ""
+msgstr "Ignorar comentarios"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1127, Dialog IDD_MERGEALL:
 #. Control id 1126, Dialog IDD_MERGEWIZARD_OPTIONS: Control id 1126)
@@ -6107,7 +6108,7 @@ msgstr "Ignorar &finales de línea (recomendado)"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
 msgid "Ignore multiple items by &extension"
-msgstr ""
+msgstr "Ignorar múltiples elementos por &extensión"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
@@ -6184,7 +6185,7 @@ msgstr "&Mensaje de importación"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1665)
 msgid "Import Settings from file..."
-msgstr ""
+msgstr "Importar Configuraciones desde archivo..."
 
 #. Resource IDs: (IDS_PROP_TT_IMPORT)
 msgid "Import a previously saved set of properties from a file"
@@ -6214,7 +6215,7 @@ msgstr "Importar carpeta %1!ls!\r\na %2!ls!"
 #. Resource IDs: (IDS_DROPDESC_IMPORT)
 #, c-format
 msgid "Import to %1"
-msgstr ""
+msgstr "Importar a %1"
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
 msgid ""
@@ -6512,7 +6513,7 @@ msgstr "Dejar sólo los cambios marcados"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Leave the box \"Path or URL\" empty to create a folder item"
-msgstr ""
+msgstr "Deje el cuadro \"Ruta o URL\" vacío para crear un elemento carpeta"
 
 #. Resource IDs: (IDS_STATUSBAR_LEFTVIEW)
 msgid "Left View: "
@@ -6759,7 +6760,7 @@ msgstr "La DLL del sistema de correo no es válida."
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOOKANDFEEL: Control id 65535)
 msgid "Main context menu"
-msgstr ""
+msgstr "Menú de contexto principal"
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1431)
 msgid "Make this the default"
@@ -6785,7 +6786,7 @@ msgstr "Demasiados elementos seleccionados para mostrar la diferencia"
 msgid ""
 "Mark all projects as read\n"
 "Hold down the shift key to also clear all fetch errors."
-msgstr ""
+msgstr "Marcar todos los proyectos como leídos\nMantenta presionada la tecla Shift para también limpiar los errores de recuperación."
 
 #. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MOVETOCOPY)
 msgid "Mark as &resolved (the move will become a copy)"
@@ -6830,7 +6831,7 @@ msgstr "Marcar este cambio"
 
 #. Resource IDs: (IDS_ASKFORSAVE_MARKEDBLOCKS)
 msgid "Marked Blocks"
-msgstr ""
+msgstr "Bloques Marcados"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Markers"
@@ -7179,7 +7180,7 @@ msgstr "Mover el archivo o carpeta especial"
 #. Resource IDs: (IDS_DROPDESC_MOVE)
 #, c-format
 msgid "Move to %1"
-msgstr ""
+msgstr "Mover a %1"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_MOVETOCS)
 msgid "Move to changelist"
@@ -7319,7 +7320,7 @@ msgstr "Nuevo menú"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
-msgstr ""
+msgstr "La nueva rama/etiqueta no está lista aun, volviendo a intentar el cambio..."
 
 #. Resource IDs: (IDS_WARN_RENAMEREQUIRED)
 msgid "New name must not be empty or the same as the original name!"
@@ -7751,7 +7752,7 @@ msgstr "Opciones"
 
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
-msgstr ""
+msgstr "Tamaño ori&ginal\t(S)"
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -7789,7 +7790,7 @@ msgstr "Sobreescribir\nReemplazar la carpeta destino"
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
-msgstr ""
+msgstr "Sobreescribir\nLas configuraciones serán sobreescritas"
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
 msgid ""
@@ -7960,7 +7961,7 @@ msgstr "Dibujo:"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
-msgstr ""
+msgstr "Imágenes (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Todos (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"
@@ -9305,13 +9306,13 @@ msgstr "Salvar todo\nAmbos ficheros serán salvados"
 msgid ""
 "Save and exclude\n"
 "Your changes are saved and the original content is used"
-msgstr ""
+msgstr "Guardar y excluir\nSus cambios son guardados y el contenido origianl es utilizado"
 
 #. Resource IDs: (IDS_MARKEDBLCOKSSAVEIGNORE)
 msgid ""
 "Save and ignore marked blocks\n"
 "Only your manual edits are saved, marked blocks are left as they are"
-msgstr ""
+msgstr "Guardar e ignorar los bloques marcados\nSolamente sus ediciones manuales son guardadas, los bloques marcados se mantendrán como están"
 
 #. Resource IDs: (IDS_MARKEDBLOCKSSAVEINCLUDE)
 msgid ""
@@ -10222,15 +10223,15 @@ msgstr "Lanza el Visor de Diferencias con el fichero seleccionado actualmente y 
 
 #. Resource IDs: (IDS_EDITPROPCONFLICT_TT_STARTEDITOR)
 msgid "Starts the merge tool where you can resolve the property conflict"
-msgstr ""
+msgstr "Iniciar la herramienta de unión donde usted puede resolver los conflictos de propiedad"
 
 #. Resource IDs: (IDS_EDITPROPCONFLICT_TT_MANUAL)
 msgid "Starts the property dialog where you can edit the property manually."
-msgstr ""
+msgstr "Iniciar el diálogo de propiedad donde usted puede editar manualmente la propiedad"
 
 #. Resource IDs: (IDS_STATE)
 msgid "State"
-msgstr ""
+msgstr "Estado"
 
 #. Resource IDs: (16514)
 msgid "Static"
@@ -10247,7 +10248,7 @@ msgstr "Estado"
 
 #. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
 msgid "Status Bar"
-msgstr ""
+msgstr "Barra de Estado"
 
 #. Resource IDs: (17087)
 msgid "Status Bar Configuration"
@@ -10589,7 +10590,7 @@ msgstr "¡El archivo %ls no existe!"
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK1)
 #, c-format
 msgid "The file %ls is not versioned. How do you want to proceed?"
-msgstr ""
+msgstr "El archvio %ls no está versionado. ¿Cómo desea proceder?"
 
 #. Resource IDs: (IDS_ERR_PATCH_FILENOTINPATCH)
 #, c-format
@@ -10678,7 +10679,7 @@ msgstr "El proveedor de control de incidentes no pudo validar la cadena de pará
 msgid ""
 "The item '%ls' has property conflicts:\r\n"
 "%ls"
-msgstr ""
+msgstr "El elemento '%ls' tiene conflictos de propiedades:\n%ls"
 
 #. Resource IDs: (IDS_TREECONFLICT_DIRMERGEADD)
 #, c-format
@@ -10922,7 +10923,7 @@ msgstr "El archivo seleccionado parece tener todavía una o más marcas de confl
 msgid ""
 "The settings file can not be decrypted with the specified password!\n"
 "Do you want to overwrite the sync file?"
-msgstr ""
+msgstr "¡El archivo de configuraciones no puede ser decodificado con el password especificado!\n¿Desea sobreescribir el archivo de sincronización?"
 
 #. Resource IDs: (IDS_ERR_INVALIDURLORPATH)
 #, c-format
@@ -10930,7 +10931,7 @@ msgid ""
 "The specified path/url\n"
 "%ls\n"
 "is invalid!"
-msgstr ""
+msgstr "¡La ruta/url especificado\n%ls\nno es válido!"
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK2)
 msgid "The target already exists."
@@ -11154,13 +11155,13 @@ msgstr "Este producto incluye software de Apache™ Subversion® (http://subvers
 msgid ""
 "This program is linked to the missing export %Ts in the file %Ts. This "
 "machine may have an incompatible version of %Ts."
-msgstr ""
+msgstr "Este programa está ligado a la librería faltante %Ts en el archivo %Ts. Esta máquina puede tener una versión no compatible de %Ts."
 
 #. Resource IDs: (61709)
 #, c-format
 msgid ""
 "This program requires the file %Ts, which was not found on this system."
-msgstr ""
+msgstr "Este programa requiere el archivo %Ts, el cuál no se encontró en este sistema."
 
 #. Resource IDs: (IDS_ERR_PROPNOTONFILE)
 msgid "This property is only allowed on folders, not files."
@@ -11342,7 +11343,7 @@ msgstr "TortoiseSVN Project Monitor"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 366)
 msgid "TortoiseSVN Project Monitor Options"
-msgstr ""
+msgstr "Opciones del Monitor de Proyectos de TurtoiseSVN"
 
 #. Resource IDs: (IDS_MONITOR_NEWCOMMIT)
 #, c-format
@@ -12019,7 +12020,7 @@ msgid ""
 "/saverequiredonconflicts\n"
 "/oneway <forces the one-way view>\n"
 "/line:<line number to jump to>"
-msgstr ""
+msgstr "Las opciones válidas de línea de comandos son:\n/base:<ruta al archivo base>\n/basename:<nombre a mostrar en el título de base>\n/theirs:<ruta al archivo de otros>\n/theirsname:<nombre a mostrar en el título de otros>\n/mine:<ruta a nuestro archivo>\n/minename:<nombre a mostrar en el título nuestro>\n/merged:<ruta al archivo conjunto>\n/mergedname:<nombre a mostrar en el título>\n/diff:<ruta al archivo diff unificado>\n/patchpath:<ruta a la carpeta>\n/saverequired\n/saverequiredonconflicts\n/oneway <forza la vista única>\n/line:<saltar a este número de línea>"
 
 #. Resource IDs: (IDS_ERR_VALIDATIONFAILED)
 msgid "Validation of the property value failed!"
