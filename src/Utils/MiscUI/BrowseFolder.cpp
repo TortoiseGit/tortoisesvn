@@ -28,10 +28,7 @@
 
 BOOL CBrowseFolder::m_bCheck = FALSE;
 BOOL CBrowseFolder::m_bCheck2 = FALSE;
-TCHAR CBrowseFolder::m_CheckText[200];
-TCHAR CBrowseFolder::m_CheckText2[200];
 CString CBrowseFolder::m_sDefaultPath;
-bool CBrowseFolder::m_DisableCheckbox2WhenCheckbox1IsChecked = false;
 
 class BrowseFolderDlgEventHandler : public CFileDlgEventHandler
 {
@@ -59,10 +56,9 @@ public:
 };
 
 CBrowseFolder::CBrowseFolder(void)
-:   m_style(0)
+:   m_style(0),
+    m_DisableCheckbox2WhenCheckbox1IsChecked(false)
 {
-    SecureZeroMemory(m_title, sizeof(m_title));
-    SecureZeroMemory(m_CheckText, sizeof(m_CheckText));
 }
 
 CBrowseFolder::~CBrowseFolder(void)
@@ -132,7 +128,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
     cbk.m_DisableCheckbox2WhenCheckbox1IsChecked = m_DisableCheckbox2WhenCheckbox1IsChecked;
     CComQIPtr<IFileDialogEvents> pEvents = cbk.GetUnknown();
 
-    if (m_CheckText[0] != 0)
+    if (!m_CheckText.IsEmpty())
     {
         CComPtr<IFileDialogCustomize> pfdCustomize;
         if (FAILED(pfd.QueryInterface(&pfdCustomize)))
@@ -140,7 +136,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
 
         pfdCustomize->StartVisualGroup(100, L"");
         pfdCustomize->AddCheckButton(101, m_CheckText, FALSE);
-        if (m_CheckText2[0] != 0)
+        if (!m_CheckText2.IsEmpty())
             pfdCustomize->AddCheckButton(102, m_CheckText2, FALSE);
         pfdCustomize->EndVisualGroup();
     }
@@ -190,7 +186,7 @@ void CBrowseFolder::SetCheckBoxText(LPCTSTR checktext)
     ASSERT(checktext);
 
     if (checktext)
-        wcscpy_s(m_CheckText, checktext);
+        m_CheckText = checktext;
 }
 
 void CBrowseFolder::SetCheckBoxText2(LPCTSTR checktext)
@@ -198,5 +194,5 @@ void CBrowseFolder::SetCheckBoxText2(LPCTSTR checktext)
     ASSERT(checktext);
 
     if (checktext)
-        wcscpy_s(m_CheckText2, checktext);
+        m_CheckText2 = checktext;
 }
