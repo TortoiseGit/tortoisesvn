@@ -251,14 +251,12 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
         if (iri_escape_chars[c])
         {
             // no escaping needed for that char
-            ret2 += (unsigned char)path[i];
+            ret2.AppendChar((unsigned char)path[i]);
         }
         else
         {
             // char needs escaping
-            CStringA temp;
-            temp.Format("%%%02X", (unsigned char)c);
-            ret2 += temp;
+            ret2.AppendFormat("%%%02X", (unsigned char)c);
         }
     }
     CStringA ret;
@@ -270,22 +268,18 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
             if ((c == '%')&&(DoesPercentNeedEscaping(ret2.Mid(i))))
             {
                 // this percent sign needs escaping!
-                CStringA temp;
-                temp.Format("%%%02X", (unsigned char)c);
-                ret += temp;
+                ret.AppendFormat("%%%02X", (unsigned char)c);
             }
             else
             {
                 // no escaping needed for that char
-                ret += (unsigned char)ret2[i];
+                ret.AppendChar((unsigned char)ret2[i]);
             }
         }
         else
         {
             // char needs escaping
-            CStringA temp;
-            temp.Format("%%%02X", (unsigned char)c);
-            ret += temp;
+            ret.AppendFormat("%%%02X", (unsigned char)c);
         }
     }
 
