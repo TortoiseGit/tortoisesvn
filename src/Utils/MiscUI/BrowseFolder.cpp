@@ -59,10 +59,8 @@ public:
 };
 
 CBrowseFolder::CBrowseFolder(void)
-:   m_style(0),
-    m_root(NULL)
+:   m_style(0)
 {
-    SecureZeroMemory(m_displayName, sizeof(m_displayName));
     SecureZeroMemory(m_title, sizeof(m_title));
     SecureZeroMemory(m_CheckText, sizeof(m_CheckText));
 }
