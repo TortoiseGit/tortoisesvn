@@ -23,6 +23,7 @@
 #include "PathUtils.h"
 #include "SmartHandle.h"
 #include "OnOutOfScope.h"
+#include "FileDlgEventHandler.h"
 #include <strsafe.h>
 
 BOOL CBrowseFolder::m_bCheck = FALSE;
@@ -36,6 +37,30 @@ TCHAR CBrowseFolder::m_CheckText2[200];
 CString CBrowseFolder::m_sDefaultPath;
 bool CBrowseFolder::m_DisableCheckbox2WhenCheckbox1IsChecked = false;
 
+class BrowseFolderDlgEventHandler : public CFileDlgEventHandler
+{
+public:
+    BrowseFolderDlgEventHandler()
+        : m_DisableCheckbox2WhenCheckbox1IsChecked(false)
+    {
+    }
+
+    bool m_DisableCheckbox2WhenCheckbox1IsChecked;
+
+    STDMETHODIMP OnCheckButtonToggled(IFileDialogCustomize *pfdc,
+                                      DWORD dwIDCtl,
+                                      BOOL bChecked) override
+    {
+        if (m_DisableCheckbox2WhenCheckbox1IsChecked && dwIDCtl == 101)
+        {
+            if (bChecked)
+                pfdc->SetControlState(102, CDCS_VISIBLE | CDCS_INACTIVE);
+            else
+                pfdc->SetControlState(102, CDCS_VISIBLE | CDCS_ENABLED);
+        }
+        return S_OK;
+    }
+};
 
 CBrowseFolder::CBrowseFolder(void)
 :   m_style(0),
@@ -129,6 +154,10 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
     if (FAILED(pfd->SetFolder(psiDefault)))
         return CANCEL;
 
+    CComObjectStackEx<BrowseFolderDlgEventHandler> cbk;
+    cbk.m_DisableCheckbox2WhenCheckbox1IsChecked = m_DisableCheckbox2WhenCheckbox1IsChecked;
+    CComQIPtr<IFileDialogEvents> pEvents = cbk.GetUnknown();
+
     if (m_CheckText[0] != 0)
     {
         CComPtr<IFileDialogCustomize> pfdCustomize;
@@ -141,6 +170,12 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
             pfdCustomize->AddCheckButton(102, m_CheckText2, FALSE);
         pfdCustomize->EndVisualGroup();
     }
+
+    DWORD eventsCookie;
+    if (FAILED(pfd->Advise(pEvents, &eventsCookie)))
+        return CANCEL;
+
+    OnOutOfScope(pfd->Unadvise(eventsCookie););
 
     // Show the open file dialog
     if (FAILED(pfd->Show(parent)))
