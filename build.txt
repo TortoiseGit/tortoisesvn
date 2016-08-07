@@ -38,6 +38,7 @@ You need to perform most steps only once.
 
 (\b 1) Add the paths of the binaries to the PATH environment variable. You may have to
     logoff/logon to make the new environment variables take effect!
+    Also make sure to "unblock" the zip file before extracting when you install NAnt.
 (\b 2) right-click on the installer file and "run as administrator" to install it.
 (\b 3) use 32 bit installer (even on x64 OS)
 
@@ -55,7 +56,7 @@ Now you're almost ready. Only a few more steps to do:
 - create a new folder on your harddisk, e.g. SVN. Make sure you have at least
   4 GB of free space left!!!
 - Checkout the TortoiseSVN sources from the Subversion repository into
-  SVN\TortoiseSVN
+  SVN\TortoiseSVN. Make sure the path does not have '[' or ']' chars in it!
 - Make a copy of the file default.build.user.tmpl in the TortoiseSVN root folder and
   rename that copy to default.build.user. Then adjust the paths as mentioned
   in that file. You may leave it unchanged if you installed / copied everything
@@ -66,7 +67,7 @@ Now you're almost ready. Only a few more steps to do:
   working-copy database version than the tool expects.
 - Unzip (if necessary) and copy the font files into %WINDIR%\Fonts.
   You will need them only if you are building the respective language packs.
-- run 'nant init' to fetch and unzip the required tools
+- run 'nant init' to fetch and unzip the required tools. Note: you need to call vsvars32.bat first.
 
 
 \section build32 Building 32 bit packages
@@ -102,7 +103,7 @@ Now you're almost ready. Only a few more steps to do:
   which will create a build log file which you can use to analyze where
   exactly the build failed.
 
-  Now you need to build the Subversion libraries:
+  If you need to build only the Subversion libraries:
 \verbatim
   > nant Subversion
 \endverbatim
@@ -116,7 +117,7 @@ Now you're almost ready. Only a few more steps to do:
   directory and run
 
 \verbatim
-  > nant release binaries
+  > nant binaries
 \endverbatim
 
   Now, build the x64 packages: Open
@@ -125,7 +126,7 @@ Now you're almost ready. Only a few more steps to do:
   TortoiseSVN source directory and run
 
 \verbatim
-  > nant x64 cross release setup
+  > nant x64 cross setup
 \endverbatim
 
   After the script finished, the packages can be found in bin.
@@ -142,7 +143,7 @@ Now you're almost ready. Only a few more steps to do:
   the win32 version of the shell extension.
 
 \verbatim
-  > nant x64 release setup
+  > nant x64 setup
 \endverbatim
 
   After the script finished, the packages can be found in bin.
@@ -153,13 +154,13 @@ Now you're almost ready. Only a few more steps to do:
   above, change to the TortoiseSVN source directory and run
 
 \verbatim
-  > nant release clean
+  > nant clean
 \endverbatim
 
-  You have to run the clean target when altering between x86 and x64 builds. You will find that
-  Language\Tortoise.pot gets deleted, which is normal behavior. This generated file is
-  present in the repository so the translators don't need to execute the entire
-  build if they only wish to update documentation.
+  You will find that Language\Tortoise.pot gets deleted when running the 'clean' target,
+  which is normal behavior. This generated file is present in the repository so
+  the translators don't need to execute the entire build if they only wish to
+  update documentation.
 
 \section buildhelp Learning the current build options
 
