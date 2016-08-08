@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# Baek Gahui <dhkdhk32@naver.com>, 2016
 # Sangjun Jung <spamcoffee+transifex@gmail.com>, 2011
 # kim minhyouk <apollo8900@naver.com>, 2015
 # Kim KiHyeon <kmkh12@paran.com>, 2011
@@ -23,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-07-17 08:34+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-08-05 15:53+0000\n"
+"Last-Translator: Baek Gahui <dhkdhk32@naver.com>\n"
 "Language-Team: Korean (http://www.transifex.com/luebbe/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,7 +109,7 @@ msgstr "%1!ld! 분, %2!ld! 초"
 #. Resource IDs: (IDS_LOG_DLGTITLEOFFLINE)
 #, c-format
 msgid "%1!ls! (offline)"
-msgstr "%1!ls! (오프줄)"
+msgstr "%1!ls! (오프라인)"
 
 #. Resource IDs: (IDS_PROGRS_PATHATREV)
 #, c-format
@@ -234,7 +235,7 @@ msgstr "%ls"
 #. Resource IDs: (IDS_REVGRAPH_DLGTITLEOFFLINE)
 #, c-format
 msgid "%ls (offline)"
-msgstr "%ls (오프줄)"
+msgstr "%ls (오프라인)"
 
 #. Resource IDs: (IDS_MENUIGNOREGLOBAL)
 #, c-format
@@ -279,12 +280,12 @@ msgstr "%ls, 그러나 디렉토리가  로컬에서 사라졌습니다."
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_ADDED)
 #, c-format
 msgid "%ls, but the directory was already added locally."
-msgstr "%ls, 그러나 디렉토리가 로컬에서 벌써 추가되었습니다."
+msgstr "%ls, 그러나 디렉토리가 로컬에서 이미 추가되었습니다."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_EDITED)
 #, c-format
 msgid "%ls, but the directory was already edited."
-msgstr "%ls, 그러나 디렉토리가 벌써 편집되었습니다."
+msgstr "%ls, 그러나 디렉토리가 이미 편집되었습니다."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_DELETED)
 #, c-format
@@ -329,12 +330,12 @@ msgstr "%ls, 그러나 파일이 로컬에서 사라졌습니다."
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_ADDED)
 #, c-format
 msgid "%ls, but the file was already added locally."
-msgstr "%ls, 그러나 파일이 로컬에서 벌써 추가되었습니다."
+msgstr "%ls, 그러나 파일이 로컬에서 이미 추가되었습니다."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_EDITED)
 #, c-format
 msgid "%ls, but the file was already edited."
-msgstr "%ls, 그러나 파일이 벌써 편집되었습니다."
+msgstr "%ls, 그러나 파일이 이미 편집되었습니다."
 
 #. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_DELETED)
 #, c-format
@@ -674,7 +675,7 @@ msgstr "날짜(&D)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr "작은 캐시를 삭제할 때까지의 비활성화 날들(&D)"
+msgstr "작은 캐시가 삭제될 때까지 비활성화한 날(&D)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1269)
 msgid "&Default"
@@ -859,7 +860,7 @@ msgstr "시작(&F): (병합할 범위의 시작 URL과 리비전)"
 
 #. Resource IDs: (ID_EDIT_GOTOLINE - Menu)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr ""
+msgstr "&행으로 이동...⇥(Ctrl+G)"
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -901,7 +902,7 @@ msgstr "숨기기(&H)"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
-msgstr ""
+msgstr "&무시한 항목들을 숨김"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -930,7 +931,7 @@ msgstr "이미지(&I)"
 
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
-msgstr ""
+msgstr "&이미지 정보⇥(I)"
 
 #. Resource IDs: (16505)
 msgid "&Image only"
@@ -1182,7 +1183,7 @@ msgstr "열기(&O)"
 
 #. Resource IDs: (ID_FILE_OPEN - Menu)
 msgid "&Open\t(Ctrl+O)"
-msgstr ""
+msgstr "&열기⇥(Ctrl+O)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1602)
 msgid "&Operative:"
@@ -1288,7 +1289,7 @@ msgstr "삭제(&R)"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
-msgstr ""
+msgstr "&프로젝트를 삭제"
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK3)
 msgid ""
@@ -1412,7 +1413,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 1529)
 msgid "&Show popup notifications"
-msgstr ""
+msgstr "&알림들을 팝업으로 보여줌"
 
 #. Resource IDs: (16612)
 msgid "&Show text labels"
@@ -1575,7 +1576,7 @@ msgstr "업데이트(&U)"
 
 #. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
 msgid "&Update all"
-msgstr ""
+msgstr "&모두 업데이트"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
@@ -2016,16 +2017,16 @@ msgstr "새로운 파일들을 자동으로 SVN에 추가합니다."
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORADDSUB)
 msgid "Add project or folder here..."
-msgstr ""
+msgstr "이 프로젝트 또는 폴더에 추가"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORADD)
 msgid "Add project or folder..."
-msgstr ""
+msgstr "프로젝트 또는 폴더를 추가"
 
 #. Resource IDs: (IDS_DROPDESC_ADD)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "%1에 추가"
 
 #. Resource IDs: (IDS_MENUIGNORE)
 msgid "Add to &ignore list"
@@ -2163,14 +2164,14 @@ msgstr "모든 변경사항을 잃을 것입니다! 정말로 키보드 할당�
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
+msgstr "모든 변경사항이 손실될 수 있습니다! 정말 '%Ts' 메뉴를 되돌리시겠습니까?"
 
 #. Resource IDs: (16111)
 #, c-format
 msgid ""
 "All your changes will be lost! Do you really want to reset the toolbar "
 "'%Ts'?"
-msgstr ""
+msgstr "모든 변경사항이 손실될 수 있습니다! 정말 '%Ts' 도구모음을 되돌리시겠습니까?"
 
 #. Resource IDs: (32976)
 msgid ""
@@ -3406,7 +3407,7 @@ msgstr "태그에 커밋"
 
 #. Resource IDs: (IDS_SVNACTION_COMMITTINGTRANSACTION)
 msgid "Committing transaction..."
-msgstr ""
+msgstr "커밋하는 중..."
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_COMPAREHEADS,
 #. ID_VIEW_COMPAREHEADREVISIONS - Menu)
@@ -3666,7 +3667,7 @@ msgstr "선택한 부분을 복사하고 클립보드에 넣음\n복사"
 #. Resource IDs: (IDS_DROPDESC_COPY)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "%1로 복사"
 
 #. Resource IDs: (IDS_LOG_POPUP_COPYTOCLIPBOARD)
 msgid "Copy to clipboard"
@@ -3859,7 +3860,7 @@ msgstr ""
 #. Resource IDs: (IDS_FIND_COUNT)
 #, c-format
 msgid "Count: %u matches."
-msgstr ""
+msgstr "Count: %u 개 일치함."
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1542)
 msgid "Create &Library"
@@ -4073,7 +4074,7 @@ msgstr "파일 이름에 따라 %d 개 아이템을 삭제하고 무시하기(&I
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
 msgid "Delete and &ignore multiple items by name"
-msgstr ""
+msgstr "이름에 따라 여러 아이템들을 삭제하고 무시"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
@@ -4082,7 +4083,7 @@ msgstr "확장자에 따라 %d 개 아이템을 삭제하고 무시하기(&E)"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
 msgid "Delete and ignore multiple items by &extension"
-msgstr ""
+msgstr "확장자가 &extension인 여러 아이템들에 따라 삭제하고 무시"
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
 msgid "Delete unversioned items"
@@ -4191,7 +4192,7 @@ msgstr "대화상자의 크기와 위치"
 
 #. Resource IDs: (156 - Ribbon element)
 msgid "Diff"
-msgstr ""
+msgstr "비교"
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
 msgid "Diff &Options"
@@ -4231,7 +4232,7 @@ msgstr "Diff 헤더"
 
 #. Resource IDs: (IDS_MENUDIFFLATER)
 msgid "Diff later"
-msgstr ""
+msgstr "나중에 비교"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1533)
 msgid "Diff options"
@@ -4252,7 +4253,7 @@ msgstr "특정 URL과 비교"
 #. Resource IDs: (IDS_MENUDIFFNOW)
 #, c-format
 msgid "Diff with \"%ls\""
-msgstr ""
+msgstr "\"%ls\"와 비교"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1302)
 msgid "Difference between"
@@ -4358,7 +4359,7 @@ msgstr "선택된 모든 버전관리되지 않는 폴더에 대해서 수행합
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK6)
 msgid "Do this for all unversioned items"
-msgstr ""
+msgstr "모든 버전관리되지 않은 아이템에 대해 수행"
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
@@ -4367,7 +4368,7 @@ msgstr "모든 버전관리되지않는/수정된 아이템에 대해서 수행�
 #. Resource IDs: (16109)
 #, c-format
 msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
+msgstr "정말  '%Ts' 도구모음을 삭제하시겠습니까?"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -10836,7 +10837,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_ERR_SYNCPW_NOMATCH)
 msgid "The passwords don't match"
-msgstr ""
+msgstr "패스워드가 일치하지 않습니다"
 
 #. Resource IDs: (IDS_ERR_PATCH_DOESNOTMATCH)
 #, c-format
@@ -11322,11 +11323,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_DLGTITLE)
 msgid "TortoiseSVN Project Monitor"
-msgstr ""
+msgstr "TortoiseSVN 프로젝트 모니터"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 366)
 msgid "TortoiseSVN Project Monitor Options"
-msgstr ""
+msgstr "TortoiseSVN 프로젝트 모니터 옵션"
 
 #. Resource IDs: (IDS_MONITOR_NEWCOMMIT)
 #, c-format
@@ -11872,7 +11873,7 @@ msgstr "오른쪽 블럭 사용"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1091)
 msgid "Use spaces"
-msgstr ""
+msgstr "공간을 사용"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1426)
 msgid "Use system locale for date/time"
@@ -11975,7 +11976,7 @@ msgstr "사용자가 취소함"
 
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL3)
 msgid "Username"
-msgstr ""
+msgstr "사용자명"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535,
 #. IDS_AUTH_USERNAME)
@@ -12648,7 +12649,7 @@ msgstr "파일 외부:"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COPYFILENAMES)
 msgid "file/foldernames"
-msgstr ""
+msgstr "파일/폴더명"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COPYFULLPATHS)
 msgid "full paths"
@@ -12838,7 +12839,7 @@ msgstr "쌍으로된 토큰:"
 
 #. Resource IDs: (IDS_STATE_PATCHED)
 msgid "patched"
-msgstr ""
+msgstr "패치됨"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "path elements: "
