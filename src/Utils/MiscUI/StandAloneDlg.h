@@ -369,8 +369,7 @@ private:
 
         CString cmd;
         cmd.Format(L"HH.exe -mapid %Iu \"%s\"", dwData, pApp->m_pszHelpFilePath);
-        if (!CCreateProcessHelper::CreateProcessDetached(NULL,
-            cmd.GetBuffer()))
+        if (!CCreateProcessHelper::CreateProcessDetached(NULL, cmd))
         {
             cmd.ReleaseBuffer();
             AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);

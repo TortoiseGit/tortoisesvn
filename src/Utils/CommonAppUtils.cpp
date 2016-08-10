@@ -220,15 +220,7 @@ bool CCommonAppUtils::LaunchApplication
 {
     PROCESS_INFORMATION process;
 
-    // make sure we get a writable copy of the command line
-
-    size_t bufferLen = sCommandLine.GetLength()+1;
-    std::unique_ptr<TCHAR[]> cleanCommandLine (new TCHAR[bufferLen]);
-    memcpy (cleanCommandLine.get(),
-            (LPCTSTR)sCommandLine,
-            sizeof (TCHAR) * bufferLen);
-
-    if (!CCreateProcessHelper::CreateProcess(NULL, cleanCommandLine.get(), sOrigCWD, &process))
+    if (!CCreateProcessHelper::CreateProcess(NULL, sCommandLine, sOrigCWD, &process))
     {
         if(idErrMessageFormat != 0)
         {

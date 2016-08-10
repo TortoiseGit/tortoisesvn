@@ -59,7 +59,7 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
     sSCMPath.Replace(L"%4", sTemp);
     // start the external SCM program to fetch the specific version of the file
     PROCESS_INFORMATION process;
-    if (!CCreateProcessHelper::CreateProcess(NULL, (LPTSTR)(LPCTSTR)sSCMPath, &process))
+    if (!CCreateProcessHelper::CreateProcess(NULL, sSCMPath, &process))
     {
         CFormatMessageWrapper errorDetails;
         MessageBox(NULL, errorDetails, L"TortoiseMerge", MB_OK | MB_ICONERROR);

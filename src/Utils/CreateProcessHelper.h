@@ -27,22 +27,22 @@ class CCreateProcessHelper
 {
 public:
     static bool CreateProcess(LPCTSTR lpApplicationName,
-                    LPTSTR lpCommandLine,
+                    LPCTSTR lpCommandLine,
                     LPCTSTR lpCurrentDirectory,
                     LPPROCESS_INFORMATION lpProcessInformation);
     static bool CreateProcess(LPCTSTR lpApplicationName,
-                    LPTSTR lpCommandLine,
+                    LPCTSTR lpCommandLine,
                     LPPROCESS_INFORMATION lpProcessInformation);
 
     static bool CreateProcessDetached(LPCTSTR lpApplicationName,
-                    LPTSTR lpCommandLine,
+                    LPCTSTR lpCommandLine,
                     LPCTSTR lpCurrentDirectory);
     static bool CreateProcessDetached(LPCTSTR lpApplicationName,
-                    LPTSTR lpCommandLine);
+                    LPCTSTR lpCommandLine);
 };
 
 inline bool CCreateProcessHelper::CreateProcess(LPCTSTR applicationName,
-    LPTSTR commandLine, LPCTSTR currentDirectory,
+    LPCTSTR commandLine, LPCTSTR currentDirectory,
     LPPROCESS_INFORMATION processInfo)
 {
     STARTUPINFO startupInfo;
@@ -50,20 +50,44 @@ inline bool CCreateProcessHelper::CreateProcess(LPCTSTR applicationName,
     startupInfo.cb = sizeof(STARTUPINFO);
 
     SecureZeroMemory(processInfo, sizeof(PROCESS_INFORMATION));
-    const BOOL result = ::CreateProcess( applicationName,
-                    commandLine, nullptr, nullptr, FALSE, CREATE_UNICODE_ENVIRONMENT, nullptr, currentDirectory,
-                    &startupInfo, processInfo );
+
+    // CreateProcess may modify buffer specified by lpCommandLine:
+    // https://msdn.microsoft.com/en-us/library/windows/desktop/ms682425
+    // [[
+    // The Unicode version of this function, CreateProcessW, can modify
+    // the contents of this string.Therefore, this parameter cannot be a
+    // pointer to read - only memory(such as a const variable or a literal
+    // string).If this parameter is a constant string, the function may
+    // cause an access violation.
+    // ]]
+    LPWSTR commandLineBuf;
+    if (commandLine)
+    {
+        commandLineBuf = _tcsdup(commandLine);
+    }
+    else
+    {
+        commandLineBuf = NULL;
+    }
+
+    const BOOL result = ::CreateProcess(applicationName,
+                    commandLineBuf, nullptr, nullptr, FALSE, CREATE_UNICODE_ENVIRONMENT, nullptr, currentDirectory,
+                    &startupInfo, processInfo);
+
+    if (commandLineBuf)
+        free(commandLineBuf);
+
     return result != 0;
 }
 
 inline bool CCreateProcessHelper::CreateProcess(LPCTSTR applicationName,
-    LPTSTR commandLine, LPPROCESS_INFORMATION processInformation)
+    LPCTSTR commandLine, LPPROCESS_INFORMATION processInformation)
 {
     return CreateProcess( applicationName, commandLine, 0, processInformation );
 }
 
 inline bool CCreateProcessHelper::CreateProcessDetached(LPCTSTR lpApplicationName,
-    LPTSTR lpCommandLine, LPCTSTR lpCurrentDirectory)
+    LPCTSTR lpCommandLine, LPCTSTR lpCurrentDirectory)
 {
     PROCESS_INFORMATION process;
     if (!CreateProcess(lpApplicationName, lpCommandLine, lpCurrentDirectory, &process))
@@ -75,7 +99,7 @@ inline bool CCreateProcessHelper::CreateProcessDetached(LPCTSTR lpApplicationNam
 }
 
 inline bool CCreateProcessHelper::CreateProcessDetached(LPCTSTR lpApplicationName,
-    LPTSTR lpCommandLine)
+    LPCTSTR lpCommandLine)
 {
     return CreateProcessDetached(lpApplicationName, lpCommandLine, 0);
 }

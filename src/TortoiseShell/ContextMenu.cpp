@@ -2504,7 +2504,7 @@ void CShellExt::RunCommand(const tstring& path, const tstring& command,
     const tstring& folder, LPCTSTR errorMessage)
 {
     if (CCreateProcessHelper::CreateProcessDetached(path.c_str(),
-        const_cast<TCHAR*>(command.c_str()), folder.c_str()))
+        command.c_str(), folder.c_str()))
     {
         // process started - exit
         return;
