@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011, 2013, 2015 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011, 2013, 2015-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,6 +75,8 @@ SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyf
 
     copyfromURL = MakeUIUrlOrPath (  query->GetRootURL()
                                    + iterator.GetPath().GetPath().c_str());
+    if (iterator.GetCopyFromRevision() != NO_REVISION)
+        result = iterator.GetCopyFromRevision();
     return result;
 }
 

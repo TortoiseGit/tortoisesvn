@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2011-2012, 2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2011-2012, 2015-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,6 +53,7 @@ protected:
 
     revision_t revision;
     CDictionaryBasedTempPath path;
+    revision_t copyfromrevision;
 
     // last position before we hit the last copy operation
 
@@ -127,6 +128,7 @@ public:
     virtual bool DataIsMissing() const override;
     virtual revision_t GetRevision() const override;
     virtual revision_t GetAddRevision() const override;
+    virtual revision_t GetCopyFromRevision() const;
     virtual const CDictionaryBasedTempPath& GetPath() const override;
     virtual const CDictionaryBasedTempPath& GetAddPath() const override;
     virtual bool EndOfPath() const override;
@@ -159,6 +161,11 @@ inline bool CLogIteratorBase::InternalDataIsMissing() const
 inline revision_t CLogIteratorBase::GetRevision() const
 {
     return revision;
+}
+
+inline revision_t CLogIteratorBase::GetCopyFromRevision() const
+{
+    return copyfromrevision;
 }
 
 inline revision_t CLogIteratorBase::GetAddRevision() const
