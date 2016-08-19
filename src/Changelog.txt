@@ -14,6 +14,12 @@ Version 1.9.5
        HEAD revisions properly. (Stefan)
 - BUG: Autocompletion of filenames with umlauts
        in the commit dialog did not work. (Stefan)
+- BUG: The LogFindCopyFrom feature did not work properly
+       for a branch that wasn't created from HEAD. (Stefan)
+- BUG: the conflict resolve buttons were not enabled
+       in TortoiseMerge. (Stefan)
+- BUG: TortoiseMerge could hang with "ignore comments"
+       enabled. (Sven Strickroth)
 
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
