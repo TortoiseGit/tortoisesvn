@@ -111,7 +111,7 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">TortoiseSVN32</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">TortoiseSVN32</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">TortoiseSVN32</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='release_static|Win32'">TortoiseSVN32_static</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TortoiseSVN</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TortoiseSVN</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='release_static|x64'">TortoiseSVN</TargetName>
@@ -177,9 +177,6 @@
       <AdditionalLibraryDirectories>..\..\ext\Subversion\release_$(Platform)_static;..\..\ext\apr\release_$(Platform)_static;..\..\ext\apr-util\release_$(Platform)_static;..\..\ext\zlib\release_$(Platform)_static;..\..\ext\sqlite\release_$(Platform)_static;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>ShellExt.def</ModuleDefinitionFile>
       <BaseAddress>0x5960000</BaseAddress>
-      <OutputFile>$(OutDir)$(TargetName)_static$(TargetExt)</OutputFile>
-      <ProgramDatabaseFile>$(OutDir)$(TargetName)_static.pdb</ProgramDatabaseFile>
-      <ImportLibrary>$(OutDir)$(TargetName)_static.lib</ImportLibrary>
     </Link>
     <Xdcmake>
       <OutputFile>$(OutDir)$(TargetName)_static.xml</OutputFile>
