@@ -61,7 +61,7 @@
         <filterchain>
           <replacestring from="#define SVN_LIBSVN_FS_LINKS_FS_FS" to="" />
           <replacestring from="#define SVN_LIBSVN_FS_LINKS_FS_X" to="" />
-          <replacestring from="#define SVN_LIBSVN_CLIENT_LINKS_RA_SVN" to="" />
+          <replacestring from="#define SVN_LIBSVN_RA_LINKS_RA_SVN" to="" />
         </filterchain>
       </loadfile>
       <echo file="subversion\svn_private_config.h" message="${configh}" />
