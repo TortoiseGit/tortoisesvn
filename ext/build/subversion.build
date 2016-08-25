@@ -100,7 +100,7 @@
             <sources>
               <include name="subversion\${fname}\**.c" />
               <exclude name="subversion\libsvn_subr\win32_crash**.c" />
-              <exclude name="subversion\libsvn_subr\utf8proc\utf8proc_data.c" />
+              <exclude name="subversion\libsvn_subr\utf8proc\*.c" />
             </sources>
             <includedirs>
               <include name="subversion" />
@@ -181,7 +181,7 @@
           <sources>
             <include name="subversion\${fname}\**.c" />
             <exclude name="subversion\libsvn_subr\win32_crash**.c" />
-            <exclude name="subversion\libsvn_subr\utf8proc\utf8proc_data.c" />
+            <exclude name="subversion\libsvn_subr\utf8proc\*.c" />
           </sources>
           <includedirs>
             <include name="subversion" />
@@ -199,7 +199,7 @@
           </includedirs>
           <defines>
             <define name="ENABLE_NLS" />
-            <define name="SVN_LIBSVN_CLIENT_LINKS_RA_SERF=1" />
+            <define name="SVN_LIBSVN_RA_LINKS_RA_SERF=1" />
             <define name="SVN_HAVE_SERF" />
             <define name="SVN_LIBSVN_CLIENT_LINKS_RA_DAV=1" />
             <define name="SVN_DEBUG" if="${configuration == 'debug'}" />
@@ -370,6 +370,7 @@ TSVN_ClearLastUsedAuthCache' />
             <include name="subversion\${toolname}\*.c" />
             <include name="tools\client-side\${toolname}\*.c" />
             <exclude name="subversion\libsvn_subr\win32_crash**.c" />
+            <exclude name="subversion\libsvn_subr\utf8proc\*.c" />
           </sources>
           <includedirs>
             <include name="subversion" />
@@ -388,7 +389,7 @@ TSVN_ClearLastUsedAuthCache' />
             <define name="APU_DECLARE_EXPORT" />
             <define name="ENABLE_NLS" />
             <define name="SVN_LIBSVN_CLIENT_LINKS_RA_DAV=1" />
-            <define name="SVN_LIBSVN_CLIENT_LINKS_RA_SERF=1" />
+            <define name="SVN_LIBSVN_RA_LINKS_RA_SERF=1" />
             <define name="SVN_HAVE_SERF" />
             <define name="SVN_DEBUG" if="${configuration == 'debug'}" />
             <define name="alloca=_alloca" />
