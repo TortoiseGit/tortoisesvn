@@ -201,7 +201,6 @@
             <define name="ENABLE_NLS" />
             <define name="SVN_LIBSVN_RA_LINKS_RA_SERF=1" />
             <define name="SVN_HAVE_SERF" />
-            <define name="SVN_LIBSVN_CLIENT_LINKS_RA_DAV=1" />
             <define name="SVN_DEBUG" if="${configuration == 'debug'}" />
             <define name="SVN_HAVE_SASL=1" />
             <define name="alloca=_alloca" />
@@ -388,7 +387,6 @@ TSVN_ClearLastUsedAuthCache' />
             <define name="APR_DECLARE_EXPORT" />
             <define name="APU_DECLARE_EXPORT" />
             <define name="ENABLE_NLS" />
-            <define name="SVN_LIBSVN_CLIENT_LINKS_RA_DAV=1" />
             <define name="SVN_LIBSVN_RA_LINKS_RA_SERF=1" />
             <define name="SVN_HAVE_SERF" />
             <define name="SVN_DEBUG" if="${configuration == 'debug'}" />
