@@ -120,6 +120,7 @@ public:
 
     static bool AddClipboardUrlToWindow(HWND hWnd);
 
+    static CString FormatWindowTitle(const CString& urlorpath, const CString& dialogname);
     static void SetWindowTitle(HWND hWnd, const CString& urlorpath, const CString& dialogname);
 
     static void MarkWindowAsUnpinnable(HWND hWnd);

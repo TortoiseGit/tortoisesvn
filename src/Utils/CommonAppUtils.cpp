@@ -691,11 +691,11 @@ bool CCommonAppUtils::AddClipboardUrlToWindow( HWND hWnd )
     return false;
 }
 
-void CCommonAppUtils::SetWindowTitle( HWND hWnd, const CString& urlorpath, const CString& dialogname )
+CString CCommonAppUtils::FormatWindowTitle(const CString& urlorpath, const CString& dialogname)
 {
 #define MAX_PATH_LENGTH 80
     ASSERT(dialogname.GetLength() < MAX_PATH_LENGTH);
-    WCHAR pathbuf[MAX_PATH] = {0};
+    WCHAR pathbuf[MAX_PATH] = { 0 };
     if (urlorpath.GetLength() >= MAX_PATH)
     {
         std::wstring str = (LPCTSTR)urlorpath;
@@ -703,22 +703,29 @@ void CCommonAppUtils::SetWindowTitle( HWND hWnd, const CString& urlorpath, const
         std::wstring replacement = L"$1$2...$3";
         std::wstring str2 = std::regex_replace(str, rx, replacement);
         if (str2.size() >= MAX_PATH)
-            str2 = str2.substr(0, MAX_PATH-2);
-        PathCompactPathEx(pathbuf, str2.c_str(), MAX_PATH_LENGTH-dialogname.GetLength(), 0);
+            str2 = str2.substr(0, MAX_PATH - 2);
+        PathCompactPathEx(pathbuf, str2.c_str(), MAX_PATH_LENGTH - dialogname.GetLength(), 0);
     }
     else
-        PathCompactPathEx(pathbuf, urlorpath, MAX_PATH_LENGTH-dialogname.GetLength(), 0);
+        PathCompactPathEx(pathbuf, urlorpath, MAX_PATH_LENGTH - dialogname.GetLength(), 0);
     CString title;
     switch (DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\DialogTitles", 0)))
     {
     case 0: // url/path - dialogname - appname
-        title  = pathbuf;
+        title = pathbuf;
         title += L" - " + dialogname + L" - " + CString(MAKEINTRESOURCE(IDS_APPNAME));
         break;
     case 1: // dialogname - url/path - appname
         title = dialogname + L" - " + pathbuf + L" - " + CString(MAKEINTRESOURCE(IDS_APPNAME));
         break;
     }
+
+    return title;
+}
+
+void CCommonAppUtils::SetWindowTitle( HWND hWnd, const CString& urlorpath, const CString& dialogname )
+{
+    CString title(FormatWindowTitle(urlorpath, dialogname));
     SetWindowText(hWnd, title);
 }
 
