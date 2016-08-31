@@ -666,6 +666,21 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
     return (Err == NULL);
 }
 
+bool SVN::ResolveTreeConflict(svn_client_conflict_t *conflict, svn_client_conflict_option_t *option)
+{
+    SVNPool scratchpool(m_pool);
+    Prepare();
+
+    const char* svnPath = svn_client_conflict_get_local_abspath(conflict);
+
+    SVNTRACE(
+        Err = svn_client_conflict_tree_resolve(conflict, option, m_pctx, scratchpool),
+        svnPath
+    );
+
+    return (Err == NULL);
+}
+
 bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNRev& pegrev, const SVNRev& revision,
                  bool force, bool bIgnoreExternals, bool bIgnoreKeywords, svn_depth_t depth, HWND hWnd,
                  SVNExportType extended, const CString& eol)

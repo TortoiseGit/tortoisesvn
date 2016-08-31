@@ -1100,6 +1100,12 @@
     <ClCompile Include="..\Utils\LruCache.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
+    <ClCompile Include="NewTreeConflictEditorDlg.cpp">
+      <Filter>Commands\ConflictEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="SVNConflictInfo.cpp">
+      <Filter>Subversion</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2106,6 +2112,12 @@
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\CommonDialogFunctions.h">
       <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewTreeConflictEditorDlg.h">
+      <Filter>Commands\ConflictEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNConflictInfo.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

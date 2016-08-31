@@ -969,6 +969,11 @@ public:
      */
     void SVNReInit();
 
+    /**
+     * Resolves tree conflict.
+     */
+    bool ResolveTreeConflict(svn_client_conflict_t *conflict, svn_client_conflict_option_t *option);
+
 protected:
     apr_pool_t *                parentpool;     ///< the main memory pool
     apr_pool_t *                m_pool;         ///< 'root' memory pool

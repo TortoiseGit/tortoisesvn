@@ -439,6 +439,7 @@
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SVNConflictInfo.cpp" />
     <ClCompile Include="SVNProgressDlg.cpp" />
     <ClCompile Include="SwitchDlg.cpp" />
     <ClCompile Include="TortoiseProc.cpp" />
@@ -776,6 +777,7 @@
     <ClInclude Include="Settings\ToolAssocDlg.h" />
     <ClInclude Include="SimplePrompt.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SVNConflictInfo.h" />
     <ClInclude Include="SVNProgressDlg.h" />
     <ClInclude Include="SwitchDlg.h" />
     <ClInclude Include="TortoiseProc.h" />
@@ -985,7 +987,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties RESOURCE_FILE="\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc" />
+      <UserProperties RESOURCE_FILE="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
