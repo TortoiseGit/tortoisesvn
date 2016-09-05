@@ -57,7 +57,7 @@
         <include name="..\apr-util\include" />
         <include name="..\apr-util\xml\expat\lib" />
         <include name="..\zlib" />
-        <include name="..\openssl\inc${sslplat}" />
+        <include name="..\openssl\include" />
       </includedirs>
       <defines>
         <define name="APR_DECLARE_EXPORT" />
@@ -89,8 +89,8 @@
       <sources>
         <include name="${configuration}_${platform}\*.obj" />
         <include name="..\zlib\${configuration}_${platform}\zlibstat.lib" />
-        <include name="..\openssl\out${sslplat}${ssldbg}\libeay32.lib" />
-        <include name="..\openssl\out${sslplat}${ssldbg}\ssleay32.lib" />
+        <include name="..\openssl\out${sslplat}${ssldbg}\libcrypto.lib" />
+        <include name="..\openssl\out${sslplat}${ssldbg}\libssl.lib" />
         <include name="..\apr-util\${configuration}_${platform}\libaprutil_tsvn.lib" />
         <include name="..\apr\${configuration}_${platform}\libapr_tsvn.lib" />
       </sources>

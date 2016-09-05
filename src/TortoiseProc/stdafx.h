@@ -88,11 +88,6 @@
 
 #include "apr_version.h"
 #include "apu_version.h"
-#ifdef _WIN64
-#include "openssl/opensslv.h"
-#else
-#include "openssl/opensslv.h"
-#endif
 #include "../../ext/zlib/zlib.h"
 
 #define __WIN32__

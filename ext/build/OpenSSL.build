@@ -6,7 +6,7 @@
       <echo file="..\openssl\del.bat" message="del %1 %2 %3 %4 %5 %6 %7 %8 %9 /Q" />
       <exec program="nmake" workingdir="..\openssl" failonerror="false">
         <arg value="-f" />
-        <arg value="ms\nt.mak" />
+        <arg value="makefile" />
         <arg value="clean" />
       </exec>
       <delete>
@@ -30,23 +30,21 @@
         <arg value="debug-VC-WIN32" if="${configuration == 'debug'}" />
         <arg value="no-asm" />
         <arg value="no-gost" />
+        <arg value="no-shared" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
         <arg value="-DOPENSSL_CAPIENG_DIALOG" />
+        <arg value="--prefix=${path::get-full-path('ext\openssl\out32')}" />
+        <arg value="--openssldir=out" />
       </exec>
-      <exec program="cmd" workingdir="..\openssl">
-        <arg value="/c" />
-        <arg value="ms\do_ms" />
-      </exec>
-      <loadfile file="..\openssl\ms\nt.mak" property="makefile">
+      <loadfile file="..\openssl\makefile" property="makefile">
         <filterchain>
+          <replacestring from="MT=mt" to="MT=md" />
           <replacestring from="/MT" to="/MD" />
-          <replacestring from="-W3 " to="-W0 " />
-          <replacestring from="/Ox " to="/O2 /GL /arch:IA32 " if="${configuration == 'release'}" />
-          <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${configuration == 'release'}" />
-          <replacestring from="/opt:ref /debug" to="/opt:ref,icf /debug /LTCG" if="${configuration == 'release'}" />
-          <replacestring from="all: banner $(TMP_D) $(BIN_D) $(TEST_D) $(LIB_D) $(INCO_D) headers lib exe" to="all: banner $(TMP_D) $(BIN_D) $(TEST_D) $(LIB_D) $(INCO_D) headers lib" />
+          <replacestring from="-W3" to="-W0" />
         </filterchain>
       </loadfile>
+      <property name="targetDir" value="..\openssl\out32" if="${configuration == 'release'}" />
+      <property name="targetDir" value="..\openssl\out32.dbg" if="${configuration != 'release'}" />
     </if>
     <if test="${platform == 'x64'}">
       <exec program="perl" workingdir="..\openssl">
@@ -55,33 +53,34 @@
         <arg value="debug-VC-WIN64A" if="${configuration == 'debug'}" />
         <arg value="no-asm" />
         <arg value="no-gost" />
+        <arg value="no-shared" />
         <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
         <arg value="-DOPENSSL_CAPIENG_DIALOG" />
+        <arg value="--prefix=${path::get-full-path('ext\openssl\out64')}" />
+        <arg value="--openssldir=out" />
       </exec>
-      <exec program="cmd" workingdir="..\openssl">
-        <arg value="/c" />
-        <arg value="ms\do_win64a" />
-      </exec>
-      <loadfile file="..\openssl\ms\nt.mak" property="makefile">
+      <loadfile file="..\openssl\makefile" property="makefile">
         <filterchain>
+          <replacestring from="MT=mt" to="MT=md" />
           <replacestring from="/MT" to="/MD" />
-          <replacestring from="-W3 " to="-W0 " />
-          <replacestring from="/Ox " to="/O2 /GL " if="${configuration == 'release'}" />
-          <replacestring from="lib /nologo" to="lib /nologo /LTCG" if="${configuration == 'release'}" />
-          <replacestring from="/opt:ref /debug" to="/opt:ref,icf /debug /LTCG" if="${configuration == 'release'}" />
-          <replacestring from="OUT_D=out32" to="OUT_D=out64" />
-          <replacestring from="TMP_D=tmp32" to="TMP_D=tmp64" />
-          <replacestring from="INC_D=inc32" to="INC_D=inc64" />
-          <replacestring from="INCO_D=inc32\openssl" to="INCO_D=inc64\openssl" />
-          <replacestring from="all: banner $(TMP_D) $(BIN_D) $(TEST_D) $(LIB_D) $(INCO_D) headers lib exe" to="all: banner $(TMP_D) $(BIN_D) $(TEST_D) $(LIB_D) $(INCO_D) headers lib" />
+          <replacestring from="-W3" to="-W0" />
         </filterchain>
       </loadfile>
+      <property name="targetDir" value="..\openssl\out64" if="${configuration == 'release'}" />
+      <property name="targetDir" value="..\openssl\out64.dbg" if="${configuration != 'release'}" />
     </if>
-    <echo file="..\openssl\ms\nt.mak" message="${makefile}" />
+    <echo file="..\openssl\makefile" message="${makefile}" />
     <exec program="nmake" workingdir="..\openssl">
       <arg value="-f" />
-      <arg value="ms\nt.mak" />
+      <arg value="makefile" />
+      <arg value="build_libs" />
     </exec>
+    <mkdir dir="${targetDir}" />
+    <move todir="${targetDir}">
+      <fileset basedir="..\openssl">
+        <include name="*.lib" />
+      </fileset>
+    </move>
   </target>
 
 </project>

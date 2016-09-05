@@ -34,8 +34,7 @@
 #include "SVNGlobal.h"
 #include "svn_types.h"
 #include "svn_dso.h"
-#include "openssl/ssl.h"
-#include "openssl/err.h"
+#include "openssl/crypto.h"
 #include "Commands/Command.h"
 #include "../version.h"
 #include "JumpListHelpers.h"
@@ -87,9 +86,7 @@ CTortoiseProcApp::~CTortoiseProcApp()
     // global application exit cleanup (after all SSL activity is shutdown)
     // we have to clean up SSL ourselves, since serf doesn't do that (can't do it)
     // because those cleanup functions work globally per process.
-    ERR_free_strings();
-    EVP_cleanup();
-    CRYPTO_cleanup_all_ex_data();
+    OPENSSL_cleanup();
 
     // since it is undefined *when* the global object SVNAdminDir is
     // destroyed, we tell it to destroy the memory pools and terminate apr

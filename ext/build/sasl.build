@@ -222,7 +222,8 @@
         <include name="include" />
         <include name="plugins" />
         <include name="win32\include" />
-        <include name="..\openssl\inc${sslplat}" />
+        <include name="..\openssl\include" />
+        <include name="..\openssl\crypto\hmac" />
         <include name="..\gssapi" />
       </includedirs>
       <defines>
@@ -296,7 +297,7 @@
 
     <link
       output="${configuration}_${platform}\saslDIGESTMD5.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslDIGESTMD5.pdb" /DLL ${subsystem} /IMPLIB:"${configuration}_${platform}\saslDIGESTMD5.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslDIGESTMD5.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslDIGESTMD5.pdb" /DLL ${subsystem} /IMPLIB:"${configuration}_${platform}\saslDIGESTMD5.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libcrypto.lib ..\openssl\out${sslplat}${ssldbg}\libssl.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <arg line="/LTCG /RELEASE /OPT:REF /OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
@@ -342,7 +343,7 @@
 
     <link
       output="${configuration}_${platform}\saslNTLM.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslNTLM.pdb" /DLL ${subsystem} /IMPLIB:"${configuration}_${platform}\saslNTLM.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslNTLM.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslNTLM.pdb" /DLL ${subsystem} /IMPLIB:"${configuration}_${platform}\saslNTLM.lib" ${machineoption} ..\openssl\out${sslplat}${ssldbg}\libcrypto.lib ..\openssl\out${sslplat}${ssldbg}\libssl.lib ${configuration}_${platform}\libsasl.res Crypt32.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <arg line="/LTCG /RELEASE /OPT:REF /OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />
@@ -388,7 +389,7 @@
 
     <link
       output="${configuration}_${platform}\saslGSSAPI.dll"
-      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslGSSAPI.pdb" /DLL ${subsystem} /IMPLIB:"${configuration}_${platform}\saslGSSAPI.lib" ${machineoption} ..\gssapi\${configuration}_${platform}\gssapiu.lib" ..\openssl\out${sslplat}${ssldbg}\libeay32.lib ..\openssl\out${sslplat}${ssldbg}\ssleay32.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
+      options='/INCREMENTAL:NO /NOLOGO /DYNAMICBASE /NXCOMPAT /MANIFEST /MANIFESTFILE:"${configuration}_${platform}\saslGSSAPI.dll.manifest" /DEBUG /PDB:"${configuration}_${platform}\saslGSSAPI.pdb" /DLL ${subsystem} /IMPLIB:"${configuration}_${platform}\saslGSSAPI.lib" ${machineoption} ..\gssapi\${configuration}_${platform}\gssapiu.lib" ..\openssl\out${sslplat}${ssldbg}\libcrypto.lib ..\openssl\out${sslplat}${ssldbg}\libssl.lib ${configuration}_${platform}\libsasl.res ws2_32.lib mswsock.lib rpcrt4.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib'>
       <arg line="/LTCG /RELEASE /OPT:REF /OPT:ICF" if="${configuration == 'release'}" />
       <sources>
         <include name="${configuration}_${platform}\plugin_common.obj" />

@@ -76,6 +76,7 @@
 #include <openssl/md4.h>
 #include <openssl/md5.h>
 #include <openssl/hmac.h>
+#include <hmac_lcl.h>
 #include <openssl/des.h>
 #include <openssl/opensslv.h>
 #if (OPENSSL_VERSION_NUMBER >= 0x0090700f) && \
@@ -453,7 +454,7 @@ static unsigned char *V2(unsigned char *V2, sasl_secret_t *passwd,
 	HMAC_Update(&ctx, challenge, NTLM_NONCE_LENGTH);
 	HMAC_Update(&ctx, blob, bloblen);
 	HMAC_Final(&ctx, V2, &len);
-	HMAC_cleanup(&ctx);
+	/*HMAC_cleanup(&ctx);*/
 
 	/* the blob is concatenated outside of this function */
 
