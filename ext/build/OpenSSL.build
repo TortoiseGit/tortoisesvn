@@ -26,15 +26,15 @@
     <if test="${platform == 'win32'}">
       <property name="targetDir" value="..\openssl\out32" if="${configuration == 'release'}" />
       <property name="targetDir" value="..\openssl\out32.dbg" if="${configuration != 'release'}" />
-      <property name="opensslConfiguration" value="VC-WIN32" if="${configuration == 'release'}" />
-      <property name="opensslConfiguration" value="debug-VC-WIN32" if="${configuration != 'release'}" />
+      <property name="targetName" value="VC-WIN32" if="${configuration == 'release'}" />
+      <property name="targetName" value="debug-VC-WIN32" if="${configuration != 'release'}" />
       <property name="opensslPrefix" value="${path::get-full-path('ext\openssl\out32')}" />
     </if>
     <if test="${platform == 'x64'}">
       <property name="targetDir" value="..\openssl\out64" if="${configuration == 'release'}" />
       <property name="targetDir" value="..\openssl\out64.dbg" if="${configuration == 'debug'}" />
-      <property name="opensslConfiguration" value="VC-WIN64A" if="${configuration == 'release'}" />
-      <property name="opensslConfiguration" value="debug-VC-WIN64A" if="${configuration != 'release'}" />
+      <property name="targetName" value="VC-WIN64A" if="${configuration == 'release'}" />
+      <property name="targetName" value="debug-VC-WIN64A" if="${configuration != 'release'}" />
       <property name="opensslPrefix" value="${path::get-full-path('ext\openssl\out64')}" />
     </if>
 
@@ -42,7 +42,7 @@
 
     <exec program="perl" workingdir="${targetDir}">
       <arg value="..\Configure" />
-      <arg value="${opensslConfiguration}" />
+      <arg value="${targetName}" />
       <arg value="no-asm" />
       <arg value="no-gost" />
       <arg value="no-shared" />
