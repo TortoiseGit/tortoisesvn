@@ -38,8 +38,10 @@
       <property name="opensslPrefix" value="${path::get-full-path('ext\openssl\out64')}" />
     </if>
 
-    <exec program="perl" workingdir="..\openssl">
-      <arg value="Configure" />
+    <mkdir dir="${targetDir}" />
+
+    <exec program="perl" workingdir="${targetDir}">
+      <arg value="..\Configure" />
       <arg value="${opensslConfiguration}" />
       <arg value="no-asm" />
       <arg value="no-gost" />
@@ -47,27 +49,21 @@
       <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
       <arg value="-DOPENSSL_CAPIENG_DIALOG" />
       <arg value="--prefix=${opensslPrefix}" />
-      <arg value="--openssldir=out" />
     </exec>
-    <loadfile file="..\openssl\makefile" property="makefile">
+    <loadfile file="${targetDir}\makefile" property="makefile">
       <filterchain>
         <replacestring from="MT=mt" to="MT=md" />
         <replacestring from="/MT" to="/MD" />
         <replacestring from="-W3" to="-W0" />
       </filterchain>
     </loadfile>
-    <echo file="..\openssl\makefile" message="${makefile}" />
-    <exec program="nmake" workingdir="..\openssl">
+    <echo file="${targetDir}\makefile" message="${makefile}" />
+    <exec program="nmake" workingdir="${targetDir}">
       <arg value="-f" />
       <arg value="makefile" />
       <arg value="build_libs" />
     </exec>
-    <mkdir dir="${targetDir}" />
-    <move todir="${targetDir}">
-      <fileset basedir="..\openssl">
-        <include name="*.lib" />
-      </fileset>
-    </move>
+    <copy file="${targetDir}\include\openssl\opensslconf.h" todir="..\openssl\include\openssl" />
   </target>
 
 </project>
