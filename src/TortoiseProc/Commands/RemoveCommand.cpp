@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -63,6 +63,7 @@ bool RemoveCommand::Execute()
     else
     {
         bool bForce = false;
+        bool bDoForAll = false;
         for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
         {
             CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": remove file %s\n", (LPCTSTR)pathList[nPath].GetUIPathString());
@@ -91,47 +92,58 @@ bool RemoveCommand::Execute()
                 if ((svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE) ||
                     (svn.GetSVNError()->apr_err == SVN_ERR_CLIENT_MODIFIED))
                 {
-                    UINT ret = 0;
-                    CString msg;
-                    if (pathList[nPath].IsDirectory())
-                        msg.Format(IDS_PROC_REMOVEFORCE_TASK1_2, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
-                    else
-                        msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
-                    CTaskDialog taskdlg(msg,
-                                        CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)),
-                                        L"TortoiseSVN",
-                                        0,
-                                        TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                    taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
-                    taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
-                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                    taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK5)));
-                    taskdlg.SetDefaultCommandControl(IDNO);
-                    taskdlg.SetMainIcon(TD_WARNING_ICON);
-                    ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
-                    if (taskdlg.GetVerificationCheckboxState())
-                        bForce = true;
-                    if (ret == IDYESTOALL)
-                        bForce = true;
-                    if ((ret == IDYES)||(ret==IDYESTOALL))
+                    if (!bDoForAll)
                     {
-                        if (!parser.HasKey(L"keep"))
-                        {
-                            CTSVNPath delPath = removePathList[0];
-                            if (!delPath.IsDirectory())
-                                delPath.Delete(true);
-                            // note: see comment for the delPath.Delete() above
-                        }
-                        if (!svn.Remove(removePathList, true, !!parser.HasKey(L"keep")))
-                        {
-                            svn.ShowErrorDialog(GetExplorerHWND(), removePathList.GetCommonDirectory());
-                        }
+                        UINT ret = 0;
+                        CString msg;
+                        if (pathList[nPath].IsDirectory())
+                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1_2, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
                         else
-                            bRet = true;
+                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
+                        CTaskDialog taskdlg(msg,
+                                            CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)),
+                                            L"TortoiseSVN",
+                                            0,
+                                            TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
+                        taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
+                        taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
+                        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                        taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK5)));
+                        taskdlg.SetDefaultCommandControl(IDNO);
+                        taskdlg.SetMainIcon(TD_WARNING_ICON);
+                        ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
+                        if (taskdlg.GetVerificationCheckboxState())
+                            bDoForAll = true;
+                        if (ret == IDYES)
+                        {
+                            if (bDoForAll)
+                                bForce = true;
+                            if (!parser.HasKey(L"keep"))
+                            {
+                                CTSVNPath delPath = removePathList[0];
+                                if (!delPath.IsDirectory())
+                                    delPath.Delete(true);
+                                // note: see comment for the delPath.Delete() above
+                                // don't try to 'svn rm' the file below if the file is unversioned: we just removed it here
+                                if ((svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE))
+                                    continue;
+                            }
+                            if (!svn.Remove(removePathList, true, !!parser.HasKey(L"keep")))
+                            {
+                                svn.ShowErrorDialog(GetExplorerHWND(), removePathList.GetCommonDirectory());
+                            }
+                            else
+                                bRet = true;
+                        }
                     }
                 }
                 else
-                    svn.ShowErrorDialog(GetExplorerHWND(), removePathList.GetCommonDirectory());
+                {
+                    // only show an error if we don't force all: if the filename is bad we
+                    // come here because the file was unversioned but deleted above
+                    if (!bDoForAll || !bForce || (svn.GetSVNError()->apr_err != SVN_ERR_BAD_FILENAME))
+                        svn.ShowErrorDialog(GetExplorerHWND(), removePathList.GetCommonDirectory());
+                }
             }
         }
     }
