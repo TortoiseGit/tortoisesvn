@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2008, 2010-2015 - TortoiseSVN
+// Copyright (C) 2006, 2008, 2010-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -182,15 +182,15 @@ BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack
     int height = windowrect.bottom - windowrect.top;
     windowrect.right = parentrect.left;
     windowrect.left = windowrect.right - width;
-    if (windowrect.left < 0)
-    {
-        windowrect.left = 0;
-        windowrect.right = width;
-    }
+
     windowrect.top = parentrect.top;
     windowrect.bottom = windowrect.top + height;
 
-    SetWindowPos(NULL, windowrect.left, windowrect.top, width, height, SWP_NOACTIVATE | SWP_NOZORDER);
+    auto hMonitor = MonitorFromRect(&windowrect, MONITOR_DEFAULTTONULL);
+    if (hMonitor != nullptr)
+    {
+        SetWindowPos(NULL, windowrect.left, windowrect.top, width, height, SWP_NOACTIVATE | SWP_NOZORDER);
+    }
 
     m_nWindowHeight = windowrect.bottom - windowrect.top;
     m_pMainFrame = pParent;
