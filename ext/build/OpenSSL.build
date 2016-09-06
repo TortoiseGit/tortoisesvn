@@ -24,51 +24,38 @@
   <target name="OpenSSL" depends="clean">
     <delete file="..\openssl\del.bat" if="${file::exists('..\openssl\del.bat')}" />
     <if test="${platform == 'win32'}">
-      <exec program="perl" workingdir="..\openssl">
-        <arg value="Configure" />
-        <arg value="VC-WIN32" if="${configuration == 'release'}" />
-        <arg value="debug-VC-WIN32" if="${configuration == 'debug'}" />
-        <arg value="no-asm" />
-        <arg value="no-gost" />
-        <arg value="no-shared" />
-        <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
-        <arg value="-DOPENSSL_CAPIENG_DIALOG" />
-        <arg value="--prefix=${path::get-full-path('ext\openssl\out32')}" />
-        <arg value="--openssldir=out" />
-      </exec>
-      <loadfile file="..\openssl\makefile" property="makefile">
-        <filterchain>
-          <replacestring from="MT=mt" to="MT=md" />
-          <replacestring from="/MT" to="/MD" />
-          <replacestring from="-W3" to="-W0" />
-        </filterchain>
-      </loadfile>
       <property name="targetDir" value="..\openssl\out32" if="${configuration == 'release'}" />
       <property name="targetDir" value="..\openssl\out32.dbg" if="${configuration != 'release'}" />
+      <property name="opensslConfiguration" value="VC-WIN32" if="${configuration == 'release'}" />
+      <property name="opensslConfiguration" value="debug-VC-WIN32" if="${configuration != 'release'}" />
+      <property name="opensslPrefix" value="${path::get-full-path('ext\openssl\out32')}" />
     </if>
     <if test="${platform == 'x64'}">
-      <exec program="perl" workingdir="..\openssl">
-        <arg value="Configure" />
-        <arg value="VC-WIN64A" if="${configuration == 'release'}" />
-        <arg value="debug-VC-WIN64A" if="${configuration == 'debug'}" />
-        <arg value="no-asm" />
-        <arg value="no-gost" />
-        <arg value="no-shared" />
-        <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
-        <arg value="-DOPENSSL_CAPIENG_DIALOG" />
-        <arg value="--prefix=${path::get-full-path('ext\openssl\out64')}" />
-        <arg value="--openssldir=out" />
-      </exec>
-      <loadfile file="..\openssl\makefile" property="makefile">
-        <filterchain>
-          <replacestring from="MT=mt" to="MT=md" />
-          <replacestring from="/MT" to="/MD" />
-          <replacestring from="-W3" to="-W0" />
-        </filterchain>
-      </loadfile>
       <property name="targetDir" value="..\openssl\out64" if="${configuration == 'release'}" />
-      <property name="targetDir" value="..\openssl\out64.dbg" if="${configuration != 'release'}" />
+      <property name="targetDir" value="..\openssl\out64.dbg" if="${configuration == 'debug'}" />
+      <property name="opensslConfiguration" value="VC-WIN64A" if="${configuration == 'release'}" />
+      <property name="opensslConfiguration" value="debug-VC-WIN64A" if="${configuration != 'release'}" />
+      <property name="opensslPrefix" value="${path::get-full-path('ext\openssl\out64')}" />
     </if>
+
+    <exec program="perl" workingdir="..\openssl">
+      <arg value="Configure" />
+      <arg value="${opensslConfiguration}" />
+      <arg value="no-asm" />
+      <arg value="no-gost" />
+      <arg value="no-shared" />
+      <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
+      <arg value="-DOPENSSL_CAPIENG_DIALOG" />
+      <arg value="--prefix=${opensslPrefix}" />
+      <arg value="--openssldir=out" />
+    </exec>
+    <loadfile file="..\openssl\makefile" property="makefile">
+      <filterchain>
+        <replacestring from="MT=mt" to="MT=md" />
+        <replacestring from="/MT" to="/MD" />
+        <replacestring from="-W3" to="-W0" />
+      </filterchain>
+    </loadfile>
     <echo file="..\openssl\makefile" message="${makefile}" />
     <exec program="nmake" workingdir="..\openssl">
       <arg value="-f" />
