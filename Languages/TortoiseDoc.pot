@@ -5122,6 +5122,14 @@ msgstr ""
 msgid "tsvn:postupdatehook"
 msgstr ""
 
+#. (listitem)
+msgid "tsvn:prelockhook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:postlockhook"
+msgstr ""
+
 #. (para)
 msgid "The available properties/hook-scripts are <placeholder-1/>"
 msgstr ""
@@ -9009,6 +9017,24 @@ msgstr ""
 msgid "Called before an attempt to contact the repository. Called at most once in five minutes."
 msgstr ""
 
+#. (term)
+#. (term)
+msgid "Pre-lock"
+msgstr ""
+
+#. (para)
+msgid "Called before an attempt to lock a file."
+msgstr ""
+
+#. (term)
+#. (term)
+msgid "Post-lock"
+msgstr ""
+
+#. (para)
+msgid "Called after a file has been locked."
+msgstr ""
+
 #. (para)
 msgid "There are currently these types of hook script available <placeholder-1/>"
 msgstr ""
@@ -9071,6 +9097,14 @@ msgstr ""
 
 #. (para)
 msgid "The repository revision to which the update should be done or after a commit completes."
+msgstr ""
+
+#. (para)
+msgid "Either <literal>true</literal> when locking, or <literal>false</literal> when unlocking."
+msgstr ""
+
+#. (para)
+msgid "Either <literal>true</literal> or <literal>false</literal>, depending on whether the operation was forced or not."
 msgstr ""
 
 #. (para)
