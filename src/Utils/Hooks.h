@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2006-2015 - TortoiseSVN
+// Copyright (C) 2006-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,10 @@ typedef enum hooktype
     issue_tracker_hook,
     pre_connect_hook,
     manual_precommit,
-    check_commit_hook
+    check_commit_hook,
+    pre_lock_hook,
+    start_lock_hook,
+    post_lock_hook
 } hooktype;
 
 /**
@@ -136,10 +139,6 @@ public:
      * \param pathList a list of paths to look for the hook scripts
      * \param exitcode on return, contains the exit code of the hook script
      * \param error the data the hook script outputs to stderr
-     * \remark the string "%PATHS% in the command line of the hook script is
-     * replaced with the path to a temporary file which contains a list of files
-     * in \c pathList, separated by newlines. The hook script can parse this
-     * file to get all the paths the update is about to be done on.
      */
     bool                StartUpdate(HWND hWnd, const CTSVNPathList& pathList, DWORD& exitcode,
                                     CString& error);
@@ -151,13 +150,6 @@ public:
      * \param rev the revision the update is done to
      * \param exitcode on return, contains the exit code of the hook script
      * \param error the data the hook script outputs to stderr
-     * \remark the string "%PATHS% in the command line of the hook script is
-     * replaced with the path to a temporary file which contains a list of files
-     * in \c pathList, separated by newlines. The hook script can parse this
-     * file to get all the paths the update is about to be done on.
-     * The string "%RECURSIVE%" is replaced with either "recursive" or "nonrecursive" according
-     * to the \c bRecursive parameter. And the string "%REVISION%" is replaced with
-     * the string representation of \c rev.
      */
     bool                PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth,
                                     SVNRev rev, DWORD& exitcode, CString& error);
@@ -170,13 +162,6 @@ public:
      * \param updatedList list of paths that were touched by the update in some way
      * \param exitcode on return, contains the exit code of the hook script
      * \param error the data the hook script outputs to stderr
-     * \remark the string "%PATHS% in the command line of the hook script is
-     * replaced with the path to a temporary file which contains a list of files
-     * in \c pathList, separated by newlines. The hook script can parse this
-     * file to get all the paths the update is about to be done on.
-     * The string "%RECURSIVE%" is replaced with either "recursive" or "nonrecursive" according
-     * to the \c bRecursive parameter. And the string "%REVISION%" is replaced with
-     * the string representation of \c rev.
      */
     bool                PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth,
                                     SVNRev rev, const CTSVNPathList& updatedList, DWORD& exitcode, CString& error);
@@ -188,13 +173,6 @@ public:
      * \param message a commit message
      * \param exitcode on return, contains the exit code of the hook script
      * \param error the data the hook script outputs to stderr
-     * \remark the string "%PATHS% in the command line of the hook script is
-     * replaced with the path to a temporary file which contains a list of files
-     * in \c pathList, separated by newlines. The hook script can parse this
-     * file to get all the paths the commit is about to be done on.
-     * The string %MESSAGEFILE% is replaced with path to temporary file containing
-     * \c message. If the script finishes successfully, contents of this file
-     * is read back into \c message parameter.
      */
     bool                StartCommit(HWND hWnd, const CTSVNPathList& pathList, CString& message,
                                     DWORD& exitcode, CString& error);
@@ -205,13 +183,6 @@ public:
      * \param message a commit message
      * \param exitcode on return, contains the exit code of the hook script
      * \param error the data the hook script outputs to stderr
-     * \remark the string "%PATHS% in the command line of the hook script is
-     * replaced with the path to a temporary file which contains a list of files
-     * in \c pathList, separated by newlines. The hook script can parse this
-     * file to get all the paths the commit is about to be done on.
-     * The string %MESSAGEFILE% is replaced with path to temporary file containing
-     * \c message. If the script finishes successfully, contents of this file
-     * is read back into \c message parameter.
      */
     bool                CheckCommit(HWND hWnd, const CTSVNPathList& pathList, CString& message,
                                     DWORD& exitcode, CString& error);
@@ -223,13 +194,6 @@ public:
      * \param message the commit message
      * \param exitcode on return, contains the exit code of the hook script
      * \param error the data the hook script outputs to stderr
-     * \remark the string "%PATHS% in the command line of the hook script is
-     * replaced with the path to a temporary file which contains a list of files
-     * in \c pathList, separated by newlines. The hook script can parse this
-     * file to get all the paths the update is about to be done on.
-     * The string "%DEPTH%" is replaced with the numerical value (string) of the
-     * svn_depth_t parameter. See the Subversion source documentation about the
-     * values.
      */
     bool                PreCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth,
                                     CString& message, DWORD& exitcode,
@@ -240,10 +204,6 @@ public:
      * \param message the commit message if there already is one
      * \param exitcode on return, contains the exit code of the hook script
      * \param error the data the hook script outputs to stderr
-     * \remark the string "%PATHS% in the command line of the hook script is
-     * replaced with the path to a temporary file which contains a list of files
-     * in \c pathList, separated by newlines. The hook script can parse this
-     * file to get all the paths the update is about to be done on.
      */
     bool                ManualPreCommit(HWND hWnd, const CTSVNPathList& pathList,
                                         CString& message, DWORD& exitcode,
@@ -257,13 +217,6 @@ public:
      * \param rev the revision the commit was done to
      * \param exitcode on return, contains the exit code of the hook script
      * \param error the data the hook script outputs to stderr
-     * \remark the string "%PATHS% in the command line of the hook script is
-     * replaced with the path to a temporary file which contains a list of files
-     * in \c pathList, separated by newlines. The hook script can parse this
-     * file to get all the paths the commit is about to be done on.
-     * The string "%DEPTH%" is replaced with the numerical value (string) of the
-     * svn_depth_t parameter. See the Subversion source documentation about the
-     * values.
      */
     bool                PostCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth,
                                     SVNRev rev, const CString& message,
@@ -273,11 +226,35 @@ public:
      * Executed just before a command is executed that accesses the repository.
      * Can be used to start a tool to connect to a VPN.
      * \param pathList a list of paths to look for the hook scripts
-     * \remark The script is only executed once. Subsequent calls within 5 minutes
-     * are ignored for performance reasons since TSVN dialogs often call many
-     * SVN functions that contact a repository.
      */
     bool                PreConnect(const CTSVNPathList& pathList);
+
+    /**
+     * Executes the Pre-Lock-Hook that first matches one of the paths in
+     * \c pathList.
+     * \param pathList a list of paths to look for the hook scripts
+     * \param lock true for locks, false for unlocks
+     * \param steal true if the lock needs stealing
+     * \param message the lock message
+     * \param exitcode on return, contains the exit code of the hook script
+     * \param error the data the hook script outputs to stderr
+     */
+    bool                PreLock(HWND hWnd, const CTSVNPathList& pathList,
+                                bool lock, bool steal, CString& message,
+                                DWORD& exitcode, CString& error);
+    /**
+     * Executes the Post-Lock-Hook that first matches one of the paths in
+     * \c pathList.
+     * \param pathList a list of paths to look for the hook scripts
+     * \param lock true for locks, false for unlocks
+     * \param steal true if the lock needs stealing
+     * \param message the lock message
+     * \param exitcode on return, contains the exit code of the hook script
+     * \param error the data the hook script outputs to stderr
+     */
+    bool                PostLock(HWND hWnd, const CTSVNPathList& pathList,
+                                 bool lock, bool steal, const CString& message,
+                                 DWORD& exitcode, CString& error);
 
     /**
      * Returns cc true if the hook(s) \c t for the paths given in \c pathList

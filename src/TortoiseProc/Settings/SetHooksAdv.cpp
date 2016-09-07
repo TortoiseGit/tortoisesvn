@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2015 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -82,6 +82,10 @@ BOOL CSetHooksAdv::OnInitDialog()
     m_cHookTypeCombo.SetItemData(index, post_update_hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRECONNECT)));
     m_cHookTypeCombo.SetItemData(index, pre_connect_hook);
+    index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRELOCK)));
+    m_cHookTypeCombo.SetItemData(index, pre_lock_hook);
+    index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTLOCK)));
+    m_cHookTypeCombo.SetItemData(index, post_lock_hook);
     // preselect the right hook type in the combobox
     for (int i=0; i<m_cHookTypeCombo.GetCount(); ++i)
     {

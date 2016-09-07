@@ -603,7 +603,9 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
         (sName.compare(PROJECTPROPNAME_POSTCOMMITHOOK) == 0) ||
         (sName.compare(PROJECTPROPNAME_STARTUPDATEHOOK) == 0) ||
         (sName.compare(PROJECTPROPNAME_PREUPDATEHOOK) == 0) ||
-        (sName.compare(PROJECTPROPNAME_POSTUPDATEHOOK) == 0))
+        (sName.compare(PROJECTPROPNAME_POSTUPDATEHOOK) == 0) ||
+        (sName.compare(PROJECTPROPNAME_PRELOCKHOOK) == 0) ||
+        (sName.compare(PROJECTPROPNAME_POSTLOCKHOOK) == 0))
         dlg = new CEditPropsLocalHooks(this);
     else if ((sName.substr(0, 21).compare("tsvn:mergelogtemplate") == 0))
         dlg = new CEditPropMergeLogTemplate(this);

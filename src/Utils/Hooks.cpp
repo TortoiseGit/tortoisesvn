@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2015 - TortoiseSVN
+// Copyright (C) 2007-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -138,6 +138,8 @@ void CHooks::SetProjectProperties( const CTSVNPath& wcRootPath, const ProjectPro
     ParseAndInsertProjectProperty(start_update_hook, pp.sStartUpdateHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
     ParseAndInsertProjectProperty(post_update_hook, pp.sPostUpdateHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
     ParseAndInsertProjectProperty(manual_precommit, pp.sManualPreCommitHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(pre_lock_hook, pp.sPreLockHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(post_lock_hook, pp.sPostLockHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
 }
 
 CHooks& CHooks::Instance()
@@ -224,6 +226,10 @@ CString CHooks::GetHookTypeString(hooktype t)
         return L"pre_connect_hook";
     case manual_precommit:
         return L"manual_precommit_hook";
+    case pre_lock_hook:
+        return L"pre_lock_hook";
+    case post_lock_hook:
+        return L"post_lock_hook";
     }
     return L"";
 }
@@ -248,6 +254,10 @@ hooktype CHooks::GetHookType(const CString& s)
         return pre_connect_hook;
     if (s.Compare(L"manual_precommit_hook")==0)
         return manual_precommit;
+    if (s.Compare(L"pre_lock_hook") == 0)
+        return pre_lock_hook;
+    if (s.Compare(L"post_lock_hook") == 0)
+        return post_lock_hook;
     return unknown_hook;
 }
 
@@ -488,6 +498,45 @@ bool CHooks::PreConnect(const CTSVNPathList& pathList)
         return true;
     }
     return false;
+}
+
+bool CHooks::PreLock(HWND hWnd, const CTSVNPathList & pathList,bool lock, bool steal, CString & message, DWORD & exitcode, CString & error)
+{
+    hookiterator it = FindItem(pre_lock_hook, pathList);
+    if (it == end())
+        return false;
+    if (!ApproveHook(hWnd, it))
+        return false;
+    CString sCmd = it->second.commandline;
+    AddPathParam(sCmd, pathList);
+    AddParam(sCmd, lock ? L"true" : L"false");
+    AddParam(sCmd, steal ? L"true" : L"false");
+    CTSVNPath temppath = AddMessageFileParam(sCmd, message);
+    AddCWDParam(sCmd, pathList);
+    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    if (!exitcode && !temppath.IsEmpty())
+    {
+        CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
+    }
+    return true;
+}
+
+bool CHooks::PostLock(HWND hWnd, const CTSVNPathList & pathList, bool lock, bool steal, const CString & message, DWORD & exitcode, CString & error)
+{
+    hookiterator it = FindItem(post_lock_hook, pathList);
+    if (it == end())
+        return false;
+    if (!ApproveHook(hWnd, it))
+        return false;
+    CString sCmd = it->second.commandline;
+    AddPathParam(sCmd, pathList);
+    AddParam(sCmd, lock ? L"true" : L"false");
+    AddParam(sCmd, steal ? L"true" : L"false");
+    AddMessageFileParam(sCmd, message);
+    AddErrorParam(sCmd, error);
+    AddCWDParam(sCmd, pathList);
+    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    return true;
 }
 
 bool CHooks::IsHookExecutionEnforced(hooktype t, const CTSVNPathList& pathList)

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,6 +70,8 @@
 #define PROJECTPROPNAME_PREUPDATEHOOK     "tsvn:preupdatehook"
 #define PROJECTPROPNAME_POSTUPDATEHOOK    "tsvn:postupdatehook"
 #define PROJECTPROPNAME_MANUALPRECOMMITHOOK "tsvn:manualprecommithook"
+#define PROJECTPROPNAME_PRELOCKHOOK       "tsvn:prelockhook"
+#define PROJECTPROPNAME_POSTLOCKHOOK      "tsvn:postlockhook"
 
 #define PROJECTPROPNAME_WEBVIEWER_REV     "webviewer:revision"
 #define PROJECTPROPNAME_WEBVIEWER_PATHREV "webviewer:pathrevision"
@@ -284,6 +286,10 @@ public:
     CString     sPostUpdateHook;
     /// multi line string containing the data for a pre-connect-hook
     CString     sPreConnectHook;
+    /// multi line string containing the data for a pre-lock-hook
+    CString     sPreLockHook;
+    /// multi line string containing the data for a post-lock-hook
+    CString     sPostLockHook;
 
     /// the repository root url
     CString     sRepositoryRootUrl;

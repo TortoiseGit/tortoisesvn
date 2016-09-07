@@ -133,6 +133,22 @@
           </para>
         </listitem>
       </varlistentry>
+      <varlistentry>
+        <term>Pre-lock</term>
+        <listitem>
+          <para>
+            Called before an attempt to lock a file.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Post-lock</term>
+        <listitem>
+          <para>
+            Called after a file has been locked.
+          </para>
+        </listitem>
+      </varlistentry>
     </variablelist>
   </para>
   <para>
@@ -239,6 +255,32 @@
           </para>
         </listitem>
       </varlistentry>
+      <varlistentry>
+        <term>Pre-lock</term>
+        <listitem condition="pot">
+          <para>
+            <literal>PATH</literal>
+            <literal>LOCK</literal>
+            <literal>FORCE</literal>
+            <literal>MESSAGEFILE</literal>
+            <literal>ERROR</literal>
+            <literal>CWD</literal>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Post-lock</term>
+        <listitem condition="pot">
+          <para>
+            <literal>PATH</literal>
+            <literal>LOCK</literal>
+            <literal>FORCE</literal>
+            <literal>MESSAGEFILE</literal>
+            <literal>ERROR</literal>
+            <literal>CWD</literal>
+          </para>
+        </listitem>
+      </varlistentry>
     </variablelist>
   </para>
   <para>
@@ -339,6 +381,23 @@
           <para>
             The repository revision to which the update should
             be done or after a commit completes.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term condition="pot">LOCK</term>
+        <listitem>
+          <para>
+            Either <literal>true</literal> when locking, or <literal>false</literal> when unlocking.
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term condition="pot">FORCE</term>
+        <listitem>
+          <para>
+            Either <literal>true</literal> or <literal>false</literal>, depending
+            on whether the operation was forced or not.
           </para>
         </listitem>
       </varlistentry>

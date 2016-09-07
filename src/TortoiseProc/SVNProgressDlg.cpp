@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3101,6 +3101,18 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
     SetBackgroundImage(IDI_LOCK_BKG);
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_LOCK)));
+
+    DWORD exitcode = 0;
+    CString error;
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks) && (CHooks::Instance().PreLock(m_hWnd, m_selectedPaths, true, (m_options & ProgOptForce) != 0, m_sMessage, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(pre_lock_hook, m_selectedPaths, error);
+            return false;
+        }
+    }
     if (!Lock(m_targetPathList, (m_options & ProgOptForce) != 0, m_sMessage))
     {
         ReportSVNError();
@@ -3131,6 +3143,14 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
                 ReportSVNError();
                 return false;
             }
+            if ((!m_bNoHooks) && (CHooks::Instance().PreLock(m_hWnd, m_selectedPaths, true, (m_options & ProgOptForce) != 0, m_sMessage, exitcode, error)))
+            {
+                if (exitcode)
+                {
+                    ReportHookFailed(pre_lock_hook, m_selectedPaths, error);
+                    return false;
+                }
+            }
             if (!Lock(m_targetPathList, (m_options & ProgOptForce) != 0, m_sMessage))
             {
                 ReportSVNError();
@@ -3149,6 +3169,14 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
             ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_LOCKHINT)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
         }
         return false;
+    }
+    if ((!m_bNoHooks) && (CHooks::Instance().PostLock(m_hWnd, m_selectedPaths, true, (m_options & ProgOptForce) != 0, m_sMessage, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(post_lock_hook, m_selectedPaths, error);
+            return false;
+        }
     }
     return true;
 }
@@ -3675,10 +3703,29 @@ bool CSVNProgressDlg::CmdUnlock(CString& sWindowTitle, bool& /*localoperation*/)
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
     SetBackgroundImage(IDI_UNLOCK_BKG);
     ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UNLOCK)));
+    DWORD exitcode = 0;
+    CString error;
+    CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
+    if ((!m_bNoHooks) && (CHooks::Instance().PreLock(m_hWnd, m_selectedPaths, false, (m_options & ProgOptForce) != 0, m_sMessage, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(pre_lock_hook, m_selectedPaths, error);
+            return false;
+        }
+    }
     if (!Unlock(m_targetPathList, (m_options & ProgOptForce) != 0))
     {
         ReportSVNError();
         return false;
+    }
+    if ((!m_bNoHooks) && (CHooks::Instance().PreLock(m_hWnd, m_selectedPaths, false, (m_options & ProgOptForce) != 0, m_sMessage, exitcode, error)))
+    {
+        if (exitcode)
+        {
+            ReportHookFailed(post_lock_hook, m_selectedPaths, error);
+            return false;
+        }
     }
     CShellUpdater::Instance().AddPathsForUpdate(m_targetPathList);
     return true;
