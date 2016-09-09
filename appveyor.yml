@@ -1,0 +1,21 @@
+version: 1.9.99.{build}
+image: Visual Studio 2015
+environment:
+  matrix:
+  - PLATFORM: x64
+  - PLATFORM: x86
+
+install:
+- ps: nuget install NAnt -Version 0.92.0 -o C:\NuGetPackages
+
+build_script:
+- if [%PLATFORM%]==[x64] (
+    call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" amd64
+    C:\NuGetPackages\NAnt.0.92.0\tools\nant.exe x64 debug clean init binaries
+  )
+- if [%PLATFORM%]==[x86] (
+    call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" x86
+    C:\NuGetPackages\NAnt.0.92.0\tools\nant.exe debug clean init binaries
+  )
+
+test: off
