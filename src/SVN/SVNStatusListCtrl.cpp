@@ -3379,15 +3379,19 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     popup.AppendMenuIcon(IDSVNLC_OPEN, IDS_REPOBROWSE_OPEN, IDI_OPEN);
                     popup.AppendMenuIcon(IDSVNLC_OPENWITH, IDS_LOG_POPUP_OPENWITH, IDI_OPEN);
                 }
-                if (m_dwContextMenus & SVNSLC_POPEXPLORE)
-                {
-                    popup.AppendMenuIcon(IDSVNLC_EXPLORE, IDS_STATUSLIST_CONTEXT_EXPLORE, IDI_EXPLORER);
-                }
                 if ((m_dwContextMenus & SVNSLC_POPCHECKFORMODS)&&(entry->IsFolder()))
                 {
                     popup.AppendMenuIcon(IDSVNLC_CHECKFORMODS, IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED);
                 }
             }
+            if (filepath.Exists() && (GetSelectedCount() == 1))
+            {
+                if (m_dwContextMenus & SVNSLC_POPEXPLORE)
+                {
+                    popup.AppendMenuIcon(IDSVNLC_EXPLORE, IDS_STATUSLIST_CONTEXT_EXPLORE, IDI_EXPLORER);
+                }
+            }
+
             if (selectedCount > 0)
             {
                 if ((   (wcStatus == svn_wc_status_unversioned)
