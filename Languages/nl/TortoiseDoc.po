@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-02-18 09:01+0000\n"
+"PO-Revision-Date: 2016-09-08 08:56+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -8143,6 +8143,14 @@ msgstr ""
 msgid "tsvn:postupdatehook"
 msgstr ""
 
+#. (listitem)
+msgid "tsvn:prelockhook"
+msgstr ""
+
+#. (listitem)
+msgid "tsvn:postlockhook"
+msgstr ""
+
 #. (para)
 msgid "The available properties/hook-scripts are <placeholder-1/>"
 msgstr ""
@@ -14374,6 +14382,24 @@ msgid ""
 "five minutes."
 msgstr ""
 
+#. (term)
+#. (term)
+msgid "Pre-lock"
+msgstr ""
+
+#. (para)
+msgid "Called before an attempt to lock a file."
+msgstr ""
+
+#. (term)
+#. (term)
+msgid "Post-lock"
+msgstr ""
+
+#. (para)
+msgid "Called after a file has been locked."
+msgstr ""
+
 #. (para)
 msgid ""
 "There are currently these types of hook script available <placeholder-1/>"
@@ -14460,6 +14486,18 @@ msgid ""
 "The repository revision to which the update should be done or after a commit"
 " completes."
 msgstr "De revisie van het archief naar welke de verversing uitgevoerd zal moeten worden of nadat een vastlegging gereed is."
+
+#. (para)
+msgid ""
+"Either <literal>true</literal> when locking, or <literal>false</literal> "
+"when unlocking."
+msgstr ""
+
+#. (para)
+msgid ""
+"Either <literal>true</literal> or <literal>false</literal>, depending on "
+"whether the operation was forced or not."
+msgstr ""
 
 #. (para)
 msgid ""
