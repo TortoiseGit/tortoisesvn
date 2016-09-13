@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -533,7 +533,7 @@ void CCommitDlg::OnOK()
             taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
             taskdlg.SetDefaultCommandControl(1);
             taskdlg.SetMainIcon(TD_ERROR_ICON);
-            bool doIt = (taskdlg.DoModal(GetSafeHwnd()) == 1);
+            bool doIt = (taskdlg.DoModal(GetSafeHwnd()) != 2);
 
             if (doIt)
             {
