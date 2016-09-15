@@ -230,6 +230,7 @@ module.exports = function(grunt) {
                     crawler.addFetchCondition(function (queueItem) {
                         return !queueItem.path.match(/\/docs\/(release|nightly)\//) &&
                                queueItem.path !== '/assets/js/vendor/g.src' &&
+                               queueItem.path !== '/assets/js/+f+' &&
                                queueItem.path !== '/assets/js/%7Bhref%7D' &&
                                queueItem.path !== '/a';
                     });
