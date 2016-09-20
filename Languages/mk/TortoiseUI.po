@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-07-17 08:34+0000\n"
+"PO-Revision-Date: 2016-09-14 08:43+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Macedonian (http://www.transifex.com/luebbe/tortoisesvn/language/mk/)\n"
 "MIME-Version: 1.0\n"
@@ -8010,6 +8010,10 @@ msgstr "Можни вредности: 0 (потполно проѕирен) .. 
 msgid "Post-Commit Hook"
 msgstr "Post-Commit Hook"
 
+#. Resource IDs: (IDS_HOOKTYPE_POSTLOCK)
+msgid "Post-Lock Hook"
+msgstr ""
+
 #. Resource IDs: (IDS_HOOKTYPE_POSTUPDATE)
 msgid "Post-Update Hook"
 msgstr "Post-Update Hook"
@@ -8024,6 +8028,10 @@ msgstr "Pre-Commit Hook"
 
 #. Resource IDs: (IDS_HOOKTYPE_PRECONNECT)
 msgid "Pre-Connect Hook"
+msgstr ""
+
+#. Resource IDs: (IDS_HOOKTYPE_PRELOCK)
+msgid "Pre-Lock Hook"
 msgstr ""
 
 #. Resource IDs: (IDS_HOOKTYPE_PREUPDATE)
@@ -12217,6 +12225,12 @@ msgstr "Веќе ја имате последната верзија инста�
 msgid ""
 "You can disable specific Overlay handlers here.\n"
 "Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
+msgstr ""
+
+#. Resource IDs: (IDS_ERR_EDIT_LIMIT_REACHED)
+msgid ""
+"You can only edit one file at a time from the repository browser.\n"
+"Please finish editing a file before editing another one."
 msgstr ""
 
 #. Resource IDs: (16005)

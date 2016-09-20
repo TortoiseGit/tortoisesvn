@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-08 08:56+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-09-12 17:07+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/luebbe/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8139,11 +8139,11 @@ msgstr "tsvn:postupdatehook"
 
 #. (listitem)
 msgid "tsvn:prelockhook"
-msgstr ""
+msgstr "tsvn:prelockhook"
 
 #. (listitem)
 msgid "tsvn:postlockhook"
-msgstr ""
+msgstr "tsvn:postlockhook"
 
 #. (para)
 msgid "The available properties/hook-scripts are <placeholder-1/>"
@@ -14379,20 +14379,20 @@ msgstr "Pozvan pre pokušaja da se kontaktira spremište.. Pozvan najviše jedno
 #. (term)
 #. (term)
 msgid "Pre-lock"
-msgstr ""
+msgstr "Pre-lok"
 
 #. (para)
 msgid "Called before an attempt to lock a file."
-msgstr ""
+msgstr "Pozvan pre pokušaja zaključavanja fajla"
 
 #. (term)
 #. (term)
 msgid "Post-lock"
-msgstr ""
+msgstr "Post-lok"
 
 #. (para)
 msgid "Called after a file has been locked."
-msgstr ""
+msgstr "Poѕvan posle zaključavnja fajla"
 
 #. (para)
 msgid ""
@@ -14485,13 +14485,13 @@ msgstr "Revizija spremišta za koju bi obnavljanje bilo dato ili se urezivanje k
 msgid ""
 "Either <literal>true</literal> when locking, or <literal>false</literal> "
 "when unlocking."
-msgstr ""
+msgstr "Ili <literal>istina</literal> dok zaključava, ili <literal>laž</literal> kada otključa."
 
 #. (para)
 msgid ""
 "Either <literal>true</literal> or <literal>false</literal>, depending on "
 "whether the operation was forced or not."
-msgstr ""
+msgstr "Ili <literal>istina</literal> ili <literal>laž</literal>,u zavisnosti da li je operacija forsirani ili ne."
 
 #. (para)
 msgid ""

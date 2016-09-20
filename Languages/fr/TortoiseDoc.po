@@ -18,6 +18,7 @@
 # Clément <rousseau.clement@gmail.com>, 2011
 # Clément <rousseau.clement@gmail.com>, 2011
 # Dirk Hoffmann <Hoffmann@cppm.in2p3.fr>, 2015
+# Fabien Legrand <fab.legrand@gmail.com>, 2016
 # Fabrice Daugan <fabrice.daugan@gmail.com>, 2011
 # Groog <florentzimolo@gmail.com>, 2014
 # gobes <gobes2@gmail.com>, 2011
@@ -43,8 +44,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-08 08:56+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-09-15 20:37+0000\n"
+"Last-Translator: Fabien Legrand <fab.legrand@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1086,7 +1087,7 @@ msgid ""
 "sorts of questions that are at the heart of any <firstterm>version control "
 "system</firstterm>: systems that are designed to record and track changes to"
 " data over time."
-msgstr ""
+msgstr "Quand un client lit des données du dépôt, il voit normalement seulement la dernière version de l'arborescence des fichiers. Mais le client peut aussi voir les états <emphasis>précédents</emphasis> du système de fichiers. Par exemple, un client peut poser des questions historiques comme, <quote>que contenait ce répertoire mercredi dernier ?</quote>, ou <quote>qui sont les dernières personnes à avoir changé ce fichier et quels changements ont-elles fait ?</quote> C'est ce genre de questions qui sont au cœur de n'importe quel <firstterm>système de contrôle de version</firstterm> : des systèmes qui sont conçus pour enregistrer et suivre les changements des données au cours du temps."
 
 #. (title)
 msgid "Versioning Models"
@@ -1194,7 +1195,7 @@ msgid ""
 "merged together into a new, final version. The version control system often "
 "assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr ""
+msgstr "Subversion, CVS et les autres systèmes de contrôle de version utilisent un modèle <firstterm>copier-modifier-fusionner</firstterm> comme une alternative au verrouillage. Dans ce modèle, le client de chaque utilisateur lit le dépôt et crée une <firstterm>copie de travail</firstterm> personnelle du fichier ou du projet. Les utilisateurs travaillent alors en parallèle, modifiant leurs copies privées. Finalement, les copies privées sont fusionnées ensemble dans une version nouvelle, finale. Le système de contrôle de version aide souvent avec la fusion, mais en fin de compte un être humain est responsable pour qu'elle se produise correctement."
 
 #. (para)
 msgid ""
@@ -1328,7 +1329,7 @@ msgid ""
 "directory of your working copy. Subversion 1.7 takes a completely different "
 "approach and each working copy now has only one administrative subdirectory "
 "which is an immediate child of the root of that working copy."
-msgstr ""
+msgstr "Une copie de travail contient aussi quelques fichiers supplémentaires, créés et entretenus par Subversion, pour l'aider à effectuer ces commandes. En particulier, votre copie de travail contient un sous-répertoire nommé <filename>.svn</filename>, aussi connu comme le <firstterm>répertoire administratif</firstterm>. Les fichiers de chaque répertoire administratif aident Subversion à reconnaître quels fichiers contiennent des changements non publiés et quels fichiers sont périmés par rapport au travail des autres. Avant la version 1.7, Subversion maintenait le répertoire administratif <filename>.svn</filename>  dans chaque répertoire versionné de votre copie de travail. Subversion 1.7 adopte une approche complètement différente et chaque copie de travail a maintenant un seul répertoire administratif qui est un enfant immédiat de la racine de cette copie de travail."
 
 #. (para)
 msgid ""
@@ -1700,7 +1701,7 @@ msgstr "Pour chaque fichier dans un répertoire de travail, Subversion enregistr
 msgid ""
 "what revision your working file is based on (this is called the file's "
 "<firstterm> working revision </firstterm>), and"
-msgstr ""
+msgstr "sur quelle révision votre fichier de travail est basé (cela s'appelle la <firstterm>révision de travail</firstterm > du fichier), et"
 
 #. (para)
 msgid ""
@@ -1949,7 +1950,7 @@ msgid ""
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
 "support such use for various reasons:"
-msgstr ""
+msgstr "Au moins en théorie, il est possible d'utiliser un dépôt FSFS sur un partage réseau et d'avoir un accès multi-utilisateurs en utilisant le protocole <literal>file://</literal>, ce n'est certainement <emphasis>pas</emphasis> recommandé. En fait, nous le déconseillons <emphasis>fortement</emphasis>, et ne supportons pas un tel usage pour diverses raisons :"
 
 #. (para)
 msgid ""
@@ -2036,7 +2037,7 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 "    "
-msgstr ""
+msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n    "
 
 #. (para)
 msgid "...or by project:"
@@ -2053,7 +2054,7 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 "    "
-msgstr ""
+msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n    "
 
 #. (para)
 msgid ""
@@ -2317,7 +2318,7 @@ msgid ""
 "url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN"
 " logo</citetitle></ulink> or you can provide your own image. "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Bien sur, cela paraitra encore meilleur si vous incluez une image correcte. Vous pouvez utiliser le <ulink url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>logo TortoiseSVN</citetitle></ulink> ou vous pouvez fournir votre propre image. <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -2383,7 +2384,7 @@ msgid ""
 "Subversion book under <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
-msgstr ""
+msgstr "Des informations plus détaillées sur les options du serveur Subversion et comment choisir la meilleure architecture pour votre cas, peuvent être trouvées dans le livre Subversion sous <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Configuration du serveur</citetitle></ulink>."
 
 #. (citetitle)
 msgid "VisualSVN"
@@ -2853,7 +2854,7 @@ msgid ""
 "want to create this as a sub-folder of trunk rather than in the repository "
 "root. The repository browser shows the repository structure just like "
 "Windows explorer, so you can see how things are organised."
-msgstr ""
+msgstr "Utilisez le navigateur de dépôt pour créer un nouveau dossier de projet directement dans le dépôt. Si vous utilisez une des disposition standard, vous voudrez probablement créer cela comme un sous-dossier du tronc, plutôt qu'à la racine du dépôt. Le navigateur de dépôt montre la structure du dépôt juste comme l'explorateur Windows, afin que vous puissiez voir comment les choses sont organisés."
 
 #. (para)
 msgid ""
@@ -8961,7 +8962,7 @@ msgstr "Par beaucoup d'aspects, les fichiers en référence externe se comporten
 
 #. (title)
 msgid "Creating externals via drag and drop"
-msgstr ""
+msgstr "Création d'externe via glisser-déposer"
 
 #. (para)
 msgid ""
@@ -13684,7 +13685,7 @@ msgstr ""
 msgid ""
 "The name of the file. This is an empty string if two different files are "
 "diffed instead of two states of the same file."
-msgstr ""
+msgstr "Le nom du fichier. C'est une chaine vide si 2 fichiers différents sont comparés au lieu de deux états du même fichier."
 
 #. (para)
 msgid "The name of the file, without quotes"
@@ -13798,7 +13799,7 @@ msgstr "Le titre de la fenêtre pour le fichier dans le dépôt"
 
 #. (para)
 msgid "The window title for the file in the repository, without quotes"
-msgstr ""
+msgstr "Le titre de la fenêtre pour le fichier dans le dépôt, sans les guillemets"
 
 #. (para)
 msgid "the conflicted file, the result of the merge operation"
@@ -13810,7 +13811,7 @@ msgstr "Le titre de la fenêtre pour le fichier fusionné"
 
 #. (para)
 msgid "The window title for the merged file, without quotes"
-msgstr ""
+msgstr "Le titre de la fenêtre pour le fichier fusionné, sans les guillemets"
 
 #. (para)
 msgid "The name of the conflicted file"
@@ -14310,7 +14311,7 @@ msgstr "Appelé avant que la fenêtre de livraison ne s'affiche. Vous pouvez avo
 #. (term)
 #. (term)
 msgid "Manual Pre-commit"
-msgstr ""
+msgstr "Pre-commit manuel"
 
 #. (para)
 msgid ""
@@ -14318,11 +14319,11 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checkec files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "Si c'est specifié, la dialogue de commit montre un bouton <guibutton>Executer le hook</guibutton> qui lorsqu'il est cliqué, éxécute le script hook. Le script hook reçoit une liste de tous les fichiers et répertoires extraits et le message de commit s'il y en avait un."
 
 #. (term)
 msgid "Check-commit"
-msgstr ""
+msgstr "Vérification de la livraison"
 
 #. (para)
 msgid ""
@@ -14402,25 +14403,25 @@ msgstr "Appelé avant une tentative de communication avec le dépôt. Appelé au
 #. (term)
 #. (term)
 msgid "Pre-lock"
-msgstr ""
+msgstr "Pré-verrouillage"
 
 #. (para)
 msgid "Called before an attempt to lock a file."
-msgstr ""
+msgstr "Appelé avant une tentative de verrouillage d'un fichier."
 
 #. (term)
 #. (term)
 msgid "Post-lock"
-msgstr ""
+msgstr "Post-verrouillage"
 
 #. (para)
 msgid "Called after a file has been locked."
-msgstr ""
+msgstr "Appelé après qu'un fichier ait été verrouillé."
 
 #. (para)
 msgid ""
 "There are currently these types of hook script available <placeholder-1/>"
-msgstr ""
+msgstr "Il y a actuellement ces types de scripts hook disponibles <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -14437,7 +14438,7 @@ msgid ""
 "perl script. Note that the script must not be specified using a UNC path as "
 "Windows shell execute will not allow such scripts to run due to security "
 "restrictions."
-msgstr ""
+msgstr "Ensuite, vous devez spécifiez la ligne de commande à exécuter, en commençant par le chemin du script hook ou de l'exécutable. Cela peut être un fichier batch, un fichier exécutable ou an autre fichier qui a une association de fichier windows valide, ex. un script perl. Noter que le script ne doit pas utiliser un chemin UNC comme le Shell execute de Windows n'autorise pas l'exécution de tels scripts à cause de restrictions de sécurité.  "
 
 #. (para)
 msgid ""
@@ -14457,7 +14458,7 @@ msgstr "Un chemin d'un fichier temporaire contenant tous les chemins d'où les o
 msgid ""
 "Note that for operations done remotely, e.g. in the repository browser, "
 "those paths are not local paths but the urls of the affected items."
-msgstr ""
+msgstr "Notez que pour ces opérations faites à distance, ex. dans le navigateur de dépôt, ces chemins ne sont pas des chemins locaux mais les urls des éléments affectés."
 
 #. (para)
 msgid "The depth with which the commit/update is done."
@@ -14508,13 +14509,13 @@ msgstr "La révision du dépôt pour laquelle la mise à jour devrait être fait
 msgid ""
 "Either <literal>true</literal> when locking, or <literal>false</literal> "
 "when unlocking."
-msgstr ""
+msgstr "Soit <literal>vrai</literal> lors du verrouillage, ou <literal>faux</literal> lors du déverrouillage."
 
 #. (para)
 msgid ""
 "Either <literal>true</literal> or <literal>false</literal>, depending on "
 "whether the operation was forced or not."
-msgstr ""
+msgstr "Soit <literal>vrai</literal> ou <literal>faux</literal>, selon que l'opération soit forcée ou non."
 
 #. (para)
 msgid ""
@@ -14532,7 +14533,7 @@ msgstr "Le répertoire de travail courant dans lequel le script est exécuté. I
 msgid ""
 "A path to a temporary file which contains all the paths which were somehow "
 "touched by the operation. Each path is on a separate line in the temp file."
-msgstr ""
+msgstr "Un chemin vers un fichier temporaire qui contient tous les chemins qui ont été d'une manière modifié par cette opération. Chaque chemin est sur une ligne distincte dans le fichier temporaire."
 
 #. (para)
 msgid ""
@@ -14699,23 +14700,23 @@ msgstr "Définit combien d'espaces utiliser à la place d'une tabulation dans le
 
 #. (title)
 msgid "TortoiseUDiff Settings"
-msgstr ""
+msgstr "Réglages TortoiseUDiff"
 
 #. (title)
 msgid "The Settings Dialog, TortoiseUDiff Page"
-msgstr ""
+msgstr "La boite de dialogue de configuration, page TortoiseUDiff"
 
 #. (para)
 msgid ""
 "<placeholder-1/> The settings used by TortoiseUDiff are controlled from the "
 "main context menu, not directly with TortoiseUDiff itself."
-msgstr ""
+msgstr "<placeholder-1/> Les paramètres utilisés par TortoiseUDiff sont contrôlés à partir du menu contextuel principal, et non directement par TortoiseUDiff lui-même."
 
 #. (para)
 msgid ""
 "The default colors used by TortoiseUDiff are usually ok, but you can "
 "configure them here."
-msgstr ""
+msgstr "Les couleurs par défaut utilisés par TortoiseUDiff sont habituellement correctes, mais vous pouvez les configurer ici."
 
 #. (para)
 msgid ""
@@ -14726,7 +14727,7 @@ msgstr "Vous pouvez sélectionner la police utilisée pour afficher le texte et 
 msgid ""
 "Defines how many spaces to use for expansion when a tab character is found "
 "in the file diff."
-msgstr ""
+msgstr "Définit combien d'espaces utiliser à la place d'une tabulation dans le fichier diff."
 
 #. (title)
 msgid "Exporting TSVN Settings"
@@ -14734,7 +14735,7 @@ msgstr "Export des Paramètres de TSVN"
 
 #. (title)
 msgid "The Settings Dialog, Sync Page"
-msgstr ""
+msgstr "La boîte de dialogue Configuration, page Synchro"
 
 #. (para)
 msgid ""
@@ -15205,35 +15206,35 @@ msgstr ""
 
 #. (title)
 msgid "Project Monitor"
-msgstr ""
+msgstr "Moniteur de projet"
 
 #. (primary)
 msgid "commit monitor"
-msgstr ""
+msgstr "moniteur de livraison"
 
 #. (primary)
 msgid "project monitor"
-msgstr ""
+msgstr "moniteur de projet"
 
 #. (primary)
 msgid "remote commits"
-msgstr ""
+msgstr "livraisons distantes"
 
 #. (primary)
 msgid "monitoring projects"
-msgstr ""
+msgstr "monitoring des projets"
 
 #. (para)
 msgid ""
 "The project monitor is a helpful tool that monitors repositories and "
 "notifies you in case there are new commits."
-msgstr ""
+msgstr "Le moniteur de projet est un outil utile qui surveille les dépôts et vous notifie dans le cas où il y ai de nouvelles livraisons."
 
 #. (para)
 msgid ""
 "The projects can be monitored via a working copy path or directly via their "
 "repository URLs."
-msgstr ""
+msgstr "Les projets peuvent être surveillés via un chemin de copie de travail ou directement via leurs URLs de dépôt. "
 
 #. (para)
 msgid ""
@@ -18859,7 +18860,7 @@ msgstr "Exemple (qui doit tenir sur une seule ligne): <screen>\nTortoiseIDiff.ex
 
 #. (title)
 msgid "TortoiseUDiff Commands"
-msgstr ""
+msgstr "Commandes TortoiseUDiff"
 
 #. (para)
 msgid "The unified diff viewer has only two command line options:"
@@ -18867,11 +18868,11 @@ msgstr ""
 
 #. (entry)
 msgid "Path to the unified diff file."
-msgstr ""
+msgstr "Chemin vers le fichier diff unifié."
 
 #. (entry)
 msgid "Activates pipe mode. The unified diff is read from the console input."
-msgstr ""
+msgstr "Active le mode tuyau. Le diff unifié est lu depuis l'entrée de la console."
 
 #. (para)
 msgid ""
@@ -21051,7 +21052,7 @@ msgstr "Ctrl-F"
 
 #. (para)
 msgid "Open the Find dialog for text searches and replaces"
-msgstr ""
+msgstr "Ouvre la boîte de dialogue Rechercher pour rechercher et remplacer des textes"
 
 #. (term)
 msgid "Ctrl-O"

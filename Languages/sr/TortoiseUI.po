@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-07-18 10:25+0000\n"
+"PO-Revision-Date: 2016-09-14 08:43+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/luebbe/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -8013,6 +8013,10 @@ msgstr "Могуће вредности: 0 (потпуно транспарен�
 msgid "Post-Commit Hook"
 msgstr "Пост урезивања закачаљка"
 
+#. Resource IDs: (IDS_HOOKTYPE_POSTLOCK)
+msgid "Post-Lock Hook"
+msgstr ""
+
 #. Resource IDs: (IDS_HOOKTYPE_POSTUPDATE)
 msgid "Post-Update Hook"
 msgstr "Закачив Скрипт након обнављања"
@@ -8028,6 +8032,10 @@ msgstr "Пре урезивања закачаљка"
 #. Resource IDs: (IDS_HOOKTYPE_PRECONNECT)
 msgid "Pre-Connect Hook"
 msgstr "Пре-повезивања закачаљка"
+
+#. Resource IDs: (IDS_HOOKTYPE_PRELOCK)
+msgid "Pre-Lock Hook"
+msgstr ""
 
 #. Resource IDs: (IDS_HOOKTYPE_PREUPDATE)
 msgid "Pre-Update Hook"
@@ -12221,6 +12229,12 @@ msgid ""
 "You can disable specific Overlay handlers here.\n"
 "Disabled handlers won't use up an overlay slot and give other shell extensions a chance to show their overlays."
 msgstr "Овде можете онемогућити специфичне руковаоце прекривачима.\nОнемогућени руковаоци немогу користити слот прекривача и дати шансу другим проширењима шкољке да прикажу своје прекриваче."
+
+#. Resource IDs: (IDS_ERR_EDIT_LIMIT_REACHED)
+msgid ""
+"You can only edit one file at a time from the repository browser.\n"
+"Please finish editing a file before editing another one."
+msgstr ""
 
 #. Resource IDs: (16005)
 #, c-format
