@@ -3638,6 +3638,18 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                                 temp.Format(L"%ld", pItem->created_rev);
                                 sClipboard += temp;
                             }
+                            if (cmd == ID_FULLTOCLIPBOARD)
+                            {
+                                TCHAR date_native[SVN_DATE_BUFFER] = { 0 };
+                                if ((pItem->time == 0) && (pItem->is_external))
+                                    date_native[0] = 0;
+                                else
+                                    SVN::formatDate(date_native, (apr_time_t&)pItem->time, true);
+
+                                CString temp;
+                                temp.Format(L", %s", date_native);
+                                sClipboard += temp;
+                            }
                             sClipboard += L"\r\n";
                         }
                     }
