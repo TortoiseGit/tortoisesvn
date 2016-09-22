@@ -29,7 +29,7 @@ map { s/\.in// } @conf_files;
 
 # We hard-code the number of tests to double-check that the globbing above
 # finds all files as expected.
-plan tests => 14;  # = scalar @conf_srcs
+plan tests => 16;  # = scalar @conf_srcs
 
 # Some test results depend on the configuration of enabled protocols. We only
 # verify generated sources in the default configuration.
@@ -44,6 +44,7 @@ my $no_npn = disabled("nextprotoneg");
 my $no_ct = disabled("ct");
 my $no_ec = disabled("ec");
 my $no_ec2m = disabled("ec2m");
+my $no_ocsp = disabled("ocsp");
 
 # Add your test here if the test conf.in generates test cases and/or
 # expectations dynamically based on the OpenSSL compile-time config.
@@ -69,7 +70,9 @@ my %skip = (
   # special-casing for.
   # We should review this once we have TLS 1.3.
   "13-fragmentation.conf" => disabled("tls1_2"),
-  "14-curves.conf" => disabled("tls1_2") || $no_ec || $no_ec2m
+  "14-curves.conf" => disabled("tls1_2") || $no_ec || $no_ec2m,
+  "15-certstatus.conf" => $no_ocsp,
+  "16-dtls-certstatus.conf" => $no_dtls || $no_ocsp,
 );
 
 foreach my $conf (@conf_files) {

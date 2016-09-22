@@ -16,6 +16,8 @@
 
 # *all* Makefiles
 Makefile
+# ... except in demos
+!/demos/*/Makefile
 
 # Links under apps
 /apps/CA.pl
@@ -72,6 +74,7 @@ Makefile
 /include/openssl/opensslconf.h
 /tools/c_rehash
 /tools/c_rehash.pl
+/util/shlib_wrap.sh
 /tags
 /TAGS
 /crypto.map

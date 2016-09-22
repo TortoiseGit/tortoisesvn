@@ -542,6 +542,17 @@ static SUB_STATE_RETURN read_state_machine(SSL *s)
                 return SUB_STATE_ERROR;
             }
 
+            /* dtls_get_message already did this */
+            if (!SSL_IS_DTLS(s)
+                    && s->s3->tmp.message_size > 0
+                    && !BUF_MEM_grow_clean(s->init_buf,
+                                           (int)s->s3->tmp.message_size
+                                           + SSL3_HM_HEADER_LENGTH)) {
+                ssl3_send_alert(s, SSL3_AL_FATAL, SSL_AD_INTERNAL_ERROR);
+                SSLerr(SSL_F_READ_STATE_MACHINE, ERR_R_BUF_LIB);
+                return SUB_STATE_ERROR;
+            }
+
             st->read_state = READ_STATE_BODY;
             /* Fall through */
 
@@ -566,22 +577,24 @@ static SUB_STATE_RETURN read_state_machine(SSL *s)
             /* Discard the packet data */
             s->init_num = 0;
 
-            if (ret == MSG_PROCESS_ERROR) {
+            switch (ret) {
+            case MSG_PROCESS_ERROR:
                 return SUB_STATE_ERROR;
-            }
 
-            if (ret == MSG_PROCESS_FINISHED_READING) {
+            case MSG_PROCESS_FINISHED_READING:
                 if (SSL_IS_DTLS(s)) {
                     dtls1_stop_timer(s);
                 }
                 return SUB_STATE_FINISHED;
-            }
 
-            if (ret == MSG_PROCESS_CONTINUE_PROCESSING) {
+            case MSG_PROCESS_CONTINUE_PROCESSING:
                 st->read_state = READ_STATE_POST_PROCESS;
                 st->read_state_work = WORK_MORE_A;
-            } else {
+                break;
+
+            default:
                 st->read_state = READ_STATE_HEADER;
+                break;
             }
             break;
 

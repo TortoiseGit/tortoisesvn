@@ -775,18 +775,14 @@ dist:
 
 # Helper targets #####################################################
 
-link-utils: $(BLDDIR)/util/opensslwrap.sh $(BLDDIR)/util/shlib_wrap.sh
+link-utils: $(BLDDIR)/util/opensslwrap.sh
 
 $(BLDDIR)/util/opensslwrap.sh: configdata.pm
 	@if [ "$(SRCDIR)" != "$(BLDDIR)" ]; then \
 	    mkdir -p "$(BLDDIR)/util"; \
 	    ln -sf "../$(SRCDIR)/util/opensslwrap.sh" "$(BLDDIR)/util"; \
 	fi
-$(BLDDIR)/util/shlib_wrap.sh: configdata.pm
-	@if [ "$(SRCDIR)" != "$(BLDDIR)" ]; then \
-	    mkdir -p "$(BLDDIR)/util"; \
-	    ln -sf "../$(SRCDIR)/util/shlib_wrap.sh" "$(BLDDIR)/util"; \
-	fi
+
 FORCE:
 
 # Building targets ###################################################
@@ -797,6 +793,7 @@ libcrypto.pc:
 	    echo 'exec_prefix=$${prefix}'; \
 	    echo 'libdir=$${exec_prefix}/$(LIBDIR)'; \
 	    echo 'includedir=$${prefix}/include'; \
+	    echo 'enginesdir=$${libdir}/engines-{- $sover -}'; \
 	    echo ''; \
 	    echo 'Name: OpenSSL-libcrypto'; \
 	    echo 'Description: OpenSSL cryptography library'; \
@@ -830,7 +827,7 @@ openssl.pc:
 	    echo 'Version: '$(VERSION); \
 	    echo 'Requires: libssl libcrypto' ) > openssl.pc
 
-configdata.pm: {- $config{build_file_template} -} $(SRCDIR)/Configurations/common.tmpl $(SRCDIR)/Configure $(SRCDIR)/config {- join(" ", @{$config{build_infos}}) -}
+configdata.pm: $(SRCDIR)/Configure $(SRCDIR)/config {- join(" ", @{$config{build_file_templates}}, @{$config{build_infos}}, @{$config{conf_files}}) -}
 	@echo "Detected changed: $?"
 	@echo "Reconfiguring..."
 	$(SRCDIR)/Configure reconf
@@ -944,30 +941,11 @@ EOF
                       dso => '$(DSO_CFLAGS)',
                       bin => '$(BIN_CFLAGS)' } -> {$args{intent}};
       my $makedepprog = $config{makedepprog};
-      my $recipe = "";
-      if (!$disabled{makedepend} && $makedepprog =~ /\/makedepend/) {
-          $recipe .= <<"EOF";
-$obj$depext: $deps
-	-\$(MAKEDEPEND) -f- -o"|$obj$objext" -- $incs \$(CFLAGS) $ecflags -- $srcs \\
-	    >\$\@.tmp 2>/dev/null
-	-\$(PERL) -i -pe 's/^.*\\|//; s/ \\/(\\\\.|[^ ])*//; \$\$_ = undef if (/: *\$\$/ || /^(#.*| *)\$\$/); \$\$_.="\\n" unless !defined(\$\$_) or /\\R\$\$/g;' \$\@.tmp
-	\@if cmp \$\@.tmp \$\@ > /dev/null 2> /dev/null; then \\
-		rm -f \$\@.tmp; \\
-	else \\
-		mv \$\@.tmp \$\@; \\
-	fi
-EOF
-          $deps = $obj.$depext;
-      }
-      if ($disabled{makedepend} || $makedepprog =~ /\/makedepend/) {
-          $recipe .= <<"EOF";
+      my $recipe = <<"EOF";
 $obj$objext: $deps
-	\$(CC) $incs \$(CFLAGS) $ecflags -c -o \$\@ $srcs
 EOF
-      }
       if (!$disabled{makedepend} && $makedepprog !~ /\/makedepend/) {
           $recipe .= <<"EOF";
-$obj$objext: $deps
 	\$(CC) $incs \$(CFLAGS) $ecflags -MMD -MF $obj$depext.tmp -MT \$\@ -c -o \$\@ $srcs
 	\@touch $obj$depext.tmp
 	\@if cmp $obj$depext.tmp $obj$depext > /dev/null 2> /dev/null; then \\
@@ -976,6 +954,22 @@ $obj$objext: $deps
 		mv $obj$depext.tmp $obj$depext; \\
 	fi
 EOF
+      } else {
+          $recipe .= <<"EOF";
+	\$(CC) $incs \$(CFLAGS) $ecflags -c -o \$\@ $srcs
+EOF
+          if (!$disabled{makedepend} && $makedepprog =~ /\/makedepend/) {
+              $recipe .= <<"EOF";
+	-\$(MAKEDEPEND) -f- -o"|\$\@" -- $incs \$(CFLAGS) $ecflags -- $srcs \\
+	    >$obj$depext.tmp 2>/dev/null
+	-\$(PERL) -i -pe 's/^.*\\|//; s/ \\/(\\\\.|[^ ])*//; \$\$_ = undef if (/: *\$\$/ || /^(#.*| *)\$\$/); \$\$_.="\\n" unless !defined(\$\$_) or /\\R\$\$/g;' $obj$depext.tmp
+	\@if cmp $obj$depext.tmp $obj$depext > /dev/null 2> /dev/null; then \\
+		rm -f $obj$depext.tmp; \\
+	else \\
+		mv $obj$depext.tmp $obj$depext; \\
+	fi
+EOF
+          }
       }
       return $recipe;
   }

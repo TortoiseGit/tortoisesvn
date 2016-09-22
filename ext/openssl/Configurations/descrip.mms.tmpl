@@ -151,7 +151,7 @@ INSTALLTOP={- our $installtop =
               $installtop -}
 SYSTARTUP={- catdir($installtop, '[.SYS$STARTUP]'); -}
 # This is the standard central area to store certificates, private keys...
-OPENSSLDIR={- catdir($config{openssldir}) ||
+OPENSSLDIR={- catdir($config{openssldir}) or
               $config{prefix} ? catdir($config{prefix},"COMMON")
                               : "SYS\$COMMON:[OPENSSL-COMMON]" -}
 # The same, but for C
@@ -508,7 +508,7 @@ debug_logicals :
 
 # Building targets ###################################################
 
-configdata.pm : {- join(" ", sourcefile("Configurations", "descrip.mms.tmpl"), sourcefile("Configurations", "common.tmpl")) -} $(SRCDIR)Configure $(SRCDIR)config.com {- join(" ", @{$config{build_infos}}) -}
+configdata.pm : $(SRCDIR)Configure $(SRCDIR)config.com {- join(" ", @{$config{build_file_templates}}, @{$config{build_infos}}, @{$config{conf_files}}) -}
         @ WRITE SYS$OUTPUT "Reconfiguring..."
         perl $(SRCDIR)Configure reconf
         @ WRITE SYS$OUTPUT "*************************************************"
@@ -677,10 +677,11 @@ EOF
       # previous line's file spec as default, so if no directory spec
       # is present in the current line and the previous line has one that
       # doesn't apply, you're in for a surprise.
-      my $write_opt =
+      my $write_opt1 =
           join(",-\"\n\t", map { my $x = $_ =~ /\[/ ? $_ : "[]".$_;
                                  "WRITE OPT_FILE \"$x" } @objs).
-          "\"\n\t".
+          "\"";
+      my $write_opt2 =
           join("\n\t", map { my $x = $_ =~ /\[/ ? $_ : "[]".$_;
                              $x =~ s|(\.EXE)|$1/SHARE|;
                              $x =~ s|(\.OLB)|$1/LIB|;
@@ -690,7 +691,8 @@ EOF
 $lib.EXE : $deps
         OPEN/WRITE/SHARE=READ OPT_FILE $lib.OPT
         TYPE $engine_opt /OUTPUT=OPT_FILE:
-        $write_opt
+        $write_opt1
+        $write_opt2
         CLOSE OPT_FILE
         LINK /MAP=$lib.MAP /FULL/SHARE=$lib.EXE $lib.OPT/OPT \$(EX_LIBS)
         - PURGE $lib.EXE,$lib.OPT,$lib.MAP
@@ -723,10 +725,11 @@ EOF
       # previous line's file spec as default, so if no directory spec
       # is present in the current line and the previous line has one that
       # doesn't apply, you're in for a surprise.
-      my $write_opt =
+      my $write_opt1 =
           join(",-\"\n\t", map { my $x = $_ =~ /\[/ ? $_ : "[]".$_;
                                  "WRITE OPT_FILE \"$x" } @objs).
-          "\"\n\t".
+          "\"";
+      my $write_opt2 =
           join("\n\t", map { my $x = $_ =~ /\[/ ? $_ : "[]".$_;
                              $x =~ s|(\.EXE)|$1/SHARE|;
                              $x =~ s|(\.OLB)|$1/LIB|;
@@ -735,7 +738,8 @@ EOF
       return <<"EOF";
 $bin.EXE : $deps
         OPEN/WRITE/SHARE=READ OPT_FILE $bin.OPT
-        $write_opt
+        $write_opt1
+        $write_opt2
         CLOSE OPT_FILE
         LINK/EXEC=$bin.EXE \$(LDFLAGS) $bin.OPT/OPT \$(EX_LIBS)
         - PURGE $bin.EXE,$bin.OPT

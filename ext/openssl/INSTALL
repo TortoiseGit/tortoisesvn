@@ -479,10 +479,9 @@
   no-<alg>
                    Build without support for the specified algorithm, where
                    <alg> is one of: bf, blake2, camellia, cast, chacha, cmac,
-                   des, dh, dsa, ecdh, ecdsa, idea, md4, md5, mdc2, ocb,
-                   ploy1305, rc2, rc4, rmd160, scrypt, seed or whirlpool. The
-                   "ripemd" algorithm is deprecated and if used is synonymous
-                   with rmd160.
+                   des, dh, dsa, ecdh, ecdsa, idea, md4, mdc2, ocb, poly1305,
+                   rc2, rc4, rmd160, scrypt, seed or whirlpool. The "ripemd"
+                   algorithm is deprecated and if used is synonymous with rmd160.
 
   -Dxxx, -lxxx, -Lxxx, -fxxx, -mXXX, -Kxxx
                    These system specific options will be passed through to the
@@ -770,6 +769,13 @@
  AR
                 The name of the ar executable to use.
 
+ BUILDFILE
+                Use a different build file name than the platform default
+                ("Makefile" on Unixly platforms, "makefile" on native Windows,
+                "descrip.mms" on OpenVMS).  This requires that there is a
+                corresponding build file template.  See Configurations/README
+                for further information.
+
  CC
                 The compiler to use. Configure will attempt to pick a default
                 compiler for your platform but this choice can be overridden
@@ -786,13 +792,19 @@
 
  OPENSSL_LOCAL_CONFIG_DIR
                 OpenSSL comes with a database of information about how it
-                should be built on different platforms. This information is
-                held in ".conf" files in the Configurations directory. See the
+                should be built on different platforms as well as build file
+                templates for those platforms. The database is comprised of
+                ".conf" files in the Configurations directory.  The build
+                file templates reside there as well as ".tmpl" files. See the
                 file Configurations/README for further information about the
-                format of ".conf" files. As well as the standard ".conf" files
-                it is possible to create your own ".conf" files and store them
-                locally, outside the OpenSSL source tree. This environment
-                variable can be set to the directory where these files are held.
+                format of ".conf" files as well as information on the ".tmpl"
+                files.
+                In addition to the standard ".conf" and ".tmpl" files, it is
+                possible to create your own ".conf" and ".tmpl" files and store
+                them locally, outside the OpenSSL source tree. This environment
+                variable can be set to the directory where these files are held
+                and will have Configure to consider them in addition to the
+                standard ones.
 
  PERL
                 The name of the Perl executable to use when building OpenSSL.

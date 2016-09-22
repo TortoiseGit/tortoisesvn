@@ -100,6 +100,7 @@ B<openssl> B<s_server>
 [B<-status_verbose>]
 [B<-status_timeout nsec>]
 [B<-status_url url>]
+[B<-alpn protocols>]
 [B<-nextprotoneg protocols>]
 
 =head1 DESCRIPTION
@@ -111,8 +112,8 @@ for connections on a given port using SSL/TLS.
 
 In addition to the options below the B<s_server> utility also supports the
 common and server only options documented in the
-L<SSL_CONF_cmd(3)|SSL_CONF_cmd(3)/SUPPORTED COMMAND LINE COMMANDS> manual
-page.
+in the "Supported Command Line Commands" section of the L<SSL_CONF_cmd(3)>
+manual page.
 
 =over 4
 
@@ -471,9 +472,13 @@ Sets a fallback responder URL to use if no responder URL is present in the
 server certificate. Without this option an error is returned if the server
 certificate does not contain a responder address.
 
-=item B<-nextprotoneg protocols>
+=item B<-alpn protocols>, B<-nextprotoneg protocols>
 
-Enable Next Protocol Negotiation TLS extension and provide a
+these flags enable the 
+Enable the Application-Layer Protocol Negotiation or Next Protocol
+Negotiation extension, respectively. ALPN is the IETF standard and
+replaces NPN.
+The B<protocols> list is a
 comma-separated list of supported protocol names.
 The list should contain most wanted protocols first.
 Protocol names are printable ASCII strings, for example "http/1.1" or
@@ -553,6 +558,7 @@ unknown cipher suites a client says it supports.
 
 =head1 SEE ALSO
 
+L<SSL_CONF_cmd(3)>,
 L<sess_id(1)>, L<s_client(1)>, L<ciphers(1)>
 
 =head1 HISTORY

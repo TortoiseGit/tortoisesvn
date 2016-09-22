@@ -932,7 +932,10 @@ int s_server_main(int argc, char *argv[])
     const char *s_cert_file = TEST_CERT, *s_key_file = NULL, *s_chain_file = NULL;
     const char *s_cert_file2 = TEST_CERT2, *s_key_file2 = NULL;
     char *s_dcert_file = NULL, *s_dkey_file = NULL, *s_dchain_file = NULL;
-    int s_tlsextstatus = 0, no_resume_ephemeral = 0;
+#ifndef OPENSSL_NO_OCSP
+    int s_tlsextstatus = 0;
+#endif
+    int no_resume_ephemeral = 0;
     unsigned int split_send_fragment = 0, max_pipelines = 0;
     const char *s_serverinfo_file = NULL;
 
@@ -1206,14 +1209,20 @@ int s_server_main(int argc, char *argv[])
             s_tlsextdebug = 1;
             break;
         case OPT_STATUS:
+#ifndef OPENSSL_NO_OCSP
             s_tlsextstatus = 1;
+#endif
             break;
         case OPT_STATUS_VERBOSE:
+#ifndef OPENSSL_NO_OCSP
             s_tlsextstatus = tlscstatp.verbose = 1;
+#endif
             break;
         case OPT_STATUS_TIMEOUT:
+#ifndef OPENSSL_NO_OCSP
             s_tlsextstatus = 1;
             tlscstatp.timeout = atoi(opt_arg());
+#endif
             break;
         case OPT_STATUS_URL:
 #ifndef OPENSSL_NO_OCSP
@@ -2107,7 +2116,10 @@ static int sv_body(int s, int stype, unsigned char *context)
         SSL_set_tlsext_debug_arg(con, bio_s_out);
     }
 
-    width = s + 1;
+    if (fileno_stdin() > s)
+        width = fileno_stdin() + 1;
+    else
+        width = s + 1;
     for (;;) {
         int read_from_terminal;
         int read_from_sslcon;
@@ -2119,7 +2131,7 @@ static int sv_body(int s, int stype, unsigned char *context)
         if (!read_from_sslcon) {
             FD_ZERO(&readfds);
 #if !defined(OPENSSL_SYS_WINDOWS) && !defined(OPENSSL_SYS_MSDOS)
-            openssl_fdset(fileno(stdin), &readfds);
+            openssl_fdset(fileno_stdin(), &readfds);
 #endif
             openssl_fdset(s, &readfds);
             /*
@@ -2159,7 +2171,7 @@ static int sv_body(int s, int stype, unsigned char *context)
 
             if (i <= 0)
                 continue;
-            if (FD_ISSET(fileno(stdin), &readfds))
+            if (FD_ISSET(fileno_stdin(), &readfds))
                 read_from_terminal = 1;
 #endif
             if (FD_ISSET(s, &readfds))
@@ -2186,6 +2198,7 @@ static int sv_body(int s, int stype, unsigned char *context)
                 assert(lf_num == 0);
             } else
                 i = raw_read_stdin(buf, bufsize);
+
             if (!s_quiet && !s_brief) {
                 if ((i <= 0) || (buf[0] == 'Q')) {
                     BIO_printf(bio_s_out, "DONE\n");

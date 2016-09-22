@@ -812,7 +812,9 @@ int s_client_main(int argc, char **argv)
     int socket_family = AF_UNSPEC, socket_type = SOCK_STREAM;
     int starttls_proto = PROTO_OFF, crl_format = FORMAT_PEM, crl_download = 0;
     int write_tty, read_tty, write_ssl, read_ssl, tty_on, ssl_pending;
+#if !defined(OPENSSL_SYS_WINDOWS) && !defined(OPENSSL_SYS_MSDOS)
     int at_eof = 0;
+#endif
     int read_buf_len = 0;
     int fallback_scsv = 0;
     long randamt = 0;
@@ -854,7 +856,10 @@ int s_client_main(int argc, char **argv)
     enum { use_inet, use_unix, use_unknown } connect_type = use_unknown;
     int count4or6 = 0;
     int c_nbio = 0, c_msg = 0, c_ign_eof = 0, c_brief = 0;
-    int c_tlsextdebug = 0, c_status_req = 0;
+    int c_tlsextdebug = 0;
+#ifndef OPENSSL_NO_OCSP
+    int c_status_req = 0;
+#endif
     BIO *bio_c_msg = NULL;
 
     FD_ZERO(&readfds);
@@ -1065,7 +1070,9 @@ int s_client_main(int argc, char **argv)
             c_tlsextdebug = 1;
             break;
         case OPT_STATUS:
+#ifndef OPENSSL_NO_OCSP
             c_status_req = 1;
+#endif
             break;
         case OPT_WDEBUG:
 #ifdef WATT32
@@ -1819,7 +1826,10 @@ int s_client_main(int argc, char **argv)
     SSL_set_connect_state(con);
 
     /* ok, lets connect */
-    width = SSL_get_fd(con) + 1;
+    if (fileno_stdin() > SSL_get_fd(con))
+        width = fileno_stdin() + 1;
+    else
+        width = SSL_get_fd(con) + 1;
 
     read_tty = 1;
     write_tty = 0;
@@ -2148,9 +2158,11 @@ int s_client_main(int argc, char **argv)
                  * set the flag so we exit.
                  */
                 if (read_tty && !at_eof)
-                    openssl_fdset(fileno(stdin), &readfds);
+                    openssl_fdset(fileno_stdin(), &readfds);
+#if !defined(OPENSSL_SYS_VMS)
                 if (write_tty)
-                    openssl_fdset(fileno(stdout), &writefds);
+                    openssl_fdset(fileno_stdout(), &writefds);
+#endif
             }
             if (read_ssl)
                 openssl_fdset(SSL_get_fd(con), &readfds);
@@ -2276,11 +2288,11 @@ int s_client_main(int argc, char **argv)
                 goto shut;
             }
         }
-#if defined(OPENSSL_SYS_WINDOWS) || defined(OPENSSL_SYS_MSDOS)
+#if defined(OPENSSL_SYS_WINDOWS) || defined(OPENSSL_SYS_MSDOS) || defined(OPENSSL_SYS_VMS)
         /* Assume Windows/DOS/BeOS can always write */
         else if (!ssl_pending && write_tty)
 #else
-        else if (!ssl_pending && FD_ISSET(fileno(stdout), &writefds))
+        else if (!ssl_pending && FD_ISSET(fileno_stdout(), &writefds))
 #endif
         {
 #ifdef CHARSET_EBCDIC
@@ -2369,7 +2381,7 @@ int s_client_main(int argc, char **argv)
 #if defined(OPENSSL_SYS_MSDOS)
         else if (has_stdin_waiting())
 #else
-        else if (FD_ISSET(fileno(stdin), &readfds))
+        else if (FD_ISSET(fileno_stdin(), &readfds))
 #endif
         {
             if (crlf) {
@@ -2392,9 +2404,10 @@ int s_client_main(int argc, char **argv)
                 assert(lf_num == 0);
             } else
                 i = raw_read_stdin(cbuf, BUFSIZZ);
-
+#if !defined(OPENSSL_SYS_WINDOWS) && !defined(OPENSSL_SYS_MSDOS)
             if (i == 0)
                 at_eof = 1;
+#endif
 
             if ((!c_ign_eof) && ((i <= 0) || (cbuf[0] == 'Q' && cmdletters))) {
                 BIO_printf(bio_err, "DONE\n");

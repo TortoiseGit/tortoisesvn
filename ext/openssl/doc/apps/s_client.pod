@@ -95,6 +95,7 @@ B<openssl> B<s_client>
 [B<-rand file(s)>]
 [B<-serverinfo types>]
 [B<-status>]
+[B<-alpn protocols>]
 [B<-nextprotoneg protocols>]
 [B<-ct|noct>]
 [B<-ctlogfile>]
@@ -109,7 +110,7 @@ SSL servers.
 
 In addition to the options below the B<s_client> utility also supports the
 common and client only options documented in the
-in the L<SSL_CONF_cmd(3)|SSL_CONF_cmd(3)/SUPPORTED COMMAND LINE COMMANDS>
+in the "Supported Command Line Commands" section of the L<SSL_CONF_cmd(3)>
 manual page.
 
 =over 4
@@ -472,9 +473,13 @@ file.
 sends a certificate status request to the server (OCSP stapling). The server
 response (if any) is printed out.
 
-=item B<-nextprotoneg protocols>
+=item B<-alpn protocols>, B<-nextprotoneg protocols>
 
-enable Next Protocol Negotiation TLS extension and provide a list of
+these flags enable the 
+Enable the Application-Layer Protocol Negotiation or Next Protocol
+Negotiation extension, respectively. ALPN is the IETF standard and
+replaces NPN.
+The B<protocols> list is a
 comma-separated protocol names that the client should advertise
 support for. The list should contain most wanted protocols first.
 Protocol names are printable ASCII strings, for example "http/1.1" or
@@ -562,6 +567,7 @@ information whenever a session is renegotiated.
 
 =head1 SEE ALSO
 
+L<SSL_CONF_cmd(3)>,
 L<sess_id(1)>, L<s_server(1)>, L<ciphers(1)>
 
 =head1 HISTORY
