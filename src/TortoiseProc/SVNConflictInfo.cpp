@@ -48,8 +48,10 @@ SVNConflictOptions::~SVNConflictOptions()
 SVNConflictInfo::SVNConflictInfo()
     : m_conflict(NULL)
     , m_pool(NULL)
+    , m_infoPool(NULL)
 {
     m_pool = svn_pool_create(NULL);
+    m_infoPool = svn_pool_create(m_pool);
     svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 }
 
@@ -61,14 +63,14 @@ SVNConflictInfo::~SVNConflictInfo()
 bool SVNConflictInfo::Get(const CTSVNPath & path)
 {
     // Clear existing conflict info.
-    svn_pool_clear(m_pool);
+    svn_pool_clear(m_infoPool);
     m_conflict = NULL;
 
     SVNPool scratchpool(m_pool);
     const char* svnPath = path.GetSVNApiPath(scratchpool);
 
     SVNTRACE(
-        Err = svn_client_conflict_get(&m_conflict, svnPath, m_pctx, m_pool, scratchpool),
+        Err = svn_client_conflict_get(&m_conflict, svnPath, m_pctx, m_infoPool, scratchpool),
         svnPath
     );
 

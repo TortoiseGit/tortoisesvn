@@ -90,5 +90,6 @@ public:
 
 protected:
     apr_pool_t *m_pool;
+    apr_pool_t *m_infoPool;
     svn_client_conflict_t *m_conflict;
 };
