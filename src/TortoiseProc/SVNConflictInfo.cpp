@@ -18,6 +18,7 @@
 //
 
 #include "stdafx.h"
+#include "resource.h"
 #include "SVNConflictInfo.h"
 #include "SVNConfig.h"
 #include "SVNHelpers.h"
@@ -53,6 +54,12 @@ SVNConflictInfo::SVNConflictInfo()
     m_pool = svn_pool_create(NULL);
     m_infoPool = svn_pool_create(m_pool);
     svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
+
+    m_prompt.Init(m_pool, m_pctx);
+
+    m_pctx->cancel_func = cancelCallback;
+    m_pctx->cancel_baton = this;
+    m_pctx->client_name = SVNHelper::GetUserAgentString(m_pool);
 }
 
 SVNConflictInfo::~SVNConflictInfo()
@@ -62,6 +69,7 @@ SVNConflictInfo::~SVNConflictInfo()
 
 bool SVNConflictInfo::Get(const CTSVNPath & path)
 {
+    ClearSVNError();
     // Clear existing conflict info.
     svn_pool_clear(m_infoPool);
     m_conflict = NULL;
@@ -73,12 +81,39 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
         Err = svn_client_conflict_get(&m_conflict, svnPath, m_pctx, m_infoPool, scratchpool),
         svnPath
     );
+    if (Err != NULL)
+        return false;
 
-    return (Err == NULL);
+    m_path = path;
+
+    svn_boolean_t tree_conflicted = FALSE;
+    SVNTRACE(
+        Err = svn_client_conflict_get_conflicted(NULL, NULL, &tree_conflicted, m_conflict, scratchpool, scratchpool),
+        svnPath
+    );
+
+    if (tree_conflicted)
+    {
+        const char *incoming_change;
+        const char *local_change;
+        SVNTRACE(
+            Err = svn_client_conflict_tree_get_description(&incoming_change, &local_change, m_conflict,
+                m_pctx, scratchpool, scratchpool),
+            svnPath
+        );
+
+        if (Err != NULL)
+            return false;
+
+        m_incomingChangeSummary = CUnicodeUtils::GetUnicode(incoming_change);
+        m_localChangeSummary = CUnicodeUtils::GetUnicode(local_change);
+    }
+    return true;
 }
 
 bool SVNConflictInfo::HasTreeConflict()
 {
+    ClearSVNError();
     SVNPool scratchpool(m_pool);
 
     svn_boolean_t tree_conflicted = FALSE;
@@ -90,28 +125,9 @@ bool SVNConflictInfo::HasTreeConflict()
     return (Err == NULL) && tree_conflicted != FALSE;
 }
 
-bool SVNConflictInfo::GetTreeConflictDescription(CString & incomingChangeDescription,
-                                                 CString & localChangeDescription)
-{
-    SVNPool scratchpool(m_pool);
-    const char *incoming_change;
-    const char *local_change;
-    SVNTRACE(
-        Err = svn_client_conflict_tree_get_description(&incoming_change, &local_change, m_conflict,
-                                                       m_pctx, scratchpool, scratchpool),
-        svn_client_conflict_get_local_abspath(m_conflict)
-    );
-
-    if (Err != NULL)
-        return false;
-
-    incomingChangeDescription = CUnicodeUtils::GetUnicode(incoming_change);
-    localChangeDescription = CUnicodeUtils::GetUnicode(local_change);
-    return true;
-}
-
 bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
 {
+    ClearSVNError();
     SVNPool scratchpool(m_pool);
 
     apr_array_header_t *options;
@@ -143,4 +159,32 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
     }
 
     return true;
+}
+
+bool SVNConflictInfo::FetchTreeDetails()
+{
+    ClearSVNError();
+    SVNPool scratchpool(m_pool);
+
+    const char* svnPath = m_path.GetSVNApiPath(scratchpool);
+    SVNTRACE(
+        Err = svn_client_conflict_tree_get_details(m_conflict, m_pctx, m_infoPool),
+        svnPath
+    );
+
+    ClearCAPIAuthCacheOnError();
+
+    return (Err == NULL);
+}
+
+svn_error_t* SVNConflictInfo::cancelCallback(void *baton)
+{
+    SVNConflictInfo * pThis = (SVNConflictInfo *)baton;
+
+    if (pThis->m_pProgress && pThis->m_pProgress->HasUserCancelled())
+    {
+        CString message(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED));
+        return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(message));
+    }
+    return SVN_NO_ERROR;
 }

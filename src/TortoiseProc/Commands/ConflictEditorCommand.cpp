@@ -27,6 +27,7 @@
 #include "AppUtils.h"
 #include "EditPropConflictDlg.h"
 #include "TreeConflictEditorDlg.h"
+#include "NewTreeConflictEditorDlg.h"
 
 bool ConflictEditorCommand::Execute()
 {
@@ -34,6 +35,48 @@ bool ConflictEditorCommand::Execute()
     CTSVNPath directory = merge.GetDirectory();
     bool bRet = false;
     bool bAlternativeTool = !!parser.HasKey(L"alternative");
+
+    // Use Subversion 1.10 API to resolve possible tree conlifcts.
+    SVNConflictInfo conflict;
+    if (!conflict.Get(merge))
+    {
+        conflict.ShowErrorDialog(GetExplorerHWND());
+        return false;
+    }
+
+    // Resolve tree conflicts first.
+    if (conflict.HasTreeConflict())
+    {
+        CString incomingChangeDesc = conflict.GetIncomingChangeSummary();
+        CString localChangeDesc = conflict.GetLocalChangeSummary();
+
+        CProgressDlg progressDlg;
+        progressDlg.SetTitle(IDS_PROC_EDIT_TREE_CONFLICTS);
+        CString sProgressLine;
+        sProgressLine.LoadString(IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO);
+        progressDlg.SetLine(1, sProgressLine);
+        progressDlg.SetShowProgressBar(false);
+        progressDlg.ShowModal(GetExplorerHWND(), FALSE);
+        conflict.SetProgressDlg(&progressDlg);
+        if (!conflict.FetchTreeDetails())
+        {
+            // Ignore errors while fetching additional tree conflict information.
+            // Use still may want to resolve it manually.
+            conflict.ClearSVNError();
+        }
+        progressDlg.Stop();
+        conflict.SetProgressDlg(NULL);
+
+        CNewTreeConflictEditorDlg dlg;
+        dlg.SetConflictInfo(&conflict);
+
+        dlg.DoModal(GetExplorerHWND());
+        if (dlg.IsCancelled())
+            return false;
+
+        if (dlg.GetResult() == svn_client_conflict_option_postpone)
+            return false;
+    }
 
     // we have the conflicted file (%merged)
     // now look for the other required files

@@ -20,6 +20,9 @@
 #pragma once
 
 #include "SVNBase.h"
+#include "SVNPrompt.h"
+#include "ProgressDlg.h"
+#include "TSVNPath.h"
 
 struct svn_client_conflict_t;
 struct svn_client_conflict_option_t;
@@ -80,16 +83,28 @@ public:
     SVNConflictInfo();
     ~SVNConflictInfo();
 
+    void SetProgressDlg(CProgressDlg * dlg) { m_pProgress = dlg; }
+
     bool Get(const CTSVNPath & path);
+    CTSVNPath GetPath() const { return m_path; }
     bool HasTreeConflict();
-    bool GetTreeConflictDescription(CString & incomingChangeDescription, CString & localChangeDescription);
+
+    CString GetIncomingChangeSummary() const { return m_incomingChangeSummary; }
+    CString GetLocalChangeSummary() const { return m_localChangeSummary;  }
 
     bool GetTreeResolutionOptions(SVNConflictOptions & result);
-
     operator svn_client_conflict_t *() { return m_conflict; }
 
+    bool FetchTreeDetails();
 protected:
     apr_pool_t *m_pool;
     apr_pool_t *m_infoPool;
     svn_client_conflict_t *m_conflict;
+    CString m_incomingChangeSummary;
+    CString m_localChangeSummary;
+    CTSVNPath m_path;
+    SVNPrompt m_prompt;
+    CProgressDlg *m_pProgress;
+
+    static svn_error_t* cancelCallback(void *baton);
 };
