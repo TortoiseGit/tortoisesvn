@@ -76,6 +76,16 @@ bool ConflictEditorCommand::Execute()
 
         if (dlg.GetResult() == svn_client_conflict_option_postpone)
             return false;
+
+        // Send notififcation that status may be changed. We cannot use
+        // '/resolvemsghwnd' here because satus of multiple files may be changed
+        // during tree conflict resolution.
+        if (parser.HasVal(L"refreshmsghwnd"))
+        {
+            HWND refreshMsgWnd = (HWND)parser.GetLongLongVal(L"refreshmsghwnd");
+            UINT WM_REFRESH_STATUS_MSG = RegisterWindowMessage(L"TORTOISESVN_REFRESH_STATUS_MSG");
+            ::PostMessage(refreshMsgWnd, WM_REFRESH_STATUS_MSG, 0, 0);
+        }
     }
 
     // we have the conflicted file (%merged)

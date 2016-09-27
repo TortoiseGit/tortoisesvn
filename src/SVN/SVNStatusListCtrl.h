@@ -1041,6 +1041,7 @@ private:
     afx_msg void OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnDestroy();
     afx_msg LRESULT OnResolveMsg(WPARAM, LPARAM);
+    afx_msg LRESULT OnRefreshStatusMsg(WPARAM wParam, LPARAM);
 
 private:
     bool *                      m_pbCanceled;

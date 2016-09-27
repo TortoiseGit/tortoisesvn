@@ -71,6 +71,7 @@ const UINT CSVNStatusListCtrl::SVNSLNM_CHANGELISTCHANGED
                     = ::RegisterWindowMessage(L"SVNSLNM_CHANGELISTCHANGED");
 
 static UINT WM_RESOLVEMSG = RegisterWindowMessage(L"TORTOISESVN_RESOLVEDONE_MSG");
+static UINT WM_REFRESH_STATUS_MSG = RegisterWindowMessage(L"TORTOISESVN_REFRESH_STATUS_MSG");
 
 const static CString svnPropIgnore (SVN_PROP_IGNORE);
 const static CString svnPropGlobalIgnore (SVN_PROP_INHERITABLE_IGNORES);
@@ -298,6 +299,7 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
     ON_NOTIFY_REFLECT(LVN_BEGINDRAG, OnBeginDrag)
     ON_NOTIFY_REFLECT(LVN_ITEMCHANGING, &CSVNStatusListCtrl::OnLvnItemchanging)
     ON_REGISTERED_MESSAGE(WM_RESOLVEMSG, &CSVNStatusListCtrl::OnResolveMsg)
+    ON_REGISTERED_MESSAGE(WM_REFRESH_STATUS_MSG, &CSVNStatusListCtrl::OnRefreshStatusMsg)
 END_MESSAGE_MAP()
 
 
@@ -4590,7 +4592,8 @@ void CSVNStatusListCtrl::StartDiffOrResolve(int fileindex)
 void CSVNStatusListCtrl::StartConflictEditor(const CTSVNPath& filepath, __int64 id)
 {
     CString sCmd;
-    sCmd.Format(L"/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d", (LPCTSTR)(filepath.GetWinPath()), (__int64)GetSafeHwnd(), id);
+    sCmd.Format(L"/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d /refreshmsghwnd:%I64d",
+                (LPCTSTR)(filepath.GetWinPath()), (__int64)GetSafeHwnd(), id, (__int64)GetSafeHwnd());
     AddPropsPath(filepath, sCmd);
     CAppUtils::RunTortoiseProc(sCmd);
 }
@@ -6498,6 +6501,12 @@ LRESULT CSVNStatusListCtrl::OnResolveMsg( WPARAM wParam, LPARAM)
     bool bResort = m_bResortAfterShow;
     Show(m_dwShow, CTSVNPathList(), 0, m_bShowFolders, m_bShowFiles);
     m_bResortAfterShow = bResort;
+    return 0;
+}
+
+LRESULT CSVNStatusListCtrl::OnRefreshStatusMsg(WPARAM, LPARAM)
+{
+    SendNeedsRefresh();
     return 0;
 }
 
