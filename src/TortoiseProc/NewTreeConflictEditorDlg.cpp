@@ -180,7 +180,7 @@ void CNewTreeConflictEditorDlg::DoModal(HWND parent)
     TASKDIALOGCONFIG taskConfig = {0};
     taskConfig.cbSize = sizeof(taskConfig);
     taskConfig.hwndParent = parent;
-    taskConfig.dwFlags = TDF_USE_COMMAND_LINKS | TDF_SIZE_TO_CONTENT;
+    taskConfig.dwFlags = TDF_USE_COMMAND_LINKS;
     taskConfig.lpCallbackData = (LONG_PTR) this;
     taskConfig.pfCallback = TaskDialogCallback;
     taskConfig.pszWindowTitle = sDialogTitle;
