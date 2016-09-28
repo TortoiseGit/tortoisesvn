@@ -40,7 +40,7 @@ HRESULT CALLBACK CNewTreeConflictEditorDlg::TaskDialogCallback(HWND hWnd, UINT u
     return pThis->OnNotify(hWnd, uNotification, wParam, lParam);
 }
 
-HRESULT CNewTreeConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam)
+HRESULT CNewTreeConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM)
 {
     switch (uNotification)
     {
@@ -187,7 +187,7 @@ void CNewTreeConflictEditorDlg::DoModal(HWND parent)
     taskConfig.pszMainInstruction = sMainInstruction;
     taskConfig.pszContent = sContent;
     taskConfig.pButtons = &m_buttons.front();
-    taskConfig.cButtons = m_buttons.size();
+    taskConfig.cButtons = (int) m_buttons.size();
     taskConfig.dwCommonButtons = TDCBF_CANCEL_BUTTON;
     TaskDialogIndirect(&taskConfig, &button, NULL, NULL);
     if (button == IDCANCEL)
