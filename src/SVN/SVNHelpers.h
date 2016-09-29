@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010-2012 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010-2012, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,10 +41,10 @@ public:
     SVNPool();
     explicit SVNPool(apr_pool_t* parentPool);
     ~SVNPool();
-private:
+
     // Not implemented - we don't want any copying of these objects
-    SVNPool(const SVNPool& rhs);
-    SVNPool& operator=(SVNPool& rhs);
+    SVNPool(const SVNPool& rhs) = delete;
+    SVNPool& operator=(SVNPool& rhs) = delete;
 
 public:
     operator apr_pool_t*();
@@ -63,9 +63,8 @@ class SVNHelper
 public:
     SVNHelper(void);
     ~SVNHelper(void);
-private:
-    SVNHelper(const SVNHelper&);
-    SVNHelper& operator=(SVNHelper&);
+    SVNHelper(const SVNHelper&) = delete;
+    SVNHelper& operator=(SVNHelper&) = delete;
 
 public:
     apr_pool_t*         Pool() const { return m_pool; }

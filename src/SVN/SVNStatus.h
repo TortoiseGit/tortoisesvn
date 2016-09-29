@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2013 - TortoiseSVN
+// Copyright (C) 2003-2010, 2013, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,10 +36,9 @@
  */
 class SVNStatus : public SVNBase
 {
-private:
-    SVNStatus(const SVNStatus&);
-    SVNStatus& operator=(SVNStatus&);
 public:
+    SVNStatus(const SVNStatus&) = delete;
+    SVNStatus& operator=(SVNStatus&) = delete;
     SVNStatus(bool * pbCancelled = NULL, bool suppressUI = false);
     ~SVNStatus(void);
 

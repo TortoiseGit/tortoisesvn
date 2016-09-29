@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2011, 2013-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,10 +30,9 @@
  */
 class SVNDiff
 {
-private:
-    // private copy constructor to prevent accidental copies
-    SVNDiff(const SVNDiff& /*d*/) {}
 public:
+    // delete copy constructor to prevent accidental copies
+    SVNDiff(const SVNDiff& /*d*/) = delete;
     SVNDiff(SVN * pSVN = NULL, HWND hWnd = NULL, bool bRemoveTempFiles = false);
     ~SVNDiff(void);
 
