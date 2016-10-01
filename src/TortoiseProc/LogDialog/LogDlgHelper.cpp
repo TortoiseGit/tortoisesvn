@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,28 +28,7 @@
 CStoreSelection::CStoreSelection(CLogDlg* dlg)
 {
     m_logdlg = dlg;
-
-    int shownRows = static_cast<int>(m_logdlg->m_logEntries.GetVisibleCount());
-
-    POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
-    if (pos)
-    {
-        int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-        if ( nIndex!=-1 && nIndex < shownRows )
-        {
-            PLOGENTRYDATA pLogEntry = m_logdlg->m_logEntries.GetVisible (nIndex);
-            m_SetSelectedRevisions.auto_insert (pLogEntry->GetRevision());
-            while (pos)
-            {
-                nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
-                if ( nIndex!=-1 && nIndex < shownRows )
-                {
-                    pLogEntry = m_logdlg->m_logEntries.GetVisible (nIndex);
-                    m_SetSelectedRevisions.auto_insert(pLogEntry->GetRevision());
-                }
-            }
-        }
-    }
+    AddSelections();
 }
 
 CStoreSelection::CStoreSelection( CLogDlg* dlg, const SVNRevRangeArray& revRange )
@@ -68,20 +47,55 @@ CStoreSelection::CStoreSelection( CLogDlg* dlg, const SVNRevRangeArray& revRange
 
 CStoreSelection::~CStoreSelection()
 {
-    if ( m_SetSelectedRevisions.size()>0 )
+    RestoreSelection();
+}
+
+void CStoreSelection::ClearSelection()
+{
+    m_SetSelectedRevisions.clear();
+}
+
+void CStoreSelection::AddSelections()
+{
+    int shownRows = static_cast<int>(m_logdlg->m_logEntries.GetVisibleCount());
+
+    POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
+    if (pos)
+    {
+        int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
+        if (nIndex != -1 && nIndex < shownRows)
+        {
+            PLOGENTRYDATA pLogEntry = m_logdlg->m_logEntries.GetVisible(nIndex);
+            m_SetSelectedRevisions.auto_insert(pLogEntry->GetRevision());
+            while (pos)
+            {
+                nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
+                if (nIndex != -1 && nIndex < shownRows)
+                {
+                    pLogEntry = m_logdlg->m_logEntries.GetVisible(nIndex);
+                    m_SetSelectedRevisions.auto_insert(pLogEntry->GetRevision());
+                }
+            }
+        }
+    }
+}
+
+void CStoreSelection::RestoreSelection()
+{
+    if (m_SetSelectedRevisions.size()>0)
     {
         // inhibit UI event processing (and combined path list updates)
 
-        InterlockedExchange (&m_logdlg->m_bLogThreadRunning, TRUE);
+        InterlockedExchange(&m_logdlg->m_bLogThreadRunning, TRUE);
 
         int firstSelected = INT_MAX;
         int lastSelected = INT_MIN;
 
-        for (int i=0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
+        for (int i = 0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
         {
             auto pLogEntry = m_logdlg->m_logEntries.GetVisible(i);
             LONG nRevision = pLogEntry ? pLogEntry->GetRevision() : 0;
-            if ( m_SetSelectedRevisions.contains (nRevision) )
+            if (m_SetSelectedRevisions.contains(nRevision))
             {
                 m_logdlg->m_LogList.SetSelectionMark(i);
                 m_logdlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
@@ -90,8 +104,8 @@ CStoreSelection::~CStoreSelection()
                 // We must not call EnsureVisible here because it will scroll
                 // for a very long time if many items have been selected.
 
-                firstSelected = min (firstSelected, i);
-                lastSelected = max (lastSelected, i);
+                firstSelected = min(firstSelected, i);
+                lastSelected = max(lastSelected, i);
             }
         }
 
@@ -100,25 +114,20 @@ CStoreSelection::~CStoreSelection()
 
         if (lastSelected != INT_MIN)
         {
-            m_logdlg->m_LogList.EnsureVisible (lastSelected, FALSE);
-            m_logdlg->m_LogList.EnsureVisible (firstSelected, FALSE);
+            m_logdlg->m_LogList.EnsureVisible(lastSelected, FALSE);
+            m_logdlg->m_LogList.EnsureVisible(firstSelected, FALSE);
         }
 
         // UI updates are allowed, again
 
-        InterlockedExchange (&m_logdlg->m_bLogThreadRunning, FALSE);
+        InterlockedExchange(&m_logdlg->m_bLogThreadRunning, FALSE);
 
         // manually trigger UI processing that had been blocked before
 
-        m_logdlg->FillLogMessageCtrl (false);
+        m_logdlg->FillLogMessageCtrl(false);
         m_logdlg->UpdateLogInfoLabel();
         m_logdlg->m_LogList.Invalidate();
     }
-}
-
-void CStoreSelection::ClearSelection()
-{
-    m_SetSelectedRevisions.clear();
 }
 
 CLogCacheUtility::CLogCacheUtility

@@ -6400,14 +6400,15 @@ void CLogDlg::AutoStoreSelection()
 {
     if (m_pStoreSelection == NULL)
         m_pStoreSelection = new CStoreSelection(this);
+    else
+        m_pStoreSelection->AddSelections();
 }
 
 void CLogDlg::AutoRestoreSelection()
 {
     if (m_pStoreSelection != NULL)
     {
-        delete m_pStoreSelection;
-        m_pStoreSelection = NULL;
+        m_pStoreSelection->RestoreSelection();
 
         FillLogMessageCtrl();
         UpdateLogInfoLabel();
