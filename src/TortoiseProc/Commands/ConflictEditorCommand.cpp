@@ -47,9 +47,6 @@ bool ConflictEditorCommand::Execute()
     // Resolve tree conflicts first.
     if (conflict.HasTreeConflict())
     {
-        CString incomingChangeDesc = conflict.GetIncomingChangeSummary();
-        CString localChangeDesc = conflict.GetLocalChangeSummary();
-
         CProgressDlg progressDlg;
         progressDlg.SetTitle(IDS_PROC_EDIT_TREE_CONFLICTS);
         CString sProgressLine;
