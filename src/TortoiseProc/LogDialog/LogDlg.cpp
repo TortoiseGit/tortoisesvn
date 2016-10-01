@@ -194,7 +194,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_pNotifyWindow(NULL)
     , m_bLogThreadRunning(FALSE)
     , m_bAscending(FALSE)
-    , m_pStoreSelection(NULL)
+    , m_pStoreSelection(nullptr)
     , m_limit(0)
     , m_bIncludeMerges(FALSE)
     , m_hAccel(NULL)
@@ -288,8 +288,6 @@ CLogDlg::~CLogDlg()
     if (m_pStoreSelection)
     {
         m_pStoreSelection->ClearSelection();
-        delete m_pStoreSelection;
-        m_pStoreSelection = NULL;
     }
 }
 
@@ -432,9 +430,8 @@ void CLogDlg::SetFilter(const CString& findstr, LONG findtype, bool findregex, c
 
 void CLogDlg::SetSelectedRevRanges( const SVNRevRangeArray& revArray )
 {
-    delete m_pStoreSelection;
-    m_pStoreSelection = NULL;
-    m_pStoreSelection = new CStoreSelection(this, revArray);
+    m_pStoreSelection = nullptr;
+    m_pStoreSelection = std::make_unique<CStoreSelection>(this, revArray);
     if (revArray.GetCount() && revArray.GetLowestRevision().IsValid() && revArray.GetLowestRevision().IsNumber() && (svn_revnum_t(revArray.GetLowestRevision()) > 0))
     {
         m_bEnsureSelection = true;
@@ -1878,7 +1875,7 @@ void CLogDlg::LogThread()
     }
     m_bCancelled = false;
     InterlockedExchange(&m_bLogThreadRunning, FALSE);
-    if ( m_pStoreSelection == NULL )
+    if ( m_pStoreSelection == nullptr )
     {
         // If no selection has been set then this must be the first time
         // the revisions are shown. Let's preselect the topmost revision.
@@ -6398,15 +6395,15 @@ CString CLogDlg::GetToolTipText(int nItem, int nSubItem)
 
 void CLogDlg::AutoStoreSelection()
 {
-    if (m_pStoreSelection == NULL)
-        m_pStoreSelection = new CStoreSelection(this);
+    if (m_pStoreSelection == nullptr)
+        m_pStoreSelection = std::make_unique<CStoreSelection>(this);
     else
         m_pStoreSelection->AddSelections();
 }
 
 void CLogDlg::AutoRestoreSelection()
 {
-    if (m_pStoreSelection != NULL)
+    if (m_pStoreSelection != nullptr)
     {
         m_pStoreSelection->RestoreSelection();
 

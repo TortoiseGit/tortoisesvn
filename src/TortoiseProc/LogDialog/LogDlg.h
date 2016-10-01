@@ -538,7 +538,7 @@ private:
 
     HACCEL              m_hAccel;
 
-    CStoreSelection*    m_pStoreSelection;
+    std::unique_ptr<CStoreSelection>  m_pStoreSelection;
     bool                m_bEnsureSelection;
     CLogDataVector      m_logEntries;
     size_t              m_prevLogEntriesSize;
