@@ -681,6 +681,36 @@ bool SVN::ResolveTreeConflict(svn_client_conflict_t *conflict, svn_client_confli
     return (Err == NULL);
 }
 
+bool SVN::ResolveTextConflict(svn_client_conflict_t *conflict, svn_client_conflict_option_t *option)
+{
+    SVNPool scratchpool(m_pool);
+    Prepare();
+
+    const char* svnPath = svn_client_conflict_get_local_abspath(conflict);
+
+    SVNTRACE(
+        Err = svn_client_conflict_text_resolve(conflict, option, m_pctx, scratchpool),
+        svnPath
+    );
+
+    return (Err == NULL);
+}
+
+bool SVN::ResolvePropConflict(svn_client_conflict_t *conflict, const CString & propName, svn_client_conflict_option_t *option)
+{
+    SVNPool scratchpool(m_pool);
+    Prepare();
+
+    const char* svnPath = svn_client_conflict_get_local_abspath(conflict);
+
+    SVNTRACE(
+        Err = svn_client_conflict_prop_resolve(conflict, CUnicodeUtils::GetUTF8(propName), option, m_pctx, scratchpool),
+        svnPath
+    );
+
+    return (Err == NULL);
+}
+
 bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNRev& pegrev, const SVNRev& revision,
                  bool force, bool bIgnoreExternals, bool bIgnoreKeywords, svn_depth_t depth, HWND hWnd,
                  SVNExportType extended, const CString& eol)

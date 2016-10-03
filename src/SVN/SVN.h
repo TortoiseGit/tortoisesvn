@@ -972,6 +972,15 @@ public:
      * Resolves tree conflict.
      */
     bool ResolveTreeConflict(svn_client_conflict_t *conflict, svn_client_conflict_option_t *option);
+    /**
+     * Resolves text conflict.
+     */
+    bool ResolveTextConflict(svn_client_conflict_t * conflict, svn_client_conflict_option_t * option);
+
+    /**
+     * Resolves property conflict.
+     */
+    bool ResolvePropConflict(svn_client_conflict_t * conflict, const CString & propName, svn_client_conflict_option_t * option);
 
 protected:
     apr_pool_t *                parentpool;     ///< the main memory pool
