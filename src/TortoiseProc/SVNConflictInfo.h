@@ -86,12 +86,18 @@ public:
 
     bool Get(const CTSVNPath & path);
     CTSVNPath GetPath() const { return m_path; }
-    bool HasTreeConflict();
+    bool HasTreeConflict() const { return m_tree_conflicted != FALSE; }
+    bool HasTextConflict() const { return m_text_conflicted != FALSE; }
+    bool HasPropConflict() const { return m_prop_conflicts->nelts > 0; }
+    int GetPropConflictCount() const;
+    CString GetPropConflictName(int idx) const;
 
     CString GetIncomingChangeSummary() const { return m_incomingChangeSummary; }
     CString GetLocalChangeSummary() const { return m_localChangeSummary;  }
 
     bool GetTreeResolutionOptions(SVNConflictOptions & result);
+    bool GetTextResolutionOptions(SVNConflictOptions & result);
+    bool GetPropResolutionOptions(SVNConflictOptions & result);
     operator svn_client_conflict_t *() { return m_conflict; }
 
     bool FetchTreeDetails();
@@ -101,6 +107,9 @@ protected:
     svn_client_conflict_t *m_conflict;
     CString m_incomingChangeSummary;
     CString m_localChangeSummary;
+    svn_boolean_t m_tree_conflicted;
+    svn_boolean_t m_text_conflicted;
+    apr_array_header_t *m_prop_conflicts;
     CTSVNPath m_path;
     SVNPrompt m_prompt;
     CProgressDlg *m_pProgress;

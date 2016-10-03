@@ -50,6 +50,7 @@ SVNConflictInfo::SVNConflictInfo()
     : m_conflict(NULL)
     , m_pool(NULL)
     , m_infoPool(NULL)
+    , m_prop_conflicts(NULL)
 {
     m_pool = svn_pool_create(NULL);
     m_infoPool = svn_pool_create(m_pool);
@@ -86,13 +87,15 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
 
     m_path = path;
 
-    svn_boolean_t tree_conflicted = FALSE;
     SVNTRACE(
-        Err = svn_client_conflict_get_conflicted(NULL, NULL, &tree_conflicted, m_conflict, scratchpool, scratchpool),
+        Err = svn_client_conflict_get_conflicted(&m_text_conflicted, &m_prop_conflicts, &m_tree_conflicted, m_conflict, m_infoPool, scratchpool),
         svnPath
     );
 
-    if (tree_conflicted)
+    if (Err != NULL)
+        return false;
+
+    if (m_tree_conflicted)
     {
         const char *incoming_change;
         const char *local_change;
@@ -108,21 +111,23 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
         m_incomingChangeSummary = CUnicodeUtils::GetUnicode(incoming_change);
         m_localChangeSummary = CUnicodeUtils::GetUnicode(local_change);
     }
+
     return true;
 }
 
-bool SVNConflictInfo::HasTreeConflict()
+int SVNConflictInfo::GetPropConflictCount() const
 {
-    ClearSVNError();
-    SVNPool scratchpool(m_pool);
+    ASSERT(m_prop_conflicts);
+    return m_prop_conflicts->nelts;
+}
 
-    svn_boolean_t tree_conflicted = FALSE;
-    SVNTRACE(
-        Err = svn_client_conflict_get_conflicted(NULL, NULL, &tree_conflicted, m_conflict, scratchpool, scratchpool),
-        svn_client_conflict_get_local_abspath(m_conflict)
-    );
+CString SVNConflictInfo::GetPropConflictName(int idx) const
+{
+    ASSERT(m_prop_conflicts);
+    ASSERT(idx < m_prop_conflicts->nelts);
 
-    return (Err == NULL) && tree_conflicted != FALSE;
+    const char *propname = APR_ARRAY_IDX(m_prop_conflicts, idx, const char *);
+    return CUnicodeUtils::GetUnicode(propname);
 }
 
 bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
@@ -134,6 +139,78 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
     const char *path = svn_client_conflict_get_local_abspath(m_conflict);
     SVNTRACE(
         Err = svn_client_conflict_tree_get_resolution_options(&options, m_conflict,
+            m_pctx, result.GetPool(), scratchpool),
+        path
+    );
+
+    if (Err != NULL)
+        return false;
+
+    for (int i = 0; i < options->nelts; i++)
+    {
+        svn_client_conflict_option_t *opt = APR_ARRAY_IDX(options, i, svn_client_conflict_option_t *);
+        const char *description;
+
+        SVNTRACE(
+            Err = svn_client_conflict_option_describe(&description, opt, scratchpool, scratchpool),
+            path);
+
+        if (Err != NULL)
+            return false;
+
+        svn_client_conflict_option_id_t id = svn_client_conflict_option_get_id(opt);
+
+        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id, CUnicodeUtils::GetUnicode(description))));
+    }
+
+    return true;
+}
+
+bool SVNConflictInfo::GetTextResolutionOptions(SVNConflictOptions & result)
+{
+    ClearSVNError();
+    SVNPool scratchpool(m_pool);
+
+    apr_array_header_t *options;
+    const char *path = svn_client_conflict_get_local_abspath(m_conflict);
+    SVNTRACE(
+        Err = svn_client_conflict_text_get_resolution_options(&options, m_conflict,
+            m_pctx, result.GetPool(), scratchpool),
+        path
+    );
+
+    if (Err != NULL)
+        return false;
+
+    for (int i = 0; i < options->nelts; i++)
+    {
+        svn_client_conflict_option_t *opt = APR_ARRAY_IDX(options, i, svn_client_conflict_option_t *);
+        const char *description;
+
+        SVNTRACE(
+            Err = svn_client_conflict_option_describe(&description, opt, scratchpool, scratchpool),
+            path);
+
+        if (Err != NULL)
+            return false;
+
+        svn_client_conflict_option_id_t id = svn_client_conflict_option_get_id(opt);
+
+        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id, CUnicodeUtils::GetUnicode(description))));
+    }
+
+    return true;
+}
+
+bool SVNConflictInfo::GetPropResolutionOptions(SVNConflictOptions & result)
+{
+    ClearSVNError();
+    SVNPool scratchpool(m_pool);
+
+    apr_array_header_t *options;
+    const char *path = svn_client_conflict_get_local_abspath(m_conflict);
+    SVNTRACE(
+        Err = svn_client_conflict_prop_get_resolution_options(&options, m_conflict,
             m_pctx, result.GetPool(), scratchpool),
         path
     );
