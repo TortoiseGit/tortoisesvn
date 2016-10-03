@@ -87,9 +87,16 @@ public:
 
     bool Get(const CTSVNPath & path);
     CTSVNPath GetPath() const { return m_path; }
+    // Wrapper for svn_client_conflict_get_operation()
+    svn_wc_operation_t GetOperation() const;
+    // Wrapper for svn_client_conflict_get_incoming_change()
+    svn_wc_conflict_action_t GetIncomingChange() const;
+    // Wrapper for svn_client_conflict_get_local_change().
+    svn_wc_conflict_reason_t GetLocalChange() const;
     bool HasTreeConflict() const { return m_tree_conflicted != FALSE; }
     bool HasTextConflict() const { return m_text_conflicted != FALSE; }
     bool HasPropConflict() const { return m_prop_conflicts->nelts > 0; }
+    bool IsBinary();
     int GetPropConflictCount() const;
     CString GetPropConflictName(int idx) const;
 

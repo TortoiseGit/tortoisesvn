@@ -128,6 +128,31 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
     return true;
 }
 
+svn_wc_operation_t SVNConflictInfo::GetOperation() const
+{
+    return svn_client_conflict_get_operation(m_conflict);
+}
+
+svn_wc_conflict_action_t SVNConflictInfo::GetIncomingChange() const
+{
+    return svn_client_conflict_get_incoming_change(m_conflict);
+}
+
+svn_wc_conflict_reason_t SVNConflictInfo::GetLocalChange() const
+{
+    return svn_client_conflict_get_local_change(m_conflict);
+}
+
+bool SVNConflictInfo::IsBinary()
+{
+    const char *mime_type = svn_client_conflict_text_get_mime_type(m_conflict);
+
+    if (mime_type && svn_mime_type_is_binary(mime_type))
+        return true;
+    else
+        return false;
+}
+
 int SVNConflictInfo::GetPropConflictCount() const
 {
     ASSERT(m_prop_conflicts);
