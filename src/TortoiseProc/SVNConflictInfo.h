@@ -33,9 +33,10 @@ struct svn_client_conflict_option_t;
 */
 class SVNConflictOption
 {
-    SVNConflictOption(const SVNConflictOption&);
-    SVNConflictOption& operator=(SVNConflictOption&);
 public:
+    SVNConflictOption(const SVNConflictOption&) = delete;
+    SVNConflictOption& operator=(SVNConflictOption&) = delete;
+
     svn_client_conflict_option_id_t GetId() { return m_id; }
     CString GetDescription() { return m_description; }
     operator svn_client_conflict_option_t *() { return m_option; }
@@ -75,13 +76,11 @@ private:
 */
 class SVNConflictInfo : public SVNBase
 {
-private:
-    SVNConflictInfo(const SVNConflictInfo&);
-    SVNConflictInfo& operator=(const SVNConflictInfo&);
-
 public:
     SVNConflictInfo();
     ~SVNConflictInfo();
+    SVNConflictInfo(const SVNConflictInfo&) = delete;
+    SVNConflictInfo& operator=(const SVNConflictInfo&) = delete;
 
     void SetProgressDlg(CProgressDlg * dlg) { m_pProgress = dlg; }
 
