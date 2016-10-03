@@ -46,6 +46,19 @@ SVNConflictOptions::~SVNConflictOptions()
     svn_pool_destroy(m_pool);
 }
 
+SVNConflictOption * SVNConflictOptions::FindOptionById(svn_client_conflict_option_id_t id)
+{
+    for (std::unique_ptr<SVNConflictOption> & opt : *this)
+    {
+        if (opt->GetId() == id)
+        {
+            return opt.get();
+        }
+    }
+
+    return NULL;
+}
+
 SVNConflictInfo::SVNConflictInfo()
     : m_conflict(NULL)
     , m_pool(NULL)

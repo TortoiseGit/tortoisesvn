@@ -65,6 +65,7 @@ public:
     ~SVNConflictOptions();
 
     apr_pool_t *GetPool() { return m_pool; }
+    SVNConflictOption * FindOptionById(svn_client_conflict_option_id_t id);
 
 private:
     apr_pool_t *m_pool;
