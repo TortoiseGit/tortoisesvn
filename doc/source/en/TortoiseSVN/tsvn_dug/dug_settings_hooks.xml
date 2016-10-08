@@ -190,6 +190,16 @@
         </listitem>
       </varlistentry>
       <varlistentry>
+        <term>Check-commit</term>
+        <listitem condition="pot">
+          <para>
+            <literal>PATH</literal>
+            <literal>MESSAGEFILE</literal>
+            <literal>CWD</literal>
+          </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
         <term>Pre-commit</term>
         <listitem condition="pot">
           <para>
