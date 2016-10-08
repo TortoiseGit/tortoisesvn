@@ -151,6 +151,7 @@ private:
     ISpellCheckerFactoryPtr     m_spellCheckerFactory;
     ISpellCheckerPtr            m_SpellChecker;
     LruCache<std::wstring, BOOL> m_SpellingCache;
+    bool        m_blockModifiedHandler;
 
     static bool IsValidURLChar(unsigned char ch);
 protected:

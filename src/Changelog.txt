@@ -25,6 +25,8 @@ Version 1.9.5
 - BUG: When deleting multiple files with unversioned files
        mixed in, the "do this for all unversioned/modified files"
        still showed a lot of error messages for unversioned files. (Stefan)
+- BUG: "Split lines" in the commit dialog with a log width marker set
+       lead to memory exhaustion. (Stefan)
 
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
