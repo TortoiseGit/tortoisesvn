@@ -6204,7 +6204,8 @@ void CSVNStatusListCtrl::OnRepairMove()
     // fix this by moving entry2 back to entry1 first,
     // then do an svn-move from entry1 to entry2
     CPathUtils::MakeSureDirectoryPathExists(entry1->GetPath().GetContainingDirectory().GetWinPath());
-    entry1->GetPath().Delete(true);
+    if (!entry1->GetPath().IsEquivalentToWithoutCase(entry2->GetPath()))
+        entry1->GetPath().Delete(true);
     if (!MoveFileEx(entry2->GetPath().GetWinPath(), entry1->GetPath().GetWinPath(), MOVEFILE_REPLACE_EXISTING))
     {
         // if entry2 existed before, the flag is still in the CTSVNPath object.
