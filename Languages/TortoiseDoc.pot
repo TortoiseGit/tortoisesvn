@@ -8952,6 +8952,7 @@ msgid "If this is specified, the commit dialog shows a button <guibutton>Run Hoo
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Check-commit"
 msgstr ""
 
@@ -11805,6 +11806,11 @@ msgid "Reverts local modifications of a working copy. The <placeholder-1/> tells
 msgstr ""
 
 #. (option)
+#. (option)
+msgid "/cleanup"
+msgstr ""
+
+#. (option)
 msgid "/noui"
 msgstr ""
 
@@ -11817,7 +11823,7 @@ msgid "/nodlg"
 msgstr ""
 
 #. (option)
-msgid "/cleanup"
+msgid "/breaklocks"
 msgstr ""
 
 #. (option)
@@ -11849,7 +11855,7 @@ msgid "/vacuum"
 msgstr ""
 
 #. (entry)
-msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message). <placeholder-3/> also disables the progress dialog. <placeholder-4/> disables showing the cleanup dialog where the user can choose what exactly should be done in the cleanup. The available actions can be specified with the options <placeholder-5/> for status cleanup, <placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, <placeholder-10/>, <placeholder-11/> and <placeholder-12/>."
+msgid "Cleans up interrupted or aborted operations and unlocks the working copy in <placeholder-1/>. You also have to pass the <placeholder-2/> to actually do the cleanup. Use <placeholder-3/> to prevent the result dialog from popping up (either telling about the cleanup being finished or showing an error message). <placeholder-4/> also disables the progress dialog. <placeholder-5/> disables showing the cleanup dialog where the user can choose what exactly should be done in the cleanup. The available actions can be specified with the options <placeholder-6/> for status cleanup, <placeholder-7/> to break all locks, <placeholder-8/> to revert uncommitted changes, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, <placeholder-12/>, <placeholder-13/> and <placeholder-14/>."
 msgstr ""
 
 #. (option)
