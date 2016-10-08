@@ -385,6 +385,8 @@ Don't touch these lines:
               <entry>
                 Cleans up interrupted or aborted operations and
                 unlocks the working copy in <option>/path</option>.
+                You also have to pass the <option>/cleanup</option> to
+                actually do the cleanup.
                 Use <option>/noui</option> to prevent the result
                 dialog from popping up (either telling about
                 the cleanup being finished or showing an error message).
@@ -393,8 +395,8 @@ Don't touch these lines:
                 showing the cleanup dialog where the user can
                 choose what exactly should be done in the cleanup.
                 The available actions can be specified with the
-                options <option>/cleanup</option> for status cleanup,
-                <option>/revert</option>, <option>/delunversioned</option>,
+                options <option>/cleanup</option> for status cleanup, <option>/breaklocks</option>
+                to break all locks, <option>/revert</option> to revert uncommitted changes, <option>/delunversioned</option>,
                 <option>/delignored</option>, <option>/refreshshell</option>,
                 <option>/externals</option>, <option>/fixtimestamps</option>
                 and <option>/vacuum</option>.
