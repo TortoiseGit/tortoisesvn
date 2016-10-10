@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-08 08:56+0000\n"
+"PO-Revision-Date: 2016-10-08 09:46+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -14300,6 +14300,7 @@ msgid ""
 msgstr "これが指定されると、コミットダイアログに<guibutton>フックを実行</guibutton>ボタンが表示され、クリックすると定義されたフックスクリプトが実行されるようになります。フックスクリプトはチェックされたファイルやフォルダーすべての一覧と、入力されていればコミットメッセージを受け取ります。"
 
 #. (term)
+#. (term)
 msgid "Check-commit"
 msgstr "Check-commit"
 
@@ -18169,6 +18170,11 @@ msgid ""
 msgstr "作業コピーで行った変更を取り消します。 <placeholder-1/> で取り消す項目を指定します。"
 
 #. (option)
+#. (option)
+msgid "/cleanup"
+msgstr "/cleanup"
+
+#. (option)
 msgid "/noui"
 msgstr "/noui"
 
@@ -18181,8 +18187,8 @@ msgid "/nodlg"
 msgstr "/nodlg"
 
 #. (option)
-msgid "/cleanup"
-msgstr "/cleanup"
+msgid "/breaklocks"
+msgstr ""
 
 #. (option)
 msgid "/revert"
@@ -18215,15 +18221,17 @@ msgstr "/vacuum"
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
-"<placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from "
-"popping up (either telling about the cleanup being finished or showing an "
-"error message). <placeholder-3/> also disables the progress dialog. "
-"<placeholder-4/> disables showing the cleanup dialog where the user can "
+"<placeholder-1/>. You also have to pass the <placeholder-2/> to actually do "
+"the cleanup. Use <placeholder-3/> to prevent the result dialog from popping "
+"up (either telling about the cleanup being finished or showing an error "
+"message). <placeholder-4/> also disables the progress dialog. "
+"<placeholder-5/> disables showing the cleanup dialog where the user can "
 "choose what exactly should be done in the cleanup. The available actions can"
-" be specified with the options <placeholder-5/> for status cleanup, "
-"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, "
-"<placeholder-10/>, <placeholder-11/> and <placeholder-12/>."
-msgstr "<placeholder-1/> で指定された作業コピーの、中断されたり失敗したりした操作をクリーンアップし、作業コピーのロックを解除します。 <placeholder-2/> を指定すると、（クリーンアップの終了を通知したりエラーを表示したりする）ポップアップダイアログを抑制します。 <placeholder-3/> を指定すると、進行状況ダイアログの表示も抑制します。 <placeholder-4/> を指定すると、ユーザーがクリーンアップ処理の内容を選択するためのダイアログを表示しません。クリーンアップ時の動作は、 <placeholder-5/>、 <placeholder-6/>、 <placeholder-7/>、 <placeholder-8/>、 <placeholder-9/>、 <placeholder-10/>、 <placeholder-11/>、 <placeholder-12/> で指定することができます。"
+" be specified with the options <placeholder-6/> for status cleanup, "
+"<placeholder-7/> to break all locks, <placeholder-8/> to revert uncommitted "
+"changes, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, "
+"<placeholder-12/>, <placeholder-13/> and <placeholder-14/>."
+msgstr ""
 
 #. (option)
 #. (option)

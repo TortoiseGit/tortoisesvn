@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-14 08:43+0000\n"
+"PO-Revision-Date: 2016-10-08 10:01+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/luebbe/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -496,13 +496,13 @@ msgstr "&Δυαδικό"
 msgid "&Blame changes"
 msgstr "&Αλλαγές στην υπαιτιότητα"
 
+#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
+msgid "&Blame changes in revisions"
+msgstr ""
+
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
 msgstr "&Απόδοση υπαιτιότητας στην προηγούμενη έκδοση"
-
-#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
-msgid "&Blame revisions"
-msgstr "&Απόδοση υπαιτιότητας της έκδοσης"
 
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
@@ -4578,7 +4578,8 @@ msgstr "Επεξεργασία Ιδιοτήτων"
 msgid "Edit Property Conflict"
 msgstr "Επεξεργασία διένεξης ιδιότητας"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298)
+#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
+#. IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "Επεξεργασία διένεξης δένδρου"
 
@@ -5109,6 +5110,10 @@ msgstr "Ανάκτηση της έκδοσης %ls του αρχείου:"
 #. Resource IDs: (IDS_PROC_CLEANUP_INFOFETCHSTATUS)
 #, c-format
 msgid "Fetching status of %1!ls!"
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
+msgid "Fetching tree conflict information..."
 msgstr ""
 
 #. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)

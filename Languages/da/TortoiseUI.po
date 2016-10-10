@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-14 08:43+0000\n"
+"PO-Revision-Date: 2016-10-08 10:01+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/luebbe/tortoisesvn/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -498,13 +498,13 @@ msgstr "&Binært"
 msgid "&Blame changes"
 msgstr "&Angiv ansvar for ændringer"
 
+#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
+msgid "&Blame changes in revisions"
+msgstr ""
+
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
 msgstr "&Ansvar for forrige revision"
-
-#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
-msgid "&Blame revisions"
-msgstr "&Angiv ansvar for revisioner"
 
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
@@ -4580,7 +4580,8 @@ msgstr "Rediger egenskaber"
 msgid "Edit Property Conflict"
 msgstr "Håndter egenskabs-konflikter"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298)
+#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
+#. IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "Håndter træ-konflikter"
 
@@ -5112,6 +5113,10 @@ msgstr "Henter revision %ls af filen:"
 #, c-format
 msgid "Fetching status of %1!ls!"
 msgstr "Henter status for %1!ls!"
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
+msgid "Fetching tree conflict information..."
+msgstr ""
 
 #. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"

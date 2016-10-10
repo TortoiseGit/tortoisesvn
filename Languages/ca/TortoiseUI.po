@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-14 09:26+0000\n"
+"PO-Revision-Date: 2016-10-08 20:37+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -499,13 +499,13 @@ msgstr "&Binari"
 msgid "&Blame changes"
 msgstr "&Estableix l'autoria dels canvis"
 
+#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
+msgid "&Blame changes in revisions"
+msgstr "&Mostra l'autoria dels canvis a les revisions"
+
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
 msgstr "&Mostra l'autoria de la revisió prèvia"
-
-#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
-msgid "&Blame revisions"
-msgstr "&Mostra l'autoria de les revisions"
 
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
@@ -4581,7 +4581,8 @@ msgstr "Edita propietats"
 msgid "Edit Property Conflict"
 msgstr "Edita conflicte de propietat"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298)
+#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
+#. IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "Edita conflictes d'arbre"
 
@@ -5113,6 +5114,10 @@ msgstr "Obtenint revisió %ls de fitxer:"
 #, c-format
 msgid "Fetching status of %1!ls!"
 msgstr "Obtenint estat de %1!ls!"
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
+msgid "Fetching tree conflict information..."
+msgstr "Obtenint informació del conflicte d'arbre..."
 
 #. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"

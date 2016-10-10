@@ -11,14 +11,15 @@
 # Authors:
 # Translators:
 # Nachshon Armon <nachshon.armon@gmail.com>, 2013
+# shimshon Fishler <shimshon.fishler@gmail.com>, 2016
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-14 08:43+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2016-10-08 11:25+0000\n"
+"Last-Translator: shimshon Fishler <shimshon.fishler@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/luebbe/tortoisesvn/language/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -418,7 +419,7 @@ msgstr "הו&ספה >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
-msgstr ""
+msgstr "הוסף סינון"
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -495,13 +496,13 @@ msgstr "&בינרי"
 msgid "&Blame changes"
 msgstr "&אשמה בשינויים"
 
+#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
+msgid "&Blame changes in revisions"
+msgstr ""
+
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
 msgstr "הא&שמת המהדורה הקודמת"
-
-#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
-msgid "&Blame revisions"
-msgstr "ה&אשמת המהדורות"
 
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
@@ -583,7 +584,7 @@ msgstr "&פינוי..."
 
 #. Resource IDs: (Dialog IDD_REVERT: Control id 1562)
 msgid "&Clear Changelists"
-msgstr ""
+msgstr "נקה רשימת שינויים"
 
 #. Resource IDs: (58112, Dialog IDD_CHECKFORUPDATES: Control id 1, IDS_CLOSE)
 msgid "&Close"
@@ -743,7 +744,7 @@ msgstr "עריכת הת&נגשויות"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITOREDIT)
 msgid "&Edit project"
-msgstr ""
+msgstr "ערוך פרויקט"
 
 #. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
@@ -807,7 +808,7 @@ msgstr "&חיפוש"
 
 #. Resource IDs: (ID_EDIT_FIND - Menu)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "חיפוש (Ctrl+F)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
@@ -887,7 +888,7 @@ msgstr "ע&זרה"
 
 #. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
-msgstr ""
+msgstr "נושאי עזרה"
 
 #. Resource IDs: (17042, 61457)
 msgid "&Hide"
@@ -4577,7 +4578,8 @@ msgstr ""
 msgid "Edit Property Conflict"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298)
+#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
+#. IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr ""
 
@@ -5108,6 +5110,10 @@ msgstr ""
 #. Resource IDs: (IDS_PROC_CLEANUP_INFOFETCHSTATUS)
 #, c-format
 msgid "Fetching status of %1!ls!"
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
+msgid "Fetching tree conflict information..."
 msgstr ""
 
 #. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)

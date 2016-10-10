@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-14 08:43+0000\n"
+"PO-Revision-Date: 2016-10-08 10:01+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -131,7 +131,7 @@ msgstr "%1!ls! in %2!ls!"
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALANDSPEED)
 #, c-format
 msgid "%1!ls!, %2!ls!"
-msgstr ""
+msgstr "%1!ls!, %2!ls!"
 
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME)
 #, c-format
@@ -504,13 +504,13 @@ msgstr "&Binair"
 msgid "&Blame changes"
 msgstr "&Verklaar wijzigingen"
 
+#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
+msgid "&Blame changes in revisions"
+msgstr ""
+
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
 msgstr "Ver&klaar vorige revisie"
-
-#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
-msgid "&Blame revisions"
-msgstr "Ver&klaar revisies"
 
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
@@ -534,7 +534,7 @@ msgstr "&Takken"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
 msgid "&Break write locks"
-msgstr ""
+msgstr "Ver&breek schrijf beveiliging"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -862,7 +862,7 @@ msgstr "Bron &start: (begin URL en revisie van het samen te voegen bereik)"
 
 #. Resource IDs: (ID_EDIT_GOTOLINE - Menu)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr ""
+msgstr "&Ga Naar Regel..\t(Ctrl+G)"
 
 #. Resource IDs: (65535)
 msgid "&Green:"
@@ -925,7 +925,7 @@ msgstr "&Negeren en doorgaan"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
 msgid "&Ignore multiple items by name"
-msgstr ""
+msgstr "Meerdere &items negeren op naam"
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -2447,7 +2447,7 @@ msgstr "Automatisch aanvullen stelt woorden voor (meestal class of member namen)
 #. Resource IDs: (IDS_PROGRS_CMD_MERGEAUTOMATIC)
 #, c-format
 msgid "Auto-merge %1!ls! into %2!ls!"
-msgstr ""
+msgstr "Automatisch-samenvoegen van %1!ls! in %2!ls!"
 
 #. Resource IDs: (IDS_COLOURPICKER_DEFAULTTEXT)
 msgid "Automatic"
@@ -2618,7 +2618,7 @@ msgstr "&Commando's:"
 
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
-msgstr ""
+msgstr "Url inh&oud vergelijken (alleen inhoud)"
 
 #. Resource IDs: (IDS_LOG_POPUP_COPY)
 msgid "C&reate branch/tag from revision"
@@ -3591,7 +3591,7 @@ msgstr "Gekopiëerd van: %1!ls!@%2!ld!\r\n"
 
 #. Resource IDs: (IDS_MENUDESCCOPYURL)
 msgid "Copies the URLs of all selected items to the clipboard"
-msgstr ""
+msgstr "Kopieert de URLs van alle geselecteerde items naar het klembord"
 
 #. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
 msgid "Copy"
@@ -3638,7 +3638,7 @@ msgstr "URL naar klembord kopiëren"
 msgid ""
 "Copy and add\n"
 "The file is copied to the destination and added to version control."
-msgstr ""
+msgstr "Kopiëren en toevoegen\nHet bestand wordt naar de doellocatie gekopieerd en wordt toegevoegd aan versie beheer."
 
 #. Resource IDs: (IDS_PROC_COPYRENAME)
 msgid "Copy and rename"
@@ -3688,7 +3688,7 @@ msgstr "Kopie: Nieuwe naam voor %ls"
 msgid ""
 "Copy\n"
 "The file is copied to the destination and left unversioned."
-msgstr ""
+msgstr "Kopieer\nHet bestand is naar doellocatie gekopieerd en niet toegevoegd aan versiebeheer."
 
 #. Resource IDs: (IDS_PROC_COPYINGPROG)
 #, c-format
@@ -3697,7 +3697,7 @@ msgstr "%1!ls! wordt gekopieerd"
 
 #. Resource IDs: (IDS_SVNACTION_COPYREMOTE)
 msgid "Copying from foreign repository URL"
-msgstr ""
+msgstr "Kopieren vanaf externe repository URL"
 
 #. Resource IDs: (IDS_PROC_COPYING)
 msgid "Copying..."
@@ -4586,7 +4586,8 @@ msgstr "Eigenschappen wijzigen"
 msgid "Edit Property Conflict"
 msgstr "Bewerk eigenschappen conflict"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298)
+#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
+#. IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "Bewerk boomconflicten"
 
@@ -5099,11 +5100,11 @@ msgstr "Haalt inhoud van mappen op in de achtergrond voor sneller navigeren"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_GETDATA2)
 msgid "Fetching file list of source"
-msgstr ""
+msgstr "Bestandslijst van bron ophalen"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_GETDATA1)
 msgid "Fetching file list of target"
-msgstr ""
+msgstr "Bestandslijst van doel ophalen"
 
 #. Resource IDs: (IDS_GETVERSIONOFFILETITLE)
 msgid "Fetching file..."
@@ -5118,6 +5119,10 @@ msgstr "Revisie %ls van bestand ophalen:"
 #, c-format
 msgid "Fetching status of %1!ls!"
 msgstr "Status van %1!ls! wordt opgehaald"
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
+msgid "Fetching tree conflict information..."
+msgstr ""
 
 #. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
@@ -6094,7 +6099,7 @@ msgstr "Negeer &regeleinden (aanbevolen)"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
 msgid "Ignore multiple items by &extension"
-msgstr ""
+msgstr "Meerdere items negeren op basis van &extensie "
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
@@ -6238,7 +6243,7 @@ msgstr "Genegeerde bestanden meenemen"
 
 #. Resource IDs: (IDS_SYNC_INCLUDELOCAL)
 msgid "Include local settings"
-msgstr ""
+msgstr "Lokale instellingen meenemen"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1126)
 msgid "Include merged revisions"
@@ -6634,7 +6639,7 @@ msgstr "Bestanden blokkeren"
 
 #. Resource IDs: (IDS_SVNACTION_BROKENLOCKED)
 msgid "Lock broken"
-msgstr ""
+msgstr "Blokkade verbroken"
 
 #. Resource IDs: (IDS_STATUSLIST_LOCKBROKEN)
 msgid "Lock broken!"
@@ -7738,7 +7743,7 @@ msgstr "Opties"
 
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
-msgstr ""
+msgstr "Ori&gineel formaat\t(S)"
 
 #. Resource IDs: (17024)
 msgid "Other Task Panes"
@@ -8798,7 +8803,7 @@ msgstr "Vervangen:"
 #. Resource IDs: (IDS_FIND_REPLACED)
 #, c-format
 msgid "Replaced %d matches"
-msgstr ""
+msgstr "%d overeenkomsten vervangen"
 
 #. Resource IDs: (IDS_SVNACTION_REPLACED)
 msgid "Replacing"
@@ -9294,7 +9299,7 @@ msgstr ""
 msgid ""
 "Save all\n"
 "Both Files are saved"
-msgstr ""
+msgstr "Alles opslaan\nBeide bestanden worden opgeslagen"
 
 #. Resource IDs: (IDS_MARKEDBLOCKSSAVEEXCLUDE)
 msgid ""
@@ -11432,7 +11437,7 @@ msgstr "Boom samenvoegen"
 
 #. Resource IDs: (IDS_EDIT_TRIM)
 msgid "Trim right"
-msgstr ""
+msgstr "Rechts trimmen"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Trunk nodes"
@@ -11625,7 +11630,7 @@ msgstr "Blokkade opgeheven"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_UNMARKBLOCK)
 msgid "Unmark this change"
-msgstr ""
+msgstr "Demarkeer deze wijziging"
 
 #. Resource IDs: (IDS_EDITPROPS_ERRIMPORTFORMAT)
 msgid "Unrecognized or invalid property file format!"
@@ -11693,7 +11698,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK2)
 msgid "Update externals"
-msgstr ""
+msgstr "Externen bijwerken"
 
 #. Resource IDs: (IDS_WARN_LOCKOUTDATED_TASK3)
 msgid ""
@@ -11749,7 +11754,7 @@ msgstr "Log cache wordt bijgewerkt"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Werkkopie opwaarderen naar\nhet nieuwe 1.8 formaat."
 
 #. Resource IDs: (IDS_MENUUPGRADE, IDS_PROC_UPGRADE,
 #. IDS_PROC_UPGRADECONFIRMATION_TASK2)
@@ -11813,7 +11818,7 @@ msgstr "Gebruik Aero vensters"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1066)
 msgid "Use Ribbons"
-msgstr ""
+msgstr "Lint gebruiken"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
@@ -12159,7 +12164,7 @@ msgstr "Toont een dialoog om een boodschap over de blokkade op te\ngeven bij het
 
 #. Resource IDs: (IDS_TEXTIDENTICAL_WHITESPACE)
 msgid "Whitespace changes (tabs, spaces)"
-msgstr ""
+msgstr "Witruimte wijzigingen (tabs, spaties)"
 
 #. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
 #. 65535)
@@ -12677,7 +12682,7 @@ msgstr "Haal HEAD revisie:"
 
 #. Resource IDs: (IDS_EDITPROPS_PROG_FINDHEADROOTS)
 msgid "get repository root URLs:"
-msgstr ""
+msgstr "repository root URLs ophalen:"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1005)
 msgid "http://tortoisesvn.net"
@@ -12705,7 +12710,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_MISSING)
 msgid "it does not exist (missing or moved away?)."
-msgstr ""
+msgstr "Het bestaat niet (missend of verplaatst?)."
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_DELETED)
 msgid "it is already deleted."
@@ -12855,7 +12860,7 @@ msgstr "token paren:"
 
 #. Resource IDs: (IDS_STATE_PATCHED)
 msgid "patched"
-msgstr ""
+msgstr "bijgewerkt"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "path elements: "

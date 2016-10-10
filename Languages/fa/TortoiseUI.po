@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-14 08:43+0000\n"
+"PO-Revision-Date: 2016-10-08 10:01+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Persian (http://www.transifex.com/luebbe/tortoisesvn/language/fa/)\n"
 "MIME-Version: 1.0\n"
@@ -499,13 +499,13 @@ msgstr "&دودویی"
 msgid "&Blame changes"
 msgstr "&مقصریابی تغییرات"
 
+#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
+msgid "&Blame changes in revisions"
+msgstr ""
+
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
 msgstr "&با اصلاحیهٔ قبلی مقایسه کنید"
-
-#. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
-msgid "&Blame revisions"
-msgstr "&مقصریابی اصلاحیه‌ها"
 
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
@@ -4581,7 +4581,8 @@ msgstr "ویرایش خصوصیات"
 msgid "Edit Property Conflict"
 msgstr "ویرایش تضاد در خصوصیت"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298)
+#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
+#. IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "ویرایش تضاد شاخه"
 
@@ -5113,6 +5114,10 @@ msgstr "در حال دریافت اصلاحیه %ls از فایل:"
 #, c-format
 msgid "Fetching status of %1!ls!"
 msgstr "در حال دریافت وضعیت %1!ls!"
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
+msgid "Fetching tree conflict information..."
+msgstr ""
 
 #. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"

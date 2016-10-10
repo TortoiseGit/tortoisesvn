@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-12 08:57+0000\n"
+"PO-Revision-Date: 2016-10-08 09:46+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -14307,6 +14307,7 @@ msgid ""
 msgstr "Wenn dieser Wert ausgefüllt ist, zeigt der Übertragen-Dialog eine <guibutton>Aktionsskript ausführen</guibutton> Schaltfläche, mit der Sie die angegebene Aktion starten können. Das Aktionsskript erhält eine Liste aller markierten Dateien und Ordner sowie die Logmeldung, falls eine angegeben wurde."
 
 #. (term)
+#. (term)
 msgid "Check-commit"
 msgstr "Übertragung prüfen"
 
@@ -18176,6 +18177,11 @@ msgid ""
 msgstr "Macht lokale Änderungen in der Arbeitskopie rückgängig. Der <placeholder-1/> gibt die Objekte an."
 
 #. (option)
+#. (option)
+msgid "/cleanup"
+msgstr "/cleanup"
+
+#. (option)
 msgid "/noui"
 msgstr "/noui"
 
@@ -18188,8 +18194,8 @@ msgid "/nodlg"
 msgstr "/nodlg"
 
 #. (option)
-msgid "/cleanup"
-msgstr "/cleanup"
+msgid "/breaklocks"
+msgstr ""
 
 #. (option)
 msgid "/revert"
@@ -18222,15 +18228,17 @@ msgstr "/vacuum"
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
-"<placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from "
-"popping up (either telling about the cleanup being finished or showing an "
-"error message). <placeholder-3/> also disables the progress dialog. "
-"<placeholder-4/> disables showing the cleanup dialog where the user can "
+"<placeholder-1/>. You also have to pass the <placeholder-2/> to actually do "
+"the cleanup. Use <placeholder-3/> to prevent the result dialog from popping "
+"up (either telling about the cleanup being finished or showing an error "
+"message). <placeholder-4/> also disables the progress dialog. "
+"<placeholder-5/> disables showing the cleanup dialog where the user can "
 "choose what exactly should be done in the cleanup. The available actions can"
-" be specified with the options <placeholder-5/> for status cleanup, "
-"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, "
-"<placeholder-10/>, <placeholder-11/> and <placeholder-12/>."
-msgstr "Bereinigt die Arbeitskopie in <placeholder-1/> nach unterbrochenen oder abgebrochenen Operationen wieder auf und entsperrt sie. Mittels <placeholder-2/> sorgen Sie dafür, dass der Ergebnisdialog, der entweder eine Fehlermeldung oder den Erfolg des Bereinigens anzeigt, nicht angezeigt wird. <placeholder-3/> deaktiviert darüber hinaus den Fortschrittsdialog. <placeholder-4/> den Dialog, in dem der Anwender wählen kann, was genau bereinigt werden soll. Die verfügbaren Optionen können mittels <placeholder-5/> zum Bereinigen, <placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, <placeholder-10/>, <placeholder-11/> und <placeholder-12/> übergeben werden."
+" be specified with the options <placeholder-6/> for status cleanup, "
+"<placeholder-7/> to break all locks, <placeholder-8/> to revert uncommitted "
+"changes, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, "
+"<placeholder-12/>, <placeholder-13/> and <placeholder-14/>."
+msgstr ""
 
 #. (option)
 #. (option)

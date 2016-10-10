@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-08 08:56+0000\n"
+"PO-Revision-Date: 2016-10-08 09:46+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/luebbe/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -14303,6 +14303,7 @@ msgid ""
 msgstr ""
 
 #. (term)
+#. (term)
 msgid "Check-commit"
 msgstr ""
 
@@ -18172,6 +18173,11 @@ msgid ""
 msgstr "Reverte as modificações locais de uma cópia de trabalho. O <placeholder-1/> diz quais os itens a reverter."
 
 #. (option)
+#. (option)
+msgid "/cleanup"
+msgstr "/cleanup"
+
+#. (option)
 msgid "/noui"
 msgstr "/noui"
 
@@ -18184,8 +18190,8 @@ msgid "/nodlg"
 msgstr "/nodlg"
 
 #. (option)
-msgid "/cleanup"
-msgstr "/cleanup"
+msgid "/breaklocks"
+msgstr ""
 
 #. (option)
 msgid "/revert"
@@ -18218,14 +18224,16 @@ msgstr ""
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
-"<placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from "
-"popping up (either telling about the cleanup being finished or showing an "
-"error message). <placeholder-3/> also disables the progress dialog. "
-"<placeholder-4/> disables showing the cleanup dialog where the user can "
+"<placeholder-1/>. You also have to pass the <placeholder-2/> to actually do "
+"the cleanup. Use <placeholder-3/> to prevent the result dialog from popping "
+"up (either telling about the cleanup being finished or showing an error "
+"message). <placeholder-4/> also disables the progress dialog. "
+"<placeholder-5/> disables showing the cleanup dialog where the user can "
 "choose what exactly should be done in the cleanup. The available actions can"
-" be specified with the options <placeholder-5/> for status cleanup, "
-"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, "
-"<placeholder-10/>, <placeholder-11/> and <placeholder-12/>."
+" be specified with the options <placeholder-6/> for status cleanup, "
+"<placeholder-7/> to break all locks, <placeholder-8/> to revert uncommitted "
+"changes, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, "
+"<placeholder-12/>, <placeholder-13/> and <placeholder-14/>."
 msgstr ""
 
 #. (option)

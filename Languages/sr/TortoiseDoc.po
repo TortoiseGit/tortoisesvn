@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-09-12 17:04+0000\n"
+"PO-Revision-Date: 2016-10-08 09:46+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/luebbe/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -14298,6 +14298,7 @@ msgid ""
 msgstr "Ако је ово специфицирано дијалог урезивања приказује дугме  <guibutton>Изврши закачаљку</guibutton> који када се притисне извршава специфицирану закачиву скрипту. Закачива скрипта прима листу чекираних фајлова и фолдера и поруку урезивања ако се нека унета."
 
 #. (term)
+#. (term)
 msgid "Check-commit"
 msgstr "Чекира-урезивање"
 
@@ -18167,6 +18168,11 @@ msgid ""
 msgstr "Враћа локалне измене радне копије. <placeholder-1/> каже које ставке вратити."
 
 #. (option)
+#. (option)
+msgid "/cleanup"
+msgstr "/cleanup"
+
+#. (option)
 msgid "/noui"
 msgstr "/ноуи"
 
@@ -18179,8 +18185,8 @@ msgid "/nodlg"
 msgstr "/nodlg"
 
 #. (option)
-msgid "/cleanup"
-msgstr "/cleanup"
+msgid "/breaklocks"
+msgstr ""
 
 #. (option)
 msgid "/revert"
@@ -18213,15 +18219,17 @@ msgstr "/vacuum"
 #. (entry)
 msgid ""
 "Cleans up interrupted or aborted operations and unlocks the working copy in "
-"<placeholder-1/>. Use <placeholder-2/> to prevent the result dialog from "
-"popping up (either telling about the cleanup being finished or showing an "
-"error message). <placeholder-3/> also disables the progress dialog. "
-"<placeholder-4/> disables showing the cleanup dialog where the user can "
+"<placeholder-1/>. You also have to pass the <placeholder-2/> to actually do "
+"the cleanup. Use <placeholder-3/> to prevent the result dialog from popping "
+"up (either telling about the cleanup being finished or showing an error "
+"message). <placeholder-4/> also disables the progress dialog. "
+"<placeholder-5/> disables showing the cleanup dialog where the user can "
 "choose what exactly should be done in the cleanup. The available actions can"
-" be specified with the options <placeholder-5/> for status cleanup, "
-"<placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, "
-"<placeholder-10/>, <placeholder-11/> and <placeholder-12/>."
-msgstr "Чисти прекинуте и заустављене операције и откључава радну копију у <placeholder-1/>. Користи <placeholder-2/> за предупређење дијалога резултата да искочи (или говорећи да је чишћење завршено или приказујући поруку грешке). <placeholder-3/> такође онемогућава дијалог напредовања.  <placeholder-4/> онемогућава приказивање дијалог чишћења где корисник може изабрати шта тачно треба урадити при чишћењу. Прихватљиве акције се могу  специфицирати опцијама   <placeholder-5/>  за чишћење статуса,  <placeholder-6/>, <placeholder-7/>, <placeholder-8/>, <placeholder-9/>, <placeholder-10/>, <placeholder-11/> и <placeholder-12/>."
+" be specified with the options <placeholder-6/> for status cleanup, "
+"<placeholder-7/> to break all locks, <placeholder-8/> to revert uncommitted "
+"changes, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, "
+"<placeholder-12/>, <placeholder-13/> and <placeholder-14/>."
+msgstr ""
 
 #. (option)
 #. (option)
