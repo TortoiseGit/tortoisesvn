@@ -2508,9 +2508,11 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
     sWindowTitle.LoadString(IDS_PROGRS_TITLE_CHECKOUT);
     SetBackgroundImage(IDI_CHECKOUT_BKG);
 
+    std::map<CString, svn_depth_t> unknowns;
     CString sCmdInfo;
     int index = 0;
     CString rootUrl;
+
     for (std::map<CString,svn_depth_t>::iterator it = m_pathdepths.begin(); it != m_pathdepths.end(); ++it)
     {
         if (index == 0)
@@ -2527,6 +2529,7 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
         }
         if ((depth == svn_depth_unknown)&&(checkoutdir.Exists()))
         {
+            unknowns[it->first] = it->second;
             ++index;
             continue;
         }
@@ -2582,6 +2585,30 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
             }
         }
         ++index;
+    }
+
+    for (std::map<CString,svn_depth_t>::iterator it = unknowns.begin(); it != unknowns.end(); ++it)
+    {
+        CTSVNPath url = CTSVNPath(it->first);
+        CTSVNPath checkoutdir = m_targetPathList[0];
+        CString dir = it->first.Mid(rootUrl.GetLength());
+        if (it->first.Compare((LPCWSTR)rootUrl)!=0)
+        {
+            dir = CPathUtils::PathUnescape(dir);
+            checkoutdir.AppendPathString(dir);
+            dir.TrimLeft('/');
+        }
+
+        CAppUtils::SetWindowTitle(m_hWnd, url.GetUIFileOrDirectoryName(), sWindowTitle);
+        sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SPARSEUPDATE, (LPCTSTR)dir, (LPCTSTR)SVNStatus::GetDepthString(svn_depth_unknown));
+        ReportCmd(sCmdInfo);
+
+        CBlockCacheForPath cacheBlock(checkoutdir.GetWinPath());
+        if (!Update(CTSVNPathList(checkoutdir), m_Revision, svn_depth_unknown, true, (m_options & ProgOptIgnoreExternals) != 0, true, false))
+        {
+            ReportSVNError();
+            return false;
+        }
     }
 
     DWORD exitcode = 0;

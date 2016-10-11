@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,6 +48,7 @@ class CTreeItem
 public:
     CTreeItem()
         : children_fetched(false)
+        , checkbox_toggled(false)
         , has_child_folders(false)
         , is_external(false)
         , kind(svn_node_unknown)
@@ -64,6 +65,7 @@ public:
     CString         logicalPath;                ///< concatenated unescapedname values
     bool            is_external;                ///< if set, several operations may not be available
     bool            children_fetched;           ///< whether the contents of the folder are known/fetched or not
+    bool            checkbox_toggled;           ///< whether the checkbox has been modified by the user
     bool            has_child_folders;
     bool            unversioned;
     std::deque<CItem>    children;
@@ -292,6 +294,7 @@ protected:
 
     void ShowText(const CString& sText, bool forceupdate = false);
     static void FilterInfinityDepthItems(std::map<CString,svn_depth_t>& depths);
+    static void CRepositoryBrowser::FilterUnknownDepthItems(std::map<CString,svn_depth_t>& depths);
     void SetListItemInfo( int index, const CItem * it );
 
     bool RunStartCommit(const CTSVNPathList& pathlist, CString& sLogMsg);

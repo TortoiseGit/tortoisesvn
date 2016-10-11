@@ -845,6 +845,7 @@ void CRepositoryBrowser::OnOK()
         CheckoutDepthForItem(hRoot);
         FilterInfinityDepthItems(m_checkoutDepths);
         FilterInfinityDepthItems(m_updateDepths);
+        FilterUnknownDepthItems(m_updateDepths);
     }
 
     ++m_blockEvents;
@@ -4709,31 +4710,21 @@ bool CRepositoryBrowser::CheckoutDepthForItem( HTREEITEM hItem )
     {
         m_checkoutDepths[pItem->url] = svn_depth_infinity;
         m_updateDepths[pItem->url] = svn_depth_infinity;
-        if (!pItem->children_fetched && (pItem->kind == svn_node_dir))
+
+        // If the directory was not expanded and a sticky depth is already set for it in the
+        // working copy, we can simply fetch the node with unknown depth, causing SVN to update
+        // the directory with working-copy depth. Otherwise, if we have no sticky depth yet, we
+        // can assume that the user has just selected the node without expanding it. In that case,
+        // we want to update the directory in a fully recursive way.
+        //
+        // Furthermore, if the user has re-checked the item without expanding its children, we assume
+        // that the user is requesting a fully recursive checkout of the directory.
+        if (!pItem->children_fetched && !pItem->checkbox_toggled && (pItem->kind == svn_node_dir))
         {
             auto foundWCDepth = m_wcDepths.find(pItem->url);
             if (foundWCDepth != m_wcDepths.end())
             {
-                m_updateDepths[pItem->url] = foundWCDepth->second;
-                if (foundWCDepth->second != svn_depth_infinity)
-                {
-                    // add all child states as well
-                    for (const auto& wcdepth : m_wcDepths)
-                    {
-                        if (wcdepth.first.GetLength() > pItem->url.GetLength())
-                        {
-                            CString sUrl = wcdepth.first.Left(pItem->url.GetLength());
-                            if (pItem->url.Compare(sUrl) == 0)
-                            {
-                                if (wcdepth.first[pItem->url.GetLength()] == '/')
-                                {
-                                    m_updateDepths[wcdepth.first] = wcdepth.second;
-                                    m_updateDepths[pItem->url] = svn_depth_unknown;
-                                }
-                            }
-                        }
-                    }
-                }
+                m_updateDepths[pItem->url] = svn_depth_unknown;
             }
         }
     }
@@ -4806,8 +4797,14 @@ bool CRepositoryBrowser::HaveAllChildrenSameCheckState( HTREEITEM hItem, bool bC
 // unchecked -> checked whole subtree -> unchecked whole subtree
 void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem, bool bCheck )
 {
+    CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
     bool itemExpanded = !!(m_RepoTree.GetItemState(hItem, TVIS_EXPANDED) & TVIS_EXPANDED);
     bool multiselectMode = m_RepoTree.GetSelectedCount() > 1;
+
+    if (pItem)
+    {
+        pItem->checkbox_toggled = true;
+    }
 
     // tri-state logic will be emulated for expanded, checked items, in single selection mode,
     // with at least one child, when all children unchecked
@@ -4840,7 +4837,6 @@ void CRepositoryBrowser::CheckTreeItem( HTREEITEM hItem, bool bCheck )
         {
             // clear the wc depth state of this item so it won't get used
             // later in the OnOK handler in case this item is not expanded.
-            CTreeItem * pItem = (CTreeItem *)m_RepoTree.GetItemData(hItem);
             if (pItem)
             {
                 m_wcDepths.erase(pItem->url);
@@ -4916,6 +4912,35 @@ void CRepositoryBrowser::FilterInfinityDepthItems(std::map<CString,svn_depth_t>&
         for (std::map<CString,svn_depth_t>::iterator it2 = depths.begin(); it2 != depths.end(); ++it2)
         {
             if (it->first.Compare(it2->first)==0)
+                continue;
+
+            CString url1 = it->first + L"/";
+            if (url1.Compare(it2->first.Left(url1.GetLength()))==0)
+            {
+                std::map<CString,svn_depth_t>::iterator kill = it2;
+                --it2;
+                depths.erase(kill);
+            }
+        }
+    }
+}
+
+void CRepositoryBrowser::FilterUnknownDepthItems(std::map<CString,svn_depth_t>& depths)
+{
+    if (depths.empty())
+        return;
+
+    // now go through the whole list and remove all children with unknown depth having a parent with unknown depth
+    for (std::map<CString,svn_depth_t>::iterator it = depths.begin(); it != depths.end(); ++it)
+    {
+        if (it->second != svn_depth_unknown)
+            continue;
+
+        for (std::map<CString,svn_depth_t>::iterator it2 = depths.begin(); it2 != depths.end(); ++it2)
+        {
+            if (it->first.Compare(it2->first)==0)
+                continue;
+            if (it2->second != svn_depth_unknown)
                 continue;
 
             CString url1 = it->first + L"/";
