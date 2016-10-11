@@ -35,6 +35,7 @@
 #include "ConflictResolveDlg.h"
 #include "EditPropConflictDlg.h"
 #include "TreeConflictEditorDlg.h"
+#include "NewTreeConflictEditorDlg.h"
 #include "LogFile.h"
 #include "ShellUpdater.h"
 #include "IconMenu.h"
@@ -175,86 +176,12 @@ BOOL CSVNProgressDlg::Cancel()
 
 LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam)
 {
-    const svn_wc_conflict_description2_t *description = (svn_wc_conflict_description2_t *)lParam;
-    if (description)
-    {
-        svn_wc_conflict_choice_t retVal = svn_wc_conflict_choose_postpone;
-        if (m_pTaskbarList)
-        {
-            m_pTaskbarList->SetProgressState(m_hWnd, TBPF_PAUSED);
-        }
-        switch (description->kind)
-        {
-        case svn_wc_conflict_kind_property:
-        case svn_wc_conflict_kind_text:
-            {
-                CConflictResolveDlg dlg(this);
-                dlg.SetConflictDescription(description);
-                if (dlg.DoModal() == IDOK)
-                {
-                    if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
-                    {
-                        // if the result is conflicted and the dialog returned IDOK,
-                        // that means we should not ask again in case of a conflict
-                        m_AlwaysConflicted = true;
-                    }
-                }
-                m_mergedfile = dlg.GetMergedFile();
-                m_bCancelled = dlg.IsCancelled();
-                retVal = dlg.GetResult();
-            }
-            break;
-        case svn_wc_conflict_kind_tree:
-            {
-                CTSVNPath treeConflictPath;
-                treeConflictPath.SetFromSVN(description->merged_file);
-                if (treeConflictPath.IsEmpty())
-                    treeConflictPath.SetFromSVN(description->local_abspath);
-
-                CTreeConflictEditorDlg dlg;
-                dlg.SetInteractive();
-                dlg.SetPath(treeConflictPath);
-                dlg.SetConflictSources(description->src_left_version, description->src_right_version);
-                dlg.SetConflictReason(description->reason);
-                dlg.SetConflictAction(description->action);
-                dlg.SetConflictOperation(description->operation);
-                dlg.SetKind(description->node_kind);
-                if (dlg.DoModal() == IDOK)
-                {
-                    if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
-                    {
-                        // if the result is conflicted and the dialog returned IDOK,
-                        // that means we should not ask again in case of a conflict
-                        m_AlwaysConflicted = true;
-                    }
-                }
-                retVal = dlg.GetResult();
-                m_bCancelled = dlg.IsCancelled();
-            }
-        default:
-            break;
-        }
-        if (m_pTaskbarList)
-            m_pTaskbarList->SetProgressState(m_hWnd, TBPF_INDETERMINATE);
-
-        return retVal;
-    }
     return svn_wc_conflict_choose_postpone;
 }
 
 svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile)
 {
-    // we only bother the user when merging
-    if (((m_Command == SVNProgress_Merge)||(m_Command == SVNProgress_MergeAll)||(m_Command == SVNProgress_MergeReintegrateOldStyle)||(m_Command == SVNProgress_MergeReintegrate))&&(!m_AlwaysConflicted)&&(description))
-    {
-        // we're in a worker thread here. That means we must not show a dialog from the thread
-        // but let the UI thread do it.
-        // To do that, we send a message to the UI thread and let it show the conflict resolver dialog.
-        LRESULT dlgResult = ::SendMessage(GetSafeHwnd(), WM_SHOWCONFLICTRESOLVER, 0, (LPARAM)description);
-        mergedfile = m_mergedfile;
-        return (svn_wc_conflict_choice_t)dlgResult;
-    }
-
+    // Postpone all conflicts: we resolve them after operation.
     return svn_wc_conflict_choose_postpone;
 }
 
@@ -441,6 +368,9 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->sActionColumnText.LoadString(IDS_SVNACTION_REVERT);
         break;
     case svn_wc_notify_resolved:
+    case svn_wc_notify_resolved_prop:
+    case svn_wc_notify_resolved_text:
+    case svn_wc_notify_resolved_tree:
         data->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
         if (bInInteractiveResolving)
         {
@@ -479,8 +409,6 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                                     removeit = rind;
                                 break;
                             }
-                            if ((*down)->bAuxItem)
-                                break;
                             ++rind;
                         }
                     }
@@ -1497,6 +1425,22 @@ UINT CSVNProgressDlg::ProgressThread()
             logfile.AddLine(sFinalInfo);
         logfile.Close();
     }
+
+    if (m_pTaskbarList)
+        m_pTaskbarList->SetProgressState(m_hWnd, TBPF_PAUSED);
+
+    // svn_wc_notify_conflict_resolver_starting
+    Notify(CTSVNPath(), CTSVNPath(), svn_wc_notify_conflict_resolver_starting,
+           svn_node_none, CString(), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown,
+           0, NULL, svn_wc_notify_lock_state_unknown, CString(), CString(), NULL, NULL, m_pool);
+
+    ResolvePostOperationConflicts();
+
+    // svn_wc_notify_conflict_resolver_done
+    Notify(CTSVNPath(), CTSVNPath(), svn_wc_notify_conflict_resolver_done,
+        svn_node_none, CString(), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown,
+        0, NULL, svn_wc_notify_lock_state_unknown, CString(), CString(), NULL, NULL, m_pool);
+
     GetDlgItem(IDC_JUMPCONFLICT)->ShowWindow(m_nTotalConflicts ? SW_SHOW : SW_HIDE);
 
     m_bCancelled = TRUE;
@@ -4365,6 +4309,116 @@ CTSVNPathList CSVNProgressDlg::GetPathsForUpdateHook( const CTSVNPathList& pathL
         }
     }
     return updatedList;
+}
+
+void CSVNProgressDlg::ResolvePostOperationConflicts()
+{
+    // we only bother the user when merging
+    if (((m_Command == SVNProgress_Merge) || (m_Command == SVNProgress_MergeAll) || (m_Command == SVNProgress_MergeReintegrateOldStyle) || (m_Command == SVNProgress_MergeReintegrate)) && (!m_AlwaysConflicted))
+    {
+        for (int i = 0; i < (int)m_arData.size(); ++i)
+        {
+            NotificationData * data = m_arData[i];
+            if (data->bConflictedActionItem)
+            {
+                // Make a copy of NotificationData::path because it data pointer
+                // may become invalid during processing conflict resolution callbacks.
+                CTSVNPath path = data->path;
+                m_ProgList.SetItemState(-1, 0, LVIS_SELECTED);
+                m_ProgList.SetItemState(i, LVIS_SELECTED | LVIS_FOCUSED, LVIS_SELECTED | LVIS_FOCUSED);
+                m_ProgList.EnsureVisible(i, FALSE);
+                m_ProgList.SetFocus();
+                m_ProgList.SetSelectionMark(i);
+
+                // Use Subversion 1.10 API to resolve possible tree conlifcts.
+                SVNConflictInfo conflict;
+                if (!conflict.Get(path))
+                {
+                    conflict.ShowErrorDialog(m_hWnd);
+                    return ;
+                }
+
+                // Resolve tree conflicts first.
+                if (conflict.HasTreeConflict())
+                {
+                    CProgressDlg progressDlg;
+                    progressDlg.SetTitle(IDS_PROC_EDIT_TREE_CONFLICTS);
+                    CString sProgressLine;
+                    sProgressLine.LoadString(IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO);
+                    progressDlg.SetLine(1, sProgressLine);
+                    progressDlg.SetShowProgressBar(false);
+                    progressDlg.ShowModal(GetExplorerHWND(), FALSE);
+                    conflict.SetProgressDlg(&progressDlg);
+                    if (!conflict.FetchTreeDetails())
+                    {
+                        // Ignore errors while fetching additional tree conflict information.
+                        // Use still may want to resolve it manually.
+                        conflict.ClearSVNError();
+                    }
+                    progressDlg.Stop();
+                    conflict.SetProgressDlg(NULL);
+
+                    CNewTreeConflictEditorDlg dlg;
+                    dlg.SetConflictInfo(&conflict);
+                    dlg.SetSVNContext(this);
+                    dlg.DoModal(m_hWnd);
+                    if (dlg.IsCancelled())
+                    {
+                        m_AlwaysConflicted = true;
+                        return;
+                    }
+
+                    if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+                        continue;
+
+                    // Update conflict information.
+                    if (!conflict.Get(path))
+                    {
+                        conflict.ShowErrorDialog(m_hWnd);
+                        return ;
+                    }
+                }
+
+                // Resolve text conflicts if any.
+                if (conflict.HasTextConflict())
+                {
+                    CConflictResolveDlg dlg(this);
+                    dlg.SetSVNContext(this);
+                    dlg.SetTextConflict(&conflict);
+                    dlg.DoModal();
+                    if (dlg.IsCancelled())
+                    {
+                        m_AlwaysConflicted = true;
+                        return;
+                    }
+
+                    // Update conflict information.
+                    if (!conflict.Get(path))
+                    {
+                        conflict.ShowErrorDialog(m_hWnd);
+                        return;
+                    }
+                }
+
+                // Resolve text conflicts if any.
+                if (conflict.HasPropConflict())
+                {
+                    for (int propertyIdx = 0; propertyIdx < conflict.GetPropConflictCount(); propertyIdx++)
+                    {
+                        CConflictResolveDlg dlg(this);
+                        dlg.SetSVNContext(this);
+                        dlg.SetPropertyConflict(&conflict, conflict.GetPropConflictName(propertyIdx));
+                        dlg.DoModal();
+                        if (dlg.IsCancelled())
+                        {
+                            m_AlwaysConflicted = true;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 bool CSVNProgressDlg::IsRevisionRelatedToMerge(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem)

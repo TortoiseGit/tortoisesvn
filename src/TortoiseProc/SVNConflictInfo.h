@@ -41,6 +41,9 @@ public:
     CString GetDescription() { return m_description; }
     operator svn_client_conflict_option_t *() { return m_option; }
 
+    void SetMergedPropVal(const svn_string_t *propval);
+    svn_error_t * SetMergedPropValFile(const CTSVNPath & filePath);
+
 protected:
     SVNConflictOption(svn_client_conflict_option_t *option,
                       svn_client_conflict_option_id_t id,
@@ -99,6 +102,8 @@ public:
     bool IsBinary();
     int GetPropConflictCount() const;
     CString GetPropConflictName(int idx) const;
+    bool GetPropValFiles(const CString & propertyName, CTSVNPath & mergedfile, CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile);
+    bool GetTextContentFiles(CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile);
 
     CString GetIncomingChangeSummary() const { return m_incomingChangeSummary; }
     CString GetLocalChangeSummary() const { return m_localChangeSummary;  }
@@ -123,4 +128,6 @@ protected:
     CProgressDlg *m_pProgress;
 
     static svn_error_t* cancelCallback(void *baton);
+    svn_error_t * createPropValFiles(const char *propname, const char *mergedfile, const char *basefile, const char *theirfile, const char *myfile, apr_pool_t *pool);
+
 };

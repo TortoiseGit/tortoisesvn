@@ -19,6 +19,8 @@
 #pragma once
 #include "svn_wc.h"
 #include "StandAloneDlg.h"
+#include "SVN.h"
+#include "SVNConflictInfo.h"
 
 /**
  * \ingroup TortoiseProc
@@ -32,9 +34,10 @@ public:
     CConflictResolveDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CConflictResolveDlg();
 
-    void SetConflictDescription(const svn_wc_conflict_description2_t * description) {m_pConflictDescription = description;}
+    void SetSVNContext(SVN * svn) { m_svn = svn; }
+    void SetTextConflict(SVNConflictInfo * conflict);
+    void SetPropertyConflict(SVNConflictInfo * conflict, const CString & propertyName);
     svn_wc_conflict_choice_t GetResult() {return m_choice;}
-    const CString& GetMergedFile() {return m_mergedfile;}
     bool IsCancelled() const {return m_bCancelled;}
     enum { IDD = IDD_CONFLICTRESOLVE };
 
@@ -52,12 +55,16 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
-    bool        IsImage(const std::string& path);
+    bool        IsImage(const CTSVNPath & path);
 
 private:
-    const svn_wc_conflict_description2_t *  m_pConflictDescription;
+    SVNConflictInfo *                       m_pConflict;
+    SVNConflictOptions                      m_conflictOptions;
+    SVN *                                   m_svn;
     svn_wc_conflict_choice_t                m_choice;
-    CString                                 m_mergedfile;
+    CTSVNPath                               m_mergedfile;
     bool                                    m_bCancelled;
     bool                                    m_bIsImage;
+    bool                                    m_bPropertyConflict;
+    CString                                 m_propertyName;
 };

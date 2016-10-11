@@ -25,6 +25,7 @@
 #include "SVNTrace.h"
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
+#include "TempFile.h"
 
 SVNConflictOption::SVNConflictOption(
     svn_client_conflict_option_t *option,
@@ -34,6 +35,22 @@ SVNConflictOption::SVNConflictOption(
     , m_id(id)
     , m_description(description)
 {
+}
+
+void SVNConflictOption::SetMergedPropVal(const svn_string_t *propval)
+{
+    svn_client_conflict_option_set_merged_propval(m_option, propval);
+}
+
+svn_error_t * SVNConflictOption::SetMergedPropValFile(const CTSVNPath & filePath)
+{
+    SVNPool pool;
+    svn_stringbuf_t *propval;
+
+    SVN_ERR(svn_stringbuf_from_file2(&propval, filePath.GetSVNApiPath(pool), pool));
+    SetMergedPropVal(svn_string_create_from_buf(propval, pool));
+
+    return SVN_NO_ERROR;
 }
 
 SVNConflictOptions::SVNConflictOptions()
@@ -166,6 +183,131 @@ CString SVNConflictInfo::GetPropConflictName(int idx) const
 
     const char *propname = APR_ARRAY_IDX(m_prop_conflicts, idx, const char *);
     return CUnicodeUtils::GetUnicode(propname);
+}
+
+svn_error_t * SVNConflictInfo::createPropValFiles(const char *propname, const char *mergedfile, const char *basefile, const char *theirfile, const char *myfile, apr_pool_t *pool)
+{
+    const svn_string_t *my_propval;
+    const svn_string_t *base_propval;
+    const svn_string_t *their_propval;
+    svn_stringbuf_t *merged_propval = svn_stringbuf_create_empty(pool);
+
+    SVN_ERR(svn_client_conflict_prop_get_propvals(
+        NULL, &my_propval, &base_propval,
+        &their_propval, m_conflict, propname,
+        pool));
+
+    if (base_propval)
+        SVN_ERR(svn_io_write_atomic2(basefile, base_propval->data, base_propval->len, NULL, FALSE, pool));
+
+    if (their_propval)
+        SVN_ERR(svn_io_write_atomic2(theirfile, their_propval->data, their_propval->len, NULL, FALSE, pool));
+
+    if (my_propval)
+      SVN_ERR(svn_io_write_atomic2(myfile, my_propval->data, my_propval->len, NULL, FALSE, pool));
+
+    svn_diff_file_options_t *options = svn_diff_file_options_create(pool);
+    svn_diff_t *diff;
+
+    // If any of the property values is missing, use an empty value instead for the purpose of showing a diff.
+    if (base_propval == NULL)
+        base_propval = svn_string_create_empty(pool);
+
+    if (their_propval == NULL)
+        their_propval = svn_string_create_empty(pool);
+
+    if (my_propval == NULL)
+        my_propval = svn_string_create_empty(pool);
+
+    options->ignore_eol_style = TRUE;
+    SVN_ERR(svn_diff_mem_string_diff3(&diff, base_propval, my_propval, their_propval, options, pool));
+
+    SVN_ERR(svn_diff_mem_string_output_merge3(
+        svn_stream_from_stringbuf(merged_propval, pool),
+        diff, base_propval, my_propval, their_propval,
+        "||||||| ORIGINAL",
+        "<<<<<<< MINE",
+        ">>>>>>> THEIRS",
+        "=======",
+        svn_diff_conflict_display_modified_original_latest,
+        NULL, NULL, pool));
+
+    SVN_ERR(svn_io_write_atomic2(mergedfile, merged_propval->data, merged_propval->len, NULL, FALSE, pool));
+
+    return SVN_NO_ERROR;
+}
+
+bool SVNConflictInfo::GetPropValFiles(const CString & propertyName, CTSVNPath & mergedfile,
+                                      CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile)
+{
+    ClearSVNError();
+    mergedfile = CTempFiles::Instance().GetTempFilePath(false, GetPath());
+    basefile = CTempFiles::Instance().GetTempFilePath(false);
+    theirfile = CTempFiles::Instance().GetTempFilePath(false);
+    myfile = CTempFiles::Instance().GetTempFilePath(false);
+
+    {
+        SVNPool scratchpool(m_pool);
+
+        const char *path = svn_client_conflict_get_local_abspath(m_conflict);
+        SVNTRACE(
+            Err = createPropValFiles(CUnicodeUtils::GetUTF8(propertyName),
+                                     mergedfile.GetSVNApiPath(scratchpool),
+                                     basefile.GetSVNApiPath(scratchpool),
+                                     theirfile.GetSVNApiPath(scratchpool),
+                                     myfile.GetSVNApiPath(scratchpool),
+                                     scratchpool),
+            path
+        );
+    }
+
+    if (Err)
+    {
+        // Delete files on error.
+        mergedfile.Delete(false);
+        basefile.Delete(false);
+        theirfile.Delete(false);
+        myfile.Delete(false);
+        return false;
+    }
+    return true;
+}
+
+bool SVNConflictInfo::GetTextContentFiles(CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile)
+{
+    ClearSVNError();
+    SVNPool scratchpool(m_pool);
+    const char *my_abspath;
+    const char *base_abspath;
+    const char *their_abspath;
+
+    const char *path = svn_client_conflict_get_local_abspath(m_conflict);
+    SVNTRACE(
+        Err = svn_client_conflict_text_get_contents(NULL, &my_abspath,
+            &base_abspath, &their_abspath,
+            m_conflict, scratchpool, scratchpool),
+        path
+    );
+
+    if (Err)
+        return false;
+
+    if (base_abspath)
+        basefile.SetFromSVN(base_abspath);
+    else
+        basefile = CTempFiles::Instance().GetTempFilePath(true);
+
+    if (their_abspath)
+        theirfile.SetFromSVN(their_abspath);
+    else
+        theirfile = CTempFiles::Instance().GetTempFilePath(true);
+
+    if (my_abspath)
+        myfile.SetFromSVN(my_abspath);
+    else
+        myfile.SetFromSVN(path);
+
+    return true;
 }
 
 bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)

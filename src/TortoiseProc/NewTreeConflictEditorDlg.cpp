@@ -27,6 +27,7 @@ CNewTreeConflictEditorDlg::CNewTreeConflictEditorDlg()
     : m_conflictInfo(NULL)
     , m_choice(svn_client_conflict_option_undefined)
     , m_bCancelled(false)
+    , m_svn(NULL)
 {
 }
 
@@ -80,11 +81,22 @@ HRESULT CNewTreeConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
         svn_client_conflict_option_id_t optionId = (*it)->GetId();
         if (optionId + 100 == id)
         {
-            SVN svn;
-            if (!svn.ResolveTreeConflict(*m_conflictInfo, *it->get()))
+            if (m_svn)
             {
-                svn.ShowErrorDialog(hWnd);
-                return S_FALSE;
+                if (!m_svn->ResolveTreeConflict(*m_conflictInfo, *it->get()))
+                {
+                    m_svn->ShowErrorDialog(hWnd);
+                    return S_FALSE;
+                }
+            }
+            else
+            {
+                SVN svn;
+                if (!svn.ResolveTreeConflict(*m_conflictInfo, *it->get()))
+                {
+                    svn.ShowErrorDialog(hWnd);
+                    return S_FALSE;
+                }
             }
             m_choice = optionId;
             return S_OK;

@@ -25,21 +25,37 @@
 #include "AppUtils.h"
 #include "TempFile.h"
 #include "SVNProperties.h"
+#include "SVN.h"
 
 IMPLEMENT_DYNAMIC(CConflictResolveDlg, CResizableStandAloneDialog)
 
 CConflictResolveDlg::CConflictResolveDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CConflictResolveDlg::IDD, pParent)
-    , m_pConflictDescription(NULL)
+    , m_pConflict(NULL)
     , m_choice(svn_wc_conflict_choose_postpone)
     , m_bCancelled(false)
     , m_bIsImage(false)
+    , m_bPropertyConflict(false)
+    , m_svn(NULL)
 {
 
 }
 
 CConflictResolveDlg::~CConflictResolveDlg()
 {
+}
+
+void CConflictResolveDlg::SetTextConflict(SVNConflictInfo * conflict)
+{
+    m_bPropertyConflict = false;
+    m_pConflict = conflict;
+}
+
+void CConflictResolveDlg::SetPropertyConflict(SVNConflictInfo * conflict, const CString & propertyName)
+{
+    m_bPropertyConflict = true;
+    m_pConflict = conflict;
+    m_propertyName = propertyName;
 }
 
 void CConflictResolveDlg::DoDataExchange(CDataExchange* pDX)
@@ -58,7 +74,6 @@ BEGIN_MESSAGE_MAP(CConflictResolveDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_ABORT, &CConflictResolveDlg::OnBnClickedAbort)
 END_MESSAGE_MAP()
 
-
 // CConflictResolveDlg message handlers
 
 BOOL CConflictResolveDlg::OnInitDialog()
@@ -71,44 +86,62 @@ BOOL CConflictResolveDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDHELP);
 
     // without a conflict description, this dialog is useless.
-    ASSERT(m_pConflictDescription);
+    ASSERT(m_pConflict);
+    if (m_bPropertyConflict)
+    {
+        if (!m_pConflict->GetPropResolutionOptions(m_conflictOptions))
+        {
+            m_pConflict->ShowErrorDialog(m_hWnd);
+            EndDialog(IDC_ABORT);
+            return FALSE;
+        }
+    }
+    else
+    {
+        if (!m_pConflict->GetTextResolutionOptions(m_conflictOptions))
+        {
+            m_pConflict->ShowErrorDialog(m_hWnd);
+            EndDialog(IDC_ABORT);
+            return FALSE;
+        }
+    }
 
-    CString filepath = CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath);
+    CString filepath = m_pConflict->GetPath().GetWinPathString();
     CString filename = CPathUtils::GetFileNameFromPath(filepath);
 
     CString sInfoText;
     CString sActionText;
     CString sReasonText;
-    switch (m_pConflictDescription->action)
+    switch (m_pConflict->GetIncomingChange())
     {
     case svn_wc_conflict_action_edit:
-        if (m_pConflictDescription->property_name)
+        if (m_bPropertyConflict)
             sActionText.FormatMessage(IDS_EDITCONFLICT_PROP_ACTIONINFO_MODIFY,
-                (LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name),
+                (LPCTSTR)m_propertyName,
                 (LPCTSTR)filename);
         else
             sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_MODIFY, (LPCTSTR)filename);
         break;
     case svn_wc_conflict_action_add:
-        if (m_pConflictDescription->property_name)
+        if (m_bPropertyConflict)
             sActionText.FormatMessage(IDS_EDITCONFLICT_PROP_ACTIONINFO_ADD,
-                (LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name),
+                (LPCTSTR)m_propertyName,
                 (LPCTSTR)filename);
         else
             sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_ADD, (LPCTSTR)filename);
         break;
     case svn_wc_conflict_action_delete:
-        if (m_pConflictDescription->property_name)
+        if (m_bPropertyConflict)
             sActionText.FormatMessage(IDS_EDITCONFLICT_PROP_ACTIONINFO_DELETE,
-            (LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name),
+            (LPCTSTR)m_propertyName,
             (LPCTSTR)filename);
         else
             sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_DELETE, (LPCTSTR)filename);
         break;
     case svn_wc_conflict_action_replace:
-        if (m_pConflictDescription->property_name)
+        if (m_bPropertyConflict)
             sActionText.FormatMessage(IDS_EDITCONFLICT_PROP_ACTIONINFO_REPLACE,
-            (LPCTSTR)CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name),
+            (LPCTSTR)m_propertyName,
             (LPCTSTR)filename);
         else
             sActionText.Format(IDS_EDITCONFLICT_ACTIONINFO_REPLACE, (LPCTSTR)filename);
@@ -117,7 +150,7 @@ BOOL CConflictResolveDlg::OnInitDialog()
         break;
     }
 
-    switch (m_pConflictDescription->reason)
+    switch (m_pConflict->GetLocalChange())
     {
     case svn_wc_conflict_reason_added:  // properties are always added
     case svn_wc_conflict_reason_edited:
@@ -145,22 +178,12 @@ BOOL CConflictResolveDlg::OnInitDialog()
     // if we deal with a binary file, editing the conflict isn't possible
     // because the 'merged_file' is not used and Subversion therefore can't
     // use it as the result of the edit.
-    if (m_pConflictDescription->is_binary)
+    if (!m_bPropertyConflict && m_pConflict->IsBinary())
     {
         // in case the binary file is an image, we can use TortoiseIDiff
-        m_bIsImage = false;
-        if (m_pConflictDescription->property_name == nullptr)
-        {
-            if (m_pConflictDescription->base_abspath)
-                m_bIsImage |= IsImage(m_pConflictDescription->base_abspath);
-            if (m_pConflictDescription->local_abspath)
-                m_bIsImage |= IsImage(m_pConflictDescription->local_abspath);
-            if (m_pConflictDescription->my_abspath)
-                m_bIsImage |= IsImage(m_pConflictDescription->my_abspath);
-            if (m_pConflictDescription->their_abspath)
-                m_bIsImage |= IsImage(m_pConflictDescription->their_abspath);
-        }
-        if (!m_bIsImage && m_pConflictDescription->merged_file)
+        m_bIsImage = IsImage(m_pConflict->GetPath());
+
+        if (!m_bIsImage)
         {
             GetDlgItem(IDC_RESOLVELABEL)->EnableWindow(FALSE);
             GetDlgItem(IDC_EDITCONFLICT)->EnableWindow(FALSE);
@@ -196,118 +219,127 @@ BOOL CConflictResolveDlg::OnInitDialog()
 
 void CConflictResolveDlg::OnBnClickedUselocal()
 {
-    bool bUseFull = !!m_pConflictDescription->is_binary;
-    bool diffallowed = ((m_pConflictDescription->merged_file && m_pConflictDescription->base_abspath)
-                        || (!m_pConflictDescription->base_abspath && m_pConflictDescription->my_abspath && m_pConflictDescription->their_abspath));
-    bUseFull = bUseFull || !diffallowed;
-    if (!bUseFull && m_pConflictDescription->local_abspath)
+    if (m_bPropertyConflict)
     {
-        // try to get the mime-type property
-        // note:
-        // the is_binary member of the conflict description struct is currently
-        // always 'false' for merge conflicts. The svn library does not
-        // try to find out whether the text conflict is actually from a binary
-        // or a text file but passes 'false' unconditionally. So we try to
-        // find out for real whether the file is binary or not by reading
-        // the svn:mime-type property.
-        // If the svn lib ever changes that, we can remove this part of the code.
-        SVNProperties props(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath)), SVNRev::REV_WC, false, false);
-        for (int i = 0; i < props.GetCount(); ++i)
+        SVNConflictOption *option;
+        option = m_conflictOptions.FindOptionById(svn_client_conflict_option_working_text_where_conflicted);
+        if (!option)
+            option = m_conflictOptions.FindOptionById(svn_client_conflict_option_working_text);
+
+        if (option)
         {
-            if (props.GetItemName(i).compare("svn:mime-type") == 0)
+            if (m_svn->ResolvePropConflict(*m_pConflict, m_propertyName, *option))
             {
-                if (props.GetItemValue(i).find("text") == std::string::npos)
-                    bUseFull = true;
+                m_choice = svn_wc_conflict_choose_mine_full;
+                EndDialog(IDOK);
+            }
+            else
+            {
+                m_svn->ShowErrorDialog(m_hWnd);
             }
         }
     }
-    m_choice =  bUseFull ? svn_wc_conflict_choose_mine_full : svn_wc_conflict_choose_mine_conflict;
-    EndDialog(IDOK);
+    else
+    {
+        SVNConflictOption *option;
+        option = m_conflictOptions.FindOptionById(svn_client_conflict_option_working_text_where_conflicted);
+        if (!option)
+            option = m_conflictOptions.FindOptionById(svn_client_conflict_option_working_text);
+
+        if (option)
+        {
+            if (m_svn->ResolveTextConflict(*m_pConflict, *option))
+            {
+                m_choice = svn_wc_conflict_choose_mine_full;
+                EndDialog(IDOK);
+            }
+            else
+            {
+                m_svn->ShowErrorDialog(m_hWnd);
+            }
+        }
+    }
 }
 
 void CConflictResolveDlg::OnBnClickedUserepo()
 {
-    bool bUseFull = !!m_pConflictDescription->is_binary;
-    bool diffallowed = ((m_pConflictDescription->merged_file && m_pConflictDescription->base_abspath)
-                        || (!m_pConflictDescription->base_abspath && m_pConflictDescription->my_abspath && m_pConflictDescription->their_abspath));
-    bUseFull = bUseFull || !diffallowed;
-    if (!bUseFull && m_pConflictDescription->local_abspath)
+    if (m_bPropertyConflict)
     {
-        // try to get the mime-type property
-        // Note: see above
-        SVNProperties props(CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath)), SVNRev::REV_WC, false, false);
-        for (int i = 0; i < props.GetCount(); ++i)
+        SVNConflictOption *option;
+        option = m_conflictOptions.FindOptionById(svn_client_conflict_option_incoming_text_where_conflicted);
+        if (!option)
+            option = m_conflictOptions.FindOptionById(svn_client_conflict_option_incoming_text);
+
+        if (option)
         {
-            if (props.GetItemName(i).compare("svn:mime-type") == 0)
-            {
-                if (props.GetItemValue(i).find("text") == std::string::npos)
-                    bUseFull = true;
-            }
+            m_svn->ResolvePropConflict(*m_pConflict, m_propertyName, *option);
+            m_choice = svn_wc_conflict_choose_theirs_full;
+            EndDialog(IDOK);
         }
     }
-    m_choice = bUseFull ? svn_wc_conflict_choose_theirs_full : svn_wc_conflict_choose_theirs_conflict;
-    EndDialog(IDOK);
+    else
+    {
+        SVNConflictOption *option;
+        option = m_conflictOptions.FindOptionById(svn_client_conflict_option_incoming_text_where_conflicted);
+        if (!option)
+            option = m_conflictOptions.FindOptionById(svn_client_conflict_option_incoming_text);
+
+        if (option)
+        {
+            m_svn->ResolveTextConflict(*m_pConflict, *option);
+            m_choice = svn_wc_conflict_choose_theirs_full;
+            EndDialog(IDOK);
+        }
+    }
 }
 
 void CConflictResolveDlg::OnBnClickedEditconflict()
 {
+    CAppUtils::MergeFlags flags;
+    flags.bAlternativeTool = (GetKeyState(VK_SHIFT) & 0x8000) != 0;
+    flags.bReadOnly = true;
+
     CString filename, n1, n2, n3, n4;
-    if (m_pConflictDescription->property_name)
+    CTSVNPath basefile;
+    CTSVNPath theirfile;
+    CTSVNPath myfile;
+
+    if (m_bPropertyConflict)
     {
-        filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->property_name);
+        filename = m_propertyName;
         n1.Format(IDS_DIFF_PROP_WCNAME, (LPCTSTR)filename);
         n2.Format(IDS_DIFF_PROP_BASENAME, (LPCTSTR)filename);
         n3.Format(IDS_DIFF_PROP_REMOTENAME, (LPCTSTR)filename);
         n4.Format(IDS_DIFF_PROP_MERGENAME, (LPCTSTR)filename);
+
+        if (!m_pConflict->GetPropValFiles(m_propertyName, m_mergedfile, basefile, theirfile, myfile))
+        {
+            m_pConflict->ShowErrorDialog(m_hWnd);
+            return;
+        }
     }
     else
     {
-        filename = CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath);
+        filename = m_pConflict->GetPath().GetWinPath();
         filename = CPathUtils::GetFileNameFromPath(filename);
         n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)filename);
         n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)filename);
         n3.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)filename);
         n4.Format(IDS_DIFF_MERGEDNAME, (LPCTSTR)filename);
+
+        m_mergedfile = m_pConflict->GetPath();
+        if (!m_pConflict->GetTextContentFiles(basefile, theirfile, myfile))
+        {
+            m_pConflict->ShowErrorDialog(m_hWnd);
+            return;
+        }
     }
 
-    m_mergedfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath))).GetWinPath();
-    // copy the conflicted file to the merged file, just in case the user does not
-    // really solve the conflict and save the changes, and then click the "Resolved" button anyway.
-    CopyFile(CUnicodeUtils::GetUnicode(m_pConflictDescription->local_abspath), m_mergedfile, FALSE);
-
-    CAppUtils::MergeFlags flags;
-    flags.bAlternativeTool = (GetKeyState(VK_SHIFT)&0x8000) != 0;
-    flags.bReadOnly = true;
-    CTSVNPath basefile;
-    CTSVNPath theirfile;
-    CTSVNPath myfile;
-    if (m_pConflictDescription->base_abspath)
-        basefile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->base_abspath));
-    else
-        basefile = CTempFiles::Instance().GetTempFilePath(true);
-    if (m_pConflictDescription->their_abspath && (m_pConflictDescription->kind != svn_wc_conflict_kind_property))
-        theirfile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->their_abspath));
-    else
-    {
-        if (m_pConflictDescription->merged_file)
-            theirfile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file));
-        else
-            theirfile = CTempFiles::Instance().GetTempFilePath(true);
-    }
-    if (m_pConflictDescription->my_abspath)
-        myfile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath));
-    else
-    {
-        if (m_pConflictDescription->merged_file)
-            myfile = CTSVNPath(CUnicodeUtils::GetUnicode(m_pConflictDescription->merged_file));
-        else
-            myfile = CTempFiles::Instance().GetTempFilePath(true);
-    }
     CAppUtils::StartExtMerge(flags,
                              basefile,
                              theirfile,
                              myfile,
-                             CTSVNPath(m_mergedfile), true,
+                             m_mergedfile, true,
                              n2, n3, n1, n4, filename);
 
     GetDlgItem(IDC_RESOLVED)->EnableWindow(TRUE);
@@ -315,21 +347,50 @@ void CConflictResolveDlg::OnBnClickedEditconflict()
 
 void CConflictResolveDlg::OnBnClickedResolved()
 {
-    m_choice = svn_wc_conflict_choose_merged;
-    if (m_mergedfile.IsEmpty())
-        m_mergedfile = CUnicodeUtils::GetUnicode(m_pConflictDescription->my_abspath);
-    EndDialog(IDOK);
+    if (m_bPropertyConflict)
+    {
+        SVNConflictOption *option;
+        option = m_conflictOptions.FindOptionById(svn_client_conflict_option_merged_text);
+
+        if (option)
+        {
+            option->SetMergedPropValFile(m_mergedfile);
+            if (m_svn->ResolvePropConflict(*m_pConflict, m_propertyName, *option))
+            {
+                m_choice = svn_wc_conflict_choose_merged;
+                EndDialog(IDOK);
+            }
+            else
+            {
+                m_svn->ShowErrorDialog(m_hWnd);
+            }
+        }
+    }
+    else
+    {
+        SVNConflictOption *option;
+        option = m_conflictOptions.FindOptionById(svn_client_conflict_option_merged_text);
+
+        if (option)
+        {
+            m_svn->ResolveTextConflict(*m_pConflict, *option);
+            EndDialog(IDOK);
+            m_choice = svn_wc_conflict_choose_merged;
+        }
+    }
 }
 
 void CConflictResolveDlg::OnBnClickedResolvealllater()
 {
     m_choice = svn_wc_conflict_choose_postpone;
+    m_bCancelled = true;
     EndDialog(IDOK);
 }
 
 void CConflictResolveDlg::OnCancel()
 {
     m_choice = svn_wc_conflict_choose_postpone;
+    m_bCancelled = true;
 
     CResizableStandAloneDialog::OnCancel();
 }
@@ -346,25 +407,23 @@ void CConflictResolveDlg::OnBnClickedAbort()
     CResizableStandAloneDialog::OnCancel();
 }
 
-bool CConflictResolveDlg::IsImage( const std::string& path )
+bool CConflictResolveDlg::IsImage(const CTSVNPath & path)
 {
-    size_t dotpos = path.find_last_of('.');
-    if (dotpos != std::string::npos)
-    {
-        std::string sExt = path.substr(dotpos+1);
-        if ( (_stricmp(sExt.c_str(), "jpg") == 0) ||
-             (_stricmp(sExt.c_str(), "jpeg") == 0) ||
-             (_stricmp(sExt.c_str(), "bmp") == 0) ||
-             (_stricmp(sExt.c_str(), "gif") == 0) ||
-             (_stricmp(sExt.c_str(), "png") == 0) ||
-             (_stricmp(sExt.c_str(), "ico") == 0) ||
-             (_stricmp(sExt.c_str(), "tif") == 0) ||
-             (_stricmp(sExt.c_str(), "tiff") == 0) ||
-             (_stricmp(sExt.c_str(), "dib") == 0) ||
-             (_stricmp(sExt.c_str(), "emf") == 0))
+    CString sExt = path.GetFileExtension();
+
+    if ( (sExt.CompareNoCase(L".jpg") == 0) ||
+         (sExt.CompareNoCase(L".jpeg") == 0) ||
+         (sExt.CompareNoCase(L".bmp") == 0) ||
+         (sExt.CompareNoCase(L".gif") == 0) ||
+         (sExt.CompareNoCase(L".png") == 0) ||
+         (sExt.CompareNoCase(L".ico") == 0) ||
+         (sExt.CompareNoCase(L".tif") == 0) ||
+         (sExt.CompareNoCase(L".tiff") == 0) ||
+         (sExt.CompareNoCase(L".dib") == 0) ||
+         (sExt.CompareNoCase(L".emf") == 0))
         {
             return true;
         }
-    }
+
     return false;
 }

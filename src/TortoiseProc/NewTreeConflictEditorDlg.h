@@ -20,6 +20,7 @@
 #pragma once
 
 #include "SVNConflictInfo.h"
+#include "SVN.h"
 
 class CNewTreeConflictEditorDlg
 {
@@ -29,6 +30,7 @@ public:
 
     void DoModal(HWND parent);
     void SetConflictInfo(SVNConflictInfo * conflictInfo) { m_conflictInfo = conflictInfo; }
+    void SetSVNContext(SVN * svn) { m_svn = svn; }
 
     svn_client_conflict_option_id_t GetResult() { return m_choice; }
     bool IsCancelled() const { return m_bCancelled; }
@@ -43,6 +45,7 @@ private:
     SVNConflictInfo * m_conflictInfo;
     SVNConflictOptions m_options;
     svn_client_conflict_option_id_t m_choice;
+    SVN * m_svn;
     bool m_bCancelled;
 
     std::vector<TASKDIALOG_BUTTON> m_buttons;
