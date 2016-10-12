@@ -130,8 +130,6 @@ static CString GetConflictOptionTitle(svn_client_conflict_option_id_t id)
     // Options for incoming file add vs local file add upon merge.
     case svn_client_conflict_option_incoming_added_file_text_merge:
         return L"Merge the files";
-    case svn_client_conflict_option_incoming_added_file_replace:
-        return L"Replace with incoming change";
     case svn_client_conflict_option_incoming_added_file_replace_and_merge:
         return L"Replace my file with incoming file and merge the files";
 
