@@ -241,7 +241,7 @@ void CSciEdit::Init(LONG lLanguage)
             {
                 if (bFallbackUsed)
                     langId = origLangId;
-                if (!((lLanguage) && (!LoadDictionaries(lLanguage))))
+                if (lLanguage && !LoadDictionaries(lLanguage))
                 {
                     do
                     {
