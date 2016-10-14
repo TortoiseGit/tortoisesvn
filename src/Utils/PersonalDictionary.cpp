@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008, 2010, 2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2010, 2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 
 #include "stdafx.h"
 #include <fstream>
+#include <codecvt>
 #include "PersonalDictionary.h"
 #include "PathUtils.h"
 
@@ -50,7 +51,9 @@ bool CPersonalDictionary::Load()
     wcscat_s(path, sLang);
     wcscat_s(path, L".dic");
 
+    std::locale ulocale(std::locale(), new std::codecvt_utf8<wchar_t>);
     std::wifstream File;
+    File.imbue(ulocale);
     char filepath[MAX_PATH + 1] = { 0 };
     SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
@@ -63,7 +66,8 @@ bool CPersonalDictionary::Load()
     {
         File.getline(line, _countof(line));
         sWord = line;
-        dict.insert(sWord);
+        if (!sWord.IsEmpty())
+            dict.insert(sWord);
     } while (File.gcount() > 0);
     File.close();
     m_bLoaded = true;
@@ -107,14 +111,17 @@ bool CPersonalDictionary::Save()
     wcscat_s(path, sLang);
     wcscat_s(path, L".dic");
 
+    std::locale ulocale(std::locale(), new std::codecvt_utf8<wchar_t>);
     std::wofstream File;
+    File.imbue(ulocale);
     char filepath[MAX_PATH + 1] = { 0 };
     SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
     File.open(filepath, std::ios_base::binary);
     for (std::set<CString>::iterator it = dict.begin(); it != dict.end(); ++it)
     {
-        File << (LPCTSTR)*it << L"\n";
+        if (!it->IsEmpty())
+            File << (LPCTSTR)*it << L"\n";
     }
     File.close();
     return true;
