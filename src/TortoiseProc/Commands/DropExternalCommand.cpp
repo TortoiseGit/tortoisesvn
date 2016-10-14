@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015 - TortoiseSVN
+// Copyright (C) 2014-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,12 +79,15 @@ bool DropExternalCommand::Execute()
             {
                 CString sExternalRootUrl = CUnicodeUtils::GetUnicode(sourceStatus.status->repos_root_url);
                 CString sExternalUrl = svn.GetURLFromPath(pathList[i]);
-                CString sExtValue = sExternalUrl + L" " + pathList[i].GetFileOrDirectoryName();
+                CString sFileOrDirectoryName = pathList[i].GetFileOrDirectoryName();
+                if (sFileOrDirectoryName.Find(L" ") > 0)
+                    sFileOrDirectoryName = L"\"" + sFileOrDirectoryName + L"\"";
+                CString sExtValue = sExternalUrl + L" " + sFileOrDirectoryName;
                 // check if the url is from the same repo as the target, and if it is
                 // use a relative external url instead of a full url
                 if (sTargetRepoRootUrl.Compare(sExternalRootUrl) == 0)
                 {
-                    sExtValue = L"^" + sExternalUrl.Mid(sTargetRepoRootUrl.GetLength()) + L" " + pathList[i].GetFileOrDirectoryName();
+                    sExtValue = L"^" + sExternalUrl.Mid(sTargetRepoRootUrl.GetLength()) + L" " + sFileOrDirectoryName;
                 }
                 if (!sExternalsValue.empty())
                 {
