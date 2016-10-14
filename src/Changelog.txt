@@ -27,6 +27,7 @@ Version 1.9.5
        still showed a lot of error messages for unversioned files. (Stefan)
 - BUG: "Split lines" in the commit dialog with a log width marker set
        lead to memory exhaustion. (Stefan)
+- BUG: The tsvn:mergelogtemplatemsgtitlebottom property didn't work. (Stefan)
 
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
