@@ -226,9 +226,9 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             val = sPropVal;
             val = val.Trim(L" \n\r\t");
             if ((val.CompareNoCase(L"true") == 0) || (val.CompareNoCase(L"yes") == 0))
-                bFileListInEnglish = TRUE;
+                bMergeLogTemplateMsgTitleBottom = TRUE;
             else
-                bFileListInEnglish = FALSE;
+                bMergeLogTemplateMsgTitleBottom = FALSE;
         }
     }
 
