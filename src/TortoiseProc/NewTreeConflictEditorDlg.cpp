@@ -180,11 +180,12 @@ void CNewTreeConflictEditorDlg::DoModal(HWND parent)
     {
         svn_client_conflict_option_id_t id = (*it)->GetId();
 
+        CString optLabel = (*it)->GetLabel();
+
         CString optDescription((*it)->GetDescription());
         optDescription.SetAt(0, towupper(optDescription[0]));
-        CString optTitle = GetConflictOptionTitle(id);
 
-        AddCommandButton(100 + id, optTitle + L"\n" + optDescription);
+        AddCommandButton(100 + id, optLabel + L"\n" + optDescription);
     }
 
     TASKDIALOGCONFIG taskConfig = {0};

@@ -30,9 +30,11 @@
 SVNConflictOption::SVNConflictOption(
     svn_client_conflict_option_t *option,
     svn_client_conflict_option_id_t id,
+    const CString & label,
     const CString & description)
     : m_option(option)
     , m_id(id)
+    , m_label(label)
     , m_description(description)
 {
 }
@@ -329,18 +331,13 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
     for (int i = 0; i < options->nelts; i++)
     {
         svn_client_conflict_option_t *opt = APR_ARRAY_IDX(options, i, svn_client_conflict_option_t *);
-        const char *description;
-
-        SVNTRACE(
-            Err = svn_client_conflict_option_describe(&description, opt, scratchpool, scratchpool),
-            path);
-
-        if (Err != NULL)
-            return false;
 
         svn_client_conflict_option_id_t id = svn_client_conflict_option_get_id(opt);
+        const char *label = svn_client_conflict_option_get_label(opt, scratchpool);
+        const char *description = svn_client_conflict_option_get_description(opt, scratchpool);
 
-        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id, CUnicodeUtils::GetUnicode(description))));
+        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
+            CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
     }
 
     return true;
@@ -365,18 +362,13 @@ bool SVNConflictInfo::GetTextResolutionOptions(SVNConflictOptions & result)
     for (int i = 0; i < options->nelts; i++)
     {
         svn_client_conflict_option_t *opt = APR_ARRAY_IDX(options, i, svn_client_conflict_option_t *);
-        const char *description;
-
-        SVNTRACE(
-            Err = svn_client_conflict_option_describe(&description, opt, scratchpool, scratchpool),
-            path);
-
-        if (Err != NULL)
-            return false;
 
         svn_client_conflict_option_id_t id = svn_client_conflict_option_get_id(opt);
+        const char *label = svn_client_conflict_option_get_label(opt, scratchpool);
+        const char *description = svn_client_conflict_option_get_description(opt, scratchpool);
 
-        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id, CUnicodeUtils::GetUnicode(description))));
+        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
+            CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
     }
 
     return true;
@@ -401,18 +393,13 @@ bool SVNConflictInfo::GetPropResolutionOptions(SVNConflictOptions & result)
     for (int i = 0; i < options->nelts; i++)
     {
         svn_client_conflict_option_t *opt = APR_ARRAY_IDX(options, i, svn_client_conflict_option_t *);
-        const char *description;
-
-        SVNTRACE(
-            Err = svn_client_conflict_option_describe(&description, opt, scratchpool, scratchpool),
-            path);
-
-        if (Err != NULL)
-            return false;
 
         svn_client_conflict_option_id_t id = svn_client_conflict_option_get_id(opt);
+        const char *label = svn_client_conflict_option_get_label(opt, scratchpool);
+        const char *description = svn_client_conflict_option_get_description(opt, scratchpool);
 
-        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id, CUnicodeUtils::GetUnicode(description))));
+        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
+            CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
     }
 
     return true;

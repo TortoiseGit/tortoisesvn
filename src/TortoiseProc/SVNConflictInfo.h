@@ -38,6 +38,7 @@ public:
     SVNConflictOption& operator=(SVNConflictOption&) = delete;
 
     svn_client_conflict_option_id_t GetId() { return m_id; }
+    CString GetLabel() { return m_label; }
     CString GetDescription() { return m_description; }
     operator svn_client_conflict_option_t *() { return m_option; }
 
@@ -47,11 +48,13 @@ public:
 protected:
     SVNConflictOption(svn_client_conflict_option_t *option,
                       svn_client_conflict_option_id_t id,
+                      const CString & label,
                       const CString & description);
 
 private:
     svn_client_conflict_option_t *m_option;
     svn_client_conflict_option_id_t m_id;
+    CString m_label;
     CString m_description;
 
     friend class SVNConflictInfo;
