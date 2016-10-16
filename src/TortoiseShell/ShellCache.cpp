@@ -74,7 +74,7 @@ ShellCache::ShellCache()
     // Use RegNotifyChangeKeyValue() to get a notification event whenever a registry value
     // below HKCU\Software\TortoiseSVN is changed. If a value has changed, re-read all
     // the registry variables to ensure we use the latest ones
-    RegOpenKeyEx(HKEY_CURRENT_USER, L"Software\\TortoiseSVN", 0, KEY_NOTIFY, &m_hNotifyRegKey);
+    RegOpenKeyEx(HKEY_CURRENT_USER, L"Software\\TortoiseSVN", 0, KEY_NOTIFY | KEY_WOW64_64KEY, &m_hNotifyRegKey);
     m_registryChangeEvent = CreateEvent(NULL, true, false, NULL);
     if (RegNotifyChangeKeyValue(m_hNotifyRegKey, false, REG_NOTIFY_CHANGE_LAST_SET, m_registryChangeEvent, TRUE) != ERROR_SUCCESS)
     {
