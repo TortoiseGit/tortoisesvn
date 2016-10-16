@@ -97,7 +97,7 @@ static BOOL WantRealVersion(void)
 
     TRACE(L"WantRealVersion() - Enter\n");
 
-    LONG Result = RegOpenKeyEx(HKEY_CURRENT_USER, TSVNRootKey, 0, KEY_READ, &hKey);
+    LONG Result = RegOpenKeyEx(HKEY_CURRENT_USER, TSVNRootKey, 0, KEY_READ | KEY_WOW64_64KEY, &hKey);
     if (Result == ERROR_SUCCESS)
     {
         Result = RegQueryValueEx(hKey, ExplorerOnlyValue, NULL, &Type, (BYTE *)&bExplorerOnly, &Len);
