@@ -671,6 +671,7 @@ void ShellCache::CPathFilter::Refresh()
 
     excludeliststr = (tstring)excludelist;
     includeliststr = (tstring)includelist;
+    data.clear();
     AddEntries(excludeliststr, false);
     AddEntries(includeliststr, true);
 
