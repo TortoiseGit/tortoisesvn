@@ -114,8 +114,22 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
         Err = svn_client_conflict_get(&m_conflict, svnPath, m_pctx, m_infoPool, scratchpool),
         svnPath
     );
-    if (Err != NULL)
+    if (Err != NULL && Err->apr_err == SVN_ERR_WC_PATH_NOT_FOUND)
+    {
+        svn_error_clear(Err);
+        Err = NULL;
+        m_path = path;
+        m_text_conflicted = FALSE;
+        m_prop_conflicts = apr_array_make(m_infoPool, 0, sizeof(const char*));
+        m_tree_conflicted = FALSE;
+        m_incomingChangeSummary.Empty();
+        m_localChangeSummary.Empty();
+        return true;
+    }
+    else if (Err != NULL)
+    {
         return false;
+    }
 
     m_path = path;
 
