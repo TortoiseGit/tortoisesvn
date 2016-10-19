@@ -46,15 +46,19 @@ void CSetColorPage::SaveData()
     if (!m_bInit)
         return;
 
-    COLORREF cFg = ::GetSysColor(COLOR_WINDOWTEXT);
-
+    COLORREF cFg = m_cFgNormal.GetColor();
     COLORREF cBk = m_cBkNormal.GetColor();
+    if (cFg == -1)
+        cFg = m_cFgNormal.GetAutomaticColor();
     if (cBk == -1)
         cBk = m_cBkNormal.GetAutomaticColor();
     CDiffColors::GetInstance().SetColors(DIFFSTATE_NORMAL, cBk, cFg);
     CDiffColors::GetInstance().SetColors(DIFFSTATE_UNKNOWN, cBk, cFg);
 
+    cFg = m_cFgRemoved.GetColor();
     cBk = m_cBkRemoved.GetColor();
+    if (cFg == -1)
+        cFg = m_cFgRemoved.GetAutomaticColor();
     if (cBk == -1)
         cBk = m_cBkRemoved.GetAutomaticColor();
     CDiffColors::GetInstance().SetColors(DIFFSTATE_REMOVED, cBk, cFg);
@@ -62,7 +66,10 @@ void CSetColorPage::SaveData()
     CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSREMOVED, cBk, cFg);
     CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSREMOVED, cBk, cFg);
 
+    cFg = m_cFgAdded.GetColor();
     cBk = m_cBkAdded.GetColor();
+    if (cFg == -1)
+        cFg = m_cFgAdded.GetAutomaticColor();
     if (cBk == -1)
         cBk = m_cBkAdded.GetAutomaticColor();
     CDiffColors::GetInstance().SetColors(DIFFSTATE_ADDED, cBk, cFg);
@@ -81,13 +88,19 @@ void CSetColorPage::SaveData()
     m_regModifiedBackground = (m_cBkModified.GetColor() == -1 ? m_cBkModified.GetAutomaticColor() : m_cBkModified.GetColor());
     CDiffColors::GetInstance().SetColors(DIFFSTATE_EDITED, (DWORD)m_regModifiedBackground, cFg);
 
+    cFg = m_cFgEmpty.GetColor();
     cBk = m_cBkEmpty.GetColor();
+    if (cFg == -1)
+        cFg = m_cFgEmpty.GetAutomaticColor();
     if (cBk == -1)
         cBk = m_cBkEmpty.GetAutomaticColor();
     CDiffColors::GetInstance().SetColors(DIFFSTATE_EMPTY, cBk, cFg);
 
     COLORREF adjustedcolor = cBk;
+    cFg = m_cFgConflict.GetColor();
     cBk = m_cBkConflict.GetColor();
+    if (cFg == -1)
+        cFg = m_cFgConflict.GetAutomaticColor();
     if (cBk == -1)
         cBk = m_cBkConflict.GetAutomaticColor();
     CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED, cBk, cFg);
@@ -95,11 +108,13 @@ void CSetColorPage::SaveData()
     CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTADDED, cBk, cFg);
     CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTEMPTY, adjustedcolor, cFg);
 
+    cFg = m_cFgConflictResolved.GetColor();
     cBk = m_cBkConflictResolved.GetColor();
+    if (cFg == -1)
+        cFg = m_cFgConflictResolved.GetAutomaticColor();
     if (cBk == -1)
         cBk = m_cBkConflictResolved.GetAutomaticColor();
     CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
-
 
     cFg = m_cFgWhitespaces.GetColor();
     if (cFg == -1)
