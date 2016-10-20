@@ -79,7 +79,7 @@
     <ClCompile>
       <AdditionalIncludeDirectories>include;lexlib;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;SCI_LEXER;USE_D2D;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;SCI_LEXER;USE_D2D;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <Link>
@@ -91,7 +91,7 @@
     <ClCompile>
       <AdditionalIncludeDirectories>include;lexlib;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;SCI_LEXER;USE_D2D;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;SCI_LEXER;USE_D2D;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <Link>
@@ -103,7 +103,7 @@
     <ClCompile>
       <AdditionalIncludeDirectories>include;lexlib;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;SCI_LEXER;USE_D2D;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;SCI_LEXER;USE_D2D;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <Link>
@@ -115,7 +115,7 @@
     <ClCompile>
       <AdditionalIncludeDirectories>include;lexlib;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;SCI_LEXER;USE_D2D;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_DEPRECATE;SCI_LEXER;USE_D2D;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
     </ClCompile>
     <Link>
