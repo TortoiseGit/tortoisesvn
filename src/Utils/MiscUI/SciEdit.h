@@ -170,7 +170,7 @@ protected:
     BOOL        CheckWordSpelling(const CString & sWord);
     BOOL        IsMisspelled(const CString& sWord);
     DWORD       GetStyleAt(int pos) { return (DWORD)Call(SCI_GETSTYLEAT, pos) & 0x1f; }
-    bool        IsUrl(const CStringA& sText);
+    bool        IsUrlOrEmail(const CStringA& sText);
     CStringA    GetWordForSpellChecker(const CString& sWord);
     CString     GetWordFromSpellChecker(const CStringA& sWordA);
 

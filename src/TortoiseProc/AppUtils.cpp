@@ -731,13 +731,20 @@ namespace {
         return iswalnum(ch) ||
             ch == L'_' || ch == L'/' || ch == L';' || ch == L'?' || ch == L'&' || ch == L'=' ||
             ch == L'%' || ch == L':' || ch == L'.' || ch == L'#' || ch == L'-' || ch == L'+' ||
-            ch == L'|' || ch == L'>' || ch == L'<' || ch == L'!';
+            ch == L'|' || ch == L'>' || ch == L'<' || ch == L'!' || ch == L'@';
     }
 
-    bool IsUrl(const CString& sText)
+    bool IsUrlOrEmail(const CString& sText)
     {
         if (!PathIsURLW(sText))
+        {
+            auto atpos = sText.Find('@');
+            if (atpos < 0)
+                return false;
+            if (sText.ReverseFind('.') > atpos)
+                return true;
             return false;
+        }
         if (sText.Find(L"://") >= 0)
             return true;
         return false;
@@ -776,7 +783,7 @@ CAppUtils::FindURLMatches(const CString& msg)
                     while (i < len && msg[i] != '\r' && msg[i] != '\n' && msg[i] != '>') // find first '>' or new line after resetting i to start position
                         ++i;
                 }
-                if (!IsUrl(msg.Mid(starturl, i - starturl)))
+                if (!IsUrlOrEmail(msg.Mid(starturl, i - starturl)))
                 {
                     starturl = -1;
                     continue;

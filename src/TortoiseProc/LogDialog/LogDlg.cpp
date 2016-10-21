@@ -3212,6 +3212,12 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
         }
         if ((!bBugIDFound)&&(pEnLink->msg != WM_SETCURSOR))
         {
+            // check if it's an email address
+            auto atpos = url.Find('@');
+            if ((atpos > 0) && (url.ReverseFind('.') > atpos))
+            {
+                ShellExecute(this->m_hWnd, NULL, L"mailto:" + url, NULL, NULL, SW_SHOWDEFAULT);
+            }
             // now check whether it matches a revision
             const std::tr1::wregex regMatch(m_ProjectProperties.GetLogRevRegex(),
                                         std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
