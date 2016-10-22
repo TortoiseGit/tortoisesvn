@@ -1705,7 +1705,7 @@ bool CSciEdit::IsUrlOrEmail(const CStringA& sText)
     if (!PathIsURLA(sText))
     {
         auto atpos = sText.Find('@');
-        if (atpos < 0)
+        if (atpos <= 0)
             return false;
         if (sText.ReverseFind('.') > atpos)
             return true;
