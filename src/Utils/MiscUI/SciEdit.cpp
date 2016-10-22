@@ -971,7 +971,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                 if (style == STYLE_URL)
                 {
                     url = StringFromControl(textbuffer.get());
-                    if (url.Find('@') > 0)
+                    if (url.Find('@') > 0 && !PathIsURL(url))
                         url = L"mailto:" + url;
                 }
                 else

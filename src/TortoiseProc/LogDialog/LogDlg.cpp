@@ -3214,7 +3214,7 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
         {
             // check if it's an email address
             auto atpos = url.Find('@');
-            if ((atpos > 0) && (url.ReverseFind('.') > atpos))
+            if ((atpos > 0) && (url.ReverseFind('.') > atpos) && !::PathIsURL(url))
             {
                 ShellExecute(this->m_hWnd, NULL, L"mailto:" + url, NULL, NULL, SW_SHOWDEFAULT);
             }
