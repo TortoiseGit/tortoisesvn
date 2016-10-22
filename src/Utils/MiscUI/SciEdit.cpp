@@ -1689,7 +1689,7 @@ void CSciEdit::StyleURLs(int startstylepos, int endstylepos)
                 }
                 ASSERT(startstylepos + i <= endstylepos);
                 int skipTrailing = 0;
-                while (strip && i - skipTrailing - 1 > starturl && (msg[i - skipTrailing - 1] == '.' || msg[i - skipTrailing - 1] == '-' || msg[i - skipTrailing - 1] == '?' || msg[i - skipTrailing - 1] == ';' || msg[i - skipTrailing - 1] == ':' || msg[i - skipTrailing - 1] == '>' || msg[i - skipTrailing - 1] == '<'))
+                while (strip && i - skipTrailing - 1 > starturl && (msg[i - skipTrailing - 1] == '.' || msg[i - skipTrailing - 1] == '-' || msg[i - skipTrailing - 1] == '?' || msg[i - skipTrailing - 1] == ';' || msg[i - skipTrailing - 1] == ':' || msg[i - skipTrailing - 1] == '>' || msg[i - skipTrailing - 1] == '<' || msg[i - skipTrailing - 1] == '!'))
                     ++skipTrailing;
                 ASSERT(startstylepos + i - skipTrailing <= endstylepos);
                 Call(SCI_STARTSTYLING, startstylepos + starturl, STYLE_URL);
