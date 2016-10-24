@@ -2071,7 +2071,7 @@ std::wstring CResModule::ReplaceWithRegex(std::wstring& s)
     {
         try
         {
-            std::wregex e(std::get<0>(t));
+            std::wregex e(std::get<0>(t), std::regex_constants::icase);
             auto replaced = std::regex_replace(s, e, std::get<1>(t));
             s = replaced;
         }
@@ -2192,11 +2192,21 @@ void CResModule::ReplaceStr(LPCWSTR src, WORD * dest, size_t * count, int * tran
     }
     else
     {
-        if (dest)
-            wcscpy((wchar_t *)&dest[(*count)], src);
-        (*count) += wcslen(src) + 1;
-        if (wcslen(src))
-            (*def)++;
+        if (wcscmp(pBuf, wstr.c_str()))
+        {
+            if (dest)
+                wcscpy((wchar_t *)&dest[(*count)], pBuf);
+            (*count) += wcslen(pBuf) + 1;
+            (*translated)++;
+        }
+        else
+        {
+            if (dest)
+                wcscpy((wchar_t *)&dest[(*count)], src);
+            (*count) += wcslen(src) + 1;
+            if (wcslen(src))
+                (*def)++;
+        }
     }
     delete [] pBuf;
 }
