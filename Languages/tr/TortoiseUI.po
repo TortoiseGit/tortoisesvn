@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-17 07:34+0000\n"
+"PO-Revision-Date: 2016-10-19 11:28+0000\n"
 "Last-Translator: Adem YILMAZ\n"
 "Language-Team: Turkish (http://www.transifex.com/luebbe/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -132,7 +132,7 @@ msgstr "%1!ls! %2!ls! de"
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALANDSPEED)
 #, c-format
 msgid "%1!ls!, %2!ls!"
-msgstr ""
+msgstr "%1!ls!, %2!ls!"
 
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME)
 #, c-format
@@ -2271,7 +2271,7 @@ msgid ""
 "filesystem does not support file locking; if the working copy is on a "
 "network filesystem, make sure file locking has been enabled on the file "
 "server."
-msgstr ""
+msgstr "Başka bir işlem çalışma kopyası veri tabanını engelliyor, veya altındaki dosya sistemi dosya kilitlemeyi desteklemiyor; Eğer çalışma kopyası bir ağ dosya sistemi üzerinde ise, sunucu üzerinde dosya kilitlemenin etkin olduğuna emin olun."
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_APPENDRIGHT)
 msgid "Append right block"
@@ -2619,7 +2619,7 @@ msgstr "K&omutlar"
 
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
-msgstr ""
+msgstr "URL'leri karşılaştırın (Sadece İçerik)"
 
 #. Resource IDs: (IDS_LOG_POPUP_COPY)
 msgid "C&reate branch/tag from revision"
@@ -2837,13 +2837,13 @@ msgstr "İptal Et\nÖnce çakışmaları çözümle."
 msgid ""
 "Cancel\n"
 "Stay with current files"
-msgstr ""
+msgstr "İptal\nGeçerli dosyalar ile kal"
 
 #. Resource IDs: (IDS_ASKFORSAVE_CANCEL_OPTIONS)
 msgid ""
 "Cancel\n"
 "Stay with current settings"
-msgstr ""
+msgstr "İptal\nGeçerli ayarlar ile kal"
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
 msgid ""
@@ -3041,7 +3041,7 @@ msgstr "Depodan çalışan kopya dosyasını al"
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CLEARAUTH: Control id 1536)
 msgid "Check the authentication items you want to delete below"
-msgstr ""
+msgstr "Silmek istediğiniz kimlik doğrulama öğelerini aşağıdan kontrol ediniz"
 
 #. Resource IDs: (IDS_SVNERR_CHECKPATHORURL)
 msgid "Check the path and/or URL you've entered."
@@ -3063,7 +3063,7 @@ msgstr "Çalışan kopyayı değişiklikler için kontrol et"
 
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
-msgstr ""
+msgstr "Kontrol-Teslim Yakalayıcısı"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1504, Dialog IDD_COPY:
 #. Control id 1504)
@@ -3077,7 +3077,7 @@ msgstr "TortoiseSVN'nin daha güncel versiyonunun olup olmadığı kontrol edili
 #. Resource IDs: (IDS_MONITOR_CHECKPROJECT)
 #, c-format
 msgid "Checking project '%ls' for updates..."
-msgstr ""
+msgstr "Güncellemeler için proje denetleniyor '%ls'..."
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -3192,7 +3192,7 @@ msgstr "%1!ld! kullanıcı adı/şifresi çiftini, %2!ld! ssl sertifikasını ve
 #. Resource IDs: (IDS_SETTINGS_CLEARHOOKS_TT)
 #, c-format
 msgid "Clears all %ld approved client-side hook scripts"
-msgstr ""
+msgstr "İstemci tarafında onaylı tüm %ld komut yakalayıcılarını temizle"
 
 #. Resource IDs: (IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT)
 #, c-format
@@ -3228,7 +3228,7 @@ msgstr "Belirli bir uzantı için alternatif birleştirme programları belirtmek
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
-msgstr ""
+msgstr "Metin bloklarını taşımak için kullanılan komutları görmek için tıklayınız\nMetin bloklarını kullanın"
 
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
@@ -3266,7 +3266,7 @@ msgstr "Kayn&ak ağacı kapat"
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "Collaborator &password"
-msgstr ""
+msgstr "İşortağı &şifre"
 
 #. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
 msgid "Collapse"
@@ -3296,11 +3296,11 @@ msgstr "Renk 2"
 
 #. Resource IDs: (ID_VIEW_COLORAGEOFLINES - Menu)
 msgid "Color by &age, indexed"
-msgstr ""
+msgstr "Renk yaşına göre, Sıralı"
 
 #. Resource IDs: (ID_VIEW_COLORBYAGE - Menu)
 msgid "Color by age, &continuous"
-msgstr ""
+msgstr "Renk yaşına göre, devamlı"
 
 #. Resource IDs: (ID_VIEW_COLORBYAUTHOR - Menu)
 msgid "Color by au&thor"
@@ -3388,7 +3388,7 @@ msgstr "Tarihe göre teslim eder"
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYUNIT)
 #, c-format
 msgid "Commits each %ls:"
-msgstr ""
+msgstr "Her bir teslim %ls:"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1135)
 msgid "Commits each week:"
@@ -3559,7 +3559,7 @@ msgstr "Sağ-tık menüsü"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
-msgstr ""
+msgstr "Yamalar için bağlam satırları"
 
 #. Resource IDs: (16013)
 msgid "Contract docked window"
