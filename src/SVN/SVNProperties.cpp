@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -144,7 +144,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         do
         {
             rev_set = SVN_INVALID_REVNUM;
-            if ((status)&&(status->kind == svn_node_dir))
+            if ((status) && (status->kind == svn_node_dir) && (status->node_status != svn_wc_status_missing) && (status->node_status != svn_wc_status_deleted) && (status->node_status != svn_wc_status_unversioned))
             {
 #ifdef _MFC_VER
                 if (m_pProgress)
@@ -243,7 +243,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
             }
             do
             {
-                if ((status)&&(status->kind == svn_node_dir))
+                if ((status) && (status->kind == svn_node_dir) && (status->node_status != svn_wc_status_missing) && (status->node_status != svn_wc_status_deleted) && (status->node_status != svn_wc_status_unversioned))
                 {
 #ifdef _MFC_VER
                     if (m_pProgress)
