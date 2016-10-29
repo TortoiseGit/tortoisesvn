@@ -520,6 +520,7 @@ private:
     std::set<svn_revnum_t> m_mergedRevs;
     SVNRev              m_copyfromrev;
     CString             m_sMultiLogFormat;
+    RECT                m_lastTooltipRect;
 
     CTime               m_timFrom;
     CTime               m_timTo;

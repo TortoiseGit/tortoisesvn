@@ -246,7 +246,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_defaultMonitorInterval(30)
     , m_bSystemShutDown(false)
     , m_pTreeDropTarget(NULL)
-
+    , m_lastTooltipRect({0})
 {
     SecureZeroMemory(&m_SystemTray,sizeof(m_SystemTray));
     m_bFilterWithRegex =
@@ -1083,6 +1083,8 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
         range.cpMin = 0;
         range.cpMax = 0;
         pMsgView->SendMessage(EM_EXSETSEL, NULL, (LPARAM)&range);
+        m_tooltips.DelTool(pMsgView, 1);
+        m_lastTooltipRect = { 0 };
     }
 
     // sort according to the settings
@@ -3317,7 +3319,6 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
 
     if ((!url.IsEmpty())&&(pEnLink->msg == WM_SETCURSOR))
     {
-        static RECT prevRect = {0};
         CWnd * pMsgView = GetDlgItem(IDC_MSGVIEW);
         if (pMsgView)
         {
@@ -3329,11 +3330,11 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
             pMsgView->SendMessage(EM_POSFROMCHAR, (WPARAM)&pt, pEnLink->chrg.cpMax);
             rc.right = pt.x;
             rc.bottom = pt.y+12;
-            if ((prevRect.left != rc.left)||(prevRect.top != rc.top))
+            if ((m_lastTooltipRect.left != rc.left)||(m_lastTooltipRect.top != rc.top))
             {
                 m_tooltips.DelTool(pMsgView, 1);
                 m_tooltips.AddTool(pMsgView, url, &rc, 1);
-                prevRect = rc;
+                m_lastTooltipRect = rc;
             }
         }
         return;
