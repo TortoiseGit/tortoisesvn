@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -107,6 +107,16 @@ public:
      * an 'empty' file or just newlines, i.e. an empty diff.
      */
     static BOOL CheckForEmptyDiff(const CTSVNPath& sDiffPath);
+
+    /**
+    * Returns font name which is used for log messages, etc.
+    */
+    static CString GetLogFontName();
+
+    /**
+    * Returns font size which is used for log messages, etc.
+    */
+    static DWORD GetLogFontSize();
 
     /**
      * Create a font which can is used for log messages, etc

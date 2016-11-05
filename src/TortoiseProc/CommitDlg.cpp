@@ -1738,8 +1738,7 @@ void CCommitDlg::InitializeListControl()
 void CCommitDlg::InitializeLogMessageControl()
 {
     m_cLogMessage.Init(m_ProjectProperties);
-    m_cLogMessage.SetFont((CString)CRegString(L"Software\\TortoiseSVN\\LogFontName",
-        L"Courier New"), (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8));
+    m_cLogMessage.SetFont(CAppUtils::GetLogFontName(), CAppUtils::GetLogFontSize());
     m_cLogMessage.RegisterContextMenuHandler(this);
     std::map<int, UINT> icons;
     icons[AUTOCOMPLETE_SPELLING] = IDI_SPELL;

@@ -57,7 +57,7 @@ BOOL CInputDlg::OnInitDialog()
 
     m_cInput.Init();
 
-    m_cInput.SetFont((CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New"), (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8));
+    m_cInput.SetFont(CAppUtils::GetLogFontName(), CAppUtils::GetLogFontSize());
 
     if (!m_sInputText.IsEmpty())
     {

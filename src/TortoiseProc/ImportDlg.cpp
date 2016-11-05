@@ -85,7 +85,7 @@ BOOL CImportDlg::OnInitDialog()
     m_History.Load(L"Software\\TortoiseSVN\\History\\commit", L"logmsgs");
     m_ProjectProperties.ReadProps(m_path);
     m_cMessage.Init(m_ProjectProperties);
-    m_cMessage.SetFont((CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New"), (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8));
+    m_cMessage.SetFont(CAppUtils::GetLogFontName(), CAppUtils::GetLogFontSize());
 
     if (!m_sMessage.IsEmpty())
         m_cMessage.SetText(m_sMessage);
