@@ -120,7 +120,7 @@ CBaseView::CBaseView()
     m_InlineAddedBk = CRegDWORD(L"Software\\TortoiseMerge\\InlineAdded", INLINEADDED_COLOR);
     m_InlineRemovedBk = CRegDWORD(L"Software\\TortoiseMerge\\InlineRemoved", INLINEREMOVED_COLOR);
     m_ModifiedBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorModifiedB", MODIFIED_COLOR);
-    m_WhiteSpaceFg = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_GRAYTEXT));
+    m_WhiteSpaceFg = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_3DSHADOW));
     m_sWordSeparators = CRegString(L"Software\\TortoiseMerge\\WordSeparators", L"[]();:.,{}!@#$%^&*-+=|/\\<>'`~\"?");
     m_bIconLFs = CRegDWORD(L"Software\\TortoiseMerge\\IconLFs", 0);
     m_nTabSize = (int)(DWORD)CRegDWORD(L"Software\\TortoiseMerge\\TabSize", 4);
@@ -253,7 +253,7 @@ void CBaseView::DocumentUpdated()
     m_InlineAddedBk = CRegDWORD(L"Software\\TortoiseMerge\\InlineAdded", INLINEADDED_COLOR);
     m_InlineRemovedBk = CRegDWORD(L"Software\\TortoiseMerge\\InlineRemoved", INLINEREMOVED_COLOR);
     m_ModifiedBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorModifiedB", MODIFIED_COLOR);
-    m_WhiteSpaceFg = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_GRAYTEXT));
+    m_WhiteSpaceFg = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_3DSHADOW));
     m_bIconLFs = CRegDWORD(L"Software\\TortoiseMerge\\IconLFs", 0);
     m_nInlineDiffMaxLineLength = CRegDWORD(L"Software\\TortoiseMerge\\InlineDiffMaxLineLength", 3000);
     m_Eols[EOL_AUTOLINE] = m_Eols[m_lineendings==EOL_AUTOLINE
@@ -2040,7 +2040,6 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         xpos -= m_nOffsetChar * GetCharWidth();
 
         CPen pen(PS_SOLID, 0, m_WhiteSpaceFg);
-        CPen pen2(PS_SOLID, 2, m_WhiteSpaceFg);
         while (*pszChars)
         {
             switch (*pszChars)
@@ -2073,13 +2072,12 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
                 {
                     xpos += pDC->GetTextExtent(pLastSpace, (int)(pszChars - pLastSpace)).cx;
                     pLastSpace = pszChars + 1;
-                    // draw a small dot
                     if (xpos >= 0)
                     {
-                        CPen * oldPen = pDC->SelectObject(&pen2);
-                        pDC->MoveTo(xpos + rc.left + GetCharWidth() / 2 - 1, y);
-                        pDC->LineTo(xpos + rc.left + GetCharWidth()/2+1, y);
-                        pDC->SelectObject(oldPen);
+                        const int whitespaceSize = 2;
+                        // draw 2-pixel rectangle, like Scintilla editor.
+                        pDC->FillSolidRect(xpos + rc.left + GetCharWidth() / 2 - whitespaceSize/2, y,
+                                           whitespaceSize, whitespaceSize, m_WhiteSpaceFg);
                     }
                     xpos += GetCharWidth();
                     nChars++;

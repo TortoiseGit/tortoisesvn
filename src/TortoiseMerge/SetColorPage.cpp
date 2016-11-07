@@ -101,7 +101,7 @@ void CSetColorPage::SaveData()
     CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTRESOLVED, cBk, cFg);
 
     cFg = GetColorFromButton(m_cFgWhitespaces);
-    CRegDWORD regWhitespaceColor(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_GRAYTEXT));
+    CRegDWORD regWhitespaceColor(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_3DSHADOW));
     regWhitespaceColor = cFg;
 }
 
@@ -221,9 +221,9 @@ BOOL CSetColorPage::OnInitDialog()
     m_cBkConflictResolved.EnableAutomaticButton(sDefaultText, DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG);
     m_cBkConflictResolved.EnableOtherButton(sCustomText);
 
-    CRegDWORD regWhitespaceColor(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_GRAYTEXT));
+    CRegDWORD regWhitespaceColor(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_3DSHADOW));
     m_cFgWhitespaces.SetColor((COLORREF)(DWORD)regWhitespaceColor);
-    m_cFgWhitespaces.EnableAutomaticButton(sDefaultText, GetSysColor(COLOR_GRAYTEXT));
+    m_cFgWhitespaces.EnableAutomaticButton(sDefaultText, GetSysColor(COLOR_3DSHADOW));
     m_cFgWhitespaces.EnableOtherButton(sCustomText);
 
     m_bInit = TRUE;
