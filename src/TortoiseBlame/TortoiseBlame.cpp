@@ -589,7 +589,7 @@ void TortoiseBlame::InitialiseEditor()
     if (IsWindows7OrGreater() && DWORD(used2d))
         enabled2d = true;
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
-    std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Courier New");
+    std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Consolas");
     std::string fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
     SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10), fontName.c_str());
     //SetAStyle(STYLE_MARK, black, ::GetSysColor(COLOR_HIGHLIGHT));
@@ -1317,7 +1317,7 @@ void TortoiseBlame::CreateFont()
     HDC hDC = ::GetDC(wBlame);
     lf.lfHeight = -MulDiv((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10), GetDeviceCaps(hDC, LOGPIXELSY), 72);
     lf.lfCharSet = DEFAULT_CHARSET;
-    CRegStdString fontname = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Courier New");
+    CRegStdString fontname = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Consolas");
     wcscpy_s(lf.lfFaceName, ((tstring)fontname).c_str());
     m_font = ::CreateFontIndirect(&lf);
 

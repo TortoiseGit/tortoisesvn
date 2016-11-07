@@ -58,7 +58,7 @@ CSetMainPage::CSetMainPage()
     m_regIgnoreEOL = CRegDWORD(L"Software\\TortoiseMerge\\IgnoreEOL", TRUE);
     m_regOnePane = CRegDWORD(L"Software\\TortoiseMerge\\OnePane");
     m_regViewLinenumbers = CRegDWORD(L"Software\\TortoiseMerge\\ViewLinenumbers", 1);
-    m_regFontName = CRegString(L"Software\\TortoiseMerge\\FontName", L"Courier New");
+    m_regFontName = CRegString(L"Software\\TortoiseMerge\\FontName", L"Consolas");
     m_regFontSize = CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10);
     m_regCaseInsensitive = CRegDWORD(L"Software\\TortoiseMerge\\CaseInsensitive", FALSE);
     m_regUTF8Default = CRegDWORD(L"Software\\TortoiseMerge\\UseUTF8", FALSE);

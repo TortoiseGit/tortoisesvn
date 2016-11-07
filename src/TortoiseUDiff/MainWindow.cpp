@@ -579,7 +579,7 @@ bool CMainWindow::Initialize()
     bool enabled2d = false;
     if (IsWindows7OrGreater() && DWORD(used2d))
         enabled2d = true;
-    std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Courier New");
+    std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Consolas");
     std::string fontName;
     fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
     SetAStyle(STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT), ::GetSysColor(COLOR_WINDOW),
