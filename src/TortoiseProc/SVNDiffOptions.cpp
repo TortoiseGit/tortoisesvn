@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2016 - TortoiseSVN
+// Copyright (C) 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -15,37 +15,31 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-//
-#pragma once
-#include "StandAloneDlg.h"
+
+#include "stdafx.h"
 #include "SVNDiffOptions.h"
 
-/**
- * Helper dialog to chose options for diffing
- */
-class CDiffOptionsDlg : public CStandAloneDialog
+SVNDiffOptions::SVNDiffOptions()
+    : m_bIgnoreEOL(false)
+    , m_ignoreSpace(svn_diff_file_ignore_space_none)
 {
-    DECLARE_DYNAMIC(CDiffOptionsDlg)
+}
 
-public:
-    CDiffOptionsDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CDiffOptionsDlg();
+CString SVNDiffOptions::GetOptionsString() const
+{
+    CString opts;
+    if (m_bIgnoreEOL)
+        opts.Append(L"--ignore-eol-style ");
 
-    enum { IDD = IDD_DIFFOPTIONS };
-
-    void SetDiffOptions(const SVNDiffOptions & opts);
-    SVNDiffOptions GetDiffOptions();
-    CString GetDiffOptionsString() { return GetDiffOptions().GetOptionsString(); }
-
-protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
-    DECLARE_MESSAGE_MAP()
-
-private:
-    BOOL m_bIgnoreEOLs;
-    BOOL m_bIgnoreWhitespaces;
-    BOOL m_bIgnoreAllWhitespaces;
-public:
-    virtual BOOL OnInitDialog();
-};
+    switch (m_ignoreSpace)
+    {
+    case svn_diff_file_ignore_space_change:
+        opts.Append(L"-b");
+        break;
+    case svn_diff_file_ignore_space_all:
+        opts.Append(L"-w");
+        break;
+    }
+    opts.Trim();
+    return opts;
+}

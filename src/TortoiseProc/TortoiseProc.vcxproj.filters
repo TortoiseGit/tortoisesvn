@@ -1106,6 +1106,9 @@
     <ClCompile Include="SVNConflictInfo.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
+    <ClCompile Include="SVNDiffOptions.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2118,6 +2121,9 @@
     </ClInclude>
     <ClInclude Include="SVNConflictInfo.h">
       <Filter>Subversion</Filter>
+    </ClInclude>
+    <ClInclude Include="SVNDiffOptions.h">
+      <Filter>Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

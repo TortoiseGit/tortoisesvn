@@ -50,12 +50,13 @@ bool CreatePatchCommand::Execute()
         if (parser.HasKey(L"showoptions"))
         {
             CDiffOptionsDlg optionsdlg(CWnd::FromHandle(GetExplorerHWND()));
+            optionsdlg.SetDiffOptions(dlg.m_diffOptions);
             if (optionsdlg.DoModal() == IDOK)
-                dlg.m_sDiffOptions = optionsdlg.GetDiffOptionsString();
+                dlg.m_diffOptions = optionsdlg.GetDiffOptions();
             else
                 return false;
         }
-        bRet = CreatePatch(pathList.GetCommonRoot(), dlg.m_pathList, dlg.m_sDiffOptions, CTSVNPath(savepath));
+        bRet = CreatePatch(pathList.GetCommonRoot(), dlg.m_pathList, dlg.m_diffOptions, CTSVNPath(savepath));
         SVN svn;
         svn.Revert(dlg.m_filesToRevert, CStringArray(), false, false, false);
     }

@@ -335,8 +335,8 @@ void CCreatePatch::OnTimer(UINT_PTR nIDEvent)
 void CCreatePatch::OnBnClickedDiffoptions()
 {
     CDiffOptionsDlg dlg(this);
+    dlg.SetDiffOptions(m_diffOptions);
+
     if (dlg.DoModal() == IDOK)
-        m_sDiffOptions = dlg.GetDiffOptionsString();
-    else
-        m_sDiffOptions.Empty();
+        m_diffOptions = dlg.GetDiffOptions();
 }

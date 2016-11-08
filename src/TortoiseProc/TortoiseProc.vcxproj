@@ -441,6 +441,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SVNConflictInfo.cpp" />
+    <ClCompile Include="SVNDiffOptions.cpp" />
     <ClCompile Include="SVNProgressDlg.cpp" />
     <ClCompile Include="SwitchDlg.cpp" />
     <ClCompile Include="TortoiseProc.cpp" />
@@ -780,6 +781,7 @@
     <ClInclude Include="SimplePrompt.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SVNConflictInfo.h" />
+    <ClInclude Include="SVNDiffOptions.h" />
     <ClInclude Include="SVNProgressDlg.h" />
     <ClInclude Include="SwitchDlg.h" />
     <ClInclude Include="TortoiseProc.h" />

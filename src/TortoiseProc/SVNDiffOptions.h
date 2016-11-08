@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2016 - TortoiseSVN
+// Copyright (C) 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -15,37 +15,24 @@
 // You should have received a copy of the GNU General Public License
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-//
+
 #pragma once
-#include "StandAloneDlg.h"
-#include "SVNDiffOptions.h"
 
-/**
- * Helper dialog to chose options for diffing
- */
-class CDiffOptionsDlg : public CStandAloneDialog
+class SVNDiffOptions
 {
-    DECLARE_DYNAMIC(CDiffOptionsDlg)
-
 public:
-    CDiffOptionsDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CDiffOptionsDlg();
+    SVNDiffOptions();
 
-    enum { IDD = IDD_DIFFOPTIONS };
+    bool GetIgnoreEOL() const { return m_bIgnoreEOL; }
+    void SetIgnoreEOL(bool bIgnoreEOL) { m_bIgnoreEOL = bIgnoreEOL; }
 
-    void SetDiffOptions(const SVNDiffOptions & opts);
-    SVNDiffOptions GetDiffOptions();
-    CString GetDiffOptionsString() { return GetDiffOptions().GetOptionsString(); }
+    svn_diff_file_ignore_space_t GetIgnoreSpace() const { return m_ignoreSpace; }
+    void SetIgnoreSpace(svn_diff_file_ignore_space_t ignoreSpace) { m_ignoreSpace = ignoreSpace; }
 
-protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
-    DECLARE_MESSAGE_MAP()
+    CString GetOptionsString() const;
+    operator CString () const { return GetOptionsString(); }
 
 private:
-    BOOL m_bIgnoreEOLs;
-    BOOL m_bIgnoreWhitespaces;
-    BOOL m_bIgnoreAllWhitespaces;
-public:
-    virtual BOOL OnInitDialog();
+    bool m_bIgnoreEOL;
+    svn_diff_file_ignore_space_t m_ignoreSpace;
 };

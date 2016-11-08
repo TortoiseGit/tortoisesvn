@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013 - TortoiseSVN
+// Copyright (C) 2011, 2013, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,9 +51,42 @@ void CDiffOptionsDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDiffOptionsDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
-CString CDiffOptionsDlg::GetDiffOptionsString()
+void CDiffOptionsDlg::SetDiffOptions(const SVNDiffOptions & opts)
 {
-    return SVN::GetOptionsString(!!m_bIgnoreEOLs, !!m_bIgnoreWhitespaces, !!m_bIgnoreAllWhitespaces);
+    m_bIgnoreEOLs = opts.GetIgnoreEOL();
+    switch(opts.GetIgnoreSpace())
+    {
+    case svn_diff_file_ignore_space_none:
+        m_bIgnoreWhitespaces = FALSE;
+        m_bIgnoreAllWhitespaces = FALSE;
+        break;
+
+    case svn_diff_file_ignore_space_change:
+        m_bIgnoreWhitespaces = TRUE;
+        m_bIgnoreAllWhitespaces = FALSE;
+        break;
+
+    case svn_diff_file_ignore_space_all:
+        m_bIgnoreWhitespaces = FALSE;
+        m_bIgnoreAllWhitespaces = TRUE;
+        break;
+    }
+}
+
+SVNDiffOptions CDiffOptionsDlg::GetDiffOptions()
+{
+    SVNDiffOptions result;
+
+    result.SetIgnoreEOL(!!m_bIgnoreEOLs);
+
+    if (m_bIgnoreAllWhitespaces)
+        result.SetIgnoreSpace(svn_diff_file_ignore_space_all);
+    else if (m_bIgnoreWhitespaces)
+        result.SetIgnoreSpace(svn_diff_file_ignore_space_change);
+    else
+        result.SetIgnoreSpace(svn_diff_file_ignore_space_none);
+
+    return result;
 }
 
 BOOL CDiffOptionsDlg::OnInitDialog()

@@ -43,6 +43,7 @@
 #include "SVNConfig.h"
 #include "SVNError.h"
 #include "SVNLogQuery.h"
+#include "SVNDiffOptions.h"
 #include "CacheLogQuery.h"
 #include "RepositoryInfo.h"
 #include "LogCacheSettings.h"
@@ -2723,32 +2724,20 @@ bool SVN::EnsureConfigFile()
 
 CString SVN::GetOptionsString(bool bIgnoreEOL, bool bIgnoreSpaces, bool bIgnoreAllSpaces)
 {
-    CString opts;
-    if (bIgnoreEOL)
-        opts += L"--ignore-eol-style ";
     if (bIgnoreAllSpaces)
-        opts += L"-w";
+        return GetOptionsString(bIgnoreEOL, svn_diff_file_ignore_space_all);
     else if (bIgnoreSpaces)
-        opts += L"-b";
-    opts.Trim();
-    return opts;
+        return GetOptionsString(bIgnoreEOL, svn_diff_file_ignore_space_change);
+    else
+        return GetOptionsString(bIgnoreEOL, svn_diff_file_ignore_space_none);
 }
 
 CString SVN::GetOptionsString(bool bIgnoreEOL, svn_diff_file_ignore_space_t space)
 {
-    CString opts;
-    if (bIgnoreEOL)
-        opts += L"--ignore-eol-style ";
-    switch (space)
-    {
-    case svn_diff_file_ignore_space_change:
-        opts += L"-b";
-        break;
-    case svn_diff_file_ignore_space_all:
-        opts += L"-w";
-        break;
-    }
-    opts.Trim();
+    SVNDiffOptions opts;
+    opts.SetIgnoreEOL(bIgnoreEOL);
+    opts.SetIgnoreSpace(space);
+
     return opts;
 }
 
