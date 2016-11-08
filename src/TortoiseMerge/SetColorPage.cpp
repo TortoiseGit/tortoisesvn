@@ -262,6 +262,6 @@ void CSetColorPage::OnBnClickedRestore()
     m_cFgEmpty.SetColor(DIFFSTATE_EMPTY_DEFAULT_FG);
     m_cFgConflict.SetColor(DIFFSTATE_CONFLICTED_DEFAULT_FG);
     m_cFgConflictResolved.SetColor(DIFFSTATE_CONFLICTRESOLVED_DEFAULT_FG);
-    m_cFgWhitespaces.SetColor(GetSysColor(COLOR_GRAYTEXT));
+    m_cFgWhitespaces.SetColor(GetSysColor(COLOR_3DSHADOW));
     SetModified();
 }
