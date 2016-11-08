@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009-2010, 2012, 2015 - TortoiseSVN
+// Copyright (C) 2007, 2009-2010, 2012, 2015-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 #include "SVNRev.h"
+#include "SVNDiffOptions.h"
 
 /// forward declarations
 
@@ -70,5 +71,5 @@ public:
     CString         m_path;
     CString         m_URL;
     SVNRev          Revision;
-    CString         m_sDiffOptions;
+    SVNDiffOptions  m_diffOptions;
 };
