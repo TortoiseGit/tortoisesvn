@@ -600,59 +600,7 @@ bool CCommonAppUtils::FileOpenSave(CString& path, int * filterindex, UINT title,
             }
         }
     }
-    else
-    {
-        OPENFILENAME ofn = {0};             // common dialog box structure
-        TCHAR szFile[MAX_PATH] = {0};       // buffer for file name. Explorer can't handle paths longer than MAX_PATH.
-        ofn.lStructSize = sizeof(OPENFILENAME);
-        ofn.hwndOwner = hwndOwner;
-        wcscpy_s(szFile, (LPCTSTR)path);
-        ofn.lpstrFile = szFile;
-        ofn.nMaxFile = _countof(szFile);
-        CSelectFileFilter fileFilter;
-        if (filterId)
-        {
-            fileFilter.Load(filterId);
-            ofn.lpstrFilter = fileFilter;
-        }
-        ofn.nFilterIndex = 1;
-        ofn.lpstrFileTitle = NULL;
-        ofn.nMaxFileTitle = 0;
-        ofn.lpstrInitialDir = NULL;
-        if (!initialDir.IsEmpty())
-            ofn.lpstrInitialDir = initialDir;
-        CString temp;
-        if (title)
-        {
-            temp.LoadString(title);
-            CStringUtils::RemoveAccelerators(temp);
-        }
-        ofn.lpstrTitle = temp;
-        if (bOpen)
-            ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_HIDEREADONLY | OFN_EXPLORER;
-        else
-            ofn.Flags = OFN_OVERWRITEPROMPT | OFN_EXPLORER;
 
-
-        // Display the Open dialog box.
-        PreserveChdir preserveDir;
-        bool bRet = false;
-        if (bOpen)
-        {
-            bRet = !!GetOpenFileName(&ofn);
-        }
-        else
-        {
-            bRet = !!GetSaveFileName(&ofn);
-        }
-        if (bRet)
-        {
-            path = CString(ofn.lpstrFile);
-            if (filterindex)
-                *filterindex = ofn.nFilterIndex;
-            return true;
-        }
-    }
     return false;
 }
 

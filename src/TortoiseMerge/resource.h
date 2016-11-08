@@ -54,7 +54,6 @@
 #define IDB_LOGOFLIPPED                 168
 #define IDR_IGNORECOMMENTSTXT           169
 #define IDI_LINEMARKED                  170
-#define IDD_PATCH_FILE_OPEN_CUSTOM      180
 #define IDS_SELECTFILE                  200
 #define IDS_SELECTDIFFFILE              201
 #define IDD_ENCODING                    300

@@ -62,21 +62,6 @@ bool CreatePatchCommand::Execute()
     return bRet;
 }
 
-UINT_PTR CALLBACK CreatePatchCommand::CreatePatchFileOpenHook(HWND hDlg, UINT uiMsg, WPARAM wParam, LPARAM /*lParam*/)
-{
-    if(uiMsg == WM_COMMAND && LOWORD(wParam) == IDC_PATCH_TO_CLIPBOARD)
-    {
-        HWND hFileDialog = GetParent(hDlg);
-
-        CString strFilename = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString() + PATCH_TO_CLIPBOARD_PSEUDO_FILENAME;
-
-        CommDlg_OpenSave_SetControlText(hFileDialog, edt1, (LPCTSTR)strFilename);
-
-        PostMessage(hFileDialog, WM_COMMAND, MAKEWPARAM(IDOK, BM_CLICK), (LPARAM)(GetDlgItem(hDlg, IDOK)));
-    }
-    return 0;
-}
-
 bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList& paths, const CString& diffoptions, const CTSVNPath& cmdLineSavePath)
 {
     CTSVNPath savePath;
@@ -186,48 +171,6 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
                 if (bAdvised)
                     pfd->Unadvise(dwCookie);
                 return FALSE;
-            }
-        }
-        else
-        {
-            TCHAR szFile[MAX_PATH + 1] = {0};// buffer for file name
-            OPENFILENAME ofn = {0};         // common dialog box structure
-            // Initialize OPENFILENAME
-            ofn.lStructSize = sizeof(OPENFILENAME);
-            ofn.hwndOwner = GetExplorerHWND();
-            ofn.lpstrFile = szFile;
-            ofn.nMaxFile = _countof(szFile);
-            ofn.lpstrInitialDir = root.GetWinPath();
-
-            if (paths.GetCount() == 1)
-                wcscpy_s(szFile, paths[0].GetFilename() + L".patch");
-
-            CString temp;
-            temp.LoadString(IDS_REPOBROWSE_SAVEAS);
-            CStringUtils::RemoveAccelerators(temp);
-            if (temp.IsEmpty())
-                ofn.lpstrTitle = NULL;
-            else
-                ofn.lpstrTitle = temp;
-            ofn.Flags = OFN_OVERWRITEPROMPT | OFN_ENABLETEMPLATE | OFN_EXPLORER | OFN_ENABLEHOOK;
-
-            ofn.hInstance = AfxGetResourceHandle();
-            ofn.lpTemplateName = MAKEINTRESOURCE(IDD_PATCH_FILE_OPEN_CUSTOM);
-            ofn.lpfnHook = CreatePatchFileOpenHook;
-
-            CSelectFileFilter fileFilter(IDS_PATCHFILEFILTER);
-            ofn.lpstrFilter = fileFilter;
-            ofn.nFilterIndex = 1;
-            // Display the Open dialog box.
-            if (GetSaveFileName(&ofn)==FALSE)
-            {
-                return FALSE;
-            }
-            savePath = CTSVNPath(ofn.lpstrFile);
-            if (ofn.nFilterIndex == 1)
-            {
-                if (savePath.GetFileExtension().IsEmpty())
-                    savePath.AppendRawString(L".patch");
             }
         }
     }
