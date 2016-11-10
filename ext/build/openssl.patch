@@ -1,27 +1,46 @@
 Index: engines/e_capi.c
 ===================================================================
---- engines/e_capi.c	(revision 27222)
+--- engines/e_capi.c	(revision 27543)
 +++ engines/e_capi.c	(working copy)
-@@ -66,15 +66,17 @@
+@@ -9,7 +9,7 @@
+ 
+ #ifdef _WIN32
+ # ifndef _WIN32_WINNT
+-#  define _WIN32_WINNT 0x0400
++#  define _WIN32_WINNT 0x0600
+ # endif
+ # include <windows.h>
+ # include <wincrypt.h>
+@@ -18,10 +18,11 @@
+ # include <string.h>
+ # include <stdlib.h>
+ # include <malloc.h>
++# include <shlwapi.h>
+ # ifndef alloca
+ #  define alloca _alloca
+ # endif
+-
++# pragma comment(lib, "shlwapi.lib")
+ # include <openssl/crypto.h>
+ 
+ # ifndef OPENSSL_NO_CAPIENG
+@@ -31,6 +32,15 @@
  #  include <openssl/rsa.h>
+ #  include <openssl/dsa.h>
  
- #  ifndef _WIN32_WINNT
--#   define _WIN32_WINNT 0x0400
-+#   define _WIN32_WINNT 0x0600
- #  endif
- 
- #  include <windows.h>
- #  include <wincrypt.h>
- #  include <malloc.h>
-+#  include <shlwapi.h>
- #  ifndef alloca
- #   define alloca _alloca
- #  endif
-+#  pragma comment(lib, "shlwapi.lib")
- 
++struct X509_name_st {
++    STACK_OF(X509_NAME_ENTRY) *entries; /* DN components */
++    int modified;               /* true if 'bytes' needs to be built */
++    BUF_MEM *bytes;             /* cached encoding: cannot be NULL */
++    /* canonical encoding used for rapid Name comparison */
++    unsigned char *canon_enc;
++    int canon_enclen;
++} /* X509_NAME */ ;
++
  /*
   * This module uses several "new" interfaces, among which is
-@@ -141,6 +143,96 @@
+  * CertGetCertificateContextProperty. CERT_KEY_PROV_INFO_PROP_ID is
+@@ -99,6 +109,96 @@
  # include "e_capi_err.h"
  # include "e_capi_err.c"
  
@@ -118,9 +137,9 @@ Index: engines/e_capi.c
  static const char *engine_capi_id = "capi";
  static const char *engine_capi_name = "CryptoAPI ENGINE";
  
-@@ -591,6 +683,22 @@
+@@ -599,6 +699,22 @@
  
- void ENGINE_load_capi(void)
+ void engine_load_capi_int(void)
  {
 +    DWORD dwType = 0;
 +    DWORD dwData = 0;
@@ -141,7 +160,7 @@ Index: engines/e_capi.c
      /* Copied from eng_[openssl|dyn].c */
      ENGINE *toadd = engine_capi();
      if (!toadd)
-@@ -598,6 +706,7 @@
+@@ -606,6 +722,7 @@
      ENGINE_add(toadd);
      ENGINE_free(toadd);
      ERR_clear_error();
@@ -149,7 +168,7 @@ Index: engines/e_capi.c
  }
  # endif
  
-@@ -1453,10 +1562,14 @@
+@@ -1494,10 +1611,14 @@
      }
      if (ctx->store_flags & CERT_SYSTEM_STORE_LOCAL_MACHINE)
          dwFlags = CRYPT_MACHINE_KEYSET;
@@ -168,7 +187,7 @@ Index: engines/e_capi.c
      }
      if (!CryptGetUserKey(key->hprov, keyspec, &key->key)) {
          CAPIerr(CAPI_F_CAPI_GET_KEY, CAPI_R_GETUSERKEY_ERROR);
-@@ -1680,6 +1793,7 @@
+@@ -1715,6 +1836,7 @@
      PCCERT_CONTEXT cert = NULL, excert = NULL;
      CAPI_CTX *ctx;
      CAPI_KEY *key;
@@ -176,7 +195,7 @@ Index: engines/e_capi.c
      ctx = ENGINE_get_ex_data(e, capi_idx);
  
      *pcert = NULL;
-@@ -1736,9 +1850,22 @@
+@@ -1771,9 +1893,22 @@
          return 0;
  
      /* Select the appropriate certificate */
@@ -201,7 +220,7 @@ Index: engines/e_capi.c
      /* Set the selected certificate and free the rest */
  
      for (i = 0; i < sk_X509_num(certs); i++) {
-@@ -1771,7 +1898,9 @@
+@@ -1806,7 +1941,9 @@
  
  static int cert_select_simple(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
  {
@@ -212,7 +231,7 @@ Index: engines/e_capi.c
  }
  
  # ifdef OPENSSL_CAPIENG_DIALOG
-@@ -1791,7 +1920,7 @@
+@@ -1826,7 +1963,7 @@
  #   define CRYPTUI_SELECT_INTENDEDUSE_COLUMN                0x000000004
  #  endif
  
@@ -221,7 +240,7 @@ Index: engines/e_capi.c
  #  define dlg_prompt L"Select a certificate to use for authentication"
  #  define dlg_columns      CRYPTUI_SELECT_LOCATION_COLUMN \
                          |CRYPTUI_SELECT_INTENDEDUSE_COLUMN
-@@ -1829,8 +1958,10 @@
+@@ -1864,8 +2001,10 @@
          }
  
      }
