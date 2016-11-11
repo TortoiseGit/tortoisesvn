@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -779,12 +779,13 @@ bool CTSVNPath::IsValidOnWindows() const
     {
         CString uipath = CPathUtils::PathUnescape(GetSVNPathString());
         uipath.Replace('/', '\\');
+        // remove the server part
         checkPath = uipath.Mid(uipath.Find('\\', uipath.Find(L":\\\\")+3)+1);
     }
     try
     {
         // now check for illegal filenames
-        std::tr1::wregex rx2(L"(\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$))|\\*|[^\\\\]\\?|\\||<|>|\\:[^\\\\]", std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
+        std::tr1::wregex rx2(L"(\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$))|\\*|[^\\\\]\\?|\\||<|>|^[^\\\\]+\\\\[^\\\\]+\\:|\\:[^\\\\]", std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
         if (std::tr1::regex_search(checkPath, rx2, std::tr1::regex_constants::match_default))
             m_bIsValidOnWindows = false;
     }
@@ -1607,6 +1608,8 @@ private:
         ATLASSERT(!testPath.IsValidOnWindows());
         testPath.SetFromSVN(L"");
         ATLASSERT(!testPath.IsUrl());
+        testPath.SetFromSVN(L"svn://myserver.com/repos/svn://myserver.com/repos/trunk/file with spaces");
+        ATLASSERT(!testPath.IsValidOnWindows());
     }
 
 } TSVNPathTestobject;

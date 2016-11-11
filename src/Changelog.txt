@@ -30,6 +30,8 @@ Version 1.9.5
 - BUG: The tsvn:mergelogtemplatemsgtitlebottom property didn't work. (Stefan)
 - BUG: Creating an external via right-dragging if the name
        contained a space failed. (Stefan)
+- BUG: certain urls were not recognized as resulting in paths
+       that are not valid on Windows. (Stefan)
 
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
