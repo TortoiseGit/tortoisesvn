@@ -581,12 +581,12 @@ BOOL CAppUtils::CheckForEmptyDiff(const CTSVNPath& sDiffPath)
 
 CString CAppUtils::GetLogFontName()
 {
-    return (CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Courier New");
+    return (CString)CRegString(L"Software\\TortoiseSVN\\LogFontName", L"Consolas");
 }
 
 DWORD CAppUtils::GetLogFontSize()
 {
-    return (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 8);
+    return (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 9);
 }
 
 void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
