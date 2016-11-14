@@ -1475,6 +1475,8 @@ private:
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
         testPath.SetFromUnknown(L"http://testing special chars \344\366\374");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20special%20chars%20%c3%a4%c3%b6%c3%bc") == 0);
+        testPath.SetFromUnknown(L"http://branches/Branch at 20%cake");
+        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://branches/Branch%20at%2020%25cake") == 0);
 #endif
     }
 
