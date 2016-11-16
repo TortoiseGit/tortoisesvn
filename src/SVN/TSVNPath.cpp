@@ -29,6 +29,7 @@
 #include <regex>
 #include <functional>
 #include <memory>
+#include <set>
 
 #if defined(_MFC_VER)
 #include "AppUtils.h"
