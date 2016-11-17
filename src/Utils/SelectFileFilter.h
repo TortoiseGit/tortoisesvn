@@ -51,7 +51,7 @@ inline void CSelectFileFilter::Load(UINT stringId)
     CString sFilter;
     sFilter.LoadString(stringId);
     const int bufferLength = sFilter.GetLength()+4;
-    buffer.reset(new TCHAR[bufferLength]);
+    buffer = std::make_unique<TCHAR[]>(bufferLength);
     wcscpy_s (buffer.get(), bufferLength, sFilter);
     CStringUtils::PipesToNulls(buffer.get());
     //Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||
