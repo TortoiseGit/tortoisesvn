@@ -5867,7 +5867,7 @@ void CLogDlg::ExecuteBlameTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
     else
     {
         CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL),
-                                    pCmi->RevSelected, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
+                                    pCmi->RevSelected2, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
                                     SVNRev(), m_LogRevision, false, L"", false, false, true, nodekind);
     }
 }
