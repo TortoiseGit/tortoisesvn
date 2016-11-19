@@ -2117,11 +2117,7 @@ BOOL CMainFrame::MarkAsResolved()
     cmd += m_Data.m_mergedFile.GetFilename();
     cmd += L"\" /closeonend:1 /noquestion /skipcheck /silent";
     if (resolveMsgWnd)
-    {
-        CString s;
-        s.Format(L" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d /resolvemsglparam:%I64d", (__int64)resolveMsgWnd, (__int64)resolveMsgWParam, (__int64)resolveMsgLParam);
-        cmd += s;
-    }
+        cmd.AppendFormat(L" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d /resolvemsglparam:%I64d", (__int64)resolveMsgWnd, (__int64)resolveMsgWParam, (__int64)resolveMsgLParam);
     if(!CAppUtils::RunTortoiseProc(cmd))
         return FALSE;
     m_bSaveRequired = false;
