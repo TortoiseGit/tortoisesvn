@@ -174,12 +174,12 @@ BOOL CSVNProgressDlg::Cancel()
     return m_bCancelled;
 }
 
-LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM lParam)
+LRESULT CSVNProgressDlg::OnShowConflictResolver(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     return svn_wc_conflict_choose_postpone;
 }
 
-svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile)
+svn_wc_conflict_choice_t CSVNProgressDlg::ConflictResolveCallback(const svn_wc_conflict_description2_t * /*description*/, CString& /*mergedfile*/)
 {
     // Postpone all conflicts: we resolve them after operation.
     return svn_wc_conflict_choose_postpone;
