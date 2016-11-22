@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,9 +64,8 @@ STDMETHODIMP CShellExt::AddPages_Wrap (LPFNADDPROPSHEETPAGE lpfnAddPage, LPARAM 
     PROPSHEETPAGE psp;
     SecureZeroMemory(&psp, sizeof(PROPSHEETPAGE));
     HPROPSHEETPAGE hPage;
-    CSVNPropertyPage *sheetpage = NULL;
 
-    sheetpage = new (std::nothrow) CSVNPropertyPage(files_);
+    CSVNPropertyPage * sheetpage = new (std::nothrow) CSVNPropertyPage(files_);
 
     if (sheetpage == NULL)
         return E_OUTOFMEMORY;
@@ -306,7 +305,7 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 if (svn.status->revision != SVN_INVALID_REVNUM)
                 {
-                    swprintf_s(buf, L"%d", svn.status->revision);
+                    swprintf_s(buf, L"%ld", svn.status->revision);
                     SetDlgItemText(m_hwnd, IDC_REVISION, buf);
                 }
                 else
@@ -346,7 +345,7 @@ void CSVNPropertyPage::InitWorkfileView()
                 }
                 if (svn.status->changed_rev != SVN_INVALID_REVNUM)
                 {
-                    swprintf_s(buf, L"%d", svn.status->changed_rev);
+                    swprintf_s(buf, L"%ld", svn.status->changed_rev);
                     SetDlgItemText(m_hwnd, IDC_CREVISION, buf);
                 }
                 else

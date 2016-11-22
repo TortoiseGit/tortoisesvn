@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2014 - TortoiseSVN
+// Copyright (C) 2007-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -180,11 +180,8 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
             SVNInfo svnInfo;
             // find the common directory of all the paths
             CTSVNPath commonDir;
-            bool bAllUrls = true;
             for (int i=0; i<m_svnPaths.GetCount(); ++i)
             {
-                if (!m_svnPaths[i].IsUrl())
-                    bAllUrls = false;
                 if (commonDir.IsEmpty())
                     commonDir = m_svnPaths[i].GetContainingDirectory();
                 if (!commonDir.IsEquivalentTo(m_svnPaths[i].GetContainingDirectory()))

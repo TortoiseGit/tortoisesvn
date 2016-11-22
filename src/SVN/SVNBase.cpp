@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2015 - TortoiseSVN
+// Copyright (C) 2010-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -89,9 +89,8 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
             /* Otherwise, this must be an APR error code. */
             else
             {
-                svn_error_t *temp_err = NULL;
                 const char * err_string = NULL;
-                temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
+                svn_error_t * temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
                 if (temp_err)
                 {
                     svn_error_clear (temp_err);
@@ -119,9 +118,8 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
                 /* Otherwise, this must be an APR error code. */
                 else
                 {
-                    svn_error_t *temp_err = NULL;
                     const char * err_string = NULL;
-                    temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
+                    svn_error_t * temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
                     if (temp_err)
                     {
                         svn_error_clear (temp_err);

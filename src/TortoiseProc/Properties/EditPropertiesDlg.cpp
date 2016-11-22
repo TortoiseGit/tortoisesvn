@@ -1070,11 +1070,10 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
     m_tooltips.Pop();   // hide the tooltips
     int selIndex = m_propList.GetSelectionMark();
 
-    std::string sName;
     if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
     {
         async::CCriticalSectionLock lock(m_mutex);
-        sName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
+        std::string sName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
         PropValue * prop = (PropValue*)m_propList.GetItemData(selIndex);
         if (prop->allthesamevalue)
         {

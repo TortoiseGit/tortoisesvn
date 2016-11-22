@@ -1801,7 +1801,7 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
             myIDMap.clear();
             myVerbsIDMap.clear();
             myVerbsMap.clear();
-            RunCommand(tortoiseProcPath, svnCmd, cwdFolder.c_str(), L"TortoiseProc Launch failed");
+            RunCommand(tortoiseProcPath, svnCmd, cwdFolder, L"TortoiseProc Launch failed");
         }
         return S_OK;
     } // if (id_it != myIDMap.end() && id_it->first == idCmd)

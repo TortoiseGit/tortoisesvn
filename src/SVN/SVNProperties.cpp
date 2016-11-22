@@ -134,8 +134,7 @@ BOOL SVNProperties::Add(const std::string& name, const std::string& Value, bool 
         // The bugtraq and tsvn properties must only be set on folders.
         CTSVNPath path;
         SVNStatus stat;
-        svn_client_status_t * status = NULL;
-        status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
+        svn_client_status_t * status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
         if (status == NULL)
         {
             Err = svn_error_dup(const_cast<svn_error_t*>(stat.GetSVNError()));
@@ -234,8 +233,7 @@ BOOL SVNProperties::Remove(const std::string& name, svn_depth_t depth, const TCH
         {
             CTSVNPath path;
             SVNStatus stat;
-            svn_client_status_t * status = NULL;
-            status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
+            svn_client_status_t * status = stat.GetFirstFileStatus(m_path, path, false, depth, true, true);
             if (status == NULL)
             {
                 Err = svn_error_dup(const_cast<svn_error_t*>(stat.GetSVNError()));
