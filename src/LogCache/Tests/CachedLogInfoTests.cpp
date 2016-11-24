@@ -131,15 +131,22 @@ namespace LogCacheTests
                 {
                     std::string author(revInfo.GetAuthor(idx));
                     std::string comment(revInfo.GetComment(idx));
+                    char presenceFlags = revInfo.GetPresenceFlags(idx);
+                    __time64_t timeStamp = revInfo.GetTimeStamp(idx);
 
                     LogCache::CRevisionInfoContainer::CChangesIterator changeIt = revInfo.GetChangesBegin(idx);
                     LogCache::CRevisionInfoContainer::CChangesIterator changesEnd = revInfo.GetChangesEnd(idx);
                     for (; changeIt != changesEnd; ++changeIt)
                     {
+                        LogCache::CRevisionInfoContainer::TChangeAction action = changeIt->GetAction();
                         std::string changePath(changeIt->GetPath().GetPath());
+                        LogCache::node_kind_t nodeKind = changeIt->GetPathType();
+                        unsigned char textModifies = changeIt->GetTextModifies();
+                        unsigned char propsModifies = changeIt->GetPropsModifies();
 
                         if (changeIt->HasFromPath())
                         {
+                            LogCache::revision_t fromRev(changeIt->GetFromRevision());
                             std::string fromPath(changeIt->GetFromPath().GetPath());
                         }
                     }
