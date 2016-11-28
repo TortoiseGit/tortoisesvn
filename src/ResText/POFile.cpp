@@ -1,5 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2012-2013 - TortoiseGit
 // Copyright (C) 2003-2008, 2011-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
@@ -79,19 +80,15 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
             std::wstring msgid;
             std::wstring regexsearch, regexreplace;
             int type = 0;
-            for (std::vector<std::wstring>::iterator I = entry.begin(); I != entry.end(); ++I)
+            for (auto I = entry.cbegin(); I != entry.cend(); ++I)
             {
                 if (wcsncmp(I->c_str(), L"# ", 2)==0)
                 {
                     //user comment
                     if (wcsncmp(I->c_str(), L"# regexsearch=", 14) == 0)
-                    {
                         regexsearch = I->substr(14);
-                    }
                     else if (wcsncmp(I->c_str(), L"# regexreplace=", 15) == 0)
-                    {
                         regexreplace = I->substr(15);
-                    }
                     else
                         resEntry.translatorcomments.push_back(I->c_str());
                     if (!regexsearch.empty() && !regexreplace.empty())
@@ -121,7 +118,7 @@ BOOL CPOFile::ParseFile(LPCTSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
                     msgid = std::wstring(msgid.substr(7, msgid.size() - 8));
 
                     std::wstring s = msgid;
-                    s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<wint_t, int>(iswspace))));
+                    s.erase(s.cbegin(), std::find_if(s.cbegin(), s.cend(), std::not1(std::ptr_fun<wint_t, int>(iswspace))));
                     if (s.size())
                         nEntries++;
                     type = 1;
@@ -249,19 +246,19 @@ BOOL CPOFile::SaveFile(LPCTSTR szPath, LPCTSTR lpszHeaderFile)
     File << L"# If you do not want to change an Accelerator Key, copy msgid to msgstr\n";
     File << L"\n";
 
-    for (std::map<std::wstring, RESOURCEENTRY>::iterator I = this->begin(); I != this->end(); ++I)
+    for (auto I = this->cbegin(); I != this->cend(); ++I)
     {
         std::wstring s = I->first;
-        s.erase(s.begin(), std::find_if(s.begin(), s.end(), std::not1(std::ptr_fun<wint_t, int>(iswspace))));
+        s.erase(s.cbegin(), std::find_if(s.cbegin(), s.cend(), std::not1(std::ptr_fun<wint_t, int>(iswspace))));
         if (s.empty())
             continue;
 
         RESOURCEENTRY entry = I->second;
-        for (std::vector<std::wstring>::iterator II = entry.automaticcomments.begin(); II != entry.automaticcomments.end(); ++II)
+        for (auto II = entry.automaticcomments.cbegin(); II != entry.automaticcomments.cend(); ++II)
         {
             File << II->c_str() << L"\n";
         }
-        for (std::vector<std::wstring>::iterator II = entry.translatorcomments.begin(); II != entry.translatorcomments.end(); ++II)
+        for (auto II = entry.translatorcomments.cbegin(); II != entry.translatorcomments.cend(); ++II)
         {
             File << II->c_str() << L"\n";
         }
