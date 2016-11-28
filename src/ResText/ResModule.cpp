@@ -2239,6 +2239,8 @@ size_t CResModule::ScanHeaderFile(const std::wstring & filepath)
                 if (spacepos != std::string::npos)
                 {
                     auto value = atol(text.substr(spacepos).c_str());
+                    if (value == 0 && text.substr(spacepos).find("0x") != std::string::npos)
+                        value = std::stoul(text.substr(spacepos), nullptr, 16);
                     text = text.substr(0, spacepos);
                     trim(text);
                     if (text.compare(0, 4, "IDS_") == 0)
@@ -2283,6 +2285,8 @@ size_t CResModule::ScanHeaderFile(const std::wstring & filepath)
                 if (spacepos != std::wstring::npos)
                 {
                     auto value = _wtol(text.substr(spacepos).c_str());
+                    if (value == 0 && text.substr(spacepos).find(L"0x") != std::wstring::npos)
+                        value = std::stoul(text.substr(spacepos), nullptr, 16);
                     text = text.substr(0, spacepos);
                     trim(text);
                     if (text.compare(0, 4, L"IDS_") == 0)
