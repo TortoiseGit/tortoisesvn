@@ -265,11 +265,7 @@ bool CCommonAppUtils::RunTortoiseProc(const CString& sCommandLine)
     CString sCmd;
     sCmd.Format(L"\"%s\" %s", (LPCTSTR)pathToExecutable, (LPCTSTR)sCommandLine);
     if (AfxGetMainWnd()->GetSafeHwnd() && (sCommandLine.Find(L"/hwnd:")<0))
-    {
-        CString sCmdLine;
-        sCmdLine.Format(L"%s /hwnd:%p", (LPCTSTR)sCommandLine, (void*)AfxGetMainWnd()->GetSafeHwnd());
-        sCmd.Format(L"\"%s\" %s", (LPCTSTR)pathToExecutable, (LPCTSTR)sCmdLine);
-    }
+        sCmd.AppendFormat(L" /hwnd:%p", (void*)AfxGetMainWnd()->GetSafeHwnd());
     if (!g_sGroupingUUID.IsEmpty())
     {
         sCmd += L" /groupuuid:\"";
