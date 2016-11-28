@@ -2211,6 +2211,16 @@ void CResModule::ReplaceStr(LPCWSTR src, WORD * dest, size_t * count, int * tran
     delete [] pBuf;
 }
 
+static bool StartsWith(const std::string& heystacl, const char* needle)
+{
+    return heystacl.compare(0, strlen(needle), needle) == 0;
+}
+
+static bool StartsWith(const std::wstring& heystacl, const wchar_t* needle)
+{
+    return heystacl.compare(0, wcslen(needle), needle) == 0;
+}
+
 size_t CResModule::ScanHeaderFile(const std::wstring & filepath)
 {
     size_t count = 0;
@@ -2243,17 +2253,17 @@ size_t CResModule::ScanHeaderFile(const std::wstring & filepath)
                         value = std::stoul(text.substr(spacepos), nullptr, 16);
                     text = text.substr(0, spacepos);
                     trim(text);
-                    if (text.compare(0, 4, "IDS_") == 0)
+                    if (StartsWith(text, "IDS_"))
                     {
                         m_currentHeaderDataStrings[value] = CUnicodeUtils::StdGetUnicode(text);
                         ++count;
                     }
-                    else if (text.compare(0, 4, "IDD_") == 0)
+                    else if (StartsWith(text, "IDD_"))
                     {
                         m_currentHeaderDataDialogs[value] = CUnicodeUtils::StdGetUnicode(text);
                         ++count;
                     }
-                    else if (text.compare(0, 3, "ID_") == 0)
+                    else if (StartsWith(text, "ID_"))
                     {
                         m_currentHeaderDataMenus[value] = CUnicodeUtils::StdGetUnicode(text);
                         ++count;
@@ -2289,17 +2299,17 @@ size_t CResModule::ScanHeaderFile(const std::wstring & filepath)
                         value = std::stoul(text.substr(spacepos), nullptr, 16);
                     text = text.substr(0, spacepos);
                     trim(text);
-                    if (text.compare(0, 4, L"IDS_") == 0)
+                    if (StartsWith(text, L"IDS_"))
                     {
                         m_currentHeaderDataStrings[value] = text;
                         ++count;
                     }
-                    else if (text.compare(0, 4, L"IDD_") == 0)
+                    else if (StartsWith(text, L"IDD_"))
                     {
                         m_currentHeaderDataDialogs[value] = text;
                         ++count;
                     }
-                    else if (text.compare(0, 3, L"ID_") == 0)
+                    else if (StartsWith(text, L"ID_"))
                     {
                         m_currentHeaderDataMenus[value] = text;
                         ++count;
