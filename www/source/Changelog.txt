@@ -1,3 +1,38 @@
+Version 1.9.5
+- BUG: The "go to next diff" in TortoiseMerge stopped at
+       lines filtered with a regex. (Stefan)
+- BUG: Changing the font in TortoiseMerge wasn't taking
+       effect until a restart. (Stefan)
+- BUG: When a filter was active in TMerge, filtered lines
+       could still be handled as a diff. (Stefan)
+- BUG: Changing the font in TMerge required a restart
+       for the changes to take effect. (Stefan)
+- BUG: On Win8 and later, the spell checker wasn't properly
+       handled in case there's no appropriate dict available. (Stefan)
+- BUG: Wording of the transfer speeds was wrong. (Stefan)
+- BUG: The externals property dialog did not handle
+       HEAD revisions properly. (Stefan)
+- BUG: Autocompletion of filenames with umlauts
+       in the commit dialog did not work. (Stefan)
+- BUG: The LogFindCopyFrom feature did not work properly
+       for a branch that wasn't created from HEAD. (Stefan)
+- BUG: the conflict resolve buttons were not enabled
+       in TortoiseMerge. (Stefan)
+- BUG: TortoiseMerge could hang with "ignore comments"
+       enabled. (Sven Strickroth)
+- BUG: The patch window in TMerge could be shown outside of a 
+       multi-monitor setup, i.e. not in a visible area. (Stefan)
+- BUG: When deleting multiple files with unversioned files
+       mixed in, the "do this for all unversioned/modified files"
+       still showed a lot of error messages for unversioned files. (Stefan)
+- BUG: "Split lines" in the commit dialog with a log width marker set
+       lead to memory exhaustion. (Stefan)
+- BUG: The tsvn:mergelogtemplatemsgtitlebottom property didn't work. (Stefan)
+- BUG: Creating an external via right-dragging if the name
+       contained a space failed. (Stefan)
+- BUG: certain urls were not recognized as resulting in paths
+       that are not valid on Windows. (Stefan)
+
 Version 1.9.4
 - BUG: GDI Resource leak when showing a file list. (Stefan, Ivan)
 - BUG: lifetime issue with path string for long paths. (Ivan Zhakov)

@@ -24,20 +24,19 @@ showAds: true
 {% include adsense_inpage.html %}
 
 <div class="post">
-    <h2 class="title"><a href="/downloads.html">TortoiseSVN 1.9.4 released</a></h2>
-    <p class="meta">Posted on April 28, 2016</p>
+    <h2 class="title"><a href="/downloads.html">TortoiseSVN 1.9.5 released</a></h2>
+    <p class="meta">Posted on November 29, 2016</p>
     <div class="entry">
         <p>
-        We're proud to announce that TortoiseSVN 1.9.4 has been released.
-        It is linked against Subversion 1.9.4.
+        We're proud to announce that TortoiseSVN 1.9.5 has been released.
+        It is linked against Subversion 1.9.5.
         </p>
         <p>
-        This is a a bugfix release with two security issues fixed in the svn
+        This is a a bugfix release with one security issue fixed in the svn
         library:
         </p>
         <ul>
-            <li><a href="http://subversion.apache.org/security/CVE-2016-2167-advisory.txt">CVE-2016-2167</a>: svnserve/sasl may authenticate users using the wrong realm</li>
-            <li><a href="http://subversion.apache.org/security/CVE-2016-2168-advisory.txt">CVE-2016-2168</a>: Remotely triggerable DoS vulnerability in mod_authz_svn during COPY/MOVE authorization check</li>
+            <li><a href="http://subversion.apache.org/security/CVE-2016-8734-advisory.txt">CVE-2016-8734</a>: Unrestricted XML entity expansion in mod_dontdothat and Subversion clients using http(s)://</li>
         </ul>
         <p>
         Please read the <a href="/tsvn_1.9_releasenotes.html">release notes</a>
