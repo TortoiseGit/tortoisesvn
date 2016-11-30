@@ -4670,25 +4670,16 @@ CTSVNPath CSVNStatusListCtrl::GetCommonDirectory(bool bStrict)
             return m_StatusFileList.GetCommonDirectory();
     }
 
-    CTSVNPath commonBaseDirectory;
+    CTSVNPathList list;
     int nListItems = GetItemCount();
-    for (int i=0; i<nListItems; ++i)
+    for (int i = 0; i<nListItems; ++i)
     {
-        const CTSVNPath& baseDirectory = GetListEntry(i)->GetPath().GetDirectory();
-        if(commonBaseDirectory.IsEmpty())
-        {
-            commonBaseDirectory = baseDirectory;
-        }
-        else
-        {
-            if (commonBaseDirectory.GetWinPathString().GetLength() > baseDirectory.GetWinPathString().GetLength())
-            {
-                if (baseDirectory.IsAncestorOf(commonBaseDirectory))
-                    commonBaseDirectory = baseDirectory;
-            }
-        }
+        const FileEntry * entry = GetListEntry(i);
+        if (entry->GetPath().IsEmpty())
+            continue;
+        list.AddPath(entry->GetPath());
     }
-    return commonBaseDirectory;
+    return list.GetCommonRoot();
 }
 
 CTSVNPath CSVNStatusListCtrl::GetCommonURL(bool bStrict)
