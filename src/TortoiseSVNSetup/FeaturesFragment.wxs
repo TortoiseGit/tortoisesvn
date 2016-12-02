@@ -57,6 +57,10 @@
         <ComponentRef Id="C__iconsblipclean" />
         <ComponentRef Id="C__iconsmufwin7" />
         <ComponentRef Id="C__iconswin10" />
+        <ComponentRef Id="C__iconsflat" />
+        <ComponentRef Id="C__iconsillustration" />
+        <ComponentRef Id="C__iconsprofessional" />
+        <ComponentRef Id="C__iconsribbon" />
       </Feature>
 
       <Feature Id="CLI" Level="200" Title="command line client tools" Description="The svn command line client tools" TypicalDefault="install" Absent="allow">
