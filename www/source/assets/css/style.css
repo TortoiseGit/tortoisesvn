@@ -12,16 +12,21 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+}
+
 body {
-    background-color: #27343C;
+    background-color: #27343c;
     color: black;
     font: 14px Arial, Helvetica, sans-serif;
+    height: 100%;
     margin: 0;
 }
 
 a {
     border-bottom: 1px dotted #999999;
-    color: #F93D00;
+    color: #f93d00;
     text-decoration: none;
 }
 
@@ -38,7 +43,7 @@ blockquote p {
 h1,
 h2,
 h3 {
-    color: #417FDA;
+    color: #417fda;
     font-family: Georgia, "Times New Roman", Times, sans-serif;
     font-weight: normal;
     margin: 0;
@@ -130,7 +135,7 @@ pre code {
 }
 
 .table-hover > tbody > tr:hover {
-    background-color: #E1EAFE;
+    background-color: #e1eafe;
 }
 
 .caution,
@@ -161,11 +166,11 @@ pre code {
 
 .caution {
     background-image: url("../img/caution.png");
-    border-color: #C60;
+    border-color: #c60;
 }
 
 .caution h3 {
-    color: #C60;
+    color: #c60;
 }
 
 .important {
@@ -257,12 +262,12 @@ pre code {
 
 /* Menu */
 .menu {
-    background-color: #565F68;
+    background-color: #565f68;
     border-radius: 2px;
     display: inline-block;
     margin: 0 auto -4px auto;
     padding: 0;
-    text-shadow: 0 0 2px #B7B7B7;
+    text-shadow: 0 0 2px #b7b7b7;
     width: 910px;
     height: 50px;
 }
@@ -319,7 +324,7 @@ pre code {
 
 .title a {
     border: none;
-    color: #417FDA;
+    color: #417fda;
 }
 
 .title a:hover {
@@ -327,7 +332,7 @@ pre code {
 }
 
 .post .meta {
-    border-bottom: 1px dashed #D2D4C9;
+    border-bottom: 1px dashed #d2d4c9;
     font-size: 11px;
     font-style: italic;
     padding-bottom: 5px;
@@ -346,13 +351,13 @@ pre code {
 /* Sidebar */
 .sidebar {
     float: left;
-    padding: 104px 0 0 30px; /* 84px from .page + 20px */
+    padding: 104px 0 0 30px;    /* 84px from .page + 20px */
     width: 250px;
 }
 
 .sidebar a {
     border: none;
-    color: #417FDA;
+    color: #417fda;
 }
 
 .sidebar a:hover {
@@ -362,7 +367,7 @@ pre code {
 .sidebar h2 {
     color: #417FDA;
     letter-spacing: -0.5px;
-    text-shadow: 0 0 2px #B7B7B7;
+    text-shadow: 0 0 2px #b7b7b7;
 }
 
 .sidebar li ul {
@@ -370,7 +375,7 @@ pre code {
 }
 
 .sidebar li li {
-    border-bottom: 1px dashed #D2D4C9;
+    border-bottom: 1px dashed #d2d4c9;
     line-height: 35px;
 }
 
@@ -389,7 +394,7 @@ pre code {
 
 /* Footer */
 .footer {
-    color: #B2B2B2;
+    color: #b2b2b2;
     margin: 0 auto;
     padding: 20px 0;
     text-align: center;
@@ -419,11 +424,6 @@ pre code {
     height: auto;
 }
 
-a.fancybox,
-.fancybox a,
-.fancybox-skin a {
-    border-bottom: none;
-}
 
 .no-wrap {
     white-space: nowrap;

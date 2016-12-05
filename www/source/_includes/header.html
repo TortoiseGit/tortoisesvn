@@ -2,7 +2,6 @@
 <html lang="{{ page.lang }}" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/WebPage" class="no-js">
 <head>
     <meta charset="utf-8">
-    <link rel="dns-prefetch" href="https://ajax.googleapis.com">
     <link rel="dns-prefetch" href="https://www.openhub.net">
 
     {% capture title %}{% if paginator.page and paginator.page != 1 %}{{ page.title }} - Page {{ paginator.page }}{% else %}{{ page.title }}{% endif%} &middot; TortoiseSVN{% endcapture %}
@@ -50,7 +49,8 @@
     <meta itemprop="image" content="/assets/img/logo-256x256.png">
 
 </head>
-<body>
+{% capture body_class %}{{ page.layout }}{% if page.body_class %} page-{{ page.body_class }}{% elsif page.slug %} page-{{ page.slug | slugify }}{% endif %}{% endcapture %}
+<body class="{{ body_class }}">
 
     {% unless page.id == nil %}
     {% assign pages = site.pages | where: "id", page.id | sort: "path" %}

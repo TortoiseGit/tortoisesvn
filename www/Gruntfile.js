@@ -8,18 +8,6 @@ module.exports = function(grunt) {
             src: 'source'
         },
 
-        // Copy files that don't need compilation to dist/
-        copy: {
-            dist: {
-                files: [{
-                    dest: '<%= dirs.dest %>/',
-                    src: 'assets/js/vendor/jquery*.min.js',
-                    expand: true,
-                    cwd: '<%= dirs.src %>/'
-                }]
-            }
-        },
-
         jekyll: {
             site: {
                 options: {
@@ -39,8 +27,7 @@ module.exports = function(grunt) {
                     decodeEntities: true,
                     ignoreCustomComments: [/^\s*google(off|on):\s/],
                     minifyCSS: {
-                        //advanced: false,
-                        compatibility: 'ie8',
+                        compatibility: 'ie9',
                         keepSpecialComments: 0
                     },
                     minifyJS: true,
@@ -67,7 +54,7 @@ module.exports = function(grunt) {
         concat: {
             css: {
                 src: ['<%= dirs.src %>/assets/css/vendor/normalize.css',
-                      '<%= dirs.src %>/assets/css/vendor/jquery.fancybox.css',
+                      '<%= dirs.src %>/assets/css/vendor/baguetteBox.css',
                       '<%= dirs.src %>/assets/css/vendor/highlighter.css',
                       '<%= dirs.src %>/assets/css/flags-sprite.css',
                       '<%= dirs.src %>/assets/css/style.css'
@@ -75,19 +62,23 @@ module.exports = function(grunt) {
                 dest: '<%= dirs.dest %>/assets/css/pack.css'
             },
             mainJs: {
-                src: ['<%= dirs.src %>/assets/js/no-js-class.js',
+                src: ['<%= dirs.src %>/assets/js/vendor/plugins.js',
+                      '<%= dirs.src %>/assets/js/no-js-class.js',
                       '<%= dirs.src %>/assets/js/onLoad.js',
                       '<%= dirs.src %>/assets/js/google-analytics.js'
                 ],
                 dest: '<%= dirs.dest %>/assets/js/main.js'
             },
-            fancybox: {
-                src: ['<%= dirs.src %>/assets/js/vendor/plugins.js',
-                      '<%= dirs.src %>/assets/js/vendor/jquery.mousewheel.js',
-                      '<%= dirs.src %>/assets/js/vendor/jquery.fancybox.js',
-                      '<%= dirs.src %>/assets/js/fancybox-init.js'
+            baguetteBox: {
+                src: ['<%= dirs.src %>/assets/js/vendor/baguetteBox.js',
+                      '<%= dirs.src %>/assets/js/baguetteBox-init.js'
                 ],
-                dest: '<%= dirs.dest %>/assets/js/fancybox.js'
+                dest: '<%= dirs.dest %>/assets/js/baguetteBox-pack.js'
+            },
+            sfAccel: {
+                src: ['<%= dirs.src %>/assets/js/sf-accel.js'
+                ],
+                dest: '<%= dirs.dest %>/assets/js/sf-accel.js'
             }
         },
 
@@ -112,7 +103,7 @@ module.exports = function(grunt) {
             options: {
                 htmlroot: '<%= dirs.dest %>',
                 ignore: [
-                    /(#|\.)fancybox(\-[a-zA-Z]+)?/,
+                    /(#|\.)baguetteBox(-[a-zA-Z]+)?/,
                     /\.no\-js/
                 ],
                 ignoreSheets: [/fonts.googleapis/, /www.google.com/, /pagead2.googlesyndication.com/],
@@ -127,7 +118,7 @@ module.exports = function(grunt) {
         cssmin: {
             minify: {
                 options: {
-                    compatibility: 'ie8',
+                    compatibility: 'ie9',
                     keepSpecialComments: 0
                 },
                 files: {
@@ -146,8 +137,9 @@ module.exports = function(grunt) {
             },
             minify: {
                 files: {
-                    '<%= concat.fancybox.dest %>': '<%= concat.fancybox.dest %>',
-                    '<%= concat.mainJs.dest %>': '<%= concat.mainJs.dest %>'
+                    '<%= concat.baguetteBox.dest %>': '<%= concat.baguetteBox.dest %>',
+                    '<%= concat.mainJs.dest %>': '<%= concat.mainJs.dest %>',
+                    '<%= concat.sfAccel.dest %>': '<%= concat.sfAccel.dest %>'
                 }
             }
         },
@@ -158,8 +150,7 @@ module.exports = function(grunt) {
             },
             js: {
                 src: [
-                    '<%= dirs.dest %>/assets/js/**/*.js',
-                    '!<%= dirs.dest %>/assets/js/vendor/jquery*.min.js'
+                    '<%= dirs.dest %>/assets/js/**/*.js'
                 ]
             },
             images: {
@@ -277,7 +268,6 @@ module.exports = function(grunt) {
         'clean',
         'jekyll',
         'useminPrepare',
-        'copy',
         'concat',
         'autoprefixer',
         'uncss',
@@ -300,7 +290,6 @@ module.exports = function(grunt) {
     grunt.registerTask('dev', [
         'jekyll',
         'useminPrepare',
-        'copy',
         'concat',
         'autoprefixer',
         'filerev',
