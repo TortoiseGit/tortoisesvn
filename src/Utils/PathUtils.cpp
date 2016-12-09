@@ -668,7 +668,7 @@ CString CPathUtils::PathUnescape (const char* path)
     // try quick path
     size_t i = 0;
     for (; char c = path[i]; ++i)
-        if ((c >= 0x80) || (c == '%'))
+        if ((unsigned char(c) >= 0x80) || (c == '%'))
         {
             // quick path does not work for non-latin or escaped chars
             std::string utf8Path (path);
