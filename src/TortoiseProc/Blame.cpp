@@ -205,9 +205,9 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, const SVNRev& startrev, c
     if (extBlame)
     {
         if(includemerge)
-            headline.Format(L"%c %-6s %-8s %-8s %-30s %-60s %-30s %-s \n", ' ', L"line", L"rev", L"merged", L"date", L"path", L"author", L"content");
+            headline.Format(L"%c %-6s %-8s %-8s %-30s %-60s %-30s %-s \n", L' ', L"line", L"rev", L"merged", L"date", L"path", L"author", L"content");
         else
-            headline.Format(L"%c %-6s %-8s %-8s %-30s %-30s %-s \n", ' ', L"line", L"rev", L"merged", L"date",L"author", L"content");
+            headline.Format(L"%c %-6s %-8s %-8s %-30s %-30s %-s \n", L' ', L"line", L"rev", L"merged", L"date",L"author", L"content");
         m_saveFile.WriteString(headline);
         m_saveFile.WriteString(L"\n");
     }
