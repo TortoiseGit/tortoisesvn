@@ -37,12 +37,10 @@ typedef enum hooktype
     start_update_hook,
     pre_update_hook,
     post_update_hook,
-    issue_tracker_hook,
     pre_connect_hook,
     manual_precommit,
     check_commit_hook,
     pre_lock_hook,
-    start_lock_hook,
     post_lock_hook
 } hooktype;
 
