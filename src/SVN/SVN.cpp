@@ -3024,7 +3024,7 @@ CString SVN::GetChecksumString( svn_checksum_kind_t type, const CString& s, apr_
 {
     svn_checksum_t *checksum;
     CStringA sa = CUnicodeUtils::GetUTF8(s);
-    svn_checksum(&checksum, type, s, s.GetLength(), localpool);
+    svn_checksum(&checksum, type, sa, sa.GetLength(), localpool);
     const char * hexname = svn_checksum_to_cstring(checksum, localpool);
     CString hex = CUnicodeUtils::GetUnicode(hexname);
     return hex;
