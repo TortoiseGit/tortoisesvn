@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -147,7 +147,7 @@ const FileStatusCacheEntry * SVNFolderStatus::BuildCache(const CTSVNPath& filepa
     urls.clear();
     owners.clear();
 
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": building cache for %s\n", filepath);
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": building cache for %s\n", filepath.GetWinPath());
     if (bIsFolder)
     {
         if (bDirectFolder)
@@ -354,12 +354,12 @@ const FileStatusCacheEntry * SVNFolderStatus::GetCachedItem(const CTSVNPath& fil
     if(m_mostRecentPath.IsEquivalentTo(CTSVNPath(sCacheKey.c_str())))
     {
         // We've hit the same result as we were asked for last time
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": fast cache hit for %s\n", filepath);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": fast cache hit for %s\n", filepath.GetWinPath());
         retVal = m_mostRecentStatus;
     }
     else if ((iter = m_cache.find(sCacheKey)) != m_cache.end())
     {
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": cache found for %s\n", filepath);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": cache found for %s\n", filepath.GetWinPath());
         retVal = &iter->second;
         m_mostRecentStatus = retVal;
         m_mostRecentPath = CTSVNPath(sCacheKey.c_str());
