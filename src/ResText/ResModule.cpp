@@ -1255,7 +1255,7 @@ BOOL CResModule::ExtractDialog(LPCTSTR lpszType)
         if (bCode == FALSE)
             wcsncpy(szTitle, dlgItem.windowName, _countof(szTitle) - 1);
 
-        if (wcslen(szTitle) > 0)
+        if (szTitle[0] != 0)
         {
             CUtils::StringExtend(szTitle);
 

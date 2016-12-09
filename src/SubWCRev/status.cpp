@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -135,7 +135,7 @@ tstring Tokenize(const _TCHAR* str, const _TCHAR* delim, tstring::size_type& iSt
         r = wcsstr(pstr, delim);
     }
 
-    if( wcslen(pstr) > 0)
+    if( pstr[0] != 0)
     {
         iStart = tstring::size_type(wcslen(str));
         return tstring(pstr);
@@ -229,10 +229,11 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
     }
     if (status->local_abspath && !sb->SubStat->ignorepatterns.empty())
     {
+        auto la_len = strlen(status->local_abspath);
         for (const auto& pattern : sb->SubStat->ignorepatterns)
         {
             auto offset = std::get<1>(pattern);
-            if (strlen(status->local_abspath) <= offset)
+            if (la_len <= offset)
                 continue;
             const char * relativepath = &status->local_abspath[offset];
             if (*relativepath == '/')

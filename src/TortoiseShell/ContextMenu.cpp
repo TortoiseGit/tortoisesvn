@@ -2146,11 +2146,11 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
     {
         // check if the item name is ignored or the mask
         size_t p = 0;
+        const size_t pathLength = wcslen(ignorepath);
         while ( (p=ignoredprops.find( ignorepath,p )) != -1 )
         {
             if ( (p==0 || ignoredprops[p-1]==TCHAR('\n')) )
             {
-                const size_t pathLength = wcslen(ignorepath);
                 if ( ((p + pathLength)==ignoredprops.length()) || (ignoredprops[p + pathLength]==TCHAR('\n')) || (ignoredprops[p + pathLength]==0) )
                 {
                     break;
@@ -2178,7 +2178,6 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
         {
             if ( (p==0 || ignoredglobalprops[p-1]==TCHAR('\n')) )
             {
-                const size_t pathLength = wcslen(ignorepath);
                 if ( ((p + pathLength)==ignoredglobalprops.length()) || (ignoredglobalprops[p + pathLength]==TCHAR('\n')) || (ignoredglobalprops[p + pathLength]==0) )
                 {
                     break;

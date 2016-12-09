@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009, 2011, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009, 2011, 2014-2016 - TortoiseSVN
 // Copyright (C) 2013 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -82,13 +82,13 @@ BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
             std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
 
             LPCWSTR sQuote(NULL), sEndQuote(NULL);
-            if (wcslen(sVal) > 0)
+            if (sVal[0] != 0)
             {
                 if (sVal[0] != ' ')
                     sVal = _wcsinc(sVal);
                 else
                 {
-                    while (wcslen(sVal) > 0 && sVal[0] == ' ')
+                    while (sVal[0] == ' ')
                         sVal = _wcsinc(sVal);
                 }
 
@@ -218,7 +218,7 @@ CCmdLineParser::ITERPOS CCmdLineParser::getNext(ITERPOS& pos, std::wstring& sKey
     {
         sKey = pos->first;
         sValue = pos->second;
-        pos++;
+        ++pos;
         return pos;
     }
 }

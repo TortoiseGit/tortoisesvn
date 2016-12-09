@@ -707,7 +707,7 @@ void TortoiseBlame::StartSearch()
 void TortoiseBlame::DoSearchNext()
 {
     m_fr.Flags |= FR_DOWN;
-    if (wcslen(m_szFindWhat) == 0)
+    if (m_szFindWhat[0] == 0)
         return StartSearchSel();
     DoSearch(m_szFindWhat, m_fr.Flags);
 }
@@ -715,7 +715,7 @@ void TortoiseBlame::DoSearchNext()
 void TortoiseBlame::DoSearchPrev()
 {
     m_fr.Flags &= ~FR_DOWN;
-    if (wcslen(m_szFindWhat) == 0)
+    if (m_szFindWhat[0] == 0)
         return StartSearchSelReverse();
     DoSearch(m_szFindWhat, m_fr.Flags);
 }
