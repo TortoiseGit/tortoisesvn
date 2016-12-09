@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2009-2010, 2013-2014 - TortoiseSVN
+// Copyright (C) 2006-2007, 2009-2010, 2013-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -116,7 +116,7 @@ void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
     r.right = r.left + m_renderSrc.GetWidth();
     r.bottom = r.top + m_renderSrc.GetHeight();
 
-    if(r.PtInRect(point) == TRUE)
+    if(r.PtInRect(point) != FALSE)
     {
         // dibs are drawn upside down...
         point.y -= 20;
