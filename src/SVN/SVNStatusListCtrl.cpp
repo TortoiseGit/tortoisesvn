@@ -4412,7 +4412,8 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
     {
         TCHAR groupname[1024] = { 0 };
         wcsncpy_s(groupname, name, _countof(groupname)-1);
-        m_changelists[name] = (int)DoInsertGroup(groupname, (int)m_changelists.size(), -1);
+        auto size = (int)m_changelists.size();
+        m_changelists[name] = (int)DoInsertGroup(groupname, size, -1);
 
         PrepareGroups(true);
 
