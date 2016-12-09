@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -995,9 +995,10 @@ int _tmain(int argc, _TCHAR* argv[])
     GetFullPathName(wc, MAX_PATH, wcfullpath, &dummy);
     apr_status_t e = 0;
     if (svnerr)
+    {
         e = svnerr->apr_err;
-    if (svnerr)
         svn_error_clear(svnerr);
+    }
     apr_terminate2();
     if (svnerr)
     {
