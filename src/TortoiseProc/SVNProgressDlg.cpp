@@ -933,7 +933,6 @@ static void BuildInfoSubstring(CString &str, UINT nID, int count)
 CString CSVNProgressDlg::BuildInfoString()
 {
     CString infotext;
-    CString temp;
     int added = 0;
     int copied = 0;
     int deleted = 0;
@@ -2180,7 +2179,6 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             if (data == NULL)
                 break;
             POSITION pos = m_ProgList.GetFirstSelectedItemPosition();
-            CString sResolvedPaths;
             while (pos)
             {
                 int nItem = m_ProgList.GetNextSelectedItem(pos);

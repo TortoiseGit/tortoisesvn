@@ -1073,7 +1073,6 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
     if ((selIndex >= 0)&&(m_propList.GetSelectedCount()))
     {
         async::CCriticalSectionLock lock(m_mutex);
-        std::string sName = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_propList.GetItemText(selIndex, 0));
         PropValue * prop = (PropValue*)m_propList.GetItemData(selIndex);
         if (prop->allthesamevalue)
         {

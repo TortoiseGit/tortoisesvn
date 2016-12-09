@@ -276,7 +276,6 @@ bool CBlame::BlameToFile(const CTSVNPath& path, const SVNRev& startrev, const SV
                          const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge)
 {
     extBlame = TRUE;
-    CString temp;
     if (!m_saveFile.Open(tofile.GetWinPathString(), CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
         return false;
     m_bNoLineNo = true;

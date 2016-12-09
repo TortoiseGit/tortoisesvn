@@ -1863,7 +1863,6 @@ BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
    //Create the tooltips
 
    INITCOMMONCONTROLSEX iccex;
-   app.hwndTT;                 // handle to the ToolTip control
    TOOLINFO ti;
    RECT rect;                  // for client area coordinates
    iccex.dwICC = ICC_WIN95_CLASSES;

@@ -5451,7 +5451,6 @@ CString CLogDlg::GetUrlOfTrunk()
 void CLogDlg::ExecuteAddCodeCollaboratorReview()
 {
     CString revisions;
-    CString commandLine;
 
     revisions = GetSpaceSeparatedSelectedRevisions();
     if (revisions.IsEmpty())
@@ -9219,7 +9218,6 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT * pResult)
         m_startrev = head;
         m_bStartRevIsHead = false;
         m_LogRevision = head;
-        m_hasWC = m_path.IsUrl();
         m_bStrict = false;
         m_bSaveStrict = false;
         m_revUnread = pItem->unreadFirst;

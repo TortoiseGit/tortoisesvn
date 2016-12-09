@@ -296,7 +296,6 @@ void CFileDiffDlg::DoDiff(int selIndex, bool bText, bool bProps, bool blame, boo
         return;
 
     CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path1, m_rev1);
-    CString sTemp;
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_PROGRESSWAIT);
     progDlg.ShowModeless(this);
@@ -938,7 +937,6 @@ UINT CFileDiffDlg::ExportThread()
             continue;
         }
 
-        CString sTemp;
         m_pProgDlg->FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)url1.GetSVNPathString());
 
         CTSVNPath savepath = CTSVNPath(m_strExportDir);

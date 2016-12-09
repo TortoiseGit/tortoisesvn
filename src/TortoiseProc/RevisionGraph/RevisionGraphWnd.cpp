@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1407,7 +1407,6 @@ void CRevisionGraphWnd::OnMouseMove(UINT nFlags, CPoint point)
         if (m_bShowOverview && (m_OverviewRect.PtInRect(point))&&(nFlags & MK_LBUTTON))
         {
             // scrolling
-            CRect viewRect = GetViewRect();
             int x = (int)((point.x-m_OverviewRect.left - (m_OverviewPosRect.Width()/2)) / m_previewZoom  * m_fZoomFactor);
             int y = (int)((point.y - (m_OverviewPosRect.Height()/2)) / m_previewZoom  * m_fZoomFactor);
             x = max(0, x);

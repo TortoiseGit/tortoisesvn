@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2015 - TortoiseSVN
+// Copyright (C) 2010-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -50,7 +50,6 @@ public:
             bUpgrade = true;
         if (bUpgrade)
         {
-            CString tmp;
             progress.SetTitle(IDS_PROC_UPGRADE);
             progress.SetShowProgressBar(false);
             for (int i = 0; i < pathList.GetCount(); ++i)

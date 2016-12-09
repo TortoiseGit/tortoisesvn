@@ -1181,7 +1181,6 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
           || root.Compare (url.Left (root.GetLength()))
           || ((url.GetAt(root.GetLength()) != '/') && ((url.GetLength() > root.GetLength()) && (url.GetAt(root.GetLength()) != '/')));
 
-    CString partUrl = url;
     if ((LONG(rev) != LONG(m_repository.revision)) || urlHasDifferentRoot)
     {
         ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_WAIT)), true);
@@ -2542,7 +2541,6 @@ void CRepositoryBrowser::OnLvnItemchangedRepolist(NMHDR *pNMHDR, LRESULT *pResul
             if (pItem)
             {
                 CString temp;
-                CString rev;
 
                 if (pItem->is_external)
                 {
@@ -3220,7 +3218,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
     CRepositoryBrowserSelection selection;
     if (pWnd == &m_RepoList)
     {
-        CString urls;
         CAutoReadLock locker(m_guard);
 
         POSITION pos = m_RepoList.GetFirstSelectedItemPosition();
@@ -5426,7 +5423,6 @@ void CRepositoryBrowser::RefreshBookmarks()
             pTreeItem->bookmark = true;
             pTreeItem->url = bookmark;
 
-            CString sBook(MAKEINTRESOURCE(IDS_BOOKMARKS));
             TVINSERTSTRUCT tvinsert = {0};
             tvinsert.hParent = hBookmarkRoot;
             tvinsert.hInsertAfter = TVI_LAST;
