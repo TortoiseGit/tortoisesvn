@@ -800,21 +800,23 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
         size_t count = 0;
         for (std::map<CTSVNPath, CTSVNPath>::iterator it = copyMap.begin(); (it != copyMap.end()) && (!progress.HasUserCancelled()); ++it)
         {
-            progress.FormatPathLine(1, IDS_SVNPROGRESS_EXPORTING, it->first.GetWinPath());
-            progress.FormatPathLine(2, IDS_SVNPROGRESS_EXPORTINGTO, it->second.GetWinPath());
+            const auto& src = it->first;
+            const auto& dst = it->second;
+            progress.FormatPathLine(1, IDS_SVNPROGRESS_EXPORTING, src.GetWinPath());
+            progress.FormatPathLine(2, IDS_SVNPROGRESS_EXPORTINGTO, dst.GetWinPath());
             progress.SetProgress64(count, copyMap.size());
             count++;
-            if (it->first.IsDirectory())
-                CPathUtils::MakeSureDirectoryPathExists(it->second.GetWinPath());
+            if (src.IsDirectory())
+                CPathUtils::MakeSureDirectoryPathExists(dst.GetWinPath());
             else
             {
-                if (!CopyFile(it->first.GetWinPath(), it->second.GetWinPath(), !force))
+                if (!CopyFile(src.GetWinPath(), dst.GetWinPath(), !force))
                 {
                     DWORD lastError = GetLastError();
                     if (lastError == ERROR_PATH_NOT_FOUND)
                     {
-                        CPathUtils::MakeSureDirectoryPathExists(it->second.GetContainingDirectory().GetWinPath());
-                        if (!CopyFile(it->first.GetWinPath(), it->second.GetWinPath(), !force))
+                        CPathUtils::MakeSureDirectoryPathExists(dst.GetContainingDirectory().GetWinPath());
+                        if (!CopyFile(src.GetWinPath(), dst.GetWinPath(), !force))
                             lastError = GetLastError();
                         else
                             lastError = 0;
@@ -825,7 +827,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 
                         UINT ret = 0;
                         CString strMessage;
-                        strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, it->second.GetWinPath());
+                        strMessage.Format(IDS_PROC_OVERWRITE_CONFIRM, dst.GetWinPath());
                         CTaskDialog taskdlg(strMessage,
                                             CString(MAKEINTRESOURCE(IDS_PROC_OVERWRITE_CONFIRM_TASK2)),
                                             L"TortoiseSVN",
@@ -843,11 +845,11 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
 
                         if ((ret == IDYESTOALL)||(ret == IDYES))
                         {
-                            if (!CopyFile(it->first.GetWinPath(), it->second.GetWinPath(), FALSE))
+                            if (!CopyFile(src.GetWinPath(), dst.GetWinPath(), FALSE))
                             {
                                 lastError = GetLastError();
                             }
-                            SetFileAttributes(it->second.GetWinPath(), FILE_ATTRIBUTE_NORMAL);
+                            SetFileAttributes(dst.GetWinPath(), FILE_ATTRIBUTE_NORMAL);
                         }
                     }
                     if (lastError)
@@ -859,7 +861,7 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
                         return false;
                     }
                 }
-                SetFileAttributes(it->second.GetWinPath(), FILE_ATTRIBUTE_NORMAL);
+                SetFileAttributes(dst.GetWinPath(), FILE_ATTRIBUTE_NORMAL);
             }
         }
         if (progress.HasUserCancelled())

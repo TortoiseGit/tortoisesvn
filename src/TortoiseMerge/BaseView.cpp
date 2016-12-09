@@ -1787,13 +1787,14 @@ void CBaseView::DrawTextLine(
             std::map<int, linecolors_t>::iterator it = lineCols.lower_bound(selectedStart);
             for ( ; it != lineCols.end() && it->first < selectedEnd; ++it)
             {
-                COLORREF crBk = CAppUtils::IntenseColor(intenseColorScale, it->second.background);
-                if (it->second.shot == it->second.background)
+                auto& second = it->second;
+                COLORREF crBk = CAppUtils::IntenseColor(intenseColorScale, second.background);
+                if (second.shot == second.background)
                 {
-                    it->second.shot = crBk;
+                    second.shot = crBk;
                 }
-                it->second.background = crBk;
-                it->second.text = CAppUtils::IntenseColor(intenseColorScale, it->second.text);
+                second.background = crBk;
+                second.text = CAppUtils::IntenseColor(intenseColorScale, second.text);
             }
         }
     }
@@ -1827,13 +1828,14 @@ void CBaseView::DrawTextLine(
             std::map<int, linecolors_t>::iterator it = lineCols.lower_bound(nMarkStart);
             for ( ; it != lineCols.end() && it->first < nMarkEnd; ++it)
             {
-                COLORREF crBk = CAppUtils::IntenseColor(nIntenseColorScale, it->second.background);
-                if (it->second.shot == it->second.background)
+                auto& second = it->second;
+                COLORREF crBk = CAppUtils::IntenseColor(nIntenseColorScale, second.background);
+                if (second.shot == second.background)
                 {
-                    it->second.shot = crBk;
+                    second.shot = crBk;
                 }
-                it->second.background = crBk;
-                it->second.text = CAppUtils::IntenseColor(nIntenseColorScale, it->second.text);
+                second.background = crBk;
+                second.text = CAppUtils::IntenseColor(nIntenseColorScale, second.text);
             }
         }
     }
@@ -1855,13 +1857,14 @@ void CBaseView::DrawTextLine(
             std::map<int, linecolors_t>::iterator it = lineCols.lower_bound(nMarkStart+nStringPos);
             for ( ; it != lineCols.end() && it->first < nMarkEnd; ++it)
             {
-                COLORREF crBk = CAppUtils::IntenseColor(nIntenseColorScale, it->second.background);
-                if (it->second.shot == it->second.background)
+                auto& second = it->second;
+                COLORREF crBk = CAppUtils::IntenseColor(nIntenseColorScale, second.background);
+                if (second.shot == second.background)
                 {
-                    it->second.shot = crBk;
+                    second.shot = crBk;
                 }
-                it->second.background = crBk;
-                it->second.text = CAppUtils::IntenseColor(nIntenseColorScale, it->second.text);
+                second.background = crBk;
+                second.text = CAppUtils::IntenseColor(nIntenseColorScale, second.text);
             }
             searchLine = searchLine.Mid(nMarkEnd);
             nStringPos = nMarkEnd;
@@ -1900,8 +1903,9 @@ void CBaseView::DrawTextLine(
         int nBlockLength = nEnd - nStart;
         if (nBlockLength > 0 && nEnd>=0)
         {
-            pDC->SetBkColor(itStart->second.background);
-            pDC->SetTextColor(itStart->second.text);
+            auto& second = itStart->second;
+            pDC->SetBkColor(second.background);
+            pDC->SetTextColor(second.text);
             int nEndExp = CountExpandedChars(sLine, nEnd);
             int nTextLength = nEndExp - nStartExp;
             LPCTSTR p_zBlockText = textExp + nStartExp;
@@ -1941,9 +1945,9 @@ void CBaseView::DrawTextLine(
                 }
 
                 pDC->ExtTextOut(leftcoord, coords.y, ETO_CLIPPED, &rc, p_zBlockText+offset, min(nTextLength, 4094), NULL);
-                if ((itStart->second.shot != itStart->second.background) && (itStart->first == nStart + nTextOffset))
+                if ((second.shot != second.background) && (itStart->first == nStart + nTextOffset))
                 {
-                    pDC->FillSolidRect(nLeft-1, rc.top, 1, rc.Height(), itStart->second.shot);
+                    pDC->FillSolidRect(nLeft-1, rc.top, 1, rc.Height(), second.shot);
                 }
             }
             nLeft = nRight;

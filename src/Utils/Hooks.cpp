@@ -129,17 +129,17 @@ bool CHooks::Create()
 void CHooks::SetProjectProperties( const CTSVNPath& wcRootPath, const ProjectProperties& pp )
 {
     m_wcRootPath = wcRootPath;
-    CString sLocalPath = pp.sRepositoryRootUrl;
-    ParseAndInsertProjectProperty(check_commit_hook, pp.sCheckCommitHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(pre_commit_hook, pp.sPreCommitHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(start_commit_hook, pp.sStartCommitHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(post_commit_hook, pp.sPostCommitHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(pre_update_hook, pp.sPreUpdateHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(start_update_hook, pp.sStartUpdateHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(post_update_hook, pp.sPostUpdateHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(manual_precommit, pp.sManualPreCommitHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(pre_lock_hook, pp.sPreLockHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(post_lock_hook, pp.sPostLockHook, wcRootPath, pp.GetPropsPath().GetWinPathString(), pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    auto propsPath = pp.GetPropsPath().GetWinPathString();
+    ParseAndInsertProjectProperty(check_commit_hook, pp.sCheckCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(pre_commit_hook, pp.sPreCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(start_commit_hook, pp.sStartCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(post_commit_hook, pp.sPostCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(pre_update_hook, pp.sPreUpdateHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(start_update_hook, pp.sStartUpdateHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(post_update_hook, pp.sPostUpdateHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(manual_precommit, pp.sManualPreCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(pre_lock_hook, pp.sPreLockHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(post_lock_hook, pp.sPostLockHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
 }
 
 CHooks& CHooks::Instance()
