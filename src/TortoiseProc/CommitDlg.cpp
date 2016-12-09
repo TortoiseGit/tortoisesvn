@@ -1227,7 +1227,7 @@ void CCommitDlg::ScanFile(std::map<CString, int>& autolist, const CString& sFile
             }
         }
     }
-    catch (std::exception) {}
+    catch (std::exception&) {}
 }
 
 // CSciEditContextMenuInterface

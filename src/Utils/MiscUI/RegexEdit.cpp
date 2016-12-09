@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012 - TortoiseSVN
+// Copyright (C) 2011-2012, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,7 +48,7 @@ HBRUSH CRegexEdit::CtlColor(CDC* pDC, UINT /*nCtlColor*/)
         GetWindowText(sRegex);
         const std::wregex regMatch(sRegex, std::regex_constants::icase | std::regex_constants::ECMAScript);
     }
-    catch (std::exception)
+    catch (std::exception&)
     {
         m_bValid = false;
     }

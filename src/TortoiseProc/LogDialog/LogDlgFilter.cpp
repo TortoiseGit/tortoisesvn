@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2015 - TortoiseSVN
+// Copyright (C) 2009-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -304,7 +304,7 @@ bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, std::vector<std::tr1
         pattrns.push_back(pat);
         return true;
     }
-    catch (std::exception) {}
+    catch (std::exception&) {}
     return false;
 }
 

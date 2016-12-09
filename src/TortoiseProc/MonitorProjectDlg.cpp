@@ -73,7 +73,7 @@ void CMonitorProjectDlg::OnOK()
         std::wregex r1 = std::wregex(m_sIgnoreRegex);
         UNREFERENCED_PARAMETER(r1);
     }
-    catch (std::exception)
+    catch (std::exception&)
     {
         CString text = CString(MAKEINTRESOURCE(IDS_ERR_INVALIDREGEX));
         CString title = CString(MAKEINTRESOURCE(IDS_ERR_ERROR));

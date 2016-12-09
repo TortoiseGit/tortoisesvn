@@ -729,7 +729,7 @@ CAppUtils::FindRegexMatches
             }
         }
     }
-    catch (std::exception) {}
+    catch (std::exception&) {}
 
     return result;
 }

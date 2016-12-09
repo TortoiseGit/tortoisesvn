@@ -1768,7 +1768,7 @@ void CLogDlg::LogThread()
                 if (!m_sMonitorMsgRegex.IsEmpty())
                     rx = std::wregex(m_sMonitorMsgRegex, std::regex_constants::ECMAScript | std::regex_constants::icase);
             }
-            catch (std::exception)
+            catch (std::exception&)
             {
                 m_sMonitorMsgRegex.Empty();
             }
@@ -1797,7 +1797,7 @@ void CLogDlg::LogThread()
                                 bIgnore = true;
                             }
                         }
-                        catch (std::exception)
+                        catch (std::exception&)
                         {
                         }
                     }
@@ -4509,7 +4509,7 @@ bool CLogDlg::ValidateRegexp(LPCTSTR regexp_str, std::tr1::wregex& pat, bool bMa
         pat = std::tr1::wregex(regexp_str, type);
         return true;
     }
-    catch (std::exception) {}
+    catch (std::exception&) {}
     return false;
 }
 
@@ -7985,7 +7985,7 @@ void CLogDlg::RefreshMonitorProjTree()
             {
                 pMonitorItem->msgregex = std::wregex(pMonitorItem->sMsgRegex, std::regex_constants::ECMAScript | std::regex_constants::icase);
             }
-            catch (std::exception)
+            catch (std::exception&)
             {
                 pMonitorItem->msgregex = std::wregex();
                 pMonitorItem->sMsgRegex.Empty();
@@ -8334,7 +8334,7 @@ void CLogDlg::MonitorEditProject(MonitorItem * pProject, const CString& sParentP
         {
             pEditProject->msgregex = std::wregex(pEditProject->sMsgRegex, std::regex_constants::ECMAScript | std::regex_constants::icase);
         }
-        catch (std::exception)
+        catch (std::exception&)
         {
             pEditProject->msgregex = std::wregex();
             pEditProject->sMsgRegex.Empty();
@@ -8633,7 +8633,7 @@ void CLogDlg::MonitorThread()
                                             bIgnore = true;
                                         }
                                     }
-                                    catch (std::exception)
+                                    catch (std::exception&)
                                     {
                                     }
                                 }

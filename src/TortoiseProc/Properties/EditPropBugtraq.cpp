@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -207,7 +207,7 @@ void CEditPropBugtraq::OnOK()
         std::tr1::wregex r1 = std::tr1::wregex(m_sBugtraqRegex1);
         UNREFERENCED_PARAMETER(r1);
     }
-    catch (std::exception)
+    catch (std::exception&)
     {
         ShowEditBalloon(IDC_BUGTRAQLOGREGEX1, IDS_ERR_INVALIDREGEX, IDS_ERR_ERROR);
         return;
@@ -217,7 +217,7 @@ void CEditPropBugtraq::OnOK()
         std::tr1::wregex r2 = std::tr1::wregex(m_sBugtraqRegex2);
         UNREFERENCED_PARAMETER(r2);
     }
-    catch (std::exception)
+    catch (std::exception&)
     {
         ShowEditBalloon(IDC_BUGTRAQLOGREGEX2, IDS_ERR_INVALIDREGEX, IDS_ERR_ERROR);
         return;

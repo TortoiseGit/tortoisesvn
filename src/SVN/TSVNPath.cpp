@@ -790,7 +790,7 @@ bool CTSVNPath::IsValidOnWindows() const
         if (std::tr1::regex_search(checkPath, rx2, std::tr1::regex_constants::match_default))
             m_bIsValidOnWindows = false;
     }
-    catch (std::exception) {}
+    catch (std::exception&) {}
 
     m_bIsValidOnWindowsKnown = true;
     return m_bIsValidOnWindows;

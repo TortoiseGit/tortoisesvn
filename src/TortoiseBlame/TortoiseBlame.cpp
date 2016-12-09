@@ -202,7 +202,7 @@ void TortoiseBlame::SetTitle()
                 str2 = str2.substr(0, MAX_PATH - 2);
             PathCompactPathEx(pathbuf, str2.c_str(), MAX_PATH_LENGTH - (UINT)wcslen(szTitle), 0);
         }
-        catch (std::exception)
+        catch (std::exception&)
         {
             PathCompactPathEx(pathbuf, szViewtitle.c_str(), MAX_PATH_LENGTH - (UINT)wcslen(szTitle), 0);
         }
