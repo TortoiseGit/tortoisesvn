@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2014-2015 - TortoiseSVN
+// Copyright (C) 2009-2010, 2014-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,7 +55,7 @@ private:
     void DrawSolidWndRectOnParent(HWND hWnd, Color clr);
     void DrawEditBorder(HWND hWnd);
     BOOL GetEditBorderColor(HWND hWnd, COLORREF *pClr);
-    void GetRoundRectPath(GraphicsPath *pPath, Rect r, int dia) const;
+    void GetRoundRectPath(GraphicsPath *pPath, const Rect& r, int dia) const;
 
     CRegDWORD                   m_regEnableDWMFrame;
     std::map<HWND, UINT_PTR>    subclassedControls;

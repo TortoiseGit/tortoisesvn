@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009, 2011, 2013 - TortoiseSVN
+// Copyright (C) 2003-2009, 2011, 2013, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,7 +53,7 @@ public:
 
 
     void            SetPath(const CString& sPath) {m_Graph.m_sPath = sPath;}
-    void            SetPegRevision(SVNRev revision) {m_Graph.m_pegRev = revision;}
+    void            SetPegRevision(const SVNRev& revision) {m_Graph.m_pegRev = revision;}
     void            DoZoom (float factor);
 
     void            UpdateFullHistory();

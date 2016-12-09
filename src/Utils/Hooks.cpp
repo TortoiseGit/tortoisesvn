@@ -179,7 +179,7 @@ bool CHooks::Save()
     return true;
 }
 
-bool CHooks::Remove(hookkey key)
+bool CHooks::Remove(const hookkey& key)
 {
     return (erase(key) > 0);
 }
@@ -396,7 +396,7 @@ bool CHooks::ManualPreCommit( HWND hWnd, const CTSVNPathList& pathList, CString&
 }
 
 
-bool CHooks::PostCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, const CString& message, DWORD& exitcode, CString& error)
+bool CHooks::PostCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, const SVNRev& rev, const CString& message, DWORD& exitcode, CString& error)
 {
     hookiterator it = FindItem(post_commit_hook, pathList);
     if (it == end())
@@ -428,7 +428,7 @@ bool CHooks::StartUpdate(HWND hWnd, const CTSVNPathList& pathList, DWORD& exitco
     return true;
 }
 
-bool CHooks::PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, DWORD& exitcode, CString& error)
+bool CHooks::PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, const SVNRev& rev, DWORD& exitcode, CString& error)
 {
     hookiterator it = FindItem(pre_update_hook, pathList);
     if (it == end())
@@ -444,7 +444,7 @@ bool CHooks::PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t dep
     return true;
 }
 
-bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, SVNRev rev, const CTSVNPathList& updatedList, DWORD& exitcode, CString& error)
+bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, const SVNRev& rev, const CTSVNPathList& updatedList, DWORD& exitcode, CString& error)
 {
     hookiterator it = FindItem(post_update_hook, pathList);
     if (it == end())

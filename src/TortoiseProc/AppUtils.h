@@ -200,7 +200,7 @@ public:
     static void ReportFailedHook(HWND hWnd, const CString& sError);
 
     static bool HasMimeTool();
-    static bool GetMimeType(const CTSVNPath& file, CString& mimetype, SVNRev rev = SVNRev::REV_WC);
+    static bool GetMimeType(const CTSVNPath& file, CString& mimetype, const SVNRev& rev = SVNRev::REV_WC);
 private:
     static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2, const CString& mimetype);
 

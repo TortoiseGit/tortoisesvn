@@ -118,7 +118,7 @@ public:
      * Removes the hook script identified by \c key. To make the change persistent
      * call Save().
      */
-    bool                Remove(hookkey key);
+    bool                Remove(const hookkey& key);
     /**
      * Adds a new hook script. To make the change persistent, call Save().
      */
@@ -152,7 +152,7 @@ public:
      * \param error the data the hook script outputs to stderr
      */
     bool                PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth,
-                                    SVNRev rev, DWORD& exitcode, CString& error);
+                                  const SVNRev& rev, DWORD& exitcode, CString& error);
     /**
      * Executes the Post-Update-Hook that first matches one of the paths in
      * \c pathList.
@@ -164,7 +164,7 @@ public:
      * \param error the data the hook script outputs to stderr
      */
     bool                PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth,
-                                    SVNRev rev, const CTSVNPathList& updatedList, DWORD& exitcode, CString& error);
+                                   const SVNRev& rev, const CTSVNPathList& updatedList, DWORD& exitcode, CString& error);
 
     /**
      * Executes the Start-Commit-Hook that first matches one of the paths in
@@ -219,7 +219,7 @@ public:
      * \param error the data the hook script outputs to stderr
      */
     bool                PostCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth,
-                                    SVNRev rev, const CString& message,
+                                    const SVNRev& rev, const CString& message,
                                     DWORD& exitcode, CString& error);
 
     /**

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2013, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,7 +43,7 @@ void CGradient::SplitRect(const CRect& rSource, CRect& rHalf1, CRect& rHalf2, BO
     }
 }
 
-void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz/* = TRUE*/, UINT nSteps/* = 64*/)
+void CGradient::Draw(CDC * pDC, const CRect& rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz/* = TRUE*/, UINT nSteps/* = 64*/)
 {
     for (UINT i = 0; i < nSteps; i++)
     {
@@ -71,7 +71,7 @@ void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorE
     }
 }
 
-void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz/* = TRUE*/, UINT nSteps/* = 64*/)
+void CGradient::Draw(CDC * pDC, const CRect& rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz/* = TRUE*/, UINT nSteps/* = 64*/)
 {
     CRect rect1, rect2;
     SplitRect(rect, rect1, rect2, bHorz);
@@ -82,7 +82,7 @@ void CGradient::Draw(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorM
 
 #ifdef USE_GDI_GRADIENT
 
-void CGradient::DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz/* = TRUE*/)
+void CGradient::DrawGDI(CDC * pDC, const CRect& rect, COLORREF colorStart, COLORREF colorEnd, BOOL bHorz/* = TRUE*/)
 {
     TRIVERTEX        vert[2] ;
     GRADIENT_RECT    gRect;
@@ -109,7 +109,7 @@ void CGradient::DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF col
 
 }
 
-void CGradient::DrawGDI(CDC * pDC, CRect rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz/* = TRUE*/)
+void CGradient::DrawGDI(CDC * pDC, const CRect& rect, COLORREF colorStart, COLORREF colorMid, COLORREF colorEnd, BOOL bHorz/* = TRUE*/)
 {
     CRect rect1, rect2;
     SplitRect(rect, rect1, rect2, bHorz);

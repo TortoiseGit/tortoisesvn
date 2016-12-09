@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -316,7 +316,7 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
 
 bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
                               const CTSVNPath& url2, const SVNRev& rev2,
-                              SVNRev peg,
+                              const SVNRev& peg,
                               const CString& options,
                               bool bIgnoreAncestry /* = false */,
                               bool /*blame*/,

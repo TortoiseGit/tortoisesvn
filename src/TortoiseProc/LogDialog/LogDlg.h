@@ -139,7 +139,7 @@ public:
     CLogDlg(CWnd* pParent = NULL);   // standard constructor
     virtual ~CLogDlg();
 
-    void SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
+    void SetParams(const CTSVNPath& path, const SVNRev& pegrev, const SVNRev& startrev, const SVNRev& endrev,
         BOOL bStrict = CRegDWORD(L"Software\\TortoiseSVN\\LastLogStrict", FALSE),
         BOOL bSaveStrict = TRUE,
         int limit = (int)(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs",

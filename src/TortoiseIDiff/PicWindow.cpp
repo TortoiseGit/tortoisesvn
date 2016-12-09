@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2015 - TortoiseSVN
+// Copyright (C) 2006-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -553,7 +553,7 @@ void CPicWindow::Animate(bool bStart)
     }
 }
 
-void CPicWindow::SetPic(tstring path, tstring title, bool bFirst)
+void CPicWindow::SetPic(const tstring& path, const tstring& title, bool bFirst)
 {
     bMainPic = bFirst;
     picpath=path;pictitle=title;

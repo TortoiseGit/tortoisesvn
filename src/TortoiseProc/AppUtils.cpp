@@ -40,7 +40,7 @@
 #include "CmdLineParser.h"
 
 
-bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype, SVNRev rev /*= SVNRev::REV_WC*/)
+bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype, const SVNRev& rev /*= SVNRev::REV_WC*/)
 {
     // only fetch the mime-type for local paths, or for urls if a mime-type specific diff tool
     // is configured.

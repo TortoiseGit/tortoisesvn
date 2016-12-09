@@ -384,7 +384,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(WM_TaskBarButtonCreated, OnTaskbarButtonCreated)
 END_MESSAGE_MAP()
 
-void CLogDlg::SetParams(const CTSVNPath& path, SVNRev pegrev, SVNRev startrev, SVNRev endrev,
+void CLogDlg::SetParams(const CTSVNPath& path, const SVNRev& pegrev, const SVNRev& startrev, const SVNRev& endrev,
                         BOOL bStrict /* = FALSE */, BOOL bSaveStrict /* = TRUE */, int limit)
 {
     m_path = path;

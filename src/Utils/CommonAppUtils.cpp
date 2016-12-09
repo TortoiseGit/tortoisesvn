@@ -436,7 +436,7 @@ HRESULT CCommonAppUtils::CreateShortcutToURL(LPCTSTR pszURL, LPCTSTR pszLinkFile
     return hRes;
 }
 
-bool CCommonAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString& text)
+bool CCommonAppUtils::SetAccProperty(HWND hWnd, const MSAAPROPID& propid, const CString& text)
 {
     ATL::CComPtr<IAccPropServices> pAccPropSvc;
     HRESULT hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER);
@@ -449,7 +449,7 @@ bool CCommonAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, const CString
     return false;
 }
 
-bool CCommonAppUtils::SetAccProperty(HWND hWnd, MSAAPROPID propid, long value)
+bool CCommonAppUtils::SetAccProperty(HWND hWnd, const MSAAPROPID& propid, long value)
 {
     ATL::CComPtr<IAccPropServices> pAccPropSvc;
     HRESULT hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER);

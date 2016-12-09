@@ -22,7 +22,7 @@
 #include "PathUtils.h"
 #include "Access/StrictLogIterator.h"
 
-SVNRev SVNLogHelper::GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyfromURL)
+SVNRev SVNLogHelper::GetCopyFromRev(const CTSVNPath& url, SVNRev pegrev, CString& copyfromURL)
 {
     SVNRev result;
 
@@ -133,7 +133,7 @@ SVNLogHelper::GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1,
     return std::make_pair (iter1->first, commonRev);
 }
 
-SVNRev SVNLogHelper::GetYoungestRev(CTSVNPath url)
+SVNRev SVNLogHelper::GetYoungestRev(const CTSVNPath& url)
 {
     SVNRev result;
 

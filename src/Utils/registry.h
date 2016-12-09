@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -903,8 +903,8 @@ public:
     CRegRect& operator-=(SIZE r) { return *this = (CRect)*this - r;}
     CRegRect& operator-=(LPCRECT  r) { return *this = (CRect)*this - r;}
 
-    CRegRect& operator&=(CRect r) { return *this = r & *this;}
-    CRegRect& operator|=(CRect r) { return *this = r | *this;}
+    CRegRect& operator&=(const CRect& r) { return *this = r & *this;}
+    CRegRect& operator|=(const CRect& r) { return *this = r | *this;}
 };
 #endif
 

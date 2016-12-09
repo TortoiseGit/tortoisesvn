@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -182,7 +182,7 @@ BOOL CBlame::Cancel()
     return m_bCancelled;
 }
 
-CString CBlame::BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev,
+CString CBlame::BlameToTempFile(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& endrev, SVNRev pegrev,
                                 const CString& options, BOOL includemerge,
                                 BOOL showprogress, BOOL ignoremimetype)
 {
@@ -272,7 +272,7 @@ BOOL CBlame::Notify(const CTSVNPath& /*path*/, const CTSVNPath& /*url*/, svn_wc_
     return TRUE;
 }
 
-bool CBlame::BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg,
+bool CBlame::BlameToFile(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& endrev, SVNRev peg,
                          const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge)
 {
     extBlame = TRUE;

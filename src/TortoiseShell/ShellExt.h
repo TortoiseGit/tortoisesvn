@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -235,7 +235,7 @@ private:
     void            GetExtraColumnStatus(const TCHAR * path, BOOL bIsDir);
     void            GetMainColumnStatus(const TCHAR * path, BOOL bIsDir);
     STDMETHODIMP    QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT &indexMenu);
-    bool            IsIllegalFolder(std::wstring folder, int * csidlarray);
+    bool            IsIllegalFolder(const std::wstring& folder, int * csidlarray);
     static void     RunCommand( const tstring& path, const tstring& command, const tstring& folder, LPCTSTR errorMessage );
     bool            ShouldInsertItem(const MenuInfo& pair) const;
     bool            ShouldEnableMenu(const YesNoPair& pair) const;

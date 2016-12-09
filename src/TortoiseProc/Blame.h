@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2013, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,9 +49,9 @@ public:
      * \param path the path to the file to determine the required information
      * \return The path to the temporary file or an empty string in case of an error.
      */
-    CString     BlameToTempFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev pegrev, const CString& options, BOOL includemerge, BOOL showprogress, BOOL ignoremimetype);
+    CString     BlameToTempFile(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& endrev, SVNRev pegrev, const CString& options, BOOL includemerge, BOOL showprogress, BOOL ignoremimetype);
 
-    bool        BlameToFile(const CTSVNPath& path, SVNRev startrev, SVNRev endrev, SVNRev peg, const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge);
+    bool        BlameToFile(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& endrev, SVNRev peg, const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge);
     void        SetAndClearProgressInfo(CProgressDlg * pProgressDlg, int infoline, bool bShowProgressBar = false) { SVN::SetAndClearProgressInfo(pProgressDlg, bShowProgressBar); m_bShowProgressBar = bShowProgressBar; m_nFormatLine = infoline; }
 
 private:

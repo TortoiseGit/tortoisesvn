@@ -201,7 +201,7 @@ void CRepositoryBar::OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult)
         m_pRepo->OnCbenDragbeginUrlcombo(pNMHDR, pResult);
 }
 
-void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
+void CRepositoryBar::ShowUrl(const CString& url, const SVNRev& rev)
 {
     if (url.Find('?')>=0)
     {
@@ -233,7 +233,7 @@ void CRepositoryBar::ShowUrl(const CString& url, SVNRev rev)
     }
 }
 
-void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecked /* = false */)
+void CRepositoryBar::GotoUrl(const CString& url, const SVNRev& rev, bool bAlreadyChecked /* = false */)
 {
     if (m_pRepo && m_pRepo->IsThreadRunning())
     {
@@ -281,7 +281,7 @@ void CRepositoryBar::GotoUrl(const CString& url, SVNRev rev, bool bAlreadyChecke
     ShowUrl(new_url, new_rev);
 }
 
-void CRepositoryBar::SetRevision(SVNRev rev)
+void CRepositoryBar::SetRevision(const SVNRev& rev)
 {
     m_btnRevision.SetWindowText(rev.ToString());
     if (m_headRev.IsValid())

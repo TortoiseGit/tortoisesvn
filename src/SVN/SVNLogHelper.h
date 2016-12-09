@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2015 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,7 +38,7 @@ public:
      * \param copyfromURL   the url the branch/tag was copied from (output)
      * \return              the copy from revision
      */
-    SVNRev GetCopyFromRev(CTSVNPath url, SVNRev pegrev, CString& copyfromURL);
+    SVNRev GetCopyFromRev(const CTSVNPath& url, SVNRev pegrev, CString& copyfromURL);
 
     /**
      * Finds all copy-from (path,rev) pairs along the history.
@@ -63,5 +63,5 @@ public:
     GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1,
                     const CTSVNPath& url2, const SVNRev& pegrev2);
 
-    SVNRev GetYoungestRev(CTSVNPath url);
+    SVNRev GetYoungestRev(const CTSVNPath& url);
 };

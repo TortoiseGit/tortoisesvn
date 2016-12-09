@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2014 - TortoiseSVN
+// Copyright (C) 2003-2008, 2014, 2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,13 +48,13 @@ public:
 private:
 
     void AnalyzeReplacements ( revision_t revision
-                             , CRevisionInfoContainer::CChangesIterator first
-                             , CRevisionInfoContainer::CChangesIterator last
+                             , const CRevisionInfoContainer::CChangesIterator& first
+                             , const CRevisionInfoContainer::CChangesIterator& last
                              , CSearchPathTree* startNode
                              , std::vector<CSearchPathTree*>& toRemove);
     void AnalyzeRevisions ( revision_t revision
-                          , CRevisionInfoContainer::CChangesIterator first
-                          , CRevisionInfoContainer::CChangesIterator last
+                          , const CRevisionInfoContainer::CChangesIterator& first
+                          , const CRevisionInfoContainer::CChangesIterator& last
                           , CSearchPathTree* startNode
                           , std::vector<CSearchPathTree*>& toRemove);
     void AnalyzeAsChanges ( revision_t revision

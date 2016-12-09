@@ -1,6 +1,6 @@
 // TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2007, 2009, 2011-2013, 2015 - TortoiseSVN
+// Copyright (C) 2006-2007, 2009, 2011-2013, 2015-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,11 +78,11 @@ public:
     /**
      * Sets the image path and title for the left image view.
      */
-    void SetLeft(tstring leftpath, tstring lefttitle) {leftpicpath=leftpath; leftpictitle=lefttitle;}
+    void SetLeft(const tstring& leftpath, const tstring& lefttitle) {leftpicpath=leftpath; leftpictitle=lefttitle;}
     /**
      * Sets the image path and the title for the right image view.
      */
-    void SetRight(tstring rightpath, tstring righttitle) {rightpicpath=rightpath; rightpictitle=righttitle;}
+    void SetRight(const tstring& rightpath, const tstring& righttitle) {rightpicpath=rightpath; rightpictitle=righttitle;}
 
     /**
      * Sets the image path and title for selection mode. In selection mode, the images
