@@ -197,9 +197,9 @@ CMainFrame::CMainFrame()
     , m_bLineDiff(true)
     , m_bLocatorBar(true)
     , m_nMoveMovesToIgnore(0)
-    , m_pwndLeftView(NULL)
-    , m_pwndRightView(NULL)
-    , m_pwndBottomView(NULL)
+    , m_pwndLeftView(nullptr)
+    , m_pwndRightView(nullptr)
+    , m_pwndBottomView(nullptr)
     , m_bReadOnly(false)
     , m_bBlame(false)
     , m_bCheckReload(false)
@@ -463,7 +463,7 @@ void CMainFrame::OnApplicationLook(UINT id)
         m_wndRibbonBar.SetWindows7Look(FALSE);
     }
 
-    RedrawWindow(NULL, NULL, RDW_ALLCHILDREN | RDW_INVALIDATE | RDW_UPDATENOW | RDW_FRAME | RDW_ERASE);
+    RedrawWindow(nullptr, nullptr, RDW_ALLCHILDREN | RDW_INVALIDATE | RDW_UPDATENOW | RDW_FRAME | RDW_ERASE);
 
     theApp.WriteInt(L"ApplicationLook", theApp.m_nAppLook);
 }
@@ -590,7 +590,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropM
     CString sRejectedFile;
     if (m_Patch.GetPatchResult(sFilePath, sTempFile, sRejectedFile) < 0)
     {
-        MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
+        MessageBox(m_Patch.GetErrorMessage(), nullptr, MB_ICONERROR);
         return FALSE;
     }
     sFilePath = m_Patch.GetTargetPath() + L"\\" + sFilePath;
@@ -670,7 +670,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
         progDlg.Stop();
         CString sErrMsg;
         sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, (LPCTSTR)sRev1, (LPCTSTR)sURL1);
-        MessageBox(sErrMsg, NULL, MB_ICONERROR);
+        MessageBox(sErrMsg, nullptr, MB_ICONERROR);
         return FALSE;
     }
     sTemp.Format(IDS_GETVERSIONOFFILE, (LPCTSTR)sRev2);
@@ -682,7 +682,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
         progDlg.Stop();
         CString sErrMsg;
         sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, (LPCTSTR)sRev2, (LPCTSTR)sURL2);
-        MessageBox(sErrMsg, NULL, MB_ICONERROR);
+        MessageBox(sErrMsg, nullptr, MB_ICONERROR);
         return FALSE;
     }
     progDlg.SetProgress(100,100);
@@ -717,7 +717,7 @@ void CMainFrame::OnFileOpen(bool fillyours)
         return;
     }
     m_dlgFilePatches.ShowWindow(SW_HIDE);
-    m_dlgFilePatches.Init(NULL, NULL, CString(), NULL);
+    m_dlgFilePatches.Init(nullptr, nullptr, CString(), nullptr);
     TRACE(L"got the files:\n   %s\n   %s\n   %s\n   %s\n   %s\n", (LPCTSTR)dlg.m_sBaseFile, (LPCTSTR)dlg.m_sTheirFile, (LPCTSTR)dlg.m_sYourFile,
           (LPCTSTR)dlg.m_sUnifiedDiffFile, (LPCTSTR)dlg.m_sPatchDirectory);
     m_Data.m_baseFile.SetFileName(dlg.m_sBaseFile);
@@ -726,10 +726,10 @@ void CMainFrame::OnFileOpen(bool fillyours)
     m_Data.m_sDiffFile = dlg.m_sUnifiedDiffFile;
     m_Data.m_sPatchPath = dlg.m_sPatchDirectory;
     m_Data.m_mergedFile.SetOutOfUse();
-    CCrashReport::Instance().AddFile2(dlg.m_sBaseFile, NULL, L"Basefile", CR_AF_MAKE_FILE_COPY);
-    CCrashReport::Instance().AddFile2(dlg.m_sTheirFile, NULL, L"Theirfile", CR_AF_MAKE_FILE_COPY);
-    CCrashReport::Instance().AddFile2(dlg.m_sYourFile, NULL, L"Yourfile", CR_AF_MAKE_FILE_COPY);
-    CCrashReport::Instance().AddFile2(dlg.m_sUnifiedDiffFile, NULL, L"Difffile", CR_AF_MAKE_FILE_COPY);
+    CCrashReport::Instance().AddFile2(dlg.m_sBaseFile, nullptr, L"Basefile", CR_AF_MAKE_FILE_COPY);
+    CCrashReport::Instance().AddFile2(dlg.m_sTheirFile, nullptr, L"Theirfile", CR_AF_MAKE_FILE_COPY);
+    CCrashReport::Instance().AddFile2(dlg.m_sYourFile, nullptr, L"Yourfile", CR_AF_MAKE_FILE_COPY);
+    CCrashReport::Instance().AddFile2(dlg.m_sUnifiedDiffFile, nullptr, L"Difffile", CR_AF_MAKE_FILE_COPY);
 
     if (!m_Data.IsBaseFileInUse() && m_Data.IsTheirFileInUse() && m_Data.IsYourFileInUse())
     {
@@ -834,7 +834,7 @@ bool CMainFrame::LoadViews(int line)
         {
             progDlg.Stop();
             ClearViewNamesAndPaths();
-            MessageBox(m_Patch.GetErrorMessage(), NULL, MB_ICONERROR);
+            MessageBox(m_Patch.GetErrorMessage(), nullptr, MB_ICONERROR);
             m_bSaveRequired = false;
             return false;
         }
@@ -906,17 +906,17 @@ bool CMainFrame::LoadViews(int line)
             m_pwndLeftView->SetTarget();
             m_pwndLeftView->SetWritableIsChangable(true);
 
-            m_pwndRightView->m_pViewData = NULL;
-            m_pwndRightView->m_pWorkingFile = NULL;
-            m_pwndBottomView->m_pViewData = NULL;
-            m_pwndBottomView->m_pWorkingFile = NULL;
+            m_pwndRightView->m_pViewData = nullptr;
+            m_pwndRightView->m_pWorkingFile = nullptr;
+            m_pwndBottomView->m_pViewData = nullptr;
+            m_pwndBottomView->m_pWorkingFile = nullptr;
 
             if (!m_wndSplitter.IsRowHidden(1))
                 m_wndSplitter.HideRow(1);
             m_pwndLeftView->SetHidden(FALSE);
             m_pwndRightView->SetHidden(TRUE);
             m_pwndBottomView->SetHidden(TRUE);
-            ::SetWindowPos(m_pwndLeftView->m_hWnd, NULL, 0, 0, 0, 0, SWP_FRAMECHANGED | SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
+            ::SetWindowPos(m_pwndLeftView->m_hWnd, nullptr, 0, 0, 0, 0, SWP_FRAMECHANGED | SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE);
         }
         else
         {
@@ -945,8 +945,8 @@ bool CMainFrame::LoadViews(int line)
             m_pwndRightView->SetWritable();
             m_pwndRightView->SetTarget();
 
-            m_pwndBottomView->m_pViewData = NULL;
-            m_pwndBottomView->m_pWorkingFile = NULL;
+            m_pwndBottomView->m_pViewData = nullptr;
+            m_pwndBottomView->m_pWorkingFile = nullptr;
 
             if (!m_wndSplitter.IsRowHidden(1))
                 m_wndSplitter.HideRow(1);
@@ -1296,8 +1296,8 @@ int CMainFrame::CheckResolved()
 
 int CMainFrame::SaveFile(const CString& sFilePath)
 {
-    CBaseView * pView = NULL;
-    CViewData * pViewData = NULL;
+    CBaseView* pView = nullptr;
+    CViewData* pViewData = nullptr;
     CFileTextLines * pOriginFile = &m_Data.m_arBaseFile;
     if (IsViewGood(m_pwndBottomView))
     {
@@ -1616,9 +1616,9 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
             svn_opt_revision_t rev;
             rev.kind = svn_opt_revision_unspecified;
             svn_wc_status_kind statuskind = svn_wc_status_none;
-            svn_client_ctx_t * ctx = NULL;
+            svn_client_ctx_t* ctx = nullptr;
             svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
-            svn_error_t * err = svn_client_status6(NULL, ctx, svnpath.GetSVNApiPath(pool), &rev,
+            svn_error_t* err = svn_client_status6(nullptr, ctx, svnpath.GetSVNApiPath(pool), &rev,
                                                    svn_depth_empty,
                                                    true,
                                                    false,
@@ -1626,11 +1626,11 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                                                    true,
                                                    true,
                                                    false,
-                                                   NULL,
+                                                   nullptr,
                                                    getallstatus,
                                                    &statuskind,
                                                    pool);
-            if ((err == NULL) && (statuskind == svn_wc_status_conflicted))
+            if ((!err) && (statuskind == svn_wc_status_conflicted))
             {
                 CString msg;
                 msg.Format(IDS_MARKASRESOLVED, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
@@ -1852,7 +1852,7 @@ void CMainFrame::OnActivate(UINT nValue, CWnd* /*pwnd*/, BOOL /*bActivated?*/)
             // clicked the close button and that brought the window
             // to the front - in that case checking for reload wouldn't
             // do any good.
-            SetTimer(IDT_RELOADCHECKTIMER, 300, NULL);
+            SetTimer(IDT_RELOADCHECKTIMER, 300, nullptr);
         }
     }
 }
@@ -2074,7 +2074,7 @@ void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
 
 void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
 {
-    if (pCmdUI == NULL)
+    if (!pCmdUI)
         return;
     BOOL bEnable = FALSE;
     if ((!m_bReadOnly)&&(m_Data.m_mergedFile.InUse()))
@@ -2239,7 +2239,7 @@ void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
             GetWindowRect(&thisrect);
             if (patchrect.right == thisrect.left)
             {
-                m_dlgFilePatches.SetWindowPos(NULL, patchrect.left - (thisrect.left - pRect->left), patchrect.top - (thisrect.top - pRect->top),
+                m_dlgFilePatches.SetWindowPos(nullptr, patchrect.left - (thisrect.left - pRect->left), patchrect.top - (thisrect.top - pRect->top),
                     0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOSIZE | SWP_NOZORDER);
             }
         }
@@ -2855,7 +2855,7 @@ bool CMainFrame::HasConflictsWontKeep()
     const int nConflictLine = CheckResolved();
     if (nConflictLine < 0)
         return false;
-    if (m_pwndBottomView == nullptr)
+    if (!m_pwndBottomView)
         return false;
 
     CString sTemp;
@@ -2881,7 +2881,7 @@ bool CMainFrame::HasConflictsWontKeep()
 
 bool CMainFrame::TryGetFileName(CString& result)
 {
-    return CCommonAppUtils::FileOpenSave(result, NULL, IDS_SAVEASTITLE, IDS_COMMONFILEFILTER, false, CString(), m_hWnd);
+    return CCommonAppUtils::FileOpenSave(result, nullptr, IDS_SAVEASTITLE, IDS_COMMONFILEFILTER, false, CString(), m_hWnd);
 }
 
 CBaseView* CMainFrame::GetActiveBaseView() const
@@ -2953,21 +2953,21 @@ void CMainFrame::LoadIgnoreCommentData()
     if (!PathFileExists(sPath))
     {
         // ignore comments file does not exist (yet), so create a default one
-        HRSRC hRes = FindResource(NULL, MAKEINTRESOURCE(IDR_IGNORECOMMENTSTXT), L"config");
+        HRSRC hRes = FindResource(nullptr, MAKEINTRESOURCE(IDR_IGNORECOMMENTSTXT), L"config");
         if (hRes)
         {
-            HGLOBAL hResourceLoaded = LoadResource(NULL, hRes);
+            HGLOBAL hResourceLoaded = LoadResource(nullptr, hRes);
             if (hResourceLoaded)
             {
                 char * lpResLock = (char *) LockResource(hResourceLoaded);
-                DWORD dwSizeRes = SizeofResource(NULL, hRes);
+                DWORD dwSizeRes = SizeofResource(nullptr, hRes);
                 if (lpResLock)
                 {
-                    HANDLE hFile = CreateFile(sPath, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+                    HANDLE hFile = CreateFile(sPath, GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
                     if (hFile != INVALID_HANDLE_VALUE)
                     {
                         DWORD dwWritten = 0;
-                        WriteFile(hFile, lpResLock, dwSizeRes, &dwWritten, NULL);
+                        WriteFile(hFile, lpResLock, dwSizeRes, &dwWritten, nullptr);
                         CloseHandle(hFile);
                     }
                 }
@@ -3061,7 +3061,7 @@ void CMainFrame::OnRegexfilter(UINT cmd)
         dlg.SetIniFile(&m_regexIni);
         if (dlg.DoModal() == IDOK)
         {
-            FILE * pFile = NULL;
+            FILE* pFile = nullptr;
             _tfopen_s(&pFile, CPathUtils::GetAppDataDirectory() + L"regexfilters.ini", L"wb");
             m_regexIni.SaveFile(pFile);
             fclose(pFile);
@@ -3121,21 +3121,21 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
     if (!PathFileExists(sIniPath))
     {
         // ini file does not exist (yet), so create a default one
-        HRSRC hRes = FindResource(NULL, MAKEINTRESOURCE(IDR_REGEXFILTERINI), L"config");
+        HRSRC hRes = FindResource(nullptr, MAKEINTRESOURCE(IDR_REGEXFILTERINI), L"config");
         if (hRes)
         {
-            HGLOBAL hResourceLoaded = LoadResource(NULL, hRes);
+            HGLOBAL hResourceLoaded = LoadResource(nullptr, hRes);
             if (hResourceLoaded)
             {
                 char * lpResLock = (char *)LockResource(hResourceLoaded);
-                DWORD dwSizeRes = SizeofResource(NULL, hRes);
+                DWORD dwSizeRes = SizeofResource(nullptr, hRes);
                 if (lpResLock)
                 {
-                    HANDLE hFile = CreateFile(sIniPath, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+                    HANDLE hFile = CreateFile(sIniPath, GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
                     if (hFile != INVALID_HANDLE_VALUE)
                     {
                         DWORD dwWritten = 0;
-                        WriteFile(hFile, lpResLock, dwSizeRes, &dwWritten, NULL);
+                        WriteFile(hFile, lpResLock, dwSizeRes, &dwWritten, nullptr);
                         CloseHandle(hFile);
                     }
                 }
@@ -3181,7 +3181,7 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
             int cmdIndex = 2;
             for (const auto& section : sections)
             {
-                pMenuPopup->InsertItem(CMFCToolBarMenuButton(ID_REGEXFILTER + cmdIndex, NULL, -1, (LPCWSTR)section), iIndex + cmdIndex);
+                pMenuPopup->InsertItem(CMFCToolBarMenuButton(ID_REGEXFILTER + cmdIndex, nullptr, -1, (LPCWSTR)section), iIndex + cmdIndex);
                 cmdIndex++;
             }
         }
@@ -3515,10 +3515,8 @@ BOOL CMainFrame::OnShowPopupMenu(CMFCPopupMenu* pMenuPopup)
 {
     __super::OnShowPopupMenu(pMenuPopup);
 
-    if (pMenuPopup == NULL)
-    {
+    if (!pMenuPopup)
         return TRUE;
-    }
 
     int iIndex = -1;
     if (!CMFCToolBar::IsCustomizeMode() &&

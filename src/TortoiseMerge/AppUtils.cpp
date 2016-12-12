@@ -42,7 +42,7 @@ CAppUtils::~CAppUtils(void)
 {
 }
 
-BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd /*=NULL*/)
+BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd /*=nullptr*/)
 {
     CString sSCMPath = CRegString(L"Software\\TortoiseMerge\\SCMPath", L"");
     if (sSCMPath.IsEmpty())
@@ -59,10 +59,10 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
     sSCMPath.Replace(L"%4", sTemp);
     // start the external SCM program to fetch the specific version of the file
     PROCESS_INFORMATION process;
-    if (!CCreateProcessHelper::CreateProcess(NULL, sSCMPath, &process))
+    if (!CCreateProcessHelper::CreateProcess(nullptr, sSCMPath, &process))
     {
         CFormatMessageWrapper errorDetails;
-        MessageBox(NULL, errorDetails, L"TortoiseMerge", MB_OK | MB_ICONERROR);
+        MessageBox(nullptr, errorDetails, L"TortoiseMerge", MB_OK | MB_ICONERROR);
         return FALSE;
     }
     DWORD ret = 0;
@@ -84,28 +84,28 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
 
 bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output, int contextsize, bool bShowError)
 {
-    apr_file_t * outfile = NULL;
-    apr_pool_t * pool = svn_pool_create(NULL);
+    apr_file_t* outfile = nullptr;
+    apr_pool_t* pool = svn_pool_create(nullptr);
 
     svn_error_t * err = svn_io_file_open (&outfile, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(output), pool),
         APR_WRITE | APR_CREATE | APR_BINARY | APR_TRUNCATE,
         APR_OS_DEFAULT, pool);
-    if (err == NULL)
+    if (!err)
     {
         svn_stream_t * stream = svn_stream_from_aprfile2(outfile, false, pool);
         if (stream)
         {
-            svn_diff_t * diff = NULL;
+            svn_diff_t* diff = nullptr;
             svn_diff_file_options_t * opts = svn_diff_file_options_create(pool);
             opts->ignore_eol_style = false;
             opts->ignore_space = svn_diff_file_ignore_space_none;
             err = svn_diff_file_diff_2(&diff, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
                 svn_dirent_internal_style(CUnicodeUtils::GetUTF8(modified), pool), opts, pool);
-            if (err == NULL)
+            if (!err)
             {
                 err = svn_diff_file_output_unified4(stream, diff, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
                     svn_dirent_internal_style(CUnicodeUtils::GetUTF8(modified), pool),
-                    NULL, NULL, SVN_APR_LOCALE_CHARSET, NULL, true, contextsize, NULL, NULL, pool);
+                    nullptr, nullptr, SVN_APR_LOCALE_CHARSET, nullptr, true, contextsize, nullptr, nullptr, pool);
                 svn_stream_close(stream);
             }
         }
@@ -128,7 +128,7 @@ CString CAppUtils::GetErrorString(svn_error_t * Err)
     CString msg;
     CString temp;
 
-    if (Err != NULL)
+    if (Err)
     {
         char errbuf[256] = { 0 };
         svn_error_t * ErrPtr = Err;
@@ -143,8 +143,8 @@ CString CAppUtils::GetErrorString(svn_error_t * Err)
             /* Otherwise, this must be an APR error code. */
             else
             {
-                svn_error_t *temp_err = NULL;
-                const char * err_string = NULL;
+                svn_error_t* temp_err = nullptr;
+                const char* err_string = nullptr;
                 temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
                 if (temp_err)
                 {
@@ -172,8 +172,8 @@ CString CAppUtils::GetErrorString(svn_error_t * Err)
                 /* Otherwise, this must be an APR error code. */
                 else
                 {
-                    svn_error_t *temp_err = NULL;
-                    const char * err_string = NULL;
+                    svn_error_t* temp_err = nullptr;
+                    const char* err_string = nullptr;
                     temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
                     if (temp_err)
                     {
@@ -195,7 +195,7 @@ CString CAppUtils::GetErrorString(svn_error_t * Err)
 
 bool CAppUtils::HasClipboardFormat(UINT format)
 {
-    if (OpenClipboard(NULL))
+    if (OpenClipboard(nullptr))
     {
         UINT enumFormat = 0;
         do

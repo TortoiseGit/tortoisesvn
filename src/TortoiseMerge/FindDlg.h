@@ -33,9 +33,9 @@ class CFindDlg : public CDialog
     DECLARE_DYNAMIC(CFindDlg)
 
 public:
-    CFindDlg(CWnd* pParent = NULL);   // standard constructor
+    CFindDlg(CWnd* pParent = nullptr);   // standard constructor
     virtual ~CFindDlg();
-    void Create(CWnd * pParent = NULL, int id = 0);
+    void Create(CWnd* pParent = nullptr, int id = 0);
     bool IsTerminating() {return m_bTerminating;}
     bool FindNext() {return m_bFindNext;}
     bool MatchCase() {return !!m_bMatchCase;}

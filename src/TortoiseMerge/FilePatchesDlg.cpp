@@ -27,15 +27,15 @@
 
 
 IMPLEMENT_DYNAMIC(CFilePatchesDlg, CResizableStandAloneDialog)
-CFilePatchesDlg::CFilePatchesDlg(CWnd* pParent /*=NULL*/)
+CFilePatchesDlg::CFilePatchesDlg(CWnd* pParent /*=nullptr*/)
     : CResizableStandAloneDialog(CFilePatchesDlg::IDD, pParent)
     , m_ShownIndex(-1)
     , m_bMinimized(FALSE)
-    , m_pPatch(NULL)
-    , m_pCallBack(NULL)
+    , m_pPatch(nullptr)
+    , m_pCallBack(nullptr)
     , m_nWindowHeight(-1)
-    , m_pMainFrame(NULL)
-    , m_boldFont(NULL)
+    , m_pMainFrame(nullptr)
+    , m_boldFont(nullptr)
 {
 }
 
@@ -102,7 +102,7 @@ BOOL CFilePatchesDlg::OnInitDialog()
 
 BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack, CString sPath, CWnd * pParent)
 {
-    if ((pCallBack==NULL)||(pPatch==NULL))
+    if (!pCallBack || !pPatch)
     {
         m_cFileList.DeleteAllItems();
         return FALSE;
@@ -127,7 +127,7 @@ BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack
         m_sPath = m_sPath + L"\\";
     }
 
-    SetWindowTheme(m_cFileList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_cFileList.GetSafeHwnd(), L"Explorer", nullptr);
     m_cFileList.SetExtendedStyle(LVS_EX_INFOTIP | LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
     m_cFileList.DeleteAllItems();
     int c = m_cFileList.GetHeaderCtrl()->GetItemCount()-1;
@@ -187,10 +187,8 @@ BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack
     windowrect.bottom = windowrect.top + height;
 
     auto hMonitor = MonitorFromRect(&windowrect, MONITOR_DEFAULTTONULL);
-    if (hMonitor != nullptr)
-    {
-        SetWindowPos(NULL, windowrect.left, windowrect.top, width, height, SWP_NOACTIVATE | SWP_NOZORDER);
-    }
+    if (hMonitor)
+        SetWindowPos(nullptr, windowrect.left, windowrect.top, width, height, SWP_NOACTIVATE | SWP_NOZORDER);
 
     m_nWindowHeight = windowrect.bottom - windowrect.top;
     m_pMainFrame = pParent;
@@ -245,7 +243,7 @@ void CFilePatchesDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
     *pResult = 0;
     if ((pNMLV->iItem < 0) || (pNMLV->iItem >= m_arFileStates.GetCount()))
         return;
-    if (m_pCallBack==NULL)
+    if (!m_pCallBack)
         return;
     if (m_sPath.IsEmpty())
     {

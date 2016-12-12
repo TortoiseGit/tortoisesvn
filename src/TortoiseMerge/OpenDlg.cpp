@@ -26,11 +26,11 @@
 // COpenDlg dialog
 
 IMPLEMENT_DYNAMIC(COpenDlg, CStandAloneDialog)
-COpenDlg::COpenDlg(CWnd* pParent /*=NULL*/)
+COpenDlg::COpenDlg(CWnd* pParent /*=nullptr*/)
     : CStandAloneDialog(COpenDlg::IDD, pParent)
     , m_bFromClipboard(FALSE)
     , m_cFormat(0)
-    , m_nextViewer(NULL)
+    , m_nextViewer(nullptr)
 {
 }
 
@@ -124,14 +124,14 @@ void COpenDlg::OnBnClickedHelp()
 void COpenDlg::OnBrowseForFile(CString& filepath, UINT nFileFilter)
 {
     UpdateData();
-    CCommonAppUtils::FileOpenSave(filepath, NULL, IDS_SELECTFILE, nFileFilter, true, CString(), m_hWnd);
+    CCommonAppUtils::FileOpenSave(filepath, nullptr, IDS_SELECTFILE, nFileFilter, true, CString(), m_hWnd);
     UpdateData(FALSE);
 }
 
 void COpenDlg::OnBnClickedDifffilebrowse()
 {
     UpdateData();
-    CCommonAppUtils::FileOpenSave(m_sUnifiedDiffFile, NULL, IDS_SELECTDIFFFILE, IDS_PATCHFILEFILTER, true, CString(), m_hWnd);
+    CCommonAppUtils::FileOpenSave(m_sUnifiedDiffFile, nullptr, IDS_SELECTDIFFFILE, IDS_PATCHFILEFILTER, true, CString(), m_hWnd);
     UpdateData(FALSE);
 }
 
@@ -232,7 +232,7 @@ void COpenDlg::OnOK()
             HGLOBAL hglb = GetClipboardData(m_cFormat);
             LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
 
-            DWORD len = GetTempPath(0, NULL);
+            DWORD len = GetTempPath(0, nullptr);
             auto path = std::make_unique<TCHAR[]>(len + 1);
             auto tempF = std::make_unique<TCHAR[]>(len + 100);
             GetTempPath (len+1, path.get());
@@ -265,7 +265,7 @@ void COpenDlg::OnOK()
     {
         CString sErr;
         sErr.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, (LPCTSTR)sFile);
-        MessageBox(sErr, NULL, MB_ICONERROR);
+        MessageBox(sErr, nullptr, MB_ICONERROR);
         return;
     }
     CRegDWORD lastRadioButton(L"Software\\TortoiseMerge\\OpenRadio", IDC_MERGERADIO);

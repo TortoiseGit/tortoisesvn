@@ -72,7 +72,7 @@ class CFilePatchesDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CFilePatchesDlg)
 
 public:
-    CFilePatchesDlg(CWnd* pParent = NULL);   // standard constructor
+    CFilePatchesDlg(CWnd* pParent = nullptr);   // standard constructor
     virtual ~CFilePatchesDlg();
 
     /**

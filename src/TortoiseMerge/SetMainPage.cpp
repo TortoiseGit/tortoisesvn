@@ -257,7 +257,7 @@ void CSetMainPage::OnBnClickedWhitespace()
 BOOL CSetMainPage::DialogEnableWindow(UINT nID, BOOL bEnable)
 {
     CWnd * pwndDlgItem = GetDlgItem(nID);
-    if (pwndDlgItem == NULL)
+    if (!pwndDlgItem)
         return FALSE;
     if (bEnable)
         return pwndDlgItem->EnableWindow(bEnable);
