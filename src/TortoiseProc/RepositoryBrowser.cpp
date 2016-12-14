@@ -5107,6 +5107,12 @@ bool CRepositoryBrowser::TrySVNParentPath()
     std::unique_ptr<CCallback> callback(new CCallback());
     callback->SetAuthParentWindow(GetSafeHwnd());
 
+    // since html pages returned by SVNParentPath contain the listed repository
+    // urls with a trailing slash if the page is requested with additional trailing slashes,
+    // we have to remove them here first. Otherwise we'll end up with repo urls
+    // like https://server.com/repos/repo1//trunk
+    m_InitialUrl.TrimRight(L"/\\ \t\r\n");
+
     HRESULT hResUDL = URLDownloadToFile(NULL, m_InitialUrl+L"/", tempfile.GetWinPath(), 0, callback.get());
     if (hResUDL != S_OK)
     {
