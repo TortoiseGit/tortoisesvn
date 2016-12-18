@@ -1,6 +1,7 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2012-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +18,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
+#include "TortoiseUDiff.h"
 #include "MainWindow.h"
 #include "UnicodeUtils.h"
 #include "StringUtils.h"
@@ -28,12 +30,12 @@
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
-CMainWindow::CMainWindow(HINSTANCE hInst, const WNDCLASSEX* wcx /* = NULL*/)
+CMainWindow::CMainWindow(HINSTANCE hInst, const WNDCLASSEX* wcx /* = nullptr*/)
     : CWindow(hInst, wcx)
     , m_bShowFindBar(false)
     , m_directFunction(0)
     , m_directPointer(0)
-    , m_hWndEdit(NULL)
+    , m_hWndEdit(nullptr)
     , m_bMatchCase(false)
 {
     SetWindowTitle(L"TortoiseUDiff");
@@ -54,7 +56,7 @@ bool CMainWindow::RegisterAndCreateWindow()
     wcx.cbClsExtra = 0;
     wcx.cbWndExtra = 0;
     wcx.hInstance = hResource;
-    wcx.hCursor = NULL;
+    wcx.hCursor = nullptr;
     ResString clsname(hResource, IDS_APP_TITLE);
     wcx.lpszClassName = clsname;
     wcx.hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_TORTOISEUDIFF));
@@ -63,10 +65,10 @@ bool CMainWindow::RegisterAndCreateWindow()
     wcx.hIconSm = LoadIcon(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEUDIFF));
     if (RegisterWindow(&wcx))
     {
-        if (Create(WS_CAPTION | WS_MAXIMIZEBOX | WS_MINIMIZEBOX | WS_SIZEBOX | WS_SYSMENU | WS_CLIPCHILDREN, NULL))
+        if (Create(WS_CAPTION | WS_MAXIMIZEBOX | WS_MINIMIZEBOX | WS_SIZEBOX | WS_SYSMENU | WS_CLIPCHILDREN, nullptr))
         {
             m_FindBar.SetParent(*this);
-            m_FindBar.Create(hResource, IDD_FINDBAR, *this);
+            m_FindBar.Create(::hResource, IDD_FINDBAR, *this);
             UpdateWindow(*this);
             return true;
         }
@@ -275,7 +277,7 @@ LRESULT CMainWindow::DoCommand(int id)
             PAGESETUPDLG pdlg = {0};
             pdlg.lStructSize = sizeof(PAGESETUPDLG);
             pdlg.hwndOwner = *this;
-            pdlg.hInstance = NULL;
+            pdlg.hInstance = nullptr;
             pdlg.Flags = PSD_DEFAULTMINMARGINS|PSD_MARGINS|PSD_DISABLEPAPER|PSD_DISABLEORIENTATION;
             if (localeInfo[0] == '0')
                 pdlg.Flags |= PSD_INHUNDREDTHSOFMILLIMETERS;
@@ -304,7 +306,7 @@ LRESULT CMainWindow::DoCommand(int id)
             PRINTDLGEX pdlg = {0};
             pdlg.lStructSize = sizeof(PRINTDLGEX);
             pdlg.hwndOwner = *this;
-            pdlg.hInstance = NULL;
+            pdlg.hInstance = nullptr;
             pdlg.Flags = PD_USEDEVMODECOPIESANDCOLLATE | PD_ALLPAGES | PD_RETURNDC | PD_NOCURRENTPAGE | PD_NOPAGENUMS;
             pdlg.nMinPage = 1;
             pdlg.nMaxPage = 0xffffU; // We do not know how many pages in the document
@@ -498,11 +500,11 @@ LRESULT CMainWindow::DoCommand(int id)
             ::EndDoc(hdc);
             ::DeleteDC(hdc);
 
-            if (pdlg.hDevMode != NULL)
+            if (pdlg.hDevMode)
                 GlobalFree(pdlg.hDevMode);
-            if (pdlg.hDevNames != NULL)
+            if (pdlg.hDevNames)
                 GlobalFree(pdlg.hDevNames);
-            if (pdlg.lpPageRanges != NULL)
+            if (pdlg.lpPageRanges)
                 GlobalFree(pdlg.lpPageRanges);
 
             // reset the UI
@@ -526,7 +528,7 @@ std::wstring CMainWindow::GetAppDirectory()
     {
         bufferlen += MAX_PATH;      // MAX_PATH is not the limit here!
         auto pBuf = std::make_unique<TCHAR[]>(bufferlen);
-        len = GetModuleFileName(NULL, pBuf.get(), bufferlen);
+        len = GetModuleFileName(nullptr, pBuf.get(), bufferlen);
         path = std::wstring(pBuf.get(), len);
     } while(len == bufferlen);
     path = path.substr(0, path.rfind('\\') + 1);
@@ -558,10 +560,10 @@ bool CMainWindow::Initialize()
         CW_USEDEFAULT, CW_USEDEFAULT,
         CW_USEDEFAULT, CW_USEDEFAULT,
         *this,
-        0,
+        nullptr,
         hResource,
-        0);
-    if (m_hWndEdit == NULL)
+        nullptr);
+    if (!m_hWndEdit)
         return false;
 
     RECT rect;
@@ -615,13 +617,13 @@ bool CMainWindow::LoadFile(HANDLE hFile)
     char data[4096] = { 0 };
     DWORD dwRead = 0;
 
-    BOOL bRet = ReadFile(hFile, data, sizeof(data), &dwRead, NULL);
+    BOOL bRet = ReadFile(hFile, data, sizeof(data), &dwRead, nullptr);
     bool bUTF8 = IsUTF8(data, dwRead);
     while ((dwRead > 0) && (bRet))
     {
         SendEditor(SCI_ADDTEXT, dwRead,
             reinterpret_cast<LPARAM>(static_cast<char *>(data)));
-        bRet = ReadFile(hFile, data, sizeof(data), &dwRead, NULL);
+        bRet = ReadFile(hFile, data, sizeof(data), &dwRead, nullptr);
     }
     SetupWindow(bUTF8);
     return true;
@@ -630,8 +632,8 @@ bool CMainWindow::LoadFile(HANDLE hFile)
 bool CMainWindow::LoadFile(LPCTSTR filename)
 {
     InitEditor();
-    FILE *fp = NULL;
-    _tfopen_s(&fp, filename, L"rb");
+    FILE* fp = nullptr;
+    _wfopen_s(&fp, filename, L"rb");
     if (!fp)
         return false;
 
@@ -704,8 +706,8 @@ void CMainWindow::SetupWindow(bool bUTF8)
 
 bool CMainWindow::SaveFile(LPCTSTR filename)
 {
-    FILE *fp = NULL;
-    _tfopen_s(&fp, filename, L"w+b");
+    FILE* fp = nullptr;
+    _wfopen_s(&fp, filename, L"w+b");
     if (!fp)
         return false;
 
@@ -823,16 +825,16 @@ void CMainWindow::loadOrSaveFile(bool doLoad, const std::wstring& filename /* = 
     ofn.lpstrFile = szFile;
     ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
     TCHAR filter[1024] = { 0 };
-    LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
+    LoadString(::hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
     CStringUtils::PipesToNulls(filter);
     ofn.lpstrFilter = filter;
     ofn.nFilterIndex = 1;
-    ofn.lpstrFileTitle = NULL;
+    ofn.lpstrFileTitle = nullptr;
     ofn.lpstrDefExt = L"diff";
     ofn.nMaxFileTitle = 0;
-    ofn.lpstrInitialDir = NULL;
+    ofn.lpstrInitialDir = nullptr;
     TCHAR fileTitle[1024] = { 0 };
-    LoadString(hResource, doLoad ? IDS_OPENPATCH : IDS_SAVEPATCH, fileTitle, sizeof(fileTitle)/sizeof(TCHAR));
+    LoadString(::hResource, doLoad ? IDS_OPENPATCH : IDS_SAVEPATCH, fileTitle, sizeof(fileTitle)/sizeof(TCHAR));
     ofn.lpstrTitle = fileTitle;
     ofn.Flags = OFN_ENABLESIZING | OFN_EXPLORER;
     if(doLoad)

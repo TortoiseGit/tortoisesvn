@@ -58,15 +58,15 @@
 class CPicWindow : public CWindow
 {
 private:
-    CPicWindow() : CWindow(NULL) {}
+    CPicWindow() : CWindow(nullptr) {}
 public:
-    CPicWindow(HINSTANCE hInstance, const WNDCLASSEX* wcx = NULL) : CWindow(hInstance, wcx)
+    CPicWindow(HINSTANCE hInstance, const WNDCLASSEX* wcx = nullptr) : CWindow(hInstance, wcx)
         , bValid(false)
         , nHScrollPos(0)
         , nVScrollPos(0)
         , picscale(100)
         , transparentColor(::GetSysColor(COLOR_WINDOW))
-        , pSecondPic(NULL)
+        , pSecondPic(nullptr)
         , blendAlpha(0.5f)
         , bShowInfo(false)
         , nDimensions(0)
@@ -74,7 +74,7 @@ public:
         , nFrames(0)
         , nCurrentFrame(1)
         , bPlaying(false)
-        , pTheOtherPic(NULL)
+        , pTheOtherPic(nullptr)
         , bLinkedPositions(true)
         , bFitWidths(false)
         , bFitHeights(false)
@@ -131,7 +131,7 @@ public:
     /// object without having to load it again.
     CPicture * GetPic() {return &picture;}
     /// Sets the path and title of the second image which is alpha blended over the original
-    void SetSecondPic(CPicture * pPicture = NULL, const tstring& sectit = L"", const tstring& secpath = L"", int hpos = 0, int vpos = 0)
+    void SetSecondPic(CPicture* pPicture = nullptr, const tstring& sectit = L"", const tstring& secpath = L"", int hpos = 0, int vpos = 0)
     {
         pSecondPic = pPicture;
         pictitle2 = sectit;
@@ -152,7 +152,7 @@ public:
         if (m_AlphaSlider.IsValid())
             SendMessage(m_AlphaSlider.GetWindow(), TBM_SETPOS, (WPARAM)1, (LPARAM)(a*16.0f));
         PositionTrackBar();
-        InvalidateRect(*this, NULL, FALSE);
+        InvalidateRect(*this, nullptr, FALSE);
     }
     /// Toggle the alpha blending value
     void ToggleAlpha()
@@ -164,7 +164,7 @@ public:
     }
 
     /// Set the color that this PicWindow will display behind transparent images.
-    void SetTransparentColor(COLORREF back) { transparentColor = back; InvalidateRect(*this, NULL, false); }
+    void SetTransparentColor(COLORREF back) { transparentColor = back; InvalidateRect(*this, nullptr, false); }
 
     /// Resizes the image to fit into the window. Small images are not enlarged.
     void FitImageInWindow();
@@ -187,7 +187,7 @@ public:
     /// Sets the overlay mode info
     void SetOverlapMode(bool b) {bOverlap = b;}
 
-    void ShowInfo(bool bShow = true) {bShowInfo = bShow; InvalidateRect(*this, NULL, false);}
+    void ShowInfo(bool bShow = true) { bShowInfo = bShow; InvalidateRect(*this, nullptr, false); }
     /// Sets up the scrollbars as needed
     void SetupScrollBars();
 
@@ -195,7 +195,7 @@ public:
 
     int GetHPos() {return nHScrollPos;}
     int GetVPos() {return nVScrollPos;}
-    void SetZoomValue(int z) {picscale = z; InvalidateRect(*this, NULL, FALSE);}
+    void SetZoomValue(int z) { picscale = z; InvalidateRect(*this, nullptr, FALSE); }
 
     void SetSelectionMode(bool bSelect = true) { bSelectionMode = bSelect; }
     /// Handles the mouse wheel

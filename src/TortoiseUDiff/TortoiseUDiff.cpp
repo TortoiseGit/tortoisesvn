@@ -1,6 +1,7 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2008, 2010-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2011-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,12 +29,9 @@
 #include <commctrl.h>
 #pragma comment(lib, "comctl32.lib")
 
-
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
-HINSTANCE hInst;                                // current instance
-HINSTANCE hResource;                            // the resource dll
-
+HINSTANCE hResource; // the resource dll
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                        HINSTANCE /*hPrevInstance*/,
@@ -49,11 +47,11 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
     CRegStdDWORD loc = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
     long langId = loc;
-    CoInitializeEx(NULL, COINIT_APARTMENTTHREADED);
+    CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
 
     CLangDll langDLL;
     hResource = langDLL.Init(L"TortoiseUDiff", langId);
-    if (hResource == NULL)
+    if (!hResource)
         hResource = hInstance;
 
     CCmdLineParser parser(lpCmdLine);
@@ -61,7 +59,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     if (parser.HasKey(L"?") || parser.HasKey(L"help"))
     {
         ResString rHelp(hResource, IDS_COMMANDLINEHELP);
-        MessageBox(NULL, rHelp, L"TortoiseUDiff", MB_ICONINFORMATION);
+        MessageBox(nullptr, rHelp, L"TortoiseUDiff", MB_ICONINFORMATION);
         return 0;
     }
 
@@ -73,7 +71,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 
     HMODULE hSciLexerDll = ::LoadLibrary(L"SciLexer.DLL");
-    if (hSciLexerDll == NULL)
+    if (!hSciLexerDll)
         return FALSE;
 
     CMainWindow mainWindow(hResource);
@@ -95,8 +93,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     }
 
     bool bLoadedSuccessfully = false;
-    if ( (lpCmdLine[0] == 0) ||
-        (parser.HasKey(L"p")) )
+    if ((lpCmdLine[0] == L'0') || (parser.HasKey(L"p")))
     {
         // input from console pipe
         // set console to raw mode
@@ -108,14 +105,13 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     }
     else if (parser.HasVal(L"patchfile"))
         bLoadedSuccessfully = mainWindow.LoadFile(parser.GetVal(L"patchfile"));
-    else if (lpCmdLine[0] != 0)
+    else if (lpCmdLine[0] != L'0')
     {
         // remove double quotes
         std::wstring path = lpCmdLine;
         path.erase(std::remove(path.begin(), path.end(), '"'), path.end());
         bLoadedSuccessfully = mainWindow.LoadFile(path.c_str());
     }
-
 
     if (!bLoadedSuccessfully)
     {
@@ -129,7 +125,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     hAccelTable = LoadAccelerators(hResource, MAKEINTRESOURCE(IDC_TORTOISEUDIFF));
 
     // Main message loop:
-    while (GetMessage(&msg, NULL, 0, 0))
+    while (GetMessage(&msg, nullptr, 0, 0))
     {
         if (!TranslateAccelerator(mainWindow, hAccelTable, &msg))
         {
