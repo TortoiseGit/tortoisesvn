@@ -1338,7 +1338,8 @@ void CPicWindow::Paint(HWND hwnd)
         else
         {
             SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
-            ::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
+            SetTextColor(memDC, ::GetSysColor(COLOR_WINDOWTEXT));
+            ::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, nullptr, 0, nullptr);
             SIZE stringsize;
             ResString str = ResString(hResource, IDS_INVALIDIMAGEINFO);
 
