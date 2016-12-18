@@ -151,7 +151,9 @@ BOOL CFileDiffDlg::OnInitDialog()
     m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
     m_cFileList.SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 
-    m_SwitchButton.SetImage(CCommonAppUtils::LoadIconEx(IDI_SWITCHLEFTRIGHT, 16, 16, LR_DEFAULTCOLOR));
+    int iconWidth = GetSystemMetrics(SM_CXSMICON);
+    int iconHeight = GetSystemMetrics(SM_CYSMICON);
+    m_SwitchButton.SetImage(CCommonAppUtils::LoadIconEx(IDI_SWITCHLEFTRIGHT, iconWidth, iconHeight, LR_DEFAULTCOLOR));
     m_SwitchButton.Invalidate();
 
     m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);

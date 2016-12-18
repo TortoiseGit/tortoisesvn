@@ -141,7 +141,9 @@ void SetUUIDOverlayIcon( HWND hWnd )
         XOR[i] = colors[foundUUIDIndex % 6];
     }
 
-    HICON icon = ::CreateIcon(NULL,16,16,1,32,AND,(BYTE*)XOR);
+    int iconWidth = GetSystemMetrics(SM_CXSMICON);
+    int iconHeight = GetSystemMetrics(SM_CYSMICON);
+    HICON icon = ::CreateIcon(nullptr, iconWidth, iconHeight, 1, 32, AND, (BYTE*)XOR);
     pTaskbarInterface->SetOverlayIcon(hWnd, icon, uuid.c_str());
     DestroyIcon(icon);
 }

@@ -51,7 +51,7 @@ public:
     virtual BOOL OnInitDialog();
 
 private:
-    void InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags);
+    void InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags, int iconWidth, int iconHeight);
 
     CRegDWORD           m_regTopmenu;
     CRegDWORD           m_regTopmenuhigh;

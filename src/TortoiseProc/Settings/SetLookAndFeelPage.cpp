@@ -97,48 +97,50 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 
     m_cMenuList.SetRedraw(false);
 
-    m_imgList.Create(16, 16, ILC_COLOR16 | ILC_MASK, 4, 1);
+    int iconWidth = GetSystemMetrics(SM_CXSMICON);
+    int iconHeight = GetSystemMetrics(SM_CYSMICON);
+    m_imgList.Create(iconWidth, iconHeight, ILC_COLOR16 | ILC_MASK, 4, 1);
 
     m_bBlock = true;
 
-    InsertItem(IDS_MENUCHECKOUT, IDI_CHECKOUT, MENUCHECKOUT);
-    InsertItem(IDS_MENUUPDATE, IDI_UPDATE, MENUUPDATE);
-    InsertItem(IDS_MENUCOMMIT, IDI_COMMIT, MENUCOMMIT);
-    InsertItem(IDS_MENUDIFF, IDI_DIFF, MENUDIFF);
-    InsertItem(IDS_MENUDIFFLATER, IDI_DIFF, MENUDIFFLATER);
-    InsertItem(IDS_MENUDIFFNOW, IDI_DIFF, MENUDIFFNOW);
-    InsertItem(IDS_MENUPREVDIFF, IDI_DIFF, MENUPREVDIFF);
-    InsertItem(IDS_MENUURLDIFF, IDI_DIFF, MENUURLDIFF);
-    InsertItem(IDS_MENULOG, IDI_LOG, MENULOG);
-    InsertItem(IDS_MENUREPOBROWSE, IDI_REPOBROWSE, MENUREPOBROWSE);
-    InsertItem(IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, MENUSHOWCHANGED);
-    InsertItem(IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH, MENUREVISIONGRAPH);
-    InsertItem(IDS_MENUCONFLICT, IDI_CONFLICT, MENUCONFLICTEDITOR);
-    InsertItem(IDS_MENURESOLVE, IDI_RESOLVE, MENURESOLVE);
-    InsertItem(IDS_MENUUPDATEEXT, IDI_UPDATE, MENUUPDATEEXT);
-    InsertItem(IDS_MENURENAME, IDI_RENAME, MENURENAME);
-    InsertItem(IDS_MENUREMOVE, IDI_DELETE, MENUREMOVE);
-    InsertItem(IDS_MENUREVERT, IDI_REVERT, MENUREVERT);
-    InsertItem(IDS_MENUDELUNVERSIONED, IDI_DELUNVERSIONED, MENUDELUNVERSIONED);
-    InsertItem(IDS_MENUCLEANUP, IDI_CLEANUP, MENUCLEANUP);
-    InsertItem(IDS_MENU_LOCK, IDI_LOCK, MENULOCK);
-    InsertItem(IDS_MENU_UNLOCK, IDI_UNLOCK, MENUUNLOCK);
-    InsertItem(IDS_MENUBRANCH, IDI_COPY, MENUCOPY);
-    InsertItem(IDS_MENUSWITCH, IDI_SWITCH, MENUSWITCH);
-    InsertItem(IDS_MENUMERGE, IDI_MERGE, MENUMERGE);
-    InsertItem(IDS_MENUMERGEALL, IDI_MERGE, MENUMERGEALL);
-    InsertItem(IDS_MENUEXPORT, IDI_EXPORT, MENUEXPORT);
-    InsertItem(IDS_MENURELOCATE, IDI_RELOCATE, MENURELOCATE);
-    InsertItem(IDS_MENUCREATEREPOS, IDI_CREATEREPOS, MENUCREATEREPOS);
-    InsertItem(IDS_MENUADD, IDI_ADD, MENUADD);
-    InsertItem(IDS_MENUIMPORT, IDI_IMPORT, MENUIMPORT);
-    InsertItem(IDS_MENUBLAME, IDI_BLAME, MENUBLAME);
-    InsertItem(IDS_MENUCOPYURL, IDI_COPYURL, MENUCOPYURL);
-    InsertItem(IDS_MENUIGNORE, IDI_IGNORE, MENUIGNORE);
-    InsertItem(IDS_MENUCREATEPATCH, IDI_CREATEPATCH, MENUCREATEPATCH);
-    InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH);
-    InsertItem(IDS_MENUPROPERTIES, IDI_PROPERTIES, MENUPROPERTIES);
-    InsertItem(IDS_MENUCLIPPASTE, IDI_CLIPPASTE, MENUCLIPPASTE);
+    InsertItem(IDS_MENUCHECKOUT, IDI_CHECKOUT, MENUCHECKOUT, iconWidth, iconHeight);
+    InsertItem(IDS_MENUUPDATE, IDI_UPDATE, MENUUPDATE, iconWidth, iconHeight);
+    InsertItem(IDS_MENUCOMMIT, IDI_COMMIT, MENUCOMMIT, iconWidth, iconHeight);
+    InsertItem(IDS_MENUDIFF, IDI_DIFF, MENUDIFF, iconWidth, iconHeight);
+    InsertItem(IDS_MENUDIFFLATER, IDI_DIFF, MENUDIFFLATER, iconWidth, iconHeight);
+    InsertItem(IDS_MENUDIFFNOW, IDI_DIFF, MENUDIFFNOW, iconWidth, iconHeight);
+    InsertItem(IDS_MENUPREVDIFF, IDI_DIFF, MENUPREVDIFF, iconWidth, iconHeight);
+    InsertItem(IDS_MENUURLDIFF, IDI_DIFF, MENUURLDIFF, iconWidth, iconHeight);
+    InsertItem(IDS_MENULOG, IDI_LOG, MENULOG, iconWidth, iconHeight);
+    InsertItem(IDS_MENUREPOBROWSE, IDI_REPOBROWSE, MENUREPOBROWSE, iconWidth, iconHeight);
+    InsertItem(IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, MENUSHOWCHANGED, iconWidth, iconHeight);
+    InsertItem(IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH, MENUREVISIONGRAPH, iconWidth, iconHeight);
+    InsertItem(IDS_MENUCONFLICT, IDI_CONFLICT, MENUCONFLICTEDITOR, iconWidth, iconHeight);
+    InsertItem(IDS_MENURESOLVE, IDI_RESOLVE, MENURESOLVE, iconWidth, iconHeight);
+    InsertItem(IDS_MENUUPDATEEXT, IDI_UPDATE, MENUUPDATEEXT, iconWidth, iconHeight);
+    InsertItem(IDS_MENURENAME, IDI_RENAME, MENURENAME, iconWidth, iconHeight);
+    InsertItem(IDS_MENUREMOVE, IDI_DELETE, MENUREMOVE, iconWidth, iconHeight);
+    InsertItem(IDS_MENUREVERT, IDI_REVERT, MENUREVERT, iconWidth, iconHeight);
+    InsertItem(IDS_MENUDELUNVERSIONED, IDI_DELUNVERSIONED, MENUDELUNVERSIONED, iconWidth, iconHeight);
+    InsertItem(IDS_MENUCLEANUP, IDI_CLEANUP, MENUCLEANUP, iconWidth, iconHeight);
+    InsertItem(IDS_MENU_LOCK, IDI_LOCK, MENULOCK, iconWidth, iconHeight);
+    InsertItem(IDS_MENU_UNLOCK, IDI_UNLOCK, MENUUNLOCK, iconWidth, iconHeight);
+    InsertItem(IDS_MENUBRANCH, IDI_COPY, MENUCOPY, iconWidth, iconHeight);
+    InsertItem(IDS_MENUSWITCH, IDI_SWITCH, MENUSWITCH, iconWidth, iconHeight);
+    InsertItem(IDS_MENUMERGE, IDI_MERGE, MENUMERGE, iconWidth, iconHeight);
+    InsertItem(IDS_MENUMERGEALL, IDI_MERGE, MENUMERGEALL, iconWidth, iconHeight);
+    InsertItem(IDS_MENUEXPORT, IDI_EXPORT, MENUEXPORT, iconWidth, iconHeight);
+    InsertItem(IDS_MENURELOCATE, IDI_RELOCATE, MENURELOCATE, iconWidth, iconHeight);
+    InsertItem(IDS_MENUCREATEREPOS, IDI_CREATEREPOS, MENUCREATEREPOS, iconWidth, iconHeight);
+    InsertItem(IDS_MENUADD, IDI_ADD, MENUADD, iconWidth, iconHeight);
+    InsertItem(IDS_MENUIMPORT, IDI_IMPORT, MENUIMPORT, iconWidth, iconHeight);
+    InsertItem(IDS_MENUBLAME, IDI_BLAME, MENUBLAME, iconWidth, iconHeight);
+    InsertItem(IDS_MENUCOPYURL, IDI_COPYURL, MENUCOPYURL, iconWidth, iconHeight);
+    InsertItem(IDS_MENUIGNORE, IDI_IGNORE, MENUIGNORE, iconWidth, iconHeight);
+    InsertItem(IDS_MENUCREATEPATCH, IDI_CREATEPATCH, MENUCREATEPATCH, iconWidth, iconHeight);
+    InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH, iconWidth, iconHeight);
+    InsertItem(IDS_MENUPROPERTIES, IDI_PROPERTIES, MENUPROPERTIES, iconWidth, iconHeight);
+    InsertItem(IDS_MENUCLIPPASTE, IDI_CLIPPASTE, MENUCLIPPASTE, iconWidth, iconHeight);
     m_bBlock = false;
 
     m_cMenuList.SetImageList(&m_imgList, LVSIL_SMALL);
@@ -176,11 +178,11 @@ BOOL CSetLookAndFeelPage::OnApply()
     return ISettingsPropPage::OnApply();
 }
 
-void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags)
+void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags, int iconWidth, int iconHeight)
 {
     HICON hIcon = reinterpret_cast<HICON>(::LoadImage(AfxGetResourceHandle(),
         MAKEINTRESOURCE(nIconID),
-        IMAGE_ICON, 16, 16, LR_LOADTRANSPARENT ));
+        IMAGE_ICON, iconWidth, iconHeight, LR_LOADTRANSPARENT));
     int nImage = m_imgList.Add(hIcon);
     CString temp;
     temp.LoadString(nTextID);
