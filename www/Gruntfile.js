@@ -65,6 +65,7 @@ module.exports = function(grunt) {
                 src: ['<%= dirs.src %>/assets/js/vendor/plugins.js',
                       '<%= dirs.src %>/assets/js/no-js-class.js',
                       '<%= dirs.src %>/assets/js/onLoad.js',
+                      '<%= dirs.src %>/assets/js/sf-accel.js',
                       '<%= dirs.src %>/assets/js/google-analytics.js'
                 ],
                 dest: '<%= dirs.dest %>/assets/js/main.js'
@@ -74,11 +75,6 @@ module.exports = function(grunt) {
                       '<%= dirs.src %>/assets/js/baguetteBox-init.js'
                 ],
                 dest: '<%= dirs.dest %>/assets/js/baguetteBox-pack.js'
-            },
-            sfAccel: {
-                src: ['<%= dirs.src %>/assets/js/sf-accel.js'
-                ],
-                dest: '<%= dirs.dest %>/assets/js/sf-accel.js'
             }
         },
 
@@ -138,8 +134,7 @@ module.exports = function(grunt) {
             minify: {
                 files: {
                     '<%= concat.baguetteBox.dest %>': '<%= concat.baguetteBox.dest %>',
-                    '<%= concat.mainJs.dest %>': '<%= concat.mainJs.dest %>',
-                    '<%= concat.sfAccel.dest %>': '<%= concat.sfAccel.dest %>'
+                    '<%= concat.mainJs.dest %>': '<%= concat.mainJs.dest %>'
                 }
             }
         },
