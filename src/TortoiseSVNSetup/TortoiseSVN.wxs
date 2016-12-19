@@ -88,7 +88,7 @@
       <AppSearch Sequence="1"></AppSearch>
       <LaunchConditions After="AppSearch" />
       <Custom Action="DefaultTargetDir" After="LaunchConditions">INSTALLDIR=""</Custom>
-      <Custom Action="KillCache" After="RemoveExistingProducts">Installed</Custom>
+      <Custom Action="KillCache" After="ValidateProductID">Installed OR REMOVE</Custom>
     </InstallExecuteSequence>
 
     <!-- UI Sequencing ...................................................................................................... -->
