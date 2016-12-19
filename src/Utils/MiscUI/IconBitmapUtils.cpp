@@ -112,6 +112,10 @@ HBITMAP IconBitmapUtils::IconToBitmapPARGB32(HINSTANCE hInst, UINT uIcon)
 
     return hBmp;
 }
+HBITMAP IconBitmapUtils::IconToBitmapPARGB32(HICON hIcon)
+{
+    return IconToBitmapPARGB32(hIcon, GetSystemMetrics(SM_CXSMICON), GetSystemMetrics(SM_CYSMICON));
+}
 
 HBITMAP IconBitmapUtils::IconToBitmapPARGB32(HICON hIcon, int width, int height)
 {

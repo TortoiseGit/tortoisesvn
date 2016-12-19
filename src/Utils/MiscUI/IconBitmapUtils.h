@@ -39,6 +39,7 @@ public:
     ~IconBitmapUtils(void);
 
     HBITMAP IconToBitmap(HINSTANCE hInst, UINT uIcon);
+    HBITMAP IconToBitmapPARGB32(HICON hIcon);
     HBITMAP IconToBitmapPARGB32(HICON hIcon, int width, int height);
     HBITMAP IconToBitmapPARGB32(HINSTANCE hInst, UINT uIcon);
     HRESULT Create32BitHBITMAP(HDC hdc, const SIZE *psize, __deref_opt_out void **ppvBits, __out HBITMAP* phBmp) const;
