@@ -187,7 +187,15 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
         com.Replace(L"%merged", L"");
     }
     else
+    {
+        SVNProperties props(mergedfile, SVNRev::REV_WC, false, false);
+        if (props.HasProperty("svn:needs-lock"))
+        {
+            // remove the readonly attribute
+            ::SetFileAttributes(mergedfile.GetWinPath(), FILE_ATTRIBUTE_NORMAL);
+        }
         com.Replace(L"%merged", L"\"" + mergedfile.GetWinPathString() + L"\"");
+    }
     if (basename.IsEmpty())
     {
         if (basefile.IsEmpty())
