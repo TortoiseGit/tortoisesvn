@@ -382,6 +382,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_COMMAND(ID_INLINEEDIT, &CLogDlg::OnInlineedit)
     ON_WM_QUERYENDSESSION()
     ON_REGISTERED_MESSAGE(WM_TaskBarButtonCreated, OnTaskbarButtonCreated)
+    ON_NOTIFY(LVN_BEGINDRAG, IDC_LOGMSG, &CLogDlg::OnLvnBegindragLogmsg)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, const SVNRev& pegrev, const SVNRev& startrev, const SVNRev& endrev,
@@ -9663,3 +9664,53 @@ LRESULT CLogDlg::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
     return 0;
 }
 
+void CLogDlg::OnLvnBegindragLogmsg(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
+    *pResult = 0;
+
+
+    ContextMenuInfoForChangedPathsPtr pCmi(new CContextMenuInfoForChangedPaths());
+    if (!GetContextMenuInfoForChangedPaths(pCmi))
+        return;
+
+    CTSVNPathList selectedUrls;
+    CString sRoot = GetRepositoryRoot(CTSVNPath(pCmi->fileUrl));
+
+    for (size_t i = 0; i < pCmi->ChangedLogPathIndices.size(); ++i)
+    {
+        const CLogChangedPath& changedlogpathi = m_currentChangedArray[pCmi->ChangedLogPathIndices[i]];
+
+        if (changedlogpathi.GetAction() == LOGACTIONS_DELETED)
+            continue;
+
+        CString filepath = sRoot + changedlogpathi.GetPath();
+        selectedUrls.AddPath(CTSVNPath(filepath));
+    }
+
+    // build copy source / content
+    std::unique_ptr<CIDropSource> pdsrc(new CIDropSource);
+    if (pdsrc == NULL)
+        return;
+
+    pdsrc->AddRef();
+
+    SVNDataObject* pdobj = new SVNDataObject(selectedUrls, pCmi->Rev1, pCmi->Rev1);
+    if (pdobj == NULL)
+    {
+        return;
+    }
+    pdobj->AddRef();
+    pdobj->SetAsyncMode(TRUE);
+    CDragSourceHelper dragsrchelper;
+    dragsrchelper.InitializeFromWindow(m_ChangedFileListCtrl.GetSafeHwnd(), pNMLV->ptAction, pdobj);
+    pdsrc->m_pIDataObj = pdobj;
+    pdsrc->m_pIDataObj->AddRef();
+
+    // Initiate the Drag & Drop
+    DWORD dwEffect;
+    ::DoDragDrop(pdobj, pdsrc.get(), DROPEFFECT_MOVE | DROPEFFECT_COPY, &dwEffect);
+    pdsrc->Release();
+    pdsrc.release();
+    pdobj->Release();
+}
