@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1540,17 +1540,6 @@ BOOL CLogDlg::Log(svn_revnum_t rev, const std::string& author, const std::string
     return TRUE;
 }
 
-svn_error_t* mergedrevsreceiver(void *baton, svn_log_entry_t *log_entry, apr_pool_t * /*pool*/)
-{
-    std::set<svn_revnum_t> * pMergedRevs = (std::set<svn_revnum_t>*)baton;
-    if (log_entry && pMergedRevs)
-    {
-        if (log_entry->revision)
-            pMergedRevs->insert(log_entry->revision);
-    }
-    return NULL;
-}
-
 //this is the thread function which calls the subversion function
 void CLogDlg::LogThread()
 {
@@ -1663,16 +1652,58 @@ void CLogDlg::LogThread()
         // match the URL we show the log for.
         SVNPool localpool(m_pool);
         svn_error_clear(Err);
+        apr_hash_t * mergeinfo = nullptr;
         const char* svnPath = m_mergePath.GetSVNApiPath(localpool);
         apr_array_header_t * noprops = apr_array_make(localpool, 0, sizeof(const char *));
 
         SVNTRACE(
-            Err = svn_client_mergeinfo_log2(true, svnPath, m_mergePath.IsUrl() ? SVNRev(SVNRev::REV_HEAD) : SVNRev(SVNRev::REV_BASE),
-                                            m_path.GetSVNApiPath(localpool), SVNRev(SVNRev::REV_HEAD), m_startrev, m_endrev,
-                                            mergedrevsreceiver, &m_mergedRevs,
-                                            false, svn_depth_empty, noprops, m_pctx, localpool),
+            Err = svn_client_mergeinfo_get_merged(&mergeinfo, svnPath, SVNRev(SVNRev::REV_WC),
+                                                  m_pctx, localpool),
             svnPath
-            )
+
+        )
+        if (Err == nullptr)
+        {
+            // now check the relative paths
+            apr_hash_index_t *hi;
+            const void *key;
+            void *val;
+
+            if (mergeinfo)
+            {
+                // unfortunately it's not defined whether the urls have a trailing
+                // slash or not, so we have to trim such a slash before comparing
+                // the sUrl with the mergeinfo url
+                CStringA sUrl = CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_sURL));
+                sUrl.TrimRight('/');
+
+                for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
+                {
+                    apr_hash_this(hi, &key, nullptr, &val);
+                    CStringA sKey = (char*)key;
+                    sKey.TrimRight('/');
+                    if (sUrl.Compare(sKey) == 0)
+                    {
+                        apr_array_header_t * arr = (apr_array_header_t*)val;
+                        if (val)
+                        {
+                            for (long i = 0; i < arr->nelts; ++i)
+                            {
+                                svn_merge_range_t * pRange = APR_ARRAY_IDX(arr, i, svn_merge_range_t*);
+                                if (pRange)
+                                {
+                                    for (svn_revnum_t re = pRange->start + 1; re <= pRange->end; ++re)
+                                    {
+                                        m_mergedRevs.insert(re);
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        }
 
         bool bFindCopyFrom = !!(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFindCopyFrom", TRUE);
         if (bFindCopyFrom && m_bStrict)
