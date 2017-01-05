@@ -1654,7 +1654,6 @@ void CLogDlg::LogThread()
         svn_error_clear(Err);
         apr_hash_t * mergeinfo = nullptr;
         const char* svnPath = m_mergePath.GetSVNApiPath(localpool);
-        apr_array_header_t * noprops = apr_array_make(localpool, 0, sizeof(const char *));
 
         SVNTRACE(
             Err = svn_client_mergeinfo_get_merged(&mergeinfo, svnPath, SVNRev(SVNRev::REV_WC),
