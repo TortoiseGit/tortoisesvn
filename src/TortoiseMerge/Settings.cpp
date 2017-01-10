@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009-2010, 2014-2015 - TortoiseSVN
+// Copyright (C) 2006, 2009-2010, 2014-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,6 +51,11 @@ void CSettings::AddPropPages()
 
     AddPage(m_pMainPage);
     AddPage(m_pColorPage);
+
+    // remove the "apply" button: changes show only after the settings dialog
+    // is closed, so the OK button is enough and the "apply" button only
+    // confuses users.
+    m_psh.dwFlags |= PSH_NOAPPLYNOW;
 }
 
 void CSettings::RemovePropPages()
