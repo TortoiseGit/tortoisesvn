@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2015 - TortoiseSVN
+// Copyright (C) 2010-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -276,8 +276,8 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
 
         m_filePaths.clear();
         m_nRejected = 0;
-        err = svn_client_patch(CUnicodeUtils::GetUTF8(m_patchfile),     // patch_abspath
-                               CUnicodeUtils::GetUTF8(m_targetpath),    // local_abspath
+        err = svn_client_patch(tsvnpatchfile.GetSVNApiPath(scratchpool),     // patch_abspath
+                               tsvntargetpath.GetSVNApiPath(scratchpool),    // local_abspath
                                true,                                    // dry_run
                                m_nStrip,                                // strip_count
                                false,                                   // reverse
