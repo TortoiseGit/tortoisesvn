@@ -488,7 +488,9 @@ CCachedDirectory * CSVNStatusCache::GetDirectoryCacheEntry(const CTSVNPath& path
         // that means that path got invalidated and needs to be treated
         // as if it never was in our cache. So we remove the last remains
         // from the cache and start from scratch.
-        CAutoWriteLock writeLock(m_guard);
+        CAutoWriteWeakLock writeLock(m_guard, 200);
+        if (!writeLock.IsAcquired())
+            return nullptr;
 
         // Since above there's a small chance that before we can upgrade to
         // writer state some other thread gained writer state and changed
