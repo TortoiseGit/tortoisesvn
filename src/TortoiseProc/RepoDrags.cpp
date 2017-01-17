@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2014 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -293,7 +293,12 @@ HRESULT CListDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR 
     else
     {
         ListView_SetItemState(m_hTargetWnd, -1, 0, LVIS_DROPHILITED);
-        if (grfKeyState & MK_CONTROL)
+        if (m_bFiles)
+        {
+            *pdwEffect = DROPEFFECT_COPY;
+            SetDropDescription(DROPIMAGE_COPY, sImportDrop, targetName);
+        }
+        else if (grfKeyState & MK_CONTROL)
         {
             *pdwEffect = DROPEFFECT_COPY;
             SetDropDescription(DROPIMAGE_COPY, sCopyDrop, targetName);
