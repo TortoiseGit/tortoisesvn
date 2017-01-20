@@ -69,11 +69,6 @@ public:
     /// Removes all items from the cache
     void ClearCache();
 
-    /// Call this method before getting the status for a shell request
-    void StartRequest(const CTSVNPath& path);
-    /// Call this method after the data for the shell request has been gathered
-    void EndRequest(const CTSVNPath& path);
-
     /// Notifies the shell about file/folder status changes.
     /// A notification is only sent for paths which aren't currently
     /// in the list of handled shell requests to avoid deadlocks.
