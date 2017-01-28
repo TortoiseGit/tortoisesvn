@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016 - TortoiseSVN
+// Copyright (C) 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -161,10 +161,10 @@ static CString GetConflictOptionTitle(svn_client_conflict_option_id_t id)
 
 void CNewTreeConflictEditorDlg::DoModal(HWND parent)
 {
-    CTSVNPath path = m_conflictInfo->GetPath();
+    auto path = m_conflictInfo->GetPath().GetFileOrDirectoryName();
     CString sDialogTitle;
     sDialogTitle.LoadString(IDS_PROC_EDIT_TREE_CONFLICTS);
-    sDialogTitle = CCommonAppUtils::FormatWindowTitle(path.GetUIPathString(), sDialogTitle);
+    sDialogTitle = CCommonAppUtils::FormatWindowTitle(path, sDialogTitle);
 
     if (!m_conflictInfo->GetTreeResolutionOptions(m_options))
     {
