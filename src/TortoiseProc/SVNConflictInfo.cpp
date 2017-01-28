@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016 - TortoiseSVN
+// Copyright (C) 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -253,6 +253,36 @@ svn_error_t * SVNConflictInfo::createPropValFiles(const char *propname, const ch
     return SVN_NO_ERROR;
 }
 
+CString SVNConflictInfo::GetTargetName(const CString & targetRelPath, const CString & sDescription)
+{
+    auto sTargetName = targetRelPath.Mid(targetRelPath.ReverseFind('/') + 1);
+    auto targetpos = sDescription.Find(sTargetName);
+    if ((targetpos > 0) && (sDescription[targetpos - 1] == '\\'))
+    {
+        // find the start of the "to" path
+        while (targetpos > 0)
+        {
+            if ((sDescription[targetpos] == '\'') || (sDescription[targetpos] == '\"') || (sDescription[targetpos] == '»'))
+            {
+                ++targetpos;
+                auto startpos = targetpos;
+                while (targetpos < sDescription.GetLength())
+                {
+                    if ((sDescription[targetpos] == '\'') || (sDescription[targetpos] == '\"') || (sDescription[targetpos] == '«'))
+                    {
+                        sTargetName = sDescription.Mid(startpos, targetpos - startpos);
+                        break;
+                    }
+                    ++targetpos;
+                }
+                break;
+            }
+            --targetpos;
+        }
+    }
+    return sTargetName;
+}
+
 bool SVNConflictInfo::GetPropValFiles(const CString & propertyName, CTSVNPath & mergedfile,
                                       CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile)
 {
@@ -350,8 +380,59 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
         const char *label = svn_client_conflict_option_get_label(opt, scratchpool);
         const char *description = svn_client_conflict_option_get_description(opt, scratchpool);
 
-        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-            CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
+        bool bResultAdded = false;
+        if (id == svn_client_conflict_option_incoming_move_file_text_merge ||
+            id == svn_client_conflict_option_incoming_move_dir_merge)
+        {
+            apr_array_header_t *possible_moved_to_repos_relpaths = nullptr;
+            Err = svn_client_conflict_option_get_moved_to_repos_relpath_candidates(&possible_moved_to_repos_relpaths, opt, result.GetPool(), scratchpool);
+            if ((Err == nullptr) && possible_moved_to_repos_relpaths && (possible_moved_to_repos_relpaths->nelts > 1))
+            {
+                CString sTargetName;
+                for (int j = 0; j < possible_moved_to_repos_relpaths->nelts; ++j)
+                {
+                    const char * p = APR_ARRAY_IDX(possible_moved_to_repos_relpaths, j, const char *);
+                    auto targetRelPath = CUnicodeUtils::GetUnicode(p);
+                    auto sDescription = CUnicodeUtils::GetUnicode(description);
+                    if (j == 0)
+                    {
+                        sTargetName = GetTargetName(targetRelPath, sDescription);
+                    }
+
+                    sDescription.Replace(sTargetName, targetRelPath);
+                    result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
+                        CUnicodeUtils::GetUnicode(label), sDescription)));
+                    bResultAdded = true;
+                }
+            }
+
+            apr_array_header_t *possible_moved_to_abspaths = nullptr;
+            Err = svn_client_conflict_option_get_moved_to_abspath_candidates(&possible_moved_to_abspaths, opt, result.GetPool(), scratchpool);
+            if ((Err == nullptr) && possible_moved_to_abspaths && (possible_moved_to_abspaths->nelts > 1))
+            {
+                CString sTargetName;
+                for (int j = 0; j < possible_moved_to_abspaths->nelts; ++j)
+                {
+                    const char * p = APR_ARRAY_IDX(possible_moved_to_abspaths, j, const char *);
+                    auto targetRelPath = CUnicodeUtils::GetUnicode(p);
+                    auto sDescription = CUnicodeUtils::GetUnicode(description);
+                    if (j == 0)
+                    {
+                        sTargetName = GetTargetName(targetRelPath, sDescription);
+                    }
+                    sDescription.Replace(sTargetName, targetRelPath);
+                    result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
+                        CUnicodeUtils::GetUnicode(label), sDescription)));
+                    bResultAdded = true;
+                }
+            }
+
+        }
+        if (!bResultAdded)
+        {
+            result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
+                CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
+        }
     }
 
     return true;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016 - TortoiseSVN
+// Copyright (C) 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,10 +37,10 @@ public:
     SVNConflictOption(const SVNConflictOption&) = delete;
     SVNConflictOption& operator=(SVNConflictOption&) = delete;
 
-    svn_client_conflict_option_id_t GetId() { return m_id; }
-    CString GetLabel() { return m_label; }
-    CString GetDescription() { return m_description; }
-    operator svn_client_conflict_option_t *() { return m_option; }
+    svn_client_conflict_option_id_t GetId() const { return m_id; }
+    CString GetLabel() const { return m_label; }
+    CString GetDescription() const { return m_description; }
+    operator svn_client_conflict_option_t *() const { return m_option; }
 
     void SetMergedPropVal(const svn_string_t *propval);
     svn_error_t * SetMergedPropValFile(const CTSVNPath & filePath);
@@ -132,5 +132,5 @@ protected:
 
     static svn_error_t* cancelCallback(void *baton);
     svn_error_t * createPropValFiles(const char *propname, const char *mergedfile, const char *basefile, const char *theirfile, const char *myfile, apr_pool_t *pool);
-
+    CString GetTargetName(const CString& targetRelPath, const CString& sDescription);
 };
