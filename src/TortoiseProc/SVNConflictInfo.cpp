@@ -262,13 +262,13 @@ CString SVNConflictInfo::GetTargetName(const CString & targetRelPath, const CStr
         // find the start of the "to" path
         while (targetpos > 0)
         {
-            if ((sDescription[targetpos] == '\'') || (sDescription[targetpos] == '\"') || (sDescription[targetpos] == '»'))
+            if ((sDescription[targetpos] == '\'') || (sDescription[targetpos] == '\"') || (sDescription[targetpos] == '»') || (sDescription[targetpos] == '“'))
             {
                 ++targetpos;
                 auto startpos = targetpos;
                 while (targetpos < sDescription.GetLength())
                 {
-                    if ((sDescription[targetpos] == '\'') || (sDescription[targetpos] == '\"') || (sDescription[targetpos] == '«'))
+                    if ((sDescription[targetpos] == '\'') || (sDescription[targetpos] == '\"') || (sDescription[targetpos] == '«') || (sDescription[targetpos] == '”'))
                     {
                         sTargetName = sDescription.Mid(startpos, targetpos - startpos);
                         break;
