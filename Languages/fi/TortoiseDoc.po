@@ -10,15 +10,15 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2016
+# Kari Granö <kari.grano@gmail.com>, 2011-2017
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-08 09:46+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-01-26 21:52+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8136,11 +8136,11 @@ msgstr "tsvn:postupdatehook"
 
 #. (listitem)
 msgid "tsvn:prelockhook"
-msgstr ""
+msgstr "tsvn:prelockhook"
 
 #. (listitem)
 msgid "tsvn:postlockhook"
-msgstr ""
+msgstr "tsvn:postlockhook"
 
 #. (para)
 msgid "The available properties/hook-scripts are <placeholder-1/>"
@@ -14377,20 +14377,20 @@ msgstr "Käynnistetään ennen kuin arkistoyhteys muodostetaan, maksimissaan ker
 #. (term)
 #. (term)
 msgid "Pre-lock"
-msgstr ""
+msgstr "Ennen lukitusta"
 
 #. (para)
 msgid "Called before an attempt to lock a file."
-msgstr ""
+msgstr "Suoritetaan ennen kuin tiedosto yritetään lukita."
 
 #. (term)
 #. (term)
 msgid "Post-lock"
-msgstr ""
+msgstr "Lukituksen jälkeen"
 
 #. (para)
 msgid "Called after a file has been locked."
-msgstr ""
+msgstr "Suoritetaan tiedoston lukitsemisen jälkeen."
 
 #. (para)
 msgid ""
@@ -14483,13 +14483,13 @@ msgstr "Arkiston versio, mihin päivitys tulisi tehdä tai mihin toimitus päät
 msgid ""
 "Either <literal>true</literal> when locking, or <literal>false</literal> "
 "when unlocking."
-msgstr ""
+msgstr "Joko  <literal>true</literal> lukittaessa tai  <literal>false</literal> poistettaessa lukitusta."
 
 #. (para)
 msgid ""
 "Either <literal>true</literal> or <literal>false</literal>, depending on "
 "whether the operation was forced or not."
-msgstr ""
+msgstr "Joko  <literal>true</literal> tai  <literal>false</literal> riippuen siitä, onko toiminto pakotettu vai ei."
 
 #. (para)
 msgid ""
@@ -18183,7 +18183,7 @@ msgstr "/nodlg"
 
 #. (option)
 msgid "/breaklocks"
-msgstr ""
+msgstr "/breaklocks"
 
 #. (option)
 msgid "/revert"
@@ -18226,7 +18226,7 @@ msgid ""
 "<placeholder-7/> to break all locks, <placeholder-8/> to revert uncommitted "
 "changes, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, "
 "<placeholder-12/>, <placeholder-13/> and <placeholder-14/>."
-msgstr ""
+msgstr "Siivoaa pois keskeytyneet tai keskeytetyt toiminnot ja poistaa lukituksen työkopiosta  <placeholder-1/>. Sinun on myös annettava valitsin <placeholder-2/> suorittaaksesi varsinaisen siivouksen. Käytä valitsinta <placeholder-3/> estääksesi tulosikkunan aukeamisen (ikkunassa kerrotaan joko siivouksen päättymisestä tai annetaan virheilmoitus). Valitsin <placeholder-4/> jättää edistymisikkunan näyttämättä. Valitsin <placeholder-5/> estää siivoustoiminnon säätöikkunan näyttämisen. Käytettävissä olevat säädöt voidaan määritellä seuraavilla valitsimilla: <placeholder-6/> työkopion tilan siivous,  <placeholder-7/> lukkojen vapautus, <placeholder-8/> työkopion muutosten peruminen, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, <placeholder-12/>, <placeholder-13/> ja <placeholder-14/>."
 
 #. (option)
 #. (option)

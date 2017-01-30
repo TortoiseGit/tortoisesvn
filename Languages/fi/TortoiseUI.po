@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2016
+# Kari Granö <kari.grano@gmail.com>, 2011-2017
 # Kari Granö <kari.grano@gmail.com>, 2013
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
@@ -19,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-08 10:01+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-01-26 21:59+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,7 +124,7 @@ msgstr "%1!ls!, aika %2!ls!"
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALANDSPEED)
 #, c-format
 msgid "%1!ls!, %2!ls!"
-msgstr ""
+msgstr "%1!ls!, %2!ls!"
 
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME)
 #, c-format
@@ -499,7 +499,7 @@ msgstr "&Vertaa ja selvitä tekijät"
 
 #. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
 msgid "&Blame changes in revisions"
-msgstr ""
+msgstr "&Selvitä tekijät versioissa"
 
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
@@ -918,7 +918,7 @@ msgstr "&Ohita ja jatka"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
 msgid "&Ignore multiple items by name"
-msgstr ""
+msgstr "&Ohita useita kohteita nimen perusteella"
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -4069,7 +4069,7 @@ msgstr "Poista ja &ohita %d kohdetta nimen perusteella"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
 msgid "Delete and &ignore multiple items by name"
-msgstr ""
+msgstr "Poista ja &ohita useita kohteita nimen perusteella"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
@@ -4078,7 +4078,7 @@ msgstr "Poista ja ohita %d kohdetta &päätteen perusteella"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
 msgid "Delete and ignore multiple items by &extension"
-msgstr ""
+msgstr "Poista ja ohita useita kohteita &laajennusosan perusteella"
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
 msgid "Delete unversioned items"
@@ -5115,7 +5115,7 @@ msgstr "Noudetaan tilaa: %1!ls!"
 
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
 msgid "Fetching tree conflict information..."
-msgstr ""
+msgstr "Kerätään tietoja puuristiriidoista..."
 
 #. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
@@ -6092,7 +6092,7 @@ msgstr "Älä välitä &rivinvaihdoista (suositus)"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
 msgid "Ignore multiple items by &extension"
-msgstr ""
+msgstr "Ohita useita kohteita &laajennusosan perusteella"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
@@ -7361,7 +7361,7 @@ msgstr "Ulkoisia viitteitä ei löytynyt"
 msgid ""
 "No externals: For URLs, no externals are gathered.\n"
 "If you want to tag externals, start the command directly from a working copy."
-msgstr ""
+msgstr "Ei ulkoisia viitteitä: Paikantimille ei kerätä ulkoisia viitteitä.\nMikäli haluat kiinnittää ulkoiset viitteet, käynnistä komento suoraan työkopiosta."
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)
 msgid ""
@@ -8020,7 +8020,7 @@ msgstr "Päätä toimitus"
 
 #. Resource IDs: (IDS_HOOKTYPE_POSTLOCK)
 msgid "Post-Lock Hook"
-msgstr ""
+msgstr "Lukitsemisen jälkeen -komentojono"
 
 #. Resource IDs: (IDS_HOOKTYPE_POSTUPDATE)
 msgid "Post-Update Hook"
@@ -8040,7 +8040,7 @@ msgstr "Ennen yhdistämistä"
 
 #. Resource IDs: (IDS_HOOKTYPE_PRELOCK)
 msgid "Pre-Lock Hook"
-msgstr ""
+msgstr "Ennen lukitusta -komentojono"
 
 #. Resource IDs: (IDS_HOOKTYPE_PREUPDATE)
 msgid "Pre-Update Hook"
@@ -12239,7 +12239,7 @@ msgstr "Täällä voit ottaa haluamasi kuvakepäällyskäsittelijät pois käyt�
 msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
-msgstr ""
+msgstr "Voit muokata vain yhtä tiedostoa kerrallaan arkistoselaimesta.\nLopeta meneillään oleva muokkaus ennen uuden aloitusta."
 
 #. Resource IDs: (16005)
 #, c-format

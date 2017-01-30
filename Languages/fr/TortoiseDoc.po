@@ -34,6 +34,7 @@
 # Jack Ruertnevel, 2015-2016
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Lucas Mascaro <mascaro.lucas@yahoo.fr>, 2017
 # Philippe <kissifrot@gmail.com>, 2014
 # Philippe PERIN, 2016
 # ShevAbam, 2015
@@ -44,8 +45,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-08 09:46+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-01-30 00:13+0000\n"
+"Last-Translator: Lucas Mascaro <mascaro.lucas@yahoo.fr>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1372,7 +1373,7 @@ msgid ""
 "tell it to. The act of publishing your changes is more commonly known as "
 "<firstterm>committing</firstterm> (or <firstterm> checking in </firstterm>) "
 "changes to the repository."
-msgstr ""
+msgstr "Supposons que vous faites des changements sur <filename>button.c</filename>. Puisque le répertoire <filename>.svn</filename> se rappelle la date de modification et le contenu original du fichier, Subversion peut dire que vous avez modifié le fichier. Cependant, Subversion ne rend pas vos changements publics jusqu'à ce que vous le lui disiez explicitement. L'acte de publier vos changements est plus communément appelé <firstterm>livrer</firstterm> (ou <firstterm>valider</firstterm>) les changements au dépôt."
 
 #. (para)
 msgid ""
@@ -1618,7 +1619,7 @@ msgid ""
 "<filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> "
 "as it appears in revision 5.'' Notice that in general, revisions N and M of "
 "a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr ""
+msgstr "À la différence de beaucoup d'autres systèmes de contrôle de version, les numéros de révision de Subversion s'appliquent à <emphasis>toute l'arborescence</emphasis>, et non à des fichiers individuels. Chaque numéro de révision sélectionne un arbre entier, un état particulier du dépôt après un certain changement livré. Une autre façon d'y penser est que cette révision N représente l'état du système de fichiers du dépôt après que la Nième livraison. Quand un utilisateur de Subversion parle de ``la révision 5 de <filename>foo.c</filename>\", il veut dire vraiment ``<filename>foo.c</filename> comme il apparaît à la révision 5.\" Remarquez qu'en général, les révisions N et M d'un fichier ne diffèrent <emphasis>pas</emphasis> nécessairement !"
 
 #. (para)
 msgid ""

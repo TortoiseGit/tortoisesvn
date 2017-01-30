@@ -19,6 +19,7 @@
 # Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
 # Dmitry Oshkalo <dmitry.oshkalo@gmail.com>, 2015
 # netpatriciapussy <Deshe1973@jourrapide.com>, 2016
+# Nikolay Falileev <kelvinkolyan@mail.ru>, 2017
 # Nikolay Osinin <nikolay.osinin@gmail.com>, 2011
 # Red Tigerbear <redtigerbear@gmail.com>, 2015
 # rlagutin <inactive+drbeep@transifex.com>, 2014
@@ -33,8 +34,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-08 09:46+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-01-30 11:16+0000\n"
+"Last-Translator: Nikolay Falileev <kelvinkolyan@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,27 +58,27 @@ msgstr "Первая"
 
 #. (firstname)
 msgid "Stefan"
-msgstr "Stefan"
+msgstr "Стефан"
 
 #. (surname)
 msgid "Küng"
-msgstr "Küng"
+msgstr "Кюнг"
 
 #. (firstname)
 msgid "Lübbe"
-msgstr "Lübbe"
+msgstr "Люббэ"
 
 #. (surname)
 msgid "Onken"
-msgstr "Onken"
+msgstr "Онкен"
 
 #. (firstname)
 msgid "Simon"
-msgstr "Simon"
+msgstr "Саймон"
 
 #. (surname)
 msgid "Large"
-msgstr "Large"
+msgstr "Ладж"
 
 #. (title)
 msgid "Preface"
@@ -85,7 +86,7 @@ msgstr "Предисловие"
 
 #. (primary)
 msgid "version control"
-msgstr "управление версиями"
+msgstr "контроль версий"
 
 #. (para)
 msgid ""
@@ -2158,14 +2159,14 @@ msgid ""
 "<emphasis>any</emphasis> access at all. If your repository is accessed at "
 "all during the copy, (web browser left open, WebSVN, etc.) the backup will "
 "be worthless."
-msgstr ""
+msgstr "Наиболее простой (но не рекомендуемый) способ - скопировать каталог хранилища на резервный носитель. При этом вы должны быть полностью уверены, что ни один процесс не имеет доступа к данным. Под доступом подразумевается <emphasis>любой</emphasis> доступ вообще. Если во время копирования к вашему хранилищу имеет доступ какой-либо процесс (остался открытым веб-браузер, WebSVN и др.), то резервное копирование станет бессмысленным."
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup\n"
 "    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
-msgstr ""
+msgstr "Для создания копии вашего хранилища безопасным способом рекомендуется выполнить <screen>\nsvnadmin hotcopy путь/к/хранилищу путь/к/резервной/копии\n</screen> После этого резервная копия будет готова."
 
 #. (para)
 msgid ""
@@ -7451,7 +7452,7 @@ msgstr "Команда <menuchoice><guimenuitem>Убрать изменения<
 
 #. (title)
 msgid "Revert is Slow"
-msgstr "Убирание изменений работает медленно"
+msgstr "Отмена изменений работает медленно"
 
 #. (para)
 msgid ""
@@ -7487,7 +7488,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
 " copy. <placeholder-1/>"
-msgstr ""
+msgstr "Если команда Subversion не может быть завершена, например, из-за проблем сервера, то ваша рабочая копия может остаться в несогласованном состоянии. В этом случае вам необходимо выполнить команду для папки: <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Очистка</guimenuitem></menuchoice> Рекомендуется выполнять эту команду для папки верхнего уровня вашей рабочей копии. <placeholder-1/>"
 
 #. (term)
 msgid "Clean up working copy status"
@@ -7510,14 +7511,14 @@ msgstr "Снять блокировки на запись"
 msgid ""
 "If checked, all write locks are removed from the working copy database. For "
 "most situations, this is required for the cleanup to work!"
-msgstr ""
+msgstr "Если опция включена, то из базы данных рабочей копии удаляются все блокировки записи. В большинстве случаев, это необходимо для того, чтобы работала очистка."
 
 #. (para)
 msgid ""
 "Only uncheck this option if the working copy is used by other users/clients "
 "at the time. But if the cleanup then fails, you have to check this option "
 "for the cleanup to succeed."
-msgstr ""
+msgstr "Отключайте эту опцию только в том случае, если рабочая копия используется одновременно другими пользователями/клиентами. Но, если очистка перестанет работать, вам придется включить эту опцию, чтобы очиста заработала."
 
 #. (term)
 msgid "Fix time stamps"
@@ -7535,7 +7536,7 @@ msgstr "Вакуумные нетронутые копии"
 msgid ""
 "Removes unused pristine copies and compresses all remaining pristine copies "
 "of working copy files."
-msgstr ""
+msgstr "Удаляет неиспользуемые первоначальные копии и сжимает все оставшиеся первоначальные копии файлов рабочей копии."
 
 #. (term)
 msgid "Refresh shell overlays"
@@ -8067,7 +8068,7 @@ msgid ""
 "url=\"http://msdn2.microsoft.com/en-"
 "us/library/ms776260.aspx\"><citetitle>MSDN: Language "
 "Identifiers</citetitle></ulink>."
-msgstr ""
+msgstr "TortoiseSVN может использовать программу проверки орфографии. На Windows 10 используется программа проверки орфографии ОС. На более ранних версиях Windows он может использовать модули программы проверки орфографии, которые также использутся OpenOffice и Mozilla. Если они у вас установлены, это свойство будет определять, какую программу проверки орфографии использовать, т.е., на каком языке должны записываться сообщения в журнал вашего проекта. <literal>tsvn:projectlanguage</literal> устанавливает, модуль какого языка должен быть использован при проверке орфографии, когда вы вводите сообщение журнала. Вы можете найти значения для вашего языка на этой странице: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Идентификаторы языка</citetitle></ulink>"
 
 #. (para)
 msgid ""
@@ -8152,11 +8153,11 @@ msgstr "tsvn:postupdatehook"
 
 #. (listitem)
 msgid "tsvn:prelockhook"
-msgstr ""
+msgstr "tsvn:prelockhook"
 
 #. (listitem)
 msgid "tsvn:postlockhook"
-msgstr ""
+msgstr "tsvn:postlockhook"
 
 #. (para)
 msgid "The available properties/hook-scripts are <placeholder-1/>"
@@ -14382,31 +14383,31 @@ msgstr "Вызывается после окончания операции об
 #. (term)
 #. (term)
 msgid "Pre-connect"
-msgstr "Перед-соединением"
+msgstr "Предварительное соединение"
 
 #. (para)
 msgid ""
 "Called before an attempt to contact the repository. Called at most once in "
 "five minutes."
-msgstr "Вызывается перед попыткой соединится с хранилищем. Вызывается как минимум раз в пять минут."
+msgstr "Вызывается перед попыткой соединения с хранилищем. Вызывается не более одного раза в пять минут."
 
 #. (term)
 #. (term)
 msgid "Pre-lock"
-msgstr ""
+msgstr "Пред-блокировка"
 
 #. (para)
 msgid "Called before an attempt to lock a file."
-msgstr ""
+msgstr "Вызывается перед попыткой заблокировать файл."
 
 #. (term)
 #. (term)
 msgid "Post-lock"
-msgstr ""
+msgstr "Пост-блокировка"
 
 #. (para)
 msgid "Called after a file has been locked."
-msgstr ""
+msgstr "Вызывается после того, как файл был заблокирован."
 
 #. (para)
 msgid ""
@@ -14499,13 +14500,13 @@ msgstr "Ревизия в хранилище, до которой должно �
 msgid ""
 "Either <literal>true</literal> when locking, or <literal>false</literal> "
 "when unlocking."
-msgstr ""
+msgstr "Или <literal>true</literal> при блокировке, или <literal>false</literal> при разблокировке."
 
 #. (para)
 msgid ""
 "Either <literal>true</literal> or <literal>false</literal>, depending on "
 "whether the operation was forced or not."
-msgstr ""
+msgstr "Либо <literal>true</literal>, либо <literal>false</literal>, в зависимости от того, была ли операция принудительной или нет."
 
 #. (para)
 msgid ""
@@ -15031,7 +15032,7 @@ msgid ""
 "revisions are shown in gray, but revisions beyond the point where the branch"
 " was created are also shown. These revisions are shown in black because "
 "those can't be merged."
-msgstr ""
+msgstr "Когда диалог журнала запускается из мастера объединений, объединенные ревизии отображаются серым цветом, но при этом также отображаются ревизиии за пределами точки ветвления. Эти ревизии отображаются черным цветом, потому что они не могут быть объединены."
 
 #. (para)
 msgid ""
@@ -15042,7 +15043,7 @@ msgid ""
 "SVN servers (e.g., Google Code Hosting, see <ulink "
 "url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
 " #5471</citetitle></ulink>)."
-msgstr ""
+msgstr "Если эта опция <literal> включена </literal>, то TortoiseSVN попытается найти ревизию, от которой была создана ветка, и скроет все ревизии, которые находятся за пределами \n этой ревизии. Так как процесс может занять неопределенное время, эта опция отключена по умолчанию. Кроме того, эта функция не работает с некоторыми серверами SVN (например, Google Code Hosting, см. <ulink url = \"http://code.google.com/p/support/issues/detail?id=5471\"> <citetitle> вопрос # 5471 </ citetitle> </ ulink>)."
 
 #. (para)
 msgid ""
@@ -15392,7 +15393,7 @@ msgstr "Отмечает все ревизии во всех проектах к
 msgid ""
 "If you hold down the <keycap>Shift</keycap> key when clicking the button, "
 "all error states are also cleared if there are any."
-msgstr ""
+msgstr "Если вы удерживаете нажатой клавишу <keycap>Shift</keycap>, когда кликаете на кнопку, то все имеющиеся ошибочные состояния также будут удалены."
 
 #. (term)
 msgid "Update all"
@@ -15491,7 +15492,7 @@ msgid ""
 "doc\n"
 "doc/*\n"
 "</screen> is the same as the example above."
-msgstr ""
+msgstr "Вы можете указать шабоны игнорирования для SubWCRev, чтобы исключить определенные файлы и папки из наблюдения. Шаблоны считываются из файла с именем <filename>.subwcrevignore</filename>. Файл считывается из определенной папки, а также из корневой папки рабочей копии. Если файл не существует, то никакие файлы и папки не игнорируются. Файл <filename>.subwcrevignore</filename> может содержать несколько шаблонов, разделенных новой строкой. Шаблоны сопоставляются с путями корня хранилища и с путями каталога, где находится файл <filename>.subwcrevignore</filename>. Например, для игнорирования всех файлов в папке <filename>doc</filename> рабочей копии TortoiseSVN файл <filename>.subwcrevignore</filename> должен содержать следующие строки: <screen>\n/trunk/doc\n/trunk/doc/*\n</screen> Или, если файл <filename>.subwcrevignore</filename> извлечен из trunk и находится в корне рабочей копии, то он должен содержать шаблоны <screen>\ndoc\ndoc/*\n</screen> - такие же, как и в примере выше."
 
 #. (para)
 msgid ""
@@ -15501,7 +15502,7 @@ msgid ""
 "*.ico\n"
 "*.bmp\n"
 "</screen>"
-msgstr ""
+msgstr "Чтобы игнорировать все изображения, шаблоны игнорирования могут быть установлены следующим образом: <screen>\n*.png\n*.jpg\n*.ico\n*.bmp\n</screen>"
 
 #. (para)
 msgid "The ignore patterns are case-sensitive, just like Subversion is."
@@ -16065,7 +16066,7 @@ msgid ""
 "#endif\n"
 "\n"
 "// End of file\n"
-msgstr ""
+msgstr "\n// Тестовый файл для SubWCRev\n\nchar *Revision      = \"22837\";\nchar *Revision16    = \"53\";\nchar *Revisionp100  = \"22937\";\nchar *Revisionm100  = \"22737\";\nchar *Modified      = \"Модифицированный\";\nchar *Unversioned   = \"нет неверсированных элементов\";\nchar *Date          = \"2012/04/26 18:47:57\";\nchar *CustDate      = \"Четверг, 26 Апрель 2012\";\nchar *DateUTC       = \"2012/04/26 16:47:57\";\nchar *CustDateUTC   = \"Четверг, 26 Апрель 2012\";\nchar *TimeNow       = \"2012/04/26 20:51:17\";\nchar *TimeNowUTC    = \"2012/04/26 18:51:17\";\nchar *RevRange      = \"22836:22837\";\nchar *Mixed         = \"Смешанная ревизия WC\";\nchar *ExtAllFixed   = \"Все внешние зафиксированы\";\nchar *IsTagged      = \"Не отмечен\";\nchar *URL           = \"https://svn.code.sf.net/p/tortoisesvn/code/trunk\";\nchar *isInSVN       = \"версирован\";\nchar *needslck      = \"FALSE\";\nchar *islocked      = \"не заблокирован\";\nchar *lockdateutc   = \"1970/01/01 00:00:00\";\nchar *lockdate      = \"1970/01/01 01:00:00\";\nchar *lockcustutc   = \"Четверг, 01 Январь 1970\";\nchar *lockcust      = \"Четверг, 01 Январь 1970\";\nchar *lockown       = \"\";\nchar *lockcmt       = \"\";\n\n#if 1\n#error Источник модифицирован\n#endif\n\n// Конец файла\n"
 
 #. (para)
 msgid ""
@@ -16894,7 +16895,7 @@ msgstr "Есть два способа предотвратить фиксаци
 
 #. (title)
 msgid "Hook-script on the server"
-msgstr "Скрипт ловушки на сервере"
+msgstr "Скрипт-ловушка на сервере"
 
 #. (para)
 msgid ""
@@ -18199,7 +18200,7 @@ msgstr "/nodlg"
 
 #. (option)
 msgid "/breaklocks"
-msgstr ""
+msgstr "/breaklocks"
 
 #. (option)
 msgid "/revert"
@@ -18242,7 +18243,7 @@ msgid ""
 "<placeholder-7/> to break all locks, <placeholder-8/> to revert uncommitted "
 "changes, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, "
 "<placeholder-12/>, <placeholder-13/> and <placeholder-14/>."
-msgstr ""
+msgstr "Очищает прерванные или отмененнные операции и разблокирует рабочую копию в <placeholder-1/>. Вы также должны пропустить <placeholder-2/>, чтобы действительно выполнить очистку. Используйте <placeholder-3/>, чтобы исключить появление диалога (с сообщением о завершении очистки или об ошибке). <placeholder-4/> также отключает диалог процесса выполнения. <placeholder-5/> отключает появление диалога, где пользователь может выбрать, что именно должно быть выполнено при очистке. Доступные действия могут быть указаны в параметрах <placeholder-6/> для очистки статуса, <placeholder-7/> для снятия блокировок, <placeholder-8/> для отмены незафиксированных изменений, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, <placeholder-12/>, <placeholder-13/> и <placeholder-14/>."
 
 #. (option)
 #. (option)
