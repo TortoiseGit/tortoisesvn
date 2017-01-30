@@ -255,6 +255,9 @@ svn_error_t * SVNConflictInfo::createPropValFiles(const char *propname, const ch
 
 CString SVNConflictInfo::GetTargetName(const CString & targetRelPath, const CString & sDescription)
 {
+    // We try to get the target path from the description string.
+    // since that string gets translated, we have to try to account for
+    // those translations to figure out the full path.
     auto sTargetName = targetRelPath.Mid(targetRelPath.ReverseFind('/') + 1);
     auto targetpos = sDescription.Find(sTargetName);
     if ((targetpos > 0) && (sDescription[targetpos - 1] == '\\'))
@@ -384,8 +387,14 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
         if (id == svn_client_conflict_option_incoming_move_file_text_merge ||
             id == svn_client_conflict_option_incoming_move_dir_merge)
         {
+            // if we get only one possible path from all candidates, then we don't add
+            // custom buttons but use the one that's already provided: it will be the same.
+            // if we get more candidates, then we only add from the second one on, since
+            // the first one is already set by the normal conflict options.
             apr_array_header_t *possible_moved_to_repos_relpaths = nullptr;
             Err = svn_client_conflict_option_get_moved_to_repos_relpath_candidates(&possible_moved_to_repos_relpaths, opt, result.GetPool(), scratchpool);
+            // TODO: what should we do if the number of candidates gets higher than e.g. 4?
+            // we can't just add a button for every candidate: the dialog would get a bigger height than the monitor.
             if ((Err == nullptr) && possible_moved_to_repos_relpaths && (possible_moved_to_repos_relpaths->nelts > 1))
             {
                 CString sTargetName;
