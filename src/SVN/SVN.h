@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -970,8 +970,9 @@ public:
 
     /**
      * Resolves tree conflict.
+     * In case there's no preferred move target, set those values to -1
      */
-    bool ResolveTreeConflict(svn_client_conflict_t *conflict, svn_client_conflict_option_t *option);
+    bool ResolveTreeConflict(svn_client_conflict_t *conflict, svn_client_conflict_option_t *option, int preferred_moved_target_idx, int preferred_moved_reltarget_idx);
     /**
      * Resolves text conflict.
      */

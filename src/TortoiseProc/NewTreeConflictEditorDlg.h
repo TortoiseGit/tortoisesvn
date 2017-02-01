@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016 - TortoiseSVN
+// Copyright (C) 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,6 +41,7 @@ private:
     HRESULT OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam);
 
     void AddCommandButton(int id, const CString & text);
+    int GetButtonIDFromConflictOption(SVNConflictOption * option);
 
     SVNConflictInfo * m_conflictInfo;
     SVNConflictOptions m_options;

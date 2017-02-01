@@ -64,6 +64,16 @@ void CNewTreeConflictEditorDlg::AddCommandButton(int id, const CString & text)
     m_buttons.push_back(btn);
 }
 
+int CNewTreeConflictEditorDlg::GetButtonIDFromConflictOption(SVNConflictOption * option)
+{
+    int buttonID = 100 + option->GetId();
+    if (option->GetPreferredMovedRelTargetIdx() >= 0)
+        buttonID += (1000 * (option->GetPreferredMovedRelTargetIdx() + 1));
+    if (option->GetPreferredMovedTargetIdx() >= 0)
+        buttonID += (10000 * (option->GetPreferredMovedTargetIdx() + 1));
+    return buttonID;
+}
+
 HRESULT CNewTreeConflictEditorDlg::OnDialogConstructed(HWND hWnd)
 {
     CCommonAppUtils::MarkWindowAsUnpinnable(hWnd);
@@ -79,11 +89,13 @@ HRESULT CNewTreeConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
     for (SVNConflictOptions::const_iterator it = m_options.begin(); it != m_options.end(); ++it)
     {
         svn_client_conflict_option_id_t optionId = (*it)->GetId();
-        if (optionId + 100 == id)
+        int buttonID = GetButtonIDFromConflictOption(it->get());
+
+        if (buttonID == id)
         {
             if (m_svn)
             {
-                if (!m_svn->ResolveTreeConflict(*m_conflictInfo, *it->get()))
+                if (!m_svn->ResolveTreeConflict(*m_conflictInfo, *it->get(), it->get()->GetPreferredMovedTargetIdx(), it->get()->GetPreferredMovedRelTargetIdx()))
                 {
                     m_svn->ShowErrorDialog(hWnd);
                     return S_FALSE;
@@ -92,7 +104,7 @@ HRESULT CNewTreeConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
             else
             {
                 SVN svn;
-                if (!svn.ResolveTreeConflict(*m_conflictInfo, *it->get()))
+                if (!svn.ResolveTreeConflict(*m_conflictInfo, *it->get(), it->get()->GetPreferredMovedTargetIdx(), it->get()->GetPreferredMovedRelTargetIdx()))
                 {
                     svn.ShowErrorDialog(hWnd);
                     return S_FALSE;
@@ -172,30 +184,31 @@ void CNewTreeConflictEditorDlg::DoModal(HWND parent)
     }
 
     CString sMainInstruction = m_conflictInfo->GetIncomingChangeSummary();
+    CString sDetailedInfo = m_conflictInfo->GetDetailedIncomingChangeSummary();
     CString sContent = m_conflictInfo->GetLocalChangeSummary();
 
     int button;
 
     for (SVNConflictOptions::const_iterator it = m_options.begin(); it != m_options.end(); ++it)
     {
-        svn_client_conflict_option_id_t id = (*it)->GetId();
-
         CString optLabel = (*it)->GetLabel();
 
         CString optDescription((*it)->GetDescription());
         optDescription.SetAt(0, towupper(optDescription[0]));
 
-        AddCommandButton(100 + id, optLabel + L"\n" + optDescription);
+        int buttonID = GetButtonIDFromConflictOption(it->get());
+        AddCommandButton(buttonID, optLabel + L"\n" + optDescription);
     }
 
     TASKDIALOGCONFIG taskConfig = {0};
     taskConfig.cbSize = sizeof(taskConfig);
     taskConfig.hwndParent = parent;
-    taskConfig.dwFlags = TDF_USE_COMMAND_LINKS;
+    taskConfig.dwFlags = TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_EXPANDED_BY_DEFAULT | TDF_SIZE_TO_CONTENT;
     taskConfig.lpCallbackData = (LONG_PTR) this;
     taskConfig.pfCallback = TaskDialogCallback;
     taskConfig.pszWindowTitle = sDialogTitle;
     taskConfig.pszMainInstruction = sMainInstruction;
+    taskConfig.pszExpandedInformation = sDetailedInfo;
     taskConfig.pszContent = sContent;
     taskConfig.pButtons = &m_buttons.front();
     taskConfig.cButtons = (int) m_buttons.size();

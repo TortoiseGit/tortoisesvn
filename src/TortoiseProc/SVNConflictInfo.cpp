@@ -31,11 +31,15 @@ SVNConflictOption::SVNConflictOption(
     svn_client_conflict_option_t *option,
     svn_client_conflict_option_id_t id,
     const CString & label,
-    const CString & description)
+    const CString & description,
+    int preferred_moved_target_idx,
+    int preferred_moved_reltarget_idx)
     : m_option(option)
     , m_id(id)
     , m_label(label)
     , m_description(description)
+    , m_preferred_moved_target_idx(preferred_moved_target_idx)
+    , m_preferred_moved_reltarget_idx(preferred_moved_reltarget_idx)
 {
 }
 
@@ -123,6 +127,7 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
         m_prop_conflicts = apr_array_make(m_infoPool, 0, sizeof(const char*));
         m_tree_conflicted = FALSE;
         m_incomingChangeSummary.Empty();
+        m_detailedIncomingChangeSummary.Empty();
         m_localChangeSummary.Empty();
         return true;
     }
@@ -410,7 +415,7 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
 
                     sDescription.Replace(sTargetName, targetRelPath);
                     result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                        CUnicodeUtils::GetUnicode(label), sDescription)));
+                        CUnicodeUtils::GetUnicode(label), sDescription, -1, j)));
                     bResultAdded = true;
                 }
             }
@@ -431,7 +436,7 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
                     }
                     sDescription.Replace(sTargetName, targetRelPath);
                     result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                        CUnicodeUtils::GetUnicode(label), sDescription)));
+                        CUnicodeUtils::GetUnicode(label), sDescription, j, -1)));
                     bResultAdded = true;
                 }
             }
@@ -521,6 +526,20 @@ bool SVNConflictInfo::FetchTreeDetails()
     );
 
     ClearCAPIAuthCacheOnError();
+
+    if (m_tree_conflicted)
+    {
+        const char *incoming_change;
+        const char *local_change;
+        SVNTRACE(
+            Err = svn_client_conflict_tree_get_description(&incoming_change, &local_change, m_conflict,
+                                                           m_pctx, scratchpool, scratchpool),
+            svnPath
+        );
+
+        if (Err == NULL)
+            m_detailedIncomingChangeSummary = CUnicodeUtils::GetUnicode(incoming_change);
+    }
 
     return (Err == NULL);
 }

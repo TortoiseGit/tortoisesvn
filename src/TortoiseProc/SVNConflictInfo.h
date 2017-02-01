@@ -41,6 +41,8 @@ public:
     CString GetLabel() const { return m_label; }
     CString GetDescription() const { return m_description; }
     operator svn_client_conflict_option_t *() const { return m_option; }
+    int GetPreferredMovedTargetIdx() const { return m_preferred_moved_target_idx; }
+    int GetPreferredMovedRelTargetIdx() const { return m_preferred_moved_reltarget_idx; }
 
     void SetMergedPropVal(const svn_string_t *propval);
     svn_error_t * SetMergedPropValFile(const CTSVNPath & filePath);
@@ -49,11 +51,15 @@ protected:
     SVNConflictOption(svn_client_conflict_option_t *option,
                       svn_client_conflict_option_id_t id,
                       const CString & label,
-                      const CString & description);
+                      const CString & description,
+                      int preferred_moved_target_idx = -1,
+                      int preferred_moved_reltarget_idx = -1);
 
 private:
     svn_client_conflict_option_t *m_option;
     svn_client_conflict_option_id_t m_id;
+    int m_preferred_moved_target_idx;
+    int m_preferred_moved_reltarget_idx;
     CString m_label;
     CString m_description;
 
@@ -109,6 +115,7 @@ public:
     bool GetTextContentFiles(CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile);
 
     CString GetIncomingChangeSummary() const { return m_incomingChangeSummary; }
+    CString GetDetailedIncomingChangeSummary() const { return m_detailedIncomingChangeSummary; }
     CString GetLocalChangeSummary() const { return m_localChangeSummary;  }
 
     bool GetTreeResolutionOptions(SVNConflictOptions & result);
@@ -122,6 +129,7 @@ protected:
     apr_pool_t *m_infoPool;
     svn_client_conflict_t *m_conflict;
     CString m_incomingChangeSummary;
+    CString m_detailedIncomingChangeSummary;
     CString m_localChangeSummary;
     svn_boolean_t m_tree_conflicted;
     svn_boolean_t m_text_conflicted;
