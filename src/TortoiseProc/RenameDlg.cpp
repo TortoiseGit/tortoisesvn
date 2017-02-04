@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,6 +32,7 @@ CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
     , m_bBalloonVisible(false)
     , m_bFSAutoComplete(false)
     , m_bAutoComplete(true)
+    , m_bCustomAutocomplete(false)
 {
 }
 
@@ -72,6 +73,10 @@ BOOL CRenameDlg::OnInitDialog()
                     CAppUtils::EnableAutoComplete(GetDlgItem(IDC_NAME)->GetSafeHwnd(), originalCurrentDirectory.get(), AUTOCOMPLETELISTOPTIONS(ACLO_CURRENTDIR | ACLO_FILESYSONLY), AUTOCOMPLETEOPTIONS(ACO_AUTOSUGGEST | ACO_USETAB));
                 }
             }
+        }
+        else if (m_bCustomAutocomplete)
+        {
+            m_AutoCompleteCustom.Init(GetDlgItem(IDC_NAME)->GetSafeHwnd());
         }
         else
             SHAutoComplete(GetDlgItem(IDC_NAME)->m_hWnd, SHACF_DEFAULT);
