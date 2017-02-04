@@ -2921,7 +2921,18 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
     dlg.m_label.LoadString(IDS_LOG_AUTHOR);
     dlg.m_name = value;
     dlg.m_windowtitle.LoadString(IDS_LOG_AUTHOREDITTITLE);
-    dlg.SetAutoComplete(false);
+    // gather all authors for autocomplete
+    std::set<std::string> authorsA;
+    for (size_t i = 0; i < m_logEntries.size(); ++i)
+    {
+        authorsA.insert(m_logEntries[i]->GetAuthor());
+    }
+    std::deque<std::wstring> authors;
+    for (const auto& author : authorsA)
+    {
+        authors.push_back(CUnicodeUtils::StdGetUnicode(author));
+    }
+    dlg.SetCustomAutoComplete(authors);
     if (dlg.DoModal() == IDOK)
     {
         if (sOldValue.Compare(dlg.m_name))
