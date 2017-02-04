@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,14 +42,15 @@ public:
     bool AddEntry(LPCTSTR szText);
     /// Removes the entry at index \c pos.
     void RemoveEntry(int pos);
-    /// Sets the maximum number of items in the history. Default is 25.
+    void RemoveEntry(LPCTSTR str);
+        /// Sets the maximum number of items in the history. Default is 25.
     void SetMaxHistoryItems(int nMax) {m_nMaxHistoryItems = nMax;}
     /// Returns the number of items in the history.
     size_t GetCount() const {return m_arEntries.size(); }
     /// Returns the entry at index \c pos
     LPCTSTR GetEntry(size_t pos) {return m_arEntries[pos].c_str();}
 
-private:
+protected:
     tstring m_sSection;
     tstring m_sKeyPrefix;
     std::vector<tstring> m_arEntries;

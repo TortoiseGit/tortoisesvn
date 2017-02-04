@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2012, 2014 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2012, 2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -57,6 +57,20 @@ bool CRegHistory::AddEntry(LPCTSTR szText)
 void CRegHistory::RemoveEntry(int pos)
 {
     m_arEntries.erase(m_arEntries.begin() + pos);
+}
+
+void CRegHistory::RemoveEntry(LPCTSTR str)
+{
+    if (str == NULL)
+        return;
+    for (std::vector<std::wstring>::iterator it = m_arEntries.begin(); it != m_arEntries.end(); ++it)
+    {
+        if (it->compare(str) == 0)
+        {
+            m_arEntries.erase(it);
+            break;
+        }
+    }
 }
 
 size_t CRegHistory::Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
