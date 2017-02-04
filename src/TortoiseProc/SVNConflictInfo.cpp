@@ -97,6 +97,8 @@ SVNConflictInfo::SVNConflictInfo()
     m_pctx->cancel_func = cancelCallback;
     m_pctx->cancel_baton = this;
     m_pctx->client_name = SVNHelper::GetUserAgentString(m_pool);
+    m_pctx->notify_func2 = notifyCallback;
+    m_pctx->notify_baton2 = this;
 }
 
 SVNConflictInfo::~SVNConflictInfo()
@@ -152,7 +154,7 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
         const char *local_change;
         SVNTRACE(
             Err = svn_client_conflict_tree_get_description(&incoming_change, &local_change, m_conflict,
-                m_pctx, scratchpool, scratchpool),
+                                                           m_pctx, scratchpool, scratchpool),
             svnPath
         );
 
@@ -225,7 +227,7 @@ svn_error_t * SVNConflictInfo::createPropValFiles(const char *propname, const ch
         SVN_ERR(svn_io_write_atomic2(theirfile, their_propval->data, their_propval->len, NULL, FALSE, pool));
 
     if (my_propval)
-      SVN_ERR(svn_io_write_atomic2(myfile, my_propval->data, my_propval->len, NULL, FALSE, pool));
+        SVN_ERR(svn_io_write_atomic2(myfile, my_propval->data, my_propval->len, NULL, FALSE, pool));
 
     svn_diff_file_options_t *options = svn_diff_file_options_create(pool);
     svn_diff_t *diff;
@@ -338,8 +340,8 @@ bool SVNConflictInfo::GetTextContentFiles(CTSVNPath & basefile, CTSVNPath & thei
     const char *path = svn_client_conflict_get_local_abspath(m_conflict);
     SVNTRACE(
         Err = svn_client_conflict_text_get_contents(NULL, &my_abspath,
-            &base_abspath, &their_abspath,
-            m_conflict, scratchpool, scratchpool),
+                                                    &base_abspath, &their_abspath,
+                                                    m_conflict, scratchpool, scratchpool),
         path
     );
 
@@ -373,7 +375,7 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
     const char *path = svn_client_conflict_get_local_abspath(m_conflict);
     SVNTRACE(
         Err = svn_client_conflict_tree_get_resolution_options(&options, m_conflict,
-            m_pctx, result.GetPool(), scratchpool),
+                                                              m_pctx, result.GetPool(), scratchpool),
         path
     );
 
@@ -445,7 +447,7 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
         if (!bResultAdded)
         {
             result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
+                                                                                      CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
         }
     }
 
@@ -461,7 +463,7 @@ bool SVNConflictInfo::GetTextResolutionOptions(SVNConflictOptions & result)
     const char *path = svn_client_conflict_get_local_abspath(m_conflict);
     SVNTRACE(
         Err = svn_client_conflict_text_get_resolution_options(&options, m_conflict,
-            m_pctx, result.GetPool(), scratchpool),
+                                                              m_pctx, result.GetPool(), scratchpool),
         path
     );
 
@@ -492,7 +494,7 @@ bool SVNConflictInfo::GetPropResolutionOptions(SVNConflictOptions & result)
     const char *path = svn_client_conflict_get_local_abspath(m_conflict);
     SVNTRACE(
         Err = svn_client_conflict_prop_get_resolution_options(&options, m_conflict,
-            m_pctx, result.GetPool(), scratchpool),
+                                                              m_pctx, result.GetPool(), scratchpool),
         path
     );
 
@@ -554,4 +556,26 @@ svn_error_t* SVNConflictInfo::cancelCallback(void *baton)
         return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(message));
     }
     return SVN_NO_ERROR;
+}
+
+void SVNConflictInfo::notifyCallback(void *baton, const svn_wc_notify_t *notify, apr_pool_t * /*pool*/)
+{
+    SVNConflictInfo * pThis = (SVNConflictInfo *)baton;
+    if (pThis->m_pProgress)
+    {
+        switch (notify->action)
+        {
+            case svn_wc_notify_begin_search_tree_conflict_details:
+            pThis->m_pProgress->SetLine(2, L"");
+            break;
+
+            case svn_wc_notify_tree_conflict_details_progress:
+            pThis->m_pProgress->FormatNonPathLine(2, IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS, notify->revision);
+            break;
+
+            case svn_wc_notify_end_search_tree_conflict_details:
+            pThis->m_pProgress->SetLine(2, L"");
+            break;
+        }
+    }
 }

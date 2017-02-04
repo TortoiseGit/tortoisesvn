@@ -42,7 +42,6 @@ bool ConflictEditorCommand::Execute()
         conflict.ShowErrorDialog(GetExplorerHWND());
         return false;
     }
-
     // Resolve tree conflicts first.
     if (conflict.HasTreeConflict())
     {
