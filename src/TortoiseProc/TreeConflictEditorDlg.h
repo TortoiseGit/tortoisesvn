@@ -22,11 +22,11 @@
 #include "SVNConflictInfo.h"
 #include "SVN.h"
 
-class CNewTreeConflictEditorDlg
+class CTreeConflictEditorDlg
 {
 public:
-    CNewTreeConflictEditorDlg();
-    ~CNewTreeConflictEditorDlg();
+    CTreeConflictEditorDlg();
+    ~CTreeConflictEditorDlg();
 
     void DoModal(HWND parent);
     void SetConflictInfo(SVNConflictInfo * conflictInfo) { m_conflictInfo = conflictInfo; }

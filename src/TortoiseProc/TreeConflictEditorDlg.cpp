@@ -18,12 +18,12 @@
 //
 
 #include "stdafx.h"
-#include "NewTreeConflictEditorDlg.h"
+#include "TreeConflictEditorDlg.h"
 #include "CommonAppUtils.h"
 #include "TortoiseProc.h"
 #include "SVN.h"
 
-CNewTreeConflictEditorDlg::CNewTreeConflictEditorDlg()
+CTreeConflictEditorDlg::CTreeConflictEditorDlg()
     : m_conflictInfo(NULL)
     , m_choice(svn_client_conflict_option_undefined)
     , m_bCancelled(false)
@@ -31,17 +31,17 @@ CNewTreeConflictEditorDlg::CNewTreeConflictEditorDlg()
 {
 }
 
-CNewTreeConflictEditorDlg::~CNewTreeConflictEditorDlg()
+CTreeConflictEditorDlg::~CTreeConflictEditorDlg()
 {
 }
 
-HRESULT CALLBACK CNewTreeConflictEditorDlg::TaskDialogCallback(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam, LONG_PTR dwRefData)
+HRESULT CALLBACK CTreeConflictEditorDlg::TaskDialogCallback(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam, LONG_PTR dwRefData)
 {
-    CNewTreeConflictEditorDlg *pThis = reinterpret_cast<CNewTreeConflictEditorDlg*>(dwRefData);
+    CTreeConflictEditorDlg *pThis = reinterpret_cast<CTreeConflictEditorDlg*>(dwRefData);
     return pThis->OnNotify(hWnd, uNotification, wParam, lParam);
 }
 
-HRESULT CNewTreeConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM)
+HRESULT CTreeConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM)
 {
     switch (uNotification)
     {
@@ -54,7 +54,7 @@ HRESULT CNewTreeConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARA
     }
 }
 
-void CNewTreeConflictEditorDlg::AddCommandButton(int id, const CString & text)
+void CTreeConflictEditorDlg::AddCommandButton(int id, const CString & text)
 {
     TASKDIALOG_BUTTON btn = { 0 };
     m_buttonTexts.push_back(text);
@@ -64,7 +64,7 @@ void CNewTreeConflictEditorDlg::AddCommandButton(int id, const CString & text)
     m_buttons.push_back(btn);
 }
 
-int CNewTreeConflictEditorDlg::GetButtonIDFromConflictOption(SVNConflictOption * option)
+int CTreeConflictEditorDlg::GetButtonIDFromConflictOption(SVNConflictOption * option)
 {
     int buttonID = 100 + option->GetId();
     if (option->GetPreferredMovedRelTargetIdx() >= 0)
@@ -74,7 +74,7 @@ int CNewTreeConflictEditorDlg::GetButtonIDFromConflictOption(SVNConflictOption *
     return buttonID;
 }
 
-HRESULT CNewTreeConflictEditorDlg::OnDialogConstructed(HWND hWnd)
+HRESULT CTreeConflictEditorDlg::OnDialogConstructed(HWND hWnd)
 {
     CCommonAppUtils::MarkWindowAsUnpinnable(hWnd);
 
@@ -84,7 +84,7 @@ HRESULT CNewTreeConflictEditorDlg::OnDialogConstructed(HWND hWnd)
     return S_OK;
 }
 
-HRESULT CNewTreeConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
+HRESULT CTreeConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
 {
     for (SVNConflictOptions::const_iterator it = m_options.begin(); it != m_options.end(); ++it)
     {
@@ -171,7 +171,7 @@ static CString GetConflictOptionTitle(svn_client_conflict_option_id_t id)
     return str;
 }
 
-void CNewTreeConflictEditorDlg::DoModal(HWND parent)
+void CTreeConflictEditorDlg::DoModal(HWND parent)
 {
     auto path = m_conflictInfo->GetPath().GetFileOrDirectoryName();
     CString sDialogTitle;

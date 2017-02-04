@@ -1097,14 +1097,14 @@
     <ClCompile Include="..\Utils\LruCache.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
-    <ClCompile Include="NewTreeConflictEditorDlg.cpp">
-      <Filter>Commands\ConflictEditor</Filter>
-    </ClCompile>
     <ClCompile Include="SVNConflictInfo.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
     <ClCompile Include="SVNDiffOptions.cpp">
       <Filter>Subversion</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeConflictEditorDlg.cpp">
+      <Filter>Commands\ConflictEditor</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2110,14 +2110,14 @@
     <ClInclude Include="..\Utils\MiscUI\CommonDialogFunctions.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
-    <ClInclude Include="NewTreeConflictEditorDlg.h">
-      <Filter>Commands\ConflictEditor</Filter>
-    </ClInclude>
     <ClInclude Include="SVNConflictInfo.h">
       <Filter>Subversion</Filter>
     </ClInclude>
     <ClInclude Include="SVNDiffOptions.h">
       <Filter>Subversion</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeConflictEditorDlg.h">
+      <Filter>Commands\ConflictEditor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

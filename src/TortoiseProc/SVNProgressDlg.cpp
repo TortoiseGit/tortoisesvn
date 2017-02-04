@@ -34,7 +34,7 @@
 #include "RegHistory.h"
 #include "ConflictResolveDlg.h"
 #include "EditPropConflictDlg.h"
-#include "NewTreeConflictEditorDlg.h"
+#include "TreeConflictEditorDlg.h"
 #include "LogFile.h"
 #include "ShellUpdater.h"
 #include "IconMenu.h"
@@ -4382,7 +4382,7 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                     progressDlg.Stop();
                     conflict.SetProgressDlg(NULL);
 
-                    CNewTreeConflictEditorDlg dlg;
+                    CTreeConflictEditorDlg dlg;
                     dlg.SetConflictInfo(&conflict);
                     dlg.SetSVNContext(this);
                     dlg.DoModal(m_hWnd);

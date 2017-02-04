@@ -26,7 +26,7 @@
 #include "PathUtils.h"
 #include "AppUtils.h"
 #include "EditPropConflictDlg.h"
-#include "NewTreeConflictEditorDlg.h"
+#include "TreeConflictEditorDlg.h"
 
 bool ConflictEditorCommand::Execute()
 {
@@ -63,7 +63,7 @@ bool ConflictEditorCommand::Execute()
         progressDlg.Stop();
         conflict.SetProgressDlg(NULL);
 
-        CNewTreeConflictEditorDlg dlg;
+        CTreeConflictEditorDlg dlg;
         dlg.SetConflictInfo(&conflict);
 
         dlg.DoModal(GetExplorerHWND());
