@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2014 - TortoiseSVN
+// Copyright (C) 2008-2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,6 @@
 #include "PathUtils.h"
 #include "AppUtils.h"
 #include "EditPropConflictDlg.h"
-#include "TreeConflictEditorDlg.h"
 #include "NewTreeConflictEditorDlg.h"
 
 bool ConflictEditorCommand::Execute()
@@ -124,18 +123,7 @@ bool ConflictEditorCommand::Execute()
                 break;
             case svn_wc_conflict_kind_tree:
             {
-                CTSVNPath treeConflictPath = CTSVNPath(conflIt->treeconflict_path);
-
-                CTreeConflictEditorDlg dlg;
-                dlg.SetPath(treeConflictPath);
-                dlg.SetConflictLeftSources(conflIt->src_left_version_url, conflIt->src_left_version_path, conflIt->src_left_version_rev, conflIt->src_left_version_kind);
-                dlg.SetConflictRightSources(conflIt->src_right_version_url, conflIt->src_right_version_path, conflIt->src_right_version_rev, conflIt->src_right_version_kind);
-                dlg.SetConflictReason(conflIt->treeconflict_reason);
-                dlg.SetConflictAction(conflIt->treeconflict_action);
-                dlg.SetConflictOperation(conflIt->treeconflict_operation);
-                dlg.SetKind(conflIt->treeconflict_nodekind);
-                INT_PTR dlgRet = dlg.DoModal();
-                bRet = (dlgRet != IDCANCEL);
+                // tree conflicts are already handled above
             }
                 break;
         }
