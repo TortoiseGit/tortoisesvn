@@ -26,12 +26,12 @@
 # grokwik <grokwik@gmail.com>, 2011
 # grokwik <grokwik@gmail.com>, 2011
 # Groog <florentzimolo@gmail.com>, 2014
-# Jack Ruertnevel, 2016
+# Jack, 2016
 # jeremy shields <jeremy.shields@orange.fr>, 2016
 # Julien Benoit <julien.benoit@suntec.fr>, 2016
 # Le Gall Nicolas <contact@nlegall.fr>, 2015
 # lkppo, 2012
-# Jack Ruertnevel, 2015-2016
+# Jack, 2015-2016
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Lucas Mascaro <mascaro.lucas@yahoo.fr>, 2017
@@ -45,7 +45,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-01-30 00:13+0000\n"
+"PO-Revision-Date: 2017-01-30 16:29+0000\n"
 "Last-Translator: Lucas Mascaro <mascaro.lucas@yahoo.fr>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -2170,7 +2170,7 @@ msgid ""
 "<emphasis>any</emphasis> access at all. If your repository is accessed at "
 "all during the copy, (web browser left open, WebSVN, etc.) the backup will "
 "be worthless."
-msgstr ""
+msgstr "La manière la plus simple (mais pas pas la plus recommandée) est de copier le dossier du dépôt sur votre sauvegarde. Cependant, vous devez être absolument sûr qu'aucun processus n'ait accès aux données. Dans ce contexte, accès veut dire <emphasis>pas</emphasis> d'accès du tout. Si votre dépôt est accédé pendant la copie, (navigateur Internet laissé ouvert, WebSVN, etc) la sauvegarde sera inutile."
 
 #. (para)
 msgid ""
@@ -2219,7 +2219,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr ""
+msgstr "Un script hook est un programme déclenché par un certain événement du dépôt, comme la création d'une nouvelle révision ou la modification d'une propriété non versionnée. Chaque hook fournit suffisamment d'informations pour dire à quel événement il se rapporte, sur quelle(s) cible(s) il doit fonctionner et le nom utilisateur de la personne qui a déclenché l'événement. Selon le résultat du hook ou le statut retourné, le programme hook peut continuer l'action, l'arrêter, ou la suspendre d'une certaine façon. Veuillez vous référez au chapitre sur <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Scripts de Hook</citetitle></ulink> dans le manuel de Subversion pour plus de détails sur la façon dont les hooks sont mis en place."
 
 #. (para)
 msgid ""
