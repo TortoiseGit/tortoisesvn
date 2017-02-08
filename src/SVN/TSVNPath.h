@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2016 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -193,7 +193,7 @@ public:
      * Get the file modification time - returns zero for files which don't exist
      * Returns a FILETIME structure cast to an __int64, for easy comparisons
      */
-    __int64 GetLastWriteTime() const;
+    __int64 GetLastWriteTime(bool force = false) const;
 
     /**
      * Get the file size. Returns zero for directories or files that don't exist.
