@@ -680,7 +680,7 @@ bool SVN::ResolveTreeConflict(svn_client_conflict_t *conflict, svn_client_confli
     }
     if (preferred_moved_reltarget_idx >= 0)
     {
-        svn_client_conflict_option_set_moved_to_repos_relpath(option, preferred_moved_reltarget_idx, scratchpool);
+        svn_client_conflict_option_set_moved_to_repos_relpath(option, preferred_moved_reltarget_idx, m_pctx, scratchpool);
     }
 
     SVNTRACE(
