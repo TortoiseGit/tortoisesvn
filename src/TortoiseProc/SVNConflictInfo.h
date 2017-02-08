@@ -141,5 +141,4 @@ protected:
     static svn_error_t* cancelCallback(void *baton);
     static void notifyCallback(void *baton, const svn_wc_notify_t *notify, apr_pool_t * pool);
     svn_error_t * createPropValFiles(const char *propname, const char *mergedfile, const char *basefile, const char *theirfile, const char *myfile, apr_pool_t *pool);
-    CString GetTargetName(const CString& targetRelPath, const CString& sDescription);
 };
