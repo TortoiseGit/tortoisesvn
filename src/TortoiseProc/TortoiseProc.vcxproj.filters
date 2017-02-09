@@ -1097,9 +1097,6 @@
     <ClCompile Include="..\Utils\LruCache.cpp">
       <Filter>Utils\General</Filter>
     </ClCompile>
-    <ClCompile Include="SVNConflictInfo.cpp">
-      <Filter>Subversion</Filter>
-    </ClCompile>
     <ClCompile Include="SVNDiffOptions.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
@@ -1111,6 +1108,9 @@
     </ClCompile>
     <ClCompile Include="PropConflictEditorDlg.cpp">
       <Filter>Commands\ConflictEditor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\SVN\SVNConflictInfo.cpp">
+      <Filter>Subversion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2116,9 +2116,6 @@
     <ClInclude Include="..\Utils\MiscUI\CommonDialogFunctions.h">
       <Filter>Utils\UI</Filter>
     </ClInclude>
-    <ClInclude Include="SVNConflictInfo.h">
-      <Filter>Subversion</Filter>
-    </ClInclude>
     <ClInclude Include="SVNDiffOptions.h">
       <Filter>Subversion</Filter>
     </ClInclude>
@@ -2130,6 +2127,9 @@
     </ClInclude>
     <ClInclude Include="PropConflictEditorDlg.h">
       <Filter>Commands\ConflictEditor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SVN\SVNConflictInfo.h">
+      <Filter>Subversion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

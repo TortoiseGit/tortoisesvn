@@ -142,6 +142,7 @@
     <ClCompile Include="..\SVN\SVNAuthData.cpp" />
     <ClCompile Include="..\SVN\SVNBase.cpp" />
     <ClCompile Include="..\SVN\SVNConfig.cpp" />
+    <ClCompile Include="..\SVN\SVNConflictInfo.cpp" />
     <ClCompile Include="..\SVN\SVNDataObject.cpp" />
     <ClCompile Include="..\SVN\SVNDiff.cpp" />
     <ClCompile Include="..\SVN\SVNError.cpp" />
@@ -442,7 +443,6 @@
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="SVNConflictInfo.cpp" />
     <ClCompile Include="SVNDiffOptions.cpp" />
     <ClCompile Include="SVNProgressDlg.cpp" />
     <ClCompile Include="SwitchDlg.cpp" />
@@ -459,6 +459,7 @@
     <ClInclude Include="..\SVN\SVNAuthData.h" />
     <ClInclude Include="..\SVN\SVNBase.h" />
     <ClInclude Include="..\SVN\SVNConfig.h" />
+    <ClInclude Include="..\SVN\SVNConflictInfo.h" />
     <ClInclude Include="..\SVN\SVNDataObject.h" />
     <ClInclude Include="..\SVN\SVNDiff.h" />
     <ClInclude Include="..\SVN\SVNError.h" />
@@ -783,7 +784,6 @@
     <ClInclude Include="Settings\ToolAssocDlg.h" />
     <ClInclude Include="SimplePrompt.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="SVNConflictInfo.h" />
     <ClInclude Include="SVNDiffOptions.h" />
     <ClInclude Include="SVNProgressDlg.h" />
     <ClInclude Include="SwitchDlg.h" />
