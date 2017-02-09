@@ -45,7 +45,7 @@ public:
     int GetPreferredMovedRelTargetIdx() const { return m_preferred_moved_reltarget_idx; }
 
     void SetMergedPropVal(const svn_string_t *propval);
-    svn_error_t * SetMergedPropValFile(const CTSVNPath & filePath);
+    svn_error_t * SetMergedPropValFile(const CTSVNPath & filePath, apr_pool_t * pool);
 
 protected:
     SVNConflictOption(svn_client_conflict_option_t *option,

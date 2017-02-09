@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2015 - TortoiseSVN
+// Copyright (C) 2007-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -354,7 +354,7 @@ void CConflictResolveDlg::OnBnClickedResolved()
 
         if (option)
         {
-            option->SetMergedPropValFile(m_mergedfile);
+            option->SetMergedPropValFile(m_mergedfile, m_conflictOptions.GetPool());
             if (m_svn->ResolvePropConflict(*m_pConflict, m_propertyName, *option))
             {
                 m_choice = svn_wc_conflict_choose_merged;

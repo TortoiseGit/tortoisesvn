@@ -48,9 +48,8 @@ void SVNConflictOption::SetMergedPropVal(const svn_string_t *propval)
     svn_client_conflict_option_set_merged_propval(m_option, propval);
 }
 
-svn_error_t * SVNConflictOption::SetMergedPropValFile(const CTSVNPath & filePath)
+svn_error_t * SVNConflictOption::SetMergedPropValFile(const CTSVNPath & filePath, apr_pool_t * pool)
 {
-    SVNPool pool;
     svn_stringbuf_t *propval;
 
     SVN_ERR(svn_stringbuf_from_file2(&propval, filePath.GetSVNApiPath(pool), pool));
@@ -379,7 +378,7 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
                     description = svn_client_conflict_option_get_description(opt, scratchpool);
 
                     result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                        CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), -1, j)));
+                                                                                              CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), -1, j)));
                     bResultAdded = true;
                 }
             }
@@ -396,7 +395,7 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
                     description = svn_client_conflict_option_get_description(opt, scratchpool);
 
                     result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                        CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), j, -1)));
+                                                                                              CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), j, -1)));
                     bResultAdded = true;
                 }
             }
@@ -405,7 +404,7 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
         if (!bResultAdded)
         {
             result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-               CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
+                                                                                      CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
         }
     }
 
@@ -437,7 +436,7 @@ bool SVNConflictInfo::GetTextResolutionOptions(SVNConflictOptions & result)
         const char *description = svn_client_conflict_option_get_description(opt, scratchpool);
 
         result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-            CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
+                                                                                  CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
     }
 
     return true;
@@ -468,7 +467,7 @@ bool SVNConflictInfo::GetPropResolutionOptions(SVNConflictOptions & result)
         const char *description = svn_client_conflict_option_get_description(opt, scratchpool);
 
         result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-            CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
+                                                                                  CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
     }
 
     return true;
