@@ -27,6 +27,7 @@
 #include "AppUtils.h"
 #include "EditPropConflictDlg.h"
 #include "TreeConflictEditorDlg.h"
+#include "PropConflictEditorDlg.h"
 
 bool ConflictEditorCommand::Execute()
 {
@@ -43,7 +44,7 @@ bool ConflictEditorCommand::Execute()
         return false;
     }
     // Resolve tree conflicts first.
-    if (conflict.HasTreeConflict())
+    while (conflict.HasTreeConflict())
     {
         CProgressDlg progressDlg;
         progressDlg.SetTitle(IDS_PROC_EDIT_TREE_CONFLICTS);
@@ -66,6 +67,45 @@ bool ConflictEditorCommand::Execute()
         dlg.SetConflictInfo(&conflict);
 
         dlg.DoModal(GetExplorerHWND());
+        if (dlg.IsCancelled())
+            return false;
+
+        if (dlg.GetResult() == svn_client_conflict_option_postpone)
+            return false;
+
+        // Send notififcation that status may be changed. We cannot use
+        // '/resolvemsghwnd' here because satus of multiple files may be changed
+        // during tree conflict resolution.
+        if (parser.HasVal(L"refreshmsghwnd"))
+        {
+            HWND refreshMsgWnd = (HWND)parser.GetLongLongVal(L"refreshmsghwnd");
+            UINT WM_REFRESH_STATUS_MSG = RegisterWindowMessage(L"TORTOISESVN_REFRESH_STATUS_MSG");
+            ::PostMessage(refreshMsgWnd, WM_REFRESH_STATUS_MSG, 0, 0);
+        }
+
+        if (!conflict.Get(merge))
+        {
+            conflict.ShowErrorDialog(GetExplorerHWND());
+            return false;
+        }
+    }
+
+    if (conflict.HasTextConflict())
+    {
+        CTSVNPath theirs, mine, base;
+        conflict.GetTextContentFiles(base, theirs, mine);
+        if (mine.IsEmpty())
+            mine = merge;
+        bRet = !!CAppUtils::StartExtMerge(CAppUtils::MergeFlags().AlternativeTool(bAlternativeTool),
+                                          base, theirs, mine, merge, true, CString(), CString(), CString(), CString(), merge.GetFileOrDirectoryName());
+    }
+
+    for (int i = 0; i < conflict.GetPropConflictCount(); ++i)
+    {
+        CPropConflictEditorDlg dlg;
+        dlg.SetConflictInfo(&conflict);
+
+        dlg.DoModal(GetExplorerHWND(), i);
         if (dlg.IsCancelled())
             return false;
 
@@ -107,7 +147,7 @@ bool ConflictEditorCommand::Execute()
                 bRet = !!CAppUtils::StartExtMerge(CAppUtils::MergeFlags().AlternativeTool(bAlternativeTool),
                                                   base, theirs, mine, merge, true, CString(), CString(), CString(), CString(), merge.GetFileOrDirectoryName());
             }
-                break;
+            break;
             case svn_wc_conflict_kind_property:
             {
                 // we have a property conflict
@@ -119,12 +159,12 @@ bool ConflictEditorCommand::Execute()
                 dlg.SetPropValues(conflIt->propvalue_base, conflIt->propvalue_working, conflIt->propvalue_incoming_old, conflIt->propvalue_incoming_new);
                 bRet = (dlg.DoModal() != IDCANCEL);
             }
-                break;
+            break;
             case svn_wc_conflict_kind_tree:
             {
                 // tree conflicts are already handled above
             }
-                break;
+            break;
         }
     }
 

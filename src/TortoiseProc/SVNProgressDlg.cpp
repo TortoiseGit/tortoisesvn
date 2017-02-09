@@ -35,6 +35,7 @@
 #include "ConflictResolveDlg.h"
 #include "EditPropConflictDlg.h"
 #include "TreeConflictEditorDlg.h"
+#include "PropConflictEditorDlg.h"
 #include "LogFile.h"
 #include "ShellUpdater.h"
 #include "IconMenu.h"
@@ -4424,20 +4425,23 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                     }
                 }
 
-                // Resolve text conflicts if any.
+                // Resolve prop conflicts if any.
                 if (conflict.HasPropConflict())
                 {
                     for (int propertyIdx = 0; propertyIdx < conflict.GetPropConflictCount(); propertyIdx++)
                     {
-                        CConflictResolveDlg dlg(this);
+                        CPropConflictEditorDlg dlg;
+                        dlg.SetConflictInfo(&conflict);
                         dlg.SetSVNContext(this);
-                        dlg.SetPropertyConflict(&conflict, conflict.GetPropConflictName(propertyIdx));
-                        dlg.DoModal();
+                        dlg.DoModal(m_hWnd, propertyIdx);
                         if (dlg.IsCancelled())
                         {
                             m_AlwaysConflicted = true;
                             return;
                         }
+
+                        if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+                            continue;
                     }
                 }
             }
