@@ -164,7 +164,19 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
         m_incomingChangeSummary = CUnicodeUtils::GetUnicode(incoming_change);
         m_localChangeSummary = CUnicodeUtils::GetUnicode(local_change);
     }
+    if (m_prop_conflicts && m_prop_conflicts->nelts > 0)
+    {
+        const char * propdesc;
+        SVNTRACE(
+            Err = svn_client_conflict_prop_get_description(&propdesc, m_conflict,
+                                                           scratchpool, scratchpool),
+            svnPath
+        );
+        if (Err != nullptr)
+            return false;
 
+        m_propDescription = CUnicodeUtils::GetUnicode(propdesc);
+    }
     return true;
 }
 

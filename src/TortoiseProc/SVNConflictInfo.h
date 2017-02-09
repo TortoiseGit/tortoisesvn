@@ -117,6 +117,7 @@ public:
     CString GetIncomingChangeSummary() const { return m_incomingChangeSummary; }
     CString GetDetailedIncomingChangeSummary() const { return m_detailedIncomingChangeSummary; }
     CString GetLocalChangeSummary() const { return m_localChangeSummary;  }
+    CString GetPropDescription() const { return m_propDescription; }
 
     bool GetTreeResolutionOptions(SVNConflictOptions & result);
     bool GetTextResolutionOptions(SVNConflictOptions & result);
@@ -131,6 +132,7 @@ protected:
     CString m_incomingChangeSummary;
     CString m_detailedIncomingChangeSummary;
     CString m_localChangeSummary;
+    CString m_propDescription;
     svn_boolean_t m_tree_conflicted;
     svn_boolean_t m_text_conflicted;
     apr_array_header_t *m_prop_conflicts;
