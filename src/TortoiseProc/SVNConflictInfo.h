@@ -112,6 +112,7 @@ public:
     int GetPropConflictCount() const;
     CString GetPropConflictName(int idx) const;
     bool GetPropValFiles(const CString & propertyName, CTSVNPath & mergedfile, CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile);
+    CString GetPropDiff(const CString & propertyName);
     bool GetTextContentFiles(CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile);
 
     CString GetIncomingChangeSummary() const { return m_incomingChangeSummary; }

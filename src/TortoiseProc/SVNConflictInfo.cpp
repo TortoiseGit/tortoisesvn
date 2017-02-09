@@ -308,6 +308,56 @@ bool SVNConflictInfo::GetPropValFiles(const CString & propertyName, CTSVNPath & 
     return true;
 }
 
+CString SVNConflictInfo::GetPropDiff(const CString & propertyName)
+{
+    SVNPool scratchpool(m_pool);
+
+    const svn_string_t *my_propval;
+    const svn_string_t *base_propval;
+    const svn_string_t *their_propval;
+    svn_stringbuf_t *merged_propval = svn_stringbuf_create_empty(scratchpool);
+
+    Err = svn_client_conflict_prop_get_propvals(
+        NULL, &my_propval, &base_propval,
+        &their_propval, m_conflict, CUnicodeUtils::GetUTF8(propertyName),
+        scratchpool);
+    if (Err)
+        return{};
+
+    svn_diff_file_options_t *options = svn_diff_file_options_create(scratchpool);
+    svn_diff_t *diff;
+
+    // If any of the property values is missing, use an empty value instead for the purpose of showing a diff.
+    if (base_propval == NULL)
+        base_propval = svn_string_create_empty(scratchpool);
+
+    if (their_propval == NULL)
+        their_propval = svn_string_create_empty(scratchpool);
+
+    if (my_propval == NULL)
+        my_propval = svn_string_create_empty(scratchpool);
+
+    options->ignore_eol_style = TRUE;
+    Err = svn_diff_mem_string_diff3(&diff, base_propval, my_propval, their_propval, options, scratchpool);
+    if (Err)
+        return{};
+
+    Err = svn_diff_mem_string_output_merge3(
+        svn_stream_from_stringbuf(merged_propval, scratchpool),
+        diff, base_propval, my_propval, their_propval,
+        "||||||| ORIGINAL",
+        "<<<<<<< MINE",
+        ">>>>>>> THEIRS",
+        "=======",
+        svn_diff_conflict_display_modified_original_latest,
+        NULL, NULL, scratchpool);
+    if (Err)
+        return{};
+
+    CStringA propValA(merged_propval->data, (int)merged_propval->len);
+    return CUnicodeUtils::GetUnicode(propValA);
+}
+
 bool SVNConflictInfo::GetTextContentFiles(CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile)
 {
     ClearSVNError();
