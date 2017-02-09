@@ -102,6 +102,7 @@ SVNConflictInfo::SVNConflictInfo()
 
 SVNConflictInfo::~SVNConflictInfo()
 {
+    ClearSVNError();
     svn_pool_destroy(m_pool);
 }
 
