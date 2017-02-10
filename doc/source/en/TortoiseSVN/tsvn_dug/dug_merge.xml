@@ -510,6 +510,13 @@
     <indexterm>
       <primary>merge conflicts</primary>
     </indexterm>
+    <important>
+      <para>
+        The text in the conflict resolver dialogs are provided by the SVN library
+        and might therefore not (yet) be translated as the TortoiseSVN dialogs
+        are. Sorry for that.
+      </para>
+    </important>
     <para>
       Merging does not always go smoothly. Sometimes there is a
       conflict, and if you are merging multiple ranges, you generally
@@ -525,53 +532,109 @@
       It is likely that some of the changes will have merged smoothly,
       while other local changes conflict with changes already committed
       to the repository. All changes which can be merged are merged.
-      The Merge Conflict Callback dialog gives you three different
+      The Merge Conflict Callback dialog gives you different
       ways of handling the lines which are in conflict.
-      <orderedlist>
-        <listitem>
-          <para>
-            If you are merging text files then these first two buttons
-            allow you to merge non-conflicting lines as normal and always
-            prefer one version where there are conflicts.
-            Choosing <emphasis>Prefer local</emphasis> will select
-            your local version in every conflict, i.e. it will prefer
-            what was already there before the merge over the incoming
-            change from the merge source. Likewise,
-            <emphasis>Prefer repository</emphasis> will select the
-            repository changes in every conflict, i.e. it will prefer
-            the incoming changes from the merge source over what was
-            already in your working copy. This sounds easy,
-            but the conflicts often cover more lines than you think
-            they will and you may get unexpected results.
-          </para>
-          <para>
-            If your merge includes binary files, merging of conflicts in
-            those is not possible in a line-by-line mode. A conflict
-            in a binary file always refers to the complete file.
-            Use <emphasis>Prefer local</emphasis> to select the local
-            version as it was in your working copy prior to the merge, or
-            <emphasis>Prefer repository</emphasis> to select the incoming
-            file from the merge source in the repository.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            Normally you will want to look at the conflicts and resolve them
-            yourself. In that case, choose the <guibutton>Edit Conflict</guibutton>
-            which will start up your merge tool. When you are satisfied with
-            the result, click <guibutton>Resolved</guibutton>.
-          </para>
-        </listitem>
-        <listitem>
-          <para>
-            The last option is to postpone resolution and continue
-            with merging. You can choose to do that for the current
-            conflicted file, or for all files in the rest of the merge.
-            However, if there are further changes in that file, it
-            will not be possible to complete the merge.
-          </para>
-        </listitem>
-      </orderedlist>
+    </para>
+    <para>
+      For normal conflicts that happen due to changes in the file content
+      or its properties, the dialog shows buttons which allow you to chose
+      which of the conflicting parts to keep or reject.
+      <variablelist>
+        <varlistentry>
+          <term>Postpone</term>
+          <listitem>
+            <para>
+              Don't deal with the conflict now. Let the merge continue
+              and resolve the conflicts after the merge is done.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Accept base</term>
+          <listitem>
+            <para>
+              This leaves the file as it was, without neither the changes coming
+              from the merge nor the changes you've made in your working copy.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Accept incoming</term>
+          <listitem>
+            <para>
+              This discards all your local changes and uses the file as it arrives
+              from the merge source.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Reject incoming</term>
+          <listitem>
+            <para>
+              This discards all the changes from the merge source and leaves the
+              file with your local edits.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Accept incoming for conflicts</term>
+          <listitem>
+            <para>
+              This discards your local changes where they conflict with the changes
+              from the merge source. But it leaves all your local changes which don't
+              conflict.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Reject conflicts</term>
+          <listitem>
+            <para>
+              This discards changes from the merge source which conflict with your
+              local changes. But it keeps all changes that don't conflict with your
+              local changes.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Mark as resolved</term>
+          <listitem>
+            <para>
+              Marks the conflicts as resolved. This button is disabled until you use
+              the button <guibutton>Edit</guibutton> to edit the conflict manually
+              and save those changes back to the file. Once the changes are saved,
+              the button becomes enabled.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Edit</term>
+          <listitem>
+            <para>
+              Starts the merge editor so you can resolve the conflicts manually.
+              Don't forget to save the file so the button <guibutton>Mark as resolved</guibutton>
+              becomes enabled.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+    <para>
+      If there's a tree conflict, please first see <xref linkend="tsvn-dug-conflicts-tree"/> about
+      the various types of tree conflicts and how and why they can happen.
+    </para>
+    <para>
+      To resolve tree conflicts during a merge, a dialog is shown with various options
+      on how to resolve the conflict:
+      <figure id="tsvn-dug-merge-callback-tree-dia">
+        <title>The Merge Tree Conflict Callback Dialog</title>
+        <graphic fileref="../images/MergeTreeConflictCallback.png"/>
+      </figure>
+      Since there are various possible tree conflict situations, the dialog will show
+      buttons to resolve those depending on the specific conflict.
+      The button texts and labels explain what the option to resolve the conflict
+      does. If you're not sure, either cancel the dialog or use the <guibutton>Postpone</guibutton>
+      button to resolve the conflict later.
     </para>
     <para>
       If you do not want to use this interactive callback, there is a

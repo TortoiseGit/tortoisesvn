@@ -234,8 +234,9 @@ code merged from repository
       <para>
         The conflict edit dialog offers to merge changes if it can find
         the original file of the renamed <filename>Bar.c</filename>.
-        Depending on where the update was invoked, it may not be possible
-        to find the source file.
+        If there are multiple files that are possible move sources,
+        then a button for each of these files is shown which allow
+        you to chose the correct file.
       </para>
     </sect3>
     <sect3 id="tsvn-dug-conflicts-tree-2">
@@ -320,16 +321,12 @@ code merged from repository
         To merge her local changes with the reshuffle, Developer B must
         first find out to what filename the conflicted file
         <filename>Foo.c</filename> was renamed/moved in the repository.
-        This can be done by using the log dialog. The changes must then be
-        merged by hand as there is currently no way to automate or even
-        simplify this process. Once the changes have been ported across,
-        the conflicted path is redundant and can be deleted. In this case
-        use the <guilabel>Remove</guilabel> button in the conflict
-        editor dialog to clean up and mark the conflict as resolved.
+        This can be done by using the log dialog. Then use the button
+        which shows the correct source file to resolve the conflict.
       </para>
       <para>
         If Developer B decides that A's changes were wrong then she
-        must choose the <guilabel>Keep</guilabel> button in the
+        must choose the <guilabel>Mark as resolved</guilabel> button in the
         conflict editor dialog. This marks the conflicted file/folder as
         resolved, but Developer A's changes need to be removed by hand.
         Again the log dialog helps to track down what was moved.
@@ -507,13 +504,11 @@ code merged from repository
         The changes must then be
         merged by hand as there is currently no way to automate or even
         simplify this process. Once the changes have been ported across,
-        the conflicted path is redundant and can be deleted. In this case
-        use the <guilabel>Remove</guilabel> button in the conflict
-        editor dialog to clean up and mark the conflict as resolved.
+        the conflicted path is redundant and can be deleted.
       </para>
       <para>
         If Developer B decides that A's changes were wrong then she
-        must choose the <guilabel>Keep</guilabel> button in the
+        must choose the <guilabel>Mark as resolved</guilabel> button in the
         conflict editor dialog. This marks the conflicted file/folder as
         resolved, but Developer A's changes need to be removed by hand.
         Again the log dialog for the merge source helps to track down
@@ -565,9 +560,6 @@ code merged from repository
         to what filename the conflicted file <filename>Foo.c</filename>
         was renamed/moved in the repository.
         This can be done by using the log dialog for the merge source.
-        The conflict editor only shows the log for the working copy
-        as it does not know which path was used in the merge,
-        so you will have to find that yourself.
       </para>
       <para>
         Then developer B has to decide which new filename of
