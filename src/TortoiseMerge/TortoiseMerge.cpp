@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2014, 2016 - TortoiseSVN
+// Copyright (C) 2006-2014, 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -271,6 +271,8 @@ BOOL CTortoiseMergeApp::InitInstance()
         pFrame->m_bSaveRequired = true;
     if (parser.HasKey(L"saverequiredonconflicts"))
         pFrame->m_bSaveRequiredOnConflicts = true;
+    if (parser.HasKey(L"nosvnresolve"))
+        pFrame->m_bAskToMarkAsResolved = false;
     if (pFrame->m_Data.IsBaseFileInUse() && !pFrame->m_Data.IsYourFileInUse() && pFrame->m_Data.IsTheirFileInUse())
     {
         pFrame->m_Data.m_yourFile.TransferDetailsFrom(pFrame->m_Data.m_theirFile);

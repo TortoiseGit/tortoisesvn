@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2015 - TortoiseSVN
+// Copyright (C) 2006-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -293,6 +293,7 @@ public:
     bool            m_bWrapLines;
     bool            m_bSaveRequired;
     bool            m_bSaveRequiredOnConflicts;
+    bool            m_bAskToMarkAsResolved;
     HWND            resolveMsgWnd;
     WPARAM          resolveMsgWParam;
     LPARAM          resolveMsgLParam;

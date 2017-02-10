@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2016 - TortoiseSVN
+// Copyright (C) 2004-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -205,6 +205,7 @@ CMainFrame::CMainFrame()
     , m_bCheckReload(false)
     , m_bSaveRequired(false)
     , m_bSaveRequiredOnConflicts(false)
+    , m_bAskToMarkAsResolved(true)
     , resolveMsgWnd(0)
     , resolveMsgWParam(0)
     , resolveMsgLParam(0)
@@ -1610,7 +1611,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     if (IsViewGood(m_pwndBottomView) && !m_bHasConflicts && bCheckResolved)
     {
         CTSVNPath svnpath = CTSVNPath(m_Data.m_mergedFile.GetFilename());
-        if (SVNHelper::IsVersioned(svnpath, true))
+        if (m_bAskToMarkAsResolved && SVNHelper::IsVersioned(svnpath, true))
         {
             SVNPool pool;
             svn_opt_revision_t rev;

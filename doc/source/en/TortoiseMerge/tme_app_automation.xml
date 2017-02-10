@@ -253,6 +253,13 @@ Don't touch these lines:
                 disabled.
               </entry>
             </row>
+            <row>
+              <entry condition="pot">/nosvnresolve</entry>
+              <entry>
+                Prevents TortoiseMerge from asking whether to
+                mark a file as resolved in SVN after saving it.
+              </entry>
+            </row>
           </tbody>
         </tgroup>
       </table>
