@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2016 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,11 +52,13 @@ public:
         bool bWait;
         bool bReadOnly;
         bool bAlternativeTool; // If true, invert selection of TortoiseMerge vs. external merge tool
+        bool bPreventSVNResolve;
 
-        MergeFlags(): bWait(false), bReadOnly(false), bAlternativeTool(false)   {}
+        MergeFlags(): bWait(false), bReadOnly(false), bAlternativeTool(false), bPreventSVNResolve(false)   {}
         MergeFlags& Wait(bool b = true) { bWait = b; return *this; }
         MergeFlags& ReadOnly(bool b = true) { bReadOnly = b; return *this; }
         MergeFlags& AlternativeTool(bool b = true) { bAlternativeTool = b; return *this; }
+        MergeFlags& PreventSVNResolve(bool b = true) { bPreventSVNResolve = b; return *this; }
     };
 
     /**

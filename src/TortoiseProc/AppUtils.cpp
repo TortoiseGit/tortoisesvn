@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 // Copyright (C) 2015 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -285,6 +285,8 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
 
     if ((flags.bReadOnly)&&(bInternal))
         com += L" /readonly";
+    if ((flags.bPreventSVNResolve) && (bInternal))
+        com += L" /nosvnresolve";
 
     if(!LaunchApplication(com, IDS_ERR_EXTMERGESTART, false))
     {
