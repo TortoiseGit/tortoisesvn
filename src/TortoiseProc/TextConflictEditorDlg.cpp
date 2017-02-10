@@ -110,11 +110,19 @@ HRESULT CTextConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
         m_conflictInfo->GetTextContentFiles(base, theirs, mine);
         m_mergedCreationTime = m_merged.GetLastWriteTime();
         ::SendMessage(hWnd, TDM_ENABLE_BUTTON, 100 + svn_client_conflict_option_merged_text, 0);
+
+        CString filename, n1, n2, n3, n4;
+        filename = m_merged.GetUIFileOrDirectoryName();
+        n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)filename);
+        n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)filename);
+        n3.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)filename);
+        n4.Format(IDS_DIFF_MERGEDNAME, (LPCTSTR)filename);
+
         CAppUtils::MergeFlags flags;
         flags.AlternativeTool((GetKeyState(VK_SHIFT) & 0x8000) != 0);
         flags.PreventSVNResolve(true);
         CAppUtils::StartExtMerge(flags,
-                                 base, theirs, mine, m_merged, true, CString(), CString(), CString(), CString(), m_propName);
+                                 base, theirs, mine, m_merged, true, n1, n1, n3, n4, filename);
         return S_FALSE;
     }
     for (SVNConflictOptions::const_iterator it = m_options.begin(); it != m_options.end(); ++it)

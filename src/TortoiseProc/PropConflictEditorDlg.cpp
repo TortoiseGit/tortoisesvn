@@ -109,11 +109,18 @@ HRESULT CPropConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
         m_conflictInfo->GetPropValFiles(m_propName, m_merged, base, theirs, mine);
         m_mergedCreationTime = m_merged.GetLastWriteTime();
         ::SendMessage(hWnd, TDM_ENABLE_BUTTON, 100 + svn_client_conflict_option_merged_text, 0);
+
+        CString n1, n2, n3, n4;
+        n1.Format(IDS_DIFF_PROP_WCNAME, (LPCTSTR)m_propName);
+        n2.Format(IDS_DIFF_PROP_BASENAME, (LPCTSTR)m_propName);
+        n3.Format(IDS_DIFF_PROP_REMOTENAME, (LPCTSTR)m_propName);
+        n4.Format(IDS_DIFF_PROP_MERGENAME, (LPCTSTR)m_propName);
+
         CAppUtils::MergeFlags flags;
         flags.AlternativeTool((GetKeyState(VK_SHIFT) & 0x8000) != 0);
         flags.PreventSVNResolve(true);
         CAppUtils::StartExtMerge(flags,
-                                 base, theirs, mine, m_merged, true, CString(), CString(), CString(), CString(), m_propName);
+                                 base, theirs, mine, m_merged, true, n1, n1, n3, n4, m_propName);
         return S_FALSE;
     }
     for (SVNConflictOptions::const_iterator it = m_options.begin(); it != m_options.end(); ++it)

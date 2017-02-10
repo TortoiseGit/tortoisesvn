@@ -48,7 +48,6 @@ private:
     svn_client_conflict_option_id_t m_choice;
     SVN * m_svn;
     bool m_bCancelled;
-    CString m_propName;
     CTSVNPath m_merged;
     __int64 m_mergedCreationTime;
 
