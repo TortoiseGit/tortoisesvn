@@ -25,7 +25,6 @@
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
 #include "AppUtils.h"
-#include "EditPropConflictDlg.h"
 #include "TreeConflictEditorDlg.h"
 #include "PropConflictEditorDlg.h"
 
@@ -120,51 +119,6 @@ bool ConflictEditorCommand::Execute()
             HWND refreshMsgWnd = (HWND)parser.GetLongLongVal(L"refreshmsghwnd");
             UINT WM_REFRESH_STATUS_MSG = RegisterWindowMessage(L"TORTOISESVN_REFRESH_STATUS_MSG");
             ::PostMessage(refreshMsgWnd, WM_REFRESH_STATUS_MSG, 0, 0);
-        }
-    }
-
-    // we have the conflicted file (%merged)
-    // now look for the other required files
-
-    SVNInfo info;
-    const SVNInfoData * pInfoData = info.GetFirstFileInfo(merge, SVNRev(), SVNRev());
-    if (pInfoData == NULL)
-        return false;
-
-    for (auto conflIt = pInfoData->conflicts.cbegin(); conflIt != pInfoData->conflicts.cend(); ++conflIt)
-    {
-        switch (conflIt->kind)
-        {
-            case svn_wc_conflict_kind_text:
-            {
-                // we have a text conflict, use our merge tool to resolve the conflict
-
-                CTSVNPath theirs = CTSVNPath(conflIt->conflict_new);
-                CTSVNPath mine = CTSVNPath(conflIt->conflict_wrk);
-                CTSVNPath base = CTSVNPath(conflIt->conflict_old);
-                if (mine.IsEmpty())
-                    mine = merge;
-                bRet = !!CAppUtils::StartExtMerge(CAppUtils::MergeFlags().AlternativeTool(bAlternativeTool),
-                                                  base, theirs, mine, merge, true, CString(), CString(), CString(), CString(), merge.GetFileOrDirectoryName());
-            }
-            break;
-            case svn_wc_conflict_kind_property:
-            {
-                // we have a property conflict
-                CTSVNPath prej(conflIt->prejfile);
-                CEditPropConflictDlg dlg;
-                dlg.SetPrejFile(prej);
-                dlg.SetConflictedItem(merge);
-                dlg.SetPropertyName(conflIt->propname);
-                dlg.SetPropValues(conflIt->propvalue_base, conflIt->propvalue_working, conflIt->propvalue_incoming_old, conflIt->propvalue_incoming_new);
-                bRet = (dlg.DoModal() != IDCANCEL);
-            }
-            break;
-            case svn_wc_conflict_kind_tree:
-            {
-                // tree conflicts are already handled above
-            }
-            break;
         }
     }
 

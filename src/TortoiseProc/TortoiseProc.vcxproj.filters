@@ -857,14 +857,8 @@
     <ClCompile Include="Commands\ConflictEditorCommand.cpp">
       <Filter>Commands\ConflictEditor</Filter>
     </ClCompile>
-    <ClCompile Include="EditPropConflictDlg.cpp">
-      <Filter>Commands\ConflictEditor</Filter>
-    </ClCompile>
     <ClCompile Include="Commands\EditFileCommand.cpp">
       <Filter>Commands\EditFile</Filter>
-    </ClCompile>
-    <ClCompile Include="ConflictResolveDlg.cpp">
-      <Filter>Utility Dialogs</Filter>
     </ClCompile>
     <ClCompile Include="CreateChangelistDlg.cpp">
       <Filter>Utility Dialogs</Filter>
@@ -1840,14 +1834,8 @@
     <ClInclude Include="Commands\ConflictEditorCommand.h">
       <Filter>Commands\ConflictEditor</Filter>
     </ClInclude>
-    <ClInclude Include="EditPropConflictDlg.h">
-      <Filter>Commands\ConflictEditor</Filter>
-    </ClInclude>
     <ClInclude Include="Commands\EditFileCommand.h">
       <Filter>Commands\EditFile</Filter>
-    </ClInclude>
-    <ClInclude Include="ConflictResolveDlg.h">
-      <Filter>Utility Dialogs</Filter>
     </ClInclude>
     <ClInclude Include="CreateChangelistDlg.h">
       <Filter>Utility Dialogs</Filter>

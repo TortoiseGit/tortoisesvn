@@ -291,13 +291,11 @@
     <ClCompile Include="Commands\UpdateCommand.cpp" />
     <ClCompile Include="Commands\UrlDiffCommand.cpp" />
     <ClCompile Include="CommitDlg.cpp" />
-    <ClCompile Include="ConflictResolveDlg.cpp" />
     <ClCompile Include="CopyDlg.cpp" />
     <ClCompile Include="CreateChangelistDlg.cpp" />
     <ClCompile Include="CreatePatchDlg.cpp" />
     <ClCompile Include="DeleteUnversionedDlg.cpp" />
     <ClCompile Include="DiffOptionsDlg.cpp" />
-    <ClCompile Include="EditPropConflictDlg.cpp" />
     <ClCompile Include="ExportDlg.cpp" />
     <ClCompile Include="FileDiffDlg.cpp" />
     <ClCompile Include="GoOffline.cpp" />
@@ -632,13 +630,11 @@
     <ClInclude Include="Commands\UrlDiffCommand.h" />
     <ClInclude Include="Commands\WcUpgradeCommand.h" />
     <ClInclude Include="CommitDlg.h" />
-    <ClInclude Include="ConflictResolveDlg.h" />
     <ClInclude Include="CopyDlg.h" />
     <ClInclude Include="CreateChangelistDlg.h" />
     <ClInclude Include="CreatePatchDlg.h" />
     <ClInclude Include="DeleteUnversionedDlg.h" />
     <ClInclude Include="DiffOptionsDlg.h" />
-    <ClInclude Include="EditPropConflictDlg.h" />
     <ClInclude Include="ExportDlg.h" />
     <ClInclude Include="FileDiffDlg.h" />
     <ClInclude Include="GoOffline.h" />

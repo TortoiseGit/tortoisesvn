@@ -32,8 +32,6 @@
 #include "SVNLogHelper.h"
 #include "SVNHelpers.h"
 #include "RegHistory.h"
-#include "ConflictResolveDlg.h"
-#include "EditPropConflictDlg.h"
 #include "TreeConflictEditorDlg.h"
 #include "PropConflictEditorDlg.h"
 #include "TextConflictEditorDlg.h"
