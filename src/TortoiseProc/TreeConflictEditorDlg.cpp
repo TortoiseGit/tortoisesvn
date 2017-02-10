@@ -22,6 +22,7 @@
 #include "CommonAppUtils.h"
 #include "TortoiseProc.h"
 #include "SVN.h"
+#include "../Utils/CreateProcessHelper.h"
 
 CTreeConflictEditorDlg::CTreeConflictEditorDlg()
     : m_conflictInfo(NULL)
@@ -45,11 +46,30 @@ HRESULT CTreeConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM w
 {
     switch (uNotification)
     {
-    case TDN_DIALOG_CONSTRUCTED:
+        case TDN_DIALOG_CONSTRUCTED:
         return OnDialogConstructed(hWnd);
-    case TDN_BUTTON_CLICKED:
-        return OnButtonClicked(hWnd, (int) wParam);
-    default:
+        case TDN_BUTTON_CLICKED:
+        return OnButtonClicked(hWnd, (int)wParam);
+        case TDN_HELP:
+        {
+            CWinApp* pApp = AfxGetApp();
+            ASSERT_VALID(pApp);
+            ASSERT(pApp->m_pszHelpFilePath != NULL);
+            // to call HtmlHelp the m_fUseHtmlHelp must be set in
+            // the application's constructor
+            ASSERT(pApp->m_eHelpType == afxHTMLHelp);
+
+            CString cmd;
+            cmd.Format(L"HH.exe -mapid %Iu \"%s\"", IDD_CONFLICTRESOLVE + 0x20000, pApp->m_pszHelpFilePath);
+            if (!CCreateProcessHelper::CreateProcessDetached(NULL, cmd))
+            {
+                cmd.ReleaseBuffer();
+                AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
+            }
+            cmd.ReleaseBuffer();
+        }
+        break;
+        default:
         return S_OK;
     }
 }
@@ -118,59 +138,6 @@ HRESULT CTreeConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
     return S_OK;
 }
 
-// The following function uses non-localized strings, because it should become
-// part of SVN 1.10 API
-static CString GetConflictOptionTitle(svn_client_conflict_option_id_t id)
-{
-    switch (id)
-    {
-    case svn_client_conflict_option_postpone:
-        return L"Postpone";
-    case svn_client_conflict_option_accept_current_wc_state:
-        return L"Mark as resolved";
-
-    // Options for local move vs incoming edit on update.
-    case svn_client_conflict_option_update_move_destination:
-        return L"Update move destination";
-    case svn_client_conflict_option_update_any_moved_away_children:
-        return L"Update any moved-away children";
-
-    // Options for incoming add vs local add.
-    case svn_client_conflict_option_incoming_add_ignore:
-        return L"Ignore incoming addition";
-
-    // Options for incoming file add vs local file add upon merge.
-    case svn_client_conflict_option_incoming_added_file_text_merge:
-        return L"Merge the files";
-    case svn_client_conflict_option_incoming_added_file_replace_and_merge:
-        return L"Replace my file with incoming file and merge the files";
-
-    // Options for incoming dir add vs local dir add or obstruction.
-    case svn_client_conflict_option_incoming_added_dir_merge:
-        return L"Merge the directories";
-    case svn_client_conflict_option_incoming_added_dir_replace:
-        return L"Delete my directory and replace it with incoming directory";
-    case svn_client_conflict_option_incoming_added_dir_replace_and_merge:
-        return L"replace my directory with incoming directory and merge";
-
-    // Options for incoming delete vs any
-    case svn_client_conflict_option_incoming_delete_ignore:
-        return L"Ignore incoming deletion";
-    case svn_client_conflict_option_incoming_delete_accept:
-        return L"Accept incoming deletion";
-
-    // Options for incoming move vs local edit
-    case svn_client_conflict_option_incoming_move_file_text_merge:
-    case svn_client_conflict_option_incoming_move_dir_merge:
-            return L"Move and merge";
-    }
-
-    ATLASSERT(FALSE);
-    CString str;
-    str.Format(L"%d", id);
-    return str;
-}
-
 void CTreeConflictEditorDlg::DoModal(HWND parent)
 {
     auto path = m_conflictInfo->GetPath().GetFileOrDirectoryName();
@@ -200,10 +167,10 @@ void CTreeConflictEditorDlg::DoModal(HWND parent)
         AddCommandButton(buttonID, optLabel + L"\n" + optDescription);
     }
 
-    TASKDIALOGCONFIG taskConfig = {0};
+    TASKDIALOGCONFIG taskConfig = { 0 };
     taskConfig.cbSize = sizeof(taskConfig);
     taskConfig.hwndParent = parent;
-    taskConfig.dwFlags = TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_EXPANDED_BY_DEFAULT | TDF_SIZE_TO_CONTENT;
+    taskConfig.dwFlags = TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_EXPANDED_BY_DEFAULT | TDF_SIZE_TO_CONTENT;
     taskConfig.lpCallbackData = (LONG_PTR) this;
     taskConfig.pfCallback = TaskDialogCallback;
     taskConfig.pszWindowTitle = sDialogTitle;
@@ -211,7 +178,7 @@ void CTreeConflictEditorDlg::DoModal(HWND parent)
     taskConfig.pszExpandedInformation = sDetailedInfo;
     taskConfig.pszContent = sContent;
     taskConfig.pButtons = &m_buttons.front();
-    taskConfig.cButtons = (int) m_buttons.size();
+    taskConfig.cButtons = (int)m_buttons.size();
     taskConfig.dwCommonButtons = TDCBF_CANCEL_BUTTON;
     TaskDialogIndirect(&taskConfig, &button, NULL, NULL);
     if (button == IDCANCEL)
