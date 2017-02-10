@@ -1112,6 +1112,9 @@
     <ClCompile Include="..\SVN\SVNConflictInfo.cpp">
       <Filter>Subversion</Filter>
     </ClCompile>
+    <ClCompile Include="TextConflictEditorDlg.cpp">
+      <Filter>Commands\ConflictEditor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppUtils.h">
@@ -2130,6 +2133,9 @@
     </ClInclude>
     <ClInclude Include="..\SVN\SVNConflictInfo.h">
       <Filter>Subversion</Filter>
+    </ClInclude>
+    <ClInclude Include="TextConflictEditorDlg.h">
+      <Filter>Commands\ConflictEditor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

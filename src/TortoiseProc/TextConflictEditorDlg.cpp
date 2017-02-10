@@ -18,14 +18,14 @@
 //
 
 #include "stdafx.h"
-#include "PropConflictEditorDlg.h"
+#include "TextConflictEditorDlg.h"
 #include "CommonAppUtils.h"
 #include "TortoiseProc.h"
 #include "SVN.h"
 #include "AppUtils.h"
 #include "../Utils/CreateProcessHelper.h"
 
-CPropConflictEditorDlg::CPropConflictEditorDlg()
+CTextConflictEditorDlg::CTextConflictEditorDlg()
     : m_conflictInfo(NULL)
     , m_choice(svn_client_conflict_option_undefined)
     , m_bCancelled(false)
@@ -34,17 +34,17 @@ CPropConflictEditorDlg::CPropConflictEditorDlg()
 {
 }
 
-CPropConflictEditorDlg::~CPropConflictEditorDlg()
+CTextConflictEditorDlg::~CTextConflictEditorDlg()
 {
 }
 
-HRESULT CALLBACK CPropConflictEditorDlg::TaskDialogCallback(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam, LONG_PTR dwRefData)
+HRESULT CALLBACK CTextConflictEditorDlg::TaskDialogCallback(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam, LONG_PTR dwRefData)
 {
-    CPropConflictEditorDlg *pThis = reinterpret_cast<CPropConflictEditorDlg*>(dwRefData);
+    CTextConflictEditorDlg *pThis = reinterpret_cast<CTextConflictEditorDlg*>(dwRefData);
     return pThis->OnNotify(hWnd, uNotification, wParam, lParam);
 }
 
-HRESULT CPropConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM)
+HRESULT CTextConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM)
 {
     switch (uNotification)
     {
@@ -64,7 +64,7 @@ HRESULT CPropConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM w
             ASSERT(pApp->m_eHelpType == afxHTMLHelp);
 
             CString cmd;
-            cmd.Format(L"HH.exe -mapid %Iu \"%s\"", IDD_CONFLICTRESOLVE+ 0x20000, pApp->m_pszHelpFilePath);
+            cmd.Format(L"HH.exe -mapid %Iu \"%s\"", IDD_CONFLICTRESOLVE + 0x20000, pApp->m_pszHelpFilePath);
             if (!CCreateProcessHelper::CreateProcessDetached(NULL, cmd))
             {
                 cmd.ReleaseBuffer();
@@ -79,7 +79,7 @@ HRESULT CPropConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM w
     return S_OK;
 }
 
-void CPropConflictEditorDlg::AddCommandButton(int id, const CString & text)
+void CTextConflictEditorDlg::AddCommandButton(int id, const CString & text)
 {
     TASKDIALOG_BUTTON btn = { 0 };
     m_buttonTexts.push_back(text);
@@ -89,7 +89,7 @@ void CPropConflictEditorDlg::AddCommandButton(int id, const CString & text)
     m_buttons.push_back(btn);
 }
 
-HRESULT CPropConflictEditorDlg::OnDialogConstructed(HWND hWnd)
+HRESULT CTextConflictEditorDlg::OnDialogConstructed(HWND hWnd)
 {
     CCommonAppUtils::MarkWindowAsUnpinnable(hWnd);
 
@@ -100,13 +100,14 @@ HRESULT CPropConflictEditorDlg::OnDialogConstructed(HWND hWnd)
     return S_OK;
 }
 
-HRESULT CPropConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
+HRESULT CTextConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
 {
     if (id == 1000)
     {
         // Edit conflicts
         CTSVNPath theirs, mine, base;
-        m_conflictInfo->GetPropValFiles(m_propName, m_merged, base, theirs, mine);
+        m_merged = m_conflictInfo->GetPath();
+        m_conflictInfo->GetTextContentFiles(base, theirs, mine);
         m_mergedCreationTime = m_merged.GetLastWriteTime();
         ::SendMessage(hWnd, TDM_ENABLE_BUTTON, 100 + svn_client_conflict_option_merged_text, 0);
         CAppUtils::MergeFlags flags;
@@ -123,13 +124,9 @@ HRESULT CPropConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
 
         if (buttonID == id)
         {
-            if (optionId == svn_client_conflict_option_merged_text)
-            {
-                (*it)->SetMergedPropValFile(m_merged, m_options.GetPool());
-            }
             if (m_svn)
             {
-                if (!m_svn->ResolvePropConflict(*m_conflictInfo, m_propName, *it->get()))
+                if (!m_svn->ResolveTextConflict(*m_conflictInfo, *it->get()))
                 {
                     m_svn->ShowErrorDialog(hWnd);
                     return S_FALSE;
@@ -138,7 +135,7 @@ HRESULT CPropConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
             else
             {
                 SVN svn;
-                if (!svn.ResolvePropConflict(*m_conflictInfo, m_propName, *it->get()))
+                if (!svn.ResolveTextConflict(*m_conflictInfo, *it->get()))
                 {
                     svn.ShowErrorDialog(hWnd);
                     return S_FALSE;
@@ -152,7 +149,7 @@ HRESULT CPropConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
     return S_OK;
 }
 
-HRESULT CPropConflictEditorDlg::OnTimer(HWND hWnd)
+HRESULT CTextConflictEditorDlg::OnTimer(HWND hWnd)
 {
     if ((m_mergedCreationTime > 0) && m_merged.Exists() && (m_merged.GetLastWriteTime(true) > m_mergedCreationTime))
     {
@@ -163,24 +160,24 @@ HRESULT CPropConflictEditorDlg::OnTimer(HWND hWnd)
     return S_OK;
 }
 
-void CPropConflictEditorDlg::DoModal(HWND parent, int index)
+void CTextConflictEditorDlg::DoModal(HWND parent)
 {
     auto path = m_conflictInfo->GetPath().GetFileOrDirectoryName();
     CString sDialogTitle;
     sDialogTitle.LoadString(IDS_PROC_EDIT_TREE_CONFLICTS);
     sDialogTitle = CCommonAppUtils::FormatWindowTitle(path, sDialogTitle);
 
-    if (!m_conflictInfo->GetPropResolutionOptions(m_options))
+    if (!m_conflictInfo->GetTextResolutionOptions(m_options))
     {
         m_conflictInfo->ShowErrorDialog(parent);
     }
 
-    m_propName = m_conflictInfo->GetPropConflictName(index);
     CString sMainInstruction;
-    sMainInstruction.Format(IDS_EDITCONFLICT_PROP_MAININSTRUCTION, (LPCWSTR)m_propName);
-    CString sContent = m_conflictInfo->GetPropDescription();
-    sContent += L"\n" + m_conflictInfo->GetPath().GetUIPathString();
-    CString sDetailedInfo = CString(MAKEINTRESOURCE(IDS_EDITCONFLICT_PROP_DIFF)) + m_conflictInfo->GetPropDiff(m_propName);
+    if (m_conflictInfo->IsBinary())
+        sMainInstruction.Format(IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION, (LPCWSTR)path);
+    else
+        sMainInstruction.Format(IDS_EDITCONFLICT_TEXT_MAININSTRUCTION, (LPCWSTR)path);
+    CString sContent = m_conflictInfo->GetPath().GetUIPathString();
 
     for (SVNConflictOptions::const_iterator it = m_options.begin(); it != m_options.end(); ++it)
     {
@@ -199,12 +196,11 @@ void CPropConflictEditorDlg::DoModal(HWND parent, int index)
     TASKDIALOGCONFIG taskConfig = { 0 };
     taskConfig.cbSize = sizeof(taskConfig);
     taskConfig.hwndParent = parent;
-    taskConfig.dwFlags = TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_EXPAND_FOOTER_AREA | TDF_CALLBACK_TIMER;
+    taskConfig.dwFlags = TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_CALLBACK_TIMER;
     taskConfig.lpCallbackData = (LONG_PTR) this;
     taskConfig.pfCallback = TaskDialogCallback;
     taskConfig.pszWindowTitle = sDialogTitle;
     taskConfig.pszMainInstruction = sMainInstruction;
-    taskConfig.pszExpandedInformation = sDetailedInfo;
     taskConfig.pszContent = sContent;
     taskConfig.pButtons = &m_buttons.front();
     taskConfig.cButtons = (int)m_buttons.size();
