@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2012, 2014-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,6 +26,7 @@ CSimplePrompt::CSimplePrompt(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CSimplePrompt::IDD, pParent)
     , m_bSaveAuthentication(FALSE)
     , m_hParentWnd(NULL)
+    , m_bHideAuthSaveCheck(false)
 {
 }
 
@@ -61,6 +62,8 @@ BOOL CSimplePrompt::OnInitDialog()
         m_bSaveAuthentication = SVNConfig::Instance().ConfigGetBool(SVN_CONFIG_SECTION_AUTH, SVN_CONFIG_OPTION_STORE_PASSWORDS, true);
         CheckDlgButton(IDC_SAVECHECK, m_bSaveAuthentication ? BST_CHECKED : BST_UNCHECKED);
     }
+    if (m_bHideAuthSaveCheck)
+        GetDlgItem(IDC_SAVECHECK)->ShowWindow(SW_HIDE);
 
     GetDlgItem(IDC_USEREDIT)->SetFocus();
     if ((m_hParentWnd==NULL)&&(GetExplorerHWND()))
