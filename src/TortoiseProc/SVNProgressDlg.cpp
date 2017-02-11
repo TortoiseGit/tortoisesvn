@@ -51,6 +51,7 @@
 #include "RecycleBinDlg.h"
 #include "BrowseFolder.h"
 #include <strsafe.h>
+#include "SimplePrompt.h"
 
 BOOL    CSVNProgressDlg::m_bAscending = FALSE;
 int     CSVNProgressDlg::m_nSortedColumn = -1;
@@ -106,6 +107,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , m_BugTraqProvider(NULL)
     , m_bHookError(false)
     , m_bNoHooks(false)
+    , m_bAuthorizationError(false)
     , m_bRetryDone(false)
     , m_bExtDataAdded(false)
     , m_bHideExternalInfo(true)
@@ -164,6 +166,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
     ON_MESSAGE(WM_SHOWCONFLICTRESOLVER, OnShowConflictResolver)
     ON_REGISTERED_MESSAGE(WM_TASKBARBTNCREATED, OnTaskbarBtnCreated)
     ON_BN_CLICKED(IDC_RETRYNOHOOKS, &CSVNProgressDlg::OnBnClickedRetrynohooks)
+    ON_BN_CLICKED(IDC_RETRYDIFFERENTUSER, &CSVNProgressDlg::OnBnClickedRetryDifferentUser)
     ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CSVNProgressDlg::OnCheck)
     ON_REGISTERED_MESSAGE(WM_RESOLVEMSG, &CSVNProgressDlg::OnResolveMsg)
 END_MESSAGE_MAP()
@@ -1108,6 +1111,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_PROGRESSLABEL);
     m_aeroControls.SubclassControl(this, IDC_JUMPCONFLICT);
     m_aeroControls.SubclassControl(this, IDC_RETRYNOHOOKS);
+    m_aeroControls.SubclassControl(this, IDC_RETRYDIFFERENTUSER);
     m_aeroControls.SubclassControl(this, IDC_PROGRESSBAR);
     m_aeroControls.SubclassControl(this, IDC_INFOTEXT);
     m_aeroControls.SubclassControl(this, IDC_NONINTERACTIVE);
@@ -1173,6 +1177,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
     AddAnchor(IDC_JUMPCONFLICT, BOTTOM_CENTER, BOTTOM_RIGHT);
     AddAnchor(IDC_PROGRESSBAR, BOTTOM_CENTER, BOTTOM_RIGHT);
     AddAnchor(IDC_RETRYNOHOOKS, BOTTOM_RIGHT);
+    AddAnchor(IDC_RETRYDIFFERENTUSER, BOTTOM_RIGHT);
     AddAnchor(IDC_INFOTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_NONINTERACTIVE, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -1207,6 +1212,19 @@ bool CSVNProgressDlg::SetBackgroundImage(UINT nID)
 void CSVNProgressDlg::ReportSVNError()
 {
     ReportError(GetLastErrorMessage());
+    auto Err = GetSVNError();
+    if (Err)
+    {
+        switch (Err->apr_err)
+        {
+            case SVN_ERR_RA_NOT_AUTHORIZED:
+            case SVN_ERR_RA_DAV_FORBIDDEN:
+            {
+                m_bAuthorizationError = true;
+            }
+            break;
+        }
+    }
 }
 
 void CSVNProgressDlg::ReportError(const CString& sError)
@@ -1456,6 +1474,8 @@ UINT CSVNProgressDlg::ProgressThread()
     }
     if (m_bHookError && m_bHooksAreOptional)
         GetDlgItem(IDC_RETRYNOHOOKS)->ShowWindow(SW_SHOW);
+    else if (m_bAuthorizationError && !PromptShown())
+        GetDlgItem(IDC_RETRYDIFFERENTUSER)->ShowWindow(SW_SHOW);
 
     CString info = BuildInfoString();
     if (!bSuccess)
@@ -1544,6 +1564,7 @@ void CSVNProgressDlg::OnBnClickedRetrynohooks()
     if ((pWndButton==nullptr) || !pWndButton->IsWindowVisible())
         return;
     ResetVars();
+    m_bNoHooks = true;
 
     m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
     if (m_pThread==NULL)
@@ -1558,6 +1579,33 @@ void CSVNProgressDlg::OnBnClickedRetrynohooks()
     }
     if (pWndButton)
         pWndButton->ShowWindow(SW_HIDE);
+}
+
+void CSVNProgressDlg::OnBnClickedRetryDifferentUser()
+{
+    if (!m_bAuthorizationError)
+        return;
+    CSimplePrompt dlg(this);
+    dlg.HideAuthSaveCheckbox(true);
+    if (dlg.DoModal() == IDOK)
+        this->SetAuthInfo(dlg.m_sUsername, dlg.m_sPassword);
+    else
+        return;
+
+    ResetVars();
+
+    m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
+    if (m_pThread == NULL)
+    {
+        ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
+        return;
+    }
+    else
+    {
+        m_pThread->m_bAutoDelete = FALSE;
+        m_pThread->ResumeThread();
+    }
+    GetDlgItem(IDC_RETRYDIFFERENTUSER)->ShowWindow(SW_HIDE);
 }
 
 void CSVNProgressDlg::OnClose()
@@ -3997,6 +4045,7 @@ void CSVNProgressDlg::ResetVars()
     m_bHookError = false;
     m_bHooksAreOptional = true;
     m_bExternalStartInfoShown = false;
+    m_bAuthorizationError = false;
 
     m_ProgList.SetRedraw(FALSE);
     m_ProgList.DeleteAllItems();
@@ -4009,8 +4058,6 @@ void CSVNProgressDlg::ResetVars()
     m_arData.clear();
 
     m_ProgList.SetRedraw(TRUE);
-
-    m_bNoHooks = true;
 
     SetTimer(VISIBLETIMER, 300, NULL);
     SetDlgItemText(IDC_INFOTEXT, L"");

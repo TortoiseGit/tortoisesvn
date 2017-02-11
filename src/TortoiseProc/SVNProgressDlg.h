@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -251,6 +251,7 @@ protected:
     afx_msg LRESULT OnTaskbarBtnCreated(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/);
     afx_msg void    OnBnClickedRetrynohooks();
+    afx_msg void    OnBnClickedRetryDifferentUser();
     afx_msg LRESULT OnCheck(WPARAM wnd, LPARAM);
     afx_msg LRESULT OnResolveMsg(WPARAM, LPARAM);
 
@@ -378,6 +379,7 @@ private:
     bool                    m_bHookError;
     bool                    m_bNoHooks;
     bool                    m_bHooksAreOptional;
+    bool                    m_bAuthorizationError;
 
     int                     iFirstResized;
     BOOL                    bSecondResized;
