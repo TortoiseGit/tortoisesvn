@@ -3057,6 +3057,9 @@ void SVN::SetAuthInfo(const CString& username, const CString& password)
 {
     if (m_pctx)
     {
+        svn_auth_forget_credentials(m_pctx->auth_baton, nullptr, nullptr, m_pool);
+        svn_auth_set_parameter(m_pctx->auth_baton, SVN_AUTH_PARAM_DONT_STORE_PASSWORDS, "");
+        svn_auth_set_parameter(m_pctx->auth_baton, SVN_AUTH_PARAM_NO_AUTH_CACHE, "");
         if (!username.IsEmpty())
         {
             svn_auth_set_parameter(m_pctx->auth_baton,
