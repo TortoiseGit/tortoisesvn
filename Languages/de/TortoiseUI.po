@@ -18,9 +18,11 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2016
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2017
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015-2016
-# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015, 2016
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015-2016, 2017
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015, 2016-2017
+# Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2016, 2017
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012-2015
 # peu <peu@rekoba.de>, 2013
 # peu <peu@rekoba.de>, 2013
@@ -31,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-02-11 08:14+0000\n"
+"PO-Revision-Date: 2017-02-13 10:15+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -314,7 +316,7 @@ msgstr "&..."
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
+msgstr "&Abbrechen\nSie die Ursache für den Fehler im Aktionsskript beseitigen."
 
 #. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
@@ -324,7 +326,7 @@ msgstr "Ü&ber TortoiseMerge..."
 msgid ""
 "&Accept the certificate\n"
 "The certificate is accepted only this one time."
-msgstr ""
+msgstr "Zertifikat &akzeptieren\nDas Zertifikat wird für diese Aktion einmalig akzeptiert."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -346,7 +348,7 @@ msgstr "Filter &hinzufügen"
 msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
-msgstr ""
+msgstr "&Objekt hinzufügen\nDies führt zu Problemen unter Windows."
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -486,133 +488,133 @@ msgstr "&Abbrechen"
 msgid ""
 "&Cancel\n"
 "Choose a different folder to export to"
-msgstr ""
+msgstr "&Abbrechen\nEinen anderen Ordner für den Export wählen."
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not commit to a tag."
-msgstr ""
+msgstr "&Abbrechen\nNicht an eine Marke übertragen."
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not remove"
-msgstr ""
+msgstr "&Abbrechen\nNicht entfernen."
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not revert."
-msgstr ""
+msgstr "&Abbrechen\nNicht rückgängig machen."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not update the working copy."
-msgstr ""
+msgstr "&Abbrechen\nDie Arbeitskopie nicht aktualisieren."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't resolve the item."
-msgstr ""
+msgstr "&Abbrechen\nDas Objekt nicht auflösen."
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "&Abbrechen\nDie Unterschiede nicht anzeigen."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and enter an issue number."
-msgstr ""
+msgstr "&Abbrechen\nZurückgehen und eine Ticketnummer eintragen."
 
 #. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and select a different folder."
-msgstr ""
+msgstr "&Abbrechen\nZurückgehen und einen anderen Ordner wählen"
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
 msgid ""
 "&Cancel\n"
 "I will enter a different path/URL."
-msgstr ""
+msgstr "&Abbrechen\nEinen anderen Pfad/URL eingeben."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
 msgid ""
 "&Cancel\n"
 "Keep the current URL."
-msgstr ""
+msgstr "&Abbrechen\nDie aktuelle URL beibehalten."
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
 msgid ""
 "&Cancel\n"
 "Leave the cache on disk."
-msgstr ""
+msgstr "&Abbrechen\nDen Cache auf der Festplatte behalten."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
 msgid ""
 "&Cancel\n"
 "Local modifications are kept."
-msgstr ""
+msgstr "&Abbrechen\nLokale Änderungen beibehalten."
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
 msgid ""
 "&Cancel\n"
 "The conflict is not resolved."
-msgstr ""
+msgstr "&Abbrechen\nDer Konflikt wird nicht aufgelöst."
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "The file is not copied."
-msgstr ""
+msgstr "&Abbrechen\nDie Datei wird nicht kopiert."
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
 msgid ""
 "&Cancel\n"
 "The folder is not exported."
-msgstr ""
+msgstr "&Abbrechen\nDer Ordner wird nicht exportiert."
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
 msgid ""
 "&Cancel\n"
 "The items are not imported."
-msgstr ""
+msgstr "&Abbrechen\nDie Objekte werden nicht importiert."
 
 #. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
 msgid ""
 "&Cancel\n"
 "The tagged revision of the external is left as is."
-msgstr ""
+msgstr "&Abbrechen\nDie Markierte Revision des Externals wird nicht geändert."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
 msgid ""
 "&Cancel\n"
 "The target file is left as is"
-msgstr ""
+msgstr "&Abbrechen\nDie Zieldatei wird nicht verändert."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to add the folder manually."
-msgstr ""
+msgstr "&Abbrechen\nSie müssen den Ordner manuell angeben."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr ""
+msgstr "&Abbrechen\nSie müssen selbst aktualisieren, um die Externals zu erhalten."
 
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
 msgid ""
 "&Cancel\n"
 "keep the current format."
-msgstr ""
+msgstr "&Abbrechen\nDas aktuelle Format beibehalten."
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -756,7 +758,7 @@ msgstr "&Löschen..."
 msgid ""
 "&Delete\n"
 "Remove the cache files."
-msgstr ""
+msgstr "&Löschen\nLöscht den Cache."
 
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
@@ -786,7 +788,7 @@ msgstr "&Andocken"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "&Nicht starten\nDas Skript nicht ausführen."
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -851,7 +853,7 @@ msgstr "&Exportiere Auswahl in..."
 msgid ""
 "&Export\n"
 "Export into the non-empty folder."
-msgstr ""
+msgstr "&Export\nIn den nicht leeren Ordner exportieren."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -1008,7 +1010,7 @@ msgstr "&Import..."
 msgid ""
 "&Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr ""
+msgstr "&Import\nDie Objekte werden importiert und erzeugen eine neue Revision für jedes Objekt."
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1270,19 +1272,19 @@ msgstr "Bilder ü&berlagern\t(B)"
 msgid ""
 "&Overwrite\n"
 "Replace the target folder."
-msgstr ""
+msgstr "&Überschreiben\nErsetzt den Zielordner"
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file gets replaced"
-msgstr ""
+msgstr "&Überschreiben\nErsetzt die Zieldatei"
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file is replaced."
-msgstr ""
+msgstr "&Überschreiben\nErsetzt die Zieldatei"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
@@ -1334,23 +1336,23 @@ msgstr "&Drucken..."
 msgid ""
 "&Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr ""
+msgstr "&Weitermachen\nDas Aktionsskript ignorieren und den Befehl trotzdem ausführen."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
 msgid ""
 "&Proceed with the entered path\n"
 "I'm aware of the possible problems."
-msgstr ""
+msgstr "&Mit dem eingegebenen Pfad fortfahren\nIch bin mir der möglichen Probleme bewusst."
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
 msgid "&Proceed with the merge."
-msgstr ""
+msgstr "&Mit dem Zusammenführen fortfahren."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
 msgid ""
 "&Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr ""
+msgstr "&Ohne Ticketnummer fortfahren\nDie Übertragung wird nicht mit einem Ticket verbunden."
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1382,17 +1384,17 @@ msgstr "&Aktualisieren"
 msgid ""
 "&Reject the certificate\n"
 "Cancel the connection."
-msgstr ""
+msgstr "&Das Zertifikat ablehnen\nDie Verbindung abbrechen."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
 msgid ""
 "&Relocate\n"
 "The working copy is relocated to the new URL."
-msgstr ""
+msgstr "&Umplatzieren\nDie Arbeitskopie wird mit der neuen URL verknüpft."
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
-msgstr "&Erinnere mich daran, eine Problem-ID einzugeben"
+msgstr "&Erinnere mich daran, eine Ticket-Id einzugeben"
 
 #. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
@@ -1404,7 +1406,7 @@ msgstr "Ent&fernen"
 msgid ""
 "&Remove from version control\n"
 "All .svn folders are removed"
-msgstr ""
+msgstr "&Aus der Versionskontrolle entfernen\nAlle .svn Ordner werden entfernt."
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
@@ -1414,13 +1416,13 @@ msgstr "Projekt &entfernen"
 msgid ""
 "&Remove\n"
 "Force the removal"
-msgstr ""
+msgstr "&Entfernen\nErzwingt das Entfernen."
 
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
 msgid ""
 "&Remove\n"
 "Remove the property only from this item."
-msgstr ""
+msgstr "&Entfernen\nEntfernt nur von diesem Objekt die Eigenschaft."
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK3)
 msgid ""
@@ -1437,7 +1439,7 @@ msgstr "&Umbenennen"
 msgid ""
 "&Rename\n"
 "The folder is exported as '%ls'."
-msgstr ""
+msgstr "&Umbenennen\nDer Ordner wird als '%ls' exportiert."
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1467,7 +1469,7 @@ msgstr "&Auf Standardwerte setzen"
 msgid ""
 "&Resolve\n"
 "The item is marked as resolved."
-msgstr ""
+msgstr "&Auflösen\nDas Objekt wird als aufgelöst markiert."
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
@@ -1494,7 +1496,7 @@ msgstr "Änderungen dieser Revision &rückgängig machen"
 msgid ""
 "&Revert\n"
 "Changes will be applied to the working copy."
-msgstr ""
+msgstr "&Rückgängig\nÄnderungen werden auf die Arbeitskopie angewendet."
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
@@ -1510,7 +1512,7 @@ msgstr "&Revision"
 msgid ""
 "&Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "&Ausführen\nDas Aktionsskript ausführen."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -1750,19 +1752,19 @@ msgstr "&Aktualisiere zu Revision..."
 msgid ""
 "&Update\n"
 "Update the file and try locking again."
-msgstr ""
+msgstr "&Aktualisieren\nAktualisiere die Datei und versuche erneut zu sperren."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
 msgid ""
 "&Update\n"
 "Update the working copy and reopen the commit dialog to try again."
-msgstr ""
+msgstr "&Aktualisiere\nAktualisiere die Arbeitskopie und öffne den Übertragen Dialog erneut."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
 msgid ""
 "&Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "&Aktualisiere\nAktualisiere zur HEAD Revision."
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -2098,7 +2100,7 @@ msgstr "Über TortoiseSVN"
 msgid ""
 "Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr ""
+msgstr "Akzeptiere das Zertifikat &permanent\nSie werden nicht noch einmal nach diesem Zertifikat gefragt."
 
 #. Resource IDs: (61861)
 #, c-format
@@ -2136,7 +2138,7 @@ msgstr "ActiveX Objekte können nicht gespeichert werden, während Windows beend
 msgid ""
 "Ad&just case\n"
 "The file is not added."
-msgstr ""
+msgstr "&Schreibweise anpassen\nDie Datei wird nicht hinzugefügt."
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
@@ -2723,24 +2725,24 @@ msgstr "Suchen..."
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1119, Dialog IDD_COPY:
 #. Control id 1119, Dialog IDD_INPUTLOGDLG: Control id 1119)
 msgid "Bug-&ID / Issue-Nr:"
-msgstr "Problem-&ID:"
+msgstr "Ticket-&Id:"
 
 #. Resource IDs: (IDS_LOG_BUGIDS)
 msgid "Bug-ID"
-msgstr "Problem-ID"
+msgstr "Ticket-Id"
 
 #. Resource IDs: (Dialog IDD_BUGTRAQREGEXTESTER: Control id 1578, Dialog
 #. IDD_EDITPROPBUGTRAQ: Control id 1578)
 msgid "Bug-ID e&xpression:"
-msgstr "Problem-ID &RegEx:"
+msgstr "Ticket-Id &RegEx:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1119)
 msgid "Bug-ID is:"
-msgstr "Problem-ID ist:"
+msgstr "Ticket-Id ist:"
 
 #. Resource IDs: (IDS_LOG_FILTER_BUGIDS)
 msgid "Bug-IDs"
-msgstr "Problem-IDs"
+msgstr "Ticket-Ids"
 
 #. Resource IDs: (Dialog IDD_BUGTRAQREGEXTESTER: Control id 327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -2972,7 +2974,7 @@ msgstr "Zertifikate|*.p12;*.pkcs12;*.pfx|Alle Dateien|*.*||"
 msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
+msgstr "Die markierte Revision &ändern\nDie svn:external Eigenschaft des Elternordner wird angepasst."
 
 #. Resource IDs: (10000)
 msgid ""
@@ -3080,7 +3082,7 @@ msgstr "Arbeitskopie auf Änderungen überprüfen"
 msgid ""
 "Check&out\n"
 "Checkout into the non empty folder."
-msgstr ""
+msgstr "&Auschecken\nIn den nicht leeren Ordner auschecken."
 
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
@@ -3103,7 +3105,7 @@ msgstr "Überprüfe Projekt '%ls' auf Aktualisierungen..."
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS)
 #, c-format
 msgid "Checking r%1!ld!..."
-msgstr ""
+msgstr "Prüfe r%1!ld!..."
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -3371,13 +3373,13 @@ msgstr "Befehle"
 msgid ""
 "Commi&t only the folder\n"
 "Files inside the folder won't get committed."
-msgstr ""
+msgstr "&Nur den Ordner übertragen\nDateien innerhalb des Ordners werden nicht übertragen."
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
 msgid ""
 "Commi&t\n"
 "Commit the changes to the target."
-msgstr ""
+msgstr "Ü&bertragen\nDie Änderungen an das Ziel übertragen."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
@@ -3542,7 +3544,7 @@ msgstr "Zurücknehmen bestätigen"
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_MAININSTRUCTION)
 #, c-format
 msgid "Conflict for property \"%s\" discovered"
-msgstr ""
+msgstr "Konflikt für die Eigenschaft \"%s\" erkannt"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Conflict resolved"
@@ -4636,7 +4638,7 @@ msgstr "Bearbeiten..."
 msgid ""
 "Edit\n"
 "change merged property value in editor"
-msgstr ""
+msgstr "Bearbeiten\nDie zusammengeführte Eigenschaft im Editor bearbeiten"
 
 #. Resource IDs: (IDS_PROP_TT_EDIT)
 msgid "Edits the selected property value"
@@ -4838,7 +4840,7 @@ msgstr "Geben Sie den RegEx Text hier ein:"
 msgid ""
 "Enter the regular expression patterns for filtering out the bug-ID from a "
 "commit message."
-msgstr "Geben Sie die regulären Ausdrücke zum Herausfiltern der Problem-ID aus einer Logmeldung an."
+msgstr "Geben Sie die regulären Ausdrücke zum Herausfiltern der Ticket-Id aus einer Logmeldung an."
 
 #. Resource IDs: (57633)
 msgid ""
@@ -4874,7 +4876,7 @@ msgstr "Fehler beim Lesen/Schreiben des Registryschlüssels %1!ls!\n%2!ls!"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK1)
 msgid "Every commit should be assigned to an issue."
-msgstr "Jeder Übertragung sollte eine Problem-ID zugewiesen werden."
+msgstr "Jeder Übertragung sollte eine Ticket-Id zugewiesen werden."
 
 #. Resource IDs: (ID_NEW_EXTERNALS - Menu)
 msgid "Ex&ternals"
@@ -6085,7 +6087,7 @@ msgstr "Ignorieren\nÄnderungen von außerhalb ignorieren."
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
-msgstr ""
+msgstr "Änderungen an Kommentaren ignorieren\nKommentare ignorieren"
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -6772,7 +6774,7 @@ msgstr "Markiere alle Projekte als gelesen\nDrücken Sie die Umschalt-Taste, um 
 msgid ""
 "Mark as &resolved\n"
 "The conflict is resolved."
-msgstr ""
+msgstr "Als aufgelöst &markieren\nDer Konflikt ist aufgelöst."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
 #. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
@@ -6906,12 +6908,12 @@ msgstr "Änderungen in der Arbeitskopie zusammenführen"
 #. Resource IDs: (IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION)
 #, c-format
 msgid "Merge conflict discovered in binary file %s"
-msgstr ""
+msgstr "Konflikt beim Zusammenführen in Binärdatei %s"
 
 #. Resource IDs: (IDS_EDITCONFLICT_TEXT_MAININSTRUCTION)
 #, c-format
 msgid "Merge conflict discovered in file %s"
-msgstr ""
+msgstr "Konflikt beim Zusammenführen in Datei %s"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
 msgid "Merge non-interactive"
@@ -8202,7 +8204,7 @@ msgstr "Eigenschaften:"
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
 msgid "Property diff:\n"
-msgstr ""
+msgstr "Eigenschafts-Diff:\n"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -8368,7 +8370,7 @@ msgstr "Rechteckwerkzeug\nRechteck"
 msgid ""
 "Recur&sive\n"
 "Remove the property also from items in Subfolders."
-msgstr ""
+msgstr "Rekur&siv\nDie Eigenschaft auch von Objekten in Unterordnern entfernen."
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1260)
 msgid "Recurse into unversioned folders"
@@ -9102,7 +9104,7 @@ msgid ""
 "Fixes issue #202\n"
 "Resolves issue #88.\n"
 "Closes issue #99.\n"
-msgstr "Beispiel-Logmeldung zum Test der bugtraq:regex Zeichenfolgen.\n\nTest von Eintragsnummern, die im Text erwähnt werden: Eintrag #55. Fehler Nummer #77,#78.\n\nAktualisiere Eintrag #101\nBehebt Eintrag #202\nLöst Eintrag #88.\nSchließt Eintrag #99.\n"
+msgstr "Beispiel-Logmeldung zum Test der bugtraq:regex Zeichenfolgen.\n\nTest von Ticket-Ids, die im Text erwähnt werden: Ticket #55. Ticket Nummer #77,#78.\n\nAktualisiere Ticket #101\nBehebt Ticket #202\nLöst Ticket #88.\nSchließt Ticket #99.\n"
 
 #. Resource IDs: (Dialog IDD_BUGTRAQREGEXTESTER: Control id 1612)
 msgid "Sample text:"
@@ -9795,7 +9797,7 @@ msgstr "Zeige Marken an der Quelle, nicht als separate Knoten"
 msgid ""
 "Show the &diff\n"
 "The diff viewer is started for every selected item."
-msgstr ""
+msgstr "&Diff anzeigen\nDas Vergleichsprogramm wird für jeden gewählten Eintrag gestartet."
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_SHOWCOL)
 msgid "Show/Hide"
@@ -9986,13 +9988,13 @@ msgid ""
 "Specify how the commit message should be built from the entered bug-ID. Use "
 "the placeholder %BUGID% for the real bug-ID. If you leave these settings "
 "empty, TortoiseSVN will use the regular expressions instead."
-msgstr "Geben Sie an, wie die Logmeldung aus der angegebenen Problem-ID zusammengesetzt werden soll. Verwenden Sie %BUGID% als Platzhalter für die Problem-ID. Falls Sie diese Felder leer lassen, wird TortoiseSVN stattdessen die regulären Ausdrücke verwenden"
+msgstr "Geben Sie an, wie die Logmeldung aus der angegebenen Ticket-Id zusammengesetzt werden soll. Verwenden Sie %BUGID% als Platzhalter für die Ticket-Id. Falls Sie diese Felder leer lassen, wird TortoiseSVN stattdessen die regulären Ausdrücke verwenden"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1305)
 msgid ""
 "Specify the URL to access the issue tracker. Use %BUGID% as a placeholder "
 "for the real issue number."
-msgstr "Geben Sie die URL zum Zugriff auf das Fehlerverfolgungssystem an. Verwenden Sie %BUGID% als Platzhalter für die Problem-ID."
+msgstr "Geben Sie die URL zum Zugriff auf das Fehlerverfolgungssystem an. Verwenden Sie %BUGID% als Platzhalter für die Ticket-Id."
 
 #. Resource IDs: (IDS_SETTINGS_TEMPEXTENSIONS_TT)
 msgid ""
@@ -11331,7 +11333,7 @@ msgid ""
 "Unknown certificate issuer.\n"
 "  Fingerprint: %1!ls!\n"
 "  Distinguished name: %2!ls!"
-msgstr "Zertifikat von unbekannter Stelle zertifiziert.\n  Fingerabdruck: %1!ls!\n  Ermittelter Name: %2!ls!"
+msgstr "Zertifikat von unbekannter Stelle herausgegeben.\n  Fingerabdruck: %1!ls!\n  Ermittelter Name: %2!ls!"
 
 #. Resource IDs: (IDS_SVN_DEPTH_UNKNOWN)
 msgid "Unknown depth"
@@ -12004,7 +12006,7 @@ msgstr "Sie müssen erst Ihre Arbeitskopie aktualisieren."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK2)
 msgid "You haven't entered an issue number."
-msgstr "Sie haben keine Problem-ID eingegeben."
+msgstr "Sie haben keine Ticket-Id eingegeben."
 
 #. Resource IDs: (16024)
 #, c-format
@@ -12250,7 +12252,7 @@ msgstr "bugtraq:append\r\nAuf 'false' setzen, wenn Sie die bugtraq:message am An
 msgid ""
 "bugtraq:label\r\n"
 "Label text to show for the edit box where the user enters the issue number."
-msgstr "bugtraq:label\r\nBeschriftung für das Eingabefeld der Problem-ID."
+msgstr "bugtraq:label\r\nBeschriftung für das Eingabefeld der Ticket-Id."
 
 #. Resource IDs: (IDS_PROP_TT_BQLOGREGEX)
 msgid ""
@@ -12258,7 +12260,7 @@ msgid ""
 "two regular expressions separated by a newline.\r\n"
 "The first expression is used to find a string referring to an issue,\r\n"
 "the second expression is used to extract the bare bug ID from that string."
-msgstr "bugtraq:logregex\r\nzwei durch eine Leerzeile getrennte reguläre Ausdrücke.\r\nDer erste Ausdruck dient dazu, eine Zeichenkette, die sich auf\r\neinen Eintrag bezieht, zu finden. Der zweite Ausdruck wird\r\nverwendet, um die Eintrags-ID aus der Zeichenkette zu extrahieren."
+msgstr "bugtraq:logregex\r\nzwei durch eine Leerzeile getrennte reguläre Ausdrücke.\r\nDer erste Ausdruck dient dazu, eine Zeichenkette, die sich auf\r\neinen Eintrag bezieht, zu finden. Der zweite Ausdruck wird\r\nverwendet, um die Ticket-Id aus der Zeichenkette zu extrahieren."
 
 #. Resource IDs: (IDS_PROP_TT_BQMESSAGE)
 #, c-format
@@ -12266,7 +12268,7 @@ msgid ""
 "bugtraq:message\r\n"
 "String which is appended to a log message when an issue number is entered.\r\n"
 "The string must contain '%BUGID%' which gets replaced with the issue number."
-msgstr "bugtraq:message\r\nZeichenkette, die an eine Logmeldung angefügt wird, wenn eine ID angegeben wird.\r\nDie Zeichenkette muss '%BUGID%' enthalten, welches dann durch die eingegebene ID ersetzt wird."
+msgstr "bugtraq:message\r\nZeichenkette, die an eine Logmeldung angefügt wird, wenn eine Ticket-Id angegeben wird.\r\nDie Zeichenkette muss '%BUGID%' enthalten, welches dann durch die eingegebene Ticket-Id ersetzt wird."
 
 #. Resource IDs: (IDS_PROP_TT_BQNUMBER)
 msgid ""
@@ -12292,7 +12294,7 @@ msgid ""
 "bugtraq:url\r\n"
 "URL pointing to the issue tracker. It must contain '%BUGID%' which\r\n"
 "gets replaced with the issue number."
-msgstr "bugtraq:url\r\nURL, die zum Fehlerverfolgungssystem zeigt. Muss '%BUGID%\r\nenthalten, welches dann durch die eingegebene Problem-ID ersetzt wird."
+msgstr "bugtraq:url\r\nURL, die zum Fehlerverfolgungssystem zeigt. Muss '%BUGID%\r\nenthalten, welches dann durch die eingegebene Ticket-Id ersetzt wird."
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "changes total: "
@@ -12922,7 +12924,7 @@ msgstr "tsvn:projectlanguage\r\nSetzen Sie diese Eigenschaft auf die vierstellig
 msgid ""
 "tsvn:warnifnoissue\r\n"
 "Set to 'yes' if a warning shall be shown when no issue is entered in the commit dialog."
-msgstr "tsvn:warnifnoissue\r\nAuf 'yes' setzen, wenn eine Warnung ausgegeben werden soll, falls keine Problem-ID im Übertragen-Dialog eingegeben wird."
+msgstr "tsvn:warnifnoissue\r\nAuf 'yes' setzen, wenn eine Warnung ausgegeben werden soll, falls keine Ticket-Id im Übertragen-Dialog eingegeben wird."
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "user revprops total: "
