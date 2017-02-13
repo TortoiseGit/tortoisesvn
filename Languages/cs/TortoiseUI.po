@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2016 the TortoiseSVN team
+# Copyright (C) 2004-2017 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-08 10:01+0000\n"
+"PO-Revision-Date: 2017-02-11 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -255,106 +255,6 @@ msgstr "%ls : Pracovní originál"
 msgid "%ls : Working Copy"
 msgstr "%ls : Pracovní Kopie"
 
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_UNVERSIONED)
-#, c-format
-msgid "%ls, but the directory already exists unversioned locally."
-msgstr "%ls, ale adresář již lokálně existuje bez verze"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSINGMOVED)
-#, c-format
-msgid "%ls, but the directory is missing locally (deleted or moved away?)."
-msgstr "%ls, ale místní adresář chybí (smazán nebo přesunut?)."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSING)
-#, c-format
-msgid "%ls, but the directory is missing locally."
-msgstr "%ls, ale lokální adresář chybí."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_ADDED)
-#, c-format
-msgid "%ls, but the directory was already added locally."
-msgstr "%ls, ale adresář již byl lokálně přidán."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_EDITED)
-#, c-format
-msgid "%ls, but the directory was already edited."
-msgstr "%ls, ale adresář již byl dříve upraven."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_DELETED)
-#, c-format
-msgid "%ls, but the directory was deleted, moved or renamed locally."
-msgstr "%ls, ale adresář již byl lokálně smazán, přesunut nebo přejmenován."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDAWAY)
-#, c-format
-msgid "%ls, but the directory was moved away"
-msgstr "%ls, ale adresář byl přesunut"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDHERE)
-#, c-format
-msgid "%ls, but the directory was moved here"
-msgstr "%ls, ale adresář byl přesunut sem"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_OBSTRUCTED)
-#, c-format
-msgid "%ls, but the directory was obstructed in the working copy."
-msgstr "%ls, ale adresář překážel v pracovní kopii."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_REPLACED)
-#, c-format
-msgid "%ls, but the directory was replaced"
-msgstr "%ls, ale adresář byl nahrazen."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_UNVERSIONED)
-#, c-format
-msgid "%ls, but the file already exists unversioned locally."
-msgstr "%ls, ale soubor již lokálně existuje bez verze."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSINGMOVED)
-#, c-format
-msgid "%ls, but the file is missing locally (deleted or moved away?)."
-msgstr "%ls, ale místní soubor chybí (smazán nebo přesunut?)."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSING)
-#, c-format
-msgid "%ls, but the file is missing locally."
-msgstr "%ls, ale soubor chybí lokálně."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_ADDED)
-#, c-format
-msgid "%ls, but the file was already added locally."
-msgstr "%ls, ale soubor již byl lokálně přidán."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_EDITED)
-#, c-format
-msgid "%ls, but the file was already edited."
-msgstr "%ls, ale soubor již byl dříve upraven."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_DELETED)
-#, c-format
-msgid "%ls, but the file was deleted, moved or renamed locally."
-msgstr "%ls, ale soubor již byl lokálně smazán, přesunut nebo přejmenován."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDAWAY)
-#, c-format
-msgid "%ls, but the file was moved away"
-msgstr "%ls, ale soubor byl přesunut"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDHERE)
-#, c-format
-msgid "%ls, but the file was moved here"
-msgstr "%ls, ale soubor byl přesunut sem"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_OBSTRUCTED)
-#, c-format
-msgid "%ls, but the file was obstructed in the working copy."
-msgstr "%ls, ale soubor překážel v pracovní kopii."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_REPLACED)
-#, c-format
-msgid "%ls, but the file was replaced"
-msgstr "%ls, ale soubor již byl dříve nahrazen."
-
 #. Resource IDs: (IDS_PATCH_ITEMTT)
 #, c-format
 msgid ""
@@ -396,13 +296,21 @@ msgstr "%ls\nje adresář, ne soubor!\nTortoiseMerge nedokáže srovnávat adres
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (IDS_HOOKFAILED_TASK3)
+msgid ""
+"&Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
+
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&O TortoiseMerge..."
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED)
-msgid "&Accept current working copy state (mark as resolved)"
-msgstr "&Přijmout současný stav pracovní kopie (označit jako vyřešené)"
+#. Resource IDs: (IDS_SSL_ACCEPTTEMP_TASK)
+msgid ""
+"&Accept the certificate\n"
+"The certificate is accepted only this one time."
+msgstr ""
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -419,6 +327,12 @@ msgstr "Přid&at >>"
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
 msgstr "&Přidat filtr"
+
+#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK4)
+msgid ""
+"&Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -454,10 +368,6 @@ msgstr "&Povolit nejednoznačné URL"
 #. Control id 1294)
 msgid "&Apply property recursively"
 msgstr "&Použít vlastnost rekurzivně"
-
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_APPLYTOMOVE)
-msgid "&Apply the update to the move destination"
-msgstr "&Použít aktualizaci pro přesun cíle"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1013)
 msgid "&Apply unified diff"
@@ -553,9 +463,142 @@ msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 2, Dialog IDD_GOOFFLINE: Control
-#. id 2, IDS_MONITOR_DELETE_TASK4, IDS_MSGBOX_CANCEL)
+#. id 2, IDS_MERGE_WCDIRTYASK_TASK4, IDS_MONITOR_DELETE_TASK4,
+#. IDS_MSGBOX_CANCEL, IDS_WARN_LOCKOUTDATED_TASK4)
 msgid "&Cancel"
 msgstr "&Zrušit"
+
+#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK4)
+msgid ""
+"&Cancel\n"
+"Choose a different folder to export to"
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not commit to a tag."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not remove"
+msgstr ""
+
+#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not revert."
+msgstr ""
+
+#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not update the working copy."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
+msgid ""
+"&Cancel\n"
+"Don't resolve the item."
+msgstr ""
+
+#. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
+msgid ""
+"&Cancel\n"
+"Don't show the diff."
+msgstr ""
+
+#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
+msgid ""
+"&Cancel\n"
+"Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
+msgid ""
+"&Cancel\n"
+"Go back and select a different folder."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
+msgid ""
+"&Cancel\n"
+"I will enter a different path/URL."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
+msgid ""
+"&Cancel\n"
+"Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
+msgid ""
+"&Cancel\n"
+"Leave the cache on disk."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
+msgid ""
+"&Cancel\n"
+"Local modifications are kept."
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
+msgid ""
+"&Cancel\n"
+"The conflict is not resolved."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
+msgid ""
+"&Cancel\n"
+"The file is not copied."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
+msgid ""
+"&Cancel\n"
+"The folder is not exported."
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
+msgid ""
+"&Cancel\n"
+"The items are not imported."
+msgstr ""
+
+#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
+msgid ""
+"&Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
+msgid ""
+"&Cancel\n"
+"The target file is left as is"
+msgstr ""
+
+#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
+msgid ""
+"&Cancel\n"
+"You have to add the folder manually."
+msgstr ""
+
+#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
+msgid ""
+"&Cancel\n"
+"You have to run an update yourself to get the externals"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
+msgid ""
+"&Cancel\n"
+"keep the current format."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -631,8 +674,8 @@ msgstr "&Kontaktovat úložiště při spuštění"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Konvertovat soubory při porovnávání oproti originálu"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "&Kopírovat"
 
@@ -695,6 +738,12 @@ msgstr "&Smazat položky bez verze..."
 msgid "&Delete..."
 msgstr "&Smazat..."
 
+#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)
+msgid ""
+"&Delete\n"
+"Remove the cache files."
+msgstr ""
+
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
 msgstr "&Porovnat"
@@ -719,6 +768,12 @@ msgstr "&Již se neptat"
 msgid "&Docking"
 msgstr "&Přichytávání"
 
+#. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
+msgid ""
+"&Don't run\n"
+"Do not run the script"
+msgstr ""
+
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
 msgstr "&EOL"
@@ -731,11 +786,6 @@ msgstr "&Upravit"
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1506)
 msgid "&Edit Filter"
 msgstr "&Upravit filtr"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1399, Dialog
-#. IDD_EDITPROPCONFLICT: Control id 1542)
-msgid "&Edit conflict"
-msgstr "&Upravit konflikt"
 
 #. Resource IDs: (IDS_MENUCONFLICT)
 msgid "&Edit conflicts"
@@ -782,6 +832,12 @@ msgstr "&Ukončit program"
 #. Resource IDs: (IDS_FILEDIFF_POPEXPORT)
 msgid "&Export selection to..."
 msgstr "&Exportovat výběr do..."
+
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3_1)
+msgid ""
+"&Export\n"
+"Export into the non-empty folder."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -885,7 +941,7 @@ msgstr "&HEAD revize v úložišti"
 msgid "&Help"
 msgstr "&Nápověda"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "&Témata nápovědy"
 
@@ -933,6 +989,12 @@ msgstr "&Jen obrázek"
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
 msgstr "&Importovat..."
+
+#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
+msgid ""
+"&Import\n"
+"The items are imported, creating a new revision for each item."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1023,10 +1085,6 @@ msgstr "&Mac (CR)"
 #. Control id 1562)
 msgid "&Make depth sticky"
 msgstr "&Nastavit hloubku jako výchozí"
-
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 1282)
-msgid "&Manually edit property"
-msgstr "&Ručně změnit vlastnost"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "&Max line length for inline diffs"
@@ -1194,13 +1252,31 @@ msgstr "&Ostatní"
 msgid "&Overlay images\t(O)"
 msgstr "&Překryvné obrázky\t(O)"
 
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
+msgid ""
+"&Overwrite\n"
+"Replace the target folder."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
+msgid ""
+"&Overwrite\n"
+"The target file gets replaced"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
+msgid ""
+"&Overwrite\n"
+"The target file is replaced."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
 msgid "&Password:"
 msgstr "&Heslo:"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "&Vložit"
 
@@ -1224,10 +1300,6 @@ msgstr "&Přehrát zvuk při oznámení"
 msgid "&Port:"
 msgstr "&Port:"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 3)
-msgid "&Postpone all remaining conflicts"
-msgstr "&Odložit všechny zbývající konflikty"
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1489)
 msgid "&Power user defaults"
 msgstr "Výchozí pro &Power user"
@@ -1243,6 +1315,28 @@ msgstr "&Náhled Tisku"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "&Tisk..."
+
+#. Resource IDs: (IDS_HOOKFAILED_TASK4)
+msgid ""
+"&Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
+msgid ""
+"&Proceed with the entered path\n"
+"I'm aware of the possible problems."
+msgstr ""
+
+#. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
+msgid "&Proceed with the merge."
+msgstr ""
+
+#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
+msgid ""
+"&Proceed without an issue number\n"
+"The commit won't be assigned to an issue."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1270,6 +1364,18 @@ msgstr "&Znovu"
 msgid "&Refresh"
 msgstr "&Obnovit"
 
+#. Resource IDs: (IDS_SSL_REJECT_TASK)
+msgid ""
+"&Reject the certificate\n"
+"Cancel the connection."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
+msgid ""
+"&Relocate\n"
+"The working copy is relocated to the new URL."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
 msgstr "&Připomenout zadání čísla chyby"
@@ -1280,9 +1386,27 @@ msgstr "&Připomenout zadání čísla chyby"
 msgid "&Remove"
 msgstr "Odst&ranit"
 
+#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK3)
+msgid ""
+"&Remove from version control\n"
+"All .svn folders are removed"
+msgstr ""
+
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
 msgstr "&Odstranit projekt"
+
+#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK3)
+msgid ""
+"&Remove\n"
+"Force the removal"
+msgstr ""
+
+#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
+msgid ""
+"&Remove\n"
+"Remove the property only from this item."
+msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK3)
 msgid ""
@@ -1293,6 +1417,13 @@ msgstr "&Odstranit\nProjekt je odstraněn. Pokud má podprojekty, ty jsou také 
 #. Resource IDs: (IDS_REPOBROWSE_RENAME)
 msgid "&Rename"
 msgstr "&Přejmenovat"
+
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK4)
+#, c-format
+msgid ""
+"&Rename\n"
+"The folder is exported as '%ls'."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1318,6 +1449,12 @@ msgstr "&Vynulovat uživatelská data"
 msgid "&Reset to Default"
 msgstr "&Vynulovat na výchozí"
 
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
+msgid ""
+"&Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
 msgstr "&Obnovit výchozí"
@@ -1339,6 +1476,12 @@ msgstr "V&rátit změny z těchto revizí"
 msgid "&Revert changes from this revision"
 msgstr "V&rátit změny z této revize"
 
+#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
+msgid ""
+"&Revert\n"
+"Changes will be applied to the working copy."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
 #. IDD_EXPORT: Control id 1033, Dialog IDD_MERGEWIZARD_TREE: Control id 1116,
@@ -1348,6 +1491,12 @@ msgstr "V&rátit změny z této revize"
 #. 1033)
 msgid "&Revision"
 msgstr "&Revize"
+
+#. Resource IDs: (IDS_HOOKS_APPROVE_TASK3)
+msgid ""
+"&Run\n"
+"Run the hook script"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -1424,7 +1573,7 @@ msgstr "Začít &Skupinu"
 msgid "&Start Repobrowser"
 msgstr "&Spustit prohližeč úložiště"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "&Stavový řádek"
 
@@ -1502,7 +1651,7 @@ msgstr "Do ces&ty:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&Do: (koncové URL a revize rozsahu pro sloučení)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "&Nástrojová lišta"
 
@@ -1551,7 +1700,7 @@ msgstr "&URL úložiště:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "&Zpět"
 
@@ -1582,6 +1731,24 @@ msgstr "Akt&ualizovat položku na revizi..."
 #. Resource IDs: (IDS_MENUUPDATEEXT)
 msgid "&Update to revision..."
 msgstr "Akt&ualizovat na revizi..."
+
+#. Resource IDs: (IDS_WARN_LOCKOUTDATED_TASK3)
+msgid ""
+"&Update\n"
+"Update the file and try locking again."
+msgstr ""
+
+#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
+msgid ""
+"&Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
+
+#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
+msgid ""
+"&Update\n"
+"Update to the HEAD revision"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1901,17 +2068,6 @@ msgstr "Při&dat adresář..."
 msgid "Abort"
 msgstr "Zrušit"
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1465, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 1465)
-msgid "Abort &Merge"
-msgstr "Zrušit &Slučování"
-
-#. Resource IDs: (IDS_HOOKFAILED_TASK3)
-msgid ""
-"Abort\n"
-"You can fix the reason the hook script failed first."
-msgstr "Ukončit\nMůžete opravit selhání hákového skriptu."
-
 #. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
 msgid "About"
 msgstr "O aplikaci"
@@ -1926,15 +2082,9 @@ msgstr "O TortoiseSVN"
 
 #. Resource IDs: (IDS_SSL_ACCEPTALWAYS_TASK)
 msgid ""
-"Accept the certificate permanently\n"
+"Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr "Přijmout certifikát natrvalo\nUž nebudete upozorňovánï na tento certifikát."
-
-#. Resource IDs: (IDS_SSL_ACCEPTTEMP_TASK)
-msgid ""
-"Accept the certificate\n"
-"The certificate is accepted only this one time."
-msgstr "Přijmout certifikát\nCertifikát je přijímán pouze tentokrát."
+msgstr ""
 
 #. Resource IDs: (61861)
 #, c-format
@@ -1968,6 +2118,12 @@ msgid ""
 "Discard all changes to %1?"
 msgstr "Objekty ActiveX není možno uložit, když se Windows vypíná!\nZrušit všechny změny v %1?"
 
+#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK3)
+msgid ""
+"Ad&just case\n"
+"The file is not added."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
 msgid "Add"
@@ -1997,12 +2153,6 @@ msgstr "Přidat specifický program rozdílů (diff) podle přípony"
 #. Resource IDs: (IDS_DLGTITLE_ADD_MERGE_TOOL)
 msgid "Add extension specific merge program"
 msgstr "Přidat specifický program slučování (merge) podle přípony"
-
-#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK4)
-msgid ""
-"Add item\n"
-"This will lead to problems on Windows."
-msgstr "Přidat položku\nToto povede k problémům ve Windows."
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1065)
 msgid "Add new files automatically to SVN"
@@ -2083,12 +2233,6 @@ msgstr "Přidá soubor(y) pod správu verzí"
 #. Resource IDs: (IDS_MENUDESCIGNORE)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Přidá vybraný soubor(y) nebo masku do seznamu k ignorování"
-
-#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK3)
-msgid ""
-"Adjust case\n"
-"The file is not added."
-msgstr "Upravte velikost písmen\nSoubor není přidán."
 
 #. Resource IDs: (32782)
 msgid ""
@@ -2461,8 +2605,9 @@ msgstr "P&rocházet..."
 msgid "Back"
 msgstr "Zpět"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
-#. IDD_SETTINGSUDIFF: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
+#. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
+#. 65535)
 msgid "Background"
 msgstr "Pozadí"
 
@@ -2679,28 +2824,27 @@ msgstr "Není možno vložit obrázek ze schránky!"
 #. Dialog IDD_CREATECHANGELIST: Control id 2, Dialog IDD_CREATEPATCH: Control
 #. id 2, Dialog IDD_DELUNVERSIONED: Control id 2, Dialog IDD_DIFFOPTIONS:
 #. Control id 2, Dialog IDD_EDITPROPBUGTRAQ: Control id 2, Dialog
-#. IDD_EDITPROPCONFLICT: Control id 2, Dialog IDD_EDITPROPEOL: Control id 2,
-#. Dialog IDD_EDITPROPERTYVALUE: Control id 2, Dialog IDD_EDITPROPEXECUTABLE:
-#. Control id 2, Dialog IDD_EDITPROPEXTERNALS: Control id 2, Dialog
-#. IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog IDD_EDITPROPKEYWORDS:
-#. Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control id 2, Dialog
-#. IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog IDD_EDITPROPMIMETYPE:
-#. Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control id 2, Dialog
-#. IDD_EDITPROPTSVNLANG: Control id 2, Dialog IDD_EDITPROPTSVNSIZES: Control
-#. id 2, Dialog IDD_EDITPROPUSERBOOL: Control id 2, Dialog
-#. IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog IDD_EDITPROPUSERSINGLELINE:
-#. Control id 2, Dialog IDD_EDITPROPUSERSTATE: Control id 2, Dialog
-#. IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control id 2, Dialog
-#. IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog IDD_GOTODLG:
-#. Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog IDD_IMPORT:
-#. Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog IDD_INPUTLOGDLG:
-#. Control id 2, Dialog IDD_LOCK: Control id 2, Dialog IDD_LOGMESSAGE: Control
-#. id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog IDD_MONITOROPTIONS:
-#. Control id 2, Dialog IDD_MONITORPROJECT: Control id 2, Dialog IDD_OPEN:
-#. Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog IDD_PASSWORD:
-#. Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog IDD_REGEXFILTER:
-#. Control id 2, Dialog IDD_REGEXFILTERS: Control id 2, Dialog IDD_RELOCATE:
-#. Control id 2, Dialog IDD_RENAME: Control id 2, Dialog
+#. IDD_EDITPROPEOL: Control id 2, Dialog IDD_EDITPROPERTYVALUE: Control id 2,
+#. Dialog IDD_EDITPROPEXECUTABLE: Control id 2, Dialog IDD_EDITPROPEXTERNALS:
+#. Control id 2, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog
+#. IDD_EDITPROPKEYWORDS: Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control
+#. id 2, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog
+#. IDD_EDITPROPMIMETYPE: Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control
+#. id 2, Dialog IDD_EDITPROPTSVNLANG: Control id 2, Dialog
+#. IDD_EDITPROPTSVNSIZES: Control id 2, Dialog IDD_EDITPROPUSERBOOL: Control
+#. id 2, Dialog IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog
+#. IDD_EDITPROPUSERSINGLELINE: Control id 2, Dialog IDD_EDITPROPUSERSTATE:
+#. Control id 2, Dialog IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control
+#. id 2, Dialog IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog
+#. IDD_GOTODLG: Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog
+#. IDD_IMPORT: Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog
+#. IDD_INPUTLOGDLG: Control id 2, Dialog IDD_LOCK: Control id 2, Dialog
+#. IDD_LOGMESSAGE: Control id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog
+#. IDD_MONITOROPTIONS: Control id 2, Dialog IDD_MONITORPROJECT: Control id 2,
+#. Dialog IDD_OPEN: Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog
+#. IDD_PASSWORD: Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog
+#. IDD_REGEXFILTER: Control id 2, Dialog IDD_REGEXFILTERS: Control id 2,
+#. Dialog IDD_RELOCATE: Control id 2, Dialog IDD_RENAME: Control id 2, Dialog
 #. IDD_REPOSITORY_BROWSER: Control id 2, Dialog IDD_RESOLVE: Control id 2,
 #. Dialog IDD_REVERT: Control id 2, Dialog IDD_REVGRAPHFILTER: Control id 2,
 #. Dialog IDD_REVISION: Control id 2, Dialog IDD_REVISIONRANGE: Control id 2,
@@ -2710,8 +2854,7 @@ msgstr "Není možno vložit obrázek ze schránky!"
 #. 2, Dialog IDD_SVNPROGRESS: Control id 2, Dialog IDD_SWITCH: Control id 2,
 #. Dialog IDD_TOOLASSOC: Control id 2, Dialog IDD_UNLOCK: Control id 2, Dialog
 #. IDD_UPDATE: Control id 2, Dialog IDD_URL: Control id 2, Dialog IDD_URLDIFF:
-#. Control id 2, IDS_MERGE_WCDIRTYASK_TASK4, IDS_PROPPAGE_CANCEL,
-#. IDS_WARN_LOCKOUTDATED_TASK4)
+#. Control id 2, IDS_PROPPAGE_CANCEL)
 msgid "Cancel"
 msgstr "Storno"
 
@@ -2721,53 +2864,11 @@ msgid ""
 "Change the selection for the commit."
 msgstr "Zrušit\nZměnit výběr odevzdání."
 
-#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK4)
-msgid ""
-"Cancel\n"
-"Choose a different folder to export to"
-msgstr "Zrušit\nZvolit jiný adresář, do kterého exportovat"
-
-#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
-msgid ""
-"Cancel\n"
-"Do not commit to a tag."
-msgstr "Zrušit\nNeodevzdávat do značky."
-
-#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
-msgid ""
-"Cancel\n"
-"Do not remove"
-msgstr "Zrušit\nNeodstraňovat"
-
-#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
-msgid ""
-"Cancel\n"
-"Do not revert."
-msgstr "Zrušit\nNevracet."
-
-#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
-msgid ""
-"Cancel\n"
-"Do not update the working copy."
-msgstr "Zrušit\nNeaktualizovat pracovní kopii."
-
 #. Resource IDs: (IDS_ASKFORSAVE_TASK5)
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr "Zrušit\nNeodcházet z TortoiseMerge"
-
-#. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
-msgid ""
-"Cancel\n"
-"Don't resolve the item."
-msgstr "Zrušit\nNeřešit položku."
-
-#. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
-msgid ""
-"Cancel\n"
-"Don't show the diff."
-msgstr "Zrušit\nRozdíl nezobrazovat."
 
 #. Resource IDs: (IDS_ASKFORSAVE_TASK8)
 msgid ""
@@ -2775,47 +2876,11 @@ msgid ""
 "Don't switch the views"
 msgstr "Zrušit\nNepřepínat zobrazení"
 
-#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
-msgid ""
-"Cancel\n"
-"Go back and enter an issue number."
-msgstr "Zrušit\nJít zpátky a zadat číslo problému."
-
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
-msgid ""
-"Cancel\n"
-"Go back and select a different folder."
-msgstr "Zrušit\nVrátit se a vybrat jiný adresář."
-
-#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
-msgid ""
-"Cancel\n"
-"I will enter a different path/URL."
-msgstr "Zrušit\nZadám jinou cestu/adresu URL"
-
-#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
-msgid ""
-"Cancel\n"
-"Keep the current URL."
-msgstr "Zrušit\nPonechat současnou URL"
-
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK4)
 msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr "Zrušit\nPonechat prázdný soubor."
-
-#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
-msgid ""
-"Cancel\n"
-"Leave the cache on disk."
-msgstr "Zrušit\nNechat úschovu na disku."
-
-#. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
-msgid ""
-"Cancel\n"
-"Local modifications are kept."
-msgstr "Zrušit\nMístní změny jsou zanechány."
 
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)
 msgid ""
@@ -2835,71 +2900,17 @@ msgid ""
 "Stay with current settings"
 msgstr "Zrušit\nZůstat se současným nastavením"
 
-#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
-msgid ""
-"Cancel\n"
-"The conflict is not resolved."
-msgstr "Zrušit\nKonflikt není vyřešen."
-
-#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
-msgid ""
-"Cancel\n"
-"The file is not copied."
-msgstr "Zrušit\nSoubor není zkopírován."
-
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
-msgid ""
-"Cancel\n"
-"The folder is not exported."
-msgstr "Zrušit\nAdresář není exportován."
-
-#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
-msgid ""
-"Cancel\n"
-"The items are not imported."
-msgstr "Zrušit \nPoložky nejsou importovány."
-
 #. Resource IDs: (IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK4)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr "Zrušit\nPoložky nejsou přesunuty"
 
-#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
-msgid ""
-"Cancel\n"
-"The tagged revision of the external is left as is."
-msgstr "Zrušit\nOznačená revize externí je ponechána tak jak je."
-
-#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
-msgid ""
-"Cancel\n"
-"The target file is left as is"
-msgstr "Zrušit\nCílový soubor je tak jak byl"
-
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK4)
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
 msgstr "Zrušit\nMůžete zadat jiné heslo a zkusit to znovu"
-
-#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
-msgid ""
-"Cancel\n"
-"You have to add the folder manually."
-msgstr "Zrušit\nAdresář musíte přidat ručně."
-
-#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
-msgid ""
-"Cancel\n"
-"You have to run an update yourself to get the externals"
-msgstr "Zrušit\nPro získání externích musíte aktualizovat sami"
-
-#. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
-msgid ""
-"Cancel\n"
-"keep the current format."
-msgstr "Zrušit\nponechat současný formát."
 
 #. Resource IDs: (IDS_BLAME_PROGRESSCANCEL)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2943,17 +2954,17 @@ msgstr "Ověření certifikátu selhalo"
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "Certifikáty|*.p12;*.pkcs12;*.pfx|Vše|*.*||"
 
+#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)
+msgid ""
+"Chan&ge the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr ""
+
 #. Resource IDs: (10000)
 msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "Změnit styl aplikace\nZměnit styl"
-
-#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)
-msgid ""
-"Change the tagged revision\n"
-"The svn:external property of the parent folder is changed accordingly."
-msgstr "Změnit označenou revizi\nVlastnost svn:external nadřazené složky je odpovídajícím způsobem změněna."
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -3051,6 +3062,12 @@ msgstr "Zaškrtněte pro použití menšího formátu data a času ve zprávách
 msgid "Check working copy for modifications"
 msgstr "Zkontrolovat změny v pracovní kopii."
 
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3)
+msgid ""
+"Check&out\n"
+"Checkout into the non empty folder."
+msgstr ""
+
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
 msgstr "Hák kontroly odevzdání"
@@ -3068,6 +3085,11 @@ msgstr "Ověřuji, zda je dostupná nová verze TortoiseSVN..."
 #, c-format
 msgid "Checking project '%ls' for updates..."
 msgstr "Kontrola aktualizací projektu '%ls'... "
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS)
+#, c-format
+msgid "Checking r%1!ld!..."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -3087,19 +3109,9 @@ msgstr "Hloubka Zí&skání"
 msgid "Checkout from %1!ls!, revision %2!ls!, %3!ls!, %4!ls!"
 msgstr "Získání z %1!ls!, revize %2!ls!, %3!ls!, %4!ls!"
 
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3)
-msgid ""
-"Checkout\n"
-"Checkout into the non empty folder."
-msgstr "Získat\nZískat do neprázdného adresáře."
-
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Checksum:"
 msgstr "Kontrolní součet:"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1402)
-msgid "Choose item:"
-msgstr "Vyberte položku:"
 
 #. Resource IDs: (Dialog IDD_UPDATE: Control id 1606)
 msgid "Choose items..."
@@ -3341,17 +3353,23 @@ msgstr "Příkaz selhal."
 msgid "Commands"
 msgstr "Příkazy"
 
+#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
+msgid ""
+"Commi&t only the folder\n"
+"Files inside the folder won't get committed."
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
+msgid ""
+"Commi&t\n"
+"Commit the changes to the target."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
 #. IDS_PROGRS_TITLE_COMMIT)
 msgid "Commit"
 msgstr "Odevzdat"
-
-#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
-msgid ""
-"Commit only the folder\n"
-"Files inside the folder won't get committed."
-msgstr "Odevzdat pouze adresář\nSoubory uvnitř adresáře nebudou odevzdány."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -3360,12 +3378,6 @@ msgstr "Odevzdat do:"
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COMMIT)
 msgid "Commit..."
 msgstr "Odevzdat"
-
-#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
-msgid ""
-"Commit\n"
-"Commit the changes to the target."
-msgstr "Odevzdat\nOdevzdat změny do cíle."
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYAUTHOR)
 msgid "Commits by author"
@@ -3513,9 +3525,10 @@ msgstr "Nastavte program používaný pro prohlížení rozdílových souborů G
 msgid "Confirm revert"
 msgstr "Potvrdit vrácení"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1503)
-msgid "Conflict Sources"
-msgstr "Konfliktní zdroje "
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_MAININSTRUCTION)
+#, c-format
+msgid "Conflict for property \"%s\" discovered"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Conflict resolved"
@@ -4086,12 +4099,6 @@ msgstr "Smazat položky bez verze"
 msgid "Delete unversioned items..."
 msgstr "Smazat položky bez verze..."
 
-#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)
-msgid ""
-"Delete\n"
-"Remove the cache files."
-msgstr "Smazat\nSmazat soubory úschovy."
-
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK3)
 msgid ""
 "Delete\n"
@@ -4468,12 +4475,6 @@ msgid ""
 "Use the last explicitly saved versions of the documents"
 msgstr "Neobnovovat automaticky uložené dokumenty\nPoužít poslední jednoznačně uloženou verzi dokumentu"
 
-#. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
-msgid ""
-"Don't run\n"
-"Do not run the script"
-msgstr "Nespouštět\nNespouštět skript"
-
 #. Resource IDs: (IDS_ASKFORSAVE_NOSAVE_OPEN)
 msgid ""
 "Don't save\n"
@@ -4519,7 +4520,7 @@ msgstr "V&ynechat cesty:"
 msgid "E&xecutable"
 msgstr "&Spustitelný"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "U&končit"
 
@@ -4573,12 +4574,7 @@ msgstr "Upravit projekt ke sledování"
 msgid "Edit Properties"
 msgstr "Upravit Vlastnosti"
 
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 297)
-msgid "Edit Property Conflict"
-msgstr "Upravit Konflikt Vlastnosti"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
-#. IDS_PROC_EDIT_TREE_CONFLICTS)
+#. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "Upravit Konflikt Stromu"
 
@@ -4621,6 +4617,12 @@ msgstr "Upravení vlastnosti '%1!S!' na\n%2!ls!"
 #. IDD_SETTINGSHOOKS: Control id 1331)
 msgid "Edit..."
 msgstr "Upravit..."
+
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_EDITCMD)
+msgid ""
+"Edit\n"
+"change merged property value in editor"
+msgstr ""
 
 #. Resource IDs: (IDS_PROP_TT_EDIT)
 msgid "Edits the selected property value"
@@ -4937,12 +4939,6 @@ msgstr "Exportovat vybranou úschovu jako sadu souborů formátu Čárkou Odděl
 #. Resource IDs: (IDS_PROC_EXPORT_2)
 msgid "Export unversioned files too"
 msgstr "Exportovat také soubory bez verze"
-
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3_1)
-msgid ""
-"Export\n"
-"Export into the non-empty folder."
-msgstr "Export\nExport do neprázdného adresáře."
 
 #. Resource IDs: (IDS_SVNPROGRESS_EXPORTING)
 #, c-format
@@ -5273,8 +5269,8 @@ msgstr "Filtr cest"
 msgid "Filter:"
 msgstr "Filtr:"
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. ID_EDIT_FIND - Ribbon name)
 msgid "Find"
 msgstr "Najít"
 
@@ -5367,7 +5363,8 @@ msgstr "Vnutit"
 msgid "Force removal"
 msgstr "Vynutit odstranění"
 
-#. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
+#. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Foreground"
 msgstr "Popředí"
 
@@ -5587,26 +5584,25 @@ msgid "Header"
 msgstr "Hlavička"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 9, Dialog IDD_CHECKOUT: Control
-#. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_CONFLICTRESOLVE:
-#. Control id 9, Dialog IDD_COPY: Control id 9, Dialog IDD_CREATEPATCH:
-#. Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control id 9, Dialog
-#. IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES: Control id 9,
-#. Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog IDD_EDITPROPEXECUTABLE:
-#. Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control id 9, Dialog
-#. IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog IDD_EDITPROPKEYWORDS:
-#. Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control id 9, Dialog
-#. IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog IDD_EDITPROPMIMETYPE:
-#. Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control id 9, Dialog
-#. IDD_EDITPROPTSVNLANG: Control id 9, Dialog IDD_EDITPROPTSVNSIZES: Control
-#. id 9, Dialog IDD_EXPORT: Control id 9, Dialog IDD_IMPORT: Control id 9,
-#. Dialog IDD_LOCK: Control id 9, Dialog IDD_LOGMESSAGE: Control id 9, Dialog
-#. IDD_MERGEALL: Control id 9, Dialog IDD_OPENDLG: Control id 9, Dialog
-#. IDD_RELOCATE: Control id 9, Dialog IDD_REPOSITORY_BROWSER: Control id 9,
-#. Dialog IDD_RESOLVE: Control id 9, Dialog IDD_REVERT: Control id 9, Dialog
-#. IDD_SETTINGSBUGTRAQADV: Control id 9, Dialog IDD_SETTINGSHOOKCONFIG:
-#. Control id 9, Dialog IDD_SWITCH: Control id 9, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 9, Dialog IDD_UNLOCK: Control id 9,
-#. Dialog IDD_URLDIFF: Control id 9, IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_COPY: Control id 9,
+#. Dialog IDD_CREATEPATCH: Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control
+#. id 9, Dialog IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES:
+#. Control id 9, Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog
+#. IDD_EDITPROPEXECUTABLE: Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control
+#. id 9, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog
+#. IDD_EDITPROPKEYWORDS: Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control
+#. id 9, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog
+#. IDD_EDITPROPMIMETYPE: Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control
+#. id 9, Dialog IDD_EDITPROPTSVNLANG: Control id 9, Dialog
+#. IDD_EDITPROPTSVNSIZES: Control id 9, Dialog IDD_EXPORT: Control id 9,
+#. Dialog IDD_IMPORT: Control id 9, Dialog IDD_LOCK: Control id 9, Dialog
+#. IDD_LOGMESSAGE: Control id 9, Dialog IDD_MERGEALL: Control id 9, Dialog
+#. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
+#. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
+#. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
+#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
+#. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
+#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
 msgid "Help"
 msgstr "Nápověda"
 
@@ -5713,10 +5709,6 @@ msgstr "Hákový skript selhal!"
 #, c-format
 msgid "Hostname mismatch (%ls)"
 msgstr "Špatný název domény (%ls)"
-
-#. Resource IDs: (9758)
-msgid "How do you want to resolve this conflict?"
-msgstr "Jak chcete vyřešit tento konflikt?"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1392, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1392)
@@ -6056,7 +6048,7 @@ msgstr "Ignorovat &všechny mezery"
 msgid "Ignore &ancestry"
 msgstr "Ignorovat &původ"
 
-#. Resource IDs: (32896, ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
 msgid "Ignore Comments"
 msgstr "Ignorovat komentáře"
 
@@ -6074,6 +6066,12 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr "Ignorovat změny\nIgnorovat změny z vnějšku."
+
+#. Resource IDs: (32896)
+msgid ""
+"Ignore comment changes\n"
+"Ignore Comments"
+msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -6198,12 +6196,6 @@ msgstr "Importovat adresář %1!ls!\ndo %2!ls!"
 #, c-format
 msgid "Import to %1"
 msgstr "Importovat do %1"
-
-#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
-msgid ""
-"Import\n"
-"The items are imported, creating a new revision for each item."
-msgstr "Importovat\nPoložky jsou importovány, vytvářejíc novou revizi pro každou položku."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTURE)
 msgid "Imported folder structure"
@@ -6405,10 +6397,6 @@ msgstr "Přeskočit na další &konflikt"
 msgid "Keep &locks"
 msgstr "Ponechat &zámky"
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_KEEPMOVES)
-msgid "Keep any moves affected by this operation"
-msgstr "Ponechat veškerá přesunutí ovlivněná touto operací"
-
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1126)
 msgid "Keep c&hangelists"
 msgstr "Ponechat &seznamy změn"
@@ -6484,10 +6472,6 @@ msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
 msgstr "Ponechat v konfliktu\nStav konfliktu v souboru je ponechán"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1404)
-msgid "Leave conflicted:"
-msgstr "Ponechat v konfliktu:"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_LEAVEONLYMARKEDBLOCKS)
 msgid "Leave only marked changes"
@@ -6770,24 +6754,16 @@ msgid ""
 "Hold down the shift key to also clear all fetch errors."
 msgstr "Označit všechny projekty jako přečtené\nPro vyčištění všech chyb při získávání informací podržte klávesu shift."
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MOVETOCOPY)
-msgid "Mark as &resolved (the move will become a copy)"
-msgstr "Označit jako &vyřešené (přesunutí se stane kopií)"
-
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 1400)
-msgid "Mark as Resolved"
-msgstr "Označit jako vyřešené"
+#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
+msgid ""
+"Mark as &resolved\n"
+"The conflict is resolved."
+msgstr ""
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
 #. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
 msgid "Mark as resolved"
 msgstr "Označit jako vyřešené"
-
-#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
-msgid ""
-"Mark as resolved\n"
-"The conflict is resolved."
-msgstr "Označit jako vyřešený\nKonflikt je vyřešen."
 
 #. Resource IDs: (IDS_MARKASRESOLVED_TASK3)
 msgid ""
@@ -6912,6 +6888,16 @@ msgstr "Sloučit vše..."
 #. Resource IDs: (IDS_MENUDESCMERGE)
 msgid "Merge changes into the working copy"
 msgstr "Sloučit změny do pracovní kopie"
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION)
+#, c-format
+msgid "Merge conflict discovered in binary file %s"
+msgstr ""
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_MAININSTRUCTION)
+#, c-format
+msgid "Merge conflict discovered in file %s"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
 msgid "Merge non-interactive"
@@ -7655,7 +7641,7 @@ msgstr "Použít kontrolu &pravopisu, pouze když je nastavena tsvn:projectlangu
 msgid "Opacity"
 msgstr "Sytost"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "Otevřít"
 
@@ -7677,8 +7663,7 @@ msgid ""
 "Open files"
 msgstr "Otevřít soubory pro porovnání či použití záplaty\nOtevřít soubory"
 
-#. Resource IDs: (Dialog IDD_PATCH_FILE_OPEN_CUSTOM: Control id 1132,
-#. IDS_PATCH_COPYFROMCLIPBOARD)
+#. Resource IDs: (IDS_PATCH_COPYFROMCLIPBOARD)
 msgid "Open from clipboard"
 msgstr "Otevřít ze schránky"
 
@@ -7762,29 +7747,11 @@ msgid ""
 "Files which don't have this property set are not affected."
 msgstr "Potlačí nastavení vlastnosti svn:eol-style.\nSoubory, které tuto vlastnost nemají nastavenou, nebudou ovlivněny."
 
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
-msgid ""
-"Overwrite\n"
-"Replace the target folder."
-msgstr "Přepsat\nNahradit cílový adresář."
-
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK3)
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
 msgstr "Přepsat\nNastavení jsou přepsána"
-
-#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
-msgid ""
-"Overwrite\n"
-"The target file gets replaced"
-msgstr "Přepsat\nCílový soubor bude nahrazen"
-
-#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
-msgid ""
-"Overwrite\n"
-"The target file is replaced."
-msgstr "Přepsat\nCílový soubor je nahrazen."
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7970,10 +7937,6 @@ msgid ""
 "Use the Switch command to do that."
 msgstr "Poznámka:\nVaše pracovní kopie zůstává na předchozí cestě. Pokud chcete, aby se vaše následující změny\nprovedly v právě vytvořené kopii, potřebujete se přepnout\nna tuto cestu. Použijte příkaz Překlopit."
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1287)
-msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr "Prosím, vyřešte konflikt výběrem jedné z následujících možností:"
-
 #. Resource IDs: (IDS_ERR_NOHOOKTYPESPECIFIED)
 msgid "Please select a hook type"
 msgstr "Vyberte prosím typ háku"
@@ -8043,14 +8006,6 @@ msgstr ""
 #. Resource IDs: (IDS_HOOKTYPE_PREUPDATE)
 msgid "Pre-Update Hook"
 msgstr "Hák před aktualizací"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 3)
-msgid "Prefer &local"
-msgstr "Upřednostnit &místní"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 4)
-msgid "Prefer &repository"
-msgstr "Upřednostnit &úložiště"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_PREPENDRIGHT)
 msgid "Prepend right block"
@@ -8135,33 +8090,11 @@ msgstr "Tisk"
 msgid "Proceed anyway"
 msgstr "Přesto pokračovat"
 
-#. Resource IDs: (IDS_HOOKFAILED_TASK4)
-msgid ""
-"Proceed anyway\n"
-"Ignore the hook script and run the command anyway."
-msgstr "Přesto pokračovat\nIgnorovat hákový skript a spustit příkaz."
-
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK3)
 msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
 msgstr "Pokračovat v odevzdání\npřejmenované/přesunuté adresáře jsou rekurzivně odevzdány do úložiště."
-
-#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
-msgid ""
-"Proceed with the entered path\n"
-"I'm aware of the possible problems."
-msgstr "Pokračovat se zadanou cestou\nJsem si vědom možných problémů."
-
-#. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
-msgid "Proceed with the merge."
-msgstr "Pokračovat ve sloučení."
-
-#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
-msgid ""
-"Proceed without an issue number\n"
-"The commit won't be assigned to an issue."
-msgstr "Pokračovat bez čísla problému\nK odevzdání nebude přiřazen problém."
 
 #. Resource IDs: (IDS_BLAME_PROGRESSINFO2)
 #, c-format
@@ -8252,6 +8185,10 @@ msgstr "Strana Vlastností"
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Property Status:"
 msgstr "Stav Vlastnosti:"
+
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
+msgid "Property diff:\n"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -8345,10 +8282,6 @@ msgstr "Re&setovat"
 msgid "Re&set All"
 msgstr "Re&setovat Vše"
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1400)
-msgid "Re&solved"
-msgstr "&Vyřešeno"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "Obnovit &výchozí"
@@ -8417,6 +8350,12 @@ msgid ""
 "Rectangle"
 msgstr "Nástroj Obdélník\nObdélník"
 
+#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
+msgid ""
+"Recur&sive\n"
+"Remove the property also from items in Subfolders."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1260)
 msgid "Recurse into unversioned folders"
 msgstr "Rekurzivně do adresářů bez verze"
@@ -8424,12 +8363,6 @@ msgstr "Rekurzivně do adresářů bez verze"
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK2)
 msgid "Recursive operation"
 msgstr "Rekurzivní operace"
-
-#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
-msgid ""
-"Recursive\n"
-"Remove the property also from items in Subfolders."
-msgstr "Rekurzivní\nOdstraní vlastnost také z položek v Podadresářích."
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 333)
 msgid "Recycle bin"
@@ -8516,12 +8449,6 @@ msgstr "Filtr regulárních výrazů:\n.   : jakýkoliv znak\nc+   : znak c jede
 msgid "Reintegrate merge %1!ls! into %2!ls!"
 msgstr "Znovu začlenit sloučení %1!ls! do %2!ls!"
 
-#. Resource IDs: (IDS_SSL_REJECT_TASK)
-msgid ""
-"Reject the certificate\n"
-"Cancel the connection."
-msgstr "Odmítnout certifikát\nZruší připojení."
-
 #. Resource IDs: (IDS_TITLE_REJECTEDHUNKS)
 #, c-format
 msgid "Rejected patch hunks for '%ls'"
@@ -8561,12 +8488,6 @@ msgstr "Přemístit"
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK2)
 msgid "Relocate where a switch might be intended"
 msgstr "Přemístit, kde by mohlo být zamýšleno překlopení"
-
-#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
-msgid ""
-"Relocate\n"
-"The working copy is relocated to the new URL."
-msgstr "Přemístit\nPracovní kopie je přemístěna na novou adresu URL."
 
 #. Resource IDs: (IDS_PROC_RELOCATING)
 msgid "Relocating..."
@@ -8631,12 +8552,6 @@ msgstr "Odstranit z Lišty Rychlého Přístupu"
 msgid "Remove from changelist"
 msgstr "Odstranit ze seznamu změn"
 
-#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK3)
-msgid ""
-"Remove from version control\n"
-"All .svn folders are removed"
-msgstr "Odstraňte ze správy verzí\nVšechny adresáře .svn jsou odstraněny"
-
 #. Resource IDs: (IDS_INPUT_REMOVEPROP)
 #, c-format
 msgid ""
@@ -8651,18 +8566,6 @@ msgstr "Odstranit vybranou úschovu(y) z disku"
 #. Resource IDs: (Dialog IDD_REVGRAPHFILTER: Control id 1352)
 msgid "Remove the whole subtree(s)"
 msgstr "Odstraní celý podstrom(y)"
-
-#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK3)
-msgid ""
-"Remove\n"
-"Force the removal"
-msgstr "Odstranit\nVynutit odstranění"
-
-#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
-msgid ""
-"Remove\n"
-"Remove the property only from this item."
-msgstr "Odstranit\nOdstraní vlastnost pouze z této položky."
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Removed"
@@ -8733,13 +8636,6 @@ msgstr "Přejmenovat položku z %1!ls!\r\ndo %2!ls!"
 #. Resource IDs: (IDS_PROGRS_TITLE_RENAME)
 msgid "Rename/move"
 msgstr "Přejmenovat/přesunout"
-
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK4)
-#, c-format
-msgid ""
-"Rename\n"
-"The folder is exported as '%ls'."
-msgstr "Přejmenovat\nAdresář je exportován jako '%ls'."
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Renamed node"
@@ -8855,18 +8751,6 @@ msgstr "Resetovat sloupce"
 msgid "Resolve"
 msgstr "Vyřešit"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 2)
-msgid "Resolve &later"
-msgstr "Vyřešit &později"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 268)
-msgid "Resolve Conflict"
-msgstr "Vyřešit konflikt"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1382)
-msgid "Resolve all la&ter"
-msgstr "Vyřešit vše &později"
-
 #. Resource IDs: (IDS_SVNPROGRESS_MENUUSEMINE)
 msgid "Resolve conflict using 'mine'"
 msgstr "Vyřešit konflikt použitím 'mé verze'"
@@ -8874,20 +8758,6 @@ msgstr "Vyřešit konflikt použitím 'mé verze'"
 #. Resource IDs: (IDS_SVNPROGRESS_MENUUSETHEIRS)
 msgid "Resolve conflict using 'theirs'"
 msgstr "Vyřešit konflikt použitím 'jejich verze'"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1403)
-msgid "Resolve conflict:"
-msgstr "Vyřešte konflikt:"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 2)
-msgid "Resolve l&ater"
-msgstr "Vyřešit &později"
-
-#. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
-msgid ""
-"Resolve\n"
-"The item is marked as resolved."
-msgstr "Vyřešit\nPoložka je označena jako vyřešená."
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_RESOLVED, IDS_SVNACTION_RESOLVE)
 msgid "Resolved"
@@ -8955,12 +8825,6 @@ msgid ""
 "Revert\n"
 "All local modifications will be lost."
 msgstr "Vrátit\nVšechny místní změny budou ztraceny."
-
-#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
-msgid ""
-"Revert\n"
-"Changes will be applied to the working copy."
-msgstr "Vrátit\nZměny budou použity v pracovní kopii."
 
 #. Resource IDs: (IDS_SVNACTION_REVERT)
 msgid "Reverted"
@@ -9106,12 +8970,6 @@ msgstr "Spustit čištění &nyní"
 msgid "Run hoo&k script"
 msgstr "Spustit há&kový skript"
 
-#. Resource IDs: (IDS_HOOKS_APPROVE_TASK3)
-msgid ""
-"Run\n"
-"Run the hook script"
-msgstr "Spustit\nSpustit hákový skript"
-
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "&Vybrat..."
@@ -9236,11 +9094,11 @@ msgstr "Ukázková zpráva záznamu ke zkoušce řetězců bugtraq: regulárníh
 msgid "Sample text:"
 msgstr "Ukázkový text:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "Uložit"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "Uložit j&ako..."
 
@@ -9355,8 +9213,7 @@ msgid ""
 "Save file"
 msgstr "Uložit změněný soubor\nUložit soubor"
 
-#. Resource IDs: (Dialog IDD_PATCH_FILE_OPEN_CUSTOM: Control id 1132,
-#. IDS_PATCH_COPYTOCLIPBOARD)
+#. Resource IDs: (IDS_PATCH_COPYTOCLIPBOARD)
 msgid "Save to clipboard"
 msgstr "Zkopírovat do schránky"
 
@@ -9694,8 +9551,7 @@ msgstr "Zobrazit &klávesovou zkratku pro:"
 msgid "Show &All"
 msgstr "&Ukázat vše"
 
-#. Resource IDs: (Dialog IDD_COPY: Control id 1187, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 1132)
+#. Resource IDs: (Dialog IDD_COPY: Control id 1187)
 msgid "Show &Log"
 msgstr "Zobrazit &Záznam"
 
@@ -9753,10 +9609,6 @@ msgstr "Zobrazit Nad Ribbonem"
 #. Resource IDs: (17098)
 msgid "Show Below the Ribbon"
 msgstr "Zobrazit Pod Ribbonem"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1542)
-msgid "Show Branch L&og"
-msgstr "Z&obrazit záznam větve"
 
 #. Resource IDs: (17030)
 msgid "Show Fewer Buttons"
@@ -9927,9 +9779,9 @@ msgstr "Zobrazit značky na zdroji kopie, ne jako samostatné uzly"
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK3)
 msgid ""
-"Show the diff\n"
+"Show the &diff\n"
 "The diff viewer is started for every selected item."
-msgstr "Zobrazit rozdíl\nProhlížeč rozdílů je spuštěn pro každou vybranou položku."
+msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_SHOWCOL)
 msgid "Show/Hide"
@@ -10088,14 +9940,6 @@ msgstr "Něco se zvrtlo"
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1126)
 msgid "Sort by commit count"
 msgstr "Uspořádat podle počtu odevzdání"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1501)
-msgid "Source Left:"
-msgstr "Zdroj vlevo:"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1502)
-msgid "Source Right:"
-msgstr "Zdroj vpravo:"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 1552)
 msgid "Source URL:"
@@ -10670,129 +10514,6 @@ msgid ""
 "The item '%ls' has property conflicts:\r\n"
 "%ls"
 msgstr "Položka '%ls' má konflikt vlastností:\n%ls"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEADD)
-#, c-format
-msgid "The last merge operation tried to add the directory '%ls'"
-msgstr "Poslední sloučení se pokusilo přidat adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEADD)
-#, c-format
-msgid "The last merge operation tried to add the file '%ls'"
-msgstr "Poslední sloučení se pokusilo přidat soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEDELETE)
-#, c-format
-msgid ""
-"The last merge operation tried to delete/move/rename the directory '%ls'"
-msgstr "Poslední sloučení se pokusilo smazat/přesunout/přejmenovat adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEDELETE)
-#, c-format
-msgid "The last merge operation tried to delete/move/rename the file '%ls'"
-msgstr "Poslední sloučení se pokusilo smazat/přesunout/přejmenovat soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEEDIT)
-#, c-format
-msgid "The last merge operation tried to modify the directory '%ls'"
-msgstr "Poslední sloučení se pokusilo změnit adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEEDIT)
-#, c-format
-msgid "The last merge operation tried to modify the file '%ls'"
-msgstr "Poslední sloučení se pokusilo změnit soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEREPLACE)
-#, c-format
-msgid "The last merge operation tried to replace the directory '%ls'"
-msgstr "Poslední sloučení se pokusilo nahradit adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEREPLACE)
-#, c-format
-msgid "The last merge operation tried to replace the file '%ls'"
-msgstr "Poslední slučovácí operace se snažila nahradit soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHADD)
-#, c-format
-msgid "The last switch operation tried to add the directory '%ls'"
-msgstr "Poslední překlopení se pokusilo přidat adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHADD)
-#, c-format
-msgid "The last switch operation tried to add the file '%ls'"
-msgstr "Poslední překlopení se pokusilo přidat soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHDELETE)
-#, c-format
-msgid ""
-"The last switch operation tried to delete/move/rename the directory '%ls'"
-msgstr "Poslední překlopení se pokusilo smazat/přesunout/přejmenovat adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHDELETE)
-#, c-format
-msgid "The last switch operation tried to delete/move/rename the file '%ls'"
-msgstr "Poslední překlopení se pokusilo smazat/přesunout/přejmenovat soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHEDIT)
-#, c-format
-msgid "The last switch operation tried to modify the directory '%ls'"
-msgstr "Poslední překlopení se pokusilo změnit adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHEDIT)
-#, c-format
-msgid "The last switch operation tried to modify the file '%ls'"
-msgstr "Poslední překlopení se pokusilo změnit soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHREPLACE)
-#, c-format
-msgid "The last switch operation tried to replace the directory '%ls'"
-msgstr "Poslední překlopení se pokusilo nahradit adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHREPLACE)
-#, c-format
-msgid "The last switch operation tried to replace the file '%ls'"
-msgstr "Poslední překlopení se pokusilo nahradit soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEADD)
-#, c-format
-msgid "The last update operation tried to add the directory '%ls'"
-msgstr "Poslední aktualizace se pokusila přidat adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEADD)
-#, c-format
-msgid "The last update operation tried to add the file '%ls'"
-msgstr "Poslední aktualizace se pokusila přidat soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEDELETE)
-#, c-format
-msgid ""
-"The last update operation tried to delete/move/rename the directory '%ls'"
-msgstr "Poslední aktualizace se pokusila smazat/přesunout/přejmenovat adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEDELETE)
-#, c-format
-msgid "The last update operation tried to delete/move/rename the file '%ls'"
-msgstr "Poslední aktualizace se pokusila smazat/přesunou/přejmenovat soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEEDIT)
-#, c-format
-msgid "The last update operation tried to modify the directory '%ls'"
-msgstr "Poslední aktualizace se pokusila změnit adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEEDIT)
-#, c-format
-msgid "The last update operation tried to modify the file '%ls'"
-msgstr "Poslední aktualizace se pokusila změnit soubor '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEREPLACE)
-#, c-format
-msgid "The last update operation tried to replace the directory '%ls'"
-msgstr "Poslední aktualizace se pokusila nahradit adresář '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEREPLACE)
-#, c-format
-msgid "The last update operation tried to replace the file '%ls'"
-msgstr "Poslední aktualizace se pokusila nahradit soubor '%ls'"
 
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
@@ -11690,24 +11411,6 @@ msgstr "Kontrola aktualizací již běží!"
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK2)
 msgid "Update externals"
 msgstr "Aktualizovat externí"
-
-#. Resource IDs: (IDS_WARN_LOCKOUTDATED_TASK3)
-msgid ""
-"Update\n"
-"Update the file and try locking again."
-msgstr "Aktualizace\nAktualizovat soubor a znovu ho zkusit zamknout."
-
-#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
-msgid ""
-"Update\n"
-"Update the working copy and reopen the commit dialog to try again."
-msgstr "Aktualizace\nAktualizujte pracovní kopii a znovu otevřete dialogové okno odevzdání a zkuste to znovu."
-
-#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
-msgid ""
-"Update\n"
-"Update to the HEAD revision"
-msgstr "Aktualizovat\nAktualizovat na revizi HEAD"
 
 #. Resource IDs: (IDS_SVNACTION_UPDATE)
 msgid "Updated"
@@ -12839,11 +12542,6 @@ msgstr "na %1"
 #. Resource IDs: (IDS_CONNECTIONSTATE_ONLINE)
 msgid "online"
 msgstr "online"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1406, Dialog
-#. IDD_CONFLICTRESOLVE: Control id 1407)
-msgid "or"
-msgstr "nebo"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "pair tokens: "

@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2016 the TortoiseSVN team
+# Copyright (C) 2004-2017 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -41,8 +41,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-09 11:52+0000\n"
-"Last-Translator: augusto wloch <augustowloch@gmail.com>\n"
+"PO-Revision-Date: 2017-02-11 08:14+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -279,106 +279,6 @@ msgstr "%ls : Base de trabajo"
 msgid "%ls : Working Copy"
 msgstr "%ls : Copia de trabajo"
 
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_UNVERSIONED)
-#, c-format
-msgid "%ls, but the directory already exists unversioned locally."
-msgstr "%ls, pero el directorio ya existe localmente sin versionar."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSINGMOVED)
-#, c-format
-msgid "%ls, but the directory is missing locally (deleted or moved away?)."
-msgstr "%ls, pero el directorio no se encuentra localmente (¿ha sido eliminado o movido de ubicación?)."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSING)
-#, c-format
-msgid "%ls, but the directory is missing locally."
-msgstr "%ls, pero el directorio falta localmente."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_ADDED)
-#, c-format
-msgid "%ls, but the directory was already added locally."
-msgstr "%ls, pero el directorio ya ha sido añadido localmente."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_EDITED)
-#, c-format
-msgid "%ls, but the directory was already edited."
-msgstr "%ls, pero el directorio ya ha sido editado."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_DELETED)
-#, c-format
-msgid "%ls, but the directory was deleted, moved or renamed locally."
-msgstr "%ls, pero el directorio ya ha sido eliminado, movido o renombrado localmente."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDAWAY)
-#, c-format
-msgid "%ls, but the directory was moved away"
-msgstr "%ls, pero el directorio fue movido fuera"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDHERE)
-#, c-format
-msgid "%ls, but the directory was moved here"
-msgstr "%ls, pero el directorio fue movido aquí"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_OBSTRUCTED)
-#, c-format
-msgid "%ls, but the directory was obstructed in the working copy."
-msgstr "%ls, pero el directorio ha sido obstruído en la copia de trabajo."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_REPLACED)
-#, c-format
-msgid "%ls, but the directory was replaced"
-msgstr "%ls, pero el directorio fue reemplazado"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_UNVERSIONED)
-#, c-format
-msgid "%ls, but the file already exists unversioned locally."
-msgstr "%ls, pero el archivo ya existe localmente sin versionar."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSINGMOVED)
-#, c-format
-msgid "%ls, but the file is missing locally (deleted or moved away?)."
-msgstr "%ls, pero el archivo no se encuentra localmente, (¿ha sido eliminado o movido de ubicación?)."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSING)
-#, c-format
-msgid "%ls, but the file is missing locally."
-msgstr "%ls, pero el archivo falta localmente."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_ADDED)
-#, c-format
-msgid "%ls, but the file was already added locally."
-msgstr "%ls, pero el archivo ya se ha añadido localmente."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_EDITED)
-#, c-format
-msgid "%ls, but the file was already edited."
-msgstr "%ls, pero el archivo ya se encontraba editado."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_DELETED)
-#, c-format
-msgid "%ls, but the file was deleted, moved or renamed locally."
-msgstr "%ls, pero el archivo fue borrado, movido o renombrado localmente."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDAWAY)
-#, c-format
-msgid "%ls, but the file was moved away"
-msgstr "%ls, pero el fichero fue movido fuera"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDHERE)
-#, c-format
-msgid "%ls, but the file was moved here"
-msgstr "%ls, pero el fichero fue movido aquí"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_OBSTRUCTED)
-#, c-format
-msgid "%ls, but the file was obstructed in the working copy."
-msgstr "%ls, pero el archivo se ha obstruído en la copia de trabajo."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_REPLACED)
-#, c-format
-msgid "%ls, but the file was replaced"
-msgstr "%ls, pero el archivo fue reemplazado"
-
 #. Resource IDs: (IDS_PATCH_ITEMTT)
 #, c-format
 msgid ""
@@ -420,13 +320,21 @@ msgstr "%ls\nes un directorio, no un archivo!\nTortoiseMerge no puede diferencia
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (IDS_HOOKFAILED_TASK3)
+msgid ""
+"&Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
+
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&Acerca de TortoiseMerge..."
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED)
-msgid "&Accept current working copy state (mark as resolved)"
-msgstr "&Aceptar el actual estado de la copia de trabajo (marcar como resuelto)"
+#. Resource IDs: (IDS_SSL_ACCEPTTEMP_TASK)
+msgid ""
+"&Accept the certificate\n"
+"The certificate is accepted only this one time."
+msgstr ""
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -443,6 +351,12 @@ msgstr "&Añadir >>"
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
 msgstr "&Añade filtro"
+
+#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK4)
+msgid ""
+"&Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -478,10 +392,6 @@ msgstr "Permitir URLs &ambiguas"
 #. Control id 1294)
 msgid "&Apply property recursively"
 msgstr "&Aplicar propiedad recursivamente"
-
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_APPLYTOMOVE)
-msgid "&Apply the update to the move destination"
-msgstr "&Aplicar cambios al destino movido"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1013)
 msgid "&Apply unified diff"
@@ -577,9 +487,142 @@ msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 2, Dialog IDD_GOOFFLINE: Control
-#. id 2, IDS_MONITOR_DELETE_TASK4, IDS_MSGBOX_CANCEL)
+#. id 2, IDS_MERGE_WCDIRTYASK_TASK4, IDS_MONITOR_DELETE_TASK4,
+#. IDS_MSGBOX_CANCEL, IDS_WARN_LOCKOUTDATED_TASK4)
 msgid "&Cancel"
 msgstr "&Cancelar"
+
+#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK4)
+msgid ""
+"&Cancel\n"
+"Choose a different folder to export to"
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not commit to a tag."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not remove"
+msgstr ""
+
+#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not revert."
+msgstr ""
+
+#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not update the working copy."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
+msgid ""
+"&Cancel\n"
+"Don't resolve the item."
+msgstr ""
+
+#. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
+msgid ""
+"&Cancel\n"
+"Don't show the diff."
+msgstr ""
+
+#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
+msgid ""
+"&Cancel\n"
+"Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
+msgid ""
+"&Cancel\n"
+"Go back and select a different folder."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
+msgid ""
+"&Cancel\n"
+"I will enter a different path/URL."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
+msgid ""
+"&Cancel\n"
+"Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
+msgid ""
+"&Cancel\n"
+"Leave the cache on disk."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
+msgid ""
+"&Cancel\n"
+"Local modifications are kept."
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
+msgid ""
+"&Cancel\n"
+"The conflict is not resolved."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
+msgid ""
+"&Cancel\n"
+"The file is not copied."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
+msgid ""
+"&Cancel\n"
+"The folder is not exported."
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
+msgid ""
+"&Cancel\n"
+"The items are not imported."
+msgstr ""
+
+#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
+msgid ""
+"&Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
+msgid ""
+"&Cancel\n"
+"The target file is left as is"
+msgstr ""
+
+#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
+msgid ""
+"&Cancel\n"
+"You have to add the folder manually."
+msgstr ""
+
+#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
+msgid ""
+"&Cancel\n"
+"You have to run an update yourself to get the externals"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
+msgid ""
+"&Cancel\n"
+"keep the current format."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -655,8 +698,8 @@ msgstr "&Contactar con el repositorio al iniciar"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Convertir archivos cuando se diferencian contra BASE"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "C&opiar"
 
@@ -719,6 +762,12 @@ msgstr " &Eliminar ítems sin versionar..."
 msgid "&Delete..."
 msgstr "&Eliminar..."
 
+#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)
+msgid ""
+"&Delete\n"
+"Remove the cache files."
+msgstr ""
+
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
 msgstr "&Diff"
@@ -743,6 +792,12 @@ msgstr "&No preguntarme de nuevo"
 msgid "&Docking"
 msgstr "Acopla&do"
 
+#. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
+msgid ""
+"&Don't run\n"
+"Do not run the script"
+msgstr ""
+
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
 msgstr "&Fin de Línea"
@@ -755,11 +810,6 @@ msgstr "&Editar"
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1506)
 msgid "&Edit Filter"
 msgstr "&Edita fltro"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1399, Dialog
-#. IDD_EDITPROPCONFLICT: Control id 1542)
-msgid "&Edit conflict"
-msgstr "&Editar conflicto"
 
 #. Resource IDs: (IDS_MENUCONFLICT)
 msgid "&Edit conflicts"
@@ -806,6 +856,12 @@ msgstr "&Salir"
 #. Resource IDs: (IDS_FILEDIFF_POPEXPORT)
 msgid "&Export selection to..."
 msgstr "E&xportar selección a..."
+
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3_1)
+msgid ""
+"&Export\n"
+"Export into the non-empty folder."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -909,7 +965,7 @@ msgstr "Revisión &HEAD en el repositorio"
 msgid "&Help"
 msgstr "&Ayuda"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "&Temas de Ayuda"
 
@@ -957,6 +1013,12 @@ msgstr "Sólo &imágen"
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
 msgstr "&Importar..."
+
+#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
+msgid ""
+"&Import\n"
+"The items are imported, creating a new revision for each item."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1047,10 +1109,6 @@ msgstr "&Mac (CR)"
 #. Control id 1562)
 msgid "&Make depth sticky"
 msgstr "&Hacer profundidad pegajosa"
-
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 1282)
-msgid "&Manually edit property"
-msgstr "Editar propiedad &manualmente"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "&Max line length for inline diffs"
@@ -1218,13 +1276,31 @@ msgstr "&Otro"
 msgid "&Overlay images\t(O)"
 msgstr "&Superponer imágenes\t(O)"
 
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
+msgid ""
+"&Overwrite\n"
+"Replace the target folder."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
+msgid ""
+"&Overwrite\n"
+"The target file gets replaced"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
+msgid ""
+"&Overwrite\n"
+"The target file is replaced."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
 msgid "&Password:"
 msgstr "&Contraseña:"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "Pega&r"
 
@@ -1248,10 +1324,6 @@ msgstr "Activar sonidos &para notificaciones"
 msgid "&Port:"
 msgstr "&Puerto:"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 3)
-msgid "&Postpone all remaining conflicts"
-msgstr "&Posponer todos los conflictos pendientes."
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1489)
 msgid "&Power user defaults"
 msgstr "Valores por defecto de usuario a&vanzado"
@@ -1267,6 +1339,28 @@ msgstr "Vista &preliminar"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "Im&primir..."
+
+#. Resource IDs: (IDS_HOOKFAILED_TASK4)
+msgid ""
+"&Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
+msgid ""
+"&Proceed with the entered path\n"
+"I'm aware of the possible problems."
+msgstr ""
+
+#. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
+msgid "&Proceed with the merge."
+msgstr ""
+
+#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
+msgid ""
+"&Proceed without an issue number\n"
+"The commit won't be assigned to an issue."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1294,6 +1388,18 @@ msgstr "&Rehacer"
 msgid "&Refresh"
 msgstr "&Actualizar"
 
+#. Resource IDs: (IDS_SSL_REJECT_TASK)
+msgid ""
+"&Reject the certificate\n"
+"Cancel the connection."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
+msgid ""
+"&Relocate\n"
+"The working copy is relocated to the new URL."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
 msgstr "&Recordarme que ingrese un ID de incidente"
@@ -1304,9 +1410,27 @@ msgstr "&Recordarme que ingrese un ID de incidente"
 msgid "&Remove"
 msgstr "&Eliminar"
 
+#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK3)
+msgid ""
+"&Remove from version control\n"
+"All .svn folders are removed"
+msgstr ""
+
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
 msgstr "&Eliminar proyecto"
+
+#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK3)
+msgid ""
+"&Remove\n"
+"Force the removal"
+msgstr ""
+
+#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
+msgid ""
+"&Remove\n"
+"Remove the property only from this item."
+msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK3)
 msgid ""
@@ -1317,6 +1441,13 @@ msgstr "Elimina&r\nEl proyecto ha sido eliminado. Si contiene subproyectos, esto
 #. Resource IDs: (IDS_REPOBROWSE_RENAME)
 msgid "&Rename"
 msgstr "&Renombrar"
+
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK4)
+#, c-format
+msgid ""
+"&Rename\n"
+"The folder is exported as '%ls'."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1342,6 +1473,12 @@ msgstr "&Restaurar mis datos de uso"
 msgid "&Reset to Default"
 msgstr "&Restaurar por defecto"
 
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
+msgid ""
+"&Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
 msgstr "Re&staurar valores por defecto"
@@ -1363,6 +1500,12 @@ msgstr "&Revertir los cambios desde estas revisiones"
 msgid "&Revert changes from this revision"
 msgstr "&Revertir cambios de esta revisión"
 
+#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
+msgid ""
+"&Revert\n"
+"Changes will be applied to the working copy."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
 #. IDD_EXPORT: Control id 1033, Dialog IDD_MERGEWIZARD_TREE: Control id 1116,
@@ -1372,6 +1515,12 @@ msgstr "&Revertir cambios de esta revisión"
 #. 1033)
 msgid "&Revision"
 msgstr "&Revisión"
+
+#. Resource IDs: (IDS_HOOKS_APPROVE_TASK3)
+msgid ""
+"&Run\n"
+"Run the hook script"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -1448,7 +1597,7 @@ msgstr "Grupo de &inicio"
 msgid "&Start Repobrowser"
 msgstr "&Navegador de repositorios"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "&Barra de Estado"
 
@@ -1526,7 +1675,7 @@ msgstr "Ruta &destino: "
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&A: (URL y revisión del fin del rango a fusionar)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "Barra de &Herramientas"
 
@@ -1575,7 +1724,7 @@ msgstr "&URL del repositorio:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "&Deshacer"
 
@@ -1606,6 +1755,24 @@ msgstr "&Actualizar ítem a la revisión..."
 #. Resource IDs: (IDS_MENUUPDATEEXT)
 msgid "&Update to revision..."
 msgstr "&Actualizar a la revisión..."
+
+#. Resource IDs: (IDS_WARN_LOCKOUTDATED_TASK3)
+msgid ""
+"&Update\n"
+"Update the file and try locking again."
+msgstr ""
+
+#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
+msgid ""
+"&Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
+
+#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
+msgid ""
+"&Update\n"
+"Update to the HEAD revision"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1925,17 +2092,6 @@ msgstr "Aña&dir carpeta..."
 msgid "Abort"
 msgstr "Abortar"
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1465, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 1465)
-msgid "Abort &Merge"
-msgstr "Abortar &Fusionado"
-
-#. Resource IDs: (IDS_HOOKFAILED_TASK3)
-msgid ""
-"Abort\n"
-"You can fix the reason the hook script failed first."
-msgstr "Abortar\nPuedes solucionar primero la razón por la que el script falló."
-
 #. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
 msgid "About"
 msgstr "Acerca de"
@@ -1950,15 +2106,9 @@ msgstr "Acerca de TortoiseSVN"
 
 #. Resource IDs: (IDS_SSL_ACCEPTALWAYS_TASK)
 msgid ""
-"Accept the certificate permanently\n"
+"Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr "Aceptar el certificado permanentemente\nNo se preguntaar sobre este certificado nuevamente."
-
-#. Resource IDs: (IDS_SSL_ACCEPTTEMP_TASK)
-msgid ""
-"Accept the certificate\n"
-"The certificate is accepted only this one time."
-msgstr "Aceptar el certificado\nEl certificado es aceptado sólo por esta vez."
+msgstr ""
 
 #. Resource IDs: (61861)
 #, c-format
@@ -1992,6 +2142,12 @@ msgid ""
 "Discard all changes to %1?"
 msgstr "¡Los objectos ActiveX no se pueden guardar cuando se está saliendo de Windows!\n¿Desea descartar todos los cambios de %1?"
 
+#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK3)
+msgid ""
+"Ad&just case\n"
+"The file is not added."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
 msgid "Add"
@@ -2021,12 +2177,6 @@ msgstr "Añadir programa de diferencias según la extensión"
 #. Resource IDs: (IDS_DLGTITLE_ADD_MERGE_TOOL)
 msgid "Add extension specific merge program"
 msgstr "Añadir programa de fusión según la extensión"
-
-#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK4)
-msgid ""
-"Add item\n"
-"This will lead to problems on Windows."
-msgstr "Agregar ítem\nEsto dará lugar a problemas en Windows."
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1065)
 msgid "Add new files automatically to SVN"
@@ -2107,12 +2257,6 @@ msgstr "Añade archivo(s) bajo el control de Subversion"
 #. Resource IDs: (IDS_MENUDESCIGNORE)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Añade los archivos seleccionados a la lista de 'ignorados'"
-
-#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK3)
-msgid ""
-"Adjust case\n"
-"The file is not added."
-msgstr "Ajustar caso\nEl archivo no es agregado."
 
 #. Resource IDs: (32782)
 msgid ""
@@ -2485,8 +2629,9 @@ msgstr "E&xplorar..."
 msgid "Back"
 msgstr "Atrás"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
-#. IDD_SETTINGSUDIFF: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
+#. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
+#. 65535)
 msgid "Background"
 msgstr "Fondo"
 
@@ -2703,28 +2848,27 @@ msgstr "¡No se puede pegar una imagen de bitmaps desde el portapapeles!"
 #. Dialog IDD_CREATECHANGELIST: Control id 2, Dialog IDD_CREATEPATCH: Control
 #. id 2, Dialog IDD_DELUNVERSIONED: Control id 2, Dialog IDD_DIFFOPTIONS:
 #. Control id 2, Dialog IDD_EDITPROPBUGTRAQ: Control id 2, Dialog
-#. IDD_EDITPROPCONFLICT: Control id 2, Dialog IDD_EDITPROPEOL: Control id 2,
-#. Dialog IDD_EDITPROPERTYVALUE: Control id 2, Dialog IDD_EDITPROPEXECUTABLE:
-#. Control id 2, Dialog IDD_EDITPROPEXTERNALS: Control id 2, Dialog
-#. IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog IDD_EDITPROPKEYWORDS:
-#. Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control id 2, Dialog
-#. IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog IDD_EDITPROPMIMETYPE:
-#. Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control id 2, Dialog
-#. IDD_EDITPROPTSVNLANG: Control id 2, Dialog IDD_EDITPROPTSVNSIZES: Control
-#. id 2, Dialog IDD_EDITPROPUSERBOOL: Control id 2, Dialog
-#. IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog IDD_EDITPROPUSERSINGLELINE:
-#. Control id 2, Dialog IDD_EDITPROPUSERSTATE: Control id 2, Dialog
-#. IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control id 2, Dialog
-#. IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog IDD_GOTODLG:
-#. Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog IDD_IMPORT:
-#. Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog IDD_INPUTLOGDLG:
-#. Control id 2, Dialog IDD_LOCK: Control id 2, Dialog IDD_LOGMESSAGE: Control
-#. id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog IDD_MONITOROPTIONS:
-#. Control id 2, Dialog IDD_MONITORPROJECT: Control id 2, Dialog IDD_OPEN:
-#. Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog IDD_PASSWORD:
-#. Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog IDD_REGEXFILTER:
-#. Control id 2, Dialog IDD_REGEXFILTERS: Control id 2, Dialog IDD_RELOCATE:
-#. Control id 2, Dialog IDD_RENAME: Control id 2, Dialog
+#. IDD_EDITPROPEOL: Control id 2, Dialog IDD_EDITPROPERTYVALUE: Control id 2,
+#. Dialog IDD_EDITPROPEXECUTABLE: Control id 2, Dialog IDD_EDITPROPEXTERNALS:
+#. Control id 2, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog
+#. IDD_EDITPROPKEYWORDS: Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control
+#. id 2, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog
+#. IDD_EDITPROPMIMETYPE: Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control
+#. id 2, Dialog IDD_EDITPROPTSVNLANG: Control id 2, Dialog
+#. IDD_EDITPROPTSVNSIZES: Control id 2, Dialog IDD_EDITPROPUSERBOOL: Control
+#. id 2, Dialog IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog
+#. IDD_EDITPROPUSERSINGLELINE: Control id 2, Dialog IDD_EDITPROPUSERSTATE:
+#. Control id 2, Dialog IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control
+#. id 2, Dialog IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog
+#. IDD_GOTODLG: Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog
+#. IDD_IMPORT: Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog
+#. IDD_INPUTLOGDLG: Control id 2, Dialog IDD_LOCK: Control id 2, Dialog
+#. IDD_LOGMESSAGE: Control id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog
+#. IDD_MONITOROPTIONS: Control id 2, Dialog IDD_MONITORPROJECT: Control id 2,
+#. Dialog IDD_OPEN: Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog
+#. IDD_PASSWORD: Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog
+#. IDD_REGEXFILTER: Control id 2, Dialog IDD_REGEXFILTERS: Control id 2,
+#. Dialog IDD_RELOCATE: Control id 2, Dialog IDD_RENAME: Control id 2, Dialog
 #. IDD_REPOSITORY_BROWSER: Control id 2, Dialog IDD_RESOLVE: Control id 2,
 #. Dialog IDD_REVERT: Control id 2, Dialog IDD_REVGRAPHFILTER: Control id 2,
 #. Dialog IDD_REVISION: Control id 2, Dialog IDD_REVISIONRANGE: Control id 2,
@@ -2734,8 +2878,7 @@ msgstr "¡No se puede pegar una imagen de bitmaps desde el portapapeles!"
 #. 2, Dialog IDD_SVNPROGRESS: Control id 2, Dialog IDD_SWITCH: Control id 2,
 #. Dialog IDD_TOOLASSOC: Control id 2, Dialog IDD_UNLOCK: Control id 2, Dialog
 #. IDD_UPDATE: Control id 2, Dialog IDD_URL: Control id 2, Dialog IDD_URLDIFF:
-#. Control id 2, IDS_MERGE_WCDIRTYASK_TASK4, IDS_PROPPAGE_CANCEL,
-#. IDS_WARN_LOCKOUTDATED_TASK4)
+#. Control id 2, IDS_PROPPAGE_CANCEL)
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -2745,53 +2888,11 @@ msgid ""
 "Change the selection for the commit."
 msgstr "Cancelar\nCambie la selección para la confirmación."
 
-#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK4)
-msgid ""
-"Cancel\n"
-"Choose a different folder to export to"
-msgstr "Cancelar\nEscoga una carpeta diferente para exportar a"
-
-#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
-msgid ""
-"Cancel\n"
-"Do not commit to a tag."
-msgstr "Cancelar \nNo asociar a una etiqueta."
-
-#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
-msgid ""
-"Cancel\n"
-"Do not remove"
-msgstr "Cancelar\nNo eliminar"
-
-#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
-msgid ""
-"Cancel\n"
-"Do not revert."
-msgstr "Cancelar\nNo volver."
-
-#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
-msgid ""
-"Cancel\n"
-"Do not update the working copy."
-msgstr "Cancelar\nNo actualizar la copia de trabajo."
-
 #. Resource IDs: (IDS_ASKFORSAVE_TASK5)
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr "Cancelar\nNo cierre TortoiseMerge"
-
-#. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
-msgid ""
-"Cancel\n"
-"Don't resolve the item."
-msgstr "Cancelar\nNo resolver el ítem."
-
-#. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
-msgid ""
-"Cancel\n"
-"Don't show the diff."
-msgstr "Cancela.\nNo muestres la diflerencia."
 
 #. Resource IDs: (IDS_ASKFORSAVE_TASK8)
 msgid ""
@@ -2799,47 +2900,11 @@ msgid ""
 "Don't switch the views"
 msgstr "Cancelar\nNo cambiar las vistas"
 
-#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
-msgid ""
-"Cancel\n"
-"Go back and enter an issue number."
-msgstr "Cancelar\nVolver e introducir un número de tema."
-
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
-msgid ""
-"Cancel\n"
-"Go back and select a different folder."
-msgstr "Cancelar\nRegresar y seleccionar una carpeta diferente."
-
-#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
-msgid ""
-"Cancel\n"
-"I will enter a different path/URL."
-msgstr "Cancelar\nIntroduciré una ruta/URL diferente."
-
-#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
-msgid ""
-"Cancel\n"
-"Keep the current URL."
-msgstr "Cancelar\nConservar la URL actual."
-
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK4)
 msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr "Cancelar\nMantener el archivo vacío."
-
-#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
-msgid ""
-"Cancel\n"
-"Leave the cache on disk."
-msgstr "Cancelar\nDejar el cache en disco."
-
-#. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
-msgid ""
-"Cancel\n"
-"Local modifications are kept."
-msgstr "Cancelar\nLas modificaciones locales serán guardadas"
 
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)
 msgid ""
@@ -2859,71 +2924,17 @@ msgid ""
 "Stay with current settings"
 msgstr "Cancelar\nQuedarme con los actuales parámetros."
 
-#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
-msgid ""
-"Cancel\n"
-"The conflict is not resolved."
-msgstr "Cancelar\nEl conflicto no esta resuelto."
-
-#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
-msgid ""
-"Cancel\n"
-"The file is not copied."
-msgstr "Cancelar\nEl archivo no se copiará."
-
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
-msgid ""
-"Cancel\n"
-"The folder is not exported."
-msgstr "Cancelar\nLa carpeta no se exportará."
-
-#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
-msgid ""
-"Cancel\n"
-"The items are not imported."
-msgstr "Cancelar\nLos elementos no son importados."
-
 #. Resource IDs: (IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK4)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr "Cancelar\nLos elementos no son movidos."
 
-#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
-msgid ""
-"Cancel\n"
-"The tagged revision of the external is left as is."
-msgstr "Cancelar\nDeja la revisión etiquetada del archivo externo tal cual."
-
-#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
-msgid ""
-"Cancel\n"
-"The target file is left as is"
-msgstr "Cancelar\nEl archivo destino se deja como está."
-
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK4)
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
 msgstr "Cancelar\nPuede introducir otro password y volver a intentarlo"
-
-#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
-msgid ""
-"Cancel\n"
-"You have to add the folder manually."
-msgstr "Cancelar\nTiene que agregar manualmente la carpeta."
-
-#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
-msgid ""
-"Cancel\n"
-"You have to run an update yourself to get the externals"
-msgstr "Cancelar\nDebe ejecutar una acción 'Actualizar' para obtener los externos"
-
-#. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
-msgid ""
-"Cancel\n"
-"keep the current format."
-msgstr "Cancelar\nMantener el formato actual."
 
 #. Resource IDs: (IDS_BLAME_PROGRESSCANCEL)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2967,17 +2978,17 @@ msgstr "Falló validacion del certificado."
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "Certificados|*.p12;*.pkcs12|All|*.*||"
 
+#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)
+msgid ""
+"Chan&ge the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr ""
+
 #. Resource IDs: (10000)
 msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "Cambiar el estilo de la aplicación\nCambiar estilo"
-
-#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)
-msgid ""
-"Change the tagged revision\n"
-"The svn:external property of the parent folder is changed accordingly."
-msgstr "Cambia la revisión etiquetada.\nLa propiedad 'svn:external' de la carpeta contenedora se actualizará de la misma forma."
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -3075,6 +3086,12 @@ msgstr "Marcar para utilizar un formato de fecha/hora menos redundante en mensaj
 msgid "Check working copy for modifications"
 msgstr "Comprobar la copia de trabajo buscando modificaciones"
 
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3)
+msgid ""
+"Check&out\n"
+"Checkout into the non empty folder."
+msgstr ""
+
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
 msgstr "Script de gancho de chequeo de confirmación"
@@ -3092,6 +3109,11 @@ msgstr "Comprobando si una versión más reciente de TortoiseSVN está disponibl
 #, c-format
 msgid "Checking project '%ls' for updates..."
 msgstr "Buscando actualizaciones del proyecto '%ls'"
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS)
+#, c-format
+msgid "Checking r%1!ld!..."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -3111,19 +3133,9 @@ msgstr "Profundidad de obt&ención"
 msgid "Checkout from %1!ls!, revision %2!ls!, %3!ls!, %4!ls!"
 msgstr "Obteniendo de %1!ls!, revisión %2!ls!, %3!ls!, %4!ls!"
 
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3)
-msgid ""
-"Checkout\n"
-"Checkout into the non empty folder."
-msgstr "Obtener\nObtener a una carpeta no vacía"
-
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Checksum:"
 msgstr "Suma de comprobación:"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1402)
-msgid "Choose item:"
-msgstr "Elegir ítem:"
 
 #. Resource IDs: (Dialog IDD_UPDATE: Control id 1606)
 msgid "Choose items..."
@@ -3365,17 +3377,23 @@ msgstr "El Comando falló."
 msgid "Commands"
 msgstr "Comandos"
 
+#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
+msgid ""
+"Commi&t only the folder\n"
+"Files inside the folder won't get committed."
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
+msgid ""
+"Commi&t\n"
+"Commit the changes to the target."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
 #. IDS_PROGRS_TITLE_COMMIT)
 msgid "Commit"
 msgstr "Confirmar"
-
-#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
-msgid ""
-"Commit only the folder\n"
-"Files inside the folder won't get committed."
-msgstr "Confirmar sólo la carpeta\nArchivos dentro de la carpeta no seran confirmados."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -3384,12 +3402,6 @@ msgstr "Confirmar en:"
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COMMIT)
 msgid "Commit..."
 msgstr "Confirmar..."
-
-#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
-msgid ""
-"Commit\n"
-"Commit the changes to the target."
-msgstr "Confirmar\nConfirmar los cambios en el destino."
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYAUTHOR)
 msgid "Commits by author"
@@ -3537,9 +3549,10 @@ msgstr "Configura el programa visor para archivos diff GNU (archivos de parches)
 msgid "Confirm revert"
 msgstr "Confirme reversión"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1503)
-msgid "Conflict Sources"
-msgstr "Orígenes de conflictos"
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_MAININSTRUCTION)
+#, c-format
+msgid "Conflict for property \"%s\" discovered"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Conflict resolved"
@@ -4110,12 +4123,6 @@ msgstr "Eliminar ítems no versionados"
 msgid "Delete unversioned items..."
 msgstr "Eliminar ítems no versionados..."
 
-#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)
-msgid ""
-"Delete\n"
-"Remove the cache files."
-msgstr "Eliminar\nRemueve los archivos cache."
-
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK3)
 msgid ""
 "Delete\n"
@@ -4492,12 +4499,6 @@ msgid ""
 "Use the last explicitly saved versions of the documents"
 msgstr "No recuperar los documentos auto-grabados\nUsar la ultima version explicitamente grabado de los documentos"
 
-#. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
-msgid ""
-"Don't run\n"
-"Do not run the script"
-msgstr "No ejecutar.\nNo ejecutar el script."
-
 #. Resource IDs: (IDS_ASKFORSAVE_NOSAVE_OPEN)
 msgid ""
 "Don't save\n"
@@ -4543,7 +4544,7 @@ msgstr "E&xcluir rutas:"
 msgid "E&xecutable"
 msgstr "E&jecutable"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "&Salir"
 
@@ -4597,12 +4598,7 @@ msgstr "Editar proyecto a monitorzar"
 msgid "Edit Properties"
 msgstr "Editar Propiedades"
 
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 297)
-msgid "Edit Property Conflict"
-msgstr "Editar conflicto de propiedades"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
-#. IDS_PROC_EDIT_TREE_CONFLICTS)
+#. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "Editar conflictos de árbol"
 
@@ -4645,6 +4641,12 @@ msgstr "Editar propiedad '%1!S!' en\n%2!ls!"
 #. IDD_SETTINGSHOOKS: Control id 1331)
 msgid "Edit..."
 msgstr "Editar..."
+
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_EDITCMD)
+msgid ""
+"Edit\n"
+"change merged property value in editor"
+msgstr ""
 
 #. Resource IDs: (IDS_PROP_TT_EDIT)
 msgid "Edits the selected property value"
@@ -4961,12 +4963,6 @@ msgstr "Exporta la caché seleccionada como un conjunto de archivos de Valores S
 #. Resource IDs: (IDS_PROC_EXPORT_2)
 msgid "Export unversioned files too"
 msgstr "Exportar también los archivos no versionados"
-
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3_1)
-msgid ""
-"Export\n"
-"Export into the non-empty folder."
-msgstr "Exportar\nExportar a un directorio no vacío."
 
 #. Resource IDs: (IDS_SVNPROGRESS_EXPORTING)
 #, c-format
@@ -5297,8 +5293,8 @@ msgstr "Filtrar rutas"
 msgid "Filter:"
 msgstr "Filtro:"
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. ID_EDIT_FIND - Ribbon name)
 msgid "Find"
 msgstr "Buscar"
 
@@ -5391,7 +5387,8 @@ msgstr "Forzar"
 msgid "Force removal"
 msgstr "Forzar la eliminación"
 
-#. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
+#. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Foreground"
 msgstr "Al frente"
 
@@ -5611,26 +5608,25 @@ msgid "Header"
 msgstr "Encabezado"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 9, Dialog IDD_CHECKOUT: Control
-#. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_CONFLICTRESOLVE:
-#. Control id 9, Dialog IDD_COPY: Control id 9, Dialog IDD_CREATEPATCH:
-#. Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control id 9, Dialog
-#. IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES: Control id 9,
-#. Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog IDD_EDITPROPEXECUTABLE:
-#. Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control id 9, Dialog
-#. IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog IDD_EDITPROPKEYWORDS:
-#. Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control id 9, Dialog
-#. IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog IDD_EDITPROPMIMETYPE:
-#. Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control id 9, Dialog
-#. IDD_EDITPROPTSVNLANG: Control id 9, Dialog IDD_EDITPROPTSVNSIZES: Control
-#. id 9, Dialog IDD_EXPORT: Control id 9, Dialog IDD_IMPORT: Control id 9,
-#. Dialog IDD_LOCK: Control id 9, Dialog IDD_LOGMESSAGE: Control id 9, Dialog
-#. IDD_MERGEALL: Control id 9, Dialog IDD_OPENDLG: Control id 9, Dialog
-#. IDD_RELOCATE: Control id 9, Dialog IDD_REPOSITORY_BROWSER: Control id 9,
-#. Dialog IDD_RESOLVE: Control id 9, Dialog IDD_REVERT: Control id 9, Dialog
-#. IDD_SETTINGSBUGTRAQADV: Control id 9, Dialog IDD_SETTINGSHOOKCONFIG:
-#. Control id 9, Dialog IDD_SWITCH: Control id 9, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 9, Dialog IDD_UNLOCK: Control id 9,
-#. Dialog IDD_URLDIFF: Control id 9, IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_COPY: Control id 9,
+#. Dialog IDD_CREATEPATCH: Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control
+#. id 9, Dialog IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES:
+#. Control id 9, Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog
+#. IDD_EDITPROPEXECUTABLE: Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control
+#. id 9, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog
+#. IDD_EDITPROPKEYWORDS: Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control
+#. id 9, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog
+#. IDD_EDITPROPMIMETYPE: Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control
+#. id 9, Dialog IDD_EDITPROPTSVNLANG: Control id 9, Dialog
+#. IDD_EDITPROPTSVNSIZES: Control id 9, Dialog IDD_EXPORT: Control id 9,
+#. Dialog IDD_IMPORT: Control id 9, Dialog IDD_LOCK: Control id 9, Dialog
+#. IDD_LOGMESSAGE: Control id 9, Dialog IDD_MERGEALL: Control id 9, Dialog
+#. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
+#. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
+#. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
+#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
+#. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
+#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
 msgid "Help"
 msgstr "Ayuda"
 
@@ -5737,10 +5733,6 @@ msgstr "Falló el script gancho!"
 #, c-format
 msgid "Hostname mismatch (%ls)"
 msgstr "No coinciden los nombres de host (%ls)"
-
-#. Resource IDs: (9758)
-msgid "How do you want to resolve this conflict?"
-msgstr "¿Cómo desea resolver este conflicto?"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1392, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1392)
@@ -6080,7 +6072,7 @@ msgstr "Ignorar &todos los espacios en blanco"
 msgid "Ignore &ancestry"
 msgstr "Ignorar &ancestros"
 
-#. Resource IDs: (32896, ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
 msgid "Ignore Comments"
 msgstr "Ignora comentarios"
 
@@ -6098,6 +6090,12 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr "Ignorar cambios\nIgnorar los cambios externos."
+
+#. Resource IDs: (32896)
+msgid ""
+"Ignore comment changes\n"
+"Ignore Comments"
+msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -6222,12 +6220,6 @@ msgstr "Importar carpeta %1!ls!\r\na %2!ls!"
 #, c-format
 msgid "Import to %1"
 msgstr "Importar a %1"
-
-#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
-msgid ""
-"Import\n"
-"The items are imported, creating a new revision for each item."
-msgstr "Importar\nLos ítems son importados, creando una nueva revision por cada ítem."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTURE)
 msgid "Imported folder structure"
@@ -6429,10 +6421,6 @@ msgstr "Saltar al siguiente &conflicto"
 msgid "Keep &locks"
 msgstr "Mantener blo&queos"
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_KEEPMOVES)
-msgid "Keep any moves affected by this operation"
-msgstr "Guardar cualquier movimiento afectado por esta operación."
-
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1126)
 msgid "Keep c&hangelists"
 msgstr "Mantener &listas de cambios"
@@ -6508,10 +6496,6 @@ msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
 msgstr "Dejar como conflictivo.\nEl estado de conflicto del fichero se mantiene."
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1404)
-msgid "Leave conflicted:"
-msgstr "Dejar en conflicto:"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_LEAVEONLYMARKEDBLOCKS)
 msgid "Leave only marked changes"
@@ -6794,24 +6778,16 @@ msgid ""
 "Hold down the shift key to also clear all fetch errors."
 msgstr "Marcar todos los proyectos como leídos\nMantenta presionada la tecla Shift para también limpiar los errores de recuperación."
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MOVETOCOPY)
-msgid "Mark as &resolved (the move will become a copy)"
-msgstr "Marcsr como &resuelto (el movimiento se convertir en una copia)"
-
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 1400)
-msgid "Mark as Resolved"
-msgstr "Marcar como resuelto"
+#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
+msgid ""
+"Mark as &resolved\n"
+"The conflict is resolved."
+msgstr ""
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
 #. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
 msgid "Mark as resolved"
 msgstr "Marcar como resuelto"
-
-#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
-msgid ""
-"Mark as resolved\n"
-"The conflict is resolved."
-msgstr "Marcar como resuelto\nEl conflicto es resuelto"
 
 #. Resource IDs: (IDS_MARKASRESOLVED_TASK3)
 msgid ""
@@ -6936,6 +6912,16 @@ msgstr "Fusionar todo..."
 #. Resource IDs: (IDS_MENUDESCMERGE)
 msgid "Merge changes into the working copy"
 msgstr "Fusionar los cambios en la copia de trabajo"
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION)
+#, c-format
+msgid "Merge conflict discovered in binary file %s"
+msgstr ""
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_MAININSTRUCTION)
+#, c-format
+msgid "Merge conflict discovered in file %s"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
 msgid "Merge non-interactive"
@@ -7679,7 +7665,7 @@ msgstr "Utilizar el &corrector ortográfico únicamente cuando esté marcado tsv
 msgid "Opacity"
 msgstr "Opacidad"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "Abrir"
 
@@ -7701,8 +7687,7 @@ msgid ""
 "Open files"
 msgstr "Abrir archivos para dif o para aplicar un parche\nAbrir archivos"
 
-#. Resource IDs: (Dialog IDD_PATCH_FILE_OPEN_CUSTOM: Control id 1132,
-#. IDS_PATCH_COPYFROMCLIPBOARD)
+#. Resource IDs: (IDS_PATCH_COPYFROMCLIPBOARD)
 msgid "Open from clipboard"
 msgstr "Abrir desde el portapapeles"
 
@@ -7786,29 +7771,11 @@ msgid ""
 "Files which don't have this property set are not affected."
 msgstr "Invalidar la configuración de la propiedad svn:eol-style\nLos archivos que no tengan esta propiedad establecida no se verán afectados."
 
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
-msgid ""
-"Overwrite\n"
-"Replace the target folder."
-msgstr "Sobreescribir\nReemplazar la carpeta destino"
-
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK3)
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
 msgstr "Sobreescribir\nLas configuraciones serán sobreescritas"
-
-#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
-msgid ""
-"Overwrite\n"
-"The target file gets replaced"
-msgstr "Sobreescribir\nEl archivo destino es reemplazado."
-
-#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
-msgid ""
-"Overwrite\n"
-"The target file is replaced."
-msgstr "Sobreescribir\nEl archivo destino es reemplazado"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7994,10 +7961,6 @@ msgid ""
 "Use the Switch command to do that."
 msgstr "Por favor, tenga en cuenta que:\nsu copia de trabajo permanece en la ruta anterior. Si desea que sus siguientes cambios\nse hagan en la copia o rama recién creada,\nnecesita cambiar su copia de trabajo a la nueva URL.\nUtilice el comando Cambiar para hacer esto."
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1287)
-msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr "Por favor, resuelva el conflicto eligiendo una de las siguientes opciones:"
-
 #. Resource IDs: (IDS_ERR_NOHOOKTYPESPECIFIED)
 msgid "Please select a hook type"
 msgstr "Por favor seleccione un tipo de gancho"
@@ -8067,14 +8030,6 @@ msgstr "Gancho Pre-Bloqueo"
 #. Resource IDs: (IDS_HOOKTYPE_PREUPDATE)
 msgid "Pre-Update Hook"
 msgstr "Gancho pre-actualización"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 3)
-msgid "Prefer &local"
-msgstr "Utilizar &local"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 4)
-msgid "Prefer &repository"
-msgstr "Utilizar &repositorio"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_PREPENDRIGHT)
 msgid "Prepend right block"
@@ -8159,33 +8114,11 @@ msgstr "Imprimiendo"
 msgid "Proceed anyway"
 msgstr "Proceder de todas maneras"
 
-#. Resource IDs: (IDS_HOOKFAILED_TASK4)
-msgid ""
-"Proceed anyway\n"
-"Ignore the hook script and run the command anyway."
-msgstr "Proceder\nIgnorar el script y ejecutar el comando."
-
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK3)
 msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
 msgstr "Proceder con la confirmación\nLas carpetas renombradas/movidas son confirmadas de manera recursiva en el repositorio."
-
-#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
-msgid ""
-"Proceed with the entered path\n"
-"I'm aware of the possible problems."
-msgstr "Proceder con la ruta ingresada\nEstoy consciente de los posibles problemas."
-
-#. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
-msgid "Proceed with the merge."
-msgstr "Procedeer con la fusión."
-
-#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
-msgid ""
-"Proceed without an issue number\n"
-"The commit won't be assigned to an issue."
-msgstr "Proceder sin número de incidente\nLa confirmación no será asignada a un incidente."
 
 #. Resource IDs: (IDS_BLAME_PROGRESSINFO2)
 #, c-format
@@ -8276,6 +8209,10 @@ msgstr "Página de Propiedades"
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Property Status:"
 msgstr "Estado de las Propiedades:"
+
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
+msgid "Property diff:\n"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -8369,10 +8306,6 @@ msgstr "Re&stablecer"
 msgid "Re&set All"
 msgstr "Restablecer &todo"
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1400)
-msgid "Re&solved"
-msgstr "Re&suelto"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "Re&staurar valores por defecto"
@@ -8441,6 +8374,12 @@ msgid ""
 "Rectangle"
 msgstr "Herramienta rectángulo\nRectángulo"
 
+#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
+msgid ""
+"Recur&sive\n"
+"Remove the property also from items in Subfolders."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1260)
 msgid "Recurse into unversioned folders"
 msgstr "Recursividad en carpetas no versionadas"
@@ -8448,12 +8387,6 @@ msgstr "Recursividad en carpetas no versionadas"
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK2)
 msgid "Recursive operation"
 msgstr "Operación recursiva"
-
-#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
-msgid ""
-"Recursive\n"
-"Remove the property also from items in Subfolders."
-msgstr "Recursiva\nElimina la propiedad también de los ítems en las subcarpetas"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 333)
 msgid "Recycle bin"
@@ -8540,12 +8473,6 @@ msgstr "Filtro de expresiones regulares:\r\n.   : cualquier carácter\r\nc+   : 
 msgid "Reintegrate merge %1!ls! into %2!ls!"
 msgstr "Reintegrando fusión %1!ls! en %2!ls!"
 
-#. Resource IDs: (IDS_SSL_REJECT_TASK)
-msgid ""
-"Reject the certificate\n"
-"Cancel the connection."
-msgstr "Rechazar el certificado\nCancelar la conexión,"
-
 #. Resource IDs: (IDS_TITLE_REJECTEDHUNKS)
 #, c-format
 msgid "Rejected patch hunks for '%ls'"
@@ -8585,12 +8512,6 @@ msgstr "Relocalizar"
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK2)
 msgid "Relocate where a switch might be intended"
 msgstr "Reubicar donde un intercambio pueda haber sido la intención"
-
-#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
-msgid ""
-"Relocate\n"
-"The working copy is relocated to the new URL."
-msgstr "Reubicar\nLa copia de trabajo es reubicada en la nueva URL."
 
 #. Resource IDs: (IDS_PROC_RELOCATING)
 msgid "Relocating..."
@@ -8655,12 +8576,6 @@ msgstr "Eliminar de la barra de herramientas de acceso rápido"
 msgid "Remove from changelist"
 msgstr "Quitar de la lista de cambios"
 
-#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK3)
-msgid ""
-"Remove from version control\n"
-"All .svn folders are removed"
-msgstr "Eliminar del control de versiones\nTodos las carpetas .svn son eliminadas"
-
 #. Resource IDs: (IDS_INPUT_REMOVEPROP)
 #, c-format
 msgid ""
@@ -8675,18 +8590,6 @@ msgstr "Eliminar la(s) caché(s) seleccionada(s) del disco"
 #. Resource IDs: (Dialog IDD_REVGRAPHFILTER: Control id 1352)
 msgid "Remove the whole subtree(s)"
 msgstr "Eliminar el o los árboles completos"
-
-#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK3)
-msgid ""
-"Remove\n"
-"Force the removal"
-msgstr "Eliminar\nForzar la eliminación"
-
-#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
-msgid ""
-"Remove\n"
-"Remove the property only from this item."
-msgstr "Eliminar\nElimina la propiedad solo para este ítem."
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Removed"
@@ -8757,13 +8660,6 @@ msgstr "Renombrar ítem de %1!ls!\r\na %2!ls!"
 #. Resource IDs: (IDS_PROGRS_TITLE_RENAME)
 msgid "Rename/move"
 msgstr "Renombrar/Mover"
-
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK4)
-#, c-format
-msgid ""
-"Rename\n"
-"The folder is exported as '%ls'."
-msgstr "Renombrar\nLa carpeta es exportada como '%ls'."
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Renamed node"
@@ -8879,18 +8775,6 @@ msgstr "Restablecer columnas"
 msgid "Resolve"
 msgstr "Resolver"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 2)
-msgid "Resolve &later"
-msgstr "Reso&lver más tarde"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 268)
-msgid "Resolve Conflict"
-msgstr "Resolver Conflicto"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1382)
-msgid "Resolve all la&ter"
-msgstr "Resolver &todos después"
-
 #. Resource IDs: (IDS_SVNPROGRESS_MENUUSEMINE)
 msgid "Resolve conflict using 'mine'"
 msgstr "Resuelve el conflicto usando 'mío'"
@@ -8898,20 +8782,6 @@ msgstr "Resuelve el conflicto usando 'mío'"
 #. Resource IDs: (IDS_SVNPROGRESS_MENUUSETHEIRS)
 msgid "Resolve conflict using 'theirs'"
 msgstr "Resuelve el conflicto usando 'de otros'"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1403)
-msgid "Resolve conflict:"
-msgstr "Resolver conflicto:"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 2)
-msgid "Resolve l&ater"
-msgstr "Resolver &después"
-
-#. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
-msgid ""
-"Resolve\n"
-"The item is marked as resolved."
-msgstr "Resolver\nEl ítem está marcado como resuelto."
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_RESOLVED, IDS_SVNACTION_RESOLVE)
 msgid "Resolved"
@@ -8979,12 +8849,6 @@ msgid ""
 "Revert\n"
 "All local modifications will be lost."
 msgstr "Revertir\nTodas las modificaciones locales se perderán."
-
-#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
-msgid ""
-"Revert\n"
-"Changes will be applied to the working copy."
-msgstr "Revertir\nCambios seran aplicados a la copia de trabajo."
 
 #. Resource IDs: (IDS_SVNACTION_REVERT)
 msgid "Reverted"
@@ -9130,12 +8994,6 @@ msgstr "Ejecutar la limpieza &ahora"
 msgid "Run hoo&k script"
 msgstr "Ejecutar script &gancho"
 
-#. Resource IDs: (IDS_HOOKS_APPROVE_TASK3)
-msgid ""
-"Run\n"
-"Run the hook script"
-msgstr "Ejecutar\nEjecutar "
-
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "S&eleccionar..."
@@ -9260,11 +9118,11 @@ msgstr "Ejemplo de mensaje de registro para testear el seguimiento de errores: r
 msgid "Sample text:"
 msgstr "Texto ejemplo:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "Guardar"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "Guardar &como..."
 
@@ -9379,8 +9237,7 @@ msgid ""
 "Save file"
 msgstr "Guardar el archivo modificado\nGuardar archivo"
 
-#. Resource IDs: (Dialog IDD_PATCH_FILE_OPEN_CUSTOM: Control id 1132,
-#. IDS_PATCH_COPYTOCLIPBOARD)
+#. Resource IDs: (IDS_PATCH_COPYTOCLIPBOARD)
 msgid "Save to clipboard"
 msgstr "Grabar en el portapapeles"
 
@@ -9718,8 +9575,7 @@ msgstr "Mostrar &aceleradora para:"
 msgid "Show &All"
 msgstr "Mostrar &Todo"
 
-#. Resource IDs: (Dialog IDD_COPY: Control id 1187, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 1132)
+#. Resource IDs: (Dialog IDD_COPY: Control id 1187)
 msgid "Show &Log"
 msgstr "Mostrar &registro"
 
@@ -9777,10 +9633,6 @@ msgstr "Mostrar sobre la cinta"
 #. Resource IDs: (17098)
 msgid "Show Below the Ribbon"
 msgstr "Mostrar bajo la cinta"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1542)
-msgid "Show Branch L&og"
-msgstr "Mostrar &Registro de Ramas"
 
 #. Resource IDs: (17030)
 msgid "Show Fewer Buttons"
@@ -9951,9 +9803,9 @@ msgstr "Mostrar etiquetas en la copia de origen, no como nodos separados"
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK3)
 msgid ""
-"Show the diff\n"
+"Show the &diff\n"
 "The diff viewer is started for every selected item."
-msgstr "Mostrar la diferencia\nLa vista de comparación se inicia para todo elemento seleccionado."
+msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_SHOWCOL)
 msgid "Show/Hide"
@@ -10112,14 +9964,6 @@ msgstr "Algo salió mal"
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1126)
 msgid "Sort by commit count"
 msgstr "Ordenar por número de confirmaciones"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1501)
-msgid "Source Left:"
-msgstr "Origen izquierdo:"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1502)
-msgid "Source Right:"
-msgstr "Origen derecho:"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 1552)
 msgid "Source URL:"
@@ -10694,129 +10538,6 @@ msgid ""
 "The item '%ls' has property conflicts:\r\n"
 "%ls"
 msgstr "El elemento '%ls' tiene conflictos de propiedades:\n%ls"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEADD)
-#, c-format
-msgid "The last merge operation tried to add the directory '%ls'"
-msgstr "La última operación de fusión intentó añadir el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEADD)
-#, c-format
-msgid "The last merge operation tried to add the file '%ls'"
-msgstr "La última operación de fusión intentó añadir el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEDELETE)
-#, c-format
-msgid ""
-"The last merge operation tried to delete/move/rename the directory '%ls'"
-msgstr "La última operación de fusión intentó eliminar/mover/renombrar el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEDELETE)
-#, c-format
-msgid "The last merge operation tried to delete/move/rename the file '%ls'"
-msgstr "La última operación de fusión intentó eliminar/mover/renombrar el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEEDIT)
-#, c-format
-msgid "The last merge operation tried to modify the directory '%ls'"
-msgstr "La última operación de fusión intentó modificar el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEEDIT)
-#, c-format
-msgid "The last merge operation tried to modify the file '%ls'"
-msgstr "La última operación de fusión intentó modificar el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEREPLACE)
-#, c-format
-msgid "The last merge operation tried to replace the directory '%ls'"
-msgstr "La última operación de fusión intentó reemplazar el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEREPLACE)
-#, c-format
-msgid "The last merge operation tried to replace the file '%ls'"
-msgstr "La última operación de fusión intentó reemplazar el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHADD)
-#, c-format
-msgid "The last switch operation tried to add the directory '%ls'"
-msgstr "La última operación de cambio intentó añadir el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHADD)
-#, c-format
-msgid "The last switch operation tried to add the file '%ls'"
-msgstr "La última operación de cambio intentó añadir el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHDELETE)
-#, c-format
-msgid ""
-"The last switch operation tried to delete/move/rename the directory '%ls'"
-msgstr "La última operación de cambio intentó eliminar/mover/renombrar el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHDELETE)
-#, c-format
-msgid "The last switch operation tried to delete/move/rename the file '%ls'"
-msgstr "La última operación de cambio intentó eliminar/mover/renombrar el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHEDIT)
-#, c-format
-msgid "The last switch operation tried to modify the directory '%ls'"
-msgstr "La última operación de cambio intentó modificar el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHEDIT)
-#, c-format
-msgid "The last switch operation tried to modify the file '%ls'"
-msgstr "La última operación de cambio intentó modificar el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHREPLACE)
-#, c-format
-msgid "The last switch operation tried to replace the directory '%ls'"
-msgstr "La última operación de cambio intentó reemplazar el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHREPLACE)
-#, c-format
-msgid "The last switch operation tried to replace the file '%ls'"
-msgstr "La última operación de cambio intentó reemplazar el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEADD)
-#, c-format
-msgid "The last update operation tried to add the directory '%ls'"
-msgstr "La última operación de actualización intentó añadir el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEADD)
-#, c-format
-msgid "The last update operation tried to add the file '%ls'"
-msgstr "La última operación de actualización intentó añadir el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEDELETE)
-#, c-format
-msgid ""
-"The last update operation tried to delete/move/rename the directory '%ls'"
-msgstr "La última operación de actualización intentó eliminar/mover/renombrar el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEDELETE)
-#, c-format
-msgid "The last update operation tried to delete/move/rename the file '%ls'"
-msgstr "La última operación de actualización intentó eliminar/mover/renombrar el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEEDIT)
-#, c-format
-msgid "The last update operation tried to modify the directory '%ls'"
-msgstr "La última operación de actualización intentó modificar el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEEDIT)
-#, c-format
-msgid "The last update operation tried to modify the file '%ls'"
-msgstr "La última operación de actualización intentó modificar el archivo '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEREPLACE)
-#, c-format
-msgid "The last update operation tried to replace the directory '%ls'"
-msgstr "La última operación de actualización intentó reemplazar el directorio '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEREPLACE)
-#, c-format
-msgid "The last update operation tried to replace the file '%ls'"
-msgstr "La última operación de actualización intentó reemplazar el archivo '%ls'"
 
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
@@ -11714,24 +11435,6 @@ msgstr "¡El control de actualizaciones esta en ejecución!"
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK2)
 msgid "Update externals"
 msgstr "Actualiza externos"
-
-#. Resource IDs: (IDS_WARN_LOCKOUTDATED_TASK3)
-msgid ""
-"Update\n"
-"Update the file and try locking again."
-msgstr "Actualizar\nActualiza el archivo y trata de bloquear de nuevo."
-
-#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
-msgid ""
-"Update\n"
-"Update the working copy and reopen the commit dialog to try again."
-msgstr "Actualizar\nActualizar la copia de trabajo y volver a abrir el dialogo de confirmación para intentar nuevamente."
-
-#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
-msgid ""
-"Update\n"
-"Update to the HEAD revision"
-msgstr "Actualizar\nActualiza a la revisión HEAD"
 
 #. Resource IDs: (IDS_SVNACTION_UPDATE)
 msgid "Updated"
@@ -12863,11 +12566,6 @@ msgstr "en %1"
 #. Resource IDs: (IDS_CONNECTIONSTATE_ONLINE)
 msgid "online"
 msgstr "conectado"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1406, Dialog
-#. IDD_CONFLICTRESOLVE: Control id 1407)
-msgid "or"
-msgstr "o"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "pair tokens: "

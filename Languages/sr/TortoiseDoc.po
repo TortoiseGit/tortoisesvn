@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN manuals
-# Copyright (C) 2004-2016 the TortoiseSVN team
+# Copyright (C) 2004-2017 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-10 17:08+0000\n"
+"PO-Revision-Date: 2017-02-11 09:03+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/luebbe/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -4127,9 +4127,10 @@ msgstr "Програмер Б сада има да изабере да ли да
 #. (para)
 msgid ""
 "The conflict edit dialog offers to merge changes if it can find the original"
-" file of the renamed <filename>Bar.c</filename>. Depending on where the "
-"update was invoked, it may not be possible to find the source file."
-msgstr "Дијалог уређивања конфликта омогућава обе опције ако може да нађе оригиналан фајл преименованог <filename>Bar.c</filename>. У зависности где је обнављање позвано не мора бити могуће да се нађе изворни фајл."
+" file of the renamed <filename>Bar.c</filename>. If there are multiple files"
+" that are possible move sources, then a button for each of these files is "
+"shown which allow you to chose the correct file."
+msgstr ""
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
@@ -4207,20 +4208,18 @@ msgid ""
 "To merge her local changes with the reshuffle, Developer B must first find "
 "out to what filename the conflicted file <filename>Foo.c</filename> was "
 "renamed/moved in the repository. This can be done by using the log dialog. "
-"The changes must then be merged by hand as there is currently no way to "
-"automate or even simplify this process. Once the changes have been ported "
-"across, the conflicted path is redundant and can be deleted. In this case "
-"use the <guilabel>Remove</guilabel> button in the conflict editor dialog to "
-"clean up and mark the conflict as resolved."
-msgstr "Да се стопе њене локалне измене са реорганизацијом, Сарадник Б мора да нађе у које име фајла конфликтни фајл <filename>Foo.c</filename> је преименован/померен у спремишту. Ово може бити урађено помоћу дијалога дневника. Измене морају онда бити стопљене ручно и тренутно нема начина да се то аутоматизује или поједностави процес. Када се једном измене провуку конфликтна путање је сувишна и може бити обрисана. У овом случају користите <guilabel>Уклони</guilabel>  дугме у дијалогу уређивача конфликта да се обрише конфликт и означи решеним."
+"Then use the button which shows the correct source file to resolve the "
+"conflict."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog helps to track down what was moved."
-msgstr "Ако програмер Б одлучи да су А-ове измене лоше онда она мора изабрати <guilabel>Чувај</guilabel> дугме у дијалогу уређивача конфликта. Ово означава конфликтни фајл/фолдер решеним, али измене Програмера А треба да буду уклоњене ручно. Поново дијалиг дневника помаже да се прати шта је померено."
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog helps to track down what "
+"was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -4368,18 +4367,17 @@ msgid ""
 " to find that yourself. The changes must then be merged by hand as there is "
 "currently no way to automate or even simplify this process. Once the changes"
 " have been ported across, the conflicted path is redundant and can be "
-"deleted. In this case use the <guilabel>Remove</guilabel> button in the "
-"conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr "Да се стопе њене локалне измене са реорганизацијом, Програмер Б мора да нађе у које име фајла конфликтни фајл <filename>Foo.c</filename> је преименован/померен у спремишту. Ово може бити урађено помоћу дијалога дневника за извор стапања. Уредник конфликта само приказује дневник за радну копију како незна која путања је коришћена при стапању, тако да ви то морате урадити сами. Измене морају онда бити стопљене ручно и тренутно нема начина да се то аутоматизује или поједностави процес. Када се једном измене провуку конфликтна путање је сувишна и може бити обрисана. У овом случају користите <guilabel>Уклони</guilabel>  дугме у дијалогу уређивача конфликта да се обрише конфликт и означи решеним."
+"deleted."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog for the merge source helps to track "
-"down what was moved."
-msgstr "Ако програмер Б одлучи да су А-ове измене лоше онда она мора изабрати <guilabel>Чувај</guilabel> дугме у дијалогу уређивача конфликта. Ово означава конфликтни фајл/фолдер решеним, али измене Програмера А треба да буду уклоњене ручно. Поново дијалог дневника за извор стапања помаже да се прати шта је померено."
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog for the merge source helps"
+" to track down what was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -4408,11 +4406,8 @@ msgstr "<filename>Foo.c</filename> је означено као недостај
 msgid ""
 "To resolve this conflict, Developer B has to find out to what filename the "
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
-"repository. This can be done by using the log dialog for the merge source. "
-"The conflict editor only shows the log for the working copy as it does not "
-"know which path was used in the merge, so you will have to find that "
-"yourself."
-msgstr "Да се реши конфликт, Програмер Б има да нађе у које име фајла конфликтног фајла <filename>Foo.c</filename> је преименовано/померено у спремишту. Ово може бити урађено користећи дијалог дневника за стопљен извор. Уредник конфликта само приказује дневник за радну копију како незна која путања је коришћена при стапању тако да то нађете сами."
+"repository. This can be done by using the log dialog for the merge source."
+msgstr ""
 
 #. (title)
 msgid "Other tree conflicts"
@@ -9866,6 +9861,13 @@ msgstr "Руковање конфликтима у току спајања"
 msgid "merge conflicts"
 msgstr "конфликти спајања"
 
+#. (para)
+msgid ""
+"The text in the conflict resolver dialogs are provided by the SVN library "
+"and might therefore not (yet) be translated as the TortoiseSVN dialogs are. "
+"Sorry for that."
+msgstr ""
+
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
 msgstr "Конфликти спајања дијалог одговора"
@@ -9881,52 +9883,125 @@ msgstr "Стапање увек не иде равно. Понекад има к
 
 #. (para)
 msgid ""
-"If you are merging text files then these first two buttons allow you to "
-"merge non-conflicting lines as normal and always prefer one version where "
-"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
-"your local version in every conflict, i.e. it will prefer what was already "
-"there before the merge over the incoming change from the merge source. "
-"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
-"changes in every conflict, i.e. it will prefer the incoming changes from the"
-" merge source over what was already in your working copy. This sounds easy, "
-"but the conflicts often cover more lines than you think they will and you "
-"may get unexpected results."
-msgstr "Ако стапате текст фајлове онда прва два тастера омогућавају вам да стопите нон-конфликт линије као нормалне и увек претпоставите верзију где су конфликти. Избором <emphasis>Претпостави локално</emphasis> изабраћете вашу локалну верзију у сваком конфликту, тј. то ће преферисати то што је већ раније стопљено из долазећих измена из извора стапања. међутим, <emphasis>Претпостави спремиште</emphasis> ће изабрати измене у сваком конфликту, тј. претпоставиће долазеће измене из извора стапања преко оног што је већ у радној копији. Ово звући лако, али конфликти често покривају више линија него што мислите да има и можете добити неочекиване резултате."
-
-#. (para)
-msgid ""
-"If your merge includes binary files, merging of conflicts in those is not "
-"possible in a line-by-line mode. A conflict in a binary file always refers "
-"to the complete file. Use <emphasis>Prefer local</emphasis> to select the "
-"local version as it was in your working copy prior to the merge, or "
-"<emphasis>Prefer repository</emphasis> to select the incoming file from the "
-"merge source in the repository."
-msgstr "Ако стапање укључује бинарне фајлове стапање конфликта у њима није могуће у линија-по-линија моду. Конфликт у бинарном фајлу односи се на цео фајл. Користите <emphasis>Претпоставите локалноl</emphasis>  да изаберете локалну верзију ако је у вашој радној копији пре него стопите, или <emphasis>Претпоставите спремиште</emphasis> да изаберете долазећи фајл из извора стапања у спремишту."
-
-#. (para)
-msgid ""
-"Normally you will want to look at the conflicts and resolve them yourself. "
-"In that case, choose the <guibutton>Edit Conflict</guibutton> which will "
-"start up your merge tool. When you are satisfied with the result, click "
-"<guibutton>Resolved</guibutton>."
-msgstr "Нормално ви ћете желети да погледате конфликт и да га решите. У том случају, изаберите <guibutton>Уреди конфликт</guibutton> који ће покренути ваш алат стапања. Када сте задовољни резултатом кликните на <guibutton>Решен</guibutton>."
-
-#. (para)
-msgid ""
-"The last option is to postpone resolution and continue with merging. You can"
-" choose to do that for the current conflicted file, or for all files in the "
-"rest of the merge. However, if there are further changes in that file, it "
-"will not be possible to complete the merge."
-msgstr "Последња опција је одлагање решавања и наставити стапање. Можете изабрати да урадите то за текуће фајлове у конфликту, или за фајлове у остатку стапања. Какогод, ако има даљих измена у том фајлу неће бити могуће комплетирати стапање."
-
-#. (para)
-msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
 "All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you three different ways of handling the lines which are in "
-"conflict. <placeholder-1/>"
-msgstr "Изгледа као да се неке измене стопе равномерно док се друге локалне измене мењају са конфликтом са изменама које су већ урезане у спремиште. Све измене које могу бити стопљене су стопљене. Дијалог повратног позива конфликта стапања даје вам три различита начина руковања са линијама које су у конфликту.  <placeholder-1/>"
+"dialog gives you different ways of handling the lines which are in conflict."
+msgstr ""
+
+#. (term)
+msgid "Postpone"
+msgstr ""
+
+#. (para)
+msgid ""
+"Don't deal with the conflict now. Let the merge continue and resolve the "
+"conflicts after the merge is done."
+msgstr ""
+
+#. (term)
+msgid "Accept base"
+msgstr ""
+
+#. (para)
+msgid ""
+"This leaves the file as it was, without neither the changes coming from the "
+"merge nor the changes you've made in your working copy."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all your local changes and uses the file as it arrives from "
+"the merge source."
+msgstr ""
+
+#. (term)
+msgid "Reject incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all the changes from the merge source and leaves the file with"
+" your local edits."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming for conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards your local changes where they conflict with the changes from "
+"the merge source. But it leaves all your local changes which don't conflict."
+msgstr ""
+
+#. (term)
+msgid "Reject conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards changes from the merge source which conflict with your local "
+"changes. But it keeps all changes that don't conflict with your local "
+"changes."
+msgstr ""
+
+#. (term)
+msgid "Mark as resolved"
+msgstr ""
+
+#. (para)
+msgid ""
+"Marks the conflicts as resolved. This button is disabled until you use the "
+"button <guibutton>Edit</guibutton> to edit the conflict manually and save "
+"those changes back to the file. Once the changes are saved, the button "
+"becomes enabled."
+msgstr ""
+
+#. (term)
+#. (term)
+msgid "Edit"
+msgstr "Уреди"
+
+#. (para)
+msgid ""
+"Starts the merge editor so you can resolve the conflicts manually. Don't "
+"forget to save the file so the button <guibutton>Mark as "
+"resolved</guibutton> becomes enabled."
+msgstr ""
+
+#. (para)
+msgid ""
+"For normal conflicts that happen due to changes in the file content or its "
+"properties, the dialog shows buttons which allow you to chose which of the "
+"conflicting parts to keep or reject. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If there's a tree conflict, please first see <xref linkend=\"tsvn-dug-"
+"conflicts-tree\"/> about the various types of tree conflicts and how and why"
+" they can happen."
+msgstr ""
+
+#. (title)
+msgid "The Merge Tree Conflict Callback Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"To resolve tree conflicts during a merge, a dialog is shown with various "
+"options on how to resolve the conflict: <placeholder-1/> Since there are "
+"various possible tree conflict situations, the dialog will show buttons to "
+"resolve those depending on the specific conflict. The button texts and "
+"labels explain what the option to resolve the conflict does. If you're not "
+"sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
+"button to resolve the conflict later."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14293,9 +14368,9 @@ msgstr "Ручно пре-урезивање"
 msgid ""
 "If this is specified, the commit dialog shows a button <guibutton>Run "
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
-" script receives a list of all checkec files and folders and the commit "
+" script receives a list of all checked files and folders and the commit "
 "message if there was one entered."
-msgstr "Ако је ово специфицирано дијалог урезивања приказује дугме  <guibutton>Изврши закачаљку</guibutton> који када се притисне извршава специфицирану закачиву скрипту. Закачива скрипта прима листу чекираних фајлова и фолдера и поруку урезивања ако се нека унета."
+msgstr ""
 
 #. (term)
 #. (term)
@@ -15347,10 +15422,6 @@ msgstr "Додај пројекат"
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
 msgstr "Отвара нови дијалог да се подеси нови пројекат за надгледање."
-
-#. (term)
-msgid "Edit"
-msgstr "Уреди"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
@@ -21370,6 +21441,12 @@ msgid ""
 "Prevents the file from being edited. That means the editing capabilities of "
 "TortoiseMerge are disabled."
 msgstr "Превенција да се фајл уређује. То значи да су уређивачке могућности ТортоисеМергр онемогућене."
+
+#. (entry)
+msgid ""
+"Prevents TortoiseMerge from asking whether to mark a file as resolved in SVN"
+" after saving it."
+msgstr ""
 
 #. (para)
 msgid ""

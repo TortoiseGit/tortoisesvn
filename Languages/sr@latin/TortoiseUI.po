@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2016 the TortoiseSVN team
+# Copyright (C) 2004-2017 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-10 17:10+0000\n"
+"PO-Revision-Date: 2017-02-11 08:14+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/luebbe/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -257,106 +257,6 @@ msgstr "%ls : Radna osnova"
 msgid "%ls : Working Copy"
 msgstr "%ls : Radna kopija"
 
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_UNVERSIONED)
-#, c-format
-msgid "%ls, but the directory already exists unversioned locally."
-msgstr "%ls, ali folder već postoji lokalno neverzionisano."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSINGMOVED)
-#, c-format
-msgid "%ls, but the directory is missing locally (deleted or moved away?)."
-msgstr "%ls, ali nedostaje direktorijum lokalno (obrisan ili pomeren odatle?)."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSING)
-#, c-format
-msgid "%ls, but the directory is missing locally."
-msgstr "%ls, ali folder  nedostaje lokalno."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_ADDED)
-#, c-format
-msgid "%ls, but the directory was already added locally."
-msgstr "%ls, ali folder je već dodat lokalno."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_EDITED)
-#, c-format
-msgid "%ls, but the directory was already edited."
-msgstr "%ls, ali folder je već uređen."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_DELETED)
-#, c-format
-msgid "%ls, but the directory was deleted, moved or renamed locally."
-msgstr "%ls, ali folder je već obrisan, pomeren ili preimenovan lokalno."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDAWAY)
-#, c-format
-msgid "%ls, but the directory was moved away"
-msgstr "%ls, ali direktorijum je izmaknut"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDHERE)
-#, c-format
-msgid "%ls, but the directory was moved here"
-msgstr "%ls, ali direktorijum je primaknut"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_OBSTRUCTED)
-#, c-format
-msgid "%ls, but the directory was obstructed in the working copy."
-msgstr "%ls, ali folder je sprečen u radnoj kopiji."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_REPLACED)
-#, c-format
-msgid "%ls, but the directory was replaced"
-msgstr "%ls, ali folder je premešten"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_UNVERSIONED)
-#, c-format
-msgid "%ls, but the file already exists unversioned locally."
-msgstr "%ls, ali folder već postoji neverzionisano lokalno."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSINGMOVED)
-#, c-format
-msgid "%ls, but the file is missing locally (deleted or moved away?)."
-msgstr "%ls, ali fajl nedostaje lokalno (obrisan ili pomeren odatle?)."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSING)
-#, c-format
-msgid "%ls, but the file is missing locally."
-msgstr "%ls, ali fajl nedostaje lokalno."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_ADDED)
-#, c-format
-msgid "%ls, but the file was already added locally."
-msgstr "%ls, ali fajl je već dodat lokalno."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_EDITED)
-#, c-format
-msgid "%ls, but the file was already edited."
-msgstr "%ls, ali fajl je već uređen."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_DELETED)
-#, c-format
-msgid "%ls, but the file was deleted, moved or renamed locally."
-msgstr "%ls, ali fajl je već obrisan, pomeren ili preimenovan lokalno."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDAWAY)
-#, c-format
-msgid "%ls, but the file was moved away"
-msgstr "%ls,ali fajl je izmaknut"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDHERE)
-#, c-format
-msgid "%ls, but the file was moved here"
-msgstr "%ls, ali fajl je primaknut"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_OBSTRUCTED)
-#, c-format
-msgid "%ls, but the file was obstructed in the working copy."
-msgstr "%ls, ali fajl je sprečen u radnoj kopiji."
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_REPLACED)
-#, c-format
-msgid "%ls, but the file was replaced"
-msgstr "%ls, ali fajl je premešten"
-
 #. Resource IDs: (IDS_PATCH_ITEMTT)
 #, c-format
 msgid ""
@@ -398,13 +298,21 @@ msgstr "%ls\nje folder, nije fajl!\nTortoiseMerge ne može upoređivati foldere.
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (IDS_HOOKFAILED_TASK3)
+msgid ""
+"&Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr ""
+
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&O TortoiseMerge..."
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED)
-msgid "&Accept current working copy state (mark as resolved)"
-msgstr "Prihv&ati tekuće stanje radne kopije (označi kao razrešeno)"
+#. Resource IDs: (IDS_SSL_ACCEPTTEMP_TASK)
+msgid ""
+"&Accept the certificate\n"
+"The certificate is accepted only this one time."
+msgstr ""
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -421,6 +329,12 @@ msgstr "&Dodaj >>"
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
 msgstr "Dod&aj filter"
+
+#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK4)
+msgid ""
+"&Add item\n"
+"This will lead to problems on Windows."
+msgstr ""
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -456,10 +370,6 @@ msgstr "Dozvoli višezn&ačne URL-ove"
 #. Control id 1294)
 msgid "&Apply property recursively"
 msgstr "Primeni osobine pon&avljajući"
-
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_APPLYTOMOVE)
-msgid "&Apply the update to the move destination"
-msgstr "Primeni uskl&ađivanje ka destinaciji za pomeranje"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1013)
 msgid "&Apply unified diff"
@@ -555,9 +465,142 @@ msgid "&CD-ROM"
 msgstr "&CD-ROM"
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 2, Dialog IDD_GOOFFLINE: Control
-#. id 2, IDS_MONITOR_DELETE_TASK4, IDS_MSGBOX_CANCEL)
+#. id 2, IDS_MERGE_WCDIRTYASK_TASK4, IDS_MONITOR_DELETE_TASK4,
+#. IDS_MSGBOX_CANCEL, IDS_WARN_LOCKOUTDATED_TASK4)
 msgid "&Cancel"
 msgstr "&Otkaži"
+
+#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK4)
+msgid ""
+"&Cancel\n"
+"Choose a different folder to export to"
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not commit to a tag."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not remove"
+msgstr ""
+
+#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not revert."
+msgstr ""
+
+#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not update the working copy."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
+msgid ""
+"&Cancel\n"
+"Don't resolve the item."
+msgstr ""
+
+#. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
+msgid ""
+"&Cancel\n"
+"Don't show the diff."
+msgstr ""
+
+#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
+msgid ""
+"&Cancel\n"
+"Go back and enter an issue number."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
+msgid ""
+"&Cancel\n"
+"Go back and select a different folder."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
+msgid ""
+"&Cancel\n"
+"I will enter a different path/URL."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
+msgid ""
+"&Cancel\n"
+"Keep the current URL."
+msgstr ""
+
+#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
+msgid ""
+"&Cancel\n"
+"Leave the cache on disk."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
+msgid ""
+"&Cancel\n"
+"Local modifications are kept."
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
+msgid ""
+"&Cancel\n"
+"The conflict is not resolved."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
+msgid ""
+"&Cancel\n"
+"The file is not copied."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
+msgid ""
+"&Cancel\n"
+"The folder is not exported."
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
+msgid ""
+"&Cancel\n"
+"The items are not imported."
+msgstr ""
+
+#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
+msgid ""
+"&Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
+msgid ""
+"&Cancel\n"
+"The target file is left as is"
+msgstr ""
+
+#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
+msgid ""
+"&Cancel\n"
+"You have to add the folder manually."
+msgstr ""
+
+#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
+msgid ""
+"&Cancel\n"
+"You have to run an update yourself to get the externals"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
+msgid ""
+"&Cancel\n"
+"keep the current format."
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -633,8 +676,8 @@ msgstr "&Kontaktiraj spremište prilikom pokretanja"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Prepravi fajlove kada se razlikuju od BAZE"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "&Kopiraj"
 
@@ -697,6 +740,12 @@ msgstr "&Briše neverzionisane stavke..."
 msgid "&Delete..."
 msgstr "&Obriši..."
 
+#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)
+msgid ""
+"&Delete\n"
+"Remove the cache files."
+msgstr ""
+
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
 msgstr "&Razlike"
@@ -721,6 +770,12 @@ msgstr "&Ne pitaj ponovo"
 msgid "&Docking"
 msgstr "&Uglavljivanje"
 
+#. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
+msgid ""
+"&Don't run\n"
+"Do not run the script"
+msgstr ""
+
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
 msgstr "&EOL"
@@ -733,11 +788,6 @@ msgstr "Ur&edi"
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1506)
 msgid "&Edit Filter"
 msgstr "Ur&edi filter"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1399, Dialog
-#. IDD_EDITPROPCONFLICT: Control id 1542)
-msgid "&Edit conflict"
-msgstr "Ur&edi sukob"
 
 #. Resource IDs: (IDS_MENUCONFLICT)
 msgid "&Edit conflicts"
@@ -784,6 +834,12 @@ msgstr "&Izlaz"
 #. Resource IDs: (IDS_FILEDIFF_POPEXPORT)
 msgid "&Export selection to..."
 msgstr "&Izvezi izbor u..."
+
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3_1)
+msgid ""
+"&Export\n"
+"Export into the non-empty folder."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -887,7 +943,7 @@ msgstr "&GLAVNA revizija u spremištu"
 msgid "&Help"
 msgstr "&Pomoć"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "&Pomoć teme"
 
@@ -935,6 +991,12 @@ msgstr "&Samo slika"
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
 msgstr "&Uvoz..."
+
+#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
+msgid ""
+"&Import\n"
+"The items are imported, creating a new revision for each item."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1025,10 +1087,6 @@ msgstr "&Mak(CR)"
 #. Control id 1562)
 msgid "&Make depth sticky"
 msgstr "&Učini debljinu prijemčivom"
-
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 1282)
-msgid "&Manually edit property"
-msgstr "&Manualno uređene osobine"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "&Max line length for inline diffs"
@@ -1196,13 +1254,31 @@ msgstr "&Ostali"
 msgid "&Overlay images\t(O)"
 msgstr "&Slike prekrivača\t(O)"
 
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
+msgid ""
+"&Overwrite\n"
+"Replace the target folder."
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
+msgid ""
+"&Overwrite\n"
+"The target file gets replaced"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
+msgid ""
+"&Overwrite\n"
+"The target file is replaced."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
 msgid "&Password:"
 msgstr "&Lozinka:"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "&Nalepi"
 
@@ -1226,10 +1302,6 @@ msgstr "&Pusti muziku pri notifikaciji"
 msgid "&Port:"
 msgstr "&Kapija:"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 3)
-msgid "&Postpone all remaining conflicts"
-msgstr "Odgoditi sve &preostale konflikte"
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1489)
 msgid "&Power user defaults"
 msgstr "Glavni korisnik po&drazumevane vrednosti"
@@ -1245,6 +1317,28 @@ msgstr "&Štampaj pregled"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "&Štampaj..."
+
+#. Resource IDs: (IDS_HOOKFAILED_TASK4)
+msgid ""
+"&Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
+msgid ""
+"&Proceed with the entered path\n"
+"I'm aware of the possible problems."
+msgstr ""
+
+#. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
+msgid "&Proceed with the merge."
+msgstr ""
+
+#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
+msgid ""
+"&Proceed without an issue number\n"
+"The commit won't be assigned to an issue."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1272,6 +1366,18 @@ msgstr "&Ponovi"
 msgid "&Refresh"
 msgstr "&Osveži"
 
+#. Resource IDs: (IDS_SSL_REJECT_TASK)
+msgid ""
+"&Reject the certificate\n"
+"Cancel the connection."
+msgstr ""
+
+#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
+msgid ""
+"&Relocate\n"
+"The working copy is relocated to the new URL."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
 msgstr "&Podseti me da unesem bag-ID"
@@ -1282,9 +1388,27 @@ msgstr "&Podseti me da unesem bag-ID"
 msgid "&Remove"
 msgstr "&Ukloni"
 
+#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK3)
+msgid ""
+"&Remove from version control\n"
+"All .svn folders are removed"
+msgstr ""
+
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
 msgstr "&Ukloni projekat"
+
+#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK3)
+msgid ""
+"&Remove\n"
+"Force the removal"
+msgstr ""
+
+#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
+msgid ""
+"&Remove\n"
+"Remove the property only from this item."
+msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK3)
 msgid ""
@@ -1295,6 +1419,13 @@ msgstr "&Ukloni\nProjekat je uklonjen. Ako ima subprojekte, ovi su uklonjeni tak
 #. Resource IDs: (IDS_REPOBROWSE_RENAME)
 msgid "&Rename"
 msgstr "&Preimenuj"
+
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK4)
+#, c-format
+msgid ""
+"&Rename\n"
+"The folder is exported as '%ls'."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1320,6 +1451,12 @@ msgstr "&Podesi i moje podatke za korišćenje"
 msgid "&Reset to Default"
 msgstr "&Podesii uobičajene vrednosti"
 
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
+msgid ""
+"&Resolve\n"
+"The item is marked as resolved."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
 msgstr "V&rati podrazumevane vrednosti"
@@ -1341,6 +1478,12 @@ msgstr "&Vrati izmene od ovih revizija"
 msgid "&Revert changes from this revision"
 msgstr "&Vrati izmene od ove revizije"
 
+#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
+msgid ""
+"&Revert\n"
+"Changes will be applied to the working copy."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
 #. IDD_EXPORT: Control id 1033, Dialog IDD_MERGEWIZARD_TREE: Control id 1116,
@@ -1350,6 +1493,12 @@ msgstr "&Vrati izmene od ove revizije"
 #. 1033)
 msgid "&Revision"
 msgstr "&Revizija"
+
+#. Resource IDs: (IDS_HOOKS_APPROVE_TASK3)
+msgid ""
+"&Run\n"
+"Run the hook script"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -1426,7 +1575,7 @@ msgstr "&Početna grupa"
 msgid "&Start Repobrowser"
 msgstr "&Start Repo-pretraživača"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "&Statusni panel"
 
@@ -1504,7 +1653,7 @@ msgstr "Ka pu&tanji:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&Do: (krajnji URL i revizija u rasponu spajanja)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "&aLATNI PANEL"
 
@@ -1553,7 +1702,7 @@ msgstr "&URL spremišta:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "&Poništi"
 
@@ -1584,6 +1733,24 @@ msgstr "&Uskladi stavku sa revizijom..."
 #. Resource IDs: (IDS_MENUUPDATEEXT)
 msgid "&Update to revision..."
 msgstr "&Uskladi sa revizijom..."
+
+#. Resource IDs: (IDS_WARN_LOCKOUTDATED_TASK3)
+msgid ""
+"&Update\n"
+"Update the file and try locking again."
+msgstr ""
+
+#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
+msgid ""
+"&Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr ""
+
+#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
+msgid ""
+"&Update\n"
+"Update to the HEAD revision"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1903,17 +2070,6 @@ msgstr "D&odaj folder..."
 msgid "Abort"
 msgstr "Prekini"
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1465, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 1465)
-msgid "Abort &Merge"
-msgstr "Prekid &Stapanje"
-
-#. Resource IDs: (IDS_HOOKFAILED_TASK3)
-msgid ""
-"Abort\n"
-"You can fix the reason the hook script failed first."
-msgstr "Prekini\nMožete najpre fiksirati razlog pogreške zakačive skripte. "
-
 #. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
 msgid "About"
 msgstr "O"
@@ -1928,15 +2084,9 @@ msgstr "Opis programa TortoazSVN"
 
 #. Resource IDs: (IDS_SSL_ACCEPTALWAYS_TASK)
 msgid ""
-"Accept the certificate permanently\n"
+"Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr "Prihvatite sertifikat permanentno\nNemojte pitati ponovo o ovom sertifikatu."
-
-#. Resource IDs: (IDS_SSL_ACCEPTTEMP_TASK)
-msgid ""
-"Accept the certificate\n"
-"The certificate is accepted only this one time."
-msgstr "Prihvatite sertifikat\nSertifikat je prihvaćen samo sada."
+msgstr ""
 
 #. Resource IDs: (61861)
 #, c-format
@@ -1970,6 +2120,12 @@ msgid ""
 "Discard all changes to %1?"
 msgstr "ActiveX objekat ne može biti sačuvan pri izlasku iz Windows!\nOdbaci sve promene na %1?"
 
+#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK3)
+msgid ""
+"Ad&just case\n"
+"The file is not added."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
 msgid "Add"
@@ -1999,12 +2155,6 @@ msgstr "Dodaj diff program zavistan od ekstenzija"
 #. Resource IDs: (IDS_DLGTITLE_ADD_MERGE_TOOL)
 msgid "Add extension specific merge program"
 msgstr "Dodaj program za stapanje zavistan od ekstenzije"
-
-#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK4)
-msgid ""
-"Add item\n"
-"This will lead to problems on Windows."
-msgstr "Dodaj stavku\nOvo će dovesti do problema u Vindousu."
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1065)
 msgid "Add new files automatically to SVN"
@@ -2085,12 +2235,6 @@ msgstr "Dodavanje fajla/ova pod kontrolu Subverzije"
 #. Resource IDs: (IDS_MENUDESCIGNORE)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Dodaje označen(e) fajl(ove) ili masku fajla u listu 'zanemarenih'"
-
-#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK3)
-msgid ""
-"Adjust case\n"
-"The file is not added."
-msgstr "Slučaj podešavanja\nFajl nije dodat."
 
 #. Resource IDs: (32782)
 msgid ""
@@ -2463,8 +2607,9 @@ msgstr "P&retraži..."
 msgid "Back"
 msgstr "Nazad"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
-#. IDD_SETTINGSUDIFF: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
+#. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
+#. 65535)
 msgid "Background"
 msgstr "Pozadina"
 
@@ -2681,28 +2826,27 @@ msgstr "Ne mogu se zaliepiti bitmapu slika iz klipborda!"
 #. Dialog IDD_CREATECHANGELIST: Control id 2, Dialog IDD_CREATEPATCH: Control
 #. id 2, Dialog IDD_DELUNVERSIONED: Control id 2, Dialog IDD_DIFFOPTIONS:
 #. Control id 2, Dialog IDD_EDITPROPBUGTRAQ: Control id 2, Dialog
-#. IDD_EDITPROPCONFLICT: Control id 2, Dialog IDD_EDITPROPEOL: Control id 2,
-#. Dialog IDD_EDITPROPERTYVALUE: Control id 2, Dialog IDD_EDITPROPEXECUTABLE:
-#. Control id 2, Dialog IDD_EDITPROPEXTERNALS: Control id 2, Dialog
-#. IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog IDD_EDITPROPKEYWORDS:
-#. Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control id 2, Dialog
-#. IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog IDD_EDITPROPMIMETYPE:
-#. Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control id 2, Dialog
-#. IDD_EDITPROPTSVNLANG: Control id 2, Dialog IDD_EDITPROPTSVNSIZES: Control
-#. id 2, Dialog IDD_EDITPROPUSERBOOL: Control id 2, Dialog
-#. IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog IDD_EDITPROPUSERSINGLELINE:
-#. Control id 2, Dialog IDD_EDITPROPUSERSTATE: Control id 2, Dialog
-#. IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control id 2, Dialog
-#. IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog IDD_GOTODLG:
-#. Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog IDD_IMPORT:
-#. Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog IDD_INPUTLOGDLG:
-#. Control id 2, Dialog IDD_LOCK: Control id 2, Dialog IDD_LOGMESSAGE: Control
-#. id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog IDD_MONITOROPTIONS:
-#. Control id 2, Dialog IDD_MONITORPROJECT: Control id 2, Dialog IDD_OPEN:
-#. Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog IDD_PASSWORD:
-#. Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog IDD_REGEXFILTER:
-#. Control id 2, Dialog IDD_REGEXFILTERS: Control id 2, Dialog IDD_RELOCATE:
-#. Control id 2, Dialog IDD_RENAME: Control id 2, Dialog
+#. IDD_EDITPROPEOL: Control id 2, Dialog IDD_EDITPROPERTYVALUE: Control id 2,
+#. Dialog IDD_EDITPROPEXECUTABLE: Control id 2, Dialog IDD_EDITPROPEXTERNALS:
+#. Control id 2, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog
+#. IDD_EDITPROPKEYWORDS: Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control
+#. id 2, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog
+#. IDD_EDITPROPMIMETYPE: Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control
+#. id 2, Dialog IDD_EDITPROPTSVNLANG: Control id 2, Dialog
+#. IDD_EDITPROPTSVNSIZES: Control id 2, Dialog IDD_EDITPROPUSERBOOL: Control
+#. id 2, Dialog IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog
+#. IDD_EDITPROPUSERSINGLELINE: Control id 2, Dialog IDD_EDITPROPUSERSTATE:
+#. Control id 2, Dialog IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control
+#. id 2, Dialog IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog
+#. IDD_GOTODLG: Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog
+#. IDD_IMPORT: Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog
+#. IDD_INPUTLOGDLG: Control id 2, Dialog IDD_LOCK: Control id 2, Dialog
+#. IDD_LOGMESSAGE: Control id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog
+#. IDD_MONITOROPTIONS: Control id 2, Dialog IDD_MONITORPROJECT: Control id 2,
+#. Dialog IDD_OPEN: Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog
+#. IDD_PASSWORD: Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog
+#. IDD_REGEXFILTER: Control id 2, Dialog IDD_REGEXFILTERS: Control id 2,
+#. Dialog IDD_RELOCATE: Control id 2, Dialog IDD_RENAME: Control id 2, Dialog
 #. IDD_REPOSITORY_BROWSER: Control id 2, Dialog IDD_RESOLVE: Control id 2,
 #. Dialog IDD_REVERT: Control id 2, Dialog IDD_REVGRAPHFILTER: Control id 2,
 #. Dialog IDD_REVISION: Control id 2, Dialog IDD_REVISIONRANGE: Control id 2,
@@ -2712,8 +2856,7 @@ msgstr "Ne mogu se zaliepiti bitmapu slika iz klipborda!"
 #. 2, Dialog IDD_SVNPROGRESS: Control id 2, Dialog IDD_SWITCH: Control id 2,
 #. Dialog IDD_TOOLASSOC: Control id 2, Dialog IDD_UNLOCK: Control id 2, Dialog
 #. IDD_UPDATE: Control id 2, Dialog IDD_URL: Control id 2, Dialog IDD_URLDIFF:
-#. Control id 2, IDS_MERGE_WCDIRTYASK_TASK4, IDS_PROPPAGE_CANCEL,
-#. IDS_WARN_LOCKOUTDATED_TASK4)
+#. Control id 2, IDS_PROPPAGE_CANCEL)
 msgid "Cancel"
 msgstr "Odustani"
 
@@ -2723,53 +2866,11 @@ msgid ""
 "Change the selection for the commit."
 msgstr "Odustani\nIzmeni izbor za urezivanje."
 
-#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK4)
-msgid ""
-"Cancel\n"
-"Choose a different folder to export to"
-msgstr "Otkaži\nIzaberite različit folder za izvoz"
-
-#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
-msgid ""
-"Cancel\n"
-"Do not commit to a tag."
-msgstr "Odustani\nNe urezuj u znak."
-
-#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
-msgid ""
-"Cancel\n"
-"Do not remove"
-msgstr "Otkaži\nNe pomerajte"
-
-#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
-msgid ""
-"Cancel\n"
-"Do not revert."
-msgstr "Odustani\nNe vraćaj."
-
-#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
-msgid ""
-"Cancel\n"
-"Do not update the working copy."
-msgstr "Otkaži\nNe obnavljajte radnu kopji."
-
 #. Resource IDs: (IDS_ASKFORSAVE_TASK5)
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr "Otkaži\nNe napuštajte TortoiseMerge"
-
-#. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
-msgid ""
-"Cancel\n"
-"Don't resolve the item."
-msgstr "Otkaži\nNe rešavajte stavku."
-
-#. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
-msgid ""
-"Cancel\n"
-"Don't show the diff."
-msgstr "Odustani\nNe prikazuj dif."
 
 #. Resource IDs: (IDS_ASKFORSAVE_TASK8)
 msgid ""
@@ -2777,47 +2878,11 @@ msgid ""
 "Don't switch the views"
 msgstr "Otkaži\nNe prebacujte na pregled"
 
-#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
-msgid ""
-"Cancel\n"
-"Go back and enter an issue number."
-msgstr "Odustani\nVrati se i unesi broj stavke."
-
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
-msgid ""
-"Cancel\n"
-"Go back and select a different folder."
-msgstr "Otkaži\nVratite se i izaberite drugi folder."
-
-#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
-msgid ""
-"Cancel\n"
-"I will enter a different path/URL."
-msgstr "Odustani\nUneću različitu putanju/URL"
-
-#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
-msgid ""
-"Cancel\n"
-"Keep the current URL."
-msgstr "Odustani\nČuvaj tekući URL."
-
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK4)
 msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr "Otkaži\nDržite prazan fajl."
-
-#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
-msgid ""
-"Cancel\n"
-"Leave the cache on disk."
-msgstr "Otkaži\nOstavite keš na disku."
-
-#. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
-msgid ""
-"Cancel\n"
-"Local modifications are kept."
-msgstr "Odustni\nLokalne izmene su sačuvane"
 
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)
 msgid ""
@@ -2837,71 +2902,17 @@ msgid ""
 "Stay with current settings"
 msgstr "Odustani\nOstani sa tekućim podešavanjem"
 
-#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
-msgid ""
-"Cancel\n"
-"The conflict is not resolved."
-msgstr "Otkaži\nKonflikt nije rešen."
-
-#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
-msgid ""
-"Cancel\n"
-"The file is not copied."
-msgstr "Otkaži\nFajl nije kopiran."
-
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
-msgid ""
-"Cancel\n"
-"The folder is not exported."
-msgstr "Otkaži\nImrnik nije izvezen."
-
-#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
-msgid ""
-"Cancel\n"
-"The items are not imported."
-msgstr "Odustani\nStavke nisu uvezene."
-
 #. Resource IDs: (IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK4)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr "Odustani\nStavke nisu pomerene."
 
-#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
-msgid ""
-"Cancel\n"
-"The tagged revision of the external is left as is."
-msgstr "Odustani\nOznačena revizija eksternala je istekla"
-
-#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
-msgid ""
-"Cancel\n"
-"The target file is left as is"
-msgstr "Otkaži\nCiljni fajl je ostao isti"
-
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK4)
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
 msgstr "Odustani\nMožete uneti drugu lozinku i pokušati ponovo"
-
-#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
-msgid ""
-"Cancel\n"
-"You have to add the folder manually."
-msgstr "Odustani\nTreba da dodate folder ručno."
-
-#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
-msgid ""
-"Cancel\n"
-"You have to run an update yourself to get the externals"
-msgstr "Odustani\nTreba sami da uradite usklađivanje da dobijete eksternale"
-
-#. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
-msgid ""
-"Cancel\n"
-"keep the current format."
-msgstr "Odustani\nčuvaj tekući format."
 
 #. Resource IDs: (IDS_BLAME_PROGRESSCANCEL)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2945,17 +2956,17 @@ msgstr "Provera sertifikata neuspešna"
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "Sertifikati|*.p12;*.pkcs12;*.pfx|All|*.*||"
 
+#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)
+msgid ""
+"Chan&ge the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr ""
+
 #. Resource IDs: (10000)
 msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "Promeni stil aplikacije\nPromeni stil"
-
-#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)
-msgid ""
-"Change the tagged revision\n"
-"The svn:external property of the parent folder is changed accordingly."
-msgstr "Promeni označenu eviziju\nsvn:eksternal osobina predačkog foldera je usklađeno izmenjena."
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -3053,6 +3064,12 @@ msgstr "Označite da koristite sažetiji prikaz datuma i vremena u dnevniku poru
 msgid "Check working copy for modifications"
 msgstr "Provera radne kopije za izmene"
 
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3)
+msgid ""
+"Check&out\n"
+"Checkout into the non empty folder."
+msgstr ""
+
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
 msgstr "Proveri-Ureži zakačaljke"
@@ -3070,6 +3087,11 @@ msgstr "Provera da li je dostupna novija verzija TortoiseSVN..."
 #, c-format
 msgid "Checking project '%ls' for updates..."
 msgstr "Provera projekta  '%ls'  za usklađenja..."
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS)
+#, c-format
+msgid "Checking r%1!ld!..."
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -3089,19 +3111,9 @@ msgstr "Dubina pr&euzimanja"
 msgid "Checkout from %1!ls!, revision %2!ls!, %3!ls!, %4!ls!"
 msgstr "Preuzimanje od %1!ls!,revizija %2!ls!, %3!ls!, %4!ls!"
 
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3)
-msgid ""
-"Checkout\n"
-"Checkout into the non empty folder."
-msgstr "Preuzimanje\nPreuzimanje u folder koji nije prazan."
-
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Checksum:"
 msgstr "Suma provere:"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1402)
-msgid "Choose item:"
-msgstr "Izaberi stavku:"
 
 #. Resource IDs: (Dialog IDD_UPDATE: Control id 1606)
 msgid "Choose items..."
@@ -3343,17 +3355,23 @@ msgstr "Naredba pogrešno izvršena."
 msgid "Commands"
 msgstr "Komande"
 
+#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
+msgid ""
+"Commi&t only the folder\n"
+"Files inside the folder won't get committed."
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
+msgid ""
+"Commi&t\n"
+"Commit the changes to the target."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
 #. IDS_PROGRS_TITLE_COMMIT)
 msgid "Commit"
 msgstr "Urezivanje"
-
-#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
-msgid ""
-"Commit only the folder\n"
-"Files inside the folder won't get committed."
-msgstr "Urezuj samo folder\nFajlove unutar foldera ne treba uzeti pri urezivanju."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -3362,12 +3380,6 @@ msgstr "Ureži u:"
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COMMIT)
 msgid "Commit..."
 msgstr "Ureži..."
-
-#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
-msgid ""
-"Commit\n"
-"Commit the changes to the target."
-msgstr "Urezivanje\nUrezuj izmene u metu."
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYAUTHOR)
 msgid "Commits by author"
@@ -3515,9 +3527,10 @@ msgstr "Podesite pregledni program za GNU diff fajlove (fajlove zakrpa)."
 msgid "Confirm revert"
 msgstr "Potvrdite vraćanje"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1503)
-msgid "Conflict Sources"
-msgstr "Izvori Sukoba"
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_MAININSTRUCTION)
+#, c-format
+msgid "Conflict for property \"%s\" discovered"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Conflict resolved"
@@ -4088,12 +4101,6 @@ msgstr "Obriši neverzionisane stavke "
 msgid "Delete unversioned items..."
 msgstr "Obriši neverzionisane stavke..."
 
-#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)
-msgid ""
-"Delete\n"
-"Remove the cache files."
-msgstr "Briši\nUkloni keš fajlove."
-
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK3)
 msgid ""
 "Delete\n"
@@ -4470,12 +4477,6 @@ msgid ""
 "Use the last explicitly saved versions of the documents"
 msgstr "Ne vraćajte auto-sačuvana dokumenta\nKoristite poslednju sačuvanu verziju dokumenata"
 
-#. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
-msgid ""
-"Don't run\n"
-"Do not run the script"
-msgstr "Ne izvršavaj\nNe izvršavaj skriptu"
-
 #. Resource IDs: (IDS_ASKFORSAVE_NOSAVE_OPEN)
 msgid ""
 "Don't save\n"
@@ -4521,7 +4522,7 @@ msgstr "I&zostavi putanje:"
 msgid "E&xecutable"
 msgstr "I&zvršno"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "I&zlaz"
 
@@ -4575,12 +4576,7 @@ msgstr "Uredi projekat za posmatranje"
 msgid "Edit Properties"
 msgstr "Uredi osobina"
 
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 297)
-msgid "Edit Property Conflict"
-msgstr "Uredi Osobinu Sukoba"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
-#. IDS_PROC_EDIT_TREE_CONFLICTS)
+#. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "Uredi Stablo Sukoba"
 
@@ -4623,6 +4619,12 @@ msgstr "Uredi osobine '%1!S!' na\r\n%2!ls!"
 #. IDD_SETTINGSHOOKS: Control id 1331)
 msgid "Edit..."
 msgstr "Uredi..."
+
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_EDITCMD)
+msgid ""
+"Edit\n"
+"change merged property value in editor"
+msgstr ""
 
 #. Resource IDs: (IDS_PROP_TT_EDIT)
 msgid "Edits the selected property value"
@@ -4939,12 +4941,6 @@ msgstr "Izvoz označenog keš u skup nekoliko CSV fajl"
 #. Resource IDs: (IDS_PROC_EXPORT_2)
 msgid "Export unversioned files too"
 msgstr "Izvezi i fajlove bez verzija"
-
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3_1)
-msgid ""
-"Export\n"
-"Export into the non-empty folder."
-msgstr "Izvoz\nIzvoz u folder koji nije prazan."
 
 #. Resource IDs: (IDS_SVNPROGRESS_EXPORTING)
 #, c-format
@@ -5275,8 +5271,8 @@ msgstr "Filter putanja"
 msgid "Filter:"
 msgstr "Filter."
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. ID_EDIT_FIND - Ribbon name)
 msgid "Find"
 msgstr "Pronađi"
 
@@ -5369,7 +5365,8 @@ msgstr "Forsira"
 msgid "Force removal"
 msgstr "Prisila odbacivanja"
 
-#. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
+#. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Foreground"
 msgstr "Prednji plan"
 
@@ -5589,26 +5586,25 @@ msgid "Header"
 msgstr "Zaglavlje"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 9, Dialog IDD_CHECKOUT: Control
-#. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_CONFLICTRESOLVE:
-#. Control id 9, Dialog IDD_COPY: Control id 9, Dialog IDD_CREATEPATCH:
-#. Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control id 9, Dialog
-#. IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES: Control id 9,
-#. Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog IDD_EDITPROPEXECUTABLE:
-#. Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control id 9, Dialog
-#. IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog IDD_EDITPROPKEYWORDS:
-#. Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control id 9, Dialog
-#. IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog IDD_EDITPROPMIMETYPE:
-#. Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control id 9, Dialog
-#. IDD_EDITPROPTSVNLANG: Control id 9, Dialog IDD_EDITPROPTSVNSIZES: Control
-#. id 9, Dialog IDD_EXPORT: Control id 9, Dialog IDD_IMPORT: Control id 9,
-#. Dialog IDD_LOCK: Control id 9, Dialog IDD_LOGMESSAGE: Control id 9, Dialog
-#. IDD_MERGEALL: Control id 9, Dialog IDD_OPENDLG: Control id 9, Dialog
-#. IDD_RELOCATE: Control id 9, Dialog IDD_REPOSITORY_BROWSER: Control id 9,
-#. Dialog IDD_RESOLVE: Control id 9, Dialog IDD_REVERT: Control id 9, Dialog
-#. IDD_SETTINGSBUGTRAQADV: Control id 9, Dialog IDD_SETTINGSHOOKCONFIG:
-#. Control id 9, Dialog IDD_SWITCH: Control id 9, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 9, Dialog IDD_UNLOCK: Control id 9,
-#. Dialog IDD_URLDIFF: Control id 9, IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_COPY: Control id 9,
+#. Dialog IDD_CREATEPATCH: Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control
+#. id 9, Dialog IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES:
+#. Control id 9, Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog
+#. IDD_EDITPROPEXECUTABLE: Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control
+#. id 9, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog
+#. IDD_EDITPROPKEYWORDS: Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control
+#. id 9, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog
+#. IDD_EDITPROPMIMETYPE: Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control
+#. id 9, Dialog IDD_EDITPROPTSVNLANG: Control id 9, Dialog
+#. IDD_EDITPROPTSVNSIZES: Control id 9, Dialog IDD_EXPORT: Control id 9,
+#. Dialog IDD_IMPORT: Control id 9, Dialog IDD_LOCK: Control id 9, Dialog
+#. IDD_LOGMESSAGE: Control id 9, Dialog IDD_MERGEALL: Control id 9, Dialog
+#. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
+#. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
+#. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
+#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
+#. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
+#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
 msgid "Help"
 msgstr "Pomoć"
 
@@ -5715,10 +5711,6 @@ msgstr "Zakačiva skripta neispravna!"
 #, c-format
 msgid "Hostname mismatch (%ls)"
 msgstr "Neslaganje imena domaćina (%ls)"
-
-#. Resource IDs: (9758)
-msgid "How do you want to resolve this conflict?"
-msgstr "Kako želite da rešite ovaj sukob?"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1392, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1392)
@@ -6058,7 +6050,7 @@ msgstr "Zanemari &sve beline"
 msgid "Ignore &ancestry"
 msgstr "Z&anemari poreklo"
 
-#. Resource IDs: (32896, ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
 msgid "Ignore Comments"
 msgstr "Ignoriše komentare"
 
@@ -6076,6 +6068,12 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr "Zanemari izmene\nZanemari spoljašnje izmene."
+
+#. Resource IDs: (32896)
+msgid ""
+"Ignore comment changes\n"
+"Ignore Comments"
+msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -6200,12 +6198,6 @@ msgstr "Uvozi folder %1!ls!\r\nu %2!ls!"
 #, c-format
 msgid "Import to %1"
 msgstr "Uvezi u %1"
-
-#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
-msgid ""
-"Import\n"
-"The items are imported, creating a new revision for each item."
-msgstr "Uvoz\nStavke su uvezene, kreira se nova revizija za svaku stavku."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTURE)
 msgid "Imported folder structure"
@@ -6407,10 +6399,6 @@ msgstr "Skoči na sledeći &konflikt"
 msgid "Keep &locks"
 msgstr "Drži &zaključan"
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_KEEPMOVES)
-msgid "Keep any moves affected by this operation"
-msgstr "Čuvaj svako pomeranje uzrokovano ovom operacijom"
-
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1126)
 msgid "Keep c&hangelists"
 msgstr "Čuvaj l&iste izmena"
@@ -6486,10 +6474,6 @@ msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
 msgstr "Ostavi u konfliktu\nKonfliktni status fajla je sačuvan"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1404)
-msgid "Leave conflicted:"
-msgstr "Ostavi u sukobu:"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_LEAVEONLYMARKEDBLOCKS)
 msgid "Leave only marked changes"
@@ -6772,24 +6756,16 @@ msgid ""
 "Hold down the shift key to also clear all fetch errors."
 msgstr "Označi sve projekte za čitanje\nDrži pritisnut šift taster da obrišeš takođe sve nađene greške."
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MOVETOCOPY)
-msgid "Mark as &resolved (the move will become a copy)"
-msgstr "Označi kao &razrešeno (pomeranje će postati kopija)"
-
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 1400)
-msgid "Mark as Resolved"
-msgstr "Markiraj kao rešen"
+#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
+msgid ""
+"Mark as &resolved\n"
+"The conflict is resolved."
+msgstr ""
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
 #. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
 msgid "Mark as resolved"
 msgstr "Označi kao rešeno"
-
-#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
-msgid ""
-"Mark as resolved\n"
-"The conflict is resolved."
-msgstr "Označeno kao rešeno\nKonflikt je rešen."
 
 #. Resource IDs: (IDS_MARKASRESOLVED_TASK3)
 msgid ""
@@ -6914,6 +6890,16 @@ msgstr "Stopite sve..."
 #. Resource IDs: (IDS_MENUDESCMERGE)
 msgid "Merge changes into the working copy"
 msgstr "Stopi izmene u radnoj kopiji"
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION)
+#, c-format
+msgid "Merge conflict discovered in binary file %s"
+msgstr ""
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_MAININSTRUCTION)
+#, c-format
+msgid "Merge conflict discovered in file %s"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
 msgid "Merge non-interactive"
@@ -7657,7 +7643,7 @@ msgstr "Koristi p&roveru pravopisa kada je postavljen tsvn:projectlanguage"
 msgid "Opacity"
 msgstr "Neprozirnost"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "Otvori"
 
@@ -7679,8 +7665,7 @@ msgid ""
 "Open files"
 msgstr "Otvori fajlove za dif ili da se primeni zakrpa\nOtvori fajlove"
 
-#. Resource IDs: (Dialog IDD_PATCH_FILE_OPEN_CUSTOM: Control id 1132,
-#. IDS_PATCH_COPYFROMCLIPBOARD)
+#. Resource IDs: (IDS_PATCH_COPYFROMCLIPBOARD)
 msgid "Open from clipboard"
 msgstr "Otvori iz klipborda"
 
@@ -7764,29 +7749,11 @@ msgid ""
 "Files which don't have this property set are not affected."
 msgstr "Prepisuje preko svojstva svn:eol-style.\nNe utječe na fajlovi koje nemaju postavljeno ovo svojstvo."
 
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
-msgid ""
-"Overwrite\n"
-"Replace the target folder."
-msgstr "Prepisivanje\nZamenite ciljni folder."
-
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK3)
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
 msgstr "Prepišite\nPodešavanja su prepisana"
-
-#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
-msgid ""
-"Overwrite\n"
-"The target file gets replaced"
-msgstr "Prepišite\nCiljni fajl je premešten"
-
-#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
-msgid ""
-"Overwrite\n"
-"The target file is replaced."
-msgstr "Prepisivanje\nCiljni folder je zamenjen."
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7972,10 +7939,6 @@ msgid ""
 "Use the Switch command to do that."
 msgstr "Molim primetite:\nVaša radna kopija ostaje na prethodnoj stazi. Ako želite da se Vaše buduće izmene\nbudu urezane u upravo napravljenoj grani tada se treba premestiti\nna putanju te grane. Za to koristite naredbu Zameni."
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1287)
-msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr "Molim rešite sukobe tako da odaberete neku od sledećih mogućnosti:"
-
 #. Resource IDs: (IDS_ERR_NOHOOKTYPESPECIFIED)
 msgid "Please select a hook type"
 msgstr "Molim odaberite tip zakačaljke"
@@ -8045,14 +8008,6 @@ msgstr "Pre-Lok Zakačka"
 #. Resource IDs: (IDS_HOOKTYPE_PREUPDATE)
 msgid "Pre-Update Hook"
 msgstr "Zakačiv Skript pre obnavljanja"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 3)
-msgid "Prefer &local"
-msgstr "Pretpostavi &lokalno "
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 4)
-msgid "Prefer &repository"
-msgstr "Pretpostavi  sp&remište"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_PREPENDRIGHT)
 msgid "Prepend right block"
@@ -8137,33 +8092,11 @@ msgstr "Ispisivanje"
 msgid "Proceed anyway"
 msgstr "Razmotri svakako"
 
-#. Resource IDs: (IDS_HOOKFAILED_TASK4)
-msgid ""
-"Proceed anyway\n"
-"Ignore the hook script and run the command anyway."
-msgstr "Nastavi svakako\nZanemari zakačivu skriptu i svakako izvrši komandu."
-
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK3)
 msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
 msgstr "Nastavite sa urezivanjem\npreimenovani/pomereni imenici su urezani rekurzivno u spremištu."
-
-#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
-msgid ""
-"Proceed with the entered path\n"
-"I'm aware of the possible problems."
-msgstr "Nastavite sa unošenjem putanje\nPazim na moguće probleme."
-
-#. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
-msgid "Proceed with the merge."
-msgstr "Nastavlja sa stapanjem."
-
-#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
-msgid ""
-"Proceed without an issue number\n"
-"The commit won't be assigned to an issue."
-msgstr "Nastavlja bez broja stavke\nUrezivanje neće biti pridruženo stavki."
 
 #. Resource IDs: (IDS_BLAME_PROGRESSINFO2)
 #, c-format
@@ -8254,6 +8187,10 @@ msgstr "Stranica sa svojstvima"
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Property Status:"
 msgstr "Status svojstva:"
+
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
+msgid "Property diff:\n"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -8347,10 +8284,6 @@ msgstr "&Reset"
 msgid "Re&set All"
 msgstr "&Resetuj sve"
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1400)
-msgid "Re&solved"
-msgstr "&Rešeno"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "Vrati podrazumevane vredno&sti"
@@ -8419,6 +8352,12 @@ msgid ""
 "Rectangle"
 msgstr "Alat pravougaonika\nPravougaonik"
 
+#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
+msgid ""
+"Recur&sive\n"
+"Remove the property also from items in Subfolders."
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1260)
 msgid "Recurse into unversioned folders"
 msgstr "Rekurzija u neverzionisanim imenicima "
@@ -8426,12 +8365,6 @@ msgstr "Rekurzija u neverzionisanim imenicima "
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK2)
 msgid "Recursive operation"
 msgstr "Rekurzivne operacije"
-
-#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
-msgid ""
-"Recursive\n"
-"Remove the property also from items in Subfolders."
-msgstr "Rekurzivno\nUkloni osobine takođe iz stavki podfoldera"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 333)
 msgid "Recycle bin"
@@ -8518,12 +8451,6 @@ msgstr "Filter regularnih izraza:\r\n.  : bilo koji znak\r\nc+  : pronađi slovo
 msgid "Reintegrate merge %1!ls! into %2!ls!"
 msgstr "Reintegriše stapanje %1!ls! u %2!ls!"
 
-#. Resource IDs: (IDS_SSL_REJECT_TASK)
-msgid ""
-"Reject the certificate\n"
-"Cancel the connection."
-msgstr "Odbijen sertifikat\nOtkazana konekcija."
-
 #. Resource IDs: (IDS_TITLE_REJECTEDHUNKS)
 #, c-format
 msgid "Rejected patch hunks for '%ls'"
@@ -8563,12 +8490,6 @@ msgstr "Premesti"
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK2)
 msgid "Relocate where a switch might be intended"
 msgstr "Premeštanje gde prebacivanje mora biti namerno."
-
-#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
-msgid ""
-"Relocate\n"
-"The working copy is relocated to the new URL."
-msgstr "Prebacivanje\nRadna kopija je prebačena na novi URL."
 
 #. Resource IDs: (IDS_PROC_RELOCATING)
 msgid "Relocating..."
@@ -8633,12 +8554,6 @@ msgstr "Ukloni iz alatnih panela za brzi pristup"
 msgid "Remove from changelist"
 msgstr "Ukloni s popisa izmena"
 
-#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK3)
-msgid ""
-"Remove from version control\n"
-"All .svn folders are removed"
-msgstr "Ukloni iz kontrole verzija\nSvi .svn imenici su uklonjeni"
-
 #. Resource IDs: (IDS_INPUT_REMOVEPROP)
 #, c-format
 msgid ""
@@ -8653,18 +8568,6 @@ msgstr "Uklanja odabranog keša sa diska"
 #. Resource IDs: (Dialog IDD_REVGRAPHFILTER: Control id 1352)
 msgid "Remove the whole subtree(s)"
 msgstr "Ukloni celo podstablo(a)"
-
-#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK3)
-msgid ""
-"Remove\n"
-"Force the removal"
-msgstr "Ukloni\nPrisili uklanjanje!"
-
-#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
-msgid ""
-"Remove\n"
-"Remove the property only from this item."
-msgstr "Ukloni\nUkloni osobine samo iz te stavke."
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Removed"
@@ -8735,13 +8638,6 @@ msgstr "Preimenuj stavku od %1!ls!\r\nna %2!ls!"
 #. Resource IDs: (IDS_PROGRS_TITLE_RENAME)
 msgid "Rename/move"
 msgstr "Preimenuj/pomeri"
-
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK4)
-#, c-format
-msgid ""
-"Rename\n"
-"The folder is exported as '%ls'."
-msgstr "Preimenuj\nFolder je izvezen kao '%ls'."
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Renamed node"
@@ -8857,18 +8753,6 @@ msgstr "Resetuj kolone"
 msgid "Resolve"
 msgstr "Reši"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 2)
-msgid "Resolve &later"
-msgstr "Razreši &kasnije"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 268)
-msgid "Resolve Conflict"
-msgstr "Razreši sukob"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1382)
-msgid "Resolve all la&ter"
-msgstr "Reši sve ka&snije"
-
 #. Resource IDs: (IDS_SVNPROGRESS_MENUUSEMINE)
 msgid "Resolve conflict using 'mine'"
 msgstr "Reši spor koristeći 'moj'"
@@ -8876,20 +8760,6 @@ msgstr "Reši spor koristeći 'moj'"
 #. Resource IDs: (IDS_SVNPROGRESS_MENUUSETHEIRS)
 msgid "Resolve conflict using 'theirs'"
 msgstr "Reši spor koristeći 'njihov'"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1403)
-msgid "Resolve conflict:"
-msgstr "Razreši sukob:"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 2)
-msgid "Resolve l&ater"
-msgstr "Reši k&asnije"
-
-#. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
-msgid ""
-"Resolve\n"
-"The item is marked as resolved."
-msgstr "Reši\nStavka je označena rešenom."
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_RESOLVED, IDS_SVNACTION_RESOLVE)
 msgid "Resolved"
@@ -8957,12 +8827,6 @@ msgid ""
 "Revert\n"
 "All local modifications will be lost."
 msgstr "Vraćanje\nSve lokalne izmene će biti izgubljene."
-
-#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
-msgid ""
-"Revert\n"
-"Changes will be applied to the working copy."
-msgstr "Vraćanje\nIzmene će biti primenjene u radnoj kopiji."
 
 #. Resource IDs: (IDS_SVNACTION_REVERT)
 msgid "Reverted"
@@ -9108,12 +8972,6 @@ msgstr "Pokre&ni čišćenje sada"
 msgid "Run hoo&k script"
 msgstr "Izvrši skriptu za&kačaljke"
 
-#. Resource IDs: (IDS_HOOKS_APPROVE_TASK3)
-msgid ""
-"Run\n"
-"Run the hook script"
-msgstr "Pokreni\nPokreni zakačiv skript"
-
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "I&zabrati..."
@@ -9238,11 +9096,11 @@ msgstr "Dnevnik probe za testiranje bagtrek: regeks stringovi.\n\nTestiranje nag
 msgid "Sample text:"
 msgstr "Probni tekst:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "Sačuvaj"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "Sačuvaj &kao..."
 
@@ -9357,8 +9215,7 @@ msgid ""
 "Save file"
 msgstr "Sačuvaj izmenjenu fajl\nSačuvaj fajl"
 
-#. Resource IDs: (Dialog IDD_PATCH_FILE_OPEN_CUSTOM: Control id 1132,
-#. IDS_PATCH_COPYTOCLIPBOARD)
+#. Resource IDs: (IDS_PATCH_COPYTOCLIPBOARD)
 msgid "Save to clipboard"
 msgstr "Sačuvaj u klipbord"
 
@@ -9696,8 +9553,7 @@ msgstr "&Prikaži menije za:"
 msgid "Show &All"
 msgstr "Prikaži &sve"
 
-#. Resource IDs: (Dialog IDD_COPY: Control id 1187, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 1132)
+#. Resource IDs: (Dialog IDD_COPY: Control id 1187)
 msgid "Show &Log"
 msgstr "Prikaži &Dnevnik"
 
@@ -9755,10 +9611,6 @@ msgstr "Prikaži Iznad Trake"
 #. Resource IDs: (17098)
 msgid "Show Below the Ribbon"
 msgstr "Prikaži Ispod Trake"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1542)
-msgid "Show Branch L&og"
-msgstr "Prikazuje dn&evnik grane"
 
 #. Resource IDs: (17030)
 msgid "Show Fewer Buttons"
@@ -9929,9 +9781,9 @@ msgstr "Pokaži oznake na izvoru kopiranja, a ne kao odvojene čvorove"
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK3)
 msgid ""
-"Show the diff\n"
+"Show the &diff\n"
 "The diff viewer is started for every selected item."
-msgstr "Prikaži dif\nDif pregledač se pokreće za svaku izabranu stavku."
+msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_SHOWCOL)
 msgid "Show/Hide"
@@ -10090,14 +9942,6 @@ msgstr "nešto je pošlo loše"
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1126)
 msgid "Sort by commit count"
 msgstr "Poređaj po broju urezivanja"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1501)
-msgid "Source Left:"
-msgstr "Izvor Levi:"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1502)
-msgid "Source Right:"
-msgstr "Izvor Desni:"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 1552)
 msgid "Source URL:"
@@ -10672,129 +10516,6 @@ msgid ""
 "The item '%ls' has property conflicts:\r\n"
 "%ls"
 msgstr "Stavka '%ls' ima konflikt osobina:\r\n%ls"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEADD)
-#, c-format
-msgid "The last merge operation tried to add the directory '%ls'"
-msgstr "Zadnja opercija stapanja pokušava da doda folder '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEADD)
-#, c-format
-msgid "The last merge operation tried to add the file '%ls'"
-msgstr "Zadnja operacija stapanja pokušava da doda fajl '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEDELETE)
-#, c-format
-msgid ""
-"The last merge operation tried to delete/move/rename the directory '%ls'"
-msgstr "Zadnja operacija stapanja pokušava da obriše/pomeri/preimenuje folder '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEDELETE)
-#, c-format
-msgid "The last merge operation tried to delete/move/rename the file '%ls'"
-msgstr "Zadnja operacija stapanja pokušava da obriše/pomeri/preimenuje fajl '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEEDIT)
-#, c-format
-msgid "The last merge operation tried to modify the directory '%ls'"
-msgstr "Zadnja operacija stapanja pokušava da izmeni folder '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEEDIT)
-#, c-format
-msgid "The last merge operation tried to modify the file '%ls'"
-msgstr "Zadnja operacija stapanja pokušava da izmeni fajl  '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEREPLACE)
-#, c-format
-msgid "The last merge operation tried to replace the directory '%ls'"
-msgstr "Zadnja operacija spajanja pokušava da zameni folder '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEREPLACE)
-#, c-format
-msgid "The last merge operation tried to replace the file '%ls'"
-msgstr "Zadnja operacija stapanja pokušava da zameni fajl '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHADD)
-#, c-format
-msgid "The last switch operation tried to add the directory '%ls'"
-msgstr "Zadnja operacija skretanja pokušava da doda folder '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHADD)
-#, c-format
-msgid "The last switch operation tried to add the file '%ls'"
-msgstr "Zadnja operacija skretanja pokušava da doda fajl '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHDELETE)
-#, c-format
-msgid ""
-"The last switch operation tried to delete/move/rename the directory '%ls'"
-msgstr "Zadnja operacija skretanja pokušava da obriše/pomeri/preimenuje folder '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHDELETE)
-#, c-format
-msgid "The last switch operation tried to delete/move/rename the file '%ls'"
-msgstr "Zadnja operacija skretanja pokušava da obriše/pomeri/preimenuje fajl '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHEDIT)
-#, c-format
-msgid "The last switch operation tried to modify the directory '%ls'"
-msgstr "Zadnja operacija skretanja pokušava daizmeni folder '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHEDIT)
-#, c-format
-msgid "The last switch operation tried to modify the file '%ls'"
-msgstr "Zadnja operacija skretanja pokušava da izmeni fajl  '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHREPLACE)
-#, c-format
-msgid "The last switch operation tried to replace the directory '%ls'"
-msgstr "Zadnja operacija prebacivanja pokušava da zameni folder '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHREPLACE)
-#, c-format
-msgid "The last switch operation tried to replace the file '%ls'"
-msgstr "Zadnja operacija prebacivanja pokušava da zameni fajl '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEADD)
-#, c-format
-msgid "The last update operation tried to add the directory '%ls'"
-msgstr "Zadnja operacija obnavljanja pokušava da doda folder '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEADD)
-#, c-format
-msgid "The last update operation tried to add the file '%ls'"
-msgstr "Zadnja operacija obnavljanja pokušava da doda fajl '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEDELETE)
-#, c-format
-msgid ""
-"The last update operation tried to delete/move/rename the directory '%ls'"
-msgstr "Zadnja operacija obnavljanja pokušava da obriše/pomeri/preimenuje folder '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEDELETE)
-#, c-format
-msgid "The last update operation tried to delete/move/rename the file '%ls'"
-msgstr "Zadnja operacija obnavljanja pokušava da obriše/pomeri/preimenuje fajl '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEEDIT)
-#, c-format
-msgid "The last update operation tried to modify the directory '%ls'"
-msgstr "Zadnja operacija obnavljanja pokušava da izmeni folder '%lsfolder "
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEEDIT)
-#, c-format
-msgid "The last update operation tried to modify the file '%ls'"
-msgstr "Zadnja operacija obnavljanja pokušava da izmeni fajl '%ls' "
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEREPLACE)
-#, c-format
-msgid "The last update operation tried to replace the directory '%ls'"
-msgstr "Zadnja operacija obnavljanja pokušava da zameni folder '%ls'"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEREPLACE)
-#, c-format
-msgid "The last update operation tried to replace the file '%ls'"
-msgstr "Zadnja operacija obnavljanja pokušava da zameni fajl '%ls' "
 
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
@@ -11692,24 +11413,6 @@ msgstr "Provera usklađivanja trenutno radi!"
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK2)
 msgid "Update externals"
 msgstr "Uskladi eksternale"
-
-#. Resource IDs: (IDS_WARN_LOCKOUTDATED_TASK3)
-msgid ""
-"Update\n"
-"Update the file and try locking again."
-msgstr "Uskladi\nUskladi fajl i ponovo pokušaj zaključavanje."
-
-#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
-msgid ""
-"Update\n"
-"Update the working copy and reopen the commit dialog to try again."
-msgstr "Uskladi\nUskladite radnu kopiju i otvorite dijalog urezivanja i pokušajte ponovo."
-
-#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
-msgid ""
-"Update\n"
-"Update to the HEAD revision"
-msgstr "Uskladi\nUskladi prema GLAVNOJ reviziji"
 
 #. Resource IDs: (IDS_SVNACTION_UPDATE)
 msgid "Updated"
@@ -12841,11 +12544,6 @@ msgstr "prema %1"
 #. Resource IDs: (IDS_CONNECTIONSTATE_ONLINE)
 msgid "online"
 msgstr "uključen"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1406, Dialog
-#. IDD_CONFLICTRESOLVE: Control id 1407)
-msgid "or"
-msgstr "ili"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "pair tokens: "

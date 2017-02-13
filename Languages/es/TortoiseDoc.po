@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN manuals
-# Copyright (C) 2004-2016 the TortoiseSVN team
+# Copyright (C) 2004-2017 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -45,7 +45,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-10-08 09:46+0000\n"
+"PO-Revision-Date: 2017-02-11 09:03+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -4152,9 +4152,10 @@ msgstr "El desarrollador B ahora tiene que elegir si mantiene los cambios realiz
 #. (para)
 msgid ""
 "The conflict edit dialog offers to merge changes if it can find the original"
-" file of the renamed <filename>Bar.c</filename>. Depending on where the "
-"update was invoked, it may not be possible to find the source file."
-msgstr "El diálogo de editar conflictos ofrece la posibilidad de fusionar cambios si puede encontrar el archivo original del renombrado <filename>Bar.c</filename>. Dependiendo de dónde se haya realizado la actualización, puede que no sea posible encontrar el archivo de origen."
+" file of the renamed <filename>Bar.c</filename>. If there are multiple files"
+" that are possible move sources, then a button for each of these files is "
+"shown which allow you to chose the correct file."
+msgstr ""
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
@@ -4232,20 +4233,18 @@ msgid ""
 "To merge her local changes with the reshuffle, Developer B must first find "
 "out to what filename the conflicted file <filename>Foo.c</filename> was "
 "renamed/moved in the repository. This can be done by using the log dialog. "
-"The changes must then be merged by hand as there is currently no way to "
-"automate or even simplify this process. Once the changes have been ported "
-"across, the conflicted path is redundant and can be deleted. In this case "
-"use the <guilabel>Remove</guilabel> button in the conflict editor dialog to "
-"clean up and mark the conflict as resolved."
-msgstr "Para fusionar sus cambios locales con la reorganización, el desarrollador B tiene que encontrar primero qué nombre de archivo tiene ahora el archivo en conflicto <filename>Foo.c</filename> que fue renombrado/movido en el repositorio. Esto puede hacerse utilizando el diálogo de registro. Luego debe fusionar los cambios a mano ya que no hay actualmente forma de automatizar o simplificar este proceso. Una vez que se hayan portado los cambios, la ruta en conflicto es redundante y puede borrarse. En este ccaso utilice el botón <guilabel>Eliminar</guilabel> en el diálogo de editar conflictos para limpiar y marcar el conflicto como resuelto."
+"Then use the button which shows the correct source file to resolve the "
+"conflict."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog helps to track down what was moved."
-msgstr "Si el desarrollador B decide que los cambios de A eran erróneos deberá elegir el botón <guilabel>Mantener</guilabel> en el diálogo de editar conflictos. Esto marca el archivo o carpeta en conflicto como resuelto, pero los cambios del desarrollador A tendrán que eliminarse a mano. De nuevo el diálogo de registro ayuda a controlar lo que se ha movido."
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog helps to track down what "
+"was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -4393,18 +4392,17 @@ msgid ""
 " to find that yourself. The changes must then be merged by hand as there is "
 "currently no way to automate or even simplify this process. Once the changes"
 " have been ported across, the conflicted path is redundant and can be "
-"deleted. In this case use the <guilabel>Remove</guilabel> button in the "
-"conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr "Para fusionar sus cambios locales con la reorganización, el desarrollador B debe primero averiguar qué nombre de archivo tiene ahora el archivo en conflicto <filename>Foo.c</filename> que fue renombrado/movido en el repositorio. Esto se puede hacer utilizando el diálogo mostrar registro sobre el origen de la fusión. El editor de conflictos sólo muestra el registro para la copia de trabajo ya que no sabe qué ruta fue utilizada en la fusión, así que lo tendrá que averiguar por su cuenta. Luego se deben fusionar los cambios a mano ya que no hay actualmente forma de automatizar o simplificar este proceso. Una vez que los cambios se hayan portado, la ruta en conflicto es redundante y puede eliminarse. En este caso utilice el botón <guilabel>Eliminar</guilabel> en el diálogo de edición de conflictos para limpiar y marcar el conflicto como resuelto."
+"deleted."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog for the merge source helps to track "
-"down what was moved."
-msgstr "Si el desarrollador B decide que los cambios de A eran erróneos, deberá elegir el botón <guilabel>Mantener</guilabel> en el diálogo de editar conflictos. Esto marca el archivo o carpeta en conflicto como resuelto, pero los cambios del desarrollador A deberán eliminarse a mano. De nuevo el diálogo de registro sobre el origen de la fusión ayuda a averiguar qué se movió."
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog for the merge source helps"
+" to track down what was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -4433,11 +4431,8 @@ msgstr "<filename>Foo.c</filename> se marca como faltante con un conflicto de á
 msgid ""
 "To resolve this conflict, Developer B has to find out to what filename the "
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
-"repository. This can be done by using the log dialog for the merge source. "
-"The conflict editor only shows the log for the working copy as it does not "
-"know which path was used in the merge, so you will have to find that "
-"yourself."
-msgstr "Para resolver este conflicto, el desarrollador B tiene que averiguar qué nombre de archivo tiene ahora el archivo en conflicto <filename>Foo.c</filename> que fue renombrado/movido en el repositorio. Esto puede hacerse utilizando el diálogo de registro sobre el origen de la fusión. El editor de conflictos sólo muestra el registro de la copia de trabajo, dado que no conoce qué ruta se utilizó para la fusión, por lo que tendrá que averiguarlo por si mismo."
+"repository. This can be done by using the log dialog for the merge source."
+msgstr ""
 
 #. (title)
 msgid "Other tree conflicts"
@@ -9891,6 +9886,13 @@ msgstr "Manejando conflictos durante la fusión"
 msgid "merge conflicts"
 msgstr "conflictos de fusión"
 
+#. (para)
+msgid ""
+"The text in the conflict resolver dialogs are provided by the SVN library "
+"and might therefore not (yet) be translated as the TortoiseSVN dialogs are. "
+"Sorry for that."
+msgstr ""
+
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
 msgstr "El diálogo Información de conflicto de fusión"
@@ -9906,52 +9908,125 @@ msgstr "Las fusiones no siempre van bien. A menudo ocurre algún conflicto, y si
 
 #. (para)
 msgid ""
-"If you are merging text files then these first two buttons allow you to "
-"merge non-conflicting lines as normal and always prefer one version where "
-"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
-"your local version in every conflict, i.e. it will prefer what was already "
-"there before the merge over the incoming change from the merge source. "
-"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
-"changes in every conflict, i.e. it will prefer the incoming changes from the"
-" merge source over what was already in your working copy. This sounds easy, "
-"but the conflicts often cover more lines than you think they will and you "
-"may get unexpected results."
-msgstr ""
-
-#. (para)
-msgid ""
-"If your merge includes binary files, merging of conflicts in those is not "
-"possible in a line-by-line mode. A conflict in a binary file always refers "
-"to the complete file. Use <emphasis>Prefer local</emphasis> to select the "
-"local version as it was in your working copy prior to the merge, or "
-"<emphasis>Prefer repository</emphasis> to select the incoming file from the "
-"merge source in the repository."
-msgstr ""
-
-#. (para)
-msgid ""
-"Normally you will want to look at the conflicts and resolve them yourself. "
-"In that case, choose the <guibutton>Edit Conflict</guibutton> which will "
-"start up your merge tool. When you are satisfied with the result, click "
-"<guibutton>Resolved</guibutton>."
-msgstr "Normalmente querrá ver los conflictos y resolverlos. En tal caso, pulse el botón  <guibutton>Editar conflicto</guibutton>, lo que iniciará la herramienta de fusionado. Cuando esté satisfecho con el resultado, pulse <guibutton>Resuelto</guibutton>."
-
-#. (para)
-msgid ""
-"The last option is to postpone resolution and continue with merging. You can"
-" choose to do that for the current conflicted file, or for all files in the "
-"rest of the merge. However, if there are further changes in that file, it "
-"will not be possible to complete the merge."
-msgstr "La última opción es posponer la resolución y continuar con el fusionado. Puede elegir hacerlo para el archivo en conflicto actual, o para todos los archivos durante el resto de la fusión. Sin embargo, si hay más cambios en ese archivo, no será posible completar la fusión."
-
-#. (para)
-msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
 "All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you three different ways of handling the lines which are in "
-"conflict. <placeholder-1/>"
-msgstr "Es probable que algunos de los cambios se hayan mezclado suavemente, mientras otros cambios locales entran en conflicto con modificaciones ya actualizadas en el repositorio. Todos los cambios que se pueden mezclar son mezclados. El diálogo de Conflicto de Mezcla da tres formas de manejo de las líneas en conflicto. <placeholder-1/>"
+"dialog gives you different ways of handling the lines which are in conflict."
+msgstr ""
+
+#. (term)
+msgid "Postpone"
+msgstr ""
+
+#. (para)
+msgid ""
+"Don't deal with the conflict now. Let the merge continue and resolve the "
+"conflicts after the merge is done."
+msgstr ""
+
+#. (term)
+msgid "Accept base"
+msgstr ""
+
+#. (para)
+msgid ""
+"This leaves the file as it was, without neither the changes coming from the "
+"merge nor the changes you've made in your working copy."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all your local changes and uses the file as it arrives from "
+"the merge source."
+msgstr ""
+
+#. (term)
+msgid "Reject incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all the changes from the merge source and leaves the file with"
+" your local edits."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming for conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards your local changes where they conflict with the changes from "
+"the merge source. But it leaves all your local changes which don't conflict."
+msgstr ""
+
+#. (term)
+msgid "Reject conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards changes from the merge source which conflict with your local "
+"changes. But it keeps all changes that don't conflict with your local "
+"changes."
+msgstr ""
+
+#. (term)
+msgid "Mark as resolved"
+msgstr ""
+
+#. (para)
+msgid ""
+"Marks the conflicts as resolved. This button is disabled until you use the "
+"button <guibutton>Edit</guibutton> to edit the conflict manually and save "
+"those changes back to the file. Once the changes are saved, the button "
+"becomes enabled."
+msgstr ""
+
+#. (term)
+#. (term)
+msgid "Edit"
+msgstr "Editar"
+
+#. (para)
+msgid ""
+"Starts the merge editor so you can resolve the conflicts manually. Don't "
+"forget to save the file so the button <guibutton>Mark as "
+"resolved</guibutton> becomes enabled."
+msgstr ""
+
+#. (para)
+msgid ""
+"For normal conflicts that happen due to changes in the file content or its "
+"properties, the dialog shows buttons which allow you to chose which of the "
+"conflicting parts to keep or reject. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If there's a tree conflict, please first see <xref linkend=\"tsvn-dug-"
+"conflicts-tree\"/> about the various types of tree conflicts and how and why"
+" they can happen."
+msgstr ""
+
+#. (title)
+msgid "The Merge Tree Conflict Callback Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"To resolve tree conflicts during a merge, a dialog is shown with various "
+"options on how to resolve the conflict: <placeholder-1/> Since there are "
+"various possible tree conflict situations, the dialog will show buttons to "
+"resolve those depending on the specific conflict. The button texts and "
+"labels explain what the option to resolve the conflict does. If you're not "
+"sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
+"button to resolve the conflict later."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14318,7 +14393,7 @@ msgstr ""
 msgid ""
 "If this is specified, the commit dialog shows a button <guibutton>Run "
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
-" script receives a list of all checkec files and folders and the commit "
+" script receives a list of all checked files and folders and the commit "
 "message if there was one entered."
 msgstr ""
 
@@ -15372,10 +15447,6 @@ msgstr ""
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
 msgstr ""
-
-#. (term)
-msgid "Edit"
-msgstr "Editar"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
@@ -21395,6 +21466,12 @@ msgid ""
 "Prevents the file from being edited. That means the editing capabilities of "
 "TortoiseMerge are disabled."
 msgstr "Impide que el archivo sea editado. Esto significa que las capacidades de edición de TortoiseMerge estan deshabilitadas."
+
+#. (entry)
+msgid ""
+"Prevents TortoiseMerge from asking whether to mark a file as resolved in SVN"
+" after saving it."
+msgstr ""
 
 #. (para)
 msgid ""

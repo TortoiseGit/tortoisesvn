@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2016 the TortoiseSVN team
+# Copyright (C) 2004-2017 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -18,7 +18,7 @@
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # Masahiro Fujimoto <mfujimot@gmail.com>, 2011-2015
 # Masahiro Fujimoto <mfujimot@gmail.com>, 2013
-# Masahiro Fujimoto <mfujimot@gmail.com>, 2016
+# Masahiro Fujimoto <mfujimot@gmail.com>, 2016-2017
 # Nozomu Kaneko <nozom.kaneko@gmail.com>, 2013
 # Osamu NAKAMURA <osamu0329nakamura@gmail.com>, 2013
 # タカハシ <indexial@outlook.jp>, 2013
@@ -26,7 +26,7 @@
 # Shinya Okano <tokibito@gmail.com>, 2011
 # Tadashi Jokagi <elf@elf.no-ip.org>, 2011
 # Tetsuya Morimoto <tetsuya.morimoto@gmail.com>, 2011
-# Tsuyoshi Okawa <tu44okawa3@gmail.com>, 2016
+# 大川剛 <tu44okawa3@gmail.com>, 2016
 # Yoshitaka Yamashita <drum@magic-touch.org>, 2013
 # youten, 2011
 # carrotsoft <www.carrotsoft@gmail.com>, 2012
@@ -35,8 +35,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-11-06 11:37+0000\n"
-"Last-Translator: Tsuyoshi Okawa <tu44okawa3@gmail.com>\n"
+"PO-Revision-Date: 2017-02-12 06:21+0000\n"
+"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -140,7 +140,7 @@ msgstr "%2!ls!で %1!ls!"
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALANDSPEED)
 #, c-format
 msgid "%1!ls!, %2!ls!"
-msgstr ""
+msgstr "%1!ls!, %2!ls!"
 
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME)
 #, c-format
@@ -273,106 +273,6 @@ msgstr "%ls : 作業ベース"
 msgid "%ls : Working Copy"
 msgstr "%ls : 作業コピー"
 
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_UNVERSIONED)
-#, c-format
-msgid "%ls, but the directory already exists unversioned locally."
-msgstr "%ls、しかし、バージョン管理外のディレクトリが既に存在しています。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSINGMOVED)
-#, c-format
-msgid "%ls, but the directory is missing locally (deleted or moved away?)."
-msgstr "%ls、しかしローカルにディレクトリが見つかりません（削除または移動した？）。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MISSING)
-#, c-format
-msgid "%ls, but the directory is missing locally."
-msgstr "%ls、しかし、ディレクトリはローカルに存在しません。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_ADDED)
-#, c-format
-msgid "%ls, but the directory was already added locally."
-msgstr "%ls、しかし、ディレクトリはすでにローカルに追加されています。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_EDITED)
-#, c-format
-msgid "%ls, but the directory was already edited."
-msgstr "%ls、しかし、ディレクトリはすでに編集されています。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_DELETED)
-#, c-format
-msgid "%ls, but the directory was deleted, moved or renamed locally."
-msgstr "%ls、しかし、ディレクトリはローカルで削除か、移動か、名前の変更が行われています。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDAWAY)
-#, c-format
-msgid "%ls, but the directory was moved away"
-msgstr "%ls、しかし、ディレクトリは移動されました"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_MOVEDHERE)
-#, c-format
-msgid "%ls, but the directory was moved here"
-msgstr "%ls、しかし、ディレクトリはここに移動されました"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_OBSTRUCTED)
-#, c-format
-msgid "%ls, but the directory was obstructed in the working copy."
-msgstr "%ls、しかし、ディレクトリが作業コピーで阻止されました。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_DIR_REPLACED)
-#, c-format
-msgid "%ls, but the directory was replaced"
-msgstr "%ls、しかし、ディレクトリは置換されています。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_UNVERSIONED)
-#, c-format
-msgid "%ls, but the file already exists unversioned locally."
-msgstr "%ls、しかし、バージョン管理外のファイルが既に存在しています。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSINGMOVED)
-#, c-format
-msgid "%ls, but the file is missing locally (deleted or moved away?)."
-msgstr "%ls、しかしローカルにファイルが見つかりません（削除または移動した？）"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MISSING)
-#, c-format
-msgid "%ls, but the file is missing locally."
-msgstr "%ls、しかし、ファイルはローカルに存在しません。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_ADDED)
-#, c-format
-msgid "%ls, but the file was already added locally."
-msgstr "%ls、しかし、ファイルはすでにローカルに追加されています。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_EDITED)
-#, c-format
-msgid "%ls, but the file was already edited."
-msgstr "%ls、しかし、ファイルはすでに編集されています。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_DELETED)
-#, c-format
-msgid "%ls, but the file was deleted, moved or renamed locally."
-msgstr "%ls、しかし、ファイルはローカルで削除か、移動か、名前の変更が行われています。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDAWAY)
-#, c-format
-msgid "%ls, but the file was moved away"
-msgstr "%ls、しかし、ファイルは移動されました"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_MOVEDHERE)
-#, c-format
-msgid "%ls, but the file was moved here"
-msgstr "%ls、しかし、ファイルはここに移動されました"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_OBSTRUCTED)
-#, c-format
-msgid "%ls, but the file was obstructed in the working copy."
-msgstr "%ls、しかし、ファイルが作業コピーで阻止されました。"
-
-#. Resource IDs: (IDS_TREECONFLICT_REASON_FILE_REPLACED)
-#, c-format
-msgid "%ls, but the file was replaced"
-msgstr "%ls、しかし、ファイルは置換されています。"
-
 #. Resource IDs: (IDS_PATCH_ITEMTT)
 #, c-format
 msgid ""
@@ -414,13 +314,21 @@ msgstr "%ls\nはファイルではなくディレクトリです。\nTortoiseMer
 msgid "&..."
 msgstr "&..."
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (IDS_HOOKFAILED_TASK3)
+msgid ""
+"&Abort\n"
+"You can fix the reason the hook script failed first."
+msgstr "中止(&A)\n先にフックスクリプトが失敗した原因を修正します。"
+
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMergeについて(&A)..."
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MARKASRESOLVED)
-msgid "&Accept current working copy state (mark as resolved)"
-msgstr "現在の作業コピーの状態を受け入れる（解決済みとみなす）(&A)"
+#. Resource IDs: (IDS_SSL_ACCEPTTEMP_TASK)
+msgid ""
+"&Accept the certificate\n"
+"The certificate is accepted only this one time."
+msgstr "証明書を受け付ける(&A)\n証明書は今回のみ受理されます。"
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -437,6 +345,12 @@ msgstr "追加(&A) >>"
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
 msgstr "フィルターを追加(&A)"
+
+#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK4)
+msgid ""
+"&Add item\n"
+"This will lead to problems on Windows."
+msgstr "項目を追加(&A)\nWindows上では問題が発生します。"
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -472,10 +386,6 @@ msgstr "あいまいなURLを許可(&A)"
 #. Control id 1294)
 msgid "&Apply property recursively"
 msgstr "プロパティを再帰的に適用(&A)"
-
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_APPLYTOMOVE)
-msgid "&Apply the update to the move destination"
-msgstr "移動方向への更新を了承(&A)"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1013)
 msgid "&Apply unified diff"
@@ -515,7 +425,7 @@ msgstr "変更の注釈履歴(&B)"
 
 #. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
 msgid "&Blame changes in revisions"
-msgstr ""
+msgstr "リビジョンの変更の注釈履歴(&B)"
 
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
@@ -571,9 +481,142 @@ msgid "&CD-ROM"
 msgstr "CD-ROMドライブ(&C)"
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 2, Dialog IDD_GOOFFLINE: Control
-#. id 2, IDS_MONITOR_DELETE_TASK4, IDS_MSGBOX_CANCEL)
+#. id 2, IDS_MERGE_WCDIRTYASK_TASK4, IDS_MONITOR_DELETE_TASK4,
+#. IDS_MSGBOX_CANCEL, IDS_WARN_LOCKOUTDATED_TASK4)
 msgid "&Cancel"
 msgstr "キャンセル(&C)"
+
+#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK4)
+msgid ""
+"&Cancel\n"
+"Choose a different folder to export to"
+msgstr "キャンセル(&C)\nエクスポート先に別なフォルダーを選択する"
+
+#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not commit to a tag."
+msgstr "キャンセル(&C)\nタグへコミットしない。"
+
+#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not remove"
+msgstr "キャンセル(&C)\n削除しない"
+
+#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not revert."
+msgstr "キャンセル(&C)\n変更を取り消さない。"
+
+#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
+msgid ""
+"&Cancel\n"
+"Do not update the working copy."
+msgstr "キャンセル(&C)\n作業コピーを更新しない。"
+
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
+msgid ""
+"&Cancel\n"
+"Don't resolve the item."
+msgstr "キャンセル(&C)\n項目を解決しない。"
+
+#. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
+msgid ""
+"&Cancel\n"
+"Don't show the diff."
+msgstr "キャンセル(&C)\n差分を表示しません。"
+
+#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
+msgid ""
+"&Cancel\n"
+"Go back and enter an issue number."
+msgstr "キャンセル(&C)\n戻って課題IDを入力する。"
+
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
+msgid ""
+"&Cancel\n"
+"Go back and select a different folder."
+msgstr "キャンセル(&C)\n戻って異なるフォルダーを選択する。"
+
+#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
+msgid ""
+"&Cancel\n"
+"I will enter a different path/URL."
+msgstr "キャンセル(&C)\n異なるパス/URLを入力する。"
+
+#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
+msgid ""
+"&Cancel\n"
+"Keep the current URL."
+msgstr "キャンセル(&C)\n現在のURLを保つ。"
+
+#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
+msgid ""
+"&Cancel\n"
+"Leave the cache on disk."
+msgstr "キャンセル(&C)\nディスク上にキャッシュを残す。"
+
+#. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
+msgid ""
+"&Cancel\n"
+"Local modifications are kept."
+msgstr "キャンセル(&C)\nローカルの変更を保持する。"
+
+#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
+msgid ""
+"&Cancel\n"
+"The conflict is not resolved."
+msgstr "キャンセル(&C)\n競合は解決されません。"
+
+#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
+msgid ""
+"&Cancel\n"
+"The file is not copied."
+msgstr "キャンセル(&C)\nファイルはコピーされません。"
+
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
+msgid ""
+"&Cancel\n"
+"The folder is not exported."
+msgstr "キャンセル(&C)\nフォルダーはエクスポートされません。"
+
+#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
+msgid ""
+"&Cancel\n"
+"The items are not imported."
+msgstr "キャンセル(&C)\n項目はインポートしません。"
+
+#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
+msgid ""
+"&Cancel\n"
+"The tagged revision of the external is left as is."
+msgstr "キャンセル(&C)\n外部参照のタグ付けされたリビジョンはそのまま残ります。"
+
+#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
+msgid ""
+"&Cancel\n"
+"The target file is left as is"
+msgstr "キャンセル(&C)\nターゲットファイルはそのまま残ります。"
+
+#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
+msgid ""
+"&Cancel\n"
+"You have to add the folder manually."
+msgstr "キャンセル(&C)\nフォルダーを手作業で追加する必要があります。"
+
+#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
+msgid ""
+"&Cancel\n"
+"You have to run an update yourself to get the externals"
+msgstr "キャンセル(&C)\n外部参照を取得するために手動で更新を実行する"
+
+#. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
+msgid ""
+"&Cancel\n"
+"keep the current format."
+msgstr "キャンセル(&C)\n現在のフォーマットを保つ。"
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -649,8 +692,8 @@ msgstr "スタートアップ時にリポジトリへアクセスする(&C)"
 msgid "&Convert files when diffing against BASE"
 msgstr "作業ベースに対する差分の時はファイルを変換する(&C)"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "コピー(&C)"
 
@@ -713,6 +756,12 @@ msgstr "バージョン管理外の項目を削除(&D)..."
 msgid "&Delete..."
 msgstr "削除(&D)..."
 
+#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)
+msgid ""
+"&Delete\n"
+"Remove the cache files."
+msgstr "削除(&D)\nキャッシュファイルを削除する。"
+
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
 msgstr "差分を表示(&D)"
@@ -737,6 +786,12 @@ msgstr "再び表示しない(&D)"
 msgid "&Docking"
 msgstr "ドッキング(&D)"
 
+#. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
+msgid ""
+"&Don't run\n"
+"Do not run the script"
+msgstr "実行しない(&D)\nスクリプトを実行しない"
+
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
 msgstr "改行コード(&E)"
@@ -749,11 +804,6 @@ msgstr "編集(&E)"
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1506)
 msgid "&Edit Filter"
 msgstr "フィルターを編集(&E)"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1399, Dialog
-#. IDD_EDITPROPCONFLICT: Control id 1542)
-msgid "&Edit conflict"
-msgstr "競合を編集(&E)"
 
 #. Resource IDs: (IDS_MENUCONFLICT)
 msgid "&Edit conflicts"
@@ -800,6 +850,12 @@ msgstr "終了(&E)"
 #. Resource IDs: (IDS_FILEDIFF_POPEXPORT)
 msgid "&Export selection to..."
 msgstr "選択をエクスポート(&E)..."
+
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3_1)
+msgid ""
+"&Export\n"
+"Export into the non-empty folder."
+msgstr "エクスポート(&E)\n空でないフォルダーにエクスポートする。"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -903,7 +959,7 @@ msgstr "リポジトリ内の最新リビジョン(&HEAD)"
 msgid "&Help"
 msgstr "ヘルプ(&H)"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "ヘルプトピック(&H)"
 
@@ -951,6 +1007,12 @@ msgstr "画像のみ(&I)"
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
 msgstr "インポート(&I)..."
+
+#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
+msgid ""
+"&Import\n"
+"The items are imported, creating a new revision for each item."
+msgstr "インポート(&I)\n項目をインポートし、それぞれの項目に対して新しいリビジョンを作成する。"
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1041,10 +1103,6 @@ msgstr "&Mac (CR)"
 #. Control id 1562)
 msgid "&Make depth sticky"
 msgstr "深さを記憶する(&M)"
-
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 1282)
-msgid "&Manually edit property"
-msgstr "手作業でプロパティを編集(&M)"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "&Max line length for inline diffs"
@@ -1212,13 +1270,31 @@ msgstr "その他(&O)"
 msgid "&Overlay images\t(O)"
 msgstr "画像を重ねて表示\t(&O)"
 
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
+msgid ""
+"&Overwrite\n"
+"Replace the target folder."
+msgstr "上書き(&O)\nターゲットフォルダーを置き換える。"
+
+#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
+msgid ""
+"&Overwrite\n"
+"The target file gets replaced"
+msgstr "上書き(&O)\nターゲットファイルを置き換える"
+
+#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
+msgid ""
+"&Overwrite\n"
+"The target file is replaced."
+msgstr "上書き(&O)\nターゲットファイルを置き換えます。"
+
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
 msgid "&Password:"
 msgstr "パスワード(&P):"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "貼り付け(&P)"
 
@@ -1242,10 +1318,6 @@ msgstr "通知時に音を鳴らす(&P)"
 msgid "&Port:"
 msgstr "ポート(&P):"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 3)
-msgid "&Postpone all remaining conflicts"
-msgstr "残りの競合を後回しにする(&P)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1489)
 msgid "&Power user defaults"
 msgstr "&Power User デフォルト"
@@ -1261,6 +1333,28 @@ msgstr "印刷プレビュー(&P)"
 #. Resource IDs: (58116)
 msgid "&Print..."
 msgstr "印刷(&P)..."
+
+#. Resource IDs: (IDS_HOOKFAILED_TASK4)
+msgid ""
+"&Proceed anyway\n"
+"Ignore the hook script and run the command anyway."
+msgstr "強制的に実行(&P)\nフックスクリプトを無視してコマンドを実行します。"
+
+#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
+msgid ""
+"&Proceed with the entered path\n"
+"I'm aware of the possible problems."
+msgstr "入力されたパスで進める(&P)\n問題の可能性を理解しています。"
+
+#. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
+msgid "&Proceed with the merge."
+msgstr "マージして進める(&P)。"
+
+#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
+msgid ""
+"&Proceed without an issue number\n"
+"The commit won't be assigned to an issue."
+msgstr "課題IDなしで進める(&P)\nコミットは課題に関連付けされません。"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1288,6 +1382,18 @@ msgstr "やり直し(&R)"
 msgid "&Refresh"
 msgstr "更新(&R)"
 
+#. Resource IDs: (IDS_SSL_REJECT_TASK)
+msgid ""
+"&Reject the certificate\n"
+"Cancel the connection."
+msgstr "証明書を拒否する(&R)\n接続をキャンセルする。"
+
+#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
+msgid ""
+"&Relocate\n"
+"The working copy is relocated to the new URL."
+msgstr "再配置(&R)\n作業コピーは新しいURLで置き換えられます。"
+
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
 msgstr "課題IDの入力を確認する(&R)"
@@ -1298,9 +1404,27 @@ msgstr "課題IDの入力を確認する(&R)"
 msgid "&Remove"
 msgstr "削除(&R)"
 
+#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK3)
+msgid ""
+"&Remove from version control\n"
+"All .svn folders are removed"
+msgstr "バージョン管理から削除(&R)\nすべての .svn フォルダーが削除されます"
+
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
 msgstr "プロジェクトを削除(&R)"
+
+#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK3)
+msgid ""
+"&Remove\n"
+"Force the removal"
+msgstr "削除(&R)\n強制的に削除する"
+
+#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
+msgid ""
+"&Remove\n"
+"Remove the property only from this item."
+msgstr "削除(&R)\nこの項目からのみプロパティを削除する。"
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK3)
 msgid ""
@@ -1311,6 +1435,13 @@ msgstr "削除(&D)\nプロジェクトは削除されます。もしサブプロ
 #. Resource IDs: (IDS_REPOBROWSE_RENAME)
 msgid "&Rename"
 msgstr "名前を変更(&R)"
+
+#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK4)
+#, c-format
+msgid ""
+"&Rename\n"
+"The folder is exported as '%ls'."
+msgstr "名前を変更(&R)\nフォルダーは「%ls」としてエクスポートされる。"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1336,6 +1467,12 @@ msgstr "使用データのリセット(&R)"
 msgid "&Reset to Default"
 msgstr "デフォルトの状態に戻す(&R)"
 
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
+msgid ""
+"&Resolve\n"
+"The item is marked as resolved."
+msgstr "解決(&R)\n項目は解決済みとしてマークされます。"
+
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
 msgstr "デフォルトに戻す(&R)"
@@ -1357,6 +1494,12 @@ msgstr "これらのリビジョンにおける変更を取り消す(&R)"
 msgid "&Revert changes from this revision"
 msgstr "このリビジョンにおける変更を取り消す(&R)"
 
+#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
+msgid ""
+"&Revert\n"
+"Changes will be applied to the working copy."
+msgstr "変更を取り消す(&R)\n変更を作業コピーに適用します。"
+
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
 #. IDD_EXPORT: Control id 1033, Dialog IDD_MERGEWIZARD_TREE: Control id 1116,
@@ -1366,6 +1509,12 @@ msgstr "このリビジョンにおける変更を取り消す(&R)"
 #. 1033)
 msgid "&Revision"
 msgstr "リビジョン(&R)"
+
+#. Resource IDs: (IDS_HOOKS_APPROVE_TASK3)
+msgid ""
+"&Run\n"
+"Run the hook script"
+msgstr "実行(&R)\nフックスクリプトを実行する"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -1442,7 +1591,7 @@ msgstr "グループの始まり(&S)"
 msgid "&Start Repobrowser"
 msgstr "リポジトリブラウザーを起動(&S)"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "ステータスバー(&S)"
 
@@ -1520,7 +1669,7 @@ msgstr "宛先パス(&T): "
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "終了点(&T): （マージする範囲の終点を指すURLとリビジョン）"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "ツールバー(&T)"
 
@@ -1569,7 +1718,7 @@ msgstr "リポジトリの&URL:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "元に戻す(&U)"
 
@@ -1600,6 +1749,24 @@ msgstr "項目を特定リビジョンへ更新(&U)..."
 #. Resource IDs: (IDS_MENUUPDATEEXT)
 msgid "&Update to revision..."
 msgstr "特定リビジョンへ更新(&U)..."
+
+#. Resource IDs: (IDS_WARN_LOCKOUTDATED_TASK3)
+msgid ""
+"&Update\n"
+"Update the file and try locking again."
+msgstr "更新(&U)\nファイルを更新し、再度ロックを試みます。"
+
+#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
+msgid ""
+"&Update\n"
+"Update the working copy and reopen the commit dialog to try again."
+msgstr "更新(&U)\n作業コピーを更新し、再度コミットダイアログを開きます。"
+
+#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
+msgid ""
+"&Update\n"
+"Update to the HEAD revision"
+msgstr "更新(&U)\n最新(HEAD)リビジョンに更新"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1919,17 +2086,6 @@ msgstr "フォルダーを追加(&D)..."
 msgid "Abort"
 msgstr "中止"
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1465, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 1465)
-msgid "Abort &Merge"
-msgstr "マージ中止(&M)"
-
-#. Resource IDs: (IDS_HOOKFAILED_TASK3)
-msgid ""
-"Abort\n"
-"You can fix the reason the hook script failed first."
-msgstr "中止\n先にフックスクリプトが失敗した原因を修正します。"
-
 #. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
 msgid "About"
 msgstr "TortoiseSVNについて"
@@ -1944,15 +2100,9 @@ msgstr "TortoiseSVN について"
 
 #. Resource IDs: (IDS_SSL_ACCEPTALWAYS_TASK)
 msgid ""
-"Accept the certificate permanently\n"
+"Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr "証明書を常に受け付ける\nこの証明書に関して再度問い合わせません。"
-
-#. Resource IDs: (IDS_SSL_ACCEPTTEMP_TASK)
-msgid ""
-"Accept the certificate\n"
-"The certificate is accepted only this one time."
-msgstr "証明書を受け付ける\n証明書は今回のみ受理されます。"
+msgstr "証明書を常に受け付ける(&P)\nこの証明書に関して再度問い合わせません。"
 
 #. Resource IDs: (61861)
 #, c-format
@@ -1986,6 +2136,12 @@ msgid ""
 "Discard all changes to %1?"
 msgstr "Windows を終了すると、ActiveX オブジェクトは保存されません。\n%1 へのすべての変更を破棄しますか？"
 
+#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK3)
+msgid ""
+"Ad&just case\n"
+"The file is not added."
+msgstr "大文字/小文字を調整する(&D)\nファイルは追加されません。"
+
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
 msgid "Add"
@@ -2015,12 +2171,6 @@ msgstr "拡張子に対応した差分プログラムを追加"
 #. Resource IDs: (IDS_DLGTITLE_ADD_MERGE_TOOL)
 msgid "Add extension specific merge program"
 msgstr "拡張子に対応したマージプログラムを追加"
-
-#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK4)
-msgid ""
-"Add item\n"
-"This will lead to problems on Windows."
-msgstr "項目を追加\nWindows上では問題が発生します。"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1065)
 msgid "Add new files automatically to SVN"
@@ -2101,12 +2251,6 @@ msgstr "ファイルをバージョン管理に追加"
 #. Resource IDs: (IDS_MENUDESCIGNORE)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "選択されたファイルもしくはファイルマスクを「無視」リストに追加"
-
-#. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK3)
-msgid ""
-"Adjust case\n"
-"The file is not added."
-msgstr "大文字/小文字を調整する\nファイルは追加されません。"
 
 #. Resource IDs: (32782)
 msgid ""
@@ -2479,8 +2623,9 @@ msgstr "参照(&R)..."
 msgid "Back"
 msgstr "戻る"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
-#. IDD_SETTINGSUDIFF: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
+#. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
+#. 65535)
 msgid "Background"
 msgstr "背景"
 
@@ -2697,28 +2842,27 @@ msgstr "クリップボードからビットマップ画像を貼り付けるこ
 #. Dialog IDD_CREATECHANGELIST: Control id 2, Dialog IDD_CREATEPATCH: Control
 #. id 2, Dialog IDD_DELUNVERSIONED: Control id 2, Dialog IDD_DIFFOPTIONS:
 #. Control id 2, Dialog IDD_EDITPROPBUGTRAQ: Control id 2, Dialog
-#. IDD_EDITPROPCONFLICT: Control id 2, Dialog IDD_EDITPROPEOL: Control id 2,
-#. Dialog IDD_EDITPROPERTYVALUE: Control id 2, Dialog IDD_EDITPROPEXECUTABLE:
-#. Control id 2, Dialog IDD_EDITPROPEXTERNALS: Control id 2, Dialog
-#. IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog IDD_EDITPROPKEYWORDS:
-#. Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control id 2, Dialog
-#. IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog IDD_EDITPROPMIMETYPE:
-#. Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control id 2, Dialog
-#. IDD_EDITPROPTSVNLANG: Control id 2, Dialog IDD_EDITPROPTSVNSIZES: Control
-#. id 2, Dialog IDD_EDITPROPUSERBOOL: Control id 2, Dialog
-#. IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog IDD_EDITPROPUSERSINGLELINE:
-#. Control id 2, Dialog IDD_EDITPROPUSERSTATE: Control id 2, Dialog
-#. IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control id 2, Dialog
-#. IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog IDD_GOTODLG:
-#. Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog IDD_IMPORT:
-#. Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog IDD_INPUTLOGDLG:
-#. Control id 2, Dialog IDD_LOCK: Control id 2, Dialog IDD_LOGMESSAGE: Control
-#. id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog IDD_MONITOROPTIONS:
-#. Control id 2, Dialog IDD_MONITORPROJECT: Control id 2, Dialog IDD_OPEN:
-#. Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog IDD_PASSWORD:
-#. Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog IDD_REGEXFILTER:
-#. Control id 2, Dialog IDD_REGEXFILTERS: Control id 2, Dialog IDD_RELOCATE:
-#. Control id 2, Dialog IDD_RENAME: Control id 2, Dialog
+#. IDD_EDITPROPEOL: Control id 2, Dialog IDD_EDITPROPERTYVALUE: Control id 2,
+#. Dialog IDD_EDITPROPEXECUTABLE: Control id 2, Dialog IDD_EDITPROPEXTERNALS:
+#. Control id 2, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog
+#. IDD_EDITPROPKEYWORDS: Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control
+#. id 2, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog
+#. IDD_EDITPROPMIMETYPE: Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control
+#. id 2, Dialog IDD_EDITPROPTSVNLANG: Control id 2, Dialog
+#. IDD_EDITPROPTSVNSIZES: Control id 2, Dialog IDD_EDITPROPUSERBOOL: Control
+#. id 2, Dialog IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog
+#. IDD_EDITPROPUSERSINGLELINE: Control id 2, Dialog IDD_EDITPROPUSERSTATE:
+#. Control id 2, Dialog IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control
+#. id 2, Dialog IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog
+#. IDD_GOTODLG: Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog
+#. IDD_IMPORT: Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog
+#. IDD_INPUTLOGDLG: Control id 2, Dialog IDD_LOCK: Control id 2, Dialog
+#. IDD_LOGMESSAGE: Control id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog
+#. IDD_MONITOROPTIONS: Control id 2, Dialog IDD_MONITORPROJECT: Control id 2,
+#. Dialog IDD_OPEN: Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog
+#. IDD_PASSWORD: Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog
+#. IDD_REGEXFILTER: Control id 2, Dialog IDD_REGEXFILTERS: Control id 2,
+#. Dialog IDD_RELOCATE: Control id 2, Dialog IDD_RENAME: Control id 2, Dialog
 #. IDD_REPOSITORY_BROWSER: Control id 2, Dialog IDD_RESOLVE: Control id 2,
 #. Dialog IDD_REVERT: Control id 2, Dialog IDD_REVGRAPHFILTER: Control id 2,
 #. Dialog IDD_REVISION: Control id 2, Dialog IDD_REVISIONRANGE: Control id 2,
@@ -2728,8 +2872,7 @@ msgstr "クリップボードからビットマップ画像を貼り付けるこ
 #. 2, Dialog IDD_SVNPROGRESS: Control id 2, Dialog IDD_SWITCH: Control id 2,
 #. Dialog IDD_TOOLASSOC: Control id 2, Dialog IDD_UNLOCK: Control id 2, Dialog
 #. IDD_UPDATE: Control id 2, Dialog IDD_URL: Control id 2, Dialog IDD_URLDIFF:
-#. Control id 2, IDS_MERGE_WCDIRTYASK_TASK4, IDS_PROPPAGE_CANCEL,
-#. IDS_WARN_LOCKOUTDATED_TASK4)
+#. Control id 2, IDS_PROPPAGE_CANCEL)
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -2739,53 +2882,11 @@ msgid ""
 "Change the selection for the commit."
 msgstr "キャンセル\nコミットするものの選択を変更する。"
 
-#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK4)
-msgid ""
-"Cancel\n"
-"Choose a different folder to export to"
-msgstr "キャンセル\nエクスポート先に別なフォルダーを選択する"
-
-#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
-msgid ""
-"Cancel\n"
-"Do not commit to a tag."
-msgstr "キャンセル\nタグへコミットしない。"
-
-#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
-msgid ""
-"Cancel\n"
-"Do not remove"
-msgstr "キャンセル\n削除しない"
-
-#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
-msgid ""
-"Cancel\n"
-"Do not revert."
-msgstr "キャンセル\n変更を取り消さない。"
-
-#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
-msgid ""
-"Cancel\n"
-"Do not update the working copy."
-msgstr "キャンセル\n作業コピーを更新しない。"
-
 #. Resource IDs: (IDS_ASKFORSAVE_TASK5)
 msgid ""
 "Cancel\n"
 "Don't quit TortoiseMerge"
 msgstr "キャンセル\nTortoiseMerge を終了しない"
-
-#. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
-msgid ""
-"Cancel\n"
-"Don't resolve the item."
-msgstr "キャンセル\n項目を解決しない。"
-
-#. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
-msgid ""
-"Cancel\n"
-"Don't show the diff."
-msgstr "キャンセル\n差分を表示しません。"
 
 #. Resource IDs: (IDS_ASKFORSAVE_TASK8)
 msgid ""
@@ -2793,47 +2894,11 @@ msgid ""
 "Don't switch the views"
 msgstr "キャンセル\nビューを切り替えない"
 
-#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
-msgid ""
-"Cancel\n"
-"Go back and enter an issue number."
-msgstr "キャンセル\n戻って課題IDを入力する。"
-
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
-msgid ""
-"Cancel\n"
-"Go back and select a different folder."
-msgstr "キャンセル\n戻って異なるフォルダーを選択する。"
-
-#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
-msgid ""
-"Cancel\n"
-"I will enter a different path/URL."
-msgstr "キャンセル\n異なるパス/URLを入力する。"
-
-#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
-msgid ""
-"Cancel\n"
-"Keep the current URL."
-msgstr "キャンセル\n現在のURLを保つ。"
-
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK4)
 msgid ""
 "Cancel\n"
 "Keep the empty file."
 msgstr "キャンセル\n空のファイルを保つ。"
-
-#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
-msgid ""
-"Cancel\n"
-"Leave the cache on disk."
-msgstr "キャンセル\nディスク上にキャッシュを残す。"
-
-#. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
-msgid ""
-"Cancel\n"
-"Local modifications are kept."
-msgstr "キャンセル\nローカルの変更を保持する。"
 
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)
 msgid ""
@@ -2853,71 +2918,17 @@ msgid ""
 "Stay with current settings"
 msgstr "キャンセル\n現在の設定のままにします"
 
-#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
-msgid ""
-"Cancel\n"
-"The conflict is not resolved."
-msgstr "キャンセル\n競合は解決されません。"
-
-#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
-msgid ""
-"Cancel\n"
-"The file is not copied."
-msgstr "キャンセル\nファイルはコピーされません。"
-
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
-msgid ""
-"Cancel\n"
-"The folder is not exported."
-msgstr "キャンセル\nフォルダーはエクスポートされません。"
-
-#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
-msgid ""
-"Cancel\n"
-"The items are not imported."
-msgstr "キャンセル\n項目はインポートしません。"
-
 #. Resource IDs: (IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK4)
 msgid ""
 "Cancel\n"
 "The items are not moved."
 msgstr "キャンセル\n項目は移動しません。"
 
-#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
-msgid ""
-"Cancel\n"
-"The tagged revision of the external is left as is."
-msgstr "キャンセル\n外部参照のタグ付けされたリビジョンはそのまま残ります。"
-
-#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
-msgid ""
-"Cancel\n"
-"The target file is left as is"
-msgstr "キャンセル\nターゲットファイルはそのまま残ります。"
-
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK4)
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
 msgstr "キャンセル\n他のパスワードを入力してみる"
-
-#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
-msgid ""
-"Cancel\n"
-"You have to add the folder manually."
-msgstr "キャンセル\nフォルダーを手作業で追加する必要があります。"
-
-#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
-msgid ""
-"Cancel\n"
-"You have to run an update yourself to get the externals"
-msgstr "キャンセル\n外部参照を取得するために手動で更新を実行する"
-
-#. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
-msgid ""
-"Cancel\n"
-"keep the current format."
-msgstr "キャンセル\n現在のフォーマットを保つ。"
 
 #. Resource IDs: (IDS_BLAME_PROGRESSCANCEL)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -2961,17 +2972,17 @@ msgstr "証明書の確認に失敗しました"
 msgid "Certificates|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgstr "証明書|*.p12;*.pkcs12;*.pfx|すべてのファイル|*.*||"
 
+#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)
+msgid ""
+"Chan&ge the tagged revision\n"
+"The svn:external property of the parent folder is changed accordingly."
+msgstr "タグ付けされたリビジョンを変更(&G)\n親フォルダーのsvn:externalプロパティが変更されます。"
+
 #. Resource IDs: (10000)
 msgid ""
 "Change the style of the application\n"
 "Change Style"
 msgstr "アプリケーションのスタイルを変更する\nスタイルの変更"
-
-#. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)
-msgid ""
-"Change the tagged revision\n"
-"The svn:external property of the parent folder is changed accordingly."
-msgstr "タグ付けされたリビジョンを変更\n親フォルダーのsvn:externalプロパティが変更されます。"
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -3069,6 +3080,12 @@ msgstr "有効にすると、ログメッセージで短い日付/時刻形式�
 msgid "Check working copy for modifications"
 msgstr "作業コピーの変更をチェック"
 
+#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3)
+msgid ""
+"Check&out\n"
+"Checkout into the non empty folder."
+msgstr "チェックアウト(&O)\n空でないフォルダーにチェックアウトする。"
+
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
 msgstr "Check-Commitフック"
@@ -3086,6 +3103,11 @@ msgstr "TortoiseSVN の最新バージョンが使用可能かどうかをチェ
 #, c-format
 msgid "Checking project '%ls' for updates..."
 msgstr "%lsプロジェクトの更新を検出中...."
+
+#. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS)
+#, c-format
+msgid "Checking r%1!ld!..."
+msgstr "r%1!ld! をチェック中..."
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -3105,19 +3127,9 @@ msgstr "チェックアウトする深さ(&D)"
 msgid "Checkout from %1!ls!, revision %2!ls!, %3!ls!, %4!ls!"
 msgstr "リビジョン %2!ls! の %1!ls! をチェックアウト, %3!ls!, %4!ls!"
 
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3)
-msgid ""
-"Checkout\n"
-"Checkout into the non empty folder."
-msgstr "チェックアウト\n空でないフォルダーにチェックアウトする。"
-
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Checksum:"
 msgstr "チェックサム:"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1402)
-msgid "Choose item:"
-msgstr "項目を選択:"
 
 #. Resource IDs: (Dialog IDD_UPDATE: Control id 1606)
 msgid "Choose items..."
@@ -3359,17 +3371,23 @@ msgstr "コマンドの実行に失敗しました。"
 msgid "Commands"
 msgstr "コマンド"
 
+#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
+msgid ""
+"Commi&t only the folder\n"
+"Files inside the folder won't get committed."
+msgstr "フォルダーのみコミットする(&T)\nフォルダー内のファイルはコミットされません。"
+
+#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
+msgid ""
+"Commi&t\n"
+"Commit the changes to the target."
+msgstr "コミット(&T)\nターゲットへの変更をコミットする。"
+
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
 #. IDS_PROGRS_TITLE_COMMIT)
 msgid "Commit"
 msgstr "コミット"
-
-#. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
-msgid ""
-"Commit only the folder\n"
-"Files inside the folder won't get committed."
-msgstr "フォルダーのみコミットする\nフォルダー内のファイルはコミットされません。"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -3378,12 +3396,6 @@ msgstr "コミット先:"
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COMMIT)
 msgid "Commit..."
 msgstr "コミット..."
-
-#. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
-msgid ""
-"Commit\n"
-"Commit the changes to the target."
-msgstr "コミット\nターゲットへの変更をコミットする。"
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYAUTHOR)
 msgid "Commits by author"
@@ -3531,9 +3543,10 @@ msgstr "GNUの差分ファイル（パッチファイル）の表示に用いる
 msgid "Confirm revert"
 msgstr "変更を取り消す操作を確認する"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1503)
-msgid "Conflict Sources"
-msgstr "競合しているソース"
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_MAININSTRUCTION)
+#, c-format
+msgid "Conflict for property \"%s\" discovered"
+msgstr "プロパティ「%s」の競合が検出されました"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Conflict resolved"
@@ -4104,12 +4117,6 @@ msgstr "バージョン管理外の項目を削除"
 msgid "Delete unversioned items..."
 msgstr "バージョン管理外の項目を削除..."
 
-#. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)
-msgid ""
-"Delete\n"
-"Remove the cache files."
-msgstr "削除\nキャッシュファイルを削除する。"
-
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK3)
 msgid ""
 "Delete\n"
@@ -4486,12 +4493,6 @@ msgid ""
 "Use the last explicitly saved versions of the documents"
 msgstr "自動保存されたドキュメントを復元しない\n最後に保存されたドキュメントのバージョンを使用する"
 
-#. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
-msgid ""
-"Don't run\n"
-"Do not run the script"
-msgstr "実行しない\nスクリプトを実行しない"
-
 #. Resource IDs: (IDS_ASKFORSAVE_NOSAVE_OPEN)
 msgid ""
 "Don't save\n"
@@ -4537,7 +4538,7 @@ msgstr "除外するパス(&X):"
 msgid "E&xecutable"
 msgstr "実行可能属性(&X)"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "終了(&X)"
 
@@ -4591,12 +4592,7 @@ msgstr "モニターするプロジェクトを編集"
 msgid "Edit Properties"
 msgstr "プロパティを編集"
 
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 297)
-msgid "Edit Property Conflict"
-msgstr "プロパティの競合を編集"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 298,
-#. IDS_PROC_EDIT_TREE_CONFLICTS)
+#. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "ツリーの競合を編集"
 
@@ -4639,6 +4635,12 @@ msgstr "%2!ls! のプロパティ\n「%1!ls!」を編集"
 #. IDD_SETTINGSHOOKS: Control id 1331)
 msgid "Edit..."
 msgstr "編集..."
+
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_EDITCMD)
+msgid ""
+"Edit\n"
+"change merged property value in editor"
+msgstr "編集\nエディタでマージされたプロパティの値を変更する"
 
 #. Resource IDs: (IDS_PROP_TT_EDIT)
 msgid "Edits the selected property value"
@@ -4956,12 +4958,6 @@ msgstr "CSVファイルの集合として選択されているキャッシュを
 msgid "Export unversioned files too"
 msgstr "バージョン管理外のファイルもエクスポートする"
 
-#. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK3_1)
-msgid ""
-"Export\n"
-"Export into the non-empty folder."
-msgstr "エクスポート\n空でないフォルダーにエクスポートする。"
-
 #. Resource IDs: (IDS_SVNPROGRESS_EXPORTING)
 #, c-format
 msgid "Exporting %1!ls!"
@@ -5131,7 +5127,7 @@ msgstr "%1!ls! の状態を取得"
 
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
 msgid "Fetching tree conflict information..."
-msgstr ""
+msgstr "ツリーの競合情報を取得しています..."
 
 #. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
@@ -5291,8 +5287,8 @@ msgstr "パスフィルター"
 msgid "Filter:"
 msgstr "フィルター:"
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. ID_EDIT_FIND - Ribbon name)
 msgid "Find"
 msgstr "検索"
 
@@ -5385,7 +5381,8 @@ msgstr "強制実行"
 msgid "Force removal"
 msgstr "強制的に削除"
 
-#. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
+#. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Foreground"
 msgstr "フォアグラウンド"
 
@@ -5605,26 +5602,25 @@ msgid "Header"
 msgstr "ヘッダー"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 9, Dialog IDD_CHECKOUT: Control
-#. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_CONFLICTRESOLVE:
-#. Control id 9, Dialog IDD_COPY: Control id 9, Dialog IDD_CREATEPATCH:
-#. Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control id 9, Dialog
-#. IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES: Control id 9,
-#. Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog IDD_EDITPROPEXECUTABLE:
-#. Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control id 9, Dialog
-#. IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog IDD_EDITPROPKEYWORDS:
-#. Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control id 9, Dialog
-#. IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog IDD_EDITPROPMIMETYPE:
-#. Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control id 9, Dialog
-#. IDD_EDITPROPTSVNLANG: Control id 9, Dialog IDD_EDITPROPTSVNSIZES: Control
-#. id 9, Dialog IDD_EXPORT: Control id 9, Dialog IDD_IMPORT: Control id 9,
-#. Dialog IDD_LOCK: Control id 9, Dialog IDD_LOGMESSAGE: Control id 9, Dialog
-#. IDD_MERGEALL: Control id 9, Dialog IDD_OPENDLG: Control id 9, Dialog
-#. IDD_RELOCATE: Control id 9, Dialog IDD_REPOSITORY_BROWSER: Control id 9,
-#. Dialog IDD_RESOLVE: Control id 9, Dialog IDD_REVERT: Control id 9, Dialog
-#. IDD_SETTINGSBUGTRAQADV: Control id 9, Dialog IDD_SETTINGSHOOKCONFIG:
-#. Control id 9, Dialog IDD_SWITCH: Control id 9, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 9, Dialog IDD_UNLOCK: Control id 9,
-#. Dialog IDD_URLDIFF: Control id 9, IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_COPY: Control id 9,
+#. Dialog IDD_CREATEPATCH: Control id 9, Dialog IDD_EDITPROPBUGTRAQ: Control
+#. id 9, Dialog IDD_EDITPROPEOL: Control id 9, Dialog IDD_EDITPROPERTIES:
+#. Control id 9, Dialog IDD_EDITPROPERTYVALUE: Control id 9, Dialog
+#. IDD_EDITPROPEXECUTABLE: Control id 9, Dialog IDD_EDITPROPEXTERNALS: Control
+#. id 9, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 9, Dialog
+#. IDD_EDITPROPKEYWORDS: Control id 9, Dialog IDD_EDITPROPLOCALHOOKS: Control
+#. id 9, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 9, Dialog
+#. IDD_EDITPROPMIMETYPE: Control id 9, Dialog IDD_EDITPROPNEEDSLOCK: Control
+#. id 9, Dialog IDD_EDITPROPTSVNLANG: Control id 9, Dialog
+#. IDD_EDITPROPTSVNSIZES: Control id 9, Dialog IDD_EXPORT: Control id 9,
+#. Dialog IDD_IMPORT: Control id 9, Dialog IDD_LOCK: Control id 9, Dialog
+#. IDD_LOGMESSAGE: Control id 9, Dialog IDD_MERGEALL: Control id 9, Dialog
+#. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
+#. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
+#. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
+#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
+#. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
+#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -5731,10 +5727,6 @@ msgstr "フックスクリプトの実行に失敗しました。"
 #, c-format
 msgid "Hostname mismatch (%ls)"
 msgstr "ホスト名が合致しません（%ls）"
-
-#. Resource IDs: (9758)
-msgid "How do you want to resolve this conflict?"
-msgstr "どのような方法で競合を解決しますか？"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1392, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1392)
@@ -6074,7 +6066,7 @@ msgstr "すべての空白を無視する(&A)"
 msgid "Ignore &ancestry"
 msgstr "履歴を無視する(&A)"
 
-#. Resource IDs: (32896, ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
 msgid "Ignore Comments"
 msgstr "コメントを無視"
 
@@ -6092,6 +6084,12 @@ msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
 msgstr "変更を無視する\n外部での変更を無視します。"
+
+#. Resource IDs: (32896)
+msgid ""
+"Ignore comment changes\n"
+"Ignore Comments"
+msgstr "コメントの変更を無視\nコメントを無視します"
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -6216,12 +6214,6 @@ msgstr "フォルダー %1!ls! を\r\n%2!ls! にインポート"
 #, c-format
 msgid "Import to %1"
 msgstr "%1 にインポート"
-
-#. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK3)
-msgid ""
-"Import\n"
-"The items are imported, creating a new revision for each item."
-msgstr "インポート\n項目をインポートし、それぞれの項目に対して新しいリビジョンを作成する。"
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTURE)
 msgid "Imported folder structure"
@@ -6423,10 +6415,6 @@ msgstr "次の競合へ(&C)"
 msgid "Keep &locks"
 msgstr "ロックを保持(&L)"
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_KEEPMOVES)
-msgid "Keep any moves affected by this operation"
-msgstr "この操作の移動結果を保持する"
-
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1126)
 msgid "Keep c&hangelists"
 msgstr "変更リストを保持(&H)"
@@ -6502,10 +6490,6 @@ msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
 msgstr "競合のまま残す\nこのファイルの競合状態が保持されます"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1404)
-msgid "Leave conflicted:"
-msgstr "競合の保持:"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_LEAVEONLYMARKEDBLOCKS)
 msgid "Leave only marked changes"
@@ -6788,24 +6772,16 @@ msgid ""
 "Hold down the shift key to also clear all fetch errors."
 msgstr "すべてのプロジェクトを既読にする\nシフトキーを押しながらですべての取得エラーをクリアする。"
 
-#. Resource IDs: (IDS_TREECONFLICT_RESOLVE_MOVETOCOPY)
-msgid "Mark as &resolved (the move will become a copy)"
-msgstr "解決済みとみなす（移動はコピーになる）(&R)"
-
-#. Resource IDs: (Dialog IDD_EDITPROPCONFLICT: Control id 1400)
-msgid "Mark as Resolved"
-msgstr "解決済みとみなす"
+#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
+msgid ""
+"Mark as &resolved\n"
+"The conflict is resolved."
+msgstr "解決済みとする(&R)\n競合は解決されます。"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
 #. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
 msgid "Mark as resolved"
 msgstr "解決済みとみなす"
-
-#. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
-msgid ""
-"Mark as resolved\n"
-"The conflict is resolved."
-msgstr "解決済みとみなす\n競合は解決されます。"
 
 #. Resource IDs: (IDS_MARKASRESOLVED_TASK3)
 msgid ""
@@ -6930,6 +6906,16 @@ msgstr "すべてマージ..."
 #. Resource IDs: (IDS_MENUDESCMERGE)
 msgid "Merge changes into the working copy"
 msgstr "変更を作業コピーにマージする"
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION)
+#, c-format
+msgid "Merge conflict discovered in binary file %s"
+msgstr "バイナリファイル %s のマージ時に競合が検出されました"
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_MAININSTRUCTION)
+#, c-format
+msgid "Merge conflict discovered in file %s"
+msgstr "ファイル %s のマージ時に競合が検出されました"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
 msgid "Merge non-interactive"
@@ -7377,7 +7363,7 @@ msgstr "外部参照は見つかりませんでした"
 msgid ""
 "No externals: For URLs, no externals are gathered.\n"
 "If you want to tag externals, start the command directly from a working copy."
-msgstr ""
+msgstr "外部参照がありません: URLの場合、外部参照は収集されません。\n外部参照にタグ付けする場合は、作業コピーから直接コマンドを実行してください。"
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)
 msgid ""
@@ -7673,7 +7659,7 @@ msgstr "tsvn:projectlanguageが設定されている場合のみスペルチェ�
 msgid "Opacity"
 msgstr "不透明度"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "開く"
 
@@ -7695,8 +7681,7 @@ msgid ""
 "Open files"
 msgstr "差分の表示やパッチの適用のためにファイルを開く\nファイルを開く"
 
-#. Resource IDs: (Dialog IDD_PATCH_FILE_OPEN_CUSTOM: Control id 1132,
-#. IDS_PATCH_COPYFROMCLIPBOARD)
+#. Resource IDs: (IDS_PATCH_COPYFROMCLIPBOARD)
 msgid "Open from clipboard"
 msgstr "クリップボードから開く"
 
@@ -7780,29 +7765,11 @@ msgid ""
 "Files which don't have this property set are not affected."
 msgstr "svn:eol-style プロパティの設定をオーバーライドする。\nこのプロパティが設定されていないファイルには影響しません。"
 
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
-msgid ""
-"Overwrite\n"
-"Replace the target folder."
-msgstr "上書き\nターゲットフォルダーを置き換える。"
-
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK3)
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
 msgstr "上書き\n設定は上書きされます。"
-
-#. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
-msgid ""
-"Overwrite\n"
-"The target file gets replaced"
-msgstr "上書き\nターゲットファイルを置き換える"
-
-#. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
-msgid ""
-"Overwrite\n"
-"The target file is replaced."
-msgstr "上書き\nターゲットファイルを置き換えます。"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7988,10 +7955,6 @@ msgid ""
 "Use the Switch command to do that."
 msgstr "注意:\n作業コピーは従来のパスのままです。もし、今作成したコピーもしくはブランチに\n今後の変更をコミットする場合は、そのコピー先の新しいURLに作業コピー全体を\n切り替える必要があります。\n本操作を行うためには、切り替えコマンドを使用してください。"
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1287)
-msgid "Please resolve the conflict by choosing one of the following options:"
-msgstr "以下のオプションを一つ選択して競合を解決してください:"
-
 #. Resource IDs: (IDS_ERR_NOHOOKTYPESPECIFIED)
 msgid "Please select a hook type"
 msgstr "フックの種類を選択してください"
@@ -8061,14 +8024,6 @@ msgstr "Pre-Lock フック"
 #. Resource IDs: (IDS_HOOKTYPE_PREUPDATE)
 msgid "Pre-Update Hook"
 msgstr "Pre-Update フック"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 3)
-msgid "Prefer &local"
-msgstr "ローカルを優先する(&L)"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 4)
-msgid "Prefer &repository"
-msgstr "リポジトリを優先する(&R)"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_PREPENDRIGHT)
 msgid "Prepend right block"
@@ -8153,33 +8108,11 @@ msgstr "印刷中"
 msgid "Proceed anyway"
 msgstr "強制的に実行"
 
-#. Resource IDs: (IDS_HOOKFAILED_TASK4)
-msgid ""
-"Proceed anyway\n"
-"Ignore the hook script and run the command anyway."
-msgstr "強制的に実行\nフックスクリプトを無視してコマンドを実行します。"
-
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK3)
 msgid ""
 "Proceed with the commit\n"
 "the renamed/moved folders are committed recursively in the repository."
 msgstr "コミットを続行する\n名前変更/移動されたフォルダーは、リポジトリに再帰的にコミットされます。"
-
-#. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
-msgid ""
-"Proceed with the entered path\n"
-"I'm aware of the possible problems."
-msgstr "入力されたパスで進める\n問題の可能性を理解しています。"
-
-#. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
-msgid "Proceed with the merge."
-msgstr "マージして進める"
-
-#. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
-msgid ""
-"Proceed without an issue number\n"
-"The commit won't be assigned to an issue."
-msgstr "課題IDなしで進める\nコミットは課題に関連付けされません。"
 
 #. Resource IDs: (IDS_BLAME_PROGRESSINFO2)
 #, c-format
@@ -8270,6 +8203,10 @@ msgstr "プロパティページ"
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Property Status:"
 msgstr "プロパティの状態:"
+
+#. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
+msgid "Property diff:\n"
+msgstr "プロパティの差分:\n"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -8363,10 +8300,6 @@ msgstr "リセット(&S)"
 msgid "Re&set All"
 msgstr "すべてリセット(&S)"
 
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1400)
-msgid "Re&solved"
-msgstr "解決済にする(&S)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "デフォルトに戻す(&S)"
@@ -8435,6 +8368,12 @@ msgid ""
 "Rectangle"
 msgstr "長方形ツール\n長方形"
 
+#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
+msgid ""
+"Recur&sive\n"
+"Remove the property also from items in Subfolders."
+msgstr "再帰的(&S)\nサブフォルダー内の項目からもプロパティを削除する。"
+
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1260)
 msgid "Recurse into unversioned folders"
 msgstr "バージョン管理外のフォルダーを再帰的に調べる"
@@ -8442,12 +8381,6 @@ msgstr "バージョン管理外のフォルダーを再帰的に調べる"
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK2)
 msgid "Recursive operation"
 msgstr "再帰的な操作"
-
-#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
-msgid ""
-"Recursive\n"
-"Remove the property also from items in Subfolders."
-msgstr "再帰的\nサブフォルダー内の項目からもプロパティを削除する。"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 333)
 msgid "Recycle bin"
@@ -8534,12 +8467,6 @@ msgstr "正規表現による絞り込み条件\r\n.    : 任意の文字\r\nc+ 
 msgid "Reintegrate merge %1!ls! into %2!ls!"
 msgstr "%1!ls! を %2!ls! に再統合する"
 
-#. Resource IDs: (IDS_SSL_REJECT_TASK)
-msgid ""
-"Reject the certificate\n"
-"Cancel the connection."
-msgstr "証明書を拒否する\n接続をキャンセルする。"
-
 #. Resource IDs: (IDS_TITLE_REJECTEDHUNKS)
 #, c-format
 msgid "Rejected patch hunks for '%ls'"
@@ -8579,12 +8506,6 @@ msgstr "再配置"
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK2)
 msgid "Relocate where a switch might be intended"
 msgstr "切り替えが意図されるところを置き換える"
-
-#. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
-msgid ""
-"Relocate\n"
-"The working copy is relocated to the new URL."
-msgstr "再配置\n作業コピーは新しいURLで置き換えられます。"
 
 #. Resource IDs: (IDS_PROC_RELOCATING)
 msgid "Relocating..."
@@ -8649,12 +8570,6 @@ msgstr "クイックアクセスツールバーから削除"
 msgid "Remove from changelist"
 msgstr "変更リストから削除"
 
-#. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK3)
-msgid ""
-"Remove from version control\n"
-"All .svn folders are removed"
-msgstr "バージョン管理から削除\nすべての .svn フォルダーが削除されます"
-
 #. Resource IDs: (IDS_INPUT_REMOVEPROP)
 #, c-format
 msgid ""
@@ -8669,18 +8584,6 @@ msgstr "ディスクから選択されているキャッシュを削除"
 #. Resource IDs: (Dialog IDD_REVGRAPHFILTER: Control id 1352)
 msgid "Remove the whole subtree(s)"
 msgstr "子階層すべてを削除"
-
-#. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK3)
-msgid ""
-"Remove\n"
-"Force the removal"
-msgstr "削除\n強制的に削除する"
-
-#. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
-msgid ""
-"Remove\n"
-"Remove the property only from this item."
-msgstr "削除\nこの項目からのみプロパティを削除する。"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Removed"
@@ -8751,13 +8654,6 @@ msgstr "%1!ls! から\r\n%2!ls! に名前を変更する"
 #. Resource IDs: (IDS_PROGRS_TITLE_RENAME)
 msgid "Rename/move"
 msgstr "名前変更/移動"
-
-#. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK4)
-#, c-format
-msgid ""
-"Rename\n"
-"The folder is exported as '%ls'."
-msgstr "名前を変更\nフォルダーは「%ls」としてエクスポートされる。"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Renamed node"
@@ -8873,18 +8769,6 @@ msgstr "列をリセット"
 msgid "Resolve"
 msgstr "競合の解決"
 
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 2)
-msgid "Resolve &later"
-msgstr "後で解決(&L)"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 268)
-msgid "Resolve Conflict"
-msgstr "競合の解決"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1382)
-msgid "Resolve all la&ter"
-msgstr "すべて後で解決する(&T)"
-
 #. Resource IDs: (IDS_SVNPROGRESS_MENUUSEMINE)
 msgid "Resolve conflict using 'mine'"
 msgstr "「mine」を使用して競合を解決する"
@@ -8892,20 +8776,6 @@ msgstr "「mine」を使用して競合を解決する"
 #. Resource IDs: (IDS_SVNPROGRESS_MENUUSETHEIRS)
 msgid "Resolve conflict using 'theirs'"
 msgstr "「theirs」を使用して競合を解決する"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1403)
-msgid "Resolve conflict:"
-msgstr "競合の解決:"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 2)
-msgid "Resolve l&ater"
-msgstr "後で解決する(&A)"
-
-#. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
-msgid ""
-"Resolve\n"
-"The item is marked as resolved."
-msgstr "解決\n項目は解決済みとみなされます。"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_RESOLVED, IDS_SVNACTION_RESOLVE)
 msgid "Resolved"
@@ -8973,12 +8843,6 @@ msgid ""
 "Revert\n"
 "All local modifications will be lost."
 msgstr "変更の取り消し\nローカルで行ったすべての変更は失われます。"
-
-#. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK3)
-msgid ""
-"Revert\n"
-"Changes will be applied to the working copy."
-msgstr "変更を取り消す\n変更を作業コピーに適用します。"
 
 #. Resource IDs: (IDS_SVNACTION_REVERT)
 msgid "Reverted"
@@ -9124,12 +8988,6 @@ msgstr "今すぐクリーンアップを実行(&N)"
 msgid "Run hoo&k script"
 msgstr "フックスクリプトを実行(&K)"
 
-#. Resource IDs: (IDS_HOOKS_APPROVE_TASK3)
-msgid ""
-"Run\n"
-"Run the hook script"
-msgstr "実行\nフックスクリプトを実行する"
-
 #. Resource IDs: (17045)
 msgid "S&elect..."
 msgstr "選択(&E)..."
@@ -9254,11 +9112,11 @@ msgstr "bugtraq をテストするためのサンプルログメッセージ（�
 msgid "Sample text:"
 msgstr "サンプルテキスト:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "保存"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "名前を付けて保存(&A)..."
 
@@ -9373,8 +9231,7 @@ msgid ""
 "Save file"
 msgstr "変更されたファイルを保存する\nファイルを保存"
 
-#. Resource IDs: (Dialog IDD_PATCH_FILE_OPEN_CUSTOM: Control id 1132,
-#. IDS_PATCH_COPYTOCLIPBOARD)
+#. Resource IDs: (IDS_PATCH_COPYTOCLIPBOARD)
 msgid "Save to clipboard"
 msgstr "クリップボードに保存"
 
@@ -9712,8 +9569,7 @@ msgstr "アクセラレータを表示(&A):"
 msgid "Show &All"
 msgstr "すべて表示(&A)"
 
-#. Resource IDs: (Dialog IDD_COPY: Control id 1187, Dialog
-#. IDD_TREECONFLICTEDITOR: Control id 1132)
+#. Resource IDs: (Dialog IDD_COPY: Control id 1187)
 msgid "Show &Log"
 msgstr "ログを表示(&L)"
 
@@ -9771,10 +9627,6 @@ msgstr "リボンの上に表示"
 #. Resource IDs: (17098)
 msgid "Show Below the Ribbon"
 msgstr "リボンの下に表示"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1542)
-msgid "Show Branch L&og"
-msgstr "ブランチのログを表示(&O)"
 
 #. Resource IDs: (17030)
 msgid "Show Fewer Buttons"
@@ -9945,9 +9797,9 @@ msgstr "ノードとして分割せずにコピー元にタグを表示する"
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK3)
 msgid ""
-"Show the diff\n"
+"Show the &diff\n"
 "The diff viewer is started for every selected item."
-msgstr "差分を表示\n選択されたすべての項目について差分ビューアを起動します。"
+msgstr "差分を表示(&D)\n選択されたすべての項目について差分ビューアを起動します。"
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_SHOWCOL)
 msgid "Show/Hide"
@@ -10106,14 +9958,6 @@ msgstr "問題が発生しました"
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1126)
 msgid "Sort by commit count"
 msgstr "コミット数でソートする"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1501)
-msgid "Source Left:"
-msgstr "左側のソース"
-
-#. Resource IDs: (Dialog IDD_TREECONFLICTEDITOR: Control id 1502)
-msgid "Source Right:"
-msgstr "右側のソース"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 1552)
 msgid "Source URL:"
@@ -10688,129 +10532,6 @@ msgid ""
 "The item '%ls' has property conflicts:\r\n"
 "%ls"
 msgstr "項目「%ls」にはプロパティの競合があります。\n%ls"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEADD)
-#, c-format
-msgid "The last merge operation tried to add the directory '%ls'"
-msgstr "最後のマージ操作でディレクトリ「%ls」を追加しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEADD)
-#, c-format
-msgid "The last merge operation tried to add the file '%ls'"
-msgstr "最後のマージ操作でファイル「%ls」を追加しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEDELETE)
-#, c-format
-msgid ""
-"The last merge operation tried to delete/move/rename the directory '%ls'"
-msgstr "最後のマージ操作でディレクトリ「%ls」に対して削除/移動/名前変更をしようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEDELETE)
-#, c-format
-msgid "The last merge operation tried to delete/move/rename the file '%ls'"
-msgstr "最後のマージ操作でファイル「%ls」に対して削除/移動/名前変更をしようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEEDIT)
-#, c-format
-msgid "The last merge operation tried to modify the directory '%ls'"
-msgstr "最後のマージ操作でディレクトリ「%ls」を変更しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEEDIT)
-#, c-format
-msgid "The last merge operation tried to modify the file '%ls'"
-msgstr "最後のマージ操作でファイル「%ls」を変更しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRMERGEREPLACE)
-#, c-format
-msgid "The last merge operation tried to replace the directory '%ls'"
-msgstr "最後のマージ操作でディレクトリ「%ls」を置換しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEMERGEREPLACE)
-#, c-format
-msgid "The last merge operation tried to replace the file '%ls'"
-msgstr "最後のマージ操作でファイル「%ls」を置換しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHADD)
-#, c-format
-msgid "The last switch operation tried to add the directory '%ls'"
-msgstr "最後の切り替え操作でディレクトリ「%ls」を追加しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHADD)
-#, c-format
-msgid "The last switch operation tried to add the file '%ls'"
-msgstr "最後の切り替え操作でファイル「%ls」を追加しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHDELETE)
-#, c-format
-msgid ""
-"The last switch operation tried to delete/move/rename the directory '%ls'"
-msgstr "最後の切り替え操作でディレクトリ「%ls」に対して削除/移動/名前変更をしようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHDELETE)
-#, c-format
-msgid "The last switch operation tried to delete/move/rename the file '%ls'"
-msgstr "最後の切り替え操作でファイル「%ls」に対して削除/移動/名前変更をしようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHEDIT)
-#, c-format
-msgid "The last switch operation tried to modify the directory '%ls'"
-msgstr "最後の切り替え操作でディレクトリ「%ls」を変更しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHEDIT)
-#, c-format
-msgid "The last switch operation tried to modify the file '%ls'"
-msgstr "最後の切り替え操作でファイル「%ls」を変更しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRSWITCHREPLACE)
-#, c-format
-msgid "The last switch operation tried to replace the directory '%ls'"
-msgstr "最後の切り替え操作でディレクトリ「%ls」を置換しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILESWITCHREPLACE)
-#, c-format
-msgid "The last switch operation tried to replace the file '%ls'"
-msgstr "最後の切り替え操作でファイル「%ls」を置換しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEADD)
-#, c-format
-msgid "The last update operation tried to add the directory '%ls'"
-msgstr "最後の更新操作でディレクトリ「%ls」を追加しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEADD)
-#, c-format
-msgid "The last update operation tried to add the file '%ls'"
-msgstr "最後の更新操作でファイル「%ls」を追加しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEDELETE)
-#, c-format
-msgid ""
-"The last update operation tried to delete/move/rename the directory '%ls'"
-msgstr "最後の更新操作でディレクト「%ls」に対して削除/移動/名前変更をしようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEDELETE)
-#, c-format
-msgid "The last update operation tried to delete/move/rename the file '%ls'"
-msgstr "最後の更新操作でファイル「%ls」に対して削除/移動/名前変更をしようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEEDIT)
-#, c-format
-msgid "The last update operation tried to modify the directory '%ls'"
-msgstr "最後の更新操作でディレクトリ「%ls」を変更しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEEDIT)
-#, c-format
-msgid "The last update operation tried to modify the file '%ls'"
-msgstr "最後の更新操作でファイル「%ls」を変更しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_DIRUPDATEREPLACE)
-#, c-format
-msgid "The last update operation tried to replace the directory '%ls'"
-msgstr "最後の更新操作でディレクトリ「%ls」を置換しようとしました"
-
-#. Resource IDs: (IDS_TREECONFLICT_FILEUPDATEREPLACE)
-#, c-format
-msgid "The last update operation tried to replace the file '%ls'"
-msgstr "最後の更新操作でファイル「%ls」を置換しようとしました"
 
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
@@ -11709,24 +11430,6 @@ msgstr "更新チェックを実行中です！"
 msgid "Update externals"
 msgstr "外部参照を更新"
 
-#. Resource IDs: (IDS_WARN_LOCKOUTDATED_TASK3)
-msgid ""
-"Update\n"
-"Update the file and try locking again."
-msgstr "更新\nファイルを更新し、再度ロックを試みます。"
-
-#. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
-msgid ""
-"Update\n"
-"Update the working copy and reopen the commit dialog to try again."
-msgstr "更新\n作業コピーを更新し、再度コミットダイアログを開きます。"
-
-#. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
-msgid ""
-"Update\n"
-"Update to the HEAD revision"
-msgstr "更新\n最新(HEAD)リビジョンに更新"
-
 #. Resource IDs: (IDS_SVNACTION_UPDATE)
 msgid "Updated"
 msgstr "更新"
@@ -12255,7 +11958,7 @@ msgstr "特定のオーバーレイハンドラーを無効にすることがで
 msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
-msgstr ""
+msgstr "リポジトリブラウザからは同時に1ファイルしか編集できません。\n他の物を編集する前にファイルの編集を終了してください。"
 
 #. Resource IDs: (16005)
 #, c-format
@@ -12857,11 +12560,6 @@ msgstr "on %1"
 #. Resource IDs: (IDS_CONNECTIONSTATE_ONLINE)
 msgid "online"
 msgstr "オンライン"
-
-#. Resource IDs: (Dialog IDD_CONFLICTRESOLVE: Control id 1406, Dialog
-#. IDD_CONFLICTRESOLVE: Control id 1407)
-msgid "or"
-msgstr "または"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "pair tokens: "

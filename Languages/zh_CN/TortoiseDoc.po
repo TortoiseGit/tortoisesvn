@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN manuals
-# Copyright (C) 2004-2016 the TortoiseSVN team
+# Copyright (C) 2004-2017 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -32,7 +32,7 @@
 # Verplusor, 2011
 # stephen zhu <huasoft@163.com>, 2011
 # xiaobing chen <olivetchan@qq.com>, 2016
-# Y.F Yang <yfdyh000@gmail.com>, 2013
+# YF <yfdyh000@gmail.com>, 2013
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 # Ziang Song <songziang@gmail.com>, 2011
 msgid ""
@@ -40,8 +40,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-12-05 23:45+0000\n"
-"Last-Translator: LIU Tian <liutian666666@gmail.com>\n"
+"PO-Revision-Date: 2017-02-11 09:03+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4147,9 +4147,10 @@ msgstr "开发人员 B 现在必须做出选择是否保留开发人员 A 的更
 #. (para)
 msgid ""
 "The conflict edit dialog offers to merge changes if it can find the original"
-" file of the renamed <filename>Bar.c</filename>. Depending on where the "
-"update was invoked, it may not be possible to find the source file."
-msgstr "如果 TortoiseSVN 能够找到被改名为 <filename>Bar.c</filename> 的原始文件，冲突编辑对话框将可以合并更改。这取决于在什么地方调用更新操作，它也许不能找到原始文件。"
+" file of the renamed <filename>Bar.c</filename>. If there are multiple files"
+" that are possible move sources, then a button for each of these files is "
+"shown which allow you to chose the correct file."
+msgstr ""
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
@@ -4227,20 +4228,18 @@ msgid ""
 "To merge her local changes with the reshuffle, Developer B must first find "
 "out to what filename the conflicted file <filename>Foo.c</filename> was "
 "renamed/moved in the repository. This can be done by using the log dialog. "
-"The changes must then be merged by hand as there is currently no way to "
-"automate or even simplify this process. Once the changes have been ported "
-"across, the conflicted path is redundant and can be deleted. In this case "
-"use the <guilabel>Remove</guilabel> button in the conflict editor dialog to "
-"clean up and mark the conflict as resolved."
-msgstr "要合并她的本机更改到新布局中，开发人员 B 必须先找出冲突的文件 <filename>Foo.c</filename> 经过改名/移动后在版本库中的新文件名是什么。可以使用日志对话框来完成这个任务。更改必须要手工合并，因为没有办法自动的或者简单的完成此操作。一旦更改移植完毕，冲突的路径就是多余的并且可以删除。在此案例中，使用冲突编辑对话框中的<guilabel>删除</guilabel>按钮进行清理并将冲突标记为已解决。"
+"Then use the button which shows the correct source file to resolve the "
+"conflict."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog helps to track down what was moved."
-msgstr "如果开发人员 B 认为 A 的更改是错误的，那么在冲突编辑对话框中她必须选择<guilabel>保留</guilabel>按钮。这样就会标记冲突的文件/文件夹为已解决，但是需要手工删除开发人员 A 的更改。又是通过日志对话框帮助追踪哪些文件移动了。"
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog helps to track down what "
+"was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -4388,18 +4387,17 @@ msgid ""
 " to find that yourself. The changes must then be merged by hand as there is "
 "currently no way to automate or even simplify this process. Once the changes"
 " have been ported across, the conflicted path is redundant and can be "
-"deleted. In this case use the <guilabel>Remove</guilabel> button in the "
-"conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr "要合并她的本机更改到新布局中，开发人员 B 必须先找出冲突的文件 <filename>Foo.c</filename> 经过改名/移动后在版本库中的新文件名是什么。可以通过适用于合并源码的日志对话框来完成这个任务。冲突编辑器仅显示工作副本的日志因为它不知道将哪个路径的更改合并进来，所以你需要自己找到它。更改必须要手工合并，因为没有办法自动的或者简单的完成此操作。一旦更改移植完毕，冲突的路径就是多余的并且可以删除。在此案例中，使用冲突编辑对话框中的<guilabel>删除</guilabel>按钮进行清理并将冲突标记为已解决。"
+"deleted."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog for the merge source helps to track "
-"down what was moved."
-msgstr "如果开发人员 B 认为 A 的更改是错误的，那么在冲突编辑对话框中她必须选择<guilabel>保留</guilabel>按钮。这样就会标记冲突的文件/文件夹为已解决，但是需要手工删除开发人员 A 的更改。又是通过日志对话框帮助追踪哪些文件移动了。"
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog for the merge source helps"
+" to track down what was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -4428,11 +4426,8 @@ msgstr "<filename>Foo.c</filename> 被标记为缺少并且产生树冲突。"
 msgid ""
 "To resolve this conflict, Developer B has to find out to what filename the "
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
-"repository. This can be done by using the log dialog for the merge source. "
-"The conflict editor only shows the log for the working copy as it does not "
-"know which path was used in the merge, so you will have to find that "
-"yourself."
-msgstr "要解决这个冲突，开发人员 B 必须先找出冲突的文件 <filename>Foo.c</filename> 经过改名/移动后在版本库中的新文件名是什么。可以通过适用于合并源码的日志对话框来完成这个任务。冲突编辑器仅显示工作副本的日志因为它不知道将哪个路径的更改合并进来，所以你需要自己找到它。"
+"repository. This can be done by using the log dialog for the merge source."
+msgstr ""
 
 #. (title)
 msgid "Other tree conflicts"
@@ -9886,6 +9881,13 @@ msgstr "子合并期间处理冲突"
 msgid "merge conflicts"
 msgstr "合并冲突"
 
+#. (para)
+msgid ""
+"The text in the conflict resolver dialogs are provided by the SVN library "
+"and might therefore not (yet) be translated as the TortoiseSVN dialogs are. "
+"Sorry for that."
+msgstr ""
+
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
 msgstr "合并冲突回调对话框"
@@ -9901,52 +9903,125 @@ msgstr "合并不会总是顺利的。有时会有冲突，如果您正在合并
 
 #. (para)
 msgid ""
-"If you are merging text files then these first two buttons allow you to "
-"merge non-conflicting lines as normal and always prefer one version where "
-"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
-"your local version in every conflict, i.e. it will prefer what was already "
-"there before the merge over the incoming change from the merge source. "
-"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
-"changes in every conflict, i.e. it will prefer the incoming changes from the"
-" merge source over what was already in your working copy. This sounds easy, "
-"but the conflicts often cover more lines than you think they will and you "
-"may get unexpected results."
-msgstr ""
-
-#. (para)
-msgid ""
-"If your merge includes binary files, merging of conflicts in those is not "
-"possible in a line-by-line mode. A conflict in a binary file always refers "
-"to the complete file. Use <emphasis>Prefer local</emphasis> to select the "
-"local version as it was in your working copy prior to the merge, or "
-"<emphasis>Prefer repository</emphasis> to select the incoming file from the "
-"merge source in the repository."
-msgstr ""
-
-#. (para)
-msgid ""
-"Normally you will want to look at the conflicts and resolve them yourself. "
-"In that case, choose the <guibutton>Edit Conflict</guibutton> which will "
-"start up your merge tool. When you are satisfied with the result, click "
-"<guibutton>Resolved</guibutton>."
-msgstr "通常情况下，你会想看看冲突和自己解决他们。在这种情况下，选择 <guibutton>编辑冲突</guibutton> 将启动合并工具。当你对结果满意时，请点击 <guibutton>已解决</guibutton>。"
-
-#. (para)
-msgid ""
-"The last option is to postpone resolution and continue with merging. You can"
-" choose to do that for the current conflicted file, or for all files in the "
-"rest of the merge. However, if there are further changes in that file, it "
-"will not be possible to complete the merge."
-msgstr "最后一个选项就是延迟解决并继续进行合并。您可以为当前的冲突文件做这样的选择，或者为合并余下部分的所有文件。但是，如果该文件在接下来的合并中有进一步的更改，它将无法完成合并。"
-
-#. (para)
-msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
 "All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you three different ways of handling the lines which are in "
-"conflict. <placeholder-1/>"
-msgstr "很可能某些更改将顺利进行合并，而其他的本地更改会跟已提交到版本库的更改发生冲突。所有可以合并的更改都将被合并。合并冲突回调对话框会给你您三种不同的方法来处理冲突的行。 <placeholder-1/>"
+"dialog gives you different ways of handling the lines which are in conflict."
+msgstr ""
+
+#. (term)
+msgid "Postpone"
+msgstr ""
+
+#. (para)
+msgid ""
+"Don't deal with the conflict now. Let the merge continue and resolve the "
+"conflicts after the merge is done."
+msgstr ""
+
+#. (term)
+msgid "Accept base"
+msgstr ""
+
+#. (para)
+msgid ""
+"This leaves the file as it was, without neither the changes coming from the "
+"merge nor the changes you've made in your working copy."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all your local changes and uses the file as it arrives from "
+"the merge source."
+msgstr ""
+
+#. (term)
+msgid "Reject incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all the changes from the merge source and leaves the file with"
+" your local edits."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming for conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards your local changes where they conflict with the changes from "
+"the merge source. But it leaves all your local changes which don't conflict."
+msgstr ""
+
+#. (term)
+msgid "Reject conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards changes from the merge source which conflict with your local "
+"changes. But it keeps all changes that don't conflict with your local "
+"changes."
+msgstr ""
+
+#. (term)
+msgid "Mark as resolved"
+msgstr ""
+
+#. (para)
+msgid ""
+"Marks the conflicts as resolved. This button is disabled until you use the "
+"button <guibutton>Edit</guibutton> to edit the conflict manually and save "
+"those changes back to the file. Once the changes are saved, the button "
+"becomes enabled."
+msgstr ""
+
+#. (term)
+#. (term)
+msgid "Edit"
+msgstr "编辑"
+
+#. (para)
+msgid ""
+"Starts the merge editor so you can resolve the conflicts manually. Don't "
+"forget to save the file so the button <guibutton>Mark as "
+"resolved</guibutton> becomes enabled."
+msgstr ""
+
+#. (para)
+msgid ""
+"For normal conflicts that happen due to changes in the file content or its "
+"properties, the dialog shows buttons which allow you to chose which of the "
+"conflicting parts to keep or reject. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If there's a tree conflict, please first see <xref linkend=\"tsvn-dug-"
+"conflicts-tree\"/> about the various types of tree conflicts and how and why"
+" they can happen."
+msgstr ""
+
+#. (title)
+msgid "The Merge Tree Conflict Callback Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"To resolve tree conflicts during a merge, a dialog is shown with various "
+"options on how to resolve the conflict: <placeholder-1/> Since there are "
+"various possible tree conflict situations, the dialog will show buttons to "
+"resolve those depending on the specific conflict. The button texts and "
+"labels explain what the option to resolve the conflict does. If you're not "
+"sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
+"button to resolve the conflict later."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14313,7 +14388,7 @@ msgstr ""
 msgid ""
 "If this is specified, the commit dialog shows a button <guibutton>Run "
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
-" script receives a list of all checkec files and folders and the commit "
+" script receives a list of all checked files and folders and the commit "
 "message if there was one entered."
 msgstr ""
 
@@ -15367,10 +15442,6 @@ msgstr ""
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
 msgstr ""
-
-#. (term)
-msgid "Edit"
-msgstr "编辑"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
@@ -21389,6 +21460,12 @@ msgstr "指定加载文件后调至行号"
 msgid ""
 "Prevents the file from being edited. That means the editing capabilities of "
 "TortoiseMerge are disabled."
+msgstr ""
+
+#. (entry)
+msgid ""
+"Prevents TortoiseMerge from asking whether to mark a file as resolved in SVN"
+" after saving it."
 msgstr ""
 
 #. (para)

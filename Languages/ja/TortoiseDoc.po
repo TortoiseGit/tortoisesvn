@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN manuals
-# Copyright (C) 2004-2016 the TortoiseSVN team
+# Copyright (C) 2004-2017 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -16,15 +16,15 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Masahiro Fujimoto <mfujimot@gmail.com>, 2011-2015
 # Masahiro Fujimoto <mfujimot@gmail.com>, 2012-2013
-# Masahiro Fujimoto <mfujimot@gmail.com>, 2016
-# Tsuyoshi Okawa <tu44okawa3@gmail.com>, 2016
+# Masahiro Fujimoto <mfujimot@gmail.com>, 2016-2017
+# 大川剛 <tu44okawa3@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2016-11-06 11:45+0000\n"
-"Last-Translator: Tsuyoshi Okawa <tu44okawa3@gmail.com>\n"
+"PO-Revision-Date: 2017-02-12 06:29+0000\n"
+"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4130,9 +4130,10 @@ msgstr "開発者Ｂは、現在、開発者Ａの変更を保持するかどう
 #. (para)
 msgid ""
 "The conflict edit dialog offers to merge changes if it can find the original"
-" file of the renamed <filename>Bar.c</filename>. Depending on where the "
-"update was invoked, it may not be possible to find the source file."
-msgstr "名前が変更された <filename>Bar.c</filename> のオリジナルファイルが見つかれば、競合の編集ダイアログは変更をマージするか訊いてきます。更新を実行した場所によっては、ソースファイルが見つからない可能性もあります。"
+" file of the renamed <filename>Bar.c</filename>. If there are multiple files"
+" that are possible move sources, then a button for each of these files is "
+"shown which allow you to chose the correct file."
+msgstr "<filename>Bar.c</filename> に名前を変更する前のファイルが見つかれば、競合の編集ダイアログで変更をマージするかどうか尋ねてきます。複数のファイルが移動元である可能性がある場合は、それぞれのファイルのボタンが表示され、正しいファイルを選べます。"
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
@@ -4210,20 +4211,18 @@ msgid ""
 "To merge her local changes with the reshuffle, Developer B must first find "
 "out to what filename the conflicted file <filename>Foo.c</filename> was "
 "renamed/moved in the repository. This can be done by using the log dialog. "
-"The changes must then be merged by hand as there is currently no way to "
-"automate or even simplify this process. Once the changes have been ported "
-"across, the conflicted path is redundant and can be deleted. In this case "
-"use the <guilabel>Remove</guilabel> button in the conflict editor dialog to "
-"clean up and mark the conflict as resolved."
-msgstr "再配置された結果にローカルの変更をマージするためには、開発者Ｂはまず、競合したファイル <filename>Foo.c</filename> がリポジトリ中でどのようなファイル名に名前変更・移動されたのかを探さなければなりません。ログダイアログを使用すると調べることができます。その後、その変更を手でマージしなければなりません。現在のところ、この手順を自動化したり、単純化したりする方法がないからです。いったん変更を移植してしまえば、競合したパスは余分なものとなり、削除できます。競合の編集ダイアログの <guilabel>削除</guilabel> ボタンを押せば、不要なファイルを削除して競合を解決済みにできます。"
+"Then use the button which shows the correct source file to resolve the "
+"conflict."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog helps to track down what was moved."
-msgstr "開発者Ａの変更は誤りだと開発者Ｂが判断した場合は、競合の編集ダイアログの <guilabel>保持</guilabel> ボタンを選択します。これは競合したファイルやフォルダーを、解決済みとしてマークしますが、開発者Ａの変更は手作業で削除する必要があります。何が移動されたかを見つけ出すには、またログダイアログが役に立ちます。"
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog helps to track down what "
+"was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -4371,18 +4370,17 @@ msgid ""
 " to find that yourself. The changes must then be merged by hand as there is "
 "currently no way to automate or even simplify this process. Once the changes"
 " have been ported across, the conflicted path is redundant and can be "
-"deleted. In this case use the <guilabel>Remove</guilabel> button in the "
-"conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr "再配置された結果にローカルの変更をマージするためには、開発者Ｂはまず、競合したファイル <filename>Foo.c</filename> がリポジトリ中でどのようなファイル名に名前変更・移動されたのかを探さなければなりません。マージ元のログダイアログを使用すると調べることができます。競合エディターは、どのパスがマージで使用されたのかを知らず、作業コピーのログを表示するだけですので、自分で探さなければなりません。現在のところ、この手順を自動化したり、単純化したりする方法がないからです。いったん変更を移植してしまえば、競合したパスは余分なものとなり、削除できます。競合の編集ダイアログの <guilabel>削除</guilabel> ボタンを押せば、不要なファイルを削除して競合を解決済みにできます。"
+"deleted."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog for the merge source helps to track "
-"down what was moved."
-msgstr "開発者Ｂが、開発者Ａの変更は誤りだと判断した場合、競合の編集ダイアログの <guilabel>保持</guilabel> ボタンを選択しなければなりません。これは 競合したファイルやフォルダーを、解決済みとしてマークしますが、開発者Ａの変更は手で削除する必要があります。何が移動されたかを見つけ出すには、またマージソースのログダイアログが役に立ちます。"
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog for the merge source helps"
+" to track down what was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -4411,11 +4409,8 @@ msgstr "<filename>Foo.c</filename> には紛失マークが付き、ツリーの
 msgid ""
 "To resolve this conflict, Developer B has to find out to what filename the "
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
-"repository. This can be done by using the log dialog for the merge source. "
-"The conflict editor only shows the log for the working copy as it does not "
-"know which path was used in the merge, so you will have to find that "
-"yourself."
-msgstr "競合を解決するために、開発者Ｂは競合ファイル <filename>Foo.c</filename> がリポジトリ中で名前変更・削除されたファイル名を探さなければなりません。マージソースのログダイアログを使用するとわかります。競合の解決ダイアログは、マージで使用されるパスを知らず、作業コピーのログを表示するだけですので、自分で探さなければなりません。"
+"repository. This can be done by using the log dialog for the merge source."
+msgstr ""
 
 #. (title)
 msgid "Other tree conflicts"
@@ -9869,6 +9864,13 @@ msgstr "マージ中に発生した競合の扱い"
 msgid "merge conflicts"
 msgstr "マージの競合"
 
+#. (para)
+msgid ""
+"The text in the conflict resolver dialogs are provided by the SVN library "
+"and might therefore not (yet) be translated as the TortoiseSVN dialogs are. "
+"Sorry for that."
+msgstr ""
+
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
 msgstr "競合の解決ダイアログ"
@@ -9884,52 +9886,125 @@ msgstr "マージが常にすんなり完了するとは限りません。時に
 
 #. (para)
 msgid ""
-"If you are merging text files then these first two buttons allow you to "
-"merge non-conflicting lines as normal and always prefer one version where "
-"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
-"your local version in every conflict, i.e. it will prefer what was already "
-"there before the merge over the incoming change from the merge source. "
-"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
-"changes in every conflict, i.e. it will prefer the incoming changes from the"
-" merge source over what was already in your working copy. This sounds easy, "
-"but the conflicts often cover more lines than you think they will and you "
-"may get unexpected results."
-msgstr "テキストファイルをマージする場合、最初の２つのボタンを押すと競合しない行はそのままマージされ、競合する行については指定したバージョンが常に優先されます。<emphasis>ローカルを優先する</emphasis>を選択すると、すべての競合点でローカルの変更が選択されます。つまり、マージ元の変更よりも、ローカルの内容が優先されます。同様に、<emphasis>リポジトリを優先する</emphasis>を実行すると、すべての競合点でリポジトリの変更が選択されます。つまり、自分の作業コピーにあったものより、マージ元の変更が優先されます。簡単なようですが、競合が予想以上に多くの行を上書きしてしまい、予期しない結果をもたらすことがあります。"
-
-#. (para)
-msgid ""
-"If your merge includes binary files, merging of conflicts in those is not "
-"possible in a line-by-line mode. A conflict in a binary file always refers "
-"to the complete file. Use <emphasis>Prefer local</emphasis> to select the "
-"local version as it was in your working copy prior to the merge, or "
-"<emphasis>Prefer repository</emphasis> to select the incoming file from the "
-"merge source in the repository."
-msgstr "マージ対象にバイナリファイルが含まれていると、そのファイルの競合を行単位にマージすることはできません。バイナリファイルの競合は、どちらのファイル全体を使うかを選択する必要があります。<emphasis>ローカルを優先する</emphasis>を実行すると、自分の作業コピー内にあるローカル版が採用され、<emphasis>リポジトリを優先する</emphasis>を実行すると、リポジトリ内のマージ元のファイルが採用されます。"
-
-#. (para)
-msgid ""
-"Normally you will want to look at the conflicts and resolve them yourself. "
-"In that case, choose the <guibutton>Edit Conflict</guibutton> which will "
-"start up your merge tool. When you are satisfied with the result, click "
-"<guibutton>Resolved</guibutton>."
-msgstr "通常は、自分で競合を確認して解決すると思います。この場合、マージツールが起動する際に<guibutton>競合の編集</guibutton>を選択してください。結果に問題がなければ、<guibutton>解決済にする</guibutton>をクリックしてください。"
-
-#. (para)
-msgid ""
-"The last option is to postpone resolution and continue with merging. You can"
-" choose to do that for the current conflicted file, or for all files in the "
-"rest of the merge. However, if there are further changes in that file, it "
-"will not be possible to complete the merge."
-msgstr "最後の選択は、解決を先延ばしにして、マージを継続することです。現在競合したファイルと、残りのマージするファイル双方に対して、その選択ができます。しかし、そのファイルにまだ変更があると、マージは完了しないでしょう。"
-
-#. (para)
-msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
 "All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you three different ways of handling the lines which are in "
-"conflict. <placeholder-1/>"
-msgstr "リポジトリにコミット済みの他の変更と、ローカルでの他の変更が競合した場合は、円滑にマージされている可能性が高いです。マージ可能なすべての変更がマージされます。マージ競合コールバックダイアログは、競合を解決する3つの異なる方法を提供します。<placeholder-1/>"
+"dialog gives you different ways of handling the lines which are in conflict."
+msgstr ""
+
+#. (term)
+msgid "Postpone"
+msgstr ""
+
+#. (para)
+msgid ""
+"Don't deal with the conflict now. Let the merge continue and resolve the "
+"conflicts after the merge is done."
+msgstr ""
+
+#. (term)
+msgid "Accept base"
+msgstr ""
+
+#. (para)
+msgid ""
+"This leaves the file as it was, without neither the changes coming from the "
+"merge nor the changes you've made in your working copy."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all your local changes and uses the file as it arrives from "
+"the merge source."
+msgstr ""
+
+#. (term)
+msgid "Reject incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all the changes from the merge source and leaves the file with"
+" your local edits."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming for conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards your local changes where they conflict with the changes from "
+"the merge source. But it leaves all your local changes which don't conflict."
+msgstr ""
+
+#. (term)
+msgid "Reject conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards changes from the merge source which conflict with your local "
+"changes. But it keeps all changes that don't conflict with your local "
+"changes."
+msgstr ""
+
+#. (term)
+msgid "Mark as resolved"
+msgstr ""
+
+#. (para)
+msgid ""
+"Marks the conflicts as resolved. This button is disabled until you use the "
+"button <guibutton>Edit</guibutton> to edit the conflict manually and save "
+"those changes back to the file. Once the changes are saved, the button "
+"becomes enabled."
+msgstr ""
+
+#. (term)
+#. (term)
+msgid "Edit"
+msgstr "編集"
+
+#. (para)
+msgid ""
+"Starts the merge editor so you can resolve the conflicts manually. Don't "
+"forget to save the file so the button <guibutton>Mark as "
+"resolved</guibutton> becomes enabled."
+msgstr ""
+
+#. (para)
+msgid ""
+"For normal conflicts that happen due to changes in the file content or its "
+"properties, the dialog shows buttons which allow you to chose which of the "
+"conflicting parts to keep or reject. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If there's a tree conflict, please first see <xref linkend=\"tsvn-dug-"
+"conflicts-tree\"/> about the various types of tree conflicts and how and why"
+" they can happen."
+msgstr ""
+
+#. (title)
+msgid "The Merge Tree Conflict Callback Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"To resolve tree conflicts during a merge, a dialog is shown with various "
+"options on how to resolve the conflict: <placeholder-1/> Since there are "
+"various possible tree conflict situations, the dialog will show buttons to "
+"resolve those depending on the specific conflict. The button texts and "
+"labels explain what the option to resolve the conflict does. If you're not "
+"sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
+"button to resolve the conflict later."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14296,9 +14371,9 @@ msgstr "Manual Pre-commit"
 msgid ""
 "If this is specified, the commit dialog shows a button <guibutton>Run "
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
-" script receives a list of all checkec files and folders and the commit "
+" script receives a list of all checked files and folders and the commit "
 "message if there was one entered."
-msgstr "これが指定されると、コミットダイアログに<guibutton>フックを実行</guibutton>ボタンが表示され、クリックすると定義されたフックスクリプトが実行されるようになります。フックスクリプトはチェックされたファイルやフォルダーすべての一覧と、入力されていればコミットメッセージを受け取ります。"
+msgstr ""
 
 #. (term)
 #. (term)
@@ -15350,10 +15425,6 @@ msgstr "プロジェクトを追加"
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
 msgstr "監視を始めるプロジェクトを追加するダイアログを表示します。"
-
-#. (term)
-msgid "Edit"
-msgstr "編集"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
@@ -21373,6 +21444,12 @@ msgid ""
 "Prevents the file from being edited. That means the editing capabilities of "
 "TortoiseMerge are disabled."
 msgstr "ファイルが編集されるのを防止します。つまり、 TortoiseMerge の編集機能が無効になります。"
+
+#. (entry)
+msgid ""
+"Prevents TortoiseMerge from asking whether to mark a file as resolved in SVN"
+" after saving it."
+msgstr ""
 
 #. (para)
 msgid ""

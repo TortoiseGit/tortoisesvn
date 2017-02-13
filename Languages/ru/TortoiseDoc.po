@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN manuals
-# Copyright (C) 2004-2016 the TortoiseSVN team
+# Copyright (C) 2004-2017 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -34,8 +34,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-01-30 11:16+0000\n"
-"Last-Translator: Nikolay Falileev <kelvinkolyan@mail.ru>\n"
+"PO-Revision-Date: 2017-02-11 09:03+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4141,9 +4141,10 @@ msgstr "Разработчик Б теперь должен решить, ост
 #. (para)
 msgid ""
 "The conflict edit dialog offers to merge changes if it can find the original"
-" file of the renamed <filename>Bar.c</filename>. Depending on where the "
-"update was invoked, it may not be possible to find the source file."
-msgstr "Диалог редактирования конфликта предлагает слить изменения, если он может найти исходный файл переименованного <filename>Bar.c</filename>. В зависимости от того, откуда было вызвано обновление, может не получиться обнаружить файл-источник."
+" file of the renamed <filename>Bar.c</filename>. If there are multiple files"
+" that are possible move sources, then a button for each of these files is "
+"shown which allow you to chose the correct file."
+msgstr ""
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
@@ -4221,20 +4222,18 @@ msgid ""
 "To merge her local changes with the reshuffle, Developer B must first find "
 "out to what filename the conflicted file <filename>Foo.c</filename> was "
 "renamed/moved in the repository. This can be done by using the log dialog. "
-"The changes must then be merged by hand as there is currently no way to "
-"automate or even simplify this process. Once the changes have been ported "
-"across, the conflicted path is redundant and can be deleted. In this case "
-"use the <guilabel>Remove</guilabel> button in the conflict editor dialog to "
-"clean up and mark the conflict as resolved."
-msgstr "Чтобы выполнить слияние своих локальных изменений с такой перетасовкой, разработчик Б сначала должен выяснить, какое имя получил  конфликтующий файл <filename>Foo.c</filename> при переименовании/перемещении в хранилище. Это можно сделать при помощи диалога журнала. Затем изменения должны быть слиты вручную, поскольку на данный момент нет способа автоматизировать или даже упростить этот процесс. Как только изменения перенесены, конфликтующий файл больше не нужен и может быть удалён. В этом случае используйте кнопку <guilabel>Удалить</guilabel> в диалоге редактирования конфликтов для наведения порядка и для пометки конфликта как улаженного."
+"Then use the button which shows the correct source file to resolve the "
+"conflict."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog helps to track down what was moved."
-msgstr "Если разработчик Б решает, что изменения разработчика А были неправильными, то он должен выбрать кнопку <guilabel>Оставить</guilabel> в диалоге редактирования конфликтов. Это помечает конфликтующий файл/папку как улаженные, но изменения разработчика А необходимо будет убрать вручную. Опять же диалог журнала поможет разыскать то, что было перемещено."
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog helps to track down what "
+"was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -4382,18 +4381,17 @@ msgid ""
 " to find that yourself. The changes must then be merged by hand as there is "
 "currently no way to automate or even simplify this process. Once the changes"
 " have been ported across, the conflicted path is redundant and can be "
-"deleted. In this case use the <guilabel>Remove</guilabel> button in the "
-"conflict editor dialog to clean up and mark the conflict as resolved."
-msgstr "Чтобы выполнить слияние своих локальных изменений с такой перетасовкой, разработчик Б сначала должен выяснить, какое имя получил  конфликтующий файл <filename>Foo.c</filename> при переименовании/перемещении в хранилище. Это можно сделать при помощи диалога журнала для источника слияния. Редактор конфликтов показывает только журнал для рабочей копии, так как ему не известно, какой путь был использован при слиянии, и поэтому вы должны найти его самостоятельно. Затем изменения должны быть слиты вручную, поскольку на данный момент нет способа автоматизировать или даже упростить этот процесс. Как только изменения перенесены, конфликтующий файл больше не нужен и может быть удалён. В этом случае используйте кнопку <guilabel>Удалить</guilabel> в диалоге редактирования конфликтов для наведения порядка и для пометки конфликта как улаженного."
+"deleted."
+msgstr ""
 
 #. (para)
 msgid ""
 "If Developer B decides that A's changes were wrong then she must choose the "
-"<guilabel>Keep</guilabel> button in the conflict editor dialog. This marks "
-"the conflicted file/folder as resolved, but Developer A's changes need to be"
-" removed by hand. Again the log dialog for the merge source helps to track "
-"down what was moved."
-msgstr "Если разработчик Б решает, что изменения разработчика А были неправильными, то он должен выбрать кнопку <guilabel>Оставить</guilabel> в диалоге редактирования конфликтов. Это помечает конфликтующий файл/папку как улаженные, но изменения разработчика А необходимо будет убрать вручную. Опять же диалог журнала для источника слияния поможет разыскать то, что было перемещено."
+"<guilabel>Mark as resolved</guilabel> button in the conflict editor dialog. "
+"This marks the conflicted file/folder as resolved, but Developer A's changes"
+" need to be removed by hand. Again the log dialog for the merge source helps"
+" to track down what was moved."
+msgstr ""
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -4422,11 +4420,8 @@ msgstr "<filename>Foo.c</filename> помечен как отсутствующ�
 msgid ""
 "To resolve this conflict, Developer B has to find out to what filename the "
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
-"repository. This can be done by using the log dialog for the merge source. "
-"The conflict editor only shows the log for the working copy as it does not "
-"know which path was used in the merge, so you will have to find that "
-"yourself."
-msgstr "Для улаживания этого конфликта разработчик Б должен выяснить, какое имя получил  конфликтующий файл <filename>Foo.c</filename> при переименовании/перемещении в хранилище. Это можно сделать при помощи диалога журнала для источника слияния. Редактор конфликтов показывает только журнал для рабочей копии, так как ему не известно, какой путь был использован при слиянии, и поэтому вы должны найти его самостоятельно."
+"repository. This can be done by using the log dialog for the merge source."
+msgstr ""
 
 #. (title)
 msgid "Other tree conflicts"
@@ -9880,6 +9875,13 @@ msgstr "Обработка конфликтов, возникающих при �
 msgid "merge conflicts"
 msgstr "конфликты при слиянии"
 
+#. (para)
+msgid ""
+"The text in the conflict resolver dialogs are provided by the SVN library "
+"and might therefore not (yet) be translated as the TortoiseSVN dialogs are. "
+"Sorry for that."
+msgstr ""
+
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
 msgstr "Диалог обратного вызова 'конфликты при слиянии'"
@@ -9895,52 +9897,125 @@ msgstr "Слияние не всегда проходит гладко. Иног
 
 #. (para)
 msgid ""
-"If you are merging text files then these first two buttons allow you to "
-"merge non-conflicting lines as normal and always prefer one version where "
-"there are conflicts. Choosing <emphasis>Prefer local</emphasis> will select "
-"your local version in every conflict, i.e. it will prefer what was already "
-"there before the merge over the incoming change from the merge source. "
-"Likewise, <emphasis>Prefer repository</emphasis> will select the repository "
-"changes in every conflict, i.e. it will prefer the incoming changes from the"
-" merge source over what was already in your working copy. This sounds easy, "
-"but the conflicts often cover more lines than you think they will and you "
-"may get unexpected results."
-msgstr "Если вы сливаете текстовые файлы, то эти первые две кнопки позволят вам нормально слить неконфликтующие строки и всегда предпочесть одну версию при конфликтах. Нажатие <emphasis>Локальные</emphasis> выберет вашу локальную версию в каждом конфликте, т.е. будет отдано предпочтение тому, что было до слияния нежели входящим изменениями из источника слияния. Таким же образом, <emphasis>Из хранилища</emphasis> выберет изменения хранилища в каждом конфликте, т.е. будет отдано предпочтение входящим изменениям из источника слияния, а не тому, что уже было в вашей рабочей копии. Звучит это просто, но конфликты часто затрагивают больше строк, чем вы думаете, и вы можете получить неожиданные результаты."
-
-#. (para)
-msgid ""
-"If your merge includes binary files, merging of conflicts in those is not "
-"possible in a line-by-line mode. A conflict in a binary file always refers "
-"to the complete file. Use <emphasis>Prefer local</emphasis> to select the "
-"local version as it was in your working copy prior to the merge, or "
-"<emphasis>Prefer repository</emphasis> to select the incoming file from the "
-"merge source in the repository."
-msgstr "Если ваше слияние содержит двоичные файлы, то слияние конфликтов для них невозможно в построчном режиме. Конфликт в двоичном файле всегда относится ко всему файлу вцелом. Воспользуйтесь <emphasis>Локальные</emphasis> чтобы выбрать локальную версию какой она была в вашей рабочей копии до слияния, или <emphasis>Из хранилища</emphasis> чтобы выбрать входящий файл из источника слияния в хранилище."
-
-#. (para)
-msgid ""
-"Normally you will want to look at the conflicts and resolve them yourself. "
-"In that case, choose the <guibutton>Edit Conflict</guibutton> which will "
-"start up your merge tool. When you are satisfied with the result, click "
-"<guibutton>Resolved</guibutton>."
-msgstr "Обычно вы захотите посмотреть на конфликты и устранить их самостоятельно. В этом случае нажмите <guibutton>Редактировать конфликты</guibutton>, что запустит инструмент слияния. Когда вы будете довольны результатом нажмите <guibutton>Улажено</guibutton>."
-
-#. (para)
-msgid ""
-"The last option is to postpone resolution and continue with merging. You can"
-" choose to do that for the current conflicted file, or for all files in the "
-"rest of the merge. However, if there are further changes in that file, it "
-"will not be possible to complete the merge."
-msgstr "Последняя возможность - отложить разрешение конфликта и продолжить слияние. Вы можете сделать это как с текущим конфликтующим файлом, так и со всеми оставшимися для слияния файлами. Однако, если в этом файле есть дальнейшие изменения, завершить слияние будет невозможно."
-
-#. (para)
-msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
 "All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you three different ways of handling the lines which are in "
-"conflict. <placeholder-1/>"
-msgstr "Похоже, что некоторые изменения будут слиты беспрепятственно, тогда как остальные локальные изменения конфликтуют с изменениями зафиксированными в хранилище. Все возможные изменения слиты. Диалог конфликтов слияния предоставляет вам три различных способа обработки конфликтующих строк. <placeholder-1/>"
+"dialog gives you different ways of handling the lines which are in conflict."
+msgstr ""
+
+#. (term)
+msgid "Postpone"
+msgstr ""
+
+#. (para)
+msgid ""
+"Don't deal with the conflict now. Let the merge continue and resolve the "
+"conflicts after the merge is done."
+msgstr ""
+
+#. (term)
+msgid "Accept base"
+msgstr ""
+
+#. (para)
+msgid ""
+"This leaves the file as it was, without neither the changes coming from the "
+"merge nor the changes you've made in your working copy."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all your local changes and uses the file as it arrives from "
+"the merge source."
+msgstr ""
+
+#. (term)
+msgid "Reject incoming"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards all the changes from the merge source and leaves the file with"
+" your local edits."
+msgstr ""
+
+#. (term)
+msgid "Accept incoming for conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards your local changes where they conflict with the changes from "
+"the merge source. But it leaves all your local changes which don't conflict."
+msgstr ""
+
+#. (term)
+msgid "Reject conflicts"
+msgstr ""
+
+#. (para)
+msgid ""
+"This discards changes from the merge source which conflict with your local "
+"changes. But it keeps all changes that don't conflict with your local "
+"changes."
+msgstr ""
+
+#. (term)
+msgid "Mark as resolved"
+msgstr ""
+
+#. (para)
+msgid ""
+"Marks the conflicts as resolved. This button is disabled until you use the "
+"button <guibutton>Edit</guibutton> to edit the conflict manually and save "
+"those changes back to the file. Once the changes are saved, the button "
+"becomes enabled."
+msgstr ""
+
+#. (term)
+#. (term)
+msgid "Edit"
+msgstr "Редактировать"
+
+#. (para)
+msgid ""
+"Starts the merge editor so you can resolve the conflicts manually. Don't "
+"forget to save the file so the button <guibutton>Mark as "
+"resolved</guibutton> becomes enabled."
+msgstr ""
+
+#. (para)
+msgid ""
+"For normal conflicts that happen due to changes in the file content or its "
+"properties, the dialog shows buttons which allow you to chose which of the "
+"conflicting parts to keep or reject. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If there's a tree conflict, please first see <xref linkend=\"tsvn-dug-"
+"conflicts-tree\"/> about the various types of tree conflicts and how and why"
+" they can happen."
+msgstr ""
+
+#. (title)
+msgid "The Merge Tree Conflict Callback Dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"To resolve tree conflicts during a merge, a dialog is shown with various "
+"options on how to resolve the conflict: <placeholder-1/> Since there are "
+"various possible tree conflict situations, the dialog will show buttons to "
+"resolve those depending on the specific conflict. The button texts and "
+"labels explain what the option to resolve the conflict does. If you're not "
+"sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
+"button to resolve the conflict later."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14307,9 +14382,9 @@ msgstr "Ручная перед-фиксацией"
 msgid ""
 "If this is specified, the commit dialog shows a button <guibutton>Run "
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
-" script receives a list of all checkec files and folders and the commit "
+" script receives a list of all checked files and folders and the commit "
 "message if there was one entered."
-msgstr "Если указано, то в диалоге фиксации отображается кнопка <guibutton>Выполнить скрипт ловушки</guibutton>, которая при нажатии выполняет указанный скрипт ловушки. Скрипт ловушки получает список всех отмеченных файлов и папок, и сообщение фиксации, если оно было введено."
+msgstr ""
 
 #. (term)
 #. (term)
@@ -15361,10 +15436,6 @@ msgstr "Добавить проект"
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
 msgstr "Открывает новый диалог настройки нового проекта для мониторинга."
-
-#. (term)
-msgid "Edit"
-msgstr "Редактировать"
 
 #. (para)
 msgid "Opens the configuration dialog for the selected project."
@@ -21384,6 +21455,12 @@ msgid ""
 "Prevents the file from being edited. That means the editing capabilities of "
 "TortoiseMerge are disabled."
 msgstr "Предотвращает файл от редактирования. Это означает, что возможности редактирования TortoiseMerge отключены."
+
+#. (entry)
+msgid ""
+"Prevents TortoiseMerge from asking whether to mark a file as resolved in SVN"
+" after saving it."
+msgstr ""
 
 #. (para)
 msgid ""
