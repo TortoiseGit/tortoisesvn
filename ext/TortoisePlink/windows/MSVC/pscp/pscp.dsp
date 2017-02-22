@@ -42,8 +42,8 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /W3 /GX /O2 /I "..\..\..\./" /I "..\..\..\charset/" /I "..\..\..\windows/" /I "..\..\..\unix/" /I "..\..\..\macosx/" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /W3 /GX /O2 /I "..\..\..\./" /I "..\..\..\charset/" /I "..\..\..\windows/" /I "..\..\..\unix/" /I "..\..\..\macosx/" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
+# ADD BASE CPP /nologo /W3 /GX /O2 /I "..\..\..\./" /I "..\..\..\charset/" /I "..\..\..\windows/" /I "..\..\..\unix/" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
+# ADD CPP /nologo /W3 /GX /O2 /I "..\..\..\./" /I "..\..\..\charset/" /I "..\..\..\windows/" /I "..\..\..\unix/" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /c
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x809 /d "NDEBUG"
@@ -69,8 +69,8 @@ LINK32=link.exe
 # PROP Intermediate_Dir "Debug"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
-# ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /I "..\..\..\./" /I "..\..\..\charset/" /I "..\..\..\windows/" /I "..\..\..\unix/" /I "..\..\..\macosx/" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "..\..\..\./" /I "..\..\..\charset/" /I "..\..\..\windows/" /I "..\..\..\unix/" /I "..\..\..\macosx/" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
+# ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /I "..\..\..\./" /I "..\..\..\charset/" /I "..\..\..\windows/" /I "..\..\..\unix/" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
+# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /I "..\..\..\./" /I "..\..\..\charset/" /I "..\..\..\windows/" /I "..\..\..\unix/" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /YX /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x809 /d "_DEBUG"
@@ -92,6 +92,14 @@ LINK32=link.exe
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
+# Begin Source File
+
+SOURCE=..\..\..\aqsync.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\be_misc.c
+# End Source File
 # Begin Source File
 
 SOURCE=..\..\..\be_ssh.c
@@ -200,6 +208,10 @@ SOURCE=..\..\..\sshbn.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\sshccp.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\sshcrc.c
 # End Source File
 # Begin Source File
@@ -217,6 +229,10 @@ SOURCE=..\..\..\sshdh.c
 # Begin Source File
 
 SOURCE=..\..\..\sshdss.c
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\sshecc.c
 # End Source File
 # Begin Source File
 
@@ -364,6 +380,10 @@ SOURCE=..\..\..\charset\charset.h
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\..\empty.h
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\..\int64.h
 # End Source File
 # Begin Source File
@@ -372,15 +392,15 @@ SOURCE=..\..\..\licence.h
 # End Source File
 # Begin Source File
 
-SOURCE=..\..\..\macosx\osx.h
-# End Source File
-# Begin Source File
-
 SOURCE=..\..\..\misc.h
 # End Source File
 # Begin Source File
 
 SOURCE=..\..\..\network.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\pageant.h
 # End Source File
 # Begin Source File
 
@@ -413,6 +433,10 @@ SOURCE=..\..\..\sftp.h
 # Begin Source File
 
 SOURCE=..\..\..\ssh.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\sshblowf.h
 # End Source File
 # Begin Source File
 

@@ -14,7 +14,11 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\be_all_s.c">
+    <ClCompile Include="..\..\..\aqsync.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\be_all_s.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\be_misc.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\callback.c">
       <Filter>Source Files</Filter>
@@ -68,6 +72,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshbn.c">
       <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\sshccp.c">
+      <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshcrc.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshcrcda.c">
@@ -77,6 +83,8 @@
     </ClCompile>    <ClCompile Include="..\..\..\sshdh.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshdss.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\sshecc.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshgssc.c">
       <Filter>Source Files</Filter>
@@ -176,19 +184,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\dialog.h">
       <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\empty.h">
+      <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\int64.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\ldisc.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\licence.h">
       <Filter>Header Files</Filter>
-    </ClInclude>    <ClInclude Include="..\..\..\macosx\osx.h">
-      <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\misc.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\network.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\noshare.c">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\pageant.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\pgssapi.h">
       <Filter>Header Files</Filter>
@@ -201,6 +211,8 @@
     </ClInclude>    <ClInclude Include="..\..\..\puttyps.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\ssh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshblowf.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\sshbn.h">
       <Filter>Header Files</Filter>

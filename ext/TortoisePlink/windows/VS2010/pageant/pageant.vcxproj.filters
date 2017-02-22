@@ -14,9 +14,13 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\conf.c">
+    <ClCompile Include="..\..\..\aqsync.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\conf.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\pageant.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshaes.c">
       <Filter>Source Files</Filter>
@@ -25,6 +29,8 @@
     </ClCompile>    <ClCompile Include="..\..\..\sshdes.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshdss.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\sshecc.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshmd5.c">
       <Filter>Source Files</Filter>
@@ -58,15 +64,17 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\charset\charset.h">
       <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\empty.h">
+      <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\int64.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\licence.h">
       <Filter>Header Files</Filter>
-    </ClInclude>    <ClInclude Include="..\..\..\macosx\osx.h">
-      <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\misc.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\network.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\pageant.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\putty.h">
       <Filter>Header Files</Filter>

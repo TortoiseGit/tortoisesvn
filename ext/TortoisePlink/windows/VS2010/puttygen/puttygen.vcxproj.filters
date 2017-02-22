@@ -21,6 +21,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshaes.c">
       <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\sshbcrypt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\sshblowf.c">
+      <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshbn.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshdes.c">
@@ -28,6 +32,10 @@
     </ClCompile>    <ClCompile Include="..\..\..\sshdss.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshdssg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\sshecc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\sshecdsag.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sshmd5.c">
       <Filter>Source Files</Filter>
@@ -63,6 +71,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\winpgen.c">
       <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winsecur.c">
+      <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\winstore.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\wintime.c">
@@ -75,11 +85,11 @@
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\dialog.h">
       <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\empty.h">
+      <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\int64.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\licence.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>    <ClInclude Include="..\..\..\macosx\osx.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\misc.h">
       <Filter>Header Files</Filter>
@@ -92,6 +102,8 @@
     </ClInclude>    <ClInclude Include="..\..\..\puttyps.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\ssh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshblowf.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\sshbn.h">
       <Filter>Header Files</Filter>
@@ -106,6 +118,8 @@
     </ClInclude>    <ClInclude Include="..\..\rcstuff.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\winhelp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\winsecur.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\winstuff.h">
       <Filter>Header Files</Filter>
