@@ -69,9 +69,8 @@ HRESULT CTreeConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM w
             cmd.ReleaseBuffer();
         }
         break;
-        default:
-        return S_OK;
     }
+    return S_OK;
 }
 
 void CTreeConflictEditorDlg::AddCommandButton(int id, const CString & text)
