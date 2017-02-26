@@ -3265,10 +3265,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
                 bFailed = true;
             }
         }
-        if (!bFailed)
-        {
-            GenerateMergeLogMessage();
-        }
+        GenerateMergeLogMessage();
     }
     else
     {
