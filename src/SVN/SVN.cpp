@@ -144,11 +144,11 @@ void SVN::SVNInit()
     m_pctx->log_msg_baton3 = logMessage(L"");
     m_pctx->notify_func2 = notify;
     m_pctx->notify_baton2 = this;
-    m_pctx->notify_func = NULL;
-    m_pctx->notify_baton = NULL;
-    m_pctx->conflict_func = NULL;
-    m_pctx->conflict_baton = NULL;
-    m_pctx->conflict_func2 = conflict_resolver;
+    m_pctx->notify_func = nullptr;
+    m_pctx->notify_baton = nullptr;
+    m_pctx->conflict_func = nullptr;
+    m_pctx->conflict_baton = nullptr;
+    m_pctx->conflict_func2 = nullptr;
     m_pctx->conflict_baton2 = this;
     m_pctx->cancel_func = cancel;
     m_pctx->cancel_baton = this;
@@ -194,13 +194,6 @@ BOOL SVN::ReportList(const CString& path, svn_node_kind_t kind,
                      bool is_dav_comment, apr_time_t lock_creationdate,
                      apr_time_t lock_expirationdate, const CString& absolutepath,
                      const CString& externalParentUrl, const CString& externalTarget) {return TRUE;}
-svn_wc_conflict_choice_t SVN::ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile)
-{
-    if (m_resolvekind == description->kind)
-        return m_resolveresult;
-
-    return svn_wc_conflict_choose_postpone;
-}
 
 #pragma warning(pop)
 
@@ -1869,36 +1862,6 @@ trivial_conflict_choice(const svn_wc_conflict_description2_t *cd)
     }
 
   return svn_wc_conflict_choose_unspecified;
-}
-
-svn_error_t* SVN::conflict_resolver(svn_wc_conflict_result_t **result,
-                               const svn_wc_conflict_description2_t *description,
-                               void *baton,
-                               apr_pool_t * resultpool,
-                               apr_pool_t * /*scratchpool*/)
-{
-    SVN * svn = (SVN *)baton;
-    CString file;
-    svn_wc_conflict_choice_t choice;
-
-    // Automatically resolve trivial conflicts.
-    choice = trivial_conflict_choice(description);
-
-    // Call the callback if still unresolved.
-    if (choice  == svn_wc_conflict_choose_unspecified)
-    {
-        choice = svn->ConflictResolveCallback(description, file);
-    }
-
-    CTSVNPath f(file);
-    *result = svn_wc_create_conflict_result(choice, file.IsEmpty() ? NULL : apr_pstrdup(resultpool, f.GetSVNApiPath(resultpool)), resultpool);
-    if (svn->Cancel())
-    {
-        CString temp;
-        temp.LoadString(IDS_SVN_USERCANCELLED);
-        return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
-    }
-    return SVN_NO_ERROR;
 }
 
 svn_error_t* SVN::cancel(void *baton)

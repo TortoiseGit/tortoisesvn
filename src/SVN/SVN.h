@@ -97,7 +97,6 @@ public:
                             const CString& lockcomment, bool is_dav_comment,
                             apr_time_t lock_creationdate, apr_time_t lock_expirationdate,
                             const CString& absolutepath, const CString& externalParentUrl, const CString& externalTarget);
-    virtual svn_wc_conflict_choice_t ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile);
 
     struct SVNLock
     {

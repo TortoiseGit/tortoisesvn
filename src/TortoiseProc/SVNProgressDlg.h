@@ -75,8 +75,6 @@ typedef enum
     CLOSE_LOCAL
 } ProgressCloseOptions;
 
-#define WM_SHOWCONFLICTRESOLVER (WM_APP + 100)
-
 /**
  * \ingroup TortoiseProc
  * Handles different Subversion commands and shows the notify messages
@@ -225,7 +223,6 @@ protected:
         const CString& propertyName,
         svn_merge_range_t * range,
         svn_error_t * err, apr_pool_t * pool) override;
-    virtual svn_wc_conflict_choice_t    ConflictResolveCallback(const svn_wc_conflict_description2_t *description, CString& mergedfile) override;
     virtual BOOL                        Cancel() override;
 
     virtual BOOL                        OnInitDialog();
@@ -247,7 +244,6 @@ protected:
     afx_msg void    OnTimer(UINT_PTR nIDEvent);
     afx_msg void    OnLvnBegindragSvnprogress(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void    OnSize(UINT nType, int cx, int cy);
-    LRESULT         OnShowConflictResolver(WPARAM, LPARAM);
     afx_msg LRESULT OnTaskbarBtnCreated(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/);
     afx_msg void    OnBnClickedRetrynohooks();
