@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@ class CTSVNPath;
  */
 class CSysImageList : public CImageList
 {
-// Singleton constructor and destructor (private)
+    // Singleton constructor and destructor (private)
 private:
     CSysImageList();
     ~CSysImageList();
@@ -40,7 +40,7 @@ private:
     CSysImageList(const CSysImageList&) = delete;
     CSysImageList& operator=(const CSysImageList&) = delete;
 
-// Singleton specific operations
+    // Singleton specific operations
 public:
     /**
      * Returns a reference to the one and only instance of this class.
@@ -57,26 +57,26 @@ public:
     /**
      * Returns the icon index for a directory.
      */
-    int GetDirIconIndex() const;
+    int GetDirIconIndex();
     /**
      * Returns the icon index for a directory that's open (e.g. for a tree control)
      */
-    int GetDirOpenIconIndex() const;
+    int GetDirOpenIconIndex();
     /**
      * Returns the icon index for a file which has no special icon associated.
      */
-    int GetDefaultIconIndex() const;
+    int GetDefaultIconIndex();
     /**
      * Returns the icon index for the specified \a file. Only the file extension
      * is used to determine the file's icon.
      */
-    int GetFileIconIndex(const CString& file) const;
+    int GetFileIconIndex(const CString& file);
 
     /**
      * Get the index for a SVN-style path file.
      * Uses a cache to speed things up
      */
-    int GetPathIconIndex(const CTSVNPath& file) const;
+    int GetPathIconIndex(const CTSVNPath& file);
 
     /**
      * Adds an icon to the image list and returns the index of the
@@ -87,10 +87,12 @@ public:
 private:
     static CSysImageList *instance;
 
+    HIMAGELIST hSystemImageList;
+
     typedef std::map<CString, int> IconIndexMap;
     mutable IconIndexMap m_indexCache;
 
-    int GetFileIcon( LPCTSTR file, DWORD attributes, UINT extraFlags ) const;
+    int GetFileIcon(LPCTSTR file, DWORD attributes, UINT extraFlags);
 };
 
 
