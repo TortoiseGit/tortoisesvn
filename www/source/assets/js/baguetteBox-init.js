@@ -4,7 +4,7 @@
 (function() {
     'use strict';
 
-    var selector = '.entry';
+    var selector = '.content';
     var el = document.querySelectorAll(selector);
 
     if (el.length) {
