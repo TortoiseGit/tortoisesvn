@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2010, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010, 2014-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,18 +29,16 @@ CSysImageList::CSysImageList()
     SHFILEINFO ssfi;
     TCHAR windir[MAX_PATH] = { 0 };
     GetWindowsDirectory(windir, _countof(windir));  // MAX_PATH ok.
-    HIMAGELIST hSystemImageList =
-        (HIMAGELIST)SHGetFileInfo(
-            windir,
-            0,
-            &ssfi, sizeof ssfi,
-            SHGFI_SYSICONINDEX | SHGFI_SMALLICON);
-    Attach(hSystemImageList);
+    HIMAGELIST hSystemImageList = (HIMAGELIST)SHGetFileInfo(windir,
+                                                            0,
+                                                            &ssfi, sizeof ssfi,
+                                                            SHGFI_SYSICONINDEX | SHGFI_SMALLICON);
+    auto copylist = ImageList_Duplicate(hSystemImageList);
+    Attach(copylist);
 }
 
 CSysImageList::~CSysImageList()
 {
-    Detach();
 }
 
 // Singleton specific operations
@@ -100,16 +98,15 @@ int CSysImageList::GetPathIconIndex(const CTSVNPath& filePath) const
     return it->second;
 }
 
-int CSysImageList::GetFileIcon( LPCTSTR file, DWORD attributes, UINT extraFlags ) const
+int CSysImageList::GetFileIcon(LPCTSTR file, DWORD attributes, UINT extraFlags) const
 {
     SHFILEINFO sfi;
     SecureZeroMemory(&sfi, sizeof sfi);
 
-    SHGetFileInfo(
-        file,
-        attributes,
-        &sfi, sizeof sfi,
-        SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | extraFlags);
+    SHGetFileInfo(file,
+                  attributes,
+                  &sfi, sizeof sfi,
+                  SHGFI_SYSICONINDEX | SHGFI_SMALLICON | SHGFI_USEFILEATTRIBUTES | extraFlags);
 
     return sfi.iIcon;
 }
