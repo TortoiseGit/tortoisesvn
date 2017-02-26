@@ -1,6 +1,6 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(revision 27638)
+--- include/Scintilla.h	(revision 27722)
 +++ include/Scintilla.h	(working copy)
 @@ -1097,6 +1097,8 @@
  #define SCN_MARGINRIGHTCLICK 2031
@@ -13,7 +13,7 @@ Index: include/Scintilla.h
   * So older code that treats Scintilla as a RichEdit will work. */
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(revision 27638)
+--- src/Editor.cxx	(revision 27722)
 +++ src/Editor.cxx	(working copy)
 @@ -101,6 +101,7 @@
  }
@@ -25,7 +25,7 @@ Index: src/Editor.cxx
  	stylesValid = false;
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(revision 27638)
+--- src/Editor.h	(revision 27722)
 +++ src/Editor.h	(working copy)
 @@ -585,6 +585,7 @@
  	static sptr_t BytesResult(sptr_t lParam, const unsigned char *val, size_t len);
@@ -37,7 +37,7 @@ Index: src/Editor.h
  	// Public so scintilla_send_message can use it.
 Index: src/EditView.cxx
 ===================================================================
---- src/EditView.cxx	(revision 27638)
+--- src/EditView.cxx	(revision 27722)
 +++ src/EditView.cxx	(working copy)
 @@ -49,6 +49,7 @@
  #include "EditModel.h"
@@ -55,7 +55,7 @@ Index: src/EditView.cxx
  }
  
  EditView::~EditView() {
-@@ -1823,7 +1825,18 @@
+@@ -1829,7 +1831,18 @@
  	}
  
  	// See if something overrides the line background color.
@@ -77,7 +77,7 @@ Index: src/EditView.cxx
  
 Index: src/EditView.h
 ===================================================================
---- src/EditView.h	(revision 27638)
+--- src/EditView.h	(revision 27722)
 +++ src/EditView.h	(working copy)
 @@ -77,6 +77,7 @@
  	Surface *pixmapLine;
@@ -89,7 +89,7 @@ Index: src/EditView.h
  	PositionCache posCache;
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(revision 27638)
+--- win32/ScintillaWin.cxx	(revision 27722)
 +++ win32/ScintillaWin.cxx	(working copy)
 @@ -335,6 +335,7 @@
  	virtual void SetCtrlID(int identifier);
