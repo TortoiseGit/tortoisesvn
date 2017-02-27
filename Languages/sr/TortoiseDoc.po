@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-02-11 09:03+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-02-14 18:02+0000\n"
+"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/luebbe/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4130,7 +4130,7 @@ msgid ""
 " file of the renamed <filename>Bar.c</filename>. If there are multiple files"
 " that are possible move sources, then a button for each of these files is "
 "shown which allow you to chose the correct file."
-msgstr ""
+msgstr "Дијалог уређења конфликта омогућава да се стопе измене ако може да се нађе оригинални фајл преименованог  <filename>Bar.c</filename>. Ако има мултипл фајлова који можда померају изворне онда дугмад за сваки од тих фајлова приказују који вам дозвољава да  изаберете коректан фајл."
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
@@ -4210,7 +4210,7 @@ msgid ""
 "renamed/moved in the repository. This can be done by using the log dialog. "
 "Then use the button which shows the correct source file to resolve the "
 "conflict."
-msgstr ""
+msgstr "Да сестопе њене локалне измене  са мешањем, израђивач Б мора најпре да нађе име конфликтног фајла <filename>Foo.c</filename> је преименован/померен у спремиште. Ово може бити дато коришћењем дијалога дневника. Онда користите дугме које приказује коректан изворни фајл да решите конфликт."
 
 #. (para)
 msgid ""
@@ -4219,7 +4219,7 @@ msgid ""
 "This marks the conflicted file/folder as resolved, but Developer A's changes"
 " need to be removed by hand. Again the log dialog helps to track down what "
 "was moved."
-msgstr ""
+msgstr "Ако програмер Б одлучи да су А измене биле лоше она мора да изабере <guilabel>Маркирај као решено</guilabel> дугме у дијалогу уређивача конфликта. Ово маркира конфликтни фајл/фолдер као решен, али А програмерске измене треба да буду уклоњене ручно. Поново ће дијалог дневника помоћи да се нађе шта ће се уклонити."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -4368,7 +4368,7 @@ msgid ""
 "currently no way to automate or even simplify this process. Once the changes"
 " have been ported across, the conflicted path is redundant and can be "
 "deleted."
-msgstr ""
+msgstr "Стапање њних локалних измена са реорганизовањем програмер Б мора најпре да нађе име фајла у конфликту <filename>Foo.c</filename> је преименовано/померено у спремишту. Ово може бити урађено коришћењем дијалога дневнока за стопљени извор. Уређивач конфликта приказује само дневник за радну копију и не зна која је путања коришћена при стапању, тако да то морате наћи сами. Измене онда морају бити стопљене ручно јер сада нема начина да се то аутоматизује или само упрости процес. Ако се измене пренесу конфликтна путања је редундантна и може се обрисати."
 
 #. (para)
 msgid ""
@@ -4377,7 +4377,7 @@ msgid ""
 "This marks the conflicted file/folder as resolved, but Developer A's changes"
 " need to be removed by hand. Again the log dialog for the merge source helps"
 " to track down what was moved."
-msgstr ""
+msgstr "Ако програмер Б одлучи да су А измене биле лоше она мора да изабере <guilabel>Маркирај као решен</guilabel> дугме у дијалогу уређивања конфликта. Ово маркира конфликтни фајл/фолдер као решен, али измене  програмера А треба да буду уклоњене ручно. Поново ће дијалог дневника за стопљени извор помоћи да се нађе шта је померено."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -4407,7 +4407,7 @@ msgid ""
 "To resolve this conflict, Developer B has to find out to what filename the "
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
 "repository. This can be done by using the log dialog for the merge source."
-msgstr ""
+msgstr "Да се реши овај конфликт прогамер Б има да нађе име конфликтног фајла <filename>Foo.c</filename> које је преименовано/померено у спремишту. Ово ће бити дато коришћењем дијалога дневника за стопљени извор."
 
 #. (title)
 msgid "Other tree conflicts"
@@ -9866,7 +9866,7 @@ msgid ""
 "The text in the conflict resolver dialogs are provided by the SVN library "
 "and might therefore not (yet) be translated as the TortoiseSVN dialogs are. "
 "Sorry for that."
-msgstr ""
+msgstr "Текст у  дијалогу решења конфликта дат је СВН библиотеком и можда још није преведен као ТортоисеСВН  дијалог. Извините због тога."
 
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
@@ -9887,72 +9887,72 @@ msgid ""
 " local changes conflict with changes already committed to the repository. "
 "All changes which can be merged are merged. The Merge Conflict Callback "
 "dialog gives you different ways of handling the lines which are in conflict."
-msgstr ""
+msgstr "Вероватно због тога неке измене ће бити стопљене глатко, док су друге локалне измене конфликата са изменама већ урезане у спремиште. Све измене које могу бити стопљене су стопљене. Дијалог позива стапања конфликта даје вам различите начине руковања линијама које су у конфликту. "
 
 #. (term)
 msgid "Postpone"
-msgstr ""
+msgstr "Одгодити"
 
 #. (para)
 msgid ""
 "Don't deal with the conflict now. Let the merge continue and resolve the "
 "conflicts after the merge is done."
-msgstr ""
+msgstr "Не радите са конфликтом сада. Нека стапање настави и реши конфликт када се стапање заврши."
 
 #. (term)
 msgid "Accept base"
-msgstr ""
+msgstr "Прихвати основу"
 
 #. (para)
 msgid ""
 "This leaves the file as it was, without neither the changes coming from the "
 "merge nor the changes you've made in your working copy."
-msgstr ""
+msgstr "Ово оставља фајл какав је био, без измена које су дошле од стапања или измена које сте урадили у радној копији."
 
 #. (term)
 msgid "Accept incoming"
-msgstr ""
+msgstr "Прихвати долазеће"
 
 #. (para)
 msgid ""
 "This discards all your local changes and uses the file as it arrives from "
 "the merge source."
-msgstr ""
+msgstr "Ово одбацује све ваше локалне измене и користи фајл како је стигао из извора стапања."
 
 #. (term)
 msgid "Reject incoming"
-msgstr ""
+msgstr "Одбаци долазеће"
 
 #. (para)
 msgid ""
 "This discards all the changes from the merge source and leaves the file with"
 " your local edits."
-msgstr ""
+msgstr "Ово одбацује све измене из извора стапања и оставља фајл са вашим локалним уређењем."
 
 #. (term)
 msgid "Accept incoming for conflicts"
-msgstr ""
+msgstr "Прихвати долазеће за конфликте"
 
 #. (para)
 msgid ""
 "This discards your local changes where they conflict with the changes from "
 "the merge source. But it leaves all your local changes which don't conflict."
-msgstr ""
+msgstr "Ово одбацује ваше локалне измене које су у конфликту са изменама из извора стапања. Али оставља ваше локалне измене које нису у конфликту."
 
 #. (term)
 msgid "Reject conflicts"
-msgstr ""
+msgstr "Одбаци конфликт"
 
 #. (para)
 msgid ""
 "This discards changes from the merge source which conflict with your local "
 "changes. But it keeps all changes that don't conflict with your local "
 "changes."
-msgstr ""
+msgstr "Ово одбацује измене из извора стапања  који су у конфликту са вашим локалним изменама. Али чува све измене које нису у конфликту са вашим локалним изменама."
 
 #. (term)
 msgid "Mark as resolved"
-msgstr ""
+msgstr "Маркирај као решено"
 
 #. (para)
 msgid ""
@@ -9960,7 +9960,7 @@ msgid ""
 "button <guibutton>Edit</guibutton> to edit the conflict manually and save "
 "those changes back to the file. Once the changes are saved, the button "
 "becomes enabled."
-msgstr ""
+msgstr "Маркирај конфликт као решен. Ово дугме је онемогућено све док се не употреби дугме <guibutton>Уреди</guibutton> да се уреди конфликт ручно и сачувају те измене назад у фајл. Када су сачуване измене  дугме постаје омогућено."
 
 #. (term)
 #. (term)
@@ -9972,25 +9972,25 @@ msgid ""
 "Starts the merge editor so you can resolve the conflicts manually. Don't "
 "forget to save the file so the button <guibutton>Mark as "
 "resolved</guibutton> becomes enabled."
-msgstr ""
+msgstr "Покреће уређивач стапања да можете решити конфликт ручно. Не заборавите да сачувате фајл тако да дугме <guibutton>Маркирај као решено</guibutton> постане омогућено."
 
 #. (para)
 msgid ""
 "For normal conflicts that happen due to changes in the file content or its "
 "properties, the dialog shows buttons which allow you to chose which of the "
 "conflicting parts to keep or reject. <placeholder-1/>"
-msgstr ""
+msgstr "За нормалан конфликт који се деси током измена у садржају или особинама, дијалог приказује дугмиће који вам омогућавају да изаберете који део конфликта ће те задржати или одбацити. <placeholder-1/> "
 
 #. (para)
 msgid ""
 "If there's a tree conflict, please first see <xref linkend=\"tsvn-dug-"
 "conflicts-tree\"/> about the various types of tree conflicts and how and why"
 " they can happen."
-msgstr ""
+msgstr "Ако постоји стабло конфликта, молимо да најпре погледате <xref linkend=\"tsvn-dug-conflicts-tree\"/>  о различитим врстама конфлитних стабала и како и зачто се дешавају."
 
 #. (title)
 msgid "The Merge Tree Conflict Callback Dialog"
-msgstr ""
+msgstr "Повратни дијалог стапања  стабла конфликта"
 
 #. (para)
 msgid ""
@@ -10001,7 +10001,7 @@ msgid ""
 "labels explain what the option to resolve the conflict does. If you're not "
 "sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
 "button to resolve the conflict later."
-msgstr ""
+msgstr "Да се реши стабло конфликата у току стапања дијалог је приказан са различитим опцијама како да се реши конфликт: <placeholder-1/>  Пошто има много различитих конфликтних ситуација дијалог ће приказати дугмиће да се реше они који зависе од специфичних конфликата. Текст дугмића и лабеле објашњавају које опције су при решењу конфликта. Ако нисте сигурни или одустаните од дијалога  или користите <guibutton>Одгоди</guibutton> дугме да решите конфликт касније."
 
 #. (para)
 msgid ""
@@ -14370,7 +14370,7 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checked files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "Ако је ово специфицирано дијалог урезивања приказује дугме <guibutton>Изврши закачку</guibutton> који када се кликне извршава закачив скрипт. Закачив скрипт прима листу свих чекираних фајлова и фолдера и поруке урезивања ако су унете. "
 
 #. (term)
 #. (term)
@@ -21446,7 +21446,7 @@ msgstr "Превенција да се фајл уређује. То значи 
 msgid ""
 "Prevents TortoiseMerge from asking whether to mark a file as resolved in SVN"
 " after saving it."
-msgstr ""
+msgstr "Превенира ТортоисеМерге да пита где маркирати фајл као решен у СВН после његовог меморисања."
 
 #. (para)
 msgid ""

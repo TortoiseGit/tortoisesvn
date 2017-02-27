@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # Begina Felicysym <>, 2011
-# Begina Felicysym <begina.felicysym@wp.eu>, 2011-2016
+# Begina Felicysym <begina.felicysym@wp.eu>, 2011-2017
 # Jarosław Pękala <jaroslaw.pekala@gmail.com>, 2013
 # jotpeg <janekpg@gazeta.pl>, 2013
 # kkotowicz <kkotowicz@gmail.com>, 2011
@@ -26,14 +26,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-02-11 08:14+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-02-26 10:03+0000\n"
+"Last-Translator: Begina Felicysym <begina.felicysym@wp.eu>\n"
 "Language-Team: Polish (http://www.transifex.com/luebbe/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 # msgid/msgstr fields for Accelerator keys
@@ -309,7 +309,7 @@ msgstr "&..."
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
+msgstr "&Anuluj\nMożesz najpierw usunąć przyczynę niepowodzenia skryptu przechwytującego."
 
 #. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
@@ -319,7 +319,7 @@ msgstr "&O TortoiseMerge..."
 msgid ""
 "&Accept the certificate\n"
 "The certificate is accepted only this one time."
-msgstr ""
+msgstr "&Akceptuj certyfikat\nCertyfikat będzie dopuszczony tylko ten raz."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -341,7 +341,7 @@ msgstr "Dod&aj Filtr"
 msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
-msgstr ""
+msgstr "Dod&aj element\nDoprowadzi to do problemów w Windows."
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -481,133 +481,133 @@ msgstr "&Anuluj"
 msgid ""
 "&Cancel\n"
 "Choose a different folder to export to"
-msgstr ""
+msgstr "&Anuluj\nWybierz inny folder do wykonania eksportu"
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not commit to a tag."
-msgstr ""
+msgstr "&Anuluj\nNie zatwierdzaj do etykiety."
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not remove"
-msgstr ""
+msgstr "&Anuluj\nNie usuwaj"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not revert."
-msgstr ""
+msgstr "&Anuluj\nNie przywracaj."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not update the working copy."
-msgstr ""
+msgstr "&Anuluj\nNie aktualizuj kopii roboczej."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't resolve the item."
-msgstr ""
+msgstr "&Anuluj \nNie rozwiązuj elementu."
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "&Anuluj\nNie pokazuj różnic."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and enter an issue number."
-msgstr ""
+msgstr "&Anuluj\nWycofaj krok i wprowadź numer zgłoszenia."
 
 #. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and select a different folder."
-msgstr ""
+msgstr "&Anuluj\nPowróć i wybierz inny folder."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
 msgid ""
 "&Cancel\n"
 "I will enter a different path/URL."
-msgstr ""
+msgstr "&Anuluj\nWpiszę inną ścieżkę/URL."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
 msgid ""
 "&Cancel\n"
 "Keep the current URL."
-msgstr ""
+msgstr "&Anuluj\nZachowaj bieżący URL."
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
 msgid ""
 "&Cancel\n"
 "Leave the cache on disk."
-msgstr ""
+msgstr "&Anuluj\nPozostaw bufor na dysku."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
 msgid ""
 "&Cancel\n"
 "Local modifications are kept."
-msgstr ""
+msgstr "&Anuluj\nLokalne zmiany zostaną zachowane."
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
 msgid ""
 "&Cancel\n"
 "The conflict is not resolved."
-msgstr ""
+msgstr "&Anuluj\nKonflikt nie został rozwiązany."
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "The file is not copied."
-msgstr ""
+msgstr "&Anuluj\nPlik nie został skopiowany."
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
 msgid ""
 "&Cancel\n"
 "The folder is not exported."
-msgstr ""
+msgstr "&Anuluj\nFolder nie został wyeksportowany."
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
 msgid ""
 "&Cancel\n"
 "The items are not imported."
-msgstr ""
+msgstr "&Anuluj\nElementy nie zostały zaimportowane."
 
 #. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
 msgid ""
 "&Cancel\n"
 "The tagged revision of the external is left as is."
-msgstr ""
+msgstr "&Anuluj\nEtykietowana wersja pozostanie w takim samym stanie"
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
 msgid ""
 "&Cancel\n"
 "The target file is left as is"
-msgstr ""
+msgstr "&Anuluj\nPlik docelowy pozostanie niezmieniony"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to add the folder manually."
-msgstr ""
+msgstr "&Anuluj\nMusisz dodać folder ręcznie."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr ""
+msgstr "&Anuluj\nMusisz uruchomić aktualizację ręcznie by pobrać zewnętrzne"
 
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
 msgid ""
 "&Cancel\n"
 "keep the current format."
-msgstr ""
+msgstr "&Anuluj\nzachowaj bieżący format."
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -751,7 +751,7 @@ msgstr "&Usuń..."
 msgid ""
 "&Delete\n"
 "Remove the cache files."
-msgstr ""
+msgstr "&Usuń\nUsuń pliki buforu."
 
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
@@ -781,7 +781,7 @@ msgstr "&Dokowanie"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "&Nie uruchamiaj\nNie uruchamiaj skryptu"
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -846,7 +846,7 @@ msgstr "&Eksportuj wybrane elementy do..."
 msgid ""
 "&Export\n"
 "Export into the non-empty folder."
-msgstr ""
+msgstr "&Eksportuj\nEksport do niepustego folderu."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -1003,7 +1003,7 @@ msgstr "&Importuj..."
 msgid ""
 "&Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr ""
+msgstr "&Importuj\nElementy zostaną zaimportowane przez utworzenie nowej wersji dla każdego z obiektów."
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1265,19 +1265,19 @@ msgstr "Nałóż &obrazy\t(O)"
 msgid ""
 "&Overwrite\n"
 "Replace the target folder."
-msgstr ""
+msgstr "&Nadpisz\nZastąp folder docelowy."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file gets replaced"
-msgstr ""
+msgstr "&Nadpisz\nPlik docelowy zostanie zastąpiony"
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file is replaced."
-msgstr ""
+msgstr "&Nadpisz\nPlik docelowy został zastąpiony."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
@@ -1329,23 +1329,23 @@ msgstr "&Drukuj..."
 msgid ""
 "&Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr ""
+msgstr "&Wykonaj mimo wszystko\nPomiń skrypt przechwytujący i wykonaj jednak polecenie."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
 msgid ""
 "&Proceed with the entered path\n"
 "I'm aware of the possible problems."
-msgstr ""
+msgstr "&Kontynuuj dla wprowadzonej ścieżki\nRozumiem możliwe zagrożenia."
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
 msgid "&Proceed with the merge."
-msgstr ""
+msgstr "&Kontynuuj scalanie."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
 msgid ""
 "&Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr ""
+msgstr "&Kontynuuj bez numeru zgłoszenia\nZatwierdzenie nie będzie przypisane do zgłoszenia."
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1377,13 +1377,13 @@ msgstr "O&dśwież"
 msgid ""
 "&Reject the certificate\n"
 "Cancel the connection."
-msgstr ""
+msgstr "Od&rzuć certyfikat\nAnuluj połączenie."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
 msgid ""
 "&Relocate\n"
 "The working copy is relocated to the new URL."
-msgstr ""
+msgstr "&Zmień lokalizację\nKopia robocza jest przenoszona do nowego URL."
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
@@ -1399,7 +1399,7 @@ msgstr "&Usuń"
 msgid ""
 "&Remove from version control\n"
 "All .svn folders are removed"
-msgstr ""
+msgstr "&Usuń z kontroli wersji\nWszystkie foldery.svn zostaną usunięte"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
@@ -1409,13 +1409,13 @@ msgstr "&Usuń projekt"
 msgid ""
 "&Remove\n"
 "Force the removal"
-msgstr ""
+msgstr "&Usuń\nWymuś usunięcie"
 
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
 msgid ""
 "&Remove\n"
 "Remove the property only from this item."
-msgstr ""
+msgstr "&Usuń\nUsuń atrybut tylko z tego elementu."
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK3)
 msgid ""
@@ -1432,7 +1432,7 @@ msgstr "&Zmień nazwę"
 msgid ""
 "&Rename\n"
 "The folder is exported as '%ls'."
-msgstr ""
+msgstr "&Zmień nazwę\nFolder został wyeksportowany jako '%ls'."
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1462,7 +1462,7 @@ msgstr "Przywróć wartości &domyślne"
 msgid ""
 "&Resolve\n"
 "The item is marked as resolved."
-msgstr ""
+msgstr "&Rozwiąż\nElement został oznaczony jako rozwiązany."
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
@@ -1489,7 +1489,7 @@ msgstr "Wy&cofaj zmiany z tej wersji"
 msgid ""
 "&Revert\n"
 "Changes will be applied to the working copy."
-msgstr ""
+msgstr "&Wycofaj zmiany\nZostaną wykonane zmiany na kopii roboczej."
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
@@ -1505,7 +1505,7 @@ msgstr "&Wersja"
 msgid ""
 "&Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "U&ruchom\nUruchom skrypt przechwytujący"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -1745,19 +1745,19 @@ msgstr "&Uaktualnij do wersji..."
 msgid ""
 "&Update\n"
 "Update the file and try locking again."
-msgstr ""
+msgstr "&Uaktualnij\nAktualizuj plik i spróbuj ponownie zablokować."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
 msgid ""
 "&Update\n"
 "Update the working copy and reopen the commit dialog to try again."
-msgstr ""
+msgstr "&Uaktualnij\nZaktualizuj kopię roboczą i jeszcze raz otwórz dialog zatwierdzenia zmian by spróbować ponownie."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
 msgid ""
 "&Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "&Uaktualnij\nAktualizuj do wersji HEAD"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -2093,7 +2093,7 @@ msgstr "O TortoiseSVN"
 msgid ""
 "Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr ""
+msgstr "Akce&ptuj certyfikat na stałe.\nNie będzie już więcej pytań o ten certyfikat."
 
 #. Resource IDs: (61861)
 #, c-format
@@ -2131,7 +2131,7 @@ msgstr "Obiekty ActiveX nie mogą być zapisane w trakcie wychodzenia z Windows!
 msgid ""
 "Ad&just case\n"
 "The file is not added."
-msgstr ""
+msgstr "Dostosu&j przypadek\nPlik nie został dodany."
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
@@ -2967,7 +2967,7 @@ msgstr "Certyfikaty|*.p12;*.pkcs12*.pfx|Wszystkie|*.*||"
 msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
+msgstr "&Zmień etykietowaną wersję\nAtrybut svn:external folderu nadrzędnego zostanie tak samo zmieniona."
 
 #. Resource IDs: (10000)
 msgid ""
@@ -3075,7 +3075,7 @@ msgstr "Sprawdź zmiany w kopii roboczej"
 msgid ""
 "Check&out\n"
 "Checkout into the non empty folder."
-msgstr ""
+msgstr "P&obierz\nPobranie do niepustego folderu."
 
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
@@ -3098,7 +3098,7 @@ msgstr "Sprawdzanie czy są aktualizacje projektu '%ls'..."
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS)
 #, c-format
 msgid "Checking r%1!ld!..."
-msgstr ""
+msgstr "Weryfikacja r%1!ld!..."
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -3366,13 +3366,13 @@ msgstr "Polecenia"
 msgid ""
 "Commi&t only the folder\n"
 "Files inside the folder won't get committed."
-msgstr ""
+msgstr "Za&twierdź tylko folder\nPliki wewnątrz folderu nie zostaną zatwierdzone."
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
 msgid ""
 "Commi&t\n"
 "Commit the changes to the target."
-msgstr ""
+msgstr "Za&twierdź\nZatwierdzenie zmian do celu."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
@@ -3537,7 +3537,7 @@ msgstr "Potwierdź wycofanie"
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_MAININSTRUCTION)
 #, c-format
 msgid "Conflict for property \"%s\" discovered"
-msgstr ""
+msgstr "Wykryto konflikt atrybutu \"%s\""
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Conflict resolved"
@@ -4631,7 +4631,7 @@ msgstr "Edytuj..."
 msgid ""
 "Edit\n"
 "change merged property value in editor"
-msgstr ""
+msgstr "Edytuj\nzmień scaloną wartość atrybutu w edytorze"
 
 #. Resource IDs: (IDS_PROP_TT_EDIT)
 msgid "Edits the selected property value"
@@ -6080,7 +6080,7 @@ msgstr "Ignoruj zmiany\nZignoruj zmiany zewnętrzne."
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
-msgstr ""
+msgstr "Ignoruj zmiany w komentarzach\nIgnoruj Komentarze"
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -6767,7 +6767,7 @@ msgstr "Zaznacz wszystkie projekty jako przeczytane\nTrzymaj klawisz shift by r�
 msgid ""
 "Mark as &resolved\n"
 "The conflict is resolved."
-msgstr ""
+msgstr "Zaznacz jako &rozwiązany\nKonflikt został rozwiązany."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
 #. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
@@ -6901,12 +6901,12 @@ msgstr "Włącz zmiany do kopii roboczej"
 #. Resource IDs: (IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION)
 #, c-format
 msgid "Merge conflict discovered in binary file %s"
-msgstr ""
+msgstr "Scal konflikt znaleziony w pliku binarnym %s"
 
 #. Resource IDs: (IDS_EDITCONFLICT_TEXT_MAININSTRUCTION)
 #, c-format
 msgid "Merge conflict discovered in file %s"
-msgstr ""
+msgstr "Scal konflikt znaleziony w pliku %s"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
 msgid "Merge non-interactive"
@@ -8197,7 +8197,7 @@ msgstr "Stan atrybutów:"
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
 msgid "Property diff:\n"
-msgstr ""
+msgstr "Różn. atrybutów:\n"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -8363,7 +8363,7 @@ msgstr "Narzędzie prostokąta\nProstokąt"
 msgid ""
 "Recur&sive\n"
 "Remove the property also from items in Subfolders."
-msgstr ""
+msgstr "Rekur&sywnie\nUsuń atrybut również z elementów w folderach podrzędnych."
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1260)
 msgid "Recurse into unversioned folders"
@@ -9790,7 +9790,7 @@ msgstr "Pokaż etykiety w ich źródle, nie jako osobne węzły"
 msgid ""
 "Show the &diff\n"
 "The diff viewer is started for every selected item."
-msgstr ""
+msgstr "&Pokaż różnice\nPrzeglądarka różnic zostanie uruchomiona dla każdego wybranego elementu."
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_SHOWCOL)
 msgid "Show/Hide"

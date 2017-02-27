@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-02-11 17:58+0000\n"
+"PO-Revision-Date: 2017-02-17 23:01+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -304,7 +304,7 @@ msgstr "&..."
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
+msgstr "&Avorta\nPodeu solucionar el motiu pel qual ha fallat primer l'script hook."
 
 #. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
@@ -314,7 +314,7 @@ msgstr "&Quant a TortoiseMerge..."
 msgid ""
 "&Accept the certificate\n"
 "The certificate is accepted only this one time."
-msgstr ""
+msgstr "&Accepta el certificat\nEl certificat només s'accepta aquesta vegada."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -776,7 +776,7 @@ msgstr "&Encastar"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "&No executar\nNo executis l'script"
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -841,7 +841,7 @@ msgstr "&Exporta selecció a..."
 msgid ""
 "&Export\n"
 "Export into the non-empty folder."
-msgstr ""
+msgstr "&Exporta\nExporta a la carpeta no buida."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -998,7 +998,7 @@ msgstr "&Importa..."
 msgid ""
 "&Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr ""
+msgstr "&Importa\nEls elements s'importen, creant una nova revisió per cada element."
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1260,19 +1260,19 @@ msgstr "&Superposa imatges\t(O)"
 msgid ""
 "&Overwrite\n"
 "Replace the target folder."
-msgstr ""
+msgstr "&Sobreescriu\nSubstitueix la carpeta de destinació."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file gets replaced"
-msgstr ""
+msgstr "&Sobreescriu\nEs substitueix el fitxer a la destinació"
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file is replaced."
-msgstr ""
+msgstr "&Sobreescriu\nEs substitueix el fitxer a la destinació"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
@@ -1324,7 +1324,7 @@ msgstr "&Imprimeix..."
 msgid ""
 "&Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr ""
+msgstr "&Segueix de totes maneres\nIgnora l'script hook i executa l'ordre de totes maneres."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
 msgid ""
@@ -1334,13 +1334,13 @@ msgstr "&Procedir amb el camí introduït\nSóc conscient de possibles problemes
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
 msgid "&Proceed with the merge."
-msgstr ""
+msgstr "&Segueix amb la fusió."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
 msgid ""
 "&Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr ""
+msgstr "&Segueix sense un número d'incidència\nLa pujada no s'assignarà a una incidència."
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1372,13 +1372,13 @@ msgstr "&Refresca"
 msgid ""
 "&Reject the certificate\n"
 "Cancel the connection."
-msgstr ""
+msgstr "&Rebutja el certificat\nCancel·la la connexió."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
 msgid ""
 "&Relocate\n"
 "The working copy is relocated to the new URL."
-msgstr ""
+msgstr "&Trasllada\nLa còpia de treball es trasllada al nou URL."
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
@@ -1394,7 +1394,7 @@ msgstr "&Suprimeix"
 msgid ""
 "&Remove from version control\n"
 "All .svn folders are removed"
-msgstr ""
+msgstr "&Suprimeix del control de versions\nEs suprimeixen totes les carpetes .svn"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
@@ -1457,7 +1457,7 @@ msgstr "&Reinicialitza a valors per defecte"
 msgid ""
 "&Resolve\n"
 "The item is marked as resolved."
-msgstr ""
+msgstr "&Resol\nL'element s'ha marcat com a resolt."
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
@@ -1484,7 +1484,7 @@ msgstr "&Desfés els canvis des d'aquesta revisió"
 msgid ""
 "&Revert\n"
 "Changes will be applied to the working copy."
-msgstr ""
+msgstr "&Reverteix\nEls canvis s'aplicaran a la còpia de treball."
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
@@ -1500,7 +1500,7 @@ msgstr "&Revisió"
 msgid ""
 "&Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "&Executa\nExecuta l'script de hook"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -1740,19 +1740,19 @@ msgstr "&Actualitza a revisió..."
 msgid ""
 "&Update\n"
 "Update the file and try locking again."
-msgstr ""
+msgstr "&Actualitza\nActualitza el fitxer i torna a provar el bloqueig."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
 msgid ""
 "&Update\n"
 "Update the working copy and reopen the commit dialog to try again."
-msgstr ""
+msgstr "&Actualitza\nActualitza la còpia de treball i reobre el diàleg de pujada per intentar de nou."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
 msgid ""
 "&Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "&Actualitza\nActualitza a la revisió HEAD"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -2088,7 +2088,7 @@ msgstr "Quant a TortoiseSVN"
 msgid ""
 "Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr ""
+msgstr "Accepta el certificat &permanentment\nNo us preguntarem més sobre aquest certificat."
 
 #. Resource IDs: (61861)
 #, c-format
@@ -2126,7 +2126,7 @@ msgstr "Els objectes ActiveX no es poden desar quan se surt de Windows.\nDescart
 msgid ""
 "Ad&just case\n"
 "The file is not added."
-msgstr ""
+msgstr "A&justar majúsc/minúsc\nEl fitxer no s'afegeix."
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
@@ -2962,7 +2962,7 @@ msgstr "Certificats|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
+msgstr "&Canvia la revisió etiquetada\nLa propietat svn:external de la carpeta pare es canvia en conseqüència."
 
 #. Resource IDs: (10000)
 msgid ""
@@ -3070,7 +3070,7 @@ msgstr "Comprova modificacions a la còpia de treball"
 msgid ""
 "Check&out\n"
 "Checkout into the non empty folder."
-msgstr ""
+msgstr "&Obtenir\nObté a la carpeta no buida."
 
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
@@ -3093,7 +3093,7 @@ msgstr "Comprovant actualitzacions pel projecte '%ls'..."
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS)
 #, c-format
 msgid "Checking r%1!ld!..."
-msgstr ""
+msgstr "Comprovant r%1!ld!..."
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -3361,13 +3361,13 @@ msgstr "Ordres"
 msgid ""
 "Commi&t only the folder\n"
 "Files inside the folder won't get committed."
-msgstr ""
+msgstr "&Puja només la carpeta\nEls fitxers dins de la carpeta no es pujaran."
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
 msgid ""
 "Commi&t\n"
 "Commit the changes to the target."
-msgstr ""
+msgstr "&Puja\nPuja els canvis a la destinació."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
@@ -3532,7 +3532,7 @@ msgstr "Confirma reversió"
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_MAININSTRUCTION)
 #, c-format
 msgid "Conflict for property \"%s\" discovered"
-msgstr ""
+msgstr "S'ha detectat un conflicte a la propietat \"%s\""
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Conflict resolved"
@@ -4626,7 +4626,7 @@ msgstr "Edita..."
 msgid ""
 "Edit\n"
 "change merged property value in editor"
-msgstr ""
+msgstr "Edita\ncanvia el valor de la propietat fusionada a l'editor"
 
 #. Resource IDs: (IDS_PROP_TT_EDIT)
 msgid "Edits the selected property value"
@@ -6075,7 +6075,7 @@ msgstr "Ignora canvis\nIgnora els canvis exteriors."
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
-msgstr ""
+msgstr "Ignora canvis als comentaris\nIgnora els comentaris"
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -6762,7 +6762,7 @@ msgstr "Marca tots els projectes com a llegits\nMantén premuda la tecla de Maj�
 msgid ""
 "Mark as &resolved\n"
 "The conflict is resolved."
-msgstr ""
+msgstr "Marca com a &resolt\nEl conflicte s'ha resolt."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
 #. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
@@ -6896,12 +6896,12 @@ msgstr "Fusiona canvis a la còpia de treball"
 #. Resource IDs: (IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION)
 #, c-format
 msgid "Merge conflict discovered in binary file %s"
-msgstr ""
+msgstr "S'ha detectat un conflicte de fusió al fitxer binari %s"
 
 #. Resource IDs: (IDS_EDITCONFLICT_TEXT_MAININSTRUCTION)
 #, c-format
 msgid "Merge conflict discovered in file %s"
-msgstr ""
+msgstr "S'ha detectat un conflicte de fusió al fitxer %s"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
 msgid "Merge non-interactive"
@@ -8192,7 +8192,7 @@ msgstr "Estat de les propietats:"
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
 msgid "Property diff:\n"
-msgstr ""
+msgstr "Propietat diff:\n"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -8358,7 +8358,7 @@ msgstr "Eina de Rectangle\nRectangle"
 msgid ""
 "Recur&sive\n"
 "Remove the property also from items in Subfolders."
-msgstr ""
+msgstr "Recur&siu\nTreu també la propietat dels elements a les Subcarpetes."
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1260)
 msgid "Recurse into unversioned folders"
@@ -8487,11 +8487,11 @@ msgstr "Recarrega els fitxers oberts i reverteix tots els canvis.\nRecarrega"
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 157)
 msgid "Relocate"
-msgstr "Torna a situar"
+msgstr "Trasllada"
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK2)
 msgid "Relocate where a switch might be intended"
-msgstr "Torna a situar on es podria proposar un canvi"
+msgstr "Trasllada on es podria proposar un canvi"
 
 #. Resource IDs: (IDS_PROC_RELOCATING)
 msgid "Relocating..."
@@ -9785,7 +9785,7 @@ msgstr "Mostra etiquetes a les fonts de la còpia, no com a nodes separats"
 msgid ""
 "Show the &diff\n"
 "The diff viewer is started for every selected item."
-msgstr ""
+msgstr "Mostra la &diferència\nEl visualitzador de diferències s'inicia per cada element seleccionat."
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_SHOWCOL)
 msgid "Show/Hide"
@@ -11912,7 +11912,7 @@ msgstr "Còpia de treball"
 msgid ""
 "Working copy relocated to\n"
 "%ls"
-msgstr "Còpia de treball tornada a situar a\n%ls"
+msgstr "S'ha traslladat la còpia de treball a\n%ls"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEWC_LINE)
 #, c-format
