@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2016 - TortoiseSVN
+// Copyright (C) 2010-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -442,11 +442,7 @@ void ShellCache::ExcludeContextValid()
 
 void ShellCache::ValidatePathFilter()
 {
-    if (RefreshIfNeeded())
-    {
-        Locker lock(m_critSec);
-        pathFilter.Refresh();
-    }
+    RefreshIfNeeded();
 }
 
 // construct \ref data content
