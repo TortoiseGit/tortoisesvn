@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2015 - TortoiseSVN
+// Copyright (C) 2007-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -213,8 +213,10 @@ HRESULT SubWCRev::GetWCInfoInternal(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL f
     char *wc_utf8 = Utf16ToUtf8((WCHAR*)wcPath, pool);
     const char * internalpath = svn_path_internal_style (wc_utf8, pool);
 
+    apr_hash_t * config = nullptr;;
+    svn_config_get_config(&(config), nullptr, pool);
     svn_client_ctx_t * ctx;
-    svn_client_create_context2(&ctx, NULL, pool);
+    svn_client_create_context2(&ctx, config, pool);
 
     svn_error_t * svnerr = nullptr;
     const char *wcroot;
