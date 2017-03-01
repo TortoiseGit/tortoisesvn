@@ -24,6 +24,7 @@
 ShellCache::ShellCache()
 {
     cachetype = CRegStdDWORD(L"Software\\TortoiseSVN\\CacheType", GetSystemMetrics(SM_REMOTESESSION) ? dll : exe, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    onlynonelevated = CRegStdDWORD(L"Software\\TortoiseSVN\\ShowOverlaysOnlyNonElevated", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     showrecursive = CRegStdDWORD(L"Software\\TortoiseSVN\\RecursiveOverlay", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     folderoverlay = CRegStdDWORD(L"Software\\TortoiseSVN\\FolderOverlay", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     driveremote = CRegStdDWORD(L"Software\\TortoiseSVN\\DriveMaskRemote", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
@@ -83,6 +84,21 @@ ShellCache::ShellCache()
         RegCloseKey(m_hNotifyRegKey);
         m_hNotifyRegKey = 0;
     }
+
+    // find out if we're elevated
+    isElevated = false;
+    HANDLE hToken = NULL;
+    if (::OpenProcessToken(::GetCurrentProcess(), TOKEN_QUERY, &hToken))
+    {
+        TOKEN_ELEVATION te = { 0 };
+        DWORD dwReturnLength = 0;
+
+        if (::GetTokenInformation(hToken, TokenElevation, &te, sizeof(te), &dwReturnLength))
+        {
+            isElevated = (te.TokenIsElevated != 0);
+        }
+        ::CloseHandle(hToken);
+    }
 }
 
 ShellCache::~ShellCache()
@@ -114,6 +130,7 @@ bool ShellCache::RefreshIfNeeded()
     }
 
     cachetype.read();
+    onlynonelevated.read();
     showrecursive.read();
     folderoverlay.read();
     driveremote.read();
@@ -174,6 +191,17 @@ unsigned __int64 ShellCache::GetMenuMask()
     unsigned __int64 temp = unsigned __int64(high) << 32;
     temp |= unsigned __int64(low);
     return temp;
+}
+
+bool ShellCache::IsProcessElevated()
+{
+    return isElevated;
+}
+
+BOOL ShellCache::IsOnlyNonElevated()
+{
+    RefreshIfNeeded();
+    return (onlynonelevated);
 }
 
 BOOL ShellCache::IsRecursive()
