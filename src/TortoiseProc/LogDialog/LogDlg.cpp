@@ -9677,7 +9677,26 @@ LRESULT CLogDlg::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     SetUUIDOverlayIcon(m_hWnd);
     if (m_bMonitoringMode)
+    {
         RefreshMonitorProjTree();
+        // find the first project with unread items
+        HTREEITEM hUnreadItem = nullptr;
+        RecurseMonitorTree(TVI_ROOT, [ & ](HTREEITEM hItem)->bool
+        {
+            MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+            if (pItem->UnreadItems)
+            {
+                hUnreadItem = hItem;
+                return true;
+            }
+            return false;
+        });
+        if (hUnreadItem)
+        {
+            m_projTree.SelectItem(hUnreadItem);
+            MonitorShowProject(hUnreadItem, nullptr);
+        }
+    }
     return 0;
 }
 
