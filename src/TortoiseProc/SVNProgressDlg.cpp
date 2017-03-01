@@ -1200,10 +1200,10 @@ bool CSVNProgressDlg::SetBackgroundImage(UINT nID)
 void CSVNProgressDlg::ReportSVNError()
 {
     ReportError(GetLastErrorMessage());
-    auto Err = GetSVNError();
-    if (Err)
+    auto err = GetSVNError();
+    if (err)
     {
-        switch (Err->apr_err)
+        switch (err->apr_err)
         {
             case SVN_ERR_RA_NOT_AUTHORIZED:
             case SVN_ERR_RA_DAV_FORBIDDEN:
