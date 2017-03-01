@@ -8945,6 +8945,12 @@ void CLogDlg::OnMonitorThreadFinished()
                     pItem->lastErrorMsg = item.lastErrorMsg;
                     pItem->root = item.root;
                     pItem->uuid = item.uuid;
+                    if (hItem == m_projTree.GetSelectedItem())
+                    {
+                        // refresh the current view
+                        LRESULT lresult = 0;
+                        MonitorShowProject(hItem, &lresult);
+                    }
                 }
                 if (pItem->lastcheckedrobots != item.lastcheckedrobots)
                 {
