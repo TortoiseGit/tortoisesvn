@@ -1,7 +1,7 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2016 - TortoiseGit
-// Copyright (C) 2011-2014, 2016 - TortoiseSVN
+// Copyright (C) 2011-2014, 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,6 +26,12 @@
 #include <Shobjidl.h>
 #include "SmartHandle.h"
 #include <atlbase.h>
+
+#pragma warning(push)
+#pragma warning(disable: 4458)
+#include <GdiPlus.h>
+#pragma warning(pop)
+#pragma comment(lib, "gdiplus.lib")
 
 #define APPID (L"TSVN.TSVN.1")
 
@@ -124,26 +130,112 @@ void SetUUIDOverlayIcon( HWND hWnd )
         CRegStdString r = CRegStdString(L"Software\\TortoiseSVN\\LastUsedUUIDsForGrouping\\1");
         r.removeKey();
     }
+    auto iconWidth = GetSystemMetrics(SM_CXSMICON);
+    auto iconHeight = GetSystemMetrics(SM_CYSMICON);
 
-    DWORD colors[6] = { 0x80FF0000, 0x80FFFF00, 0x8000FF00, 0x800000FF, 0x80000000, 0x8000FFFF };
+    DWORD colors[6] = { 0x80FF0000, 0xB0FFFF00, 0x8000FF00, 0x800000FF, 0x80000000, 0xB000FFFF };
 
-    // AND mask - monochrome - determines which pixels get drawn
-    BYTE AND[32];
-    for (int i = 0; i<32; i++)
+    ICONINFO IconInfo;
+    auto hScreenDC = GetDC(NULL);
+    auto hdc = CreateCompatibleDC(hScreenDC);
+
+    IconInfo.hbmColor = CreateCompatibleBitmap(hScreenDC, iconWidth, iconHeight);
+    IconInfo.hbmMask = CreateCompatibleBitmap(hdc, iconWidth, iconHeight);
+    IconInfo.fIcon = TRUE;
+    ReleaseDC(NULL, hScreenDC);
+
+    Gdiplus::SolidBrush black(Gdiplus::Color(0));
+    // draw the icon mask, to get correct transparancy
+    auto hOldBM = SelectObject(hdc, IconInfo.hbmMask);
+    PatBlt(hdc, 0, 0, iconWidth, iconHeight, WHITENESS);
     {
-        AND[i] = 0xFF;
+        Gdiplus::Graphics gmask(hdc);
+        switch ((foundUUIDIndex / 6) % 4)
+        {
+            case 0:
+            gmask.FillEllipse(&black, 0, 0, iconWidth, iconHeight);
+            break;
+            case 1:
+            {
+                Gdiplus::Point pts[4];
+                pts[0] = { iconWidth / 2,0 };
+                pts[1] = { 0,iconHeight / 2 };
+                pts[2] = { iconWidth / 2,iconHeight };
+                pts[3] = { iconWidth,iconHeight / 2 };
+                gmask.FillPolygon(&black, pts, 4);
+            }
+            break;
+            case 2:
+            {
+                Gdiplus::Point pts[3];
+                pts[0] = { iconWidth / 2,0 };
+                pts[1] = { 0,iconHeight };
+                pts[2] = { iconWidth,iconHeight };
+                gmask.FillPolygon(&black, pts, 3);
+            }
+            break;
+            case 3:
+            {
+                Gdiplus::Point pts[3];
+                pts[0] = { 0,0 };
+                pts[1] = { iconWidth, 0 };
+                pts[2] = { iconWidth / 2,iconHeight };
+                gmask.FillPolygon(&black, pts, 3);
+            }
+            break;
+        }
     }
 
-    // XOR mask - 32bpp ARGB - determines the pixel values
-    DWORD XOR[256];
-    for (int i = 0; i<256; i++)
+    // draw the icon itself
+    SelectObject(hdc, IconInfo.hbmColor);
     {
-        XOR[i] = colors[foundUUIDIndex % 6];
+        Gdiplus::Graphics g(hdc);
+        g.FillRectangle(&black, 0, 0, iconWidth, iconHeight);
+        Gdiplus::SolidBrush brush(Gdiplus::Color((Gdiplus::ARGB)colors[foundUUIDIndex % 6]));
+        switch ((foundUUIDIndex / 6) % 4)
+        {
+            case 0:
+            g.FillEllipse(&brush, 0, 0, iconWidth, iconHeight);
+            break;
+            case 1:
+            {
+                Gdiplus::Point pts[4];
+                pts[0] = { iconWidth / 2,0 };
+                pts[1] = { 0,iconHeight / 2 };
+                pts[2] = { iconWidth / 2,iconHeight };
+                pts[3] = { iconWidth,iconHeight / 2 };
+                g.FillPolygon(&brush, pts, 4);
+            }
+            break;
+            case 2:
+            {
+                Gdiplus::Point pts[3];
+                pts[0] = { iconWidth / 2,0 };
+                pts[1] = { 0,iconHeight };
+                pts[2] = { iconWidth,iconHeight };
+                g.FillPolygon(&brush, pts, 3);
+            }
+            break;
+            case 3:
+            {
+                Gdiplus::Point pts[3];
+                pts[0] = { 0,0 };
+                pts[1] = { iconWidth, 0 };
+                pts[2] = { iconWidth/2,iconHeight };
+                g.FillPolygon(&brush, pts, 3);
+            }
+            break;
+        }
     }
 
-    int iconWidth = GetSystemMetrics(SM_CXSMICON);
-    int iconHeight = GetSystemMetrics(SM_CYSMICON);
-    HICON icon = ::CreateIcon(nullptr, iconWidth, iconHeight, 1, 32, AND, (BYTE*)XOR);
-    pTaskbarInterface->SetOverlayIcon(hWnd, icon, uuid.c_str());
-    DestroyIcon(icon);
+    SelectObject(hdc, hOldBM);
+    DeleteDC(hdc);
+
+    auto hIcon = CreateIconIndirect(&IconInfo);
+
+    DeleteObject(IconInfo.hbmColor);
+    DeleteObject(IconInfo.hbmMask);
+
+    pTaskbarInterface->SetOverlayIcon(hWnd, hIcon, uuid.c_str());
+    DestroyIcon(hIcon);
 }
