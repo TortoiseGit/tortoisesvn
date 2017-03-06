@@ -18,12 +18,13 @@
 # 藤本理弘 <mfujimot@gmail.com>, 2012-2013
 # 藤本理弘 <mfujimot@gmail.com>, 2016-2017
 # 大川剛 <tu44okawa3@gmail.com>, 2016
+# 藤本理弘 <mfujimot@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-02-22 06:03+0000\n"
+"PO-Revision-Date: 2017-03-04 10:28+0000\n"
 "Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -4204,7 +4205,7 @@ msgid ""
 "Developer B now has to decide whether to go with developer A's "
 "reorganisation and merge her changes into the corresponding file in the new "
 "structure, or simply revert A's changes and keep the local file."
-msgstr "開発者Ｂは今回、開発者Ａの再配置を受け入れ、変更を移動先のファイルにマージするか、開発者Ａの変更を取り消し、ローカルのファイルを保持するかを決めねばなりません。"
+msgstr "開発者Ｂは、開発者Ａの再配置を受け入れて変更を移動先のファイルにマージするか、開発者Ａの変更を取り消してローカルのファイルを保持するかを決めなければならなくなります。"
 
 #. (para)
 msgid ""
@@ -4213,7 +4214,7 @@ msgid ""
 "renamed/moved in the repository. This can be done by using the log dialog. "
 "Then use the button which shows the correct source file to resolve the "
 "conflict."
-msgstr ""
+msgstr "彼女の移動を伴うローカルの変更をマージするには、開発者Ｂは競合ファイル<filename>Foo.c</filename>がリポジトリで何というファイル名に名前変更または移動されたかを調べなければなりません。これはマージ元のダイアログで行うことができます。それから、正しいソースを表すボタンを使用して、競合を解決します。"
 
 #. (para)
 msgid ""
@@ -4222,7 +4223,7 @@ msgid ""
 "This marks the conflicted file/folder as resolved, but Developer A's changes"
 " need to be removed by hand. Again the log dialog helps to track down what "
 "was moved."
-msgstr "開発者Ａの変更は誤りだと開発者Ｂが判断した場合は、競合の編集ダイアログの <guilabel>解決済みとする</guilabel> ボタンを選択します。これは競合したファイルやフォルダーを、解決済みとしてマークしますが、開発者Ａの変更は手作業で削除する必要があります。何が移動されたかを見つけ出すには、またログダイアログが役に立ちます。"
+msgstr "開発者Ａの変更は誤りだと開発者Ｂが判断した場合は、競合の編集ダイアログの<guilabel>解決済みとする</guilabel>ボタンを選択します。これは競合したファイルやフォルダーを、解決済みとしてマークしますが、開発者Ａの変更は手作業で削除する必要があります。何が移動されたかを見つけ出すには、またログダイアログが役に立ちます。"
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -9869,7 +9870,7 @@ msgid ""
 "The text in the conflict resolver dialogs are provided by the SVN library "
 "and might therefore not (yet) be translated as the TortoiseSVN dialogs are. "
 "Sorry for that."
-msgstr ""
+msgstr "競合の解決ダイアログの文字列はSVNライブラリによって提供されているため、（まだ）TortoiseSVNのダイアログのようには翻訳することができません。申し訳ありません。"
 
 #. (title)
 msgid "The Merge Conflict Callback Dialog"
@@ -9894,13 +9895,13 @@ msgstr "リポジトリにコミット済みの他の変更と、ローカルで
 
 #. (term)
 msgid "Postpone"
-msgstr ""
+msgstr "後で"
 
 #. (para)
 msgid ""
 "Don't deal with the conflict now. Let the merge continue and resolve the "
 "conflicts after the merge is done."
-msgstr ""
+msgstr "今は競合について何もしません。マージを続行し、完了後に競合を解決します。"
 
 #. (term)
 msgid "Accept base"
@@ -9993,7 +9994,7 @@ msgstr ""
 
 #. (title)
 msgid "The Merge Tree Conflict Callback Dialog"
-msgstr ""
+msgstr "ツリー競合の解決ダイアログ"
 
 #. (para)
 msgid ""
@@ -13393,6 +13394,15 @@ msgid ""
 "<emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show "
 "overlays and context menu only in explorer</guilabel> box."
 msgstr "デフォルトでは、ファイルを開く・保存ダイアログでも、Windows エクスプローラーと同様に、オーバレイアイコンやコンテキストメニューが表示されます。 Windows エクスプローラーで <emphasis>のみ</emphasis> 表示させる場合は、<guilabel>エクスプローラー上でのみオーバーレイとコンテキストメニューを表示</guilabel>をチェックしてください。"
+
+#. (para)
+msgid ""
+"You can force the status cache to <emphasis>None</emphasis> for elevated "
+"processes by checking the <guilabel>Disable status cache for elevated "
+"processes</guilabel> box. This is useful if you want to prevent another "
+"<filename>TSVNCache.exe</filename> process getting created with elevated "
+"privileges."
+msgstr ""
 
 #. (para)
 msgid ""

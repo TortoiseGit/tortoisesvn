@@ -29,13 +29,14 @@
 # 大川剛 <tu44okawa3@gmail.com>, 2016
 # Yoshitaka Yamashita <drum@magic-touch.org>, 2013
 # youten, 2011
+# 藤本理弘 <mfujimot@gmail.com>, 2017
 # carrotsoft <www.carrotsoft@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-02-22 06:01+0000\n"
+"PO-Revision-Date: 2017-03-04 06:47+0000\n"
 "Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -1476,6 +1477,10 @@ msgstr "解決(&R)\n項目は解決済みとしてマークされます。"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
 msgstr "デフォルトに戻す(&R)"
+
+#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
+msgid "&Retry as different user"
+msgstr "他のユーザーとして再試行(&R)"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1542,
 #. IDS_MSGBOX_RETRYWITHOUTHOOKS)
@@ -4296,6 +4301,10 @@ msgstr "ディレクトリ"
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 65535)
 msgid "Directory:"
 msgstr "ディレクトリ:"
+
+#. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1529)
+msgid "Disable status cache for elevated processes"
+msgstr ""
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_FORCE_TT)
 msgid "Discards local changes upon incoming deletes"
@@ -11713,6 +11722,10 @@ msgstr "ユーザー名:"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Users to ignore:"
 msgstr "無視するユーザー:"
+
+#. Resource IDs: (IDS_SETTINGS_ONLYNONELEVATED_TT)
+msgid "Uses the status cache type 'none' for elevated processes"
+msgstr ""
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""

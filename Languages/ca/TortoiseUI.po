@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-02-17 23:01+0000\n"
+"PO-Revision-Date: 2017-03-02 23:13+0000\n"
 "Last-Translator: Joan Monguillot <jmonguillot@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/luebbe/tortoisesvn/language/ca/)\n"
 "MIME-Version: 1.0\n"
@@ -1462,6 +1462,10 @@ msgstr "&Resol\nL'element s'ha marcat com a resolt."
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
 msgstr "&Restaura valor per defecte"
+
+#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
+msgid "&Retry as different user"
+msgstr "&Torna-ho a provar amb un usuari diferent"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1542,
 #. IDS_MSGBOX_RETRYWITHOUTHOOKS)
@@ -4282,6 +4286,10 @@ msgstr "Directoris"
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 65535)
 msgid "Directory:"
 msgstr "Directori:"
+
+#. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1529)
+msgid "Disable status cache for elevated processes"
+msgstr "Desactivar memòria cau d'estat per als processos elevats"
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_FORCE_TT)
 msgid "Discards local changes upon incoming deletes"
@@ -11699,6 +11707,10 @@ msgstr "Nom d'usuari"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Users to ignore:"
 msgstr "Usuaris per ignorar:"
+
+#. Resource IDs: (IDS_SETTINGS_ONLYNONELEVATED_TT)
+msgid "Uses the status cache type 'none' for elevated processes"
+msgstr "Utilitza el tipus 'cap' de memòria cau d'estat per als processos elevats"
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""

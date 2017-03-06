@@ -11,8 +11,8 @@
 # Authors:
 # Translators:
 # Alexander Shchekaturov <shcham@gmail.com>, 2013
-# Arkady Shapkin <arkadiy_s@inbox.ru>, 2011
-# Arkady Shapkin <arkadiy_s@inbox.ru>, 2011,2014
+# Arkady “KindDragon” Shapkin <arkadiy_s@inbox.ru>, 2011
+# Arkady “KindDragon” Shapkin <arkadiy_s@inbox.ru>, 2011,2014
 # _deniska <denis_levin@mail.ru>, 2011,2013
 # _deniska <denis_levin@mail.ru>, 2013
 # Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
@@ -38,7 +38,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-02-11 08:14+0000\n"
+"PO-Revision-Date: 2017-03-02 09:56+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -1479,6 +1479,10 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
 msgstr "Восстановить ис&ходные"
+
+#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
+msgid "&Retry as different user"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1542,
 #. IDS_MSGBOX_RETRYWITHOUTHOOKS)
@@ -4299,6 +4303,10 @@ msgstr "Папки"
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 65535)
 msgid "Directory:"
 msgstr "Папка:"
+
+#. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1529)
+msgid "Disable status cache for elevated processes"
+msgstr ""
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_FORCE_TT)
 msgid "Discards local changes upon incoming deletes"
@@ -11716,6 +11724,10 @@ msgstr "Имя пользователя:"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Users to ignore:"
 msgstr "Игнорируемые пользователи:"
+
+#. Resource IDs: (IDS_SETTINGS_ONLYNONELEVATED_TT)
+msgid "Uses the status cache type 'none' for elevated processes"
+msgstr ""
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""

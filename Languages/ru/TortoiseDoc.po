@@ -10,8 +10,8 @@
 # 
 # Authors:
 # Translators:
-# Arkady Shapkin <arkadiy_s@inbox.ru>, 2011
-# Arkady Shapkin <arkadiy_s@inbox.ru>, 2011,2014
+# Arkady “KindDragon” Shapkin <arkadiy_s@inbox.ru>, 2011
+# Arkady “KindDragon” Shapkin <arkadiy_s@inbox.ru>, 2011,2014
 # _deniska <denis_levin@mail.ru>, 2012-2013
 # _deniska <denis_levin@mail.ru>, 2013
 # _deniska <denis_levin@mail.ru>, 2012
@@ -34,7 +34,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-02-11 09:03+0000\n"
+"PO-Revision-Date: 2017-03-02 08:32+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -13404,6 +13404,15 @@ msgid ""
 "<emphasis>only</emphasis> in Windows Explorer, check the <guilabel>Show "
 "overlays and context menu only in explorer</guilabel> box."
 msgstr "По умолчанию, пометки на значках и контекстное меню появляются не только в Проводнике, но и во всех диалогах открытия/сохранения. Если вы желаете, чтобы они появлялись <emphasis>только</emphasis> в Проводнике, отметьте флажок <guilabel>Показывать пометки и контекстное меню только в проводнике</guilabel>."
+
+#. (para)
+msgid ""
+"You can force the status cache to <emphasis>None</emphasis> for elevated "
+"processes by checking the <guilabel>Disable status cache for elevated "
+"processes</guilabel> box. This is useful if you want to prevent another "
+"<filename>TSVNCache.exe</filename> process getting created with elevated "
+"privileges."
+msgstr ""
 
 #. (para)
 msgid ""
