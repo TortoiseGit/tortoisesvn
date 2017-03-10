@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -5648,7 +5648,7 @@ bool CBaseView::Search(SearchDirection srchDir, bool useStart, bool flashIfNotFo
                 if (flashIfNotFound)
                 {
                     CString message;
-                    message.Format(IDS_FIND_NOTFOUND, m_sFindText);
+                    message.Format(IDS_FIND_NOTFOUND, (LPCWSTR)m_sFindText);
                     if (m_pFindDialog)
                         m_pFindDialog->SetStatusText(message, RGB(255, 0, 0));
                     ::MessageBeep(0xFFFFFFFF);

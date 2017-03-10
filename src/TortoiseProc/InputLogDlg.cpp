@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -493,7 +493,7 @@ void CInputLogDlg::OnComError( HRESULT hr )
 {
     COMError ce(hr);
     CString sErr;
-    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
+    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, (LPCWSTR)m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
     ::MessageBox(m_hWnd, sErr, L"TortoiseSVN", MB_ICONERROR);
 }
 

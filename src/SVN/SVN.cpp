@@ -3061,7 +3061,7 @@ svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
     }
 
     CString sFormatErr;
-    sFormatErr.FormatMessage(IDS_ERR_SVNFORMATEXCEPTION, CUnicodeUtils::GetUnicode(file), line, CUnicodeUtils::GetUnicode(expr));
+    sFormatErr.FormatMessage(IDS_ERR_SVNFORMATEXCEPTION, (LPCWSTR)CUnicodeUtils::GetUnicode(file), line, (LPCWSTR)CUnicodeUtils::GetUnicode(expr));
     ::MessageBox(NULL, sFormatErr, L"Subversion Exception!", MB_ICONERROR);
     if (CRegDWORD(L"Software\\TortoiseSVN\\Debug", FALSE)==FALSE)
     {

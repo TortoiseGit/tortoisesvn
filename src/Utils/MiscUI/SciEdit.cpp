@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 // Copyright (C) 2015-2017 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -1234,7 +1234,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         if (!bIsReadOnly && (sWord.GetLength() < PDICT_MAX_WORD_LENGTH) && ((m_autolist.find(sWord) == m_autolist.end()) && (IsMisspelled(sWord))) &&
             (!_istdigit(sWord.GetAt(0)))&&(!m_personalDict.FindWord(sWord)))
         {
-            sMenuItemText.Format(IDS_SCIEDIT_ADDWORD, sWord);
+            sMenuItemText.Format(IDS_SCIEDIT_ADDWORD, (LPCWSTR)sWord);
             popup.AppendMenu(uEnabledMenu, SCI_ADDWORD, sMenuItemText);
             // another separator
             popup.AppendMenu(MF_SEPARATOR);

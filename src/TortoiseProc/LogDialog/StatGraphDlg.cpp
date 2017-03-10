@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -950,11 +950,11 @@ void CStatGraphDlg::ShowStats()
         nWeeks = 1;
     // Adjust the labels with the unit type (week, month, ...)
     CString labelText;
-    labelText.Format(IDS_STATGRAPH_NUMBEROFUNIT, GetUnitsString());
+    labelText.Format(IDS_STATGRAPH_NUMBEROFUNIT, (LPCWSTR)GetUnitsString());
     SetDlgItemText(IDC_NUMWEEK, labelText);
-    labelText.Format(IDS_STATGRAPH_COMMITSBYUNIT, GetUnitString());
+    labelText.Format(IDS_STATGRAPH_COMMITSBYUNIT, (LPCWSTR)GetUnitString());
     SetDlgItemText(IDC_COMMITSEACHWEEK, labelText);
-    labelText.Format(IDS_STATGRAPH_FILECHANGESBYUNIT, GetUnitString());
+    labelText.Format(IDS_STATGRAPH_FILECHANGESBYUNIT, (LPCWSTR)GetUnitString());
     SetDlgItemText(IDC_FILECHANGESEACHWEEK, labelText);
     // We have now all data we want and we can fill in the labels...
     CString number;
@@ -1428,7 +1428,7 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
                         }
                         else
                         {
-                            sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, CPathUtils::GetFileExtFromPath(sFilename));
+                            sErrormessage.Format(IDS_REVGRAPH_ERR_NOENCODER, (LPCWSTR)CPathUtils::GetFileExtFromPath(sFilename));
                         }
                     }
                     else

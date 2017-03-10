@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009, 2011, 2014-2016 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009, 2011, 2014-2017 - TortoiseSVN
 // Copyright (C) 2013 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -72,14 +72,14 @@ BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
         if (sVal == NULL)
         {
             std::wstring Key(sArg);
-            std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
+            std::transform(Key.begin(), Key.end(), Key.begin(), ::towlower);
             m_valueMap.insert(CValsMap::value_type(Key, sEmpty));
             break;
         }
         else
         {
             std::wstring Key(sArg, (int)(sVal - sArg));
-            std::transform(Key.begin(), Key.end(), Key.begin(), ::tolower);
+            std::transform(Key.begin(), Key.end(), Key.begin(), ::towlower);
 
             LPCWSTR sQuote(NULL), sEndQuote(NULL);
             if (sVal[0] != 0)
@@ -155,7 +155,7 @@ BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
 CCmdLineParser::CValsMap::const_iterator CCmdLineParser::findKey(LPCWSTR sKey) const
 {
     std::wstring s(sKey);
-    std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+    std::transform(s.begin(), s.end(), s.begin(), ::towlower);
     return m_valueMap.find(s);
 }
 

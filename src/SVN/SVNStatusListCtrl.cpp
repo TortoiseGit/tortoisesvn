@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3794,7 +3794,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             CString targetpath = saveplace + L"\\" + entry2->GetRelativeSVNPath(true);
                             targetpath.Replace('/', '\\');
                             progress.FormatPathLine(1, IDS_SVNPROGRESS_EXPORTING, entry2->GetPath().GetWinPath());
-                            progress.FormatPathLine(2, IDS_SVNPROGRESS_EXPORTINGTO, targetpath);
+                            progress.FormatPathLine(2, IDS_SVNPROGRESS_EXPORTINGTO, (LPCWSTR)targetpath);
                             progress.SetProgress64(count, total);
                             CPathUtils::FileCopy(entry2->GetPath().GetWinPath(), targetpath);
                         }

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -153,7 +153,7 @@ bool IsTaggedVersion(const char * url)
     }
 
     tstring urllower = Utf8ToWide(url);
-    std::transform(urllower.begin(), urllower.end(), urllower.begin(), tolower);
+    std::transform(urllower.begin(), urllower.end(), urllower.begin(), ::towlower);
 
     // look for the tag pattern inside in the url
     tstring sTags = regTagsPattern;

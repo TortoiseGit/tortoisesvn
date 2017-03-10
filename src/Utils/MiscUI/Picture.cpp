@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -177,7 +177,7 @@ bool CPicture::Load(tstring sFilePathName)
         // the image format is "icon" or not, we also check the
         // file extension for ".ico".
         auto lowerfilename = sFilePathName;
-        std::transform(lowerfilename.begin(), lowerfilename.end(), lowerfilename.begin(), ::tolower);
+        std::transform(lowerfilename.begin(), lowerfilename.end(), lowerfilename.begin(), ::towlower);
         bIsIcon = (guid == ImageFormatIcon) || (wcsstr(lowerfilename.c_str(), L".ico") != NULL) || (wcsstr(lowerfilename.c_str(), L".cur") != NULL);
         bIsTiff = (guid == ImageFormatTIFF) || (wcsstr(lowerfilename.c_str(), L".tiff") != NULL);
         m_Name = sFilePathName;

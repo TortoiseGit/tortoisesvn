@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013, 2016 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013, 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -73,7 +73,7 @@ BOOL CEditPropKeywords::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     std::transform(m_PropValue.begin(), m_PropValue.end(), m_PropValue.begin(),
-                   [](char c) { return std::tolower(c); });
+                   [](wint_t i) { return (char)towlower(i); });
 
     if ((m_PropValue.find("author") != std::string::npos) ||
         (m_PropValue.find("lastchangedby") != std::string::npos))

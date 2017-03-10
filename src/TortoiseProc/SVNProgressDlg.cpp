@@ -324,7 +324,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data = new NotificationData();
                 data->bAuxItem = true;
                 data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
-                data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, SVNStatus::GetDepthString(m_depth));
+                data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, (LPCWSTR)SVNStatus::GetDepthString(m_depth));
                 data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
                 PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
                 m_bWarningShown = true;
@@ -429,7 +429,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             data = new NotificationData();
             data->bAuxItem = true;
             data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
-            data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, SVNStatus::GetDepthString(m_depth));
+            data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, (LPCWSTR)SVNStatus::GetDepthString(m_depth));
             data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
             PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
 
@@ -1394,7 +1394,7 @@ UINT CSVNProgressDlg::ProgressThread()
     {
         CTimeSpan time = CTime::GetCurrentTime() - startTime;
         temp.FormatMessage(IDS_PROGRS_TIME, (LONG)time.GetTotalMinutes(), (LONG)time.GetSeconds());
-        sFinalInfo.FormatMessage(IDS_PROGRS_FINALINFO, m_sTotalBytesTransferred, (LPCTSTR)temp);
+        sFinalInfo.FormatMessage(IDS_PROGRS_FINALINFO, (LPCWSTR)m_sTotalBytesTransferred, (LPCTSTR)temp);
         SetDlgItemText(IDC_PROGRESSLABEL, sFinalInfo);
     }
     else
@@ -3225,8 +3225,8 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             (LPCTSTR)sReportUrl,
             m_targetPathList[0].GetWinPath(),
             (m_options & ProgOptIgnoreAncestry) ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-            (m_options & ProgOptDryRun) ? ((LPCTSTR)L", " + sDryRun) : L"",
-            (m_options & ProgOptForce) ? ((LPCTSTR)L", " + sForce) : L"");
+            (m_options & ProgOptDryRun) ? (LPCTSTR)(L", " + sDryRun) : L"",
+            (m_options & ProgOptForce) ? (LPCTSTR)(L", " + sForce) : L"");
         ReportCmd(sCmdInfo);
 
         SVNRev firstRevOfRange;
@@ -3263,8 +3263,8 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             (LPCTSTR)m_url2.GetSVNPathString(), (LPCTSTR)m_RevisionEnd.ToString(),
             m_targetPathList[0].GetWinPath(),
             (m_options & ProgOptIgnoreAncestry) ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-            (m_options & ProgOptDryRun) ? ((LPCTSTR)L", " + sDryRun) : L"",
-            (m_options & ProgOptForce) ? ((LPCTSTR)L", " + sForce) : L"");
+            (m_options & ProgOptDryRun) ? (LPCTSTR)(L", " + sDryRun) : L"",
+            (m_options & ProgOptForce) ? (LPCTSTR)(L", " + sForce) : L"");
         ReportCmd(sCmdInfo);
 
         if (!Merge(m_url, m_Revision, m_url2, m_RevisionEnd, m_targetPathList[0],
@@ -3317,7 +3317,7 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
         (LPCTSTR)suggestedSources[0].GetSVNPathString(),
         m_targetPathList[0].GetWinPath(),
         (m_options & ProgOptIgnoreAncestry) ? (LPCTSTR)sIgnoreAncestry : (LPCTSTR)sRespectAncestry,
-        (m_options & ProgOptForce) ? ((LPCTSTR)L", " + sForce) : L"");
+        (m_options & ProgOptForce) ? (LPCTSTR)(L", " + sForce) : L"");
     ReportCmd(sCmdInfo);
 
     GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);

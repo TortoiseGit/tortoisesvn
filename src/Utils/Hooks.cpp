@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016 - TortoiseSVN
+// Copyright (C) 2007-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -880,7 +880,7 @@ bool CHooks::ApproveHook( HWND hWnd, hookiterator it )
         return it->second.bApproved;
 
     CString sQuestion;
-    sQuestion.Format(IDS_HOOKS_APPROVE_TASK1, it->second.commandline);
+    sQuestion.Format(IDS_HOOKS_APPROVE_TASK1, (LPCWSTR)it->second.commandline);
     bool bApproved = false;
     bool bDoNotAskAgain = false;
     CTaskDialog taskdlg(sQuestion,

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012, 2014-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -203,7 +203,7 @@ void CLogCacheStatistics::CollectData (const CCachedLogInfo& source)
         = (revision_t) (  source.revisions.indices.size()
                         - std::count ( source.revisions.indices.begin()
                                      , source.revisions.indices.end()
-                                     , NO_INDEX));
+                                     , (index_t)NO_INDEX));
     maxRevision = source.revisions.GetLastCachedRevision()-1;
 
     // container sizes

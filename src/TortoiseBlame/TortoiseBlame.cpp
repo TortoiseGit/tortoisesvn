@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -750,7 +750,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
         tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
         if (!bCaseSensitive)
         {
-            std::transform(sLine.begin(), sLine.end(), sLine.begin(), ::tolower);
+            std::transform(sLine.begin(), sLine.end(), sLine.begin(), ::towlower);
         }
         swprintf_s(buf, L"%ld", m_revs[i]);
         if (m_authors[i].compare(sWhat)==0)
@@ -778,7 +778,7 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
             tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
             if (!bCaseSensitive)
             {
-                std::transform(sLine.begin(), sLine.end(), sLine.begin(), ::tolower);
+                std::transform(sLine.begin(), sLine.end(), sLine.begin(), ::towlower);
             }
             swprintf_s(buf, L"%ld", m_revs[i]);
             if (m_authors[i].compare(sWhat)==0)

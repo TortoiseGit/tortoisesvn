@@ -1,7 +1,7 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2003-2011, 2013-2017 - TortoiseSVN
 // Copyright (C) 2016 - TortoiseGit
-// Copyright (C) 2003-2011, 2013-2016 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -798,32 +798,32 @@ public:
     {
         CString longline = L"this is a test of how a string can be splitted into several lines";
         CString splittedline = CStringUtils::WordWrap(longline, 10, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
         splittedline = CStringUtils::LinesWrap(longline, 10, true);
-        ATLTRACE(L"LinesWrap:\n%s\n", splittedline);
+        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
         longline = L"c:\\this_is_a_very_long\\path_on_windows and of course some other words added to make the line longer";
         splittedline = CStringUtils::WordWrap(longline, 10, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
         splittedline = CStringUtils::LinesWrap(longline, 10);
-        ATLTRACE(L"LinesWrap:\n%s\n", splittedline);
+        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
         longline = L"Forced failure in https://myserver.com/a_long_url_to_split PROPFIND error";
         splittedline = CStringUtils::WordWrap(longline, 20, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
         splittedline = CStringUtils::LinesWrap(longline, 20, true);
-        ATLTRACE(L"LinesWrap:\n%s\n", splittedline);
+        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
         longline = L"Forced\nfailure in https://myserver.com/a_long_url_to_split PROPFIND\nerror";
         splittedline = CStringUtils::WordWrap(longline, 40, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
         splittedline = CStringUtils::LinesWrap(longline, 40);
-        ATLTRACE(L"LinesWrap:\n%s\n", splittedline);
+        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
         longline = L"Failed to add file\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO1.java\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO2.java";
         splittedline = CStringUtils::WordWrap(longline, 80, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
         splittedline = CStringUtils::LinesWrap(longline);
-        ATLTRACE(L"LinesWrap:\n%s\n", splittedline);
+        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
         longline = L"The commit comment is not properly formatted.\nFormat:\n  Field 1 : Field 2 : Field 3\nWhere:\nField 1 - Team Name|Triage|Merge|Goal\nField 2 - V1 Backlog Item ID|Triage Number|SVNBranch|Goal Name\nField 3 - Description of change\nExamples:\n\nTeam Gamma : B-12345 : Changed some code\n  Triage : 123 : Fixed production release bug\n  Merge : sprint0812 : Merged sprint0812 into prod\n  Goal : Implement Pre-Commit Hook : Commit message hook impl";
         splittedline = CStringUtils::LinesWrap(longline, 80);
-        ATLTRACE(L"LinesWrap:\n%s\n", splittedline);
+        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
         CString widecrypt = CStringUtils::Encrypt(L"test");
         auto wide = CStringUtils::Decrypt(widecrypt);
         ATLASSERT(wcscmp(wide.get(), L"test") == 0);

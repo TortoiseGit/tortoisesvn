@@ -1189,7 +1189,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
     if ((m_startrev > m_head)&&(m_head > 0))
     {
         CString sTemp;
-        sTemp.FormatMessage(IDS_ERR_NOSUCHREVISION, m_startrev.ToString());
+        sTemp.FormatMessage(IDS_ERR_NOSUCHREVISION, (LPCWSTR)m_startrev.ToString());
         m_LogList.ShowText(sTemp, true);
         return;
     }
@@ -8615,7 +8615,7 @@ void CLogDlg::MonitorThread()
         if ((item.lastchecked + (max(item.minminutesinterval, item.interval) * 60)) < currenttime)
         {
             CString sCheckInfo;
-            sCheckInfo.Format(IDS_MONITOR_CHECKPROJECT, item.Name);
+            sCheckInfo.Format(IDS_MONITOR_CHECKPROJECT, (LPCWSTR)item.Name);
             if (!m_bCancelled)
                 SetDlgItemText(IDC_LOGINFO, sCheckInfo);
             svn.SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
