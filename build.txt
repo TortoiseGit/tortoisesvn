@@ -19,7 +19,7 @@ You need to perform most steps only once.
 
 \subsection Requirements1 First, you need to install the compiler package.
 
--# You need VS2015 to allow building of the full TortoiseSVN package.
+-# You need VS2017 to allow building of the full TortoiseSVN package.
    If you don't have Visual Studio yet, you can download and install
    the community edition for free. Make sure to leave the checkbox for
    "Microsoft Foundation library" checked in the first installer dialog.
@@ -73,7 +73,7 @@ Now you're almost ready. Only a few more steps to do:
 \section build32 Building 32 bit packages
 
   Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
-  file which is located in \%VS140COMNTOOLS%.
+  file which is located in C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build.
 
   Now, if you got some time left you can run the build script to compile
   TortoiseSVN. Grab a cup of coffee, depending on how fast your computer is!
@@ -112,8 +112,8 @@ Now you're almost ready. Only a few more steps to do:
 
   First, we build some 32-bit SVN utilities you will need later
   during the build process. Follow the instructions above or just
-  open "Microsoft Visual Studio 2015" -> "Visual Studio Tools" ->
-  "Visual Studio 2015 Command Prompt", change to the TortoiseSVN source
+  open "Microsoft Visual Studio 2017" -> "Visual Studio Tools" ->
+  "Visual Studio 2017 Command Prompt", change to the TortoiseSVN source
   directory and run
 
 \verbatim
@@ -121,8 +121,8 @@ Now you're almost ready. Only a few more steps to do:
 \endverbatim
 
   Now, build the x64 packages: Open
-  "Microsoft Visual Studio 2015" -> "Visual Studio Tools" ->
-  "Visual Studio 2015 x64 Cross Tools Command Prompt", change to the
+  "Microsoft Visual Studio 2017" -> "Visual Studio Tools" ->
+  "Visual Studio 2017 x64 Cross Tools Command Prompt", change to the
   TortoiseSVN source directory and run
 
 \verbatim
@@ -134,8 +134,8 @@ Now you're almost ready. Only a few more steps to do:
 \section build64 Building 64 bit packages on x64
 
   To build native packages on your 64 bit Windows, just open
-  "Microsoft Visual Studio 2015" -> "Visual Studio Tools" ->
-  "Visual Studio 2015 Win64 Command Prompt", change to the
+  "Microsoft Visual Studio 2017" -> "Visual Studio Tools" ->
+  "Visual Studio 2017 Win64 Command Prompt", change to the
   TortoiseSVN source directory and run
   
   Note that to build the x64 msi file, you also have to build the
