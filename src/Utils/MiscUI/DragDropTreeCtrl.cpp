@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015 - TortoiseSVN
+// Copyright (C) 2014-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -122,9 +122,7 @@ void CDragDropTreeCtrl::OnMouseMove(UINT nFlags, CPoint point)
 
         // Modify the cursor to provide visual feedback to the user.
         // Note: It's important to do this AFTER the call to DragMove.
-        ::SetCursor(hItem == NULL ?
-                    AfxGetApp()->LoadStandardCursor(IDC_NO) :
-                    (HCURSOR) ::GetClassLongPtr(m_hWnd, GCLP_HCURSOR));
+        ::SetCursor((HCURSOR) ::GetClassLongPtr(m_hWnd, GCLP_HCURSOR));
 
         // Set a timer if the cursor is at the top or bottom of the window,
         // or if it's over a collapsed item.
@@ -165,7 +163,7 @@ void CDragDropTreeCtrl::OnLButtonUp(UINT nFlags, CPoint point)
         UINT nHitFlags;
         HTREEITEM hItem = HitTest(point, &nHitFlags);
         if (hItem == NULL)
-            return;
+            hItem = TVI_ROOT;
 
         if (hItem == m_hDragItem)
             return;
