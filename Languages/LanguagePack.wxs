@@ -3,9 +3,11 @@
   <?if $(env.Platform) = "x64" ?>
   <?define Win64YesNo="yes" ?>
   <?define PackagePlatforms="x64" ?>
+  <?define ReleasePath="Release64" ?>
   <?else?>
   <?define Win64YesNo="no" ?>
   <?define PackagePlatforms="x86" ?>
+  <?define ReleasePath="Release" ?>
   <?endif?>
 
   <Product
@@ -33,7 +35,8 @@
     <Property Id="WIXUI_INSTALLDIR" Secure="yes" Value="INSTALLDIR" />
 
     <Property Id="ALLUSERS" Secure="yes">1</Property>
-
+    <Property Id="COUNTRYID" Value="$COUNTRYID$" />
+    
     <?if $(env.Platform) = "win32" ?>
     <Condition Message="You are attempting to run the 32-bit installer on a 64-bit version of Windows. Please install the 64-bit version of the TortoiseSVN language pack instead.">NOT Msix64</Condition>
     <?endif ?>
@@ -42,6 +45,9 @@
       <RegistrySearch Id="TSVNInstallationDir" Root="HKLM" Key="Software\[Manufacturer]" Name="Directory" Type="raw" Win64="$(var.Win64YesNo)"/>
     </Property>
     <Condition Message="TortoiseSVN is not installed. Please install TortoiseSVN before installing the language pack">INSTALLDIR</Condition>
+
+    <CustomAction Id="SetLanguage" BinaryKey="CustomActionsDLL" DllEntry="SetLanguage" />
+    <Binary Id="CustomActionsDLL" SourceFile="..\bin\$(var.ReleasePath)\bin\CustomActions.dll" />
 
     <Directory Id='TARGETDIR' Name='SourceDir'>
       <Directory Id='ProgramFilesFolder' Name='PFiles'>
@@ -98,7 +104,13 @@
     <WixVariable Id="WixUIBannerBmp" Value="Banner.jpg" />
     <WixVariable Id="WixUIDialogBmp" Value="Dialog.jpg" />
 
-
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Configure TortoiseSVN to use this language" />
+    <UI>
+      <Publish Dialog="ExitDialog"
+                  Control="Finish"
+                  Event="DoAction"
+                  Value="SetLanguage">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+    </UI>
 
     <InstallExecuteSequence>
       <!-- These 'Suppress' statements prevent the installer from getting
