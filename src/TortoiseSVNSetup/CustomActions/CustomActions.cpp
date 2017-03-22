@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2012-2014 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2012-2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 */
 
 #include <windows.h>
-#include <tchar.h>
 #include <msi.h>
 #include <msiquery.h>
 #include <shlwapi.h>
@@ -80,5 +79,15 @@ UINT __stdcall OpenDonatePage(MSIHANDLE /*hModule*/)
 UINT __stdcall MsgBox(MSIHANDLE /*hModule*/)
 {
     MessageBox(NULL, L"CustomAction \"MsgBox\" running", L"Installer", MB_ICONINFORMATION);
+    return ERROR_SUCCESS;
+}
+
+UINT __stdcall SetLanguage(MSIHANDLE hModule)
+{
+    wchar_t codebuf[30] = { 0 };
+    DWORD count = _countof(codebuf);
+    MsiGetProperty(hModule, L"COUNTRYID", codebuf, &count);
+    DWORD lang = _wtol(codebuf);
+    SHRegSetUSValue(L"Software\\TortoiseSVN", L"LanguageID", REG_DWORD, &lang, sizeof(DWORD), SHREGSET_FORCE_HKCU);
     return ERROR_SUCCESS;
 }
