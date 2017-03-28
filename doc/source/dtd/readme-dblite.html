@@ -48,9 +48,9 @@ body {
 <a href="#section-12">12. See Also...</a>
 <br>
 </div>
-  
 
-  
+
+
 
 
 
@@ -101,14 +101,14 @@ well-formed has syntax or other kinds of errors that need to be fixed
 before the document can be processed.
     </p>
 
-    
+
       <p>
 The rules for a well-formed XML document differ from those of
 HTML pages. HTML is less strict with syntax, and most browser will not
 complain about poor style or errors. However, XML is much less
 forgiving, so be warned.
       </p>
-    
+
 
     <p>
 DocBook Lite adds another level of control to the document. It
@@ -133,12 +133,12 @@ read a document and list errors for you. We use nsgmls to validate
 books.
     </p>
 
-    
+
       <p>
 <tt>nsgmls</tt> is written and maintained by James Clark
 and is available for free from <a href="http://www.jclark.com/sp/nsgmls.htm">his web page</a>.
       </p>
-    
+
   </div>
 
 
@@ -203,20 +203,20 @@ later on. For example, consider the inline markup for a Web address,
 or URL. In print, a URL appears in italic like this:
     </p>
 
-    
+
       <p>
 For more information, you <em>really</em> ought to
 check out the W3C's website at
 <em>http://www.w3.org/</em>.
       </p>
-    
+
 
     <p>
 The correct way to mark up this passage is like this:
     </p>
 
     <div class="programlisting">
-<pre>&lt;para&gt;For more information, you &lt;emphasis&gt;really&lt;/emphasis&gt; 
+<pre>&lt;para&gt;For more information, you &lt;emphasis&gt;really&lt;/emphasis&gt;
 ought to check out the W3C's website at &lt;systemitem
 class="url"&gt;http://www.w3.org/&lt;/systemitem&gt;.&lt;/para&gt;</pre>
 </div>
@@ -225,7 +225,7 @@ class="url"&gt;http://www.w3.org/&lt;/systemitem&gt;.&lt;/para&gt;</pre>
 This is called semantic markup because the
 "really" and the URL are labelled according to their meaning, not
 their appearance. The next snippet shows the incorrect, presentational
-markup: 
+markup:
     </p>
 
     <div class="programlisting">
@@ -311,7 +311,7 @@ ch<i>xx</i>.xml, where
 <i>xx</i> is the number of the chapter (e.g. 01,
 04, 11)
           </p>
-        </td> 
+        </td>
         <td>
           <p>
 Contains a chapter.
@@ -406,7 +406,7 @@ each for the copyright page and colophon. Note that the part files do
 not contain the chapters, even though the
 <tt>&lt;part&gt;</tt> elements logically contain
 <tt>&lt;chapter&gt;</tt>s.
-    </p> 
+    </p>
   </div>
 
 
@@ -440,7 +440,7 @@ divisions or block elements. We will look at top-level containers
 
       <p>
 To facilitate cross references, you should use IDs in major
-hierarchical elements such as sections, chapters, and appendixes. 
+hierarchical elements such as sections, chapters, and appendixes.
 For example, a chapter might have an ID like this:
       </p>
 
@@ -448,13 +448,13 @@ For example, a chapter might have an ID like this:
 <pre>&lt;chapter id="intro-chapter"&gt;</pre>
 </div>
 
-      <p> 
+      <p>
 Technically, the only requirement for an ID attribute is that it be
 unique, since in XML no two elements can have the same ID attribute.
 However, we ask that you use attribute names that are easy to read
 and indicate the type of element and its subject.  For example,
 <tt>id="shapes-section"</tt> is better than
-<tt>id="A6-4.2"</tt>.  
+<tt>id="A6-4.2"</tt>.
       </p>
 
       <p>
@@ -575,7 +575,7 @@ references for book files are listed in order at the bottom.
         <h4 class="exampletitle">Example 1. Contents of <i>book.xml</i>
 </h4>
         <div class="programlisting">
-<pre>&lt;!DOCTYPE book PUBLIC 
+<pre>&lt;!DOCTYPE book PUBLIC
     "-//ORA//DBLITE 1.1//EN" "/usr/local/prod/sgml/dblite/new.dtd"
 [
 
@@ -614,7 +614,7 @@ references for book files are listed in order at the bottom.
 
   &lt;bookinfo&gt;
 
-      &lt;!-- Marketing information and metadata, 
+      &lt;!-- Marketing information and metadata,
               to be filled out in production. --&gt;
 
   &lt;/bookinfo&gt;
@@ -631,7 +631,7 @@ references for book files are listed in order at the bottom.
 </div>
       </div>
 
-      
+
         <p>
 In this example, none of the external entity references for chapters
 and appendixes appear in <i>book.xml</i>. We will see
@@ -639,7 +639,7 @@ later that the chapters and appendixes are references only inside the
 files for the parts in which they belong, to maintain the proper
 hierarchy.
         </p>
-      
+
     </div>
 
     <a name="section-1.3"></a>
@@ -851,7 +851,7 @@ containing the term being defined, and an optional (if there is a
 see-also, for example) <tt>&lt;glossdef&gt;</tt>, containing
 the definition. It can also contain any number of
 <tt>&lt;glosssee&gt;</tt> and
-<tt>&lt;glossseealso&gt;</tt> elements, which redirect the 
+<tt>&lt;glossseealso&gt;</tt> elements, which redirect the
 reader's attention to another term. Stylistically, a
 <tt>&lt;glossentry&gt;</tt> should not contain both a
 <tt>&lt;glossdef&gt;</tt> and
@@ -950,8 +950,8 @@ elements with examples:
         <td>Paragraph.</td>
         <td>
           <div class="programlisting">
-<pre>&lt;para&gt;The quick, brown fox jumped over the lazy 
-dog. The quick, brown fox jumped over the lazy dog. 
+<pre>&lt;para&gt;The quick, brown fox jumped over the lazy
+dog. The quick, brown fox jumped over the lazy dog.
 The quick, brown fox jumped over the lazy dog.&lt;/para&gt;</pre>
 </div>
         </td>
@@ -972,7 +972,7 @@ The quick, brown fox jumped over the lazy dog.&lt;/para&gt;</pre>
         <td>
           <p>
 Comment that is not meant for the audience, and outside of the
-flow of text. Usually, a communication between the author, editor, 
+flow of text. Usually, a communication between the author, editor,
 reviewers, copyeditors, etc.
           </p>
         </td>
@@ -990,12 +990,12 @@ and needs more examples. [Ellen]&lt;/remark&gt;</pre>
         <td>
           <div class="programlisting">
 <pre>&lt;blockquote&gt;
-  &lt;para&gt;"They who can give up essential 
-  liberty to purchase a little temporary 
-  safety, deserve neither liberty nor safety," 
+  &lt;para&gt;"They who can give up essential
+  liberty to purchase a little temporary
+  safety, deserve neither liberty nor safety,"
   spat Ben Franklin.&lt;/para&gt;
   &lt;para&gt;"Yes," replied Mark Twain, "but
-  loyalty to petrified opinion never broke a 
+  loyalty to petrified opinion never broke a
   chain or freed a human soul."&lt;/para&gt;
 &lt;/blockquote&gt;</pre>
 </div>
@@ -1049,10 +1049,10 @@ A list that contains terms and their definitions.
 <pre>&lt;variablelist&gt;
   &lt;varlistentry&gt;&lt;term&gt;Snickers&lt;/term&gt;
   &lt;listitem&gt;&lt;para&gt;Peanuts in nougat
-    covered in chocolate.&lt;/para&gt;&lt;/listitem&gt;&lt;/varlistentry&gt; 
+    covered in chocolate.&lt;/para&gt;&lt;/listitem&gt;&lt;/varlistentry&gt;
   &lt;varlistentry&gt;&lt;term&gt;Payday&lt;/term&gt;
-  &lt;listitem&gt;&lt;para&gt;A peanut cluster cemented with caramel and 
-    delicious sticky stuff.&lt;/para&gt;&lt;/listitem&gt;&lt;/varlistentry&gt; 
+  &lt;listitem&gt;&lt;para&gt;A peanut cluster cemented with caramel and
+    delicious sticky stuff.&lt;/para&gt;&lt;/listitem&gt;&lt;/varlistentry&gt;
 &lt;/variablelist&gt;</pre>
 </div>
         </td>
@@ -1068,7 +1068,7 @@ other formatting must be preserved.
         </td>
         <td>
           <div class="programlisting">
-<pre>&lt;programlisting&gt;public void init(ServletConfig config) 
+<pre>&lt;programlisting&gt;public void init(ServletConfig config)
                                      throws ServletException {
   super.init(config);
   String greeting = getInitParameter("greeting");
@@ -1104,14 +1104,14 @@ drwxrwxr-x 2 jwizda ora   512 Aug 10 14:22 RCS/
           <p>
 Traditional text with special linebreaks to be preserved.
           </p>
-        </td> 
+        </td>
         <td>
           <div class="programlisting">
-<pre>&lt;literallayout&gt;to be yourself, in a world that 
-     tries,           night and day,       to make you 
-just like everybody else, is to fight 
- the greatest battle there ever is 
- to fight,                and never stop fighting   
+<pre>&lt;literallayout&gt;to be yourself, in a world that
+     tries,           night and day,       to make you
+just like everybody else, is to fight
+ the greatest battle there ever is
+ to fight,                and never stop fighting
    e. e. cummings&lt;/literallayout&gt;</pre>
 </div>
         </td>
@@ -1141,18 +1141,18 @@ A graphic with a title.
 title. (Use an &lt;informalexample&gt; if you don't need a
 title.)
           </p>
-        </td> 
+        </td>
         <td>
           <div class="programlisting">
 <pre>&lt;example id="BAZ-CH-14-EX-5"&gt;
-  &lt;title&gt;Contents of the file 
+  &lt;title&gt;Contents of the file
     &lt;filename&gt;blather.cfg&lt;/filename&gt;&lt;/title&gt;
-  &lt;programlisting&gt;CATS	= -c/usr/local/prod/sgml/CATALOG
-DSLCAT	= -c/usr/local/sp/dsssl/catalog
-DECL	= /usr/local/sp/pubtext/xml.dcl
+  &lt;programlisting&gt;CATS    = -c/usr/local/prod/sgml/CATALOG
+DSLCAT  = -c/usr/local/sp/dsssl/catalog
+DECL    = /usr/local/sp/pubtext/xml.dcl
 SRCHURL = xsrch.htm
-STYLE	= dbwrap.dsl
-VALOPTS	= -sv -wxml&lt;/programlisting&gt;
+STYLE   = dbwrap.dsl
+VALOPTS = -sv -wxml&lt;/programlisting&gt;
 &lt;/example&gt;</pre>
 </div>
         </td>
@@ -1219,7 +1219,7 @@ Mark text as being an acronym.
           <div class="programlisting">
 <pre>&lt;acronym&gt;ASCII&lt;/acronym&gt;</pre>
 </div>
-        </td> 
+        </td>
       </tr>
 
       <tr>
@@ -1228,7 +1228,7 @@ Mark text as being an acronym.
           <p>
 A user interface action like a mouse click.
           </p>
-        </td> 
+        </td>
         <td>
           <div class="programlisting">
 <pre>Click &lt;action&gt;mouse
@@ -1248,7 +1248,7 @@ The name of a computer software program.</p>
 <pre>We can convert any document written in
 &lt;application&lt;Microsoft Word&lt;/application&gt;.</pre>
 </div>
-        </td> 
+        </td>
       </tr>
 
       <tr>
@@ -1260,7 +1260,7 @@ The source of a quote or piece of information.
         </td>
         <td>
           <div class="programlisting">
-<pre>&lt;citation&gt;Bill Gates&lt;/citation&gt; 
+<pre>&lt;citation&gt;Bill Gates&lt;/citation&gt;
 once said &lt;quote&gt;256 kB of RAM ought to be good enough
 for anybody.&lt;/quote&gt;</pre>
 </div>
@@ -1288,7 +1288,7 @@ The name of a book or article.
 An identifier for a class in some programming
 language.
           </p>
-        </td> 
+        </td>
         <td>
           <div class="programlisting">
 <pre>The &lt;classname&gt;string&lt;/class&gt;
@@ -1317,7 +1317,7 @@ Any command one would type in a computer terminal.
         </td>
         <td>
           <div class="programlisting">
-<pre>To print the file to screen, use the 
+<pre>To print the file to screen, use the
 &lt;command&gt;lpr&lt;/command&gt; command.</pre>
 </div>
         </td>
@@ -1335,7 +1335,7 @@ Text that would be output by a computer program.
 <pre>When we run the script we get the result
 &lt;computeroutput&gt;file not found&lt;/computeroutput&gt;.</pre>
 </div>
-        </td> 
+        </td>
       </tr>
 
       <tr>
@@ -1413,7 +1413,7 @@ is someone born to a wizard family but who can't do magic.</pre>
         <td>Words from another language.</td>
         <td>
           <div class="programlisting">
-<pre>There's nothing wrong with borrowing code 
+<pre>There's nothing wrong with borrowing code
 &lt;foreignphrase&gt;per se&lt;foreignphrase&gt;.</pre>
 </div>
         </td>
@@ -1432,7 +1432,7 @@ definition.
           <div class="programlisting">
 <pre>The Eiffel Tower is huge&lt;footnote id="ABC-CH-4-FN-2"&gt;
 &lt;para&gt;Although, compared to a breadbox, any
-building is huge.&lt;/para&gt;&lt;/footnote&gt;. So is a redwood 
+building is huge.&lt;/para&gt;&lt;/footnote&gt;. So is a redwood
 tree&lt;footnoteref linkend="ABC-CH-4-FN-2"&gt;.</pre>
 </div>
         </td>
@@ -1444,14 +1444,14 @@ tree&lt;footnoteref linkend="ABC-CH-4-FN-2"&gt;.</pre>
           <p>
 An icon or picture to be imported into the document.
           </p>
-        </td> 
+        </td>
         <td>
           <div class="programlisting">
-<pre>Examples marked with a disk icon 
+<pre>Examples marked with a disk icon
 &lt;graphic fileref="figs/icon.eps"&gt; are on
 the companion disk.</pre>
 </div>
-        </td> 
+        </td>
       </tr>
 
       <tr>
@@ -1480,7 +1480,7 @@ A clickable control (e.g. a button) in a graphical interface.
         <td>
 <div class="programlisting">
 <pre>Select the
-&lt;guibutton&gt;print&lt;guibutton&gt; button to get 
+&lt;guibutton&gt;print&lt;guibutton&gt; button to get
 hardcopy.</pre>
 </div>
         </td>
@@ -1495,7 +1495,7 @@ A menu or submenu in a graphical interface.
         </td>
         <td>
           <div class="programlisting">
-<pre>Close the program by selecting 
+<pre>Close the program by selecting
 &lt;guimenuitem&gt;exit&lt;/guimenuitem&gt; from the
 &lt;guimenu&gt;file&lt;/guimenu&gt; menu.</pre>
 </div>
@@ -1511,7 +1511,7 @@ An item in a menu or submenu in a graphical interface.
         </td>
         <td>
           <div class="programlisting">
-<pre>Close the program by selecting 
+<pre>Close the program by selecting
 &lt;guimenuitem&gt;exit&lt;/guimenuitem&gt; from the
 &lt;guimenu&gt;file&lt;/guimenu&gt; menu.</pre>
 </div>
@@ -1566,7 +1566,7 @@ script, which should be formatted in constant width.
         </td>
         <td>
           <div class="programlisting">
-<pre>If the parameter's value is 
+<pre>If the parameter's value is
 &lt;literal&gt;YELLOW&lt;/literal&gt; your subroutine will
 explode.</pre>
 </div>
@@ -1583,7 +1583,7 @@ program, or function.
         </td>
         <td>
           <div class="programlisting">
-<pre>The command synopsis is 
+<pre>The command synopsis is
 &lt;command&gt;rm &lt;option&gt;-i&lt;/option&gt; *.txt&lt;/command&gt;.</pre>
 </div>
         </td>
@@ -1598,8 +1598,8 @@ Designates some text as an optional item.
         </td>
         <td>
           <div class="programlisting">
-<pre>The stylesheet specification is optional: 
-&lt;command&gt;formatfiles &lt;optional&gt;stylesheet&lt;/optional&gt; 
+<pre>The stylesheet specification is optional:
+&lt;command&gt;formatfiles &lt;optional&gt;stylesheet&lt;/optional&gt;
 in.xml&lt;command&gt;.</pre>
 </div>
         </td>
@@ -1630,7 +1630,7 @@ function, there is only one parameter,
         </td>
         <td>
           <div class="programlisting">
-<pre>At the prompt 
+<pre>At the prompt
 &lt;prompt&gt;Data?&lt;/prompt&gt;, type in your age in
 hexadecimal.</pre>
 </div>
@@ -1646,8 +1646,8 @@ Quoted text.
         </td>
         <td>
           <div class="programlisting">
-<pre>Our motto is 
-&lt;foreignphrase&gt;Caveat Emptor&lt;/foreignphrase&gt;, 
+<pre>Our motto is
+&lt;foreignphrase&gt;Caveat Emptor&lt;/foreignphrase&gt;,
 which means &lt;quote&gt;we hope you like it!&lt;/quote&gt;</pre>
 </div>
         </td>
@@ -1665,7 +1665,7 @@ Marks the data as a replaceable item, a value to be filled in.
 <pre>...where &lt;replaceable&gt;w&lt;/replaceable&gt;
 is the width.</pre>
 </div>
-        </td> 
+        </td>
       </tr>
 
       <tr>
@@ -1722,7 +1722,7 @@ The name of a data structure.
         </td>
         <td>
           <div class="programlisting">
-<pre>To add a record, we must create a new 
+<pre>To add a record, we must create a new
 &lt;structname&gt;PartStruct&lt;/structname&gt;.</pre>
 </div>
         </td>
@@ -1755,7 +1755,7 @@ above the midline).
         </td>
         <td>
           <div class="programlisting">
-<pre>Einstein revolutionized physics with 
+<pre>Einstein revolutionized physics with
 the simple equation E=MC&lt;superscript&gt;2&lt;/superscript&gt;</pre>
 </div>
         </td>
@@ -1782,12 +1782,12 @@ Designates data as a special item having to do with
 computers or networks. Most common use is to encode a
 URL.
           </p>
-        </td> 
+        </td>
         <td>
           <div class="programlisting">
 <pre>&lt;systemitem class="url"&gt;http://www.oreilly.com&lt;/systemitem&gt;</pre>
 </div>
-        </td> 
+        </td>
       </tr>
 
       <tr>
@@ -1797,7 +1797,7 @@ URL.
         </td>
         <td>
           <div class="programlisting">
-<pre>The function returns a value of type 
+<pre>The function returns a value of type
 &lt;type&gt;boolean&lt;/type&gt;.</pre>
 </div>
         </td>
@@ -1809,7 +1809,7 @@ URL.
           <p>
 Text entered by a human into a computer terminal.
           </p>
-        </td> 
+        </td>
         <td>
           <div class="programlisting">
 <pre>At the command line, type
@@ -1825,7 +1825,7 @@ Text entered by a human into a computer terminal.
         </td>
         <td>
           <div class="programlisting">
-<pre>By &lt;wordasword&gt;snake&lt;/wordasword&gt;, 
+<pre>By &lt;wordasword&gt;snake&lt;/wordasword&gt;,
 I mean &lt;quote&gt;dirty, stinkin' varmint&lt;/quote&gt;.</pre>
 </div>
         </td>
@@ -2018,7 +2018,7 @@ inside program listings.
     <p>
 To create a term that spans a segment of text, you use two
 <tt>&lt;indexterm&gt;</tt> elements linked by an
-<tt>id</tt>-<tt>startref</tt> 
+<tt>id</tt>-<tt>startref</tt>
 attribute pair and <tt>class</tt> attributes. For
 example:
     </p>
@@ -2074,7 +2074,7 @@ level in the document underneath the chapter level. For example:
   &lt;title&gt;Bathyscaph Care and Maintenance&lt;/title&gt;
   &lt;para&gt;The hull of your submersible chamber is warranted
   for seven years against seal ruptures and corrosion of fittings.
-  With proper care, you can extend the usable lifetime 
+  With proper care, you can extend the usable lifetime
   considerably. Barnacles are the most common cause of
   metal fatigue and gasket deterioration (see the sidebar for
   tips in removing these pests).&lt;/para&gt;
@@ -2089,7 +2089,7 @@ level in the document underneath the chapter level. For example:
   &lt;/sidebar&gt;
   ...
 &lt;/sect2&gt;</pre>
-</div>  
+</div>
     </div>
 
 
@@ -2108,7 +2108,7 @@ an example:
       <div class="programlisting">
 <pre>&lt;caution&gt;
   &lt;para&gt;Make sure your craft has reached the surface
-  before unsealing the hatch. Otherwise, high-pressure 
+  before unsealing the hatch. Otherwise, high-pressure
   water will flood the compartment.&lt;/para&gt;
 &lt;/caution&gt;</pre>
 </div>
@@ -2131,7 +2131,7 @@ interrupts a paragraph. It can look a little odd:
       </p>
 
       <div class="programlisting">
-<pre>&lt;para&gt;When on Mars, be sure to 
+<pre>&lt;para&gt;When on Mars, be sure to
 visit the great volcano Olympus Mons&lt;footnote&gt;
   &lt;para&gt;It happens to be the tallest mountain in the Solar
   System, so bring your best hiking shoes.&lt;/para&gt;
@@ -2162,7 +2162,7 @@ it. The following example shows how:
       &lt;entry&gt;purple&lt;/entry&gt;
     &lt;/row&gt;
     &lt;row&gt;
-      &lt;entry&gt;orange&lt;footnoteref 
+      &lt;entry&gt;orange&lt;footnoteref
         linkend="warning"/&gt;&lt;/entry&gt;
       &lt;entry&gt;orange&lt;/entry&gt;
     &lt;/row&gt;
@@ -2183,7 +2183,7 @@ function. It also stores the body of the note elsewhere. For example:
       </p>
 
       <div class="programlisting">
-<pre>&lt;para&gt;We suspect that lightning often appears in hues other 
+<pre>&lt;para&gt;We suspect that lightning often appears in hues other
   than white. This hypothesis is supported by
   Dr. Indigo Riceway&lt;endnote linkend="note-riceway"/&gt;.&lt;/para&gt;
 ...
@@ -2240,10 +2240,10 @@ Java
 
       <p>
 Here are three examples of common reference pages used in DocBook Lite:
-      </p> 
+      </p>
 
       <div class="figure">
-        <h4 class="figuretitle">Figure 1. 
+        <h4 class="figuretitle">Figure 1.
 A refentry from <i>Samba</i>, Appendix C
         </h4>
         <image src="figs/ref1.gif"></image>
@@ -2265,7 +2265,7 @@ A refentry from <i>Samba</i>, Appendix C
    read-only if the owner can't write them. In Samba 1.9 and
    earlier, setting this option would set the DOS filesystem read-only
    attribute on any file the user couldn't read. This in turn
-   required the &lt;literal&gt;delete readonly&lt;/literal&gt; 
+   required the &lt;literal&gt;delete readonly&lt;/literal&gt;
    option.&lt;/para&gt;
   &lt;/refsynopsisdiv&gt;
 &lt;/refentry&gt;</pre>
@@ -2273,7 +2273,7 @@ A refentry from <i>Samba</i>, Appendix C
       </div>
 
       <div class="figure">
-        <h4 class="figuretitle">Figure 2. 
+        <h4 class="figuretitle">Figure 2.
 A refentry from <i>MySQL and mSQL</i>, Chapter 21
         </h4>
         <image src="figs/ref2.gif"></image>
@@ -2292,21 +2292,21 @@ A refentry from <i>MySQL and mSQL</i>, Chapter 21
  &lt;refsynopsisdiv&gt;
   &lt;synopsis&gt;$rows_affected  = $db-&amp;gt;do($statement);
 $rows_affected  = $db-&amp;gt;do($statement, \%unused);
-$rows_affected  = 
+$rows_affected  =
     $db-&amp;gt;do($statement, \%unused, @bind_values);&lt;/synopsis&gt;
   &lt;para&gt;&lt;literal&gt;DBI::do&lt;/literal&gt; directly performs a
-  non-&lt;literal&gt;SELECT&lt;/literal&gt; SQL statement and 
-  returns the number of rows affected by the statement. This is 
-  faster than a &lt;literal&gt;DBI::prepare/DBI::execute 
-  &lt;/literal&gt;pair which requires two function calls. The 
+  non-&lt;literal&gt;SELECT&lt;/literal&gt; SQL statement and
+  returns the number of rows affected by the statement. This is
+  faster than a &lt;literal&gt;DBI::prepare/DBI::execute
+  &lt;/literal&gt;pair which requires two function calls. The
   first argument is the SQL statement itself. The
-  second argument is unused in DBD::mSQL and DBD::mysql, 
-  but can hold a reference to a hash of attributes for other 
-  DBD modules. The final argument is an array of values used 
+  second argument is unused in DBD::mSQL and DBD::mysql,
+  but can hold a reference to a hash of attributes for other
+  DBD modules. The final argument is an array of values used
   to replace `placeholders,' which are indicated with a
   `?' in the statement. The values of the array are
   substituted for the placeholders from left to right. As an
-  additional bonus, &lt;literal&gt;DBI::do&lt;/literal&gt; will 
+  additional bonus, &lt;literal&gt;DBI::do&lt;/literal&gt; will
   automatically quote string values before substitution.&lt;/para&gt;
  &lt;/refsynopsisdiv&gt;
  &lt;refsect1&gt;
@@ -2314,13 +2314,13 @@ $rows_affected  =
   &lt;programlisting&gt;use DBI;
 my $db = DBI-&amp;gt;connect('DBI:mSQL:mydata',undef,undef);
 
-my $rows_affected = 
+my $rows_affected =
   $db-&amp;gt;do("UPDATE mytable SET name='Joe' WHERE name='Bob'");
 print "$rows_affected Joe's were changed to Bob's\n";
 
-my $rows_affected2 = 
+my $rows_affected2 =
   $db-&amp;gt;do("INSERT INTO mytable (name) VALUES (?)",
-				{}, ("Sheldon's Cycle"));
+                {}, ("Sheldon's Cycle"));
 # After quoting and substitution, the statement:
 # INSERT INTO mytable (name) VALUES ('Sheldon's Cycle')
 # was sent to the database server.&lt;/programlisting&gt;
@@ -2330,7 +2330,7 @@ my $rows_affected2 =
       </div>
 
       <div class="figure">
-        <h4 class="figuretitle">Figure 3. 
+        <h4 class="figuretitle">Figure 3.
 A refentry from <i>Apache: The Definitive Guide</i>,
 Chapter 14
         </h4>
@@ -2346,18 +2346,18 @@ Chapter 14
  &lt;/refmeta&gt;
  &lt;refnamediv&gt;
   &lt;refname&gt;ap_pstrndup&lt;/refname&gt;
-  &lt;refpurpose&gt;duplicate a string in a pool with 
+  &lt;refpurpose&gt;duplicate a string in a pool with
     limited length&lt;/refpurpose&gt;
  &lt;/refnamediv&gt;
  &lt;refsynopsisdiv&gt;
   &lt;synopsis&gt;
     char *ap_pstrndup(pool *p, const char *s, int n)&lt;/synopsis&gt;
-  &lt;para&gt;Allocates &lt;literal&gt;n&lt;/literal&gt;+1 bytes 
-  of memory and copies up to &lt;literal&gt;n&lt;/literal&gt; 
+  &lt;para&gt;Allocates &lt;literal&gt;n&lt;/literal&gt;+1 bytes
+  of memory and copies up to &lt;literal&gt;n&lt;/literal&gt;
   characters from &lt;literal&gt;s&lt;/literal&gt;,
-  &lt;literal&gt;NULL&lt;/literal&gt;- terminating the result. 
-  The memory is destroyed when the pool is destroyed. Returns 
-  a pointer to the new block of memory, or 
+  &lt;literal&gt;NULL&lt;/literal&gt;- terminating the result.
+  The memory is destroyed when the pool is destroyed. Returns
+  a pointer to the new block of memory, or
   &lt;literal&gt;NULL&lt;/literal&gt; if &lt;literal&gt;s&lt;/literal&gt;
   is &lt;literal&gt;NULL&lt;/literal&gt;.&lt;/para&gt;
  &lt;/refsynopsisdiv&gt;
@@ -2377,7 +2377,7 @@ looks like this:
       </p>
 
       <div class="figure">
-        <h4 class="figuretitle">Figure 1. 
+        <h4 class="figuretitle">Figure 1.
 A refentry from <i>Unix in a Nutshell</i>, Chapter 5
         </h4>
         <image src="figs/ref4.gif"></image>
@@ -2389,18 +2389,18 @@ A refentry from <i>Unix in a Nutshell</i>, Chapter 5
 <pre>&lt;nutlist longestterm="unseten"&gt;
 
  &lt;nutentry&gt;&lt;term&gt;alias&lt;/term&gt;
-  &lt;nutsynopsis&gt;&lt;literal&gt;alias&lt;/literal&gt; 
-  [&lt;replaceable&gt;name&lt;/replaceable&gt; 
+  &lt;nutsynopsis&gt;&lt;literal&gt;alias&lt;/literal&gt;
+  [&lt;replaceable&gt;name&lt;/replaceable&gt;
   [&lt;replaceable&gt;command&lt;/replaceable&gt;]]&lt;/nutsynopsis&gt;
   &lt;nutentrybody&gt;
-   &lt;para&gt;Assign &lt;emphasis&gt;name&lt;/emphasis&gt; 
-    as the shorthand name, or alias, for 
+   &lt;para&gt;Assign &lt;emphasis&gt;name&lt;/emphasis&gt;
+    as the shorthand name, or alias, for
     &lt;emphasis&gt;command&lt;/emphasis&gt;.  If
-    &lt;emphasis&gt;command&lt;/emphasis&gt; is omitted, print the 
-    alias for &lt;emphasis&gt;name&lt;/emphasis&gt;; 
+    &lt;emphasis&gt;command&lt;/emphasis&gt; is omitted, print the
+    alias for &lt;emphasis&gt;name&lt;/emphasis&gt;;
     if &lt;emphasis&gt;name&lt;/emphasis&gt; is also
     omitted, print all aliases.  Aliases can be defined on the command
-    line, but they are more often stored in 
+    line, but they are more often stored in
     &lt;literal&gt;.cshrc&lt;/literal&gt;
     so that they take effect after login.  (See [cross ref deleted]
     earlier in this chapter.)  Alias definitions can reference
@@ -2408,26 +2408,26 @@ A refentry from <i>Unix in a Nutshell</i>, Chapter 5
     &lt;literal&gt;\!*&lt;/literal&gt; to refer to all command-line
     arguments, &lt;literal&gt;\!^&lt;/literal&gt; for the first argument,
     &lt;literal&gt;\!$&lt;/literal&gt; for the last, etc.  An alias
-    &lt;emphasis&gt;name&lt;/emphasis&gt; can be any valid Unix 
-    command; however, you lose the original command's meaning unless 
-    you type &lt;emphasis&gt;\name&lt;/emphasis&gt;.  
+    &lt;emphasis&gt;name&lt;/emphasis&gt; can be any valid Unix
+    command; however, you lose the original command's meaning unless
+    you type &lt;emphasis&gt;\name&lt;/emphasis&gt;.
     See also &lt;emphasis
     role="bold"&gt;unalias&lt;/emphasis&gt;.&lt;/para&gt;
 
-    &lt;refsect2&gt;&lt;title&gt;Examples&lt;/title&gt; 
-    &lt;para&gt;Set the size for &lt;literal&gt;xterm&lt;/literal&gt; 
+    &lt;refsect2&gt;&lt;title&gt;Examples&lt;/title&gt;
+    &lt;para&gt;Set the size for &lt;literal&gt;xterm&lt;/literal&gt;
     windows under the X Window System:&lt;/para&gt;
-    &lt;programlisting&gt;alias R 'set noglob; eval `resize`; 
+    &lt;programlisting&gt;alias R 'set noglob; eval `resize`;
       unset noglob'&lt;/programlisting&gt;
     &lt;para&gt;Show aliases that contain the string
      &lt;emphasis&gt;ls&lt;/emphasis&gt;:&lt;/para&gt;
     &lt;programlisting&gt;alias | grep ls&lt;/programlisting&gt;
-    &lt;para&gt;Run &lt;literal&gt;nroff&lt;/literal&gt; 
+    &lt;para&gt;Run &lt;literal&gt;nroff&lt;/literal&gt;
     on all command-line arguments:&lt;/para&gt;
     &lt;programlisting&gt;alias ms 'nroff -ms \!*'&lt;/programlisting&gt;
     &lt;para&gt;Copy the file that is named as the first argument:&lt;/para&gt;
     &lt;programlisting&gt;alias back 'cp \!^ \!^.old'&lt;/programlisting&gt;
-    &lt;para&gt;Use the regular &lt;literal&gt;ls&lt;/literal&gt;, 
+    &lt;para&gt;Use the regular &lt;literal&gt;ls&lt;/literal&gt;,
     not its alias:&lt;/para&gt;
     &lt;programlisting&gt;% &lt;userinput&gt;\ls
       &lt;/userinput&gt;&lt;/programlisting&gt;
@@ -2451,7 +2451,7 @@ look:
       </p>
 
       <div class="figure">
-        <h4 class="figuretitle">Figure 1. 
+        <h4 class="figuretitle">Figure 1.
 A refentry from <i>Java Fundamental Classes in a
 Nutshell</i>, Chapter 32.
         </h4>
@@ -2461,7 +2461,7 @@ Nutshell</i>, Chapter 32.
       <div class="example">
         <h4 class="exampletitle">Example 1. How the above refentry is coded</h4>
         <div class="programlisting">
-<pre>&lt;refentry role="java" 
+<pre>&lt;refentry role="java"
     id="java.io.dataoutputstream"&gt;
  &lt;refmeta&gt;
   &lt;refmiscinfo class="version"&gt;Java 1.0&lt;/refmiscinfo&gt;
@@ -2474,11 +2474,11 @@ Nutshell</i>, Chapter 32.
 
  &lt;refsect1 role="intro"&gt;
   &lt;para&gt;This class is a subclass of
-   &lt;literal&gt;FilterOutputStream&lt;/literal&gt; that allows 
-   you to write Java primitive data types in a portable binary 
-   format. Create a &lt;literal&gt;DataOutputStream&lt;/literal&gt; 
-   by specifying the &lt;literal&gt;OutputStream&lt;/literal&gt; 
-   that is to be filtered in the call to the constructor. 
+   &lt;literal&gt;FilterOutputStream&lt;/literal&gt; that allows
+   you to write Java primitive data types in a portable binary
+   format. Create a &lt;literal&gt;DataOutputStream&lt;/literal&gt;
+   by specifying the &lt;literal&gt;OutputStream&lt;/literal&gt;
+   that is to be filtered in the call to the constructor.
    &lt;literal&gt;DataOutputStream&lt;/literal&gt; has methods
    that output only primitive types; use
    &lt;literal&gt;ObjectOutputStream&lt;/literal&gt; to output object
@@ -2489,9 +2489,9 @@ Nutshell</i>, Chapter 32.
   &lt;classsynopsis keyword="class"&gt;
    &lt;modifiers&gt;public&lt;/modifiers&gt;
    &lt;classname&gt;DataOutputStream&lt;/classname&gt;
-   &lt;extends&gt;&lt;classref package="java.io" 
+   &lt;extends&gt;&lt;classref package="java.io"
      class="FilterOutputStream"/&gt;&lt;/extends&gt;
-   &lt;implements&gt;&lt;classref 
+   &lt;implements&gt;&lt;classref
      package="java.io" class="DataOutput"/&gt;&lt;/implements&gt;
 
    &lt;members&gt;&lt;title&gt;Public Constructors&lt;/title&gt;
@@ -2501,7 +2501,7 @@ Nutshell</i>, Chapter 32.
        &lt;function&gt;DataOutputStream&lt;/function&gt;
       &lt;/funcdef&gt;
       &lt;paramdef&gt;
-       &lt;type&gt;&lt;classref role="includePkg" 
+       &lt;type&gt;&lt;classref role="includePkg"
          package="java.io" class="OutputStream"/&gt;&lt;/type&gt;
        &lt;parameter&gt;out&lt;/parameter&gt;
       &lt;/paramdef&gt;
@@ -2512,7 +2512,7 @@ Nutshell</i>, Chapter 32.
    &lt;members&gt;&lt;title&gt;Public Instance Methods&lt;/title&gt;
     &lt;membergroup&gt;
      &lt;funcprototype revision="" role="method" flags=""&gt;
-      &lt;funcdef&gt;&lt;modifiers&gt;public final&lt;/modifiers&gt; 
+      &lt;funcdef&gt;&lt;modifiers&gt;public final&lt;/modifiers&gt;
        &lt;type&gt;int&lt;/type&gt;
        &lt;function&gt;size&lt;/function&gt;
       &lt;/funcdef&gt;
@@ -2520,7 +2520,7 @@ Nutshell</i>, Chapter 32.
     &lt;/membergroup&gt;
    &lt;/members&gt;
 
-   &lt;members&gt;&lt;title&gt;Methods Implementing 
+   &lt;members&gt;&lt;title&gt;Methods Implementing
      &lt;classref package="java.io" class="DataOutput"/&gt;&lt;/title&gt;
     &lt;membergroup&gt;
      &lt;funcprototype revision="" role="method" flags=" synchronized"&gt;

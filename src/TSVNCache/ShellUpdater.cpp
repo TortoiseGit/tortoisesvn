@@ -124,7 +124,7 @@ void CShellUpdater::WorkerThread()
                     // Nothing left to do
                     break;
                 }
-                
+
                 if(InterlockedExchange(&m_bItemsAddedSinceLastUpdate, FALSE))
                 {
                     m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_pathsToUpdate.end());

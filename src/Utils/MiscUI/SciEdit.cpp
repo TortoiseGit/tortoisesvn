@@ -523,7 +523,7 @@ CString CSciEdit::GetWordUnderCursor(bool bSelectWord)
                 break;
             if (sRet[0] == styleindicator)
             {
-                ++textrange.chrg.cpMin; 
+                ++textrange.chrg.cpMin;
                 sRet = sRet.Right(sRet.GetLength() - 1);
             }
         }
