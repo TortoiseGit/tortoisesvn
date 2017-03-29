@@ -754,6 +754,8 @@ int _tmain(int argc, _TCHAR* argv[])
     SetDllDirectory(L"");
     CCrashReportTSVN crasher(L"SubWCRev " _T(APP_X64_STRING));
 
+    _setmode(_fileno(stdout), _O_U16TEXT);
+
     if (argc >= 2 && argc <= 5)
     {
         // WC path is always first argument.
