@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -325,6 +325,7 @@ private:
     CTSVNPath           m_redirectedUrl;
     CTSVNPath           m_wcPath;
     CString             m_selectedURLs; ///< only valid after <OK>
+    CString             m_initialFilename;
     bool                m_bThreadRunning;
     static const UINT   m_AfterInitMessage;
     bool                m_bFetchChildren;

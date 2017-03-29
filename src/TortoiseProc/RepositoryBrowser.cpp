@@ -645,7 +645,10 @@ void CRepositoryBrowser::InitRepo()
             {
                 // in case the url is not a valid directory, try the parent dir
                 // until there's no more parent dir
-                m_InitialUrl = m_InitialUrl.Left(m_InitialUrl.ReverseFind('/'));
+                auto lastSlashPos = m_InitialUrl.ReverseFind('/');
+                if (data && data->kind == svn_node_file)
+                    m_initialFilename = m_InitialUrl.Mid(lastSlashPos + 1);
+                m_InitialUrl = m_InitialUrl.Left(lastSlashPos);
                 if ((m_InitialUrl.Compare(L"http://") == 0) ||
                     (m_InitialUrl.Compare(L"http:/") == 0)||
                     (m_InitialUrl.Compare(L"https://") == 0)||
@@ -763,6 +766,18 @@ LRESULT CRepositoryBrowser::OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam
     m_barRepository.SetRevision (m_repository.revision);
     m_barRepository.ShowUrl (m_InitialUrl, m_repository.revision);
     ChangeToUrl (m_InitialUrl, m_repository.revision, true);
+    if (!m_initialFilename.IsEmpty())
+    {
+        auto count = m_RepoList.GetItemCount();
+        for (int i = 0; i < count; ++i)
+        {
+            if (m_initialFilename.Compare(m_RepoList.GetItemText(i, 0)) == 0)
+            {
+                m_RepoList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+                break;
+            }
+        }
+    }
     RefreshBookmarks();
 
     m_bInitDone = TRUE;
