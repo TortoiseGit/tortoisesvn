@@ -2,6 +2,8 @@ Version 1.9.6
 - BUG: Crash when applying a patch from a drive root. (Stefan)
 - BUG: SubWCRev did not account for global
        ignore patterns. (Stefan)
+- BUG: TortoiseMerge jumped to the wrong line on startup
+       if the view was collapsed. (Stefan)
 
 Version 1.9.5
 - BUG: The "go to next diff" in TortoiseMerge stopped at
