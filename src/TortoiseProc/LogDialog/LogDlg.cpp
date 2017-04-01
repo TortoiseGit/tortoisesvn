@@ -3990,11 +3990,12 @@ void CLogDlg::DoSizeV1(int delta)
 
     // set new sizes & positions
 
-    CSplitterControl::ChangeHeight(&m_LogList, delta, CW_TOPALIGN);
-    CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGVIEW), messageViewDelta, CW_TOPALIGN);
-    CSplitterControl::ChangePos(GetDlgItem(IDC_MSGVIEW), 0, delta);
-    CSplitterControl::ChangePos(GetDlgItem(IDC_SPLITTERBOTTOM), 0, -changeFileListDelta);
-    CSplitterControl::ChangeHeight(&m_ChangedFileListCtrl, changeFileListDelta, CW_BOTTOMALIGN);
+    auto hdwp = BeginDeferWindowPos(4);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_LogList, 0, 0, 0, delta);
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_MSGVIEW), 0, delta, 0, delta + messageViewDelta);
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_SPLITTERBOTTOM), 0, -changeFileListDelta, 0, -changeFileListDelta);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_ChangedFileListCtrl, 0, -changeFileListDelta, 0, 0);
+    EndDeferWindowPos(hdwp);
 
     AddMainAnchors();
     ArrangeLayout();
@@ -4021,14 +4022,12 @@ void CLogDlg::DoSizeV2(int delta)
     int logListDelta = delta - messageViewDelta;
 
     // set new sizes & positions
-
-    CSplitterControl::ChangeHeight(&m_LogList, logListDelta, CW_TOPALIGN);
-    CSplitterControl::ChangePos(GetDlgItem(IDC_SPLITTERTOP), 0, logListDelta);
-
-    CSplitterControl::ChangeHeight(GetDlgItem(IDC_MSGVIEW), messageViewDelta, CW_TOPALIGN);
-    CSplitterControl::ChangePos(GetDlgItem(IDC_MSGVIEW), 0, logListDelta);
-
-    CSplitterControl::ChangeHeight(&m_ChangedFileListCtrl, -delta, CW_BOTTOMALIGN);
+    auto hdwp = BeginDeferWindowPos(4);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_LogList, 0, 0, 0, logListDelta);
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_SPLITTERTOP), 0, logListDelta, 0, logListDelta);
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_MSGVIEW), 0, logListDelta, 0, logListDelta + messageViewDelta);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_ChangedFileListCtrl, 0, delta, 0, 0);
+    EndDeferWindowPos(hdwp);
 
     AddMainAnchors();
     ArrangeLayout();
@@ -4042,15 +4041,17 @@ void CLogDlg::DoSizeV3(int delta)
 {
     RemoveMainAnchors();
 
-    CSplitterControl::ChangeWidth(&m_projTree, delta, CW_LEFTALIGN);
-    CSplitterControl::ChangeWidth(&m_cFilter, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_LogList, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_wndSplitter1, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(GetDlgItem(IDC_MSGVIEW), -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_wndSplitter2, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_ChangedFileListCtrl, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_LogProgress, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(GetDlgItem(IDC_LOGINFO), -delta, CW_RIGHTALIGN);
+    auto hdwp = BeginDeferWindowPos(9);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_projTree, 0, 0, delta, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_cFilter, delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_LogList, delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_wndSplitter1, delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_MSGVIEW), delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_wndSplitter2, delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_ChangedFileListCtrl, delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_LogProgress, delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_LOGINFO), delta, 0, 0, 0);
+    EndDeferWindowPos(hdwp);
 
     AddMainAnchors();
     ArrangeLayout();
@@ -7835,30 +7836,25 @@ void CLogDlg::InitMonitoringMode()
 
     int delta = 90;
     GetDlgItem(IDC_PROJTREE)->SetWindowPos(NULL, rcSearch.left, rcSearch.top + rect.Height(), delta, rcOK.bottom - rcSearch.top - rect.Height(), SWP_SHOWWINDOW);
-    GetDlgItem(IDC_SPLITTERLEFT)->SetWindowPos(NULL, rcSearch.left + delta, rcSearch.top + rect.Height(), 4, rcOK.bottom - rcSearch.top, SWP_SHOWWINDOW);
+    GetDlgItem(IDC_SPLITTERLEFT)->SetWindowPos(NULL, rcSearch.left + delta, rcSearch.top + rect.Height(), 8, rcOK.bottom - rcSearch.top - rect.Height(), SWP_SHOWWINDOW);
     GetDlgItem(IDC_GETALL)->SetWindowPos(NULL, rcOK.left - rcGetAll.Width()/2, rcOK.top, 0, 0, SWP_SHOWWINDOW | SWP_NOSIZE);
 
-    delta += 4;
-    CSplitterControl::ChangePos(GetDlgItem(IDC_SEARCHEDIT), 0, rect.Height());
-    CSplitterControl::ChangePos(GetDlgItem(IDC_FROMLABEL), 0, rect.Height());
-    CSplitterControl::ChangePos(GetDlgItem(IDC_DATEFROM), 0, rect.Height());
-    CSplitterControl::ChangePos(GetDlgItem(IDC_TOLABEL), 0, rect.Height());
-    CSplitterControl::ChangePos(GetDlgItem(IDC_DATETO), 0, rect.Height());
-    CSplitterControl::ChangeHeight(&m_LogList, -rect.Height(), CW_BOTTOMALIGN);
+    delta += 8;
+    auto hdwp = BeginDeferWindowPos(12);
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_SEARCHEDIT), delta, rect.Height(), 0, rect.Height());
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_FROMLABEL), 0, rect.Height(), 0, rect.Height());
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_DATEFROM), 0, rect.Height(), 0, rect.Height());
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_TOLABEL), 0, rect.Height(), 0, rect.Height());
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_DATETO), 0, rect.Height(), 0, rect.Height());
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_LogList, delta, rect.Height(), 0, 0);
 
-    CSplitterControl::ChangeWidth(&m_cFilter, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_LogList, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_wndSplitter1, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(GetDlgItem(IDC_MSGVIEW), -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_wndSplitter2, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_ChangedFileListCtrl, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_LogProgress, -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangeWidth(&m_LogProgress, -rcGetAll.Width(), CW_LEFTALIGN);
-    CSplitterControl::ChangePos(&m_LogProgress, 0, 20);
-    CSplitterControl::ChangeWidth(GetDlgItem(IDC_LOGINFO), -delta, CW_RIGHTALIGN);
-    CSplitterControl::ChangePos(GetDlgItem(IDC_LOGINFO), 0, 75);
-    CSplitterControl::ChangeHeight(&m_ChangedFileListCtrl, 75, CW_TOPALIGN);
-
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_wndSplitter1, delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_MSGVIEW), delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_wndSplitter2, delta, 0, 0, 0);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_ChangedFileListCtrl, delta, 0, 0, 75);
+    hdwp = CSplitterControl::ChangeRect(hdwp, &m_LogProgress, delta, 20, -rcGetAll.Width(), 20);
+    hdwp = CSplitterControl::ChangeRect(hdwp, GetDlgItem(IDC_LOGINFO), delta, 75, 0, 75);
+    EndDeferWindowPos(hdwp);
 
     DWORD exStyle = TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
     m_projTree.SetExtendedStyle(exStyle, exStyle);

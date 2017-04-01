@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,6 +45,7 @@
 #include "TaskbarUUID.h"
 #include "CreateProcessHelper.h"
 #include "SVNConfig.h"
+#include "AnimationManager.h"
 #include <random>
 
 #define STRUCT_IOVEC_DEFINED
@@ -477,6 +478,8 @@ BOOL CTortoiseProcApp::InitInstance()
     // remove them. But only delete 'old' files because some
     // apps might still be needing the recent ones.
     CTempFiles::DeleteOldTempFiles(L"*svn*.*");
+
+    Animator::Instance().ShutDown();
 
     // Since the dialog has been closed, return FALSE so that we exit the
     // application, rather than start the application's message pump.
