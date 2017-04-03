@@ -8018,6 +8018,8 @@ void CLogDlg::RefreshMonitorProjTree()
             pMonitorItem->root = m_monitoringFile.GetValue(mitem, L"root", L"");
             pMonitorItem->sMsgRegex = m_monitoringFile.GetValue(mitem, L"MsgRegex", L"");
             pMonitorItem->projectproperties.LoadFromIni(m_monitoringFile, mitem);
+            pMonitorItem->lastErrorMsg = m_monitoringFile.GetValue(mitem, L"lastErrorMsg", L"");
+            pMonitorItem->authfailed = _wtol(m_monitoringFile.GetValue(mitem, L"authfailed", L"0")) != 0;
             try
             {
                 pMonitorItem->msgregex = std::wregex(pMonitorItem->sMsgRegex, std::regex_constants::ECMAScript | std::regex_constants::icase);
@@ -8107,8 +8109,8 @@ HTREEITEM CLogDlg::InsertMonitorItem(MonitorItem * pMonitorItem, const CString& 
     tvinsert.itemex.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_EXPANDEDIMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
     tvinsert.itemex.pszText = LPSTR_TEXTCALLBACK;
     tvinsert.itemex.cChildren = pMonitorItem->WCPathOrUrl.IsEmpty() ? 1 : 0;
-    tvinsert.itemex.state = TVIS_EXPANDED | (pMonitorItem->UnreadItems ? TVIS_BOLD : 0);
-    tvinsert.itemex.stateMask = TVIS_EXPANDED | TVIS_BOLD;
+    tvinsert.itemex.state = TVIS_EXPANDED | (pMonitorItem->UnreadItems ? TVIS_BOLD : 0) | ((pMonitorItem->authfailed || !pMonitorItem->lastErrorMsg.IsEmpty()) ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0);
+    tvinsert.itemex.stateMask = TVIS_EXPANDED | TVIS_OVERLAYMASK | TVIS_BOLD;
     tvinsert.itemex.lParam = (LPARAM)pMonitorItem;
     tvinsert.itemex.iImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
     tvinsert.itemex.iExpandedImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nOpenIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
@@ -8432,6 +8434,8 @@ void CLogDlg::SaveMonitorProjects( bool todisk )
         m_monitoringFile.SetValue(sSection, L"MsgRegex", pItem->sMsgRegex);
         m_monitoringFile.SetValue(sSection, L"uuid", pItem->uuid);
         m_monitoringFile.SetValue(sSection, L"root", pItem->root);
+        m_monitoringFile.SetValue(sSection, L"lastErrorMsg", pItem->lastErrorMsg);
+        m_monitoringFile.SetValue(sSection, L"authfailed", pItem->authfailed ? L"1" : L"0");
         pItem->projectproperties.SaveToIni(m_monitoringFile, sSection);
         sTmp.Empty();
         for (const auto& s : pItem->authorstoignore)
@@ -8702,8 +8706,8 @@ void CLogDlg::MonitorThread()
                             (SVNError->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
                         {
                             item.authfailed = true;
-                            item.lastErrorMsg = svn.GetLastErrorMessage();
                         }
+                        item.lastErrorMsg = svn.GetLastErrorMessage();
                     }
                 }
                 // we should never get asked for authentication here!
@@ -8957,7 +8961,7 @@ void CLogDlg::OnMonitorThreadFinished()
                 pItem->minminutesinterval = item.minminutesinterval;
 
                 m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
-                m_projTree.SetItemState(hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
+                m_projTree.SetItemState(hItem, ((pItem->authfailed || !pItem->lastErrorMsg.IsEmpty()) ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0), TVIS_OVERLAYMASK);
             }
         }
     }
