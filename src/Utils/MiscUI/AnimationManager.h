@@ -107,6 +107,8 @@ public:
 
     HRESULT RunStoryBoard(IUIAnimationStoryboardPtr storyBoard, std::function<void()> callback);
 
+    HRESULT AbandonAllStoryBoards();
+
     virtual ~Animator();
 private:
     Animator();

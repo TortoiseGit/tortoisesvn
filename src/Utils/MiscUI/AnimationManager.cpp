@@ -59,7 +59,7 @@ public:
     }
 
     /// Inherited via IUIAnimationTimerEventHandler
-    virtual HRESULT QueryInterface(REFIID riid, void ** ppvObject) override
+    virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void ** ppvObject) override
     {
         if (ppvObject == nullptr)
             return E_POINTER;
@@ -76,12 +76,12 @@ public:
         return E_NOINTERFACE;
     }
 
-    virtual ULONG AddRef(void) override
+    virtual ULONG STDMETHODCALLTYPE AddRef(void) override
     {
         return ++ref;
     }
 
-    virtual ULONG Release(void) override
+    virtual ULONG STDMETHODCALLTYPE Release(void) override
     {
         if (--ref == 0)
         {
@@ -93,19 +93,19 @@ public:
     }
 
 
-    virtual HRESULT OnPreUpdate(void) override
+    virtual HRESULT STDMETHODCALLTYPE OnPreUpdate(void) override
     {
         return S_OK;
     }
 
-    virtual HRESULT OnPostUpdate(void) override
+    virtual HRESULT STDMETHODCALLTYPE OnPostUpdate(void) override
     {
         for (const auto& callback : callbacks)
             callback.second();
         return S_OK;
     }
 
-    virtual HRESULT OnRenderingTooSlow(UINT32 /*framesPerSecond*/) override
+    virtual HRESULT STDMETHODCALLTYPE OnRenderingTooSlow(UINT32 /*framesPerSecond*/) override
     {
         return S_OK;
     }
@@ -143,7 +143,7 @@ public:
     }
 
     /// Inherited via IUIAnimationStoryboardEventHandler
-    virtual HRESULT QueryInterface(REFIID riid, void ** ppvObject) override
+    virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void ** ppvObject) override
     {
         if (ppvObject == nullptr)
             return E_POINTER;
@@ -160,12 +160,12 @@ public:
         return E_NOINTERFACE;
     }
 
-    virtual ULONG AddRef(void) override
+    virtual ULONG STDMETHODCALLTYPE AddRef(void) override
     {
         return ++ref;
     }
 
-    virtual ULONG Release(void) override
+    virtual ULONG STDMETHODCALLTYPE Release(void) override
     {
         if (--ref == 0)
         {
@@ -178,9 +178,9 @@ public:
 
 
     /// IUIAnimationStoryboardEventHandler Interface implementation
-    HRESULT __stdcall OnStoryboardStatusChanged(IUIAnimationStoryboard* storyboard,
-                                                UI_ANIMATION_STORYBOARD_STATUS newStatus,
-                                                UI_ANIMATION_STORYBOARD_STATUS previousStatus)
+    HRESULT STDMETHODCALLTYPE OnStoryboardStatusChanged(IUIAnimationStoryboard* storyboard,
+                                                        UI_ANIMATION_STORYBOARD_STATUS newStatus,
+                                                        UI_ANIMATION_STORYBOARD_STATUS previousStatus) override
     {
         UNREFERENCED_PARAMETER(storyboard);
         UNREFERENCED_PARAMETER(previousStatus);
@@ -196,7 +196,7 @@ public:
         return S_OK;
     }
 
-    HRESULT __stdcall OnStoryboardUpdated(IUIAnimationStoryboard* /*storyboard*/)
+    HRESULT STDMETHODCALLTYPE OnStoryboardUpdated(IUIAnimationStoryboard* /*storyboard*/) override
     {
         return S_OK;
     }
@@ -360,12 +360,21 @@ HRESULT Animator::RunStoryBoard(IUIAnimationStoryboardPtr storyBoard, std::funct
     return hr;
 }
 
+HRESULT Animator::AbandonAllStoryBoards()
+{
+    return pAnimMgr->AbandonAllStoryboards();
+}
+
 Animator::Animator()
 {
     HRESULT hr;
 
     // Create the IUIAnimationManager.
     hr = pAnimMgr.CreateInstance(CLSID_UIAnimationManager, 0, CLSCTX_INPROC_SERVER);
+    if (FAILED(hr))
+        return;
+
+    hr = pAnimMgr->SetDefaultLongestAcceptableDelay(0.0);
     if (FAILED(hr))
         return;
 
