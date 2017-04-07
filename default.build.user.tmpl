@@ -52,6 +52,16 @@
     </if>
 
     <!--
+      specifies the tool to use for signing the binaries.
+      change to "scsigntool.exe" in case you're using a smart card and have scsigntool set up
+    -->
+    <!-- <property name="signtool" value="scsigntool.exe" /> -->
+
+    <!--
+      Update environment & we are good to go.
+    -->
+
+    <!--
       Tools should be in ".\Tools" but you may set the TSVNTOOLS
       environment variable instead. If both isn't the case,
       modify the hard-coded path accordingly.

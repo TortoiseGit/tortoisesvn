@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <project name="TortoiseSVN" default="help">
 
+  <property name="signtool" value="signtool.exe" />
   <!-- default configuration is release -->
   <property name="configuration" value="release" />
   <!-- default builds are dev builds -->
