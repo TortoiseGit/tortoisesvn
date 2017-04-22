@@ -43,7 +43,7 @@
 // Define the help text as a multi-line macro
 // Every line except the last must be terminated with a backslash
 #define HelpText1 "\
-Usage: SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdf]\n\
+Usage: SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdqfeExXF]\n\
 \n\
 Params:\n\
 WorkingCopyPath    :   path to a Subversion working copy.\n\
@@ -117,7 +117,7 @@ TrueText if the tested condition is true, and FalseText if false.\n\
 $WCMODS$        True if local modifications found\n\
 $WCMIXED$       True if mixed update revisions found\n\
 $WCEXTALLFIXED$ True if all externals are fixed to an explicit revision\n\
-$WCISTAGGED$    True if the repository URL contains the tags classification pattern\n\
+$WCISTAGGED$    True if the repository URL contains the tags pattern\n\
 $WCINSVN$       True if the item is versioned\n\
 $WCNEEDSLOCK$   True if the svn:needs-lock property is set\n\
 $WCISLOCKED$    True if the item is locked\n"
