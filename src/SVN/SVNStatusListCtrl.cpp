@@ -6571,7 +6571,12 @@ void CSVNStatusListCtrlDropTarget::OnDrop(HDROP hDrop, POINTL pt)
         {
             CTSVNPath itemPath = CTSVNPath(szFileName);
             if (itemPath.Exists())
-                changelistItems.AddPath(itemPath);
+            {
+                // only versioned items can be part of a changelist
+                auto entry = m_pSVNStatusListCtrl->GetListEntry(itemPath);
+                if (entry && entry->status != svn_wc_status_unversioned && entry->status != svn_wc_status_none)
+                    changelistItems.AddPath(itemPath);
+            }
         }
     }
     // find the changelist name
