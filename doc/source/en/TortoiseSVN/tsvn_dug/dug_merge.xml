@@ -504,8 +504,8 @@
       </ulink>.
     </para>
   </sect2>
-  <sect2 id="tsvn-dug-merge-conflict-callback">
-    <title>Handling Conflicts during Merge</title>
+  <sect2 id="tsvn-dug-merge-conflict">
+    <title>Handling Conflicts after Merge</title>
     <?dbhh topicname="HIDD_CONFLICTRESOLVE"?>
     <indexterm>
       <primary>merge conflicts</primary>
@@ -519,20 +519,18 @@
     </important>
     <para>
       Merging does not always go smoothly. Sometimes there is a
-      conflict, and if you are merging multiple ranges, you generally
-      want to resolve the conflict before merging of the next range
-      starts. TortoiseSVN helps you through this process by showing
-      the <emphasis>merge conflict callback</emphasis> dialog.
-      <figure id="tsvn-dug-merge-callback-dia">
-        <title>The Merge Conflict Callback Dialog</title>
-        <graphic fileref="../images/MergeConflictCallback.png"/>
+      conflict. TortoiseSVN helps you through this process by showing
+      the <emphasis>merge conflict</emphasis> dialog.
+      <figure id="tsvn-dug-merge-dia">
+        <title>The Merge Conflict Dialog</title>
+        <graphic fileref="../images/MergeConflict.png"/>
       </figure>
     </para>
     <para>
       It is likely that some of the changes will have merged smoothly,
       while other local changes conflict with changes already committed
       to the repository. All changes which can be merged are merged.
-      The Merge Conflict Callback dialog gives you different
+      The Merge Conflict dialog gives you different
       ways of handling the lines which are in conflict.
     </para>
     <para>
@@ -624,30 +622,17 @@
       the various types of tree conflicts and how and why they can happen.
     </para>
     <para>
-      To resolve tree conflicts during a merge, a dialog is shown with various options
+      To resolve tree conflicts after a merge, a dialog is shown with various options
       on how to resolve the conflict:
-      <figure id="tsvn-dug-merge-callback-tree-dia">
-        <title>The Merge Tree Conflict Callback Dialog</title>
-        <graphic fileref="../images/MergeTreeConflictCallback.png"/>
+      <figure id="tsvn-dug-merge-tree-dia">
+        <title>The Merge Tree Conflict Dialog</title>
+        <graphic fileref="../images/MergeTreeConflict.png"/>
       </figure>
       Since there are various possible tree conflict situations, the dialog will show
       buttons to resolve those depending on the specific conflict.
       The button texts and labels explain what the option to resolve the conflict
       does. If you're not sure, either cancel the dialog or use the <guibutton>Postpone</guibutton>
       button to resolve the conflict later.
-    </para>
-    <para>
-      If you do not want to use this interactive callback, there is a
-      checkbox in the merge progress dialog <guilabel>Merge non-interactive</guilabel>.
-      If this is set for a merge and the merge would result in a conflict,
-      the file is marked as in conflict and the merge goes on. You will have
-      to resolve the conflicts after the whole merge is finished.
-      If it is not set, then before a file is marked as conflicted you get the
-      chance to resolve the conflict <emphasis>during</emphasis> the merge.
-      This has the advantage that if a file gets multiple merges (multiple
-      revisions apply a change to that file), subsequent merges might succeed
-      depending on which lines are affected. But of course you can't walk away
-      to get a coffee while the merge is running ;)
     </para>
   </sect2>
   <sect2 id="tsvn-dug-merge-maintenance">

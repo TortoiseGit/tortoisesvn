@@ -6159,7 +6159,7 @@ msgid "Find out more about merge tracking from Subversion's <ulink url=\"http://
 msgstr ""
 
 #. (title)
-msgid "Handling Conflicts during Merge"
+msgid "Handling Conflicts after Merge"
 msgstr ""
 
 #. (primary)
@@ -6171,15 +6171,15 @@ msgid "The text in the conflict resolver dialogs are provided by the SVN library
 msgstr ""
 
 #. (title)
-msgid "The Merge Conflict Callback Dialog"
+msgid "The Merge Conflict Dialog"
 msgstr ""
 
 #. (para)
-msgid "Merging does not always go smoothly. Sometimes there is a conflict, and if you are merging multiple ranges, you generally want to resolve the conflict before merging of the next range starts. TortoiseSVN helps you through this process by showing the <emphasis>merge conflict callback</emphasis> dialog. <placeholder-1/>"
+msgid "Merging does not always go smoothly. Sometimes there is a conflict. TortoiseSVN helps you through this process by showing the <emphasis>merge conflict</emphasis> dialog. <placeholder-1/>"
 msgstr ""
 
 #. (para)
-msgid "It is likely that some of the changes will have merged smoothly, while other local changes conflict with changes already committed to the repository. All changes which can be merged are merged. The Merge Conflict Callback dialog gives you different ways of handling the lines which are in conflict."
+msgid "It is likely that some of the changes will have merged smoothly, while other local changes conflict with changes already committed to the repository. All changes which can be merged are merged. The Merge Conflict dialog gives you different ways of handling the lines which are in conflict."
 msgstr ""
 
 #. (term)
@@ -6256,15 +6256,11 @@ msgid "If there's a tree conflict, please first see <xref linkend=\"tsvn-dug-con
 msgstr ""
 
 #. (title)
-msgid "The Merge Tree Conflict Callback Dialog"
+msgid "The Merge Tree Conflict Dialog"
 msgstr ""
 
 #. (para)
-msgid "To resolve tree conflicts during a merge, a dialog is shown with various options on how to resolve the conflict: <placeholder-1/> Since there are various possible tree conflict situations, the dialog will show buttons to resolve those depending on the specific conflict. The button texts and labels explain what the option to resolve the conflict does. If you're not sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> button to resolve the conflict later."
-msgstr ""
-
-#. (para)
-msgid "If you do not want to use this interactive callback, there is a checkbox in the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If this is set for a merge and the merge would result in a conflict, the file is marked as in conflict and the merge goes on. You will have to resolve the conflicts after the whole merge is finished. If it is not set, then before a file is marked as conflicted you get the chance to resolve the conflict <emphasis>during</emphasis> the merge. This has the advantage that if a file gets multiple merges (multiple revisions apply a change to that file), subsequent merges might succeed depending on which lines are affected. But of course you can't walk away to get a coffee while the merge is running ;)"
+msgid "To resolve tree conflicts after a merge, a dialog is shown with various options on how to resolve the conflict: <placeholder-1/> Since there are various possible tree conflict situations, the dialog will show buttons to resolve those depending on the specific conflict. The button texts and labels explain what the option to resolve the conflict does. If you're not sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> button to resolve the conflict later."
 msgstr ""
 
 #. (title)
