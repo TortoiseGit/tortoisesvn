@@ -103,7 +103,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , m_depth(svn_depth_unknown)
     , m_itemCount(-1)
     , m_itemCountTotal(-1)
-    , m_AlwaysConflicted(false)
     , m_BugTraqProvider(NULL)
     , m_bHookError(false)
     , m_bNoHooks(false)
@@ -162,7 +161,6 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
     ON_NOTIFY(LVN_BEGINDRAG, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnBegindragSvnprogress)
     ON_WM_SIZE()
     ON_NOTIFY(LVN_GETDISPINFO, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnGetdispinfoSvnprogress)
-    ON_BN_CLICKED(IDC_NONINTERACTIVE, &CSVNProgressDlg::OnBnClickedNoninteractive)
     ON_REGISTERED_MESSAGE(WM_TASKBARBTNCREATED, OnTaskbarBtnCreated)
     ON_BN_CLICKED(IDC_RETRYNOHOOKS, &CSVNProgressDlg::OnBnClickedRetrynohooks)
     ON_BN_CLICKED(IDC_RETRYDIFFERENTUSER, &CSVNProgressDlg::OnBnClickedRetryDifferentUser)
@@ -1102,7 +1100,6 @@ BOOL CSVNProgressDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_RETRYDIFFERENTUSER);
     m_aeroControls.SubclassControl(this, IDC_PROGRESSBAR);
     m_aeroControls.SubclassControl(this, IDC_INFOTEXT);
-    m_aeroControls.SubclassControl(this, IDC_NONINTERACTIVE);
     m_aeroControls.SubclassControl(this, IDC_LOGBUTTON);
     m_aeroControls.SubclassOkCancel(this);
 
@@ -1167,7 +1164,6 @@ BOOL CSVNProgressDlg::OnInitDialog()
     AddAnchor(IDC_RETRYNOHOOKS, BOTTOM_RIGHT);
     AddAnchor(IDC_RETRYDIFFERENTUSER, BOTTOM_RIGHT);
     AddAnchor(IDC_INFOTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
-    AddAnchor(IDC_NONINTERACTIVE, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDC_LOGBUTTON, BOTTOM_RIGHT);
@@ -1296,7 +1292,6 @@ UINT CSVNProgressDlg::ProgressThread()
     CString sWindowTitle;
     bool localoperation = false;
     bool bSuccess = false;
-    m_AlwaysConflicted = false;
 
     DialogEnableWindow(IDOK, FALSE);
     DialogEnableWindow(IDCANCEL, TRUE);
@@ -3202,13 +3197,6 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
     CAppUtils::SetWindowTitle(m_hWnd, m_targetPathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     GetDlgItem(IDC_INFOTEXT)->ShowWindow(SW_HIDE);
-    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
-    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
-    if (DWORD(nonint))
-    {
-        ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
-        m_AlwaysConflicted = true;
-    }
     // we only accept a revision list to merge for peg merges
     ATLASSERT((m_revisionArray.GetCount()==0) || (m_revisionArray.GetCount() && (m_url.IsEquivalentTo(m_url2))));
 
@@ -3274,7 +3262,6 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             bFailed = true;
         }
     }
-    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_INFOTEXT)->ShowWindow(SW_SHOW);
     return !bFailed;
 }
@@ -3320,28 +3307,18 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
         (m_options & ProgOptForce) ? (LPCTSTR)(L", " + sForce) : L"");
     ReportCmd(sCmdInfo);
 
-    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
-    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
-    if (DWORD(nonint))
-    {
-        ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
-        m_AlwaysConflicted = true;
-    }
-
     SVNRevRangeArray revarray;
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!PegMerge(suggestedSources[0], revarray,
         SVNRev::REV_HEAD,
         m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE, !!(m_options & ProgOptRecordOnly)))
     {
-        GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
         ReportSVNError();
         return false;
     }
 
     GenerateMergeLogMessage();
 
-    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
     return true;
 }
 
@@ -3366,14 +3343,6 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
         m_targetPathList[0].GetWinPath());
     ReportCmd(sCmdInfo);
 
-    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
-    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
-    if (DWORD(nonint))
-    {
-        ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
-        m_AlwaysConflicted = true;
-    }
-
     ASSERT(m_revisionArray.GetCount()==0);
 
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
@@ -3388,13 +3357,11 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
                   !!(m_options & ProgOptRecordOnly)))
     {
         ReportSVNError();
-        GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
         return false;
     }
 
     GenerateMergeLogMessage();
 
-    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
     return true;
 }
 
@@ -3419,25 +3386,15 @@ bool CSVNProgressDlg::CmdMergeReintegrateOldStyle(CString& sWindowTitle, bool& /
         m_targetPathList[0].GetWinPath());
     ReportCmd(sCmdInfo);
 
-    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_SHOW);
-    CRegDWORD nonint = CRegDWORD(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
-    if (DWORD(nonint))
-    {
-        ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_SETCHECK, BST_CHECKED, 0);
-        m_AlwaysConflicted = true;
-    }
-
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!MergeReintegrate(m_url, SVNRev::REV_HEAD, m_targetPathList[0], !!(m_options & ProgOptDryRun), m_diffoptions))
     {
         ReportSVNError();
-        GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
         return false;
     }
 
     GenerateMergeLogMessage();
 
-    GetDlgItem(IDC_NONINTERACTIVE)->ShowWindow(SW_HIDE);
     return true;
 }
 
@@ -3890,14 +3847,6 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     return true;
 }
 
-void CSVNProgressDlg::OnBnClickedNoninteractive()
-{
-    LRESULT res = ::SendMessage(GetDlgItem(IDC_NONINTERACTIVE)->GetSafeHwnd(), BM_GETCHECK, 0, 0);
-    m_AlwaysConflicted = (res == BST_CHECKED);
-    CRegDWORD nonint(L"Software\\TortoiseSVN\\MergeNonInteractive", FALSE);
-    nonint = m_AlwaysConflicted;
-}
-
 CString CSVNProgressDlg::GetPathFromColumnText(const CString& sColumnText)
 {
     // First check if the text in the column actually *is* already
@@ -4025,7 +3974,6 @@ void CSVNProgressDlg::ResetVars()
     m_bLastVisible = false;
     m_itemCount = -1;
     m_itemCountTotal = -1;
-    m_AlwaysConflicted = false;
     m_BugTraqProvider = NULL;
     m_bHookError = false;
     m_bHooksAreOptional = true;
@@ -4370,7 +4318,7 @@ CTSVNPathList CSVNProgressDlg::GetPathsForUpdateHook( const CTSVNPathList& pathL
 void CSVNProgressDlg::ResolvePostOperationConflicts()
 {
     // we only bother the user when merging
-    if (((m_Command == SVNProgress_Merge) || (m_Command == SVNProgress_MergeAll) || (m_Command == SVNProgress_MergeReintegrateOldStyle) || (m_Command == SVNProgress_MergeReintegrate)) && (!m_AlwaysConflicted))
+    if ((m_Command == SVNProgress_Merge) || (m_Command == SVNProgress_MergeAll) || (m_Command == SVNProgress_MergeReintegrateOldStyle) || (m_Command == SVNProgress_MergeReintegrate))
     {
         for (int i = 0; i < (int)m_arData.size(); ++i)
         {
@@ -4420,7 +4368,6 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                     dlg.DoModal(m_hWnd);
                     if (dlg.IsCancelled())
                     {
-                        m_AlwaysConflicted = true;
                         return;
                     }
 
@@ -4444,7 +4391,6 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                     dlg.DoModal(m_hWnd);
                     if (dlg.IsCancelled())
                     {
-                        m_AlwaysConflicted = true;
                         return;
                     }
 
@@ -4470,7 +4416,6 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                         dlg.DoModal(m_hWnd, propertyIdx);
                         if (dlg.IsCancelled())
                         {
-                            m_AlwaysConflicted = true;
                             return;
                         }
 
