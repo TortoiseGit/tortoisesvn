@@ -3160,7 +3160,7 @@ BOOL CLogDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
             return TRUE;
         }
     }
-    if ((pWnd) && (pWnd == GetDlgItem(IDC_MSGVIEW)))
+    if ((pWnd) && (pWnd == GetDlgItem(IDC_MSGVIEW) || pWnd == GetDlgItem(IDC_SEARCHEDIT)))
         return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
 
     HCURSOR hCur = LoadCursor(NULL, IDC_ARROW);
