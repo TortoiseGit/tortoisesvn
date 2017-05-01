@@ -197,7 +197,7 @@ void dll_hijacking_protection(void)
 
 BOOL init_winver(void)
 {
-    ZeroMemory(&osVersion, sizeof(osVersion));
+    SecureZeroMemory(&osVersion, sizeof(osVersion));
     osVersion.dwOSVersionInfoSize = sizeof (OSVERSIONINFO);
     return GetVersionEx ( (OSVERSIONINFO *) &osVersion);
 }
