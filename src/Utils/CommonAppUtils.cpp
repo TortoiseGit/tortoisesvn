@@ -761,3 +761,18 @@ HICON CCommonAppUtils::LoadIconEx(UINT resourceId, UINT cx, UINT cy, UINT fuLoad
     return (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(resourceId),
                             IMAGE_ICON, cx, cy, fuLoad);
 }
+
+bool CCommonAppUtils::StartHtmlHelp(DWORD_PTR id)
+{
+    CWinApp* pApp = AfxGetApp();
+    ASSERT_VALID(pApp);
+    ASSERT(pApp->m_pszHelpFilePath != NULL);
+    // to call HtmlHelp the m_fUseHtmlHelp must be set in
+    // the application's constructor
+    ASSERT(pApp->m_eHelpType == afxHTMLHelp);
+
+    CString cmd;
+    cmd.Format(L"HH.exe -mapid %Iu \"%s\"", id, pApp->m_pszHelpFilePath);
+
+    return CCreateProcessHelper::CreateProcessDetached(NULL, cmd);
+}

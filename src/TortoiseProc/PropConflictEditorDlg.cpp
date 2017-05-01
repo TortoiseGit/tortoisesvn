@@ -23,7 +23,6 @@
 #include "TortoiseProc.h"
 #include "SVN.h"
 #include "AppUtils.h"
-#include "../Utils/CreateProcessHelper.h"
 
 CPropConflictEditorDlg::CPropConflictEditorDlg()
     : m_conflictInfo(NULL)
@@ -55,21 +54,10 @@ HRESULT CPropConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM w
         case TDN_TIMER:
         return OnTimer(hWnd);
         case TDN_HELP:
-        {
-            CWinApp* pApp = AfxGetApp();
-            ASSERT_VALID(pApp);
-            ASSERT(pApp->m_pszHelpFilePath != NULL);
-            // to call HtmlHelp the m_fUseHtmlHelp must be set in
-            // the application's constructor
-            ASSERT(pApp->m_eHelpType == afxHTMLHelp);
-
-            CString cmd;
-            cmd.Format(L"HH.exe -mapid %Iu \"%s\"", IDD_CONFLICTRESOLVE+ 0x20000, pApp->m_pszHelpFilePath);
-            if (!CCreateProcessHelper::CreateProcessDetached(NULL, cmd))
+            if (!CAppUtils::StartHtmlHelp(IDD_CONFLICTRESOLVE + 0x20000))
             {
                 AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
             }
-        }
         break;
         default:
         break;

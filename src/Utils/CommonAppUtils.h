@@ -129,6 +129,8 @@ public:
 
     // Wrapper for LoadImage(IMAGE_ICON)
     static HICON LoadIconEx(UINT resourceId, UINT cx, UINT cy, UINT fuLoad);
+
+    static bool StartHtmlHelp(DWORD_PTR id);
 protected:
     CCommonAppUtils(void){};
     ~CCommonAppUtils(void){};

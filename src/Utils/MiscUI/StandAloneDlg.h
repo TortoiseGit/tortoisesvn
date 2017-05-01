@@ -25,10 +25,11 @@
 #include "TaskbarUUID.h"
 #include "Tooltip.h"
 #include "CommonDialogFunctions.h"
+#include "CommonAppUtils.h"
 
 #include <Dwmapi.h>
 #pragma comment(lib, "Dwmapi.lib")
-#pragma comment(lib, "htmlhelp.lib")
+// #pragma comment(lib, "htmlhelp.lib")
 
 #define DIALOG_BLOCKHORIZONTAL 1
 #define DIALOG_BLOCKVERTICAL 2
@@ -358,18 +359,8 @@ private:
     virtual void HtmlHelp(DWORD_PTR dwData, UINT nCmd = 0x000F)
     {
         UNREFERENCED_PARAMETER(nCmd);
-        CWinApp* pApp = AfxGetApp();
-        ASSERT_VALID(pApp);
-        ASSERT(pApp->m_pszHelpFilePath != NULL);
-        // to call HtmlHelp the m_fUseHtmlHelp must be set in
-        // the application's constructor
-        ASSERT(pApp->m_eHelpType == afxHTMLHelp);
 
-        CWaitCursor wait;
-
-        CString cmd;
-        cmd.Format(L"HH.exe -mapid %Iu \"%s\"", dwData, pApp->m_pszHelpFilePath);
-        if (!CCreateProcessHelper::CreateProcessDetached(NULL, cmd))
+        if (!CCommonAppUtils::StartHtmlHelp(dwData))
         {
             AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
         }
