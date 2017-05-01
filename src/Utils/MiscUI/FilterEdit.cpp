@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2015 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -134,13 +134,16 @@ BOOL CFilterEdit::SetCueBanner(LPCWSTR lpcwText)
 {
     if (lpcwText)
     {
-        size_t len = wcslen(lpcwText);
-        m_pCueBanner.reset (new TCHAR[len+1]);
-        wcscpy_s(m_pCueBanner.get(), len+1, lpcwText);
+        m_sCueBanner  = lpcwText;
         InvalidateRect(NULL, TRUE);
         return TRUE;
     }
-    return FALSE;
+    else
+    {
+        m_sCueBanner.Empty();
+        InvalidateRect(NULL, TRUE);
+        return FALSE;
+    }
 }
 
 void CFilterEdit::ResizeWindow()
@@ -368,11 +371,9 @@ void CFilterEdit::OnPaint()
 
 void CFilterEdit::DrawDimText()
 {
-    if (m_pCueBanner.get() == NULL)
+    if (m_sCueBanner.IsEmpty())
         return;
     if (GetWindowTextLength())
-        return;
-    if (m_pCueBanner[0] == 0)
         return;
     if (GetFocus() == this)
         return;
@@ -383,7 +384,7 @@ void CFilterEdit::DrawDimText()
     dcDraw.SelectObject((*GetFont()));
     dcDraw.SetTextColor(GetSysColor(COLOR_GRAYTEXT));
     dcDraw.SetBkColor(GetSysColor(COLOR_WINDOW));
-    dcDraw.DrawText(m_pCueBanner.get(), (int)wcslen(m_pCueBanner.get()), &m_rcEditArea, DT_CENTER | DT_VCENTER);
+    dcDraw.DrawText(m_sCueBanner, m_sCueBanner.GetLength(), &m_rcEditArea, DT_CENTER | DT_VCENTER);
     dcDraw.RestoreDC(iState);
     return;
 }
