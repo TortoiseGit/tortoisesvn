@@ -269,8 +269,12 @@ libversion_a_CFLAGS += -DSOURCE_COMMIT=\"`git --git-dir=$(srcdir)/.git rev-parse
 empty.h: $(allsources)
 	echo '/* Empty file touched by automake makefile to force rebuild of version.o */' >$@
 endif
-man1_MANS = doc/plink.1 doc/pscp.1 doc/psftp.1 doc/pterm.1 \
-            doc/putty.1 doc/puttygen.1 doc/puttytel.1
+if HAVE_GTK
+man1_MANS = doc/plink.1 doc/pscp.1 doc/psftp.1 doc/puttygen.1 \
+	    doc/pageant.1 doc/pterm.1 doc/putty.1 doc/puttytel.1
+else
+man1_MANS = doc/plink.1 doc/pscp.1 doc/psftp.1 doc/puttygen.1
+endif
 if HAVE_SETID_CMD
 install-exec-local:
 	@SETID_CMD@ $(bindir)/pterm
