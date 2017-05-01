@@ -63,10 +63,8 @@ HRESULT CTreeConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM w
             cmd.Format(L"HH.exe -mapid %Iu \"%s\"", IDD_CONFLICTRESOLVE + 0x20000, pApp->m_pszHelpFilePath);
             if (!CCreateProcessHelper::CreateProcessDetached(NULL, cmd))
             {
-                cmd.ReleaseBuffer();
                 AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
             }
-            cmd.ReleaseBuffer();
         }
         break;
     }

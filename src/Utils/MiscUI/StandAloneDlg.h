@@ -371,10 +371,8 @@ private:
         cmd.Format(L"HH.exe -mapid %Iu \"%s\"", dwData, pApp->m_pszHelpFilePath);
         if (!CCreateProcessHelper::CreateProcessDetached(NULL, cmd))
         {
-            cmd.ReleaseBuffer();
             AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
         }
-        cmd.ReleaseBuffer();
     }
 protected:
     void OnCompositionChanged()
