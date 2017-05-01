@@ -29,7 +29,7 @@
 
 #include <Dwmapi.h>
 #pragma comment(lib, "Dwmapi.lib")
-// #pragma comment(lib, "htmlhelp.lib")
+#pragma comment(lib, "htmlhelp.lib")
 
 #define DIALOG_BLOCKHORIZONTAL 1
 #define DIALOG_BLOCKVERTICAL 2
