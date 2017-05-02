@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 09:56+0000\n"
+"PO-Revision-Date: 2017-04-26 00:25+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/luebbe/tortoisesvn/language/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -306,7 +306,7 @@ msgid ""
 "You can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (ID_APP_ABOUT - Menu)
+#. Resource IDs: (57664 - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&Despre TortoiseMerge..."
 
@@ -678,8 +678,8 @@ msgstr "&Contactează depozitul la pornire"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Converteşte fişiere când se diferenţează cu BASE-ul"
 
-#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
-#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
+#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
+#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
 msgid "&Copy"
 msgstr "&Copiază"
 
@@ -945,7 +945,7 @@ msgstr "revizia &HEAD din depozit"
 msgid "&Help"
 msgstr "&Ajutor"
 
-#. Resource IDs: (ID_HELP - Menu)
+#. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
 msgstr "Subiecte &ajutor"
 
@@ -1279,8 +1279,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "&Parola:"
 
-#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
-#. ID_EDIT_PASTE - Menu)
+#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
+#. IDS_SCIEDIT_PASTE)
 msgid "&Paste"
 msgstr "&Inserează"
 
@@ -1581,7 +1581,7 @@ msgstr "Grup de &pornire"
 msgid "&Start Repobrowser"
 msgstr "Lan&sează navigatorul de depozit"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
+#. Resource IDs: (59393 - Menu)
 msgid "&Status Bar"
 msgstr "Bara de &stare"
 
@@ -1659,7 +1659,7 @@ msgstr "&La calea:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "Până &la: (URL şi revizia finală din intervalul de îmbinare)"
 
-#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
+#. Resource IDs: (59392 - Menu)
 msgid "&Toolbar"
 msgstr "&Bara de unelte"
 
@@ -1708,7 +1708,7 @@ msgstr "&URL-ul depozitului:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
+#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
 msgid "&Undo"
 msgstr "An&ulează"
 
@@ -4532,7 +4532,7 @@ msgstr "E&xclude căile:"
 msgid "E&xecutable"
 msgstr "E&xecutabil"
 
-#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "&Ieşire"
 
@@ -5281,8 +5281,8 @@ msgstr "Căi de filtre"
 msgid "Filter:"
 msgstr "Filtru:"
 
-#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
-#. ID_EDIT_FIND - Ribbon name)
+#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
+#. - Ribbon name)
 msgid "Find"
 msgstr "Caută"
 
@@ -6911,10 +6911,6 @@ msgstr ""
 msgid "Merge conflict discovered in file %s"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
-msgid "Merge non-interactive"
-msgstr "Îmbină fără interacţiune"
-
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1534, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1487, IDS_MERGEWIZARD_OPTIONSTITLE)
 msgid "Merge options"
@@ -7653,7 +7649,7 @@ msgstr "Foloseşte corectorul &ortografic numai când este aplicat tsvn:projectl
 msgid "Opacity"
 msgstr "Opacitate"
 
-#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "Deschide"
 
@@ -9106,11 +9102,11 @@ msgstr "Exemplu de mesaj de logare folosit pentru a testa bugtraq: regex strings
 msgid "Sample text:"
 msgstr "Text de mostră:"
 
-#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "Salvează"
 
-#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
+#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
 msgid "Save &as..."
 msgstr "Salvează &ca..."
 

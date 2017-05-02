@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # Adem YILMAZ, 2016
-# Emre Can ÖZTAŞ <mynameisemre@hotmail.com.tr>, 2015
+# Emre Can OZTAS <mynameisemre@hotmail.com.tr>, 2015
 # Huseyin <hyagli@hotmail.com>, 2013
 # ibrahim YENER <jdavide222@hotmail.com>, 2014
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 09:56+0000\n"
+"PO-Revision-Date: 2017-04-26 00:25+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/luebbe/tortoisesvn/language/tr/)\n"
 "MIME-Version: 1.0\n"
@@ -313,7 +313,7 @@ msgid ""
 "You can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (ID_APP_ABOUT - Menu)
+#. Resource IDs: (57664 - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&TortoiseMerge Hakkında.."
 
@@ -685,8 +685,8 @@ msgstr "&Başlangıçta depo ile bağlantı kur"
 msgid "&Convert files when diffing against BASE"
 msgstr "Dosyaları TABAN dosyası ile karşılaştırırken &dönüştür"
 
-#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
-#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
+#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
+#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
 msgid "&Copy"
 msgstr "&Kopyala"
 
@@ -952,7 +952,7 @@ msgstr "Depodaki &Baş revizyon"
 msgid "&Help"
 msgstr "&Yardım"
 
-#. Resource IDs: (ID_HELP - Menu)
+#. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
 msgstr "&Yardım Başlıkları"
 
@@ -1286,8 +1286,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "&Şifre:"
 
-#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
-#. ID_EDIT_PASTE - Menu)
+#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
+#. IDS_SCIEDIT_PASTE)
 msgid "&Paste"
 msgstr "&Yapıştır"
 
@@ -1588,7 +1588,7 @@ msgstr "&Grup Başlat"
 msgid "&Start Repobrowser"
 msgstr "&Depo tarayıcısını başlat"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
+#. Resource IDs: (59393 - Menu)
 msgid "&Status Bar"
 msgstr "Dur&um çubuğu"
 
@@ -1666,7 +1666,7 @@ msgstr "&Bu dizine:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "B&uraya: (bitiş URLsi ve birleştirilecek aralığın revizyonu)"
 
-#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
+#. Resource IDs: (59392 - Menu)
 msgid "&Toolbar"
 msgstr "&Araç çubuğu"
 
@@ -1715,7 +1715,7 @@ msgstr "&Deponun URL'si:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
+#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
 msgid "&Undo"
 msgstr "&Geri al"
 
@@ -4539,7 +4539,7 @@ msgstr "Bu &dizinleri hariç tut:"
 msgid "E&xecutable"
 msgstr "&Çalıştırılabilir"
 
-#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "Çı&kış"
 
@@ -5288,8 +5288,8 @@ msgstr "Dosya dizinleri"
 msgid "Filter:"
 msgstr "Filtre:"
 
-#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
-#. ID_EDIT_FIND - Ribbon name)
+#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
+#. - Ribbon name)
 msgid "Find"
 msgstr "Bul"
 
@@ -6918,10 +6918,6 @@ msgstr ""
 msgid "Merge conflict discovered in file %s"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
-msgid "Merge non-interactive"
-msgstr "İnteraktif Olmayan Biçimde Birleştir"
-
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1534, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1487, IDS_MERGEWIZARD_OPTIONSTITLE)
 msgid "Merge options"
@@ -7660,7 +7656,7 @@ msgstr "Sadece tsvn:projectlanguage özelliği belirtilmiş ise y&azım denetley
 msgid "Opacity"
 msgstr "Saydamlık"
 
-#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "Aç"
 
@@ -9113,11 +9109,11 @@ msgstr "bugtraq: düzenli ifadeleri test etmek için örnek günlük mesajı.\n\
 msgid "Sample text:"
 msgstr "Örnek metin:"
 
-#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "Kaydet"
 
-#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
+#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
 msgid "Save &as..."
 msgstr "Farklı &kaydet..."
 

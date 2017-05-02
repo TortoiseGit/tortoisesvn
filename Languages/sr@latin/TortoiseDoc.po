@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 08:32+0000\n"
+"PO-Revision-Date: 2017-04-26 02:04+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/luebbe/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -9854,8 +9854,8 @@ msgid ""
 msgstr "Nađite više o praćenju stapanja u Subverziji  <ulink url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
 
 #. (title)
-msgid "Handling Conflicts during Merge"
-msgstr "Rukovanje konfliktima u toku spajanja"
+msgid "Handling Conflicts after Merge"
+msgstr ""
 
 #. (primary)
 msgid "merge conflicts"
@@ -9869,25 +9869,23 @@ msgid ""
 msgstr "Tekst u  dijalogu rešenja konflikta dat je SVN bibliotekom i možda još nije preveden kao TortoiseSVN  dijalog. Izvinite zbog toga."
 
 #. (title)
-msgid "The Merge Conflict Callback Dialog"
-msgstr "Konflikti spajanja dijalog odgovora"
+msgid "The Merge Conflict Dialog"
+msgstr ""
 
 #. (para)
 msgid ""
-"Merging does not always go smoothly. Sometimes there is a conflict, and if "
-"you are merging multiple ranges, you generally want to resolve the conflict "
-"before merging of the next range starts. TortoiseSVN helps you through this "
-"process by showing the <emphasis>merge conflict callback</emphasis> dialog. "
-"<placeholder-1/>"
-msgstr "Stapanje uvek ne ide ravno. Ponekad ima konflikta, i ako stapate više opsega vi generalno želite da rešite konflikt pre početka stapanja sledećeg opsega. TortoiseSVN vam pomaže kroz ovaj proces prikazivanjem  <emphasis>povratni konflikt stapanja </emphasis>dijalog. <placeholder-1/>"
+"Merging does not always go smoothly. Sometimes there is a conflict. "
+"TortoiseSVN helps you through this process by showing the <emphasis>merge "
+"conflict</emphasis> dialog. <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
-"All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you different ways of handling the lines which are in conflict."
-msgstr "Verovatno zbog toga neke izmene će biti stopljene glatko, dok su druge lokalne izmene konflikata sa izmenama već urezane u spremište. Sve izmene koje mogu biti stopljene su stopljene. Dijalog poziva stapanja konflikta daje vam različite načine rukovanja linijama koje su u konfliktu. "
+"All changes which can be merged are merged. The Merge Conflict dialog gives "
+"you different ways of handling the lines which are in conflict."
+msgstr ""
 
 #. (term)
 msgid "Postpone"
@@ -9989,33 +9987,19 @@ msgid ""
 msgstr "Ako postoji stablo konflikta, molimo da najpre pogledate <xref linkend=\"tsvn-dug-conflicts-tree\"/>  o različitim vrstama konflitnih stabala i kako i začto se dešavaju."
 
 #. (title)
-msgid "The Merge Tree Conflict Callback Dialog"
-msgstr "Povratni dijalog stapanja  stabla konflikta"
+msgid "The Merge Tree Conflict Dialog"
+msgstr ""
 
 #. (para)
 msgid ""
-"To resolve tree conflicts during a merge, a dialog is shown with various "
+"To resolve tree conflicts after a merge, a dialog is shown with various "
 "options on how to resolve the conflict: <placeholder-1/> Since there are "
 "various possible tree conflict situations, the dialog will show buttons to "
 "resolve those depending on the specific conflict. The button texts and "
 "labels explain what the option to resolve the conflict does. If you're not "
 "sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
 "button to resolve the conflict later."
-msgstr "Da se reši stablo konflikata u toku stapanja dijalog je prikazan sa različitim opcijama kako da se reši konflikt: <placeholder-1/>  Pošto ima mnogo različitih konfliktnih situacija dijalog će prikazati dugmiće da se reše oni koji zavise od specifičnih konflikata. Tekst dugmića i labele objašnjavaju koje opcije su pri rešenju konflikta. Ako niste sigurni ili odustanite od dijaloga  ili koristite <guibutton>Odgodi</guibutton> dugme da rešite konflikt kasnije."
-
-#. (para)
-msgid ""
-"If you do not want to use this interactive callback, there is a checkbox in "
-"the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If "
-"this is set for a merge and the merge would result in a conflict, the file "
-"is marked as in conflict and the merge goes on. You will have to resolve the"
-" conflicts after the whole merge is finished. If it is not set, then before "
-"a file is marked as conflicted you get the chance to resolve the conflict "
-"<emphasis>during</emphasis> the merge. This has the advantage that if a file"
-" gets multiple merges (multiple revisions apply a change to that file), "
-"subsequent merges might succeed depending on which lines are affected. But "
-"of course you can't walk away to get a coffee while the merge is running ;)"
-msgstr "Ako ne želite da koristite interaktivan povratni poziv postoji čekboks u progres dijalogu  stapanja <guilabel>Stopi ne-interaktivno</guilabel>. Ako je ovo odabrano  za stapanje  i stapanje prouzrokuje konflikt, fajl je markiran da je u konfliktu i stapanje se nastavlja. Vi ćete rešiti konflikt posle svršetka ukupnog stapanja. Ako nije podešeno onda pre nego se fajl markira kao konfliktan dobijate šansu da rešite konflikt <emphasis>tokom</emphasis> stapanja.Ovo ima prednost ako fajl dobije višestruka spajanja (višestruke revizije primenjuju izmene tog fajl), sukcesivna stapanja se mogu nastaviti u zavisnosti na koje linije se odnosi. Ali svakako ne možete šetati okolo po kafu dok stapanje radi ;)"
+msgstr ""
 
 #. (title)
 msgid "Feature Branch Maintenance"
@@ -13398,7 +13382,7 @@ msgid ""
 "processes</guilabel> box. This is useful if you want to prevent another "
 "<filename>TSVNCache.exe</filename> process getting created with elevated "
 "privileges."
-msgstr ""
+msgstr "Možete forsirati status keš u <emphasis>None</emphasis> za podignute procese proverom  boksa<guilabel>Onemogući status keš za podignute procese</guilabel>. Ovo je korisno ako želite da sprečie drugi <filename>TSVNCache.exe</filename> proces da se kreira sa podignutim privelegijama."
 
 #. (para)
 msgid ""

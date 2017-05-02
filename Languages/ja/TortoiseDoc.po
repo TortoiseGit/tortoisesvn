@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-04 10:28+0000\n"
-"Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
+"PO-Revision-Date: 2017-04-26 02:04+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9858,8 +9858,8 @@ msgid ""
 msgstr "マージ追跡についてそれ以外のことについては、 Subversion の<ulink url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Merge Tracking</citetitle></ulink> の説明をご覧ください。"
 
 #. (title)
-msgid "Handling Conflicts during Merge"
-msgstr "マージ中に発生した競合の扱い"
+msgid "Handling Conflicts after Merge"
+msgstr ""
 
 #. (primary)
 msgid "merge conflicts"
@@ -9873,25 +9873,23 @@ msgid ""
 msgstr "競合の解決ダイアログの文字列はSVNライブラリによって提供されているため、（まだ）TortoiseSVNのダイアログのようには翻訳することができません。申し訳ありません。"
 
 #. (title)
-msgid "The Merge Conflict Callback Dialog"
-msgstr "競合の解決ダイアログ"
+msgid "The Merge Conflict Dialog"
+msgstr ""
 
 #. (para)
 msgid ""
-"Merging does not always go smoothly. Sometimes there is a conflict, and if "
-"you are merging multiple ranges, you generally want to resolve the conflict "
-"before merging of the next range starts. TortoiseSVN helps you through this "
-"process by showing the <emphasis>merge conflict callback</emphasis> dialog. "
-"<placeholder-1/>"
-msgstr "マージが常にすんなり完了するとは限りません。時には競合を起こしますし、複数の範囲をマージしている場合は、一般的に、次の範囲のマージを行う前に、競合を解決しておきたいでしょう。TortoiseSVN は、<emphasis>競合の解決</emphasis> ダイアログを表示して、この処理の手助けをしてくれます。<placeholder-1/>"
+"Merging does not always go smoothly. Sometimes there is a conflict. "
+"TortoiseSVN helps you through this process by showing the <emphasis>merge "
+"conflict</emphasis> dialog. <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
-"All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you different ways of handling the lines which are in conflict."
-msgstr "リポジトリにコミット済みの他の変更と、ローカルでの他の変更が競合した場合は、円滑にマージされている可能性が高いです。マージ可能なすべての変更がマージされます。マージ競合コールバックダイアログは、競合を解決する異なる方法を提供します。"
+"All changes which can be merged are merged. The Merge Conflict dialog gives "
+"you different ways of handling the lines which are in conflict."
+msgstr ""
 
 #. (term)
 msgid "Postpone"
@@ -9993,12 +9991,12 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "The Merge Tree Conflict Callback Dialog"
-msgstr "ツリー競合の解決ダイアログ"
+msgid "The Merge Tree Conflict Dialog"
+msgstr ""
 
 #. (para)
 msgid ""
-"To resolve tree conflicts during a merge, a dialog is shown with various "
+"To resolve tree conflicts after a merge, a dialog is shown with various "
 "options on how to resolve the conflict: <placeholder-1/> Since there are "
 "various possible tree conflict situations, the dialog will show buttons to "
 "resolve those depending on the specific conflict. The button texts and "
@@ -10006,20 +10004,6 @@ msgid ""
 "sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
 "button to resolve the conflict later."
 msgstr ""
-
-#. (para)
-msgid ""
-"If you do not want to use this interactive callback, there is a checkbox in "
-"the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If "
-"this is set for a merge and the merge would result in a conflict, the file "
-"is marked as in conflict and the merge goes on. You will have to resolve the"
-" conflicts after the whole merge is finished. If it is not set, then before "
-"a file is marked as conflicted you get the chance to resolve the conflict "
-"<emphasis>during</emphasis> the merge. This has the advantage that if a file"
-" gets multiple merges (multiple revisions apply a change to that file), "
-"subsequent merges might succeed depending on which lines are affected. But "
-"of course you can't walk away to get a coffee while the merge is running ;)"
-msgstr "この対話的コールバックが必要なければ、マージ進行ダイアログに <guilabel>非対話的なマージ</guilabel> チェックボックスがあります。マージ時にこれをセットし、マージ結果に競合がある場合、ファイルに競合マークが付き、マージを継続します。マージがすべて完了したあとで、競合を解決しなければなりません。セットしない場合は、競合マークがファイルに付く前に、<emphasis>マージ中</emphasis>に競合解決を行う機会があります。ファイルが複数のマージ（複数のリビジョンがそのファイルに変更を与える）を受ける場合、影響を受ける行によって、続くマージが成功するという利点があります。しかしもちろん、マージ実行中には、コーヒーを入れにそこを離れるわけにはいきません。"
 
 #. (title)
 msgid "Feature Branch Maintenance"

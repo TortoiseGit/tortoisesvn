@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-06 09:42+0000\n"
+"PO-Revision-Date: 2017-04-26 00:25+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -318,7 +318,7 @@ msgid ""
 "You can fix the reason the hook script failed first."
 msgstr "&Abbrechen\nSie die Ursache für den Fehler im Aktionsskript beseitigen."
 
-#. Resource IDs: (ID_APP_ABOUT - Menu)
+#. Resource IDs: (57664 - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "Ü&ber TortoiseMerge..."
 
@@ -690,8 +690,8 @@ msgstr "&Projektarchiv automatisch prüfen"
 msgid "&Convert files when diffing against BASE"
 msgstr "Dateien beim Vergleich mit BASE &konvertieren"
 
-#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
-#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
+#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
+#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
 msgid "&Copy"
 msgstr "&Kopieren"
 
@@ -957,7 +957,7 @@ msgstr "&HEAD Revision im Projektarchiv"
 msgid "&Help"
 msgstr "&Hilfe"
 
-#. Resource IDs: (ID_HELP - Menu)
+#. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
 msgstr "&Hilfethemen"
 
@@ -1291,8 +1291,8 @@ msgstr "&Überschreiben\nErsetzt die Zieldatei"
 msgid "&Password:"
 msgstr "&Passwort:"
 
-#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
-#. ID_EDIT_PASTE - Menu)
+#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
+#. IDS_SCIEDIT_PASTE)
 msgid "&Paste"
 msgstr "E&infügen"
 
@@ -1593,7 +1593,7 @@ msgstr "&Startgruppe"
 msgid "&Start Repobrowser"
 msgstr "&Starte Projektarchivbetrachter "
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
+#. Resource IDs: (59393 - Menu)
 msgid "&Status Bar"
 msgstr "&Statusleiste"
 
@@ -1671,7 +1671,7 @@ msgstr "&Zielpfad:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&Bis: (End-URL und Revision des zusammenzuführenden Bereichs)"
 
-#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
+#. Resource IDs: (59392 - Menu)
 msgid "&Toolbar"
 msgstr "&Werkzeugleiste"
 
@@ -1720,7 +1720,7 @@ msgstr "&URL des Projektarchivs:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
+#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
 msgid "&Undo"
 msgstr "&Rückgängig"
 
@@ -4544,7 +4544,7 @@ msgstr "Pfade &ausschließen:"
 msgid "E&xecutable"
 msgstr "&Ausführbar"
 
-#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "&Beenden"
 
@@ -5293,8 +5293,8 @@ msgstr "Pfade filtern"
 msgid "Filter:"
 msgstr "Filter:"
 
-#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
-#. ID_EDIT_FIND - Ribbon name)
+#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
+#. - Ribbon name)
 msgid "Find"
 msgstr "Suchen"
 
@@ -6923,10 +6923,6 @@ msgstr "Konflikt beim Zusammenführen in Binärdatei %s"
 msgid "Merge conflict discovered in file %s"
 msgstr "Konflikt beim Zusammenführen in Datei %s"
 
-#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
-msgid "Merge non-interactive"
-msgstr "Nicht interaktiv zusammenführen"
-
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1534, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1487, IDS_MERGEWIZARD_OPTIONSTITLE)
 msgid "Merge options"
@@ -7665,7 +7661,7 @@ msgstr "&Rechtschreibkorrektur nur verwenden, wenn 'tsvn:projectlanguage' gesetz
 msgid "Opacity"
 msgstr "Deckkraft"
 
-#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "Öffnen"
 
@@ -9118,11 +9114,11 @@ msgstr "Beispiel-Logmeldung zum Test der bugtraq:regex Zeichenfolgen.\n\nTest vo
 msgid "Sample text:"
 msgstr "Beispieltext:"
 
-#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "Speichern"
 
-#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
+#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
 msgid "Save &as..."
 msgstr "Speichern &unter..."
 

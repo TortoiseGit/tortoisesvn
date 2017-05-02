@@ -20,6 +20,7 @@
 # Dmitry Oshkalo <dmitry.oshkalo@gmail.com>, 2015
 # Дмитрий Сытьков <sytkov@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011
+# maks l <kix@land.ru>, 2017
 # Nikolay Falileev <kelvinkolyan@mail.ru>, 2017
 # Nikolay Osinin <nikolay.osinin@gmail.com>, 2011-2012
 # rlagutin <inactive+drbeep@transifex.com>, 2014
@@ -38,7 +39,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 09:56+0000\n"
+"PO-Revision-Date: 2017-04-26 04:28+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -323,7 +324,7 @@ msgid ""
 "You can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (ID_APP_ABOUT - Menu)
+#. Resource IDs: (57664 - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&О TortoiseMerge..."
 
@@ -505,7 +506,7 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "Do not remove"
-msgstr ""
+msgstr "Не удалять"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
 msgid ""
@@ -517,7 +518,7 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "Do not update the working copy."
-msgstr ""
+msgstr "Не обновлять рабочую копию."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
 msgid ""
@@ -535,31 +536,31 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "Go back and enter an issue number."
-msgstr ""
+msgstr "Вернитесь и введите номер проблемы."
 
 #. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and select a different folder."
-msgstr ""
+msgstr "Вернитесь и выберите другую папку."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
 msgid ""
 "&Cancel\n"
 "I will enter a different path/URL."
-msgstr ""
+msgstr "Я ввиду другой путь/URL"
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
 msgid ""
 "&Cancel\n"
 "Keep the current URL."
-msgstr ""
+msgstr "Оставить текущей URL."
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
 msgid ""
 "&Cancel\n"
 "Leave the cache on disk."
-msgstr ""
+msgstr "Оставлять кэш на диске."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
 msgid ""
@@ -571,25 +572,25 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "The conflict is not resolved."
-msgstr ""
+msgstr "Конфликт не разрешен."
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "The file is not copied."
-msgstr ""
+msgstr "Файл не скопирован."
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
 msgid ""
 "&Cancel\n"
 "The folder is not exported."
-msgstr ""
+msgstr "Папка не экспортирована."
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
 msgid ""
 "&Cancel\n"
 "The items are not imported."
-msgstr ""
+msgstr "Объекты не импортированы."
 
 #. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
 msgid ""
@@ -601,13 +602,13 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "The target file is left as is"
-msgstr ""
+msgstr "Целевой файл остался неизменным."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to add the folder manually."
-msgstr ""
+msgstr "Вы должны добавить папку вручную."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
 msgid ""
@@ -695,8 +696,8 @@ msgstr "&Связываться с хранилищем при начале ра
 msgid "&Convert files when diffing against BASE"
 msgstr "&Преобразовывать файлы при сравнении с базой"
 
-#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
-#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
+#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
+#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
 msgid "&Copy"
 msgstr "Копи&ровать"
 
@@ -962,7 +963,7 @@ msgstr "ведущей ревизии в &хранилище (HEAD)"
 msgid "&Help"
 msgstr "&Справка"
 
-#. Resource IDs: (ID_HELP - Menu)
+#. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
 msgstr "Разделы &Справки"
 
@@ -1296,8 +1297,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "Па&роль:"
 
-#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
-#. ID_EDIT_PASTE - Menu)
+#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
+#. IDS_SCIEDIT_PASTE)
 msgid "&Paste"
 msgstr "&Вставить"
 
@@ -1598,7 +1599,7 @@ msgstr "&Начальная группа"
 msgid "&Start Repobrowser"
 msgstr "&Просмотр репозитария"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
+#. Resource IDs: (59393 - Menu)
 msgid "&Status Bar"
 msgstr "Строка &статуса"
 
@@ -1676,7 +1677,7 @@ msgstr "&Пути:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&В: (конечные URL и ревизия в ряду для слияния)"
 
-#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
+#. Resource IDs: (59392 - Menu)
 msgid "&Toolbar"
 msgstr "Панель &инструментов"
 
@@ -1725,7 +1726,7 @@ msgstr "URL в &хранилище:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
+#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
 msgid "&Undo"
 msgstr "&Откатить"
 
@@ -4549,7 +4550,7 @@ msgstr "&Исключить пути:"
 msgid "E&xecutable"
 msgstr "И&сполняемый"
 
-#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "В&ыход"
 
@@ -5298,8 +5299,8 @@ msgstr "Фильтр путей"
 msgid "Filter:"
 msgstr "Фильтр:"
 
-#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
-#. ID_EDIT_FIND - Ribbon name)
+#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
+#. - Ribbon name)
 msgid "Find"
 msgstr "Найти"
 
@@ -6928,10 +6929,6 @@ msgstr ""
 msgid "Merge conflict discovered in file %s"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
-msgid "Merge non-interactive"
-msgstr "Слияние без запросов"
-
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1534, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1487, IDS_MERGEWIZARD_OPTIONSTITLE)
 msgid "Merge options"
@@ -7670,7 +7667,7 @@ msgstr "Проверять &орфографию, только если tsvn:pro
 msgid "Opacity"
 msgstr "Непрозрачность"
 
-#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "Открыть"
 
@@ -9123,11 +9120,11 @@ msgstr "Образец сообщения журнала для проверки
 msgid "Sample text:"
 msgstr "Образец текста:"
 
-#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "Сохранить"
 
-#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
+#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
 msgid "Save &as..."
 msgstr "Сохранить &как..."
 

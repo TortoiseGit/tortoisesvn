@@ -27,15 +27,15 @@
 # Dmitriy Mamonov <sassy.but.classic@gmail.com>, 2013
 # Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>, 2015-2016
 # Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>, 2015
-# Вячеслав Третьяков <tret2003@gmail.com>, 2013,2015
+# Вячеслав Третьяков <tret2003@gmail.com>, 2013,2015,2017
 # Сергей Аксёнов <aksenov007bond@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 08:32+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-04-26 04:42+0000\n"
+"Last-Translator: Вячеслав Третьяков <tret2003@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9868,8 +9868,8 @@ msgid ""
 msgstr "Больше информации об отслеживании слияния найдете в документации Subversion <ulink url=\"http://svn.apache.org/repos/asf/subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Merge tracking documentation</citetitle></ulink>."
 
 #. (title)
-msgid "Handling Conflicts during Merge"
-msgstr "Обработка конфликтов, возникающих при слиянии"
+msgid "Handling Conflicts after Merge"
+msgstr "Обработка конфликтов после слияния"
 
 #. (primary)
 msgid "merge conflicts"
@@ -9883,24 +9883,22 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "The Merge Conflict Callback Dialog"
-msgstr "Диалог обратного вызова 'конфликты при слиянии'"
+msgid "The Merge Conflict Dialog"
+msgstr "Диалог конфликта слияния"
 
 #. (para)
 msgid ""
-"Merging does not always go smoothly. Sometimes there is a conflict, and if "
-"you are merging multiple ranges, you generally want to resolve the conflict "
-"before merging of the next range starts. TortoiseSVN helps you through this "
-"process by showing the <emphasis>merge conflict callback</emphasis> dialog. "
-"<placeholder-1/>"
-msgstr "Слияние не всегда проходит гладко. Иногда возникает конфликт, и, если вы производите слияние нескольких диапазонов, обычно вы желательно уладить конфликт до начала слияния со следующим диапазоном. TortoiseSVN помогает вам в этом процессе, отображая диалог <emphasis>обратного вызова 'конфликты при слиянии'</emphasis>. <placeholder-1/>"
+"Merging does not always go smoothly. Sometimes there is a conflict. "
+"TortoiseSVN helps you through this process by showing the <emphasis>merge "
+"conflict</emphasis> dialog. <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
-"All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you different ways of handling the lines which are in conflict."
+"All changes which can be merged are merged. The Merge Conflict dialog gives "
+"you different ways of handling the lines which are in conflict."
 msgstr ""
 
 #. (term)
@@ -9966,7 +9964,7 @@ msgstr ""
 
 #. (term)
 msgid "Mark as resolved"
-msgstr ""
+msgstr "Пометить как улаженный"
 
 #. (para)
 msgid ""
@@ -10003,12 +10001,12 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "The Merge Tree Conflict Callback Dialog"
+msgid "The Merge Tree Conflict Dialog"
 msgstr ""
 
 #. (para)
 msgid ""
-"To resolve tree conflicts during a merge, a dialog is shown with various "
+"To resolve tree conflicts after a merge, a dialog is shown with various "
 "options on how to resolve the conflict: <placeholder-1/> Since there are "
 "various possible tree conflict situations, the dialog will show buttons to "
 "resolve those depending on the specific conflict. The button texts and "
@@ -10016,20 +10014,6 @@ msgid ""
 "sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
 "button to resolve the conflict later."
 msgstr ""
-
-#. (para)
-msgid ""
-"If you do not want to use this interactive callback, there is a checkbox in "
-"the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If "
-"this is set for a merge and the merge would result in a conflict, the file "
-"is marked as in conflict and the merge goes on. You will have to resolve the"
-" conflicts after the whole merge is finished. If it is not set, then before "
-"a file is marked as conflicted you get the chance to resolve the conflict "
-"<emphasis>during</emphasis> the merge. This has the advantage that if a file"
-" gets multiple merges (multiple revisions apply a change to that file), "
-"subsequent merges might succeed depending on which lines are affected. But "
-"of course you can't walk away to get a coffee while the merge is running ;)"
-msgstr "Если вы не желаете использовать эту интерактивную функцию обратного вызова, то для этого есть флажок <guilabel>Слияние без запросов</guilabel> в диалоге выполнения слияния. Если он отмечен при слиянии и слияние приводит к конфликту, файл помечается как конфликтующий и слияние продолжается. Вы будете должны уладить конфликты после того, как слияние полностью завершится. Если флажок очищен, то перед тем, как файл будет помечен как конфликтующий, у вас будет возможность уладить конфликт <emphasis>во время</emphasis> слияния. Преимущество этого в том, что если файл участвует в нескольких слияниях (несколько ревизий вносят изменения в этот файл), последующие слияния могут завершиться успешно, в зависимости от того, какие строки были затронуты. Но, конечно же, у вас не будет возможности уйти и приготовить себе чашечку кофе, пока выполняется слияние ;)"
 
 #. (title)
 msgid "Feature Branch Maintenance"

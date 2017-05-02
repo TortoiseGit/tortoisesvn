@@ -22,14 +22,14 @@
 # Michele Locati <mlocati@gmail.com>, 2012
 # Nicolò Altamura <inactive+nicoalta01@transifex.com>, 2015
 # Roberto Casazza <roberto.casazza@alice.it>, 2011
-# Sebastiano Pistore <olatusrooc@virgilio.it>, 2016
+# Sebastiano Pistore <olatusrooc@virgilio.it>, 2016-2017
 # Silvia, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 09:56+0000\n"
+"PO-Revision-Date: 2017-04-26 00:25+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -314,7 +314,7 @@ msgid ""
 "You can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (ID_APP_ABOUT - Menu)
+#. Resource IDs: (57664 - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "Info su &TortoiseMerge..."
 
@@ -496,31 +496,31 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "Do not remove"
-msgstr ""
+msgstr "&Annulla\nNon rimuovere"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not revert."
-msgstr ""
+msgstr "&Annulla\nNon tornare indietro."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not update the working copy."
-msgstr ""
+msgstr "&Annulla\nNon aggiornare la copia di lavoro."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't resolve the item."
-msgstr ""
+msgstr "&Annulla\nNon risolvere l'elemento."
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "&Annulla\nNon visualizzare differenze."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
 msgid ""
@@ -532,25 +532,25 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "Go back and select a different folder."
-msgstr ""
+msgstr "&Annulla\nTorna indietro e scegli una cartella diversa."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
 msgid ""
 "&Cancel\n"
 "I will enter a different path/URL."
-msgstr ""
+msgstr "&Annulla\nInserirò un percorso/URL diverso."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
 msgid ""
 "&Cancel\n"
 "Keep the current URL."
-msgstr ""
+msgstr "&Annulla\nMantiene l'URL attuale."
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
 msgid ""
 "&Cancel\n"
 "Leave the cache on disk."
-msgstr ""
+msgstr "&Annulla\nMantieni la cache sul disco."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
 msgid ""
@@ -610,7 +610,7 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "keep the current format."
-msgstr ""
+msgstr "&Annulla\nmantieni il formato attuale."
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -686,8 +686,8 @@ msgstr "Contatta il &repository all'avvio"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Converti i file quando si sta procedendo ad un confronto con la BASE"
 
-#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
-#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
+#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
+#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
 msgid "&Copy"
 msgstr "&Copia"
 
@@ -784,7 +784,7 @@ msgstr "&Docking"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "&Non eseguire\nNon eseguire lo script"
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -953,7 +953,7 @@ msgstr "Revisione di &testa del repository"
 msgid "&Help"
 msgstr "&Guida in linea"
 
-#. Resource IDs: (ID_HELP - Menu)
+#. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
 msgstr "Argomento G&uida"
 
@@ -1287,8 +1287,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "&Password:"
 
-#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
-#. ID_EDIT_PASTE - Menu)
+#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
+#. IDS_SCIEDIT_PASTE)
 msgid "&Paste"
 msgstr "&Incolla"
 
@@ -1342,7 +1342,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
 msgid "&Proceed with the merge."
-msgstr ""
+msgstr "&Procedi con l'unione"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
 msgid ""
@@ -1412,7 +1412,7 @@ msgstr "&Rimuovi Progetto"
 msgid ""
 "&Remove\n"
 "Force the removal"
-msgstr ""
+msgstr "&Rimuovi\nForza la rimozione"
 
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
 msgid ""
@@ -1589,7 +1589,7 @@ msgstr "&Inizia gruppo"
 msgid "&Start Repobrowser"
 msgstr "&Inizia Repobrowser"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
+#. Resource IDs: (59393 - Menu)
 msgid "&Status Bar"
 msgstr "Barra di &stato"
 
@@ -1667,7 +1667,7 @@ msgstr "&A percorso:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&A: (URL e revisione che terminano l'intervallo per l'unione)"
 
-#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
+#. Resource IDs: (59392 - Menu)
 msgid "&Toolbar"
 msgstr "Barar s&trumenti"
 
@@ -1716,7 +1716,7 @@ msgstr "&URL del repository:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
+#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
 msgid "&Undo"
 msgstr "&Annulla"
 
@@ -4540,7 +4540,7 @@ msgstr "Percorsi da e&scludere:"
 msgid "E&xecutable"
 msgstr "E&seguibile"
 
-#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "&Esci"
 
@@ -5289,8 +5289,8 @@ msgstr "Filtra percorsi"
 msgid "Filter:"
 msgstr "Filtra:"
 
-#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
-#. ID_EDIT_FIND - Ribbon name)
+#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
+#. - Ribbon name)
 msgid "Find"
 msgstr "Trova"
 
@@ -6919,10 +6919,6 @@ msgstr ""
 msgid "Merge conflict discovered in file %s"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
-msgid "Merge non-interactive"
-msgstr "Unione non-interattiva"
-
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1534, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1487, IDS_MERGEWIZARD_OPTIONSTITLE)
 msgid "Merge options"
@@ -7661,7 +7657,7 @@ msgstr "Usa il controllo &grammaticale solo se è impostato tsvn:projectlanguage
 msgid "Opacity"
 msgstr "Opacità"
 
-#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "Apri"
 
@@ -8439,7 +8435,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_REGEXFILTER: Control id 65535)
 msgid "Regex:"
-msgstr ""
+msgstr "Regex:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1576)
 msgid "Regular Expression"
@@ -9114,11 +9110,11 @@ msgstr "Esempio di messagio registro attività per testare il bugtraq: regex str
 msgid "Sample text:"
 msgstr "Testo di esempio:"
 
-#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "Salva"
 
-#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
+#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
 msgid "Save &as..."
 msgstr "Salva &come..."
 
@@ -11124,7 +11120,7 @@ msgstr "TortoiseSVN non visualizzerà i seguenti overlay: %ls"
 
 #. Resource IDs: (Dialog IDD_SETTINGSUDIFF: Control id 371)
 msgid "TortoiseUDiff"
-msgstr ""
+msgstr "TortoiseUDiff"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1162)
 msgid "Total commits analyzed:"

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 09:56+0000\n"
+"PO-Revision-Date: 2017-04-26 00:25+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/luebbe/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -304,7 +304,7 @@ msgid ""
 "You can fix the reason the hook script failed first."
 msgstr "&Прекини\nМожете фиксирати разлог да закачива скрипта налпре не успе."
 
-#. Resource IDs: (ID_APP_ABOUT - Menu)
+#. Resource IDs: (57664 - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&О ТортоисеМерге..."
 
@@ -676,8 +676,8 @@ msgstr "&Контактирај спремиште приликом покрет
 msgid "&Convert files when diffing against BASE"
 msgstr "&Преправи фајлове када се разликују од БАЗЕ"
 
-#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
-#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
+#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
+#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
 msgid "&Copy"
 msgstr "&Копирај"
 
@@ -943,7 +943,7 @@ msgstr "&ГЛАВНА ревизија у спремишту"
 msgid "&Help"
 msgstr "&Помоћ"
 
-#. Resource IDs: (ID_HELP - Menu)
+#. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
 msgstr "&Помоћ теме"
 
@@ -1277,8 +1277,8 @@ msgstr "&Препишите\nЦилјни фајл је замењен"
 msgid "&Password:"
 msgstr "&Лозинка:"
 
-#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
-#. ID_EDIT_PASTE - Menu)
+#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
+#. IDS_SCIEDIT_PASTE)
 msgid "&Paste"
 msgstr "&Налепи"
 
@@ -1463,7 +1463,7 @@ msgstr "В&рати подразумеване вредности"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
-msgstr ""
+msgstr "Покушај као различи&т корисник"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1542,
 #. IDS_MSGBOX_RETRYWITHOUTHOOKS)
@@ -1579,7 +1579,7 @@ msgstr "&Почетна група"
 msgid "&Start Repobrowser"
 msgstr "&Старт Репо-претраживача"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
+#. Resource IDs: (59393 - Menu)
 msgid "&Status Bar"
 msgstr "&Статусни панел"
 
@@ -1657,7 +1657,7 @@ msgstr "Ка пу&тањи:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&До: (крајњи УРЛ и ревизија у распону спајања)"
 
-#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
+#. Resource IDs: (59392 - Menu)
 msgid "&Toolbar"
 msgstr "&аЛАТНИ ПАНЕЛ"
 
@@ -1706,7 +1706,7 @@ msgstr "&УРЛ спремишта:"
 msgid "&URL:"
 msgstr "&УРЛ:"
 
-#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
+#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
 msgid "&Undo"
 msgstr "&Поништи"
 
@@ -4287,7 +4287,7 @@ msgstr "Фолдер:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1529)
 msgid "Disable status cache for elevated processes"
-msgstr ""
+msgstr "Онемогући сттусни кеш за развијене процесе"
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_FORCE_TT)
 msgid "Discards local changes upon incoming deletes"
@@ -4530,7 +4530,7 @@ msgstr "И&зостави путање:"
 msgid "E&xecutable"
 msgstr "И&звршно"
 
-#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "И&злаз"
 
@@ -5279,8 +5279,8 @@ msgstr "Филтер путања"
 msgid "Filter:"
 msgstr "Филтер."
 
-#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
-#. ID_EDIT_FIND - Ribbon name)
+#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
+#. - Ribbon name)
 msgid "Find"
 msgstr "Пронађи"
 
@@ -6909,10 +6909,6 @@ msgstr "Стопи конфликт откривен у бинарном фај�
 msgid "Merge conflict discovered in file %s"
 msgstr "Стопи конфликт откривен у фајлу  %s"
 
-#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
-msgid "Merge non-interactive"
-msgstr "Стопи неинтеркативно"
-
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1534, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1487, IDS_MERGEWIZARD_OPTIONSTITLE)
 msgid "Merge options"
@@ -7651,7 +7647,7 @@ msgstr "Користи п&роверу правописа када је пост
 msgid "Opacity"
 msgstr "Непрозирност"
 
-#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "Отвори"
 
@@ -9104,11 +9100,11 @@ msgstr "Дневник пробе за тестирање багтрек: рег
 msgid "Sample text:"
 msgstr "Пробни текст:"
 
-#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "Сачувај"
 
-#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
+#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
 msgid "Save &as..."
 msgstr "Сачувај &као..."
 
@@ -11708,7 +11704,7 @@ msgstr "Корисници за избегавање:"
 
 #. Resource IDs: (IDS_SETTINGS_ONLYNONELEVATED_TT)
 msgid "Uses the status cache type 'none' for elevated processes"
-msgstr ""
+msgstr "Користи статусни кеш типа  'none' за развијене процесе"
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""

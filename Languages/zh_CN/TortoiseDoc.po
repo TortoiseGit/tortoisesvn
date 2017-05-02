@@ -40,7 +40,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 08:32+0000\n"
+"PO-Revision-Date: 2017-04-26 02:04+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -9874,8 +9874,8 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "Handling Conflicts during Merge"
-msgstr "子合并期间处理冲突"
+msgid "Handling Conflicts after Merge"
+msgstr ""
 
 #. (primary)
 msgid "merge conflicts"
@@ -9889,24 +9889,22 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "The Merge Conflict Callback Dialog"
-msgstr "合并冲突回调对话框"
+msgid "The Merge Conflict Dialog"
+msgstr ""
 
 #. (para)
 msgid ""
-"Merging does not always go smoothly. Sometimes there is a conflict, and if "
-"you are merging multiple ranges, you generally want to resolve the conflict "
-"before merging of the next range starts. TortoiseSVN helps you through this "
-"process by showing the <emphasis>merge conflict callback</emphasis> dialog. "
-"<placeholder-1/>"
-msgstr "合并不会总是顺利的。有时会有冲突，如果您正在合并多个范围，您通常要在下一个范围的合并开始之前解决冲突。TortoiseSVN 会在进程中通过显示 <emphasis>合并冲突回调</emphasis> 对话框来帮助你解决。<placeholder-1/>"
+"Merging does not always go smoothly. Sometimes there is a conflict. "
+"TortoiseSVN helps you through this process by showing the <emphasis>merge "
+"conflict</emphasis> dialog. <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
-"All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you different ways of handling the lines which are in conflict."
+"All changes which can be merged are merged. The Merge Conflict dialog gives "
+"you different ways of handling the lines which are in conflict."
 msgstr ""
 
 #. (term)
@@ -10009,12 +10007,12 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "The Merge Tree Conflict Callback Dialog"
+msgid "The Merge Tree Conflict Dialog"
 msgstr ""
 
 #. (para)
 msgid ""
-"To resolve tree conflicts during a merge, a dialog is shown with various "
+"To resolve tree conflicts after a merge, a dialog is shown with various "
 "options on how to resolve the conflict: <placeholder-1/> Since there are "
 "various possible tree conflict situations, the dialog will show buttons to "
 "resolve those depending on the specific conflict. The button texts and "
@@ -10022,20 +10020,6 @@ msgid ""
 "sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
 "button to resolve the conflict later."
 msgstr ""
-
-#. (para)
-msgid ""
-"If you do not want to use this interactive callback, there is a checkbox in "
-"the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If "
-"this is set for a merge and the merge would result in a conflict, the file "
-"is marked as in conflict and the merge goes on. You will have to resolve the"
-" conflicts after the whole merge is finished. If it is not set, then before "
-"a file is marked as conflicted you get the chance to resolve the conflict "
-"<emphasis>during</emphasis> the merge. This has the advantage that if a file"
-" gets multiple merges (multiple revisions apply a change to that file), "
-"subsequent merges might succeed depending on which lines are affected. But "
-"of course you can't walk away to get a coffee while the merge is running ;)"
-msgstr "如果您不想使用交互式回调，在合并进度对话框中有一个 <guilabel>非交互式合并</guilabel> 复选框。如果选中它，若合并中出现了冲突，该文件会被标记为冲突，然后继续合并。你必须在整个合并完成后解决这些冲突。如果不选中它，那么在冲文件被标记为冲突之前你有机会在合并 <emphasis>过程中</emphasis> 解决冲突。它的优势是如果一个文件获得多个合并 (多个修订版本将更改应用于该文件)，后续的合并是否成功取决于受影响的行。但这样在合并期间你可不能离开去尿尿哦 ;)"
 
 #. (title)
 msgid "Feature Branch Maintenance"

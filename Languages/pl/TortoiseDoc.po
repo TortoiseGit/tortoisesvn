@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 08:32+0000\n"
+"PO-Revision-Date: 2017-04-26 02:04+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/luebbe/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -4220,7 +4220,7 @@ msgid ""
 "This marks the conflicted file/folder as resolved, but Developer A's changes"
 " need to be removed by hand. Again the log dialog helps to track down what "
 "was moved."
-msgstr ""
+msgstr "Jeśli Programista J zdecyduje, że zmiany A były niewłaściwe, musi wybrać przycisk <guilabel>Oznacz jako rozwiązany</guilabel> w oknie edytora konfliktu. Zaznacza to skonfliktowane pliki/foldery jako rozwiązane, ale zmiany programisty A trzeba usunąć ręcznie. Ponownie okno dziennika pomaga wyśledzić, co zostało przeniesione."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -4378,7 +4378,7 @@ msgid ""
 "This marks the conflicted file/folder as resolved, but Developer A's changes"
 " need to be removed by hand. Again the log dialog for the merge source helps"
 " to track down what was moved."
-msgstr ""
+msgstr "Jeśli programista J decyduje, że zmiana A jest niepoprawna, musi wybrać przycisk <guilabel>Oznacz jako rozwiązany</guilabel> w oknie edytora konfliktu. Zaznacza to skonfliktowany plik/folder jako rozwiązany, ale zmiany programisty A trzeba usunąć ręcznie. Ponownie okno dziennika dla źródła scalenia pomaga wyśledzić, co zostało przeniesione."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
@@ -9855,8 +9855,8 @@ msgid ""
 msgstr "O śledzeniu scaleń w  Subversion dowiecie się więcej z <ulink url=\"http://svn.apache.org/repos/asf/Subversion/trunk/notes/merge-tracking/index.html\"><citetitle>Dokumentacji scalenia połaczeń wersji</citetitle></ulink>."
 
 #. (title)
-msgid "Handling Conflicts during Merge"
-msgstr "Obsługa Konfliktów podczas scalenia"
+msgid "Handling Conflicts after Merge"
+msgstr ""
 
 #. (primary)
 msgid "merge conflicts"
@@ -9870,24 +9870,22 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "The Merge Conflict Callback Dialog"
-msgstr "Okno informacji zwrotnej konfliktu scalenia"
+msgid "The Merge Conflict Dialog"
+msgstr ""
 
 #. (para)
 msgid ""
-"Merging does not always go smoothly. Sometimes there is a conflict, and if "
-"you are merging multiple ranges, you generally want to resolve the conflict "
-"before merging of the next range starts. TortoiseSVN helps you through this "
-"process by showing the <emphasis>merge conflict callback</emphasis> dialog. "
-"<placeholder-1/>"
-msgstr "Scalenie nie zawsze przebiega gładko. Czasami występuje konflikt, a jeśli scalanie obejmuje wiele zakresów, zazwyczaj rozwiązanie konfliktu powinno nastąpić przed rozpoczęciem scalenia następnego zakresu. TortoiseSVN pomaga w tym procesie, pokazując okno dialogowe <emphasis>informacji zwrotnej konfliktu scalenia</emphasis>. <placeholder-1/>"
+"Merging does not always go smoothly. Sometimes there is a conflict. "
+"TortoiseSVN helps you through this process by showing the <emphasis>merge "
+"conflict</emphasis> dialog. <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
 "It is likely that some of the changes will have merged smoothly, while other"
 " local changes conflict with changes already committed to the repository. "
-"All changes which can be merged are merged. The Merge Conflict Callback "
-"dialog gives you different ways of handling the lines which are in conflict."
+"All changes which can be merged are merged. The Merge Conflict dialog gives "
+"you different ways of handling the lines which are in conflict."
 msgstr ""
 
 #. (term)
@@ -9953,7 +9951,7 @@ msgstr ""
 
 #. (term)
 msgid "Mark as resolved"
-msgstr ""
+msgstr "Oznacz jako rozwiązany"
 
 #. (para)
 msgid ""
@@ -9961,7 +9959,7 @@ msgid ""
 "button <guibutton>Edit</guibutton> to edit the conflict manually and save "
 "those changes back to the file. Once the changes are saved, the button "
 "becomes enabled."
-msgstr ""
+msgstr "Oznacza konflikty jako rozwiązane. Ten przycisk jest wyłączony do czasu użycia przycisku <guibutton>Edytuj</guibutton> by edytować konflikt ręcznie i zapisać te zmiany do pliku. Gdy zmiany są zapisane, przycsk zostanie włączony."
 
 #. (term)
 #. (term)
@@ -9973,7 +9971,7 @@ msgid ""
 "Starts the merge editor so you can resolve the conflicts manually. Don't "
 "forget to save the file so the button <guibutton>Mark as "
 "resolved</guibutton> becomes enabled."
-msgstr ""
+msgstr "Uruchamia edytor scalenia by można było rozwiązać konflikty ręcznie. Nie zapomnijcie zapisać plik by przycisk <guibutton>Oznacz jako rozwiązany</guibutton> został włączony."
 
 #. (para)
 msgid ""
@@ -9990,12 +9988,12 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "The Merge Tree Conflict Callback Dialog"
+msgid "The Merge Tree Conflict Dialog"
 msgstr ""
 
 #. (para)
 msgid ""
-"To resolve tree conflicts during a merge, a dialog is shown with various "
+"To resolve tree conflicts after a merge, a dialog is shown with various "
 "options on how to resolve the conflict: <placeholder-1/> Since there are "
 "various possible tree conflict situations, the dialog will show buttons to "
 "resolve those depending on the specific conflict. The button texts and "
@@ -10003,20 +10001,6 @@ msgid ""
 "sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
 "button to resolve the conflict later."
 msgstr ""
-
-#. (para)
-msgid ""
-"If you do not want to use this interactive callback, there is a checkbox in "
-"the merge progress dialog <guilabel>Merge non-interactive</guilabel>. If "
-"this is set for a merge and the merge would result in a conflict, the file "
-"is marked as in conflict and the merge goes on. You will have to resolve the"
-" conflicts after the whole merge is finished. If it is not set, then before "
-"a file is marked as conflicted you get the chance to resolve the conflict "
-"<emphasis>during</emphasis> the merge. This has the advantage that if a file"
-" gets multiple merges (multiple revisions apply a change to that file), "
-"subsequent merges might succeed depending on which lines are affected. But "
-"of course you can't walk away to get a coffee while the merge is running ;)"
-msgstr "Jeśli nie chcecie używać tego interaktywnego okna informacji zwrotnej, istnieje pole wyboru w oknie dialogowym postępu <guilabel>Scalaj nieinteraktywnie</guilabel>. Jeśli jest zaznaczone dla scalenia a ono spowoduje konflikt, plik jest oznakowany jako skonfliktowany i scalanie przechodzi dalej. Będziecie musieli rozwiązać konflikty kiedy całe scalanie zostanie zakończone. Jeśli nie jest zaznaczone, to zanim plik zostaje oznaczony jako skonfliktowany macie szansę, aby rozwiązać konflikt <emphasis>w trakcie</emphasis> scalania. Ma to tę zaletę, że jeśli plik wchodzi w skład wielu acaleń (wiele wersji wprowadziło zmiany w tym pliku), kolejne scalenie może się udać w zależności od tego, których linii dotyczą. Ale oczywiście nie można wyjść na kawę, podczas gdy wykonuje się scalenie ;)"
 
 #. (title)
 msgid "Feature Branch Maintenance"
@@ -13399,7 +13383,7 @@ msgid ""
 "processes</guilabel> box. This is useful if you want to prevent another "
 "<filename>TSVNCache.exe</filename> process getting created with elevated "
 "privileges."
-msgstr ""
+msgstr "Możecie wymusić typ podręcznej pamięci statusu <emphasis>Brak</emphasis> dla podwyższonych procesów przez zaznaczenie pola <guilabel>Zablokuj pamięć podręczną statusu dla procesów podwyższonych</guilabel>. Jest to poprawne jeśli chce się zapobiec utworzeniu innego procesu <filename>TSVNCache.exe</filename> z podwyższonymi uprawnieniami."
 
 #. (para)
 msgid ""
@@ -21456,7 +21440,7 @@ msgstr "Zapobiega edycji pliku. Oznacza to, że możliwości edycji TortoiseMerg
 msgid ""
 "Prevents TortoiseMerge from asking whether to mark a file as resolved in SVN"
 " after saving it."
-msgstr ""
+msgstr "Blokuje pytania TortoiseMerge czy zaznaczyć plik jako rozwiązany w SVN po zapisie."
 
 #. (para)
 msgid ""

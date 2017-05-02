@@ -18,15 +18,15 @@
 # Ian Yoon <learder@gmail.com>, 2012
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # Mandy Cho <chohy@yahoo.com>, 2013
-# Seongki Shin <skshin@gmail.com>, 2011-2013,2015
+# Seongki Shin <skshin@gmail.com>, 2011-2013,2015,2017
 # TaeDong Kim <fly1004@gmail.com>, 2011,2013-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-03-02 09:56+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-04-26 07:31+0000\n"
+"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/luebbe/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -130,7 +130,7 @@ msgstr "%2!ls!의 %1!ls!"
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALANDSPEED)
 #, c-format
 msgid "%1!ls!, %2!ls!"
-msgstr ""
+msgstr "%1!ls!, %2!ls!"
 
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME)
 #, c-format
@@ -308,9 +308,9 @@ msgstr "&..."
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
+msgstr "중지(&A)\n훅 스크립트가 실패한 원인을 먼저 수정합니다."
 
-#. Resource IDs: (ID_APP_ABOUT - Menu)
+#. Resource IDs: (57664 - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge에대해서(&A)..."
 
@@ -318,7 +318,7 @@ msgstr "TortoiseMerge에대해서(&A)..."
 msgid ""
 "&Accept the certificate\n"
 "The certificate is accepted only this one time."
-msgstr ""
+msgstr "인증서 허용(&A)\n인증서를 이번 한번만 허용합니다."
 
 #. Resource IDs: (16920)
 msgid "&Activate"
@@ -340,7 +340,7 @@ msgstr "필터 추가(&A)"
 msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
-msgstr ""
+msgstr "항목 추가(&A)\nWindows에서 문제가 발생합니다."
 
 #. Resource IDs: (17018)
 msgid "&Add or Remove Buttons"
@@ -415,7 +415,7 @@ msgstr "변경에 대해 수정한 사람 보기(&B)"
 
 #. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
 msgid "&Blame changes in revisions"
-msgstr ""
+msgstr "리버전에 대한 수정한 사람 보기(&B)"
 
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
@@ -480,133 +480,133 @@ msgstr "취소(&C)"
 msgid ""
 "&Cancel\n"
 "Choose a different folder to export to"
-msgstr ""
+msgstr "취소(&C)\n내보낼 다른 폴더를 선택"
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not commit to a tag."
-msgstr ""
+msgstr "취소(& C)\n태그에 커밋하지 않는다."
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not remove"
-msgstr ""
+msgstr "취소(&C)\n삭제하지 않는다"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not revert."
-msgstr ""
+msgstr "취소(&C)\n되돌리지 않는다."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not update the working copy."
-msgstr ""
+msgstr "취소(&C)\n작업 사본을 갱신하지 않는다."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't resolve the item."
-msgstr ""
+msgstr "취소(&C)\n항목을 해결하지 않는다."
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "취소(&C)\n차이를 표시하지 않습니다."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and enter an issue number."
-msgstr ""
+msgstr "취소(&C)\n다시 이슈 번호를 입력한다."
 
 #. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and select a different folder."
-msgstr ""
+msgstr "취소(&C)\n다시 다른 폴더를 선택한다."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
 msgid ""
 "&Cancel\n"
 "I will enter a different path/URL."
-msgstr ""
+msgstr "취소(& C)\n다른 경로/URL을 입력한다."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
 msgid ""
 "&Cancel\n"
 "Keep the current URL."
-msgstr ""
+msgstr "취소(&C)\n현재의 URL을 유지한다."
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
 msgid ""
 "&Cancel\n"
 "Leave the cache on disk."
-msgstr ""
+msgstr "취소(&C)\n디스크에 캐시를 남겨둔다."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
 msgid ""
 "&Cancel\n"
 "Local modifications are kept."
-msgstr ""
+msgstr "취소(&C)\n로컬 변경 사항을 유지한다."
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
 msgid ""
 "&Cancel\n"
 "The conflict is not resolved."
-msgstr ""
+msgstr "취소(&C)\n충돌 문제가 해결되지 않습니다."
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "The file is not copied."
-msgstr ""
+msgstr "취소(&C)\n파일은 복사되지 않습니다."
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
 msgid ""
 "&Cancel\n"
 "The folder is not exported."
-msgstr ""
+msgstr "취소(&C)\n폴더는 내보내지 않습니다."
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
 msgid ""
 "&Cancel\n"
 "The items are not imported."
-msgstr ""
+msgstr "취소(&C)\n항목은 가져오지 않습니다."
 
 #. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
 msgid ""
 "&Cancel\n"
 "The tagged revision of the external is left as is."
-msgstr ""
+msgstr "취소(&C)\n외부 참조 태깅 된 버전은 그대로 유지됩니다."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
 msgid ""
 "&Cancel\n"
 "The target file is left as is"
-msgstr ""
+msgstr "취소(&C)\n대상 파일은 그대로 남아 있습니다."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to add the folder manually."
-msgstr ""
+msgstr "취소(&C)\n폴더를 수동으로 추가해야합니다."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr ""
+msgstr "취소(&C)\n외부 참조를 얻기 위해 수동으로 업데이트를 실행"
 
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
 msgid ""
 "&Cancel\n"
 "keep the current format."
-msgstr ""
+msgstr "취소(&C)\n현재의 포맷을 유지한다."
 
 #. Resource IDs: (65535)
 msgid "&Categories:"
@@ -682,8 +682,8 @@ msgstr "시작할 때 저장소에 접근합니다.(&C)"
 msgid "&Convert files when diffing against BASE"
 msgstr "베이스와 비교할 때, 파일을 변환합니다.(&C)"
 
-#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
-#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
+#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
+#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
 msgid "&Copy"
 msgstr "복사(&C)"
 
@@ -750,7 +750,7 @@ msgstr "삭제(&D)..."
 msgid ""
 "&Delete\n"
 "Remove the cache files."
-msgstr ""
+msgstr "삭제(&D)\n캐시 파일을 삭제한다."
 
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
@@ -780,7 +780,7 @@ msgstr "붙이기(&D)"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "실행않음(&D)\n스크립트를 실행하지 않는다"
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -845,7 +845,7 @@ msgstr "선택된 것을 익스포트(&E)..."
 msgid ""
 "&Export\n"
 "Export into the non-empty folder."
-msgstr ""
+msgstr "내보내기(&E)\n비어 있지 않은 폴더로 내보냅니다."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -949,7 +949,7 @@ msgstr "저장소의 &HEAD 리비전"
 msgid "&Help"
 msgstr "도움말(&H)"
 
-#. Resource IDs: (ID_HELP - Menu)
+#. Resource IDs: (57670 - Menu)
 msgid "&Help Topics"
 msgstr "도움말 항목(&H)"
 
@@ -980,7 +980,7 @@ msgstr "무시하고 계속하기(&I)"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
 msgid "&Ignore multiple items by name"
-msgstr ""
+msgstr "이름으로 여러 항목을 무시(&I)"
 
 #. Resource IDs: (16914 - Menu)
 msgid "&Image"
@@ -1002,7 +1002,7 @@ msgstr "임포트(&I)..."
 msgid ""
 "&Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr ""
+msgstr "가져 오기(&I)\n항목을 가져 와서, 각 항목을 새 리비전으로 만든다."
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1264,13 +1264,13 @@ msgstr "&오버레이 이미지들⇥(O)"
 msgid ""
 "&Overwrite\n"
 "Replace the target folder."
-msgstr ""
+msgstr "덮어쓰기(&O)\n대상 폴더를 대체합니다."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file gets replaced"
-msgstr ""
+msgstr "덮어쓰기(&O)\n대상 파일을 대체"
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
 msgid ""
@@ -1283,8 +1283,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "암호(&P):"
 
-#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
-#. ID_EDIT_PASTE - Menu)
+#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
+#. IDS_SCIEDIT_PASTE)
 msgid "&Paste"
 msgstr "붙여넣기(&P)"
 
@@ -1585,7 +1585,7 @@ msgstr "그룹 시작(&S)"
 msgid "&Start Repobrowser"
 msgstr "저장소 브라우저 시작(&S)"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
+#. Resource IDs: (59393 - Menu)
 msgid "&Status Bar"
 msgstr "상태 표시줄(&S)"
 
@@ -1663,7 +1663,7 @@ msgstr "대상 경로(&T):"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "끝(&T): (병합할 범위의 끝 URL과 리비전)"
 
-#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
+#. Resource IDs: (59392 - Menu)
 msgid "&Toolbar"
 msgstr "도구 막대(&T)"
 
@@ -1712,7 +1712,7 @@ msgstr "저장소 &URL:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
+#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
 msgid "&Undo"
 msgstr "실행 취소(&U)"
 
@@ -2668,7 +2668,7 @@ msgstr "알파 혼합"
 
 #. Resource IDs: (156 - Ribbon element)
 msgid "Blocks"
-msgstr ""
+msgstr "블럭"
 
 #. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
 #. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
@@ -2922,7 +2922,7 @@ msgstr "취소\n아이템들이 이동되지 않았습니다."
 msgid ""
 "Cancel\n"
 "You can enter another password and try again"
-msgstr ""
+msgstr "취소\n다른 암호를 입력 해 본다"
 
 #. Resource IDs: (IDS_BLAME_PROGRESSCANCEL)
 msgid "Cancelling TortoiseSVN Blame..."
@@ -3082,7 +3082,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
-msgstr ""
+msgstr "Check-Commit 훅"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1504, Dialog IDD_COPY:
 #. Control id 1504)
@@ -3096,12 +3096,12 @@ msgstr "TortoiseSVN 새 버전이 있는지 확인합니다."
 #. Resource IDs: (IDS_MONITOR_CHECKPROJECT)
 #, c-format
 msgid "Checking project '%ls' for updates..."
-msgstr ""
+msgstr "'%ls' 프로젝트의 업데이트를 검색 중 ...."
 
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS)
 #, c-format
 msgid "Checking r%1!ld!..."
-msgstr ""
+msgstr "r%1!ld! 확인중..."
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -4451,7 +4451,7 @@ msgid ""
 "Do you want to revert all changes in\n"
 "%ls\n"
 "and go back to this revision?"
-msgstr "%ls\n의 모든 변경사항을 되돌리고\n이 리비전으로 되돌아가길 원하십니까?"
+msgstr "%ls\n의 모든 변경사항을 되돌리고\n이 리비전으로 되돌리길 원하십니까?"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK1)
 #, c-format
@@ -4536,7 +4536,7 @@ msgstr "제외 경로(&X):"
 msgid "E&xecutable"
 msgstr "실행가능(&X)"
 
-#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
 msgid "E&xit"
 msgstr "종료(&X)"
 
@@ -5285,8 +5285,8 @@ msgstr "필터 경로"
 msgid "Filter:"
 msgstr "필터:"
 
-#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
-#. ID_EDIT_FIND - Ribbon name)
+#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
+#. - Ribbon name)
 msgid "Find"
 msgstr "찾기"
 
@@ -6915,10 +6915,6 @@ msgstr ""
 msgid "Merge conflict discovered in file %s"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1432)
-msgid "Merge non-interactive"
-msgstr "비-대화식으로 병합"
-
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1534, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1487, IDS_MERGEWIZARD_OPTIONSTITLE)
 msgid "Merge options"
@@ -7657,7 +7653,7 @@ msgstr "tsvn:projectlanguage 가 설정된 경우에만 철자검사를 합니�
 msgid "Opacity"
 msgstr "불투명"
 
-#. Resource IDs: (61440, ID_FILE_OPEN - Menu, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
 msgid "Open"
 msgstr "열기"
 
@@ -9110,11 +9106,11 @@ msgstr "Bugtraq 정규식을 테스트하기 위한 샘플 로그 메시지.\n\n
 msgid "Sample text:"
 msgstr "샘플 텍스트:"
 
-#. Resource IDs: (ID_FILE_SAVE - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
 msgid "Save"
 msgstr "저장하기"
 
-#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
+#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
 msgid "Save &as..."
 msgstr "다른 이름으로 저장(&A)..."
 
