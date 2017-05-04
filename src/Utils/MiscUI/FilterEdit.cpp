@@ -36,7 +36,6 @@ CFilterEdit::CFilterEdit() : m_hIconCancelNormal(NULL)
     , m_iCancelClickedMessageId(WM_FILTEREDIT_CANCELCLICKED)
     , m_pValidator(NULL)
     , m_backColor(GetSysColor(COLOR_WINDOW))
-    , m_brBack(NULL)
 {
     m_rcEditArea.SetRect(0, 0, 0, 0);
     m_rcButtonArea.SetRect(0, 0, 0, 0);
@@ -53,8 +52,6 @@ CFilterEdit::~CFilterEdit()
         DestroyIcon(m_hIconCancelPressed);
     if (m_hIconInfo)
         DestroyIcon(m_hIconInfo);
-    if (m_brBack)
-        DeleteObject(m_brBack);
 }
 
 BEGIN_MESSAGE_MAP(CFilterEdit, CEdit)
@@ -342,9 +339,9 @@ void CFilterEdit::Validate()
             g = g * (100 - SHIFT_PRECENTAGE) / 100;
             b = b * (100 - SHIFT_PRECENTAGE) / 100;
             m_backColor = RGB(r, g, b);
-            if (m_brBack)
-                DeleteObject(m_brBack);
-            m_brBack = CreateSolidBrush(m_backColor);
+
+            m_brBack.DeleteObject();
+            m_brBack.CreateSolidBrush(m_backColor);
         }
     }
 }

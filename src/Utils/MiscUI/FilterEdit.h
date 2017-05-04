@@ -152,7 +152,7 @@ protected:
     UINT                    m_iButtonClickedMessageId;
     UINT                    m_iCancelClickedMessageId;
     COLORREF                m_backColor;
-    HBRUSH                  m_brBack;
+    CBrush                  m_brBack;
     IFilterEditValidator *  m_pValidator;
     CString                 m_sCueBanner;
 };
