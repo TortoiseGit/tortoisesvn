@@ -324,11 +324,10 @@ void CFilterEdit::Validate()
 {
     if (m_pValidator)
     {
-        int len = GetWindowTextLength();
-        std::unique_ptr<TCHAR[]> pBuf (new TCHAR[len+1]);
-        GetWindowText(pBuf.get(), len+1);
+        CString text;
+        GetWindowText(text);
         m_backColor = GetSysColor(COLOR_WINDOW);
-        if (!m_pValidator->Validate(pBuf.get()))
+        if (!m_pValidator->Validate(text))
         {
             // Use a background color slightly shifted to red.
             // We do this by increasing red component and decreasing green and blue.
@@ -427,10 +426,8 @@ LRESULT CFilterEdit::OnPaste(WPARAM, LPARAM)
 
         // get the current text
 
-        int len = GetWindowTextLength();
-        std::unique_ptr<TCHAR[]> pBuf (new TCHAR[len+1]);
-        GetWindowText(pBuf.get(), len+1);
-        CString text = pBuf.get();
+        CString text;
+        GetWindowText(text);
 
         // construct the new text
 
