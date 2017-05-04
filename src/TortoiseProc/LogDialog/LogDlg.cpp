@@ -606,8 +606,8 @@ void CLogDlg::ConfigureColumnsForChangedFileListControl()
 void CLogDlg::SetupFilterControlBitmaps()
 {
     // the filter control has a 'cancel' button (the red 'X'), we need to load its bitmap
-    m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
-    m_cFilter.SetInfoIcon(IDI_LOGFILTER);
+    m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED, 14, 14);
+    m_cFilter.SetInfoIcon(IDI_LOGFILTER, 19, 19);
     m_cFilter.SetValidator(this);
     m_cFilter.SetWindowText(m_sFilterText);
 }

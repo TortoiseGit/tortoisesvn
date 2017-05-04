@@ -68,7 +68,7 @@ BOOL CHistoryDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
 
-    m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED);
+    m_cFilter.SetCancelBitmaps(IDI_CANCELNORMAL, IDI_CANCELPRESSED, 14, 14);
     m_cFilter.SetValidator(this);
 
     UpdateMessageList();
