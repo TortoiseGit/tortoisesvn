@@ -28,6 +28,7 @@
 #include "GotoLineDlg.h"
 #include "EncodingDlg.h"
 #include "EditorConfigWrapper.h"
+#include "DpiScale.h"
 
 // Note about lines:
 // We use three different kind of lines here:
@@ -1636,6 +1637,7 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
     }
     else
     {
+        CDpiScale dpi(pDC->GetSafeHdc());
         CPen pen(PS_SOLID, 0, m_WhiteSpaceFg);
         CPen * oldpen = pDC->SelectObject(&pen);
         int yMiddle = origin.y + rc.Height()/2;
@@ -1647,10 +1649,10 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
             {
                 // multiline
                 bMultiline = true;
-                pDC->MoveTo(origin.x, yMiddle-2);
-                pDC->LineTo(origin.x+GetCharWidth()-1, yMiddle-2);
-                pDC->LineTo(origin.x+GetCharWidth()-1, yMiddle+2);
-                pDC->LineTo(origin.x, yMiddle+2);
+                pDC->MoveTo(origin.x, yMiddle-dpi.ScaleY(2));
+                pDC->LineTo(origin.x+GetCharWidth()-dpi.ScaleX(1), yMiddle-dpi.ScaleY(2));
+                pDC->LineTo(origin.x+GetCharWidth()-dpi.ScaleX(1), yMiddle+dpi.ScaleY(2));
+                pDC->LineTo(origin.x, yMiddle+dpi.ScaleY(2));
             }
             else if (GetLineLength(nLineIndex) == 0)
                 bMultiline = true;
@@ -1665,32 +1667,32 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
             case EOL_AUTOLINE:
             case EOL_CRLF:
                 // arrow from top to middle+2, then left
-                pDC->MoveTo(origin.x+GetCharWidth()-1, rc.top+1);
-                pDC->LineTo(origin.x+GetCharWidth()-1, yMiddle);
+                pDC->MoveTo(origin.x+GetCharWidth()-dpi.ScaleX(1), rc.top+dpi.ScaleY(1));
+                pDC->LineTo(origin.x+GetCharWidth()-dpi.ScaleX(1), yMiddle);
             case EOL_CR:
                 // arrow from right to left
-                pDC->MoveTo(origin.x+GetCharWidth()-1, yMiddle);
+                pDC->MoveTo(origin.x+GetCharWidth()-dpi.ScaleX(1), yMiddle);
                 pDC->LineTo(origin.x, yMiddle);
-                pDC->LineTo(origin.x+4, yMiddle+4);
+                pDC->LineTo(origin.x+dpi.ScaleX(4), yMiddle+dpi.ScaleY(4));
                 pDC->MoveTo(origin.x, yMiddle);
-                pDC->LineTo(origin.x+4, yMiddle-4);
+                pDC->LineTo(origin.x+dpi.ScaleX(4), yMiddle-dpi.ScaleY(4));
                 break;
             case EOL_LFCR:
                 // from right-upper to left then down
-                pDC->MoveTo(origin.x+GetCharWidth()-1, yMiddle-2);
-                pDC->LineTo(xMiddle, yMiddle-2);
-                pDC->LineTo(xMiddle, rc.bottom-1);
-                pDC->LineTo(xMiddle+4, rc.bottom-5);
-                pDC->MoveTo(xMiddle, rc.bottom-1);
-                pDC->LineTo(xMiddle-4, rc.bottom-5);
+                pDC->MoveTo(origin.x+GetCharWidth()-dpi.ScaleX(1), yMiddle-dpi.ScaleY(2));
+                pDC->LineTo(xMiddle, yMiddle-dpi.ScaleY(2));
+                pDC->LineTo(xMiddle, rc.bottom-dpi.ScaleY(1));
+                pDC->LineTo(xMiddle+dpi.ScaleX(4), rc.bottom-dpi.ScaleY(5));
+                pDC->MoveTo(xMiddle, rc.bottom-dpi.ScaleY(1));
+                pDC->LineTo(xMiddle-dpi.ScaleX(4), rc.bottom-dpi.ScaleY(5));
                 break;
             case EOL_LF:
                 // arrow from top to bottom
                 pDC->MoveTo(xMiddle, rc.top);
-                pDC->LineTo(xMiddle, rc.bottom-1);
-                pDC->LineTo(xMiddle+4, rc.bottom-5);
-                pDC->MoveTo(xMiddle, rc.bottom-1);
-                pDC->LineTo(xMiddle-4, rc.bottom-5);
+                pDC->LineTo(xMiddle, rc.bottom-dpi.ScaleY(1));
+                pDC->LineTo(xMiddle+dpi.ScaleX(4), rc.bottom-dpi.ScaleY(5));
+                pDC->MoveTo(xMiddle, rc.bottom-dpi.ScaleY(1));
+                pDC->LineTo(xMiddle-dpi.ScaleX(4), rc.bottom-dpi.ScaleY(5));
                 break;
             case EOL_FF:    // Form Feed, U+000C
             case EOL_NEL:   // Next Line, U+0085
@@ -2045,6 +2047,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         int y = rc.top + (rc.bottom-rc.top)/2;
         xpos -= m_nOffsetChar * GetCharWidth();
 
+        CDpiScale dpi(pDC->GetSafeHdc());
         CPen pen(PS_SOLID, 0, m_WhiteSpaceFg);
         while (*pszChars)
         {
@@ -2062,11 +2065,11 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
                         if ((xposreal > 0) || (nSpaces > 0))
                         {
                             CPen * oldPen = pDC->SelectObject(&pen);
-                            pDC->MoveTo(xposreal + rc.left, y);
-                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - 2, y);
-                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - 6, y - 4);
-                            pDC->MoveTo((xpos + nSpaces * GetCharWidth()) + rc.left - 2, y);
-                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - 6, y + 4);
+                            pDC->MoveTo(xposreal + rc.left + dpi.ScaleX(2), y);
+                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - dpi.ScaleX(2), y);
+                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - dpi.ScaleX(6), y - dpi.ScaleY(4));
+                            pDC->MoveTo((xpos + nSpaces * GetCharWidth()) + rc.left - dpi.ScaleX(2), y);
+                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - dpi.ScaleX(6), y + dpi.ScaleY(4));
                             pDC->SelectObject(oldPen);
                         }
                     }
@@ -2080,10 +2083,11 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
                     pLastSpace = pszChars + 1;
                     if (xpos >= 0)
                     {
-                        const int whitespaceSize = 2;
-                        // draw 2-pixel rectangle, like Scintilla editor.
-                        pDC->FillSolidRect(xpos + rc.left + GetCharWidth() / 2 - whitespaceSize/2, y,
-                                           whitespaceSize, whitespaceSize, m_WhiteSpaceFg);
+                        const int cxWhitespace = dpi.ScaleX(2);
+                        const int cyWhitespace = dpi.ScaleY(2);
+                        // draw 2-logical pixel rectangle, like Scintilla editor.
+                        pDC->FillSolidRect(xpos + rc.left + GetCharWidth() / 2 - cxWhitespace/2, y,
+                                           cxWhitespace, cyWhitespace, m_WhiteSpaceFg);
                     }
                     xpos += GetCharWidth();
                     nChars++;
