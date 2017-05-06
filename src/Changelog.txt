@@ -10,6 +10,8 @@ Version 1.9.6
        disabled. (Ivan Zhakov)
 - CHG: Improve startup performance of the update operation in common
        cases. (Ivan Zhakov)
+- CHG: Manifest TortoiseBlame and TortoiseUDiff as DPI-aware to avoid
+       blurriness in high dpi mode. (Ivan Zhakov)
 
 Version 1.9.5
 - BUG: The "go to next diff" in TortoiseMerge stopped at
