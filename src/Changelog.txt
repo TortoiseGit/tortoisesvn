@@ -6,6 +6,8 @@ Version 1.9.6
        if the view was collapsed. (Stefan)
 - BUG: TortoiseMerge: scale whitespace and newline symbol glyphs on High-DPI
        displays when Show Whitespaces option is enabled. (Ivan Zhakov)
+- CHG: Minor performance improvement for all operations when status cache is
+       disabled. (Ivan Zhakov)
 
 Version 1.9.5
 - BUG: The "go to next diff" in TortoiseMerge stopped at
