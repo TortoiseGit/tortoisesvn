@@ -12,6 +12,8 @@ Version 1.9.6
        cases. (Ivan Zhakov)
 - CHG: Manifest TortoiseBlame and TortoiseUDiff as DPI-aware to avoid
        blurriness in high dpi mode. (Ivan Zhakov)
+- BUG: Icons in the log dialog filter do not render correctly in
+       high dpi mode. (Ivan Zhakov)
 
 Version 1.9.5
 - BUG: The "go to next diff" in TortoiseMerge stopped at
