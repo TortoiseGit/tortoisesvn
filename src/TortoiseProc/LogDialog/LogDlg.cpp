@@ -526,6 +526,13 @@ void CLogDlg::SetupLogListControl()
         dwStyle |= LVS_EX_CHECKBOXES | 0x08000000 /*LVS_EX_AUTOCHECKSELECT*/;
     m_LogList.SetExtendedStyle(dwStyle);
     m_LogList.SetTooltipProvider(this);
+
+    // Configure fake imagelist for LogList with 1px width and height = GetSystemMetrics(SM_CYSMICON)
+    // to set minimum item height: we draw icons in actions column, but on High-DPI
+    // displays font height may be less than small icon height.
+    ASSERT((m_LogList.GetStyle() & LVS_SHAREIMAGELISTS) == 0);
+    HIMAGELIST hImageList = ImageList_Create(1, GetSystemMetrics(SM_CYSMICON), 0, 1, 0);
+    ListView_SetImageList(m_LogList, hImageList, LVSIL_SMALL);
 }
 
 void CLogDlg::LoadIconsForActionColumns()
