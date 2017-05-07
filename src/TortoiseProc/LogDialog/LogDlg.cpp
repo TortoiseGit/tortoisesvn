@@ -4975,7 +4975,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
         // Adjust columns "Actions" containing icons
         if (col == 1)
         {
-            const int nMinimumWidth = ICONITEMBORDER+16*7;
+            const int nMinimumWidth = ICONITEMBORDER+GetSystemMetrics(SM_CXSMICON) * 7;
             if (cx < nMinimumWidth)
             {
                 cx = nMinimumWidth;
@@ -4983,7 +4983,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
         }
         if ((col == 0) && m_bSelect)
         {
-            cx += 16;   // add space for the checkbox
+            cx += GetSystemMetrics(SM_CXSMICON);   // add space for the checkbox
         }
         // keep the bug id column small
         if ((col == 4)&&(m_bShowBugtraqColumn))
