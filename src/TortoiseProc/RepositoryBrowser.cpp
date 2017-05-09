@@ -52,7 +52,8 @@
 #include "DiffOptionsDlg.h"
 #include "Callback.h"
 #include "SVNStatus.h"
-#include "AutoThemeData.h"
+#include "SmartHandle.h"
+
 
 #include <fstream>
 #include <sstream>

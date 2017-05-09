@@ -64,7 +64,6 @@
 #include "RenameDlg.h"
 #include "..\..\ext\snarl\SnarlInterface.h"
 #include "ToastNotifications.h"
-#include "AutoThemeData.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 #include <fstream>

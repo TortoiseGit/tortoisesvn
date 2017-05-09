@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2015 - TortoiseSVN
+// Copyright (C) 2011, 2015, 2017 - TortoiseSVN
 // Copyright (C) 2015 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -191,6 +191,14 @@ struct CCloseFindFile
     }
 };
 
+template <typename T>
+struct CCloseThemeData
+{
+    static bool Close(T hTheme)
+    {
+        return !!::CloseThemeData(hTheme);
+    }
+};
 
 // Client code (definitions of standard Windows handles).
 typedef CSmartHandle<HANDLE,  CCloseHandle>                                         CAutoGeneralHandle;
@@ -199,6 +207,7 @@ typedef CSmartHandle<PVOID,   CCloseViewOfFile>                                 
 typedef CSmartHandle<HMODULE, CCloseLibrary>                                        CAutoLibrary;
 typedef CSmartHandle<HANDLE,  CCloseHandle, INVALID_HANDLE_VALUE>                   CAutoFile;
 typedef CSmartHandle<HANDLE,  CCloseFindFile, INVALID_HANDLE_VALUE>                 CAutoFindFile;
+typedef CSmartHandle<HTHEME, CCloseThemeData>                                       CAutoThemeData;
 
 /*
 void CompilerTests()
