@@ -523,7 +523,7 @@ void CLogDlg::SetupLogListControl()
     // Also, while handling checkboxes is implemented, most code paths in this
     // file still only work on the selected items, not the checked ones.
     if (m_bSelect)
-        dwStyle |= LVS_EX_CHECKBOXES | 0x08000000 /*LVS_EX_AUTOCHECKSELECT*/;
+        dwStyle |= LVS_EX_CHECKBOXES | LVS_EX_AUTOCHECKSELECT;
     m_LogList.SetExtendedStyle(dwStyle);
     m_LogList.SetTooltipProvider(this);
 
