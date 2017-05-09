@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010, 2012, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,8 +35,8 @@ public:
     ~PreserveChdir();                               ///< restores originalCurrentDirectory
 
 private:
-    PreserveChdir(const PreserveChdir&);            ///< non-copyable
-    PreserveChdir& operator=(const PreserveChdir&); ///< non-assignable
+    PreserveChdir(const PreserveChdir&) = delete;   ///< non-copyable
+    PreserveChdir& operator=(const PreserveChdir&) = delete; ///< non-assignable
 
     const size_t size;                              ///< size of originalCurrentDirectory
     std::unique_ptr<TCHAR[]> originalCurrentDirectory;    ///< %CD% at ctor time
