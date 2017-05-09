@@ -538,14 +538,17 @@ void CLogDlg::SetupLogListControl()
 void CLogDlg::LoadIconsForActionColumns()
 {
     // load the icons for the action columns
-    m_hModifiedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONMODIFIED, 0, 0, LR_DEFAULTSIZE);
-    m_hReplacedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, 0, 0, LR_DEFAULTSIZE);
-    m_hAddedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONADDED, 0, 0, LR_DEFAULTSIZE);
-    m_hDeletedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONDELETED, 0, 0, LR_DEFAULTSIZE);
-    m_hMergedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONMERGED, 0, 0, LR_DEFAULTSIZE);
-    m_hReverseMergedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREVERSEMERGED, 0, 0, LR_DEFAULTSIZE);
-    m_hMovedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, 0, 0, LR_DEFAULTSIZE);
-    m_hMoveReplacedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, 0, 0, LR_DEFAULTSIZE);
+    int cx = GetSystemMetrics(SM_CXSMICON);
+    int cy = GetSystemMetrics(SM_CYSMICON);
+
+    m_hModifiedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONMODIFIED, cx, cy, 0);
+    m_hReplacedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, cx, cy, 0);
+    m_hAddedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONADDED, cx, cy, 0);
+    m_hDeletedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONDELETED, cx, cy, 0);
+    m_hMergedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONMERGED, cx, cy, 0);
+    m_hReverseMergedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREVERSEMERGED, cx, cy, 0);
+    m_hMovedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, cx, cy, 0);
+    m_hMoveReplacedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, cx, cy, 0);
 }
 
 void CLogDlg::ConfigureColumnsForLogListControl()
