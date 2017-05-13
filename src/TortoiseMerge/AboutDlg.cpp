@@ -80,8 +80,8 @@ BOOL CAboutDlg::OnInitDialog()
     SetTimer(ID_EFFECTTIMER, 40, nullptr);
     SetTimer(ID_DROPTIMER, 300, nullptr);
 
-    m_cWebLink.SetURL(L"http://tortoisesvn.net");
-    m_cSupportLink.SetURL(L"http://tortoisesvn.tigris.org/contributors.html");
+    m_cWebLink.SetURL(L"https://tortoisesvn.net");
+    m_cSupportLink.SetURL(L"https://tortoisesvn.tigris.org/contributors.html");
 
     return TRUE;  // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE

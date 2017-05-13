@@ -3,7 +3,7 @@
  * \section introduction Introduction
  * TortoiseSVN is a windows shell integration for the Subversion
  * source versioning system. Subversion is the successor
- * of the famous CVS. See http://subversion.apache.org/ for
+ * of the famous CVS. See https://subversion.apache.org/ for
  * more information on Subversion.
  *
  * With TortoiseSVN you can use Subversion directly from the
@@ -23,7 +23,7 @@
  * the TortoiseSVN menus are there.
  *
  * \section Sourcecode Source code
- * The full source code of TortoiseSVN is available at http://tortoisesvn.net.
+ * The full source code of TortoiseSVN is available at https://tortoisesvn.net.
  *
  * For information on how to build TortoiseSVN from the source code see \ref build
  *
@@ -49,7 +49,7 @@
  * ================================================================
  * Subversion is licensed under the Apache license, Version 2.0.
  * You can find the full license on the Apache website:
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  */
 
@@ -57,7 +57,7 @@
 /**
  * \page license TortoiseSVN license
  * <H1>GNU General Public License</H1>
- * also available at http://www.gnu.org/licenses/gpl.html
+ * also available at https://www.gnu.org/licenses/gpl.html
  * \n
  * Version 2, June 1991
  * \n

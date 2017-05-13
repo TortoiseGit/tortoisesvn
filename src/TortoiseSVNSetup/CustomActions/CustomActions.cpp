@@ -72,7 +72,7 @@ UINT __stdcall TerminateCache(MSIHANDLE /*hModule*/)
 
 UINT __stdcall OpenDonatePage(MSIHANDLE /*hModule*/)
 {
-    ShellExecute(NULL, L"open", L"http://tortoisesvn.net/donate.html", NULL, NULL, SW_SHOW);
+    ShellExecute(NULL, L"open", L"https://tortoisesvn.net/donate.html", NULL, NULL, SW_SHOW);
     return ERROR_SUCCESS;
 }
 

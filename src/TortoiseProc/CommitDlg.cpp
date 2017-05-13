@@ -1671,7 +1671,7 @@ void CCommitDlg::VersionCheck()
     if (bNewer)
     {
         CRegString regDownText(L"Software\\TortoiseSVN\\NewVersionText");
-        CRegString regDownLink(L"Software\\TortoiseSVN\\NewVersionLink", L"http://tortoisesvn.net");
+        CRegString regDownLink(L"Software\\TortoiseSVN\\NewVersionLink", L"https://tortoisesvn.net");
 
         if (CString(regDownText).IsEmpty())
         {

@@ -6680,7 +6680,7 @@ void CLogDlg::DetectVisualStudioRunningThread()
 }
 
 // This code was borrowed from:
-// http://stackoverflow.com/questions/350323/open-a-file-in-visual-studio-at-a-specific-line-number
+// https://stackoverflow.com/questions/350323/open-a-file-in-visual-studio-at-a-specific-line-number
 bool CLogDlg::OpenSelectedWcFilesWithVisualStudio(std::vector<size_t>& changedlogpathindices)
 {
     HRESULT result;

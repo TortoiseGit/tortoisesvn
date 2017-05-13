@@ -349,7 +349,7 @@
   <target name="uploadsymbols" depends="env,VersionInfo">
     <description>
       Uploads all the debug symbols and binaries to the crash report
-      server http://drdump.com
+      server https://drdump.com
     </description>
     <property name="verstring" value="${environment::get-variable('MajorVersion')}.${environment::get-variable('MinorVersion')}.${environment::get-variable('MicroVersion')}.${environment::get-variable('WCREV')}" />
     <property name="platformfoldername" value=""   if="${platform == 'win32'}" />
@@ -558,7 +558,7 @@
     </if>
 
     <if test="${not directory::exists('Tools') or not file::exists('Tools/ver-1.8.0')}">
-      <get src="http://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip" dest="tools.zip" />
+      <get src="https://downloads.sourceforge.net/project/tortoisesvn/build%20tools/Tools-1.8.0.zip" dest="tools.zip" />
       <unzip zipfile="tools.zip" />
       <touch file="Tools\ver-1.8.0" />
     </if>
@@ -581,7 +581,7 @@
 
             string header = @"![TortoiseSVN logo](https://svn.code.sf.net/p/tortoisesvn/code/trunk/www/source/img/tortoisesvn_logo_hor468x64.png)
 
-Make sure to also check the [changelog of Subversion](http://svn.apache.org/repos/asf/subversion/trunk/CHANGES).
+Make sure to also check the [changelog of Subversion](https://svn.apache.org/repos/asf/subversion/trunk/CHANGES).
 
 ";
             // remove older entries
@@ -593,9 +593,9 @@ Make sure to also check the [changelog of Subversion](http://svn.apache.org/repo
             // convert issues to links
             content = Regex.Replace( content, "Issue #?(\\d+)", "Issue #[$1](https://sourceforge.net/p/tortoisesvn/tickets/$17)" );
             // convert my name to links
-            content = Regex.Replace( content, "\\(Stefan\\)", "[(Stefan)](http://tortoisesvn.net/stefan_kueng.html)" );
+            content = Regex.Replace( content, "\\(Stefan\\)", "[(Stefan)](https://tortoisesvn.net/stefan_kueng.html)" );
             // convert the link to the release notes to markdown links
-            content = Regex.Replace( content, "http://tortoisesvn.net/tsvn_(1\\.\\d+)_releasenotes.html", "[http://tortoisesvn.net/tsvn\\\\_$1\\\\_releasenotes.html](http://tortoisesvn.net/tsvn_$1_releasenotes.html)" );
+            content = Regex.Replace( content, "https://tortoisesvn.net/tsvn_(1\\.\\d+)_releasenotes.html", "[https://tortoisesvn.net/tsvn\\\\_$1\\\\_releasenotes.html](https://tortoisesvn.net/tsvn_$1_releasenotes.html)" );
 
             // save the file as README.md so sourceforge recognizes it
             StreamWriter writer = new StreamWriter( @"bin\README.md" );
