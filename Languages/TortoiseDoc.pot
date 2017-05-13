@@ -440,7 +440,7 @@ msgid "Language packs are available which translate the TortoiseSVN user interfa
 msgstr ""
 
 #. (para)
-msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>http://tortoisesvn.net/faq.html</citetitle></ulink>."
+msgid "If you encounter any problems during or after installing TortoiseSVN please refer to our online FAQ at <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>https://tortoisesvn.net/faq.html</citetitle></ulink>."
 msgstr ""
 
 #. (title)
@@ -1348,7 +1348,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. The easiest way to get this is to check the option to include the command line tools when installing TortoiseSVN, but if you prefer you can download the latest version of command line tools directly from the <ulink url=\"http://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink> website."
+msgid "The <literal>svnadmin</literal> tool is installed automatically when you install the Subversion command line client. The easiest way to get this is to check the option to include the command line tools when installing TortoiseSVN, but if you prefer you can download the latest version of command line tools directly from the <ulink url=\"https://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink> website."
 msgstr ""
 
 #. (title)
@@ -1443,7 +1443,7 @@ msgid ""
 msgstr ""
 
 #. (para)
-msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <placeholder-1/>"
+msgid "Of course it would look even better if you included a suitable picture. You can use the <ulink url=\"https://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> or you can provide your own image. <placeholder-1/>"
 msgstr ""
 
 #. (programlisting)
@@ -1467,7 +1467,7 @@ msgid "To use TortoiseSVN (or any other Subversion client), you need a place whe
 msgstr ""
 
 #. (para)
-msgid "If you are using a public hosting service such as <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink> or your server has already been setup by someone else then there is nothing else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
+msgid "If you are using a public hosting service such as <ulink url=\"https://sourceforge.net\"><citetitle>SourceForge</citetitle></ulink> or your server has already been setup by someone else then there is nothing else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
 msgstr ""
 
 #. (para)
@@ -1490,16 +1490,12 @@ msgstr ""
 msgid "CollabNet"
 msgstr ""
 
-#. (citetitle)
-msgid "UberSVN"
+#. (para)
+msgid "In the early days of Subversion, setting up a server required a good understanding of server configuration and in previous versions of this manual we included detailed descriptions of how to set up a server. Since then things have become easier as there are now several pre-packaged server installers available which guide you through the setup and configuration process. These links are for some of the installers we know about: <placeholder-1/> You can always find the latest links on the <ulink url=\"https://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink> website."
 msgstr ""
 
 #. (para)
-msgid "In the early days of Subversion, setting up a server required a good understanding of server configuration and in previous versions of this manual we included detailed descriptions of how to set up a server. Since then things have become easier as there are now several pre-packaged server installers available which guide you through the setup and configuration process. These links are for some of the installers we know about: <placeholder-1/> You can always find the latest links on the <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink> website."
-msgstr ""
-
-#. (para)
-msgid "You can find further How To guides on the <ulink url=\"http://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink> website."
+msgid "You can find further How To guides on the <ulink url=\"https://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink> website."
 msgstr ""
 
 #. (title)
@@ -2240,7 +2236,7 @@ msgid "<placeholder-1/> TortoiseSVN includes a spellchecker to help you get your
 msgstr ""
 
 #. (para)
-msgid "The log message window also includes a filename and function auto-completion facility. This uses regular expressions to extract class and function names from the (text) files you are committing, as well as the filenames themselves. If a word you are typing matches anything in the list (after you have typed at least 3 characters, or pressed <keycap>Ctrl+Space</keycap>), a drop-down appears allowing you to select the full name. The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN installation <filename>bin</filename> folder. You can also define your own regexes and store them in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Of course your private autolist will not be overwritten when you update your installation of TortoiseSVN. If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
+msgid "The log message window also includes a filename and function auto-completion facility. This uses regular expressions to extract class and function names from the (text) files you are committing, as well as the filenames themselves. If a word you are typing matches anything in the list (after you have typed at least 3 characters, or pressed <keycap>Ctrl+Space</keycap>), a drop-down appears allowing you to select the full name. The regular expressions supplied with TortoiseSVN are held in the TortoiseSVN installation <filename>bin</filename> folder. You can also define your own regexes and store them in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Of course your private autolist will not be overwritten when you update your installation of TortoiseSVN. If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 msgstr ""
 
 #. (para)
@@ -4179,7 +4175,7 @@ msgid "WinMerge"
 msgstr ""
 
 #. (para)
-msgid "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> is a great open-source diff tool which can also handle directories."
+msgid "<ulink url=\"https://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> is a great open-source diff tool which can also handle directories."
 msgstr ""
 
 #. (term)
@@ -4187,7 +4183,7 @@ msgid "Perforce Merge"
 msgstr ""
 
 #. (para)
-msgid "Perforce is a commercial RCS, but you can download the diff/merge tool for free. Get more information from <ulink url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
+msgid "Perforce is a commercial RCS, but you can download the diff/merge tool for free. Get more information from <ulink url=\"https://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
 msgstr ""
 
 #. (term)
@@ -4203,7 +4199,7 @@ msgid "SourceGear DiffMerge"
 msgstr ""
 
 #. (para)
-msgid "SourceGear Vault is a commercial RCS, but you can download the diff/merge tool for free. Get more information from <ulink url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
+msgid "SourceGear Vault is a commercial RCS, but you can download the diff/merge tool for free. Get more information from <ulink url=\"https://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 msgstr ""
 
 #. (term)
@@ -4219,7 +4215,7 @@ msgid "Beyond Compare"
 msgstr ""
 
 #. (para)
-msgid "Similar to ExamDiff Pro, this is an excellent shareware diff tool which can handle directory diffs and unicode. Download it from <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink>."
+msgid "Similar to ExamDiff Pro, this is an excellent shareware diff tool which can handle directory diffs and unicode. Download it from <ulink url=\"https://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink>."
 msgstr ""
 
 #. (term)
@@ -4227,7 +4223,7 @@ msgid "Araxis Merge"
 msgstr ""
 
 #. (para)
-msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparison in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
+msgid "Araxis Merge is a useful commercial tool for diff and merging both files and folders. It does three-way comparison in merges and has synchronization links to use if you've changed the order of functions. Download it from <ulink url=\"https://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
 msgstr ""
 
 #. (para)
@@ -4590,7 +4586,7 @@ msgid "Preventing two files with the same name"
 msgstr ""
 
 #. (para)
-msgid "There is a server hook script available at: <ulink url=\"http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>http://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/</citetitle></ulink> that will prevent checkins which result in case conflicts."
+msgid "There is a server hook script available at: <ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink> that will prevent checkins which result in case conflicts."
 msgstr ""
 
 #. (title)
@@ -7487,7 +7483,7 @@ msgid "If only one expression is set, then the bare bug IDs must be matched in t
 msgstr ""
 
 #. (para)
-msgid "If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
+msgid "If you are unfamiliar with regular expressions, take a look at the introduction at <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, and the online documentation and tutorial at <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 msgstr ""
 
 #. (para)
@@ -8458,7 +8454,7 @@ msgid "One side-effect of not having a window is that there is nowhere for any e
 msgstr ""
 
 #. (para)
-msgid "TortoisePlink does not have any documentation of its own because it is just a minor variant of Plink. Find out about command line parameters from the <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY website</citetitle></ulink>."
+msgid "TortoisePlink does not have any documentation of its own because it is just a minor variant of Plink. Find out about command line parameters from the <ulink url=\"https://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY website</citetitle></ulink>."
 msgstr ""
 
 #. (para)
@@ -8466,7 +8462,7 @@ msgid "To avoid being prompted for a password repeatedly, you might also conside
 msgstr ""
 
 #. (para)
-msgid "Finally, setting up SSH on server and clients is a non-trivial process which is beyond the scope of this help file. However, you can find a guide in the TortoiseSVN FAQ listed under <ulink url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
+msgid "Finally, setting up SSH on server and clients is a non-trivial process which is beyond the scope of this help file. However, you can find a guide in the TortoiseSVN FAQ listed under <ulink url=\"https://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
 msgstr ""
 
 #. (title)
@@ -9578,7 +9574,7 @@ msgid "Even though TortoiseSVN and TortoiseMerge are free, you can support the d
 msgstr ""
 
 #. (para)
-msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
+msgid "While working on TortoiseSVN we love to listen to music. And since we spend many hours on the project we need a <emphasis>lot</emphasis> of music. Therefore we have set up some wish-lists with our favourite music CDs and DVDs: <ulink url=\"https://tortoisesvn.net/donate.html\"><citetitle>https://tortoisesvn.net/donate.html</citetitle></ulink> Please also have a look at the list of people who contributed to the project by sending in patches or translations."
 msgstr ""
 
 #. (title)
@@ -9618,7 +9614,7 @@ msgid "Snarl"
 msgstr ""
 
 #. (para)
-msgid "If <ulink url=\"http://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is installed and active, then the project monitor automatically uses Snarl to show the notifications about newly detected commits."
+msgid "If <ulink url=\"https://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is installed and active, then the project monitor automatically uses Snarl to show the notifications about newly detected commits."
 msgstr ""
 
 #. (title)
@@ -10834,7 +10830,7 @@ msgid "FAQ"
 msgstr ""
 
 #. (para)
-msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>online FAQ</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing lists <email>dev@tortoisesvn.tigris.org</email> and <email>users@tortoisesvn.tigris.org</email>."
+msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>online FAQ</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing lists <email>dev@tortoisesvn.tigris.org</email> and <email>users@tortoisesvn.tigris.org</email>."
 msgstr ""
 
 #. (para)
@@ -11609,7 +11605,7 @@ msgid "Since some of the commands can take a list of target paths (e.g. committi
 msgstr ""
 
 #. (para)
-msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format, without a <ulink url=\"http://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>. If you don't pass <option>/deletepathfile</option>, you have to delete the file yourself or the file gets left behind."
+msgid "You can also specify a file which contains a list of paths, separated by newlines. The file must be in UTF-16 format, without a <ulink url=\"https://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle>BOM</citetitle></ulink>. If you pass such a file, use <option>/pathfile</option> instead of <option>/path</option>. To have TortoiseProc delete that file after the command is finished, you can pass the parameter <option>/deletepathfile</option>. If you don't pass <option>/deletepathfile</option>, you have to delete the file yourself or the file gets left behind."
 msgstr ""
 
 #. (para)
@@ -12984,7 +12980,7 @@ msgid "translations"
 msgstr ""
 
 #. (para)
-msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available, why not join the team and submit your own translation ;-)"
+msgid "The TortoiseSVN user interface has been translated into many different languages, so you may be able to download a language pack to suit your needs. You can find the language packs on our <ulink url=\"https://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation status page</citetitle></ulink>. And if there is no language pack available, why not join the team and submit your own translation ;-)"
 msgstr ""
 
 #. (para)
@@ -12992,7 +12988,7 @@ msgid "Each language pack is packaged as a <literal>.msi</literal> installer. Ju
 msgstr ""
 
 #. (para)
-msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"http://tortoisesvn.net/support.html\"><citetitle>support page</citetitle></ulink> on our website."
+msgid "The documentation has also been translated into several different languages. You can download translated manuals from the <ulink url=\"https://tortoisesvn.net/support.html\"><citetitle>support page</citetitle></ulink> on our website."
 msgstr ""
 
 #. (title)
@@ -13008,7 +13004,7 @@ msgid "dictionary"
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"http://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"http://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 msgstr ""
 
 #. (para)
@@ -13351,7 +13347,7 @@ msgid "TortoiseMerge's History"
 msgstr ""
 
 #. (para)
-msgid "While working on <ulink url=\"http://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"http://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
+msgid "While working on <ulink url=\"https://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> we found that whenever users sent in patches to enhance the project or just to fix bugs, we had a lot of work just applying those patches. And many times those patches were outdated and couldn't be applied with the command line patch tool <ulink url=\"https://unxutils.sourceforge.net/\"><citetitle>https://unxutils.sourceforge.net/</citetitle></ulink> because we were working on those files and had sometimes changed those files already."
 msgstr ""
 
 #. (para)
