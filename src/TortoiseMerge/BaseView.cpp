@@ -2968,7 +2968,7 @@ INT_PTR CBaseView::OnToolHitTest(CPoint point, TOOLINFO* pTI) const
         // we want multi line tooltips
         CToolTipCtrl* pToolTip = AfxGetModuleThreadState()->m_pToolTip;
         if (pToolTip->GetSafeHwnd())
-            pToolTip->SetMaxTipWidth(INT_MAX);
+            pToolTip->SetMaxTipWidth(SHRT_MAX);
 
         return (textrect.PtInRect(point) ? 1 : 2);
     }

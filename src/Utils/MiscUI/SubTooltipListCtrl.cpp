@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011-2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011-2012, 2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -116,7 +116,7 @@ BOOL CSubTooltipListCtrl::OnToolTipText(UINT /*id*/, NMHDR * pNMHDR, LRESULT * p
     if (lvhitTestInfo.flags & LVHT_ONITEM)
     {
         // we want multiline tooltips
-        ::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, INT_MAX);
+        ::SendMessage(pNMHDR->hwndFrom, TTM_SETMAXTIPWIDTH, 0, SHRT_MAX);
         CString strTipText = pProvider->GetToolTipText(nItem, lvhitTestInfo.iSubItem);
 
         //Deal with UNICODE
