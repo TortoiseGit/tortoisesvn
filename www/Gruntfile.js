@@ -131,11 +131,11 @@ module.exports = function(grunt) {
 
         uglify: {
             options: {
-                compress: {
-                    warnings: false
-                },
+                compress: true,
                 mangle: true,
-                preserveComments: false
+                output: {
+                    comments: false
+                }
             },
             minify: {
                 files: {
