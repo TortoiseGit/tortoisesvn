@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,10 +42,13 @@ private:
 
     struct
     {
-        svn_node_kind_t nodeKind:2;
+        // note on bitfields: we have to use 'unsigned' and not the
+        // real enum types, because the highest bit will be otherwise
+        // treated as the sign bit, which then leads to wrong values
+        unsigned nodeKind:3;
         DWORD action:8;
-        svn_tristate_t textModifies:2;
-        svn_tristate_t propsModifies:2;
+        unsigned textModifies:2;
+        unsigned propsModifies:2;
         int relevantForStartPath:1;     // we can't use bool here
                                         // (takes an additional 4 bytes)
     } flags;
@@ -73,10 +76,10 @@ public:
     CString GetPath() const;
     CString GetCopyFromPath() const;
     svn_revnum_t GetCopyFromRev() const {return copyFromRev;}
-    svn_node_kind_t GetNodeKind() const {return flags.nodeKind;}
+    svn_node_kind_t GetNodeKind() const {return (svn_node_kind_t)flags.nodeKind;}
     DWORD GetAction() const {return flags.action;}
-    svn_tristate_t GetTextModifies() const {return flags.textModifies;}
-    svn_tristate_t GetPropsModifies() const {return flags.propsModifies;}
+    svn_tristate_t GetTextModifies() const {return (svn_tristate_t)flags.textModifies;}
+    svn_tristate_t GetPropsModifies() const {return (svn_tristate_t)flags.propsModifies;}
 
     bool IsRelevantForStartPath() const {return flags.relevantForStartPath != 0;}
 
