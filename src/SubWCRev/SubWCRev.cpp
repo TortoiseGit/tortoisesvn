@@ -43,7 +43,7 @@
 // Define the help text as a multi-line macro
 // Every line except the last must be terminated with a backslash
 #define HelpText1 "\
-Usage: SubWCRev WorkingCopyPath [SrcVersionFile DstVersionFile] [-nmdqfeExXF]\n\
+Usage: SubWCRev WCPath [SrcVersionFile DstVersionFile] [-nmdqfeExXFu]\n\
 \n\
 Params:\n\
 WorkingCopyPath    :   path to a Subversion working copy.\n\
@@ -77,7 +77,8 @@ DstVersionFile     :   path to save the resulting parsed file.\n\
                        numbers in HEX instead of decimal\n\
 -X                 :   if given, then SubWCRev will write the revisions\n\
                        numbers in HEX with '0x' before them\n\
--F                 :   if given, does not use the .subwcrevignore file\n"
+-F                 :   if given, does not use the .subwcrevignore file\n\
+-u                 :   changes the console output to Unicode mode\n"
 
 #define HelpText4 "\
 Switches must be given in a single argument, e.g. '-nm' not '-n -m'.\n\
@@ -754,8 +755,6 @@ int _tmain(int argc, _TCHAR* argv[])
     SetDllDirectory(L"");
     CCrashReportTSVN crasher(L"SubWCRev " _T(APP_X64_STRING));
 
-    _setmode(_fileno(stdout), _O_U16TEXT);
-
     if (argc >= 2 && argc <= 5)
     {
         // WC path is always first argument.
@@ -779,6 +778,8 @@ int _tmain(int argc, _TCHAR* argv[])
         const TCHAR * Params = argv[argc-1];
         if (Params[0] == '-')
         {
+            if (wcschr(Params, 'u') != 0)
+                _setmode(_fileno(stdout), _O_U16TEXT);
             if (wcschr(Params, 'q') != 0)
                 bQuiet = TRUE;
             if (wcschr(Params, 'n') != 0)
