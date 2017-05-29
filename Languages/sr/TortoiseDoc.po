@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-05-13 13:01+0000\n"
+"PO-Revision-Date: 2017-05-15 19:56+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/luebbe/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -649,7 +649,7 @@ msgid ""
 "If you encounter any problems during or after installing TortoiseSVN please "
 "refer to our online FAQ at <ulink "
 "url=\"https://tortoisesvn.net/faq.html\"><citetitle>https://tortoisesvn.net/faq.html</citetitle></ulink>."
-msgstr ""
+msgstr "Ако наиђете на неки проблем у току или после инсталације ТортоисеСВН реферишите онлајн  FAQ на <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>https://tortoisesvn.net/faq.html</citetitle></ulink>."
 
 #. (title)
 msgid "Basic Concepts"
@@ -2163,7 +2163,7 @@ msgid ""
 "command line tools directly from the <ulink "
 "url=\"https://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "Алат <literal>свнадмин</literal> је инсталисан аутоматски када инсталишете Субверсиони клијент командне линије. Лакши начин да ово добијете је да чекирате опцију која укључује алат командне линије док се инсталира ТортоисеСВН али ако желите да скинете задњу верзију алата командне линије директно са <ulink url=\"https://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink> вебсајт."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -2294,7 +2294,7 @@ msgid ""
 "url=\"https://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN"
 " logo</citetitle></ulink> or you can provide your own image. "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Свакако да би изгледало чак боље ако укључите одговарајућу слику. Можете користити <ulink url=\"http://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN logo</citetitle></ulink> или можете добавити лично вашу слику. <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -2332,7 +2332,7 @@ msgid ""
 "url=\"https://sourceforge.net\"><citetitle>SourceForge</citetitle></ulink> "
 "or your server has already been setup by someone else then there is nothing "
 "else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
-msgstr ""
+msgstr "Ако користите јавни хостинг сервис као <ulink url=\"https://sourceforge.net\"><citetitle>SourceForge</citetitle></ulink> или ваш сервер је већ подешен од неког другог онда нема шта више радити. Померите у <xref linkend=\"tsvn-dug\"/>."
 
 #. (para)
 msgid ""
@@ -2380,14 +2380,14 @@ msgid ""
 "<placeholder-1/> You can always find the latest links on the <ulink "
 "url=\"https://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "У раним данима Субверзије, подешавање сервера захтева добро разумевање конфигурације сервера и у претходним верзијама овог упутства ми смо укључили детаљни опис како подесити сервер. Од тада ствари су постале лакше јер сада постоји више препакованих сервер инсталатера способних да вас воде кроз подешавање и процес конфигурисања. Ове везе ка неким инсталатерима за које знамо су: <placeholder-1/> Можете увек наћи последњу везу на <ulink url=\"http://subversion.apache.org/packages.html\"><citetitle>Субверзиони</citetitle></ulink> вебсајт."
 
 #. (para)
 msgid ""
 "You can find further How To guides on the <ulink "
 "url=\"https://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "Можете наћи други Како да водич на <ulink url=\"https://tortoisesvn.net/usefultips.html\"><citetitle>ТортоисеСВН</citetitle></ulink> вебсајт."
 
 #. (title)
 msgid "Daily Use Guide"
@@ -3570,7 +3570,7 @@ msgid ""
 " and the online documentation and tutorial at <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Прозор са поруком дневника такође укључује име фајла и аутоматско комплетирање. То користи регуларне изразе да се издвоје класе и имена функција из (текст) фајлова које сте урезали, као и имена фајлова. Ако реч коју  укуцате личи на нешто из листе (после откуцавање најмање три карактера, или притиском  <keycap>Ctrl+Space</keycap>), падајући се појављује омогућавајући вам да изаберете пуно име. Регуларни изрази снабдевени са ТортоисеСВН држе се у ТортисеСВН инсталационом <filename>бин</filename> фолдеру.Можете такође дефинисати ваше личне регегзес и сместити их  у <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>.  Свакако, ваша приватна аутолиста неће бити преписана када ускладите вашу инсталацију ТортоисеСВН. Ако нисте фамилијарни са регуларним изразима погледајте уводник у <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, и онлајн документацију и туторијал на <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -6624,7 +6624,7 @@ msgid ""
 "<ulink "
 "url=\"https://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink>"
 " is a great open-source diff tool which can also handle directories."
-msgstr ""
+msgstr "<ulink url=\"http://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> је велики дифф алат отвореног кода који такође опслужје фолдере."
 
 #. (term)
 msgid "Perforce Merge"
@@ -6635,7 +6635,7 @@ msgid ""
 "Perforce is a commercial RCS, but you can download the diff/merge tool for "
 "free. Get more information from <ulink "
 "url=\"https://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
-msgstr ""
+msgstr "Перфорце је комерцијални РЦС, али можете скинути дифф/стопи алат бесплатно. Узмите више информација са  <ulink url=\"http://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
 
 #. (term)
 msgid "KDiff3"
@@ -6657,7 +6657,7 @@ msgid ""
 "SourceGear Vault is a commercial RCS, but you can download the diff/merge "
 "tool for free. Get more information from <ulink "
 "url=\"https://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
-msgstr ""
+msgstr "SourceGear Vault је комерцијални РЦС, али можете скинути диф/мерџ алат бесплатно. Преузмите више информација са <ulink url=\"http://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 
 #. (term)
 msgid "ExamDiff"
@@ -6682,7 +6682,7 @@ msgid ""
 "handle directory diffs and unicode. Download it from <ulink "
 "url=\"https://www.scootersoftware.com/\"><citetitle>Scooter "
 "Software</citetitle></ulink>."
-msgstr ""
+msgstr "Сличан ЕгзамДифф Про, ово је је изванредан шервер дифф алат који ради са дифф фолдера и јуникодом. Скините га са  <ulink url=\"http://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink>."
 
 #. (term)
 msgid "Araxis Merge"
@@ -6695,7 +6695,7 @@ msgid ""
 "links to use if you've changed the order of functions. Download it from "
 "<ulink "
 "url=\"https://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
-msgstr ""
+msgstr "Араксис Мерге је користан комерцијални алат за дифф и стапање фајлова и фолдера. Он ради троструко поређење у стапању и има синхронизациону везу за коришћење ако сте изменили ред функција. Скините га са <ulink url=\"http://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -7288,7 +7288,7 @@ msgid ""
 "scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
 "/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
 "in case conflicts."
-msgstr ""
+msgstr "Постоји сервер закачива скрипта доступна на: <ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink> који ће предупредити проверу који резултати су у конфликту."
 
 #. (title)
 msgid "Repairing File Renames"
@@ -12114,7 +12114,7 @@ msgid ""
 " and the online documentation and tutorial at <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Ако нисте фамилијарни са регекс изразима погледајте у увод на <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, и онлајн документацију и туторијал на <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -13609,7 +13609,7 @@ msgid ""
 "<ulink "
 "url=\"https://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY"
 " website</citetitle></ulink>."
-msgstr ""
+msgstr "ТортоисеПлинк нема никакву документацију о себи зато што је минорна варијанта Плинка. Нађите о параметрима командне линије на <ulink url=\"http://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY website</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -13625,7 +13625,7 @@ msgid ""
 " TortoiseSVN FAQ listed under <ulink "
 "url=\"https://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN"
 " SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "На крају, подешавањем ССХ на серверу и клијентима није једноставан процес и он је ван разматрања овог фајла помоћи. Међутим, можете наћи водич у ТортоисеСВН ФАК дат под <ulink url=\"http://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink>."
 
 #. (title)
 msgid "External Program Settings"
@@ -15242,7 +15242,7 @@ msgid ""
 "url=\"https://tortoisesvn.net/donate.html\"><citetitle>https://tortoisesvn.net/donate.html</citetitle></ulink>"
 " Please also have a look at the list of people who contributed to the "
 "project by sending in patches or translations."
-msgstr ""
+msgstr "Док радимо на ТортоисеСВН волимо да слушамо музику. Трошећи много сати на пројекту користимо <emphasis>много</emphasis> музике. Зато смо направили листу жеља са нашим омиљеним ЦДима и ДВДима: <ulink url=\"http://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> Молимо да погледате и листу људи који учествују у пројекту слањем закрпа или превода."
 
 #. (title)
 msgid "Project Monitor"
@@ -15294,7 +15294,7 @@ msgid ""
 "url=\"https://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
 "installed and active, then the project monitor automatically uses Snarl to "
 "show the notifications about newly detected commits."
-msgstr ""
+msgstr "Ако је <ulink url=\"http://snarl.fullphat.net/\"><citetitle>Снарл</citetitle></ulink> инсталиран и активан пројектни монитор аутоматски користи Снарл да прикаже означавање о нова детектована урезивања. "
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -16835,7 +16835,7 @@ msgid ""
 "asked the most on the TortoiseSVN mailing lists "
 "<email>dev@tortoisesvn.tigris.org</email> and "
 "<email>users@tortoisesvn.tigris.org</email>."
-msgstr ""
+msgstr "Пошто се ТортоисеСВН развија све време понекад је тешко држати документацију комплетно усклађену. Ми одржавамо <ulink url=\"http://tortoisesvn.net/faq.html\"><citetitle>online FAQ</citetitle></ulink> који садржи избор питања коју већина поставља на ТортоисеСВН мејлинг листама <email>dev@tortoisesvn.tigris.org</email> и <email>users@tortoisesvn.tigris.org</email>."
 
 #. (para)
 msgid ""
@@ -17902,7 +17902,7 @@ msgid ""
 "the parameter <option>/deletepathfile</option>. If you don't pass "
 "<option>/deletepathfile</option>, you have to delete the file yourself or "
 "the file gets left behind."
-msgstr ""
+msgstr "Такође можете одредити фајл који садржи листу путања раздвојене новом линијом. Фајл морабити УТФ-16 формат без <ulink url=\"https://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle>BOM</citetitle></ulink>.  Ако шаљете такав фајл користите <option>/pathfile</option> уместо <option>/path</option>. Да ТортоисеПроц обрише тај фајл после завршетка команде морате послати параметар <option>/deletepathfile</option>. Ако не пошаљете <option>/deletepathfile</option>, морате сами да обришете фајл или да га оставите."
 
 #. (para)
 msgid ""
@@ -19749,7 +19749,7 @@ msgid ""
 "url=\"https://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation"
 " status page</citetitle></ulink>. And if there is no language pack "
 "available, why not join the team and submit your own translation ;-)"
-msgstr ""
+msgstr "ТортоисеСВН кориснички интерфејс је преведен на многе различите језике тако да можете скинути језички пакет према вашој потреби. Језичке пакете можете наћи на <ulink url=\"http://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation status page</citetitle></ulink>. Ако нема доступног језичког пакета, што да се не придружите тиму и додате ваш лични превод  ;-)"
 
 #. (para)
 msgid ""
@@ -19764,7 +19764,7 @@ msgid ""
 " You can download translated manuals from the <ulink "
 "url=\"https://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr ""
+msgstr "Документација је преведена на више различитих језика. Можете скинути мануале са <ulink url=\"http://tortoisesvn.net/support.html\"><citetitle>support page</citetitle></ulink> на нашем вебсајту."
 
 #. (title)
 msgid "Spellchecker"
@@ -19785,7 +19785,7 @@ msgid ""
 "native language. The spell checker uses the same dictionary files as <ulink "
 "url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and"
 " <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr ""
+msgstr "ТортоисеСВН укључује контролу правописа која вам дозвољава да контролишете ваше  дневник поруке урезивања. Ово је нарочито корисно ако језик пројекта није ваш матерњи језик. Контролор правописа користи исте фајлове речника као <ulink url=\"http://openoffice.org\"><citetitle>ОпенОффице</citetitle></ulink> и <ulink url=\"http://mozilla.org\"><citetitle>Мозилла</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -20337,7 +20337,7 @@ msgid ""
 "url=\"https://unxutils.sourceforge.net/\"><citetitle>https://unxutils.sourceforge.net/</citetitle></ulink>"
 " because we were working on those files and had sometimes changed those "
 "files already."
-msgstr ""
+msgstr "Радећи на <ulink url=\"https://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> открили смо да кад год корисници пошаљу закрпе да прошире пројекат или фиксирају багове имамо пуно посла да применимо те закрпе. Много пута те закрпе су неодговарајуће и не могу се применити алатом из командне линије <ulink url=\"https://unxutils.sourceforge.net/\"><citetitle>https://unxutils.sourceforge.net/</citetitle></ulink> зато што смо радили на тим фајловима и мењали их."
 
 #. (para)
 msgid ""
