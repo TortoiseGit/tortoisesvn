@@ -199,6 +199,10 @@ HRESULT SubWCRev::GetWCInfoInternal(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL f
     SecureZeroMemory(SubStat.Author, sizeof(SubStat.Author));
     SecureZeroMemory(&SubStat.LockData, sizeof(SubStat.LockData));
 
+    if ((wcPath == nullptr) || (wcPath[0] == 0))
+        return S_FALSE;
+    if (!PathFileExists(wcPath))
+        return S_FALSE;
 
     apr_pool_t * pool;
     apr_pool_create_ex (&pool, NULL, NULL, NULL);
@@ -210,7 +214,7 @@ HRESULT SubWCRev::GetWCInfoInternal(/*[in]*/ BSTR wcPath, /*[in]*/VARIANT_BOOL f
         svn_wc_set_adm_dir("_svn", pool);
     }
 
-    char *wc_utf8 = Utf16ToUtf8((WCHAR*)wcPath, pool);
+    char *wc_utf8 = Utf16ToUtf8(wcPath, pool);
     const char * internalpath = svn_path_internal_style (wc_utf8, pool);
 
     apr_hash_t * config = nullptr;;

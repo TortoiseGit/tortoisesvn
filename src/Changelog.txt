@@ -20,6 +20,7 @@ Version 1.9.6
        dialog. (Ivan Zhakov)
 - BUG: changes to property-only items were not marked in
        the log dialog file list. (Stefan)
+- BUG: SubWCRevCOM choked on empty paths. (Stefan)
 
 Version 1.9.5
 - BUG: The "go to next diff" in TortoiseMerge stopped at
