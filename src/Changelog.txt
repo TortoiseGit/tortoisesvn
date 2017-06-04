@@ -21,6 +21,8 @@ Version 1.9.6
 - BUG: changes to property-only items were not marked in
        the log dialog file list. (Stefan)
 - BUG: SubWCRevCOM choked on empty paths. (Stefan)
+- BUG: the filter in the recent messages dialog failed to
+       work with uppercase letters. (Stefan)
 
 Version 1.9.5
 - BUG: The "go to next diff" in TortoiseMerge stopped at

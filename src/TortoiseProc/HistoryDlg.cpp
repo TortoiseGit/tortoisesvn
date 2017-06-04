@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -131,6 +131,7 @@ void CHistoryDlg::UpdateMessageList()
 {
     CString sFilter;
     GetDlgItemText(IDC_SEARCHEDIT, sFilter);
+    sFilter.MakeLower();
     int pos = 0;
     CString temp;
     std::vector<CString> tokens;
