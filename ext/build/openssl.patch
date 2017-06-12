@@ -1,6 +1,6 @@
 Index: engines/e_capi.c
 ===================================================================
---- engines/e_capi.c	(revision 27709)
+--- engines/e_capi.c	(revision 27854)
 +++ engines/e_capi.c	(working copy)
 @@ -9,7 +9,7 @@
  
@@ -137,7 +137,7 @@ Index: engines/e_capi.c
  static const char *engine_capi_id = "capi";
  static const char *engine_capi_name = "CryptoAPI ENGINE";
  
-@@ -599,6 +699,22 @@
+@@ -593,6 +693,22 @@
  
  void engine_load_capi_int(void)
  {
@@ -160,7 +160,7 @@ Index: engines/e_capi.c
      /* Copied from eng_[openssl|dyn].c */
      ENGINE *toadd = engine_capi();
      if (!toadd)
-@@ -606,6 +722,7 @@
+@@ -600,6 +716,7 @@
      ENGINE_add(toadd);
      ENGINE_free(toadd);
      ERR_clear_error();
@@ -168,17 +168,13 @@ Index: engines/e_capi.c
  }
  # endif
  
-@@ -1494,10 +1611,14 @@
-     }
-     if (ctx->store_flags & CERT_SYSTEM_STORE_LOCAL_MACHINE)
+@@ -1491,9 +1608,11 @@
          dwFlags = CRYPT_MACHINE_KEYSET;
--    if (!CryptAcquireContext(&key->hprov, contname, provname, ptype, dwFlags)) {
+     if (!CryptAcquireContextW(&key->hprov, contname, provname, ptype,
+                               dwFlags)) {
 -        CAPIerr(CAPI_F_CAPI_GET_KEY, CAPI_R_CRYPTACQUIRECONTEXT_ERROR);
 -        capi_addlasterror();
 -        goto err;
-+    // first try enhanced version
-+    if(!CryptAcquireContext(&key->hprov, contname, MS_ENH_RSA_AES_PROV, PROV_RSA_AES, dwFlags))
-+    {
 +        if (!CryptAcquireContext(&key->hprov, contname, provname, ptype, dwFlags)) {
 +            CAPIerr(CAPI_F_CAPI_GET_KEY, CAPI_R_CRYPTACQUIRECONTEXT_ERROR);
 +            capi_addlasterror();
@@ -187,7 +183,7 @@ Index: engines/e_capi.c
      }
      if (!CryptGetUserKey(key->hprov, keyspec, &key->key)) {
          CAPIerr(CAPI_F_CAPI_GET_KEY, CAPI_R_GETUSERKEY_ERROR);
-@@ -1715,6 +1836,7 @@
+@@ -1687,6 +1806,7 @@
      PCCERT_CONTEXT cert = NULL, excert = NULL;
      CAPI_CTX *ctx;
      CAPI_KEY *key;
@@ -195,7 +191,7 @@ Index: engines/e_capi.c
      ctx = ENGINE_get_ex_data(e, capi_idx);
  
      *pcert = NULL;
-@@ -1771,9 +1893,22 @@
+@@ -1743,9 +1863,22 @@
          return 0;
  
      /* Select the appropriate certificate */
@@ -220,7 +216,7 @@ Index: engines/e_capi.c
      /* Set the selected certificate and free the rest */
  
      for (i = 0; i < sk_X509_num(certs); i++) {
-@@ -1806,7 +1941,9 @@
+@@ -1778,7 +1911,9 @@
  
  static int cert_select_simple(ENGINE *e, SSL *ssl, STACK_OF(X509) *certs)
  {
@@ -231,7 +227,7 @@ Index: engines/e_capi.c
  }
  
  # ifdef OPENSSL_CAPIENG_DIALOG
-@@ -1826,7 +1963,7 @@
+@@ -1798,7 +1933,7 @@
  #   define CRYPTUI_SELECT_INTENDEDUSE_COLUMN                0x000000004
  #  endif
  
@@ -240,7 +236,7 @@ Index: engines/e_capi.c
  #  define dlg_prompt L"Select a certificate to use for authentication"
  #  define dlg_columns      CRYPTUI_SELECT_LOCATION_COLUMN \
                          |CRYPTUI_SELECT_INTENDEDUSE_COLUMN
-@@ -1864,8 +2001,10 @@
+@@ -1836,8 +1971,10 @@
          }
  
      }
