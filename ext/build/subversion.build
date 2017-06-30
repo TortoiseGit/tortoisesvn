@@ -109,7 +109,7 @@
               <include name="subversion\libsvn_fs_fs" if="${fname == 'libsvn_fs_x'}" />
               <include name="..\apr\include" />
               <include name="..\apr-util\include" />
-              <include name="..\apr-util\xml\expat\lib" />
+              <include name="..\expat\lib" />
               <include name="..\libintl\gettext-0.14.6\gettext-runtime\intl" />
               <include name="..\serf" />
               <include name="..\zlib" />
@@ -190,7 +190,7 @@
             <include name="subversion\libsvn_fs_fs" if="${fname == 'libsvn_fs_x'}" />
             <include name="..\apr\include" />
             <include name="..\apr-util\include" />
-            <include name="..\apr-util\xml\expat\lib" />
+            <include name="..\expat\lib" />
             <include name="..\libintl\gettext-0.14.6\gettext-runtime\intl" />
             <include name="..\serf" />
             <include name="..\zlib" />
@@ -375,7 +375,7 @@ TSVN_ClearLastUsedAuthCache' />
             <include name="subversion\${toolname}" />
             <include name="..\apr\include" />
             <include name="..\apr-util\include" />
-            <include name="..\apr-util\xml\expat\lib" />
+            <include name="..\expat\lib" />
             <include name="..\libintl\gettext-0.14.6\gettext-runtime\intl" />
             <include name="..\serf" />
             <include name="..\sqlite" />

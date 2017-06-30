@@ -68,6 +68,7 @@
       <sources>
         <include name="buckets\*.c" />
         <include name="crypto\*.c" />
+        <exclude name="crypto\apr_siphash.c" />
         <include name="dbd\*.c" />
         <include name="dbm\*.c" />
         <include name="dbm\sdbm\*.c" />
@@ -79,14 +80,14 @@
         <include name="strmatch\*.c" />
         <include name="uri\apr_uri.c" />
         <include name="xml\apr_xml.c" />
-        <include name="xml\expat\lib\xmlparse.c" />
-        <include name="xml\expat\lib\xmlrole.c" />
-        <include name="xml\expat\lib\xmltok.c" />
+        <include name="..\expat\lib\xmlparse.c" />
+        <include name="..\expat\lib\xmlrole.c" />
+        <include name="..\expat\lib\xmltok.c" />
       </sources>
       <includedirs>
         <include name="include" />
         <include name="include\private" />
-        <include name="xml\expat\lib" />
+        <include name="..\expat\lib" />
         <include name="..\apr\include" />
       </includedirs>
       <defines>
@@ -131,6 +132,7 @@
       <sources>
         <include name="buckets\*.c" />
         <include name="crypto\*.c" />
+        <exclude name="crypto\apr_siphash.c" />
         <include name="dbd\*.c" />
         <include name="dbm\*.c" />
         <include name="dbm\sdbm\*.c" />
@@ -142,14 +144,14 @@
         <include name="strmatch\*.c" />
         <include name="uri\apr_uri.c" />
         <include name="xml\apr_xml.c" />
-        <include name="xml\expat\lib\xmlparse.c" />
-        <include name="xml\expat\lib\xmlrole.c" />
-        <include name="xml\expat\lib\xmltok.c" />
+        <include name="..\expat\lib\xmlparse.c" />
+        <include name="..\expat\lib\xmlrole.c" />
+        <include name="..\expat\lib\xmltok.c" />
       </sources>
       <includedirs>
         <include name="include" />
         <include name="include\private" />
-        <include name="xml\expat\lib" />
+        <include name="..\expat\lib" />
         <include name="..\apr\include" />
       </includedirs>
       <defines>

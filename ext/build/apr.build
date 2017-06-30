@@ -123,6 +123,7 @@
         <include name="poll\unix\select.c" />
         <include name="poll\unix\pollset.c" />
         <include name="poll\unix\poll.c" />
+        <include name="poll\unix\wakeup.c" />
         <include name="shmem\win32\*.c" />
         <include name="strings\*.c" />
         <include name="tables\*.c" />
@@ -204,6 +205,7 @@
         <include name="poll\unix\select.c" />
         <include name="poll\unix\pollset.c" />
         <include name="poll\unix\poll.c" />
+        <include name="poll\unix\wakeup.c" />
         <include name="shmem\win32\*.c" />
         <include name="strings\*.c" />
         <include name="tables\*.c" />
