@@ -1,7 +1,7 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2006, 2009, 2011, 2014-2017 - TortoiseSVN
-// Copyright (C) 2013 - TortoiseGit
+// Copyright (C) 2013, 2017 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -43,7 +43,6 @@ CCmdLineParser::~CCmdLineParser()
 BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
 {
     const std::wstring sEmpty = L"";          //use this as a value if no actual value is given in commandline
-    int nArgs = 0;
 
     if (!sCmdLine)
         return false;
@@ -149,7 +148,7 @@ BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
         }
     }
 
-    return (nArgs > 0);     //TRUE if arguments were found
+    return !m_valueMap.empty();     //TRUE if arguments were found
 }
 
 CCmdLineParser::CValsMap::const_iterator CCmdLineParser::findKey(LPCWSTR sKey) const
