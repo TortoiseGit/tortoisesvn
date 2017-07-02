@@ -2388,78 +2388,57 @@ void CResModule::InsertResourceIDs(LPCWSTR lpType, INT_PTR mainId, RESOURCEENTRY
 bool CResModule::AdjustCheckSum(const std::wstring& resFile)
 {
     HANDLE hFile = INVALID_HANDLE_VALUE;
-    HANDLE hFileMapping = NULL;
-    PVOID pBaseAddress = NULL;
+    HANDLE hFileMapping = nullptr;
+    PVOID pBaseAddress = nullptr;
 
     try
     {
-
-        /////////////////////////////////////////////////////////////
-        hFile = CreateFile(resFile.c_str(), FILE_READ_DATA | FILE_WRITE_DATA,
-                           0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
-        if (INVALID_HANDLE_VALUE == hFile ||
-            NULL == hFile)
-        {
+        hFile = CreateFile(resFile.c_str(), FILE_READ_DATA | FILE_WRITE_DATA, 0, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+        if (hFile == INVALID_HANDLE_VALUE)
             throw GetLastError();
-        }
 
-        /////////////////////////////////////////////////////////////
-        hFileMapping = CreateFileMapping(hFile, NULL,
-                                         PAGE_READWRITE, 0, 0, NULL);
-        if (NULL == hFileMapping)
-        {
+        hFileMapping = CreateFileMapping(hFile, nullptr, PAGE_READWRITE, 0, 0, nullptr);
+        if (!hFileMapping)
             throw GetLastError();
-        }
 
-        /////////////////////////////////////////////////////////////
-        pBaseAddress = MapViewOfFile(hFileMapping,
-                                     FILE_MAP_ALL_ACCESS, 0, 0, 0);
-        if (NULL == pBaseAddress)
-        {
+        pBaseAddress = MapViewOfFile(hFileMapping, FILE_MAP_ALL_ACCESS, 0, 0, 0);
+        if (!pBaseAddress)
             throw GetLastError();
-        }
+
         auto fileSize = GetFileSize(hFile, nullptr);
+        if (fileSize == INVALID_FILE_SIZE)
+            throw GetLastError();
         DWORD dwChecksum = 0;
         DWORD dwHeaderSum = 0;
         CheckSumMappedFile(pBaseAddress, fileSize, &dwHeaderSum, &dwChecksum);
 
-        /////////////////////////////////////////////////////////////
-        PIMAGE_DOS_HEADER pDOSHeader = NULL;
-        pDOSHeader = static_cast<PIMAGE_DOS_HEADER>(pBaseAddress);
+        PIMAGE_DOS_HEADER pDOSHeader = static_cast<PIMAGE_DOS_HEADER>(pBaseAddress);
         if (pDOSHeader->e_magic != IMAGE_DOS_SIGNATURE)
-        {
             throw GetLastError();
-        }
 
-        /////////////////////////////////////////////////////////////
-        PIMAGE_NT_HEADERS pNTHeader = NULL;
-        pNTHeader = reinterpret_cast<PIMAGE_NT_HEADERS>(
-            (PBYTE)pBaseAddress + pDOSHeader->e_lfanew);
-
+        PIMAGE_NT_HEADERS pNTHeader = reinterpret_cast<PIMAGE_NT_HEADERS>((PBYTE)pBaseAddress + pDOSHeader->e_lfanew);
         if (pNTHeader->Signature != IMAGE_NT_SIGNATURE)
-        {
             throw GetLastError();
-        }
 
-        /////////////////////////////////////////////////////////////
         SetLastError(ERROR_SUCCESS);
 
-        /////////////////////////////////////////////////////////////
         DWORD* pChecksum = &(pNTHeader->OptionalHeader.CheckSum);
         *pChecksum = dwChecksum;
-    }
 
+        UnmapViewOfFile(pBaseAddress);
+        CloseHandle(hFileMapping);
+        CloseHandle(hFile);
+    }
     catch (...)
     {
-        UnmapViewOfFile(hFileMapping);
-        CloseHandle(hFile);
-
+        if (pBaseAddress)
+            UnmapViewOfFile(pBaseAddress);
+        if (hFileMapping)
+            CloseHandle(hFileMapping);
+        if (hFile != INVALID_HANDLE_VALUE)
+            CloseHandle(hFile);
         return false;
     }
-
-    UnmapViewOfFile(hFileMapping);
-
-    CloseHandle(hFile);
 
     return true;
 }
