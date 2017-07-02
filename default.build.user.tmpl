@@ -92,6 +92,8 @@
     -->
 
     <setenv>
+      <variable name="PATH" value="D:\smartcardtools\x64;%PATH%" if="${platform == 'x64'}" />
+      <variable name="PATH" value="D:\smartcardtools\x86;%PATH%" if="${platform != 'x64'}" />
       <variable name="PATH" value="%TSVNTOOLS%\;%PATH%" />
       <variable name="PATH" value="%TSVNTOOLS%\fop;%PATH%" />
       <variable name="PATH" value="%WIX%;%PATH%" />
