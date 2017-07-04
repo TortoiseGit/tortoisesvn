@@ -1,13 +1,13 @@
 markdown:           kramdown
 highlighter:        rouge
-gems:
-  - jekyll-sitemap
+plugins:
+    - jekyll-sitemap
 
 # we generate those files ourselves
 exclude:
-  - "*.css"
-  - "*.js"
-  - "_old-flags"
+    - "*.css"
+    - "*.js"
+    - "_old-flags"
 
 # permalinks
 permalink:          date
