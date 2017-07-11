@@ -1294,6 +1294,33 @@ void CMainFrame::ShowDiffBar(bool bShow)
     }
 }
 
+void CMainFrame::DiffLeftToBase()
+{
+    DiffTwo(m_Data.m_baseFile, m_Data.m_theirFile);
+}
+
+void CMainFrame::DiffRightToBase()
+{
+    DiffTwo(m_Data.m_baseFile, m_Data.m_yourFile);
+}
+
+void CMainFrame::DiffTwo(const CWorkingFile& file1, const CWorkingFile& file2)
+{
+    wchar_t ownpath[MAX_PATH] = { 0 };
+    GetModuleFileName(nullptr, ownpath, MAX_PATH);
+    CString sCmd = ownpath;
+    sCmd += L" /base:\"";
+    sCmd += file1.GetFilename();
+    sCmd += L"\" /mine:\"";
+    sCmd += file2.GetFilename();
+    if (!file1.GetWindowName().IsEmpty())
+        sCmd += L" /basename:\"" + file1.GetWindowName() + L"\"";
+    if (!file2.GetWindowName().IsEmpty())
+        sCmd += L" /yourname:\"" + file2.GetWindowName() + L"\"";
+
+    CAppUtils::LaunchApplication(sCmd, 0, false);
+}
+
 int CMainFrame::CheckResolved()
 {
     //only in three way diffs can be conflicts!

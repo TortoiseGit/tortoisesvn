@@ -1254,6 +1254,12 @@ BEGIN
                             "Encoding\nConvert to the specified encoding\nHold down the Ctrl key to reload the file with the specified encoding."
 END
 
+STRINGTABLE
+BEGIN
+    IDS_HEADER_DIFFLEFTTOBASE "Show diff separately"
+    IDS_HEADER_DIFFRIGHTTOBASE "Show diff separately"
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 

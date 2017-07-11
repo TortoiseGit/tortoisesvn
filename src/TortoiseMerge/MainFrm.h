@@ -57,6 +57,9 @@ public:
     virtual ~CMainFrame();
 
     void            ShowDiffBar(bool bShow);
+    void            DiffLeftToBase();
+    void            DiffRightToBase();
+
 #ifdef _DEBUG
     virtual void    AssertValid() const;
     virtual void    Dump(CDumpContext& dc) const;
@@ -240,6 +243,7 @@ protected:
     static bool     HasNextInlineDiff(CBaseView* view);
     void            BuildRegexSubitems(CMFCPopupMenu* pMenuPopup = nullptr);
     bool            AdjustUnicodeTypeForLoad(CFileTextLines::UnicodeType& type);
+    void            DiffTwo(const CWorkingFile& file1, const CWorkingFile& file2);
 
     static svn_error_t * getallstatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool);
 
