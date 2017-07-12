@@ -1313,6 +1313,7 @@ void CMainFrame::DiffTwo(const CWorkingFile& file1, const CWorkingFile& file2)
     sCmd += file1.GetFilename();
     sCmd += L"\" /mine:\"";
     sCmd += file2.GetFilename();
+    sCmd += L'"';
     if (!file1.GetWindowName().IsEmpty())
         sCmd += L" /basename:\"" + file1.GetWindowName() + L"\"";
     if (!file2.GetWindowName().IsEmpty())
