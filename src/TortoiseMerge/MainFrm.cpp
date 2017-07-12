@@ -1308,7 +1308,8 @@ void CMainFrame::DiffTwo(const CWorkingFile& file1, const CWorkingFile& file2)
 {
     wchar_t ownpath[MAX_PATH] = { 0 };
     GetModuleFileName(nullptr, ownpath, MAX_PATH);
-    CString sCmd = ownpath;
+    CString sCmd;
+    sCmd.Format(L"\"%s\"", ownpath);
     sCmd += L" /base:\"";
     sCmd += file1.GetFilename();
     sCmd += L"\" /mine:\"";
