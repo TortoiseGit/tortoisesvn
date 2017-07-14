@@ -153,7 +153,7 @@ NAnt build script for the TortoiseSVN language pack installers
           </items>
         </in>
         <do>
-          <exec program="${signtool}">
+          <exec program="${signtool}" failonerror="${configuration == 'release'}">
             <arg value="sign" />
             <arg value="${signinfo}" />
             <arg value="${filename}" />
@@ -232,7 +232,7 @@ NAnt build script for the TortoiseSVN language pack installers
       </fileset>
     </delete>
     <if test="${file::exists('..\signinfo.txt')}">
-      <exec program="${signtool}">
+      <exec program="${signtool}" failonerror="${configuration == 'release'}">
         <arg value="sign" />
         <arg value="${signinfo}" />
         <arg value="..\bin\LanguagePack_${verstring}${devrelease}-${platform}-${langISO}.msi" />
