@@ -3543,37 +3543,39 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                     int     iconheight = ::GetSystemMetrics(SM_CYSMICON);
 
                     CRect rect = DrawListColumnBackground(m_LogList, pLVCD, pLogEntry);
+                    CMemDC myDC(*CDC::FromHandle(pLVCD->nmcd.hdc), rect);
+                    BitBlt(myDC.GetDC(), rect.left, rect.top, rect.Width(), rect.Height(), pLVCD->nmcd.hdc, rect.left, rect.top, SRCCOPY);
 
                     // Draw the icon(s) into the compatible DC
 
                     DWORD actions = pLogEntry->GetChangedPaths().GetActions();
                     if (actions & LOGACTIONS_MODIFIED)
-                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left + ICONITEMBORDER, rect.top,
+                        ::DrawIconEx(myDC.GetDC(), rect.left + ICONITEMBORDER, rect.top,
                                         m_hModifiedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_ADDED)
-                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
                                         rect.top, m_hAddedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_DELETED)
-                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
                                         rect.top, m_hDeletedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_REPLACED)
-                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
                                     rect.top, m_hReplacedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_MOVED)
-                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left + nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left + nIcons*iconwidth + ICONITEMBORDER,
                         rect.top, m_hMovedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_MOVEREPLACED)
-                        ::DrawIconEx(pLVCD->nmcd.hdc, rect.left + nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left + nIcons*iconwidth + ICONITEMBORDER,
                         rect.top, m_hMoveReplacedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
@@ -3581,10 +3583,10 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                         (m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
                     {
                         if (pLogEntry->IsSubtractiveMerge())
-                            ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                            ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
                                 rect.top, m_hReverseMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                         else
-                            ::DrawIconEx(pLVCD->nmcd.hdc, rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                            ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
                                     rect.top, m_hMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     }
                     nIcons++;
