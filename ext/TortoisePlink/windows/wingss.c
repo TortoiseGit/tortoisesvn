@@ -20,7 +20,11 @@ const char *const gsslibnames[3] = {
     "User-specified GSSAPI DLL",
 };
 const struct keyvalwhere gsslibkeywords[] = {
+#ifdef _WIN64
+    { "gssapi64", 0, -1, -1 },
+#else
     { "gssapi32", 0, -1, -1 },
+#endif
     { "sspi", 1, -1, -1 },
     { "custom", 2, -1, -1 },
 };
