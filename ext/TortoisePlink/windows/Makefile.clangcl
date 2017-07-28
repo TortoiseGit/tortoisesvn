@@ -139,7 +139,7 @@ $(BUILDDIR)pageant.exe: $(BUILDDIR)aqsync.obj $(BUILDDIR)conf.obj \
 		$(BUILDDIR)winsecur.obj $(BUILDDIR)winutils.obj
 	$(LD) $(LFLAGS) $(XLFLAGS) /out:$(BUILDDIR)pageant.exe \
 		/lldmap:$(BUILDDIR)pageant.map \
-		/subsystem:windows$(SUBSYSVER) advapi32.lib \
+		/subsystem:windows$(SUBSYSVER) $(EXTRA_windows) advapi32.lib \
 		$(BUILDDIR)aqsync.obj comdlg32.lib $(BUILDDIR)conf.obj \
 		gdi32.lib imm32.lib $(BUILDDIR)misc.obj ole32.lib \
 		$(BUILDDIR)pageant.obj $(BUILDDIR)pageant.res.o shell32.lib \
@@ -192,11 +192,12 @@ $(BUILDDIR)plink.exe: $(BUILDDIR)aqsync.obj $(BUILDDIR)be_all_s.obj \
 		$(BUILDDIR)x11fwd.obj
 	$(LD) $(LFLAGS) $(XLFLAGS) /out:$(BUILDDIR)plink.exe \
 		/lldmap:$(BUILDDIR)plink.map /subsystem:console$(SUBSYSVER) \
-		advapi32.lib $(BUILDDIR)aqsync.obj $(BUILDDIR)be_all_s.obj \
-		$(BUILDDIR)be_misc.obj $(BUILDDIR)callback.obj \
-		$(BUILDDIR)cmdline.obj comdlg32.lib $(BUILDDIR)conf.obj \
-		$(BUILDDIR)cproxy.obj $(BUILDDIR)errsock.obj gdi32.lib \
-		imm32.lib $(BUILDDIR)ldisc.obj $(BUILDDIR)logging.obj \
+		$(EXTRA_console) advapi32.lib $(BUILDDIR)aqsync.obj \
+		$(BUILDDIR)be_all_s.obj $(BUILDDIR)be_misc.obj \
+		$(BUILDDIR)callback.obj $(BUILDDIR)cmdline.obj comdlg32.lib \
+		$(BUILDDIR)conf.obj $(BUILDDIR)cproxy.obj \
+		$(BUILDDIR)errsock.obj gdi32.lib imm32.lib \
+		$(BUILDDIR)ldisc.obj $(BUILDDIR)logging.obj \
 		$(BUILDDIR)misc.obj $(BUILDDIR)miscucs.obj \
 		$(BUILDDIR)noterm.obj ole32.lib $(BUILDDIR)pgssapi.obj \
 		$(BUILDDIR)pinger.obj $(BUILDDIR)plink.res.o \
@@ -265,11 +266,12 @@ $(BUILDDIR)pscp.exe: $(BUILDDIR)aqsync.obj $(BUILDDIR)be_misc.obj \
 		$(BUILDDIR)x11fwd.obj
 	$(LD) $(LFLAGS) $(XLFLAGS) /out:$(BUILDDIR)pscp.exe \
 		/lldmap:$(BUILDDIR)pscp.map /subsystem:console$(SUBSYSVER) \
-		advapi32.lib $(BUILDDIR)aqsync.obj $(BUILDDIR)be_misc.obj \
-		$(BUILDDIR)be_ssh.obj $(BUILDDIR)callback.obj \
-		$(BUILDDIR)cmdline.obj comdlg32.lib $(BUILDDIR)conf.obj \
-		$(BUILDDIR)cproxy.obj $(BUILDDIR)errsock.obj gdi32.lib \
-		imm32.lib $(BUILDDIR)int64.obj $(BUILDDIR)logging.obj \
+		$(EXTRA_console) advapi32.lib $(BUILDDIR)aqsync.obj \
+		$(BUILDDIR)be_misc.obj $(BUILDDIR)be_ssh.obj \
+		$(BUILDDIR)callback.obj $(BUILDDIR)cmdline.obj comdlg32.lib \
+		$(BUILDDIR)conf.obj $(BUILDDIR)cproxy.obj \
+		$(BUILDDIR)errsock.obj gdi32.lib imm32.lib \
+		$(BUILDDIR)int64.obj $(BUILDDIR)logging.obj \
 		$(BUILDDIR)misc.obj $(BUILDDIR)miscucs.obj ole32.lib \
 		$(BUILDDIR)pgssapi.obj $(BUILDDIR)pinger.obj \
 		$(BUILDDIR)portfwd.obj $(BUILDDIR)proxy.obj \
@@ -336,11 +338,12 @@ $(BUILDDIR)psftp.exe: $(BUILDDIR)aqsync.obj $(BUILDDIR)be_misc.obj \
 		$(BUILDDIR)x11fwd.obj
 	$(LD) $(LFLAGS) $(XLFLAGS) /out:$(BUILDDIR)psftp.exe \
 		/lldmap:$(BUILDDIR)psftp.map /subsystem:console$(SUBSYSVER) \
-		advapi32.lib $(BUILDDIR)aqsync.obj $(BUILDDIR)be_misc.obj \
-		$(BUILDDIR)be_ssh.obj $(BUILDDIR)callback.obj \
-		$(BUILDDIR)cmdline.obj comdlg32.lib $(BUILDDIR)conf.obj \
-		$(BUILDDIR)cproxy.obj $(BUILDDIR)errsock.obj gdi32.lib \
-		imm32.lib $(BUILDDIR)int64.obj $(BUILDDIR)logging.obj \
+		$(EXTRA_console) advapi32.lib $(BUILDDIR)aqsync.obj \
+		$(BUILDDIR)be_misc.obj $(BUILDDIR)be_ssh.obj \
+		$(BUILDDIR)callback.obj $(BUILDDIR)cmdline.obj comdlg32.lib \
+		$(BUILDDIR)conf.obj $(BUILDDIR)cproxy.obj \
+		$(BUILDDIR)errsock.obj gdi32.lib imm32.lib \
+		$(BUILDDIR)int64.obj $(BUILDDIR)logging.obj \
 		$(BUILDDIR)misc.obj $(BUILDDIR)miscucs.obj ole32.lib \
 		$(BUILDDIR)pgssapi.obj $(BUILDDIR)pinger.obj \
 		$(BUILDDIR)portfwd.obj $(BUILDDIR)proxy.obj \
@@ -415,12 +418,13 @@ $(BUILDDIR)putty.exe: $(BUILDDIR)aqsync.obj $(BUILDDIR)be_all_s.obj \
 		$(BUILDDIR)x11fwd.obj
 	$(LD) $(LFLAGS) $(XLFLAGS) /out:$(BUILDDIR)putty.exe \
 		/lldmap:$(BUILDDIR)putty.map /subsystem:windows$(SUBSYSVER) \
-		advapi32.lib $(BUILDDIR)aqsync.obj $(BUILDDIR)be_all_s.obj \
-		$(BUILDDIR)be_misc.obj $(BUILDDIR)callback.obj \
-		$(BUILDDIR)cmdline.obj comdlg32.lib $(BUILDDIR)conf.obj \
-		$(BUILDDIR)config.obj $(BUILDDIR)cproxy.obj \
-		$(BUILDDIR)dialog.obj $(BUILDDIR)errsock.obj gdi32.lib \
-		imm32.lib $(BUILDDIR)ldisc.obj $(BUILDDIR)ldiscucs.obj \
+		$(EXTRA_windows) advapi32.lib $(BUILDDIR)aqsync.obj \
+		$(BUILDDIR)be_all_s.obj $(BUILDDIR)be_misc.obj \
+		$(BUILDDIR)callback.obj $(BUILDDIR)cmdline.obj comdlg32.lib \
+		$(BUILDDIR)conf.obj $(BUILDDIR)config.obj \
+		$(BUILDDIR)cproxy.obj $(BUILDDIR)dialog.obj \
+		$(BUILDDIR)errsock.obj gdi32.lib imm32.lib \
+		$(BUILDDIR)ldisc.obj $(BUILDDIR)ldiscucs.obj \
 		$(BUILDDIR)logging.obj $(BUILDDIR)minibidi.obj \
 		$(BUILDDIR)misc.obj $(BUILDDIR)miscucs.obj ole32.lib \
 		$(BUILDDIR)pgssapi.obj $(BUILDDIR)pinger.obj \
@@ -478,8 +482,8 @@ $(BUILDDIR)puttygen.exe: $(BUILDDIR)conf.obj $(BUILDDIR)import.obj \
 		$(BUILDDIR)winutils.obj
 	$(LD) $(LFLAGS) $(XLFLAGS) /out:$(BUILDDIR)puttygen.exe \
 		/lldmap:$(BUILDDIR)puttygen.map \
-		/subsystem:windows$(SUBSYSVER) advapi32.lib comdlg32.lib \
-		$(BUILDDIR)conf.obj gdi32.lib imm32.lib \
+		/subsystem:windows$(SUBSYSVER) $(EXTRA_windows) advapi32.lib \
+		comdlg32.lib $(BUILDDIR)conf.obj gdi32.lib imm32.lib \
 		$(BUILDDIR)import.obj $(BUILDDIR)misc.obj \
 		$(BUILDDIR)notiming.obj ole32.lib $(BUILDDIR)puttygen.res.o \
 		shell32.lib $(BUILDDIR)sshaes.obj $(BUILDDIR)sshbcrypt.obj \
@@ -525,7 +529,7 @@ $(BUILDDIR)puttytel.exe: $(BUILDDIR)be_misc.obj $(BUILDDIR)be_nos_s.obj \
 		$(BUILDDIR)winutils.obj
 	$(LD) $(LFLAGS) $(XLFLAGS) /out:$(BUILDDIR)puttytel.exe \
 		/lldmap:$(BUILDDIR)puttytel.map \
-		/subsystem:windows$(SUBSYSVER) advapi32.lib \
+		/subsystem:windows$(SUBSYSVER) $(EXTRA_windows) advapi32.lib \
 		$(BUILDDIR)be_misc.obj $(BUILDDIR)be_nos_s.obj \
 		$(BUILDDIR)callback.obj $(BUILDDIR)cmdline.obj comdlg32.lib \
 		$(BUILDDIR)conf.obj $(BUILDDIR)config.obj \
@@ -558,11 +562,11 @@ $(BUILDDIR)testbn.exe: $(BUILDDIR)conf.obj $(BUILDDIR)misc.obj \
 		$(BUILDDIR)winmisc.obj
 	$(LD) $(LFLAGS) $(XLFLAGS) /out:$(BUILDDIR)testbn.exe \
 		/lldmap:$(BUILDDIR)testbn.map /subsystem:console$(SUBSYSVER) \
-		advapi32.lib comdlg32.lib $(BUILDDIR)conf.obj gdi32.lib \
-		imm32.lib $(BUILDDIR)misc.obj ole32.lib shell32.lib \
-		$(BUILDDIR)sshbn.obj $(BUILDDIR)testbn.obj \
-		$(BUILDDIR)tree234.obj user32.lib $(BUILDDIR)version.obj \
-		$(BUILDDIR)winmisc.obj
+		$(EXTRA_console) advapi32.lib comdlg32.lib \
+		$(BUILDDIR)conf.obj gdi32.lib imm32.lib $(BUILDDIR)misc.obj \
+		ole32.lib shell32.lib $(BUILDDIR)sshbn.obj \
+		$(BUILDDIR)testbn.obj $(BUILDDIR)tree234.obj user32.lib \
+		$(BUILDDIR)version.obj $(BUILDDIR)winmisc.obj
 
 $(BUILDDIR)aqsync.obj: ../aqsync.c ../putty.h ../puttyps.h ../network.h \
 		../misc.h ../windows/winstuff.h ../unix/unix.h ../puttymem.h \

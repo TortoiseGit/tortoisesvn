@@ -11,8 +11,6 @@
 #include "storage.h"
 #include "ssh.h"
 
-#include "LoginDialog.h"
-
 int console_batch_mode = FALSE;
 
 static void *console_logctx = NULL;
@@ -52,6 +50,8 @@ int verify_ssh_host_key(void *frontend, char *host, int port,
                         void (*callback)(void *ctx, int result), void *ctx)
 {
     int ret;
+    HANDLE hin;
+    DWORD savemode, i;
 
     static const char absentmsg_batch[] =
 	"The server's host key is not cached in the registry. You\n"
@@ -66,12 +66,13 @@ int verify_ssh_host_key(void *frontend, char *host, int port,
 	"think it is.\n"
 	"The server's %s key fingerprint is:\n"
 	"%s\n"
-	"If you trust this host, hit Yes to add the key to\n"
+	"If you trust this host, enter \"y\" to add the key to\n"
 	"PuTTY's cache and carry on connecting.\n"
 	"If you want to carry on connecting just once, without\n"
-	"adding the key to the cache, hit No.\n"
-	"If you do not trust this host, hit Cancel to abandon the\n"
-	"connection.\n";
+	"adding the key to the cache, enter \"n\".\n"
+	"If you do not trust this host, press Return to abandon the\n"
+	"connection.\n"
+	"Store key in cache? (y/n) ";
 
     static const char wrongmsg_batch[] =
 	"WARNING - POTENTIAL SECURITY BREACH!\n"
@@ -93,15 +94,17 @@ int verify_ssh_host_key(void *frontend, char *host, int port,
 	"The new %s key fingerprint is:\n"
 	"%s\n"
 	"If you were expecting this change and trust the new key,\n"
-	"hit Yes to update PuTTY's cache and continue connecting.\n"
+	"enter \"y\" to update PuTTY's cache and continue connecting.\n"
 	"If you want to carry on connecting but without updating\n"
-	"the cache, hit No.\n"
-	"If you want to abandon the connection completely, hit\n"
-	"Cancel. Hitting Cancel is the ONLY guaranteed safe\n" "choice.\n";
+	"the cache, enter \"n\".\n"
+	"If you want to abandon the connection completely, press\n"
+	"Return to cancel. Pressing Return is the ONLY guaranteed\n"
+	"safe choice.\n"
+	"Update cached key? (y/n, Return cancels connection) ";
 
     static const char abandoned[] = "Connection abandoned.\n";
 
-	static const char mbtitle[] = "%s Security Alert";
+    char line[32];
 
     /*
      * Verify the key against the registry.
@@ -112,49 +115,39 @@ int verify_ssh_host_key(void *frontend, char *host, int port,
 	return 1;
 
     if (ret == 2) {		       /* key was different */
-	int mbret;
-	char *message, *title;
-
-	message = dupprintf(wrongmsg, keytype, fingerprint);
-	title = dupprintf(mbtitle, appname);
-
-	mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-	sfree(message);
-	sfree(title);
-	if (mbret == IDYES) {
-		store_host_key(host, port, keytype, keystr);
-		return 1;
+	if (console_batch_mode) {
+	    fprintf(stderr, wrongmsg_batch, keytype, fingerprint);
+            return 0;
 	}
-	else if (mbret == IDNO) 
-	{
-		return 1;
-	}
-	else
-		return 0;
-	}
-
-    if (ret == 1) {		       /* key was absent */
-	int mbret;
-	char *message, *title;
-	message = dupprintf(absentmsg, keytype, fingerprint);
-	title = dupprintf(mbtitle, appname);
-	mbret = MessageBox(GetParentHwnd(), message, title,
-		MB_ICONWARNING | MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-	sfree(message);
-	sfree(title);
-	if (mbret == IDYES)
-	{
-		store_host_key(host, port, keytype, keystr);
-		return 1;
-	}
-	else if (mbret == IDNO)
-	{
-		return 1;
-	}
-	else
-		return 0;
+	fprintf(stderr, wrongmsg, keytype, fingerprint);
+	fflush(stderr);
     }
-	return 1;
+    if (ret == 1) {		       /* key was absent */
+	if (console_batch_mode) {
+	    fprintf(stderr, absentmsg_batch, keytype, fingerprint);
+            return 0;
+	}
+	fprintf(stderr, absentmsg, keytype, fingerprint);
+	fflush(stderr);
+    }
+
+    line[0] = '\0';         /* fail safe if ReadFile returns no data */
+
+    hin = GetStdHandle(STD_INPUT_HANDLE);
+    GetConsoleMode(hin, &savemode);
+    SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+			 ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+    ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+    SetConsoleMode(hin, savemode);
+
+    if (line[0] != '\0' && line[0] != '\r' && line[0] != '\n') {
+	if (line[0] == 'y' || line[0] == 'Y')
+	    store_host_key(host, port, keytype, keystr);
+        return 1;
+    } else {
+	fprintf(stderr, abandoned);
+        return 0;
+    }
 }
 
 void update_specials_menu(void *frontend)
@@ -168,26 +161,42 @@ void update_specials_menu(void *frontend)
 int askalg(void *frontend, const char *algtype, const char *algname,
 	   void (*callback)(void *ctx, int result), void *ctx)
 {
+    HANDLE hin;
+    DWORD savemode, i;
+
     static const char msg[] =
 	"The first %s supported by the server is\n"
 	"%s, which is below the configured warning threshold.\n"
 	"Continue with connection? (y/n) ";
+    static const char msg_batch[] =
+	"The first %s supported by the server is\n"
+	"%s, which is below the configured warning threshold.\n"
+	"Connection abandoned.\n";
+    static const char abandoned[] = "Connection abandoned.\n";
 
-	static const char mbtitle[] = "%s Security Alert";
+    char line[32];
 
-	int mbret;
-	char *message, *title;
+    if (console_batch_mode) {
+	fprintf(stderr, msg_batch, algtype, algname);
+	return 0;
+    }
 
-	message = dupprintf(msg, algtype, algname);
-	title = dupprintf(mbtitle, appname);
+    fprintf(stderr, msg, algtype, algname);
+    fflush(stderr);
 
-	mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING|MB_YESNO);
-	sfree(message);
-	sfree(title);
-	if (mbret == IDYES)
-		return 1;
-	else
-		return 0;
+    hin = GetStdHandle(STD_INPUT_HANDLE);
+    GetConsoleMode(hin, &savemode);
+    SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+			 ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+    ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+    SetConsoleMode(hin, savemode);
+
+    if (line[0] == 'y' || line[0] == 'Y') {
+	return 1;
+    } else {
+	fprintf(stderr, abandoned);
+	return 0;
+    }
 }
 
 int askhk(void *frontend, const char *algname, const char *betteralgs,
@@ -214,20 +223,25 @@ int askhk(void *frontend, const char *algname, const char *betteralgs,
 
     char line[32];
 
-    int mbret;
-    char *message, *title;
-    static const char mbtitle[] = "%s Security Alert";
+    if (console_batch_mode) {
+	fprintf(stderr, msg_batch, algname, betteralgs);
+	return 0;
+    }
 
-    message = dupprintf(msg, algname, betteralgs);
-    title = dupprintf(mbtitle, appname);
+    fprintf(stderr, msg, algname, betteralgs);
+    fflush(stderr);
 
-    mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-    sfree(message);
-    sfree(title);
+    hin = GetStdHandle(STD_INPUT_HANDLE);
+    GetConsoleMode(hin, &savemode);
+    SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+			 ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+    ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+    SetConsoleMode(hin, savemode);
 
-    if (mbret == IDYES) {
+    if (line[0] == 'y' || line[0] == 'Y') {
 	return 1;
     } else {
+	fprintf(stderr, abandoned);
 	return 0;
     }
 }
@@ -256,20 +270,25 @@ int askappend(void *frontend, Filename *filename,
 	"Logging will not be enabled.\n";
 
     char line[32];
-    int mbret;
-    char *message, *title;
-    static const char mbtitle[] = "%s Session log";
 
-    message = dupprintf(msgtemplate, FILENAME_MAX, filename->path);
-    title = dupprintf(mbtitle, appname);
+    if (console_batch_mode) {
+	fprintf(stderr, msgtemplate_batch, FILENAME_MAX, filename->path);
+	fflush(stderr);
+	return 0;
+    }
+    fprintf(stderr, msgtemplate, FILENAME_MAX, filename->path);
+    fflush(stderr);
 
-    mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-    sfree(message);
-    sfree(title);
+    hin = GetStdHandle(STD_INPUT_HANDLE);
+    GetConsoleMode(hin, &savemode);
+    SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+			 ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+    ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+    SetConsoleMode(hin, savemode);
 
-    if (mbret == IDYES)
+    if (line[0] == 'y' || line[0] == 'Y')
 	return 2;
-    else if (mbret == IDNO)
+    else if (line[0] == 'n' || line[0] == 'N')
 	return 1;
     else
 	return 0;
@@ -339,6 +358,7 @@ static void console_data_untrusted(HANDLE hout, const char *data, int len)
 int console_get_userpass_input(prompts_t *p,
                                const unsigned char *in, int inlen)
 {
+    HANDLE hin, hout;
     size_t curr_prompt;
 
     /*
@@ -350,15 +370,102 @@ int console_get_userpass_input(prompts_t *p,
             prompt_set_result(p->prompts[i], "");
     }
 
-    if (console_batch_mode)
-	return 0;
+    /*
+     * The prompts_t might contain a message to be displayed but no
+     * actual prompt. More usually, though, it will contain
+     * questions that the user needs to answer, in which case we
+     * need to ensure that we're able to get the answers.
+     */
+    if (p->n_prompts) {
+	if (console_batch_mode)
+	    return 0;
+	hin = GetStdHandle(STD_INPUT_HANDLE);
+	if (hin == INVALID_HANDLE_VALUE) {
+	    fprintf(stderr, "Cannot get standard input handle\n");
+	    cleanup_exit(1);
+	}
+    }
+
+    /*
+     * And if we have anything to print, we need standard output.
+     */
+    if ((p->name_reqd && p->name) || p->instruction || p->n_prompts) {
+	hout = GetStdHandle(STD_OUTPUT_HANDLE);
+	if (hout == INVALID_HANDLE_VALUE) {
+	    fprintf(stderr, "Cannot get standard output handle\n");
+	    cleanup_exit(1);
+	}
+    }
+
+    /*
+     * Preamble.
+     */
+    /* We only print the `name' caption if we have to... */
+    if (p->name_reqd && p->name) {
+	size_t l = strlen(p->name);
+	console_data_untrusted(hout, p->name, l);
+	if (p->name[l-1] != '\n')
+	    console_data_untrusted(hout, "\n", 1);
+    }
+    /* ...but we always print any `instruction'. */
+    if (p->instruction) {
+	size_t l = strlen(p->instruction);
+	console_data_untrusted(hout, p->instruction, l);
+	if (p->instruction[l-1] != '\n')
+	    console_data_untrusted(hout, "\n", 1);
+    }
 
     for (curr_prompt = 0; curr_prompt < p->n_prompts; curr_prompt++) {
 
+	DWORD savemode, newmode;
+        int len;
 	prompt_t *pr = p->prompts[curr_prompt];
-	if (!DoLoginDialog(pr->result, pr->resultsize-1, pr->prompt))
-	return 0;
-    
+
+	GetConsoleMode(hin, &savemode);
+	newmode = savemode | ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT;
+	if (!pr->echo)
+	    newmode &= ~ENABLE_ECHO_INPUT;
+	else
+	    newmode |= ENABLE_ECHO_INPUT;
+	SetConsoleMode(hin, newmode);
+
+	console_data_untrusted(hout, pr->prompt, strlen(pr->prompt));
+
+        len = 0;
+        while (1) {
+            DWORD ret = 0;
+            BOOL r;
+
+            prompt_ensure_result_size(pr, len * 5 / 4 + 512);
+
+            r = ReadFile(hin, pr->result + len, pr->resultsize - len - 1,
+                         &ret, NULL);
+
+            if (!r || ret == 0) {
+                len = -1;
+                break;
+            }
+            len += ret;
+            if (pr->result[len - 1] == '\n') {
+                len--;
+                if (pr->result[len - 1] == '\r')
+                    len--;
+                break;
+            }
+        }
+
+	SetConsoleMode(hin, savemode);
+
+	if (!pr->echo) {
+	    DWORD dummy;
+	    WriteFile(hout, "\r\n", 2, &dummy, NULL);
+	}
+
+        if (len < 0) {
+            return 0;                  /* failure due to read error */
+        }
+
+	pr->result[len] = '\0';
     }
 
     return 1; /* success */
