@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "TortoiseMerge.h"
+#include "resource.h"
 #include "CustomMFCRibbonButton.h"
 #include "OpenDlg.h"
 #include "ProgressDlg.h"
@@ -3147,10 +3148,22 @@ void CMainFrame::OnRegexfilter(UINT cmd)
                     }
                     catch (std::exception &ex)
                     {
-                        MessageBox(_T("Regex is invalid!\r\n") + CString(ex.what()));
+                        MessageBox(CString(MAKEINTRESOURCE(IDS_ERR_REGEX_INVALID)) + L"\r\n" + CString(ex.what()));
                     }
                     m_regexIndex = index;
-                    LoadViews(-1);
+                    try
+                    {
+                        LoadViews(-1);
+                    }
+                    catch (const std::regex_error& ex)
+                    {
+                        CString sErr;
+                        sErr.Format(IDS_ERR_REGEX_INVALIDRETRY, ex.what().c_str());
+                        MessageBox(sErr);
+                        m_Data.SetRegexTokens(std::wregex(), L"");
+                        m_regexIndex = -1;
+                        LoadViews(-1);
+                    }
                     break;
                 }
                 ++index;

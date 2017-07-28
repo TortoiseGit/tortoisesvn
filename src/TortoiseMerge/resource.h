@@ -189,6 +189,8 @@
 #define IDS_ERR_PATCHPATHS              1111
 #define IDS_ERR_ERROR                   1112
 #define IDS_ERR_INVALIDREGEX            1113
+#define IDS_ERR_REGEX_INVALID           1114
+#define IDS_ERR_REGEX_INVALIDRETRY      1115
 #define IDC_PATCH_TO_CLIPBOARD          1132
 #define IDS_APPNAME                     1271
 #define IDS_ERR_THREADSTARTFAILED       1281
