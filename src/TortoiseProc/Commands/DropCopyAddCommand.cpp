@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -118,7 +118,7 @@ bool DropCopyAddCommand::Execute()
     progDlg.SetAutoClose (parser);
     progDlg.SetPathList(copiedFiles);
     ProjectProperties props;
-    props.ReadPropsPathList(copiedFiles);
+    props.ReadProps(copiedFiles.GetCommonRoot());
     progDlg.SetProjectProperties(props);
     progDlg.DoModal();
     bRet = !progDlg.DidErrorsOccur();
