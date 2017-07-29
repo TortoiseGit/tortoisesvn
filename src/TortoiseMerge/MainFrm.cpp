@@ -3158,7 +3158,7 @@ void CMainFrame::OnRegexfilter(UINT cmd)
                     catch (const std::regex_error& ex)
                     {
                         CString sErr;
-                        sErr.Format(IDS_ERR_REGEX_INVALIDRETRY, ex.what().c_str());
+                        sErr.Format(IDS_ERR_REGEX_INVALIDRETRY, ex.what());
                         MessageBox(sErr);
                         m_Data.SetRegexTokens(std::wregex(), L"");
                         m_regexIndex = -1;
