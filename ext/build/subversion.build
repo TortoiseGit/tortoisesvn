@@ -107,6 +107,7 @@
               <include name="subversion\include" />
               <include name="subversion\${fname}" />
               <include name="subversion\libsvn_fs_fs" if="${fname == 'libsvn_fs_x'}" />
+              <include name="subversion\libsvn_subr\lz4" if="${fname == 'libsvn_subr'}"/>
               <include name="..\apr\include" />
               <include name="..\apr-util\include" />
               <include name="..\expat\lib" />
@@ -119,6 +120,8 @@
             <defines>
               <define name="APR_DECLARE_STATIC" />
               <define name="APU_DECLARE_STATIC" />
+              <define name="SVN_INTERNAL_UTF8PROC" />
+              <define name="SVN_INTERNAL_LZ4" />
               <define name="XML_STATIC" />
               <define name="SVN_DEBUG" if="${configuration == 'debug'}" />
               <define name="alloca=_alloca" />
@@ -201,6 +204,8 @@
             <define name="ENABLE_NLS" />
             <define name="SVN_LIBSVN_RA_LINKS_RA_SERF=1" />
             <define name="SVN_HAVE_SERF" />
+            <define name="SVN_INTERNAL_UTF8PROC" />
+            <define name="SVN_INTERNAL_LZ4" />
             <define name="SVN_DEBUG" if="${configuration == 'debug'}" />
             <define name="SVN_HAVE_SASL=1" />
             <define name="alloca=_alloca" />
@@ -385,6 +390,8 @@ TSVN_ClearLastUsedAuthCache' />
             <define name="APR_DECLARE_EXPORT" />
             <define name="APU_DECLARE_EXPORT" />
             <define name="ENABLE_NLS" />
+            <define name="SVN_INTERNAL_UTF8PROC" />
+            <define name="SVN_INTERNAL_LZ4" />
             <define name="SVN_LIBSVN_RA_LINKS_RA_SERF=1" />
             <define name="SVN_HAVE_SERF" />
             <define name="SVN_DEBUG" if="${configuration == 'debug'}" />
