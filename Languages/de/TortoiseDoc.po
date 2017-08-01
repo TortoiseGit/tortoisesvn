@@ -32,8 +32,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-07-16 15:39+0000\n"
-"Last-Translator: Thomas Franck <transifex@digitalchaos.de>\n"
+"PO-Revision-Date: 2017-08-01 09:51+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2392,7 +2392,7 @@ msgid ""
 "<placeholder-1/> You can always find the latest links on the <ulink "
 "url=\"https://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "In den frühen Tagen von Subversion war für die Einrichtung eines Servers ein sehr gutes Verständnis der Konfiguration erforderlich. In früheren Versionen des Handbuchs waren deshalb ausführliche Anleitungen zu dem Thema enthalten. Mittlerweile sind die Dinge jedoch einfacher geworden und es gibt bereits vorkonfigurierte Server mit fertigen Installationspaketen. Diese Verweise führen zu einigen Installationsprogrammen, die wir kennen <placeholder-1/>. Die neuesten Verweise finden sich stets auf der <ulink url=\"https://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink> Webseite."
 
 #. (para)
 msgid ""
@@ -6636,7 +6636,7 @@ msgid ""
 "<ulink "
 "url=\"https://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink>"
 " is a great open-source diff tool which can also handle directories."
-msgstr ""
+msgstr "<ulink url=\"https://winmerge.sourceforge.net/\"><citetitle>WinMerge</citetitle></ulink> ist ein großartiger Open Source Vergleichs- und Konflikteditor, der auch mit Verzeichnissen umgehen kann."
 
 #. (term)
 msgid "Perforce Merge"
@@ -6647,7 +6647,7 @@ msgid ""
 "Perforce is a commercial RCS, but you can download the diff/merge tool for "
 "free. Get more information from <ulink "
 "url=\"https://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink>."
-msgstr ""
+msgstr "Perforce ist ein kommerzielles Versionskontrollsystem, aber Sie können den Vergleichs- und Konflikteditor kostenlos nutzen. Weitere Informationen finden sich auf der <ulink url=\"https://www.perforce.com/perforce/products/merge.html\"><citetitle>Perforce</citetitle></ulink> Webseite."
 
 #. (term)
 msgid "KDiff3"
@@ -6669,7 +6669,7 @@ msgid ""
 "SourceGear Vault is a commercial RCS, but you can download the diff/merge "
 "tool for free. Get more information from <ulink "
 "url=\"https://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
-msgstr ""
+msgstr "SourceGear Vault ist ein kommerzielles Versionskontrollsystem, aber Sie können den Vergleichs- und Konflikteditor kostenlos nutzen. Weitere Informationen finden sich auf der from <ulink url=\"https://www.sourcegear.com/diffmerge/\"><citetitle>SourceGear</citetitle></ulink>."
 
 #. (term)
 msgid "ExamDiff"
@@ -6694,7 +6694,7 @@ msgid ""
 "handle directory diffs and unicode. Download it from <ulink "
 "url=\"https://www.scootersoftware.com/\"><citetitle>Scooter "
 "Software</citetitle></ulink>."
-msgstr ""
+msgstr "Dies ist ähnlich wie ExamDiff Pro eine exzellente Shareware, die auch Verzeichnisse vergleichen kann und Unicode-Unterstützung besitzt. Sie können sie von <ulink url=\"https://www.scootersoftware.com/\"><citetitle>Scooter Software</citetitle></ulink> herunterladen."
 
 #. (term)
 msgid "Araxis Merge"
@@ -6707,7 +6707,7 @@ msgid ""
 "links to use if you've changed the order of functions. Download it from "
 "<ulink "
 "url=\"https://www.araxis.com/merge/index.html\"><citetitle>Araxis</citetitle></ulink>."
-msgstr ""
+msgstr "Araxis Merge ist ein sehr nützliches kommerzielles Programm, das sowohl Vergleichen als auch Zusammenführen von Dateien und Ordnern unterstützt. Es kann einen Drei-Wege Vergleich beim Zusammenführen und besitzt Abgleichsfunktionen falls Sie die Reihenfolge von Programmblöcken vertauscht haben. Sie können es von <ulink url=\"https://www.araxis.com/merge/index.html\"> <citetitle>Araxis</citetitle> </ulink> herunterladen."
 
 #. (para)
 msgid ""
@@ -7300,7 +7300,7 @@ msgid ""
 "scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
 "/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
 "in case conflicts."
-msgstr ""
+msgstr "Es gibt ein serverseitiges Aktionsskript welches verhindert, dass zwei Dateien mit dem selben Namen aber unterschiedlicher Schreibweise in das Projektarchiv gelangen hier: <ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink>."
 
 #. (title)
 msgid "Repairing File Renames"
@@ -12126,7 +12126,7 @@ msgid ""
 " and the online documentation and tutorial at <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Wenn Sie sich mit regulären Ausdrücken noch nicht so gut auskennen, lesen Sie sich die Einführung unter <ulink url=\"https://de.wikipedia.org/wiki/Regul%C3%A4rer_Ausdruck/\"> <citetitle>https://de.wikipedia.org/wiki/Regulärer_Ausdruck</citetitle></ulink> sowie die Online-Dokumentation und -Anleitung auf <ulink url=\"https://www.reular-expressions.info/\"><citetitle>https://www.regular-expressions.info/</citetitle></ulink> durch."
 
 #. (para)
 msgid ""
@@ -13621,7 +13621,7 @@ msgid ""
 "<ulink "
 "url=\"https://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY"
 " website</citetitle></ulink>."
-msgstr ""
+msgstr "Für TortoisePlink steht keine eigene Dokumentation zur Verfügung, weil es sich nur um eine leichte Abwandlung von Plink handelt. Die Verwendung von Plink ist auf der <ulink url=\"https://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY Webseite</citetitle></ulink> detailliert beschrieben."
 
 #. (para)
 msgid ""
@@ -13637,7 +13637,7 @@ msgid ""
 " TortoiseSVN FAQ listed under <ulink "
 "url=\"https://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN"
 " SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "Abschließend bleibt festzuhalten, dass die Einrichtung von SSH auf Server und Client ein nicht-trivialer Prozess ist, der den Rahmen dieses Handbuchs sprengt. Sie finden eine weitere Anleitung unter <ulink url=\"https://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle> </ulink>."
 
 #. (title)
 msgid "External Program Settings"
@@ -15254,7 +15254,7 @@ msgid ""
 "url=\"https://tortoisesvn.net/donate.html\"><citetitle>https://tortoisesvn.net/donate.html</citetitle></ulink>"
 " Please also have a look at the list of people who contributed to the "
 "project by sending in patches or translations."
-msgstr ""
+msgstr "Während wir an TortoiseMerge und TortoiseSVN arbeiten hören wir gerne Musik. Und weil wir viele viele Stunden an TortoiseSVN arbeiten, benötigen wir immer wieder <emphasis>neue</emphasis> Musik. Aus diesem Grund haben wir im Internet Seiten eingerichtet, von denen aus Sie uns Musik-CD's und auch mal eine DVD schenken können: <ulink url=\"https://tortoisesvn.net/donate.html\"><citetitle>https://tortoisesvn.net/donate.html</citetitle></ulink>. Bitte werfen Sie auch einen Blick auf die Liste der Personen, die das Projekt z.B. durch Übersetzungen unterstützt haben."
 
 #. (title)
 msgid "Project Monitor"
@@ -15306,7 +15306,7 @@ msgid ""
 "url=\"https://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
 "installed and active, then the project monitor automatically uses Snarl to "
 "show the notifications about newly detected commits."
-msgstr ""
+msgstr "Wenn <ulink url=\"https://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> installiert und aktiv ist, verwendet der Projektmonitor automatisch Snarl, um die Benachrichtigungen über neue Änderungen anzuzeigen."
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -17914,7 +17914,7 @@ msgid ""
 "the parameter <option>/deletepathfile</option>. If you don't pass "
 "<option>/deletepathfile</option>, you have to delete the file yourself or "
 "the file gets left behind."
-msgstr ""
+msgstr "Sie können auch eine Datei angeben, die eine durch Zeilenumbrüche getrennte Liste von Pfaden enthält. Die Datei muss im UTF-16 Format ohne eine <ulink url=\"https://de.wikipedia.org/wiki/Byte_Order_Mark\"><citetitle>BOM</citetitle></ulink> sein. Um eine solche Datei anzugeben, verwenden Sie <option>/pathfile</option> anstelle von <option>/path</option>. Damit TortoiseSVN die Datei nach Beendigung des Befehls löscht, übergeben Sie den Parameter <option>/deletepathfile</option>. Wenn Sie die <option>/deletepathfile</option> nicht angeben, müssen Sie die Datei anschließend selbst löschen."
 
 #. (para)
 msgid ""
@@ -19761,7 +19761,7 @@ msgid ""
 "url=\"https://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation"
 " status page</citetitle></ulink>. And if there is no language pack "
 "available, why not join the team and submit your own translation ;-)"
-msgstr ""
+msgstr "Die TortoiseSVN Benutzerschnittstelle wurde in viele verschiedene Sprachen übersetzt, so dass auch für Sie ein passendes Sprachpaket zur Verfügung stehen könnte. Sie finden die vorhandenen Sprachpakete auf unserer <ulink url=\"https://tortoisesvn.net/translation_status_dev.html\"> <citetitle>Übersetzungsseite</citetitle></ulink>. Wenn für Sie nichts Passendes dabei ist, werden Sie doch einfach Projektmitglied und steuern Sie Ihre eigene Übersetzung bei ;-)"
 
 #. (para)
 msgid ""
@@ -19776,7 +19776,7 @@ msgid ""
 " You can download translated manuals from the <ulink "
 "url=\"https://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr ""
+msgstr "Das Handbuch wurde ebenfalls in viele verschiedene Sprachen übersetzt. Sie können die übersetzten Handbücher von der <ulink url=\"https://tortoisesvn.net/support.html\"><citetitle>Supportseite</citetitle></ulink> auf unserer Webseite herunterladen."
 
 #. (title)
 msgid "Spellchecker"
@@ -19797,7 +19797,7 @@ msgid ""
 "native language. The spell checker uses the same dictionary files as <ulink "
 "url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and"
 " <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr ""
+msgstr "TortoiseSVN enthält eine Rechtschreibprüfung, die es Ihnen ermöglicht, die Logmeldungen zu prüfen. Dies ist besonders dann nützlich, wenn die Projektsprache nicht Ihre Muttersprache ist. Die Rechtschreibprüfung verwendet die gleichen Wörterbücher wie <ulink url=\"https://openoffice.org\"> <citetitle>OpenOffice</citetitle> </ulink> und <ulink url=\"http://mozilla.org\"> <citetitle>Mozilla</citetitle> </ulink>."
 
 #. (para)
 msgid ""
@@ -20349,7 +20349,7 @@ msgid ""
 "url=\"https://unxutils.sourceforge.net/\"><citetitle>https://unxutils.sourceforge.net/</citetitle></ulink>"
 " because we were working on those files and had sometimes changed those "
 "files already."
-msgstr ""
+msgstr "Während der Arbeit an <ulink url=\"https://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> war es jedes Mal sehr aufwändig, wenn jemand uns Patches mit Fehlerkorrekturen oder Erweiterungen zugeschickt hat, diese Patches auch einzubinden. Häufig waren die Patches veraltet und konnten mit dem Kommandozeilenprogramm <ulink url=\"https://unxutils.sourceforge.net/\"><citetitle>https://unxutils.sourceforge.net/</citetitle></ulink> nicht appliziert werden, da wir an den Dateien arbeiteten und diese manchmal bereits geändert waren."
 
 #. (para)
 msgid ""
