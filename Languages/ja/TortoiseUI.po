@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-06-05 09:48+0000\n"
+"PO-Revision-Date: 2017-07-30 09:13+0000\n"
 "Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -4304,7 +4304,7 @@ msgstr "ディレクトリ:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1529)
 msgid "Disable status cache for elevated processes"
-msgstr ""
+msgstr "昇格したプロセスでの状態キャッシュを無効にする"
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_FORCE_TT)
 msgid "Discards local changes upon incoming deletes"
@@ -7439,7 +7439,7 @@ msgstr "バージョン管理外"
 #. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
-msgstr "無し"
+msgstr "なし"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
 #. IDS_SVN_SUMMARIZENORMAL)
@@ -8435,6 +8435,18 @@ msgstr "正規表現フィルター"
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 164)
 msgid "Regex Filters"
 msgstr "正規表現フィルター"
+
+#. Resource IDs: (IDS_ERR_REGEX_INVALIDRETRY)
+#, c-format
+msgid ""
+"Regex error caught!\r\n"
+"%S\r\n"
+"Trying to recover by unsetting it again."
+msgstr "正規表現エラーが見つかりました。\n%S\n設定を外して再試行します。"
+
+#. Resource IDs: (IDS_ERR_REGEX_INVALID)
+msgid "Regex is invalid!"
+msgstr "正規表現が無効です。"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Regex matching message:"
@@ -9702,6 +9714,10 @@ msgstr "変更を表示（内容のみ）(&H)"
 msgid "Show changes as &unified diff"
 msgstr "&Unified 形式で変更を表示"
 
+#. Resource IDs: (IDS_HEADER_DIFFLEFTTOBASE, IDS_HEADER_DIFFRIGHTTOBASE)
+msgid "Show diff separately"
+msgstr "個別に差分を表示"
+
 #. Resource IDs: (IDS_LOG_POPUP_GNUDIFF)
 msgid "Show differences as &unified diff"
 msgstr "&Unified 形式で差分を表示"
@@ -10202,7 +10218,7 @@ msgid ""
 "\n"
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
-msgstr ""
+msgstr "Subversionで深刻な問題が発生しました。\n下記のエラー情報と、何をしようとしたかをできるだけ詳しく書いて、\nSubversionのメーリングリストに報告してください。\n但し、同じ問題が繰り返し報告されることを避けるために、まず\nメーリングリストアーカイブから、このエラーメッセージを探してみて\nください。メーリングリストのアーカイブは下記のアドレスにあります。\nhttps://subversion.apache.org/mailing-lists.html\n\nSubversionで発生した問題:\nファイル%1!ls!の%2!ld!行目\n式=%3!ls!\n\nCtrl+Cを使用すると、このダイアログの内容をクリップボードにコピー\nできます。"
 
 #. Resource IDs: (IDS_ERR_SVNEXCEPTION)
 msgid ""
@@ -10218,7 +10234,7 @@ msgid ""
 "Subversion reported the following\n"
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
-msgstr ""
+msgstr "Subversion は深刻な問題に遭遇しました。\n下記のエラー情報と、何をしようとしたかをできるだけ詳しく\n書いて、Subversionのメーリングリストに報告してください。\n但し、同じ問題が繰り返し報告されることを避けるために、\nまずメーリングリストアーカイブから、このエラーメッセージを\n探してみてください。メーリングリストのアーカイブは下記の\nアドレスにあります。\nhttps://subversion.apache.org/mailing-lists.html\n\nSubversion の報告内容（Ctrl+Cを使用すると、このダイアログの\n内容をクリップボードにコピーできます。）:"
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "Subversion passwor&d"
@@ -10876,13 +10892,13 @@ msgstr "この方法は、異なる2つのブランチ間の差分を作業コ�
 msgid ""
 "This product includes software developed by the OpenSSL Project for use in "
 "the OpenSSL Toolkit (https://www.openssl.org/)"
-msgstr ""
+msgstr "本製品は、OpenSSL プロジェクトで開発された OpenSSL ツールキット (https://www.openssl.org/) を含んでいます"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1531)
 msgid ""
 "This product includes software from Apache™ Subversion® "
 "(https://subversion.apache.org)"
-msgstr ""
+msgstr "本製品は Apache™ Subversion® (https://subversion.apache.org) のソフトウェアを含んでいます"
 
 #. Resource IDs: (61710)
 #, c-format
@@ -11721,7 +11737,7 @@ msgstr "無視するユーザー:"
 
 #. Resource IDs: (IDS_SETTINGS_ONLYNONELEVATED_TT)
 msgid "Uses the status cache type 'none' for elevated processes"
-msgstr ""
+msgstr "昇格したプロセスのキャッシュに「なし」を使用します"
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""

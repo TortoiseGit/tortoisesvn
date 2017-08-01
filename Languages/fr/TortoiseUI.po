@@ -49,7 +49,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-05-13 13:21+0000\n"
+"PO-Revision-Date: 2017-07-29 13:24+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -8449,6 +8449,18 @@ msgstr "Filtre regex"
 msgid "Regex Filters"
 msgstr "Filtres regex"
 
+#. Resource IDs: (IDS_ERR_REGEX_INVALIDRETRY)
+#, c-format
+msgid ""
+"Regex error caught!\r\n"
+"%S\r\n"
+"Trying to recover by unsetting it again."
+msgstr ""
+
+#. Resource IDs: (IDS_ERR_REGEX_INVALID)
+msgid "Regex is invalid!"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Regex matching message:"
 msgstr "Message Regex semblable:"
@@ -9714,6 +9726,10 @@ msgstr "Montre les c&hangements (contenu uniquement)"
 #. Resource IDs: (IDS_LOG_POPUP_GNUDIFF_CH)
 msgid "Show changes as &unified diff"
 msgstr "Voir les différences en mode diff &unifié"
+
+#. Resource IDs: (IDS_HEADER_DIFFLEFTTOBASE, IDS_HEADER_DIFFRIGHTTOBASE)
+msgid "Show diff separately"
+msgstr ""
 
 #. Resource IDs: (IDS_LOG_POPUP_GNUDIFF)
 msgid "Show differences as &unified diff"

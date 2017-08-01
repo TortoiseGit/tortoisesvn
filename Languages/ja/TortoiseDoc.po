@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-07-21 17:45+0000\n"
-"Last-Translator: ABE Tsunehiko\n"
+"PO-Revision-Date: 2017-07-30 10:58+0000\n"
+"Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -9898,54 +9898,54 @@ msgstr "今は競合について何もしません。マージを続行し、完
 
 #. (term)
 msgid "Accept base"
-msgstr ""
+msgstr "BASEを採用"
 
 #. (para)
 msgid ""
 "This leaves the file as it was, without neither the changes coming from the "
 "merge nor the changes you've made in your working copy."
-msgstr ""
+msgstr "マージ元から受信した変更や作業コピーでの変更を反映せずに、ファイルをそのまま保持します。"
 
 #. (term)
 msgid "Accept incoming"
-msgstr ""
+msgstr "受信結果を採用"
 
 #. (para)
 msgid ""
 "This discards all your local changes and uses the file as it arrives from "
 "the merge source."
-msgstr ""
+msgstr "ローカルでの変更をすべて無効にし、マージ元から受信したファイルを使用します。"
 
 #. (term)
 msgid "Reject incoming"
-msgstr ""
+msgstr "受信結果を不採用"
 
 #. (para)
 msgid ""
 "This discards all the changes from the merge source and leaves the file with"
 " your local edits."
-msgstr ""
+msgstr "マージ元から受信したファイルをすべて無効にし、ローカルでの変更を保持します。"
 
 #. (term)
 msgid "Accept incoming for conflicts"
-msgstr ""
+msgstr "競合に受信結果を採用"
 
 #. (para)
 msgid ""
 "This discards your local changes where they conflict with the changes from "
 "the merge source. But it leaves all your local changes which don't conflict."
-msgstr ""
+msgstr "マージ元から受信した変更と競合するローカルでの変更を無効にします。しかし、競合しないローカルでの変更はすべて保持します。"
 
 #. (term)
 msgid "Reject conflicts"
-msgstr ""
+msgstr "競合を不採用"
 
 #. (para)
 msgid ""
 "This discards changes from the merge source which conflict with your local "
 "changes. But it keeps all changes that don't conflict with your local "
 "changes."
-msgstr ""
+msgstr "ローカルでの変更と競合するマージ元から受信した変更を無効にします。ただし、ローカルでの変更に矛盾しない変更はすべて保持します。"
 
 #. (term)
 msgid "Mark as resolved"
@@ -9969,25 +9969,25 @@ msgid ""
 "Starts the merge editor so you can resolve the conflicts manually. Don't "
 "forget to save the file so the button <guibutton>Mark as "
 "resolved</guibutton> becomes enabled."
-msgstr ""
+msgstr "マージエディタを起動して、手動で競合を解決することができます。ファイルを保存することを忘れないでください。そうすれば、<guibutton>解決済みとする</guibutton>ボタンが有効になります。"
 
 #. (para)
 msgid ""
 "For normal conflicts that happen due to changes in the file content or its "
 "properties, the dialog shows buttons which allow you to chose which of the "
 "conflicting parts to keep or reject. <placeholder-1/>"
-msgstr ""
+msgstr "ファイルの内容やプロパティが変更されたことによって発生するふつうの競合については、競合箇所にどれを保持するか、不採用かを選択するためのボタンがダイアログに表示されます。"
 
 #. (para)
 msgid ""
 "If there's a tree conflict, please first see <xref linkend=\"tsvn-dug-"
 "conflicts-tree\"/> about the various types of tree conflicts and how and why"
 " they can happen."
-msgstr ""
+msgstr "ツリーの競合がある場合は、まず様々な種類のツリーの競合について<xref linkend=\"tsvn-dug-conflicts-tree\"/>を参照し、どのような解決策が取れるかを確認してください。"
 
 #. (title)
 msgid "The Merge Tree Conflict Dialog"
-msgstr ""
+msgstr "ツリー競合の解決ダイアログ"
 
 #. (para)
 msgid ""

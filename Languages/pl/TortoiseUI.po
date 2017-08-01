@@ -26,14 +26,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-05-13 13:21+0000\n"
+"PO-Revision-Date: 2017-07-29 13:24+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/luebbe/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl\n"
-"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 # msgid/msgstr fields for Accelerator keys
@@ -8426,6 +8426,18 @@ msgstr "Filtr z Wyrażeniem Regularnym"
 msgid "Regex Filters"
 msgstr "Filtry z Wyrażeniem Regularnym"
 
+#. Resource IDs: (IDS_ERR_REGEX_INVALIDRETRY)
+#, c-format
+msgid ""
+"Regex error caught!\r\n"
+"%S\r\n"
+"Trying to recover by unsetting it again."
+msgstr ""
+
+#. Resource IDs: (IDS_ERR_REGEX_INVALID)
+msgid "Regex is invalid!"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Regex matching message:"
 msgstr "Komunikat pasujący do wyrażenia:"
@@ -9691,6 +9703,10 @@ msgstr "Pokaż z&miany (tylko zawartość)"
 #. Resource IDs: (IDS_LOG_POPUP_GNUDIFF_CH)
 msgid "Show changes as &unified diff"
 msgstr "Pokaż zmiany w formacie &Unified Diff"
+
+#. Resource IDs: (IDS_HEADER_DIFFLEFTTOBASE, IDS_HEADER_DIFFRIGHTTOBASE)
+msgid "Show diff separately"
+msgstr ""
 
 #. Resource IDs: (IDS_LOG_POPUP_GNUDIFF)
 msgid "Show differences as &unified diff"
