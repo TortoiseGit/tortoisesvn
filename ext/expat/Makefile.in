@@ -128,7 +128,7 @@ LINK_LIB = $(LIBTOOL) $(LTFLAGS) --mode=link $(COMPILE) -no-undefined $(VSNFLAG)
 LINK_EXE = $(LIBTOOL) $(LTFLAGS) --mode=link $(COMPILE) $(LDFLAGS) -o $@
 LINK_CXX_EXE = $(LIBTOOL) $(LTFLAGS) --mode=link $(CXXCOMPILE) $(LDFLAGS) -o $@
 
-LIB_OBJS = lib/xmlparse.lo lib/xmltok.lo lib/xmlrole.lo
+LIB_OBJS = lib/loadlibrary.lo lib/xmlparse.lo lib/xmltok.lo lib/xmlrole.lo
 $(LIBRARY): $(LIB_OBJS)
 	$(LINK_LIB) $(LIB_OBJS)
 
@@ -137,6 +137,8 @@ expat.pc: $(top_builddir)/config.status
 
 lib/xmlparse.lo: lib/xmlparse.c lib/expat.h lib/siphash.h lib/xmlrole.h lib/xmltok.h \
 	$(top_builddir)/expat_config.h lib/expat_external.h lib/internal.h
+
+lib/loadlibrary.lo: lib/loadlibrary.c
 
 lib/xmlrole.lo: lib/xmlrole.c lib/ascii.h lib/xmlrole.h \
 	$(top_builddir)/expat_config.h lib/expat_external.h lib/internal.h
@@ -181,15 +183,20 @@ run-benchmark: tests/benchmark/benchmark
 	tests/benchmark/benchmark@EXEEXT@ -n $(top_srcdir)/../testdata/largefiles/recset.xml 65535 3
 
 tests/xmlts.zip:
-	wget --output-document=tests/xmlts.zip \
-		https://www.w3.org/XML/Test/xmlts20080827.zip
+	if test "$(XMLTS_ZIP)" = ""; then \
+		wget --output-document=tests/xmlts.zip \
+			https://www.w3.org/XML/Test/xmlts20080827.zip; \
+	else \
+		cp $(XMLTS_ZIP) tests/xmlts.zip; \
+	fi
 
 tests/xmlconf: tests/xmlts.zip
 	cd tests && unzip -q xmlts.zip
 
 run-xmltest: xmlwf/xmlwf@EXEEXT@ tests/xmlconf
 	tests/xmltest.sh "$(PWD)/run.sh $(PWD)/xmlwf/xmlwf@EXEEXT@" 2>&1 | tee tests/xmltest.log
-	diff -u -b tests/xmltest.log.expected tests/xmltest.log
+	dos2unix tests/xmltest.log
+	diff -u tests/xmltest.log.expected tests/xmltest.log
 
 .PHONY: qa
 qa:

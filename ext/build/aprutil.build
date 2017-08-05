@@ -80,6 +80,7 @@
         <include name="strmatch\*.c" />
         <include name="uri\apr_uri.c" />
         <include name="xml\apr_xml.c" />
+        <include name="..\expat\lib\loadlibrary.c" />
         <include name="..\expat\lib\xmlparse.c" />
         <include name="..\expat\lib\xmlrole.c" />
         <include name="..\expat\lib\xmltok.c" />
@@ -144,6 +145,7 @@
         <include name="strmatch\*.c" />
         <include name="uri\apr_uri.c" />
         <include name="xml\apr_xml.c" />
+        <include name="..\expat\lib\loadlibrary.c" />
         <include name="..\expat\lib\xmlparse.c" />
         <include name="..\expat\lib\xmlrole.c" />
         <include name="..\expat\lib\xmltok.c" />
