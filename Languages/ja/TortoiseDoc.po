@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-07-30 10:58+0000\n"
+"PO-Revision-Date: 2017-08-03 10:14+0000\n"
 "Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -12118,7 +12118,7 @@ msgid ""
 " and the online documentation and tutorial at <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "正規表現になじみがなければ、<ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://ja.wikipedia.org/wiki/正規表現</citetitle></ulink> にある解説や、<ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> にあるオンラインのドキュメントやチュートリアルをご覧ください。"
 
 #. (para)
 msgid ""
@@ -13613,7 +13613,7 @@ msgid ""
 "<ulink "
 "url=\"https://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY"
 " website</citetitle></ulink>."
-msgstr ""
+msgstr "TortoisePlink は、Plink の派生物のためドキュメントがありません。コマンドラインパラメーターは <ulink url=\"https://www.chiark.greenend.org.uk/~sgtatham/putty/\"><citetitle>PuTTY のウェブサイト</citetitle></ulink> で参照してください。"
 
 #. (para)
 msgid ""
@@ -13629,7 +13629,7 @@ msgid ""
 " TortoiseSVN FAQ listed under <ulink "
 "url=\"https://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN"
 " SSH How-To</citetitle></ulink>."
-msgstr ""
+msgstr "最終的に、サーバーとクライアントにSSHを設定するのは、このヘルプファイルの範疇を超えている重要なプロセスです。しかし、TortoiseSVN FAQ にリストされている <ulink url=\"https://tortoisesvn.net/ssh_howto.html\"><citetitle>Subversion/TortoiseSVN SSH How-To</citetitle></ulink> にガイドがあります。"
 
 #. (title)
 msgid "External Program Settings"
@@ -14362,7 +14362,7 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checked files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "これが指定されると、コミットダイアログに<guibutton>フックを実行</guibutton>ボタンが表示され、クリックすると定義されたフックスクリプトが実行されるようになります。フックスクリプトはチェックされたファイルやフォルダーすべての一覧と、入力されていればコミットメッセージを受け取ります。"
 
 #. (term)
 #. (term)
@@ -14553,7 +14553,7 @@ msgstr "更新したりコミットが完了したときの、リポジトリの
 msgid ""
 "Either <literal>true</literal> when locking, or <literal>false</literal> "
 "when unlocking."
-msgstr ""
+msgstr "ロックするなら<literal>true</literal>、解除するなら<literal>false</literal>のどちらかです。"
 
 #. (para)
 msgid ""
@@ -15246,7 +15246,7 @@ msgid ""
 "url=\"https://tortoisesvn.net/donate.html\"><citetitle>https://tortoisesvn.net/donate.html</citetitle></ulink>"
 " Please also have a look at the list of people who contributed to the "
 "project by sending in patches or translations."
-msgstr ""
+msgstr "TortoiseSVNで作業している間、私たちは音楽を聴くのが大好きです。我々はプロジェクトに多くの時間を費やしているため、<emphasis>多くの</emphasis>音楽が必要です。そこで、私たちの好きな音楽のCDやDVDのウィッシュリストを、 <ulink url=\"https://tortoisesvn.net/donate.html\"><citetitle>http://tortoisesvn.net/donate.html</citetitle></ulink> で公開しています。また、パッチや翻訳を提供してプロジェクトに貢献している人のリストもご覧ください。"
 
 #. (title)
 msgid "Project Monitor"
@@ -15298,7 +15298,7 @@ msgid ""
 "url=\"https://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> is "
 "installed and active, then the project monitor automatically uses Snarl to "
 "show the notifications about newly detected commits."
-msgstr ""
+msgstr "もし <ulink url=\"https://snarl.fullphat.net/\"><citetitle>Snarl</citetitle></ulink> が実行中の場合、プロジェクトモニターは新しいコミットの検知を通知するために自動的に Snarl を利用します。"
 
 #. (title)
 msgid "Adding projects to monitor"
@@ -16839,7 +16839,7 @@ msgid ""
 "asked the most on the TortoiseSVN mailing lists "
 "<email>dev@tortoisesvn.tigris.org</email> and "
 "<email>users@tortoisesvn.tigris.org</email>."
-msgstr ""
+msgstr "TortoiseSVNは全力を費やして開発しているので、ドキュメントを完全な状態で維持し続けるのは困難です。私たちは TortoiseSVN のメーリングリストである<email>dev@tortoisesvn.tigris.org</email> や <email>users@tortoisesvn.tigris.org</email> でよく尋ねられる質問を、 <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>オンラインFAQ </citetitle></ulink> に公開しています。"
 
 #. (para)
 msgid ""
@@ -17906,7 +17906,7 @@ msgid ""
 "the parameter <option>/deletepathfile</option>. If you don't pass "
 "<option>/deletepathfile</option>, you have to delete the file yourself or "
 "the file gets left behind."
-msgstr ""
+msgstr "改行で区切った複数のパスを記述したファイルで指定することもできます。ファイルはUTF-16形式で、<ulink url=\"https://en.wikipedia.org/wiki/Byte-order_mark\"><citetitle>BOM</citetitle></ulink> を入れないでください。ファイルを渡したい場合は、<option>/path</option>ではなく<option>/pathfile</option>を使用してください。コマンド実行後にTortoiseProcがファイルを自動削除するようにしたい場合は、<option>/deletepathfile</option>を使用してください。<option>/deletepathfile</option>を指定しない場合、手作業でファイルを削除しなければファイルは残ります。"
 
 #. (para)
 msgid ""
@@ -18292,7 +18292,7 @@ msgid ""
 "<placeholder-7/> to break all locks, <placeholder-8/> to revert uncommitted "
 "changes, <placeholder-9/>, <placeholder-10/>, <placeholder-11/>, "
 "<placeholder-12/>, <placeholder-13/> and <placeholder-14/>."
-msgstr ""
+msgstr "<placeholder-1/> で指定された作業コピーの、中断されたり失敗したりした操作をクリーンアップし、作業コピーのロックを解除します。 <placeholder-2/> を指定することで、実際にクリーンアップするかどうかを指定することもできます。 <placeholder-3/> を指定すると、（クリーンアップの終了を通知したりエラーを表示したりする）ポップアップダイアログを抑制します。 <placeholder-4/> を指定すると、進行状況ダイアログの表示も抑制します。 <placeholder-5/> を指定すると、ユーザーがクリーンアップ処理の内容を選択するためのダイアログを表示しません。クリーンアップ時の動作は、 <placeholder-6/> で状態のクリーンアップ、 <placeholder-7/> で全てのロックの解除、 <placeholder-8/> でコミットしていない変更の破棄、 <placeholder-9/>、 <placeholder-10/>、 <placeholder-11/>、 <placeholder-12/>、 <placeholder-13/>、 <placeholder-14/> で指定することができます。"
 
 #. (option)
 #. (option)
@@ -19753,7 +19753,7 @@ msgid ""
 "url=\"https://tortoisesvn.net/translation_status_dev.html\"><citetitle>translation"
 " status page</citetitle></ulink>. And if there is no language pack "
 "available, why not join the team and submit your own translation ;-)"
-msgstr ""
+msgstr "TortoiseSVNのユーザーインターフェイスはたくさんの言語に翻訳されています。<ulink url=\"https://tortoisesvn.net/translation_status_dev.html\"><citetitle>翻訳状況ページ</citetitle></ulink>からご希望の言語パックをダウンロードすることができます。まだ言語パックが用意されていない言語ならば、チームに参加して翻訳をしてみましょう ;-)"
 
 #. (para)
 msgid ""
@@ -19768,7 +19768,7 @@ msgid ""
 " You can download translated manuals from the <ulink "
 "url=\"https://tortoisesvn.net/support.html\"><citetitle>support "
 "page</citetitle></ulink> on our website."
-msgstr ""
+msgstr "ドキュメントもさまざまな言語に翻訳されています。ウェブサイトの<ulink url=\"https://tortoisesvn.net/support.html\"><citetitle>サポートページ</citetitle></ulink>から翻訳されたマニュアルをダウンロードすることができます。"
 
 #. (title)
 msgid "Spellchecker"
@@ -19789,7 +19789,7 @@ msgid ""
 "native language. The spell checker uses the same dictionary files as <ulink "
 "url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and"
 " <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr ""
+msgstr "TortoiseSVN にはコミットログメッセージをチェックするようスペルチェッカーが含まれています。プロジェクト言語が、自分のネイティブ言語でない場合に特に便利です。スペルチェッカーは <ulink url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> や <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> と同じ辞書を使用します。"
 
 #. (para)
 msgid ""
@@ -20341,7 +20341,7 @@ msgid ""
 "url=\"https://unxutils.sourceforge.net/\"><citetitle>https://unxutils.sourceforge.net/</citetitle></ulink>"
 " because we were working on those files and had sometimes changed those "
 "files already."
-msgstr ""
+msgstr "<ulink url=\"https://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> の作業をしていると、プロジェクトの拡張やバグの修正のためのパッチを送ってもらったときにはいつも、そのパッチを適用するのに大量の作業を行わなければなりませんでした。また多くの場合、既にファイルを更新してしまっていたために、そのパッチは時代遅れになっており、コマンドラインパッチツール <ulink url=\"https://unxutils.sourceforge.net/\"><citetitle>http://unxutils.sourceforge.net/</citetitle></ulink> では適用できませんでした。"
 
 #. (para)
 msgid ""
