@@ -84,12 +84,11 @@ module.exports = function(grunt) {
         autoprefixer: {
             options: {
                 browsers: [
-                    'last 2 version',
+                    'last 2 versions',
                     '> 1%',
                     'Edge >= 12',
                     'Explorer >= 9',
-                    'Firefox ESR',
-                    'Opera 12.1'
+                    'Firefox ESR'
                 ]
             },
             pack: {
