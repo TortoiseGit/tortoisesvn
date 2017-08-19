@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -532,10 +532,10 @@ void CEditPropertiesDlg::OnBnClickedAddprops()
         EditProps(true, SVN_PROP_EXTERNALS, true);
         break;
     case ID_NEW_LOGSIZES:
-        EditProps(true, "tsvn:log", true);
+        EditProps(true, "tsvn:log...", true);
         break;
     case ID_NEW_LANGUAGES:
-        EditProps(true, "tsvn:lang", true);
+        EditProps(true, "tsvn:projectlanguage", true);
         break;
     case ID_NEW_LOCALHOOKS:
         EditProps(true, PROJECTPROPNAME_STARTCOMMITHOOK, true);
@@ -590,11 +590,11 @@ EditPropBase * CEditPropertiesDlg::GetPropDialog(bool bDefault, const std::strin
     else if ((sName.compare(PROJECTPROPNAME_LOGMINSIZE) == 0) ||
         (sName.compare(PROJECTPROPNAME_LOCKMSGMINSIZE) == 0) ||
         (sName.compare(PROJECTPROPNAME_LOGWIDTHLINE) == 0) ||
-        (sName.compare("tsvn:log") == 0))
+        (sName.compare("tsvn:log...") == 0))
         dlg = new CEditPropTSVNSizes(this);
     else if ((sName.compare(PROJECTPROPNAME_LOGFILELISTLANG) == 0) ||
         (sName.compare(PROJECTPROPNAME_PROJECTLANGUAGE) == 0) ||
-        (sName.compare("tsvn:lang") == 0))
+        (sName.compare("tsvn:projectlanguage") == 0))
         dlg = new CEditPropTSVNLang(this);
     else if ((sName.compare(PROJECTPROPNAME_STARTCOMMITHOOK) == 0) ||
         (sName.compare(PROJECTPROPNAME_PRECOMMITHOOK) == 0) ||
