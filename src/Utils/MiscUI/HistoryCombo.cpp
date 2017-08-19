@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -128,13 +128,13 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
 #ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
     if (m_bURLHistory)
     {
-        cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(str);
+        cbei.iImage = SYS_IMAGE_LIST().GetPathIconIndex(str);
         if ((cbei.iImage == NULL) || (cbei.iImage == SYS_IMAGE_LIST().GetDefaultIconIndex()))
         {
             if (str.Left(5) == L"http:")
-                cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(L".html");
+                cbei.iImage = SYS_IMAGE_LIST().GetPathIconIndex(L".html");
             else if (str.Left(6) == L"https:")
-                cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(L".html");
+                cbei.iImage = SYS_IMAGE_LIST().GetPathIconIndex(L".html");
             else if (str.Left(5) == L"file:")
                 cbei.iImage = SYS_IMAGE_LIST().GetDirIconIndex();
             else if (str.Left(4) == L"svn:")
@@ -147,7 +147,7 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
     }
     if (m_bPathHistory)
     {
-        cbei.iImage = SYS_IMAGE_LIST().GetFileIconIndex(str);
+        cbei.iImage = SYS_IMAGE_LIST().GetPathIconIndex(str);
         if (cbei.iImage == SYS_IMAGE_LIST().GetDefaultIconIndex())
         {
             cbei.iImage = SYS_IMAGE_LIST().GetDirIconIndex();

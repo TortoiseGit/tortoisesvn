@@ -54,6 +54,7 @@ public:
 
 // Operations
 public:
+
     /**
      * Returns the icon index for a directory.
      */
@@ -67,16 +68,11 @@ public:
      */
     int GetDefaultIconIndex();
     /**
-     * Returns the icon index for the specified \a file. Only the file extension
-     * is used to determine the file's icon.
-     */
-    int GetFileIconIndex(const CString& file);
-
-    /**
      * Get the index for a SVN-style path file.
      * Uses a cache to speed things up
      */
     int GetPathIconIndex(const CTSVNPath& file);
+    int GetPathIconIndex(const CString& file);
 
     /**
      * Adds an icon to the image list and returns the index of the
@@ -85,14 +81,21 @@ public:
     int AddIcon(const HICON hIcon);
 
 private:
+    /**
+     * Returns the icon index for the specified \a file. Only the file extension
+     * is used to determine the file's icon.
+     */
+    int GetFileIconIndex(const CString& file);
+    int GetFileIcon(LPCTSTR file, DWORD attributes, UINT extraFlags);
+
+
     static CSysImageList *instance;
 
     HIMAGELIST hSystemImageList;
-
-    typedef std::map<CString, int> IconIndexMap;
-    mutable IconIndexMap m_indexCache;
-
-    int GetFileIcon(LPCTSTR file, DWORD attributes, UINT extraFlags);
+    mutable std::map<CString, int> m_indexCache;
+    int m_dirIconIndex;
+    int m_dirOpenIconIndex;
+    int m_defaultIconIndex;
 };
 
 

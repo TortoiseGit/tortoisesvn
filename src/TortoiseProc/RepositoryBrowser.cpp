@@ -1334,7 +1334,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
             }
             else
             {
-                icon_idx = SYS_IMAGE_LIST().GetFileIconIndex(it->path);
+                icon_idx = SYS_IMAGE_LIST().GetPathIconIndex(it->path);
                 files++;
             }
             int index = m_RepoList.InsertItem(nCount, it->path, icon_idx);
@@ -1810,7 +1810,7 @@ HTREEITEM CRepositoryBrowser::Insert
     {
         pTreeItem->children_fetched = true;
         tvinsert.itemex.cChildren = 0;
-        tvinsert.itemex.iImage = SYS_IMAGE_LIST().GetFileIconIndex(item.path);
+        tvinsert.itemex.iImage = SYS_IMAGE_LIST().GetPathIconIndex(item.path);
         tvinsert.itemex.iSelectedImage = tvinsert.itemex.iImage;
     }
     HTREEITEM hNewItem = m_RepoTree.InsertItem(&tvinsert);

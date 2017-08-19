@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2008, 2010-2016 - TortoiseSVN
+// Copyright (C) 2006, 2008, 2010-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -159,7 +159,7 @@ BOOL CFilePatchesDlg::Init(SVNPatch * pPatch, CPatchFilesDlgCallBack * pCallBack
         m_arFileStates.Add(state);
         CString sFileName = GetFullPath(i);
         sFileName = CPathUtils::GetFileNameFromPath(sFileName);
-        m_cFileList.InsertItem(i, sFile, SYS_IMAGE_LIST().GetFileIconIndex(sFileName));
+        m_cFileList.InsertItem(i, sFile, SYS_IMAGE_LIST().GetPathIconIndex(sFileName));
         SetStateText(i, state);
     }
     int mincol = 0;
