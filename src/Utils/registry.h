@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2016 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1139,35 +1139,23 @@ T& CKeyList<T>::GetAt (int index) const
  */
 
 #ifdef __CSTRINGT_H__
-CRegDWORDCommon < CRegBase > ;
 typedef CRegDWORDCommon<CRegBase> CRegDWORD;
-CRegQWORDCommon < CRegBase > ;
 typedef CRegQWORDCommon<CRegBase> CRegQWORD;
-CRegStringCommon<CRegBase>;
 typedef CRegStringCommon<CRegBase> CRegString;
 
 #ifdef _MAP_
-CKeyList < CRegDWORD > ;
 typedef CKeyList<CRegDWORD> CRegDWORDList;
-CKeyList < CRegQWORD > ;
 typedef CKeyList<CRegQWORD> CRegQWORDList;
-CKeyList<CRegString>;
 typedef CKeyList<CRegString> CRegStringList;
 #endif
 #endif
 
-CRegDWORDCommon < CRegStdBase > ;
 typedef CRegDWORDCommon<CRegStdBase> CRegStdDWORD;
-CRegQWORDCommon < CRegStdBase > ;
 typedef CRegQWORDCommon<CRegStdBase> CRegStdQWORD;
-CRegStringCommon<CRegStdBase>;
 typedef CRegStringCommon<CRegStdBase> CRegStdString;
 
 #ifdef _MAP_
-CKeyList < CRegStdDWORD > ;
 typedef CKeyList<CRegStdDWORD> CRegStdDWORDList;
-CKeyList < CRegStdQWORD > ;
 typedef CKeyList<CRegStdQWORD> CRegStdQWORDList;
-CKeyList<CRegStdString>;
 typedef CKeyList<CRegStdString> CRegStdStringList;
 #endif
