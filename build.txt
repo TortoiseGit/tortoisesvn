@@ -67,12 +67,12 @@ Now you're almost ready. Only a few more steps to do:
   working-copy database version than the tool expects.
 - Unzip (if necessary) and copy the font files into %WINDIR%\Fonts.
   You will need them only if you are building the respective language packs.
-- run 'nant init' to fetch and unzip the required tools. Note: you need to call vsvars32.bat first.
+- run 'nant init' to fetch and unzip the required tools. Note: you need to call vcvars32.bat first.
 
 
 \section build32 Building 32 bit packages
 
-  Hint: before you can start building TortoiseSVN, you need to call the vsvars32.bat
+  Hint: before you can start building TortoiseSVN, you need to call the vcvars32.bat
   file which is located in C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build.
 
   Now, if you got some time left you can run the build script to compile
