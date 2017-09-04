@@ -19,6 +19,7 @@
 
 #include "targetver.h"
 
+#include <WinSock2.h>
 #include <assert.h>
 #include <stdio.h>
 #include <tchar.h>
