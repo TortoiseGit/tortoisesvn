@@ -69,6 +69,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_VIEW_ONEWAYDIFF, OnUpdateViewOnewaydiff)
     ON_UPDATE_COMMAND_UI(ID_VIEW_WHITESPACES, OnUpdateViewWhitespaces)
     ON_COMMAND(ID_VIEW_OPTIONS, OnViewOptions)
+    ON_MESSAGE(WM_IDLEUPDATECMDUI, OnIdleUpdateCmdUI)
     ON_WM_CLOSE()
     ON_WM_ACTIVATE()
     ON_COMMAND(ID_FILE_RELOAD, OnFileReload)
@@ -251,38 +252,27 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
     if (m_bUseRibbons)
     {
-        m_wndRibbonBar.Create(this);
-        m_wndRibbonBar.LoadFromResource(IDR_RIBBON);
-
-        // enable the dialog launch button on the view panel
-        CMFCRibbonCategory * pMainCat = m_wndRibbonBar.GetCategory(1);
-        if (pMainCat)
+        HRESULT hr;
+        hr = m_pRibbonFramework.CoCreateInstance(__uuidof(UIRibbonFramework));
+        if (FAILED(hr))
         {
-            CMFCRibbonPanel * pPanel = pMainCat->GetPanel(0);
-            if (pPanel)
-                pPanel->EnableLaunchButton(ID_VIEW_OPTIONS);
+            TRACE(L"Failed to create ribbon framework (%08x)\n", hr);
+            return -1; // fail to create
         }
-        // now replace all buttons with our custom button class
-        for (int i = 0; i < m_wndRibbonBar.GetCategoryCount(); ++i)
+
+        m_pRibbonApp.reset(new CNativeRibbonApp(this, m_pRibbonFramework));
+        hr = m_pRibbonFramework->Initialize(m_hWnd, m_pRibbonApp.get());
+        if (FAILED(hr))
         {
-            CMFCRibbonCategory * pCat = m_wndRibbonBar.GetCategory(i);
-            for (int j = 0; j < pCat->GetPanelCount(); ++j)
-            {
-                CMFCRibbonPanel * pPanel = pCat->GetPanel(j);
-                CList<UINT, UINT> lstItems;
-                pPanel->GetItemIDsList(lstItems);
-                while (!lstItems.IsEmpty())
-                {
-                    UINT id = lstItems.GetHead();
-                    lstItems.RemoveHead();
-                    CMFCRibbonButton * pButton = dynamic_cast<CMFCRibbonButton*>(pPanel->FindByID(id));
-                    if (pButton)
-                    {
-                        CCustomMFCRibbonButton * c = new CCustomMFCRibbonButton(id, pButton->GetText());
-                        pPanel->ReplaceByID(id, c);
-                    }
-                }
-            }
+            TRACE(L"Failed to initialize ribbon framework (%08x)\n", hr);
+            return -1; // fail to create
+        }
+
+        hr = m_pRibbonFramework->LoadUI(AfxGetResourceHandle(), L"TORTOISEMERGERIBBON_RIBBON");
+        if (FAILED(hr))
+        {
+            TRACE(L"Failed to load ribbon UI (%08x)\n", hr);
+            return -1; // fail to create
         }
         BuildRegexSubitems();
         if (!m_wndRibbonStatusBar.Create(this))
@@ -395,80 +385,79 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 
 void CMainFrame::OnApplicationLook(UINT id)
 {
-    CWaitCursor wait;
-
-    theApp.m_nAppLook = id;
-
-    switch (theApp.m_nAppLook)
+    if (m_bUseRibbons)
     {
-    case ID_VIEW_APPLOOK_WIN_2000:
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManager));
-        m_wndRibbonBar.SetWindows7Look(FALSE);
-        break;
-
-    case ID_VIEW_APPLOOK_OFF_XP:
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOfficeXP));
-        m_wndRibbonBar.SetWindows7Look(FALSE);
-        break;
-
-    case ID_VIEW_APPLOOK_WIN_XP:
-        CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
-        m_wndRibbonBar.SetWindows7Look(FALSE);
-        break;
+    }
+    else
+    {
+        CWaitCursor wait;
 
-    case ID_VIEW_APPLOOK_OFF_2003:
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2003));
-        CDockingManager::SetDockingMode(DT_SMART);
-        m_wndRibbonBar.SetWindows7Look(FALSE);
-        break;
+        theApp.m_nAppLook = id;
 
-    case ID_VIEW_APPLOOK_VS_2005:
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerVS2005));
-        CDockingManager::SetDockingMode(DT_SMART);
-        m_wndRibbonBar.SetWindows7Look(FALSE);
-        break;
-
-    case ID_VIEW_APPLOOK_VS_2008:
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerVS2008));
-        CDockingManager::SetDockingMode(DT_SMART);
-        m_wndRibbonBar.SetWindows7Look(FALSE);
-        break;
-
-    case ID_VIEW_APPLOOK_WIN7:
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows7));
-        CDockingManager::SetDockingMode(DT_SMART);
-        m_wndRibbonBar.SetWindows7Look(TRUE);
-        break;
-
-    default:
         switch (theApp.m_nAppLook)
         {
-        case ID_VIEW_APPLOOK_OFF_2007_BLUE:
-            CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_LunaBlue);
+        case ID_VIEW_APPLOOK_WIN_2000:
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManager));
             break;
 
-        case ID_VIEW_APPLOOK_OFF_2007_BLACK:
-            CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_ObsidianBlack);
+        case ID_VIEW_APPLOOK_OFF_XP:
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOfficeXP));
             break;
 
-        case ID_VIEW_APPLOOK_OFF_2007_SILVER:
-            CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_Silver);
+        case ID_VIEW_APPLOOK_WIN_XP:
+            CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
             break;
 
-        case ID_VIEW_APPLOOK_OFF_2007_AQUA:
-            CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_Aqua);
+        case ID_VIEW_APPLOOK_OFF_2003:
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2003));
+            CDockingManager::SetDockingMode(DT_SMART);
             break;
+
+        case ID_VIEW_APPLOOK_VS_2005:
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerVS2005));
+            CDockingManager::SetDockingMode(DT_SMART);
+            break;
+
+        case ID_VIEW_APPLOOK_VS_2008:
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerVS2008));
+            CDockingManager::SetDockingMode(DT_SMART);
+            break;
+
+        case ID_VIEW_APPLOOK_WIN7:
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows7));
+            CDockingManager::SetDockingMode(DT_SMART);
+            break;
+
+        default:
+            switch (theApp.m_nAppLook)
+            {
+            case ID_VIEW_APPLOOK_OFF_2007_BLUE:
+                CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_LunaBlue);
+                break;
+
+            case ID_VIEW_APPLOOK_OFF_2007_BLACK:
+                CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_ObsidianBlack);
+                break;
+
+            case ID_VIEW_APPLOOK_OFF_2007_SILVER:
+                CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_Silver);
+                break;
+
+            case ID_VIEW_APPLOOK_OFF_2007_AQUA:
+                CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_Aqua);
+                break;
+            }
+
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2007));
+            CDockingManager::SetDockingMode(DT_SMART);
         }
 
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2007));
-        CDockingManager::SetDockingMode(DT_SMART);
-        m_wndRibbonBar.SetWindows7Look(FALSE);
+        RedrawWindow(nullptr, nullptr, RDW_ALLCHILDREN | RDW_INVALIDATE | RDW_UPDATENOW | RDW_FRAME | RDW_ERASE);
+
+        theApp.WriteInt(L"ApplicationLook", theApp.m_nAppLook);
     }
-
-    RedrawWindow(nullptr, nullptr, RDW_ALLCHILDREN | RDW_INVALIDATE | RDW_UPDATENOW | RDW_FRAME | RDW_ERASE);
-
-    theApp.WriteInt(L"ApplicationLook", theApp.m_nAppLook);
 }
 
 void CMainFrame::OnUpdateApplicationLook(CCmdUI* pCmdUI)
@@ -1139,6 +1128,16 @@ void CMainFrame::UpdateLayout()
         m_wndSplitter.CenterSplitter();
         m_wndSplitter2.CenterSplitter();
     }
+}
+
+void CMainFrame::RecalcLayout(BOOL bNotify)
+{
+    GetClientRect(&m_dockManager.m_rectInPlace);
+    if (m_pRibbonApp)
+    {
+        m_dockManager.m_rectInPlace.top += m_pRibbonApp->GetRibbonHeight();
+    }
+    CFrameWndEx::RecalcLayout(bNotify);
 }
 
 void CMainFrame::OnSize(UINT nType, int cx, int cy)
@@ -3212,6 +3211,8 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
 
     if (m_bUseRibbons)
     {
+        // TODO: Support regex filter dropdown menu.
+#if 0
         CArray<CMFCRibbonBaseElement*, CMFCRibbonBaseElement*> arButtons;
         m_wndRibbonBar.GetElementsByID(ID_REGEXFILTER, arButtons);
         if (arButtons.GetCount() == 1)
@@ -3232,6 +3233,7 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
                 }
             }
         }
+#endif
     }
     else if (pMenuPopup)
     {
@@ -3589,6 +3591,18 @@ BOOL CMainFrame::OnShowPopupMenu(CMFCPopupMenu* pMenuPopup)
     }
 
     return TRUE;
+}
+
+LRESULT CMainFrame::OnIdleUpdateCmdUI(WPARAM wParam, LPARAM lParam)
+{
+    __super::OnIdleUpdateCmdUI(wParam, lParam);
+
+    if (m_pRibbonApp)
+    {
+        BOOL bDisableIfNoHandler = (BOOL) wParam;
+        m_pRibbonApp->UpdateCmdUI(bDisableIfNoHandler);
+    }
+    return 0;
 }
 
 void CMainFrame::OnNcCalcSize(BOOL bCalcValidRects, NCCALCSIZE_PARAMS* lpncsp)

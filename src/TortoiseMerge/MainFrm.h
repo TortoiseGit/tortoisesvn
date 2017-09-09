@@ -27,6 +27,7 @@
 #include "SVNPatch.h"
 #include "SimpleIni.h"
 #include "CustomMFCRibbonStatusBar.h"
+#include "NativeRibbonApp.h"
 
 #include <tuple>
 
@@ -77,10 +78,12 @@ protected:
     bool            LoadViews(int line = -2);
     void            ClearViewNamesAndPaths();
     void            SetWindowTitle();
+    void            RecalcLayout(BOOL bNotify = TRUE) override;
 
     afx_msg LRESULT OnTaskbarButtonCreated(WPARAM wParam, LPARAM lParam);
     afx_msg void    OnApplicationLook(UINT id);
     afx_msg void    OnUpdateApplicationLook(CCmdUI* pCmdUI);
+    afx_msg LRESULT OnIdleUpdateCmdUI(WPARAM wParam, LPARAM);
 
     afx_msg void    OnFileSave();
     afx_msg void    OnFileSaveAs();
@@ -268,9 +271,6 @@ protected:
     bool            m_bLocatorBar;
     bool            m_bUseRibbons;
 
-    CMFCRibbonBar               m_wndRibbonBar;
-    CMFCRibbonApplicationButton m_MainButton;
-
     CRegDWORD       m_regWrapLines;
     CRegDWORD       m_regViewModedBlocks;
     CRegDWORD       m_regOneWay;
@@ -309,4 +309,7 @@ public:
     void            FillTabModeButton(CMFCRibbonButton * pButton, int start);
     CMFCMenuBar     m_wndMenuBar;
     CMFCToolBar     m_wndToolBar;
+
+    std::unique_ptr<CNativeRibbonApp> m_pRibbonApp;
+    CComPtr<IUIFramework> m_pRibbonFramework;
 };

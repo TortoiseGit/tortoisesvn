@@ -174,6 +174,7 @@
     <ClCompile Include="AppUtils.cpp" />
     <ClCompile Include="BaseView.cpp" />
     <ClCompile Include="BottomView.cpp" />
+    <ClCompile Include="NativeRibbonApp.cpp" />
     <ClCompile Include="DiffColors.cpp" />
     <ClCompile Include="DiffData.cpp" />
     <ClCompile Include="EditorConfigWrapper.cpp" />
@@ -249,6 +250,7 @@
     <ClInclude Include="AppUtils.h" />
     <ClInclude Include="BaseView.h" />
     <ClInclude Include="BottomView.h" />
+    <ClInclude Include="NativeRibbonApp.h" />
     <ClInclude Include="CustomMFCRibbonButton.h" />
     <ClInclude Include="CustomMFCRibbonStatusBar.h" />
     <ClInclude Include="DiffColors.h" />
@@ -298,7 +300,9 @@
     <None Include="..\Resources\Margin.cur" />
     <None Include="..\Resources\moved.ico" />
     <None Include="..\Resources\RegexFilter.ini" />
-    <None Include="..\Resources\ribbon.mfcribbon-ms" />
+    <None Include="..\Resources\ribbon.mfcribbon-ms">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\Resources\ribbon\ribbonlarge.png" />
     <None Include="..\Resources\ribbon\ribbonlargehdpi.png" />
     <None Include="..\Resources\ribbon\ribbonsmall.png" />
@@ -321,6 +325,19 @@
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="..\compatibility.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\Resources\TortoiseMergeRibbon.xml">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)\TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)\TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)\TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)\TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
+      <SubType>Designer</SubType>
+    </CustomBuild>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
