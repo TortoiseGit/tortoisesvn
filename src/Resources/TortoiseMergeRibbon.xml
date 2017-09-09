@@ -39,6 +39,11 @@
         <Image Source="ribbon/Settings.png"/>
       </Command.LargeImages>
     </Command>
+    <Command Name="cmdAbout" LabelTitle="Abou&amp;t TortoiseMerge" Id="0xE140">
+      <Command.LargeImages>
+        <Image Source="ribbon/About.png"/>
+      </Command.LargeImages>
+    </Command>
     <Command Name="cmdUndo" LabelTitle="Undo" Id="0xE12B" Keytip="Z">
       <Command.LargeImages>
         <Image Source="ribbon/Undo.png"/>
@@ -249,6 +254,9 @@
           </MenuGroup>
           <MenuGroup Class="MajorItems">
             <Button CommandName="cmdSettings" />
+          </MenuGroup>
+          <MenuGroup Class="MajorItems">
+            <Button CommandName="cmdAbout" />
           </MenuGroup>
           <MenuGroup Class="StandardItems">
             <Button CommandName="cmdExit" />
