@@ -173,8 +173,14 @@ STDMETHODIMP CNativeRibbonApp::UpdateProperty(
     if (key == UI_PKEY_TooltipTitle)
     {
         CString str;
-        str.LoadString(commandId);
-        str = str.Mid(str.Find(L"\n") + 1);
+        if (!str.LoadString(commandId))
+            return S_FALSE;
+
+        int nIndex = str.Find(L'\n');
+        if (nIndex <= 0)
+            return S_FALSE;
+
+        str = str.Mid(nIndex + 1);
 
         CString strLabel;
 
@@ -191,8 +197,15 @@ STDMETHODIMP CNativeRibbonApp::UpdateProperty(
     else if (key == UI_PKEY_TooltipDescription)
     {
         CString str;
-        str.LoadString(commandId);
-        str = str.Left(str.Find(L"\n"));
+        if (!str.LoadString(commandId))
+            return S_FALSE;
+
+        int nIndex = str.Find(L'\n');
+        if (nIndex <= 0)
+            return S_FALSE;
+
+        str = str.Left(nIndex);
+
         return UIInitPropertyFromString(UI_PKEY_TooltipDescription, str, newValue);
     }
     else if (key == UI_PKEY_Enabled)
