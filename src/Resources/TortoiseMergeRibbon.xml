@@ -280,6 +280,7 @@
               </ScalingPolicy.IdealSizes>
               <!-- This describes the order and how the groups shrink when the window is resized. -->
               <Scale Group="cmdGroupNavigate" Size="Medium" />
+              <Scale Group="cmdGroupEdit" Size="Medium" />
               <Scale Group="cmdGroupView" Size="Small" />
               <Scale Group="cmdGroupDiff" Size="Small" />
               <Scale Group="cmdGroupWhitespaces" Size="Small" />
@@ -306,6 +307,66 @@
                 <ColumnBreak ShowSeparator="true"/>
                 <ControlSizeDefinition ImageSize="Large" />
                 <ControlSizeDefinition ImageSize="Large" />
+                <ColumnBreak ShowSeparator="true"/>
+                <ControlSizeDefinition ImageSize="Large" />
+              </GroupSizeDefinition>
+              <GroupSizeDefinition Size="Medium">
+                <ControlSizeDefinition ImageSize="Large"/>
+                <ColumnBreak ShowSeparator="true"/>
+                <ControlSizeDefinition ImageSize="Large" />
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <ColumnBreak ShowSeparator="true"/>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <ColumnBreak ShowSeparator="true"/>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <ColumnBreak ShowSeparator="true"/>
+                <ControlSizeDefinition ImageSize="Large" />
+              </GroupSizeDefinition>
+              <GroupSizeDefinition Size="Small">
+                <ControlSizeDefinition ImageSize="Large"/>
+                <ColumnBreak ShowSeparator="true"/>
+                <ControlSizeDefinition ImageSize="Large" />
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <ColumnBreak ShowSeparator="true"/>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <ColumnBreak ShowSeparator="true"/>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
+                <Row>
+                  <ControlSizeDefinition ImageSize="Small" />
+                </Row>
                 <ColumnBreak ShowSeparator="true"/>
                 <ControlSizeDefinition ImageSize="Large" />
               </GroupSizeDefinition>
