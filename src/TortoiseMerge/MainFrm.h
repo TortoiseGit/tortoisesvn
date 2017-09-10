@@ -95,6 +95,7 @@ protected:
     afx_msg void    OnActivate(UINT, CWnd*, BOOL);
     afx_msg void    OnViewWhitespaces();
     afx_msg int     OnCreate(LPCREATESTRUCT lpCreateStruct);
+    afx_msg void    OnDestroy();
     afx_msg void    OnSize(UINT nType, int cx, int cy);
     afx_msg void    OnUpdateFileSave(CCmdUI *pCmdUI);
     afx_msg void    OnUpdateFileSaveAs(CCmdUI *pCmdUI);

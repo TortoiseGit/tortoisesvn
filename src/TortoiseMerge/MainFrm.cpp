@@ -51,6 +51,7 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWndEx)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_WM_CREATE()
+    ON_WM_DESTROY()
     ON_COMMAND_RANGE(ID_VIEW_APPLOOK_WIN7, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnApplicationLook)
     ON_UPDATE_COMMAND_UI_RANGE(IDC_STYLEBUTTON, ID_VIEW_APPLOOK_OFF_2007_AQUA, &CMainFrame::OnUpdateApplicationLook)
     // Global help commands
@@ -374,6 +375,16 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
     m_wndLineDiffBar.EnableGripper(FALSE);
 
     return 0;
+}
+
+void CMainFrame::OnDestroy()
+{
+    if (m_pRibbonFramework)
+    {
+        m_pRibbonFramework->Destroy();
+    }
+
+    CFrameWndEx::OnDestroy();
 }
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
