@@ -21,23 +21,32 @@
 CNativeRibbonApp::CNativeRibbonApp(CFrameWnd *pFrame, IUIFramework *pFramework)
     : m_pFrame(pFrame)
     , m_pFramework(pFramework)
+    , m_cRefCount(0)
 {
+}
+
+CNativeRibbonApp::~CNativeRibbonApp()
+{
+    ASSERT(m_cRefCount == 0);
 }
 
 STDMETHODIMP CNativeRibbonApp::QueryInterface(REFIID riid, void **ppvObject)
 {
     if (riid == IID_IUnknown)
     {
+        AddRef();
         *ppvObject = (IUICommandHandler*)this;
         return S_OK;
     }
     else if (riid == __uuidof(IUIApplication))
     {
+        AddRef();
         *ppvObject = (IUIApplication*)this;
         return S_OK;
     }
     else if (riid == __uuidof(IUICommandHandler))
     {
+        AddRef();
         *ppvObject = (IUICommandHandler*)this;
         return S_OK;
     }
@@ -49,12 +58,12 @@ STDMETHODIMP CNativeRibbonApp::QueryInterface(REFIID riid, void **ppvObject)
 
 STDMETHODIMP_(ULONG) CNativeRibbonApp::AddRef(void)
 {
-    return 1;
+    return InterlockedIncrement(&m_cRefCount);
 }
 
 STDMETHODIMP_(ULONG) CNativeRibbonApp::Release(void)
 {
-    return 1;
+    return InterlockedDecrement(&m_cRefCount);
 }
 
 STDMETHODIMP CNativeRibbonApp::OnViewChanged(

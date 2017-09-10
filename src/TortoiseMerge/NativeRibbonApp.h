@@ -20,6 +20,7 @@ class CNativeRibbonApp : public IUIApplication, public IUICommandHandler
 {
 public:
     CNativeRibbonApp(CFrameWnd *pFrame, IUIFramework *pFramework);
+    ~CNativeRibbonApp();
 
     void UpdateCmdUI(BOOL bDisableIfNoHandler);
     int GetRibbonHeight();
@@ -66,4 +67,5 @@ private:
     CFrameWnd* m_pFrame;
     CComPtr<IUIFramework> m_pFramework;
     std::list<UINT32> m_commandIds;
+    ULONG m_cRefCount;
 };
