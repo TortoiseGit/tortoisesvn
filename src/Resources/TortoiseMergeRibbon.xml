@@ -294,9 +294,9 @@
               </ScalingPolicy.IdealSizes>
               <!-- This describes the order and how the groups shrink when the window is resized. -->
               <Scale Group="cmdGroupNavigate" Size="Medium" />
-              <Scale Group="cmdGroupEdit" Size="Medium" />
               <Scale Group="cmdGroupView" Size="Small" />
               <Scale Group="cmdGroupDiff" Size="Small" />
+              <Scale Group="cmdGroupEdit" Size="Medium" />
               <Scale Group="cmdGroupWhitespaces" Size="Small" />
             </ScalingPolicy>
           </Tab.ScalingPolicy>
