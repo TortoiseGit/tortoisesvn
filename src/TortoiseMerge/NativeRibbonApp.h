@@ -22,6 +22,11 @@ public:
     CNativeRibbonApp(CFrameWnd *pFrame, IUIFramework *pFramework);
     ~CNativeRibbonApp();
 
+    void SetSettingsFileName(const CString & file)
+    {
+        m_SettingsFileName = file;
+    }
+
     void UpdateCmdUI(BOOL bDisableIfNoHandler);
     int GetRibbonHeight();
 
@@ -63,9 +68,12 @@ protected:
         const PROPVARIANT *currentValue,
         PROPVARIANT *newValue);
 
+    HRESULT SaveRibbonViewSettings(IUIRibbon *pRibbonView, const CString & fileName);
+    HRESULT LoadRibbonViewSettings(IUIRibbon *pRibbonView, const CString & fileName);
 private:
     CFrameWnd* m_pFrame;
     CComPtr<IUIFramework> m_pFramework;
     std::list<UINT32> m_commandIds;
     ULONG m_cRefCount;
+    CString m_SettingsFileName;
 };

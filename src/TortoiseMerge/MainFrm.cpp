@@ -262,6 +262,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         }
 
         m_pRibbonApp.reset(new CNativeRibbonApp(this, m_pRibbonFramework));
+        m_pRibbonApp->SetSettingsFileName(CPathUtils::GetAppDataDirectory() + L"TortoiseMerge-RibbonSettings");
+
         hr = m_pRibbonFramework->Initialize(m_hWnd, m_pRibbonApp.get());
         if (FAILED(hr))
         {

@@ -80,7 +80,33 @@ STDMETHODIMP CNativeRibbonApp::OnViewChanged(
 
     if (typeID == UI_VIEWTYPE_RIBBON)
     {
-        m_pFrame->RecalcLayout();
+        if (verb == UI_VIEWVERB_CREATE)
+        {
+            if (!m_SettingsFileName.IsEmpty())
+            {
+                CComQIPtr<IUIRibbon> ribbonView(view);
+                if (ribbonView)
+                {
+                    LoadRibbonViewSettings(ribbonView, m_SettingsFileName);
+                }
+            }
+
+            m_pFrame->RecalcLayout();
+        }
+        else if (verb == UI_VIEWVERB_DESTROY)
+        {
+            HRESULT hr;
+
+            CComQIPtr<IUIRibbon> ribbonView(view);
+            if (ribbonView)
+            {
+                SaveRibbonViewSettings(ribbonView, m_SettingsFileName);
+            }
+        }
+        else if (verb == UI_VIEWVERB_SIZE)
+        {
+            m_pFrame->RecalcLayout();
+        }
     }
 
     return S_OK;
@@ -235,6 +261,41 @@ STDMETHODIMP CNativeRibbonApp::UpdateProperty(
     {
         return E_NOTIMPL;
     }
+}
+
+HRESULT CNativeRibbonApp::SaveRibbonViewSettings(IUIRibbon * pRibbonView, const CString & fileName)
+{
+    HRESULT hr;
+    CComPtr<IStream> stream;
+
+    hr = SHCreateStreamOnFileEx(fileName, STGM_WRITE | STGM_CREATE, FILE_ATTRIBUTE_NORMAL, TRUE, nullptr, &stream);
+    if (FAILED(hr))
+        return hr;
+
+    hr = pRibbonView->SaveSettingsToStream(stream);
+    if (FAILED(hr))
+    {
+        stream->Revert();
+        return hr;
+    }
+
+    hr = stream->Commit(STGC_DEFAULT);
+
+    return hr;
+}
+
+HRESULT CNativeRibbonApp::LoadRibbonViewSettings(IUIRibbon * pRibbonView, const CString & fileName)
+{
+    HRESULT hr;
+    CComPtr<IStream> stream;
+
+    hr = SHCreateStreamOnFileEx(fileName, STGM_READ, FILE_ATTRIBUTE_NORMAL, FALSE, nullptr, &stream);
+    if (FAILED(hr))
+        return hr;
+
+    hr = pRibbonView->LoadSettingsFromStream(stream);
+
+    return hr;
 }
 
 void CNativeRibbonApp::UpdateCmdUI(BOOL bDisableIfNoHandler)
