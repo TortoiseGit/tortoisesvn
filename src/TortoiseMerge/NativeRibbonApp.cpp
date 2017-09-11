@@ -95,8 +95,6 @@ STDMETHODIMP CNativeRibbonApp::OnViewChanged(
         }
         else if (verb == UI_VIEWVERB_DESTROY)
         {
-            HRESULT hr;
-
             CComQIPtr<IUIRibbon> ribbonView(view);
             if (ribbonView)
             {
