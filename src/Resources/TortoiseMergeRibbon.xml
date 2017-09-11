@@ -39,6 +39,11 @@
         <Image Source="ribbon/Settings.png"/>
       </Command.LargeImages>
     </Command>
+    <Command Name="cmdCreateUnifiedDiff" LabelTitle="Create &amp;patch file" Id="32828">
+      <Command.LargeImages>
+        <Image Source="ribbon/UniDiff.png"/>
+      </Command.LargeImages>
+    </Command>
     <Command Name="cmdAbout" LabelTitle="Abou&amp;t TortoiseMerge" Id="0xE140">
       <Command.LargeImages>
         <Image Source="ribbon/About.png"/>
@@ -251,6 +256,9 @@
             <Button CommandName="cmdOpen" />
             <Button CommandName="cmdSave" />
             <Button CommandName="cmdSaveAs" />
+          </MenuGroup>
+          <MenuGroup Class="MajorItems">
+            <Button CommandName="cmdCreateUnifiedDiff" />
           </MenuGroup>
           <MenuGroup Class="MajorItems">
             <Button CommandName="cmdSettings" />
