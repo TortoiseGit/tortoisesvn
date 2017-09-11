@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2010, 2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010, 2013, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "StandAloneDlg.h"
 #include "RegHistory.h"
 #include "FilterEdit.h"
+#include "HintCtrl.h"
 
 /**
  * \ingroup TortoiseProc
@@ -56,8 +57,8 @@ protected:
     void UpdateMessageList();
 
 private:
-    CListBox        m_List;
-    CString         m_SelectedText;
-    CRegHistory*    m_history;
-    CFilterEdit     m_cFilter;
+    CHintCtrl<CListBox> m_List;
+    CString             m_SelectedText;
+    CRegHistory*        m_history;
+    CFilterEdit         m_cFilter;
 };

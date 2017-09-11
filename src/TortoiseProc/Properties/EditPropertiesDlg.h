@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,7 @@
 #include "PathEdit.h"
 #include "CriticalSection.h"
 #include "UserProperties.h"
+#include "HintCtrl.h"
 
 /**
  * \ingroup TortoiseProc
@@ -88,7 +89,7 @@ protected:
 
     async::CCriticalSection m_mutex;
     CTSVNPathList   m_pathlist;
-    CListCtrl       m_propList;
+    CHintCtrl<CListCtrl> m_propList;
     BOOL            m_bRecursive;
     bool            m_bChanged;
     bool            m_bRevProps;

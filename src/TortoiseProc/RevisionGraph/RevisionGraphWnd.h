@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -198,6 +198,7 @@ protected:
                                     // (will be activated only after some delay)
 
     virtual void    DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual ULONG   GetGestureStatus(CPoint ptTouch) override;
     afx_msg void    OnPaint();
     afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
     afx_msg void    OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);

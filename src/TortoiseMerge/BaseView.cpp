@@ -5086,6 +5086,11 @@ BOOL CBaseView::PreTranslateMessage(MSG* pMsg)
     return CView::PreTranslateMessage(pMsg);
 }
 
+ULONG CBaseView::GetGestureStatus(CPoint /*ptTouch*/)
+{
+    return 0;
+}
+
 
 void CBaseView::ResetUndoStep()
 {
