@@ -609,6 +609,21 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
     SendEditor(SCI_SETSAVEPOINT);
     SendEditor(SCI_GOTOPOS, 0);
     SendEditor(SCI_SETSCROLLWIDTHTRACKING, TRUE);
+    int numDigits = 0;
+    int lineCount = (int)m_authors.size();
+    while (lineCount)
+    {
+        lineCount /= 10;
+        numDigits++;
+    }
+    numDigits = max(numDigits, 3);
+    {
+        int pixelWidth = int(8 + numDigits * SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)"8"));
+        if (ShowLine)
+            SendEditor(SCI_SETMARGINWIDTHN, 0, pixelWidth);
+        else
+            SendEditor(SCI_SETMARGINWIDTHN, 0);
+    }
     SendEditor(SCI_SETREADONLY, TRUE);
 
     //check which lexer to use, depending on the filetype
@@ -820,10 +835,16 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
     int textSelEnd = 0;
     TCHAR buf[20] = { 0 };
     int i=0;
+    int linebufsize = 4096;
+    auto linebuf = std::make_unique<char[]>(linebufsize + 1);
     for (i = line; (bSearchDown ? (i < (int)m_authors.size()) : (i >= 0)) && (!bFound); bSearchDown ? ++i : --i)
     {
         const int bufsize = (int)SendEditor(SCI_GETLINE, i);
-        std::unique_ptr<char[]> linebuf(new char[bufsize+1]);
+        if (bufsize >= linebufsize)
+        {
+            linebufsize = bufsize + 1024;
+            linebuf = std::make_unique<char[]>(linebufsize + 1);
+        }
         SecureZeroMemory(linebuf.get(), bufsize+1);
         SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
         tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
@@ -851,7 +872,11 @@ bool TortoiseBlame::DoSearch(LPTSTR what, DWORD flags)
         for (bSearchDown ? i = 0 : i = (int)m_authors.size() -1; (bSearchDown ? (i < line) : (i > line)) && (!bFound); bSearchDown ? ++i : --i)
         {
             const int bufsize = (int)SendEditor(SCI_GETLINE, i);
-            std::unique_ptr<char[]> linebuf(new char[bufsize+1]);
+            if (bufsize >= linebufsize)
+            {
+                linebufsize = bufsize + 1024;
+                linebuf = std::make_unique<char[]>(linebufsize + 1);
+            }
             SecureZeroMemory(linebuf.get(), bufsize+1);
             SendEditor(SCI_GETLINE, i, (LPARAM)linebuf.get());
             tstring sLine = CUnicodeUtils::StdGetUnicode(linebuf.get());
