@@ -27,6 +27,7 @@
 #include "TaskbarUUID.h"
 #include "BlameIndexColors.h"
 #include "../Utils/CrashReport.h"
+#include "../Utils/DebugOutput.h"
 
 #include <algorithm>
 #include <cctype>
@@ -231,20 +232,27 @@ void TortoiseBlame::SetTitle()
 BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
 {
     SendEditor(SCI_SETREADONLY, FALSE);
+    SendEditor(SCI_SETCODEPAGE, SC_CP_UTF8);
     SendEditor(SCI_CLEARALL);
-    SendEditor(EM_EMPTYUNDOBUFFER);
     SetTitle();
     SendEditor(SCI_SETSAVEPOINT);
     SendEditor(SCI_CANCEL);
     SendEditor(SCI_SETUNDOCOLLECTION, 0);
-    SendEditor(SCI_SETCODEPAGE, SC_CP_UTF8);
+    SendEditor(EM_EMPTYUNDOBUFFER);
     ::ShowWindow(wEditor, SW_HIDE);
+
+    int stringBufLen = 4096;
+    auto stringbuf = std::make_unique<char[]>(stringBufLen);
+    int wideBufLen = 4096;
+    auto wideBuf = std::make_unique<wchar_t[]>(wideBufLen);
+    int utf8BufLen = 4096;
+    auto utf8Buf = std::make_unique<char[]>(utf8BufLen);
 
     FILE * File = NULL;
     int retrycount = 10;
     while (retrycount)
     {
-        _tfopen_s(&File, fileName, L"rb");
+        _tfopen_s(&File, fileName, L"rbS");
         if (File == 0)
         {
             Sleep(500);
@@ -255,6 +263,16 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
     }
     if (File == NULL)
         return FALSE;
+
+    ProfileTimer profiler(L"Blame: OpenFile");
+
+    //m_revs.reserve(100000);
+    //m_mergedRevs.reserve(100000);
+    //m_dates.reserve(100000);
+    //m_mergedDates.reserve(100000);
+    //m_authors.reserve(100000);
+    //m_mergedAuthors.reserve(100000);
+    //m_mergedPaths.reserve(100000);
 
     m_lowestRev = LONG_MAX;
     m_highestRev = 0;
@@ -283,13 +301,18 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
+            if (strLen >= stringBufLen)
+            {
+                stringBufLen = strLen + 1024;
+                stringbuf = std::make_unique<char[]>(stringBufLen + 1);
+            }
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
             stringbuf[strLen] = 0;
-            m_authors.push_back(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
-            m_authorset.insert(CUnicodeUtils::StdGetUnicode(stringbuf.get()));
+            auto author = CUnicodeUtils::StdGetUnicode(stringbuf.get());
+            m_authors.push_back(author);
+            m_authorset.insert(author);
         }
         else
         {
@@ -302,7 +325,11 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
+            if (strLen >= stringBufLen)
+            {
+                stringBufLen = strLen + 1024;
+                stringbuf = std::make_unique<char[]>(stringBufLen + 1);
+            }
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -332,7 +359,11 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
+            if (strLen >= stringBufLen)
+            {
+                stringBufLen = strLen + 1024;
+                stringbuf = std::make_unique<char[]>(stringBufLen + 1);
+            }
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -347,7 +378,11 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
+            if (strLen >= stringBufLen)
+            {
+                stringBufLen = strLen + 1024;
+                stringbuf = std::make_unique<char[]>(stringBufLen + 1);
+            }
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -362,7 +397,11 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
+            if (strLen >= stringBufLen)
+            {
+                stringBufLen = strLen + 1024;
+                stringbuf = std::make_unique<char[]>(stringBufLen + 1);
+            }
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -376,7 +415,11 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
         len = fread(&strLen, sizeof(int), 1, File);
         if (strLen)
         {
-            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
+            if (strLen >= stringBufLen)
+            {
+                stringBufLen = strLen + 1024;
+                stringbuf = std::make_unique<char[]>(stringBufLen + 1);
+            }
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             if (len == 0)
                 break;
@@ -472,11 +515,31 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             }
             if (!bUTF8)
             {
-                std::string utf8line = CUnicodeUtils::StdAnsiToUTF8(lineptr);
-                SendEditor(SCI_ADDTEXT, utf8line.length(), reinterpret_cast<LPARAM>(utf8line.c_str()));
+                if (strLen >= wideBufLen)
+                {
+                    wideBufLen = strLen * 2 + 1024;
+                    wideBuf = std::make_unique<wchar_t[]>(wideBufLen + 1);
+                }
+
+                int mblen = MultiByteToWideChar(CP_ACP, 0, lineptr, strLen, wideBuf.get(), wideBufLen);
+                if (mblen)
+                {
+                    if (mblen >= utf8BufLen)
+                    {
+                        utf8BufLen = mblen + 1024;
+                        utf8Buf = std::make_unique<char[]>(utf8BufLen + 1);
+                    }
+                    mblen = WideCharToMultiByte(CP_UTF8, 0, wideBuf.get(), mblen, utf8Buf.get(), utf8BufLen, 0, NULL);
+                    if (mblen)
+                        SendEditor(SCI_APPENDTEXT, mblen, reinterpret_cast<LPARAM>(utf8Buf.get()));
+                    else
+                        SendEditor(SCI_APPENDTEXT, strlen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
+                }
+                else
+                    SendEditor(SCI_APPENDTEXT, strlen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
             }
             else
-                SendEditor(SCI_ADDTEXT, strlen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
+                SendEditor(SCI_APPENDTEXT, strlen(lineptr), reinterpret_cast<LPARAM>(static_cast<char *>(lineptr)));
         }
         if (len == 0)
             break;
@@ -485,18 +548,26 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
+            if (strLen >= stringBufLen)
+            {
+                stringBufLen = strLen + 1024;
+                stringbuf = std::make_unique<char[]>(stringBufLen + 1);
+            }
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             stringbuf[strLen] = 0;
-            tstring msg = CUnicodeUtils::StdGetUnicode(stringbuf.get());
             if (rev)
             {
-                if (msg.size() > MAX_LOG_LENGTH)
+                auto foundIt = m_logMessages.find(rev);
+                if (foundIt == m_logMessages.end())
                 {
-                    msg = msg.substr(0, MAX_LOG_LENGTH-5);
-                    msg = msg + L"\n...";
+                    auto msg = CUnicodeUtils::StdGetUnicode(stringbuf.get());
+                    if (msg.size() > MAX_LOG_LENGTH)
+                    {
+                        msg = msg.substr(0, MAX_LOG_LENGTH-5);
+                        msg = msg + L"\n...";
+                    }
+                    m_logMessages[rev] = msg;
                 }
-                m_logMessages[rev] = msg;
             }
         }
         len = fread(&strLen, sizeof(int), 1, File);
@@ -504,22 +575,30 @@ BOOL TortoiseBlame::OpenFile(const TCHAR *fileName)
             break;
         if (strLen)
         {
-            std::unique_ptr<char[]> stringbuf(new char[strLen+1]);
+            if (strLen >= stringBufLen)
+            {
+                stringBufLen = strLen + 1024;
+                stringbuf = std::make_unique<char[]>(stringBufLen + 1);
+            }
             len = fread(stringbuf.get(), sizeof(char), strLen, File);
             stringbuf[strLen] = 0;
-            tstring msg = CUnicodeUtils::StdGetUnicode(stringbuf.get());
             if (merged_rev)
             {
-                if (msg.size() > MAX_LOG_LENGTH)
+                auto foundIt = m_logMessages.find(merged_rev);
+                if (foundIt == m_logMessages.end())
                 {
-                    msg = msg.substr(0, MAX_LOG_LENGTH-5);
-                    msg = msg + L"\n...";
+                    auto msg = CUnicodeUtils::StdGetUnicode(stringbuf.get());
+                    if (msg.size() > MAX_LOG_LENGTH)
+                    {
+                        msg = msg.substr(0, MAX_LOG_LENGTH-5);
+                        msg = msg + L"\n...";
+                    }
+                    m_logMessages[merged_rev] = msg;
                 }
-                m_logMessages[merged_rev] = msg;
             }
         }
 
-        SendEditor(SCI_ADDTEXT, 2, (LPARAM)"\r\n");
+        SendEditor(SCI_APPENDTEXT, 1, (LPARAM)"\n");
     };
 
     fclose(File);
@@ -1279,7 +1358,7 @@ LONG TortoiseBlame::GetBlameWidth()
     if (ShowAuthor)
     {
         SIZE maxwidth = {0};
-        for (std::vector<tstring>::iterator I = m_authors.begin(); I != m_authors.end(); ++I)
+        for (auto I = m_authors.begin(); I != m_authors.end(); ++I)
         {
             ::GetTextExtentPoint32(hDC, I->c_str(), (int)I->size(), &width);
             if (width.cx > maxwidth.cx)
@@ -1291,7 +1370,7 @@ LONG TortoiseBlame::GetBlameWidth()
     if (ShowPath)
     {
         SIZE maxwidth = {0};
-        for (std::vector<tstring>::iterator I = m_mergedPaths.begin(); I != m_mergedPaths.end(); ++I)
+        for (auto I = m_mergedPaths.begin(); I != m_mergedPaths.end(); ++I)
         {
             ::GetTextExtentPoint32(hDC, I->c_str(), (int)I->size(), &width);
             if (width.cx > maxwidth.cx)
@@ -1527,7 +1606,7 @@ void TortoiseBlame::DrawLocatorBar(HDC hDC)
     LONG currentLine = 0;
 
     // draw the colored bar
-    for (std::vector<LONG>::const_iterator it = m_revs.begin(); it != m_revs.end(); ++it)
+    for (auto it = m_revs.begin(); it != m_revs.end(); ++it)
     {
         // get the line color
         COLORREF cr = GetLineColor(currentLine, true);
