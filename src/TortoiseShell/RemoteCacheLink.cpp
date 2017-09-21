@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,8 +45,7 @@ CRemoteCacheLink::~CRemoteCacheLink(void)
     m_critSec.Term();
 }
 
-bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe
-                                              , const CString& pipeName) const
+bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe, const CString& pipeName, bool overlapped) const
 {
     if (hPipe)
         return true;
@@ -55,16 +54,14 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe
 
     while (!hPipe && tryleft--)
     {
-
-        hPipe = CreateFile(
-                            pipeName,                       // pipe name
-                            GENERIC_READ |                  // read and write access
-                            GENERIC_WRITE,
-                            0,                              // no sharing
-                            NULL,                           // default security attributes
-                            OPEN_EXISTING,                  // opens existing pipe
-                            FILE_FLAG_OVERLAPPED,           // default attributes
-                            NULL);                          // no template file
+        hPipe = CreateFile(pipeName,                       // pipe name
+                           GENERIC_READ |                  // read and write access
+                           GENERIC_WRITE,
+                           0,                              // no sharing
+                           NULL,                           // default security attributes
+                           OPEN_EXISTING,                  // opens existing pipe
+                           overlapped ? FILE_FLAG_OVERLAPPED : 0, // default attributes
+                           NULL);                          // no template file
         if ((!hPipe) && (GetLastError() == ERROR_PIPE_BUSY))
         {
             // TSVNCache is running but is busy connecting a different client.
@@ -101,7 +98,7 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 {
     AutoLocker lock(m_critSec);
 
-    if (InternalEnsurePipeOpen (m_hPipe, GetCachePipeName()))
+    if (InternalEnsurePipeOpen (m_hPipe, GetCachePipeName(), true))
     {
         // create an unnamed (=local) manual reset event for use in the overlapped structure
         if (m_hEvent)
@@ -120,8 +117,7 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 
 bool CRemoteCacheLink::EnsureCommandPipeOpen()
 {
-    AutoLocker lock(m_critSec);
-    return InternalEnsurePipeOpen (m_hCommandPipe, GetCacheCommandPipeName());
+    return InternalEnsurePipeOpen (m_hCommandPipe, GetCacheCommandPipeName(), false);
 }
 
 void CRemoteCacheLink::ClosePipe()
@@ -252,6 +248,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
 
 bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
 {
+    AutoLocker lock(m_critSec);
     EnsureCommandPipeOpen();
     if (m_hCommandPipe)
     {

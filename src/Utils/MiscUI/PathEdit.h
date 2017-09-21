@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010 - TortoiseSVN
+// Copyright (C) 2009-2010, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,6 +40,7 @@ protected:
 public:
     virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
     virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual ULONG GetGestureStatus(CPoint ptTouch) override;
 
 private:
     CString     m_sRealText;

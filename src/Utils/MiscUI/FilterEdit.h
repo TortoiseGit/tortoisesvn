@@ -115,6 +115,7 @@ public:
 protected:
     virtual void    PreSubclassWindow( );
     virtual BOOL    PreTranslateMessage( MSG* pMsg );
+    virtual ULONG   GetGestureStatus(CPoint ptTouch) override;
 
     afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
     afx_msg void    OnLButtonUp(UINT nFlags, CPoint point);

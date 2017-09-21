@@ -1,6 +1,6 @@
 // TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2010, 2012-2014 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 #include "registry.h"
 
 #include <set>
+#include <deque>
 
 const COLORREF black = RGB(0,0,0);
 const COLORREF white = RGB(0xff,0xff,0xff);
@@ -120,13 +121,13 @@ public:
     long                        m_highestRev;
     int                         m_colorby;
 
-    std::vector<svn_revnum_t>   m_revs;
-    std::vector<svn_revnum_t>   m_mergedRevs;
-    std::vector<tstring>        m_dates;
-    std::vector<tstring>        m_mergedDates;
-    std::vector<tstring>        m_authors;
-    std::vector<tstring>        m_mergedAuthors;
-    std::vector<tstring>        m_mergedPaths;
+    std::deque<svn_revnum_t>    m_revs;
+    std::deque<svn_revnum_t>    m_mergedRevs;
+    std::deque<tstring>         m_dates;
+    std::deque<tstring>         m_mergedDates;
+    std::deque<tstring>         m_authors;
+    std::deque<tstring>         m_mergedAuthors;
+    std::deque<tstring>         m_mergedPaths;
     std::map<LONG, tstring>     m_logMessages;
     std::set<svn_revnum_t>      m_revset;
     std::set<tstring>           m_authorset;

@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1018,6 +1018,7 @@ private:
 
     virtual void PreSubclassWindow();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual ULONG GetGestureStatus(CPoint ptTouch) override;
     virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
     virtual BOOL OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult);
     afx_msg void OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult);

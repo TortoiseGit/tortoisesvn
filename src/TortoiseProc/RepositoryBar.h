@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012, 2016 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2016-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -113,6 +113,7 @@ public:
     afx_msg void OnGoUp();
 protected:
     virtual BOOL PreTranslateMessage(MSG* pMsg);
+    virtual ULONG GetGestureStatus(CPoint ptTouch) override;
     afx_msg void OnCbnSelEndOK();
     afx_msg void OnBnClicked();
     afx_msg void OnDestroy();

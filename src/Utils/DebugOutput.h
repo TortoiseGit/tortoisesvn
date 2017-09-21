@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2009, 2011, 2013-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -104,4 +104,30 @@ private:
         return m_bActive;
 #endif
     }
+};
+
+class ProfileTimer
+{
+public:
+    ProfileTimer(LPCWSTR text)
+        : info(text)
+    {
+        QueryPerformanceCounter(&startTime);
+    }
+    ~ProfileTimer()
+    {
+        LARGE_INTEGER endTime;
+        QueryPerformanceCounter(&endTime);
+        LARGE_INTEGER Frequency;
+        QueryPerformanceFrequency(&Frequency);
+        LARGE_INTEGER milliseconds;
+        milliseconds.QuadPart = endTime.QuadPart - startTime.QuadPart;
+        milliseconds.QuadPart *= 1000;
+        milliseconds.QuadPart /= Frequency.QuadPart;
+        CTraceToOutputDebugString::Instance()(L"%s : %lld ms\n", info.c_str(), milliseconds.QuadPart);
+    }
+
+private:
+    LARGE_INTEGER   startTime;
+    std::wstring    info;
 };

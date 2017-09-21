@@ -2,7 +2,6 @@
 // Microsoft Visual C++ generated include file.
 // Used by D:\Development\SVN\TortoiseSVN\src\Resources\TortoiseMergeENG.rc
 //
-#define IDCANCEL2                       4
 #define IDR_MAINFRAME                   100
 #define IDP_OLE_INIT_FAILED             101
 #define IDS_TITLE_REJECTEDHUNKS         101
@@ -35,16 +34,13 @@
 #define IDI_MOVEDTO                     151
 #define IDI_MOVEDLINE                   152
 #define IDC_MARGINCURSOR                153
-#define IDI_ICON1                       154
 #define IDI_AEROBACKGROUND              154
 #define IDD_GOTO                        155
 #define IDR_RIBBON                      156
 #define IDB_RIBBONLARGE                 157
 #define IDB_RIBBONSMALL                 158
-#define IDB_PNG1                        159
 #define IDB_LOGO                        159
 #define IDB_RIBBONSMALLHDPI             161
-#define IDB_PNG3                        162
 #define IDB_RIBBONLARGEHDPI             162
 #define IDD_REGEXFILTERS                164
 #define IDD_REGEXFILTER                 165
@@ -412,42 +408,19 @@
 #define ID_VIEW_IGNOREALLWHITESPACECHANGES 32873
 #define ID_NAVIGATE_NEXTINLINEDIFF      32875
 #define ID_NAVIGATE_PREVINLINEDIFF      32876
-#define ID_NAVIGATE_NEXTINLINEDIFFERENCE 32878
-#define ID_NAVIGATE_PREVIOUSINLINEDIFFERENCE 32879
 #define ID_VIEW_MOVEDBLOCKS             32880
 #define ID_VIEW_WRAPLONGLINES           32881
 #define ID_EDIT_SELECTALL               32883
-#define ID_EDIT_PASTE32888              32888
 #define ID_VIEW_INLINEDIFF              32889
-#define ID_VIEW_INLINEDIFF32890         32890
 #define ID_EDIT_FINDNEXTSTART           32891
 #define ID_EDIT_FINDPREVSTART           32892
 #define ID_EDIT_GOTOLINE                32893
-#define ID_EDIT_GOTOLINE32895           32895
 #define ID_VIEW_IGNORECOMMENTS          32896
 #define ID_LOGOBUTTON                   32897
 #define ID_VIEW_BARS                    32898
 #define ID_USEBLOCKS                    32914
-#define ID_BUTTON20                     32916
-#define ID_BUTTON24                     32920
-#define ID_BUTTON28                     32924
-#define ID_BUTTON7                      32929
-#define ID_BUTTON18                     32944
-#define ID_BUTTON25                     32949
-#define ID_BUTTON31                     32954
-#define ID_BUTTON32                     32955
 #define ID_APPLOOK                      32956
-#define ID_BUTTON6                      32961
-#define ID_BUTTON14                     32968
-#define ID_BUTTON17                     32971
 #define ID_EDIT_ENABLE                  32976
-#define ID_FILE_ENABLEEDIT              32978
-#define ID_BUTTON3                      32981
-#define ID_BUTTON4                      32982
-#define ID_BUTTON15                     32990
-#define ID_EDIT_REGEXFILTER             32992
-#define ID_REGEXFILTER_REGEXFILTER      32993
-#define ID_BUTTON13                     33000
 
 // Next default values for new objects
 // 
