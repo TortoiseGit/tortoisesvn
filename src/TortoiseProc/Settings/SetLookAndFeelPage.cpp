@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -137,6 +137,8 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
     InsertItem(IDS_MENUBLAME, IDI_BLAME, MENUBLAME, iconWidth, iconHeight);
     InsertItem(IDS_MENUCOPYURL, IDI_COPYURL, MENUCOPYURL, iconWidth, iconHeight);
     InsertItem(IDS_MENUIGNORE, IDI_IGNORE, MENUIGNORE, iconWidth, iconHeight);
+    InsertItem(IDS_MENUSHELVE, IDI_SHELVE, MENUSHELVE, iconWidth, iconHeight);
+    InsertItem(IDS_MENUUNSHELVE, IDI_UNSHELVE, MENUUNSHELVE, iconWidth, iconHeight);
     InsertItem(IDS_MENUCREATEPATCH, IDI_CREATEPATCH, MENUCREATEPATCH, iconWidth, iconHeight);
     InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH, iconWidth, iconHeight);
     InsertItem(IDS_MENUPROPERTIES, IDI_PROPERTIES, MENUPROPERTIES, iconWidth, iconHeight);
@@ -235,6 +237,8 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR * /*pNMHDR*/, LRESULT *
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUBLAME : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCOPYURL : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUIGNORE : 0;
+        m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUSHELVE : 0;
+        m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUUNSHELVE : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEPATCH : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUAPPLYPATCH : 0;
         m_topmenu |= m_cMenuList.GetCheck(i++) ? MENUPROPERTIES : 0;

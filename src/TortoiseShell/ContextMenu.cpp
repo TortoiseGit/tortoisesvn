@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -174,6 +174,12 @@ CShellExt::MenuInfo CShellExt::menuInfo[] =
         {ITEMIS_IGNORED, 0}, {0, 0}, {0, 0}, {0, 0} , L"tsvn_unignoresub"},
 
     { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
+
+    { ShellMenuShelve,                      MENUSHELVE,         IDI_SHELVE,             IDS_MENUSHELVE,             IDS_MENUDESCSHELVE,
+        {ITEMIS_INSVN, ITEMIS_NORMAL|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_shelve" },
+
+    { ShellMenuUnshelve,                    MENUUNSHELVE,       IDI_UNSHELVE,           IDS_MENUUNSHELVE,           IDS_MENUDESCUNSHELVE,
+        {ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_FOLDERINSVN, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_ONLYONE/*|ITEMIS_PATCHFILE*/, 0}, {ITEMIS_FOLDERINSVN, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, L"tsvn_unshelve" },
 
     { ShellMenuCreatePatch,                 MENUCREATEPATCH,    IDI_CREATEPATCH,        IDS_MENUCREATEPATCH,        IDS_MENUDESCCREATEPATCH,
         {ITEMIS_INSVN, ITEMIS_NORMAL|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_createpatch" },
@@ -1628,6 +1634,12 @@ STDMETHODIMP CShellExt::InvokeCommand_Wrap(LPCMINVOKECOMMANDINFO lpcmi)
             break;
         case ShellMenuCopyUrl:
             AddPathFileCommand(svnCmd, L"copyurls");
+            break;
+        case ShellMenuShelve:
+            AddPathFileCommand(svnCmd, L"shelve");
+            break;
+        case ShellMenuUnshelve:
+            AddPathFileCommand(svnCmd, L"unshelve");
             break;
         case ShellMenuCreatePatch:
             AddPathFileCommand(svnCmd, L"createpatch");

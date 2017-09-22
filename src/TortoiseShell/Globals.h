@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2010, 2013-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,6 +58,8 @@
 #define MENUDIFFNOW         0x0000002000000000
 #define MENUUNIDIFF         0x0000004000000000
 #define MENUCOPYURL         0x0000008000000000
+#define MENUSHELVE          0x0000010000000000
+#define MENUUNSHELVE        0x0000020000000000
 
 #define MENUSETTINGS        0x2000000000000000
 #define MENUHELP            0x4000000000000000

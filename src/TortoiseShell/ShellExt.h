@@ -139,6 +139,8 @@ protected:
         ShellMenuRepoBrowse,
         ShellMenuBlame,
         ShellMenuCopyUrl,
+        ShellMenuShelve,
+        ShellMenuUnshelve,
         ShellMenuApplyPatch,
         ShellMenuCreatePatch,
         ShellMenuRevisionGraph,
