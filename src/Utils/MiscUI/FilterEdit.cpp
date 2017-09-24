@@ -90,6 +90,11 @@ BOOL CFilterEdit::PreTranslateMessage( MSG* pMsg )
     return CEdit::PreTranslateMessage(pMsg);
 }
 
+ULONG CFilterEdit::GetGestureStatus(CPoint /*ptTouch*/)
+{
+    return 0;
+}
+
 BOOL CFilterEdit::SetCancelBitmaps(UINT uCancelNormal, UINT uCancelPressed, int cx96dpi, int cy96dpi, BOOL bShowAlways)
 {
     m_bShowCancelButtonAlways = bShowAlways;

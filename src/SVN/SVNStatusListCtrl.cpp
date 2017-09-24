@@ -5663,6 +5663,11 @@ BOOL CSVNStatusListCtrl::PreTranslateMessage(MSG* pMsg)
     return CListCtrl::PreTranslateMessage(pMsg);
 }
 
+ULONG CSVNStatusListCtrl::GetGestureStatus(CPoint /*ptTouch*/)
+{
+    return 0;
+}
+
 bool CSVNStatusListCtrl::CopySelectedEntriesToClipboard(DWORD dwCols, int cmd)
 {
     if (GetSelectedCount() == 0)

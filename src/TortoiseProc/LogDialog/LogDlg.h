@@ -451,7 +451,7 @@ private:
     CString             m_sURL;
     CString             m_sUUID;    ///< empty if the log cache is not used
     CHintCtrl<CSubTooltipListCtrl> m_LogList;
-    CListCtrl           m_ChangedFileListCtrl;
+    CHintCtrl<CListCtrl>           m_ChangedFileListCtrl;
     CFilterEdit         m_cFilter;
     CLogDlgFilter       m_filter;
     CProgressCtrl       m_LogProgress;

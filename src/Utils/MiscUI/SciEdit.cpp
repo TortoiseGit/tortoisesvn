@@ -1126,6 +1126,11 @@ BOOL CSciEdit::PreTranslateMessage(MSG* pMsg)
     return CWnd::PreTranslateMessage(pMsg);
 }
 
+ULONG CSciEdit::GetGestureStatus(CPoint /*ptTouch*/)
+{
+    return 0;
+}
+
 void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
 {
     int anchor = (int)Call(SCI_GETANCHOR);

@@ -100,7 +100,11 @@
       <variable name="WIXUI" value="%WIX%" />
       <variable name="HHLOC" value="%TSVNTOOLS%\hhc.exe" />
       <variable name="XSLROOT" value="%TSVNTOOLS%\xsl" />
-      <variable name="DEBUGTOOLS" value="C:\Program Files (x86)\Debugging Tools for Windows (x86)" />
     </setenv>
+    <if test="${not environment::variable-exists('DEBUGTOOLS')}">
+      <setenv>
+        <variable name="DEBUGTOOLS" value="C:\Program Files (x86)\Windows Kits\10\Debuggers\x86>" />
+      </setenv>
+    </if>
   </target>
 </project>

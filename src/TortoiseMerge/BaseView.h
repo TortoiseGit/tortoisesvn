@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -299,6 +299,7 @@ protected:  // methods
     virtual void    OnDraw(CDC * pDC);
     virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO* pTI) const;
     virtual BOOL    PreTranslateMessage(MSG* pMsg);
+    virtual ULONG   GetGestureStatus(CPoint ptTouch) override;
     BOOL            OnToolTipNotify(UINT id, NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void    OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);
     afx_msg void    OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar);

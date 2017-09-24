@@ -11,7 +11,7 @@
     }
 
     var script = document.createElement('script');
-    script.src = '//sourceforge.net/accelerator/js?partner_id=61';
+    script.src = 'https://sourceforge.net/accelerator/js?partner_id=61';
     script.defer = true;
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(script, s);

@@ -112,6 +112,10 @@ protected:
         }
         return BaseType::PreTranslateMessage(pMsg);
     }
+    virtual ULONG GetGestureStatus(CPoint /*ptTouch*/) override
+    {
+        return 0;
+    }
 
     afx_msg void OnPaint()
     {
@@ -427,6 +431,10 @@ protected:
         // restore immediately
         LoadWindowRect(pszSection, bRectOnly, false, false);
     };
+    virtual ULONG GetGestureStatus(CPoint /*ptTouch*/) override
+    {
+        return 0;
+    }
 
     virtual CWnd* GetResizableWnd() const
     {

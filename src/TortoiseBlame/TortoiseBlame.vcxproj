@@ -120,6 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Utils\CmdLineParser.cpp" />
+    <ClCompile Include="..\Utils\DebugOutput.cpp" />
     <ClCompile Include="..\Utils\LangDll.cpp" />
     <ClCompile Include="..\Utils\Registry.cpp" />
     <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
@@ -132,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Utils\CmdLineParser.h" />
+    <ClInclude Include="..\Utils\DebugOutput.h" />
     <ClInclude Include="..\Utils\LangDll.h" />
     <ClInclude Include="..\Utils\registry.h" />
     <ClInclude Include="..\Utils\TaskbarUUID.h" />
