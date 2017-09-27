@@ -130,7 +130,13 @@ public:
         SVNExportOnlyLocalChanges
     };
 
-    /**
+	/**
+	* Shelving
+	*/
+	bool Shelve(const CString& shelveName, const CTSVNPathList& pathlist, svn_depth_t depth /*const CStringArray& changelists,*/);
+	bool Unshelve(const CString& shelveName);
+
+	/**
      * Checkout a working copy of moduleName at revision, using destPath as the root
      * directory of the newly checked out working copy
      * \param moduleName the path/url of the repository

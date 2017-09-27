@@ -66,11 +66,13 @@
 #include "RevisionGraphCommand.h"
 #include "RTFMCommand.h"
 #include "SettingsCommand.h"
+#include "ShelveCommand.h"
 #include "ShowCompareCommand.h"
 #include "SwitchCommand.h"
 #include "SyncCommand.h"
 #include "UnIgnoreCommand.h"
 #include "UnLockCommand.h"
+#include "UnshelveCommand.h"
 #include "UpdateCheckCommand.h"
 #include "UpdateCommand.h"
 #include "UrlDiffCommand.h"
@@ -126,12 +128,14 @@ typedef enum
     cmdRevert,
     cmdRevisionGraph,
     cmdSettings,
-    cmdShowCompare,
+	cmdShelve,
+	cmdShowCompare,
     cmdSwitch,
     cmdSync,
     cmdUnIgnore,
     cmdUnlock,
-    cmdUpdate,
+	cmdUnshelve,
+	cmdUpdate,
     cmdUpdateCheck,
     cmdUrlDiff,
     cmdWcUpgrade,
@@ -190,11 +194,13 @@ static const struct CommandInfo
     {   cmdRevert,          L"revert"            },
     {   cmdRevisionGraph,   L"revisiongraph"     },
     {   cmdSettings,        L"settings"          },
+    {   cmdShelve,          L"shelve"            },
     {   cmdShowCompare,     L"showcompare"       },
     {   cmdSwitch,          L"switch"            },
     {   cmdSync,            L"sync"              },
     {   cmdUnIgnore,        L"unignore"          },
     {   cmdUnlock,          L"unlock"            },
+    {   cmdUnshelve,        L"unshelve"          },
     {   cmdUpdate,          L"update"            },
     {   cmdUpdateCheck,     L"updatecheck"       },
     {   cmdUrlDiff,         L"urldiff"           },
@@ -318,7 +324,9 @@ Command * CommandServer::GetCommand(const CString& sCmd)
             return new RevisionGraphCommand;
         case cmdSettings:
             return new SettingsCommand;
-        case cmdShowCompare:
+		case cmdShelve:
+			return new ShelveCommand;
+		case cmdShowCompare:
             return new ShowCompareCommand;
         case cmdSwitch:
             return new SwitchCommand;
@@ -328,7 +336,9 @@ Command * CommandServer::GetCommand(const CString& sCmd)
             return new UnIgnoreCommand;
         case cmdUnlock:
             return new UnLockCommand;
-        case cmdUpdate:
+		case cmdUnshelve:
+			return new UnshelveCommand;
+		case cmdUpdate:
             return new UpdateCommand;
         case cmdUpdateCheck:
             return new UpdateCheckCommand;
