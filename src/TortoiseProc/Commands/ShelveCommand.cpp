@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016 - TortoiseSVN
+// Copyright (C) 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,12 +53,12 @@ bool ShelveCommand::Execute()
 
 bool ShelveCommand::Shelve(const CString& cmdLineShelveName, const CTSVNPathList& paths)
 {
-	CString shelveName;
+    CString shelveName;
 
     if (cmdLineShelveName.IsEmpty())
     {
-		shelveName = CString("test");  // ###
-	}
+        shelveName = CString("test");  // ###
+    }
     else
     {
         shelveName = cmdLineShelveName;
@@ -69,8 +69,8 @@ bool ShelveCommand::Shelve(const CString& cmdLineShelveName, const CTSVNPathList
     progDlg.SetShowProgressBar(false);
     progDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
 
-	CTSVNPath sDir = paths.GetCommonRoot();
-	SVN svn;
+    CTSVNPath sDir = paths.GetCommonRoot();
+    SVN svn;
     if (!svn.Shelve(shelveName, paths, svn_depth_infinity /*, changelists*/))
     {
         progDlg.Stop();
