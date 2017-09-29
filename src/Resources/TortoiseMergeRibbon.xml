@@ -21,154 +21,154 @@
 
     <Command Name="cmdOpen" LabelTitle="&amp;Open" Keytip="o1" Id="0xE101">
       <Command.LargeImages>
-        <Image Source="ribbon/Open.png"/>
+        <Image Source="ribbon/Open.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdSave" LabelTitle="&amp;Save" Keytip="S" Id="0xE103">
       <Command.LargeImages>
-        <Image Source="ribbon/Save.png"/>
+        <Image Source="ribbon/Save.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdSaveAs" LabelTitle="Save &amp;as" Id="0xE104">
       <Command.LargeImages>
-        <Image Source="ribbon/SaveAs.png"/>
+        <Image Source="ribbon/SaveAs.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdShowFileList" LabelTitle="&amp;Hide/Show the patch file list" Id="32817">
       <Command.LargeImages>
-        <Image Source="ribbon/FileList.png"/>
+        <Image Source="ribbon/FileList.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdSettings" LabelTitle="Settings" Id="32782">
       <Command.LargeImages>
-        <Image Source="ribbon/Settings.png"/>
+        <Image Source="ribbon/Settings.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdCreateUnifiedDiff" LabelTitle="Create &amp;patch file" Id="32828">
       <Command.LargeImages>
-        <Image Source="ribbon/UniDiff.png"/>
+        <Image Source="ribbon/UniDiff.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdAbout" LabelTitle="Abou&amp;t TortoiseMerge" Id="0xE140">
       <Command.LargeImages>
-        <Image Source="ribbon/About.png"/>
+        <Image Source="ribbon/About.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdUndo" LabelTitle="Undo" Id="0xE12B" Keytip="Z">
       <Command.LargeImages>
-        <Image Source="ribbon/Undo.png"/>
+        <Image Source="ribbon/Undo.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdRedo" LabelTitle="Redo" Id="0xE12C" Keytip="Y">
       <Command.LargeImages>
-        <Image Source="ribbon/Redo.png"/>
+        <Image Source="ribbon/Redo.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdReload" LabelTitle="Reload" Id="32794" Keytip="R">
       <Command.LargeImages>
-        <Image Source="ribbon/Refresh.png"/>
+        <Image Source="ribbon/Refresh.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdEditEnabled" LabelTitle="Enable Edit" Id="32976" Keytip="E">
       <Command.LargeImages>
-        <Image Source="ribbon/EditEnabled.png"/>
+        <Image Source="ribbon/EditEnabled.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdCopy" LabelTitle="Copy" Id="0xE122" Keytip="C">
       <Command.LargeImages>
-        <Image Source="ribbon/Copy.png"/>
+        <Image Source="ribbon/Copy.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdPaste" LabelTitle="Paste" Id="0xE125" Keytip="V">
       <Command.LargeImages>
-        <Image Source="ribbon/Paste.png"/>
+        <Image Source="ribbon/Paste.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdFind" LabelTitle="Find" Id="0xE124" Keytip="F">
       <Command.LargeImages>
-        <Image Source="ribbon/Search.png"/>
+        <Image Source="ribbon/Search.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdGotoLine" LabelTitle="Goto Line" Id="32893" Keytip="G">
       <Command.LargeImages>
-        <Image Source="ribbon/Goto.png"/>
+        <Image Source="ribbon/Goto.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdMarkResolved" Id="32808" LabelTitle="Mark as resolved" Keytip="">
       <Command.LargeImages>
-        <Image Source="ribbon/Check.png"/>
+        <Image Source="ribbon/Check.bmp"/>
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdNavigatePreviousDifference" LabelTitle="Previous difference" Id="32780" Keytip="PD">
       <Command.LargeImages>
-        <Image Source="ribbon/UpGreen.png"/>
+        <Image Source="ribbon/UpGreen.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdNavigateNextDifference" LabelTitle="Next difference" Id="32779" Keytip="ND">
       <Command.LargeImages>
-        <Image Source="ribbon/DownGreen.png"/>
+        <Image Source="ribbon/DownGreen.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdNavigatePreviousConflict" LabelTitle="Previous conflict" Id="32802" Keytip="PC">
       <Command.LargeImages>
-        <Image Source="ribbon/UpRed.png"/>
+        <Image Source="ribbon/UpRed.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdNavigateNextConflict" LabelTitle="Next conflict" Id="32804" Keytip="NC">
       <Command.LargeImages>
-        <Image Source="ribbon/DownRed.png"/>
+        <Image Source="ribbon/DownRed.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdNavigatePreviousInlineDiff" LabelTitle="Previous inline difference" Id="32876" Keytip="PI">
       <Command.LargeImages>
-        <Image Source="ribbon/LeftGreenDots.png"/>
+        <Image Source="ribbon/LeftGreenDots.bmp"/>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdNavigateNextInlineDiff" LabelTitle="Next inline difference" Id="32875" Keytip="NI">
       <Command.LargeImages>
-        <Image Source="ribbon/RightGreenDots.png"/>
+        <Image Source="ribbon/RightGreenDots.bmp"/>
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdUseLeftBlock" LabelTitle="Use left block" Id="32855" Keytip="">
       <Command.LargeImages>
-        <Image Source="ribbon/UseLeftBlock.png" />
+        <Image Source="ribbon/UseLeftBlock.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdUseLeftFile" LabelTitle="Use left file" Id="32856">
       <Command.LargeImages>
-        <Image Source="ribbon/UseLeftFile.png" />
+        <Image Source="ribbon/UseLeftFile.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdUseBlockFromLeftBeforeRight" LabelTitle="Use block from left before right" Id="32857">
       <Command.LargeImages>
-        <Image Source="ribbon/UseLeftRight.png" />
+        <Image Source="ribbon/UseLeftRight.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdUseBlockFromRightBeforeLeft" LabelTitle="Use block from right before left" Id="32859">
       <Command.LargeImages>
-        <Image Source="ribbon/UseRightLeft.png" />
+        <Image Source="ribbon/UseRightLeft.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdUseTheirsBlock" LabelTitle="Use 'theirs' text block" Id="32819">
       <Command.LargeImages>
-        <Image Source="ribbon/UseTheirs.png" />
+        <Image Source="ribbon/UseTheirs.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdUseMineBlock" LabelTitle="Use 'mine' text block" Id="32820">
       <Command.LargeImages>
-        <Image Source="ribbon/UseMine.png" />
+        <Image Source="ribbon/UseMine.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdUseTheirsThenMineBlock" LabelTitle="Use 'theirs' text block then 'mine'" Id="32821">
       <Command.LargeImages>
-        <Image Source="ribbon/UseTheirsMine.png" />
+        <Image Source="ribbon/UseTheirsMine.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdUseMineThenTheirsBlock" LabelTitle="Use 'mine' text block then 'theirs'" Id="32822">
       <Command.LargeImages>
-        <Image Source="ribbon/UseMineTheirs.png" />
+        <Image Source="ribbon/UseMineTheirs.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdQat"/>
@@ -178,7 +178,7 @@
         <String Id ="290">E&amp;xit</String>
       </Command.LabelTitle>
       <Command.LargeImages>
-        <Image>ribbon/Exit.png</Image>
+        <Image>ribbon/Exit.bmp</Image>
       </Command.LargeImages>
     </Command>
     <Command Name="cmdHelp" Id="0xE146">
@@ -187,82 +187,82 @@
     <Command Name="cmdThreeWayActions"/>
     <Command Name="cmdShowWhitespaces" LabelTitle="Show Whitespaces" Id="32774" Keytip="W">
       <Command.LargeImages>
-        <Image Source="ribbon/Pilcrow.png" />
+        <Image Source="ribbon/Pilcrow.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdCompareWhitespaces" LabelTitle="Compare whitespaces" Id="32871">
       <Command.LargeImages>
-        <Image Source="ribbon/Whitespace1.png" />
+        <Image Source="ribbon/Whitespace1.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdIgnoreWhitespaceChanges" LabelTitle="Ignore whitespace changes" Id="32872">
       <Command.LargeImages>
-        <Image Source="ribbon/Whitespace2.png" />
+        <Image Source="ribbon/Whitespace2.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdIgnoreAllWhitespaceChanges" LabelTitle="Ignore all whitespace changes" Id="32873">
       <Command.LargeImages>
-        <Image Source="ribbon/Whitespace3.png" />
+        <Image Source="ribbon/Whitespace3.bmp" />
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdViewBars" LabelTitle="View Bars" Id="32898">
       <Command.LargeImages>
-        <Image Source="ribbon/ViewBars.png" />
+        <Image Source="ribbon/ViewBars.bmp" />
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdViewWrapLines" LabelTitle="Wrap Lines" Id="32881" Keytip="L">
       <Command.LargeImages>
-        <Image Source="ribbon/WrapLines.png" />
+        <Image Source="ribbon/WrapLines.bmp" />
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdViewOneWayDiff" LabelTitle="Switch between single and double pane view" Id="32775">
       <Command.LargeImages>
-        <Image Source="ribbon/OneWayDiff.png" />
+        <Image Source="ribbon/OneWayDiff.bmp" />
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdViewSwitchLeft" LabelTitle="Switch left and right view" Id="32811">
       <Command.LargeImages>
-        <Image Source="ribbon/Switch.png" />
+        <Image Source="ribbon/Switch.bmp" />
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdViewInlineDiff" LabelTitle="Inline diff" Id="32889">
       <Command.LargeImages>
-        <Image Source="ribbon/InlineDiff.png" />
+        <Image Source="ribbon/InlineDiff.bmp" />
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdViewInlineDiffWord" LabelTitle="Inline diff word-wise" Id="32825">
       <Command.LargeImages>
-        <Image Source="ribbon/InlineDiffWord.png" />
+        <Image Source="ribbon/InlineDiffWord.bmp" />
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdRegexFilterConfig1" LabelTitle="Regex Filter" Id="500">
       <Command.LargeImages>
-        <Image Source="ribbon/FilterConfig16.png" />
+        <Image Source="ribbon/FilterConfig16.bmp" />
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdRegexFilterConfig2" LabelTitle="Configure Filter Regex" Id="501">
       <Command.LargeImages>
-        <Image Source="ribbon/FilterConfig16.png" />
+        <Image Source="ribbon/FilterConfig16.bmp" />
       </Command.LargeImages>
     </Command>
     
     <Command Name="cmdViewIgnoreComments" LabelTitle="Ignore Comments" Id="32896">
       <Command.LargeImages>
-        <Image Source="ribbon/Comment.png" />
+        <Image Source="ribbon/Comment.bmp" />
       </Command.LargeImages>
     </Command>
 
     <Command Name="cmdViewCollapsed" LabelTitle="Collapse" Id="32870">
       <Command.LargeImages>
-        <Image Source="ribbon/Collapse.png " />
+        <Image Source="ribbon/Collapse.bmp " />
       </Command.LargeImages>
     </Command>
 
