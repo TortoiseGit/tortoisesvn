@@ -133,15 +133,7 @@ IDC_MARGINCURSOR        CURSOR                  "Margin.cur"
 // PNG
 //
 
-IDB_RIBBONLARGE         PNG                     "ribbon\\ribbonlarge.png"
-
-IDB_RIBBONSMALL         PNG                     "ribbon\\ribbonsmall.png"
-
 IDB_LOGO                PNG                     "ribbon\\TortoiseMerge.png"
-
-IDB_RIBBONSMALLHDPI     PNG                     "ribbon\\ribbonsmallhdpi.png"
-
-IDB_RIBBONLARGEHDPI     PNG                     "ribbon\\ribbonlargehdpi.png"
 
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
@@ -690,14 +682,6 @@ BEGIN
     "P",            ID_VIEW_WRAPLONGLINES,  VIRTKEY, CONTROL, NOINVERT
     "Y",            ID_EDIT_REDO,           VIRTKEY, CONTROL, NOINVERT
 END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Ribbon
-//
-
-IDR_RIBBON              RT_RIBBON_XML           "ribbon.mfcribbon-ms"
 
 
 /////////////////////////////////////////////////////////////////////////////

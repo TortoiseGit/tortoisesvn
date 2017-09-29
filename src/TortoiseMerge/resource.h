@@ -36,12 +36,7 @@
 #define IDC_MARGINCURSOR                153
 #define IDI_AEROBACKGROUND              154
 #define IDD_GOTO                        155
-#define IDR_RIBBON                      156
-#define IDB_RIBBONLARGE                 157
-#define IDB_RIBBONSMALL                 158
 #define IDB_LOGO                        159
-#define IDB_RIBBONSMALLHDPI             161
-#define IDB_RIBBONLARGEHDPI             162
 #define IDD_REGEXFILTERS                164
 #define IDD_REGEXFILTER                 165
 #define IDR_CONFIG1                     166
