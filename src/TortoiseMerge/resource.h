@@ -416,13 +416,14 @@
 #define ID_USEBLOCKS                    32914
 #define ID_APPLOOK                      32956
 #define ID_EDIT_ENABLE                  32976
+#define ID_EDIT_THREEWAY_ACTIONS        33001
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        171
-#define _APS_NEXT_COMMAND_VALUE         33001
+#define _APS_NEXT_COMMAND_VALUE         33002
 #define _APS_NEXT_CONTROL_VALUE         1513
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
