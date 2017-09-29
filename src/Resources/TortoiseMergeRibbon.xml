@@ -151,6 +151,26 @@
         <Image Source="ribbon/UseRightLeft.png" />
       </Command.LargeImages>
     </Command>
+    <Command Name="cmdUseTheirsBlock" LabelTitle="Use 'theirs' text block" Id="32819">
+      <Command.LargeImages>
+        <Image Source="ribbon/UseTheirs.png" />
+      </Command.LargeImages>
+    </Command>
+    <Command Name="cmdUseMineBlock" LabelTitle="Use 'mine' text block" Id="32820">
+      <Command.LargeImages>
+        <Image Source="ribbon/UseMine.png" />
+      </Command.LargeImages>
+    </Command>
+    <Command Name="cmdUseTheirsThenMineBlock" LabelTitle="Use 'theirs' text block then 'mine'" Id="32821">
+      <Command.LargeImages>
+        <Image Source="ribbon/UseTheirsMine.png" />
+      </Command.LargeImages>
+    </Command>
+    <Command Name="cmdUseMineThenTheirsBlock" LabelTitle="Use 'mine' text block then 'theirs'" Id="32822">
+      <Command.LargeImages>
+        <Image Source="ribbon/UseMineTheirs.png" />
+      </Command.LargeImages>
+    </Command>
     <Command Name="cmdQat"/>
     <Command Name="cmdFileMenu"/>
     <Command Name="cmdExit" Id="0xE141">
@@ -164,7 +184,7 @@
     <Command Name="cmdHelp" Id="0xE146">
     </Command>
     <Command Name="cmdUseBlocks" Id="32914" />
-
+    <Command Name="cmdThreeWayActions"/>
     <Command Name="cmdShowWhitespaces" LabelTitle="Show Whitespaces" Id="32774" Keytip="W">
       <Command.LargeImages>
         <Image Source="ribbon/Pilcrow.png" />
@@ -405,7 +425,7 @@
             <Button CommandName="cmdNavigatePreviousInlineDiff" />
             <Button CommandName="cmdNavigateNextInlineDiff" />
           </Group>
-          <Group CommandName="cmdGroupBlocks" SizeDefinition="OneButton">
+          <Group CommandName="cmdGroupBlocks" SizeDefinition="TwoButtons">
             <SplitButton CommandName="cmdUseBlocks">
               <SplitButton.ButtonItem>
                 <Button CommandName="cmdUseLeftBlock"/>
@@ -413,6 +433,14 @@
               <Button CommandName="cmdUseLeftFile"/>
               <Button CommandName="cmdUseBlockFromLeftBeforeRight"/>
               <Button CommandName="cmdUseBlockFromRightBeforeLeft"/>
+            </SplitButton>
+            <SplitButton CommandName="cmdThreeWayActions">
+              <SplitButton.ButtonItem>
+                <Button CommandName="cmdUseTheirsBlock"/>
+              </SplitButton.ButtonItem>
+              <Button CommandName="cmdUseMineBlock"/>
+              <Button CommandName="cmdUseTheirsThenMineBlock"/>
+              <Button CommandName="cmdUseMineThenTheirsBlock"/>
             </SplitButton>
           </Group>
           <Group CommandName="cmdGroupWhitespaces" SizeDefinition="FourButtons">
