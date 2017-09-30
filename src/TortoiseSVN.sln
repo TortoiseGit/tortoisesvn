@@ -4,6 +4,7 @@ VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C654C2E8-557C-4C63-A9D1-E52A38D5509E}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		..\appveyor.yml = ..\appveyor.yml
 		..\doc\notes\AutolistDoc.txt = ..\doc\notes\AutolistDoc.txt
 		..\build.txt = ..\build.txt
@@ -571,5 +572,8 @@ Global
 		{D3AFBFBE-5501-4077-B3B4-3D28BBCA8F20} = {2F7F71AF-C973-4132-B8F3-D9A11A1D9EE0}
 		{76733C4D-E899-4913-B3A2-A80DAFE19233} = {5A449437-9BE5-4364-844F-C40BB1AF487A}
 		{D6216A50-6F43-4A7A-8139-35599E2912A2} = {F845BEA9-90AA-4D71-B8A7-63B4C153F0A7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBD12ED0-0AEE-4533-BF2E-BCA0AF1D09E4}
 	EndGlobalSection
 EndGlobal
