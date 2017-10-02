@@ -209,7 +209,6 @@ struct log_msg_baton3
 
 bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, svn_depth_t depth /*const CStringArray& changelists,*/)
 {
-	TRACE("Shelving list of %d files\n", pathlist.GetCount());
 	SVNPool subpool(m_pool);
 	apr_array_header_t * clists = NULL; // MakeChangeListArray(changelists, subpool);
 
@@ -230,9 +229,23 @@ bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, svn_d
 	return (Err == NULL);
 }
 
-bool SVN::Unshelve(const CString& shelveName)
+bool SVN::Unshelve(const CString& shelveName, const CTSVNPath &local_abspath)
 {
-	return TRUE;
+    SVNPool subpool(m_pool);
+
+    Prepare();
+
+    SVNTRACE(
+        Err = svn_client_unshelve((LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
+                                  local_abspath.GetSVNApiPath(subpool),
+                                  FALSE /*keep*/,
+                                  FALSE /*dry_run*/,
+                                  m_pctx,
+                                  subpool),
+        NULL
+    );
+
+    return (Err == NULL);
 }
 
 bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const SVNRev& pegrev,

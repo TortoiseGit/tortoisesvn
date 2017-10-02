@@ -28,8 +28,6 @@
 IMPLEMENT_DYNAMIC(CUnshelve, CResizableStandAloneDialog)
 CUnshelve::CUnshelve(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CUnshelve::IDD, pParent)
-    , m_bThreadRunning(FALSE)
-    , m_bCancelled(false)
 {
 }
 
@@ -40,17 +38,12 @@ CUnshelve::~CUnshelve()
 void CUnshelve::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_PATCHLIST, m_PatchList);
-    DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+    DDX_Text(pDX, IDC_EDITCONFIG, m_sShelveName);
 }
 
 
 BEGIN_MESSAGE_MAP(CUnshelve, CResizableStandAloneDialog)
-    ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
-    ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
-    ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
-    ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 BOOL CUnshelve::OnInitDialog()
@@ -58,27 +51,10 @@ BOOL CUnshelve::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
-    ExtendFrameIntoClientArea(IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST);
-    m_aeroControls.SubclassControl(this, IDC_SELECTALL);
     m_aeroControls.SubclassOkCancelHelp(this);
 
     UpdateData(FALSE);
 
-    m_PatchList.Init(0, L"UnshelveDlg", SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH|SVNSLC_POPRESTORE));
-    m_PatchList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
-    m_PatchList.SetSelectButton(&m_SelectAll);
-    m_PatchList.SetCancelBool(&m_bCancelled);
-    m_PatchList.EnableFileDrop();
-    m_PatchList.SetRevertMode(true);
-
-    CString sWindowTitle;
-    GetWindowText(sWindowTitle);
-    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
-
-    AdjustControlSize(IDC_SELECTALL);
-
-    AddAnchor(IDC_PATCHLIST, TOP_LEFT, BOTTOM_RIGHT);
-    AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -86,90 +62,7 @@ BOOL CUnshelve::OnInitDialog()
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(L"UnshelveDlg");
 
-    // first start a thread to obtain the file list with the status without
-    // blocking the dialog
-    if(AfxBeginThread(PatchThreadEntry, this) == NULL)
-    {
-        OnCantStartThread();
-    }
-    InterlockedExchange(&m_bThreadRunning, TRUE);
-
     return TRUE;
-}
-
-UINT CUnshelve::PatchThreadEntry(LPVOID pVoid)
-{
-    CCrashReportThread crashthread;
-    return ((CUnshelve*)pVoid)->PatchThread();
-}
-
-DWORD CUnshelve::ShowMask()
-{
-    return
-        SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES;
-}
-
-UINT CUnshelve::PatchThread()
-{
-    // get the status of all selected file/folders recursively
-    // and show the ones which can be included in a patch (i.e. the versioned and not-normal ones)
-    DialogEnableWindow(IDOK, false);
-    m_bCancelled = false;
-
-    if (!m_PatchList.GetStatus(m_pathList))
-    {
-        m_PatchList.SetEmptyString(m_PatchList.GetLastErrorMessage());
-    }
-
-    m_PatchList.Show(
-        ShowMask(), CTSVNPathList(), SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS, true, true);
-
-    InterlockedExchange(&m_bThreadRunning, FALSE);
-    return 0;
-}
-
-BOOL CUnshelve::PreTranslateMessage(MSG* pMsg)
-{
-    if (pMsg->message == WM_KEYDOWN)
-    {
-        switch (pMsg->wParam)
-        {
-        case VK_RETURN:
-            if(OnEnterPressed())
-                return TRUE;
-            break;
-        case VK_F5:
-            {
-                if (!m_bThreadRunning)
-                {
-                    if(AfxBeginThread(PatchThreadEntry, this) == NULL)
-                    {
-                        OnCantStartThread();
-                    }
-                    else
-                        InterlockedExchange(&m_bThreadRunning, TRUE);
-                }
-            }
-            break;
-        }
-    }
-
-    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
-}
-
-void CUnshelve::OnBnClickedSelectall()
-{
-    UINT state = (m_SelectAll.GetState() & 0x0003);
-    if (state == BST_INDETERMINATE)
-    {
-        // It is not at all useful to manually place the checkbox into the indeterminate state...
-        // We will force this on to the unchecked state
-        state = BST_UNCHECKED;
-        m_SelectAll.SetCheck(state);
-    }
-    theApp.DoWaitCursor(1);
-    m_PatchList.SelectAll(state == BST_CHECKED);
-    theApp.DoWaitCursor(-1);
 }
 
 void CUnshelve::OnBnClickedHelp()
@@ -179,103 +72,11 @@ void CUnshelve::OnBnClickedHelp()
 
 void CUnshelve::OnCancel()
 {
-    m_bCancelled = true;
-    if (m_bThreadRunning)
-        return;
-
     CResizableStandAloneDialog::OnCancel();
 }
 
 void CUnshelve::OnOK()
 {
-    if (m_bThreadRunning)
-        return;
-
-    //save only the files the user has selected into the path list
-    m_PatchList.WriteCheckedNamesToPathList(m_pathList);
-
     CResizableStandAloneDialog::OnOK();
 }
 
-LRESULT CUnshelve::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
-{
-    if(AfxBeginThread(PatchThreadEntry, this) == NULL)
-    {
-        OnCantStartThread();
-    }
-    return 0;
-}
-
-LRESULT CUnshelve::OnFileDropped(WPARAM, LPARAM lParam)
-{
-    BringWindowToTop();
-    SetForegroundWindow();
-    SetActiveWindow();
-    // if multiple files/folders are dropped
-    // this handler is called for every single item
-    // separately.
-    // To avoid creating multiple refresh threads and
-    // causing crashes, we only add the items to the
-    // list control and start a timer.
-    // When the timer expires, we start the refresh thread,
-    // but only if it isn't already running - otherwise we
-    // restart the timer.
-    CTSVNPath path;
-    path.SetFromWin((LPCTSTR)lParam);
-
-    if (!m_PatchList.HasPath(path))
-    {
-        if (m_pathList.AreAllPathsFiles())
-        {
-            m_pathList.AddPath(path);
-            m_pathList.RemoveDuplicates();
-        }
-        else
-        {
-            // if the path list contains folders, we have to check whether
-            // our just (maybe) added path is a child of one of those. If it is
-            // a child of a folder already in the list, we must not add it. Otherwise
-            // that path could show up twice in the list.
-            bool bHasParentInList = false;
-            for (int i=0; i<m_pathList.GetCount(); ++i)
-            {
-                if (m_pathList[i].IsAncestorOf(path))
-                {
-                    bHasParentInList = true;
-                    break;
-                }
-            }
-            if (!bHasParentInList)
-            {
-                m_pathList.AddPath(path);
-                m_pathList.RemoveDuplicates();
-            }
-        }
-    }
-
-    // Always start the timer, since the status of an existing item might have changed
-    SetTimer(REFRESHTIMER, 200, NULL);
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Item %s dropped, timer started\n", path.GetWinPath());
-    return 0;
-}
-
-void CUnshelve::OnTimer(UINT_PTR nIDEvent)
-{
-    switch (nIDEvent)
-    {
-    case REFRESHTIMER:
-        if (m_bThreadRunning)
-        {
-            SetTimer(REFRESHTIMER, 200, NULL);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
-        }
-        else
-        {
-            KillTimer(REFRESHTIMER);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
-            OnSVNStatusListCtrlNeedsRefresh(0, 0);
-        }
-        break;
-    }
-    __super::OnTimer(nIDEvent);
-}

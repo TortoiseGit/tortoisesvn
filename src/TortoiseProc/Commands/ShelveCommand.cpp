@@ -37,33 +37,27 @@
 bool ShelveCommand::Execute()
 {
     bool bRet = false;
-    CString shelveName = CPathUtils::GetLongPathname(parser.GetVal(L"shelvename"));
     CShelve dlg;
     dlg.m_pathList = pathList;
+
+    if (parser.HasKey(L"shelvename"))
+    {
+        dlg.m_sShelveName = parser.GetVal(L"shelvename");
+    }
+
     if (parser.HasKey(L"noui")||(dlg.DoModal()==IDOK))
     {
         if (cmdLinePath.IsEmpty())
         {
             cmdLinePath = pathList.GetCommonRoot();
         }
-        bRet = Shelve(CString(shelveName), dlg.m_pathList);
+        bRet = Shelve(dlg.m_sShelveName, dlg.m_pathList);
     }
     return bRet;
 }
 
-bool ShelveCommand::Shelve(const CString& cmdLineShelveName, const CTSVNPathList& paths)
+bool ShelveCommand::Shelve(const CString& shelveName, const CTSVNPathList& paths)
 {
-    CString shelveName;
-
-    if (cmdLineShelveName.IsEmpty())
-    {
-        shelveName = CString("test");  // ###
-    }
-    else
-    {
-        shelveName = cmdLineShelveName;
-    }
-
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_PROC_PATCHTITLE);
     progDlg.SetShowProgressBar(false);

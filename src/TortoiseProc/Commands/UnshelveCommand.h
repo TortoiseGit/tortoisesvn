@@ -40,7 +40,7 @@ public:
      */
     virtual bool                Execute() override;
 protected:
-    bool                        Unshelve(const CString& cmdLineShelveName, const CTSVNPathList& path);
+    bool                        Unshelve(const CString& cmdLineShelveName, const CTSVNPath &sDir);
 };
 
 

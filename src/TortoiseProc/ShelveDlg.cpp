@@ -42,6 +42,7 @@ void CShelve::DoDataExchange(CDataExchange* pDX)
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_PATCHLIST, m_PatchList);
     DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+    DDX_Text(pDX, IDC_EDITCONFIG, m_sShelveName);
 }
 
 

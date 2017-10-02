@@ -37,41 +37,35 @@
 bool UnshelveCommand::Execute()
 {
     bool bRet = false;
-    CString shelveName = CPathUtils::GetLongPathname(parser.GetVal(L"shelvename"));
     CUnshelve dlg;
-    dlg.m_pathList = pathList;
+
+    if (parser.HasKey(L"shelvename"))
+    {
+        dlg.m_sShelveName = parser.GetVal(L"shelvename");
+    }
+
     if (parser.HasKey(L"noui")||(dlg.DoModal()==IDOK))
     {
         if (cmdLinePath.IsEmpty())
         {
-            cmdLinePath = pathList.GetCommonRoot();
+            SVN svn;
+            svn.ShowErrorDialog(GetExplorerHWND());
+            return FALSE;
         }
-        bRet = Unshelve(CString(shelveName), dlg.m_pathList);
+        bRet = Unshelve(dlg.m_sShelveName, cmdLinePath);
     }
     return bRet;
 }
 
-bool UnshelveCommand::Unshelve(const CString& cmdLineShelveName, const CTSVNPathList& paths)
+bool UnshelveCommand::Unshelve(const CString& shelveName, const CTSVNPath &sDir)
 {
-    CString shelveName;
-
-    if (cmdLineShelveName.IsEmpty())
-    {
-        shelveName = CString("test");  // ###
-    }
-    else
-    {
-        shelveName = cmdLineShelveName;
-    }
-
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_PROC_PATCHTITLE);
     progDlg.SetShowProgressBar(false);
     progDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
 
-    CTSVNPath sDir = paths.GetCommonRoot();
     SVN svn;
-    if (!svn.Unshelve(shelveName /*, paths, svn_depth_infinity, changelists*/))
+    if (!svn.Unshelve(shelveName, sDir))
     {
         progDlg.Stop();
         svn.ShowErrorDialog(GetExplorerHWND(), sDir);

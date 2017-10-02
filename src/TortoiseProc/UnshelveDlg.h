@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "SVNStatusListCtrl.h"
-#include "SVNDiffOptions.h"
 
 /**
  * \ingroup TortoiseProc
@@ -39,30 +38,12 @@ public:
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
     virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual void OnCancel();
     virtual void OnOK();
-    afx_msg void OnBnClickedSelectall();
     afx_msg void OnBnClickedHelp();
-    afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
-    afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
-    afx_msg void OnTimer(UINT_PTR nIDEvent);
 
     DECLARE_MESSAGE_MAP()
 
-private:
-    static UINT PatchThreadEntry(LPVOID pVoid);
-    UINT PatchThread();
-    DWORD   ShowMask();
-
-private:
-    CSVNStatusListCtrl  m_PatchList;
-    LONG                m_bThreadRunning;
-    CButton             m_SelectAll;
-    bool                m_bCancelled;
-    CRegDWORD           m_regAddBeforeCommit;
-
 public:
-    /// the list of files to include in the patch
-    CTSVNPathList       m_pathList;
+    CString             m_sShelveName;
 };

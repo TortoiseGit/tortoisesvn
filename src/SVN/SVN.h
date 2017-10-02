@@ -134,7 +134,7 @@ public:
 	* Shelving
 	*/
 	bool Shelve(const CString& shelveName, const CTSVNPathList& pathlist, svn_depth_t depth /*const CStringArray& changelists,*/);
-	bool Unshelve(const CString& shelveName);
+	bool Unshelve(const CString& shelveName, const CTSVNPath &local_abspath);
 
 	/**
      * Checkout a working copy of moduleName at revision, using destPath as the root

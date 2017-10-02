@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "SVNStatusListCtrl.h"
-#include "SVNDiffOptions.h"
 
 /**
  * \ingroup TortoiseProc
@@ -65,4 +64,5 @@ private:
 public:
     /// the list of files to include in the patch
     CTSVNPathList       m_pathList;
+    CString             m_sShelveName;
 };
