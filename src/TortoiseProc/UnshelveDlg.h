@@ -44,6 +44,9 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
+    CComboBox           m_ShelveNameCombo;
+
 public:
+    std::vector<CString> m_Names;
     CString             m_sShelveName;
 };

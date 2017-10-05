@@ -248,6 +248,34 @@ bool SVN::Unshelve(const CString& shelveName, const CTSVNPath &local_abspath)
     return (Err == NULL);
 }
 
+bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspath)
+{
+    SVNPool subpool(m_pool);
+
+    Prepare();
+    apr_hash_t *names_hash;
+
+    SVNTRACE(
+        Err = svn_client_shelves_list(&names_hash,
+            local_abspath.GetSVNApiPath(subpool),
+            m_pctx,
+            subpool, subpool),
+        NULL
+    );
+    apr_hash_index_t *hi;
+    for (hi = apr_hash_first(subpool, names_hash); hi; hi = apr_hash_next(hi))
+    {
+        CString name((const char *)apr_hash_this_key(hi));
+        if (name.Right(6) == ".patch")
+        {
+            name = name.Left(name.GetLength() - 6);
+        }
+        Names.push_back(name);
+    }
+
+    return (Err == NULL);
+}
+
 bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const SVNRev& pegrev,
                    const SVNRev& revision, svn_depth_t depth, bool bIgnoreExternals,
                    bool bAllow_unver_obstructions)

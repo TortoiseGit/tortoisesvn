@@ -37,23 +37,39 @@
 bool UnshelveCommand::Execute()
 {
     bool bRet = false;
-    CUnshelve dlg;
+    SVN svn;
+    CString name;
 
+    // use the passed-in name, if given
     if (parser.HasKey(L"shelvename"))
     {
-        dlg.m_sShelveName = parser.GetVal(L"shelvename");
+        name = parser.GetVal(L"shelvename");
     }
-
-    if (parser.HasKey(L"noui")||(dlg.DoModal()==IDOK))
+    // else show a dialog to select a name
+    else if (!parser.HasKey(L"noui"))
     {
-        if (cmdLinePath.IsEmpty())
+        CUnshelve dlg;
+        // get the list of shelved names
+        if (!svn.ShelvesList(dlg.m_Names, cmdLinePath))
         {
-            SVN svn;
-            svn.ShowErrorDialog(GetExplorerHWND());
+            svn.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);
             return FALSE;
         }
-        bRet = Unshelve(dlg.m_sShelveName, cmdLinePath);
+        if (dlg.m_Names.empty())
+        {
+            return FALSE;
+        }
+        if (dlg.DoModal() == IDOK)
+        {
+            name = dlg.m_sShelveName;
+        }
     }
+    if (cmdLinePath.IsEmpty() || name.IsEmpty())
+    {
+        return FALSE;
+    }
+    bRet = Unshelve(name, cmdLinePath);
+
     return bRet;
 }
 

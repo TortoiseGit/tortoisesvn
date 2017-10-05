@@ -38,7 +38,7 @@ CUnshelve::~CUnshelve()
 void CUnshelve::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Text(pDX, IDC_EDITCONFIG, m_sShelveName);
+    DDX_Control(pDX, IDC_SHELVENAME1, m_ShelveNameCombo);
 }
 
 
@@ -52,6 +52,13 @@ BOOL CUnshelve::OnInitDialog()
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     m_aeroControls.SubclassOkCancelHelp(this);
+
+    // populate the list of shelved changes and select the first one
+    for (auto i = m_Names.begin(); i != m_Names.end(); ++i)
+    {
+        m_ShelveNameCombo.AddString(*i);
+    }
+    m_ShelveNameCombo.SetCurSel(0);
 
     UpdateData(FALSE);
 
@@ -78,5 +85,10 @@ void CUnshelve::OnCancel()
 void CUnshelve::OnOK()
 {
     CResizableStandAloneDialog::OnOK();
-}
 
+    int selectedName = m_ShelveNameCombo.GetCurSel();
+    if (selectedName >= 0)
+    {
+        m_ShelveNameCombo.GetLBText(selectedName, m_sShelveName);
+    }
+}
