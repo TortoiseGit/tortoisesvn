@@ -67,7 +67,7 @@ BOOL CUnshelve::OnInitDialog()
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(L"UnshelveDlg");
+    //EnableSaveRestore(L"UnshelveDlg");
 
     return TRUE;
 }

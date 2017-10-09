@@ -85,7 +85,7 @@ BOOL CShelve::OnInitDialog()
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    EnableSaveRestore(L"ShelveDlg");
+    //EnableSaveRestore(L"ShelveDlg");
 
     // first start a thread to obtain the file list with the status without
     // blocking the dialog
