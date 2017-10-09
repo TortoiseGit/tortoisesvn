@@ -268,6 +268,7 @@ bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspat
         CString name((const char *)apr_hash_this_key(hi));
         Names.push_back(name);
     }
+    std::sort(Names.begin(), Names.end());
 
     return (Err == NULL);
 }
