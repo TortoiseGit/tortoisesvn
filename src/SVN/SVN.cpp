@@ -266,10 +266,6 @@ bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspat
     for (hi = apr_hash_first(subpool, names_hash); hi; hi = apr_hash_next(hi))
     {
         CString name((const char *)apr_hash_this_key(hi));
-        if (name.Right(6) == ".patch")
-        {
-            name = name.Left(name.GetLength() - 6);
-        }
         Names.push_back(name);
     }
 
