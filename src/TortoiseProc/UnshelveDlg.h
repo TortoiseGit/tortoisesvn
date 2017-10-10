@@ -49,4 +49,5 @@ protected:
 public:
     std::vector<CString> m_Names;
     CString             m_sShelveName;
+    CTSVNPathList       m_pathList;
 };

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by c:\Users\Julian\source\TSVN\src\Resources\TortoiseProcENG.rc
+// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
@@ -1250,10 +1250,12 @@
 #define IDC_SHELVENAME1                 1670
 #define IDS_REPOBROWSE_MULTIIMPORT_TASK1 1671
 #define IDS_REPOBROWSE_MULTIIMPORT_TASK2 1672
+#define IDC_NAMELABEL                   1672
 #define IDS_REPOBROWSE_MULTIIMPORT_TASK3 1673
 #define IDC_FORECOMMENTCOLOR            1673
 #define IDS_REPOBROWSE_MULTIIMPORT_TASK4 1674
 #define IDC_BACKCOMMENTCOLOR            1674
+#define IDC_NAME2LABEL                  1674
 #define IDC_FOREADDEDCOLOR              1675
 #define IDC_BACKADDEDCOLOR              1676
 #define IDC_FOREREMOVEDCOLOR            1677
@@ -2203,7 +2205,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        390
 #define _APS_NEXT_COMMAND_VALUE         32878
-#define _APS_NEXT_CONTROL_VALUE         1672
+#define _APS_NEXT_CONTROL_VALUE         1675
 #define _APS_NEXT_SYMED_VALUE           195
 #endif
 #endif

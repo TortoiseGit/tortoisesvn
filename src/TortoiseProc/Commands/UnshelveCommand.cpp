@@ -49,6 +49,7 @@ bool UnshelveCommand::Execute()
     else if (!parser.HasKey(L"noui"))
     {
         CUnshelve dlg;
+        dlg.m_pathList = pathList;
         // get the list of shelved names
         if (!svn.ShelvesList(dlg.m_Names, cmdLinePath))
         {
@@ -57,6 +58,7 @@ bool UnshelveCommand::Execute()
         }
         if (dlg.m_Names.empty())
         {
+            // TODO: Show a dialog telling the user that there's nothing to unshelve
             return FALSE;
         }
         if (dlg.DoModal() == IDOK)

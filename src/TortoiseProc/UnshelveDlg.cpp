@@ -51,7 +51,9 @@ BOOL CUnshelve::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
-    m_aeroControls.SubclassOkCancelHelp(this);
+    CString sWindowTitle;
+    GetWindowText(sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     // populate the list of shelved changes and select the first one
     for (auto i = m_Names.begin(); i != m_Names.end(); ++i)
@@ -62,12 +64,15 @@ BOOL CUnshelve::OnInitDialog()
 
     UpdateData(FALSE);
 
+    AddAnchor(IDC_NAMELABEL, BOTTOM_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_SHELVENAME1, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    //EnableSaveRestore(L"UnshelveDlg");
+    BlockResize(DIALOG_BLOCKVERTICAL);
+    EnableSaveRestore(L"UnshelveDlg");
 
     return TRUE;
 }

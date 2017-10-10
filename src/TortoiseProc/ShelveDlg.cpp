@@ -59,10 +59,6 @@ BOOL CShelve::OnInitDialog()
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
-    ExtendFrameIntoClientArea(IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST, IDC_PATCHLIST);
-    m_aeroControls.SubclassControl(this, IDC_SELECTALL);
-    m_aeroControls.SubclassOkCancelHelp(this);
-
     UpdateData(FALSE);
 
     m_PatchList.Init(0, L"ShelveDlg", SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH|SVNSLC_POPRESTORE));
@@ -79,13 +75,15 @@ BOOL CShelve::OnInitDialog()
     AdjustControlSize(IDC_SELECTALL);
 
     AddAnchor(IDC_PATCHLIST, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_NAMELABEL, BOTTOM_LEFT);
+    AddAnchor(IDC_EDITCONFIG, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
-    //EnableSaveRestore(L"ShelveDlg");
+    EnableSaveRestore(L"ShelveDlg");
 
     // first start a thread to obtain the file list with the status without
     // blocking the dialog
