@@ -6,3 +6,9 @@ charset      = utf-8
 
 [*.xml]
 indent_size  = 2
+
+[*.{rc}]
+charset = utf-16le
+
+[?esource.h]
+charset = utf-16le
