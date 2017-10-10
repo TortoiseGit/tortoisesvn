@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2013-2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -128,14 +128,14 @@ typedef enum
     cmdRevert,
     cmdRevisionGraph,
     cmdSettings,
-	cmdShelve,
-	cmdShowCompare,
+    cmdShelve,
+    cmdShowCompare,
     cmdSwitch,
     cmdSync,
     cmdUnIgnore,
     cmdUnlock,
-	cmdUnshelve,
-	cmdUpdate,
+    cmdUnshelve,
+    cmdUpdate,
     cmdUpdateCheck,
     cmdUrlDiff,
     cmdWcUpgrade,
@@ -324,9 +324,9 @@ Command * CommandServer::GetCommand(const CString& sCmd)
             return new RevisionGraphCommand;
         case cmdSettings:
             return new SettingsCommand;
-		case cmdShelve:
-			return new ShelveCommand;
-		case cmdShowCompare:
+        case cmdShelve:
+            return new ShelveCommand;
+        case cmdShowCompare:
             return new ShowCompareCommand;
         case cmdSwitch:
             return new SwitchCommand;
@@ -336,9 +336,9 @@ Command * CommandServer::GetCommand(const CString& sCmd)
             return new UnIgnoreCommand;
         case cmdUnlock:
             return new UnLockCommand;
-		case cmdUnshelve:
-			return new UnshelveCommand;
-		case cmdUpdate:
+        case cmdUnshelve:
+            return new UnshelveCommand;
+        case cmdUpdate:
             return new UpdateCommand;
         case cmdUpdateCheck:
             return new UpdateCheckCommand;
