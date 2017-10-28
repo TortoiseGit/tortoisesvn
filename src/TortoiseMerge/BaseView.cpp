@@ -1,4 +1,4 @@
-﻿// TortoiseMerge - a Diff/Patch program
+// TortoiseMerge - a Diff/Patch program
 
 // Copyright (C) 2003-2017 - TortoiseSVN
 
@@ -2661,7 +2661,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 }
 
                 SetupAllViewSelection(nViewBlockStart, nViewBlockEnd);
-                UpdateCaretPosition(point);
+                UpdateCaretPosition(SetupPoint(0, nViewLine));
             }
         }
     }
