@@ -2587,7 +2587,7 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
     CPoint ptLocal = point;
     ScreenToClient(&ptLocal);
 
-    if (textrect.PtInRect(ptLocal) || borderrect.PtInRect(ptLocal))
+    if (textrect.PtInRect(ptLocal))
     {
         // inside the header part of the view (showing the filename)
         if (IsViewGood(m_pwndBottom))
@@ -2623,8 +2623,13 @@ void CBaseView::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             }
         }
 
-
         return;
+    }
+
+    if (borderrect.PtInRect(ptLocal))
+    {
+        // inside the border
+        // for the future, in case we want to show a different context menu there some day
     }
 
 
