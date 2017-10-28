@@ -682,6 +682,7 @@ void CLogDlg::RestoreLogDlgWindowAndSplitters()
         }
     }
     SetSplitterRange();
+    Invalidate();
 }
 
 void CLogDlg::AdjustControlSizesForLocalization()
