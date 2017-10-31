@@ -42,7 +42,7 @@ void CShelve::DoDataExchange(CDataExchange* pDX)
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_PATCHLIST, m_PatchList);
     DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
-    DDX_Text(pDX, IDC_EDITCONFIG, m_sShelveName);
+    DDX_Control(pDX, IDC_EDITCONFIG, m_ShelveName);
 }
 
 
@@ -51,6 +51,7 @@ BEGIN_MESSAGE_MAP(CShelve, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
     ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
     ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
+    ON_EN_CHANGE(IDC_EDITCONFIG, OnShelveNameChanged)
     ON_WM_TIMER()
 END_MESSAGE_MAP()
 
@@ -108,6 +109,18 @@ DWORD CShelve::ShowMask()
         SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES;
 }
 
+void CShelve::LockOrUnlockOKBtn()
+{
+    if (m_ShelveName.GetWindowTextLength() > 0 && m_PatchList.GetSelected() > 0)
+    {
+        DialogEnableWindow(IDOK, true);
+    }
+    else
+    {
+        DialogEnableWindow(IDOK, false);
+    }
+}
+
 UINT CShelve::PatchThread()
 {
     // get the status of all selected file/folders recursively
@@ -123,6 +136,7 @@ UINT CShelve::PatchThread()
     m_PatchList.Show(
         ShowMask(), CTSVNPathList(), SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS, true, true);
 
+    LockOrUnlockOKBtn();
     InterlockedExchange(&m_bThreadRunning, FALSE);
     return 0;
 }
@@ -168,6 +182,7 @@ void CShelve::OnBnClickedSelectall()
     }
     theApp.DoWaitCursor(1);
     m_PatchList.SelectAll(state == BST_CHECKED);
+    LockOrUnlockOKBtn();
     theApp.DoWaitCursor(-1);
 }
 
@@ -190,6 +205,11 @@ void CShelve::OnOK()
     if (m_bThreadRunning)
         return;
 
+    CString val;
+    m_ShelveName.GetWindowText(val);
+
+    m_sShelveName = val;
+
     //save only the files the user has selected into the path list
     m_PatchList.WriteCheckedNamesToPathList(m_pathList);
 
@@ -203,6 +223,14 @@ LRESULT CShelve::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
         OnCantStartThread();
     }
     return 0;
+}
+
+void CShelve::OnShelveNameChanged() {
+    if (m_bThreadRunning)
+    {
+        return;
+    }
+    LockOrUnlockOKBtn();
 }
 
 LRESULT CShelve::OnFileDropped(WPARAM, LPARAM lParam)
