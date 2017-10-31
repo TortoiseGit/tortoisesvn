@@ -58,7 +58,9 @@ bool UnshelveCommand::Execute()
         }
         if (dlg.m_Names.empty())
         {
-            // TODO: Show a dialog telling the user that there's nothing to unshelve
+            CString temp;
+            temp.LoadStringW(IDS_NOTHING_SHELVED);
+            ::MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
             return FALSE;
         }
         if (dlg.DoModal() == IDOK)
