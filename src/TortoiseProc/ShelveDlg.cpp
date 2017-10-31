@@ -69,6 +69,9 @@ BOOL CShelve::OnInitDialog()
     m_PatchList.EnableFileDrop();
     m_PatchList.SetRevertMode(true);
 
+    // We hide help here:
+    DialogEnableWindow(IDHELP, false);
+
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);

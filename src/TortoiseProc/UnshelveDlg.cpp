@@ -55,6 +55,8 @@ BOOL CUnshelve::OnInitDialog()
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
+    DialogEnableWindow(IDHELP, false);
+
     // populate the list of shelved changes and select the first one
     for (auto i = m_Names.begin(); i != m_Names.end(); ++i)
     {
