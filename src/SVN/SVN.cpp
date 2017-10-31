@@ -273,6 +273,25 @@ bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspat
     return (Err == NULL);
 }
 
+bool SVN::ShelvesAny(bool& AnyShelved, const CTSVNPath &local_abspath)
+{
+    SVNPool subpool(m_pool);
+    svn_boolean_t any_shelved;
+
+    Prepare();
+
+    SVNTRACE(
+        Err = svn_client_shelves_any(&any_shelved,
+            local_abspath.GetSVNApiPath(subpool),
+            m_pctx,
+            subpool),
+        NULL
+    );
+
+    AnyShelved = any_shelved;
+    return (Err == NULL);
+}
+
 bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const SVNRev& pegrev,
                    const SVNRev& revision, svn_depth_t depth, bool bIgnoreExternals,
                    bool bAllow_unver_obstructions)
