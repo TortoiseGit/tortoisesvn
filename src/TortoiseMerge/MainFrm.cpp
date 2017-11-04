@@ -41,8 +41,6 @@
 #define new DEBUG_NEW
 #endif
 
-CCustomMFCRibbonButton button1;
-
 // CMainFrame
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 #define IDT_RELOADCHECKTIMER 123
