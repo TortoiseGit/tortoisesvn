@@ -295,7 +295,7 @@ void CCommitDlg::OnOK()
                         // items that can't be checked don't count as unchecked.
                         if (!(DWORD(m_regShowExternals)&&(entry->IsFromDifferentRepository() || entry->IsNested() || (!bAllowPeggedExternals && entry->IsPeggedExternal()))))
                             m_bUnchecked = true;
-                        // This algorithm is for the sake of simplicity of the complexity O(N²)
+                        // This algorithm is for the sake of simplicity of the complexity O(NÂ²)
                         for (int k=0; k<nListItems; k++)
                         {
                             const CSVNStatusListCtrl::FileEntry * entryK = m_ListCtrl.GetConstListEntry(k);
@@ -1943,6 +1943,7 @@ void CCommitDlg::AdjustDialogSizeAndPanes()
         {
             m_wndSplitter.SetWindowPos(NULL, rectSplitter.left, yPos, 0, 0, SWP_NOSIZE);
             DoSize(delta);
+            Invalidate();
         }
     }
 }

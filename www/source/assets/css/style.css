@@ -532,3 +532,10 @@ a[href *= ".pdf"]:after {
 figure.highlight {
     margin: 0;
 }
+
+.highlight pre {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 6px 10px;
+}

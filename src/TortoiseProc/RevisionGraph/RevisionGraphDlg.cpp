@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -619,7 +619,7 @@ void CRevisionGraphDlg::OnFileSavegraphas()
 {
     CString tempfile;
     int filterindex = 0;
-    if (CAppUtils::FileOpenSave(tempfile, &filterindex, IDS_REVGRAPH_SAVEPIC, IDS_PICTUREFILEFILTER, false, m_Graph.m_sPath, m_hWnd))
+    if (CAppUtils::FileOpenSave(tempfile, &filterindex, IDS_REVGRAPH_SAVEPIC, IDS_PICTUREFILEFILTER, false, ::PathIsURL(m_Graph.m_sPath) ? CString() : m_Graph.m_sPath, m_hWnd))
     {
         // if the user doesn't specify a file extension, default to
         // wmf and add that extension to the filename. But only if the
