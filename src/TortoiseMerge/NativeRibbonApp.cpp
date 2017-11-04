@@ -141,6 +141,7 @@ STDMETHODIMP CNativeRibbonApp::Execute(UINT32 commandId,
 {
     UNREFERENCED_PARAMETER(key);
     UNREFERENCED_PARAMETER(currentValue);
+
     if (verb == UI_EXECUTIONVERB_EXECUTE)
     {
         if (commandExecutionProperties)
