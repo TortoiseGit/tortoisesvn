@@ -4238,7 +4238,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
     GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
     GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 
-    AutoRestoreSelection();
+    AutoRestoreSelection(true);
 
     DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
 
@@ -4545,7 +4545,7 @@ void CLogDlg::OnEnChangeSearchedit()
         GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
         DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
 
-        AutoRestoreSelection();
+        AutoRestoreSelection(true);
         return;
     }
     if (Validate(m_sFilterText) && FilterConditionChanged())
@@ -4666,7 +4666,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
         else if (m_bMonitoringMode)
             GetDlgItem(IDC_LOGLIST)->SetFocus();
 
-        AutoRestoreSelection();
+        AutoRestoreSelection(m_sFilterText.IsEmpty());
     } // if (nIDEvent == LOGFILTER_TIMER)
     if (nIDEvent == MONITOR_TIMER)
         MonitorTimer();
@@ -6462,12 +6462,14 @@ void CLogDlg::AutoStoreSelection()
         m_pStoreSelection->AddSelections();
 }
 
-void CLogDlg::AutoRestoreSelection()
+void CLogDlg::AutoRestoreSelection(bool bClear)
 {
     if (m_pStoreSelection != nullptr)
     {
-        m_pStoreSelection->RestoreSelection();
-
+        if (bClear)
+            m_pStoreSelection = nullptr;
+        else
+            m_pStoreSelection->RestoreSelection();
         FillLogMessageCtrl();
         UpdateLogInfoLabel();
         if (m_bSelect)

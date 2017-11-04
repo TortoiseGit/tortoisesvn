@@ -394,7 +394,7 @@ private:
     // selection management
 
     void AutoStoreSelection();
-    void AutoRestoreSelection();
+    void AutoRestoreSelection(bool bClear = false);
 
     // ListViewAccProvider
     virtual CString GetListviewHelpString(HWND hControl, int index) override;
