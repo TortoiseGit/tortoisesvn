@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseMerge.h"
 #include "resource.h"
-#include "CustomMFCRibbonButton.h"
 #include "OpenDlg.h"
 #include "ProgressDlg.h"
 #include "Settings.h"
