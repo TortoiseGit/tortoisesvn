@@ -1378,10 +1378,7 @@ void CLogDlg::OnCancel()
 {
     if (m_bMonitoringMode)
     {
-        ShowWindow(SW_HIDE);
-        SaveMonitorProjects(true);
-        SaveSplitterPos();
-        SaveWindowRect(L"MonitorLogDlg", false);
+        MonitorHideDlg();
         return;
     }
     bool bWasCancelled = m_bCancelled;
@@ -1443,6 +1440,18 @@ void CLogDlg::OnCancel()
     }
 }
 
+void CLogDlg::MonitorHideDlg()
+{
+    // remove selection, show empty log list
+    m_projTree.SelectItem(NULL);
+    MonitorShowProject(NULL, nullptr);
+
+    ShowWindow(SW_HIDE);
+    SaveMonitorProjects(true);
+    SaveSplitterPos();
+    SaveWindowRect(L"MonitorLogDlg", false);
+}
+
 void CLogDlg::OnClose()
 {
     if (m_bLogThreadRunning)
@@ -1458,10 +1467,7 @@ void CLogDlg::OnClose()
     }
     if (m_bMonitoringMode && !m_bSystemShutDown)
     {
-        SaveMonitorProjects(true);
-        ShowWindow(SW_HIDE);
-        SaveSplitterPos();
-        SaveWindowRect(L"MonitorLogDlg", false);
+        MonitorHideDlg();
     }
     else
         __super::OnClose();
@@ -2378,10 +2384,7 @@ void CLogDlg::OnOK()
 {
     if (m_bMonitoringMode)
     {
-        ShowWindow(SW_HIDE);
-        SaveMonitorProjects(true);
-        SaveSplitterPos();
-        SaveWindowRect(L"MonitorLogDlg", false);
+        MonitorHideDlg();
         return;
     }
     // since the log dialog is also used to select revisions for other

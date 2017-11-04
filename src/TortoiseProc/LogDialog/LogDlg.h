@@ -438,6 +438,7 @@ private:
     void ShowContextMenuForMonitorTree(CWnd* pWnd, CPoint point);
     static int CALLBACK TreeSort(LPARAM lParam1, LPARAM lParam2, LPARAM lParam3);
     void MonitorShowDlg();
+    void MonitorHideDlg();
     void OnDrop(const CTSVNPathList& pathList, const CString& parent);
 public:
     CWnd *              m_pNotifyWindow;
