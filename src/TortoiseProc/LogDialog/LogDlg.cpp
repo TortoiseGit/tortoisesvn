@@ -8959,7 +8959,7 @@ void CLogDlg::OnMonitorThreadFinished()
                     pItem->lastErrorMsg = item.lastErrorMsg;
                     pItem->root = item.root;
                     pItem->uuid = item.uuid;
-                    if (hItem == m_projTree.GetSelectedItem())
+                    if (hItem == m_projTree.GetSelectedItem() && IsWindowVisible())
                     {
                         // refresh the current view
                         LRESULT lresult = 0;
