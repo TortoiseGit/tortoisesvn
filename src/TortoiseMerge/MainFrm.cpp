@@ -146,6 +146,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_VIEW_IGNORECOMMENTS, &CMainFrame::OnUpdateViewIgnorecomments)
     ON_COMMAND_RANGE(ID_REGEXFILTER, ID_REGEXFILTER+400, &CMainFrame::OnRegexfilter)
     ON_UPDATE_COMMAND_UI_RANGE(ID_REGEXFILTER, ID_REGEXFILTER+400, &CMainFrame::OnUpdateViewRegexFilter)
+    ON_COMMAND(ID_REGEX_NO_FILTER, &CMainFrame::OnRegexNoFilter)
+    ON_UPDATE_COMMAND_UI(ID_REGEX_NO_FILTER, &CMainFrame::OnUpdateRegexNoFilter)
     ON_COMMAND(ID_INDICATOR_LEFTVIEWCOMBOENCODING, &CMainFrame::OnDummyEnabled)
     ON_COMMAND(ID_INDICATOR_RIGHTVIEWCOMBOENCODING, &CMainFrame::OnDummyEnabled)
     ON_COMMAND(ID_INDICATOR_BOTTOMVIEWCOMBOENCODING, &CMainFrame::OnDummyEnabled)
@@ -3130,7 +3132,7 @@ void CMainFrame::OnRegexfilter(UINT cmd)
     }
     else
     {
-        if (cmd == (UINT)m_regexIndex)
+        if (cmd == (UINT)m_regexIndex && !m_bUseRibbons)
         {
             if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
                 return;
@@ -3138,7 +3140,7 @@ void CMainFrame::OnRegexfilter(UINT cmd)
             m_regexIndex = -1;
             LoadViews(-1);
         }
-        else
+        else if (cmd != (UINT)m_regexIndex)
         {
             CSimpleIni::TNamesDepend sections;
             m_regexIni.GetAllSections(sections);
@@ -3221,29 +3223,16 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
 
     if (m_bUseRibbons)
     {
-        // TODO: Support regex filter dropdown menu.
-#if 0
-        CArray<CMFCRibbonBaseElement*, CMFCRibbonBaseElement*> arButtons;
-        m_wndRibbonBar.GetElementsByID(ID_REGEXFILTER, arButtons);
-        if (arButtons.GetCount() == 1)
+        std::list<CNativeRibbonDynamicItemInfo> items;
+        int cmdIndex = 2;
+        items.push_back(CNativeRibbonDynamicItemInfo(ID_REGEX_NO_FILTER, CString(MAKEINTRESOURCE(ID_REGEX_NO_FILTER)), IDB_REGEX_FILTER));
+        for (const auto& section : sections)
         {
-            CMFCRibbonButton * pButton = (CMFCRibbonButton*)arButtons.GetAt(0);
-            if (pButton)
-            {
-                pButton->RemoveAllSubItems();
-                pButton->AddSubItem(new CMFCRibbonButton(ID_REGEXFILTER + 1, CString(MAKEINTRESOURCE(IDS_CONFIGUREREGEXES)), 47, 47));
-
-                if (!sections.empty())
-                    pButton->AddSubItem(new CMFCRibbonSeparator(TRUE));
-                int cmdIndex = 2;
-                for (const auto& section : sections)
-                {
-                    pButton->AddSubItem(new CMFCRibbonButton(ID_REGEXFILTER + cmdIndex, section, 46, 46));
-                    cmdIndex++;
-                }
-            }
+            items.push_back(CNativeRibbonDynamicItemInfo(ID_REGEXFILTER + cmdIndex, section, IDB_REGEX_FILTER));
+            cmdIndex++;
         }
-#endif
+
+        m_pRibbonApp->SetItems(ID_REGEXFILTER, items);
     }
     else if (pMenuPopup)
     {
@@ -3618,4 +3607,18 @@ LRESULT CMainFrame::OnIdleUpdateCmdUI(WPARAM wParam, LPARAM lParam)
 void CMainFrame::OnUpdateThreeWayActions(CCmdUI * pCmdUI)
 {
     pCmdUI->Enable();
+}
+
+void CMainFrame::OnRegexNoFilter()
+{
+    if (CheckForSave(CHFSR_OPTIONS) == IDCANCEL)
+        return;
+    m_Data.SetRegexTokens(std::wregex(), L"");
+    m_regexIndex = -1;
+    LoadViews(-1);
+}
+
+void CMainFrame::OnUpdateRegexNoFilter(CCmdUI * pCmdUI)
+{
+    pCmdUI->SetCheck(m_regexIndex < 0);
 }

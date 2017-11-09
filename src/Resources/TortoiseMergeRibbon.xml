@@ -457,11 +457,6 @@
               <SplitButtonGallery.MenuLayout>
                 <VerticalMenuLayout Gripper="None"/>
               </SplitButtonGallery.MenuLayout>
-              <SplitButtonGallery.MenuGroups>
-                <MenuGroup>
-                  <Button CommandName="cmdRegexFilterConfig2"/>
-                </MenuGroup>
-              </SplitButtonGallery.MenuGroups>
             </SplitButtonGallery>
             <ToggleButton CommandName="cmdViewIgnoreComments" />
           </Group>

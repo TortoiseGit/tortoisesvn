@@ -16,6 +16,25 @@
 //
 #pragma once
 
+class CNativeRibbonDynamicItemInfo
+{
+public:
+    CNativeRibbonDynamicItemInfo(UINT cmdId, const CString & text, UINT imageId)
+        : m_CmdId(cmdId)
+        , m_Text(text)
+        , m_ImageId(imageId)
+    {
+    }
+
+    const CString & GetLabel() const { return m_Text; }
+    UINT GetCommandId() const { return m_CmdId; }
+    UINT GetImageId() const { return m_ImageId; }
+private:
+    UINT m_CmdId;
+    CString m_Text;
+    UINT m_ImageId;
+};
+
 class CNativeRibbonApp : public IUIApplication, public IUICommandHandler
 {
 public:
@@ -29,6 +48,7 @@ public:
 
     void UpdateCmdUI(BOOL bDisableIfNoHandler);
     int GetRibbonHeight();
+    void SetItems(UINT cmdId, const std::list<CNativeRibbonDynamicItemInfo> & items);
 
 protected:
     // IUnknown
@@ -70,10 +90,14 @@ protected:
 
     HRESULT SaveRibbonViewSettings(IUIRibbon *pRibbonView, const CString & fileName);
     HRESULT LoadRibbonViewSettings(IUIRibbon *pRibbonView, const CString & fileName);
+    CComPtr<IUICollection> GetUICommandItemsSource(UINT commandId);
+    void SetUICommandItemsSource(UINT commandId, IUICollection *pItems);
+    static UINT GetCommandIdProperty(IUISimplePropertySet *propertySet);
 private:
     CFrameWnd* m_pFrame;
     CComPtr<IUIFramework> m_pFramework;
     std::list<UINT32> m_commandIds;
+    std::list<UINT32> m_collectionCommandIds;
     ULONG m_cRefCount;
     CString m_SettingsFileName;
 };

@@ -196,6 +196,8 @@ protected:
     afx_msg void    OnUpdateTabModeRight(CCmdUI *pCmdUI);
     afx_msg void    OnUpdateTabModeBottom(CCmdUI *pCmdUI);
     afx_msg void    OnUpdateThreeWayActions(CCmdUI *pCmdUI);
+    afx_msg void    OnRegexNoFilter();
+    afx_msg void    OnUpdateRegexNoFilter(CCmdUI * pCmdUI);
     DECLARE_MESSAGE_MAP()
 protected:
     void            UpdateLayout();

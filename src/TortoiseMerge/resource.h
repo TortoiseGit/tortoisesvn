@@ -12,6 +12,7 @@
 #define IDS_MARKEDBLOCKSSAVEEXCLUDE     106
 #define IDS_MARKEDBLCOKSSAVEIGNORE      107
 #define IDD_SETMAINPAGE                 107
+#define ID_REGEX_NO_FILTER              33002
 #define IDD_OPENDLG                     130
 #define IDD_DIFFLOCATOR                 131
 #define IDI_REMOVEDLINE                 132
@@ -45,6 +46,7 @@
 #define IDB_LOGOFLIPPED                 168
 #define IDR_IGNORECOMMENTSTXT           169
 #define IDI_LINEMARKED                  170
+#define IDB_REGEX_FILTER                171
 #define IDS_SELECTFILE                  200
 #define IDS_SELECTDIFFFILE              201
 #define IDD_ENCODING                    300
@@ -422,8 +424,8 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        171
-#define _APS_NEXT_COMMAND_VALUE         33002
+#define _APS_NEXT_RESOURCE_VALUE        172
+#define _APS_NEXT_COMMAND_VALUE         33003
 #define _APS_NEXT_CONTROL_VALUE         1513
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

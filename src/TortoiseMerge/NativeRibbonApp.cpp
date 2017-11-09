@@ -117,7 +117,10 @@ STDMETHODIMP CNativeRibbonApp::OnCreateUICommand(UINT32 commandId,
     UNREFERENCED_PARAMETER(typeID);
 
     m_commandIds.push_back(commandId);
-
+    if (typeID == UI_COMMANDTYPE_COLLECTION)
+    {
+        m_collectionCommandIds.push_back(commandId);
+    }
     return QueryInterface(IID_PPV_ARGS(commandHandler));
 }
 
@@ -141,19 +144,33 @@ STDMETHODIMP CNativeRibbonApp::Execute(UINT32 commandId,
 {
     UNREFERENCED_PARAMETER(key);
     UNREFERENCED_PARAMETER(currentValue);
+    UNREFERENCED_PARAMETER(commandExecutionProperties);
 
     if (verb == UI_EXECUTIONVERB_EXECUTE)
     {
-        if (commandExecutionProperties)
+        if (key && IsEqualPropertyKey(*key, UI_PKEY_SelectedItem))
         {
-            PROPVARIANT val = { 0 };
-            if (commandExecutionProperties->GetValue(UI_PKEY_CommandId, &val) == S_OK)
+            CComPtr<IUICollection> items = GetUICommandItemsSource(commandId);
+            UINT32 selectedItemIdx = 0;
+            UIPropertyToUInt32(UI_PKEY_SelectedItem, *currentValue, &selectedItemIdx);
+            UINT32 count = 0;
+            items->GetCount(&count);
+
+            if (selectedItemIdx < count)
             {
-                UIPropertyToUInt32(UI_PKEY_CommandId, val, &commandId);
+                CComPtr<IUnknown> selectedItemUnk;
+                items->GetItem(selectedItemIdx, &selectedItemUnk);
+                CComQIPtr<IUISimplePropertySet> selectedItemPropSet(selectedItemUnk);
+                if (selectedItemPropSet)
+                {
+                    m_pFrame->PostMessage(WM_COMMAND, GetCommandIdProperty(selectedItemPropSet));
+                }
             }
         }
-
-        m_pFrame->PostMessage(WM_COMMAND, commandId);
+        else
+        {
+            m_pFrame->PostMessage(WM_COMMAND, commandId);
+        }
         return S_OK;
     }
     else
@@ -256,6 +273,43 @@ STDMETHODIMP CNativeRibbonApp::UpdateProperty(
 
         return UIInitPropertyFromBoolean(UI_PKEY_BooleanValue, ui.m_nCheck, newValue);
     }
+    else if (key == UI_PKEY_SelectedItem)
+    {
+        CComPtr<IUICollection> items = GetUICommandItemsSource(commandId);
+        if (!items)
+            return E_FAIL;
+
+        UINT32 count;
+        items->GetCount(&count);
+        for (UINT32 idx = 0; idx < count; idx++)
+        {
+            CComPtr<IUnknown> item;
+            items->GetItem(idx, &item);
+
+            CComQIPtr<IUISimplePropertySet> simplePropertySet(item);
+            if (simplePropertySet)
+            {
+                PROPVARIANT var = { 0 };
+                UINT32 uiVal;
+                simplePropertySet->GetValue(UI_PKEY_CommandId, &var);
+                UIPropertyToUInt32(UI_PKEY_CommandId, var, &uiVal);
+
+                CRibbonCmdUI ui(uiVal);
+                ui.DoUpdate(m_pFrame, TRUE);
+
+                if (ui.m_nCheck)
+                {
+                    UIInitPropertyFromUInt32(UI_PKEY_SelectedItem, idx, newValue);
+                    return S_OK;
+                }
+            }
+        }
+
+        // No selected item.
+        UIInitPropertyFromUInt32(UI_PKEY_SelectedItem, (UINT)-1, newValue);
+
+        return S_OK;
+    }
     else
     {
         return E_NOTIMPL;
@@ -297,6 +351,43 @@ HRESULT CNativeRibbonApp::LoadRibbonViewSettings(IUIRibbon * pRibbonView, const 
     return hr;
 }
 
+CComPtr<IUICollection> CNativeRibbonApp::GetUICommandItemsSource(UINT commandId)
+{
+    PROPVARIANT prop = { 0 };
+
+    m_pFramework->GetUICommandProperty(commandId, UI_PKEY_ItemsSource, &prop);
+
+    CComPtr<IUICollection> uiCollection;
+    UIPropertyToInterface(UI_PKEY_ItemsSource, prop, &uiCollection);
+    PropVariantClear(&prop);
+
+    return uiCollection;
+}
+
+void CNativeRibbonApp::SetUICommandItemsSource(UINT commandId, IUICollection *pItems)
+{
+    PROPVARIANT prop = { 0 };
+
+    UIInitPropertyFromInterface(UI_PKEY_ItemsSource, pItems, &prop);
+
+    m_pFramework->SetUICommandProperty(commandId, UI_PKEY_ItemsSource, prop);
+
+    PropVariantClear(&prop);
+}
+
+UINT CNativeRibbonApp::GetCommandIdProperty(IUISimplePropertySet *propertySet)
+{
+    PROPVARIANT var = { 0 };
+    UINT32 commandId = 0;
+
+    if (propertySet->GetValue(UI_PKEY_CommandId, &var) == S_OK)
+    {
+        UIPropertyToUInt32(UI_PKEY_CommandId, var, &commandId);
+    }
+
+    return commandId;
+}
+
 void CNativeRibbonApp::UpdateCmdUI(BOOL bDisableIfNoHandler)
 {
     for (auto it = m_commandIds.begin(); it != m_commandIds.end(); ++it)
@@ -317,6 +408,15 @@ void CNativeRibbonApp::UpdateCmdUI(BOOL bDisableIfNoHandler)
             m_pFramework->SetUICommandProperty(*it, UI_PKEY_BooleanValue, val);
         }
     }
+
+    for (auto it = m_collectionCommandIds.begin(); it != m_collectionCommandIds.end(); ++it)
+    {
+        PROPVARIANT currentValue = { 0 };
+        PROPVARIANT newValue = { 0 };
+
+        UpdateProperty(*it, UI_PKEY_SelectedItem, &currentValue, &newValue);
+        m_pFramework->SetUICommandProperty(*it, UI_PKEY_SelectedItem, newValue);
+    }
 }
 
 int CNativeRibbonApp::GetRibbonHeight()
@@ -332,5 +432,126 @@ int CNativeRibbonApp::GetRibbonHeight()
     else
     {
         return 0;
+    }
+}
+
+class UIDynamicCommandItem : public IUISimplePropertySet
+{
+private:
+    ULONG m_RefCount;
+    CString m_Label;
+    int m_CommandId;
+    CComPtr<IUIImage> m_Image;
+
+public:
+    class UIDynamicCommandItem(int commandId, LPCWSTR label, IUIImage *image)
+        : m_RefCount(0)
+        , m_Label(label)
+        , m_CommandId(commandId)
+        , m_Image(image)
+    {
+    }
+
+    STDMETHOD(QueryInterface)(REFIID riid, void **ppvObject)
+    {
+        if (riid == __uuidof(IUnknown))
+        {
+            AddRef();
+            *ppvObject = (IUnknown*)this;
+            return S_OK;
+        }
+        else if (riid == __uuidof(IUISimplePropertySet))
+        {
+            AddRef();
+            *ppvObject = (IUISimplePropertySet*)this;
+            return S_OK;
+        }
+        else
+        {
+            return E_NOINTERFACE;
+        }
+    }
+
+    STDMETHOD_(ULONG, AddRef)(void)
+    {
+        return InterlockedIncrement(&m_RefCount);
+    }
+
+    STDMETHOD_(ULONG, Release)(void)
+    {
+        if (InterlockedDecrement(&m_RefCount) == 0)
+        {
+            delete this;
+            return 0;
+        }
+        else
+        {
+            return m_RefCount;
+        }
+    }
+
+    STDMETHOD(GetValue)(REFPROPERTYKEY key, PROPVARIANT *value)
+    {
+        if (key == UI_PKEY_Label)
+        {
+            return UIInitPropertyFromString(key, m_Label, value);
+        }
+        else if (key == UI_PKEY_CommandId)
+        {
+            return UIInitPropertyFromUInt32(UI_PKEY_CommandId, m_CommandId, value);
+        }
+        else if (key == UI_PKEY_ItemImage)
+        {
+            return UIInitPropertyFromInterface(UI_PKEY_ItemImage, m_Image, value);
+        }
+        else
+        {
+            return E_NOTIMPL;
+        }
+    }
+};
+
+void CNativeRibbonApp::SetItems(UINT cmdId, const std::list<CNativeRibbonDynamicItemInfo> & items)
+{
+    CComPtr<IUICollection> uiCollection = GetUICommandItemsSource(cmdId);
+
+    if (uiCollection)
+    {
+        CComPtr<IUIImageFromBitmap> imageFactory;
+        imageFactory.CoCreateInstance(__uuidof(UIRibbonImageFromBitmapFactory));
+
+        UINT32 idx = 0;
+        UINT32 count = 0;
+        uiCollection->GetCount(&count);
+        for (const auto & item : items)
+        {
+            CComPtr<IUIImage> image;
+
+            if (imageFactory && item.GetImageId() > 0)
+            {
+                HBITMAP hbm =
+                    (HBITMAP)LoadImage(
+                        AfxGetResourceHandle(), MAKEINTRESOURCE(item.GetImageId()),
+                        IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION);
+
+                imageFactory->CreateImage(hbm, UI_OWNERSHIP_TRANSFER, &image);
+            }
+
+            if (idx < count)
+            {
+                uiCollection->Replace(idx, new UIDynamicCommandItem(item.GetCommandId(), item.GetLabel(), image));
+            }
+            else
+            {
+                uiCollection->Add(new UIDynamicCommandItem(item.GetCommandId(), item.GetLabel(), image));
+            }
+            idx++;
+        }
+
+        for (; idx < count; idx++)
+        {
+            uiCollection->RemoveAt(idx);
+        }
+        SetUICommandItemsSource(cmdId, uiCollection);
     }
 }
