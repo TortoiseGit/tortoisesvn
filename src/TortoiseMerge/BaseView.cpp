@@ -2889,7 +2889,8 @@ bool CBaseView::SelectNextBlock(int nDirection, bool bConflict, bool bSkipEndOfC
         DiffStates linestate = m_pViewData->GetState(GetViewLineForScreen(nCenterPos));
         if (!bConflict &&
             (linestate != DIFFSTATE_NORMAL) &&
-            (linestate != DIFFSTATE_UNKNOWN))
+            (linestate != DIFFSTATE_UNKNOWN) &&
+            (linestate != DIFFSTATE_FILTEREDDIFF))
         {
             break;
         }
@@ -4590,6 +4591,7 @@ void CBaseView::BuildFindStringArray()
                     break;
                 case DIFFSTATE_UNKNOWN:
                 case DIFFSTATE_NORMAL:
+                case DIFFSTATE_FILTEREDDIFF:
                     if (m_bLimitToDiff)
                     {
                         m_arFindStringLines.push_back(0);
@@ -4941,7 +4943,7 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
         if (!m_bShowInlineDiff)
             break;
 
-        if ((diffState == DIFFSTATE_NORMAL)&&(!m_bWhitespaceInlineDiffs))
+        if (((diffState == DIFFSTATE_NORMAL) || (diffState == DIFFSTATE_FILTEREDDIFF)) && (!m_bWhitespaceInlineDiffs))
             break;
 
         CString sLine = GetViewLineChars(nViewLine);
@@ -5662,6 +5664,7 @@ bool CBaseView::Search(SearchDirection srchDir, bool useStart, bool flashIfNotFo
             break;
         case DIFFSTATE_UNKNOWN:
         case DIFFSTATE_NORMAL:
+        case DIFFSTATE_FILTEREDDIFF:
             if (m_bLimitToDiff)
                 break;
         case DIFFSTATE_REMOVED:
@@ -5777,6 +5780,7 @@ CString CBaseView::GetSelectedText() const
         case DIFFSTATE_YOURSREMOVED:
         case DIFFSTATE_YOURSADDED:
         case DIFFSTATE_EDITED:
+        case DIFFSTATE_FILTEREDDIFF:
             sSelectedText += GetViewLineChars(nViewLine);
             sSelectedText += L"\r\n";
             break;
@@ -5789,11 +5793,12 @@ CString CBaseView::GetSelectedText() const
     return sSelectedText;
 }
 
-void CBaseView::CheckModifications(bool& hasMods, bool& hasConflicts, bool& hasWhitespaceMods)
+void CBaseView::CheckModifications(bool& hasMods, bool& hasConflicts, bool& hasWhitespaceMods, bool& hasFilteredMods)
 {
     hasMods             = false;
     hasConflicts        = false;
     hasWhitespaceMods   = false;
+    hasFilteredMods     = false;
 
     if (m_pViewData)
     {
@@ -5823,6 +5828,9 @@ void CBaseView::CheckModifications(bool& hasMods, bool& hasConflicts, bool& hasW
             case DIFFSTATE_WHITESPACE:
             case DIFFSTATE_WHITESPACE_DIFF:
                 hasWhitespaceMods = true;
+                break;
+            case DIFFSTATE_FILTEREDDIFF:
+                hasFilteredMods = true;
                 break;
             }
         }
