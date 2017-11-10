@@ -184,7 +184,6 @@ BOOL CTortoiseMergeApp::InitInstance()
     // visual styles.  Otherwise, any window creation will fail.
     InitCommonControls();
 
-    CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
     CMFCButton::EnableWindowsTheming();
     EnableTaskbarInteraction(FALSE);
 
