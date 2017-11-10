@@ -319,10 +319,10 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\Resources\TortoiseMergeRibbon.xml">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)\TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)\TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)\TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)\TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
