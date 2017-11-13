@@ -266,7 +266,7 @@ msgstr ""
 msgid "&Abort\nYou can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr ""
 
@@ -514,7 +514,7 @@ msgstr ""
 msgid "&Convert files when diffing against BASE"
 msgstr ""
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr ""
 
@@ -742,7 +742,7 @@ msgstr ""
 msgid "&Help"
 msgstr ""
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr ""
 
@@ -754,7 +754,7 @@ msgstr ""
 msgid "&Hide ignored items"
 msgstr ""
 
-#. Resource IDs: (60016)
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
 msgid "&Hide/Show the patch file list"
 msgstr ""
 
@@ -965,7 +965,7 @@ msgstr ""
 msgid "&One Page"
 msgstr ""
 
-#. Resource IDs: (60008, IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN, cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr ""
 
@@ -1005,7 +1005,7 @@ msgstr ""
 msgid "&Password:"
 msgstr ""
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE, ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr ""
 
@@ -1178,7 +1178,7 @@ msgstr ""
 msgid "&SVN"
 msgstr ""
 
-#. Resource IDs: (60011)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr ""
 
@@ -1226,7 +1226,7 @@ msgstr ""
 msgid "&Start Repobrowser"
 msgstr ""
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr ""
 
@@ -1294,7 +1294,7 @@ msgstr ""
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr ""
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr ""
 
@@ -1330,7 +1330,7 @@ msgstr ""
 msgid "&URL:"
 msgstr ""
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr ""
 
@@ -1621,7 +1621,7 @@ msgstr ""
 msgid "Abort"
 msgstr ""
 
-#. Resource IDs: (60022)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
 msgid "Abou&t TortoiseMerge"
 msgstr ""
 
@@ -1767,7 +1767,7 @@ msgstr ""
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr ""
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid "Adjust the settings\nSettings"
 msgstr ""
 
@@ -1811,7 +1811,7 @@ msgstr ""
 msgid "All Files (*.*)|*.*||"
 msgstr ""
 
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid "Allow Editing for this view\nAllow Edit"
 msgstr ""
 
@@ -2088,7 +2088,7 @@ msgstr ""
 msgid "Blend alpha"
 msgstr ""
 
-#. Resource IDs: (60004)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
 msgstr ""
 
@@ -2156,7 +2156,7 @@ msgstr ""
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr ""
 
-#. Resource IDs: (60037)
+#. Resource IDs: (cmdCopy_Keytip_RESID)
 msgid "C"
 msgstr ""
 
@@ -2521,7 +2521,7 @@ msgstr ""
 msgid "Click on \"Advanced\" to specify alternate merge programs based on file extension"
 msgstr ""
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid "Click to see commands to move blocks of text\nUse text blocks"
 msgstr ""
 
@@ -2549,7 +2549,7 @@ msgstr ""
 msgid "Collaborator &password"
 msgstr ""
 
-#. Resource IDs: (60115, ID_VIEW_COLLAPSED - Menu)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr ""
 
@@ -2557,7 +2557,7 @@ msgstr ""
 msgid "Collapse &following tree"
 msgstr ""
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid "Collapse unchanged sections\nCollapse"
 msgstr ""
 
@@ -2687,7 +2687,7 @@ msgstr ""
 msgid "Compare two files"
 msgstr ""
 
-#. Resource IDs: (60090, ID_VIEW_COMPAREWHITESPACES - Menu)
+#. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu, cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr ""
 
@@ -2711,7 +2711,7 @@ msgstr ""
 msgid "Compare with previous revision"
 msgstr ""
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid "Compares all whitespaces when diffing\nCompare whitespaces"
 msgstr ""
 
@@ -2735,7 +2735,7 @@ msgstr ""
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr ""
 
-#. Resource IDs: (60111)
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
 msgid "Configure Filter Regex"
 msgstr ""
 
@@ -2834,7 +2834,7 @@ msgstr ""
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr ""
 
-#. Resource IDs: (60036, IDS_PROGRS_TITLE_COPY)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr ""
 
@@ -2889,7 +2889,7 @@ msgstr ""
 msgid "Copy selection to cli&pboard"
 msgstr ""
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid "Copy the selection and put it on the Clipboard\nCopy"
 msgstr ""
 
@@ -3075,7 +3075,7 @@ msgstr ""
 msgid "Create &Library"
 msgstr ""
 
-#. Resource IDs: (60020)
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
 msgid "Create &patch file"
 msgstr ""
 
@@ -3128,7 +3128,7 @@ msgstr ""
 msgid "Creates a library folder with special settings for Subversion working copies"
 msgstr ""
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid "Creates a patch file from the differences of the two files\nCreate patch file"
 msgstr ""
 
@@ -3327,7 +3327,7 @@ msgstr ""
 msgid "Dialog sizes and positions"
 msgstr ""
 
-#. Resource IDs: (60006)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr ""
 
@@ -3438,7 +3438,7 @@ msgstr ""
 msgid "Display help for clicked on buttons, menus and windows\nHelp"
 msgstr ""
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid "Display help for current task or command\nHelp"
 msgstr ""
 
@@ -3446,7 +3446,7 @@ msgstr ""
 msgid "Display instructions about how to use help\nHelp"
 msgstr ""
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid "Display program information, version number and copyright\nAbout"
 msgstr ""
 
@@ -3597,7 +3597,7 @@ msgstr ""
 msgid "Drop not possible on %1!ls!"
 msgstr ""
 
-#. Resource IDs: (60001, 60034)
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
 msgid "E"
 msgstr ""
 
@@ -3613,7 +3613,7 @@ msgstr ""
 msgid "E&xecutable"
 msgstr ""
 
-#. Resource IDs: (105 - Menu, 290, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu, cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr ""
 
@@ -3645,7 +3645,7 @@ msgstr ""
 msgid "EXT"
 msgstr ""
 
-#. Resource IDs: (20000, 60002, 65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr ""
 
@@ -3730,7 +3730,7 @@ msgstr ""
 msgid "Enable Auto-Properties"
 msgstr ""
 
-#. Resource IDs: (60033)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr ""
 
@@ -4034,7 +4034,7 @@ msgstr ""
 msgid "Externals included"
 msgstr ""
 
-#. Resource IDs: (60043)
+#. Resource IDs: (cmdFind_Keytip_RESID)
 msgid "F"
 msgstr ""
 
@@ -4247,7 +4247,7 @@ msgstr ""
 msgid "Filtered"
 msgstr ""
 
-#. Resource IDs: (57636 - Menu, 60042, Dialog IDD_FIND: Control id 139)
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu, cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr ""
 
@@ -4259,7 +4259,7 @@ msgstr ""
 msgid "Find HEAD revisions"
 msgstr ""
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid "Find the specified text\nFind"
 msgstr ""
 
@@ -4360,7 +4360,7 @@ msgstr ""
 msgid "Fully recursive"
 msgstr ""
 
-#. Resource IDs: (60046)
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
 msgid "G"
 msgstr ""
 
@@ -4458,31 +4458,31 @@ msgstr ""
 msgid "Go to line"
 msgstr ""
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid "Go to the next conflict\nNext conflict"
 msgstr ""
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid "Go to the next difference\nNext difference"
 msgstr ""
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid "Go to the next inline difference\nNext inline difference"
 msgstr ""
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid "Go to the previous conflict\nPrevious conflict"
 msgstr ""
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid "Go to the previous difference\nPrevious difference"
 msgstr ""
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid "Go to the previous inline difference\nPrevious inline difference"
 msgstr ""
 
-#. Resource IDs: (60045, ID_EDIT_GOTOLINE - Menu)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr ""
 
@@ -4567,7 +4567,7 @@ msgstr ""
 msgid "Hide/Show the patch file list"
 msgstr ""
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid "Hide/Show the patch file list\nHides or shows the patch file list"
 msgstr ""
 
@@ -4903,11 +4903,11 @@ msgstr ""
 msgid "Ignore &ancestry"
 msgstr ""
 
-#. Resource IDs: (60113)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr ""
 
-#. Resource IDs: (60094, ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu)
+#. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu, cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr ""
 
@@ -4919,7 +4919,7 @@ msgstr ""
 msgid "Ignore changes\nIgnore the outside changes."
 msgstr ""
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid "Ignore comment changes\nIgnore Comments"
 msgstr ""
 
@@ -4947,7 +4947,7 @@ msgstr ""
 msgid "Ignore whitespace c&hanges"
 msgstr ""
 
-#. Resource IDs: (60092, Dialog IDD_BLAME: Control id 1391, ID_VIEW_IGNOREWHITESPACECHANGES - Menu)
+#. Resource IDs: (Dialog IDD_BLAME: Control id 1391, ID_VIEW_IGNOREWHITESPACECHANGES - Menu, cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr ""
 
@@ -4959,11 +4959,11 @@ msgstr ""
 msgid "Ignored items included"
 msgstr ""
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid "Ignores all whitespace changes when diffing\nIgnore all whitespace changes"
 msgstr ""
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid "Ignores changes in whitespaces when diffing\nIgnore whitespace changes"
 msgstr ""
 
@@ -5078,11 +5078,11 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#. Resource IDs: (60105, ID_VIEW_INLINEDIFF - Menu)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr ""
 
-#. Resource IDs: (60107, ID_VIEW_INLINEDIFFWORD - Menu)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr ""
 
@@ -5094,7 +5094,7 @@ msgstr ""
 msgid "Input"
 msgstr ""
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid "Insert Clipboard contents\nPaste"
 msgstr ""
 
@@ -5187,7 +5187,7 @@ msgstr ""
 msgid "Kind"
 msgstr ""
 
-#. Resource IDs: (60099)
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
 msgid "L"
 msgstr ""
 
@@ -5271,7 +5271,7 @@ msgstr ""
 msgid "Line Graph"
 msgstr ""
 
-#. Resource IDs: (60117, ID_VIEW_LINEDIFFBAR - Menu)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr ""
 
@@ -5342,7 +5342,7 @@ msgstr ""
 msgid "Locator Bar"
 msgstr ""
 
-#. Resource IDs: (60118, Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr ""
 
@@ -5494,7 +5494,7 @@ msgstr ""
 msgid "Mark as &resolved\nThe conflict is resolved."
 msgstr ""
 
-#. Resource IDs: (60048, IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED, ID_EDIT_MARKASRESOLVED - Menu)
+#. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED, ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr ""
 
@@ -5526,7 +5526,7 @@ msgstr ""
 msgid "Markers"
 msgstr ""
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid "Marks a file as resolved in Subversion\nMark as resolved"
 msgstr ""
 
@@ -5856,15 +5856,15 @@ msgstr ""
 msgid "My file:"
 msgstr ""
 
-#. Resource IDs: (60061)
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
 msgid "NC"
 msgstr ""
 
-#. Resource IDs: (60055)
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
 msgid "ND"
 msgstr ""
 
-#. Resource IDs: (60067)
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
 msgid "NI"
 msgstr ""
 
@@ -5876,11 +5876,11 @@ msgstr ""
 msgid "Name:"
 msgstr ""
 
-#. Resource IDs: (60003)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr ""
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid "Navigate to a specific line in the view\nGoto Line"
 msgstr ""
 
@@ -5928,15 +5928,15 @@ msgstr ""
 msgid "Newlines"
 msgstr ""
 
-#. Resource IDs: (60060, ID_NAVIGATE_NEXTCONFLICT - Menu)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr ""
 
-#. Resource IDs: (60054, ID_NAVIGATE_NEXTDIFFERENCE - Menu)
+#. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu, cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr ""
 
-#. Resource IDs: (60066, ID_NAVIGATE_NEXTINLINEDIFF - Menu)
+#. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu, cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr ""
 
@@ -6199,7 +6199,7 @@ msgstr ""
 msgid "Opacity"
 msgstr ""
 
-#. Resource IDs: (57601 - Menu, 61440)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr ""
 
@@ -6215,7 +6215,7 @@ msgstr ""
 msgid "Open client certificate file"
 msgstr ""
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid "Open files for diff or to apply a patch\nOpen files"
 msgstr ""
 
@@ -6295,15 +6295,15 @@ msgstr ""
 msgid "Overwrite\nThe settings are overwritten"
 msgstr ""
 
-#. Resource IDs: (60058)
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
 msgid "PC"
 msgstr ""
 
-#. Resource IDs: (60052)
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
 msgid "PD"
 msgstr ""
 
-#. Resource IDs: (60064)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
 msgid "PI"
 msgstr ""
 
@@ -6349,7 +6349,7 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
-#. Resource IDs: (60039)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr ""
 
@@ -6534,15 +6534,15 @@ msgstr ""
 msgid "Preview patched file"
 msgstr ""
 
-#. Resource IDs: (60057, ID_NAVIGATE_PREVIOUSCONFLICT - Menu)
+#. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu, cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr ""
 
-#. Resource IDs: (60051, ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu)
+#. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu, cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr ""
 
-#. Resource IDs: (60063, ID_NAVIGATE_PREVINLINEDIFF - Menu)
+#. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu, cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr ""
 
@@ -6703,7 +6703,7 @@ msgstr ""
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr ""
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid "Quit the application; prompts to save documents\nExit"
 msgstr ""
 
@@ -6711,7 +6711,7 @@ msgstr ""
 msgid "Quit\nExit TortoiseMerge without saving the modifications"
 msgstr ""
 
-#. Resource IDs: (60031)
+#. Resource IDs: (cmdReload_Keytip_RESID)
 msgid "R"
 msgstr ""
 
@@ -6819,11 +6819,11 @@ msgstr ""
 msgid "Redirecting to url"
 msgstr ""
 
-#. Resource IDs: (60027)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr ""
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid "Redo the previously undone action\nRedo"
 msgstr ""
 
@@ -6848,7 +6848,7 @@ msgstr ""
 msgid "Refreshing shell for %1!ls!"
 msgstr ""
 
-#. Resource IDs: (500, 60109, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165, cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr ""
 
@@ -6907,11 +6907,11 @@ msgstr ""
 msgid "Relo&cate..."
 msgstr ""
 
-#. Resource IDs: (60030, ID_FILE_RELOAD - Menu)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr ""
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid "Reloads the opened files and reverts all changes.\nReload"
 msgstr ""
 
@@ -7321,7 +7321,7 @@ msgstr ""
 msgid "Run hoo&k script"
 msgstr ""
 
-#. Resource IDs: (60012)
+#. Resource IDs: (cmdSave_Keytip_RESID)
 msgid "S"
 msgstr ""
 
@@ -7425,15 +7425,15 @@ msgstr ""
 msgid "Sample text:"
 msgstr ""
 
-#. Resource IDs: (57603 - Menu)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr ""
 
-#. Resource IDs: (60014)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
 msgid "Save &as"
 msgstr ""
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr ""
 
@@ -7520,7 +7520,7 @@ msgstr ""
 msgid "Save settings to file"
 msgstr ""
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid "Save the modified file\nSave file"
 msgstr ""
 
@@ -7755,7 +7755,7 @@ msgstr ""
 msgid "Setting properties..."
 msgstr ""
 
-#. Resource IDs: (60018, IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr ""
 
@@ -7851,11 +7851,11 @@ msgstr ""
 msgid "Show HEAD revision nodes"
 msgstr ""
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid "Show Inline-Diff word by word\nInline diff word-wise"
 msgstr ""
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid "Show Inline-Diff\nInline diff"
 msgstr ""
 
@@ -7875,7 +7875,7 @@ msgstr ""
 msgid "Show WC &modifications"
 msgstr ""
 
-#. Resource IDs: (60087, ID_VIEW_WHITESPACES - Menu)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr ""
 
@@ -7939,15 +7939,15 @@ msgstr ""
 msgid "Show only the changed parts of the path name. Replace unchanged elements with dots."
 msgstr ""
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid "Show or hide the line diff bar\nToggle LineDiffBar"
 msgstr ""
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid "Show or hide the locator bar\nToggle LocatorBar"
 msgstr ""
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid "Show or hide the status bar\nToggle StatusBar"
 msgstr ""
 
@@ -7959,7 +7959,7 @@ msgstr ""
 msgid "Show revision properties"
 msgstr ""
 
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid "Show special characters for whitespaces and newlines\nShow Whitespaces"
 msgstr ""
 
@@ -8215,7 +8215,7 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#. Resource IDs: (60119)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr ""
 
@@ -8329,19 +8329,19 @@ msgstr ""
 msgid "Switch back to the previous window pane\nPrevious Pane"
 msgstr ""
 
-#. Resource IDs: (60101, ID_VIEW_ONEWAYDIFF - Menu)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr ""
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid "Switch between single and double pane view\nSwitch between single and double pane view"
 msgstr ""
 
-#. Resource IDs: (60103, ID_VIEW_SWITCHLEFT - Menu)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr ""
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid "Switch the contents of the left and right view\nSwitch left and right view"
 msgstr ""
 
@@ -9069,7 +9069,7 @@ msgstr ""
 msgid "Unchecked items are shown in the submenu, checked items on the main context menu"
 msgstr ""
 
-#. Resource IDs: (60024)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr ""
 
@@ -9077,7 +9077,7 @@ msgstr ""
 msgid "Undo Add..."
 msgstr ""
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid "Undo the last modifications\nUndo"
 msgstr ""
 
@@ -9256,19 +9256,19 @@ msgstr ""
 msgid "Use '*' as a wildcard character when specifying an exception.\r\nTo separate multiple exceptions, use commas (',').\r\nExample: *.mylan.com, *.company.com"
 msgstr ""
 
-#. Resource IDs: (60080, ID_EDIT_USEMYBLOCK - Menu)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr ""
 
-#. Resource IDs: (60084, ID_EDIT_USEMINETHENTHEIRBLOCK - Menu)
+#. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu, cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr ""
 
-#. Resource IDs: (60078, ID_EDIT_USETHEIRBLOCK - Menu)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr ""
 
-#. Resource IDs: (60082, ID_EDIT_USETHEIRTHENMYBLOCK - Menu)
+#. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu, cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr ""
 
@@ -9288,23 +9288,23 @@ msgstr ""
 msgid "Use Unified Diff from &clipboard"
 msgstr ""
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid "Use all content from the left view\nUse left file"
 msgstr ""
 
-#. Resource IDs: (60074, ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu)
+#. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu, cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr ""
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid "Use block from left view before block from right view\nUse block from left before right"
 msgstr ""
 
-#. Resource IDs: (60076, ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu)
+#. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu, cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr ""
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid "Use block from right view before block from left view\nUse block from right before left"
 msgstr ""
 
@@ -9316,11 +9316,11 @@ msgstr ""
 msgid "Use both text blocks (this one last)"
 msgstr ""
 
-#. Resource IDs: (60069, ID_EDIT_USELEFTBLOCK - Menu)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr ""
 
-#. Resource IDs: (60072, ID_EDIT_USELEFTFILE - Menu)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr ""
 
@@ -9356,11 +9356,11 @@ msgstr ""
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr ""
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid "Use text block from 'mine' before 'theirs'\nUse 'mine' text block then 'theirs'"
 msgstr ""
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid "Use text block from 'mine'\nUse 'mine' text block"
 msgstr ""
 
@@ -9368,15 +9368,15 @@ msgstr ""
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr ""
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid "Use text block from 'theirs' before 'mine'\nUse 'theirs' text block then 'mine'"
 msgstr ""
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid "Use text block from 'theirs'\nUse 'theirs' text block"
 msgstr ""
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid "Use text block from the left view\nUse left block"
 msgstr ""
 
@@ -9434,7 +9434,7 @@ msgstr ""
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr ""
 
-#. Resource IDs: (60040)
+#. Resource IDs: (cmdPaste_Keytip_RESID)
 msgid "V"
 msgstr ""
 
@@ -9471,11 +9471,11 @@ msgstr ""
 msgid "Versioned"
 msgstr ""
 
-#. Resource IDs: (60007)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr ""
 
-#. Resource IDs: (60096)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr ""
 
@@ -9491,7 +9491,7 @@ msgstr ""
 msgid "Visit our website"
 msgstr ""
 
-#. Resource IDs: (60088)
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
 msgid "W"
 msgstr ""
 
@@ -9563,7 +9563,7 @@ msgstr ""
 msgid "Whitespace changes (tabs, spaces)"
 msgstr ""
 
-#. Resource IDs: (60005, Dialog IDD_SETCOLORPAGE: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr ""
 
@@ -9589,7 +9589,7 @@ msgstr ""
 msgid "Working copy: %ls\n"
 msgstr ""
 
-#. Resource IDs: (60098)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
 msgid "Wrap Lines"
 msgstr ""
 
@@ -9597,11 +9597,11 @@ msgstr ""
 msgid "Wrap long lines"
 msgstr ""
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid "Wrap long lines at the right border of the view\nWrap long lines"
 msgstr ""
 
-#. Resource IDs: (60028)
+#. Resource IDs: (cmdRedo_Keytip_RESID)
 msgid "Y"
 msgstr ""
 
@@ -9690,7 +9690,7 @@ msgstr ""
 msgid "Your working copy points to %ls which appears to be a tag!\nYou should first switch to a branch or the main trunk before committing."
 msgstr ""
 
-#. Resource IDs: (60025)
+#. Resource IDs: (cmdUndo_Keytip_RESID)
 msgid "Z"
 msgstr ""
 
@@ -10079,7 +10079,7 @@ msgstr ""
 msgid "normal"
 msgstr ""
 
-#. Resource IDs: (60009)
+#. Resource IDs: (cmdOpen_Keytip_RESID)
 msgid "o1"
 msgstr ""
 
