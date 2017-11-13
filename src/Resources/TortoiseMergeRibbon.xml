@@ -463,9 +463,9 @@
 
           <Group CommandName="cmdGroupView" SizeDefinition="FiveButtons">
             <DropDownButton CommandName="cmdViewBars">
-              <ToggleButton CommandName="cmdViewLineDiffBar"/>
-              <ToggleButton CommandName="cmdViewLocatorBar"/>
-              <ToggleButton CommandName="cmdViewStatusBar"/>
+              <CheckBox CommandName="cmdViewLineDiffBar"/>
+              <CheckBox CommandName="cmdViewLocatorBar"/>
+              <CheckBox CommandName="cmdViewStatusBar"/>
             </DropDownButton>
             <ToggleButton CommandName="cmdViewWrapLines" />
             <ToggleButton CommandName="cmdViewOneWayDiff" />
