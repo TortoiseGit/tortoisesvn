@@ -221,7 +221,6 @@ CMainFrame::CMainFrame()
     , m_regexIndex(-1)
 {
     m_bOneWay = (0 != ((DWORD)m_regOneWay));
-    theApp.m_nAppLook = theApp.GetInt(L"ApplicationLook", ID_VIEW_APPLOOK_VS_2005);
     m_bCollapsed = !!(DWORD)m_regCollapsed;
     m_bViewMovedBlocks = !!(DWORD)m_regViewModedBlocks;
     m_bWrapLines = !!(DWORD)m_regWrapLines;

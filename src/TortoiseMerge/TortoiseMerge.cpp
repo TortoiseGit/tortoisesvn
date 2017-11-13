@@ -65,10 +65,8 @@ public:
 
 
 CTortoiseMergeApp::CTortoiseMergeApp()
-    : m_nAppLook(0)
 {
     EnableHtmlHelp();
-    m_bHiColorIcons = TRUE;
 }
 
 // The one and only CTortoiseMergeApp object
