@@ -1692,13 +1692,17 @@ void CLogDlg::LogThread()
                 // the sUrl with the mergeinfo url
                 CStringA sUrl = CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_sURL));
                 sUrl.TrimRight('/');
+                CTSVNPath pUrl;
+                pUrl.SetFromSVN(sUrl);
 
                 for (hi = apr_hash_first(localpool, mergeinfo); hi; hi = apr_hash_next(hi))
                 {
                     apr_hash_this(hi, &key, nullptr, &val);
                     CStringA sKey = (char*)key;
                     sKey.TrimRight('/');
-                    if (sUrl.Compare(sKey) == 0)
+                    CTSVNPath pKey;
+                    pKey.SetFromSVN(sKey);
+                    if ((sUrl.Compare(sKey) == 0) || pUrl.IsAncestorOf(pKey))
                     {
                         apr_array_header_t * arr = (apr_array_header_t*)val;
                         if (val)
