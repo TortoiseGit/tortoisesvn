@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-19 09:11+0000\n"
+"PO-Revision-Date: 2017-11-14 02:02+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/luebbe/tortoisesvn/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -296,17 +296,13 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%ls\n- це каталог, а не файл!\nTortoiseMerge не вміє шукати відмінності каталогів."
 
-#. Resource IDs: (16923)
-msgid "&..."
-msgstr "&..."
-
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&Про TortoiseMerge..."
 
@@ -316,17 +312,9 @@ msgid ""
 "The certificate is accepted only this one time."
 msgstr ""
 
-#. Resource IDs: (16920)
-msgid "&Activate"
-msgstr "&Активувати"
-
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
 msgstr "&Додати"
-
-#. Resource IDs: (17075)
-msgid "&Add >>"
-msgstr "&Додати >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
@@ -337,10 +325,6 @@ msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
-
-#. Resource IDs: (17018)
-msgid "&Add or Remove Buttons"
-msgstr "&Додати або видалити кнопки"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -377,22 +361,6 @@ msgstr "Застосувати властивість рекурсивно"
 msgid "&Apply unified diff"
 msgstr "&Застосувати об'єднані відмінності"
 
-#. Resource IDs: (65535)
-msgid "&Arguments:"
-msgstr "&Аргументи:"
-
-#. Resource IDs: (16645)
-msgid "&Assign"
-msgstr "&Призначити"
-
-#. Resource IDs: (16633)
-msgid "&Associate double-click event with:"
-msgstr "&Асоціювати подію подвійного клаца з:"
-
-#. Resource IDs: (17041)
-msgid "&Auto Hide"
-msgstr "&Автоматично ховати"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
 msgstr "&Самозакривати:"
@@ -420,10 +388,6 @@ msgstr "Про&коментувати попередню модифікацію"
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
 msgstr "Про&коментувати..."
-
-#. Resource IDs: (65535)
-msgid "&Blue:"
-msgstr "&Блакитний:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -453,14 +417,6 @@ msgstr "Про&глянути..."
 #. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr ""
-
-#. Resource IDs: (16913 - Menu)
-msgid "&Button Appearance..."
-msgstr "Вигляд &кнопки..."
-
-#. Resource IDs: (65535)
-msgid "&Button text:"
-msgstr "Текст &кнопки:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
@@ -604,18 +560,6 @@ msgid ""
 "keep the current format."
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Categories:"
-msgstr "&Категорії:"
-
-#. Resource IDs: (65535)
-msgid "&Category:"
-msgstr "&Категорія:"
-
-#. Resource IDs: (65535)
-msgid "&Choose commands from:"
-msgstr "Вибрати &команди з:"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
 msgstr "&Виберіть елементи:"
@@ -636,17 +580,9 @@ msgstr ""
 msgid "&Close"
 msgstr "&Закрити"
 
-#. Resource IDs: (16922)
-msgid "&Close Window(s)"
-msgstr "&Закрити вікно(а)"
-
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
 msgstr ""
-
-#. Resource IDs: (65535)
-msgid "&Command:"
-msgstr "&Команда:"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -678,14 +614,10 @@ msgstr "&Зв'язатися зі сховищем під час запуску"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Конвертувати файли під час порівняння з BASE"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "&Копіювати"
-
-#. Resource IDs: (16911 - Menu)
-msgid "&Copy Button Image"
-msgstr "&Копіювати зображення кнопки"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
@@ -721,8 +653,8 @@ msgstr "&Днів неактивності, поки малі кеші вида�
 msgid "&Default"
 msgstr "&Типове"
 
-#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
-#. Control id 1382, IDS_MENUREMOVE)
+#. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1382,
+#. IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "Зни&щити"
 
@@ -768,10 +700,6 @@ msgstr "&Каталоги"
 msgid "&Do not ask again"
 msgstr "&Більше не запитувати"
 
-#. Resource IDs: (17040)
-msgid "&Docking"
-msgstr "С&тикування"
-
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
 msgid ""
 "&Don't run\n"
@@ -799,7 +727,7 @@ msgstr "&Редагувати конфлікти"
 msgid "&Edit project"
 msgstr "&Редагувати проект"
 
-#. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
@@ -881,10 +809,6 @@ msgstr ""
 msgid "&Fixed drives"
 msgstr "Ста&ціонарні диски"
 
-#. Resource IDs: (17039)
-msgid "&Floating"
-msgstr "П&лаваюче"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
 msgstr "&Шрифт повідомлень логу:"
@@ -915,10 +839,6 @@ msgstr "&Від: (початковий URL і модифікація діапа�
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Green:"
-msgstr "&Зелений:"
-
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "&Групувати за гілкою"
@@ -945,16 +865,20 @@ msgstr "&HEAD-модифікація у сховищі"
 msgid "&Help"
 msgstr "&Довідка"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "Теми &довідки"
 
-#. Resource IDs: (17042, 61457)
+#. Resource IDs: (61457)
 msgid "&Hide"
 msgstr "При&ховати"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
+msgstr ""
+
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
+msgid "&Hide/Show the patch file list"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
@@ -978,17 +902,9 @@ msgstr ""
 msgid "&Ignore multiple items by name"
 msgstr ""
 
-#. Resource IDs: (16914 - Menu)
-msgid "&Image"
-msgstr "&Зображення"
-
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr ""
-
-#. Resource IDs: (16505)
-msgid "&Image only"
-msgstr "Лише &зображення"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1007,10 +923,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
 msgstr "&Включити інформацію про злиття"
-
-#. Resource IDs: (65535)
-msgid "&Initial directory:"
-msgstr "По&чатковий каталог"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
@@ -1031,10 +943,6 @@ msgstr "Ключові слова"
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
 msgstr "&Мова:"
-
-#. Resource IDs: (16653)
-msgid "&Large Icons"
-msgstr "&Великі піктограми"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -1077,10 +985,6 @@ msgstr ""
 msgid "&Log Sizes"
 msgstr "&Розміри журналів"
 
-#. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
@@ -1097,14 +1001,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "&Максимальний розмір [кБайт] видаленого неактивного кеша"
-
-#. Resource IDs: (16543)
-msgid "&Menu animations:"
-msgstr "Анімація &меню:"
-
-#. Resource IDs: (16921)
-msgid "&Menu contents:"
-msgstr "Вміст &меню"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1125,10 +1021,6 @@ msgstr "З&ливання"
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "Тип mime"
-
-#. Resource IDs: (16925)
-msgid "&Minimize"
-msgstr "&Мінімізувати"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1154,8 +1046,8 @@ msgstr "&Мережеві диски"
 msgid "&New "
 msgstr "&Новий"
 
-#. Resource IDs: (16509, 16615, Dialog IDD_EDITPROPERTIES: Control id 1310,
-#. Dialog IDD_EDITPROPEXTERNALS: Control id 1542)
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1310, Dialog
+#. IDD_EDITPROPEXTERNALS: Control id 1542)
 msgid "&New..."
 msgstr "&Новий..."
 
@@ -1171,10 +1063,6 @@ msgstr "&Наступне >"
 #. Resource IDs: (58114)
 msgid "&Next Page"
 msgstr "&Наступна сторінка"
-
-#. Resource IDs: (16632)
-msgid "&No double-click event"
-msgstr "&Без події подвійного клаца"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
@@ -1192,10 +1080,10 @@ msgstr "&Не виконуваний"
 msgid "&Numeric"
 msgstr ""
 
-#. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
-#. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
-#. 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1,
-#. Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id
+#. 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1,
+#. Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog
+#. IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
 #. IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1,
 #. Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id
 #. 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL:
@@ -1232,7 +1120,8 @@ msgstr "Поки що &поза мережею"
 msgid "&One Page"
 msgstr "&Одна сторінка"
 
-#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN,
+#. cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr "&Відкрити"
 
@@ -1279,8 +1168,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "&Пароль:"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "В&ставити"
 
@@ -1311,10 +1200,6 @@ msgstr "Типовості &моцного користувача"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr ""
-
-#. Resource IDs: (17091)
-msgid "&Print Preview"
-msgstr "Попередній перегляд &друку"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1356,10 +1241,6 @@ msgstr "&Властивості..."
 msgid "&Recent messages"
 msgstr "&Останні повідомлення"
 
-#. Resource IDs: (65535)
-msgid "&Red:"
-msgstr "Че&рвоний"
-
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
 msgstr "Пе&реробити"
@@ -1384,7 +1265,7 @@ msgstr ""
 msgid "&Remind me to enter a bug-ID"
 msgstr ""
 
-#. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1100, IDS_PROP_REMOVE)
 msgid "&Remove"
@@ -1436,22 +1317,6 @@ msgstr ""
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
 msgstr "Оглядач &репозиторію"
-
-#. Resource IDs: (16613, 16624)
-msgid "&Reset"
-msgstr "Пе&реініціалізувати"
-
-#. Resource IDs: (16300)
-msgid "&Reset Toolbar"
-msgstr "Пе&реініціалізувати рядок знарядь"
-
-#. Resource IDs: (16657)
-msgid "&Reset my usage data"
-msgstr "Пе&реініціалізувати мої дані про користування"
-
-#. Resource IDs: (16910 - Menu)
-msgid "&Reset to Default"
-msgstr "Пе&реініціалізувати типовим"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
 msgid ""
@@ -1514,11 +1379,7 @@ msgstr "Клієнт &SSH"
 msgid "&SVN"
 msgstr "&SVN"
 
-#. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr ""
-
-#. Resource IDs: (16921)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr "&Зберегти"
 
@@ -1553,10 +1414,6 @@ msgstr "По&казувати HEAD-модифікації"
 msgid "&Show Log"
 msgstr "Показати &Лог"
 
-#. Resource IDs: (65535)
-msgid "&Show Menus for:"
-msgstr "По&казати меню для:"
-
 #. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr ""
@@ -1565,23 +1422,15 @@ msgstr ""
 msgid "&Show popup notifications"
 msgstr ""
 
-#. Resource IDs: (16612)
-msgid "&Show text labels"
-msgstr "По&казувати текстові мітки"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
 msgstr "&Певна модифікація у сховищі"
-
-#. Resource IDs: (16917 - Menu)
-msgid "&Start Group"
-msgstr "По&чаткова група"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
 msgstr ""
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "&Рядок стану"
 
@@ -1613,10 +1462,6 @@ msgstr "&Символьний перегляд"
 msgid "&Tab size:"
 msgstr "Розмір &табуляції"
 
-#. Resource IDs: (17088)
-msgid "&Tabbed Document"
-msgstr "Документ з вкла&дками"
-
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
 msgstr "&Зрізи"
@@ -1625,13 +1470,9 @@ msgstr "&Зрізи"
 msgid "&Test merge"
 msgstr "&Тестове злиття"
 
-#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "&Текст"
-
-#. Resource IDs: (16506)
-msgid "&Text only"
-msgstr "Лише &текст"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1659,17 +1500,9 @@ msgstr ""
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&До: (кінцевий URL та модифікація діапапзону злиття)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "Рядок &знаряддь"
-
-#. Resource IDs: (65535)
-msgid "&Toolbar Name:"
-msgstr "Назва рядка &знаряддь:"
-
-#. Resource IDs: (65535)
-msgid "&Toolbars:"
-msgstr "Рядки &знаряддь:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
@@ -1708,7 +1541,7 @@ msgstr "&URL сховища:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "С&касувати"
 
@@ -1779,10 +1612,6 @@ msgstr ""
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "Пере&глянути"
-
-#. Resource IDs: (65535)
-msgid "&View:"
-msgstr "Пере&глянути:"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
 msgid "&Whole word"
@@ -1928,11 +1757,6 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#. Resource IDs: (16108)
-msgid ""
-"-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1035, Dialog IDD_CHECKOUT:
 #. Control id 1036, Dialog IDD_COPY: Control id 1035, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1035, Dialog IDD_EXPORT: Control id
@@ -1959,10 +1783,6 @@ msgstr "... перевіряється кеш і готується логови
 msgid "... reading working copy status"
 msgstr "... зчитується статус робочої копії"
 
-#. Resource IDs: (16527)
-msgid "....."
-msgstr "....."
-
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1975,22 +1795,6 @@ msgstr ": робоча копія"
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
 msgstr "< &Назад"
-
-#. Resource IDs: (16506)
-msgid "<.....>"
-msgstr "<.....>"
-
-#. Resource IDs: (17095)
-msgid "<Separator>"
-msgstr "<Розділювач>"
-
-#. Resource IDs: (16104)
-msgid "<Untitled>"
-msgstr "<Без назви>"
-
-#. Resource IDs: (16603)
-msgid "<descr>"
-msgstr "<опис>"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_CREATECS)
 msgid "<new changelist>"
@@ -2076,7 +1880,11 @@ msgstr "&Додати каталог..."
 msgid "Abort"
 msgstr "Припинити"
 
-#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
+msgid "Abou&t TortoiseMerge"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
 msgstr "Про"
 
@@ -2114,10 +1922,6 @@ msgstr "Дії"
 #. Resource IDs: (61203)
 msgid "Activate Task List"
 msgstr "Активувати список завдань"
-
-#. Resource IDs: (17043)
-msgid "Active Files"
-msgstr "Активні файли"
 
 #. Resource IDs: (61838)
 #, c-format
@@ -2187,10 +1991,6 @@ msgstr "Додати до списку &ігнорованих"
 msgid "Add to Bookmarks"
 msgstr "Додати в закладенки"
 
-#. Resource IDs: (17083)
-msgid "Add to Quick Access Toolbar"
-msgstr "Додати до Панелі швидкого доступу"
-
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
@@ -2242,7 +2042,7 @@ msgstr "Додає файл(и) під керування Subversion"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Додає вибрані файли чи файлову маску до списку ігнорованих"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -2281,10 +2081,6 @@ msgstr "Вирівняти дерева по верхівкам"
 msgid "All"
 msgstr "Все"
 
-#. Resource IDs: (16110)
-msgid "All Commands"
-msgstr "Усі команди"
-
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
 msgstr "Усі файли (*.*)"
@@ -2293,32 +2089,7 @@ msgstr "Усі файли (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Усі файли (*.*)|*.*||"
 
-#. Resource IDs: (16112)
-msgid ""
-"All your changes will be lost! Do you really want to reset all toolbars and "
-"menus?"
-msgstr "Усі зміни буде втрачено! Дійсно переініціалізувати всі рядки знарядь та меню?"
-
-#. Resource IDs: (16115)
-msgid ""
-"All your changes will be lost! Do you really want to reset the keyboard "
-"assignments?"
-msgstr "Усі зміни буде втрачено! Дійсно переініціалізувати клавіатурні присвоєння?"
-
-#. Resource IDs: (16113)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
-
-#. Resource IDs: (16111)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar "
-"'%Ts'?"
-msgstr ""
-
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
@@ -2423,10 +2194,6 @@ msgstr ""
 msgid "Append this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Application Frame Menus: "
-msgstr "Меню кістяка програми:"
-
 #. Resource IDs: (IDS_MENUDESCAPPLYPATCH)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Застосовує файл об'єднаних відмінностей до робочої копії"
@@ -2456,11 +2223,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1282)
 msgid "Approved hook scripts"
 msgstr ""
-
-#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
-msgid "Aqua Style"
-msgstr "Аква стиль"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
 msgid "Arb&itrary text"
@@ -2498,10 +2260,6 @@ msgstr "Запитати користувача"
 #, c-format
 msgid "Assigned to changelist '%ls'"
 msgstr "Призначено до списку змін '%ls'"
-
-#. Resource IDs: (16528)
-msgid "Assigned to:"
-msgstr "Призначено:"
 
 #. Resource IDs: (IDS_PROGRS_ATREV)
 #, c-format
@@ -2557,14 +2315,6 @@ msgstr "Автори чутливі до регістра"
 msgid "Authors:"
 msgstr "Автори:"
 
-#. Resource IDs: (16033)
-msgid "Auto Hide"
-msgstr "Автоматично ховати"
-
-#. Resource IDs: (16036)
-msgid "Auto Hide All"
-msgstr "Автоматично все ховати"
-
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
 msgstr ""
@@ -2609,10 +2359,6 @@ msgstr "Середнє"
 msgid "B&rowse..."
 msgstr "Про&глянути"
 
-#. Resource IDs: (17020)
-msgid "Back"
-msgstr "Назад"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
@@ -2637,11 +2383,6 @@ msgid ""
 "a bitmap"
 msgstr "Растр\nрастр"
 
-#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
-msgid "Black Style"
-msgstr "Чорний стиль"
-
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
 msgstr "Прокоментувати"
@@ -2662,14 +2403,9 @@ msgstr "Коментує кожен рядок файла автора"
 msgid "Blend alpha"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
 msgstr ""
-
-#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
-msgid "Blue Style"
-msgstr "Блакитний стиль"
 
 #. Resource IDs: (IDS_BOOKMARKS)
 msgid "Bookmarks"
@@ -2740,9 +2476,9 @@ msgstr "Баг-ID"
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr ""
 
-#. Resource IDs: (16132)
-msgid "Button Appearance"
-msgstr "Вигляд кнопки"
+#. Resource IDs: (cmdCopy_Keytip_RESID)
+msgid "C"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2756,10 +2492,6 @@ msgstr "Пе&ревірити сховище"
 msgid "C&ollapse sub-trees"
 msgstr "&Згорнути піддерева"
 
-#. Resource IDs: (65535)
-msgid "C&ommands:"
-msgstr "&Команди:"
-
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
 msgstr ""
@@ -2771,10 +2503,6 @@ msgstr "С&творити гілку/зріз із модифікації"
 #. Resource IDs: (IDS_REPOBROWSE_MKDIR)
 msgid "C&reate folder..."
 msgstr "С&творити каталог..."
-
-#. Resource IDs: (65535)
-msgid "C&urrent Keys:"
-msgstr "П&оточні клавіші:"
 
 #. Resource IDs: (IDS_EDIT_CUT)
 msgid "C&ut"
@@ -2809,23 +2537,7 @@ msgid ""
 "%2!ls!"
 msgstr "Не вдається скопіювати \n%1!ls!\nдо\n%2!ls!"
 
-#. Resource IDs: (16010)
-msgid "Can't copy bitmap image into the clipboard!"
-msgstr "Не можу скопіювати растрове зображення до буфера обміну!"
-
-#. Resource IDs: (16003)
-msgid "Can't create a new image!"
-msgstr "Не вдається створити нове зображення!"
-
-#. Resource IDs: (16007)
-msgid "Can't customize menus!"
-msgstr ""
-
-#. Resource IDs: (16004)
-msgid "Can't paste bitmap image from the clipboard!"
-msgstr "Не можу вклеїти растрове зображення з буфера обміну!"
-
-#. Resource IDs: (17101, 2, Dialog IDD_BLAME: Control id 2, Dialog
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog
 #. IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2,
 #. Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control
 #. id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2,
@@ -2932,17 +2644,9 @@ msgstr "Скасовується операція..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Не вдається показати відмінності через неузгоджені нові рядки у файлі."
 
-#. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "Каска_дом"
-
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
 msgstr "Чутливі до регістра"
-
-#. Resource IDs: (65535)
-msgid "Cate&gories:"
-msgstr "Кате&горії:"
 
 #. Resource IDs: (IDS_ERR_SSL_EXPIRED)
 #, c-format
@@ -2966,12 +2670,6 @@ msgstr "Сертифікати|*.p12;*.pkcs12;*.pfx|Усі|*.*||"
 msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
-
-#. Resource IDs: (10000)
-msgid ""
-"Change the style of the application\n"
-"Change Style"
 msgstr ""
 
 #. Resource IDs: (61185)
@@ -3003,10 +2701,6 @@ msgstr "Список змін:"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "Внесені зміни (для відмінностей двічі клацніть файл):"
-
-#. Resource IDs: (32956)
-msgid "Changes the style of the application"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3168,12 +2862,6 @@ msgstr "Прибирання перерваних операцій, заблок
 msgid "Clear"
 msgstr "Очистити"
 
-#. Resource IDs: (16909)
-msgid ""
-"Clear Tool\n"
-"Clear"
-msgstr "Знаряддя для очищення\nОчистити"
-
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
 msgstr "Очистити все"
@@ -3234,7 +2922,7 @@ msgid ""
 "extension"
 msgstr "Клацніть \"Хитріше\", щоб вказати альтернативні програми злиття, залежно від розширення файла"
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
@@ -3243,20 +2931,6 @@ msgstr ""
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
 msgstr "Буфер обміну"
-
-#. Resource IDs: (16032, 16105, 17023, 2)
-msgid "Close"
-msgstr "Закрити"
-
-#. Resource IDs: (17025)
-msgid "Close Full Screen"
-msgstr "Закрити повноекранний режим"
-
-#. Resource IDs: (58112)
-msgid ""
-"Close Print Preview\n"
-"&Close"
-msgstr "Закрити попередній перегляд друку\n&Закрити"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_MANUAL)
 msgid "Close manually"
@@ -3278,7 +2952,7 @@ msgstr "&Згорнути вихідне дерево"
 msgid "Collaborator &password"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr "Згорнути"
 
@@ -3286,15 +2960,11 @@ msgstr "Згорнути"
 msgid "Collapse &following tree"
 msgstr "Згорнути &вказане дерево"
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr "Згорнути незмінені секції\nЗгорнути"
-
-#. Resource IDs: (16662)
-msgid "Color"
-msgstr "Колір"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Color 1"
@@ -3316,21 +2986,13 @@ msgstr ""
 msgid "Color by au&thor"
 msgstr ""
 
-#. Resource IDs: (16961, Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
 msgid "Colors"
 msgstr "Кольори"
 
-#. Resource IDs: (65535)
-msgid "Colors:"
-msgstr "Кольори:"
-
-#. Resource IDs: (65535)
-msgid "Comman&ds:"
-msgstr "&Команди:"
-
-#. Resource IDs: (16029, IDS_PROGRS_CMDINFO)
+#. Resource IDs: (IDS_PROGRS_CMDINFO)
 msgid "Command"
 msgstr "Команда"
 
@@ -3356,10 +3018,6 @@ msgstr ""
 #. Resource IDs: (61705)
 msgid "Command failed."
 msgstr "Команду спіткала невдача."
-
-#. Resource IDs: (16104)
-msgid "Commands"
-msgstr "Команди"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
@@ -3448,7 +3106,7 @@ msgid "Compare two files"
 msgstr "Порівняти 2 файли"
 
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
-#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
+#. cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr "Порівняти пробіли"
 
@@ -3472,7 +3130,7 @@ msgstr ""
 msgid "Compare with previous revision"
 msgstr "Порівняти з попередньою модифікацією"
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
@@ -3498,6 +3156,10 @@ msgstr "Готово!"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
+msgid "Configure Filter Regex"
 msgstr ""
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
@@ -3564,17 +3226,9 @@ msgstr "З'єднатися з сервером сховища та завант
 msgid "Container sizes"
 msgstr "Розміри контейнерів"
 
-#. Resource IDs: (16520)
-msgid "Context Menus: "
-msgstr "Контекстні меню:"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr ""
-
-#. Resource IDs: (16013)
-msgid "Contract docked window"
-msgstr "Стиснути пристиковане вікно"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3605,7 +3259,7 @@ msgstr "Скопійовано з: %1!ls!@%2!ld!\r\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr ""
 
-#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr "Копіювати"
 
@@ -3635,12 +3289,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_COPY: Control id 142)
 msgid "Copy (Branch / Tag)"
 msgstr "Копіювати (Гілка / Зріз)"
-
-#. Resource IDs: (16907)
-msgid ""
-"Copy Tool\n"
-"Copy"
-msgstr "Знаряддя для копіювання\nКопіювати"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
@@ -3672,7 +3320,7 @@ msgstr "Копіювати елементи сюди"
 msgid "Copy selection to cli&pboard"
 msgstr "Копіювати виділене до &буфера обміну"
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -3880,6 +3528,10 @@ msgstr ""
 msgid "Create &Library"
 msgstr ""
 
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
+msgid "Create &patch file"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
 msgstr "Створити &латку..."
@@ -3911,8 +3563,7 @@ msgid ""
 "%ls"
 msgstr "Створити новий каталог:\r\n%ls"
 
-#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
-#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
 msgstr ""
 
@@ -3934,7 +3585,7 @@ msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr ""
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
@@ -3956,10 +3607,6 @@ msgstr "Титри:"
 msgid "Cu&t"
 msgstr "В&ирізати"
 
-#. Resource IDs: (65535)
-msgid "Current"
-msgstr "Поточний"
-
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1113)
 msgid "Current version is:"
 msgstr "Поточна версія:"
@@ -3968,14 +3615,6 @@ msgstr "Поточна версія:"
 #, c-format
 msgid "Current version is: %ls"
 msgstr "Поточна версія: %ls"
-
-#. Resource IDs: (17079)
-msgid "Cus&tomize..."
-msgstr "Адап&тувати..."
-
-#. Resource IDs: (16963)
-msgid "Custom"
-msgstr "Адаптоване"
 
 #. Resource IDs: (IDS_SVN_DEPTH_CUSTOM)
 msgid "Custom depths"
@@ -3989,22 +3628,6 @@ msgid ""
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
 msgstr ""
-
-#. Resource IDs: (16103, 17074)
-msgid "Customize"
-msgstr "Адаптувати"
-
-#. Resource IDs: (17076)
-msgid "Customize Keyboard"
-msgstr "Адаптувати клавіатуру"
-
-#. Resource IDs: (17096)
-msgid "Customize Quick Access Toolbar"
-msgstr "Адаптувати Панель швидкого доступу"
-
-#. Resource IDs: (17085)
-msgid "Customize Quick Access Toolbar..."
-msgstr "Адаптувати Панель швидкого доступу..."
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4025,7 +3648,7 @@ msgstr "Дата"
 msgid "Date Range"
 msgstr ""
 
-#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
+#. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "Типове"
 
@@ -4033,17 +3656,9 @@ msgstr "Типове"
 msgid "Default &number of log messages"
 msgstr "Типова &кількість повідомлень логу"
 
-#. Resource IDs: (16106)
-msgid "Default Menu"
-msgstr "Типове меню"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1516)
 msgid "Default URL:"
 msgstr "Типовий URL:"
-
-#. Resource IDs: (16107)
-msgid "Default application menu. Appears when no documents are open."
-msgstr "Типове меню програми. З'являється, коли немає відкритих документів."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4060,10 +3675,6 @@ msgstr "Типовий шлях:"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "Типово - в кодування UTF-8"
-
-#. Resource IDs: (16020)
-msgid "Delete"
-msgstr "Знищити"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
@@ -4160,14 +3771,6 @@ msgstr " Глибина"
 msgid "Depth:"
 msgstr "Глибина"
 
-#. Resource IDs: (16031)
-msgid "Description"
-msgstr "Опис"
-
-#. Resource IDs: (65535)
-msgid "Description:"
-msgstr "Опис:"
-
 #. Resource IDs: (IDS_STATUSLIST_UNCHECKGROUP)
 msgid "Deselect changelist"
 msgstr "Зняти видилення зі списку змін"
@@ -4198,7 +3801,7 @@ msgstr "Растр незалежний від пристрою\nнезалеж�
 msgid "Dialog sizes and positions"
 msgstr "Розміри та розташування діалогів"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr ""
 
@@ -4305,17 +3908,13 @@ msgstr "Під час доступу до %1 диск переповнився."
 msgid "Dispatch exception: %1"
 msgstr "Відхилити виключення: %1"
 
-#. Resource IDs: (65535)
-msgid "Display &buttons in this order"
-msgstr "Відображати &кнопки у цій послідовності"
-
 #. Resource IDs: (57669)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr "Відображати довідку для клацнутих кнопок, меню та вікон\nДовідка"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -4327,7 +3926,7 @@ msgid ""
 "Help"
 msgstr "Відображати інструкції з використання довідки\nДовідка"
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -4375,11 +3974,6 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
-msgstr ""
-
-#. Resource IDs: (16109)
-#, c-format
-msgid "Do you really want to delete the toolbar '%Ts'?"
 msgstr ""
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
@@ -4499,14 +4093,6 @@ msgid ""
 "Reload the views without saving the modifications"
 msgstr ""
 
-#. Resource IDs: (16028)
-msgid "Drag to make this menu float"
-msgstr "Потягніть, щоб це меню попливло"
-
-#. Resource IDs: (16513)
-msgid "Draw"
-msgstr "Малювати"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1079)
 msgid "Drive Types"
 msgstr "Типи дисків"
@@ -4518,6 +4104,10 @@ msgstr "Диски A: і B:"
 #. Resource IDs: (IDS_DROPDESC_NODROP)
 #, c-format
 msgid "Drop not possible on %1!ls!"
+msgstr ""
+
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
+msgid "E"
 msgstr ""
 
 #. Resource IDs: (ID_INLINEEDIT - Menu)
@@ -4532,7 +4122,8 @@ msgstr "В&иключити шляхи:"
 msgid "E&xecutable"
 msgstr ""
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu,
+#. cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr "Ви&хід"
 
@@ -4564,14 +4155,10 @@ msgstr ""
 msgid "EXT"
 msgstr "EXT"
 
-#. Resource IDs: (156 - Ribbon element, 65535 - PopupMenu, Dialog
-#. IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id
+#. 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr "Редагувати"
-
-#. Resource IDs: (16133)
-msgid "Edit Button Image"
-msgstr "Редагувати зображення кнопки"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 319)
 msgid "Edit External"
@@ -4648,12 +4235,6 @@ msgstr "Ім'я або ж IP проксі-сервера"
 msgid "Eliding mergeinfo"
 msgstr ""
 
-#. Resource IDs: (16906)
-msgid ""
-"Ellipse Tools\n"
-"Ellipse"
-msgstr "Знаряддя еліпса\nЕліпс"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Empty"
 msgstr "Порожньо"
@@ -4666,7 +4247,7 @@ msgstr ""
 msgid "Enable Auto-Properties"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr ""
 
@@ -4886,18 +4467,7 @@ msgstr "Винятки:"
 msgid "Exclude"
 msgstr "Виключити"
 
-#. Resource IDs: (16023)
-msgid ""
-"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
-"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "Виконувані  (*.exe)|*.exe|Командні (*.com)|*.com|Інформаційні (*.pdf)|*.pdf|Пакетні (*.bat)|*.bat|Усі файли (*.*)|*.*||"
-
-#. Resource IDs: (16018)
-msgid "Existing"
-msgstr "Існуючі"
-
-#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
-#. Ribbon name)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2)
 msgid "Exit"
 msgstr "Вийти"
 
@@ -4908,15 +4478,6 @@ msgstr "Розг&орнути вихідне дерево"
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_BELOW)
 msgid "Expand &following tree"
 msgstr "Розгорнути &вказане дерево"
-
-#. Resource IDs: (16025)
-#, c-format
-msgid "Expand (%Ts)"
-msgstr ""
-
-#. Resource IDs: (16012)
-msgid "Expand docked window"
-msgstr "Розгорнути пристиковане вікно"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
@@ -5008,14 +4569,14 @@ msgstr "Зовнішні посилання виключено"
 msgid "Externals included"
 msgstr "Зовнішні посилання включено"
 
+#. Resource IDs: (cmdFind_Keytip_RESID)
+msgid "F"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
 msgid "F&orce the merge"
 msgstr "З&мусити злиття"
-
-#. Resource IDs: (17113)
-msgid "Fade"
-msgstr ""
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
@@ -5123,7 +4684,7 @@ msgstr ""
 msgid "Fetching tree conflict information..."
 msgstr ""
 
-#. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
+#. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
 msgstr "Файл"
 
@@ -5253,12 +4814,6 @@ msgstr ""
 msgid "Files"
 msgstr "Файли"
 
-#. Resource IDs: (16901)
-msgid ""
-"Fill Tool\n"
-"Fill"
-msgstr "Знаряддя заповнення\nЗаповнення"
-
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
 msgstr "Фільтрувати по"
@@ -5281,8 +4836,12 @@ msgstr "Фільтрувати шляхи"
 msgid "Filter:"
 msgstr ""
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
+msgid "Filtered"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr "Знайти"
 
@@ -5294,7 +4853,7 @@ msgstr ""
 msgid "Find HEAD revisions"
 msgstr ""
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -5350,10 +4909,6 @@ msgstr "Згорнути &зрізи"
 msgid "Folded tag"
 msgstr "Згорнутий зріз"
 
-#. Resource IDs: (16016)
-msgid "Folder"
-msgstr "Каталог"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Font"
@@ -5380,10 +4935,6 @@ msgstr ""
 msgid "Foreground"
 msgstr ""
 
-#. Resource IDs: (17021)
-msgid "Forward"
-msgstr "Уперед"
-
 #. Resource IDs: (IDS_REPOBROWSE_TT_FORWARD)
 msgid "Forwards in browsing history"
 msgstr ""
@@ -5397,10 +4948,6 @@ msgstr "Знайти автослова:"
 msgid "From:"
 msgstr "Від:"
 
-#. Resource IDs: (17026)
-msgid "Full Screen"
-msgstr "На повний екран"
-
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
 msgstr ""
@@ -5412,6 +4959,10 @@ msgstr ""
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
 msgstr "Цілком рекурсивно"
+
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
+msgid "G"
+msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5509,43 +5060,43 @@ msgstr "Перейти до рядка"
 msgid "Go to line"
 msgstr "Перейти на рядок"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr "Перейти до наступного конфлікта\nНаступний конфлікт"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr "Перейти до наступної відмінності\nНаступна відмінність"
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr ""
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr "Перейти до попереднього конфлікта\nПопередній конфлікт"
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr "Перейти до попередньої відмінності\nПопередня відмінність"
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr "Перейти до рядка"
 
@@ -5556,10 +5107,6 @@ msgstr "Тип графа:"
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
 msgstr ""
-
-#. Resource IDs: (16972)
-msgid "Gray"
-msgstr "Сірий"
 
 #. Resource IDs: (32799)
 msgid "Group by branch"
@@ -5572,10 +5119,6 @@ msgstr "Групувати списки змін"
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1032)
 msgid "H&EAD Revision"
 msgstr "H&EAD Модифікація"
-
-#. Resource IDs: (65535)
-msgid "H&ue:"
-msgstr "Від&тінок:"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1353, Dialog IDD_DIFFFILES:
 #. Control id 1354, IDS_EXTERNALS_HEADREV)
@@ -5614,17 +5157,9 @@ msgstr "Заголовок"
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
 #. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
 #. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
-#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "Довідка"
-
-#. Resource IDs: (16982)
-msgid "Help Keyboard"
-msgstr "Клавіатура допомоги"
-
-#. Resource IDs: (16974)
-msgid "Hex"
-msgstr "Шістнадцятковий"
 
 #. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
@@ -5646,10 +5181,6 @@ msgstr "Сховати всі теґи"
 msgid "Hide deleted branches and tags"
 msgstr "Приховати знищені гілки та зрізи"
 
-#. Resource IDs: (16011)
-msgid "Hide docked window"
-msgstr "Заховати пристиковане вікно"
-
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1562)
 msgid "Hide non-mergeable revisions"
 msgstr ""
@@ -5667,12 +5198,11 @@ msgstr "Ховати скрипт поки він виконується"
 msgid "Hide unused &branches"
 msgstr "Ховати &гілки, які не використовуються"
 
-#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu)
 msgid "Hide/Show the patch file list"
 msgstr ""
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
@@ -5681,16 +5211,6 @@ msgstr "Сховати/Показати список файлів-латок\nХ
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
 msgstr "Найбільший номер модифікації у кеші"
-
-#. Resource IDs: (16519)
-msgid ""
-"Hint: select the context menu, change the page to 'Commands' and drag the "
-"toolbar buttons into the menu window."
-msgstr "Порада: виберіть контекстне меню, перейдіть на сторінку 'Команди' та перетягніть кнопки з рядка знарядь у вікно меню."
-
-#. Resource IDs: (17022)
-msgid "Home"
-msgstr "Початок"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -6060,12 +5580,12 @@ msgstr "Ігнорувати &всі пробіли"
 msgid "Ignore &ancestry"
 msgstr "Ігнорувати по&ходження"
 
-#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
-#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
+#. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr "Ігнорувати всі зміни пробілів"
 
@@ -6079,7 +5599,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr ""
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
@@ -6112,8 +5632,8 @@ msgid "Ignore whitespace c&hanges"
 msgstr "Ігнорувати &зміни пробілів"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
-#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
-#. Ribbon name)
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu,
+#. cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr "Ігнорувати зміни пробілів"
 
@@ -6125,13 +5645,13 @@ msgstr ""
 msgid "Ignored items included"
 msgstr "Ігноровані елементи включено"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr "Ігнорує всі зміни пробілів під час порівнювання\nІгнорувати всі зміни пробілів"
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
@@ -6140,18 +5660,6 @@ msgstr "Ігнорує зміни у пробілах під час порівн
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
 msgstr "невірний шлях"
-
-#. Resource IDs: (16916 - Menu)
-msgid "Image &and Text"
-msgstr "Зображення &і Текст"
-
-#. Resource IDs: (16507)
-msgid "Image &and text"
-msgstr "Зображення &і текст"
-
-#. Resource IDs: (16508)
-msgid "Images"
-msgstr "Зображення"
 
 #. Resource IDs: (IDS_SVN_DEPTH_IMMEDIATE)
 msgid "Immediate children, including folders"
@@ -6270,12 +5778,13 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
+#. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
-#. Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
+#. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr ""
 
@@ -6287,7 +5796,7 @@ msgstr "Відмінності в рядках"
 msgid "Input"
 msgstr "Ввід"
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -6419,20 +5928,12 @@ msgid ""
 "Jump to first unresolved conflict"
 msgstr ""
 
-#. Resource IDs: (16136)
-msgid "Keyboard"
-msgstr "Клавіатура"
-
-#. Resource IDs: (65535)
-msgid "Keyboard shortcuts:"
-msgstr "Гарячі клавіші:"
-
-#. Resource IDs: (16030)
-msgid "Keys"
-msgstr "Клавіші"
-
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL1)
 msgid "Kind"
+msgstr ""
+
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
+msgid "L"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
@@ -6517,14 +6018,8 @@ msgstr "Рядок"
 msgid "Line Graph"
 msgstr "Граф рядків"
 
-#. Resource IDs: (16904)
-msgid ""
-"Line Tool\n"
-"Line"
-msgstr "Знаряддя лінії\nЛінія"
-
-#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu,
+#. cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr "Смуга відмінностей рядків"
 
@@ -6560,10 +6055,6 @@ msgstr "Список тем довідки\nТеми довідки"
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
 msgstr "Список репозиторіїв, для яких закешовано логову інформацію"
-
-#. Resource IDs: (16631, 16992)
-msgid "List1"
-msgstr "Список1"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6603,11 +6094,12 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "Місцеперебування, у якому буде \nзбережено вміст URL(-ів) сховища."
 
-#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu)
 msgid "Locator Bar"
 msgstr "Пошукова смуга"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535,
+#. cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr ""
 
@@ -6728,10 +6220,6 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr "Найстарша показана модифікація: %1!ld! - Найновіша показана модифікація: %2!ld! \nHEAD-модифікація: %3!ld!"
 
-#. Resource IDs: (16973)
-msgid "Lum"
-msgstr "Яскр"
-
 #. Resource IDs: (61841)
 msgid "Mail system DLL is invalid."
 msgstr "DLL поштової системи непридатна."
@@ -6773,7 +6261,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
-#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
+#. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr "Позначити владнаним"
 
@@ -6807,7 +6295,7 @@ msgstr ""
 msgid "Markers"
 msgstr "Позначки"
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
@@ -6844,22 +6332,6 @@ msgstr "Макс. к-сть рядків у лозі дій"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "Максимальна кількість &невдач знаряддя до видалення кеша"
-
-#. Resource IDs: (16655)
-msgid "Me&nus show recently used commands first"
-msgstr "Ме&ню показують першими нещодавно використані команди "
-
-#. Resource IDs: (16134)
-msgid "Menu"
-msgstr "Меню"
-
-#. Resource IDs: (16006)
-msgid "Menu Bar"
-msgstr "Рядок меню"
-
-#. Resource IDs: (16626)
-msgid "Menu s&hadows"
-msgstr "&Тіні меню"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -7024,10 +6496,6 @@ msgstr "Мін"
 msgid "Mine"
 msgstr "Моє"
 
-#. Resource IDs: (17086)
-msgid "Minimize the Ribbon"
-msgstr "Мінімізувати Смужку"
-
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
 msgstr ""
@@ -7051,7 +6519,7 @@ msgstr "Змішане"
 msgid "Modification date"
 msgstr "Дата модифікації"
 
-#. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
@@ -7064,18 +6532,6 @@ msgstr "Змінений вузол"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
 msgstr ""
-
-#. Resource IDs: (17107)
-msgid "More"
-msgstr "Ще"
-
-#. Resource IDs: (16026)
-msgid "More Buttons"
-msgstr "Ще кнопок"
-
-#. Resource IDs: (17097)
-msgid "More Commands..."
-msgstr "Ще команд..."
 
 #. Resource IDs: (IDS_COLOURPICKER_CUSTOMTEXT)
 msgid "More colors..."
@@ -7093,10 +6549,6 @@ msgstr "Ще..."
 msgid "Most active author:"
 msgstr "Найактивніший автор:"
 
-#. Resource IDs: (16135)
-msgid "Mouse"
-msgstr "Миша"
-
 #. Resource IDs: (IDS_INPUT_MOVEMORE)
 #, c-format
 msgid ""
@@ -7110,22 +6562,6 @@ msgid ""
 "Move %1!ls!\r\n"
 "to %2!ls!"
 msgstr "Перемістити %1!ls!\r\nдо %2!ls!"
-
-#. Resource IDs: (17026)
-msgid "Move &Down"
-msgstr "Перемістити в&низ"
-
-#. Resource IDs: (17025)
-msgid "Move &Up"
-msgstr "Перемістити в&гору"
-
-#. Resource IDs: (16022)
-msgid "Move Item Down"
-msgstr "Посунути елемент додолу"
-
-#. Resource IDs: (16021)
-msgid "Move Item Up"
-msgstr "Посунути елемент догори"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK4)
 msgid ""
@@ -7226,36 +6662,36 @@ msgstr "Багато не&залежних робочих копій"
 msgid "My file:"
 msgstr "Мій файл:"
 
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
+msgid "NC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
+msgid "ND"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
+msgid "NI"
+msgstr ""
+
 #. Resource IDs: (59138)
 msgid "NUM"
 msgstr "NUM"
-
-#. Resource IDs: (17128)
-msgid "Name"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535, Dialog
 #. IDD_REGEXFILTER: Control id 65535)
 msgid "Name:"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr ""
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr ""
-
-#. Resource IDs: (17004)
-msgid "Navigation Pane Options"
-msgstr "Параметри панелі навігіції"
-
-#. Resource IDs: (17031)
-msgid "Navigation Pane Options..."
-msgstr "Параметри панелі навігіції..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
@@ -7282,17 +6718,13 @@ msgstr "Мережа"
 msgid "Never try to contact the repository again"
 msgstr "Не намагайтеся знову контактувати зі сховищем. Ніколи."
 
-#. Resource IDs: (16017, 16027, 30721, 65535, 65535 - PopupMenu)
+#. Resource IDs: (30721, 65535 - PopupMenu)
 msgid "New"
 msgstr "Новий"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
 msgstr "&Нова назва:"
-
-#. Resource IDs: (16014)
-msgid "New Menu"
-msgstr "Нове меню"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7306,24 +6738,18 @@ msgstr ""
 msgid "Newlines"
 msgstr ""
 
-#. Resource IDs: (58114)
-msgid ""
-"Next Page\n"
-"Next Page"
-msgstr "Наступна сторінка\nНаступна сторінка"
-
-#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
-#. Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
+#. cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
-#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
+#. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
-#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
+#. cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr ""
 
@@ -7377,6 +6803,10 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr "Після останньої фіксації жодних\nфайлів не додавалось.\nTortoiseSVN тут робити нічого..."
 
+#. Resource IDs: (33002)
+msgid "No filter"
+msgstr ""
+
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
 msgstr "Графа нема в наявності"
@@ -7421,7 +6851,7 @@ msgstr ""
 msgid "Non-versioned"
 msgstr "Неверсійне"
 
-#. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
+#. Resource IDs: (Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
 msgstr "Жодного"
@@ -7565,24 +6995,6 @@ msgstr "Гаразд"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
-#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
-msgid "Office 2003"
-msgstr "Office 2003"
-
-#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
-msgid "Office 2007"
-msgstr "Office 2007"
-
-#. Resource IDs: (10008, 65535 - PopupMenu)
-msgid "Office 2007 colors"
-msgstr "Кольори Office 2007"
-
-#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
-#. - Ribbon name)
-msgid "Office XP"
-msgstr "Office XP"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Older lines"
 msgstr "Давніші рядки"
@@ -7649,7 +7061,7 @@ msgstr "Використовувати перевірку &правопису л
 msgid "Opacity"
 msgstr "Непрозорість"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr "Відкрити"
 
@@ -7665,7 +7077,7 @@ msgstr ""
 msgid "Open client certificate file"
 msgstr "Відкрити файл клієнтського сертифіката "
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
@@ -7721,17 +7133,9 @@ msgstr ""
 msgid "Option"
 msgstr "Параметр"
 
-#. Resource IDs: (16137)
-msgid "Options"
-msgstr "Параметри"
-
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr ""
-
-#. Resource IDs: (17024)
-msgid "Other Task Panes"
-msgstr "Інші панелі завдань"
 
 #. Resource IDs: (IDS_STATGRAPH_OTHERGROUP)
 msgid "Others"
@@ -7759,6 +7163,18 @@ msgstr "Перекрити значення властивості svn:eol-style
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
+msgid "PC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
+msgid "PD"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
+msgid "PI"
 msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
@@ -7807,15 +7223,9 @@ msgstr ""
 msgid "Password:"
 msgstr "Пароль:"
 
-#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr "Вставити"
-
-#. Resource IDs: (16908)
-msgid ""
-"Paste Tool\n"
-"Paste"
-msgstr "Знаряддя вклеювання\nВклеїти"
 
 #. Resource IDs: (IDS_COMMITDLG_POPUP_PASTEFILELIST)
 msgid "Paste filename list"
@@ -7886,12 +7296,6 @@ msgstr ""
 msgid "Peg"
 msgstr ""
 
-#. Resource IDs: (16902)
-msgid ""
-"Pencil Tool\n"
-"Pencil"
-msgstr "Інструмент Олівець\nОлівець"
-
 #. Resource IDs: (IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP)
 msgid "Percent of authorship"
 msgstr ""
@@ -7900,19 +7304,11 @@ msgstr ""
 msgid "Percents"
 msgstr ""
 
-#. Resource IDs: (16538)
-msgid "Personalized Menus and Toolbars"
-msgstr "Персоналізовані меню та рядки знарядь"
-
 #. Resource IDs: (61582)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr "Малюнок (метафайл)\nмалюнок"
-
-#. Resource IDs: (65535)
-msgid "Picture:"
-msgstr "Малюнок:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
@@ -7949,10 +7345,6 @@ msgstr "Майте на увазі:\nВаша робоча копія залиш
 msgid "Please select a hook type"
 msgstr "Виберіть тип скрипта зачіпки"
 
-#. Resource IDs: (IDS_BLAME_PROGRESSINFO)
-msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "Зачекайте, це затягнеться на декілька хвилин. Їй-бо!"
-
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
 msgstr "Зачекайте, відбувається скасування..."
@@ -7970,8 +7362,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "Зачекайте, поки оглядач сховища ініціалізується..."
 
 #. Resource IDs: (Dialog IDD_PLEASEWAIT: Control id 347,
-#. IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT, IDS_REPOBROWSE_WAIT,
-#. IDS_STATUSLIST_BUSYMSG)
+#. IDS_BLAME_PROGRESSINFO, IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT,
+#. IDS_REPOBROWSE_WAIT, IDS_STATUSLIST_BUSYMSG)
 msgid "Please wait..."
 msgstr "Зачекайте..."
 
@@ -8023,60 +7415,28 @@ msgstr ""
 msgid "Prepend this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Press &New Shortcut Key:"
-msgstr "Натисніть &нову Гарячу клавішу:"
-
-#. Resource IDs: (65535)
-msgid "Press &new shortcut key:"
-msgstr "Натисніть &нову гарячу клавішу:"
-
 #. Resource IDs: (32819)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "Запобігає більшості випадків, у яких з'єднувальні лінії перетинають вузли модифікацій"
-
-#. Resource IDs: (17094)
-msgid "Preview"
-msgstr "Попередній перегляд"
 
 #. Resource IDs: (IDS_PATCH_PREVIEW)
 msgid "Preview patched file"
 msgstr "Попередній перегляд залатаного фалйа"
 
-#. Resource IDs: (65535)
-msgid "Preview: "
-msgstr "Попередній перегляд:"
-
-#. Resource IDs: (58115)
-msgid ""
-"Previous Page\n"
-"Previous Page"
-msgstr "Попередня сторінка\nПопередня сторінка"
-
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
-#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
+#. cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
-#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
+#. cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
-#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
+#. cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr ""
-
-#. Resource IDs: (16990, 17092)
-msgid "Print"
-msgstr "Друкувати"
-
-#. Resource IDs: (58116)
-msgid ""
-"Print Document\n"
-"&Print"
-msgstr "Друкувати документ\n&Друкувати"
 
 #. Resource IDs: (61512)
 msgid "Print to File"
@@ -8238,7 +7598,7 @@ msgstr "Налаштування проксі"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Поставити \"Отримати блокування\" у верхнє меню, коли задано svn:needs-lock"
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -8250,13 +7610,13 @@ msgid ""
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
 
+#. Resource IDs: (cmdReload_Keytip_RESID)
+msgid "R"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
 msgstr "R&AM диски"
-
-#. Resource IDs: (16623)
-msgid "R&eset"
-msgstr "Пе&реініціалізувати"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1423)
 msgid "R&everse merge"
@@ -8282,14 +7642,6 @@ msgstr "З&німні диски"
 msgid "Re&name..."
 msgstr "Пере&йменувати..."
 
-#. Resource IDs: (16613)
-msgid "Re&set"
-msgstr "Пе&реініціалізувати"
-
-#. Resource IDs: (16647)
-msgid "Re&set All"
-msgstr "Пе&реініціалізувати все "
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "&Відновити типові"
@@ -8309,10 +7661,6 @@ msgstr "Почитайте 'Посібник зі щоденного корис�
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL2)
 msgid "Realm String"
 msgstr ""
-
-#. Resource IDs: (16019)
-msgid "Recent"
-msgstr "Нещодавні"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
@@ -8352,12 +7700,6 @@ msgid ""
 "Open the auto-saved versions instead of the explicitly saved versions"
 msgstr ""
 
-#. Resource IDs: (16905)
-msgid ""
-"Rectangle Tool\n"
-"Rectangle"
-msgstr "Знаряддя прямокутника\nПрямокутник"
-
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recur&sive\n"
@@ -8380,11 +7722,11 @@ msgstr "Смітник"
 msgid "Redirecting to url"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr ""
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -8412,8 +7754,8 @@ msgstr ""
 msgid "Refreshing shell for %1!ls!"
 msgstr ""
 
-#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
-#. 165, ID_REGEXFILTER - Ribbon name)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165,
+#. cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr ""
 
@@ -8491,11 +7833,11 @@ msgstr "Знімає блокування з файлів, щоб інші ко�
 msgid "Relo&cate..."
 msgstr "Пере&нести..."
 
-#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr "Перевантажити"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -8564,10 +7906,6 @@ msgstr ""
 msgid "Remove from &ignore list"
 msgstr "Видалити зі списку &ігнорованих"
 
-#. Resource IDs: (17084)
-msgid "Remove from Quick Access Toolbar"
-msgstr "Видалити з Панелі швидкого доступу"
-
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REMOVEFROMCS)
 msgid "Remove from changelist"
 msgstr "Видалити зі списку змін"
@@ -8632,10 +7970,6 @@ msgstr ""
 #, c-format
 msgid "Removing unversioned items in %1!ls!"
 msgstr ""
-
-#. Resource IDs: (16616)
-msgid "Rena&me..."
-msgstr "Перей&менувати..."
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 151)
 msgid "Rename"
@@ -8757,10 +8091,6 @@ msgstr "Питає ім'я та пароль"
 #. Resource IDs: (IDS_MENURESOLVE)
 msgid "Res&olve..."
 msgstr ""
-
-#. Resource IDs: (16614)
-msgid "Reset &All"
-msgstr "Переініціалізувати &все"
 
 #. Resource IDs: (IDS_STATUSLIST_RESETCOLUMNORDER)
 msgid "Reset columns"
@@ -8964,24 +8294,6 @@ msgstr "Праве подання:"
 msgid "Right image"
 msgstr "Праве зображення"
 
-#. Resource IDs: (17108)
-#, c-format
-msgid "Row %d of %d"
-msgstr "Рядок %d з %d"
-
-#. Resource IDs: (17109)
-#, c-format
-msgid "Row %d-%d of %d"
-msgstr "Рядки %d-%d з %d"
-
-#. Resource IDs: (17116)
-msgid "Row Down"
-msgstr ""
-
-#. Resource IDs: (17115)
-msgid "Row Up"
-msgstr ""
-
 #. Resource IDs: (IDS_RUNCLEANUPNOW)
 msgid "Run cleanup &now"
 msgstr ""
@@ -8990,21 +8302,9 @@ msgstr ""
 msgid "Run hoo&k script"
 msgstr ""
 
-#. Resource IDs: (17045)
-msgid "S&elect..."
-msgstr "В&ибрати..."
-
-#. Resource IDs: (17027)
-msgid "S&how Buttons on One Row"
-msgstr "По&казати кнопки в одному рядку"
-
-#. Resource IDs: (17028)
-msgid "S&how Buttons on Two Rows"
-msgstr "По&казати кнопки у двох рядках"
-
-#. Resource IDs: (17078)
-msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "По&казувати Панель швидкого доступу під Смужкою"
+#. Resource IDs: (cmdSave_Keytip_RESID)
+msgid "S"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -9114,11 +8414,15 @@ msgstr ""
 msgid "Sample text:"
 msgstr ""
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr "Зберегти"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
+msgid "Save &as"
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "Зберегти &як..."
 
@@ -9188,7 +8492,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr ""
 
-#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
+#. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
 msgstr "Зберегти як"
 
@@ -9227,7 +8531,7 @@ msgstr "Зберегти модифікацію &у..."
 msgid "Save settings to file"
 msgstr ""
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -9282,14 +8586,6 @@ msgstr "Сканувати"
 msgid "Scintilla"
 msgstr "Scintilla"
 
-#. Resource IDs: (16034)
-msgid "Scroll Left"
-msgstr "Прокрутити ліворуч"
-
-#. Resource IDs: (16035)
-msgid "Scroll Right"
-msgstr "Прокрутити праворуч"
-
 #. Resource IDs: (IDS_LOG_POPUP_FIND)
 msgid "Search &log messages..."
 msgstr "Пошук &логових повідомлень..."
@@ -9323,30 +8619,12 @@ msgstr ""
 msgid "Select &All"
 msgstr "Вибрати &все"
 
-#. Resource IDs: (16529)
-msgid "Select &User-defined Image: "
-msgstr "Виберіть визначене &користувачем зображення:"
-
-#. Resource IDs: (16508)
-msgid "Select &context menu:"
-msgstr "Вибрати &контекстне меню"
-
-#. Resource IDs: (65535)
-msgid "Select &window:"
-msgstr "Вибрати вікн&о"
-
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "Виділити / сказувати виділення з &усього"
-
-#. Resource IDs: (16903)
-msgid ""
-"Select Color Tool\n"
-"Select Color"
-msgstr "Вибрати знаряддя для кольору\nВибрати колір"
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
@@ -9493,10 +8771,6 @@ msgstr "Надсилається вміст"
 msgid "Server &address:"
 msgstr "&Адреса сервера:"
 
-#. Resource IDs: (65535)
-msgid "Set Accelerator &for:"
-msgstr "Задати Прискорювач &для:"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1544)
 msgid "Set explicit revision for these externals:"
 msgstr ""
@@ -9516,8 +8790,8 @@ msgstr ""
 msgid "Setting properties..."
 msgstr "Встановлюються властивості..."
 
-#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
-#. Ribbon name)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu,
+#. cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -9562,10 +8836,6 @@ msgstr "Скоротити список властивостей"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1382)
 msgid "Show"
 msgstr "Показати"
-
-#. Resource IDs: (16996)
-msgid "Show &Accelerator for:"
-msgstr "Показати &Прискорювач для:"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1031, IDS_LOG_SHOWALL)
 msgid "Show &All"
@@ -9622,29 +8892,17 @@ msgstr "Показувати пе&рекриття та контекстні м�
 msgid "Show &unversioned files"
 msgstr "Показувати &неверсійні файли"
 
-#. Resource IDs: (17099)
-msgid "Show Above the Ribbon"
-msgstr "Показати над Смужкою"
-
-#. Resource IDs: (17098)
-msgid "Show Below the Ribbon"
-msgstr "Показати під Смужкою"
-
-#. Resource IDs: (17030)
-msgid "Show Fewer Buttons"
-msgstr "Показати менше кнопок"
-
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
 msgstr "Показувати вузли HEAD-модифікації"
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr "Показувати відмінності в рядках слово за словом\nДослівні відмінності в рядках"
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
@@ -9658,32 +8916,16 @@ msgstr "Показати діалог Блокування перш ніж бл�
 msgid "Show Monitor Dialog"
 msgstr ""
 
-#. Resource IDs: (17029)
-msgid "Show More Buttons"
-msgstr "Показати більше кнопок"
-
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "Показати &огляд"
-
-#. Resource IDs: (17082)
-msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "Показувати Панель швидкого доступу над Смужкою"
-
-#. Resource IDs: (17081)
-msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "Показувати Панель швидкого доступу під Смужкою"
-
-#. Resource IDs: (16651)
-msgid "Show Screen&Tips on toolbars"
-msgstr "Показувати Екранні &підказки на рядках знарядь"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "Показати &модифікування КВ"
 
-#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
+#. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr ""
 
@@ -9714,10 +8956,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1480)
 msgid "Show externals from &different repositories"
 msgstr "Показати зовнішні посилання з &різних сховищ"
-
-#. Resource IDs: (16656)
-msgid "Show f&ull menus after a short delay"
-msgstr "Показати &повні меню після короткої затримки"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1037, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1034)
@@ -9755,19 +8993,19 @@ msgid ""
 "with dots."
 msgstr "Показувати лише змінені частини шляху. Заіняти незмінені елементи кратками."
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr "Показати або заховати смугу відмінності рядків\nПеремкнути смугу відмінності рядків"
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr "Показати або заховати пошукову смугу\nПеремкнути пошукову смугу"
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -9783,11 +9021,7 @@ msgstr "Показати або заховати рядок знарядь\nПе
 msgid "Show revision properties"
 msgstr "Показати властивості модифікації"
 
-#. Resource IDs: (16652)
-msgid "Show shortcut &keys in ScreenTips"
-msgstr "Показувати гарячі &клавіші в Екранних підказках"
-
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
@@ -9878,12 +9112,7 @@ msgstr "Показує лог для видраного файла / катал�
 msgid "Shows the mime type of the versioned file"
 msgstr "Показує тип mime версійного файла"
 
-#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
-msgid "Silver Style"
-msgstr ""
-
-#. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
+#. Resource IDs: (IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
 msgstr "Розмір"
 
@@ -9935,10 +9164,6 @@ msgstr ""
 
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
-msgstr ""
-
-#. Resource IDs: (17112)
-msgid "Slide"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
@@ -10011,10 +9236,6 @@ msgid ""
 "Separate the patterns with a space."
 msgstr "Вказати файли чи каталоги, які TortoiseSVN\r\nмає ігнорувати в усіх робочих копіях.\r\nШаблони розділяються пробілом."
 
-#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-msgid "Spin1"
-msgstr "Спін1"
-
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SPLIT_ABOVE)
 msgid "Split &source tree"
 msgstr "Розділити ви&хідне дерево"
@@ -10044,10 +9265,6 @@ msgstr "Стосова гістограма"
 #. Resource IDs: (IDS_STATGRAPH_LINESTACKEDBUTTON_TT)
 msgid "Stacked Line Graph"
 msgstr "Стосова лінійна діаграма"
-
-#. Resource IDs: (16962)
-msgid "Standard"
-msgstr "Стандартно"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
@@ -10091,10 +9308,6 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#. Resource IDs: (16514)
-msgid "Static"
-msgstr "Статичний"
-
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
 msgstr "Статистика"
@@ -10104,13 +9317,9 @@ msgstr "Статистика"
 msgid "Status"
 msgstr "Стан"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr ""
-
-#. Resource IDs: (17087)
-msgid "Status Bar Configuration"
-msgstr "Конфігурація стрічки стану"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -10154,10 +9363,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
 msgstr "Полоси"
-
-#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
-msgid "Style"
-msgstr "Стиль"
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
 msgid ""
@@ -10274,21 +9479,23 @@ msgid ""
 "Previous Pane"
 msgstr "Повернутися на панель попереднього вікна\nПопередня панель"
 
-#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
+#. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr ""
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr "Переключитися між одно та двопанельним поданням\nПереключитися між одно та двопанельним поданням"
 
-#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
+#. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr ""
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -10354,10 +9561,6 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
-#. Resource IDs: (16970)
-msgid "Tab Placeholder"
-msgstr "Місце для вкладки"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Tab size:"
@@ -10374,10 +9577,6 @@ msgstr ""
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
 msgstr "Завдання"
-
-#. Resource IDs: (17019)
-msgid "Tasks Pane"
-msgstr "Панель завдань"
 
 #. Resource IDs: (IDS_PROGRS_DRYRUN)
 msgid "Test Only"
@@ -10906,13 +10105,6 @@ msgstr "Ця властивість дозволена лише для ката�
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Ці властивість не повинна мати багато рядків. Дозволяється лише один рядок."
 
-#. Resource IDs: (16244)
-msgid ""
-"This will delete the record of commands you've used in this application and "
-"restore the default set of visible commands to the menus and toolbars. It "
-"will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "Це знищить занотовані команди, що використовувались у цій програмі, та відновить типовий набір видимих команд у меню та смугах знарядь. Це не скасує явні адаптування. Дійсно зробити це?"
-
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK1)
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
@@ -10925,14 +10117,6 @@ msgid ""
 "This working copy has a client-side hook script configured. Do you want this script to run?\n"
 "The command line to run is:\n"
 "%ls"
-msgstr ""
-
-#. Resource IDs: (16928)
-msgid "Tile &Vertically"
-msgstr "Розмістити &Вертикально"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
@@ -10966,40 +10150,6 @@ msgstr "Щоб перехопити блокування, клацніть пр�
 #. IDD_REVGRAPHFILTER: Control id 65535)
 msgid "To:"
 msgstr "До:"
-
-#. Resource IDs: (58113)
-msgid ""
-"Toggle One/Two Pages display\n"
-"Toggle One/Two Pages display"
-msgstr "Перемкнути відображення Одної/Двох сторінок\nПеремкнути відображення Одної/Двох сторінок"
-
-#. Resource IDs: (65535)
-msgid "Toolbar"
-msgstr "Рядок знаряддь"
-
-#. Resource IDs: (16130)
-msgid "Toolbar Name"
-msgstr "Ім'я рядка знаряддь"
-
-#. Resource IDs: (17017)
-msgid "Toolbar Options"
-msgstr "Параметри рядка знарядь"
-
-#. Resource IDs: (16008)
-msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "Внутрішня помилка рядка знаряддь. Погутарте з виробником своєї програми."
-
-#. Resource IDs: (16105)
-msgid "Toolbars"
-msgstr "Рядки знаряддь"
-
-#. Resource IDs: (16928)
-msgid "Tools"
-msgstr "Знаряддя"
-
-#. Resource IDs: (65535)
-msgid "Tools:"
-msgstr "Знаряддя:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -11036,8 +10186,8 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: переглядач відмінностей малюнків для TortoiseSVN\n\nНаявні параметри командного рядка:\n/left:\"шлях до лівого малюнка\"\n/lefttitle:\"підпис для лівого малюнка\"\n/right:\"шлях до правого малюнка\"\n/righttitle:\"підпис до правого малюнка\"\n/overlay\t\tto уможливити режим перекривання\n/fit\t\tto припасовувати розміри зображень\n/showinfo\t\tto показувати інформацію про зображення"
 
-#. Resource IDs: (100, 156 - Ribbon element, 32897, 57344, Dialog IDD_OPENDLG:
-#. Control id 130, IDS_APPNAME)
+#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -11191,10 +10341,6 @@ msgstr ""
 msgid "Tweak TortoiseSVN"
 msgstr "Підлаштувати TortoiseSVN"
 
-#. Resource IDs: (17130)
-msgid "Type"
-msgstr "Тип"
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1436)
 msgid "U&pdate"
 msgstr "&Оновити"
@@ -11289,24 +10435,15 @@ msgid ""
 "menu"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr ""
-
-#. Resource IDs: (17102)
-#, c-format
-msgid "Undo %d Actions"
-msgstr "Скасувати %d дій"
-
-#. Resource IDs: (17103)
-msgid "Undo 1 Action"
-msgstr "Скасувати 1 дію"
 
 #. Resource IDs: (IDS_MENUUNDOADD)
 msgid "Undo Add..."
 msgstr ""
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
@@ -11315,10 +10452,6 @@ msgstr ""
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
 msgstr "Неочікуваний формат файла"
-
-#. Resource IDs: (17111)
-msgid "Unfold"
-msgstr ""
 
 #. Resource IDs: (61591)
 msgid ""
@@ -11488,10 +10621,6 @@ msgstr "Оновлення '%1!ls!'"
 msgid "Urls"
 msgstr ""
 
-#. Resource IDs: (16530)
-msgid "Use &Default Image: "
-msgstr "Використати &типове зображення:"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "Використовувати &однопанельне подання як типове для відмінностей двох файлів"
@@ -11511,22 +10640,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr "Використовуйте '*' як символ узагальнення, вказуючи виключення.\r\nЩоб розділити декілька виключень, користуйтеся комами (',').\r\nПриклад: *.mylan.com, *.company.com"
 
-#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
-#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
+#. cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu,
+#. cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
-#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
+#. cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr ""
 
@@ -11546,29 +10675,29 @@ msgstr "Використовувати URL &КВ як типовий URL  \"Ві
 msgid "Use Unified Diff from &clipboard"
 msgstr "Використати Об'єднані відмінності з &буфера обмігу"
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr "Використати увесь вміст лівого подання\nВикористати лівий файл"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
-#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
+#. cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr "Використати лівий блок перед правим"
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr "Використати блок з лівого подання перед блоком з правого\nВикористати лівий блок перед правим"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
-#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
+#. cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr "Використати правий блок перед лівим"
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -11582,13 +10711,12 @@ msgstr "Використати обидва текстові блоки (цей 
 msgid "Use both text blocks (this one last)"
 msgstr "Використати обидва текстові блоки (цей останнім)"
 
-#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
+#. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr "Використати лівий файл"
 
@@ -11624,13 +10752,13 @@ msgstr "Використати блок тексту з '&їхнього'"
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "Використати блок тексту з 'м&ого' перед 'їхнім'"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr "Використати блок тексту з 'мого' перед 'їхнім'\nВикористати 'мій' блок тексту, а потім 'їхній'"
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -11640,19 +10768,19 @@ msgstr "Використати блок тексту з 'мого'\nВикори
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "Використати блок тексту з 'ї&хнього' перед 'моїм'"
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr "Використати блок тексту з 'їхнього' перед 'моїм'\nВикористати 'їхній' блок тексту, а потім 'мій'"
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr "Використати блок тексту з 'їхнього'\nВикористати 'їхній' блок тексту"
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
@@ -11724,6 +10852,10 @@ msgstr ""
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr ""
 
+#. Resource IDs: (cmdPaste_Keytip_RESID)
+msgid "V"
+msgstr ""
+
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
 "Valid command line options are:\n"
@@ -11773,11 +10905,11 @@ msgstr "Інформація про версію"
 msgid "Versioned"
 msgstr "Версійний"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr "Вигляд"
 
-#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr ""
 
@@ -11793,15 +10925,9 @@ msgstr "Переглянути модифікацію у &веб-перегля�
 msgid "Visit our website"
 msgstr "Відвідати наш вебсайт"
 
-#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
-#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
-msgid "Visual Studio 2005"
-msgstr "Visual Studio 2005"
-
-#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
-#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
-msgid "Visual Studio 2008"
-msgstr "Visual Studio 2008"
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
+msgid "W"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
 msgid ""
@@ -11888,33 +11014,10 @@ msgstr "У випадку блокування вибраних файлів п�
 msgid "Whitespace changes (tabs, spaces)"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
-#. 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
+#. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Пробіли"
-
-#. Resource IDs: (17038)
-msgid "Window Position"
-msgstr "Розтшування вікна"
-
-#. Resource IDs: (16927)
-msgid "Windows"
-msgstr "Вікна"
-
-#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
-#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
-msgid "Windows 2000"
-msgstr "Windows 2000"
-
-#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
-#. Ribbon name)
-msgid "Windows 7"
-msgstr "Windows 7"
-
-#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
-#. - Ribbon name)
-msgid "Windows XP"
-msgstr "Windows XP"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 158, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 1493, Dialog IDD_MERGEWIZARD_TREE:
@@ -11943,15 +11046,22 @@ msgstr "Робочу копію перенесено до\n%ls"
 msgid "Working copy: %ls\n"
 msgstr "Робоча копія: %ls\n"
 
-#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
-#. name)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
+msgid "Wrap Lines"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
 msgstr ""
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
+msgstr ""
+
+#. Resource IDs: (cmdRedo_Keytip_RESID)
+msgid "Y"
 msgstr ""
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
@@ -11969,16 +11079,6 @@ msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
 msgstr ""
-
-#. Resource IDs: (16005)
-#, c-format
-msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr "Можна вклеїти растр тільки розміру (%d x %d) !"
-
-#. Resource IDs: (16243)
-#, c-format
-msgid "You can't create more than %d user-defined toolbars!"
-msgstr "Не можна створити більш ніж %d визначених користувачем рядків знарядь!"
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -12020,11 +11120,6 @@ msgstr "Спочатку слід оновити робочу копію."
 msgid "You haven't entered an issue number."
 msgstr ""
 
-#. Resource IDs: (16024)
-#, c-format
-msgid "You may define up to %d tools."
-msgstr "Можна визначити до %d знаряддь"
-
 #. Resource IDs: (IDS_SETTINGS_RESTARTSYSTEM)
 msgid "You must restart your system for the changes to take effect."
 msgstr "Необхідно перезапустити систему, щоб внесені зміни подіяли."
@@ -12032,14 +11127,6 @@ msgstr "Необхідно перезапустити систему, щоб в�
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
 msgstr ""
-
-#. Resource IDs: (16002)
-msgid "You should enter a text!"
-msgstr "Слід ввести текст!"
-
-#. Resource IDs: (16001)
-msgid "You should select an image!"
-msgstr "Слід вибрати зображення!"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12097,13 +11184,13 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
 
+#. Resource IDs: (cmdUndo_Keytip_RESID)
+msgid "Z"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr ""
-
-#. Resource IDs: (17093)
-msgid "Zoom"
-msgstr "Збільшення"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -12125,18 +11212,6 @@ msgstr "З&більшити\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Масштаб 100%"
-
-#. Resource IDs: (58117)
-msgid ""
-"Zoom In\n"
-"Zoom In"
-msgstr "Збільштти\nЗбільшити"
-
-#. Resource IDs: (58118)
-msgid ""
-"Zoom Out\n"
-"Zoom Out"
-msgstr "Зменшити\nЗменшити"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
@@ -12166,14 +11241,6 @@ msgstr "Масштабувати щоб умістилось по висоті"
 msgid "Zoom to fit in width"
 msgstr "Масштабувати щоб умістилось вшир"
 
-#. Resource IDs: (17114)
-msgid "[Default]"
-msgstr "[Типове]"
-
-#. Resource IDs: (16009)
-msgid "[Unassigned]"
-msgstr "[Не призначено]"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
 msgstr ""
@@ -12187,10 +11254,6 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr "\n\nШаблони нечутливі до регістра і мають бути вказаними у нижньому регістрі.\nПробіли стануть часиною шаблона.\nДозволені символи узагальнення: '?' та '*'.\nРозділяйте шаблони за допомогою ';'"
-
-#. Resource IDs: (65535 - PopupMenu)
-msgid "_POPUP_"
-msgstr "_POPUP_"
 
 #. Resource IDs: (IDS_STATUSADDED)
 msgid "added"
@@ -12368,10 +11431,6 @@ msgstr "знищено"
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "disk [kB]: "
 msgstr "диск [кБ]:"
-
-#. Resource IDs: (58116)
-msgid "dummy"
-msgstr "фіктивний"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
@@ -12553,6 +11612,10 @@ msgstr ""
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
 msgstr "нормально"
+
+#. Resource IDs: (cmdOpen_Keytip_RESID)
+msgid "o1"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"

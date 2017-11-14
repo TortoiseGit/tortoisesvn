@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-19 09:11+0000\n"
+"PO-Revision-Date: 2017-11-14 02:02+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/luebbe/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -293,17 +293,13 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nείναι ένας κατάλογος και όχι ένα αρχείο!\nΤο TortoiseMerge δεν μπορεί να συγκρίνει καταλόγους."
 
-#. Resource IDs: (16923)
-msgid "&..."
-msgstr "&..."
-
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&Σχετικά με το TortoiseMerge..."
 
@@ -313,17 +309,9 @@ msgid ""
 "The certificate is accepted only this one time."
 msgstr ""
 
-#. Resource IDs: (16920)
-msgid "&Activate"
-msgstr "&Ενεργοποίηση"
-
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
 msgstr "&Προσθήκη"
-
-#. Resource IDs: (17075)
-msgid "&Add >>"
-msgstr "&Προσθήκη >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
@@ -334,10 +322,6 @@ msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
-
-#. Resource IDs: (17018)
-msgid "&Add or Remove Buttons"
-msgstr "&Προσθέστε ή αφαιρέστε κουμπιά"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -374,22 +358,6 @@ msgstr "&Εφαρμογή ιδιότητας αναδρομικά"
 msgid "&Apply unified diff"
 msgstr "&Εφαρμογή ενοποιημένων διαφορών"
 
-#. Resource IDs: (65535)
-msgid "&Arguments:"
-msgstr "&Παράμετροι:"
-
-#. Resource IDs: (16645)
-msgid "&Assign"
-msgstr "&Ανάθεση"
-
-#. Resource IDs: (16633)
-msgid "&Associate double-click event with:"
-msgstr "&Συνδεση διπλό-κλικ συμβάντος με:"
-
-#. Resource IDs: (17041)
-msgid "&Auto Hide"
-msgstr "&Αυτόματη απόκρυψη"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
 msgstr "&Αυτόματος τερματισμός :"
@@ -417,10 +385,6 @@ msgstr "&Απόδοση υπαιτιότητας στην προηγούμενη
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
 msgstr "&Απόδοση υπαιτιότητας..."
-
-#. Resource IDs: (65535)
-msgid "&Blue:"
-msgstr "&Μπλε:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -450,14 +414,6 @@ msgstr "&Αναζήτηση..."
 #. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr "&Bugtrack (Ενσωμάτωση ανιχνευτή θεμάτων)"
-
-#. Resource IDs: (16913 - Menu)
-msgid "&Button Appearance..."
-msgstr "&Εμφάνιση κουμπιού"
-
-#. Resource IDs: (65535)
-msgid "&Button text:"
-msgstr "&Κείμενο κουμπιού"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
@@ -601,18 +557,6 @@ msgid ""
 "keep the current format."
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Categories:"
-msgstr "&Κατηγορίες:"
-
-#. Resource IDs: (65535)
-msgid "&Category:"
-msgstr "&Κατηγορία:"
-
-#. Resource IDs: (65535)
-msgid "&Choose commands from:"
-msgstr "&Επιλέξετε εντολές από:"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
 msgstr "&Επιλέξτε αντικείμενα..."
@@ -633,17 +577,9 @@ msgstr "&Καθάρισμα Λιστών Αλλαγών"
 msgid "&Close"
 msgstr "&Κλείσιμο"
 
-#. Resource IDs: (16922)
-msgid "&Close Window(s)"
-msgstr "&Κλείσιμο παραθύρου(ων)"
-
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
 msgstr "&Όνομα χρήστη Συνεργάτη"
-
-#. Resource IDs: (65535)
-msgid "&Command:"
-msgstr "&Εντολή:"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -675,14 +611,10 @@ msgstr "&Επικοινωνία με την Αποθήκη κατά την εκ�
 msgid "&Convert files when diffing against BASE"
 msgstr "&Μετατροπή των αρχείων κατά τη σύγκριση με τη ΒΑΣΙΚΗ έκδοση"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "&Αντιγραφή"
-
-#. Resource IDs: (16911 - Menu)
-msgid "&Copy Button Image"
-msgstr "&Αντιγραφή εικόνας κουμπιού"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
@@ -718,8 +650,8 @@ msgstr "&Ημέρες αδράνειας μέχρι να διαγραφούν μ
 msgid "&Default"
 msgstr "&Προεπιλογή"
 
-#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
-#. Control id 1382, IDS_MENUREMOVE)
+#. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1382,
+#. IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "&Διαγραφή"
 
@@ -765,10 +697,6 @@ msgstr "&Φάκελοι"
 msgid "&Do not ask again"
 msgstr "&Να μην ερωτηθώ ξανά"
 
-#. Resource IDs: (17040)
-msgid "&Docking"
-msgstr "&Πλεύρισμα"
-
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
 msgid ""
 "&Don't run\n"
@@ -796,7 +724,7 @@ msgstr "&Επεξεργασία διενέξεων"
 msgid "&Edit project"
 msgstr "&Επεξεργασία έργου"
 
-#. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
@@ -878,10 +806,6 @@ msgstr "&Διόρθωση χρονοσημάνσεων"
 msgid "&Fixed drives"
 msgstr "&Σταθεροί οδηγοί συσκευών"
 
-#. Resource IDs: (17039)
-msgid "&Floating"
-msgstr "&Επιπλέων"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
 msgstr "&Γραμματοσειρά για τα μυνήματα ιστορικότητας"
@@ -912,10 +836,6 @@ msgstr "&Από: (Αρχικό URL και εμβέλεια των έκδοσεω
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Green:"
-msgstr "&Πράσινο:"
-
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "&Ομαδοποίηση ανά διακλάδωση"
@@ -942,17 +862,21 @@ msgstr "&HEAD έκδοση μέσα στην Αποθήκη"
 msgid "&Help"
 msgstr "&Βοήθεια"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "&Θέματα Βοήθειας"
 
-#. Resource IDs: (17042, 61457)
+#. Resource IDs: (61457)
 msgid "&Hide"
 msgstr "&Απόκρυψη"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
 msgstr "&Απέκρυψε αντικείμενα που έχουν αγνοηθεί"
+
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
+msgid "&Hide/Show the patch file list"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -975,17 +899,9 @@ msgstr "&Αγνόησε και συνέχισε"
 msgid "&Ignore multiple items by name"
 msgstr ""
 
-#. Resource IDs: (16914 - Menu)
-msgid "&Image"
-msgstr "&Εικόνα"
-
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr ""
-
-#. Resource IDs: (16505)
-msgid "&Image only"
-msgstr "&Μόνο εικόνα"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1004,10 +920,6 @@ msgstr "&Συμπεριλαμβάνονται εξωτερικά"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
 msgstr "&Συμπερίληψη πληροφ. συγχώνευσης"
-
-#. Resource IDs: (65535)
-msgid "&Initial directory:"
-msgstr "&Αρχικός κατάλογος:"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
@@ -1028,10 +940,6 @@ msgstr "&λέξεις-κλειδιά"
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
 msgstr "&Γλώσσα:"
-
-#. Resource IDs: (16653)
-msgid "&Large Icons"
-msgstr "&Μεγάλα εικονίδια"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -1074,10 +982,6 @@ msgstr "&Απαιτείται κλείδωμα"
 msgid "&Log Sizes"
 msgstr "&Μέγεθος αρχείων καταγραφής"
 
-#. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "&Φωτεινότητα:"
-
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
@@ -1094,14 +998,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "&Μέγιστο μέγεθος [kb] ανενεργής cache που αφαιρέθηκε"
-
-#. Resource IDs: (16543)
-msgid "&Menu animations:"
-msgstr "&Κίνησεις μενού"
-
-#. Resource IDs: (16921)
-msgid "&Menu contents:"
-msgstr "&Περιεχόμενα μενού"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1122,10 +1018,6 @@ msgstr "&Διαδικασία συγχώνευσης"
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "&Τύπος Mime"
-
-#. Resource IDs: (16925)
-msgid "&Minimize"
-msgstr "&Ελαχιστοποίηση"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1151,8 +1043,8 @@ msgstr "&Δικτιακοί οδηγοί συσκευών"
 msgid "&New "
 msgstr "&Νέο"
 
-#. Resource IDs: (16509, 16615, Dialog IDD_EDITPROPERTIES: Control id 1310,
-#. Dialog IDD_EDITPROPEXTERNALS: Control id 1542)
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1310, Dialog
+#. IDD_EDITPROPEXTERNALS: Control id 1542)
 msgid "&New..."
 msgstr "&Νέο..."
 
@@ -1168,10 +1060,6 @@ msgstr "&Επόμενo >"
 #. Resource IDs: (58114)
 msgid "&Next Page"
 msgstr "&Επόμενη σελίδα"
-
-#. Resource IDs: (16632)
-msgid "&No double-click event"
-msgstr "&Συμβάν μη διπλού-κλικ"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
@@ -1189,10 +1077,10 @@ msgstr "&Μη εκτελέσιμο"
 msgid "&Numeric"
 msgstr "&Αριθμητικό"
 
-#. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
-#. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
-#. 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1,
-#. Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id
+#. 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1,
+#. Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog
+#. IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
 #. IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1,
 #. Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id
 #. 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL:
@@ -1229,7 +1117,8 @@ msgstr "&Αποσυνδεμένο τώρα"
 msgid "&One Page"
 msgstr "&Μια Σελίδα"
 
-#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN,
+#. cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr "&Άνοιγμα"
 
@@ -1276,8 +1165,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "&Κωδικός πρόσβασης:"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "&Επικόλληση"
 
@@ -1308,10 +1197,6 @@ msgstr "&Προεπιλογές υπερ-χρήστη"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr ""
-
-#. Resource IDs: (17091)
-msgid "&Print Preview"
-msgstr "&Προεπισκόπηση Εκτύπωσης"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1353,10 +1238,6 @@ msgstr "&Ιδιότητες..."
 msgid "&Recent messages"
 msgstr "&Πρόσφατα μυνήματα"
 
-#. Resource IDs: (65535)
-msgid "&Red:"
-msgstr "&Κόκκινο:"
-
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
 msgstr "&Επανάληψη"
@@ -1381,7 +1262,7 @@ msgstr ""
 msgid "&Remind me to enter a bug-ID"
 msgstr "&Υπενθύμιση για να καταχωρήσω bug-ID"
 
-#. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1100, IDS_PROP_REMOVE)
 msgid "&Remove"
@@ -1433,22 +1314,6 @@ msgstr "&Αντικατάσταση"
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
 msgstr "&Επισκόπηση-Αποθήκης"
-
-#. Resource IDs: (16613, 16624)
-msgid "&Reset"
-msgstr "&Επαναφορά"
-
-#. Resource IDs: (16300)
-msgid "&Reset Toolbar"
-msgstr "&Επαναφορά εργαλειοθήκης"
-
-#. Resource IDs: (16657)
-msgid "&Reset my usage data"
-msgstr "&Επαναφορά στοιχείων χρήσης"
-
-#. Resource IDs: (16910 - Menu)
-msgid "&Reset to Default"
-msgstr "&Επαναφορά προεπιλογών"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
 msgid ""
@@ -1511,11 +1376,7 @@ msgstr "Εφαρμογή-πελάτης &SSH:"
 msgid "&SVN"
 msgstr "&SVN"
 
-#. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "&Κορεσμός χρώματος:"
-
-#. Resource IDs: (16921)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr "&Αποθήκευση"
 
@@ -1550,10 +1411,6 @@ msgstr "&Προβολή εκδόσεων HEAD"
 msgid "&Show Log"
 msgstr "Εμφάνιση &Αρχείου καταγραφής"
 
-#. Resource IDs: (65535)
-msgid "&Show Menus for:"
-msgstr "&Εμφάνιση μενού για:"
-
 #. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr ""
@@ -1562,23 +1419,15 @@ msgstr ""
 msgid "&Show popup notifications"
 msgstr "&Εμφάνιση αναδυόμενων ειδοποιήσεων"
 
-#. Resource IDs: (16612)
-msgid "&Show text labels"
-msgstr "&Εμφάνιση κειμένων λεζάντας"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
 msgstr "&Συγκεκριμένη έκδοση στην αποθήκη"
-
-#. Resource IDs: (16917 - Menu)
-msgid "&Start Group"
-msgstr "&Ομάδα Έναρξης"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
 msgstr ""
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "&Μπάρα κατάστασης"
 
@@ -1610,10 +1459,6 @@ msgstr "Επισκόπηση &συμβόλων"
 msgid "&Tab size:"
 msgstr "&Μέγεθος στηλογνώμονα."
 
-#. Resource IDs: (17088)
-msgid "&Tabbed Document"
-msgstr "&Έγγραφο σε καρτέλες"
-
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
 msgstr "&Ετικέτες"
@@ -1622,13 +1467,9 @@ msgstr "&Ετικέτες"
 msgid "&Test merge"
 msgstr "&Δοκιμαστική συγχώνευση"
 
-#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "&Κείμενο"
-
-#. Resource IDs: (16506)
-msgid "&Text only"
-msgstr "&Μόνο κείμενο"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1656,17 +1497,9 @@ msgstr "&Σε κατάλογο:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&Έως: (Αρχικό URL και εμβέλεια των έκδοσεων που πρόκειτε να συνενωθούν)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "&Ράβδος Εργαλείων"
-
-#. Resource IDs: (65535)
-msgid "&Toolbar Name:"
-msgstr "&Ονομασία εργαλειοθήκης"
-
-#. Resource IDs: (65535)
-msgid "&Toolbars:"
-msgstr "&Μπάρες εργαλείων"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
@@ -1705,7 +1538,7 @@ msgstr "&URL της Αποθήκης:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "&Επαναφορα"
 
@@ -1776,10 +1609,6 @@ msgstr ""
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "&Επισκόπηση"
-
-#. Resource IDs: (65535)
-msgid "&View:"
-msgstr "&Εμφάνιση"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
 msgid "&Whole word"
@@ -1925,11 +1754,6 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#. Resource IDs: (16108)
-msgid ""
-"-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1035, Dialog IDD_CHECKOUT:
 #. Control id 1036, Dialog IDD_COPY: Control id 1035, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1035, Dialog IDD_EXPORT: Control id
@@ -1956,10 +1780,6 @@ msgstr "...έλεγχος cache και προετοιμασία ερωτήματ
 msgid "... reading working copy status"
 msgstr "...ανάγνωση κατάστασης αντιγράφου εργασίας"
 
-#. Resource IDs: (16527)
-msgid "....."
-msgstr "....."
-
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1972,22 +1792,6 @@ msgstr ": αντίγραφο πάνω στο οποίο εργάζεστε"
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
 msgstr "< &Πίσω"
-
-#. Resource IDs: (16506)
-msgid "<.....>"
-msgstr "<.....>"
-
-#. Resource IDs: (17095)
-msgid "<Separator>"
-msgstr "<Διαχωριστής>"
-
-#. Resource IDs: (16104)
-msgid "<Untitled>"
-msgstr "<Χωρίς τίτλο>"
-
-#. Resource IDs: (16603)
-msgid "<descr>"
-msgstr "<περιγρ>"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_CREATECS)
 msgid "<new changelist>"
@@ -2073,7 +1877,11 @@ msgstr "Π&ροσθήκη καταλόγου..."
 msgid "Abort"
 msgstr "Ακύρωση"
 
-#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
+msgid "Abou&t TortoiseMerge"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
 msgstr "Περί του"
 
@@ -2111,10 +1919,6 @@ msgstr "Επενέργειες"
 #. Resource IDs: (61203)
 msgid "Activate Task List"
 msgstr "Ενεργοποίηση του Πίνακα Καθηκόντων"
-
-#. Resource IDs: (17043)
-msgid "Active Files"
-msgstr "Ενεργά αρχεία"
 
 #. Resource IDs: (61838)
 #, c-format
@@ -2184,10 +1988,6 @@ msgstr "Προσθήκη στη λίστα &αγνοημένων"
 msgid "Add to Bookmarks"
 msgstr ""
 
-#. Resource IDs: (17083)
-msgid "Add to Quick Access Toolbar"
-msgstr "Προσθήκη στο Μπαρ Γρήγορης Πρόσβασης"
-
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
@@ -2239,7 +2039,7 @@ msgstr "Προστέθηκαν αρχεία στον έλεγχο του Subvers
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Προσθήκη του επιλεγμένου αρχείου() ή των διηθημένων αρχείων στη λίστα 'παραβλεπομένων''"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -2278,10 +2078,6 @@ msgstr "Εναρμόνιση δέντρών στην κορυφή"
 msgid "All"
 msgstr "Όλος"
 
-#. Resource IDs: (16110)
-msgid "All Commands"
-msgstr "Όλες οι εντολές"
-
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
 msgstr "Όλα τα αρχεία (*.*)"
@@ -2290,32 +2086,7 @@ msgstr "Όλα τα αρχεία (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Όλα τα αρχεία (*.*)|*.*||"
 
-#. Resource IDs: (16112)
-msgid ""
-"All your changes will be lost! Do you really want to reset all toolbars and "
-"menus?"
-msgstr "Όλες οι αλλαγές σου θα χαθούν! Είστε σίγουροι ότι θέλετε να επαναφέρετε ολές τις γραμμές εργαλείων και μενού;"
-
-#. Resource IDs: (16115)
-msgid ""
-"All your changes will be lost! Do you really want to reset the keyboard "
-"assignments?"
-msgstr "Όλες οι αλλαγές σου θα χαθούν! Είστε σίγουροι ότι θέλετε να επαναφέρετε αναθέσεις πληκτρολόγιο;"
-
-#. Resource IDs: (16113)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
-
-#. Resource IDs: (16111)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar "
-"'%Ts'?"
-msgstr ""
-
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
@@ -2420,10 +2191,6 @@ msgstr ""
 msgid "Append this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Application Frame Menus: "
-msgstr "Μενού πλαισίων εφαρμογής: "
-
 #. Resource IDs: (IDS_MENUDESCAPPLYPATCH)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Εφαρμόζει ένα ενοποιημένο αρχείο διαφορών στο εργαζομενο αντίγραφο"
@@ -2452,11 +2219,6 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1282)
 msgid "Approved hook scripts"
-msgstr ""
-
-#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
-msgid "Aqua Style"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
@@ -2495,10 +2257,6 @@ msgstr "Ρωτήστε χρήστη"
 #, c-format
 msgid "Assigned to changelist '%ls'"
 msgstr "Ανάθεση στη λίστα αλλαγών '%ls'"
-
-#. Resource IDs: (16528)
-msgid "Assigned to:"
-msgstr "Αναθέτω σε:"
 
 #. Resource IDs: (IDS_PROGRS_ATREV)
 #, c-format
@@ -2554,14 +2312,6 @@ msgstr "Συγγραφείς (γραφή ευαίσθητη σε πεζά/κεφ
 msgid "Authors:"
 msgstr "Συγγραφείς:"
 
-#. Resource IDs: (16033)
-msgid "Auto Hide"
-msgstr "Αυτόματη απόκρυψη"
-
-#. Resource IDs: (16036)
-msgid "Auto Hide All"
-msgstr "Απόκρυψη Αυτομάτως Όλα"
-
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
 msgstr ""
@@ -2606,10 +2356,6 @@ msgstr "Μέσος όρος"
 msgid "B&rowse..."
 msgstr "Πε&ριεργασία..."
 
-#. Resource IDs: (17020)
-msgid "Back"
-msgstr "Πίσω"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
@@ -2634,11 +2380,6 @@ msgid ""
 "a bitmap"
 msgstr "Εικόνα\nμια εικόνα"
 
-#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
-msgid "Black Style"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
 msgstr "Απόδοση υπαιτιότητας"
@@ -2659,13 +2400,8 @@ msgstr "Επιρρίπτει την υπαιτιότητα για κάθε γρ�
 msgid "Blend alpha"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
-msgstr ""
-
-#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
-msgid "Blue Style"
 msgstr ""
 
 #. Resource IDs: (IDS_BOOKMARKS)
@@ -2737,9 +2473,9 @@ msgstr "Κωδικοί λάθους"
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr ""
 
-#. Resource IDs: (16132)
-msgid "Button Appearance"
-msgstr "Εμφάνιση Κουμπίου"
+#. Resource IDs: (cmdCopy_Keytip_RESID)
+msgid "C"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2753,10 +2489,6 @@ msgstr "Έ&λεγχος αποθετηρίου"
 msgid "C&ollapse sub-trees"
 msgstr "Κ&ατάρρευση υπο-δένδρων"
 
-#. Resource IDs: (65535)
-msgid "C&ommands:"
-msgstr "Ε&ντολές:"
-
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
 msgstr ""
@@ -2768,10 +2500,6 @@ msgstr "Δ&ημιουργία διακλάδωσης/ετικέτας από α�
 #. Resource IDs: (IDS_REPOBROWSE_MKDIR)
 msgid "C&reate folder..."
 msgstr "Δ&ιμιουργία καταλόγου..."
-
-#. Resource IDs: (65535)
-msgid "C&urrent Keys:"
-msgstr "Τ&ρέχοντα Κλειδιά:"
 
 #. Resource IDs: (IDS_EDIT_CUT)
 msgid "C&ut"
@@ -2806,23 +2534,7 @@ msgid ""
 "%2!ls!"
 msgstr "Δεν γίνεται να αντιγραφεί το \n%1!ls!\nστο\n%2!ls!"
 
-#. Resource IDs: (16010)
-msgid "Can't copy bitmap image into the clipboard!"
-msgstr "Δεν μπορεί να γίνει αντιγραφή της εικόνας στο πρόχειρο!"
-
-#. Resource IDs: (16003)
-msgid "Can't create a new image!"
-msgstr "Δεν μπορεί να δημιουργήσει νέες εικόνες"
-
-#. Resource IDs: (16007)
-msgid "Can't customize menus!"
-msgstr ""
-
-#. Resource IDs: (16004)
-msgid "Can't paste bitmap image from the clipboard!"
-msgstr "Δεν μπορεί να γίνει επικόλληση της εικόνας από το πρόχειρο!"
-
-#. Resource IDs: (17101, 2, Dialog IDD_BLAME: Control id 2, Dialog
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog
 #. IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2,
 #. Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control
 #. id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2,
@@ -2929,17 +2641,9 @@ msgstr "Ακύρωση λειτουργείας..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Δεν ειναι δυνατό να προβληθούν οι διαφορές, γιατί υπάρχουν άστατα σημάδια νέων γραμμών μέσα στο αρχείο."
 
-#. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr ""
-
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
 msgstr "Συγγραφέων αδιάφορο για πεζά/κεφαλαία"
-
-#. Resource IDs: (65535)
-msgid "Cate&gories:"
-msgstr "&Κατηγορίες"
 
 #. Resource IDs: (IDS_ERR_SSL_EXPIRED)
 #, c-format
@@ -2963,12 +2667,6 @@ msgstr "Πιστοποιητικά|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
-
-#. Resource IDs: (10000)
-msgid ""
-"Change the style of the application\n"
-"Change Style"
 msgstr ""
 
 #. Resource IDs: (61185)
@@ -3000,10 +2698,6 @@ msgstr "Λίστα αλλαγών:"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "Έγιναν αλλαγές ( διπλό-κλικ στο αρχείο για διαφορές):"
-
-#. Resource IDs: (32956)
-msgid "Changes the style of the application"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3165,12 +2859,6 @@ msgstr "Καθαρισμός διακεκομένων λειτουργιών, κ
 msgid "Clear"
 msgstr "Εκκαθάριση"
 
-#. Resource IDs: (16909)
-msgid ""
-"Clear Tool\n"
-"Clear"
-msgstr "Εργαλείο εκκαθάρισης\nΕκκαθάριση"
-
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
 msgstr "Εκκαθάριση όλων"
@@ -3231,7 +2919,7 @@ msgid ""
 "extension"
 msgstr ""
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
@@ -3240,20 +2928,6 @@ msgstr ""
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
 msgstr "Προχειρο"
-
-#. Resource IDs: (16032, 16105, 17023, 2)
-msgid "Close"
-msgstr "Κλείσιμο"
-
-#. Resource IDs: (17025)
-msgid "Close Full Screen"
-msgstr "Κλείσιμο Πλήρους Οθόνης"
-
-#. Resource IDs: (58112)
-msgid ""
-"Close Print Preview\n"
-"&Close"
-msgstr "Κλείσιμο προεπισκόπισης εκτύπωσης\n&Κλείσιμο"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_MANUAL)
 msgid "Close manually"
@@ -3275,7 +2949,7 @@ msgstr ""
 msgid "Collaborator &password"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr ""
 
@@ -3283,15 +2957,11 @@ msgstr ""
 msgid "Collapse &following tree"
 msgstr ""
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr ""
-
-#. Resource IDs: (16662)
-msgid "Color"
-msgstr "Χρώμα"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Color 1"
@@ -3313,21 +2983,13 @@ msgstr ""
 msgid "Color by au&thor"
 msgstr ""
 
-#. Resource IDs: (16961, Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
 msgid "Colors"
 msgstr "Χρώματα"
 
-#. Resource IDs: (65535)
-msgid "Colors:"
-msgstr "Χρώματα:"
-
-#. Resource IDs: (65535)
-msgid "Comman&ds:"
-msgstr "Εντολ&ές:"
-
-#. Resource IDs: (16029, IDS_PROGRS_CMDINFO)
+#. Resource IDs: (IDS_PROGRS_CMDINFO)
 msgid "Command"
 msgstr "Εντολή"
 
@@ -3353,10 +3015,6 @@ msgstr ""
 #. Resource IDs: (61705)
 msgid "Command failed."
 msgstr "Η διαταγή απέτυχε."
-
-#. Resource IDs: (16104)
-msgid "Commands"
-msgstr "Εντολές"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
@@ -3445,7 +3103,7 @@ msgid "Compare two files"
 msgstr "Σύγκρινε δυο αρχεία"
 
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
-#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
+#. cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr "Σύγκριση κενών"
 
@@ -3469,7 +3127,7 @@ msgstr "Σύγκρινε με τη βάση (περιεχόμενο μόνο)"
 msgid "Compare with previous revision"
 msgstr "Σύγκριση με προηγούμενη εκδόση"
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
@@ -3495,6 +3153,10 @@ msgstr "Ολοκληρώθηκε!"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
+msgid "Configure Filter Regex"
 msgstr ""
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
@@ -3561,16 +3223,8 @@ msgstr "Σύνδεηση στο διακομιστή αποθηκών και λ�
 msgid "Container sizes"
 msgstr "Μεγέθη δοχείων"
 
-#. Resource IDs: (16520)
-msgid "Context Menus: "
-msgstr "Αναδυόμενο μενού"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
-msgstr ""
-
-#. Resource IDs: (16013)
-msgid "Contract docked window"
 msgstr ""
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
@@ -3602,7 +3256,7 @@ msgstr "Αντιγράφηκε από: %1!ls!@%2!ld!\r\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr ""
 
-#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr "Αντιγραφή"
 
@@ -3632,12 +3286,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_COPY: Control id 142)
 msgid "Copy (Branch / Tag)"
 msgstr "Αντιγραφή (Διακλάδωσης/Ετικέτας)"
-
-#. Resource IDs: (16907)
-msgid ""
-"Copy Tool\n"
-"Copy"
-msgstr "Εργαλείο αντιγραφής\nΑντιγραφή"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
@@ -3669,7 +3317,7 @@ msgstr "Αντιγραφή αντικειμένων εδώ"
 msgid "Copy selection to cli&pboard"
 msgstr "Αντιγραφή επιλογής στο π&ρόχειρο"
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -3877,6 +3525,10 @@ msgstr ""
 msgid "Create &Library"
 msgstr "Δημιουργία &βιβλιοθήκης"
 
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
+msgid "Create &patch file"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
 msgstr "Δημιουργεία &μπαλώματος"
@@ -3908,8 +3560,7 @@ msgid ""
 "%ls"
 msgstr "Δημιουργεία καινούργιου φακέλου:\r\n%ls"
 
-#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
-#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
 msgstr ""
 
@@ -3931,7 +3582,7 @@ msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr ""
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
@@ -3953,10 +3604,6 @@ msgstr "Ονόματα δημιουργών και συνεργατών:"
 msgid "Cu&t"
 msgstr "Απ&οκοπή"
 
-#. Resource IDs: (65535)
-msgid "Current"
-msgstr "Τρέχων"
-
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1113)
 msgid "Current version is:"
 msgstr "Η τρέχουσα έκδοση είναι: "
@@ -3965,14 +3612,6 @@ msgstr "Η τρέχουσα έκδοση είναι: "
 #, c-format
 msgid "Current version is: %ls"
 msgstr "Η τρέχουσα έκδοση είναι: %ls"
-
-#. Resource IDs: (17079)
-msgid "Cus&tomize..."
-msgstr "&Προσαρμογή..."
-
-#. Resource IDs: (16963)
-msgid "Custom"
-msgstr "Προσαρμοσμένο"
 
 #. Resource IDs: (IDS_SVN_DEPTH_CUSTOM)
 msgid "Custom depths"
@@ -3986,22 +3625,6 @@ msgid ""
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
 msgstr ""
-
-#. Resource IDs: (16103, 17074)
-msgid "Customize"
-msgstr "Προσαρμογή"
-
-#. Resource IDs: (17076)
-msgid "Customize Keyboard"
-msgstr "Παραμετροποίηση Πληκτρολογίου"
-
-#. Resource IDs: (17096)
-msgid "Customize Quick Access Toolbar"
-msgstr "Παραμετροποίηση εργαλειοθήκης γρήγορης πρόσβασης"
-
-#. Resource IDs: (17085)
-msgid "Customize Quick Access Toolbar..."
-msgstr "Παραμετροποίηση εργαλειοθήκης γρήγορης πρόσβασης..."
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4022,7 +3645,7 @@ msgstr "Ημερομηνία"
 msgid "Date Range"
 msgstr ""
 
-#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
+#. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -4030,17 +3653,9 @@ msgstr "Προεπιλογή"
 msgid "Default &number of log messages"
 msgstr "Προκαθορισμένος &αριθμός μηνυμάτων αρχείου καταγραφής"
 
-#. Resource IDs: (16106)
-msgid "Default Menu"
-msgstr "Προεπιλεγμένο μενού"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1516)
 msgid "Default URL:"
 msgstr "Προεπιλεγμένη URL"
-
-#. Resource IDs: (16107)
-msgid "Default application menu. Appears when no documents are open."
-msgstr "Προεπιλεγμένο μενού εφαρμογής. Εμφανίζεται όταν δεν υπάρχουν ανοικτά έγγραφα."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4057,10 +3672,6 @@ msgstr "Προεπιλεγμένος κατάλογος:"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "Προεπιλογή σε UTF-8 κωδικοποίηση"
-
-#. Resource IDs: (16020)
-msgid "Delete"
-msgstr "Διαγραφή"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
@@ -4157,14 +3768,6 @@ msgstr "Βάθος"
 msgid "Depth:"
 msgstr "Βάθος:"
 
-#. Resource IDs: (16031)
-msgid "Description"
-msgstr "Περιγραφή"
-
-#. Resource IDs: (65535)
-msgid "Description:"
-msgstr "Description:"
-
 #. Resource IDs: (IDS_STATUSLIST_UNCHECKGROUP)
 msgid "Deselect changelist"
 msgstr "Απεπιλογή πίνακα αλλαγών"
@@ -4195,7 +3798,7 @@ msgstr ""
 msgid "Dialog sizes and positions"
 msgstr "Θέσεις και μεγέθη διαλόγων"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr ""
 
@@ -4302,17 +3905,13 @@ msgstr "Ο δίσκος ήταν γεμάτος καθώς γινόταν πρό
 msgid "Dispatch exception: %1"
 msgstr "Σφάλμα αποστολής: %1"
 
-#. Resource IDs: (65535)
-msgid "Display &buttons in this order"
-msgstr "Εμφάνιση &κουμπιών με αυτή τη σειρά"
-
 #. Resource IDs: (57669)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr "Εμφάνιση βοήθειας για κουμπιά που πατήθηκαν, μενού και παράθυρα\nΒοήθεια"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -4324,7 +3923,7 @@ msgid ""
 "Help"
 msgstr "Εμφάνιση οδηγιών για την χρήση της βοήθειας\nΒοήθεια"
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -4372,11 +3971,6 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
-msgstr ""
-
-#. Resource IDs: (16109)
-#, c-format
-msgid "Do you really want to delete the toolbar '%Ts'?"
 msgstr ""
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
@@ -4496,14 +4090,6 @@ msgid ""
 "Reload the views without saving the modifications"
 msgstr ""
 
-#. Resource IDs: (16028)
-msgid "Drag to make this menu float"
-msgstr "Σύρετε για να κάνετε αυτό το μενού να πλέει"
-
-#. Resource IDs: (16513)
-msgid "Draw"
-msgstr "Ζωγραφίζω"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1079)
 msgid "Drive Types"
 msgstr "Τύποι Οδηγών δίσκων"
@@ -4515,6 +4101,10 @@ msgstr "Δίσκους A: και B:"
 #. Resource IDs: (IDS_DROPDESC_NODROP)
 #, c-format
 msgid "Drop not possible on %1!ls!"
+msgstr ""
+
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
+msgid "E"
 msgstr ""
 
 #. Resource IDs: (ID_INLINEEDIT - Menu)
@@ -4529,7 +4119,8 @@ msgstr "Ε&ξαίρεση καταλόγων:"
 msgid "E&xecutable"
 msgstr ""
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu,
+#. cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr "Έ&ξοδος"
 
@@ -4561,14 +4152,10 @@ msgstr ""
 msgid "EXT"
 msgstr "EXT"
 
-#. Resource IDs: (156 - Ribbon element, 65535 - PopupMenu, Dialog
-#. IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id
+#. 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr "Επεξεργασία"
-
-#. Resource IDs: (16133)
-msgid "Edit Button Image"
-msgstr "Επεξεργασία εικόνας κουμπιού"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 319)
 msgid "Edit External"
@@ -4645,12 +4232,6 @@ msgstr "Ή το όνομα ή την ΙΡ του πληρεξούσιου δια
 msgid "Eliding mergeinfo"
 msgstr ""
 
-#. Resource IDs: (16906)
-msgid ""
-"Ellipse Tools\n"
-"Ellipse"
-msgstr "Εργαλεία Ellipse\nEllipse"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Empty"
 msgstr "Άδειο"
@@ -4663,7 +4244,7 @@ msgstr ""
 msgid "Enable Auto-Properties"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr ""
 
@@ -4883,18 +4464,7 @@ msgstr "Εξαιρέσεις:"
 msgid "Exclude"
 msgstr "Εξαίρεση"
 
-#. Resource IDs: (16023)
-msgid ""
-"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
-"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "Εκτελέσιμο αρχείο (*.exe)|*.exe|Εντολή com (*.com)|*.com|Έγγραφο PDF (*.pdf)|*.pdf|Batch (*.bat)|*.bat|Όλα τα αρχεία (*.*)|*.*||"
-
-#. Resource IDs: (16018)
-msgid "Existing"
-msgstr "Υπάρχον"
-
-#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
-#. Ribbon name)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2)
 msgid "Exit"
 msgstr "Έξοδος"
 
@@ -4905,15 +4475,6 @@ msgstr ""
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_BELOW)
 msgid "Expand &following tree"
 msgstr "Επέκταση του &παρακάτω δένδρου"
-
-#. Resource IDs: (16025)
-#, c-format
-msgid "Expand (%Ts)"
-msgstr ""
-
-#. Resource IDs: (16012)
-msgid "Expand docked window"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
@@ -5005,14 +4566,14 @@ msgstr "Εξαίρεση εξωτερικών"
 msgid "Externals included"
 msgstr "Συμπερίληψη εξωτερικών"
 
+#. Resource IDs: (cmdFind_Keytip_RESID)
+msgid "F"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
 msgid "F&orce the merge"
 msgstr "Ε&ξαναγκασμός της συγχώνευσης"
-
-#. Resource IDs: (17113)
-msgid "Fade"
-msgstr ""
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
@@ -5120,7 +4681,7 @@ msgstr ""
 msgid "Fetching tree conflict information..."
 msgstr ""
 
-#. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
+#. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
 msgstr "Αρχείο"
 
@@ -5250,12 +4811,6 @@ msgstr ""
 msgid "Files"
 msgstr "Αρχεία"
 
-#. Resource IDs: (16901)
-msgid ""
-"Fill Tool\n"
-"Fill"
-msgstr "Εργαλείο Γεμίσματος\nΓέμισμα"
-
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
 msgstr ""
@@ -5278,8 +4833,12 @@ msgstr "Φίλτρο καταλόγων"
 msgid "Filter:"
 msgstr ""
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
+msgid "Filtered"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr "Εύρεση"
 
@@ -5291,7 +4850,7 @@ msgstr ""
 msgid "Find HEAD revisions"
 msgstr ""
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -5347,10 +4906,6 @@ msgstr "Αναδίπλωση &ετικετών"
 msgid "Folded tag"
 msgstr "Διπλωμένο ετικέτο"
 
-#. Resource IDs: (16016)
-msgid "Folder"
-msgstr "Φάκελος"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Font"
@@ -5377,10 +4932,6 @@ msgstr ""
 msgid "Foreground"
 msgstr ""
 
-#. Resource IDs: (17021)
-msgid "Forward"
-msgstr "Εμπρός"
-
 #. Resource IDs: (IDS_REPOBROWSE_TT_FORWARD)
 msgid "Forwards in browsing history"
 msgstr ""
@@ -5394,10 +4945,6 @@ msgstr "Βρέθηκαν λόγια αυτόματα:"
 msgid "From:"
 msgstr "Από:"
 
-#. Resource IDs: (17026)
-msgid "Full Screen"
-msgstr "Πλήρης οθόνη"
-
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
 msgstr ""
@@ -5409,6 +4956,10 @@ msgstr ""
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
 msgstr "Πλήρως αναδρομικό"
+
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
+msgid "G"
+msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5506,43 +5057,43 @@ msgstr ""
 msgid "Go to line"
 msgstr "Αναπήδηση στη γραμμή"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr "Μεταπήδηση στη επόμενη αντίφαση\nεπόμενη αντίφαση"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr "Μεταπήδηση στη επόμενη διαφορά\nεπόμενη διαφορά"
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr ""
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr "Μεταφορά στην προηγούμενη διένεξη \nΠροηγούμενη διένεξη"
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr "Μεταφορά στην προηγούμενη διαφορά \nΠροηγούμενη διαφορά"
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr ""
 
@@ -5553,10 +5104,6 @@ msgstr "Τύπος γραφήματος:"
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
 msgstr ""
-
-#. Resource IDs: (16972)
-msgid "Gray"
-msgstr "Γκρι"
 
 #. Resource IDs: (32799)
 msgid "Group by branch"
@@ -5569,10 +5116,6 @@ msgstr "Ομαδοποιηση πινάκων αλλαγών"
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1032)
 msgid "H&EAD Revision"
 msgstr "&HEAD Έκδοση"
-
-#. Resource IDs: (65535)
-msgid "H&ue:"
-msgstr "Α&πόχρωση:"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1353, Dialog IDD_DIFFFILES:
 #. Control id 1354, IDS_EXTERNALS_HEADREV)
@@ -5611,17 +5154,9 @@ msgstr ""
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
 #. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
 #. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
-#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "Βοήθεια"
-
-#. Resource IDs: (16982)
-msgid "Help Keyboard"
-msgstr "Βοήθεια για πληκτρολόγιο"
-
-#. Resource IDs: (16974)
-msgid "Hex"
-msgstr "Δεκαεξαδικό"
 
 #. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
@@ -5643,10 +5178,6 @@ msgstr ""
 msgid "Hide deleted branches and tags"
 msgstr "Απόκρυψη των σβησμένων κλάδων και ετικεττών"
 
-#. Resource IDs: (16011)
-msgid "Hide docked window"
-msgstr "Απόκρυψη παράπλευρων παραθύρων"
-
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1562)
 msgid "Hide non-mergeable revisions"
 msgstr ""
@@ -5664,12 +5195,11 @@ msgstr "Απόκρυψη του αρχείου όσο αυτό εκτελείτ�
 msgid "Hide unused &branches"
 msgstr "Απόκρυψη μη χρησιμοποιημένων &κλάδων"
 
-#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu)
 msgid "Hide/Show the patch file list"
 msgstr ""
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
@@ -5678,16 +5208,6 @@ msgstr "Απόκρυψη/Εμφάνιση του καταλόγου των αρ�
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
 msgstr "Υψηλότερος αριθμός έκδοσης στην κρυφή μνήμη"
-
-#. Resource IDs: (16519)
-msgid ""
-"Hint: select the context menu, change the page to 'Commands' and drag the "
-"toolbar buttons into the menu window."
-msgstr "Υπόδειξη: Επιλέξτε τον κατάλογο σμφραζομένων, ανοίξτε την σελίδα \"Εντολές\" και μεταφέρετε τα πλήκτρα της μπάρας εργασίας στο παράθυρο καταλόγου."
-
-#. Resource IDs: (17022)
-msgid "Home"
-msgstr "Αρχική σελίδα"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -6057,12 +5577,12 @@ msgstr "Παράβλεψη ό&λου του κενού χώρου"
 msgid "Ignore &ancestry"
 msgstr "Να παραβλεφθεί η &προέλευση"
 
-#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
-#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
+#. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr "Παράβλεψη αλλαγών στα κενά"
 
@@ -6076,7 +5596,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr ""
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
@@ -6109,8 +5629,8 @@ msgid "Ignore whitespace c&hanges"
 msgstr "Παράβλεψη &αλλαγών σε κενά διαστήματα"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
-#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
-#. Ribbon name)
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu,
+#. cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr "Παράβλεψη αλλαγών σε κενά διαστήματα"
 
@@ -6122,13 +5642,13 @@ msgstr ""
 msgid "Ignored items included"
 msgstr "Συμπερίληψη αγνοούμενων αντικειμένων"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr "Παράβλεψη όλων των αλλαγών στα κενά κατά την διάρκεια της συγκρίσης\nΠαράβλεψη όλων των αλλαγών στα κενά"
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
@@ -6137,18 +5657,6 @@ msgstr "Παράβλεψη όλων των αλλαγών στα κενά κατ
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
 msgstr ""
-
-#. Resource IDs: (16916 - Menu)
-msgid "Image &and Text"
-msgstr "Εικόνα &και κείμενο"
-
-#. Resource IDs: (16507)
-msgid "Image &and text"
-msgstr "Εικόνα &και κείμενο"
-
-#. Resource IDs: (16508)
-msgid "Images"
-msgstr "Εικόνες"
 
 #. Resource IDs: (IDS_SVN_DEPTH_IMMEDIATE)
 msgid "Immediate children, including folders"
@@ -6267,12 +5775,13 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
+#. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
-#. Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
+#. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr ""
 
@@ -6284,7 +5793,7 @@ msgstr "Εσωτερικές διαφορές"
 msgid "Input"
 msgstr "Εισαγωγή"
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -6416,20 +5925,12 @@ msgid ""
 "Jump to first unresolved conflict"
 msgstr ""
 
-#. Resource IDs: (16136)
-msgid "Keyboard"
-msgstr "Πληκτρολόγιο"
-
-#. Resource IDs: (65535)
-msgid "Keyboard shortcuts:"
-msgstr "Συντομεύσεις πληκτρολογίου:"
-
-#. Resource IDs: (16030)
-msgid "Keys"
-msgstr "Κλειδιά"
-
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL1)
 msgid "Kind"
+msgstr ""
+
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
+msgid "L"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
@@ -6514,14 +6015,8 @@ msgstr "Γραμμή"
 msgid "Line Graph"
 msgstr "Ιστογράφημα"
 
-#. Resource IDs: (16904)
-msgid ""
-"Line Tool\n"
-"Line"
-msgstr "Εργαλείο γραμμής\nΓραμμή"
-
-#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu,
+#. cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr "Γραμμή μπάρας διαφορών"
 
@@ -6557,10 +6052,6 @@ msgstr "Απαρίθμηση θεμάτων βοήθειας\nΘέματα βο�
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
 msgstr "Απαρίθμηση των αποθηκών για τις αποίες υπάρχουν πληροφορίες ιστορικού στην κρυφή μνήμη"
-
-#. Resource IDs: (16631, 16992)
-msgid "List1"
-msgstr "Απαρίθμηση1"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6600,11 +6091,12 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "Τοποθεσία όπου τα περιεχόμενα της\nδιευθυνσης αποθήκης θα αποθηκευτούν."
 
-#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu)
 msgid "Locator Bar"
 msgstr "Μπάρα εύρεσης"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535,
+#. cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr ""
 
@@ -6725,10 +6217,6 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr "Χαμηλότερη εμφανιζόμενη έκδοση: %1!ld! - Υψηλότερη εμφανιζόμενη έκδοση: %2!ld!\n Έκδοση HEAD: %3!ld!"
 
-#. Resource IDs: (16973)
-msgid "Lum"
-msgstr "Lum"
-
 #. Resource IDs: (61841)
 msgid "Mail system DLL is invalid."
 msgstr "Το υποσύστημα DLL του ηλεκτρονικού ταχυδρομίου είναι άκυρο."
@@ -6770,7 +6258,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
-#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
+#. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr "Μάρκαρε ως επιλημένα"
 
@@ -6804,7 +6292,7 @@ msgstr ""
 msgid "Markers"
 msgstr "Σημάδια"
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
@@ -6841,22 +6329,6 @@ msgstr "Μέγιστος αριθμός γραμμών στο ιστορικό �
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "Μέγιστος αριθμός &αποτυχίων εργαλείων ως την αφαίρεση της cache"
-
-#. Resource IDs: (16655)
-msgid "Me&nus show recently used commands first"
-msgstr "Οι κατά&λογοι εμφανίζουν πρώτα τις πρόσφατα χρησιμοποιημένες εντολές"
-
-#. Resource IDs: (16134)
-msgid "Menu"
-msgstr "Κατάλογος"
-
-#. Resource IDs: (16006)
-msgid "Menu Bar"
-msgstr "Μπάρα κατολόγου"
-
-#. Resource IDs: (16626)
-msgid "Menu s&hadows"
-msgstr "Σ&κιές καταλόγου"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -7021,10 +6493,6 @@ msgstr "Ελάχιστο"
 msgid "Mine"
 msgstr "Δικό μου"
 
-#. Resource IDs: (17086)
-msgid "Minimize the Ribbon"
-msgstr "Ελαχιστοποίηση της ταινίας"
-
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
 msgstr ""
@@ -7048,7 +6516,7 @@ msgstr "Αναμεμειγμένα"
 msgid "Modification date"
 msgstr "Ημερομηνία τροποποίησης"
 
-#. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
@@ -7061,18 +6529,6 @@ msgstr "Τροποποιημένος κόμβος"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
 msgstr ""
-
-#. Resource IDs: (17107)
-msgid "More"
-msgstr "Περισσότερα"
-
-#. Resource IDs: (16026)
-msgid "More Buttons"
-msgstr "Περισσότερα κουμπιά"
-
-#. Resource IDs: (17097)
-msgid "More Commands..."
-msgstr "Περισσότερες εντολές..."
 
 #. Resource IDs: (IDS_COLOURPICKER_CUSTOMTEXT)
 msgid "More colors..."
@@ -7090,10 +6546,6 @@ msgstr "Περισσότερα..."
 msgid "Most active author:"
 msgstr "Πιο δραστήριος συγγραφέας"
 
-#. Resource IDs: (16135)
-msgid "Mouse"
-msgstr "Ποντίκι"
-
 #. Resource IDs: (IDS_INPUT_MOVEMORE)
 #, c-format
 msgid ""
@@ -7107,22 +6559,6 @@ msgid ""
 "Move %1!ls!\r\n"
 "to %2!ls!"
 msgstr "Μετακίνηση %1!ls!\r\nστο %2!ls!"
-
-#. Resource IDs: (17026)
-msgid "Move &Down"
-msgstr "Κίνηση &κάτω"
-
-#. Resource IDs: (17025)
-msgid "Move &Up"
-msgstr "Κίνηση &επάνω"
-
-#. Resource IDs: (16022)
-msgid "Move Item Down"
-msgstr "Μετακίνηση αντικειμένου κάτω"
-
-#. Resource IDs: (16021)
-msgid "Move Item Up"
-msgstr "Μετακίνηση αντικειμένου πάνω"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK4)
 msgid ""
@@ -7223,36 +6659,36 @@ msgstr ""
 msgid "My file:"
 msgstr "Το αρχείο μου:"
 
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
+msgid "NC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
+msgid "ND"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
+msgid "NI"
+msgstr ""
+
 #. Resource IDs: (59138)
 msgid "NUM"
 msgstr "NUM"
-
-#. Resource IDs: (17128)
-msgid "Name"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535, Dialog
 #. IDD_REGEXFILTER: Control id 65535)
 msgid "Name:"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr ""
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr ""
-
-#. Resource IDs: (17004)
-msgid "Navigation Pane Options"
-msgstr "Επιλογές παραθύρου πλοήγησης"
-
-#. Resource IDs: (17031)
-msgid "Navigation Pane Options..."
-msgstr "Επιλογές παραθύρου πλοήγησης..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
@@ -7279,17 +6715,13 @@ msgstr "Δικτιο"
 msgid "Never try to contact the repository again"
 msgstr "Μην επιχηρήσετε να επικοινωνήσετε με το αποθετήριο ξανά"
 
-#. Resource IDs: (16017, 16027, 30721, 65535, 65535 - PopupMenu)
+#. Resource IDs: (30721, 65535 - PopupMenu)
 msgid "New"
 msgstr "Νέο"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
 msgstr "Νέο &όνομα:"
-
-#. Resource IDs: (16014)
-msgid "New Menu"
-msgstr "Νέο μενού"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7303,24 +6735,18 @@ msgstr ""
 msgid "Newlines"
 msgstr ""
 
-#. Resource IDs: (58114)
-msgid ""
-"Next Page\n"
-"Next Page"
-msgstr "Επόμενη σελίδα\nΕπόμενη σελίδα"
-
-#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
-#. Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
+#. cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
-#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
+#. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
-#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
+#. cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr ""
 
@@ -7374,6 +6800,10 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr "Κανένα αρχείο δεν έχει αλλαχθεί ή προστεθεί από\nτην τελευταία αποθήκευση. Δεν υπάρχει τίποτα\nνα κάνει το TortoiseSVN εδώ..."
 
+#. Resource IDs: (33002)
+msgid "No filter"
+msgstr ""
+
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
 msgstr "Δεν υπάρχει διαθέσημο ιστογράφημα"
@@ -7418,7 +6848,7 @@ msgstr ""
 msgid "Non-versioned"
 msgstr "Χωρίς έκδοση"
 
-#. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
+#. Resource IDs: (Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
 msgstr "Κανένα."
@@ -7562,24 +6992,6 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
-#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
-msgid "Office 2003"
-msgstr ""
-
-#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
-msgid "Office 2007"
-msgstr ""
-
-#. Resource IDs: (10008, 65535 - PopupMenu)
-msgid "Office 2007 colors"
-msgstr ""
-
-#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
-#. - Ribbon name)
-msgid "Office XP"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Older lines"
 msgstr "Παλιότερεσ γραμμές"
@@ -7646,7 +7058,7 @@ msgstr ""
 msgid "Opacity"
 msgstr "Αδειφάνεια"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr "Άνοιγμα"
 
@@ -7662,7 +7074,7 @@ msgstr ""
 msgid "Open client certificate file"
 msgstr "Άνοιγμα αρχείου πιστοποιτικού πελάτη"
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
@@ -7718,17 +7130,9 @@ msgstr ""
 msgid "Option"
 msgstr "Επιλογή"
 
-#. Resource IDs: (16137)
-msgid "Options"
-msgstr "Επιλογές"
-
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr ""
-
-#. Resource IDs: (17024)
-msgid "Other Task Panes"
-msgstr "Άλλα Παράθυρα Εργασιών"
 
 #. Resource IDs: (IDS_STATGRAPH_OTHERGROUP)
 msgid "Others"
@@ -7756,6 +7160,18 @@ msgstr ""
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
+msgid "PC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
+msgid "PD"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
+msgid "PI"
 msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
@@ -7804,15 +7220,9 @@ msgstr ""
 msgid "Password:"
 msgstr "Συνθηματικό"
 
-#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr ""
-
-#. Resource IDs: (16908)
-msgid ""
-"Paste Tool\n"
-"Paste"
-msgstr "Εργαλείο Επικόλλησης\nΕπικόλληση"
 
 #. Resource IDs: (IDS_COMMITDLG_POPUP_PASTEFILELIST)
 msgid "Paste filename list"
@@ -7883,12 +7293,6 @@ msgstr ""
 msgid "Peg"
 msgstr ""
 
-#. Resource IDs: (16902)
-msgid ""
-"Pencil Tool\n"
-"Pencil"
-msgstr "Εργαλείο Μολύβι\nΜολύβι"
-
 #. Resource IDs: (IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP)
 msgid "Percent of authorship"
 msgstr ""
@@ -7897,19 +7301,11 @@ msgstr ""
 msgid "Percents"
 msgstr ""
 
-#. Resource IDs: (16538)
-msgid "Personalized Menus and Toolbars"
-msgstr "Προσωποποιημένα μενού και εργαλειοθήκες"
-
 #. Resource IDs: (61582)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr "Εικόνα (Metafile)\nμια εικόνα"
-
-#. Resource IDs: (65535)
-msgid "Picture:"
-msgstr "Εικόνα:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
@@ -7946,10 +7342,6 @@ msgstr "Παρακαλώ σημειώστε:\nΤο εργαζόμενο αντι
 msgid "Please select a hook type"
 msgstr "Παρακαλώ επιλέξτε τύπο hook"
 
-#. Resource IDs: (IDS_BLAME_PROGRESSINFO)
-msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "Παρακαλώ περιμέντε - μπορεί να πάρει αρκετά λεπτά - Πραγματικά!"
-
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
 msgstr "Παρακαλώ περιμένετε όσο γίνεται ακύρωση..."
@@ -7967,8 +7359,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "Παρακαλώ περιμένετε όσο ο περιηγητής αποθηκών αρχικοποιείται..."
 
 #. Resource IDs: (Dialog IDD_PLEASEWAIT: Control id 347,
-#. IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT, IDS_REPOBROWSE_WAIT,
-#. IDS_STATUSLIST_BUSYMSG)
+#. IDS_BLAME_PROGRESSINFO, IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT,
+#. IDS_REPOBROWSE_WAIT, IDS_STATUSLIST_BUSYMSG)
 msgid "Please wait..."
 msgstr "Παρακαλώ περιμένετε..."
 
@@ -8020,60 +7412,28 @@ msgstr ""
 msgid "Prepend this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Press &New Shortcut Key:"
-msgstr "Πατήστε τη συντόμευση &Νέο"
-
-#. Resource IDs: (65535)
-msgid "Press &new shortcut key:"
-msgstr "Πατήστε τη συντόμευση &νέο"
-
 #. Resource IDs: (32819)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr ""
-
-#. Resource IDs: (17094)
-msgid "Preview"
-msgstr "Προεπισκόπηση"
 
 #. Resource IDs: (IDS_PATCH_PREVIEW)
 msgid "Preview patched file"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Preview: "
-msgstr "Προεπισκόπιση:"
-
-#. Resource IDs: (58115)
-msgid ""
-"Previous Page\n"
-"Previous Page"
-msgstr "Προηγούμενη Σελίδα\nΕπόμενη Σελίδα"
-
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
-#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
+#. cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
-#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
+#. cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
-#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
+#. cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr ""
-
-#. Resource IDs: (16990, 17092)
-msgid "Print"
-msgstr "Εκτύπωση"
-
-#. Resource IDs: (58116)
-msgid ""
-"Print Document\n"
-"&Print"
-msgstr "Εκτύπωση Εγγράφου\n&Εκτύπωση"
 
 #. Resource IDs: (61512)
 msgid "Print to File"
@@ -8235,7 +7595,7 @@ msgstr "Ρυθμίσεις Proxy"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr ""
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -8247,13 +7607,13 @@ msgid ""
 "Exit TortoiseMerge without saving the modifications"
 msgstr ""
 
+#. Resource IDs: (cmdReload_Keytip_RESID)
+msgid "R"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
 msgstr "Δίσκοι RA&M"
-
-#. Resource IDs: (16623)
-msgid "R&eset"
-msgstr "Ε&παναφορά"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1423)
 msgid "R&everse merge"
@@ -8279,14 +7639,6 @@ msgstr "Α&φαιρούμενοι δίσκοι"
 msgid "Re&name..."
 msgstr "Με&τονομασία..."
 
-#. Resource IDs: (16613)
-msgid "Re&set"
-msgstr "Επ&αναφορά"
-
-#. Resource IDs: (16647)
-msgid "Re&set All"
-msgstr "Ε&παναφορά όλων"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "Ε&παναφορά προεπιλογών"
@@ -8306,10 +7658,6 @@ msgstr "Διαβάστε τον 'Οδηγό Καθημερινής Χρήσης'
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL2)
 msgid "Realm String"
 msgstr ""
-
-#. Resource IDs: (16019)
-msgid "Recent"
-msgstr "Πρόσφατα"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
@@ -8349,12 +7697,6 @@ msgid ""
 "Open the auto-saved versions instead of the explicitly saved versions"
 msgstr ""
 
-#. Resource IDs: (16905)
-msgid ""
-"Rectangle Tool\n"
-"Rectangle"
-msgstr "Εργαλείο Πολύγωνο\nΠολύγωνο"
-
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recur&sive\n"
@@ -8377,11 +7719,11 @@ msgstr ""
 msgid "Redirecting to url"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr ""
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -8409,8 +7751,8 @@ msgstr ""
 msgid "Refreshing shell for %1!ls!"
 msgstr ""
 
-#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
-#. 165, ID_REGEXFILTER - Ribbon name)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165,
+#. cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr ""
 
@@ -8488,11 +7830,11 @@ msgstr "Απελευθερώνει τα κλειδώματα σε αρχεία �
 msgid "Relo&cate..."
 msgstr "Με&ταστέγαση"
 
-#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr "Επαναφόρτωση"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -8561,10 +7903,6 @@ msgstr ""
 msgid "Remove from &ignore list"
 msgstr "Αφαίρεση από τη λίστα &αγνοημένων"
 
-#. Resource IDs: (17084)
-msgid "Remove from Quick Access Toolbar"
-msgstr "Αφαίρεση από την εργαλειοθήκη γρήγορης πρόσβασης"
-
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REMOVEFROMCS)
 msgid "Remove from changelist"
 msgstr "Αφαίρεση από τη λίστα αλλαγών"
@@ -8629,10 +7967,6 @@ msgstr ""
 #, c-format
 msgid "Removing unversioned items in %1!ls!"
 msgstr ""
-
-#. Resource IDs: (16616)
-msgid "Rena&me..."
-msgstr "Με&τονομασία..."
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 151)
 msgid "Rename"
@@ -8754,10 +8088,6 @@ msgstr "Αίτημα για όνομα χρήστη και κωδικό πρόσ
 #. Resource IDs: (IDS_MENURESOLVE)
 msgid "Res&olve..."
 msgstr ""
-
-#. Resource IDs: (16614)
-msgid "Reset &All"
-msgstr "Επαναφορά &Όλων"
 
 #. Resource IDs: (IDS_STATUSLIST_RESETCOLUMNORDER)
 msgid "Reset columns"
@@ -8961,24 +8291,6 @@ msgstr "Δεξιά θέα:"
 msgid "Right image"
 msgstr "Δεξιά εικόνα: "
 
-#. Resource IDs: (17108)
-#, c-format
-msgid "Row %d of %d"
-msgstr "Σειρά %d από %d"
-
-#. Resource IDs: (17109)
-#, c-format
-msgid "Row %d-%d of %d"
-msgstr "Σειρά %d-%d από %d"
-
-#. Resource IDs: (17116)
-msgid "Row Down"
-msgstr ""
-
-#. Resource IDs: (17115)
-msgid "Row Up"
-msgstr ""
-
 #. Resource IDs: (IDS_RUNCLEANUPNOW)
 msgid "Run cleanup &now"
 msgstr ""
@@ -8987,21 +8299,9 @@ msgstr ""
 msgid "Run hoo&k script"
 msgstr ""
 
-#. Resource IDs: (17045)
-msgid "S&elect..."
-msgstr "Ε&πιλογή..."
-
-#. Resource IDs: (17027)
-msgid "S&how Buttons on One Row"
-msgstr "Ε&μφάνιση κουμπιών σε μια σειρά"
-
-#. Resource IDs: (17028)
-msgid "S&how Buttons on Two Rows"
-msgstr "Ε&μφάνιση κουμπιών σε δυο σειρές"
-
-#. Resource IDs: (17078)
-msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "Ε&μφάνιση εργαλειοθήκης γρήγορης πρόσβασης κάτω από το Ribbon"
+#. Resource IDs: (cmdSave_Keytip_RESID)
+msgid "S"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -9111,11 +8411,15 @@ msgstr ""
 msgid "Sample text:"
 msgstr ""
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr ""
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
+msgid "Save &as"
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "Αποθήκευση &ως..."
 
@@ -9185,7 +8489,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr ""
 
-#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
+#. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
 msgstr "Αποθήκευση ως"
 
@@ -9224,7 +8528,7 @@ msgstr ""
 msgid "Save settings to file"
 msgstr ""
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -9279,14 +8583,6 @@ msgstr "Ανίχνευση"
 msgid "Scintilla"
 msgstr "Ίχνος"
 
-#. Resource IDs: (16034)
-msgid "Scroll Left"
-msgstr "Μετακύλιση αριστερά"
-
-#. Resource IDs: (16035)
-msgid "Scroll Right"
-msgstr "Μετακύλιση δεξιά"
-
 #. Resource IDs: (IDS_LOG_POPUP_FIND)
 msgid "Search &log messages..."
 msgstr ""
@@ -9320,30 +8616,12 @@ msgstr "Επιλέξτε"
 msgid "Select &All"
 msgstr "Επιλογή &Όλων"
 
-#. Resource IDs: (16529)
-msgid "Select &User-defined Image: "
-msgstr ""
-
-#. Resource IDs: (16508)
-msgid "Select &context menu:"
-msgstr "Επιλέξτε &αναδυόμενο μενού"
-
-#. Resource IDs: (65535)
-msgid "Select &window:"
-msgstr "Επιλογή &παραθύρου"
-
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "Επιλογή/Απεπιλογή Ό&λων"
-
-#. Resource IDs: (16903)
-msgid ""
-"Select Color Tool\n"
-"Select Color"
-msgstr ""
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
@@ -9490,10 +8768,6 @@ msgstr "Αποστολή περιοχομένου"
 msgid "Server &address:"
 msgstr "&Διεύθυνση διακομιστή:"
 
-#. Resource IDs: (65535)
-msgid "Set Accelerator &for:"
-msgstr "Χρήση πλήκτρου συντόμευσης &για:"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1544)
 msgid "Set explicit revision for these externals:"
 msgstr ""
@@ -9513,8 +8787,8 @@ msgstr ""
 msgid "Setting properties..."
 msgstr "Ρύθμιση ιδιοτήτων..."
 
-#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
-#. Ribbon name)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu,
+#. cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -9559,10 +8833,6 @@ msgstr "Σμίκρυνση λίστας ιδιοτήτων"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1382)
 msgid "Show"
 msgstr "Επίδειξη"
-
-#. Resource IDs: (16996)
-msgid "Show &Accelerator for:"
-msgstr "Εμφάνιση &Επιταχυντή για:"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1031, IDS_LOG_SHOWALL)
 msgid "Show &All"
@@ -9619,29 +8889,17 @@ msgstr ""
 msgid "Show &unversioned files"
 msgstr "Εμφάνιση αρχείων &χωρίς έκδοση"
 
-#. Resource IDs: (17099)
-msgid "Show Above the Ribbon"
-msgstr "Εμφάνιση Πάνω από την Κορδέλα"
-
-#. Resource IDs: (17098)
-msgid "Show Below the Ribbon"
-msgstr "Εμφάνιση Κάτω από την Κορδέλα"
-
-#. Resource IDs: (17030)
-msgid "Show Fewer Buttons"
-msgstr "Εμφάνιση λιγότερων κουμπιών"
-
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
 msgstr "Εμφάνιση κόμβων εκδόσεων HEAD"
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr ""
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
@@ -9655,32 +8913,16 @@ msgstr "Εμφάνιση διαλόγου κλειδώματος πριν το �
 msgid "Show Monitor Dialog"
 msgstr ""
 
-#. Resource IDs: (17029)
-msgid "Show More Buttons"
-msgstr "Εμφάνιση Περισσότερων Κουμπιών"
-
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "Εμφάνιση &Περίληψης"
-
-#. Resource IDs: (17082)
-msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr ""
-
-#. Resource IDs: (17081)
-msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr ""
-
-#. Resource IDs: (16651)
-msgid "Show Screen&Tips on toolbars"
-msgstr "Εμφάνιση &συμβουλών οθόνης στις εργαλειοθήκες"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "Εμφάνιση &μεταβολών αντιγράφου εργασίας"
 
-#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
+#. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr ""
 
@@ -9711,10 +8953,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1480)
 msgid "Show externals from &different repositories"
 msgstr ""
-
-#. Resource IDs: (16656)
-msgid "Show f&ull menus after a short delay"
-msgstr "Εμφάνιση π&λήρους μενού μετά από μικρή καθυστέρηση"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1037, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1034)
@@ -9752,19 +8990,19 @@ msgid ""
 "with dots."
 msgstr ""
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr ""
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr ""
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -9780,11 +9018,7 @@ msgstr ""
 msgid "Show revision properties"
 msgstr "Προβολή ιδιοτήτων έκδοσης"
 
-#. Resource IDs: (16652)
-msgid "Show shortcut &keys in ScreenTips"
-msgstr "Εμφάνιση πλήκτρων &συντόμευσης στις Συμβουλές Οθόνης"
-
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
@@ -9875,12 +9109,7 @@ msgstr ""
 msgid "Shows the mime type of the versioned file"
 msgstr ""
 
-#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
-msgid "Silver Style"
-msgstr ""
-
-#. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
+#. Resource IDs: (IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
 msgstr "Μέγεθος"
 
@@ -9932,10 +9161,6 @@ msgstr ""
 
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
-msgstr ""
-
-#. Resource IDs: (17112)
-msgid "Slide"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
@@ -10008,10 +9233,6 @@ msgid ""
 "Separate the patterns with a space."
 msgstr ""
 
-#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-msgid "Spin1"
-msgstr ""
-
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SPLIT_ABOVE)
 msgid "Split &source tree"
 msgstr ""
@@ -10041,10 +9262,6 @@ msgstr ""
 #. Resource IDs: (IDS_STATGRAPH_LINESTACKEDBUTTON_TT)
 msgid "Stacked Line Graph"
 msgstr ""
-
-#. Resource IDs: (16962)
-msgid "Standard"
-msgstr "Κανονικό"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
@@ -10088,10 +9305,6 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#. Resource IDs: (16514)
-msgid "Static"
-msgstr "Στατικό"
-
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
 msgstr "Στατιστικά"
@@ -10101,13 +9314,9 @@ msgstr "Στατιστικά"
 msgid "Status"
 msgstr "Κατάσταση"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr ""
-
-#. Resource IDs: (17087)
-msgid "Status Bar Configuration"
-msgstr "Διαμόρφωση Μπάρας Κατάστασης"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -10150,10 +9359,6 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
-msgstr ""
-
-#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
-msgid "Style"
 msgstr ""
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
@@ -10271,21 +9476,23 @@ msgid ""
 "Previous Pane"
 msgstr "Μεταστροφή πίσω στο προηγούμενο πλαίσιο\nΠροηγούμενο πλαίσιο"
 
-#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
+#. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr ""
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr "Μεταστροφή μεταξύ μονού και διπλού πλαισίου\nΜεταστροφή μεταξύ μονού και διπλού πλαισίου"
 
-#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
+#. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr ""
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -10351,10 +9558,6 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
-#. Resource IDs: (16970)
-msgid "Tab Placeholder"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Tab size:"
@@ -10371,10 +9574,6 @@ msgstr ""
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
 msgstr "Εργασίες"
-
-#. Resource IDs: (17019)
-msgid "Tasks Pane"
-msgstr "Παράθυρο εργασιών"
 
 #. Resource IDs: (IDS_PROGRS_DRYRUN)
 msgid "Test Only"
@@ -10903,13 +10102,6 @@ msgstr "Αυτή η ιδιότητα επιτρέπετε μόνο σε φακέ
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Αυτή η ιδιότητα δεν μπορεί να έχει πολαππλές γραμμές. Επιστρέπετε μόνο μία γραμμή."
 
-#. Resource IDs: (16244)
-msgid ""
-"This will delete the record of commands you've used in this application and "
-"restore the default set of visible commands to the menus and toolbars. It "
-"will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr ""
-
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK1)
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
@@ -10922,14 +10114,6 @@ msgid ""
 "This working copy has a client-side hook script configured. Do you want this script to run?\n"
 "The command line to run is:\n"
 "%ls"
-msgstr ""
-
-#. Resource IDs: (16928)
-msgid "Tile &Vertically"
-msgstr "&Κάθετη Διάταξη"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
@@ -10963,40 +10147,6 @@ msgstr ""
 #. IDD_REVGRAPHFILTER: Control id 65535)
 msgid "To:"
 msgstr "Προς:"
-
-#. Resource IDs: (58113)
-msgid ""
-"Toggle One/Two Pages display\n"
-"Toggle One/Two Pages display"
-msgstr ""
-
-#. Resource IDs: (65535)
-msgid "Toolbar"
-msgstr "Εργαλειοθήκη"
-
-#. Resource IDs: (16130)
-msgid "Toolbar Name"
-msgstr "Όνομα εργαλειοθήκης"
-
-#. Resource IDs: (17017)
-msgid "Toolbar Options"
-msgstr "Επιλογές εργαλειοθήκης"
-
-#. Resource IDs: (16008)
-msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "Εσωτερικό σφάλμα της εργαλειοθήκης. Παρακαλώ επικοινωνήστε με τον κατασκευαστή της εφαρμογής."
-
-#. Resource IDs: (16105)
-msgid "Toolbars"
-msgstr "Εργαλειοθήκες"
-
-#. Resource IDs: (16928)
-msgid "Tools"
-msgstr "Εργαλεία"
-
-#. Resource IDs: (65535)
-msgid "Tools:"
-msgstr "Εργαλεία:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -11033,8 +10183,8 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr ""
 
-#. Resource IDs: (100, 156 - Ribbon element, 32897, 57344, Dialog IDD_OPENDLG:
-#. Control id 130, IDS_APPNAME)
+#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -11188,10 +10338,6 @@ msgstr ""
 msgid "Tweak TortoiseSVN"
 msgstr "Βελτιστοποίηση παραμέτρων του TortoiseSVN"
 
-#. Resource IDs: (17130)
-msgid "Type"
-msgstr "Τύπος"
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1436)
 msgid "U&pdate"
 msgstr "Ε&νημέρωση"
@@ -11286,24 +10432,15 @@ msgid ""
 "menu"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr "Αναίρεση"
-
-#. Resource IDs: (17102)
-#, c-format
-msgid "Undo %d Actions"
-msgstr "Αναίρεση %d ενεργειών "
-
-#. Resource IDs: (17103)
-msgid "Undo 1 Action"
-msgstr "Επαναφορά 1 ενέργειας"
 
 #. Resource IDs: (IDS_MENUUNDOADD)
 msgid "Undo Add..."
 msgstr "Αναίρεση Προσθήκης..."
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
@@ -11312,10 +10449,6 @@ msgstr ""
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
 msgstr "Απροσδόκητη διαμόρφωση αρχείου"
-
-#. Resource IDs: (17111)
-msgid "Unfold"
-msgstr ""
 
 #. Resource IDs: (61591)
 msgid ""
@@ -11485,10 +10618,6 @@ msgstr "Ενημερώνεται '%1!ls!'"
 msgid "Urls"
 msgstr ""
 
-#. Resource IDs: (16530)
-msgid "Use &Default Image: "
-msgstr "Χρήση &προεπιλεγμένης εικόνας:"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr ""
@@ -11508,22 +10637,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
-#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
+#. cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu,
+#. cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
-#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
+#. cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr ""
 
@@ -11543,29 +10672,29 @@ msgstr ""
 msgid "Use Unified Diff from &clipboard"
 msgstr "Χρήση ενοποιημένων διαφορών από το &Πρόχειρο"
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
-#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
+#. cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr ""
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
-#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
+#. cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr ""
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -11579,13 +10708,12 @@ msgstr ""
 msgid "Use both text blocks (this one last)"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
+#. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr "Χρήση αριστερού αρχείου"
 
@@ -11621,13 +10749,13 @@ msgstr "Χρήση μπλοκ κειμένου από 'το &δικό τους'"
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "Χρήση μπλοκ κειμένου από 'το &δικό μου' πριν 'το δικό τους'"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr ""
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -11637,19 +10765,19 @@ msgstr ""
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr ""
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr ""
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr ""
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
@@ -11721,6 +10849,10 @@ msgstr ""
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr ""
 
+#. Resource IDs: (cmdPaste_Keytip_RESID)
+msgid "V"
+msgstr ""
+
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
 "Valid command line options are:\n"
@@ -11770,11 +10902,11 @@ msgstr "Πληροφορίες έκδοσης"
 msgid "Versioned"
 msgstr "Σε έκδοση"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr "Εμφάνιση"
 
-#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr ""
 
@@ -11790,15 +10922,9 @@ msgstr ""
 msgid "Visit our website"
 msgstr "Επισκευθείτε την ιστοσελίδα μας"
 
-#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
-#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
-msgid "Visual Studio 2005"
-msgstr "Visual Studio 2005"
-
-#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
-#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
-msgid "Visual Studio 2008"
-msgstr "Visual Studio 2008"
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
+msgid "W"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
 msgid ""
@@ -11885,33 +11011,10 @@ msgstr ""
 msgid "Whitespace changes (tabs, spaces)"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
-#. 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
+#. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Κενά"
-
-#. Resource IDs: (17038)
-msgid "Window Position"
-msgstr "Θέση παραθύρου"
-
-#. Resource IDs: (16927)
-msgid "Windows"
-msgstr "Windows"
-
-#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
-#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
-msgid "Windows 2000"
-msgstr "Windows 2000"
-
-#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
-#. Ribbon name)
-msgid "Windows 7"
-msgstr "Windows 7"
-
-#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
-#. - Ribbon name)
-msgid "Windows XP"
-msgstr "Windows XP"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 158, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 1493, Dialog IDD_MERGEWIZARD_TREE:
@@ -11940,15 +11043,22 @@ msgstr "Το Τρέχον Αντίγραφο Εργασίας μετακινήθ
 msgid "Working copy: %ls\n"
 msgstr "Τρέχον αντίγραφο: %ls\n"
 
-#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
-#. name)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
+msgid "Wrap Lines"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
 msgstr ""
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
+msgstr ""
+
+#. Resource IDs: (cmdRedo_Keytip_RESID)
+msgid "Y"
 msgstr ""
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
@@ -11966,16 +11076,6 @@ msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
 msgstr ""
-
-#. Resource IDs: (16005)
-#, c-format
-msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr ""
-
-#. Resource IDs: (16243)
-#, c-format
-msgid "You can't create more than %d user-defined toolbars!"
-msgstr "Δεν μπορείτε να δημιουργήσετε περισσότερα από %d εργαλειοθήκες χρήστη!"
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -12017,11 +11117,6 @@ msgstr "Πρέπει να ενημερώσετε το αντίγραφο εργ�
 msgid "You haven't entered an issue number."
 msgstr ""
 
-#. Resource IDs: (16024)
-#, c-format
-msgid "You may define up to %d tools."
-msgstr "Μπορείτε να ορίσετε εως και %d εργαλεία."
-
 #. Resource IDs: (IDS_SETTINGS_RESTARTSYSTEM)
 msgid "You must restart your system for the changes to take effect."
 msgstr "Πρέπει να επανεκκινήσετε το σύστημα για να ολοκληρωθούν οι αλλαγές."
@@ -12029,14 +11124,6 @@ msgstr "Πρέπει να επανεκκινήσετε το σύστημα γι�
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
 msgstr ""
-
-#. Resource IDs: (16002)
-msgid "You should enter a text!"
-msgstr "Πρέπει να εισάγετε κείμενο!"
-
-#. Resource IDs: (16001)
-msgid "You should select an image!"
-msgstr "Πρέπει να επιλέξετε μια εικόνα!"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12094,13 +11181,13 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr ""
 
+#. Resource IDs: (cmdUndo_Keytip_RESID)
+msgid "Z"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr ""
-
-#. Resource IDs: (17093)
-msgid "Zoom"
-msgstr "Μεγέθυνση"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -12122,18 +11209,6 @@ msgstr "Μεγέθυνση &έξω\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Μεγέθυνση 100%"
-
-#. Resource IDs: (58117)
-msgid ""
-"Zoom In\n"
-"Zoom In"
-msgstr "Μεγέθυνση\nΣμύκρινση"
-
-#. Resource IDs: (58118)
-msgid ""
-"Zoom Out\n"
-"Zoom Out"
-msgstr "Σμίκρυνση\nΣμίκρυνση"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
@@ -12163,14 +11238,6 @@ msgstr "Μεγέθυνση για προσαρμογή στο ύψος"
 msgid "Zoom to fit in width"
 msgstr "Μεγέθυνση για προσαρμογή στο πλάτος"
 
-#. Resource IDs: (17114)
-msgid "[Default]"
-msgstr ""
-
-#. Resource IDs: (16009)
-msgid "[Unassigned]"
-msgstr "[Χωρίς Ανάθεση]"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
 msgstr ""
@@ -12184,10 +11251,6 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr ""
-
-#. Resource IDs: (65535 - PopupMenu)
-msgid "_POPUP_"
-msgstr "_POPUP_"
 
 #. Resource IDs: (IDS_STATUSADDED)
 msgid "added"
@@ -12365,10 +11428,6 @@ msgstr "διαγράφτηκε"
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "disk [kB]: "
 msgstr "δίσκος [kB]: "
-
-#. Resource IDs: (58116)
-msgid "dummy"
-msgstr "ψελυτικος"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
@@ -12550,6 +11609,10 @@ msgstr ""
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
 msgstr "κανονικό"
+
+#. Resource IDs: (cmdOpen_Keytip_RESID)
+msgid "o1"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"

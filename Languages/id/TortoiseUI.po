@@ -18,6 +18,7 @@
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
 # omixen <omixen@gmail.com>, 2011
 # omixen <omixen@gmail.com>, 2011
+# Radhitya Wawan Yunarko <radhitwaw@gmail.com>, 2017
 # uring <uringinteristi@gmail.com>, 2011
 # uring <uringinteristi@gmail.com>, 2011
 # uring <uringinteristi@gmail.com>, 2011
@@ -26,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-19 09:11+0000\n"
+"PO-Revision-Date: 2017-11-14 02:02+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Indonesian (http://www.transifex.com/luebbe/tortoisesvn/language/id/)\n"
 "MIME-Version: 1.0\n"
@@ -197,7 +198,7 @@ msgstr "%I64d kByte ditransfer"
 #. Resource IDs: (62186)
 #, c-format
 msgid "%Ts [Recovered]"
-msgstr ""
+msgstr "%Ts [Dipulihkan]"
 
 #. Resource IDs: (61585, 61586)
 #, c-format
@@ -301,17 +302,13 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nadalah direktori, bukan berkas!\nTortoiseMerge tidak bisa melakukan diff direktori."
 
-#. Resource IDs: (16923)
-msgid "&..."
-msgstr "&..."
-
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&Tentang TortoiseMerge..."
 
@@ -321,17 +318,9 @@ msgid ""
 "The certificate is accepted only this one time."
 msgstr ""
 
-#. Resource IDs: (16920)
-msgid "&Activate"
-msgstr "&Aktivasi"
-
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
 msgstr "&Tambah"
-
-#. Resource IDs: (17075)
-msgid "&Add >>"
-msgstr "&Tambah >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
@@ -342,10 +331,6 @@ msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
-
-#. Resource IDs: (17018)
-msgid "&Add or Remove Buttons"
-msgstr "&Tambah atau Hapus Tombol"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -382,22 +367,6 @@ msgstr "&Terapkan properti secara rekursif"
 msgid "&Apply unified diff"
 msgstr "&Terapkan unified diff"
 
-#. Resource IDs: (65535)
-msgid "&Arguments:"
-msgstr "&Argumen:"
-
-#. Resource IDs: (16645)
-msgid "&Assign"
-msgstr "&Tugaskan"
-
-#. Resource IDs: (16633)
-msgid "&Associate double-click event with:"
-msgstr "&Hubungkan peristiwa klik-ganda dengan:"
-
-#. Resource IDs: (17041)
-msgid "&Auto Hide"
-msgstr "&Sembunyi Otomatis"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
 msgstr "&Otomatis tutup:"
@@ -425,10 +394,6 @@ msgstr "&Salahkan revisi sebelumnya"
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
 msgstr "&Salahkan..."
-
-#. Resource IDs: (65535)
-msgid "&Blue:"
-msgstr "&Biru:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -459,14 +424,6 @@ msgstr "&Jelajahi..."
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr "&Pencatat Kesalahan (Integrasi pencatat kesalahan)"
 
-#. Resource IDs: (16913 - Menu)
-msgid "&Button Appearance..."
-msgstr "&Penampilan Tombol..."
-
-#. Resource IDs: (65535)
-msgid "&Button text:"
-msgstr "&Teks tombol:"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
 msgstr "&CD-ROM"
@@ -493,7 +450,7 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "Do not remove"
-msgstr ""
+msgstr "&Batalkan\nJangan dihapus"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
 msgid ""
@@ -609,18 +566,6 @@ msgid ""
 "keep the current format."
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Categories:"
-msgstr "&Kategori:"
-
-#. Resource IDs: (65535)
-msgid "&Category:"
-msgstr "&Kategori:"
-
-#. Resource IDs: (65535)
-msgid "&Choose commands from:"
-msgstr "&Pilih perintah dari:"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
 msgstr "&Pilih item..."
@@ -641,17 +586,9 @@ msgstr ""
 msgid "&Close"
 msgstr "&Tutup"
 
-#. Resource IDs: (16922)
-msgid "&Close Window(s)"
-msgstr "&Tutup Jendela"
-
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
 msgstr ""
-
-#. Resource IDs: (65535)
-msgid "&Command:"
-msgstr "&Perintah:"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -683,14 +620,10 @@ msgstr "&Hubungi repositori saat mulai"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Ubah berkas saat melakukan diff terhadap BASE"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "&Copy"
-
-#. Resource IDs: (16911 - Menu)
-msgid "&Copy Button Image"
-msgstr "&Salin Gambar Tombol"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
@@ -726,8 +659,8 @@ msgstr "&Jumlah hari tanpa aktivitas sebelum akhirnya tembolok kecil dihapus"
 msgid "&Default"
 msgstr "&Standar"
 
-#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
-#. Control id 1382, IDS_MENUREMOVE)
+#. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1382,
+#. IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "&Hapus"
 
@@ -773,10 +706,6 @@ msgstr "&Direktori"
 msgid "&Do not ask again"
 msgstr "&Jangan ditanyakan lagi"
 
-#. Resource IDs: (17040)
-msgid "&Docking"
-msgstr "&Pengaitan"
-
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
 msgid ""
 "&Don't run\n"
@@ -804,7 +733,7 @@ msgstr "&Edit konflik"
 msgid "&Edit project"
 msgstr ""
 
-#. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
@@ -886,10 +815,6 @@ msgstr ""
 msgid "&Fixed drives"
 msgstr "&Pemacu tetap"
 
-#. Resource IDs: (17039)
-msgid "&Floating"
-msgstr "&Mengapung"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
 msgstr "&Font untuk pesan log:"
@@ -920,10 +845,6 @@ msgstr "&Dari: (mulai URL dan revisi dari deretan untuk digabung)"
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Green:"
-msgstr "&Hijau:"
-
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "&Kelompokkan menurut cabang"
@@ -950,16 +871,20 @@ msgstr "&Revisi HEAD dalam repositori"
 msgid "&Help"
 msgstr "&Bantuan"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "&Topik Bantuan"
 
-#. Resource IDs: (17042, 61457)
+#. Resource IDs: (61457)
 msgid "&Hide"
 msgstr "&Sembunyikan"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
+msgstr ""
+
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
+msgid "&Hide/Show the patch file list"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
@@ -983,17 +908,9 @@ msgstr "&Abaikan dan lanjutkan"
 msgid "&Ignore multiple items by name"
 msgstr ""
 
-#. Resource IDs: (16914 - Menu)
-msgid "&Image"
-msgstr "&Gambar"
-
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr ""
-
-#. Resource IDs: (16505)
-msgid "&Image only"
-msgstr "&Gambar saja"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1012,10 +929,6 @@ msgstr "&Muat item-item luaran"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
 msgstr "&Muat info penggabungan"
-
-#. Resource IDs: (65535)
-msgid "&Initial directory:"
-msgstr "&Direktori awal:"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
@@ -1036,10 +949,6 @@ msgstr "&Kata Kunci"
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
 msgstr "&Bahasa:"
-
-#. Resource IDs: (16653)
-msgid "&Large Icons"
-msgstr "&Ikon Besar"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -1082,10 +991,6 @@ msgstr "&Kunci diperlukan (update hanya untuk baca)"
 msgid "&Log Sizes"
 msgstr "&Ukuran-ukuran log"
 
-#. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "&Pencahayaan"
-
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
@@ -1102,14 +1007,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "&Ukuran maksimum [kByte] dari tembolok hapusan yang tidak aktif"
-
-#. Resource IDs: (16543)
-msgid "&Menu animations:"
-msgstr "&Animasi-animasi Menu:"
-
-#. Resource IDs: (16921)
-msgid "&Menu contents:"
-msgstr "&Isi menu:"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1130,10 +1027,6 @@ msgstr "&Menggabung"
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "&Tipe-Mime"
-
-#. Resource IDs: (16925)
-msgid "&Minimize"
-msgstr "&Perkecil"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1159,8 +1052,8 @@ msgstr "&Pemacu Jaringan"
 msgid "&New "
 msgstr "&Baru"
 
-#. Resource IDs: (16509, 16615, Dialog IDD_EDITPROPERTIES: Control id 1310,
-#. Dialog IDD_EDITPROPEXTERNALS: Control id 1542)
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1310, Dialog
+#. IDD_EDITPROPEXTERNALS: Control id 1542)
 msgid "&New..."
 msgstr "&Baru..."
 
@@ -1176,10 +1069,6 @@ msgstr "&Berikutnya >"
 #. Resource IDs: (58114)
 msgid "&Next Page"
 msgstr "&Halaman Berikutnya"
-
-#. Resource IDs: (16632)
-msgid "&No double-click event"
-msgstr "&Tidak ada peristiwa klik-ganda"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
@@ -1197,10 +1086,10 @@ msgstr "&Tidak bisa di eksekusi"
 msgid "&Numeric"
 msgstr "&Angka"
 
-#. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
-#. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
-#. 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1,
-#. Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id
+#. 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1,
+#. Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog
+#. IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
 #. IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1,
 #. Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id
 #. 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL:
@@ -1237,7 +1126,8 @@ msgstr "&Luring mulai sekarang"
 msgid "&One Page"
 msgstr "&Satu Halaman"
 
-#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN,
+#. cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr "&Buka"
 
@@ -1284,8 +1174,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "&Kata sandi:"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "&Paste"
 
@@ -1316,10 +1206,6 @@ msgstr "&Bawaan pengguna berkuasa"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr ""
-
-#. Resource IDs: (17091)
-msgid "&Print Preview"
-msgstr "&Pratilik Halaman"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1361,10 +1247,6 @@ msgstr "&Properti..."
 msgid "&Recent messages"
 msgstr "&Pesan Terbaru"
 
-#. Resource IDs: (65535)
-msgid "&Red:"
-msgstr "&Merah:"
-
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
 msgstr "&Buat Semula"
@@ -1389,7 +1271,7 @@ msgstr ""
 msgid "&Remind me to enter a bug-ID"
 msgstr "&Ingatkan saya untuk memasukkan ID kesalahan"
 
-#. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1100, IDS_PROP_REMOVE)
 msgid "&Remove"
@@ -1441,22 +1323,6 @@ msgstr ""
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
 msgstr "&Penjelajah-repo"
-
-#. Resource IDs: (16613, 16624)
-msgid "&Reset"
-msgstr "&Set ulang"
-
-#. Resource IDs: (16300)
-msgid "&Reset Toolbar"
-msgstr "&Set Ulang Bilah Alat"
-
-#. Resource IDs: (16657)
-msgid "&Reset my usage data"
-msgstr "&Set ulang data penggunaan saya"
-
-#. Resource IDs: (16910 - Menu)
-msgid "&Reset to Default"
-msgstr "&Set ulang ke Bawaan"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
 msgid ""
@@ -1519,11 +1385,7 @@ msgstr "&Klien SSH:"
 msgid "&SVN"
 msgstr "&SVN"
 
-#. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "&Saturasi"
-
-#. Resource IDs: (16921)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr "&Simpan"
 
@@ -1558,10 +1420,6 @@ msgstr "&Tampilkan revisi HEAD"
 msgid "&Show Log"
 msgstr "&Tampilkan Log"
 
-#. Resource IDs: (65535)
-msgid "&Show Menus for:"
-msgstr "&Tampilkan Menu untuk:"
-
 #. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr ""
@@ -1570,23 +1428,15 @@ msgstr ""
 msgid "&Show popup notifications"
 msgstr ""
 
-#. Resource IDs: (16612)
-msgid "&Show text labels"
-msgstr "&Tampilkan label teks"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
 msgstr "&Revisi spesifik dalam repositori"
-
-#. Resource IDs: (16917 - Menu)
-msgid "&Start Group"
-msgstr "&Grup Awal"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
 msgstr "&Nyalakan Penjelajah-Repo"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "&Status Bar"
 
@@ -1618,10 +1468,6 @@ msgstr "&Tampilan Simbol"
 msgid "&Tab size:"
 msgstr "&Ukuran Tab:"
 
-#. Resource IDs: (17088)
-msgid "&Tabbed Document"
-msgstr "&Dokumen Bertab"
-
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
 msgstr "&Tag"
@@ -1630,13 +1476,9 @@ msgstr "&Tag"
 msgid "&Test merge"
 msgstr "&Uji penggabungan"
 
-#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "&Teks"
-
-#. Resource IDs: (16506)
-msgid "&Text only"
-msgstr "&Teks saja"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1664,17 +1506,9 @@ msgstr "&Ke path:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&Ke: (akhir URL dan revisi dari jangkauan yang digabung)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "&Toolbar"
-
-#. Resource IDs: (65535)
-msgid "&Toolbar Name:"
-msgstr "Nama Bilah Ala&t:"
-
-#. Resource IDs: (65535)
-msgid "&Toolbars:"
-msgstr "Bilah Ala&t:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
@@ -1713,7 +1547,7 @@ msgstr "&URL repositori:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "&Undo"
 
@@ -1784,10 +1618,6 @@ msgstr ""
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "&Lihat"
-
-#. Resource IDs: (65535)
-msgid "&View:"
-msgstr "&Lihat:"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
 msgid "&Whole word"
@@ -1933,11 +1763,6 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#. Resource IDs: (16108)
-msgid ""
-"-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1035, Dialog IDD_CHECKOUT:
 #. Control id 1036, Dialog IDD_COPY: Control id 1035, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1035, Dialog IDD_EXPORT: Control id
@@ -1964,10 +1789,6 @@ msgstr "... memeriksa tembolok dan mempersiapkan pertanyaan log"
 msgid "... reading working copy status"
 msgstr "... membaca status salinan bekerja"
 
-#. Resource IDs: (16527)
-msgid "....."
-msgstr "....."
-
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1980,22 +1801,6 @@ msgstr ": salinan pekerjaan"
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
 msgstr "< &Sebelumnya"
-
-#. Resource IDs: (16506)
-msgid "<.....>"
-msgstr "<.....>"
-
-#. Resource IDs: (17095)
-msgid "<Separator>"
-msgstr "<Pembatas>"
-
-#. Resource IDs: (16104)
-msgid "<Untitled>"
-msgstr "<Tanpa Judul>"
-
-#. Resource IDs: (16603)
-msgid "<descr>"
-msgstr "<descr>"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_CREATECS)
 msgid "<new changelist>"
@@ -2081,7 +1886,11 @@ msgstr "&Tambah folder..."
 msgid "Abort"
 msgstr "Batalkan"
 
-#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
+msgid "Abou&t TortoiseMerge"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
 msgstr "Tentang"
 
@@ -2119,10 +1928,6 @@ msgstr "Aksi"
 #. Resource IDs: (61203)
 msgid "Activate Task List"
 msgstr "Aktifkan Daftar Tugas"
-
-#. Resource IDs: (17043)
-msgid "Active Files"
-msgstr "Berkas Aktif"
 
 #. Resource IDs: (61838)
 #, c-format
@@ -2192,10 +1997,6 @@ msgstr "Tambah ke daftar aba&ikan"
 msgid "Add to Bookmarks"
 msgstr ""
 
-#. Resource IDs: (17083)
-msgid "Add to Quick Access Toolbar"
-msgstr "Tambahkan ke Bilah Alat Akses Cepat"
-
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
@@ -2247,7 +2048,7 @@ msgstr "Menambah berkas ke kontrol Subversion"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Menambah berkas pilihan atau topeng berkas ke daftar 'abaikan'"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -2286,10 +2087,6 @@ msgstr "Jajarkan pohon-pohon di atas"
 msgid "All"
 msgstr "Semua"
 
-#. Resource IDs: (16110)
-msgid "All Commands"
-msgstr "Semua Perintah"
-
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
 msgstr "Semua Berkas (*.*)"
@@ -2298,32 +2095,7 @@ msgstr "Semua Berkas (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Semua Berkas (*.*)|*.*||"
 
-#. Resource IDs: (16112)
-msgid ""
-"All your changes will be lost! Do you really want to reset all toolbars and "
-"menus?"
-msgstr "Semua perubahan Anda akan hilang! Apakah Anda ingin untuk menset ulang semua bilah alat dan menu?"
-
-#. Resource IDs: (16115)
-msgid ""
-"All your changes will be lost! Do you really want to reset the keyboard "
-"assignments?"
-msgstr "Semua perubahan Anda akan hilang! Apakah Anda ingin untuk menset ulang semua penugasan papan ketik?"
-
-#. Resource IDs: (16113)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
-
-#. Resource IDs: (16111)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar "
-"'%Ts'?"
-msgstr ""
-
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
@@ -2428,10 +2200,6 @@ msgstr ""
 msgid "Append this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Application Frame Menus: "
-msgstr "Menu Bingkai Aplikasi"
-
 #. Resource IDs: (IDS_MENUDESCAPPLYPATCH)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Terapkan berkas unified diff ke copy pekerjaan"
@@ -2460,11 +2228,6 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1282)
 msgid "Approved hook scripts"
-msgstr ""
-
-#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
-msgid "Aqua Style"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
@@ -2503,10 +2266,6 @@ msgstr "Tanyakan pengguna"
 #, c-format
 msgid "Assigned to changelist '%ls'"
 msgstr "Ditugaskan ke daftar perubahan '%ls'"
-
-#. Resource IDs: (16528)
-msgid "Assigned to:"
-msgstr "Ditugaskan ke:"
 
 #. Resource IDs: (IDS_PROGRS_ATREV)
 #, c-format
@@ -2562,14 +2321,6 @@ msgstr "Sensitif huruf Pengarang"
 msgid "Authors:"
 msgstr "Pengarang:"
 
-#. Resource IDs: (16033)
-msgid "Auto Hide"
-msgstr "Sembunyi Otomatis"
-
-#. Resource IDs: (16036)
-msgid "Auto Hide All"
-msgstr "Sembunyikan Otomatis Semua"
-
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
 msgstr ""
@@ -2614,10 +2365,6 @@ msgstr "Rata-rata"
 msgid "B&rowse..."
 msgstr "B&rowse..."
 
-#. Resource IDs: (17020)
-msgid "Back"
-msgstr "Kembali"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
@@ -2642,11 +2389,6 @@ msgid ""
 "a bitmap"
 msgstr "Bitmap\nsebuah bitmap"
 
-#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
-msgid "Black Style"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
 msgstr "Salahkan"
@@ -2667,13 +2409,8 @@ msgstr "Menyalahkan setiap baris dari berkas pada pembuat"
 msgid "Blend alpha"
 msgstr "Campuran alpha"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
-msgstr ""
-
-#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
-msgid "Blue Style"
 msgstr ""
 
 #. Resource IDs: (IDS_BOOKMARKS)
@@ -2745,9 +2482,9 @@ msgstr "Bug-IDs"
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr "Penguji Regex Bugtraq - TortoiseSVN"
 
-#. Resource IDs: (16132)
-msgid "Button Appearance"
-msgstr "Penampilan Tombol"
+#. Resource IDs: (cmdCopy_Keytip_RESID)
+msgid "C"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2761,10 +2498,6 @@ msgstr "&Periksa repositori"
 msgid "C&ollapse sub-trees"
 msgstr "&Meruntuhkan subpohon"
 
-#. Resource IDs: (65535)
-msgid "C&ommands:"
-msgstr "&Perintah:"
-
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
 msgstr ""
@@ -2776,10 +2509,6 @@ msgstr "&Buat cabang/tag dari revisi"
 #. Resource IDs: (IDS_REPOBROWSE_MKDIR)
 msgid "C&reate folder..."
 msgstr "&Buat folder..."
-
-#. Resource IDs: (65535)
-msgid "C&urrent Keys:"
-msgstr "&Kunci Sekarang:"
 
 #. Resource IDs: (IDS_EDIT_CUT)
 msgid "C&ut"
@@ -2814,23 +2543,7 @@ msgid ""
 "%2!ls!"
 msgstr "Tidak dapat menyalin \n%1!ls!\nke\n%2!ls!"
 
-#. Resource IDs: (16010)
-msgid "Can't copy bitmap image into the clipboard!"
-msgstr "Tidak dapat menyalin gambar bitmap ke papan jepit!"
-
-#. Resource IDs: (16003)
-msgid "Can't create a new image!"
-msgstr "Tidak dapat membuat gambar baru!"
-
-#. Resource IDs: (16007)
-msgid "Can't customize menus!"
-msgstr "Menu tidak dapat diubah!"
-
-#. Resource IDs: (16004)
-msgid "Can't paste bitmap image from the clipboard!"
-msgstr "Tidak dapat menempelkan gambar bitmap dari papan jepit!"
-
-#. Resource IDs: (17101, 2, Dialog IDD_BLAME: Control id 2, Dialog
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog
 #. IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2,
 #. Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control
 #. id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2,
@@ -2937,17 +2650,9 @@ msgstr "Membatalkan operasi..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Tidak bisa menampilkan diff karena ketidakkonsistenan baris baru dalam berkas."
 
-#. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "&Berbanjar"
-
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
 msgstr "Kasus-sensitif"
-
-#. Resource IDs: (65535)
-msgid "Cate&gories:"
-msgstr "&Kategori:"
 
 #. Resource IDs: (IDS_ERR_SSL_EXPIRED)
 #, c-format
@@ -2971,12 +2676,6 @@ msgstr "Sertifikat|*.p12;*.pkcs12;*.pfx|All|*.*||"
 msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
-
-#. Resource IDs: (10000)
-msgid ""
-"Change the style of the application\n"
-"Change Style"
 msgstr ""
 
 #. Resource IDs: (61185)
@@ -3008,10 +2707,6 @@ msgstr "Daftar perubahan:"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "Perubahan dibuat (klik-ganda pada berkas untuk diff):"
-
-#. Resource IDs: (32956)
-msgid "Changes the style of the application"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3173,12 +2868,6 @@ msgstr "Membersihkan operasi yang terinterupsi, berkas terkunci, ..."
 msgid "Clear"
 msgstr "Bersihkan"
 
-#. Resource IDs: (16909)
-msgid ""
-"Clear Tool\n"
-"Clear"
-msgstr "Alat Pembersih\nBersihkan"
-
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
 msgstr ""
@@ -3239,7 +2928,7 @@ msgid ""
 "extension"
 msgstr "Klik pada \"Lanjutan\" untuk menetapkan program merge alternatif yang didasarkan pada ekstensi berkas"
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
@@ -3248,20 +2937,6 @@ msgstr ""
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
 msgstr "Clipboard"
-
-#. Resource IDs: (16032, 16105, 17023, 2)
-msgid "Close"
-msgstr "Tutup"
-
-#. Resource IDs: (17025)
-msgid "Close Full Screen"
-msgstr "Tutup Layar Penuh"
-
-#. Resource IDs: (58112)
-msgid ""
-"Close Print Preview\n"
-"&Close"
-msgstr "Tutup Pratilik Cetak\n&Tutup"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_MANUAL)
 msgid "Close manually"
@@ -3283,7 +2958,7 @@ msgstr "Run&tuhkan pohon sumber"
 msgid "Collaborator &password"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr ""
 
@@ -3291,15 +2966,11 @@ msgstr ""
 msgid "Collapse &following tree"
 msgstr "Runtuhkan &pohon berikut"
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr "Runtuhkan bagian berubah\nRuntuhkan"
-
-#. Resource IDs: (16662)
-msgid "Color"
-msgstr "Warna"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Color 1"
@@ -3321,21 +2992,13 @@ msgstr ""
 msgid "Color by au&thor"
 msgstr ""
 
-#. Resource IDs: (16961, Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
 msgid "Colors"
 msgstr "Warna"
 
-#. Resource IDs: (65535)
-msgid "Colors:"
-msgstr "Warna:"
-
-#. Resource IDs: (65535)
-msgid "Comman&ds:"
-msgstr "Peri&ntah:"
-
-#. Resource IDs: (16029, IDS_PROGRS_CMDINFO)
+#. Resource IDs: (IDS_PROGRS_CMDINFO)
 msgid "Command"
 msgstr "Perintah"
 
@@ -3361,10 +3024,6 @@ msgstr "Perintah gagal - Perlu update"
 #. Resource IDs: (61705)
 msgid "Command failed."
 msgstr "Perintah gagal."
-
-#. Resource IDs: (16104)
-msgid "Commands"
-msgstr "Perintah-Perintah"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
@@ -3453,7 +3112,7 @@ msgid "Compare two files"
 msgstr "Membandingkan dua berkas"
 
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
-#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
+#. cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr "Bandingkan spasi putih"
 
@@ -3477,7 +3136,7 @@ msgstr ""
 msgid "Compare with previous revision"
 msgstr "Bandingkan dengan revisi sebelumnya"
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
@@ -3503,6 +3162,10 @@ msgstr "Selesai!"
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
+msgstr ""
+
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
+msgid "Configure Filter Regex"
 msgstr ""
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
@@ -3569,17 +3232,9 @@ msgstr "Menghubungkan ke peladen repositori dan mengunduh data log yang hilang"
 msgid "Container sizes"
 msgstr "Ukuran kontainer"
 
-#. Resource IDs: (16520)
-msgid "Context Menus: "
-msgstr "Menu-Menu Konteks:"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr ""
-
-#. Resource IDs: (16013)
-msgid "Contract docked window"
-msgstr "Susutkan jendela terkait"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3610,7 +3265,7 @@ msgstr "Disalin dari: %1!ls!@%2!ld!\r\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr ""
 
-#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr "Salin"
 
@@ -3640,12 +3295,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_COPY: Control id 142)
 msgid "Copy (Branch / Tag)"
 msgstr "Copy (Cabang / Tag)"
-
-#. Resource IDs: (16907)
-msgid ""
-"Copy Tool\n"
-"Copy"
-msgstr "Alat Salin\nSalin"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
@@ -3677,7 +3326,7 @@ msgstr "Salin item ke sini"
 msgid "Copy selection to cli&pboard"
 msgstr "Salin pilihan ke &papan jepit"
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -3885,6 +3534,10 @@ msgstr ""
 msgid "Create &Library"
 msgstr "Buat &Library"
 
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
+msgid "Create &patch file"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
 msgstr "Buat &patch..."
@@ -3916,8 +3569,7 @@ msgid ""
 "%ls"
 msgstr "Membuat direktori baru:\r\n%ls"
 
-#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
-#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
 msgstr ""
 
@@ -3939,7 +3591,7 @@ msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr "Membuat sebuah folder library dengan pengaturan khusus untuk jalannya penyalinan Subversion"
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
@@ -3961,10 +3613,6 @@ msgstr "Penghargaan:"
 msgid "Cu&t"
 msgstr "Cu&t"
 
-#. Resource IDs: (65535)
-msgid "Current"
-msgstr "Sekarang"
-
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1113)
 msgid "Current version is:"
 msgstr "Versi sekarang:"
@@ -3973,14 +3621,6 @@ msgstr "Versi sekarang:"
 #, c-format
 msgid "Current version is: %ls"
 msgstr "Versi sekarang: %ls"
-
-#. Resource IDs: (17079)
-msgid "Cus&tomize..."
-msgstr "Kus&tomisasi..."
-
-#. Resource IDs: (16963)
-msgid "Custom"
-msgstr "Kustom"
 
 #. Resource IDs: (IDS_SVN_DEPTH_CUSTOM)
 msgid "Custom depths"
@@ -3994,22 +3634,6 @@ msgid ""
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
 msgstr ""
-
-#. Resource IDs: (16103, 17074)
-msgid "Customize"
-msgstr "Kustomisasi"
-
-#. Resource IDs: (17076)
-msgid "Customize Keyboard"
-msgstr "Kustomisasi Papan Ketik"
-
-#. Resource IDs: (17096)
-msgid "Customize Quick Access Toolbar"
-msgstr "Kustomisasi Bilah Alat Akses Cepat"
-
-#. Resource IDs: (17085)
-msgid "Customize Quick Access Toolbar..."
-msgstr "Kustomisasi Bilah Alat Akses Cepat..."
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4030,7 +3654,7 @@ msgstr "Tanggal"
 msgid "Date Range"
 msgstr "Jarak Data"
 
-#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
+#. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "Bawaan"
 
@@ -4038,17 +3662,9 @@ msgstr "Bawaan"
 msgid "Default &number of log messages"
 msgstr "Standar &jumlah pesan log"
 
-#. Resource IDs: (16106)
-msgid "Default Menu"
-msgstr "Menu Bawaan"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1516)
 msgid "Default URL:"
 msgstr "URL bawaan:"
-
-#. Resource IDs: (16107)
-msgid "Default application menu. Appears when no documents are open."
-msgstr "Menu aplikasi bawaan. Tampak jika tidak ada dokumen yang terbuka."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4065,10 +3681,6 @@ msgstr "Path bawaan:"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "Bawaannya adalah pengkodean UTF-8"
-
-#. Resource IDs: (16020)
-msgid "Delete"
-msgstr "Hapus"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
@@ -4165,14 +3777,6 @@ msgstr "Kedalaman"
 msgid "Depth:"
 msgstr "Kedalaman:"
 
-#. Resource IDs: (16031)
-msgid "Description"
-msgstr "Deskripsi"
-
-#. Resource IDs: (65535)
-msgid "Description:"
-msgstr "Deskripsi:"
-
 #. Resource IDs: (IDS_STATUSLIST_UNCHECKGROUP)
 msgid "Deselect changelist"
 msgstr "Hapus pilihan daftar perubahan"
@@ -4203,7 +3807,7 @@ msgstr "Device Independent Bitmap\nsebuah bitman mandiri divais"
 msgid "Dialog sizes and positions"
 msgstr "Ukuran dan posisi dialog"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Diff"
 
@@ -4310,17 +3914,13 @@ msgstr "Disk penuh saat mengakses %1."
 msgid "Dispatch exception: %1"
 msgstr "Kekecualian dispatch: %1"
 
-#. Resource IDs: (65535)
-msgid "Display &buttons in this order"
-msgstr "Tampilkan tom&bol dengan urutan ini"
-
 #. Resource IDs: (57669)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr "Menampilkan bantuan untuk tombol yang diklik, menu dan jendela\nBantuan"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -4332,7 +3932,7 @@ msgid ""
 "Help"
 msgstr "Menampilkan instruksi tentang bagaimana menggunakan bantuan\nBantuan"
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -4381,11 +3981,6 @@ msgstr ""
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
 msgstr "Lakukan hal yang sama pada semua item-item non-versi/dimodifikasi"
-
-#. Resource IDs: (16109)
-#, c-format
-msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4504,14 +4099,6 @@ msgid ""
 "Reload the views without saving the modifications"
 msgstr "Jangan simpan\nMemuat ulang tampilan tanpa menyimpan modifikasi"
 
-#. Resource IDs: (16028)
-msgid "Drag to make this menu float"
-msgstr "Geret untuk membuat menu ini mengapung"
-
-#. Resource IDs: (16513)
-msgid "Draw"
-msgstr "Gambar"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1079)
 msgid "Drive Types"
 msgstr "Tipe Pemacu"
@@ -4523,6 +4110,10 @@ msgstr "Kandar A: dan B:"
 #. Resource IDs: (IDS_DROPDESC_NODROP)
 #, c-format
 msgid "Drop not possible on %1!ls!"
+msgstr ""
+
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
+msgid "E"
 msgstr ""
 
 #. Resource IDs: (ID_INLINEEDIT - Menu)
@@ -4537,7 +4128,8 @@ msgstr "Ke&cualikan path:"
 msgid "E&xecutable"
 msgstr "&Dapat dijalankan"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu,
+#. cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr "&Keluar"
 
@@ -4569,14 +4161,10 @@ msgstr ""
 msgid "EXT"
 msgstr "EXT"
 
-#. Resource IDs: (156 - Ribbon element, 65535 - PopupMenu, Dialog
-#. IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id
+#. 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr "Edit"
-
-#. Resource IDs: (16133)
-msgid "Edit Button Image"
-msgstr "Edit Gambar Tombol"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 319)
 msgid "Edit External"
@@ -4653,12 +4241,6 @@ msgstr "Baik nama ataupun IP dari server proxy"
 msgid "Eliding mergeinfo"
 msgstr "Pisahkan info yang tergabung"
 
-#. Resource IDs: (16906)
-msgid ""
-"Ellipse Tools\n"
-"Ellipse"
-msgstr "Peralatan Elips\nElips"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Empty"
 msgstr "Kosong"
@@ -4671,7 +4253,7 @@ msgstr "&Aktifkan properti-otomatis"
 msgid "Enable Auto-Properties"
 msgstr "Aktifkan Properti-Otomatis"
 
-#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr ""
 
@@ -4891,18 +4473,7 @@ msgstr "Kekecualian:"
 msgid "Exclude"
 msgstr "Kecualikan"
 
-#. Resource IDs: (16023)
-msgid ""
-"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
-"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "Berkas eksekusi (*.exe)|*.exe|Perintah (*.com)|*.com|Informasi (*.pdf)|*.pdf|Batch (*.bat)|*.bat|Semua berkas (*.*)|*.*||"
-
-#. Resource IDs: (16018)
-msgid "Existing"
-msgstr "Sudah ada"
-
-#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
-#. Ribbon name)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2)
 msgid "Exit"
 msgstr "Keluar"
 
@@ -4913,15 +4484,6 @@ msgstr "Mengembangkan pohon &sumber"
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_BELOW)
 msgid "Expand &following tree"
 msgstr "Mengembangkan pohon &berikut"
-
-#. Resource IDs: (16025)
-#, c-format
-msgid "Expand (%Ts)"
-msgstr ""
-
-#. Resource IDs: (16012)
-msgid "Expand docked window"
-msgstr "Kembangkan jendela terkait"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
@@ -5013,14 +4575,14 @@ msgstr "Eksternal dikecualikan"
 msgid "Externals included"
 msgstr "Eksternal dimasukkan"
 
+#. Resource IDs: (cmdFind_Keytip_RESID)
+msgid "F"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
 msgid "F&orce the merge"
 msgstr "&Memaksa menggabung"
-
-#. Resource IDs: (17113)
-msgid "Fade"
-msgstr "Pudar"
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
@@ -5128,7 +4690,7 @@ msgstr "Menarik status dari %1!ls!"
 msgid "Fetching tree conflict information..."
 msgstr ""
 
-#. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
+#. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
 msgstr "Berkas"
 
@@ -5258,12 +4820,6 @@ msgstr ""
 msgid "Files"
 msgstr "Berkas-berkas"
 
-#. Resource IDs: (16901)
-msgid ""
-"Fill Tool\n"
-"Fill"
-msgstr "Alat Pemenuh\nPenuhi"
-
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
 msgstr "Saring berdasarkan"
@@ -5286,8 +4842,12 @@ msgstr "Saring path"
 msgid "Filter:"
 msgstr ""
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
+msgid "Filtered"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr "Cari"
 
@@ -5299,7 +4859,7 @@ msgstr ""
 msgid "Find HEAD revisions"
 msgstr ""
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -5355,10 +4915,6 @@ msgstr "Lipat &tags"
 msgid "Folded tag"
 msgstr "Tag terlipat"
 
-#. Resource IDs: (16016)
-msgid "Folder"
-msgstr "Folder"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Font"
@@ -5385,10 +4941,6 @@ msgstr "Paksakan penyingkiran"
 msgid "Foreground"
 msgstr ""
 
-#. Resource IDs: (17021)
-msgid "Forward"
-msgstr "Teruskan"
-
 #. Resource IDs: (IDS_REPOBROWSE_TT_FORWARD)
 msgid "Forwards in browsing history"
 msgstr ""
@@ -5402,10 +4954,6 @@ msgstr "Menemukan kata-kata otomatis:"
 msgid "From:"
 msgstr "Dari:"
 
-#. Resource IDs: (17026)
-msgid "Full Screen"
-msgstr "Layar Penuh"
-
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
 msgstr ""
@@ -5417,6 +4965,10 @@ msgstr ""
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
 msgstr "Rekursif penuh"
+
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
+msgid "G"
+msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5514,43 +5066,43 @@ msgstr ""
 msgid "Go to line"
 msgstr "Pergi ke baris"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr "Pergi ke konflik berikutnya\nKonflik berikutnya"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr "Pergi ke perbedaan berikutnya\nPerbedaan berikutnya"
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr ""
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr "Pergi ke konflik sebelumnya\nKonflik sebelumnya"
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr "Pergi ke perbedaan sebelumnya\nPerbedaan sebelumnya"
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr ""
 
@@ -5561,10 +5113,6 @@ msgstr "Tipe grafik:"
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
 msgstr "Grafik pada root repositori selalu tidak berisi!"
-
-#. Resource IDs: (16972)
-msgid "Gray"
-msgstr "Abu-Abu"
 
 #. Resource IDs: (32799)
 msgid "Group by branch"
@@ -5577,10 +5125,6 @@ msgstr "Kelompok daftar perubahan"
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1032)
 msgid "H&EAD Revision"
 msgstr "Revisi &HEAD"
-
-#. Resource IDs: (65535)
-msgid "H&ue:"
-msgstr "Co&rak:"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1353, Dialog IDD_DIFFFILES:
 #. Control id 1354, IDS_EXTERNALS_HEADREV)
@@ -5619,17 +5163,9 @@ msgstr "Kepala"
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
 #. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
 #. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
-#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "Bantuan"
-
-#. Resource IDs: (16982)
-msgid "Help Keyboard"
-msgstr "Pertolongan Papan Ketik"
-
-#. Resource IDs: (16974)
-msgid "Hex"
-msgstr "Heks"
 
 #. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
@@ -5651,10 +5187,6 @@ msgstr "Sembunyikan semua tag"
 msgid "Hide deleted branches and tags"
 msgstr "Sembunyikan cabang-cabang dan tag terhapus "
 
-#. Resource IDs: (16011)
-msgid "Hide docked window"
-msgstr "Sembunyikan jendela terkait"
-
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1562)
 msgid "Hide non-mergeable revisions"
 msgstr "Sembunyikan revisi-revisi yang tidak bisa di merge"
@@ -5672,12 +5204,11 @@ msgstr "Sembunyikan naskah saat dijalankan"
 msgid "Hide unused &branches"
 msgstr "&Sembunyikan cabang yang tidak digunakan"
 
-#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu)
 msgid "Hide/Show the patch file list"
 msgstr ""
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
@@ -5686,16 +5217,6 @@ msgstr "Sembunyikan/Tampilkan daftar berkas tambalan\nMenyembunyikan atau menamp
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
 msgstr "Nomor revisi tertinggi dalam tembolok"
-
-#. Resource IDs: (16519)
-msgid ""
-"Hint: select the context menu, change the page to 'Commands' and drag the "
-"toolbar buttons into the menu window."
-msgstr "Petunjuk: pilih menu konteks, ganti halaman ke 'Perintah' dan geret tombol bilah alat ke jendela menu."
-
-#. Resource IDs: (17022)
-msgid "Home"
-msgstr "Rumah"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -6065,12 +5586,12 @@ msgstr "Abaikan &semua spasi putih"
 msgid "Ignore &ancestry"
 msgstr "Abaikan &asal"
 
-#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
-#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
+#. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr "Abaikan semua perubahan spasi putih"
 
@@ -6084,7 +5605,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr ""
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
@@ -6117,8 +5638,8 @@ msgid "Ignore whitespace c&hanges"
 msgstr "Abaikan perubahan &spasi putih"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
-#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
-#. Ribbon name)
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu,
+#. cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr "Abaikan perubahan spasi putih"
 
@@ -6130,13 +5651,13 @@ msgstr "Abaikan"
 msgid "Ignored items included"
 msgstr "Item-item terabaikan dimasukkan"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr "Mengabaikan semua perubahan spasi putih ketika diffing\nMengabaikan semua perubahan spasi putih"
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
@@ -6145,18 +5666,6 @@ msgstr "Mengabaikan perubahan spasi putih ketika diffing\nMengabaikan perubahan 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
 msgstr "Path ilegal"
-
-#. Resource IDs: (16916 - Menu)
-msgid "Image &and Text"
-msgstr "Gambar &dan Teks"
-
-#. Resource IDs: (16507)
-msgid "Image &and text"
-msgstr "Gambar &dan teks"
-
-#. Resource IDs: (16508)
-msgid "Images"
-msgstr "Gambar-Gambar"
 
 #. Resource IDs: (IDS_SVN_DEPTH_IMMEDIATE)
 msgid "Immediate children, including folders"
@@ -6275,12 +5784,13 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
+#. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
-#. Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
+#. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr ""
 
@@ -6292,7 +5802,7 @@ msgstr "Perbedaan dalam-baris"
 msgid "Input"
 msgstr "Input"
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -6424,20 +5934,12 @@ msgid ""
 "Jump to first unresolved conflict"
 msgstr ""
 
-#. Resource IDs: (16136)
-msgid "Keyboard"
-msgstr "Papan ketik"
-
-#. Resource IDs: (65535)
-msgid "Keyboard shortcuts:"
-msgstr "Pintasan Papan Ketik"
-
-#. Resource IDs: (16030)
-msgid "Keys"
-msgstr "Kunci-kunci"
-
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL1)
 msgid "Kind"
+msgstr ""
+
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
+msgid "L"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
@@ -6522,14 +6024,8 @@ msgstr "Baris"
 msgid "Line Graph"
 msgstr "Grafik Baris"
 
-#. Resource IDs: (16904)
-msgid ""
-"Line Tool\n"
-"Line"
-msgstr "Peralatan Baris\nBaris"
-
-#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu,
+#. cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr "Tampilkan batang diff"
 
@@ -6565,10 +6061,6 @@ msgstr "Daftar Topik Bantuan\nTopik Bantuan"
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
 msgstr "Daftar repositori untuknya informasi log telah dimasukkan tembolok"
-
-#. Resource IDs: (16631, 16992)
-msgid "List1"
-msgstr "Daftar1"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6608,11 +6100,12 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "Lokasi dimana isi dari URL\nrepositori akan disimpannya."
 
-#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu)
 msgid "Locator Bar"
 msgstr "Bilah Lokator"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535,
+#. cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr "Bilah penunjuk"
 
@@ -6733,10 +6226,6 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr "Revisi terendah: %1!ld! - Revisi tertinggi: %2!ld!\nRevisi HEAD: %3!ld!"
 
-#. Resource IDs: (16973)
-msgid "Lum"
-msgstr "Lum"
-
 #. Resource IDs: (61841)
 msgid "Mail system DLL is invalid."
 msgstr "DLL sistem Mail tidak benar."
@@ -6778,7 +6267,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
-#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
+#. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr "Tandai diselesaikan"
 
@@ -6812,7 +6301,7 @@ msgstr ""
 msgid "Markers"
 msgstr "Penanda"
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
@@ -6849,22 +6338,6 @@ msgstr "Jumlah baris maksimum di log tindakan"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "Jumlah maksimum &kegagalan alat sebelum penghapusan tembolok"
-
-#. Resource IDs: (16655)
-msgid "Me&nus show recently used commands first"
-msgstr "Me&nu menampilkan perintah-perintah yang baru saja digunakan terlebih dahulu"
-
-#. Resource IDs: (16134)
-msgid "Menu"
-msgstr "Menu"
-
-#. Resource IDs: (16006)
-msgid "Menu Bar"
-msgstr "Bilah Menu"
-
-#. Resource IDs: (16626)
-msgid "Menu s&hadows"
-msgstr "Ba&yangan menu"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -7029,10 +6502,6 @@ msgstr "Min"
 msgid "Mine"
 msgstr "Saya"
 
-#. Resource IDs: (17086)
-msgid "Minimize the Ribbon"
-msgstr "Kecilkan Pita"
-
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
 msgstr "Minimal jumlah karakter untuk pesan komit:"
@@ -7056,7 +6525,7 @@ msgstr "Dicampur"
 msgid "Modification date"
 msgstr "Tanggal perubahan"
 
-#. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
@@ -7069,18 +6538,6 @@ msgstr "Node diubah"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
 msgstr ""
-
-#. Resource IDs: (17107)
-msgid "More"
-msgstr "Lebih"
-
-#. Resource IDs: (16026)
-msgid "More Buttons"
-msgstr "Tombol-tombol Lebih"
-
-#. Resource IDs: (17097)
-msgid "More Commands..."
-msgstr "Perintah-Perintah Lebih..."
 
 #. Resource IDs: (IDS_COLOURPICKER_CUSTOMTEXT)
 msgid "More colors..."
@@ -7098,10 +6555,6 @@ msgstr "Lebih..."
 msgid "Most active author:"
 msgstr "Pembuat paling aktif:"
 
-#. Resource IDs: (16135)
-msgid "Mouse"
-msgstr "Tetikus"
-
 #. Resource IDs: (IDS_INPUT_MOVEMORE)
 #, c-format
 msgid ""
@@ -7115,22 +6568,6 @@ msgid ""
 "Move %1!ls!\r\n"
 "to %2!ls!"
 msgstr "Pindahkan %1!ls!\r\nke %2!ls!"
-
-#. Resource IDs: (17026)
-msgid "Move &Down"
-msgstr "Pin&dahkan ke Bawah"
-
-#. Resource IDs: (17025)
-msgid "Move &Up"
-msgstr "Pindahkan ke &Atas"
-
-#. Resource IDs: (16022)
-msgid "Move Item Down"
-msgstr "Pindahkan Item Ke Bawah"
-
-#. Resource IDs: (16021)
-msgid "Move Item Up"
-msgstr "Pindahkan Item Ke Atas"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK4)
 msgid ""
@@ -7231,36 +6668,36 @@ msgstr "Multipel, &mandiri salinan bekerja"
 msgid "My file:"
 msgstr "Berkas saya:"
 
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
+msgid "NC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
+msgid "ND"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
+msgid "NI"
+msgstr ""
+
 #. Resource IDs: (59138)
 msgid "NUM"
 msgstr "NUM"
-
-#. Resource IDs: (17128)
-msgid "Name"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535, Dialog
 #. IDD_REGEXFILTER: Control id 65535)
 msgid "Name:"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr ""
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr ""
-
-#. Resource IDs: (17004)
-msgid "Navigation Pane Options"
-msgstr "Pilihan Jendela Navigasi"
-
-#. Resource IDs: (17031)
-msgid "Navigation Pane Options..."
-msgstr "Pilihan Jendela Navigasi..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
@@ -7287,17 +6724,13 @@ msgstr "Jaringan"
 msgid "Never try to contact the repository again"
 msgstr "Jangan pernah coba menghubungi repositori lagi"
 
-#. Resource IDs: (16017, 16027, 30721, 65535, 65535 - PopupMenu)
+#. Resource IDs: (30721, 65535 - PopupMenu)
 msgid "New"
 msgstr "Baru"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
 msgstr "&Nama baru:"
-
-#. Resource IDs: (16014)
-msgid "New Menu"
-msgstr "Menu Baru"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7311,24 +6744,18 @@ msgstr ""
 msgid "Newlines"
 msgstr ""
 
-#. Resource IDs: (58114)
-msgid ""
-"Next Page\n"
-"Next Page"
-msgstr "Halaman Berikutnya\nHalaman Berikutnya"
-
-#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
-#. Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
+#. cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
-#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
+#. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
-#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
+#. cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr ""
 
@@ -7382,6 +6809,10 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr "Tidak ada berkas yang diubah atau ditambahkan sejak\nkomit terakhir. Tidak ada yang perlu\ndilakukan TortoiseSVN disini..."
 
+#. Resource IDs: (33002)
+msgid "No filter"
+msgstr ""
+
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
 msgstr "Tidak ada grafik tersedia"
@@ -7426,7 +6857,7 @@ msgstr ""
 msgid "Non-versioned"
 msgstr "Tidak berversi"
 
-#. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
+#. Resource IDs: (Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
 msgstr "Tidak ada"
@@ -7570,24 +7001,6 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
-#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
-msgid "Office 2003"
-msgstr ""
-
-#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
-msgid "Office 2007"
-msgstr ""
-
-#. Resource IDs: (10008, 65535 - PopupMenu)
-msgid "Office 2007 colors"
-msgstr ""
-
-#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
-#. - Ribbon name)
-msgid "Office XP"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Older lines"
 msgstr "Baris lebih tua"
@@ -7654,7 +7067,7 @@ msgstr "Hanya menggunakan &pemeriksa ejaan saat tsvn:projectlanguage di-set"
 msgid "Opacity"
 msgstr "Opasitas"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr "Buka"
 
@@ -7670,7 +7083,7 @@ msgstr ""
 msgid "Open client certificate file"
 msgstr "Buka berkas sertifikat klien"
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
@@ -7726,17 +7139,9 @@ msgstr "Operatif"
 msgid "Option"
 msgstr "Pilihan"
 
-#. Resource IDs: (16137)
-msgid "Options"
-msgstr "Pilihan-pilihan"
-
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr ""
-
-#. Resource IDs: (17024)
-msgid "Other Task Panes"
-msgstr "Jendela-Jendela Tugas Lain"
 
 #. Resource IDs: (IDS_STATGRAPH_OTHERGROUP)
 msgid "Others"
@@ -7764,6 +7169,18 @@ msgstr "Timpa seting properti svn:eol-style.\nBerkas-berkas yang properti ininya
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
+msgid "PC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
+msgid "PD"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
+msgid "PI"
 msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
@@ -7812,15 +7229,9 @@ msgstr ""
 msgid "Password:"
 msgstr "Kata sandi:"
 
-#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr ""
-
-#. Resource IDs: (16908)
-msgid ""
-"Paste Tool\n"
-"Paste"
-msgstr "Alat Tempel\nTempel"
 
 #. Resource IDs: (IDS_COMMITDLG_POPUP_PASTEFILELIST)
 msgid "Paste filename list"
@@ -7891,12 +7302,6 @@ msgstr ""
 msgid "Peg"
 msgstr "Taraf"
 
-#. Resource IDs: (16902)
-msgid ""
-"Pencil Tool\n"
-"Pencil"
-msgstr "Alat Pensil\nPensil"
-
 #. Resource IDs: (IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP)
 msgid "Percent of authorship"
 msgstr "Persentase kepemilikan"
@@ -7905,19 +7310,11 @@ msgstr "Persentase kepemilikan"
 msgid "Percents"
 msgstr "Persentase"
 
-#. Resource IDs: (16538)
-msgid "Personalized Menus and Toolbars"
-msgstr "Personalisasi Menu dan Batang Alat"
-
 #. Resource IDs: (61582)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr "Gambar (Metafile)\nsebuah gambar"
-
-#. Resource IDs: (65535)
-msgid "Picture:"
-msgstr "Gambar:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
@@ -7954,10 +7351,6 @@ msgstr "Harap dicatat:\ncopy pekerjaan Anda tetap pada path sebelumnya. Jika And
 msgid "Please select a hook type"
 msgstr "Silahkan pilih tipe hook"
 
-#. Resource IDs: (IDS_BLAME_PROGRESSINFO)
-msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "Harap menunggu - ini memerlukan beberapa menit. Serius!"
-
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
 msgstr "Harap menunggu sementara membatalkan..."
@@ -7975,8 +7368,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "Please wait while the repository browser is initializing..."
 
 #. Resource IDs: (Dialog IDD_PLEASEWAIT: Control id 347,
-#. IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT, IDS_REPOBROWSE_WAIT,
-#. IDS_STATUSLIST_BUSYMSG)
+#. IDS_BLAME_PROGRESSINFO, IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT,
+#. IDS_REPOBROWSE_WAIT, IDS_STATUSLIST_BUSYMSG)
 msgid "Please wait..."
 msgstr "Harap menunggu..."
 
@@ -8028,60 +7421,28 @@ msgstr ""
 msgid "Prepend this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Press &New Shortcut Key:"
-msgstr "Teka&n Kunci Pintasan Baru"
-
-#. Resource IDs: (65535)
-msgid "Press &new shortcut key:"
-msgstr "Teka&n kunci pintasan baru:"
-
 #. Resource IDs: (32819)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "Cegah kebanyakan kasus-kasus dimana baris-baris koneksi melintasi noda-noda revisi"
-
-#. Resource IDs: (17094)
-msgid "Preview"
-msgstr "Pratilik"
 
 #. Resource IDs: (IDS_PATCH_PREVIEW)
 msgid "Preview patched file"
 msgstr "Tinjau dului berkas tambalan"
 
-#. Resource IDs: (65535)
-msgid "Preview: "
-msgstr "Pratilik:"
-
-#. Resource IDs: (58115)
-msgid ""
-"Previous Page\n"
-"Previous Page"
-msgstr "Halaman Sebelumnya\nHalaman Sebelumnya"
-
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
-#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
+#. cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
-#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
+#. cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
-#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
+#. cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr ""
-
-#. Resource IDs: (16990, 17092)
-msgid "Print"
-msgstr "Cetak"
-
-#. Resource IDs: (58116)
-msgid ""
-"Print Document\n"
-"&Print"
-msgstr "Cetak Dokumen\nCe&tak"
 
 #. Resource IDs: (61512)
 msgid "Print to File"
@@ -8243,7 +7604,7 @@ msgstr "Seting Proxy"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Simpan \"Dapatkan Kunci\" pada menu atas bila svn:needs-lock di-set"
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -8255,13 +7616,13 @@ msgid ""
 "Exit TortoiseMerge without saving the modifications"
 msgstr "Keluar\nKeluar dari TortoiseMerge tanpa menyimpan modifikasi"
 
+#. Resource IDs: (cmdReload_Keytip_RESID)
+msgid "R"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
 msgstr "Pemacu R&AM"
-
-#. Resource IDs: (16623)
-msgid "R&eset"
-msgstr "S&et ulang"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1423)
 msgid "R&everse merge"
@@ -8287,14 +7648,6 @@ msgstr "Pe&macu dapat dilepas"
 msgid "Re&name..."
 msgstr "Ganti &nama..."
 
-#. Resource IDs: (16613)
-msgid "Re&set"
-msgstr "&Set ulang"
-
-#. Resource IDs: (16647)
-msgid "Re&set All"
-msgstr "&Set ulang semua"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "&Kembalikan bawaan"
@@ -8314,10 +7667,6 @@ msgstr "Baca 'Bimbingan Penggunaan Harian' sebelum anda macet..."
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL2)
 msgid "Realm String"
 msgstr ""
-
-#. Resource IDs: (16019)
-msgid "Recent"
-msgstr "Baru saja"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
@@ -8357,12 +7706,6 @@ msgid ""
 "Open the auto-saved versions instead of the explicitly saved versions"
 msgstr "Memulihkan dokumen-dokumen simpan-otomatis\nBuka versi simpan-otomatis selain versi tertentu yang disimpan"
 
-#. Resource IDs: (16905)
-msgid ""
-"Rectangle Tool\n"
-"Rectangle"
-msgstr "Alat persegi\nPersegi"
-
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recur&sive\n"
@@ -8385,11 +7728,11 @@ msgstr "Kotak sampah"
 msgid "Redirecting to url"
 msgstr "Mengalihkan ke url"
 
-#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr ""
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -8417,8 +7760,8 @@ msgstr "&Segarkan lapisan shell"
 msgid "Refreshing shell for %1!ls!"
 msgstr "Memperbarui shell untuk %1!ls!"
 
-#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
-#. 165, ID_REGEXFILTER - Ribbon name)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165,
+#. cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr ""
 
@@ -8496,11 +7839,11 @@ msgstr "Melepaskan kunci atas berkas agar pengguna lain bisa mengeditnya lagi."
 msgid "Relo&cate..."
 msgstr "Relo&kasi..."
 
-#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr "Ambil lagi"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -8569,10 +7912,6 @@ msgstr ""
 msgid "Remove from &ignore list"
 msgstr "Hapus dari daftar aba&ikan"
 
-#. Resource IDs: (17084)
-msgid "Remove from Quick Access Toolbar"
-msgstr "Hilangkan dari Bilah Batang Akses Cepat"
-
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REMOVEFROMCS)
 msgid "Remove from changelist"
 msgstr "Hapus dari daftar perubahan"
@@ -8637,10 +7976,6 @@ msgstr "Menyingkirkan item-item yang diabaikan. dalam %1!ls!"
 #, c-format
 msgid "Removing unversioned items in %1!ls!"
 msgstr "Menyingkirkan item-item yang diabaikan dalam %1!ls!"
-
-#. Resource IDs: (16616)
-msgid "Rena&me..."
-msgstr "Ganti na&ma..."
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 151)
 msgid "Rename"
@@ -8762,10 +8097,6 @@ msgstr "Meminta nama pengguna dan kata sandi"
 #. Resource IDs: (IDS_MENURESOLVE)
 msgid "Res&olve..."
 msgstr ""
-
-#. Resource IDs: (16614)
-msgid "Reset &All"
-msgstr "Set Ulang Semu&a"
 
 #. Resource IDs: (IDS_STATUSLIST_RESETCOLUMNORDER)
 msgid "Reset columns"
@@ -8969,24 +8300,6 @@ msgstr "Tampilan Kanan:"
 msgid "Right image"
 msgstr "Gambar kanan"
 
-#. Resource IDs: (17108)
-#, c-format
-msgid "Row %d of %d"
-msgstr "Baris %d dari %d"
-
-#. Resource IDs: (17109)
-#, c-format
-msgid "Row %d-%d of %d"
-msgstr "Baris %d-%d dari %d"
-
-#. Resource IDs: (17116)
-msgid "Row Down"
-msgstr "Baris Di Bawah"
-
-#. Resource IDs: (17115)
-msgid "Row Up"
-msgstr "Baris Di Atas"
-
 #. Resource IDs: (IDS_RUNCLEANUPNOW)
 msgid "Run cleanup &now"
 msgstr "Jalankan pembersihan sekara&ng"
@@ -8995,21 +8308,9 @@ msgstr "Jalankan pembersihan sekara&ng"
 msgid "Run hoo&k script"
 msgstr ""
 
-#. Resource IDs: (17045)
-msgid "S&elect..."
-msgstr "&Pilih"
-
-#. Resource IDs: (17027)
-msgid "S&how Buttons on One Row"
-msgstr "Ta&mpilkan Tombol-Tombol pada Satu Baris"
-
-#. Resource IDs: (17028)
-msgid "S&how Buttons on Two Rows"
-msgstr "Ta&mpilkan Tombol Tombol pada Dua Baris"
-
-#. Resource IDs: (17078)
-msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "Ta&mpilkan Bilah Batang Akses Cepat dibawah Pita"
+#. Resource IDs: (cmdSave_Keytip_RESID)
+msgid "S"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -9119,11 +8420,15 @@ msgstr ""
 msgid "Sample text:"
 msgstr "Teks contoh:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr ""
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
+msgid "Save &as"
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "Simpan seb&agai"
 
@@ -9193,7 +8498,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr ""
 
-#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
+#. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
 msgstr ""
 
@@ -9232,7 +8537,7 @@ msgstr "Simpan revisi &ke..."
 msgid "Save settings to file"
 msgstr ""
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -9287,14 +8592,6 @@ msgstr "Mencari"
 msgid "Scintilla"
 msgstr "Scintilla"
 
-#. Resource IDs: (16034)
-msgid "Scroll Left"
-msgstr "Gulung Kiri"
-
-#. Resource IDs: (16035)
-msgid "Scroll Right"
-msgstr "Gulung Kanan"
-
 #. Resource IDs: (IDS_LOG_POPUP_FIND)
 msgid "Search &log messages..."
 msgstr "Cari pesan &log..."
@@ -9328,30 +8625,12 @@ msgstr ""
 msgid "Select &All"
 msgstr "Pilih Semu&a"
 
-#. Resource IDs: (16529)
-msgid "Select &User-defined Image: "
-msgstr "Pilih Gambar Terdefinisi oleh Pengg&una:"
-
-#. Resource IDs: (16508)
-msgid "Select &context menu:"
-msgstr "Pilih menu &konteks:"
-
-#. Resource IDs: (65535)
-msgid "Select &window:"
-msgstr "Pilih &jendela:"
-
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "Pilih / jangan pilih semu&a"
-
-#. Resource IDs: (16903)
-msgid ""
-"Select Color Tool\n"
-"Select Color"
-msgstr "Pilih Alat Warna\nPilih Warna"
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
@@ -9498,10 +8777,6 @@ msgstr "Mengirimkan konten"
 msgid "Server &address:"
 msgstr "&Alamat server:"
 
-#. Resource IDs: (65535)
-msgid "Set Accelerator &for:"
-msgstr "Set Akselerator &untuk:"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1544)
 msgid "Set explicit revision for these externals:"
 msgstr "Atur revisi/perubahan secara rinci untuk eksternal ini:"
@@ -9521,8 +8796,8 @@ msgstr ""
 msgid "Setting properties..."
 msgstr "Seting properti..."
 
-#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
-#. Ribbon name)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu,
+#. cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr "Seting"
 
@@ -9567,10 +8842,6 @@ msgstr "Perpendek daftar properti"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1382)
 msgid "Show"
 msgstr "Tampilkan"
-
-#. Resource IDs: (16996)
-msgid "Show &Accelerator for:"
-msgstr "Tampilkan &Akselerator untuk:"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1031, IDS_LOG_SHOWALL)
 msgid "Show &All"
@@ -9627,29 +8898,17 @@ msgstr "Tampilkan lapisan dan menu k&onteks hanya dalam penjelajah"
 msgid "Show &unversioned files"
 msgstr "Tampilkan berkas tidak ber&versi"
 
-#. Resource IDs: (17099)
-msgid "Show Above the Ribbon"
-msgstr "Tampilkan Di Atas Pita"
-
-#. Resource IDs: (17098)
-msgid "Show Below the Ribbon"
-msgstr "Tampilkan Di Bawah Pita"
-
-#. Resource IDs: (17030)
-msgid "Show Fewer Buttons"
-msgstr "Tampilkan Lebih Sedikit Tombol"
-
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
 msgstr "Tampilkan noda-noda revisi HEAD"
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr "Tampilkan Diff-Inline kata demi kata\nDiff Inline per kata"
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
@@ -9663,32 +8922,16 @@ msgstr "Tampilkan dialog Kunci sebelum mengunci berkas"
 msgid "Show Monitor Dialog"
 msgstr ""
 
-#. Resource IDs: (17029)
-msgid "Show More Buttons"
-msgstr "Tampilkan Lebih Banyak Tombol"
-
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "Tunjukkan &Kilasan"
-
-#. Resource IDs: (17082)
-msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "Tampilkan Bilah Alat Akses Cepat Di Atas Pita"
-
-#. Resource IDs: (17081)
-msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "Tampilkan Bilah Alat Akses Cepat Di Bawah Pita"
-
-#. Resource IDs: (16651)
-msgid "Show Screen&Tips on toolbars"
-msgstr "&Tampilkan Tips Petunjuk pada bilah alat"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "Tampilkan &perubahan SB"
 
-#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
+#. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr ""
 
@@ -9719,10 +8962,6 @@ msgstr "Tampilkan folder akar yang dikecualikan seperti biasa"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1480)
 msgid "Show externals from &different repositories"
 msgstr "Tampilkan eksternal dari repositori &berbeda"
-
-#. Resource IDs: (16656)
-msgid "Show f&ull menus after a short delay"
-msgstr "Tampilkan menu pen&uh setelah jeda pendek"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1037, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1034)
@@ -9760,19 +8999,19 @@ msgid ""
 "with dots."
 msgstr "Tampilkan hanya bagian-bagian yang berubah dalam nama path. Menggantikan elemen yang tak berubah dengan titik-titik."
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr "Tampilkan atau sembunyikan bilah diff baris\nHidup matikan LineDiffBar"
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr "Tampilkan atau sembunyikan bilah Lokator\nHidup matikan LocatorBar"
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -9788,11 +9027,7 @@ msgstr "Tampilkan atau sembunyikan toolbar\nToogle Toolbar"
 msgid "Show revision properties"
 msgstr "Tampilkan properti-properti revisi"
 
-#. Resource IDs: (16652)
-msgid "Show shortcut &keys in ScreenTips"
-msgstr "Tampilkan &kunci pintas di Tips Layar"
-
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
@@ -9883,12 +9118,7 @@ msgstr "Menampilkan log untuk berkas / folder yang dipilih"
 msgid "Shows the mime type of the versioned file"
 msgstr "Menampilkan tipe mime dari berkas berversi"
 
-#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
-msgid "Silver Style"
-msgstr ""
-
-#. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
+#. Resource IDs: (IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
 msgstr "Ukuran"
 
@@ -9941,10 +9171,6 @@ msgstr "Dilewati, tidak ada induk yang berversi"
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
 msgstr ""
-
-#. Resource IDs: (17112)
-msgid "Slide"
-msgstr "Slide"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
 msgid "Smart tab char"
@@ -10016,10 +9242,6 @@ msgid ""
 "Separate the patterns with a space."
 msgstr "Menetapkan berkas atau folder yang harus\r\ndiabaikan TortoiseSVN dalam semua copy pekerjaan.\r\nPisahkan pola dengan spasi."
 
-#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-msgid "Spin1"
-msgstr "Spin1"
-
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SPLIT_ABOVE)
 msgid "Split &source tree"
 msgstr "Pisah pohon &sumber"
@@ -10049,10 +9271,6 @@ msgstr "Grafik Stacked Bar"
 #. Resource IDs: (IDS_STATGRAPH_LINESTACKEDBUTTON_TT)
 msgid "Stacked Line Graph"
 msgstr "Grafik Stacked Garis"
-
-#. Resource IDs: (16962)
-msgid "Standard"
-msgstr "Standar"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
@@ -10096,10 +9314,6 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#. Resource IDs: (16514)
-msgid "Static"
-msgstr "Statik"
-
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
 msgstr "Statistik"
@@ -10109,13 +9323,9 @@ msgstr "Statistik"
 msgid "Status"
 msgstr "Status"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr ""
-
-#. Resource IDs: (17087)
-msgid "Status Bar Configuration"
-msgstr "Konfigurasi Bilah Status"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -10159,10 +9369,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
 msgstr "Garis"
-
-#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
-msgid "Style"
-msgstr ""
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
 msgid ""
@@ -10279,21 +9485,23 @@ msgid ""
 "Previous Pane"
 msgstr "Tukar kembali ke pane jendela sebelumnya\nPane Sebelumnya"
 
-#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
+#. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr ""
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr "Tukar antara tampilan pane tunggal dan ganda\nTukar antara tampilan pane tunggal dan ganda"
 
-#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
+#. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr ""
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -10359,10 +9567,6 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
-#. Resource IDs: (16970)
-msgid "Tab Placeholder"
-msgstr "Dudukan Tab"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Tab size:"
@@ -10379,10 +9583,6 @@ msgstr "Folder yang dituju tidak kosong"
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
 msgstr "Tugas"
-
-#. Resource IDs: (17019)
-msgid "Tasks Pane"
-msgstr "Jendela Tugas"
 
 #. Resource IDs: (IDS_PROGRS_DRYRUN)
 msgid "Test Only"
@@ -10911,13 +10111,6 @@ msgstr "Properti ini hanya dibolehkan pada folder, bukan berkas."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Properti ini harus tidak mempunyai multipel baris. Hanya satu baris yang dibolehkan."
 
-#. Resource IDs: (16244)
-msgid ""
-"This will delete the record of commands you've used in this application and "
-"restore the default set of visible commands to the menus and toolbars. It "
-"will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "Ini akan menghapus rekaman perintah yang telah Anda gunakan di aplikasi ini dan menyembalikan set bawaan perintah yang nampak ke menu dan bilah Alat. Ini tidak akan membatalkan kustomisasi eksplisit. Apakah Anda yakin ingin melakukan ini?"
-
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK1)
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
@@ -10931,14 +10124,6 @@ msgid ""
 "The command line to run is:\n"
 "%ls"
 msgstr ""
-
-#. Resource IDs: (16928)
-msgid "Tile &Vertically"
-msgstr "Ubin secara &Vertikal"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
-msgstr "Susun secara hori&zontal"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Timeouts"
@@ -10971,40 +10156,6 @@ msgstr "Untuk mencuri kunci, klik kanan folder induk dari item ini dan pilih 'Da
 #. IDD_REVGRAPHFILTER: Control id 65535)
 msgid "To:"
 msgstr "Ke:"
-
-#. Resource IDs: (58113)
-msgid ""
-"Toggle One/Two Pages display\n"
-"Toggle One/Two Pages display"
-msgstr "Tampilkan/Sembunyikan tampilan Satu/Dua Halaman\nTampilkan/Sembunyikan tampilan Satu/Dua Halaman"
-
-#. Resource IDs: (65535)
-msgid "Toolbar"
-msgstr "Bilah Alat"
-
-#. Resource IDs: (16130)
-msgid "Toolbar Name"
-msgstr "Nama Bilah Alat"
-
-#. Resource IDs: (17017)
-msgid "Toolbar Options"
-msgstr "Opsi Bilah Alat"
-
-#. Resource IDs: (16008)
-msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "Kesalahan internal bilah alat. Silakan hubungi pemasok aplikasi Anda."
-
-#. Resource IDs: (16105)
-msgid "Toolbars"
-msgstr "Bilah Alat"
-
-#. Resource IDs: (16928)
-msgid "Tools"
-msgstr "Peralatan"
-
-#. Resource IDs: (65535)
-msgid "Tools:"
-msgstr "Peralatan:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -11041,8 +10192,8 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: peninjau diff gambar untuk TortoiseSVN\n\nParameter baris perintah yang tersedia adalah:\n/left:\"path pada gambar kiri\"\n/lefttitle:\"judul untuk menampilkan gambar kiri\"\n/right:\"path ke gambar kanan\"\n/righttitle:\"judul untuk menampilkan gambar kanan\"/overlay\t\tmenghidupkan moda lapisan\n/fit\t\tuntuk mengepas ukuran gambar\n/showinfo\t\tuntuk menampilkan kotak info gambar"
 
-#. Resource IDs: (100, 156 - Ribbon element, 32897, 57344, Dialog IDD_OPENDLG:
-#. Control id 130, IDS_APPNAME)
+#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -11196,10 +10347,6 @@ msgstr ""
 msgid "Tweak TortoiseSVN"
 msgstr "Tweak TortoiseSVN"
 
-#. Resource IDs: (17130)
-msgid "Type"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1436)
 msgid "U&pdate"
 msgstr "&Mutakhirkan"
@@ -11294,24 +10441,15 @@ msgid ""
 "menu"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr ""
-
-#. Resource IDs: (17102)
-#, c-format
-msgid "Undo %d Actions"
-msgstr "Batalkan %d Tindakan"
-
-#. Resource IDs: (17103)
-msgid "Undo 1 Action"
-msgstr "Batalkan 1 Tindakan"
 
 #. Resource IDs: (IDS_MENUUNDOADD)
 msgid "Undo Add..."
 msgstr ""
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
@@ -11320,10 +10458,6 @@ msgstr ""
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
 msgstr "Format berkas tidak diharapkan."
-
-#. Resource IDs: (17111)
-msgid "Unfold"
-msgstr "Mengembang"
 
 #. Resource IDs: (61591)
 msgid ""
@@ -11493,10 +10627,6 @@ msgstr "Upgrade '%1!ls!'"
 msgid "Urls"
 msgstr ""
 
-#. Resource IDs: (16530)
-msgid "Use &Default Image: "
-msgstr "Gunakan Gambar &Bawaan:"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "Gunakan tampilan sat&u-jendela sebagai standar untuk diff 2-berkas"
@@ -11516,22 +10646,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr "Gunakan '*' sebagai karakter wildcard saat menetapkan kekecualian.\r\nUntuk memisahkan sekumpulan kekecualian, gunakan koma (',').\r\nContoh: *.mylan.com, *.company.com"
 
-#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
-#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
+#. cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu,
+#. cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
-#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
+#. cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr ""
 
@@ -11551,29 +10681,29 @@ msgstr "Gunakan URL &WC sebagai standar URL \"Dari:\""
 msgid "Use Unified Diff from &clipboard"
 msgstr "Gunakan Unified Diff dari papan &jepit"
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr "Menggunakan semua isi tilik kiri\nMenggunakan berkas kiri"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
-#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
+#. cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr "Gunakan blok teks dari kiri sebelum kanan"
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr "Gunakan blok dari tilik kiri sebelum blok dari tilik kanan\nGunakan blok dari kiri sebelum kanan"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
-#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
+#. cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr "Gunakan blok teks dari kanan sebelum kiri"
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -11587,13 +10717,12 @@ msgstr "Gunakan kedua blok teks (ini yang pertama)"
 msgid "Use both text blocks (this one last)"
 msgstr "Gunakan kedua blok teks (ini yang terakhir)"
 
-#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
+#. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr "Gunakan berkas kiri"
 
@@ -11629,13 +10758,13 @@ msgstr "Gunakan blok teks dari '&mereka'"
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "Gunakan blok teks dari 'sa&ya' sebelum 'mereka'"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr "Gunakan blok teks dari 'saya' sebelum 'mereka'\nGunakan blok teks 'saya' kemudian 'mereka'"
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -11645,19 +10774,19 @@ msgstr "Gunakan blok teks dari 'saya'\nGunakan blok teks 'saya'"
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "Gunakan blok teks dari 'me&reka' sebelum 'saya'"
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr "Gunakan blok teks dari 'mereka' sebelum 'saya'\nGunakan blok teks 'mereka' kemudian 'saya'"
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr "Gunakan blok teks dari 'mereka'\nGunakan blok teks 'mereka'"
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
@@ -11729,6 +10858,10 @@ msgstr ""
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr ""
 
+#. Resource IDs: (cmdPaste_Keytip_RESID)
+msgid "V"
+msgstr ""
+
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
 "Valid command line options are:\n"
@@ -11778,11 +10911,11 @@ msgstr "Informasi Versi"
 msgid "Versioned"
 msgstr "Berversi"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr ""
 
@@ -11798,14 +10931,8 @@ msgstr "Lihat revisi dalam peninjau &web"
 msgid "Visit our website"
 msgstr "Kunjungi website kami"
 
-#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
-#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
-msgid "Visual Studio 2005"
-msgstr ""
-
-#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
-#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
-msgid "Visual Studio 2008"
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
+msgid "W"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
@@ -11893,33 +11020,10 @@ msgstr "Saat mengunci satu atau lebih berkas terpilih, menampilkan dialog\nyang 
 msgid "Whitespace changes (tabs, spaces)"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
-#. 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
+#. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Spasi putih"
-
-#. Resource IDs: (17038)
-msgid "Window Position"
-msgstr "Posisi Jendela"
-
-#. Resource IDs: (16927)
-msgid "Windows"
-msgstr "Windows"
-
-#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
-#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
-msgid "Windows 2000"
-msgstr ""
-
-#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
-#. Ribbon name)
-msgid "Windows 7"
-msgstr ""
-
-#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
-#. - Ribbon name)
-msgid "Windows XP"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 158, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 1493, Dialog IDD_MERGEWIZARD_TREE:
@@ -11948,15 +11052,22 @@ msgstr "Copy pekerjaan direlokasi ke\n%ls"
 msgid "Working copy: %ls\n"
 msgstr "Salinan bekerja: %ls\n"
 
-#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
-#. name)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
+msgid "Wrap Lines"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
 msgstr ""
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
+msgstr ""
+
+#. Resource IDs: (cmdRedo_Keytip_RESID)
+msgid "Y"
 msgstr ""
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
@@ -11974,16 +11085,6 @@ msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
 msgstr ""
-
-#. Resource IDs: (16005)
-#, c-format
-msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr "Anda dapat menempelkan bitmap dengan ukuran (%d x %d) saja!"
-
-#. Resource IDs: (16243)
-#, c-format
-msgid "You can't create more than %d user-defined toolbars!"
-msgstr "Anda tidak dapat membuat lebih dari %d bilah alat yang ditentukan pengguna!"
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -12025,11 +11126,6 @@ msgstr "Anda harus memutakhirkan copy pekerjaan anda lebih dulu."
 msgid "You haven't entered an issue number."
 msgstr "Anda belum memasukkan nomor isu."
 
-#. Resource IDs: (16024)
-#, c-format
-msgid "You may define up to %d tools."
-msgstr "Anda boleh menentukan paling banyak %d alat."
-
 #. Resource IDs: (IDS_SETTINGS_RESTARTSYSTEM)
 msgid "You must restart your system for the changes to take effect."
 msgstr "Anda harus memulai lagi sistem anda agar perubahan bekerja."
@@ -12037,14 +11133,6 @@ msgstr "Anda harus memulai lagi sistem anda agar perubahan bekerja."
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "Anda memilih folder tak berversi untuk commit!"
-
-#. Resource IDs: (16002)
-msgid "You should enter a text!"
-msgstr "Anda seharusnya memasukkan sebuah teks!"
-
-#. Resource IDs: (16001)
-msgid "You should select an image!"
-msgstr "Anda seharusnya memasukkan sebuah gambar!"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12102,13 +11190,13 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr "Working copy anda pada %ls yang muncul sebagai tag!\nAnda harus switch pada branch atau trunk inti terlebih dahulu sebelum commit."
 
+#. Resource IDs: (cmdUndo_Keytip_RESID)
+msgid "Z"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr ""
-
-#. Resource IDs: (17093)
-msgid "Zoom"
-msgstr "Pembesaran"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -12130,18 +11218,6 @@ msgstr "&Kecilkan\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Besarkan 100%"
-
-#. Resource IDs: (58117)
-msgid ""
-"Zoom In\n"
-"Zoom In"
-msgstr "Besarkan\nBesarkan"
-
-#. Resource IDs: (58118)
-msgid ""
-"Zoom Out\n"
-"Zoom Out"
-msgstr "Kecilkan\nKecilkan"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
@@ -12171,14 +11247,6 @@ msgstr "Besarkan hingga pas tingginya"
 msgid "Zoom to fit in width"
 msgstr "Besarkan hingga pas lebarnya"
 
-#. Resource IDs: (17114)
-msgid "[Default]"
-msgstr "[Bawaan]"
-
-#. Resource IDs: (16009)
-msgid "[Unassigned]"
-msgstr "[Tidak ditugaskan]"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
 msgstr ""
@@ -12192,10 +11260,6 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr "\n\nPola-pola cocok dengan kasus-kebal dan harus ditetapkan dalam kasus-rendah.\nSpasi putih akan menjadi bagian dari pola.\nKarakter-karakter wildcard yang bisa dipakai adalah '?' dan '*'.\nPisahkan pola-pola menggunakan ';'"
-
-#. Resource IDs: (65535 - PopupMenu)
-msgid "_POPUP_"
-msgstr "_POPUP_"
 
 #. Resource IDs: (IDS_STATUSADDED)
 msgid "added"
@@ -12373,10 +11437,6 @@ msgstr "dihapus"
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "disk [kB]: "
 msgstr "diska [kB]: "
-
-#. Resource IDs: (58116)
-msgid "dummy"
-msgstr "dummy"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
@@ -12558,6 +11618,10 @@ msgstr ""
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
 msgstr "normal"
+
+#. Resource IDs: (cmdOpen_Keytip_RESID)
+msgid "o1"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"

@@ -40,8 +40,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-19 09:11+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-11-14 04:49+0000\n"
+"Last-Translator: YF <yfdyh000@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -315,17 +315,13 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%ls\n是个文件夹，不是文件！\nTortoiseMerge 无法比较文件夹的差异。"
 
-#. Resource IDs: (16923)
-msgid "&..."
-msgstr "&..."
-
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
 msgstr "中止(&A)\n您可以先去解决钩子脚本的问题。"
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "关于 TortoiseMerge(&A)..."
 
@@ -335,17 +331,9 @@ msgid ""
 "The certificate is accepted only this one time."
 msgstr "接受凭证(&A)\n仅在本次接受此凭证。"
 
-#. Resource IDs: (16920)
-msgid "&Activate"
-msgstr "激活(&A)"
-
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
 msgstr "加入(&A)"
-
-#. Resource IDs: (17075)
-msgid "&Add >>"
-msgstr "增加(&A) >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
@@ -356,10 +344,6 @@ msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
 msgstr "增加项目(&A)\n在 Windows 会导致问题。"
-
-#. Resource IDs: (17018)
-msgid "&Add or Remove Buttons"
-msgstr "增加或删除按钮(&A)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -396,22 +380,6 @@ msgstr "递归应用该属性(&A)"
 msgid "&Apply unified diff"
 msgstr "应用标准差异文件(&A)"
 
-#. Resource IDs: (65535)
-msgid "&Arguments:"
-msgstr "参数(&A):"
-
-#. Resource IDs: (16645)
-msgid "&Assign"
-msgstr "分配(&A)"
-
-#. Resource IDs: (16633)
-msgid "&Associate double-click event with:"
-msgstr "关联双击事件与(&A):"
-
-#. Resource IDs: (17041)
-msgid "&Auto Hide"
-msgstr "自动隐藏(&A)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
 msgstr "自动关闭(&A): "
@@ -439,10 +407,6 @@ msgstr "追溯以前的版本(&B)"
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
 msgstr "追溯(&B)..."
-
-#. Resource IDs: (65535)
-msgid "&Blue:"
-msgstr "蓝色(&B):"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -472,14 +436,6 @@ msgstr "浏览(&B)..."
 #. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr "配置问题跟踪器(&B)"
-
-#. Resource IDs: (16913 - Menu)
-msgid "&Button Appearance..."
-msgstr "按钮外观(&B)..."
-
-#. Resource IDs: (65535)
-msgid "&Button text:"
-msgstr "按钮文本(&B):"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
@@ -623,18 +579,6 @@ msgid ""
 "keep the current format."
 msgstr "取消(&C)\n保留当前格式。"
 
-#. Resource IDs: (65535)
-msgid "&Categories:"
-msgstr "分类(&C):"
-
-#. Resource IDs: (65535)
-msgid "&Category:"
-msgstr "分类(&C)"
-
-#. Resource IDs: (65535)
-msgid "&Choose commands from:"
-msgstr "选择命令(&C):"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
 msgstr "选择项(&C)..."
@@ -655,17 +599,9 @@ msgstr "清除变更列表(&C)"
 msgid "&Close"
 msgstr "关闭(&C)"
 
-#. Resource IDs: (16922)
-msgid "&Close Window(s)"
-msgstr "关闭窗口(&C)"
-
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
 msgstr "Collaborator 用户名(&C)"
-
-#. Resource IDs: (65535)
-msgid "&Command:"
-msgstr "命令(&C):"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -697,14 +633,10 @@ msgstr "启动时连接版本库(&C)"
 msgid "&Convert files when diffing against BASE"
 msgstr "与 基础版本比较时转换文件(&C)"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "复制(&C)"
-
-#. Resource IDs: (16911 - Menu)
-msgid "&Copy Button Image"
-msgstr "复制按钮图片(&C)"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
@@ -740,8 +672,8 @@ msgstr "(&D)不活动的小缓存过期天数"
 msgid "&Default"
 msgstr "默认(&D)"
 
-#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
-#. Control id 1382, IDS_MENUREMOVE)
+#. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1382,
+#. IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "删除(&D)"
 
@@ -787,10 +719,6 @@ msgstr "目录(&D)"
 msgid "&Do not ask again"
 msgstr "不再询问(&D)"
 
-#. Resource IDs: (17040)
-msgid "&Docking"
-msgstr "钉住(&D)"
-
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
 msgid ""
 "&Don't run\n"
@@ -818,7 +746,7 @@ msgstr "编辑冲突(&E)"
 msgid "&Edit project"
 msgstr "编辑项目(&E)"
 
-#. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
@@ -900,10 +828,6 @@ msgstr "修复时间戳(&F)"
 msgid "&Fixed drives"
 msgstr "本地硬盘(&F)"
 
-#. Resource IDs: (17039)
-msgid "&Floating"
-msgstr "浮动(&F)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
 msgstr "日志信息字体(&F): "
@@ -934,10 +858,6 @@ msgstr "起始: （合并范围的起始URL和版本）(&F)"
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr "跳转到指定行(&G)...\t(Ctrl+G)"
 
-#. Resource IDs: (65535)
-msgid "&Green:"
-msgstr "绿色(&G):"
-
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "按照分支分组(&G)"
@@ -964,17 +884,21 @@ msgstr "版本库中的最新版本(&H)"
 msgid "&Help"
 msgstr "帮助(&H)"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "帮助主题(&H)"
 
-#. Resource IDs: (17042, 61457)
+#. Resource IDs: (61457)
 msgid "&Hide"
 msgstr "隐藏 (&H)"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
 msgstr "隐藏已忽略的项目(&H)"
+
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
+msgid "&Hide/Show the patch file list"
+msgstr "隐藏/显示补丁文件列表(&H)"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -997,17 +921,9 @@ msgstr "忽略并继续(&I)"
 msgid "&Ignore multiple items by name"
 msgstr "按名称忽略多项(&I)"
 
-#. Resource IDs: (16914 - Menu)
-msgid "&Image"
-msgstr "图片(&I)"
-
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr "图像信息(&I)\t(I)"
-
-#. Resource IDs: (16505)
-msgid "&Image only"
-msgstr "仅图片(&I)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1026,10 +942,6 @@ msgstr "包含外部定义(&I)"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
 msgstr "包含合并信息(&I)"
-
-#. Resource IDs: (65535)
-msgid "&Initial directory:"
-msgstr "初始目录(&I):"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
@@ -1050,10 +962,6 @@ msgstr "关键字(&K)"
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
 msgstr "语言(&L)"
-
-#. Resource IDs: (16653)
-msgid "&Large Icons"
-msgstr "大图标(&L)"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -1096,10 +1004,6 @@ msgstr "请求锁定（只读更新）(&L)"
 msgid "&Log Sizes"
 msgstr "日志大小(&L)"
 
-#. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "亮度(&L):"
-
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "Mac(CR)(&M)"
@@ -1116,14 +1020,6 @@ msgstr "显示行间差异时一行最大长度(&M)"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "删除不活动缓存的最大尺寸[kByte](&M)"
-
-#. Resource IDs: (16543)
-msgid "&Menu animations:"
-msgstr "菜单动画(&M):"
-
-#. Resource IDs: (16921)
-msgid "&Menu contents:"
-msgstr "菜单内容(&M):"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1144,10 +1040,6 @@ msgstr "合并(&M)"
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "MIME 类型(&M)"
-
-#. Resource IDs: (16925)
-msgid "&Minimize"
-msgstr "最小化(&M)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1173,8 +1065,8 @@ msgstr "网络磁盘(&N)"
 msgid "&New "
 msgstr "新建(&N)"
 
-#. Resource IDs: (16509, 16615, Dialog IDD_EDITPROPERTIES: Control id 1310,
-#. Dialog IDD_EDITPROPEXTERNALS: Control id 1542)
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1310, Dialog
+#. IDD_EDITPROPEXTERNALS: Control id 1542)
 msgid "&New..."
 msgstr "新建(&N)..."
 
@@ -1190,10 +1082,6 @@ msgstr "下一步(&N) >"
 #. Resource IDs: (58114)
 msgid "&Next Page"
 msgstr "下页(&N)"
-
-#. Resource IDs: (16632)
-msgid "&No double-click event"
-msgstr "无双击事件(&N)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
@@ -1211,10 +1099,10 @@ msgstr "不可执行(&N)"
 msgid "&Numeric"
 msgstr "数字(&N)"
 
-#. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
-#. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
-#. 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1,
-#. Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id
+#. 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1,
+#. Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog
+#. IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
 #. IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1,
 #. Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id
 #. 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL:
@@ -1251,7 +1139,8 @@ msgstr "立即离线(&O)"
 msgid "&One Page"
 msgstr "单页(&O)"
 
-#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN,
+#. cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr "打开(&O)"
 
@@ -1298,8 +1187,8 @@ msgstr "覆盖(&O)\n目标文件已替换。"
 msgid "&Password:"
 msgstr "密码(&P): "
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "粘贴(&P)"
 
@@ -1330,10 +1219,6 @@ msgstr "“Power user”的默认值(&P)"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr "预取文件夹以加速浏览(&P)"
-
-#. Resource IDs: (17091)
-msgid "&Print Preview"
-msgstr "打印预览(&P)"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1375,10 +1260,6 @@ msgstr "属性(&P)..."
 msgid "&Recent messages"
 msgstr "最近信息(&R)"
 
-#. Resource IDs: (65535)
-msgid "&Red:"
-msgstr "红色(&R):"
-
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
 msgstr "重做(&R)"
@@ -1403,7 +1284,7 @@ msgstr "重新定位(&R)\n该工作副本重定位到新的 URL。"
 msgid "&Remind me to enter a bug-ID"
 msgstr "提醒我输入一个bug-ID(&R)"
 
-#. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1100, IDS_PROP_REMOVE)
 msgid "&Remove"
@@ -1455,22 +1336,6 @@ msgstr "替换(&R)"
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
 msgstr "版本库浏览器(&R)"
-
-#. Resource IDs: (16613, 16624)
-msgid "&Reset"
-msgstr "重置(&R)"
-
-#. Resource IDs: (16300)
-msgid "&Reset Toolbar"
-msgstr "重置工具栏(&R)"
-
-#. Resource IDs: (16657)
-msgid "&Reset my usage data"
-msgstr "重置我的使用信息(&R)"
-
-#. Resource IDs: (16910 - Menu)
-msgid "&Reset to Default"
-msgstr "恢复到默认值(&R)"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
 msgid ""
@@ -1533,11 +1398,7 @@ msgstr "SSH 客户端(&S): "
 msgid "&SVN"
 msgstr "&SVN"
 
-#. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "饱和(&S):"
-
-#. Resource IDs: (16921)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr "保存(&S)"
 
@@ -1572,10 +1433,6 @@ msgstr "显示 HEAD 版本(&S)"
 msgid "&Show Log"
 msgstr "显示日志(&S)"
 
-#. Resource IDs: (65535)
-msgid "&Show Menus for:"
-msgstr "显示菜单(&S):"
-
 #. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr "显示监视器(&S)"
@@ -1584,23 +1441,15 @@ msgstr "显示监视器(&S)"
 msgid "&Show popup notifications"
 msgstr "显示弹出式通知(&S)"
 
-#. Resource IDs: (16612)
-msgid "&Show text labels"
-msgstr "显示文本标签(&S)"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
 msgstr "版本库中的指定版本(&S)"
-
-#. Resource IDs: (16917 - Menu)
-msgid "&Start Group"
-msgstr "启动组(&S)"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
 msgstr "启动版本库浏览器(&S)"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "状态栏(&S)"
 
@@ -1632,10 +1481,6 @@ msgstr "符号视图(&S)"
 msgid "&Tab size:"
 msgstr "Tab 宽度(&T): "
 
-#. Resource IDs: (17088)
-msgid "&Tabbed Document"
-msgstr "标签显示文档(&T)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
 msgstr "标签(&T)"
@@ -1644,13 +1489,9 @@ msgstr "标签(&T)"
 msgid "&Test merge"
 msgstr "测试合并(&T)"
 
-#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "文本(&T)"
-
-#. Resource IDs: (16506)
-msgid "&Text only"
-msgstr "仅文本(&T)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1678,17 +1519,9 @@ msgstr "至路径(&T): "
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "结束:  （合并范围的结束URL和版本）(&T)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "工具栏(&T)"
-
-#. Resource IDs: (65535)
-msgid "&Toolbar Name:"
-msgstr "工具栏名称(&T):"
-
-#. Resource IDs: (65535)
-msgid "&Toolbars:"
-msgstr "工具栏(&T):"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
@@ -1727,7 +1560,7 @@ msgstr "版本库 &URL: "
 msgid "&URL:"
 msgstr "&URL: "
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "撤销(&U)"
 
@@ -1798,10 +1631,6 @@ msgstr "清理原始副本(&V)"
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "查看(&V)"
-
-#. Resource IDs: (65535)
-msgid "&View:"
-msgstr "查看(&V):"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
 msgid "&Whole word"
@@ -1947,11 +1776,6 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#. Resource IDs: (16108)
-msgid ""
-"-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1035, Dialog IDD_CHECKOUT:
 #. Control id 1036, Dialog IDD_COPY: Control id 1035, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1035, Dialog IDD_EXPORT: Control id
@@ -1978,10 +1802,6 @@ msgstr "... 检查缓存，准备查询日志"
 msgid "... reading working copy status"
 msgstr "... 正在读取工作副本的状态"
 
-#. Resource IDs: (16527)
-msgid "....."
-msgstr "....."
-
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1994,22 +1814,6 @@ msgstr ": 工作副本"
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
 msgstr "< 后退(&B)"
-
-#. Resource IDs: (16506)
-msgid "<.....>"
-msgstr "<.....>"
-
-#. Resource IDs: (17095)
-msgid "<Separator>"
-msgstr "<分隔符>"
-
-#. Resource IDs: (16104)
-msgid "<Untitled>"
-msgstr "<未命名>"
-
-#. Resource IDs: (16603)
-msgid "<descr>"
-msgstr "<描述>"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_CREATECS)
 msgid "<new changelist>"
@@ -2037,7 +1841,7 @@ msgstr "在组合框中显示的用户定义的目录属性列表"
 msgid ""
 "A newer version is available.\r\n"
 "Please go to https://tortoisesvn.net and download the current version."
-msgstr ""
+msgstr "有新版本可用。\r\n请访问 https://tortoisesvn.net 下载最新版本。"
 
 #. Resource IDs: (IDS_SETTINGS_INCLUDELIST_TT)
 msgid ""
@@ -2095,7 +1899,11 @@ msgstr "加入文件夹(&D)..."
 msgid "Abort"
 msgstr "放弃"
 
-#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
+msgid "Abou&t TortoiseMerge"
+msgstr "关于 TortoiseMerge(&T)"
+
+#. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
 msgstr "关于"
 
@@ -2133,10 +1941,6 @@ msgstr "操作"
 #. Resource IDs: (61203)
 msgid "Activate Task List"
 msgstr "当前工作列表"
-
-#. Resource IDs: (17043)
-msgid "Active Files"
-msgstr "活动文件"
 
 #. Resource IDs: (61838)
 #, c-format
@@ -2206,10 +2010,6 @@ msgstr "增加到忽略列表(&I)"
 msgid "Add to Bookmarks"
 msgstr "加到书签"
 
-#. Resource IDs: (17083)
-msgid "Add to Quick Access Toolbar"
-msgstr "增加到快速访问工具栏"
-
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
@@ -2261,7 +2061,7 @@ msgstr "增加文件至 Subversion 版本控制"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "将选定的文件或文件匹配列表加入忽略列表"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -2300,10 +2100,6 @@ msgstr "顶部对齐树"
 msgid "All"
 msgstr "全部"
 
-#. Resource IDs: (16110)
-msgid "All Commands"
-msgstr "所有命令"
-
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
 msgstr "所有文件 (*.*)"
@@ -2312,32 +2108,7 @@ msgstr "所有文件 (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "所有文件 (*.*)|*.*||"
 
-#. Resource IDs: (16112)
-msgid ""
-"All your changes will be lost! Do you really want to reset all toolbars and "
-"menus?"
-msgstr "将要丢弃你的全部修改! 你真的要重置全部工具栏和菜单吗?"
-
-#. Resource IDs: (16115)
-msgid ""
-"All your changes will be lost! Do you really want to reset the keyboard "
-"assignments?"
-msgstr "将要丢弃你的全部修改! 你真的要重置全部键盘分配吗?"
-
-#. Resource IDs: (16113)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr "您的更改将全部丢失！您确定要重置菜单“%Ts”吗？"
-
-#. Resource IDs: (16111)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar "
-"'%Ts'?"
-msgstr "您的更改将全部丢失！您确定要重置工具栏“%Ts”吗？"
-
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
@@ -2442,10 +2213,6 @@ msgstr "追加到右块"
 msgid "Append this block to left"
 msgstr "追加此块到左侧"
 
-#. Resource IDs: (65535)
-msgid "Application Frame Menus: "
-msgstr "应用程序框架菜单:"
-
 #. Resource IDs: (IDS_MENUDESCAPPLYPATCH)
 msgid "Applies a unified diff file to the working copy"
 msgstr "应用标准差异文件至工作副本"
@@ -2475,11 +2242,6 @@ msgstr "接受或者拒绝客户侧钩子脚本"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1282)
 msgid "Approved hook scripts"
 msgstr "已经允许的钩子脚本"
-
-#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
-msgid "Aqua Style"
-msgstr "Aqua 样式"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
 msgid "Arb&itrary text"
@@ -2517,10 +2279,6 @@ msgstr "询问用户"
 #, c-format
 msgid "Assigned to changelist '%ls'"
 msgstr "指派到修改列表 “%ls”"
-
-#. Resource IDs: (16528)
-msgid "Assigned to:"
-msgstr "分配到:"
 
 #. Resource IDs: (IDS_PROGRS_ATREV)
 #, c-format
@@ -2576,14 +2334,6 @@ msgstr "作者区分大小写"
 msgid "Authors:"
 msgstr "作者: "
 
-#. Resource IDs: (16033)
-msgid "Auto Hide"
-msgstr "自动隐藏"
-
-#. Resource IDs: (16036)
-msgid "Auto Hide All"
-msgstr "全部自动隐藏"
-
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
 msgstr "自动合并"
@@ -2628,10 +2378,6 @@ msgstr "平均"
 msgid "B&rowse..."
 msgstr "浏览(&R)..."
 
-#. Resource IDs: (17020)
-msgid "Back"
-msgstr "后退"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
@@ -2656,11 +2402,6 @@ msgid ""
 "a bitmap"
 msgstr "位图\n一种位图"
 
-#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
-msgid "Black Style"
-msgstr "黑色样式"
-
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
 msgstr "追溯"
@@ -2681,14 +2422,9 @@ msgstr "列出文件每一行的作者"
 msgid "Blend alpha"
 msgstr "Alpha 混和"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
 msgstr "块"
-
-#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
-msgid "Blue Style"
-msgstr "蓝色样式"
 
 #. Resource IDs: (IDS_BOOKMARKS)
 msgid "Bookmarks"
@@ -2759,9 +2495,9 @@ msgstr "Bug-ID"
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr "Bugtraq 正则表达式测试器 - TortoiseSVN"
 
-#. Resource IDs: (16132)
-msgid "Button Appearance"
-msgstr "按钮外观"
+#. Resource IDs: (cmdCopy_Keytip_RESID)
+msgid "C"
+msgstr "C"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2775,10 +2511,6 @@ msgstr "检查版本库(&H)"
 msgid "C&ollapse sub-trees"
 msgstr "折叠子树(&O)"
 
-#. Resource IDs: (65535)
-msgid "C&ommands:"
-msgstr "命令(&O):"
-
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
 msgstr "比较网址(仅内容)(&O)"
@@ -2790,10 +2522,6 @@ msgstr "从版本创建分支/标记(&R)"
 #. Resource IDs: (IDS_REPOBROWSE_MKDIR)
 msgid "C&reate folder..."
 msgstr "创建文件夹(&R)..."
-
-#. Resource IDs: (65535)
-msgid "C&urrent Keys:"
-msgstr "当前主键(&U):"
 
 #. Resource IDs: (IDS_EDIT_CUT)
 msgid "C&ut"
@@ -2828,23 +2556,7 @@ msgid ""
 "%2!ls!"
 msgstr "无法复制 \n%1!ls!\n到\n%2!ls!"
 
-#. Resource IDs: (16010)
-msgid "Can't copy bitmap image into the clipboard!"
-msgstr "不能复制位图图像到剪贴板!"
-
-#. Resource IDs: (16003)
-msgid "Can't create a new image!"
-msgstr "不能创建新图像!"
-
-#. Resource IDs: (16007)
-msgid "Can't customize menus!"
-msgstr "不能定制菜单!"
-
-#. Resource IDs: (16004)
-msgid "Can't paste bitmap image from the clipboard!"
-msgstr "不能从剪贴板黏贴位图!"
-
-#. Resource IDs: (17101, 2, Dialog IDD_BLAME: Control id 2, Dialog
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog
 #. IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2,
 #. Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control
 #. id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2,
@@ -2951,17 +2663,9 @@ msgstr "正在取消操作..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "由于文件中采用了不同的换行方式，不能显示其差异。"
 
-#. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "层叠(&D)"
-
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
 msgstr "区分大小写"
-
-#. Resource IDs: (65535)
-msgid "Cate&gories:"
-msgstr "分类(&G):"
 
 #. Resource IDs: (IDS_ERR_SSL_EXPIRED)
 #, c-format
@@ -2986,12 +2690,6 @@ msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
 msgstr "更改标记的修订(&G)\n父文件夹的 svn:external 属性相应改变。"
-
-#. Resource IDs: (10000)
-msgid ""
-"Change the style of the application\n"
-"Change Style"
-msgstr "更改应用风格\n更改风格"
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -3022,10 +2720,6 @@ msgstr "修改列表: "
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "变更列表（双击文件查看差异）: "
-
-#. Resource IDs: (32956)
-msgid "Changes the style of the application"
-msgstr "更改应用风格"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3187,12 +2881,6 @@ msgstr "清理未完成的操作、锁定的文件等…"
 msgid "Clear"
 msgstr "清除"
 
-#. Resource IDs: (16909)
-msgid ""
-"Clear Tool\n"
-"Clear"
-msgstr "清理工具\n清理"
-
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
 msgstr "清除全部"
@@ -3253,7 +2941,7 @@ msgid ""
 "extension"
 msgstr "点击“高级设置”可根据不同扩展名指定不同合并程序"
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
@@ -3262,20 +2950,6 @@ msgstr "单击查看移动文件本块的命令\n使用文件块"
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
 msgstr "剪贴板"
-
-#. Resource IDs: (16032, 16105, 17023, 2)
-msgid "Close"
-msgstr "关闭"
-
-#. Resource IDs: (17025)
-msgid "Close Full Screen"
-msgstr "关闭全屏"
-
-#. Resource IDs: (58112)
-msgid ""
-"Close Print Preview\n"
-"&Close"
-msgstr "关闭打印预览\n关闭(&C)"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_MANUAL)
 msgid "Close manually"
@@ -3297,7 +2971,7 @@ msgstr "折叠源树(&A)"
 msgid "Collaborator &password"
 msgstr "Collaborator 密码(&p)"
 
-#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr "冲突"
 
@@ -3305,15 +2979,11 @@ msgstr "冲突"
 msgid "Collapse &following tree"
 msgstr "折叠下列树(&F)"
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr "折叠未改变的部分\n折叠"
-
-#. Resource IDs: (16662)
-msgid "Color"
-msgstr "颜色"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Color 1"
@@ -3335,21 +3005,13 @@ msgstr "按时间显示着色(&c) 连续"
 msgid "Color by au&thor"
 msgstr "按作者显示着色(&c) 连续"
 
-#. Resource IDs: (16961, Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
 msgid "Colors"
 msgstr "颜色"
 
-#. Resource IDs: (65535)
-msgid "Colors:"
-msgstr "颜色:"
-
-#. Resource IDs: (65535)
-msgid "Comman&ds:"
-msgstr "命令(&D):"
-
-#. Resource IDs: (16029, IDS_PROGRS_CMDINFO)
+#. Resource IDs: (IDS_PROGRS_CMDINFO)
 msgid "Command"
 msgstr "命令"
 
@@ -3375,10 +3037,6 @@ msgstr "命令失败 - 需要先更新"
 #. Resource IDs: (61705)
 msgid "Command failed."
 msgstr "命令失败。"
-
-#. Resource IDs: (16104)
-msgid "Commands"
-msgstr "命令"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
@@ -3467,7 +3125,7 @@ msgid "Compare two files"
 msgstr "比较两个文件"
 
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
-#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
+#. cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr "比较空白字符"
 
@@ -3491,7 +3149,7 @@ msgstr "同 base 比较(仅内容)"
 msgid "Compare with previous revision"
 msgstr "与前一版本比较差异"
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
@@ -3518,6 +3176,10 @@ msgstr "完毕！"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "配置 &TortoiseSVN 不使用回收站"
+
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
+msgid "Configure Filter Regex"
+msgstr "配置过滤器正则表达式"
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
@@ -3583,17 +3245,9 @@ msgstr "连接版本库服务器下载缺少的日志数据"
 msgid "Container sizes"
 msgstr "容器大小"
 
-#. Resource IDs: (16520)
-msgid "Context Menus: "
-msgstr "上下文菜单: "
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr "补丁的上下文行"
-
-#. Resource IDs: (16013)
-msgid "Contract docked window"
-msgstr "契约钉住的窗口"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3624,7 +3278,7 @@ msgstr "复制自: %1!ls!@%2!ld!\r\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr "复制所有选定项的 URL 到剪贴板"
 
-#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr "复制"
 
@@ -3654,12 +3308,6 @@ msgstr "复制修订编号到剪贴板(&R)"
 #. Resource IDs: (Dialog IDD_COPY: Control id 142)
 msgid "Copy (Branch / Tag)"
 msgstr "复制（分支/标记）"
-
-#. Resource IDs: (16907)
-msgid ""
-"Copy Tool\n"
-"Copy"
-msgstr "复制工具\n复制"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
@@ -3691,7 +3339,7 @@ msgstr "复制项到此"
 msgid "Copy selection to cli&pboard"
 msgstr "复制到剪贴板(&P)"
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -3899,6 +3547,10 @@ msgstr "计数: %u个匹配"
 msgid "Create &Library"
 msgstr "创建库(&L)"
 
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
+msgid "Create &patch file"
+msgstr "创建补丁文件(&P)"
+
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
 msgstr "创建补丁(&P)..."
@@ -3930,8 +3582,7 @@ msgid ""
 "%ls"
 msgstr "新建目录: \r\n%ls"
 
-#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
-#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
 msgstr "生成补丁文件"
 
@@ -3953,7 +3604,7 @@ msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr "使用指定的 Subversion 工作副本设置,创建库目录"
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
@@ -3975,10 +3626,6 @@ msgstr "贡献者: "
 msgid "Cu&t"
 msgstr "剪切(&T)"
 
-#. Resource IDs: (65535)
-msgid "Current"
-msgstr "当前"
-
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1113)
 msgid "Current version is:"
 msgstr "当前版本是: "
@@ -3987,14 +3634,6 @@ msgstr "当前版本是: "
 #, c-format
 msgid "Current version is: %ls"
 msgstr "当前版本是: %ls"
-
-#. Resource IDs: (17079)
-msgid "Cus&tomize..."
-msgstr "定制(&T)..."
-
-#. Resource IDs: (16963)
-msgid "Custom"
-msgstr "定制"
 
 #. Resource IDs: (IDS_SVN_DEPTH_CUSTOM)
 msgid "Custom depths"
@@ -4008,22 +3647,6 @@ msgid ""
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
 msgstr "自定义标题\n可用的关键字有"
-
-#. Resource IDs: (16103, 17074)
-msgid "Customize"
-msgstr "定制"
-
-#. Resource IDs: (17076)
-msgid "Customize Keyboard"
-msgstr "定制键盘"
-
-#. Resource IDs: (17096)
-msgid "Customize Quick Access Toolbar"
-msgstr "定制快速访问工具栏"
-
-#. Resource IDs: (17085)
-msgid "Customize Quick Access Toolbar..."
-msgstr "定制快速访问工具栏..."
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4044,7 +3667,7 @@ msgstr "日期"
 msgid "Date Range"
 msgstr "日期范围"
 
-#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
+#. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "默认"
 
@@ -4052,17 +3675,9 @@ msgstr "默认"
 msgid "Default &number of log messages"
 msgstr "默认的日志信息数目(&N)"
 
-#. Resource IDs: (16106)
-msgid "Default Menu"
-msgstr "默认菜单"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1516)
 msgid "Default URL:"
 msgstr "默认 URL: "
-
-#. Resource IDs: (16107)
-msgid "Default application menu. Appears when no documents are open."
-msgstr "默认应用程序菜单。在没有打开文档的时候显示。"
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4079,10 +3694,6 @@ msgstr "默认路径: "
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "默认使用 UTF-8 编码"
-
-#. Resource IDs: (16020)
-msgid "Delete"
-msgstr "删除"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
@@ -4179,14 +3790,6 @@ msgstr "深度"
 msgid "Depth:"
 msgstr "深度:"
 
-#. Resource IDs: (16031)
-msgid "Description"
-msgstr "描述"
-
-#. Resource IDs: (65535)
-msgid "Description:"
-msgstr "描述:"
-
 #. Resource IDs: (IDS_STATUSLIST_UNCHECKGROUP)
 msgid "Deselect changelist"
 msgstr "取消选定修改列表"
@@ -4217,7 +3820,7 @@ msgstr "设备中立位图\n一种设备中立的位图"
 msgid "Dialog sizes and positions"
 msgstr "窗口大小及位置"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "差异"
 
@@ -4324,17 +3927,13 @@ msgstr "存取 %1 时磁盘已满。"
 msgid "Dispatch exception: %1"
 msgstr "分派异常: %1"
 
-#. Resource IDs: (65535)
-msgid "Display &buttons in this order"
-msgstr "按照此顺序显示按钮(&B)"
-
 #. Resource IDs: (57669)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr "显示点选的按钮, 菜单, 或窗口的帮助\n帮助"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -4346,7 +3945,7 @@ msgid ""
 "Help"
 msgstr "显示如何使用帮助\n帮助"
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -4395,11 +3994,6 @@ msgstr "对所有未版本控制的项目进行"
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
 msgstr "应用到所有无版本控制/已修改的项目"
-
-#. Resource IDs: (16109)
-#, c-format
-msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr "您确定要删除工具栏“%Ts”吗？"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4518,14 +4112,6 @@ msgid ""
 "Reload the views without saving the modifications"
 msgstr "不保存\n不保存修改并重新载入视图"
 
-#. Resource IDs: (16028)
-msgid "Drag to make this menu float"
-msgstr "通过拖动使此菜单浮动"
-
-#. Resource IDs: (16513)
-msgid "Draw"
-msgstr "画图"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1079)
 msgid "Drive Types"
 msgstr "磁盘驱动器类型"
@@ -4539,6 +4125,10 @@ msgstr "盘 A: 和 B:"
 msgid "Drop not possible on %1!ls!"
 msgstr "不可能删除 %1!ls!"
 
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
+msgid "E"
+msgstr "E"
+
 #. Resource IDs: (ID_INLINEEDIT - Menu)
 msgid "E&xact copy sources"
 msgstr "解开复制源(&X)"
@@ -4551,7 +4141,8 @@ msgstr "排除路径(&X): "
 msgid "E&xecutable"
 msgstr "可执行(&X)"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu,
+#. cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr "退出(&X)"
 
@@ -4583,14 +4174,10 @@ msgstr "EOL(行结束符)"
 msgid "EXT"
 msgstr "EXT"
 
-#. Resource IDs: (156 - Ribbon element, 65535 - PopupMenu, Dialog
-#. IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id
+#. 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr "编辑"
-
-#. Resource IDs: (16133)
-msgid "Edit Button Image"
-msgstr "编辑按钮图片"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 319)
 msgid "Edit External"
@@ -4667,12 +4254,6 @@ msgstr "输入代理服务器的 IP 地址或名称"
 msgid "Eliding mergeinfo"
 msgstr "省略合并信息"
 
-#. Resource IDs: (16906)
-msgid ""
-"Ellipse Tools\n"
-"Ellipse"
-msgstr "Ellipse 工具\nEllipse"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Empty"
 msgstr "空的"
@@ -4685,7 +4266,7 @@ msgstr "启用自动属性(&P)"
 msgid "Enable Auto-Properties"
 msgstr "启用自动属性"
 
-#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr "启用编辑"
 
@@ -4905,18 +4486,7 @@ msgstr "例外: "
 msgid "Exclude"
 msgstr "排除"
 
-#. Resource IDs: (16023)
-msgid ""
-"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
-"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "可执行 (*.exe)|*.exe|命令 (*.com)|*.com|信息 (*.pdf)|*.pdf|批处理 (*.bat)|*.bat|全部文件 (*.*)|*.*||"
-
-#. Resource IDs: (16018)
-msgid "Existing"
-msgstr "已经存在"
-
-#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
-#. Ribbon name)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2)
 msgid "Exit"
 msgstr "退出"
 
@@ -4927,15 +4497,6 @@ msgstr "展开源树(&A)"
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_BELOW)
 msgid "Expand &following tree"
 msgstr "展开下列树(&A)"
-
-#. Resource IDs: (16025)
-#, c-format
-msgid "Expand (%Ts)"
-msgstr "展开 (%Ts)"
-
-#. Resource IDs: (16012)
-msgid "Expand docked window"
-msgstr "展开钉住的窗口"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
@@ -5027,14 +4588,14 @@ msgstr "排除外部引用"
 msgid "Externals included"
 msgstr "包含外部引用"
 
+#. Resource IDs: (cmdFind_Keytip_RESID)
+msgid "F"
+msgstr "F"
+
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
 msgid "F&orce the merge"
 msgstr "强制合并(&O)"
-
-#. Resource IDs: (17113)
-msgid "Fade"
-msgstr "褪色"
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
@@ -5142,7 +4703,7 @@ msgstr "获取 %1!ls! 的状态"
 msgid "Fetching tree conflict information..."
 msgstr "正在获取树冲突信息..."
 
-#. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
+#. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
 msgstr "文件"
 
@@ -5272,12 +4833,6 @@ msgstr "文件名"
 msgid "Files"
 msgstr "文件"
 
-#. Resource IDs: (16901)
-msgid ""
-"Fill Tool\n"
-"Fill"
-msgstr "填充工具\n填充"
-
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
 msgstr "被过滤"
@@ -5300,8 +4855,12 @@ msgstr "过滤器路径"
 msgid "Filter:"
 msgstr "过滤器："
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
+msgid "Filtered"
+msgstr "已过滤"
+
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr "查找"
 
@@ -5313,7 +4872,7 @@ msgstr "查询最新的版本(&H)"
 msgid "Find HEAD revisions"
 msgstr "查找最新版本"
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -5369,10 +4928,6 @@ msgstr "折叠标签(&T)"
 msgid "Folded tag"
 msgstr "折叠的标签"
 
-#. Resource IDs: (16016)
-msgid "Folder"
-msgstr "目录"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Font"
@@ -5399,10 +4954,6 @@ msgstr "强制删除"
 msgid "Foreground"
 msgstr "前景"
 
-#. Resource IDs: (17021)
-msgid "Forward"
-msgstr "前进"
-
 #. Resource IDs: (IDS_REPOBROWSE_TT_FORWARD)
 msgid "Forwards in browsing history"
 msgstr "浏览历史中前进"
@@ -5416,10 +4967,6 @@ msgstr "找到了 auto word:"
 msgid "From:"
 msgstr "起始: "
 
-#. Resource IDs: (17026)
-msgid "Full Screen"
-msgstr "全屏"
-
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
 msgstr "所有数据"
@@ -5431,6 +4978,10 @@ msgstr "所有未改变路径的修订数据"
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
 msgstr "全递归"
+
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
+msgid "G"
+msgstr "G"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5528,43 +5079,43 @@ msgstr "跳转到行"
 msgid "Go to line"
 msgstr "跳转到行号"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr "跳到下个冲突处\n下个冲突"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr "跳到下个差异处\n下个差异"
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr "跳转到下一处差异\n下一处差异"
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr "跳到上个冲突处\n上个冲突"
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr "跳到上个差异处\n上个差异"
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr "跳转到前一处差异\n前一处差异"
 
-#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr "跳转到行"
 
@@ -5575,10 +5126,6 @@ msgstr "图表类型"
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
 msgstr "版本库根目录的图示总为空!"
-
-#. Resource IDs: (16972)
-msgid "Gray"
-msgstr "灰色"
 
 #. Resource IDs: (32799)
 msgid "Group by branch"
@@ -5591,10 +5138,6 @@ msgstr "分组修改列表"
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1032)
 msgid "H&EAD Revision"
 msgstr "最新版本(&E)"
-
-#. Resource IDs: (65535)
-msgid "H&ue:"
-msgstr "色彩(&U):"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1353, Dialog IDD_DIFFFILES:
 #. Control id 1354, IDS_EXTERNALS_HEADREV)
@@ -5633,17 +5176,9 @@ msgstr "头"
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
 #. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
 #. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
-#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "帮助"
-
-#. Resource IDs: (16982)
-msgid "Help Keyboard"
-msgstr "键盘帮助"
-
-#. Resource IDs: (16974)
-msgid "Hex"
-msgstr "十六进制"
 
 #. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
@@ -5665,10 +5200,6 @@ msgstr "隐藏全部标签"
 msgid "Hide deleted branches and tags"
 msgstr "隐藏已经删除的分支或标签"
 
-#. Resource IDs: (16011)
-msgid "Hide docked window"
-msgstr "隐藏钉住的窗口"
-
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1562)
 msgid "Hide non-mergeable revisions"
 msgstr "隐藏不可合并的版本"
@@ -5686,12 +5217,11 @@ msgstr "运行时隐藏脚本"
 msgid "Hide unused &branches"
 msgstr "隐藏没有使用的分支(&B)"
 
-#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu)
 msgid "Hide/Show the patch file list"
 msgstr "隐藏/显示补丁文件列表"
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
@@ -5700,16 +5230,6 @@ msgstr "隐藏/显示补丁文件列表\n隐藏或显示补丁文件的列表"
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
 msgstr "最高版本号在缓存中"
-
-#. Resource IDs: (16519)
-msgid ""
-"Hint: select the context menu, change the page to 'Commands' and drag the "
-"toolbar buttons into the menu window."
-msgstr "提示: 在上下文菜单中，进入“命令”页，将工具栏按钮拖到菜单窗口中。"
-
-#. Resource IDs: (17022)
-msgid "Home"
-msgstr "家"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -6079,12 +5599,12 @@ msgstr "忽略所有空白字符(&A)"
 msgid "Ignore &ancestry"
 msgstr "忽略根源(&A)"
 
-#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr "忽略注释"
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
-#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
+#. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr "忽略所有空白字符的变化"
 
@@ -6098,7 +5618,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr "忽略改动\n忽略外部的变化"
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
@@ -6131,8 +5651,8 @@ msgid "Ignore whitespace c&hanges"
 msgstr "忽略空白字符的变化(&H)"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
-#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
-#. Ribbon name)
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu,
+#. cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr "忽略空白字符的变化"
 
@@ -6144,13 +5664,13 @@ msgstr "忽略"
 msgid "Ignored items included"
 msgstr "包含忽略的项目"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr "比较差异时忽略所有空白字符的改变\n忽略全部空白字符的改变"
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
@@ -6159,18 +5679,6 @@ msgstr "比较差异时忽略空白字符的改变\n忽略空白字符的改变"
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
 msgstr "非法路径"
-
-#. Resource IDs: (16916 - Menu)
-msgid "Image &and Text"
-msgstr "图片与文本(&A)"
-
-#. Resource IDs: (16507)
-msgid "Image &and text"
-msgstr "图片与文本(&A)"
-
-#. Resource IDs: (16508)
-msgid "Images"
-msgstr "图片"
 
 #. Resource IDs: (IDS_SVN_DEPTH_IMMEDIATE)
 msgid "Immediate children, including folders"
@@ -6289,12 +5797,13 @@ msgstr "外部定义的信息"
 msgid "Information"
 msgstr "信息"
 
-#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
+#. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr "行间差异"
 
-#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
-#. Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
+#. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr "行间差异（智能）"
 
@@ -6306,7 +5815,7 @@ msgstr "内嵌差异"
 msgid "Input"
 msgstr "输入"
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -6438,21 +5947,13 @@ msgid ""
 "Jump to first unresolved conflict"
 msgstr "继续解决\n跳转到第一个未解决的冲突"
 
-#. Resource IDs: (16136)
-msgid "Keyboard"
-msgstr "键盘"
-
-#. Resource IDs: (65535)
-msgid "Keyboard shortcuts:"
-msgstr "键盘快捷键:"
-
-#. Resource IDs: (16030)
-msgid "Keys"
-msgstr "键"
-
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL1)
 msgid "Kind"
 msgstr "类"
+
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
+msgid "L"
+msgstr "L"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "L&imit:"
@@ -6536,14 +6037,8 @@ msgstr "行号"
 msgid "Line Graph"
 msgstr "折线图"
 
-#. Resource IDs: (16904)
-msgid ""
-"Line Tool\n"
-"Line"
-msgstr "线型工具\n线型"
-
-#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu,
+#. cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr "行差异工具栏"
 
@@ -6579,10 +6074,6 @@ msgstr "列出帮助主题\n帮助主题"
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
 msgstr "列出被缓存日志信息的对话框"
-
-#. Resource IDs: (16631, 16992)
-msgid "List1"
-msgstr "列表一"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6622,11 +6113,12 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "版本库 URL 的内容\n将要保存到的位置。"
 
-#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu)
 msgid "Locator Bar"
 msgstr "定位工具栏"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535,
+#. cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr "定位工具栏"
 
@@ -6747,10 +6239,6 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr "最低显示版本: %1!ld! - 最高显示版本: %2!ld!\n最新版本: %3!ld!"
 
-#. Resource IDs: (16973)
-msgid "Lum"
-msgstr "亮度"
-
 #. Resource IDs: (61841)
 msgid "Mail system DLL is invalid."
 msgstr "邮件系统 DLL 无效。"
@@ -6792,7 +6280,7 @@ msgid ""
 msgstr "标记为已解决(&R)\n冲突已经解决。"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
-#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
+#. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr "标记为已解决"
 
@@ -6826,7 +6314,7 @@ msgstr "已标记的块"
 msgid "Markers"
 msgstr "标记"
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
@@ -6863,22 +6351,6 @@ msgstr "动作记录最大行数"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "在删除缓存之前的最大失败次数(&F)"
-
-#. Resource IDs: (16655)
-msgid "Me&nus show recently used commands first"
-msgstr "用来显示最近使用的命令列表的菜单(&N)"
-
-#. Resource IDs: (16134)
-msgid "Menu"
-msgstr "菜单"
-
-#. Resource IDs: (16006)
-msgid "Menu Bar"
-msgstr "菜单栏"
-
-#. Resource IDs: (16626)
-msgid "Menu s&hadows"
-msgstr "阴影菜单(&H)"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -7043,10 +6515,6 @@ msgstr "最小"
 msgid "Mine"
 msgstr "本地文件（mine）"
 
-#. Resource IDs: (17086)
-msgid "Minimize the Ribbon"
-msgstr "最小化缎带"
-
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
 msgstr "提交日志的最少字符数:"
@@ -7070,7 +6538,7 @@ msgstr "混合"
 msgid "Modification date"
 msgstr "修改日期"
 
-#. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
@@ -7083,18 +6551,6 @@ msgstr "已修改的节点"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
 msgstr "监视器间隔（分钟）:"
-
-#. Resource IDs: (17107)
-msgid "More"
-msgstr "更多"
-
-#. Resource IDs: (16026)
-msgid "More Buttons"
-msgstr "更多按钮"
-
-#. Resource IDs: (17097)
-msgid "More Commands..."
-msgstr "更多命令..."
 
 #. Resource IDs: (IDS_COLOURPICKER_CUSTOMTEXT)
 msgid "More colors..."
@@ -7112,10 +6568,6 @@ msgstr "更多..."
 msgid "Most active author:"
 msgstr "最活跃作者: "
 
-#. Resource IDs: (16135)
-msgid "Mouse"
-msgstr "鼠标"
-
 #. Resource IDs: (IDS_INPUT_MOVEMORE)
 #, c-format
 msgid ""
@@ -7129,22 +6581,6 @@ msgid ""
 "Move %1!ls!\r\n"
 "to %2!ls!"
 msgstr "移动 %1!ls!\r\n到 %2!ls!"
-
-#. Resource IDs: (17026)
-msgid "Move &Down"
-msgstr "下移(&D)"
-
-#. Resource IDs: (17025)
-msgid "Move &Up"
-msgstr "上移(&U)"
-
-#. Resource IDs: (16022)
-msgid "Move Item Down"
-msgstr "下移项目"
-
-#. Resource IDs: (16021)
-msgid "Move Item Up"
-msgstr "上移项目"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK4)
 msgid ""
@@ -7245,36 +6681,36 @@ msgstr "多个、独立的工作副本(&I)"
 msgid "My file:"
 msgstr "我的文件: "
 
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
+msgid "NC"
+msgstr "NC"
+
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
+msgid "ND"
+msgstr "ND"
+
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
+msgid "NI"
+msgstr "NI"
+
 #. Resource IDs: (59138)
 msgid "NUM"
 msgstr "NUM"
-
-#. Resource IDs: (17128)
-msgid "Name"
-msgstr "名称"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535, Dialog
 #. IDD_REGEXFILTER: Control id 65535)
 msgid "Name:"
 msgstr "名称："
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr "导航"
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr "在视图中跳转到指定行\n跳转到行"
-
-#. Resource IDs: (17004)
-msgid "Navigation Pane Options"
-msgstr "窗格选项导航"
-
-#. Resource IDs: (17031)
-msgid "Navigation Pane Options..."
-msgstr "窗格选项导航..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
@@ -7301,17 +6737,13 @@ msgstr "网络"
 msgid "Never try to contact the repository again"
 msgstr "不再尝试连接版本库"
 
-#. Resource IDs: (16017, 16027, 30721, 65535, 65535 - PopupMenu)
+#. Resource IDs: (30721, 65535 - PopupMenu)
 msgid "New"
 msgstr "新增"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
 msgstr "新名称(&N): "
-
-#. Resource IDs: (16014)
-msgid "New Menu"
-msgstr "新菜单"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7325,24 +6757,18 @@ msgstr "新的名称不能为空白，也不能和原来的名称相同！"
 msgid "Newlines"
 msgstr "新行"
 
-#. Resource IDs: (58114)
-msgid ""
-"Next Page\n"
-"Next Page"
-msgstr "下页\n下页"
-
-#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
-#. Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
+#. cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr "下一处冲突"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
-#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
+#. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr "下一处差异"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
-#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
+#. cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr "下一处行间差异"
 
@@ -7396,6 +6822,10 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr "从上次提交以来没有任何文件修改或加\n入。TortoiseSVN 没有可执行的操作。"
 
+#. Resource IDs: (33002)
+msgid "No filter"
+msgstr "无过滤器"
+
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
 msgstr "没有图片。"
@@ -7440,7 +6870,7 @@ msgstr "非递归提交已移动/重命名的文件夹。"
 msgid "Non-versioned"
 msgstr "无版本控制"
 
-#. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
+#. Resource IDs: (Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
 msgstr "无"
@@ -7584,24 +7014,6 @@ msgstr "确定"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
-#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
-msgid "Office 2003"
-msgstr "Office 2003"
-
-#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
-msgid "Office 2007"
-msgstr "Office 2007"
-
-#. Resource IDs: (10008, 65535 - PopupMenu)
-msgid "Office 2007 colors"
-msgstr "Office 2007 颜色"
-
-#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
-#. - Ribbon name)
-msgid "Office XP"
-msgstr "Office XP"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Older lines"
 msgstr "旧行"
@@ -7668,7 +7080,7 @@ msgstr "仅在设置了 tsvn:projectlanguage 时才进行拼写检查(&P)"
 msgid "Opacity"
 msgstr "不透明度"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr "打开"
 
@@ -7684,7 +7096,7 @@ msgstr "从本地打开(&W)..."
 msgid "Open client certificate file"
 msgstr "打开用户端凭证文件"
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
@@ -7740,17 +7152,9 @@ msgstr "Operative"
 msgid "Option"
 msgstr "选项"
 
-#. Resource IDs: (16137)
-msgid "Options"
-msgstr "选项"
-
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr "原始大小(&G)\t(S)"
-
-#. Resource IDs: (17024)
-msgid "Other Task Panes"
-msgstr "其它任务窗格"
 
 #. Resource IDs: (IDS_STATGRAPH_OTHERGROUP)
 msgid "Others"
@@ -7779,6 +7183,18 @@ msgid ""
 "Overwrite\n"
 "The settings are overwritten"
 msgstr "覆盖\n设置将被覆盖"
+
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
+msgid "PC"
+msgstr "PC"
+
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
+msgid "PD"
+msgstr "PD"
+
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
+msgid "PI"
+msgstr "PI"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7826,15 +7242,9 @@ msgstr "密码/短语"
 msgid "Password:"
 msgstr "密码: "
 
-#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr "粘贴"
-
-#. Resource IDs: (16908)
-msgid ""
-"Paste Tool\n"
-"Paste"
-msgstr "黏贴工具\n黏贴"
 
 #. Resource IDs: (IDS_COMMITDLG_POPUP_PASTEFILELIST)
 msgid "Paste filename list"
@@ -7905,12 +7315,6 @@ msgstr "相对于根目录的路径"
 msgid "Peg"
 msgstr "Peg"
 
-#. Resource IDs: (16902)
-msgid ""
-"Pencil Tool\n"
-"Pencil"
-msgstr "铅笔工具\n铅笔"
-
 #. Resource IDs: (IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP)
 msgid "Percent of authorship"
 msgstr "提交比例: "
@@ -7919,19 +7323,11 @@ msgstr "提交比例: "
 msgid "Percents"
 msgstr "比例"
 
-#. Resource IDs: (16538)
-msgid "Personalized Menus and Toolbars"
-msgstr "个人菜单和工具栏"
-
 #. Resource IDs: (61582)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr "图画(元文件)\n一幅图画"
-
-#. Resource IDs: (65535)
-msgid "Picture:"
-msgstr "图画:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
@@ -7968,10 +7364,6 @@ msgstr "请注意: \n你的工作副本仍设为原来的路径。如果你想�
 msgid "Please select a hook type"
 msgstr "请选择钩子类型"
 
-#. Resource IDs: (IDS_BLAME_PROGRESSINFO)
-msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "请稍候，此操作可能需要实实在在的数分钟时间！"
-
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
 msgstr "正在取消，请稍候..."
@@ -7989,8 +7381,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "正在启动版本库浏览器，请稍候..."
 
 #. Resource IDs: (Dialog IDD_PLEASEWAIT: Control id 347,
-#. IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT, IDS_REPOBROWSE_WAIT,
-#. IDS_STATUSLIST_BUSYMSG)
+#. IDS_BLAME_PROGRESSINFO, IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT,
+#. IDS_REPOBROWSE_WAIT, IDS_STATUSLIST_BUSYMSG)
 msgid "Please wait..."
 msgstr "请稍候..."
 
@@ -8042,60 +7434,28 @@ msgstr "加至右块开头"
 msgid "Prepend this block to left"
 msgstr "此块加至左侧开头"
 
-#. Resource IDs: (65535)
-msgid "Press &New Shortcut Key:"
-msgstr "按新的快捷键(&N):"
-
-#. Resource IDs: (65535)
-msgid "Press &new shortcut key:"
-msgstr "按新的快捷键(&N):"
-
 #. Resource IDs: (32819)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "防止大多数连接行交叉版本节点的情况"
-
-#. Resource IDs: (17094)
-msgid "Preview"
-msgstr "预览"
 
 #. Resource IDs: (IDS_PATCH_PREVIEW)
 msgid "Preview patched file"
 msgstr "预览打过补丁的文件"
 
-#. Resource IDs: (65535)
-msgid "Preview: "
-msgstr "预览: "
-
-#. Resource IDs: (58115)
-msgid ""
-"Previous Page\n"
-"Previous Page"
-msgstr "前页\n前页"
-
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
-#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
+#. cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr "前一处冲突"
 
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
-#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
+#. cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr "前一处差异"
 
 #. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
-#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
+#. cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr "前一处行间差异"
-
-#. Resource IDs: (16990, 17092)
-msgid "Print"
-msgstr "打印"
-
-#. Resource IDs: (58116)
-msgid ""
-"Print Document\n"
-"&Print"
-msgstr "打印文档\n打印(&P)"
 
 #. Resource IDs: (61512)
 msgid "Print to File"
@@ -8257,7 +7617,7 @@ msgstr "代理服务器设置"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "如果设置了“svn:needs-lock”属性，则在右键菜单中直接显示“获取锁定”菜单项"
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -8269,13 +7629,13 @@ msgid ""
 "Exit TortoiseMerge without saving the modifications"
 msgstr "退出\n不保存修改并退出TortoiseMerge"
 
+#. Resource IDs: (cmdReload_Keytip_RESID)
+msgid "R"
+msgstr "R"
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
 msgstr "内存虚拟磁盘(&A)"
-
-#. Resource IDs: (16623)
-msgid "R&eset"
-msgstr "重置(&E)"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1423)
 msgid "R&everse merge"
@@ -8301,14 +7661,6 @@ msgstr "可移动磁盘(&M)"
 msgid "Re&name..."
 msgstr "改名(&N)..."
 
-#. Resource IDs: (16613)
-msgid "Re&set"
-msgstr "重置(&S)"
-
-#. Resource IDs: (16647)
-msgid "Re&set All"
-msgstr "全部重置(&S)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "恢复默认值(&S)"
@@ -8328,10 +7680,6 @@ msgstr "在你卡住时，请先阅读日常使用指南..."
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL2)
 msgid "Realm String"
 msgstr "域字符串"
-
-#. Resource IDs: (16019)
-msgid "Recent"
-msgstr "最近的"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
@@ -8371,12 +7719,6 @@ msgid ""
 "Open the auto-saved versions instead of the explicitly saved versions"
 msgstr "恢复自动保存的版本\n打开自动保存的版本而非手动保存的版本"
 
-#. Resource IDs: (16905)
-msgid ""
-"Rectangle Tool\n"
-"Rectangle"
-msgstr "矩形工具\n矩形"
-
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recur&sive\n"
@@ -8399,11 +7741,11 @@ msgstr "回收站"
 msgid "Redirecting to url"
 msgstr "重定向到 URL"
 
-#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr "重做"
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -8431,8 +7773,8 @@ msgstr "刷新图标覆盖层(&S)"
 msgid "Refreshing shell for %1!ls!"
 msgstr "正在刷新 %1!ls! 的图标"
 
-#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
-#. 165, ID_REGEXFILTER - Ribbon name)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165,
+#. cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr "正则过滤器"
 
@@ -8446,11 +7788,11 @@ msgid ""
 "Regex error caught!\r\n"
 "%S\r\n"
 "Trying to recover by unsetting it again."
-msgstr ""
+msgstr "正则表达式有错误！\r\n%S\r\n尝试重新设置解决此问题。"
 
 #. Resource IDs: (IDS_ERR_REGEX_INVALID)
 msgid "Regex is invalid!"
-msgstr ""
+msgstr "正则表达式无效！"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Regex matching message:"
@@ -8510,11 +7852,11 @@ msgstr "解除文件锁定，让其他用户再次能够修改文件。"
 msgid "Relo&cate..."
 msgstr "重新定位(&C)..."
 
-#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr "重新加载"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -8583,10 +7925,6 @@ msgstr "移除已保存的认证数据"
 msgid "Remove from &ignore list"
 msgstr "从忽略列表删除(&I)"
 
-#. Resource IDs: (17084)
-msgid "Remove from Quick Access Toolbar"
-msgstr "从快捷访问工具栏删除"
-
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REMOVEFROMCS)
 msgid "Remove from changelist"
 msgstr "从修改列表删除"
@@ -8651,10 +7989,6 @@ msgstr "在 %1!ls!s 中移除已忽略的项"
 #, c-format
 msgid "Removing unversioned items in %1!ls!"
 msgstr "正在移除 %1!ls! 中无版本控制的文件"
-
-#. Resource IDs: (16616)
-msgid "Rena&me..."
-msgstr "改名(&M)..."
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 151)
 msgid "Rename"
@@ -8776,10 +8110,6 @@ msgstr "需要用户名和密码"
 #. Resource IDs: (IDS_MENURESOLVE)
 msgid "Res&olve..."
 msgstr "解决(&O)..."
-
-#. Resource IDs: (16614)
-msgid "Reset &All"
-msgstr "全部重置(&A)"
 
 #. Resource IDs: (IDS_STATUSLIST_RESETCOLUMNORDER)
 msgid "Reset columns"
@@ -8983,24 +8313,6 @@ msgstr "右侧查看: "
 msgid "Right image"
 msgstr "右侧图片"
 
-#. Resource IDs: (17108)
-#, c-format
-msgid "Row %d of %d"
-msgstr "行 %d / %d"
-
-#. Resource IDs: (17109)
-#, c-format
-msgid "Row %d-%d of %d"
-msgstr "行 %d-%d / %d"
-
-#. Resource IDs: (17116)
-msgid "Row Down"
-msgstr "行下移"
-
-#. Resource IDs: (17115)
-msgid "Row Up"
-msgstr "行上移"
-
 #. Resource IDs: (IDS_RUNCLEANUPNOW)
 msgid "Run cleanup &now"
 msgstr "立即执行清理(&N)"
@@ -9009,21 +8321,9 @@ msgstr "立即执行清理(&N)"
 msgid "Run hoo&k script"
 msgstr "运行钩子脚本(&K)"
 
-#. Resource IDs: (17045)
-msgid "S&elect..."
-msgstr "选择(&E)..."
-
-#. Resource IDs: (17027)
-msgid "S&how Buttons on One Row"
-msgstr "在一行显示按钮(&H)"
-
-#. Resource IDs: (17028)
-msgid "S&how Buttons on Two Rows"
-msgstr "在两行显示按钮(&H)"
-
-#. Resource IDs: (17078)
-msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "在缎带下方显示快捷访问工具栏(&H)"
+#. Resource IDs: (cmdSave_Keytip_RESID)
+msgid "S"
+msgstr "S"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -9133,11 +8433,15 @@ msgstr "测试Bugtraq的样本日志消息:正则表达式字符串。\n\n测试
 msgid "Sample text:"
 msgstr "范例文字:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr "保存"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
+msgid "Save &as"
+msgstr "另存为(&A)"
+
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "另存为(&A)..."
 
@@ -9207,7 +8511,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr "保存并包括\n您的更改被保存，并且标记的块被纳入"
 
-#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
+#. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
 msgstr "另存为"
 
@@ -9246,7 +8550,7 @@ msgstr "保存版本至(&T)..."
 msgid "Save settings to file"
 msgstr "保存设置到文件"
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -9301,14 +8605,6 @@ msgstr "扫描"
 msgid "Scintilla"
 msgstr "Scintilla"
 
-#. Resource IDs: (16034)
-msgid "Scroll Left"
-msgstr "左卷"
-
-#. Resource IDs: (16035)
-msgid "Scroll Right"
-msgstr "右卷"
-
 #. Resource IDs: (IDS_LOG_POPUP_FIND)
 msgid "Search &log messages..."
 msgstr "查找日志信息(&L)..."
@@ -9342,30 +8638,12 @@ msgstr "选择"
 msgid "Select &All"
 msgstr "全选(&A)"
 
-#. Resource IDs: (16529)
-msgid "Select &User-defined Image: "
-msgstr "选择用户定义的图片(&U): "
-
-#. Resource IDs: (16508)
-msgid "Select &context menu:"
-msgstr "选择右键菜单(&C):"
-
-#. Resource IDs: (65535)
-msgid "Select &window:"
-msgstr "选择窗口(&W)"
-
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "全选/全不选(&A)"
-
-#. Resource IDs: (16903)
-msgid ""
-"Select Color Tool\n"
-"Select Color"
-msgstr "颜色选择工具\n选择颜色"
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
@@ -9512,10 +8790,6 @@ msgstr "正在发送内容"
 msgid "Server &address:"
 msgstr "服务器地址(&A): "
 
-#. Resource IDs: (65535)
-msgid "Set Accelerator &for:"
-msgstr "设置加速键(&F):"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1544)
 msgid "Set explicit revision for these externals:"
 msgstr "对这些外部引用设置明确的版本:"
@@ -9535,8 +8809,8 @@ msgstr "设定属性“%1!S!”于\n%2!ls!"
 msgid "Setting properties..."
 msgstr "正在设置属性..."
 
-#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
-#. Ribbon name)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu,
+#. cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr "设置"
 
@@ -9581,10 +8855,6 @@ msgstr "缩短属性列表"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1382)
 msgid "Show"
 msgstr "显示"
-
-#. Resource IDs: (16996)
-msgid "Show &Accelerator for:"
-msgstr "显示加速键(&F):"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1031, IDS_LOG_SHOWALL)
 msgid "Show &All"
@@ -9641,29 +8911,17 @@ msgstr "仅在资源管理器中显示图标覆盖和上下文菜单(&O)"
 msgid "Show &unversioned files"
 msgstr "显示无版本控制的文件(&U)"
 
-#. Resource IDs: (17099)
-msgid "Show Above the Ribbon"
-msgstr "缎带上方显示"
-
-#. Resource IDs: (17098)
-msgid "Show Below the Ribbon"
-msgstr "缎带下方显示"
-
-#. Resource IDs: (17030)
-msgid "Show Fewer Buttons"
-msgstr "显示更少的按钮"
-
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
 msgstr "显示 HEAD 版本节点"
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr "按照单词显示内迁差异\n识别单词的内嵌差异"
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
@@ -9677,32 +8935,16 @@ msgstr "在文件加锁之前显示加锁对话框"
 msgid "Show Monitor Dialog"
 msgstr "显示监视器对话框"
 
-#. Resource IDs: (17029)
-msgid "Show More Buttons"
-msgstr "显示更多的按钮"
-
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "显示预览(&R)"
-
-#. Resource IDs: (17082)
-msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "在缎带上方显示快捷访问工具栏"
-
-#. Resource IDs: (17081)
-msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "在缎带下方显示快捷访问工具栏"
-
-#. Resource IDs: (16651)
-msgid "Show Screen&Tips on toolbars"
-msgstr "在工具栏中显示屏幕提示(&T)"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "显示本地的更新(&M)"
 
-#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
+#. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr "显示空白"
 
@@ -9720,7 +8962,7 @@ msgstr "以标准差异格式显示改变(&U)"
 
 #. Resource IDs: (IDS_HEADER_DIFFLEFTTOBASE, IDS_HEADER_DIFFRIGHTTOBASE)
 msgid "Show diff separately"
-msgstr ""
+msgstr "分别显示差异"
 
 #. Resource IDs: (IDS_LOG_POPUP_GNUDIFF)
 msgid "Show differences as &unified diff"
@@ -9733,10 +8975,6 @@ msgstr "被排除的文件夹根目录仍显示正常状态的图标"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1480)
 msgid "Show externals from &different repositories"
 msgstr "从不同的版本库显示外部引用(&D)"
-
-#. Resource IDs: (16656)
-msgid "Show f&ull menus after a short delay"
-msgstr "在短暂延时后显示全部菜单(&U)"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1037, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1034)
@@ -9774,19 +9012,19 @@ msgid ""
 "with dots."
 msgstr "只显示路径名称中修改的部分。将没有改变的元素用点来代替。"
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr "显示或隐藏行差异工具栏\n切换行差异工具栏"
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr "显示或隐藏定位工具栏\n切换定位工具栏"
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -9802,11 +9040,7 @@ msgstr "显示或隐藏工具栏\n切换工具栏"
 msgid "Show revision properties"
 msgstr "显示版本属性"
 
-#. Resource IDs: (16652)
-msgid "Show shortcut &keys in ScreenTips"
-msgstr "在屏幕提示中显示快捷键(&K)"
-
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
@@ -9897,12 +9131,7 @@ msgstr "显示选定的文件/文件夹的日志"
 msgid "Shows the mime type of the versioned file"
 msgstr "显示在版本控制下文件的 mime 类型"
 
-#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
-msgid "Silver Style"
-msgstr "银色风格"
-
-#. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
+#. Resource IDs: (IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
 msgstr "大小"
 
@@ -9955,10 +9184,6 @@ msgstr "跳过了，没有版本控制的父目条"
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
 msgstr "已跳过，其余有冲突"
-
-#. Resource IDs: (17112)
-msgid "Slide"
-msgstr "滑动"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
 msgid "Smart tab char"
@@ -10030,10 +9255,6 @@ msgid ""
 "Separate the patterns with a space."
 msgstr "指定 TortoiseSVN 应该在全部工作副本中忽略的文件或目录。\r\n模式用空格分开。"
 
-#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-msgid "Spin1"
-msgstr "旋转一"
-
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SPLIT_ABOVE)
 msgid "Split &source tree"
 msgstr "分割源树(&S)"
@@ -10063,10 +9284,6 @@ msgstr "叠加柱状图"
 #. Resource IDs: (IDS_STATGRAPH_LINESTACKEDBUTTON_TT)
 msgid "Stacked Line Graph"
 msgstr "叠加折线图"
-
-#. Resource IDs: (16962)
-msgid "Standard"
-msgstr "标准"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
@@ -10110,10 +9327,6 @@ msgstr "打开属性对话框以便您手动编辑属性。"
 msgid "State"
 msgstr "状态"
 
-#. Resource IDs: (16514)
-msgid "Static"
-msgstr "静态"
-
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
 msgstr "统计"
@@ -10123,13 +9336,9 @@ msgstr "统计"
 msgid "Status"
 msgstr "状态"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr "状态栏"
-
-#. Resource IDs: (17087)
-msgid "Status Bar Configuration"
-msgstr "状态栏的配置"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -10173,10 +9382,6 @@ msgstr "保存稍后会被右键点击用来做比较的文件的路径.按下CT
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
 msgstr "修剪"
-
-#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
-msgid "Style"
-msgstr "风格"
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
 msgid ""
@@ -10222,7 +9427,7 @@ msgid ""
 "\n"
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
-msgstr ""
+msgstr "Subversion遇到了一个严重的问题。\n麻烦您花点时间将这个问题报告给Subversion\n请尽量详细的描述您之前尝试的操作。\n不过希望您先在邮件存档中搜索一下同样的问题，避免重复提交。\n您可以登录下面的地址搜索邮件存档：\nhttps://subversion.apache.org/mailing-lists.html\n\nSubversion在此处发生错误:\n文件名： %1!ls!, 行号： %2!ld!\n表达式 = %3!ls!\n\n您可以用Ctrl-C快捷键复制\n本对话框的内容到剪切板。"
 
 #. Resource IDs: (IDS_ERR_SVNEXCEPTION)
 msgid ""
@@ -10238,7 +9443,7 @@ msgid ""
 "Subversion reported the following\n"
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
-msgstr ""
+msgstr "Subversion遇到了一个严重的问题。\n麻烦您花点时间将这个问题报告给Subversion\n请尽量详细的描述您之前尝试的操作。\n不过希望您先在邮件存档中搜索一下同样的问题，避免重复提交。\n您可以登录下面的地址搜索邮件存档：\nhttps://subversion.apache.org/mailing-lists.html\n\nSubversion产生的报告如下\n(您可以用Ctrl-C快捷键复制\n本对话框的内容到剪切板)："
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "Subversion passwor&d"
@@ -10293,21 +9498,23 @@ msgid ""
 "Previous Pane"
 msgstr "切换回前一个窗口区块\n前一区块"
 
-#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
+#. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr "在单个和两个视图间切换"
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr "在单区块与双区块查看模式间切换\n切换单/双区块模式"
 
-#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
+#. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr "切换左边和右边的视图"
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -10373,10 +9580,6 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
-#. Resource IDs: (16970)
-msgid "Tab Placeholder"
-msgstr "制表占位符"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Tab size:"
@@ -10393,10 +9596,6 @@ msgstr "目标文件夹非空"
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
 msgstr "任务"
-
-#. Resource IDs: (17019)
-msgid "Tasks Pane"
-msgstr "任务窗格"
 
 #. Resource IDs: (IDS_PROGRS_DRYRUN)
 msgid "Test Only"
@@ -10896,13 +10095,13 @@ msgstr "此方法适用于合并两个分支的差异到工作副本"
 msgid ""
 "This product includes software developed by the OpenSSL Project for use in "
 "the OpenSSL Toolkit (https://www.openssl.org/)"
-msgstr ""
+msgstr "本产品包含 OpenSSL Toolkit 中使用的 OpenSSL 项目 (https://www.openssl.org/)"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1531)
 msgid ""
 "This product includes software from Apache™ Subversion® "
 "(https://subversion.apache.org)"
-msgstr ""
+msgstr "本项目包含 Apache™ Subversion® (https://subversion.apache.org) 的软件"
 
 #. Resource IDs: (61710)
 #, c-format
@@ -10925,13 +10124,6 @@ msgstr "该属性只能设置在文件夹上，不能在文件上设置。"
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "该属性只允许增加一行，不能增加多行文本。"
 
-#. Resource IDs: (16244)
-msgid ""
-"This will delete the record of commands you've used in this application and "
-"restore the default set of visible commands to the menus and toolbars. It "
-"will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "这会删除你在应用程序中使用的命令记录，恢复到默认菜单和工具栏的可视化命令集合。它不会撤销任何显式的的定制。你确认吗？"
-
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK1)
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
@@ -10945,14 +10137,6 @@ msgid ""
 "The command line to run is:\n"
 "%ls"
 msgstr "此工作拷贝有客户侧钩子脚本，是否执行脚本？\n要执行的命令是：\n%ls"
-
-#. Resource IDs: (16928)
-msgid "Tile &Vertically"
-msgstr "垂直标题(&V)"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
-msgstr "水平标题(&Z)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Timeouts"
@@ -10985,40 +10169,6 @@ msgstr "为了窃取锁定，在此项目的父目录上点击右键，在上下
 #. IDD_REVGRAPHFILTER: Control id 65535)
 msgid "To:"
 msgstr "结束: "
-
-#. Resource IDs: (58113)
-msgid ""
-"Toggle One/Two Pages display\n"
-"Toggle One/Two Pages display"
-msgstr "切换单/双页显示\n切换单/双页显示"
-
-#. Resource IDs: (65535)
-msgid "Toolbar"
-msgstr "工具栏"
-
-#. Resource IDs: (16130)
-msgid "Toolbar Name"
-msgstr "工具栏名称"
-
-#. Resource IDs: (17017)
-msgid "Toolbar Options"
-msgstr "工具栏操作"
-
-#. Resource IDs: (16008)
-msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "工具栏内部错误。清联系你的应用程序销售商。"
-
-#. Resource IDs: (16105)
-msgid "Toolbars"
-msgstr "工具栏"
-
-#. Resource IDs: (16928)
-msgid "Tools"
-msgstr "工具"
-
-#. Resource IDs: (65535)
-msgid "Tools:"
-msgstr "工具:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -11055,8 +10205,8 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff:  TortoiseSVN 的图片差异查看器\n\n可用的命令行参数: \n/left: “左侧文件的路径”\n/lefttitle: “左侧窗口的标题”\n/right: “右侧文件的路径”\n/righttitle: “右侧窗口的标题”/overlay\t\t启用覆盖模式\n/fit\t\t适合图像尺寸\n/showinfo\t\t显示图像信息框"
 
-#. Resource IDs: (100, 156 - Ribbon element, 32897, 57344, Dialog IDD_OPENDLG:
-#. Control id 130, IDS_APPNAME)
+#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -11210,10 +10360,6 @@ msgstr "尝试启用“破除写锁”选项以清理。"
 msgid "Tweak TortoiseSVN"
 msgstr "调整 TortoiseSVN 设置"
 
-#. Resource IDs: (17130)
-msgid "Type"
-msgstr "类型"
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1436)
 msgid "U&pdate"
 msgstr "更新(&P)"
@@ -11308,24 +10454,15 @@ msgid ""
 "menu"
 msgstr "未选中项目显示在子菜单中，选中的项目则显示在主要的右键菜单"
 
-#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr "撤消"
-
-#. Resource IDs: (17102)
-#, c-format
-msgid "Undo %d Actions"
-msgstr "撤销 %d 个操作"
-
-#. Resource IDs: (17103)
-msgid "Undo 1 Action"
-msgstr "撤销 1 个操作"
 
 #. Resource IDs: (IDS_MENUUNDOADD)
 msgid "Undo Add..."
 msgstr "撤销添加..."
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
@@ -11334,10 +10471,6 @@ msgstr "撤消掉上次的修改\n撤消"
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
 msgstr "预期外的文件格式。"
-
-#. Resource IDs: (17111)
-msgid "Unfold"
-msgstr "展开"
 
 #. Resource IDs: (61591)
 msgid ""
@@ -11507,10 +10640,6 @@ msgstr "正在升级'%1!ls!'"
 msgid "Urls"
 msgstr "统一资源定位符"
 
-#. Resource IDs: (16530)
-msgid "Use &Default Image: "
-msgstr "使用默认图片(&D): "
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "对两个文件进行比较时默认使用单窗口方式(&O)"
@@ -11530,22 +10659,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr "可以使用通配符“*”指定例外。\r\n多个例外可以使用逗号“,”进行分隔。\r\n例: *.mylan.com, *.company.com"
 
-#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr "使用’我的‘文本块"
 
 #. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
-#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
+#. cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr "使用’我的‘文本块在前面 然后是‘它们的’"
 
-#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu,
+#. cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr "使用‘它们的’文本块"
 
 #. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
-#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
+#. cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr "使用‘它们的’文件块在前面 然后是‘我的’"
 
@@ -11565,29 +10694,29 @@ msgstr "使用工作副本的 URL 作为默认的来源 URL(&W)"
 msgid "Use Unified Diff from &clipboard"
 msgstr "使用剪贴板上的标准差异(&C)"
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr "使用左边视图中的全部内容\n使用左边文件"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
-#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
+#. cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr "从左到右使用块"
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr "从左到右使用视图中的块\n从左到右使用块"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
-#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
+#. cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr "从右到左使用块"
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -11601,13 +10730,12 @@ msgstr "使用两个文本块（这个块最前）"
 msgid "Use both text blocks (this one last)"
 msgstr "使用两个文本块（这个块最后）"
 
-#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
+#. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr "使用左边文件块"
 
-#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr "使用左边的文件"
 
@@ -11643,13 +10771,13 @@ msgstr "使用“他们的”文本块(&T)"
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "先使用“我的”文本块(&I)"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr "先使用“我的”文本块\n先使用“我的”文本块，然后才是“他们的”"
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -11659,19 +10787,19 @@ msgstr "使用“我的”文本块\n使用“我的”文本块"
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "先使用“他们的”文本块(&H)"
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr "先使用“他们的”文本块\n先使用“他们的”文本块，然后才是“我的”"
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr "使用“他们的”文本块\n使用“他们的”文本块"
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
@@ -11743,6 +10871,10 @@ msgstr "忽略用户："
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr "高权限进程的状态缓存类型使用 \"none\""
 
+#. Resource IDs: (cmdPaste_Keytip_RESID)
+msgid "V"
+msgstr "V"
+
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
 "Valid command line options are:\n"
@@ -11792,11 +10924,11 @@ msgstr "版本取信息"
 msgid "Versioned"
 msgstr "已经版本控制"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr "查看"
 
-#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr "视图栏"
 
@@ -11812,15 +10944,9 @@ msgstr "在 &Web 浏览器中查看版本"
 msgid "Visit our website"
 msgstr "浏览我们的网站"
 
-#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
-#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
-msgid "Visual Studio 2005"
-msgstr "Visual Studio 2005"
-
-#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
-#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
-msgid "Visual Studio 2008"
-msgstr "Visual Studio 2008"
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
+msgid "W"
+msgstr "W"
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
 msgid ""
@@ -11907,33 +11033,10 @@ msgstr "当锁定一个或多个文件时，显示对话框询问锁定的描述
 msgid "Whitespace changes (tabs, spaces)"
 msgstr "空白的变化（制表符、空格）"
 
-#. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
-#. 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
+#. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "空白字符"
-
-#. Resource IDs: (17038)
-msgid "Window Position"
-msgstr "窗口位置"
-
-#. Resource IDs: (16927)
-msgid "Windows"
-msgstr "窗口"
-
-#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
-#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
-msgid "Windows 2000"
-msgstr "Windows 2000"
-
-#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
-#. Ribbon name)
-msgid "Windows 7"
-msgstr "Windows 7"
-
-#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
-#. - Ribbon name)
-msgid "Windows XP"
-msgstr "Windows XP"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 158, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 1493, Dialog IDD_MERGEWIZARD_TREE:
@@ -11962,16 +11065,23 @@ msgstr "工作副本重定位至\n%ls"
 msgid "Working copy: %ls\n"
 msgstr "工作副本: %ls\n"
 
-#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
-#. name)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
+msgid "Wrap Lines"
+msgstr "折行"
+
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
 msgstr "长行换行"
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr "在视图中长行达到右边框时换行\n长行换行"
+
+#. Resource IDs: (cmdRedo_Keytip_RESID)
+msgid "Y"
+msgstr "Y"
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
 msgid "You already have the latest version installed."
@@ -11988,16 +11098,6 @@ msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
 msgstr "同一时间内您只能在版本库浏览器中编辑一个文件，请在完成当前文件编辑之后再编辑其它文件。"
-
-#. Resource IDs: (16005)
-#, c-format
-msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr "你只能黏贴尺寸为(%d x %d)的位图!"
-
-#. Resource IDs: (16243)
-#, c-format
-msgid "You can't create more than %d user-defined toolbars!"
-msgstr "你不能创建多于 %d 个自定义工具栏!"
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -12039,11 +11139,6 @@ msgstr "你必须先更新工作副本。"
 msgid "You haven't entered an issue number."
 msgstr "你没有输入错误代码。"
 
-#. Resource IDs: (16024)
-#, c-format
-msgid "You may define up to %d tools."
-msgstr "你可以定义最多 %d 个工具。"
-
 #. Resource IDs: (IDS_SETTINGS_RESTARTSYSTEM)
 msgid "You must restart your system for the changes to take effect."
 msgstr "你必须重新启动操作系统使改变生效。"
@@ -12051,14 +11146,6 @@ msgstr "你必须重新启动操作系统使改变生效。"
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "你提交了一个未受版本控制的文件夹！"
-
-#. Resource IDs: (16002)
-msgid "You should enter a text!"
-msgstr "你应该输入文本!"
-
-#. Resource IDs: (16001)
-msgid "You should select an image!"
-msgstr "你应该选择一个图片!"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12116,13 +11203,13 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr "您的工作副本指向着 %ls，好像是标记！您应该先切换倒分支或主干再提交。"
 
+#. Resource IDs: (cmdUndo_Keytip_RESID)
+msgid "Z"
+msgstr "Z"
+
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr "缩小(&M)\t(-)"
-
-#. Resource IDs: (17093)
-msgid "Zoom"
-msgstr "窗口"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -12144,18 +11231,6 @@ msgstr "缩小(&O)\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "缩放到实际大小"
-
-#. Resource IDs: (58117)
-msgid ""
-"Zoom In\n"
-"Zoom In"
-msgstr "放大\n放大"
-
-#. Resource IDs: (58118)
-msgid ""
-"Zoom Out\n"
-"Zoom Out"
-msgstr "缩小\n缩小"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
@@ -12185,14 +11260,6 @@ msgstr "缩放到适合高度"
 msgid "Zoom to fit in width"
 msgstr "缩放到适合宽度"
 
-#. Resource IDs: (17114)
-msgid "[Default]"
-msgstr "[默认]"
-
-#. Resource IDs: (16009)
-msgid "[Unassigned]"
-msgstr "[未分配]"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
 msgstr "“提交时忽略”的文件不导致其所在文件夹被标记为已修改"
@@ -12206,10 +11273,6 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr "\n\n模式匹配不区分大小写，必须以小写给出。\n空白也是模式的一部分。\n允许的匹配字符是 '?' 和 '*'。\n模式的分割字符是 ';'。"
-
-#. Resource IDs: (65535 - PopupMenu)
-msgid "_POPUP_"
-msgstr "_弹出_"
 
 #. Resource IDs: (IDS_STATUSADDED)
 msgid "added"
@@ -12388,10 +11451,6 @@ msgstr "已删除"
 msgid "disk [kB]: "
 msgstr "磁盘 [kB]"
 
-#. Resource IDs: (58116)
-msgid "dummy"
-msgstr "虚拟"
-
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
 msgstr "行结束符类型"
@@ -12427,7 +11486,7 @@ msgstr "得到代码仓库的根路径："
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1005)
 msgid "https://tortoisesvn.net"
-msgstr ""
+msgstr "https://tortoisesvn.net"
 
 #. Resource IDs: (IDS_STATUSIGNORED)
 msgid "ignored"
@@ -12572,6 +11631,10 @@ msgstr "非版本控制的项"
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
 msgstr "常规"
+
+#. Resource IDs: (cmdOpen_Keytip_RESID)
+msgid "o1"
+msgstr "o1"
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"
