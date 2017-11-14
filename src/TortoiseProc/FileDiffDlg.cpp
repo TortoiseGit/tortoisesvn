@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -504,7 +504,13 @@ void CFileDiffDlg::OnNMDblclkFilelist(NMHDR *pNMHDR, LRESULT *pResult)
     if (selIndex >= (int)m_arFilteredList.size())
         return;
 
-    DoDiff(selIndex, true, false, m_bBlame, true);
+    CFileDiffDlg::FileDiff fd = m_arFilteredList[selIndex];
+    if (fd.propchanged && (fd.kind == svn_client_diff_summarize_kind_normal))
+    {
+        DoDiff(selIndex, false, true, m_bBlame, true);
+    }
+    else
+        DoDiff(selIndex, true, false, m_bBlame, true);
 }
 
 void CFileDiffDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
