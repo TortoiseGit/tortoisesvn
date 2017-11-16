@@ -682,6 +682,7 @@ void CLogDlg::RestoreLogDlgWindowAndSplitters()
         }
     }
     SetSplitterRange();
+    Invalidate();
 }
 
 void CLogDlg::AdjustControlSizesForLocalization()
@@ -1377,10 +1378,7 @@ void CLogDlg::OnCancel()
 {
     if (m_bMonitoringMode)
     {
-        ShowWindow(SW_HIDE);
-        SaveMonitorProjects(true);
-        SaveSplitterPos();
-        SaveWindowRect(L"MonitorLogDlg", false);
+        MonitorHideDlg();
         return;
     }
     bool bWasCancelled = m_bCancelled;
@@ -1442,6 +1440,18 @@ void CLogDlg::OnCancel()
     }
 }
 
+void CLogDlg::MonitorHideDlg()
+{
+    // remove selection, show empty log list
+    m_projTree.SelectItem(NULL);
+    MonitorShowProject(NULL, nullptr);
+
+    ShowWindow(SW_HIDE);
+    SaveMonitorProjects(true);
+    SaveSplitterPos();
+    SaveWindowRect(L"MonitorLogDlg", false);
+}
+
 void CLogDlg::OnClose()
 {
     if (m_bLogThreadRunning)
@@ -1457,10 +1467,7 @@ void CLogDlg::OnClose()
     }
     if (m_bMonitoringMode && !m_bSystemShutDown)
     {
-        SaveMonitorProjects(true);
-        ShowWindow(SW_HIDE);
-        SaveSplitterPos();
-        SaveWindowRect(L"MonitorLogDlg", false);
+        MonitorHideDlg();
     }
     else
         __super::OnClose();
@@ -2377,10 +2384,7 @@ void CLogDlg::OnOK()
 {
     if (m_bMonitoringMode)
     {
-        ShowWindow(SW_HIDE);
-        SaveMonitorProjects(true);
-        SaveSplitterPos();
-        SaveWindowRect(L"MonitorLogDlg", false);
+        MonitorHideDlg();
         return;
     }
     // since the log dialog is also used to select revisions for other
@@ -4237,7 +4241,7 @@ LRESULT CLogDlg::OnClickedCancelFilter(WPARAM /*wParam*/, LPARAM /*lParam*/)
     GetDlgItem(IDC_SEARCHEDIT)->ShowWindow(SW_SHOW);
     GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
 
-    AutoRestoreSelection();
+    AutoRestoreSelection(true);
 
     DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
 
@@ -4544,7 +4548,7 @@ void CLogDlg::OnEnChangeSearchedit()
         GetDlgItem(IDC_SEARCHEDIT)->SetFocus();
         DialogEnableWindow(IDC_STATBUTTON, !(((m_bLogThreadRunning)||(m_logEntries.GetVisibleCount() == 0))));
 
-        AutoRestoreSelection();
+        AutoRestoreSelection(true);
         return;
     }
     if (Validate(m_sFilterText) && FilterConditionChanged())
@@ -4665,7 +4669,7 @@ void CLogDlg::OnTimer(UINT_PTR nIDEvent)
         else if (m_bMonitoringMode)
             GetDlgItem(IDC_LOGLIST)->SetFocus();
 
-        AutoRestoreSelection();
+        AutoRestoreSelection(m_sFilterText.IsEmpty());
     } // if (nIDEvent == LOGFILTER_TIMER)
     if (nIDEvent == MONITOR_TIMER)
         MonitorTimer();
@@ -5653,7 +5657,7 @@ void CLogDlg::ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& 
     if ((m_LogList.GetSelectedCount() == 1)&&(!m_path.IsDirectory()))
     {
         bGotSavePath = CAppUtils::FileOpenSave(path, NULL, IDS_LOG_MERGETO, IDS_COMMONFILEFILTER,
-            true, m_path.GetDirectory().GetWinPathString(), GetSafeHwnd());
+                                               true, m_path.IsUrl() ? CString() : m_path.GetDirectory().GetWinPathString(), GetSafeHwnd());
     }
     else
     {
@@ -5972,7 +5976,7 @@ void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
         else
             revFilename.Format(L"%s-%s", (LPCTSTR)strWinPath, (LPCTSTR)pCmi->RevSelected.ToString());
     }
-    if (CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_path.GetDirectory().GetWinPathString(), m_hWnd))
+    if (CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_path.IsUrl() ? CString() : m_path.GetDirectory().GetWinPathString(), m_hWnd))
     {
         auto f = [=]()
         {
@@ -6461,12 +6465,14 @@ void CLogDlg::AutoStoreSelection()
         m_pStoreSelection->AddSelections();
 }
 
-void CLogDlg::AutoRestoreSelection()
+void CLogDlg::AutoRestoreSelection(bool bClear)
 {
     if (m_pStoreSelection != nullptr)
     {
-        m_pStoreSelection->RestoreSelection();
-
+        if (bClear)
+            m_pStoreSelection = nullptr;
+        else
+            m_pStoreSelection->RestoreSelection();
         FillLogMessageCtrl();
         UpdateLogInfoLabel();
         if (m_bSelect)
@@ -7362,7 +7368,7 @@ void CLogDlg::ExecuteSaveAsChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi,
         else
             revFilename.Format(L"%s-%ld", (LPCTSTR)temp, pCmi->Rev1);
         bTargetSelected = CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE,
-                                                  IDS_COMMONFILEFILTER, false, m_path.GetDirectory().GetWinPathString(), m_hWnd);
+                                                  IDS_COMMONFILEFILTER, false, m_path.IsUrl() ? CString() : m_path.GetDirectory().GetWinPathString(), m_hWnd);
         TargetPath.SetFromWin(revFilename);
     }
     if (bTargetSelected)
@@ -8956,7 +8962,7 @@ void CLogDlg::OnMonitorThreadFinished()
                     pItem->lastErrorMsg = item.lastErrorMsg;
                     pItem->root = item.root;
                     pItem->uuid = item.uuid;
-                    if (hItem == m_projTree.GetSelectedItem())
+                    if (hItem == m_projTree.GetSelectedItem() && IsWindowVisible())
                     {
                         // refresh the current view
                         LRESULT lresult = 0;
