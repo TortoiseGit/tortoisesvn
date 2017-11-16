@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Plik do³¹czany wygenerowany przez œrodowisko Microsoft Visual C++.
-// U¿ywany przez: D:\Projects\assembla\tortoise-git\src\Resources\TortoiseProcENG.rc
+// Microsoft Visual C++ generated include file.
+// Used by d:\Development\SVN\TortoiseSVN\src\Resources\TortoiseProcENG.rc
 //
 #define IDR_MAINFRAME                   1
 #define IDD_SETTINGSPROXY               102
