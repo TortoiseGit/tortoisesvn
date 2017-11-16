@@ -37,10 +37,14 @@
 #include <afxcontrolbars.h>     // MFC support for ribbons and control bars
 #include <afxtaskdialog.h>
 
+#include <UIRibbon.h>           // Native Ribbon API
+#include <UIRibbonPropertyHelpers.h>
+
 #include <vfw.h>
 #include <string>
 #include <map>
 #include <vector>
+#include <list>
 #include <algorithm>
 #include <functional>
 
