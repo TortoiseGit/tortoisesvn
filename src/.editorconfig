@@ -2,13 +2,13 @@
 end_of_line  = crlf
 indent_style = space
 indent_size  = 4
-charset      = utf-8
+charset      = utf-8-bom
 
 [*.xml]
 indent_size  = 2
 
 [*.rc]
-charset = utf-16le
+charset = utf-16le-bom
 
 [?esource.h]
-charset = utf-16le
+charset = utf-16le-bom
