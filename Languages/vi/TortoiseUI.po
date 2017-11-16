@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-19 10:29+0000\n"
+"PO-Revision-Date: 2017-11-14 02:02+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/luebbe/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -292,17 +292,13 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nlà một thư mục, không phải một tập tin!\nTortoiseMerge không thể so sánh khác biệt giữa các thư mục."
 
-#. Resource IDs: (16923)
-msgid "&..."
-msgstr "&..."
-
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&Về TortoiseMerge..."
 
@@ -312,17 +308,9 @@ msgid ""
 "The certificate is accepted only this one time."
 msgstr ""
 
-#. Resource IDs: (16920)
-msgid "&Activate"
-msgstr "&Kích hoạt"
-
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
 msgstr "&Thêm"
-
-#. Resource IDs: (17075)
-msgid "&Add >>"
-msgstr "&Thêm >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
@@ -333,10 +321,6 @@ msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
-
-#. Resource IDs: (17018)
-msgid "&Add or Remove Buttons"
-msgstr "&Thêm hoặc Bỏ các Nút Bấm"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -373,22 +357,6 @@ msgstr "&Áp dụng thuộc tính một cách đệ quy"
 msgid "&Apply unified diff"
 msgstr "&Áp dụng so sánh thống nhất"
 
-#. Resource IDs: (65535)
-msgid "&Arguments:"
-msgstr "&Thông số:"
-
-#. Resource IDs: (16645)
-msgid "&Assign"
-msgstr "&Gán"
-
-#. Resource IDs: (16633)
-msgid "&Associate double-click event with:"
-msgstr "&Liên kết nhấn kép chuột với:"
-
-#. Resource IDs: (17041)
-msgid "&Auto Hide"
-msgstr "&Tự động ẩn"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
 msgstr "&Tự động đóng"
@@ -416,10 +384,6 @@ msgstr "&Trách cứ chỉnh sửa trước đó"
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
 msgstr "&Trách cứ..."
-
-#. Resource IDs: (65535)
-msgid "&Blue:"
-msgstr "&Xanh Dương:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -449,14 +413,6 @@ msgstr "&Duyệt..."
 #. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr "&Bugtraq (bộ tích hợp theo dõi vấn đề)"
-
-#. Resource IDs: (16913 - Menu)
-msgid "&Button Appearance..."
-msgstr "&Giao diện Nút Bấm..."
-
-#. Resource IDs: (65535)
-msgid "&Button text:"
-msgstr "&Chữ trên Nút Bấm:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
@@ -600,18 +556,6 @@ msgid ""
 "keep the current format."
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Categories:"
-msgstr "&Những Danh Mục:"
-
-#. Resource IDs: (65535)
-msgid "&Category:"
-msgstr "&Danh Mục:"
-
-#. Resource IDs: (65535)
-msgid "&Choose commands from:"
-msgstr "&Chọn lệnh từ:"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
 msgstr "&Chọn các món..."
@@ -632,17 +576,9 @@ msgstr ""
 msgid "&Close"
 msgstr "&Đóng"
 
-#. Resource IDs: (16922)
-msgid "&Close Window(s)"
-msgstr "&Đóng cửa sổ"
-
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
 msgstr ""
-
-#. Resource IDs: (65535)
-msgid "&Command:"
-msgstr "&Lệnh:"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -674,14 +610,10 @@ msgstr "&Liên lạc với Kho Chứa lúc khởi động"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Chuyển đổi tập tin khi so sánh với BẢN GỐC"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "&Sao chép"
-
-#. Resource IDs: (16911 - Menu)
-msgid "&Copy Button Image"
-msgstr "&Sao chép ảnh của nút bấm"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
@@ -717,8 +649,8 @@ msgstr "&Các ngày không hoạt động cho đến khi các bộ nhớ cất t
 msgid "&Default"
 msgstr "&Mặc định"
 
-#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
-#. Control id 1382, IDS_MENUREMOVE)
+#. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1382,
+#. IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "&Xóa"
 
@@ -764,10 +696,6 @@ msgstr "&Các thư mục"
 msgid "&Do not ask again"
 msgstr "&Đừng hỏi lại"
 
-#. Resource IDs: (17040)
-msgid "&Docking"
-msgstr "&Gắn vào"
-
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
 msgid ""
 "&Don't run\n"
@@ -795,7 +723,7 @@ msgstr "&Biên tập các mâu thuẫn"
 msgid "&Edit project"
 msgstr ""
 
-#. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
@@ -877,10 +805,6 @@ msgstr ""
 msgid "&Fixed drives"
 msgstr "&Ổ đĩa được sửa"
 
-#. Resource IDs: (17039)
-msgid "&Floating"
-msgstr "&Trôi nổi"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
 msgstr "&Phông chữ cho các thông điệp tường trình:"
@@ -911,10 +835,6 @@ msgstr "&Từ: (URL bắt đầu và bản chỉnh sửa trong giới hạn đ�
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Green:"
-msgstr "&Xanh lá cây:"
-
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "&Lập Nhóm dựa trên Nhánh"
@@ -941,16 +861,20 @@ msgstr "bản chỉnh sửa &CHÍNH trong kho chứa"
 msgid "&Help"
 msgstr "&Giúp đỡ"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "Các tiêu đề &giúp đỡ"
 
-#. Resource IDs: (17042, 61457)
+#. Resource IDs: (61457)
 msgid "&Hide"
 msgstr "&Ẩn"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
+msgstr ""
+
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
+msgid "&Hide/Show the patch file list"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
@@ -974,17 +898,9 @@ msgstr "&Bỏ quả và đi tiếp"
 msgid "&Ignore multiple items by name"
 msgstr ""
 
-#. Resource IDs: (16914 - Menu)
-msgid "&Image"
-msgstr "&Ảnh"
-
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr ""
-
-#. Resource IDs: (16505)
-msgid "&Image only"
-msgstr "&Chỉ có ảnh"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1003,10 +919,6 @@ msgstr "&Bao gồm các phần bên trong"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
 msgstr "&Bao gồm thông tin về hợp nhất"
-
-#. Resource IDs: (65535)
-msgid "&Initial directory:"
-msgstr "&Thư mục khởi đầu:"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
@@ -1027,10 +939,6 @@ msgstr "&Từ khóa"
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
 msgstr "&Ngôn ngữ:"
-
-#. Resource IDs: (16653)
-msgid "&Large Icons"
-msgstr "&Biểu tượng lớn"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -1073,10 +981,6 @@ msgstr "&Đòi hỏi phải khóa (cập nhật chỉ được đọc)"
 msgid "&Log Sizes"
 msgstr "&Độ lớn của tường trình"
 
-#. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "&Luminence:"
-
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
@@ -1093,14 +997,6 @@ msgstr "&Độ dài cực đại cho các diff nội tuyến"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "&Kích thước [kByte] tối đa của bộ lưu trữ tạm không hoạt động"
-
-#. Resource IDs: (16543)
-msgid "&Menu animations:"
-msgstr "&Hoạt ảnh cho thực đơn"
-
-#. Resource IDs: (16921)
-msgid "&Menu contents:"
-msgstr "&Nội dung thực đơn"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1121,10 +1017,6 @@ msgstr "&Đang Nhập"
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "&Mime-Type"
-
-#. Resource IDs: (16925)
-msgid "&Minimize"
-msgstr "&Thu nhỏ"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1150,8 +1042,8 @@ msgstr "&Ổ đĩa mạng"
 msgid "&New "
 msgstr "&Mới"
 
-#. Resource IDs: (16509, 16615, Dialog IDD_EDITPROPERTIES: Control id 1310,
-#. Dialog IDD_EDITPROPEXTERNALS: Control id 1542)
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1310, Dialog
+#. IDD_EDITPROPEXTERNALS: Control id 1542)
 msgid "&New..."
 msgstr "&Mới..."
 
@@ -1167,10 +1059,6 @@ msgstr "&Tiếp >"
 #. Resource IDs: (58114)
 msgid "&Next Page"
 msgstr "&Trang tiếp theo"
-
-#. Resource IDs: (16632)
-msgid "&No double-click event"
-msgstr "&Không có sự kiện nháy kép chuột"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
@@ -1188,10 +1076,10 @@ msgstr "&Không thi hành được"
 msgid "&Numeric"
 msgstr "&Kiểu số"
 
-#. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
-#. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
-#. 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1,
-#. Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id
+#. 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1,
+#. Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog
+#. IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
 #. IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1,
 #. Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id
 #. 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL:
@@ -1228,7 +1116,8 @@ msgstr "&Bây giờ thì ngoài mạng"
 msgid "&One Page"
 msgstr "&Một Trang"
 
-#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN,
+#. cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr "&Mở"
 
@@ -1275,8 +1164,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "&Mật khẩu:"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "&Dán"
 
@@ -1307,10 +1196,6 @@ msgstr "&Mặc định cho người dùng với quyền Power"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr ""
-
-#. Resource IDs: (17091)
-msgid "&Print Preview"
-msgstr "&Xem trước bản in"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1352,10 +1237,6 @@ msgstr "&Thuộc tính..."
 msgid "&Recent messages"
 msgstr "&Các thông điệp gần đây"
 
-#. Resource IDs: (65535)
-msgid "&Red:"
-msgstr "&Đỏ:"
-
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
 msgstr "&Làm lại"
@@ -1380,7 +1261,7 @@ msgstr ""
 msgid "&Remind me to enter a bug-ID"
 msgstr "&Nhắc tôi nhập vào ID cho lỗi"
 
-#. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1100, IDS_PROP_REMOVE)
 msgid "&Remove"
@@ -1432,22 +1313,6 @@ msgstr ""
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
 msgstr "&Duyệt Kho Chứa"
-
-#. Resource IDs: (16613, 16624)
-msgid "&Reset"
-msgstr "&Làm lại từ đầu"
-
-#. Resource IDs: (16300)
-msgid "&Reset Toolbar"
-msgstr "&Làm lại thanh công cụ từ đầu"
-
-#. Resource IDs: (16657)
-msgid "&Reset my usage data"
-msgstr "&Làm lại thông tin sử dụng của tôi"
-
-#. Resource IDs: (16910 - Menu)
-msgid "&Reset to Default"
-msgstr "&Làm lại mọi thứ về mặc định"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
 msgid ""
@@ -1510,11 +1375,7 @@ msgstr "&Máy trạm SSH:"
 msgid "&SVN"
 msgstr "&SVN"
 
-#. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "&Bão hòa:"
-
-#. Resource IDs: (16921)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr "&Lưu"
 
@@ -1549,10 +1410,6 @@ msgstr "&Trình bày bản chỉnh sửa CHÍNH"
 msgid "&Show Log"
 msgstr "&Trình bày tường trình"
 
-#. Resource IDs: (65535)
-msgid "&Show Menus for:"
-msgstr "&Trình bày thực đơn cho:"
-
 #. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr ""
@@ -1561,23 +1418,15 @@ msgstr ""
 msgid "&Show popup notifications"
 msgstr ""
 
-#. Resource IDs: (16612)
-msgid "&Show text labels"
-msgstr "&Trình bày nhãn bằng chữ"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
 msgstr "&Bản chỉnh sửa cụ thể trong kho chứa"
-
-#. Resource IDs: (16917 - Menu)
-msgid "&Start Group"
-msgstr "&Bắt đầu Nhóm"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
 msgstr "&Bắt đầu trình duyệt kho chứa"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "&Thanh trạng thái"
 
@@ -1609,10 +1458,6 @@ msgstr "&Xem dấu hiệu"
 msgid "&Tab size:"
 msgstr "&Kích cỡ thanh Tab:"
 
-#. Resource IDs: (17088)
-msgid "&Tabbed Document"
-msgstr "&Tài liệu theo mục"
-
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
 msgstr "&Các thẻ"
@@ -1621,13 +1466,9 @@ msgstr "&Các thẻ"
 msgid "&Test merge"
 msgstr "&Thử nhập"
 
-#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "&Văn bản"
-
-#. Resource IDs: (16506)
-msgid "&Text only"
-msgstr "&Chỉ gồm văn bản"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1655,17 +1496,9 @@ msgstr "&Đến đường dẫn:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&Đến: (đường dẫn cuối và bản chỉnh sửa trong phạm vi để hợp nhất)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "&Thanh công cụ"
-
-#. Resource IDs: (65535)
-msgid "&Toolbar Name:"
-msgstr "&Tên thanh công cụ:"
-
-#. Resource IDs: (65535)
-msgid "&Toolbars:"
-msgstr "&Các thanh công cụ:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
@@ -1704,7 +1537,7 @@ msgstr "&URL của kho chứa:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "&Khôi phục"
 
@@ -1774,10 +1607,6 @@ msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
-msgstr "&Xem"
-
-#. Resource IDs: (65535)
-msgid "&View:"
 msgstr "&Xem"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
@@ -1924,11 +1753,6 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#. Resource IDs: (16108)
-msgid ""
-"-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1035, Dialog IDD_CHECKOUT:
 #. Control id 1036, Dialog IDD_COPY: Control id 1035, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1035, Dialog IDD_EXPORT: Control id
@@ -1955,10 +1779,6 @@ msgstr "... kiểm tra bộ truy xuất nhanh và chuẩn bị truy vấn cho c�
 msgid "... reading working copy status"
 msgstr "... đọc tình trạng của bản sao đang làm"
 
-#. Resource IDs: (16527)
-msgid "....."
-msgstr "....."
-
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1971,22 +1791,6 @@ msgstr ": bản làm việc"
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
 msgstr "< &Lui"
-
-#. Resource IDs: (16506)
-msgid "<.....>"
-msgstr "<.....>"
-
-#. Resource IDs: (17095)
-msgid "<Separator>"
-msgstr "<Ngăn cách>"
-
-#. Resource IDs: (16104)
-msgid "<Untitled>"
-msgstr "<Không tiêu đề>"
-
-#. Resource IDs: (16603)
-msgid "<descr>"
-msgstr "<Mô tả>"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_CREATECS)
 msgid "<new changelist>"
@@ -2072,7 +1876,11 @@ msgstr "&Thêm thư mục"
 msgid "Abort"
 msgstr "Bỏ"
 
-#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
+msgid "Abou&t TortoiseMerge"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
 msgstr "Về"
 
@@ -2110,10 +1918,6 @@ msgstr "Các hành động"
 #. Resource IDs: (61203)
 msgid "Activate Task List"
 msgstr "Danh sách nhiệm vụ đang có hiệu lực"
-
-#. Resource IDs: (17043)
-msgid "Active Files"
-msgstr "Các tập tin có hiệu lực"
 
 #. Resource IDs: (61838)
 #, c-format
@@ -2183,10 +1987,6 @@ msgstr "Thêm vào danh sách &bỏ qua"
 msgid "Add to Bookmarks"
 msgstr ""
 
-#. Resource IDs: (17083)
-msgid "Add to Quick Access Toolbar"
-msgstr "Thêm vào Thanh Công Cụ Truy Cập Nhanh"
-
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
@@ -2238,7 +2038,7 @@ msgstr "Thêm tập tin vào điều khiển của SVN"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Thêm tập tin được lựa chọn hoặc tập tin mặt nạ vào danh sách 'bỏ qua'"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -2277,10 +2077,6 @@ msgstr "Sắp hàng các cây phía trên"
 msgid "All"
 msgstr "Tất cả"
 
-#. Resource IDs: (16110)
-msgid "All Commands"
-msgstr "Tất cả lệnh"
-
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
 msgstr "Tất cả tập tin (*.*)"
@@ -2289,32 +2085,7 @@ msgstr "Tất cả tập tin (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Tất cả tập tin (*.*)|*.*||"
 
-#. Resource IDs: (16112)
-msgid ""
-"All your changes will be lost! Do you really want to reset all toolbars and "
-"menus?"
-msgstr "Tất cả thay đổi sẽ mất! Bạn có thật sự muốn đặt lại tất cả thanh cộng cụ và thực đơn?"
-
-#. Resource IDs: (16115)
-msgid ""
-"All your changes will be lost! Do you really want to reset the keyboard "
-"assignments?"
-msgstr "Tất cả thay đổi sẽ mất! Bạn có thật sự muốn đặt lại các thiết lập bàn phím?"
-
-#. Resource IDs: (16113)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
-
-#. Resource IDs: (16111)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar "
-"'%Ts'?"
-msgstr ""
-
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
@@ -2419,10 +2190,6 @@ msgstr ""
 msgid "Append this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Application Frame Menus: "
-msgstr "Thực đơn cho khung ứng dụng:"
-
 #. Resource IDs: (IDS_MENUDESCAPPLYPATCH)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Áp dụng một phép so sánh thống nhất vào bản sao đang làm"
@@ -2452,11 +2219,6 @@ msgstr "Phê duyệt hoặc bác bỏ các kịch bản hook máy khách"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1282)
 msgid "Approved hook scripts"
 msgstr "Các kịch bản hook được phê duyệt"
-
-#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
-msgid "Aqua Style"
-msgstr "Kiểu Aqua"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
 msgid "Arb&itrary text"
@@ -2494,10 +2256,6 @@ msgstr "Hỏi người dùng"
 #, c-format
 msgid "Assigned to changelist '%ls'"
 msgstr "Gán cho danh sách thay đổi '%ls'"
-
-#. Resource IDs: (16528)
-msgid "Assigned to:"
-msgstr "Gán vào:"
 
 #. Resource IDs: (IDS_PROGRS_ATREV)
 #, c-format
@@ -2553,14 +2311,6 @@ msgstr "Các tác giả có phân biệt chữ thường và hoa"
 msgid "Authors:"
 msgstr "Các tác giả:"
 
-#. Resource IDs: (16033)
-msgid "Auto Hide"
-msgstr "Tự động ẩn"
-
-#. Resource IDs: (16036)
-msgid "Auto Hide All"
-msgstr "Tự động ẩn tất cả"
-
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
 msgstr ""
@@ -2605,10 +2355,6 @@ msgstr "Trung bình"
 msgid "B&rowse..."
 msgstr "&Duyệt..."
 
-#. Resource IDs: (17020)
-msgid "Back"
-msgstr "Lui"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
@@ -2633,11 +2379,6 @@ msgid ""
 "a bitmap"
 msgstr "Ảnh\nmột cái ảnh"
 
-#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
-msgid "Black Style"
-msgstr "Kiểu Màu Đen"
-
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
 msgstr "Trách cứ"
@@ -2658,14 +2399,9 @@ msgstr "Trách cứ mỗi dòng của một tập tin của tác giả"
 msgid "Blend alpha"
 msgstr "Trộn alpha"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
 msgstr ""
-
-#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
-msgid "Blue Style"
-msgstr "Kiểu Màu Xanh Dương"
 
 #. Resource IDs: (IDS_BOOKMARKS)
 msgid "Bookmarks"
@@ -2736,9 +2472,9 @@ msgstr "Những lỗi-ID"
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr "Kiểm tra Bugtraq Regex - TortoiseSVN"
 
-#. Resource IDs: (16132)
-msgid "Button Appearance"
-msgstr "Giao diện nút bấm"
+#. Resource IDs: (cmdCopy_Keytip_RESID)
+msgid "C"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2752,10 +2488,6 @@ msgstr "&Kiểm tra kho chứa"
 msgid "C&ollapse sub-trees"
 msgstr "&Đóng các cây con"
 
-#. Resource IDs: (65535)
-msgid "C&ommands:"
-msgstr "&Lệnh:"
-
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
 msgstr ""
@@ -2767,10 +2499,6 @@ msgstr "&Tạo nhánh/thẻ từ bản chỉnh sửa"
 #. Resource IDs: (IDS_REPOBROWSE_MKDIR)
 msgid "C&reate folder..."
 msgstr "&Tạo thư mục..."
-
-#. Resource IDs: (65535)
-msgid "C&urrent Keys:"
-msgstr "&Các khóa hiện tại:"
 
 #. Resource IDs: (IDS_EDIT_CUT)
 msgid "C&ut"
@@ -2805,23 +2533,7 @@ msgid ""
 "%2!ls!"
 msgstr "Không thể sao chép \n%1!ls!\nđến\n%2!ls!"
 
-#. Resource IDs: (16010)
-msgid "Can't copy bitmap image into the clipboard!"
-msgstr "Không thể sao chép ảnh vào bộ đệm!"
-
-#. Resource IDs: (16003)
-msgid "Can't create a new image!"
-msgstr "Không thể tạo ảnh mới!"
-
-#. Resource IDs: (16007)
-msgid "Can't customize menus!"
-msgstr "Không thể tuỳ biến các thực đơn!"
-
-#. Resource IDs: (16004)
-msgid "Can't paste bitmap image from the clipboard!"
-msgstr "Không thể dán ảnh từ bộ đệm!"
-
-#. Resource IDs: (17101, 2, Dialog IDD_BLAME: Control id 2, Dialog
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog
 #. IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2,
 #. Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control
 #. id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2,
@@ -2928,17 +2640,9 @@ msgstr "Đang hủy bỏ tác vụ..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Không thể hiện được khác biệt bởi vì những dòng mới không đồng đều trong tập tin."
 
-#. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "&Chồng lớp"
-
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
 msgstr "Phân biệt chữ hoa"
-
-#. Resource IDs: (65535)
-msgid "Cate&gories:"
-msgstr "Các &danh mục:"
 
 #. Resource IDs: (IDS_ERR_SSL_EXPIRED)
 #, c-format
@@ -2963,12 +2667,6 @@ msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
 msgstr ""
-
-#. Resource IDs: (10000)
-msgid ""
-"Change the style of the application\n"
-"Change Style"
-msgstr "Thay đổi phong cách của ứng dụng\nThay đổi phong cách"
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -2999,10 +2697,6 @@ msgstr "Danh sách thay đổi:"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "Những thay đổi được thực hiện (nháy kép trên tập tin để xem khác biệt):"
-
-#. Resource IDs: (32956)
-msgid "Changes the style of the application"
-msgstr "Thay đổi phong cách của ứng dụng"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3164,12 +2858,6 @@ msgstr "Dọn dẹp đã ngắt hoạt động, đã khóa tập tin..."
 msgid "Clear"
 msgstr "Dọn dẹp"
 
-#. Resource IDs: (16909)
-msgid ""
-"Clear Tool\n"
-"Clear"
-msgstr "Công cụ dọn dẹp\nDọn dẹp"
-
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
 msgstr ""
@@ -3230,7 +2918,7 @@ msgid ""
 "extension"
 msgstr "Nhấn vào \"Cao cấp\" để chỉ định một chương trình hợp nhất khác dựa trên phần mở rộng của tập tin"
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
@@ -3239,20 +2927,6 @@ msgstr "Nhấn chuột để xem các lệnh di chuyển khối văn bản\nSử
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
 msgstr "Bảng kẹp tạm"
-
-#. Resource IDs: (16032, 16105, 17023, 2)
-msgid "Close"
-msgstr "Đóng"
-
-#. Resource IDs: (17025)
-msgid "Close Full Screen"
-msgstr "Đóng chế độ toàn màn hình"
-
-#. Resource IDs: (58112)
-msgid ""
-"Close Print Preview\n"
-"&Close"
-msgstr "Đóng xem trước bản in\n&Đóng"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_MANUAL)
 msgid "Close manually"
@@ -3274,7 +2948,7 @@ msgstr "&Đóng các cây nguồn"
 msgid "Collaborator &password"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr "Thu gọn"
 
@@ -3282,15 +2956,11 @@ msgstr "Thu gọn"
 msgid "Collapse &following tree"
 msgstr "Đóng cây &sau đây"
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr "Đóng phần chưa thay đổi\nĐóng"
-
-#. Resource IDs: (16662)
-msgid "Color"
-msgstr "Màu"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Color 1"
@@ -3312,21 +2982,13 @@ msgstr "Tô màu theo tuổi, &liên tục"
 msgid "Color by au&thor"
 msgstr "Tô màu theo &tác giả"
 
-#. Resource IDs: (16961, Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
 msgid "Colors"
 msgstr "Các màu"
 
-#. Resource IDs: (65535)
-msgid "Colors:"
-msgstr "Các màu:"
-
-#. Resource IDs: (65535)
-msgid "Comman&ds:"
-msgstr "&Lệnh:"
-
-#. Resource IDs: (16029, IDS_PROGRS_CMDINFO)
+#. Resource IDs: (IDS_PROGRS_CMDINFO)
 msgid "Command"
 msgstr "Lệnh"
 
@@ -3352,10 +3014,6 @@ msgstr "Lệnh thất bại - Cần phải cập nhật"
 #. Resource IDs: (61705)
 msgid "Command failed."
 msgstr "Lệnh thất bại"
-
-#. Resource IDs: (16104)
-msgid "Commands"
-msgstr "Các lệnh"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
@@ -3444,7 +3102,7 @@ msgid "Compare two files"
 msgstr "So sánh hai tập tin"
 
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
-#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
+#. cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr "So sánh khoảng trắng"
 
@@ -3468,7 +3126,7 @@ msgstr ""
 msgid "Compare with previous revision"
 msgstr "So sánh với bản trước đó"
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
@@ -3495,6 +3153,10 @@ msgstr "Đã hoàn tất!"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "Điều chỉnh &TortoiseSVN để không bao giờ dùng thùng rác"
+
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
+msgid "Configure Filter Regex"
+msgstr ""
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
@@ -3560,17 +3222,9 @@ msgstr "trình còn thiếu"
 msgid "Container sizes"
 msgstr "Kích thước đồ chứa"
 
-#. Resource IDs: (16520)
-msgid "Context Menus: "
-msgstr "Thực đơn ngữ cảnh:"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr ""
-
-#. Resource IDs: (16013)
-msgid "Contract docked window"
-msgstr "Hợp đồng gắn cửa sổ"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3601,7 +3255,7 @@ msgstr "Sao chép từ: %1!ls!@%2!ld!\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr ""
 
-#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr "Sao chép"
 
@@ -3631,12 +3285,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_COPY: Control id 142)
 msgid "Copy (Branch / Tag)"
 msgstr "Sao chép (Nhánh/Thẻ)"
-
-#. Resource IDs: (16907)
-msgid ""
-"Copy Tool\n"
-"Copy"
-msgstr "Công cụ sao chép\nSao chép"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
@@ -3668,7 +3316,7 @@ msgstr "Sao chép các món sang đây"
 msgid "Copy selection to cli&pboard"
 msgstr "Sao chép lựa chọn sang bảng &kẹp tạm"
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -3876,6 +3524,10 @@ msgstr ""
 msgid "Create &Library"
 msgstr "Tạo &thư viện"
 
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
+msgid "Create &patch file"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
 msgstr "Tạo bản &vá..."
@@ -3907,8 +3559,7 @@ msgid ""
 "%ls"
 msgstr "Tạo thư mục mới:\n%ls"
 
-#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
-#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
 msgstr "Tạo tập tin vá"
 
@@ -3930,7 +3581,7 @@ msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr "Tạo một thư mục thư viện với thiết lập đặc biệt cho bản sao làm việc của Subversion"
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
@@ -3952,10 +3603,6 @@ msgstr "Công trạng:"
 msgid "Cu&t"
 msgstr "&Cắt"
 
-#. Resource IDs: (65535)
-msgid "Current"
-msgstr "Hiện tại"
-
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1113)
 msgid "Current version is:"
 msgstr "Phiên bản hiện tại là:"
@@ -3964,14 +3611,6 @@ msgstr "Phiên bản hiện tại là:"
 #, c-format
 msgid "Current version is: %ls"
 msgstr "Phiên bản hiện tại là: %ls"
-
-#. Resource IDs: (17079)
-msgid "Cus&tomize..."
-msgstr "&Tuỳ biến..."
-
-#. Resource IDs: (16963)
-msgid "Custom"
-msgstr "Thay đổi"
 
 #. Resource IDs: (IDS_SVN_DEPTH_CUSTOM)
 msgid "Custom depths"
@@ -3985,22 +3624,6 @@ msgid ""
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
 msgstr "Chuỗi tiêu đề tùy chọn. Các từ khóa có thể dùng là:\n{mergeurl}:\turl nguồn của hợp nhất\n{revisions}:\tMột danh sách phân cách bằng dấu phẩy của các bản chỉnh sửa được hợp nhất, ví dụ, 3, 5, 6, 7\n{revisionsr}:\tGiống như {revisions} nhưng với một chữ 'r' đằng trước các bản chỉnh sửa\n{revrange}:\tMột danh sách các bản hợp nhất phân cách bởi dấu phẩy, được xếp nhóm theo các phạm vi nếu có thể, ví dụ, 3, 5-7"
-
-#. Resource IDs: (16103, 17074)
-msgid "Customize"
-msgstr "Tuỳ biến"
-
-#. Resource IDs: (17076)
-msgid "Customize Keyboard"
-msgstr "Tuỳ biến bàn phím"
-
-#. Resource IDs: (17096)
-msgid "Customize Quick Access Toolbar"
-msgstr "Tuỳ biến thanh công cụ truy xuất nhanh"
-
-#. Resource IDs: (17085)
-msgid "Customize Quick Access Toolbar..."
-msgstr "Tuỳ biến thanh công cụ truy xuất nhanh..."
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4021,7 +3644,7 @@ msgstr "Ngày tháng"
 msgid "Date Range"
 msgstr "Phạm vi ngày tháng"
 
-#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
+#. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "Mặc định"
 
@@ -4029,17 +3652,9 @@ msgstr "Mặc định"
 msgid "Default &number of log messages"
 msgstr "&Số lượng thông điệp tường trình mặc định"
 
-#. Resource IDs: (16106)
-msgid "Default Menu"
-msgstr "Thực đơn mặc định"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1516)
 msgid "Default URL:"
 msgstr "URL mặc định:"
-
-#. Resource IDs: (16107)
-msgid "Default application menu. Appears when no documents are open."
-msgstr "Thực đơn chương trình mặc định. Xuất hiện khi không có tài liệu nào đang mở."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4056,10 +3671,6 @@ msgstr "Đường dẫn mặc định:"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "Mã hoá UTF-8 mặc định"
-
-#. Resource IDs: (16020)
-msgid "Delete"
-msgstr "Xoá"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
@@ -4156,14 +3767,6 @@ msgstr "Độ sâu"
 msgid "Depth:"
 msgstr "Độ sâu:"
 
-#. Resource IDs: (16031)
-msgid "Description"
-msgstr "Mô tả"
-
-#. Resource IDs: (65535)
-msgid "Description:"
-msgstr "Mô tả:"
-
 #. Resource IDs: (IDS_STATUSLIST_UNCHECKGROUP)
 msgid "Deselect changelist"
 msgstr "Bỏ chọn danh sách thay đổi"
@@ -4194,7 +3797,7 @@ msgstr "Ảnh độc lập với thiết bị\nmột ảnh độc lập với th
 msgid "Dialog sizes and positions"
 msgstr "Kích thước và vị trí của hộp thoại"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Tìm Khác Biệt"
 
@@ -4301,17 +3904,13 @@ msgstr "Đĩa đầy khi đang truy cập %1."
 msgid "Dispatch exception: %1"
 msgstr "Phái cá biệt: %1"
 
-#. Resource IDs: (65535)
-msgid "Display &buttons in this order"
-msgstr "Hiện &nút bấm theo trình tự này"
-
 #. Resource IDs: (57669)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr "Hiện giúp đỡ khi bấm vào các nút bấm, thực đơn và cửa sổ\nGiúp đỡ"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -4323,7 +3922,7 @@ msgid ""
 "Help"
 msgstr "Hiện hướng dẫn làm sao để sử dụng giúp đỡ\nGiúp đỡ"
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -4372,11 +3971,6 @@ msgstr ""
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
 msgstr "Làm việc này với tất cả các món không được phiên bản/sửa đổi"
-
-#. Resource IDs: (16109)
-#, c-format
-msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4495,14 +4089,6 @@ msgid ""
 "Reload the views without saving the modifications"
 msgstr "Đừng lưu\nTải lại trình xem mà không lưu các sửa đổi"
 
-#. Resource IDs: (16028)
-msgid "Drag to make this menu float"
-msgstr "Kéo lê để làm thực đơn này nổi"
-
-#. Resource IDs: (16513)
-msgid "Draw"
-msgstr "Vẽ"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1079)
 msgid "Drive Types"
 msgstr "Loại ổ đĩa"
@@ -4514,6 +4100,10 @@ msgstr "Ổ đĩa A: và B:"
 #. Resource IDs: (IDS_DROPDESC_NODROP)
 #, c-format
 msgid "Drop not possible on %1!ls!"
+msgstr ""
+
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
+msgid "E"
 msgstr ""
 
 #. Resource IDs: (ID_INLINEEDIT - Menu)
@@ -4528,7 +4118,8 @@ msgstr "&Các đường dẫn không bao gồm:"
 msgid "E&xecutable"
 msgstr "&Thi hành được"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu,
+#. cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr "&Thoát"
 
@@ -4560,14 +4151,10 @@ msgstr ""
 msgid "EXT"
 msgstr "EXT"
 
-#. Resource IDs: (156 - Ribbon element, 65535 - PopupMenu, Dialog
-#. IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id
+#. 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr "Biên tập"
-
-#. Resource IDs: (16133)
-msgid "Edit Button Image"
-msgstr "Biên tập ảnh của nút bấm"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 319)
 msgid "Edit External"
@@ -4644,12 +4231,6 @@ msgstr "Tên hoặc IP của máy chủ proxy"
 msgid "Eliding mergeinfo"
 msgstr "Giản lược thông tin hợp nhất"
 
-#. Resource IDs: (16906)
-msgid ""
-"Ellipse Tools\n"
-"Ellipse"
-msgstr "Công cụ ellip\nEllip"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Empty"
 msgstr "Trống"
@@ -4662,7 +4243,7 @@ msgstr "Cho phép Các &Thuộc Tính Tự Động"
 msgid "Enable Auto-Properties"
 msgstr "Cho phép các Thuộc tính Tự động"
 
-#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr ""
 
@@ -4882,18 +4463,7 @@ msgstr "Cá biệt:"
 msgid "Exclude"
 msgstr "Loại ra"
 
-#. Resource IDs: (16023)
-msgid ""
-"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
-"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "Thi hành được (*.exe)|*.exe|Lệnh (*.com)|*.com|Thông tin (*.pdf)|*.pdf|Gói (*.bat)|*.bat|Tất cả tập tin (*.*)|*.*||"
-
-#. Resource IDs: (16018)
-msgid "Existing"
-msgstr "Tồn tại"
-
-#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
-#. Ribbon name)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2)
 msgid "Exit"
 msgstr "Thoát"
 
@@ -4904,15 +4474,6 @@ msgstr "&Mở rộng tất cả cây nguồn"
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_BELOW)
 msgid "Expand &following tree"
 msgstr "Trải &cây sau đây"
-
-#. Resource IDs: (16025)
-#, c-format
-msgid "Expand (%Ts)"
-msgstr ""
-
-#. Resource IDs: (16012)
-msgid "Expand docked window"
-msgstr "Mở rộng cửa sổ gắn buộc"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
@@ -5004,14 +4565,14 @@ msgstr "Bên ngoài được loại ra"
 msgid "Externals included"
 msgstr "Bên ngoài được bao gồm"
 
+#. Resource IDs: (cmdFind_Keytip_RESID)
+msgid "F"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
 msgid "F&orce the merge"
 msgstr "&Ép việc hợp nhất"
-
-#. Resource IDs: (17113)
-msgid "Fade"
-msgstr "Nhạt dần"
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
@@ -5119,7 +4680,7 @@ msgstr "Nạp trạng thái của %1!ls!"
 msgid "Fetching tree conflict information..."
 msgstr ""
 
-#. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
+#. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
 msgstr "Tập tin"
 
@@ -5249,12 +4810,6 @@ msgstr ""
 msgid "Files"
 msgstr "Các tập tin"
 
-#. Resource IDs: (16901)
-msgid ""
-"Fill Tool\n"
-"Fill"
-msgstr "Công cụ lấp đầy\nLấp đầy"
-
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
 msgstr "Lọc bởi"
@@ -5277,8 +4832,12 @@ msgstr "Lọc đường dẫn"
 msgid "Filter:"
 msgstr ""
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
+msgid "Filtered"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr "Tìm"
 
@@ -5290,7 +4849,7 @@ msgstr "Tìm Bản &CHÍNH"
 msgid "Find HEAD revisions"
 msgstr "Tìm các bản sửa đổi CHÍNH"
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -5346,10 +4905,6 @@ msgstr "Gấp và đánh &thẻ"
 msgid "Folded tag"
 msgstr "Gấp thẻ"
 
-#. Resource IDs: (16016)
-msgid "Folder"
-msgstr "Thư mục"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Font"
@@ -5376,10 +4931,6 @@ msgstr "Ép loại bỏ"
 msgid "Foreground"
 msgstr ""
 
-#. Resource IDs: (17021)
-msgid "Forward"
-msgstr "Tiến tới"
-
 #. Resource IDs: (IDS_REPOBROWSE_TT_FORWARD)
 msgid "Forwards in browsing history"
 msgstr "Hướng tới lịch sử duyệt"
@@ -5393,10 +4944,6 @@ msgstr "Tìm thấy từ tự động:"
 msgid "From:"
 msgstr "Từ:"
 
-#. Resource IDs: (17026)
-msgid "Full Screen"
-msgstr "Toàn màn hình"
-
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
 msgstr ""
@@ -5408,6 +4955,10 @@ msgstr ""
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
 msgstr "Đệ quy hoàn toàn"
+
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
+msgid "G"
+msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5505,43 +5056,43 @@ msgstr "Đi Tới Dòng"
 msgid "Go to line"
 msgstr "Đi đến dòng"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr "Đi đến mâu thuẫn tiếp theo\nMâu thuẫn tiếp theo"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr "Đi đến khác biệt tiếp theo\nKhác biệt tiếp theo"
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr "Đi đến khác biệt nội tuyến tiếp theo\nKhác biệt nội tuyến tiếp theo"
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr "Đi đến mâu thuẫn trước đó\nMâu thuẫn trước đó"
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr "Đi đến khác biệt trước đó\nKhác biệt trước đó"
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr "Đi đến khác biệt nội tuyến trước đó\nKhác biệt nội tuyến trước đó"
 
-#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr "Đi đến dòng"
 
@@ -5552,10 +5103,6 @@ msgstr "Kiểu biểu đồ:"
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
 msgstr "Các biểu đồ cho các gốc kho chứa luôn để trống!"
-
-#. Resource IDs: (16972)
-msgid "Gray"
-msgstr "Xám"
 
 #. Resource IDs: (32799)
 msgid "Group by branch"
@@ -5568,10 +5115,6 @@ msgstr "Nhóm danh sách thay đổi"
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1032)
 msgid "H&EAD Revision"
 msgstr "Bản chỉnh sửa &CHÍNH"
-
-#. Resource IDs: (65535)
-msgid "H&ue:"
-msgstr "&Màu sắc"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1353, Dialog IDD_DIFFFILES:
 #. Control id 1354, IDS_EXTERNALS_HEADREV)
@@ -5610,17 +5153,9 @@ msgstr "Thông tin đầu"
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
 #. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
 #. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
-#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "Giúp đỡ"
-
-#. Resource IDs: (16982)
-msgid "Help Keyboard"
-msgstr "Bàn phím giúp đỡ "
-
-#. Resource IDs: (16974)
-msgid "Hex"
-msgstr "Hex"
 
 #. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
@@ -5642,10 +5177,6 @@ msgstr "Ẩn các thẻ"
 msgid "Hide deleted branches and tags"
 msgstr "Ẩn các nhánh và thẻ bị xóa"
 
-#. Resource IDs: (16011)
-msgid "Hide docked window"
-msgstr "Ẩn cửa sổ gắn"
-
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1562)
 msgid "Hide non-mergeable revisions"
 msgstr "Ẩn các bản chỉnh sửa không hợp nhất được"
@@ -5663,12 +5194,11 @@ msgstr "Ẩn kịch bản khi chạy"
 msgid "Hide unused &branches"
 msgstr "Ẩn các &nhánh không dùng"
 
-#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu)
 msgid "Hide/Show the patch file list"
 msgstr "Ẩn/Hiển thị danh sách tập tin vá"
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
@@ -5677,16 +5207,6 @@ msgstr "Ẩn/Hiện danh sách tập tin vá\nẨn hoặc hiện danh sách tậ
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
 msgstr "Số chỉnh sửa cao nhất trong bộ lưu trữ"
-
-#. Resource IDs: (16519)
-msgid ""
-"Hint: select the context menu, change the page to 'Commands' and drag the "
-"toolbar buttons into the menu window."
-msgstr "Gợi ý: chọn thực đơn ngư cảnh, thay đổi trang sang 'Lệnh' và kéo lê các nút bấm của thanh công cụ vào cửa sổ thực đơn."
-
-#. Resource IDs: (17022)
-msgid "Home"
-msgstr "Trang Chủ"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -6056,12 +5576,12 @@ msgstr "Bỏ qua tất cả &khoảng trắng"
 msgid "Ignore &ancestry"
 msgstr "Bỏ qua &tổ tiên"
 
-#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
-#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
+#. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr "Bỏ qua tất cả các thay đổi trên khoảng trắng"
 
@@ -6075,7 +5595,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr "Bỏ qua các thay đổi\nBỏ qua các thay đổi bên ngoài."
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
@@ -6108,8 +5628,8 @@ msgid "Ignore whitespace c&hanges"
 msgstr "Bỏ qua các &thay đổi trên khoảng trắng"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
-#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
-#. Ribbon name)
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu,
+#. cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr "Bỏ qua các thay đổi trên khoảng trắng"
 
@@ -6121,13 +5641,13 @@ msgstr "Bỏ qua"
 msgid "Ignored items included"
 msgstr "Bỏ qua món được bao gồm"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr "Bỏ qua các thay đổi trên khoảng trắng khi tìm khác biệt\nBỏ qua các thay đổi trên khoảng trắng"
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
@@ -6136,18 +5656,6 @@ msgstr "Bỏ qua các thay đổi trên khoảng trắng khi tìm khác biệt\n
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
 msgstr "Đường dẫn không hợp lệ"
-
-#. Resource IDs: (16916 - Menu)
-msgid "Image &and Text"
-msgstr "Ảnh &và Chữ"
-
-#. Resource IDs: (16507)
-msgid "Image &and text"
-msgstr "Ảnh &và chữ"
-
-#. Resource IDs: (16508)
-msgid "Images"
-msgstr "Ảnh"
 
 #. Resource IDs: (IDS_SVN_DEPTH_IMMEDIATE)
 msgid "Immediate children, including folders"
@@ -6266,12 +5774,13 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
+#. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr "Diff nội tuyến"
 
-#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
-#. Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
+#. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr "Diff nội tuyến theo từ"
 
@@ -6283,7 +5792,7 @@ msgstr "Khác biệt trong dòng"
 msgid "Input"
 msgstr "Dữ liệu vào"
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -6415,20 +5924,12 @@ msgid ""
 "Jump to first unresolved conflict"
 msgstr ""
 
-#. Resource IDs: (16136)
-msgid "Keyboard"
-msgstr "Bàn phím"
-
-#. Resource IDs: (65535)
-msgid "Keyboard shortcuts:"
-msgstr "Bàn phím tắt:"
-
-#. Resource IDs: (16030)
-msgid "Keys"
-msgstr "Các chìa khoá"
-
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL1)
 msgid "Kind"
+msgstr ""
+
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
+msgid "L"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
@@ -6513,14 +6014,8 @@ msgstr "Dòng"
 msgid "Line Graph"
 msgstr "Biểu đồ dòng"
 
-#. Resource IDs: (16904)
-msgid ""
-"Line Tool\n"
-"Line"
-msgstr "Công cụ dòng\nDòng"
-
-#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu,
+#. cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr "Thanh khác biệt dòng"
 
@@ -6556,10 +6051,6 @@ msgstr "Liệt kê các chủ đề Giúp Đỡ\nChủ đề Giúp Đỡ"
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
 msgstr "Danh sách các kho chứa mà thông tin tường trình được lưu tạm"
-
-#. Resource IDs: (16631, 16992)
-msgid "List1"
-msgstr "Danh sách 1"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6599,11 +6090,12 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "Địa chỉ nơi nội dung của\nURL của kho chứa được lưu."
 
-#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu)
 msgid "Locator Bar"
 msgstr "Thanh Định Vị"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535,
+#. cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr "Thanh định vị"
 
@@ -6724,10 +6216,6 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr "Bản chỉnh sửa thấp nhất được hiển thị: %1!ld! - Bản chỉnh sửa thấp nhất được hiển thị: %2!ld!\nBản chỉnh sửa HEAD: %3!ld!"
 
-#. Resource IDs: (16973)
-msgid "Lum"
-msgstr "Lum"
-
 #. Resource IDs: (61841)
 msgid "Mail system DLL is invalid."
 msgstr "DLL của hệ thống thư không hợp lệ."
@@ -6769,7 +6257,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
-#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
+#. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr "Đánh dấu như đã được giải quyết"
 
@@ -6803,7 +6291,7 @@ msgstr ""
 msgid "Markers"
 msgstr "Vật đánh dấu"
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
@@ -6840,22 +6328,6 @@ msgstr "Tối đa: các dòng trong tường trình hành động"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "Số tối đa &thất bại của công cụ cho đến khi lại bỏ bộ lưu trữ tạm"
-
-#. Resource IDs: (16655)
-msgid "Me&nus show recently used commands first"
-msgstr "&Thực đơn hiện các lệnh được dùng gần đây trước"
-
-#. Resource IDs: (16134)
-msgid "Menu"
-msgstr "Thực đơn"
-
-#. Resource IDs: (16006)
-msgid "Menu Bar"
-msgstr "Thanh thực đơn"
-
-#. Resource IDs: (16626)
-msgid "Menu s&hadows"
-msgstr "&Bóng mờ của thực đơn"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -7020,10 +6492,6 @@ msgstr "Cực tiểu"
 msgid "Mine"
 msgstr "Của tôi"
 
-#. Resource IDs: (17086)
-msgid "Minimize the Ribbon"
-msgstr "Thu nhỏ Ribbon"
-
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
 msgstr "Số ký tự nhỏ nhất cho thông điệp cam kết:"
@@ -7047,7 +6515,7 @@ msgstr "Đủ thứ"
 msgid "Modification date"
 msgstr "Ngày sửa đổi"
 
-#. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
@@ -7060,18 +6528,6 @@ msgstr "Nút được sửa đổi"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
 msgstr ""
-
-#. Resource IDs: (17107)
-msgid "More"
-msgstr "Thêm"
-
-#. Resource IDs: (16026)
-msgid "More Buttons"
-msgstr "Thêm nút bấm"
-
-#. Resource IDs: (17097)
-msgid "More Commands..."
-msgstr "Thêm lệnh..."
 
 #. Resource IDs: (IDS_COLOURPICKER_CUSTOMTEXT)
 msgid "More colors..."
@@ -7089,10 +6545,6 @@ msgstr "Thêm..."
 msgid "Most active author:"
 msgstr "Tác giả tích cực nhất:"
 
-#. Resource IDs: (16135)
-msgid "Mouse"
-msgstr "Chuột"
-
 #. Resource IDs: (IDS_INPUT_MOVEMORE)
 #, c-format
 msgid ""
@@ -7106,22 +6558,6 @@ msgid ""
 "Move %1!ls!\r\n"
 "to %2!ls!"
 msgstr "Chuyển %1!ls!\nsang %2!ls!"
-
-#. Resource IDs: (17026)
-msgid "Move &Down"
-msgstr "Chuyển &xuống"
-
-#. Resource IDs: (17025)
-msgid "Move &Up"
-msgstr "Chuyển &lên"
-
-#. Resource IDs: (16022)
-msgid "Move Item Down"
-msgstr "Chuyển món xuống"
-
-#. Resource IDs: (16021)
-msgid "Move Item Up"
-msgstr "Chuyển món lên"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK4)
 msgid ""
@@ -7222,36 +6658,36 @@ msgstr "Nhiều, bản sao đang làm độc &lập"
 msgid "My file:"
 msgstr "Tập tin của tôi:"
 
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
+msgid "NC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
+msgid "ND"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
+msgid "NI"
+msgstr ""
+
 #. Resource IDs: (59138)
 msgid "NUM"
 msgstr "NUM"
-
-#. Resource IDs: (17128)
-msgid "Name"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535, Dialog
 #. IDD_REGEXFILTER: Control id 65535)
 msgid "Name:"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr "Định hướng"
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr "Định hướng đến một dòng cụ thể trong màn xem\nĐi đến Dòng"
-
-#. Resource IDs: (17004)
-msgid "Navigation Pane Options"
-msgstr "Tuỳ chọn cho bảng định hướng"
-
-#. Resource IDs: (17031)
-msgid "Navigation Pane Options..."
-msgstr "Tuỳ chọn cho bảng định hướng..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
@@ -7278,17 +6714,13 @@ msgstr "Mạng"
 msgid "Never try to contact the repository again"
 msgstr "Chưa bao giờ cố liên lạc lại kho chứa"
 
-#. Resource IDs: (16017, 16027, 30721, 65535, 65535 - PopupMenu)
+#. Resource IDs: (30721, 65535 - PopupMenu)
 msgid "New"
 msgstr "Mới"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
 msgstr "&Tên mới"
-
-#. Resource IDs: (16014)
-msgid "New Menu"
-msgstr "Thực đơn mới"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7302,24 +6734,18 @@ msgstr ""
 msgid "Newlines"
 msgstr ""
 
-#. Resource IDs: (58114)
-msgid ""
-"Next Page\n"
-"Next Page"
-msgstr "Trang tiếp\nTrang tiếp"
-
-#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
-#. Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
+#. cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr "Xung đột tiếp theo"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
-#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
+#. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr "Khác biệt tiếp theo"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
-#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
+#. cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr "Khác biệt nội tuyến tiếp theo"
 
@@ -7373,6 +6799,10 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr "Không có tập tin nào bị thay đổi hay thêm vào kể từ\nlần cam kết cuối. Không có gì\ncho TortoiseSVN để làm ở đây..."
 
+#. Resource IDs: (33002)
+msgid "No filter"
+msgstr ""
+
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
 msgstr "Không có sẵn đồ thị nào"
@@ -7417,7 +6847,7 @@ msgstr "Việc cam kết không dùng đệ quy của các thư mục được d
 msgid "Non-versioned"
 msgstr "Không được đánh phiên bản"
 
-#. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
+#. Resource IDs: (Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
 msgstr "Không"
@@ -7561,24 +6991,6 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
-#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
-msgid "Office 2003"
-msgstr "Office 2003"
-
-#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
-msgid "Office 2007"
-msgstr "Office 2007"
-
-#. Resource IDs: (10008, 65535 - PopupMenu)
-msgid "Office 2007 colors"
-msgstr "Màu Office 2007"
-
-#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
-#. - Ribbon name)
-msgid "Office XP"
-msgstr "Office XP"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Older lines"
 msgstr "Các dòng cũ hơn"
@@ -7645,7 +7057,7 @@ msgstr "Chỉ dùng bộ &kiểm tra chính tả khi tsvn:projectlanguage đư�
 msgid "Opacity"
 msgstr "Độ mờ"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr "Mở"
 
@@ -7661,7 +7073,7 @@ msgstr ""
 msgid "Open client certificate file"
 msgstr "Mở tập tin chứng thực máy khách"
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
@@ -7717,17 +7129,9 @@ msgstr "Điều Hành"
 msgid "Option"
 msgstr "Tuỳ chọn"
 
-#. Resource IDs: (16137)
-msgid "Options"
-msgstr "Các tùy chọn"
-
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr ""
-
-#. Resource IDs: (17024)
-msgid "Other Task Panes"
-msgstr "Các bảng tác vụ khác"
 
 #. Resource IDs: (IDS_STATGRAPH_OTHERGROUP)
 msgid "Others"
@@ -7755,6 +7159,18 @@ msgstr "Ghi đè thiết lập thuộc tính svn:eol-style\nCác tập tin khôn
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
+msgid "PC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
+msgid "PD"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
+msgid "PI"
 msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
@@ -7803,15 +7219,9 @@ msgstr ""
 msgid "Password:"
 msgstr "Mật khẩu:"
 
-#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr "Dán"
-
-#. Resource IDs: (16908)
-msgid ""
-"Paste Tool\n"
-"Paste"
-msgstr "Công cụ dán\nDán"
 
 #. Resource IDs: (IDS_COMMITDLG_POPUP_PASTEFILELIST)
 msgid "Paste filename list"
@@ -7882,12 +7292,6 @@ msgstr ""
 msgid "Peg"
 msgstr "Chốt"
 
-#. Resource IDs: (16902)
-msgid ""
-"Pencil Tool\n"
-"Pencil"
-msgstr "Công cụ bút chì\nBút chì"
-
 #. Resource IDs: (IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP)
 msgid "Percent of authorship"
 msgstr "Phần trăm quyền tác giả"
@@ -7896,19 +7300,11 @@ msgstr "Phần trăm quyền tác giả"
 msgid "Percents"
 msgstr "Phần trăm"
 
-#. Resource IDs: (16538)
-msgid "Personalized Menus and Toolbars"
-msgstr "Cá nhân hóa Thực đơn và Thanh công cụ"
-
 #. Resource IDs: (61582)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr "Ảnh (tập tin meta)\nmột bức ảnh"
-
-#. Resource IDs: (65535)
-msgid "Picture:"
-msgstr "Bức ảnh:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
@@ -7945,10 +7341,6 @@ msgstr "Xin lưu ý:\nBản sao làm việc của bạn vẫn còn trên đườ
 msgid "Please select a hook type"
 msgstr "Vui lòng chọn kiểu hook"
 
-#. Resource IDs: (IDS_BLAME_PROGRESSINFO)
-msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "Vui lòng chờ - việc này có thể mất nhiều phút. Nghiêm túc!"
-
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
 msgstr "Vui lòng chờ trong khi đang hủy bỏ..."
@@ -7966,8 +7358,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "Vui lòng chờ trong khi trình duyệt kho chứa đang được khởi tạo..."
 
 #. Resource IDs: (Dialog IDD_PLEASEWAIT: Control id 347,
-#. IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT, IDS_REPOBROWSE_WAIT,
-#. IDS_STATUSLIST_BUSYMSG)
+#. IDS_BLAME_PROGRESSINFO, IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT,
+#. IDS_REPOBROWSE_WAIT, IDS_STATUSLIST_BUSYMSG)
 msgid "Please wait..."
 msgstr "Vui lòng chờ..."
 
@@ -8019,60 +7411,28 @@ msgstr ""
 msgid "Prepend this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Press &New Shortcut Key:"
-msgstr "Nhấn phím tắt &Mới:"
-
-#. Resource IDs: (65535)
-msgid "Press &new shortcut key:"
-msgstr "Nhấn phím tắt &mới:"
-
 #. Resource IDs: (32819)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "Ngăn chặn phần lớn các trường hợp trong đó đường kết nối vượt qua các nút chỉnh sửa"
-
-#. Resource IDs: (17094)
-msgid "Preview"
-msgstr "Xem trước"
 
 #. Resource IDs: (IDS_PATCH_PREVIEW)
 msgid "Preview patched file"
 msgstr "Xem trước tập tin được vá"
 
-#. Resource IDs: (65535)
-msgid "Preview: "
-msgstr "Xem trước: "
-
-#. Resource IDs: (58115)
-msgid ""
-"Previous Page\n"
-"Previous Page"
-msgstr "Trang trước\nTrang trước"
-
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
-#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
+#. cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr "Xung đột trước đó"
 
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
-#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
+#. cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr "Khác biệt trước đó"
 
 #. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
-#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
+#. cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr "Khác biệt nội tuyến trước đó"
-
-#. Resource IDs: (16990, 17092)
-msgid "Print"
-msgstr "In ấn"
-
-#. Resource IDs: (58116)
-msgid ""
-"Print Document\n"
-"&Print"
-msgstr "In tài liệu\n&In ấn"
 
 #. Resource IDs: (61512)
 msgid "Print to File"
@@ -8234,7 +7594,7 @@ msgstr "Thiết lập Proxy"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Đặt 'Lấy Khóa' vào thực đơn trên cùng khi svn:needs-lock được bật"
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -8246,13 +7606,13 @@ msgid ""
 "Exit TortoiseMerge without saving the modifications"
 msgstr "Thoát\nThoát TortoiseMerge mà không lưu các sửa đổi"
 
+#. Resource IDs: (cmdReload_Keytip_RESID)
+msgid "R"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
 msgstr "Ổ đĩa R&AM"
-
-#. Resource IDs: (16623)
-msgid "R&eset"
-msgstr "&Đặt lại"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1423)
 msgid "R&everse merge"
@@ -8278,14 +7638,6 @@ msgstr "Ổ đĩa &tháo lắp"
 msgid "Re&name..."
 msgstr "Đổi &tên..."
 
-#. Resource IDs: (16613)
-msgid "Re&set"
-msgstr "&Đặt lại"
-
-#. Resource IDs: (16647)
-msgid "Re&set All"
-msgstr "&Đặt lại tất cả"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "&Khôi phục mặc định"
@@ -8305,10 +7657,6 @@ msgstr "Đọc 'Hướng dẫn sử dụng hàng ngày' trước khi bạn bị 
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL2)
 msgid "Realm String"
 msgstr ""
-
-#. Resource IDs: (16019)
-msgid "Recent"
-msgstr "Gần đây"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
@@ -8348,12 +7696,6 @@ msgid ""
 "Open the auto-saved versions instead of the explicitly saved versions"
 msgstr "Phục hồi các tài liệu được lưu tự động\nMở các phiên bản được lưu tự động thay cho các phiên bản được lưu rõ ràng"
 
-#. Resource IDs: (16905)
-msgid ""
-"Rectangle Tool\n"
-"Rectangle"
-msgstr "Công cụ hình chữ nhật\nHình chữ nhật"
-
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recur&sive\n"
@@ -8376,11 +7718,11 @@ msgstr "Thùng rác"
 msgid "Redirecting to url"
 msgstr "Chuyển hướng sang url"
 
-#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr ""
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -8408,8 +7750,8 @@ msgstr "Làm mới nạp chồng &shell"
 msgid "Refreshing shell for %1!ls!"
 msgstr "Làm mới shell cho %1!ls!"
 
-#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
-#. 165, ID_REGEXFILTER - Ribbon name)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165,
+#. cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr ""
 
@@ -8487,11 +7829,11 @@ msgstr "Thả khóa trên tập tin để các người dùng khác có thể bi
 msgid "Relo&cate..."
 msgstr "&Tái định vị..."
 
-#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr "Tải lại"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -8560,10 +7902,6 @@ msgstr ""
 msgid "Remove from &ignore list"
 msgstr "Loại bỏ khỏi danh sách &bỏ qua"
 
-#. Resource IDs: (17084)
-msgid "Remove from Quick Access Toolbar"
-msgstr "Loại bỏ khỏi Thanh Truy Cập Nhanh"
-
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REMOVEFROMCS)
 msgid "Remove from changelist"
 msgstr "Loại bỏ khỏi danh sách bỏ qua"
@@ -8628,10 +7966,6 @@ msgstr "Đang loại bỏ các món bị bỏ qua trong %1!ls!"
 #, c-format
 msgid "Removing unversioned items in %1!ls!"
 msgstr "Đang loại bỏ các món không phiên bản trong %1!ls!"
-
-#. Resource IDs: (16616)
-msgid "Rena&me..."
-msgstr "Đổi &tên..."
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 151)
 msgid "Rename"
@@ -8753,10 +8087,6 @@ msgstr "Yêu cầu một tên đăng nhập và mật khẩu"
 #. Resource IDs: (IDS_MENURESOLVE)
 msgid "Res&olve..."
 msgstr ""
-
-#. Resource IDs: (16614)
-msgid "Reset &All"
-msgstr "Đặt lại &tất cả"
 
 #. Resource IDs: (IDS_STATUSLIST_RESETCOLUMNORDER)
 msgid "Reset columns"
@@ -8960,24 +8290,6 @@ msgstr "Xem bên phải: "
 msgid "Right image"
 msgstr "Ảnh bên phải"
 
-#. Resource IDs: (17108)
-#, c-format
-msgid "Row %d of %d"
-msgstr "Dòng %d của %d"
-
-#. Resource IDs: (17109)
-#, c-format
-msgid "Row %d-%d of %d"
-msgstr "Dòng %d-%d của %d"
-
-#. Resource IDs: (17116)
-msgid "Row Down"
-msgstr "Dòng xuống"
-
-#. Resource IDs: (17115)
-msgid "Row Up"
-msgstr "Dòng lên"
-
 #. Resource IDs: (IDS_RUNCLEANUPNOW)
 msgid "Run cleanup &now"
 msgstr "Chạy trình dọn dẹp ngay &bây giờ"
@@ -8986,21 +8298,9 @@ msgstr "Chạy trình dọn dẹp ngay &bây giờ"
 msgid "Run hoo&k script"
 msgstr ""
 
-#. Resource IDs: (17045)
-msgid "S&elect..."
-msgstr "&Chọn..."
-
-#. Resource IDs: (17027)
-msgid "S&how Buttons on One Row"
-msgstr "&Hiện nút bấm trên một dòng"
-
-#. Resource IDs: (17028)
-msgid "S&how Buttons on Two Rows"
-msgstr "&Hiện nút bấm trên hai dòng"
-
-#. Resource IDs: (17078)
-msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "&Hiện Thanh Công Cụ Truy Cập Nhanh dưới Ribbon"
+#. Resource IDs: (cmdSave_Keytip_RESID)
+msgid "S"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -9110,11 +8410,15 @@ msgstr "Thông điệp tường trình ví dụ để kiểm tra bugtraq: regex 
 msgid "Sample text:"
 msgstr "Văn bản ví dụ:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr "Lưu"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
+msgid "Save &as"
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "Lưu như &là..."
 
@@ -9184,7 +8488,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr ""
 
-#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
+#. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
 msgstr "Lưu dưới dạng"
 
@@ -9223,7 +8527,7 @@ msgstr "Lưu chỉnh sửa &vào..."
 msgid "Save settings to file"
 msgstr ""
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -9278,14 +8582,6 @@ msgstr "Quét"
 msgid "Scintilla"
 msgstr "Một ít"
 
-#. Resource IDs: (16034)
-msgid "Scroll Left"
-msgstr "Cuộn Trái"
-
-#. Resource IDs: (16035)
-msgid "Scroll Right"
-msgstr "Cuộn Phải"
-
 #. Resource IDs: (IDS_LOG_POPUP_FIND)
 msgid "Search &log messages..."
 msgstr "Tìm kiếm trên các &thông điệp tường trình..."
@@ -9319,30 +8615,12 @@ msgstr ""
 msgid "Select &All"
 msgstr "Chọn &tất cả"
 
-#. Resource IDs: (16529)
-msgid "Select &User-defined Image: "
-msgstr "Chọn ảnh do &người dùng định nghĩa: "
-
-#. Resource IDs: (16508)
-msgid "Select &context menu:"
-msgstr "Chọn &thực đơn ngữ cảnh:"
-
-#. Resource IDs: (65535)
-msgid "Select &window:"
-msgstr "Chọn &cửa sổ:"
-
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "Chọn / bỏ chọn &tất cả"
-
-#. Resource IDs: (16903)
-msgid ""
-"Select Color Tool\n"
-"Select Color"
-msgstr "Chọn công cụ màu\nChọn màu"
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
@@ -9489,10 +8767,6 @@ msgstr "Đang gửi nội dung"
 msgid "Server &address:"
 msgstr "&Địa chỉ máy chủ:"
 
-#. Resource IDs: (65535)
-msgid "Set Accelerator &for:"
-msgstr "Đặt Tăng Tốc &cho:"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1544)
 msgid "Set explicit revision for these externals:"
 msgstr "Đặt chỉnh sửa rõ ràng cho các phần bên ngoài này:"
@@ -9512,8 +8786,8 @@ msgstr ""
 msgid "Setting properties..."
 msgstr "Đặt thuộc tính..."
 
-#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
-#. Ribbon name)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu,
+#. cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr "Thiết lập"
 
@@ -9558,10 +8832,6 @@ msgstr "Danh sách thuộc tính thu gọn"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1382)
 msgid "Show"
 msgstr "Hiển thị"
-
-#. Resource IDs: (16996)
-msgid "Show &Accelerator for:"
-msgstr "Hiển thị &Tăng Tốc cho"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1031, IDS_LOG_SHOWALL)
 msgid "Show &All"
@@ -9618,29 +8888,17 @@ msgstr "Chỉ hiển thị &nạp chồng và thực đơn ngữ cảnh trong tr
 msgid "Show &unversioned files"
 msgstr "Hiển thị các tập tin không được đánh &phiên bản"
 
-#. Resource IDs: (17099)
-msgid "Show Above the Ribbon"
-msgstr "Hiển thị phía trên Ribbon"
-
-#. Resource IDs: (17098)
-msgid "Show Below the Ribbon"
-msgstr "Hiển thị phía dưới Ribbon"
-
-#. Resource IDs: (17030)
-msgid "Show Fewer Buttons"
-msgstr "Hiển thị ít Nút Bấm hơn"
-
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
 msgstr "Hiển thị các nút của bản chỉnh sửa CHÍNH"
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr "Hiển thị khác biệt trong dòng từng từ một\nHướng theo khác biệt từng từ trong dòng"
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
@@ -9654,32 +8912,16 @@ msgstr "Hiển thị hộp thoại khóa trước khi khóa tập tin"
 msgid "Show Monitor Dialog"
 msgstr ""
 
-#. Resource IDs: (17029)
-msgid "Show More Buttons"
-msgstr "Hiển thị nhiều Nút Bấm hơn"
-
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "Hiển thị Xem &Tổng Quát"
-
-#. Resource IDs: (17082)
-msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "Hiển thị Thanh Công Cụ Truy Cập Nhanh phía trên Ribbon"
-
-#. Resource IDs: (17081)
-msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "Hiển thị Thanh Công Cụ Truy Cập Nhanh phía dưới Ribbon"
-
-#. Resource IDs: (16651)
-msgid "Show Screen&Tips on toolbars"
-msgstr "Hiển thị các &mẹo màn hình trên thanh công cụ"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "Hiển thị các &chỉnh sửa WC"
 
-#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
+#. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr "Hiển thị Khoảng Trắng"
 
@@ -9710,10 +8952,6 @@ msgstr "Hiển thị các thư mục gốc bị loại trừ như bình thườn
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1480)
 msgid "Show externals from &different repositories"
 msgstr "Hiển thị các phần bên ngoài từ các kho chứa &khác nhau"
-
-#. Resource IDs: (16656)
-msgid "Show f&ull menus after a short delay"
-msgstr "&Hiển thị đầy đủ thực đơn sau một khoảng chờ ngắn"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1037, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1034)
@@ -9751,19 +8989,19 @@ msgid ""
 "with dots."
 msgstr "Chỉ hiển thị phần thay đổi trong tên đường dẫn. Thay thế các yếu tố không đổi với các dấu chấm."
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr "Ẩn hoặc hiện thanh khác biệt dòng\nĐảo hiện thanh khác biệt dòng"
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr "Ẩn hoặc hiện thanh địa chỉ\nĐảo hiện thanh địa chỉ"
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -9779,11 +9017,7 @@ msgstr "Ẩn hoặc hiện thanh công cụ\nĐảo hiện thanh công cụ"
 msgid "Show revision properties"
 msgstr "Hiện thuộc tính chỉnh sửa"
 
-#. Resource IDs: (16652)
-msgid "Show shortcut &keys in ScreenTips"
-msgstr "Hiện &phím tắt trong Mẹo Màn Hình"
-
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
@@ -9874,12 +9108,7 @@ msgstr "Hiển thị tường trình cho tập tin/thư mục được chọn"
 msgid "Shows the mime type of the versioned file"
 msgstr "Hiển thị kiểu mime của tập tin được đánh phiên bản"
 
-#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
-msgid "Silver Style"
-msgstr "Kiều Màu Bạc"
-
-#. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
+#. Resource IDs: (IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
 msgstr "Kích thước"
 
@@ -9932,10 +9161,6 @@ msgstr "Đã bỏ qua, không có bố mẹ nào được đánh phiên bản"
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
 msgstr ""
-
-#. Resource IDs: (17112)
-msgid "Slide"
-msgstr "Trượt"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
 msgid "Smart tab char"
@@ -10007,10 +9232,6 @@ msgid ""
 "Separate the patterns with a space."
 msgstr "Chỉ ra tập tin hay thư mục mà TortoiseSVN\nnên bỏ qua trong tất cả các bản đang làm việc.\nTách các mẫu với khoảng trắng."
 
-#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-msgid "Spin1"
-msgstr "Quay1"
-
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SPLIT_ABOVE)
 msgid "Split &source tree"
 msgstr "Tách cây &nguồn"
@@ -10040,10 +9261,6 @@ msgstr "Chồng các đồ thị thanh"
 #. Resource IDs: (IDS_STATGRAPH_LINESTACKEDBUTTON_TT)
 msgid "Stacked Line Graph"
 msgstr "Chồng các đồ thị dòng"
-
-#. Resource IDs: (16962)
-msgid "Standard"
-msgstr "Tiêu chuẩn"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
@@ -10087,10 +9304,6 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#. Resource IDs: (16514)
-msgid "Static"
-msgstr "Tĩnh"
-
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
 msgstr "Các số liệu"
@@ -10100,13 +9313,9 @@ msgstr "Các số liệu"
 msgid "Status"
 msgstr "Trạng thái"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr ""
-
-#. Resource IDs: (17087)
-msgid "Status Bar Configuration"
-msgstr "Cấu hình thanh trạng thái"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -10150,10 +9359,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
 msgstr "Sọc ngang"
-
-#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
-msgid "Style"
-msgstr "Kiểu"
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
 msgid ""
@@ -10270,21 +9475,23 @@ msgid ""
 "Previous Pane"
 msgstr "Chuyển sang cửa sổ bảng trước đó\nBảng trước đó"
 
-#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
+#. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr "Hoán đổi giữa màn xem đơn và đôi"
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr "Chuyển đổi giữa bảng xem đơn và kép\nChuyển đổi giữa bảng xem đơn và kép"
 
-#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
+#. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr "Hoán đổi màn xem trái và phải"
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -10350,10 +9557,6 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
-#. Resource IDs: (16970)
-msgid "Tab Placeholder"
-msgstr "Giữ chỗ cho dấu tab"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Tab size:"
@@ -10370,10 +9573,6 @@ msgstr "Thư mục đích không trống"
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
 msgstr "Nhiệm vụ"
-
-#. Resource IDs: (17019)
-msgid "Tasks Pane"
-msgstr "Bảng nhiệm vụ"
 
 #. Resource IDs: (IDS_PROGRS_DRYRUN)
 msgid "Test Only"
@@ -10902,13 +10101,6 @@ msgstr "Thuộc tính này chỉ được phép trên các thư mục, không ph
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Thuộc tính này không được có nhiều dòng. Chỉ một dòng được cho phép."
 
-#. Resource IDs: (16244)
-msgid ""
-"This will delete the record of commands you've used in this application and "
-"restore the default set of visible commands to the menus and toolbars. It "
-"will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "Việc này sẽ xóa các bản ghi của các lệnh bạn đã dùng trong ứng dụng và khôi phục danh sách mặc định các lệnh thấy được trên thực đơn và thanh công cụ. Nó sẽ không phục hồi các tuỳ biến rõ ràng. Bạn có chắc là muốn làm việc này?"
-
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK1)
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
@@ -10922,14 +10114,6 @@ msgid ""
 "The command line to run is:\n"
 "%ls"
 msgstr "Bản làm việc này có một kịch bản hook được cấu hình. Bạn có muốn chạy kịch bản không?\nDòng lệnh để chạy là:\n%ls"
-
-#. Resource IDs: (16928)
-msgid "Tile &Vertically"
-msgstr "Xếp lợp &thẳng đứng"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
-msgstr "Xếp lợp &ngang"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Timeouts"
@@ -10962,40 +10146,6 @@ msgstr "Để đánh cắp khóa, nhấn chuột phải trên thư mục cha c�
 #. IDD_REVGRAPHFILTER: Control id 65535)
 msgid "To:"
 msgstr "Đến:"
-
-#. Resource IDs: (58113)
-msgid ""
-"Toggle One/Two Pages display\n"
-"Toggle One/Two Pages display"
-msgstr "Lật thể hiện Một/Hai trang\nLật thể hiện Một/Hai trang"
-
-#. Resource IDs: (65535)
-msgid "Toolbar"
-msgstr "Thanh công cụ"
-
-#. Resource IDs: (16130)
-msgid "Toolbar Name"
-msgstr "tên thanh công cụ"
-
-#. Resource IDs: (17017)
-msgid "Toolbar Options"
-msgstr "Tùy chọn cho thanh công cụ"
-
-#. Resource IDs: (16008)
-msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "Lỗi nội bộ của thanh công cụ. Vui lòng liên lạc nơi cung cấp ứng dụng của bạn."
-
-#. Resource IDs: (16105)
-msgid "Toolbars"
-msgstr "Các thanh công cụ"
-
-#. Resource IDs: (16928)
-msgid "Tools"
-msgstr "Công cụ"
-
-#. Resource IDs: (65535)
-msgid "Tools:"
-msgstr "Công cụ:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -11032,8 +10182,8 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: Chương trình xem khác biệt ảnh cho TortoiseSVN\n\nCác tham số dòng lệnh có được:\n/left:\"đường dẫn tới ảnh bên trái\"\n/lefttitle:\"tiêu đề để thể hiện cho ảnh bên trái\"\n/right:\"đường dẫn tới ảnh bên phải\"\n/righttitle:\"tiêu đề để thể hiện cho ảnh bên phải\"\n/overlay<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>để cho phép chế độ nạp chồng\n/fit<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>để vừa với các kích thước ảnh\n/showinfo<span class=\"whitespace other\" title=\"Tab\">»</span><span class=\"whitespace other\" title=\"Tab\">»</span>để hiện hộp thông tin ảnh"
 
-#. Resource IDs: (100, 156 - Ribbon element, 32897, 57344, Dialog IDD_OPENDLG:
-#. Control id 130, IDS_APPNAME)
+#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -11187,10 +10337,6 @@ msgstr ""
 msgid "Tweak TortoiseSVN"
 msgstr "Điều chỉnh TortoiseSVN"
 
-#. Resource IDs: (17130)
-msgid "Type"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1436)
 msgid "U&pdate"
 msgstr "&Cập Nhật"
@@ -11285,24 +10431,15 @@ msgid ""
 "menu"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr "Hoàn Tác"
-
-#. Resource IDs: (17102)
-#, c-format
-msgid "Undo %d Actions"
-msgstr "Hủy %d hành động"
-
-#. Resource IDs: (17103)
-msgid "Undo 1 Action"
-msgstr "Hủy 1 hành động"
 
 #. Resource IDs: (IDS_MENUUNDOADD)
 msgid "Undo Add..."
 msgstr ""
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
@@ -11311,10 +10448,6 @@ msgstr "Hoàn tác các sửa đổi cuối\nHoàn tác"
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
 msgstr "Định dạng tập tin không chấp nhận"
-
-#. Resource IDs: (17111)
-msgid "Unfold"
-msgstr "Trải ra"
 
 #. Resource IDs: (61591)
 msgid ""
@@ -11484,10 +10617,6 @@ msgstr "Đang nâng cấp '%1!ls!'"
 msgid "Urls"
 msgstr ""
 
-#. Resource IDs: (16530)
-msgid "Use &Default Image: "
-msgstr "Sử dụng ảnh &mặc định: "
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "Dùng chế độ xem &một bảng như là mặc định cho việc so sánh 2-tập tin"
@@ -11507,22 +10636,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr "Dùng '*' như là ký tự đặc biệt khi chỉ ra một cá biệt.\nĐể ngăn cách nhiều cá biệt, dùng dấu phẩy (',').\nVí dụ: *.khoadang.com, *.company.com"
 
-#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr "Sử dụng khối văn bản 'của tôi'"
 
 #. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
-#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
+#. cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr "Sử dụng khối văn bản 'của tôi' rồi đến 'của họ'"
 
-#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu,
+#. cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr "Sử dụng khối 'của họ'"
 
 #. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
-#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
+#. cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr "Sử dụng khối văn bản 'của họ' rồi đến 'của tôi'"
 
@@ -11542,29 +10671,29 @@ msgstr "Dùng URL và &WC như là mặc định cho URL \"Từ:\""
 msgid "Use Unified Diff from &clipboard"
 msgstr "Dùng tìm khác biệt thống nhất từ &clipboard"
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr "Sử dụng tất cả nội dung từ bảng xem bên trái\nSử dụng tập tin bên trái"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
-#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
+#. cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr "Sử dụng khối từ bên trái trước bên phải"
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr "Sử dụng khối từ bên trái trước khối từ bên phải\nSử dụng khối từ bên trái trước bên phải"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
-#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
+#. cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr "Sử dụng khối từ bên phải trước bên trái"
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -11578,13 +10707,12 @@ msgstr "Sử dụng cả hai khối văn bản (cái này trước)"
 msgid "Use both text blocks (this one last)"
 msgstr "Sử dụng cả hai khối văn bản (cái này cuối)"
 
-#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
+#. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr "Sử dụng khối bên trái"
 
-#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr "Dùng tập tin bên trái"
 
@@ -11620,13 +10748,13 @@ msgstr "Dùng khối văn bản từ 'của &họ'"
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "Dùng khối văn bản từ 'của &tôi' trước 'của họ'"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr "Dùng khối văn bản từ  'của tôi' trước 'của họ'\nDùng khối văn bản 'của tôi' rồi 'của họ'"
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -11636,19 +10764,19 @@ msgstr "Dùng khối văn bản từ  'của tôi'\nDùng khối văn bản 'c�
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "Dùng khối văn bản từ 'của &họ' trước 'của tôi'"
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr "Dùng khối văn bản từ  'của họ' trước 'của tôi'\nDùng khối văn bản 'của họ' rồi 'của tôi'"
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr "Dùng khối văn bản từ  'của họ'\nDùng khối văn bản 'của họ'"
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
@@ -11720,6 +10848,10 @@ msgstr ""
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr ""
 
+#. Resource IDs: (cmdPaste_Keytip_RESID)
+msgid "V"
+msgstr ""
+
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
 "Valid command line options are:\n"
@@ -11769,11 +10901,11 @@ msgstr "Thông tin phiên bản"
 msgid "Versioned"
 msgstr "Có phiên bản"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr "Xem"
 
-#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr ""
 
@@ -11789,15 +10921,9 @@ msgstr "Xem bản chỉnh sửa trong &trình xem web"
 msgid "Visit our website"
 msgstr "Thăm website của chúng tôi"
 
-#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
-#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
-msgid "Visual Studio 2005"
-msgstr "Visual Studio 2005"
-
-#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
-#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
-msgid "Visual Studio 2008"
-msgstr "Visual Studio 2008"
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
+msgid "W"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
 msgid ""
@@ -11884,33 +11010,10 @@ msgstr "Khi khóa một hay nhiều tập tin, hiển thị một thông báo\nh
 msgid "Whitespace changes (tabs, spaces)"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
-#. 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
+#. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Khoảng trắng"
-
-#. Resource IDs: (17038)
-msgid "Window Position"
-msgstr "Vị trí cửa sổ"
-
-#. Resource IDs: (16927)
-msgid "Windows"
-msgstr "Các cửa sổ"
-
-#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
-#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
-msgid "Windows 2000"
-msgstr "Windows 2000"
-
-#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
-#. Ribbon name)
-msgid "Windows 7"
-msgstr "Windows 7"
-
-#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
-#. - Ribbon name)
-msgid "Windows XP"
-msgstr "Windows XP"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 158, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 1493, Dialog IDD_MERGEWIZARD_TREE:
@@ -11939,16 +11042,23 @@ msgstr "Bản đang làm được di dời đến\n%ls"
 msgid "Working copy: %ls\n"
 msgstr "Bản đang làm: %ls\n"
 
-#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
-#. name)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
+msgid "Wrap Lines"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
 msgstr "Gói các dòng dài"
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr "Gói các dòng dài ở biên bên phải của màn xem\nGói các dòng dài"
+
+#. Resource IDs: (cmdRedo_Keytip_RESID)
+msgid "Y"
+msgstr ""
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
 msgid "You already have the latest version installed."
@@ -11965,16 +11075,6 @@ msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
 msgstr ""
-
-#. Resource IDs: (16005)
-#, c-format
-msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr "Bạn có thể chỉ dán các ảnh với kích thước (%d x %d)!"
-
-#. Resource IDs: (16243)
-#, c-format
-msgid "You can't create more than %d user-defined toolbars!"
-msgstr "Bạn không thể tạo ra nhiều hơn %d thanh công cụ do người dùng định nghĩa!"
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -12016,11 +11116,6 @@ msgstr "Bạn phải cập nhật bản làm việc của bạn trước."
 msgid "You haven't entered an issue number."
 msgstr "Bạn chưa nhập vào số cho vấn đề."
 
-#. Resource IDs: (16024)
-#, c-format
-msgid "You may define up to %d tools."
-msgstr "Bạn có thể định nghĩa nhiều nhất %d công cụ."
-
 #. Resource IDs: (IDS_SETTINGS_RESTARTSYSTEM)
 msgid "You must restart your system for the changes to take effect."
 msgstr "Bạn phải khởi động lại hệ thống để các thay đổi có hiệu lực."
@@ -12028,14 +11123,6 @@ msgstr "Bạn phải khởi động lại hệ thống để các thay đổi c�
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "Bạn lựa chọn một thư mục chưa đánh phiên bản để cam kết!"
-
-#. Resource IDs: (16002)
-msgid "You should enter a text!"
-msgstr "Bạn nên nhập vào một văn bản!"
-
-#. Resource IDs: (16001)
-msgid "You should select an image!"
-msgstr "Bạn nên chọn một ảnh!"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12093,13 +11180,13 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr "Bản sao làm việc của bạn chỉ đến %ls là một thẻ!\nBạn nên chuyển sang một nhánh hay thân chính trước khi cam kết."
 
+#. Resource IDs: (cmdUndo_Keytip_RESID)
+msgid "Z"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr ""
-
-#. Resource IDs: (17093)
-msgid "Zoom"
-msgstr "Phóng"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -12121,18 +11208,6 @@ msgstr "Thu &nhỏ<span class=\"whitespace other\" title=\"Tab\">»</span>Ctrl--
 #, c-format
 msgid "Zoom 100%"
 msgstr "Phóng 100%"
-
-#. Resource IDs: (58117)
-msgid ""
-"Zoom In\n"
-"Zoom In"
-msgstr "Phóng to\nPhóng to"
-
-#. Resource IDs: (58118)
-msgid ""
-"Zoom Out\n"
-"Zoom Out"
-msgstr "Thu Nhỏ\nThu Nhỏ"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
@@ -12162,14 +11237,6 @@ msgstr "Phóng để vừa chiều cao"
 msgid "Zoom to fit in width"
 msgstr "Phóng để vừa chiều rộng"
 
-#. Resource IDs: (17114)
-msgid "[Default]"
-msgstr "[Mặc định]"
-
-#. Resource IDs: (16009)
-msgid "[Unassigned]"
-msgstr "[Chưa được giao]"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
 msgstr ""
@@ -12183,10 +11250,6 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr "\n\nCác mẫu khớp phân biệt kiểu chữ và phải được chỉ ra trong chữ thường.\nKhoảng trắng sẽ trở thành một phần của mẫu.\nCác ký tự lạ được cho phép là '?' và '*'.\nCác mẫu riêng biệt sử dụng ';'"
-
-#. Resource IDs: (65535 - PopupMenu)
-msgid "_POPUP_"
-msgstr "_POPUP_"
 
 #. Resource IDs: (IDS_STATUSADDED)
 msgid "added"
@@ -12364,10 +11427,6 @@ msgstr "đã xóa"
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "disk [kB]: "
 msgstr "ổ đĩa [kB]: "
-
-#. Resource IDs: (58116)
-msgid "dummy"
-msgstr "vật giả"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
@@ -12549,6 +11608,10 @@ msgstr ""
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
 msgstr "bình thường"
+
+#. Resource IDs: (cmdOpen_Keytip_RESID)
+msgid "o1"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"

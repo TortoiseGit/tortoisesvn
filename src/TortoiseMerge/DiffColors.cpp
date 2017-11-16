@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007-2008, 2010, 2013-2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2013-2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -51,6 +51,7 @@ CDiffColors::CDiffColors(void)
     m_regForegroundColors[DIFFSTATE_YOURSREMOVED] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorYoursRemovedF", DIFFSTATE_YOURSREMOVED_DEFAULT_FG);
     m_regForegroundColors[DIFFSTATE_YOURSADDED] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorYoursAddedF", DIFFSTATE_YOURSADDED_DEFAULT_FG);
     m_regForegroundColors[DIFFSTATE_EDITED] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorEditedF", DIFFSTATE_EDITED_DEFAULT_FG);
+    m_regForegroundColors[DIFFSTATE_FILTEREDDIFF] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorFilteredF", DIFFSTATE_EDITED_DEFAULT_FG);
 
     m_regBackgroundColors[DIFFSTATE_UNKNOWN] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorUnknownB", DIFFSTATE_UNKNOWN_DEFAULT_BG);
     m_regBackgroundColors[DIFFSTATE_NORMAL] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorNormalB", DIFFSTATE_NORMAL_DEFAULT_BG);
@@ -74,6 +75,7 @@ CDiffColors::CDiffColors(void)
     m_regBackgroundColors[DIFFSTATE_YOURSREMOVED] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorYoursRemovedB", DIFFSTATE_YOURSREMOVED_DEFAULT_BG);
     m_regBackgroundColors[DIFFSTATE_YOURSADDED] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorYoursAddedB", DIFFSTATE_YOURSADDED_DEFAULT_BG);
     m_regBackgroundColors[DIFFSTATE_EDITED] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorEditedB", DIFFSTATE_EDITED_DEFAULT_BG);
+    m_regBackgroundColors[DIFFSTATE_FILTEREDDIFF] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorFilteredB", DIFFSTATE_FILTERED_DEFAULT_BG);
 }
 
 CDiffColors::~CDiffColors(void)

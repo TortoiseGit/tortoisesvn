@@ -12,7 +12,6 @@
 #define IDS_MARKEDBLOCKSSAVEEXCLUDE     106
 #define IDS_MARKEDBLCOKSSAVEIGNORE      107
 #define IDD_SETMAINPAGE                 107
-#define ID_REGEX_NO_FILTER              33002
 #define IDD_OPENDLG                     130
 #define IDD_DIFFLOCATOR                 131
 #define IDI_REMOVEDLINE                 132
@@ -113,6 +112,7 @@
 #define IDC_BKCONFLICTED                1042
 #define IDC_FGCONFLICTED                1043
 #define IDC_BKCONFLICTEDADDED           1044
+#define IDC_BKFILTERED                  1044
 #define IDC_FGCONFLICTEDADDED           1045
 #define IDC_BKCONFLICTEDEMPTY           1046
 #define IDC_FGCONFLICTEDEMPTY           1047
@@ -419,12 +419,13 @@
 #define ID_APPLOOK                      32956
 #define ID_EDIT_ENABLE                  32976
 #define ID_EDIT_THREEWAY_ACTIONS        33001
+#define ID_REGEX_NO_FILTER              33002
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        172
+#define _APS_NEXT_RESOURCE_VALUE        173
 #define _APS_NEXT_COMMAND_VALUE         33003
 #define _APS_NEXT_CONTROL_VALUE         1513
 #define _APS_NEXT_SYMED_VALUE           101

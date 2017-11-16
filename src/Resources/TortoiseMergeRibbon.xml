@@ -178,7 +178,7 @@
         <String Id ="290">E&amp;xit</String>
       </Command.LabelTitle>
       <Command.LargeImages>
-        <Image>ribbon/Exit.bmp</Image>
+        <Image Source="ribbon/Exit.bmp" />
       </Command.LargeImages>
     </Command>
     <Command Name="cmdHelp" Id="0xE146">
@@ -463,9 +463,9 @@
 
           <Group CommandName="cmdGroupView" SizeDefinition="FiveButtons">
             <DropDownButton CommandName="cmdViewBars">
-              <ToggleButton CommandName="cmdViewLineDiffBar"/>
-              <ToggleButton CommandName="cmdViewLocatorBar"/>
-              <ToggleButton CommandName="cmdViewStatusBar"/>
+              <CheckBox CommandName="cmdViewLineDiffBar"/>
+              <CheckBox CommandName="cmdViewLocatorBar"/>
+              <CheckBox CommandName="cmdViewStatusBar"/>
             </DropDownButton>
             <ToggleButton CommandName="cmdViewWrapLines" />
             <ToggleButton CommandName="cmdViewOneWayDiff" />

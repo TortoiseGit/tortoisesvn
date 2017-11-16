@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-19 09:11+0000\n"
+"PO-Revision-Date: 2017-11-14 02:02+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Georgian (http://www.transifex.com/luebbe/tortoisesvn/language/ka/)\n"
 "MIME-Version: 1.0\n"
@@ -291,17 +291,13 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nდასტაა და არა ფაილი!\nTortoiseMerge დასტებს ვერ ადარებს."
 
-#. Resource IDs: (16923)
-msgid "&..."
-msgstr "&..."
-
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
 msgstr ""
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge-ს &შესახებ..."
 
@@ -311,17 +307,9 @@ msgid ""
 "The certificate is accepted only this one time."
 msgstr ""
 
-#. Resource IDs: (16920)
-msgid "&Activate"
-msgstr "&გააქტივება"
-
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
 msgstr "&დამატება"
-
-#. Resource IDs: (17075)
-msgid "&Add >>"
-msgstr "&დამატება >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
@@ -332,10 +320,6 @@ msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
 msgstr ""
-
-#. Resource IDs: (17018)
-msgid "&Add or Remove Buttons"
-msgstr "&ღილაკების დამატება ან ამოღება"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -372,22 +356,6 @@ msgstr "&პარამეტრის რეკურსიული გამ
 msgid "&Apply unified diff"
 msgstr "&ბებკი ფაილის გამოყენება"
 
-#. Resource IDs: (65535)
-msgid "&Arguments:"
-msgstr "&არგუმენტები:"
-
-#. Resource IDs: (16645)
-msgid "&Assign"
-msgstr "&მინიჭება"
-
-#. Resource IDs: (16633)
-msgid "&Associate double-click event with:"
-msgstr "&ორმაგი დაწკაპვის ასოცირება:"
-
-#. Resource IDs: (17041)
-msgid "&Auto Hide"
-msgstr "&თვითდამალვა"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
 msgstr "&თვითდახურვა"
@@ -415,10 +383,6 @@ msgstr "წინა ვერსიების &ავტორები"
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
 msgstr "&ავტორები..."
-
-#. Resource IDs: (65535)
-msgid "&Blue:"
-msgstr "&ლურჯი:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -448,14 +412,6 @@ msgstr "&ნუსხა..."
 #. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr "&შეცდომების გასწორების სისტემა"
-
-#. Resource IDs: (16913 - Menu)
-msgid "&Button Appearance..."
-msgstr "&ღილაკის იერსახე..."
-
-#. Resource IDs: (65535)
-msgid "&Button text:"
-msgstr "&ღილაკის ტექსტი:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
@@ -599,18 +555,6 @@ msgid ""
 "keep the current format."
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Categories:"
-msgstr "&კატეგორიები:"
-
-#. Resource IDs: (65535)
-msgid "&Category:"
-msgstr "&კატეგორია:"
-
-#. Resource IDs: (65535)
-msgid "&Choose commands from:"
-msgstr "ბრძანებების &შერჩევა:"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
 msgstr "&ელემენტების შერჩევა"
@@ -631,17 +575,9 @@ msgstr ""
 msgid "&Close"
 msgstr "&დახურვა"
 
-#. Resource IDs: (16922)
-msgid "&Close Window(s)"
-msgstr "სარკმლ(ებ)ის &დახურვა"
-
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
 msgstr ""
-
-#. Resource IDs: (65535)
-msgid "&Command:"
-msgstr "&ბრძანება:"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -673,14 +609,10 @@ msgstr "დაწყებისას საცავთან &დაკავ
 msgid "&Convert files when diffing against BASE"
 msgstr "ფაილების &გარდაქმნა BASE ვერსიასთან შედარებისას"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "&კოპირება"
-
-#. Resource IDs: (16911 - Menu)
-msgid "&Copy Button Image"
-msgstr "&კოპირების ღილაკის გამოსახულება"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
@@ -716,8 +648,8 @@ msgstr "უქმ &დღეთა რაოდენობა ბუფერ�
 msgid "&Default"
 msgstr "&ნაგულისხმები"
 
-#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
-#. Control id 1382, IDS_MENUREMOVE)
+#. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1382,
+#. IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "&წაშლა"
 
@@ -763,10 +695,6 @@ msgstr "&დასტები"
 msgid "&Do not ask again"
 msgstr "&აღარ დამეკითხო"
 
-#. Resource IDs: (17040)
-msgid "&Docking"
-msgstr "&მიმაგრება"
-
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
 msgid ""
 "&Don't run\n"
@@ -794,7 +722,7 @@ msgstr "კონფლიქტების &რედაქტირება"
 msgid "&Edit project"
 msgstr ""
 
-#. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
@@ -876,10 +804,6 @@ msgstr ""
 msgid "&Fixed drives"
 msgstr "&ხისტი დისკები"
 
-#. Resource IDs: (17039)
-msgid "&Floating"
-msgstr "&მოტივტივე"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
 msgstr "&შრიფტი დავთრის ჩანაწერებისთვის"
@@ -910,10 +834,6 @@ msgstr "&აქედან: (შერწყმის რანგის სა
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "&Green:"
-msgstr "&მწვანე:"
-
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "&დაჯგუფება განშტოებით"
@@ -940,16 +860,20 @@ msgstr "&HEAD ვერსია საცავში"
 msgid "&Help"
 msgstr "&დახმარება"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "&დახმარების თემები"
 
-#. Resource IDs: (17042, 61457)
+#. Resource IDs: (61457)
 msgid "&Hide"
 msgstr "&დამალვა"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
+msgstr ""
+
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
+msgid "&Hide/Show the patch file list"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
@@ -973,17 +897,9 @@ msgstr "&იგნორირება და გაგრძელება"
 msgid "&Ignore multiple items by name"
 msgstr ""
 
-#. Resource IDs: (16914 - Menu)
-msgid "&Image"
-msgstr "&გამოსახულება"
-
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr ""
-
-#. Resource IDs: (16505)
-msgid "&Image only"
-msgstr "მხოლოდ &გამოსახულება"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1002,10 +918,6 @@ msgstr "&გარე ელემენტთა ჩათვლით"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
 msgstr "შერწყმული ვერსიების &ჩათვლით"
-
-#. Resource IDs: (65535)
-msgid "&Initial directory:"
-msgstr "&საწყისი დასტა:"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
@@ -1026,10 +938,6 @@ msgstr "&საკვანძო სიტყვები"
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
 msgstr "&ენა:"
-
-#. Resource IDs: (16653)
-msgid "&Large Icons"
-msgstr "&მოზრდილი პიქტოგრამები"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -1072,10 +980,6 @@ msgstr "&დასაბლოკია (მხოლოდ კითხვა�
 msgid "&Log Sizes"
 msgstr "&დავთრის ზომები"
 
-#. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "&ganaTeba:"
-
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
@@ -1092,14 +996,6 @@ msgstr "შიდა სხვაობების &მაქსიმალუ
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "ამოღებული უქმი ბუფერის &მაქსიმალური ზომა [კბაიტი]"
-
-#. Resource IDs: (16543)
-msgid "&Menu animations:"
-msgstr "&მენიუს ანიმაციები:"
-
-#. Resource IDs: (16921)
-msgid "&Menu contents:"
-msgstr "&მენიუს შიგთავსი:"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1120,10 +1016,6 @@ msgstr "&შერწყმა"
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "&Mime-ტიპი"
-
-#. Resource IDs: (16925)
-msgid "&Minimize"
-msgstr "&მინიმიზება"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1149,8 +1041,8 @@ msgstr "&ქსელური დისკები"
 msgid "&New "
 msgstr "&ახალი"
 
-#. Resource IDs: (16509, 16615, Dialog IDD_EDITPROPERTIES: Control id 1310,
-#. Dialog IDD_EDITPROPEXTERNALS: Control id 1542)
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1310, Dialog
+#. IDD_EDITPROPEXTERNALS: Control id 1542)
 msgid "&New..."
 msgstr "&ახალი..."
 
@@ -1166,10 +1058,6 @@ msgstr "&შემდეგ >"
 #. Resource IDs: (58114)
 msgid "&Next Page"
 msgstr "&შემდეგი გვერდი"
-
-#. Resource IDs: (16632)
-msgid "&No double-click event"
-msgstr "ორმაგი დაწკაპვის &იგნორირება"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
@@ -1187,10 +1075,10 @@ msgstr "&არაპროგრამული"
 msgid "&Numeric"
 msgstr "&რიცხვითი"
 
-#. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
-#. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
-#. 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1,
-#. Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id
+#. 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1,
+#. Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog
+#. IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
 #. IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1,
 #. Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id
 #. 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL:
@@ -1227,7 +1115,8 @@ msgstr "&ავტონომიურ რეჟიმში ახლა"
 msgid "&One Page"
 msgstr "&ერთი გვერდი"
 
-#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN,
+#. cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr "&გახსნა"
 
@@ -1274,8 +1163,8 @@ msgstr ""
 msgid "&Password:"
 msgstr "&პაროლი:"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "&ჩასმა"
 
@@ -1306,10 +1195,6 @@ msgstr "&სპეციალური ნაგულისხმები პ
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr ""
-
-#. Resource IDs: (17091)
-msgid "&Print Preview"
-msgstr "&ბეჭდვის ესკიზი"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1351,10 +1236,6 @@ msgstr "&პარამეტრები..."
 msgid "&Recent messages"
 msgstr "&ბოლო შეტყობინებები"
 
-#. Resource IDs: (65535)
-msgid "&Red:"
-msgstr "&წითელი:"
-
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
 msgstr "&გამეორება"
@@ -1379,7 +1260,7 @@ msgstr ""
 msgid "&Remind me to enter a bug-ID"
 msgstr "&შეცდომის ID-ის მითითების შეხსენება"
 
-#. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1100, IDS_PROP_REMOVE)
 msgid "&Remove"
@@ -1431,22 +1312,6 @@ msgstr ""
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
 msgstr "&საცავის ნუსხა"
-
-#. Resource IDs: (16613, 16624)
-msgid "&Reset"
-msgstr "&აღდგენა"
-
-#. Resource IDs: (16300)
-msgid "&Reset Toolbar"
-msgstr "&აღდგენის პულტი"
-
-#. Resource IDs: (16657)
-msgid "&Reset my usage data"
-msgstr "ჩემი ქმედებების მონაცემთა &განულება"
-
-#. Resource IDs: (16910 - Menu)
-msgid "&Reset to Default"
-msgstr "&აღდგენა ნაგულისხმებამდე"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
 msgid ""
@@ -1509,11 +1374,7 @@ msgstr "&SSH კლიენტი:"
 msgid "&SVN"
 msgstr "&SVN"
 
-#. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "&გაჯერება"
-
-#. Resource IDs: (16921)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr "&შენახვა"
 
@@ -1548,10 +1409,6 @@ msgstr "HEAD ვერსიების &ჩვენება"
 msgid "&Show Log"
 msgstr "დავთრის &ჩვენება"
 
-#. Resource IDs: (65535)
-msgid "&Show Menus for:"
-msgstr "მენიუების &ჩვენება:"
-
 #. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr ""
@@ -1560,23 +1417,15 @@ msgstr ""
 msgid "&Show popup notifications"
 msgstr ""
 
-#. Resource IDs: (16612)
-msgid "&Show text labels"
-msgstr "წარწერების &ჩვენება:"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
 msgstr "&სპეციფიური ვერსია საცავში"
-
-#. Resource IDs: (16917 - Menu)
-msgid "&Start Group"
-msgstr "&საწყისი ჯგუფი"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
 msgstr "&საცავის გადახედვა"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "&სტატუსი"
 
@@ -1608,10 +1457,6 @@ msgstr "&სიმბოლოებით ჩვენება"
 msgid "&Tab size:"
 msgstr "&ტაბულაციის ზომა"
 
-#. Resource IDs: (17088)
-msgid "&Tabbed Document"
-msgstr "&დოკუმენტი დაფებით"
-
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
 msgstr "&ჭდეები"
@@ -1620,13 +1465,9 @@ msgstr "&ჭდეები"
 msgid "&Test merge"
 msgstr "შერწყმის &შემოწმება"
 
-#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "&ტექსტი"
-
-#. Resource IDs: (16506)
-msgid "&Text only"
-msgstr "მხოლოდ &ტექსტი"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1654,17 +1495,9 @@ msgstr "&გეზი"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "ა&ქ: (საბოლოო URL შერწყმის არის ვერსია)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "&პულტი"
-
-#. Resource IDs: (65535)
-msgid "&Toolbar Name:"
-msgstr "&პულტის სახელი:"
-
-#. Resource IDs: (65535)
-msgid "&Toolbars:"
-msgstr "&პულტები:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
@@ -1703,7 +1536,7 @@ msgstr "&საცავის მისამართი:"
 msgid "&URL:"
 msgstr "&მისამართი"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "&დაბრუნება"
 
@@ -1774,10 +1607,6 @@ msgstr ""
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "&ჩვენება"
-
-#. Resource IDs: (65535)
-msgid "&View:"
-msgstr "&ჩვენება:"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
 msgid "&Whole word"
@@ -1923,11 +1752,6 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#. Resource IDs: (16108)
-msgid ""
-"-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1035, Dialog IDD_CHECKOUT:
 #. Control id 1036, Dialog IDD_COPY: Control id 1035, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1035, Dialog IDD_EXPORT: Control id
@@ -1954,10 +1778,6 @@ msgstr "... ბუფერის შემოწმება და დავ�
 msgid "... reading working copy status"
 msgstr "... სამუშაო ასლის სტატუსის კითხვა"
 
-#. Resource IDs: (16527)
-msgid "....."
-msgstr "....."
-
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1970,22 +1790,6 @@ msgstr ": სამუშაო ასლი"
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
 msgstr "< &უკან"
-
-#. Resource IDs: (16506)
-msgid "<.....>"
-msgstr "<.....>"
-
-#. Resource IDs: (17095)
-msgid "<Separator>"
-msgstr "<გამყოფი>"
-
-#. Resource IDs: (16104)
-msgid "<Untitled>"
-msgstr "<უსახელო>"
-
-#. Resource IDs: (16603)
-msgid "<descr>"
-msgstr "<აღწერილობა>"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_CREATECS)
 msgid "<new changelist>"
@@ -2071,7 +1875,11 @@ msgstr "&დასტის დამატება..."
 msgid "Abort"
 msgstr "შეწყვეტა"
 
-#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
+msgid "Abou&t TortoiseMerge"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
 msgstr "ინფო..."
 
@@ -2109,10 +1917,6 @@ msgstr "ქმედებები"
 #. Resource IDs: (61203)
 msgid "Activate Task List"
 msgstr "ამოცანათა ჩამონათვალის გააქტივება"
-
-#. Resource IDs: (17043)
-msgid "Active Files"
-msgstr "აქტიური ფაილები"
 
 #. Resource IDs: (61838)
 #, c-format
@@ -2182,10 +1986,6 @@ msgstr "&იგნორირების სიაში დამატებ
 msgid "Add to Bookmarks"
 msgstr ""
 
-#. Resource IDs: (17083)
-msgid "Add to Quick Access Toolbar"
-msgstr "დამატება სწრაფი წვდომის პულტზე"
-
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
@@ -2237,7 +2037,7 @@ msgstr "ფაილ(ებ)ის დამატება ქვევერ�
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "მონიშნული ფაილების ან ფაილების თარგების დამატება 'იგნორირებულთა' სიაში"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -2276,10 +2076,6 @@ msgstr "განტოტვების ზედა კიდეზე გა
 msgid "All"
 msgstr "ყველა"
 
-#. Resource IDs: (16110)
-msgid "All Commands"
-msgstr "ყველა ბრძანება"
-
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
 msgstr "ყველა ფაილი (*.*)"
@@ -2288,32 +2084,7 @@ msgstr "ყველა ფაილი (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "ყველა ფაილი (*.*)|*.*||"
 
-#. Resource IDs: (16112)
-msgid ""
-"All your changes will be lost! Do you really want to reset all toolbars and "
-"menus?"
-msgstr "თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ ყველა პულტისა და მენიუს აღდგენა?"
-
-#. Resource IDs: (16115)
-msgid ""
-"All your changes will be lost! Do you really want to reset the keyboard "
-"assignments?"
-msgstr "თქვენი ყველა ცვლილება დაიკარგება! ნამდვილად გსურთ კლავიატურის გაპიროვნებათა აღდგენა?"
-
-#. Resource IDs: (16113)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr ""
-
-#. Resource IDs: (16111)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar "
-"'%Ts'?"
-msgstr ""
-
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
@@ -2418,10 +2189,6 @@ msgstr ""
 msgid "Append this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Application Frame Menus: "
-msgstr "პროგრამის ბლოკის მენიუები:"
-
 #. Resource IDs: (IDS_MENUDESCAPPLYPATCH)
 msgid "Applies a unified diff file to the working copy"
 msgstr "ბებკი ფაილის გამოყენება სამუშაო ასლისთვის"
@@ -2451,11 +2218,6 @@ msgstr "კლიენტის დამუშავების სკრი�
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1282)
 msgid "Approved hook scripts"
 msgstr "დამტკიცებული დამუშავების სკრიპტები"
-
-#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
-msgid "Aqua Style"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
 msgid "Arb&itrary text"
@@ -2493,10 +2255,6 @@ msgstr "შეკითხვა მონაწილეს"
 #, c-format
 msgid "Assigned to changelist '%ls'"
 msgstr "მიკუთვნებულია ცვლილებათა სიისთვის '%ls'"
-
-#. Resource IDs: (16528)
-msgid "Assigned to:"
-msgstr "გაპიროვნება:"
 
 #. Resource IDs: (IDS_PROGRS_ATREV)
 #, c-format
@@ -2552,14 +2310,6 @@ msgstr "ავტორები რეგისტრის გათვალ�
 msgid "Authors:"
 msgstr "ავტორები:"
 
-#. Resource IDs: (16033)
-msgid "Auto Hide"
-msgstr "თვით დამალვა"
-
-#. Resource IDs: (16036)
-msgid "Auto Hide All"
-msgstr "ყველას თვითდამალვა"
-
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
 msgstr ""
@@ -2604,10 +2354,6 @@ msgstr "საშუალო"
 msgid "B&rowse..."
 msgstr "&ნუსხა..."
 
-#. Resource IDs: (17020)
-msgid "Back"
-msgstr "უკან"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
@@ -2632,11 +2378,6 @@ msgid ""
 "a bitmap"
 msgstr "რასტრული\nრასტრული"
 
-#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
-msgid "Black Style"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
 msgstr "ავტორები"
@@ -2657,13 +2398,8 @@ msgstr "ყოველი სტრიქონისთვის ავტო�
 msgid "Blend alpha"
 msgstr "ალფა არხის შერევა"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
-msgstr ""
-
-#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
-msgid "Blue Style"
 msgstr ""
 
 #. Resource IDs: (IDS_BOOKMARKS)
@@ -2735,9 +2471,9 @@ msgstr "ბზიკების კოდები"
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr "მარტივი გამოსახულებების შემოწმება Bugtraq - TortoiseSVN"
 
-#. Resource IDs: (16132)
-msgid "Button Appearance"
-msgstr "ღილაკის იერსახე"
+#. Resource IDs: (cmdCopy_Keytip_RESID)
+msgid "C"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2751,10 +2487,6 @@ msgstr "საცავის შემო&წმება"
 msgid "C&ollapse sub-trees"
 msgstr "ქვეგანტოტვების ა&კეცვა"
 
-#. Resource IDs: (65535)
-msgid "C&ommands:"
-msgstr "&ბრძანებები"
-
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
 msgstr ""
@@ -2766,10 +2498,6 @@ msgstr "განშტოების/ჭდის &შექმნა ვე�
 #. Resource IDs: (IDS_REPOBROWSE_MKDIR)
 msgid "C&reate folder..."
 msgstr "დასტის &შექმნა..."
-
-#. Resource IDs: (65535)
-msgid "C&urrent Keys:"
-msgstr "&მიმდინარე კლავიშები:"
 
 #. Resource IDs: (IDS_EDIT_CUT)
 msgid "C&ut"
@@ -2804,23 +2532,7 @@ msgid ""
 "%2!ls!"
 msgstr "ვერ კოპირდება \n%1!ls!\nაქ\n%2!ls!"
 
-#. Resource IDs: (16010)
-msgid "Can't copy bitmap image into the clipboard!"
-msgstr "გამოსახულების ბუფერში კოპირება ვერ ხერხდება"
-
-#. Resource IDs: (16003)
-msgid "Can't create a new image!"
-msgstr "ახალი გამოსახულების შექმნა ვერ ხერხდება!"
-
-#. Resource IDs: (16007)
-msgid "Can't customize menus!"
-msgstr "მენიუს გამართვა ვერ ხერხდება!"
-
-#. Resource IDs: (16004)
-msgid "Can't paste bitmap image from the clipboard!"
-msgstr "გამოსახულების ჩასმა ბუფერიდან ვერ ხერხდება!"
-
-#. Resource IDs: (17101, 2, Dialog IDD_BLAME: Control id 2, Dialog
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog
 #. IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2,
 #. Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control
 #. id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2,
@@ -2927,17 +2639,9 @@ msgstr "ოპერაციის გაუქმება..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "სხვაობის ჩვენება ვერ ხერხდება შეუთავსებელი სტრიქონების გამო."
 
-#. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "&კასკადი"
-
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
 msgstr "რეგისტრის გათვალისწინებით"
-
-#. Resource IDs: (65535)
-msgid "Cate&gories:"
-msgstr "კა&ტეგორიები:"
 
 #. Resource IDs: (IDS_ERR_SSL_EXPIRED)
 #, c-format
@@ -2961,12 +2665,6 @@ msgstr "სერთიფიკატები|*.p12;*.pkcs12;*.pfx|ყვე�
 msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
-
-#. Resource IDs: (10000)
-msgid ""
-"Change the style of the application\n"
-"Change Style"
 msgstr ""
 
 #. Resource IDs: (61185)
@@ -2998,10 +2696,6 @@ msgstr "ცვლილებათა სია:"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "შეტანილი ცვლილებები (შედარებისთვის ორმაგი წკაპი):"
-
-#. Resource IDs: (32956)
-msgid "Changes the style of the application"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3163,12 +2857,6 @@ msgstr "შეწყვეტილი ოპერაციებისა დ�
 msgid "Clear"
 msgstr "გასუფთავება"
 
-#. Resource IDs: (16909)
-msgid ""
-"Clear Tool\n"
-"Clear"
-msgstr "გასუფთავების სამარჯვი\nგასუფთავება"
-
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
 msgstr ""
@@ -3229,7 +2917,7 @@ msgid ""
 "extension"
 msgstr "დაწკაპეთ «დეტალები» ფაილების შერწყმის ალტერნატული პროგრამების მისათითებლად"
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
@@ -3238,20 +2926,6 @@ msgstr ""
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
 msgstr "ბუფერი"
-
-#. Resource IDs: (16032, 16105, 17023, 2)
-msgid "Close"
-msgstr "დახურვა"
-
-#. Resource IDs: (17025)
-msgid "Close Full Screen"
-msgstr "სრული ეკრანის დახურვა"
-
-#. Resource IDs: (58112)
-msgid ""
-"Close Print Preview\n"
-"&Close"
-msgstr "ბეჭდვის ესკიზის დახურვა\n&დახურვა"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_MANUAL)
 msgid "Close manually"
@@ -3273,7 +2947,7 @@ msgstr "ძირითადი განტოტვის აკე&ცვა
 msgid "Collaborator &password"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr ""
 
@@ -3281,15 +2955,11 @@ msgstr ""
 msgid "Collapse &following tree"
 msgstr "&შემდეგი განტოტვის აკეცვა"
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr "უცვლელი სექციების აკეცვა\nაკეცვა"
-
-#. Resource IDs: (16662)
-msgid "Color"
-msgstr "ფერი"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Color 1"
@@ -3311,21 +2981,13 @@ msgstr ""
 msgid "Color by au&thor"
 msgstr ""
 
-#. Resource IDs: (16961, Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
 msgid "Colors"
 msgstr "ფერები"
 
-#. Resource IDs: (65535)
-msgid "Colors:"
-msgstr "ფერები"
-
-#. Resource IDs: (65535)
-msgid "Comman&ds:"
-msgstr "&ბრძანებები:"
-
-#. Resource IDs: (16029, IDS_PROGRS_CMDINFO)
+#. Resource IDs: (IDS_PROGRS_CMDINFO)
 msgid "Command"
 msgstr "ბრძანება"
 
@@ -3351,10 +3013,6 @@ msgstr "ბრძანება ვერ სრულდება - საჭ�
 #. Resource IDs: (61705)
 msgid "Command failed."
 msgstr "ბრძანება არ შესრულდა."
-
-#. Resource IDs: (16104)
-msgid "Commands"
-msgstr "ბრძანებები"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
@@ -3443,7 +3101,7 @@ msgid "Compare two files"
 msgstr "ორი ფაილის შედარება"
 
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
-#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
+#. cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr "შორისების შედარება"
 
@@ -3467,7 +3125,7 @@ msgstr ""
 msgid "Compare with previous revision"
 msgstr "შედარება წინა ვერსიასთან"
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
@@ -3494,6 +3152,10 @@ msgstr "დასრულდა!"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "&TortoiseSVN-ისთვის ურნით სარგებლობის ამორთვა"
+
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
+msgid "Configure Filter Regex"
+msgstr ""
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
@@ -3559,17 +3221,9 @@ msgstr "დაკავშირება საცავის სერვე�
 msgid "Container sizes"
 msgstr "კონტეინერის ზომები"
 
-#. Resource IDs: (16520)
-msgid "Context Menus: "
-msgstr "კონტექსტური მენიუები:"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr ""
-
-#. Resource IDs: (16013)
-msgid "Contract docked window"
-msgstr "მიმაგრებული სარკმლის აკეცვა"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3600,7 +3254,7 @@ msgstr "პირველწყარო: %1!ls!@%2!ld!\r\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr ""
 
-#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr "კოპირება"
 
@@ -3630,12 +3284,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_COPY: Control id 142)
 msgid "Copy (Branch / Tag)"
 msgstr "კოპირება (შტო / ჭდე)"
-
-#. Resource IDs: (16907)
-msgid ""
-"Copy Tool\n"
-"Copy"
-msgstr "კოპირების სამარჯვი\nკოპირება"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
@@ -3667,7 +3315,7 @@ msgstr "ელემენტის კოპირება აქ"
 msgid "Copy selection to cli&pboard"
 msgstr "შერჩეულის &ბუფერში კოპირება"
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -3875,6 +3523,10 @@ msgstr ""
 msgid "Create &Library"
 msgstr "&ბიბლიოთეკის შექმნა"
 
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
+msgid "Create &patch file"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
 msgstr "&ბებკის შექმნა..."
@@ -3906,8 +3558,7 @@ msgid ""
 "%ls"
 msgstr "ახალი დასტის შექმნა:\r\n%ls"
 
-#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
-#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
 msgstr ""
 
@@ -3929,7 +3580,7 @@ msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr "ბიბლიოთეკის შექმნა სპეციალური პარამეტრებით სამუშაო საცავისთვის"
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
@@ -3951,10 +3602,6 @@ msgstr "მადლობები:"
 msgid "Cu&t"
 msgstr "&ამოჭრა"
 
-#. Resource IDs: (65535)
-msgid "Current"
-msgstr "მიმდინარე"
-
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1113)
 msgid "Current version is:"
 msgstr "მიმდინარე ვერსიაა:"
@@ -3963,14 +3610,6 @@ msgstr "მიმდინარე ვერსიაა:"
 #, c-format
 msgid "Current version is: %ls"
 msgstr "მიმდინარე ვერსიაა: %ls"
-
-#. Resource IDs: (17079)
-msgid "Cus&tomize..."
-msgstr "&მორგება..."
-
-#. Resource IDs: (16963)
-msgid "Custom"
-msgstr "საკუთარი"
 
 #. Resource IDs: (IDS_SVN_DEPTH_CUSTOM)
 msgid "Custom depths"
@@ -3984,22 +3623,6 @@ msgid ""
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
 msgstr ""
-
-#. Resource IDs: (16103, 17074)
-msgid "Customize"
-msgstr "მორგება"
-
-#. Resource IDs: (17076)
-msgid "Customize Keyboard"
-msgstr "კლავიატურის მორგება"
-
-#. Resource IDs: (17096)
-msgid "Customize Quick Access Toolbar"
-msgstr "სწრაფი წვდომის პულტის მორგება"
-
-#. Resource IDs: (17085)
-msgid "Customize Quick Access Toolbar..."
-msgstr "სწრაფი წვდომის პულტის მორგება..."
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4020,7 +3643,7 @@ msgstr "თარიღი"
 msgid "Date Range"
 msgstr "თარიღის დიაპაზონი"
 
-#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
+#. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "ნაგულისხმები"
 
@@ -4028,17 +3651,9 @@ msgstr "ნაგულისხმები"
 msgid "Default &number of log messages"
 msgstr "დავთრის ჩანაწერთა &რაოდენობა"
 
-#. Resource IDs: (16106)
-msgid "Default Menu"
-msgstr "ნაგულისხმები მენიუ"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1516)
 msgid "Default URL:"
 msgstr "ნაგულისხმებია მისამართი:"
-
-#. Resource IDs: (16107)
-msgid "Default application menu. Appears when no documents are open."
-msgstr "პროგრამის ნაგულისხმები მენიუ. გამოჩნდება დოკუმენტის გახსნისას."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4055,10 +3670,6 @@ msgstr "ნაგულისხმებია გეზი:"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "ნაგულისხმებად UTF-8 კოდირების მითითება"
-
-#. Resource IDs: (16020)
-msgid "Delete"
-msgstr "წაშლა"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
@@ -4155,14 +3766,6 @@ msgstr "სიღრმე"
 msgid "Depth:"
 msgstr "სიღრმე:"
 
-#. Resource IDs: (16031)
-msgid "Description"
-msgstr "აღწერილობა"
-
-#. Resource IDs: (65535)
-msgid "Description:"
-msgstr "აღწერილობა:"
-
 #. Resource IDs: (IDS_STATUSLIST_UNCHECKGROUP)
 msgid "Deselect changelist"
 msgstr "ცვლილებეთა სიის მონიშვნის მოხსნა"
@@ -4193,7 +3796,7 @@ msgstr "მოწყობილობისგან დამოუკიდ�
 msgid "Dialog sizes and positions"
 msgstr "დიალოგის ზომები და მდებარეობა"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr ""
 
@@ -4300,17 +3903,13 @@ msgstr "დისკი გადაივსო მიმართვისა�
 msgid "Dispatch exception: %1"
 msgstr "გამონაკლისების გამანაწილებელი: %1"
 
-#. Resource IDs: (65535)
-msgid "Display &buttons in this order"
-msgstr "&ღილაკების ჩვენება ამ რიგით"
-
 #. Resource IDs: (57669)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr "მენიუს, ღილაკებისა და ფანჯრების დახმარების ჩვენება\nდახმარება"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -4322,7 +3921,7 @@ msgid ""
 "Help"
 msgstr "დახმარების გამოყენების ინსტრუქციების ჩვენება\nდახმარება"
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -4371,11 +3970,6 @@ msgstr ""
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
 msgstr "ამის გაკეთება ყველა არავერსიული/შეცვლილი ელემენტისთვის"
-
-#. Resource IDs: (16109)
-#, c-format
-msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr ""
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4494,14 +4088,6 @@ msgid ""
 "Reload the views without saving the modifications"
 msgstr "შენახვის გარეშე\nხედების ხელახლა ჩატვირთვა ცვლილებების შენახვის გარეშე"
 
-#. Resource IDs: (16028)
-msgid "Drag to make this menu float"
-msgstr "გადაათრიეთ ამ მენიუს მოტივტივედ გარდასაქმნელად"
-
-#. Resource IDs: (16513)
-msgid "Draw"
-msgstr "გრაფიკა"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1079)
 msgid "Drive Types"
 msgstr "დისკების ტიპები"
@@ -4513,6 +4099,10 @@ msgstr "ამძრავები A: და B:"
 #. Resource IDs: (IDS_DROPDESC_NODROP)
 #, c-format
 msgid "Drop not possible on %1!ls!"
+msgstr ""
+
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
+msgid "E"
 msgstr ""
 
 #. Resource IDs: (ID_INLINEEDIT - Menu)
@@ -4527,7 +4117,8 @@ msgstr "ამ გეზების გარე&შე:"
 msgid "E&xecutable"
 msgstr "&შესრულებადი"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu,
+#. cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr "&გასვლა"
 
@@ -4559,14 +4150,10 @@ msgstr ""
 msgid "EXT"
 msgstr "EXT"
 
-#. Resource IDs: (156 - Ribbon element, 65535 - PopupMenu, Dialog
-#. IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id
+#. 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr "რედაქტირება"
-
-#. Resource IDs: (16133)
-msgid "Edit Button Image"
-msgstr "ღილაკის ნახატის რედაქტირება"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 319)
 msgid "Edit External"
@@ -4643,12 +4230,6 @@ msgstr "პროქსი სერვერის სახელი ან IP
 msgid "Eliding mergeinfo"
 msgstr "შერწყმის მონაცემთა რედაქცია"
 
-#. Resource IDs: (16906)
-msgid ""
-"Ellipse Tools\n"
-"Ellipse"
-msgstr "ელიფსის სამარჯვები\nელიფსი"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Empty"
 msgstr "ცარიელი"
@@ -4661,7 +4242,7 @@ msgstr "ავტო-&პარამეტრების გამოყენ
 msgid "Enable Auto-Properties"
 msgstr "თვითპარამეტრიზაციის ჩართვა"
 
-#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr ""
 
@@ -4881,18 +4462,7 @@ msgstr "გამონაკლისები:"
 msgid "Exclude"
 msgstr "გამომაკლისი"
 
-#. Resource IDs: (16023)
-msgid ""
-"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
-"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "შესრულებადი (*.exe)|*.exe|ბრძანების (*.com)|*.com|საინფორმაციო (*.pdf)|*.pdf|მჭიდი (*.bat)|*.bat|ყველა ფაილი (*.*)|*.*||"
-
-#. Resource IDs: (16018)
-msgid "Existing"
-msgstr "არსებული"
-
-#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
-#. Ribbon name)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2)
 msgid "Exit"
 msgstr "გამოსვლა"
 
@@ -4903,15 +4473,6 @@ msgstr "ძირითადი განტოტვის ჩა&მოშლ
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_BELOW)
 msgid "Expand &following tree"
 msgstr "&შემდეგი განტოტვის ჩამოშლა"
-
-#. Resource IDs: (16025)
-#, c-format
-msgid "Expand (%Ts)"
-msgstr ""
-
-#. Resource IDs: (16012)
-msgid "Expand docked window"
-msgstr "მიმაგრებული სარკმლის ჩამოშლა"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
@@ -5003,14 +4564,14 @@ msgstr "გარე ელემენტთა გარეშე"
 msgid "Externals included"
 msgstr "გარე ელემენტთა ჩათვლით"
 
+#. Resource IDs: (cmdFind_Keytip_RESID)
+msgid "F"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
 msgid "F&orce the merge"
 msgstr "&იძულებითი შერწყმა"
-
-#. Resource IDs: (17113)
-msgid "Fade"
-msgstr "გახუნება"
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
@@ -5118,7 +4679,7 @@ msgstr "სტატუსის მიღება: %1!ls!"
 msgid "Fetching tree conflict information..."
 msgstr ""
 
-#. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
+#. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
 msgstr "ფაილი"
 
@@ -5248,12 +4809,6 @@ msgstr ""
 msgid "Files"
 msgstr "ფაილები"
 
-#. Resource IDs: (16901)
-msgid ""
-"Fill Tool\n"
-"Fill"
-msgstr "ჩასხმის სამარჯვი\nჩასხმა"
-
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
 msgstr "გაფილტვრა:"
@@ -5276,8 +4831,12 @@ msgstr "ფილტრის გეზები"
 msgid "Filter:"
 msgstr ""
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
+msgid "Filtered"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr "პოვნა"
 
@@ -5289,7 +4848,7 @@ msgstr ""
 msgid "Find HEAD revisions"
 msgstr ""
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -5345,10 +4904,6 @@ msgstr "&ჭდეების აკეცვა"
 msgid "Folded tag"
 msgstr "აკეცილი ჭდე"
 
-#. Resource IDs: (16016)
-msgid "Folder"
-msgstr "დასტა"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Font"
@@ -5375,10 +4930,6 @@ msgstr "იძულებითი ამოღება"
 msgid "Foreground"
 msgstr ""
 
-#. Resource IDs: (17021)
-msgid "Forward"
-msgstr "წინ"
-
 #. Resource IDs: (IDS_REPOBROWSE_TT_FORWARD)
 msgid "Forwards in browsing history"
 msgstr ""
@@ -5392,10 +4943,6 @@ msgstr "ავტო სიტყვების მოძიება:"
 msgid "From:"
 msgstr "აქედან:"
 
-#. Resource IDs: (17026)
-msgid "Full Screen"
-msgstr "სრული ეკრანი"
-
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
 msgstr ""
@@ -5407,6 +4954,10 @@ msgstr ""
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
 msgstr "სრულად რეკურსიული"
+
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
+msgid "G"
+msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5504,43 +5055,43 @@ msgstr "გადასვლა სტრიქონზე"
 msgid "Go to line"
 msgstr "გადასვლა ხაზზე"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr "გადასვლა შემდეგ კონფლიქტზე\nშემდეგი კონფლიქტი"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr "გადასვლა შემდეგ განსხვავებაზე\nშემდეგი განსხვავება"
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr ""
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr "გადასვლა წინა კონფლიქტზე\nწინა კონფლიქტი"
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr "გადასვლა წინა განსხვავებაზე\nწინა განსხვავება"
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr ""
 
@@ -5551,10 +5102,6 @@ msgstr "გრაფიკის ტიპი:"
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
 msgstr "გრაფიკები საცავის ძირისთვის ყოველთვის ცარიელია!"
-
-#. Resource IDs: (16972)
-msgid "Gray"
-msgstr "ნაცრისფერი"
 
 #. Resource IDs: (32799)
 msgid "Group by branch"
@@ -5567,10 +5114,6 @@ msgstr "ჯგუფის ცვლილებათა სიები"
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1032)
 msgid "H&EAD Revision"
 msgstr "H&EAD ვერსია"
-
-#. Resource IDs: (65535)
-msgid "H&ue:"
-msgstr "&ტონალობა:"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1353, Dialog IDD_DIFFFILES:
 #. Control id 1354, IDS_EXTERNALS_HEADREV)
@@ -5609,17 +5152,9 @@ msgstr "თავსართი"
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
 #. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
 #. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
-#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "კარნახი"
-
-#. Resource IDs: (16982)
-msgid "Help Keyboard"
-msgstr "დამხმარე კლავიატურა"
-
-#. Resource IDs: (16974)
-msgid "Hex"
-msgstr "Hex"
 
 #. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
@@ -5641,10 +5176,6 @@ msgstr "ყველა ჭდის დამალვა"
 msgid "Hide deleted branches and tags"
 msgstr "წაშლილი განშტოებებისა და ჭდეების დამალვა"
 
-#. Resource IDs: (16011)
-msgid "Hide docked window"
-msgstr "მიმაგრებული სარკმლის დამალვა"
-
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1562)
 msgid "Hide non-mergeable revisions"
 msgstr "არაშერწყმადი ვერსიების დამალვა"
@@ -5662,12 +5193,11 @@ msgstr "სკრიპტის დამალვა შესრულებ�
 msgid "Hide unused &branches"
 msgstr "გამოუყენებელი &განშტოებების დამალვა"
 
-#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu)
 msgid "Hide/Show the patch file list"
 msgstr ""
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
@@ -5676,16 +5206,6 @@ msgstr "ბებკი ფაილების სიის ჩვენებ
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
 msgstr "ვერსიის მაქსიმალური ნომერი ბუფერში"
-
-#. Resource IDs: (16519)
-msgid ""
-"Hint: select the context menu, change the page to 'Commands' and drag the "
-"toolbar buttons into the menu window."
-msgstr "რჩევა: კონტექსტური მენიუდან გადადით გვერდზე 'ბრძანებები' და გადაათრიეთ პულტის ღილაკები მენიუს სარკმელში."
-
-#. Resource IDs: (17022)
-msgid "Home"
-msgstr "თავფურცელი"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -6055,12 +5575,12 @@ msgstr "&ყველა ხარეს იგნორირება"
 msgid "Ignore &ancestry"
 msgstr "&მემკვიდრეობის იგნორირება"
 
-#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
-#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
+#. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr "შორისების ცვლილებათა იგნორირება"
 
@@ -6074,7 +5594,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr "ცვლილებათა იგნორირება\nგარე ცვლილებათა იგნორირება."
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
@@ -6107,8 +5627,8 @@ msgid "Ignore whitespace c&hanges"
 msgstr "შორისების &ცვლილებების იგნორირება"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
-#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
-#. Ribbon name)
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu,
+#. cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr "შორისების ცვლილებების იგნორირება"
 
@@ -6120,13 +5640,13 @@ msgstr "არ გათვალისწინდა"
 msgid "Ignored items included"
 msgstr "იგნორირებულ ელემენტთა ჩათვლით"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr "გამოტოვებს შორისებს განსხვავებების პოვნისას\nშორისების იგნორირება"
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
@@ -6135,18 +5655,6 @@ msgstr "გამოტოვებს შორისებს განსხ�
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
 msgstr "უმართებლო გეზი"
-
-#. Resource IDs: (16916 - Menu)
-msgid "Image &and Text"
-msgstr "გამოსახულება &და ტექსტი"
-
-#. Resource IDs: (16507)
-msgid "Image &and text"
-msgstr "გამოსახულება &და ტექსტი"
-
-#. Resource IDs: (16508)
-msgid "Images"
-msgstr "გამოსახულებები"
 
 #. Resource IDs: (IDS_SVN_DEPTH_IMMEDIATE)
 msgid "Immediate children, including folders"
@@ -6265,12 +5773,13 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
+#. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
-#. Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
+#. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr ""
 
@@ -6282,7 +5791,7 @@ msgstr "სხვაობები სტრიქონში"
 msgid "Input"
 msgstr "შეტანა"
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -6414,20 +5923,12 @@ msgid ""
 "Jump to first unresolved conflict"
 msgstr ""
 
-#. Resource IDs: (16136)
-msgid "Keyboard"
-msgstr "კლავიატურა"
-
-#. Resource IDs: (65535)
-msgid "Keyboard shortcuts:"
-msgstr "მალმხმობები:"
-
-#. Resource IDs: (16030)
-msgid "Keys"
-msgstr "კლავიშები"
-
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL1)
 msgid "Kind"
+msgstr ""
+
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
+msgid "L"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
@@ -6512,14 +6013,8 @@ msgstr "ხაზი"
 msgid "Line Graph"
 msgstr "ხაზოვანი დიაგრამა"
 
-#. Resource IDs: (16904)
-msgid ""
-"Line Tool\n"
-"Line"
-msgstr "ხაზის სამარჯვი\nხაზი"
-
-#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu,
+#. cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr "სტრიქონთა შედარების პანელი"
 
@@ -6555,10 +6050,6 @@ msgstr "კარნახის თემების ჩვენება\n�
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
 msgstr "საცავების სია, რომლებისთვისაც დავთრის მონაცმები შეიცვალა"
-
-#. Resource IDs: (16631, 16992)
-msgid "List1"
-msgstr "სია1"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6598,11 +6089,12 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "ადგილი, სადაც საცავების URL-ს\nშიგთავსი შეინახება."
 
-#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu)
 msgid "Locator Bar"
 msgstr "მისამართის პანელი"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535,
+#. cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr "ლოკატორის პანელი"
 
@@ -6723,10 +6215,6 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr "უმცროსი ნაჩვენები ვერსია: %1!ld! - უფროსი ნაჩვენები ვერსია: %2!ld!\nსათაო (HEAD) ვერსია: %3!ld!"
 
-#. Resource IDs: (16973)
-msgid "Lum"
-msgstr "სიმკვეთრე"
-
 #. Resource IDs: (61841)
 msgid "Mail system DLL is invalid."
 msgstr "საფოსტო სისტემის DLL–ი მცდარია."
@@ -6768,7 +6256,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
-#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
+#. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr "მონიშვნა მოგვარებულად"
 
@@ -6802,7 +6290,7 @@ msgstr ""
 msgid "Markers"
 msgstr "ნიშნულები"
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
@@ -6839,22 +6327,6 @@ msgstr "სტრიქონთა მაქსიმუმი ქმედე�
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "სამარჯვის &უშედეგო მცდელობების მაქსიმუმი ბუფერის წაშლამდე"
-
-#. Resource IDs: (16655)
-msgid "Me&nus show recently used commands first"
-msgstr "მე&ნიუებში ჯერ ბოლო ბრძანებების ჩვენება"
-
-#. Resource IDs: (16134)
-msgid "Menu"
-msgstr "მენიუ"
-
-#. Resource IDs: (16006)
-msgid "Menu Bar"
-msgstr "მენიუს პანელი"
-
-#. Resource IDs: (16626)
-msgid "Menu s&hadows"
-msgstr "მენიუს &ჩრდილები"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -7019,10 +6491,6 @@ msgstr "მინიმუმი"
 msgid "Mine"
 msgstr "ჩემი"
 
-#. Resource IDs: (17086)
-msgid "Minimize the Ribbon"
-msgstr "ზოლის მინიმიზება"
-
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
 msgstr "სიმბოლოთა მინიმუმი გზავნილისათვის:"
@@ -7046,7 +6514,7 @@ msgstr "შერეული"
 msgid "Modification date"
 msgstr "შეცვლის თარიღი"
 
-#. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
@@ -7059,18 +6527,6 @@ msgstr "შეცვლილი კვანძი"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
 msgstr ""
-
-#. Resource IDs: (17107)
-msgid "More"
-msgstr "დაწვრილებით"
-
-#. Resource IDs: (16026)
-msgid "More Buttons"
-msgstr "სხვა ღილაკები..."
-
-#. Resource IDs: (17097)
-msgid "More Commands..."
-msgstr "სხვა ბრძანებები..."
 
 #. Resource IDs: (IDS_COLOURPICKER_CUSTOMTEXT)
 msgid "More colors..."
@@ -7088,10 +6544,6 @@ msgstr "დაწვრილებით..."
 msgid "Most active author:"
 msgstr "ყველაზე აქტიური ავტორი:"
 
-#. Resource IDs: (16135)
-msgid "Mouse"
-msgstr "თაგუნა"
-
 #. Resource IDs: (IDS_INPUT_MOVEMORE)
 #, c-format
 msgid ""
@@ -7105,22 +6557,6 @@ msgid ""
 "Move %1!ls!\r\n"
 "to %2!ls!"
 msgstr "გადატანა: %1!ls!\r\nაქ %2!ls!"
-
-#. Resource IDs: (17026)
-msgid "Move &Down"
-msgstr "&ქვემოთ"
-
-#. Resource IDs: (17025)
-msgid "Move &Up"
-msgstr "&ზემოთ"
-
-#. Resource IDs: (16022)
-msgid "Move Item Down"
-msgstr "ელემენტის ქვემოთ ჩატანა"
-
-#. Resource IDs: (16021)
-msgid "Move Item Up"
-msgstr "ელემენტის ზემოთ ატანა"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK4)
 msgid ""
@@ -7221,36 +6657,36 @@ msgstr "მრავალი, &დამოუკიდებელი სა�
 msgid "My file:"
 msgstr "ჩემი ფაილი:"
 
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
+msgid "NC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
+msgid "ND"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
+msgid "NI"
+msgstr ""
+
 #. Resource IDs: (59138)
 msgid "NUM"
 msgstr "NUM"
-
-#. Resource IDs: (17128)
-msgid "Name"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535, Dialog
 #. IDD_REGEXFILTER: Control id 65535)
 msgid "Name:"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr ""
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr ""
-
-#. Resource IDs: (17004)
-msgid "Navigation Pane Options"
-msgstr "ნავიგაციის პანელის პარამეტრები"
-
-#. Resource IDs: (17031)
-msgid "Navigation Pane Options..."
-msgstr "ნავიგაციის პანელის პარამეტრები..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
@@ -7277,17 +6713,13 @@ msgstr "ქსელი"
 msgid "Never try to contact the repository again"
 msgstr "აღარ დაუკავშირდე ამ საცავს"
 
-#. Resource IDs: (16017, 16027, 30721, 65535, 65535 - PopupMenu)
+#. Resource IDs: (30721, 65535 - PopupMenu)
 msgid "New"
 msgstr "ახალი"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
 msgstr "ახალი &სახელი:"
-
-#. Resource IDs: (16014)
-msgid "New Menu"
-msgstr "ახალი მენიუ"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7301,24 +6733,18 @@ msgstr ""
 msgid "Newlines"
 msgstr ""
 
-#. Resource IDs: (58114)
-msgid ""
-"Next Page\n"
-"Next Page"
-msgstr "შემდეგი გვერდი\nშემდეგი გვერდი"
-
-#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
-#. Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
+#. cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
-#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
+#. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
-#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
+#. cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr ""
 
@@ -7372,6 +6798,10 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr "ბოლო ფიქსაციის შემდეგ არცერთი \nფაილი არ შეცვლილა ან დამატებულა.\nTortoiseSVN–ს აქ არაფერი ესაქმება..."
 
+#. Resource IDs: (33002)
+msgid "No filter"
+msgstr ""
+
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
 msgstr "შესაძლო გრაფიკი არ არსებობს"
@@ -7416,7 +6846,7 @@ msgstr "გადატანილი/გადარქმეული და�
 msgid "Non-versioned"
 msgstr "არავერსიული"
 
-#. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
+#. Resource IDs: (Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
 msgstr "არა"
@@ -7560,24 +6990,6 @@ msgstr "დიახ"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
-#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
-msgid "Office 2003"
-msgstr ""
-
-#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
-msgid "Office 2007"
-msgstr ""
-
-#. Resource IDs: (10008, 65535 - PopupMenu)
-msgid "Office 2007 colors"
-msgstr ""
-
-#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
-#. - Ribbon name)
-msgid "Office XP"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Older lines"
 msgstr "ძველი სტრიქონები"
@@ -7644,7 +7056,7 @@ msgstr "&მართლწერის შემოწმების გამ
 msgid "Opacity"
 msgstr "გაუმჭვირვალობა"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr "გახსნა"
 
@@ -7660,7 +7072,7 @@ msgstr ""
 msgid "Open client certificate file"
 msgstr "კლიენტის სერთიფიკატის ფაილის გახსნა"
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
@@ -7716,17 +7128,9 @@ msgstr "ოპერატიული"
 msgid "Option"
 msgstr "გადამრთველი"
 
-#. Resource IDs: (16137)
-msgid "Options"
-msgstr "პარამეტრები"
-
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr ""
-
-#. Resource IDs: (17024)
-msgid "Other Task Panes"
-msgstr "სხვა ამოცანათა პანელები"
 
 #. Resource IDs: (IDS_STATGRAPH_OTHERGROUP)
 msgid "Others"
@@ -7754,6 +7158,18 @@ msgstr "ჩაანაცვლებს svn:eol-style პარამეტრ
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
+msgid "PC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
+msgid "PD"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
+msgid "PI"
 msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
@@ -7802,15 +7218,9 @@ msgstr ""
 msgid "Password:"
 msgstr "პაროლი."
 
-#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr ""
-
-#. Resource IDs: (16908)
-msgid ""
-"Paste Tool\n"
-"Paste"
-msgstr "ჩასმის სამარჯვი\nჩასმა"
 
 #. Resource IDs: (IDS_COMMITDLG_POPUP_PASTEFILELIST)
 msgid "Paste filename list"
@@ -7881,12 +7291,6 @@ msgstr ""
 msgid "Peg"
 msgstr "ძირეული (Peg)"
 
-#. Resource IDs: (16902)
-msgid ""
-"Pencil Tool\n"
-"Pencil"
-msgstr "ფანქრის სამარჯვი\nფანქარი"
-
 #. Resource IDs: (IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP)
 msgid "Percent of authorship"
 msgstr "ავტორობის პროცენტი"
@@ -7895,19 +7299,11 @@ msgstr "ავტორობის პროცენტი"
 msgid "Percents"
 msgstr "პროცენტი"
 
-#. Resource IDs: (16538)
-msgid "Personalized Menus and Toolbars"
-msgstr "მორგებული მენიუები და პულტები"
-
 #. Resource IDs: (61582)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr "გამოსახულება (მეტაფაილი)\nგამოსახულება"
-
-#. Resource IDs: (65535)
-msgid "Picture:"
-msgstr "გამოსახულება:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
@@ -7944,10 +7340,6 @@ msgstr "გაითვალისწინეთ:\nთქვენი სა�
 msgid "Please select a hook type"
 msgstr "გთხოვთ მიუთითოთ ბმულის ტიპი"
 
-#. Resource IDs: (IDS_BLAME_PROGRESSINFO)
-msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "შეიცადეთ.  შესაძლოა რამდენიმე წუთი დასჭირდეს. სერიოზულად!"
-
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
 msgstr "შეიცადეთ გაუქმებამდე..."
@@ -7965,8 +7357,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "გთხოვთ დაელოდოთ საცავის ბროუზერის ინიციალიზებას..."
 
 #. Resource IDs: (Dialog IDD_PLEASEWAIT: Control id 347,
-#. IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT, IDS_REPOBROWSE_WAIT,
-#. IDS_STATUSLIST_BUSYMSG)
+#. IDS_BLAME_PROGRESSINFO, IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT,
+#. IDS_REPOBROWSE_WAIT, IDS_STATUSLIST_BUSYMSG)
 msgid "Please wait..."
 msgstr "გთხოვთ შეიცადოთ..."
 
@@ -8018,60 +7410,28 @@ msgstr ""
 msgid "Prepend this block to left"
 msgstr ""
 
-#. Resource IDs: (65535)
-msgid "Press &New Shortcut Key:"
-msgstr "&ახალი - მიუთითეთ მალმხმობი:"
-
-#. Resource IDs: (65535)
-msgid "Press &new shortcut key:"
-msgstr "&ახალი - მიუთითეთ მალმხმობი:"
-
 #. Resource IDs: (32819)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "ამცირებს დამაკავშირებელი ხაზების ვერსიების კვანძებთან კვეთის შემთხვევებს"
-
-#. Resource IDs: (17094)
-msgid "Preview"
-msgstr "ესკიზი"
 
 #. Resource IDs: (IDS_PATCH_PREVIEW)
 msgid "Preview patched file"
 msgstr "ბებკი ფაილის ესკიზი"
 
-#. Resource IDs: (65535)
-msgid "Preview: "
-msgstr "ესკიზი:"
-
-#. Resource IDs: (58115)
-msgid ""
-"Previous Page\n"
-"Previous Page"
-msgstr "წინა გვერდი\nწინა გვერდი"
-
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
-#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
+#. cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
-#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
+#. cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr ""
 
 #. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
-#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
+#. cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr ""
-
-#. Resource IDs: (16990, 17092)
-msgid "Print"
-msgstr "დაბეჭდვა"
-
-#. Resource IDs: (58116)
-msgid ""
-"Print Document\n"
-"&Print"
-msgstr "დოკუმენტის დაბეჭდვა\n&დაბეჭდვა"
 
 #. Resource IDs: (61512)
 msgid "Print to File"
@@ -8233,7 +7593,7 @@ msgstr "პროქსის პარამეტრები"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "ზედა მენიუს «დაბლოკვა», თუ მითითებულია svn:needs-lock"
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -8245,13 +7605,13 @@ msgid ""
 "Exit TortoiseMerge without saving the modifications"
 msgstr "გამოსვლა\nTortoiseMerge პროგრამის დახურვა ცვლილებების შენახვის გარეშე"
 
+#. Resource IDs: (cmdReload_Keytip_RESID)
+msgid "R"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
 msgstr "R&AM დისკები"
-
-#. Resource IDs: (16623)
-msgid "R&eset"
-msgstr "გა&ნულება"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1423)
 msgid "R&everse merge"
@@ -8277,14 +7637,6 @@ msgstr "&მობილური დისკები"
 msgid "Re&name..."
 msgstr "გადარ&ქმევა..."
 
-#. Resource IDs: (16613)
-msgid "Re&set"
-msgstr "გა&ნულება"
-
-#. Resource IDs: (16647)
-msgid "Re&set All"
-msgstr "ყველას გა&ნულება"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "ნაგულისხმების ა&ღდგენა"
@@ -8304,10 +7656,6 @@ msgstr "სანამ ჩაეფლობით გადაიკითხ�
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL2)
 msgid "Realm String"
 msgstr ""
-
-#. Resource IDs: (16019)
-msgid "Recent"
-msgstr "უახლესი"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
@@ -8347,12 +7695,6 @@ msgid ""
 "Open the auto-saved versions instead of the explicitly saved versions"
 msgstr "დამარქაფებული დოკუმენტების აღდგენა\nდამარქაფებული ვერსიების გახსნა ნაცვლად შენახულების"
 
-#. Resource IDs: (16905)
-msgid ""
-"Rectangle Tool\n"
-"Rectangle"
-msgstr "მართკუთხედის სამარჯვი\nმართკუთხედი"
-
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recur&sive\n"
@@ -8375,11 +7717,11 @@ msgstr "ურნა"
 msgid "Redirecting to url"
 msgstr "გადამისამართება"
 
-#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr ""
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -8407,8 +7749,8 @@ msgstr "გარსის &თარგის განახლება"
 msgid "Refreshing shell for %1!ls!"
 msgstr "გარსის განახლება: %1!ls!"
 
-#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
-#. 165, ID_REGEXFILTER - Ribbon name)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165,
+#. cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr ""
 
@@ -8486,11 +7828,11 @@ msgstr "ფაილების დაბლოკვის მოხსნა,
 msgid "Relo&cate..."
 msgstr "გადაადგი&ლება..."
 
-#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr "კვლავჩატვირთვა"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -8559,10 +7901,6 @@ msgstr ""
 msgid "Remove from &ignore list"
 msgstr "ამოშლა &იგნორირებულთა სიიდან"
 
-#. Resource IDs: (17084)
-msgid "Remove from Quick Access Toolbar"
-msgstr "ამოღება სწრაფი წვდომის პულტიდან"
-
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REMOVEFROMCS)
 msgid "Remove from changelist"
 msgstr "ამოღება ცვლილებათა სიიდან"
@@ -8627,10 +7965,6 @@ msgstr "გამოტოვებული ელემენტების �
 #, c-format
 msgid "Removing unversioned items in %1!ls!"
 msgstr "არავერსიული ელემენტების ამოღება: %1!ls!"
-
-#. Resource IDs: (16616)
-msgid "Rena&me..."
-msgstr "გადა&რქმევა"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 151)
 msgid "Rename"
@@ -8752,10 +8086,6 @@ msgstr "მონაწილის სახელისა და პარო
 #. Resource IDs: (IDS_MENURESOLVE)
 msgid "Res&olve..."
 msgstr ""
-
-#. Resource IDs: (16614)
-msgid "Reset &All"
-msgstr "&ყველას აღდგენა"
 
 #. Resource IDs: (IDS_STATUSLIST_RESETCOLUMNORDER)
 msgid "Reset columns"
@@ -8959,24 +8289,6 @@ msgstr "მარჯვენა ხედი"
 msgid "Right image"
 msgstr "მარჯვენა ნახატი"
 
-#. Resource IDs: (17108)
-#, c-format
-msgid "Row %d of %d"
-msgstr "მწკრივი %d, სულ %d-დან"
-
-#. Resource IDs: (17109)
-#, c-format
-msgid "Row %d-%d of %d"
-msgstr "მწკრივები %d-%d, სულ %d-დან"
-
-#. Resource IDs: (17116)
-msgid "Row Down"
-msgstr "სტრიქონი ქვემოთ"
-
-#. Resource IDs: (17115)
-msgid "Row Up"
-msgstr "სტრიქონი ზემოთ"
-
 #. Resource IDs: (IDS_RUNCLEANUPNOW)
 msgid "Run cleanup &now"
 msgstr "დასუფთავების &დაწყება"
@@ -8985,21 +8297,9 @@ msgstr "დასუფთავების &დაწყება"
 msgid "Run hoo&k script"
 msgstr ""
 
-#. Resource IDs: (17045)
-msgid "S&elect..."
-msgstr "&შერჩევა"
-
-#. Resource IDs: (17027)
-msgid "S&how Buttons on One Row"
-msgstr "ღილაკების &ერთ რიგში ჩვენება"
-
-#. Resource IDs: (17028)
-msgid "S&how Buttons on Two Rows"
-msgstr "ღილაკების &ორ რიგში ჩვენება"
-
-#. Resource IDs: (17078)
-msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "სწრაფი &წვდომის პულტის ჩვენება ზოლის ქვეშ"
+#. Resource IDs: (cmdSave_Keytip_RESID)
+msgid "S"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -9109,11 +8409,15 @@ msgstr "დავთრის ჩანაწერის ნიმუში მ
 msgid "Sample text:"
 msgstr "ტექსტის ნიმუში"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr ""
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
+msgid "Save &as"
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "შენახვა &როგორც..."
 
@@ -9183,7 +8487,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr ""
 
-#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
+#. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
 msgstr ""
 
@@ -9222,7 +8526,7 @@ msgstr "&აგრეთვე ვერსიის შენახვა"
 msgid "Save settings to file"
 msgstr ""
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -9277,14 +8581,6 @@ msgstr "სკანირება"
 msgid "Scintilla"
 msgstr "Scintilla"
 
-#. Resource IDs: (16034)
-msgid "Scroll Left"
-msgstr "გადახვევა მარცხნივ"
-
-#. Resource IDs: (16035)
-msgid "Scroll Right"
-msgstr "გადახვევა მარჯვნივ"
-
 #. Resource IDs: (IDS_LOG_POPUP_FIND)
 msgid "Search &log messages..."
 msgstr "ძიება &დავთრის ჩანაწერებში..."
@@ -9318,30 +8614,12 @@ msgstr ""
 msgid "Select &All"
 msgstr "&სრული მონიშვნა"
 
-#. Resource IDs: (16529)
-msgid "Select &User-defined Image: "
-msgstr "&საკუთარი გამოსახულების შერჩევა:"
-
-#. Resource IDs: (16508)
-msgid "Select &context menu:"
-msgstr "&კონტექსტური მენიუს შერჩევა:"
-
-#. Resource IDs: (65535)
-msgid "Select &window:"
-msgstr "&სარკმლის შერჩევა:"
-
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "&სრული მონიშვნა/მოხსნა"
-
-#. Resource IDs: (16903)
-msgid ""
-"Select Color Tool\n"
-"Select Color"
-msgstr "ფერის შერჩევის სამარჯვი\nფერის შერჩევა"
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
@@ -9488,10 +8766,6 @@ msgstr "შიგთავსის გაგზავნა"
 msgid "Server &address:"
 msgstr "სერვერის &მისამართი:"
 
-#. Resource IDs: (65535)
-msgid "Set Accelerator &for:"
-msgstr "დამა&ჩქარებლის მითითება:"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1544)
 msgid "Set explicit revision for these externals:"
 msgstr "ვერსიის უშუალოდ მითითება ამ გარე მასალისთვის:"
@@ -9511,8 +8785,8 @@ msgstr ""
 msgid "Setting properties..."
 msgstr "პარამეტრების მითითება..."
 
-#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
-#. Ribbon name)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu,
+#. cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr "პარამეტრები"
 
@@ -9557,10 +8831,6 @@ msgstr "პარამეტრების მოკლე სია"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1382)
 msgid "Show"
 msgstr "ჩვენება"
-
-#. Resource IDs: (16996)
-msgid "Show &Accelerator for:"
-msgstr "დამა&ჩქარებლის ჩვენბა:"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1031, IDS_LOG_SHOWALL)
 msgid "Show &All"
@@ -9617,29 +8887,17 @@ msgstr "&თარგებისა და კონტექსტური �
 msgid "Show &unversioned files"
 msgstr "&არავერსიული ფაილების ჩვენება"
 
-#. Resource IDs: (17099)
-msgid "Show Above the Ribbon"
-msgstr "ჩვენება ზოლის ზემოთ"
-
-#. Resource IDs: (17098)
-msgid "Show Below the Ribbon"
-msgstr "ჩვენება ზოლის ქვემოთ"
-
-#. Resource IDs: (17030)
-msgid "Show Fewer Buttons"
-msgstr "ნაკლები ღილაკების ჩვენება"
-
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
 msgstr "HEAD ვერსიის კვანძების ჩვენება"
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr "შიდა ტქსტური სიტყვა-სიტყვითი შედარება\nშიდა ტქსტური შედარება სიტყვებით"
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
@@ -9653,32 +8911,16 @@ msgstr "ფაილის დაბლოკვამდე დაბლოკ�
 msgid "Show Monitor Dialog"
 msgstr ""
 
-#. Resource IDs: (17029)
-msgid "Show More Buttons"
-msgstr "მეტი ღილაკების ჩვენება"
-
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "&მიმოხილვის ჩვენება"
-
-#. Resource IDs: (17082)
-msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "სწრაფი წვდომის პულტის ჩვენება ზოლის ზემოთ"
-
-#. Resource IDs: (17081)
-msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "სწრაფი წვდომის პულტის ჩვენება ზოლის ქვემოთ"
-
-#. Resource IDs: (16651)
-msgid "Show Screen&Tips on toolbars"
-msgstr "&ეკრანული მინიშნებების ჩვენება პულტებზე"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "სამუშაო ასლის &ცვლილებები"
 
-#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
+#. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr ""
 
@@ -9709,10 +8951,6 @@ msgstr "ცალკეული ძირეული დასტების 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1480)
 msgid "Show externals from &different repositories"
 msgstr "გარე ელემენტთა ჩვენება &სხვადასხვა საცავებიდან"
-
-#. Resource IDs: (16656)
-msgid "Show f&ull menus after a short delay"
-msgstr "მენიუების &სრულად ჩვენება მცირე დაყოვნებით"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1037, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1034)
@@ -9750,19 +8988,19 @@ msgid ""
 "with dots."
 msgstr "გეზის მხოლოდ შეცვლილი ნაწილების ჩვენება. უცვლელი ელემენტების წერტილებით ჩანაცვლება."
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr "სტრიქონთა სხვაობის პანელის ჩვენება ან დამალვა\nსტრიქონთა სხვაობის პანელის გადართვა"
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr "მისამართების პანელის ჩვენება ან დამალვა\nმისამართების პანელის გადართვა"
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -9778,11 +9016,7 @@ msgstr "ხელსაწყოების პანელის ჩვენ�
 msgid "Show revision properties"
 msgstr "ვერსიის პარამეტრების ჩვენება"
 
-#. Resource IDs: (16652)
-msgid "Show shortcut &keys in ScreenTips"
-msgstr "&მალმხმობებისა და მინიშნებების ჩვენება"
-
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
@@ -9873,12 +9107,7 @@ msgstr "მონიშნული ფაილის / დასტის დ�
 msgid "Shows the mime type of the versioned file"
 msgstr "ვერსიული ფაილის mime ტიპის ჩვენება"
 
-#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
-msgid "Silver Style"
-msgstr ""
-
-#. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
+#. Resource IDs: (IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
 msgstr "ზომა"
 
@@ -9931,10 +9160,6 @@ msgstr "გამოტოვებულია, ვერსიული ძი
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
 msgstr ""
-
-#. Resource IDs: (17112)
-msgid "Slide"
-msgstr "წანაცვლება"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
 msgid "Smart tab char"
@@ -10006,10 +9231,6 @@ msgid ""
 "Separate the patterns with a space."
 msgstr "იმ ფაილების ან დასტების მითითება, რომლებიც\r\nგამოსატოვებელია ყველა სამუშაო ასლიდან.\r\nთარგები შორისით გამოყავით."
 
-#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-msgid "Spin1"
-msgstr "მრიცხველი1"
-
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SPLIT_ABOVE)
 msgid "Split &source tree"
 msgstr "&ძირითადი განტოტვის გახლეჩა"
@@ -10039,10 +9260,6 @@ msgstr "ჰისტოგრამა გადაფარვით"
 #. Resource IDs: (IDS_STATGRAPH_LINESTACKEDBUTTON_TT)
 msgid "Stacked Line Graph"
 msgstr "ხაზოვანი გრაფიკი გადაფარვით"
-
-#. Resource IDs: (16962)
-msgid "Standard"
-msgstr "სტანდარტი"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
@@ -10086,10 +9303,6 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#. Resource IDs: (16514)
-msgid "Static"
-msgstr "სტატიკური"
-
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
 msgstr "სტატისტიკა"
@@ -10099,13 +9312,9 @@ msgstr "სტატისტიკა"
 msgid "Status"
 msgstr "სტატუსი"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr ""
-
-#. Resource IDs: (17087)
-msgid "Status Bar Configuration"
-msgstr "სტატუსის პანელის კონფიგურაცია"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -10149,10 +9358,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
 msgstr "ზოლები"
-
-#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
-msgid "Style"
-msgstr ""
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
 msgid ""
@@ -10269,21 +9474,23 @@ msgid ""
 "Previous Pane"
 msgstr "გადმორთვა წინა პანელზე\nწინა პანელი"
 
-#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
+#. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr ""
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr "გადართვა ერთსარკმლიან/ორსარკმლიან რეჟიმზე\nგადართვა ერთ/ორ სარკმლიან რეჟიმზე"
 
-#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
+#. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr ""
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -10349,10 +9556,6 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
-#. Resource IDs: (16970)
-msgid "Tab Placeholder"
-msgstr "დაფის სამაგრი"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Tab size:"
@@ -10369,10 +9572,6 @@ msgstr "სამიზნე დასტა ცარიელი არაა
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
 msgstr "ამოცანები"
-
-#. Resource IDs: (17019)
-msgid "Tasks Pane"
-msgstr "ამოცანათა პანელი"
 
 #. Resource IDs: (IDS_PROGRS_DRYRUN)
 msgid "Test Only"
@@ -10901,13 +10100,6 @@ msgstr "ეს პარამეტრი მხოლდ დასტას �
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "ამ პარამეტრს შეიძლება ჰქონდეს მხოლოდ ერთი და არა რამდენიმე სტრიქონი."
 
-#. Resource IDs: (16244)
-msgid ""
-"This will delete the record of commands you've used in this application and "
-"restore the default set of visible commands to the menus and toolbars. It "
-"will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "წაიშლება ამ პროგრამაში გამოყენებული ყველა ბრძანება და აღდგება ბრძანებათა ნაგულისხმები ნაკრები მენიუებისა და სამარჯვებისთვის. ეს არ შეეხება უშუალო მითითებულ პარამეტრებს. ნამდვილად გსურთ ამის გაკეთება?"
-
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK1)
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
@@ -10921,14 +10113,6 @@ msgid ""
 "The command line to run is:\n"
 "%ls"
 msgstr "სამუშაო ასლში კლიენტის დამუშავების სკრიპტია მითითებული. გნებავთ ამ სკრიპტის შესრულება?\nბრძანება შემდეგია:\n%ls"
-
-#. Resource IDs: (16928)
-msgid "Tile &Vertically"
-msgstr "&მართობული მოზაიკა"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
-msgstr "დალაგება &განივად"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Timeouts"
@@ -10961,40 +10145,6 @@ msgstr "დაბლოკვის გადასახვეწად, ელ
 #. IDD_REVGRAPHFILTER: Control id 65535)
 msgid "To:"
 msgstr "აქ:"
-
-#. Resource IDs: (58113)
-msgid ""
-"Toggle One/Two Pages display\n"
-"Toggle One/Two Pages display"
-msgstr "ერთი/ორი გვერდის ჩვენების გადართვა\nერთი/ორი გვერდის ჩვენების გადართვა"
-
-#. Resource IDs: (65535)
-msgid "Toolbar"
-msgstr "პულტი"
-
-#. Resource IDs: (16130)
-msgid "Toolbar Name"
-msgstr "პულტის სახელი"
-
-#. Resource IDs: (17017)
-msgid "Toolbar Options"
-msgstr "პულტის პარამეტრები"
-
-#. Resource IDs: (16008)
-msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "პულტის შიდა შეცდომა. გთხოვთ დაუკავშირდეთ პროგრამის მომწოდებელს."
-
-#. Resource IDs: (16105)
-msgid "Toolbars"
-msgstr "პულტები"
-
-#. Resource IDs: (16928)
-msgid "Tools"
-msgstr "ხელსაწყოები"
-
-#. Resource IDs: (65535)
-msgid "Tools:"
-msgstr "ხელსაწყოები:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -11031,8 +10181,8 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: ნახატების შედარების პროგრამა TortoiseSVN-ისთვის\n\nშესაძლო ბრძანებები და პარამეტრებია:\n/left:\"მარცხენა ნახატის გეზი\"\n/lefttitle:\"სათაური მარცხენა ნახატისთვის\"\n/right:\"მარჯვენა ნახატის გეზი\"\n/righttitle:\"სათაური მარჯვენა ნახატისთვის\"\n/overlay\t\tto თარგების რეჟიმის ჩართვა\n/fit\t\tto გამოსახულებათა ზომების მორგება\n/showinfo\t\tto გამოსახულებათა მონაცემთა დაფების ჩვენება"
 
-#. Resource IDs: (100, 156 - Ribbon element, 32897, 57344, Dialog IDD_OPENDLG:
-#. Control id 130, IDS_APPNAME)
+#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -11186,10 +10336,6 @@ msgstr ""
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN-ის გამართვა"
 
-#. Resource IDs: (17130)
-msgid "Type"
-msgstr ""
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1436)
 msgid "U&pdate"
 msgstr "გა&ნახლება"
@@ -11284,24 +10430,15 @@ msgid ""
 "menu"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr ""
-
-#. Resource IDs: (17102)
-#, c-format
-msgid "Undo %d Actions"
-msgstr "%d ქმედების გაუქმება"
-
-#. Resource IDs: (17103)
-msgid "Undo 1 Action"
-msgstr "1 ქმედების გაუქმება"
 
 #. Resource IDs: (IDS_MENUUNDOADD)
 msgid "Undo Add..."
 msgstr ""
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
@@ -11310,10 +10447,6 @@ msgstr ""
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
 msgstr "ფაილის მოულოდნელი ფორმატი."
-
-#. Resource IDs: (17111)
-msgid "Unfold"
-msgstr "ჩამოშლა"
 
 #. Resource IDs: (61591)
 msgid ""
@@ -11483,10 +10616,6 @@ msgstr "განახლება: '%1!ls!'"
 msgid "Urls"
 msgstr ""
 
-#. Resource IDs: (16530)
-msgid "Use &Default Image: "
-msgstr "&ნაგულისხმები გამოსახულება"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "&ერთპანელიანი ხედის გამოყენება 2 ფაილის შედარებისას"
@@ -11506,22 +10635,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr "გამოიყენეთ სპეცსიმბოლო '*' გამონაკლისის მისათითებლად.\r\nრამდენიმე გამონაკლისის გასაყოფად გამოიყენეთ მძიმეები (',').\r\nმაგალითად: *.mylan.com, *.company.com"
 
-#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
-#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
+#. cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu,
+#. cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
-#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
+#. cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr ""
 
@@ -11541,29 +10670,29 @@ msgstr "სამუშაო &ასლის საწყისი URL-ს მ
 msgid "Use Unified Diff from &clipboard"
 msgstr "უნიფიცირებული ბებკის გამოყენება &ბუფერიდან"
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr "ყველა მონაცემის გამოყენება მარცხნიდან\nმარცხენა ფაილით სარგებლობა"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
-#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
+#. cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr "მარცხენა ბლოკის გამოყენება მარჯვენამდე"
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr "მარცხენა ბლოკის გამოყენება მარჯვენამდე\nმარცხენა ბლოკის გამოყენება მარჯვენამდე"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
-#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
+#. cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr "მარჯვენა ბლოკის გამოყენება მარცხენამდე"
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -11577,13 +10706,12 @@ msgstr "ორივე ტექსტური ბლოკის გამო
 msgid "Use both text blocks (this one last)"
 msgstr "ორივე ტექსტური ბლოკის გამოყენება (ეს ბოლოა)"
 
-#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
+#. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr ""
 
-#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr "მარცხენა ფაილის გამოყენება"
 
@@ -11619,13 +10747,13 @@ msgstr "ტექსტური ბლოკის გამოყენებ�
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "ტექსტური ბლოკის გამოყენება «ჩე&მი»-დან «მათი»-მდე"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr "ტექსტური ბლოკის გამოყენება «ჩემი»-დან «მათი»-მდე\nჯერ «ჩემი» ტექსტური ბლოკის გამოყენება, შემდეგ «მათი»"
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -11635,19 +10763,19 @@ msgstr "ტექსტური ბლოკის გამოყენებ�
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "ტექსტური ბლოკის გამოყენება «მა&თი»-დან «ჩემი»-მდე"
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr "ტექსტური ბლოკის გამოყენება «მათი»-დან «ჩემი»-მდე\nჯერ «მათი» ტექსტური ბლოკის გამოყენება, შემდეგ «ჩემი»"
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr "ტექსტური ბლოკის გამოყენება «მათი»-დან\nტექსტური ბლოკის გამოყენება «მათი»"
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
@@ -11719,6 +10847,10 @@ msgstr ""
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr ""
 
+#. Resource IDs: (cmdPaste_Keytip_RESID)
+msgid "V"
+msgstr ""
+
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
 "Valid command line options are:\n"
@@ -11768,11 +10900,11 @@ msgstr "ვერსიის მონაცემები"
 msgid "Versioned"
 msgstr "ვერსიული"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr ""
 
-#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr ""
 
@@ -11788,14 +10920,8 @@ msgstr "ვერსიის ნახვა &ვებ მიმომხი�
 msgid "Visit our website"
 msgstr "მოინახულეთ ჩვენი ვებსაიტი"
 
-#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
-#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
-msgid "Visual Studio 2005"
-msgstr ""
-
-#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
-#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
-msgid "Visual Studio 2008"
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
+msgid "W"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
@@ -11883,33 +11009,10 @@ msgstr "ერთი ან მეტი ფაილის დაბლოკ�
 msgid "Whitespace changes (tabs, spaces)"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
-#. 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
+#. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "შორისები"
-
-#. Resource IDs: (17038)
-msgid "Window Position"
-msgstr "სარკმლის პოზიცია"
-
-#. Resource IDs: (16927)
-msgid "Windows"
-msgstr "სარკმლები"
-
-#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
-#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
-msgid "Windows 2000"
-msgstr ""
-
-#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
-#. Ribbon name)
-msgid "Windows 7"
-msgstr ""
-
-#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
-#. - Ribbon name)
-msgid "Windows XP"
-msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 158, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 1493, Dialog IDD_MERGEWIZARD_TREE:
@@ -11938,15 +11041,22 @@ msgstr "სამუშაო ასლი გადატანილია ა
 msgid "Working copy: %ls\n"
 msgstr "სამუშაო ასლი: %ls\n"
 
-#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
-#. name)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
+msgid "Wrap Lines"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
 msgstr ""
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
+msgstr ""
+
+#. Resource IDs: (cmdRedo_Keytip_RESID)
+msgid "Y"
 msgstr ""
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
@@ -11964,16 +11074,6 @@ msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
 msgstr ""
-
-#. Resource IDs: (16005)
-#, c-format
-msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr "რასტრული ნახატის ჩასმა მხოლოდ შეზღუდული ზომითაა (%d x %d) შესაძლებელი!"
-
-#. Resource IDs: (16243)
-#, c-format
-msgid "You can't create more than %d user-defined toolbars!"
-msgstr "გეკრძალებათ %d-ზე მეტი საკუთარი პულტის შექმნა!"
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -12015,11 +11115,6 @@ msgstr "ჯერ თქვენი სამუშაო ასლი უნ�
 msgid "You haven't entered an issue number."
 msgstr "შეცდომის ID არ მიგითითებიათ"
 
-#. Resource IDs: (16024)
-#, c-format
-msgid "You may define up to %d tools."
-msgstr "შეგიძლიათ მიუთითოთ %d სამარჯვი."
-
 #. Resource IDs: (IDS_SETTINGS_RESTARTSYSTEM)
 msgid "You must restart your system for the changes to take effect."
 msgstr "ცვლილებების გასააქტივებლად სისტემა ხელახლა უნდა გადატვირთოთ."
@@ -12027,14 +11122,6 @@ msgstr "ცვლილებების გასააქტივებლ�
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "თქვენ არავერსიული დასტა შეარჩიეთ ფიქსაციისთვის!"
-
-#. Resource IDs: (16002)
-msgid "You should enter a text!"
-msgstr "უნდა მიუთითოთ ტექსტი!"
-
-#. Resource IDs: (16001)
-msgid "You should select an image!"
-msgstr "უნდა შეარჩიოთ გამოსახულება!"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12092,13 +11179,13 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr "თქვენი სამუშაო ასლი მიანიშნებს ელემენტზე %ls, რომელიც, როგორც ჩანს, ჭდეა!\nფიქსაციამდე განშტოებაზე ან ძირითად ღერძზე უნდა გადაერთოთ."
 
+#. Resource IDs: (cmdUndo_Keytip_RESID)
+msgid "Z"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr ""
-
-#. Resource IDs: (17093)
-msgid "Zoom"
-msgstr "მასშტაბი"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -12120,18 +11207,6 @@ msgstr "&შემცირება\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "მასშტაბი 100%"
-
-#. Resource IDs: (58117)
-msgid ""
-"Zoom In\n"
-"Zoom In"
-msgstr "გაზრდა\nშემცირება"
-
-#. Resource IDs: (58118)
-msgid ""
-"Zoom Out\n"
-"Zoom Out"
-msgstr "შემცირება\nგაზრდა"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
@@ -12161,14 +11236,6 @@ msgstr "შევსება სიმაღლეზე"
 msgid "Zoom to fit in width"
 msgstr "შევსება სიგანეზე"
 
-#. Resource IDs: (17114)
-msgid "[Default]"
-msgstr "[ნაგულისხმები]"
-
-#. Resource IDs: (16009)
-msgid "[Unassigned]"
-msgstr "[გაუპიროვნებელი]"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
 msgstr ""
@@ -12182,10 +11249,6 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr "\n\nთარგები დარდება რეგისტრის გაუთვალისწინებლად და მიეთითება მხედრულით.\nშორისები თარგების ნაწილები ხდებიან.\nდასაშვები სპეცსიმბოლოებია '?' და '*'.\nთარგების დამყოფია ';'"
-
-#. Resource IDs: (65535 - PopupMenu)
-msgid "_POPUP_"
-msgstr "_POPUP_"
 
 #. Resource IDs: (IDS_STATUSADDED)
 msgid "added"
@@ -12363,10 +11426,6 @@ msgstr "წაშლილი"
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "disk [kB]: "
 msgstr "დისკი [კბ]:"
-
-#. Resource IDs: (58116)
-msgid "dummy"
-msgstr "ცარიელი"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
@@ -12548,6 +11607,10 @@ msgstr ""
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
 msgstr "ჩვეულებრივი"
+
+#. Resource IDs: (cmdOpen_Keytip_RESID)
+msgid "o1"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"

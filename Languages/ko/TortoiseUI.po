@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-19 09:11+0000\n"
+"PO-Revision-Date: 2017-11-14 02:02+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/luebbe/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -300,17 +300,13 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%ls\n는 디렉토리이며, 파일이 아닙니다.\nTortoiseMerge는 디렉토리에 대한 diff를 지원하지 않습니다."
 
-#. Resource IDs: (16923)
-msgid "&..."
-msgstr "&..."
-
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
 msgstr "중지(&A)\n훅 스크립트가 실패한 원인을 먼저 수정합니다."
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMerge에대해서(&A)..."
 
@@ -320,17 +316,9 @@ msgid ""
 "The certificate is accepted only this one time."
 msgstr "인증서 허용(&A)\n인증서를 이번 한번만 허용합니다."
 
-#. Resource IDs: (16920)
-msgid "&Activate"
-msgstr "활성화하기(&A)"
-
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
 msgstr "추가하기(&A)"
-
-#. Resource IDs: (17075)
-msgid "&Add >>"
-msgstr "추가(&A) >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
@@ -341,10 +329,6 @@ msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
 msgstr "항목 추가(&A)\nWindows에서 문제가 발생합니다."
-
-#. Resource IDs: (17018)
-msgid "&Add or Remove Buttons"
-msgstr "버튼 추가 및 제거(&A)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -381,22 +365,6 @@ msgstr "속성을 재귀적으로 적용(&A)"
 msgid "&Apply unified diff"
 msgstr "통합 비교 적용(&A)"
 
-#. Resource IDs: (65535)
-msgid "&Arguments:"
-msgstr "아규먼트(&A):"
-
-#. Resource IDs: (16645)
-msgid "&Assign"
-msgstr "할당(&A)"
-
-#. Resource IDs: (16633)
-msgid "&Associate double-click event with:"
-msgstr "더블클릭 이벤트를 다음과 연결하기(&A):"
-
-#. Resource IDs: (17041)
-msgid "&Auto Hide"
-msgstr "자동으로 숨기기(&A)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
 msgstr "자동닫기(&A):"
@@ -424,10 +392,6 @@ msgstr "이전 리비전에 대한 수정한 사람 보기(&B)"
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
 msgstr "수정한 사람 보기(&B)..."
-
-#. Resource IDs: (65535)
-msgid "&Blue:"
-msgstr "파랑색(&B):"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -457,14 +421,6 @@ msgstr "찾아보기(&B)..."
 #. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr "&Bugtraq (이슈 트래커 통합)"
-
-#. Resource IDs: (16913 - Menu)
-msgid "&Button Appearance..."
-msgstr "버튼 모양(&B)..."
-
-#. Resource IDs: (65535)
-msgid "&Button text:"
-msgstr "버튼 텍스트(&B):"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
@@ -608,18 +564,6 @@ msgid ""
 "keep the current format."
 msgstr "취소(&C)\n현재의 포맷을 유지한다."
 
-#. Resource IDs: (65535)
-msgid "&Categories:"
-msgstr "카테고리(&C):"
-
-#. Resource IDs: (65535)
-msgid "&Category:"
-msgstr "카테고리(&C):"
-
-#. Resource IDs: (65535)
-msgid "&Choose commands from:"
-msgstr "다음으로부터 명령 선택하기(&C):"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
 msgstr "아이템 선택(&C)..."
@@ -640,17 +584,9 @@ msgstr "변경 목록 지우기(&C)"
 msgid "&Close"
 msgstr "닫기(&C)"
 
-#. Resource IDs: (16922)
-msgid "&Close Window(s)"
-msgstr "창(들) 닫기(&C)"
-
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
 msgstr "Collaborator의 사용자 이름(&C)"
-
-#. Resource IDs: (65535)
-msgid "&Command:"
-msgstr "명령(&C):"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -682,14 +618,10 @@ msgstr "시작할 때 저장소에 접근합니다.(&C)"
 msgid "&Convert files when diffing against BASE"
 msgstr "베이스와 비교할 때, 파일을 변환합니다.(&C)"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "복사(&C)"
-
-#. Resource IDs: (16911 - Menu)
-msgid "&Copy Button Image"
-msgstr "버튼 이미지 복사하기(&C)"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
@@ -725,8 +657,8 @@ msgstr "작은 캐시가 삭제될 때까지 비활성화한 날(&D)"
 msgid "&Default"
 msgstr "기본설정(&D)"
 
-#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
-#. Control id 1382, IDS_MENUREMOVE)
+#. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1382,
+#. IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "삭제(&D)"
 
@@ -772,10 +704,6 @@ msgstr "디렉토리들(&D)"
 msgid "&Do not ask again"
 msgstr "다시 묻지 않음(&D)"
 
-#. Resource IDs: (17040)
-msgid "&Docking"
-msgstr "붙이기(&D)"
-
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
 msgid ""
 "&Don't run\n"
@@ -803,7 +731,7 @@ msgstr "충돌 상황 편집(&E)"
 msgid "&Edit project"
 msgstr "프로젝트 편집(&E)"
 
-#. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
@@ -885,10 +813,6 @@ msgstr "&타임 스탬프 수정"
 msgid "&Fixed drives"
 msgstr "고정된 드라이브(&F)"
 
-#. Resource IDs: (17039)
-msgid "&Floating"
-msgstr "띄우기(&F)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
 msgstr "로그 메시지 글꼴(&F):"
@@ -919,10 +843,6 @@ msgstr "시작(&F): (병합할 범위의 시작 URL과 리비전)"
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr "&행으로 이동...⇥(Ctrl+G)"
 
-#. Resource IDs: (65535)
-msgid "&Green:"
-msgstr "녹색(&G):"
-
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "브랜치별 그룹(&G)"
@@ -949,17 +869,21 @@ msgstr "저장소의 &HEAD 리비전"
 msgid "&Help"
 msgstr "도움말(&H)"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "도움말 항목(&H)"
 
-#. Resource IDs: (17042, 61457)
+#. Resource IDs: (61457)
 msgid "&Hide"
 msgstr "숨기기(&H)"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
 msgstr "&무시한 항목들을 숨김"
+
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
+msgid "&Hide/Show the patch file list"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -982,17 +906,9 @@ msgstr "무시하고 계속하기(&I)"
 msgid "&Ignore multiple items by name"
 msgstr "이름으로 여러 항목을 무시(&I)"
 
-#. Resource IDs: (16914 - Menu)
-msgid "&Image"
-msgstr "이미지(&I)"
-
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr "&이미지 정보⇥(I)"
-
-#. Resource IDs: (16505)
-msgid "&Image only"
-msgstr "이미지만(&I)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1011,10 +927,6 @@ msgstr "외부경로 포함(&I)"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
 msgstr "병합 정보 포함(&I)"
-
-#. Resource IDs: (65535)
-msgid "&Initial directory:"
-msgstr "초기 디렉토리(&I):"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
@@ -1035,10 +947,6 @@ msgstr "키워드(&K)"
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
 msgstr "언어(&L):"
-
-#. Resource IDs: (16653)
-msgid "&Large Icons"
-msgstr "큰 아이콘(&L)"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -1081,10 +989,6 @@ msgstr "잠금 요구됨(&L)(읽기 전용 업데이트)"
 msgid "&Log Sizes"
 msgstr "로그 사이즈(&L)"
 
-#. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "휘도(&L):"
-
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "매킨토시(&M) (CR)"
@@ -1101,14 +1005,6 @@ msgstr "Inline diff를 위한 최대 줄 길이(&M)"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "제거된 비활성화 캐시의 최대 사이즈[kByte](&M)"
-
-#. Resource IDs: (16543)
-msgid "&Menu animations:"
-msgstr "메뉴 애니메이션(&M):"
-
-#. Resource IDs: (16921)
-msgid "&Menu contents:"
-msgstr "메뉴 내용(&M):"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1129,10 +1025,6 @@ msgstr "병합(&M)"
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "MIME 형식(&M)"
-
-#. Resource IDs: (16925)
-msgid "&Minimize"
-msgstr "최소화(&M)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1158,8 +1050,8 @@ msgstr "네트워크 드라이브(&N)"
 msgid "&New "
 msgstr "새로 만들기(&N)"
 
-#. Resource IDs: (16509, 16615, Dialog IDD_EDITPROPERTIES: Control id 1310,
-#. Dialog IDD_EDITPROPEXTERNALS: Control id 1542)
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1310, Dialog
+#. IDD_EDITPROPEXTERNALS: Control id 1542)
 msgid "&New..."
 msgstr "새로 만들기(&N)..."
 
@@ -1175,10 +1067,6 @@ msgstr "다음(&N) >"
 #. Resource IDs: (58114)
 msgid "&Next Page"
 msgstr "다음 페이지(&N)"
-
-#. Resource IDs: (16632)
-msgid "&No double-click event"
-msgstr "드블클릭 이벤트 없음(&N)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
@@ -1196,10 +1084,10 @@ msgstr "실행가능하지 않음(&N)"
 msgid "&Numeric"
 msgstr "숫자(&N)"
 
-#. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
-#. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
-#. 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1,
-#. Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id
+#. 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1,
+#. Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog
+#. IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
 #. IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1,
 #. Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id
 #. 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL:
@@ -1236,7 +1124,8 @@ msgstr "이제부터 오프줄으로 작업(&O)"
 msgid "&One Page"
 msgstr "한페이지(&O)"
 
-#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN,
+#. cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr "열기(&O)"
 
@@ -1283,8 +1172,8 @@ msgstr "덮어 쓰기(&O)\n대상 파일을 대체합니다."
 msgid "&Password:"
 msgstr "암호(&P):"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "붙여넣기(&P)"
 
@@ -1315,10 +1204,6 @@ msgstr "고급 사용자 기본값(&P)"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr "빠른 표시를 위해 폴더 미리 가져오기(&P)"
-
-#. Resource IDs: (17091)
-msgid "&Print Preview"
-msgstr "프린트 미리보기(&P)"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1360,10 +1245,6 @@ msgstr "속성(&P)..."
 msgid "&Recent messages"
 msgstr "최근 메시지(&R)"
 
-#. Resource IDs: (65535)
-msgid "&Red:"
-msgstr "빨강색(&R):"
-
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
 msgstr "다시실행(&R)"
@@ -1388,7 +1269,7 @@ msgstr "재배치(&R)\n작업 복사본은 새로운 URL로 대체됩니다."
 msgid "&Remind me to enter a bug-ID"
 msgstr "buf-ID를 입력하도록 알려주기(&R)"
 
-#. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1100, IDS_PROP_REMOVE)
 msgid "&Remove"
@@ -1440,22 +1321,6 @@ msgstr "바꾸기(&R)"
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
 msgstr "저장소 브라우저(&R)"
-
-#. Resource IDs: (16613, 16624)
-msgid "&Reset"
-msgstr "리셋(&R)"
-
-#. Resource IDs: (16300)
-msgid "&Reset Toolbar"
-msgstr "도구 막대 리셋(&R)"
-
-#. Resource IDs: (16657)
-msgid "&Reset my usage data"
-msgstr "나의 사용 정보 리셋(&R)"
-
-#. Resource IDs: (16910 - Menu)
-msgid "&Reset to Default"
-msgstr "초기값으로 리셋(&R)"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
 msgid ""
@@ -1518,11 +1383,7 @@ msgstr "SSH 클라이언트(&S):"
 msgid "&SVN"
 msgstr "&SVN"
 
-#. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "포화(&S)"
-
-#. Resource IDs: (16921)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr "저장(&S)"
 
@@ -1557,10 +1418,6 @@ msgstr "HEAD 리비전 보기(&S)"
 msgid "&Show Log"
 msgstr "로그 보기(&S)"
 
-#. Resource IDs: (65535)
-msgid "&Show Menus for:"
-msgstr "다음을 위해 메뉴 보기기(&S):"
-
 #. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr "&모니터 보이기"
@@ -1569,23 +1426,15 @@ msgstr "&모니터 보이기"
 msgid "&Show popup notifications"
 msgstr "&알림들을 팝업으로 보여줌"
 
-#. Resource IDs: (16612)
-msgid "&Show text labels"
-msgstr "텍스트 라벨 보이기(&S)"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
 msgstr "서버상 특정 리비전(&S)"
-
-#. Resource IDs: (16917 - Menu)
-msgid "&Start Group"
-msgstr "그룹 시작(&S)"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
 msgstr "저장소 브라우저 시작(&S)"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "상태 표시줄(&S)"
 
@@ -1617,10 +1466,6 @@ msgstr "아이콘 뷰(&S)"
 msgid "&Tab size:"
 msgstr "탭 크기(&T):"
 
-#. Resource IDs: (17088)
-msgid "&Tabbed Document"
-msgstr "탭으로 나열된 문서(&T)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
 msgstr "태그(&T)"
@@ -1629,13 +1474,9 @@ msgstr "태그(&T)"
 msgid "&Test merge"
 msgstr "시험 병합(&T)"
 
-#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "텍스트(&T)"
-
-#. Resource IDs: (16506)
-msgid "&Text only"
-msgstr "텍스트만(&T)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1663,17 +1504,9 @@ msgstr "대상 경로(&T):"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "끝(&T): (병합할 범위의 끝 URL과 리비전)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "도구 막대(&T)"
-
-#. Resource IDs: (65535)
-msgid "&Toolbar Name:"
-msgstr "도구 막대 이름(&T):"
-
-#. Resource IDs: (65535)
-msgid "&Toolbars:"
-msgstr "도구 막대(&T):"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
@@ -1712,7 +1545,7 @@ msgstr "저장소 &URL:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "실행 취소(&U)"
 
@@ -1783,10 +1616,6 @@ msgstr ""
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "보기(&V)"
-
-#. Resource IDs: (65535)
-msgid "&View:"
-msgstr "보기(&V):"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
 msgid "&Whole word"
@@ -1932,11 +1761,6 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#. Resource IDs: (16108)
-msgid ""
-"-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1035, Dialog IDD_CHECKOUT:
 #. Control id 1036, Dialog IDD_COPY: Control id 1035, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1035, Dialog IDD_EXPORT: Control id
@@ -1963,10 +1787,6 @@ msgstr "... 캐시를 채크하고 로그 쿼리중"
 msgid "... reading working copy status"
 msgstr "... 작업사본의 상태를 읽는중"
 
-#. Resource IDs: (16527)
-msgid "....."
-msgstr "....."
-
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1979,22 +1799,6 @@ msgstr ": 작업 사본"
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
 msgstr "< 이전(&B)"
-
-#. Resource IDs: (16506)
-msgid "<.....>"
-msgstr "<.....>"
-
-#. Resource IDs: (17095)
-msgid "<Separator>"
-msgstr "<Separator>"
-
-#. Resource IDs: (16104)
-msgid "<Untitled>"
-msgstr "<제목없음>"
-
-#. Resource IDs: (16603)
-msgid "<descr>"
-msgstr "<descr>"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_CREATECS)
 msgid "<new changelist>"
@@ -2080,7 +1884,11 @@ msgstr "폴더 추가(&D)"
 msgid "Abort"
 msgstr "취소"
 
-#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
+msgid "Abou&t TortoiseMerge"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
 msgstr "제품 정보"
 
@@ -2118,10 +1926,6 @@ msgstr "명령"
 #. Resource IDs: (61203)
 msgid "Activate Task List"
 msgstr "작업 목록 활성화"
-
-#. Resource IDs: (17043)
-msgid "Active Files"
-msgstr "활성화된 파일"
 
 #. Resource IDs: (61838)
 #, c-format
@@ -2191,10 +1995,6 @@ msgstr "무시 목록에 추가(&I)"
 msgid "Add to Bookmarks"
 msgstr "북마크에 추가"
 
-#. Resource IDs: (17083)
-msgid "Add to Quick Access Toolbar"
-msgstr "빠른 접근 도구 막대에 추가하기"
-
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
@@ -2246,7 +2046,7 @@ msgstr "파일을 Subversion 관리에 추가"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "선택된 파일 또는 파일 마스크를 무시 목록에 추가"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -2285,10 +2085,6 @@ msgstr "트리를 위쪽으로 정렬하기"
 msgid "All"
 msgstr "모두"
 
-#. Resource IDs: (16110)
-msgid "All Commands"
-msgstr "모든 명령들"
-
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
 msgstr "모든 파일 (*.*)"
@@ -2297,32 +2093,7 @@ msgstr "모든 파일 (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "모든 파일 (*.*)|*.*||"
 
-#. Resource IDs: (16112)
-msgid ""
-"All your changes will be lost! Do you really want to reset all toolbars and "
-"menus?"
-msgstr "모든 변경사항을 잃을 것입니다! 정말로 모든 도구 막대와 메뉴를 리셋하시겠습니까?"
-
-#. Resource IDs: (16115)
-msgid ""
-"All your changes will be lost! Do you really want to reset the keyboard "
-"assignments?"
-msgstr "모든 변경사항을 잃을 것입니다! 정말로 키보드 할당을 리셋하시겠습니까?"
-
-#. Resource IDs: (16113)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr "모든 변경사항이 손실될 수 있습니다! 정말 '%Ts' 메뉴를 되돌리시겠습니까?"
-
-#. Resource IDs: (16111)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar "
-"'%Ts'?"
-msgstr "모든 변경사항이 손실될 수 있습니다! 정말 '%Ts' 도구모음을 되돌리시겠습니까?"
-
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
@@ -2427,10 +2198,6 @@ msgstr "오른쪽 블럭을 추가"
 msgid "Append this block to left"
 msgstr "이 블럭을 왼쪽에 추가"
 
-#. Resource IDs: (65535)
-msgid "Application Frame Menus: "
-msgstr "어플리케이션 프레임 메뉴:"
-
 #. Resource IDs: (IDS_MENUDESCAPPLYPATCH)
 msgid "Applies a unified diff file to the working copy"
 msgstr "작업 사본에 통합 비교 파일을 적용합니다."
@@ -2460,11 +2227,6 @@ msgstr "클라이언트 후크 스크립트의 승인 또는 거부"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1282)
 msgid "Approved hook scripts"
 msgstr "후크 스크립트 승인"
-
-#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
-msgid "Aqua Style"
-msgstr "Aqua Style"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
 msgid "Arb&itrary text"
@@ -2502,10 +2264,6 @@ msgstr "사용자에게 질문"
 #, c-format
 msgid "Assigned to changelist '%ls'"
 msgstr "변경 리스트 '%ls'로 할당됨"
-
-#. Resource IDs: (16528)
-msgid "Assigned to:"
-msgstr "다음에 할당됨:"
 
 #. Resource IDs: (IDS_PROGRS_ATREV)
 #, c-format
@@ -2561,14 +2319,6 @@ msgstr "작성자 대소문자 구별함"
 msgid "Authors:"
 msgstr "작성자:"
 
-#. Resource IDs: (16033)
-msgid "Auto Hide"
-msgstr "자동으로 숨기기"
-
-#. Resource IDs: (16036)
-msgid "Auto Hide All"
-msgstr "모두 자동으로 숨기기"
-
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
 msgstr "자동병합"
@@ -2613,10 +2363,6 @@ msgstr "평균"
 msgid "B&rowse..."
 msgstr "찾아보기(&R)"
 
-#. Resource IDs: (17020)
-msgid "Back"
-msgstr "뒤로"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
@@ -2641,11 +2387,6 @@ msgid ""
 "a bitmap"
 msgstr "비트맵\n비트맵"
 
-#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
-msgid "Black Style"
-msgstr "Black Style"
-
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
 msgstr "수정한 사람 보기"
@@ -2666,14 +2407,9 @@ msgstr "소스 파일의 각 행에 대해 마지막으로 수정한 사람을 �
 msgid "Blend alpha"
 msgstr "알파 혼합"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
 msgstr "블럭"
-
-#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
-msgid "Blue Style"
-msgstr "Blue Style"
 
 #. Resource IDs: (IDS_BOOKMARKS)
 msgid "Bookmarks"
@@ -2744,9 +2480,9 @@ msgstr "버그 ID"
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr "Bugtraq 정규식 테스트 - TortoiseSVN"
 
-#. Resource IDs: (16132)
-msgid "Button Appearance"
-msgstr "버튼 모양"
+#. Resource IDs: (cmdCopy_Keytip_RESID)
+msgid "C"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2760,10 +2496,6 @@ msgstr "저장소 확인(&H)"
 msgid "C&ollapse sub-trees"
 msgstr "서브-트리들 축소하기(&O)"
 
-#. Resource IDs: (65535)
-msgid "C&ommands:"
-msgstr "명령들(&O):"
-
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
 msgstr ""
@@ -2775,10 +2507,6 @@ msgstr "리비전으로부터 태그/브랜치 생성(&R)"
 #. Resource IDs: (IDS_REPOBROWSE_MKDIR)
 msgid "C&reate folder..."
 msgstr "폴더 생성(&R)"
-
-#. Resource IDs: (65535)
-msgid "C&urrent Keys:"
-msgstr "현재 키들(&U):"
 
 #. Resource IDs: (IDS_EDIT_CUT)
 msgid "C&ut"
@@ -2813,23 +2541,7 @@ msgid ""
 "%2!ls!"
 msgstr "%1!ls!\n을/를\n%2!ls!로 복사할 수 없습니다!"
 
-#. Resource IDs: (16010)
-msgid "Can't copy bitmap image into the clipboard!"
-msgstr "비트맵 이미지를 클립보드로 복사할 수 없습니다!"
-
-#. Resource IDs: (16003)
-msgid "Can't create a new image!"
-msgstr "새로운 이미지를 생성할 수 없습니다!"
-
-#. Resource IDs: (16007)
-msgid "Can't customize menus!"
-msgstr "메뉴를 커스터마이즈할 수 없습니다!"
-
-#. Resource IDs: (16004)
-msgid "Can't paste bitmap image from the clipboard!"
-msgstr "클립보드로부터 비트맵 이미지를 붙여 넣을 수 없습니다!"
-
-#. Resource IDs: (17101, 2, Dialog IDD_BLAME: Control id 2, Dialog
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog
 #. IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2,
 #. Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control
 #. id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2,
@@ -2936,17 +2648,9 @@ msgstr "취소중..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "줄 바꿈 문자가 같은 종류로 되어 있지 않아 차이점을 보일 수 없습니다."
 
-#. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "중첩(&D)"
-
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
 msgstr "대소문자 구분"
-
-#. Resource IDs: (65535)
-msgid "Cate&gories:"
-msgstr "카테고리(&G):"
 
 #. Resource IDs: (IDS_ERR_SSL_EXPIRED)
 #, c-format
@@ -2971,12 +2675,6 @@ msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
 msgstr ""
-
-#. Resource IDs: (10000)
-msgid ""
-"Change the style of the application\n"
-"Change Style"
-msgstr "어플리케이션의 스타일을 변경\n스타일 변경"
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -3007,10 +2705,6 @@ msgstr "변경 리스트:"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "변경된 파일 (변경 내용확인은 더블 클릭):"
-
-#. Resource IDs: (32956)
-msgid "Changes the style of the application"
-msgstr "어플리케이션의 스타일 변경"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3172,12 +2866,6 @@ msgstr "중단된 명령, 잠긴 파일들등을 정리 합니다."
 msgid "Clear"
 msgstr "초기화"
 
-#. Resource IDs: (16909)
-msgid ""
-"Clear Tool\n"
-"Clear"
-msgstr "지우기 도구\n지우기"
-
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
 msgstr "모두 지우기"
@@ -3238,7 +2926,7 @@ msgid ""
 "extension"
 msgstr "파일 확장자별로 병합하는 프로그램을 등록하려면 고급 설정을 누르십시오."
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
@@ -3247,20 +2935,6 @@ msgstr "텍스트 블럭을 이동하는 명령어 보기\n텍스트 블럭 사�
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
 msgstr "클립보드"
-
-#. Resource IDs: (16032, 16105, 17023, 2)
-msgid "Close"
-msgstr "닫기"
-
-#. Resource IDs: (17025)
-msgid "Close Full Screen"
-msgstr "전체 화면 닫기"
-
-#. Resource IDs: (58112)
-msgid ""
-"Close Print Preview\n"
-"&Close"
-msgstr "프린트 미리보기 닫기\n닫기(&C)"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_MANUAL)
 msgid "Close manually"
@@ -3282,7 +2956,7 @@ msgstr "소스 트리 축소하기(&A)"
 msgid "Collaborator &password"
 msgstr "Collaborator의 암호(&P)"
 
-#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr "축소"
 
@@ -3290,15 +2964,11 @@ msgstr "축소"
 msgid "Collapse &following tree"
 msgstr "다음 트리 축소하기(&F)"
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr "변경되지 않은 섹션들을 축소\n축소"
-
-#. Resource IDs: (16662)
-msgid "Color"
-msgstr "색상"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Color 1"
@@ -3320,21 +2990,13 @@ msgstr "시기별 색상(연속)(&C)"
 msgid "Color by au&thor"
 msgstr "편집자에 의한 색상(&T)"
 
-#. Resource IDs: (16961, Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
 msgid "Colors"
 msgstr "색상"
 
-#. Resource IDs: (65535)
-msgid "Colors:"
-msgstr "색상들:"
-
-#. Resource IDs: (65535)
-msgid "Comman&ds:"
-msgstr "명령들(&D):"
-
-#. Resource IDs: (16029, IDS_PROGRS_CMDINFO)
+#. Resource IDs: (IDS_PROGRS_CMDINFO)
 msgid "Command"
 msgstr "명령"
 
@@ -3360,10 +3022,6 @@ msgstr "명령 실패 - 업데이트가 필요합니다."
 #. Resource IDs: (61705)
 msgid "Command failed."
 msgstr "명령 오류."
-
-#. Resource IDs: (16104)
-msgid "Commands"
-msgstr "명령들"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
@@ -3452,7 +3110,7 @@ msgid "Compare two files"
 msgstr "두 파일 "
 
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
-#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
+#. cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr "공백 비교"
 
@@ -3476,7 +3134,7 @@ msgstr ""
 msgid "Compare with previous revision"
 msgstr "이전 리비전 비교"
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
@@ -3503,6 +3161,10 @@ msgstr "완료됨!"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "TortoiseSVN이 휴지통을 사용하지 않도록 설정(&T)"
+
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
+msgid "Configure Filter Regex"
+msgstr ""
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
@@ -3568,17 +3230,9 @@ msgstr "저장소 서버에 접속해서 존재하지 않는 로그 데이타를
 msgid "Container sizes"
 msgstr "컨테이너 크기"
 
-#. Resource IDs: (16520)
-msgid "Context Menus: "
-msgstr "컨텍스트 메뉴:"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr ""
-
-#. Resource IDs: (16013)
-msgid "Contract docked window"
-msgstr "붙어있는 윈도우를 줄이기"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3609,7 +3263,7 @@ msgstr "다음에서 복사됨: %1!ls!@%2!ld!\r\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr ""
 
-#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr "복사"
 
@@ -3639,12 +3293,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_COPY: Control id 142)
 msgid "Copy (Branch / Tag)"
 msgstr "복사하기 (브랜치/태그 만들기)"
-
-#. Resource IDs: (16907)
-msgid ""
-"Copy Tool\n"
-"Copy"
-msgstr "복사 도구\n복사"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
@@ -3676,7 +3324,7 @@ msgstr "아이템을 여기에 복사합니다"
 msgid "Copy selection to cli&pboard"
 msgstr "선택된 것을 클립보드에 복사합니다.(&P)"
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -3884,6 +3532,10 @@ msgstr "Count: %u 개 일치함."
 msgid "Create &Library"
 msgstr "라이브러리 생성(&L)"
 
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
+msgid "Create &patch file"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
 msgstr "패치 생성(&P)..."
@@ -3915,8 +3567,7 @@ msgid ""
 "%ls"
 msgstr "새 디렉토리 생성:\r\n%ls"
 
-#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
-#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
 msgstr "패치 파일 만들기"
 
@@ -3938,7 +3589,7 @@ msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr "Subversion 작업 사본에 대해서 특별한 설정으로 라이브러리 폴더 생성"
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
@@ -3960,10 +3611,6 @@ msgstr "만든이들:"
 msgid "Cu&t"
 msgstr "잘라내기(&T)"
 
-#. Resource IDs: (65535)
-msgid "Current"
-msgstr "현재"
-
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1113)
 msgid "Current version is:"
 msgstr "최신 버전:"
@@ -3972,14 +3619,6 @@ msgstr "최신 버전:"
 #, c-format
 msgid "Current version is: %ls"
 msgstr "최신 버전: %ls"
-
-#. Resource IDs: (17079)
-msgid "Cus&tomize..."
-msgstr "커스터마이즈(&T)..."
-
-#. Resource IDs: (16963)
-msgid "Custom"
-msgstr "커스텀"
 
 #. Resource IDs: (IDS_SVN_DEPTH_CUSTOM)
 msgid "Custom depths"
@@ -3993,22 +3632,6 @@ msgid ""
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
 msgstr "설정 제목 문자열. 설정 가능한 키워드는 다음과 같습니다:\n{mergeurl}:\t병합 원본 URL\n{revisions}:\t병합된 리비전의 쉼표로 구분된 목록. 예: 3, 5, 6, 7\n{revisionsr}:\t{revisions}과 같지만, 리비전 앞에 'r'이 붙음\n{revrange}:\t병합된 리비전의 쉼표로 구분된 목록, 범위를 그룹화 할 수 있음. 예: 3, 5-7"
-
-#. Resource IDs: (16103, 17074)
-msgid "Customize"
-msgstr "커스터마이즈"
-
-#. Resource IDs: (17076)
-msgid "Customize Keyboard"
-msgstr "키보드 커스터마이즈하기"
-
-#. Resource IDs: (17096)
-msgid "Customize Quick Access Toolbar"
-msgstr "빠른 접근 도구 막대 커스터마이즈하기"
-
-#. Resource IDs: (17085)
-msgid "Customize Quick Access Toolbar..."
-msgstr "빠른 접근 도구 막대 커스터마이즈하기..."
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4029,7 +3652,7 @@ msgstr "날짜"
 msgid "Date Range"
 msgstr "날짜 범위"
 
-#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
+#. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "기본"
 
@@ -4037,17 +3660,9 @@ msgstr "기본"
 msgid "Default &number of log messages"
 msgstr "로그 메시지 기본 개수(&N)"
 
-#. Resource IDs: (16106)
-msgid "Default Menu"
-msgstr "기본 메뉴"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1516)
 msgid "Default URL:"
 msgstr "기본 URL:"
-
-#. Resource IDs: (16107)
-msgid "Default application menu. Appears when no documents are open."
-msgstr "기본 어플리케이션 메뉴. 열려진 문서가 하나도 없을 때 보여줍니다."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4064,10 +3679,6 @@ msgstr "기본 경로:"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "기본적으로 UTF-8 인코딩"
-
-#. Resource IDs: (16020)
-msgid "Delete"
-msgstr "삭제"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
@@ -4164,14 +3775,6 @@ msgstr "깊이"
 msgid "Depth:"
 msgstr "깊이:"
 
-#. Resource IDs: (16031)
-msgid "Description"
-msgstr "설명"
-
-#. Resource IDs: (65535)
-msgid "Description:"
-msgstr "설명:"
-
 #. Resource IDs: (IDS_STATUSLIST_UNCHECKGROUP)
 msgid "Deselect changelist"
 msgstr "변경 리스트 선택하지 않음"
@@ -4202,7 +3805,7 @@ msgstr "디바이스에 독립적인 비트맵\n디바이스에 독립적인 비
 msgid "Dialog sizes and positions"
 msgstr "대화상자의 크기와 위치"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "비교"
 
@@ -4309,17 +3912,13 @@ msgstr "%1에 접근하는 동안 디스크 꽉참."
 msgid "Dispatch exception: %1"
 msgstr "가져오기 예외: %1"
 
-#. Resource IDs: (65535)
-msgid "Display &buttons in this order"
-msgstr "이 순서로 버튼 보여주기(&B)"
-
 #. Resource IDs: (57669)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr "버튼, 메뉴, 창에서 클릭하면 도움말을 보여줍니다.\n도움말"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -4331,7 +3930,7 @@ msgid ""
 "Help"
 msgstr "도움말 사용방법을 보여줍니다.\n도움말"
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -4380,11 +3979,6 @@ msgstr "모든 버전관리되지 않은 아이템에 대해 수행"
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
 msgstr "모든 버전관리되지않는/수정된 아이템에 대해서 수행합니다."
-
-#. Resource IDs: (16109)
-#, c-format
-msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr "정말  '%Ts' 도구모음을 삭제하시겠습니까?"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4503,14 +4097,6 @@ msgid ""
 "Reload the views without saving the modifications"
 msgstr "저장하지 않기\n수정사항을 저장하지 않고 뷰를 새로 불러옵니다."
 
-#. Resource IDs: (16028)
-msgid "Drag to make this menu float"
-msgstr "이 메뉴를 띄우기 위해서 드래그하십시오"
-
-#. Resource IDs: (16513)
-msgid "Draw"
-msgstr "그리기"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1079)
 msgid "Drive Types"
 msgstr "드라이브 종류"
@@ -4522,6 +4108,10 @@ msgstr "드라이브 A: 와 B:"
 #. Resource IDs: (IDS_DROPDESC_NODROP)
 #, c-format
 msgid "Drop not possible on %1!ls!"
+msgstr ""
+
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
+msgid "E"
 msgstr ""
 
 #. Resource IDs: (ID_INLINEEDIT - Menu)
@@ -4536,7 +4126,8 @@ msgstr "제외 경로(&X):"
 msgid "E&xecutable"
 msgstr "실행가능(&X)"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu,
+#. cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr "종료(&X)"
 
@@ -4568,14 +4159,10 @@ msgstr "EOL"
 msgid "EXT"
 msgstr "EXT"
 
-#. Resource IDs: (156 - Ribbon element, 65535 - PopupMenu, Dialog
-#. IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id
+#. 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr "편집"
-
-#. Resource IDs: (16133)
-msgid "Edit Button Image"
-msgstr "버튼 이미지 편집하기"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 319)
 msgid "Edit External"
@@ -4652,12 +4239,6 @@ msgstr "프록시의 이름이나 IP를 입력하십시오."
 msgid "Eliding mergeinfo"
 msgstr "병합 정보를 생략중"
 
-#. Resource IDs: (16906)
-msgid ""
-"Ellipse Tools\n"
-"Ellipse"
-msgstr "타원 도구\n타원"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Empty"
 msgstr "비어있음"
@@ -4670,7 +4251,7 @@ msgstr "자동 속성을 사용(&P)"
 msgid "Enable Auto-Properties"
 msgstr "자동-속성들 활성화"
 
-#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr "편집 활성화"
 
@@ -4890,18 +4471,7 @@ msgstr "가져오기 예외:"
 msgid "Exclude"
 msgstr "제외"
 
-#. Resource IDs: (16023)
-msgid ""
-"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
-"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "실행파일 (*.exe)|*.exe|명령 (*.com)|*.com|정보 (*.pdf)|*.pdf|배치 (*.bat)|*.bat|모든 파일들 (*.*)|*.*||"
-
-#. Resource IDs: (16018)
-msgid "Existing"
-msgstr "존재하는"
-
-#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
-#. Ribbon name)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2)
 msgid "Exit"
 msgstr "종료"
 
@@ -4912,15 +4482,6 @@ msgstr "소스 트리 확장하기(&A)"
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_BELOW)
 msgid "Expand &following tree"
 msgstr "다음 트리 확장하기(&F)"
-
-#. Resource IDs: (16025)
-#, c-format
-msgid "Expand (%Ts)"
-msgstr ""
-
-#. Resource IDs: (16012)
-msgid "Expand docked window"
-msgstr "붙어있는 윈도우를 확장하기"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
@@ -5012,14 +4573,14 @@ msgstr "제외된 외부경로"
 msgid "Externals included"
 msgstr "포함된 외부경로"
 
+#. Resource IDs: (cmdFind_Keytip_RESID)
+msgid "F"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
 msgid "F&orce the merge"
 msgstr "강제로 병합하기(&O)"
-
-#. Resource IDs: (17113)
-msgid "Fade"
-msgstr "페이드"
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
@@ -5127,7 +4688,7 @@ msgstr "%1!ls!의 상태를 가져오는 중"
 msgid "Fetching tree conflict information..."
 msgstr ""
 
-#. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
+#. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
 msgstr "파일"
 
@@ -5257,12 +4818,6 @@ msgstr "파일이름"
 msgid "Files"
 msgstr "파일"
 
-#. Resource IDs: (16901)
-msgid ""
-"Fill Tool\n"
-"Fill"
-msgstr "채우기 도구\n채우기"
-
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
 msgstr "다음에 의한 필터"
@@ -5285,8 +4840,12 @@ msgstr "필터 경로"
 msgid "Filter:"
 msgstr "필터:"
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
+msgid "Filtered"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr "찾기"
 
@@ -5298,7 +4857,7 @@ msgstr "최신 리비전 찾기(&H)"
 msgid "Find HEAD revisions"
 msgstr "최신 리비전 찾기"
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -5354,10 +4913,6 @@ msgstr "태그 폴더 접기(&T)"
 msgid "Folded tag"
 msgstr "접힌 태그"
 
-#. Resource IDs: (16016)
-msgid "Folder"
-msgstr "폴더"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Font"
@@ -5384,10 +4939,6 @@ msgstr "강제 삭제"
 msgid "Foreground"
 msgstr ""
 
-#. Resource IDs: (17021)
-msgid "Forward"
-msgstr "다음"
-
 #. Resource IDs: (IDS_REPOBROWSE_TT_FORWARD)
 msgid "Forwards in browsing history"
 msgstr "표시된 기록의 이후"
@@ -5401,10 +4952,6 @@ msgstr "발견된 자동 단어들:"
 msgid "From:"
 msgstr "시작:"
 
-#. Resource IDs: (17026)
-msgid "Full Screen"
-msgstr "전체 화면"
-
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
 msgstr ""
@@ -5416,6 +4963,10 @@ msgstr ""
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
 msgstr "하위에 끝까지 적용"
+
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
+msgid "G"
+msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5513,43 +5064,43 @@ msgstr "지정된 행으로 이동"
 msgid "Go to line"
 msgstr "행으로 바로 이동"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr "다음 충돌지점으로 이동\n다음 충돌지점"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr "다음 차이점으로 이동\n다음 차이점"
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr "다음 차이나는 행으로 이동\n다음 행단위 차이"
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr "이전 충돌지점으로 이동\n이전 충돌지점"
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr "이전 차이점으로 이동\n이전 차이점"
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr "이전 차이나는 행으로 이동\n이전 행단위 차이"
 
-#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr "특정 행으로 이동"
 
@@ -5560,10 +5111,6 @@ msgstr "그래프 종류:"
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
 msgstr "저장소 루트의 그래프는 항상 비어있습니다."
-
-#. Resource IDs: (16972)
-msgid "Gray"
-msgstr "회색"
 
 #. Resource IDs: (32799)
 msgid "Group by branch"
@@ -5576,10 +5123,6 @@ msgstr "그룹 변경 목록"
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1032)
 msgid "H&EAD Revision"
 msgstr "H&EAD 리비전"
-
-#. Resource IDs: (65535)
-msgid "H&ue:"
-msgstr "색상(&U):"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1353, Dialog IDD_DIFFFILES:
 #. Control id 1354, IDS_EXTERNALS_HEADREV)
@@ -5618,17 +5161,9 @@ msgstr "헤더"
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
 #. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
 #. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
-#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "도움말"
-
-#. Resource IDs: (16982)
-msgid "Help Keyboard"
-msgstr "키보드 도움말"
-
-#. Resource IDs: (16974)
-msgid "Hex"
-msgstr "헥사"
 
 #. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
@@ -5650,10 +5185,6 @@ msgstr "모든 태그 숨기기"
 msgid "Hide deleted branches and tags"
 msgstr "삭제된 브랜치나 태그를 숨기기"
 
-#. Resource IDs: (16011)
-msgid "Hide docked window"
-msgstr "붙어있는 윈도우를 숨기기"
-
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1562)
 msgid "Hide non-mergeable revisions"
 msgstr "병합할 수 없는 리비전들 숨기기"
@@ -5671,12 +5202,11 @@ msgstr "스크립트 수행중 숨김"
 msgid "Hide unused &branches"
 msgstr "사용되지 않는 브랜치들 숨기기(&B)"
 
-#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu)
 msgid "Hide/Show the patch file list"
 msgstr "패치 파일 목록 보이기/숨기기"
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
@@ -5685,16 +5215,6 @@ msgstr "패치 파일 목록을 보이거나 숨깁니다.\n패치 파일 목록
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
 msgstr "캐시에서 가장 높은 리비전 번호"
-
-#. Resource IDs: (16519)
-msgid ""
-"Hint: select the context menu, change the page to 'Commands' and drag the "
-"toolbar buttons into the menu window."
-msgstr "힌트: 컨텍스트 메뉴를 선택하고, 페이지를 '명령'으로 변경한 후에 도구 막대 버튼을 메뉴 창으로 드래그하십시오."
-
-#. Resource IDs: (17022)
-msgid "Home"
-msgstr "처음으로"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -6064,12 +5584,12 @@ msgstr "모든 공백 무시(&A)"
 msgid "Ignore &ancestry"
 msgstr "변경 기록 무시(&A)"
 
-#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
-#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
+#. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr "모든 공백문자의 변경을 무시"
 
@@ -6083,7 +5603,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr "변경사항 무시\n외부에서 변경된 사항을 무시합니다."
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
@@ -6116,8 +5636,8 @@ msgid "Ignore whitespace c&hanges"
 msgstr "공백 변경 무시(&H)"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
-#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
-#. Ribbon name)
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu,
+#. cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr "공백의 차이는 무시함"
 
@@ -6129,13 +5649,13 @@ msgstr "무시됨"
 msgid "Ignored items included"
 msgstr "무시된 아이템들을 포함함"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr "차이점을 비교할 때 모든 공백문자의 변경을 무시\n모든 공백문자의 변경을 무시"
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
@@ -6144,18 +5664,6 @@ msgstr "차이점을 비교할 때 공백문자에서의 변경을 무시\n공�
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
 msgstr "옳지않은 경로"
-
-#. Resource IDs: (16916 - Menu)
-msgid "Image &and Text"
-msgstr "이미지와 텍스트(&A)"
-
-#. Resource IDs: (16507)
-msgid "Image &and text"
-msgstr "이미지와 텍스트(&A)"
-
-#. Resource IDs: (16508)
-msgid "Images"
-msgstr "이미지들"
 
 #. Resource IDs: (IDS_SVN_DEPTH_IMMEDIATE)
 msgid "Immediate children, including folders"
@@ -6274,12 +5782,13 @@ msgstr ""
 msgid "Information"
 msgstr "정보"
 
-#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
+#. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr "Inline diff"
 
-#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
-#. Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
+#. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr "단어 단위 Inline diff"
 
@@ -6291,7 +5800,7 @@ msgstr "줄단위 비교"
 msgid "Input"
 msgstr "입력"
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -6423,21 +5932,13 @@ msgid ""
 "Jump to first unresolved conflict"
 msgstr "계속 해결하기\n첫번째 미해결 충돌로 이동하기"
 
-#. Resource IDs: (16136)
-msgid "Keyboard"
-msgstr "키보드"
-
-#. Resource IDs: (65535)
-msgid "Keyboard shortcuts:"
-msgstr "키보드 단축키:"
-
-#. Resource IDs: (16030)
-msgid "Keys"
-msgstr "키"
-
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL1)
 msgid "Kind"
 msgstr "종류"
+
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
+msgid "L"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "L&imit:"
@@ -6521,14 +6022,8 @@ msgstr "행"
 msgid "Line Graph"
 msgstr "꺽은선 그래프"
 
-#. Resource IDs: (16904)
-msgid ""
-"Line Tool\n"
-"Line"
-msgstr "줄 막대\n줄"
-
-#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu,
+#. cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr "줄 비교 막대"
 
@@ -6564,10 +6059,6 @@ msgstr "도움말 주제 목록\n도움말 주제"
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
 msgstr "로그 정보가 캐시되어있는 저장소들의 리스트"
-
-#. Resource IDs: (16631, 16992)
-msgid "List1"
-msgstr "리스트1"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6607,11 +6098,12 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "저장소 URL들의 내용이 저장될 위치"
 
-#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu)
 msgid "Locator Bar"
 msgstr "위치 막대"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535,
+#. cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr "위치 막대"
 
@@ -6732,10 +6224,6 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr "보이는 가장 낮은 리비전: %1!ld! - 보이는 가장 높은 리비전: %2!ld!\nHEAD 리비전: %3!ld!"
 
-#. Resource IDs: (16973)
-msgid "Lum"
-msgstr "휘도"
-
 #. Resource IDs: (61841)
 msgid "Mail system DLL is invalid."
 msgstr "메일 시스템 DLL이 유효하지 않습니다."
@@ -6777,7 +6265,7 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
-#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
+#. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr "충돌해결상태로 표시"
 
@@ -6811,7 +6299,7 @@ msgstr ""
 msgid "Markers"
 msgstr "마커"
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
@@ -6848,22 +6336,6 @@ msgstr "명령 로그의 최대 개수"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "캐시 제거까지 도구이 실패하는 최대 횟수(&F)"
-
-#. Resource IDs: (16655)
-msgid "Me&nus show recently used commands first"
-msgstr "메뉴는 가장 최근에 사용된 명령어들을 먼저 보여줍니다.(&N)"
-
-#. Resource IDs: (16134)
-msgid "Menu"
-msgstr "메뉴"
-
-#. Resource IDs: (16006)
-msgid "Menu Bar"
-msgstr "메뉴 막대"
-
-#. Resource IDs: (16626)
-msgid "Menu s&hadows"
-msgstr "메뉴 그림자(&H)"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -7028,10 +6500,6 @@ msgstr "최소"
 msgid "Mine"
 msgstr "작업 사본"
 
-#. Resource IDs: (17086)
-msgid "Minimize the Ribbon"
-msgstr "리본 최소화하기"
-
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
 msgstr "커밋 메시지에 대한 문자의 최소 수:"
@@ -7055,7 +6523,7 @@ msgstr "Mixed"
 msgid "Modification date"
 msgstr "수정일"
 
-#. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
@@ -7068,18 +6536,6 @@ msgstr "수정된 노드"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
 msgstr ""
-
-#. Resource IDs: (17107)
-msgid "More"
-msgstr "더 보기"
-
-#. Resource IDs: (16026)
-msgid "More Buttons"
-msgstr "더 많은 버튼들"
-
-#. Resource IDs: (17097)
-msgid "More Commands..."
-msgstr "더 많은 명령들..."
 
 #. Resource IDs: (IDS_COLOURPICKER_CUSTOMTEXT)
 msgid "More colors..."
@@ -7097,10 +6553,6 @@ msgstr "더 보기..."
 msgid "Most active author:"
 msgstr "가장 활동이 많은 작성자:"
 
-#. Resource IDs: (16135)
-msgid "Mouse"
-msgstr "마우스"
-
 #. Resource IDs: (IDS_INPUT_MOVEMORE)
 #, c-format
 msgid ""
@@ -7114,22 +6566,6 @@ msgid ""
 "Move %1!ls!\r\n"
 "to %2!ls!"
 msgstr "%1!ls!을/를\r\n%2!ls!(으)로 옮김"
-
-#. Resource IDs: (17026)
-msgid "Move &Down"
-msgstr "아래로 이동하기(&D)"
-
-#. Resource IDs: (17025)
-msgid "Move &Up"
-msgstr "위로 이동하기(&U)"
-
-#. Resource IDs: (16022)
-msgid "Move Item Down"
-msgstr "아이템을 아래로 이동"
-
-#. Resource IDs: (16021)
-msgid "Move Item Up"
-msgstr "아이템을 위로 이동"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK4)
 msgid ""
@@ -7230,36 +6666,36 @@ msgstr "여러개의 독립적인 작업 사본들(&I)"
 msgid "My file:"
 msgstr "작업중인 파일:"
 
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
+msgid "NC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
+msgid "ND"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
+msgid "NI"
+msgstr ""
+
 #. Resource IDs: (59138)
 msgid "NUM"
 msgstr "NUM"
-
-#. Resource IDs: (17128)
-msgid "Name"
-msgstr "이름"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535, Dialog
 #. IDD_REGEXFILTER: Control id 65535)
 msgid "Name:"
 msgstr "이름:"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr "이동"
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr "뷰의 특정 행으로 이동\n행 이동"
-
-#. Resource IDs: (17004)
-msgid "Navigation Pane Options"
-msgstr "네비게이션 창 옵션"
-
-#. Resource IDs: (17031)
-msgid "Navigation Pane Options..."
-msgstr "네비게이션 창 옵션..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
@@ -7286,17 +6722,13 @@ msgstr "네트워크"
 msgid "Never try to contact the repository again"
 msgstr "다시는 저장소에 접근 시도하지 않음"
 
-#. Resource IDs: (16017, 16027, 30721, 65535, 65535 - PopupMenu)
+#. Resource IDs: (30721, 65535 - PopupMenu)
 msgid "New"
 msgstr "신규"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
 msgstr "새 이름(&N):"
-
-#. Resource IDs: (16014)
-msgid "New Menu"
-msgstr "새로운 메뉴"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7310,24 +6742,18 @@ msgstr "새 이름은 비어있거나 원래 이름과 동일해서는 안됩니
 msgid "Newlines"
 msgstr ""
 
-#. Resource IDs: (58114)
-msgid ""
-"Next Page\n"
-"Next Page"
-msgstr "다음 페이지\n다음 페이지"
-
-#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
-#. Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
+#. cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr "다음 충돌 지점"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
-#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
+#. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr "다음 차이점"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
-#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
+#. cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr "다음 줄단위 차이점"
 
@@ -7381,6 +6807,10 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr "마지막 커밋 이후로 추가되거나 변경된 것이 없습니다.\n이곳에 TortoiseSVN이 할 수 있는 것이 없습니다."
 
+#. Resource IDs: (33002)
+msgid "No filter"
+msgstr ""
+
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
 msgstr "사용할 수 있는 그래프가 없습니다."
@@ -7425,7 +6855,7 @@ msgstr "이동 및 이름변경되는 폴더를 비 재귀적으로 커밋"
 msgid "Non-versioned"
 msgstr "버전관리대상 아님"
 
-#. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
+#. Resource IDs: (Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
 msgstr "없음"
@@ -7569,24 +6999,6 @@ msgstr "확인"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
-#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
-msgid "Office 2003"
-msgstr "Office 2003"
-
-#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
-msgid "Office 2007"
-msgstr "Office 2007"
-
-#. Resource IDs: (10008, 65535 - PopupMenu)
-msgid "Office 2007 colors"
-msgstr "Office 2007 색상"
-
-#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
-#. - Ribbon name)
-msgid "Office XP"
-msgstr "Office XP"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Older lines"
 msgstr "오래된 행"
@@ -7653,7 +7065,7 @@ msgstr "tsvn:projectlanguage 가 설정된 경우에만 철자검사를 합니�
 msgid "Opacity"
 msgstr "불투명"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr "열기"
 
@@ -7669,7 +7081,7 @@ msgstr "로컬 프로그램을 사용하여 열기... (&W)"
 msgid "Open client certificate file"
 msgstr "클라이언트 인증서 파일 열기"
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
@@ -7725,17 +7137,9 @@ msgstr "조작대상"
 msgid "Option"
 msgstr "옵션"
 
-#. Resource IDs: (16137)
-msgid "Options"
-msgstr "옵션들"
-
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr ""
-
-#. Resource IDs: (17024)
-msgid "Other Task Panes"
-msgstr "다른 작업 창"
 
 #. Resource IDs: (IDS_STATGRAPH_OTHERGROUP)
 msgid "Others"
@@ -7763,6 +7167,18 @@ msgstr "svn:eol-style 속성을 재지정합니다.\n이 속성이 없는 파일
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
+msgid "PC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
+msgid "PD"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
+msgid "PI"
 msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
@@ -7811,15 +7227,9 @@ msgstr ""
 msgid "Password:"
 msgstr "암호:"
 
-#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr "붙여넣기"
-
-#. Resource IDs: (16908)
-msgid ""
-"Paste Tool\n"
-"Paste"
-msgstr "붙여넣기 도구\n붙여넣기"
 
 #. Resource IDs: (IDS_COMMITDLG_POPUP_PASTEFILELIST)
 msgid "Paste filename list"
@@ -7890,12 +7300,6 @@ msgstr ""
 msgid "Peg"
 msgstr "Peg"
 
-#. Resource IDs: (16902)
-msgid ""
-"Pencil Tool\n"
-"Pencil"
-msgstr "펜슬 도구\n펜슬"
-
 #. Resource IDs: (IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP)
 msgid "Percent of authorship"
 msgstr "작성자 퍼센트"
@@ -7904,19 +7308,11 @@ msgstr "작성자 퍼센트"
 msgid "Percents"
 msgstr "퍼센트"
 
-#. Resource IDs: (16538)
-msgid "Personalized Menus and Toolbars"
-msgstr "개인화된 메뉴와 도구막대"
-
 #. Resource IDs: (61582)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr "그림 (메타 파일)\n그림"
-
-#. Resource IDs: (65535)
-msgid "Picture:"
-msgstr "그림:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
@@ -7953,10 +7349,6 @@ msgstr "주의:\n현재 작업 사본은 종전 경로를 그대로 가지고 �
 msgid "Please select a hook type"
 msgstr "훅 종류를 선택하십시오."
 
-#. Resource IDs: (IDS_BLAME_PROGRESSINFO)
-msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "잠시 기다려주십시오. 몇분 걸리는 작업을 수행중입니다."
-
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
 msgstr "취소중입니다. 잠시 기다려주십시오..."
@@ -7974,8 +7366,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "저장소 브라우저가 초기화되는 동안 기다리십시오..."
 
 #. Resource IDs: (Dialog IDD_PLEASEWAIT: Control id 347,
-#. IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT, IDS_REPOBROWSE_WAIT,
-#. IDS_STATUSLIST_BUSYMSG)
+#. IDS_BLAME_PROGRESSINFO, IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT,
+#. IDS_REPOBROWSE_WAIT, IDS_STATUSLIST_BUSYMSG)
 msgid "Please wait..."
 msgstr "잠시 기다려주십시오..."
 
@@ -8027,60 +7419,28 @@ msgstr "오른쪽 블럭을 앞에 추가"
 msgid "Prepend this block to left"
 msgstr "이 블럭을 왼쪽 앞에 추가"
 
-#. Resource IDs: (65535)
-msgid "Press &New Shortcut Key:"
-msgstr "새로운 단축키를 누르십시오(&N):"
-
-#. Resource IDs: (65535)
-msgid "Press &new shortcut key:"
-msgstr "새로운 단축키를 누르십시오(&N):"
-
 #. Resource IDs: (32819)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "연결된 행이 리비전의 노드들을 교차하는 것을 최대한 방지 (TODO:다듬기)"
-
-#. Resource IDs: (17094)
-msgid "Preview"
-msgstr "미리보기"
 
 #. Resource IDs: (IDS_PATCH_PREVIEW)
 msgid "Preview patched file"
 msgstr "패치된 파일 미리보기"
 
-#. Resource IDs: (65535)
-msgid "Preview: "
-msgstr "미리보기:"
-
-#. Resource IDs: (58115)
-msgid ""
-"Previous Page\n"
-"Previous Page"
-msgstr "이전 페이지\n이전 페이지"
-
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
-#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
+#. cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr "이전 충돌 지점"
 
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
-#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
+#. cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr "이전 차이점"
 
 #. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
-#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
+#. cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr "이전 줄단위 차이점"
-
-#. Resource IDs: (16990, 17092)
-msgid "Print"
-msgstr "프린트하기"
-
-#. Resource IDs: (58116)
-msgid ""
-"Print Document\n"
-"&Print"
-msgstr "문서 프린트하기\n프린트하기(&P)"
 
 #. Resource IDs: (61512)
 msgid "Print to File"
@@ -8242,7 +7602,7 @@ msgstr "프록시 설정"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "svn:needs-lock 속성이 설정되면 \"잠그기\"를 메뉴에 넣습니다."
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -8254,13 +7614,13 @@ msgid ""
 "Exit TortoiseMerge without saving the modifications"
 msgstr "종료\n수정사항을 저장하지 않고 TortoiseMerge 종료"
 
+#. Resource IDs: (cmdReload_Keytip_RESID)
+msgid "R"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
 msgstr "램 드라이브(&A)"
-
-#. Resource IDs: (16623)
-msgid "R&eset"
-msgstr "리셋(&E)"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1423)
 msgid "R&everse merge"
@@ -8286,14 +7646,6 @@ msgstr "이동식 디스크(&M)"
 msgid "Re&name..."
 msgstr "이름 바꾸기(&N)..."
 
-#. Resource IDs: (16613)
-msgid "Re&set"
-msgstr "리셋(&S)"
-
-#. Resource IDs: (16647)
-msgid "Re&set All"
-msgstr "모두 리셋(&S)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "기본값으로 복원(&S)"
@@ -8313,10 +7665,6 @@ msgstr "Daily Use Guide 읽기"
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL2)
 msgid "Realm String"
 msgstr "영역 이름의 문자열"
-
-#. Resource IDs: (16019)
-msgid "Recent"
-msgstr "최근"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
@@ -8356,12 +7704,6 @@ msgid ""
 "Open the auto-saved versions instead of the explicitly saved versions"
 msgstr "자동으로 저장된 문서를 복구합니다.\n명시적으로 저장된 버전대신에 자동으로 저장된 버전을 엽니다."
 
-#. Resource IDs: (16905)
-msgid ""
-"Rectangle Tool\n"
-"Rectangle"
-msgstr "사각형 도구\n사각형"
-
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recur&sive\n"
@@ -8384,11 +7726,11 @@ msgstr "휴지통"
 msgid "Redirecting to url"
 msgstr "URL로 리디렉션"
 
-#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr "다시실행"
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -8416,8 +7758,8 @@ msgstr " 오버레이 새로고침(&S)"
 msgid "Refreshing shell for %1!ls!"
 msgstr "%1!ls!에 대해서 쉘을 새로 고치는 중"
 
-#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
-#. 165, ID_REGEXFILTER - Ribbon name)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165,
+#. cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr "정규표현식 필터"
 
@@ -8495,11 +7837,11 @@ msgstr "잠금을 해제하여 다른사람도 다시 수정가능하게 합니�
 msgid "Relo&cate..."
 msgstr "저장소 URL 변경(&C)"
 
-#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr "다시 읽기"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -8568,10 +7910,6 @@ msgstr "저장된 인증 데이터를 삭제"
 msgid "Remove from &ignore list"
 msgstr "무시 목록에서 제거(&I)"
 
-#. Resource IDs: (17084)
-msgid "Remove from Quick Access Toolbar"
-msgstr "빠른 접근 도구막대에서 제거하기"
-
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REMOVEFROMCS)
 msgid "Remove from changelist"
 msgstr "변경 리스트에서 제거"
@@ -8636,10 +7974,6 @@ msgstr "%1!ls!에서 무사 항목을 삭제"
 #, c-format
 msgid "Removing unversioned items in %1!ls!"
 msgstr "%1!ls!중인 버전제외항목을 삭제"
-
-#. Resource IDs: (16616)
-msgid "Rena&me..."
-msgstr "이름 변경하기(&M)..."
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 151)
 msgid "Rename"
@@ -8761,10 +8095,6 @@ msgstr "사용자명과 암호를 요구합니다."
 #. Resource IDs: (IDS_MENURESOLVE)
 msgid "Res&olve..."
 msgstr "해결하기(&O)..."
-
-#. Resource IDs: (16614)
-msgid "Reset &All"
-msgstr "모두 리셋(&A)"
 
 #. Resource IDs: (IDS_STATUSLIST_RESETCOLUMNORDER)
 msgid "Reset columns"
@@ -8968,24 +8298,6 @@ msgstr "오른쪽: "
 msgid "Right image"
 msgstr "오른쪽 이미지"
 
-#. Resource IDs: (17108)
-#, c-format
-msgid "Row %d of %d"
-msgstr "%d 행(%d 중에)"
-
-#. Resource IDs: (17109)
-#, c-format
-msgid "Row %d-%d of %d"
-msgstr "%d 행-%d (%d 중에)"
-
-#. Resource IDs: (17116)
-msgid "Row Down"
-msgstr "행 아래로"
-
-#. Resource IDs: (17115)
-msgid "Row Up"
-msgstr "행 위로"
-
 #. Resource IDs: (IDS_RUNCLEANUPNOW)
 msgid "Run cleanup &now"
 msgstr "지금 정리하기 수행(&N)"
@@ -8994,21 +8306,9 @@ msgstr "지금 정리하기 수행(&N)"
 msgid "Run hoo&k script"
 msgstr ""
 
-#. Resource IDs: (17045)
-msgid "S&elect..."
-msgstr "선택하기(&E)..."
-
-#. Resource IDs: (17027)
-msgid "S&how Buttons on One Row"
-msgstr "하나의 행에 버튼을 보여줍니다(&H)"
-
-#. Resource IDs: (17028)
-msgid "S&how Buttons on Two Rows"
-msgstr "두개의 행에 버튼을 보여줍니다(&H)"
-
-#. Resource IDs: (17078)
-msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "리본 아래에 빠른 접근 도구막대 보여주기(&H)"
+#. Resource IDs: (cmdSave_Keytip_RESID)
+msgid "S"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -9118,11 +8418,15 @@ msgstr "Bugtraq 정규식을 테스트하기 위한 샘플 로그 메시지.\n\n
 msgid "Sample text:"
 msgstr "샘플 텍스트:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr "저장하기"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
+msgid "Save &as"
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "다른 이름으로 저장(&A)..."
 
@@ -9192,7 +8496,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr ""
 
-#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
+#. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
 msgstr "다른 이름으로 저장하기"
 
@@ -9231,7 +8535,7 @@ msgstr "이 리비전을 저장(&T)..."
 msgid "Save settings to file"
 msgstr "파일에 설정 저장하기"
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -9286,14 +8590,6 @@ msgstr "검색"
 msgid "Scintilla"
 msgstr "Scintilla"
 
-#. Resource IDs: (16034)
-msgid "Scroll Left"
-msgstr "왼쪽으로 스크롤하기"
-
-#. Resource IDs: (16035)
-msgid "Scroll Right"
-msgstr "오른쪽으로 스크롤하기"
-
 #. Resource IDs: (IDS_LOG_POPUP_FIND)
 msgid "Search &log messages..."
 msgstr "로그 메시지 검색(&l)..."
@@ -9327,30 +8623,12 @@ msgstr "선택"
 msgid "Select &All"
 msgstr "모두 선택(&A)"
 
-#. Resource IDs: (16529)
-msgid "Select &User-defined Image: "
-msgstr "사용자가 정의한 이미지 선택하기(&U): "
-
-#. Resource IDs: (16508)
-msgid "Select &context menu:"
-msgstr "컨텍스트 메뉴 선택하기(&C):"
-
-#. Resource IDs: (65535)
-msgid "Select &window:"
-msgstr "윈도우 선택하기(&W):"
-
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "모두 선택 / 선택 해제(&A)"
-
-#. Resource IDs: (16903)
-msgid ""
-"Select Color Tool\n"
-"Select Color"
-msgstr "색상 선택 도구\n색상 선택"
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
@@ -9497,10 +8775,6 @@ msgstr "내용 전송"
 msgid "Server &address:"
 msgstr "서버 주소(&A):"
 
-#. Resource IDs: (65535)
-msgid "Set Accelerator &for:"
-msgstr "다음에 대한 바로가기키 설정(&F):"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1544)
 msgid "Set explicit revision for these externals:"
 msgstr "이 외부경로에 대해서 리비전을 명시적으로 설정하기:"
@@ -9520,8 +8794,8 @@ msgstr ""
 msgid "Setting properties..."
 msgstr "속성 설정..."
 
-#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
-#. Ribbon name)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu,
+#. cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr "설정"
 
@@ -9566,10 +8840,6 @@ msgstr "짧은 속성 리스트"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1382)
 msgid "Show"
 msgstr "보기"
-
-#. Resource IDs: (16996)
-msgid "Show &Accelerator for:"
-msgstr "다음에 대한 바로가기키 보여주기(&A):"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1031, IDS_LOG_SHOWALL)
 msgid "Show &All"
@@ -9626,29 +8896,17 @@ msgstr "탐색기에서만 오버레이와 컨텍스트 메뉴를 보입니다.(
 msgid "Show &unversioned files"
 msgstr "버전관리 대상이 아닌 파일 보기(&U)"
 
-#. Resource IDs: (17099)
-msgid "Show Above the Ribbon"
-msgstr "리본 위에 보이기"
-
-#. Resource IDs: (17098)
-msgid "Show Below the Ribbon"
-msgstr "리본 아래에 보이기"
-
-#. Resource IDs: (17030)
-msgid "Show Fewer Buttons"
-msgstr "더 적은 버튼 보여주기"
-
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
 msgstr "HEAD 리비전의 노드들을 보이기"
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr "단어 단위 비교를 보여줍니다\n줄내의 단어단위 비교"
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
@@ -9662,32 +8920,16 @@ msgstr "파일을 잠그기 전에 대화상자를 표시"
 msgid "Show Monitor Dialog"
 msgstr ""
 
-#. Resource IDs: (17029)
-msgid "Show More Buttons"
-msgstr "더 많은 버튼 보여주기"
-
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "개요 보기(&r)"
-
-#. Resource IDs: (17082)
-msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "리본위에 빠른 접근 도구막대 보여주기"
-
-#. Resource IDs: (17081)
-msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "리본 아래에 빠른 접근 도구막대 보여주기"
-
-#. Resource IDs: (16651)
-msgid "Show Screen&Tips on toolbars"
-msgstr "도구막대에 스크린 팁 보여주기(&T)"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "작업사본의 수정사항 보여주기(&M)"
 
-#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
+#. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr "공백 보이기"
 
@@ -9718,10 +8960,6 @@ msgstr "표시대상에서 제외된 최상위 폴더를 정상적으로 보기"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1480)
 msgid "Show externals from &different repositories"
 msgstr "다른 저장소들로부터 외부경로를 보여줍니다.(&D)"
-
-#. Resource IDs: (16656)
-msgid "Show f&ull menus after a short delay"
-msgstr "짧은 지연후에 전체 메뉴를 보여줍니다(&U)"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1037, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1034)
@@ -9759,19 +8997,19 @@ msgid ""
 "with dots."
 msgstr "경로 이름에서 변경된 부분만 보여주기. 변경되지 않은 부분은 점으로 대체합니다."
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr "줄 비교 막대 보이기/숨기기\n줄 비교 막대 토글"
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr "위치 막대 보이기/숨기기\n위치 막대 토글"
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -9787,11 +9025,7 @@ msgstr "도구막대 보기/숨기기\n도구막대 토글"
 msgid "Show revision properties"
 msgstr "리비전 속성 보기"
 
-#. Resource IDs: (16652)
-msgid "Show shortcut &keys in ScreenTips"
-msgstr "스트린 팁에 단축키를 보여줍니다(&K)"
-
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
@@ -9882,12 +9116,7 @@ msgstr "선택된 파일 / 폴더의 로그 보기"
 msgid "Shows the mime type of the versioned file"
 msgstr "버전 관리 하에 있는 파일의 mime type 보기"
 
-#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
-msgid "Silver Style"
-msgstr "Silver Style"
-
-#. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
+#. Resource IDs: (IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
 msgstr "크기"
 
@@ -9940,10 +9169,6 @@ msgstr "생략됨. 버전관리되는 부모가 없음."
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
 msgstr "건너띔, 충돌 남음"
-
-#. Resource IDs: (17112)
-msgid "Slide"
-msgstr "슬라이드"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
 msgid "Smart tab char"
@@ -10015,10 +9240,6 @@ msgid ""
 "Separate the patterns with a space."
 msgstr "모든 작업사본에서 TortoiseSVN이 버전컨트롤하지 않을 파일이나 폴더를 지정하십시오.\r\n패턴들은 공백으로 분리하면 됩니다."
 
-#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-msgid "Spin1"
-msgstr "스핀1"
-
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SPLIT_ABOVE)
 msgid "Split &source tree"
 msgstr "소스 트리 분리하기(&S)"
@@ -10048,10 +9269,6 @@ msgstr "누적 막대 그래프"
 #. Resource IDs: (IDS_STATGRAPH_LINESTACKEDBUTTON_TT)
 msgid "Stacked Line Graph"
 msgstr "누적 꺽은선 그래프"
-
-#. Resource IDs: (16962)
-msgid "Standard"
-msgstr "표준"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
@@ -10095,10 +9312,6 @@ msgstr ""
 msgid "State"
 msgstr ""
 
-#. Resource IDs: (16514)
-msgid "Static"
-msgstr "정적인"
-
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
 msgstr "통계정보"
@@ -10108,13 +9321,9 @@ msgstr "통계정보"
 msgid "Status"
 msgstr "상태"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr "상태바"
-
-#. Resource IDs: (17087)
-msgid "Status Bar Configuration"
-msgstr "상태 표시줄 설정"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -10158,10 +9367,6 @@ msgstr ""
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
 msgstr "줄무늬"
-
-#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
-msgid "Style"
-msgstr "스타일"
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
 msgid ""
@@ -10278,21 +9483,23 @@ msgid ""
 "Previous Pane"
 msgstr "이전 윈도우로 전환\n이전 윈도우"
 
-#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
+#. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr "1화면/2화면 전환"
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr "단일 또는 이중 윈도우로 보는 방식을 전환\n단일 또는 이중 윈도우로 보는 방식을 전환"
 
-#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
+#. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr "좌/우 보기 전환"
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -10358,10 +9565,6 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
-#. Resource IDs: (16970)
-msgid "Tab Placeholder"
-msgstr "탭 플레이스홀더"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Tab size:"
@@ -10378,10 +9581,6 @@ msgstr "대상 폴더가 비어있지 않습니다."
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
 msgstr "작업들"
-
-#. Resource IDs: (17019)
-msgid "Tasks Pane"
-msgstr "작업 창"
 
 #. Resource IDs: (IDS_PROGRS_DRYRUN)
 msgid "Test Only"
@@ -10910,13 +10109,6 @@ msgstr "이 속성은 폴더에만 적용되며, 파일에는 적용되지 않�
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "이 속성은 여러줄로 구성될 수 없습니다. 한 줄로만 가능합니다."
 
-#. Resource IDs: (16244)
-msgid ""
-"This will delete the record of commands you've used in this application and "
-"restore the default set of visible commands to the menus and toolbars. It "
-"will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "이것은 이 어플리케이션에서 사용된 명령들을 저장해 놓은 것을 삭제할 것입니다. 그리고 메뉴와 도구막대에서 보이는 명령들을 기본 값으로 되돌릴 것입니다. 이것은 명시적으로 커스터마이징한 것을 되돌리지는 않을 것입니다. 정말로 이것을 수행하시겠습니까?"
-
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK1)
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
@@ -10930,14 +10122,6 @@ msgid ""
 "The command line to run is:\n"
 "%ls"
 msgstr "이 작업 사본은 클라이언트 후크 스크립트가 설정되어 있습니다. 이 스크립트를 실행시키시겠습니까?\n실행될 커맨드 줄:\n%ls"
-
-#. Resource IDs: (16928)
-msgid "Tile &Vertically"
-msgstr "수직으로 붙이기(&V)"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
-msgstr "수평으로 붙이기(&Z)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Timeouts"
@@ -10970,40 +10154,6 @@ msgstr "잠금을 훔쳐오기 위해서는, 이 아이템의 상위 폴더에�
 #. IDD_REVGRAPHFILTER: Control id 65535)
 msgid "To:"
 msgstr "끝:"
-
-#. Resource IDs: (58113)
-msgid ""
-"Toggle One/Two Pages display\n"
-"Toggle One/Two Pages display"
-msgstr "하나/두개의 페이지 보기 토글하기하나/두개의 페이지 보기 토글하기"
-
-#. Resource IDs: (65535)
-msgid "Toolbar"
-msgstr "도구막대"
-
-#. Resource IDs: (16130)
-msgid "Toolbar Name"
-msgstr "도구막대 이름"
-
-#. Resource IDs: (17017)
-msgid "Toolbar Options"
-msgstr "도구막대 옵션들"
-
-#. Resource IDs: (16008)
-msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "도구막대 내부 에러. 어플리케이션 제조자에게 연락하십시오."
-
-#. Resource IDs: (16105)
-msgid "Toolbars"
-msgstr "도구막대"
-
-#. Resource IDs: (16928)
-msgid "Tools"
-msgstr "도구"
-
-#. Resource IDs: (65535)
-msgid "Tools:"
-msgstr "도구:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -11040,8 +10190,8 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: 이미지 파일 비교 프로그램\n\n가능한 명령줄 인자는 다음과 같습니다:\n/left:\"왼쪽 이미지 경로\"\n/lefttitle:\"왼쪽 이미지의 제목\"\n/right:\"오른쪽 이미지의 경로\"\n/righttitle:\"오른쪽 이미지의 제목\"\n/overlay\t\t오버레이 모드 활성화\n/fit\t\t이미지 크기에 맞춤\n/showinfo\t\t이미지 정보 대화 상자를 보임"
 
-#. Resource IDs: (100, 156 - Ribbon element, 32897, 57344, Dialog IDD_OPENDLG:
-#. Control id 130, IDS_APPNAME)
+#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -11195,10 +10345,6 @@ msgstr ""
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN 설정 변경"
 
-#. Resource IDs: (17130)
-msgid "Type"
-msgstr "종류"
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1436)
 msgid "U&pdate"
 msgstr "업데이트(&P)"
@@ -11293,24 +10439,15 @@ msgid ""
 "menu"
 msgstr "체크되지 않은 아이템들은 서브메뉴에, 체크된 아이템들은 메인 컨텍스트 메뉴에 보여집니다."
 
-#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr "실행취소"
-
-#. Resource IDs: (17102)
-#, c-format
-msgid "Undo %d Actions"
-msgstr "%d 액션 되돌리기"
-
-#. Resource IDs: (17103)
-msgid "Undo 1 Action"
-msgstr "1 액션 되돌리기"
 
 #. Resource IDs: (IDS_MENUUNDOADD)
 msgid "Undo Add..."
 msgstr "추가 취소..."
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
@@ -11319,10 +10456,6 @@ msgstr "마지막 수정 사항 되돌리기\n되돌리기"
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
 msgstr "기타 파일 형식"
-
-#. Resource IDs: (17111)
-msgid "Unfold"
-msgstr "펼치기"
 
 #. Resource IDs: (61591)
 msgid ""
@@ -11492,10 +10625,6 @@ msgstr "'%1!ls!' 업데이트 중"
 msgid "Urls"
 msgstr ""
 
-#. Resource IDs: (16530)
-msgid "Use &Default Image: "
-msgstr "기본 이미지 사용하기(&D):"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "두 파일 비교시 기본값으로 같은 창으로 비교(&O)"
@@ -11515,22 +10644,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr "예외를 명시할 때, '*'를 와일드카드로 사용할 수 있습니다.\r\n복수의 예외를 구별할때는 쉼표(',')를 사용합니다.\r\n예:  *.mylan.com, *.company.com"
 
-#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr "'mine' 텍스트 블럭을 사용"
 
 #. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
-#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
+#. cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr "'mine'→'theirs'의 순서로 텍스트 블럭을 사용"
 
-#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu,
+#. cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr "'theirs' 테스트 블럭을 사용"
 
 #. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
-#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
+#. cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr "'theirs'→'mine'의 순서로 텍스트 블럭을 사용"
 
@@ -11550,29 +10679,29 @@ msgstr "작업 사본의 URL을 원본의 디폴트 URL로 사용합니다.(&W)"
 msgid "Use Unified Diff from &clipboard"
 msgstr "클립보드로부터 통합 비교를 사용(&C)"
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr "왼쪽 창의 모든 내용을 사용합니다.\n왼쪽 파일 사용"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
-#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
+#. cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr "오른쪽 전에 왼쪽의 블럭을 사용합니다."
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr "오른쪽 창의 블럭전에 왼쪽 창의 블럭을 사용합니다.\n오른쪽 전에 왼쪽 블럭을 사용"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
-#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
+#. cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr "왼쪽 전에 오른쪽 블럭을 사용합니다."
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -11586,13 +10715,12 @@ msgstr "두 블럭 모두 사용 (이것을 원본으로 사용)"
 msgid "Use both text blocks (this one last)"
 msgstr "두 블럭 모두 사용 (이것을 비교본으로 사용)"
 
-#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
+#. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr "왼쪽 블럭을 사용"
 
-#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr "왼쪽 파일을 사용"
 
@@ -11628,13 +10756,13 @@ msgstr "'저장소'의 텍스트 블럭 사용(&T)"
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "'저장소' 텍스트를 사용하기 전에 '작업사본'의 텍스트 블럭 사용(&I)"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr "'저장소'의 텍스트를 사용하기 전에 '작업사본'의 텍스트 블럭 사용\n'작업사본'의 텍스트 사용 후에 '저장소'의 텍스트를 사용"
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -11644,19 +10772,19 @@ msgstr "'작업 사본'의 텍스트 블럭 사용\n'작업 사본'의 텍스트
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "'작업사본' 텍스트를 사용하기 전에 '저장소'의 텍스트 블럭을 사용(&H)"
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr "'작업사본' 텍스트를 사용하기 전에 '저장소'의 텍스트 블럭 사용\n'저장소'의 텍스트 블럭을 사용후에 '작업 사본'의 텍스트를 사용"
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr "'저장소'의 텍스트 블럭 사용\n'저장소'의 텍스트 블럭 사용"
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
@@ -11728,6 +10856,10 @@ msgstr ""
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr ""
 
+#. Resource IDs: (cmdPaste_Keytip_RESID)
+msgid "V"
+msgstr ""
+
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
 "Valid command line options are:\n"
@@ -11777,11 +10909,11 @@ msgstr "버전 정보"
 msgid "Versioned"
 msgstr "버전관리됨"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr "표시"
 
-#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr ""
 
@@ -11797,15 +10929,9 @@ msgstr "웹 브라우저에서 리비전 보기(&W)"
 msgid "Visit our website"
 msgstr "웹 사이트 방문"
 
-#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
-#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
-msgid "Visual Studio 2005"
-msgstr "Visual Studio 2005"
-
-#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
-#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
-msgid "Visual Studio 2008"
-msgstr "Visual Studio 2008"
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
+msgid "W"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
 msgid ""
@@ -11892,33 +11018,10 @@ msgstr "한개 이상의 파일을 잠글 때, 현재 잠금에 대한\n사유�
 msgid "Whitespace changes (tabs, spaces)"
 msgstr ""
 
-#. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
-#. 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
+#. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "공백문자들"
-
-#. Resource IDs: (17038)
-msgid "Window Position"
-msgstr "윈도우 위치"
-
-#. Resource IDs: (16927)
-msgid "Windows"
-msgstr "윈도우"
-
-#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
-#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
-msgid "Windows 2000"
-msgstr "Windows 2000"
-
-#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
-#. Ribbon name)
-msgid "Windows 7"
-msgstr "Windows 7"
-
-#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
-#. - Ribbon name)
-msgid "Windows XP"
-msgstr "Windows XP"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 158, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 1493, Dialog IDD_MERGEWIZARD_TREE:
@@ -11947,16 +11050,23 @@ msgstr "작업 사본 저장소 URL 변경\n%ls"
 msgid "Working copy: %ls\n"
 msgstr "작업 사본: %ls\n"
 
-#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
-#. name)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
+msgid "Wrap Lines"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
 msgstr "긴 줄 보호"
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr "오른쪽 경계를 넘어가는 긴 줄을 줄 바꿈 하기\n긴 줄 보호"
+
+#. Resource IDs: (cmdRedo_Keytip_RESID)
+msgid "Y"
+msgstr ""
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
 msgid "You already have the latest version installed."
@@ -11973,16 +11083,6 @@ msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
 msgstr ""
-
-#. Resource IDs: (16005)
-#, c-format
-msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr "단지 크기가 (%d x %d)인 비트맵만 붙여 넣을 수 있습니다!"
-
-#. Resource IDs: (16243)
-#, c-format
-msgid "You can't create more than %d user-defined toolbars!"
-msgstr "사용자 정의 도구막대를 %d개 이상 생성할 수 없습니다!"
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -12024,11 +11124,6 @@ msgstr "먼저 작업 사본을 업데이트해야만 합니다."
 msgid "You haven't entered an issue number."
 msgstr "이슈 번호를 입력하지 않았습니다."
 
-#. Resource IDs: (16024)
-#, c-format
-msgid "You may define up to %d tools."
-msgstr "%d개의 도구까지 정의했을지도 모릅니다."
-
 #. Resource IDs: (IDS_SETTINGS_RESTARTSYSTEM)
 msgid "You must restart your system for the changes to take effect."
 msgstr "바뀐 설정을 사용하려면 시스템을 재시작해야합니다."
@@ -12036,14 +11131,6 @@ msgstr "바뀐 설정을 사용하려면 시스템을 재시작해야합니다."
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "커밋하기 위해서 버전관리되지 않는 폴더를 선택했습니다!"
-
-#. Resource IDs: (16002)
-msgid "You should enter a text!"
-msgstr "텍스트를 입력해야만 합니다!"
-
-#. Resource IDs: (16001)
-msgid "You should select an image!"
-msgstr "이미지를 선택해야만 합니다!"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12101,13 +11188,13 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr "작업 복사보은 태그에 %ls를 가리키고 있습니다. 커밋하기 전에 분기 또는 메인 트렁크로 전환해야 합니다."
 
+#. Resource IDs: (cmdUndo_Keytip_RESID)
+msgid "Z"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr ""
-
-#. Resource IDs: (17093)
-msgid "Zoom"
-msgstr "확대/축소"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -12129,18 +11216,6 @@ msgstr "작게 보기(&O)\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "100%로 보기"
-
-#. Resource IDs: (58117)
-msgid ""
-"Zoom In\n"
-"Zoom In"
-msgstr "크게 보기\n크게 보기"
-
-#. Resource IDs: (58118)
-msgid ""
-"Zoom Out\n"
-"Zoom Out"
-msgstr "작게 보기\n작게 보기"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
@@ -12170,14 +11245,6 @@ msgstr "높이에 맞추어서 확대"
 msgid "Zoom to fit in width"
 msgstr "폭에 맞추어서 확대"
 
-#. Resource IDs: (17114)
-msgid "[Default]"
-msgstr "[기본]"
-
-#. Resource IDs: (16009)
-msgid "[Unassigned]"
-msgstr "[할당되지않음]"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
 msgstr "\"커밋을 무시\" 하는 파일은 변경된 부모폴더를 표시하지 않습니다."
@@ -12191,10 +11258,6 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr "\n\n패턴들은 대소문자와 상관없이 일치하고 소문자로만 지정되어야만 합니다.\n공백문자들은 패턴의 일부가 될 것입니다.\n허용되는 와일드카드 문자는 '?'와 '*' 입니다.\n';' 문자를 사용해서 패턴들은 분리하십시오"
-
-#. Resource IDs: (65535 - PopupMenu)
-msgid "_POPUP_"
-msgstr "_POPUP_"
 
 #. Resource IDs: (IDS_STATUSADDED)
 msgid "added"
@@ -12372,10 +11435,6 @@ msgstr "삭제됨"
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "disk [kB]: "
 msgstr "디스크 [kB]:"
-
-#. Resource IDs: (58116)
-msgid "dummy"
-msgstr "더미"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
@@ -12557,6 +11616,10 @@ msgstr ""
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
 msgstr "일반"
+
+#. Resource IDs: (cmdOpen_Keytip_RESID)
+msgid "o1"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"

@@ -36,8 +36,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-23 18:02+0000\n"
-"Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
+"PO-Revision-Date: 2017-11-14 02:02+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,17 +311,13 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nはファイルではなくディレクトリです。\nTortoiseMerge はディレクトリの差分を取ることはできません。"
 
-#. Resource IDs: (16923)
-msgid "&..."
-msgstr "&..."
-
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
 msgstr "中止(&A)\n先にフックスクリプトが失敗した原因を修正します。"
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "TortoiseMergeについて(&A)..."
 
@@ -331,17 +327,9 @@ msgid ""
 "The certificate is accepted only this one time."
 msgstr "証明書を受け付ける(&A)\n証明書は今回のみ受理されます。"
 
-#. Resource IDs: (16920)
-msgid "&Activate"
-msgstr "アクティブにする(&A)"
-
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
 msgstr "追加(&A)"
-
-#. Resource IDs: (17075)
-msgid "&Add >>"
-msgstr "追加(&A) >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
@@ -352,10 +340,6 @@ msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
 msgstr "項目を追加(&A)\nWindows上では問題が発生します。"
-
-#. Resource IDs: (17018)
-msgid "&Add or Remove Buttons"
-msgstr "ボタンの追加/削除(&A)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -392,22 +376,6 @@ msgstr "プロパティを再帰的に適用(&A)"
 msgid "&Apply unified diff"
 msgstr "Unified形式の差分を適用(&A)"
 
-#. Resource IDs: (65535)
-msgid "&Arguments:"
-msgstr "引数(&A):"
-
-#. Resource IDs: (16645)
-msgid "&Assign"
-msgstr "割り当て(&A)"
-
-#. Resource IDs: (16633)
-msgid "&Associate double-click event with:"
-msgstr "ダブルクリックイベントの関連付け(&A):"
-
-#. Resource IDs: (17041)
-msgid "&Auto Hide"
-msgstr "自動的に隠す(&A)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
 msgstr "ダイアログを閉じる条件(&A):"
@@ -435,10 +403,6 @@ msgstr "直前のリビジョンの注釈履歴(&B)"
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
 msgstr "注釈履歴(&B)..."
-
-#. Resource IDs: (65535)
-msgid "&Blue:"
-msgstr "青(&B):"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -468,14 +432,6 @@ msgstr "参照(&B)..."
 #. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr "課題追跡（課題追跡システムとの統合）(&B)"
-
-#. Resource IDs: (16913 - Menu)
-msgid "&Button Appearance..."
-msgstr "ボタンの外観(&B)..."
-
-#. Resource IDs: (65535)
-msgid "&Button text:"
-msgstr "ボタンテキスト(&B):"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
@@ -619,18 +575,6 @@ msgid ""
 "keep the current format."
 msgstr "キャンセル(&C)\n現在のフォーマットを保つ。"
 
-#. Resource IDs: (65535)
-msgid "&Categories:"
-msgstr "カテゴリ(&C):"
-
-#. Resource IDs: (65535)
-msgid "&Category:"
-msgstr "カテゴリ(&C):"
-
-#. Resource IDs: (65535)
-msgid "&Choose commands from:"
-msgstr "コマンドを選択(&C):"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
 msgstr "項目を選択(&C)..."
@@ -651,17 +595,9 @@ msgstr "変更リストを消去(&C)"
 msgid "&Close"
 msgstr "閉じる(&C)"
 
-#. Resource IDs: (16922)
-msgid "&Close Window(s)"
-msgstr "ウィンドウを閉じる(&C)"
-
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
 msgstr "Collaboratorのユーザー名(&C)"
-
-#. Resource IDs: (65535)
-msgid "&Command:"
-msgstr "コマンド(&C):"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -693,14 +629,10 @@ msgstr "スタートアップ時にリポジトリへアクセスする(&C)"
 msgid "&Convert files when diffing against BASE"
 msgstr "作業ベースに対する差分の時はファイルを変換する(&C)"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "コピー(&C)"
-
-#. Resource IDs: (16911 - Menu)
-msgid "&Copy Button Image"
-msgstr "ボタンイメージをコピー(&C)"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
@@ -736,8 +668,8 @@ msgstr "小さいキャッシュを自動削除する日数(&D)"
 msgid "&Default"
 msgstr "デフォルト(&D)"
 
-#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
-#. Control id 1382, IDS_MENUREMOVE)
+#. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1382,
+#. IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "削除(&D)"
 
@@ -783,10 +715,6 @@ msgstr "ディレクトリ(&D)"
 msgid "&Do not ask again"
 msgstr "再び表示しない(&D)"
 
-#. Resource IDs: (17040)
-msgid "&Docking"
-msgstr "ドッキング(&D)"
-
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
 msgid ""
 "&Don't run\n"
@@ -814,7 +742,7 @@ msgstr "競合を編集(&E)"
 msgid "&Edit project"
 msgstr "プロジェクトを編集(&E)"
 
-#. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
@@ -896,10 +824,6 @@ msgstr "タイムスタンプを修正(&F)"
 msgid "&Fixed drives"
 msgstr "固定ドライブ(&F)"
 
-#. Resource IDs: (17039)
-msgid "&Floating"
-msgstr "フローティング(&F)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
 msgstr "ログメッセージのフォント(&F):"
@@ -930,10 +854,6 @@ msgstr "開始点(&F): （マージする範囲の始点を指すURLとリビジ
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr "指定した行へ移動...\t(Ctrl+&G)"
 
-#. Resource IDs: (65535)
-msgid "&Green:"
-msgstr "緑(&G):"
-
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "ブランチでグループ化(&G)"
@@ -960,17 +880,21 @@ msgstr "リポジトリ内の最新リビジョン(&HEAD)"
 msgid "&Help"
 msgstr "ヘルプ(&H)"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "ヘルプトピック(&H)"
 
-#. Resource IDs: (17042, 61457)
+#. Resource IDs: (61457)
 msgid "&Hide"
 msgstr "隠す(&H)"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
 msgstr "無視する項目を表示にする(&H)"
+
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
+msgid "&Hide/Show the patch file list"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -993,17 +917,9 @@ msgstr "無視して続行する(&I)"
 msgid "&Ignore multiple items by name"
 msgstr "名前で複数の項目を無視(&I)"
 
-#. Resource IDs: (16914 - Menu)
-msgid "&Image"
-msgstr "画像(&I)"
-
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr "画像情報を表示する\t(&I)"
-
-#. Resource IDs: (16505)
-msgid "&Image only"
-msgstr "画像のみ(&I)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1022,10 +938,6 @@ msgstr "外部参照を含める(&I)"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
 msgstr "マージ情報を含める(&I)"
-
-#. Resource IDs: (65535)
-msgid "&Initial directory:"
-msgstr "初期ディレクトリ:(&I):"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
@@ -1046,10 +958,6 @@ msgstr "キーワード(&K)"
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
 msgstr "言語(&L):"
-
-#. Resource IDs: (16653)
-msgid "&Large Icons"
-msgstr "大きいアイコン(&L)"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -1092,10 +1000,6 @@ msgstr "ロックが必要（読み取り専用で更新）(&L)"
 msgid "&Log Sizes"
 msgstr "ログサイズ(&L)"
 
-#. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "明度(&L):"
-
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
@@ -1112,14 +1016,6 @@ msgstr "行内差分を取る行の最大長(&M)"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "自動削除対象となるキャッシュのサイズの上限［KB］(&M)"
-
-#. Resource IDs: (16543)
-msgid "&Menu animations:"
-msgstr "メニューのアニメーション(&M):"
-
-#. Resource IDs: (16921)
-msgid "&Menu contents:"
-msgstr "メニューの内容(&M):"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1140,10 +1036,6 @@ msgstr "マージ(&M)"
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "MIMEタイプ(&M)"
-
-#. Resource IDs: (16925)
-msgid "&Minimize"
-msgstr "最小化(&M)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1169,8 +1061,8 @@ msgstr "ネットワークドライブ(&N)"
 msgid "&New "
 msgstr "新規(&N)"
 
-#. Resource IDs: (16509, 16615, Dialog IDD_EDITPROPERTIES: Control id 1310,
-#. Dialog IDD_EDITPROPEXTERNALS: Control id 1542)
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1310, Dialog
+#. IDD_EDITPROPEXTERNALS: Control id 1542)
 msgid "&New..."
 msgstr "新規(&N)..."
 
@@ -1186,10 +1078,6 @@ msgstr "次へ(&N) >"
 #. Resource IDs: (58114)
 msgid "&Next Page"
 msgstr "次のページ(&N)"
-
-#. Resource IDs: (16632)
-msgid "&No double-click event"
-msgstr "ダブルクリックイベントを発生しない(&N)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
@@ -1207,10 +1095,10 @@ msgstr "実行不可(&N)"
 msgid "&Numeric"
 msgstr "数字(&N)"
 
-#. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
-#. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
-#. 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1,
-#. Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id
+#. 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1,
+#. Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog
+#. IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
 #. IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1,
 #. Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id
 #. 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL:
@@ -1247,7 +1135,8 @@ msgstr "オフラインにする(&O)"
 msgid "&One Page"
 msgstr "1ページ(&O)"
 
-#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN,
+#. cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr "開く(&O)"
 
@@ -1294,8 +1183,8 @@ msgstr "上書き(&O)\nターゲットファイルを置き換えます。"
 msgid "&Password:"
 msgstr "パスワード(&P):"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "貼り付け(&P)"
 
@@ -1326,10 +1215,6 @@ msgstr "&Power User デフォルト"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr "高速に表示するためにフォルダーを先読みする(&P)"
-
-#. Resource IDs: (17091)
-msgid "&Print Preview"
-msgstr "印刷プレビュー(&P)"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1371,10 +1256,6 @@ msgstr "プロパティ(&P)..."
 msgid "&Recent messages"
 msgstr "最近のログメッセージ(&R)"
 
-#. Resource IDs: (65535)
-msgid "&Red:"
-msgstr "赤(&R):"
-
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
 msgstr "やり直し(&R)"
@@ -1399,7 +1280,7 @@ msgstr "再配置(&R)\n作業コピーは新しいURLで置き換えられます
 msgid "&Remind me to enter a bug-ID"
 msgstr "課題IDの入力を確認する(&R)"
 
-#. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1100, IDS_PROP_REMOVE)
 msgid "&Remove"
@@ -1451,22 +1332,6 @@ msgstr "置換(&R)"
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
 msgstr "リポジトリブラウザー(&R)"
-
-#. Resource IDs: (16613, 16624)
-msgid "&Reset"
-msgstr "リセット(&R)"
-
-#. Resource IDs: (16300)
-msgid "&Reset Toolbar"
-msgstr "ツールバーをリセット(&R)"
-
-#. Resource IDs: (16657)
-msgid "&Reset my usage data"
-msgstr "使用データのリセット(&R)"
-
-#. Resource IDs: (16910 - Menu)
-msgid "&Reset to Default"
-msgstr "デフォルトの状態に戻す(&R)"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
 msgid ""
@@ -1529,11 +1394,7 @@ msgstr "&SSHクライアント:"
 msgid "&SVN"
 msgstr "&SVN"
 
-#. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "彩度(&S):"
-
-#. Resource IDs: (16921)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr "保存(&S)"
 
@@ -1568,10 +1429,6 @@ msgstr "最新リビジョン(HEAD)を表示(&S)"
 msgid "&Show Log"
 msgstr "ログを表示(&S)"
 
-#. Resource IDs: (65535)
-msgid "&Show Menus for:"
-msgstr "メニューを表示(&S):"
-
 #. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr "モニターを表示(&S)"
@@ -1580,23 +1437,15 @@ msgstr "モニターを表示(&S)"
 msgid "&Show popup notifications"
 msgstr "通知時にポップアップを表示(&S)"
 
-#. Resource IDs: (16612)
-msgid "&Show text labels"
-msgstr "テキストラベルを表示(&S)"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
 msgstr "リポジトリ内の特定リビジョン(&S):"
-
-#. Resource IDs: (16917 - Menu)
-msgid "&Start Group"
-msgstr "グループの始まり(&S)"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
 msgstr "リポジトリブラウザーを起動(&S)"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "ステータスバー(&S)"
 
@@ -1628,10 +1477,6 @@ msgstr "アイコン表示(&S)"
 msgid "&Tab size:"
 msgstr "タブ幅(&T):"
 
-#. Resource IDs: (17088)
-msgid "&Tabbed Document"
-msgstr "タブ型ドキュメント(&T)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
 msgstr "タグ(&T)"
@@ -1640,13 +1485,9 @@ msgstr "タグ(&T)"
 msgid "&Test merge"
 msgstr "マージのテスト(&T)"
 
-#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "テキスト(&T)"
-
-#. Resource IDs: (16506)
-msgid "&Text only"
-msgstr "テキストのみ表示(&T)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1674,17 +1515,9 @@ msgstr "宛先パス(&T): "
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "終了点(&T): （マージする範囲の終点を指すURLとリビジョン）"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "ツールバー(&T)"
-
-#. Resource IDs: (65535)
-msgid "&Toolbar Name:"
-msgstr "ツールバー名(&T):"
-
-#. Resource IDs: (65535)
-msgid "&Toolbars:"
-msgstr "ツールバー(&T):"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
@@ -1723,7 +1556,7 @@ msgstr "リポジトリの&URL:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "元に戻す(&U)"
 
@@ -1794,10 +1627,6 @@ msgstr "未使用のコピーを削除(&V)"
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "表示(&V)"
-
-#. Resource IDs: (65535)
-msgid "&View:"
-msgstr "表示(&V):"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
 msgid "&Whole word"
@@ -1943,11 +1772,6 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#. Resource IDs: (16108)
-msgid ""
-"-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1035, Dialog IDD_CHECKOUT:
 #. Control id 1036, Dialog IDD_COPY: Control id 1035, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1035, Dialog IDD_EXPORT: Control id
@@ -1974,10 +1798,6 @@ msgstr "... キャッシュをチェックし、ログクエリを準備して�
 msgid "... reading working copy status"
 msgstr "... 作業コピーの状態を読み取っています"
 
-#. Resource IDs: (16527)
-msgid "....."
-msgstr "....."
-
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1990,22 +1810,6 @@ msgstr ": 作業コピー"
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
 msgstr "< 戻る(&B)"
-
-#. Resource IDs: (16506)
-msgid "<.....>"
-msgstr "<.....>"
-
-#. Resource IDs: (17095)
-msgid "<Separator>"
-msgstr "<Separator>"
-
-#. Resource IDs: (16104)
-msgid "<Untitled>"
-msgstr "<Untitled>"
-
-#. Resource IDs: (16603)
-msgid "<descr>"
-msgstr "<descr>"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_CREATECS)
 msgid "<new changelist>"
@@ -2091,7 +1895,11 @@ msgstr "フォルダーを追加(&D)..."
 msgid "Abort"
 msgstr "中止"
 
-#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
+msgid "Abou&t TortoiseMerge"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
 msgstr "TortoiseSVNについて"
 
@@ -2129,10 +1937,6 @@ msgstr "アクション"
 #. Resource IDs: (61203)
 msgid "Activate Task List"
 msgstr "タスクリストをアクティブにする"
-
-#. Resource IDs: (17043)
-msgid "Active Files"
-msgstr "アクティブなファイル"
 
 #. Resource IDs: (61838)
 #, c-format
@@ -2202,10 +2006,6 @@ msgstr "無視リストに追加(&I)"
 msgid "Add to Bookmarks"
 msgstr "ブックマークに追加"
 
-#. Resource IDs: (17083)
-msgid "Add to Quick Access Toolbar"
-msgstr "クイックアクセスツールバーに追加"
-
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
@@ -2257,7 +2057,7 @@ msgstr "ファイルをバージョン管理に追加"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "選択されたファイルもしくはファイルマスクを「無視」リストに追加"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -2296,10 +2096,6 @@ msgstr "ツリーを上端でそろえる"
 msgid "All"
 msgstr "すべて"
 
-#. Resource IDs: (16110)
-msgid "All Commands"
-msgstr "すべてのコマンド"
-
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
 msgstr "すべてのファイル (*.*)"
@@ -2308,32 +2104,7 @@ msgstr "すべてのファイル (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "すべてのファイル (*.*)|*.*||"
 
-#. Resource IDs: (16112)
-msgid ""
-"All your changes will be lost! Do you really want to reset all toolbars and "
-"menus?"
-msgstr "すべての変更が失われます。本当にツールバーとメニューのすべてをリセットしてもよろしいですか？"
-
-#. Resource IDs: (16115)
-msgid ""
-"All your changes will be lost! Do you really want to reset the keyboard "
-"assignments?"
-msgstr "すべての変更が失われます。本当にキーボードの割り当てをリセットしてもよろしいですか？"
-
-#. Resource IDs: (16113)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr "すべての変更が失われます。メニュー「%Ts」をリセットしてもよろしいですか？"
-
-#. Resource IDs: (16111)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar "
-"'%Ts'?"
-msgstr "すべての変更が失われます。ツールバー「%Ts」をリセットしてもよろしいですか？"
-
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
@@ -2438,10 +2209,6 @@ msgstr "右ブロックを追加"
 msgid "Append this block to left"
 msgstr "このブロックを左に追加"
 
-#. Resource IDs: (65535)
-msgid "Application Frame Menus: "
-msgstr "アプリケーションメニュー: "
-
 #. Resource IDs: (IDS_MENUDESCAPPLYPATCH)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Unified形式の差分を作業コピーに適用"
@@ -2471,11 +2238,6 @@ msgstr "クライアント側フックスクリプトの承認または拒否"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1282)
 msgid "Approved hook scripts"
 msgstr "フックスクリプトを承認"
-
-#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
-msgid "Aqua Style"
-msgstr "Aqua Style"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
 msgid "Arb&itrary text"
@@ -2513,10 +2275,6 @@ msgstr "ユーザーに問い合わせる"
 #, c-format
 msgid "Assigned to changelist '%ls'"
 msgstr "変更リスト「%ls」に割り当てる"
-
-#. Resource IDs: (16528)
-msgid "Assigned to:"
-msgstr "割り当て:"
 
 #. Resource IDs: (IDS_PROGRS_ATREV)
 #, c-format
@@ -2572,14 +2330,6 @@ msgstr "作者名の大文字/小文字を区別する"
 msgid "Authors:"
 msgstr "作者:"
 
-#. Resource IDs: (16033)
-msgid "Auto Hide"
-msgstr "自動的に隠す"
-
-#. Resource IDs: (16036)
-msgid "Auto Hide All"
-msgstr "自動的にすべてを隠す"
-
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
 msgstr "自動マージ"
@@ -2624,10 +2374,6 @@ msgstr "平均"
 msgid "B&rowse..."
 msgstr "参照(&R)..."
 
-#. Resource IDs: (17020)
-msgid "Back"
-msgstr "戻る"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
@@ -2652,11 +2398,6 @@ msgid ""
 "a bitmap"
 msgstr "ビットマップ\nビットマップ"
 
-#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
-msgid "Black Style"
-msgstr "Black Style"
-
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
 msgstr "注釈履歴"
@@ -2677,14 +2418,9 @@ msgstr "ファイルのそれぞれの行に注釈履歴をつける"
 msgid "Blend alpha"
 msgstr "アルファブレンド"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
 msgstr "ブロック"
-
-#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
-msgid "Blue Style"
-msgstr "Blue Style"
 
 #. Resource IDs: (IDS_BOOKMARKS)
 msgid "Bookmarks"
@@ -2755,9 +2491,9 @@ msgstr "課題ID"
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr "課題追跡の正規表現テスト - TortoiseSVN"
 
-#. Resource IDs: (16132)
-msgid "Button Appearance"
-msgstr "ボタンの外観"
+#. Resource IDs: (cmdCopy_Keytip_RESID)
+msgid "C"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2771,10 +2507,6 @@ msgstr "リポジトリをチェック(&H)"
 msgid "C&ollapse sub-trees"
 msgstr "サブツリーを折りたたむ(&O)"
 
-#. Resource IDs: (65535)
-msgid "C&ommands:"
-msgstr "コマンド(&O):"
-
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
 msgstr "URLを比較（内容のみ）(&O)"
@@ -2786,10 +2518,6 @@ msgstr "このリビジョンからブランチ/タグを作成(&R)"
 #. Resource IDs: (IDS_REPOBROWSE_MKDIR)
 msgid "C&reate folder..."
 msgstr "フォルダーを作成(&R)..."
-
-#. Resource IDs: (65535)
-msgid "C&urrent Keys:"
-msgstr "現在のキー(&U):"
 
 #. Resource IDs: (IDS_EDIT_CUT)
 msgid "C&ut"
@@ -2824,23 +2552,7 @@ msgid ""
 "%2!ls!"
 msgstr "%1!ls!\nを\n%2!ls!にコピーできませんでした。"
 
-#. Resource IDs: (16010)
-msgid "Can't copy bitmap image into the clipboard!"
-msgstr "クリップボードにビットマップ画像をコピーできませんでした。"
-
-#. Resource IDs: (16003)
-msgid "Can't create a new image!"
-msgstr "新規に画像を作成することはできません。"
-
-#. Resource IDs: (16007)
-msgid "Can't customize menus!"
-msgstr "メニューをカスタマイズすることはできません。"
-
-#. Resource IDs: (16004)
-msgid "Can't paste bitmap image from the clipboard!"
-msgstr "クリップボードからビットマップ画像を貼り付けることはできません。"
-
-#. Resource IDs: (17101, 2, Dialog IDD_BLAME: Control id 2, Dialog
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog
 #. IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2,
 #. Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control
 #. id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2,
@@ -2947,17 +2659,9 @@ msgstr "キャンセル処理中..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "ファイルの改行コードに一貫性がないため、差分を表示できません。"
 
-#. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "重ねる(&D)"
-
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
 msgstr "大文字/小文字を区別する"
-
-#. Resource IDs: (65535)
-msgid "Cate&gories:"
-msgstr "カテゴリ(&G):"
 
 #. Resource IDs: (IDS_ERR_SSL_EXPIRED)
 #, c-format
@@ -2982,12 +2686,6 @@ msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
 msgstr "タグ付けされたリビジョンを変更(&G)\n親フォルダーのsvn:externalプロパティが変更されます。"
-
-#. Resource IDs: (10000)
-msgid ""
-"Change the style of the application\n"
-"Change Style"
-msgstr "アプリケーションのスタイルを変更する\nスタイルの変更"
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -3018,10 +2716,6 @@ msgstr "変更リスト:"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "変更した項目（ダブルクリックで差分を表示）"
-
-#. Resource IDs: (32956)
-msgid "Changes the style of the application"
-msgstr "アプリケーションのスタイルの変更"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3183,12 +2877,6 @@ msgstr "中断した処理、ロックされたファイル、などをクリー
 msgid "Clear"
 msgstr "消去"
 
-#. Resource IDs: (16909)
-msgid ""
-"Clear Tool\n"
-"Clear"
-msgstr "消去ツール\n消去"
-
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
 msgstr "すべて消去"
@@ -3249,7 +2937,7 @@ msgid ""
 "extension"
 msgstr "「高度な設定」をクリックすると、それぞれのファイル拡張子に対応するマージプログラムを指定することができます。"
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
@@ -3258,20 +2946,6 @@ msgstr "テキストのブロックを移動するためのコマンドを見る
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
 msgstr "クリップボード"
-
-#. Resource IDs: (16032, 16105, 17023, 2)
-msgid "Close"
-msgstr "閉じる"
-
-#. Resource IDs: (17025)
-msgid "Close Full Screen"
-msgstr "全画面表示を閉じる"
-
-#. Resource IDs: (58112)
-msgid ""
-"Close Print Preview\n"
-"&Close"
-msgstr "印刷プレビューを閉じる\n閉じる(&C)"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_MANUAL)
 msgid "Close manually"
@@ -3293,7 +2967,7 @@ msgstr "ソースツリーを折りたたむ(&A)"
 msgid "Collaborator &password"
 msgstr "Collaboratorのパスワード(&P)"
 
-#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr "折りたたむ"
 
@@ -3301,15 +2975,11 @@ msgstr "折りたたむ"
 msgid "Collapse &following tree"
 msgstr "次のツリーを折りたたむ(&F)"
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr "変更されていない箇所を折りたたむ\n折りたたむ"
-
-#. Resource IDs: (16662)
-msgid "Color"
-msgstr "色"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Color 1"
@@ -3331,21 +3001,13 @@ msgstr "変更時期で連続色で色分け(&C)"
 msgid "Color by au&thor"
 msgstr "作者で色分け(&T)"
 
-#. Resource IDs: (16961, Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
 msgid "Colors"
 msgstr "色"
 
-#. Resource IDs: (65535)
-msgid "Colors:"
-msgstr "色:"
-
-#. Resource IDs: (65535)
-msgid "Comman&ds:"
-msgstr "コマンド(&D):"
-
-#. Resource IDs: (16029, IDS_PROGRS_CMDINFO)
+#. Resource IDs: (IDS_PROGRS_CMDINFO)
 msgid "Command"
 msgstr "コマンド"
 
@@ -3371,10 +3033,6 @@ msgstr "コマンド失敗 - 更新が必要"
 #. Resource IDs: (61705)
 msgid "Command failed."
 msgstr "コマンドの実行に失敗しました。"
-
-#. Resource IDs: (16104)
-msgid "Commands"
-msgstr "コマンド"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
@@ -3463,7 +3121,7 @@ msgid "Compare two files"
 msgstr "2つのファイルを比較"
 
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
-#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
+#. cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr "空白を比較する"
 
@@ -3487,7 +3145,7 @@ msgstr "作業ベースと比較（内容のみ）"
 msgid "Compare with previous revision"
 msgstr "直前のリビジョンと比較"
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
@@ -3514,6 +3172,10 @@ msgstr "完了"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "TortoiseSVNがごみ箱を使用しないように設定(&T)"
+
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
+msgid "Configure Filter Regex"
+msgstr ""
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
@@ -3579,17 +3241,9 @@ msgstr "リポジトリサーバーに接続し、取得していないログデ
 msgid "Container sizes"
 msgstr "コンテナサイズ"
 
-#. Resource IDs: (16520)
-msgid "Context Menus: "
-msgstr "コンテキストメニュー: "
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr "パッチのコンテキストライン"
-
-#. Resource IDs: (16013)
-msgid "Contract docked window"
-msgstr "ドッキングしているウィンドウをコントラクトする"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3620,7 +3274,7 @@ msgstr "コピー: %1!ls!@%2!ld!\r\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr "選択中の全項目のURLをクリップボードにコピー"
 
-#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr "コピー"
 
@@ -3650,12 +3304,6 @@ msgstr "リビジョン番号をクリップボードにコピー(&R)"
 #. Resource IDs: (Dialog IDD_COPY: Control id 142)
 msgid "Copy (Branch / Tag)"
 msgstr "コピー（ブランチ/タグの作成）"
-
-#. Resource IDs: (16907)
-msgid ""
-"Copy Tool\n"
-"Copy"
-msgstr "コピーツール\nコピー"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
@@ -3687,7 +3335,7 @@ msgstr "ここに項目をコピー"
 msgid "Copy selection to cli&pboard"
 msgstr "選択範囲をクリップボードにコピー(&P)"
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -3895,6 +3543,10 @@ msgstr "カウント: %u件の一致。"
 msgid "Create &Library"
 msgstr "ライブラリを作成(&L)"
 
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
+msgid "Create &patch file"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
 msgstr "パッチを作成(&P)..."
@@ -3926,8 +3578,7 @@ msgid ""
 "%ls"
 msgstr "新しいディレクトリを作成:\r\n%ls"
 
-#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
-#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
 msgstr "パッチファイルを作成"
 
@@ -3949,7 +3600,7 @@ msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr "Subversionの作業コピーのために、特殊な設定のライブラリフォルダーを作成します"
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
@@ -3971,10 +3622,6 @@ msgstr "謝辞:"
 msgid "Cu&t"
 msgstr "切り取り(&T)"
 
-#. Resource IDs: (65535)
-msgid "Current"
-msgstr "現在の色"
-
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1113)
 msgid "Current version is:"
 msgstr "最新のバージョン:"
@@ -3983,14 +3630,6 @@ msgstr "最新のバージョン:"
 #, c-format
 msgid "Current version is: %ls"
 msgstr "最新のバージョン: %ls"
-
-#. Resource IDs: (17079)
-msgid "Cus&tomize..."
-msgstr "カスタマイズ(&T)..."
-
-#. Resource IDs: (16963)
-msgid "Custom"
-msgstr "ユーザー設定"
 
 #. Resource IDs: (IDS_SVN_DEPTH_CUSTOM)
 msgid "Custom depths"
@@ -4004,22 +3643,6 @@ msgid ""
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
 msgstr "設定するタイトル文字列。設定可能なキーワードは次の通りです。\n{mergeurl}:\tマージのソースURL\n{revisions}:\tマージされたリビジョンのカンマ区切りのリスト。例: 3, 5, 6, 7\n{revisionsr}:\tリビジョン番号の前にrをつけるほかは{revisions}と同様\n{revrange}:\tマージされたリビジョンのカンマ区切りのリストで、可能であれば範囲をグループ化する。例: 3, 5-7"
-
-#. Resource IDs: (16103, 17074)
-msgid "Customize"
-msgstr "カスタマイズ"
-
-#. Resource IDs: (17076)
-msgid "Customize Keyboard"
-msgstr "キーボードのカスタマイズ"
-
-#. Resource IDs: (17096)
-msgid "Customize Quick Access Toolbar"
-msgstr "クイックアクセスツールバーをカスタマイズする"
-
-#. Resource IDs: (17085)
-msgid "Customize Quick Access Toolbar..."
-msgstr "クイックアクセスツールバーをカスタマイズする..."
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4040,7 +3663,7 @@ msgstr "日時"
 msgid "Date Range"
 msgstr "日時の範囲"
 
-#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
+#. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "デフォルト"
 
@@ -4048,17 +3671,9 @@ msgstr "デフォルト"
 msgid "Default &number of log messages"
 msgstr "デフォルトのログメッセージ数(&N):"
 
-#. Resource IDs: (16106)
-msgid "Default Menu"
-msgstr "デフォルトメニュー"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1516)
 msgid "Default URL:"
 msgstr "デフォルトURL:"
-
-#. Resource IDs: (16107)
-msgid "Default application menu. Appears when no documents are open."
-msgstr "デフォルトのアプリケーションメニュー。ドキュメントを開いていない場合に表示されます。"
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4075,10 +3690,6 @@ msgstr "デフォルトパス:"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "UTF-8エンコーディングをデフォルトにする"
-
-#. Resource IDs: (16020)
-msgid "Delete"
-msgstr "削除"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
@@ -4175,14 +3786,6 @@ msgstr "深さ"
 msgid "Depth:"
 msgstr "更新の深さ:"
 
-#. Resource IDs: (16031)
-msgid "Description"
-msgstr "説明"
-
-#. Resource IDs: (65535)
-msgid "Description:"
-msgstr "説明:"
-
 #. Resource IDs: (IDS_STATUSLIST_UNCHECKGROUP)
 msgid "Deselect changelist"
 msgstr "変更リストを選択解除する"
@@ -4213,7 +3816,7 @@ msgstr "デバイスに依存しないビットマップ\nデバイスに依存�
 msgid "Dialog sizes and positions"
 msgstr "ダイアログのサイズと位置"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "差分"
 
@@ -4320,17 +3923,13 @@ msgstr "%1 にアクセス中にディスクがいっぱいになりました。
 msgid "Dispatch exception: %1"
 msgstr "ディスパッチ例外: %1"
 
-#. Resource IDs: (65535)
-msgid "Display &buttons in this order"
-msgstr "この順序でボタンを表示(&B)"
-
 #. Resource IDs: (57669)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr "クリックされたボタン、メニュー、ウィンドウに対するヘルプを表示する\nヘルプ"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -4342,7 +3941,7 @@ msgid ""
 "Help"
 msgstr "ヘルプの使い方を表示する\nヘルプ"
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -4391,11 +3990,6 @@ msgstr "バージョン管理外の項目すべてにこれを行う"
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
 msgstr "バージョン管理外もしくは変更された項目すべてにこれを行う"
-
-#. Resource IDs: (16109)
-#, c-format
-msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr "ツールバー「%Ts」を削除してもよろしいですか？"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4514,14 +4108,6 @@ msgid ""
 "Reload the views without saving the modifications"
 msgstr "保存しない\n変更を保存せずにビューを再読込する"
 
-#. Resource IDs: (16028)
-msgid "Drag to make this menu float"
-msgstr "ドラッグするとメニューがフローティング表示になります"
-
-#. Resource IDs: (16513)
-msgid "Draw"
-msgstr "描画"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1079)
 msgid "Drive Types"
 msgstr "ドライブの種類"
@@ -4535,6 +4121,10 @@ msgstr "ドライブ A: と B:"
 msgid "Drop not possible on %1!ls!"
 msgstr "%1!ls! にはドロップできません"
 
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
+msgid "E"
+msgstr ""
+
 #. Resource IDs: (ID_INLINEEDIT - Menu)
 msgid "E&xact copy sources"
 msgstr "正確なコピー元(&X)"
@@ -4547,7 +4137,8 @@ msgstr "除外するパス(&X):"
 msgid "E&xecutable"
 msgstr "実行可能属性(&X)"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu,
+#. cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr "終了(&X)"
 
@@ -4579,14 +4170,10 @@ msgstr "改行コード"
 msgid "EXT"
 msgstr "EXT"
 
-#. Resource IDs: (156 - Ribbon element, 65535 - PopupMenu, Dialog
-#. IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id
+#. 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr "編集"
-
-#. Resource IDs: (16133)
-msgid "Edit Button Image"
-msgstr "ボタンイメージを編集"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 319)
 msgid "Edit External"
@@ -4663,12 +4250,6 @@ msgstr "プロキシサーバーの名前もしくは IP を入力します"
 msgid "Eliding mergeinfo"
 msgstr "マージ情報を統合中"
 
-#. Resource IDs: (16906)
-msgid ""
-"Ellipse Tools\n"
-"Ellipse"
-msgstr "楕円ツール\n楕円"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Empty"
 msgstr "空"
@@ -4681,7 +4262,7 @@ msgstr "プロパティの自動付与を有効化(&P)"
 msgid "Enable Auto-Properties"
 msgstr "プロパティの自動付与を有効化"
 
-#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr "編集を有効化"
 
@@ -4901,18 +4482,7 @@ msgstr "例外:"
 msgid "Exclude"
 msgstr "除外"
 
-#. Resource IDs: (16023)
-msgid ""
-"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
-"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "実行ファイル (*.exe)|*.exe|コマンド (*.com)|*.com|情報ファイル (*.pdf)|*.pdf|バッチファイル (*.bat)|*.bat|すべてのファイル (*.*)|*.*||"
-
-#. Resource IDs: (16018)
-msgid "Existing"
-msgstr "存在しています"
-
-#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
-#. Ribbon name)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2)
 msgid "Exit"
 msgstr "終了"
 
@@ -4923,15 +4493,6 @@ msgstr "ソースツリーを展開する(&A)"
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_BELOW)
 msgid "Expand &following tree"
 msgstr "次のツリーを展開する(&F)"
-
-#. Resource IDs: (16025)
-#, c-format
-msgid "Expand (%Ts)"
-msgstr "展開（%Ts）"
-
-#. Resource IDs: (16012)
-msgid "Expand docked window"
-msgstr "ドッキングしたウィンドウを展開する"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
@@ -5023,14 +4584,14 @@ msgstr "外部を除外"
 msgid "Externals included"
 msgstr "外部を含む"
 
+#. Resource IDs: (cmdFind_Keytip_RESID)
+msgid "F"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
 msgid "F&orce the merge"
 msgstr "強制的にマージする(&O)"
-
-#. Resource IDs: (17113)
-msgid "Fade"
-msgstr "フェード"
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
@@ -5138,7 +4699,7 @@ msgstr "%1!ls! の状態を取得"
 msgid "Fetching tree conflict information..."
 msgstr "ツリーの競合情報を取得しています..."
 
-#. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
+#. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
 msgstr "ファイル"
 
@@ -5268,12 +4829,6 @@ msgstr "ファイル名"
 msgid "Files"
 msgstr "ファイル"
 
-#. Resource IDs: (16901)
-msgid ""
-"Fill Tool\n"
-"Fill"
-msgstr "塗りつぶしツール\n塗りつぶし"
-
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
 msgstr "絞り込み条件："
@@ -5296,8 +4851,12 @@ msgstr "パスフィルター"
 msgid "Filter:"
 msgstr "フィルター:"
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
+msgid "Filtered"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr "検索"
 
@@ -5309,7 +4868,7 @@ msgstr "最新(&HEAD)リビジョンを探す"
 msgid "Find HEAD revisions"
 msgstr "最新リビジョンを探す"
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -5365,10 +4924,6 @@ msgstr "タグを折りたたむ(&T)"
 msgid "Folded tag"
 msgstr "折りたたまれたタグ"
 
-#. Resource IDs: (16016)
-msgid "Folder"
-msgstr "フォルダー"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Font"
@@ -5395,10 +4950,6 @@ msgstr "強制的に削除"
 msgid "Foreground"
 msgstr "フォアグラウンド"
 
-#. Resource IDs: (17021)
-msgid "Forward"
-msgstr "前へ"
-
 #. Resource IDs: (IDS_REPOBROWSE_TT_FORWARD)
 msgid "Forwards in browsing history"
 msgstr "表示中の履歴の後"
@@ -5412,10 +4963,6 @@ msgstr "見つかった単語:"
 msgid "From:"
 msgstr "開始:"
 
-#. Resource IDs: (17026)
-msgid "Full Screen"
-msgstr "フルスクリーン"
-
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
 msgstr "フルデータ"
@@ -5427,6 +4974,10 @@ msgstr "パス変更のないリビジョンデータ全体"
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
 msgstr "再帰的"
+
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
+msgid "G"
+msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5524,43 +5075,43 @@ msgstr "指定した行へ移動"
 msgid "Go to line"
 msgstr "指定した行へ移動"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr "次の競合点へ移動する\n次の競合点へ"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr "次の相違点へ移動する\n次の相違点へ"
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr "次の行内の相違点へ移動する\n次の行内相違点へ"
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr "前の競合点へ移動する\n前の競合点へ"
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr "前の相違点へ移動する\n前の相違点へ"
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr "前の行内の相違点へ移動する\n前の行内相違点へ"
 
-#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr "行へ移動"
 
@@ -5571,10 +5122,6 @@ msgstr "グラフの種類:"
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
 msgstr "リポジトリのルートのグラフは、常に空です。"
-
-#. Resource IDs: (16972)
-msgid "Gray"
-msgstr "灰色"
 
 #. Resource IDs: (32799)
 msgid "Group by branch"
@@ -5587,10 +5134,6 @@ msgstr "変更リストのグループ化"
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1032)
 msgid "H&EAD Revision"
 msgstr "最新リビジョン(H&EAD)"
-
-#. Resource IDs: (65535)
-msgid "H&ue:"
-msgstr "色相(&H):"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1353, Dialog IDD_DIFFFILES:
 #. Control id 1354, IDS_EXTERNALS_HEADREV)
@@ -5629,17 +5172,9 @@ msgstr "ヘッダー"
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
 #. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
 #. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
-#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "ヘルプ"
-
-#. Resource IDs: (16982)
-msgid "Help Keyboard"
-msgstr "キーボード支援"
-
-#. Resource IDs: (16974)
-msgid "Hex"
-msgstr "16進"
 
 #. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
@@ -5661,10 +5196,6 @@ msgstr "すべてのタグを隠す"
 msgid "Hide deleted branches and tags"
 msgstr "削除されたブランチとタグを非表示にする"
 
-#. Resource IDs: (16011)
-msgid "Hide docked window"
-msgstr "ドッキングしているウィンドウを隠す"
-
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1562)
 msgid "Hide non-mergeable revisions"
 msgstr "マージ不可能なリビジョンを隠す"
@@ -5682,12 +5213,11 @@ msgstr "実行時はスクリプトを非表示にする"
 msgid "Hide unused &branches"
 msgstr "未使用のブランチを非表示にする(&B)"
 
-#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu)
 msgid "Hide/Show the patch file list"
 msgstr "パッチファイルの一覧を表示/非表示"
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
@@ -5696,16 +5226,6 @@ msgstr "パッチリストの表示/非表示\nパッチファイルのリスト
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
 msgstr "キャッシュ内のリビジョン番号の最大値"
-
-#. Resource IDs: (16519)
-msgid ""
-"Hint: select the context menu, change the page to 'Commands' and drag the "
-"toolbar buttons into the menu window."
-msgstr "ヒント: コンテキストメニューを選択し、ページを「コマンド」に変更してメニューウィンドウにツールバーボタンをドラッグします。"
-
-#. Resource IDs: (17022)
-msgid "Home"
-msgstr "ホーム"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -6075,12 +5595,12 @@ msgstr "すべての空白を無視する(&A)"
 msgid "Ignore &ancestry"
 msgstr "履歴を無視する(&A)"
 
-#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr "コメントを無視"
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
-#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
+#. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr "すべての空白の変更を無視する"
 
@@ -6094,7 +5614,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr "変更を無視する\n外部での変更を無視します。"
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
@@ -6127,8 +5647,8 @@ msgid "Ignore whitespace c&hanges"
 msgstr "空白の変更を無視する(&H)"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
-#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
-#. Ribbon name)
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu,
+#. cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr "空白の変更を無視する"
 
@@ -6140,13 +5660,13 @@ msgstr "無視"
 msgid "Ignored items included"
 msgstr "無視項目を含む"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr "差分をとる際にすべての空白を無視する\nすべての空白を無視する"
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
@@ -6155,18 +5675,6 @@ msgstr "差分をとる際に空白内の変更を無視する\n空白の変更�
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
 msgstr "無効なパス"
-
-#. Resource IDs: (16916 - Menu)
-msgid "Image &and Text"
-msgstr "イメージとテキスト(&A)"
-
-#. Resource IDs: (16507)
-msgid "Image &and text"
-msgstr "イメージとテキスト(&A)"
-
-#. Resource IDs: (16508)
-msgid "Images"
-msgstr "画像"
 
 #. Resource IDs: (IDS_SVN_DEPTH_IMMEDIATE)
 msgid "Immediate children, including folders"
@@ -6285,12 +5793,13 @@ msgstr "外部参照の情報"
 msgid "Information"
 msgstr "情報"
 
-#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
+#. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr "行内差分"
 
-#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
-#. Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
+#. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr "単語単位の行内差分"
 
@@ -6302,7 +5811,7 @@ msgstr "行内差分"
 msgid "Input"
 msgstr "入力"
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -6434,21 +5943,13 @@ msgid ""
 "Jump to first unresolved conflict"
 msgstr "解決を続ける\n最初の未解決の競合にジャンプします"
 
-#. Resource IDs: (16136)
-msgid "Keyboard"
-msgstr "キーボード"
-
-#. Resource IDs: (65535)
-msgid "Keyboard shortcuts:"
-msgstr "キーボードショートカット:"
-
-#. Resource IDs: (16030)
-msgid "Keys"
-msgstr "キー"
-
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL1)
 msgid "Kind"
 msgstr "種類"
+
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
+msgid "L"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "L&imit:"
@@ -6532,14 +6033,8 @@ msgstr "行番号"
 msgid "Line Graph"
 msgstr "折れ線グラフ"
 
-#. Resource IDs: (16904)
-msgid ""
-"Line Tool\n"
-"Line"
-msgstr "線ツール\n線"
-
-#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu,
+#. cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr "行差分表示バー"
 
@@ -6575,10 +6070,6 @@ msgstr "ヘルプトピックを列挙\nヘルプトピック"
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
 msgstr "ログ情報をキャッシュしているリポジトリのリスト"
-
-#. Resource IDs: (16631, 16992)
-msgid "List1"
-msgstr "List1"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6618,11 +6109,12 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "リポジトリURLの内容を保存する位置。"
 
-#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu)
 msgid "Locator Bar"
 msgstr "ロケーターバー"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535,
+#. cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr "ロケーターバー"
 
@@ -6743,10 +6235,6 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr "表示中のリビジョンの範囲: %1!ld!～%2!ld!\n最新リビジョン: %3!ld!"
 
-#. Resource IDs: (16973)
-msgid "Lum"
-msgstr "明度"
-
 #. Resource IDs: (61841)
 msgid "Mail system DLL is invalid."
 msgstr "メールシステムDLLは無効です。"
@@ -6788,7 +6276,7 @@ msgid ""
 msgstr "解決済みとする(&R)\n競合は解決されます。"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
-#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
+#. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr "解決済みとみなす"
 
@@ -6822,7 +6310,7 @@ msgstr "ブロックをマーク"
 msgid "Markers"
 msgstr "マーカー"
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
@@ -6859,22 +6347,6 @@ msgstr "アクションログに保持する最大の行数"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "異常終了後にキャッシュを保持する回数(&F)"
-
-#. Resource IDs: (16655)
-msgid "Me&nus show recently used commands first"
-msgstr "最近使用したコマンドをメニューの最初に表示する(&N)"
-
-#. Resource IDs: (16134)
-msgid "Menu"
-msgstr "メニュー"
-
-#. Resource IDs: (16006)
-msgid "Menu Bar"
-msgstr "メニューバー"
-
-#. Resource IDs: (16626)
-msgid "Menu s&hadows"
-msgstr "メニューの影(&H)"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -7039,10 +6511,6 @@ msgstr "最小"
 msgid "Mine"
 msgstr "Mine"
 
-#. Resource IDs: (17086)
-msgid "Minimize the Ribbon"
-msgstr "リボンを最小化する"
-
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
 msgstr "コミットメッセージに入力する最小文字数:"
@@ -7066,7 +6534,7 @@ msgstr "ミックス"
 msgid "Modification date"
 msgstr "変更日:"
 
-#. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
@@ -7079,18 +6547,6 @@ msgstr "変更されたノード"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
 msgstr "モニター間隔（分）:"
-
-#. Resource IDs: (17107)
-msgid "More"
-msgstr "その他"
-
-#. Resource IDs: (16026)
-msgid "More Buttons"
-msgstr "その他のボタン"
-
-#. Resource IDs: (17097)
-msgid "More Commands..."
-msgstr "その他のコマンド..."
 
 #. Resource IDs: (IDS_COLOURPICKER_CUSTOMTEXT)
 msgid "More colors..."
@@ -7108,10 +6564,6 @@ msgstr "その他..."
 msgid "Most active author:"
 msgstr "最も活発な作者:"
 
-#. Resource IDs: (16135)
-msgid "Mouse"
-msgstr "マウス"
-
 #. Resource IDs: (IDS_INPUT_MOVEMORE)
 #, c-format
 msgid ""
@@ -7125,22 +6577,6 @@ msgid ""
 "Move %1!ls!\r\n"
 "to %2!ls!"
 msgstr "%1!ls! を\r\n%2!ls! に移動する"
-
-#. Resource IDs: (17026)
-msgid "Move &Down"
-msgstr "下へ移動(&D)"
-
-#. Resource IDs: (17025)
-msgid "Move &Up"
-msgstr "上へ移動(&U)"
-
-#. Resource IDs: (16022)
-msgid "Move Item Down"
-msgstr "項目を下へ移動"
-
-#. Resource IDs: (16021)
-msgid "Move Item Up"
-msgstr "項目を上へ移動"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK4)
 msgid ""
@@ -7241,36 +6677,36 @@ msgstr "複数、独立した作業コピー(&I)"
 msgid "My file:"
 msgstr "My ファイル:"
 
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
+msgid "NC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
+msgid "ND"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
+msgid "NI"
+msgstr ""
+
 #. Resource IDs: (59138)
 msgid "NUM"
 msgstr "NUM"
-
-#. Resource IDs: (17128)
-msgid "Name"
-msgstr "名前"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535, Dialog
 #. IDD_REGEXFILTER: Control id 65535)
 msgid "Name:"
 msgstr "名前:"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr "ナビゲート"
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr "ビュー内の特定の行に移動する\n行へ移動"
-
-#. Resource IDs: (17004)
-msgid "Navigation Pane Options"
-msgstr "ナビゲーション領域の設定"
-
-#. Resource IDs: (17031)
-msgid "Navigation Pane Options..."
-msgstr "ナビゲーション領域の設定..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
@@ -7297,17 +6733,13 @@ msgstr "ネットワーク"
 msgid "Never try to contact the repository again"
 msgstr "二度とリポジトリにアクセスしない"
 
-#. Resource IDs: (16017, 16027, 30721, 65535, 65535 - PopupMenu)
+#. Resource IDs: (30721, 65535 - PopupMenu)
 msgid "New"
 msgstr "新規"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
 msgstr "新しい名前(&N):"
-
-#. Resource IDs: (16014)
-msgid "New Menu"
-msgstr "新規メニュー"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7321,24 +6753,18 @@ msgstr "新しい名前は空欄や元の名前と同じにはできません。
 msgid "Newlines"
 msgstr "改行"
 
-#. Resource IDs: (58114)
-msgid ""
-"Next Page\n"
-"Next Page"
-msgstr "次のページ\n次のページ"
-
-#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
-#. Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
+#. cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr "次の競合点"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
-#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
+#. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr "次の相違点"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
-#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
+#. cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr "次の行内相違点"
 
@@ -7392,6 +6818,10 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr "最後のコミットから変更/追加されたファイルはありません。\n今回、TortoiseSVNがすることは何もありません..."
 
+#. Resource IDs: (33002)
+msgid "No filter"
+msgstr ""
+
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
 msgstr "グラフは使用できません"
@@ -7436,7 +6866,7 @@ msgstr "移動や名前変更がされたフォルダーの非再帰的なコミ
 msgid "Non-versioned"
 msgstr "バージョン管理外"
 
-#. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
+#. Resource IDs: (Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
 msgstr "なし"
@@ -7580,24 +7010,6 @@ msgstr "OK"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
-#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
-msgid "Office 2003"
-msgstr "Office 2003"
-
-#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
-msgid "Office 2007"
-msgstr "Office 2007"
-
-#. Resource IDs: (10008, 65535 - PopupMenu)
-msgid "Office 2007 colors"
-msgstr "Office 2007 の配色"
-
-#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
-#. - Ribbon name)
-msgid "Office XP"
-msgstr "Office XP"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Older lines"
 msgstr "以前に変更された行"
@@ -7664,7 +7076,7 @@ msgstr "tsvn:projectlanguageが設定されている場合のみスペルチェ�
 msgid "Opacity"
 msgstr "不透明度"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr "開く"
 
@@ -7680,7 +7092,7 @@ msgstr "ローカルでプログラムを指定して開く(&W)..."
 msgid "Open client certificate file"
 msgstr "クライアントの証明書を開く"
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
@@ -7736,17 +7148,9 @@ msgstr "操作対象"
 msgid "Option"
 msgstr "オプション"
 
-#. Resource IDs: (16137)
-msgid "Options"
-msgstr "オプション"
-
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr "元のサイズで表示(&G)\t(S)"
-
-#. Resource IDs: (17024)
-msgid "Other Task Panes"
-msgstr "その他のタスク領域"
 
 #. Resource IDs: (IDS_STATGRAPH_OTHERGROUP)
 msgid "Others"
@@ -7775,6 +7179,18 @@ msgid ""
 "Overwrite\n"
 "The settings are overwritten"
 msgstr "上書き\n設定は上書きされます。"
+
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
+msgid "PC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
+msgid "PD"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
+msgid "PI"
+msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7822,15 +7238,9 @@ msgstr "パスワード/フレーズ"
 msgid "Password:"
 msgstr "パスワード:"
 
-#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr "貼り付け"
-
-#. Resource IDs: (16908)
-msgid ""
-"Paste Tool\n"
-"Paste"
-msgstr "貼り付けツール\n貼り付け"
 
 #. Resource IDs: (IDS_COMMITDLG_POPUP_PASTEFILELIST)
 msgid "Paste filename list"
@@ -7901,12 +7311,6 @@ msgstr "ルートからの相対パス"
 msgid "Peg"
 msgstr "ペグ"
 
-#. Resource IDs: (16902)
-msgid ""
-"Pencil Tool\n"
-"Pencil"
-msgstr "鉛筆ツール\n鉛筆"
-
 #. Resource IDs: (IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP)
 msgid "Percent of authorship"
 msgstr "作者別の貢献度"
@@ -7915,19 +7319,11 @@ msgstr "作者別の貢献度"
 msgid "Percents"
 msgstr "パーセント"
 
-#. Resource IDs: (16538)
-msgid "Personalized Menus and Toolbars"
-msgstr "個人用メニューとツールバー"
-
 #. Resource IDs: (61582)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr "画像（メタファイル）\n画像"
-
-#. Resource IDs: (65535)
-msgid "Picture:"
-msgstr "画像:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
@@ -7964,10 +7360,6 @@ msgstr "注意:\n作業コピーは従来のパスのままです。もし、今
 msgid "Please select a hook type"
 msgstr "フックの種類を選択してください"
 
-#. Resource IDs: (IDS_BLAME_PROGRESSINFO)
-msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "しばらくお待ちください - この処理には数分かかるかもしれません。ご注意ください。"
-
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
 msgstr "キャンセル処理が完了するまでしばらくお待ちください ..."
@@ -7985,8 +7377,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "リポジトリブラウザーを初期化する間しばらくお待ちください ..."
 
 #. Resource IDs: (Dialog IDD_PLEASEWAIT: Control id 347,
-#. IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT, IDS_REPOBROWSE_WAIT,
-#. IDS_STATUSLIST_BUSYMSG)
+#. IDS_BLAME_PROGRESSINFO, IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT,
+#. IDS_REPOBROWSE_WAIT, IDS_STATUSLIST_BUSYMSG)
 msgid "Please wait..."
 msgstr "しばらくお待ちください ..."
 
@@ -8038,60 +7430,28 @@ msgstr "右ブロックを前に追加"
 msgid "Prepend this block to left"
 msgstr "このブロックを左の前に追加"
 
-#. Resource IDs: (65535)
-msgid "Press &New Shortcut Key:"
-msgstr "新しいショートカットキーを押してください(&N):"
-
-#. Resource IDs: (65535)
-msgid "Press &new shortcut key:"
-msgstr "新しいショートカットキーを押してください(&N):"
-
 #. Resource IDs: (32819)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "接続線がリビジョンノードを横切らないようにする"
-
-#. Resource IDs: (17094)
-msgid "Preview"
-msgstr "プレビュー"
 
 #. Resource IDs: (IDS_PATCH_PREVIEW)
 msgid "Preview patched file"
 msgstr "パッチ結果をプレビューする"
 
-#. Resource IDs: (65535)
-msgid "Preview: "
-msgstr "プレビュー: "
-
-#. Resource IDs: (58115)
-msgid ""
-"Previous Page\n"
-"Previous Page"
-msgstr "前のページ\n前のページ"
-
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
-#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
+#. cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr "前の競合点"
 
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
-#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
+#. cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr "前の相違点"
 
 #. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
-#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
+#. cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr "前の行内相違点"
-
-#. Resource IDs: (16990, 17092)
-msgid "Print"
-msgstr "印刷"
-
-#. Resource IDs: (58116)
-msgid ""
-"Print Document\n"
-"&Print"
-msgstr "ドキュメントを印刷\n印刷(&P)"
 
 #. Resource IDs: (61512)
 msgid "Print to File"
@@ -8253,7 +7613,7 @@ msgstr "プロキシの設定"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "svn:needs-lockが設定されている場合は、トップメニューに「ロックを取得」を表示する"
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -8265,13 +7625,13 @@ msgid ""
 "Exit TortoiseMerge without saving the modifications"
 msgstr "終了\n変更を保存せずにTortoiseMergeを終了する"
 
+#. Resource IDs: (cmdReload_Keytip_RESID)
+msgid "R"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
 msgstr "RAMドライブ(&A)"
-
-#. Resource IDs: (16623)
-msgid "R&eset"
-msgstr "リセット(&E)"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1423)
 msgid "R&everse merge"
@@ -8297,14 +7657,6 @@ msgstr "リムーバブルドライブ(&M)"
 msgid "Re&name..."
 msgstr "名前を変更(&N)..."
 
-#. Resource IDs: (16613)
-msgid "Re&set"
-msgstr "リセット(&S)"
-
-#. Resource IDs: (16647)
-msgid "Re&set All"
-msgstr "すべてリセット(&S)"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "デフォルトに戻す(&S)"
@@ -8324,10 +7676,6 @@ msgstr "行き詰まったら「日常の使用ガイド」をお読みくださ
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL2)
 msgid "Realm String"
 msgstr "領域名の文字列"
-
-#. Resource IDs: (16019)
-msgid "Recent"
-msgstr "最近"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
@@ -8367,12 +7715,6 @@ msgid ""
 "Open the auto-saved versions instead of the explicitly saved versions"
 msgstr "自動保存されたドキュメントを復元する\n明示的に保存されたバージョンの代わりに自動保存されたバージョンを開く"
 
-#. Resource IDs: (16905)
-msgid ""
-"Rectangle Tool\n"
-"Rectangle"
-msgstr "長方形ツール\n長方形"
-
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recur&sive\n"
@@ -8395,11 +7737,11 @@ msgstr "ごみ箱"
 msgid "Redirecting to url"
 msgstr "URLにリダイレクト中"
 
-#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr "やり直し"
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -8427,8 +7769,8 @@ msgstr "シェルのオーバーレイを更新(&S)"
 msgid "Refreshing shell for %1!ls!"
 msgstr "%1!ls! のオーバーレイを更新中"
 
-#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
-#. 165, ID_REGEXFILTER - Ribbon name)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165,
+#. cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr "正規表現フィルター"
 
@@ -8506,11 +7848,11 @@ msgstr "他のユーザーが再び編集できるようにファイルのロッ
 msgid "Relo&cate..."
 msgstr "再配置(&C)..."
 
-#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr "再読み込み"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -8579,10 +7921,6 @@ msgstr "保存された認証データを削除"
 msgid "Remove from &ignore list"
 msgstr "無視リストから削除(&I)"
 
-#. Resource IDs: (17084)
-msgid "Remove from Quick Access Toolbar"
-msgstr "クイックアクセスツールバーから削除"
-
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REMOVEFROMCS)
 msgid "Remove from changelist"
 msgstr "変更リストから削除"
@@ -8647,10 +7985,6 @@ msgstr "%1!ls! 以下の無視された項目を削除しています"
 #, c-format
 msgid "Removing unversioned items in %1!ls!"
 msgstr "%1!ls! 以下のバージョン管理外の項目を削除しています"
-
-#. Resource IDs: (16616)
-msgid "Rena&me..."
-msgstr "名前を変更(&M)..."
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 151)
 msgid "Rename"
@@ -8772,10 +8106,6 @@ msgstr "ユーザー名とパスワードが必要です"
 #. Resource IDs: (IDS_MENURESOLVE)
 msgid "Res&olve..."
 msgstr "解決する(&O)..."
-
-#. Resource IDs: (16614)
-msgid "Reset &All"
-msgstr "すべてリセット(&A)"
 
 #. Resource IDs: (IDS_STATUSLIST_RESETCOLUMNORDER)
 msgid "Reset columns"
@@ -8979,24 +8309,6 @@ msgstr "右ビュー: "
 msgid "Right image"
 msgstr "右側の画像"
 
-#. Resource IDs: (17108)
-#, c-format
-msgid "Row %d of %d"
-msgstr "行 %d / %d"
-
-#. Resource IDs: (17109)
-#, c-format
-msgid "Row %d-%d of %d"
-msgstr "行 %d-%d / %d"
-
-#. Resource IDs: (17116)
-msgid "Row Down"
-msgstr "一行下へ"
-
-#. Resource IDs: (17115)
-msgid "Row Up"
-msgstr "一行上へ"
-
 #. Resource IDs: (IDS_RUNCLEANUPNOW)
 msgid "Run cleanup &now"
 msgstr "今すぐクリーンアップを実行(&N)"
@@ -9005,21 +8317,9 @@ msgstr "今すぐクリーンアップを実行(&N)"
 msgid "Run hoo&k script"
 msgstr "フックスクリプトを実行(&K)"
 
-#. Resource IDs: (17045)
-msgid "S&elect..."
-msgstr "選択(&E)..."
-
-#. Resource IDs: (17027)
-msgid "S&how Buttons on One Row"
-msgstr "ボタンを1行で表示(&H)"
-
-#. Resource IDs: (17028)
-msgid "S&how Buttons on Two Rows"
-msgstr "ボタンを2行で表示(&H)"
-
-#. Resource IDs: (17078)
-msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "リボンの下にクイックアクセスツールバーを表示(&H)"
+#. Resource IDs: (cmdSave_Keytip_RESID)
+msgid "S"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -9129,11 +8429,15 @@ msgstr "bugtraq をテストするためのサンプルログメッセージ（�
 msgid "Sample text:"
 msgstr "サンプルテキスト:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr "保存"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
+msgid "Save &as"
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "名前を付けて保存(&A)..."
 
@@ -9203,7 +8507,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr "保存して含める\n変更が保存され、マークされたブロックが含められます"
 
-#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
+#. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
 msgstr "名前を付けて保存"
 
@@ -9242,7 +8546,7 @@ msgstr "リビジョンを保存(&T)..."
 msgid "Save settings to file"
 msgstr "設定をファイルに保存"
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -9297,14 +8601,6 @@ msgstr "スキャン"
 msgid "Scintilla"
 msgstr "痕跡"
 
-#. Resource IDs: (16034)
-msgid "Scroll Left"
-msgstr "左へスクロール"
-
-#. Resource IDs: (16035)
-msgid "Scroll Right"
-msgstr "右へスクロール"
-
 #. Resource IDs: (IDS_LOG_POPUP_FIND)
 msgid "Search &log messages..."
 msgstr "ログメッセージを検索(&L)..."
@@ -9338,30 +8634,12 @@ msgstr "選択"
 msgid "Select &All"
 msgstr "すべて選択(&A)"
 
-#. Resource IDs: (16529)
-msgid "Select &User-defined Image: "
-msgstr "ユーザー定義の画像を選択(&U): "
-
-#. Resource IDs: (16508)
-msgid "Select &context menu:"
-msgstr "コンテキストメニューを選択(&C):"
-
-#. Resource IDs: (65535)
-msgid "Select &window:"
-msgstr "ウィンドウを選択(&W):"
-
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "すべて選択/非選択(&A)"
-
-#. Resource IDs: (16903)
-msgid ""
-"Select Color Tool\n"
-"Select Color"
-msgstr "色選択ツール\n色を選択"
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
@@ -9508,10 +8786,6 @@ msgstr "内容を送信中"
 msgid "Server &address:"
 msgstr "サーバーアドレス(&A):"
 
-#. Resource IDs: (65535)
-msgid "Set Accelerator &for:"
-msgstr "アクセラレータを設定(&F):"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1544)
 msgid "Set explicit revision for these externals:"
 msgstr "これらの外部参照に対してリビジョンを明示的に指定する:"
@@ -9531,8 +8805,8 @@ msgstr "プロパティ「%1!S!」を\n%2!ls! に設定"
 msgid "Setting properties..."
 msgstr "プロパティを設定..."
 
-#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
-#. Ribbon name)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu,
+#. cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr "設定"
 
@@ -9577,10 +8851,6 @@ msgstr "プロパティリストを短縮する"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1382)
 msgid "Show"
 msgstr "表示"
-
-#. Resource IDs: (16996)
-msgid "Show &Accelerator for:"
-msgstr "アクセラレータを表示(&A):"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1031, IDS_LOG_SHOWALL)
 msgid "Show &All"
@@ -9637,29 +8907,17 @@ msgstr "エクスプローラー上でのみオーバーレイとコンテキス
 msgid "Show &unversioned files"
 msgstr "バージョン管理外のファイルを表示(&U)"
 
-#. Resource IDs: (17099)
-msgid "Show Above the Ribbon"
-msgstr "リボンの上に表示"
-
-#. Resource IDs: (17098)
-msgid "Show Below the Ribbon"
-msgstr "リボンの下に表示"
-
-#. Resource IDs: (17030)
-msgid "Show Fewer Buttons"
-msgstr "少しのボタンを表示"
-
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
 msgstr "最新リビジョン(HEAD)のノードを表示する"
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr "単語単位での行内差分を表示する\n行内差分（単語単位）"
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
@@ -9673,32 +8931,16 @@ msgstr "ファイルをロックする前にロックダイアログを表示す
 msgid "Show Monitor Dialog"
 msgstr "モニターダイアログを表示"
 
-#. Resource IDs: (17029)
-msgid "Show More Buttons"
-msgstr "多くのボタンを表示"
-
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "縮小表示(&R)"
-
-#. Resource IDs: (17082)
-msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "リボンの上にクイックアクセスツールバーを表示"
-
-#. Resource IDs: (17081)
-msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "リボンの下にクイックアクセスツールバーを表示"
-
-#. Resource IDs: (16651)
-msgid "Show Screen&Tips on toolbars"
-msgstr "ツールバーの上にスクリーンチップを表示(&T)"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "作業コピーの変更を表示(&M)"
 
-#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
+#. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr "空白を表示"
 
@@ -9729,10 +8971,6 @@ msgstr "表示対象外にある作業フォルダーの最上位を通常とし
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1480)
 msgid "Show externals from &different repositories"
 msgstr "異なるリポジトリの外部参照を表示(&D)"
-
-#. Resource IDs: (16656)
-msgid "Show f&ull menus after a short delay"
-msgstr "少しの遅延の後にすべてのメニューを表示(&U)"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1037, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1034)
@@ -9770,19 +9008,19 @@ msgid ""
 "with dots."
 msgstr "パス名のサブディレクトリの部分のみを表示する。共通の部分はドットで置き換える。"
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr "行内差分バーを表示/非表示にする\n行内差分バーを表示/非表示"
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr "ロケーターバーを表示/非表示にする\nロケーターバーを表示/非表示"
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -9798,11 +9036,7 @@ msgstr "ツールバーを表示/非表示にする\nツールバーを表示"
 msgid "Show revision properties"
 msgstr "リビジョンプロパティを表示"
 
-#. Resource IDs: (16652)
-msgid "Show shortcut &keys in ScreenTips"
-msgstr "スクリーンチップ上にショートカットキーを表示(&K)"
-
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
@@ -9893,12 +9127,7 @@ msgstr "選択したファイル/フォルダーのログを表示"
 msgid "Shows the mime type of the versioned file"
 msgstr "バージョン管理されたファイルのMIMEタイプを表示する"
 
-#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
-msgid "Silver Style"
-msgstr "Silver Style"
-
-#. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
+#. Resource IDs: (IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
 msgstr "サイズ"
 
@@ -9951,10 +9180,6 @@ msgstr "スキップ、バージョン管理された親が存在しない"
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
 msgstr "スキップ、競合が残っている"
-
-#. Resource IDs: (17112)
-msgid "Slide"
-msgstr "スライド"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
 msgid "Smart tab char"
@@ -10026,10 +9251,6 @@ msgid ""
 "Separate the patterns with a space."
 msgstr "TortoiseSVN がすべての作業コピーで無視する\r\nファイルやフォルダーを指定してください。\r\n各パターンは空白で区切ってください。"
 
-#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-msgid "Spin1"
-msgstr "Spin1"
-
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SPLIT_ABOVE)
 msgid "Split &source tree"
 msgstr "ソースツリーを分割する(&S)"
@@ -10059,10 +9280,6 @@ msgstr "積み重ね棒グラフ"
 #. Resource IDs: (IDS_STATGRAPH_LINESTACKEDBUTTON_TT)
 msgid "Stacked Line Graph"
 msgstr "積み重ね面グラフ"
-
-#. Resource IDs: (16962)
-msgid "Standard"
-msgstr "標準"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
@@ -10106,10 +9323,6 @@ msgstr "プロパティを手動で編集するためにプロパティダイア
 msgid "State"
 msgstr "状態"
 
-#. Resource IDs: (16514)
-msgid "Static"
-msgstr "Static"
-
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
 msgstr "統計"
@@ -10119,13 +9332,9 @@ msgstr "統計"
 msgid "Status"
 msgstr "状態"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr "ステータスバー"
-
-#. Resource IDs: (17087)
-msgid "Status Bar Configuration"
-msgstr "ステータスバーの設定"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -10169,10 +9378,6 @@ msgstr "後で右クリックしたときに差分を取るパスを記憶しま
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
 msgstr "縞模様"
-
-#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
-msgid "Style"
-msgstr "スタイル"
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
 msgid ""
@@ -10289,21 +9494,23 @@ msgid ""
 "Previous Pane"
 msgstr "前のウィンドウ区画に切り替える\n前の区画"
 
-#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
+#. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr "1画面/2画面表示の切り替え"
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr "1画面・2画面表示を切り替える\n1画面・2画面表示の切り替え"
 
-#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
+#. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr "左右のビューの入れ替え"
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -10369,10 +9576,6 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
-#. Resource IDs: (16970)
-msgid "Tab Placeholder"
-msgstr "タブプレースホールダー"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Tab size:"
@@ -10389,10 +9592,6 @@ msgstr "ターゲットフォルダーは空ではありません"
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
 msgstr "タスク"
-
-#. Resource IDs: (17019)
-msgid "Tasks Pane"
-msgstr "タスク領域"
 
 #. Resource IDs: (IDS_PROGRS_DRYRUN)
 msgid "Test Only"
@@ -10921,13 +10120,6 @@ msgstr "このプロパティはフォルダーに対してのみ有効で、フ
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "このプロパティに複数行入力することはできません。１行のみにしてください。"
 
-#. Resource IDs: (16244)
-msgid ""
-"This will delete the record of commands you've used in this application and "
-"restore the default set of visible commands to the menus and toolbars. It "
-"will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "このアプリケーションで使用しているコマンドのレコードを削除し、メニューとツールバーにデフォルトのコマンドを表示するように設定します。カスタマイズしたものは元に戻りません。本当に実行してもよろしいですか？"
-
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK1)
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
@@ -10941,14 +10133,6 @@ msgid ""
 "The command line to run is:\n"
 "%ls"
 msgstr "この作業コピーにはクライアント側スクリプトが設定されています。スクリプトを実行しますか？\n実行するコマンドライン:\n%ls"
-
-#. Resource IDs: (16928)
-msgid "Tile &Vertically"
-msgstr "垂直方向に並べる(&V)"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
-msgstr "水平方向に並べる(&Z)"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Timeouts"
@@ -10981,40 +10165,6 @@ msgstr "ロックを横取りするには、この項目の親フォルダーを
 #. IDD_REVGRAPHFILTER: Control id 65535)
 msgid "To:"
 msgstr "終了:"
-
-#. Resource IDs: (58113)
-msgid ""
-"Toggle One/Two Pages display\n"
-"Toggle One/Two Pages display"
-msgstr "1ページ表示/2ページ表示を切り替え\n1ページ表示/2ページ表示を切り替え"
-
-#. Resource IDs: (65535)
-msgid "Toolbar"
-msgstr "ツールバー"
-
-#. Resource IDs: (16130)
-msgid "Toolbar Name"
-msgstr "ツールバー名"
-
-#. Resource IDs: (17017)
-msgid "Toolbar Options"
-msgstr "ツールバーオプション"
-
-#. Resource IDs: (16008)
-msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "ツールバーの内部エラー。アプリケーションの配布元に問い合わせてください。"
-
-#. Resource IDs: (16105)
-msgid "Toolbars"
-msgstr "ツールバー"
-
-#. Resource IDs: (16928)
-msgid "Tools"
-msgstr "ツール"
-
-#. Resource IDs: (65535)
-msgid "Tools:"
-msgstr "ツール:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -11051,8 +10201,8 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: TortoiseSVN用の画像差分ビューアー\n\n使用可能なコマンドラインパラメーター:\n/left:\"左側の画像のパス\"\n/lefttitle:\"左側の画像のタイトル\"\n/right:\"右側の画像のパス\"\n/righttitle:\"右側の画像のタイトル\"\n/overlay\t\tオーバーレイモードを有効にする\n/fit\t\t画像サイズを合わせる\n/showinfo\t\t画像情報ボックスを表示する"
 
-#. Resource IDs: (100, 156 - Ribbon element, 32897, 57344, Dialog IDD_OPENDLG:
-#. Control id 130, IDS_APPNAME)
+#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -11206,10 +10356,6 @@ msgstr "クリーンアップで「書き込みロックを強制解除」のオ
 msgid "Tweak TortoiseSVN"
 msgstr "TortoiseSVN を調整"
 
-#. Resource IDs: (17130)
-msgid "Type"
-msgstr "タイプ"
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1436)
 msgid "U&pdate"
 msgstr "更新(&P)"
@@ -11304,24 +10450,15 @@ msgid ""
 "menu"
 msgstr "チェックを外した項目はサブメニューに表示され、チェックした項目はメインコンテキストメニューに表示されます"
 
-#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr "元に戻す"
-
-#. Resource IDs: (17102)
-#, c-format
-msgid "Undo %d Actions"
-msgstr "%d のアクションを元に戻す"
-
-#. Resource IDs: (17103)
-msgid "Undo 1 Action"
-msgstr "アクションを1つ元に戻す"
 
 #. Resource IDs: (IDS_MENUUNDOADD)
 msgid "Undo Add..."
 msgstr "追加を取り消す..."
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
@@ -11330,10 +10467,6 @@ msgstr "直前に行った変更を取り消す\n元に戻す"
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
 msgstr "想定外のファイル形式です。"
-
-#. Resource IDs: (17111)
-msgid "Unfold"
-msgstr "展開する"
 
 #. Resource IDs: (61591)
 msgid ""
@@ -11503,10 +10636,6 @@ msgstr "「%1!ls!」をアップグレード中"
 msgid "Urls"
 msgstr "URL"
 
-#. Resource IDs: (16530)
-msgid "Use &Default Image: "
-msgstr "デフォルトの画像を使用(&D): "
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "2つのファイルの差分に、デフォルトで1画面表示を使用する(&O)"
@@ -11526,22 +10655,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr "除外指定にはワイルドカードとして「*」を用い、\r\n複数指定する場合はコンマ（「,」）を使用します。\r\n例: *.mylan.com, *.company.com"
 
-#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr "「mine」のテキストブロックを使用"
 
 #. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
-#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
+#. cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr "「mine」→「theirs」の順でテキストブロックを使用"
 
-#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu,
+#. cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr "「theirs」のテキストブロックを使用"
 
 #. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
-#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
+#. cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr "「theirs」→「mine」の順でテキストブロックを使用"
 
@@ -11561,29 +10690,29 @@ msgstr "作業コピーのURLを「マージ元」のデフォルトURLとして
 msgid "Use Unified Diff from &clipboard"
 msgstr "クリップボードのUnified形式の差分を使用(&C)"
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr "すべて左ビューの内容を使用する\n左側のファイルを使用"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
-#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
+#. cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr "左→右の順でブロックを使用"
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr "右ビューのブロックの前に左ビューのブロックを使用する\n左→右の順でブロックを使用"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
-#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
+#. cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr "右→左の順でブロックを使用"
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -11597,13 +10726,12 @@ msgstr "両方のテキストブロックを使用（こちらを前にする）
 msgid "Use both text blocks (this one last)"
 msgstr "両方のテキストブロックを使用（こちらを後にする）"
 
-#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
+#. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr "左のブロックを使用"
 
-#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr "左側のファイルを使用"
 
@@ -11639,13 +10767,13 @@ msgstr "「theirs」のテキストブロックを使用(&T)"
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "「theirs」の前に「mine」のテキストブロックを使用(&I)"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr "「theirs」の前に「mine」のテキストブロックを使用する\n「mine」→「theirs」の順にテキストブロックを使用"
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -11655,19 +10783,19 @@ msgstr "「mine」のテキストブロックを使用する\n「mine」のテ�
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "「mine」の前に「theirs」のテキストブロックを使用(&H)"
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr "「mine」の前に「theirs」のテキストブロックを使用する\n「theirs」→「mine」の順にテキストブロックを使用"
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr "「theirs」のテキストブロックを使用する\n「theirs」のテキストブロックを使用"
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
@@ -11739,6 +10867,10 @@ msgstr "無視するユーザー:"
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr "昇格したプロセスのキャッシュに「なし」を使用します"
 
+#. Resource IDs: (cmdPaste_Keytip_RESID)
+msgid "V"
+msgstr ""
+
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
 "Valid command line options are:\n"
@@ -11788,11 +10920,11 @@ msgstr "バージョン情報"
 msgid "Versioned"
 msgstr "バージョン管理開始"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr "表示"
 
-#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr "バーを表示"
 
@@ -11808,15 +10940,9 @@ msgstr "リビジョンをウェブビューアーで表示(&W)"
 msgid "Visit our website"
 msgstr "私たちのウェブサイトへお越しください"
 
-#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
-#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
-msgid "Visual Studio 2005"
-msgstr "Visual Studio 2005"
-
-#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
-#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
-msgid "Visual Studio 2008"
-msgstr "Visual Studio 2008"
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
+msgid "W"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
 msgid ""
@@ -11903,33 +11029,10 @@ msgstr "選択している１つ以上のファイルをロックする際に、
 msgid "Whitespace changes (tabs, spaces)"
 msgstr "空白文字の変更（タブ、スペース）"
 
-#. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
-#. 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
+#. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "空白"
-
-#. Resource IDs: (17038)
-msgid "Window Position"
-msgstr "ウィンドウ位置"
-
-#. Resource IDs: (16927)
-msgid "Windows"
-msgstr "Windows"
-
-#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
-#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
-msgid "Windows 2000"
-msgstr "Windows 2000"
-
-#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
-#. Ribbon name)
-msgid "Windows 7"
-msgstr "Windows 7"
-
-#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
-#. - Ribbon name)
-msgid "Windows XP"
-msgstr "Windows XP"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 158, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 1493, Dialog IDD_MERGEWIZARD_TREE:
@@ -11958,16 +11061,23 @@ msgstr "作業コピーは再配置されました。\n%ls"
 msgid "Working copy: %ls\n"
 msgstr "作業コピー: %ls\n"
 
-#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
-#. name)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
+msgid "Wrap Lines"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
 msgstr "長い行を折り返す"
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr "長い行をビューの右端で折り返す\n長い行を折り返す"
+
+#. Resource IDs: (cmdRedo_Keytip_RESID)
+msgid "Y"
+msgstr ""
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
 msgid "You already have the latest version installed."
@@ -11984,16 +11094,6 @@ msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
 msgstr "リポジトリブラウザからは同時に1ファイルしか編集できません。\n他の物を編集する前にファイルの編集を終了してください。"
-
-#. Resource IDs: (16005)
-#, c-format
-msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr "%d × %d サイズのビットマップ画像のみ貼り付けることができます。"
-
-#. Resource IDs: (16243)
-#, c-format
-msgid "You can't create more than %d user-defined toolbars!"
-msgstr "ユーザー定義ツールバーは%d件までしか作成できません。"
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -12035,11 +11135,6 @@ msgstr "まず、作業コピーを更新してください。"
 msgid "You haven't entered an issue number."
 msgstr "課題IDが入力されていません。"
 
-#. Resource IDs: (16024)
-#, c-format
-msgid "You may define up to %d tools."
-msgstr "ツールは%d件までしか定義できません。"
-
 #. Resource IDs: (IDS_SETTINGS_RESTARTSYSTEM)
 msgid "You must restart your system for the changes to take effect."
 msgstr "変更を反映させるためには、システムを再起動してください。"
@@ -12047,14 +11142,6 @@ msgstr "変更を反映させるためには、システムを再起動してく
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "コミットにバージョン管理外のフォルダーを選択しました。"
-
-#. Resource IDs: (16002)
-msgid "You should enter a text!"
-msgstr "テキストを入力してください。"
-
-#. Resource IDs: (16001)
-msgid "You should select an image!"
-msgstr "画像を選択してください。"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12112,13 +11199,13 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr "作業コピーは、タグ上の %ls を指しています。\nコミットする前に、ブランチもしくはメイントランクに切り替えるべきです。"
 
+#. Resource IDs: (cmdUndo_Keytip_RESID)
+msgid "Z"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr "ズームアウト(&M)\t(-)"
-
-#. Resource IDs: (17093)
-msgid "Zoom"
-msgstr "ズーム"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -12140,18 +11227,6 @@ msgstr "ズームアウト(&O)\tCtrl+[-]"
 #, c-format
 msgid "Zoom 100%"
 msgstr "ズーム 100%"
-
-#. Resource IDs: (58117)
-msgid ""
-"Zoom In\n"
-"Zoom In"
-msgstr "ズームイン\nズームイン"
-
-#. Resource IDs: (58118)
-msgid ""
-"Zoom Out\n"
-"Zoom Out"
-msgstr "ズームアウト\nズームアウト"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
@@ -12181,14 +11256,6 @@ msgstr "高さが合うようにズーム"
 msgid "Zoom to fit in width"
 msgstr "幅が合うようにズーム"
 
-#. Resource IDs: (17114)
-msgid "[Default]"
-msgstr "[デフォルト]"
-
-#. Resource IDs: (16009)
-msgid "[Unassigned]"
-msgstr "[Unassigned]"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
 msgstr "コミット時に無視されるファイルがあっても、親フォルダーは変更されたとみなされません"
@@ -12202,10 +11269,6 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr "\n\nパターンは大文字/小文字の区別なくマッチしますが、小文字で指定する必要があります。\n空白はパターンの一部とみなされます。\nワイルドカードとしては「?」と「*」を使用できます。\n複数のパターンは「;」で区切ります。"
-
-#. Resource IDs: (65535 - PopupMenu)
-msgid "_POPUP_"
-msgstr "_POPUP_"
 
 #. Resource IDs: (IDS_STATUSADDED)
 msgid "added"
@@ -12383,10 +11446,6 @@ msgstr "削除"
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "disk [kB]: "
 msgstr "ディスク [KB]: "
-
-#. Resource IDs: (58116)
-msgid "dummy"
-msgstr "dummy"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
@@ -12568,6 +11627,10 @@ msgstr "バージョン管理外の項目"
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
 msgstr "通常"
+
+#. Resource IDs: (cmdOpen_Keytip_RESID)
+msgid "o1"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"

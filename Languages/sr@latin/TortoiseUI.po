@@ -19,9 +19,9 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-19 09:11+0000\n"
-"Last-Translator: Milorad Popovic <MiloradSPopovic@gmail.com>\n"
-"Language-Team: Serbian (Latin) (http://www.transifex.com/luebbe/tortoisesvn/language/sr@latin/)\n"
+"PO-Revision-Date: 2017-11-14 02:02+0000\n"
+"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"Language-Team: Serbian (Latin) (http://www.transifex.com/luebbe/tortoisesvn/language/sr%40latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -294,17 +294,13 @@ msgid ""
 "TortoiseMerge can't diff directories."
 msgstr "%ls\nje folder, nije fajl!\nTortoiseMerge ne može upoređivati foldere."
 
-#. Resource IDs: (16923)
-msgid "&..."
-msgstr "&..."
-
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
 msgstr "&Prekini\nMožete fiksirati razlog da zakačiva skripta nalpre ne uspe."
 
-#. Resource IDs: (57664 - Menu)
+#. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
 msgstr "&O TortoiseMerge..."
 
@@ -314,17 +310,9 @@ msgid ""
 "The certificate is accepted only this one time."
 msgstr "&Prihvati sertifikat\nSertifikat je prihvaćen samo ovaj put."
 
-#. Resource IDs: (16920)
-msgid "&Activate"
-msgstr "&Aktiviraj"
-
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
 msgstr "&Dodaj"
-
-#. Resource IDs: (17075)
-msgid "&Add >>"
-msgstr "&Dodaj >>"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
@@ -335,10 +323,6 @@ msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
 msgstr "&Dodaj stavku\nOvo može dovesti do problema na Vindouzu."
-
-#. Resource IDs: (17018)
-msgid "&Add or Remove Buttons"
-msgstr "&Dodaj ili ukloni dugmiće"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -375,22 +359,6 @@ msgstr "Primeni osobine pon&avljajući"
 msgid "&Apply unified diff"
 msgstr "Primeni objedinjene r&azlike"
 
-#. Resource IDs: (65535)
-msgid "&Arguments:"
-msgstr "&Argumenti:"
-
-#. Resource IDs: (16645)
-msgid "&Assign"
-msgstr "Ozn&ači"
-
-#. Resource IDs: (16633)
-msgid "&Associate double-click event with:"
-msgstr "Pridruži dvostruki  klik dog&ađaj sa:"
-
-#. Resource IDs: (17041)
-msgid "&Auto Hide"
-msgstr "&Automatsko sakrivanje"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Autoclose:"
 msgstr "&Autozatvaranje:"
@@ -418,10 +386,6 @@ msgstr "&Krivac prethodne revizije"
 #. Resource IDs: (IDS_MENUBLAME)
 msgid "&Blame..."
 msgstr "&Okriviti..."
-
-#. Resource IDs: (65535)
-msgid "&Blue:"
-msgstr "&Plavi:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "&Border:"
@@ -451,14 +415,6 @@ msgstr "&Pretraži..."
 #. Resource IDs: (ID_NEW_BUGTRAQ - Menu)
 msgid "&Bugtraq (Issue tracker integration)"
 msgstr "&Bagtrak (Problem tragač integracija)"
-
-#. Resource IDs: (16913 - Menu)
-msgid "&Button Appearance..."
-msgstr "&Izgled dugmeta..."
-
-#. Resource IDs: (65535)
-msgid "&Button text:"
-msgstr "&Tekst dugmeta:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1051)
 msgid "&CD-ROM"
@@ -602,18 +558,6 @@ msgid ""
 "keep the current format."
 msgstr "&Odustani\nčuvaj tekući format"
 
-#. Resource IDs: (65535)
-msgid "&Categories:"
-msgstr "&Kategorije:"
-
-#. Resource IDs: (65535)
-msgid "&Category:"
-msgstr "&Kategorija:"
-
-#. Resource IDs: (65535)
-msgid "&Choose commands from:"
-msgstr "&Izaberi komande od:"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
 msgstr "&Izaberite stavke..."
@@ -634,17 +578,9 @@ msgstr "&Obriši listu izmena"
 msgid "&Close"
 msgstr "&Zatvori"
 
-#. Resource IDs: (16922)
-msgid "&Close Window(s)"
-msgstr "&Zatvori prozor(e) "
-
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "&Collaborator username"
 msgstr "&Sardnikovo korisničko ime"
-
-#. Resource IDs: (65535)
-msgid "&Command:"
-msgstr "&Komanda:"
 
 #. Resource IDs: (IDS_MENUCOMMIT)
 msgid "&Commit..."
@@ -676,14 +612,10 @@ msgstr "&Kontaktiraj spremište prilikom pokretanja"
 msgid "&Convert files when diffing against BASE"
 msgstr "&Prepravi fajlove kada se razlikuju od BAZE"
 
-#. Resource IDs: (57634 - Menu, Dialog IDD_SETTINGSBUGTRAQ: Control id 1471,
-#. Dialog IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY)
+#. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1471, Dialog
+#. IDD_SETTINGSHOOKS: Control id 1367, IDS_EDIT_COPY, ID_EDIT_COPY - Menu)
 msgid "&Copy"
 msgstr "&Kopiraj"
-
-#. Resource IDs: (16911 - Menu)
-msgid "&Copy Button Image"
-msgstr "&Kopiraj sliku dugmeta"
 
 #. Resource IDs: (ID_COPYTOCLIPBOARD - Menu)
 msgid "&Copy log message to clipboard"
@@ -719,8 +651,8 @@ msgstr "&Dani neaktivnosti pre nego se mali keševi uklone"
 msgid "&Default"
 msgstr "Po&drazumevano"
 
-#. Resource IDs: (16617, 16912 - Menu, Dialog IDD_SETTINGSLOGCACHELIST:
-#. Control id 1382, IDS_MENUREMOVE)
+#. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1382,
+#. IDS_MENUREMOVE)
 msgid "&Delete"
 msgstr "&Obriši"
 
@@ -766,10 +698,6 @@ msgstr "&Imenici"
 msgid "&Do not ask again"
 msgstr "&Ne pitaj ponovo"
 
-#. Resource IDs: (17040)
-msgid "&Docking"
-msgstr "&Uglavljivanje"
-
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK4)
 msgid ""
 "&Don't run\n"
@@ -797,7 +725,7 @@ msgstr "Ur&edi sukobe"
 msgid "&Edit project"
 msgstr "&Uredi projekat"
 
-#. Resource IDs: (16510, Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1282, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1596, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1099, IDS_PROP_EDIT)
 msgid "&Edit..."
@@ -879,10 +807,6 @@ msgstr "&Fiksiraj vremensku oznaku"
 msgid "&Fixed drives"
 msgstr "&Ugrađeni diskovi"
 
-#. Resource IDs: (17039)
-msgid "&Floating"
-msgstr "&Lebdeći"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "&Font for log messages:"
 msgstr "&Font za poruke dnevnika:"
@@ -913,10 +837,6 @@ msgstr "&Od: (početni URL i revizija u rasponu spajanja)"
 msgid "&Go To Line...\t(Ctrl+G)"
 msgstr "&Idi na liniju...\t(Ctrl+G)"
 
-#. Resource IDs: (65535)
-msgid "&Green:"
-msgstr "&Zelena:"
-
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
 msgstr "&Grupiši po grani"
@@ -943,17 +863,21 @@ msgstr "&GLAVNA revizija u spremištu"
 msgid "&Help"
 msgstr "&Pomoć"
 
-#. Resource IDs: (57670 - Menu)
+#. Resource IDs: (ID_HELP - Menu)
 msgid "&Help Topics"
 msgstr "&Pomoć teme"
 
-#. Resource IDs: (17042, 61457)
+#. Resource IDs: (61457)
 msgid "&Hide"
 msgstr "&Sakri"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
 msgstr "&Sakri zanemarene stavke"
+
+#. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
+msgid "&Hide/Show the patch file list"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -976,17 +900,9 @@ msgstr "&Zanemari i nastavi"
 msgid "&Ignore multiple items by name"
 msgstr "&zanemari višestruke stavke po imenu"
 
-#. Resource IDs: (16914 - Menu)
-msgid "&Image"
-msgstr "&Slika"
-
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
 msgstr "&Informacije o slici\t(I)"
-
-#. Resource IDs: (16505)
-msgid "&Image only"
-msgstr "&Samo slika"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1005,10 +921,6 @@ msgstr "Uključ&i  eksternale"
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1480)
 msgid "&Include merge info"
 msgstr "&Uključi stopljene revizije"
-
-#. Resource IDs: (65535)
-msgid "&Initial directory:"
-msgstr "&Početni folder:"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_JOIN_ALL)
 msgid "&Join all"
@@ -1029,10 +941,6 @@ msgstr "&Ključne reči"
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "&Language:"
 msgstr "&Jezik:"
-
-#. Resource IDs: (16653)
-msgid "&Large Icons"
-msgstr "&Velike ikone"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1065)
 msgid "&Limit search to modified lines"
@@ -1075,10 +983,6 @@ msgstr "&Zaključavanje potrebno (samo za čitanje obnavljanje)"
 msgid "&Log Sizes"
 msgstr "Ve&ličine dnevnika"
 
-#. Resource IDs: (65535)
-msgid "&Luminence:"
-msgstr "&Sjajnost:"
-
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mak(CR)"
@@ -1095,14 +999,6 @@ msgstr "&Maks dužina linije za linijske difove"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
 msgstr "&Maksimalna veličina [kBajt] uklonjenog neaktivnog keša "
-
-#. Resource IDs: (16543)
-msgid "&Menu animations:"
-msgstr "&Animacija menija:"
-
-#. Resource IDs: (16921)
-msgid "&Menu contents:"
-msgstr "&Sadržaj menija:"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1123,10 +1019,6 @@ msgstr "&Sjedinjavanje"
 #. Resource IDs: (ID_NEW_MIMETYPE - Menu)
 msgid "&Mime-Type"
 msgstr "&Mime-tip"
-
-#. Resource IDs: (16925)
-msgid "&Minimize"
-msgstr "&Umanji"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 1493)
 msgid "&Modify color for tag copies"
@@ -1152,8 +1044,8 @@ msgstr "&Mrežni diskovi"
 msgid "&New "
 msgstr "&Nov"
 
-#. Resource IDs: (16509, 16615, Dialog IDD_EDITPROPERTIES: Control id 1310,
-#. Dialog IDD_EDITPROPEXTERNALS: Control id 1542)
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1310, Dialog
+#. IDD_EDITPROPEXTERNALS: Control id 1542)
 msgid "&New..."
 msgstr "&Nov..."
 
@@ -1169,10 +1061,6 @@ msgstr "&Sledeći >"
 #. Resource IDs: (58114)
 msgid "&Next Page"
 msgstr "&Sledeća strana"
-
-#. Resource IDs: (16632)
-msgid "&No double-click event"
-msgstr "&Bez dvostruki-klik događaja"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
@@ -1190,10 +1078,10 @@ msgstr "&Nije izvršno"
 msgid "&Numeric"
 msgstr "&Numerik"
 
-#. Resource IDs: (1, Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control
-#. id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id
-#. 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1,
-#. Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id
+#. 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1,
+#. Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog
+#. IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog
 #. IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1,
 #. Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id
 #. 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL:
@@ -1230,7 +1118,8 @@ msgstr "&Isključi za sada"
 msgid "&One Page"
 msgstr "&Jedna strana"
 
-#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN)
+#. Resource IDs: (IDS_LOG_POPUP_OPEN, IDS_REPOBROWSE_OPEN,
+#. cmdOpen_LabelTitle_RESID)
 msgid "&Open"
 msgstr "&Otvori"
 
@@ -1277,8 +1166,8 @@ msgstr "&Prepišite\nCiljni fajl je zamenjen"
 msgid "&Password:"
 msgstr "&Lozinka:"
 
-#. Resource IDs: (57637 - Menu, IDS_EDIT_PASTE, IDS_MENUCLIPPASTE,
-#. IDS_SCIEDIT_PASTE)
+#. Resource IDs: (IDS_EDIT_PASTE, IDS_MENUCLIPPASTE, IDS_SCIEDIT_PASTE,
+#. ID_EDIT_PASTE - Menu)
 msgid "&Paste"
 msgstr "&Nalepi"
 
@@ -1309,10 +1198,6 @@ msgstr "Glavni korisnik po&drazumevane vrednosti"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr "&Pripremni folderi za brže pretraživanje"
-
-#. Resource IDs: (17091)
-msgid "&Print Preview"
-msgstr "&Štampaj pregled"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1354,10 +1239,6 @@ msgstr "&Osobine..."
 msgid "&Recent messages"
 msgstr "&Nedavne poruke"
 
-#. Resource IDs: (65535)
-msgid "&Red:"
-msgstr "&Crven:"
-
 #. Resource IDs: (IDS_SCIEDIT_REDO)
 msgid "&Redo"
 msgstr "&Ponovi"
@@ -1382,7 +1263,7 @@ msgstr "&Premesti\nRadna kopija je premeštena na novi URL."
 msgid "&Remind me to enter a bug-ID"
 msgstr "&Podseti me da unesem bag-ID"
 
-#. Resource IDs: (16646, Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
+#. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1285, Dialog
 #. IDD_EDITPROPEXTERNALS: Control id 1597, Dialog IDD_SETTINGSPROGSADV:
 #. Control id 1100, IDS_PROP_REMOVE)
 msgid "&Remove"
@@ -1434,22 +1315,6 @@ msgstr "&Zameni"
 #. Resource IDs: (IDS_MENUREPOBROWSE)
 msgid "&Repo-browser"
 msgstr "&Repo-pretraživač"
-
-#. Resource IDs: (16613, 16624)
-msgid "&Reset"
-msgstr "&Podešavanje"
-
-#. Resource IDs: (16300)
-msgid "&Reset Toolbar"
-msgstr "&Podešavanje alatnog panela"
-
-#. Resource IDs: (16657)
-msgid "&Reset my usage data"
-msgstr "&Podesi i moje podatke za korišćenje"
-
-#. Resource IDs: (16910 - Menu)
-msgid "&Reset to Default"
-msgstr "&Podesii uobičajene vrednosti"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK3)
 msgid ""
@@ -1512,11 +1377,7 @@ msgstr "&SSH klijent:"
 msgid "&SVN"
 msgstr "&SVN"
 
-#. Resource IDs: (65535)
-msgid "&Saturation:"
-msgstr "Za&sićenje:"
-
-#. Resource IDs: (16921)
+#. Resource IDs: (cmdSave_LabelTitle_RESID)
 msgid "&Save"
 msgstr "&Sačuvaj"
 
@@ -1551,10 +1412,6 @@ msgstr "&Prikaži GLAVNE revizije"
 msgid "&Show Log"
 msgstr "&Prikaži Dnevnik"
 
-#. Resource IDs: (65535)
-msgid "&Show Menus for:"
-msgstr "&Prikaži menije za:"
-
 #. Resource IDs: (ID_POPUP_SHOWMONITOR - Menu)
 msgid "&Show Monitor"
 msgstr "&Prikaži monitor"
@@ -1563,23 +1420,15 @@ msgstr "&Prikaži monitor"
 msgid "&Show popup notifications"
 msgstr "&Prikaži popap notifikaciju"
 
-#. Resource IDs: (16612)
-msgid "&Show text labels"
-msgstr "&Prikaži tekstualne oznake"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
 msgstr "&Određena revizija u spremištu"
-
-#. Resource IDs: (16917 - Menu)
-msgid "&Start Group"
-msgstr "&Početna grupa"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
 msgstr "&Start Repo-pretraživača"
 
-#. Resource IDs: (59393 - Menu)
+#. Resource IDs: (ID_VIEW_STATUS_BAR - Menu)
 msgid "&Status Bar"
 msgstr "&Statusni panel"
 
@@ -1611,10 +1460,6 @@ msgstr "&Pregled simbola"
 msgid "&Tab size:"
 msgstr "&Veličina taba:"
 
-#. Resource IDs: (17088)
-msgid "&Tabbed Document"
-msgstr "&Dokument sa tabovima"
-
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPH: Control id 65535)
 msgid "&Tags"
 msgstr "&Oznake"
@@ -1623,13 +1468,9 @@ msgstr "&Oznake"
 msgid "&Test merge"
 msgstr "&Test stapanja"
 
-#. Resource IDs: (16915 - Menu, Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
+#. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1558)
 msgid "&Text"
 msgstr "&Tekst"
-
-#. Resource IDs: (16506)
-msgid "&Text only"
-msgstr "&Samo tekst"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1438)
 msgid "&Timeout in seconds before updating the HEAD revision"
@@ -1657,17 +1498,9 @@ msgstr "Ka pu&tanji:"
 msgid "&To: (end URL and revision of the range to merge)"
 msgstr "&Do: (krajnji URL i revizija u rasponu spajanja)"
 
-#. Resource IDs: (59392 - Menu)
+#. Resource IDs: (ID_VIEW_TOOLBAR - Menu)
 msgid "&Toolbar"
 msgstr "&aLATNI PANEL"
-
-#. Resource IDs: (65535)
-msgid "&Toolbar Name:"
-msgstr "&Ime alatnog panela:"
-
-#. Resource IDs: (65535)
-msgid "&Toolbars:"
-msgstr "&Alatni paneli:"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1567)
 msgid "&Top"
@@ -1706,7 +1539,7 @@ msgstr "&URL spremišta:"
 msgid "&URL:"
 msgstr "&URL:"
 
-#. Resource IDs: (57643 - Menu, IDS_SCIEDIT_UNDO)
+#. Resource IDs: (IDS_SCIEDIT_UNDO, ID_EDIT_UNDO - Menu)
 msgid "&Undo"
 msgstr "&Poništi"
 
@@ -1777,10 +1610,6 @@ msgstr "&Usisaj stare kopije"
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "&Pregled"
-
-#. Resource IDs: (65535)
-msgid "&View:"
-msgstr "&Pregled:"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1066)
 msgid "&Whole word"
@@ -1926,11 +1755,6 @@ msgstr "+ %d"
 msgid "- %d"
 msgstr "- %d"
 
-#. Resource IDs: (16108)
-msgid ""
-"-------------------------------------------------------------------------------------------"
-msgstr "-------------------------------------------------------------------------------------------"
-
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1035, Dialog IDD_CHECKOUT:
 #. Control id 1036, Dialog IDD_COPY: Control id 1035, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1035, Dialog IDD_EXPORT: Control id
@@ -1957,10 +1781,6 @@ msgstr "... proverava keš i priprema dnevnik upita"
 msgid "... reading working copy status"
 msgstr "... čitanje statusa radne kopije"
 
-#. Resource IDs: (16527)
-msgid "....."
-msgstr "....."
-
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1973,22 +1793,6 @@ msgstr ": radna kopija"
 #. Resource IDs: (IDS_PROPPAGE_BACK)
 msgid "< &Back"
 msgstr "< &Nazad"
-
-#. Resource IDs: (16506)
-msgid "<.....>"
-msgstr "<.....>"
-
-#. Resource IDs: (17095)
-msgid "<Separator>"
-msgstr "<Separator>"
-
-#. Resource IDs: (16104)
-msgid "<Untitled>"
-msgstr "<Untitled>"
-
-#. Resource IDs: (16603)
-msgid "<descr>"
-msgstr "<descr>"
 
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_CREATECS)
 msgid "<new changelist>"
@@ -2074,7 +1878,11 @@ msgstr "D&odaj folder..."
 msgid "Abort"
 msgstr "Prekini"
 
-#. Resource IDs: (IDS_MENUABOUT, ID_APP_ABOUT - Ribbon name)
+#. Resource IDs: (cmdAbout_LabelTitle_RESID)
+msgid "Abou&t TortoiseMerge"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
 msgstr "O"
 
@@ -2112,10 +1920,6 @@ msgstr "Akcije"
 #. Resource IDs: (61203)
 msgid "Activate Task List"
 msgstr "Aktiviraj listu zadataka"
-
-#. Resource IDs: (17043)
-msgid "Active Files"
-msgstr "Aktivni fajl"
 
 #. Resource IDs: (61838)
 #, c-format
@@ -2185,10 +1989,6 @@ msgstr "Dodaj u listu za &zanemarivanje"
 msgid "Add to Bookmarks"
 msgstr "Dodaj zabeleškama"
 
-#. Resource IDs: (17083)
-msgid "Add to Quick Access Toolbar"
-msgstr "Dodaj u alatni panel za brzi pristup"
-
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1279, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1279, IDS_STATUSLIST_CONTEXT_ADD_RECURSIVE)
 msgid "Add..."
@@ -2240,7 +2040,7 @@ msgstr "Dodavanje fajla/ova pod kontrolu Subverzije"
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
 msgstr "Dodaje označen(e) fajl(ove) ili masku fajla u listu 'zanemarenih'"
 
-#. Resource IDs: (32782)
+#. Resource IDs: (cmdSettings)
 msgid ""
 "Adjust the settings\n"
 "Settings"
@@ -2279,10 +2079,6 @@ msgstr "Izravnaj stablo na vrhu"
 msgid "All"
 msgstr "Sve"
 
-#. Resource IDs: (16110)
-msgid "All Commands"
-msgstr "Sve komande"
-
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
 msgstr "Svi fajlovi (*.*)"
@@ -2291,32 +2087,7 @@ msgstr "Svi fajlovi (*.*)"
 msgid "All Files (*.*)|*.*||"
 msgstr "Svi fajlovi (*.*)|*.*||"
 
-#. Resource IDs: (16112)
-msgid ""
-"All your changes will be lost! Do you really want to reset all toolbars and "
-"menus?"
-msgstr "Sve vaše izmene biće izgubljene! Da li zaista želite izmeniti sve alatne panele i menije?"
-
-#. Resource IDs: (16115)
-msgid ""
-"All your changes will be lost! Do you really want to reset the keyboard "
-"assignments?"
-msgstr "Sve vaše izmene biće izgubljene! Da li zaista želite izmeniti oznake tastature?"
-
-#. Resource IDs: (16113)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the menu '%Ts'?"
-msgstr "Sve vaše izmene će nestati! Da li stvarno želite da resetujete meni  '%Ts'?"
-
-#. Resource IDs: (16111)
-#, c-format
-msgid ""
-"All your changes will be lost! Do you really want to reset the toolbar "
-"'%Ts'?"
-msgstr "Sve vaše izmene će nestati! Da li stvarno želite da resetujete alatni panel  '%Ts'?"
-
-#. Resource IDs: (32976)
+#. Resource IDs: (cmdEditEnabled)
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
@@ -2421,10 +2192,6 @@ msgstr "Dodaj desni blok"
 msgid "Append this block to left"
 msgstr "Dodaj ovaj blok levo"
 
-#. Resource IDs: (65535)
-msgid "Application Frame Menus: "
-msgstr "Meni okvira aplikacije"
-
 #. Resource IDs: (IDS_MENUDESCAPPLYPATCH)
 msgid "Applies a unified diff file to the working copy"
 msgstr "Koristi objedinjeni fajl s razlikama za izmenu radne kopije"
@@ -2454,11 +2221,6 @@ msgstr "Potvrdi ili odbaci klijentske zakačive skripte"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1282)
 msgid "Approved hook scripts"
 msgstr "Potvrđene zakačive skripte"
-
-#. Resource IDs: (10012, ID_VIEW_APPLOOK_OFF_2007_AQUA - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_AQUA - Ribbon name)
-msgid "Aqua Style"
-msgstr "Vodeni stil"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1565)
 msgid "Arb&itrary text"
@@ -2496,10 +2258,6 @@ msgstr "Pitaj korisnika"
 #, c-format
 msgid "Assigned to changelist '%ls'"
 msgstr "Označeno u listi izmena '%ls'"
-
-#. Resource IDs: (16528)
-msgid "Assigned to:"
-msgstr "Označeno:"
 
 #. Resource IDs: (IDS_PROGRS_ATREV)
 #, c-format
@@ -2555,14 +2313,6 @@ msgstr "Autori po azbučnom redu"
 msgid "Authors:"
 msgstr "Autori:"
 
-#. Resource IDs: (16033)
-msgid "Auto Hide"
-msgstr "Automatsko sakrivanje"
-
-#. Resource IDs: (16036)
-msgid "Auto Hide All"
-msgstr "Automatsko skrivanje svega"
-
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
 msgstr "Auto-Stapanje"
@@ -2607,10 +2357,6 @@ msgstr "Prosek"
 msgid "B&rowse..."
 msgstr "P&retraži..."
 
-#. Resource IDs: (17020)
-msgid "Back"
-msgstr "Nazad"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
@@ -2635,11 +2381,6 @@ msgid ""
 "a bitmap"
 msgstr "Bitmapa\nbitmapa"
 
-#. Resource IDs: (10010, ID_VIEW_APPLOOK_OFF_2007_BLACK - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLACK - Ribbon name)
-msgid "Black Style"
-msgstr "Crni stil"
-
 #. Resource IDs: (Dialog IDD_BLAME: Control id 162)
 msgid "Blame"
 msgstr "Krivac"
@@ -2660,14 +2401,9 @@ msgstr "Prikazuje autore krive za svaku pojedinu liniju fajlova"
 msgid "Blend alpha"
 msgstr "Mešavina alfa"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupBlocks_LabelTitle_RESID)
 msgid "Blocks"
 msgstr "Blokovi"
-
-#. Resource IDs: (10009, ID_VIEW_APPLOOK_OFF_2007_BLUE - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_BLUE - Ribbon name)
-msgid "Blue Style"
-msgstr "Plavi stil"
 
 #. Resource IDs: (IDS_BOOKMARKS)
 msgid "Bookmarks"
@@ -2738,9 +2474,9 @@ msgstr "ID-baga"
 msgid "Bugtraq Regex Tester - TortoiseSVN"
 msgstr "Bagtrek regeks tester - TortoiseSVN"
 
-#. Resource IDs: (16132)
-msgid "Button Appearance"
-msgstr "Izgled dugmeta"
+#. Resource IDs: (cmdCopy_Keytip_RESID)
+msgid "C"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2754,10 +2490,6 @@ msgstr "&Pretraži spremište"
 msgid "C&ollapse sub-trees"
 msgstr "S&ažeti pod-stablo"
 
-#. Resource IDs: (65535)
-msgid "C&ommands:"
-msgstr "K&omande:"
-
 #. Resource IDs: (IDS_REPOBROWSE_SHOWDIFF_CONTENTONLY)
 msgid "C&ompare URLs (content only)"
 msgstr "Up&oređuje URLove (samo sadržaj)"
@@ -2769,10 +2501,6 @@ msgstr "N&apravi granu/oznaku iz revizije"
 #. Resource IDs: (IDS_REPOBROWSE_MKDIR)
 msgid "C&reate folder..."
 msgstr "N&apravi folder..."
-
-#. Resource IDs: (65535)
-msgid "C&urrent Keys:"
-msgstr "T&ekući tasteri:"
 
 #. Resource IDs: (IDS_EDIT_CUT)
 msgid "C&ut"
@@ -2807,23 +2535,7 @@ msgid ""
 "%2!ls!"
 msgstr "Ne može se kopirati \n%1!ls!\nu\n%2!ls!"
 
-#. Resource IDs: (16010)
-msgid "Can't copy bitmap image into the clipboard!"
-msgstr "Nemogu kopirati bitmapa u klipbord!"
-
-#. Resource IDs: (16003)
-msgid "Can't create a new image!"
-msgstr "Ne može se kreirati nova slika!"
-
-#. Resource IDs: (16007)
-msgid "Can't customize menus!"
-msgstr "Me mogu se pojednostaviti meniji!"
-
-#. Resource IDs: (16004)
-msgid "Can't paste bitmap image from the clipboard!"
-msgstr "Ne mogu se zaliepiti bitmapu slika iz klipborda!"
-
-#. Resource IDs: (17101, 2, Dialog IDD_BLAME: Control id 2, Dialog
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog
 #. IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2,
 #. Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control
 #. id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2,
@@ -2930,17 +2642,9 @@ msgstr "Otkazivanje operacije..."
 msgid "Cannot show diff because of inconsistent newlines in the file."
 msgstr "Ne može se prikazati diff zbog neusklađenih znakova za novi red u fajlu."
 
-#. Resource IDs: (16926)
-msgid "Casca&de"
-msgstr "Kaska&da"
-
 #. Resource IDs: (IDS_LOG_FILTER_CASESENSITIVE)
 msgid "Case-sensitive"
 msgstr "Zavisni od veličine slova"
-
-#. Resource IDs: (65535)
-msgid "Cate&gories:"
-msgstr "Kate&gorije:"
 
 #. Resource IDs: (IDS_ERR_SSL_EXPIRED)
 #, c-format
@@ -2965,12 +2669,6 @@ msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
 msgstr "&Zameni znakovnu reviziju\nsvn:eksternal osobina predačkog foldera izmenjeno je saglsno."
-
-#. Resource IDs: (10000)
-msgid ""
-"Change the style of the application\n"
-"Change Style"
-msgstr "Promeni stil aplikacije\nPromeni stil"
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -3001,10 +2699,6 @@ msgstr "Popis izmena:"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
 msgstr "Izmenjeno (dvostruki klik na fajl za razl):"
-
-#. Resource IDs: (32956)
-msgid "Changes the style of the application"
-msgstr "Promeni stil aplikacije"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -3166,12 +2860,6 @@ msgstr "Čisti prekinute operacije, zaključaj fajlove, ..."
 msgid "Clear"
 msgstr "Čisti"
 
-#. Resource IDs: (16909)
-msgid ""
-"Clear Tool\n"
-"Clear"
-msgstr "Alat za čišćenje\nČisti"
-
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1279)
 msgid "Clear all"
 msgstr "Očisti sve"
@@ -3232,7 +2920,7 @@ msgid ""
 "extension"
 msgstr "Kliknite na \"Napredno\" za određivanje dopunskih programa za stapanje baziranih na ekstenziji fajla"
 
-#. Resource IDs: (32914)
+#. Resource IDs: (cmdUseBlocks)
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
@@ -3241,20 +2929,6 @@ msgstr "Klikni da vidiš komande za pomeranje bloka teksta\nKoristi tekst blokov
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
 msgstr "Klipbord"
-
-#. Resource IDs: (16032, 16105, 17023, 2)
-msgid "Close"
-msgstr "Zatvori"
-
-#. Resource IDs: (17025)
-msgid "Close Full Screen"
-msgstr "Zatvori pun ekran"
-
-#. Resource IDs: (58112)
-msgid ""
-"Close Print Preview\n"
-"&Close"
-msgstr "Zatvori print pregled\n&Zatvori"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_MANUAL)
 msgid "Close manually"
@@ -3276,7 +2950,7 @@ msgstr "Sa&žeti izvorno stablo"
 msgid "Collaborator &password"
 msgstr "Sardnička &lozinka"
 
-#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, ID_VIEW_COLLAPSED - Ribbon name)
+#. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
 msgstr "Kolaps"
 
@@ -3284,15 +2958,11 @@ msgstr "Kolaps"
 msgid "Collapse &following tree"
 msgstr "Sažeti &sledeće stablo"
 
-#. Resource IDs: (32870)
+#. Resource IDs: (cmdViewCollapsed)
 msgid ""
 "Collapse unchanged sections\n"
 "Collapse"
 msgstr "Slaže neizmenjene delove\nSloži"
-
-#. Resource IDs: (16662)
-msgid "Color"
-msgstr "Boja"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Color 1"
@@ -3314,21 +2984,13 @@ msgstr "Boje po starosti, &kontinualno"
 msgid "Color by au&thor"
 msgstr "Boje po au&toru"
 
-#. Resource IDs: (16961, Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 138, Dialog
 #. IDD_SETTINGSTBLAME: Control id 65535, Dialog IDD_SETTINGSUDIFF: Control id
 #. 65535)
 msgid "Colors"
 msgstr "Boje"
 
-#. Resource IDs: (65535)
-msgid "Colors:"
-msgstr "Boje:"
-
-#. Resource IDs: (65535)
-msgid "Comman&ds:"
-msgstr "Koman&de:"
-
-#. Resource IDs: (16029, IDS_PROGRS_CMDINFO)
+#. Resource IDs: (IDS_PROGRS_CMDINFO)
 msgid "Command"
 msgstr "Komanda"
 
@@ -3354,10 +3016,6 @@ msgstr "Komanda neispravna - Obnavljanje je potrebno"
 #. Resource IDs: (61705)
 msgid "Command failed."
 msgstr "Naredba pogrešno izvršena."
-
-#. Resource IDs: (16104)
-msgid "Commands"
-msgstr "Komande"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK3)
 msgid ""
@@ -3446,7 +3104,7 @@ msgid "Compare two files"
 msgstr "Poredi dva fajla"
 
 #. Resource IDs: (ID_VIEW_COMPAREWHITESPACES - Menu,
-#. ID_VIEW_COMPAREWHITESPACES - Ribbon name)
+#. cmdCompareWhitespaces_LabelTitle_RESID)
 msgid "Compare whitespaces"
 msgstr "Uporedi beline"
 
@@ -3470,7 +3128,7 @@ msgstr "Upoređuje sa osnovom (samo sadržaj)"
 msgid "Compare with previous revision"
 msgstr "Uporedi sa prethodnom revizijom"
 
-#. Resource IDs: (32871)
+#. Resource IDs: (cmdCompareWhitespaces)
 msgid ""
 "Compares all whitespaces when diffing\n"
 "Compare whitespaces"
@@ -3497,6 +3155,10 @@ msgstr "Završeno!"
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1620)
 msgid "Configure &TortoiseSVN to never use the recycle bin"
 msgstr "Konfiguriši da &TortoiseSVN nikad ne koristi korpu za recikliranje"
+
+#. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
+msgid "Configure Filter Regex"
+msgstr ""
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
@@ -3562,17 +3224,9 @@ msgstr "Spoji se sa serverom spremišta i skini podatke dnevnika koji nedostaju"
 msgid "Container sizes"
 msgstr "Veličine kontejnera"
 
-#. Resource IDs: (16520)
-msgid "Context Menus: "
-msgstr "Sadržaj menija:"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr "Linije sadržaja za zakrpe"
-
-#. Resource IDs: (16013)
-msgid "Contract docked window"
-msgstr "Raširi uglavljen prozor"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3603,7 +3257,7 @@ msgstr "Kopirano iz: %1!ls!@%2!ld!\r\n"
 msgid "Copies the URLs of all selected items to the clipboard"
 msgstr "Kopira URLove izabranih stavki u klipbod"
 
-#. Resource IDs: (16991, IDS_PROGRS_TITLE_COPY, ID_EDIT_COPY - Ribbon name)
+#. Resource IDs: (IDS_PROGRS_TITLE_COPY, cmdCopy_LabelTitle_RESID)
 msgid "Copy"
 msgstr "Kopiraj"
 
@@ -3633,12 +3287,6 @@ msgstr "Kopiraj &revizioni broj u klipbord"
 #. Resource IDs: (Dialog IDD_COPY: Control id 142)
 msgid "Copy (Branch / Tag)"
 msgstr "Kopiraj (Grana / Oznaka)"
-
-#. Resource IDs: (16907)
-msgid ""
-"Copy Tool\n"
-"Copy"
-msgstr "Alat čišćenja\nOčisti"
 
 #. Resource IDs: (IDS_MENUCOPYURL, IDS_REPOBROWSE_URLTOCLIPBOARD)
 msgid "Copy URL to clipboard"
@@ -3670,7 +3318,7 @@ msgstr "Kopiraj stavke ovde"
 msgid "Copy selection to cli&pboard"
 msgstr "Kopiraj označeno u &klipbord"
 
-#. Resource IDs: (57634)
+#. Resource IDs: (cmdCopy)
 msgid ""
 "Copy the selection and put it on the Clipboard\n"
 "Copy"
@@ -3878,6 +3526,10 @@ msgstr "Broj: %u nađeno."
 msgid "Create &Library"
 msgstr "Kreiraj &Biblioteku"
 
+#. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
+msgid "Create &patch file"
+msgstr ""
+
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
 msgstr "Izradi &zakrpu..."
@@ -3909,8 +3561,7 @@ msgid ""
 "%ls"
 msgstr "Stvori novi folder:\r\n%ls"
 
-#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu,
-#. ID_EDIT_CREATEUNIFIEDDIFFFILE - Ribbon name)
+#. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
 msgstr "Kreira fajl zakrpe"
 
@@ -3932,7 +3583,7 @@ msgid ""
 "Creates a library folder with special settings for Subversion working copies"
 msgstr "Kreira folder biblioteke sa specijalnim podešavanjem za Subverzionu radnu kopiju"
 
-#. Resource IDs: (32828)
+#. Resource IDs: (cmdCreateUnifiedDiff)
 msgid ""
 "Creates a patch file from the differences of the two files\n"
 "Create patch file"
@@ -3954,10 +3605,6 @@ msgstr "Zasluge:"
 msgid "Cu&t"
 msgstr "I&seci"
 
-#. Resource IDs: (65535)
-msgid "Current"
-msgstr "Tekući"
-
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1113)
 msgid "Current version is:"
 msgstr "Tekuća verzija je:"
@@ -3966,14 +3613,6 @@ msgstr "Tekuća verzija je:"
 #, c-format
 msgid "Current version is: %ls"
 msgstr "Tekuća verzija je: %ls"
-
-#. Resource IDs: (17079)
-msgid "Cus&tomize..."
-msgstr "Prila&godi..."
-
-#. Resource IDs: (16963)
-msgid "Custom"
-msgstr "Prilagođeno"
 
 #. Resource IDs: (IDS_SVN_DEPTH_CUSTOM)
 msgid "Custom depths"
@@ -3987,22 +3626,6 @@ msgid ""
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
 msgstr "Uobičajen naslov. Dostupne ključne reči su:\r\n{mergeurl}:\tizvorni url stapanja\r\n{revisions}:\tZapetama razdvojena lista stopljenih revizija, npr., 3, 5, 6, 7\r\n{revisionsr}:\tKao {revizije} ali sa 'r' ispred revizija\r\n{revrange}:\tЅapetama razdvojena lista stopljenih revizija grupisanih u oblasti ako je moguće, npr., 3, 5-7"
-
-#. Resource IDs: (16103, 17074)
-msgid "Customize"
-msgstr "Prilagodi"
-
-#. Resource IDs: (17076)
-msgid "Customize Keyboard"
-msgstr "Prilagodi tastaturu"
-
-#. Resource IDs: (17096)
-msgid "Customize Quick Access Toolbar"
-msgstr "Prilagodi alatni panel za brzi pristup"
-
-#. Resource IDs: (17085)
-msgid "Customize Quick Access Toolbar..."
-msgstr "Prilagodi alatni panel za brzi pristup..."
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4023,7 +3646,7 @@ msgstr "Datum"
 msgid "Date Range"
 msgstr "Vremenski opseg"
 
-#. Resource IDs: (16114, ID_EDIT_DEFAULT - Menu)
+#. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
 msgstr "Podrazumevano"
 
@@ -4031,17 +3654,9 @@ msgstr "Podrazumevano"
 msgid "Default &number of log messages"
 msgstr "Uobičajen &broj poruka dnevnika"
 
-#. Resource IDs: (16106)
-msgid "Default Menu"
-msgstr "Uobičajeni meni"
-
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1516)
 msgid "Default URL:"
 msgstr "Uobičajni URL:"
-
-#. Resource IDs: (16107)
-msgid "Default application menu. Appears when no documents are open."
-msgstr "Uobičajeni meni aplikacije. Pojavljuje se kad nije otvoren nijedan dokument."
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTUREFINISHED)
 msgid "Default directory structure successfully created!"
@@ -4058,10 +3673,6 @@ msgstr "Uobičajna putanja:"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "Obično u UTF-8 kodiranje "
-
-#. Resource IDs: (16020)
-msgid "Delete"
-msgstr "Obriši"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1617)
 msgid "Delete &ignored files and folders"
@@ -4158,14 +3769,6 @@ msgstr "Dubina"
 msgid "Depth:"
 msgstr "Dubina:"
 
-#. Resource IDs: (16031)
-msgid "Description"
-msgstr "Opis"
-
-#. Resource IDs: (65535)
-msgid "Description:"
-msgstr "Opis:"
-
 #. Resource IDs: (IDS_STATUSLIST_UNCHECKGROUP)
 msgid "Deselect changelist"
 msgstr "Isključi popis izmena"
@@ -4196,7 +3799,7 @@ msgstr "Bitmapa nezavisna od uređaja\nbitmapa nezavisna od uređaja"
 msgid "Dialog sizes and positions"
 msgstr "Dijalog veličina i pozicije"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Razl"
 
@@ -4303,17 +3906,13 @@ msgstr "Disk je pun dok se pristupa %1."
 msgid "Dispatch exception: %1"
 msgstr "Pošalji  izuzetak: %1"
 
-#. Resource IDs: (65535)
-msgid "Display &buttons in this order"
-msgstr "Pokaži &dugmiće ovim redom"
-
 #. Resource IDs: (57669)
 msgid ""
 "Display help for clicked on buttons, menus and windows\n"
 "Help"
 msgstr "Prikaži pomoć na klik na dugme, menije i prozore\nPomoć"
 
-#. Resource IDs: (57670)
+#. Resource IDs: (cmdHelp)
 msgid ""
 "Display help for current task or command\n"
 "Help"
@@ -4325,7 +3924,7 @@ msgid ""
 "Help"
 msgstr "Prikaži uputstva kako se koristi pomoć\nPomoć"
 
-#. Resource IDs: (57664)
+#. Resource IDs: (cmdAbout)
 msgid ""
 "Display program information, version number and copyright\n"
 "About"
@@ -4374,11 +3973,6 @@ msgstr "Uradi ovo za sve neverzionisane stavke"
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
 msgstr "Uradite ovo za sve neverzionisane/izmenjene stavke"
-
-#. Resource IDs: (16109)
-#, c-format
-msgid "Do you really want to delete the toolbar '%Ts'?"
-msgstr "Da li zaista želite da obrišete alatni panel  '%Ts'?"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4497,14 +4091,6 @@ msgid ""
 "Reload the views without saving the modifications"
 msgstr "Nemojte sačuvati\nPonovo unesite pregled bez čuvanja izmena"
 
-#. Resource IDs: (16028)
-msgid "Drag to make this menu float"
-msgstr "Vuci kako bi meni postao plivajući"
-
-#. Resource IDs: (16513)
-msgid "Draw"
-msgstr "Crtaj"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1079)
 msgid "Drive Types"
 msgstr "Tipovi uređaja"
@@ -4518,6 +4104,10 @@ msgstr "Diskovi A: and B:"
 msgid "Drop not possible on %1!ls!"
 msgstr "Odbacivanje nije moguće na %1!ls!"
 
+#. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
+msgid "E"
+msgstr ""
+
 #. Resource IDs: (ID_INLINEEDIT - Menu)
 msgid "E&xact copy sources"
 msgstr "T&ačna kopija izvora"
@@ -4530,7 +4120,8 @@ msgstr "I&zostavi putanje:"
 msgid "E&xecutable"
 msgstr "I&zvršno"
 
-#. Resource IDs: (105 - Menu, 57665 - Menu, ID_POPUP_EXIT - Menu)
+#. Resource IDs: (105 - Menu, ID_APP_EXIT - Menu, ID_POPUP_EXIT - Menu,
+#. cmdExit_LabelTitle_RESID)
 msgid "E&xit"
 msgstr "I&zlaz"
 
@@ -4562,14 +4153,10 @@ msgstr "EOL"
 msgid "EXT"
 msgstr "EXT"
 
-#. Resource IDs: (156 - Ribbon element, 65535 - PopupMenu, Dialog
-#. IDD_SETTINGSPROXY: Control id 1237)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_SETTINGSPROXY: Control id
+#. 1237, cmdGroupEdit_LabelTitle_RESID, cmdTabEdit_LabelTitle_RESID)
 msgid "Edit"
 msgstr "Uredi"
-
-#. Resource IDs: (16133)
-msgid "Edit Button Image"
-msgstr "Uredi sliku dugmeta"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 319)
 msgid "Edit External"
@@ -4646,12 +4233,6 @@ msgstr "Ime ili IP proksi servera"
 msgid "Eliding mergeinfo"
 msgstr "Izostavljanje informacija spajanja"
 
-#. Resource IDs: (16906)
-msgid ""
-"Ellipse Tools\n"
-"Ellipse"
-msgstr "Elipsa alati\nElipsa"
-
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Empty"
 msgstr "Prazan"
@@ -4664,7 +4245,7 @@ msgstr "Omogućite auto-&osobine"
 msgid "Enable Auto-Properties"
 msgstr "Omogući auto-osobine"
 
-#. Resource IDs: (ID_EDIT_ENABLE - Ribbon name)
+#. Resource IDs: (cmdEditEnabled_LabelTitle_RESID)
 msgid "Enable Edit"
 msgstr "Omogući uređenje"
 
@@ -4884,18 +4465,7 @@ msgstr "Izuzeci:"
 msgid "Exclude"
 msgstr "Isključi"
 
-#. Resource IDs: (16023)
-msgid ""
-"Executable (*.exe)|*.exe|Command (*.com)|*.com|Information "
-"(*.pdf)|*.pdf|Batch (*.bat)|*.bat|All Files (*.*)|*.*||"
-msgstr "Izvršna (*.exe)|*.exe|Komanda (*.com)|*.com|Informacija (*.pdf)|*.pdf|Beč (*.bat)|*.bat|Svi fajlovi (*.*)|*.*||"
-
-#. Resource IDs: (16018)
-msgid "Existing"
-msgstr "Postojeći"
-
-#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2, ID_APP_EXIT -
-#. Ribbon name)
+#. Resource IDs: (Dialog IDD_AUTOTEXTTESTDLG: Control id 2)
 msgid "Exit"
 msgstr "Izlaz"
 
@@ -4906,15 +4476,6 @@ msgstr "Pro&širiti izvorno stablo"
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_BELOW)
 msgid "Expand &following tree"
 msgstr "Proširiti &sledeće stablo"
-
-#. Resource IDs: (16025)
-#, c-format
-msgid "Expand (%Ts)"
-msgstr "Proširi (%Ts)"
-
-#. Resource IDs: (16012)
-msgid "Expand docked window"
-msgstr "Raširi usidreni prozor"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Expert settings"
@@ -5006,14 +4567,14 @@ msgstr "Spoljašnji isključeni"
 msgid "Externals included"
 msgstr "Spoljašnji uključeni"
 
+#. Resource IDs: (cmdFind_Keytip_RESID)
+msgid "F"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
 msgid "F&orce the merge"
 msgstr "F&orsira stapanje"
-
-#. Resource IDs: (17113)
-msgid "Fade"
-msgstr "Bledo"
 
 #. Resource IDs: (IDS_SVNACTION_FAILEDREVERT)
 msgid "Failed revert"
@@ -5121,7 +4682,7 @@ msgstr "Nalazi status za %1!ls!"
 msgid "Fetching tree conflict information..."
 msgstr "Dobavljanje informacije stabla konflikta..."
 
-#. Resource IDs: (16015, IDS_FILEDIFF_FILE, IDS_LOG_FILE)
+#. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
 msgstr "Fajl"
 
@@ -5251,12 +4812,6 @@ msgstr "Imena fajlova"
 msgid "Files"
 msgstr "Fajlovi"
 
-#. Resource IDs: (16901)
-msgid ""
-"Fill Tool\n"
-"Fill"
-msgstr "Alat za popunjavanje\nPopuni"
-
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
 msgstr "Filtriranje pomoću"
@@ -5279,8 +4834,12 @@ msgstr "Filter putanja"
 msgid "Filter:"
 msgstr "Filter."
 
-#. Resource IDs: (57636 - Menu, Dialog IDD_FIND: Control id 139, ID_EDIT_FIND
-#. - Ribbon name)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
+msgid "Filtered"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
+#. cmdFind_LabelTitle_RESID)
 msgid "Find"
 msgstr "Pronađi"
 
@@ -5292,7 +4851,7 @@ msgstr "Nađi &GLAVNU - reviziju"
 msgid "Find HEAD revisions"
 msgstr "Nađi GLAVNU reviziju"
 
-#. Resource IDs: (57636)
+#. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
 "Find"
@@ -5348,10 +4907,6 @@ msgstr "Skupi &oznake"
 msgid "Folded tag"
 msgstr "Sklopljena oznaka"
 
-#. Resource IDs: (16016)
-msgid "Folder"
-msgstr "Folder"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Font"
@@ -5378,10 +4933,6 @@ msgstr "Prisila odbacivanja"
 msgid "Foreground"
 msgstr "Prednji plan"
 
-#. Resource IDs: (17021)
-msgid "Forward"
-msgstr "Napred"
-
 #. Resource IDs: (IDS_REPOBROWSE_TT_FORWARD)
 msgid "Forwards in browsing history"
 msgstr "Unapred pretraživanje istorije"
@@ -5395,10 +4946,6 @@ msgstr "Nalazi autentične reči:"
 msgid "From:"
 msgstr "Od:"
 
-#. Resource IDs: (17026)
-msgid "Full Screen"
-msgstr "Preko celog ekrana"
-
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULL)
 msgid "Full data"
 msgstr "Potpun podatak"
@@ -5410,6 +4957,10 @@ msgstr "Potpun revizioni podatak bez izmenjenih putanja"
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
 msgstr "Potpuno rekurzivan"
+
+#. Resource IDs: (cmdGotoLine_Keytip_RESID)
+msgid "G"
+msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5507,43 +5058,43 @@ msgstr "Idi na liniju"
 msgid "Go to line"
 msgstr "Idi na liniju"
 
-#. Resource IDs: (32804)
+#. Resource IDs: (cmdNavigateNextConflict)
 msgid ""
 "Go to the next conflict\n"
 "Next conflict"
 msgstr "Pređi na sledeći sukob\nSledeći sukob"
 
-#. Resource IDs: (32779)
+#. Resource IDs: (cmdNavigateNextDifference)
 msgid ""
 "Go to the next difference\n"
 "Next difference"
 msgstr "Pređi na sledeću razliku\nSledeća razlika"
 
-#. Resource IDs: (32876)
+#. Resource IDs: (cmdNavigatePreviousInlineDiff)
 msgid ""
 "Go to the next inline difference\n"
 "Next inline difference"
 msgstr "Idi na sledeću razliku u liniji\nSledeća razlika u liniji"
 
-#. Resource IDs: (32802)
+#. Resource IDs: (cmdNavigatePreviousConflict)
 msgid ""
 "Go to the previous conflict\n"
 "Previous conflict"
 msgstr "Pređi na prethodni sukob\nPrethodni sukob"
 
-#. Resource IDs: (32780)
+#. Resource IDs: (cmdNavigatePreviousDifference)
 msgid ""
 "Go to the previous difference\n"
 "Previous difference"
 msgstr "Pređi na prethodnu razliku\nPrethodna razlika"
 
-#. Resource IDs: (32875)
+#. Resource IDs: (cmdNavigateNextInlineDiff)
 msgid ""
 "Go to the previous inline difference\n"
 "Previous inline difference"
 msgstr "Idi na prethodnu razliku u liniji\nPrethodna razlika u liniji"
 
-#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, ID_EDIT_GOTOLINE - Ribbon name)
+#. Resource IDs: (ID_EDIT_GOTOLINE - Menu, cmdGotoLine_LabelTitle_RESID)
 msgid "Goto Line"
 msgstr "Idi na liniju"
 
@@ -5554,10 +5105,6 @@ msgstr "Vrsta grafa:"
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPHFORROOT)
 msgid "Graphs for repository roots are always empty!"
 msgstr "Grafovi korena stabla su uvek prazni!"
-
-#. Resource IDs: (16972)
-msgid "Gray"
-msgstr "Siva"
 
 #. Resource IDs: (32799)
 msgid "Group by branch"
@@ -5570,10 +5117,6 @@ msgstr "Grupiši popis izmena"
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_TREE: Control id 1032)
 msgid "H&EAD Revision"
 msgstr "GL&AVNA Revizija"
-
-#. Resource IDs: (65535)
-msgid "H&ue:"
-msgstr "Nija&nsa"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1353, Dialog IDD_DIFFFILES:
 #. Control id 1354, IDS_EXTERNALS_HEADREV)
@@ -5612,17 +5155,9 @@ msgstr "Zaglavlje"
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
 #. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
 #. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
-#. IDS_PROPPAGE_HELP, ID_HELP - Ribbon name)
+#. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "Pomoć"
-
-#. Resource IDs: (16982)
-msgid "Help Keyboard"
-msgstr "Pomoć o tastaturi"
-
-#. Resource IDs: (16974)
-msgid "Hex"
-msgstr "Hex"
 
 #. Resource IDs: (ID_VIEW_REMOVEDELETEDONES - Menu)
 msgid "Hide &deleted paths"
@@ -5644,10 +5179,6 @@ msgstr "Skri sve oznake"
 msgid "Hide deleted branches and tags"
 msgstr "Sakri obrisane grane i oznake"
 
-#. Resource IDs: (16011)
-msgid "Hide docked window"
-msgstr "Sakri uglavljeni prozor"
-
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1562)
 msgid "Hide non-mergeable revisions"
 msgstr "Sakri nestopljene revizije"
@@ -5665,12 +5196,11 @@ msgstr "Sakri skript dok se izvršava"
 msgid "Hide unused &branches"
 msgstr "Krije nekorišćene &grane"
 
-#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu, ID_VIEW_SHOWFILELIST - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_SHOWFILELIST - Menu)
 msgid "Hide/Show the patch file list"
 msgstr "Sakri/Prikaži listu fajlova zakrpa"
 
-#. Resource IDs: (32817)
+#. Resource IDs: (cmdShowFileList)
 msgid ""
 "Hide/Show the patch file list\n"
 "Hides or shows the patch file list"
@@ -5679,16 +5209,6 @@ msgstr "Sakrij/pokaži popis zakrpa\nSakriva ili pokazuje popis fajl zakrpa"
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
 msgstr "Najviša revizija u kešu"
-
-#. Resource IDs: (16519)
-msgid ""
-"Hint: select the context menu, change the page to 'Commands' and drag the "
-"toolbar buttons into the menu window."
-msgstr "Savet: izaberi kontekstni meni, zameni stranu u \"Komande\" i vuci dugmiće alatnog panela u glavni prozor. "
-
-#. Resource IDs: (17022)
-msgid "Home"
-msgstr "Dom"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -6058,12 +5578,12 @@ msgstr "Zanemari &sve beline"
 msgid "Ignore &ancestry"
 msgstr "Z&anemari poreklo"
 
-#. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Ribbon name)
+#. Resource IDs: (cmdViewIgnoreComments_LabelTitle_RESID)
 msgid "Ignore Comments"
 msgstr "Ignoriše komentare"
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
-#. ID_VIEW_IGNOREALLWHITESPACECHANGES - Ribbon name)
+#. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr "Zanemaruje sve izmene beline"
 
@@ -6077,7 +5597,7 @@ msgid ""
 "Ignore the outside changes."
 msgstr "Zanemari izmene\nZanemari spoljašnje izmene."
 
-#. Resource IDs: (32896)
+#. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
@@ -6110,8 +5630,8 @@ msgid "Ignore whitespace c&hanges"
 msgstr "Zanemari promene beli&na"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1391,
-#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu, ID_VIEW_IGNOREWHITESPACECHANGES -
-#. Ribbon name)
+#. ID_VIEW_IGNOREWHITESPACECHANGES - Menu,
+#. cmdIgnoreWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore whitespace changes"
 msgstr "Zanemari promene belina"
 
@@ -6123,13 +5643,13 @@ msgstr "Zanemaren"
 msgid "Ignored items included"
 msgstr "Zanemarene uključene stavke"
 
-#. Resource IDs: (32873)
+#. Resource IDs: (cmdIgnoreAllWhitespaceChanges)
 msgid ""
 "Ignores all whitespace changes when diffing\n"
 "Ignore all whitespace changes"
 msgstr "Zanemaruje sve izmene belina kada razlikuje\nZanemaruje sve izmene belina"
 
-#. Resource IDs: (32872)
+#. Resource IDs: (cmdIgnoreWhitespaceChanges)
 msgid ""
 "Ignores changes in whitespaces when diffing\n"
 "Ignore whitespace changes"
@@ -6138,18 +5658,6 @@ msgstr "Zanemaruje izmene u belinama kada razlikuje\nZanemaruje izmene belina"
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK2)
 msgid "Illegal path"
 msgstr "Ilegalna putanja"
-
-#. Resource IDs: (16916 - Menu)
-msgid "Image &and Text"
-msgstr "Slika &i tekst"
-
-#. Resource IDs: (16507)
-msgid "Image &and text"
-msgstr "Slika &i tekst"
-
-#. Resource IDs: (16508)
-msgid "Images"
-msgstr "Slike"
 
 #. Resource IDs: (IDS_SVN_DEPTH_IMMEDIATE)
 msgid "Immediate children, including folders"
@@ -6268,12 +5776,13 @@ msgstr "Info na eksternalu"
 msgid "Information"
 msgstr "Informacija"
 
-#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu, ID_VIEW_INLINEDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
+#. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
 msgstr "Dif u liniji"
 
-#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu, ID_VIEW_INLINEDIFFWORD -
-#. Ribbon name)
+#. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
+#. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
 msgstr "Dif u liniji prema rečima"
 
@@ -6285,7 +5794,7 @@ msgstr "Razlike unutar liniji"
 msgid "Input"
 msgstr "Ulaz"
 
-#. Resource IDs: (57637)
+#. Resource IDs: (cmdPaste)
 msgid ""
 "Insert Clipboard contents\n"
 "Paste"
@@ -6417,21 +5926,13 @@ msgid ""
 "Jump to first unresolved conflict"
 msgstr "Čuvajte rešeno\nSkok na prvi nerešen konflikt"
 
-#. Resource IDs: (16136)
-msgid "Keyboard"
-msgstr "Tastatura"
-
-#. Resource IDs: (65535)
-msgid "Keyboard shortcuts:"
-msgstr "Skraćenice tastature"
-
-#. Resource IDs: (16030)
-msgid "Keys"
-msgstr "Tasteri"
-
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL1)
 msgid "Kind"
 msgstr "Vrsta"
+
+#. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
+msgid "L"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "L&imit:"
@@ -6515,14 +6016,8 @@ msgstr "Linija"
 msgid "Line Graph"
 msgstr "Linijski graf revizija"
 
-#. Resource IDs: (16904)
-msgid ""
-"Line Tool\n"
-"Line"
-msgstr "Linijski alata\nLinija"
-
-#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu, ID_VIEW_LINEDIFFBAR - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_LINEDIFFBAR - Menu,
+#. cmdViewLineDiffBar_LabelTitle_RESID)
 msgid "Line diff bar"
 msgstr "Linije dif panel"
 
@@ -6558,10 +6053,6 @@ msgstr "Prikaži sadržaj pomoći\nSadržaj pomoći"
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
 msgstr "Lista spremišta za koju se u kešu smeštaju informacije dnevnika"
-
-#. Resource IDs: (16631, 16992)
-msgid "List1"
-msgstr "Lista1"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6601,11 +6092,12 @@ msgid ""
 "repository URL(s) will be saved to."
 msgstr "Mesto gde će sadržaj\nspremišta  URL(ova) biti sačuvan."
 
-#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu, ID_VIEW_LOCATORBAR - Ribbon name)
+#. Resource IDs: (ID_VIEW_LOCATORBAR - Menu)
 msgid "Locator Bar"
 msgstr "Lokator panel"
 
-#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
+#. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535,
+#. cmdViewLocatorBar_LabelTitle_RESID)
 msgid "Locator bar"
 msgstr "Lokator panel"
 
@@ -6726,10 +6218,6 @@ msgid ""
 "HEAD revision: %3!ld!"
 msgstr "Najniža prikazana revizija: %1!ld! - Najviša prikazana revizija: %2!ld!\nGLAVNA revizija: %3!ld!"
 
-#. Resource IDs: (16973)
-msgid "Lum"
-msgstr "Lum"
-
 #. Resource IDs: (61841)
 msgid "Mail system DLL is invalid."
 msgstr "Neispravan DLL sistema elektronske pošte."
@@ -6771,7 +6259,7 @@ msgid ""
 msgstr "Označi kao &rešeno\nKonflikt je rešen."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
-#. ID_EDIT_MARKASRESOLVED - Menu, ID_EDIT_MARKASRESOLVED - Ribbon name)
+#. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
 msgid "Mark as resolved"
 msgstr "Označi kao rešeno"
 
@@ -6805,7 +6293,7 @@ msgstr "Označeni blokovi"
 msgid "Markers"
 msgstr "Markeri"
 
-#. Resource IDs: (32808)
+#. Resource IDs: (cmdMarkResolved)
 msgid ""
 "Marks a file as resolved in Subversion\n"
 "Mark as resolved"
@@ -6842,22 +6330,6 @@ msgstr "Maks. broj linija dnevnika akcija"
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
 msgstr "Maksimalni broj alat &grešaka pre uklanjanja keša"
-
-#. Resource IDs: (16655)
-msgid "Me&nus show recently used commands first"
-msgstr "Me&niji pokazuju prvo komande skoro korišćene"
-
-#. Resource IDs: (16134)
-msgid "Menu"
-msgstr "Meni"
-
-#. Resource IDs: (16006)
-msgid "Menu Bar"
-msgstr "Meni pult"
-
-#. Resource IDs: (16626)
-msgid "Menu s&hadows"
-msgstr "&Senčanje menija"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -7022,10 +6494,6 @@ msgstr "Minimum"
 msgid "Mine"
 msgstr "Moj"
 
-#. Resource IDs: (17086)
-msgid "Minimize the Ribbon"
-msgstr "Minimizirati traku"
-
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Minimum number of chars for a commit message:"
 msgstr "Minimalni broj karktera poruke urezivanja:"
@@ -7049,7 +6517,7 @@ msgstr "Mešano"
 msgid "Modification date"
 msgstr "Datum promene"
 
-#. Resource IDs: (17131, Dialog IDD_COMMITDLG: Control id 1511, Dialog
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1511, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, IDS_SVNACTION_MODIFIED,
 #. IDS_SVN_SUMMARIZEMODIFIED)
 msgid "Modified"
@@ -7062,18 +6530,6 @@ msgstr "Izmenjen čvor"
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Monitor interval in minutes:"
 msgstr "Monitor interval u minutima:"
-
-#. Resource IDs: (17107)
-msgid "More"
-msgstr "Više"
-
-#. Resource IDs: (16026)
-msgid "More Buttons"
-msgstr "Više dugmeta"
-
-#. Resource IDs: (17097)
-msgid "More Commands..."
-msgstr "Više naredbi..."
 
 #. Resource IDs: (IDS_COLOURPICKER_CUSTOMTEXT)
 msgid "More colors..."
@@ -7091,10 +6547,6 @@ msgstr "Više..."
 msgid "Most active author:"
 msgstr "Najaktivniji autor:"
 
-#. Resource IDs: (16135)
-msgid "Mouse"
-msgstr "Miš"
-
 #. Resource IDs: (IDS_INPUT_MOVEMORE)
 #, c-format
 msgid ""
@@ -7108,22 +6560,6 @@ msgid ""
 "Move %1!ls!\r\n"
 "to %2!ls!"
 msgstr "Premesti %1!ls!\r\nu %2!ls!"
-
-#. Resource IDs: (17026)
-msgid "Move &Down"
-msgstr "Pomakni &dole"
-
-#. Resource IDs: (17025)
-msgid "Move &Up"
-msgstr "Premesti &gore"
-
-#. Resource IDs: (16022)
-msgid "Move Item Down"
-msgstr "Premesti Stavku Dole"
-
-#. Resource IDs: (16021)
-msgid "Move Item Up"
-msgstr "Premesti Stavku Gore"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK4)
 msgid ""
@@ -7224,36 +6660,36 @@ msgstr "Višestruke, nezav&isne radne kopije"
 msgid "My file:"
 msgstr "Moj fajl:"
 
+#. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
+msgid "NC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
+msgid "ND"
+msgstr ""
+
+#. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
+msgid "NI"
+msgstr ""
+
 #. Resource IDs: (59138)
 msgid "NUM"
 msgstr "NUM"
-
-#. Resource IDs: (17128)
-msgid "Name"
-msgstr "Ime"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535, Dialog
 #. IDD_REGEXFILTER: Control id 65535)
 msgid "Name:"
 msgstr "Ime:"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupNavigate_LabelTitle_RESID)
 msgid "Navigate"
 msgstr "Upravljanje"
 
-#. Resource IDs: (32893)
+#. Resource IDs: (cmdGotoLine)
 msgid ""
 "Navigate to a specific line in the view\n"
 "Goto Line"
 msgstr "Upravi se u specifičnu liniju u pregledu\nIdi na liniju"
-
-#. Resource IDs: (17004)
-msgid "Navigation Pane Options"
-msgstr "Opcije Navigacionog Panela"
-
-#. Resource IDs: (17031)
-msgid "Navigation Pane Options..."
-msgstr "Opcije Navigacionog Panela..."
 
 #. Resource IDs: (ID_NEW_NEEDSLOCK - Menu)
 msgid "Needs-&Lock"
@@ -7280,17 +6716,13 @@ msgstr "Mreža"
 msgid "Never try to contact the repository again"
 msgstr "Ne pokušavaj se ponovo spojiti sa spremištem"
 
-#. Resource IDs: (16017, 16027, 30721, 65535, 65535 - PopupMenu)
+#. Resource IDs: (30721, 65535 - PopupMenu)
 msgid "New"
 msgstr "Novo"
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 1076)
 msgid "New &name:"
 msgstr "Novo &ime:"
-
-#. Resource IDs: (16014)
-msgid "New Menu"
-msgstr "Novi meni"
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
@@ -7304,24 +6736,18 @@ msgstr "Novo ime ne može biti prazno ili isto kao originalno ime!"
 msgid "Newlines"
 msgstr "Nova linija"
 
-#. Resource IDs: (58114)
-msgid ""
-"Next Page\n"
-"Next Page"
-msgstr "Sledeća Strana\nSledeća Strana"
-
-#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu, ID_NAVIGATE_NEXTCONFLICT -
-#. Ribbon name)
+#. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
+#. cmdNavigateNextConflict_LabelTitle_RESID)
 msgid "Next conflict"
 msgstr "Sledeći konflikt"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
-#. ID_NAVIGATE_NEXTDIFFERENCE - Ribbon name)
+#. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
 msgstr "Sledeća razlika"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
-#. ID_NAVIGATE_NEXTINLINEDIFF - Ribbon name)
+#. cmdNavigateNextInlineDiff_LabelTitle_RESID)
 msgid "Next inline difference"
 msgstr "Sledeća razlika u liniji"
 
@@ -7375,6 +6801,10 @@ msgid ""
 "for TortoiseSVN to do here..."
 msgstr "Ni jedan fajl nije izmenjen ili dodat\nod zadnjeg urezivanja. TortoiseSVN nema ovde\nšta da radi..."
 
+#. Resource IDs: (33002)
+msgid "No filter"
+msgstr ""
+
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
 msgstr "Graf nije dostupan"
@@ -7419,7 +6849,7 @@ msgstr "Nerekurzivno urezivanje pomerenih/preimenovanih foldera."
 msgid "Non-versioned"
 msgstr "Ne-verzionisan"
 
-#. Resource IDs: (17110, Dialog IDD_COPY: Control id 1506, Dialog
+#. Resource IDs: (Dialog IDD_COPY: Control id 1506, Dialog
 #. IDD_SETTINGSOVERLAY: Control id 1271)
 msgid "None"
 msgstr "Ništa"
@@ -7563,24 +6993,6 @@ msgstr "U redu"
 msgid "OVR"
 msgstr "OVR"
 
-#. Resource IDs: (10006, ID_VIEW_APPLOOK_OFF_2003 - Menu,
-#. ID_VIEW_APPLOOK_OFF_2003 - Ribbon name)
-msgid "Office 2003"
-msgstr "Ofice 2003"
-
-#. Resource IDs: (ID_OFFICE2007 - Ribbon name)
-msgid "Office 2007"
-msgstr "Ofice 2007"
-
-#. Resource IDs: (10008, 65535 - PopupMenu)
-msgid "Office 2007 colors"
-msgstr "Ofice 2007 boje"
-
-#. Resource IDs: (10004, ID_VIEW_APPLOOK_OFF_XP - Menu, ID_VIEW_APPLOOK_OFF_XP
-#. - Ribbon name)
-msgid "Office XP"
-msgstr "Ofice HP"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Older lines"
 msgstr "starije linije"
@@ -7647,7 +7059,7 @@ msgstr "Koristi p&roveru pravopisa kada je postavljen tsvn:projectlanguage"
 msgid "Opacity"
 msgstr "Neprozirnost"
 
-#. Resource IDs: (57601 - Menu, 61440, ID_FILE_OPEN - Ribbon name)
+#. Resource IDs: (61440, ID_FILE_OPEN - Menu)
 msgid "Open"
 msgstr "Otvori"
 
@@ -7663,7 +7075,7 @@ msgstr "Otvori &sa lokalnim..."
 msgid "Open client certificate file"
 msgstr "Otvori fajl sa sertifikatom klijenta"
 
-#. Resource IDs: (57601)
+#. Resource IDs: (cmdOpen)
 msgid ""
 "Open files for diff or to apply a patch\n"
 "Open files"
@@ -7719,17 +7131,9 @@ msgstr "Operativan"
 msgid "Option"
 msgstr "Opcije"
 
-#. Resource IDs: (16137)
-msgid "Options"
-msgstr "Opcije"
-
 #. Resource IDs: (ID_VIEW_ORININALSIZE - Menu)
 msgid "Ori&ginal size\t(S)"
 msgstr "Orii&ginalna veličina\t(S)"
-
-#. Resource IDs: (17024)
-msgid "Other Task Panes"
-msgstr "Drugi Panel Zadataka"
 
 #. Resource IDs: (IDS_STATGRAPH_OTHERGROUP)
 msgid "Others"
@@ -7758,6 +7162,18 @@ msgid ""
 "Overwrite\n"
 "The settings are overwritten"
 msgstr "Prepišite\nPodešavanja su prepisana"
+
+#. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
+msgid "PC"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
+msgid "PD"
+msgstr ""
+
+#. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
+msgid "PI"
+msgstr ""
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7805,15 +7221,9 @@ msgstr "Lozinka/fraza"
 msgid "Password:"
 msgstr "Lozinka:"
 
-#. Resource IDs: (ID_EDIT_PASTE - Ribbon name)
+#. Resource IDs: (cmdPaste_LabelTitle_RESID)
 msgid "Paste"
 msgstr "Nalepi"
-
-#. Resource IDs: (16908)
-msgid ""
-"Paste Tool\n"
-"Paste"
-msgstr "Alat za lepljenje\nZalepi"
 
 #. Resource IDs: (IDS_COMMITDLG_POPUP_PASTEFILELIST)
 msgid "Paste filename list"
@@ -7884,12 +7294,6 @@ msgstr "Putanje relativne korenu"
 msgid "Peg"
 msgstr "Klin"
 
-#. Resource IDs: (16902)
-msgid ""
-"Pencil Tool\n"
-"Pencil"
-msgstr "Alat čišćenja\nOčisti"
-
 #. Resource IDs: (IDS_STATGRAPH_PERCENTAGE_OF_AUTHORSHIP)
 msgid "Percent of authorship"
 msgstr "Procenat ispisa"
@@ -7898,19 +7302,11 @@ msgstr "Procenat ispisa"
 msgid "Percents"
 msgstr "Procenti"
 
-#. Resource IDs: (16538)
-msgid "Personalized Menus and Toolbars"
-msgstr "Prilagodljivi meniji i alatni paneli"
-
 #. Resource IDs: (61582)
 msgid ""
 "Picture (Metafile)\n"
 "a picture"
 msgstr "Slika (Metafajl)\nslika"
-
-#. Resource IDs: (65535)
-msgid "Picture:"
-msgstr "Slika:"
 
 #. Resource IDs: (IDS_PICTUREFILEFILTER)
 msgid ""
@@ -7947,10 +7343,6 @@ msgstr "Molim primetite:\nVaša radna kopija ostaje na prethodnoj stazi. Ako že
 msgid "Please select a hook type"
 msgstr "Molim odaberite tip zakačaljke"
 
-#. Resource IDs: (IDS_BLAME_PROGRESSINFO)
-msgid "Please wait - this can take several minutes. Seriously!"
-msgstr "Molim pričekajte - ovo može potrajati nekoliko minuta. Ozbiljno!"
-
 #. Resource IDs: (IDS_PROPWAITCANCEL)
 msgid "Please wait while cancelling..."
 msgstr "Molim pričekajte dok odustajem..."
@@ -7968,8 +7360,8 @@ msgid "Please wait while the repository browser is initializing..."
 msgstr "Molim pričekajte inicijalizaciju pretraživača spremišta..."
 
 #. Resource IDs: (Dialog IDD_PLEASEWAIT: Control id 347,
-#. IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT, IDS_REPOBROWSE_WAIT,
-#. IDS_STATUSLIST_BUSYMSG)
+#. IDS_BLAME_PROGRESSINFO, IDS_PROC_CLEANUP_INFO2, IDS_PROGRESSWAIT,
+#. IDS_REPOBROWSE_WAIT, IDS_STATUSLIST_BUSYMSG)
 msgid "Please wait..."
 msgstr "Molim pričekajte..."
 
@@ -8021,60 +7413,28 @@ msgstr "Priprema desni blok"
 msgid "Prepend this block to left"
 msgstr "Priprema ovaj blok levo"
 
-#. Resource IDs: (65535)
-msgid "Press &New Shortcut Key:"
-msgstr "Pritisni &Novi Taster Skraćenica:"
-
-#. Resource IDs: (65535)
-msgid "Press &new shortcut key:"
-msgstr "Pritisni &novi  taster skraćenica:"
-
 #. Resource IDs: (32819)
 msgid "Prevents most cases in which connection lines cross revision nodes"
 msgstr "Sprečava većinu slučajeva u kojima linije spajanja presecaju revizione čvorove"
-
-#. Resource IDs: (17094)
-msgid "Preview"
-msgstr "Pregled"
 
 #. Resource IDs: (IDS_PATCH_PREVIEW)
 msgid "Preview patched file"
 msgstr "Pregled fajlova zakrpa"
 
-#. Resource IDs: (65535)
-msgid "Preview: "
-msgstr "Pregled:"
-
-#. Resource IDs: (58115)
-msgid ""
-"Previous Page\n"
-"Previous Page"
-msgstr "Prethodna strana\nPrethodna strana"
-
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSCONFLICT - Menu,
-#. ID_NAVIGATE_PREVIOUSCONFLICT - Ribbon name)
+#. cmdNavigatePreviousConflict_LabelTitle_RESID)
 msgid "Previous conflict"
 msgstr "Prethodni konflikt"
 
 #. Resource IDs: (ID_NAVIGATE_PREVIOUSDIFFERENCE - Menu,
-#. ID_NAVIGATE_PREVIOUSDIFFERENCE - Ribbon name)
+#. cmdNavigatePreviousDifference_LabelTitle_RESID)
 msgid "Previous difference"
 msgstr "Prethodne razlike"
 
 #. Resource IDs: (ID_NAVIGATE_PREVINLINEDIFF - Menu,
-#. ID_NAVIGATE_PREVINLINEDIFF - Ribbon name)
+#. cmdNavigatePreviousInlineDiff_LabelTitle_RESID)
 msgid "Previous inline difference"
 msgstr "Prethodne razlike u liniji"
-
-#. Resource IDs: (16990, 17092)
-msgid "Print"
-msgstr "Štampaj"
-
-#. Resource IDs: (58116)
-msgid ""
-"Print Document\n"
-"&Print"
-msgstr "Štampaj dokument\nŠtam&paj"
 
 #. Resource IDs: (61512)
 msgid "Print to File"
@@ -8236,7 +7596,7 @@ msgstr "Postavke proksija"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Pokaži \"Zaključaj\" na glavnom meniju kad je postavljeno svojstvo svn:needs-lock"
 
-#. Resource IDs: (57665)
+#. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
 "Exit"
@@ -8248,13 +7608,13 @@ msgid ""
 "Exit TortoiseMerge without saving the modifications"
 msgstr "Napusti\nIzlazi iz TortoiseMerge bez čuvanja izmena"
 
+#. Resource IDs: (cmdReload_Keytip_RESID)
+msgid "R"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
 msgstr "R&AM diskovi"
-
-#. Resource IDs: (16623)
-msgid "R&eset"
-msgstr "&Reset"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1423)
 msgid "R&everse merge"
@@ -8280,14 +7640,6 @@ msgstr "Diskovi koji se mogu u&kloniti"
 msgid "Re&name..."
 msgstr "Pre&imenuj..."
 
-#. Resource IDs: (16613)
-msgid "Re&set"
-msgstr "&Reset"
-
-#. Resource IDs: (16647)
-msgid "Re&set All"
-msgstr "&Resetuj sve"
-
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1382)
 msgid "Re&store defaults"
 msgstr "Vrati podrazumevane vredno&sti"
@@ -8307,10 +7659,6 @@ msgstr "Pročitajte 'Vodič za dnevnu uporabu' pre no što zaglavite..."
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL2)
 msgid "Realm String"
 msgstr "Područje string"
-
-#. Resource IDs: (16019)
-msgid "Recent"
-msgstr "Nedavno"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535)
 msgid "Recently modified lines"
@@ -8350,12 +7698,6 @@ msgid ""
 "Open the auto-saved versions instead of the explicitly saved versions"
 msgstr "Vraća auto-sačuvana dokumenta\nOtvori auto-sačuvane verzije umesto eksplicitno sačuvanih verzija"
 
-#. Resource IDs: (16905)
-msgid ""
-"Rectangle Tool\n"
-"Rectangle"
-msgstr "Alat pravougaonika\nPravougaonik"
-
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)
 msgid ""
 "Recur&sive\n"
@@ -8378,11 +7720,11 @@ msgstr "Korpa recikliranja"
 msgid "Redirecting to url"
 msgstr "Preusmeravanje ka url"
 
-#. Resource IDs: (ID_EDIT_REDO - Ribbon name)
+#. Resource IDs: (cmdRedo_LabelTitle_RESID)
 msgid "Redo"
 msgstr "Ponovi"
 
-#. Resource IDs: (57644)
+#. Resource IDs: (cmdRedo)
 msgid ""
 "Redo the previously undone action\n"
 "Redo"
@@ -8410,8 +7752,8 @@ msgstr "Ovežite overleje &školjke"
 msgid "Refreshing shell for %1!ls!"
 msgstr "Osvežava školjku za %1!ls!"
 
-#. Resource IDs: (500, 65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id
-#. 165, ID_REGEXFILTER - Ribbon name)
+#. Resource IDs: (65535 - PopupMenu, Dialog IDD_REGEXFILTER: Control id 165,
+#. cmdRegexFilterConfig1, cmdRegexFilterConfig1_LabelTitle_RESID)
 msgid "Regex Filter"
 msgstr "Regeks filter"
 
@@ -8489,11 +7831,11 @@ msgstr "Otključava fajlove kako bi ih ostali korisnici ponovo mogli menjati."
 msgid "Relo&cate..."
 msgstr "Pre&mesti..."
 
-#. Resource IDs: (ID_FILE_RELOAD - Menu, ID_FILE_RELOAD - Ribbon name)
+#. Resource IDs: (ID_FILE_RELOAD - Menu, cmdReload_LabelTitle_RESID)
 msgid "Reload"
 msgstr "Ponovo učitaj"
 
-#. Resource IDs: (32794)
+#. Resource IDs: (cmdReload)
 msgid ""
 "Reloads the opened files and reverts all changes.\n"
 "Reload"
@@ -8562,10 +7904,6 @@ msgstr "Ukloni sačuvane autentifikacione podatke"
 msgid "Remove from &ignore list"
 msgstr "Ukloni s popisa &zanemarenih"
 
-#. Resource IDs: (17084)
-msgid "Remove from Quick Access Toolbar"
-msgstr "Ukloni iz alatnih panela za brzi pristup"
-
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_REMOVEFROMCS)
 msgid "Remove from changelist"
 msgstr "Ukloni s popisa izmena"
@@ -8630,10 +7968,6 @@ msgstr "Uklanja zanemarene stavke, u %1!ls!"
 #, c-format
 msgid "Removing unversioned items in %1!ls!"
 msgstr "Uklanjanje neverzionisanih stavki u %1!ls!"
-
-#. Resource IDs: (16616)
-msgid "Rena&me..."
-msgstr "Prei&menuj..."
 
 #. Resource IDs: (Dialog IDD_RENAME: Control id 151)
 msgid "Rename"
@@ -8755,10 +8089,6 @@ msgstr "Traži ime korisnika i lozinku"
 #. Resource IDs: (IDS_MENURESOLVE)
 msgid "Res&olve..."
 msgstr "Raz&reši..."
-
-#. Resource IDs: (16614)
-msgid "Reset &All"
-msgstr "&Resetuj sve"
 
 #. Resource IDs: (IDS_STATUSLIST_RESETCOLUMNORDER)
 msgid "Reset columns"
@@ -8962,24 +8292,6 @@ msgstr "Desni pogled:"
 msgid "Right image"
 msgstr "Desna slika"
 
-#. Resource IDs: (17108)
-#, c-format
-msgid "Row %d of %d"
-msgstr "Red %d od %d"
-
-#. Resource IDs: (17109)
-#, c-format
-msgid "Row %d-%d of %d"
-msgstr "Red %d-%d od %d"
-
-#. Resource IDs: (17116)
-msgid "Row Down"
-msgstr "Red dole"
-
-#. Resource IDs: (17115)
-msgid "Row Up"
-msgstr "Red gore"
-
 #. Resource IDs: (IDS_RUNCLEANUPNOW)
 msgid "Run cleanup &now"
 msgstr "Pokre&ni čišćenje sada"
@@ -8988,21 +8300,9 @@ msgstr "Pokre&ni čišćenje sada"
 msgid "Run hoo&k script"
 msgstr "Izvrši skriptu za&kačaljke"
 
-#. Resource IDs: (17045)
-msgid "S&elect..."
-msgstr "I&zabrati..."
-
-#. Resource IDs: (17027)
-msgid "S&how Buttons on One Row"
-msgstr "P&rikaži dugmiće u jednom redu"
-
-#. Resource IDs: (17028)
-msgid "S&how Buttons on Two Rows"
-msgstr "P&rikaži dugmiće u dva reda"
-
-#. Resource IDs: (17078)
-msgid "S&how Quick Access Toolbar below the Ribbon"
-msgstr "P&rikaži alatni panel za brzi pristup ispod trake"
+#. Resource IDs: (cmdSave_Keytip_RESID)
+msgid "S"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -9112,11 +8412,15 @@ msgstr "Dnevnik probe za testiranje bagtrek: regeks stringovi.\n\nTestiranje nag
 msgid "Sample text:"
 msgstr "Probni tekst:"
 
-#. Resource IDs: (57603 - Menu, ID_FILE_SAVE - Ribbon name)
+#. Resource IDs: (ID_FILE_SAVE - Menu)
 msgid "Save"
 msgstr "Sačuvaj"
 
-#. Resource IDs: (57604 - Menu, IDS_REPOBROWSE_SAVEAS)
+#. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
+msgid "Save &as"
+msgstr ""
+
+#. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
 msgstr "Sačuvaj &kao..."
 
@@ -9186,7 +8490,7 @@ msgid ""
 "Your changes are saved and the marked blocks are included"
 msgstr "Sačuvaj i uključi\nVaše izmene su sačuvane i označeni blokovi su uključeni"
 
-#. Resource IDs: (IDS_ASKFORSAVEAS, ID_FILE_SAVE_AS - Ribbon name)
+#. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
 msgstr "Sačuvaj kao"
 
@@ -9225,7 +8529,7 @@ msgstr "Sačuvaj reviziju &u..."
 msgid "Save settings to file"
 msgstr "sačuvajte podešavanja u fajl"
 
-#. Resource IDs: (57603, 57604)
+#. Resource IDs: (cmdSave, cmdSaveAs)
 msgid ""
 "Save the modified file\n"
 "Save file"
@@ -9280,14 +8584,6 @@ msgstr "Skenira"
 msgid "Scintilla"
 msgstr "Mrva"
 
-#. Resource IDs: (16034)
-msgid "Scroll Left"
-msgstr "Premotaj ulevo"
-
-#. Resource IDs: (16035)
-msgid "Scroll Right"
-msgstr "Premotaj udesno"
-
 #. Resource IDs: (IDS_LOG_POPUP_FIND)
 msgid "Search &log messages..."
 msgstr "Pretraži &dnevnik poruka..."
@@ -9321,30 +8617,12 @@ msgstr "Izaberi"
 msgid "Select &All"
 msgstr "Izaberi &sve"
 
-#. Resource IDs: (16529)
-msgid "Select &User-defined Image: "
-msgstr "Izaberi &Korisnik-definisana slika!"
-
-#. Resource IDs: (16508)
-msgid "Select &context menu:"
-msgstr "Izaberite &kontekstni meni"
-
-#. Resource IDs: (65535)
-msgid "Select &window:"
-msgstr "Izaberi &prozor:"
-
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "Izaberi / ukloni &sve oznake"
-
-#. Resource IDs: (16903)
-msgid ""
-"Select Color Tool\n"
-"Select Color"
-msgstr "Izaberi Alat Boja\nIzaberi Boju"
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
@@ -9491,10 +8769,6 @@ msgstr "Slanje sadržaja"
 msgid "Server &address:"
 msgstr "&Adresa servera:"
 
-#. Resource IDs: (65535)
-msgid "Set Accelerator &for:"
-msgstr "Postavite ubrzavač &za"
-
 #. Resource IDs: (Dialog IDD_COPY: Control id 1544)
 msgid "Set explicit revision for these externals:"
 msgstr "Podesi eksplicitnu reviziju ovih eksternala:"
@@ -9514,8 +8788,8 @@ msgstr "Postavi osobine  '%1!S!' na\r\n%2!ls!"
 msgid "Setting properties..."
 msgstr "Postavljanje svojstava..."
 
-#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu, ID_VIEW_OPTIONS -
-#. Ribbon name)
+#. Resource IDs: (IDS_SETTINGSTITLE, ID_VIEW_OPTIONS - Menu,
+#. cmdSettings_LabelTitle_RESID)
 msgid "Settings"
 msgstr "Postavke"
 
@@ -9560,10 +8834,6 @@ msgstr "Aktiviraj listu zadataka"
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1382)
 msgid "Show"
 msgstr "Prikaži"
-
-#. Resource IDs: (16996)
-msgid "Show &Accelerator for:"
-msgstr "&Prikaži menije za:"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1031, IDS_LOG_SHOWALL)
 msgid "Show &All"
@@ -9620,29 +8890,17 @@ msgstr "Prikaži p&reklapanja i kontekst meni samo u exploreru"
 msgid "Show &unversioned files"
 msgstr "Prikaži fajlove bez &verzija"
 
-#. Resource IDs: (17099)
-msgid "Show Above the Ribbon"
-msgstr "Prikaži Iznad Trake"
-
-#. Resource IDs: (17098)
-msgid "Show Below the Ribbon"
-msgstr "Prikaži Ispod Trake"
-
-#. Resource IDs: (17030)
-msgid "Show Fewer Buttons"
-msgstr "Prikaži manje dugmića"
-
 #. Resource IDs: (32815)
 msgid "Show HEAD revision nodes"
 msgstr "Prikaži čvorove glavne revizije"
 
-#. Resource IDs: (32825)
+#. Resource IDs: (cmdViewInlineDiffWord)
 msgid ""
 "Show Inline-Diff word by word\n"
 "Inline diff word-wise"
 msgstr "Prikaži razlike u redu reč po reč\nRazlike po rečima unutar linije"
 
-#. Resource IDs: (32889)
+#. Resource IDs: (cmdViewInlineDiff)
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
@@ -9656,32 +8914,16 @@ msgstr "Prikaži dijalog zaključavanja pre zaključavanja fajlova"
 msgid "Show Monitor Dialog"
 msgstr "Prikaži monitor dijalog"
 
-#. Resource IDs: (17029)
-msgid "Show More Buttons"
-msgstr "Prikaži više dugmića"
-
 #. Resource IDs: (ID_VIEW_SHOWOVERVIEW - Menu)
 msgid "Show Ove&rview"
 msgstr "Prikaži sa&žetak"
-
-#. Resource IDs: (17082)
-msgid "Show Quick Access Toolbar Above the Ribbon"
-msgstr "Prikaži alatni panel za brzi pristup iznad trake"
-
-#. Resource IDs: (17081)
-msgid "Show Quick Access Toolbar Below the Ribbon"
-msgstr "Prikaži  alatni panel za brzi pristup ispod trake"
-
-#. Resource IDs: (16651)
-msgid "Show Screen&Tips on toolbars"
-msgstr "Pokaži ekran&Vrh na alatnom panelu"
 
 #. Resource IDs: (ID_VIEW_SHOWWCMODIFICATION - Menu)
 msgid "Show WC &modifications"
 msgstr "Prikaži RK &izmene"
 
-#. Resource IDs: (ID_VIEW_WHITESPACES - Menu, ID_VIEW_WHITESPACES - Ribbon
-#. name)
+#. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
+#. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
 msgstr "Prikaži beline"
 
@@ -9712,10 +8954,6 @@ msgstr "Prikazuje isključen folder kao normalno"
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1480)
 msgid "Show externals from &different repositories"
 msgstr "Prikažite eksternale iz &različitih spremišta"
-
-#. Resource IDs: (16656)
-msgid "Show f&ull menus after a short delay"
-msgstr "Prikaži p&un  meni posle kratkog kašnjenja"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_REVRANGE: Control id 1037, Dialog
 #. IDD_MERGEWIZARD_TREE: Control id 1034)
@@ -9753,19 +8991,19 @@ msgid ""
 "with dots."
 msgstr "Prikazuje samo izmenjene delove imena putanja. Zamenjuje neizmenjene elemente tačkama."
 
-#. Resource IDs: (32853)
+#. Resource IDs: (cmdViewLineDiffBar)
 msgid ""
 "Show or hide the line diff bar\n"
 "Toggle LineDiffBar"
 msgstr "Prikaži ili sakri linije razlika pult\nPromeni LinRazlPult"
 
-#. Resource IDs: (32854)
+#. Resource IDs: (cmdViewLocatorBar)
 msgid ""
 "Show or hide the locator bar\n"
 "Toggle LocatorBar"
 msgstr "Prikaži ili sakri statusnu tablu\nMenjaj prikaz LokatorPult"
 
-#. Resource IDs: (59393)
+#. Resource IDs: (cmdViewStatusBar)
 msgid ""
 "Show or hide the status bar\n"
 "Toggle StatusBar"
@@ -9781,11 +9019,7 @@ msgstr "Prikaži ili sakri alatni panel\nMenjanje prikaza AlatPulta"
 msgid "Show revision properties"
 msgstr "Prikaži osobine revizije"
 
-#. Resource IDs: (16652)
-msgid "Show shortcut &keys in ScreenTips"
-msgstr "Prikaži &tastere skraćenice u EkranObjašnjenju"
-
-#. Resource IDs: (32774)
+#. Resource IDs: (cmdShowWhitespaces)
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
@@ -9876,12 +9110,7 @@ msgstr "Prikazuje dnevnik označene fajlovi / folder"
 msgid "Shows the mime type of the versioned file"
 msgstr "Prikazuje mime tip fajlovi s verzijom"
 
-#. Resource IDs: (10011, ID_VIEW_APPLOOK_OFF_2007_SILVER - Menu,
-#. ID_VIEW_APPLOOK_OFF_2007_SILVER - Ribbon name)
-msgid "Silver Style"
-msgstr "Srebrni stil"
-
-#. Resource IDs: (17129, IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
+#. Resource IDs: (IDS_LOG_SIZE, IDS_STATUSLIST_COLSIZE)
 msgid "Size"
 msgstr "Veličina"
 
@@ -9934,10 +9163,6 @@ msgstr "Preskočeno, nema verzionisanog pretka"
 #. Resource IDs: (IDS_SVNACTION_REMAINSCONFLICTED)
 msgid "Skipped, remains conflicted"
 msgstr "Preskočeno, ostaje u konfliktu"
-
-#. Resource IDs: (17112)
-msgid "Slide"
-msgstr "Slajd"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1098)
 msgid "Smart tab char"
@@ -10009,10 +9234,6 @@ msgid ""
 "Separate the patterns with a space."
 msgstr "Odredite fajlove ili foldere koje bi TortoiseSVN\r\ntrebalo da izostavi iz svih radnih kopija.\r\nModele rastavite razmakom."
 
-#. Resource IDs: (16976, 16977, 16978, 16979, 16980, 16981)
-msgid "Spin1"
-msgstr "Rotacija1"
-
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SPLIT_ABOVE)
 msgid "Split &source tree"
 msgstr "Podeli &izvorno stablo"
@@ -10042,10 +9263,6 @@ msgstr "Naslagani stubasti dijagram"
 #. Resource IDs: (IDS_STATGRAPH_LINESTACKEDBUTTON_TT)
 msgid "Stacked Line Graph"
 msgstr "Naslagani linijski dijagram"
-
-#. Resource IDs: (16962)
-msgid "Standard"
-msgstr "Standard"
 
 #. Resource IDs: (IDS_HOOKTYPE_STARTCOMMIT)
 msgid "Start Commit Hook"
@@ -10089,10 +9306,6 @@ msgstr "Pokreće osobeni dijalog gde možete urediti osobine ručno."
 msgid "State"
 msgstr "Stanje"
 
-#. Resource IDs: (16514)
-msgid "Static"
-msgstr "Statički"
-
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
 msgstr "Statistika"
@@ -10102,13 +9315,9 @@ msgstr "Statistika"
 msgid "Status"
 msgstr "Status"
 
-#. Resource IDs: (ID_VIEW_STATUS_BAR - Ribbon name)
+#. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
 msgstr "Statusni panel"
-
-#. Resource IDs: (17087)
-msgid "Status Bar Configuration"
-msgstr "Postavke statusne linije"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -10152,10 +9361,6 @@ msgstr "Čuva putanju fajla da se koristi za dif pri kasnijem desnim klikom, Dr�
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Stripes"
 msgstr "Trake"
-
-#. Resource IDs: (65535 - PopupMenu, IDC_STYLEBUTTON - Ribbon name)
-msgid "Style"
-msgstr "Stil"
 
 #. Resource IDs: (IDS_LOG_FILTER_SUBSTRING_TT)
 msgid ""
@@ -10272,21 +9477,23 @@ msgid ""
 "Previous Pane"
 msgstr "Vrati se na prethodnu ploču prozora\nPrethodna ploča"
 
-#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu, ID_VIEW_ONEWAYDIFF - Ribbon name)
+#. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
+#. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
 msgstr "Prebaci između pojedinačnog i dvostrukog panel pregleda"
 
-#. Resource IDs: (32775)
+#. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
 msgstr "Prebaci se između pogleda s jednom ili dve ploče\nPrebaci se između pogleda s jednom ili dve ploče"
 
-#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu, ID_VIEW_SWITCHLEFT - Ribbon name)
+#. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
+#. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
 msgstr "Prebaci llevi i desni pregled"
 
-#. Resource IDs: (32811)
+#. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
@@ -10352,10 +9559,6 @@ msgstr "TORTOISEBLAME"
 msgid "TORTOISEIDIFF"
 msgstr "TORTOISEIDIFF"
 
-#. Resource IDs: (16970)
-msgid "Tab Placeholder"
-msgstr "Tab znak"
-
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 65535, Dialog
 #. IDD_SETTINGSUDIFF: Control id 65535)
 msgid "Tab size:"
@@ -10372,10 +9575,6 @@ msgstr "Ciljni folder nije prazan."
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
 msgstr "Zadaci"
-
-#. Resource IDs: (17019)
-msgid "Tasks Pane"
-msgstr "Ploča zadataka"
 
 #. Resource IDs: (IDS_PROGRS_DRYRUN)
 msgid "Test Only"
@@ -10904,13 +10103,6 @@ msgstr "Ovo svojstvo je dozvoljeno samo za foldere, ne i fajlove."
 msgid "This property must not have multiple lines. Only one line is allowed."
 msgstr "Ovo svojstvo ne sme imati više linija. Samo je jedna linija dozvoljena."
 
-#. Resource IDs: (16244)
-msgid ""
-"This will delete the record of commands you've used in this application and "
-"restore the default set of visible commands to the menus and toolbars. It "
-"will not undo any explicit customizations. Are you sure you want to do this?"
-msgstr "Ovo će izbrisati zapis komandi koje ste koristili u ovoj aplikaciji i vratiće uobičajen skup komandi u menijima i alatnom panelu. To neće poništiti bilo koje izričito prilagođenje. Da li ste sigurni da želite da uradite to?"
-
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK1)
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
@@ -10924,14 +10116,6 @@ msgid ""
 "The command line to run is:\n"
 "%ls"
 msgstr "Ova radna kopija ima konfigurisane klijentske zakačaljke. Želite li da se ova skripta pokrene?\nKomandna linija za rad je:\n%ls"
-
-#. Resource IDs: (16928)
-msgid "Tile &Vertically"
-msgstr "Presloži &vertikalno"
-
-#. Resource IDs: (16924)
-msgid "Tile Hori&zontally"
-msgstr "Složi hori&zontalno"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 65535)
 msgid "Timeouts"
@@ -10964,40 +10148,6 @@ msgstr "Kako bi preoteli katanac, kliknite desni dugme na folderu željenih fajl
 #. IDD_REVGRAPHFILTER: Control id 65535)
 msgid "To:"
 msgstr "Prema:"
-
-#. Resource IDs: (58113)
-msgid ""
-"Toggle One/Two Pages display\n"
-"Toggle One/Two Pages display"
-msgstr "Promeni Jedna/Dve stranice displeja\nPromeni Jedna/Dve stranice displeja"
-
-#. Resource IDs: (65535)
-msgid "Toolbar"
-msgstr "Alatni panel"
-
-#. Resource IDs: (16130)
-msgid "Toolbar Name"
-msgstr "Ime alatnog panela"
-
-#. Resource IDs: (17017)
-msgid "Toolbar Options"
-msgstr "Opcije alatnog panela"
-
-#. Resource IDs: (16008)
-msgid "Toolbar internal error. Please contact your application vendor."
-msgstr "Interna greška alatnog panela. Molim kontaktirajte prodavca aplikacije."
-
-#. Resource IDs: (16105)
-msgid "Toolbars"
-msgstr "Alatni paneli"
-
-#. Resource IDs: (16928)
-msgid "Tools"
-msgstr "Alati"
-
-#. Resource IDs: (65535)
-msgid "Tools:"
-msgstr "Alati"
 
 #. Resource IDs: (Dialog IDD_SETTINGSTBLAME: Control id 244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -11034,8 +10184,8 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: preglednik razlika na slikama za TortoiseSVN\n\nDostupni parametri komandne linije su:\n/left:\"putanja do leve slike\"\n/lefttitle:\"naslov za levu sliku\"\n/right:\"putanja do desne slike\"\n/righttitle:\"naslov za desnu sliku\"\n/overlay\t\tza omogućavanje prekrivnog načina\n/fit\t\tza uklapanje veličina slika\n/showinfo\t\tza prikaz informacija o slikama"
 
-#. Resource IDs: (100, 156 - Ribbon element, 32897, 57344, Dialog IDD_OPENDLG:
-#. Control id 130, IDS_APPNAME)
+#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
 
@@ -11189,10 +10339,6 @@ msgstr "Pokušaj omogućavajući \"Uključi ključ za pisanje\" opciju za čiš�
 msgid "Tweak TortoiseSVN"
 msgstr "Podesi TortoiseSVN"
 
-#. Resource IDs: (17130)
-msgid "Type"
-msgstr "Tip"
-
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1436)
 msgid "U&pdate"
 msgstr "&Uskladi"
@@ -11287,24 +10433,15 @@ msgid ""
 "menu"
 msgstr "Nečekirane stavke su prikane u submeniju, čekirane stavke u glavnom kontekst meniju"
 
-#. Resource IDs: (ID_EDIT_UNDO - Ribbon name)
+#. Resource IDs: (cmdUndo_LabelTitle_RESID)
 msgid "Undo"
 msgstr "Poništi"
-
-#. Resource IDs: (17102)
-#, c-format
-msgid "Undo %d Actions"
-msgstr "Poništi %d Akcije"
-
-#. Resource IDs: (17103)
-msgid "Undo 1 Action"
-msgstr "Poništi 1 Akciju"
 
 #. Resource IDs: (IDS_MENUUNDOADD)
 msgid "Undo Add..."
 msgstr "Poništi Dodaj..."
 
-#. Resource IDs: (57643)
+#. Resource IDs: (cmdUndo)
 msgid ""
 "Undo the last modifications\n"
 "Undo"
@@ -11313,10 +10450,6 @@ msgstr "Poništi poslednju modifikaciju\nPoništi"
 #. Resource IDs: (61728)
 msgid "Unexpected file format."
 msgstr "Neočekivani format fajlovi."
-
-#. Resource IDs: (17111)
-msgid "Unfold"
-msgstr "Razviti"
 
 #. Resource IDs: (61591)
 msgid ""
@@ -11486,10 +10619,6 @@ msgstr "Dogradnja '%1!ls!'"
 msgid "Urls"
 msgstr "Urlovi"
 
-#. Resource IDs: (16530)
-msgid "Use &Default Image: "
-msgstr "Koristi &uobičajenu sliku"
-
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
 msgstr "Koristi &jedan-panel pregled kao uobičajeni za pregled razlika 2 fajla"
@@ -11509,22 +10638,22 @@ msgid ""
 "Example: *.mylan.com, *.company.com"
 msgstr "Koristite '*' kao zamenski znak prilikom određivanja izuzetaka.\r\nKako biste odvojili višestruke izuzetke, koristite zareze (',').\r\nPrimer: *.mylan.com, *.company.com"
 
-#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, ID_EDIT_USEMYBLOCK - Ribbon name)
+#. Resource IDs: (ID_EDIT_USEMYBLOCK - Menu, cmdUseMineBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block"
 msgstr "Koristi 'moj' tekst boks"
 
 #. Resource IDs: (ID_EDIT_USEMINETHENTHEIRBLOCK - Menu,
-#. ID_EDIT_USEMINETHENTHEIRBLOCK - Ribbon name)
+#. cmdUseMineThenTheirsBlock_LabelTitle_RESID)
 msgid "Use 'mine' text block then 'theirs'"
 msgstr "Koristi 'moj' tekst boks zatim  'njihov '  "
 
-#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu, ID_EDIT_USETHEIRBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USETHEIRBLOCK - Menu,
+#. cmdUseTheirsBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block"
 msgstr "Koristi 'njihov' tekst boks"
 
 #. Resource IDs: (ID_EDIT_USETHEIRTHENMYBLOCK - Menu,
-#. ID_EDIT_USETHEIRTHENMYBLOCK - Ribbon name)
+#. cmdUseTheirsThenMineBlock_LabelTitle_RESID)
 msgid "Use 'theirs' text block then 'mine'"
 msgstr "Koristi 'njihov' tekst boks zatim  'moj '  "
 
@@ -11544,29 +10673,29 @@ msgstr "Koristi URL &radne kopije kao osnovni \"Iz:\" URL"
 msgid "Use Unified Diff from &clipboard"
 msgstr "Koristi ujedinjenu razliku sa &klipborda"
 
-#. Resource IDs: (32856)
+#. Resource IDs: (cmdUseLeftFile)
 msgid ""
 "Use all content from the left view\n"
 "Use left file"
 msgstr "Koristi ceo sadržaj sa levog pregleda\nKoristi levi fajl"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Menu,
-#. ID_EDIT_USEBLOCKFROMLEFTBEFORERIGHT - Ribbon name)
+#. cmdUseBlockFromLeftBeforeRight_LabelTitle_RESID)
 msgid "Use block from left before right"
 msgstr "Koristi blok iz levog pre nego iz desnog"
 
-#. Resource IDs: (32857)
+#. Resource IDs: (cmdUseBlockFromLeftBeforeRight)
 msgid ""
 "Use block from left view before block from right view\n"
 "Use block from left before right"
 msgstr "Koristi blok sa levog pregleda pre bloka sa desnog pregleda\nKoristi blok sa levog pre desnog"
 
 #. Resource IDs: (ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Menu,
-#. ID_EDIT_USEBLOCKFROMRIGHTBEFORELEFT - Ribbon name)
+#. cmdUseBlockFromRightBeforeLeft_LabelTitle_RESID)
 msgid "Use block from right before left"
 msgstr "Koristi blok iz desnog pre levog"
 
-#. Resource IDs: (32859)
+#. Resource IDs: (cmdUseBlockFromRightBeforeLeft)
 msgid ""
 "Use block from right view before block from left view\n"
 "Use block from right before left"
@@ -11580,13 +10709,12 @@ msgstr "Koristi oba bloka teksta (prvo ovaj)"
 msgid "Use both text blocks (this one last)"
 msgstr "Koristi oba bloka teksta (ovaj na kraju)"
 
-#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, ID_EDIT_USELEFTBLOCK - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
+#. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
 msgstr "Koristi levi blok"
 
-#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, ID_EDIT_USELEFTFILE - Ribbon
-#. name)
+#. Resource IDs: (ID_EDIT_USELEFTFILE - Menu, cmdUseLeftFile_LabelTitle_RESID)
 msgid "Use left file"
 msgstr "Koristi preostali fajl"
 
@@ -11622,13 +10750,13 @@ msgstr "Koristi blok teksta iz '&njihov'"
 msgid "Use text block from 'm&ine' before 'theirs'"
 msgstr "Koristi blok teksta iz 'm&oj' pre 'njihov'"
 
-#. Resource IDs: (32822)
+#. Resource IDs: (cmdUseMineThenTheirsBlock)
 msgid ""
 "Use text block from 'mine' before 'theirs'\n"
 "Use 'mine' text block then 'theirs'"
 msgstr "Koristi blok teksta iz 'moj' pre 'njihov'\nKoristi 'moj' blok tekst, pa onda  'njihov'"
 
-#. Resource IDs: (32820)
+#. Resource IDs: (cmdUseMineBlock)
 msgid ""
 "Use text block from 'mine'\n"
 "Use 'mine' text block"
@@ -11638,19 +10766,19 @@ msgstr "Koristi blok teksta iz 'moj'\nKoristi 'moj' tekst blok"
 msgid "Use text block from 't&heirs' before 'mine'"
 msgstr "Koristi blok teksta iz 'nji&hov' pre 'moj'"
 
-#. Resource IDs: (32821)
+#. Resource IDs: (cmdUseTheirsThenMineBlock)
 msgid ""
 "Use text block from 'theirs' before 'mine'\n"
 "Use 'theirs' text block then 'mine'"
 msgstr "Koristi blok teksta iz 'njihov' pre 'moj'\n'NJihov' tekst blok pre 'moj'"
 
-#. Resource IDs: (32819)
+#. Resource IDs: (cmdUseTheirsBlock)
 msgid ""
 "Use text block from 'theirs'\n"
 "Use 'theirs' text block"
 msgstr "Koristi blok teksta iz 'njihov'\nKoristi 'njihov' tekst blok"
 
-#. Resource IDs: (32855)
+#. Resource IDs: (cmdUseLeftBlock)
 msgid ""
 "Use text block from the left view\n"
 "Use left block"
@@ -11722,6 +10850,10 @@ msgstr "Korisnici za izbegavanje:"
 msgid "Uses the status cache type 'none' for elevated processes"
 msgstr "Koristi statusni keš tipa  'none' za razvijene procese"
 
+#. Resource IDs: (cmdPaste_Keytip_RESID)
+msgid "V"
+msgstr ""
+
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
 "Valid command line options are:\n"
@@ -11771,11 +10903,11 @@ msgstr "Informaciji o verziji"
 msgid "Versioned"
 msgstr "Upravljano verzijama"
 
-#. Resource IDs: (156 - Ribbon element)
+#. Resource IDs: (cmdGroupView_LabelTitle_RESID)
 msgid "View"
 msgstr "Pregled"
 
-#. Resource IDs: (ID_VIEW_BARS - Ribbon name)
+#. Resource IDs: (cmdViewBars_LabelTitle_RESID)
 msgid "View Bars"
 msgstr "Panel pregleda"
 
@@ -11791,15 +10923,9 @@ msgstr "Pogledaj reviziju u &veb pregledaču"
 msgid "Visit our website"
 msgstr "Posetite naše web stranice"
 
-#. Resource IDs: (10007, ID_VIEW_APPLOOK_VS_2005 - Menu,
-#. ID_VIEW_APPLOOK_VS_2005 - Ribbon name)
-msgid "Visual Studio 2005"
-msgstr "Vižual studio 2005"
-
-#. Resource IDs: (10002, ID_VIEW_APPLOOK_VS_2008 - Menu,
-#. ID_VIEW_APPLOOK_VS_2008 - Ribbon name)
-msgid "Visual Studio 2008"
-msgstr "Vižual studio 2008"
+#. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
+msgid "W"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
 msgid ""
@@ -11886,33 +11012,10 @@ msgstr "Kad zaključavate jedan ili više odabranih fajova, prikazuje dijalog\nk
 msgid "Whitespace changes (tabs, spaces)"
 msgstr "Beline su izmenjene (tabovi, razmaci)"
 
-#. Resource IDs: (156 - Ribbon element, Dialog IDD_SETCOLORPAGE: Control id
-#. 65535)
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535,
+#. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Beline"
-
-#. Resource IDs: (17038)
-msgid "Window Position"
-msgstr "Pozicija prozora"
-
-#. Resource IDs: (16927)
-msgid "Windows"
-msgstr "Windows"
-
-#. Resource IDs: (10003, ID_VIEW_APPLOOK_WIN_2000 - Menu,
-#. ID_VIEW_APPLOOK_WIN_2000 - Ribbon name)
-msgid "Windows 2000"
-msgstr "Vindous 2000"
-
-#. Resource IDs: (10001, ID_VIEW_APPLOOK_WIN7 - Menu, ID_VIEW_APPLOOK_WIN7 -
-#. Ribbon name)
-msgid "Windows 7"
-msgstr "Vindous 7"
-
-#. Resource IDs: (10005, ID_VIEW_APPLOOK_WIN_XP - Menu, ID_VIEW_APPLOOK_WIN_XP
-#. - Ribbon name)
-msgid "Windows XP"
-msgstr "Vindous HP"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 158, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 1493, Dialog IDD_MERGEWIZARD_TREE:
@@ -11941,16 +11044,23 @@ msgstr "Radna kopija premeštena na \n%ls"
 msgid "Working copy: %ls\n"
 msgstr "Radna kopija: %ls\n"
 
-#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu, ID_VIEW_WRAPLONGLINES - Ribbon
-#. name)
+#. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
+msgid "Wrap Lines"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
 msgstr "Zavi dugačke linije"
 
-#. Resource IDs: (32881)
+#. Resource IDs: (cmdViewWrapLines)
 msgid ""
 "Wrap long lines at the right border of the view\n"
 "Wrap long lines"
 msgstr "Zavi dugačke linije na desnoj ivici pregleda\nZavi dugačke linije"
+
+#. Resource IDs: (cmdRedo_Keytip_RESID)
+msgid "Y"
+msgstr ""
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
 msgid "You already have the latest version installed."
@@ -11967,16 +11077,6 @@ msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
 msgstr "Možete uređivati samo jedan fajl u jednom trenutku iz pretraživača spremišta.\nMolim završite uređivanje fajla pre uređivanja sledećeg."
-
-#. Resource IDs: (16005)
-#, c-format
-msgid "You can paste bitmap with the size (%d x %d) only!"
-msgstr "Možete nalepiti bitmapu samo veličine (%d x %d) !"
-
-#. Resource IDs: (16243)
-#, c-format
-msgid "You can't create more than %d user-defined toolbars!"
-msgstr "Možete kreirati više od %d alatnih panela koje je definisao korisnik!"
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -12018,11 +11118,6 @@ msgstr "Morate najpre uskladiti vašu radnu kopiju."
 msgid "You haven't entered an issue number."
 msgstr "Niste uneli broj stavke."
 
-#. Resource IDs: (16024)
-#, c-format
-msgid "You may define up to %d tools."
-msgstr "Možete definisati do %d alata."
-
 #. Resource IDs: (IDS_SETTINGS_RESTARTSYSTEM)
 msgid "You must restart your system for the changes to take effect."
 msgstr "Morate ponovo pokrenuti računar kako bi aktivirali izmene."
@@ -12030,14 +11125,6 @@ msgstr "Morate ponovo pokrenuti računar kako bi aktivirali izmene."
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK2)
 msgid "You selected an unversioned folder for a commit!"
 msgstr "Izabrali ste neverzionisan folder za urezivanje!"
-
-#. Resource IDs: (16002)
-msgid "You should enter a text!"
-msgstr "Treba da upišete tekst!"
-
-#. Resource IDs: (16001)
-msgid "You should select an image!"
-msgstr "Treba da odabarete sliku!"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED)
 #, c-format
@@ -12095,13 +11182,13 @@ msgid ""
 "You should first switch to a branch or the main trunk before committing."
 msgstr "Radna kopija ukazuje na %ls što se pojavljuje kao značka!\nTreba najpre da prebacite u granu ili glavno deblo pre urezivanja."
 
+#. Resource IDs: (cmdUndo_Keytip_RESID)
+msgid "Z"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
 msgstr "Zu&m izlaѕ\t(-)"
-
-#. Resource IDs: (17093)
-msgid "Zoom"
-msgstr "Zumiraj"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -12123,18 +11210,6 @@ msgstr "&Udalji\tCtrl--"
 #, c-format
 msgid "Zoom 100%"
 msgstr "Zumiraj 100%"
-
-#. Resource IDs: (58117)
-msgid ""
-"Zoom In\n"
-"Zoom In"
-msgstr "Povećaj\nPovećaj"
-
-#. Resource IDs: (58118)
-msgid ""
-"Zoom Out\n"
-"Zoom Out"
-msgstr "Oqumiraj\nOqumiraj"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
@@ -12164,14 +11239,6 @@ msgstr "Zumiraj da se uklopi po visini"
 msgid "Zoom to fit in width"
 msgstr "Zumiraj da se uklopi po širini"
 
-#. Resource IDs: (17114)
-msgid "[Default]"
-msgstr "[Uobičajeno]"
-
-#. Resource IDs: (16009)
-msgid "[Unassigned]"
-msgstr "[Neoznačen]"
-
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1562)
 msgid "\"ignore-on-commit\" files do not mark parent folder modified"
 msgstr "\"zanemari-pri-urezivanju\" fajlovi ne markiraju da je predački folder izmenjen"
@@ -12185,10 +11252,6 @@ msgid ""
 "Allowed wildcards are '?' and '*'.\n"
 "Separate patterns using ';'"
 msgstr "\n\nModeli traženja nezavisni od veličine slova i moraju biti specificirani malim slovima.\nBeline će postati deo modela.\nOmogućeni džokeri su  '?' i  '*'.\nIzdvajanje modela koristeći  ';'"
-
-#. Resource IDs: (65535 - PopupMenu)
-msgid "_POPUP_"
-msgstr "_POPUP_"
 
 #. Resource IDs: (IDS_STATUSADDED)
 msgid "added"
@@ -12366,10 +11429,6 @@ msgstr "obrisano"
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "disk [kB]: "
 msgstr "disk [kB]: "
-
-#. Resource IDs: (58116)
-msgid "dummy"
-msgstr "veštačko"
 
 #. Resource IDs: (Dialog IDD_EXPORT: Control id 1342)
 msgid "eol style"
@@ -12551,6 +11610,10 @@ msgstr "neverzionisana stavka"
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
 msgstr "normalno"
+
+#. Resource IDs: (cmdOpen_Keytip_RESID)
+msgid "o1"
+msgstr ""
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"

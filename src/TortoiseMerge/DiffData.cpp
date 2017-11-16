@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2016 - TortoiseSVN
+// Copyright (C) 2006-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -332,7 +332,7 @@ BOOL CDiffData::Load()
     // Is this a two-way diff?
     if (IsBaseFileInUse() && IsYourFileInUse() && !IsTheirFileInUse())
     {
-        if (!DoTwoWayDiff(sConvertedBaseFilename, sConvertedYourFilename, dwIgnoreWS, bIgnoreEOL, pool))
+        if (!DoTwoWayDiff(sConvertedBaseFilename, sConvertedYourFilename, dwIgnoreWS, bIgnoreEOL, !!bIgnoreCase, bIgnoreComments, pool))
         {
             apr_pool_destroy (pool);                    // free the allocated memory
             return FALSE;
@@ -349,7 +349,7 @@ BOOL CDiffData::Load()
     {
         m_Diff3.Reserve(lengthHint);
 
-        if (!DoThreeWayDiff(sConvertedBaseFilename, sConvertedYourFilename, sConvertedTheirFilename, dwIgnoreWS, bIgnoreEOL, !!bIgnoreCase, pool))
+        if (!DoThreeWayDiff(sConvertedBaseFilename, sConvertedYourFilename, sConvertedTheirFilename, dwIgnoreWS, bIgnoreEOL, !!bIgnoreCase, bIgnoreComments, pool))
         {
             apr_pool_destroy (pool);                    // free the allocated memory
             return FALSE;
@@ -367,7 +367,7 @@ BOOL CDiffData::Load()
 }
 
 bool
-CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, apr_pool_t * pool)
+CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, bool bIgnoreComments, apr_pool_t * pool)
 {
     svn_diff_file_options_t * options = CreateDiffFileOptions(dwIgnoreWS, bIgnoreEOL, pool);
     // convert CString filenames (UTF-16 or ANSI) to UTF-8
@@ -477,13 +477,12 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
                 EOL endingBase = m_arBaseFile.GetLineEnding(baseline);
                 if (sCurrentBaseLine != sCurrentYourLine)
                 {
-                    bool changedWS = false;
-                    bool bWhiteSpaceChanges = true;
-                    if (dwIgnoreWS == 2 || dwIgnoreWS == 3)
-                        changedWS = CompareWithIgnoreWS(sCurrentBaseLine, sCurrentYourLine, dwIgnoreWS);
-                    else if (dwIgnoreWS == 0)
+                    bool changedNonWS = false;
+                    auto ds = DIFFSTATE_NORMAL;
+
+                    if (dwIgnoreWS == 1)
                     {
-                        // the strings could be identical in relation to the regex filter.
+                        // the strings could be identical in relation to a filter.
                         // so to find out if there are whitespace changes, we have to strip the strings
                         // of all non-whitespace chars and then compare them.
                         // Note: this is not really fast! So we only do that if the lines are not too long (arbitrary value)
@@ -516,26 +515,24 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
                                 ++pLine2;
                             }
                             *pS2 = '\0';
-                            bWhiteSpaceChanges = wcscmp(s1.get(), s2.get()) != 0;
+                            auto hasWhitespaceChanges = wcscmp(s1.get(), s2.get()) != 0;
+                            if (hasWhitespaceChanges)
+                                ds = DIFFSTATE_WHITESPACE;
                         }
                     }
-                    if (changedWS || ((dwIgnoreWS == 0) && bWhiteSpaceChanges))
+                    if (dwIgnoreWS == 2 || dwIgnoreWS == 3)
+                        changedNonWS = CompareWithIgnoreWS(sCurrentBaseLine, sCurrentYourLine, dwIgnoreWS);
+                    if (!changedNonWS)
                     {
-                        auto ds = DIFFSTATE_WHITESPACE;
-                        if (!bWhiteSpaceChanges && (dwIgnoreWS == 0))
-                        {
-                            // if there are no whitespace changes but diffs only because of a regex filter,
-                            // mark the lines as normal and not with whitespace changes.
-                            ds = DIFFSTATE_NORMAL;
-                        }
-                        m_YourBaseLeft.AddData(sCurrentBaseLine, ds, baseline, endingBase, HIDESTATE_SHOWN, -1);
-                        m_YourBaseRight.AddData(sCurrentYourLine, ds, yourline, endingYours, HIDESTATE_SHOWN, -1);
+                        ds = DIFFSTATE_NORMAL;
                     }
-                    else
+                    if ((ds == DIFFSTATE_NORMAL) && (!m_rx._Empty() || bIgnoreCase || bIgnoreComments))
                     {
-                        m_YourBaseLeft.AddData(sCurrentBaseLine, DIFFSTATE_NORMAL, baseline, endingBase, HIDESTATE_HIDDEN, -1);
-                        m_YourBaseRight.AddData(sCurrentYourLine, DIFFSTATE_NORMAL, yourline, endingYours, HIDESTATE_HIDDEN, -1);
+                        ds = DIFFSTATE_FILTEREDDIFF;
                     }
+
+                    m_YourBaseLeft.AddData(sCurrentBaseLine, ds, baseline, endingBase, HIDESTATE_SHOWN, -1);
+                    m_YourBaseRight.AddData(sCurrentYourLine, ds, yourline, endingYours, HIDESTATE_SHOWN, -1);
                 }
                 else
                 {
@@ -678,7 +675,7 @@ CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourFilena
 }
 
 bool
-CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, apr_pool_t * pool)
+CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFilename, const CString& sTheirFilename, DWORD dwIgnoreWS, bool bIgnoreEOL, bool bIgnoreCase, bool bIgnoreComments, apr_pool_t * pool)
 {
     // the following three arrays are used to check for conflicts even in case the
     // user has ignored spaces/eols.
@@ -979,7 +976,7 @@ CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYourFile
 
     } // while (tempdiff)
 
-    if ((options->ignore_space != svn_diff_file_ignore_space_none)||(bIgnoreCase)||(bIgnoreEOL))
+    if ((options->ignore_space != svn_diff_file_ignore_space_none)||(bIgnoreCase||bIgnoreEOL||bIgnoreComments||!m_rx._Empty()))
     {
         // If whitespaces are ignored, a conflict could have been missed
         // We now go through all lines again and check if they're identical.
