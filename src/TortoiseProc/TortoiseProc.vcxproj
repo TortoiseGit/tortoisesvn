@@ -283,11 +283,13 @@
     <ClCompile Include="Commands\RevertCommand.cpp" />
     <ClCompile Include="Commands\RevisionGraphCommand.cpp" />
     <ClCompile Include="Commands\SettingsCommand.cpp" />
+    <ClCompile Include="Commands\ShelveCommand.cpp" />
     <ClCompile Include="Commands\ShowCompareCommand.cpp" />
     <ClCompile Include="Commands\SwitchCommand.cpp" />
     <ClCompile Include="Commands\SyncCommand.cpp" />
     <ClCompile Include="Commands\UnIgnoreCommand.cpp" />
     <ClCompile Include="Commands\UnLockCommand.cpp" />
+    <ClCompile Include="Commands\UnshelveCommand.cpp" />
     <ClCompile Include="Commands\UpdateCheckCommand.cpp" />
     <ClCompile Include="Commands\UpdateCommand.cpp" />
     <ClCompile Include="Commands\UrlDiffCommand.cpp" />
@@ -322,6 +324,7 @@
     <ClCompile Include="MonitorOptionsDlg.cpp" />
     <ClCompile Include="MonitorProjectDlg.cpp" />
     <ClCompile Include="PropConflictEditorDlg.cpp" />
+    <ClCompile Include="ShelveDlg.cpp" />
     <ClCompile Include="TextConflictEditorDlg.cpp" />
     <ClCompile Include="TreeConflictEditorDlg.cpp" />
     <ClCompile Include="PasswordDlg.cpp" />
@@ -448,6 +451,7 @@
     <ClCompile Include="SwitchDlg.cpp" />
     <ClCompile Include="TortoiseProc.cpp" />
     <ClCompile Include="UnlockDlg.cpp" />
+    <ClCompile Include="UnshelveDlg.cpp" />
     <ClCompile Include="UpdateDlg.cpp" />
     <ClCompile Include="UrlDiffDlg.cpp" />
     <ClCompile Include="URLDlg.cpp" />
@@ -620,11 +624,13 @@
     <ClInclude Include="Commands\RevisionGraphCommand.h" />
     <ClInclude Include="Commands\RTFMCommand.h" />
     <ClInclude Include="Commands\SettingsCommand.h" />
+    <ClInclude Include="Commands\ShelveCommand.h" />
     <ClInclude Include="Commands\ShowCompareCommand.h" />
     <ClInclude Include="Commands\SwitchCommand.h" />
     <ClInclude Include="Commands\SyncCommand.h" />
     <ClInclude Include="Commands\UnIgnoreCommand.h" />
     <ClInclude Include="Commands\UnLockCommand.h" />
+    <ClInclude Include="Commands\UnshelveCommand.h" />
     <ClInclude Include="Commands\UpdateCheckCommand.h" />
     <ClInclude Include="Commands\UpdateCommand.h" />
     <ClInclude Include="Commands\UrlDiffCommand.h" />
@@ -660,6 +666,7 @@
     <ClInclude Include="MonitorOptionsDlg.h" />
     <ClInclude Include="MonitorProjectDlg.h" />
     <ClInclude Include="PropConflictEditorDlg.h" />
+    <ClInclude Include="ShelveDlg.h" />
     <ClInclude Include="TextConflictEditorDlg.h" />
     <ClInclude Include="TreeConflictEditorDlg.h" />
     <ClInclude Include="PasswordDlg.h" />
@@ -787,6 +794,7 @@
     <ClInclude Include="SwitchDlg.h" />
     <ClInclude Include="TortoiseProc.h" />
     <ClInclude Include="UnlockDlg.h" />
+    <ClInclude Include="UnshelveDlg.h" />
     <ClInclude Include="UpdateDlg.h" />
     <ClInclude Include="UrlDiffDlg.h" />
     <ClInclude Include="URLDlg.h" />

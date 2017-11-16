@@ -339,6 +339,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Resources\copy.ico" />
+    <Image Include="..\Resources\menushelve.ico" />
+    <Image Include="..\Resources\menuunshelve.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

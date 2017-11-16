@@ -194,6 +194,10 @@
 #define IDS_MENUIGNOREMULTIPLE2         283
 #define IDS_MENUDELETEIGNOREMULTIPLE2   284
 #define IDS_MENUDELETEIGNOREMULTIPLEMASK2 285
+#define IDS_MENUSHELVE                  286
+#define IDS_MENUUNSHELVE                287
+#define IDS_MENUDESCSHELVE              288
+#define IDS_MENUDESCUNSHELVE            289
 #define IDS_SVN_DEPTH_INFINITE          300
 #define IDS_SVN_DEPTH_IMMEDIATE         301
 #define IDS_SVN_DEPTH_FILES             302
@@ -245,6 +249,8 @@
 #define IDI_APPSMALL                    5160
 #define IDI_CLIPPASTE                   5164
 #define IDI_COPYURL                     5165
+#define IDI_SHELVE                      5170
+#define IDI_UNSHELVE                    5171
 #define IDC_LOCKOWNER                   11019
 #define IDC_LOCKDATE                    11020
 #define IDC_EDITPROPERTIES              11021
@@ -259,7 +265,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        5166
+#define _APS_NEXT_RESOURCE_VALUE        5172
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         11026
 #define _APS_NEXT_SYMED_VALUE           5101

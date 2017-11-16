@@ -207,6 +207,91 @@ struct log_msg_baton3
 };
 
 
+bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, svn_depth_t depth /*const CStringArray& changelists,*/)
+{
+	SVNPool subpool(m_pool);
+	apr_array_header_t * clists = NULL; // MakeChangeListArray(changelists, subpool);
+
+	Prepare();
+
+	SVNTRACE(
+		Err = svn_client_shelve((LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
+								pathlist.MakePathArray(subpool),
+								depth,
+								clists,
+								FALSE /*keep_local*/,
+								FALSE /*dry_run*/,
+								m_pctx,
+								subpool),
+		NULL
+	);
+
+	return (Err == NULL);
+}
+
+bool SVN::Unshelve(const CString& shelveName, const CTSVNPath &local_abspath)
+{
+    SVNPool subpool(m_pool);
+
+    Prepare();
+
+    SVNTRACE(
+        Err = svn_client_unshelve((LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
+                                  local_abspath.GetSVNApiPath(subpool),
+                                  FALSE /*keep*/,
+                                  FALSE /*dry_run*/,
+                                  m_pctx,
+                                  subpool),
+        NULL
+    );
+
+    return (Err == NULL);
+}
+
+bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspath)
+{
+    SVNPool subpool(m_pool);
+
+    Prepare();
+    apr_hash_t *names_hash;
+
+    SVNTRACE(
+        Err = svn_client_shelves_list(&names_hash,
+            local_abspath.GetSVNApiPath(subpool),
+            m_pctx,
+            subpool, subpool),
+        NULL
+    );
+    apr_hash_index_t *hi;
+    for (hi = apr_hash_first(subpool, names_hash); hi; hi = apr_hash_next(hi))
+    {
+        CString name((const char *)apr_hash_this_key(hi));
+        Names.push_back(name);
+    }
+    std::sort(Names.begin(), Names.end());
+
+    return (Err == NULL);
+}
+
+bool SVN::ShelvesAny(bool& AnyShelved, const CTSVNPath &local_abspath)
+{
+    SVNPool subpool(m_pool);
+    svn_boolean_t any_shelved;
+
+    Prepare();
+
+    SVNTRACE(
+        Err = svn_client_shelves_any(&any_shelved,
+            local_abspath.GetSVNApiPath(subpool),
+            m_pctx,
+            subpool),
+        NULL
+    );
+
+    AnyShelved = any_shelved;
+    return (Err == NULL);
+}
+
 bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const SVNRev& pegrev,
                    const SVNRev& revision, svn_depth_t depth, bool bIgnoreExternals,
                    bool bAllow_unver_obstructions)

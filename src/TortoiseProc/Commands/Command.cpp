@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2013-2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -66,11 +66,13 @@
 #include "RevisionGraphCommand.h"
 #include "RTFMCommand.h"
 #include "SettingsCommand.h"
+#include "ShelveCommand.h"
 #include "ShowCompareCommand.h"
 #include "SwitchCommand.h"
 #include "SyncCommand.h"
 #include "UnIgnoreCommand.h"
 #include "UnLockCommand.h"
+#include "UnshelveCommand.h"
 #include "UpdateCheckCommand.h"
 #include "UpdateCommand.h"
 #include "UrlDiffCommand.h"
@@ -126,11 +128,13 @@ typedef enum
     cmdRevert,
     cmdRevisionGraph,
     cmdSettings,
+    cmdShelve,
     cmdShowCompare,
     cmdSwitch,
     cmdSync,
     cmdUnIgnore,
     cmdUnlock,
+    cmdUnshelve,
     cmdUpdate,
     cmdUpdateCheck,
     cmdUrlDiff,
@@ -190,11 +194,13 @@ static const struct CommandInfo
     {   cmdRevert,          L"revert"            },
     {   cmdRevisionGraph,   L"revisiongraph"     },
     {   cmdSettings,        L"settings"          },
+    {   cmdShelve,          L"shelve"            },
     {   cmdShowCompare,     L"showcompare"       },
     {   cmdSwitch,          L"switch"            },
     {   cmdSync,            L"sync"              },
     {   cmdUnIgnore,        L"unignore"          },
     {   cmdUnlock,          L"unlock"            },
+    {   cmdUnshelve,        L"unshelve"          },
     {   cmdUpdate,          L"update"            },
     {   cmdUpdateCheck,     L"updatecheck"       },
     {   cmdUrlDiff,         L"urldiff"           },
@@ -318,6 +324,8 @@ Command * CommandServer::GetCommand(const CString& sCmd)
             return new RevisionGraphCommand;
         case cmdSettings:
             return new SettingsCommand;
+        case cmdShelve:
+            return new ShelveCommand;
         case cmdShowCompare:
             return new ShowCompareCommand;
         case cmdSwitch:
@@ -328,6 +336,8 @@ Command * CommandServer::GetCommand(const CString& sCmd)
             return new UnIgnoreCommand;
         case cmdUnlock:
             return new UnLockCommand;
+        case cmdUnshelve:
+            return new UnshelveCommand;
         case cmdUpdate:
             return new UpdateCommand;
         case cmdUpdateCheck:

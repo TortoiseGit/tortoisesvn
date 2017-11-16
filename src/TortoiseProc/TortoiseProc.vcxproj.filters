@@ -174,6 +174,9 @@
     <Filter Include="Commands\Sync">
       <UniqueIdentifier>{ed2e5dcd-b25e-4267-bee1-9929efa3a30a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Commands\%28Un%29Shelve">
+      <UniqueIdentifier>{eeef9eea-9326-4c22-b055-257b8c9b8dca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Utils\accHelper.cpp">
@@ -1111,6 +1114,18 @@
     </ClCompile>
     <ClCompile Include="..\Utils\MiscUI\AnimationManager.cpp">
       <Filter>Utils\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\ShelveCommand.cpp">
+      <Filter>Commands\%28Un%29Shelve</Filter>
+    </ClCompile>
+    <ClCompile Include="ShelveDlg.cpp">
+      <Filter>Commands\%28Un%29Shelve</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands\UnshelveCommand.cpp">
+      <Filter>Commands\%28Un%29Shelve</Filter>
+    </ClCompile>
+    <ClCompile Include="UnshelveDlg.cpp">
+      <Filter>Commands\%28Un%29Shelve</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2124,6 +2139,18 @@
     </ClInclude>
     <ClInclude Include="..\Utils\MiscUI\AnimationManager.h">
       <Filter>Utils\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\ShelveCommand.h">
+      <Filter>Commands\%28Un%29Shelve</Filter>
+    </ClInclude>
+    <ClInclude Include="ShelveDlg.h">
+      <Filter>Commands\%28Un%29Shelve</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands\UnshelveCommand.h">
+      <Filter>Commands\%28Un%29Shelve</Filter>
+    </ClInclude>
+    <ClInclude Include="UnshelveDlg.h">
+      <Filter>Commands\%28Un%29Shelve</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

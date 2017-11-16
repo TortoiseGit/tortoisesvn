@@ -108,6 +108,10 @@ IDI_CLIPPASTE           ICON                    "..\\Resources\\clippaste.ico"
 
 IDI_COPYURL             ICON                    "..\\Resources\\copy.ico"
 
+IDI_SHELVE              ICON                    "..\\Resources\\menushelve.ico"
+
+IDI_UNSHELVE            ICON                    "..\\Resources\\menuunshelve.ico"
+
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -446,10 +450,14 @@ BEGIN
     IDS_MENUDELETEIGNOREMULTIPLE2 "Delete and &ignore multiple items by name"
     IDS_MENUDELETEIGNOREMULTIPLEMASK2 
                             "Delete and ignore multiple items by &extension"
+    IDS_MENUSHELVE          "Shelve..."
+    IDS_MENUUNSHELVE        "Unshelve..."
 END
 
 STRINGTABLE
 BEGIN
+    IDS_MENUDESCSHELVE      "Puts all changes you made onto a shelf"
+    IDS_MENUDESCUNSHELVE    "Brings a shelved change back to the working copy"
     IDS_SVN_DEPTH_INFINITE  "Fully recursive"
     IDS_SVN_DEPTH_IMMEDIATE "Immediate children, including folders"
     IDS_SVN_DEPTH_FILES     "Only file children"

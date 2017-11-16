@@ -126,10 +126,11 @@ const static CString svnPropGlobalIgnore (SVN_PROP_INHERITABLE_IGNORES);
 #define IDSVNLC_COMPAREWC_CONTENTONLY 48
 #define IDSVNLC_COPYFULL            49
 #define IDSVNLC_COPYFILENAMES       50
+#define IDSVNLC_SHELVE              51
 
 // the IDSVNLC_MOVETOCS *must* be the last index, because it contains a dynamic submenu where
 // the submenu items get command ID's sequent to this number
-#define IDSVNLC_MOVETOCS            51
+#define IDSVNLC_MOVETOCS            52
 
 struct icompare
 {
@@ -3541,6 +3542,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     if (m_dwContextMenus & SVNSLC_POPCREATEPATCH)
                     {
                         popup.AppendMenu(MF_SEPARATOR);
+                        popup.AppendMenuIcon(IDSVNLC_SHELVE, IDS_MENUSHELVE, IDI_SHELVE);
                         popup.AppendMenuIcon(IDSVNLC_CREATEPATCH, IDS_MENUCREATEPATCH, IDI_CREATEPATCH);
                     }
                 }
@@ -4065,6 +4067,24 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     targetList.WriteToFile(sTempFile, false);
                     CString sCmd;
                     sCmd.Format(L"/command:repostatus /pathfile:\"%s\" /deletepathfile", (LPCTSTR)sTempFile);
+
+                    CAppUtils::RunTortoiseProc(sCmd);
+                }
+                break;
+            case IDSVNLC_SHELVE:
+                {
+                    CTSVNPathList targetList;
+                    FillListOfSelectedItemPaths(targetList);
+                    if (targetList.GetCount()==0)
+                        targetList.AddPath(filepath);
+                    CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
+                    targetList.WriteToFile(sTempFile, false);
+                    CString sCmd;
+                    sCmd.Format(L"/command:shelve /pathfile:\"%s\" /deletepathfile /noui", (LPCTSTR)sTempFile);
+                    if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                    {
+                        sCmd += L" /showoptions";
+                    }
 
                     CAppUtils::RunTortoiseProc(sCmd);
                 }
