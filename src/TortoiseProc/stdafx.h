@@ -38,6 +38,8 @@
 #include <atlbase.h>
 
 #pragma warning(push)
+// allow use of experimental svn functions (such as shelving)
+#define SVN_EXPERIMENTAL
 #include "apr_general.h"
 #include "svn_pools.h"
 #include "svn_client.h"
