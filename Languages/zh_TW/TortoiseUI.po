@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-14 02:02+0000\n"
+"PO-Revision-Date: 2017-11-17 01:34+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -885,7 +885,7 @@ msgstr "隱藏忽略的項目(&H)"
 
 #. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
 msgid "&Hide/Show the patch file list"
-msgstr ""
+msgstr "隱藏/顯示修補檔清單 (&H)"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -1040,6 +1040,10 @@ msgstr "修改主幹複本的顏色(&M)"
 msgid "&Moved blocks"
 msgstr "已移動的區塊(&M)"
 
+#. Resource IDs: (1672)
+msgid "&Name"
+msgstr ""
+
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
 msgstr "導覽(&N)"
@@ -1109,12 +1113,13 @@ msgstr "數值(&N)"
 #. IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER:
 #. Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control
 #. id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION:
-#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog
-#. IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog
-#. IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog
-#. IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog
-#. IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF:
-#. Control id 1, IDS_MSGBOX_OK)
+#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SHELVE:
+#. Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH:
+#. Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH:
+#. Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK:
+#. Control id 1, Dialog IDD_UNSHELVE: Control id 1, Dialog IDD_UPDATE: Control
+#. id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1,
+#. IDS_MSGBOX_OK)
 msgid "&OK"
 msgstr "確定(&O)"
 
@@ -1888,7 +1893,7 @@ msgstr "放棄"
 
 #. Resource IDs: (cmdAbout_LabelTitle_RESID)
 msgid "Abou&t TortoiseMerge"
-msgstr ""
+msgstr "關於 TortoiseMerge (&T)"
 
 #. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
@@ -2451,6 +2456,10 @@ msgstr "分支/標籤(&T)..."
 #. Resource IDs: (IDS_MENU_UNLOCKFORCE)
 msgid "Break loc&k"
 msgstr "破壞鎖定(&K)"
+
+#. Resource IDs: (IDS_MENUDESCUNSHELVE)
+msgid "Brings a shelved change back to the working copy"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1069)
 msgid "Browse..."
@@ -3166,7 +3175,7 @@ msgstr "設定 &TortoiseSVN 不使用資源回收筒"
 
 #. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
 msgid "Configure Filter Regex"
-msgstr ""
+msgstr "設定過濾器正規表示式 "
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
@@ -3536,7 +3545,7 @@ msgstr "建立資料庫(&L)"
 
 #. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
 msgid "Create &patch file"
-msgstr ""
+msgstr "產生補綴檔 (&P)"
 
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
@@ -4688,7 +4697,7 @@ msgstr "正在取得 %1!ls! 的狀態"
 
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
 msgid "Fetching tree conflict information..."
-msgstr ""
+msgstr "擷取目錄樹衝突資訊..."
 
 #. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
@@ -5161,8 +5170,9 @@ msgstr "檔頭"
 #. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
 #. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
-#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
-#. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
+#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SHELVE: Control
+#. id 9, Dialog IDD_SWITCH: Control id 9, Dialog IDD_UNLOCK: Control id 9,
+#. Dialog IDD_UNSHELVE: Control id 9, Dialog IDD_URLDIFF: Control id 9,
 #. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "說明"
@@ -5609,7 +5619,7 @@ msgstr "忽略變更\n忽略外部的變更"
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
-msgstr ""
+msgstr "忽略註解變更\n忽略註解"
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -5626,7 +5636,7 @@ msgstr "(建議)忽略換行(&E)"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
 msgid "Ignore multiple items by &extension"
-msgstr ""
+msgstr "依副檔名忽略多個項目 (&E)"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
@@ -6811,7 +6821,7 @@ msgstr "從上次送交以來沒有變更或加\n入任何檔案. TortoiseSVN �
 
 #. Resource IDs: (33002)
 msgid "No filter"
-msgstr ""
+msgstr "無過濾條件"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
@@ -7562,7 +7572,7 @@ msgstr "屬性狀態:"
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
 msgid "Property diff:\n"
-msgstr ""
+msgstr "屬性差異比對:\n"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -7603,6 +7613,10 @@ msgstr "Proxy 設定"
 #. Resource IDs: (Dialog IDD_SETTINGSLOOKANDFEEL: Control id 1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "有設定 svn:needs-lock 屬性時, 將「取得鎖定」放在上層選單"
+
+#. Resource IDs: (IDS_MENUDESCSHELVE)
+msgid "Puts all changes you made onto a shelf"
+msgstr ""
 
 #. Resource IDs: (cmdExit)
 msgid ""
@@ -7710,7 +7724,7 @@ msgstr "回復自動儲存的文件\n開啟自動儲存的文件, 不使用手�
 msgid ""
 "Recur&sive\n"
 "Remove the property also from items in Subfolders."
-msgstr ""
+msgstr "遞迴 (&S)\n從子資料夾中的項目上刪除屬性. "
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1260)
 msgid "Recurse into unversioned folders"
@@ -8426,7 +8440,7 @@ msgstr "儲存"
 
 #. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
 msgid "Save &as"
-msgstr ""
+msgstr "另存新檔(&A)"
 
 #. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
@@ -8628,7 +8642,8 @@ msgstr "全選(&A)"
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
-#. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
+#. IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog
+#. IDD_UNLOCK: Control id 1067, Dialog IDD_UNSHELVE: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "全選 / 全不選(&A)"
 
@@ -8818,6 +8833,14 @@ msgstr "檔案總管"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "重新建立圖示快取!"
 
+#. Resource IDs: (205)
+msgid "Shelve"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUSHELVE)
+msgid "Shelve..."
+msgstr ""
+
 #. Resource IDs: (32822)
 msgid ""
 "Shift trees to the top of the window. Alignment to other trees will be lost."
@@ -8894,7 +8917,8 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "僅在檔案總管中顯示圖示覆蓋與快顯式選單(&O)"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog
-#. IDD_CREATEPATCH: Control id 1073)
+#. IDD_CREATEPATCH: Control id 1073, Dialog IDD_SHELVE: Control id 1073,
+#. Dialog IDD_UNSHELVE: Control id 1073)
 msgid "Show &unversioned files"
 msgstr "顯示未纳入版本控制的檔案(&U)"
 
@@ -10514,6 +10538,14 @@ msgstr "屬性檔案格式無法辨識或錯誤！"
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)
 msgid "Unresolved conflicts!"
 msgstr "已解決的衝突！"
+
+#. Resource IDs: (206)
+msgid "Unshelve"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUUNSHELVE)
+msgid "Unshelve..."
+msgstr ""
 
 #. Resource IDs: (61443)
 msgid "Untitled"

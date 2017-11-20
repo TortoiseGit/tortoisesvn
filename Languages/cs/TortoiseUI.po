@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-14 02:02+0000\n"
+"PO-Revision-Date: 2017-11-17 01:34+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -376,7 +376,7 @@ msgstr "O&bvinit změny"
 
 #. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
 msgid "&Blame changes in revisions"
-msgstr ""
+msgstr "O&bvinit změny v revizích"
 
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
@@ -701,7 +701,7 @@ msgstr "&Již se neptat"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "&Nespouštět\nNespouštět skript"
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -876,7 +876,7 @@ msgstr "&Skrýt ignorované položky"
 
 #. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
 msgid "&Hide/Show the patch file list"
-msgstr ""
+msgstr "&Skrýt/Zobrazit seznam záplatových souborů"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -1031,6 +1031,10 @@ msgstr "Z&měnit barvu pro kopii značky kmene"
 msgid "&Moved blocks"
 msgstr "&Přesunuté bloky"
 
+#. Resource IDs: (1672)
+msgid "&Name"
+msgstr ""
+
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
 msgstr "&Navigovat"
@@ -1100,12 +1104,13 @@ msgstr "Čísel&ný"
 #. IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER:
 #. Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control
 #. id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION:
-#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog
-#. IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog
-#. IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog
-#. IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog
-#. IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF:
-#. Control id 1, IDS_MSGBOX_OK)
+#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SHELVE:
+#. Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH:
+#. Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH:
+#. Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK:
+#. Control id 1, Dialog IDD_UNSHELVE: Control id 1, Dialog IDD_UPDATE: Control
+#. id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1,
+#. IDS_MSGBOX_OK)
 msgid "&OK"
 msgstr "&OK"
 
@@ -1146,19 +1151,19 @@ msgstr "&Překryvné obrázky\t(O)"
 msgid ""
 "&Overwrite\n"
 "Replace the target folder."
-msgstr ""
+msgstr "&Přepsat\nNahradit cílový adresář."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file gets replaced"
-msgstr ""
+msgstr "&Přepsat\nCílový soubor bude nahrazen"
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file is replaced."
-msgstr ""
+msgstr "&Přepsat\nCílový soubor je nahrazen."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
@@ -1206,23 +1211,23 @@ msgstr "&Tisk..."
 msgid ""
 "&Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr ""
+msgstr "&Přesto pokračovat\nIgnorovat hákový skript a spustit příkaz."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
 msgid ""
 "&Proceed with the entered path\n"
 "I'm aware of the possible problems."
-msgstr ""
+msgstr "&Pokračovat se zadanou cestou\nJsem si vědom možných problémů."
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
 msgid "&Proceed with the merge."
-msgstr ""
+msgstr "&Pokračovat ve sloučení."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
 msgid ""
 "&Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr ""
+msgstr "&Pokračovat bez čísla problému\nK odevzdání nebude přiřazen problém."
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1250,7 +1255,7 @@ msgstr "&Obnovit"
 msgid ""
 "&Reject the certificate\n"
 "Cancel the connection."
-msgstr ""
+msgstr "&Odmítnout certifikát\nZruší připojení."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
 msgid ""
@@ -2442,6 +2447,10 @@ msgstr "Vě&tev/značka..."
 #. Resource IDs: (IDS_MENU_UNLOCKFORCE)
 msgid "Break loc&k"
 msgstr "Rozbít záme&k"
+
+#. Resource IDs: (IDS_MENUDESCUNSHELVE)
+msgid "Brings a shelved change back to the working copy"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1069)
 msgid "Browse..."
@@ -5152,8 +5161,9 @@ msgstr "Hlavička"
 #. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
 #. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
-#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
-#. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
+#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SHELVE: Control
+#. id 9, Dialog IDD_SWITCH: Control id 9, Dialog IDD_UNLOCK: Control id 9,
+#. Dialog IDD_UNSHELVE: Control id 9, Dialog IDD_URLDIFF: Control id 9,
 #. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "Nápověda"
@@ -7595,6 +7605,10 @@ msgstr "Nastavení proxy"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Dát \"Uzamknout\" do horního menu, když je nastaveno svn:needs-lock"
 
+#. Resource IDs: (IDS_MENUDESCSHELVE)
+msgid "Puts all changes you made onto a shelf"
+msgstr ""
+
 #. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
@@ -8619,7 +8633,8 @@ msgstr "&Vybrat vše"
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
-#. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
+#. IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog
+#. IDD_UNLOCK: Control id 1067, Dialog IDD_UNSHELVE: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "&Označit / Zrušit označení všeho"
 
@@ -8809,6 +8824,14 @@ msgstr "Rozhraní"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Úschova ikon rozhraní byla znovu vytvořena!"
 
+#. Resource IDs: (205)
+msgid "Shelve"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUSHELVE)
+msgid "Shelve..."
+msgstr ""
+
 #. Resource IDs: (32822)
 msgid ""
 "Shift trees to the top of the window. Alignment to other trees will be lost."
@@ -8885,7 +8908,8 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "&Zobrazovat překryvy a kontextové menu pouze v průzkumníku Windows"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog
-#. IDD_CREATEPATCH: Control id 1073)
+#. IDD_CREATEPATCH: Control id 1073, Dialog IDD_SHELVE: Control id 1073,
+#. Dialog IDD_UNSHELVE: Control id 1073)
 msgid "Show &unversioned files"
 msgstr "&Ukázat soubory bez verze"
 
@@ -10505,6 +10529,14 @@ msgstr "Nerozeznán, nebo nesprávný formát souboru!"
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)
 msgid "Unresolved conflicts!"
 msgstr "Nevyřešené konflikty!"
+
+#. Resource IDs: (206)
+msgid "Unshelve"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUUNSHELVE)
+msgid "Unshelve..."
+msgstr ""
 
 #. Resource IDs: (61443)
 msgid "Untitled"

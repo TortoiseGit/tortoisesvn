@@ -14,6 +14,7 @@
 # Alexander Stulnikov <alarstyle@gmail.com>, 2015
 # ktretyak <ktretyak.in.ua@gmail.com>, 2013
 # Max Lyashuk <m_lyashuk@ukr.net>, 2013
+# Vitaliy Grabchuk <vitaliygrabchuk@gmail.com>, 2017
 # Vitaliy Katerusha <vitali_kat@hotmail.com>, 2011
 # Віктор Лелейко <victor.leleyko@gmail.com>, 2013
 msgid ""
@@ -21,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-14 02:02+0000\n"
+"PO-Revision-Date: 2017-11-17 01:34+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/luebbe/tortoisesvn/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -143,21 +144,21 @@ msgstr "%1!ls!\\%2!ls! - Експорт (%3!d!)"
 msgid ""
 "%1!ls!\r\n"
 "Revision %2!ls!, Author %3!ls!, Date %4!ls!"
-msgstr ""
+msgstr "%1!ls!\r\nМодифікація %2!ls!, Автор %3!ls!, Дата %4!ls!"
 
 #. Resource IDs: (IDS_REPOBROWSE_INFOFILE)
 #, c-format
 msgid ""
 "%1!ls!\r\n"
 "Revision %2!ls!, Author %3!ls!, Size %4!ls!, Date %5!ls!"
-msgstr ""
+msgstr "%1!ls!\r\nМодифікація %2!ls!, Автор %3!ls!, Розмір %4!ls!, Дата %5!ls!"
 
 #. Resource IDs: (IDS_REPOBROWSE_INFO)
 #, c-format
 msgid ""
 "%1!ls!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
-msgstr ""
+msgstr "%1!ls!\r\nВідображено %2!d! файлів та %3!d! папок, %4!d! разом"
 
 #. Resource IDs: (61744)
 #, c-format
@@ -237,7 +238,7 @@ msgstr "%ls (не в мережі)"
 #. Resource IDs: (IDS_MENUIGNOREGLOBAL)
 #, c-format
 msgid "%ls (recursively)"
-msgstr ""
+msgstr "%ls (рекурсивно)"
 
 #. Resource IDs: (IDS_DIFF_MERGEDNAME)
 #, c-format
@@ -570,7 +571,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUCLEANUP)
 msgid "&Clean up..."
-msgstr ""
+msgstr "&Очистити..."
 
 #. Resource IDs: (Dialog IDD_REVERT: Control id 1562)
 msgid "&Clear Changelists"
@@ -664,7 +665,7 @@ msgstr "Зни&щити (залишити локально)"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1507)
 msgid "&Delete Filter"
-msgstr ""
+msgstr "Видалити фільтр"
 
 #. Resource IDs: (Dialog IDD_REVERT: Control id 1514)
 msgid "&Delete unversioned items..."
@@ -735,7 +736,7 @@ msgstr "&Редагувати..."
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 1542)
 msgid "&Empty the recycle bin now"
-msgstr ""
+msgstr "Очистити корзину"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1023)
 msgid "&Enable Proxy Server"
@@ -795,7 +796,7 @@ msgstr "&Знайти"
 
 #. Resource IDs: (ID_EDIT_FIND - Menu)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "&Пошук...\t(Ctrl+F)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
@@ -837,7 +838,7 @@ msgstr "&Від: (початковий URL і модифікація діапа�
 
 #. Resource IDs: (ID_EDIT_GOTOLINE - Menu)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr ""
+msgstr "Перейти до рядка...\t(Ctrl+G)"
 
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
@@ -1034,6 +1035,10 @@ msgstr "З&мінювати колір для копій стовбура"
 msgid "&Moved blocks"
 msgstr ""
 
+#. Resource IDs: (1672)
+msgid "&Name"
+msgstr ""
+
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
 msgstr "&Навігація"
@@ -1103,12 +1108,13 @@ msgstr ""
 #. IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER:
 #. Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control
 #. id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION:
-#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog
-#. IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog
-#. IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog
-#. IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog
-#. IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF:
-#. Control id 1, IDS_MSGBOX_OK)
+#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SHELVE:
+#. Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH:
+#. Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH:
+#. Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK:
+#. Control id 1, Dialog IDD_UNSHELVE: Control id 1, Dialog IDD_UPDATE: Control
+#. id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1,
+#. IDS_MSGBOX_OK)
 msgid "&OK"
 msgstr "&Гаразд"
 
@@ -1279,7 +1285,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
-msgstr ""
+msgstr "Видалити Проект"
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK3)
 msgid ""
@@ -1559,15 +1565,15 @@ msgstr "&Оновити"
 
 #. Resource IDs: (ID_POPUP_UPDATEALL - Menu)
 msgid "&Update all"
-msgstr ""
+msgstr "Оновити все"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATE)
 msgid "&Update item to revision"
-msgstr ""
+msgstr "&Оновити до модифікації"
 
 #. Resource IDs: (IDS_LOG_POPUP_UPDATEREV)
 msgid "&Update item to revision..."
-msgstr ""
+msgstr "&Оновити до модифікації..."
 
 #. Resource IDs: (IDS_MENUUPDATEEXT)
 msgid "&Update to revision..."
@@ -1822,7 +1828,7 @@ msgstr "Список визначених користувачем власти�
 msgid ""
 "A newer version is available.\r\n"
 "Please go to https://tortoisesvn.net and download the current version."
-msgstr ""
+msgstr "Доступне оновлення.\nВідвідайте https://tortoisesvn.net для завантаження."
 
 #. Resource IDs: (IDS_SETTINGS_INCLUDELIST_TT)
 msgid ""
@@ -1981,7 +1987,7 @@ msgstr ""
 #. Resource IDs: (IDS_DROPDESC_ADD)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "Додати до %1"
 
 #. Resource IDs: (IDS_MENUIGNORE)
 msgid "Add to &ignore list"
@@ -2445,6 +2451,10 @@ msgstr "Гілка/&зріз"
 #. Resource IDs: (IDS_MENU_UNLOCKFORCE)
 msgid "Break loc&k"
 msgstr "Скасувати бло&кування"
+
+#. Resource IDs: (IDS_MENUDESCUNSHELVE)
+msgid "Brings a shelved change back to the working copy"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1069)
 msgid "Browse..."
@@ -3329,7 +3339,7 @@ msgstr "Копіює виділене та кладе його до буфера
 #. Resource IDs: (IDS_DROPDESC_COPY)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "Копіювати до %1"
 
 #. Resource IDs: (IDS_LOG_POPUP_COPYTOCLIPBOARD)
 msgid "Copy to clipboard"
@@ -3530,7 +3540,7 @@ msgstr ""
 
 #. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
 msgid "Create &patch file"
-msgstr ""
+msgstr "Створити латку"
 
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
@@ -3554,7 +3564,7 @@ msgstr "Створити у сховищі копію з:"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1562)
 msgid "Create intermediate folders"
-msgstr ""
+msgstr "Створити проміжні каталоги"
 
 #. Resource IDs: (IDS_INPUT_MKDIR)
 #, c-format
@@ -3565,7 +3575,7 @@ msgstr "Створити новий каталог:\r\n%ls"
 
 #. Resource IDs: (ID_EDIT_CREATEUNIFIEDDIFFFILE - Menu)
 msgid "Create patch file"
-msgstr ""
+msgstr "Створити латку"
 
 #. Resource IDs: (IDS_MENUCREATEREPOS)
 msgid "Create repositor&y here"
@@ -3646,7 +3656,7 @@ msgstr "Дата"
 
 #. Resource IDs: (IDS_LOG_FILTER_DATERANGE)
 msgid "Date Range"
-msgstr ""
+msgstr "Діапазон дат"
 
 #. Resource IDs: (ID_EDIT_DEFAULT - Menu)
 msgid "Default"
@@ -3803,7 +3813,7 @@ msgstr "Розміри та розташування діалогів"
 
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
-msgstr ""
+msgstr "Відмінності"
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
 msgid "Diff &Options"
@@ -4834,7 +4844,7 @@ msgstr "Фільтрувати шляхи"
 
 #. Resource IDs: (Dialog IDD_HISTORYDLG: Control id 1644)
 msgid "Filter:"
-msgstr ""
+msgstr "Фільтр:"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Filtered"
@@ -5155,8 +5165,9 @@ msgstr "Заголовок"
 #. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
 #. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
-#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
-#. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
+#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SHELVE: Control
+#. id 9, Dialog IDD_SWITCH: Control id 9, Dialog IDD_UNLOCK: Control id 9,
+#. Dialog IDD_UNSHELVE: Control id 9, Dialog IDD_URLDIFF: Control id 9,
 #. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "Довідка"
@@ -6837,7 +6848,7 @@ msgstr "Тезаурус припущень не має"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Node Status:"
-msgstr ""
+msgstr "Стан Вузла:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Node colors"
@@ -7207,11 +7218,11 @@ msgstr "Параметри:"
 
 #. Resource IDs: (Dialog IDD_PASSWORD: Control id 370)
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #. Resource IDs: (IDS_WARN_SYNCPWWRONG_TASK2)
 msgid "Password is wrong"
-msgstr ""
+msgstr "Пароль не вірний"
 
 #. Resource IDs: (IDS_SETTINGSCLEAR_COL4)
 msgid "Password/phrase"
@@ -7483,7 +7494,7 @@ msgstr "Прогрес"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Project"
-msgstr ""
+msgstr "Проект"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 226, Dialog
 #. IDD_PROPERTIES: Control id 177, IDS_MENUPROPERTIES)
@@ -7597,6 +7608,10 @@ msgstr "Налаштування проксі"
 #. Resource IDs: (Dialog IDD_SETTINGSLOOKANDFEEL: Control id 1338)
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Поставити \"Отримати блокування\" у верхнє меню, коли задано svn:needs-lock"
+
+#. Resource IDs: (IDS_MENUDESCSHELVE)
+msgid "Puts all changes you made onto a shelf"
+msgstr ""
 
 #. Resource IDs: (cmdExit)
 msgid ""
@@ -7861,7 +7876,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_STATUSLIST_COLREMOTEPROPSTATUS)
 msgid "Remote property status"
-msgstr "Статус віддаленої властивоссті"
+msgstr "Статус віддаленої властивості"
 
 #. Resource IDs: (IDS_STATUSLIST_COLREMOTEREVISION)
 msgid "Remote revision"
@@ -7892,15 +7907,15 @@ msgstr "Видалити %ls"
 
 #. Resource IDs: (IDS_REPOBROWSE_REMOVEBOOKMARK)
 msgid "Remove Bookmark"
-msgstr ""
+msgstr "Видалити Закладку"
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK1)
 msgid "Remove Project"
-msgstr ""
+msgstr "Видалити Проект"
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CLEARAUTH: Control id 348)
 msgid "Remove Saved Authentication Data"
-msgstr ""
+msgstr "Видалити збережені паролі"
 
 #. Resource IDs: (IDS_MENUUNIGNORE)
 msgid "Remove from &ignore list"
@@ -8025,7 +8040,7 @@ msgstr "Повторити останню дію\nПоторити"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1512)
 msgid "Replace &All"
-msgstr ""
+msgstr "Замінити все"
 
 #. Resource IDs: (57641)
 msgid ""
@@ -8035,11 +8050,11 @@ msgstr "Замінити певний текст іншим текстом\nЗа
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 65535)
 msgid "Replace with:"
-msgstr ""
+msgstr "Замінити на:"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTER: Control id 65535)
 msgid "Replace:"
-msgstr ""
+msgstr "Замінити:"
 
 #. Resource IDs: (IDS_FIND_REPLACED)
 #, c-format
@@ -8622,7 +8637,8 @@ msgstr "Вибрати &все"
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
-#. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
+#. IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog
+#. IDD_UNLOCK: Control id 1067, Dialog IDD_UNSHELVE: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "Виділити / сказувати виділення з &усього"
 
@@ -8801,7 +8817,7 @@ msgstr "Налаштування - TortoiseSVN"
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK1)
 msgid "Shall I update the working copy and retry?"
-msgstr ""
+msgstr "Оновити робочу копію і повторити?"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1270,
 #. IDS_STATUSLIST_CONTEXT_SHELL)
@@ -8811,6 +8827,14 @@ msgstr "Оболонка"
 #. Resource IDs: (IDS_PROC_ICONCACHEREBUILT)
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Кеш піктограм оболонки перебудовано!"
+
+#. Resource IDs: (205)
+msgid "Shelve"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUSHELVE)
+msgid "Shelve..."
+msgstr ""
 
 #. Resource IDs: (32822)
 msgid ""
@@ -8888,7 +8912,8 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "Показувати пе&рекриття та контекстні меню тільки у провіднику"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog
-#. IDD_CREATEPATCH: Control id 1073)
+#. IDD_CREATEPATCH: Control id 1073, Dialog IDD_SHELVE: Control id 1073,
+#. Dialog IDD_UNSHELVE: Control id 1073)
 msgid "Show &unversioned files"
 msgstr "Показувати &неверсійні файли"
 
@@ -9156,7 +9181,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SVNACTION_ACCESSDENIED)
 msgid "Skipped, access denied"
-msgstr ""
+msgstr "Пропущено, доступ заборонений"
 
 #. Resource IDs: (IDS_SVNACTION_SKIPNOPARENT)
 msgid "Skipped, no versioned parent"
@@ -9280,7 +9305,7 @@ msgstr "Зачіпка початку оновлення"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAYHANDLERS: Control id 1542)
 msgid "Start registry editor"
-msgstr ""
+msgstr "Відкрити редактор реєстру"
 
 #. Resource IDs: (Dialog IDD_MONITOROPTIONS: Control id 1562)
 msgid "Start with &Windows"
@@ -9306,7 +9331,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_STATE)
 msgid "State"
-msgstr ""
+msgstr "Стан"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 179, IDS_STATGRAPH_STATS)
 msgid "Statistics"
@@ -9319,7 +9344,7 @@ msgstr "Стан"
 
 #. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
-msgstr ""
+msgstr "Рядок стану"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
@@ -9438,7 +9463,7 @@ msgstr "Subversion доповіло про помилку під час ство
 
 #. Resource IDs: (IDS_SVNREPORTEDANERROR)
 msgid "Subversion reported an error:"
-msgstr ""
+msgstr "Subversion повернув помилку:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "Subversion server file:"
@@ -9459,7 +9484,7 @@ msgstr "Перемкнути"
 #. Resource IDs: (IDS_PROGRS_CMD_SWITCH)
 #, c-format
 msgid "Switch %1!ls! to %2!ls!, Revision %3!ls!"
-msgstr ""
+msgstr "Перемкнути %1!ls! на %2!ls!, Модифікація %3!ls!"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 1377)
 msgid "Switch Depth"
@@ -9482,7 +9507,7 @@ msgstr "Повернутися на панель попереднього вік
 #. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
 #. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
-msgstr ""
+msgstr "Переключитися між одно та двопанельним поданням"
 
 #. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
@@ -9572,7 +9597,7 @@ msgstr "Вузли зрізів"
 
 #. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK2)
 msgid "Target folder is not empty"
-msgstr ""
+msgstr "Цільовий каталог не порожній"
 
 #. Resource IDs: (IDS_PROC_TASKS)
 msgid "Tasks"
@@ -10508,6 +10533,14 @@ msgstr "Нерозпізнаний або недопустимий формат 
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)
 msgid "Unresolved conflicts!"
 msgstr "Невирішені конфлікти!"
+
+#. Resource IDs: (206)
+msgid "Unshelve"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUUNSHELVE)
+msgid "Unshelve..."
+msgstr ""
 
 #. Resource IDs: (61443)
 msgid "Untitled"

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-14 02:02+0000\n"
+"PO-Revision-Date: 2017-11-17 01:34+0000\n"
 "Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/luebbe/tortoisesvn/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -1032,6 +1032,10 @@ msgstr "&Izmijeni boju za glavne grane (trunk)"
 msgid "&Moved blocks"
 msgstr "Pre&mješteni blokovi"
 
+#. Resource IDs: (1672)
+msgid "&Name"
+msgstr ""
+
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
 msgstr "&Navigacija"
@@ -1101,12 +1105,13 @@ msgstr "Brojča&no"
 #. IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER:
 #. Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control
 #. id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION:
-#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog
-#. IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog
-#. IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog
-#. IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog
-#. IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF:
-#. Control id 1, IDS_MSGBOX_OK)
+#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SHELVE:
+#. Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH:
+#. Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH:
+#. Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK:
+#. Control id 1, Dialog IDD_UNSHELVE: Control id 1, Dialog IDD_UPDATE: Control
+#. id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1,
+#. IDS_MSGBOX_OK)
 msgid "&OK"
 msgstr "&U redu"
 
@@ -2443,6 +2448,10 @@ msgstr "Grana/&oznaka..."
 #. Resource IDs: (IDS_MENU_UNLOCKFORCE)
 msgid "Break loc&k"
 msgstr "Ukloni lo&kot"
+
+#. Resource IDs: (IDS_MENUDESCUNSHELVE)
+msgid "Brings a shelved change back to the working copy"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1069)
 msgid "Browse..."
@@ -5153,8 +5162,9 @@ msgstr "Zaglavlje"
 #. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
 #. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
-#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
-#. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
+#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SHELVE: Control
+#. id 9, Dialog IDD_SWITCH: Control id 9, Dialog IDD_UNLOCK: Control id 9,
+#. Dialog IDD_UNSHELVE: Control id 9, Dialog IDD_URLDIFF: Control id 9,
 #. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "Pomoć"
@@ -7596,6 +7606,10 @@ msgstr "Postavke zamjenskog poslužitelja"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Pokaži \"Zaključaj\" na glavnom izborniku kad je postavljeno svojstvo svn:needs-lock"
 
+#. Resource IDs: (IDS_MENUDESCSHELVE)
+msgid "Puts all changes you made onto a shelf"
+msgstr ""
+
 #. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
@@ -8620,7 +8634,8 @@ msgstr "Označi &sve"
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
-#. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
+#. IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog
+#. IDD_UNLOCK: Control id 1067, Dialog IDD_UNSHELVE: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "Označi / ukloni &sve oznake"
 
@@ -8810,6 +8825,14 @@ msgstr "Ljuska"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Spremnik ikona ljuske je ponovo izgrađen!"
 
+#. Resource IDs: (205)
+msgid "Shelve"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUSHELVE)
+msgid "Shelve..."
+msgstr ""
+
 #. Resource IDs: (32822)
 msgid ""
 "Shift trees to the top of the window. Alignment to other trees will be lost."
@@ -8886,7 +8909,8 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "Prikaži p&reklapanja i skočni izbornik samo u exploreru"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog
-#. IDD_CREATEPATCH: Control id 1073)
+#. IDD_CREATEPATCH: Control id 1073, Dialog IDD_SHELVE: Control id 1073,
+#. Dialog IDD_UNSHELVE: Control id 1073)
 msgid "Show &unversioned files"
 msgstr "Prikaži datoteke bez &verzija"
 
@@ -10506,6 +10530,14 @@ msgstr "Pogrešan ili nepoznat format datoteke svojstava!"
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)
 msgid "Unresolved conflicts!"
 msgstr "Nerazriješeni konflikti!"
+
+#. Resource IDs: (206)
+msgid "Unshelve"
+msgstr ""
+
+#. Resource IDs: (IDS_MENUUNSHELVE)
+msgid "Unshelve..."
+msgstr ""
 
 #. Resource IDs: (61443)
 msgid "Untitled"

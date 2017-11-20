@@ -29,7 +29,7 @@
 # Matheus Macabu <mkbu95@gmail.com>, 2013
 # Michel K <michel.apt1@gmail.com>, 2015
 # Paulo Pires <paulo.albert.pires@gmail.com>, 2015
-# Rafael Heise <rmheise@gmail.com>, 2011-2015
+# Rafael Heise <rmheise@gmail.com>, 2011-2015,2017
 # Ricardo Souza (RCDMK) <rcdmk@hotmail.com>, 2012
 # Rodrigo Monte <rodrigo.monte86@gmail.com>, 2014
 msgid ""
@@ -37,8 +37,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-14 02:02+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2017-11-17 11:43+0000\n"
+"Last-Translator: Rafael Heise <rmheise@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/luebbe/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -316,7 +316,7 @@ msgstr "%ls\né um diretório, não um arquivo!\nO TortoiseMerge não pode difer
 msgid ""
 "&Abort\n"
 "You can fix the reason the hook script failed first."
-msgstr ""
+msgstr "&Abortar\nVocê precisa corrigir a falha do script primeiro."
 
 #. Resource IDs: (ID_APP_ABOUT - Menu)
 msgid "&About TortoiseMerge..."
@@ -326,7 +326,7 @@ msgstr "&Sobre o TortoiseMerge..."
 msgid ""
 "&Accept the certificate\n"
 "The certificate is accepted only this one time."
-msgstr ""
+msgstr "&Aceitar o certificado\nO certificado é confirmado apenas uma vez."
 
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
@@ -340,7 +340,7 @@ msgstr "&Adicionar Filtro"
 msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
-msgstr ""
+msgstr "&Adicionar item\nIsto poderá gerar problemas no Windows."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1098, IDS_MENUADD)
 msgid "&Add..."
@@ -395,7 +395,7 @@ msgstr "&Ver autor das mudanças"
 
 #. Resource IDs: (IDS_LOG_POPUP_BLAMEREVS)
 msgid "&Blame changes in revisions"
-msgstr ""
+msgstr "Autoria das mudanças nas revisões"
 
 #. Resource IDs: (ID_BLAME_PREVIOUS_REVISION - Menu)
 msgid "&Blame previous revision"
@@ -419,7 +419,7 @@ msgstr "&Ramos"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
 msgid "&Break write locks"
-msgstr ""
+msgstr "Remover bloqueios de escrita"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -448,133 +448,133 @@ msgstr "&Cancelar"
 msgid ""
 "&Cancel\n"
 "Choose a different folder to export to"
-msgstr ""
+msgstr "&Cancelar\nEscolha um diretório diferente para exportar"
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not commit to a tag."
-msgstr ""
+msgstr "&Cancelar\nNão enviar para a tag."
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not remove"
-msgstr ""
+msgstr "&Cancelar\nNão remover"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not revert."
-msgstr ""
+msgstr "&Cancelar\nNão reverter."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not update the working copy."
-msgstr ""
+msgstr "&Cancelar\nNão atualizar cópia de trabalho."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't resolve the item."
-msgstr ""
+msgstr "&Cancelar\nNão resolver o item."
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "&Cancelar\nNão mostrar as diferenças."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and enter an issue number."
-msgstr ""
+msgstr "&Cancelar\nVoltar e informar o número da ocorrência."
 
 #. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and select a different folder."
-msgstr ""
+msgstr "&Cancelar\nVoltar e selecionar um diretório diferente."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
 msgid ""
 "&Cancel\n"
 "I will enter a different path/URL."
-msgstr ""
+msgstr "&Cancelar\nVou informar um caminho/URL diferente."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
 msgid ""
 "&Cancel\n"
 "Keep the current URL."
-msgstr ""
+msgstr "&Cancelar\nManter a URL atual."
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
 msgid ""
 "&Cancel\n"
 "Leave the cache on disk."
-msgstr ""
+msgstr "&Cancelar\nDeixar o cachê no disco."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
 msgid ""
 "&Cancel\n"
 "Local modifications are kept."
-msgstr ""
+msgstr "&Cancelar\nManter alterações locais."
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
 msgid ""
 "&Cancel\n"
 "The conflict is not resolved."
-msgstr ""
+msgstr "&Cancelar\nO conflito não foi resolvido."
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "The file is not copied."
-msgstr ""
+msgstr "&Cancelar\nO arquivo não foi copiado."
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
 msgid ""
 "&Cancel\n"
 "The folder is not exported."
-msgstr ""
+msgstr "&Cancelar\nO diretório não foi exportado."
 
 #. Resource IDs: (IDS_REPOBROWSE_MULTIIMPORT_TASK4)
 msgid ""
 "&Cancel\n"
 "The items are not imported."
-msgstr ""
+msgstr "&Cancelar\nOs itens não foram importados."
 
 #. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)
 msgid ""
 "&Cancel\n"
 "The tagged revision of the external is left as is."
-msgstr ""
+msgstr "&Cancelar\nA revisão marcada de uma referência externa será mantida."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK4)
 msgid ""
 "&Cancel\n"
 "The target file is left as is"
-msgstr ""
+msgstr "&Cancelar\nO arquivo destino foi mantido"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to add the folder manually."
-msgstr ""
+msgstr "&Cancelar\nVocê precisa adicionar o diretório manualmente."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr ""
+msgstr "&Cancelar\nVocê precisa executar uma atualização para obter as referências externas"
 
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
 msgid ""
 "&Cancel\n"
 "keep the current format."
-msgstr ""
+msgstr "&Cancelar\nManter formatação atual."
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
@@ -694,7 +694,7 @@ msgstr "E&xcluir..."
 msgid ""
 "&Delete\n"
 "Remove the cache files."
-msgstr ""
+msgstr "&Apagar\nRemover cachê de arquivos."
 
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
@@ -720,7 +720,7 @@ msgstr "&Não perguntar novamente"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "Não executar\nNão executar o script"
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -785,7 +785,7 @@ msgstr "&Exportar seleção para..."
 msgid ""
 "&Export\n"
 "Export into the non-empty folder."
-msgstr ""
+msgstr "&Exportar\nExportar para um diretório que não está vazio."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -895,7 +895,7 @@ msgstr "&Ocultar itens ignorados"
 
 #. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
 msgid "&Hide/Show the patch file list"
-msgstr ""
+msgstr "Ocultar/Mostrar o a lista de arquivos de correção"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -916,7 +916,7 @@ msgstr "&Ignorar e prosseguir"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
 msgid "&Ignore multiple items by name"
-msgstr ""
+msgstr "&Ignorar múltiplos itens por nome"
 
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
@@ -930,7 +930,7 @@ msgstr "&Importar..."
 msgid ""
 "&Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr ""
+msgstr "&Importar\nOs itens foram importados em uma nova revisão para cada um."
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1050,6 +1050,10 @@ msgstr "&Alterar cor das cópias de tronco"
 msgid "&Moved blocks"
 msgstr "Blocos &movidos"
 
+#. Resource IDs: (1672)
+msgid "&Name"
+msgstr "&Nome"
+
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
 msgstr "&Navegar"
@@ -1119,12 +1123,13 @@ msgstr "&Numérico"
 #. IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER:
 #. Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control
 #. id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION:
-#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog
-#. IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog
-#. IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog
-#. IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog
-#. IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF:
-#. Control id 1, IDS_MSGBOX_OK)
+#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SHELVE:
+#. Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH:
+#. Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH:
+#. Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK:
+#. Control id 1, Dialog IDD_UNSHELVE: Control id 1, Dialog IDD_UPDATE: Control
+#. id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1,
+#. IDS_MSGBOX_OK)
 msgid "&OK"
 msgstr "&OK"
 
@@ -1165,19 +1170,19 @@ msgstr "S&obreposição de imagens\t(O)"
 msgid ""
 "&Overwrite\n"
 "Replace the target folder."
-msgstr ""
+msgstr "S&obreescrever\nSubstituir o diretório de destino."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file gets replaced"
-msgstr ""
+msgstr "S&obreescrever\nO arquivo destino será sobreescrito"
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file is replaced."
-msgstr ""
+msgstr "S&obreescrever\nO arquivo destino será sobreescrito."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1411, Dialog
 #. IDD_SIMPLEPROMPT: Control id 65535)
@@ -1225,23 +1230,23 @@ msgstr "Im&primir..."
 msgid ""
 "&Proceed anyway\n"
 "Ignore the hook script and run the command anyway."
-msgstr ""
+msgstr "&Continuar desta forma\nIgnorar o script e executar o comando assim mesmo."
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK3)
 msgid ""
 "&Proceed with the entered path\n"
 "I'm aware of the possible problems."
-msgstr ""
+msgstr "Continuar com o caminho completo\nEstou ciente de possíveis problemas."
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
 msgid "&Proceed with the merge."
-msgstr ""
+msgstr "Continuar com a unificação."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
 msgid ""
 "&Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr ""
+msgstr "Continuar sem um número de ocorrência\nA submissão não será vinculada com nenhuma ocorrência."
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1269,13 +1274,13 @@ msgstr "&Atualizar"
 msgid ""
 "&Reject the certificate\n"
 "Cancel the connection."
-msgstr ""
+msgstr "&Rejeitar o certificado\nCancelar a conexão."
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
 msgid ""
 "&Relocate\n"
 "The working copy is relocated to the new URL."
-msgstr ""
+msgstr "&Realocar\nA cópia de trabalhar será realocada para o novo endereço."
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
@@ -1291,7 +1296,7 @@ msgstr "&Remover"
 msgid ""
 "&Remove from version control\n"
 "All .svn folders are removed"
-msgstr ""
+msgstr "&Remover do controle de versão\nTodos os diretórios .svn serão removidos"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
@@ -1301,13 +1306,13 @@ msgstr "&Remover projeto"
 msgid ""
 "&Remove\n"
 "Force the removal"
-msgstr ""
+msgstr "&Remover\nForçar a remoção"
 
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
 msgid ""
 "&Remove\n"
 "Remove the property only from this item."
-msgstr ""
+msgstr "&Remover\nRemover a propriedade somente deste item."
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK3)
 msgid ""
@@ -1324,7 +1329,7 @@ msgstr "&Renomear"
 msgid ""
 "&Rename\n"
 "The folder is exported as '%ls'."
-msgstr ""
+msgstr "&Renomear\nO diretório foi exportado como '%ls'."
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1338,7 +1343,7 @@ msgstr "Navegador de &repositório"
 msgid ""
 "&Resolve\n"
 "The item is marked as resolved."
-msgstr ""
+msgstr "&Resolver\nEste item foi identificado como resolvido."
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
@@ -1346,7 +1351,7 @@ msgstr "&Resetar para valores padrão"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
-msgstr ""
+msgstr "Tenta&r novamente com um usuário diferente"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1542,
 #. IDS_MSGBOX_RETRYWITHOUTHOOKS)
@@ -1369,7 +1374,7 @@ msgstr "&Reverter as alterações a partir desta revisão"
 msgid ""
 "&Revert\n"
 "Changes will be applied to the working copy."
-msgstr ""
+msgstr "&Reverter\nAs mudanças serão aplicadas na cópia de trabalho."
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
@@ -1385,7 +1390,7 @@ msgstr "&Revisão"
 msgid ""
 "&Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "Executa&r\nExecutar o script"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -1593,19 +1598,19 @@ msgstr "At&ualizar para revisão..."
 msgid ""
 "&Update\n"
 "Update the file and try locking again."
-msgstr ""
+msgstr "At&ualizar\nAtualizar o arquivo e tentar o bloqueio novamente."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
 msgid ""
 "&Update\n"
 "Update the working copy and reopen the commit dialog to try again."
-msgstr ""
+msgstr "At&ualizar\nAtualizar a cópia de trabalho e abrir novamente a janela de submissão para tentar novamente."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
 msgid ""
 "&Update\n"
 "Update to the HEAD revision"
-msgstr ""
+msgstr "At&ualizar\nAtualizar para a revisão principal"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1838,7 +1843,7 @@ msgstr "Uma lista de propriedades de pastas definidas pelo usuário a serem most
 msgid ""
 "A newer version is available.\r\n"
 "Please go to https://tortoisesvn.net and download the current version."
-msgstr ""
+msgstr "Uma nova versão está disponível\r\nPor favor acesse https://tortoisesvn.net e baixe a versão atual."
 
 #. Resource IDs: (IDS_SETTINGS_INCLUDELIST_TT)
 msgid ""
@@ -1898,7 +1903,7 @@ msgstr "Abortar"
 
 #. Resource IDs: (cmdAbout_LabelTitle_RESID)
 msgid "Abou&t TortoiseMerge"
-msgstr ""
+msgstr "Sobre &TortoiseMerge"
 
 #. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
@@ -1916,7 +1921,7 @@ msgstr "Sobre o TortoiseSVN"
 msgid ""
 "Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr ""
+msgstr "Aceitar o certificado &permanentemente\nVocê não será questionamento novamente sobre este certificado."
 
 #. Resource IDs: (61861)
 #, c-format
@@ -1950,7 +1955,7 @@ msgstr "Objetos ActiveX não podem ser salvos enquanto o Windows está sendo enc
 msgid ""
 "Ad&just case\n"
 "The file is not added."
-msgstr ""
+msgstr "A&justar caso\nO arquivo não foi adicionado."
 
 #. Resource IDs: (Dialog IDD_ADD: Control id 155, IDS_PROGRS_CMD_ADD,
 #. IDS_PROGRS_TITLE_ADD, IDS_STATUSLIST_CONTEXT_ADD)
@@ -2462,6 +2467,10 @@ msgstr "Ramificar/ro&tular..."
 msgid "Break loc&k"
 msgstr "Quebrar o &bloqueio"
 
+#. Resource IDs: (IDS_MENUDESCUNSHELVE)
+msgid "Brings a shelved change back to the working copy"
+msgstr "Recuperar um arquivamento para a área de trabalho"
+
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1069)
 msgid "Browse..."
 msgstr "Navegar..."
@@ -2494,7 +2503,7 @@ msgstr "Bugtraq Regex Tester - TortoiseSVN"
 
 #. Resource IDs: (cmdCopy_Keytip_RESID)
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -2686,7 +2695,7 @@ msgstr "Certificados|*.p12;*.pkcs12;*.pfx|Todos|*.*||"
 msgid ""
 "Chan&ge the tagged revision\n"
 "The svn:external property of the parent folder is changed accordingly."
-msgstr ""
+msgstr "Alterar a revisão marcada\nA propriedade svn:external do diretório pai foi alterada adequadamente."
 
 #. Resource IDs: (61185)
 msgid "Change the window position"
@@ -2784,7 +2793,7 @@ msgstr "Verificar alterações na cópia de trabalho"
 msgid ""
 "Check&out\n"
 "Checkout into the non empty folder."
-msgstr ""
+msgstr "&Obter\nObter para dentro de um diretório que não está vazio."
 
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
@@ -2807,7 +2816,7 @@ msgstr "Verificando por atualizações no projeto '%ls'..."
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_PROGRESS)
 #, c-format
 msgid "Checking r%1!ld!..."
-msgstr ""
+msgstr "Verificando r%1!ld!..."
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 133, Dialog
 #. IDD_SETTINGSDIALOGS: Control id 65535, IDS_PROGRS_TITLE_CHECKOUT)
@@ -3039,13 +3048,13 @@ msgstr "Comando falhou."
 msgid ""
 "Commi&t only the folder\n"
 "Files inside the folder won't get committed."
-msgstr ""
+msgstr "Subme&ter somente o diretório\nArquivos contidos dentro do diretório não serão enviados."
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK3)
 msgid ""
 "Commi&t\n"
 "Commit the changes to the target."
-msgstr ""
+msgstr "Subme&ter\nSubmeter as alterações para o destino."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
@@ -3176,7 +3185,7 @@ msgstr "Configurar &TortoiseSVN para nunca usar a lixeira"
 
 #. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
 msgid "Configure Filter Regex"
-msgstr ""
+msgstr "Configurar Expressão Regulador do Filtro"
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
@@ -3214,7 +3223,7 @@ msgstr "Confirmar reversão"
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_MAININSTRUCTION)
 #, c-format
 msgid "Conflict for property \"%s\" discovered"
-msgstr ""
+msgstr "Encontrado um conflito na propriedade \"%s\""
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Conflict resolved"
@@ -3546,7 +3555,7 @@ msgstr "Criar bib&lioteca"
 
 #. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
 msgid "Create &patch file"
-msgstr ""
+msgstr "Criar arquivo de correção"
 
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
@@ -3715,7 +3724,7 @@ msgstr "Excluir e &ignorar %d itens por nome"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLE2)
 msgid "Delete and &ignore multiple items by name"
-msgstr ""
+msgstr "Apagar e &ignorar múltiplos itens por nome"
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK)
 #, c-format
@@ -3724,7 +3733,7 @@ msgstr "Excluir e ignorar %d itens por &extensão "
 
 #. Resource IDs: (IDS_MENUDELETEIGNOREMULTIPLEMASK2)
 msgid "Delete and ignore multiple items by &extension"
-msgstr ""
+msgstr "Apagar e ignorar múltiplos itens pela &extensão"
 
 #. Resource IDs: (IDS_DELUNVERSIONED)
 msgid "Delete unversioned items"
@@ -3823,7 +3832,7 @@ msgstr "&Diferenças"
 
 #. Resource IDs: (Dialog IDD_URLDIFF: Control id 1542)
 msgid "Diff &Options"
-msgstr ""
+msgstr "&Opções para Diferenças"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 325)
 msgid "Diff Options"
@@ -3908,7 +3917,7 @@ msgstr "Diretório:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1529)
 msgid "Disable status cache for elevated processes"
-msgstr ""
+msgstr "Desabilitar cachê de situação para processos prioritários"
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_FORCE_TT)
 msgid "Discards local changes upon incoming deletes"
@@ -4124,7 +4133,7 @@ msgstr "Exclusão não possível em %1"
 
 #. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #. Resource IDs: (ID_INLINEEDIT - Menu)
 msgid "E&xact copy sources"
@@ -4237,7 +4246,7 @@ msgstr "Editar..."
 msgid ""
 "Edit\n"
 "change merged property value in editor"
-msgstr ""
+msgstr "Editar\nAlterar a propriedade de unificação no editor"
 
 #. Resource IDs: (IDS_PROP_TT_EDIT)
 msgid "Edits the selected property value"
@@ -4299,7 +4308,7 @@ msgid ""
 "Encoding\n"
 "Convert to the specified encoding\n"
 "Hold down the Ctrl key to reload the file with the specified encoding."
-msgstr ""
+msgstr "Codificação\nConverter para a codificação especificada\nManter a tecla Ctrl pressionada para recarregar o arquivo com a codificação especificada."
 
 #. Resource IDs: (61866)
 #, c-format
@@ -4587,7 +4596,7 @@ msgstr "Projetos externos incluídos"
 
 #. Resource IDs: (cmdFind_Keytip_RESID)
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
@@ -4698,7 +4707,7 @@ msgstr "Buscando situação de %1!ls!"
 
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
 msgid "Fetching tree conflict information..."
-msgstr ""
+msgstr "Organizando informações da estrutura de conflito..."
 
 #. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
@@ -4854,7 +4863,7 @@ msgstr "Filtro:"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Filtered"
-msgstr ""
+msgstr "Filtrado"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
 #. cmdFind_LabelTitle_RESID)
@@ -4978,7 +4987,7 @@ msgstr "Completamente recursivo"
 
 #. Resource IDs: (cmdGotoLine_Keytip_RESID)
 msgid "G"
-msgstr ""
+msgstr "G"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5171,8 +5180,9 @@ msgstr "Cabeçalho"
 #. IDD_OPENDLG: Control id 9, Dialog IDD_RELOCATE: Control id 9, Dialog
 #. IDD_REPOSITORY_BROWSER: Control id 9, Dialog IDD_RESOLVE: Control id 9,
 #. Dialog IDD_REVERT: Control id 9, Dialog IDD_SETTINGSBUGTRAQADV: Control id
-#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SWITCH: Control
-#. id 9, Dialog IDD_UNLOCK: Control id 9, Dialog IDD_URLDIFF: Control id 9,
+#. 9, Dialog IDD_SETTINGSHOOKCONFIG: Control id 9, Dialog IDD_SHELVE: Control
+#. id 9, Dialog IDD_SWITCH: Control id 9, Dialog IDD_UNLOCK: Control id 9,
+#. Dialog IDD_UNSHELVE: Control id 9, Dialog IDD_URLDIFF: Control id 9,
 #. IDS_PROPPAGE_HELP)
 msgid "Help"
 msgstr "Ajuda"
@@ -5619,7 +5629,7 @@ msgstr "Ignorar as alterações⏎\nIgnorar as alterações externas."
 msgid ""
 "Ignore comment changes\n"
 "Ignore Comments"
-msgstr ""
+msgstr "Ignorar alterações no comentário\nIgnorar comentários"
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
@@ -5636,7 +5646,7 @@ msgstr "Ignorar fins-d&e-linha (recomendado)"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLEMASK2)
 msgid "Ignore multiple items by &extension"
-msgstr ""
+msgstr "Ignorar múltiplos itens pela &extensão"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1529)
 msgid "Ignore whitespace &changes"
@@ -5950,7 +5960,7 @@ msgstr "Tipo"
 
 #. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
 msgid "L"
-msgstr ""
+msgstr "L"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "L&imit:"
@@ -6274,7 +6284,7 @@ msgstr "Marcar todos os projetos como lidos\nPressione a tecla SHIFT para també
 msgid ""
 "Mark as &resolved\n"
 "The conflict is resolved."
-msgstr ""
+msgstr "Marcar como &resolvido\nO conflito está resolvido."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK2, IDS_SVNPROGRESS_MENUMARKASRESOLVED,
 #. ID_EDIT_MARKASRESOLVED - Menu, cmdMarkResolved_LabelTitle_RESID)
@@ -6392,12 +6402,12 @@ msgstr "Combinar alterações na cópia de trabalho"
 #. Resource IDs: (IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION)
 #, c-format
 msgid "Merge conflict discovered in binary file %s"
-msgstr ""
+msgstr "Unificar conflitos encontrados no arquivo binário %s"
 
 #. Resource IDs: (IDS_EDITCONFLICT_TEXT_MAININSTRUCTION)
 #, c-format
 msgid "Merge conflict discovered in file %s"
-msgstr ""
+msgstr "Unificar conflitos encontrados no arquivo %s"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1534, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1487, IDS_MERGEWIZARD_OPTIONSTITLE)
@@ -6680,15 +6690,15 @@ msgstr "Meu arquivo:"
 
 #. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
 msgid "NC"
-msgstr ""
+msgstr "NC"
 
 #. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
 msgid "ND"
-msgstr ""
+msgstr "ND"
 
 #. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #. Resource IDs: (59138)
 msgid "NUM"
@@ -6795,7 +6805,7 @@ msgstr "Não foram encontradas referências externas"
 msgid ""
 "No externals: For URLs, no externals are gathered.\n"
 "If you want to tag externals, start the command directly from a working copy."
-msgstr ""
+msgstr "Sem referência externas: Para URLs, nenhuma referência externa encontrada.\nSe você quer organizar referências externas, inicie o comando diretamente do cópia de trabalho."
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)
 msgid ""
@@ -6821,7 +6831,7 @@ msgstr "Nenhum arquivo foi alterado ou adicionado\ndesde a última submissão. N
 
 #. Resource IDs: (33002)
 msgid "No filter"
-msgstr ""
+msgstr "Sem filtro"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
@@ -7183,15 +7193,15 @@ msgstr "Sobrescrever\nAs configurações são sobrescritas"
 
 #. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
 msgid "PC"
-msgstr ""
+msgstr "PC"
 
 #. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
 msgid "PD"
-msgstr ""
+msgstr "PD"
 
 #. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
 msgid "PI"
-msgstr ""
+msgstr "PI"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7397,7 +7407,7 @@ msgstr "Gancho Pós-Submissão"
 
 #. Resource IDs: (IDS_HOOKTYPE_POSTLOCK)
 msgid "Post-Lock Hook"
-msgstr ""
+msgstr "Gancho para Pós-Bloqueio"
 
 #. Resource IDs: (IDS_HOOKTYPE_POSTUPDATE)
 msgid "Post-Update Hook"
@@ -7417,7 +7427,7 @@ msgstr "Gancho Pré-Conexão"
 
 #. Resource IDs: (IDS_HOOKTYPE_PRELOCK)
 msgid "Pre-Lock Hook"
-msgstr ""
+msgstr "Gancho para Pré-Bloqueio"
 
 #. Resource IDs: (IDS_HOOKTYPE_PREUPDATE)
 msgid "Pre-Update Hook"
@@ -7572,7 +7582,7 @@ msgstr "Estado da Propriedade:"
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
 msgid "Property diff:\n"
-msgstr ""
+msgstr "Propriedade para diferenças:\n"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -7614,6 +7624,10 @@ msgstr "Configurações de Proxy"
 msgid "Put \"Get Lock\" on top menu when svn:needs-lock is set"
 msgstr "Acrescentar \"Obter Bloqueio\" no menu quando svn:needs-lock  estiver selecionado"
 
+#. Resource IDs: (IDS_MENUDESCSHELVE)
+msgid "Puts all changes you made onto a shelf"
+msgstr "Arquivos todas as alterações feitas"
+
 #. Resource IDs: (cmdExit)
 msgid ""
 "Quit the application; prompts to save documents\n"
@@ -7628,7 +7642,7 @@ msgstr "Fechar\nSair do TortoiseMerge sem salvar as modificações"
 
 #. Resource IDs: (cmdReload_Keytip_RESID)
 msgid "R"
-msgstr ""
+msgstr "R"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
@@ -7720,7 +7734,7 @@ msgstr "Recuperar documentos salvos automaticamente\nAbrir uma versão salva aut
 msgid ""
 "Recur&sive\n"
 "Remove the property also from items in Subfolders."
-msgstr ""
+msgstr "Recur&sivo\nRemover a propriedade de todos os sub-diretórios também."
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1260)
 msgid "Recurse into unversioned folders"
@@ -7785,11 +7799,11 @@ msgid ""
 "Regex error caught!\r\n"
 "%S\r\n"
 "Trying to recover by unsetting it again."
-msgstr ""
+msgstr "Erro na expressão regular!\r\n%S\r\nTentando recuperar retirando expressão."
 
 #. Resource IDs: (IDS_ERR_REGEX_INVALID)
 msgid "Regex is invalid!"
-msgstr ""
+msgstr "Expressão regular inválida!"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Regex matching message:"
@@ -8320,7 +8334,7 @@ msgstr "Executar script de gancho"
 
 #. Resource IDs: (cmdSave_Keytip_RESID)
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -8436,7 +8450,7 @@ msgstr "Salvar"
 
 #. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
 msgid "Save &as"
-msgstr ""
+msgstr "S&alvar como"
 
 #. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
@@ -8638,7 +8652,8 @@ msgstr "Selecionar &Tudo"
 #. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH:
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
-#. IDD_REVERT: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
+#. IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog
+#. IDD_UNLOCK: Control id 1067, Dialog IDD_UNSHELVE: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "Selecionar / desselecionar &tudo"
 
@@ -8828,6 +8843,14 @@ msgstr "Shell"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Cache de ícones do shell reconstruído!"
 
+#. Resource IDs: (205)
+msgid "Shelve"
+msgstr "Arquivar"
+
+#. Resource IDs: (IDS_MENUSHELVE)
+msgid "Shelve..."
+msgstr "Arquivar..."
+
 #. Resource IDs: (32822)
 msgid ""
 "Shift trees to the top of the window. Alignment to other trees will be lost."
@@ -8904,7 +8927,8 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "Exibir s&obreposições e menu de contexto apenas no explorer"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog
-#. IDD_CREATEPATCH: Control id 1073)
+#. IDD_CREATEPATCH: Control id 1073, Dialog IDD_SHELVE: Control id 1073,
+#. Dialog IDD_UNSHELVE: Control id 1073)
 msgid "Show &unversioned files"
 msgstr "Exibir arq&uivos sem controle de versão"
 
@@ -8959,7 +8983,7 @@ msgstr "Mostrar alterações como comparação &unificada"
 
 #. Resource IDs: (IDS_HEADER_DIFFLEFTTOBASE, IDS_HEADER_DIFFRIGHTTOBASE)
 msgid "Show diff separately"
-msgstr ""
+msgstr "Mostrar diferenças separadamente"
 
 #. Resource IDs: (IDS_LOG_POPUP_GNUDIFF)
 msgid "Show differences as &unified diff"
@@ -9055,7 +9079,7 @@ msgstr "Mostrar rótulos na fonte da cópia, não como nós separados"
 msgid ""
 "Show the &diff\n"
 "The diff viewer is started for every selected item."
-msgstr ""
+msgstr "Mostrar &diferenças\nO visualizador de diferenças será iniciado para cada item selecionado."
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_SHOWCOL)
 msgid "Show/Hide"
@@ -9424,7 +9448,7 @@ msgid ""
 "\n"
 "you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C."
-msgstr ""
+msgstr "Subversion encontrou um problema sério.\nPor favor, separe uns minutos para reportar esta situação para o suporte do Subversion\ncom máximo de informações possíveis sobre\no que você estava tentando fazer.\nMas por favor primeiro procure na lista pela mensagem de erro\npara evitar reportar um mesmo problema várias vezes.\nVocê encontrará todo o arquivo de reportes em\nhttps://subversion.apache.org/mailing-lists.html\n\nSubversion encontrou um problema em:\narquivo %1!ls!, linha %2!ld!\nexpressão = %3!ls!\n\nvocê pode copiar o conteúdo desta janela\npara a área de transferência usando Ctrl-C."
 
 #. Resource IDs: (IDS_ERR_SVNEXCEPTION)
 msgid ""
@@ -9440,7 +9464,7 @@ msgid ""
 "Subversion reported the following\n"
 "(you can copy the content of this dialog\n"
 "to the clipboard using Ctrl-C):"
-msgstr ""
+msgstr "Subversion encontrou um problema sério.\nPor favor separe uns minutos para reportar esta situação para o suporte do Subversion\ncom o máximo de informações possíveis sobre o que\nvocê estava tentando fazer.\nMas por favor primeiro procure na lista pela mensagem de erro\npara evitar reportar um mesmo problema várias vezes.\nVocê pode visualizar todo o arquivo de reportes em\nhttps://subversion.apache.org/mailing-lists.html\n\nSubversion identificou o seguinte\n(você pode copiar o conteúdo desta janela\npara a área de transferência usando Ctrl-C):"
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "Subversion passwor&d"
@@ -10092,13 +10116,13 @@ msgstr "Esse método cobre o caso em que se deseja integrar as diferenças de do
 msgid ""
 "This product includes software developed by the OpenSSL Project for use in "
 "the OpenSSL Toolkit (https://www.openssl.org/)"
-msgstr ""
+msgstr "Este produto inclui partes desenvolvidas pelo projeto OpenSSL utilizadas no OpenSSL Toolkit (https://www.openssl.org/)"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1531)
 msgid ""
 "This product includes software from Apache™ Subversion® "
 "(https://subversion.apache.org)"
-msgstr ""
+msgstr "Este projeto inclui partes do Apache™ Subversion® (https://subversion.apache.org)"
 
 #. Resource IDs: (61710)
 #, c-format
@@ -10351,7 +10375,7 @@ msgstr "Tente uma 'Limpeza'. Se isso não funcionar, você precisa obter tudo no
 
 #. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
 msgid "Try enabling the \"Break write locks\" option for the cleanup."
-msgstr ""
+msgstr "Tentar habilitar a opção \"Remoção de bloqueio de escrita\" para a rotina de limpeza."
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"
@@ -10524,6 +10548,14 @@ msgstr "Formato de arquivo de propriedades inválido ou não reconhecido!"
 #. Resource IDs: (IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)
 msgid "Unresolved conflicts!"
 msgstr "Conflitos não resolvidos!"
+
+#. Resource IDs: (206)
+msgid "Unshelve"
+msgstr "Desarquivar"
+
+#. Resource IDs: (IDS_MENUUNSHELVE)
+msgid "Unshelve..."
+msgstr "Desarquivar..."
 
 #. Resource IDs: (61443)
 msgid "Untitled"
@@ -10866,11 +10898,11 @@ msgstr "Os usuários a ignorar:"
 
 #. Resource IDs: (IDS_SETTINGS_ONLYNONELEVATED_TT)
 msgid "Uses the status cache type 'none' for elevated processes"
-msgstr ""
+msgstr "Usar o tipo de situação de cachê 'nenhum' para processos prioritários"
 
 #. Resource IDs: (cmdPaste_Keytip_RESID)
 msgid "V"
-msgstr ""
+msgstr "V"
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
@@ -10943,7 +10975,7 @@ msgstr "Visite nosso website"
 
 #. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
 msgid "W"
-msgstr ""
+msgstr "W"
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
 msgid ""
@@ -11064,7 +11096,7 @@ msgstr "Cópia de trabalho: %ls\n"
 
 #. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
 msgid "Wrap Lines"
-msgstr ""
+msgstr "Quebrar Linhas"
 
 #. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
@@ -11078,7 +11110,7 @@ msgstr "Quebrar linhas longas na borda direita da visão⏎\nQuebrar linhas long
 
 #. Resource IDs: (cmdRedo_Keytip_RESID)
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
 msgid "You already have the latest version installed."
@@ -11094,7 +11126,7 @@ msgstr "Você pode desabilitar os controladores específicos de sobreposição d
 msgid ""
 "You can only edit one file at a time from the repository browser.\n"
 "Please finish editing a file before editing another one."
-msgstr ""
+msgstr "Você pode editar apenas um arquivo por vez no navegador do repositório.\nPor favor, encerre a edição do arquivo antes de iniciar a edição de outro."
 
 #. Resource IDs: (IDS_FILEPROPONFOLDER)
 msgid ""
@@ -11202,7 +11234,7 @@ msgstr "Sua cópia de trabalho aponta para %ls o qual parece ser um rótulo!\nVo
 
 #. Resource IDs: (cmdUndo_Keytip_RESID)
 msgid "Z"
-msgstr ""
+msgstr "Z"
 
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
@@ -11483,7 +11515,7 @@ msgstr "obter urls do repositório root:"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1005)
 msgid "https://tortoisesvn.net"
-msgstr ""
+msgstr "https://tortoisesvn.net"
 
 #. Resource IDs: (IDS_STATUSIGNORED)
 msgid "ignored"
@@ -11631,7 +11663,7 @@ msgstr "normal"
 
 #. Resource IDs: (cmdOpen_Keytip_RESID)
 msgid "o1"
-msgstr ""
+msgstr "o1"
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"
