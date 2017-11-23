@@ -1,4 +1,4 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
 // Copyright (C) 2006-2014, 2016-2017 - TortoiseSVN
 
@@ -182,6 +182,8 @@ BOOL CTortoiseMergeApp::InitInstance()
     // visual styles.  Otherwise, any window creation will fail.
     InitCommonControls();
 
+    CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
+    CMFCVisualManagerWindows::m_b3DTabsXPTheme = TRUE;
     CMFCButton::EnableWindowsTheming();
     EnableTaskbarInteraction(FALSE);
 
