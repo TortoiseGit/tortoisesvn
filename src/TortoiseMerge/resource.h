@@ -353,18 +353,6 @@
 #define IDS_EDIT_SPACE2TAB              8004
 #define IDS_EDIT_TRIM                   8005
 #define IDC_STYLEBUTTON                 10000
-#define ID_VIEW_APPLOOK_WIN7            10001
-#define ID_VIEW_APPLOOK_VS_2008         10002
-#define ID_VIEW_APPLOOK_WIN_2000        10003
-#define ID_VIEW_APPLOOK_OFF_XP          10004
-#define ID_VIEW_APPLOOK_WIN_XP          10005
-#define ID_VIEW_APPLOOK_OFF_2003        10006
-#define ID_VIEW_APPLOOK_VS_2005         10007
-#define ID_OFFICE2007                   10008
-#define ID_VIEW_APPLOOK_OFF_2007_BLUE   10009
-#define ID_VIEW_APPLOOK_OFF_2007_BLACK  10010
-#define ID_VIEW_APPLOOK_OFF_2007_SILVER 10011
-#define ID_VIEW_APPLOOK_OFF_2007_AQUA   10012
 #define ID_VIEW_WHITESPACES             32774
 #define ID_VIEW_ONEWAYDIFF              32775
 #define ID_NAVIGATE_NEXTDIFFERENCE      32779
@@ -416,7 +404,6 @@
 #define ID_LOGOBUTTON                   32897
 #define ID_VIEW_BARS                    32898
 #define ID_USEBLOCKS                    32914
-#define ID_APPLOOK                      32956
 #define ID_EDIT_ENABLE                  32976
 #define ID_EDIT_THREEWAY_ACTIONS        33001
 #define ID_REGEX_NO_FILTER              33002
