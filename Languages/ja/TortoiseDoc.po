@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-23 18:02+0000\n"
+"PO-Revision-Date: 2017-11-25 16:22+0000\n"
 "Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -9998,7 +9998,7 @@ msgid ""
 "labels explain what the option to resolve the conflict does. If you're not "
 "sure, either cancel the dialog or use the <guibutton>Postpone</guibutton> "
 "button to resolve the conflict later."
-msgstr ""
+msgstr "マージ後にツリーの競合を解決するために、さまざまな競合の解決方法を選択するダイアログが表示されます。<placeholder-1/>ツリーの競合には様々な要因があるため、ダイアログでは競合に応じた解決方法のボタンが表示されます。ボタンの文字列とラベルで、その選択肢がどのように競合を解決するかが説明されます。自信がない場合は、後で競合を解決するために、ダイアログをキャンセルするか、<guibutton>後で</guibutton>ボタンを押すかしてください。"
 
 #. (title)
 msgid "Feature Branch Maintenance"
@@ -13381,7 +13381,7 @@ msgid ""
 "processes</guilabel> box. This is useful if you want to prevent another "
 "<filename>TSVNCache.exe</filename> process getting created with elevated "
 "privileges."
-msgstr ""
+msgstr "<guilabel>昇格したプロセスでの状態キャッシュを無効にする</guilabel>ボックスをチェックすることで、昇格したプロセスでの状態キャッシュを強制的に<emphasis>なし</emphasis>にすることができます。これは昇格したプロセスでもう1つの <filename>TSVNCache.exe</filename> プロセスが作成されるのを防ぎたい場合に便利です。"
 
 #. (para)
 msgid ""
@@ -14559,7 +14559,7 @@ msgstr "ロックするなら<literal>true</literal>、解除するなら<litera
 msgid ""
 "Either <literal>true</literal> or <literal>false</literal>, depending on "
 "whether the operation was forced or not."
-msgstr ""
+msgstr "操作が強制的だったかどうかで、 <literal>true</literal> または <literal>false</literal> のどちらかです。"
 
 #. (para)
 msgid ""
@@ -21438,7 +21438,7 @@ msgstr "ファイルが編集されるのを防止します。つまり、 Torto
 msgid ""
 "Prevents TortoiseMerge from asking whether to mark a file as resolved in SVN"
 " after saving it."
-msgstr ""
+msgstr "TortoiseMerge でファイルを保存した後、 SVN 上で解決済みにするかどうかを尋ねることを抑制します。"
 
 #. (para)
 msgid ""
