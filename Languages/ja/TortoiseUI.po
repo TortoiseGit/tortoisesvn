@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-26 03:33+0000\n"
+"PO-Revision-Date: 2017-11-29 15:23+0000\n"
 "Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -453,31 +453,31 @@ msgstr "キャンセル(&C)\nエクスポート先に別なフォルダーを選
 msgid ""
 "&Cancel\n"
 "Do not commit to a tag."
-msgstr "キャンセル(&C)\nタグへコミットしない。"
+msgstr "キャンセル(&C)\nタグへコミットしません。"
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not remove"
-msgstr "キャンセル(&C)\n削除しない"
+msgstr "キャンセル(&C)\n削除しません"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not revert."
-msgstr "キャンセル(&C)\n変更を取り消さない。"
+msgstr "キャンセル(&C)\n変更を取り消しません。"
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK4)
 msgid ""
 "&Cancel\n"
 "Do not update the working copy."
-msgstr "キャンセル(&C)\n作業コピーを更新しない。"
+msgstr "キャンセル(&C)\n作業コピーを更新しません。"
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't resolve the item."
-msgstr "キャンセル(&C)\n項目を解決しない。"
+msgstr "キャンセル(&C)\n項目を解決しません。"
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
 msgid ""
@@ -489,37 +489,37 @@ msgstr "キャンセル(&C)\n差分を表示しません。"
 msgid ""
 "&Cancel\n"
 "Go back and enter an issue number."
-msgstr "キャンセル(&C)\n戻って課題IDを入力する。"
+msgstr "キャンセル(&C)\n戻って課題IDを入力します。"
 
 #. Resource IDs: (IDS_WARN_FOLDERNOTEMPTY_TASK4)
 msgid ""
 "&Cancel\n"
 "Go back and select a different folder."
-msgstr "キャンセル(&C)\n戻って異なるフォルダーを選択する。"
+msgstr "キャンセル(&C)\n戻って別なフォルダーを選択します。"
 
 #. Resource IDs: (IDS_WARN_NOVALIDPATH_TASK4)
 msgid ""
 "&Cancel\n"
 "I will enter a different path/URL."
-msgstr "キャンセル(&C)\n異なるパス/URLを入力する。"
+msgstr "キャンセル(&C)\n異なるパス/URLを入力します。"
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK4)
 msgid ""
 "&Cancel\n"
 "Keep the current URL."
-msgstr "キャンセル(&C)\n現在のURLを保つ。"
+msgstr "キャンセル(&C)\n現在のURLを維持します。"
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)
 msgid ""
 "&Cancel\n"
 "Leave the cache on disk."
-msgstr "キャンセル(&C)\nディスク上にキャッシュを残す。"
+msgstr "キャンセル(&C)\nディスク上にキャッシュを残します。"
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
 msgid ""
 "&Cancel\n"
 "Local modifications are kept."
-msgstr "キャンセル(&C)\nローカルの変更を保持する。"
+msgstr "キャンセル(&C)\nローカルの変更を保持します。"
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
 msgid ""
@@ -567,13 +567,13 @@ msgstr "キャンセル(&C)\nフォルダーを手作業で追加する必要が
 msgid ""
 "&Cancel\n"
 "You have to run an update yourself to get the externals"
-msgstr "キャンセル(&C)\n外部参照を取得するために手動で更新を実行する"
+msgstr "キャンセル(&C)\n外部参照を取得するために手動で更新を実行する必要があります"
 
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
 msgid ""
 "&Cancel\n"
 "keep the current format."
-msgstr "キャンセル(&C)\n現在のフォーマットを保つ。"
+msgstr "キャンセル(&C)\n現在のフォーマットを保ちます。"
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
@@ -719,7 +719,7 @@ msgstr "再び表示しない(&D)"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr "実行しない(&D)\nスクリプトを実行しない"
+msgstr "実行しない(&D)\nスクリプトを実行しません"
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -784,7 +784,7 @@ msgstr "選択をエクスポート(&E)..."
 msgid ""
 "&Export\n"
 "Export into the non-empty folder."
-msgstr "エクスポート(&E)\n空でないフォルダーにエクスポートする。"
+msgstr "エクスポート(&E)\n空ではないフォルダーにエクスポートします。"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -929,7 +929,7 @@ msgstr "インポート(&I)..."
 msgid ""
 "&Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr "インポート(&I)\n項目をインポートし、それぞれの項目に対して新しいリビジョンを作成する。"
+msgstr "インポート(&I)\n項目をインポートし、それぞれの項目に対して新しいリビジョンを作成します。"
 
 #. Resource IDs: (Dialog IDD_RELOCATE: Control id 1562)
 msgid "&Include externals"
@@ -1169,13 +1169,13 @@ msgstr "画像を重ねて表示\t(&O)"
 msgid ""
 "&Overwrite\n"
 "Replace the target folder."
-msgstr "上書き(&O)\nターゲットフォルダーを置き換える。"
+msgstr "上書き(&O)\nターゲットフォルダーを置き換えます。"
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
 msgid ""
 "&Overwrite\n"
 "The target file gets replaced"
-msgstr "上書き(&O)\nターゲットファイルを置き換える"
+msgstr "上書き(&O)\nターゲットファイルを置き換えます"
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK3)
 msgid ""
@@ -1273,7 +1273,7 @@ msgstr "更新(&R)"
 msgid ""
 "&Reject the certificate\n"
 "Cancel the connection."
-msgstr "証明書を拒否する(&R)\n接続をキャンセルする。"
+msgstr "証明書を拒否する(&R)\n接続をキャンセルします。"
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK3)
 msgid ""
@@ -1305,13 +1305,13 @@ msgstr "プロジェクトを削除(&R)"
 msgid ""
 "&Remove\n"
 "Force the removal"
-msgstr "削除(&R)\n強制的に削除する"
+msgstr "削除(&R)\n強制的に削除します"
 
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
 msgid ""
 "&Remove\n"
 "Remove the property only from this item."
-msgstr "削除(&R)\nこの項目からのみプロパティを削除する。"
+msgstr "削除(&R)\nこの項目からのみプロパティを削除します。"
 
 #. Resource IDs: (IDS_MONITOR_DELETE_TASK3)
 msgid ""
@@ -1328,7 +1328,7 @@ msgstr "名前を変更(&R)"
 msgid ""
 "&Rename\n"
 "The folder is exported as '%ls'."
-msgstr "名前を変更(&R)\nフォルダーは「%ls」としてエクスポートされる。"
+msgstr "名前を変更(&R)\nフォルダーは「%ls」としてエクスポートされます。"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 1511)
 msgid "&Replace"
@@ -1389,7 +1389,7 @@ msgstr "リビジョン(&R)"
 msgid ""
 "&Run\n"
 "Run the hook script"
-msgstr "実行(&R)\nフックスクリプトを実行する"
+msgstr "実行(&R)\nフックスクリプトを実行します"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -1609,7 +1609,7 @@ msgstr "更新(&U)\n作業コピーを更新し、再度コミットダイアロ
 msgid ""
 "&Update\n"
 "Update to the HEAD revision"
-msgstr "更新(&U)\n最新(HEAD)リビジョンに更新"
+msgstr "更新(&U)\n最新(HEAD)リビジョンに更新します"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
@@ -1920,7 +1920,7 @@ msgstr "TortoiseSVN について"
 msgid ""
 "Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr "証明書を常に受け付ける(&P)\nこの証明書に関して再度問い合わせません。"
+msgstr "証明書を永久に受け付ける(&P)\nこの証明書に関して再度問い合わせません。"
 
 #. Resource IDs: (61861)
 #, c-format
@@ -2792,7 +2792,7 @@ msgstr "作業コピーの変更をチェック"
 msgid ""
 "Check&out\n"
 "Checkout into the non empty folder."
-msgstr "チェックアウト(&O)\n空でないフォルダーにチェックアウトする。"
+msgstr "チェックアウト(&O)\n空でないフォルダーにチェックアウトします。"
 
 #. Resource IDs: (IDS_HOOKTYPE_CHECKCOMMIT)
 msgid "Check-Commit Hook"
@@ -3053,7 +3053,7 @@ msgstr "フォルダーのみコミットする(&T)\nフォルダー内のファ
 msgid ""
 "Commi&t\n"
 "Commit the changes to the target."
-msgstr "コミット(&T)\nターゲットへの変更をコミットする。"
+msgstr "コミット(&T)\nターゲットへの変更をコミットします。"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
 #. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
