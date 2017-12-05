@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2017 - TortoiseSVN
 
@@ -2102,7 +2102,7 @@ bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegre
 
     const char* svnPath = url.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(url));
-    static const apr_uint32_t direntAllExceptHasProps = (SVN_DIRENT_KIND | SVN_DIRENT_SIZE | SVN_DIRENT_CREATED_REV | SVN_DIRENT_TIME | SVN_DIRENT_LAST_AUTHOR);
+
     SVNTRACE (
         Err = svn_client_list4(svnPath,
                                pegrev,
