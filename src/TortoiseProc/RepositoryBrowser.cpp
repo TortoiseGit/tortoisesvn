@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2017 - TortoiseSVN
 
@@ -5189,9 +5189,9 @@ bool CRepositoryBrowser::TrySVNParentPath()
             // We therefore check for <index rev="0" to make sure it's either
             // an empty repository or really an SVNParentPathList
             const char * reTitle2 = "<\\s*index\\s*rev\\s*=\\s*\"0\"";
-            const tr1::regex titex(reTitle, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-            const tr1::regex titex2(reTitle2, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-            if (tr1::regex_search(in.begin(), in.end(), titex, tr1::regex_constants::match_default))
+            const std::regex titex(reTitle, std::regex_constants::icase | std::regex_constants::ECMAScript);
+            const std::regex titex2(reTitle2, std::regex_constants::icase | std::regex_constants::ECMAScript);
+            if (std::regex_search(in.begin(), in.end(), titex, std::regex_constants::match_default))
             {
                 TRACE(L"found repository url instead of SVNParentPathList\n");
                 return false;
@@ -5200,13 +5200,13 @@ bool CRepositoryBrowser::TrySVNParentPath()
             const char * re = "<\\s*LI\\s*>\\s*<\\s*A\\s+[^>]*HREF\\s*=\\s*\"([^\"]*)\"\\s*>([^<]+)<\\s*/\\s*A\\s*>\\s*<\\s*/\\s*LI\\s*>";
             const char * re2 = "<\\s*DIR\\s*name\\s*=\\s*\"([^\"]*)\"\\s*HREF\\s*=\\s*\"([^\"]*)\"\\s*/\\s*>";
 
-            const tr1::regex expression(re, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
-            const tr1::regex expression2(re2, tr1::regex_constants::icase | tr1::regex_constants::ECMAScript);
+            const std::regex expression(re, std::regex_constants::icase | std::regex_constants::ECMAScript);
+            const std::regex expression2(re2, std::regex_constants::icase | std::regex_constants::ECMAScript);
             int nCountNewEntries = 0;
-            const tr1::sregex_iterator end;
-            for (tr1::sregex_iterator i(in.begin(), in.end(), expression); i != end; ++i)
+            const std::sregex_iterator end;
+            for (std::sregex_iterator i(in.begin(), in.end(), expression); i != end; ++i)
             {
-                const tr1::smatch match = *i;
+                const std::smatch match = *i;
                 // what[0] contains the whole string
                 // what[1] contains the url part.
                 // what[2] contains the name
@@ -5229,9 +5229,9 @@ bool CRepositoryBrowser::TrySVNParentPath()
             {
                 return (nCountNewEntries>0);
             }
-            for (tr1::sregex_iterator i(in.begin(), in.end(), expression2); i != end; ++i)
+            for (std::sregex_iterator i(in.begin(), in.end(), expression2); i != end; ++i)
             {
-                const tr1::smatch match = *i;
+                const std::smatch match = *i;
                 // what[0] contains the whole string
                 // what[1] contains the url part.
                 // what[2] contains the name

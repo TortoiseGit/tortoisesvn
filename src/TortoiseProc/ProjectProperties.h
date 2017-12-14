@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -316,8 +316,8 @@ private:
     bool CheckStringProp(CString& s, const std::string& propname, const CString& propval, LPCSTR prop);
 
     bool regExNeedUpdate;
-    std::tr1::wregex regCheck;
-    std::tr1::wregex regBugID;
+    std::wregex regCheck;
+    std::wregex regBugID;
 
     CString     sAutoProps;
     CTSVNPath   propsPath;

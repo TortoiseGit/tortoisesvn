@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2016 - TortoiseSVN
+// Copyright (C) 2009-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -177,13 +177,13 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
     }
     else
     {
-        for ( std::vector<std::tr1::regex>::const_iterator it = patterns.begin()
+        for ( std::vector<std::regex>::const_iterator it = patterns.begin()
             ; it != patterns.end()
             ; ++it)
         {
             try
             {
-                if (!regex_search(text, text + size, *it, std::tr1::regex_constants::match_any))
+                if (!regex_search(text, text + size, *it, std::regex_constants::match_any))
                     return false;
             }
             catch (std::exception& /*e*/)
@@ -234,10 +234,10 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (std::wstring& textUTF16) c
     }
     else
     {
-        for (std::vector<std::tr1::regex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
+        for (std::vector<std::regex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
         {
-            const std::tr1::sregex_iterator end;
-            for (std::tr1::sregex_iterator it2(textUTF8.begin(), textUTF8.end(), *it); it2 != end; ++it2)
+            const std::sregex_iterator end;
+            for (std::sregex_iterator it2(textUTF8.begin(), textUTF8.end(), *it); it2 != end; ++it2)
             {
                 ptrdiff_t matchposID = it2->position(0);
                 CHARRANGE range = {(LONG)(matchposID), (LONG)(matchposID+(*it2)[0].str().size())};
@@ -290,17 +290,17 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (std::wstring& textUTF16) c
 
 // called to parse a (potentially incorrect) regex spec
 
-bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, std::vector<std::tr1::regex>& pattrns)
+bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, std::vector<std::regex>& pattrns)
 {
     try
     {
-        std::tr1::regex pat;
-        std::tr1::regex_constants::syntax_option_type type
+        std::regex pat;
+        std::regex_constants::syntax_option_type type
             = caseSensitive
-            ? std::tr1::regex_constants::ECMAScript
-            : std::tr1::regex_constants::ECMAScript | std::tr1::regex_constants::icase;
+            ? std::regex_constants::ECMAScript
+            : std::regex_constants::ECMAScript | std::regex_constants::icase;
 
-        pat = std::tr1::regex(regexp_str, type);
+        pat = std::regex(regexp_str, type);
         pattrns.push_back(pat);
         return true;
     }
@@ -682,7 +682,7 @@ bool CLogDlgFilter::operator!= (const CLogDlgFilter& rhs) const
     return !operator==(rhs);
 }
 
-// tr1::regex is very slow when running concurrently
+// std::regex is very slow when running concurrently
 // in multiple threads. Empty filters don't need MT as well.
 
 bool CLogDlgFilter::BenefitsFromMT() const

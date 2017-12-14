@@ -722,15 +722,15 @@ CAppUtils::FindRegexMatches
 
     try
     {
-        const std::tr1::wregex regMatch(matchstring, std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
-        const std::tr1::wregex regSubMatch(matchsubstring, std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
-        const std::tr1::wsregex_iterator end;
-        for (std::tr1::wsregex_iterator it(text.begin(), text.end(), regMatch); it != end; ++it)
+        const std::wregex regMatch(matchstring, std::regex_constants::icase | std::regex_constants::ECMAScript);
+        const std::wregex regSubMatch(matchsubstring, std::regex_constants::icase | std::regex_constants::ECMAScript);
+        const std::wsregex_iterator end;
+        for (std::wsregex_iterator it(text.begin(), text.end(), regMatch); it != end; ++it)
         {
             // (*it)[0] is the matched string
             std::wstring matchedString = (*it)[0];
             ptrdiff_t matchpos = it->position(0);
-            for (std::tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regSubMatch); it2 != end; ++it2)
+            for (std::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regSubMatch); it2 != end; ++it2)
             {
                 ATLTRACE(L"matched id : %s\n", (*it2)[0].str().c_str());
                 ptrdiff_t matchposID = it2->position(0);

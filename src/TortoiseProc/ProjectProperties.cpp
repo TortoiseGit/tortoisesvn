@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -348,8 +348,8 @@ void ProjectProperties::AutoUpdateRegex()
     {
         try
         {
-            regCheck = std::tr1::wregex (sCheckRe);
-            regBugID = std::tr1::wregex (sBugIDRe);
+            regCheck = std::wregex (sCheckRe);
+            regBugID = std::wregex (sBugIDRe);
         }
         catch (std::exception&)
         {
@@ -373,14 +373,14 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
             try
             {
                 AutoUpdateRegex();
-                const std::tr1::wsregex_iterator end;
+                const std::wsregex_iterator end;
                 std::wstring s = msg;
-                for (std::tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
+                for (std::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
                 {
                     // (*it)[0] is the matched string
                     std::wstring matchedString = (*it)[0];
                     ptrdiff_t matchpos = it->position(0);
-                    for (std::tr1::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
+                    for (std::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
                     {
                         ATLTRACE(L"matched id : %s\n", (*it2)[0].str().c_str());
                         ptrdiff_t matchposID = it2->position(0);
@@ -396,11 +396,11 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
             try
             {
                 AutoUpdateRegex();
-                const std::tr1::wsregex_iterator end;
+                const std::wsregex_iterator end;
                 std::wstring s = msg;
-                for (std::tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
+                for (std::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
                 {
-                    const std::tr1::wsmatch match = *it;
+                    const std::wsmatch match = *it;
                     // we define group 1 as the whole issue text and
                     // group 2 as the bug ID
                     if (match.size() >= 2)
@@ -578,7 +578,7 @@ BOOL ProjectProperties::HasBugID(const CString& sMsg)
         try
         {
             AutoUpdateRegex();
-            return std::tr1::regex_search((LPCTSTR)sMsg, regCheck);
+            return std::regex_search((LPCTSTR)sMsg, regCheck);
         }
         catch (std::exception&) {}
     }
@@ -627,12 +627,12 @@ CString ProjectProperties::GetLogSummary(const CString& sMsg)
     {
         try
         {
-            const std::tr1::wregex regSum(sLogSummaryRe);
-            const std::tr1::wsregex_iterator end;
+            const std::wregex regSum(sLogSummaryRe);
+            const std::wsregex_iterator end;
             std::wstring s = sMsg;
-            for (std::tr1::wsregex_iterator it(s.begin(), s.end(), regSum); it != end; ++it)
+            for (std::wsregex_iterator it(s.begin(), s.end(), regSum); it != end; ++it)
             {
-                const std::tr1::wsmatch match = *it;
+                const std::wsmatch match = *it;
                 // we define the first group as the summary text
                 if ((*it).size() >= 1)
                 {

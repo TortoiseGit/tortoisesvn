@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2009, 2011, 2013-2014, 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,12 +78,12 @@ void CAutoTextTestDlg::OnBnClickedAutotextscan()
             std::wstring s = m_sContent;
             CHighResClock timer;
 
-            std::tr1::wregex regCheck;
-            regCheck = std::tr1::wregex(m_sRegex, std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
-            const std::tr1::wsregex_iterator end;
-            for (std::tr1::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
+            std::wregex regCheck;
+            regCheck = std::wregex(m_sRegex, std::regex_constants::icase | std::regex_constants::ECMAScript);
+            const std::wsregex_iterator end;
+            for (std::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
             {
-                const std::tr1::wsmatch match = *it;
+                const std::wsmatch match = *it;
                 for (size_t i=1; i<match.size(); ++i)
                 {
                     if (match[i].second-match[i].first)

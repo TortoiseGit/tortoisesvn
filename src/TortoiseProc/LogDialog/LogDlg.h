@@ -283,7 +283,7 @@ private:
     void UpdateSelectedRevs();
     void UpdateLogInfoLabel();
     void SaveSplitterPos();
-    bool ValidateRegexp(LPCTSTR regexp_str, std::tr1::wregex& pat, bool bMatchCase);
+    bool ValidateRegexp(LPCTSTR regexp_str, std::wregex& pat, bool bMatchCase);
     void CheckRegexpTooltip();
     void DiffSelectedFile(bool ignoreprops);
     void DiffSelectedRevWithPrevious();

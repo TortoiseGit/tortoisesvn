@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013-2016 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -204,7 +204,7 @@ void CEditPropBugtraq::OnOK()
     // check whether the entered regex strings are valid
     try
     {
-        std::tr1::wregex r1 = std::tr1::wregex(m_sBugtraqRegex1);
+        std::wregex r1 = std::wregex(m_sBugtraqRegex1);
         UNREFERENCED_PARAMETER(r1);
     }
     catch (std::exception&)
@@ -214,7 +214,7 @@ void CEditPropBugtraq::OnOK()
     }
     try
     {
-        std::tr1::wregex r2 = std::tr1::wregex(m_sBugtraqRegex2);
+        std::wregex r2 = std::wregex(m_sBugtraqRegex2);
         UNREFERENCED_PARAMETER(r2);
     }
     catch (std::exception&)

@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2017 - TortoiseSVN
 
@@ -1159,7 +1159,7 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
 
 void CCommitDlg::ScanFile(std::map<CString, int>& autolist, const CString& sFilePath, const CString& sRegex, const CString& sExt)
 {
-    static std::map<CString, std::tr1::wregex> regexmap;
+    static std::map<CString, std::wregex> regexmap;
 
     std::wstring sFileContent;
     CAutoFile hFile = CreateFile(sFilePath, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
@@ -1203,21 +1203,21 @@ void CCommitDlg::ScanFile(std::map<CString, int>& autolist, const CString& sFile
     try
     {
 
-        std::tr1::wregex regCheck;
-        std::map<CString, std::tr1::wregex>::const_iterator regIt;
+        std::wregex regCheck;
+        std::map<CString, std::wregex>::const_iterator regIt;
         if ((regIt = regexmap.find(sExt)) != regexmap.end())
             regCheck = regIt->second;
         else
         {
-            regCheck = std::tr1::wregex(sRegex, std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
+            regCheck = std::wregex(sRegex, std::regex_constants::icase | std::regex_constants::ECMAScript);
             regexmap[sExt] = regCheck;
         }
-        const std::tr1::wsregex_iterator end;
-        for (std::tr1::wsregex_iterator it(sFileContent.begin(), sFileContent.end(), regCheck); it != end; ++it)
+        const std::wsregex_iterator end;
+        for (std::wsregex_iterator it(sFileContent.begin(), sFileContent.end(), regCheck); it != end; ++it)
         {
             if (m_bCancelled)
                 break;
-            const std::tr1::wsmatch match = *it;
+            const std::wsmatch match = *it;
             for (size_t i=1; i<match.size(); ++i)
             {
                 if (match[i].second-match[i].first)

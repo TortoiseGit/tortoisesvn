@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2017 - TortoiseSVN
 
@@ -786,8 +786,8 @@ bool CTSVNPath::IsValidOnWindows() const
     try
     {
         // now check for illegal filenames
-        std::tr1::wregex rx2(L"(\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$))|\\*|[^\\\\]\\?|\\||<|>|^[^\\\\]+\\\\[^\\\\]+\\:|^[^\\\\][^\\\\]+\\:|\\:[^\\\\]", std::tr1::regex_constants::icase | std::tr1::regex_constants::ECMAScript);
-        if (std::tr1::regex_search(checkPath, rx2, std::tr1::regex_constants::match_default))
+        std::wregex rx2(L"(\\\\(lpt\\d|com\\d|aux|nul|prn|con)(\\\\|$))|\\*|[^\\\\]\\?|\\||<|>|^[^\\\\]+\\\\[^\\\\]+\\:|^[^\\\\][^\\\\]+\\:|\\:[^\\\\]", std::regex_constants::icase | std::regex_constants::ECMAScript);
+        if (std::regex_search(checkPath, rx2, std::regex_constants::match_default))
             m_bIsValidOnWindows = false;
     }
     catch (std::exception&) {}
