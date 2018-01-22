@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 // Copyright (C) 2012-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -674,7 +674,6 @@ void CMainWindow::SetupWindow(bool bUTF8)
     SendEditor(SCI_GOTOPOS, 0);
 
     SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
-    SendEditor(SCI_SETSTYLEBITS, 5, 0);
 
     //SetAStyle(SCE_DIFF_DEFAULT, RGB(0, 0, 0));
     SetAStyle(SCE_DIFF_COMMAND,

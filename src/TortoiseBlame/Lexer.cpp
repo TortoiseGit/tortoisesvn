@@ -1,6 +1,6 @@
-// TortoiseBlame - a Viewer for Subversion Blames
+﻿// TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2008, 2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011, 2013-2014, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -228,7 +228,6 @@ targetPath tellTarget toggleHighQuality trace unescape unloadMovie unLoadMovieNu
             (wcscmp(line, L"wxs")==0))
         {
             SendEditor(SCI_SETLEXER, SCLEX_HTML);
-            SendEditor(SCI_SETSTYLEBITS, 7);
             SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)L"a abbr acronym address applet area b base basefont \
 bdo big blockquote body br button caption center \
 cite code col colgroup dd del dfn dir div dl dt em \
