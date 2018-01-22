@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -270,25 +270,6 @@ bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspat
     }
     std::sort(Names.begin(), Names.end());
 
-    return (Err == NULL);
-}
-
-bool SVN::ShelvesAny(bool& AnyShelved, const CTSVNPath &local_abspath)
-{
-    SVNPool subpool(m_pool);
-    svn_boolean_t any_shelved;
-
-    Prepare();
-
-    SVNTRACE(
-        Err = svn_client_shelves_any(&any_shelved,
-            local_abspath.GetSVNApiPath(subpool),
-            m_pctx,
-            subpool),
-        NULL
-    );
-
-    AnyShelved = any_shelved;
     return (Err == NULL);
 }
 

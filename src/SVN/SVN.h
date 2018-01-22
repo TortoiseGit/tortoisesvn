@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -136,8 +136,7 @@ public:
 	bool Shelve(const CString& shelveName, const CTSVNPathList& pathlist, svn_depth_t depth /*const CStringArray& changelists,*/);
 	bool Unshelve(const CString& shelveName, const CTSVNPath &local_abspath);
     bool ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspath);
-    bool ShelvesAny(bool& AnyShelved, const CTSVNPath &local_abspath);
-
+    
 	/**
      * Checkout a working copy of moduleName at revision, using destPath as the root
      * directory of the newly checked out working copy
