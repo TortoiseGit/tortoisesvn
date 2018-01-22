@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# Andrius Burokas, 2018
 # Evaldas Granickas <inactive+JVL60@transifex.com>, 2011
 # Evaldas Granickas <inactive+JVL60@transifex.com>, 2011
 # Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2013
@@ -19,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-17 01:34+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2018-01-22 09:05+0000\n"
+"Last-Translator: Andrius Burokas\n"
 "Language-Team: Lithuanian (http://www.transifex.com/luebbe/tortoisesvn/language/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -88,7 +89,7 @@ msgstr "%1 nebuvo rastas."
 #. Resource IDs: (IDS_COMMITDLG_STATISTICSFORMAT)
 #, c-format
 msgid "%1!d! files selected, %2!d! files total"
-msgstr "%1!d! rinkmenų parinkta, %2!d! rinkmenų iš viso"
+msgstr "%1!d! failų parinkta, %2!d! failų iš viso"
 
 #. Resource IDs: (IDS_STATGRAPH_AUTHORSLIDER_TT)
 #, c-format
@@ -104,7 +105,7 @@ msgstr "%1!ld! minutės(-ių) and %2!ld! sekundės(-ių)"
 #. Resource IDs: (IDS_LOG_DLGTITLEOFFLINE)
 #, c-format
 msgid "%1!ls! (offline)"
-msgstr ""
+msgstr "%1!ls! (atjungtas)"
 
 #. Resource IDs: (IDS_PROGRS_PATHATREV)
 #, c-format
@@ -155,7 +156,7 @@ msgstr ""
 msgid ""
 "%1!ls!\r\n"
 "Showing %2!d! files and %3!d! folders, %4!d! items in total"
-msgstr ""
+msgstr "%1!ls!\r\nRodomi %2!d! failai(-as) iš %3!d! aplankų(-o), iš viso %4!d! vienetai(-as)"
 
 #. Resource IDs: (61744)
 #, c-format
@@ -230,7 +231,7 @@ msgstr "%ls"
 #. Resource IDs: (IDS_REVGRAPH_DLGTITLEOFFLINE)
 #, c-format
 msgid "%ls (offline)"
-msgstr "%ls (nepasiekiamas)"
+msgstr "%ls (atjungtas)"
 
 #. Resource IDs: (IDS_MENUIGNOREGLOBAL)
 #, c-format
@@ -245,7 +246,7 @@ msgstr ""
 #. Resource IDs: (IDS_DIFF_REMOTENAME)
 #, c-format
 msgid "%ls : Remote file"
-msgstr "%ls : Nuotolinė rinkmena"
+msgstr "%ls : Nuotolinis failas"
 
 #. Resource IDs: (IDS_DIFF_BASENAME)
 #, c-format
@@ -292,7 +293,7 @@ msgid ""
 "%ls\n"
 "is a directory, not a file!\n"
 "TortoiseMerge can't diff directories."
-msgstr "%ls\nyra aplankas, o ne rinkmena!\nTortoiseMerge negali skirti aplankų."
+msgstr "%ls\nyra aplankas, o ne failas!\nTortoiseMerge negali palyginti aplankų."
 
 #. Resource IDs: (IDS_HOOKFAILED_TASK3)
 msgid ""
@@ -365,7 +366,7 @@ msgstr "&Automatiškai uždaryti:"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1015)
 msgid "&Backup original file"
-msgstr "&Sukurti originalios rinkmenos atsarginę kopiją"
+msgstr "&Sukurti originalaus failo atsarginę kopiją"
 
 #. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1559)
 msgid "&Binary"
@@ -496,7 +497,7 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "Leave the cache on disk."
-msgstr ""
+msgstr "&Atšaukti\nIšsaugoti podėlį diske."
 
 #. Resource IDs: (IDS_PROC_WARNREVERT_TASK4)
 msgid ""
@@ -606,7 +607,7 @@ msgstr "&Konfiguruoti"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1227)
 msgid "&Contact the repository on startup"
-msgstr "&Susisiekti su repozitoriją paleisties metu"
+msgstr "&Susisiekti su talpykla paleisties metu"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1073)
 msgid "&Convert files when diffing against BASE"
@@ -631,7 +632,7 @@ msgstr "&Kopijuoti į..."
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1542)
 msgid "&Create folder structure"
-msgstr "&Sukurti aplankų strukturą"
+msgstr "&Sukurti aplankų struktūrą"
 
 #. Resource IDs: (Dialog IDD_EDITPROPMIMETYPE: Control id 1560, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1097)
@@ -645,7 +646,7 @@ msgstr "&Data"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1485)
 msgid "&Days of inactivity until small caches get removed"
-msgstr "&Neaktyvumo dienos iki mažų talpyklų panaikinimo"
+msgstr "&Neaktyvumo dienos iki mažų podėlių panaikinimo"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1269)
 msgid "&Default"
@@ -676,7 +677,7 @@ msgstr "&Panaikinti..."
 msgid ""
 "&Delete\n"
 "Remove the cache files."
-msgstr ""
+msgstr "%Ištrinti\nPašalinti podėlio įrašus."
 
 #. Resource IDs: (IDS_MENUDIFF)
 msgid "&Diff"
@@ -749,7 +750,7 @@ msgstr "&Įgalinti logo kešavimą"
 
 #. Resource IDs: (Dialog IDD_LOCK: Control id 1213)
 msgid "&Enter a message describing why you are locking the file(s)."
-msgstr "&Įvesti pranešimą apibūdinanti kodėl jus užrakinate rinkmenas(-ą)."
+msgstr "&Įvesti pranešimą apibūdinanti kodėl jūs užrakinate failus(-ą)."
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXECUTABLE: Control id 1554)
 msgid "&Executable"
@@ -777,11 +778,11 @@ msgstr "&Išorinis"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&File"
-msgstr "&Rinkmena"
+msgstr "&Failas"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1529)
 msgid "&Files"
-msgstr "&Rinkmenos"
+msgstr "&Failai"
 
 #. Resource IDs: (ID_VIEW_FILTER - Menu)
 msgid "&Filter"
@@ -856,7 +857,7 @@ msgstr "&HEAD revizija"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1182)
 msgid "&HEAD revision in the repository"
-msgstr "&HEAD revizija repozitorijoje"
+msgstr "&HEAD revizija talpykloje"
 
 #. Resource IDs: (57670, 65535 - PopupMenu, Dialog IDD_ADD: Control id 9,
 #. Dialog IDD_CLEANUP: Control id 9, IDS_MENUHELP, ID_MENUHELP - Menu)
@@ -998,7 +999,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
-msgstr "&Maksimalus pašalinto neaktyvaus kešo dydis [kBaitais]"
+msgstr "&Maksimalus pašalinto neaktyvaus podėlio dydis [kBaitais]"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1, IDS_MERGE_MERGE)
 msgid "&Merge"
@@ -1117,7 +1118,7 @@ msgstr "&Gerai"
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1)
 msgid "&Offline for now"
-msgstr "&Šiuo metu neprieinamas"
+msgstr "&Šiuo metu atjungtas"
 
 #. Resource IDs: (61505)
 msgid "&One Page"
@@ -1182,7 +1183,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1382)
 msgid "&Permanently offline"
-msgstr "&Neprieinamas visam laikui"
+msgstr "&Atjungtas visam laikui"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1588)
 msgid "&Platform dependent (native)"
@@ -1398,7 +1399,7 @@ msgstr "&Grafiką išsaugoti kaip..."
 
 #. Resource IDs: (IDS_FILEDIFF_POPSAVELIST)
 msgid "&Save list of selected files to..."
-msgstr "&Išsaugoti pasirinktų rinkmenų sąrašą į..."
+msgstr "&Išsaugoti pasirinktų failų sąrašą į..."
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1308,
 #. IDS_PROP_SAVEVALUE)
@@ -1427,7 +1428,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1185)
 msgid "&Specific revision in repository"
-msgstr "&Revizija repozitorijoje"
+msgstr "&Revizija talpykloje"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 1605)
 msgid "&Start Repobrowser"
@@ -1536,7 +1537,7 @@ msgstr "&Du Puslapis"
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1376, Dialog IDD_EXPORT:
 #. Control id 1394, Dialog IDD_IMPORT: Control id 1058)
 msgid "&URL of repository:"
-msgstr "&Repozitorijos URL"
+msgstr "&Talpyklos URL adresas"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1561, Dialog
 #. IDD_EDITPROPEXTERNALSVALUE: Control id 1305, Dialog IDD_URL: Control id
@@ -1596,7 +1597,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 1184)
 msgid "&Use auto-completion of file paths and keywords"
-msgstr "&Naudoti failų kelių ir raktažodžių automatinį-pabaigimą"
+msgstr "&Naudoti failų kelių ir raktažodžių automatinį pabaigimą"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1432)
 msgid "&Use recycle bin"
@@ -1630,7 +1631,7 @@ msgstr "&Veikianti kopija"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1540)
 msgid "&file list control"
-msgstr "&rinkmenų sąrašo valdymas"
+msgstr "&failų sąrašo valdymas"
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_TEXT)
 #, c-format
@@ -1647,7 +1648,7 @@ msgstr ""
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_SKIPRANGES)
 msgid ""
 "'skip ranges' are used to mark revision ranges that have not been cached yet"
-msgstr "'praleisti intervalus' yra naudojama revizijų, kurios dar nebuvo kešuotos, intervalų pažymėjimui"
+msgstr "'praleisti intervalus' yra naudojama revizijų, kurios dar nebuvo podėlyje, intervalų pažymėjimui"
 
 #. Resource IDs: (IDS_REVGRAPH_TAGATTRIBUTED)
 #, c-format
@@ -1780,7 +1781,7 @@ msgstr "..."
 
 #. Resource IDs: (IDS_REVGRAPH_PROGPREPARING)
 msgid "... checking cache and preparing log query"
-msgstr "... tinkrinamas kešas ir ruošiama logo užklausa"
+msgstr "... tinkrinamas podėlis ir ruošiama logo užklausa"
 
 #. Resource IDs: (IDS_REVGRAPH_PROGREADINGWC)
 msgid "... reading working copy status"
@@ -1946,7 +1947,7 @@ msgstr "Pridėti"
 
 #. Resource IDs: (IDS_REPOBROWSE_IMPORT)
 msgid "Add &file..."
-msgstr "Pridėti &file..."
+msgstr "Pridėti &failą..."
 
 #. Resource IDs: (IDS_SCIEDIT_ADDWORD)
 #, c-format
@@ -2039,7 +2040,7 @@ msgstr "Prideda naują savybę"
 
 #. Resource IDs: (IDS_MENUDESCADD)
 msgid "Adds file(s) to Subversion control"
-msgstr "Prideda rinkmeną(-ąs) į Subversijos valdymą"
+msgstr "Prideda failus(-ą) į Subversijos valdymą"
 
 #. Resource IDs: (IDS_MENUDESCIGNORE)
 msgid "Adds the selected file(s) or the filemask to the 'ignore' list"
@@ -2086,11 +2087,11 @@ msgstr "Visi"
 
 #. Resource IDs: (61442)
 msgid "All Files (*.*)"
-msgstr "Visos rinkmenos (*.*)"
+msgstr "Visi failai (*.*)"
 
 #. Resource IDs: (IDS_COMMONFILEFILTER)
 msgid "All Files (*.*)|*.*||"
-msgstr "Visos rinkmenos (*.*)|*.*||"
+msgstr "Visi failai (*.*)|*.*||"
 
 #. Resource IDs: (cmdEditEnabled)
 msgid ""
@@ -2136,7 +2137,7 @@ msgstr "Visada naudoti sistemos regiono nustatymus laiko ir datos rodymui"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_RAM)
 msgid "Amount of memory required to load the cache"
-msgstr "Reikalinga atmintis kešui užkrauti"
+msgstr "Reikalinga atmintis podėliui užkrauti"
 
 #. Resource IDs: (IDS_SETTINGS_EXTDIFF_TT)
 #, c-format
@@ -2238,7 +2239,7 @@ msgstr "Ar norite pažymėti konfliktuojančius failus išspręstais?"
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION)
 #, c-format
 msgid "Are you sure you want to remove the cache of the selected %d items?"
-msgstr "Ar tikrai norite pašalintų pasirinktų %d elementų kešą?"
+msgstr "Ar tikrai norite pašalintų pasirinktų %d elementų podėlį?"
 
 #. Resource IDs: (IDS_PROC_WARNREVERT)
 #, c-format
@@ -2493,7 +2494,7 @@ msgstr "T&ikrinti dabar"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1132)
 msgid "C&heck repository"
-msgstr "T&ikrinti repozitoriją"
+msgstr "T&ikrinti talpyklą"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_COLLAPSE_RIGHT)
 msgid "C&ollapse sub-trees"
@@ -2521,11 +2522,11 @@ msgstr "CAP"
 
 #. Resource IDs: (IDS_SETTINGS_REPOSITORY_SIZE)
 msgid "Cache size [kB]"
-msgstr "Kešo dydis [kB]"
+msgstr "Podėlio dydis [kB]"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 1440)
 msgid "Cached Repositories"
-msgstr "Kešo repozitorijos"
+msgstr "Talpyklos podėlyje"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1127)
 msgid "Can double-click in log list to compare with previous revision"
@@ -2689,7 +2690,7 @@ msgstr "Keisti lango dydį"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 199)
 msgid "Changed Files"
-msgstr "Rinkmenos pakeistos"
+msgstr "Pakeisti failai"
 
 #. Resource IDs: (IDS_FILEDIFF_CHANGEDLISTINTRO)
 #, c-format
@@ -2707,7 +2708,7 @@ msgstr "Pakeitimų sąrašas:"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1242)
 msgid "Changes made (double-click on file for diff):"
-msgstr "Pakeitimai (du-kart spustelėkite ant rinkmenos kad pamatyti skirtumą):"
+msgstr "Pakeitimai (skirtumams peržiūrėti du-kart spustelėkite ant failo):"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "Char position where to show a border line in commit text boxes:"
@@ -2902,7 +2903,7 @@ msgstr ""
 #. Resource IDs: (IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr ""
+msgstr "Pašalina logus podėlyje iš %ld talpyklų(-os)"
 
 #. Resource IDs: (IDS_SETTINGS_SAVEDDATA_RESIZABLE_TT)
 #, c-format
@@ -3693,7 +3694,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK2)
 msgid "Delete Repository cache"
-msgstr ""
+msgstr "Pašalinti talpyklos podėlį"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 240)
 msgid "Delete Unversioned Items"
@@ -3764,11 +3765,11 @@ msgstr "Panaikinta"
 
 #. Resource IDs: (IDS_SETTINGS_DELCACHE)
 msgid "Deleting cached data"
-msgstr ""
+msgstr "Šalinami duomenys podėlyje"
 
 #. Resource IDs: (IDS_SETTINGS_DELFILE)
 msgid "Deleting file"
-msgstr "Naikinama rinkmena"
+msgstr "Naikinamas failas"
 
 #. Resource IDs: (IDS_STATUSLIST_COLDEPTH)
 msgid "Depth"
@@ -3899,7 +3900,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1529)
 msgid "Disable status cache for elevated processes"
-msgstr ""
+msgstr "Aukštesniems procesams nenaudoti būsenos podėlio"
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_FORCE_TT)
 msgid "Discards local changes upon incoming deletes"
@@ -4444,7 +4445,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROC_ICONCACHENOTREBUILT)
 msgid "Error rebuilding Shell Icon Cache!"
-msgstr ""
+msgstr "Klaida perkuriant piktogramų podėlį"
 
 #. Resource IDs: (IDS_ERR_SSL_VALIDATE)
 #, c-format
@@ -4514,7 +4515,7 @@ msgstr ""
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_EXPORT)
 msgid ""
 "Export the selected cache as a set of Comma Separated Value (CSV) files"
-msgstr ""
+msgstr "Išsaugoti podėlio reikšmes Comma Separated Value (CSV) failuose"
 
 #. Resource IDs: (IDS_PROC_EXPORT_2)
 msgid "Export unversioned files too"
@@ -4693,7 +4694,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_FILEDIFF_FILE, IDS_LOG_FILE)
 msgid "File"
-msgstr "Rinkmena"
+msgstr "Failas"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_ENCODING)
 msgid "File Encoding"
@@ -4702,7 +4703,7 @@ msgstr ""
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK2,
 #. IDS_WARN_ADDCASERENAMED_TASK2)
 msgid "File already exists"
-msgstr "Rinkmena jau egzistuoja"
+msgstr "Failas jau egzistuoja"
 
 #. Resource IDs: (IDS_STATGRAPH_FILECHANGESBYUNIT)
 #, c-format
@@ -4727,7 +4728,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK2)
 msgid "File is empty."
-msgstr "Rinkmena yra tuščia."
+msgstr "Failas tuščias."
 
 #. Resource IDs: (IDS_STATUSLIST_EMPTYMSG)
 msgid "File list is empty"
@@ -4803,7 +4804,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_STATUSLIST_COLFILENAME)
 msgid "Filename"
-msgstr "Rinkmenos pavadinimas"
+msgstr "Failo pavadinimas"
 
 #. Resource IDs: (Dialog IDD_TOOLASSOC: Control id 65535)
 msgid "Filename, extension or mime-type:"
@@ -4819,7 +4820,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1512)
 msgid "Files"
-msgstr "Rinkmenos"
+msgstr "Failai"
 
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
@@ -7009,7 +7010,7 @@ msgstr ""
 
 #. Resource IDs: (ID_URL_FOCUS - Menu)
 msgid "Oldest on to&p"
-msgstr ""
+msgstr "Seniausi viršuje"
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1202, Dialog IDD_EXPORT:
 #. Control id 1202, Dialog IDD_SWITCH: Control id 1202, Dialog IDD_UPDATE:
@@ -7127,7 +7128,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUDESCREPOBROWSE)
 msgid "Opens the repository browser to tweak the repository online"
-msgstr ""
+msgstr "Atidaro talpyklos naršyklę pakeitimams atlikti"
 
 #. Resource IDs: (IDS_SETTINGS_CONNECTIVITY_OFFLINENOW)
 msgid "Operate from log cache for now only"
@@ -7448,7 +7449,7 @@ msgstr ""
 
 #. Resource IDs: (61512)
 msgid "Print to File"
-msgstr "Spausdinti į rinkmeną"
+msgstr "Spausdinti į failą"
 
 #. Resource IDs: (65535)
 msgid "Printer :"
@@ -8066,31 +8067,31 @@ msgstr ""
 #. Control id 1383, Dialog IDD_EXPORT: Control id 1383, Dialog IDD_IMPORT:
 #. Control id 1055)
 msgid "Repository"
-msgstr ""
+msgstr "Talpykla"
 
 #. Resource IDs: (Dialog IDD_REPOSITORY_BROWSER: Control id 153)
 msgid "Repository Browser"
-msgstr ""
+msgstr "Talpyklos naršyklė"
 
 #. Resource IDs: (IDS_SETTINGS_REPOSITORY_URL)
 msgid "Repository URL"
-msgstr ""
+msgstr "Talpyklos URL adresas"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Repository UUID:"
-msgstr ""
+msgstr "Talpyklos UUID:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 65535)
 msgid "Repository browser"
-msgstr ""
+msgstr "Talpyklos naršyklė"
 
 #. Resource IDs: (Dialog IDD_REPOCREATEFINISHED: Control id 324)
 msgid "Repository created"
-msgstr ""
+msgstr "Talpykla sukurta"
 
 #. Resource IDs: (IDS_REPOBROWSE_QUERYFAILURE)
 msgid "Repository query failed. Refresh to retry."
-msgstr ""
+msgstr "Talpyklos užklausa neįvykdyta. Pabandykite atnaujinti."
 
 #. Resource IDs: (IDS_REPOBROWSE_ERR_CANCEL)
 msgid "Request cancelled by TSVN"
@@ -8641,7 +8642,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SELECTFILE)
 msgid "Select File..."
-msgstr "Pasirinkti rinkmeną..."
+msgstr "Pasirinkti failą..."
 
 #. Resource IDs: (Dialog IDD_REVISION: Control id 173)
 msgid "Select Revision"
@@ -9687,11 +9688,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_ERR_FILE_TOOBIG)
 msgid "The file is too big"
-msgstr "Rinkmena yra per didelė"
+msgstr "Failas yra per didelis"
 
 #. Resource IDs: (61701)
 msgid "The file is too large to open."
-msgstr "Rinkmena yra per didelė atidarymui"
+msgstr "Failas yra per didelis atidarymui"
 
 #. Resource IDs: (IDS_DROPEXT_FILEEXISTS)
 #, c-format
@@ -10855,7 +10856,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUDESCRELOCATE)
 msgid "Use this if the URL of the repository has changed"
-msgstr ""
+msgstr "Naudokite, jei talpyklos URL adresas pasikeitė"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_USEOTHERFILE)
 msgid "Use whole other &file"
@@ -10880,7 +10881,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_ONLYNONELEVATED_TT)
 msgid "Uses the status cache type 'none' for elevated processes"
-msgstr ""
+msgstr "Aukštesniems procesams naudoti būsenos podėlio tipą 'nieko'."
 
 #. Resource IDs: (cmdPaste_Keytip_RESID)
 msgid "V"
@@ -10993,7 +10994,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 280)
 msgid "Want to go offline?"
-msgstr ""
+msgstr "Ar norite atjungti?"
 
 #. Resource IDs: (IDS_WARN_WARNING)
 msgid "Warning"
@@ -11291,7 +11292,7 @@ msgstr "pridėta"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "added files"
-msgstr "pridėtos rinkmenos"
+msgstr "pridėti failai"
 
 #. Resource IDs: (IDS_REVGRAPH_TAGALIASATTRIBUTED)
 #, c-format
@@ -11313,7 +11314,7 @@ msgstr ""
 
 #. Resource IDs: (61446)
 msgid "an unnamed file"
-msgstr "bevardė rinkmena"
+msgstr "bevardis failas"
 
 #. Resource IDs: (Dialog IDD_DIFFFILES: Control id 1304)
 msgid "and"
@@ -11331,7 +11332,7 @@ msgstr ""
 msgid ""
 "ask repository first if 'online' -\n"
 "work entirely from cache if 'offline'"
-msgstr ""
+msgstr "Tikrinti talpykloje jei 'prijungtas' - \ndirbti tik podėlyje jei 'atjungtas'"
 
 #. Resource IDs: (IDS_REVGRAPH_NODEWC_AT)
 msgid "at this revision"
@@ -11493,7 +11494,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_EDITPROPS_PROG_FINDHEADROOTS)
 msgid "get repository root URLs:"
-msgstr ""
+msgstr "gauti talpyklos URL adresus:"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1005)
 msgid "https://tortoisesvn.net"
@@ -11881,7 +11882,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_CONNECTIONSTATE_TEMPOFFLINE)
 msgid "temp. offline"
-msgstr ""
+msgstr "laik. atjungtas"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "text [token count]: "
