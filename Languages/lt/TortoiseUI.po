@@ -13,14 +13,14 @@
 # Andrius Burokas, 2018
 # Evaldas Granickas <inactive+JVL60@transifex.com>, 2011
 # Evaldas Granickas <inactive+JVL60@transifex.com>, 2011
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2013
+# Lübbe Onken <luebbe.opensource@gmail.com>, 2013
 # Paulius <pauliusdavyd@yahoo.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-01-22 09:05+0000\n"
+"PO-Revision-Date: 2018-01-25 12:52+0000\n"
 "Last-Translator: Andrius Burokas\n"
 "Language-Team: Lithuanian (http://www.transifex.com/luebbe/tortoisesvn/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -241,7 +241,7 @@ msgstr ""
 #. Resource IDs: (IDS_DIFF_MERGEDNAME)
 #, c-format
 msgid "%ls : Merged file"
-msgstr ""
+msgstr "%ls : Sujungtas failas"
 
 #. Resource IDs: (IDS_DIFF_REMOTENAME)
 #, c-format
@@ -746,7 +746,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1434)
 msgid "&Enable log caching"
-msgstr "&Įgalinti logo kešavimą"
+msgstr "&Įgalinti podėlį žurnalui"
 
 #. Resource IDs: (Dialog IDD_LOCK: Control id 1213)
 msgid "&Enter a message describing why you are locking the file(s)."
@@ -1223,7 +1223,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
 msgid "&Proceed with the merge."
-msgstr ""
+msgstr "&Tęsti sujungimą."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
 msgid ""
@@ -1452,11 +1452,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SWITCH)
 msgid "&Switch WC to path and revision"
-msgstr "&Pakeisti WC į kelią ir reviziją"
+msgstr "&Perjungti darbinę kopiją į kelią ir reviziją"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_SWITCHTOHEAD)
 msgid "&Switch WC to path@HEAD"
-msgstr "&Pakeisti WC į kelią@HEAD"
+msgstr "&Perjungti darbinę kopiją į kelią@HEAD"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1173)
 msgid "&Symbol View"
@@ -1587,7 +1587,7 @@ msgstr ""
 msgid ""
 "&Update\n"
 "Update the working copy and reopen the commit dialog to try again."
-msgstr ""
+msgstr "&Atnaujinimas\nAtnaujinkite darbinę kopiją ir vėl paleiskite pakeitimų išsaugojimo langą."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK3)
 msgid ""
@@ -1781,7 +1781,7 @@ msgstr "..."
 
 #. Resource IDs: (IDS_REVGRAPH_PROGPREPARING)
 msgid "... checking cache and preparing log query"
-msgstr "... tinkrinamas podėlis ir ruošiama logo užklausa"
+msgstr "... tinkrinamas podėlis ir ruošiama žurnalo užklausa"
 
 #. Resource IDs: (IDS_REVGRAPH_PROGREADINGWC)
 msgid "... reading working copy status"
@@ -1856,7 +1856,7 @@ msgid ""
 "Changing to a different path inside a repository is done by a switch operation.\n"
 "\n"
 "If you are not sure what to do, try a switch operation first."
-msgstr ""
+msgstr "Perkėlimas reikalingas tik pasikeitus talpyklos adresui.\nKelio pakeitimas talpyklos viduje atliekamas perjungimo operacija.\n\nJei nesate tikri, pabandykite atlikti perjungimą."
 
 #. Resource IDs: (61474)
 msgid "A required resource was unavailable."
@@ -1886,7 +1886,7 @@ msgstr "Abortuoti"
 
 #. Resource IDs: (cmdAbout_LabelTitle_RESID)
 msgid "Abou&t TortoiseMerge"
-msgstr ""
+msgstr "Apie &TortoiseMerge"
 
 #. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
@@ -1964,11 +1964,11 @@ msgstr "Pridėti ypatybes..."
 
 #. Resource IDs: (IDS_DLGTITLE_ADD_DIFF_TOOL)
 msgid "Add extension specific diff program"
-msgstr ""
+msgstr "Pridėti šio išplėtimo palyginimo programą"
 
 #. Resource IDs: (IDS_DLGTITLE_ADD_MERGE_TOOL)
 msgid "Add extension specific merge program"
-msgstr ""
+msgstr "Pridėti šio išplėtimo sujungimo programą"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1065)
 msgid "Add new files automatically to SVN"
@@ -2002,7 +2002,7 @@ msgstr "Pridėti..."
 
 #. Resource IDs: (Dialog IDD_TOOLASSOC: Control id 171)
 msgid "Add/Edit Extension Specific Diff/Merge Program"
-msgstr ""
+msgstr "Pridėti/Keisti šio išplėtimo palyginimo/sujungimo programą"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1509, Dialog
 #. IDD_SETCOLORPAGE: Control id 65535, Dialog IDD_SETTINGSOVERLAYHANDLERS:
@@ -2063,7 +2063,7 @@ msgstr "Išplestinis"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 170)
 msgid "Advanced Diff/Merge Settings"
-msgstr "Išsamus Palyginimo/Sujungimo nustatymai"
+msgstr "Išsamūs Palyginimo/Sujungimo nustatymai"
 
 #. Resource IDs: (IDS_DLGTITLE_ADV_DIFF)
 msgid "Advanced diff settings"
@@ -2071,7 +2071,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_DLGTITLE_ADV_MERGE)
 msgid "Advanced merge settings"
-msgstr ""
+msgstr "Išsamūs sujungimo nustatymai"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Age"
@@ -2120,7 +2120,7 @@ msgstr "Jau sujungta"
 
 #. Resource IDs: (IDS_LOG_ALREADYMERGEDREVERSED)
 msgid "Already reverse merged"
-msgstr ""
+msgstr "Jau sujungta atgaliniu sujungimu"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 1480)
 msgid "Always close dialogs for local operations"
@@ -2161,7 +2161,7 @@ msgid ""
 "%theirs : the file as it is in the repository\r\n"
 "%mine : your own file, with your changes\r\n"
 "%base : the original file without your changes"
-msgstr ""
+msgstr "Sprendžiant failų sujungimo problemas\r\nnaudojama išorinė sujungimo programa.\r\n\r\nJūs galite papildomai nurodyti šiuos parametrus programos kelyje:\r\n%merged : probleminis failas, jo saugojimo kelias\r\n%theirs : failas iš talpyklos\r\n%mine : failas su jūsų atliktais pakeitimais\r\n%base : originalus failas be pakeitimų"
 
 #. Resource IDs: (61862)
 #, c-format
@@ -2321,7 +2321,7 @@ msgstr "Autoriai:"
 
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEAUTOMATIC)
 msgid "Auto-Merge"
-msgstr ""
+msgstr "Auto-sujungimas"
 
 #. Resource IDs: (IDS_PROGRS_CLOSE_NOCONFLICTS)
 msgid "Auto-close if no conflicts"
@@ -2339,12 +2339,12 @@ msgstr "Automatiškai uždaryti, jei nėra sujungimų, pridėjimų arba pašalin
 msgid ""
 "Auto-complete suggests words (usually class or member names)\r\n"
 "from the files that you have changed as you type a log message."
-msgstr ""
+msgstr "Įvedant žurnalo pranešimą, auto-užbaigimas siūlo žodžius\n(dažniausiai klasių ar narių pavadinimus) iš failų kuriuos keitėte ."
 
 #. Resource IDs: (IDS_PROGRS_CMD_MERGEAUTOMATIC)
 #, c-format
 msgid "Auto-merge %1!ls! into %2!ls!"
-msgstr ""
+msgstr "Auto-sujungti %1!ls! į %2!ls!"
 
 #. Resource IDs: (IDS_COLOURPICKER_DEFAULTTEXT)
 msgid "Automatic"
@@ -2602,7 +2602,7 @@ msgstr ""
 msgid ""
 "Cancel\n"
 "Don't switch the views"
-msgstr ""
+msgstr "Atšaukti\nNekeisti rodinių"
 
 #. Resource IDs: (IDS_DELETEWHENEMPTY_TASK4)
 msgid ""
@@ -2748,7 +2748,7 @@ msgstr "Tikrinti, ar nėra atnaujinimų"
 
 #. Resource IDs: (IDS_MENUDESCCHECKOUT)
 msgid "Check out a working copy from a repository"
-msgstr ""
+msgstr "Parsisiųsti darbinę kopiją iš talpyklos"
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CLEARAUTH: Control id 1536)
 msgid "Check the authentication items you want to delete below"
@@ -2766,7 +2766,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_SHORTDATEFORMAT_TT)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr ""
+msgstr "Naudoti sutrumpintą datos ir laiko formatą žurnalo pranešimuose"
 
 #. Resource IDs: (32831)
 msgid "Check working copy for modifications"
@@ -2886,7 +2886,7 @@ msgstr ""
 #. Resource IDs: (IDS_SETTINGS_SAVEDDATA_LOGHIST_TT)
 #, c-format
 msgid "Clears %1!ld! log messages stored for %2!ld! working copies"
-msgstr ""
+msgstr "Pašalina %1!ld! žurnalo pranešimus skirtus %2!ld! darbinėms kopijoms"
 
 #. Resource IDs: (IDS_SETTINGS_SAVEDDATA_AUTH_TT)
 #, c-format
@@ -2903,7 +2903,7 @@ msgstr ""
 #. Resource IDs: (IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT)
 #, c-format
 msgid "Clears cached logs from %ld repositories"
-msgstr "Pašalina logus podėlyje iš %ld talpyklų(-os)"
+msgstr "Pašalina žurnalus podėlyje iš %ld talpyklų(-os)"
 
 #. Resource IDs: (IDS_SETTINGS_SAVEDDATA_RESIZABLE_TT)
 #, c-format
@@ -3017,7 +3017,7 @@ msgstr ""
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr ""
+msgstr "Vykdomoji komandų eilutė\r\nNorėdami nurodyti kelią darbinėje kopijoje, pakeiskite URL adresą talpykloje. Talpyklos šakniniam URL adresui nurodyti naudokite %REPOROOT% arba %REPOROOT+% darbinės kopijos viduje esantiems adresams."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TITLE)
 msgid "Command failed - Update needed"
@@ -3072,7 +3072,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUDESCCOMMIT)
 msgid "Commits your changes to the repository"
-msgstr ""
+msgstr "Išsaugo pakeitimus talpykloje"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK1)
 msgid ""
@@ -3152,7 +3152,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUDESCURLDIFF)
 msgid "Compares the selected file with a file in the repository"
-msgstr ""
+msgstr "Palygina pasirinktą failą su talpykloje saugomu failu"
 
 #. Resource IDs: (IDS_SVNACTION_COMPLETED)
 msgid "Completed"
@@ -3228,7 +3228,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_UPDATE)
 msgid "Connect to the repository server and download missing log data"
-msgstr ""
+msgstr "Prisijungia prie talpyklos ir parsiunčia trūkstamus žurnalo duomenis"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Container sizes"
@@ -3365,7 +3365,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SVNACTION_COPYREMOTE)
 msgid "Copying from foreign repository URL"
-msgstr ""
+msgstr "Kopijuoja iš svetimos talpyklos URL adreso"
 
 #. Resource IDs: (IDS_PROC_COPYING)
 msgid "Copying..."
@@ -3558,7 +3558,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1385)
 msgid "Create copy in the repository from:"
-msgstr ""
+msgstr "Sukurti kopiją talpykloje iš:"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1562)
 msgid "Create intermediate folders"
@@ -3586,7 +3586,7 @@ msgstr "Sukurti nuorodą"
 #. Resource IDs: (IDS_MENUDESCCOPY)
 msgid ""
 "Creates a 'cheap' copy inside the repository used for branches or tagging"
-msgstr ""
+msgstr "Sukuria nepilną 'pigią' kopiją talpyklos viduje naudojamą šakoms ar žymėms"
 
 #. Resource IDs: (IDS_SETTINGS_CREATELIB_TT)
 msgid ""
@@ -3601,7 +3601,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUDESCCREATEREPOS)
 msgid "Creates a repository database at the current location"
-msgstr ""
+msgstr "Sukuria talpyklos duomenų bazę šioje vietoje"
 
 #. Resource IDs: (IDS_MENUDESCCREATEPATCH)
 msgid "Creates a unified diff file with all changes you made"
@@ -4199,11 +4199,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_DLGTITLE_EDIT_DIFF_TOOL)
 msgid "Edit extension specific diff program"
-msgstr ""
+msgstr "Keisti šio išplėtimo palyginimo programą"
 
 #. Resource IDs: (IDS_DLGTITLE_EDIT_MERGE_TOOL)
 msgid "Edit extension specific merge program"
-msgstr ""
+msgstr "Keisti šio išplėtimo sujungimo programą"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNLANG: Control id 321)
 msgid "Edit language properties"
@@ -4544,7 +4544,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_STATUSLIST_COLEXT)
 msgid "Extension"
-msgstr ""
+msgstr "Plėtinys"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSADV: Control id 1287)
 msgid "Extension/mime-type specific programs"
@@ -4808,11 +4808,11 @@ msgstr "Failo pavadinimas"
 
 #. Resource IDs: (Dialog IDD_TOOLASSOC: Control id 65535)
 msgid "Filename, extension or mime-type:"
-msgstr ""
+msgstr "Failo vardas, plėtinys arba mime-tipas:"
 
 #. Resource IDs: (IDS_PROGS_EXTCOL)
 msgid "Filename/Extension"
-msgstr ""
+msgstr "Failo vardas/Plėtinys"
 
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FILENAMES)
 msgid "Filenames"
@@ -5038,7 +5038,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_REVGRAPH_PROGGETREVS)
 msgid "Getting information from repository..."
-msgstr ""
+msgstr "Gaunama informacija iš talpyklos..."
 
 #. Resource IDs: (IDS_PROGRESS_INFO)
 msgid "Getting information..."
@@ -5219,7 +5219,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MAXREVISION)
 msgid "Highest revision number in the cache"
-msgstr ""
+msgstr "Aukščiausias revizijos numeris podėlyje"
 
 #. Resource IDs: (Dialog IDD_SETTINGSHOOKS: Control id 103)
 msgid "Hook Scripts"
@@ -5971,11 +5971,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_LASTWRITE)
 msgid "Last time the cache content was changed"
-msgstr ""
+msgstr "Paskutinis podėlio atnaujinimo laikas"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_LASTREAD)
 msgid "Last time the cache was accessed"
-msgstr ""
+msgstr "Paskutinis podėlio skaitymo laikas"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_LASTHEADUPDATE)
 msgid "Last time the repository was asked for the HEAD revision number"
@@ -6063,7 +6063,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_CACHELIST)
 msgid "List of repositories for which log information has been cached"
-msgstr ""
+msgstr "Talpyklų sąrašas, kurių žurnalo informacija išsaugota podėlyje"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1599)
 msgid "Lo&cal path:"
@@ -6179,35 +6179,35 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 282)
 msgid "Log Cache Statistics"
-msgstr ""
+msgstr "Žurnalo podėlio statistika"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 281)
 msgid "Log Caching"
-msgstr ""
+msgstr "Žurnalo podėlis"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHELIST: Control id 295)
 msgid "Log Caching::Cached Repositories"
-msgstr ""
+msgstr "Žurnalo podėlis::Talpyklos podėlyje"
 
 #. Resource IDs: (Dialog IDD_HISTORYDLG: Control id 211)
 msgid "Log History"
-msgstr ""
+msgstr "Žurnalo istorija"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 130)
 msgid "Log Messages"
-msgstr ""
+msgstr "Žurnalo pranešimai"
 
 #. Resource IDs: (Dialog IDD_COPY: Control id 1386)
 msgid "Log message"
-msgstr ""
+msgstr "Žurnalo pranešimas"
 
 #. Resource IDs: (IDS_COMMITDLG_MSGLENGTH)
 msgid "Log message is too short!"
-msgstr ""
+msgstr "Žurnalo pranešimas per trumpas!"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS: Control id 65535)
 msgid "Log messages"
-msgstr ""
+msgstr "Žurnalo pranešimai"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSAVEDDATA: Control id 1274)
 msgid "Log messages (Input dialog)"
@@ -6340,7 +6340,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1487)
 msgid "Maximum number of tool &failures until cache removal"
-msgstr ""
+msgstr "Didžiausias įrankio klaidų skaičius iki pašalinimo iš podėlio"
 
 #. Resource IDs: (Dialog IDD_MERGEWIZARD_OPTIONS: Control id 111, Dialog
 #. IDD_MERGEWIZARD_REVRANGE: Control id 278, Dialog IDD_MERGEWIZARD_START:
@@ -6737,7 +6737,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_COPY_SWITCHNOTREADY)
 msgid "New branch/tag is not ready yet, retrying switch..."
-msgstr ""
+msgstr "Nauja šaka/žymė dar negali būti naudojama, bandoma dar kartą..."
 
 #. Resource IDs: (IDS_WARN_RENAMEREQUIRED)
 msgid "New name must not be empty or the same as the original name!"
@@ -6833,7 +6833,7 @@ msgstr ""
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
 "overlay"
-msgstr ""
+msgstr "Nėra būsenos podėlio. Tik versijuojami aplankai gauna žymes, failai nežymimi."
 
 #. Resource IDs: (IDS_ERR_NOSUCHREVISION)
 #, c-format
@@ -6919,7 +6919,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_AUTHORS)
 msgid "Number of authors in the cache"
-msgstr ""
+msgstr "Autorių skaičius podėlyje"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1161)
 msgid "Number of authors:"
@@ -6927,28 +6927,28 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESREVISIONS)
 msgid "Number of cached merged revisions"
-msgstr ""
+msgstr "Sujungtų revizijų skaičius podėlyje"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_REVISIONCOUNT)
 msgid "Number of cached revisions"
-msgstr ""
+msgstr "Revizijų skaičius podėlyje"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_CHANGEDREVISIONS)
 msgid "Number of cached revisions that have a non-empty change list"
-msgstr ""
+msgstr "Revizijų skaičius podėlyje, kurių pakeitimų sąrašas nėra tuščias"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_USERREVPROPSREVISIONS)
 msgid "Number of cached revisions that have user revision properties"
-msgstr ""
+msgstr "Revizijų skaičius podėlyje, turinčios vartotojo revizijų ypatybes"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_CHANGESMISSING)
 msgid "Number of cached revisions whose change list is not cached yet"
-msgstr ""
+msgstr "Revizijų skaičius podėlyje, kurių pakeitimo sąrašas dar neišsaugotas podėlyje"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_USERREVPROPSMISSING)
 msgid ""
 "Number of cached revisions whose user revision properties are not cached yet"
-msgstr ""
+msgstr "Revizijų skaičius podėlyje, kurių vartotojo revizijų ypatybės dar neišsaugotos podėlyje"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_PATHS)
 msgid ""
@@ -6961,7 +6961,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESMISSING)
 msgid "Number of merged revisions that are not cached yet"
-msgstr ""
+msgstr "Neišsaugotų podėlyje sujungtų revizijų skaičius"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_PATHELEMENTS)
 msgid ""
@@ -6973,7 +6973,7 @@ msgstr ""
 msgid ""
 "Number of times a log cache can fail to close properly\n"
 "due to crashes etc. until it gets deleted automatically."
-msgstr ""
+msgstr "Leistinų sutrikimų skaičius išsaugant žurnalo podėlį\niki jis bus automatiškai ištrintas"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1160)
 msgid "Number of weeks:"
@@ -7132,7 +7132,7 @@ msgstr "Atidaro talpyklos naršyklę pakeitimams atlikti"
 
 #. Resource IDs: (IDS_SETTINGS_CONNECTIVITY_OFFLINENOW)
 msgid "Operate from log cache for now only"
-msgstr ""
+msgstr "Naudoti žurnalo podėlį tik šį kartą"
 
 #. Resource IDs: (IDS_EXTERNALS_OPERATIVE)
 msgid "Operative"
@@ -7348,7 +7348,7 @@ msgid ""
 "to be committed to the copy or branch you have just created,\n"
 "then you need to switch your working copy over to the new URL.\n"
 "Use the Switch command to do that."
-msgstr ""
+msgstr "Atkreipkite dėmesį:\nJūsų darbinė kopija išlieka ankstesniame kelyje. Jei norėsite išsaugoti\nsavo pakeitimus tik ką sukurtoje kopijoje ar šakoje, tuomet\nprivalote perjungti savo darbinę kopiją į naują URL kelią.\nTam atlikti naudokite perjungimo komandą."
 
 #. Resource IDs: (IDS_ERR_NOHOOKTYPESPECIFIED)
 msgid "Please select a hook type"
@@ -7862,7 +7862,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_WARN_RELOCATEREALLY_TASK2)
 msgid "Relocate where a switch might be intended"
-msgstr ""
+msgstr "Perkelti kelią ten kur buvo numatomas perjungimas"
 
 #. Resource IDs: (IDS_PROC_RELOCATING)
 msgid "Relocating..."
@@ -7932,7 +7932,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_DELETE)
 msgid "Remove the selected cache(s) from disk"
-msgstr ""
+msgstr "Pašalinti pasirintą podėlį(-ius) iš disko"
 
 #. Resource IDs: (Dialog IDD_REVGRAPHFILTER: Control id 1352)
 msgid "Remove the whole subtree(s)"
@@ -8824,7 +8824,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROC_ICONCACHEREBUILT)
 msgid "Shell Icon Cache was rebuilt!"
-msgstr ""
+msgstr "Aplinkos piktogramų podėlis sėkmingai perkurtas!"
 
 #. Resource IDs: (205)
 msgid "Shelve"
@@ -9052,7 +9052,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_DETAILS)
 msgid "Show statistics for the selected log cache"
-msgstr ""
+msgstr "Rodyti pasirinkto žurnalo podėlio statistiką"
 
 #. Resource IDs: (32818)
 msgid "Show tags on the copy source, not as separate nodes"
@@ -9145,7 +9145,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_TEXTSIZE)
 msgid "Size of all cached text information"
-msgstr ""
+msgstr "Visos tekstinės informacijos dydis podėlyje"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 320)
 msgid "Size of log messages"
@@ -9153,11 +9153,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_DISK)
 msgid "Size of the cache file on disk"
-msgstr ""
+msgstr "Podėlio failo dydis diske"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_UNCOMPRESSEDSIZE)
 msgid "Size of the cache if it were not compressed"
-msgstr ""
+msgstr "Podėlio dydis jei jis būtų nesumažintas"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK5)
 msgid ""
@@ -9350,16 +9350,16 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 65535)
 msgid "Status cache"
-msgstr ""
+msgstr "Būsenos podėlis"
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDEFAULT_TT)
 msgid ""
 "Status cache kept in an external process, can show the overlay recursively"
-msgstr ""
+msgstr "Būsenos podėlis saugomas išoriniame procese, žymės atvaizduojamos rekursyviai"
 
 #. Resource IDs: (IDS_SETTINGS_CACHESHELL_TT)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr ""
+msgstr "Busenos podėlis tik vienam aplankui, nepalaikomos rekursyvios žymės"
 
 #. Resource IDs: (IDS_COLDESCSTATUS)
 msgid "Status of item in SVN"
@@ -9477,20 +9477,20 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_TITLE_SWITCH)
 msgid "Switch"
-msgstr ""
+msgstr "Perjungimas"
 
 #. Resource IDs: (IDS_PROGRS_CMD_SWITCH)
 #, c-format
 msgid "Switch %1!ls! to %2!ls!, Revision %3!ls!"
-msgstr ""
+msgstr "Perjungti %1!ls! į %2!ls!, revizija %3!ls!"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 1377)
 msgid "Switch Depth"
-msgstr ""
+msgstr "Perjungimo gylis"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 140)
 msgid "Switch To Branch / Tag"
-msgstr ""
+msgstr "Perjungti į šaką/žymę"
 
 #. Resource IDs: (IDS_MENUSWITCHTOPARENT)
 msgid "Switch back to parent"
@@ -9500,59 +9500,59 @@ msgstr ""
 msgid ""
 "Switch back to the previous window pane\n"
 "Previous Pane"
-msgstr ""
+msgstr "Grįžti į ankstesnį lango polangį\nAnkstesnis polangis"
 
 #. Resource IDs: (ID_VIEW_ONEWAYDIFF - Menu,
 #. cmdViewOneWayDiff_LabelTitle_RESID)
 msgid "Switch between single and double pane view"
-msgstr ""
+msgstr "Keisti tarp vieno ir dviejų polangių rodinio"
 
 #. Resource IDs: (cmdViewOneWayDiff)
 msgid ""
 "Switch between single and double pane view\n"
 "Switch between single and double pane view"
-msgstr ""
+msgstr "Keisti tarp vieno ir dviejų polangių rodinio\nKeisti tarp vieno ir dviejų polangių rodinio"
 
 #. Resource IDs: (ID_VIEW_SWITCHLEFT - Menu,
 #. cmdViewSwitchLeft_LabelTitle_RESID)
 msgid "Switch left and right view"
-msgstr ""
+msgstr "Sukeisti rodinius kairėje ir dešinėje"
 
 #. Resource IDs: (cmdViewSwitchLeft)
 msgid ""
 "Switch the contents of the left and right view\n"
 "Switch left and right view"
-msgstr ""
+msgstr "Sukeisti turinį kairiajame ir dešiniajame rodiniuose\nSukeisti rodinius kairėje ir dešinėje"
 
 #. Resource IDs: (61188)
 msgid "Switch to the next document window"
-msgstr ""
+msgstr "Pakeisti į kitą dokumento langą"
 
 #. Resource IDs: (57680)
 msgid ""
 "Switch to the next window pane\n"
 "Next Pane"
-msgstr ""
+msgstr "Keisti į kitą lango polangį\nKitas polangis"
 
 #. Resource IDs: (61189)
 msgid "Switch to the previous document window"
-msgstr ""
+msgstr "Pakeisti į ankstesnį dokumento langą"
 
 #. Resource IDs: (IDS_MENUDESCSWITCH)
 msgid "Switch working copy to another branch / tag"
-msgstr ""
+msgstr "Perjungti darbinę kopiją į kitą šaką / žymę"
 
 #. Resource IDs: (Dialog IDD_SWITCH: Control id 1479)
 msgid "Switch:"
-msgstr ""
+msgstr "Perjungti:"
 
 #. Resource IDs: (IDS_SVNACTION_SWITCHED)
 msgid "Switched"
-msgstr ""
+msgstr "Perjungta"
 
 #. Resource IDs: (IDS_FILEDIFF_SWITCHLEFTRIGHT_TT)
 msgid "Switches the comparison left<->right"
-msgstr ""
+msgstr "Sukeičia palyginimą kairė<->dešinė"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 368)
 msgid "Sync"
@@ -10007,7 +10007,7 @@ msgid ""
 "\n"
 "Please understand that the cached data may be outdated,\n"
 "incomplete or even misleading due to incomplete history data."
-msgstr ""
+msgstr "Klaida susisiekiant su serveriu.\nAr norite peržiūrėti duomenis podėlyje?\n\nPerspėjame, kad duomenys podėlyje gali būti pasenę,\nneišsamūs ar net klaidinantys dėl trūkstamos istorijos įrašų."
 
 #. Resource IDs: (IDS_ERR_NOTHINGTOADD)
 msgid ""
@@ -10313,7 +10313,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_CHANGESTOTAL)
 msgid "Total number of changes over all cached revisions"
-msgstr ""
+msgstr "Bendras pakeitimų skaičius visose revizijose podėlyje"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_MERGESTOTAL)
 msgid "Total number of merged revisions"
@@ -10548,7 +10548,7 @@ msgstr "Bevardis"
 msgid ""
 "Unused log caches will only be removed if the respective\n"
 "file is smaller than the given size in kBytes."
-msgstr ""
+msgstr "Nenaudojami žurnalų podėliai bus pašalinti tik tuomet\njei atitinkantys failai yra mažesni už nurodytą dydį kBaitais."
 
 #. Resource IDs: (IDS_PROC_UNVERSION)
 msgid "Unversion"
@@ -10630,7 +10630,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_UPDATETITLE)
 msgid "Updating log cache"
-msgstr ""
+msgstr "Atnaujinamas žurnalas podėlyje"
 
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK3)
 msgid ""
@@ -11008,7 +11008,7 @@ msgstr ""
 msgid ""
 "When a small log cache has not been used for the given\n"
 "number of days, it will be removed automatically."
-msgstr ""
+msgstr "Nenaudojami maži žurnalo podėliai bus pašalinti po nurodyto dienų skaičiaus"
 
 #. Resource IDs: (IDS_SETTINGS_HIDEMENUS_TT)
 msgid ""
@@ -11021,7 +11021,7 @@ msgid ""
 "When connecting to the repository server is not possible,\n"
 "TSVN can switch to using cached data only.\n"
 "Select the default behaviour here."
-msgstr ""
+msgstr "Jei nepavyksta prisijungti prie talpyklos,\nTSVN gali nauodoti tik duomenis podėlyje.\nPasirinkite veiksmus pagal nutylėjimą."
 
 #. Resource IDs: (IDS_SETTINGS_ENABLEDRAGCONTEXTMENU_TT)
 msgid ""
@@ -11213,7 +11213,7 @@ msgstr ""
 msgid ""
 "Your working copy points to %ls which appears to be a tag!\n"
 "You should first switch to a branch or the main trunk before committing."
-msgstr ""
+msgstr "Darbinės kopijos %ls kelias yra tik žymė!\nTurite persijungti į šakos ar pagrindinę talpyklą prieš išsaugant pakeitimus."
 
 #. Resource IDs: (cmdUndo_Keytip_RESID)
 msgid "Z"
@@ -11870,11 +11870,11 @@ msgstr ""
 msgid ""
 "switched to\r\n"
 "%ls"
-msgstr ""
+msgstr "perjungta į\r\n%ls"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "switched:"
-msgstr "pakeista: "
+msgstr "perjungta: "
 
 #. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK1)
 msgid "tagging externals"
