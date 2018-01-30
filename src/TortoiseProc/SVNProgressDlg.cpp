@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2776,7 +2776,15 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
         }
     }
 
-    ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_COMMIT)));
+    CString sCmdInfo;
+    if (m_targetPathList.GetCount() > 1)
+    {
+        auto commitUrl2 = GetURLFromPath(m_targetPathList.GetCommonRoot());
+        if (!commitUrl2.IsEmpty())
+            commitUrl = commitUrl2;
+    }
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_COMMIT, (LPCWSTR)commitUrl);
+    ReportCmd(sCmdInfo);
     CStringArray changelists;
     if (!m_changelist.IsEmpty())
         changelists.Add(m_changelist);
@@ -3036,7 +3044,9 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
         eol = L"LF";
     if (m_options & ProgOptEolCR)
         eol = L"CR";
-    ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_EXPORT)));
+    CString sCmdInfo;
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_EXPORT, m_url.GetUIPathString());
+    ReportCmd(sCmdInfo);
 
     CTSVNPath targetPath = m_targetPathList[0];
     if (SVNInfo::IsFile (m_url, m_Revision))
@@ -3789,7 +3799,9 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             }
         }
     }
-    ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)));
+    CString sCmdInfo;
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_UPDATE, (LPCWSTR)GetURLFromPath(m_targetPathList.GetCommonRoot()));
+    ReportCmd(sCmdInfo);
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!Update(m_targetPathList, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), true))
     {
