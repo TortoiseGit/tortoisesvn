@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2013, 2015-2016 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2013, 2015-2016, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,21 +34,21 @@ public:
     CMergeWizardBasePage()
         : CResizablePageEx()
         , CommonDialogFunctions(this)
-        , m_bCancelled(false)
-        , m_bThreadRunning(false)
-        , m_pThread(NULL) {;}
+        , m_bCancelled(FALSE)
+        , m_bThreadRunning(FALSE)
+        , m_pThread(nullptr) {;}
     explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0)
         : CResizablePageEx(nIDTemplate, nIDCaption, 0)
         , CommonDialogFunctions(this)
-        , m_bCancelled(false)
-        , m_bThreadRunning(false)
-        , m_pThread(NULL) {;}
+        , m_bCancelled(FALSE)
+        , m_bThreadRunning(FALSE)
+        , m_pThread(nullptr) {;}
     explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0)
         : CResizablePageEx(lpszTemplateName, nIDCaption, 0)
         , CommonDialogFunctions(this)
-        , m_bCancelled(false)
-        , m_bThreadRunning(false)
-        , m_pThread(NULL) {;}
+        , m_bCancelled(FALSE)
+        , m_bThreadRunning(FALSE)
+        , m_pThread(nullptr) {;}
 
     virtual ~CMergeWizardBasePage() {;}
     virtual bool    OkToCancel() { return true; }
@@ -64,7 +64,7 @@ protected:
     virtual BOOL    Cancel() override {return m_bCancelled;}
 private:
     CTSVNPath       m_path;
-    bool            m_bCancelled;
+    volatile LONG   m_bCancelled;
     CWinThread *    m_pThread;
     volatile LONG   m_bThreadRunning;
 };
