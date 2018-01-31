@@ -9044,7 +9044,7 @@ msgid "Post-commit"
 msgstr ""
 
 #. (para)
-msgid "Called after the commit finishes (whether successful or not)."
+msgid "Called after the commit finishes successfully."
 msgstr ""
 
 #. (term)
@@ -13004,7 +13004,15 @@ msgid "dictionary"
 msgstr ""
 
 #. (para)
-msgid "TortoiseSVN includes a spell checker which allows you to check your commit log messages. This is especially useful if the project language is not your native language. The spell checker uses the same dictionary files as <ulink url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
+msgid "TortoiseSVN uses the Windows spell checker if it's available (Windows 8 or later). Which means that if you want the spell checker to work in a different language than the default OS language, you have to install the spell checker module in the Windows settings (<literal>Settings &gt; Time &amp; Language &gt; Region &amp; Language</literal>)."
+msgstr ""
+
+#. (para)
+msgid "TortoiseSVN will use that spell checker if properly configured with the <literal>tsvn:projectlanguage</literal> project property."
+msgstr ""
+
+#. (para)
+msgid "In case the Windows spell checker is not available, TortoiseSVN can also use spell checker dictionaries from <ulink url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 msgstr ""
 
 #. (para)
