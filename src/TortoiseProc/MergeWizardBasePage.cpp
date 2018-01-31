@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2016 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2016, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,10 +45,10 @@ void CMergeWizardBasePage::StartWCCheckThread(const CTSVNPath& path)
 
 void CMergeWizardBasePage::StopWCCheckThread()
 {
-    m_bCancelled = true;
+    InterlockedExchange(&m_bCancelled, TRUE);
     if ((m_pThread)&&(m_bThreadRunning))
     {
-        WaitForSingleObject(m_pThread->m_hThread, 1000);
+        WaitForSingleObject(m_pThread->m_hThread, 2000);
         if (m_bThreadRunning)
         {
             // we gave the thread a chance to quit. Since the thread didn't
