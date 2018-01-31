@@ -51,10 +51,18 @@
       <primary>dictionary</primary>
     </indexterm>
     <para>
-      TortoiseSVN includes a spell checker which allows you to check your
-      commit log messages. This is especially useful if the project language
-      is not your native language.
-      The spell checker uses the same dictionary files as
+      TortoiseSVN uses the Windows spell checker if it's available (Windows 8 or later).
+      Which means that if you want the spell checker to work in a different language
+      than the default OS language, you have to install the spell checker module
+      in the Windows settings (<literal>Settings > Time &amp; Language > Region &amp; Language</literal>).
+    </para>
+    <para>
+      TortoiseSVN will use that spell checker if properly configured with the <literal>tsvn:projectlanguage</literal>
+      project property.
+    </para>
+    <para>
+      In case the Windows spell checker is not available, TortoiseSVN can also
+      use spell checker dictionaries from
       <ulink url="https://openoffice.org">
         <citetitle>OpenOffice</citetitle>
       </ulink>
