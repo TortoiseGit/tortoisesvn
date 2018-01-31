@@ -209,24 +209,24 @@ struct log_msg_baton3
 
 bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, svn_depth_t depth /*const CStringArray& changelists,*/)
 {
-	SVNPool subpool(m_pool);
-	apr_array_header_t * clists = NULL; // MakeChangeListArray(changelists, subpool);
+    SVNPool subpool(m_pool);
+    apr_array_header_t * clists = NULL; // MakeChangeListArray(changelists, subpool);
 
-	Prepare();
+    Prepare();
 
-	SVNTRACE(
-		Err = svn_client_shelve((LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
-								pathlist.MakePathArray(subpool),
-								depth,
-								clists,
-								FALSE /*keep_local*/,
-								FALSE /*dry_run*/,
-								m_pctx,
-								subpool),
-		NULL
-	);
+    SVNTRACE(
+        Err = svn_client_shelve((LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
+                                pathlist.MakePathArray(subpool),
+                                depth,
+                                clists,
+                                FALSE /*keep_local*/,
+                                FALSE /*dry_run*/,
+                                m_pctx,
+                                subpool),
+        NULL
+    );
 
-	return (Err == NULL);
+    return (Err == NULL);
 }
 
 bool SVN::Unshelve(const CString& shelveName, const CTSVNPath &local_abspath)

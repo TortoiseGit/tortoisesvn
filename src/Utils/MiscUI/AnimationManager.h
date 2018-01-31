@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017 - TortoiseSVN
+// Copyright (C) 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
  * \brief helper class for the Windows Animation Manager.
  * Provides convenience methods to use the Windows Animation Manager using
  * timer events.
- * 
+ *
  * Example to animate transparency:
  * \code
  * // create the animation variable for the alpha value to animate.
