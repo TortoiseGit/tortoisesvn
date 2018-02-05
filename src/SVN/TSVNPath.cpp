@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1478,6 +1478,8 @@ private:
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20special%20chars%20%c3%a4%c3%b6%c3%bc") == 0);
         testPath.SetFromUnknown(L"http://branches/Branch at 20%cake");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://branches/Branch%20at%2020%25cake") == 0);
+        testPath.SetFromUnknown(L"http://server/trunk/only one %.txt");
+        ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://server/trunk/only%20one%20%25.txt") == 0);
 #endif
     }
 

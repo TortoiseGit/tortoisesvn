@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -273,7 +273,7 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
         auto c = (unsigned char)ret2[i];
         if (uri_autoescape_chars[c])
         {
-            if ((c == '%')&&((needsEscaping && (escapedPositions.find(i) == escapedPositions.end())) || DoesPercentNeedEscaping(ret2.Mid(i))))
+            if ((c == '%') && ((needsEscaping && (ret2.Mid(i).Left(3) != "%25") && (escapedPositions.find(i) == escapedPositions.end())) || DoesPercentNeedEscaping(ret2.Mid(i))))
             {
                 // this percent sign needs escaping!
                 ret.AppendFormat("%%%02X", (unsigned char)c);
