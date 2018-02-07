@@ -1195,6 +1195,7 @@ void CMainFrame::OnViewOnewaydiff()
     if (CheckForSave(CHFSR_RELOAD)==IDCANCEL)
         return;
     m_bOneWay = !m_bOneWay;
+    m_regOneWay = m_bOneWay;
     ShowDiffBar(!m_bOneWay);
     LoadViews(-1);
 }
