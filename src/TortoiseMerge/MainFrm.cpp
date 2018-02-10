@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2017 - TortoiseSVN
+// Copyright (C) 2004-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2714,12 +2714,60 @@ void CMainFrame::OnEditCreateunifieddifffile()
     if (origFile.IsEmpty() || modifiedFile.IsEmpty())
         return;
 
+
     CString outputFile;
-    if(!TryGetFileName(outputFile))
-        return;
+    bool ignoreEOL = true;
+    // Create a new common save file dialog
+    CComPtr<IFileDialog> pfd = NULL;
+
+    auto hr = pfd.CoCreateInstance(CLSID_FileSaveDialog, NULL, CLSCTX_INPROC_SERVER);
+    if (SUCCEEDED(hr))
+    {
+        // Set the dialog options
+        DWORD dwOptions;
+        if (SUCCEEDED(hr = pfd->GetOptions(&dwOptions)))
+        {
+            hr = pfd->SetOptions(dwOptions | FOS_OVERWRITEPROMPT | FOS_FORCEFILESYSTEM | FOS_PATHMUSTEXIST);
+        }
+
+        CComPtr<IFileDialogCustomize> pfdCustomize;
+        hr = pfd.QueryInterface(&pfdCustomize);
+        if (SUCCEEDED(hr))
+        {
+            pfdCustomize->AddCheckButton(101, CString(MAKEINTRESOURCE(IDS_DIFF_IGNORE_EOL)), TRUE);
+        }
+
+
+        // Show the save/open file dialog
+        if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(GetSafeHwnd())))
+        {
+            CComPtr<IFileDialogCustomize> pfdCustomizeRet;
+            hr = pfd.QueryInterface(&pfdCustomizeRet);
+            if (SUCCEEDED(hr))
+            {
+                BOOL bChecked = TRUE;
+                pfdCustomizeRet->GetCheckButtonState(101, &bChecked);
+                ignoreEOL = (bChecked != 0);
+            }
+
+            // Get the selection from the user
+            CComPtr<IShellItem> psiResult = NULL;
+            hr = pfd->GetResult(&psiResult);
+            if (SUCCEEDED(hr))
+            {
+                PWSTR pszPath = NULL;
+                hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                if (SUCCEEDED(hr))
+                {
+                    outputFile = CString(pszPath);
+                }
+            }
+        }
+    }
+
 
     CRegStdDWORD regContextLines(L"Software\\TortoiseMerge\\ContextLines", 0);
-    CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, regContextLines, true);
+    CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, regContextLines, ignoreEOL, true);
     CAppUtils::StartUnifiedDiffViewer(outputFile, CPathUtils::GetFileNameFromPath(outputFile));
 }
 

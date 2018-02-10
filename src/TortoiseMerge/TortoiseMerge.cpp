@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2014, 2016-2017 - TortoiseSVN
+// Copyright (C) 2006-2014, 2016-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -452,7 +452,7 @@ BOOL CTortoiseMergeApp::InitInstance()
             if (!outfile.IsEmpty())
             {
                 CRegStdDWORD regContextLines(L"Software\\TortoiseMerge\\ContextLines", 0);
-                CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outfile, regContextLines, false);
+                CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outfile, regContextLines, true, false);
                 return FALSE;
             }
         }

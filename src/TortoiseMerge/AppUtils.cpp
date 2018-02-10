@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012-2014 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012-2014, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -82,7 +82,7 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
     return TRUE;
 }
 
-bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output, int contextsize, bool bShowError)
+bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output, int contextsize, bool ignoreEOL, bool bShowError)
 {
     apr_file_t* outfile = nullptr;
     apr_pool_t* pool = svn_pool_create(nullptr);
@@ -97,7 +97,7 @@ bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, 
         {
             svn_diff_t* diff = nullptr;
             svn_diff_file_options_t * opts = svn_diff_file_options_create(pool);
-            opts->ignore_eol_style = false;
+            opts->ignore_eol_style = ignoreEOL;
             opts->ignore_space = svn_diff_file_ignore_space_none;
             err = svn_diff_file_diff_2(&diff, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
                 svn_dirent_internal_style(CUnicodeUtils::GetUTF8(modified), pool), opts, pool);

@@ -246,6 +246,7 @@
 #define IDS_STATE                       2705
 #define IDS_STATE_ERROR                 2706
 #define IDS_STATE_PATCHED               2707
+#define IDS_DIFF_IGNORE_EOL             2708
 #define IDS_PROPMODS                    2800
 #define IDS_PROPANDCONTENTMODS          2801
 #define IDS_MOVED_FROM_TT               2810
