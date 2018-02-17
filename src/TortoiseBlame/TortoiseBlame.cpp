@@ -1,6 +1,6 @@
-// TortoiseBlame - a Viewer for Subversion Blames
+﻿// TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2055,7 +2055,7 @@ void TortoiseBlame::InitSize()
         ::ShowWindow(wLocator, SW_HIDE);
 }
 
-COLORREF TortoiseBlame::GetLineColor(int line, bool bLocatorBar)
+COLORREF TortoiseBlame::GetLineColor(Sci_Position line, bool bLocatorBar)
 {
     switch (m_colorby)
     {

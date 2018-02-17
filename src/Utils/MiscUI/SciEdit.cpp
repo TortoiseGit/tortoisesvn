@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 // Copyright (C) 2015-2017 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -497,7 +497,7 @@ CString CSciEdit::GetText()
 
 CString CSciEdit::GetWordUnderCursor(bool bSelectWord, bool allchars)
 {
-    TEXTRANGEA textrange;
+    Sci_TextRange textrange;
     int pos = (int)Call(SCI_GETCURRENTPOS);
     textrange.chrg.cpMin = (LONG)Call(SCI_WORDSTARTPOSITION, pos, TRUE);
     if ((pos == textrange.chrg.cpMin)||(textrange.chrg.cpMin < 0))
@@ -672,14 +672,14 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
     return misspelled;
 }
 
-void CSciEdit::CheckSpelling(int startpos, int endpos)
+void CSciEdit::CheckSpelling(Sci_Position startpos, Sci_Position endpos)
 {
     if ((pChecker == NULL) && (m_SpellChecker == nullptr))
         return;
 
-    TEXTRANGEA textrange;
+    Sci_TextRange textrange;
 
-    textrange.chrg.cpMin = startpos;
+    textrange.chrg.cpMin = (Sci_PositionCR)startpos;
     textrange.chrg.cpMax = textrange.chrg.cpMin;
     LRESULT lastpos = endpos;
     if (lastpos < 0)
@@ -720,7 +720,7 @@ void CSciEdit::CheckSpelling(int startpos, int endpos)
             // Try to ignore file names from the auto list.
             // Do do this, for each word ending with '.' we extract next word and check
             // whether the combined string is present in auto list.
-            TEXTRANGEA twoWords;
+            Sci_TextRange twoWords;
             twoWords.chrg.cpMin = textrange.chrg.cpMin;
             twoWords.chrg.cpMax = (LONG)Call(SCI_WORDENDPOSITION, textrange.chrg.cpMax + 1, TRUE);
             auto twoWordsBuffer = std::make_unique<char[]>(twoWords.chrg.cpMax - twoWords.chrg.cpMin + 1);
@@ -813,7 +813,7 @@ void CSciEdit::SuggestSpellingAlternatives()
     return;
 }
 
-void CSciEdit::DoAutoCompletion(int nMinPrefixLength)
+void CSciEdit::DoAutoCompletion(Sci_Position nMinPrefixLength)
 {
     if (m_autolist.empty())
         return;
@@ -953,11 +953,11 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
             }
         case SCN_STYLENEEDED:
             {
-                int startpos = (int)Call(SCI_GETENDSTYLED);
-                int endpos = ((SCNotification *)lpnmhdr)->position;
+                Sci_Position startpos = (Sci_Position)Call(SCI_GETENDSTYLED);
+                Sci_Position endpos = ((SCNotification *)lpnmhdr)->position;
 
-                int startwordpos = (int)Call(SCI_WORDSTARTPOSITION, startpos, true);
-                int endwordpos = (int)Call(SCI_WORDENDPOSITION, endpos, true);
+                Sci_Position startwordpos = (Sci_Position)Call(SCI_WORDSTARTPOSITION, startpos, true);
+                Sci_Position endwordpos = (Sci_Position)Call(SCI_WORDENDPOSITION, endpos, true);
 
                 MarkEnteredBugID(startwordpos, endwordpos);
                 if (m_bDoStyle)
@@ -977,10 +977,10 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                 {
                     LRESULT firstline = Call(SCI_GETFIRSTVISIBLELINE);
                     LRESULT lastline = firstline + Call(SCI_LINESONSCREEN);
-                    int firstpos = (int)Call(SCI_POSITIONFROMLINE, firstline);
-                    int lastpos = (int)Call(SCI_GETLINEENDPOSITION, lastline);
-                    int pos1 = lpSCN->position;
-                    int pos2 = pos1 + lpSCN->length;
+                    Sci_Position firstpos = (Sci_Position)Call(SCI_POSITIONFROMLINE, firstline);
+                    Sci_Position lastpos = (Sci_Position)Call(SCI_GETLINEENDPOSITION, lastline);
+                    Sci_Position pos1 = lpSCN->position;
+                    Sci_Position pos2 = pos1 + lpSCN->length;
                     // always use the bigger range
                     firstpos = min(firstpos, pos1);
                     lastpos = max(lastpos, pos2);
@@ -994,9 +994,10 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
             {
                 if (lpSCN->position < 0)
                     break;
-                TEXTRANGEA textrange;
-                textrange.chrg.cpMin = lpSCN->position;
-                textrange.chrg.cpMax = lpSCN->position;
+
+                Sci_TextRange textrange;
+                textrange.chrg.cpMin = (Sci_PositionCR)lpSCN->position;
+                textrange.chrg.cpMax = (Sci_PositionCR)lpSCN->position;
                 DWORD style = GetStyleAt(lpSCN->position);
                 if (style == 0)
                     break;
@@ -1443,20 +1444,20 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
     }
 }
 
-bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
+bool CSciEdit::StyleEnteredText(Sci_Position startstylepos, Sci_Position endstylepos)
 {
     bool bStyled = false;
-    const int line = (int)Call(SCI_LINEFROMPOSITION, startstylepos);
-    const int line_number_end = (int)Call(SCI_LINEFROMPOSITION, endstylepos);
-    for (int line_number = line; line_number <= line_number_end; ++line_number)
+    const Sci_Position line = (Sci_Position)Call(SCI_LINEFROMPOSITION, startstylepos);
+    const Sci_Position line_number_end = (Sci_Position)Call(SCI_LINEFROMPOSITION, endstylepos);
+    for (auto line_number = line; line_number <= line_number_end; ++line_number)
     {
-        int offset = (int)Call(SCI_POSITIONFROMLINE, line_number);
-        int line_len = (int)Call(SCI_LINELENGTH, line_number);
+        Sci_Position offset = (Sci_Position)Call(SCI_POSITIONFROMLINE, line_number);
+        Sci_Position line_len = (Sci_Position)Call(SCI_LINELENGTH, line_number);
         auto linebuffer = std::make_unique<char[]>(line_len + 1);
         Call(SCI_GETLINE, line_number, (LPARAM)(linebuffer.get()));
         linebuffer[line_len] = 0;
-        int start = 0;
-        int end = 0;
+        Sci_Position start = 0;
+        Sci_Position end = 0;
         while (FindStyleChars(linebuffer.get(), '*', start, end))
         {
             Call(SCI_STARTSTYLING, start + offset, STYLE_BOLD);
@@ -1486,9 +1487,9 @@ bool CSciEdit::StyleEnteredText(int startstylepos, int endstylepos)
     return bStyled;
 }
 
-bool CSciEdit::WrapLines(int startpos, int endpos)
+bool CSciEdit::WrapLines(Sci_Position startpos, Sci_Position endpos)
 {
-    int markerX = (int)(Call(SCI_GETEDGECOLUMN) * Call(SCI_TEXTWIDTH, 0, (LPARAM)" "));
+    Sci_Position markerX = (Sci_Position)(Call(SCI_GETEDGECOLUMN) * Call(SCI_TEXTWIDTH, 0, (LPARAM)" "));
     if (markerX)
     {
         Call(SCI_SETTARGETSTART, startpos);
@@ -1520,7 +1521,7 @@ void CSciEdit::AdvanceUTF8(const char * str, int& pos)
         pos++;
 }
 
-bool CSciEdit::FindStyleChars(const char * line, char styler, int& start, int& end)
+bool CSciEdit::FindStyleChars(const char * line, char styler, Sci_Position& start, Sci_Position& end)
 {
     int i=0;
     int u=0;
@@ -1574,29 +1575,29 @@ bool CSciEdit::FindStyleChars(const char * line, char styler, int& start, int& e
     return bFoundMarker;
 }
 
-BOOL CSciEdit::MarkEnteredBugID(int startstylepos, int endstylepos)
+BOOL CSciEdit::MarkEnteredBugID(Sci_Position startstylepos, Sci_Position endstylepos)
 {
     if (m_sCommand.IsEmpty())
         return FALSE;
     // get the text between the start and end position we have to style
-    const int line_number = (int)Call(SCI_LINEFROMPOSITION, startstylepos);
-    int start_pos = (int)Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
-    int end_pos = endstylepos;
+    const Sci_Position line_number = (Sci_Position)Call(SCI_LINEFROMPOSITION, startstylepos);
+    Sci_Position start_pos = (Sci_Position)Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
+    Sci_Position end_pos = endstylepos;
 
     if (start_pos == end_pos)
         return FALSE;
     if (start_pos > end_pos)
     {
-        int switchtemp = start_pos;
+        auto switchtemp = start_pos;
         start_pos = end_pos;
         end_pos = switchtemp;
     }
 
     auto textbuffer = std::make_unique<char[]>(end_pos - start_pos + 2);
-    TEXTRANGEA textrange;
+    Sci_TextRange textrange;
     textrange.lpstrText = textbuffer.get();
-    textrange.chrg.cpMin = start_pos;
-    textrange.chrg.cpMax = end_pos;
+    textrange.chrg.cpMin = (Sci_PositionCR)start_pos;
+    textrange.chrg.cpMax = (Sci_PositionCR)end_pos;
     Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
     CStringA msg = CStringA(textbuffer.get());
 
@@ -1689,17 +1690,17 @@ bool CSciEdit::IsValidURLChar(unsigned char ch)
         ch == '|' || ch == '>' || ch == '<' || ch == '!' || ch == '@' || ch == '~';
 }
 
-void CSciEdit::StyleURLs(int startstylepos, int endstylepos)
+void CSciEdit::StyleURLs(Sci_Position startstylepos, Sci_Position endstylepos)
 {
-    const int line_number = (int)Call(SCI_LINEFROMPOSITION, startstylepos);
-    startstylepos = (int)Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
+    const Sci_Position line_number = (Sci_Position)Call(SCI_LINEFROMPOSITION, startstylepos);
+    startstylepos = (Sci_Position)Call(SCI_POSITIONFROMLINE, (WPARAM)line_number);
 
-    int len = endstylepos - startstylepos + 1;
+    auto len = endstylepos - startstylepos + 1;
     auto textbuffer = std::make_unique<char[]>(len + 1);
-    TEXTRANGEA textrange;
+    Sci_TextRange textrange;
     textrange.lpstrText = textbuffer.get();
-    textrange.chrg.cpMin = startstylepos;
-    textrange.chrg.cpMax = endstylepos;
+    textrange.chrg.cpMin = (Sci_PositionCR)startstylepos;
+    textrange.chrg.cpMax = (Sci_PositionCR)endstylepos;
     Call(SCI_GETTEXTRANGE, 0, (LPARAM)&textrange);
     // we're dealing with utf8 encoded text here, which means one glyph is
     // not necessarily one byte/wchar_t

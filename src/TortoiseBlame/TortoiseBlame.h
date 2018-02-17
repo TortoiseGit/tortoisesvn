@@ -1,6 +1,6 @@
-// TortoiseBlame - a Viewer for Subversion Blames
+﻿// TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2010, 2012-2014, 2017 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2014, 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -143,7 +143,7 @@ protected:
     void SetupLexer(LPCTSTR fileName);
     void SetupCppLexer();
     COLORREF InterColor(COLORREF c1, COLORREF c2, int Slider) const;
-    COLORREF GetLineColor(int line, bool bLocatorBar);
+    COLORREF GetLineColor(Sci_Position line, bool bLocatorBar);
     void SetupColoring();
     static std::wstring GetAppDirectory();
 

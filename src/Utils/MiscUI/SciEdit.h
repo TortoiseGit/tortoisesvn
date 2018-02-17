@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013, 2015-2017 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013, 2015-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -158,19 +158,19 @@ protected:
     virtual BOOL OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult);
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual ULONG GetGestureStatus(CPoint ptTouch) override;
-    void        CheckSpelling(int startpos, int endpos);
+    void        CheckSpelling(Sci_Position startpos, Sci_Position endpos);
     void        SuggestSpellingAlternatives(void);
-    void        DoAutoCompletion(int nMinPrefixLength);
+    void        DoAutoCompletion(Sci_Position nMinPrefixLength);
     BOOL        LoadDictionaries(LONG lLanguageID);
-    BOOL        MarkEnteredBugID(int startstylepos, int endstylepos);
-    bool        StyleEnteredText(int startstylepos, int endstylepos);
-    void        StyleURLs(int startstylepos, int endstylepos);
-    bool        WrapLines(int startpos, int endpos);
-    bool        FindStyleChars(const char * line, char styler, int& start, int& end);
+    BOOL        MarkEnteredBugID(Sci_Position startstylepos, Sci_Position endstylepos);
+    bool        StyleEnteredText(Sci_Position startstylepos, Sci_Position endstylepos);
+    void        StyleURLs(Sci_Position startstylepos, Sci_Position endstylepos);
+    bool        WrapLines(Sci_Position startpos, Sci_Position endpos);
+    bool        FindStyleChars(const char * line, char styler, Sci_Position& start, Sci_Position& end);
     void        AdvanceUTF8(const char * str, int& pos);
     BOOL        CheckWordSpelling(const CString & sWord);
     BOOL        IsMisspelled(const CString& sWord);
-    DWORD       GetStyleAt(int pos) { return (DWORD)Call(SCI_GETSTYLEAT, pos) & 0x1f; }
+    DWORD       GetStyleAt(Sci_Position pos) { return (DWORD)Call(SCI_GETSTYLEAT, pos) & 0x1f; }
     bool        IsUrlOrEmail(const CStringA& sText);
     CStringA    GetWordForSpellChecker(const CString& sWord);
     CString     GetWordFromSpellChecker(const CStringA& sWordA);

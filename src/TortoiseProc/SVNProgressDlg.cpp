@@ -3045,7 +3045,7 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
     if (m_options & ProgOptEolCR)
         eol = L"CR";
     CString sCmdInfo;
-    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_EXPORT, m_url.GetUIPathString());
+    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_EXPORT, (LPCWSTR)m_url.GetUIPathString());
     ReportCmd(sCmdInfo);
 
     CTSVNPath targetPath = m_targetPathList[0];
