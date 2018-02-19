@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3247,6 +3247,7 @@ void CBaseView::OnLButtonDown(UINT nFlags, CPoint point)
             {
                 // select the whole line
                 m_ptSelectionViewPosStart = m_ptSelectionViewPosEnd = GetCaretViewPosition();
+                m_ptSelectionViewPosStart.x = 0;
                 m_ptSelectionViewPosEnd.x = GetViewLineLength(m_ptSelectionViewPosEnd.y);
             }
         }

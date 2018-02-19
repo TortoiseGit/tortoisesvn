@@ -8,6 +8,8 @@
        files opened from shell. (Ivan Zhakov)
 - BUG: "not found" errors could happen for filenames that
        contain the "%" char. (Stefan)
+- BUG: TMerge did not select the whole line when clicked
+       on the line number. (Stefan)
 
 Version 1.9.7
 - BUG: Drag copy-and-add did not add auto-properties. (Stefan)
