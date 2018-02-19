@@ -10,6 +10,8 @@
        contain the "%" char. (Stefan)
 - BUG: TMerge did not select the whole line when clicked
        on the line number. (Stefan)
+- BUG: Horizontal scrollbar shown wrong if the view
+       in TMerge had only one line. (Stefan)
 
 Version 1.9.7
 - BUG: Drag copy-and-add did not add auto-properties. (Stefan)
