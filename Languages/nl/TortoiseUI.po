@@ -14,10 +14,10 @@
 # Bas <duvel3@gmail.com>, 2013-2014
 # Eric van Aert <ericvanaert@gmail.com>, 2012
 # Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011, 2012
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2012
+# Lübbe Onken <luebbe.opensource@gmail.com>, 2011
+# Lübbe Onken <luebbe.opensource@gmail.com>, 2012
 # Maarten Hilferink <mhilferink@objectvision.nl>, 2011
-# mark van tilburg <markvantilburg@gmail.com>, 2015-2017
+# mark van tilburg <markvantilburg@gmail.com>, 2015-2018
 # Paul <paul@piak.nl>, 2011
 # Sander Boele <sboele@hotmail.com>, 2014
 # W VB <vanbeirendonck.willem@gmail.com>, 2011
@@ -26,8 +26,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-17 01:34+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2018-02-12 15:46+0000\n"
+"Last-Translator: mark van tilburg <markvantilburg@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -437,7 +437,7 @@ msgstr "&Annuleren"
 msgid ""
 "&Cancel\n"
 "Choose a different folder to export to"
-msgstr ""
+msgstr "&Annuleer\nKies een andere map om naartoe te exporteren"
 
 #. Resource IDs: (IDS_PROGRS_COMMITT_TRUNK_TASK4)
 msgid ""
@@ -461,19 +461,19 @@ msgstr "Annuleer\nNiet ongedaan maken."
 msgid ""
 "&Cancel\n"
 "Do not update the working copy."
-msgstr ""
+msgstr "&Annuleer\nDe werkkopie niet bijwerken."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't resolve the item."
-msgstr ""
+msgstr "&Annuleer\nHet item niet oplosen."
 
 #. Resource IDs: (IDS_STATUSLIST_WARN_MAXDIFF_TASK4)
 msgid ""
 "&Cancel\n"
 "Don't show the diff."
-msgstr ""
+msgstr "&Annuleer\nDe verschillen niet tonen."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK4)
 msgid ""
@@ -509,13 +509,13 @@ msgstr "&Annuleer\nLaat de cache op schijf."
 msgid ""
 "&Cancel\n"
 "Local modifications are kept."
-msgstr ""
+msgstr "&Annuleren\nLokale wijzigingen blijven behouden."
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK4)
 msgid ""
 "&Cancel\n"
 "The conflict is not resolved."
-msgstr ""
+msgstr "&Annuleer\nHet conflict is niet opgelost."
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
 msgid ""
@@ -774,7 +774,7 @@ msgstr "E&xporteer selectie naar..."
 msgid ""
 "&Export\n"
 "Export into the non-empty folder."
-msgstr ""
+msgstr "&Export\nExporteren naar de niet lege map."
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROGSDIFF: Control id 1092, Dialog
 #. IDD_SETTINGSPROGSDIFF: Control id 1094, Dialog IDD_SETTINGSPROGSMERGE:
@@ -1041,7 +1041,7 @@ msgstr "&Verplaatste blokken"
 
 #. Resource IDs: (1672)
 msgid "&Name"
-msgstr ""
+msgstr "&Naam"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
@@ -1295,7 +1295,7 @@ msgstr "&Verwijder project"
 msgid ""
 "&Remove\n"
 "Force the removal"
-msgstr ""
+msgstr "&Verwijder\nGeforceerd verwijderen"
 
 #. Resource IDs: (IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)
 msgid ""
@@ -1340,7 +1340,7 @@ msgstr "Standaard &herstellen"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
-msgstr ""
+msgstr "&Opnieuw proberen als een andere gebruiker"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1542,
 #. IDS_MSGBOX_RETRYWITHOUTHOOKS)
@@ -1379,7 +1379,7 @@ msgstr "&Revisie"
 msgid ""
 "&Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "&Uitvoeren\nHook-script uitvoeren"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 65535)
 msgid "&SSH client:"
@@ -2492,7 +2492,7 @@ msgstr "Bugtraq Regex Tester - TortoiseSVN"
 
 #. Resource IDs: (cmdCopy_Keytip_RESID)
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -4122,7 +4122,7 @@ msgstr "Plaatsen niet mogelijk op %1!ls!"
 
 #. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #. Resource IDs: (ID_INLINEEDIT - Menu)
 msgid "E&xact copy sources"
@@ -4585,7 +4585,7 @@ msgstr "Inclusief externen"
 
 #. Resource IDs: (cmdFind_Keytip_RESID)
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
@@ -4852,7 +4852,7 @@ msgstr "Filter:"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Filtered"
-msgstr ""
+msgstr "Gefilterd"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
 #. cmdFind_LabelTitle_RESID)
@@ -6101,7 +6101,7 @@ msgstr "Lokale &hook-scripts"
 
 #. Resource IDs: (Dialog IDD_EDITPROPLOCALHOOKS: Control id 334)
 msgid "Local hook scripts"
-msgstr ""
+msgstr "Lokale hook-scripts"
 
 #. Resource IDs: (IDS_CHECKOUT_TT_DIR)
 msgid ""
@@ -6366,7 +6366,7 @@ msgstr "Sjabloon en logbestand samenvoegen"
 
 #. Resource IDs: (Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 345)
 msgid "Merge Log Templates"
-msgstr ""
+msgstr "Samenvoegen log sjablonen"
 
 #. Resource IDs: (IDS_PROGRS_TITLE_MERGEREINTEGRATE)
 msgid "Merge Reintegrate"
@@ -6820,7 +6820,7 @@ msgstr "Er zijn geen bestanden gewijzigd of toegevoegd sinds\nde laatste vastleg
 
 #. Resource IDs: (33002)
 msgid "No filter"
-msgstr ""
+msgstr "Geen filter"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
@@ -7792,7 +7792,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_ERR_REGEX_INVALID)
 msgid "Regex is invalid!"
-msgstr ""
+msgstr "Regex is niet valide!"
 
 #. Resource IDs: (Dialog IDD_MONITORPROJECT: Control id 65535)
 msgid "Regex matching message:"
@@ -11504,7 +11504,7 @@ msgstr "repository root URLs ophalen:"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1005)
 msgid "https://tortoisesvn.net"
-msgstr ""
+msgstr "https://tortoisesvn.net"
 
 #. Resource IDs: (IDS_STATUSIGNORED)
 msgid "ignored"

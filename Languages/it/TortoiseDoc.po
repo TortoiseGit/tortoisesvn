@@ -15,6 +15,7 @@
 # Cecilia Saltori <csaltori@gmail.com>, 2011
 # maxTransBrod <egianturco@gmail.com>, 2012
 # Emilio Bologna <io@emilio.i5-my.name>, 2012
+# Fabio Turrin, 2018
 # acehigh, 2011
 # Leonardo <philyo1@gmail.com>, 2012
 # Roberto Casazza <roberto.casazza@alice.it>, 2011
@@ -26,8 +27,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-19 09:05+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2018-02-16 17:00+0000\n"
+"Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,7 +106,7 @@ msgid ""
 " examine the history of how and when your data changed, and who changed it. "
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
-msgstr ""
+msgstr "TortoiseSVN è un client Windows libero e open-source per il sistema di controllo di versione <firstterm>Apache™ Subversion®</firstterm>. Cioè, TortoiseSVN gestisce file e directory nel tempo. I file vengono memorizzati in un <firstterm>repository</firstterm> centrale. Il repository è molto simile a un normale file server, tranne che ricorda ogni modifica apportata ai file e alle directory. Questo consente di recuperare versioni più vecchie dei file ed esaminare la cronologia di come e quando i dati sono cambiati e chi li ha modificati. Questo è il motivo per cui molte persone pensano che Subversion e i sistemi di controllo di versione in generale siano una sorta di <quote>macchina del tempo</quote>."
 
 #. (para)
 msgid ""
@@ -300,7 +301,7 @@ msgid ""
 "url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "Anche se molte persone si limitano a scaricare soltanto il pacchetto di installazione, hai libero accesso anche ai sorgenti di questo programma. Puoi vederli qui <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. La versione attualmente in fase di sviluppo si trova nella cartella <filename>/trunk/</filename> e le versioni già rilasciate si trovano nella cartella <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
@@ -355,7 +356,7 @@ msgid ""
 "which allows all Tortoise clients to use the same icon overlays. Now all "
 "open source Tortoise clients and even some non-Tortoise clients use that "
 "shared component."
-msgstr ""
+msgstr "Con il tempo, altri sistemi di controllo versione hanno avuto il proprio client Tortoise che ha causato un problema con le sovrapposizioni delle icone in Explorer: il numero di tali sovrapposizioni è limitato e anche un client Tortoise può facilmente superare tale limite. È così che Stefan Küng ha implementato il componente TortoiseOverlays che permette a tutti i client Tortoise di utilizzare le stesse icone sovrapposte. Ora tutti i client Tortoise open source e anche alcuni client non Tortoise utilizzano quel componente condiviso."
 
 #. (title)
 msgid "Acknowledgments"
@@ -481,7 +482,7 @@ msgid ""
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
 "which is also relevant to repositories located on a server."
-msgstr ""
+msgstr "Il capitolo in <xref linkend=\"tsvn-repository\"/> spiega come creare un repository locale, utile per testare Subversion e TortoiseSVN con un solo PC. Spiega anche un poco l'amministrazione di un repository che è importante per i repository che risiedono su un server."
 
 #. (para)
 msgid ""
@@ -612,7 +613,7 @@ msgid ""
 "32-bit extension parts. Which means you don't need to install the 32-bit "
 "version separately to get the TortoiseSVN context menu and overlays in "
 "32-bit applications."
-msgstr ""
+msgstr "TortoiseSVN puo essere eseguito su Windows Vista o superiore ed è disponibile in due versioni a 32-bit e 64-bit. Il programma di installazione per Windows 64-bit include anche le parti per la versione 32-bit. Il che significa che non è necessario installare la versione a 32 bit separatamente per ottenere TortoiseSVN a 32 bit."
 
 #. (para)
 msgid ""
@@ -620,7 +621,7 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
 "Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
 " and install older versions if you need them."
-msgstr ""
+msgstr "Il supporto per Windows 98, Windows ME e Windows NT4 è stato abbandonato nella versione 1.2.0, ed il supporto per Windows 2000 e XP SP2 è stato abbandonato nella versione 1.7.0. Il supporto per Windows XP SP3 è stato abbandonato nella versione 1.9.0. È ancora possibile scaricare e installare le versioni più vecchie se ne avete bisogno."
 
 #. (title)
 msgid "Installation"
@@ -655,7 +656,7 @@ msgid ""
 "If you encounter any problems during or after installing TortoiseSVN please "
 "refer to our online FAQ at <ulink "
 "url=\"https://tortoisesvn.net/faq.html\"><citetitle>https://tortoisesvn.net/faq.html</citetitle></ulink>."
-msgstr ""
+msgstr "In caso di problemi durante o dopo l'installazione di TortoiseSVN consultare le nostre FAQ online all'indirizzo <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>https://tortoisesvn.net/faq.html</citetitle></ulink>."
 
 #. (title)
 msgid "Basic Concepts"
@@ -758,7 +759,7 @@ msgid ""
 "the folder, ready for you to use. We will also create the default internal "
 "folder structure by clicking the <guibutton>Create folder "
 "structure</guibutton> button."
-msgstr ""
+msgstr "Prima crea una nuova directory vuota sul tuo PC. Può andare bene qualsiasi percorso, ma in questo tutorial la chiameremo <filename>C:\\svn_repos</filename>. Ora cliccare con il tasto destro del mouse sulla nuova cartella e dal menu contestuale scegliere <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Crea Repository qui...</guimenuitem></menuchoice>. Il repository viene quindi creato all'interno della cartella, pronto per l'uso. Creeremo anche la struttura interna predefinita delle cartelle facendo clic sul pulsante <guibutton>Crea struttura cartella</guibutton>."
 
 #. (para)
 msgid ""
@@ -794,7 +795,7 @@ msgid ""
 "we add our own project name <filename>Widget1</filename>. Note that there "
 "are 3 slashes after <filename>file:</filename> and that forward slashes are "
 "used throughout."
-msgstr ""
+msgstr "Ora abbiamo un repository, ma è completamente vuoto al momento. Supponiamo di avere un insieme di file in <filename>C:\\Projects\\Widget1</filename> che vorremmo aggiungere al repository. Apriamo la cartella <filename>Widget1</filename> con Esplora file e facciamo click con il tasto destro. Selezionare il menu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importa...</guimenuitem></menuchoice> che apre una finestra di dialogo <placeholder-1/> Un repository di Subversion viene indicato con un URL, che ci consente di specificare un repository ovunque su Internet. In questo caso abbiamo bisogno di puntare al nostro repository locale che ha come URL <filename>file:///c:/svn_repos/trunk</filename> e a cui aggiungiamo il nostro nome di progetto <filename>Widget1</filename>. Notare che ci sono 3 slash dopo <filename>file:</filename> e che gli slash sono utilizzati ovunque."
 
 #. (para)
 msgid ""
@@ -826,7 +827,7 @@ msgid ""
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr ""
+msgstr "Ora che abbiamo un progetto nel nostro repository, abbiamo bisogno di creare una copia di lavoro da utilizzare per il lavoro quotidiano. Si noti che l'atto di importare una cartella non trasforma automaticamente tale cartella in una copia di lavoro. Il termine di Subversion per creare una nuova copia di lavoro è <literal>Checkout</literal>. Stiamo per eseguire il checkout della cartella Widget1 del nostro repository in una cartella di sviluppo sul PC chiamata <filename>C:\\Projects\\Widget1-Dev</filename>. Creare questa cartella, quindi fare click con il tasto destro e selezionare il menu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>. Infine inserire il percorso URL del repository del quale fare il checkout, in questo caso <filename>file:///c:/svn_repos/trunk/Widget1</filename> e fare click su <guibutton>OK</guibutton>. La nostra cartella di sviluppo viene quindi popolata con i file dal repository."
 
 #. (para)
 #. (para)
@@ -835,7 +836,7 @@ msgid ""
 "TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
 "commands that are not in the submenu have <literal>SVN</literal> prepended: "
 "<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Come impostazione predefinita, la voce di menu checkout non si trova nel sottomenu TortoiseSVN ma viene visualizzata nel menu principale di Esplora risorse. I comandi TortoiseSVN che non si trovano nel sottomenu sono preceduti da <literal>SVN</literal>: <menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""
@@ -857,7 +858,7 @@ msgid ""
 " and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
 " files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr ""
+msgstr "È ora di mettersi al lavoro. Nella cartella <filename>Widget1-Dev</filename> iniziamo a modificare i file - diciamo che apportiamo modifiche a  <filename>Widget1.c</filename> e<filename>ReadMe.txt</filename>. Si noti che le sovrapposizioni di icone su questi file sono ora diventate rosse, a indicare che le modifiche sono state apportate localmente."
 
 #. (title)
 msgid "File Difference Viewer"
@@ -925,7 +926,7 @@ msgid ""
 "enter a commit message as suggested? If not, now you see why this is "
 "important). <placeholder-1/> OK, so I cheated a little here and used a "
 "screenshot from the TortoiseSVN repository."
-msgstr ""
+msgstr "Una delle funzionalità più utili di TortoiseSVN è la finestra di dialogo Commenti. Essa ti mostra un elenco di tutti i commit che hai eseguito per un file o una cartella, e ti mostra quei messaggi di commit dettagliati che hai immesso (<emphasis>hai inserito</emphasis> un messaggio di commit come suggerito? Se non lo hai fatto, ora capisci perché è importante). <placeholder-1/> OK, ho imbrogliato un po' qui e ho usato uno screenshot dal repository TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -1069,7 +1070,7 @@ msgid ""
 "sorts of questions that are at the heart of any <firstterm>version control "
 "system</firstterm>: systems that are designed to record and track changes to"
 " data over time."
-msgstr ""
+msgstr "Quando un client legge i dati dai repository, normalmente vede solo le ultime versioni dell'albero del filesystem. Ma un client può avere anche l'abilità di vedere <emphasis>gli stati precedenti</emphasis> del filesystem. Per esempio, un client può chiedere qualcosa di storico come, <quote>cosa conteneva questa cartella l'ultimo Mercoledì?</quote>, oppure <quote>chi è stata l'ultima persona a cambiare questo file, e quali cambiamenti ha fatto?</quote>. Queste domande sono il cuore di ogni <firstterm>version control system</firstterm>: sistemi progettati per registrare ogni traccia di cambiamento nel tempo."
 
 #. (title)
 msgid "Versioning Models"
@@ -1177,7 +1178,7 @@ msgid ""
 "merged together into a new, final version. The version control system often "
 "assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr ""
+msgstr "Subversion, CVS ed altri sistemi di controllo di versione utilizzano un modello <firstterm>copia-modifica-unisci</firstterm> come alternativa al lock. In questo modello, ogni client dell'utente legge il repository e crea una <firstterm>copia di lavoro</firstterm> del file o progetto. Gli utenti, quindi, lavorano in parallelo, modificando le proprie copie private. Infine, le copie private vengono fuse insieme in una nuova versione finale. Il sistema di controllo di versione spesso assiste durante il processo di fusione, ma l'ultimo responsabile del corretto funzionamento di questo processo è l'essere umano."
 
 #. (para)
 msgid ""
@@ -1311,7 +1312,7 @@ msgid ""
 "directory of your working copy. Subversion 1.7 takes a completely different "
 "approach and each working copy now has only one administrative subdirectory "
 "which is an immediate child of the root of that working copy."
-msgstr ""
+msgstr "Una copia di lavoro contiene anche alcuni file aggiuntivi, creati e gestiti da Subversion, per aiutarli a eseguire questi comandi. In particolare, la tua copia di lavoro contiene una sottodirectory di nome <filename>.svn</filename>, conosciuta anche come <firstterm>cartella amministrativa</firstterm> della copia di lavoro. I file in questa directory amministrativa aiutano Subversion a riconoscere quali file contengono modifiche non pubblicate e quali file non sono aggiornati rispetto al lavoro degli altri. Prima della versione 1.7, Subversion manteneva una sotto-cartella amministrativa <filename>.svn</filename> per ciascuna cartella della tua copia di lavoro. Subversion 1.7 ha un approccio completamente diverso e ogni copia di lavoro ora ha solo una sottodirectory amministrativa che è contenuta nella cartella radice di quella copia di lavoro."
 
 #. (para)
 msgid ""
@@ -1343,7 +1344,7 @@ msgid ""
 "subtree of the repository. (The term <emphasis>check out</emphasis> may "
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
-msgstr ""
+msgstr "Per ottenere una copia di lavoro, devi effettuare il <firstterm>check out</firstterm> di alcuni elementi presenti nell'albero del repository. (Il termine <emphasis>check out</emphasis> potrebbe sembrare che abbia qualcosa a che fare con il locking o il riservare risorse, ma non è così; semplicemente crea una copia locale del progetto per te.)"
 
 #. (para)
 msgid ""
@@ -1354,7 +1355,7 @@ msgid ""
 "tell it to. The act of publishing your changes is more commonly known as "
 "<firstterm>committing</firstterm> (or <firstterm> checking in </firstterm>) "
 "changes to the repository."
-msgstr ""
+msgstr "Suppioniamo che modifichi <filename>button.c</filename>. Dal momento che la cartella <filename>.svn</filename> ricorda le date di modifica dei file ed il loro contenuto originale, Subversion può dire se hai modificato il file. Comunque, Subversion non pubblica le modifiche fino a che non sei tu a richiederlo esplicitamente. L'atto di pubblicazione è comunemente conosciuto come <firstterm>commit</firstterm> (o <firstterm>check in</firstterm>) dei cambiamenti al repository."
 
 #. (para)
 msgid ""
@@ -1480,7 +1481,7 @@ msgid ""
 "be either absent or <literal>localhost</literal>. For this reason, local "
 "paths normally appear with three slashes, <systemitem "
 "class=\"url\">file:///path/to/repos</systemitem>."
-msgstr ""
+msgstr "Nella maggior parte dei casi, gli URL di Subversion utilizzano la sintassi standard, consentendo di specificare i nomi dei server e i numeri di porta come parte dell'URL. Il metodo di accesso <literal>file://</literal> è normalmente utilizzato per l'accesso locale, sebbene possa essere utilizzato con i percorsi UNC per un host in rete. L'URL quindi assume la forma <systemitem class=\"url\">file://hostname/path/to/repos</systemitem>. Per la macchina locale, la parte <literal>hostname</literal> dell'URL deve essere assente oppure <literal>localhost</literal>. Per questa ragione, i percorsi locali normalmente appaiono con tre slash, <systemitem class=\"url\">file:///path/to/repos</systemitem>."
 
 #. (para)
 msgid ""
@@ -1490,7 +1491,7 @@ msgid ""
 "drive than the client's current working drive. Either of the two following "
 "URL path syntaxes will work where <literal>X</literal> is the drive on which"
 " the repository resides:"
-msgstr ""
+msgstr "Inoltre, gli utenti della piattaforma Windows che usano lo schema <literal>file://</literal> dovranno utilizzare una sintassi non ufficiale <quote>standard</quote> per accedere ai repository che si trovano sullo stesso computer, ma su un'unità diversa rispetto all'unità di lavoro corrente il client. Una delle due seguenti sintassi del percorso URL funzionerà dove <literal>X</literal> è l'unità su cui risiede il repository:"
 
 #. (screen)
 #, no-wrap
@@ -1513,26 +1514,26 @@ msgstr "Si noti che l'URL utilizza barre ordinaria anche se la forma nativa (non
 msgid ""
 "You can access a FSFS repository via a network share, but this is "
 "<emphasis>not</emphasis> recommended for various reasons:"
-msgstr ""
+msgstr "Puoi accedere al repository FSFS attraverso una condivisione di rete, ma questo <emphasis>non</emphasis> è raccomandabile per varie ragioni:"
 
 #. (para)
 msgid ""
 "You are giving direct write access to all users, so they could accidentally "
 "delete or corrupt the repository file system."
-msgstr ""
+msgstr "Stai dando accesso diretto in scrittura a tutti gli utenti, in modo che possano cancellare o corrompere accidentalmente il file system del repository."
 
 #. (para)
 msgid ""
 "Not all network file sharing protocols support the locking that Subversion "
 "requires. One day you will find your repository has been subtly "
 "<emphasis>corrupted</emphasis>."
-msgstr ""
+msgstr "Non tutti i protocolli di condivisione file di rete supportano il blocco richiesto da Subversion. Un giorno scoprirai che il tuo repository è stato sottilmente  <emphasis>corrotto</emphasis>."
 
 #. (para)
 msgid ""
 "You have to set the access permissions in just the right way. SAMBA is "
 "particularly difficult in this respect."
-msgstr ""
+msgstr "Devi impostare i permessi di accesso nel modo giusto. SAMBA è particolarmente difficile a questo riguardo."
 
 #. (para)
 #. (para)
@@ -1540,7 +1541,7 @@ msgid ""
 "If one person installs a newer version of the client which upgrades the "
 "repository format, then everyone else will be unable to access the "
 "repository until they also upgrade to the new client version."
-msgstr ""
+msgstr "Se una persona installa una versione più recente del client che aggiorna il formato del repository, tutti gli altri non saranno in grado di accedere al repository finché non eseguiranno l'aggiornamento anche alla nuova versione del client."
 
 #. (title)
 msgid "Revisions"
@@ -1557,7 +1558,7 @@ msgid ""
 "of files and directories as a single atomic transaction. In your working "
 "copy, you can change files' contents, create, delete, rename and copy files "
 "and directories, and then commit the complete set of changes as a unit."
-msgstr ""
+msgstr "Un'operazione di <command>svn commit</command> può pubblicare modifiche a qualsiasi numero di file e directory come una singola transazione atomica. Nella tua copia di lavoro, puoi modificare i contenuti dei file, creare, eliminare, rinominare e copiare file e directory, e quindi effettuare il commit di un insieme completo di modifiche come una singola operazione."
 
 #. (para)
 msgid ""
@@ -1574,7 +1575,7 @@ msgid ""
 "assigned a unique natural number, one greater than the number of the "
 "previous revision. The initial revision of a freshly created repository is "
 "numbered zero, and consists of nothing but an empty root directory."
-msgstr ""
+msgstr "Ogni volta che il repository accetta un commit, questo crea un nuovo stato dell'albero del filesystem, chiamato <firstterm>revisione</firstterm>. Ad ogni revisione viene assegnato un numero naturale univoco, maggiore del numero della revisione precedente. La revisione iniziale di un repository appena creato è numerata allo zero e non consiste nient'altro che una directory radice vuota."
 
 #. (para)
 msgid ""
@@ -1583,7 +1584,7 @@ msgid ""
 "Each revision number has a filesystem tree hanging below it, and each tree "
 "is a <quote>snapshot</quote> of the way the repository looked after each "
 "commit."
-msgstr ""
+msgstr "Un bel modo per visualizzare il repository è come una serie di alberi. Immagina una serie di numeri di revisione, a partire da 0, che si estende da sinistra a destra. Ogni numero di revisione ha un albero del filesystem appeso sotto di esso, e ogni albero è <quote>un'istantanea</quote> di come appariva il repository dopo ciascun commit."
 
 #. (title)
 msgid "Global Revision Numbers"
@@ -1600,7 +1601,7 @@ msgid ""
 "<filename>foo.c</filename>'', they really mean ``<filename>foo.c</filename> "
 "as it appears in revision 5.'' Notice that in general, revisions N and M of "
 "a file do <emphasis>not</emphasis> necessarily differ!"
-msgstr ""
+msgstr "A differenza di molti altri sistemi di controllo delle versioni, i numeri di revisione di Subversion si applicano a <emphasis>interi alberi</emphasis>, non a singoli file. Ogni numero di revisione seleziona un intero albero, un particolare stato del repository dopo alcune modifiche apportate. Un altro modo di pensare è che la revisione N rappresenta lo stato del filesystem del repository dopo il commit numero N. Quando un utente di Subversion parla di \"revisione 5 di <filename>foo.c</filename>\", significa in realtà \"<filename>foo.c</filename> come appare nella revisione 5\". Si noti che in generale, le revisioni N e M di un file <emphasis>non</emphasis> differiscono necessariamente!"
 
 #. (para)
 msgid ""
@@ -1627,7 +1628,7 @@ msgid ""
 "<filename>button.c</filename>, and commit that change. Assuming no other "
 "commits have taken place, your commit will create revision 5 of the "
 "repository, and your working copy will now look like this:"
-msgstr ""
+msgstr "Al momento, questa directory di lavoro corrisponde esattamente alla revisione 4 nel repository. Tuttavia, supponiamo di apportare una modifica a <filename>button.c</filename> e di confermare tale modifica. Supponendo che nessun altro commit abbia avuto luogo, il tuo commit creerà la revisione 5 del repository e la tua copia di lavoro sarà ora simile a questa:"
 
 #. (screen)
 #, no-wrap
@@ -1667,7 +1668,7 @@ msgid ""
 " revision 6 to indicate that it is still current. So, after you do a clean "
 "update at the top of your working copy, it will generally correspond to "
 "exactly one revision in the repository."
-msgstr ""
+msgstr "Le modifiche di Sally al file <filename>integer.c</filename> appariranno nella tua copia di lavoro, e la tua modifica sarà ancora presente in <filename>button.c</filename>. In questo esempio, il testo di <filename>Makefile</filename> è identico nelle revisioni 4, 5 e 6, ma Subversion segnerà la tua copia di lavoro di <filename>Makefile</filename> con la revisione 6 per indicare che è ancora attuale. Quindi, dopo aver eseguito un aggiornamento pulito nella parte superiore della copia di lavoro, generalmente corrisponderà esattamente a una revisione nel repository."
 
 #. (title)
 msgid "How Working Copies Track the Repository"
@@ -1683,19 +1684,19 @@ msgstr "Per ogni file in una directory di lavoro, Subversion registra due inform
 msgid ""
 "what revision your working file is based on (this is called the file's "
 "<firstterm> working revision </firstterm>), and"
-msgstr ""
+msgstr "su quale revisione si basa il tuo file di lavoro (si tratta della <firstterm>revisione di lavoro</firstterm> del file), e"
 
 #. (para)
 msgid ""
 "a timestamp recording when the local copy was last updated by the "
 "repository."
-msgstr ""
+msgstr "una registrazione cronologica quando la copia locale è stata aggiornata per l'ultima volta dal repository."
 
 #. (para)
 msgid ""
 "Given this information, by talking to the repository, Subversion can tell "
 "which of the following four states a working file is in:"
-msgstr ""
+msgstr "Date queste informazioni, comunicando con il repository, Subversion può dire in quale dei seguenti quattro stati si trova un file di lavoro:"
 
 #. (term)
 msgid "Unchanged, and current"
@@ -1707,7 +1708,7 @@ msgid ""
 "have been committed to the repository since its working revision. A "
 "<command>commit</command> of the file will do nothing, and an "
 "<command>update</command> of the file will do nothing."
-msgstr ""
+msgstr "Il file non è stato modificato nella directory di lavoro e nessuna modifica al file è stata confermata nel repository dalla sua revisione di lavoro. Un <command>commit</command> del file non farà nulla, e un <command>aggiornamento</command> del file non farà nulla."
 
 #. (term)
 msgid "Locally changed, and current"
@@ -1720,7 +1721,7 @@ msgid ""
 "are local changes that have not been committed to the repository, thus a "
 "<command>commit</command> of the file will succeed in publishing your "
 "changes, and an <command>update</command> of the file will do nothing."
-msgstr ""
+msgstr "Il file è stato modificato nella directory di lavoro e non sono state apportate modifiche a tale file nel repository dalla sua revisione di base. Ci sono modifiche locali che non sono state inviate al repository, quindi un <command>commit</command> del file riuscirà a pubblicare le tue modifiche e un <command>aggiornamento</command> del file non farà nulla."
 
 #. (term)
 msgid "Unchanged, and out-of-date"
@@ -1733,7 +1734,7 @@ msgid ""
 " current with the public revision. A <command>commit</command> of the file "
 "will do nothing, and an <command>update</command> of the file will fold the "
 "latest changes into your working copy."
-msgstr ""
+msgstr "Il file non è stato modificato nella directory di lavoro, ma è stato modificato nel repository. Il file dovrebbe essere aggiornato, per renderlo aggiornato con la revisione pubblica. Un <command>commit</command> del file non farà nulla e un <command>aggiornamento</command> del file riporterà le ultime modifiche nella tua copia di lavoro."
 
 #. (term)
 msgid "Locally changed, and out-of-date"
@@ -1748,7 +1749,7 @@ msgid ""
 "with the local changes. If Subversion can't complete the merge in a "
 "plausible way automatically, it leaves it to the user to resolve the "
 "conflict."
-msgstr ""
+msgstr "Il file è stato modificato sia nella directory di lavoro, sia nel repository. Un <command>commit</command> del file fallirà con un errore <emphasis>non aggiornato</emphasis>. Il file dovrebbe essere aggiornato per primo; un comando di <command>aggiornamento</command> tenterà di unire le modifiche pubbliche con le modifiche locali. Se Subversion non può completare automaticamente l'unione in modo plausibile, lo lascia all'utente per risolvere il conflitto."
 
 #. (title)
 msgid "Summary"
@@ -1770,7 +1771,7 @@ msgid ""
 "We've seen some simple examples of how two collaborators can use Subversion "
 "to publish and receive changes from one another, using the 'copy-modify-"
 "merge' model."
-msgstr ""
+msgstr "Abbiamo visto alcuni semplici esempi di come due collaboratori possono utilizzare Subversion per pubblicare e ricevere modifiche l'uno dall'altro, usando il modello 'copia-modifica-merge'."
 
 #. (para)
 msgid ""
@@ -1783,7 +1784,7 @@ msgid ""
 "No matter which protocol you use to access your repositories, you always "
 "need to create at least one repository. This can either be done with the "
 "Subversion command line client or with TortoiseSVN."
-msgstr ""
+msgstr "Indipendentemente dal protocollo utilizzato per accedere ai repository, è sempre necessario creare almeno un repository. Questo può essere fatto con il client della riga di comando di Subversion o con TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -1826,7 +1827,7 @@ msgid ""
 "Open the command prompt (or DOS-Box), change into <filename>D:\\SVN\\</filename> and type <screen>\n"
 "svnadmin create --fs-type fsfs MyNewRepository\n"
 "          </screen>"
-msgstr ""
+msgstr "Apri il prompt dei comandi (o la casella DOS), cambia la cartella corrente in <filename>D:\\SVN\\</filename> e digita<screen>\nsvnadmin create --fs-type fsfs MyNewRepository\n</screen>"
 
 #. (para)
 msgid ""
@@ -1852,35 +1853,35 @@ msgid ""
 "<action>Right click</action> on the newly created folder and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create Repository "
 "here...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Fai <action>clic destro</action> sulla cartella appena creata e seleziona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Crea Repository qui ....</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
 "A repository is then created inside the new folder. <emphasis>Don't edit "
 "those files yourself!!!</emphasis>. If you get any errors make sure that the"
 " folder is empty and not write protected."
-msgstr ""
+msgstr "Un repository viene quindi creato all'interno della nuova cartella. <emphasis>Non modificare questi file!!!</emphasis>. Se si verificano errori, assicurarsi che la cartella sia vuota e non protetta da scrittura."
 
 #. (para)
 msgid ""
 "You will also be asked whether you want to create a directory structure "
 "within the repository. Find out about layout options in <xref linkend"
 "=\"tsvn-repository-layout\"/>."
-msgstr ""
+msgstr "Ti verrà anche chiesto se vuoi creare una struttura di directory all'interno del repository. Scopri le opzioni di layout in <xref linkend=\"tsvn-repository-layout\"/>."
 
 #. (para)
 msgid ""
 "TortoiseSVN will set a custom folder icon when it creates a repository so "
 "you can identify local repositories more easily. If you create a repository "
 "using the official command line client this folder icon is not assigned."
-msgstr ""
+msgstr "TortoiseSVN imposterà un'icona di cartella personalizzata quando crea un repository in modo da poter identificare più facilmente i repository locali. Se si crea un repository utilizzando il client della riga di comando ufficiale, questa icona della cartella non viene assegnata."
 
 #. (para)
 msgid ""
 "We also recommend that you don't use <literal>file://</literal> access at "
 "all, apart from local testing purposes. Using a server is more secure and "
 "more reliable for all but single-developer use."
-msgstr ""
+msgstr "Ti consigliamo inoltre di non utilizzare percorsi tipo <literal>file://</literal>, tranne che per effettuare dei test locali. L'utilizzo di un server è più sicuro e più affidabile per tutti tranne che per l'utilizzo da parte di uno sviluppatore singolo."
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -1900,7 +1901,7 @@ msgid ""
 "remember that Subversion expects all repository paths in the form "
 "<systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Note the "
 "use of forward slashes throughout."
-msgstr ""
+msgstr "Per accedere al tuo repository locale è necessario il percorso di questa cartella. Basta ricordare che Subversion si aspetta tutti i percorsi del repository nella forma <systemitem class=\"url\">file:///C:/SVNRepository/</systemitem>. Notare l'uso degli slash."
 
 #. (para)
 msgid ""
@@ -1908,14 +1909,14 @@ msgid ""
 "mapping, or you can use the UNC path. For UNC paths, the form is <systemitem"
 " class=\"url\">file://ServerName/path/to/repos/</systemitem>. Note that "
 "there are only 2 leading slashes here."
-msgstr ""
+msgstr "Per accedere a un repository situato su una condivisione di rete è possibile utilizzare la mappatura dell'unità oppure utilizzare il percorso UNC. Per i percorsi UNC, il formato è <systemitem class=\"url\">file://ServerName/path/to/repos/</systemitem>. Nota che in questo caso ci sono solo 2 slash iniziali."
 
 #. (para)
 msgid ""
 "Prior to SVN 1.2, UNC paths had to be given in the more obscure form "
 "<systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. "
 "This form is still supported, but not recommended."
-msgstr ""
+msgstr "Prima di SVN 1.2, i percorsi UNC dovevano essere forniti nel formato più oscuro: <systemitem class=\"url\">file:///\\ServerName/path/to/repos</systemitem>. Questo formato è ancora supportato, ma non consigliato."
 
 #. (title)
 msgid "Accessing a Repository on a Network Share"
@@ -1932,14 +1933,14 @@ msgid ""
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
 "support such use for various reasons:"
-msgstr ""
+msgstr "Sebbene in teoria sia possibile collocare un repository FSFS su una condivisione di rete e avere più utenti che accedono utilizzando il protocollo <literal>file://</literal>, questo è decisamente <emphasis>sconsigliato</emphasis>. In realtà lo sconsigliamo <emphasis>fortemente</emphasis> e non supportiamo tale uso per vari motivi:"
 
 #. (para)
 msgid ""
 "Firstly you are giving every user direct write access to the repository, so "
 "any user could accidentally delete the entire repository or make it unusable"
 " in some other way."
-msgstr ""
+msgstr "In primo luogo, stai dando ad ogni utente accesso diretto alla scrittura del repository, in modo che qualsiasi utente possa cancellare accidentalmente l'intero repository o renderlo inutilizzabile in qualche altro modo."
 
 #. (para)
 msgid ""
@@ -1947,13 +1948,13 @@ msgid ""
 "Subversion requires, so you may find your repository gets corrupted. It may "
 "not happen straight away, but one day two users will try to access the "
 "repository at the same time."
-msgstr ""
+msgstr "In secondo luogo, non tutti i protocolli di condivisione file di rete supportano il blocco richiesto da Subversion, quindi è possibile che il repository venga danneggiato. Potrebbe non accadere subito, ma un giorno due utenti proveranno ad accedere al repository contemporaneamente."
 
 #. (para)
 msgid ""
 "Thirdly the file permissions have to be set just so. You may just about get "
 "away with it on a native Windows share, but SAMBA is particularly difficult."
-msgstr ""
+msgstr "In terzo luogo, le autorizzazioni per i file devono essere impostate proprio così. Si può quasi farla franca su una condivisione nativa di Windows, ma SAMBA è particolarmente difficile."
 
 #. (para)
 msgid ""
@@ -1962,7 +1963,7 @@ msgid ""
 "repository you <emphasis>really</emphasis> need to set up a proper server, "
 "and it is not nearly as difficult as you might think. Read <xref linkend"
 "=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
-msgstr ""
+msgstr "L'acceso con <literal>file://</literal> è inteso solo per l'accesso locale, per singolo utente, in particolare per il test e il debug. Quando si desidera condividere il repository, è <emphasis>necessario</emphasis> configurare un server appropriato e non è così difficile come si potrebbe pensare. Leggi <xref linkend=\"tsvn-serversetup\"/> per le linee guida sulla scelta e la configurazione di un server."
 
 #. (title)
 msgid "Repository Layout"
@@ -1973,7 +1974,7 @@ msgid ""
 "Before you import your data into the repository you should first think about"
 " how you want to organize your data. If you use one of the recommended "
 "layouts you will later have it much easier."
-msgstr ""
+msgstr "Prima di importare i tuoi dati nel repository dovresti prima pensare a come vuoi organizzare i tuoi dati. Se si utilizza uno dei layout consigliati, in seguito sarà molto più facile."
 
 #. (para)
 msgid ""
@@ -1983,7 +1984,7 @@ msgid ""
 "contain branch copies, and a <filename>tags</filename> directory to contain "
 "tag copies. If a repository holds only one project, then often people create"
 " these top-level directories:"
-msgstr ""
+msgstr "Esistono alcuni metodi standard consigliati per organizzare un repository. La maggior parte delle persone crea una directory <filename>trunk</filename> per contenere la <quote>linea principale</quote> di sviluppo, una directory <filename>branch</filename> per contenere le copie delle diramazioni e una directory <filename>tag</filename> per contenere le copie dei tag. Se un repository contiene solo un progetto, spesso le persone creano queste directory di primo livello:"
 
 #. (screen)
 #, no-wrap
@@ -2000,7 +2001,7 @@ msgid ""
 "Because this layout is so commonly used, when you create a new repository "
 "using TortoiseSVN, it will also offer to create the directory structure for "
 "you."
-msgstr ""
+msgstr "Poiché questo layout è quello più comunemente usato, quando si crea un nuovo repository usando TortoiseSVN, si offrirà anche di creare la struttura delle directory per voi."
 
 #. (para)
 msgid ""
@@ -2054,7 +2055,7 @@ msgid ""
 "approach, there is nothing to say that you have to copy the entire trunk for"
 " every branch and tag, and in some ways this structure offers the most "
 "flexibility."
-msgstr ""
+msgstr "Se si adotta un approccio di livello superiore <filename>/trunk /tags /branches</filename>, non c'è altro da dire che è necessario copiare l'intero trunk per ogni branch e tag, e in qualche modo questa struttura offre la massima flessibilità."
 
 #. (para)
 msgid ""
@@ -2065,7 +2066,7 @@ msgid ""
 "Subversion and TortoiseSVN projects appear at the same host address, but are"
 " completely separate repositories allowing independent development, and no "
 "confusion over build numbers."
-msgstr ""
+msgstr "Per i progetti non collegati potresti preferire l'utilizzo di repository separati. Quando si fa il commit delle modifiche, è il numero di revisione dell'intero repository che cambia, non il numero di revisione del progetto. Avere 2 progetti non collegati che condividono un repository può significare grandi lacune nei numeri di revisione. I progetti Subversion e TortoiseSVN vengono visualizzati nello stesso indirizzo host, ma sono repository completamente separati che consentono uno sviluppo indipendente e nessuna confusione sui numeri di build."
 
 #. (para)
 msgid ""
@@ -2074,14 +2075,14 @@ msgid ""
 "whatever you choose, it's not a permanent commitment. You can reorganize "
 "your repository at any time. Because branches and tags are ordinary "
 "directories, TortoiseSVN can move or rename them however you wish."
-msgstr ""
+msgstr "Naturalmente, sei libero di ignorare questi layout comuni. Puoi creare qualsiasi tipo di variazione, qualunque cosa funzioni meglio per te o per la tua squadra. Ricorda che qualunque cosa tu scelga, non è un impegno permanente. Puoi riorganizzare il tuo repository in qualsiasi momento. Poiché i branch e i tag sono normali directory, TortoiseSVN può spostarli o rinominarli come preferisci."
 
 #. (para)
 msgid ""
 "Switching from one layout to another is just a matter of issuing a series of"
 " server-side moves; If you don't like the way things are organized in the "
 "repository, just juggle the directories around."
-msgstr ""
+msgstr "Passare da un layout all'altro è solo questione di effettuare una serie di spostamenti lato server; se non ti piace il modo in cui le cose sono organizzate nel repository, fai semplicemente il giocoliere con le directory."
 
 #. (para)
 msgid "create a new empty folder on your hard drive"
@@ -2091,7 +2092,7 @@ msgstr "creare una nuova cartella vuota sul disco rigido"
 msgid ""
 "create your desired top-level folder structure inside that folder - don't "
 "put any files in it yet!"
-msgstr ""
+msgstr "crea la struttura di cartelle di primo livello desiderata all'interno di quella cartella - non inserire ancora file!"
 
 #. (para)
 msgid ""
@@ -2101,7 +2102,7 @@ msgid ""
 " In the import dialog enter the URL to your repository and click OK. This "
 "will import your temp folder into the repository root to create the basic "
 "repository layout."
-msgstr ""
+msgstr "importare questa struttura nel repository facendo <action>clic destro</action> sulla cartella che contiene questa struttura di cartelle e seleziona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice> Nella finestra di dialogo di importazione, inserire l'URL del repository e fare clic su OK. Questo importerà la cartella temporanea nella root del repository per creare il layout di base del repository."
 
 #. (para)
 msgid ""
@@ -2112,7 +2113,7 @@ msgid ""
 "(in three separate commits). If you want to create a deeper hierarchy then "
 "it is simpler to create a folder structure on disk first and import it in a "
 "single commit, like this: <placeholder-1/>"
-msgstr ""
+msgstr "Quindi, se non hai già creato una struttura di cartelle di base all'interno del tuo repository, dovresti farlo ora. Ci sono due modi per raggiungere questo obiettivo. Se si desidera semplicemente creare una struttura <filename>/trunk/tag/branches</filename>, è possibile utilizzare il browser del repository per creare le tre cartelle (in tre commit separati). Se si desidera creare una gerarchia più profonda, è più semplice creare prima una struttura di cartelle sul disco e importarla in un singolo commit, in questo modo: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -2141,7 +2142,7 @@ msgid ""
 "maintain regular backups, and that you verify the backup. If the server "
 "fails, you may be able to access a recent version of your files, but without"
 " the repository all your history is lost forever."
-msgstr ""
+msgstr "Indipendentemente dal tipo di repository che si utilizza, è di vitale importanza mantenere backup regolari e verificare il backup. Se il server fallisce, potresti essere in grado di accedere a una versione recente dei tuoi file, ma senza il repository tutta la cronologia è persa per sempre."
 
 #. (para)
 msgid ""
@@ -14403,7 +14404,7 @@ msgid "Post-commit"
 msgstr ""
 
 #. (para)
-msgid "Called after the commit finishes (whether successful or not)."
+msgid "Called after the commit finishes successfully."
 msgstr ""
 
 #. (term)
@@ -19786,9 +19787,23 @@ msgstr ""
 
 #. (para)
 msgid ""
-"TortoiseSVN includes a spell checker which allows you to check your commit "
-"log messages. This is especially useful if the project language is not your "
-"native language. The spell checker uses the same dictionary files as <ulink "
+"TortoiseSVN uses the Windows spell checker if it's available (Windows 8 or "
+"later). Which means that if you want the spell checker to work in a "
+"different language than the default OS language, you have to install the "
+"spell checker module in the Windows settings (<literal>Settings &gt; Time "
+"&amp; Language &gt; Region &amp; Language</literal>)."
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN will use that spell checker if properly configured with the "
+"<literal>tsvn:projectlanguage</literal> project property."
+msgstr ""
+
+#. (para)
+msgid ""
+"In case the Windows spell checker is not available, TortoiseSVN can also use"
+" spell checker dictionaries from <ulink "
 "url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and"
 " <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 msgstr ""

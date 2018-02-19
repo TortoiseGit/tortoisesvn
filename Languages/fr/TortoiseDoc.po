@@ -32,8 +32,8 @@
 # Le Gall Nicolas <contact@nlegall.fr>, 2015
 # lkppo, 2012
 # Jack, 2015-2016
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
-# Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>, 2011
+# Lübbe Onken <luebbe.opensource@gmail.com>, 2011
+# Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Lucas Mascaro <mascaro.lucas@yahoo.fr>, 2017
 # Philippe <kissifrot@gmail.com>, 2014
 # Philippe PERIN, 2016
@@ -45,8 +45,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-09-23 18:02+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2018-02-01 01:53+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14422,8 +14422,8 @@ msgid "Post-commit"
 msgstr "Post-commit"
 
 #. (para)
-msgid "Called after the commit finishes (whether successful or not)."
-msgstr "Appellé après la fin de la livraison (qu'elle soit réussie ou non)."
+msgid "Called after the commit finishes successfully."
+msgstr ""
 
 #. (term)
 #. (term)
@@ -19805,9 +19805,23 @@ msgstr "dictionnaire"
 
 #. (para)
 msgid ""
-"TortoiseSVN includes a spell checker which allows you to check your commit "
-"log messages. This is especially useful if the project language is not your "
-"native language. The spell checker uses the same dictionary files as <ulink "
+"TortoiseSVN uses the Windows spell checker if it's available (Windows 8 or "
+"later). Which means that if you want the spell checker to work in a "
+"different language than the default OS language, you have to install the "
+"spell checker module in the Windows settings (<literal>Settings &gt; Time "
+"&amp; Language &gt; Region &amp; Language</literal>)."
+msgstr ""
+
+#. (para)
+msgid ""
+"TortoiseSVN will use that spell checker if properly configured with the "
+"<literal>tsvn:projectlanguage</literal> project property."
+msgstr ""
+
+#. (para)
+msgid ""
+"In case the Windows spell checker is not available, TortoiseSVN can also use"
+" spell checker dictionaries from <ulink "
 "url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and"
 " <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
 msgstr ""
