@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3059,7 +3059,8 @@ void CSVNStatusListCtrl::Revert (const CTSVNPath& filepath)
                     SetItemState(index, 0, LVIS_SELECTED);
                     SetEntryCheck(fentry, index, false);
                 }
-                else if ((fentry->switched)||(m_dwShow & SVNSLC_SHOWNORMAL))
+                else if (((fentry->switched)||(m_dwShow & SVNSLC_SHOWNORMAL)) ||
+                         !fentry->lock_token.IsEmpty())
                 {
                     SetItemState(index, 0, LVIS_SELECTED);
                 }
