@@ -13,14 +13,15 @@
 # Friedrich Brunzema <brunzefb@yahoo.com>, 2013
 # Friedrich Brunzema <brunzefb@yahoo.com>, 2013
 # lonken <l.onken@rac.de>, 2014
-# Lübbe Onken <luebbe.opensource@gmail.com>, 2011
+# luebbe <luebbe.opensource@gmail.com>, 2011
 # Lübbe Onken <l.onken@rac.de>, 2011-2012
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2017
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015-2016
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2014, 2015-2016, 2017
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2015, 2016-2017
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2016, 2017
-# Lübbe Onken <luebbe.opensource@gmail.com>, 2011,2013
+# luebbe <luebbe.opensource@gmail.com>, 2011,2013
+# luebbe <luebbe.opensource@gmail.com>, 2018
 # peu <peu@rekoba.de>, 2012-2013
 # peu <peu@rekoba.de>, 2012
 # peu <peu@rekoba.de>, 2013
@@ -35,8 +36,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-02-01 01:53+0000\n"
-"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2018-02-26 08:20+0000\n"
+"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3585,7 +3586,7 @@ msgid ""
 " and the online documentation and tutorial at <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Der Dialog zur Eingabe von Logmeldungen enthält auch eine Funktion zum Autovervollständigen von Datei- und Funktionsnamen. Diese verwendet reguläre Ausdrücke, um Klassen- sowie Funktionsnamen aus den (Text-) Dateien, die Sie übertragen, zu extrahieren sowie die Dateinamen selbst. Wenn ein Wort, dass Sie eingeben mit einem Eintrag in der Liste übereinstimmt (sobald Sie mindestens drei Zeichen eingegeben oder <keycap>Strg+Leerzeichen</keycap> gedrückt haben), erscheint eine Liste aus der Sie den vollständigen Namen wählen können. Die mit TortoiseSVN gelieferten regulären Ausdrücke finden sich im TortoiseSVN <filename>bin</filename> Installationsordner. Sie können auch ihre eigenen regulären Ausdrücke definieren und sie in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename> speichern. Selbstverständlich wird ihre eigene autolist bei einem Update von TortoiseSVN nicht überschrieben. Sollten Sie noch keine Erfahrung mit regulären Ausdrücken besitzen, können Sie sich die Einführung in <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"></citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink> sowie die Onlinedokumentation und die Anleitung in <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink> anschauen."
 
 #. (para)
 msgid ""
@@ -13392,7 +13393,7 @@ msgid ""
 "processes</guilabel> box. This is useful if you want to prevent another "
 "<filename>TSVNCache.exe</filename> process getting created with elevated "
 "privileges."
-msgstr ""
+msgstr "Sie können erzwingen, dass dass für Prozesse mit erhöhten Rechten <emphasis>kein</emphasis> Statuscache angelegt wird, indem Sie die Option Statuscache für erhöhte Prozesse deaktivieren</guilabel> wählen. Das ist nützlich, wenn Sie verhindern wollen, dass ein weiterer <filename>TSVNCache.exe</filename> Prozess mit erhöhten Rechten erzeugt wird."
 
 #. (para)
 msgid ""
@@ -13400,7 +13401,7 @@ msgid ""
 "items. This could be useful for reminding you that you have created new "
 "files which are not yet versioned. This option is only available when you "
 "use the <emphasis>default</emphasis> status cache option (see below)."
-msgstr "Sie können auch festlegen, dass Ordner als modifiziert angezeigt werden sollen, wenn Sie unversionierte Objekte enthalten. Das können Sie als Erinnerung nutzen, dass Sie neue, noch nicht versionierte, Dateien angelegt haben. Diese Option ist nur verfügbar, wenn Sie die <emphasis>Standard</emphasis> Puffer Einstellungen nutzen (siehe unten)."
+msgstr "Sie können auch festlegen, dass Ordner als modifiziert angezeigt werden sollen, wenn Sie nicht versionierte Objekte enthalten. Das können Sie als Erinnerung nutzen, dass Sie neue, noch nicht versionierte, Dateien angelegt haben. Diese Option ist nur verfügbar, wenn Sie die <emphasis>Standard</emphasis> Statuscache Einstellungen nutzen (siehe unten)."
 
 #. (para)
 msgid ""
@@ -14373,7 +14374,7 @@ msgid ""
 "Hook</guibutton> which when clicked runs the specified hook script. The hook"
 " script receives a list of all checked files and folders and the commit "
 "message if there was one entered."
-msgstr ""
+msgstr "Mit dieser Option zeigt der Übertragen-Dialog die Schaltfläche Schaltfläche<guibutton>Aktionsskript ausführen</guibutton> an, mit der das angegebene Aktionsskript gestartet wird. An das Aktionsskript wird eine Liste aller markierten Dateien sowie die Logmeldung übergeben, falls eine eingetragen wurde."
 
 #. (term)
 #. (term)
@@ -14413,7 +14414,7 @@ msgstr "Nach Übertragung"
 
 #. (para)
 msgid "Called after the commit finishes successfully."
-msgstr ""
+msgstr "Wird nach einer erfolgreichen Übertragung aufgerufen"
 
 #. (term)
 #. (term)
@@ -19800,13 +19801,13 @@ msgid ""
 "different language than the default OS language, you have to install the "
 "spell checker module in the Windows settings (<literal>Settings &gt; Time "
 "&amp; Language &gt; Region &amp; Language</literal>)."
-msgstr ""
+msgstr "TortoiseSVN verwendet die Windows Rechtschreibprüfung (verfügbar ab Windows 8). Wenn Sie die Rechtschreibprüfung nicht in der Standardsprache des Betriebssystems verwenden wollen, müssen Sie die entsprechende Rechtschreibprüfung über die Windows Einstellungen installieren (<literal>Einstellungen &gt; Region &amp; Sprache</literal>)."
 
 #. (para)
 msgid ""
 "TortoiseSVN will use that spell checker if properly configured with the "
 "<literal>tsvn:projectlanguage</literal> project property."
-msgstr ""
+msgstr "TortoiseSVN wird diese Rechtschreibprüfung verwenden, wenn sie korrekt über die <literal>tsvn:projectlanguage</literal> Projekteigenschaft konfiguriert ist."
 
 #. (para)
 msgid ""
@@ -19814,7 +19815,7 @@ msgid ""
 " spell checker dictionaries from <ulink "
 "url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and"
 " <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr ""
+msgstr "Für den Fall, dass die Windows Rechtschreibprüfung nicht verfügbar ist, kann TortoiseSVN auch Wörterbücher von <ulink url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> und <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> verwenden."
 
 #. (para)
 msgid ""
@@ -21463,7 +21464,7 @@ msgstr "Verhindert, dass die Datei bearbeitet wird. Das heißt, die Bearbeitungs
 msgid ""
 "Prevents TortoiseMerge from asking whether to mark a file as resolved in SVN"
 " after saving it."
-msgstr ""
+msgstr "Hindert TortoiseSVN daran, nachzufragen, ob eine Datei nach dem Speichern in SVN als aufgelöst markiert werden soll."
 
 #. (para)
 msgid ""

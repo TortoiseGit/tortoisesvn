@@ -3067,6 +3067,54 @@ msgid "Note that if you use changelists, externals will no longer show up in the
 msgstr ""
 
 #. (title)
+msgid "Shelving"
+msgstr ""
+
+#. (primary)
+msgid "shelve"
+msgstr ""
+
+#. (primary)
+msgid "unshelve"
+msgstr ""
+
+#. (para)
+msgid "More often than wanted, it's necessary to stop what you were working on and work on something else. For example a serious problem needs immediate dealing with and you have to stop working on the new feature. If possible, you should commit the changes you have done so far and then start working on the urgent issue, but often those changes would break the build or are just not ready for committing yet."
+msgstr ""
+
+#. (para)
+msgid "So if you can't commit your local changes yet, you have to put them aside while you're working on the urgent issue. The <firstterm>shelving</firstterm> feature helps you do exactly that: you can store your local changes on a shelve, get your working copy in a clean state again and work on the issue. After you're finished with the urgent issue and you've committed those changes, you can <firstterm>unshelve</firstterm> your shelved work and continue working on your previous task again."
+msgstr ""
+
+#. (para)
+msgid "Two new commands are implemented for this. One for shelving and one for unshelving."
+msgstr ""
+
+#. (title)
+msgid "Shelve dialog"
+msgstr ""
+
+#. (para)
+msgid "To shelve your local changes, select your working copy and use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Shelve</guimenuitem></menuchoice> The following dialog allows you to select the files you want to shelve and give a name under which you want to store them. <placeholder-1/> Then click <guibutton>OK</guibutton> and the changes are stored under the name you specified, and your working copy is reset to a clean state."
+msgstr ""
+
+#. (title)
+msgid "Unshelve dialog"
+msgstr ""
+
+#. (para)
+msgid "To unshelve your changes, use <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Unshelve</guimenuitem></menuchoice> to get the unshelve dialog. This dialog shows you a list of all shelved items. Select the shelved item you want to apply back to your working copy and click <guibutton>OK</guibutton>. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid "Shelves are purely a local client feature. Creating and removing Shelves will not affect the repository, nor anyone else's working copy."
+msgstr ""
+
+#. (para)
+msgid "Currently only text files can be shelved and unshelved. Binary files and text files encoded in utf-16 (unicode) can not be shelved."
+msgstr ""
+
+#. (title)
 msgid "Revision Log Dialog"
 msgstr ""
 
