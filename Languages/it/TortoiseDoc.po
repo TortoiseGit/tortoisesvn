@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-02-16 17:00+0000\n"
+"PO-Revision-Date: 2018-02-21 08:57+0000\n"
 "Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -2007,7 +2007,7 @@ msgstr "Poiché questo layout è quello più comunemente usato, quando si crea u
 msgid ""
 "If a repository contains multiple projects, people often index their layout "
 "by branch:"
-msgstr "Se un archivio contiene più progetti, spesso sono divisi in branch:"
+msgstr "Se un archivio contiene più progetti, spesso sono organizzati in branch:"
 
 #. (screen)
 #, no-wrap
@@ -2047,7 +2047,7 @@ msgid ""
 " together in a single distribution package, it is often better to index by "
 "branch. This way you have only one trunk to checkout, and the relationships "
 "between the sub-projects is more easily visible."
-msgstr ""
+msgstr "L'organizzazione per progetto ha senso se i progetti non sono strettamente correlati e il checkout viene effettuato singolarmente. Per i progetti correlati in cui è possibile fare il checkout di tutti i progetti in una volta sola o in cui i progetti sono tutti collegati in un unico pacchetto di distribuzione, è spesso preferibile l'organizzazione in branch. In questo modo hai un solo trunk da fare il checkout, e le relazioni tra i sotto-progetti sono più facilmente visibili."
 
 #. (para)
 msgid ""
@@ -2126,7 +2126,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "      </screen>"
-msgstr ""
+msgstr "Si noti che il nome della cartella che si sta importando non appare nel repository, ma solo il suo contenuto. Ad esempio, creare la seguente struttura di cartelle: <screen>\nC:\\Temp\\New\\trunk\nC:\\Temp\\New\\branches\nC:\\Temp\\New\\tags\n      </screen>Importa <filename>C:\\Temp\\New</filename> nella root del repository, che apparirà in questo modo: <screen>\ntrunk\n/branches\n/tags\n      </screen>"
 
 #. (title)
 msgid "Repository Backup"
@@ -2152,14 +2152,14 @@ msgid ""
 "<emphasis>any</emphasis> access at all. If your repository is accessed at "
 "all during the copy, (web browser left open, WebSVN, etc.) the backup will "
 "be worthless."
-msgstr ""
+msgstr "Il modo più semplice (ma non consigliato) è quello di copiare la cartella del repository sul supporto di backup. Tuttavia, devi essere assolutamente sicuro che nessun processo acceda ai dati. In questo contesto, l'accesso significa <emphasis>qualsiasi</emphasis> accesso. Se si accede al proprio repository durante la copia (browser Web lasciato aperto, WebSVN, ecc.) Il backup sarà inutile."
 
 #. (para)
 msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup\n"
 "    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
-msgstr ""
+msgstr "Il metodo consigliato è eseguire <screen>\nsvnadmin hotcopy path/to/repository path/to/backup\n    </screen> per creare una copia del repository in modo sicuro. Quindi eseguire il backup della copia."
 
 #. (para)
 msgid ""
@@ -2170,7 +2170,7 @@ msgid ""
 "command line tools directly from the <ulink "
 "url=\"https://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "Lo strumento <literal>svnadmin</literal> viene installato automaticamente quando si installa il client della riga di comando di Subversion. Il modo più semplice per ottenere ciò è verificare l'opzione per includere gli strumenti della riga di comando durante l'installazione di TortoiseSVN, ma se preferisci puoi scaricare l'ultima versione di strumenti da riga di comando direttamente dal sito Web di <ulink url=\"https://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
