@@ -1775,11 +1775,11 @@ void CMainFrame::OnViewOptions()
     }
     CDiffColors::GetInstance().LoadRegistry();
     if (m_pwndBottomView)
-        m_pwndBottomView->Invalidate();
+        m_pwndBottomView->DocumentUpdated();
     if (m_pwndLeftView)
-        m_pwndLeftView->Invalidate();
+        m_pwndLeftView->DocumentUpdated();
     if (m_pwndRightView)
-        m_pwndRightView->Invalidate();
+        m_pwndRightView->DocumentUpdated();
 }
 
 void CMainFrame::OnClose()
