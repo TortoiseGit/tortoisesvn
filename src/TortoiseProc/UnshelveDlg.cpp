@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017 - TortoiseSVN
+// Copyright (C) 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,8 +54,6 @@ BOOL CUnshelve::OnInitDialog()
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
-
-    DialogEnableWindow(IDHELP, false);
 
     // populate the list of shelved changes and select the first one
     for (auto i = m_Names.begin(); i != m_Names.end(); ++i)
