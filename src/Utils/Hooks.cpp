@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2017 - TortoiseSVN
+// Copyright (C) 2007-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -754,7 +754,7 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                 fullUrl = temp.Mid(urlstart, urlend-urlstart);
                 fullUrl.Replace('\\', '/');
                 // now we have the full url of the script, e.g.
-                // https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts/client-side/checkyear.js
+                // https://svn.osdn.net/svnroot/tortoisesvn/trunk/contrib/hook-scripts/client-side/checkyear.js
 
                 CString sLocalPathUrl = rootUrl;
                 CString sLocalPath = rootPath;
@@ -812,7 +812,7 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                     fullUrl = temp.Mid(urlstart, urlend-urlstart);
                     fullUrl.Replace('\\', '/');
                     // now we have the full url of the script, e.g.
-                    // https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/hook-scripts/client-side/checkyear.js
+                    // https://svn.osdn.net/svnroot/tortoisesvn/trunk/contrib/hook-scripts/client-side/checkyear.js
 
                     CString sLocalPathUrl = rootUrl;
                     sLocalPath = rootPath;
