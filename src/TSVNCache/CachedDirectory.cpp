@@ -909,8 +909,9 @@ void CCachedDirectory::RefreshStatus(bool bRecursive)
                 CTSVNPath filePath (GetFullPathString (itMembers->first));
                 if (!filePath.IsEquivalentToWithoutCase(m_directoryPath))
                 {
-                    // we only have file members in our entry cache
-                    ATLASSERT(!itMembers->second.IsDirectory());
+                    // we only have file members in our entry cache, but IsDirectory() returns true
+                    // if the file is missing
+                    //ATLASSERT(!itMembers->second.IsDirectory());
 
                     auto ftIt = filetimes.find(itMembers->first.Mid(1));
                     if (ftIt != filetimes.end())
