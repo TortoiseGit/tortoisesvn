@@ -1,4 +1,4 @@
-/*********************************************************************
+﻿/*********************************************************************
 CReaderWriterLock: A simple and fast reader-writer lock class in C++
 has characters of .NET ReaderWriterLock class
 Copyright (C) 2006 Quynh Nguyen Huu
@@ -73,15 +73,18 @@ bool CReaderWriterLockNonReentrance::_ReaderWait(DWORD dwTimeout) throw()
 
     if(INFINITE == dwTimeout) // INFINITE is a special value
     {
-        do
+        if (m_iNumOfWriter == 0)
+        {
+            int iuz = 0;
+        }
+        while (0 != m_iNumOfWriter)
         {
             LeaveCS();
             WaitForSingleObject(m_hSafeToReadEvent, INFINITE);
             // There might be one or more Writers entered, that's
             // why we need DO-WHILE loop here
             EnterCS();
-        }
-        while(0 != m_iNumOfWriter);
+        };
 
         ++m_iNumOfReaderEntered;
         blCanRead = TRUE;
