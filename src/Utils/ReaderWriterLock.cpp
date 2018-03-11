@@ -73,10 +73,6 @@ bool CReaderWriterLockNonReentrance::_ReaderWait(DWORD dwTimeout) throw()
 
     if(INFINITE == dwTimeout) // INFINITE is a special value
     {
-        if (m_iNumOfWriter == 0)
-        {
-            int iuz = 0;
-        }
         while (0 != m_iNumOfWriter)
         {
             LeaveCS();
