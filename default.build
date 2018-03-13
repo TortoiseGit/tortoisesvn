@@ -579,7 +579,7 @@
             string content = reader.ReadToEnd();
             reader.Close();
 
-            string header = @"![TortoiseSVN logo](https://svn.code.sf.net/p/tortoisesvn/code/trunk/doc/logo/tortoisesvn_logo_hor468x64.png)
+            string header = @"![TortoiseSVN logo](https://svn.osdn.net/svnroot/tortoisesvn/trunk/doc/logo/tortoisesvn_logo_hor468x64.png)
 
 Make sure to also check the [changelog of Subversion](https://svn.apache.org/repos/asf/subversion/trunk/CHANGES).
 
