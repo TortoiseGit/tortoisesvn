@@ -13,18 +13,42 @@ lang: en
         <p>TortoiseSVN is still in development so the translation
         of all resources is also a work 'in progress'.</p>
 
-        <h3>General</h3>
+        <h2>General</h2>
         <p>The TortoiseSVN project uses gettext PO (portable object)
         files for its translation. PO files are plain text, so you
         can even translate using a normal text editor. The only
         thing you have to take care of is that the editor can handle
         the UTF-8 charset. There is a wide range of tools out there
         that can handle and manipulate PO files.</p>
+        <p>There are two ways to add to the translations in TortoiseSVN
+            <ul>
+                <li>The new way using transifex.com</li>
+                <li>The old manual way (deprecated)</li>
+            </ul>
+        </p>
 
-        <p>We recommend that you use
-        <a href="http://poedit.sourceforge.net">poEdit</a> or
-        <a href="http://translate.sourceforge.net/wiki/virtaal/index">Virtaal</a>
-        on Windows.</p>
+        <h3>Offline translation editing</h3>
+        <p>No matter whether you follow the old or the new path, both ways allow you to edit your
+            translations offline. We recommend that you use
+            <a href="http://poedit.sourceforge.net">poEdit</a> (Windows only) or
+            <a href="http://translate.sourceforge.net/wiki/virtaal/index">Virtaal</a> (Multi-platform).
+        </p>
+       
+        <h3 id="thenewway">The new way using transifex.com</h3>
+        <p>
+            Visit <a href="https://transifex.com">transifex.com</a> and register an account there.
+            After having done this, go to the <a href="https://www.transifex.com/luebbe/tortoisesvn/">TortoiseSVN translation project</a>
+            and request to join a language team of your choice.
+        </p>
+        <p>
+            Transifex has a nice web interface. You can edit everything there, but you can also download
+            the .po file, work offline using your preferred editor and upload the .po file to transifex again.
+        </p>
+        <p>
+            We take care of synchronizing the translations between transifex.com and our repository.
+        </p>
+
+        <h3 id="theoldway">The old manual way (deprecated)</h3>
 
         <p>This description assumes that you use poEdit.</p>
 
