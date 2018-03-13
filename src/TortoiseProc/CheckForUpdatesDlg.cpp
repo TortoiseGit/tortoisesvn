@@ -115,7 +115,7 @@ UINT CCheckForUpdatesDlg::CheckThread()
     {
         sCheckURL = checkurlmachine;
         if (sCheckURL.IsEmpty())
-            sCheckURL = L"https://svn.osdn.net/svnroot/tortoisesvn/trunk/version.txt";
+            sCheckURL = L"https://tortoisesvn.net/version.txt";
     }
     HRESULT res = URLDownloadToFile(NULL, sCheckURL, tempfile, 0, NULL);
     if (res == S_OK)
