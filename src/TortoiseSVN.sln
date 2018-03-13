@@ -59,12 +59,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "binaries", "binaries", "{87
 		..\ext\build\OpenSSL.build = ..\ext\build\OpenSSL.build
 		..\ext\build\sasl.build = ..\ext\build\sasl.build
 		..\ext\build\serf.build = ..\ext\build\serf.build
+		TortoiseSVNSetup\setup.build = TortoiseSVNSetup\setup.build
 		..\ext\build\sqlite.build = ..\ext\build\sqlite.build
 		..\ext\build\subversion.build = ..\ext\build\subversion.build
 		TortoiseOverlays\TortoiseOverlays.build = TortoiseOverlays\TortoiseOverlays.build
 		TortoiseSVN.build = TortoiseSVN.build
 		TortoiseOverlays\version.build.in = TortoiseOverlays\version.build.in
 		..\version.build.in = ..\version.build.in
+		..\versioninfo.build = ..\versioninfo.build
 		..\ext\build\zlib.build = ..\ext\build\zlib.build
 	EndProjectSection
 EndProject
