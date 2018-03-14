@@ -462,6 +462,9 @@ Don't touch these lines:
                 New files are added automatically, and missing files get
                 removed in the target working copy, basically ensuring
                 that source and destination are exactly the same.
+                Specify <option>/noui</option> to skip the confirmation dialog,
+                and <option>/noprogressui</option> to also disable showing the
+                progress dialog.
               </entry>
             </row>
             <row>
