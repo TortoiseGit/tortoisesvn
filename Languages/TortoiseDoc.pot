@@ -9582,7 +9582,23 @@ msgid "This option enables the use of Direct2D accelerated drawing in the Scinti
 msgstr ""
 
 #. (para)
-msgid "If you don't want TortoiseSVN to ask you to update the working copy automatically after an <literal>Out of date</literal> error, set this value to <literal>false</literal>."
+msgid "The user is asked whether to update the working copy or not, and the commit dialog is not reopened after the update."
+msgstr ""
+
+#. (para)
+msgid "This is the default. The user is asked whether to update the working copy or not, and the commit dialog is reopened after the update so the user can proceed with the commit right away."
+msgstr ""
+
+#. (para)
+msgid "Similar to <literal>1</literal>, but instead of updating only the paths selected for a commit, the update is done on the working copy root. This helps to avoid inconsistent working copies."
+msgstr ""
+
+#. (para)
+msgid "The user is not asked to update the working copy. The commit simply fails with the out-of-date error message."
+msgstr ""
+
+#. (para)
+msgid "This parameter specifies how TortoiseSVN behaves if a commit fails due to an out-of-date error: <placeholder-1/>"
 msgstr ""
 
 #. (para)
