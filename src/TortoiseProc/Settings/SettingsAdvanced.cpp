@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2015 - TortoiseSVN
+// Copyright (C) 2009-2015, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -142,8 +142,8 @@ CSettingsAdvanced::CSettingsAdvanced()
     settings[i++].def.b = false;
 
     settings[i].sName   = L"OutOfDateRetry";
-    settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;
-    settings[i++].def.b = true;
+    settings[i].type    = CSettingsAdvanced::SettingTypeNumber;
+    settings[i++].def.l = 1;
 
     settings[i].sName   = L"RepoBrowserTrySVNParentPath";
     settings[i].type    = CSettingsAdvanced::SettingTypeBoolean;

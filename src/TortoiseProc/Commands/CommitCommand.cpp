@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2014 - TortoiseSVN
+// Copyright (C) 2007-2014, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -145,7 +145,14 @@ bool CommitCommand::Execute()
             progDlg.SetOrigPathList(origPathList);
             progDlg.DoModal();
 
-            if (IsOutOfDate(progDlg.GetSVNError()))
+            // FailRepeat can have these values:
+            // 0 : like 1, but do not reopen the commit dialog
+            // 1 : default. Ask to update and update the items selected for commit, and then reopen the commit dialog
+            // 2 : Like 1, but update from the WC root
+            // 3 : don't ask to update, just let the commit fail and have the user deal with the error.
+            auto FailRepeat = (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\OutOfDateRetry", 1);
+
+            if (IsOutOfDate(progDlg.GetSVNError()) && (FailRepeat != 3))
             {
                 // the commit failed at least one of the items was outdated.
                 // -> suggest to update them
@@ -154,7 +161,14 @@ bool CommitCommand::Execute()
                     // auto-update
                     CSVNProgressDlg updateProgDlg;
                     InitProgressDialog (dlg, updateProgDlg);
-                    updateProgDlg.SetPathList(updatelist);
+                    auto updatePaths = updatelist;
+                    if (FailRepeat == 2)
+                    {
+                        SVN svn;
+                        auto root = svn.GetWCRootFromPath(updatelist[0]);
+                        updatePaths = CTSVNPathList(root);
+                    }
+                    updateProgDlg.SetPathList(updatePaths);
                     updateProgDlg.SetCommand (CSVNProgressDlg::SVNProgress_Update);
                     // always update with svn_depth_unknown (the depth of the wc).
                     // because otherwise we would change the depth here which is
@@ -187,8 +201,7 @@ bool CommitCommand::Execute()
             err = (DWORD)progDlg.DidErrorsOccur();
             bRepeat = progDlg.DidErrorsOccur();
             bRet = !progDlg.DidErrorsOccur();
-            CRegDWORD bFailRepeat = CRegDWORD(L"Software\\TortoiseSVN\\OutOfDateRetry", TRUE);
-            if (DWORD(bFailRepeat)==0)
+            if ((FailRepeat == 0) || (FailRepeat == 3))
                 bRepeat = false;        // do not repeat if the user chose not to in the settings.
 
             if (bRet)
