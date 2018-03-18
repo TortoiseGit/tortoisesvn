@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2017 - TortoiseSVN
 
@@ -224,7 +224,6 @@ bool InsertRevision(char * def, char * pBuf, size_t & index,
             return false; // value specifier too big
         }
         exp = pEnd - pStart + 1;
-        SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,pEnd - pStart);
         unsigned long number = strtoul(format, NULL, 0);
         if (strcmp(def,VERDEFAND) == 0)
@@ -297,7 +296,7 @@ bool InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
     ptrdiff_t exp = 0;
     if ((wcscmp(def,TEXT(VERDEFAND)) == 0) || (wcscmp(def,TEXT(VERDEFOFFSET1)) == 0) || (wcscmp(def,TEXT(VERDEFOFFSET2)) == 0))
     {
-        wchar_t format[1024];
+        wchar_t format[1024] = { 0 };
         wchar_t * pStart = pBuf + index + wcslen(def);
         wchar_t * pEnd = pStart;
 
@@ -312,7 +311,6 @@ bool InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
             return false; // Format specifier too big
         }
         exp = pEnd - pStart + 1;
-        SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,(pEnd - pStart)*sizeof(wchar_t));
         unsigned long number = wcstoul(format, NULL, 0);
         if (wcscmp(def,TEXT(VERDEFAND)) == 0)
@@ -360,13 +358,13 @@ bool InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
     ptrdiff_t Expansion = wcslen(destbuf) - exp - wcslen(def);
     if (Expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf)));
+        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf) * sizeof(wchar_t)));
     }
     else if (Expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return false;
-        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf)));
+        if (maxlength < Expansion * sizeof(wchar_t) + filelength) return false;
+        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf) * sizeof(wchar_t)));
     }
     memmove(pBuild, destbuf, wcslen(destbuf)*sizeof(wchar_t));
     filelength += (Expansion*sizeof(wchar_t));
@@ -433,7 +431,6 @@ bool InsertDate(char * def, char * pBuf, size_t & index,
         {
             return false; // Format specifier too big
         }
-        SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,pEnd - pStart);
 
         // to avoid wcsftime aborting if the user specified an invalid time format,
@@ -513,7 +510,7 @@ bool InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
         (wcscmp(def,TEXT(DATEWFMTDEFUTC)) == 0) || (wcscmp(def,TEXT(NOWWFMTDEFUTC)) == 0) || (wcscmp(def,TEXT(LOCKWFMTDEFUTC)) == 0))
     {
         // Format the date/time according to the supplied strftime format string
-        wchar_t format[1024];
+        wchar_t format[1024] = { 0 };
         wchar_t * pStart = pBuf + index + wcslen(def);
         wchar_t * pEnd = pStart;
 
@@ -527,7 +524,6 @@ bool InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
         {
             return false; // Format specifier too big
         }
-        SecureZeroMemory(format, sizeof(format));
         memcpy(format,pStart,(pEnd - pStart)*sizeof(wchar_t));
 
         // to avoid wcsftime aborting if the user specified an invalid time format,
@@ -561,13 +557,13 @@ bool InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
     // Replace the def string with the actual commit date
     if (Expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf)));
+        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf) * sizeof(wchar_t)));
     }
     else if (Expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return false;
-        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf)));
+        if (maxlength < Expansion * sizeof(wchar_t) + filelength) return false;
+        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf) * sizeof(wchar_t)));
     }
     memmove(pBuild, destbuf, wcslen(destbuf)*sizeof(wchar_t));
     filelength += Expansion*sizeof(wchar_t);
@@ -616,13 +612,13 @@ bool InsertUrlW(wchar_t * def, wchar_t * pBuf, size_t & index,
     ptrdiff_t Expansion = wcslen(pUrl) - wcslen(def);
     if (Expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf)));
+        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf) * sizeof(wchar_t)));
     }
     else if (Expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return false;
-        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf)));
+        if (maxlength < Expansion * sizeof(wchar_t) + filelength) return false;
+        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf) * sizeof(wchar_t)));
     }
     memmove(pBuild, pUrl, wcslen(pUrl)*sizeof(wchar_t));
     filelength += Expansion*sizeof(wchar_t);
@@ -714,17 +710,17 @@ bool InsertBooleanW(wchar_t * def, wchar_t * pBuf, size_t & index, size_t & file
         filelength -= ((pEnd + 1 - pSplit)*sizeof(wchar_t));
         // Remove $WCxxx?
         size_t deflen = wcslen(def);
-        memmove(pBuild, pBuild + deflen, (filelength - (pBuild + deflen - pBuf)));
+        memmove(pBuild, pBuild + deflen, (filelength - (pBuild + deflen - pBuf) * sizeof(wchar_t)));
         filelength -= (deflen*sizeof(wchar_t));
     }
     else
     {
         // Replace $WCxxx?TrueText:FalseText$ with FalseText
         // Remove terminating $
-        memmove(pEnd, pEnd + 1, (filelength - (pEnd + 1 - pBuf)));
+        memmove(pEnd, pEnd + 1, (filelength - (pEnd + 1 - pBuf) * sizeof(wchar_t)));
         filelength -= sizeof(wchar_t);
         // Remove $WCxxx?TrueText:
-        memmove(pBuild, pSplit + 1, (filelength - (pSplit + 1 - pBuf)));
+        memmove(pBuild, pSplit + 1, (filelength - (pSplit + 1 - pBuf) * sizeof(wchar_t)));
         filelength -= ((pSplit + 1 - pBuild)*sizeof(wchar_t));
     }
     return true;
