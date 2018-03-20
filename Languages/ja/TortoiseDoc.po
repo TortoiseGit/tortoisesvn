@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-02-24 14:52+0000\n"
-"Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
+"PO-Revision-Date: 2018-03-18 00:37+0000\n"
+"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4907,6 +4907,85 @@ msgid ""
 "own groups anymore. Once there are changelists, files and folders are "
 "grouped by changelist, not by external anymore."
 msgstr "なお、変更リストを使用する場合、外部参照はグループとして表示されなくなりました。変更リストがあるときは、ファイルやフォルダーが外部参照ではなく変更リストでグループ化されます。"
+
+#. (title)
+msgid "Shelving"
+msgstr "延期"
+
+#. (primary)
+msgid "shelve"
+msgstr "延期"
+
+#. (primary)
+msgid "unshelve"
+msgstr "延期を解除"
+
+#. (para)
+msgid ""
+"More often than wanted, it's necessary to stop what you were working on and "
+"work on something else. For example a serious problem needs immediate "
+"dealing with and you have to stop working on the new feature. If possible, "
+"you should commit the changes you have done so far and then start working on"
+" the urgent issue, but often those changes would break the build or are just"
+" not ready for committing yet."
+msgstr ""
+
+#. (para)
+msgid ""
+"So if you can't commit your local changes yet, you have to put them aside "
+"while you're working on the urgent issue. The "
+"<firstterm>shelving</firstterm> feature helps you do exactly that: you can "
+"store your local changes on a shelve, get your working copy in a clean state"
+" again and work on the issue. After you're finished with the urgent issue "
+"and you've committed those changes, you can <firstterm>unshelve</firstterm> "
+"your shelved work and continue working on your previous task again."
+msgstr ""
+
+#. (para)
+msgid ""
+"Two new commands are implemented for this. One for shelving and one for "
+"unshelving."
+msgstr ""
+
+#. (title)
+msgid "Shelve dialog"
+msgstr "延期ダイアログ"
+
+#. (para)
+msgid ""
+"To shelve your local changes, select your working copy and use "
+"<menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Shelve</guimenuitem></menuchoice> The following "
+"dialog allows you to select the files you want to shelve and give a name "
+"under which you want to store them. <placeholder-1/> Then click "
+"<guibutton>OK</guibutton> and the changes are stored under the name you "
+"specified, and your working copy is reset to a clean state."
+msgstr ""
+
+#. (title)
+msgid "Unshelve dialog"
+msgstr "延期の解除ダイアログ"
+
+#. (para)
+msgid ""
+"To unshelve your changes, use <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Unshelve</guimenuitem></menuchoice> to get the "
+"unshelve dialog. This dialog shows you a list of all shelved items. Select "
+"the shelved item you want to apply back to your working copy and click "
+"<guibutton>OK</guibutton>. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"Shelves are purely a local client feature. Creating and removing Shelves "
+"will not affect the repository, nor anyone else's working copy."
+msgstr ""
+
+#. (para)
+msgid ""
+"Currently only text files can be shelved and unshelved. Binary files and "
+"text files encoded in utf-16 (unicode) can not be shelved."
+msgstr ""
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -15169,10 +15248,35 @@ msgstr "このオプションは、コミットダイアログやunified差分�
 
 #. (para)
 msgid ""
-"If you don't want TortoiseSVN to ask you to update the working copy "
-"automatically after an <literal>Out of date</literal> error, set this value "
-"to <literal>false</literal>."
-msgstr "作業コピーが<literal>最新ではない</literal>とエラーが表示された後で、TortoiseSVN が作業コピーを更新するかどうかユーザーに自動的に確認させたくない場合はこの値を <literal>false</literal> に設定してください。"
+"The user is asked whether to update the working copy or not, and the commit "
+"dialog is not reopened after the update."
+msgstr ""
+
+#. (para)
+msgid ""
+"This is the default. The user is asked whether to update the working copy or"
+" not, and the commit dialog is reopened after the update so the user can "
+"proceed with the commit right away."
+msgstr ""
+
+#. (para)
+msgid ""
+"Similar to <literal>1</literal>, but instead of updating only the paths "
+"selected for a commit, the update is done on the working copy root. This "
+"helps to avoid inconsistent working copies."
+msgstr ""
+
+#. (para)
+msgid ""
+"The user is not asked to update the working copy. The commit simply fails "
+"with the out-of-date error message."
+msgstr ""
+
+#. (para)
+msgid ""
+"This parameter specifies how TortoiseSVN behaves if a commit fails due to an"
+" out-of-date error: <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18236,9 +18340,11 @@ msgid "/cleanup"
 msgstr "/cleanup"
 
 #. (option)
+#. (option)
 msgid "/noui"
 msgstr "/noui"
 
+#. (option)
 #. (option)
 msgid "/noprogressui"
 msgstr "/noprogressui"
@@ -18367,8 +18473,10 @@ msgid ""
 "Copies the folder in <placeholder-1/> recursively to the directory specified"
 " in <placeholder-2/>. New files are added automatically, and missing files "
 "get removed in the target working copy, basically ensuring that source and "
-"destination are exactly the same."
-msgstr "<placeholder-1/> で指定されたフォルダーを、 <placeholder-2/> で指定されたディレクトリに再帰的にコピーします。ターゲットの作業コピーに対して、新しいファイルは自動的に追加され、見つからないファイルは削除され、基本的にコピー元とコピー先は全く同じになります。"
+"destination are exactly the same. Specify <placeholder-3/> to skip the "
+"confirmation dialog, and <placeholder-4/> to also disable showing the "
+"progress dialog."
+msgstr ""
 
 #. (option)
 #. (option)
@@ -19789,13 +19897,13 @@ msgid ""
 "different language than the default OS language, you have to install the "
 "spell checker module in the Windows settings (<literal>Settings &gt; Time "
 "&amp; Language &gt; Region &amp; Language</literal>)."
-msgstr ""
+msgstr "TortoiseSVN は、利用できれば Windows スペルチェッカーを使用します（Windows 8 以降）。つまり、既定の OS の言語とは異なるスペルチェッカーを使用したい場合は、 Windows の設定からスペルチェッカーモジュールをインストールする必要があります（<literal>設定 &gt; 時刻と言語 &gt; 地域と言語）。"
 
 #. (para)
 msgid ""
 "TortoiseSVN will use that spell checker if properly configured with the "
 "<literal>tsvn:projectlanguage</literal> project property."
-msgstr ""
+msgstr "TortoiseSVN はプロジェクトプロパティの <literal>tsvn:projectlanguage</literal> で正しく設定されたスペルチェッカーを使用します。"
 
 #. (para)
 msgid ""
@@ -19803,7 +19911,7 @@ msgid ""
 " spell checker dictionaries from <ulink "
 "url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and"
 " <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr ""
+msgstr "Windows のスペルチェッカーが使用できない場合、 TortoiseSVN は <ulink url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> や <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> と同じ辞書を使用することもできます。"
 
 #. (para)
 msgid ""

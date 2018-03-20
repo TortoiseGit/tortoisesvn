@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-02-26 08:20+0000\n"
+"PO-Revision-Date: 2018-03-18 00:37+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -4919,6 +4919,85 @@ msgid ""
 "own groups anymore. Once there are changelists, files and folders are "
 "grouped by changelist, not by external anymore."
 msgstr "Wenn Sie Änderungslisten verwenden, werden Externals nicht mehr in eigenen Gruppierung erscheinen. Sobald es Änderungslisten gibt, werden Dateien und Ordner nach Änderungslisten und nicht mehr nach Externals gruppiert."
+
+#. (title)
+msgid "Shelving"
+msgstr "Zurückstellen"
+
+#. (primary)
+msgid "shelve"
+msgstr "zurückstellen"
+
+#. (primary)
+msgid "unshelve"
+msgstr "hervorholen"
+
+#. (para)
+msgid ""
+"More often than wanted, it's necessary to stop what you were working on and "
+"work on something else. For example a serious problem needs immediate "
+"dealing with and you have to stop working on the new feature. If possible, "
+"you should commit the changes you have done so far and then start working on"
+" the urgent issue, but often those changes would break the build or are just"
+" not ready for committing yet."
+msgstr "Häufiger als gewünscht ist es erforderlich, Ihre aktuelle Aufgabe zu unterbrechen und etwas anderes zu erledigen. Wenn Sie sich zum Beispiel um ein ernstes Problem kümmern müssen und nicht an einer neuen Funktion weiterarbeiten können. Wenn möglich, sollten Sie die bisherigen Änderungen übertragen und sich um die dringende Aufgabe kümmern können, aber häufig sind die ausstehenden Änderungen noch nicht so weit."
+
+#. (para)
+msgid ""
+"So if you can't commit your local changes yet, you have to put them aside "
+"while you're working on the urgent issue. The "
+"<firstterm>shelving</firstterm> feature helps you do exactly that: you can "
+"store your local changes on a shelve, get your working copy in a clean state"
+" again and work on the issue. After you're finished with the urgent issue "
+"and you've committed those changes, you can <firstterm>unshelve</firstterm> "
+"your shelved work and continue working on your previous task again."
+msgstr "Wenn Sie also ihre lokalen Änderungen noch nicht übertragen können, müssen Sie sie beiseitestellen, solange Sie an dem dringenden Problem arbeiten. Die <firstterm>zurückstellen</firstterm> Funktion hilft Ihnen dabei: Sie können ihre lokalen Änderungen, wie in ein Regal, beiseitestellen und Ihre Arbeitskopie in einen sauberen Zustand versetzen. Nachdem Sie die dringende Aufgabe erledigt und Ihre Änderungen übertragen haben, können Sie die zurückgestellten Änderungen wieder <firstterm>hervorholen</firstterm> und an ihrer vorherigen Aufgabe weiterarbeiten."
+
+#. (para)
+msgid ""
+"Two new commands are implemented for this. One for shelving and one for "
+"unshelving."
+msgstr "Zwei neue Funktionen stehen dafür zur Verfügung. Eine zum Zurückstellen und eine zum Hervorholen."
+
+#. (title)
+msgid "Shelve dialog"
+msgstr "Der Zurückstellen Dialog"
+
+#. (para)
+msgid ""
+"To shelve your local changes, select your working copy and use "
+"<menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Shelve</guimenuitem></menuchoice> The following "
+"dialog allows you to select the files you want to shelve and give a name "
+"under which you want to store them. <placeholder-1/> Then click "
+"<guibutton>OK</guibutton> and the changes are stored under the name you "
+"specified, and your working copy is reset to a clean state."
+msgstr ""
+
+#. (title)
+msgid "Unshelve dialog"
+msgstr "Der Hervorholen Dialog"
+
+#. (para)
+msgid ""
+"To unshelve your changes, use <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Unshelve</guimenuitem></menuchoice> to get the "
+"unshelve dialog. This dialog shows you a list of all shelved items. Select "
+"the shelved item you want to apply back to your working copy and click "
+"<guibutton>OK</guibutton>. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"Shelves are purely a local client feature. Creating and removing Shelves "
+"will not affect the repository, nor anyone else's working copy."
+msgstr ""
+
+#. (para)
+msgid ""
+"Currently only text files can be shelved and unshelved. Binary files and "
+"text files encoded in utf-16 (unicode) can not be shelved."
+msgstr ""
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -15181,10 +15260,35 @@ msgstr "Diese Option ermöglicht die Verwendung von Direct2D beschleunigter Dars
 
 #. (para)
 msgid ""
-"If you don't want TortoiseSVN to ask you to update the working copy "
-"automatically after an <literal>Out of date</literal> error, set this value "
-"to <literal>false</literal>."
-msgstr "Wenn Sie nicht möchten, dass TortoiseSVN Sie nach einer<literal>Die Arbeitskopie ist nicht aktuell</literal> Meldung automatisch darauf hinweist, die Arbeitskopie zu aktualisieren, setzen Sie diesen Wert auf <literal>false</literal>."
+"The user is asked whether to update the working copy or not, and the commit "
+"dialog is not reopened after the update."
+msgstr ""
+
+#. (para)
+msgid ""
+"This is the default. The user is asked whether to update the working copy or"
+" not, and the commit dialog is reopened after the update so the user can "
+"proceed with the commit right away."
+msgstr ""
+
+#. (para)
+msgid ""
+"Similar to <literal>1</literal>, but instead of updating only the paths "
+"selected for a commit, the update is done on the working copy root. This "
+"helps to avoid inconsistent working copies."
+msgstr ""
+
+#. (para)
+msgid ""
+"The user is not asked to update the working copy. The commit simply fails "
+"with the out-of-date error message."
+msgstr ""
+
+#. (para)
+msgid ""
+"This parameter specifies how TortoiseSVN behaves if a commit fails due to an"
+" out-of-date error: <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18248,9 +18352,11 @@ msgid "/cleanup"
 msgstr "/cleanup"
 
 #. (option)
+#. (option)
 msgid "/noui"
 msgstr "/noui"
 
+#. (option)
 #. (option)
 msgid "/noprogressui"
 msgstr "/noprogressui"
@@ -18379,8 +18485,10 @@ msgid ""
 "Copies the folder in <placeholder-1/> recursively to the directory specified"
 " in <placeholder-2/>. New files are added automatically, and missing files "
 "get removed in the target working copy, basically ensuring that source and "
-"destination are exactly the same."
-msgstr "Kopiert die Ordner in <placeholder-1/> rekursiv in das in <placeholder-2/> angegebene Verzeichnis. Neue Dateien werden automatisch hinzugefügt, fehlende Dateien werden aus der Arbeitskopie entfernt, wodurch sichergestellt wird, dass das Zielverzeichnis ein exaktes Abbild des Quellverzeichnisses ist."
+"destination are exactly the same. Specify <placeholder-3/> to skip the "
+"confirmation dialog, and <placeholder-4/> to also disable showing the "
+"progress dialog."
+msgstr ""
 
 #. (option)
 #. (option)

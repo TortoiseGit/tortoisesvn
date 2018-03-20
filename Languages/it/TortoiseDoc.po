@@ -17,6 +17,7 @@
 # Emilio Bologna <io@emilio.i5-my.name>, 2012
 # Fabio Turrin, 2018
 # acehigh, 2011
+# Marco Scalcione <marco.scalcione@prae.it>, 2018
 # Leonardo <philyo1@gmail.com>, 2012
 # Roberto Casazza <roberto.casazza@alice.it>, 2011
 # Roberto <roberto@elkgrove.us>, 2011-2012
@@ -27,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-02-21 08:57+0000\n"
-"Last-Translator: Fabio Turrin\n"
+"PO-Revision-Date: 2018-03-18 00:37+0000\n"
+"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2263,14 +2264,14 @@ msgid ""
 "want to include a link to it from your website. One way to make this more "
 "accessible is to include a <firstterm>checkout link</firstterm> for other "
 "TortoiseSVN users."
-msgstr ""
+msgstr "Se vuoi rendere il tuo repository Subversion disponibile ad altri, potresti voler includere un link ad esso dal tuo sito web. Un modo per renderlo più accessibile è includere un <firstterm>link di checkout</firstterm> per altri utenti TortoiseSVN."
 
 #. (para)
 msgid ""
 "When you install TortoiseSVN, it registers a new <literal>tsvn:</literal> "
 "protocol. When a TortoiseSVN user clicks on such a link, the checkout dialog"
 " will open automatically with the repository URL already filled in."
-msgstr ""
+msgstr "Quando installi TortoiseSVN, registra un nuovo protocollo <literal>tsvn:</literal>. Quando un utente TortoiseSVN fa clic su tale link, la finestra di checkout si aprirà automaticamente con l'URL del repository già compilato."
 
 #. (programlisting)
 #, no-wrap
@@ -2278,13 +2279,13 @@ msgid ""
 "\n"
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;/a&gt;\n"
-msgstr ""
+msgstr "\n&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
 "To include such a link in your own html page, you need to add code which "
 "looks something like this: <placeholder-1/>"
-msgstr ""
+msgstr "Per includere un tale link nella tua pagina html, devi aggiungere del codice che assomigli a questo: <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -2292,7 +2293,7 @@ msgid ""
 "\n"
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n"
 "&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
-msgstr ""
+msgstr "\n&lt;a href=\"tsvn:http://project.domain.org/svn/trunk\"&gt;\n&lt;img src=TortoiseCheckout.png&gt;&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
@@ -2301,7 +2302,7 @@ msgid ""
 "url=\"https://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN"
 " logo</citetitle></ulink> or you can provide your own image. "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Ovviamente sarebbe ancora meglio se includessi un'immagine adatta. Puoi usare il <ulink url=\"https://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>logo TortoiseSVN</citetitle></ulink> o puoi fornire la tua immagine. <placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -2309,13 +2310,13 @@ msgid ""
 "\n"
 "&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n"
 "&lt;/a&gt;\n"
-msgstr ""
+msgstr "\n&lt;a href=\"tsvn:http://project.domain.org/svn/trunk?100\"&gt;\n&lt;/a&gt;\n"
 
 #. (para)
 msgid ""
 "You can also make the link point to a specific revision, for example "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Puoi anche fare in modo che il link punti ad una revisione specifica, per esempio <placeholder-1/>"
 
 #. (title)
 msgid "Accessing the Repository"
@@ -2331,7 +2332,7 @@ msgid ""
 "server protocols can also be encrypted. You use <literal>https://</literal> "
 "or <literal>svn+ssh://</literal>, or you can use <literal>svn://</literal> "
 "with SASL."
-msgstr ""
+msgstr "Per utilizzare TortoiseSVN (o qualsiasi altro client Subversion), è necessario un luogo dove posizionare i repository. È possibile memorizzare i repository localmente e accedervi utilizzando il protocollo <literal>file://</literal> oppure posizionarli su un server e accedervi con i protocolli <literal>http://</literal> o <literal>svn://</literal>. I due protocolli server possono anche essere crittografati. Usa <literal>https://</literal> o <literal>svn+ssh://</literal>, oppure puoi usare <literal>svn://</literal> con SASL."
 
 #. (para)
 msgid ""
@@ -2339,7 +2340,7 @@ msgid ""
 "url=\"https://sourceforge.net\"><citetitle>SourceForge</citetitle></ulink> "
 "or your server has already been setup by someone else then there is nothing "
 "else you need to do. Move along to <xref linkend=\"tsvn-dug\"/>."
-msgstr ""
+msgstr "Se stai usando un servizio di hosting pubblico come <ulink url=\"https://sourceforge.net\"><citetitle>SourceForge</citetitle></ulink> o il tuo server è già stato configurato da qualcun altro, non c'è nient'altro che devi fare. Vai avanti a <xref linkend=\"tsvn-dug\"/>."
 
 #. (para)
 msgid ""
@@ -2349,7 +2350,7 @@ msgid ""
 "described earlier in <xref linkend=\"tsvn-repository\"/>. You can skip the "
 "rest of this chapter and go directly to <xref linkend=\"tsvn-dug\"/> to find"
 " out how to start using it."
-msgstr ""
+msgstr "Se non si dispone di un server e si lavora da soli, o se si sta solo valutando Subversion e TortoiseSVN, i repository locali sono probabilmente la scelta migliore. Basta creare un repository sul proprio PC come descritto in precedenza in <xref linkend=\"tsvn-repository\"/>. Puoi saltare il resto di questo capitolo e andare direttamente a <xref linkend=\"tsvn-dug\"/> per scoprire come iniziare a usarlo."
 
 #. (para)
 msgid ""
@@ -2357,7 +2358,7 @@ msgid ""
 "share, think again. Read <xref linkend=\"tsvn-repository-local-share\"/> to "
 "find out why we think this is a bad idea. Setting up a server is not as hard"
 " as it sounds, and will give you better reliability and probably speed too."
-msgstr ""
+msgstr "Se stavi pensando di creare un repository multiutente su una condivisione di rete, ripensaci. Leggi <xref linkend=\"tsvn-repository-local-share\"/> per scoprire perché pensiamo che questa sia una cattiva idea. Configurare un server non è così difficile come sembra, e ti darà maggiore affidabilità e probabilmente anche velocità."
 
 #. (para)
 msgid ""
@@ -2366,7 +2367,7 @@ msgid ""
 "Subversion book under <ulink url=\"http://svnbook.red-"
 "bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Server "
 "Configuration</citetitle></ulink>."
-msgstr ""
+msgstr "Informazioni più dettagliate sulle opzioni del server Subversion e su come scegliere la migliore architettura per la propria situazione, si possono trovare nel libro Subversion in <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.html\"><citetitle>Configurazione server</citetitle></ulink>."
 
 #. (citetitle)
 msgid "VisualSVN"
@@ -2387,14 +2388,14 @@ msgid ""
 "<placeholder-1/> You can always find the latest links on the <ulink "
 "url=\"https://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "Agli albori di Subversion, l'installazione di un server richiedeva una buona comprensione della configurazione del server e nelle versioni precedenti di questo manuale sono state incluse descrizioni dettagliate su come configurare un server. Da allora le cose sono diventate più semplici dato che ora sono disponibili diversi programmi di installazione server preconfigurati che guidano l'utente attraverso il processo di installazione e configurazione. Questi collegamenti sono per alcuni degli installatori che conosciamo: <placeholder-1/>. Puoi sempre trovare gli ultimi collegamenti sul sito di <ulink url=\"https://subversion.apache.org/packages.html\"><citetitle>Subversion</citetitle></ulink>."
 
 #. (para)
 msgid ""
 "You can find further How To guides on the <ulink "
 "url=\"https://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "È possibile trovare ulteriori guide sul sito web di <ulink url=\"https://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>."
 
 #. (title)
 msgid "Daily Use Guide"
@@ -2407,14 +2408,14 @@ msgid ""
 "<emphasis>not</emphasis> an introduction to Subversion (SVN). It is more "
 "like a place you may turn to when you know approximately what you want to "
 "do, but don't quite remember how to do it."
-msgstr ""
+msgstr "Questo documento descrive l'uso quotidiano del client TortoiseSVN. <emphasis>Non</emphasis> è un'introduzione ai sistemi di controllo delle versioni e <emphasis>nemmeno</emphasis> un'introduzione a Subversion (SVN). È più come un luogo a cui ti puoi rivolgere quando sai approssimativamente cosa vuoi fare, ma non ti ricordi abbastanza come farlo."
 
 #. (para)
 msgid ""
 "If you need an introduction to version control with Subversion, then we "
 "recommend you read the fantastic book: <ulink url=\"http://svnbook.red-"
 "bean.com/\"><citetitle>Version Control with Subversion</citetitle></ulink>."
-msgstr ""
+msgstr "Se hai bisogno di una introduzione al controllo di versione con Subversion, ti consigliamo di leggere il libro fantastico: <ulink url=\"http://svnbook.red-bean.com/\"><citetitle>Version Control with Subversion</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -2423,7 +2424,7 @@ msgid ""
 " can update the documentation. Some of the screenshots in the Daily Use "
 "Guide (DUG) might not reflect the current state of the software. Please "
 "forgive us. We're working on TortoiseSVN in our free time."
-msgstr ""
+msgstr "Questo documento è anche un work in progress, proprio come TortoiseSVN e Subversion. Se trovi errori, segnalali alla mailing list in modo che possiamo aggiornare la documentazione. Alcuni degli screenshot nella Guida all'uso quotidiano (Daily Use Guide, DUG) potrebbero non riflettere lo stato corrente del software. Per favore perdonaci. Stiamo lavorando su TortoiseSVN nel nostro tempo libero."
 
 #. (para)
 msgid "You should have installed TortoiseSVN already."
@@ -2441,11 +2442,11 @@ msgstr "Si deve sapere le basi di Subversion."
 msgid ""
 "You should have set up a server and/or have access to a Subversion "
 "repository."
-msgstr ""
+msgstr "Dovresti aver configurato un server e/o avere accesso a un repository Subversion."
 
 #. (para)
 msgid "In order to get the most out of the Daily Use Guide: <placeholder-1/>"
-msgstr ""
+msgstr "Per ottenere il massimo dalla Guida all'utilizzo quotidiano: <placeholder-1/>"
 
 #. (title)
 msgid "General Features"
@@ -2456,7 +2457,7 @@ msgid ""
 "This section describes some of the features of TortoiseSVN which apply to "
 "just about everything in the manual. Note that many of these features will "
 "only show up within a Subversion working copy."
-msgstr ""
+msgstr "Questa sezione descrive alcune delle funzionalità di TortoiseSVN che si applicano a quasi tutto il manuale. Nota che molte di queste funzionalità verranno visualizzate solo all'interno di una copia di lavoro di Subversion."
 
 #. (title)
 #. (title)
@@ -2476,7 +2477,7 @@ msgid ""
 "glance which of your files have been modified. Refer to <xref linkend"
 "=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
 "represent."
-msgstr ""
+msgstr "<placeholder-1/> Una delle caratteristiche più visibili di TortoiseSVN sono le sovrapposizioni di icone che appaiono sui file nella tua copia di lavoro. Queste ti mostrano a colpo d'occhio quale dei tuoi file è stato modificato. Fare riferimento a <xref linkend=\"tsvn-dug-wcstatus-1\"/> per scoprire cosa rappresentano le diverse sovrapposizioni."
 
 #. (title)
 msgid "Context Menus"
@@ -2492,7 +2493,7 @@ msgstr "premi il tasto destro del mouse"
 
 #. (title)
 msgid "Context menu for a directory under version control"
-msgstr ""
+msgstr "Menu di scelta rapida per una directory sotto controllo di versione"
 
 #. (para)
 msgid ""
@@ -2502,14 +2503,14 @@ msgid ""
 "on whether the file or folder or its parent folder is under version control "
 "or not. You can also see the TortoiseSVN menu as part of the Explorer file "
 "menu."
-msgstr ""
+msgstr "<placeholder-1/> Tutti i comandi TortoiseSVN vengono richiamati dal menu di scelta rapida di Windows Explorer. La maggior parte sono direttamente visibili quando fai clic con il <action>tasto destro</action> su un file o una cartella. I comandi disponibili dipendono dal fatto che il file o la cartella o la relativa cartella principale sia sotto controllo di versione o meno. Puoi anche vedere il menu TortoiseSVN come parte del menu File di Explorer."
 
 #. (para)
 msgid ""
 "Some commands which are very rarely used are only available in the extended "
 "context menu. To bring up the extended context menu, hold down the "
 "<keycap>Shift</keycap> key when you <action>right click</action>."
-msgstr ""
+msgstr "Alcuni comandi che vengono utilizzati molto raramente sono disponibili solo nel menu di scelta rapida esteso. Per visualizzare il menu di scelta rapida esteso, tieni premuto il tasto <keycap>Maiusc</keycap> quando fai <action>clic con il pulsante destro</action> del mouse."
 
 #. (title)
 msgid "Explorer file menu for a shortcut in a versioned folder"
@@ -2525,7 +2526,7 @@ msgid ""
 "pointing to. To help you distinguish between them, the icons have an "
 "indicator in the lower right corner to show whether the menu entry is for a "
 "file, a folder, a shortcut or for multiple selected items."
-msgstr ""
+msgstr "In alcuni casi potresti vedere diverse voci TortoiseSVN. Questo non è un bug! <placeholder-1/> Questo esempio è per un collegamento non soggetto a controllo di versione contenuto all'interno di una cartella soggetta a controllo di versione: nel menu File di Explorer ci sono <emphasis>tre</emphasis> voci per TortoiseSVN. Una è per la cartella, una è per il collegamento stesso e la terza è per l'oggetto a cui punta il collegamento. Per aiutarti a distinguerle tra loro, le icone hanno un indicatore nell'angolo in basso a destra per mostrare se la voce di menu è per un file, una cartella, una scorciatoia o per più elementi selezionati."
 
 #. (title)
 #. (title)
@@ -2580,7 +2581,7 @@ msgid ""
 "your working copy. In the commit dialog it will re-scan the working copy to "
 "see what may need to be committed. In the Revision Log dialog it will "
 "contact the repository again to check for more recent changes."
-msgstr ""
+msgstr "Aggiorna la vista corrente. Questo è forse il comando singolo più utile. Ad esempio ... In Explorer questo aggiornerà le sovrapposizioni delle icone sulla tua copia di lavoro. Nella finestra di dialogo di commit, eseguirà una nuova scansione della copia di lavoro per vedere cosa potrebbe essere necessario eseguire. Nella finestra di dialogo Registro revisioni contatterà nuovamente il repository per verificare le modifiche più recenti."
 
 #. (term)
 msgid "Ctrl-A"
@@ -2590,7 +2591,7 @@ msgstr "Ctrl-A"
 msgid ""
 "Select all. This can be used if you get an error message and want to copy "
 "and paste into an email. Use Ctrl-A to select the error message and then ..."
-msgstr ""
+msgstr "Seleziona tutto. Questo può essere usato se si ottiene un messaggio di errore e si desidera copiarlo e incollarlo in un messaggio di posta elettronica. Usa Ctrl-A per selezionare il messaggio di errore e poi ..."
 
 #. (term)
 msgid "Ctrl-C"
@@ -2608,7 +2609,7 @@ msgid ""
 "Some common operations have well-known Windows shortcuts, but do not appear "
 "on buttons or in menus. If you can't work out how to do something obvious, "
 "like refreshing a view, check here. <placeholder-1/>"
-msgstr ""
+msgstr "Alcune operazioni comuni hanno le scorciatoie di Windows ben note, ma non appaiono sui pulsanti o nei menu. Se non riesci a capire come fare qualcosa di ovvio, come rinfrescare una vista, controlla qui. <placeholder-1/>"
 
 #. (title)
 msgid "Authentication"
@@ -2631,7 +2632,7 @@ msgid ""
 "<filename>svn.simple</filename> contains credentials for basic "
 "authentication (username/password). Note that passwords are stored using the"
 " WinCrypt API, not in plain text form."
-msgstr ""
+msgstr "<filename>svn.simple</filename> contiene le credenziali per l'autenticazione di base (nome utente/password). Si noti che le password vengono memorizzate utilizzando l'API WinCrypt, non in formato testo leggibile."
 
 #. (para)
 msgid "<filename>svn.ssl.server</filename> contains SSL server certificates."
@@ -2641,7 +2642,7 @@ msgstr "<filename>svn.ssl.server</filename> contiene i certificati SSL del serve
 msgid ""
 "<filename>svn.username</filename> contains credentials for username-only "
 "authentication (no password needed)."
-msgstr ""
+msgstr "<filename>svn.username</filename> contiene le credenziali per l'autenticazione solo tramite nome utente (nessuna password necessaria)."
 
 #. (para)
 msgid ""
@@ -2651,7 +2652,7 @@ msgid ""
 "Subversion's default directory: "
 "<filename>%APPDATA%\\Subversion\\auth</filename> in three subdirectories: "
 "<placeholder-2/>"
-msgstr ""
+msgstr "Se il repository a cui si sta tentando di accedere è protetto da password, verrà visualizzata una finestra di dialogo di autenticazione. <placeholder-1/> Inserisci il tuo nome utente e la password. La casella di spunta farà in modo che TortoiseSVN memorizzi le credenziali nella directory predefinita di Subversion: <filename>%APPDATA%\\Subversion\\auth</filename> in tre sottodirectory: <placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -2662,7 +2663,7 @@ msgid ""
 "however will show a dialog where you can chose which cached authentication "
 "data should be deleted. Refer to <xref linkend=\"tsvn-dug-settings-saved-"
 "data\"/>."
-msgstr ""
+msgstr "Se si desidera cancellare la cache di autenticazione, è possibile farlo dalla <guilabel>pagina dei dati salvati</guilabel> della finestra di dialogo delle impostazioni di TortoiseSVN. Il pulsante <guibutton>Cancella tutto</guibutton> cancellerà i dati di autenticazione memorizzati nella cache per tutti i repository. Il pulsante <guibutton>Cancella...</guibutton> tuttavia mostrerà una finestra di dialogo in cui è possibile scegliere quali dati di autenticazione nella cache devono essere cancellati. Fare riferimento a <xref linkend=\"tsvn-dug-settings-saved-data\"/>."
 
 #. (para)
 msgid ""
@@ -2670,13 +2671,13 @@ msgid ""
 "@echo off\n"
 "rmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n"
 "      </screen> You can find a description of how to install such scripts at <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
-msgstr ""
+msgstr "Ad alcune persone piace che i dati di autenticazione vengano cancellati quando si disconnettono da Windows o allo spegnimento. Il modo per farlo è quello di utilizzare uno script di chiusura per eliminare la directory <filename>%APPDATA%\\Subversion\\auth</filename>, ad es.<screen>\n@echo off\nrmdir /s /q \"%APPDATA%\\Subversion\\auth\"\n        </screen>Puoi trovare una descrizione di come installare tali script su <ulink url=\"http://www.windows-help-central.com/windows-shutdown-script.html\"><citetitle>http://www.windows-help-central.com/windows-shutdown-script.html</citetitle></ulink>."
 
 #. (para)
 msgid ""
 "For more information on how to set up your server for authentication and "
 "access control, refer to <xref linkend=\"tsvn-serversetup\"/>."
-msgstr ""
+msgstr "Per ulteriori informazioni su come configurare il server per l'autenticazione e il controllo degli accessi, fare riferimento a <xref linkend=\"tsvn-serversetup\"/>."
 
 #. (title)
 msgid "Maximizing Windows"
@@ -2694,7 +2695,7 @@ msgid ""
 "this on the <guilabel>Maximize</guilabel> button. Use the <action>middle "
 "mouse</action> button to maximize vertically, and <action>right "
 "mouse</action> to maximize horizontally."
-msgstr ""
+msgstr "Molte delle finestre di dialogo di TortoiseSVN hanno molte informazioni da visualizzare, ma spesso è utile massimizzare solo l'altezza, o solo la larghezza, piuttosto che massimizzare per riempire lo schermo. Per comodità, ci sono scorciatoie per questo sul pulsante <guilabel>Ingrandisci</guilabel>. Usa il <action>pulsante centrale</action> del mouse per ingrandire verticalmente e il <action>tasto destro</action> del mouse per ingrandirlo orizzontalmente."
 
 #. (title)
 msgid "Importing Data Into A Repository"
@@ -2726,19 +2727,19 @@ msgid ""
 "you are importing data into a new repository, then it is worth taking the "
 "time to think about how it will be organised. Read <xref linkend=\"tsvn-"
 "repository-layout\"/> for further advice."
-msgstr ""
+msgstr "Se si sta importando in un repository esistente che contiene già alcuni progetti, la struttura del repository sarà già stata decisa. Se si importano dati in un nuovo repository, vale la pena dedicare del tempo a pensare a come sarà organizzato. Leggi <xref linkend=\"tsvn-repository-layout\"/> per ulteriori consigli."
 
 #. (para)
 msgid ""
 "There is no way to select files and folders to include, aside from using the"
 " global ignore settings."
-msgstr ""
+msgstr "Non c'è modo di selezionare file e cartelle da includere, oltre a utilizzare le impostazioni globali di \"Ignora\"."
 
 #. (para)
 msgid ""
 "The folder imported does not become a working copy. You have to do a "
 "checkout to copy the files back from the server."
-msgstr ""
+msgstr "La cartella importata non diventa una copia funzionante. Devi fare un checkout per copiare i file dal server."
 
 #. (para)
 msgid "It is easy to import to the wrong folder level in the repository."
@@ -2754,26 +2755,26 @@ msgid ""
 "import-in-place\"/>, unless you are performing the simple step of creating "
 "an initial <filename>/trunk /tags /branches</filename> structure in your "
 "repository. Since you are here, this is how the basic import works ..."
-msgstr ""
+msgstr "Questa sezione descrive il comando di importazione di Subversion, che è stato progettato per importare una gerarchia di directory nel repository in un colpo solo. Sebbene svolga il lavoro, presenta diversi inconvenienti: <placeholder-1/> Per questi motivi consigliamo di non utilizzare il comando di importazione, ma piuttosto di seguire il metodo in due passaggi descritto in <xref linkend=\"tsvn-dug-import-in-place\"/>, a meno che non si stia eseguendo la semplice procedura di creazione della struttura iniziale <filename>/trunk /tags /branches</filename> nel tuo repository. Dato che sei qui, ecco come funziona l'importazione di base ..."
 
 #. (para)
 msgid ""
 "Remove all files which are not needed to build the project (temporary files,"
 " files which are generated by a compiler e.g. *.obj, compiled binaries, ...)"
-msgstr ""
+msgstr "Rimuovi tutti i file che non sono necessari per costruire il progetto (file temporanei, file generati da un compilatore, ad esempio * .obj, file binari compilati, ...)"
 
 #. (para)
 msgid ""
 "Organize the files in folders and sub-folders. Although it is possible to "
 "rename/move files later it is highly recommended to get your project's "
 "structure straight before importing!"
-msgstr ""
+msgstr "Organizza i file in cartelle e sottocartelle. Sebbene sia possibile rinominare/spostare i file in seguito, si consiglia vivamente di decidere la struttura del progetto prima dell'importazione!"
 
 #. (para)
 msgid ""
 "Before you import your project into a repository you should: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Prima di importare il tuo progetto in un repository dovresti: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -2782,7 +2783,7 @@ msgid ""
 "Select the command "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Import...</guimenuitem></menuchoice>"
 " which brings up a dialog box: <placeholder-1/>"
-msgstr ""
+msgstr "Ora seleziona la cartella di livello superiore della struttura della directory del progetto in Windows Explorer e fai <action>clic con il pulsante destro</action> del mouse per aprire il menu di scelta rapida. Seleziona il comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importa...</guimenuitem></menuchoice> che apre una finestra di dialogo: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -2791,7 +2792,7 @@ msgid ""
 "C:\\Projects\\Widget\\doc\n"
 "C:\\Projects\\Widget\\images\n"
 "      </screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
-msgstr ""
+msgstr "In questa finestra di dialogo è necessario inserire l'URL della posizione del repository in cui si desidera importare il progetto. È molto importante rendersi conto che la cartella locale che si sta importando non compare nel repository, ma solo nel suo contenuto. Ad esempio se hai una struttura: <screen>\nC:\\Projects\\Widget\\source\nC:\\Projects\\Widget\\doc\nC:\\Projects\\Widget\\images\n        </screen>e importi <filename>C:\\Projects\\Widget</filename> in <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem>, potresti essere sorpreso di scoprire che le tue sottodirectory vanno direttamente nel <literal>trunk</literal> piuttosto che nella sottodirectory <literal>Widget</literal>. È necessario specificare la sottodirectory come parte dell'URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Si noti che il comando di importazione creerà automaticamente le sottodirectory all'interno del repository se queste non esistono."
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -2804,7 +2805,7 @@ msgid ""
 "the <guilabel>Include ignored files</guilabel> checkbox. Refer to <xref "
 "linkend=\"tsvn-dug-settings-main\"/> for more information on setting a "
 "global ignore pattern."
-msgstr ""
+msgstr "Per impostazione predefinita, i file e le cartelle che corrispondono ai modelli di \"ignora\" globale <emphasis>non</emphasis> vengono importati. Per sovrascrivere questo comportamento è possibile utilizzare la casella di spunta <guilabel>Includi file ignorati</guilabel>. Fare riferimento a <xref linkend=\"tsvn-dug-settings-main\"/> per ulteriori informazioni sull'impostazione di un modello di \"ignora\" globale."
 
 #. (para)
 msgid ""
@@ -2815,7 +2816,7 @@ msgid ""
 "get a version-controlled <firstterm>working copy</firstterm> you need to do "
 "a Checkout of the version you just imported. Or read on to find out how to "
 "import a folder in place."
-msgstr ""
+msgstr "Non appena si preme <guibutton>OK</guibutton> TortoiseSVN importa l'albero delle directory completo, inclusi tutti i file nel repository. Il progetto è ora archiviato nel repository sotto controllo di versione. Si prega di notare che la cartella che hai importato <emphasis>NON</emphasis> è sotto controllo di versione! Per ottenere una <firstterm>copia di lavoro</firstterm> con controllo della versione è necessario eseguire un Checkout della versione appena importata. Oppure continua a leggere per scoprire come importare una cartella sul posto."
 
 #. (title)
 msgid "Import in Place"
@@ -2832,7 +2833,7 @@ msgid ""
 "want to create this as a sub-folder of trunk rather than in the repository "
 "root. The repository browser shows the repository structure just like "
 "Windows explorer, so you can see how things are organised."
-msgstr ""
+msgstr "Utilizzare il browser del repository per creare una nuova cartella del progetto direttamente nel repository. Se stai utilizzando uno dei layout standard, probabilmente vorrai crearlo come sottocartella del trunk piuttosto che nella root del repository. Il browser del repository mostra la struttura del repository proprio come Esplora risorse di Windows, così puoi vedere come sono organizzate le cose."
 
 #. (para)
 msgid ""
@@ -2887,7 +2888,7 @@ msgid ""
 "Then, each developer has to <emphasis>make a copy</emphasis> of that file "
 "and rename that copy. After that, modifying the copy is not a problem "
 "anymore."
-msgstr ""
+msgstr "In questi casi suggeriamo di utilizzare i file <emphasis>modello</emphasis>. Crea un file che contiene tutti i dati necessari agli sviluppatori, aggiungi quel file al controllo di versione e lascia che gli sviluppatori controllino questo file. Quindi, ogni sviluppatore deve <emphasis>fare una copia di quel file e rinominare quella copia. Dopodiché, modificare la copia non è più un problema."
 
 #. (para)
 msgid ""
@@ -2899,7 +2900,7 @@ msgid ""
 "<filename>default.build.user</filename>. Inside that file, we added comments"
 " so that the users will see which lines they have to edit and change "
 "according to their local setup to get it working."
-msgstr ""
+msgstr "Ad esempio, puoi dare un'occhiata allo script di build di TortoiseSVN. Esso richiama un file denominato <filename>default.build.user</filename> che non esiste nel repository. C'è solo il file <filename>default.build.user.tmpl</filename>. Il file <filename>default.build.user.tmpl</filename> è il modello che ogni sviluppatore deve copiare e rinominare in <filename>default.build.user</filename>. All'interno di quel file, abbiamo aggiunto dei commenti in modo che gli utenti possano vedere quali linee devono modificare in base alla loro configurazione locale per farlo funzionare."
 
 #. (para)
 msgid ""
@@ -2908,7 +2909,7 @@ msgid ""
 "folder, i.e. we've set the Subversion property <literal>svn:ignore</literal>"
 " to include that filename. That way it won't show up as unversioned on every"
 " commit."
-msgstr ""
+msgstr "Per non disturbare gli utenti, abbiamo anche aggiunto il file <filename>default.build.user</filename> all'elenco dei file da ignorare della sua cartella genitore, cioè abbiamo impostato la proprietà di Subversion <literal>svn:ignore</literal> per includere quel nome di file. In questo modo non verrà visualizzato come file non soggetto a versione ad ogni commit."
 
 #. (title)
 msgid "Checking Out A Working Copy"
@@ -2928,13 +2929,13 @@ msgstr ""
 
 #. (primary)
 msgid "partial checkout"
-msgstr ""
+msgstr "Checkout parziale"
 
 #. (para)
 msgid ""
 "To obtain a working copy you need to do a <firstterm>checkout</firstterm> "
 "from a repository."
-msgstr ""
+msgstr "Per ottenere una copia di lavoro è necessario eseguire un <firstterm>checkout</firstterm> da un repository."
 
 #. (title)
 msgid "The Checkout dialog"
@@ -2949,7 +2950,7 @@ msgid ""
 " which brings up the following dialog box: <placeholder-1/> If you enter a "
 "folder name that does not yet exist, then a directory with that name is "
 "created."
-msgstr ""
+msgstr "Seleziona una directory in Windows Explorer in cui vuoi posizionare la tua copia di lavoro. Fare <action>clic con il tasto destro</action> del mouse per visualizzare il menu di scelta rapida e selezionare il comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Checkout...</guimenuitem></menuchoice>, che visualizza la seguente finestra di dialogo: <placeholder-1/> Se si immette un nome di cartella che non esiste ancora, viene creata una directory con quel nome."
 
 #. (title)
 msgid "Checkout Depth"
@@ -3023,7 +3024,7 @@ msgid ""
 "allows you to specify the depth of recursion into child folders. If you want"
 " just a few sections of a large tree, You can checkout the top level folder "
 "only, then update selected folders recursively. <placeholder-1/>"
-msgstr ""
+msgstr "È possibile scegliere la <firstterm>profondità</firstterm> del checkout, che consente di specificare la profondità della ricorsione nelle cartelle figlie. Se si desidera solo alcune sezioni di un albero di grandi dimensioni, è possibile eseguire il checkout solo della cartella di livello superiore, quindi aggiornare le cartelle selezionate in modo ricorsivo. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -3035,7 +3036,7 @@ msgid ""
 "checkout</literal>. An update of such a working copy will not fetch the "
 "missing files and folders but only update what you already have in your "
 "working copy."
-msgstr ""
+msgstr "Per selezionare facilmente solo gli elementi che desideri per il checkout e forzare la copia di lavoro risultante per mantenere solo quegli elementi, fai clic sul pulsante <guibutton>Scegli elementi...</guibutton>. Si apre una nuova finestra di dialogo in cui è possibile controllare tutti gli elementi desiderati nella copia di lavoro e deselezionare tutti gli elementi che non si desidera. La copia di lavoro risultante è quindi nota come <literal>sparse checkout</literal>. Un aggiornamento di tale copia funzionante non preleverà i file e le cartelle mancanti ma aggiornerà solo ciò che hai già nella tua copia di lavoro."
 
 #. (para)
 msgid ""
@@ -3057,7 +3058,7 @@ msgid ""
 "original checkout and allows you to select or deselect items to include in "
 "the checkout. This method is very flexible but can be slow as every item in "
 "the folder is updated individually."
-msgstr ""
+msgstr "Fare <action>clic con il tasto destro</action> sulla cartella di lavoro, quindi utilizzare <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aggiorna alla revisione</guimenuitem></menuchoice> e selezionare <guibutton>Scegli elementi...</guibutton>. Si apre la stessa finestra di dialogo disponibile nel checkout originale e consente di selezionare o deselezionare gli elementi da includere nel checkout. Questo metodo è molto flessibile ma può essere lento poiché ogni elemento nella cartella viene aggiornato singolarmente."
 
 #. (title)
 msgid "Sparse Update using Repo Browser"
@@ -3071,7 +3072,7 @@ msgid ""
 "the sub-folder you would like to add to your working copy, then use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Fare <action>clic con il tasto destro</action> sulla cartella di lavoro, quindi utilizzare <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo-Browser</guimenuitem></menuchoice> per visualizzare il browser del repository. Trova la sottocartella che desideri aggiungere alla tua copia di lavoro, quindi usa <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Aggiorna elemento alla revisione...</guimenuitem></menuchoice>."
 
 #. (title)
 msgid "Sparse Update using Check for Modifications"
@@ -4909,6 +4910,85 @@ msgid ""
 "Note that if you use changelists, externals will no longer show up in their "
 "own groups anymore. Once there are changelists, files and folders are "
 "grouped by changelist, not by external anymore."
+msgstr ""
+
+#. (title)
+msgid "Shelving"
+msgstr ""
+
+#. (primary)
+msgid "shelve"
+msgstr ""
+
+#. (primary)
+msgid "unshelve"
+msgstr ""
+
+#. (para)
+msgid ""
+"More often than wanted, it's necessary to stop what you were working on and "
+"work on something else. For example a serious problem needs immediate "
+"dealing with and you have to stop working on the new feature. If possible, "
+"you should commit the changes you have done so far and then start working on"
+" the urgent issue, but often those changes would break the build or are just"
+" not ready for committing yet."
+msgstr ""
+
+#. (para)
+msgid ""
+"So if you can't commit your local changes yet, you have to put them aside "
+"while you're working on the urgent issue. The "
+"<firstterm>shelving</firstterm> feature helps you do exactly that: you can "
+"store your local changes on a shelve, get your working copy in a clean state"
+" again and work on the issue. After you're finished with the urgent issue "
+"and you've committed those changes, you can <firstterm>unshelve</firstterm> "
+"your shelved work and continue working on your previous task again."
+msgstr ""
+
+#. (para)
+msgid ""
+"Two new commands are implemented for this. One for shelving and one for "
+"unshelving."
+msgstr ""
+
+#. (title)
+msgid "Shelve dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"To shelve your local changes, select your working copy and use "
+"<menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Shelve</guimenuitem></menuchoice> The following "
+"dialog allows you to select the files you want to shelve and give a name "
+"under which you want to store them. <placeholder-1/> Then click "
+"<guibutton>OK</guibutton> and the changes are stored under the name you "
+"specified, and your working copy is reset to a clean state."
+msgstr ""
+
+#. (title)
+msgid "Unshelve dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"To unshelve your changes, use <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Unshelve</guimenuitem></menuchoice> to get the "
+"unshelve dialog. This dialog shows you a list of all shelved items. Select "
+"the shelved item you want to apply back to your working copy and click "
+"<guibutton>OK</guibutton>. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"Shelves are purely a local client feature. Creating and removing Shelves "
+"will not affect the repository, nor anyone else's working copy."
+msgstr ""
+
+#. (para)
+msgid ""
+"Currently only text files can be shelved and unshelved. Binary files and "
+"text files encoded in utf-16 (unicode) can not be shelved."
 msgstr ""
 
 #. (title)
@@ -15172,9 +15252,34 @@ msgstr ""
 
 #. (para)
 msgid ""
-"If you don't want TortoiseSVN to ask you to update the working copy "
-"automatically after an <literal>Out of date</literal> error, set this value "
-"to <literal>false</literal>."
+"The user is asked whether to update the working copy or not, and the commit "
+"dialog is not reopened after the update."
+msgstr ""
+
+#. (para)
+msgid ""
+"This is the default. The user is asked whether to update the working copy or"
+" not, and the commit dialog is reopened after the update so the user can "
+"proceed with the commit right away."
+msgstr ""
+
+#. (para)
+msgid ""
+"Similar to <literal>1</literal>, but instead of updating only the paths "
+"selected for a commit, the update is done on the working copy root. This "
+"helps to avoid inconsistent working copies."
+msgstr ""
+
+#. (para)
+msgid ""
+"The user is not asked to update the working copy. The commit simply fails "
+"with the out-of-date error message."
+msgstr ""
+
+#. (para)
+msgid ""
+"This parameter specifies how TortoiseSVN behaves if a commit fails due to an"
+" out-of-date error: <placeholder-1/>"
 msgstr ""
 
 #. (para)
@@ -18239,9 +18344,11 @@ msgid "/cleanup"
 msgstr ""
 
 #. (option)
+#. (option)
 msgid "/noui"
 msgstr ""
 
+#. (option)
 #. (option)
 msgid "/noprogressui"
 msgstr ""
@@ -18370,7 +18477,9 @@ msgid ""
 "Copies the folder in <placeholder-1/> recursively to the directory specified"
 " in <placeholder-2/>. New files are added automatically, and missing files "
 "get removed in the target working copy, basically ensuring that source and "
-"destination are exactly the same."
+"destination are exactly the same. Specify <placeholder-3/> to skip the "
+"confirmation dialog, and <placeholder-4/> to also disable showing the "
+"progress dialog."
 msgstr ""
 
 #. (option)
@@ -20291,7 +20400,7 @@ msgstr ""
 msgid ""
 "for the beautiful icons, logo, bug hunting and taking care of the "
 "documentation"
-msgstr ""
+msgstr "per le belle icone, il logo, la caccia agli errori e la cura della documentazione"
 
 #. (para)
 msgid ""

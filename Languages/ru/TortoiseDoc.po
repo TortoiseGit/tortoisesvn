@@ -34,8 +34,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-02-01 01:53+0000\n"
-"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2018-03-18 00:37+0000\n"
+"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4917,6 +4917,85 @@ msgid ""
 "own groups anymore. Once there are changelists, files and folders are "
 "grouped by changelist, not by external anymore."
 msgstr "Обратите внимание, что если вы используете списки изменений, то внешние включения больше не отображаются в своей отдельной группе. Раз уж есть списки изменений, то файлы и папки группируются по спискам, а не по внешним включениям."
+
+#. (title)
+msgid "Shelving"
+msgstr ""
+
+#. (primary)
+msgid "shelve"
+msgstr ""
+
+#. (primary)
+msgid "unshelve"
+msgstr ""
+
+#. (para)
+msgid ""
+"More often than wanted, it's necessary to stop what you were working on and "
+"work on something else. For example a serious problem needs immediate "
+"dealing with and you have to stop working on the new feature. If possible, "
+"you should commit the changes you have done so far and then start working on"
+" the urgent issue, but often those changes would break the build or are just"
+" not ready for committing yet."
+msgstr ""
+
+#. (para)
+msgid ""
+"So if you can't commit your local changes yet, you have to put them aside "
+"while you're working on the urgent issue. The "
+"<firstterm>shelving</firstterm> feature helps you do exactly that: you can "
+"store your local changes on a shelve, get your working copy in a clean state"
+" again and work on the issue. After you're finished with the urgent issue "
+"and you've committed those changes, you can <firstterm>unshelve</firstterm> "
+"your shelved work and continue working on your previous task again."
+msgstr ""
+
+#. (para)
+msgid ""
+"Two new commands are implemented for this. One for shelving and one for "
+"unshelving."
+msgstr ""
+
+#. (title)
+msgid "Shelve dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"To shelve your local changes, select your working copy and use "
+"<menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Shelve</guimenuitem></menuchoice> The following "
+"dialog allows you to select the files you want to shelve and give a name "
+"under which you want to store them. <placeholder-1/> Then click "
+"<guibutton>OK</guibutton> and the changes are stored under the name you "
+"specified, and your working copy is reset to a clean state."
+msgstr ""
+
+#. (title)
+msgid "Unshelve dialog"
+msgstr ""
+
+#. (para)
+msgid ""
+"To unshelve your changes, use <menuchoice><guimenu>Context "
+"Menu</guimenu><guimenuitem>Unshelve</guimenuitem></menuchoice> to get the "
+"unshelve dialog. This dialog shows you a list of all shelved items. Select "
+"the shelved item you want to apply back to your working copy and click "
+"<guibutton>OK</guibutton>. <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"Shelves are purely a local client feature. Creating and removing Shelves "
+"will not affect the repository, nor anyone else's working copy."
+msgstr ""
+
+#. (para)
+msgid ""
+"Currently only text files can be shelved and unshelved. Binary files and "
+"text files encoded in utf-16 (unicode) can not be shelved."
+msgstr ""
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -15179,10 +15258,35 @@ msgstr "Эта опция включает использование ускор
 
 #. (para)
 msgid ""
-"If you don't want TortoiseSVN to ask you to update the working copy "
-"automatically after an <literal>Out of date</literal> error, set this value "
-"to <literal>false</literal>."
-msgstr "Если вы не хотите чтобы TortoiseSVN после ошибки <literal>Out of date</literal> автоматически просил обновить рабочую копию, то установите значение в <literal>false</literal>."
+"The user is asked whether to update the working copy or not, and the commit "
+"dialog is not reopened after the update."
+msgstr ""
+
+#. (para)
+msgid ""
+"This is the default. The user is asked whether to update the working copy or"
+" not, and the commit dialog is reopened after the update so the user can "
+"proceed with the commit right away."
+msgstr ""
+
+#. (para)
+msgid ""
+"Similar to <literal>1</literal>, but instead of updating only the paths "
+"selected for a commit, the update is done on the working copy root. This "
+"helps to avoid inconsistent working copies."
+msgstr ""
+
+#. (para)
+msgid ""
+"The user is not asked to update the working copy. The commit simply fails "
+"with the out-of-date error message."
+msgstr ""
+
+#. (para)
+msgid ""
+"This parameter specifies how TortoiseSVN behaves if a commit fails due to an"
+" out-of-date error: <placeholder-1/>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -18246,9 +18350,11 @@ msgid "/cleanup"
 msgstr "/cleanup"
 
 #. (option)
+#. (option)
 msgid "/noui"
 msgstr "/noui"
 
+#. (option)
 #. (option)
 msgid "/noprogressui"
 msgstr "/noprogressui"
@@ -18377,8 +18483,10 @@ msgid ""
 "Copies the folder in <placeholder-1/> recursively to the directory specified"
 " in <placeholder-2/>. New files are added automatically, and missing files "
 "get removed in the target working copy, basically ensuring that source and "
-"destination are exactly the same."
-msgstr "Копирует папку в <placeholder-1/> рекурсивно в директорию указанную в <placeholder-2/>. Новые файлы добавляются автоматически, а отсутствующие файлы удаляются в рабочей копии, по сути обеспечивая чтобы источник и назначение были полностью одинаковыми."
+"destination are exactly the same. Specify <placeholder-3/> to skip the "
+"confirmation dialog, and <placeholder-4/> to also disable showing the "
+"progress dialog."
+msgstr ""
 
 #. (option)
 #. (option)
