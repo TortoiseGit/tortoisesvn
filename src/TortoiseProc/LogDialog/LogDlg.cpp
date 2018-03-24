@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -5970,16 +5970,13 @@ void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     //now first get the revision which is selected
     CString revFilename;
-    if (m_hasWC)
-    {
-        CString strWinPath = m_path.GetWinPathString();
-        int rfind = strWinPath.ReverseFind('.');
-        if (rfind > 0)
-            revFilename.Format(L"%s-%s%s", (LPCTSTR)strWinPath.Left(rfind),
-            (LPCTSTR)pCmi->RevSelected.ToString(), (LPCTSTR)strWinPath.Mid(rfind));
-        else
-            revFilename.Format(L"%s-%s", (LPCTSTR)strWinPath, (LPCTSTR)pCmi->RevSelected.ToString());
-    }
+    CString strWinPath = CPathUtils::GetFileNameFromPath(pCmi->PathURL);
+    int rfind = strWinPath.ReverseFind('.');
+    if (rfind > 0)
+        revFilename.Format(L"%s-%s%s", (LPCTSTR)strWinPath.Left(rfind),
+        (LPCTSTR)pCmi->RevSelected.ToString(), (LPCTSTR)strWinPath.Mid(rfind));
+    else
+        revFilename.Format(L"%s-%s", (LPCTSTR)strWinPath, (LPCTSTR)pCmi->RevSelected.ToString());
     if (CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_path.IsUrl() ? CString() : m_path.GetDirectory().GetWinPathString(), m_hWnd))
     {
         auto f = [=]()
