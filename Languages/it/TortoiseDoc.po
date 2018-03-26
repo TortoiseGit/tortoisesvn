@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-03-18 00:37+0000\n"
-"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2018-03-23 09:06+0000\n"
+"Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3097,20 +3097,20 @@ msgid ""
 "<literal>Project01</literal> to <literal>Project99</literal>, and you only "
 "want to checkout <literal>Project03</literal>, <literal>Project25</literal> "
 "and <literal>Project76/SubProj</literal>. Use these steps:"
-msgstr ""
+msgstr "Questa funzione è molto utile quando si desidera eseguire il checkout solo di alcune parti di un albero di grandi dimensioni, ma si desidera mantenere la comodità di aggiornare una singola copia di lavoro. Si supponga di disporre di un albero di grandi dimensioni con sottocartelle da <literal>Project01</literal> a <literal>Project99</literal> e che si desideri eseguire solo il checkout di <literal>Project03</literal>, <literal>Project25</literal> e <literal>Project76/SubProj</literal>. Fai questi passi:"
 
 #. (para)
 msgid ""
 "Checkout the parent folder with depth <quote>Only this item</quote> You now "
 "have an empty top level folder."
-msgstr ""
+msgstr "fai il checkout della cartella principale con profondità <quote>Solo questo elemento</quote> Ora hai una cartella vuota di primo livello."
 
 #. (para)
 msgid ""
 "Select the new folder and use "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo "
 "browser</guimenuitem></menuchoice> to display the repository content."
-msgstr ""
+msgstr "Seleziona la nuova cartella e usa il menu <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Repo browser</guimenuitem></menuchoice> per visualizzare il contenuto del repository."
 
 #. (para)
 msgid ""
@@ -3118,7 +3118,7 @@ msgid ""
 " menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>. Keep the default settings and click "
 "on <guibutton>OK</guibutton>. You now have that folder fully populated."
-msgstr ""
+msgstr "Fai clic con il tasto destro su <literal>Project03</literal> e dal <menuchoice><guimenu>menu contestuale</guimenu><guimenuitem>Aggiorna elemento alla revisione...</guimenuitem></menuchoice>. Mantenere le impostazioni predefinite e fare clic su OK. Ora la cartella è completamente popolata."
 
 #. (para)
 msgid "Repeat the same process for <literal>Project25</literal>."
@@ -3130,11 +3130,11 @@ msgid ""
 "note that the <literal>Project76</literal> folder has no content except for "
 "<literal>SubProj</literal>, which itself is fully populated. Subversion has "
 "created the intermediate folders for you without populating them."
-msgstr ""
+msgstr "Passare a <literal>Project76/SubProj</literal> e fare lo stesso. Questa volta si noti che la cartella <literal>Project76</literal> non ha contenuto ad eccezione di <literal>SubProj</literal>, che a sua volta è completamente popolata. Subversion ha creato per te le cartelle intermedie senza popolarle."
 
 #. (title)
 msgid "Changing working copy depth"
-msgstr ""
+msgstr "Modifica della profondità della copia di lavoro"
 
 #. (para)
 msgid ""
@@ -3143,7 +3143,7 @@ msgid ""
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Update item to "
 "revision...</guimenuitem></menuchoice>. In that dialog, be sure to check the"
 " <guilabel>Make depth sticky</guilabel> checkbox."
-msgstr ""
+msgstr "Dopo aver estratto una copia di lavoro in una profondità specifica, puoi modificare tale profondità in un secondo momento per ottenere più o meno contenuti utilizzando la voce di <menuchoice><guimenu>menu contestuale</guimenu><guimenuitem>Aggiorna elemento alla revisione...</guimenuitem></menuchoice>. In tale finestra di dialogo, assicurati di selezionare la casella di controllo <guilabel>Usa sempre questa profondità</guilabel>."
 
 #. (title)
 msgid "Using an older server"
@@ -3156,14 +3156,14 @@ msgid ""
 "but an older server may send all the data, leaving the client to filter out "
 "what is not required, which may mean a lot of network traffic. If possible "
 "you should upgrade your server to at least 1.5."
-msgstr ""
+msgstr "I server precedenti alla versione 1.5 non comprendono la richiesta di profondità della copia di lavoro, quindi non possono sempre gestire le richieste in modo efficiente. Il comando continuerà a funzionare, ma un server più vecchio potrebbe inviare tutti i dati, lasciando al client la possibilità di filtrare ciò che non è richiesto, il che potrebbe significare un sacco di traffico di rete. Se possibile, devi aggiornare il tuo server ad almeno 1.5."
 
 #. (para)
 msgid ""
 "If the project contains references to external projects which you do "
 "<emphasis>not</emphasis> want checked out at the same time, use the "
 "<guilabel>Omit externals</guilabel> checkbox."
-msgstr ""
+msgstr "Se il progetto contiene riferimenti a progetti esterni che <emphasis>non</emphasis> sui quali non si desidera effettuare il checkout allo stesso tempo, utilizzare la casella di controllo <guilabel>Ometti esterni</guilabel>."
 
 #. (para)
 msgid ""
@@ -3173,7 +3173,7 @@ msgid ""
 "Revision...</guimenuitem></menuchoice> instead of "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
 " The standard update will include all externals and keep the existing depth."
-msgstr ""
+msgstr "Se si seleziona <guilabel>Ometti esterni</guilabel> o se si desidera aumentare il valore di profondità, sarà necessario eseguire aggiornamenti alla propria copia di lavoro utilizzando <guimenu>TortoiseSVN</guimenu><guimenuitem>Aggiorna alla revisione...</guimenuitem><menuchoice> anziché <guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem><menuchoice>. L'aggiornamento standard includerà tutti i progetti esterni e manterrà la profondità esistente."
 
 #. (para)
 msgid ""
