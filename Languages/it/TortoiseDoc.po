@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-03-23 09:06+0000\n"
+"PO-Revision-Date: 2018-03-29 12:41+0000\n"
 "Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -3182,7 +3182,7 @@ msgid ""
 "directory tree in the URL then you might end up with a full hard disk since "
 "you will get a copy of the entire repository tree including every branch and"
 " tag of your project!"
-msgstr ""
+msgstr "Si consiglia di eseguire il checkout solo della parte <literal>trunk</literal> dell'albero delle directory oppure una cartella inferiore. Se si specifica il percorso genitore dell'albero delle directory nell'URL, si potrebbe riempire completamente il disco rigido poiché si otterrà una copia dell'intero albero del repository includendo ogni ramo e tag del proprio progetto!"
 
 #. (title)
 msgid "Exporting"
@@ -3210,7 +3210,7 @@ msgstr "invia modifiche"
 
 #. (primary)
 msgid "check in"
-msgstr ""
+msgstr "check in"
 
 #. (para)
 msgid ""
@@ -3222,7 +3222,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Check for "
 "Modifications</guimenuitem></menuchoice> first, to see which files have "
 "changed locally or on the server."
-msgstr ""
+msgstr "L'invio delle modifiche apportate alla tua copia di lavoro è noto come <firstterm>commit</firstterm> delle modifiche. Ma prima di fare il commit devi assicurarti che la tua copia di lavoro sia aggiornata. È possibile utilizzare direttamente <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice>. Oppure puoi utilizzare <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Controlla le modifiche</guimenuitem></menuchoice> prima, per vedere quali file sono stati modificati localmente o sul server."
 
 #. (title)
 msgid "The Commit Dialog"
@@ -3239,7 +3239,7 @@ msgid ""
 "then "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>."
 " <placeholder-1/>"
-msgstr ""
+msgstr "Se la tua copia di lavoro è aggiornata e non ci sono conflitti, sei pronto ad effettuare il commit delle tue modifiche. Seleziona qualsiasi file e/o cartella che vuoi salvare, quindi <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Commit...</guimenuitem></menuchoice>.<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -3247,19 +3247,19 @@ msgid ""
 " and unversioned files. If you don't want a changed file to be committed, "
 "just uncheck that file. If you want to include an unversioned file, just "
 "check that file to add it to the commit."
-msgstr ""
+msgstr "La finestra di commit ti mostrerà ogni file modificato, inclusi i file aggiunti, cancellati e quelli non ancora soggetti al controllo di versione. Se non vuoi che un file modificato venga salvato, deseleziona il file. Se si desidera includere un file non ancora soggetto al controllo di versione, è sufficiente mettere la spunta a tale file per aggiungerlo al commit."
 
 #. (para)
 msgid ""
 "To quickly check or uncheck types of files like all versioned files or all "
 "modified files, click the link items just above the list of shown items."
-msgstr ""
+msgstr "Per selezionare o deselezionare rapidamente i tipi di file come tutti i file con versione o tutti i file modificati, fare clic sui link appena sopra l'elenco degli elementi visualizzati."
 
 #. (para)
 msgid ""
 "For information on the coloring and overlays of the items according to their"
 " status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
-msgstr ""
+msgstr "Per informazioni sulla colorazione e le sovrapposizioni degli elementi in base al loro stato, vedere <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
 
 #. (para)
 msgid ""
@@ -3281,17 +3281,17 @@ msgid ""
 " the folder will find it anyway. Committing a folder does "
 "<emphasis>not</emphasis> mean that every file gets marked as changed; It "
 "just makes your life easier by doing more work for you."
-msgstr ""
+msgstr "Quando si esegue il commit di file, la finestra di dialogo di commit mostra solo i file selezionati. Quando si esegue il commit di una cartella, la finestra di dialogo di commit seleziona automaticamente i file modificati. Se ti dimentichi di un nuovo file che hai creato, il commit della cartella lo troverà comunque. Il commit di una cartella <emphasis>non</emphasis> significa che ogni file viene contrassegnato come modificato; ti semplifica la vita semplicemente facendo più lavoro per te."
 
 #. (title)
 msgid "Many unversioned files in the commit dialog"
-msgstr ""
+msgstr "Molti file non soggetti al controllo di versione nella finestra di commit"
 
 #. (para)
 msgid ""
 "add the file (or a wildcard extension) to the list of files to exclude on "
 "the settings page. This will affect every working copy you have."
-msgstr ""
+msgstr "aggiungi il file (o un'estensione jolly) all'elenco di file da escludere nella pagina delle impostazioni. Ciò influenzerà ogni copia di lavoro che hai."
 
 #. (para)
 msgid ""
@@ -3301,7 +3301,7 @@ msgid ""
 " you set the <literal>svn:ignore</literal> property. Using the SVN Property "
 "Dialog, you can alter the <literal>svn:ignore</literal> property for a "
 "directory."
-msgstr ""
+msgstr "aggiungi il file alla lista <literal>svn:ignore</literal> usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aggiungi alla lista da ignorare</guimenuitem></menuchoice>. Questo influenzerà solo la directory su cui imposti la proprietà <literal>svn:ignore</literal>. Usando la finestra di dialogo delle Proprietà SVN, è possibile modificare la proprietà <literal>svn:ignore</literal> per una directory."
 
 #. (para)
 msgid ""
@@ -3310,7 +3310,7 @@ msgid ""
 "(recursively)</guimenuitem></menuchoice> This will affect the directory on "
 "which you set the <literal>svn:global-ignores</literal> property and all "
 "subfolders as well."
-msgstr ""
+msgstr "aggiungi il file alla lista <literal>svn:global-ignores</literal> usando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aggiungi alla lista da ignorare (in modo ricorsivo)</guimenuitem></menuchoice>. Questo influenzerà la directory su cui imposti la proprietà <literal>svn:global-ignores</literal> e anche tutte le sottocartelle."
 
 #. (para)
 msgid ""
@@ -3318,7 +3318,7 @@ msgid ""
 "compiler generated or editor backup) files, there are several ways to handle"
 " this. You can: <placeholder-1/> Read <xref linkend=\"tsvn-dug-ignore\"/> "
 "for more information."
-msgstr ""
+msgstr "Se pensi che la finestra di dialogo di commit mostri troppi file non soggetti al controllo di versione (ad esempio, file generati dal compilatore o backup di un editor), ci sono diversi modi per gestirli. Puoi: <placeholder-1/> Leggi <xref linkend=\"tsvn-dug-ignore\"/> per maggiori informazioni."
 
 #. (para)
 msgid ""
@@ -3326,14 +3326,14 @@ msgid ""
 "will launch the external diff tool to show your changes. The context menu "
 "will give you more options, as shown in the screenshot. You can also drag "
 "files from here into another application such as a text editor or an IDE."
-msgstr ""
+msgstr "Facendo <action>doppio clic</action> su qualsiasi file modificato nella finestra di commit, verrà lanciato lo strumento diff esterno per mostrare le modifiche. Il menu di scelta rapida ti darà più opzioni, come mostrato nello screenshot. Puoi anche trascinare i file da qui in un'altra applicazione come un editor di testo o un IDE."
 
 #. (para)
 msgid ""
 "You can select or deselect items by clicking on the checkbox to the left of "
 "the item. For directories you can use "
 "<keycap>Shift</keycap>-<action>select</action> to make the action recursive."
-msgstr ""
+msgstr "È possibile selezionare o deselezionare gli elementi facendo clic sulla casella di controllo a sinistra dell'elemento. Per le directory puoi usare <keycap>Shift</keycap>-<action>seleziona</action> per rendere l'azione ricorsiva."
 
 #. (para)
 msgid ""
@@ -3343,7 +3343,7 @@ msgid ""
 " column width by using the drag handle which appears when you move the mouse"
 " over a column boundary. These customizations are preserved, so you will see"
 " the same headings next time."
-msgstr ""
+msgstr "Le colonne visualizzate nel riquadro inferiore sono personalizzabili. Se fai <action>clic con il pulsante destro</action> del mouse su un'intestazione di una colonna, verrà visualizzato un menu di scelta rapida che consente di selezionare le colonne da visualizzare. Puoi anche cambiare la larghezza della colonna usando la maniglia di trascinamento che appare quando sposti il mouse sul limite di una colonna. Queste personalizzazioni sono conservate, quindi vedrai le stesse colonne la prossima volta."
 
 #. (para)
 msgid ""
@@ -3354,24 +3354,24 @@ msgid ""
 "<literal>no_unlock</literal> option in the Subversion configuration file. "
 "Read <xref linkend=\"tsvn-dug-settings-main\"/> for information on how to "
 "edit the Subversion configuration file."
-msgstr ""
+msgstr "Per impostazione predefinita, quando apporti le modifiche, i blocchi sui file vengono rilasciati automaticamente dopo il commit. Se si desidera mantenere tali blocchi, assicurarsi che la casella di controllo <guilabel>Mantieni blocchi</guilabel> sia selezionata. Lo stato predefinito di questa casella di controllo è preso dall'opzione <literal>no_unlock</literal> nel file di configurazione di Subversion. Leggi <xref linkend=\"tsvn-dug-settings-main\"/> per informazioni su come modificare il file di configurazione di Subversion."
 
 #. (title)
 msgid "Warning when committing to a tag"
-msgstr ""
+msgstr "Attenzione quando si esegue il commit di un tag"
 
 #. (para)
 msgid ""
 "Usually, commits are done to the trunk or a branch, but not to tags. After "
 "all, a tag is considered fixed and should not change."
-msgstr ""
+msgstr "Di solito, i commit vengono eseguiti sul trunk o su un ramo, ma non sui tag. Dopo tutto, un tag è considerato fisso e non dovrebbe cambiare."
 
 #. (para)
 msgid ""
 "If a commit is attempted to a tag URL, TortoiseSVN shows a confirmation "
 "dialog first to ensure whether this is really what is intended. Because most"
 " of the time such a commit is done by accident."
-msgstr ""
+msgstr "Se viene tentato un commit su un URL di tag, TortoiseSVN mostra prima una finestra di conferma per verificare se questo è realmente ciò che è inteso. Perché il più delle volte un tale commit è fatto per caso."
 
 #. (para)
 msgid ""
@@ -3382,7 +3382,7 @@ msgid ""
 " tag/branch/trunk (also known as <literal>classification "
 "patterns</literal>), can be configured in the settings dialog: <xref linkend"
 "=\"tsvn-dug-settings-revgraph\"/>"
-msgstr ""
+msgstr "Tuttavia, questo controllo funziona solo se il layout del repository è uno dei consigliati, il che significa che utilizza il nome <filename>trunk</filename>, <filename>branches</filename> e <filename>tags</filename> per contrassegnare le tre aree principali. Nel caso in cui la configurazione sia diversa, il rilevamento di cosa è un tag/branch/trunk (noto anche come <literal>schemi di classificazione</literal>), può essere configurato nella finestra di dialogo delle impostazioni: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
 msgid ""
@@ -3393,13 +3393,13 @@ msgid ""
 "top level folder (with a lengthy folder crawl to check for changes) you can "
 "open the commit dialog for one folder and drag in items from the other "
 "windows to include within the same atomic commit."
-msgstr ""
+msgstr "È possibile trascinare i file nella finestra di dialogo di commit da un'altra posizione, a condizione che le copie di lavoro vengano estratte dallo stesso repository. Ad esempio, potresti avere una copia di lavoro enorme con diverse finestre di explorer aperte per guardare le cartelle distanti della gerarchia. Se si desidera evitare di eseguire il commit dalla cartella di livello superiore (con una lunga scansione della cartella per verificare la presenza di modifiche) è possibile aprire la finestra di commit per una cartella e trascinare gli elementi dalle altre finestre per includerli all'interno dello stesso commit atomico."
 
 #. (para)
 msgid ""
 "You can drag unversioned files which reside within a working copy into the "
 "commit dialog, and they will be SVN added automatically."
-msgstr ""
+msgstr "È possibile trascinare i file non soggetti al controllo di versione che si trovano all'interno di una copia di lavoro nella finestra di dialogo di commit e verranno aggiunti automaticamente a SVN."
 
 #. (para)
 msgid ""
@@ -3407,12 +3407,12 @@ msgid ""
 "message edit box will insert the paths as plain text into that edit box. "
 "This is useful if you want to write commit log messages that include the "
 "paths that are affected by the commit."
-msgstr ""
+msgstr "Trascinando i file dall'elenco nella parte inferiore della finestra di dialogo di commit alla casella di modifica del messaggio di log, i percorsi verranno inseriti come testo normale nella casella di modifica. Ciò è utile se si desidera scrivere messaggi di log di commit che includono i percorsi che sono interessati dal commit."
 
 #. (title)
 #. (title)
 msgid "Repairing External Renames"
-msgstr ""
+msgstr "Riparazione delle rinominazioni esterne"
 
 #. (para)
 #. (para)
@@ -3423,12 +3423,12 @@ msgid ""
 "both the old name (missing) and the new name (unversioned) and use "
 "<menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Repair "
 "Move</guimenuitem></menuchoice> to pair the two files as a rename."
-msgstr ""
+msgstr "A volte i file vengono rinominati al di fuori di Subversion e vengono visualizzati nell'elenco dei file come file mancante e file senza versione. Per evitare di perdere la cronologia è necessario notificare a Subversion la connessione. Basta selezionare sia il vecchio nome (mancante) che il nuovo nome (non soggetto a controllo di versione) e utilizzare il <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Ripara sposta</guimenuitem></menuchoice> per accoppiare i due file come un'operazione di rinomina."
 
 #. (title)
 #. (title)
 msgid "Repairing External Copies"
-msgstr ""
+msgstr "Riparazione copie esterne"
 
 #. (para)
 #. (para)
@@ -3439,23 +3439,23 @@ msgid ""
 "(unversioned) and use <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Repair Copy</guimenuitem></menuchoice> to pair "
 "the two files as a copy."
-msgstr ""
+msgstr "Se hai fatto una copia di un file ma hai dimenticato di usare il comando Subversion per farlo, puoi riparare quella copia in modo che il nuovo file non perda la sua cronologia. Basta selezionare sia il vecchio nome (normale o modificato) che il nuovo nome (non soggetto a controllo di versione) e utilizzare il <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Ripara copia</guimenuitem></menuchoice> per accoppiare i due file come copia."
 
 #. (title)
 #. (title)
 msgid "Change Lists"
-msgstr ""
+msgstr "Lista delle modifiche"
 
 #. (para)
 msgid ""
 "The commit dialog supports Subversion's changelist feature to help with "
 "grouping related files together. Find out about this feature in <xref "
 "linkend=\"tsvn-dug-changelists\"/>."
-msgstr ""
+msgstr "La finestra di commit supporta la funzione changelist di Subversion per aiutare a raggruppare i file correlati. Scopri di questa funzionalità in <xref linkend=\"tsvn-dug-changelists\"/>."
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "Commit solo di parti di file"
 
 #. (para)
 msgid ""
@@ -3463,11 +3463,11 @@ msgid ""
 "Such a situation usually happens when you're working on something but then "
 "an urgent fix needs to be committed, and that fix happens to be in the same "
 "file you're working on."
-msgstr ""
+msgstr "A volte vuoi solo committare parti delle modifiche apportate a un file. Una situazione del genere si verifica solitamente quando si sta lavorando su qualcosa, ma è necessario eseguire una correzione urgente e tale correzione si trova nello stesso file su cui si sta lavorando."
 
 #. (title)
 msgid "Using TortoiseMerge"
-msgstr ""
+msgstr "Utilizzando TortoiseMerge"
 
 #. (para)
 msgid ""
@@ -3481,7 +3481,7 @@ msgid ""
 "changes</guimenuitem></menuchoice> which will change the right view to only "
 "include the changes you've marked before and undo the changes you have not "
 "marked."
-msgstr ""
+msgstr "Se si utilizza TortoiseMerge per modificare il file, è possibile editare le modifiche come si è abituati o contrassegnare tutte le modifiche che si desidera includere. Fare <action>clic con il tasto destro</action> del mouse su un blocco modificato e utilizzare <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Contrassegna questa modifica</guimenuitem></menuchoice> per includere la modifica. Infine, fai <action>clic con il pulsante destro</action> del mouse e usa il <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Lascia solo le modifiche contrassegnate</guimenuitem></menuchoice> che cambieranno la vista a destra per includere solo le modifiche che hai contrassegnato e tralasciare le modifiche che non hai contrassegnato."
 
 #. (para)
 msgid ""
@@ -3491,14 +3491,14 @@ msgid ""
 " is. Then you can edit the file, e.g. in a text editor and undo all the "
 "changes you don't want to commit. After saving those changes you can commit "
 "the file. <tip><placeholder-1/><placeholder-2/></tip>"
-msgstr ""
+msgstr "fare <action>clic con il tasto destro</action> sul file e utilizzare il <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Ripristina dopo il commit</guimenuitem></menuchoice>. Questo creerà una copia del file così com'è. Quindi puoi modificare il file, ad es. in un editor di testo e annullare tutte le modifiche che non si desidera committare. Dopo aver salvato queste modifiche, puoi salvare il file. <tip><placeholder-1/><placeholder-2/></tip>"
 
 #. (para)
 msgid ""
 "After the commit is done, the copy of the file is restored automatically, "
 "and you have the file with all your modifications that were not committed "
 "back."
-msgstr ""
+msgstr "Al termine del commit, la copia del file viene ripristinata automaticamente e il file contiene tutte le modifiche che non sono state committate."
 
 #. (title)
 msgid "Excluding Items from the Commit List"
