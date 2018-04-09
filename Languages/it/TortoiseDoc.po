@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-03-29 12:41+0000\n"
+"PO-Revision-Date: 2018-04-04 15:52+0000\n"
 "Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -3502,7 +3502,7 @@ msgstr "Al termine del commit, la copia del file viene ripristinata automaticame
 
 #. (title)
 msgid "Excluding Items from the Commit List"
-msgstr ""
+msgstr "Escludere elementi dall'elenco del commit"
 
 #. (para)
 msgid ""
@@ -3525,7 +3525,7 @@ msgstr ""
 
 #. (title)
 msgid "Commit Log Messages"
-msgstr ""
+msgstr "Messaggi di log del commit"
 
 #. (para)
 msgid ""
@@ -3534,7 +3534,7 @@ msgid ""
 "through the project log messages at a later date. The message can be as long"
 " or as brief as you like; many projects have guidelines for what should be "
 "included, the language to use, and sometimes even a strict format."
-msgstr ""
+msgstr "Assicurati di inserire un messaggio di log che descriva le modifiche che stai effettuando. Questo ti aiuterà a vedere cosa è successo e quando, mentre sfogli i messaggi di log del progetto in un secondo momento. Il messaggio può essere lungo o breve quanto vuoi; molti progetti hanno linee guida per ciò che dovrebbe essere incluso, la lingua da usare e talvolta anche un formato rigoroso."
 
 #. (para)
 msgid ""
@@ -3543,11 +3543,11 @@ msgid ""
 "<literal>text</literal>, use <literal>*text*</literal> for bold, "
 "<literal>_text_</literal> for underlining, and <literal>^text^</literal> for"
 " italics."
-msgstr ""
+msgstr "È possibile applicare una semplice formattazione ai messaggi di log utilizzando una convenzione simile a quella utilizzata nelle e-mail. Per applicare uno stile al <literal>testo</literal>, utilizzare <literal>*testo*</literal> per il grassetto, <literal>_testo_</literal> per la sottolineatura e <literal>^testo^</literal> per il corsivo."
 
 #. (title)
 msgid "The Commit Dialog Spellchecker"
-msgstr ""
+msgstr "Il correttore ortografico della finestra di commit"
 
 #. (para)
 msgid ""
@@ -3557,7 +3557,7 @@ msgid ""
 " <emphasis>every</emphasis> technical term that you do, so correctly spelt "
 "words will sometimes show up as errors. But don't worry. You can just add "
 "them to your personal dictionary using the context menu."
-msgstr ""
+msgstr "<placeholder-1/> TortoiseSVN include un correttore ortografico per aiutarti a ottenere i tuoi messaggi di log corretti. Questo metterà in evidenza qualsiasi parola errata. Utilizzare il menu contestuale per accedere alle correzioni suggerite. Naturalmente, non conosce <emphasis>ogni</emphasis> termine tecnico che scrivi, quindi parole scritte correttamente a volte si presentano come errori. Ma non preoccuparti. Puoi semplicemente aggiungerli al tuo dizionario personale usando il menu contestuale."
 
 #. (para)
 msgid ""
@@ -3578,7 +3578,7 @@ msgid ""
 " and the online documentation and tutorial at <ulink url=\"http://www"
 ".regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "La finestra del messaggio di log include anche una funzione di completamento automatico dei nomi dei file e delle funzioni. Questo sistema usa le espressioni regolari per estrarre i nomi delle classi e delle funzioni dai file (di testo) che stai committando, così come i nomi dei file stessi. Se una parola che stai digitando corrisponde a qualcosa nell'elenco (dopo aver digitato almeno 3 caratteri o premuto <keycap>Ctrl+Spazio</keycap>), viene visualizzato un menu a discesa che consente di selezionare il nome completo. Le espressioni regolari fornite con TortoiseSVN sono contenute nella cartella <filename>bin</filename> di installazione TortoiseSVN. Puoi anche definire le tue espressioni regolari e memorizzarle in <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Ovviamente la tua lista privata non verrà sovrascritta quando aggiorni la tua installazione di TortoiseSVN. Se non hai familiarità con le espressioni regolari, dai un'occhiata all'introduzione su <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink> e alla documentazione e tutorial online su <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -3587,7 +3587,7 @@ msgid ""
 "expression and then type in filenames to test it against. Start it from the "
 "command prompt using the command <literal>TortoiseProc.exe "
 "/command:autotexttest</literal>."
-msgstr ""
+msgstr "Ottenere la regex giusta può essere complicato, quindi per aiutarti a trovare un'espressione adatta c'è una finestra di test che ti permette di inserire un'espressione e quindi digitare i nomi dei file per testarla. Avviala dal prompt dei comandi utilizzando il comando <literal>TortoiseProc.exe /command:autotexttest</literal>."
 
 #. (para)
 msgid ""
