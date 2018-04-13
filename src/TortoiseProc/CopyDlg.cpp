@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -771,12 +771,19 @@ void CCopyDlg::OnBnClickedHistory()
     historyDlg.SetHistory(m_History);
     if (historyDlg.DoModal()==IDOK)
     {
-        if (historyDlg.GetSelectedText().Compare(m_cLogMessage.GetText().Left(historyDlg.GetSelectedText().GetLength()))!=0)
+        CString sMsg = historyDlg.GetSelectedText();
+
+        if (sMsg.Compare(m_cLogMessage.GetText().Left(sMsg.GetLength()))!=0)
         {
+            CString sBugID = m_ProjectProperties.FindBugID(sMsg);
+            if ((!sBugID.IsEmpty()) && ((GetDlgItem(IDC_BUGID)->IsWindowVisible())))
+            {
+                SetDlgItemText(IDC_BUGID, sBugID);
+            }
             if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH).Compare(m_cLogMessage.GetText())!=0)
-                m_cLogMessage.InsertText(historyDlg.GetSelectedText(), !m_cLogMessage.GetText().IsEmpty());
+                m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());
             else
-                m_cLogMessage.SetText(historyDlg.GetSelectedText());
+                m_cLogMessage.SetText(sMsg);
         }
         DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cLogMessage.GetText().GetLength());
     }

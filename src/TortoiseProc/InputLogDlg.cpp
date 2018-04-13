@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -476,12 +476,18 @@ void CInputLogDlg::OnBnClickedHistory()
     HistoryDlg.SetHistory(history);
     if (HistoryDlg.DoModal()==IDOK)
     {
-        if (HistoryDlg.GetSelectedText().Compare(m_cInput.GetText().Left(HistoryDlg.GetSelectedText().GetLength()))!=0)
+        CString sMsg = HistoryDlg.GetSelectedText();
+        if (sMsg.Compare(m_cInput.GetText().Left(sMsg.GetLength()))!=0)
         {
+            CString sBugID = m_pProjectProperties != nullptr ? m_pProjectProperties->FindBugID(sMsg) : L"";
+            if ((!sBugID.IsEmpty()) && ((GetDlgItem(IDC_BUGID)->IsWindowVisible())))
+            {
+                SetDlgItemText(IDC_BUGID, sBugID);
+            }
             if ((m_pProjectProperties)&&(m_pProjectProperties->GetLogMsgTemplate(m_sSVNAction).Compare(m_cInput.GetText())!=0))
-                m_cInput.InsertText(HistoryDlg.GetSelectedText(), !m_cInput.GetText().IsEmpty());
+                m_cInput.InsertText(sMsg, !m_cInput.GetText().IsEmpty());
             else
-                m_cInput.SetText(HistoryDlg.GetSelectedText());
+                m_cInput.SetText(sMsg);
         }
 
         UpdateOKButton();
