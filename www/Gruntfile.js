@@ -248,6 +248,9 @@ module.exports = function(grunt) {
         },
 
         htmllint: {
+            options: {
+                ignore: /This document appears to be written in./
+            },
             src: '<%= dirs.dest %>/**/*.html'
         },
 
