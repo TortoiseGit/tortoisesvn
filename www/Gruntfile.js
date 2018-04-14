@@ -80,19 +80,14 @@ module.exports = function(grunt) {
             }
         },
 
-        autoprefixer: {
+        postcss: {
             options: {
-                browsers: [
-                    'last 2 versions',
-                    '> 1%',
-                    'Edge >= 12',
-                    'Explorer >= 9',
-                    'Firefox ESR'
+                processors: [
+                    require('autoprefixer')() // add vendor prefixes
                 ]
             },
-            pack: {
-                src: '<%= concat.css.dest %>',
-                dest: '<%= concat.css.dest %>'
+            dist: {
+                src: '<%= concat.css.dest %>'
             }
         },
 
@@ -291,7 +286,7 @@ module.exports = function(grunt) {
         'jekyll',
         'useminPrepare',
         'concat',
-        'autoprefixer',
+        'postcss',
         'uncss',
         'cssmin',
         'uglify',
@@ -314,7 +309,7 @@ module.exports = function(grunt) {
         'jekyll',
         'useminPrepare',
         'concat',
-        'autoprefixer',
+        'postcss',
         'filerev',
         'usemin'
     ]);
