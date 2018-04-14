@@ -68,7 +68,6 @@ module.exports = function(grunt) {
                 src: ['<%= dirs.src %>/assets/js/vendor/plugins.js',
                       '<%= dirs.src %>/assets/js/no-js-class.js',
                       '<%= dirs.src %>/assets/js/onLoad.js',
-                      '<%= dirs.src %>/assets/js/sf-accel.js',
                       '<%= dirs.src %>/assets/js/google-analytics.js'
                 ],
                 dest: '<%= dirs.dest %>/assets/js/main.js'

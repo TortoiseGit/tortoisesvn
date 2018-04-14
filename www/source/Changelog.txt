@@ -1,3 +1,22 @@
+ÔªøVersion 1.10.0
+See the release notes here:
+http://tortoisesvn.net/tsvn_1.10_releasenotes.html
+
+Version 1.9.8
+- BUG: GDI leak in repobrowser. (Stefan)
+- BUG: Endless loop in vendor-branch. (Stefan)
+- CHG: New line margin icons and minor high dpi refinements
+       in TortoiseMerge. (Ivan Zhakov)
+- BUG: Right click in touch mode wasn't working. (Stefan)
+- BUG: TortoiseUDiff shows invalid window title for patch
+       files opened from shell. (Ivan Zhakov)
+- BUG: "not found" errors could happen for filenames that
+       contain the "%" char. (Stefan)
+- BUG: TMerge did not select the whole line when clicked
+       on the line number. (Stefan)
+- BUG: Horizontal scrollbar shown wrong if the view
+       in TMerge had only one line. (Stefan)
+
 Version 1.9.7
 - BUG: Drag copy-and-add did not add auto-properties. (Stefan)
 
@@ -1502,7 +1521,7 @@ Version 1.5.4
        revision range and a peg revision outside that range. (Stefan Fuhrmann)
 - BUG: TortoiseMerge sometimes wrongly detected the encoding of files. (Stefan)
 - BUG: If a merge conflicted due to added items the progress dialog did not
-       count these correctly and the context menu missed items. (Tobias Sch‰fer)
+       count these correctly and the context menu missed items. (Tobias Sch√§fer)
 - BUG: TortoiseMerge could crash if the font size was set smaller than
        8 pixels. (Stefan)
 - BUG: When a cleanup failed, the error message didn't include the svn
@@ -1739,7 +1758,7 @@ Version 1.5.0-RC1
 - CHG: if changelists are present, the items in the commit dialog are not
        checked by default anymore. (Stefan)
 - CHG: The rev-range merge dialog now sorts the revision ranges which are
-       retrieved from the log dialog. (Tobias Sch‰fer)
+       retrieved from the log dialog. (Tobias Sch√§fer)
 - CHG: improved the autolist regexes to parse more files. (Stefan)
 - CHG: The URL in the log dialog title is now shown unescaped. (Stefan)
 - BUG: <SHIFT>-F5 and <CTRL>-F5 not working in log view (Stefan Fuhrmann)
@@ -1753,11 +1772,11 @@ Version 1.5.0-RC1
 - BUG: When deleting a log cache (via settings dialog), the URL->UUID map
        wasn't updated (Stefan Fuhrmann)
 - BUG: The value of the checkbox "Reverse Merge" got lost when calling the log
-       dialog from the rev-range merge dialog. (Tobias Sch‰fer)
+       dialog from the rev-range merge dialog. (Tobias Sch√§fer)
 - BUG: Refreshing the view in TortoiseMerge only adjusted the scroll position
        of the active view, not all views. (Stefan)
 - BUG: The setting "Use system locale for date/time" was not saved correctly.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - BUG: Revision graph did not handle peg revision info (issue #360)
        (Stefan Fuhrmann)
 - BUG: Changelists were not removed on commit. (Stefan)
@@ -1837,9 +1856,9 @@ Version 1.5.0-alpha1
 - NEW: Support more image formats in TortoiseIDiff by using the FreeImage
        dll if it's available. See issue #304 for details. (Will Wilson)
 - NEW: "Compare with base" now works on multiple selected files. See issue
-       #277 for details. (Tobias Sch‰fer)
+       #277 for details. (Tobias Sch√§fer)
 - NEW: Files shown in the progress dialog can now also be dragged to other
-       applications such as text editors or IDEs. (Tobias Sch‰fer)
+       applications such as text editors or IDEs. (Tobias Sch√§fer)
 - NEW: Undo function for TortoiseMerge. See issue #266 for details. (Stefan)
 - NEW: The columns in the "changed files" dialog are now sortable.
        See issue #275 for details. (Stefan)
@@ -1852,7 +1871,7 @@ Version 1.5.0-alpha1
 - NEW: In the log dialog changed-files-list, it's possible to select
        multiple items for saving. See issue #281 for details. (Stefan)
 - NEW: Single items can be permanently removed from dropped down combo
-       boxes by pressing Shift-Delete. (Tobias Sch‰fer)
+       boxes by pressing Shift-Delete. (Tobias Sch√§fer)
 - NEW: Two new commands in the log dialog to compare/blame a revision
        with its previous one. See issue #286 for details. (Stefan)
 - NEW: Project properties to define user-defined properties which will be
@@ -1900,15 +1919,15 @@ Version 1.5.0-alpha1
        See issue #333 for details. (Stefan)
 - NEW: When applying patches with absolute paths which don't exist
        TortoiseMerge now tries to guess the correct path by stripping
-       prefixes from the paths in the patchfile. (Tobias Sch‰fer)
+       prefixes from the paths in the patchfile. (Tobias Sch√§fer)
 - NEW: The lock dialog now has a "Select / deselect all" checkbox. See
-       issue #340 for details. (Tobias Sch‰fer)
+       issue #340 for details. (Tobias Sch√§fer)
 - NEW: The repository browser has now two panes like the explorer.
        See issue #334 for details. (Stefan)
 - NEW: Pressing SHIFT when un-/checking directories in the status list
-       control makes the action recursive. (Tobias Sch‰fer)
+       control makes the action recursive. (Tobias Sch√§fer)
 - NEW: Resolving conflicts in the progress dialog now updates the status
-       count and removes the warning if all are resolved. (Tobias Sch‰fer)
+       count and removes the warning if all are resolved. (Tobias Sch√§fer)
 - NEW: Blame a file from the log dialog. See issue #341 for details. (Stefan)
 - NEW: The "keep locks" checkbox in the commit dialog defaults to the
        'no_unlock' option in the Subversion config file. (Stefan)
@@ -1920,15 +1939,15 @@ Version 1.5.0-alpha1
        See issue #330 for details. (Stefan)
 - NEW: TortoiseBlame's context menu now has "Blame previous revision",
        "Show changes" and "Show log" which makes tracking changes easier.
-       See issue #343 for details. (Tobias Sch‰fer)
+       See issue #343 for details. (Tobias Sch√§fer)
 - NEW: TortoiseMerge can apply patches created with svnlook.
        See issue #335 for details. (Stefan)
 - NEW: A separate Diff-viewer can now be configured for properties in the
-       settings dialog. (Tobias Sch‰fer)
+       settings dialog. (Tobias Sch√§fer)
 - NEW: The revision graph can show an overview for easier navigation.
        See issue #347 for details. (Stefan)
 - NEW: The log dialog now restores the selection after filtering or
-       fetching further revisions. (Tobias Sch‰fer)
+       fetching further revisions. (Tobias Sch√§fer)
 - NEW: The checkout dialog can be resized horizontally. (Stefan)
 - NEW: A description of a command is shown in the progress dialog
        before the actual command is executed. See issue #348
@@ -1953,7 +1972,7 @@ Version 1.5.0-alpha1
        URL?revision. See issue #346 for details. (Stefan)
 - NEW: Added column "Modification date" which is available in all dialogs
        but which is not shown by default. See issue #363 for details.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - NEW: The commit dialog detects if files got changed while it is shown.
        If it detects such a change, it reverts back to a non-recursive
        commit to avoid committing unchecked files.
@@ -2009,13 +2028,13 @@ Version 1.5.0-alpha1
        instead of HEAD. See issue #258 for details. (Stefan)
 - CHG: CrashRpt.dll is now loaded with an absolute path. This prevents
        TSVN from loading an arbitrary DLL. See issue #278 for details.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - CHG: Pressing Enter in the issue ID text box of the commit dialog now
        sets the focus to the commit message. See issue #292 for details.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - CHG: Menu items which should appear in the top level menu now need to
        be checked instead of unchecked. See issue #306 for details.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - CHG: Spell corrections are now shown in the top level context menu instead
        of a submenu in the commit dialog. See issue #285 for details. (Stefan)
 - CHG: When doing actions (e.g. move/copy/...) in the repository browser,
@@ -2042,18 +2061,18 @@ Version 1.5.0-alpha1
 - CHG: The progress dialog clearly indicates a failed operation in the
        title and the status text. See issue #318 for details. (Stefan)
 - CHG: Unchecking directories in the status list control now doesn't uncheck
-       recursively if there is only a property change. (Tobias Sch‰fer)
+       recursively if there is only a property change. (Tobias Sch√§fer)
 - CHG: The language pack are now installed with msi installer files.
        See issue #155 for details. (Stefan)
 - CHG: When creating a repository, always use the FSFS type. While it's no
        longer possible to create BDB repositories, it's still possible to
        access them via file:///. (Stefan)
 - CHG: The TortoiseSVN automation interface does not need the parameter
-       /notempfile anymore. See issue #298 for details. (Tobias Sch‰fer)
+       /notempfile anymore. See issue #298 for details. (Tobias Sch√§fer)
 - CHG: The /revstart, /revend and /revpeg parameters have been renamed
-       consistently  to /startrev, /endrev and /pegrev. (Tobias Sch‰fer)
+       consistently  to /startrev, /endrev and /pegrev. (Tobias Sch√§fer)
 - CHG: The second context menu item for links now only appears if the
-       destination is in a working copy. (Tobias Sch‰fer)
+       destination is in a working copy. (Tobias Sch√§fer)
 - CHG: Context menu (log, merge) available also for deleted nodes in
        revision dialog (Stefan Fuhrmann)
 --
@@ -2082,18 +2101,18 @@ Version 1.4.6
        to paths directly below the include paths *not* to be included.
        (Stefan)
 - BUG: Sorting in the commit dialog sometimes lost the check marks
-       if the list had previously been refreshed. (Tobias Sch‰fer)
+       if the list had previously been refreshed. (Tobias Sch√§fer)
 - BUG: Memory leak in the shell context menu. (Stefan)
 - BUG: Exporting could leave the exported folders still versioned. (Stefan)
 - BUG: Pressing the tabulator deleted the contents of the log message in
-       the commit dialog. (Tobias Sch‰fer)
+       the commit dialog. (Tobias Sch√§fer)
 
 Version 1.4.5
 - BUG: The setting "unversioned files mark parent folder as modified" for the
        overlays marked folders as modified even if the unversioned files
        were ignored. (Stefan)
 - BUG: The commit dialog wrongly showed added files in external folders.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - BUG: Selecting the 'to:' date in the log dialog didn't include the
        selected date. (Stefan)
 - BUG: Crash in the statistics dialog if for some reason the date of a
@@ -2105,7 +2124,7 @@ Version 1.4.5
 
 Version 1.4.4
 - BUG: When refreshing the status list control missing files lost their
-       check mark. (Tobias Sch‰fer)
+       check mark. (Tobias Sch√§fer)
 - BUG: When selecting a revision range in the log dialog, the selection mark
        was counted too instead of just the selected items. (Stefan)
 - BUG: TortoiseMerge recognizes the readonly attribute of files and doesn't
@@ -2116,7 +2135,7 @@ Version 1.4.4
 - BUG: TortoiseMerge could throw an error "The file 'x' was found twice!?!"
        even if the patchfile was applied to the correct folder. (Stefan)
 - BUG: "Create patch..." did not work for multiple files if the filenames
-       had a common prefix. (Tobias Sch‰fer)
+       had a common prefix. (Tobias Sch√§fer)
 - BUG: Choosing "use other file" in TortoiseMerge wouldn't save the file
        completely later. (Stefan)
 - BUG: "Resolve conflict using 'mine'" didn't work if the conflicted file
@@ -2130,9 +2149,9 @@ Version 1.4.4
        thread is still running, the items could be (un)checked but their
        changed state wouldn't be taken into account for the commit. (Stefan)
 - BUG: The log dialog used wrong revision numbers when selecting two
-       revisions and double clicking on the filename. (Tobias Sch‰fer)
+       revisions and double clicking on the filename. (Tobias Sch√§fer)
 - BUG: When committing added directories, the log message wasn't always saved
-       in the history. (Tobias Sch‰fer)
+       in the history. (Tobias Sch√§fer)
 
 Version 1.4.3
 - BUG: Explorer restarts often on Vista. (Stefan)
@@ -2153,7 +2172,7 @@ Version 1.4.2
 - BUG: The revert dialog showed also modified files from externals, which
        were not reverted later even if they were selected. (Stefan)
 - BUG: Reopening the commit dialog after a failed commit did not always
-       restore the state of all selected items. (Tobias Sch‰fer)
+       restore the state of all selected items. (Tobias Sch√§fer)
 - BUG: Reverted files disappeared from the list even if "show unmodified files"
        was set in the check-for-modifications dialog.
        See issue #325 for details. (Stefan)
@@ -2161,7 +2180,7 @@ Version 1.4.2
        the checked state was not adjusted to the new ordering. (Stefan)
 - BUG: Calling "Save revision to..." in the file list of the log dialog
        appended the revision number to the file name instead of inserting it
-       before the file extension. (Tobias Sch‰fer)
+       before the file extension. (Tobias Sch√§fer)
 - BUG: When blaming a file not from revision 1 on, the blame viewer didn't
        show the log info in the tooltips. (Stefan)
 - BUG: If the repobrowser is started with a URL having a trailing slash,
@@ -2222,7 +2241,7 @@ Version 1.4.1
 - BUG: The entry "copy to working copy..." was not available in the
        repository browser for non-HEAD revisions. (Stefan)
 - BUG: If a commit failed with an error, the commit dialog re-opened but
-       it didn't restore any manually added targets. (Tobias Sch‰fer)
+       it didn't restore any manually added targets. (Tobias Sch√§fer)
 - BUG: The setting "Color code in-line changes" was always active. (Stefan)
 - BUG: Updating multiple selected items sometimes updated all of them
        to the same revision even if they were from different
@@ -2265,7 +2284,7 @@ Version 1.4.1
 - BUG: It was possible to create a new folder in the repobrowser
        which name had a whitespace char at the end. (Stefan)
 - BUG: The log dialog used wrong revision numbers when calling "Show
-       differences" on multiple selected revisions. (Tobias Sch‰fer)
+       differences" on multiple selected revisions. (Tobias Sch√§fer)
 - BUG: When selecting two or more ignored files for adding, an empty
        error dialog was shown. (Stefan)
 
@@ -2283,9 +2302,9 @@ Version 1.4.0
        in the repository browser. (Stefan)
 - CHG: The sort arrows now use the same orientation as explorer. (Stefan)
 - CHG: Sorting the columns author and message in the log dialog is now
-       case-insensitive. (Tobias Sch‰fer)
+       case-insensitive. (Tobias Sch√§fer)
 - CHG: Several more dialogs now remember their size and position.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - CHG: The 'recent message' is not appended to a prefilled log
        message by the tsvn:logtemplate property. Instead, the
        template is overwritten. See issue #283 for details. (Stefan)
@@ -2323,9 +2342,9 @@ Version 1.4.0
 - BUG: TortoiseMerge caused a GPF in debug mode when passing two
        filenames. (Jeremy Whitby)
 - BUG: Reverting to a revision in the log dialog actually restored
-       to one revision below the expected revision. (Tobias Sch‰fer)
+       to one revision below the expected revision. (Tobias Sch√§fer)
 - BUG: The hot key Ctrl-Return confirmed dialogs despite the
-       ok-button being disabled. (Tobias Sch‰fer)
+       ok-button being disabled. (Tobias Sch√§fer)
 - BUG: After resolving a conflicted line with "use mine before theirs" or
        "use theirs before mine", the scrollbars were not updated. (Stefan)
 - BUG: When changing the view types in the revision graph via the menu,
@@ -2366,7 +2385,7 @@ Version 1.4.0RC1
 - NEW: The revision graph can show the nodes sorted by path.
        See issue #222 for details. (Stefan)
 - NEW: The 'OK' button in all dialogs is now disabled until at least
-       one file/folder is selected to avoid empty operations. (Tobias Sch‰fer)
+       one file/folder is selected to avoid empty operations. (Tobias Sch√§fer)
 - NEW: Ability to show ignored files in the "Check for modifications"
        dialog. (Stefan)
 - NEW: Option in the statistics dialog to treat author names
@@ -2376,14 +2395,14 @@ Version 1.4.0RC1
 - NEW: Option to include ignored files when importing. (Stefan)
 - NEW: Option to ignore the ancestry in a merge. (Stefan)
 - NEW: Files shown in lists can now be dragged to other applications such as
-       text editors or IDEs. See issue #213 for details. (Tobias Sch‰fer)
+       text editors or IDEs. See issue #213 for details. (Tobias Sch√§fer)
 - NEW: Context menu entry to start the commit dialog from the
        "check for modifications" dialog. See issue #217 for details. (Stefan)
 - NEW: Different icons for the context menu entry depending on the type
        of the item selected. See issue #210 for details. (Stefan)
 - NEW: When dragging items in the repository browser folders are now opened
        and closed when hovering over them for two seconds. See issue #203
-       for details (Tobias Sch‰fer)
+       for details (Tobias Sch√§fer)
 - NEW: The Revert, Resolve, Lock and Add dialog can be interrupted while
        they fetch the working copy status. (Stefan)
 - NEW: Number of recent log messages kept in the history is configurable.
@@ -2394,7 +2413,7 @@ Version 1.4.0RC1
        for details. (Stefan)
 - NEW: Dragging items in the repository browser beyond the visible area
        makes the tree scroll automatically. See issue #203 for details.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - NEW: Better zooming support in the revision graph. See issue
        #228 for details. (Stefan)
 - NEW: The log message history now also stores and recalls the issue numbers
@@ -2419,11 +2438,11 @@ Version 1.4.0RC1
 - NEW: Renaming multiple similar files which makes refactoring easier.
        See issue #193 for details. (Stefan)
 - NEW: When applying a patch in TortoiseMerge the context menu now offers
-       the new option "Patch selected". (Tobias Sch‰fer)
+       the new option "Patch selected". (Tobias Sch√§fer)
 - NEW: When reverting a file in the commit dialog the scroll position is
-       now restored instead of always scrolling to the top. (Tobias Sch‰fer)
+       now restored instead of always scrolling to the top. (Tobias Sch√§fer)
 - NEW: Merging now mentions the number of skipped targets and shows them in
-       red. See issue #231 for details. (Tobias Sch‰fer)
+       red. See issue #231 for details. (Tobias Sch√§fer)
 - NEW: Subversion properties can be shown and edited from the various
        dialogs using the status list control, and directly from the
        explorer context menu. See issue #166 for details. (Stefan)
@@ -2472,14 +2491,14 @@ Version 1.4.0RC1
        See issue #249 for details. (Stefan)
 - NEW: The lock dialog now shows a warning when the user attempts to
        lock files which don't have the property svn:needs-lock set.
-       See issue #246 for details. (Tobias Sch‰fer)
+       See issue #246 for details. (Tobias Sch√§fer)
 - NEW: Introducing TortoiseIDiff, an image diff viewer. This is a little
        tool which shows two images side-by-side, or over each other
        alpha blended. (Stefan)
 - NEW: The entries in the status control can now be copied to the
        clipboard. See issue #250 for details. (Stefan)
 - NEW: Added new column "Needs lock" which is available in all dialogs
-       and shown by default in the lock dialog. (Tobias Sch‰fer)
+       and shown by default in the lock dialog. (Tobias Sch√§fer)
 - NEW: Option to auto-close the progress dialog for local operations.
        See issue #245 for details. (Stefan)
 - NEW: Conflicts are marked as such even if the ignore settings
@@ -2519,7 +2538,7 @@ Version 1.4.0RC1
 - NEW: UI friendly diff from the merge dialog. See issue #267
        for details. (Stefan)
 - NEW: TortoiseMerge now accepts two or optionally three file names
-       as arguments. (Tobias Sch‰fer)
+       as arguments. (Tobias Sch√§fer)
 - NEW: The floppy drives can be excluded from showing the overlays
        separately. See issue #269 for details. (Stefan)
 - NEW: If a commit fails with an error, the commit dialog re-opens again
@@ -2530,7 +2549,7 @@ Version 1.4.0RC1
        #126 for details. (Stefan)
 - CHG: The icons in the column "Action" of the log dialog are now all
        placed in a separate column. See issue #207 for details.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - CHG: All resizable dialogs now have minimize/maximize buttons. (Stefan)
 - CHG: OpenSSL is now linked statically.
        See issue #221 for details. (Stefan)
@@ -2543,14 +2562,14 @@ Version 1.4.0RC1
        range of revisions is selected when it is started from the merge
        dialog. (Stefan)
 - CHG: Reverting newly added files in the commit dialog now removes the
-       check mark from the corresponding check box. (Tobias Sch‰fer)
+       check mark from the corresponding check box. (Tobias Sch√§fer)
 - CHG: TortoiseBlame keeps the find string intact and doesn't change
        it to lowercase anymore. (Stefan)
 - CHG: The status column in explorer now uses the same recursive setting
        as the overlays. (Stefan)
 - CHG: It is now possible to delete directories recursively after having
        deselected single items from the commit dialog provided that no
-       parent item would commit the deselected item. (Tobias Sch‰fer)
+       parent item would commit the deselected item. (Tobias Sch√§fer)
 - CHG: The URL and path in the merge dialog have a tooltip now, in case
        the URL doesn't fit into the dialog, the tooltip will still show
        the complete URL. See issue #234 for details. (Stefan)
@@ -2567,7 +2586,7 @@ Version 1.4.0RC1
 - CHG: In the revision graph, the nodes are drawn without a shadow if
        they're small. (Stefan)
 - CHG: When refreshing the status list with F5 the check mark of manually
-       de-/selected items is restored. (Tobias Sch‰fer)
+       de-/selected items is restored. (Tobias Sch√§fer)
 - CHG: The relocate warning is only shown if the path part of the URL
        changed and nothing else, because that indicates a possible
        switch. (Stefan)
@@ -2580,7 +2599,7 @@ Version 1.4.0RC1
 - BUG: Other schemes than 'ssh' weren't recognized when starting the
        repository browser when using svn+xyz://. (Stefan)
 - BUG: When reverting files and folders the child items are now reverted
-       before the parent items to avoid an error message. (Tobias Sch‰fer)
+       before the parent items to avoid an error message. (Tobias Sch√§fer)
 - BUG: When a setting change couldn't be saved in the registry, no error
        message was shown. See issue #237 for details. (Stefan)
 - BUG: TortoiseMerge could crash when diffing files with
@@ -2613,10 +2632,10 @@ Version 1.3.4
 - BUG: SubWCRev didn't treat added files/folders correctly. (Stefan)
 - BUG: The context menu items "Rename..." and "Delete" have been removed
        from the working copy root folder. See issue #243 for details.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - BUG: Hiding unrelated changed paths did not work in the log dialog if
        the path contained characters which needed escaping.
-       (Tobias Sch‰fer)
+       (Tobias Sch√§fer)
 - BUG: If the system option "hide keyboard cues" was disabled, the explorer
        context menu items didn't show the keyboard accelerators. (Stefan)
 - BUG: an .svn directory could get exported if it was manually selected for
@@ -2646,17 +2665,17 @@ Version 1.3.3
 - BUG: file entries couldn't be selected anymore in the repository
        browser. (Stefan)
 - BUG: Unignoring a wildcard pattern mistakenly reported the successful
-       removal of the file name. (Tobias Sch‰fer)
+       removal of the file name. (Tobias Sch√§fer)
 - BUG: Unignoring file names removed more than it should from svn:ignore if
-       the file name was part of another file name. (Tobias Sch‰fer)
+       the file name was part of another file name. (Tobias Sch√§fer)
 - BUG: The menu item "Remove from ignore list" was always not shown if
-       the file name was part of another file name. (Tobias Sch‰fer)
+       the file name was part of another file name. (Tobias Sch√§fer)
 - BUG: TortoiseMerge's option "Ignore leading whitespace" effectively ignored
-       all instead of only leading whitespace. (Tobias Sch‰fer)
+       all instead of only leading whitespace. (Tobias Sch√§fer)
 - BUG: If the bugtraq:logregex only contained a one-line regex with groups,
        the ID part wasn't parsed correctly. (Stefan)
 - BUG: Checking/unchecking a deleted file in the commit dialog reported the
-       wrong number of selected files. (Tobias Sch‰fer)
+       wrong number of selected files. (Tobias Sch√§fer)
 - BUG: Some patchfiles could not be applied, an error message indicating
        that lines would not match was thrown instead. (Stefan)
 - BUG: The custom dictionary could sometimes loose entries. (Stefan)
@@ -2673,7 +2692,7 @@ Version 1.3.3
        TortoiseMerge but other merge tools too (if configured). Those
        who don't know that switch then didn't work. (Stefan)
 - BUG: Deleted files were not always being counted in the statistics of the
-       progress dialog. (Tobias Sch‰fer)
+       progress dialog. (Tobias Sch√§fer)
 - BUG: When files got renamed in case only (e.g. file.txt to FILE.TXT)
        outside Subversion, the TSVN would not correct the case of all
        files and show files with 'missing' status in the commit or
@@ -2681,7 +2700,7 @@ Version 1.3.3
 
 Version 1.3.2
 - BUG: When copying and renaming a file by right-dragging, the "Cancel"
-       button was ignored and the copy was done anyway. (Tobias Sch‰fer)
+       button was ignored and the copy was done anyway. (Tobias Sch√§fer)
 - BUG: "Create patch" created a patch with full instead of relative
        paths. (Stefan)
 - BUG: Import ignored the global ignore patterns and imported just
@@ -2689,7 +2708,7 @@ Version 1.3.2
 - BUG: Minor repaint issue in the revision graph. See issue #211
        for details. (Stefan)
 - BUG: TortoiseMerge crashed when applying patches which triggered a
-       conflict at the end of the file. (Tobias Sch‰fer)
+       conflict at the end of the file. (Tobias Sch√§fer)
 - BUG: TortoiseMerge could crash when applying a corrupted (e.g. due
        to mail program splitting lines) patchfile. (Stefan)
 - BUG: Possible deadlock in the cache when mounting new drives. (Stefan)
@@ -3132,12 +3151,12 @@ http://tortoisesvn.tigris.org/tsvn_1.2_releasenotes.html
        slots, TSVN now uses one of the available overlays instead. (Stefan)
 - NEW: Export and Checkout from the repository browser. (Stefan)
 - NEW: The revision graph can now be saved as a wmf file. (Stefan)
-- NEW: New overlay icons for 'locked' and 'readonly' files. (L¸bbe)
+- NEW: New overlay icons for 'locked' and 'readonly' files. (L√ºbbe)
 - NEW: New keywords for SubWCRev: $WCURL$, $WCMIXED?TrueText:FalseText$. (Simon)
 - CHG: Improved look of the settings dialog. (Stefan)
 - CHG: TortoiseMerge is now built as UNICODE. (Norbert Unterberg)
-- CHG: High color toolbar for TortoiseMerge. (L¸bbe)
-- CHG: Several new Icons for the context menu. (L¸bbe)
+- CHG: High color toolbar for TortoiseMerge. (L√ºbbe)
+- CHG: Several new Icons for the context menu. (L√ºbbe)
 - CHG: It's possible to select multiple items in the commit dialog. (Stefan)
 - CHG: Searching the log messages is now done with regular expressions. (Stefan)
 - CHG: When an entry from the log message history combo is selected, it isn't
@@ -3233,7 +3252,7 @@ Version 1.1.3
 
 Version 1.1.2
 - NEW: Many speed improvements throughout the whole program. (Will Dean & Stefan)
-- NEW: XPStyle & Straight icon sets (L¸bbe)
+- NEW: XPStyle & Straight icon sets (L√ºbbe)
 - NEW: Subclipse icon set (Mark Phippard)
 - NEW: A revision graph. (Stefan)
 - NEW: Dialog to choose an icon overlay set. (Stefan)
@@ -3249,7 +3268,7 @@ Version 1.1.2
        done are shown highlighted. (Stefan)
 - NEW: The progress dialog shows some statistics info after the operation
        has finished. (Stefan)
-- NEW: TortoiseMerge shows inline diffs in the diffbar. (Jˆrg Mann)
+- NEW: TortoiseMerge shows inline diffs in the diffbar. (J√∂rg Mann)
 - NEW: TortoiseBlame shows linenumbers and the revision date. (Simon Large)
 - NEW: All 'status' dialogs now show the file/folder icon left of the
        filename. (Stefan)
@@ -3555,7 +3574,7 @@ Version 1.0.4
 - NEW: TortoiseMerge has a new command to reload the files
        which reverts all changes you've made. (Stefan)
 - NEW: New icon for the "Add to ignore list" command
-       from StÈphane Becker (whirly@noos.fr).
+       from St√©phane Becker (whirly@noos.fr).
 - NEW: Info-Tooltip in the commit dialog showing the
        number of files with a specific status. (Stefan)
 - NEW: Non-recursive checkouts and updates. (Stefan)
@@ -4029,7 +4048,7 @@ Version 0.18
        sequences. (Stefan)
 - BUG: Explorer could crash when doing a column sort
        on really big working copies. Thanks a lot
-       to L¸bbe for helping in finding this bug. (Stefan)
+       to L√ºbbe for helping in finding this bug. (Stefan)
 - BUG: Some parts of the log message itself were selectable
        in the log dialog. (Stefan)
 - CHG: Removed the limitation for property lengths
@@ -4164,7 +4183,7 @@ Version 0.14
 - BUG: The log for a renamed file/folder was shown
        as two deletes instead of a delete and an add. (Stefan)
 - BUG: URL were not escaped. Issue 58. (Stefan)
-- CHG: Some icons are changed, some new. (L¸bbe)
+- CHG: Some icons are changed, some new. (L√ºbbe)
 - CHG: If a file is deleted from the filesystem but not
        removed from version control the icon overlay
        shows the "deleted" icon. (Stefan)
