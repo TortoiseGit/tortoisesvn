@@ -188,6 +188,8 @@ Please note:
   take care of that when setting the properties.
 - If the properties are not set for a folder, the client should search upwards
   in the working copy for them until the working copy root is reached.
+  Note: as of svn 1.8, properties are automatically inherited so searching up
+  the working copy is not necessary anymore.
 
 
 A. FAQ
