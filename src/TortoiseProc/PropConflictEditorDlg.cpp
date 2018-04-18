@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2017 - TortoiseSVN
+// Copyright (C) 2016-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -160,7 +160,7 @@ void CPropConflictEditorDlg::DoModal(HWND parent, int index)
 {
     auto path = m_conflictInfo->GetPath().GetFileOrDirectoryName();
     CString sDialogTitle;
-    sDialogTitle.LoadString(IDS_PROC_EDIT_TREE_CONFLICTS);
+    sDialogTitle.LoadString(IDS_PROC_EDIT_PROP_CONFLICTS);
     sDialogTitle = CCommonAppUtils::FormatWindowTitle(path, sDialogTitle);
 
     if (!m_conflictInfo->GetPropResolutionOptions(m_options))

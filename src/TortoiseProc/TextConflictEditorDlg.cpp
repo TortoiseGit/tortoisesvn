@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2017 - TortoiseSVN
+// Copyright (C) 2016-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -159,7 +159,7 @@ void CTextConflictEditorDlg::DoModal(HWND parent)
 {
     auto path = m_conflictInfo->GetPath().GetFileOrDirectoryName();
     CString sDialogTitle;
-    sDialogTitle.LoadString(IDS_PROC_EDIT_TREE_CONFLICTS);
+    sDialogTitle.LoadString(IDS_PROC_EDIT_TEXT_CONFLICTS);
     sDialogTitle = CCommonAppUtils::FormatWindowTitle(path, sDialogTitle);
 
     if (!m_conflictInfo->GetTextResolutionOptions(m_options))
@@ -185,7 +185,7 @@ void CTextConflictEditorDlg::DoModal(HWND parent)
         AddCommandButton(buttonID, optLabel + L"\n" + optDescription);
     }
 
-    AddCommandButton(1000, CString(MAKEINTRESOURCE(IDS_EDITCONFLICT_PROP_EDITCMD)));
+    AddCommandButton(1000, CString(MAKEINTRESOURCE(IDS_EDITCONFLICT_TEXT_EDITCMD)));
 
     int button;
     TASKDIALOGCONFIG taskConfig = { 0 };
