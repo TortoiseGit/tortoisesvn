@@ -4081,7 +4081,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     CString sTempFile = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
                     targetList.WriteToFile(sTempFile, false);
                     CString sCmd;
-                    sCmd.Format(L"/command:shelve /pathfile:\"%s\" /deletepathfile /noui", (LPCTSTR)sTempFile);
+                    sCmd.Format(L"/command:shelve /pathfile:\"%s\" /deletepathfile", (LPCTSTR)sTempFile);
                     if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
                     {
                         sCmd += L" /showoptions";
