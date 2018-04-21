@@ -64,6 +64,7 @@
 #include "RenameDlg.h"
 #include "..\..\ext\snarl\SnarlInterface.h"
 #include "ToastNotifications.h"
+#include "DPIAware.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 #include <fstream>
@@ -7729,12 +7730,14 @@ bool CLogDlg::CreateToolbar()
 #define MONITORMODE_TOOLBARBUTTONCOUNT  10
     TBBUTTON tbb[MONITORMODE_TOOLBARBUTTONCOUNT] = { 0 };
     // create an image list containing the icons for the toolbar
-    if (!m_toolbarImages.Create(24, 24, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4))
+    const int iconSizeX = int(24 * CDPIAware::Instance().ScaleFactorX());
+    const int iconSizeY = int(24 * CDPIAware::Instance().ScaleFactorX());
+    if (!m_toolbarImages.Create(iconSizeX, iconSizeY, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4))
         return false;
     auto iString = ::SendMessage(m_hwndToolbar, TB_ADDSTRING,
                                  (WPARAM)AfxGetResourceHandle(), (LPARAM)IDS_MONITOR_TOOLBARTEXTS);
     int index = 0;
-    HICON hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_GETALL, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    HICON hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_GETALL, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_CHECKREPOSITORIESNOW;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -7749,7 +7752,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_ADD, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_ADD, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_ADDPROJECT;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -7757,7 +7760,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_EDIT, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_EDIT, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_EDIT;
     tbb[index].fsState = BTNS_SHOWTEXT;
@@ -7765,7 +7768,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_REMOVE, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_REMOVE, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_REMOVE;
     tbb[index].fsState = BTNS_SHOWTEXT;
@@ -7780,7 +7783,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_MARKALLASREAD, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_MARKALLASREAD, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_MARKALLASREAD;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -7788,7 +7791,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_UPDATE, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_UPDATE, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_UPDATE;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -7803,7 +7806,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_OPTIONS, 0, 0, LR_VGACOLOR | LR_DEFAULTSIZE | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_OPTIONS, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_OPTIONS;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
