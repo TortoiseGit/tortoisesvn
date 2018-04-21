@@ -262,6 +262,9 @@ bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspat
             subpool, subpool),
         NULL
     );
+    if (Err)
+        return false;
+
     apr_hash_index_t *hi;
     for (hi = apr_hash_first(subpool, names_hash); hi; hi = apr_hash_next(hi))
     {
@@ -270,7 +273,7 @@ bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspat
     }
     std::sort(Names.begin(), Names.end());
 
-    return (Err == NULL);
+    return (Err == nullptr);
 }
 
 bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const SVNRev& pegrev,
