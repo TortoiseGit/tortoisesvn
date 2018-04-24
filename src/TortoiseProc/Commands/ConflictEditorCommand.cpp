@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2014, 2017 - TortoiseSVN
+// Copyright (C) 2008-2014, 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -95,8 +95,16 @@ bool ConflictEditorCommand::Execute()
         conflict.GetTextContentFiles(base, theirs, mine);
         if (mine.IsEmpty())
             mine = merge;
+
+        CString filename, n1, n2, n3, n4;
+        filename = merge.GetUIFileOrDirectoryName();
+        n1.Format(IDS_DIFF_BASENAME, (LPCTSTR)filename);
+        n2.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)filename);
+        n3.Format(IDS_DIFF_WCNAME, (LPCTSTR)filename);
+        n4.Format(IDS_DIFF_MERGEDNAME, (LPCTSTR)filename);
+
         bRet = !!CAppUtils::StartExtMerge(CAppUtils::MergeFlags().AlternativeTool(bAlternativeTool),
-                                          base, theirs, mine, merge, true, CString(), CString(), CString(), CString(), merge.GetFileOrDirectoryName());
+                                          base, theirs, mine, merge, true, n1, n2, n3, n4, filename);
     }
 
     for (int i = 0; i < conflict.GetPropConflictCount(); ++i)

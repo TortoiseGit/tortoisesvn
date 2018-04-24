@@ -100,16 +100,16 @@ HRESULT CTextConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
 
         CString filename, n1, n2, n3, n4;
         filename = m_merged.GetUIFileOrDirectoryName();
-        n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)filename);
-        n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)filename);
-        n3.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)filename);
+        n1.Format(IDS_DIFF_BASENAME, (LPCTSTR)filename);
+        n2.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)filename);
+        n3.Format(IDS_DIFF_WCNAME, (LPCTSTR)filename);
         n4.Format(IDS_DIFF_MERGEDNAME, (LPCTSTR)filename);
 
         CAppUtils::MergeFlags flags;
         flags.AlternativeTool((GetKeyState(VK_SHIFT) & 0x8000) != 0);
         flags.PreventSVNResolve(true);
         CAppUtils::StartExtMerge(flags,
-                                 base, theirs, mine, m_merged, true, n1, n1, n3, n4, filename);
+                                 base, theirs, mine, m_merged, true, n1, n2, n3, n4, filename);
         return S_FALSE;
     }
     for (SVNConflictOptions::const_iterator it = m_options.begin(); it != m_options.end(); ++it)

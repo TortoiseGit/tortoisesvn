@@ -97,9 +97,9 @@ HRESULT CPropConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
         ::SendMessage(hWnd, TDM_ENABLE_BUTTON, 100 + svn_client_conflict_option_merged_text, 0);
 
         CString n1, n2, n3, n4;
-        n1.Format(IDS_DIFF_PROP_WCNAME, (LPCTSTR)m_propName);
-        n2.Format(IDS_DIFF_PROP_BASENAME, (LPCTSTR)m_propName);
-        n3.Format(IDS_DIFF_PROP_REMOTENAME, (LPCTSTR)m_propName);
+        n1.Format(IDS_DIFF_PROP_BASENAME, (LPCTSTR)m_propName);
+        n2.Format(IDS_DIFF_PROP_REMOTENAME, (LPCTSTR)m_propName);
+        n3.Format(IDS_DIFF_PROP_WCNAME, (LPCTSTR)m_propName);
         n4.Format(IDS_DIFF_PROP_MERGENAME, (LPCTSTR)m_propName);
 
         CAppUtils::MergeFlags flags;
