@@ -1282,6 +1282,9 @@ UINT CSVNProgressDlg::ProgressThreadEntry(LPVOID pVoid)
 
 UINT CSVNProgressDlg::ProgressThread()
 {
+    CoInitialize(NULL);
+    OnOutOfScope(CoUninitialize());
+
     if (m_hidden)
         SetWindowPos(NULL, 0, 0, 0, 0, SWP_HIDEWINDOW|
             SWP_NOSIZE|SWP_NOMOVE|SWP_NOACTIVATE|SWP_NOZORDER);
@@ -4363,7 +4366,7 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                     sProgressLine.LoadString(IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO);
                     progressDlg.SetLine(1, sProgressLine);
                     progressDlg.SetShowProgressBar(false);
-                    progressDlg.ShowModal(GetExplorerHWND(), FALSE);
+                    progressDlg.ShowModal(m_hWnd, FALSE);
                     conflict.SetProgressDlg(&progressDlg);
                     if (!conflict.FetchTreeDetails())
                     {
