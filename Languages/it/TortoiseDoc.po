@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-04-04 15:52+0000\n"
+"PO-Revision-Date: 2018-05-04 09:06+0000\n"
 "Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -3601,7 +3601,7 @@ msgid ""
 "<literal>#</literal> is the comment character. Newlines can be inserted by "
 "escaping them like this: <literal>\\n</literal> and <literal>\\r</literal>. "
 "To insert a backslash, escape it like this: <literal>\\\\</literal>."
-msgstr ""
+msgstr "La finestra del messaggio di log include anche un servizio di snippet per il messaggio di commit. Questi snippet vengono visualizzati in un dropdown con completamento automatico dopo aver digitato i primi caratteri dello snippet desiderato; selezionando lo snippet nel dropdown il suo testo completo viene inserito nel messaggio. Gli snippet forniti con TortoiseSVN sono contenuti nella cartella di installazione di TortoiseSVN <filename>bin</filename>. È anche possibile definire i propri snippet e memorizzarli in <filename>%APPDATA%\\TortoiseSVN\\snippet.txt</filename>. <literal>#</literal> è il carattere per definire una riga di commento. Se il testo dello snippet richiede di andare a capo è possibile utilizzare i seguenti codici di escape: <literal>\\n</literal> e <literal>\\r</literal>. Per inserire una barra rovesciata, inserire il codice di escape: <literal>\\\\</literal>."
 
 #. (para)
 msgid ""
@@ -3609,7 +3609,7 @@ msgid ""
 "<guibutton>Recent messages</guibutton> to view a list of the last few "
 "messages you entered for this working copy. The number of stored messages "
 "can be customized in the TortoiseSVN settings dialog."
-msgstr ""
+msgstr "È possibile riutilizzare i messaggi di log inseriti in precedenza. Basta fare clic su <guibutton>Messaggi recenti</guibutton> per visualizzare un elenco degli ultimi messaggi inseriti per questa copia di lavoro. Il numero di messaggi memorizzati può essere personalizzato nella finestra di dialogo delle impostazioni di TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -3617,24 +3617,24 @@ msgid ""
 "data</guilabel> page of TortoiseSVN's settings, or you can clear individual "
 "messages from within the <guilabel>Recent messages</guilabel> dialog using "
 "the <keycap>Delete</keycap> key."
-msgstr ""
+msgstr "È possibile cancellare tutti i messaggi di commit memorizzati dalla pagina dei <guilabel>Dati salvati</guilabel> delle impostazioni di TortoiseSVN, oppure è possibile cancellare singoli messaggi dalla finestra di dialogo <guilabel>Messaggi recenti</guilabel> utilizzando il tasto <keycap>Canc</keycap>."
 
 #. (para)
 msgid ""
 "If you want to include the checked paths in your log message, you can use "
 "the command <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Paste "
 "filename list</guimenuitem></menuchoice> in the edit control."
-msgstr ""
+msgstr "Se si desidera includere i percorsi dei file modificati nel messaggio di log, è possibile utilizzare il comando <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Incolla elenco file</guimenuitem></menuchoice> nella casella di testo del messaggio."
 
 #. (para)
 msgid ""
 "Another way to insert the paths into the log message is to simply drag the "
 "files from the file list onto the edit control."
-msgstr ""
+msgstr "Un altro modo per inserire i percorsi nel messaggio di log è semplicemente trascinare i file dall'elenco dei file sulla casella di testo."
 
 #. (title)
 msgid "Special Folder Properties"
-msgstr ""
+msgstr "Proprietà speciali della cartella"
 
 #. (para)
 msgid ""
@@ -3642,11 +3642,11 @@ msgid ""
 "more control over the formatting of commit log messages and the language "
 "used by the spellchecker module. Read <xref linkend=\"tsvn-dug-"
 "propertypage\"/> for further information."
-msgstr ""
+msgstr "Esistono diverse proprietà speciali delle cartelle che possono essere utilizzate per ottenere un maggiore controllo sulla formattazione dei messaggi di log di commit e sulla lingua utilizzata dal modulo di controllo ortografico. Leggi <xref linkend=\"tsvn-dug-propertypage\"/> per ulteriori informazioni."
 
 #. (title)
 msgid "Integration with Bug Tracking Tools"
-msgstr ""
+msgstr "Integrazione con gli strumenti di tracciamento dei bug"
 
 #. (para)
 msgid ""
@@ -3655,21 +3655,21 @@ msgid ""
 "issues should be comma separated. Alternatively, if you are using regex-"
 "based bug tracking support, just add your issue references as part of the "
 "log message. Learn more in <xref linkend=\"tsvn-dug-bugtracker\"/>."
-msgstr ""
+msgstr "Se hai attivato il sistema di tracciamento dei bug, puoi inserire uno o più riferimenti nella casella di testo <guilabel>ID problema / numero problema:</guilabel>. Più riferimenti dovrebbero essere separati da virgole. In alternativa, se si utilizza il supporto di tracciamento dei bug basato su regex, è sufficiente aggiungere i riferimenti al problema come parte del messaggio di registro. Scopri di più in <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (title)
 msgid "Commit Progress"
-msgstr ""
+msgstr "Stato di avanzamento del commit"
 
 #. (title)
 msgid "The Progress dialog showing a commit in progress"
-msgstr ""
+msgstr "La finestra di dialogo Avanzamento mostra lo stato di avanzamento del commit"
 
 #. (para)
 msgid ""
 "After pressing <guibutton>OK</guibutton>, a dialog appears displaying the "
 "progress of the commit. <placeholder-1/>"
-msgstr ""
+msgstr "Dopo aver premuto <guibutton>OK</guibutton>, appare una finestra di dialogo che mostra l'avanzamento del commit. <placeholder-1/>"
 
 #. (term)
 #. (term)
@@ -3678,7 +3678,7 @@ msgstr "Blu"
 
 #. (para)
 msgid "Committing a modification."
-msgstr ""
+msgstr "Commit di una modifica"
 
 #. (term)
 #. (term)
@@ -3688,7 +3688,7 @@ msgstr "Viola"
 
 #. (para)
 msgid "Committing a new addition."
-msgstr ""
+msgstr "Commit di una aggiunta"
 
 #. (term)
 #. (term)
@@ -3698,7 +3698,7 @@ msgstr "Rosso scuro"
 
 #. (para)
 msgid "Committing a deletion or a replacement."
-msgstr ""
+msgstr "Commit di una cancellazione o sostituzione"
 
 #. (term)
 #. (term)
@@ -3714,7 +3714,7 @@ msgstr "Tutti gli altri elementi."
 msgid ""
 "The progress dialog uses colour coding to highlight different commit actions"
 " <placeholder-1/>"
-msgstr ""
+msgstr "La finestra di dialogo di avanzamento utilizza una codifica a colori per evidenziare le diverse azioni di commit <placeholder-1/>"
 
 #. (para)
 #. (para)
@@ -3723,11 +3723,11 @@ msgid ""
 "This is the default colour scheme, but you can customise those colours using"
 " the settings dialog. Read <xref linkend=\"tsvn-dug-settings-colours\"/> for"
 " more information."
-msgstr ""
+msgstr "Questa è la combinazione di colori predefinita, ma è possibile personalizzare tali colori utilizzando la finestra di dialogo delle impostazioni. Leggi <xref linkend=\"tsvn-dug-settings-colours\"/> per ulteriori informazioni."
 
 #. (title)
 msgid "Update Your Working Copy With Changes From Others"
-msgstr ""
+msgstr "Aggiorna la tua copia di lavoro con le modifiche degli altri"
 
 #. (primary)
 #. (primary)
@@ -3736,11 +3736,11 @@ msgstr "aggiorna"
 
 #. (primary)
 msgid "fetch changes"
-msgstr ""
+msgstr "prendere le modifiche"
 
 #. (title)
 msgid "Progress dialog showing finished update"
-msgstr ""
+msgstr "La finestra di dialogo Avanzamento dello stato mostra l'aggiornamento completato"
 
 #. (para)
 msgid ""
@@ -3756,25 +3756,25 @@ msgid ""
 "of the update as it runs. Changes done by others will be merged into your "
 "files, keeping any changes you may have done to the same files. The "
 "repository is <emphasis>not</emphasis> affected by an update."
-msgstr ""
+msgstr "<placeholder-1/> Periodicamente, dovresti assicurarti che le modifiche apportate da altri vengano incorporate nella tua copia di lavoro locale. Il processo per ottenere le modifiche dal server alla tua copia locale è noto come <emphasis>aggiornamento</emphasis>. L'aggiornamento può essere eseguito su singoli file, un insieme di file selezionati o in modo ricorsivo su intere gerarchie di directory. Per aggiornare, selezionare i file e/o le directory desiderati, fare <action>clic con il tasto destro</action> e selezionare <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Update</guimenuitem></menuchoice> nel menu di scelta rapida di Explorer. Apparirà una finestra che mostra il progresso dell'aggiornamento mentre viene eseguito. Le modifiche apportate da altri verranno incorporate nei tuoi file, mantenendo le modifiche eventualmente apportate agli stessi file. Il repository <emphasis>non</emphasis> è interessato da un aggiornamento."
 
 #. (para)
 msgid "New item added to your WC."
-msgstr ""
+msgstr "Nuovo elemento aggiunto alla tua cartella di lavoro."
 
 #. (para)
 msgid ""
 "Redundant item deleted from your WC, or missing item replaced in your WC."
-msgstr ""
+msgstr "Elemento ridondante cancellato dalla cartella di lavoro o elemento mancante sostituito nella cartella di lavoro."
 
 #. (term)
 #. (term)
 msgid "Green"
-msgstr "Viola"
+msgstr "Verde"
 
 #. (para)
 msgid "Changes from repository successfully merged with your local changes."
-msgstr ""
+msgstr "Le modifiche dal repository sono state unite con successo alle modifiche locali."
 
 #. (term)
 #. (term)
@@ -3785,18 +3785,18 @@ msgstr "Rosso chiaro"
 msgid ""
 "Changes from repository merged with local changes, resulting in conflicts "
 "which you need to resolve."
-msgstr ""
+msgstr "Le modifiche dal repository si sono fuse con le modifiche locali, causando conflitti che è necessario risolvere."
 
 #. (para)
 msgid ""
 "Unchanged item in your WC updated with newer version from the repository."
-msgstr ""
+msgstr "Elemento immutato nella tua cartella di lavoro aggiornato con la versione più recente dal repository."
 
 #. (para)
 msgid ""
 "The progress dialog uses colour coding to highlight different update actions"
 " <placeholder-1/>"
-msgstr ""
+msgstr "La finestra di dialogo di avanzamento utilizza una codifica a colori per evidenziare diverse azioni di aggiornamento <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -3805,7 +3805,7 @@ msgid ""
 "those changes don't match) then the dialog shows those conflicts in red. You"
 " can <action>double click</action> on these lines to start the external "
 "merge tool to resolve the conflicts."
-msgstr ""
+msgstr "Se si verificano <emphasis>conflitti</emphasis> durante un aggiornamento (questo può accadere se altri cambiano le stesse linee nello stesso file che hai fatto tu e quelle modifiche non corrispondono) allora la finestra di dialogo mostra quei conflitti in rosso. È possibile fare <action>doppio clic</action> su queste righe per avviare lo strumento di unione esterna per risolvere i conflitti."
 
 #. (para)
 msgid ""
@@ -3813,7 +3813,7 @@ msgid ""
 "number of items updated, added, removed, conflicted, etc. below the file "
 "list. This summary information can be copied to the clipboard using "
 "<keycap>Ctrl+C</keycap>."
-msgstr ""
+msgstr "Al termine dell'aggiornamento, la finestra di dialogo di avanzamento mostra un riepilogo del numero di elementi aggiornati, aggiunti, rimossi, in conflitto, ecc. sotto l'elenco dei file. Questa informazione di sintesi può essere copiata negli appunti usando <keycap>Ctrl+C</keycap>."
 
 #. (para)
 msgid ""
@@ -3825,7 +3825,7 @@ msgid ""
 "your working copy to a specific revision, not only to the most recent one. "
 "Suppose your working copy is at revision 100, but you want it to reflect the"
 " state which it had in revision 50 - then simply update to revision 50."
-msgstr ""
+msgstr "Il comando di aggiornamento standard non ha opzioni e aggiorna semplicemente la copia di lavoro alla revisione HEAD del repository, che è il caso d'uso più comune. Se si desidera un maggiore controllo sul processo di aggiornamento, è necessario utilizzare <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aggiorna alla Revisione...</guimenuitem></menuchoice>. Ciò consente di aggiornare la copia di lavoro a una revisione specifica, non solo alla versione più recente. Supponiamo che la tua copia di lavoro sia alla revisione 100, ma vuoi che rifletta lo stato che aveva nella revisione 50 - quindi aggiorna semplicemente alla revisione 50."
 
 #. (para)
 msgid ""
@@ -3836,7 +3836,7 @@ msgid ""
 "setting. You can also set the depth <literal>sticky</literal> which means "
 "subsequent updates will use that new depth, i.e. that depth is then used as "
 "the default depth."
-msgstr ""
+msgstr "Nella stessa finestra di dialogo puoi anche scegliere la <firstterm>profondità</firstterm> con cui aggiornare la cartella corrente. I termini usati sono descritti in <xref linkend=\"tsvn-dug-checkout-depth\"/>. La profondità predefinita è <guilabel>Copia di lavoro</guilabel>, che conserva le impostazioni di profondità esistenti. Puoi anche impostare la profondità in modo <literal>bloccato</literal>, il che significa che gli aggiornamenti successivi useranno quella nuova profondità, cioè che la profondità verrà quindi utilizzata come profondità predefinita."
 
 #. (para)
 msgid ""
@@ -3844,13 +3844,13 @@ msgid ""
 "click the <guibutton>Choose items...</guibutton> button. This opens a new "
 "dialog where you can check all items you want in your working copy and "
 "uncheck all the items you don't want."
-msgstr ""
+msgstr "Per semplificare l'inclusione o l'esclusione di elementi specifici dal checkout, fai clic sul pulsante <guibutton>Scegli elementi...</guibutton>. Si apre una nuova finestra di dialogo in cui è possibile selezionare tutti gli elementi desiderati nella copia di lavoro e deselezionare tutti gli elementi che non si desidera."
 
 #. (para)
 msgid ""
 "You can also choose whether to ignore any external projects in the update "
 "(i.e. projects referenced using <literal>svn:externals</literal>)."
-msgstr ""
+msgstr "È inoltre possibile scegliere se ignorare eventuali progetti esterni nell'aggiornamento (ovvero i progetti referenziati utilizzando <literal>svn:externals</literal>)."
 
 #. (para)
 msgid ""
@@ -3860,7 +3860,7 @@ msgid ""
 "and start afresh from an earlier revision, you can rollback to a previous "
 "revision from the revision log dialog. Take a look at <xref linkend=\"tsvn-"
 "howto-rollback\"/> for further instructions, and alternative methods."
-msgstr ""
+msgstr "Se si aggiorna un file o una cartella a una revisione specifica, non si dovrebbero apportare modifiche a tali file. Riceverai messaggi di errore <quote>non aggiornati</quote> quando proverai a committarli! Se si desidera annullare le modifiche a un file e ricominciare da una revisione precedente, è possibile eseguire il rollback a una revisione precedente dalla finestra di dialogo del registro delle revisioni. Dai un'occhiata a <xref linkend=\"tsvn-howto-rollback\"/> per ulteriori istruzioni e metodi alternativi."
 
 #. (para)
 msgid ""
@@ -3873,7 +3873,7 @@ msgid ""
 "file of that name existed in the earlier revision. You should also note that"
 " the item will show a normal green overlay, so it is indistinguishable from "
 "files which are up-to-date."
-msgstr ""
+msgstr "Il comando <menuchoice><guimenuitem>Aggiorna alla revisione</guimenuitem></menuchoice> può essere utile occasionalmente per vedere l'aspetto del tuo progetto in qualche punto precedente della sua storia. In generale, l'aggiornamento di singoli file a una revisione precedente non è una buona idea in quanto lascia la copia di lavoro in uno stato incoerente. Se il file che stai aggiornando ha cambiato nome, potresti persino scoprire che il file scompare dalla tua copia di lavoro perché non esisteva alcun file con quel nome nella revisione precedente. Dovresti anche notare che l'elemento mostrerà la normale icona sovrapposta verde, quindi non è distinguibile dai file aggiornati."
 
 #. (para)
 msgid ""
@@ -3881,11 +3881,11 @@ msgid ""
 "use the <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Save "
 "revision to...</guimenuitem></menuchoice> command from the log dialog for "
 "that file."
-msgstr ""
+msgstr "Se si desidera semplicemente una copia locale di una vecchia versione di un file, è preferibile utilizzare il comando <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Salva revisione a...</guimenuitem></menuchoice> dalla finestra di dialogo di log per quel file."
 
 #. (title)
 msgid "Multiple Files/Folders"
-msgstr ""
+msgstr "Più file/cartelle"
 
 #. (para)
 msgid ""
@@ -3894,7 +3894,7 @@ msgid ""
 "files/folders are updated one by one. TortoiseSVN makes sure that all "
 "files/folders which are from the same repository are updated to the exact "
 "same revision! Even if between those updates another commit occurred."
-msgstr ""
+msgstr "Se si selezionano più file e cartelle in Esplora risorse e quindi si seleziona <menuchoice><guimenuitem>Aggiorna</guimenuitem></menuchoice>, tutti questi file/cartelle vengono aggiornati uno ad uno. TortoiseSVN si assicura che tutti i file/cartelle che provengono dallo stesso repository vengano aggiornati alla stessa identica revisione! Anche se tra questi aggiornamenti si è verificato un altro commit."
 
 #. (title)
 msgid "Resolving Conflicts"
@@ -3916,7 +3916,7 @@ msgstr "conflitti nei file"
 msgid ""
 "A file conflict occurs if two (or more) developers have changed the same few"
 " lines of a file."
-msgstr ""
+msgstr "Un conflitto di file si verifica se due (o più) sviluppatori hanno modificato le stesse poche righe di un file."
 
 #. (term)
 msgid "tree conflicts"
@@ -3927,14 +3927,14 @@ msgid ""
 "A tree conflict occurs when a developer moved/renamed/deleted a file or "
 "folder, which another developer either also has moved/renamed/deleted or "
 "just modified."
-msgstr ""
+msgstr "Un conflitto ad albero si verifica quando uno sviluppatore ha spostato/rinominato/cancellato un file o una cartella, che anche un altro sviluppatore ha spostato/rinominato/cancellato o modificato."
 
 #. (para)
 msgid ""
 "Once in a while, you will get a <emphasis>conflict</emphasis> when you "
 "update/merge your files from the repository or when you switch your working "
 "copy to a different URL. There are two kinds of conflicts: <placeholder-1/>"
-msgstr ""
+msgstr "Di tanto in tanto, si verifica un <emphasis>conflitto</emphasis> quando si aggiornano/uniscono i file dal repository o quando si cambia la propria copia di lavoro in un altro URL. Esistono due tipi di conflitti: <placeholder-1/>"
 
 #. (title)
 msgid "File Conflicts"
@@ -3942,36 +3942,36 @@ msgstr "Conflitti nel file"
 
 #. (term)
 msgid "filename.ext.mine"
-msgstr ""
+msgstr "filename.ext.mine"
 
 #. (para)
 msgid ""
 "This is your file as it existed in your working copy before you updated your"
 " working copy - that is, without conflict markers. This file has your latest"
 " changes in it and nothing else."
-msgstr ""
+msgstr "Questo è il tuo file così com'è esistito nella tua copia di lavoro prima di aver aggiornato la tua copia di lavoro, cioè senza indicatori di conflitto. Questo file contiene le ultime modifiche e nient'altro."
 
 #. (term)
 msgid "filename.ext.rOLDREV"
-msgstr ""
+msgstr "filename.ext.rOLDREV"
 
 #. (para)
 msgid ""
 "This is the file that was the BASE revision before you updated your working "
 "copy. That is, it the file that you checked out before you made your latest "
 "edits."
-msgstr ""
+msgstr "Questo è il file che era la revisione BASE prima di aggiornare la tua copia di lavoro. Cioè, è il file che hai scaricato prima di apportare le tue ultime modifiche."
 
 #. (term)
 msgid "filename.ext.rNEWREV"
-msgstr ""
+msgstr "filename.ext.rNEWREV"
 
 #. (para)
 msgid ""
 "This is the file that your Subversion client just received from the server "
 "when you updated your working copy. This file corresponds to the HEAD "
 "revision of the repository."
-msgstr ""
+msgstr "Questo è il file che il tuo client Subversion ha appena ricevuto dal server quando hai aggiornato la tua copia di lavoro. Questo file corrisponde alla revisione HEAD del repository."
 
 #. (para)
 msgid ""
@@ -3982,7 +3982,7 @@ msgid ""
 "code merged from repository\n"
 "&gt;&gt;&gt;&gt;&gt;&gt;&gt; revision\n"
 "      </screen> Also, for every conflicted file Subversion places three additional files in your directory: <placeholder-1/>"
-msgstr ""
+msgstr "Un conflitto di file si verifica quando due o più sviluppatori hanno modificato le stesse poche righe di un file. Dato che Subversion non sa nulla del tuo progetto, lascia i conflitti agli sviluppatori. L'area in conflitto in un file di testo è contrassegnata in questo modo: <screen>\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; filename\nle tue modifiche\n=======\ncodice unito dal repository\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; revisione\n      </screen> Inoltre, per ogni file in conflitto Subversion inserisce nella tua directory tre file aggiuntivi: <placeholder-1/>"
 
 #. (para)
 msgid ""
