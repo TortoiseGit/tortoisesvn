@@ -8715,6 +8715,7 @@ void CLogDlg::MonitorThread()
                     item.lastHEAD = head;
                     item.root = sRoot;
                     item.uuid = sUUID;
+                    item.lastErrorMsg.Empty();
                 }
                 else
                 {
@@ -8730,6 +8731,8 @@ void CLogDlg::MonitorThread()
                         }
                         item.lastErrorMsg = svn.GetLastErrorMessage();
                     }
+                    else
+                        item.lastErrorMsg.Empty();
                 }
                 // we should never get asked for authentication here!
                 item.authfailed = item.authfailed || PromptShown();
@@ -8741,14 +8744,16 @@ void CLogDlg::MonitorThread()
                 {
                     if ((SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
                         (SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
-                        (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN)||
-                        (SVNError->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION)||
+                        (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
+                        (SVNError->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION) ||
                         (SVNError->apr_err == SVN_ERR_WC_NOT_WORKING_COPY))
                     {
                         item.authfailed = true;
                     }
                     item.lastErrorMsg = svn.GetLastErrorMessage();
                 }
+                else
+                    item.lastErrorMsg.Empty();
             }
             item.lastchecked = currenttime;
             {
