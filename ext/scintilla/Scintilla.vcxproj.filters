@@ -462,6 +462,12 @@
     <ClCompile Include="src\DBCS.cxx">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="lexers\LexMaxima.cxx">
+      <Filter>lexers</Filter>
+    </ClCompile>
+    <ClCompile Include="win32\ScintillaDLL.cxx">
+      <Filter>win32</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ILexer.h">
@@ -602,9 +608,6 @@
     <ClInclude Include="src\CaseFolder.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\UnicodeFromUTF8.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="lexlib\StringCopy.h">
       <Filter>lexlib</Filter>
     </ClInclude>
@@ -633,6 +636,12 @@
       <Filter>lexlib</Filter>
     </ClInclude>
     <ClInclude Include="src\DBCS.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IntegerRectangle.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ElapsedPeriod.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

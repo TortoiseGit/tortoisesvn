@@ -5,6 +5,7 @@
 // Copyright 1998-2003 by Neil Hodgson <neilh@scintilla.org>
 // The License.txt file describes the conditions under which this software may be distributed.
 
+#include <cstddef>
 #include <cstdlib>
 #include <cassert>
 #include <cstring>
@@ -49,12 +50,12 @@ AutoComplete::~AutoComplete() {
 	}
 }
 
-bool AutoComplete::Active() const {
+bool AutoComplete::Active() const noexcept {
 	return active;
 }
 
 void AutoComplete::Start(Window &parent, int ctrlID,
-	Sci::Position position, Point location, int startLen_,
+	Sci::Position position, Point location, Sci::Position startLen_,
 	int lineHeight, bool unicodeMode, int technology) {
 	if (active) {
 		Cancel();
@@ -70,7 +71,7 @@ void AutoComplete::SetStopChars(const char *stopChars_) {
 	stopChars = stopChars_;
 }
 
-bool AutoComplete::IsStopChar(char ch) {
+bool AutoComplete::IsStopChar(char ch) const noexcept {
 	return ch && (stopChars.find(ch) != std::string::npos);
 }
 
@@ -78,7 +79,7 @@ void AutoComplete::SetFillUpChars(const char *fillUpChars_) {
 	fillUpChars = fillUpChars_;
 }
 
-bool AutoComplete::IsFillUpChar(char ch) {
+bool AutoComplete::IsFillUpChar(char ch) const noexcept {
 	return ch && (fillUpChars.find(ch) != std::string::npos);
 }
 
@@ -86,7 +87,7 @@ void AutoComplete::SetSeparator(char separator_) {
 	separator = separator_;
 }
 
-char AutoComplete::GetSeparator() const {
+char AutoComplete::GetSeparator() const noexcept {
 	return separator;
 }
 
@@ -94,7 +95,7 @@ void AutoComplete::SetTypesep(char separator_) {
 	typesep = separator_;
 }
 
-char AutoComplete::GetTypesep() const {
+char AutoComplete::GetTypesep() const noexcept {
 	return typesep;
 }
 
@@ -224,7 +225,7 @@ void AutoComplete::Move(int delta) {
 }
 
 void AutoComplete::Select(const char *word) {
-	size_t lenWord = strlen(word);
+	const size_t lenWord = strlen(word);
 	int location = -1;
 	int start = 0; // lower bound of the api array block to search
 	int end = lb->Length() - 1; // upper bound of the api array block to search

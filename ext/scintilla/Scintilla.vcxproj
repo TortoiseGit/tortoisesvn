@@ -185,6 +185,7 @@
     <ClCompile Include="lexers\LexMake.cxx" />
     <ClCompile Include="lexers\LexMarkdown.cxx" />
     <ClCompile Include="lexers\LexMatlab.cxx" />
+    <ClCompile Include="lexers\LexMaxima.cxx" />
     <ClCompile Include="lexers\LexMetapost.cxx" />
     <ClCompile Include="lexers\LexMMIXAL.cxx" />
     <ClCompile Include="lexers\LexModula.cxx" />
@@ -275,6 +276,7 @@
     <ClCompile Include="src\XPM.cxx" />
     <ClCompile Include="win32\HanjaDic.cxx" />
     <ClCompile Include="win32\PlatWin.cxx" />
+    <ClCompile Include="win32\ScintillaDLL.cxx" />
     <ClCompile Include="win32\ScintillaWin.cxx" />
   </ItemGroup>
   <ItemGroup>
@@ -313,9 +315,11 @@
     <ClInclude Include="src\EditModel.h" />
     <ClInclude Include="src\Editor.h" />
     <ClInclude Include="src\EditView.h" />
+    <ClInclude Include="src\ElapsedPeriod.h" />
     <ClInclude Include="src\ExternalLexer.h" />
     <ClInclude Include="src\FontQuality.h" />
     <ClInclude Include="src\Indicator.h" />
+    <ClInclude Include="src\IntegerRectangle.h" />
     <ClInclude Include="src\KeyMap.h" />
     <ClInclude Include="src\LineMarker.h" />
     <ClInclude Include="src\MarginView.h" />
@@ -329,7 +333,6 @@
     <ClInclude Include="src\Selection.h" />
     <ClInclude Include="src\SplitVector.h" />
     <ClInclude Include="src\Style.h" />
-    <ClInclude Include="src\UnicodeFromUTF8.h" />
     <ClInclude Include="src\UniConversion.h" />
     <ClInclude Include="src\ViewStyle.h" />
     <ClInclude Include="src\XPM.h" />
