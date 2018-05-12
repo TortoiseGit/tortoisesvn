@@ -8,6 +8,8 @@
 - CHG: Improved project monitor toolbar for
        high dpi monitors. (Stefan)
 - BUG: Wrong titles when editing a conflict. (Stefan)
+- BUG: Unshelving failed when the shelve name
+       contained non-ASCII chars. (Stefan)
 
 Version 1.10.0
 See the release notes here:

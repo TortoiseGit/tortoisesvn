@@ -268,7 +268,7 @@ bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspat
     apr_hash_index_t *hi;
     for (hi = apr_hash_first(subpool, names_hash); hi; hi = apr_hash_next(hi))
     {
-        CString name((const char *)apr_hash_this_key(hi));
+        CString name = CUnicodeUtils::GetUnicode((const char *)apr_hash_this_key(hi));
         Names.push_back(name);
     }
     std::sort(Names.begin(), Names.end());
