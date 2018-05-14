@@ -313,6 +313,7 @@ UINT CCopyDlg::FindRevThread()
         CTSVNPath retPath;
         svn_client_status_t * s = NULL;
         m_maxrev = 0;
+        m_externals.clear();
         s = stats.GetFirstFileStatus(m_path, retPath, false, svn_depth_unknown, true, true);
         if (s)
         {
