@@ -10,6 +10,8 @@
 - BUG: Wrong titles when editing a conflict. (Stefan)
 - BUG: Unshelving failed when the shelve name
        contained non-ASCII chars. (Stefan)
+- BUG: Showing the log if the repo url contained
+       special chars sometimes failed. (Stefan)
 
 Version 1.10.0
 See the release notes here:

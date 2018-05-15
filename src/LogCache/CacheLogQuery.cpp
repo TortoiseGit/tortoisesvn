@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016 - TortoiseSVN
+// Copyright (C) 2007-2016, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1355,11 +1355,7 @@ CTSVNPath CCacheLogQuery::GetPath (const CTSVNPathList& targets) const
         throw SVNError ( SVN_ERR_INCORRECT_PARAMS
                        , "Must specify exactly one path to get the log from.");
 
-    // GetURLFromPath() always returns the URL escaped, so we have to escape the url we
-    // get from the client too.
-    return targets [0].IsUrl()
-        ? CTSVNPath (CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(targets [0].GetSVNPathString()))))
-        : targets [0];
+    return targets [0];
 }
 
 // construction / destruction
