@@ -122,7 +122,8 @@
     </ClCompile>
     <Link>
       <ModuleDefinitionFile>TortoiseStub.def</ModuleDefinitionFile>
-      <BaseAddress>0x5940000</BaseAddress>
+      <BaseAddress>
+      </BaseAddress>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
