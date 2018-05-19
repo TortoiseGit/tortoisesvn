@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2012-2014 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2012-2014, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,13 +32,14 @@ static HINSTANCE hTortoiseSVN = NULL;
 static LPFNGETCLASSOBJECT pDllGetClassObject = NULL;
 static LPFNCANUNLOADNOW pDllCanUnloadNow = NULL;
 
-
+static wchar_t DebugDllPath[MAX_PATH] = { 0 };
 
 
 static BOOL DebugActive(void)
 {
     static const WCHAR TSVNRootKey[]=L"Software\\TortoiseSVN";
-    static const WCHAR ExplorerOnlyValue[]=L"DebugShell";
+    static const WCHAR DebugShellValue[] = L"DebugShell";
+    static const WCHAR DebugShellPathValue[] = L"DebugShellPath";
 
 
     DWORD bDebug = 0;
@@ -58,11 +59,34 @@ static BOOL DebugActive(void)
         Result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, TSVNRootKey, 0, KEY_READ, &hKey);
         if (Result == ERROR_SUCCESS)
         {
-            Result = RegQueryValueEx(hKey, ExplorerOnlyValue, NULL, &Type, (BYTE *)&bDebug, &Len);
+            Result = RegQueryValueEx(hKey, DebugShellValue, NULL, &Type, (BYTE *)&bDebug, &Len);
             if ((Result == ERROR_SUCCESS) && (Type == REG_DWORD) && (Len == sizeof(DWORD)) && bDebug)
             {
                 TRACE(L"DebugActive() - debug active\n");
                 bDebugActive = TRUE;
+                Len = sizeof(wchar_t)*MAX_PATH;
+                Type = REG_SZ;
+                Result = RegQueryValueEx(hKey, DebugShellPathValue, NULL, &Type, (BYTE *)DebugDllPath, &Len);
+                if ((Result == ERROR_SUCCESS) && (Type == REG_SZ) && bDebug)
+                {
+                    TRACE(L"DebugActive() - debug path set\n");
+                }
+            }
+
+            RegCloseKey(hKey);
+        }
+    }
+    else
+    {
+        Result = RegOpenKeyEx(HKEY_LOCAL_MACHINE, TSVNRootKey, 0, KEY_READ, &hKey);
+        if (Result == ERROR_SUCCESS)
+        {
+            Len = sizeof(wchar_t)*MAX_PATH;
+            Type = REG_SZ;
+            Result = RegQueryValueEx(hKey, DebugShellPathValue, NULL, &Type, (BYTE *)DebugDllPath, &Len);
+            if ((Result == ERROR_SUCCESS) && (Type == REG_SZ) && bDebug)
+            {
+                TRACE(L"DebugActive() - debug path set\n");
             }
 
             RegCloseKey(hKey);
@@ -142,6 +166,7 @@ static void LoadRealLibrary(void)
     WCHAR ModuleName[MAX_PATH] = {0};
     DWORD Len = 0;
     HINSTANCE hUseInst = hInst;
+    DebugDllPath[0] = 0;
 
     if (hTortoiseSVN)
         return;
@@ -186,6 +211,8 @@ static void LoadRealLibrary(void)
 #else
     lstrcat(ModuleName, L"\\TortoiseSVN32.dll");
 #endif
+    if (DebugDllPath[0])
+        lstrcpy(ModuleName, DebugDllPath);
     TRACE(L"LoadRealLibrary() - Load %s\n", ModuleName);
 
     hTortoiseSVN = LoadLibraryEx(ModuleName, NULL, LOAD_WITH_ALTERED_SEARCH_PATH);
@@ -269,6 +296,7 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD Reason, LPVOID Reserved)
     {
     case DLL_PROCESS_ATTACH:
         hInst = hInstance;
+        DebugDllPath[0] = 0;
         break;
 
     /*case DLL_THREAD_ATTACH:
