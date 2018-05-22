@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-05-04 09:06+0000\n"
+"PO-Revision-Date: 2018-05-16 16:01+0000\n"
 "Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -3996,7 +3996,7 @@ msgid ""
 " don't have to worry about the conflict markers. If you do use a text editor"
 " then you should search for lines starting with the string "
 "<literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
-msgstr ""
+msgstr "Puoi avviare sia uno strumento esterno di merge che un editor di conflitti con <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Risolvi Conflitti</guimenuitem></menuchoice> oppure puoi utilizzare qualsiasi editor di testo per risolvere il conflitto manualmente. Dovresti decidere come dovrebbe apparire il codice, apportare le modifiche necessarie e salvare il file. L'utilizzo di uno strumento di merge come TortoiseMerge o uno degli altri strumenti popolari è generalmente l'opzione più semplice in quanto generalmente presentano i file coinvolti in una visualizzazione a 3 riquadri e non è necessario preoccuparsi degli indicatori di conflitto. Se usi un editor di testo, dovresti cercare le righe che iniziano con la stringa <literal>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</literal>."
 
 #. (para)
 msgid ""
@@ -4007,7 +4007,7 @@ msgid ""
 "<filename>filename.ext.mine</filename> and "
 "<filename>filename.ext.r*</filename> files, to allow you to commit your "
 "changes."
-msgstr ""
+msgstr "Successivamente eseguire il comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Risolto</guimenuitem></menuchoice> e confermare le modifiche al repository. Si noti che il comando Risolvi in realtà non risolve il conflitto. Rimuove solo i file <filename>filename.ext.mine</filename> e <filename>filename.ext.r*</filename>, per consentire di committare le tue modifiche."
 
 #. (para)
 msgid ""
@@ -4017,7 +4017,7 @@ msgid ""
 " you want to discard your changes and keep the repository version, just use "
 "the Revert command. If you want to keep your version and overwrite the "
 "repository version, use the Resolved command, then commit your version."
-msgstr ""
+msgstr "Se si verificano conflitti con file binari, Subversion non tenta di unire i file stessi. Il file locale rimane invariato (esattamente come l'hai modificato per l'ultima volta) e hai il file <filename>filename.ext.r*</filename>. Se vuoi scartare le tue modifiche e mantenere la versione del repository, usa il comando Revert. Se vuoi mantenere la versione e sovrascrivere la versione del repository, utilizzare il comando Risolto, quindi committare la tua versione."
 
 #. (para)
 msgid ""
@@ -4026,7 +4026,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Resolved...</guimenuitem></menuchoice>"
 " This will bring up a dialog listing all conflicted files in that folder, "
 "and you can select which ones to mark as resolved."
-msgstr ""
+msgstr "È possibile utilizzare il comando Risolvi per più file se si fa clic con il tasto destro sulla cartella principale e si seleziona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Risolvi...</guimenuitem></menuchoice>. Verrà visualizzata una finestra di dialogo che elenca tutti i file in conflitto in quella cartella e sarà possibile selezionare quali contrassegnare come risolti."
 
 #. (title)
 msgid "Property Conflicts"
@@ -4037,7 +4037,7 @@ msgid ""
 "A property conflict occurs when two or more developers have changed the same"
 " property. As with file content, resolving the conflict can only be done by "
 "the developers."
-msgstr ""
+msgstr "Un conflitto di proprietà si verifica quando due o più sviluppatori hanno modificato la stessa proprietà. Come nel caso del contenuto del file, la risoluzione del conflitto può essere eseguita solo dagli sviluppatori."
 
 #. (para)
 msgid ""
