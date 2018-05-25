@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2016 - TortoiseSVN
+// Copyright (C) 2010-2016, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -186,7 +186,8 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
             // the lock has already been broken from another working copy
             temp.LoadString(IDS_SVNERR_UNLOCKFAILEDNOLOCK);
         }
-        else if (SVN_ERR_IS_UNLOCK_ERROR(Err))
+        else if ((Err->apr_err != SVN_ERR_REPOS_HOOK_FAILURE) &&
+                 SVN_ERR_IS_UNLOCK_ERROR(Err))
         {
             // if you want to break the lock, use the "check for modifications" dialog
             temp.LoadString(IDS_SVNERR_UNLOCKFAILED);
