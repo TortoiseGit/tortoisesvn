@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -4122,6 +4122,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 CRenameDlg dlg(this);
                 dlg.m_name = path.GetSVNPathString();
                 dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
+                dlg.m_label.LoadString(IDS_REPO_BROWSEURL);
+                dlg.m_infoLabel.Format(IDS_PROC_NEWNAMECOPY, (LPCWSTR)path.GetSVNPathString());
                 dlg.SetRenameRequired(GetRevision().IsHead() != FALSE);
                 CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
                 if (dlg.DoModal() == IDOK)

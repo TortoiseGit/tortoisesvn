@@ -12,6 +12,9 @@
        contained non-ASCII chars. (Stefan)
 - BUG: Showing the log if the repo url contained
        special chars sometimes failed. (Stefan)
+- BUG: Wrong behavior for 'lock' error. (Patrick Steinhardt)
+- CHG: Improved labels and text in dialog when
+       creating a copy in repo browser. (Stefan)
 
 Version 1.10.0
 See the release notes here:

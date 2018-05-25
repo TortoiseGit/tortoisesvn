@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2013-2015, 2017 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2013-2015, 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -56,6 +56,7 @@ public:
     CString m_name;
     CString m_windowtitle;
     CString m_label;
+    CString m_infoLabel;
 
 private:
     bool                m_bBalloonVisible;
