@@ -15,6 +15,9 @@
 - BUG: Wrong behavior for 'lock' error. (Patrick Steinhardt)
 - CHG: Improved labels and text in dialog when
        creating a copy in repo browser. (Stefan)
+- BUG: When showing multiple diffs from the log
+       dialog with added files, only the first
+       one was shown multiple times. (Stefan)
 
 Version 1.10.0
 See the release notes here:

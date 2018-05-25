@@ -7233,7 +7233,10 @@ void CLogDlg::ExecuteDiffChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, I
             OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
             OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
-            DiffSelectedFile(ignoreprops);
+            if (pCmi->ChangedLogPathIndices.size() > 1)
+                DoDiffFromLog(selIndex, pCmi->Rev1, pCmi->Rev1, false, false, ignoreprops);
+            else
+                DiffSelectedFile(ignoreprops);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
