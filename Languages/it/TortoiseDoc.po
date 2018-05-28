@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-05-16 16:01+0000\n"
+"PO-Revision-Date: 2018-05-24 15:52+0000\n"
 "Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -4046,11 +4046,11 @@ msgid ""
 " remote property</guilabel>. If the changes must be merged then select "
 "<guilabel>Manually edit property</guilabel>, sort out what the property "
 "value should be and mark as resolved."
-msgstr ""
+msgstr "Se una delle modifiche deve sostituire l'altra, selezionare l'opzione <guilabel>Risolvi utilizzando la proprietà locale</guilabel> o <guilabel>Risolvi utilizzando la proprietà remota</guilabel>. Se le modifiche devono essere unite, selezionare <guilabel>Modifica proprietà manualmente</guilabel>, sistemare quale dovrebbe essere il valore della proprietà e contrassegnare come risolto."
 
 #. (title)
 msgid "Tree Conflicts"
-msgstr ""
+msgstr "Conflitti dell'albero"
 
 #. (para)
 msgid ""
@@ -4058,7 +4058,7 @@ msgid ""
 "folder, which another developer either also has moved/renamed/deleted or "
 "just modified. There are many different situations that can result in a tree"
 " conflict, and all of them require different steps to resolve the conflict."
-msgstr ""
+msgstr "Un conflitto dell'albero si verifica quando uno sviluppatore ha spostato/rinominato/cancellato un file o una cartella, che anche un altro sviluppatore ha spostato/rinominato/cancellato o modificato. Esistono molte situazioni diverse che possono provocare conflitti tra alberi e tutte richiedono diversi passaggi per risolvere il conflitto."
 
 #. (para)
 msgid ""
@@ -4067,7 +4067,7 @@ msgid ""
 "show a conflicted overlay and you cannot right click on it to resolve the "
 "conflict. Use the <guilabel>Check for Modifications</guilabel> dialog "
 "instead to access the <guilabel>Edit conflicts</guilabel> option."
-msgstr ""
+msgstr "Quando un file viene eliminato localmente in Subversion, il file viene eliminato anche dal file system locale, quindi, anche se fa parte di un conflitto dell'albero, non può mostrare un segnale di conflitto e non è possibile fare clic con il pulsante destro del mouse per risolvere il conflitto. Utilizzare invece la finestra di dialogo <guilabel>Verifica le modifiche</guilabel> per accedere all'opzione <guilabel>Modifica conflitti</guilabel>."
 
 #. (para)
 msgid ""
@@ -4077,44 +4077,44 @@ msgid ""
 "was in the repository at the time of update. If you revert a change after "
 "updating it goes back to the repository state, not to the way it was when "
 "you started making your own local changes."
-msgstr ""
+msgstr "TortoiseSVN può aiutare a trovare il posto giusto per unire le modifiche, ma potrebbe essere necessario un ulteriore lavoro per risolvere i conflitti. Ricorda che dopo un aggiornamento il BASE funzionante conterrà sempre la revisione di ogni elemento come era nel repository al momento dell'aggiornamento. Se si ripristina una modifica dopo l'aggiornamento, lo stato ritorna allo stato del repository, non al modo in cui esso era quando sono iniziate le modifiche locali."
 
 #. (title)
 msgid "Local delete, incoming edit upon update"
-msgstr ""
+msgstr "Eliminazione locale, modifica in arrivo dopo l'aggiornamento"
 
 #. (para)
 msgid ""
 "Developer A modifies <filename>Foo.c</filename> and commits it to the "
 "repository."
-msgstr ""
+msgstr "Lo sviluppatore A modifica <filename>Foo.c</filename> e lo committa nel repository."
 
 #. (para)
 msgid ""
 "Developer B has simultaneously moved <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> in his working copy, or simply deleted "
 "<filename>Foo.c</filename> or its parent folder."
-msgstr ""
+msgstr "Lo Sviluppatore B ha spostato contemporaneamente <filename>Foo.c</filename> in <filename>Bar.c</filename> nella sua copia di lavoro, o semplicemente ha cancellato <filename>Foo.c</filename> o la cartella che lo contiene."
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> has been deleted from working copy, but is marked"
 " with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> è stato cancellato dalla copia di lavoro, ma è contrassegnato con un segnale di conflitto dell'albero."
 
 #. (para)
 msgid ""
 "If the conflict results from a rename rather than a delete then "
 "<filename>Bar.c</filename> is marked as added, but does not contain "
 "developer A's modifications."
-msgstr ""
+msgstr "Se il conflitto risulta da una rinomina piuttosto che da una cancellazione, <filename>Bar.c</filename> viene contrassegnato come aggiunto, ma non contiene le modifiche dello sviluppatore A."
 
 #. (para)
 #. (para)
 msgid ""
 "An update of developer B's working copy results in a tree conflict: "
 "<placeholder-1/>"
-msgstr ""
+msgstr "Un aggiornamento della copia di lavoro dello sviluppatore B genera un conflitto dell'albero: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -4125,7 +4125,7 @@ msgid ""
 "Developer A's changes and discard the deletion. Or, by marking the conflict "
 "as resolved without doing anything he effectively discards Developer A's "
 "changes."
-msgstr ""
+msgstr "Lo sviluppatore B ora deve scegliere se mantenere le modifiche dello sviluppatore A. Nel caso di una rinomina di file, può unire le modifiche a <filename>Foo.c</filename> nel file rinominato <filename>Bar.c</filename>. Per cancellare file o directory, può scegliere di mantenere l'elemento con le modifiche dello sviluppatore A e scartare la cancellazione. Oppure, contrassegnando il conflitto come risolto senza fare nulla, egli effettivamente elimina le modifiche dello sviluppatore A."
 
 #. (para)
 msgid ""
@@ -4133,50 +4133,50 @@ msgid ""
 " file of the renamed <filename>Bar.c</filename>. If there are multiple files"
 " that are possible move sources, then a button for each of these files is "
 "shown which allow you to chose the correct file."
-msgstr ""
+msgstr "La finestra di dialogo di modifica dei conflitti permette di unire le modifiche se riesce a trovare il file originale <filename>Bar.c</filename> rinominato. Se sono presenti più file che possono essere spostati, viene visualizzato un pulsante per ciascuno di questi file che consente di scegliere il file corretto."
 
 #. (title)
 msgid "Local edit, incoming delete upon update"
-msgstr ""
+msgstr "Modifica locale, eliminazione in arrivo dopo l'aggiornamento"
 
 #. (para)
 #. (para)
 msgid ""
 "Developer A moves <filename>Foo.c</filename> to <filename>Bar.c</filename> "
 "and commits it to the repository."
-msgstr ""
+msgstr "Lo sviluppatore A sposta <filename>Foo.c</filename> in <filename>Bar.c</filename> e lo committa nel repository."
 
 #. (para)
 #. (para)
 msgid "Developer B modifies <filename>Foo.c</filename> in his working copy."
-msgstr ""
+msgstr "Lo sviluppatore B modifica <filename>Foo.c</filename> nella sua copia di lavoro."
 
 #. (para)
 msgid "Or in the case of a folder move ..."
-msgstr ""
+msgstr "Oppure nel caso di una cartella spostata..."
 
 #. (para)
 msgid ""
 "Developer A moves parent folder <filename>FooFolder</filename> to "
 "<filename>BarFolder</filename> and commits it to the repository."
-msgstr ""
+msgstr "Lo sviluppatore A sposta la cartella superiore <filename>FooFolder</filename> in <filename>BarFolder</filename> e la committa nel repository."
 
 #. (para)
 msgid ""
 "<filename>Bar.c</filename> is added to the working copy as a normal file."
-msgstr ""
+msgstr "<filename>Bar.c</filename> viene aggiunto alla copia di lavoro come un file normale."
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> is marked as added (with history) and has a tree "
 "conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> è contrassegnato come aggiunto (con cronologia) e ha un conflitto dell'albero."
 
 #. (para)
 msgid ""
 "An update of developer B's working copy results in a tree conflict. For a "
 "simple file conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Un aggiornamento della copia di lavoro dello sviluppatore B si traduce in un conflitto dell'albero. Per un semplice conflitto di file: <placeholder-1/>"
 
 #. (para)
 msgid ""
