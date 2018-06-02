@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2015, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,6 +33,7 @@
 #include "RevisionGraph/StandardLayout.h"
 #include "RevisionGraph/ShowWC.h"
 #include "RevisionGraph/ShowWCModification.h"
+#include "DPIAware.h"
 
 #pragma warning(push)
 #pragma warning(disable: 4458) // declaration of 'xxx' hides class member
@@ -69,8 +70,8 @@ void CRevisionGraphWnd::BuildPreview()
     float origZoom = m_fZoomFactor;
 
     CRect clientRect = GetClientRect();
-    CSize preViewSize (max (REVGRAPH_PREVIEW_WIDTH, clientRect.Width() / 4)
-                      ,max (REVGRAPH_PREVIEW_HEIGHT, clientRect.Height() / 4));
+    CSize preViewSize (max (CDPIAware::Instance().ScaleX(REVGRAPH_PREVIEW_WIDTH), clientRect.Width() / 4)
+                      ,max (CDPIAware::Instance().ScaleY(REVGRAPH_PREVIEW_HEIGHT), clientRect.Height() / 4));
 
     // zoom the graph so that it is completely visible in the window
     CRect graphRect = GetGraphRect();

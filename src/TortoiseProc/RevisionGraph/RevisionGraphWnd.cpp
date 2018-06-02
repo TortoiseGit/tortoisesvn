@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,6 +38,7 @@
 #include "RevisionGraph/StandardLayout.h"
 #include "RevisionGraph/UpsideDownLayout.h"
 #include "FormatMessageWrapper.h"
+#include "DPIAware.h"
 #include <strsafe.h>
 
 #ifdef _DEBUG
@@ -253,9 +254,10 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
     // get node at point or node that is close enough
     // so that point may hit a glyph area
 
+    auto glyphsize = CDPIAware::Instance().ScaleX(GLYPH_SIZE);
     index_t nodeIndex = GetHitNode(point);
     if (nodeIndex == NO_INDEX)
-        nodeIndex = GetHitNode(point, CSize (GLYPH_SIZE, GLYPH_SIZE / 2));
+        nodeIndex = GetHitNode(point, CSize (glyphsize, glyphsize / 2));
 
     if (nodeIndex >= nodeList->GetCount())
         return 0;
@@ -270,12 +272,12 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
     CRect r = node.rect;
     CPoint center = r.CenterPoint();
 
-    CRect rightGlyphArea ( r.right - GLYPH_SIZE, center.y - GLYPH_SIZE / 2
-                         , r.right + GLYPH_SIZE, center.y + GLYPH_SIZE / 2);
-    CRect topGlyphArea ( center.x - GLYPH_SIZE, r.top - GLYPH_SIZE / 2
-                       , center.x + GLYPH_SIZE, r.top + GLYPH_SIZE / 2);
-    CRect bottomGlyphArea ( center.x - GLYPH_SIZE, r.bottom - GLYPH_SIZE / 2
-                          , center.x + GLYPH_SIZE, r.bottom + GLYPH_SIZE / 2);
+    CRect rightGlyphArea ( r.right - glyphsize, center.y - glyphsize / 2
+                         , r.right + glyphsize, center.y + glyphsize / 2);
+    CRect topGlyphArea ( center.x - glyphsize, r.top - glyphsize / 2
+                       , center.x + glyphsize, r.top + glyphsize / 2);
+    CRect bottomGlyphArea ( center.x - glyphsize, r.bottom - glyphsize / 2
+                          , center.x + glyphsize, r.bottom + glyphsize / 2);
 
     bool upsideDown
         = m_state.GetOptions()->GetOption<CUpsideDownLayout>()->IsActive();
@@ -313,7 +315,7 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
 
 const CRevisionGraphState::SVisibleGlyph* CRevisionGraphWnd::GetHitGlyph (CPoint point) const
 {
-    float glyphSize = GLYPH_SIZE * m_fZoomFactor;
+    float glyphSize = CDPIAware::Instance().ScaleX(GLYPH_SIZE) * m_fZoomFactor;
 
     CSyncPointer<const CRevisionGraphState::TVisibleGlyphs>
         visibleGlyphs (m_state.GetVisibleGlyphs());

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2016 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2016, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@
 #include "IRevisionGraphLayout.h"
 #include "UpsideDownLayout.h"
 #include "ShowTreeStripes.h"
+#include "DPIAware.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -102,7 +103,7 @@ void CRevisionGraphWnd::OnPaint()
 
 void CRevisionGraphWnd::ClearVisibleGlyphs (const CRect& rect)
 {
-    float glyphSize = GLYPH_SIZE * m_fZoomFactor;
+    float glyphSize = CDPIAware::Instance().ScaleX(GLYPH_SIZE) * m_fZoomFactor;
 
     CSyncPointer<CRevisionGraphState::TVisibleGlyphs>
         visibleGlyphs (m_state.GetVisibleGlyphs());
@@ -139,7 +140,7 @@ void CRevisionGraphWnd::DrawRoundedRect (GraphicsDevice& graphics, const Color& 
 {
     enum {POINT_COUNT = 8};
 
-    float radius = CORNER_SIZE * m_fZoomFactor;
+    float radius = CDPIAware::Instance().ScaleX(CORNER_SIZE) * m_fZoomFactor;
     PointF points[POINT_COUNT];
     CutawayPoints (rect, radius, points);
 
@@ -173,7 +174,7 @@ void CRevisionGraphWnd::DrawOctangle (GraphicsDevice& graphics, const Color& pen
 
     // show left & right edges of low boxes as "<===>"
 
-    float minCutAway = min (CORNER_SIZE * m_fZoomFactor, rect.Height / 2);
+    float minCutAway = min (CDPIAware::Instance().ScaleX(CORNER_SIZE) * m_fZoomFactor, rect.Height / 2);
 
     // larger boxes: remove 25% of the shorter side
 
@@ -425,7 +426,7 @@ RectF CRevisionGraphWnd::GetBranchCover
 
     // expand it just a little to make it look nicer
 
-    cover.InflateRect (10, 2, 10, 2);
+    cover.InflateRect (CDPIAware::Instance().ScaleX(10), CDPIAware::Instance().ScaleY(2), CDPIAware::Instance().ScaleX(10), CDPIAware::Instance().ScaleY(2));
 
     // and now, transfrom it
 
@@ -483,7 +484,7 @@ void CRevisionGraphWnd::DrawSquare
     , const Color& darkColor
     , const Color& penColor)
 {
-    float squareSize = MARKER_SIZE * m_fZoomFactor;
+    float squareSize = CDPIAware::Instance().ScaleX(MARKER_SIZE) * m_fZoomFactor;
 
     PointF leftBottom (leftTop.X, leftTop.Y + squareSize);
     RectF square (leftTop, SizeF (squareSize, squareSize));
@@ -519,11 +520,11 @@ void CRevisionGraphWnd::DrawGlyph
 
     // bitmap source area
 
-    REAL x = ((REAL)position + (REAL)glyph) * GLYPH_BITMAP_SIZE;
+    REAL x = ((REAL)position + (REAL)glyph) * CDPIAware::Instance().ScaleX(GLYPH_BITMAP_SIZE);
 
     // screen target area
 
-    float glyphSize = GLYPH_SIZE * m_fZoomFactor;
+    float glyphSize = CDPIAware::Instance().ScaleX(GLYPH_SIZE) * m_fZoomFactor;
     RectF target (leftTop, SizeF (glyphSize, glyphSize));
 
     // scaled copy
@@ -532,7 +533,7 @@ void CRevisionGraphWnd::DrawGlyph
     {
         graphics.graphics->DrawImage ( glyphs
             , target
-            , x, 0.0f, GLYPH_BITMAP_SIZE, GLYPH_BITMAP_SIZE
+            , x, 0.0f, (REAL)CDPIAware::Instance().ScaleX(GLYPH_BITMAP_SIZE), (REAL)CDPIAware::Instance().ScaleY(GLYPH_BITMAP_SIZE)
             , UnitPixel, NULL, NULL, NULL);
     }
     else if (graphics.pSVG)
@@ -588,7 +589,7 @@ void CRevisionGraphWnd::DrawGlyphs
     CSyncPointer<CRevisionGraphState::TVisibleGlyphs>
         visibleGlyphs (m_state.GetVisibleGlyphs());
 
-    float squareSize = GLYPH_SIZE * m_fZoomFactor;
+    float squareSize = CDPIAware::Instance().ScaleX(GLYPH_SIZE) * m_fZoomFactor;
     if (glyph2 == NoGlyph)
     {
         PointF leftTop (center.X - 0.5f * squareSize, center.Y - 0.5f * squareSize);
@@ -754,7 +755,7 @@ void CRevisionGraphWnd::DrawMarker
     , int colorIndex )
 {
     // marker size
-    float squareSize = MARKER_SIZE * m_fZoomFactor;
+    float squareSize = CDPIAware::Instance().ScaleX(MARKER_SIZE) * m_fZoomFactor;
     float squareDist = min ( (noderect.Height - squareSize) / 2
                            , squareSize / 2);
 
@@ -1016,7 +1017,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (GraphicsDevice& graphics, Image* 
     if ((m_hoverIndex != NO_INDEX) || (m_hoverGlyphs != 0))
     {
         index_t nodeIndex = m_hoverIndex == NO_INDEX
-                          ? GetHitNode (point, CSize (GLYPH_SIZE, GLYPH_SIZE / 2))
+                          ? GetHitNode (point, CSize (CDPIAware::Instance().ScaleX(GLYPH_SIZE), CDPIAware::Instance().ScaleY(GLYPH_SIZE) / 2))
                           : m_hoverIndex;
 
         if (nodeIndex >= nodeList->GetCount())
