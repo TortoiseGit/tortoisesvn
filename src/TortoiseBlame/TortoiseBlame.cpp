@@ -28,6 +28,7 @@
 #include "BlameIndexColors.h"
 #include "../Utils/CrashReport.h"
 #include "../Utils/DebugOutput.h"
+#include "../Utils/DPIAware.h"
 
 #include <algorithm>
 #include <cctype>
@@ -1371,13 +1372,13 @@ LONG TortoiseBlame::GetBlameWidth()
     TCHAR buf[MAX_PATH] = { 0 };
     swprintf_s(buf, L"*%8d ", 88888888);
     ::GetTextExtentPoint(hDC, buf, (int)wcslen(buf), &width);
-    m_revWidth = width.cx + BLAMESPACE;
+    m_revWidth = width.cx + CDPIAware::Instance().ScaleX(BLAMESPACE);
     blamewidth += m_revWidth;
     if (ShowDate)
     {
         swprintf_s(buf, L"%30s", L"31.08.2001 06:24:14");
         ::GetTextExtentPoint32(hDC, buf, (int)wcslen(buf), &width);
-        m_dateWidth = width.cx + BLAMESPACE;
+        m_dateWidth = width.cx + CDPIAware::Instance().ScaleX(BLAMESPACE);
         blamewidth += m_dateWidth;
     }
     if (ShowAuthor)
@@ -1389,7 +1390,7 @@ LONG TortoiseBlame::GetBlameWidth()
             if (width.cx > maxwidth.cx)
                 maxwidth = width;
         }
-        m_authorWidth = maxwidth.cx + BLAMESPACE;
+        m_authorWidth = maxwidth.cx + CDPIAware::Instance().ScaleX(BLAMESPACE);
         blamewidth += m_authorWidth;
     }
     if (ShowPath)
@@ -1401,7 +1402,7 @@ LONG TortoiseBlame::GetBlameWidth()
             if (width.cx > maxwidth.cx)
                 maxwidth = width;
         }
-        m_pathWidth = maxwidth.cx + BLAMESPACE;
+        m_pathWidth = maxwidth.cx + CDPIAware::Instance().ScaleX(BLAMESPACE);
         blamewidth += m_pathWidth;
     }
     ::SelectObject(hDC, oldfont);
@@ -1553,7 +1554,7 @@ void TortoiseBlame::DrawHeader(HDC hDC)
     ::SetBkColor(hDC, ::GetSysColor(COLOR_BTNFACE));
 
     RECT edgerc = rc;
-    edgerc.bottom = edgerc.top + HEADER_HEIGHT/2;
+    edgerc.bottom = edgerc.top + CDPIAware::Instance().ScaleY(HEADER_HEIGHT) /2;
     DrawEdge(hDC, &edgerc, EDGE_BUMP, BF_FLAT|BF_RECT|BF_ADJUST);
 
     // draw the path first
@@ -1567,25 +1568,25 @@ void TortoiseBlame::DrawHeader(HDC hDC)
         if (str2.size() >= MAX_PATH)
             str2 = str2.substr(0, MAX_PATH-2);
         wcscpy_s(pathbuf, str2.c_str());
-        PathCompactPath(hDC, pathbuf, edgerc.right-edgerc.left-LOCATOR_WIDTH);
+        PathCompactPath(hDC, pathbuf, edgerc.right-edgerc.left- CDPIAware::Instance().ScaleX(LOCATOR_WIDTH));
     }
     else
     {
         wcscpy_s(pathbuf, szViewtitle.c_str());
-        PathCompactPath(hDC, pathbuf, edgerc.right-edgerc.left-LOCATOR_WIDTH);
+        PathCompactPath(hDC, pathbuf, edgerc.right-edgerc.left- CDPIAware::Instance().ScaleX(LOCATOR_WIDTH));
     }
     DrawText(hDC, pathbuf, -1, &edgerc, DT_SINGLELINE|DT_VCENTER);
 
-    rc.top = rc.top + HEADER_HEIGHT/2;
+    rc.top = rc.top + CDPIAware::Instance().ScaleY(HEADER_HEIGHT)/2;
     DrawEdge(hDC, &rc, EDGE_BUMP, BF_FLAT|BF_RECT|BF_ADJUST);
 
     RECT drawRc = rc;
 
     TCHAR szText[MAX_LOADSTRING] = { 0 };
     LoadString(app.hResource, IDS_HEADER_REVISION, szText, MAX_LOADSTRING);
-    drawRc.left = LOCATOR_WIDTH;
+    drawRc.left = CDPIAware::Instance().ScaleX(LOCATOR_WIDTH);
     DrawText(hDC, szText, -1, &drawRc, DT_SINGLELINE|DT_VCENTER);
-    int Left = m_revWidth+LOCATOR_WIDTH;
+    int Left = m_revWidth+ CDPIAware::Instance().ScaleX(LOCATOR_WIDTH);
     if (ShowDate)
     {
         LoadString(app.hResource, IDS_HEADER_DATE, szText, MAX_LOADSTRING);
@@ -2029,8 +2030,8 @@ void TortoiseBlame::InitSize()
     RECT blamerc;
     RECT sourcerc;
     ::GetClientRect(wMain, &rc);
-    ::SetWindowPos(wHeader, 0, rc.left, rc.top, rc.right-rc.left, HEADER_HEIGHT, 0);
-    rc.top += HEADER_HEIGHT;
+    ::SetWindowPos(wHeader, 0, rc.left, rc.top, rc.right-rc.left, CDPIAware::Instance().ScaleY(HEADER_HEIGHT), 0);
+    rc.top += CDPIAware::Instance().ScaleY(HEADER_HEIGHT);
     blamerc.left = rc.left;
     blamerc.top = rc.top;
     LONG w = GetBlameWidth();
@@ -2042,15 +2043,15 @@ void TortoiseBlame::InitSize()
     sourcerc.right = rc.right;
     if (m_colorby != COLORBYNONE)
     {
-        ::OffsetRect(&blamerc, LOCATOR_WIDTH, 0);
-        ::OffsetRect(&sourcerc, LOCATOR_WIDTH, 0);
-        sourcerc.right -= LOCATOR_WIDTH;
+        ::OffsetRect(&blamerc, CDPIAware::Instance().ScaleX(LOCATOR_WIDTH), 0);
+        ::OffsetRect(&sourcerc, CDPIAware::Instance().ScaleX(LOCATOR_WIDTH), 0);
+        sourcerc.right -= CDPIAware::Instance().ScaleX(LOCATOR_WIDTH);
     }
     InvalidateRect(wMain, NULL, FALSE);
     ::SetWindowPos(wEditor, 0, sourcerc.left, sourcerc.top, sourcerc.right - sourcerc.left, sourcerc.bottom - sourcerc.top, 0);
     ::SetWindowPos(wBlame, 0, blamerc.left, blamerc.top, blamerc.right - blamerc.left, blamerc.bottom - blamerc.top, 0);
     if (m_colorby != COLORBYNONE)
-        ::SetWindowPos(wLocator, 0, 0, blamerc.top, LOCATOR_WIDTH, blamerc.bottom - blamerc.top, SWP_SHOWWINDOW);
+        ::SetWindowPos(wLocator, 0, 0, blamerc.top, CDPIAware::Instance().ScaleX(LOCATOR_WIDTH), blamerc.bottom - blamerc.top, SWP_SHOWWINDOW);
     else
         ::ShowWindow(wLocator, SW_HIDE);
 }
