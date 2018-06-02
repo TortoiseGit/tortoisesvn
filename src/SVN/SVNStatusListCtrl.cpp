@@ -367,12 +367,19 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_bAllowPeggedExternals(false)
     , m_pContextMenu(nullptr)
     , m_hShellMenu(0)
+    , m_uiFont(0)
 {
     m_tooltipbuf[0] = 0;
+    NONCLIENTMETRICS metrics = { 0 };
+    metrics.cbSize = sizeof(NONCLIENTMETRICS);
+    SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
+    m_uiFont = CreateFontIndirect(&metrics.lfMessageFont);
 }
 
 CSVNStatusListCtrl::~CSVNStatusListCtrl()
 {
+    if (m_uiFont)
+        DeleteObject(m_uiFont);
     ClearStatusArray();
 }
 
@@ -5426,7 +5433,7 @@ void CSVNStatusListCtrl::OnPaint()
             memDC.SetBkColor(clrTextBk);
             memDC.BitBlt(rc.left, rc.top, rc.Width(), rc.Height(), pDC, rc.left, rc.top, SRCCOPY);
             rc.top += 10;
-            CGdiObject * oldfont = memDC.SelectStockObject(DEFAULT_GUI_FONT);
+            CGdiObject * oldfont = memDC.SelectObject(CGdiObject::FromHandle(m_uiFont));
             memDC.DrawText(str, rc, DT_CENTER | DT_VCENTER |
                            DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
             memDC.SelectObject(oldfont);

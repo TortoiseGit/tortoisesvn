@@ -87,6 +87,7 @@ TortoiseBlame::TortoiseBlame()
     , m_ttVisible(false)
     , m_font(0)
     , m_italicFont(0)
+    , m_uiFont(0)
     , m_blameWidth(0)
     , m_revWidth(0)
     , m_dateWidth(0)
@@ -128,6 +129,11 @@ TortoiseBlame::TortoiseBlame()
     m_selectedRevColor = GetSysColor(COLOR_HIGHLIGHT);
     m_selectedAuthorColor = InterColor(m_selectedRevColor, m_textHighLightColor, 35);
     SecureZeroMemory(&m_fr, sizeof(m_fr));
+
+    NONCLIENTMETRICS metrics = { 0 };
+    metrics.cbSize = sizeof(NONCLIENTMETRICS);
+    SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
+    m_uiFont = CreateFontIndirect(&metrics.lfMessageFont);
 }
 
 TortoiseBlame::~TortoiseBlame()
@@ -136,6 +142,8 @@ TortoiseBlame::~TortoiseBlame()
         DeleteObject(m_font);
     if (m_italicFont)
         DeleteObject(m_italicFont);
+    if (m_uiFont)
+        DeleteObject(m_uiFont);
 }
 
 std::wstring TortoiseBlame::GetAppDirectory()
@@ -1549,7 +1557,7 @@ void TortoiseBlame::DrawHeader(HDC hDC)
         return;
 
     RECT rc;
-    HFONT oldfont = (HFONT)::SelectObject(hDC, GetStockObject(DEFAULT_GUI_FONT));
+    HFONT oldfont = (HFONT)::SelectObject(hDC, m_uiFont);
     GetClientRect(wHeader, &rc);
     ::SetBkColor(hDC, ::GetSysColor(COLOR_BTNFACE));
 

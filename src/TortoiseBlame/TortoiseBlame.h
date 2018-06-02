@@ -150,6 +150,7 @@ protected:
     //std::vector<COLORREF>     m_colors;
     HFONT                       m_font;
     HFONT                       m_italicFont;
+    HFONT                       m_uiFont;
     LONG                        m_blameWidth;
     LONG                        m_revWidth;
     LONG                        m_dateWidth;

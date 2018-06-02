@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1135,6 +1135,8 @@ private:
 
     HMENU                       m_hShellMenu;
     LPCONTEXTMENU               m_pContextMenu;
+
+    HFONT                       m_uiFont;
 
     friend class CSVNStatusListCtrlDropTarget;
 };
