@@ -6,7 +6,7 @@
     function initOnLoad() {
 
         var iframeElement = document.createElement('iframe');
-        iframeElement.setAttribute('src', 'https://www.openhub.net/p/tortoisesvn/widgets/project_users?format=js&style=blue');
+        iframeElement.setAttribute('src', 'https://www.openhub.net/p/tortoisesvn/widgets/project_users?style=blue');
         iframeElement.scrolling = 'no';
         iframeElement.frameborder = '0';
         iframeElement.style.border = 'none';
