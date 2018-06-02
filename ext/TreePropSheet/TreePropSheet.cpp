@@ -801,13 +801,10 @@ BOOL CTreePropSheet::OnInitDialog()
     rectTree.right = rectTree.left + nTreeWidth - nTreeSpace;
 
     // calculate caption height
-    CTabCtrl    wndTabCtrl;
-    wndTabCtrl.Create(WS_CHILD|WS_VISIBLE|WS_CLIPSIBLINGS, rectFrame, this, 0x1234);
-    wndTabCtrl.InsertItem(0, _T(""));
-    CRect   rectFrameCaption;
-    wndTabCtrl.GetItemRect(0, rectFrameCaption);
-    wndTabCtrl.DestroyWindow();
-    m_pFrame->SetCaptionHeight(rectFrameCaption.Height());
+    NONCLIENTMETRICS metrics = { 0 };
+    metrics.cbSize = sizeof(NONCLIENTMETRICS);
+    SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
+    m_pFrame->SetCaptionHeight(metrics.iCaptionHeight);
 
     // if no caption should be displayed, make the window smaller in
     // height
@@ -816,20 +813,20 @@ BOOL CTreePropSheet::OnInitDialog()
         // make frame smaller
         m_pFrame->GetWnd()->GetWindowRect(rectFrame);
         ScreenToClient(rectFrame);
-        rectFrame.top+= rectFrameCaption.Height();
+        rectFrame.top+= metrics.iCaptionHeight;
         m_pFrame->GetWnd()->MoveWindow(rectFrame);
 
         // move all child windows up
-        MoveChildWindows(0, -rectFrameCaption.Height());
+        MoveChildWindows(0, -metrics.iCaptionHeight);
 
         // modify rectangle for the tree ctrl
-        rectTree.bottom-= rectFrameCaption.Height();
+        rectTree.bottom-= metrics.iCaptionHeight;
 
         // make us smaller
         CRect   rect;
         GetWindowRect(rect);
-        rect.top+= rectFrameCaption.Height()/2;
-        rect.bottom-= rectFrameCaption.Height()-rectFrameCaption.Height()/2;
+        rect.top+= metrics.iCaptionHeight /2;
+        rect.bottom -= metrics.iCaptionHeight - metrics.iCaptionHeight / 2;
         if (GetParent())
             GetParent()->ScreenToClient(rect);
         MoveWindow(rect);
