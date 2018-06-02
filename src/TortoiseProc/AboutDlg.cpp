@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2016-2017 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,6 +26,7 @@
 #include "../../ext/sqlite/sqlite3.h"
 #include "../../ext/openssl/include/openssl/opensslv.h"
 #include "AppUtils.h"
+#include "../Utils/DPIAware.h"
 
 IMPLEMENT_DYNAMIC(CAboutDlg, CStandAloneDialog)
 CAboutDlg::CAboutDlg(CWnd* pParent /*=NULL*/)
@@ -90,10 +91,10 @@ BOOL CAboutDlg::OnInitDialog()
 
     CPictureHolder tmpPic;
     tmpPic.CreateFromBitmap(IDB_LOGOFLIPPED);
-    m_renderSrc.Create32BitFromPicture(&tmpPic,468,64);
-    m_renderDest.Create32BitFromPicture(&tmpPic,468,64);
+    m_renderSrc.Create32BitFromPicture(&tmpPic, CDPIAware::Instance().ScaleX(468), CDPIAware::Instance().ScaleY(64));
+    m_renderDest.Create32BitFromPicture(&tmpPic, CDPIAware::Instance().ScaleX(468), CDPIAware::Instance().ScaleY(64));
 
-    m_waterEffect.Create(468,64);
+    m_waterEffect.Create(CDPIAware::Instance().ScaleX(468), CDPIAware::Instance().ScaleY(64));
     SetTimer(ID_EFFECTTIMER, 40, NULL);
     SetTimer(ID_DROPTIMER, 1500, NULL);
 
@@ -111,14 +112,14 @@ void CAboutDlg::OnTimer(UINT_PTR nIDEvent)
     {
         m_waterEffect.Render((DWORD*)m_renderSrc.GetDIBits(), (DWORD*)m_renderDest.GetDIBits());
         CClientDC dc(this);
-        CPoint ptOrigin(15,20);
+        CPoint ptOrigin(CDPIAware::Instance().ScaleX(15), CDPIAware::Instance().ScaleY(20));
         m_renderDest.Draw(&dc,ptOrigin);
     }
     if (nIDEvent == ID_DROPTIMER)
     {
         CRect r;
-        r.left = 15;
-        r.top = 20;
+        r.left = CDPIAware::Instance().ScaleX(15);
+        r.top = CDPIAware::Instance().ScaleY(20);
         r.right = r.left + m_renderSrc.GetWidth();
         r.bottom = r.top + m_renderSrc.GetHeight();
         m_waterEffect.Blob(random(r.left,r.right), random(r.top, r.bottom), 5, 800, m_waterEffect.m_iHpage);
@@ -128,22 +129,24 @@ void CAboutDlg::OnTimer(UINT_PTR nIDEvent)
 
 void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
 {
+    auto dpix15 = CDPIAware::Instance().ScaleX(15);
+    auto dpiy20 = CDPIAware::Instance().ScaleY(20);
     CRect r;
-    r.left = 15;
-    r.top = 20;
+    r.left = dpix15;
+    r.top = dpiy20;
     r.right = r.left + m_renderSrc.GetWidth();
     r.bottom = r.top + m_renderSrc.GetHeight();
 
     if(r.PtInRect(point) == TRUE)
     {
         // dibs are drawn upside down...
-        point.y -= 20;
-        point.y = 64-point.y;
+        point.y -= dpiy20;
+        point.y = CDPIAware::Instance().ScaleY(64) -point.y;
 
         if (nFlags & MK_LBUTTON)
-            m_waterEffect.Blob(point.x -15,point.y,10,1600,m_waterEffect.m_iHpage);
+            m_waterEffect.Blob(point.x - dpix15,point.y, CDPIAware::Instance().ScaleX(10),1600,m_waterEffect.m_iHpage);
         else
-            m_waterEffect.Blob(point.x -15,point.y,5,50,m_waterEffect.m_iHpage);
+            m_waterEffect.Blob(point.x - dpix15,point.y, CDPIAware::Instance().ScaleX(5),50,m_waterEffect.m_iHpage);
 
     }
 
