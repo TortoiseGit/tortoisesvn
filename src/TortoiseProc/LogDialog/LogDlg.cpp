@@ -6232,6 +6232,9 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
 
     switch (cmd)
     {
+    case ID_COMPARE:
+        ExecuteCompareChangedPaths(pCmi, selIndex);
+        break;
     case ID_DIFF:
         ExecuteDiffChangedPaths(pCmi, selIndex, false);
         break;
@@ -7095,6 +7098,10 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
                 popup.AppendMenuIcon(ID_BLAMEDIFF, IDS_LOG_POPUP_BLAMEDIFF, IDI_BLAME);
                 popup.SetDefaultItem(ID_DIFF, FALSE);
                 popup.AppendMenuIcon(ID_GNUDIFF1, IDS_LOG_POPUP_GNUDIFF_CH, IDI_DIFF);
+                if (m_hasWC)
+                {
+                    popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARE, IDI_DIFF);
+                }
                 bEntryAdded = true;
             }
             else if (pCmi->OneRev)
@@ -7210,6 +7217,76 @@ void CLogDlg::ExecuteMultipleDiffChangedPaths( ContextMenuInfoForChangedPathsPtr
     }
 }
 
+void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, INT_PTR selIndex)
+{
+    SVNRev getrev = m_currentChangedArray[selIndex].GetAction() == LOGACTIONS_DELETED ?
+        pCmi->Rev2 : pCmi->Rev1;
+    auto f = [=]()
+    {
+        CoInitialize(NULL);
+        OnOutOfScope(CoUninitialize());
+        this->EnableWindow(FALSE);
+        OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
+
+        DialogEnableWindow(IDOK, FALSE);
+        SetPromptApp(&theApp);
+        CString filepath;
+        if (SVN::PathIsURL(m_path))
+        {
+            filepath = m_path.GetSVNPathString();
+        }
+        else
+        {
+            filepath = GetURLFromPath(m_path);
+            if (filepath.IsEmpty())
+            {
+                ReportNoUrlOfFile(filepath);
+                EnableOKButton();
+                return FALSE;
+            }
+        }
+        m_bCancelled = false;
+        filepath = GetRepositoryRoot(CTSVNPath(filepath));
+        filepath += m_currentChangedArray[selIndex].GetPath();
+        CTSVNPath tsvnfilepath = CTSVNPath(filepath);
+
+        CProgressDlg progDlg;
+        progDlg.SetTitle(IDS_APPNAME);
+        CString sInfoLine;
+        sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)filepath,
+            (LPCTSTR)getrev.ToString());
+        progDlg.SetLine(1, sInfoLine, true);
+        SetAndClearProgressInfo(&progDlg);
+        progDlg.ShowModeless(m_hWnd);
+
+        CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, tsvnfilepath, getrev);
+        m_bCancelled = false;
+        if (!Export(tsvnfilepath, tempfile, getrev, getrev))
+        {
+            progDlg.Stop();
+            SetAndClearProgressInfo((HWND)NULL);
+            ShowErrorDialog(m_hWnd);
+            EnableOKButton();
+            return FALSE;
+        }
+        progDlg.Stop();
+        SetAndClearProgressInfo((HWND)NULL);
+
+        CString sName1, sName2;
+        sName1.Format(L"%s - Revision %ld", (LPCTSTR)CPathUtils::GetFileNameFromPath(filepath), (svn_revnum_t)getrev);
+        sName2.Format(IDS_DIFF_WCNAME, (LPCTSTR)CPathUtils::GetFileNameFromPath(filepath));
+        CAppUtils::DiffFlags flags;
+        flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+        CString mimetype;
+        CAppUtils::GetMimeType(tsvnfilepath, mimetype);
+
+        CAppUtils::StartExtDiff(CTSVNPath(pCmi->wcPath), tempfile, sName1, sName2, tsvnfilepath, tsvnfilepath,
+            getrev, getrev, getrev, flags, 0,
+            CPathUtils::GetFileNameFromPath(filepath), mimetype);
+        EnableOKButton();
+    };
+    new async::CAsyncCall(f, &netScheduler);
+}
 
 void CLogDlg::ExecuteDiffChangedPaths( ContextMenuInfoForChangedPathsPtr pCmi, INT_PTR selIndex, bool ignoreprops )
 {
