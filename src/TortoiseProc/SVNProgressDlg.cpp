@@ -465,6 +465,14 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             bNoNotify = true;
             break;
         }
+        else
+        {
+            if (url.IsEmpty())
+            {
+                data->url = CTSVNPath(GetURLFromPath(path));
+                data->sPathColumnText.FormatMessage(IDS_PROGRS_UPDATE, data->path.GetWinPath(), (LPCWSTR)data->url.GetSVNPathString());
+            }
+        }
         data->sActionColumnText.LoadString(IDS_SVNACTION_UPDATING);
         m_basePath = path;
         m_bConflictWarningShown = false;
@@ -3802,9 +3810,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             }
         }
     }
-    CString sCmdInfo;
-    sCmdInfo.FormatMessage(IDS_PROGRS_CMD_UPDATE, (LPCWSTR)GetURLFromPath(m_targetPathList.GetCommonRoot()));
-    ReportCmd(sCmdInfo);
+    ReportCmd(CString(MAKEINTRESOURCE(IDS_PROGRS_CMD_UPDATE)));
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!Update(m_targetPathList, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), true))
     {
