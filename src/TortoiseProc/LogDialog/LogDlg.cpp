@@ -7242,7 +7242,7 @@ void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
             {
                 ReportNoUrlOfFile(filepath);
                 EnableOKButton();
-                return FALSE;
+                return;
             }
         }
         m_bCancelled = false;
@@ -7267,7 +7267,7 @@ void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
             SetAndClearProgressInfo((HWND)NULL);
             ShowErrorDialog(m_hWnd);
             EnableOKButton();
-            return FALSE;
+            return;
         }
         progDlg.Stop();
         SetAndClearProgressInfo((HWND)NULL);
@@ -7280,7 +7280,7 @@ void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
         CString mimetype;
         CAppUtils::GetMimeType(tsvnfilepath, mimetype);
 
-        CAppUtils::StartExtDiff(CTSVNPath(pCmi->wcPath), tempfile, sName1, sName2, tsvnfilepath, tsvnfilepath,
+        CAppUtils::StartExtDiff(tempfile, CTSVNPath(pCmi->wcPath), sName1, sName2, tsvnfilepath, tsvnfilepath,
             getrev, getrev, getrev, flags, 0,
             CPathUtils::GetFileNameFromPath(filepath), mimetype);
         EnableOKButton();
