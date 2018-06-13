@@ -110,13 +110,7 @@ BOOL CALLBACK PageProc (HWND hwnd, UINT uMessage, WPARAM wParam, LPARAM lParam)
 
     if (sheetpage != 0L)
     {
-        __try
-        {
-            return sheetpage->PageProc(hwnd, uMessage, wParam, lParam);
-        }
-        __except(CCrashReport::Instance().SendReport(GetExceptionInformation()))
-        {
-        }
+        return sheetpage->PageProc(hwnd, uMessage, wParam, lParam);
     }
     return FALSE;
 }
