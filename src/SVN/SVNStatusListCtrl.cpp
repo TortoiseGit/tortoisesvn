@@ -1201,7 +1201,8 @@ void CSVNStatusListCtrl::AddUnversionedFolder(const CTSVNPath& folderName,
             }
         }
     }
-    SVNConfig::Instance().GetDefaultIgnores();
+    if (!basePath.IsEquivalentToWithoutCase(SVNConfig::Instance().GetLastWCIgnorePath()))
+        SVNConfig::Instance().GetWCIgnores(SVNConfig::Instance().GetLastWCIgnorePath());
 }
 
 void CSVNStatusListCtrl::PostProcessEntry ( const FileEntry* entry
