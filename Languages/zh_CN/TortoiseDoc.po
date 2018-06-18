@@ -22,14 +22,15 @@
 # Jim Yao <yaoxu12345@gmail.com>, 2018
 # Thomas ZHANG <zjbthomas@gmail.com>, 2016
 # Gones <liejie050911@163.com>, 2013-2014
-# liushuyu011 <liushuyu011@gmail.com>, 2014
-# liushuyu011 <liushuyu011@gmail.com>, 2016
+# shuyu liu <liushuyu011@gmail.com>, 2014
+# shuyu liu <liushuyu011@gmail.com>, 2016
 # LIU Tian <liutian666666@gmail.com>, 2016
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # Andy Wu <andy13923@gmail.com>, 2015
 # Nick Vrvilo <nick@vrvilo.com>, 2012
 # ninjasai <ninjasai@gmail.com>, 2011
 # pluwen <pluwen@gmail.com>, 2011
+# pop corner <memoword@163.com>, 2018
 # Verplusor, 2011
 # stephen zhu <huasoft@163.com>, 2011
 # xiaobing chen <olivetchan@qq.com>, 2016
@@ -41,8 +42,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-03-18 00:37+0000\n"
-"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2018-06-12 18:21+0000\n"
+"Last-Translator: pop corner <memoword@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -670,7 +671,7 @@ msgid ""
 "If you encounter any problems during or after installing TortoiseSVN please "
 "refer to our online FAQ at <ulink "
 "url=\"https://tortoisesvn.net/faq.html\"><citetitle>https://tortoisesvn.net/faq.html</citetitle></ulink>."
-msgstr ""
+msgstr "如果您在安装TortoiseSVN期间或之后遇到任何问题，请参阅我们的在线常见问题解答： <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>https://tortoisesvn.net/faq.html</citetitle></ulink>."
 
 #. (title)
 msgid "Basic Concepts"
@@ -15518,7 +15519,7 @@ msgstr ""
 
 #. (term)
 msgid "Check Now"
-msgstr ""
+msgstr "现在检查"
 
 #. (para)
 msgid ""
@@ -15550,7 +15551,7 @@ msgstr "在一个确认对话框出现后，移除选中的项目。"
 
 #. (term)
 msgid "Mark all as read"
-msgstr ""
+msgstr "全部标为已读"
 
 #. (para)
 msgid ""
@@ -15791,7 +15792,7 @@ msgstr "如果给出这个开关，SubWCRev 就会以十六进制输出修订版
 
 #. (filename)
 msgid ".subwcrevignore"
-msgstr ""
+msgstr ".subwcrevignore"
 
 #. (entry)
 msgid ""
@@ -15818,69 +15819,69 @@ msgstr ""
 
 #. (entry)
 msgid "Error Code"
-msgstr ""
+msgstr "错误代码"
 
 #. (entry)
 msgid "Syntax error. One or more command line parameters are invalid."
-msgstr ""
+msgstr "语法错误。 一个或多个命令行参数无效。"
 
 #. (entry)
 msgid "The file or folder specified on the command line was not found."
-msgstr ""
+msgstr "未找到命令行上指定的文件或文件夹。"
 
 #. (entry)
 msgid ""
 "The input file could not be opened, or the target file could not be created."
-msgstr ""
+msgstr "输入文件无法打开，或目标文件无法创建。"
 
 #. (entry)
 msgid ""
 "Could not allocate memory. This could happen if e.g. the source file is too "
 "big."
-msgstr ""
+msgstr "无法分配内存。 发生的可能原因如源文件太大等。"
 
 #. (entry)
 msgid "The source file can not be scanned properly."
-msgstr ""
+msgstr "源文件无法正确扫描。"
 
 #. (entry)
 msgid ""
 "SVN error: Subversion returned with an error when SubWCRev tried to find the"
 " information from the working copy."
-msgstr ""
+msgstr "SVN错误：当SubWCRev尝试从工作副本中查找信息时，Subversion返回了一个错误。"
 
 #. (literal)
 msgid "-n"
-msgstr ""
+msgstr "-n"
 
 #. (entry)
 msgid ""
 "The working copy has local modifications. This requires the <placeholder-1/>"
 " switch."
-msgstr ""
+msgstr "工作副本包含本地修改。需要<placeholder-1/>切换。"
 
 #. (literal)
 msgid "-m"
-msgstr ""
+msgstr "-m"
 
 #. (entry)
 msgid ""
 "The working copy has mixed revisions. This requires the <placeholder-1/> "
 "switch."
-msgstr ""
+msgstr "工作副本包含混合的版本。需要<placeholder-1/>切换。"
 
 #. (literal)
 msgid "-d"
-msgstr ""
+msgstr "-d"
 
 #. (entry)
 msgid ""
 "The output file already exists. This requires the <placeholder-1/> switch."
-msgstr ""
+msgstr "输出文件已存在，需要<placeholder-1/>切换。"
 
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
-msgstr ""
+msgstr "指定的路径不是工作副本或部分或其中之一。"
 
 #. (literal)
 msgid "-N"
@@ -15897,7 +15898,7 @@ msgid ""
 "If there is no error, SubWCRev returns zero. But in case an error occurs, "
 "the error message is written to stderr and shown in the console. And the "
 "returned error codes are: <placeholder-1/>"
-msgstr ""
+msgstr "如果没有错误，SubWCRev返回0。 但是如果发生错误，错误信息将写入stderr并显示在控制台中。 返回的错误代码是：<placeholder-1/>"
 
 #. (title)
 msgid "Keyword Substitution"
@@ -15905,7 +15906,7 @@ msgstr "关键字替换"
 
 #. (title)
 msgid "List of available keywords"
-msgstr ""
+msgstr "可用关键字列表"
 
 #. (entry)
 msgid "Keyword"
@@ -15917,17 +15918,17 @@ msgstr "用工作副本中最高的提交版本来替换"
 
 #. (literal)
 msgid "$WCREV&amp;0xFFFF$"
-msgstr ""
+msgstr "$WCREV&amp;0xFFFF$"
 
 #. (entry)
 msgid ""
 "Replaced with the highest commit revision in the working copy, ANDed with "
 "the value after the &amp; char. For example: <placeholder-1/>"
-msgstr ""
+msgstr "用工作副本中的最高提交修订版本号替换，ANDed with the value after the &amp; char. 例如：<placeholder-1/>"
 
 #. (literal)
 msgid "$WCREV-1000$"
-msgstr ""
+msgstr "$WCREV-1000$"
 
 #. (entry)
 msgid ""
@@ -16040,7 +16041,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCEXTALLFIXED?TText:FText$"
-msgstr ""
+msgstr "$WCEXTALLFIXED?TText:FText$"
 
 #. (entry)
 msgid ""
@@ -16050,7 +16051,7 @@ msgstr ""
 
 #. (literal)
 msgid "$WCISTAGGED?TText:FText$"
-msgstr ""
+msgstr "$WCISTAGGED?TText:FText$"
 
 #. (entry)
 msgid ""
@@ -16279,11 +16280,11 @@ msgstr ""
 
 #. (literal)
 msgid "GetWCInfo()"
-msgstr ""
+msgstr "GetWCInfo()"
 
 #. (literal)
 msgid "-E"
-msgstr ""
+msgstr "-E"
 
 #. (entry)
 msgid ""
@@ -16472,7 +16473,7 @@ msgid ""
 "WScript.Echo(wcInfoString3);\n"
 "WScript.Echo(wcInfoString4);\n"
 "\n"
-msgstr ""
+msgstr "\n// testCOM.js - javascript file\n// test script for the SubWCRev COM/Automation-object\n\nfilesystem = new ActiveXObject(\"Scripting.FileSystemObject\");\n\nrevObject1 = new ActiveXObject(\"SubWCRev.object\");\nrevObject2 = new ActiveXObject(\"SubWCRev.object\");\nrevObject3 = new ActiveXObject(\"SubWCRev.object\");\nrevObject4 = new ActiveXObject(\"SubWCRev.object\");\n\nrevObject1.GetWCInfo(\n    filesystem.GetAbsolutePathName(\".\"), 1, 1);\nrevObject2.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"..\"), 1, 1);\nrevObject3.GetWCInfo(\n    filesystem.GetAbsolutePathName(\"SubWCRev.cpp\"), 1, 1);\nrevObject4.GetWCInfo2(\n    filesystem.GetAbsolutePathName(\"..\\\\..\"), 1, 1, 1);\n\nwcInfoString1 = \"Revision = \" + revObject1.Revision +\n                \"\\nMin Revision = \" + revObject1.MinRev +\n                \"\\nMax Revision = \" + revObject1.MaxRev +\n                \"\\nDate = \" + revObject1.Date +\n                \"\\nURL = \" + revObject1.Url + \"\\nAuthor = \" +\n                revObject1.Author + \"\\nHasMods = \" +\n                revObject1.HasModifications + \"\\nIsSvnItem = \" +\n                revObject1.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject1.NeedsLocking + \"\\nIsLocked = \" +\n                revObject1.IsLocked + \"\\nLockCreationDate = \" +\n                revObject1.LockCreationDate + \"\\nLockOwner = \" +\n                revObject1.LockOwner + \"\\nLockComment = \" +\n                revObject1.LockComment;\nwcInfoString2 = \"Revision = \" + revObject2.Revision +\n                \"\\nMin Revision = \" + revObject2.MinRev +\n                \"\\nMax Revision = \" + revObject2.MaxRev +\n                \"\\nDate = \" + revObject2.Date +\n                \"\\nURL = \" + revObject2.Url + \"\\nAuthor = \" +\n                revObject2.Author + \"\\nHasMods = \" +\n                revObject2.HasModifications + \"\\nIsSvnItem = \" +\n                revObject2.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject2.NeedsLocking + \"\\nIsLocked = \" +\n                revObject2.IsLocked + \"\\nLockCreationDate = \" +\n                revObject2.LockCreationDate + \"\\nLockOwner = \" +\n                revObject2.LockOwner + \"\\nLockComment = \" +\n                revObject2.LockComment;\nwcInfoString3 = \"Revision = \" + revObject3.Revision +\n                \"\\nMin Revision = \" + revObject3.MinRev +\n                \"\\nMax Revision = \" + revObject3.MaxRev +\n                \"\\nDate = \" + revObject3.Date +\n                \"\\nURL = \" + revObject3.Url + \"\\nAuthor = \" +\n                revObject3.Author + \"\\nHasMods = \" +\n                revObject3.HasModifications + \"\\nIsSvnItem = \" +\n                revObject3.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject3.NeedsLocking + \"\\nIsLocked = \" +\n                revObject3.IsLocked + \"\\nLockCreationDate = \" +\n                revObject3.LockCreationDate + \"\\nLockOwner = \" +\n                revObject3.LockOwner + \"\\nLockComment = \" +\n                revObject3.LockComment;\nwcInfoString4 = \"Revision = \" + revObject4.Revision +\n                \"\\nMin Revision = \" + revObject4.MinRev +\n                \"\\nMax Revision = \" + revObject4.MaxRev +\n                \"\\nDate = \" + revObject4.Date +\n                \"\\nURL = \" + revObject4.Url + \"\\nAuthor = \" +\n                revObject4.Author + \"\\nHasMods = \" +\n                revObject4.HasModifications + \"\\nIsSvnItem = \" +\n                revObject4.IsSvnItem + \"\\nNeedsLocking = \" +\n                revObject4.NeedsLocking + \"\\nIsLocked = \" +\n                revObject4.IsLocked + \"\\nLockCreationDate = \" +\n                revObject4.LockCreationDate + \"\\nLockOwner = \" +\n                revObject4.LockOwner + \"\\nLockComment = \" +\n                revObject4.LockComment;\n\nWScript.Echo(wcInfoString1);\nWScript.Echo(wcInfoString2);\nWScript.Echo(wcInfoString3);\nWScript.Echo(wcInfoString4);\n\n"
 
 #. (para)
 msgid ""
@@ -16495,7 +16496,7 @@ msgid ""
 "{\n"
 "    MessageBox.Show(\"not versioned\");\n"
 "}\n"
-msgstr ""
+msgstr "\nusing LibSubWCRev;\nSubWCRev sub = new SubWCRev();\nsub.GetWCInfo(\"C:\\\\PathToMyFile\\\\MyFile.cc\", true, true);\nif (sub.IsSvnItem == true)\n{\n    MessageBox.Show(\"versioned\");\n}\nelse\n{\n    MessageBox.Show(\"not versioned\");\n}\n"
 
 #. (para)
 msgid ""
@@ -18533,7 +18534,7 @@ msgstr ""
 
 #. (literal)
 msgid "^"
-msgstr ""
+msgstr "^"
 
 #. (literal)
 msgid "Switch working copy to new branch/tag"
@@ -18541,7 +18542,7 @@ msgstr ""
 
 #. (option)
 msgid "/switchaftercopy"
-msgstr ""
+msgstr "/switchaftercopy"
 
 #. (literal)
 msgid "Create intermediate folders"
@@ -18549,7 +18550,7 @@ msgstr "创建临时文件夹"
 
 #. (option)
 msgid "/makeparents"
-msgstr ""
+msgstr "/makeparents"
 
 #. (entry)
 msgid ""
@@ -18587,7 +18588,7 @@ msgstr "/path2"
 
 #. (option)
 msgid "/ignoreprops"
-msgstr ""
+msgstr "/ignoreprops"
 
 #. (option)
 msgid "/startrev:xxx"
@@ -18599,7 +18600,7 @@ msgstr "/endrev:xxx"
 
 #. (option)
 msgid "/pegrevision:xxx"
-msgstr ""
+msgstr "/pegrevision:xxx"
 
 #. (option)
 msgid "/blame"
@@ -19032,7 +19033,7 @@ msgstr "样例(应该在同一行输入): <screen>\nTortoiseIDiff.exe /left:\"c:
 
 #. (title)
 msgid "TortoiseUDiff Commands"
-msgstr ""
+msgstr "TortoiseUDiff 命令"
 
 #. (para)
 msgid "The unified diff viewer has only two command line options:"
@@ -19125,7 +19126,7 @@ msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n      "
 
 #. (para)
 #. (para)
@@ -19153,7 +19154,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] PATH\n      "
 
 #. (para)
 msgid ""
@@ -19187,7 +19188,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n      "
 
 #. (para)
 msgid ""
@@ -19205,7 +19206,7 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\n      "
 
 #. (para)
 #. (para)
@@ -19230,7 +19231,7 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn add PATH...\n      "
 
 #. (para)
 msgid ""
@@ -19247,7 +19248,7 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n      "
 
 #. (para)
 #. (para)
@@ -19269,7 +19270,7 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff PATH\n      "
 
 #. (para)
 msgid ""
@@ -19296,7 +19297,7 @@ msgid ""
 "or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\n或\nsvn log -v -r M:N [--stop-on-copy] PATH\n      "
 
 #. (para)
 msgid ""
@@ -19319,7 +19320,7 @@ msgid ""
 "or\n"
 "svn status -u -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\n或\nsvn status -u -v PATH\n      "
 
 #. (para)
 msgid ""
@@ -19358,7 +19359,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n      "
 
 #. (para)
 msgid ""
@@ -19391,7 +19392,7 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn resolved PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19399,7 +19400,7 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn rename CURR_PATH NEW_PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19407,7 +19408,7 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn delete PATH\n      "
 
 #. (para)
 msgid ""
@@ -19431,7 +19432,7 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn revert [-R] PATH...\n      "
 
 #. (screen)
 #, no-wrap
@@ -19439,7 +19440,7 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn cleanup PATH\n      "
 
 #. (title)
 msgid "Get Lock"
@@ -19458,7 +19459,7 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn lock -m \"LockMessage\" [--force] PATH...\n      "
 
 #. (para)
 msgid ""
@@ -19482,7 +19483,7 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn unlock PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19494,7 +19495,7 @@ msgid ""
 "or\n"
 "svn copy -m \"LogMessage\" PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn copy -m \"LogMessage\" URL URL\n或\nsvn copy -m \"LogMessage\" URL@rev URL@rev\n或\nsvn copy -m \"LogMessage\" PATH URL\n      "
 
 #. (para)
 msgid ""
@@ -19510,7 +19511,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn switch [-r rev] URL PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19518,7 +19519,7 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n      "
 
 #. (para)
 msgid ""
@@ -19532,7 +19533,7 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff From_URL@revN To_URL@revM\n      "
 
 #. (para)
 msgid ""
@@ -19546,7 +19547,7 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn export [-r rev] [--ignore-externals] URL Export_PATH\n      "
 
 #. (para)
 msgid ""
@@ -19579,7 +19580,7 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn switch --relocate From_URL To_URL\n      "
 
 #. (title)
 msgid "Create Repository Here"
@@ -19591,7 +19592,7 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvnadmin create --fs-type fsfs PATH\n      "
 
 #. (para)
 msgid ""
@@ -19605,7 +19606,7 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn import -m LogMessage PATH URL\n      "
 
 #. (screen)
 #, no-wrap
@@ -19614,7 +19615,7 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n      "
 
 #. (para)
 msgid ""
@@ -19650,7 +19651,7 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff PATH &gt; patch-file\n      "
 
 #. (para)
 msgid ""
