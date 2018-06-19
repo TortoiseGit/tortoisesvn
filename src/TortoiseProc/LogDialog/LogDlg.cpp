@@ -3253,6 +3253,12 @@ void CLogDlg::OnEnLinkMsgview(NMHDR *pNMHDR, LRESULT *pResult)
     if ((pEnLink->msg != WM_LBUTTONUP)&&(pEnLink->msg != WM_SETCURSOR))
         return;
 
+    auto pEdit = reinterpret_cast<CRichEditCtrl*>(GetDlgItem(IDC_MSGVIEW));
+    CHARRANGE selRange;
+    pEdit->GetSel(selRange);
+    if (selRange.cpMax != selRange.cpMin)
+        return;
+
     CString url, msg;
     GetDlgItemText(IDC_MSGVIEW, msg);
     msg.Replace(L"\r\n", L"\n");

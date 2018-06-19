@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2018 - TortoiseSVN
-// Copyright (C) 2015-2017 - TortoiseGit
+// Copyright (C) 2015-2018 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -990,7 +990,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
             }
             break;
         case SCN_DWELLSTART:
-        case SCN_HOTSPOTCLICK:
+        case SCN_HOTSPOTRELEASECLICK:
             {
                 if (lpSCN->position < 0)
                     break;
@@ -1052,7 +1052,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                         }
                     }
                 }
-                if ((lpnmhdr->code == SCN_HOTSPOTCLICK) && (!url.IsEmpty()))
+                if ((lpnmhdr->code == SCN_HOTSPOTRELEASECLICK) && (!url.IsEmpty()))
                     ShellExecute(GetParent()->GetSafeHwnd(), L"open", url, NULL, NULL, SW_SHOWDEFAULT);
                 else
                 {
