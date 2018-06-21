@@ -496,12 +496,7 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/)
         m_lfBaseFont.lfCharSet = DEFAULT_CHARSET;
         m_lfBaseFont.lfWeight = bBold ? FW_BOLD : FW_NORMAL;
         m_lfBaseFont.lfItalic = (BYTE) bItalic;
-        CDC * pDC = GetDC();
-        if (pDC)
-        {
-            m_lfBaseFont.lfHeight = -MulDiv((DWORD)CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10), GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
-            ReleaseDC(pDC);
-        }
+        m_lfBaseFont.lfHeight = -CDPIAware::Instance().PointsToPixels((DWORD)CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10));
         wcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseMerge\\FontName", L"Consolas"), _countof(m_lfBaseFont.lfFaceName) - 1);
         if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
         {
@@ -1655,10 +1650,10 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
             {
                 // multiline
                 bMultiline = true;
-                pDC->MoveTo(origin.x, yMiddle- CDPIAware::Instance().ScaleY(2));
-                pDC->LineTo(origin.x+GetCharWidth()-CDPIAware::Instance().ScaleX(1), yMiddle-CDPIAware::Instance().ScaleY(2));
-                pDC->LineTo(origin.x+GetCharWidth()-CDPIAware::Instance().ScaleX(1), yMiddle+CDPIAware::Instance().ScaleY(2));
-                pDC->LineTo(origin.x, yMiddle+ CDPIAware::Instance().ScaleY(2));
+                pDC->MoveTo(origin.x, yMiddle- CDPIAware::Instance().Scale(2));
+                pDC->LineTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle-CDPIAware::Instance().Scale(2));
+                pDC->LineTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle+CDPIAware::Instance().Scale(2));
+                pDC->LineTo(origin.x, yMiddle+ CDPIAware::Instance().Scale(2));
             }
             else if (GetLineLength(nLineIndex) == 0)
                 bMultiline = true;
@@ -1673,32 +1668,32 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
             case EOL_AUTOLINE:
             case EOL_CRLF:
                 // arrow from top to middle+2, then left
-                pDC->MoveTo(origin.x+GetCharWidth()-CDPIAware::Instance().ScaleX(1), rc.top+ CDPIAware::Instance().ScaleY(1));
-                pDC->LineTo(origin.x+GetCharWidth()-CDPIAware::Instance().ScaleX(1), yMiddle);
+                pDC->MoveTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), rc.top+ CDPIAware::Instance().Scale(1));
+                pDC->LineTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle);
             case EOL_CR:
                 // arrow from right to left
-                pDC->MoveTo(origin.x+GetCharWidth()-CDPIAware::Instance().ScaleX(1), yMiddle);
+                pDC->MoveTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle);
                 pDC->LineTo(origin.x, yMiddle);
-                pDC->LineTo(origin.x+CDPIAware::Instance().ScaleX(4), yMiddle+CDPIAware::Instance().ScaleY(4));
+                pDC->LineTo(origin.x+CDPIAware::Instance().Scale(4), yMiddle+CDPIAware::Instance().Scale(4));
                 pDC->MoveTo(origin.x, yMiddle);
-                pDC->LineTo(origin.x+CDPIAware::Instance().ScaleX(4), yMiddle-CDPIAware::Instance().ScaleY(4));
+                pDC->LineTo(origin.x+CDPIAware::Instance().Scale(4), yMiddle-CDPIAware::Instance().Scale(4));
                 break;
             case EOL_LFCR:
                 // from right-upper to left then down
-                pDC->MoveTo(origin.x+GetCharWidth()-CDPIAware::Instance().ScaleX(1), yMiddle-CDPIAware::Instance().ScaleY(2));
-                pDC->LineTo(xMiddle, yMiddle-CDPIAware::Instance().ScaleY(2));
-                pDC->LineTo(xMiddle, rc.bottom-CDPIAware::Instance().ScaleY(1));
-                pDC->LineTo(xMiddle+CDPIAware::Instance().ScaleX(4), rc.bottom-CDPIAware::Instance().ScaleY(5));
-                pDC->MoveTo(xMiddle, rc.bottom-CDPIAware::Instance().ScaleY(1));
-                pDC->LineTo(xMiddle-CDPIAware::Instance().ScaleX(4), rc.bottom-CDPIAware::Instance().ScaleY(5));
+                pDC->MoveTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle-CDPIAware::Instance().Scale(2));
+                pDC->LineTo(xMiddle, yMiddle-CDPIAware::Instance().Scale(2));
+                pDC->LineTo(xMiddle, rc.bottom-CDPIAware::Instance().Scale(1));
+                pDC->LineTo(xMiddle+CDPIAware::Instance().Scale(4), rc.bottom-CDPIAware::Instance().Scale(5));
+                pDC->MoveTo(xMiddle, rc.bottom-CDPIAware::Instance().Scale(1));
+                pDC->LineTo(xMiddle-CDPIAware::Instance().Scale(4), rc.bottom-CDPIAware::Instance().Scale(5));
                 break;
             case EOL_LF:
                 // arrow from top to bottom
                 pDC->MoveTo(xMiddle, rc.top);
-                pDC->LineTo(xMiddle, rc.bottom-CDPIAware::Instance().ScaleY(1));
-                pDC->LineTo(xMiddle+CDPIAware::Instance().ScaleX(4), rc.bottom-CDPIAware::Instance().ScaleY(5));
-                pDC->MoveTo(xMiddle, rc.bottom-CDPIAware::Instance().ScaleY(1));
-                pDC->LineTo(xMiddle-CDPIAware::Instance().ScaleX(4), rc.bottom-CDPIAware::Instance().ScaleY(5));
+                pDC->LineTo(xMiddle, rc.bottom-CDPIAware::Instance().Scale(1));
+                pDC->LineTo(xMiddle+CDPIAware::Instance().Scale(4), rc.bottom-CDPIAware::Instance().Scale(5));
+                pDC->MoveTo(xMiddle, rc.bottom-CDPIAware::Instance().Scale(1));
+                pDC->LineTo(xMiddle-CDPIAware::Instance().Scale(4), rc.bottom-CDPIAware::Instance().Scale(5));
                 break;
             case EOL_FF:    // Form Feed, U+000C
             case EOL_NEL:   // Next Line, U+0085
@@ -2070,11 +2065,11 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
                         if ((xposreal > 0) || (nSpaces > 0))
                         {
                             CPen * oldPen = pDC->SelectObject(&pen);
-                            pDC->MoveTo(xposreal + rc.left + CDPIAware::Instance().ScaleX(2), y);
-                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().ScaleX(2), y);
-                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().ScaleX(6), y - CDPIAware::Instance().ScaleY(4));
-                            pDC->MoveTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().ScaleX(2), y);
-                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().ScaleX(6), y + CDPIAware::Instance().ScaleY(4));
+                            pDC->MoveTo(xposreal + rc.left + CDPIAware::Instance().Scale(2), y);
+                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().Scale(2), y);
+                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().Scale(6), y - CDPIAware::Instance().Scale(4));
+                            pDC->MoveTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().Scale(2), y);
+                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().Scale(6), y + CDPIAware::Instance().Scale(4));
                             pDC->SelectObject(oldPen);
                         }
                     }
@@ -2088,8 +2083,8 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
                     pLastSpace = pszChars + 1;
                     if (xpos >= 0)
                     {
-                        const int cxWhitespace = CDPIAware::Instance().ScaleX(2);
-                        const int cyWhitespace = CDPIAware::Instance().ScaleY(2);
+                        const int cxWhitespace = CDPIAware::Instance().Scale(2);
+                        const int cyWhitespace = CDPIAware::Instance().Scale(2);
                         // draw 2-logical pixel rectangle, like Scintilla editor.
                         pDC->FillSolidRect(xpos + rc.left + GetCharWidth() / 2 - cxWhitespace/2, y,
                                            cxWhitespace, cyWhitespace, m_WhiteSpaceFg);

@@ -148,24 +148,24 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
         // that's not faster. So loading it again is what we do.
         cBitmap.Attach(LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(IDR_REVGRAPHBAR),
             IMAGE_BITMAP,
-            CDPIAware::Instance().ScaleX(bmBitmap.bmWidth),
-            CDPIAware::Instance().ScaleY(bmBitmap.bmHeight),
+            CDPIAware::Instance().Scale(bmBitmap.bmWidth),
+            CDPIAware::Instance().Scale(bmBitmap.bmHeight),
             LR_CREATEDIBSECTION));
         cBitmap.GetBitmap(&bmBitmap);
 
 
         CSize       cSize(bmBitmap.bmWidth, bmBitmap.bmHeight);
-        int         nNbBtn = cSize.cx/ CDPIAware::Instance().ScaleX(20);
+        int         nNbBtn = cSize.cx/ CDPIAware::Instance().Scale(20);
         RGBTRIPLE * rgb = (RGBTRIPLE*)(bmBitmap.bmBits);
         COLORREF    rgbMask = RGB(rgb[0].rgbtRed, rgb[0].rgbtGreen, rgb[0].rgbtBlue);
 
-        cImageList.Create(CDPIAware::Instance().ScaleX(20), cSize.cy, ILC_COLOR32|ILC_MASK, nNbBtn, 0);
+        cImageList.Create(CDPIAware::Instance().Scale(20), cSize.cy, ILC_COLOR32|ILC_MASK, nNbBtn, 0);
         cImageList.Add(&cBitmap, rgbMask);
         // set the sizes of the button and images:
         // note: buttonX must be 7 pixels more than imageX, and buttonY must be 6 pixels more than imageY.
         // See the source of SetSizes().
-        m_ToolBar.SetSizes(CSize(CDPIAware::Instance().ScaleX(27), CDPIAware::Instance().ScaleY(26)),
-            CSize(CDPIAware::Instance().ScaleX(20), CDPIAware::Instance().ScaleY(20)));
+        m_ToolBar.SetSizes(CSize(CDPIAware::Instance().Scale(27), CDPIAware::Instance().Scale(26)),
+            CSize(CDPIAware::Instance().Scale(20), CDPIAware::Instance().Scale(20)));
         m_ToolBar.SendMessage(TB_SETIMAGELIST, 0, (LPARAM)cImageList.m_hImageList);
         cImageList.Detach();
         cBitmap.Detach();
@@ -173,7 +173,7 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 
     RepositionBars(AFX_IDW_CONTROLBAR_FIRST, AFX_IDW_CONTROLBAR_LAST, 0);
 
-#define SNAP_WIDTH CDPIAware::Instance().ScaleX(60) //the width of the combo box
+#define SNAP_WIDTH CDPIAware::Instance().Scale(60) //the width of the combo box
     // set up the ComboBox control as a snap mode select box
     // First get the index of the placeholders position in the toolbar
     int zoomComboIndex = 0;
@@ -186,8 +186,8 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
     m_ToolBar.GetItemRect(zoomComboIndex, &rect);
 
     // expand the rectangle to allow the combo box room to drop down
-    rect.top+= CDPIAware::Instance().ScaleY(3);
-    rect.bottom += CDPIAware::Instance().ScaleY(200);
+    rect.top+= CDPIAware::Instance().Scale(3);
+    rect.bottom += CDPIAware::Instance().Scale(200);
 
     // then create the combo box and show it
     if (!m_ToolBar.m_ZoomCombo.CreateEx(WS_EX_RIGHT, WS_CHILD|WS_VISIBLE|CBS_AUTOHSCROLL|CBS_DROPDOWN,
@@ -441,7 +441,7 @@ void CRevisionGraphDlg::OnViewZoomHeight()
     float horzfact = (windowRect.Width() - 4.0f)/(4.0f + graphRect.Width());
     float vertfact = (windowRect.Height() - 4.0f)/(4.0f + graphRect.Height());
     if ((horzfact < vertfact) && (horzfact < MAX_ZOOM))
-        vertfact = (windowRect.Height() - CDPIAware::Instance().ScaleY(20))/(4.0f + graphRect.Height());
+        vertfact = (windowRect.Height() - CDPIAware::Instance().Scale(20))/(4.0f + graphRect.Height());
 
     DoZoom (min (MAX_ZOOM, vertfact));
 }
@@ -455,7 +455,7 @@ void CRevisionGraphDlg::OnViewZoomWidth()
     float horzfact = (windowRect.Width() - 4.0f)/(4.0f + graphRect.Width());
     float vertfact = (windowRect.Height() - 4.0f)/(4.0f + graphRect.Height());
     if ((vertfact < horzfact) && (vertfact < MAX_ZOOM))
-        horzfact = (windowRect.Width() - CDPIAware::Instance().ScaleX(20))/(4.0f + graphRect.Width());
+        horzfact = (windowRect.Width() - CDPIAware::Instance().Scale(20))/(4.0f + graphRect.Width());
 
     DoZoom (min (MAX_ZOOM, horzfact));
 }

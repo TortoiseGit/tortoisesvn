@@ -254,7 +254,7 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
     // get node at point or node that is close enough
     // so that point may hit a glyph area
 
-    auto glyphsize = CDPIAware::Instance().ScaleX(GLYPH_SIZE);
+    auto glyphsize = CDPIAware::Instance().Scale(GLYPH_SIZE);
     index_t nodeIndex = GetHitNode(point);
     if (nodeIndex == NO_INDEX)
         nodeIndex = GetHitNode(point, CSize (glyphsize, glyphsize / 2));
@@ -315,7 +315,7 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
 
 const CRevisionGraphState::SVisibleGlyph* CRevisionGraphWnd::GetHitGlyph (CPoint point) const
 {
-    float glyphSize = CDPIAware::Instance().ScaleX(GLYPH_SIZE) * m_fZoomFactor;
+    float glyphSize = CDPIAware::Instance().Scale(GLYPH_SIZE) * m_fZoomFactor;
 
     CSyncPointer<const CRevisionGraphState::TVisibleGlyphs>
         visibleGlyphs (m_state.GetVisibleGlyphs());

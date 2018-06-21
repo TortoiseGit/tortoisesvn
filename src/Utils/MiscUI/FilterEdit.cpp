@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2015, 2017 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2015, 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "FilterEdit.h"
+#include "DPIAware.h"
 
 
 const UINT CFilterEdit::WM_FILTEREDIT_INFOCLICKED
@@ -398,10 +399,8 @@ void CFilterEdit::DrawDimText()
 
 HICON CFilterEdit::LoadDpiScaledIcon(UINT resourceId, int cx96dpi, int cy96dpi)
 {
-    CWindowDC dc(this);
-
-    int cx = MulDiv(cx96dpi, dc.GetDeviceCaps(LOGPIXELSX), 96);
-    int cy = MulDiv(cy96dpi, dc.GetDeviceCaps(LOGPIXELSY), 96);
+    int cx = CDPIAware::Instance().PointsToPixels(cx96dpi);
+    int cy = CDPIAware::Instance().PointsToPixels(cy96dpi);
 
     return (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(resourceId), IMAGE_ICON, cx, cy, LR_DEFAULTCOLOR);
 }

@@ -56,9 +56,7 @@ CFont* CRevisionGraphWnd::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE
         m_lfBaseFont.lfWeight = bBold ? FW_BOLD : FW_NORMAL;
         m_lfBaseFont.lfItalic = (BYTE) bItalic;
         m_lfBaseFont.lfStrikeOut = (BYTE) FALSE;
-        CDC * pDC = GetDC();
-        m_lfBaseFont.lfHeight = -MulDiv(m_nFontSize, GetDeviceCaps(pDC->m_hDC, LOGPIXELSY), 72);
-        ReleaseDC(pDC);
+        m_lfBaseFont.lfHeight = -CDPIAware::Instance().PointsToPixels(m_nFontSize);
         // use the empty font name, so GDI takes the first font which matches
         // the specs. Maybe this will help render chinese/japanese chars correctly.
         wcsncpy_s(m_lfBaseFont.lfFaceName, L"MS Shell Dlg 2", _countof(m_lfBaseFont.lfFaceName) - 1);
@@ -103,7 +101,7 @@ void CRevisionGraphWnd::OnPaint()
 
 void CRevisionGraphWnd::ClearVisibleGlyphs (const CRect& rect)
 {
-    float glyphSize = CDPIAware::Instance().ScaleX(GLYPH_SIZE) * m_fZoomFactor;
+    float glyphSize = CDPIAware::Instance().Scale(GLYPH_SIZE) * m_fZoomFactor;
 
     CSyncPointer<CRevisionGraphState::TVisibleGlyphs>
         visibleGlyphs (m_state.GetVisibleGlyphs());
@@ -140,7 +138,7 @@ void CRevisionGraphWnd::DrawRoundedRect (GraphicsDevice& graphics, const Color& 
 {
     enum {POINT_COUNT = 8};
 
-    float radius = CDPIAware::Instance().ScaleX(CORNER_SIZE) * m_fZoomFactor;
+    float radius = CDPIAware::Instance().Scale(CORNER_SIZE) * m_fZoomFactor;
     PointF points[POINT_COUNT];
     CutawayPoints (rect, radius, points);
 
@@ -174,7 +172,7 @@ void CRevisionGraphWnd::DrawOctangle (GraphicsDevice& graphics, const Color& pen
 
     // show left & right edges of low boxes as "<===>"
 
-    float minCutAway = min (CDPIAware::Instance().ScaleX(CORNER_SIZE) * m_fZoomFactor, rect.Height / 2);
+    float minCutAway = min (CDPIAware::Instance().Scale(CORNER_SIZE) * m_fZoomFactor, rect.Height / 2);
 
     // larger boxes: remove 25% of the shorter side
 
@@ -426,7 +424,7 @@ RectF CRevisionGraphWnd::GetBranchCover
 
     // expand it just a little to make it look nicer
 
-    cover.InflateRect (CDPIAware::Instance().ScaleX(10), CDPIAware::Instance().ScaleY(2), CDPIAware::Instance().ScaleX(10), CDPIAware::Instance().ScaleY(2));
+    cover.InflateRect (CDPIAware::Instance().Scale(10), CDPIAware::Instance().Scale(2), CDPIAware::Instance().Scale(10), CDPIAware::Instance().Scale(2));
 
     // and now, transfrom it
 
@@ -484,7 +482,7 @@ void CRevisionGraphWnd::DrawSquare
     , const Color& darkColor
     , const Color& penColor)
 {
-    float squareSize = CDPIAware::Instance().ScaleX(MARKER_SIZE) * m_fZoomFactor;
+    float squareSize = CDPIAware::Instance().Scale(MARKER_SIZE) * m_fZoomFactor;
 
     PointF leftBottom (leftTop.X, leftTop.Y + squareSize);
     RectF square (leftTop, SizeF (squareSize, squareSize));
@@ -520,11 +518,11 @@ void CRevisionGraphWnd::DrawGlyph
 
     // bitmap source area
 
-    REAL x = ((REAL)position + (REAL)glyph) * CDPIAware::Instance().ScaleX(GLYPH_BITMAP_SIZE);
+    REAL x = ((REAL)position + (REAL)glyph) * CDPIAware::Instance().Scale(GLYPH_BITMAP_SIZE);
 
     // screen target area
 
-    float glyphSize = CDPIAware::Instance().ScaleX(GLYPH_SIZE) * m_fZoomFactor;
+    float glyphSize = CDPIAware::Instance().Scale(GLYPH_SIZE) * m_fZoomFactor;
     RectF target (leftTop, SizeF (glyphSize, glyphSize));
 
     // scaled copy
@@ -533,7 +531,7 @@ void CRevisionGraphWnd::DrawGlyph
     {
         graphics.graphics->DrawImage ( glyphs
             , target
-            , x, 0.0f, (REAL)CDPIAware::Instance().ScaleX(GLYPH_BITMAP_SIZE), (REAL)CDPIAware::Instance().ScaleY(GLYPH_BITMAP_SIZE)
+            , x, 0.0f, (REAL)CDPIAware::Instance().Scale(GLYPH_BITMAP_SIZE), (REAL)CDPIAware::Instance().Scale(GLYPH_BITMAP_SIZE)
             , UnitPixel, NULL, NULL, NULL);
     }
     else if (graphics.pSVG)
@@ -589,7 +587,7 @@ void CRevisionGraphWnd::DrawGlyphs
     CSyncPointer<CRevisionGraphState::TVisibleGlyphs>
         visibleGlyphs (m_state.GetVisibleGlyphs());
 
-    float squareSize = CDPIAware::Instance().ScaleX(GLYPH_SIZE) * m_fZoomFactor;
+    float squareSize = CDPIAware::Instance().Scale(GLYPH_SIZE) * m_fZoomFactor;
     if (glyph2 == NoGlyph)
     {
         PointF leftTop (center.X - 0.5f * squareSize, center.Y - 0.5f * squareSize);
@@ -755,7 +753,7 @@ void CRevisionGraphWnd::DrawMarker
     , int colorIndex )
 {
     // marker size
-    float squareSize = CDPIAware::Instance().ScaleX(MARKER_SIZE) * m_fZoomFactor;
+    float squareSize = CDPIAware::Instance().Scale(MARKER_SIZE) * m_fZoomFactor;
     float squareDist = min ( (noderect.Height - squareSize) / 2
                            , squareSize / 2);
 
@@ -1017,7 +1015,7 @@ void CRevisionGraphWnd::DrawCurrentNodeGlyphs (GraphicsDevice& graphics, Image* 
     if ((m_hoverIndex != NO_INDEX) || (m_hoverGlyphs != 0))
     {
         index_t nodeIndex = m_hoverIndex == NO_INDEX
-                          ? GetHitNode (point, CSize (CDPIAware::Instance().ScaleX(GLYPH_SIZE), CDPIAware::Instance().ScaleY(GLYPH_SIZE) / 2))
+                          ? GetHitNode (point, CSize (CDPIAware::Instance().Scale(GLYPH_SIZE), CDPIAware::Instance().Scale(GLYPH_SIZE) / 2))
                           : m_hoverIndex;
 
         if (nodeIndex >= nodeList->GetCount())

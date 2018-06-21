@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 // Copyright (C) 2015 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -38,6 +38,7 @@
 #include "SmartHandle.h"
 #include "SVNExternals.h"
 #include "CmdLineParser.h"
+#include "../Utils/DPIAware.h"
 
 
 bool CAppUtils::GetMimeType(const CTSVNPath& file, CString& mimetype, const SVNRev& rev /*= SVNRev::REV_WC*/)
@@ -602,9 +603,7 @@ DWORD CAppUtils::GetLogFontSize()
 void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
 {
     LOGFONT logFont;
-    HDC hScreenDC = ::GetDC(NULL);
-    logFont.lfHeight         = -MulDiv(GetLogFontSize(), GetDeviceCaps(hScreenDC, LOGPIXELSY), 72);
-    ::ReleaseDC(NULL, hScreenDC);
+    logFont.lfHeight         = -CDPIAware::Instance().PointsToPixels(GetLogFontSize());
     logFont.lfWidth          = 0;
     logFont.lfEscapement     = 0;
     logFont.lfOrientation    = 0;

@@ -7816,8 +7816,8 @@ bool CLogDlg::CreateToolbar()
 #define MONITORMODE_TOOLBARBUTTONCOUNT  10
     TBBUTTON tbb[MONITORMODE_TOOLBARBUTTONCOUNT] = { 0 };
     // create an image list containing the icons for the toolbar
-    const int iconSizeX = int(24 * CDPIAware::Instance().ScaleFactorX());
-    const int iconSizeY = int(24 * CDPIAware::Instance().ScaleFactorX());
+    const int iconSizeX = int(24 * CDPIAware::Instance().ScaleFactor());
+    const int iconSizeY = int(24 * CDPIAware::Instance().ScaleFactor());
     if (!m_toolbarImages.Create(iconSizeX, iconSizeY, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4))
         return false;
     auto iString = ::SendMessage(m_hwndToolbar, TB_ADDSTRING,
