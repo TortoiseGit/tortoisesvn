@@ -2160,6 +2160,10 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             if ((!sPath.IsEmpty())&&(!SVN::PathIsURL(CTSVNPath(sPath))))
             {
                 CTSVNPath path = CTSVNPath(sPath);
+                if (!path.Exists())
+                {
+                    path = path.GetContainingDirectory();
+                }
                 if (path.GetDirectory().Exists())
                 {
                     popup.AppendMenuIcon(ID_EXPLORE, IDS_SVNPROGRESS_MENUOPENPARENT, IDI_EXPLORER);
