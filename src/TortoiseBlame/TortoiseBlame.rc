@@ -46,6 +46,7 @@ BEGIN
         MENUITEM "Color by &age, indexed",      ID_VIEW_COLORAGEOFLINES
         MENUITEM "Color by age, &continuous",   ID_VIEW_COLORBYAGE
         MENUITEM "Color by au&thor",            ID_VIEW_COLORBYAUTHOR
+        MENUITEM SEPARATOR
         MENUITEM "&Merge paths",                ID_VIEW_MERGEPATH
     END
 END
@@ -170,6 +171,7 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN_SWISS
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_TORTOISEBLAME       ICON                    "TortoiseBlame.ico"
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
