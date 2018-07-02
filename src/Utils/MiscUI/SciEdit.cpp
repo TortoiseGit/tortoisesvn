@@ -168,8 +168,6 @@ void CSciEdit::Init(LONG lLanguage)
     //Set the default windows colors for edit controls
     Call(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
     Call(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
-    Call(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
-    Call(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     Call(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
     Call(SCI_SETMODEVENTMASK, SC_MOD_INSERTTEXT | SC_MOD_DELETETEXT | SC_PERFORMED_UNDO | SC_PERFORMED_REDO);
     Call(SCI_INDICSETSTYLE, INDIC_MISSPELLED, INDIC_SQUIGGLE);
@@ -281,6 +279,35 @@ void CSciEdit::Init(LONG lLanguage)
         // now enable D2D
         Call(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITERETAIN);
         Call(SCI_SETBUFFEREDDRAW, 0);
+        CRegStdDWORD useBiDi(L"Software\\TortoiseSVN\\ScintillaBidirectional", TRUE);
+        if (DWORD(useBiDi))
+        {
+            // enable bidirectional mode
+            // note: bidirectional mode requires d2d, and to make selections
+            // work properly, the SCI_SETSELALPHA needs to be enabled.
+            // See here for why:
+            // https://groups.google.com/d/msg/scintilla-interest/0EnDpY9Tsbw/ohCgEZqqBwAJ
+            // "For now, only translucent background selection works properly in bidirectional mode"
+            //
+            // note2: bidirectional mode is only required when editing.
+            // Scintilla will show bidirectional text just fine even if bidirectional mode is not enabled.
+            // And the cost of enabling bidirectional mode is ok since we're dealing here with
+            // commit messages, not whole books.
+            Call(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_WINDOWTEXT));
+            Call(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
+            Call(SCI_SETSELALPHA, 128);
+            Call(SCI_SETBIDIRECTIONAL, SC_BIDIRECTIONAL_L2R);
+        }
+        else
+        {
+            Call(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
+            Call(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
+        }
+    }
+    else
+    {
+        Call(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
+        Call(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     }
 }
 

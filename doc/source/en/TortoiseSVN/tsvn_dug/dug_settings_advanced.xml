@@ -471,6 +471,19 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term condition="pot">ScintillaBidirectional</term>
+      <listitem>
+        <para>
+          This option enables the bidirectional mode
+          for the commit message edit box. If enabled,
+          right-to-left language text editing is done
+          properly. Since this feature is expensive, it
+          can be disabled on slower machines by setting this value
+          to <literal>false</literal>.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term condition="pot">ScintillaDirect2D</term>
       <listitem>
         <para>
