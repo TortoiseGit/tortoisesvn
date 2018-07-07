@@ -4953,9 +4953,9 @@ void CRepositoryBrowser::FilterUnknownDepthItems(std::map<CString,svn_depth_t>& 
 
         for (std::map<CString,svn_depth_t>::iterator it2 = depths.begin(); it2 != depths.end(); ++it2)
         {
-            if (it->first.Compare(it2->first)==0)
-                continue;
             if (it2->second != svn_depth_unknown)
+                continue;
+            if (it->first.Compare(it2->first)==0)
                 continue;
 
             CString url1 = it->first + L"/";
