@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2017 - TortoiseSVN
+// Copyright (C) 2010-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,6 +29,7 @@
 #include "SmartHandle.h"
 #include "PreserveChdir.h"
 #include "OnOutOfScope.h"
+#include "DPIAware.h"
 #include <WinInet.h>
 #include <oleacc.h>
 #include <initguid.h>
@@ -315,6 +316,12 @@ void CCommonAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
             pListCtrl->SetColumnWidth(col, cx);
         }
     }
+}
+
+bool CCommonAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID)
+{
+    auto size = CDPIAware::Instance().Scale(128);
+    return SetListCtrlBackgroundImage(hListCtrl, nID, size, size);
 }
 
 bool CCommonAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width /* = 128 */, int height /* = 128 */)

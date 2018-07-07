@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012, 2014, 2016-2017 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014, 2016-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,7 +84,8 @@ public:
      */
     static void ResizeAllListCtrlCols(CListCtrl * pListCtrl);
 
-    static bool SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width = 128, int height = 128);
+    static bool SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID);
+    static bool SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width, int height);
 
     /**
      * Creates a .lnk file (a windows shortcut file)
