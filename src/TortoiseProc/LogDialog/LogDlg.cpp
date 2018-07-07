@@ -8810,8 +8810,7 @@ void CLogDlg::MonitorThread()
                     {
                         if ((SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
                             (SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
-                            (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
-                            (SVNError->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
+                            (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN))
                         {
                             item.authfailed = true;
                         }
@@ -8831,7 +8830,6 @@ void CLogDlg::MonitorThread()
                     if ((SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
                         (SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
                         (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
-                        (SVNError->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION) ||
                         (SVNError->apr_err == SVN_ERR_WC_NOT_WORKING_COPY))
                     {
                         item.authfailed = true;
