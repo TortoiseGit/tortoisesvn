@@ -20,13 +20,16 @@
        one was shown multiple times. (Stefan)
 - BUG: When adding unversioned folders, the
        ignore properties were sometimes ignored. (Stefan)
+- BUG: Changing update depths of sparse checkouts
+       failed when trying to add files in excluded
+       folders. (Stefan)
 
 Version 1.10.0
 See the release notes here:
 http://tortoisesvn.net/tsvn_1.10_releasenotes.html
 
 Version 1.9.8 (unreleased)
-- BUG: GDI leak in repobrowser. (Stefan)
+- BUG: GDI leak in repo-browser. (Stefan)
 - BUG: Endless loop in vendor-branch. (Stefan)
 - CHG: New line margin icons and minor high dpi refinements
        in TortoiseMerge. (Ivan Zhakov)

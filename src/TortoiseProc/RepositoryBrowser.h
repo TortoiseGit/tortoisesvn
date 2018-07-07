@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -294,7 +294,7 @@ protected:
 
     void ShowText(const CString& sText, bool forceupdate = false);
     static void FilterInfinityDepthItems(std::map<CString,svn_depth_t>& depths);
-    static void CRepositoryBrowser::FilterUnknownDepthItems(std::map<CString,svn_depth_t>& depths);
+    void FilterUnknownDepthItems(std::map<CString,svn_depth_t>& depths);
     void SetListItemInfo( int index, const CItem * it );
 
     bool RunStartCommit(const CTSVNPathList& pathlist, CString& sLogMsg);
