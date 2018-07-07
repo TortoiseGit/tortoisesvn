@@ -223,6 +223,7 @@ protected:
     afx_msg void OnMonitorRemoveProject();
     afx_msg void OnMonitorOptions();
     afx_msg void OnMonitorMarkAllAsRead();
+    afx_msg void OnMonitorClearErrors();
     afx_msg void OnMonitorUpdateAll();
     afx_msg void OnMonitorThreadFinished();
     afx_msg void OnTvnSelchangedProjtree(NMHDR *pNMHDR, LRESULT *pResult);

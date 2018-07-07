@@ -371,6 +371,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_COMMAND(ID_LOGDLG_MONITOR_EDIT, &CLogDlg::OnMonitorEditProject)
     ON_COMMAND(ID_LOGDLG_MONITOR_REMOVE, &CLogDlg::OnMonitorRemoveProject)
     ON_COMMAND(ID_MISC_MARKALLASREAD, &CLogDlg::OnMonitorMarkAllAsRead)
+    ON_COMMAND(ID_LOGDLG_MONITOR_CLEARERRORS, &CLogDlg::OnMonitorClearErrors)
     ON_COMMAND(ID_MISC_UPDATE, &CLogDlg::OnMonitorUpdateAll)
     ON_COMMAND(ID_MISC_OPTIONS, &CLogDlg::OnMonitorOptions)
     ON_COMMAND(ID_LOGDLG_MONITOR_THREADFINISHED, &CLogDlg::OnMonitorThreadFinished)
@@ -7813,7 +7814,7 @@ bool CLogDlg::CreateToolbar()
 
     ::SendMessage(m_hwndToolbar, TB_BUTTONSTRUCTSIZE, (WPARAM) sizeof(TBBUTTON), 0);
 
-#define MONITORMODE_TOOLBARBUTTONCOUNT  10
+#define MONITORMODE_TOOLBARBUTTONCOUNT  11
     TBBUTTON tbb[MONITORMODE_TOOLBARBUTTONCOUNT] = { 0 };
     // create an image list containing the icons for the toolbar
     const int iconSizeX = int(24 * CDPIAware::Instance().ScaleFactor());
@@ -7872,6 +7873,14 @@ bool CLogDlg::CreateToolbar()
     hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_MARKALLASREAD, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_MARKALLASREAD;
+    tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
+    tbb[index].fsStyle = BTNS_BUTTON;
+    tbb[index].dwData = 0;
+    tbb[index++].iString = iString++;
+
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_CLEARERRORS, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
+    tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
+    tbb[index].idCommand = ID_LOGDLG_MONITOR_CLEARERRORS;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
     tbb[index].fsStyle = BTNS_BUTTON;
     tbb[index].dwData = 0;
@@ -8333,17 +8342,11 @@ void CLogDlg::OnMonitorMarkAllAsRead()
 {
     // mark all entries as unread
     HTREEITEM hItem = m_projTree.GetSelectedItem();
-    bool bShift = (GetKeyState(VK_SHIFT) & 0x8000) != 0;
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
         MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
         pItem->UnreadItems = 0;
         pItem->unreadFirst = 0;
-        if (bShift)
-        {
-            pItem->authfailed = false;
-            pItem->lastErrorMsg.Empty();
-        }
         m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
         m_projTree.SetItemState(hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
         return false;
@@ -8355,6 +8358,23 @@ void CLogDlg::OnMonitorMarkAllAsRead()
         LRESULT result = 0;
         MonitorShowProject(hItem, &result);
     }
+    SaveMonitorProjects(false);
+    m_projTree.Invalidate();
+}
+
+void CLogDlg::OnMonitorClearErrors()
+{
+    // clear all errors
+    HTREEITEM hItem = m_projTree.GetSelectedItem();
+    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
+    {
+        MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
+        pItem->authfailed = false;
+        pItem->lastErrorMsg.Empty();
+        m_projTree.SetItemState(hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
+        return false;
+    });
+
     SaveMonitorProjects(false);
     m_projTree.Invalidate();
 }
