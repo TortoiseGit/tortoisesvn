@@ -8365,7 +8365,6 @@ void CLogDlg::OnMonitorMarkAllAsRead()
 void CLogDlg::OnMonitorClearErrors()
 {
     // clear all errors
-    HTREEITEM hItem = m_projTree.GetSelectedItem();
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem)->bool
     {
         MonitorItem * pItem = (MonitorItem *)m_projTree.GetItemData(hItem);
