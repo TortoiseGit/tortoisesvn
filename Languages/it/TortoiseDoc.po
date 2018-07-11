@@ -29,8 +29,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-05-28 14:22+0000\n"
-"Last-Translator: Andrea Rinaudo <firmware@mdptech.it>\n"
+"PO-Revision-Date: 2018-07-10 07:33+0000\n"
+"Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4183,13 +4183,13 @@ msgstr "Un aggiornamento della copia di lavoro dello sviluppatore B si traduce i
 msgid ""
 "<filename>BarFolder</filename> is added to the working copy as a normal "
 "folder."
-msgstr ""
+msgstr "<filename>BarFolder</filename> viene aggiunto alla copia di lavoro come cartella normale."
 
 #. (para)
 msgid ""
 "<filename>FooFolder</filename> is marked as added (with history) and has a "
 "tree conflict."
-msgstr ""
+msgstr "<filename>FooFolder</filename> è contrassegnata come aggiunta (con cronologia) e presenta un conflitto dell'albero."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified."
@@ -4197,7 +4197,7 @@ msgstr "<filename>Foo.c</filename> è stato contrassegnato come modificato."
 
 #. (para)
 msgid "For a folder conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Per un conflitto di cartelle: <placeholder-1/>"
 
 #. (para)
 #. (para)
@@ -4205,7 +4205,7 @@ msgid ""
 "Developer B now has to decide whether to go with developer A's "
 "reorganisation and merge her changes into the corresponding file in the new "
 "structure, or simply revert A's changes and keep the local file."
-msgstr ""
+msgstr "Lo sviluppatore B ora deve decidere se continuare con la riorganizzazione dello sviluppatore A e unire le sue modifiche nel file corrispondente nella nuova struttura, o semplicemente ripristinare le modifiche di A e mantenere il file locale."
 
 #. (para)
 msgid ""
@@ -4214,7 +4214,7 @@ msgid ""
 "renamed/moved in the repository. This can be done by using the log dialog. "
 "Then use the button which shows the correct source file to resolve the "
 "conflict."
-msgstr ""
+msgstr "Per unire le sue modifiche locali con il rimpasto, lo sviluppatore B deve prima scoprire con quale nome il file in conflitto <filename>Foo.c</filename> è stato rinominato/spostato nel repository. Questo può essere fatto usando la finestra di log del repository. Quindi utilizzare il pulsante che mostra il file sorgente corretto per risolvere il conflitto."
 
 #. (para)
 msgid ""
@@ -4223,7 +4223,7 @@ msgid ""
 "This marks the conflicted file/folder as resolved, but Developer A's changes"
 " need to be removed by hand. Again the log dialog helps to track down what "
 "was moved."
-msgstr ""
+msgstr "Se lo sviluppatore B decide che le modifiche di A sono sbagliate, allora deve scegliere il pulsante <guilabel>Contrassegna come risolto</guilabel> nella finestra di dialogo dell'editor dei conflitti. Questo contrassegna il file/cartella in conflitto come risolto, ma le modifiche dello Sviluppatore A devono essere rimosse manualmente. Di nuovo la finestra di dialogo del log aiuta a rintracciare ciò che è stato spostato."
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
@@ -4236,25 +4236,25 @@ msgstr "Lo sviluppatore B ha mosso <filename>Foo.c</filename> in <filename>Bix.c
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bix.c</filename> è contrassegnato come aggiunto con la cronologia."
 
 #. (para)
 msgid ""
 "<filename>Bar.c</filename> is added to the working copy with status "
 "'normal'."
-msgstr ""
+msgstr "<filename>Bar.c</filename> viene aggiunto alla copia di lavoro con stato 'normale'."
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> is marked as deleted and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> è contrassegnato come cancellato e ha un conflitto sull'albero."
 
 #. (para)
 msgid ""
 "To resolve this conflict, Developer B has to find out to what filename the "
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
 "repository. This can be done by using the log dialog."
-msgstr ""
+msgstr "Per risolvere questo conflitto, lo sviluppatore B deve scoprire con quale nome il file in conflitto <filename>Foo.c</filename> è stato rinominato/spostato nel repository. Questo può essere fatto usando la finestra di log del repository."
 
 #. (para)
 #. (para)
@@ -4262,14 +4262,14 @@ msgid ""
 "Then developer B has to decide which new filename of "
 "<filename>Foo.c</filename> to keep - the one done by developer A or the "
 "rename done by himself."
-msgstr ""
+msgstr "Quindi lo sviluppatore B deve decidere quale nuovo nome di file di <filename>Foo.c</filename> mantenere: quello fatto dallo sviluppatore A o il nome rinominato da lui stesso."
 
 #. (para)
 #. (para)
 msgid ""
 "After developer B has manually resolved the conflict, the tree conflict has "
 "to be marked as resolved with the button in the conflict editor dialog."
-msgstr ""
+msgstr "Dopo che lo sviluppatore B ha risolto manualmente il conflitto, il conflitto dell'albero deve essere contrassegnato come risolto con il pulsante nella finestra di dialogo dell'editor dei conflitti."
 
 #. (title)
 msgid "Local missing, incoming edit upon merge"
@@ -4279,13 +4279,13 @@ msgstr ""
 msgid ""
 "Developer A working on trunk modifies <filename>Foo.c</filename> and commits"
 " it to the repository"
-msgstr ""
+msgstr "Lo sviluppatore A, che lavora sul trunk, modifica <filename>Foo.c</filename> e lo committa nel repository"
 
 #. (para)
 msgid ""
 "Developer B working on a branch moves <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> and commits it to the repository"
-msgstr ""
+msgstr "Lo sviluppatore B, che lavora su un branch, sposta <filename>Foo.c</filename> su <filename>Bar.c</filename> e lo committa nel repository"
 
 #. (para)
 msgid ""
@@ -4295,7 +4295,7 @@ msgstr "<filename>Bar.c</filename> è già presente nella copia lavoro con statu
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as missing with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> è contrassegnato come mancante con un conflitto sull'albero."
 
 #. (para)
 #. (para)
@@ -4303,7 +4303,7 @@ msgstr ""
 msgid ""
 "A merge of developer A's trunk changes to developer B's branch working copy "
 "results in a tree conflict: <placeholder-1/>"
-msgstr ""
+msgstr "Il merge delle modifiche sul trunk dello sviluppatore A sulla copia di lavoro del branch dello sviluppatore B conduce a un conflitto sull'albero: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -4314,14 +4314,14 @@ msgid ""
 "to merge Developer A's changes to <filename>Foo.c</filename> into the "
 "renamed <filename>Bar.c</filename> or whether to ignore the changes by "
 "marking the conflict as resolved and doing nothing else."
-msgstr ""
+msgstr "Per risolvere questo conflitto, lo sviluppatore B deve contrassegnare il file come risolto nella finestra di dialogo dell'editor dei conflitti, che lo rimuoverà dall'elenco dei conflitti. Deve quindi decidere se copiare il file mancante <filename>Foo.c</filename> dal repository alla copia di lavoro, se unire le modifiche dello sviluppatore A a <filename>Foo.c</filename> nel rinominato <filename>Bar.c</filename> o se ignorare le modifiche contrassegnando il conflitto come risolto e non fare nient'altro."
 
 #. (para)
 msgid ""
 "Note that if you copy the missing file from the repository and then mark as "
 "resolved, your copy will be removed again. You have to resolve the conflict "
 "first."
-msgstr ""
+msgstr "Si noti che se si copia il file mancante dal repository e quindi si contrassegna come risolto, la copia verrà rimossa di nuovo. Devi risolvere il conflitto prima."
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
@@ -4332,34 +4332,34 @@ msgstr ""
 msgid ""
 "Developer A working on trunk moves <filename>Foo.c</filename> to "
 "<filename>Bar.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "Lo sviluppatore A che lavora sul trunk sposta <filename>Foo.c</filename> su <filename>Bar.c</filename> e lo committa nel repository."
 
 #. (para)
 msgid ""
 "Developer B working on a branch modifies <filename>Foo.c</filename> and "
 "commits it to the repository."
-msgstr ""
+msgstr "Lo sviluppatore B che lavora su un branch modifica <filename>Foo.c</filename> e lo committa nel repository."
 
 #. (para)
 msgid ""
 "Developer A working on trunk moves parent folder "
 "<filename>FooFolder</filename> to <filename>BarFolder</filename> and commits"
 " it to the repository."
-msgstr ""
+msgstr "Lo sviluppatore A che lavora sul trunk sposta la cartella padre <filename>FooFolder</filename> in <filename>BarFolder</filename> e la committa nel repository."
 
 #. (para)
 msgid ""
 "Developer B working on a branch modifies <filename>Foo.c</filename> in her "
 "working copy."
-msgstr ""
+msgstr "Lo sviluppatore B che lavora su un branch modifica <filename>Foo.c</filename> nella sua copia di lavoro."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added."
-msgstr ""
+msgstr "<filename>Bar.c</filename> è contrassegnato come aggiunto."
 
 #. (para)
 msgid "<filename>Foo.c</filename> is marked as modified with a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> è contrassegnato come modificato con un conflitto sull'albero."
 
 #. (para)
 msgid ""
@@ -4372,7 +4372,7 @@ msgid ""
 "currently no way to automate or even simplify this process. Once the changes"
 " have been ported across, the conflicted path is redundant and can be "
 "deleted."
-msgstr ""
+msgstr "Per unire le sue modifiche locali con il rimpasto, lo sviluppatore B deve prima scoprire con quale nome il file in conflitto <filename>Foo.c</filename> è stato rinominato/spostato nel repository. Questo può essere fatto usando la finestra di dialogo del log. L'editor dei conflitti mostra solo il log della copia di lavoro in quanto non sa quale percorso è stato utilizzato nell'unione, quindi dovrai cercarlo tu stesso. Le modifiche devono quindi essere unite manualmente poiché non esiste attualmente alcun modo per automatizzare o addirittura semplificare questo processo. Una volta che le modifiche sono state trasferite, il percorso in conflitto è ridondante e può essere eliminato."
 
 #. (para)
 msgid ""
@@ -4391,20 +4391,20 @@ msgstr ""
 msgid ""
 "Developer B working on a branch moves <filename>Foo.c</filename> to "
 "<filename>Bix.c</filename> and commits it to the repository."
-msgstr ""
+msgstr "Lo sviluppatore B che lavora su un branch sposta <filename>Foo.c</filename> in <filename>Bix.c</filename> e lo committa nel repository."
 
 #. (para)
 msgid "<filename>Bix.c</filename> is marked with normal (unmodified) status."
-msgstr ""
+msgstr "<filename>Bix.c</filename> è contrassegnato con lo stato normale (non modificato)."
 
 #. (para)
 msgid "<filename>Bar.c</filename> is marked as added with history."
-msgstr ""
+msgstr "<filename>Bar.c</filename> è contrassegnato come aggiunto con la cronologia."
 
 #. (para)
 msgid ""
 "<filename>Foo.c</filename> is marked as missing and has a tree conflict."
-msgstr ""
+msgstr "<filename>Foo.c</filename> è contrassegnato come mancante e ha un conflitto sull'albero."
 
 #. (para)
 msgid ""
@@ -4415,7 +4415,7 @@ msgstr ""
 
 #. (title)
 msgid "Other tree conflicts"
-msgstr ""
+msgstr "Altri conflitti sull'albero"
 
 #. (para)
 msgid ""
@@ -4431,7 +4431,7 @@ msgstr ""
 
 #. (title)
 msgid "Getting Status Information"
-msgstr ""
+msgstr "Ottenere informazioni sullo stato"
 
 #. (primary)
 #. (primary)
@@ -4451,7 +4451,7 @@ msgid ""
 "While you are working on your working copy you often need to know which "
 "files you have changed/added/removed or renamed, or even which files got "
 "changed and committed by others."
-msgstr ""
+msgstr "Mentre stai lavorando sulla tua copia di lavoro, spesso devi sapere quali file sono stati modificati/aggiunti/rimossi o rinominati, o anche quali file sono stati modificati e committati da altri."
 
 #. (primary)
 #. (primary)
@@ -4470,14 +4470,14 @@ msgid ""
 "called overlay icon to each file icon which overlaps the original file icon."
 " Depending on the Subversion status of the file the overlay icon is "
 "different."
-msgstr ""
+msgstr "Ora che hai effettuato il checkout su una cartella di lavoro da un repository di Subversion puoi vedere i tuoi file in Windows Explorer con le icone modificate. Questo è uno dei motivi per cui TortoiseSVN è così popolare. TortoiseSVN aggiunge una cosiddetta icona di sovrapposizione ad ogni icona di file che si sovrappone all'icona del file originale. A seconda dello stato di Subversion del file, l'icona di sovrapposizione è diversa."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/InSubVersionIcon.png\"/> A fresh checked out "
 "working copy has a green checkmark as overlay. That means the Subversion "
 "status is <emphasis>normal</emphasis>."
-msgstr ""
+msgstr "<graphic fileref=\"../images/InSubVersionIcon.png\"/> Una copia di lavoro appena scaricata ha un segno di spunta verde come sovrapposizione. Ciò significa che lo stato di Subversion è <emphasis>normale</emphasis>."
 
 #. (para)
 msgid ""
@@ -4486,14 +4486,14 @@ msgid ""
 "icon overlay then changes to a red exclamation mark. That way you can easily"
 " see which files were changed since you last updated your working copy and "
 "need to be committed."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ModifiedIcon.png\"/> Non appena inizi a modificare un file, lo stato cambia in <emphasis>modificato</emphasis> e l'icona sovrapposta diventa quindi un punto esclamativo rosso. In questo modo puoi facilmente vedere quali file sono stati modificati dall'ultima volta che hai aggiornato la tua copia di lavoro e sui quali devi eseguire il commit."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ConflictIcon.png\"/> If during an update a "
 "<emphasis>conflict</emphasis> occurs then the icon changes to a yellow "
 "exclamation mark."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ConflictIcon.png\"/> Se durante un aggiornamento si verifica un <emphasis>conflitto</emphasis>, l'icona diventa un punto esclamativo giallo."
 
 #. (para)
 msgid ""
@@ -4502,7 +4502,7 @@ msgid ""
 "file read-only until you get a lock on that file. Such files have this "
 "overlay to indicate that you have to get a lock first before you can edit "
 "that file."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ReadOnlyIcon.png\"/> Se hai impostato la proprietà <literal>svn:needs-lock</literal> su un file, Subversion rende quel file di sola lettura fino a quando non richiedi un blocco su quel file. Tali file hanno questa sovrapposizione per indicare che è necessario ottenere un blocco prima di poter modificare quel file."
 
 #. (para)
 msgid ""
@@ -4510,7 +4510,7 @@ msgid ""
 "file, and the Subversion status is <emphasis>normal</emphasis>, this icon "
 "overlay reminds you that you should release the lock if you are not using it"
 " to allow others to commit their changes to the file."
-msgstr ""
+msgstr "<graphic fileref=\"../images/LockedIcon.png\"/> Se si mantiene un blocco su un file e lo stato di Subversion è <emphasis>normale</emphasis>, questa sovrapposizione di icone ti ricorda che è necessario rilasciare il blocco se non lo si utilizza per consentire ad altri utenti di committare le loro modifiche al file."
 
 #. (para)
 msgid ""
@@ -4518,28 +4518,28 @@ msgid ""
 "some files or folders inside the current folder have been scheduled to be "
 "<emphasis>deleted</emphasis> from version control or a file under version "
 "control is missing in a folder."
-msgstr ""
+msgstr "<graphic fileref=\"../images/DeletedIcon.png\"/> Questa icona mostra che alcuni file o cartelle all'interno della cartella corrente sono stati programmati per essere <emphasis>eliminati</emphasis> dal controllo di versione o un file soggetto al controllo di versione è mancante in una cartella."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/AddedIcon.png\"/> The plus sign tells you that "
 "a file or folder has been scheduled to be <emphasis>added</emphasis> to "
 "version control."
-msgstr ""
+msgstr "<graphic fileref=\"../images/AddedIcon.png\"/> Il segno più indica che è stata programmata l'<emphasis>aggiunta</emphasis> di un file o una cartella al controllo di versione."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/IgnoredIcon.png\"/> The bar sign tells you that"
 " a file or folder is <emphasis>ignored</emphasis> for version control "
 "purposes. This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/IgnoredIcon.png\"/> Il simbolo della barra indica che un file o una cartella vengono <emphasis>ignorati</emphasis> ai fini del controllo della versione. Questa icona sovrapposta è facoltativa."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/UnversionedIcon.png\"/> This icon shows files "
 "and folders which are not under version control, but have not been ignored. "
 "This overlay is optional."
-msgstr ""
+msgstr "<graphic fileref=\"../images/UnversionedIcon.png\"/> Questa icona mostra i file e le cartelle che non sono sotto controllo di versione, ma non sono stati ignorati. Questa icona sovrapposta è facoltativa. "
 
 #. (para)
 msgid ""
@@ -4549,7 +4549,7 @@ msgid ""
 "enough overlay slots available. TortoiseSVN tries to be a <quote>Good "
 "Citizen (TM)</quote> and limits its use of overlays to give other apps a "
 "chance too."
-msgstr ""
+msgstr "In effetti, potresti scoprire che non tutte queste icone sono utilizzate nel tuo sistema. Ciò è dovuto al fatto che il numero di sovrapposizioni consentite da Windows è molto limitato e se si utilizza anche una versione precedente di TortoiseCVS, non sono disponibili abbastanza slot di sovrapposizione. TortoiseSVN cerca di essere un <quote>Buon Cittadino (TM)</quote> e limita il suo uso degli overlay per dare una possibilità anche ad altre app."
 
 #. (para)
 msgid ""
@@ -4558,14 +4558,14 @@ msgid ""
 "TortoiseSVN project introduced a common shared icon set, loaded as a DLL, "
 "which can be used by all Tortoise clients. Check with your client provider "
 "to see if this has been integrated yet :-)"
-msgstr ""
+msgstr "Ora che ci sono più clienti Tortoise in giro (TortoiseCVS, TortoiseHg, ...) il limite dell'icona diventa un vero problema. Per ovviare a questo problema, il progetto TortoiseSVN ha introdotto un comune set di icone condivise, caricato come una DLL, che può essere utilizzato da tutti i client Tortoise. Verifica con il tuo fornitore del client per vedere se questo è stato ancora integrato :-)"
 
 #. (para)
 msgid ""
 "For a description of how icon overlays correspond to Subversion status and "
 "other technical details, read <xref linkend=\"tsvn-app-internals-"
 "overlays\"/>."
-msgstr ""
+msgstr "Per una descrizione di come le sovrapposizioni di icone corrispondono allo stato di Subversion e altri dettagli tecnici, leggi <xref linkend=\"tsvn-app-internals-overlays\"/>."
 
 #. (title)
 msgid "Detailed Status"
@@ -4591,11 +4591,11 @@ msgid ""
 " box TortoiseSVN has added a new property page for files/folders under "
 "Subversion control, where you can see all relevant information about the "
 "selected file/directory."
-msgstr ""
+msgstr "<placeholder-1/> A volte si desidera avere informazioni più dettagliate su un file/directory piuttosto che sulla sovrapposizione di icone. Puoi ottenere tutte le informazioni fornite da Subversion nella finestra di dialogo delle proprietà di Explorer. Basta selezionare il file o la directory e selezionare <menuchoice><guimenu>Windows Menu</guimenu><guimenuitem>Proprietà</guimenuitem></menuchoice> nel menu di scelta rapida (nota: questa è la normale voce di menu delle proprietà fornita da explorer, non quella del sottomenu TortoiseSVN!). Nella finestra di dialogo delle proprietà TortoiseSVN ha aggiunto una nuova pagina delle proprietà per i file/cartelle sotto il controllo Subversion, in cui è possibile visualizzare tutte le informazioni rilevanti sul file/cartella selezionato."
 
 #. (title)
 msgid "Local and Remote Status"
-msgstr ""
+msgstr "Stato Locale e Remoto"
 
 #. (primary)
 msgid "modifications"
@@ -4614,7 +4614,7 @@ msgid ""
 "Modifications...</guimenuitem></menuchoice> comes in handy. This dialog will"
 " show you every file that has changed in any way in your working copy, as "
 "well as any unversioned files you may have."
-msgstr ""
+msgstr "<placeholder-1/> Spesso è molto utile sapere quali file sono stati modificati e anche quali file sono stati modificati e impegnati da altri. È qui che il comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Verifica modifiche...</guimenuitem></menuchoice> è utile. Questa finestra di dialogo mostrerà tutti i file che sono stati modificati in qualsiasi modo nella tua copia di lavoro, così come tutti i file non soggetti al controllo di versione che potresti avere."
 
 #. (para)
 msgid ""
@@ -4627,83 +4627,83 @@ msgid ""
 "files and folders in the repository, even those you have not checked out, "
 "then you have to hold down the <keycap>Shift</keycap> key when you click on "
 "the <guibutton>Check Repository</guibutton> button."
-msgstr ""
+msgstr "Se fai clic sul <guibutton>Verifica Repository</guibutton>, puoi anche cercare le modifiche nel repository. In questo modo puoi controllare prima di un aggiornamento se c'è un possibile conflitto. È inoltre possibile aggiornare i file selezionati dal repository senza aggiornare l'intera cartella. Per impostazione predefinita, il pulsante <guibutton>Verifica Repository</guibutton> recupera solo lo stato remoto con la profondità di checkout della copia di lavoro. Se vuoi vedere tutti i file e le cartelle nel repository, anche quelli che non hai estratto, devi tenere premuto il tasto <keycap>Maiusc</keycap> quando fai clic sul pulsante <guibutton>Verifica Repository</guibutton>."
 
 #. (para)
 msgid "Locally modified items."
-msgstr ""
+msgstr "Elementi modificati localmente."
 
 #. (para)
 msgid ""
 "Added items. Items which have been added with history have a "
 "<literal>+</literal> sign in the <guilabel>Text status</guilabel> column, "
 "and a tooltip shows where the item was copied from."
-msgstr ""
+msgstr "Elementi aggiunti. Gli elementi che sono stati aggiunti con la cronologia hanno un segno <literal>+</literal> nella colonna <guilabel>Stato del testo</guilabel> e un tooltip mostra da dove l'oggetto è stato copiato."
 
 #. (para)
 msgid "Deleted or missing items."
-msgstr ""
+msgstr "Elementi eliminati o mancanti."
 
 #. (para)
 msgid ""
 "Items modified locally and in the repository. The changes will be merged on "
 "update. These <emphasis>may</emphasis> produce conflicts on update."
-msgstr ""
+msgstr "Elementi modificati localmente e nel repository. Le modifiche verranno unite in seguito all'aggiornamento. Questi <emphasis>potrebbero</emphasis> produrre conflitti durante l'aggiornamento."
 
 #. (para)
 msgid ""
 "Items modified locally and deleted in repository, or modified in repository "
 "and deleted locally. These <emphasis>will</emphasis> produce conflicts on "
 "update."
-msgstr ""
+msgstr "Elementi modificati localmente ed eliminati nel repository o modificati nel repository ed eliminati localmente. Questi <emphasis>produrranno</emphasis> conflitti durante l'aggiornamento."
 
 #. (para)
 msgid "Unchanged and unversioned items."
-msgstr ""
+msgstr "Elementi invariati e non soggetti al controllo di versione."
 
 #. (para)
 msgid ""
 "The dialog uses colour coding to highlight the status. <placeholder-1/>"
-msgstr ""
+msgstr "La finestra di dialogo utilizza la codifica a colori per evidenziare lo stato. <placeholder-1/>"
 
 #. (para)
 msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
-msgstr ""
+msgstr "Profondità di checkout <literal>vuota</literal>, ovvero solo l'elemento stesso."
 
 #. (para)
 msgid ""
 "Checkout depth <literal>files</literal>, meaning only the item itself and "
 "all file children without child folders."
-msgstr ""
+msgstr "Profondità di checkout <literal>files</literal>, ovvero solo l'elemento stesso e tutti i file figli senza cartelle figlie."
 
 #. (para)
 msgid ""
 "Checkout depth <literal>immediates</literal>, meaning only the item itself "
 "and all file and folder children, but without children of the child folders."
-msgstr ""
+msgstr "Profondità di checkout <literal>prossima</literal>, ovvero solo l'elemento stesso e tutti i file e le cartelle figlie, ma senza i figli delle cartelle figlie."
 
 #. (para)
 msgid "Nested items, i.e., working copies inside the working copy."
-msgstr ""
+msgstr "Elementi annidati, cioè copie di lavoro all'interno della copia di lavoro."
 
 #. (para)
 msgid ""
 "External items, i.e., all items that are added via an "
 "<literal>svn:externals</literal> property."
-msgstr ""
+msgstr "Elementi esterni, ad esempio tutti gli elementi aggiunti tramite una proprietà <literal>svn:externals</literal>."
 
 #. (para)
 msgid ""
 "Items that are restored after a commit. See <xref linkend=\"tsvn-dug-commit-"
 "restore\"/> for details."
-msgstr ""
+msgstr "Elementi che vengono ripristinati dopo un commit. Vedi <xref linkend=\"tsvn-dug-commit-restore\"/> per i dettagli."
 
 #. (para)
 msgid ""
 "Items that have property modifications, but only to the "
 "<literal>svn:mergeinfo</literal> property. If any other property is "
 "modified, the overlay is not used."
-msgstr ""
+msgstr "Elementi che hanno modifiche di proprietà, ma solo alla proprietà <literal>svn:mergeinfo</literal>. Se viene modificata un'altra proprietà, la sovrapposizione delle icone non viene utilizzata."
 
 #. (para)
 msgid ""
@@ -4711,7 +4711,7 @@ msgid ""
 "below shows all the possible overlays that are shown if necessary. <graphic "
 "fileref=\"../images/statuslistoverlays.png\"/> Overlays are shown for the "
 "following states: <placeholder-1/>"
-msgstr ""
+msgstr "Le icone di sovrapposizione vengono utilizzate anche per indicare altri stati. Lo screenshot qui sotto mostra tutte le possibili sovrapposizioni che vengono mostrate, se necessario. <graphic fileref=\"../images/statuslistoverlays.png\"/> Gli overlay sono visualizzati per i seguenti stati: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -4720,7 +4720,7 @@ msgid ""
 "something while working on a branch and forgotten to switch back to trunk. "
 "This is your warning sign! The context menu allows you to switch them back "
 "to the normal path again."
-msgstr ""
+msgstr "Gli elementi che sono stati passati a un diverso percorso di repository sono anche indicati usando un indicatore <literal>(s)</literal>. Potresti avere effettuato lo switch mentre lavoravi su un branch e hai dimenticato di tornare al trunk. Questo è il tuo segnale di avvertimento! Il menu di scelta rapida consente di tornare nuovamente al percorso normale."
 
 #. (para)
 msgid ""
@@ -4730,14 +4730,14 @@ msgid ""
 "Base</guimenuitem></menuchoice>. Check the changes in the repository made by"
 " others using <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>Show "
 "Differences as Unified Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Dal menu di scelta rapida della finestra di dialogo è possibile visualizzare la differenza tra le modifiche. Controlla le <emphasis>tue</emphasis> modifiche locali che hai fatto usando <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Compara con Base</guimenuitem></menuchoice>. Controlla le modifiche nel repository fatte da altri usando <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Mostra Differenze unite</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
 "You can also revert changes in individual files. If you have deleted a file "
 "accidentally, it will show up as <emphasis>Missing</emphasis> and you can "
 "use <emphasis>Revert</emphasis> to recover it."
-msgstr ""
+msgstr "È inoltre possibile annullare le modifiche nei singoli file. Se hai cancellato un file accidentalmente, verrà visualizzato come <emphasis>Mancante</emphasis> e puoi utilizzare <emphasis>Ripristina</emphasis> per ripristinarlo."
 
 #. (para)
 msgid ""
@@ -4746,14 +4746,14 @@ msgid ""
 "Menu</guimenu><guimenuitem>Delete</guimenuitem></menuchoice>. If you want to"
 " delete files permanently (bypassing the recycle bin) hold the "
 "<keycap>Shift</keycap> key while clicking on <guilabel>Delete</guilabel>."
-msgstr ""
+msgstr "I file non soggetti al controllo di versione e quelli ignorati possono essere inviati al cestino da qui utilizzando il <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Elimina</guimenuitem></menuchoice>. Se si desidera eliminare definitivamente i file (bypassando il cestino) tenere premuto il tasto <keycap>Maiusc</keycap> mentre si fa clic su <guilabel>Elimina</guilabel>."
 
 #. (para)
 msgid ""
 "If you want to examine a file in detail, you can drag it from here into "
 "another application such as a text editor or IDE, or you can save a copy "
 "simply by dragging it into a folder in explorer."
-msgstr ""
+msgstr "Se si desidera esaminare un file in dettaglio, è possibile trascinarlo da qui in un'altra applicazione come un editor di testo o IDE, oppure è possibile salvare una copia semplicemente trascinandola in una cartella in Esplora risorse."
 
 #. (para)
 msgid ""
@@ -4762,14 +4762,14 @@ msgid ""
 "columns are displayed. You can also change column width by using the drag "
 "handle which appears when you move the mouse over a column boundary. These "
 "customizations are preserved, so you will see the same headings next time."
-msgstr ""
+msgstr "Le colonne sono personalizzabili Se fai <action>clic con il pulsante destro del mouse</action> su un'intestazione di una colonna, verrà visualizzato un menu di scelta rapida che consente di selezionare le colonne da visualizzare. Puoi anche cambiare la larghezza della colonna usando la maniglia di trascinamento che appare quando sposti il mouse sul limite di una colonna. Queste personalizzazioni sono conservate, quindi vedrai le stesse colonne la prossima volta."
 
 #. (para)
 msgid ""
 "If you are working on several unrelated tasks at once, you can also group "
 "files together into changelists. Read <xref linkend=\"tsvn-dug-commit-"
 "changelists\"/> for more information."
-msgstr ""
+msgstr "Se stai lavorando su più attività non correlate contemporaneamente, puoi anche raggruppare i file in elenchi di modifiche. Leggi <xref linkend=\"tsvn-dug-commit-changelists\"/> per ulteriori informazioni."
 
 #. (para)
 msgid ""
@@ -4781,7 +4781,7 @@ msgid ""
 " revision range shown applies only to the items displayed, not to the entire"
 " working copy. If you want to see that information for the whole working "
 "copy you must check the <guilabel>Show unmodified files</guilabel> checkbox."
-msgstr ""
+msgstr "Nella parte inferiore della finestra di dialogo è possibile visualizzare un riepilogo della gamma di revisioni del repository in uso nella copia di lavoro. Queste sono le revisioni del <emphasis>commit</emphasis>, non le revisioni degli <emphasis>aggiornamenti</emphasis>; rappresentano l'intervallo di revisioni in cui sono stati effettuati gli ultimi commit di questi file, non le revisioni a cui sono stati aggiornati. Si noti che l'intervallo di revisione mostrato si applica solo agli articoli visualizzati, non all'intera copia di lavoro. Se si desidera visualizzare tali informazioni per l'intera copia di lavoro, è necessario selezionare la casella di spunta <guilabel>Mostra file non modificati</guilabel>."
 
 #. (para)
 msgid ""
@@ -4790,7 +4790,7 @@ msgid ""
 " Modifications</guilabel> dialog is the easiest way to achieve that. Just "
 "check the <guilabel>Show unmodified files</guilabel> checkbox to show all "
 "files in your working copy."
-msgstr ""
+msgstr "Se si desidera una visualizzazione piatta della propria copia di lavoro, ovvero la visualizzazione di tutti i file e le cartelle a tutti i livelli della gerarchia delle cartelle, la finestra di dialogo <guilabel>Verifica modifiche</guilabel> è il modo più semplice per ottenere ciò. Seleziona la casella di spunta <guilabel>Mostra file non modificati</guilabel> per mostrare tutti i file nella tua copia di lavoro."
 
 #. (title)
 msgid "Viewing Diffs"
@@ -4808,13 +4808,13 @@ msgid ""
 "This starts the external diff-viewer, which will then compare the current "
 "file with the pristine copy (<literal>BASE</literal> revision), which was "
 "stored after the last checkout or update."
-msgstr ""
+msgstr "Spesso vuoi guardare dentro i tuoi file, per dare un'occhiata a ciò che hai cambiato. È possibile farlo selezionando un file che è cambiato e selezionando <guimenuitem>Diff</guimenuitem> dal menu contestuale di TortoiseSVN. Questo avvia il visualizzatore delle differenze esterno, che confronta quindi il file corrente con la copia pristine (revisione <literal>BASE</literal>), che è stata memorizzata dopo l'ultimo checkout o aggiornamento."
 
 #. (para)
 msgid ""
 "Even when not inside a working copy or when you have multiple versions of "
 "the file lying around, you can still display diffs:"
-msgstr ""
+msgstr "Anche quando non ci si trova all'interno di una copia di lavoro o quando ci sono più versioni del file in giro, è comunque possibile visualizzare le differenze:"
 
 #. (para)
 msgid ""
@@ -4823,7 +4823,7 @@ msgid ""
 "<guimenuitem>Diff</guimenuitem> from TortoiseSVN's context menu. The file "
 "clicked last (the one with the focus, i.e. the dotted rectangle) will be "
 "regarded as the later one."
-msgstr ""
+msgstr "Seleziona i due file che vuoi confrontare in explorer (ad esempio usando <keycap>Ctrl</keycap> e il mouse) e scegli <guimenuitem>Diff</guimenuitem> dal menu contestuale di TortoiseSVN. Il file cliccato per ultimo (quello con lo stato attivo, vale a dire il rettangolo punteggiato) verrà considerato come il successivo."
 
 #. (primary)
 msgid "changelist"
@@ -4839,7 +4839,7 @@ msgid ""
 "files together, making it easier to see what you are doing. Of course this "
 "can only work if the changes do not overlap. If two different tasks affect "
 "the same file, there is no way to separate the changes."
-msgstr ""
+msgstr "In un mondo ideale, lavori sempre su una cosa alla volta e la tua copia di lavoro contiene solo una serie di modifiche logiche. OK, torna alla realtà. Accade spesso che devi lavorare su più attività non correlate contemporaneamente, e quando guardi nella finestra di dialogo di commit, tutte le modifiche vengono mescolate insieme. La funzionalità <firstterm>elenco delle modifiche</firstterm> ti aiuta a raggruppare i file, rendendo più facile vedere cosa stai facendo. Ovviamente questo può funzionare solo se le modifiche non si sovrappongono. Se due attività diverse influenzano lo stesso file, non c'è modo di separare le modifiche."
 
 #. (para)
 msgid ""
@@ -4849,7 +4849,7 @@ msgid ""
 "and many files. When you first open the dialog, all the changed files are "
 "listed together. Suppose you now want to organise things and group those "
 "files according to feature."
-msgstr ""
+msgstr "Puoi vedere gli elenchi delle modifiche in diversi punti, ma i più importanti sono la finestra di dialogo di commit e la finestra di dialogo controllo delle modifiche. Iniziamo nella finestra di dialogo per il controllo delle modifiche dopo aver lavorato su diverse funzionalità e molti file. Quando apri per la prima volta la finestra di dialogo, tutti i file modificati sono elencati insieme. Supponiamo che ora tu voglia organizzare le cose e raggruppare quei file in base alle funzionalità."
 
 #. (para)
 msgid ""
@@ -4859,7 +4859,7 @@ msgid ""
 "first time you do this you will create a new changelist. Give it name which "
 "describes what you are using it for, and click <guibutton>OK</guibutton>. "
 "The dialog will now change to show groups of items."
-msgstr ""
+msgstr "Selezionare uno o più file e utilizzare il <menuchoice><guimenu>Menu Contestuale</guimenu><guimenuitem>Sposta in un elenco delle modifiche</guimenuitem></menuchoice> per aggiungere un elemento a un elenco delle modifiche. Inizialmente non ci saranno elenchi delle modifiche, quindi la prima volta che lo fai creerai un nuovo elenco delle modifiche. Dagli un nome che descriva quello che stai usando e fai clic su <guibutton>OK</guibutton>. La finestra di dialogo ora cambierà per mostrare gruppi di elementi."
 
 #. (para)
 msgid ""
@@ -4868,11 +4868,11 @@ msgid ""
 "Explorer can be useful as it allows you to add items to a changelist before "
 "the file is modified. You could do that from the check-for-modifications "
 "dialog, but only by displaying all unmodified files."
-msgstr ""
+msgstr "Una volta creato un elenco delle modifiche, puoi trascinare gli elementi in esso, da un altro elenco delle modifiche o da Esplora risorse. Il trascinamento da Esplora risorse può essere utile in quanto consente di aggiungere elementi a un elenco di modifiche prima che il file venga modificato. È possibile farlo dalla finestra di dialogo per il controllo delle modifiche, ma solo visualizzando tutti i file non modificati."
 
 #. (title)
 msgid "Commit dialog with Changelists"
-msgstr ""
+msgstr "Finestra di dialogo del commit e elenchi delle modifiche"
 
 #. (para)
 msgid ""
@@ -4880,7 +4880,7 @@ msgid ""
 "by changelist. Apart from giving an immediate visual indication of "
 "groupings, you can also use the group headings to select which files to "
 "commit."
-msgstr ""
+msgstr "<placeholder-1/> Nella finestra di dialogo di commit puoi vedere quegli stessi file, raggruppati per elenco delle modifiche. Oltre a dare un'indicazione visiva immediata dei raggruppamenti, puoi anche utilizzare le intestazioni di gruppo per selezionare i file da committare. "
 
 #. (para)
 msgid ""
@@ -4888,7 +4888,7 @@ msgid ""
 ">ignore-on-commit</literal>. This is used to mark versioned files which you "
 "almost never want to commit even though they have local changes. This "
 "feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
-msgstr ""
+msgstr "TortoiseSVN riserva un nome dell'elenco modifiche per proprio uso, ovvero <literal>ignore-on-commit</literal>. Viene utilizzato per contrassegnare i file soggetti al controllo di versione che quasi mai non si desidera eseguire il commit anche se hanno modifiche locali. Questa funzione è descritta in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
 msgid ""
@@ -4897,33 +4897,33 @@ msgid ""
 "files are removed from changelists automatically on commit. If you wish to "
 "retain the file in its changelist, use the <guilabel>Keep "
 "changelists</guilabel> checkbox at the bottom of the commit dialog."
-msgstr ""
+msgstr "Quando si committano i file appartenenti a un elenco delle modifiche, normalmente ci si aspetterebbe che l'appartenenza agli elenchi di modifiche non sia più necessaria. Quindi, per impostazione predefinita, i file vengono rimossi automaticamente dagli elenchi delle modifiche al momento del commit. Se desideri conservare il file nel suo elenco delle modifiche, utilizza la casella di spunta <guilabel>Mantieni elenchi delle modifiche</guilabel> nella parte inferiore della finestra di dialogo di commit."
 
 #. (para)
 msgid ""
 "Changelists are purely a local client feature. Creating and removing "
 "changelists will not affect the repository, nor anyone else's working copy. "
 "They are simply a convenient way for you to organise your files."
-msgstr ""
+msgstr "Gli elenchi delle modifiche sono puramente una funzione del client locale. La creazione e la rimozione di degli elenchi delle modifiche non influirà sul repository, né sulla copia di lavoro di altri. Sono semplicemente un modo conveniente per organizzare i file."
 
 #. (para)
 msgid ""
 "Note that if you use changelists, externals will no longer show up in their "
 "own groups anymore. Once there are changelists, files and folders are "
 "grouped by changelist, not by external anymore."
-msgstr ""
+msgstr "Nota che se usi gli elenchi delle modifiche, gli elementi esterni non verranno più visualizzati nei loro gruppi. Una volta che ci sono gli elenchi delle modifiche, i file e le cartelle sono raggruppati per elenchi delle modifiche, non più da elementi esterni."
 
 #. (title)
 msgid "Shelving"
-msgstr ""
+msgstr "Sospensione"
 
 #. (primary)
 msgid "shelve"
-msgstr ""
+msgstr "sospendi"
 
 #. (primary)
 msgid "unshelve"
-msgstr ""
+msgstr "riprendi"
 
 #. (para)
 msgid ""
@@ -4933,7 +4933,7 @@ msgid ""
 "you should commit the changes you have done so far and then start working on"
 " the urgent issue, but often those changes would break the build or are just"
 " not ready for committing yet."
-msgstr ""
+msgstr "Molto più spesso del voluto, è necessario interrompere ciò su cui stavi lavorando e lavorare su qualcos'altro. Ad esempio, un problema serio richiede un intervento immediato e devi smettere di lavorare sulla nuova funzione. Se possibile, dovresti committare le modifiche che hai fatto fino ad ora e poi iniziare a lavorare sul problema urgente, ma spesso quelle modifiche potrebbero interrompere la compilazione o non sono ancora pronte per il commit."
 
 #. (para)
 msgid ""
@@ -4944,17 +4944,17 @@ msgid ""
 " again and work on the issue. After you're finished with the urgent issue "
 "and you've committed those changes, you can <firstterm>unshelve</firstterm> "
 "your shelved work and continue working on your previous task again."
-msgstr ""
+msgstr "Quindi se non riesci ancora a committare i tuoi cambiamenti locali, devi metterli da parte mentre lavori sul problema urgente. La funzione di <firstterm>accantonamento</firstterm> ti aiuta a fare esattamente questo: puoi memorizzare le modifiche locali su un ripiano, riprendere la copia di lavoro in uno stato pulito e lavorare sul problema. Dopo aver terminato il problema urgente e aver committato tali modifiche, puoi <firstterm>riprendere</firstterm> il lavoro in sospeso e continuare a lavorare nuovamente sull'attività precedente."
 
 #. (para)
 msgid ""
 "Two new commands are implemented for this. One for shelving and one for "
 "unshelving."
-msgstr ""
+msgstr "Per questo sono implementati due nuovi comandi. Uno per sospendere e uno per riprendere."
 
 #. (title)
 msgid "Shelve dialog"
-msgstr ""
+msgstr "Finestra di dialogo Sospendi"
 
 #. (para)
 msgid ""
@@ -4965,11 +4965,11 @@ msgid ""
 "under which you want to store them. <placeholder-1/> Then click "
 "<guibutton>OK</guibutton> and the changes are stored under the name you "
 "specified, and your working copy is reset to a clean state."
-msgstr ""
+msgstr "Per sospendere le tue modifiche locali, seleziona la tua copia di lavoro e usa il <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Sospendi</guimenuitem></menuchoice>. La finestra di dialogo seguente ti permette di selezionare i file che vuoi accantonare e di dare un nome sotto il quale vuoi memorizzarli. <placeholder-1/> Quindi fare clic su <guibutton>OK</guibutton> e le modifiche vengono memorizzate sotto il nome specificato e la copia di lavoro viene ripristinata in uno stato pulito."
 
 #. (title)
 msgid "Unshelve dialog"
-msgstr ""
+msgstr "Finestra di dialogo Riprendi"
 
 #. (para)
 msgid ""
@@ -4978,19 +4978,19 @@ msgid ""
 "unshelve dialog. This dialog shows you a list of all shelved items. Select "
 "the shelved item you want to apply back to your working copy and click "
 "<guibutton>OK</guibutton>. <placeholder-1/>"
-msgstr ""
+msgstr "Per riprendere le modifiche, utilizzare il <menuchoice><guimenu>Menu Contestuale</guimenu><guimenuitem>Riprendi</guimenuitem></menuchoice> per ottenere la finestra di dialogo Riprendi. Questa finestra di dialogo ti mostra una lista di tutti gli oggetti sospesi. Seleziona l'oggetto sospeso che vuoi applicare alla tua copia di lavoro e clicca <guibutton>OK</guibutton>. <placeholder-1/>"
 
 #. (para)
 msgid ""
 "Shelves are purely a local client feature. Creating and removing Shelves "
 "will not affect the repository, nor anyone else's working copy."
-msgstr ""
+msgstr "Le sospensioni sono puramente una funzione del client locale. La creazione e la rimozione di Sospensioni non influenzeranno il repository, né la copia di lavoro di nessun altro."
 
 #. (para)
 msgid ""
 "Currently only text files can be shelved and unshelved. Binary files and "
 "text files encoded in utf-16 (unicode) can not be shelved."
-msgstr ""
+msgstr "Attualmente solo i file di testo possono essere sospesi e ripresi. I file binari e i file di testo codificati in utf-16 (unicode) non possono essere sospesi."
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -5017,30 +5017,30 @@ msgid ""
 "For every change you make and commit, you should provide a log message for "
 "that change. That way you can later find out what changes you made and why, "
 "and you have a detailed log for your development process."
-msgstr ""
+msgstr "Per ogni modifica apportata e committata, è necessario fornire un messaggio di log per tale modifica. In questo modo potrai scoprire in seguito quali modifiche hai apportato e perché, e hai un registro dettagliato per il tuo processo di sviluppo."
 
 #. (para)
 msgid ""
 "The top pane shows a list of revisions where changes to the file/folder have"
 " been committed. This summary includes the date and time, the person who "
 "committed the revision and the start of the log message."
-msgstr ""
+msgstr "Il riquadro superiore mostra un elenco di revisioni in cui sono state committate le modifiche al file/cartella. Questo riepilogo include la data e l'ora, la persona che ha committato la revisione e l'inizio del messaggio di log."
 
 #. (para)
 msgid ""
 "Lines shown in blue indicate that something has been copied to this "
 "development line (perhaps from a branch)."
-msgstr ""
+msgstr "Le linee mostrate in blu indicano che qualcosa è stato copiato su questa linea di sviluppo (forse da un branch)."
 
 #. (para)
 msgid "The middle pane shows the full log message for the selected revision."
-msgstr ""
+msgstr "Il riquadro centrale mostra il messaggio di log completo per la revisione selezionata."
 
 #. (para)
 msgid ""
 "The bottom pane shows a list of all files and folders that were changed as "
 "part of the selected revision."
-msgstr ""
+msgstr "Il riquadro in basso mostra un elenco di tutti i file e le cartelle che sono stati modificati come parte della revisione selezionata."
 
 #. (para)
 msgid ""
@@ -5048,19 +5048,19 @@ msgid ""
 "you. The display is divided into 3 panes. <placeholder-1/> But it does much "
 "more than that - it provides context menu commands which you can use to get "
 "even more information about the project history."
-msgstr ""
+msgstr "La finestra di dialogo Registro Revisione recupera tutti quei messaggi di log e li mostra all'utente. Il display è diviso in 3 riquadri. <placeholder-1/> Ma fa molto di più: fornisce comandi del menu contestuale che puoi usare per ottenere ancora più informazioni sulla cronologia del progetto."
 
 #. (title)
 msgid "Invoking the Revision Log Dialog"
-msgstr ""
+msgstr "Richiamo della finestra di dialogo Registro Revisione"
 
 #. (title)
 msgid "The Revision Log Dialog"
-msgstr ""
+msgstr "Finestra di dialogo Registro Revisione"
 
 #. (para)
 msgid "From the TortoiseSVN context submenu"
-msgstr ""
+msgstr "Dal sottomenu contestuale TortoiseSVN"
 
 #. (para)
 msgid "From the property page"
@@ -5070,24 +5070,24 @@ msgstr "Dalle proprietà della pagina"
 msgid ""
 "From the Progress dialog after an update has finished. Then the Log dialog "
 "only shows those revisions which were changed since your last update"
-msgstr ""
+msgstr "Dalla finestra di dialogo Avanzamento al termine di un aggiornamento. Quindi la finestra di dialogo Log mostra solo le revisioni che sono state modificate dal tuo ultimo aggiornamento"
 
 #. (para)
 msgid "From the repository browser"
-msgstr ""
+msgstr "Dal browser del repository"
 
 #. (para)
 msgid ""
 "<placeholder-1/> There are several places from where you can show the Log "
 "dialog: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Esistono diverse posizioni in cui è possibile visualizzare la finestra di dialogo del Log: <placeholder-2/>"
 
 #. (para)
 msgid ""
 "If the repository is unavailable you will see the <guilabel>Want to go "
 "offline?</guilabel> dialog, described in <xref linkend=\"tsvn-dug-showlog-"
 "cache\"/>."
-msgstr ""
+msgstr "Se il repository non è disponibile, vedrai la finestra di dialogo <guilabel>Vuoi andare offline?</guilabel>, descritto in <xref linkend=\"tsvn-dug-showlog-cache\"/>."
 
 #. (title)
 msgid "Revision Log Actions"
@@ -5098,56 +5098,56 @@ msgid ""
 "The top pane has an <guilabel>Actions</guilabel> column containing icons "
 "that summarize what has been done in that revision. There are four different"
 " icons, each shown in its own column."
-msgstr ""
+msgstr "Il riquadro superiore ha una colonna <guilabel>Azioni</guilabel> contenente delle icone che riassumono ciò che è stato fatto in quella revisione. Ci sono quattro icone diverse, ciascuna mostrata nella sua colonna."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> If a revision "
 "modified a file or directory, the <emphasis>modified</emphasis> icon is "
 "shown in the first column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionModifiedIcon.png\"/> Se una revisione modifica un file o una directory, l'icona con il simbolo <emphasis>modificato</emphasis> viene mostrata nella prima colonna. "
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionAddedIcon.png\"/> If a revision added a "
 "file or directory, the <emphasis>added</emphasis> icon is shown in the "
 "second column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionAddedIcon.png\"/> Se una revisione aggiunge un file o una directory, l'icona con il simbolo <emphasis>aggiunto</emphasis> viene mostrata nella seconda colonna. "
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> If a revision deleted"
 " a file or directory, the <emphasis>deleted</emphasis> icon is shown in the "
 "third column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionDeletedIcon.png\"/> Se una revisione cancella un file o una directory, l'icona con il simbolo <emphasis>cancellato</emphasis> viene mostrata nella terza colonna."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> If a revision "
 "replaced a file or directory, the <emphasis>replaced</emphasis> icon is "
 "shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionReplacedIcon.png\"/> Se una revisione ha sostituito un file o una directory, l'icona con il simbolo <emphasis>sostituito</emphasis> viene visualizzata nella quarta colonna."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionMovedIcon.png\"/> If a revision moved or "
 "renamed a file or directory, the <emphasis>moved</emphasis> icon is shown in"
 " the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMovedIcon.png\"/> Se una revisione viene spostata o rinominata in un file o in una directory, l'icona con il simbolo <emphasis>spostato</emphasis> viene visualizzata nella quarta colonna."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> If a revision "
 "replaced a file or directory by moving/renaming it, the <emphasis>move "
 "replaced</emphasis> icon is shown in the fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> Se una revisione sostituisce un file o una directory spostandola/rinominandola, l'icona con il simbolo <emphasis>spostato o sostituito</emphasis> viene mostrata nella quarta colonna."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"../images/ActionMergedIcon.png\"/> If a revision merged a"
 " file or directory, the <emphasis>merged</emphasis> icon is shown in the "
 "fourth column."
-msgstr ""
+msgstr "<graphic fileref=\"../images/ActionMergedIcon.png\"/> Se una revisione unisce un file o una directory, l'icona con il simbolo <emphasis>unito</emphasis> viene mostrata nella quarta colonna."
 
 #. (para)
 msgid ""
@@ -5162,7 +5162,7 @@ msgstr "Ricezione di maggiori informazioni"
 
 #. (title)
 msgid "The Revision Log Dialog Top Pane with Context Menu"
-msgstr ""
+msgstr "Riquadro principale della finestra di dialogo Registro di revisione con menu di scelta rapida"
 
 #. (term)
 msgid "Compare with working copy"
@@ -5174,7 +5174,7 @@ msgid ""
 "is TortoiseMerge which is supplied with TortoiseSVN. If the log dialog is "
 "for a folder, this will show you a list of changed files, and allow you to "
 "review the changes made to each file individually."
-msgstr ""
+msgstr "Confronta la revisione selezionata con la tua copia di lavoro. Il Diff-Tool di default è TortoiseMerge che viene fornito con TortoiseSVN. Se la finestra di dialogo del log è per una cartella, questo ti mostrerà un elenco di file modificati e ti consentirà di rivedere le modifiche apportate a ciascun file singolarmente."
 
 #. (term)
 msgid "Compare and blame with working BASE"
@@ -5197,7 +5197,7 @@ msgid ""
 "patch format). This shows only the differences with a few lines of context. "
 "It is harder to read than a visual file compare, but will show all file "
 "changes together in a compact format."
-msgstr ""
+msgstr "Visualizza le modifiche apportate nella revisione selezionata come file Unified-Diff (formato patch GNU). Questo mostra solo le differenze con alcune linee del contesto. È più difficile da leggere rispetto a un confronto di file visivi, ma mostrerà tutte le modifiche apportate ai file insieme in un formato compatto."
 
 #. (para)
 msgid ""
@@ -5205,7 +5205,7 @@ msgid ""
 "item, a dialog shows up first where you can set options for the unified "
 "diff. These options include the ability to ignore changes in line endings "
 "and whitespaces."
-msgstr ""
+msgstr "Se si tiene premuto il tasto <keycap>Maiusc</keycap> quando si fa clic sulla voce di menu, viene visualizzata prima una finestra di dialogo in cui è possibile impostare le opzioni per la differenza unificata. Queste opzioni includono la possibilità di ignorare le modifiche nelle terminazioni di linea e negli spazi bianchi."
 
 #. (term)
 msgid "Compare with previous revision"
@@ -5217,7 +5217,7 @@ msgid ""
 "similar manner to comparing with your working copy. For folders this option "
 "will first show the changed files dialog allowing you to select files to "
 "compare."
-msgstr ""
+msgstr "Confronta la revisione selezionata con la revisione precedente. Funziona in modo simile al confronto con la tua copia di lavoro. Per le cartelle questa opzione mostrerà per prima cosa la finestra di dialogo dei file modificati che consente di selezionare i file da confrontare."
 
 #. (term)
 msgid "Compare and blame with previous revision"
@@ -5240,7 +5240,7 @@ msgstr "Salva la revisione come..."
 msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file. (files only)"
-msgstr ""
+msgstr "Salva la revisione selezionata in un file in modo da avere una versione precedente di quel file. (solo file)"
 
 #. (term)
 #. (term)
@@ -5251,7 +5251,7 @@ msgstr "Apri / Apri con..."
 msgid ""
 "Open the selected file, either with the default viewer for that file type, "
 "or with a program you choose. (files only)"
-msgstr ""
+msgstr "Apri il file selezionato, con il visualizzatore predefinito per quel tipo di file o con un programma che scegli. (solo file)"
 
 #. (term)
 #. (term)
@@ -5270,7 +5270,7 @@ msgstr "Esplora repository"
 msgid ""
 "Open the repository browser to examine the selected file or folder in the "
 "repository as it was at the selected revision."
-msgstr ""
+msgstr "Apri il browser del repository per esaminare il file o la cartella selezionati nel repository come era nella revisione selezionata."
 
 #. (term)
 msgid "Create branch/tag from revision"
@@ -5281,7 +5281,7 @@ msgid ""
 "Create a branch or tag from a selected revision. This is useful e.g. if you "
 "forgot to create a tag and already committed some changes which weren't "
 "supposed to get into that release."
-msgstr ""
+msgstr "Crea un branch o un tag da una revisione selezionata. Questo è utile per es. se hai dimenticato di creare un tag e hai già committato alcune modifiche che non dovevano entrare in quella versione."
 
 #. (term)
 msgid "Update item to revision"
@@ -5294,13 +5294,13 @@ msgid ""
 "further commits to the repository and you want to update your working copy "
 "one step at a time. It is best to update a whole directory in your working "
 "copy, not just one file, otherwise your working copy could be inconsistent."
-msgstr ""
+msgstr "Aggiorna la tua copia di lavoro alla revisione selezionata. Utile se vuoi che la tua copia di lavoro rifletta un momento nel passato, o se ci sono stati ulteriori commit al repository e vuoi aggiornare la tua copia di lavoro un passo alla volta. È meglio aggiornare un'intera directory nella tua copia di lavoro, non solo un file, altrimenti la tua copia di lavoro potrebbe essere incoerente."
 
 #. (para)
 msgid ""
 "If you want to undo an earlier change permanently, use <guilabel>Revert to "
 "this revision</guilabel> instead."
-msgstr ""
+msgstr "Se si desidera annullare definitivamente una modifica precedente, utilizzare invece <guilabel>Ripristina a questa revisione</guilabel>."
 
 #. (term)
 msgid "Revert to this revision"
@@ -5315,7 +5315,7 @@ msgid ""
 "you commit the changes. Note that this will undo <emphasis>all</emphasis> "
 "changes made after the selected revision, replacing the file/folder with the"
 " earlier version."
-msgstr ""
+msgstr "Ripristina una revisione precedente. Se hai apportato diverse modifiche e poi decidi che vuoi davvero tornare a come erano le cose nella revisione N, questo è il comando che ti serve. Le modifiche vengono annullate nella tua copia di lavoro, quindi questa operazione <emphasis>non</emphasis> influisce sul repository finché non si committano le modifiche. Si noti che questo annullerà <emphasis>tutte</emphasis> le modifiche apportate dopo la revisione selezionata, sostituendo il file/cartella con la versione precedente."
 
 #. (para)
 #. (para)
@@ -5324,14 +5324,14 @@ msgid ""
 "action your working copy will show as modified. If you already have local "
 "changes, this command will merge the <emphasis>undo</emphasis> changes into "
 "your working copy."
-msgstr ""
+msgstr "Se la tua copia di lavoro è in uno stato non modificato, dopo aver eseguito questa azione la tua copia di lavoro verrà mostrata come modificata. Se hai già modifiche locali, questo comando unirà le modifiche di <emphasis>annullamento</emphasis> nella tua copia di lavoro."
 
 #. (para)
 msgid ""
 "What is happening internally is that Subversion performs a reverse merge of "
 "all the changes made after the selected revision, undoing the effect of "
 "those previous commits."
-msgstr ""
+msgstr "Quello che succede internamente è che Subversion esegue una fusione inversa di tutte le modifiche apportate dopo la revisione selezionata, annullando l'effetto di quei commit precedenti."
 
 #. (para)
 msgid ""
@@ -5341,14 +5341,14 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Revert</guimenuitem></menuchoice>"
 " from within Windows Explorer, which will discard the local modifications "
 "made by this reverse merge action."
-msgstr ""
+msgstr "Se dopo aver eseguito questa azione si decide di <emphasis>annullare l'annullamento</emphasis> e riportare la copia di lavoro allo stato precedente non modificato, è necessario utilizzare <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Ripristina</guimenuitem></menuchoice> da Esplora risorse, che annullerà le modifiche locali apportate da questa azione di unione inversa."
 
 #. (para)
 msgid ""
 "If you simply want to see what a file or folder looked like at an earlier "
 "revision, use <guilabel>Update to revision</guilabel> or <guilabel>Save "
 "revision as...</guilabel> instead."
-msgstr ""
+msgstr "Se vuoi semplicemente vedere che aspetto avevano un file o una cartella in una revisione precedente, usa <guilabel>Aggiorna alla revisione</guilabel> o <guilabel>Salva revisione come...</guilabel>."
 
 #. (term)
 #. (term)
@@ -5369,13 +5369,13 @@ msgstr ""
 msgid ""
 "What is happening internally is that Subversion performs a reverse merge of "
 "that one revision, undoing its effect from a previous commit."
-msgstr ""
+msgstr "Quello che succede internamente è che Subversion esegue un'unione inversa di quella revisione, annullando il suo effetto da un commit precedente."
 
 #. (para)
 msgid ""
 "You can <emphasis>undo the undo</emphasis> as described above in "
 "<guilabel>Revert to this revision</guilabel>."
-msgstr ""
+msgstr "È possibile <emphasis>annullare l'annullamento</emphasis> come descritto sopra in <guilabel>Ripristina a questa revisione</guilabel>."
 
 #. (term)
 msgid "Merge revision to..."
@@ -5389,7 +5389,7 @@ msgid ""
 "test merge. It is a good idea to merge into an unmodified working copy so "
 "that you can revert the changes if it doesn't work out! This is a useful "
 "feature if you want to merge selected revisions from one branch to another."
-msgstr ""
+msgstr "Unisci le revisioni selezionate in una diversa copia di lavoro. Una finestra di selezione della cartella consente di scegliere con quale copia di lavoro eseguire l'unione, ma dopo non c'è una finestra di dialogo di conferma, né alcuna opportunità di provare una unione di prova. È una buona idea effettuare l'unione con una copia di lavoro non modificata in modo da poter annullare le modifiche se non funziona! Questa è una funzionalità utile se si desidera unire revisioni selezionate da un branch all'altro."
 
 #. (term)
 msgid "Checkout..."
@@ -5400,7 +5400,7 @@ msgid ""
 "Make a fresh checkout of the selected folder at the selected revision. This "
 "brings up a dialog for you to confirm the URL and revision, and select a "
 "location for the checkout."
-msgstr ""
+msgstr "Effettua un nuovo checkout della cartella selezionata alla revisione selezionata. Viene visualizzata una finestra di dialogo per confermare l'URL e la revisione e selezionare una posizione per il checkout."
 
 #. (term)
 #. (term)
@@ -5413,7 +5413,7 @@ msgid ""
 "Export the selected file/folder at the selected revision. This brings up a "
 "dialog for you to confirm the URL and revision, and select a location for "
 "the export."
-msgstr ""
+msgstr "Esporta il file o la cartella selezionati alla revisione selezionata. Viene visualizzata una finestra di dialogo per confermare l'URL e la revisione e selezionare una posizione per l'esportazione."
 
 #. (term)
 msgid "Edit author / log message"

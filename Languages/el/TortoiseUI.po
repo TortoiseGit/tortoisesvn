@@ -13,13 +13,14 @@
 # Stavros <b17a3925@opayq.com>, 2011,2014,2017
 # Stavros <b17a3925@opayq.com>, 2011
 # Stavros <b17a3925@opayq.com>, 2011
+# Vasiliki Karageorgou <karageorgou.vassiliki@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-17 01:34+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2018-06-27 19:12+0000\n"
+"Last-Translator: Vasiliki Karageorgou <karageorgou.vassiliki@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/luebbe/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,7 +308,7 @@ msgstr "&Σχετικά με το TortoiseMerge..."
 msgid ""
 "&Accept the certificate\n"
 "The certificate is accepted only this one time."
-msgstr ""
+msgstr "&Αποδοχή πιστοποιητικού\nΗ αποδοχή του πιστοποιητικού πρέπει να γίνει μόνο αυτή τη φορά."
 
 #. Resource IDs: (IDS_MENUADDIMMEDIATE)
 msgid "&Add"
@@ -453,7 +454,7 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "Do not update the working copy."
-msgstr ""
+msgstr "&Ακύρωση\nΝα μην ενημερωθεί το τρέχον αντίγραφο εργασίας."
 
 #. Resource IDs: (IDS_PROC_RESOLVE_TASK4)
 msgid ""
@@ -507,13 +508,13 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "The conflict is not resolved."
-msgstr ""
+msgstr "&Ακύρωση\nΗ διένεξη δεν έχει επιλυθεί."
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK4)
 msgid ""
 "&Cancel\n"
 "The file is not copied."
-msgstr ""
+msgstr "&Ακύρωση\nΤο αρχείο δεν έχει αντιγραφεί."
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK5)
 msgid ""
@@ -537,13 +538,13 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "The target file is left as is"
-msgstr ""
+msgstr "&Ακύρωση\nΤο αρχείο προορισμού δεν έχει αλλάξει"
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK4)
 msgid ""
 "&Cancel\n"
 "You have to add the folder manually."
-msgstr ""
+msgstr "&Ακύρωση\nΠρέπει να προσθέσετε τον φάκελο χειροκίνητα."
 
 #. Resource IDs: (IDS_DROPEXT_UPDATE_TASK4)
 msgid ""
@@ -555,7 +556,7 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "keep the current format."
-msgstr ""
+msgstr "&Ακύρωση\nδιατήρηση της τρέχουσας μορφοποίησης. "
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
@@ -701,7 +702,7 @@ msgstr "&Να μην ερωτηθώ ξανά"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr ""
+msgstr "&Μην εκτελέσετε\nΜην εκτελέσετε τη δέσμη εντολών."
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -792,11 +793,11 @@ msgstr "&Εύρεση"
 
 #. Resource IDs: (ID_EDIT_FIND - Menu)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "&Εύρεση\t(Ctrl+F)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
-msgstr ""
+msgstr "&Προσαρμογή των εικόνων στο παράθυρο\t(F)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1646)
 msgid "&Fix time stamps"
@@ -834,7 +835,7 @@ msgstr "&Από: (Αρχικό URL και εμβέλεια των έκδοσεω
 
 #. Resource IDs: (ID_EDIT_GOTOLINE - Menu)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr ""
+msgstr "&Μετάβαση Στη Γραμμή\t(Ctrl+G)"
 
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
@@ -901,7 +902,7 @@ msgstr ""
 
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
-msgstr ""
+msgstr "&Πληροφορίες εικόνας\t(I)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1033,7 +1034,7 @@ msgstr "&Μπλοκ που μετακινήθηκαν"
 
 #. Resource IDs: (1672)
 msgid "&Name"
-msgstr ""
+msgstr "&Όνομα"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
@@ -1129,7 +1130,7 @@ msgstr "&Άνοιγμα"
 
 #. Resource IDs: (ID_FILE_OPEN - Menu)
 msgid "&Open\t(Ctrl+O)"
-msgstr ""
+msgstr "&Άνοιγμα\t(Ctrl+O)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1602)
 msgid "&Operative:"
@@ -1145,13 +1146,13 @@ msgstr "&Άλλο"
 
 #. Resource IDs: (ID_VIEW_OVERLAPIMAGES - Menu)
 msgid "&Overlay images\t(O)"
-msgstr ""
+msgstr "&Επικάλυψη εικόνων\t(O)"
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
 msgid ""
 "&Overwrite\n"
 "Replace the target folder."
-msgstr ""
+msgstr "&Επεγγραφή\nΑντικατάσταση του φακέλου προορισμού."
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK3)
 msgid ""
@@ -5142,7 +5143,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPKEYWORDS: Control id 1595)
 msgid "Header"
-msgstr ""
+msgstr "Κεφαλίδα"
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 9, Dialog IDD_CHECKOUT: Control
 #. id 9, Dialog IDD_COMMITDLG: Control id 9, Dialog IDD_COPY: Control id 9,
@@ -5182,7 +5183,7 @@ msgstr "Απόκρυψη όλων των κλάδων που δεν αλλοίω
 
 #. Resource IDs: (32832)
 msgid "Hide all tags"
-msgstr ""
+msgstr "Απόκρυψη όλων των Ετικετών"
 
 #. Resource IDs: (32820)
 msgid "Hide deleted branches and tags"
