@@ -29,6 +29,7 @@
 #include <afxtempl.h>
 #include <afxdlgs.h>    // Needed for CPropertySheet
 #include <afxcmn.h>     // Needed for CTreeCtrl
+#include <afxpriv.h>
 
 namespace TreePropSheet
 {
@@ -409,6 +410,21 @@ protected:
     //{{AFX_VIRTUAL(CTreePropSheet)
     public:
     virtual BOOL OnInitDialog();
+    void BuildPropPageArray() override
+    {
+        CPropertySheet::BuildPropPageArray();
+
+        LPCPROPSHEETPAGE ppsp = m_psh.ppsp;
+        auto nSize = m_pages.GetSize();
+        for (decltype(nSize) nPage = 0; nPage < nSize; nPage++)
+        {
+            const DLGTEMPLATE* pResource = ppsp->pResource;
+            CDialogTemplate dlgTemplate(pResource);
+            dlgTemplate.SetFont(L"MS Shell Dlg 2", 9);
+            memmove((void*)pResource, dlgTemplate.m_hTemplate, dlgTemplate.m_dwTemplateSize);
+            (BYTE*&)ppsp += ppsp->dwSize;
+        }
+    }
     //}}AFX_VIRTUAL
 
 // Message handlers

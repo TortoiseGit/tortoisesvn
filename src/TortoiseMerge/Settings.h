@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009, 2015 - TortoiseSVN
+// Copyright (C) 2006, 2009, 2015, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "AeroControls.h"
+#include "DPIAware.h"
 
 class CSetMainPage;
 class CSetColorPage;
@@ -45,6 +46,21 @@ private:
      */
     void RemovePropPages();
 
+    void BuildPropPageArray() override
+    {
+        CPropertySheet::BuildPropPageArray();
+
+        LPCPROPSHEETPAGE ppsp = m_psh.ppsp;
+        auto nSize = m_pages.GetSize();
+        for (decltype(nSize) nPage = 0; nPage < nSize; nPage++)
+        {
+            const DLGTEMPLATE* pResource = ppsp->pResource;
+            CDialogTemplate dlgTemplate(pResource);
+            dlgTemplate.SetFont(L"MS Shell Dlg 2", 9);
+            memmove((void*)pResource, dlgTemplate.m_hTemplate, dlgTemplate.m_dwTemplateSize);
+            (BYTE*&)ppsp += ppsp->dwSize;
+        }
+    }
 private:
     CSetMainPage *      m_pMainPage;
     CSetColorPage *     m_pColorPage;

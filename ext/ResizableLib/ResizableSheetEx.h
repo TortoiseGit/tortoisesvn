@@ -26,6 +26,7 @@
 #include "ResizableGrip.h"
 #include "ResizableMinMax.h"
 #include "ResizableSheetState.h"
+#include <afxpriv.h>
 
 /////////////////////////////////////////////////////////////////////////////
 // ResizableSheetEx.h : header file
@@ -107,6 +108,21 @@ protected:
                            BOOL bWithPage = FALSE, BOOL bHorzResize = TRUE, BOOL bVertResize = TRUE);
     int GetMinWidth();  // minimum width to display all buttons
 
+    void BuildPropPageArray() override
+    {
+        CPropertySheet::BuildPropPageArray();
+
+        LPCPROPSHEETPAGE ppsp = m_psh.ppsp;
+        auto nSize = m_pages.GetSize();
+        for (decltype(nSize) nPage = 0; nPage < nSize; nPage++)
+        {
+            const DLGTEMPLATE* pResource = ppsp->pResource;
+            CDialogTemplate dlgTemplate(pResource);
+            dlgTemplate.SetFont(L"MS Shell Dlg 2", 9);
+            memmove((void*)pResource, dlgTemplate.m_hTemplate, dlgTemplate.m_dwTemplateSize);
+            (BYTE*&)ppsp += ppsp->dwSize;
+        }
+    }
 
     virtual CWnd* GetResizableWnd() const
     {

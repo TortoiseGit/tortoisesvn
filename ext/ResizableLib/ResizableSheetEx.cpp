@@ -560,6 +560,11 @@ int CALLBACK CResizableSheetEx::XmnPropSheetCallback(HWND hWnd, UINT message, LP
         // Set the resizable border style
         ((LPDLGTEMPLATE)lParam)->style |= (DS_3DLOOK | DS_SETFONT
             | WS_THICKFRAME | WS_SYSMENU | WS_POPUP | WS_VISIBLE | WS_CAPTION);
+        // Change the font and font size
+        LPDLGTEMPLATE pResource = (LPDLGTEMPLATE)lParam;
+        CDialogTemplate dlgTemplate(pResource);
+        dlgTemplate.SetFont(L"MS Shell Dlg 2", 9);
+        memmove((void*)lParam, dlgTemplate.m_hTemplate, dlgTemplate.m_dwTemplateSize);
         break;
     }
     return nRes;

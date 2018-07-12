@@ -140,7 +140,9 @@
     <ResourceCompile Include="TortoiseStub.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Manifest Include="..\compatibility.manifest" />
+    <Manifest Include="..\compatibility.manifest">
+      <SubType>Designer</SubType>
+    </Manifest>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
