@@ -25,6 +25,8 @@
 - BUG: Changing update depths of sparse checkouts
        failed when trying to add files in excluded
        folders. (Stefan)
+- BUG: Exception was shown when trying to show the
+       log between a date and a number revision. (Stefan)
 
 Version 1.10.0
 See the release notes here:

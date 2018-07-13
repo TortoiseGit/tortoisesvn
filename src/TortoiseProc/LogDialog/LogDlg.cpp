@@ -1177,7 +1177,7 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
                 if (((LONG)m_startrev < (LONG)m_endrev)||
                     (m_endrev.IsHead()))
                 {
-                    svn_revnum_t temp = m_startrev;
+                    auto temp = m_startrev;
                     m_startrev = m_endrev;
                     m_endrev = temp;
                 }
