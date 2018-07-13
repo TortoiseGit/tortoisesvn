@@ -4025,7 +4025,6 @@ void CLogDlg::DoSizeV1(int delta)
 
     AddMainAnchors();
     ArrangeLayout();
-    AdjustMinSize();
     SetSplitterRange();
     m_LogList.Invalidate();
     m_ChangedFileListCtrl.Invalidate();
@@ -4057,7 +4056,6 @@ void CLogDlg::DoSizeV2(int delta)
 
     AddMainAnchors();
     ArrangeLayout();
-    AdjustMinSize();
     SetSplitterRange();
     GetDlgItem(IDC_MSGVIEW)->Invalidate();
     m_ChangedFileListCtrl.Invalidate();
@@ -4081,28 +4079,11 @@ void CLogDlg::DoSizeV3(int delta)
 
     AddMainAnchors();
     ArrangeLayout();
-    AdjustMinSize();
     SetSplitterRange();
     GetDlgItem(IDC_MSGVIEW)->Invalidate();
     m_LogList.Invalidate();
     m_ChangedFileListCtrl.Invalidate();
     m_cFilter.Redraw();
-}
-
-void CLogDlg::AdjustMinSize()
-{
-    // adjust the minimum size of the dialog to prevent the resizing from
-    // moving the list control too far down.
-    CRect rcChgListView;
-    m_ChangedFileListCtrl.GetClientRect(rcChgListView);
-    CRect rcLogList;
-    m_LogList.GetClientRect(rcLogList);
-    CRect rcLogMsg;
-    GetDlgItem(IDC_MSGVIEW)->GetClientRect(rcLogMsg);
-
-    SetMinTrackSize(CSize(m_DlgOrigRect.Width(),
-        m_DlgOrigRect.Height()-m_ChgOrigRect.Height()-m_LogListOrigRect.Height()-m_MsgViewOrigRect.Height()
-        +rcLogMsg.Height()+abs(rcChgListView.Height()-rcLogList.Height())+60));
 }
 
 LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
@@ -6337,7 +6318,53 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
 {
     __super::OnSize(nType, cx, cy);
     //set range
-    SetSplitterRange();
+    if ((m_LogList) && (m_ChangedFileListCtrl))
+    {
+        CRect rcTop;
+        m_LogList.GetWindowRect(rcTop);
+        ScreenToClient(rcTop);
+
+        CRect rcMiddle;
+        GetDlgItem(IDC_MSGVIEW)->GetWindowRect(rcMiddle);
+        ScreenToClient(rcMiddle);
+
+        CRect rcBottom;
+        m_ChangedFileListCtrl.GetWindowRect(rcBottom);
+        ScreenToClient(rcBottom);
+
+        if (rcMiddle.Height() < 100)
+        {
+            CRect rc;
+            m_wndSplitter2.GetWindowRect(&rc);
+            ScreenToClient(rc);
+            rc.MoveToY(rc.top + 20);
+            m_wndSplitter2.MoveWindow(&rc);
+            DoSizeV2(20);
+        }
+
+        if (rcTop.Height() < 100)
+        {
+            CRect rc;
+            m_wndSplitter1.GetWindowRect(&rc);
+            ScreenToClient(rc);
+            rc.MoveToY(rc.top + 20);
+            m_wndSplitter1.MoveWindow(&rc);
+            DoSizeV1(20);
+        }
+
+        m_LogList.GetWindowRect(rcTop);
+        ScreenToClient(rcTop);
+
+        GetDlgItem(IDC_MSGVIEW)->GetWindowRect(rcMiddle);
+        ScreenToClient(rcMiddle);
+
+        m_ChangedFileListCtrl.GetWindowRect(rcBottom);
+        ScreenToClient(rcBottom);
+
+        m_wndSplitter1.SetRange(rcTop.top + 20, rcBottom.bottom - 50);
+        m_wndSplitter2.SetRange(rcTop.top + 50, rcBottom.bottom - 20);
+        m_wndSplitterLeft.SetRange(80, rcTop.right - m_LogListOrigRect.Width());
+    }
 }
 
 void CLogDlg::OnRefresh()

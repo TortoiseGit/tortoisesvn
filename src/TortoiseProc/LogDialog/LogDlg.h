@@ -261,7 +261,6 @@ private:
     void EditLogMessage(size_t index);
     void DoSizeV1(int delta);
     void DoSizeV2(int delta);
-    void AdjustMinSize();
     void SetSplitterRange();
     void SetFilterCueText();
     void CopySelectionToClipBoard();
