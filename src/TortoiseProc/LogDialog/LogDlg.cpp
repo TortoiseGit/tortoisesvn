@@ -1171,10 +1171,9 @@ void CLogDlg::GetAll(bool bForceAll /* = false */)
                 return;
             m_endrev = dlg.GetEndRevision();
             m_startrev = dlg.GetStartRevision();
-            if (((m_endrev.IsNumber())&&(m_startrev.IsNumber()))||
-                (m_endrev.IsHead()||m_startrev.IsHead()))
+            if ((m_endrev.IsNumber() || m_endrev.IsHead()) && (m_startrev.IsNumber() || m_startrev.IsHead()))
             {
-                if (((LONG)m_startrev < (LONG)m_endrev)||
+                if (((svn_revnum_t)m_startrev < (svn_revnum_t)m_endrev)||
                     (m_endrev.IsHead()))
                 {
                     auto temp = m_startrev;
