@@ -469,11 +469,11 @@ void CLogDlg::SetupDialogFonts()
     LOGFONT lf = {0};
     font->GetLogFont(&lf);
 
-    lf.lfWeight = FW_BOLD;
-    m_boldFont.CreateFontIndirect(&lf);
+    lf.lfWeight = FW_DEMIBOLD;
+    m_unreadFont.CreateFontIndirect(&lf);
 
-    lf.lfItalic = TRUE;
-    m_boldItalicFont.CreateFontIndirect(&lf);
+    lf.lfWeight = FW_BOLD;
+    m_wcRevFont.CreateFontIndirect(&lf);
     CAppUtils::CreateFontForLogs(m_logFont);
 }
 
@@ -3509,7 +3509,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                         crText = GetSysColor(COLOR_GRAYTEXT);
                     if ((data->GetRevision() == m_wcRev) || data->GetUnread())
                     {
-                        SelectObject(pLVCD->nmcd.hdc, data->GetUnread() ? m_boldFont : m_boldItalicFont);
+                        SelectObject(pLVCD->nmcd.hdc, data->GetUnread() ? m_unreadFont : m_wcRevFont);
                         // We changed the font, so we're returning CDRF_NEWFONT. This
                         // tells the control to recalculate the extent of the text.
                         *pResult = CDRF_NOTIFYSUBITEMDRAW | CDRF_NEWFONT;
@@ -4961,7 +4961,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
                 {
                     HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
                     // set the bold font and ask for the string width again
-                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldItalicFont.GetSafeHandle(), NULL);
+                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_wcRevFont.GetSafeHandle(), NULL);
                     linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
                     // restore the system font
                     m_LogList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
@@ -4970,7 +4970,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
                 {
                     HFONT hFont = (HFONT)m_LogList.SendMessage(WM_GETFONT);
                     // set the bold font and ask for the string width again
-                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_boldFont.GetSafeHandle(), NULL);
+                    m_LogList.SendMessage(WM_SETFONT, (WPARAM)m_unreadFont.GetSafeHandle(), NULL);
                     linewidth = m_LogList.GetStringWidth(m_LogList.GetItemText((int)index, col)) + 14;
                     // restore the system font
                     m_LogList.SendMessage(WM_SETFONT, (WPARAM)hFont, NULL);
