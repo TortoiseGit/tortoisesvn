@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-07-10 07:33+0000\n"
+"PO-Revision-Date: 2018-07-13 16:00+0000\n"
 "Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -4227,7 +4227,7 @@ msgstr "Se lo sviluppatore B decide che le modifiche di A sono sbagliate, allora
 
 #. (title)
 msgid "Local delete, incoming delete upon update"
-msgstr ""
+msgstr "Eliminazione locale, eliminazione in arrivo dall'aggiornamento"
 
 #. (para)
 msgid ""
@@ -4325,7 +4325,7 @@ msgstr "Si noti che se si copia il file mancante dal repository e quindi si cont
 
 #. (title)
 msgid "Local edit, incoming delete upon merge"
-msgstr ""
+msgstr "Modifica locale, eliminazione in arrivo dopo il merge"
 
 #. (para)
 #. (para)
@@ -4381,11 +4381,11 @@ msgid ""
 "This marks the conflicted file/folder as resolved, but Developer A's changes"
 " need to be removed by hand. Again the log dialog for the merge source helps"
 " to track down what was moved."
-msgstr ""
+msgstr "Se lo sviluppatore B decide che le modifiche di A sono sbagliate, allora deve scegliere il pulsante <guilabel>Contrassegna come risolto</guilabel> nella finestra di dialogo dell'editor dei conflitti. Questo contrassegna il file/cartella in conflitto come risolto, ma le modifiche dello Sviluppatore A devono essere rimosse manualmente. Anche in questo caso la finestra di dialogo del log per il merge consente di rintracciare ciò che è stato spostato."
 
 #. (title)
 msgid "Local delete, incoming delete upon merge"
-msgstr ""
+msgstr "Eliminazione locale, eliminazione in arrivo a seguito di un merge"
 
 #. (para)
 msgid ""
@@ -4411,7 +4411,7 @@ msgid ""
 "To resolve this conflict, Developer B has to find out to what filename the "
 "conflicted file <filename>Foo.c</filename> was renamed/moved in the "
 "repository. This can be done by using the log dialog for the merge source."
-msgstr ""
+msgstr "Per risolvere questo conflitto, lo sviluppatore B deve scoprire con quale nome il file in conflitto <filename>Foo.c</filename> è stato rinominato/spostato nel repository. Questo può essere fatto usando la finestra di dialogo del log per il merge."
 
 #. (title)
 msgid "Other tree conflicts"
@@ -4427,7 +4427,7 @@ msgid ""
 "the merge source then you need to SVN delete the one in the target first and"
 " run the merge again. If you need anything more complicated then you have to"
 " resolve manually."
-msgstr ""
+msgstr "Esistono altri casi etichettati come conflitti dell'albero semplicemente perché il conflitto riguarda una cartella piuttosto che un file. Ad esempio, se aggiungi una cartella con lo stesso nome sia al trunk che al branch e poi provi a fare il merge otterrai un conflitto dell'albero. Se si desidera mantenere la cartella dal target di merge, contrassegnare il conflitto come risolto. Se si desidera utilizzare quello nella sorgente di merge, è necessario cancellare con SVN prima quello nella destinazione ed eseguire di nuovo il merge. Se hai bisogno di qualcosa di più complicato, devi risolverlo manualmente."
 
 #. (title)
 msgid "Getting Status Information"
@@ -4577,7 +4577,7 @@ msgstr "proprietà della finestra"
 
 #. (title)
 msgid "Explorer property page, Subversion tab"
-msgstr ""
+msgstr "Pagina delle proprietà di Esplora file, tab Subversion"
 
 #. (para)
 msgid ""
@@ -5091,7 +5091,7 @@ msgstr "Se il repository non è disponibile, vedrai la finestra di dialogo <guil
 
 #. (title)
 msgid "Revision Log Actions"
-msgstr ""
+msgstr "Azioni nel log della revisione"
 
 #. (para)
 msgid ""
@@ -5423,7 +5423,7 @@ msgstr "Modifica autore / commento"
 msgid ""
 "Edit the log message or author attached to a previous commit. Read <xref "
 "linkend=\"tsvn-dug-showlog-4\"/> to find out how this works."
-msgstr ""
+msgstr "Modifica il messaggio di log o l'autore allegato a un commit precedente. Leggi <xref linkend=\"tsvn-dug-showlog-4\"/> per scoprire come funziona."
 
 #. (term)
 msgid "Show revision properties"
@@ -5433,7 +5433,7 @@ msgstr "Visualizza le proprietà della revisione"
 msgid ""
 "View and edit any revision property, not just log message and author. Refer "
 "to <xref linkend=\"tsvn-dug-showlog-4\"/>."
-msgstr ""
+msgstr "Visualizza e modifica qualsiasi proprietà di revisione, non solo il messaggio di registro e l'autore. Fare riferimento a <xref linkend=\"tsvn-dug-showlog-4\"/>."
 
 #. (term)
 #. (term)
@@ -5445,7 +5445,7 @@ msgid ""
 "Copy the log details of the selected revisions to the clipboard. This will "
 "copy the revision number, author, date, log message and the list of changed "
 "items for each revision."
-msgstr ""
+msgstr "Copia i dettagli del log delle revisioni selezionate negli appunti. Questo copierà il numero di revisione, l'autore, la data, il messaggio di log e l'elenco degli elementi modificati per ogni revisione."
 
 #. (term)
 #. (term)
@@ -5457,7 +5457,7 @@ msgid ""
 "Search log messages for the text you enter. This searches the log messages "
 "that you entered and also the action summaries created by Subversion (shown "
 "in the bottom pane). The search is not case sensitive."
-msgstr ""
+msgstr "Cerca i messaggi di log per il testo che inserisci. Questo ricerca i messaggi di log che hai inserito e anche i riepiloghi delle azioni creati da Subversion (mostrato nel pannello in basso). La ricerca non è case sensitive."
 
 #. (term)
 msgid "Create code collaborator review..."
@@ -5485,11 +5485,11 @@ msgid ""
 "allows you to access much more information. Some of these menu entries "
 "appear only when the log is shown for a file, and some only when the log is "
 "shown for a folder. <placeholder-2/><placeholder-3/>"
-msgstr ""
+msgstr "<placeholder-1/> Il riquadro superiore della finestra di dialogo Log ha un menu di scelta rapida che ti consente di accedere a molte più informazioni. Alcune di queste voci di menu vengono visualizzate solo quando viene visualizzato il log per un file e alcune solo quando viene visualizzato il log per una cartella. <placeholder-2/><placeholder-3/>"
 
 #. (title)
 msgid "Top Pane Context Menu for 2 Selected Revisions"
-msgstr ""
+msgstr "Menu contestuale del riquadro superiore per 2 revisioni selezionate"
 
 #. (term)
 msgid "Compare revisions"
@@ -5506,7 +5506,7 @@ msgid ""
 "If you select this option for a folder, a further dialog pops up listing the"
 " changed files and offering you further diff options. Read more about the "
 "Compare Revisions dialog in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Se si seleziona questa opzione per una cartella, viene visualizzata un'ulteriore finestra di dialogo che elenca i file modificati e offre ulteriori opzioni di confronto. Ulteriori informazioni sulla finestra di dialogo Confronto revisioni in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Blame revisions"
@@ -5527,22 +5527,22 @@ msgstr "Visualizza differenze con confronto unificato"
 msgid ""
 "View the differences between the two selected revisions as a Unified-Diff "
 "file. This works for files and folders."
-msgstr ""
+msgstr "Visualizza le differenze tra le due revisioni selezionate come file Unified-Diff. Funziona per file e cartelle."
 
 #. (para)
 msgid "Copy log messages to clipboard as described above."
-msgstr ""
+msgstr "Copia i messaggi di log negli appunti come descritto sopra."
 
 #. (para)
 msgid "Search log messages as described above."
-msgstr ""
+msgstr "Cerca i messaggi di log come descritto sopra."
 
 #. (para)
 msgid ""
 "<placeholder-1/> If you select two revisions at once (using the usual "
 "<keycap>Ctrl</keycap>-modifier), the context menu changes and gives you "
 "fewer options: <placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Se selezioni due revisioni contemporaneamente (usando il solito modificatore <keycap>Ctrl</keycap>), il menu contestuale cambia e ti offre meno opzioni: <placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -5550,19 +5550,19 @@ msgid ""
 "or <keycap>Shift</keycap> modifiers), the context menu will include an entry"
 " to Revert all changes which were made in the selected revisions. This is "
 "the easiest way to rollback a group of revisions in one go."
-msgstr ""
+msgstr "Se selezioni due o più revisioni (usando i soliti modificatori <keycap>Ctrl</keycap> o <keycap>Maiusc</keycap>), il menu contestuale includerà una voce per Ripristinare tutte le modifiche apportate alle revisioni selezionate. Questo è il modo più semplice per ripristinare un gruppo di revisioni in un colpo solo."
 
 #. (para)
 msgid ""
 "You can also choose to merge the selected revisions to another working copy,"
 " as described above."
-msgstr ""
+msgstr "Puoi anche scegliere di fare il merge delle revisioni selezionate verso un'altra copia di lavoro, come descritto sopra."
 
 #. (para)
 msgid ""
 "If all selected revisions have the same author, you can edit the author of "
 "all those revisions in one go."
-msgstr ""
+msgstr "Se tutte le revisioni selezionate hanno lo stesso autore, puoi modificare l'autore di tutte quelle revisioni in un colpo solo."
 
 #. (title)
 msgid "The Log Dialog Bottom Pane with Context Menu"
@@ -5574,7 +5574,7 @@ msgstr "Visualizza modifiche"
 
 #. (para)
 msgid "Show changes made in the selected revision for the selected file."
-msgstr ""
+msgstr "Mostra le modifiche apportate nella revisione selezionata per il file selezionato."
 
 #. (term)
 msgid "Blame changes"
@@ -5602,7 +5602,7 @@ msgstr ""
 msgid ""
 "Open the selected file, either with the default viewer for that file type, "
 "or with a program you choose."
-msgstr ""
+msgstr "Apri il file selezionato, con il visualizzatore predefinito per quel tipo di file o con un programma a tua scelta."
 
 #. (para)
 msgid ""
@@ -5611,7 +5611,7 @@ msgstr ""
 
 #. (para)
 msgid "Revert the changes made to the selected file in that revision."
-msgstr ""
+msgstr "Ripristina le modifiche apportate al file selezionato in quella revisione."
 
 #. (term)
 msgid "Show properties"
@@ -5628,7 +5628,7 @@ msgstr "Visualizza log"
 
 #. (para)
 msgid "Show the revision log for the selected single file."
-msgstr ""
+msgstr "Mostra il log di revisione per il singolo file selezionato."
 
 #. (term)
 msgid "Get merge logs"
@@ -5638,20 +5638,20 @@ msgstr "Richiedi registri attività di fusione"
 msgid ""
 "Show the revision log for the selected single file, including merged "
 "changes. Find out more in <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
-msgstr ""
+msgstr "Mostra il log di revisione per il singolo file selezionato, incluse le modifiche unite. Scopri di più in <xref linkend=\"tsvn-dug-showlog-mergetrack\"/>."
 
 #. (para)
 #. (para)
 msgid ""
 "Save the selected revision to a file so you have an older version of that "
 "file."
-msgstr ""
+msgstr "Salva la revisione selezionata in un file in modo da avere una versione precedente di quel file."
 
 #. (para)
 msgid ""
 "Export the selected items in this revision to a folder, preserving the file "
 "hierarchy."
-msgstr ""
+msgstr "Esporta gli elementi selezionati in questa revisione in una cartella, preservando la gerarchia dei file."
 
 #. (title)
 msgid ""
@@ -5660,7 +5660,7 @@ msgstr ""
 
 #. (term)
 msgid "Show multiple changes..."
-msgstr ""
+msgstr "Mostra modifiche multiple..."
 
 #. (para)
 msgid ""
@@ -5669,11 +5669,11 @@ msgid ""
 "up multiple copies of your selected diff tool, or just add a new comparison "
 "tab in your diff tool. If you have selected more than 15 files, you will be "
 "prompted to confirm the action."
-msgstr ""
+msgstr "Mostra le modifiche apportate nella revisione selezionata per i file selezionati. Notare che la funzionalità 'mostra modifiche' è invocata più volte, il che può far apparire più copie del tuo strumento di visualizzazione delle differenze, o semplicemente aggiungere una nuova scheda di confronto nel tuo strumento di visualizzazione delle differenze. Se hai selezionato più di 15 file, ti verrà richiesto di confermare l'azione."
 
 #. (term)
 msgid "Open multiple local..."
-msgstr ""
+msgstr "Apri più elementi locali..."
 
 #. (para)
 msgid ""
@@ -5684,7 +5684,7 @@ msgid ""
 "an application and the capabilities of the application, this may be a slow "
 "operation. In the worst case, new instances of the application may be "
 "launched by Windows for each file that was selected."
-msgstr ""
+msgstr "Ciò aprirà i file della copia di lavoro locale che corrispondono ai file selezionati utilizzando l'applicazione che è registrata per l'estensione. [Il comportamento è quello che si ottiene facendo doppio clic sui file della copia di lavoro in Windows Explorer]. A seconda di come l'estensione del file è associata a un'applicazione e alle funzionalità dell'applicazione, potrebbe essere un'operazione lenta. Nel peggiore dei casi, nuove istanze dell'applicazione potrebbero essere avviate da Windows per ciascun file selezionato."
 
 #. (para)
 msgid ""
@@ -5702,14 +5702,14 @@ msgid ""
 "Studio lies in the fact that you can then use the built-in code navigation, "
 "reference finding, static code analysis and other tools built into Visual "
 "Studio."
-msgstr ""
+msgstr "Se si tiene premuto <keycap>Ctrl</keycap> mentre si richiama questo comando, i file della copia di lavoro vengono sempre caricati in Visual Studio. Funziona solo quando sono soddisfatte le seguenti condizioni: Visual Studio deve essere in esecuzione nello stesso contesto utente pur avendo lo stesso livello di integrità del processo [in esecuzione come amministratore o meno] di TortoiseProc.exe. Potrebbe essere desiderabile avere la soluzione contenente i file modificati caricati, anche se questo non è strettamente necessario. Solo file esistenti su disco con estensioni [.cpp, .h, .cs, .rc, .resx, .xaml, .js, .html, .htm, .asp, .aspx, .php, .css e .xml ] sarà caricato. È possibile caricare un massimo di 100 file in Visual Studio contemporaneamente e i file vengono sempre caricati come nuove schede nell'istanza attualmente aperta di Visual Studio. Il vantaggio di rivedere le modifiche al codice in Visual Studio consiste nel fatto che è quindi possibile utilizzare la navigazione del codice integrata, la ricerca dei riferimenti, l'analisi del codice statico e altri strumenti incorporati in Visual Studio."
 
 #. (para)
 msgid ""
 "Export the selected files/folder at the selected revision. This brings up a "
 "dialog for you to confirm the URL and revision, and select a location for "
 "the export."
-msgstr ""
+msgstr "Esporta i file/cartelle selezionati alla revisione selezionata. Viene visualizzata una finestra di dialogo per confermare l'URL e la revisione e selezionare una posizione per l'esportazione."
 
 #. (para)
 msgid ""
@@ -5717,13 +5717,13 @@ msgid ""
 "that allows you to <placeholder-2/> When multiple files are selected in the "
 "bottom pane of the Log dialog, the context menu changes to the following: "
 "<placeholder-3/><placeholder-4/>"
-msgstr ""
+msgstr "<placeholder-1/> Il riquadro inferiore della finestra di dialogo del Log presenta anche un menu di scelta rapida che consente di <placeholder-2/> Quando più file sono selezionati nel riquadro inferiore della finestra di dialogo del Log, il menu di scelta rapida cambia nel modo seguente: <placeholder-3/><placeholder-4/>"
 
 #. (para)
 msgid ""
 "You may notice that sometimes we refer to changes and other times to "
 "differences. What's the difference?"
-msgstr ""
+msgstr "Potresti notare che a volte ci riferiamo a cambiamenti e altre volte a differenze. Qual è la differenza?"
 
 #. (para)
 msgid ""
@@ -5733,31 +5733,31 @@ msgid ""
 "e.g. <quote>Done in r1234</quote> means that the changes committed in r1234 "
 "implement feature X. To make it clearer which sense is being used, we use "
 "two different terms."
-msgstr ""
+msgstr "Subversion usa numeri di revisione per indicare 2 cose diverse. Una revisione generalmente rappresenta lo stato del repository in un determinato momento, ma può anche essere utilizzato per rappresentare il changeset che ha creato tale revisione, ad es. <quote>Fatto in r1234</quote> significa che le modifiche apportate in r1234 implementano la funzione X. Per rendere più chiaro il senso in cui viene utilizzato, vengono utilizzati due termini diversi."
 
 #. (para)
 msgid ""
 "If you select two revisions N and M, the context menu will offer to show the"
 " <emphasis>difference</emphasis> between those two revisions. In Subversion "
 "terms this is <literal>diff -r M:N</literal>."
-msgstr ""
+msgstr "Se selezioni due revisioni N e M, il menu contestuale offrirà di mostrare la <emphasis>differenza</emphasis> tra queste due revisioni. Questo è in termini di Subversion <literal>diff -r M:N</literal>."
 
 #. (para)
 msgid ""
 "If you select a single revision N, the context menu will offer to show the "
 "<emphasis>changes</emphasis> made in that revision. In Subversion terms this"
 " is <literal>diff -r N-1:N</literal> or <literal>diff -c N</literal>."
-msgstr ""
+msgstr "Se si seleziona una singola revisione N, il menu di scelta rapida offrirà di mostrare le <emphasis>modifiche</emphasis> apportate in quella revisione. Nei termini di Subversion questo è <literal>diff -r N-1:N</literal> o <literal>diff -c N</literal>."
 
 #. (para)
 msgid ""
 "The bottom pane shows the files changed in all selected revisions, so the "
 "context menu always offers to show <emphasis>changes</emphasis>."
-msgstr ""
+msgstr "Il riquadro in basso mostra i file modificati in tutte le revisioni selezionate, quindi il menu contestuale offre sempre il comando per mostrare le <emphasis>modifiche</emphasis>."
 
 #. (title)
 msgid "Getting more log messages"
-msgstr ""
+msgstr "Ottenere più messaggi di log"
 
 #. (para)
 msgid ""
@@ -5767,7 +5767,7 @@ msgid ""
 "messages fetched is limited to 100, but you can change this value in "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>"
 " (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
-msgstr ""
+msgstr "Per un repository di grandi dimensioni potrebbero esserci centinaia o anche migliaia di modifiche e il loro recupero potrebbe richiedere molto tempo. Normalmente ti interessano solo le modifiche più recenti. Per impostazione predefinita, il numero di messaggi di log recuperati è limitato a 100, ma è possibile modificare questo valore in <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Impostazioni</guimenuitem></menuchoice> (<xref linkend=\"tsvn-dug-settings-dialogs\"/>),"
 
 #. (para)
 msgid ""
@@ -5776,13 +5776,13 @@ msgid ""
 "somewhere else within the repository. This can be useful when looking at "
 "branches (or tags) as it stops at the root of that branch, and gives a quick"
 " indication of changes made in that branch only."
-msgstr ""
+msgstr "Quando la casella <guilabel>Ferma in caso di copia/rinomina</guilabel> è selezionata, Mostra Log si fermerà nel punto in cui il file o la cartella selezionati sono stati copiati da qualche altra parte all'interno del repository. Questo può essere utile quando si guardano branch (o tag) in questo modo si ferma alla radice di quel branch e fornisce una rapida indicazione delle modifiche apportate solo in quel branch."
 
 #. (para)
 msgid ""
 "Normally you will want to leave this option unchecked. TortoiseSVN remembers"
 " the state of the checkbox, so it will respect your preference."
-msgstr ""
+msgstr "Normalmente vorrai lasciare questa opzione deselezionata. TortoiseSVN ricorda lo stato della casella di controllo, quindi rispetterà le tue preferenze."
 
 #. (para)
 msgid ""
@@ -5790,14 +5790,14 @@ msgid ""
 " always checked by default. This is because merging is most often looking at"
 " changes on branches, and going back beyond the root of the branch does not "
 "make sense in that instance."
-msgstr ""
+msgstr "Quando la finestra di dialogo Mostra Log viene richiamata dalla finestra di dialogo del merge, la casella viene sempre selezionata per impostazione predefinita. Ciò è dovuto al fatto che l'unione si rivolge più spesso a modifiche sui branch e che in tale istanza non è opportuno risalire oltre la radice del branch."
 
 #. (para)
 msgid ""
 "Note that Subversion currently implements renaming as a copy/delete pair, so"
 " renaming a file or folder will also cause the log display to stop if this "
 "option is checked."
-msgstr ""
+msgstr "Notare che Subversion implementa attualmente la ridenominazione come coppia di copia/eliminazione, pertanto la rinomina di un file o di una cartella causerà l'interruzione della visualizzazione del log se questa opzione è selezionata."
 
 #. (para)
 msgid ""
