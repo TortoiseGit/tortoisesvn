@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2012-2013, 2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2012-2013, 2015, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 
 #include "stdafx.h"
 #include "BaseDialog.h"
+#include "LoadIconEx.h"
 #include <CommCtrl.h>
 #include <WindowsX.h>
 
@@ -119,8 +120,9 @@ void CDialog::InitDialog(HWND hwndDlg, UINT iconID)
     OffsetRect(&rc, -rcDlg.right, -rcDlg.bottom);
 
     SetWindowPos(hwndDlg, HWND_TOP, rcOwner.left + (rc.right / 2), rcOwner.top + (rc.bottom / 2), 0, 0, SWP_NOSIZE|SWP_SHOWWINDOW);
-    HICON hIcon = (HICON)::LoadImage(hResource, MAKEINTRESOURCE(iconID), IMAGE_ICON, 0, 0, LR_DEFAULTSIZE|LR_SHARED);
+    auto hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(iconID), ::GetSystemMetrics(SM_CXICON), ::GetSystemMetrics(SM_CYICON));
     ::SendMessage(hwndDlg, WM_SETICON, ICON_BIG, (LPARAM)hIcon);
+    hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(iconID), ::GetSystemMetrics(SM_CXSMICON), ::GetSystemMetrics(SM_CYSMICON));
     ::SendMessage(hwndDlg, WM_SETICON, ICON_SMALL, (LPARAM)hIcon);
 }
 

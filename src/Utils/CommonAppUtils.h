@@ -129,7 +129,7 @@ public:
     static HRESULT EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorkingDirectory = NULL, AUTOCOMPLETELISTOPTIONS acloOptions = ACLO_NONE, AUTOCOMPLETEOPTIONS acoOptions = ACO_AUTOSUGGEST, REFCLSID clsid = CLSID_ACListISF);
 
     // Wrapper for LoadImage(IMAGE_ICON)
-    static HICON LoadIconEx(UINT resourceId, UINT cx, UINT cy, UINT fuLoad);
+    static HICON LoadIconEx(UINT resourceId, UINT cx, UINT cy);
 
     static bool StartHtmlHelp(DWORD_PTR id);
 protected:

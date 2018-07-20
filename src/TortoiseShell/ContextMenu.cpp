@@ -26,6 +26,7 @@
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
 #include "PathUtils.h"
+#include "LoadIconEx.h"
 
 #define GetPIDLFolder(pida) (PIDLIST_ABSOLUTE)(((LPBYTE)pida)+(pida)->aoffset[0])
 #define GetPIDLItem(pida, i) (PCUITEMID_CHILD)(((LPBYTE)pida)+(pida)->aoffset[i+1])
@@ -1888,7 +1889,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
                 return S_OK;
             int iconWidth = GetSystemMetrics(SM_CXSMICON);
             int iconHeight = GetSystemMetrics(SM_CYSMICON);
-            HICON hIcon = (HICON)LoadImage(g_hResInst, resource, IMAGE_ICON, iconWidth, iconHeight, LR_DEFAULTCOLOR);
+            auto hIcon = LoadIconEx(g_hResInst, resource, iconWidth, iconHeight);
             if (hIcon == NULL)
                 return S_OK;
             DrawIconEx(lpdis->hDC,

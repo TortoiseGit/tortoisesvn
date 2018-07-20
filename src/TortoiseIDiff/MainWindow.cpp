@@ -25,6 +25,7 @@
 #include "AboutDlg.h"
 #include "TaskbarUUID.h"
 #include "DPIAware.h"
+#include "LoadIconEx.h"
 
 #pragma comment(lib, "comctl32.lib")
 
@@ -50,13 +51,13 @@ bool CMainWindow::RegisterAndCreateWindow()
     wcx.hCursor = LoadCursor(nullptr, IDC_SIZEWE);
     ResString clsname(hResource, IDS_APP_TITLE);
     wcx.lpszClassName = clsname;
-    wcx.hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
+    wcx.hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
     wcx.hbrBackground = (HBRUSH)(COLOR_3DFACE+1);
     if (selectionPaths.empty())
         wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF);
     else
         wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEIDIFF2);
-    wcx.hIconSm = LoadIcon(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
+    wcx.hIconSm = LoadIconEx(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEIDIFF));
     if (RegisterWindow(&wcx))
     {
         if (Create(WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN | WS_VISIBLE, nullptr))
@@ -1145,7 +1146,7 @@ bool CMainWindow::CreateToolbar()
     HICON hIcon = nullptr;
     if (selectionPaths.empty())
     {
-        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_OVERLAP));
+        hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_OVERLAP));
         tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
         tbb[index].idCommand = ID_VIEW_OVERLAPIMAGES;
         tbb[index].fsState = TBSTATE_ENABLED;
@@ -1153,7 +1154,7 @@ bool CMainWindow::CreateToolbar()
         tbb[index].dwData = 0;
         tbb[index++].iString = 0;
 
-        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_BLEND));
+        hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_BLEND));
         tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
         tbb[index].idCommand = ID_VIEW_BLENDALPHA;
         tbb[index].fsState = 0;
@@ -1161,7 +1162,7 @@ bool CMainWindow::CreateToolbar()
         tbb[index].dwData = 0;
         tbb[index++].iString = 0;
 
-        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_LINK));
+        hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_LINK));
         tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
         tbb[index].idCommand = ID_VIEW_LINKIMAGESTOGETHER;
         tbb[index].fsState = TBSTATE_ENABLED | TBSTATE_CHECKED;
@@ -1169,7 +1170,7 @@ bool CMainWindow::CreateToolbar()
         tbb[index].dwData = 0;
         tbb[index++].iString = 0;
 
-        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITWIDTHS));
+        hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_FITWIDTHS));
         tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
         tbb[index].idCommand = ID_VIEW_FITIMAGEWIDTHS;
         tbb[index].fsState = TBSTATE_ENABLED;
@@ -1177,7 +1178,7 @@ bool CMainWindow::CreateToolbar()
         tbb[index].dwData = 0;
         tbb[index++].iString = 0;
 
-        hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITHEIGHTS));
+        hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_FITHEIGHTS));
         tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
         tbb[index].idCommand = ID_VIEW_FITIMAGEHEIGHTS;
         tbb[index].fsState = TBSTATE_ENABLED;
@@ -1192,7 +1193,7 @@ bool CMainWindow::CreateToolbar()
         tbb[index].dwData = 0;
         tbb[index++].iString = 0;
     }
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_VERTICAL));
+    hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_VERTICAL));
     tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
     tbb[index].idCommand = ID_VIEW_ARRANGEVERTICAL;
     tbb[index].fsState = TBSTATE_ENABLED;
@@ -1200,7 +1201,7 @@ bool CMainWindow::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_FITINWINDOW));
+    hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_FITINWINDOW));
     tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
     tbb[index].idCommand = ID_VIEW_FITIMAGESINWINDOW;
     tbb[index].fsState = TBSTATE_ENABLED;
@@ -1208,7 +1209,7 @@ bool CMainWindow::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_ORIGSIZE));
+    hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_ORIGSIZE));
     tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
     tbb[index].idCommand = ID_VIEW_ORININALSIZE;
     tbb[index].fsState = TBSTATE_ENABLED;
@@ -1216,7 +1217,7 @@ bool CMainWindow::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_ZOOMIN));
+    hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_ZOOMIN));
     tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
     tbb[index].idCommand = ID_VIEW_ZOOMIN;
     tbb[index].fsState = TBSTATE_ENABLED;
@@ -1224,7 +1225,7 @@ bool CMainWindow::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_ZOOMOUT));
+    hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_ZOOMOUT));
     tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
     tbb[index].idCommand = ID_VIEW_ZOOMOUT;
     tbb[index].fsState = TBSTATE_ENABLED;
@@ -1239,7 +1240,7 @@ bool CMainWindow::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = LoadIcon(hResource, MAKEINTRESOURCE(IDI_IMGINFO));
+    hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_IMGINFO));
     tbb[index].iBitmap = ImageList_AddIcon(hToolbarImgList, hIcon);
     tbb[index].idCommand = ID_VIEW_IMAGEINFO;
     tbb[index].fsState = TBSTATE_ENABLED;

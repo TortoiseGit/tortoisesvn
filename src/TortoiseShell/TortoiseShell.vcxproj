@@ -236,6 +236,7 @@
     <ClCompile Include="..\SVN\TSVNPath.cpp" />
     <ClCompile Include="..\TSVNCache\CacheInterface.cpp" />
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
+    <ClCompile Include="..\Utils\LoadIconEx.cpp" />
     <ClCompile Include="..\Utils\MiscUI\IconBitmapUtils.cpp" />
     <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="..\Utils\PreserveChdir.cpp" />
@@ -317,6 +318,7 @@
     <ClInclude Include="..\SVN\SVNStatus.h" />
     <ClInclude Include="..\SVN\TSVNPath.h" />
     <ClInclude Include="..\Utils\DebugOutput.h" />
+    <ClInclude Include="..\Utils\LoadIconEx.h" />
     <ClInclude Include="..\Utils\MiscUI\IconBitmapUtils.h" />
     <ClInclude Include="..\Utils\MiscUI\ProgressDlg.h" />
     <ClInclude Include="..\Utils\PathUtils.h" />

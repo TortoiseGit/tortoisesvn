@@ -542,14 +542,14 @@ void CLogDlg::LoadIconsForActionColumns()
     int cx = GetSystemMetrics(SM_CXSMICON);
     int cy = GetSystemMetrics(SM_CYSMICON);
 
-    m_hModifiedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONMODIFIED, cx, cy, 0);
-    m_hReplacedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, cx, cy, 0);
-    m_hAddedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONADDED, cx, cy, 0);
-    m_hDeletedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONDELETED, cx, cy, 0);
-    m_hMergedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONMERGED, cx, cy, 0);
-    m_hReverseMergedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREVERSEMERGED, cx, cy, 0);
-    m_hMovedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, cx, cy, 0);
-    m_hMoveReplacedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, cx, cy, 0);
+    m_hModifiedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONMODIFIED, cx, cy);
+    m_hReplacedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, cx, cy);
+    m_hAddedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONADDED, cx, cy);
+    m_hDeletedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONDELETED, cx, cy);
+    m_hMergedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONMERGED, cx, cy);
+    m_hReverseMergedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREVERSEMERGED, cx, cy);
+    m_hMovedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, cx, cy);
+    m_hMoveReplacedIcon = CCommonAppUtils::LoadIconEx(IDI_ACTIONREPLACED, cx, cy);
 }
 
 void CLogDlg::ConfigureColumnsForLogListControl()
@@ -7850,7 +7850,7 @@ bool CLogDlg::CreateToolbar()
     auto iString = ::SendMessage(m_hwndToolbar, TB_ADDSTRING,
                                  (WPARAM)AfxGetResourceHandle(), (LPARAM)IDS_MONITOR_TOOLBARTEXTS);
     int index = 0;
-    HICON hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_GETALL, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
+    HICON hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_GETALL, iconSizeX, iconSizeY);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_CHECKREPOSITORIESNOW;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -7865,7 +7865,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_ADD, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_ADD, iconSizeX, iconSizeY);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_ADDPROJECT;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -7873,7 +7873,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_EDIT, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_EDIT, iconSizeX, iconSizeY);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_EDIT;
     tbb[index].fsState = BTNS_SHOWTEXT;
@@ -7881,7 +7881,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_REMOVE, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_REMOVE, iconSizeX, iconSizeY);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_REMOVE;
     tbb[index].fsState = BTNS_SHOWTEXT;
@@ -7896,7 +7896,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_MARKALLASREAD, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_MARKALLASREAD, iconSizeX, iconSizeY);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_MARKALLASREAD;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -7904,7 +7904,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_CLEARERRORS, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_CLEARERRORS, iconSizeX, iconSizeY);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_LOGDLG_MONITOR_CLEARERRORS;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -7912,7 +7912,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = iString++;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_UPDATE, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_UPDATE, iconSizeX, iconSizeY);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_UPDATE;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -7927,7 +7927,7 @@ bool CLogDlg::CreateToolbar()
     tbb[index].dwData = 0;
     tbb[index++].iString = 0;
 
-    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_OPTIONS, iconSizeX, iconSizeY, LR_VGACOLOR | LR_LOADTRANSPARENT);
+    hIcon = CCommonAppUtils::LoadIconEx(IDI_MONITOR_OPTIONS, iconSizeX, iconSizeY);
     tbb[index].iBitmap = m_toolbarImages.Add(hIcon);
     tbb[index].idCommand = ID_MISC_OPTIONS;
     tbb[index].fsState = TBSTATE_ENABLED | BTNS_SHOWTEXT;
@@ -8001,9 +8001,9 @@ void CLogDlg::InitMonitoringMode()
     DWORD exStyle = TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
     m_projTree.SetExtendedStyle(exStyle, exStyle);
     SetWindowTheme(m_projTree.GetSafeHwnd(), L"Explorer", NULL);
-    m_nMonitorUrlIcon = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MONITORURL, 0, 0, LR_DEFAULTSIZE));
-    m_nMonitorWCIcon = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MONITORWC, 0, 0, LR_DEFAULTSIZE));
-    m_nErrorOvl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MODIFIEDOVL, 0, 0, LR_DEFAULTSIZE));
+    m_nMonitorUrlIcon = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MONITORURL, 0, 0));
+    m_nMonitorWCIcon = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MONITORWC, 0, 0));
+    m_nErrorOvl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MODIFIEDOVL, 0, 0));
     if (m_nErrorOvl >= 0)
         SYS_IMAGE_LIST().SetOverlayImage(m_nErrorOvl, OVERLAY_MODIFIED);
     m_projTree.SetImageList(&SYS_IMAGE_LIST(), TVSIL_NORMAL);
@@ -8012,8 +8012,8 @@ void CLogDlg::InitMonitoringMode()
     // Set up the tray icon
     ChangeWindowMessageFilter(WM_TASKBARCREATED, MSGFLT_ADD);
 
-    m_hMonitorIconNormal = LoadIcon(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORNORMAL));
-    m_hMonitorIconNewCommits = LoadIcon(AfxGetResourceHandle(), MAKEINTRESOURCE(IDI_MONITORCOMMITS));
+    m_hMonitorIconNormal = CCommonAppUtils::LoadIconEx(IDI_MONITORNORMAL, 0, 0);
+    m_hMonitorIconNewCommits = CCommonAppUtils::LoadIconEx(IDI_MONITORCOMMITS, 0, 0);
 
     m_SystemTray.cbSize = sizeof(NOTIFYICONDATA);
     m_SystemTray.uVersion = NOTIFYICON_VERSION_4;
@@ -8727,7 +8727,7 @@ void CLogDlg::MonitorPopupTimer()
                     // Create indirect:
                     CMFCDesktopAlertWndInfo params;
 
-                    params.m_hIcon = CCommonAppUtils::LoadIconEx(IDR_MAINFRAME, 0, 0, LR_DEFAULTSIZE);
+                    params.m_hIcon = CCommonAppUtils::LoadIconEx(IDR_MAINFRAME, 0, 0);
                     params.m_strText = m_sMonitorNotificationTitle + L"\n" + m_sMonitorNotificationText;
                     params.m_strURL = CString(MAKEINTRESOURCE(IDS_MONITOR_NOTIFY_LINK));
                     params.m_nURLCmdID = 101;

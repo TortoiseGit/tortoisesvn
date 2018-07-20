@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009, 2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2008-2009, 2011, 2013-2015, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "IconMenu.h"
 #include "registry.h"
+#include "LoadIconEx.h"
 
 CIconMenu::CIconMenu(void) : CMenu()
 {
@@ -131,7 +132,7 @@ void CIconMenu::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
         bDestroyIcon = false;
     }
     else
-        hIcon = (HICON)LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(icons[lpDrawItemStruct->itemID]), IMAGE_ICON, iconWidth, iconHeight, LR_DEFAULTCOLOR);
+        hIcon = LoadIconEx(AfxGetResourceHandle(), MAKEINTRESOURCE(icons[lpDrawItemStruct->itemID]), iconWidth, iconHeight);
     if (hIcon == NULL)
         return;
     DrawIconEx(lpDrawItemStruct->hDC,

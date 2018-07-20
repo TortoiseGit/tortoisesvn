@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "ShellUpdater.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
+#include "LoadIconEx.h"
 #include "SetLookAndFeelPage.h"
 
 IMPLEMENT_DYNAMIC(CSetLookAndFeelPage, ISettingsPropPage)
@@ -182,9 +183,7 @@ BOOL CSetLookAndFeelPage::OnApply()
 
 void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags, int iconWidth, int iconHeight)
 {
-    HICON hIcon = reinterpret_cast<HICON>(::LoadImage(AfxGetResourceHandle(),
-        MAKEINTRESOURCE(nIconID),
-        IMAGE_ICON, iconWidth, iconHeight, LR_LOADTRANSPARENT));
+    auto hIcon = LoadIconEx(AfxGetResourceHandle(), MAKEINTRESOURCE(nIconID), iconWidth, iconHeight);
     int nImage = m_imgList.Add(hIcon);
     CString temp;
     temp.LoadString(nTextID);

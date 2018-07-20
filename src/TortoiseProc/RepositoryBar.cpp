@@ -105,7 +105,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         auto iconSize = GetSystemMetrics(SM_CXSMICON);
         rect = CRect(0, 0, size, size);
         m_btnBack.Create(L"BACK", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_BACK_BTN);
-        m_btnBack.SetImage(CCommonAppUtils::LoadIconEx(IDI_BACKWARD, iconSize, iconSize, LR_DEFAULTCOLOR));
+        m_btnBack.SetImage(CCommonAppUtils::LoadIconEx(IDI_BACKWARD, iconSize, iconSize));
         m_btnBack.SetWindowText(L"");
         m_btnBack.Invalidate();
         rbbi.lpText     = L"";
@@ -120,7 +120,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         // Create the "Forward" button control to be added
         rect = CRect(0, 0, size, size);
         m_btnForward.Create(L"FORWARD", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_FORWARD_BTN);
-        m_btnForward.SetImage(CCommonAppUtils::LoadIconEx(IDI_FORWARD, iconSize, iconSize, LR_DEFAULTCOLOR));
+        m_btnForward.SetImage(CCommonAppUtils::LoadIconEx(IDI_FORWARD, iconSize, iconSize));
         m_btnForward.SetWindowText(L"");
         m_btnForward.Invalidate();
         rbbi.lpText     = L"";
@@ -157,7 +157,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         // Create the "Up" button control to be added
         rect = CRect(0, 0, size, m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(8));
         m_btnUp.Create(L"UP", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_UP_BTN);
-        m_btnUp.SetImage(CCommonAppUtils::LoadIconEx(IDI_UP, iconSize, iconSize, LR_DEFAULTCOLOR));
+        m_btnUp.SetImage(CCommonAppUtils::LoadIconEx(IDI_UP, iconSize, iconSize));
         m_btnUp.SetWindowText(L"");
         m_btnUp.Invalidate();
         rbbi.lpText     = L"";

@@ -474,21 +474,21 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
         SetWindowTheme(m_hWnd, L"Explorer", NULL);
 
         m_nIconFolder = SYS_IMAGE_LIST().GetDirIconIndex();
-        int ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_EXTERNALOVL, 0, 0, LR_DEFAULTSIZE));
+        int ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_EXTERNALOVL, 0, 0));
         SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_EXTERNAL);
-        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_EXTERNALPEGGEDOVL, 0, 0, LR_DEFAULTSIZE));
+        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_EXTERNALPEGGEDOVL, 0, 0));
         SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_EXTERNALPEGGED);
-        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_NESTEDOVL, 0, 0, LR_DEFAULTSIZE));
+        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_NESTEDOVL, 0, 0));
         SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_NESTED);
-        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_DEPTHFILESOVL, 0, 0, LR_DEFAULTSIZE));
+        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_DEPTHFILESOVL, 0, 0));
         SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_DEPTHFILES);
-        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_DEPTHIMMEDIATEDOVL, 0, 0, LR_DEFAULTSIZE));
+        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_DEPTHIMMEDIATEDOVL, 0, 0));
         SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_DEPTHIMMEDIATES);
-        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_DEPTHEMPTYOVL, 0, 0, LR_DEFAULTSIZE));
+        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_DEPTHEMPTYOVL, 0, 0));
         SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_DEPTHEMPTY);
-        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_RESTOREOVL, 0, 0, LR_DEFAULTSIZE));
+        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_RESTOREOVL, 0, 0));
         SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_RESTORE);
-        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MERGEINFOOVL, 0, 0, LR_DEFAULTSIZE));
+        ovl = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MERGEINFOOVL, 0, 0));
         SYS_IMAGE_LIST().SetOverlayImage(ovl, OVL_MERGEINFO);
         SetImageList(&SYS_IMAGE_LIST(), LVSIL_SMALL);
 
