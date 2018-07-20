@@ -1,9 +1,39 @@
-﻿Version 1.10.0
+﻿Version 1.10.1
+- BUG: Wrong texts in conflict resolving
+       dialogs. (Stefan)
+- BUG: Shelving from TSVN dialogs returned
+       an error. (Stefan)
+- BUG: Crash when trying to unshelve from
+       an outdated or corrupted working copy. (Stefan)
+- CHG: Improved project monitor toolbar for
+       high dpi monitors. (Stefan)
+- CHG: Various improvements for
+       high-dpi monitors. (Stefan)
+- BUG: Wrong titles when editing a conflict. (Stefan)
+- BUG: Unshelving failed when the shelve name
+       contained non-ASCII chars. (Stefan)
+- BUG: Showing the log if the repo url contained
+       special chars sometimes failed. (Stefan)
+- BUG: Wrong behavior for 'lock' error. (Patrick Steinhardt)
+- CHG: Improved labels and text in dialog when
+       creating a copy in repo browser. (Stefan)
+- BUG: When showing multiple diffs from the log
+       dialog with added files, only the first
+       one was shown multiple times. (Stefan)
+- BUG: When adding unversioned folders, the
+       ignore properties were sometimes ignored. (Stefan)
+- BUG: Changing update depths of sparse checkouts
+       failed when trying to add files in excluded
+       folders. (Stefan)
+- BUG: Exception was shown when trying to show the
+       log between a date and a number revision. (Stefan)
+
+Version 1.10.0
 See the release notes here:
 http://tortoisesvn.net/tsvn_1.10_releasenotes.html
 
-Version 1.9.8
-- BUG: GDI leak in repobrowser. (Stefan)
+Version 1.9.8 (unreleased)
+- BUG: GDI leak in repo-browser. (Stefan)
 - BUG: Endless loop in vendor-branch. (Stefan)
 - CHG: New line margin icons and minor high dpi refinements
        in TortoiseMerge. (Ivan Zhakov)
@@ -68,7 +98,7 @@ Version 1.9.5
        in TortoiseMerge. (Stefan)
 - BUG: TortoiseMerge could hang with "ignore comments"
        enabled. (Sven Strickroth)
-- BUG: The patch window in TMerge could be shown outside of a
+- BUG: The patch window in TMerge could be shown outside of a 
        multi-monitor setup, i.e. not in a visible area. (Stefan)
 - BUG: When deleting multiple files with unversioned files
        mixed in, the "do this for all unversioned/modified files"
