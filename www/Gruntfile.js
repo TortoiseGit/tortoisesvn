@@ -91,19 +91,17 @@ module.exports = function(grunt) {
             }
         },
 
-        uncss: {
-            options: {
-                htmlroot: '<%= dirs.dest %>',
-                ignore: [
-                    /(#|\.)baguetteBox(-[a-zA-Z]+)?/,
-                    /\.no\-js/
-                ],
-                ignoreSheets: [/fonts.googleapis/, /www.google.com/, /pagead2.googlesyndication.com/],
-                stylesheets: ['/assets/css/pack.css']
-            },
+        purgecss: {
             dist: {
-                src: '<%= dirs.dest %>/**/*.html',
-                dest: '<%= concat.css.dest %>'
+                options: {
+                    content: [
+                        '<%= dirs.dest %>/**/*.html',
+                        '<%= dirs.dest %>/assets/js/**/*.js'
+                    ]
+                },
+                files: {
+                    '<%= concat.css.dest %>': ['<%= concat.css.dest %>']
+                }
             }
         },
 
@@ -117,7 +115,7 @@ module.exports = function(grunt) {
                     }
                 },
                 files: {
-                    '<%= uncss.dist.dest %>': '<%= concat.css.dest %>'
+                    '<%= concat.css.dest %>': '<%= concat.css.dest %>'
                 }
             }
         },
@@ -287,7 +285,7 @@ module.exports = function(grunt) {
         'useminPrepare',
         'concat',
         'postcss',
-        'uncss',
+        'purgecss',
         'cssmin',
         'uglify',
         'filerev',
