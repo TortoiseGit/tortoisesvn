@@ -7826,7 +7826,7 @@ LRESULT CLogDlg::OnRefreshSelection( WPARAM /*wParam*/, LPARAM /*lParam*/ )
 
 bool CLogDlg::CreateToolbar()
 {
-    m_hwndToolbar = CreateWindowEx(0,
+    m_hwndToolbar = CreateWindowEx(TBSTYLE_EX_DOUBLEBUFFER,
                                    TOOLBARCLASSNAME,
                                    (LPCWSTR)NULL,
                                    WS_CHILD | WS_BORDER | WS_VISIBLE | TBSTYLE_FLAT | TBSTYLE_TOOLTIPS,
