@@ -1867,7 +1867,7 @@ ATOM MyRegisterClass(HINSTANCE hResource)
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hResource;
-    wcex.hIcon          = LoadIconEx(hResource, (LPCTSTR)IDI_TORTOISEBLAME);
+    wcex.hIcon          = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_TORTOISEBLAME), GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON));
     wcex.hCursor        = LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName   = (LPCTSTR)IDC_TORTOISEBLAME;
@@ -1888,7 +1888,7 @@ ATOM MyRegisterBlameClass(HINSTANCE hResource)
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hResource;
-    wcex.hIcon          = LoadIconEx(hResource, (LPCTSTR)IDI_TORTOISEBLAME);
+    wcex.hIcon          = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_TORTOISEBLAME), GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON));
     wcex.hCursor        = LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName   = 0;
@@ -1909,7 +1909,7 @@ ATOM MyRegisterHeaderClass(HINSTANCE hResource)
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hResource;
-    wcex.hIcon          = LoadIconEx(hResource, (LPCTSTR)IDI_TORTOISEBLAME);
+    wcex.hIcon          = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_TORTOISEBLAME), GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON));
     wcex.hCursor        = LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_BTNFACE+1);
     wcex.lpszMenuName   = 0;
@@ -1930,7 +1930,7 @@ ATOM MyRegisterLocatorClass(HINSTANCE hResource)
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hResource;
-    wcex.hIcon          = LoadIconEx(hResource, (LPCTSTR)IDI_TORTOISEBLAME);
+    wcex.hIcon          = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_TORTOISEBLAME), GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON));
     wcex.hCursor        = LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName   = 0;
