@@ -4505,19 +4505,6 @@ void CBaseView::CompensateForKeyboard(CPoint& point)
     }
 }
 
-HICON CBaseView::LoadIcon(WORD iconId)
-{
-    int iconWidth = GetSystemMetrics(SM_CXSMICON);
-    int iconHeight = GetSystemMetrics(SM_CYSMICON);
-    HICON hIcon = nullptr;
-    if (FAILED(LoadIconWithScaleDown(AfxGetResourceHandle(), MAKEINTRESOURCE(iconId), iconWidth, iconHeight, &hIcon)))
-    {
-        hIcon = (HICON)::LoadImage(AfxGetResourceHandle(), MAKEINTRESOURCE(iconId),
-            IMAGE_ICON, iconWidth, iconHeight, LR_DEFAULTCOLOR);
-    }
-    return hIcon;
-}
-
 void CBaseView::ReleaseBitmap()
 {
     if (m_pCacheBitmap)
