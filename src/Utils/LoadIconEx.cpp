@@ -1,6 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2018 - TortoiseSVN
+// Copyright (C) 2018 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +23,7 @@
 #include <commctrl.h>
 
 #pragma comment(lib, "Comctl32.lib")
+#pragma comment(linker, "/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 HICON LoadIconEx(HINSTANCE hInstance, LPCWSTR lpIconName)
 {
