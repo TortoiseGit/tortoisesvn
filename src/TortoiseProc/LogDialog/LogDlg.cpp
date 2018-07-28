@@ -73,6 +73,8 @@
 #include "../LogCache/Streams/StreamException.h"
 
 #define ICONITEMBORDER 5
+#define MIN_CTRL_HEIGHT (CDPIAware::Instance().Scale(20))
+#define MIN_SPLITTER_HEIGHT (CDPIAware::Instance().Scale(10))
 
 const UINT CLogDlg::m_FindDialogMessage = RegisterWindowMessage(FINDMSGSTRING);
 const UINT CLogDlg::WM_TASKBARCREATED = RegisterWindowMessage(L"TaskbarCreated");
@@ -4127,9 +4129,9 @@ void CLogDlg::SetSplitterRange()
         m_ChangedFileListCtrl.GetWindowRect(rcBottom);
         ScreenToClient(rcBottom);
 
-        m_wndSplitter1.SetRange(rcTop.top+20, rcBottom.bottom-50);
-        m_wndSplitter2.SetRange(rcTop.top+50, rcBottom.bottom-20);
-        m_wndSplitterLeft.SetRange(80, rcTop.right - m_LogListOrigRect.Width());
+        m_wndSplitter1.SetRange(rcTop.top + MIN_CTRL_HEIGHT, rcBottom.bottom - (2 * MIN_CTRL_HEIGHT + MIN_SPLITTER_HEIGHT));
+        m_wndSplitter2.SetRange(rcTop.top + (2 * MIN_CTRL_HEIGHT + MIN_SPLITTER_HEIGHT), rcBottom.bottom - MIN_CTRL_HEIGHT);
+        m_wndSplitterLeft.SetRange(CDPIAware::Instance().Scale(80), rcTop.right - m_LogListOrigRect.Width());
     }
 }
 
@@ -6361,9 +6363,9 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
         m_ChangedFileListCtrl.GetWindowRect(rcBottom);
         ScreenToClient(rcBottom);
 
-        m_wndSplitter1.SetRange(rcTop.top + 20, rcBottom.bottom - 50);
-        m_wndSplitter2.SetRange(rcTop.top + 50, rcBottom.bottom - 20);
-        m_wndSplitterLeft.SetRange(80, rcTop.right - m_LogListOrigRect.Width());
+        m_wndSplitter1.SetRange(rcTop.top + MIN_CTRL_HEIGHT, rcBottom.bottom - (2 * MIN_CTRL_HEIGHT + MIN_SPLITTER_HEIGHT));
+        m_wndSplitter2.SetRange(rcTop.top + (2 * MIN_CTRL_HEIGHT + MIN_SPLITTER_HEIGHT), rcBottom.bottom - MIN_CTRL_HEIGHT);
+        m_wndSplitterLeft.SetRange(CDPIAware::Instance().Scale(80), rcTop.right - m_LogListOrigRect.Width());
     }
 }
 
