@@ -633,9 +633,9 @@ void CLogDlg::ConfigureResizableControlAnchors()
 
 void CLogDlg::RestoreLogDlgWindowAndSplitters()
 {
-    DWORD yPos1 = CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1" + m_bMonitoringMode ? L"M" : L"");
-    DWORD yPos2 = CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2" + m_bMonitoringMode ? L"M" : L"");
-    DWORD xPos = CRegDWORD(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3" + m_bMonitoringMode ? L"M" : L"");
+    DWORD yPos1 = CRegDWORD(m_bMonitoringMode ? L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1M" : L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1");
+    DWORD yPos2 = CRegDWORD(m_bMonitoringMode ? L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2M" : L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2");
+    DWORD xPos = CRegDWORD(m_bMonitoringMode ? L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3M" : L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3");
     RECT rcDlg, rcLogList, rcChgMsg, rcProjTree;
     GetClientRect(&rcDlg);
     m_LogList.GetWindowRect(&rcLogList);
@@ -1339,9 +1339,9 @@ void CLogDlg::SaveSplitterPos()
 {
     if (!IsIconic())
     {
-        CRegDWORD regPos1(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1" + m_bMonitoringMode ? L"M" : L"");
-        CRegDWORD regPos2(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2" + m_bMonitoringMode ? L"M" : L"");
-        CRegDWORD regPos3(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3" + m_bMonitoringMode ? L"M" : L"");
+        CRegDWORD regPos1(m_bMonitoringMode ? L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1M" : L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer1");
+        CRegDWORD regPos2(m_bMonitoringMode ? L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2M" : L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer2");
+        CRegDWORD regPos3(m_bMonitoringMode ? L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3M" : L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState\\LogDlgSizer3");
         RECT rectSplitter;
         m_wndSplitter1.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
