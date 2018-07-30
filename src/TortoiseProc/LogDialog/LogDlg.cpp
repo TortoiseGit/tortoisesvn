@@ -6319,7 +6319,7 @@ void CLogDlg::OnDtnDropdownDateto(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 void CLogDlg::OnSize(UINT nType, int cx, int cy)
 {
     __super::OnSize(nType, cx, cy);
-    if ((m_LogList) && (m_ChangedFileListCtrl))
+    if ((m_LogList) && (m_ChangedFileListCtrl) && (nType == 0) && (cx >0) && (cy > 0))
     {
         // correct the splitter positions if they're out of bounds
         CRect rcTop;
