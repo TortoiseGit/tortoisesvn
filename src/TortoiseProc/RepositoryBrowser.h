@@ -181,8 +181,6 @@ protected:
     LRESULT OnAfterInitDialog(WPARAM /*wParam*/, LPARAM /*lParam*/);
     /// called to update the tree node for a specific URL
     LRESULT OnRefreshURL(WPARAM /*wParam*/, LPARAM lParam);
-    /// draws the bar when the tree and list control are resized
-    void DrawXorBar(CDC * pDC, int x1, int y1, int width, int height);
 
     /// recursively removes all items from \c hItem on downwards.
     void RecursiveRemove(HTREEITEM hItem, bool bChildrenOnly = false);
@@ -283,7 +281,7 @@ protected:
     bool TrySVNParentPath();
 
     /// resizes the control so that the divider is at position 'point'
-    void HandleDividerMove(CPoint point, bool bDraw);
+    void HandleDividerMove(CPoint point);
     bool CheckoutDepthForItem( HTREEITEM hItem );
     void CheckTreeItem( HTREEITEM hItem, bool bCheck );
     void CheckTreeItemRecursive( HTREEITEM hItem, bool bCheck );

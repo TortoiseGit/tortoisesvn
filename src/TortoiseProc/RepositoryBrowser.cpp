@@ -53,6 +53,7 @@
 #include "Callback.h"
 #include "SVNStatus.h"
 #include "SmartHandle.h"
+#include "DPIAware.h"
 
 
 #include <fstream>
@@ -451,7 +452,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
         // the tree and the list control
         CRect drc(0, 0, 10, 10);
         MapDialogRect(&drc);
-        HandleDividerMove(CPoint(xPos + drc.right, 10), false);
+        HandleDividerMove(CPoint(xPos + drc.right, CDPIAware::Instance().Scale(10)));
     }
     else
     {
@@ -985,22 +986,16 @@ void CRepositoryBrowser::OnMouseMove(UINT nFlags, CPoint point)
     //same for the window coordinates - make them relative to 0,0
     OffsetRect(&treelist, -treelist.left, -treelist.top);
 
-    if (point.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
-        point.x = treelist.left+REPOBROWSER_CTRL_MIN_WIDTH;
-    if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH)
-        point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
+    auto minWidth = CDPIAware::Instance().Scale(REPOBROWSER_CTRL_MIN_WIDTH);
+
+    if (point.x < treelist.left+minWidth)
+        point.x = treelist.left+minWidth;
+    if (point.x > treelist.right-minWidth)
+        point.x = treelist.right-minWidth;
 
     if ((nFlags & MK_LBUTTON) && (point.x != oldx))
     {
-        CDC * pDC = GetDC();
-
-        if (pDC)
-        {
-            DrawXorBar(pDC, oldx+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
-            DrawXorBar(pDC, point.x+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
-
-            ReleaseDC(pDC);
-        }
+        HandleDividerMove(point);
 
         oldx = point.x;
         oldy = point.y;
@@ -1034,24 +1029,23 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
     //same for the window coordinates - make them relative to 0,0
     OffsetRect(&treelist, -treelist.left, -treelist.top);
 
-    if (point.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
-        return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
-    if (point.x > treelist.right-3)
-        return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
-    if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH)
-        point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
+    auto minWidth = CDPIAware::Instance().Scale(REPOBROWSER_CTRL_MIN_WIDTH);
+    auto divWidth = CDPIAware::Instance().Scale(3);
 
-    if ((point.y < treelist.top+3) ||
-        (point.y > treelist.bottom-3))
+    if (point.x < treelist.left+minWidth)
+        return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
+    if (point.x > treelist.right - divWidth)
+        return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
+    if (point.x > treelist.right-minWidth)
+        point.x = treelist.right-minWidth;
+
+    if ((point.y < treelist.top + divWidth) ||
+        (point.y > treelist.bottom - divWidth))
         return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
 
     bDragMode = true;
 
     SetCapture();
-
-    CDC * pDC = GetDC();
-    DrawXorBar(pDC, point.x+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
-    ReleaseDC(pDC);
 
     oldx = point.x;
     oldy = point.y;
@@ -1059,7 +1053,7 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
     CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
 }
 
-void CRepositoryBrowser::HandleDividerMove(CPoint point, bool bDraw)
+void CRepositoryBrowser::HandleDividerMove(CPoint point)
 {
     RECT rect, tree, list, treelist, treelistclient;
 
@@ -1074,40 +1068,36 @@ void CRepositoryBrowser::HandleDividerMove(CPoint point, bool bDraw)
     GetClientRect(&rect);
     ClientToScreen(&rect);
 
+    auto minWidth = CDPIAware::Instance().Scale(REPOBROWSER_CTRL_MIN_WIDTH);
+
     CPoint point2 = point;
-    if (point2.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
-        point2.x = treelist.left+REPOBROWSER_CTRL_MIN_WIDTH;
-    if (point2.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH)
-        point2.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
+    if (point2.x < treelist.left+minWidth)
+        point2.x = treelist.left+minWidth;
+    if (point2.x > treelist.right-minWidth)
+        point2.x = treelist.right-minWidth;
 
     point.x -= rect.left;
     point.y -= treelist.top;
 
     OffsetRect(&treelist, -treelist.left, -treelist.top);
 
-    if (point.x < treelist.left+REPOBROWSER_CTRL_MIN_WIDTH)
-        point.x = treelist.left+REPOBROWSER_CTRL_MIN_WIDTH;
-    if (point.x > treelist.right-REPOBROWSER_CTRL_MIN_WIDTH)
-        point.x = treelist.right-REPOBROWSER_CTRL_MIN_WIDTH;
-
-    if (bDraw)
-    {
-        CDC * pDC = GetDC();
-        DrawXorBar(pDC, oldx+2, treelistclient.top, 4, treelistclient.bottom-treelistclient.top-2);
-        ReleaseDC(pDC);
-    }
+    if (point.x < treelist.left+minWidth)
+        point.x = treelist.left+minWidth;
+    if (point.x > treelist.right-minWidth)
+        point.x = treelist.right-minWidth;
 
     oldx = point.x;
     oldy = point.y;
 
+    auto divWidth = CDPIAware::Instance().Scale(2);
     //position the child controls
     GetDlgItem(IDC_REPOTREE)->GetWindowRect(&treelist);
-    treelist.right = point2.x - 2;
+    treelist.right = point2.x - divWidth;
     ScreenToClient(&treelist);
     RemoveAnchor(IDC_REPOTREE);
     GetDlgItem(IDC_REPOTREE)->MoveWindow(&treelist);
     GetDlgItem(IDC_REPOLIST)->GetWindowRect(&treelist);
-    treelist.left = point2.x + 2;
+    treelist.left = point2.x + divWidth;
     ScreenToClient(&treelist);
     RemoveAnchor(IDC_REPOLIST);
     GetDlgItem(IDC_REPOLIST)->MoveWindow(&treelist);
@@ -1123,7 +1113,7 @@ void CRepositoryBrowser::OnLButtonUp(UINT nFlags, CPoint point)
 
     if (!m_bSparseCheckoutMode)
     {
-        HandleDividerMove(point, true);
+        HandleDividerMove(point);
 
         bDragMode = false;
         ReleaseCapture();
@@ -1137,31 +1127,6 @@ void CRepositoryBrowser::OnCaptureChanged(CWnd *pWnd)
     bDragMode = false;
 
     __super::OnCaptureChanged(pWnd);
-}
-
-void CRepositoryBrowser::DrawXorBar(CDC * pDC, int x1, int y1, int width, int height)
-{
-    static WORD _dotPatternBmp[8] =
-    {
-        0x0055, 0x00aa, 0x0055, 0x00aa,
-        0x0055, 0x00aa, 0x0055, 0x00aa
-    };
-
-    HBITMAP hbm;
-    HBRUSH  hbr, hbrushOld;
-
-    hbm = CreateBitmap(8, 8, 1, 1, _dotPatternBmp);
-    hbr = CreatePatternBrush(hbm);
-
-    pDC->SetBrushOrg(x1, y1);
-    hbrushOld = (HBRUSH)pDC->SelectObject(hbr);
-
-    PatBlt(pDC->GetSafeHdc(), x1, y1, width, height, PATINVERT);
-
-    pDC->SelectObject(hbrushOld);
-
-    DeleteObject(hbr);
-    DeleteObject(hbm);
 }
 
 bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked)
