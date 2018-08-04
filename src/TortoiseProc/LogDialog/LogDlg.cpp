@@ -645,27 +645,27 @@ void CLogDlg::RestoreLogDlgWindowAndSplitters()
     m_projTree.GetWindowRect(&rcProjTree);
     ScreenToClient(&rcProjTree);
 
-    if (yPos1 && ((LONG)yPos1 < rcDlg.bottom - 185))
+    if (yPos1 && ((LONG)yPos1 < rcDlg.bottom - CDPIAware::Instance().Scale(185)))
     {
         RECT rectSplitter;
         m_wndSplitter1.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
         int delta = yPos1 - rectSplitter.top;
 
-        if ((rcLogList.bottom + delta > rcLogList.top)&&(rcLogList.bottom + delta < rcChgMsg.bottom - 30))
+        if ((rcLogList.bottom + delta > rcLogList.top)&&(rcLogList.bottom + delta < rcChgMsg.bottom - CDPIAware::Instance().Scale(30)))
         {
             m_wndSplitter1.SetWindowPos(NULL, rectSplitter.left, yPos1, 0, 0, SWP_NOSIZE);
             DoSizeV1(delta);
         }
     }
-    if (yPos2 && ((LONG)yPos2 < rcDlg.bottom - 153))
+    if (yPos2 && ((LONG)yPos2 < rcDlg.bottom - CDPIAware::Instance().Scale(153)))
     {
         RECT rectSplitter;
         m_wndSplitter2.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
         int delta = yPos2 - rectSplitter.top;
 
-        if ((rcChgMsg.top + delta < rcChgMsg.bottom)&&(rcChgMsg.top + delta > rcLogList.top + 30))
+        if ((rcChgMsg.top + delta < rcChgMsg.bottom)&&(rcChgMsg.top + delta > rcLogList.top + CDPIAware::Instance().Scale(30)))
         {
             m_wndSplitter2.SetWindowPos(NULL, rectSplitter.left, yPos2, 0, 0, SWP_NOSIZE);
             DoSizeV2(delta);
@@ -674,7 +674,7 @@ void CLogDlg::RestoreLogDlgWindowAndSplitters()
     if (m_bMonitoringMode)
     {
         if (xPos == 0)
-            xPos = 80;
+            xPos = CDPIAware::Instance().Scale(80);
         RECT rectSplitter;
         m_wndSplitterLeft.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
@@ -3564,35 +3564,35 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                     BitBlt(myDC.GetDC(), rect.left, rect.top, rect.Width(), rect.Height(), pLVCD->nmcd.hdc, rect.left, rect.top, SRCCOPY);
 
                     // Draw the icon(s) into the compatible DC
-
+                    auto iconItemBorder = CDPIAware::Instance().Scale(ICONITEMBORDER);
                     DWORD actions = pLogEntry->GetChangedPaths().GetActions();
                     if (actions & LOGACTIONS_MODIFIED)
-                        ::DrawIconEx(myDC.GetDC(), rect.left + ICONITEMBORDER, rect.top,
+                        ::DrawIconEx(myDC.GetDC(), rect.left + iconItemBorder, rect.top,
                                         m_hModifiedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_ADDED)
-                        ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + iconItemBorder,
                                         rect.top, m_hAddedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_DELETED)
-                        ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + iconItemBorder,
                                         rect.top, m_hDeletedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_REPLACED)
-                        ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + iconItemBorder,
                                     rect.top, m_hReplacedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_MOVED)
-                        ::DrawIconEx(myDC.GetDC(), rect.left + nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left + nIcons*iconwidth + iconItemBorder,
                         rect.top, m_hMovedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
                     if (actions & LOGACTIONS_MOVEREPLACED)
-                        ::DrawIconEx(myDC.GetDC(), rect.left + nIcons*iconwidth + ICONITEMBORDER,
+                        ::DrawIconEx(myDC.GetDC(), rect.left + nIcons*iconwidth + iconItemBorder,
                         rect.top, m_hMoveReplacedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     nIcons++;
 
@@ -3600,10 +3600,10 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR *pNMHDR, LRESULT *pResult)
                         (m_mergedRevs.find(pLogEntry->GetRevision()) != m_mergedRevs.end()))
                     {
                         if (pLogEntry->IsSubtractiveMerge())
-                            ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                            ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + iconItemBorder,
                                 rect.top, m_hReverseMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                         else
-                            ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + ICONITEMBORDER,
+                            ::DrawIconEx(myDC.GetDC(), rect.left+nIcons*iconwidth + iconItemBorder,
                                     rect.top, m_hMergedIcon, iconwidth, iconheight, 0, NULL, DI_NORMAL);
                     }
                     nIcons++;
@@ -4932,7 +4932,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
         hdi.pszText = textbuf;
         hdi.cchTextMax = _countof(textbuf) - 1;
         pHdrCtrl->GetItem(col, &hdi);
-        int cx = m_LogList.GetStringWidth(textbuf)+20; // 20 pixels for col separator and margin
+        int cx = m_LogList.GetStringWidth(textbuf) + CDPIAware::Instance().Scale(20); // 20 pixels for col separator and margin
         for (size_t index = startRow; index<endRow; ++index)
         {
             // get the width of the string and add 14 pixels for the column separator and margins
@@ -4977,7 +4977,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
         // Adjust columns "Actions" containing icons
         if (col == 1)
         {
-            const int nMinimumWidth = ICONITEMBORDER+GetSystemMetrics(SM_CXSMICON) * 7;
+            const int nMinimumWidth = CDPIAware::Instance().Scale(ICONITEMBORDER) + GetSystemMetrics(SM_CXSMICON) * 7;
             if (cx < nMinimumWidth)
             {
                 cx = nMinimumWidth;
