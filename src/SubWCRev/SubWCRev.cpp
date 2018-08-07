@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,9 +93,9 @@ $WCREV$         Highest committed revision number\n\
 $WCREV&$        Highest committed revision number ANDed with the number\n\
                 after the &\n\
 $WCREV+$        Highest committed revision number added with the number\n\
-                after the &\n\
+                after the +\n\
 $WCREV-$        Highest committed revision number subtracted with the\n\
-                number after the &\n\
+                number after the -\n\
 $WCDATE$        Date of highest committed revision\n\
 $WCDATE=$       Like $WCDATE$ with an added strftime format after the =\n\
 $WCRANGE$       Update revision range\n\
