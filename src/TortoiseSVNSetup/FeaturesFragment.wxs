@@ -1,4 +1,4 @@
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+﻿<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include Includes.wxi?>
   <Fragment Id="FeaturesFragment">
     <Feature Id="DefaultFeature" Level="1" ConfigurableDirectory="INSTALLDIR" Title="TortoiseSVN" Absent="disallow"
@@ -25,7 +25,6 @@
       <ComponentRef Id="C__DiffScripts" />
       <ComponentRef Id="C_LanguagePacks" />
 
-      <ComponentRef Id="C__ucrt" />
       <ComponentRef Id="C__crtmfc" />
 
       <!--<Feature Id="F_CRT" Level="1" Title="C-Runtime" Description="The Visual-C Runtime libs" TypicalDefault="install" Display="hidden" >
