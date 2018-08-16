@@ -3827,6 +3827,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                             continue;
                         if (CopyFile(entry2->GetRestorePath() ,entry2->GetPath().GetWinPath(), FALSE))
                         {
+                            CPathUtils::Touch(entry2->GetPath().GetWinPath());
                             m_restorepaths.erase(entry2->GetRestorePath());
                             entry2->restorepath.Empty();
                             // restore the original overlay

@@ -19,7 +19,7 @@
 #include "stdafx.h"
 #include "PathUtils.h"
 #include "UnicodeUtils.h"
-
+#include "SmartHandle.h"
 #include "SVNHelpers.h"
 #include "apr_uri.h"
 #include "svn_path.h"
@@ -289,6 +289,24 @@ CStringA CPathUtils::PathEscape(const CStringA& path)
         }
     }
     return ret;
+}
+
+bool CPathUtils::Touch(const CString & path)
+{
+    CAutoFile hFile = CreateFile(path, GENERIC_WRITE, FILE_SHARE_DELETE, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+    if (hFile)
+    {
+        FILETIME ft;
+        SYSTEMTIME st;
+
+        GetSystemTime(&st);                         // Gets the current system time
+        SystemTimeToFileTime(&st, &ft);             // Converts the current system time to file time format
+        return SetFileTime(hFile,                   // Sets last-write time of the file 
+                           (LPFILETIME)NULL,        // to the converted current system time 
+                           (LPFILETIME)NULL,
+                           &ft) != FALSE;
+    }
+    return false;
 }
 
 bool CPathUtils::DoesPercentNeedEscaping(LPCSTR str)

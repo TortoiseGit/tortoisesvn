@@ -770,6 +770,7 @@ void CCommitDlg::OnCancel()
         for (auto it = m_restorepaths.cbegin(); it != m_restorepaths.cend(); ++it)
         {
             CopyFile(it->first, std::get<0>(it->second), FALSE);
+            CPathUtils::Touch(std::get<0>(it->second));
             svn.AddToChangeList(CTSVNPathList(CTSVNPath(std::get<0>(it->second))), std::get<1>(it->second), svn_depth_empty);
         }
     }

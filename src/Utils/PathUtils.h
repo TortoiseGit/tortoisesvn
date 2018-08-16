@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2014, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -146,6 +146,11 @@ public:
      * Combines two url parts, taking care of slashes.
      */
     static CString CombineUrls(CString first, CString second);
+
+    /**
+     * Sets the last-write-time of the file to the current time
+     */
+    static bool Touch(const CString& path);
 
 private:
     static bool DoesPercentNeedEscaping(LPCSTR str);
