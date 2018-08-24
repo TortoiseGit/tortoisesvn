@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2013 - TortoiseSVN
+// Copyright (C) 2007-2013, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,34 +34,34 @@ library LibSubWCRev
     ]
     interface ISubWCRev : IDispatch
     {
-        [helpstring("Fetches the status information. Call this to initialize all the properties")]
+        [helpstring("Fetches the status information. Call this to initialize all the properties. The properties then reflect the status of the specified path.")]
         HRESULT GetWCInfo([in] BSTR wcPath, [in]VARIANT_BOOL folders, [in]VARIANT_BOOL externals);
 
-        [helpstring("Fetches the status information. Call this to initialize all the properties")]
+        [helpstring("Fetches the status information. Call this to initialize all the properties. The properties then reflect the status of the specified path.")]
         HRESULT GetWCInfo2([in] BSTR wcPath, [in]VARIANT_BOOL folders, [in]VARIANT_BOOL externals, [in]VARIANT_BOOL externalsNoMixed);
 
-        [propget, helpstring("Returns the working copy revision")]
+        [propget, helpstring("Returns the revision of the working copy path passed to GetWCInfo")]
         HRESULT Revision([out, retval]VARIANT* rev);
 
-        [propget, helpstring("Returns the lowest revision number of the working copy")]
+        [propget, helpstring("Returns the lowest revision number of the working copy path passed to GetWCInfo")]
         HRESULT MinRev([out, retval]VARIANT* rev);
 
-        [propget, helpstring("Returns the hightest revision number of the working copy")]
+        [propget, helpstring("Returns the highest revision number of the working copy path passed to GetWCInfo")]
         HRESULT MaxRev([out, retval]VARIANT* rev);
 
-        [propget, helpstring("Returns the working copy date as a string")]
+        [propget, helpstring("Returns the date as a string of the working copy path passed to GetWCInfo")]
         HRESULT Date([out, retval]VARIANT* date);
 
-        [propget, helpstring("Returns the working copy url")]
+        [propget, helpstring("Returns the url of the working copy path passed to GetWCInfo")]
         HRESULT Url([out, retval]VARIANT* url);
 
-        [propget, helpstring("Returns the author of the wcPath as a string")]
+        [propget, helpstring("Returns the author as a string of the working copy path passed to GetWCInfo")]
         HRESULT Author([out, retval]VARIANT* author);
 
-        [propget, helpstring("TRUE if the working copy has modifications")]
+        [propget, helpstring("TRUE if the working copy path passed to GetWCInfo has modifications")]
         HRESULT HasModifications([out, retval]VARIANT_BOOL* modifications);
 
-        [propget, helpstring("TRUE if the working copy has unversioned items")]
+        [propget, helpstring("TRUE if the working copy path passed to GetWCInfo has unversioned items")]
         HRESULT HasUnversioned([out, retval]VARIANT_BOOL* modifications);
 
         [propget, helpstring("TRUE if mixed update revisions found")]
