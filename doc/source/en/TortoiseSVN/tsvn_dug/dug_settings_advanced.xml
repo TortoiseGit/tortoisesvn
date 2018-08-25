@@ -549,6 +549,20 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term condition="pot">PlaySound</term>
+      <listitem>
+        <para>
+          If set to <literal>true</literal>, TortoiseSVN will play a system sound
+          when an error or warning occurs, or another situation which
+          is important and requires your attention.
+          Set this to <literal>false</literal> if you want to keep
+          TortoiseSVN quiet. Note that the project monitor has its own
+          setting for playing sounds, which you can configure in its settings
+          dialog.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term condition="pot">ShellMenuAccelerators</term>
       <listitem>
         <para>
