@@ -661,7 +661,7 @@ BOOL CRevisionGraphDlg::OnToggleRedrawOption (UINT controlID)
 void CRevisionGraphDlg::StartWorkerThread()
 {
     if (!m_Graph.IsUpdateJobRunning())
-        m_Graph.updateJob.reset (new CFuture<bool>(this, &CRevisionGraphDlg::UpdateData));
+        m_Graph.updateJob = std::make_unique<CFuture<bool>>(this, &CRevisionGraphDlg::UpdateData);
 }
 
 void CRevisionGraphDlg::OnCancel()
