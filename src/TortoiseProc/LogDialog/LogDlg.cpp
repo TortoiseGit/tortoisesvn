@@ -1738,6 +1738,8 @@ void CLogDlg::LogThread()
             if (sCopyFrom.Compare(m_sURL) == 0)
             {
                 m_copyfromrev = rev;
+                // add the copyfrom revision to the already merged revs so it's shown in gray
+                m_mergedRevs.insert(rev);
                 if (svn_revnum_t(m_startrev) > svn_revnum_t(m_endrev))
                     m_endrev = m_copyfromrev;
             }

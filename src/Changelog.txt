@@ -5,6 +5,8 @@
        for log dialog and project monitor. (Stefan)
 - CHG: Restored files get their last-write-time
        set to the current time. (Stefan)
+- BUG: When merging, the copyfrom revision was
+       shown as eligible for merging. (Stefan)
 
 Version 1.10.1
 - BUG: Wrong texts in conflict resolving
