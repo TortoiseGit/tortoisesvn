@@ -23,7 +23,8 @@
 #include "TortoiseProc.h"
 #include "SVN.h"
 #include "AppUtils.h"
-#include "../Utils/CreateProcessHelper.h"
+#include "CreateProcessHelper.h"
+#include "StringUtils.h"
 
 CTextConflictEditorDlg::CTextConflictEditorDlg()
     : m_conflictInfo(NULL)
@@ -172,7 +173,8 @@ void CTextConflictEditorDlg::DoModal(HWND parent)
         sMainInstruction.Format(IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION, (LPCWSTR)path);
     else
         sMainInstruction.Format(IDS_EDITCONFLICT_TEXT_MAININSTRUCTION, (LPCWSTR)path);
-    CString sContent = m_conflictInfo->GetPath().GetUIPathString();
+    sMainInstruction = CStringUtils::LinesWrap(sMainInstruction, 80, true, true);
+    CString sContent = CStringUtils::WordWrap(m_conflictInfo->GetPath().GetUIPathString(), 80, true, true, 4);
 
     for (SVNConflictOptions::const_iterator it = m_options.begin(); it != m_options.end(); ++it)
     {

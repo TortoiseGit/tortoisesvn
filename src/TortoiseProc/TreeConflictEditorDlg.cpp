@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2017 - TortoiseSVN
+// Copyright (C) 2016-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "CommonAppUtils.h"
 #include "TortoiseProc.h"
 #include "SVN.h"
+#include "StringUtils.h"
 
 CTreeConflictEditorDlg::CTreeConflictEditorDlg()
     : m_conflictInfo(NULL)
@@ -138,6 +139,10 @@ void CTreeConflictEditorDlg::DoModal(HWND parent)
     CString sMainInstruction = m_conflictInfo->GetIncomingChangeSummary();
     CString sDetailedInfo = m_conflictInfo->GetDetailedIncomingChangeSummary();
     CString sContent = m_conflictInfo->GetLocalChangeSummary();
+
+    sMainInstruction = CStringUtils::LinesWrap(sMainInstruction, 80, true, true);
+    sDetailedInfo = CStringUtils::LinesWrap(sDetailedInfo, 80, true, true);
+    sContent = CStringUtils::LinesWrap(sContent, 80, true, true);
 
     int button;
 
