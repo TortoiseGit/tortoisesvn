@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2010, 2013-2014, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -162,7 +162,7 @@ public:
 #endif
 #if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
     static BOOL WildCardMatch(const CString& wildcard, const CString& string);
-    static CString LinesWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false);
+    static CString LinesWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false, bool bForceWrap = false, int tabSize = 4);
     static CString WordWrap(const CString& longstring, int limit, bool bCompactPaths, bool bForceWrap, int tabSize);
     /**
      * Find and return the number n of starting characters equal between

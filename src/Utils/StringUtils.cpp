@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2017 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2018 - TortoiseSVN
 // Copyright (C) 2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -265,7 +265,7 @@ BOOL CStringUtils::WildCardMatch(const CString& wildcard, const CString& string)
     return _tcswildcmp(wildcard, string);
 }
 
-CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */)
+CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */, bool bCompactPaths /* = true */, bool bForceWrap /* = false */, int tabSize /* = 4 */)
 {
     CString retString;
     if ((longstring.GetLength() < limit) || (limit == 0))
@@ -285,12 +285,12 @@ CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */,
         lineposold = linepos;
         if (!retString.IsEmpty())
             retString += L"\n";
-        retString += WordWrap(temp, limit, bCompactPaths, false, 4);
+        retString += WordWrap(temp, limit, bCompactPaths, bForceWrap, tabSize);
     }
     temp = longstring.Mid(lineposold);
     if (!temp.IsEmpty())
         retString += L"\n";
-    retString += WordWrap(temp, limit, bCompactPaths, false, 4);
+    retString += WordWrap(temp, limit, bCompactPaths, bForceWrap, tabSize);
     retString.Trim();
     return retString;
 }
@@ -312,7 +312,7 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
         {
             if (nLineEnd == nLineStart)
             {
-                if (bForceWrap)
+                if (bForceWrap && !bCompactPaths)
                     nLineEnd = i;
                 else
                 {
@@ -324,16 +324,24 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
             if (bCompactPaths)
             {
                 CString longline = longstring.Mid(nLineStart, nLineEnd-nLineStart).Left(MAX_PATH-1);
+                bool compacted = false;
                 if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
                 {
-                    if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
+                    if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline) || (longline.Find('^') < 3)))
                     {
                         TCHAR buf[MAX_PATH] = { 0 };
                         PathCompactPathEx(buf, longline, limit+1, 0);
                         longline = buf;
+                        compacted = true;
                     }
                 }
-                retString += longline;
+                if (!compacted && bForceWrap)
+                {
+                    nLineEnd = i;
+                    retString += longstring.Mid(nLineStart, nLineEnd - nLineStart);
+                }
+                else
+                    retString += longline;
             }
             else
                 retString += longstring.Mid(nLineStart, nLineEnd-nLineStart);
@@ -386,7 +394,7 @@ int CStringUtils::GetMatchingLength (const CString& lhs, const CString& rhs)
 
 int CStringUtils::FastCompareNoCase (const CStringW& lhs, const CStringW& rhs)
 {
-    // attempt latin-only comparison
+    // attempt Latin-only comparison
 
     INT_PTR count = min (lhs.GetLength(), rhs.GetLength()+1);
     const wchar_t* left = lhs;
@@ -403,7 +411,7 @@ int CStringUtils::FastCompareNoCase (const CStringW& lhs, const CStringW& rhs)
 
             if ((leftChar | rightChar) >= 0x80)
             {
-                // non-latin char -> fall back to CRT code
+                // non-Latin char -> fall back to CRT code
                 // (full comparison required as we might have
                 // skipped special chars / UTF plane selectors)
 
