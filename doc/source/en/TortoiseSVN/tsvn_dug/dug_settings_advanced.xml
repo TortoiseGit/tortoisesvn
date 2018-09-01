@@ -478,8 +478,8 @@
           for the commit message edit box. If enabled,
           right-to-left language text editing is done
           properly. Since this feature is expensive, it
-          can be disabled on slower machines by setting this value
-          to <literal>false</literal>.
+          is disabled by default. You can enable this by
+          setting this value to <literal>true</literal>.
         </para>
       </listitem>
     </varlistentry>

@@ -280,7 +280,7 @@ void CSciEdit::Init(LONG lLanguage)
         // now enable D2D
         Call(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITERETAIN);
         Call(SCI_SETBUFFEREDDRAW, 0);
-        CRegStdDWORD useBiDi(L"Software\\TortoiseSVN\\ScintillaBidirectional", TRUE);
+        CRegStdDWORD useBiDi(L"Software\\TortoiseSVN\\ScintillaBidirectional", FALSE);
         if (DWORD(useBiDi))
         {
             // enable bidirectional mode
