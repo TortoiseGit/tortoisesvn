@@ -59,7 +59,7 @@ bool DropVendorCommand::Execute()
             {
                 if (PathFileExists(path.GetWinPath()))
                 {
-                    path = CTSVNPath(CPathUtils::GetLongPathname(path.GetWinPath()));
+                    path = CTSVNPath(CPathUtils::GetLongPathname(path.GetWinPath()).c_str());
                 }
                 else
                     continue;

@@ -954,7 +954,7 @@ void CTSVNPathList::LoadFromAsteriskSeparatedString(const CString& sPathString)
         {
             break;
         }
-        AddPath(CTSVNPath(CPathUtils::GetLongPathname(temp)));
+        AddPath(CTSVNPath(CPathUtils::GetLongPathname((LPCWSTR)temp).c_str()));
     }
 }
 

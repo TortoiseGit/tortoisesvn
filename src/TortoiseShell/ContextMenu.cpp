@@ -294,8 +294,8 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                         continue;
                     CTSVNPath strpath;
                     // only use GetLongPathname for the first item, since we only get the status for
-                    // that first item. TortoiseProc later converts the filesnames before using them too.
-                    strpath.SetFromWin(i != 0 ? str.c_str() : CPathUtils::GetLongPathname(str.c_str()));
+                    // that first item. TortoiseProc later converts the file names before using them too.
+                    strpath.SetFromWin(i != 0 ? str.c_str() : CPathUtils::GetLongPathname(str).c_str());
                     if (itemStates & ITEMIS_ONLYONE)
                     {
                         itemStates |= (strpath.GetFileExtension().CompareNoCase(L".diff")==0) ? ITEMIS_PATCHFILE : 0;
@@ -451,7 +451,7 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                         continue;
 
                     CTSVNPath strpath;
-                    strpath.SetFromWin(CPathUtils::GetLongPathname(str.c_str()));
+                    strpath.SetFromWin(CPathUtils::GetLongPathname(str).c_str());
                     files_.push_back(strpath.GetWinPath());
                     itemStates |= (strpath.GetFileExtension().CompareNoCase(L".diff")==0) ? ITEMIS_PATCHFILE : 0;
                     itemStates |= (strpath.GetFileExtension().CompareNoCase(L".patch")==0) ? ITEMIS_PATCHFILE : 0;
@@ -606,7 +606,7 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                 try
                 {
                     CTSVNPath strpath;
-                    strpath.SetFromWin(CPathUtils::GetLongPathname(folder_.c_str()));
+                    strpath.SetFromWin(CPathUtils::GetLongPathname(folder_).c_str());
                     SVNStatus stat;
                     stat.GetStatus(strpath, false, true, true);
                     if (stat.status)
@@ -703,7 +703,7 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                     try
                     {
                         CTSVNPath strpath;
-                        strpath.SetFromWin(CPathUtils::GetLongPathname(folder_.c_str()));
+                        strpath.SetFromWin(CPathUtils::GetLongPathname(folder_).c_str());
                         if (strpath.IsWCRoot())
                             itemStates |= ITEMIS_WCROOT;
                         SVNStatus stat;

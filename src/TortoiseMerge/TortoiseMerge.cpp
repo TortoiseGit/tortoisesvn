@@ -91,7 +91,7 @@ BOOL CTortoiseMergeApp::InitInstance()
             if (GetCurrentDirectory(len, originalCurrentDirectory.get()))
             {
                 sOrigCWD = originalCurrentDirectory.get();
-                sOrigCWD = CPathUtils::GetLongPathname(sOrigCWD);
+                sOrigCWD = CPathUtils::GetLongPathname((LPCWSTR)sOrigCWD).c_str();
             }
         }
     }

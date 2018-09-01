@@ -117,6 +117,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="..\Utils\Registry.cpp" />
     <ClCompile Include="..\Utils\StringUtils.cpp" />
     <ClCompile Include="status.cpp" />
@@ -127,6 +128,7 @@
     <ClCompile Include="UnicodeUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Utils\PathUtils.h" />
     <ClInclude Include="..\Utils\StringUtils.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />

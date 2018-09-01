@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016 - TortoiseSVN
+// Copyright (C) 2007-2016, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,7 +38,7 @@
 bool CreatePatchCommand::Execute()
 {
     bool bRet = false;
-    CString savepath = CPathUtils::GetLongPathname(parser.GetVal(L"savepath"));
+    auto savepath = CPathUtils::GetLongPathname(parser.GetVal(L"savepath"));
     CCreatePatch dlg;
     dlg.m_pathList = pathList;
     if (parser.HasKey(L"noui")||(dlg.DoModal()==IDOK))
@@ -56,7 +56,7 @@ bool CreatePatchCommand::Execute()
             else
                 return false;
         }
-        bRet = CreatePatch(pathList.GetCommonRoot(), dlg.m_pathList, dlg.m_diffOptions, CTSVNPath(savepath));
+        bRet = CreatePatch(pathList.GetCommonRoot(), dlg.m_pathList, dlg.m_diffOptions, CTSVNPath(savepath.c_str()));
         SVN svn;
         svn.Revert(dlg.m_filesToRevert, CStringArray(), false, false, false);
     }

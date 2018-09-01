@@ -17,7 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-
+#include <string>
 #if defined(_MFC_VER)
 // CSTRING is always available in an MFC build
 #define CSTRING_AVAILABLE
@@ -44,6 +44,11 @@ public:
      */
     static char* Unescape(char * psz);
 
+    /**
+     * Returns the long pathname of a path which may be in 8.3 format.
+     */
+    static std::wstring GetLongPathname(const std::wstring& path);
+
 #ifdef CSTRING_AVAILABLE
     /**
      * Replaces non-URI chars with the corresponding escape sequences.
@@ -66,11 +71,6 @@ public:
      * \remark the path returned has a trailing backslash
      */
     static CString GetAppParentDirectory(HMODULE hMod = NULL);
-
-    /**
-     * Returns the long pathname of a path which may be in 8.3 format.
-     */
-    static CString GetLongPathname(const CString& path);
 
     /**
      * returns the filename of a full path

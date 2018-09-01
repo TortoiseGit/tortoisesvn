@@ -18,6 +18,7 @@
 #include "stdafx.h"
 #include "SmartHandle.h"
 #include "../Utils/CrashReport.h"
+#include "../Utils/PathUtils.h"
 
 #include <iostream>
 #include <tchar.h>
@@ -855,43 +856,17 @@ int _tmain(int argc, _TCHAR* argv[])
         }
     }
     wc = wcfullPath.get();
-    std::unique_ptr<TCHAR[]> dstfullPath = nullptr;
+    std::wstring dstfullPath;
     if (dst)
     {
-        reqLen = GetFullPathName(dst, 0, NULL, NULL);
-        dstfullPath = std::make_unique<TCHAR[]>(reqLen + 1);
-        GetFullPathName(dst, reqLen, dstfullPath.get(), NULL);
-        shortlen = GetShortPathName(dstfullPath.get(), NULL, 0);
-        if (shortlen)
-        {
-            auto shortPath = std::make_unique<TCHAR[]>(shortlen + 1);
-            if (GetShortPathName(dstfullPath.get(), shortPath.get(), shortlen+1))
-            {
-                reqLen = GetLongPathName(shortPath.get(), NULL, 0);
-                dstfullPath = std::make_unique<TCHAR[]>(reqLen + 1);
-                GetLongPathName(shortPath.get(), dstfullPath.get(), reqLen);
-            }
-        }
-        dst = dstfullPath.get();
+        dstfullPath = CPathUtils::GetLongPathname(dst);
+        dst = dstfullPath.c_str();
     }
-    std::unique_ptr<TCHAR[]> srcfullPath = nullptr;
+    std::wstring srcfullPath;
     if (src)
     {
-        reqLen = GetFullPathName(src, 0, NULL, NULL);
-        srcfullPath = std::make_unique<TCHAR[]>(reqLen + 1);
-        GetFullPathName(src, reqLen, srcfullPath.get(), NULL);
-        shortlen = GetShortPathName(srcfullPath.get(), NULL, 0);
-        if (shortlen)
-        {
-            auto shortPath = std::make_unique<TCHAR[]>(shortlen + 1);
-            if (GetShortPathName(srcfullPath.get(), shortPath.get(), shortlen+1))
-            {
-                reqLen = GetLongPathName(shortPath.get(), NULL, 0);
-                srcfullPath = std::make_unique<TCHAR[]>(reqLen + 1);
-                GetLongPathName(shortPath.get(), srcfullPath.get(), reqLen);
-            }
-        }
-        src = srcfullPath.get();
+        srcfullPath = CPathUtils::GetLongPathname(src);
+        src = srcfullPath.c_str();
     }
 
     if (!PathFileExists(wc))
