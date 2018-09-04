@@ -225,7 +225,6 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
         return path;
     TCHAR pathbufcanonicalized[MAX_PATH] = { 0 }; // MAX_PATH ok.
     DWORD ret = 0;
-    std::wstring sRet;
     if (!PathIsURL(path.c_str()) && PathIsRelative(path.c_str()))
     {
         ret = GetFullPathName(path.c_str(), 0, NULL, NULL);
@@ -233,9 +232,7 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
         {
             auto pathbuf = std::make_unique<TCHAR[]>(ret + 1);
             if ((ret = GetFullPathName(path.c_str(), ret, pathbuf.get(), NULL)) != 0)
-            {
-                sRet = std::wstring(pathbuf.get(), ret);
-            }
+                return std::wstring(pathbuf.get(), ret);
         }
     }
     else if (PathCanonicalize(pathbufcanonicalized, path.c_str()))
@@ -260,9 +257,10 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
             {
                 int ret2 = ::GetLongPathName(shortpath.get(), pathbuf.get(), ret + 1);
                 if (ret2)
-                    sRet = std::wstring(pathbuf.get(), ret2);
+                    return std::wstring(pathbuf.get(), ret2);
             }
         }
+        return std::wstring(pathbufcanonicalized.get(), ret);
     }
     else
     {
@@ -271,7 +269,6 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
             return path;
         auto pathbuf = std::make_unique<TCHAR[]>(ret + 2);
         ret = ::GetLongPathName(path.c_str(), pathbuf.get(), ret + 1);
-        sRet = std::wstring(pathbuf.get(), ret);
         // fix the wrong casing of the path. See above for details.
         int shortret = ::GetShortPathName(pathbuf.get(), NULL, 0);
         if (shortret)
@@ -281,13 +278,12 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
             {
                 int ret2 = ::GetLongPathName(shortpath.get(), pathbuf.get(), ret + 1);
                 if (ret2)
-                    sRet = std::wstring(pathbuf.get(), ret2);
+                    return std::wstring(pathbuf.get(), ret2);
             }
         }
+        return std::wstring(pathbuf.get(), ret);
     }
-    if (ret == 0)
-        return path;
-    return sRet;
+    return path;
 }
 
 #ifdef CSTRING_AVAILABLE
