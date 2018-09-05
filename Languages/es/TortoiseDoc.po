@@ -19,7 +19,7 @@
 # cuscu <agua.cuscu@gmail.com>, 2011
 # dark_nexus <cool.dark.nexus@gmail.com>, 2011
 # Emilio Plaza García <emilpg@gmail.com>, 2013
-# Emilio Plaza García <emilpg@gmail.com>, 2013-2014,2016
+# Emilio Plaza García <emilpg@gmail.com>, 2013-2014,2016,2018
 # Francisco Benavides <fbcvicent@gmail.com>, 2018
 # Francisco Javier Rodríguez Mesa <javier.rodriguez@fjrodriguez.com>, 2011
 # ggh <gdelahuebra@hotmail.com>, 2011
@@ -48,8 +48,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-04-09 11:36+0000\n"
-"Last-Translator: Alejandro Valenzuela <misteravg@gmail.com>\n"
+"PO-Revision-Date: 2018-08-24 07:54+0000\n"
+"Last-Translator: Emilio Plaza García <emilpg@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1199,7 +1199,7 @@ msgid ""
 "merged together into a new, final version. The version control system often "
 "assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr ""
+msgstr "Subversion, CVS y otros sistemas de control de versiones usan un modelo<firstterm>copia-modificación-fusión</firstterm> como una alternativa de bloqueo. En este modelo, cada cliente de los usuarios lee el repositorio y crea una <firstterm> copia de trabajo</firstterm> personal del fichero o proyecto. Los usuarios trabajan en paralelo, modificando sus copias privadas. Finalmente, las copias privadas son unificadas conjuntamente en una nueva, versión final. El sistema de control de versiones normalmente asesora con la unificación, pero en ultima instancia un humano es el responsable de hacer esta acción de manera correcta."
 
 #. (para)
 msgid ""
@@ -1333,7 +1333,7 @@ msgid ""
 "directory of your working copy. Subversion 1.7 takes a completely different "
 "approach and each working copy now has only one administrative subdirectory "
 "which is an immediate child of the root of that working copy."
-msgstr ""
+msgstr "Una copia de trabajo también contiene algunos ficheros extra, creados y mantenidos por Subversion, para ayudar a llevar a cabo estos comandos. En particular, tu copia de trabajo contiene un subdirectorio llamado <filename>.svn</filename>, también conocido como el <firstterm> directorio administrativo </firstterm> de la copia de trabajo. Los ficheros en este directorio administrativo ayudan a Subversion a reconocer qué ficheros contienen cambios no publicados, y qué ficheros contienen contenidos desfasados respecto a otros de trabajo. Antes de Subversion 1.7 existían subdirectorios administrativos <filename>.svn</filename> en cada directorio versionado de tu copia de trabajo. Subversion 1.7 se comporta de manera diferente, usando un único subdirectorio dependiente del root de la copia de trabajo."
 
 #. (para)
 msgid ""
@@ -1365,7 +1365,7 @@ msgid ""
 "subtree of the repository. (The term <emphasis>check out</emphasis> may "
 "sound like it has something to do with locking or reserving resources, but "
 "it doesn't; it simply creates a private copy of the project for you.)"
-msgstr ""
+msgstr "Para obtener una copia de trabajo, debes  <firstterm> desproteger </firstterm> algún subárbol  del repositorio. (El término <emphasis>desproteger</emphasis>ouuede sonar como que tuviera algo que hacer con bloqueos o recursos, pero no es necessrio; simplemente crea una copua privada del proyecto para tí.)"
 
 #. (para)
 msgid ""
@@ -1954,7 +1954,7 @@ msgid ""
 "protocol, this is most definitely <emphasis>not</emphasis> recommended. In "
 "fact we would <emphasis>strongly</emphasis> discourage it, and do not "
 "support such use for various reasons:"
-msgstr ""
+msgstr "Aunque es posible poner un repositorio FSFS en una red, compartir y tener acceso concurrente a él usando el protocolo <literal>file://</literal>, decididamente <emphasis>no</emphasis> es algo recomendable. De hecho nosotros <emphasis>especialmente </emphasis> lo desaconsejamos, y no damos soporte a dicho uso por varios motivos:"
 
 #. (para)
 msgid ""
@@ -2180,7 +2180,7 @@ msgid ""
 "The recommended method is to run <screen>\n"
 "svnadmin hotcopy path/to/repository path/to/backup\n"
 "    </screen> to create a copy of your repository in a safe manner. Then backup the copy."
-msgstr ""
+msgstr "El método recomendado es ejecutar <screen>\nsvnadmin hotcopy path/to/repository path/to/backup\n    </screen>para crear una cipia de tu repositorio de manera segura.Después salvaguarda la copia."
 
 #. (para)
 msgid ""
@@ -2191,7 +2191,7 @@ msgid ""
 "command line tools directly from the <ulink "
 "url=\"https://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "La herramienta <literal>svnadmin</literal>   se instala automáticamente cuando instalas el ciente Subversion. La manera más fácil de obtener esto es marcar la opción de la herramienta de linea de comandos cuando instalas TortoiseSVN, pero si prefieres puedes descargar la última versión de  la herramienta de línea de comandos directamente del website de <ulink url=\"https://subversion.apache.org/packages.html#windows\"><citetitle>Subversion</citetitle></ulink>."
 
 #. (title)
 msgid "Server side hook scripts"
@@ -2322,7 +2322,7 @@ msgid ""
 "url=\"https://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle>TortoiseSVN"
 " logo</citetitle></ulink> or you can provide your own image. "
 "<placeholder-1/>"
-msgstr ""
+msgstr "por supuesto que podría parecer incluso mejor sin cluye es una imagen adecuada.  Puedes usar el <ulink url=\"https://tortoisesvn.net/images/TortoiseCheckout.png\"><citetitle> logo ortoiseSVNN </citetitle></ulink> o puedes proporcionar tu propia imagen.<placeholder-1/>"
 
 #. (programlisting)
 #, no-wrap
@@ -3082,7 +3082,7 @@ msgstr ""
 
 #. (title)
 msgid "Sparse Update using Repo Browser"
-msgstr ""
+msgstr "actualización rala usando el navegador de repositorio."
 
 #. (para)
 msgid ""
@@ -3273,13 +3273,13 @@ msgstr "El diálogo de confirmación le mostrará todos los archivos cambiados, 
 msgid ""
 "To quickly check or uncheck types of files like all versioned files or all "
 "modified files, click the link items just above the list of shown items."
-msgstr ""
+msgstr "Para rápidamente marcar o desmarcar tipos de ficheros como todos los ficheros versionados o todos los ficheros modificados, pulsa el enlace justo encima de la lista de los elementos mostrados"
 
 #. (para)
 msgid ""
 "For information on the coloring and overlays of the items according to their"
 " status, please see <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
-msgstr ""
+msgstr "Para información sobre el colores y leyendas de los elementos de acuerdo a  su status, por favor mira <xref linkend=\"tsvn-dug-wcstatus-2\"/>."
 
 #. (para)
 msgid ""
@@ -4969,11 +4969,11 @@ msgstr ""
 msgid ""
 "Two new commands are implemented for this. One for shelving and one for "
 "unshelving."
-msgstr ""
+msgstr "Dos nuevos comandis son implentados para esto. Uno para archivar y uno para desarchivar."
 
 #. (title)
 msgid "Shelve dialog"
-msgstr ""
+msgstr "Diálogo de archivado"
 
 #. (para)
 msgid ""
@@ -5093,7 +5093,7 @@ msgstr "Desde el diálogo de Progreso después que termine una actualización. E
 
 #. (para)
 msgid "From the repository browser"
-msgstr ""
+msgstr "Desde el navegador del repositorio."
 
 #. (para)
 msgid ""
@@ -5692,7 +5692,7 @@ msgstr ""
 
 #. (term)
 msgid "Open multiple local..."
-msgstr ""
+msgstr "Abrir multiples locales..."
 
 #. (para)
 msgid ""
@@ -7395,7 +7395,7 @@ msgid ""
 "scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
 "/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
 "in case conflicts."
-msgstr ""
+msgstr "Hay un script de servidor disponible en: <ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink> que impide subidas resultantes en caso de conflicto. "
 
 #. (title)
 msgid "Repairing File Renames"
@@ -8327,7 +8327,7 @@ msgstr ""
 
 #. (title)
 msgid "Property dialog state user types"
-msgstr ""
+msgstr "Cuadro de diálogo de tipos de estados de usuario."
 
 #. (para)
 msgid ""
@@ -8357,7 +8357,7 @@ msgstr ""
 
 #. (title)
 msgid "Property dialog single-line user types"
-msgstr ""
+msgstr "Diálogo de propiedades de tipos de usuario de una línea."
 
 #. (para)
 msgid ""
@@ -8750,7 +8750,7 @@ msgstr ""
 
 #. (para)
 msgid "The author of the merged revision."
-msgstr ""
+msgstr "El autor de la versión fusionada"
 
 #. (para)
 msgid "The merged revision itself."
