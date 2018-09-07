@@ -260,7 +260,6 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
                     return std::wstring(pathbuf.get(), ret2);
             }
         }
-        return std::wstring(pathbufcanonicalized.get(), ret);
     }
     else
     {
