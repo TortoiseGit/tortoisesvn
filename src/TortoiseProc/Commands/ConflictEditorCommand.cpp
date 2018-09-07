@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2008-2014, 2017-2018 - TortoiseSVN
 
@@ -56,7 +56,7 @@ bool ConflictEditorCommand::Execute()
         if (!conflict.FetchTreeDetails())
         {
             // Ignore errors while fetching additional tree conflict information.
-            // Use still may want to resolve it manually.
+            // User still may want to resolve it manually.
             conflict.ClearSVNError();
         }
         progressDlg.Stop();
