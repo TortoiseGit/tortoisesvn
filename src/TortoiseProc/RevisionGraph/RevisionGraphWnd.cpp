@@ -1546,10 +1546,11 @@ LRESULT CRevisionGraphWnd::OnWorkerThreadDone(WPARAM, LPARAM)
     CSyncPointer<const CFullHistory> fullHistoy (m_state.GetFullHistory());
     if (fullHistoy.get() != NULL)
     {
+        bool doRetry = false;
         SetDlgTitle (cachedProperties.IsOffline
             ( fullHistoy->GetRepositoryUUID()
             , fullHistoy->GetRepositoryRoot()
-            , false));
+            , false, L"", doRetry));
     }
 
     if (m_parent && !m_parent->GetOutputFile().IsEmpty())

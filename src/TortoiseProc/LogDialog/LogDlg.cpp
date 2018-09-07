@@ -1919,7 +1919,8 @@ void CLogDlg::LogThread()
     DialogEnableWindow(IDC_REFRESH, TRUE);
 
     LogCache::CRepositoryInfo& cachedProperties = GetLogCachePool()->GetRepositoryInfo();
-    SetDlgTitle(cachedProperties.IsOffline (m_sUUID, m_sRepositoryRoot, false));
+    bool doRetry = false;
+    SetDlgTitle(cachedProperties.IsOffline (m_sUUID, m_sRepositoryRoot, false, L"", doRetry));
 
     m_LogProgress.ShowWindow(FALSE);
     if (!m_bMonitoringMode)
