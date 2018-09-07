@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2017 - TortoiseSVN
+// Copyright (C) 2016-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -580,6 +580,8 @@ svn_error_t* SVNConflictInfo::cancelCallback(void *baton)
 
 void SVNConflictInfo::notifyCallback(void *baton, const svn_wc_notify_t *notify, apr_pool_t * /*pool*/)
 {
+    if (notify == nullptr)
+        return;
     SVNConflictInfo * pThis = (SVNConflictInfo *)baton;
     if (pThis->m_pProgress)
     {
