@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2016-2017 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -163,6 +163,7 @@ public:
     static bool StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1,
                                     const CTSVNPath& url2, const SVNRev& rev2,
                                     const SVNRev& peg, const SVNRev& headpeg,
+                                    bool prettyprint,
                                     const CString& options,
                                     bool bAlternateDiff = false,
                                     bool bIgnoreAncestry = false,
@@ -175,7 +176,7 @@ public:
     static bool StartShowCompare(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1,
                                  const CTSVNPath& url2, const SVNRev& rev2,
                                  const SVNRev& peg, const SVNRev& headpeg,
-                                 bool ignoreprops, const CString& options,
+                                 bool ignoreprops, bool prettyprint, const CString& options,
                                  bool bAlternateDiff = false, bool bIgnoreAncestry = false,
                                  bool blame = false, svn_node_kind_t nodekind = svn_node_unknown,
                                  int line = 0);
