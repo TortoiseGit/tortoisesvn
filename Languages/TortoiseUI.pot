@@ -112,6 +112,11 @@ msgstr ""
 msgid "%1!ls! : Working Base, Revision %2!ld!"
 msgstr ""
 
+#. Resource IDs: (IDS_PROGRS_UPDATE)
+#, c-format
+msgid "%1!ls! from %2!ls!"
+msgstr ""
+
 #. Resource IDs: (IDS_PROGRS_FINALINFO)
 #, c-format
 msgid "%1!ls! in %2!ls!"
@@ -302,6 +307,10 @@ msgstr ""
 msgid "&Allow ambiguous URLs"
 msgstr ""
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1)
+msgid "&Apply"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1294, Dialog IDD_EDITPROPEOL: Control id 1294, Dialog IDD_EDITPROPERTYVALUE: Control id 1294, Dialog IDD_EDITPROPEXECUTABLE: Control id 1294, Dialog IDD_EDITPROPKEYWORDS: Control id 1294, Dialog IDD_EDITPROPLOCALHOOKS: Control id 1294, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 1294, Dialog IDD_EDITPROPMIMETYPE: Control id 1294, Dialog IDD_EDITPROPNEEDSLOCK: Control id 1294, Dialog IDD_EDITPROPTSVNLANG: Control id 1294, Dialog IDD_EDITPROPTSVNSIZES: Control id 1294, Dialog IDD_EDITPROPUSERBOOL: Control id 1294, Dialog IDD_EDITPROPUSERMULTILINE: Control id 1294, Dialog IDD_EDITPROPUSERSINGLELINE: Control id 1294, Dialog IDD_EDITPROPUSERSTATE: Control id 1294)
 msgid "&Apply property recursively"
 msgstr ""
@@ -460,6 +469,10 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROC_UPGRADECONFIRMATION_TASK4)
 msgid "&Cancel\nkeep the current format."
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1678)
+msgid "&Checkpoint"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
@@ -860,6 +873,10 @@ msgstr ""
 msgid "&Log Sizes"
 msgstr ""
 
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1673, Dialog IDD_UNSHELVE: Control id 1673)
+msgid "&Log message:"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr ""
@@ -908,7 +925,7 @@ msgstr ""
 msgid "&Moved blocks"
 msgstr ""
 
-#. Resource IDs: (1672)
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1672)
 msgid "&Name"
 msgstr ""
 
@@ -957,7 +974,7 @@ msgstr ""
 msgid "&Numeric"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1, Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL: Control id 1, Dialog IDD_EDITPROPERTIES: Control id 1, Dialog IDD_EDITPROPERTYVALUE: Control id 1, Dialog IDD_EDITPROPEXECUTABLE: Control id 1, Dialog IDD_EDITPROPEXTERNALS: Control id 1, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1, Dialog IDD_EDITPROPKEYWORDS: Control id 1, Dialog IDD_EDITPROPMIMETYPE: Control id 1, Dialog IDD_EDITPROPNEEDSLOCK: Control id 1, Dialog IDD_EDITPROPTSVNLANG: Control id 1, Dialog IDD_EDITPROPTSVNSIZES: Control id 1, Dialog IDD_EXPORT: Control id 1, Dialog IDD_HISTORYDLG: Control id 1, Dialog IDD_IMPORT: Control id 1, Dialog IDD_INPUTDLG: Control id 1, Dialog IDD_INPUTLOGDLG: Control id 1, Dialog IDD_LOCK: Control id 1, Dialog IDD_LOGCACHESTATISTICS: Control id 1, Dialog IDD_LOGMESSAGE: Control id 1, Dialog IDD_PROMPT: Control id 1, Dialog IDD_PROPERTIES: Control id 1, Dialog IDD_RELOCATE: Control id 1, Dialog IDD_RENAME: Control id 1, Dialog IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER: Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION: Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SHELVE: Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog IDD_UNSHELVE: Control id 1, Dialog IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1, IDS_MSGBOX_OK)
+#. Resource IDs: (Dialog IDD_ABOUT: Control id 1, Dialog IDD_ADD: Control id 1, Dialog IDD_BLAME: Control id 1, Dialog IDD_CHANGEDFILES: Control id 1, Dialog IDD_CHECKOUT: Control id 1, Dialog IDD_CLEANUP: Control id 1, Dialog IDD_COMMITDLG: Control id 1, Dialog IDD_COPY: Control id 1, Dialog IDD_CREATECHANGELIST: Control id 1, Dialog IDD_CREATEPATCH: Control id 1, Dialog IDD_DELUNVERSIONED: Control id 1, Dialog IDD_DIFFOPTIONS: Control id 1, Dialog IDD_EDITPROPBUGTRAQ: Control id 1, Dialog IDD_EDITPROPEOL: Control id 1, Dialog IDD_EDITPROPERTIES: Control id 1, Dialog IDD_EDITPROPERTYVALUE: Control id 1, Dialog IDD_EDITPROPEXECUTABLE: Control id 1, Dialog IDD_EDITPROPEXTERNALS: Control id 1, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1, Dialog IDD_EDITPROPKEYWORDS: Control id 1, Dialog IDD_EDITPROPMIMETYPE: Control id 1, Dialog IDD_EDITPROPNEEDSLOCK: Control id 1, Dialog IDD_EDITPROPTSVNLANG: Control id 1, Dialog IDD_EDITPROPTSVNSIZES: Control id 1, Dialog IDD_EXPORT: Control id 1, Dialog IDD_HISTORYDLG: Control id 1, Dialog IDD_IMPORT: Control id 1, Dialog IDD_INPUTDLG: Control id 1, Dialog IDD_INPUTLOGDLG: Control id 1, Dialog IDD_LOCK: Control id 1, Dialog IDD_LOGCACHESTATISTICS: Control id 1, Dialog IDD_LOGMESSAGE: Control id 1, Dialog IDD_PROMPT: Control id 1, Dialog IDD_PROPERTIES: Control id 1, Dialog IDD_RELOCATE: Control id 1, Dialog IDD_RENAME: Control id 1, Dialog IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER: Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION: Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1, IDS_MSGBOX_OK)
 msgid "&OK"
 msgstr ""
 
@@ -1039,6 +1056,10 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1676)
+msgid "&Pretty print"
 msgstr ""
 
 #. Resource IDs: (58116)
@@ -1142,6 +1163,10 @@ msgstr ""
 msgid "&Restore defaults"
 msgstr ""
 
+#. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1542)
+msgid "&Retry"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
 msgstr ""
@@ -1204,6 +1229,10 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUSETTINGS, ID_FILE_SETTINGS - Menu)
 msgid "&Settings"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1)
+msgid "&Shelve"
 msgstr ""
 
 #. Resource IDs: (ID_REFRESHBROWSER - Menu)
@@ -1394,6 +1423,10 @@ msgstr ""
 msgid "&Vacuum pristine copies"
 msgstr ""
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1674)
+msgid "&Version"
+msgstr ""
+
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr ""
@@ -1551,6 +1584,11 @@ msgstr ""
 msgid "... reading working copy status"
 msgstr ""
 
+#. Resource IDs: (IDS_ERR_SHELVE_FAILED_MORE)
+#, c-format
+msgid "...and %d more paths."
+msgstr ""
+
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1569,7 +1607,7 @@ msgid "<new changelist>"
 msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_TOOLBARTEXTS)
-msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update all=&Options=="
+msgid "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Clear errors=&Update all=&Options=="
 msgstr ""
 
 #. Resource IDs: (ID_ABOUT - Menu)
@@ -1795,6 +1833,10 @@ msgstr ""
 msgid "Advanced merge settings"
 msgstr ""
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1675)
+msgid "Affected &files:"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Age"
 msgstr ""
@@ -1881,7 +1923,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_ERR_PATCH_UNKOWNLINETYPE)
 #, c-format
-msgid "An unknown line type was found in line %d !"
+msgid "An unknown line type was found in line %d!"
 msgstr ""
 
 #. Resource IDs: (IDS_SVNERR_SQLITEBUSY)
@@ -2221,7 +2263,7 @@ msgstr ""
 msgid "Can't copy \n%1!ls!\nto\n%2!ls!"
 msgstr ""
 
-#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2, Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2, Dialog IDD_CREATECHANGELIST: Control id 2, Dialog IDD_CREATEPATCH: Control id 2, Dialog IDD_DELUNVERSIONED: Control id 2, Dialog IDD_DIFFOPTIONS: Control id 2, Dialog IDD_EDITPROPBUGTRAQ: Control id 2, Dialog IDD_EDITPROPEOL: Control id 2, Dialog IDD_EDITPROPERTYVALUE: Control id 2, Dialog IDD_EDITPROPEXECUTABLE: Control id 2, Dialog IDD_EDITPROPEXTERNALS: Control id 2, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog IDD_EDITPROPKEYWORDS: Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control id 2, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog IDD_EDITPROPMIMETYPE: Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control id 2, Dialog IDD_EDITPROPTSVNLANG: Control id 2, Dialog IDD_EDITPROPTSVNSIZES: Control id 2, Dialog IDD_EDITPROPUSERBOOL: Control id 2, Dialog IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog IDD_EDITPROPUSERSINGLELINE: Control id 2, Dialog IDD_EDITPROPUSERSTATE: Control id 2, Dialog IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control id 2, Dialog IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog IDD_GOTODLG: Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog IDD_IMPORT: Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog IDD_INPUTLOGDLG: Control id 2, Dialog IDD_LOCK: Control id 2, Dialog IDD_LOGMESSAGE: Control id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog IDD_MONITOROPTIONS: Control id 2, Dialog IDD_MONITORPROJECT: Control id 2, Dialog IDD_OPEN: Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog IDD_PASSWORD: Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog IDD_REGEXFILTER: Control id 2, Dialog IDD_REGEXFILTERS: Control id 2, Dialog IDD_RELOCATE: Control id 2, Dialog IDD_RENAME: Control id 2, Dialog IDD_REPOSITORY_BROWSER: Control id 2, Dialog IDD_RESOLVE: Control id 2, Dialog IDD_REVERT: Control id 2, Dialog IDD_REVGRAPHFILTER: Control id 2, Dialog IDD_REVISION: Control id 2, Dialog IDD_REVISIONRANGE: Control id 2, Dialog IDD_SETTINGSBUGTRAQADV: Control id 2, Dialog IDD_SETTINGSHOOKCONFIG: Control id 2, Dialog IDD_SETTINGSPROGSADV: Control id 2, Dialog IDD_SETTINGS_CLEARAUTH: Control id 2, Dialog IDD_SIMPLEPROMPT: Control id 2, Dialog IDD_SVNPROGRESS: Control id 2, Dialog IDD_SWITCH: Control id 2, Dialog IDD_TOOLASSOC: Control id 2, Dialog IDD_UNLOCK: Control id 2, Dialog IDD_UPDATE: Control id 2, Dialog IDD_URL: Control id 2, Dialog IDD_URLDIFF: Control id 2, IDS_PROPPAGE_CANCEL)
+#. Resource IDs: (2, Dialog IDD_BLAME: Control id 2, Dialog IDD_BUGTRAQREGEXTESTER: Control id 2, Dialog IDD_CHECKOUT: Control id 2, Dialog IDD_CLEANUP: Control id 2, Dialog IDD_COLLABORATORSETTINGS: Control id 2, Dialog IDD_COMMITDLG: Control id 2, Dialog IDD_COPY: Control id 2, Dialog IDD_CREATECHANGELIST: Control id 2, Dialog IDD_CREATEPATCH: Control id 2, Dialog IDD_DELUNVERSIONED: Control id 2, Dialog IDD_DIFFOPTIONS: Control id 2, Dialog IDD_EDITPROPBUGTRAQ: Control id 2, Dialog IDD_EDITPROPEOL: Control id 2, Dialog IDD_EDITPROPERTYVALUE: Control id 2, Dialog IDD_EDITPROPEXECUTABLE: Control id 2, Dialog IDD_EDITPROPEXTERNALS: Control id 2, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 2, Dialog IDD_EDITPROPKEYWORDS: Control id 2, Dialog IDD_EDITPROPLOCALHOOKS: Control id 2, Dialog IDD_EDITPROPMERGELOGTEMPLATE: Control id 2, Dialog IDD_EDITPROPMIMETYPE: Control id 2, Dialog IDD_EDITPROPNEEDSLOCK: Control id 2, Dialog IDD_EDITPROPTSVNLANG: Control id 2, Dialog IDD_EDITPROPTSVNSIZES: Control id 2, Dialog IDD_EDITPROPUSERBOOL: Control id 2, Dialog IDD_EDITPROPUSERMULTILINE: Control id 2, Dialog IDD_EDITPROPUSERSINGLELINE: Control id 2, Dialog IDD_EDITPROPUSERSTATE: Control id 2, Dialog IDD_ENCODING: Control id 2, Dialog IDD_EXPORT: Control id 2, Dialog IDD_FIND: Control id 2, Dialog IDD_GOTO: Control id 2, Dialog IDD_GOTODLG: Control id 2, Dialog IDD_HISTORYDLG: Control id 2, Dialog IDD_IMPORT: Control id 2, Dialog IDD_INPUTDLG: Control id 2, Dialog IDD_INPUTLOGDLG: Control id 2, Dialog IDD_LOCK: Control id 2, Dialog IDD_LOGMESSAGE: Control id 1383, Dialog IDD_MERGEALL: Control id 2, Dialog IDD_MONITOROPTIONS: Control id 2, Dialog IDD_MONITORPROJECT: Control id 2, Dialog IDD_OPEN: Control id 2, Dialog IDD_OPENDLG: Control id 2, Dialog IDD_PASSWORD: Control id 2, Dialog IDD_PROMPT: Control id 2, Dialog IDD_REGEXFILTER: Control id 2, Dialog IDD_REGEXFILTERS: Control id 2, Dialog IDD_RELOCATE: Control id 2, Dialog IDD_RENAME: Control id 2, Dialog IDD_REPOSITORY_BROWSER: Control id 2, Dialog IDD_RESOLVE: Control id 2, Dialog IDD_REVERT: Control id 2, Dialog IDD_REVGRAPHFILTER: Control id 2, Dialog IDD_REVISION: Control id 2, Dialog IDD_REVISIONRANGE: Control id 2, Dialog IDD_SETTINGSBUGTRAQADV: Control id 2, Dialog IDD_SETTINGSHOOKCONFIG: Control id 2, Dialog IDD_SETTINGSPROGSADV: Control id 2, Dialog IDD_SETTINGS_CLEARAUTH: Control id 2, Dialog IDD_SHELVE: Control id 2, Dialog IDD_SIMPLEPROMPT: Control id 2, Dialog IDD_SVNPROGRESS: Control id 2, Dialog IDD_SWITCH: Control id 2, Dialog IDD_TOOLASSOC: Control id 2, Dialog IDD_UNLOCK: Control id 2, Dialog IDD_UNSHELVE: Control id 2, Dialog IDD_UPDATE: Control id 2, Dialog IDD_URL: Control id 2, Dialog IDD_URLDIFF: Control id 2, IDS_PROPPAGE_CANCEL)
 msgid "Cancel"
 msgstr ""
 
@@ -2626,8 +2668,13 @@ msgstr ""
 msgid "Commi&t\nCommit the changes to the target."
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT, IDS_PROGRS_TITLE_COMMIT)
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_TITLE_COMMIT)
 msgid "Commit"
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_CMD_COMMIT)
+#, c-format
+msgid "Commit to %1!ls!"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
@@ -3099,6 +3146,10 @@ msgstr ""
 msgid "Create Patch"
 msgstr ""
 
+#. Resource IDs: (IDS_CHECKPOINT_BTN_TT)
+msgid "Create a checkpoint.\nThe selected modifications are saved to a shelf, but the local modifications are kept."
+msgstr ""
+
 #. Resource IDs: (IDS_LOG_CODE_COLLABORATOR)
 msgid "Create code collaborator revie&w..."
 msgstr ""
@@ -3146,6 +3197,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_MENUDESCCREATEPATCH)
 msgid "Creates a unified diff file with all changes you made"
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_CHECKPOINTING)
+#, c-format
+msgid "Creating checkpoint \"%s\""
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
@@ -3669,6 +3725,14 @@ msgstr ""
 msgid "Edit Properties"
 msgstr ""
 
+#. Resource IDs: (IDS_PROC_EDIT_PROP_CONFLICTS)
+msgid "Edit Property Conflicts"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_EDIT_TEXT_CONFLICTS)
+msgid "Edit Text Conflicts"
+msgstr ""
+
 #. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr ""
@@ -3708,6 +3772,10 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1382, Dialog IDD_SETTINGSHOOKS: Control id 1331)
 msgid "Edit..."
+msgstr ""
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_EDITCMD)
+msgid "Edit\nEdit text conflicts"
 msgstr ""
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_EDITCMD)
@@ -3964,7 +4032,7 @@ msgstr ""
 msgid "Explore to"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_EXPORT: Control id 238, IDS_PROGRS_CMD_EXPORT, IDS_PROGRS_TITLE_EXPORT)
+#. Resource IDs: (Dialog IDD_EXPORT: Control id 238, IDS_PROGRS_TITLE_EXPORT)
 msgid "Export"
 msgstr ""
 
@@ -3974,6 +4042,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_EXPORTFILTER)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_CMD_EXPORT)
+#, c-format
+msgid "Export from %1!ls!"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1667)
@@ -4915,6 +4988,10 @@ msgstr ""
 msgid "Ignore Comments"
 msgstr ""
 
+#. Resource IDs: (IDS_DIFF_IGNORE_EOL)
+msgid "Ignore EOL changes"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu, cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
 msgstr ""
@@ -5495,7 +5572,7 @@ msgid "Many items selected to show diff"
 msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_MARKASREADTT)
-msgid "Mark all projects as read\nHold down the shift key to also clear all fetch errors."
+msgid "Mark all projects as read"
 msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
@@ -6001,6 +6078,10 @@ msgstr ""
 msgid "No path or pathfile specified on the command line!"
 msgstr ""
 
+#. Resource IDs: (IDS_ERR_SHELVE_NOTHING_WAS_SHELVED)
+msgid "No path was shelved."
+msgstr ""
+
 #. Resource IDs: (IDS_SETTINGS_CACHENONE_TT)
 msgid "No status cache. Only versioned folders get an overlay, files don't get an overlay"
 msgstr ""
@@ -6068,6 +6149,10 @@ msgstr ""
 
 #. Resource IDs: (IDS_COMMITDLG_NOTHINGSELECTED)
 msgid "Nothing is selected for commit!"
+msgstr ""
+
+#. Resource IDs: (IDS_NOTHING_SHELVED)
+msgid "Nothing is shelved!"
 msgstr ""
 
 #. Resource IDs: (IDS_WARN_NOTE)
@@ -6173,6 +6258,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_CONFLICTSOCCURED)
 msgid "One or more files are in a conflicted state."
+msgstr ""
+
+#. Resource IDs: (IDS_ERR_SHELVE_FAILED_PATHS)
+#, c-format
+msgid "One or more paths could not be shelved.\nThe following paths failed:\n%s"
 msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_TITLE)
@@ -6398,7 +6488,7 @@ msgstr ""
 msgid "Patching file '%1!ls!'"
 msgstr ""
 
-#. Resource IDs: (IDS_HEADER_PATH, IDS_PATH, IDS_PROGRS_PATH, IDS_SETTINGS_BUGTRAQ_PATHCOL, IDS_SETTINGS_HOOKS_PATHCOL, IDS_STATUSLIST_COLFILE)
+#. Resource IDs: (IDS_HEADER_PATH, IDS_PATH, IDS_PROGRS_PATH, IDS_SETTINGS_BUGTRAQ_PATHCOL, IDS_SETTINGS_HOOKS_PATHCOL, IDS_SHELF_UNSHELVE_FILECOL, IDS_STATUSLIST_COLFILE)
 msgid "Path"
 msgstr ""
 
@@ -7573,7 +7663,7 @@ msgstr ""
 msgid "Scan"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_BUGTRAQREGEXTESTER: Control id 1014, Dialog IDD_COMMITDLG: Control id 1014, Dialog IDD_COPY: Control id 1014, Dialog IDD_IMPORT: Control id 1017, Dialog IDD_INPUTDLG: Control id 1064, Dialog IDD_INPUTLOGDLG: Control id 1064, Dialog IDD_LOCK: Control id 1212)
+#. Resource IDs: (Dialog IDD_BUGTRAQREGEXTESTER: Control id 1014, Dialog IDD_COMMITDLG: Control id 1014, Dialog IDD_COPY: Control id 1014, Dialog IDD_IMPORT: Control id 1017, Dialog IDD_INPUTDLG: Control id 1064, Dialog IDD_INPUTLOGDLG: Control id 1064, Dialog IDD_LOCK: Control id 1212, Dialog IDD_SHELVE: Control id 1014, Dialog IDD_UNSHELVE: Control id 1014)
 msgid "Scintilla"
 msgstr ""
 
@@ -7610,7 +7700,7 @@ msgstr ""
 msgid "Select &All"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH: Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog IDD_UNLOCK: Control id 1067, Dialog IDD_UNSHELVE: Control id 1067)
+#. Resource IDs: (Dialog IDD_ADD: Control id 1067, Dialog IDD_CREATEPATCH: Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr ""
 
@@ -7628,6 +7718,10 @@ msgstr ""
 
 #. Resource IDs: (61717)
 msgid "Select a button."
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1679)
+msgid "Select an existing shelf to create a new version, or enter a new name to create a new shelf"
 msgstr ""
 
 #. Resource IDs: (57346)
@@ -7779,6 +7873,11 @@ msgstr ""
 msgid "Shall I update the working copy and retry?"
 msgstr ""
 
+#. Resource IDs: (IDS_SHELF_INFO_LABEL)
+#, c-format
+msgid "Shelf \"%s\" has %ld version(s)"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1270, IDS_STATUSLIST_CONTEXT_SHELL)
 msgid "Shell"
 msgstr ""
@@ -7787,12 +7886,21 @@ msgstr ""
 msgid "Shell Icon Cache was rebuilt!"
 msgstr ""
 
-#. Resource IDs: (205)
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 205)
 msgid "Shelve"
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_BTN_TT)
+msgid "Shelve the selected files and revert the changes."
 msgstr ""
 
 #. Resource IDs: (IDS_MENUSHELVE)
 msgid "Shelve..."
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_SHELVING)
+#, c-format
+msgid "Shelving to \"%s\""
 msgstr ""
 
 #. Resource IDs: (32822)
@@ -7863,7 +7971,7 @@ msgstr ""
 msgid "Show &overlays and context menu only in explorer"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog IDD_CREATEPATCH: Control id 1073, Dialog IDD_SHELVE: Control id 1073, Dialog IDD_UNSHELVE: Control id 1073)
+#. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog IDD_CREATEPATCH: Control id 1073)
 msgid "Show &unversioned files"
 msgstr ""
 
@@ -8231,7 +8339,7 @@ msgstr ""
 msgid "Statistics"
 msgstr ""
 
-#. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 65535, IDS_STATUSLIST_COLSTATUS, IDS_SVNACTION_STATUS)
+#. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 65535, IDS_SHELF_UNSHELVE_STATUSCOL, IDS_STATUSLIST_COLSTATUS, IDS_SVNACTION_STATUS)
 msgid "Status"
 msgstr ""
 
@@ -8567,7 +8675,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
-msgid "The line '====' was expected in line %d !"
+msgid "The line '====' was expected in line %d!"
 msgstr ""
 
 #. Resource IDs: (IDS_ERR_PATCH_NOINDEX)
@@ -8576,7 +8684,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_ERR_PATCH_NOADDFILELINE)
 #, c-format
-msgid "The line indicating the new file was expected in line %d !"
+msgid "The line indicating the new file was expected in line %d!"
 msgstr ""
 
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
@@ -8735,7 +8843,7 @@ msgid "There are unsaved modifications!\nDo you want to save your changes?"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 65535)
-msgid "There has been a problem contacting the server.\nDo you want to see the cached data instead?\n\nPlease understand that the cached data may be outdated,\nincomplete or even misleading due to incomplete history data."
+msgid "There has been a problem contacting the server.\nDo you want to see the cached data instead?\n\nPlease understand that the cached data may be outdated,\nincomplete or even misleading due to incomplete history data.\n\nThe error was:"
 msgstr ""
 
 #. Resource IDs: (IDS_ERR_NOTHINGTOADD)
@@ -9154,7 +9262,7 @@ msgstr ""
 msgid "Unresolved conflicts!"
 msgstr ""
 
-#. Resource IDs: (206)
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 206)
 msgid "Unshelve"
 msgstr ""
 
@@ -9484,6 +9592,11 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1004, Dialog IDD_ABOUT: Control id 1075)
 msgid "Version"
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_VERSION_TIME)
+#, c-format
+msgid "Version %d - %s"
 msgstr ""
 
 #. Resource IDs: (IDS_VERSION)
