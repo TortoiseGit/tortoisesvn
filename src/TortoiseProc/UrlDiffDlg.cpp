@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016 - TortoiseSVN
+// Copyright (C) 2007-2016, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@ CUrlDiffDlg::CUrlDiffDlg(CWnd* pParent /*=NULL*/)
     , Revision(L"HEAD")
     , m_pLogDlg(NULL)
     , m_bFolder(false)
+    , m_bPrettyPrint(true)
 {
 }
 
@@ -236,5 +237,6 @@ void CUrlDiffDlg::OnBnClickedDiffOptions()
     if (dlg.DoModal() == IDOK)
     {
         m_diffOptions = dlg.GetDiffOptions();
+        m_bPrettyPrint = dlg.GetPrettyPrint();
     }
 }

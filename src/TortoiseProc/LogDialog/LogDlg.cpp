@@ -2789,7 +2789,7 @@ void CLogDlg::DiffSelectedRevWithPrevious()
     else
     {
         CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(),
-            m_LogRevision, false, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
+            m_LogRevision, false, false, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
     }
 
     EnableOKButton();
@@ -5783,7 +5783,7 @@ void CLogDlg::ExecuteCompareWithWorkingCopyMenuRevisions(ContextMenuInfoForRevis
             SVNDiff diff(this, m_hWnd, true);
             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, pCmi->RevSelected, SVNRev(), false, L"");
+            diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, pCmi->RevSelected, SVNRev(), false, true, L"");
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -5791,7 +5791,7 @@ void CLogDlg::ExecuteCompareWithWorkingCopyMenuRevisions(ContextMenuInfoForRevis
     {
         CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_WC, m_path,
                                     pCmi->RevSelected, SVNRev(), m_LogRevision,
-                                    false, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
+                                    false, true, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
     }
 }
 
@@ -5823,13 +5823,13 @@ void CLogDlg::ExecuteCompareTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCm
             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowCompare(CTSVNPath(pCmi->PathURL), r2, CTSVNPath(pCmi->PathURL),
-                             r1, SVNRev(), false, L"", false, false, nodekind);
+                             r1, SVNRev(), false, false, L"", false, false, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
         CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL), r2, CTSVNPath(pCmi->PathURL), r1,
-        SVNRev(), m_LogRevision, false, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
+        SVNRev(), m_LogRevision, false, false, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
         false, false, nodekind);
 }
 
@@ -5854,7 +5854,7 @@ void CLogDlg::ExecuteCompareWithPreviousMenuRevisions(ContextMenuInfoForRevision
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowCompare(CTSVNPath(pCmi->PathURL), pCmi->RevPrevious,
                              CTSVNPath(pCmi->PathURL), pCmi->RevSelected, SVNRev(),
-                             false, L"", false, false, nodekind);
+                             false, true, L"", false, false, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -5862,7 +5862,7 @@ void CLogDlg::ExecuteCompareWithPreviousMenuRevisions(ContextMenuInfoForRevision
     {
         CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL),
                                     pCmi->RevPrevious, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
-                                    SVNRev(), m_LogRevision, false, L"",
+                                    SVNRev(), m_LogRevision, false, true, L"",
                                     !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
     }
 }

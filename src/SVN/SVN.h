@@ -573,19 +573,19 @@ public:
         const CTSVNPath& path2, const SVNRev& revision2,
         const CTSVNPath& relativeToDir, svn_depth_t depth,
         bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
-        bool ignoreproperties, bool propertiesonly,
+        bool ignoreproperties, bool propertiesonly, bool prettyprint,
         const CString& options, bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
     bool Diff(const CTSVNPath& path1, const SVNRev& revision1,
         const CTSVNPath& path2, const SVNRev& revision2,
         const CTSVNPath& relativeToDir, svn_depth_t depth, bool ignoreancestry,
         bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
-        bool ignoreproperties, bool propertiesonly, const CString& options,
+        bool ignoreproperties, bool propertiesonly, bool prettyprint, const CString& options,
         bool bAppend, const CTSVNPath& outputfile);
     bool CreatePatch(const CTSVNPath& path1, const SVNRev& revision1,
         const CTSVNPath& path2, const SVNRev& revision2,
         const CTSVNPath& relativeToDir, svn_depth_t depth, bool ignoreancestry,
         bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
-        bool ignoreproperties, bool propertiesonly, const CString& options, bool bAppend, const CTSVNPath& outputfile);
+        bool ignoreproperties, bool propertiesonly, bool prettyprint, const CString& options, bool bAppend, const CTSVNPath& outputfile);
 
     /**
      * Produce diff output which describes the delta between the file system object \a path in
@@ -599,12 +599,12 @@ public:
     bool PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev,
         const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth,
         bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
-        bool ignoreproperties, bool propertiesonly, const CString& options,
+        bool ignoreproperties, bool propertiesonly, bool prettyprint, const CString& options,
         bool bAppend, const CTSVNPath& outputfile, const CTSVNPath& errorfile);
     bool PegDiff(const CTSVNPath& path, const SVNRev& pegrevision, const SVNRev& startrev,
         const SVNRev& endrev, const CTSVNPath& relativeToDir, svn_depth_t depth,
         bool ignoreancestry, bool nodiffadded, bool nodiffdeleted, bool showCopiesAsAdds, bool ignorecontenttype, bool useGitFormat,
-        bool ignoreproperties, bool propertiesonly, const CString& options,
+        bool ignoreproperties, bool propertiesonly, bool prettyprint, const CString& options,
         bool bAppend, const CTSVNPath& outputfile);
 
     /**
@@ -1055,6 +1055,8 @@ protected:
                                        const svn_io_dirent2_t *dirent,
                                        apr_pool_t *scratch_pool);
 
+    static svn_error_t * shelved_func(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
+    static svn_error_t * not_shelved_func(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
 
     // implement ILogReceiver
 

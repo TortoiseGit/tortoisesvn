@@ -766,12 +766,16 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         break;
     case ID_UNIFIEDDIFF:
         {
+            bool prettyprint = true;
             CString options;
             if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
             {
                 CDiffOptionsDlg dlg(this);
                 if (dlg.DoModal() == IDOK)
+                {
                     options = dlg.GetDiffOptionsString();
+                    prettyprint = dlg.GetPrettyPrint();
+                }
                 else
                     break;
             }
@@ -799,11 +803,11 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     progDlg.SetProgress(i+1, urls1.GetCount());
                     if (bDoPegDiff)
                     {
-                        PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, false, true, true, false, true, false, options, true, diffFile);
+                        PegDiff(url1, m_peg, m_rev1, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, false, true, true, false, true, false, prettyprint, options, true, diffFile);
                     }
                     else
                     {
-                        Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, false, true, true, false, true, false, options, true, diffFile);
+                        Diff(url1, m_rev1, url2, m_rev2, CTSVNPath(), m_depth, m_bIgnoreancestry, false, false, true, true, false, true, false, prettyprint, options, true, diffFile);
                     }
                     if (progDlg.HasUserCancelled() || m_bCancelled)
                         break;

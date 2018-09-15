@@ -355,12 +355,12 @@ void CRevisionGraphWnd::CompareRevs(bool bHead)
     {
         SVNDiff diff (svn.get(), this->m_hWnd);
         diff.SetAlternativeTool (alternativeTool);
-        diff.ShowCompare (url1, rev1, url2, rev2, peg, false, L"");
+        diff.ShowCompare (url1, rev1, url2, rev2, peg, false, true, L"");
     }
     else
     {
         CAppUtils::StartShowCompare (m_hWnd, url1, rev1,
-            url2, rev2, peg, SVNRev(), false, L"", alternativeTool);
+            url2, rev2, peg, SVNRev(), false, true, L"", alternativeTool);
     }
 }
 
@@ -385,13 +385,13 @@ void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
     {
         SVNDiff diff (svn.get(), this->m_hWnd);
         diff.SetAlternativeTool (alternativeTool);
-        diff.ShowUnifiedDiff (url1, rev1, url2, rev2, peg, L"", false, false, false);
+        diff.ShowUnifiedDiff (url1, rev1, url2, rev2, peg, true, L"", false, false, false);
     }
     else
     {
         CAppUtils::StartShowUnifiedDiff(m_hWnd, url1, rev1,
             url2, rev2, peg,
-            SVNRev(), L"", alternativeTool, false, false, false);
+            SVNRev(), true, L"", alternativeTool, false, false, false);
     }
 }
 

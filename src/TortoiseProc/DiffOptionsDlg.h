@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2016 - TortoiseSVN
+// Copyright (C) 2011, 2016, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,11 +34,14 @@ public:
     enum { IDD = IDD_DIFFOPTIONS };
 
     void SetDiffOptions(const SVNDiffOptions & opts);
+    void SetPrettyPrint(bool prettyprint) { m_bPrettyPrint = prettyprint; }
     SVNDiffOptions GetDiffOptions();
     CString GetDiffOptionsString() { return GetDiffOptions().GetOptionsString(); }
+    bool GetPrettyPrint() const { return !!m_bPrettyPrint; }
 
 protected:
     virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual BOOL OnInitDialog();
 
     DECLARE_MESSAGE_MAP()
 
@@ -46,6 +49,5 @@ private:
     BOOL m_bIgnoreEOLs;
     BOOL m_bIgnoreWhitespaces;
     BOOL m_bIgnoreAllWhitespaces;
-public:
-    virtual BOOL OnInitDialog();
+    BOOL m_bPrettyPrint;
 };
