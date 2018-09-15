@@ -558,6 +558,25 @@ Don't touch these lines:
               </entry>
             </row>
             <row>
+              <entry condition="pot">:shelve</entry>
+              <entry>
+                Shelves the specified paths in a new shelf.
+                The option <option>/shelfname:name</option> specifies the name
+                of the shelf. An optional log message can be specified
+                with <option>/logmsg:message</option>.
+                If option <option>/checkpoint</option> is passed, the
+                modifications of the files are kept.
+              </entry>
+            </row>
+            <row>
+              <entry condition="pot">:unshelve</entry>
+              <entry>
+                Applies the shelf with the name <option>/shelfname:name</option>
+                to the working copy path. By default the last version of the shelf
+                is applied, but you can specify a version with <option>/version:X</option>.
+              </entry>
+            </row>
+            <row>
               <entry condition="pot">:showcompare</entry>
               <entry>
                 <para>
@@ -578,6 +597,11 @@ Don't touch these lines:
                   If the specified url also has property modifications, the external
                   diff tool is also started for each modified property.
                   To prevent that, pass the option <option>/ignoreprops</option>.
+                </para>
+                <para>
+                  If a unified diff is requested, an optional <option>prettyprint</option>
+                  option can be specified which will show the merge-info properties in
+                  a more user readable format.
                 </para>
               </entry>
             </row>
@@ -693,6 +717,9 @@ Don't touch these lines:
                 the path where to save the patch file to directly.
                 To prevent the unified diff viewer from being started showing
                 the patch file, pass <option>/noview</option>.
+                If a unified diff is requested, an optional <option>prettyprint</option>
+                option can be specified which will show the merge-info properties in
+                a more user readable format.
               </entry>
             </row>
             <row>

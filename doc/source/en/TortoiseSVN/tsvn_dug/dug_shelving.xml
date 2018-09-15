@@ -43,8 +43,14 @@
       <title>Shelve dialog</title>
       <graphic fileref="../images/Shelve.png"/>
     </figure>
-    Then click <guibutton>OK</guibutton> and the changes are stored under
-    the name you specified, and your working copy is reset to a clean state.
+    If you select an existing shelf, then a new version is created for that shelf.
+    If you provide a new name, a new shelf is created for the selected files.
+  </para>
+  <para>
+    If you click the <guibutton>Shelve</guibutton> button, the shelf is created
+    and your working copy files are reset to a clean state.
+    If you click the <guibutton>Checkpoint</guibutton> button, the shelf
+    is created but your local modifications are kept.
   </para>
   <para>
     To unshelve your changes, use
@@ -53,8 +59,8 @@
       <guimenuitem>Unshelve</guimenuitem>
     </menuchoice>
     to get the unshelve dialog. This dialog shows you a list of all shelved
-    items. Select the shelved item you want to apply back to your working copy
-    and click <guibutton>OK</guibutton>.
+    items. Select the shelved item you want and the version to apply back to your working copy
+    and click <guibutton>Apply</guibutton>.
     <figure id="tsvn-dug-unshelve-dlg">
       <title>Unshelve dialog</title>
       <graphic fileref="../images/Unshelve.png"/>
