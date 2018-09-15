@@ -48,6 +48,7 @@ public:
      * Returns the long pathname of a path which may be in 8.3 format.
      */
     static std::wstring GetLongPathname(const std::wstring& path);
+    static std::wstring GetLongPathname(LPCWSTR path);
 
 #ifdef CSTRING_AVAILABLE
     /**

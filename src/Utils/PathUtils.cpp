@@ -218,7 +218,12 @@ void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len)
         if (*p == '/')
             *p = '\\';
 }
-
+std::wstring CPathUtils::GetLongPathname(LPCWSTR path)
+{
+    if (path == nullptr)
+        return{};
+    return CPathUtils::GetLongPathname(std::wstring(path));
+}
 std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
 {
     if (path.empty())
