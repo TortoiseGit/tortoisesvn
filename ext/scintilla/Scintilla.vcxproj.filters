@@ -468,6 +468,12 @@
     <ClCompile Include="win32\ScintillaDLL.cxx">
       <Filter>win32</Filter>
     </ClCompile>
+    <ClCompile Include="lexers\LexSAS.cxx">
+      <Filter>lexers</Filter>
+    </ClCompile>
+    <ClCompile Include="lexers\LexStata.cxx">
+      <Filter>lexers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ILexer.h">

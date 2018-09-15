@@ -358,7 +358,6 @@ class ScintillaWin :
 	void SetCtrlID(int identifier) override;
 	int GetCtrlID() override;
 	void NotifyParent(SCNotification scn) override;
-	virtual void NotifyParent(SCNotification * scn);
 	void NotifyDoubleClick(Point pt, int modifiers) override;
 	CaseFolder *CaseFolderForEncoding() override;
 	std::string CaseMapString(const std::string &s, int caseMapping) override;
@@ -1746,8 +1745,9 @@ sptr_t ScintillaWin::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam
 				(wParam == SC_TECHNOLOGY_DIRECTWRITERETAIN) ||
 				(wParam == SC_TECHNOLOGY_DIRECTWRITEDC) ||
 				(wParam == SC_TECHNOLOGY_DIRECTWRITE)) {
-				if (technology != static_cast<int>(wParam)) {
-					if (static_cast<int>(wParam) > SC_TECHNOLOGY_DEFAULT) {
+				const int technologyNew = static_cast<int>(wParam);
+				if (technology != technologyNew) {
+					if (technologyNew > SC_TECHNOLOGY_DEFAULT) {
 #if defined(USE_D2D)
 						if (!LoadD2D())
 							// Failed to load Direct2D or DirectWrite so no effect
@@ -1755,11 +1755,13 @@ sptr_t ScintillaWin::WndProc(unsigned int iMessage, uptr_t wParam, sptr_t lParam
 #else
 						return 0;
 #endif
+					} else {
+						bidirectional = EditModel::Bidirectional::bidiDisabled;
 					}
 #if defined(USE_D2D)
 					DropRenderTarget();
 #endif
-					technology = static_cast<int>(wParam);
+					technology = technologyNew;
 					// Invalidate all cached information including layout.
 					DropGraphics(true);
 					InvalidateStyleRedraw();
@@ -2018,13 +2020,6 @@ void ScintillaWin::NotifyParent(SCNotification scn) {
 	scn.nmhdr.idFrom = GetCtrlID();
 	::SendMessage(::GetParent(MainHWND()), WM_NOTIFY,
 	              GetCtrlID(), reinterpret_cast<LPARAM>(&scn));
-}
-
-void ScintillaWin::NotifyParent(SCNotification * scn) {
-	scn->nmhdr.hwndFrom = MainHWND();
-	scn->nmhdr.idFrom = GetCtrlID();
-	::SendMessage(::GetParent(MainHWND()), WM_NOTIFY,
-		GetCtrlID(), reinterpret_cast<LPARAM>(scn));
 }
 
 void ScintillaWin::NotifyDoubleClick(Point pt, int modifiers) {
