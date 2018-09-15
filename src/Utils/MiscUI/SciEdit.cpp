@@ -491,6 +491,10 @@ CStringA CSciEdit::StringForControl(const CString& text)
 
 void CSciEdit::SetText(const CString& sText)
 {
+    auto readonly = m_bReadOnly;
+    OnOutOfScope(SetReadOnly(readonly));
+    SetReadOnly(false);
+
     CStringA sTextA = StringForControl(sText);
     Call(SCI_SETTEXT, 0, (LPARAM)(LPCSTR)sTextA);
 
@@ -508,6 +512,10 @@ void CSciEdit::SetText(const CString& sText)
 
 void CSciEdit::InsertText(const CString& sText, bool bNewLine)
 {
+    auto readonly = m_bReadOnly;
+    OnOutOfScope(SetReadOnly(readonly));
+    SetReadOnly(false);
+
     CStringA sTextA = StringForControl(sText);
     Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)sTextA);
     if (bNewLine)
@@ -603,6 +611,8 @@ void CSciEdit::SetAutoCompletionList(std::map<CString, int>&& list, TCHAR separa
 // Returns TRUE if sWord has spelling errors.
 BOOL CSciEdit::CheckWordSpelling(const CString& sWord)
 {
+    if (m_bReadOnly)
+        return FALSE;
     if (m_SpellChecker)
     {
         IEnumSpellingErrorPtr enumSpellingError = nullptr;
@@ -703,6 +713,8 @@ BOOL CSciEdit::IsMisspelled(const CString& sWord)
 void CSciEdit::CheckSpelling(Sci_Position startpos, Sci_Position endpos)
 {
     if ((pChecker == NULL) && (m_SpellChecker == nullptr))
+        return;
+    if (m_bReadOnly)
         return;
 
     Sci_TextRange textrange;
@@ -1857,4 +1869,10 @@ void CSciEdit::RestyleBugIDs()
     Call(SCI_SETSTYLING, endstylepos, STYLE_DEFAULT);
     // style the bug IDs
     MarkEnteredBugID(0, endstylepos);
+}
+
+void CSciEdit::SetReadOnly(bool bReadOnly)
+{
+    m_bReadOnly = bReadOnly;
+    Call(SCI_SETREADONLY, m_bReadOnly);
 }

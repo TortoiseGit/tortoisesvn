@@ -130,6 +130,8 @@ public:
     void        SetRepositoryRoot(const CString& url) {m_sRepositoryRoot = url;}
 
     void        RestyleBugIDs();
+
+    void        SetReadOnly(bool bReadOnly);;
 private:
     CAutoLibrary m_hModule;
     LRESULT     m_DirectFunction;
@@ -152,6 +154,7 @@ private:
     ISpellCheckerPtr            m_SpellChecker;
     LruCache<std::wstring, BOOL> m_SpellingCache;
     bool        m_blockModifiedHandler;
+    bool        m_bReadOnly;
 
     static bool IsValidURLChar(unsigned char ch);
 protected:
