@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017 - TortoiseSVN
+// Copyright (C) 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,20 +30,18 @@
 #include "SmartHandle.h"
 #include "PreserveChdir.h"
 
-
-
-
-
 bool UnshelveCommand::Execute()
 {
-    bool bRet = false;
-    SVN svn;
+    bool    bRet = false;
     CString name;
+    int     version = -1;
 
     // use the passed-in name, if given
-    if (parser.HasKey(L"shelvename"))
+    if (parser.HasKey(L"shelfname"))
     {
-        name = parser.GetVal(L"shelvename");
+        name = parser.GetVal(L"shelfname");
+        if (parser.HasVal(L"version"))
+            version = parser.GetLongVal(L"version");
     }
     // else show a dialog to select a name
     else if (!parser.HasKey(L"noui"))
@@ -51,33 +49,22 @@ bool UnshelveCommand::Execute()
         CUnshelve dlg;
         dlg.m_pathList = pathList;
         // get the list of shelved names
-        if (!svn.ShelvesList(dlg.m_Names, cmdLinePath))
-        {
-            svn.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);
-            return FALSE;
-        }
-        if (dlg.m_Names.empty())
-        {
-            CString temp;
-            temp.LoadStringW(IDS_NOTHING_SHELVED);
-            ::MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
-            return FALSE;
-        }
         if (dlg.DoModal() == IDOK)
         {
-            name = dlg.m_sShelveName;
+            name    = dlg.m_sShelveName;
+            version = dlg.m_Version;
         }
     }
     if (cmdLinePath.IsEmpty() || name.IsEmpty())
     {
         return FALSE;
     }
-    bRet = Unshelve(name, cmdLinePath);
+    bRet = Unshelve(name, version, cmdLinePath);
 
     return bRet;
 }
 
-bool UnshelveCommand::Unshelve(const CString& shelveName, const CTSVNPath &sDir)
+bool UnshelveCommand::Unshelve(const CString& shelveName, int version, const CTSVNPath& sDir)
 {
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_PROC_PATCHTITLE);
@@ -85,7 +72,7 @@ bool UnshelveCommand::Unshelve(const CString& shelveName, const CTSVNPath &sDir)
     progDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
 
     SVN svn;
-    if (!svn.Unshelve(shelveName, sDir))
+    if (!svn.Unshelve(shelveName, version, sDir))
     {
         progDlg.Stop();
         svn.ShowErrorDialog(GetExplorerHWND(), sDir);

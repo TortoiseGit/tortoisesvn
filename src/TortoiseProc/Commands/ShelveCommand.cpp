@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017 - TortoiseSVN
+// Copyright (C) 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,42 +30,48 @@
 #include "SmartHandle.h"
 #include "PreserveChdir.h"
 
-
-
-
-
 bool ShelveCommand::Execute()
 {
-    bool bRet = false;
+    bool    bRet = false;
     CShelve dlg;
     dlg.m_pathList = pathList;
 
-    if (parser.HasKey(L"shelvename"))
+    if (parser.HasKey(L"shelfname"))
     {
-        dlg.m_sShelveName = parser.GetVal(L"shelvename");
+        dlg.m_sShelveName = parser.GetVal(L"shelfname");
+        dlg.m_revert      = !parser.HasKey(L"checkpoint");
+        if (parser.HasKey(L"logmsg"))
+        {
+            dlg.m_sLogMsg = parser.GetVal(L"logmsg");
+        }
     }
-
-    if (parser.HasKey(L"noui")||(dlg.DoModal()==IDOK))
+    if (parser.HasKey(L"noui") || (dlg.DoModal() == IDOK))
     {
         if (cmdLinePath.IsEmpty())
         {
             cmdLinePath = pathList.GetCommonRoot();
         }
-        bRet = Shelve(dlg.m_sShelveName, dlg.m_pathList);
+        bRet = Shelve(dlg.m_sShelveName, dlg.m_pathList, dlg.m_sLogMsg, dlg.m_revert);
     }
     return bRet;
 }
 
-bool ShelveCommand::Shelve(const CString& shelveName, const CTSVNPathList& paths)
+bool ShelveCommand::Shelve(const CString& shelveName, const CTSVNPathList& paths, const CString& logMsg, bool revert)
 {
     CProgressDlg progDlg;
-    progDlg.SetTitle(IDS_PROC_PATCHTITLE);
+    CString      sTitle;
+    if (revert)
+        sTitle.Format(IDS_SHELF_SHELVING, (LPCWSTR)shelveName);
+    else
+        sTitle.Format(IDS_SHELF_CHECKPOINTING, (LPCWSTR)shelveName);
+    progDlg.SetTitle(sTitle);
     progDlg.SetShowProgressBar(false);
     progDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
 
     CTSVNPath sDir = paths.GetCommonRoot();
-    SVN svn;
-    if (!svn.Shelve(shelveName, paths, svn_depth_infinity /*, changelists*/))
+    SVN       svn;
+    svn.SetAndClearProgressInfo(&progDlg);
+    if (!svn.Shelve(shelveName, paths, logMsg, svn_depth_infinity, revert))
     {
         progDlg.Stop();
         svn.ShowErrorDialog(GetExplorerHWND(), sDir);

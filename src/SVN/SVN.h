@@ -54,6 +54,14 @@ svn_error_t * svn_cl__get_log_message (const char **log_msg,
 
 typedef std::map<CString, CString> RevPropHash;
 
+class ShelfInfo
+{
+public:
+    CString Name;
+    CString LogMessage;
+    std::vector<std::tuple<apr_time_t, CTSVNPathList>> versions;
+};
+
 /**
  * \ingroup SVN
  * This class provides all Subversion commands as methods and adds some helper
@@ -133,8 +141,9 @@ public:
     /**
     * Shelving
     */
-    bool Shelve(const CString& shelveName, const CTSVNPathList& pathlist, svn_depth_t depth /*const CStringArray& changelists,*/);
-    bool Unshelve(const CString& shelveName, const CTSVNPath &local_abspath);
+    bool Shelve(const CString& shelveName, const CTSVNPathList& pathlist, const CString& logMsg, svn_depth_t depth, bool revert);
+    bool Unshelve(const CString& shelveName, int version, const CTSVNPath &local_abspath);
+    ShelfInfo GetShelfInfo(const CString& shelfName, const CTSVNPath& local_abspath);
     bool ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspath);
 
     /**

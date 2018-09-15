@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017 - TortoiseSVN
+// Copyright (C) 2017-2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,36 +18,52 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
-#include "SVNStatusListCtrl.h"
+#include "SVN.h"
+#include "SciEdit.h"
 
 /**
  * \ingroup TortoiseProc
- * Shows the patch dialog where the user can select the files/folders to be
- * included in the resulting patch (unified diff) file.
+ * Shows the unshelve dialog where the user can select the shelf to be applied
+ * to the working copy
  */
 class CUnshelve : public CResizableStandAloneDialog //CResizableStandAloneDialog
 {
     DECLARE_DYNAMIC(CUnshelve)
 
 public:
-    CUnshelve(CWnd* pParent = NULL);   // standard constructor
+    CUnshelve(CWnd* pParent = NULL); // standard constructor
     virtual ~CUnshelve();
 
-    enum { IDD = IDD_UNSHELVE };
+    enum
+    {
+        IDD = IDD_UNSHELVE
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
     virtual BOOL OnInitDialog();
     virtual void OnCancel();
     virtual void OnOK();
     afx_msg void OnBnClickedHelp();
+    afx_msg void OnCbnSelchangeShelvename();
+    afx_msg void OnCbnSelchangeVersioncombo();
+    afx_msg void OnLvnGetdispinfoFilelist(NMHDR* pNMHDR, LRESULT* pResult);
 
     DECLARE_MESSAGE_MAP()
 
-    CComboBox           m_ShelveNameCombo;
+private:
+    SVN           m_svn;
+    CComboBox     m_cShelvesCombo;
+    CComboBox     m_cVersionCombo;
+    CListCtrl     m_cFileList;
+    CSciEdit      m_cLogMessage;
+    ShelfInfo     m_currentShelfInfo;
+    CTSVNPathList m_currentFiles;
+    int           m_nIconFolder;
+    TCHAR         m_columnbuf[MAX_PATH];
 
 public:
-    std::vector<CString> m_Names;
-    CString             m_sShelveName;
-    CTSVNPathList       m_pathList;
+    CString       m_sShelveName;
+    CTSVNPathList m_pathList;
+    int           m_Version;
 };

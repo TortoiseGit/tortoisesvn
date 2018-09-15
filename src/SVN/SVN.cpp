@@ -206,46 +206,248 @@ struct log_msg_baton3
   apr_pool_t *pool; /* a pool. */
 };
 
+struct shelf_status_baton
+{
+    const char* target_abspath;
+    const char* target_path;
 
-bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, svn_depth_t depth /*const CStringArray& changelists,*/)
+    int                  num_paths_shelved;
+    int                  num_paths_not_shelved;
+    std::vector<CString> not_shelved_paths;
+    CProgressDlg*        pProgressDlg;
+    svn_client_ctx_t*    ctx;
+};
+
+svn_error_t* SVN::shelved_func(void* baton, const char* path, const svn_client_status_t* /*status*/, apr_pool_t* /*pool*/)
+{
+    shelf_status_baton* ssb = (shelf_status_baton*)baton;
+    ssb->num_paths_shelved++;
+    if (ssb->pProgressDlg)
+    {
+        ssb->pProgressDlg->SetLine(2, CUnicodeUtils::GetUnicode(path), true);
+        if (ssb->pProgressDlg->HasUserCancelled())
+        {
+            CString message(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED));
+            return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(message));
+        }
+    }
+
+    return nullptr;
+}
+
+svn_error_t* SVN::not_shelved_func(void* baton, const char* path, const svn_client_status_t* /*status*/, apr_pool_t* /*pool*/)
+{
+    shelf_status_baton* ssb = (shelf_status_baton*)baton;
+    ssb->num_paths_not_shelved++;
+    auto uPath = CUnicodeUtils::GetUnicode(path);
+    ssb->not_shelved_paths.push_back(uPath);
+    if (ssb->pProgressDlg)
+    {
+        ssb->pProgressDlg->SetLine(2, uPath, true);
+        if (ssb->pProgressDlg->HasUserCancelled())
+        {
+            CString message(MAKEINTRESOURCE(IDS_SVN_USERCANCELLED));
+            return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(message));
+        }
+    }
+    return nullptr;
+}
+
+bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, const CString& logMsg, svn_depth_t depth, bool revert)
 {
     SVNPool subpool(m_pool);
-    apr_array_header_t * clists = NULL; // MakeChangeListArray(changelists, subpool);
 
     Prepare();
 
-    SVNTRACE(
-        Err = svn_client_shelve((LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
-                                pathlist.MakePathArray(subpool),
-                                depth,
-                                clists,
-                                FALSE /*keep_local*/,
-                                FALSE /*dry_run*/,
-                                m_pctx,
-                                subpool),
-        NULL
-    );
+    svn_client_shelf_t* shelf = nullptr;
+    // open or create the shelf
+    Err = svn_client_shelf_open_or_create(&shelf,
+                                          (LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
+                                          pathlist[0].GetSVNApiPath(subpool),
+                                          m_pctx, subpool);
+    if (Err == nullptr)
+    {
+        // get the last version if there is one
+        svn_client_shelf_version_t* previous_version = nullptr;
+        Err                                          = svn_client_shelf_get_newest_version(&previous_version, shelf, subpool, subpool);
+        if (Err == nullptr)
+        {
+            // set up the callback baton
+            shelf_status_baton sb;
+            sb.target_abspath        = shelf->wc_root_abspath;
+            sb.target_path           = "";
+            sb.num_paths_shelved     = 0;
+            sb.num_paths_not_shelved = 0;
+            sb.pProgressDlg          = m_pProgressDlg;
+            sb.ctx                   = m_pctx;
+
+            svn_client_shelf_version_t* new_version = nullptr;
+            // now create the new version of the shelf
+            Err = svn_client_shelf_save_new_version3(&new_version, shelf,
+                                                     pathlist.MakePathArray(subpool), depth, nullptr,
+                                                     shelved_func, &sb,
+                                                     not_shelved_func, &sb,
+                                                     subpool);
+
+            if (sb.num_paths_not_shelved > 0)
+            {
+                if (Err)
+                    svn_error_clear(Err);
+                // some paths could not be shelved, so delete the just created version
+                svn_error_clear(svn_client_shelf_delete_newer_versions(shelf, previous_version, subpool));
+                apr_array_header_t* versions_p = nullptr;
+                svn_error_clear(svn_client_shelf_get_all_versions(&versions_p, shelf, subpool, subpool));
+                svn_error_clear(svn_client_shelf_close(shelf, subpool));
+                if (versions_p && versions_p->nelts == 0)
+                {
+                    svn_error_clear(svn_client_shelf_delete((LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
+                                                            pathlist[0].GetSVNApiPath(subpool), false,
+                                                            m_pctx, subpool));
+                }
+
+                // create an error with the message indicating that
+                // paths failed to be shelved, and also provide the paths that
+                // were not shelved.
+                CString sPaths;
+                for (size_t i = 0; i < sb.not_shelved_paths.size(); ++i)
+                {
+                    if (i > 0)
+                        sPaths += L"\n";
+                    sPaths += sb.not_shelved_paths[i];
+                    if ((i > 5) && (sb.not_shelved_paths.size() > 6))
+                    {
+                        // only provide 5-6 paths in the error message to avoid
+                        // getting a too large error dialog.
+                        sPaths += L"\n";
+                        CString sMore;
+                        sMore.Format(IDS_ERR_SHELVE_FAILED_MORE, int(sb.not_shelved_paths.size() - i));
+                        sPaths += sMore;
+                        break;
+                    }
+                }
+                CString sError;
+                sError.Format(IDS_ERR_SHELVE_FAILED_PATHS, (LPCWSTR)sPaths);
+                Err = svn_error_create(SVN_ERR_ILLEGAL_TARGET, NULL, (LPCSTR)CUnicodeUtils::GetUTF8(sError));
+            }
+            else if (sb.num_paths_shelved == 0 || !new_version)
+            {
+                if (Err)
+                    svn_error_clear(Err);
+                svn_error_clear(svn_client_shelf_delete_newer_versions(shelf, previous_version, subpool));
+                apr_array_header_t* versions_p = nullptr;
+                svn_error_clear(svn_client_shelf_get_all_versions(&versions_p, shelf, subpool, subpool));
+                Err = svn_client_shelf_close(shelf, subpool);
+                if (versions_p && versions_p->nelts == 0)
+                {
+                    svn_error_clear(svn_client_shelf_delete((LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
+                                                            pathlist[0].GetSVNApiPath(subpool), false,
+                                                            m_pctx, subpool));
+                }
+                if (Err == nullptr)
+                    Err = svn_error_create(SVN_ERR_ILLEGAL_TARGET, NULL, (LPCSTR)CUnicodeUtils::GetUTF8(CString(MAKEINTRESOURCE(IDS_ERR_SHELVE_NOTHING_WAS_SHELVED))));
+            }
+            else
+            {
+                if (revert)
+                {
+                    // revert the shelved files so they appear as not modified
+                    Err = svn_client_shelf_unapply(new_version, false, subpool);
+                }
+                svn_string_t* propval = svn_string_create((LPCSTR)CUnicodeUtils::GetUTF8(logMsg), subpool);
+
+                apr_hash_t* revprop_table = apr_hash_make(subpool);
+                apr_hash_set(revprop_table, SVN_PROP_REVISION_LOG, APR_HASH_KEY_STRING, propval);
+                Err = svn_client_shelf_revprop_set_all(shelf, revprop_table, subpool);
+                if (Err == nullptr)
+                {
+                    Err = svn_client_shelf_close(shelf, subpool);
+                }
+            }
+        }
+    }
 
     return (Err == NULL);
 }
 
-bool SVN::Unshelve(const CString& shelveName, const CTSVNPath &local_abspath)
+bool SVN::Unshelve(const CString& shelveName, int version, const CTSVNPath& local_abspath)
 {
     SVNPool subpool(m_pool);
 
     Prepare();
 
-    SVNTRACE(
-        Err = svn_client_unshelve((LPCSTR)CUnicodeUtils::GetUTF8(shelveName),
-                                  local_abspath.GetSVNApiPath(subpool),
-                                  FALSE /*keep*/,
-                                  FALSE /*dry_run*/,
-                                  m_pctx,
-                                  subpool),
-        NULL
-    );
+    svn_client_shelf_t* shelf = nullptr;
+
+    Err = svn_client_shelf_open_existing(&shelf,
+                                         CUnicodeUtils::GetUTF8(shelveName),
+                                         local_abspath.GetSVNApiPath(subpool), m_pctx, subpool);
+    if (Err == nullptr)
+    {
+        svn_client_shelf_version_t* shelf_version = nullptr;
+        if (version > 0)
+            Err = svn_client_shelf_version_open(&shelf_version, shelf, version, subpool, subpool);
+        else
+            Err = svn_client_shelf_get_newest_version(&shelf_version, shelf, subpool, subpool);
+        if (Err == nullptr)
+        {
+            Err = svn_client_shelf_apply(shelf_version, false, subpool);
+            if (Err == nullptr)
+            {
+                svn_error_clear(svn_client_shelf_delete_newer_versions(shelf, shelf_version, subpool));
+
+                Err = svn_client_shelf_close(shelf, subpool);
+            }
+        }
+    }
 
     return (Err == NULL);
+}
+
+ShelfInfo SVN::GetShelfInfo(const CString& shelfName, const CTSVNPath& local_abspath)
+{
+    SVNPool subpool(m_pool);
+
+    Prepare();
+
+    ShelfInfo info;
+
+    svn_client_shelf_t* shelf = nullptr;
+    Err                       = svn_client_shelf_open_existing(&shelf,
+                                         (LPCSTR)CUnicodeUtils::GetUTF8(shelfName),
+                                         local_abspath.GetSVNApiPath(subpool), m_pctx, subpool);
+    if (Err == nullptr)
+    {
+        info.Name    = shelfName;
+        char* logmsg = nullptr;
+        Err          = svn_client_shelf_get_log_message(&logmsg, shelf, subpool);
+        if (Err == nullptr)
+        {
+            info.LogMessage = CUnicodeUtils::GetUnicode(logmsg);
+        }
+        apr_array_header_t* versions_p = nullptr;
+        Err                            = svn_client_shelf_get_all_versions(&versions_p, shelf, subpool, subpool);
+        if (Err == nullptr)
+        {
+            for (int i = 0; i < versions_p->nelts; i++)
+            {
+                svn_client_shelf_version_t* shelf_version = (svn_client_shelf_version_t*)APR_ARRAY_IDX(versions_p, i, void*);
+
+                CTSVNPathList changedFiles;
+                apr_hash_t*   affectedpaths = nullptr;
+                Err                         = svn_client_shelf_paths_changed(&affectedpaths, shelf_version, subpool, subpool);
+                if (Err == nullptr)
+                {
+                    for (apr_hash_index_t* hi = apr_hash_first(subpool, affectedpaths); hi; hi = apr_hash_next(hi))
+                    {
+                        const char* path = (const char*)apr_hash_this_key(hi);
+                        changedFiles.AddPath(CTSVNPath(CUnicodeUtils::GetUnicode(path)));
+                    }
+                }
+                info.versions.push_back(std::make_tuple(shelf_version->mtime, changedFiles));
+            }
+        }
+        Err = svn_client_shelf_close(shelf, subpool);
+    }
+    return info;
 }
 
 bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspath)
@@ -256,7 +458,7 @@ bool SVN::ShelvesList(std::vector<CString>& Names, const CTSVNPath &local_abspat
     apr_hash_t *names_hash;
 
     SVNTRACE(
-        Err = svn_client_shelves_list(&names_hash,
+        Err = svn_client_shelf_list(&names_hash,
             local_abspath.GetSVNApiPath(subpool),
             m_pctx,
             subpool, subpool),

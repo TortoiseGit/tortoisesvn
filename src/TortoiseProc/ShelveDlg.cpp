@@ -23,13 +23,14 @@
 #include "SVN.h"
 #include "AppUtils.h"
 
-#define REFRESHTIMER   100
+#define REFRESHTIMER 100
 
 IMPLEMENT_DYNAMIC(CShelve, CResizableStandAloneDialog)
 CShelve::CShelve(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CShelve::IDD, pParent)
     , m_bThreadRunning(FALSE)
     , m_bCancelled(false)
+    , m_revert(false)
 {
 }
 
@@ -42,9 +43,9 @@ void CShelve::DoDataExchange(CDataExchange* pDX)
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_PATCHLIST, m_PatchList);
     DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
-    DDX_Control(pDX, IDC_EDITCONFIG, m_ShelveName);
+    DDX_Control(pDX, IDC_SHELVES, m_cShelvesCombo);
+    DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 }
-
 
 BEGIN_MESSAGE_MAP(CShelve, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
@@ -53,6 +54,9 @@ BEGIN_MESSAGE_MAP(CShelve, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
     ON_EN_CHANGE(IDC_EDITCONFIG, OnShelveNameChanged)
     ON_WM_TIMER()
+    ON_BN_CLICKED(IDC_CHECKPOINT, &CShelve::OnBnClickedCheckpoint)
+    ON_CBN_SELCHANGE(IDC_SHELVES, &CShelve::OnCbnSelchangeShelves)
+    ON_CBN_EDITCHANGE(IDC_SHELVES, &CShelve::OnCbnEditchangeShelves)
 END_MESSAGE_MAP()
 
 BOOL CShelve::OnInitDialog()
@@ -62,7 +66,7 @@ BOOL CShelve::OnInitDialog()
 
     UpdateData(FALSE);
 
-    m_PatchList.Init(0, L"ShelveDlg", SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH|SVNSLC_POPRESTORE));
+    m_PatchList.Init(0, L"ShelveDlg", SVNSLC_POPALL ^ (SVNSLC_POPIGNORE | SVNSLC_POPCOMMIT | SVNSLC_POPCREATEPATCH | SVNSLC_POPRESTORE));
     m_PatchList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
     m_PatchList.SetSelectButton(&m_SelectAll);
     m_PatchList.SetCancelBool(&m_bCancelled);
@@ -73,22 +77,48 @@ BOOL CShelve::OnInitDialog()
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
+    m_ProjectProperties.ReadPropsPathList(m_pathList);
+
+    m_cLogMessage.Init(m_ProjectProperties);
+    m_cLogMessage.SetFont(CAppUtils::GetLogFontName(), CAppUtils::GetLogFontSize());
+    std::map<int, UINT> icons;
+    icons[AUTOCOMPLETE_SPELLING]    = IDI_SPELL;
+    icons[AUTOCOMPLETE_FILENAME]    = IDI_FILE;
+    icons[AUTOCOMPLETE_PROGRAMCODE] = IDI_CODE;
+    icons[AUTOCOMPLETE_SNIPPET]     = IDI_SNIPPET;
+    m_cLogMessage.SetIcon(icons);
+
+    std::vector<CString> Names;
+    m_svn.ShelvesList(Names, m_pathList.GetCommonRoot());
+    for (const auto& name : Names)
+    {
+        m_cShelvesCombo.AddString(name);
+    }
+
     AdjustControlSize(IDC_SELECTALL);
 
-    AddAnchor(IDC_PATCHLIST, TOP_LEFT, BOTTOM_RIGHT);
-    AddAnchor(IDC_NAMELABEL, BOTTOM_LEFT);
-    AddAnchor(IDC_EDITCONFIG, BOTTOM_LEFT, BOTTOM_RIGHT);
-    AddAnchor(IDC_SELECTALL, BOTTOM_LEFT);
-    AddAnchor(IDOK, BOTTOM_RIGHT);
+    AddAnchor(IDC_PATCHLIST, TOP_LEFT, MIDDLE_RIGHT);
+    AddAnchor(IDC_SELECTALL, MIDDLE_LEFT);
+    AddAnchor(IDC_SHELVESLABEL, MIDDLE_LEFT, MIDDLE_RIGHT);
+    AddAnchor(IDC_SHELVES, MIDDLE_LEFT, MIDDLE_RIGHT);
+    AddAnchor(IDC_INFOLABEL, MIDDLE_LEFT, MIDDLE_RIGHT);
+    AddAnchor(IDC_LOGMSGLABEL, MIDDLE_LEFT);
+    AddAnchor(IDC_LOGMESSAGE, MIDDLE_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDOK, BOTTOM_LEFT);
+    AddAnchor(IDC_CHECKPOINT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
+
+    m_tooltips.AddTool(IDOK, IDS_SHELF_BTN_TT);
+    m_tooltips.AddTool(IDC_CHECKPOINT, IDS_CHECKPOINT_BTN_TT);
+
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(L"ShelveDlg");
 
     // first start a thread to obtain the file list with the status without
     // blocking the dialog
-    if(AfxBeginThread(PatchThreadEntry, this) == NULL)
+    if (AfxBeginThread(PatchThreadEntry, this) == NULL)
     {
         OnCantStartThread();
     }
@@ -105,19 +135,21 @@ UINT CShelve::PatchThreadEntry(LPVOID pVoid)
 
 DWORD CShelve::ShowMask()
 {
-    return
-        SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES;
+    return SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES;
 }
 
-void CShelve::LockOrUnlockOKBtn()
+void CShelve::LockOrUnlockBtns()
 {
-    if (m_ShelveName.GetWindowTextLength() > 0 && m_PatchList.GetSelected() > 0)
+    auto sel = m_cShelvesCombo.GetCurSel();
+    if (((m_cShelvesCombo.GetWindowTextLength() > 0) || (m_cShelvesCombo.GetLBTextLen(sel) > 0)) && m_PatchList.GetSelected() > 0)
     {
         DialogEnableWindow(IDOK, true);
+        DialogEnableWindow(IDC_CHECKPOINT, true);
     }
     else
     {
         DialogEnableWindow(IDOK, false);
+        DialogEnableWindow(IDC_CHECKPOINT, false);
     }
 }
 
@@ -136,7 +168,7 @@ UINT CShelve::PatchThread()
     m_PatchList.Show(
         ShowMask(), CTSVNPathList(), SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS, true, true);
 
-    LockOrUnlockOKBtn();
+    LockOrUnlockBtns();
     InterlockedExchange(&m_bThreadRunning, FALSE);
     return 0;
 }
@@ -147,15 +179,15 @@ BOOL CShelve::PreTranslateMessage(MSG* pMsg)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if(OnEnterPressed())
-                return TRUE;
-            break;
-        case VK_F5:
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
+                break;
+            case VK_F5:
             {
                 if (!m_bThreadRunning)
                 {
-                    if(AfxBeginThread(PatchThreadEntry, this) == NULL)
+                    if (AfxBeginThread(PatchThreadEntry, this) == NULL)
                     {
                         OnCantStartThread();
                     }
@@ -182,7 +214,7 @@ void CShelve::OnBnClickedSelectall()
     }
     theApp.DoWaitCursor(1);
     m_PatchList.SelectAll(state == BST_CHECKED);
-    LockOrUnlockOKBtn();
+    LockOrUnlockBtns();
     theApp.DoWaitCursor(-1);
 }
 
@@ -202,35 +234,60 @@ void CShelve::OnCancel()
 
 void CShelve::OnOK()
 {
+    // Shelve, not checkpoint
     if (m_bThreadRunning)
         return;
 
-    CString val;
-    m_ShelveName.GetWindowText(val);
+    FillData();
+    m_revert = true;
 
-    m_sShelveName = val;
+    CResizableStandAloneDialog::OnOK();
+}
+void CShelve::OnBnClickedCheckpoint()
+{
+    // checkpoint, not shelve
+    if (m_bThreadRunning)
+        return;
 
-    //save only the files the user has selected into the path list
-    m_PatchList.WriteCheckedNamesToPathList(m_pathList);
+    FillData();
 
     CResizableStandAloneDialog::OnOK();
 }
 
+void CShelve::FillData()
+{
+    CString val;
+    auto    sel = m_cShelvesCombo.GetCurSel();
+    if (sel != CB_ERR)
+    {
+        m_cShelvesCombo.GetLBText(sel, val);
+    }
+    if (val.IsEmpty())
+        m_cShelvesCombo.GetWindowText(val);
+    m_sShelveName = val;
+
+    m_sLogMsg = m_cLogMessage.GetText();
+
+    //save only the files the user has selected into the path list
+    m_PatchList.WriteCheckedNamesToPathList(m_pathList);
+}
+
 LRESULT CShelve::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
-    if(AfxBeginThread(PatchThreadEntry, this) == NULL)
+    if (AfxBeginThread(PatchThreadEntry, this) == NULL)
     {
         OnCantStartThread();
     }
     return 0;
 }
 
-void CShelve::OnShelveNameChanged() {
+void CShelve::OnShelveNameChanged()
+{
     if (m_bThreadRunning)
     {
         return;
     }
-    LockOrUnlockOKBtn();
+    LockOrUnlockBtns();
 }
 
 LRESULT CShelve::OnFileDropped(WPARAM, LPARAM lParam)
@@ -264,7 +321,7 @@ LRESULT CShelve::OnFileDropped(WPARAM, LPARAM lParam)
             // a child of a folder already in the list, we must not add it. Otherwise
             // that path could show up twice in the list.
             bool bHasParentInList = false;
-            for (int i=0; i<m_pathList.GetCount(); ++i)
+            for (int i = 0; i < m_pathList.GetCount(); ++i)
             {
                 if (m_pathList[i].IsAncestorOf(path))
                 {
@@ -290,19 +347,43 @@ void CShelve::OnTimer(UINT_PTR nIDEvent)
 {
     switch (nIDEvent)
     {
-    case REFRESHTIMER:
-        if (m_bThreadRunning)
-        {
-            SetTimer(REFRESHTIMER, 200, NULL);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
-        }
-        else
-        {
-            KillTimer(REFRESHTIMER);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
-            OnSVNStatusListCtrlNeedsRefresh(0, 0);
-        }
-        break;
+        case REFRESHTIMER:
+            if (m_bThreadRunning)
+            {
+                SetTimer(REFRESHTIMER, 200, NULL);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
+            }
+            else
+            {
+                KillTimer(REFRESHTIMER);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
+                OnSVNStatusListCtrlNeedsRefresh(0, 0);
+            }
+            break;
     }
     __super::OnTimer(nIDEvent);
+}
+
+void CShelve::OnCbnSelchangeShelves()
+{
+    auto sel = m_cShelvesCombo.GetCurSel();
+    if (sel != CB_ERR)
+    {
+        CString name;
+        m_cShelvesCombo.GetLBText(sel, name);
+        auto info = m_svn.GetShelfInfo(name, m_pathList.GetCommonRoot());
+        m_cLogMessage.SetText(info.LogMessage);
+        CString sInfo;
+        sInfo.Format(IDS_SHELF_INFO_LABEL, (LPCWSTR)info.Name, (int)info.versions.size());
+        SetDlgItemText(IDC_INFOLABEL, sInfo);
+    }
+    else
+        SetDlgItemText(IDC_INFOLABEL, L"");
+    LockOrUnlockBtns();
+}
+
+void CShelve::OnCbnEditchangeShelves()
+{
+    SetDlgItemText(IDC_INFOLABEL, L"");
+    LockOrUnlockBtns();
 }
