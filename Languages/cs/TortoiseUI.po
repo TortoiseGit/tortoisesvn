@@ -18,14 +18,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-17 01:34+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2018-09-16 01:39+0000\n"
+"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 # msgid/msgstr fields for Accelerator keys
@@ -114,6 +114,11 @@ msgstr "%1!ls! - na revizi: %2!d!"
 #, c-format
 msgid "%1!ls! : Working Base, Revision %2!ld!"
 msgstr "%1!ls! : Pracovní originál, Revize %2!ld!"
+
+#. Resource IDs: (IDS_PROGRS_UPDATE)
+#, c-format
+msgid "%1!ls! from %2!ls!"
+msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_FINALINFO)
 #, c-format
@@ -340,6 +345,10 @@ msgstr "&Vše"
 msgid "&Allow ambiguous URLs"
 msgstr "&Povolit nejednoznačné URL"
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1)
+msgid "&Apply"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1294, Dialog
 #. IDD_EDITPROPEOL: Control id 1294, Dialog IDD_EDITPROPERTYVALUE: Control id
 #. 1294, Dialog IDD_EDITPROPEXECUTABLE: Control id 1294, Dialog
@@ -556,6 +565,10 @@ msgid ""
 "&Cancel\n"
 "keep the current format."
 msgstr "&Zrušit\nponechat současný formát."
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1678)
+msgid "&Checkpoint"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
@@ -982,6 +995,11 @@ msgstr "Uzamykání vyžadováno (aktua&lizace jen pro čtení)"
 msgid "&Log Sizes"
 msgstr "Ve&likost záznamu"
 
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1673, Dialog IDD_UNSHELVE:
+#. Control id 1673)
+msgid "&Log message:"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
@@ -1031,7 +1049,7 @@ msgstr "Z&měnit barvu pro kopii značky kmene"
 msgid "&Moved blocks"
 msgstr "&Přesunuté bloky"
 
-#. Resource IDs: (1672)
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1672)
 msgid "&Name"
 msgstr ""
 
@@ -1104,13 +1122,12 @@ msgstr "Čísel&ný"
 #. IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER:
 #. Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control
 #. id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION:
-#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SHELVE:
-#. Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH:
-#. Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH:
-#. Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK:
-#. Control id 1, Dialog IDD_UNSHELVE: Control id 1, Dialog IDD_UPDATE: Control
-#. id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1,
-#. IDS_MSGBOX_OK)
+#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog
+#. IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog
+#. IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog
+#. IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog
+#. IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF:
+#. Control id 1, IDS_MSGBOX_OK)
 msgid "&OK"
 msgstr "&OK"
 
@@ -1202,6 +1219,10 @@ msgstr "Výchozí pro &Power user"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr "&Adresáře získávat předem pro rychlejší prohlížení"
+
+#. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1676)
+msgid "&Pretty print"
+msgstr ""
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1330,6 +1351,10 @@ msgstr ""
 msgid "&Restore defaults"
 msgstr "&Obnovit výchozí"
 
+#. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1542)
+msgid "&Retry"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
 msgstr ""
@@ -1407,6 +1432,10 @@ msgstr "&Ulož hodnotu..."
 #. Resource IDs: (IDS_MENUSETTINGS, ID_FILE_SETTINGS - Menu)
 msgid "&Settings"
 msgstr "Na&stavení"
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1)
+msgid "&Shelve"
+msgstr ""
 
 #. Resource IDs: (ID_REFRESHBROWSER - Menu)
 msgid "&Show HEAD revisions"
@@ -1611,6 +1640,10 @@ msgstr "&Uživatelské jméno:"
 msgid "&Vacuum pristine copies"
 msgstr "&Vyčistit původní kopie"
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1674)
+msgid "&Version"
+msgstr ""
+
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "&Zobrazit"
@@ -1785,6 +1818,11 @@ msgstr "... kontroluji úschovu a připravuji dotaz záznamu"
 msgid "... reading working copy status"
 msgstr "... čtu stav pracovní kopie"
 
+#. Resource IDs: (IDS_ERR_SHELVE_FAILED_MORE)
+#, c-format
+msgid "...and %d more paths."
+msgstr ""
+
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1804,9 +1842,9 @@ msgstr "<nový seznam změn>"
 
 #. Resource IDs: (IDS_MONITOR_TOOLBARTEXTS)
 msgid ""
-"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
-"all=&Options=="
-msgstr "=&Zkontrolovat nyní=&Přidat projekt=&Upravit=&Odstranit=Označit &vše jako přečtené=&Aktualizovat vše=&Možnosti=="
+"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Clear "
+"errors=&Update all=&Options=="
+msgstr ""
 
 #. Resource IDs: (ID_ABOUT - Menu)
 msgid "?"
@@ -2071,6 +2109,10 @@ msgstr "Pokročilá nastavení rozdílů"
 msgid "Advanced merge settings"
 msgstr "Pokročilá nastavení slučování"
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1675)
+msgid "Affected &files:"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Age"
 msgstr "Stáří"
@@ -2177,8 +2219,8 @@ msgstr "Nastala neznámá chyba při přístupu na %1."
 
 #. Resource IDs: (IDS_ERR_PATCH_UNKOWNLINETYPE)
 #, c-format
-msgid "An unknown line type was found in line %d !"
-msgstr "Neznámý typ řádky byl nalezen na řádce %d!"
+msgid "An unknown line type was found in line %d!"
+msgstr ""
 
 #. Resource IDs: (IDS_SVNERR_SQLITEBUSY)
 msgid ""
@@ -2576,9 +2618,10 @@ msgstr "Nelze kopírovat \n%1!ls!\ndo\n%2!ls!"
 #. Dialog IDD_REVISION: Control id 2, Dialog IDD_REVISIONRANGE: Control id 2,
 #. Dialog IDD_SETTINGSBUGTRAQADV: Control id 2, Dialog IDD_SETTINGSHOOKCONFIG:
 #. Control id 2, Dialog IDD_SETTINGSPROGSADV: Control id 2, Dialog
-#. IDD_SETTINGS_CLEARAUTH: Control id 2, Dialog IDD_SIMPLEPROMPT: Control id
-#. 2, Dialog IDD_SVNPROGRESS: Control id 2, Dialog IDD_SWITCH: Control id 2,
-#. Dialog IDD_TOOLASSOC: Control id 2, Dialog IDD_UNLOCK: Control id 2, Dialog
+#. IDD_SETTINGS_CLEARAUTH: Control id 2, Dialog IDD_SHELVE: Control id 2,
+#. Dialog IDD_SIMPLEPROMPT: Control id 2, Dialog IDD_SVNPROGRESS: Control id
+#. 2, Dialog IDD_SWITCH: Control id 2, Dialog IDD_TOOLASSOC: Control id 2,
+#. Dialog IDD_UNLOCK: Control id 2, Dialog IDD_UNSHELVE: Control id 2, Dialog
 #. IDD_UPDATE: Control id 2, Dialog IDD_URL: Control id 2, Dialog IDD_URLDIFF:
 #. Control id 2, IDS_PROPPAGE_CANCEL)
 msgid "Cancel"
@@ -3038,10 +3081,14 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
-#. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
-#. IDS_PROGRS_TITLE_COMMIT)
+#. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_TITLE_COMMIT)
 msgid "Commit"
 msgstr "Odevzdat"
+
+#. Resource IDs: (IDS_PROGRS_CMD_COMMIT)
+#, c-format
+msgid "Commit to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -3550,6 +3597,12 @@ msgstr "Vytvořit seznam změn"
 msgid "Create Patch"
 msgstr "Vytvořit záplatu"
 
+#. Resource IDs: (IDS_CHECKPOINT_BTN_TT)
+msgid ""
+"Create a checkpoint.\n"
+"The selected modifications are saved to a shelf, but the local modifications are kept."
+msgstr ""
+
 #. Resource IDs: (IDS_LOG_CODE_COLLABORATOR)
 msgid "Create code collaborator revie&w..."
 msgstr "&Vytvořit přezkoumání v nástroji spolupráce na kódu"
@@ -3604,6 +3657,11 @@ msgstr "Vytvoří databázi úložiště na současném umístění"
 #. Resource IDs: (IDS_MENUDESCCREATEPATCH)
 msgid "Creates a unified diff file with all changes you made"
 msgstr "Vytvoří soubor sjednoceného rozdílu se všemi změnami, které jste udělal"
+
+#. Resource IDs: (IDS_SHELF_CHECKPOINTING)
+#, c-format
+msgid "Creating checkpoint \"%s\""
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Credits:"
@@ -4179,6 +4237,14 @@ msgstr "Upravit projekt ke sledování"
 msgid "Edit Properties"
 msgstr "Upravit Vlastnosti"
 
+#. Resource IDs: (IDS_PROC_EDIT_PROP_CONFLICTS)
+msgid "Edit Property Conflicts"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_EDIT_TEXT_CONFLICTS)
+msgid "Edit Text Conflicts"
+msgstr ""
+
 #. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "Upravit Konflikt Stromu"
@@ -4222,6 +4288,12 @@ msgstr "Upravení vlastnosti '%1!S!' na\n%2!ls!"
 #. IDD_SETTINGSHOOKS: Control id 1331)
 msgid "Edit..."
 msgstr "Upravit..."
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_EDITCMD)
+msgid ""
+"Edit\n"
+"Edit text conflicts"
+msgstr ""
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_EDITCMD)
 msgid ""
@@ -4493,8 +4565,7 @@ msgstr "Export nastavení"
 msgid "Explore to"
 msgstr "Prozkoumat"
 
-#. Resource IDs: (Dialog IDD_EXPORT: Control id 238, IDS_PROGRS_CMD_EXPORT,
-#. IDS_PROGRS_TITLE_EXPORT)
+#. Resource IDs: (Dialog IDD_EXPORT: Control id 238, IDS_PROGRS_TITLE_EXPORT)
 msgid "Export"
 msgstr "Exportovat"
 
@@ -4505,6 +4576,11 @@ msgstr "A&dresář pro export:"
 #. Resource IDs: (IDS_EXPORTFILTER)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
 msgstr "Soubory exportu (*.tsex)|*.tsex|Všechny soubory (*.*)|*.*||"
+
+#. Resource IDs: (IDS_PROGRS_CMD_EXPORT)
+#, c-format
+msgid "Export from %1!ls!"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1667)
 msgid "Export settings to file..."
@@ -5591,6 +5667,10 @@ msgstr "Ignorovat &původ"
 msgid "Ignore Comments"
 msgstr "Ignorovat komentáře"
 
+#. Resource IDs: (IDS_DIFF_IGNORE_EOL)
+msgid "Ignore EOL changes"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
 #. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
@@ -6256,10 +6336,8 @@ msgid "Many items selected to show diff"
 msgstr "Vybráno velké množství položek pro porovnání"
 
 #. Resource IDs: (IDS_MONITOR_MARKASREADTT)
-msgid ""
-"Mark all projects as read\n"
-"Hold down the shift key to also clear all fetch errors."
-msgstr "Označit všechny projekty jako přečtené\nPro vyčištění všech chyb při získávání informací podržte klávesu shift."
+msgid "Mark all projects as read"
+msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
 msgid ""
@@ -6827,6 +6905,10 @@ msgstr "Nebyl nalezen kódovač obrázku pro %ls."
 msgid "No path or pathfile specified on the command line!"
 msgstr "Není specifikována cesta nebo soubor s cestami na příkazové řádce!"
 
+#. Resource IDs: (IDS_ERR_SHELVE_NOTHING_WAS_SHELVED)
+msgid "No path was shelved."
+msgstr ""
+
 #. Resource IDs: (IDS_SETTINGS_CACHENONE_TT)
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
@@ -6905,6 +6987,10 @@ msgstr "Poznámka: tato vlastnost nemá ve Windows význam"
 #. Resource IDs: (IDS_COMMITDLG_NOTHINGSELECTED)
 msgid "Nothing is selected for commit!"
 msgstr "Pro odevzdání není nic vybráno!"
+
+#. Resource IDs: (IDS_NOTHING_SHELVED)
+msgid "Nothing is shelved!"
+msgstr ""
 
 #. Resource IDs: (IDS_WARN_NOTE)
 msgid "Notice"
@@ -7033,6 +7119,14 @@ msgstr "Jeden nebo více automaticky uložené dokumenty byly nalezeny."
 #. Resource IDs: (IDS_PROGRS_CONFLICTSOCCURED)
 msgid "One or more files are in a conflicted state."
 msgstr "Jeden nebo více souborů je v konfliktním stavu."
+
+#. Resource IDs: (IDS_ERR_SHELVE_FAILED_PATHS)
+#, c-format
+msgid ""
+"One or more paths could not be shelved.\n"
+"The following paths failed:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_TITLE)
 msgid "One project has updates:"
@@ -7275,7 +7369,7 @@ msgstr "Záplatování souboru '%1!ls!'"
 
 #. Resource IDs: (IDS_HEADER_PATH, IDS_PATH, IDS_PROGRS_PATH,
 #. IDS_SETTINGS_BUGTRAQ_PATHCOL, IDS_SETTINGS_HOOKS_PATHCOL,
-#. IDS_STATUSLIST_COLFILE)
+#. IDS_SHELF_UNSHELVE_FILECOL, IDS_STATUSLIST_COLFILE)
 msgid "Path"
 msgstr "Cesta"
 
@@ -8593,7 +8687,8 @@ msgstr "Prohledat"
 #. Resource IDs: (Dialog IDD_BUGTRAQREGEXTESTER: Control id 1014, Dialog
 #. IDD_COMMITDLG: Control id 1014, Dialog IDD_COPY: Control id 1014, Dialog
 #. IDD_IMPORT: Control id 1017, Dialog IDD_INPUTDLG: Control id 1064, Dialog
-#. IDD_INPUTLOGDLG: Control id 1064, Dialog IDD_LOCK: Control id 1212)
+#. IDD_INPUTLOGDLG: Control id 1064, Dialog IDD_LOCK: Control id 1212, Dialog
+#. IDD_SHELVE: Control id 1014, Dialog IDD_UNSHELVE: Control id 1014)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -8634,7 +8729,7 @@ msgstr "&Vybrat vše"
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog
-#. IDD_UNLOCK: Control id 1067, Dialog IDD_UNSHELVE: Control id 1067)
+#. IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "&Označit / Zrušit označení všeho"
 
@@ -8653,6 +8748,12 @@ msgstr "Zvolte SSH klienta"
 #. Resource IDs: (61717)
 msgid "Select a button."
 msgstr "Vybrat tlačítko."
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1679)
+msgid ""
+"Select an existing shelf to create a new version, or enter a new name to "
+"create a new shelf"
+msgstr ""
 
 #. Resource IDs: (57346)
 msgid "Select an object on which to get Help"
@@ -8815,6 +8916,11 @@ msgstr "Nastavení - TortoiseSVN"
 msgid "Shall I update the working copy and retry?"
 msgstr "Mám aktualizovat pracovní kopii a potom opakovat?"
 
+#. Resource IDs: (IDS_SHELF_INFO_LABEL)
+#, c-format
+msgid "Shelf \"%s\" has %ld version(s)"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1270,
 #. IDS_STATUSLIST_CONTEXT_SHELL)
 msgid "Shell"
@@ -8824,12 +8930,21 @@ msgstr "Rozhraní"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "Úschova ikon rozhraní byla znovu vytvořena!"
 
-#. Resource IDs: (205)
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 205)
 msgid "Shelve"
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_BTN_TT)
+msgid "Shelve the selected files and revert the changes."
 msgstr ""
 
 #. Resource IDs: (IDS_MENUSHELVE)
 msgid "Shelve..."
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_SHELVING)
+#, c-format
+msgid "Shelving to \"%s\""
 msgstr ""
 
 #. Resource IDs: (32822)
@@ -8908,8 +9023,7 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "&Zobrazovat překryvy a kontextové menu pouze v průzkumníku Windows"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog
-#. IDD_CREATEPATCH: Control id 1073, Dialog IDD_SHELVE: Control id 1073,
-#. Dialog IDD_UNSHELVE: Control id 1073)
+#. IDD_CREATEPATCH: Control id 1073)
 msgid "Show &unversioned files"
 msgstr "&Ukázat soubory bez verze"
 
@@ -9334,7 +9448,8 @@ msgid "Statistics"
 msgstr "Statistika"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 65535,
-#. IDS_STATUSLIST_COLSTATUS, IDS_SVNACTION_STATUS)
+#. IDS_SHELF_UNSHELVE_STATUSCOL, IDS_STATUSLIST_COLSTATUS,
+#. IDS_SVNACTION_STATUS)
 msgid "Status"
 msgstr "Stav"
 
@@ -9761,8 +9876,8 @@ msgstr "Položka '%ls' má konflikt vlastností:\n%ls"
 
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
-msgid "The line '====' was expected in line %d !"
-msgstr "Řádka '====' byla očekávaná na řádce %d !"
+msgid "The line '====' was expected in line %d!"
+msgstr ""
 
 #. Resource IDs: (IDS_ERR_PATCH_NOINDEX)
 msgid ""
@@ -9772,8 +9887,8 @@ msgstr "Řádka 'Index: ' nebyla nalezena!\nBuď toto není záplata, nebo je z�
 
 #. Resource IDs: (IDS_ERR_PATCH_NOADDFILELINE)
 #, c-format
-msgid "The line indicating the new file was expected in line %d !"
-msgstr "Řádka indikující nový soubor byla očekávaná na řádce %d !"
+msgid "The line indicating the new file was expected in line %d!"
+msgstr ""
 
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
 #, c-format
@@ -10004,8 +10119,10 @@ msgid ""
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history data."
-msgstr "Byl problém s připojením se na server.\nChcete si prohlížet namísto toho data z úschovy?\n\nProsím buďte si vědomí, že uložená data můžou být zastaralá,\nnekompletní nebo matoucí z důvodu nekompletní historie."
+"incomplete or even misleading due to incomplete history data.\n"
+"\n"
+"The error was:"
+msgstr ""
 
 #. Resource IDs: (IDS_ERR_NOTHINGTOADD)
 msgid ""
@@ -10530,7 +10647,7 @@ msgstr "Nerozeznán, nebo nesprávný formát souboru!"
 msgid "Unresolved conflicts!"
 msgstr "Nevyřešené konflikty!"
 
-#. Resource IDs: (206)
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 206)
 msgid "Unshelve"
 msgstr ""
 
@@ -10920,6 +11037,11 @@ msgstr "Větev dodavatele"
 #. id 1075)
 msgid "Version"
 msgstr "Verze"
+
+#. Resource IDs: (IDS_SHELF_VERSION_TIME)
+#, c-format
+msgid "Version %d - %s"
+msgstr ""
 
 #. Resource IDs: (IDS_VERSION)
 #, c-format

@@ -11,8 +11,8 @@
 # Authors:
 # Translators:
 # ‌‌‌ ‌‌‌‌, 2012
-# ehsan alimohammadi <alimohamadi.eh@gmail.com>, 2016
-# emad farrokhi <emadfh@gmail.com>, 2015
+# Ehsan Alimohammadi <alimohamadi.eh@gmail.com>, 2016
+# Emad Farrokhi <emadfh@gmail.com>, 2015
 # Hossein Montazeri <hm.webmaster@gmail.com>, 2012
 # Mohammad Zare <mohammad.zr90@gmail.com>, 2013
 # mohsensajjadi <mohsensajjadi@yahoo.com>, 2013
@@ -22,14 +22,14 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2017-11-17 01:34+0000\n"
-"Last-Translator: Lübbe TortoiseSVN <luebbe.tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2018-09-16 01:39+0000\n"
+"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Persian (http://www.transifex.com/luebbe/tortoisesvn/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fa\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Resource IDs: (IDS_STATUSBAR_CONFLICTEDLINES)
 # msgid/msgstr fields for Accelerator keys
@@ -118,6 +118,11 @@ msgstr "%1!ls!- در اصلاحیه: %2!d!"
 #, c-format
 msgid "%1!ls! : Working Base, Revision %2!ld!"
 msgstr "%1!ls! : پایه کاری, اصلاحیه %2!ld!"
+
+#. Resource IDs: (IDS_PROGRS_UPDATE)
+#, c-format
+msgid "%1!ls! from %2!ls!"
+msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_FINALINFO)
 #, c-format
@@ -344,6 +349,10 @@ msgstr "همه"
 msgid "&Allow ambiguous URLs"
 msgstr "پذیرفتن آدرس‌های &مبهم"
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1)
+msgid "&Apply"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1294, Dialog
 #. IDD_EDITPROPEOL: Control id 1294, Dialog IDD_EDITPROPERTYVALUE: Control id
 #. 1294, Dialog IDD_EDITPROPEXECUTABLE: Control id 1294, Dialog
@@ -559,6 +568,10 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "keep the current format."
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1678)
+msgid "&Checkpoint"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
@@ -986,6 +999,11 @@ msgstr "&نیاز به قفل گذاری وجود دارد(بروزرسانی ف
 msgid "&Log Sizes"
 msgstr "&اندازه لاگها"
 
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1673, Dialog IDD_UNSHELVE:
+#. Control id 1673)
+msgid "&Log message:"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
@@ -1035,7 +1053,7 @@ msgstr "&تغییر رنگ کپی‌های شاخهٔ اصلی"
 msgid "&Moved blocks"
 msgstr "&بلوکهای منتقل شده"
 
-#. Resource IDs: (1672)
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1672)
 msgid "&Name"
 msgstr ""
 
@@ -1108,13 +1126,12 @@ msgstr "&عددی"
 #. IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER:
 #. Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control
 #. id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION:
-#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SHELVE:
-#. Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH:
-#. Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH:
-#. Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK:
-#. Control id 1, Dialog IDD_UNSHELVE: Control id 1, Dialog IDD_UPDATE: Control
-#. id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1,
-#. IDS_MSGBOX_OK)
+#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog
+#. IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog
+#. IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog
+#. IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog
+#. IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF:
+#. Control id 1, IDS_MSGBOX_OK)
 msgid "&OK"
 msgstr "&تائید"
 
@@ -1205,6 +1222,10 @@ msgstr "&Power user defaults"
 
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1676)
+msgid "&Pretty print"
 msgstr ""
 
 #. Resource IDs: (58116)
@@ -1334,6 +1355,10 @@ msgstr ""
 msgid "&Restore defaults"
 msgstr "&بازنشانی پیش‌فرض"
 
+#. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1542)
+msgid "&Retry"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
 msgstr ""
@@ -1411,6 +1436,10 @@ msgstr "&ذخیره سازی مقدار..."
 #. Resource IDs: (IDS_MENUSETTINGS, ID_FILE_SETTINGS - Menu)
 msgid "&Settings"
 msgstr "&تنظیمات"
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1)
+msgid "&Shelve"
+msgstr ""
 
 #. Resource IDs: (ID_REFRESHBROWSER - Menu)
 msgid "&Show HEAD revisions"
@@ -1615,6 +1644,10 @@ msgstr "&نام کاربر:"
 msgid "&Vacuum pristine copies"
 msgstr ""
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1674)
+msgid "&Version"
+msgstr ""
+
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "&مشاهده"
@@ -1789,6 +1822,11 @@ msgstr "... در حال بررسی کَش و آماده سازی درخواست 
 msgid "... reading working copy status"
 msgstr "...در حال بررسی وضعیت نسخه کاری"
 
+#. Resource IDs: (IDS_ERR_SHELVE_FAILED_MORE)
+#, c-format
+msgid "...and %d more paths."
+msgstr ""
+
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1808,8 +1846,8 @@ msgstr "<لیست تغییرات جدید>"
 
 #. Resource IDs: (IDS_MONITOR_TOOLBARTEXTS)
 msgid ""
-"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
-"all=&Options=="
+"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Clear "
+"errors=&Update all=&Options=="
 msgstr ""
 
 #. Resource IDs: (ID_ABOUT - Menu)
@@ -2075,6 +2113,10 @@ msgstr "تنظیمات پیشرفته مقایسه"
 msgid "Advanced merge settings"
 msgstr "تنظیمات پیشرفته ادغام"
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1675)
+msgid "Affected &files:"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Age"
 msgstr "عمر"
@@ -2181,8 +2223,8 @@ msgstr "خطای ناشناخته در دسترسی به %1 رخ داد."
 
 #. Resource IDs: (IDS_ERR_PATCH_UNKOWNLINETYPE)
 #, c-format
-msgid "An unknown line type was found in line %d !"
-msgstr "یک نوع خط ناشناخته در خط %d یافت شد."
+msgid "An unknown line type was found in line %d!"
+msgstr ""
 
 #. Resource IDs: (IDS_SVNERR_SQLITEBUSY)
 msgid ""
@@ -2580,9 +2622,10 @@ msgstr "کپی ناموفق\n%1!ls!\nبه\n%2!ls!"
 #. Dialog IDD_REVISION: Control id 2, Dialog IDD_REVISIONRANGE: Control id 2,
 #. Dialog IDD_SETTINGSBUGTRAQADV: Control id 2, Dialog IDD_SETTINGSHOOKCONFIG:
 #. Control id 2, Dialog IDD_SETTINGSPROGSADV: Control id 2, Dialog
-#. IDD_SETTINGS_CLEARAUTH: Control id 2, Dialog IDD_SIMPLEPROMPT: Control id
-#. 2, Dialog IDD_SVNPROGRESS: Control id 2, Dialog IDD_SWITCH: Control id 2,
-#. Dialog IDD_TOOLASSOC: Control id 2, Dialog IDD_UNLOCK: Control id 2, Dialog
+#. IDD_SETTINGS_CLEARAUTH: Control id 2, Dialog IDD_SHELVE: Control id 2,
+#. Dialog IDD_SIMPLEPROMPT: Control id 2, Dialog IDD_SVNPROGRESS: Control id
+#. 2, Dialog IDD_SWITCH: Control id 2, Dialog IDD_TOOLASSOC: Control id 2,
+#. Dialog IDD_UNLOCK: Control id 2, Dialog IDD_UNSHELVE: Control id 2, Dialog
 #. IDD_UPDATE: Control id 2, Dialog IDD_URL: Control id 2, Dialog IDD_URLDIFF:
 #. Control id 2, IDS_PROPPAGE_CANCEL)
 msgid "Cancel"
@@ -3042,10 +3085,14 @@ msgid ""
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
-#. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
-#. IDS_PROGRS_TITLE_COMMIT)
+#. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_TITLE_COMMIT)
 msgid "Commit"
 msgstr "اعمال"
+
+#. Resource IDs: (IDS_PROGRS_CMD_COMMIT)
+#, c-format
+msgid "Commit to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -3554,6 +3601,12 @@ msgstr "ایجاد لیست تغییرات"
 msgid "Create Patch"
 msgstr "ایجاد وصله"
 
+#. Resource IDs: (IDS_CHECKPOINT_BTN_TT)
+msgid ""
+"Create a checkpoint.\n"
+"The selected modifications are saved to a shelf, but the local modifications are kept."
+msgstr ""
+
 #. Resource IDs: (IDS_LOG_CODE_COLLABORATOR)
 msgid "Create code collaborator revie&w..."
 msgstr ""
@@ -3608,6 +3661,11 @@ msgstr "یک پایگاه داده مخزن در این مکان ایجاد می
 #. Resource IDs: (IDS_MENUDESCCREATEPATCH)
 msgid "Creates a unified diff file with all changes you made"
 msgstr "یک فایل مقایسه ای متحد با همه تغییراتتان ایجاد میکند"
+
+#. Resource IDs: (IDS_SHELF_CHECKPOINTING)
+#, c-format
+msgid "Creating checkpoint \"%s\""
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Credits:"
@@ -4183,6 +4241,14 @@ msgstr ""
 msgid "Edit Properties"
 msgstr "ویرایش خصوصیات"
 
+#. Resource IDs: (IDS_PROC_EDIT_PROP_CONFLICTS)
+msgid "Edit Property Conflicts"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_EDIT_TEXT_CONFLICTS)
+msgid "Edit Text Conflicts"
+msgstr ""
+
 #. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "ویرایش تضاد شاخه"
@@ -4226,6 +4292,12 @@ msgstr ""
 #. IDD_SETTINGSHOOKS: Control id 1331)
 msgid "Edit..."
 msgstr "ویرایش..."
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_EDITCMD)
+msgid ""
+"Edit\n"
+"Edit text conflicts"
+msgstr ""
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_EDITCMD)
 msgid ""
@@ -4497,8 +4569,7 @@ msgstr "تنظیمات تخصصی"
 msgid "Explore to"
 msgstr "مرور به"
 
-#. Resource IDs: (Dialog IDD_EXPORT: Control id 238, IDS_PROGRS_CMD_EXPORT,
-#. IDS_PROGRS_TITLE_EXPORT)
+#. Resource IDs: (Dialog IDD_EXPORT: Control id 238, IDS_PROGRS_TITLE_EXPORT)
 msgid "Export"
 msgstr "صادر کردن"
 
@@ -4508,6 +4579,11 @@ msgstr "&دایرکتوری جهت صدور:"
 
 #. Resource IDs: (IDS_EXPORTFILTER)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
+msgstr ""
+
+#. Resource IDs: (IDS_PROGRS_CMD_EXPORT)
+#, c-format
+msgid "Export from %1!ls!"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1667)
@@ -5595,6 +5671,10 @@ msgstr "نادیده گرفتن &ریشه"
 msgid "Ignore Comments"
 msgstr ""
 
+#. Resource IDs: (IDS_DIFF_IGNORE_EOL)
+msgid "Ignore EOL changes"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
 #. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
@@ -6260,9 +6340,7 @@ msgid "Many items selected to show diff"
 msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_MARKASREADTT)
-msgid ""
-"Mark all projects as read\n"
-"Hold down the shift key to also clear all fetch errors."
+msgid "Mark all projects as read"
 msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
@@ -6831,6 +6909,10 @@ msgstr "هیچ کدکننده تصویری برای %ls یافت نشد."
 msgid "No path or pathfile specified on the command line!"
 msgstr "مسیری در خط فرمان وارد نشده است!"
 
+#. Resource IDs: (IDS_ERR_SHELVE_NOTHING_WAS_SHELVED)
+msgid "No path was shelved."
+msgstr ""
+
 #. Resource IDs: (IDS_SETTINGS_CACHENONE_TT)
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
@@ -6909,6 +6991,10 @@ msgstr "توجه: این خاصیت در ویندوز اثری ندارد"
 #. Resource IDs: (IDS_COMMITDLG_NOTHINGSELECTED)
 msgid "Nothing is selected for commit!"
 msgstr "چیزی برای اعمال انتخاب نشده است!"
+
+#. Resource IDs: (IDS_NOTHING_SHELVED)
+msgid "Nothing is shelved!"
+msgstr ""
 
 #. Resource IDs: (IDS_WARN_NOTE)
 msgid "Notice"
@@ -7037,6 +7123,14 @@ msgstr "یک یا بیشتر سند ذخیره شده خودکار یافت شد
 #. Resource IDs: (IDS_PROGRS_CONFLICTSOCCURED)
 msgid "One or more files are in a conflicted state."
 msgstr "یک یا چند فایل در حالی متضاد قرار دارند."
+
+#. Resource IDs: (IDS_ERR_SHELVE_FAILED_PATHS)
+#, c-format
+msgid ""
+"One or more paths could not be shelved.\n"
+"The following paths failed:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_TITLE)
 msgid "One project has updates:"
@@ -7279,7 +7373,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_HEADER_PATH, IDS_PATH, IDS_PROGRS_PATH,
 #. IDS_SETTINGS_BUGTRAQ_PATHCOL, IDS_SETTINGS_HOOKS_PATHCOL,
-#. IDS_STATUSLIST_COLFILE)
+#. IDS_SHELF_UNSHELVE_FILECOL, IDS_STATUSLIST_COLFILE)
 msgid "Path"
 msgstr "مسیر"
 
@@ -8597,7 +8691,8 @@ msgstr "اسکن"
 #. Resource IDs: (Dialog IDD_BUGTRAQREGEXTESTER: Control id 1014, Dialog
 #. IDD_COMMITDLG: Control id 1014, Dialog IDD_COPY: Control id 1014, Dialog
 #. IDD_IMPORT: Control id 1017, Dialog IDD_INPUTDLG: Control id 1064, Dialog
-#. IDD_INPUTLOGDLG: Control id 1064, Dialog IDD_LOCK: Control id 1212)
+#. IDD_INPUTLOGDLG: Control id 1064, Dialog IDD_LOCK: Control id 1212, Dialog
+#. IDD_SHELVE: Control id 1014, Dialog IDD_UNSHELVE: Control id 1014)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -8638,7 +8733,7 @@ msgstr "انتخاب &همه"
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog
-#. IDD_UNLOCK: Control id 1067, Dialog IDD_UNSHELVE: Control id 1067)
+#. IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "انتخاب / عدم انتخاب &همه"
 
@@ -8657,6 +8752,12 @@ msgstr "انتخاب کلاینت SSH"
 #. Resource IDs: (61717)
 msgid "Select a button."
 msgstr "یک دگمه انتخاب کنید."
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1679)
+msgid ""
+"Select an existing shelf to create a new version, or enter a new name to "
+"create a new shelf"
+msgstr ""
 
 #. Resource IDs: (57346)
 msgid "Select an object on which to get Help"
@@ -8819,6 +8920,11 @@ msgstr "تنظیمات- TortoiseSVN"
 msgid "Shall I update the working copy and retry?"
 msgstr "آیا نسخه کاری بروز شود و سپس سعی گردد؟"
 
+#. Resource IDs: (IDS_SHELF_INFO_LABEL)
+#, c-format
+msgid "Shelf \"%s\" has %ld version(s)"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1270,
 #. IDS_STATUSLIST_CONTEXT_SHELL)
 msgid "Shell"
@@ -8828,12 +8934,21 @@ msgstr "پوسته"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "کَش آیکونهای پوسته دوباره سازی شد!"
 
-#. Resource IDs: (205)
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 205)
 msgid "Shelve"
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_BTN_TT)
+msgid "Shelve the selected files and revert the changes."
 msgstr ""
 
 #. Resource IDs: (IDS_MENUSHELVE)
 msgid "Shelve..."
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_SHELVING)
+#, c-format
+msgid "Shelving to \"%s\""
 msgstr ""
 
 #. Resource IDs: (32822)
@@ -8912,8 +9027,7 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "نمایش &پوششها و منوهای راست-کلیک فقط در اکسپلورر"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog
-#. IDD_CREATEPATCH: Control id 1073, Dialog IDD_SHELVE: Control id 1073,
-#. Dialog IDD_UNSHELVE: Control id 1073)
+#. IDD_CREATEPATCH: Control id 1073)
 msgid "Show &unversioned files"
 msgstr "نمایش فایلهای &فاقد-نسخه"
 
@@ -9338,7 +9452,8 @@ msgid "Statistics"
 msgstr "آمار"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 65535,
-#. IDS_STATUSLIST_COLSTATUS, IDS_SVNACTION_STATUS)
+#. IDS_SHELF_UNSHELVE_STATUSCOL, IDS_STATUSLIST_COLSTATUS,
+#. IDS_SVNACTION_STATUS)
 msgid "Status"
 msgstr "وضعیت"
 
@@ -9765,8 +9880,8 @@ msgstr ""
 
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
-msgid "The line '====' was expected in line %d !"
-msgstr "The line '====' was expected in line %d !"
+msgid "The line '====' was expected in line %d!"
+msgstr ""
 
 #. Resource IDs: (IDS_ERR_PATCH_NOINDEX)
 msgid ""
@@ -9776,8 +9891,8 @@ msgstr "The line 'Index: ' was not found!\nEither this is not a diff file or the
 
 #. Resource IDs: (IDS_ERR_PATCH_NOADDFILELINE)
 #, c-format
-msgid "The line indicating the new file was expected in line %d !"
-msgstr "The line indicating the new file was expected in line %d !"
+msgid "The line indicating the new file was expected in line %d!"
+msgstr ""
 
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
 #, c-format
@@ -10008,8 +10123,10 @@ msgid ""
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history data."
-msgstr "ارتباط با سرور با مشکل روبرو شده است.\nآیا مایلید داده های کَش شده را مشاهده نمایید؟\n\nلطفا در نظر داشته باشید داده های کَش شده ممکن است\nبدلیل داده های ناقص، قدیمی، ناقص یا گمراه کننده باشند."
+"incomplete or even misleading due to incomplete history data.\n"
+"\n"
+"The error was:"
+msgstr ""
 
 #. Resource IDs: (IDS_ERR_NOTHINGTOADD)
 msgid ""
@@ -10534,7 +10651,7 @@ msgstr "فرمت فایل مشخصات ناشناخته یا نامعتبر!"
 msgid "Unresolved conflicts!"
 msgstr "برخوردهای حل نشده!"
 
-#. Resource IDs: (206)
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 206)
 msgid "Unshelve"
 msgstr ""
 
@@ -10924,6 +11041,11 @@ msgstr ""
 #. id 1075)
 msgid "Version"
 msgstr "نسخه"
+
+#. Resource IDs: (IDS_SHELF_VERSION_TIME)
+#, c-format
+msgid "Version %d - %s"
+msgstr ""
 
 #. Resource IDs: (IDS_VERSION)
 #, c-format

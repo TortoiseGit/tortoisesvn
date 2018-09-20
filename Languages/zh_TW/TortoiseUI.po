@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-03-06 07:04+0000\n"
-"Last-Translator: Arith Hsu <arithmandar@gmail.com>\n"
+"PO-Revision-Date: 2018-09-16 01:39+0000\n"
+"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -123,6 +123,11 @@ msgstr "%1!ls! - 於修訂: %2!d!"
 #, c-format
 msgid "%1!ls! : Working Base, Revision %2!ld!"
 msgstr "%1!ls! : 工作基礎, 修訂 %2!ld!"
+
+#. Resource IDs: (IDS_PROGRS_UPDATE)
+#, c-format
+msgid "%1!ls! from %2!ls!"
+msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_FINALINFO)
 #, c-format
@@ -349,6 +354,10 @@ msgstr "全選(&A)"
 msgid "&Allow ambiguous URLs"
 msgstr "允許模糊的 URL(&A)"
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1)
+msgid "&Apply"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1294, Dialog
 #. IDD_EDITPROPEOL: Control id 1294, Dialog IDD_EDITPROPERTYVALUE: Control id
 #. 1294, Dialog IDD_EDITPROPEXECUTABLE: Control id 1294, Dialog
@@ -565,6 +574,10 @@ msgid ""
 "&Cancel\n"
 "keep the current format."
 msgstr "取消(&C)\n保留現有的格式."
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1678)
+msgid "&Checkpoint"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
@@ -991,6 +1004,11 @@ msgstr "需要鎖定 [唯讀更新](&L)"
 msgid "&Log Sizes"
 msgstr "記錄檔大小(&L)"
 
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1673, Dialog IDD_UNSHELVE:
+#. Control id 1673)
+msgid "&Log message:"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
 msgstr "&Mac (CR)"
@@ -1040,7 +1058,7 @@ msgstr "修改主幹複本的顏色(&M)"
 msgid "&Moved blocks"
 msgstr "已移動的區塊(&M)"
 
-#. Resource IDs: (1672)
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1672)
 msgid "&Name"
 msgstr "名稱(&N)"
 
@@ -1113,13 +1131,12 @@ msgstr "數值(&N)"
 #. IDD_REPOCREATEFINISHED: Control id 1, Dialog IDD_REPOSITORY_BROWSER:
 #. Control id 1, Dialog IDD_RESOLVE: Control id 1, Dialog IDD_REVERT: Control
 #. id 1607, Dialog IDD_REVGRAPHFILTER: Control id 1, Dialog IDD_REVISION:
-#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog IDD_SHELVE:
-#. Control id 1, Dialog IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH:
-#. Control id 1, Dialog IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH:
-#. Control id 1, Dialog IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK:
-#. Control id 1, Dialog IDD_UNSHELVE: Control id 1, Dialog IDD_UPDATE: Control
-#. id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF: Control id 1,
-#. IDS_MSGBOX_OK)
+#. Control id 1, Dialog IDD_REVISIONRANGE: Control id 1, Dialog
+#. IDD_SIMPLEPROMPT: Control id 1, Dialog IDD_STATGRAPH: Control id 1, Dialog
+#. IDD_SVNPROGRESS: Control id 1, Dialog IDD_SWITCH: Control id 1, Dialog
+#. IDD_TOOLASSOC: Control id 1, Dialog IDD_UNLOCK: Control id 1, Dialog
+#. IDD_UPDATE: Control id 1, Dialog IDD_URL: Control id 1, Dialog IDD_URLDIFF:
+#. Control id 1, IDS_MSGBOX_OK)
 msgid "&OK"
 msgstr "確定(&O)"
 
@@ -1211,6 +1228,10 @@ msgstr "進階使用者預設值(&P)"
 #. Resource IDs: (Dialog IDD_SETTINGSDIALOGS3: Control id 1562)
 msgid "&Pre-fetch folders for faster browsing"
 msgstr "預先取得資料夾以加速瀏覽(&P)"
+
+#. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1676)
+msgid "&Pretty print"
+msgstr ""
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1339,6 +1360,10 @@ msgstr "消除(&R)\n項目已被標記為已消除."
 msgid "&Restore defaults"
 msgstr "還原預設值(&R)"
 
+#. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1542)
+msgid "&Retry"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
 msgstr "以不同的使用者重新嘗試(&R)"
@@ -1416,6 +1441,10 @@ msgstr "儲值設定值(&S)..."
 #. Resource IDs: (IDS_MENUSETTINGS, ID_FILE_SETTINGS - Menu)
 msgid "&Settings"
 msgstr "設定(&S)"
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1)
+msgid "&Shelve"
+msgstr ""
 
 #. Resource IDs: (ID_REFRESHBROWSER - Menu)
 msgid "&Show HEAD revisions"
@@ -1620,6 +1649,10 @@ msgstr "使用者名稱(&U):"
 msgid "&Vacuum pristine copies"
 msgstr "清理原件備份(&V)"
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1674)
+msgid "&Version"
+msgstr ""
+
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
 msgstr "檢視(&V)"
@@ -1794,6 +1827,11 @@ msgstr "...正在檢查快取並準備查詢記錄"
 msgid "... reading working copy status"
 msgstr "... 正在準備工作複本狀態"
 
+#. Resource IDs: (IDS_ERR_SHELVE_FAILED_MORE)
+#, c-format
+msgid "...and %d more paths."
+msgstr ""
+
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
 msgid ": Revision %d"
@@ -1813,9 +1851,9 @@ msgstr "<新變更清單>"
 
 #. Resource IDs: (IDS_MONITOR_TOOLBARTEXTS)
 msgid ""
-"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Update "
-"all=&Options=="
-msgstr "=立刻檢查(&C)=新增專案(&A)=編輯(&D)=移除(&R)=全部標記為已讀(&M)=全部更新(&U)=選項(&O)=="
+"=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Clear "
+"errors=&Update all=&Options=="
+msgstr ""
 
 #. Resource IDs: (ID_ABOUT - Menu)
 msgid "?"
@@ -2080,6 +2118,10 @@ msgstr "進階比對差異設定"
 msgid "Advanced merge settings"
 msgstr "進階合併設定"
 
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1675)
+msgid "Affected &files:"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Age"
 msgstr "年紀"
@@ -2186,8 +2228,8 @@ msgstr "存取 %1 時發生不明錯誤."
 
 #. Resource IDs: (IDS_ERR_PATCH_UNKOWNLINETYPE)
 #, c-format
-msgid "An unknown line type was found in line %d !"
-msgstr "在第 %d 行發現不明型態資料!"
+msgid "An unknown line type was found in line %d!"
+msgstr ""
 
 #. Resource IDs: (IDS_SVNERR_SQLITEBUSY)
 msgid ""
@@ -2585,9 +2627,10 @@ msgstr "無法複製 \n%1!ls!\n 至 \n%2!ls!"
 #. Dialog IDD_REVISION: Control id 2, Dialog IDD_REVISIONRANGE: Control id 2,
 #. Dialog IDD_SETTINGSBUGTRAQADV: Control id 2, Dialog IDD_SETTINGSHOOKCONFIG:
 #. Control id 2, Dialog IDD_SETTINGSPROGSADV: Control id 2, Dialog
-#. IDD_SETTINGS_CLEARAUTH: Control id 2, Dialog IDD_SIMPLEPROMPT: Control id
-#. 2, Dialog IDD_SVNPROGRESS: Control id 2, Dialog IDD_SWITCH: Control id 2,
-#. Dialog IDD_TOOLASSOC: Control id 2, Dialog IDD_UNLOCK: Control id 2, Dialog
+#. IDD_SETTINGS_CLEARAUTH: Control id 2, Dialog IDD_SHELVE: Control id 2,
+#. Dialog IDD_SIMPLEPROMPT: Control id 2, Dialog IDD_SVNPROGRESS: Control id
+#. 2, Dialog IDD_SWITCH: Control id 2, Dialog IDD_TOOLASSOC: Control id 2,
+#. Dialog IDD_UNLOCK: Control id 2, Dialog IDD_UNSHELVE: Control id 2, Dialog
 #. IDD_UPDATE: Control id 2, Dialog IDD_URL: Control id 2, Dialog IDD_URLDIFF:
 #. Control id 2, IDS_PROPPAGE_CANCEL)
 msgid "Cancel"
@@ -3047,10 +3090,14 @@ msgid ""
 msgstr "送交(&T)\n送交變更至目標."
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 135, Dialog
-#. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_CMD_COMMIT,
-#. IDS_PROGRS_TITLE_COMMIT)
+#. IDD_SETTINGSMISC: Control id 1083, IDS_PROGRS_TITLE_COMMIT)
 msgid "Commit"
 msgstr "送交"
+
+#. Resource IDs: (IDS_PROGRS_CMD_COMMIT)
+#, c-format
+msgid "Commit to %1!ls!"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -3559,6 +3606,12 @@ msgstr "建立變更清單"
 msgid "Create Patch"
 msgstr "建立修補"
 
+#. Resource IDs: (IDS_CHECKPOINT_BTN_TT)
+msgid ""
+"Create a checkpoint.\n"
+"The selected modifications are saved to a shelf, but the local modifications are kept."
+msgstr ""
+
 #. Resource IDs: (IDS_LOG_CODE_COLLABORATOR)
 msgid "Create code collaborator revie&w..."
 msgstr "建立 code collaborator 原始碼審核(&W)..."
@@ -3613,6 +3666,11 @@ msgstr "在目前位址建立檔案資料庫"
 #. Resource IDs: (IDS_MENUDESCCREATEPATCH)
 msgid "Creates a unified diff file with all changes you made"
 msgstr "建立包含您所有修改的 Unified 差異檔"
+
+#. Resource IDs: (IDS_SHELF_CHECKPOINTING)
+#, c-format
+msgid "Creating checkpoint \"%s\""
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Credits:"
@@ -4188,6 +4246,14 @@ msgstr "編輯要監控的專案"
 msgid "Edit Properties"
 msgstr "編輯屬性"
 
+#. Resource IDs: (IDS_PROC_EDIT_PROP_CONFLICTS)
+msgid "Edit Property Conflicts"
+msgstr ""
+
+#. Resource IDs: (IDS_PROC_EDIT_TEXT_CONFLICTS)
+msgid "Edit Text Conflicts"
+msgstr ""
+
 #. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
 msgstr "編輯目錄樹衝突"
@@ -4231,6 +4297,12 @@ msgstr "編輯 %2!ls! 的屬性\n'%1!S!' "
 #. IDD_SETTINGSHOOKS: Control id 1331)
 msgid "Edit..."
 msgstr "編輯..."
+
+#. Resource IDs: (IDS_EDITCONFLICT_TEXT_EDITCMD)
+msgid ""
+"Edit\n"
+"Edit text conflicts"
+msgstr ""
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_EDITCMD)
 msgid ""
@@ -4502,8 +4574,7 @@ msgstr "進階設定"
 msgid "Explore to"
 msgstr "瀏覽至"
 
-#. Resource IDs: (Dialog IDD_EXPORT: Control id 238, IDS_PROGRS_CMD_EXPORT,
-#. IDS_PROGRS_TITLE_EXPORT)
+#. Resource IDs: (Dialog IDD_EXPORT: Control id 238, IDS_PROGRS_TITLE_EXPORT)
 msgid "Export"
 msgstr "匯出"
 
@@ -4514,6 +4585,11 @@ msgstr "匯出目錄(&D):"
 #. Resource IDs: (IDS_EXPORTFILTER)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
 msgstr "匯出檔 (*.tsex)|*.tsex|所有檔案 (*.*)|*.*||"
+
+#. Resource IDs: (IDS_PROGRS_CMD_EXPORT)
+#, c-format
+msgid "Export from %1!ls!"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1667)
 msgid "Export settings to file..."
@@ -5600,6 +5676,10 @@ msgstr "忽略衍伸關係(&A)"
 msgid "Ignore Comments"
 msgstr "忽略註解"
 
+#. Resource IDs: (IDS_DIFF_IGNORE_EOL)
+msgid "Ignore EOL changes"
+msgstr ""
+
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
 #. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
 msgid "Ignore all whitespace changes"
@@ -6265,10 +6345,8 @@ msgid "Many items selected to show diff"
 msgstr "選擇了多個要顯示差異的項目"
 
 #. Resource IDs: (IDS_MONITOR_MARKASREADTT)
-msgid ""
-"Mark all projects as read\n"
-"Hold down the shift key to also clear all fetch errors."
-msgstr "將所有專案標記為已讀\n按住 SHIFT 鍵可以同時清除錯誤."
+msgid "Mark all projects as read"
+msgstr ""
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
 msgid ""
@@ -6836,6 +6914,10 @@ msgstr "找不到 %ls 的圖型編碼程式."
 msgid "No path or pathfile specified on the command line!"
 msgstr "參數未指定路徑或檔案!"
 
+#. Resource IDs: (IDS_ERR_SHELVE_NOTHING_WAS_SHELVED)
+msgid "No path was shelved."
+msgstr ""
+
 #. Resource IDs: (IDS_SETTINGS_CACHENONE_TT)
 msgid ""
 "No status cache. Only versioned folders get an overlay, files don't get an "
@@ -6914,6 +6996,10 @@ msgstr "注意: 這項設定在 Windows 上無效"
 #. Resource IDs: (IDS_COMMITDLG_NOTHINGSELECTED)
 msgid "Nothing is selected for commit!"
 msgstr "沒有選擇要送交的項目!"
+
+#. Resource IDs: (IDS_NOTHING_SHELVED)
+msgid "Nothing is shelved!"
+msgstr ""
 
 #. Resource IDs: (IDS_WARN_NOTE)
 msgid "Notice"
@@ -7042,6 +7128,14 @@ msgstr "找到自動儲存的文件."
 #. Resource IDs: (IDS_PROGRS_CONFLICTSOCCURED)
 msgid "One or more files are in a conflicted state."
 msgstr "尚有一個以上的檔案處於衝突狀態."
+
+#. Resource IDs: (IDS_ERR_SHELVE_FAILED_PATHS)
+#, c-format
+msgid ""
+"One or more paths could not be shelved.\n"
+"The following paths failed:\n"
+"%s"
+msgstr ""
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_TITLE)
 msgid "One project has updates:"
@@ -7284,7 +7378,7 @@ msgstr "正在修補檔案 '%1!ls!'"
 
 #. Resource IDs: (IDS_HEADER_PATH, IDS_PATH, IDS_PROGRS_PATH,
 #. IDS_SETTINGS_BUGTRAQ_PATHCOL, IDS_SETTINGS_HOOKS_PATHCOL,
-#. IDS_STATUSLIST_COLFILE)
+#. IDS_SHELF_UNSHELVE_FILECOL, IDS_STATUSLIST_COLFILE)
 msgid "Path"
 msgstr "路徑"
 
@@ -8602,7 +8696,8 @@ msgstr "掃描"
 #. Resource IDs: (Dialog IDD_BUGTRAQREGEXTESTER: Control id 1014, Dialog
 #. IDD_COMMITDLG: Control id 1014, Dialog IDD_COPY: Control id 1014, Dialog
 #. IDD_IMPORT: Control id 1017, Dialog IDD_INPUTDLG: Control id 1064, Dialog
-#. IDD_INPUTLOGDLG: Control id 1064, Dialog IDD_LOCK: Control id 1212)
+#. IDD_INPUTLOGDLG: Control id 1064, Dialog IDD_LOCK: Control id 1212, Dialog
+#. IDD_SHELVE: Control id 1014, Dialog IDD_UNSHELVE: Control id 1014)
 msgid "Scintilla"
 msgstr "Scintilla"
 
@@ -8643,7 +8738,7 @@ msgstr "全選(&A)"
 #. Control id 1067, Dialog IDD_DELUNVERSIONED: Control id 1067, Dialog
 #. IDD_LOCK: Control id 1067, Dialog IDD_RESOLVE: Control id 1067, Dialog
 #. IDD_REVERT: Control id 1067, Dialog IDD_SHELVE: Control id 1067, Dialog
-#. IDD_UNLOCK: Control id 1067, Dialog IDD_UNSHELVE: Control id 1067)
+#. IDD_UNLOCK: Control id 1067)
 msgid "Select / deselect &all"
 msgstr "全選 / 全不選(&A)"
 
@@ -8662,6 +8757,12 @@ msgstr "選擇 SSH 客戶端程式"
 #. Resource IDs: (61717)
 msgid "Select a button."
 msgstr "請選擇按鈕."
+
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 1679)
+msgid ""
+"Select an existing shelf to create a new version, or enter a new name to "
+"create a new shelf"
+msgstr ""
 
 #. Resource IDs: (57346)
 msgid "Select an object on which to get Help"
@@ -8824,6 +8925,11 @@ msgstr "設定... - TortoiseSVN"
 msgid "Shall I update the working copy and retry?"
 msgstr "是否要更新工作複本然後再試一次?"
 
+#. Resource IDs: (IDS_SHELF_INFO_LABEL)
+#, c-format
+msgid "Shelf \"%s\" has %ld version(s)"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1270,
 #. IDS_STATUSLIST_CONTEXT_SHELL)
 msgid "Shell"
@@ -8833,12 +8939,21 @@ msgstr "檔案總管"
 msgid "Shell Icon Cache was rebuilt!"
 msgstr "重新建立圖示快取!"
 
-#. Resource IDs: (205)
+#. Resource IDs: (Dialog IDD_SHELVE: Control id 205)
 msgid "Shelve"
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_BTN_TT)
+msgid "Shelve the selected files and revert the changes."
 msgstr ""
 
 #. Resource IDs: (IDS_MENUSHELVE)
 msgid "Shelve..."
+msgstr ""
+
+#. Resource IDs: (IDS_SHELF_SHELVING)
+#, c-format
+msgid "Shelving to \"%s\""
 msgstr ""
 
 #. Resource IDs: (32822)
@@ -8917,8 +9032,7 @@ msgid "Show &overlays and context menu only in explorer"
 msgstr "僅在檔案總管中顯示圖示覆蓋與快顯式選單(&O)"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1073, Dialog
-#. IDD_CREATEPATCH: Control id 1073, Dialog IDD_SHELVE: Control id 1073,
-#. Dialog IDD_UNSHELVE: Control id 1073)
+#. IDD_CREATEPATCH: Control id 1073)
 msgid "Show &unversioned files"
 msgstr "顯示未纳入版本控制的檔案(&U)"
 
@@ -9343,7 +9457,8 @@ msgid "Statistics"
 msgstr "統計資料"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMISC: Control id 65535,
-#. IDS_STATUSLIST_COLSTATUS, IDS_SVNACTION_STATUS)
+#. IDS_SHELF_UNSHELVE_STATUSCOL, IDS_STATUSLIST_COLSTATUS,
+#. IDS_SVNACTION_STATUS)
 msgid "Status"
 msgstr "狀態"
 
@@ -9770,8 +9885,8 @@ msgstr "項目 '%ls' 有屬性衝突:\n%ls"
 
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
-msgid "The line '====' was expected in line %d !"
-msgstr "'====' 行應該出現在第 %d 行!"
+msgid "The line '====' was expected in line %d!"
+msgstr ""
 
 #. Resource IDs: (IDS_ERR_PATCH_NOINDEX)
 msgid ""
@@ -9781,8 +9896,8 @@ msgstr "找不到 'Index: ' 行!\n這可能不是差異檔, 或是沒有差異."
 
 #. Resource IDs: (IDS_ERR_PATCH_NOADDFILELINE)
 #, c-format
-msgid "The line indicating the new file was expected in line %d !"
-msgstr "新檔案的標示行應該位於第 %d 行!"
+msgid "The line indicating the new file was expected in line %d!"
+msgstr ""
 
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
 #, c-format
@@ -10013,8 +10128,10 @@ msgid ""
 "Do you want to see the cached data instead?\n"
 "\n"
 "Please understand that the cached data may be outdated,\n"
-"incomplete or even misleading due to incomplete history data."
-msgstr "連接至伺服器時發生問題.\n是否要改用快取中的資料?\n\n請注意: 快取中的資料可能已經過期,\n不完整, 或是因資料不完整而造成誤解."
+"incomplete or even misleading due to incomplete history data.\n"
+"\n"
+"The error was:"
+msgstr ""
 
 #. Resource IDs: (IDS_ERR_NOTHINGTOADD)
 msgid ""
@@ -10539,7 +10656,7 @@ msgstr "屬性檔案格式無法辨識或錯誤！"
 msgid "Unresolved conflicts!"
 msgstr "已解決的衝突！"
 
-#. Resource IDs: (206)
+#. Resource IDs: (Dialog IDD_UNSHELVE: Control id 206)
 msgid "Unshelve"
 msgstr ""
 
@@ -10929,6 +11046,11 @@ msgstr "第三方分支"
 #. id 1075)
 msgid "Version"
 msgstr "版本"
+
+#. Resource IDs: (IDS_SHELF_VERSION_TIME)
+#, c-format
+msgid "Version %d - %s"
+msgstr ""
 
 #. Resource IDs: (IDS_VERSION)
 #, c-format

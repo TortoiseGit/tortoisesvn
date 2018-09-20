@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-03-18 00:37+0000\n"
+"PO-Revision-Date: 2018-09-16 01:51+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/luebbe/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -4953,9 +4953,17 @@ msgid ""
 "<menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Shelve</guimenuitem></menuchoice> The following "
 "dialog allows you to select the files you want to shelve and give a name "
-"under which you want to store them. <placeholder-1/> Then click "
-"<guibutton>OK</guibutton> and the changes are stored under the name you "
-"specified, and your working copy is reset to a clean state."
+"under which you want to store them. <placeholder-1/> If you select an "
+"existing shelf, then a new version is created for that shelf. If you provide"
+" a new name, a new shelf is created for the selected files."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you click the <guibutton>Shelve</guibutton> button, the shelf is created "
+"and your working copy files are reset to a clean state. If you click the "
+"<guibutton>Checkpoint</guibutton> button, the shelf is created but your "
+"local modifications are kept."
 msgstr ""
 
 #. (title)
@@ -4967,8 +4975,8 @@ msgid ""
 "To unshelve your changes, use <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Unshelve</guimenuitem></menuchoice> to get the "
 "unshelve dialog. This dialog shows you a list of all shelved items. Select "
-"the shelved item you want to apply back to your working copy and click "
-"<guibutton>OK</guibutton>. <placeholder-1/>"
+"the shelved item you want and the version to apply back to your working copy"
+" and click <guibutton>Apply</guibutton>. <placeholder-1/>"
 msgstr ""
 
 #. (para)
@@ -15234,6 +15242,14 @@ msgstr "Претраживач спремишта покушава да нађе
 
 #. (para)
 msgid ""
+"This option enables the bidirectional mode for the commit message edit box. "
+"If enabled, right-to-left language text editing is done properly. Since this"
+" feature is expensive, it is disabled by default. You can enable this by "
+"setting this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
 "This option enables the use of Direct2D accelerated drawing in the Scintilla"
 " control which is used as the edit box in e.g. the commit dialog, and also "
 "for the unified diff viewer. With some graphic cards however this sometimes "
@@ -15272,6 +15288,15 @@ msgstr ""
 msgid ""
 "This parameter specifies how TortoiseSVN behaves if a commit fails due to an"
 " out-of-date error: <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to <literal>true</literal>, TortoiseSVN will play a system sound when"
+" an error or warning occurs, or another situation which is important and "
+"requires your attention. Set this to <literal>false</literal> if you want to"
+" keep TortoiseSVN quiet. Note that the project monitor has its own setting "
+"for playing sounds, which you can configure in its settings dialog."
 msgstr ""
 
 #. (para)
@@ -18604,6 +18629,38 @@ msgid ""
 "the line to jump to when the diff is shown."
 msgstr "Покреће екстерни диф програм означен у ТортоисеСВН подешавању. <placeholder-1/> специфицира први фајл. Ако је опција <placeholder-2/> изабрана онда диф програм почиње са та два фајла. Ако <placeholder-3/> недостаје онда диф ради између фајла у <placeholder-4/>  и ОСНОВЕ. Ако је специфициран фајл са измењеним особинама екстерни диф  алат такође почиње за сваку измењену особину. Да се предупреди то пошаљите опцију <placeholder-5/>. Да се експлицитно изаберу ревизиони бројеви користите  <placeholder-6/> и <placeholder-7/>, и за опционе пег ревизије користите  <placeholder-8/>. Ако је <placeholder-9/> изабрана и <placeholder-10/> није изабрана онда диф најпре окриви фајлове датом ревизијом. Параметар <placeholder-11/> специфицира линију за скок где је диф приказан."
 
+#. (option)
+#. (option)
+msgid "/shelfname:name"
+msgstr ""
+
+#. (option)
+msgid "/logmsg:message"
+msgstr ""
+
+#. (option)
+msgid "/checkpoint"
+msgstr ""
+
+#. (entry)
+msgid ""
+"Shelves the specified paths in a new shelf. The option <placeholder-1/> "
+"specifies the name of the shelf. An optional log message can be specified "
+"with <placeholder-2/>. If option <placeholder-3/> is passed, the "
+"modifications of the files are kept."
+msgstr ""
+
+#. (option)
+msgid "/version:X"
+msgstr ""
+
+#. (entry)
+msgid ""
+"Applies the shelf with the name <placeholder-1/> to the working copy path. "
+"By default the last version of the shelf is applied, but you can specify a "
+"version with <placeholder-2/>."
+msgstr ""
+
 #. (para)
 msgid ""
 "Depending on the URLs and revisions to compare, this either shows a unified "
@@ -18626,6 +18683,13 @@ msgid ""
 " is also started for each modified property. To prevent that, pass the "
 "option <option>/ignoreprops</option>."
 msgstr "Ако специфициран урл такође има измене особина екстерни диф алат такође се покреће за сваку измењену особину. Да се то предупреди проследите опицију <option>/ignoreprops</option>."
+
+#. (para)
+msgid ""
+"If a unified diff is requested, an optional <option>prettyprint</option> "
+"option can be specified which will show the merge-info properties in a more "
+"user readable format."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -18742,13 +18806,19 @@ msgstr "Чува фајлове из УРЛ или фолдера радне к�
 msgid "/noview"
 msgstr "/noview"
 
+#. (option)
+msgid "prettyprint"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Creates a patch file for the path given in <placeholder-1/>. To skip the "
 "file Save-As dialog you can pass <placeholder-2/> to specify the path where "
 "to save the patch file to directly. To prevent the unified diff viewer from "
-"being started showing the patch file, pass <placeholder-3/>."
-msgstr "Креира фајл закрпе за путању дату у <placeholder-1/>. Да се прескочи фајл Сачувај-као дијалог треба повући <placeholder-2/> да се одреди путања где директно сачувати фајл закрпу. Да би се предупредило покретање јединственог диф прегледача  да приказује фајл закрпе, провуци <placeholder-3/>."
+"being started showing the patch file, pass <placeholder-3/>. If a unified "
+"diff is requested, an optional <placeholder-4/> option can be specified "
+"which will show the merge-info properties in a more user readable format."
+msgstr ""
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."

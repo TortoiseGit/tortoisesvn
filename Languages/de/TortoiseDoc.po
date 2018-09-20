@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-03-18 00:37+0000\n"
+"PO-Revision-Date: 2018-09-16 01:51+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -4969,9 +4969,17 @@ msgid ""
 "<menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Shelve</guimenuitem></menuchoice> The following "
 "dialog allows you to select the files you want to shelve and give a name "
-"under which you want to store them. <placeholder-1/> Then click "
-"<guibutton>OK</guibutton> and the changes are stored under the name you "
-"specified, and your working copy is reset to a clean state."
+"under which you want to store them. <placeholder-1/> If you select an "
+"existing shelf, then a new version is created for that shelf. If you provide"
+" a new name, a new shelf is created for the selected files."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you click the <guibutton>Shelve</guibutton> button, the shelf is created "
+"and your working copy files are reset to a clean state. If you click the "
+"<guibutton>Checkpoint</guibutton> button, the shelf is created but your "
+"local modifications are kept."
 msgstr ""
 
 #. (title)
@@ -4983,8 +4991,8 @@ msgid ""
 "To unshelve your changes, use <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Unshelve</guimenuitem></menuchoice> to get the "
 "unshelve dialog. This dialog shows you a list of all shelved items. Select "
-"the shelved item you want to apply back to your working copy and click "
-"<guibutton>OK</guibutton>. <placeholder-1/>"
+"the shelved item you want and the version to apply back to your working copy"
+" and click <guibutton>Apply</guibutton>. <placeholder-1/>"
 msgstr ""
 
 #. (para)
@@ -15250,6 +15258,14 @@ msgstr "Der Projektarchivbetrachter versucht, eine Liste der Projekarchive von d
 
 #. (para)
 msgid ""
+"This option enables the bidirectional mode for the commit message edit box. "
+"If enabled, right-to-left language text editing is done properly. Since this"
+" feature is expensive, it is disabled by default. You can enable this by "
+"setting this value to <literal>true</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
 "This option enables the use of Direct2D accelerated drawing in the Scintilla"
 " control which is used as the edit box in e.g. the commit dialog, and also "
 "for the unified diff viewer. With some graphic cards however this sometimes "
@@ -15288,6 +15304,15 @@ msgstr ""
 msgid ""
 "This parameter specifies how TortoiseSVN behaves if a commit fails due to an"
 " out-of-date error: <placeholder-1/>"
+msgstr ""
+
+#. (para)
+msgid ""
+"If set to <literal>true</literal>, TortoiseSVN will play a system sound when"
+" an error or warning occurs, or another situation which is important and "
+"requires your attention. Set this to <literal>false</literal> if you want to"
+" keep TortoiseSVN quiet. Note that the project monitor has its own setting "
+"for playing sounds, which you can configure in its settings dialog."
 msgstr ""
 
 #. (para)
@@ -18620,6 +18645,38 @@ msgid ""
 "the line to jump to when the diff is shown."
 msgstr "Startet das externe, in den TortoiseSVN Einstellungen angegebene Vergleichsprogramm. Der <placeholder-1/> spezifiziert die erste Datei. Bei Angabe von <placeholder-2/>, werden diese beiden Dateien verglichen. Ohne Angabe von <placeholder-3/>, wird die Datei in <placeholder-4/> mit ihrer BASE Revision verglichen. Falls die Datei obendrein Eigenschaftsänderungen hat, wird das Vergleichsprogramm auch für jede geänderte Eigenschaft gestartet. Um das zu vermeiden, übergeben Sie den Parameter <placeholder-5/> Um die Revisionsnummern vorzugeben, verwenden Sie <placeholder-6/> und <placeholder-7/> sowie für die optionale fixe Revision <placeholder-8/>. Wenn <placeholder-9/>, aber nicht <placeholder-10/> angegeben ist, wird der Vergleich durchgeführt, indem zunächst die Dateien in den gegebenen Revisionen annotiert werden. Der Parameter <placeholder-11/> gibt die Zeile an, in die beim Anzeigen des Vergleichs gesprungen werden soll."
 
+#. (option)
+#. (option)
+msgid "/shelfname:name"
+msgstr ""
+
+#. (option)
+msgid "/logmsg:message"
+msgstr ""
+
+#. (option)
+msgid "/checkpoint"
+msgstr ""
+
+#. (entry)
+msgid ""
+"Shelves the specified paths in a new shelf. The option <placeholder-1/> "
+"specifies the name of the shelf. An optional log message can be specified "
+"with <placeholder-2/>. If option <placeholder-3/> is passed, the "
+"modifications of the files are kept."
+msgstr ""
+
+#. (option)
+msgid "/version:X"
+msgstr ""
+
+#. (entry)
+msgid ""
+"Applies the shelf with the name <placeholder-1/> to the working copy path. "
+"By default the last version of the shelf is applied, but you can specify a "
+"version with <placeholder-2/>."
+msgstr ""
+
 #. (para)
 msgid ""
 "Depending on the URLs and revisions to compare, this either shows a unified "
@@ -18642,6 +18699,13 @@ msgid ""
 " is also started for each modified property. To prevent that, pass the "
 "option <option>/ignoreprops</option>."
 msgstr "Falls die angegebene URL obendrein Eigenschaftsänderungen hat, wird das Vergleichsprogramm auch für jede geänderte Eigenschaft gestartet. Um das zu vermeiden, übergeben Sie den Parameter <option>/ignoreprops</option>."
+
+#. (para)
+msgid ""
+"If a unified diff is requested, an optional <option>prettyprint</option> "
+"option can be specified which will show the merge-info properties in a more "
+"user readable format."
+msgstr ""
 
 #. (entry)
 msgid ""
@@ -18758,13 +18822,19 @@ msgstr "Speichert eine Datei von einer <placeholder-1/> angegebenen Arbeitskopie
 msgid "/noview"
 msgstr "/noview"
 
+#. (option)
+msgid "prettyprint"
+msgstr ""
+
 #. (entry)
 msgid ""
 "Creates a patch file for the path given in <placeholder-1/>. To skip the "
 "file Save-As dialog you can pass <placeholder-2/> to specify the path where "
 "to save the patch file to directly. To prevent the unified diff viewer from "
-"being started showing the patch file, pass <placeholder-3/>."
-msgstr "Erstellt eine Patchdatei für den in <placeholder-1/> angegebenen Pfad. Um den Speichern Unter Dialog zu überspringen, können Sie in <placeholder-2/> den Pfad angeben, in dem die Patchdatei gespeichert werden soll. Damit der Standard-Diff-Betrachter nicht gestartet wird, übergeben Sie <placeholder-3/>."
+"being started showing the patch file, pass <placeholder-3/>. If a unified "
+"diff is requested, an optional <placeholder-4/> option can be specified "
+"which will show the merge-info properties in a more user readable format."
+msgstr ""
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."
