@@ -75,9 +75,14 @@
   </tip>
   <warning>
     <para>
-      Currently only text files can be shelved and unshelved.
-      Binary files and text files encoded in utf-16 (unicode) can not
-      be shelved.
+      The shelving feature is considered <literal>experimental</literal>
+      in the Subversion library. Which means it might change significantly
+      in future versions.
+    </para>
+    <para>
+      So make sure that when you store changes on the shelf that you apply
+      those changes before you update TortoiseSVN to another minor version
+      (e.g. from 1.x to 1.y).
     </para>
   </warning>
 </sect1>
