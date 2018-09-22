@@ -3114,12 +3114,16 @@ msgstr ""
 msgid "Shelves are purely a local client feature. Creating and removing Shelves will not affect the repository, nor anyone else's working copy."
 msgstr ""
 
-#. (para)
-msgid "The shelving feature is considered <literal>experimental</literal> in the Subversion library. Which means it might change significantly in future versions."
+#. (title)
+msgid "Experimental"
 msgstr ""
 
 #. (para)
-msgid "So make sure that when you store changes on the shelf that you apply those changes before you update TortoiseSVN to another minor version (e.g. from 1.x to 1.y)."
+msgid "The shelving feature is still marked as <literal>experimental</literal>."
+msgstr ""
+
+#. (para)
+msgid "That means that while shelving works as advertised, it is still in a stage where it's heavily improved and worked on. That also means that there's no guarantee that the shelves you create are upwards compatible and future versions might not be able to use them. And of course the UI might change as well in future versions to accommodate new features and behaviors."
 msgstr ""
 
 #. (title)
