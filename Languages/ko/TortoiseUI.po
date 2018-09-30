@@ -817,7 +817,7 @@ msgstr "찾기...\t(Ctrl+&F)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
-msgstr "&윈도우에 이미지 맞추기⇥(F)"
+msgstr "&윈도우에 이미지 맞추기\t(F)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1646)
 msgid "&Fix time stamps"
@@ -855,7 +855,7 @@ msgstr "시작(&F): (병합할 범위의 시작 URL과 리비전)"
 
 #. Resource IDs: (ID_EDIT_GOTOLINE - Menu)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr "&행으로 이동...⇥(Ctrl+G)"
+msgstr "&행으로 이동...\t(Ctrl+G)"
 
 #. Resource IDs: (ID_VIEW_GROUPBRANCHES - Menu)
 msgid "&Group by branch"
@@ -922,7 +922,7 @@ msgstr "이름으로 여러 항목을 무시(&I)"
 
 #. Resource IDs: (ID_VIEW_IMAGEINFO - Menu)
 msgid "&Image info\t(I)"
-msgstr "&이미지 정보⇥(I)"
+msgstr "&이미지 정보\t(I)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTIES: Control id 1461, IDS_MENUIMPORT)
 msgid "&Import..."
@@ -1154,7 +1154,7 @@ msgstr "열기(&O)"
 
 #. Resource IDs: (ID_FILE_OPEN - Menu)
 msgid "&Open\t(Ctrl+O)"
-msgstr "&열기⇥(Ctrl+O)"
+msgstr "&열기\t(Ctrl+O)"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1602)
 msgid "&Operative:"
@@ -1170,7 +1170,7 @@ msgstr "다른 것(&O)"
 
 #. Resource IDs: (ID_VIEW_OVERLAPIMAGES - Menu)
 msgid "&Overlay images\t(O)"
-msgstr "&오버레이 이미지들⇥(O)"
+msgstr "&오버레이 이미지들\t(O)"
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK3)
 msgid ""
@@ -2064,7 +2064,7 @@ msgid ""
 "Added the file pattern(s)\n"
 "%ls\n"
 "to the global ignore list."
-msgstr "파일 패턴⏎ %ls⏎ (들)이 전역 무시 목록에 추가되었습니다."
+msgstr "파일 패턴\n%ls\n(들)이 전역 무시 목록에 추가되었습니다."
 
 #. Resource IDs: (IDS_PROC_IGNORESUCCESS)
 #, c-format
@@ -3066,7 +3066,7 @@ msgstr "실행할 명령:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr "실행할 명령행:⏎ 작업 사본 내의 경로는 리파지터리의 루트 URL을 %REPOROOT%로 지정하거나, 작업 사본의 루트의 더 하위에 대해서는 %REPORTOOT+%로 지정하십시요."
+msgstr "실행할 명령행:\n작업 사본 내의 경로는 리파지터리의 루트 URL을 %REPOROOT%로 지정하거나, 작업 사본의 루트의 더 하위에 대해서는 %REPORTOOT+%로 지정하십시요."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TITLE)
 msgid "Command failed - Update needed"
@@ -8052,7 +8052,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%ls\n"
 "from the global ignore list."
-msgstr "파일 패턴⏎ %ls⏎(들)이 전역 무시 목록에서 제거되었습니다."
+msgstr "파일 패턴\n%ls\n(들)이 전역 무시 목록에서 제거되었습니다."
 
 #. Resource IDs: (IDS_PROC_UNIGNORESUCCESS)
 #, c-format
@@ -11889,7 +11889,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr "svn:auto-props⏎ 줄 바꿈 문자로 분리된 프라퍼티 목록으로 추가/임포트될 때에 재귀적으로 적용됩니다.⏎ 형식: <파일 마스크> = 프라퍼티=값;프라퍼티=값⏎ 예: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "svn:auto-props\n줄 바꿈 문자로 분리된 프라퍼티 목록으로 추가/임포트될 때에 재귀적으로 적용됩니다.\n형식: <파일 마스크> = 프라퍼티=값;프라퍼티=값\n예: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 316)
 msgid "svn:eol-style"
@@ -11936,7 +11936,7 @@ msgstr "svn:externals\r\n한 줄에 하나씩 지정하는 외부 모듈들의 �
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr "svn:global-ignores⏎ 줄 바꿈 문자로 분리된 목록상에 파일 패턴을 무시합니다."
+msgstr "svn:global-ignores\r\n줄 바꿈 문자로 분리된 목록상에 파일 패턴을 무시합니다."
 
 #. Resource IDs: (IDS_PROP_TT_IGNORE)
 msgid ""

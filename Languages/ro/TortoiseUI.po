@@ -3062,7 +3062,7 @@ msgstr "Linia de comandă pentru executare:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr "Linia de comanda de executat:↩⏎ \nPentru a specifica o cale în interiorul unei copii de lucru, specifica url-ul depozitului ca url-ul rădăcină al depozitului prin identificatorul %REPOROOT%, sau %REPOROOT+% director mai adânc în rădăcina copiei de lucru."
+msgstr "Linia de comanda de executat:\r\nPentru a specifica o cale în interiorul unei copii de lucru, specifica url-ul depozitului ca url-ul rădăcină al depozitului prin identificatorul %REPOROOT%, sau %REPOROOT+% director mai adânc în rădăcina copiei de lucru."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TITLE)
 msgid "Command failed - Update needed"
@@ -9520,7 +9520,7 @@ msgid ""
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
-msgstr "Filtre subşir:\n* Specifică unul sau mai multe şiruri, separate prin spaţii. Acestea vor fi evaluate de la stânga la dreapta\n* Adăuga-ţi un - în faţa subşirului pentru a exclude versiuni ce conţin acest subșir.\n* Adăuga-ţi un + în faţa subşirului pentru a include versiuni ce nu se potrivesc cu condiția până în acel punct.\n* Pune-ti textele ce conţin spaţii intre ghilimele utilizând \".\n* Adăuga-ţi un ! la începutul unei linii pentru a inversa semnificaţia întregii conditii.\n\nExemple:\nnumelemeu  2008    : transmisiile mele din 2008\n.h  -.cpp              : transmisii ce au modificat antetul dar nu şi implementarea\n.doc +.xls 2010 : transmisii din 2010 cu extensia de fișier .doc sau .xls ↩⏎\n\" \"                        :încredinţari ce conţin spaţii (ex. când se caută doar în căile obiectelor)\n-\"\"afisează toate\"\"        : încredinţarile care nu conţin textul '\"afisează toate\"'\n!numelemeu  .cpp    : toate cu excepţia fişierelor .cpp încredinţate de mine"
+msgstr "Filtre subşir:\n* Specifică unul sau mai multe şiruri, separate prin spaţii. Acestea vor fi evaluate de la stânga la dreapta\n* Adăuga-ţi un - în faţa subşirului pentru a exclude versiuni ce conţin acest subșir.\n* Adăuga-ţi un + în faţa subşirului pentru a include versiuni ce nu se potrivesc cu condiția până în acel punct.\n* Pune-ti textele ce conţin spaţii intre ghilimele utilizând \".\n* Adăuga-ţi un ! la începutul unei linii pentru a inversa semnificaţia întregii conditii.\n\nExemple:\nnumelemeu  2008    : transmisiile mele din 2008\n.h  -.cpp              : transmisii ce au modificat antetul dar nu şi implementarea\n.doc +.xls 2010 : transmisii din 2010 cu extensia de fișier .doc sau .xls\r\n\" \"                        :încredinţari ce conţin spaţii (ex. când se caută doar în căile obiectelor)\n-\"\"afisează toate\"\"        : încredinţarile care nu conţin textul '\"afisează toate\"'\n!numelemeu  .cpp    : toate cu excepţia fişierelor .cpp încredinţate de mine"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "Subversion"
@@ -10395,7 +10395,7 @@ msgstr "Transmitere automată TortoiseSVN: referințe externe s-au schimbat la r
 msgid ""
 "TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
 "To fix this, you should empty the recycle bin now."
-msgstr "TortoiseSVN detectat o încetinire gravă atunci când s-au mutat %1!ld! elemente la coșul de reciclare. Coșul de reciclare conţine în prezent %2!ld! elemente, care cel mai probabil este motivul pentru încetinirea operației.⏎ \nPentru a rezolva acest lucru, ar trebui să goliţi coșul de reciclare acum."
+msgstr "TortoiseSVN detectat o încetinire gravă atunci când s-au mutat %1!ld! elemente la coșul de reciclare. Coșul de reciclare conţine în prezent %2!ld! elemente, care cel mai probabil este motivul pentru încetinirea operației.\r\nPentru a rezolva acest lucru, ar trebui să goliţi coșul de reciclare acum."
 
 #. Resource IDs: (IDS_PROC_MULTIRENAME)
 #, c-format
@@ -11885,7 +11885,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr "svn:auto-props↩⏎\nO listă de proprietaţi, despărţite prin linie noua, ce se aplică automat la adaugarea/importarea fişierelor\nFormat: <mascadefişier> = proprietate=valuare;proprietate=valuare\nExemplu: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "svn:auto-props\r\nO listă de proprietaţi, despărţite prin linie noua, ce se aplică automat la adaugarea/importarea fişierelor\nFormat: <mascadefişier> = proprietate=valuare;proprietate=valuare\nExemplu: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 316)
 msgid "svn:eol-style"
@@ -11932,7 +11932,7 @@ msgstr "svn:externals\nO listă de module separate de linii noi, fiecare conțin
 msgid ""
 "svn:global-ignores\r\n"
 "A newline separated list of file patterns to ignore recursively."
-msgstr "svn:global-ignores↩⏎\nO listă de modele de fişier care să fie ignorate recursiv, separate cu linii noi. "
+msgstr "svn:global-ignores\r\nO listă de modele de fişier care să fie ignorate recursiv, separate cu linii noi. "
 
 #. Resource IDs: (IDS_PROP_TT_IGNORE)
 msgid ""

@@ -2144,7 +2144,7 @@ msgstr "Todos os Ficheiros (*.*)|*.*||"
 msgid ""
 "Allow Editing for this view\n"
 "Allow Edit"
-msgstr "Permitir edição nesta vista⏎\nPermitir edição"
+msgstr "Permitir edição nesta vista\nPermitir edição"
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1484)
 msgid "Allow ambiguous &UUIDs"
@@ -2668,13 +2668,13 @@ msgstr "Cancela.r\nResolve primeiro o conflito"
 msgid ""
 "Cancel\n"
 "Stay with current files"
-msgstr "Cancelar⏎\nManter ficheiros actuais"
+msgstr "Cancelar\nManter ficheiros actuais"
 
 #. Resource IDs: (IDS_ASKFORSAVE_CANCEL_OPTIONS)
 msgid ""
 "Cancel\n"
 "Stay with current settings"
-msgstr "Cancelar⏎\nManter preferências actuais"
+msgstr "Cancelar\nManter preferências actuais"
 
 #. Resource IDs: (IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK4)
 msgid ""
@@ -3065,7 +3065,7 @@ msgstr "Linha de Comando A Executar:"
 msgid ""
 "Command Line To Execute:\r\n"
 "To specify a path inside a working copy, specify the url in the repository with the repository root url as %REPOROOT%, or %REPOROOT+% deeper down the working copy root."
-msgstr "Linha de comando a executar:⏎ Para especificar um caminho dentro da cópia de trabalho, colocar %REPOROOT% como raiz do repositório do url, ou %REPOROOT+% para caminhos além da raiz da cópia de trabalho."
+msgstr "Linha de comando a executar:\r\nPara especificar um caminho dentro da cópia de trabalho, colocar %REPOROOT% como raiz do repositório do url, ou %REPOROOT+% para caminhos além da raiz da cópia de trabalho."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TITLE)
 msgid "Command failed - Update needed"
@@ -3698,7 +3698,7 @@ msgid ""
 "{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
-msgstr "String de titulo personalizada. Palavras chave disponiveis:\n{mergeurl}:»o url fonte da integração\n {revisions}:»Lista separada por virgulas das revisões integradas, e.g., 3, 5, 6, 7\n{revisionsr}:»Similar a {revisions} mas como um 'r' à frente das revisões\n{revrange}:»Lista separada por virgulas das revisões integradas, agrupadas se possivel em intervalos, e.g., 3, 5-7"
+msgstr "String de titulo personalizada. Palavras chave disponiveis:\n{mergeurl}:\to url fonte da integração\n {revisions}:\tLista separada por virgulas das revisões integradas, e.g., 3, 5, 6, 7\n{revisionsr}:\tSimilar a {revisions} mas como um 'r' à frente das revisões\n{revrange}:\tLista separada por virgulas das revisões integradas, agrupadas se possivel em intervalos, e.g., 3, 5-7"
 
 #. Resource IDs: (57635)
 msgid ""
@@ -4075,7 +4075,7 @@ msgid ""
 "Do you want to mark the file\n"
 "%ls\n"
 "as resolved?"
-msgstr "Queres marcar o ficheiro ⏎ %ls⏎ como resolvido?"
+msgstr "Queres marcar o ficheiro\n%ls\ncomo resolvido?"
 
 #. Resource IDs: (IDS_SSL_ACCEPTQUESTION)
 msgid "Do you want to proceed?"
@@ -4156,7 +4156,7 @@ msgstr "Não recuperar os documentos salvos automáticamente\nUtilizar as últim
 msgid ""
 "Don't save\n"
 "Close the views without saving the modifications"
-msgstr "Não guardar⏎\nFechar vistas sem guardar alterações"
+msgstr "Não guardar\nFechar vistas sem guardar alterações"
 
 #. Resource IDs: (IDS_ASKFORSAVE_TASK7)
 msgid ""
@@ -6078,7 +6078,7 @@ msgstr "Autor menos activo:"
 msgid ""
 "Leave as conflicted\n"
 "The conflict status of the file is kept"
-msgstr "Deixar em conflito⏎ É mantido o estado de conflito do ficheiro"
+msgstr "Deixar em conflito\nÉ mantido o estado de conflito do ficheiro"
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_LEAVEONLYMARKEDBLOCKS)
 msgid "Leave only marked changes"
@@ -6361,7 +6361,7 @@ msgstr "Marcar como resolvido"
 msgid ""
 "Mark as resolved\n"
 "The file status is changed to modified"
-msgstr "Marcar como resolvido⏎ O estado do ficheiro é alterado para modificado"
+msgstr "Marcar como resolvido\nO estado do ficheiro é alterado para modificado"
 
 #. Resource IDs: (32826)
 msgid "Mark current revision of your working copy"
@@ -6724,14 +6724,14 @@ msgstr "Movido"
 msgid ""
 "Moved from\r\n"
 "%ls"
-msgstr "Movido de ⏎ %ls"
+msgstr "Movido de\r\n%ls"
 
 #. Resource IDs: (IDS_STATUSLIST_MOVEDTO)
 #, c-format
 msgid ""
 "Moved to\r\n"
 "%ls"
-msgstr "Movido para ⏎ %ls"
+msgstr "Movido para\r\n%ls"
 
 #. Resource IDs: (IDS_SETTINGS_USERECYCLEBIN_TT)
 msgid "Moves the modified files to the recycle bin first before reverting"
@@ -8051,7 +8051,7 @@ msgid ""
 "Removed the file pattern(s)\n"
 "%ls\n"
 "from the global ignore list."
-msgstr "Remover os padrão(ões) de ficheiro ⏎ %ls⏎ da lista global de ignorados."
+msgstr "Remover os padrão(ões) de ficheiro\n%ls\nda lista global de ignorados."
 
 #. Resource IDs: (IDS_PROC_UNIGNORESUCCESS)
 #, c-format
@@ -8556,7 +8556,7 @@ msgstr "Guardar Ficheiro"
 msgid ""
 "Save Left File as\n"
 "You're asked where to save the left file"
-msgstr "Guardar Ficheiro⏎\nSerás questionado para onde guardar o ficheiro da esquerda"
+msgstr "Guardar Ficheiro\nSerás questionado para onde guardar o ficheiro da esquerda"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVELEFT)
 #, c-format
@@ -8564,13 +8564,13 @@ msgid ""
 "Save Left File\n"
 "The modifications are saved to\n"
 "%ls"
-msgstr "Guardar Ficheiro da esquerda⏎\nAs alterações serão guardadas em⏎\n%ls"
+msgstr "Guardar Ficheiro da esquerda\nAs alterações serão guardadas em\n%ls"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVERIGHTAS)
 msgid ""
 "Save Right File as\n"
 "You're asked where to save the right file"
-msgstr "Guardar Ficheiro da Direita como⏎\nSerás questionado onde guardar o ficheiro da direita"
+msgstr "Guardar Ficheiro da Direita como\nSerás questionado onde guardar o ficheiro da direita"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVERIGHT)
 #, c-format
@@ -8578,13 +8578,13 @@ msgid ""
 "Save Right File\n"
 "The modifications are saved to\n"
 "%ls"
-msgstr "Guardar Ficheiro da direita⏎\nAs modificações serão guardadas em⏎\n%ls"
+msgstr "Guardar Ficheiro da direita\nAs modificações serão guardadas em\n%ls"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVEALL2)
 msgid ""
 "Save all\n"
 "Both Files are saved"
-msgstr "Guardar tudo⏎\nAmbos os ficheiros serão guardados"
+msgstr "Guardar tudo\nAmbos os ficheiros serão guardados"
 
 #. Resource IDs: (IDS_MARKEDBLOCKSSAVEEXCLUDE)
 msgid ""
@@ -9356,7 +9356,7 @@ msgid ""
 "{author}:\tThe author of the merged revision\r\n"
 "{rev}:\tThe merged revision itself\r\n"
 "{bugid}:\tThe bug ids of the merged revision"
-msgstr "Especifica como deve parecer o texto para cada revisão integrada.\nPodem ser usadas as seguintes palavras chave:\n{msg}:» A mensagem de registo da revisão integrada, como foi introduzida.\n {msgoneline}:»A mensagem de registo comprimida numa só linha\n {author}:»O autor da revisão integrada\n{rev}:»A própria revisão integrada\n {bugid}:»Os ids dos bugs da revisão integrada"
+msgstr "Especifica como deve parecer o texto para cada revisão integrada.\nPodem ser usadas as seguintes palavras chave:\n{msg}:\t A mensagem de registo da revisão integrada, como foi introduzida.\n {msgoneline}:\tA mensagem de registo comprimida numa só linha\n {author}:\tO autor da revisão integrada\n{rev}:\tA própria revisão integrada\n {bugid}:\tOs ids dos bugs da revisão integrada"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1572)
 msgid ""
@@ -10099,7 +10099,7 @@ msgstr "Existem actualmente %d handlers de sobreposição instalados, para além
 msgid ""
 "There are more editable views.\n"
 "What view do you want to save?"
-msgstr "Existem mais vistas editadas⏎\nQual queres guardar?"
+msgstr "Existem mais vistas editadas\nQual queres guardar?"
 
 #. Resource IDs: (IDS_ERR_NO_AVAILABLE_BUGTRAQ_PROVIDERS)
 msgid "There are no issue-tracker providers available."
@@ -10758,7 +10758,7 @@ msgstr "Actualizando a cache de registo"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr "Actualizar a cópia de trabalho ⏎ para o novo formato 1.8."
+msgstr "Actualizar a cópia de trabalho\npara o novo formato 1.8."
 
 #. Resource IDs: (IDS_MENUUPGRADE, IDS_PROC_UPGRADE,
 #. IDS_PROC_UPGRADECONFIRMATION_TASK2)
@@ -11268,7 +11268,7 @@ msgid ""
 "You have selected %d items to show the diff for.\n"
 "For every of these items a new instance of the diff viewer will be started.\n"
 "Do you really want to show the diff for so many items at once?"
-msgstr "Seleccionaste %d itens para mostrar diferenças.⏎Para cada um desses itens é arrancada uma instância do visualizador de dif. .⏎ Queres mesmo mostrar o dif. para tantos itens de uma só vez?"
+msgstr "Seleccionaste %d itens para mostrar diferenças.\nPara cada um desses itens é arrancada uma instância do visualizador de dif.\nQueres mesmo mostrar o dif. para tantos itens de uma só vez?"
 
 #. Resource IDs: (IDS_SVNERR_UPDATEFIRST)
 msgid "You have to update your working copy first."

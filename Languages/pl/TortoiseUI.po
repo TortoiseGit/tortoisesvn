@@ -3699,7 +3699,7 @@ msgid ""
 "{revisions}:\tA comma separated list of the merged revisions, e.g., 3, 5, 6, 7\r\n"
 "{revisionsr}:\tLike {revisions} but with an 'r' in front of the revisions\r\n"
 "{revrange}:\tA comma separated list of the merged revisions, grouped into ranges if possible, e.g., 3, 5-7"
-msgstr "Tytuł niestandardowy. Dostępne słowa kluczowe to:\n{mergeurl}:»Źródłowy adres url scalenia\n{revisions}:»Lista wersji rozdzielona przecinkami, np. 3, 5, 6, 7\n{revisionsr}:»Tak jak {revisions} tylko z 'r' przed wersjami\n{revrange}:»Lista wersji rozdzielona przecinkami, połączona w zakresy jeśli się da, np. 3, 5-7"
+msgstr "Tytuł niestandardowy. Dostępne słowa kluczowe to:\n{mergeurl}:\tŹródłowy adres url scalenia\n{revisions}:\tLista wersji rozdzielona przecinkami, np. 3, 5, 6, 7\n{revisionsr}:\tTak jak {revisions} tylko z 'r' przed wersjami\n{revrange}:\tLista wersji rozdzielona przecinkami, połączona w zakresy jeśli się da, np. 3, 5-7"
 
 #. Resource IDs: (57635)
 msgid ""
@@ -8372,7 +8372,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%7!ls!"
-msgstr "Wersja: %1!ld! %2!ls!↩⏎\nAdres URL: %3!ls!↩⏎\n%4!ls!Autor: %5!ls!↩⏎\nData: %6!ls!↩⏎\n↩⏎\nKomunikat dziennika:↩⏎\n%7!ls!"
+msgstr "Wersja: %1!ld! %2!ls!\r\nAdres URL: %3!ls!\r\n%4!ls!Autor: %5!ls!\r\nData: %6!ls!\r\n\r\nKomunikat dziennika:\r\n%7!ls!"
 
 #. Resource IDs: (IDS_REVGRAPH_BOXTOOLTIP_TAGGED)
 #, c-format
@@ -8386,7 +8386,7 @@ msgid ""
 "\r\n"
 "Log message:\r\n"
 "%9!ls!"
-msgstr "Wersja: %1!ld! %2!ls!↩⏎\nAdres URL: %3!ls!↩⏎\n%4!ls!Autor: %5!ls!↩⏎\nData: %6!ls!↩⏎\n↩⏎\nZnaczniki (%7!d!):%8!ls!↩⏎\n↩⏎\nKomunikat dziennika:↩⏎\n%9!ls!"
+msgstr "Wersja: %1!ld! %2!ls!\r\nAdres URL: %3!ls!\r\n%4!ls!Autor: %5!ls!\r\nData: %6!ls!\r\n\r\nZnaczniki (%7!d!):%8!ls!\r\n\r\nKomunikat dziennika:\r\n%9!ls!"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535,
 #. IDS_LOG_FILTER_REVS, IDS_LOG_POPUP_CLIPBOARD_REVS)
@@ -9357,7 +9357,7 @@ msgid ""
 "{author}:\tThe author of the merged revision\r\n"
 "{rev}:\tThe merged revision itself\r\n"
 "{bugid}:\tThe bug ids of the merged revision"
-msgstr "Wskazuje, jak powinien wyglądać tekst dla każdej scalonej wersji.\nMogą być użyte następujące słowa kluczowe:\n{msg}:»Komunikat dziennika scalonej wersji, jak go wpisano.\n{msgoneline}:»Komunikat dziennika ściśnięty do jednej linii\n{author}:»Autor scalonej wersji\n{rev}:»Sama scalona wersja\n{bugid}:»Identyfikatory zgłoszeń scalonej wersji"
+msgstr "Wskazuje, jak powinien wyglądać tekst dla każdej scalonej wersji.\nMogą być użyte następujące słowa kluczowe:\n{msg}:\tKomunikat dziennika scalonej wersji, jak go wpisano.\n{msgoneline}:\tKomunikat dziennika ściśnięty do jednej linii\n{author}:\tAutor scalonej wersji\n{rev}:\tSama scalona wersja\n{bugid}:\tIdentyfikatory zgłoszeń scalonej wersji"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1572)
 msgid ""

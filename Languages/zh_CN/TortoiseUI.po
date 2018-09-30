@@ -8572,7 +8572,7 @@ msgstr "保存文件"
 msgid ""
 "Save Left File as\n"
 "You're asked where to save the left file"
-msgstr "保存左边的文件为:⏎\n输入左边的文件要保存的位置"
+msgstr "保存左边的文件为:\n输入左边的文件要保存的位置"
 
 #. Resource IDs: (IDS_ASKFORSAVE_SAVELEFT)
 #, c-format
@@ -10323,7 +10323,7 @@ msgid ""
 "instead.\n"
 "\n"
 "TortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] [/ignoreallspaces]"
-msgstr "不应该直接启动TortoiseBlame ! 使用⏎ TortoiseProc.exe /command:blame /path:\"path\\to\\file\"\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] "
+msgstr "不应该直接启动TortoiseBlame ! 使用\nTortoiseProc.exe /command:blame /path:\"path\\to\\file\"\nTortoiseBlame.exe blamefile [logfile [viewtitle]] [/line:linenumber] [/path:originalpath] [/pegrev:peg] [/revrange:text] [/ignoreeol] [/ignorespaces] "
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 153, IDS_APP_TITLE)
 msgid "TortoiseIDiff"
@@ -10364,7 +10364,7 @@ msgid ""
 "libsvn_diff %d.%d.%d, %ls\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d"
-msgstr "TortoiseMerge %d.%d.%d, Build %d - %ls, %ls↩⏎\nlibsvn_diff %d.%d.%d, %ls↩⏎\napr %d.%d.%d↩⏎\napr-util %d.%d.%d"
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %ls, %ls\r\nlibsvn_diff %d.%d.%d, %ls\r\napr %d.%d.%d\r\napr-util %d.%d.%d"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535, IDS_APPNAME)
 msgid "TortoiseSVN"
@@ -11904,7 +11904,7 @@ msgid ""
 "A list of properties separated by newlines which get applied recursively automatically when adding/importing files.\r\n"
 "Format: <filemask> = property=value;property=value\r\n"
 "Example: *.xml = svn:eol-style=native;svn:mime-type=text/xml"
-msgstr "svn:auto-props\n当添加或导入文件时自动应用的以换行符分割的属性列表。\n格式：<filemask> = property=value;property=value»\n示例：*.xml = svn:eol-style=native;svn:mime-type=text/xml"
+msgstr "svn:auto-props\n当添加或导入文件时自动应用的以换行符分割的属性列表。\n格式：<filemask> = property=value;property=value\r\n示例：*.xml = svn:eol-style=native;svn:mime-type=text/xml"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 316)
 msgid "svn:eol-style"
