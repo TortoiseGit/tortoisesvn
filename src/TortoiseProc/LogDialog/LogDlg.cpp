@@ -3906,9 +3906,9 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pL
         if ((item.state & LVIS_SELECTED) && !IsAppThemed())
         {
             if (::GetFocus() == listCtrl.GetSafeHwnd())
-                textColor = ::GetSysColor(COLOR_HIGHLIGHTTEXT)
+                textColor = ::GetSysColor(COLOR_HIGHLIGHTTEXT);
             else
-                textColor = ::GetSysColor(COLOR_WINDOWTEXT)
+                textColor = ::GetSysColor(COLOR_WINDOWTEXT);
         }
         SetTextColor(pLVCD->nmcd.hdc, textColor);
         SetBkMode(pLVCD->nmcd.hdc, TRANSPARENT);
