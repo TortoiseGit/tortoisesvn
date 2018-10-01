@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-16 01:51+0000\n"
+"PO-Revision-Date: 2018-09-23 00:21+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -4989,10 +4989,22 @@ msgid ""
 "will not affect the repository, nor anyone else's working copy."
 msgstr ""
 
+#. (title)
+msgid "Experimental"
+msgstr ""
+
 #. (para)
 msgid ""
-"Currently only text files can be shelved and unshelved. Binary files and "
-"text files encoded in utf-16 (unicode) can not be shelved."
+"The shelving feature is still marked as <literal>experimental</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"That means that while shelving works as advertised, it is still in a stage "
+"where it's heavily improved and worked on. That also means that there's no "
+"guarantee that the shelves you create are upwards compatible and future "
+"versions might not be able to use them. And of course the UI might change as"
+" well in future versions to accommodate new features and behaviors."
 msgstr ""
 
 #. (title)
