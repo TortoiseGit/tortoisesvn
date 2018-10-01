@@ -93,6 +93,7 @@ enum RepoBrowserContextMenuCommands
     ID_COPYTO,
     ID_FULLTOCLIPBOARD,
     ID_URLTOCLIPBOARD,
+    ID_URLTOCLIPBOARDREV,
     ID_NAMETOCLIPBOARD,
     ID_AUTHORTOCLIPBOARD,
     ID_REVISIONTOCLIPBOARD,
@@ -2082,7 +2083,7 @@ void CRepositoryBrowser::OnCopy()
         url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(pItem->absolutepath)));
         if (!GetRevision().IsHead())
         {
-            url += L"?r=" + GetRevision().ToString();
+            url += L"?p=" + GetRevision().ToString();
         }
         url += L"\r\n";
     }
@@ -3377,6 +3378,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             if (pWnd == &m_RepoList)
                 clipSubMenu.AppendMenuIcon(ID_FULLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FULL, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_URL, IDI_COPYCLIP);
+            if ((pWnd == &m_RepoList) && selection.GetRepository(0).revision.IsHead())
+                clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_NAMETOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FILENAMES, IDI_COPYCLIP);
             if (pWnd == &m_RepoList)
             {
@@ -3566,6 +3569,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             }
             break;
         case ID_URLTOCLIPBOARD:
+        case ID_URLTOCLIPBOARDREV:
         case ID_FULLTOCLIPBOARD:
         case ID_NAMETOCLIPBOARD:
         case ID_AUTHORTOCLIPBOARD:
@@ -3582,11 +3586,15 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
                         {
                             CItem * pItem = (CItem *)m_RepoList.GetItemData (index);
-                            if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_FULLTOCLIPBOARD))
+                            if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_URLTOCLIPBOARDREV) || (cmd == ID_FULLTOCLIPBOARD))
                             {
                                 CString path = pItem->absolutepath;
                                 path.Replace (L"\\", L"%5C");
                                 sClipboard += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path)));
+                                if (cmd == ID_URLTOCLIPBOARDREV)
+                                {
+                                    sClipboard += L"/?p=" + SVNRev(pItem->created_rev).ToString();
+                                }
                             }
                             if (cmd == ID_FULLTOCLIPBOARD)
                                 sClipboard += L", ";
@@ -3594,7 +3602,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             {
                                 if (!GetRevision().IsHead())
                                 {
-                                    sClipboard += L"?r=" + GetRevision().ToString();
+                                    sClipboard += L"?p=" + GetRevision().ToString();
                                 }
                             }
                             if (cmd == ID_NAMETOCLIPBOARD)
@@ -3646,7 +3654,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         {
                             if (!GetRevision().IsHead())
                             {
-                                sClipboard += L"?r=" + GetRevision().ToString();
+                                sClipboard += L"?p=" + GetRevision().ToString();
                             }
                         }
                         if (cmd == ID_NAMETOCLIPBOARD)
@@ -4377,7 +4385,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     CString urlCmd = selection.GetURLEscaped(0, 0).GetSVNPathString();
                     SVNRev r = selection.GetRepository(0).revision;
                     if (r.IsNumber())
-                        urlCmd += L"?r=" + r.ToString();
+                        urlCmd += L"?p=" + r.ToString();
                     CAppUtils::CreateShortcutToURL((LPCTSTR)urlCmd, tempFile.GetWinPath());
                 }
             }

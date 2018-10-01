@@ -149,6 +149,7 @@ enum LogDlgContextMenuCommands
     ID_COPYCLIPBOARDAUTHORS,
     ID_COPYCLIPBOARDMESSAGES,
     ID_COPYCLIPBOARDURL,
+    ID_COPYCLIPBOARDURLREV,
     ID_COPYCLIPBOARDRELPATH,
     ID_COPYCLIPBOARDFILENAMES,
     ID_CHECKOUT,
@@ -6183,6 +6184,7 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
             ExecuteViewPathRevisionChangedPaths(selIndex);
             break;
         case ID_COPYCLIPBOARDURL:
+        case ID_COPYCLIPBOARDURLREV:
         case ID_COPYCLIPBOARDRELPATH:
         case ID_COPYCLIPBOARDFILENAMES:
             CopyChangedPathInfoToClipboard(pCmi, cmd);
@@ -7160,6 +7162,7 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
             popup.AppendMenuIcon(ID_EXPORTTREE, IDS_MENUEXPORT, IDI_EXPORT);
 
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURL, IDS_LOG_POPUP_CLIPBOARD_URL, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDRELPATH, IDS_LOG_POPUP_CLIPBOARD_RELPATH, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFILENAMES, IDS_LOG_POPUP_CLIPBOARD_FILENAMES, IDI_COPYCLIP);
 
@@ -7746,6 +7749,9 @@ void CLogDlg::CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr p
         {
             case ID_COPYCLIPBOARDURL:
                 sClipboard += (m_sRepositoryRoot + path.GetPath());
+                break;
+            case ID_COPYCLIPBOARDURLREV:
+                sClipboard += ((m_sRepositoryRoot + path.GetPath()) + L"/?p=" + SVNRev(pCmi->Rev1).ToString());
                 break;
             case ID_COPYCLIPBOARDRELPATH:
                 sClipboard += path.GetPath();
