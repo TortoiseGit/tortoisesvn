@@ -7751,7 +7751,7 @@ void CLogDlg::CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr p
                 sClipboard += (m_sRepositoryRoot + path.GetPath());
                 break;
             case ID_COPYCLIPBOARDURLREV:
-                sClipboard += ((m_sRepositoryRoot + path.GetPath()) + L"/?p=" + SVNRev(pCmi->Rev1).ToString());
+                sClipboard += ((m_sRepositoryRoot + path.GetPath()) + L"/?r=" + SVNRev(pCmi->Rev1).ToString());
                 break;
             case ID_COPYCLIPBOARDRELPATH:
                 sClipboard += path.GetPath();

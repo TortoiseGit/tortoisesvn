@@ -2083,7 +2083,7 @@ void CRepositoryBrowser::OnCopy()
         url += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(pItem->absolutepath)));
         if (!GetRevision().IsHead())
         {
-            url += L"?p=" + GetRevision().ToString();
+            url += L"?r=" + GetRevision().ToString();
         }
         url += L"\r\n";
     }
@@ -3593,7 +3593,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                                 sClipboard += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path)));
                                 if (cmd == ID_URLTOCLIPBOARDREV)
                                 {
-                                    sClipboard += L"/?p=" + SVNRev(pItem->created_rev).ToString();
+                                    sClipboard += L"/?r=" + SVNRev(pItem->created_rev).ToString();
                                 }
                             }
                             if (cmd == ID_FULLTOCLIPBOARD)
@@ -3602,7 +3602,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             {
                                 if (!GetRevision().IsHead())
                                 {
-                                    sClipboard += L"?p=" + GetRevision().ToString();
+                                    sClipboard += L"/?r=" + GetRevision().ToString();
                                 }
                             }
                             if (cmd == ID_NAMETOCLIPBOARD)
@@ -3654,7 +3654,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         {
                             if (!GetRevision().IsHead())
                             {
-                                sClipboard += L"?p=" + GetRevision().ToString();
+                                sClipboard += L"?r=" + GetRevision().ToString();
                             }
                         }
                         if (cmd == ID_NAMETOCLIPBOARD)
@@ -4385,7 +4385,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     CString urlCmd = selection.GetURLEscaped(0, 0).GetSVNPathString();
                     SVNRev r = selection.GetRepository(0).revision;
                     if (r.IsNumber())
-                        urlCmd += L"?p=" + r.ToString();
+                        urlCmd += L"?r=" + r.ToString();
                     CAppUtils::CreateShortcutToURL((LPCTSTR)urlCmd, tempFile.GetWinPath());
                 }
             }
