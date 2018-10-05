@@ -265,6 +265,7 @@ private:
     void SetFilterCueText();
     void CopySelectionToClipBoard();
     void CopySelectionToClipBoard(bool bIncludeChangedList);
+    void CopySelectionToClipBoardRev();
     void CopyCommaSeparatedRevisionsToClipboard();
     void CopyChangedSelectionToClipBoard();
     void CopyCommaSeparatedAuthorsToClipboard();

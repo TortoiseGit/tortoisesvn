@@ -2065,6 +2065,28 @@ void CLogDlg::CopyMessagesToClipboard()
     }
 }
 
+void CLogDlg::CopySelectionToClipBoardRev()
+{
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    if (pos != NULL)
+    {
+        CString sClipdata;
+        while (pos)
+        {
+            int     index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= (int)m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
+            if (pLogEntry == NULL)
+                continue;
+            CString sLogCopyText;
+            sLogCopyText.Format(L"%s/?r=%ld\r\n", (LPCWSTR)m_sURL, pLogEntry->GetRevision());
+            sClipdata += sLogCopyText;
+        }
+        CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
+    }
+}
+
 void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
 {
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
@@ -5235,6 +5257,7 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
     if (m_LogList.GetSelectedCount() != 0)
     {
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFULL, IDS_LOG_POPUP_CLIPBOARD_FULL, IDI_COPYCLIP);
+        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFULLNOPATHS, IDS_LOG_POPUP_CLIPBOARD_FULLNOPATHS, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDREVS, IDS_LOG_POPUP_CLIPBOARD_REVS, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDAUTHORS, IDS_LOG_POPUP_CLIPBOARD_AUTHORS, IDI_COPYCLIP);
@@ -5361,6 +5384,9 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_COPYCLIPBOARDFULL:
             CopySelectionToClipBoard(true);
+            break;
+        case ID_COPYCLIPBOARDURLREV:
+            CopySelectionToClipBoardRev();
             break;
         case ID_COPYCLIPBOARDFULLNOPATHS:
             CopySelectionToClipBoard(false);
