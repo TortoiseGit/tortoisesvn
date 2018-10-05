@@ -3378,8 +3378,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             if (pWnd == &m_RepoList)
                 clipSubMenu.AppendMenuIcon(ID_FULLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FULL, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_URL, IDI_COPYCLIP);
-            if ((pWnd == &m_RepoList) && selection.GetRepository(0).revision.IsHead())
-                clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_NAMETOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FILENAMES, IDI_COPYCLIP);
             if (pWnd == &m_RepoList)
             {
@@ -3643,18 +3642,16 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 }
                 else
                 {
+                    SVNRev currentRev = GetRevision().IsHead() ? m_barRepository.GetHeadRevision() : GetRevision();
                     for (size_t i=0; i < selection.GetPathCount(0); ++i)
                     {
-                        if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_FULLTOCLIPBOARD))
+                        if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_FULLTOCLIPBOARD) || (cmd == ID_URLTOCLIPBOARDREV))
                         {
                             CString path = selection.GetURL (0, i).GetSVNPathString();
                             sClipboard += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path)));
-                        }
-                        if (cmd == ID_URLTOCLIPBOARD)
-                        {
-                            if (!GetRevision().IsHead())
+                            if ((cmd == ID_URLTOCLIPBOARDREV) || GetRevision().IsHead())
                             {
-                                sClipboard += L"?r=" + GetRevision().ToString();
+                                sClipboard += L"/?r=" + currentRev.ToString();
                             }
                         }
                         if (cmd == ID_NAMETOCLIPBOARD)
