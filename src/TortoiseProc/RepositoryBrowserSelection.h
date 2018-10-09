@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2015 - TortoiseSVN
+// Copyright (C) 2009-2010, 2015, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@ private:
     {
         CTSVNPath url;
         CTSVNPath urlEscaped;
+        SVNRev    revision;
 
         bool isFolder;
         bool isLocked;
@@ -94,7 +95,8 @@ public:
     /// access path properties
 
     const CTSVNPath& GetURL (size_t repositoryIndex, size_t index) const;
-    const CTSVNPath& GetURLEscaped (size_t repositoryIndex, size_t index) const;
+    const CTSVNPath& GetURLEscaped(size_t repositoryIndex, size_t index) const;
+    const SVNRev& GetRevision(size_t repositoryIndex, size_t index) const;
 
     bool IsFolder (size_t repositoryIndex, size_t index) const;
     bool IsExternal (size_t repositoryIndex, size_t index) const;

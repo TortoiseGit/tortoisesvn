@@ -56,6 +56,7 @@ public:
         , bookmark(false)
         , unversioned(false)
         , dummy(false)
+        , revision()
     {
     }
 
@@ -74,6 +75,7 @@ public:
     bool            svnparentpathroot;
     bool            bookmark;
     bool            dummy;
+    SVNRev          revision;
 };
 
 

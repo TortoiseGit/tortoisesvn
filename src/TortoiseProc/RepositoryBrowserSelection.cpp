@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2009-2010, 2012, 2014-2015, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -98,6 +98,7 @@ void CRepositoryBrowserSelection::Add (const CItem* item)
     absPath.Replace (L"%", L"%25");
     absPath.Replace (L"\"", L"%22");
     path.urlEscaped = CTSVNPath (absPath);
+    path.revision = item->created_rev;
 
     path.isExternal = item->is_external;
     path.isFolder = item->kind == svn_node_dir;
@@ -127,6 +128,7 @@ void CRepositoryBrowserSelection::Add (const CTreeItem* item)
     absPath.Replace (L"%", L"%25");
     absPath.Replace (L"\"", L"%22");
     path.urlEscaped = CTSVNPath (absPath);
+    path.revision = item->revision;
 
     path.isExternal = item->is_external;
     path.isFolder = true;
@@ -215,6 +217,11 @@ CRepositoryBrowserSelection::GetURLEscaped
     , size_t index) const
 {
     return repositories [repositoryIndex].paths[index].urlEscaped;
+}
+
+const SVNRev & CRepositoryBrowserSelection::GetRevision(size_t repositoryIndex, size_t index) const
+{
+    return repositories[repositoryIndex].paths[index].revision;
 }
 
 bool

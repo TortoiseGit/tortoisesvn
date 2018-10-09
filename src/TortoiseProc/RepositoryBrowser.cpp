@@ -1736,6 +1736,7 @@ HTREEITEM CRepositoryBrowser::Insert
 
     pTreeItem->unescapedname = name;
     pTreeItem->url = item.absolutepath;
+    pTreeItem->revision = item.created_rev;
     pTreeItem->logicalPath = parentTreeItem->logicalPath + '/' + name;
     pTreeItem->repository = item.repository;
     pTreeItem->is_external = item.is_external;
@@ -3635,7 +3636,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 }
                 else
                 {
-                    SVNRev currentRev = GetRevision().IsHead() ? m_barRepository.GetHeadRevision() : GetRevision();
                     for (size_t i=0; i < selection.GetPathCount(0); ++i)
                     {
                         if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_FULLTOCLIPBOARD) || (cmd == ID_URLTOCLIPBOARDREV))
@@ -3644,7 +3644,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             sClipboard += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path)));
                             if (cmd == ID_URLTOCLIPBOARDREV)
                             {
-                                sClipboard += L"/?r=" + currentRev.ToString();
+                                sClipboard += L"/?r=" + selection.GetRevision(0, i).ToString();
                             }
                         }
                         if (cmd == ID_NAMETOCLIPBOARD)
@@ -5118,6 +5118,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
         CTreeItem * pTreeItem = new CTreeItem();
         pTreeItem->unescapedname = m_InitialUrl;
         pTreeItem->url = m_InitialUrl;
+        pTreeItem->revision = m_repository.revision;
         pTreeItem->logicalPath = m_InitialUrl;
         pTreeItem->repository = m_repository;
         pTreeItem->kind = svn_node_dir;
