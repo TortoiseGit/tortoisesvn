@@ -3597,13 +3597,6 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             }
                             if (cmd == ID_FULLTOCLIPBOARD)
                                 sClipboard += L", ";
-                            if (cmd == ID_URLTOCLIPBOARD)
-                            {
-                                if (!GetRevision().IsHead())
-                                {
-                                    sClipboard += L"/?r=" + GetRevision().ToString();
-                                }
-                            }
                             if (cmd == ID_NAMETOCLIPBOARD)
                             {
                                 CString u = pItem->absolutepath;
@@ -3649,7 +3642,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         {
                             CString path = selection.GetURL (0, i).GetSVNPathString();
                             sClipboard += CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8 (path)));
-                            if ((cmd == ID_URLTOCLIPBOARDREV) || GetRevision().IsHead())
+                            if (cmd == ID_URLTOCLIPBOARDREV)
                             {
                                 sClipboard += L"/?r=" + currentRev.ToString();
                             }
