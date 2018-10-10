@@ -1,4 +1,16 @@
-﻿Version 1.10.1
+﻿Version 1.10.2
+- BUG: Display issues in the log dialog when
+       resizing the dialog. (Stefan)
+- CHG: splitter positions saved separately
+       for log dialog and project monitor. (Stefan)
+- CHG: Restored files get their last-write-time
+       set to the current time. (Stefan)
+- BUG: When merging, the copyfrom revision was
+       shown as eligible for merging. (Stefan)
+- BUG: long paths in the conflict dialogs were
+       cut off instead of properly shortened. (Stefan)
+
+Version 1.10.1
 - BUG: Wrong texts in conflict resolving
        dialogs. (Stefan)
 - BUG: Shelving from TSVN dialogs returned
