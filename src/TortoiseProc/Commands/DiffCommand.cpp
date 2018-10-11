@@ -46,7 +46,7 @@ bool DiffCommand::Execute()
             CString diffoptions;
             if (parser.HasVal(L"diffoptions"))
                 diffoptions = parser.GetVal(L"diffoptions");
-            bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, pegRevision, ignoreprops, false, diffoptions, false, bBlame);
+            bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, pegRevision, ignoreprops, parser.HasKey(L"prettyprint"), diffoptions, false, bBlame);
         }
         else
         {
@@ -59,7 +59,7 @@ bool DiffCommand::Execute()
                 CString diffoptions;
                 if (parser.HasVal(L"diffoptions"))
                     diffoptions = parser.GetVal(L"diffoptions");
-                diff.ShowUnifiedDiff(cmdLinePath, SVNRev::REV_BASE, cmdLinePath, SVNRev::REV_WC, pegRevision, diffoptions, false, bBlame, false);
+                diff.ShowUnifiedDiff(cmdLinePath, SVNRev::REV_BASE, cmdLinePath, SVNRev::REV_WC, pegRevision, !!parser.HasKey(L"prettyprint"), diffoptions, false, bBlame, false);
             }
             else
             {

@@ -2757,12 +2757,12 @@ void CLogDlg::DiffSelectedRevWithPrevious()
         SVNDiff diff(this, m_hWnd, true);
         diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
         diff.SetHEADPeg(m_LogRevision);
-        diff.ShowCompare(path, rev2, path, rev1, SVNRev(), false, false, L"", false, false, nodekind);
+        diff.ShowCompare(path, rev2, path, rev1, SVNRev(), false, true, L"", false, false, nodekind);
     }
     else
     {
         CAppUtils::StartShowCompare(m_hWnd, path, rev2, path, rev1, SVNRev(),
-                                    m_LogRevision, false, false, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
+                                    m_LogRevision, false, true, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
     }
 
     EnableOKButton();
@@ -2818,12 +2818,16 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
     diff.SetHEADPeg(rev1);
     if (unified)
     {
+        bool prettyprint = true;
         CString options;
         if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
         {
             CDiffOptionsDlg dlg(this);
             if (dlg.DoModal() == IDOK)
+            {
                 options = dlg.GetDiffOptionsString();
+                prettyprint = dlg.GetPrettyPrint();
+            }
             else
             {
                 EnableOKButton();
@@ -2832,15 +2836,15 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
         }
         if (PromptShown())
             diff.ShowUnifiedDiff(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1,
-                                 SVNRev(), options, false, ignoreprops);
+                                 SVNRev(), prettyprint, options, false, ignoreprops);
         else
             CAppUtils::StartShowUnifiedDiff(m_hWnd, CTSVNPath(secondfile), rev2, CTSVNPath(firstfile),
-                                            rev1, SVNRev(), m_LogRevision, options, false, false, blame, ignoreprops);
+                                            rev1, SVNRev(), m_LogRevision, prettyprint, options, false, false, blame, ignoreprops);
     }
     else
     {
         diff.ShowCompare(CTSVNPath(secondfile), rev2, CTSVNPath(firstfile), rev1, SVNRev(),
-                         ignoreprops, false, L"", false, blame, nodekind);
+                         ignoreprops, true, L"", false, blame, nodekind);
     }
     EnableOKButton();
 }
@@ -5480,11 +5484,15 @@ CString CLogDlg::GetSpaceSeparatedSelectedRevisions()
 void CLogDlg::ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString options;
+    bool prettyprint = true;
     if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
     {
         CDiffOptionsDlg dlg(this);
         if (dlg.DoModal() == IDOK)
+        {
             options = dlg.GetDiffOptionsString();
+            prettyprint = dlg.GetPrettyPrint();
+        }
         else
             return;
     }
@@ -5498,13 +5506,13 @@ void CLogDlg::ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowUnifiedDiff(m_path, pCmi->RevPrevious, m_path, pCmi->RevSelected, SVNRev(), options, false, false, false);
+            diff.ShowUnifiedDiff(m_path, pCmi->RevPrevious, m_path, pCmi->RevSelected, SVNRev(), prettyprint, options, false, false, false);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
         CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, pCmi->RevPrevious, m_path,
-                                        pCmi->RevSelected, SVNRev(), m_LogRevision, options, false, false, false, false);
+                                        pCmi->RevSelected, SVNRev(), m_LogRevision, prettyprint, options, false, false, false, false);
 }
 
 void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
@@ -5520,11 +5528,15 @@ void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
     // is included in the diff
     r2 = r2 - svn_revnum_t(1);
     CString options;
+    bool prettyprint = true;
     if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
     {
         CDiffOptionsDlg dlg(this);
         if (dlg.DoModal() == IDOK)
+        {
             options = dlg.GetDiffOptionsString();
+            prettyprint = dlg.GetPrettyPrint();
+        }
         else
             return;
     }
@@ -5538,12 +5550,12 @@ void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowUnifiedDiff(m_path, r2, m_path, r1, SVNRev(), options, false, false, false);
+            diff.ShowUnifiedDiff(m_path, r2, m_path, r1, SVNRev(), prettyprint, options, false, false, false);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
-        CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, r2, m_path, r1, SVNRev(), m_LogRevision, options, false, false, false, false);
+        CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, r2, m_path, r1, SVNRev(), m_LogRevision, prettyprint, options, false, false, false, false);
 }
 
 void CLogDlg::ExecuteRevertRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
@@ -5750,13 +5762,13 @@ void CLogDlg::ExecuteCompareTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCm
             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             diff.SetHEADPeg(m_LogRevision);
             diff.ShowCompare(CTSVNPath(pCmi->PathURL), r2, CTSVNPath(pCmi->PathURL),
-                             r1, SVNRev(), false, false, L"", false, false, nodekind);
+                             r1, SVNRev(), false, true, L"", false, false, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
         CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL), r2, CTSVNPath(pCmi->PathURL), r1,
-                                    SVNRev(), m_LogRevision, false, false, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
+                                    SVNRev(), m_LogRevision, false, true, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
                                     false, false, nodekind);
 }
 

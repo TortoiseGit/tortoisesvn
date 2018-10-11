@@ -44,7 +44,7 @@ bool PrevDiffCommand::Execute()
         if (st.status && st.status->changed_rev)
         {
             bool ignoreprops = !!parser.HasKey(L"ignoreprops");
-            bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->changed_rev - 1, st.status->changed_rev, ignoreprops, false, L"", false, false, st.status->kind);
+            bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->changed_rev - 1, st.status->changed_rev, ignoreprops, true, L"", false, false, st.status->kind);
         }
         else
         {

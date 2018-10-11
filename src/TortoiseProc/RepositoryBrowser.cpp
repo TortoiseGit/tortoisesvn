@@ -4219,11 +4219,15 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 const CTSVNPath& path = selection.GetURLEscaped (0, 0);
                 const SVNRev& revision = selection.GetRepository (0).revision;
                 CString options;
+                bool prettyprint = true;
                 if (GetAsyncKeyState(VK_SHIFT)&0x8000)
                 {
                     CDiffOptionsDlg dlg;
                     if (dlg.DoModal() == IDOK)
+                    {
                         options = dlg.GetDiffOptionsString();
+                        prettyprint = dlg.GetPrettyPrint();
+                    }
                     else
                         break;
                 }
@@ -4232,20 +4236,20 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 {
                     if (PromptShown())
                         diff.ShowUnifiedDiff (path, revision,
-                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), options, false, false, false);
+                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), prettyprint, options, false, false, false);
                     else
                         CAppUtils::StartShowUnifiedDiff(m_hWnd, path, revision,
-                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), SVNRev(), options, false, false, false, false);
+                                            CTSVNPath(EscapeUrl(m_diffURL)), revision, SVNRev(), SVNRev(), prettyprint, options, false, false, false, false);
                 }
                 else
                 {
                     const CTSVNPath& path2 = selection.GetURLEscaped (0, 1);
                     if (PromptShown())
                         diff.ShowUnifiedDiff(path, revision,
-                                            path2, revision, SVNRev(), options, false, false, false);
+                                            path2, revision, SVNRev(), prettyprint, options, false, false, false);
                     else
                         CAppUtils::StartShowUnifiedDiff(m_hWnd, path, revision,
-                                            path2, revision, SVNRev(), SVNRev(), options, false, false, false, false);
+                                            path2, revision, SVNRev(), SVNRev(), prettyprint, options, false, false, false, false);
                 }
             }
             break;

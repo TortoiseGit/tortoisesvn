@@ -3941,20 +3941,24 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                     else
                     {
                         CString options;
+                        bool prettyprint = true;
                         if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
                         {
                             CDiffOptionsDlg dlg(this);
                             if (dlg.DoModal() == IDOK)
+                            {
                                 options = dlg.GetDiffOptionsString();
+                                prettyprint = dlg.GetPrettyPrint();
+                            }
                             else
                                 break;
                         }
                         SVNDiff diff(NULL, this->m_hWnd, true);
 
                         if (entry->remotestatus <= svn_wc_status_normal)
-                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC, SVNRev(), SVNRev(), options, false, false, false, false);
+                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_BASE, entry->path, SVNRev::REV_WC, SVNRev(), SVNRev(), prettyprint, options, false, false, false, false);
                         else
-                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD, SVNRev(), SVNRev(), options, false, false, false, false);
+                            CAppUtils::StartShowUnifiedDiff(m_hWnd, entry->path, SVNRev::REV_WC, entry->path, SVNRev::REV_HEAD, SVNRev(), SVNRev(), prettyprint, options, false, false, false, false);
                     }
                 }
                 break;
