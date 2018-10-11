@@ -46,7 +46,7 @@ bool DiffCommand::Execute()
             CString diffoptions;
             if (parser.HasVal(L"diffoptions"))
                 diffoptions = parser.GetVal(L"diffoptions");
-            bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, pegRevision, ignoreprops, diffoptions, false, bBlame);
+            bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, pegRevision, ignoreprops, false, diffoptions, false, bBlame);
         }
         else
         {
