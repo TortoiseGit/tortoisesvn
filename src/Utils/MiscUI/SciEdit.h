@@ -131,7 +131,7 @@ public:
 
     void        RestyleBugIDs();
 
-    void        SetReadOnly(bool bReadOnly);;
+    void        SetReadOnly(bool bReadOnly);
 private:
     CAutoLibrary m_hModule;
     LRESULT     m_DirectFunction;
