@@ -1632,8 +1632,15 @@ void CLogDlg::LogThread()
         {
             m_sURL = GetURLFromPath(m_path);
         }
-        m_sURL          = CPathUtils::PathUnescape(m_sURL);
-        m_sRelativeRoot = m_sURL.Mid(CPathUtils::PathUnescape(m_sRepositoryRoot).GetLength());
+        auto sURLEscaped = CPathUtils::PathUnescape(m_sURL);
+        m_sRelativeRoot  = sURLEscaped.Mid(CPathUtils::PathUnescape(m_sRepositoryRoot).GetLength());
+        if (m_path.IsUrl() && (sURLEscaped == m_sURL) && (m_path.IsEquivalentToWithoutCase(CTSVNPath(sURLEscaped))))
+        {
+            // sometimes we get unescaped urls passed to the log command (in m_path),
+            // in these cases we need to escape them here
+            m_path.SetFromSVN(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_sURL)));
+        }
+        m_sURL = sURLEscaped;
     }
 
     if (succeeded && !m_mergePath.IsEmpty())
