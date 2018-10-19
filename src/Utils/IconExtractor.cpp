@@ -48,58 +48,38 @@ DWORD CIconExtractor::ExtractIcon(HINSTANCE hResource, LPCTSTR id, LPCTSTR Targe
 
     if ((lpIR = (LPICONRESOURCE) malloc(sizeof(ICONRESOURCE) + ((lpIcon->idCount-1) * sizeof(ICONIMAGE)))) == NULL)
         return GetLastError();
-
+    SecureZeroMemory(lpIR, sizeof(ICONRESOURCE) + ((lpIcon->idCount - 1) * sizeof(ICONIMAGE)));
     lpIR->nNumImages = lpIcon->idCount;
+    OnOutOfScope(
+        for (UINT i = 0; i < lpIR->nNumImages; ++i)
+            free(lpIR->IconImages[i].lpBits);
+        free(lpIR);
+    );
 
     // Go through all the icons
     for (UINT i = 0; i < lpIR->nNumImages; ++i)
     {
         // Get the individual icon
         if ((hRsrc = FindResource(hResource, MAKEINTRESOURCE(lpIcon->idEntries[i].nID), RT_ICON )) == NULL)
-        {
-            free(lpIR);
             return GetLastError();
-        }
+
         if ((hGlobal = LoadResource(hResource, hRsrc )) == NULL)
-        {
-            free(lpIR);
             return GetLastError();
-        }
+
         // Store a copy of the resource locally
         lpIR->IconImages[i].dwNumBytes = SizeofResource(hResource, hRsrc);
         lpIR->IconImages[i].lpBits =(LPBYTE) malloc(lpIR->IconImages[i].dwNumBytes);
         if (lpIR->IconImages[i].lpBits == NULL)
-        {
-            free(lpIR);
             return GetLastError();
-        }
 
         memcpy(lpIR->IconImages[i].lpBits, LockResource(hGlobal), lpIR->IconImages[i].dwNumBytes);
 
         // Adjust internal pointers
         if (!AdjustIconImagePointers(&(lpIR->IconImages[i])))
-        {
-            free(lpIR);
             return GetLastError();
-        }
     }
 
-    DWORD ret = WriteIconToICOFile(lpIR,TargetICON);
-
-    for (UINT i = 0; i < lpIR->nNumImages; ++i)
-    {
-        free(lpIR->IconImages[i].lpBits);
-    }
-
-    if (ret)
-    {
-        free(lpIR);
-        return ret;
-    }
-
-    free(lpIR);
-
-    return NO_ERROR;
+    return WriteIconToICOFile(lpIR,TargetICON);
 }
 
 DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName)
