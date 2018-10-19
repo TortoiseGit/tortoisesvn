@@ -1,5 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2018 - Sven Strickroth <email@cs-ware.de>
 // Copyright (C) 2010-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
@@ -122,6 +123,8 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
         // Convert internal format to ICONDIRENTRY
         ide.bWidth      = (BYTE)lpIR->IconImages[i].Width;
         ide.bHeight     = (BYTE)lpIR->IconImages[i].Height;
+        if (ide.bHeight == 0) // 256x256 icon, both width and height must be 0
+            ide.bWidth  = 0;
         ide.bReserved   = 0;
         ide.wPlanes     = lpIR->IconImages[i].lpbi->bmiHeader.biPlanes;
         ide.wBitCount   = lpIR->IconImages[i].lpbi->bmiHeader.biBitCount;
@@ -147,8 +150,9 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
         DWORD dwTemp = lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage;
         bool bError = false; // fix size even on error
 
-        // Set the sizeimage member to zero
-        lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage = 0;
+        // Set the sizeimage member to zero, but not if the icon is PNG
+        if (lpIR->IconImages[i].lpbi->bmiHeader.biCompression != 65536)
+            lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage = 0;
         if (!WriteFile( hFile, lpIR->IconImages[i].lpBits, lpIR->IconImages[i].dwNumBytes, &dwBytesWritten, NULL))
             bError = true;
 
