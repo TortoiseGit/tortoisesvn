@@ -44,7 +44,7 @@
         <?endif ?>
 
         <!-- test for the universal CRT -->
-        <Property Id="UCRTVERSION">
+        <Property Id="UCRTVERSION" Secure="yes">
             <?if $(env.Platform) = "x64" ?>
             <DirectorySearch Id="SystemFolder64V" Path="[System64Folder]">
                 <FileSearch Name="ucrtbase.dll" MinVersion="0.0.0.0"/>
