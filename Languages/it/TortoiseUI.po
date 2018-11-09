@@ -15,6 +15,7 @@
 # Alessio <alessio@alessiodamato.com>, 2014
 # Andrea Tuscano <andrea.tuscano1997@gmail.com>, 2016
 # Cecilia Saltori <csaltori@gmail.com>, 2011
+# maxTransBrod <egianturco@gmail.com>, 2018
 # Fabio Turrin, 2018
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
@@ -24,15 +25,15 @@
 # Nicolò Altamura <inactive+nicoalta01@transifex.com>, 2015
 # Paolo Crocetti <crocettipaolo@gmail.com>, 2017
 # Roberto Casazza <roberto.casazza@alice.it>, 2011
-# Sebastiano Pistore <SebastianoPistore.info@protonmail.ch>, 2016-2017
+# SebastianoPistore <SebastianoPistore.info@protonmail.ch>, 2016-2017
 # Silvia, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-16 01:39+0000\n"
-"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2018-10-20 15:22+0000\n"
+"Last-Translator: maxTransBrod <egianturco@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1366,7 +1367,7 @@ msgstr "Ri&pristina impostazioni predefinite"
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1542)
 msgid "&Retry"
-msgstr ""
+msgstr "&Riprova"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
@@ -1448,7 +1449,7 @@ msgstr "&Impostazioni"
 
 #. Resource IDs: (Dialog IDD_SHELVE: Control id 1)
 msgid "&Shelve"
-msgstr ""
+msgstr "&Shelve"
 
 #. Resource IDs: (ID_REFRESHBROWSER - Menu)
 msgid "&Show HEAD revisions"
@@ -1655,7 +1656,7 @@ msgstr "&Svuota la cartella delle copie originali"
 
 #. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1674)
 msgid "&Version"
-msgstr ""
+msgstr "&Versione"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
@@ -3674,7 +3675,7 @@ msgstr "Crea un file unificato di confronto per tutte le modifiche apportate"
 #. Resource IDs: (IDS_SHELF_CHECKPOINTING)
 #, c-format
 msgid "Creating checkpoint \"%s\""
-msgstr ""
+msgstr "Creating checkpoint \"%s\""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Credits:"
@@ -10521,6 +10522,10 @@ msgstr "URL:"
 #. Resource IDs: (IDS_REPO_BROWSEURL)
 msgid "URL: "
 msgstr "URL:"
+
+#. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_URLREV)
+msgid "URLs with revision"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1209)
 msgid "Un&modified"

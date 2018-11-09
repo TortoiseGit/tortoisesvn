@@ -26,14 +26,15 @@
 # Nick Vrvilo <nick@vrvilo.com>, 2011, 2012
 # pluwen <pluwen@gmail.com>, 2011
 # pluwen <pluwen@gmail.com>, 2011
+# pop corner <memoword@163.com>, 2018
 # qingxianhao <qinghao1@foxmail.com>, 2012
 # Verplusor, 2011
 # Shengbin Meng <shengbinmeng@gmail.com>, 2013
 # wwj402 <wwj402@gmail.com>, 2013
 # xiaobing chen <olivetchan@qq.com>, 2016
 # Xijian Yan, 2018
-# YF <yfdyh000@gmail.com>, 2016
-# YF <yfdyh000@gmail.com>, 2013-2018
+# YFdyh000 <yfdyh000@gmail.com>, 2016
+# YFdyh000 <yfdyh000@gmail.com>, 2013-2018
 # loveyu <yuht@qq.com>, 2012
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 msgid ""
@@ -41,8 +42,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-16 11:03+0000\n"
-"Last-Translator: YF <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2018-10-24 09:13+0000\n"
+"Last-Translator: pop corner <memoword@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8776,7 +8777,7 @@ msgstr "请选择一个按钮。"
 msgid ""
 "Select an existing shelf to create a new version, or enter a new name to "
 "create a new shelf"
-msgstr ""
+msgstr "选择现有工具架以创建新版本，或输入新名称以创建新工具架"
 
 #. Resource IDs: (57346)
 msgid "Select an object on which to get Help"
@@ -9911,7 +9912,7 @@ msgstr "找不到“Index: ”行！\n这可能不是补丁文件，或是没有
 #. Resource IDs: (IDS_ERR_PATCH_NOADDFILELINE)
 #, c-format
 msgid "The line indicating the new file was expected in line %d!"
-msgstr ""
+msgstr "代表新文件的行应该位于%d行！"
 
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
 #, c-format
@@ -10145,7 +10146,7 @@ msgid ""
 "incomplete or even misleading due to incomplete history data.\n"
 "\n"
 "The error was:"
-msgstr ""
+msgstr "联系服务器时出现问题\n您想要查看缓存的数据吗？\n\n请明白这些是不完整的历史数据，\n缓存的数据可能已过时，不完整甚至是令人误解的。\n\n错误是："
 
 #. Resource IDs: (IDS_ERR_NOTHINGTOADD)
 msgid ""
@@ -10531,6 +10532,10 @@ msgstr "URL: "
 #. Resource IDs: (IDS_REPO_BROWSEURL)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_URLREV)
+msgid "URLs with revision"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1209)
 msgid "Un&modified"
