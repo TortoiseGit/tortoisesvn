@@ -9642,6 +9642,10 @@ msgid "This value contains the URL from which TortoiseSVN tries to download a te
 msgstr ""
 
 #. (para)
+msgid "The standard edit controls do not stop on forward slashes like they're found in paths and urls. TortoiseSVN uses a custom word break procedure for the edit controls. If you don't want that and use the default instead, set this value to 0. If you only want the default for edit controls in combo boxes, set this value to 1."
+msgstr ""
+
+#. (para)
 msgid "TortoiseSVN checks whether there's a new version available about once a week. If you don't want TortoiseSVN to do this check, set this value to <literal>false</literal>."
 msgstr ""
 
