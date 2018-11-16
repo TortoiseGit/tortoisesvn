@@ -27,7 +27,7 @@
 #include "CommonDialogFunctions.h"
 #include "CommonAppUtils.h"
 #include "LoadIconEx.h"
-
+#include "EditWordBreak.h"
 #include <Dwmapi.h>
 #pragma comment(lib, "Dwmapi.lib")
 #pragma comment(lib, "htmlhelp.lib")
@@ -88,6 +88,10 @@ protected:
         m_width = rect.right - rect.left;
         EnableToolTips();
         m_tooltips.Create(this);
+
+        auto CustomBreak = (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\UseCustomWordBreak", 2);
+        if (CustomBreak)
+            SetUrlWordBreakProcToChildWindows(GetSafeHwnd(), CustomBreak == 2);
 
         return FALSE;
     }
