@@ -48,7 +48,7 @@ int IsDelimiter(const LPCWSTR &edit_text, int current_pos, int length)
     // Punctuation normally breaks words, but the first two characters in
     // "://" (end of scheme) should not be breaks, so that "http://" will be
     // treated as one word.
-    if (ispunct(edit_text[current_pos], std::locale()) &&
+    if (ispunct(edit_text[current_pos]) &&
         !IsSchemeEnd(edit_text, current_pos - 0, length) &&
         !IsSchemeEnd(edit_text, current_pos - 1, length))
         return true;
