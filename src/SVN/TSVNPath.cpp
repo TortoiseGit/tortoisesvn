@@ -869,7 +869,7 @@ const CTSVNPath& CTSVNPathList::operator[](INT_PTR index) const
 bool CTSVNPathList::AreAllPathsFiles() const
 {
     // Look through the vector for any directories - if we find them, return false
-    return std::find_if(m_paths.begin(), m_paths.end(), std::mem_fun_ref(&CTSVNPath::IsDirectory)) == m_paths.end();
+    return std::find_if(m_paths.begin(), m_paths.end(), std::mem_fn(&CTSVNPath::IsDirectory)) == m_paths.end();
 }
 
 

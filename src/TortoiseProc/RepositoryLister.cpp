@@ -428,9 +428,7 @@ void CRepositoryLister::CompactDumpster()
 
 void CRepositoryLister::ClearDumpster()
 {
-    std::for_each ( dumpster.begin()
-                  , dumpster.end()
-                  , std::bind2nd (std::mem_fun (&CQuery::WaitUntilDone), true));
+    std::for_each(dumpster.begin(), dumpster.end(), [](auto obj) { obj->WaitUntilDone(true); });
 
     CompactDumpster();
 }

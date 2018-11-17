@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2007, 2012, 2015 - TortoiseSVN
 
@@ -39,14 +39,14 @@ public:
 // trim from start
 inline std::string &ltrim(std::string &s)
 {
-    s.erase(s.cbegin(), std::find_if(s.cbegin(), s.cend(), std::not1(std::ptr_fun<int, int>(isspace))));
+    s.erase(s.cbegin(), std::find_if(s.cbegin(), s.cend(), [](const auto &c) { return !iswspace(c); }));
     return s;
 }
 
 // trim from end
 inline std::string &rtrim(std::string &s)
 {
-    s.erase(std::find_if(s.crbegin(), s.crend(), std::not1(std::ptr_fun<int, int>(isspace))).base(), s.cend());
+    s.erase(std::find_if(s.crbegin(), s.crend(), [](const auto &c) { return !iswspace(c); }).base(), s.cend());
     return s;
 }
 
@@ -59,14 +59,14 @@ inline std::string &trim(std::string &s)
 // trim from start
 inline std::wstring &ltrim(std::wstring &s)
 {
-    s.erase(s.cbegin(), std::find_if(s.cbegin(), s.cend(), std::not1(std::ptr_fun<wint_t, int>(iswspace))));
+    s.erase(s.cbegin(), std::find_if(s.cbegin(), s.cend(), [](const auto &c) { return !iswspace(c); }));
     return s;
 }
 
 // trim from end
 inline std::wstring &rtrim(std::wstring &s)
 {
-    s.erase(std::find_if(s.crbegin(), s.crend(), std::not1(std::ptr_fun<wint_t, int>(iswspace))).base(), s.cend());
+    s.erase(std::find_if(s.crbegin(), s.crend(), [](const auto &c) { return !iswspace(c); }).base(), s.cend());
     return s;
 }
 

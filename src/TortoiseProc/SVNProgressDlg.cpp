@@ -1963,14 +1963,14 @@ void CSVNProgressDlg::Sort()
     for(;;)
     {
         // Search to the start of the non-aux entry in the next block
-        auto actionBlockBegin = std::find_if(actionBlockEnd, m_arData.end(), std::not1(std::ptr_fun(&CSVNProgressDlg::NotificationDataIsAux)));
+        auto actionBlockBegin = std::find_if(actionBlockEnd, m_arData.end(), [](const auto& pData) { return !CSVNProgressDlg::NotificationDataIsAux(pData); });
         if(actionBlockBegin == m_arData.end())
         {
             // There are no more actions
             break;
         }
         // Now search to find the end of the block
-        actionBlockEnd = std::find_if(actionBlockBegin+1, m_arData.end(), std::ptr_fun(&CSVNProgressDlg::NotificationDataIsAux));
+        actionBlockEnd = std::find_if(actionBlockBegin + 1, m_arData.end(), [](const auto& pData) { return CSVNProgressDlg::NotificationDataIsAux(pData); });
         // Now sort the block
         std::sort(actionBlockBegin, actionBlockEnd, &CSVNProgressDlg::SortCompare);
     }
