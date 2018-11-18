@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2008 - TortoiseSVN
 
@@ -49,7 +49,7 @@ CRemovePathsBySubString::QuickClassification (const CDictionaryBasedPath& path) 
 
     if (pathClassification.size() <= path.GetIndex())
     {
-        size_t newSize = max (8, pathClassification.size()) * 2;
+        size_t newSize = max((size_t)8, pathClassification.size()) * 2;
         while (newSize <= path.GetIndex())
             newSize *= 2;
 

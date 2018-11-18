@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // External Cache Copyright (C) 2007-2012, 2014-2015 - TortoiseSVN
 
@@ -292,7 +292,7 @@ void CPathWatcher::WorkerThread()
                             pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
                             continue;
                         }
-                        buf[min(bufferSize-1, pdi->m_DirPath.GetLength()+(pnotify->FileNameLength/sizeof(WCHAR)))] = 0;
+                        buf[min((decltype((pnotify->FileNameLength / sizeof(WCHAR)))) bufferSize - 1, pdi->m_DirPath.GetLength() + (pnotify->FileNameLength / sizeof(WCHAR)))] = L'\0';
                         pnotify = (PFILE_NOTIFY_INFORMATION)((LPBYTE)pnotify + nOffset);
                         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": change notification: %s\n", buf);
                         {

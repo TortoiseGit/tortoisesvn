@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2015 - TortoiseSVN
 
@@ -483,7 +483,7 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
             wcsncpy_s ( string
                       , size
                       , entry.buffer
-                      , min (size, MAX_STATUS_LENGTH)-1);
+                      , min(size, (int)MAX_STATUS_LENGTH) - 1);
             return;
         }
     }
@@ -543,7 +543,7 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
             break;
     }
 
-    wcsncpy_s (string, size, entry.buffer, min (size, MAX_STATUS_LENGTH)-1);
+    wcsncpy_s(string, size, entry.buffer, min(size, (int)MAX_STATUS_LENGTH) - 1);
 }
 
 #ifdef _MFC_VER

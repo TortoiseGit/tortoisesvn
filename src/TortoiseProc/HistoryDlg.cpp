@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2014, 2017 - TortoiseSVN
 
@@ -172,7 +172,7 @@ void CHistoryDlg::UpdateMessageList()
             int index = m_List.AddString(sEntry);
             m_List.SetItemData(index, i);
             itemExtent = pDC->GetTextExtent(sEntry);
-            horizExtent = max(horizExtent, itemExtent.cx+5);
+            horizExtent = max(horizExtent, (int)itemExtent.cx + 5);
         }
     }
     m_List.SetHorizontalExtent(horizExtent);

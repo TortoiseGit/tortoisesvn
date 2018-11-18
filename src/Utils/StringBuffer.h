@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2011-2012, 2014-2015 - TortoiseSVN
 
@@ -120,7 +120,7 @@ inline void CStringBuffer::Clear()
 inline void CStringBuffer::Append (char c)
 {
     if (size + 1 >= capacity)
-        Reserve (2 * max (ALIGNMENT, capacity));
+        Reserve(2 * max((size_t)ALIGNMENT, capacity));
 
     buffer[size] = c;
     buffer[++size] = 0;

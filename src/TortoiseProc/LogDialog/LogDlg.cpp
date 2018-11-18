@@ -1754,7 +1754,7 @@ void CLogDlg::LogThread()
             // ensure that the end revision is fetched, so adjust the limit
             if (m_limit && m_startrev.IsNumber() && (svn_revnum_t(m_startrev) > 0))
             {
-                m_limit  = max(m_limit, svn_revnum_t(m_startrev) - svn_revnum_t(m_endrev));
+                m_limit  = max(m_limit, (int)(svn_revnum_t(m_startrev) - svn_revnum_t(m_endrev)));
                 m_endrev = 0;
             }
             m_bEnsureSelection = false;
@@ -7227,7 +7227,7 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
 // borrowed from SVNStatusListCtrl -- extract??
 bool CLogDlg::CheckMultipleDiffs(UINT selCount)
 {
-    if (selCount > max(3, (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumDiffWarning", 15)))
+    if (selCount > max((DWORD)3, (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumDiffWarning", 15)))
     {
         CString message;
         message.Format(CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF)), selCount);

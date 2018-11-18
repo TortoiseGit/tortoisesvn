@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2007, 2009-2015 - TortoiseSVN
 
@@ -867,7 +867,7 @@ void CLogDataVector::Filter (const CLogDlgFilter& filter)
 
         size_t itemsPerJob
             = max ( 1 + count / (4 * async::CJobScheduler::GetSharedThreadCount())
-                  , 1000);
+                  , (size_t)1000);
 
         // start jobs
 

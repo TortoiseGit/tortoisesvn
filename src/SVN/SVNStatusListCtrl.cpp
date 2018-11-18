@@ -6546,7 +6546,7 @@ LRESULT CSVNStatusListCtrl::OnRefreshStatusMsg(WPARAM, LPARAM)
 bool CSVNStatusListCtrl::CheckMultipleDiffs()
 {
     UINT selCount = GetSelectedCount();
-    if (selCount > max(3, (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumDiffWarning", 10)))
+    if (selCount > max((DWORD)3, (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\NumDiffWarning", 10)))
     {
         CString message;
         message.Format(CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF)), selCount);
