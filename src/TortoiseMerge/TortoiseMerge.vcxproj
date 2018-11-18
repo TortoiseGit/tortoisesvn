@@ -248,14 +248,8 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="..\Resources\TortoiseMergeRibbon.xml">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(WindowsSdkDir_10)bin\10.0.17134.0\x86\uicc.exe" %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(WindowsSdkDir_10)bin\10.0.17134.0\x86\uicc.exe" %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(WindowsSdkDir_10)bin\10.0.17134.0\x86\uicc.exe" %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(WindowsSdkDir_10)bin\10.0.17134.0\x86\uicc.exe" %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
+      <Command>uicc.exe %(FullPath) $(IntDir)TortoiseMergeRibbon.bml /header:$(IntDir)TortoiseMergeRibbon.h /res:$(IntDir)TortoiseMergeRibbon.rc /name:TortoiseMergeRibbon</Command>
+      <Outputs>$(IntDir)TortoiseMergeRibbon.bml;$(IntDir)TortoiseMergeRibbon.rc;$(IntDir)TortoiseMergeRibbon.h;%(Outputs)</Outputs>
       <SubType>Designer</SubType>
     </CustomBuild>
   </ItemGroup>
