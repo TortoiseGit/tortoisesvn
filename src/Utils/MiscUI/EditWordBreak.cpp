@@ -57,7 +57,7 @@ int IsDelimiter(const LPCWSTR &edit_text, int current_pos, int length)
     return false;
 }
 
-int UrlWordBreakProc(LPCWSTR edit_text, int current_pos, int length, int action)
+int CALLBACK UrlWordBreakProc(LPCWSTR edit_text, int current_pos, int length, int action)
 {
     // The MSDN docs are not really helpful, and for plain edit controls
     // they're also wrong.
@@ -140,7 +140,7 @@ int UrlWordBreakProc(LPCWSTR edit_text, int current_pos, int length, int action)
             break;
 
         default:
-            assert(false);
+            ATLASSERT(false);
             break;
     }
 
