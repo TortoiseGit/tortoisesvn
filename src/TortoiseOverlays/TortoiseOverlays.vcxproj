@@ -35,9 +35,9 @@
   <Import Project="..\TortoiseSVN.common.props" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Platform)'=='Win32'">..\..\obj\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Platform)'=='Win32'">..\..\bin\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Platform)'=='Win32'">..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
-    <OutDir Condition="'$(Platform)'=='x64'">..\..\obj\$(ProjectName)\$(Configuration)64\</OutDir>
+    <OutDir Condition="'$(Platform)'=='x64'">..\..\bin\$(ProjectName)\$(Configuration)64\</OutDir>
     <IntDir Condition="'$(Platform)'=='x64'">..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
