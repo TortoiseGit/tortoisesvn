@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012 - TortoiseSVN
+// Copyright (C) 2012, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,15 +20,13 @@
 
 #include <string>
 
-using namespace std;
-
 class CCallback : public IBindStatusCallback, public IAuthenticate, public IHttpSecurity
 {
 public:
     CCallback();
     ~CCallback();
 
-    void SetAuthData(const wstring& username, const wstring& password) {m_username = username; m_password = password;}
+    void SetAuthData(const std::wstring& username, const std::wstring& password) {m_username = username; m_password = password;}
     void SetAuthParentWindow(HWND hWnd) { m_hWnd = hWnd; }
 
     // IHttpSecurity method
@@ -129,8 +127,8 @@ public:
     }
 
 private:
-    ULONG       m_cRef;
-    wstring     m_username;
-    wstring     m_password;
-    HWND        m_hWnd;
+    ULONG           m_cRef;
+    std::wstring    m_username;
+    std::wstring    m_password;
+    HWND            m_hWnd;
 };

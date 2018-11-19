@@ -1289,7 +1289,7 @@ void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
         // now fill in the data
 
         int nCount = 0;
-        const deque<CItem>& items = pTreeItem->children;
+        const std::deque<CItem>& items = pTreeItem->children;
         for (auto it = items.begin(); it != items.end(); ++it)
         {
             int icon_idx;
@@ -5144,7 +5144,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
         // we got a web page! But we can't be sure that it's the page from SVNParentPath.
         // Use a regex to parse the website and find out...
         std::ifstream fs(tempfile.GetWinPath());
-        string in;
+        std::string in;
         if (!fs.bad())
         {
             in.reserve((unsigned int)fs.rdbuf()->in_avail());
