@@ -36,9 +36,9 @@
   <Import Project="..\TortoiseSVN.common.props" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Platform)'=='Win32'">..\..\bin\$(ProjectName)\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Platform)'=='Win32'">..\..\bin\$(Configuration)\bin\</OutDir>
     <IntDir Condition="'$(Platform)'=='Win32'">..\..\obj\$(ProjectName)\$(Configuration)\</IntDir>
-    <OutDir Condition="'$(Platform)'=='x64'">..\..\bin\$(ProjectName)\$(Configuration)64\</OutDir>
+    <OutDir Condition="'$(Platform)'=='x64'">..\..\bin\$(Configuration)64\bin\</OutDir>
     <IntDir Condition="'$(Platform)'=='x64'">..\..\obj\$(ProjectName)\$(Configuration)64\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
@@ -47,7 +47,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)'=='Debug'">SVN_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;Version.lib;Crypt32.lib;libsvn_tsvn32.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>ws2_32.lib;shlwapi.lib;Version.lib;Crypt32.lib;libsvn_tsvn.lib;libapr_tsvn.lib;libaprutil_tsvn.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\ext\Subversion\$(Configuration)_$(Platform);..\..\ext\apr\$(Configuration)_$(Platform);..\..\ext\apr-util\$(Configuration)_$(Platform);..\..\ext\libintl\$(Configuration)_$(Platform)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
