@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2018 - TortoiseSVN
-// Copyright (C) 2012-2016 - TortoiseGit
+// Copyright (C) 2012-2016, 2018 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -710,7 +710,14 @@ bool CMainWindow::SaveFile(LPCTSTR filename)
     FILE* fp = nullptr;
     _wfopen_s(&fp, filename, L"w+b");
     if (!fp)
+    {
+        TCHAR fmt[1024] = {0};
+        LoadString(hResource, IDS_ERRORSAVE, fmt, _countof(fmt));
+        TCHAR error[1024] = {0};
+        _snwprintf_s(error, _countof(error), fmt, filename, (LPCTSTR)CFormatMessageWrapper());
+        MessageBox(*this, error, L"TortoiseUDiff", MB_OK);
         return false;
+    }
 
     LRESULT len = SendEditor(SCI_GETTEXT, 0, 0);
     auto data = std::make_unique<char[]>(len + 1);
