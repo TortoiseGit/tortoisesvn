@@ -2797,6 +2797,11 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
     }
     m_bCancelled = FALSE;
     filepath     = GetRepositoryRoot(CTSVNPath(filepath));
+    // filepath is in escaped form. But since the changedpath
+    // is not, we have to unescape the filepath here first,
+    // so the escaped parts won't get escaped again in case changedpath
+    // needs escaping as well
+    filepath = CPathUtils::PathUnescape(filepath);
 
     svn_node_kind_t nodekind = svn_node_unknown;
     CString         firstfile, secondfile;

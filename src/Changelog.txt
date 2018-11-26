@@ -1,4 +1,9 @@
-﻿Version 1.11.0
+﻿Version 1.11.1
+- BUG: Diffing from the log dialog failed
+       if the repository name itself
+       contained non-ASCII chars. (Stefan)
+
+Version 1.11.0
 - BUG: Display issues in the log dialog when
        resizing the dialog. (Stefan)
 - CHG: splitter positions saved separately
