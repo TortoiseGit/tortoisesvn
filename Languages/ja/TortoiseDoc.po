@@ -11,12 +11,15 @@
 # Authors:
 # Translators:
 # ABE Tsunehiko, 2015,2017
+# ABE Tsunehiko, 2015,2017
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
+# luebbe <luebbe.opensource@gmail.com>, 2011
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # 藤本理弘 <mfujimot@gmail.com>, 2011-2015
 # 藤本理弘 <mfujimot@gmail.com>, 2012-2013
 # 藤本理弘 <mfujimot@gmail.com>, 2016-2017
+# 大川剛 <tu44okawa3@gmail.com>, 2016
 # 大川剛 <tu44okawa3@gmail.com>, 2016
 # 藤本理弘 <mfujimot@gmail.com>, 2017-2018
 msgid ""
@@ -24,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-23 00:21+0000\n"
+"PO-Revision-Date: 2018-11-17 01:52+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -15354,6 +15357,15 @@ msgid ""
 "company admins who don't want their users to update TortoiseSVN until they "
 "approve it."
 msgstr "この値は、TortoiseSVN が有効なアップデートがあるかどうかを検査するためのテキストファイルをダウンロードする URL です。企業の管理者が通知するまでユーザーに TortoiseSVN をアップデートさせたくない場合などに有効です。"
+
+#. (para)
+msgid ""
+"The standard edit controls do not stop on forward slashes like they're found"
+" in paths and urls. TortoiseSVN uses a custom word break procedure for the "
+"edit controls. If you don't want that and use the default instead, set this "
+"value to 0. If you only want the default for edit controls in combo boxes, "
+"set this value to 1."
+msgstr ""
 
 #. (para)
 msgid ""

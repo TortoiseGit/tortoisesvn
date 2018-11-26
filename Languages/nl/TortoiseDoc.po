@@ -14,10 +14,12 @@
 # Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # luebbe <luebbe.opensource@gmail.com>, 2011
+# luebbe <luebbe.opensource@gmail.com>, 2011
 # mark van tilburg <markvantilburg@gmail.com>, 2015-2016,2018
 # Paul <paul@piak.nl>, 2011
 # Paul <paul@piak.nl>, 2011
 # Paul <paul@piak.nl>, 2011
+# wstalsma, 2011
 # wstalsma, 2011
 # wstalsma, 2011
 # W VB <vanbeirendonck.willem@gmail.com>, 2011
@@ -26,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-23 00:21+0000\n"
+"PO-Revision-Date: 2018-11-17 01:52+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -15356,6 +15358,15 @@ msgid ""
 "company admins who don't want their users to update TortoiseSVN until they "
 "approve it."
 msgstr "Deze waarde bevat de URL waar vandaan TortoiseSVN een tekstbestand probeert op te halen om te achterhalen of er nieuwe versies beschikbaar zijn. Dit kan handig zijn voor beheerders van bedrijven, die willen voorkomen dat gebruikers hun TortoiseSVN bijwerken voordat zij dat geaccepteerd hebben."
+
+#. (para)
+msgid ""
+"The standard edit controls do not stop on forward slashes like they're found"
+" in paths and urls. TortoiseSVN uses a custom word break procedure for the "
+"edit controls. If you don't want that and use the default instead, set this "
+"value to 0. If you only want the default for edit controls in combo boxes, "
+"set this value to 1."
+msgstr ""
 
 #. (para)
 msgid ""

@@ -11,6 +11,8 @@
 # Authors:
 # Translators:
 # szkingrose <1072258106@qq.com>, 2014
+# Andy Wu <andy13923@gmail.com>, 2015
+# coxxs <hxx107@gmail.com>, 2011
 # Entong Shen <dexter_shen@hotmail.com>, 2011
 # Evil Roach <evilroach@tom.com>, 2015
 # fang zheng <fz0000@sina.com>, 2012
@@ -24,17 +26,23 @@
 # Gones <liejie050911@163.com>, 2013-2014
 # liushuyu011 <liushuyu011@gmail.com>, 2014
 # liushuyu011 <liushuyu011@gmail.com>, 2016
+# liushuyu011 <liushuyu011@gmail.com>, 2014,2016
 # LIU Tian <liutian666666@gmail.com>, 2016
+# luebbe <luebbe.opensource@gmail.com>, 2011
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # Andy Wu <andy13923@gmail.com>, 2015
 # Nick Vrvilo <nick@vrvilo.com>, 2012
+# ninjasai <ninjasai@gmail.com>, 2011
 # ninjasai <ninjasai@gmail.com>, 2011
 # pluwen <pluwen@gmail.com>, 2011
 # pop corner <memoword@163.com>, 2018
 # Verplusor, 2011
 # stephen zhu <huasoft@163.com>, 2011
+# szkingrose <1072258106@qq.com>, 2014
+# Thomas ZHANG <zjbthomas@gmail.com>, 2016
+# Verplusor, 2011
 # xiaobing chen <olivetchan@qq.com>, 2016
-# YF <yfdyh000@gmail.com>, 2013
+# YFdyh000 <yfdyh000@gmail.com>, 2013
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 # Ziang Song <songziang@gmail.com>, 2011
 msgid ""
@@ -42,7 +50,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-23 00:21+0000\n"
+"PO-Revision-Date: 2018-11-17 01:52+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -15372,6 +15380,15 @@ msgid ""
 "company admins who don't want their users to update TortoiseSVN until they "
 "approve it."
 msgstr "这个值包含了URL,TortoiseSVN尝试从这个URL下载文本文件,以确定是否有可用的更新.这对于公司的管理员来说可能有用.他们更希望核准后才让用户更新TortoiseSVN."
+
+#. (para)
+msgid ""
+"The standard edit controls do not stop on forward slashes like they're found"
+" in paths and urls. TortoiseSVN uses a custom word break procedure for the "
+"edit controls. If you don't want that and use the default instead, set this "
+"value to 0. If you only want the default for edit controls in combo boxes, "
+"set this value to 1."
+msgstr ""
 
 #. (para)
 msgid ""

@@ -27,15 +27,21 @@
 # grokwik <grokwik@gmail.com>, 2011
 # Groog <florentzimolo@gmail.com>, 2014
 # Jack, 2016
+# Jack, 2016
+# jeremy shields <jeremy.shields@orange.fr>, 2016
 # jeremy shields <jeremy.shields@orange.fr>, 2016
 # Julien Benoit <julien.benoit@suntec.fr>, 2016
+# Kerzzy <6greenday6@gmail.com>, 2015
+# Le Gall Nicolas <contact@nlegall.fr>, 2015
 # Le Gall Nicolas <contact@nlegall.fr>, 2015
 # lkppo, 2012
 # Jack, 2015-2016
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # Lucas Mascaro <mascaro.lucas@yahoo.fr>, 2017
+# luebbe <luebbe.opensource@gmail.com>, 2011
 # Philippe <kissifrot@gmail.com>, 2014
+# Philippe PERIN, 2016
 # Philippe PERIN, 2016
 # ShevAbam, 2015
 # ShevAbam, 2015-2016
@@ -45,7 +51,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-23 00:21+0000\n"
+"PO-Revision-Date: 2018-11-17 01:52+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -15375,6 +15381,15 @@ msgid ""
 "company admins who don't want their users to update TortoiseSVN until they "
 "approve it."
 msgstr "Cette valeur contient l'URL à partir de laquelle TortoiseSVN essaie de télécharger un fichier texte pour savoir s'il y a des mises à jour disponibles. Cela pourrait être utile pour les administrateurs d'entreprise qui ne veulent pas que leurs utilisateurs mette à jour TortoiseSVN sans leur approbation."
+
+#. (para)
+msgid ""
+"The standard edit controls do not stop on forward slashes like they're found"
+" in paths and urls. TortoiseSVN uses a custom word break procedure for the "
+"edit controls. If you don't want that and use the default instead, set this "
+"value to 0. If you only want the default for edit controls in combo boxes, "
+"set this value to 1."
+msgstr ""
 
 #. (para)
 msgid ""

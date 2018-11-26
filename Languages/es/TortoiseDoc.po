@@ -27,11 +27,13 @@
 # ggh <gdelahuebra@hotmail.com>, 2011
 # Javi <inactive+japaol@transifex.com>, 2014
 # Javi <inactive+japaol@transifex.com>, 2014
+# Javi <inactive+japaol@transifex.com>, 2014
 # juancentro <jmtruppia@gmail.com>, 2011
 # juancentro <jmtruppia@gmail.com>, 2011
 # Juan Chacon <jchacon.fossey@gmail.com>, 2012
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # luebbe <luebbe.opensource@gmail.com>, 2012
+# luebbe <luebbe.opensource@gmail.com>, 2011-2012
 # luebbe <luebbe.opensource@gmail.com>, 2011-2012
 # luiceur <luiceur@gmail.com>, 2011
 # luiceur <luiceur@gmail.com>, 2011
@@ -48,7 +50,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-23 00:21+0000\n"
+"PO-Revision-Date: 2018-11-17 01:52+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -15378,6 +15380,15 @@ msgid ""
 "company admins who don't want their users to update TortoiseSVN until they "
 "approve it."
 msgstr "Este valor contiene la URL que TortoiseSVN utiliza para intentar descargar un archivo de texto para averiguar si hay actualizaciones disponibles. Esto puede ser útil para administradores de empresas que no desean que sus usuarios actualicen TortoiseSVN hasta que ellos lo aprueben."
+
+#. (para)
+msgid ""
+"The standard edit controls do not stop on forward slashes like they're found"
+" in paths and urls. TortoiseSVN uses a custom word break procedure for the "
+"edit controls. If you don't want that and use the default instead, set this "
+"value to 0. If you only want the default for edit controls in combo boxes, "
+"set this value to 1."
+msgstr ""
 
 #. (para)
 msgid ""

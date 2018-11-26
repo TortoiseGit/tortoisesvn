@@ -10,27 +10,34 @@
 # 
 # Authors:
 # Translators:
+# acehigh, 2011
 # Alessandro Menti <alessandro.menti@hotmail.it>, 2012
 # Alessio <alessio@alessiodamato.com>, 2014
 # Andrea Rinaudo <firmware@mdptech.it>, 2018
 # Cecilia Saltori <csaltori@gmail.com>, 2011
 # maxTransBrod <egianturco@gmail.com>, 2012
 # Emilio Bologna <io@emilio.i5-my.name>, 2012
+# Emilio Bologna <io@emilio.i5-my.name>, 2012
 # Fabio Turrin, 2018
+# Fabio Turrin, 2018
+# Leonardo <philyo1@gmail.com>, 2012
 # acehigh, 2011
 # Marco Scalcione <marco.scalcione@prae.it>, 2018
+# maxTransBrod <egianturco@gmail.com>, 2012
 # Leonardo <philyo1@gmail.com>, 2012
 # Roberto Casazza <roberto.casazza@alice.it>, 2011
 # Roberto <roberto@elkgrove.us>, 2011-2012
 # Sebastiano Pistore <SebastianoPistore.info@protonmail.ch>, 2016
+# Sebastiano Pistore <SebastianoPistore.info@protonmail.ch>, 2016
+# Silvia, 2013
 # Silvia, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-23 00:21+0000\n"
-"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2018-11-22 16:01+0000\n"
+"Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -5823,44 +5830,44 @@ msgstr "Notare che Subversion implementa attualmente la ridenominazione come cop
 msgid ""
 "The Log dialog does not always show all changes ever made for a number of "
 "reasons: <placeholder-1/>"
-msgstr ""
+msgstr "La finestra di dialogo del Log non mostra sempre tutte le modifiche apportate per una serie di motivi: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "If you want to see more log messages, click the <guibutton>Next "
 "100</guibutton> to retrieve the next 100 log messages. You can repeat this "
 "as many times as needed."
-msgstr ""
+msgstr "Se si desidera visualizzare più messaggi di registro, fare clic su <guibutton>Prossimi 100</guibutton> per recuperare i successivi 100 messaggi del log. Puoi ripeterlo tutte le volte che vuoi."
 
 #. (para)
 msgid ""
 "Next to this button there is a multi-function button which remembers the "
 "last option you used it for. Click on the arrow to see the other options "
 "offered."
-msgstr ""
+msgstr "Accanto a questo pulsante c'è un pulsante multifunzione che ricorda l'ultima opzione per la quale lo hai usato. Clicca sulla freccia per vedere le altre opzioni offerte."
 
 #. (para)
 msgid ""
 "Use <guibutton>Show Range ...</guibutton> if you want to view a specific "
 "range of revisions. A dialog will then prompt you to enter the start and end"
 " revision."
-msgstr ""
+msgstr "Usa <guibutton>Mostra intervallo ...</guibutton> se si desidera visualizzare un intervallo specifico di revisioni. Una finestra di dialogo ti chiederà quindi di inserire la revisione iniziale e finale."
 
 #. (para)
 msgid ""
 "Use <guibutton>Show All</guibutton> if you want to see "
 "<emphasis>all</emphasis> log messages from HEAD right back to revision 1."
-msgstr ""
+msgstr "Utilizzare <guibutton>Mostra tutto</guibutton> se si desidera visualizzare <emphasis>tutti</emphasis> i messaggi di log da HEAD indietro fino alla revisione 1."
 
 #. (para)
 msgid ""
 "To refresh the latest revision in case there were other commits while the "
 "log dialog was open, hit the <keycap>F5</keycap> key."
-msgstr ""
+msgstr "Per aggiornare all'ultima revisione nel caso in cui ci fossero altri commit mentre la finestra di dialogo del registro era aperta, premere il tasto <keycap>F5</keycap>."
 
 #. (para)
 msgid "To refresh the log cache, hit the <keycap>Ctrl-F5</keycap> keys."
-msgstr ""
+msgstr "Per aggiornare la cache del registro, premi i tasti <keycap>Ctrl-F5</keycap>."
 
 #. (title)
 msgid "Current Working Copy Revision"
@@ -5873,7 +5880,7 @@ msgid ""
 "for content which has not yet been updated in your working copy. To help "
 "make this clearer, the commit message which corresponds to the revision you "
 "have in your working copy is shown in bold."
-msgstr ""
+msgstr "Poiché la finestra di dialogo di registro mostra il registro da HEAD, non dalla revisione della copia di lavoro corrente, spesso accade che vengano visualizzati messaggi di registro per il contenuto che non è stato ancora aggiornato nella copia di lavoro. Per rendere questo più chiaro, il messaggio di commit che corrisponde alla revisione che hai nella tua copia di lavoro è mostrato in grassetto."
 
 #. (para)
 msgid ""
@@ -5882,7 +5889,7 @@ msgid ""
 "working copy. The crawl takes place within a separate thread so as not to "
 "delay showing the log, but as a result highlighting for folders may not "
 "appear immediately."
-msgstr ""
+msgstr "Quando si mostra il log di una cartella, la revisione evidenziata è la revisione più alta che si trova in qualsiasi punto della cartella, il che richiede una scansione della copia di lavoro. La scansione avviene all'interno di un thread separato in modo da non ritardare la visualizzazione del log, ma di conseguenza l'evidenziazione delle cartelle potrebbe non apparire immediatamente."
 
 #. (title)
 msgid "Merge Tracking Features"
@@ -5900,7 +5907,7 @@ msgid ""
 "trunk, the feature development will show up on the trunk log as a single "
 "commit for the merge, even though there may have been 1000 commits during "
 "branch development."
-msgstr ""
+msgstr "Subversion 1.5 e versioni successive conserva un record delle unioni usando le proprietà. Questo ci consente di ottenere una cronologia più dettagliata delle modifiche unite. Ad esempio, se si sviluppa una nuova funzione su un branch e si unisce nuovamente il ramo al trunk, lo sviluppo di funzionalità verrà visualizzato nel registro del trunk come un singolo commit per l'unione, anche se potrebbero esserci stati 1000 commit durante lo sviluppo del branch."
 
 #. (title)
 msgid "The Log Dialog Showing Merge Tracking Revisions"
@@ -5913,7 +5920,7 @@ msgid ""
 "This will fetch the log messages again, but will also interleave the log "
 "messages from revisions which were merged. Merged revisions are shown in "
 "grey because they represent changes made on a different part of the tree."
-msgstr ""
+msgstr "Se si desidera visualizzare i dettagli di quali revisioni sono state unite come parte di tale commit, utilizzare la casella di controllo <guilabel>Includi revisioni unite</guilabel>. Ciò recupera nuovamente i messaggi dal log, ma interrogherà anche i messaggi di log dalle revisioni che sono state unite. Le revisioni unite vengono visualizzate in grigio perché rappresentano le modifiche apportate a una parte diversa dell'albero."
 
 #. (para)
 msgid ""
@@ -5922,7 +5929,7 @@ msgid ""
 " in sync with the main line code. So the merge history of the branch will "
 "also include another layer of merge history. These different layers are "
 "shown in the log dialog using indentation levels."
-msgstr ""
+msgstr "Certo, l'unione non è mai semplice! Durante lo sviluppo di funzionalità sul branch, è probabile che si verifichino unioni occasionali dal trunk per mantenere il branch sincronizzato con il codice della linea principale. Quindi la cronologia di unione del branch includerà anche un altro strato di cronologia di unione. Questi diversi livelli sono mostrati nella finestra di dialogo del log usando i livelli di indentazione."
 
 #. (title)
 msgid "Changing the Log Message and Author"
@@ -15358,6 +15365,15 @@ msgid ""
 "file to find out if there are updates available. This might be useful for "
 "company admins who don't want their users to update TortoiseSVN until they "
 "approve it."
+msgstr ""
+
+#. (para)
+msgid ""
+"The standard edit controls do not stop on forward slashes like they're found"
+" in paths and urls. TortoiseSVN uses a custom word break procedure for the "
+"edit controls. If you don't want that and use the default instead, set this "
+"value to 0. If you only want the default for edit controls in combo boxes, "
+"set this value to 1."
 msgstr ""
 
 #. (para)

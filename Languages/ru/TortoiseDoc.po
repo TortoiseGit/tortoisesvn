@@ -28,13 +28,14 @@
 # Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>, 2015-2016
 # Vladimir.Serykh <Vladimir.Serykh@extenza-studio.ru>, 2015
 # Вячеслав Третьяков <tret2003@gmail.com>, 2013,2015,2017
+# Дмитрий Ошкало <dmitry.oshkalo@gmail.com>, 2015
 # Сергей Аксёнов <aksenov007bond@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-23 00:21+0000\n"
+"PO-Revision-Date: 2018-11-17 01:52+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/luebbe/tortoisesvn/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -15364,6 +15365,15 @@ msgid ""
 "company admins who don't want their users to update TortoiseSVN until they "
 "approve it."
 msgstr "Это значение содержит URL, по которому TortoiseSVN загружает текстовый файл для проверки на наличие обновлений. Это может полезно для администраторов компаний, которые не хотят, чтобы пользователи обновляли TortoiseSVN без их разрешения."
+
+#. (para)
+msgid ""
+"The standard edit controls do not stop on forward slashes like they're found"
+" in paths and urls. TortoiseSVN uses a custom word break procedure for the "
+"edit controls. If you don't want that and use the default instead, set this "
+"value to 0. If you only want the default for edit controls in combo boxes, "
+"set this value to 1."
+msgstr ""
 
 #. (para)
 msgid ""

@@ -12,10 +12,12 @@
 # Translators:
 # alfalb_mansil, 2014
 # alfalb_mansil, 2014
+# alfalb_mansil, 2014
 # Bernardo Silva <benny.stuff@gmail.com>, 2011
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011,2013
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # luebbe <luebbe.opensource@gmail.com>, 2012
+# luebbe <luebbe.opensource@gmail.com>, 2011-2012
 # luebbe <luebbe.opensource@gmail.com>, 2011-2012
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2013
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011-2013
@@ -25,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-09-23 00:21+0000\n"
+"PO-Revision-Date: 2018-11-17 01:52+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/luebbe/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -15355,6 +15357,15 @@ msgid ""
 "company admins who don't want their users to update TortoiseSVN until they "
 "approve it."
 msgstr "Este valor contém o URL a partir do qual o TortoiseSVN tenta descarregar um ficheiro de texto, para tentar descobrir se existem actualizações disponíveis. Isto poderá ser útil a administradores de empresas, que não quererão que os seus utilizadores actualizem o TortoiseSVN sem a sua autorização."
+
+#. (para)
+msgid ""
+"The standard edit controls do not stop on forward slashes like they're found"
+" in paths and urls. TortoiseSVN uses a custom word break procedure for the "
+"edit controls. If you don't want that and use the default instead, set this "
+"value to 0. If you only want the default for edit controls in combo boxes, "
+"set this value to 1."
+msgstr ""
 
 #. (para)
 msgid ""
