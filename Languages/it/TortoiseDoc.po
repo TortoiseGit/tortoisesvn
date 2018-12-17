@@ -36,8 +36,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-11-22 16:01+0000\n"
-"Last-Translator: Fabio Turrin\n"
+"PO-Revision-Date: 2018-12-15 12:36+0000\n"
+"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -501,6 +501,13 @@ msgid ""
 " it, committing your changes, etc. It then progresses to more advanced "
 "topics."
 msgstr "La <xref linkend=\"tsvn-dug\"/> è la sezione più importante poichè spiega le principali funzionalità di TortoiseSVN e come usarle. Ha la forma di un tutorial, iniziando dall'operazione di checkout, la modifica dei sorgenti, l'invio delle modifiche effettuate (commit), ecc... Continua poi con argomenti più avanzati."
+
+#. (para)
+msgid ""
+"The <xref linkend=\"tsvn-projectmonitor\"/> explains how you can monitor "
+"your Subversion projects so you don't miss important commits from your other"
+" team members."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -5953,7 +5960,7 @@ msgid ""
 "of each item. Revprops are descriptive items which are associated with one "
 "specific revision number in the repository, such as log message, commit date"
 " and committer name (author)."
-msgstr ""
+msgstr "Le proprietà di revisione sono completamente diverse dalle proprietà di Subversion di ciascun elemento. Le revprops sono elementi descrittivi associati a un numero di revisione specifico nel repository, ad esempio il messaggio di log, la data di commit e il nome del committer (autore)."
 
 #. (para)
 msgid ""
@@ -5961,7 +5968,7 @@ msgid ""
 "because there's a spelling error in it or you want to improve the message or"
 " change it for other reasons. Or you want to change the author of the commit"
 " because you forgot to set up authentication or..."
-msgstr ""
+msgstr "A volte potresti voler cambiare un messaggio di log che hai inserito una volta, forse perché c'è un errore di ortografia o vuoi migliorare il messaggio o cambiarlo per altri motivi. Oppure vuoi cambiare l'autore del commit perché ti sei dimenticato di impostare l'autenticazione o ..."
 
 #. (para)
 msgid ""
@@ -5973,7 +5980,7 @@ msgid ""
 " Scripts</citetitle></ulink> in the Subversion Book for details about how to"
 " do that. Read <xref linkend=\"tsvn-repository-hooks\"/> to find some "
 "further notes on implementing hooks on a Windows machine."
-msgstr ""
+msgstr "Subversion ti consente di modificare le proprietà di revisione ogni volta che vuoi. Ma dal momento che tali modifiche non possono essere annullate (tali modifiche non sono versioni) questa funzione è disabilitata per impostazione predefinita. Per fare in modo che funzioni, è necessario impostare un hook pre-revprop-change. Si prega di fare riferimento al capitolo su <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook Scripts</citetitle></ulink> nel Subversion Book per i dettagli su come farlo. Leggi <xref linkend=\"tsvn-repository-hooks\"/> per trovare ulteriori note sull'implementazione degli hook su una macchina Windows."
 
 #. (para)
 msgid ""
@@ -5981,7 +5988,7 @@ msgid ""
 "author and log message (or any other revprop) of any revision, using the "
 "context menu from the top pane of the Log dialog. You can also edit a log "
 "message using the context menu for the middle pane."
-msgstr ""
+msgstr "Una volta impostato il server con gli hook richiesti, è possibile modificare l'autore e il messaggio di registro (o qualsiasi altra revprop) di qualsiasi revisione, utilizzando il menu di scelta rapida dal riquadro superiore della finestra di dialogo del Log. È inoltre possibile modificare un messaggio di log utilizzando il menu di scelta rapida per il riquadro centrale."
 
 #. (para)
 msgid ""
@@ -5989,7 +5996,7 @@ msgid ""
 "modifications to such a property (for example, the "
 "<literal>svn:log</literal> commit message property) will overwrite the "
 "previous value of that property <emphasis>forever</emphasis>."
-msgstr ""
+msgstr "Poiché le proprietà di revisione di Subversion non sono versionate, apportare modifiche a tale proprietà (ad esempio, la proprietà del messaggio di commit <literal>svn: log</literal>) sovrascrive <emphasis>per sempre</emphasis> il valore precedente di tale proprietà."
 
 #. (para)
 msgid ""
@@ -5998,7 +6005,7 @@ msgid ""
 "users using TortoiseSVN will still see the cached (old) authors and log "
 "messages until they refresh the log cache. Refer to <xref linkend=\"tsvn-"
 "dug-showlog-refresh\"/>"
-msgstr ""
+msgstr "Poiché TortoiseSVN mantiene una cache di tutte le informazioni del registro, le modifiche apportate ai messaggi di autore e di log verranno visualizzate solo nell'installazione locale. Gli altri utenti che utilizzano TortoiseSVN vedranno comunque gli autori (vecchi) memorizzati nella cache e i messaggi di log fino a quando non aggiorneranno la cache del registro. Fare riferimento a <xref linkend=\"tsvn-dug-showlog-refresh\"/>"
 
 #. (title)
 msgid "Filtering Log Messages"
@@ -6015,7 +6022,7 @@ msgid ""
 "the filter controls at the top of the Log Dialog. The start and end date "
 "controls allow you to restrict the output to a known date range. The search "
 "box allows you to show only messages which contain a particular phrase."
-msgstr ""
+msgstr "Se si desidera limitare i messaggi di log per mostrare solo quelli che sono interessati piuttosto che scorrere un elenco di centinaia, è possibile utilizzare i controlli del filtro nella parte superiore della finestra di dialogo del Log. I controlli di data di inizio e di fine consentono di limitare l'output a un intervallo di date noto. La casella di ricerca ti consente di mostrare solo i messaggi che contengono una frase particolare."
 
 #. (para)
 msgid ""
@@ -6027,7 +6034,7 @@ msgid ""
 " functions. The filter works by checking whether your filter string matches "
 "the log entries, and then only those entries which "
 "<emphasis>match</emphasis> the filter string are shown."
-msgstr ""
+msgstr "Fare clic sull'icona di ricerca per selezionare quali informazioni si desidera cercare e scegliere la modalità <emphasis>regex</emphasis>. Normalmente ti servirà solo una semplice ricerca di sotto stringa, ma se hai bisogno di termini di ricerca più flessibili, puoi usare le espressioni regolari. Se si passa il mouse sopra la casella, un suggerimento fornirà suggerimenti su come utilizzare le funzioni regex o le funzioni sub-string. Il filtro funziona controllando se la stringa del filtro corrisponde alle voci del registro e quindi vengono visualizzate solo le voci che <emphasis>corrispondono</emphasis> alla stringa del filtro."
 
 #. (para)
 msgid ""
@@ -6048,7 +6055,7 @@ msgid ""
 "      </screen> searches for a double-quote anywhere in the text <screen>\n"
 "\"Alice says \"\"hi\"\" to Bob\"\n"
 "      </screen> searches for the literal expression <quote>Alice says \"hi\" to Bob</quote>."
-msgstr ""
+msgstr "La ricerca sotto stringa semplice funziona in modo simile a un motore di ricerca. Le stringhe da cercare sono separate da spazi e tutte le stringhe devono corrispondere. È possibile utilizzare un prefisso <literal>-</literal> per specificare che non deve essere presente una sottostringa particolare (inverte la corrispondenza per quel termine) e che è possibile utilizzare <literal>!</literal> all'inizio dell'espressione per invertire la corrispondenza per l'intera espressione. Puoi usare un prefisso <literal>+</literal> per specificare che una sottostringa dovrebbe essere inclusa, anche se precedentemente esclusa con un <literal>-</literal>. Nota che l'ordine di inclusione/esclusione è significativo. È possibile utilizzare le virgolette per racchiudere una stringa che deve contenere spazi e, se si desidera cercare una virgoletta letterale, è possibile utilizzare insieme due virgolette come sequenza di escape. Si noti che il carattere backslash <emphasis>non</emphasis> viene utilizzato come carattere di escape e non ha alcun significato speciale nelle semplici ricerche di sottostringa. Gli esempi renderanno questo più facile:</screen>\nAlice Bob -Eve\n</screen>cerca stringhe contenenti sia Alice che Bob ma non Eve<screen>\nAlice -Bob + Eve\n</screen>cerca stringhe contenenti sia Alice che non Bob o stringhe contenenti Eve.<screen>\n-Case + SpecialCase\n</screen>cerca le stringhe che non contengono Case, ma include ancora le stringhe che contengono SpecialCase.<screen>\n! Alice Bob\n</screen>cerca le stringhe che non contengono sia Alice che Bob<screen>\n! -Alice -Bob\n</screen>ti ricordi il teorema di De Morgan? NON (NON Alice E NON Bob) si riduce a (Alice O Bob).<screen>\n\"Alice e Bob\"\n</screen>cerca l'espressione letterale <quote>Alice e Bob</quote><screen>\n\"\"\n</screen>cerca una doppia virgoletta in qualsiasi parte del testo<screen>\n\"Alice says \"\"hi\"\" to Bob\"\n</screen>cerca l'espressione letterale <quote>Alice says \"hi\" to Bob</quote>."
 
 #. (para)
 msgid ""
@@ -6056,13 +6063,13 @@ msgid ""
 "this manual, but you can find online documentation and a tutorial at <ulink "
 "url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
-msgstr ""
+msgstr "Descrivere l'uso delle ricerche di espressioni regolari va oltre lo scopo di questo manuale, ma è possibile trovare la documentazione online e un'esercitazione su <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
 #. (para)
 msgid ""
 "Note that these filters act on the messages already retrieved. They do not "
 "control downloading of messages from the repository."
-msgstr ""
+msgstr "Si noti che questi filtri agiscono sui messaggi già recuperati. Non controllano il download di messaggi dal repository."
 
 #. (para)
 msgid ""
@@ -6073,7 +6080,7 @@ msgid ""
 "means just that one file. Normally the path list shows any other paths which"
 " are affected by the same commit, but in grey. If the box is checked, those "
 "paths are hidden."
-msgstr ""
+msgstr "Puoi anche filtrare i nomi dei percorsi nel riquadro inferiore utilizzando la casella di controllo <guilabel>Mostra solo percorsi interessati</guilabel>. I percorsi interessati sono quelli che contengono il percorso utilizzato per visualizzare il log. Se si recupera il log per una cartella, significa qualcosa in quella cartella o sotto di essa. Per un file significa solo quel file. Normalmente l'elenco dei percorsi mostra tutti gli altri percorsi che sono interessati dallo stesso commit, ma in grigio. Se la casella è selezionata, quei percorsi sono nascosti."
 
 #. (para)
 msgid ""
@@ -6083,11 +6090,11 @@ msgid ""
 "<literal>tsvn:logsummary</literal> can be used to extract a portion of the "
 "log message to be shown in the top pane. Read <xref linkend=\"tsvn-dug-"
 "propertypage-tsvn-props\"/> to find out how to use this property."
-msgstr ""
+msgstr "A volte le pratiche di lavoro richiedono che i messaggi di log seguano un formato particolare, il che significa che il testo che descrive le modifiche non è visibile nel riepilogo abbreviato mostrato nel riquadro superiore. La proprietà <literal>tsvn:logsummary</literal> può essere utilizzata per estrarre una parte del messaggio di log da mostrare nel pannello superiore. Leggi <xref linkend=\"tsvn-dug-propertypage-tsvn-props\"/> per scoprire come utilizzare questa proprietà."
 
 #. (title)
 msgid "No Log Formatting from Repository Browser"
-msgstr ""
+msgstr "Nessuna formattazione del registro dal browser del repository"
 
 #. (para)
 msgid ""
@@ -6095,7 +6102,7 @@ msgid ""
 "will only see the results when using a checked out working copy. Fetching "
 "properties remotely is a slow operation, so you will not see this feature in"
 " action from the repo browser."
-msgstr ""
+msgstr "Poiché la formattazione dipende dall'accesso alle proprietà di Subversion, vedrai i risultati solo quando utilizzi una copia di lavoro locale. Il recupero delle proprietà da remoto è un'operazione lenta, quindi non vedrai questa funzione in azione dal browser del repository."
 
 #. (title)
 msgid "Statistical Information"
@@ -6112,7 +6119,7 @@ msgid ""
 "shows how many authors have been at work, how many commits they have made, "
 "progress by week, and much more. Now you can see at a glance who has been "
 "working hardest and who is slacking ;-)"
-msgstr ""
+msgstr "Il pulsante <guibutton>Statistiche</guibutton> apre una finestra che mostra alcune informazioni interessanti sulle revisioni mostrate nella finestra di dialogo del log. Questo mostra quanti autori sono stati al lavoro, quanti commit hanno fatto, i progressi per settimana e molto altro ancora. Ora puoi vedere a colpo d'occhio chi ha lavorato più duramente e chi è lento ;-)"
 
 #. (title)
 msgid "Statistics Page"
@@ -6122,26 +6129,26 @@ msgstr "Pagine statistiche"
 msgid ""
 "This page gives you all the numbers you can think of, in particular the "
 "period and number of revisions covered, and some min/max/average values."
-msgstr ""
+msgstr "Questa pagina ti fornisce tutti i numeri a cui puoi pensare, in particolare il periodo e il numero di revisioni coperte e alcuni valori min/max/medi."
 
 #. (title)
 msgid "Commits by Author Page"
-msgstr ""
+msgstr "Pagina commit per autore"
 
 #. (title)
 msgid "Commits-by-Author Histogram"
-msgstr ""
+msgstr "Istogramma commit per autore"
 
 #. (title)
 msgid "Commits-by-Author Pie Chart"
-msgstr ""
+msgstr "Grafico a torta commit per autore"
 
 #. (para)
 msgid ""
 "<placeholder-1/> This graph shows you which authors have been active on the "
 "project as a simple histogram, stacked histogram or pie chart. "
 "<placeholder-2/>"
-msgstr ""
+msgstr "<placeholder-1/> Questo grafico mostra quali autori sono stati attivi nel progetto come istogramma semplice, istogramma impilato o grafico a torta. <placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -6150,15 +6157,15 @@ msgid ""
 "the bottom allows you to set a threshold (as a percentage of total commits) "
 "below which any activity is grouped into an <emphasis>Others</emphasis> "
 "category."
-msgstr ""
+msgstr "Dove ci sono alcuni autori importanti e molti contributori minori, il numero di piccoli segmenti può rendere il grafico più difficile da leggere. Il cursore in basso consente di impostare una soglia (come percentuale del totale dei commit) al di sotto della quale qualsiasi attività è raggruppata in una categoria <emphasis>Altri</emphasis>."
 
 #. (title)
 msgid "Commits by date Page"
-msgstr ""
+msgstr "Pagina commit per data"
 
 #. (title)
 msgid "Commits-by-date Graph"
-msgstr ""
+msgstr "Grafico commit per data"
 
 #. (para)
 msgid ""
@@ -6166,7 +6173,7 @@ msgid ""
 "activity in terms of number of commits <emphasis>and</emphasis> author. This"
 " gives some idea of when a project is being worked on, and who was working "
 "at which time."
-msgstr ""
+msgstr "<placeholder-1/> Questa pagina offre una rappresentazione grafica dell'attività del progetto in termini di numero di commit <emphasis>e</emphasis> autore. Questo dà un'idea di quando si sta lavorando su un progetto e su chi sta lavorando in quel momento."
 
 #. (para)
 msgid ""
@@ -6177,7 +6184,7 @@ msgid ""
 "the line underneath. The latter option avoids the lines crossing over, which"
 " can make the graph easier to read, but less easy to see one author's "
 "output."
-msgstr ""
+msgstr "Quando ci sono diversi autori, otterrai molte linee sul grafico. Ci sono due viste disponibili: <emphasis>normale</emphasis>, dove l'attività di ciascun autore è relativa alla linea di base e <emphasis>impilata</emphasis>, dove l'attività di ciascun autore è relativa alla linea sottostante. Quest'ultima opzione evita che le linee si incrocino, il che può rendere il grafico più facile da leggere, ma è meno facile vedere l'output di un autore."
 
 #. (para)
 msgid ""
@@ -6188,14 +6195,14 @@ msgid ""
 "<literal>DavidMorgan</literal> and <literal>davidmorgan</literal> to be "
 "treated as the same person. Use the <guilabel>Authors case "
 "insensitive</guilabel> checkbox to control how this is handled."
-msgstr ""
+msgstr "Per impostazione predefinita, l'analisi fa distinzione tra maiuscole e minuscole, quindi gli utenti <literal>PeterEgan</literal> e <literal>PeteRegan</literal> vengono considerati come autori diversi. Tuttavia, in molti casi i nomi utente non sono sensibili al maiuscolo/minuscolo e talvolta vengono inseriti in modo incoerente, quindi è possibile che <literal>DavidMorgan</literal> e <literal>davidmorgan</literal> vengano considerati come la stessa persona. Utilizza la casella di controllo <guilabel>Autori non sensibili alle maiuscole e minuscole</guilabel> per controllare come viene gestita."
 
 #. (para)
 msgid ""
 "Note that the statistics cover the same period as the Log dialog. If that is"
 " only displaying one revision then the statistics will not tell you very "
 "much."
-msgstr ""
+msgstr "Si noti che le statistiche coprono lo stesso periodo della finestra di dialogo Log. Se questo viene svolto solo visualizzando una revisione, le statistiche non ti diranno molto."
 
 #. (title)
 msgid "Offline Mode"

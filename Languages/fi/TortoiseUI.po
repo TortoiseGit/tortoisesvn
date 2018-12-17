@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2017
+# Kari Granö <kari.grano@gmail.com>, 2011-2018
 # Kari Granö <kari.grano@gmail.com>, 2013
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-10-02 02:10+0000\n"
-"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2018-12-03 10:02+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,12 +49,12 @@ msgstr "! %d"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1262)
 msgid "# authors shown individually:"
-msgstr "# yksittäin näytetyt tekijät:"
+msgstr "# yksittäiset tekijät:"
 
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALMBTRANSFERRED)
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "%.2f megatavua siirretty"
+msgstr "%.2f MiB siirretty"
 
 #. Resource IDs: (IDS_SVN_PROGRESS_KBYTES_SEC)
 #, c-format
@@ -120,7 +120,7 @@ msgstr "%1!ls! : kantaversio %2!ld!"
 #. Resource IDs: (IDS_PROGRS_UPDATE)
 #, c-format
 msgid "%1!ls! from %2!ls!"
-msgstr ""
+msgstr "%1!ls! paikasta %2!ls!"
 
 #. Resource IDs: (IDS_PROGRS_FINALINFO)
 #, c-format
@@ -349,7 +349,7 @@ msgstr "&Salli moniselitteiset paikantimet"
 
 #. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1)
 msgid "&Apply"
-msgstr ""
+msgstr "&Käytä"
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1294, Dialog
 #. IDD_EDITPROPEOL: Control id 1294, Dialog IDD_EDITPROPERTYVALUE: Control id
@@ -570,7 +570,7 @@ msgstr "&Peruuta\nSäilytä nykyinen formaatti."
 
 #. Resource IDs: (Dialog IDD_SHELVE: Control id 1678)
 msgid "&Checkpoint"
-msgstr ""
+msgstr "&Tarkistuspiste"
 
 #. Resource IDs: (Dialog IDD_CHECKOUT: Control id 1606)
 msgid "&Choose items..."
@@ -891,7 +891,7 @@ msgstr "P&iilota ohitetut kohteet"
 
 #. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
 msgid "&Hide/Show the patch file list"
-msgstr ""
+msgstr "&Piilota/Näytä paikkatiedostolista"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -1000,7 +1000,7 @@ msgstr "Lokin koot (tsvn:&log)"
 #. Resource IDs: (Dialog IDD_SHELVE: Control id 1673, Dialog IDD_UNSHELVE:
 #. Control id 1673)
 msgid "&Log message:"
-msgstr ""
+msgstr "&Lokiviesti"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEOL: Control id 1591)
 msgid "&Mac (CR)"
@@ -1053,7 +1053,7 @@ msgstr "&Siirretyt lohkot"
 
 #. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1672)
 msgid "&Name"
-msgstr ""
+msgstr "&Nimi"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
@@ -1224,7 +1224,7 @@ msgstr "&Nouda kansiot ennalta käytön nopeuttamiseksi"
 
 #. Resource IDs: (Dialog IDD_DIFFOPTIONS: Control id 1676)
 msgid "&Pretty print"
-msgstr ""
+msgstr "&Muotoile luettavammaksi"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1355,7 +1355,7 @@ msgstr "&Palauta oletusarvot"
 
 #. Resource IDs: (Dialog IDD_GOOFFLINE: Control id 1542)
 msgid "&Retry"
-msgstr ""
+msgstr "&Yritä uudestaan"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
@@ -1437,7 +1437,7 @@ msgstr "&Asetukset"
 
 #. Resource IDs: (Dialog IDD_SHELVE: Control id 1)
 msgid "&Shelve"
-msgstr ""
+msgstr "&Hyllytä"
 
 #. Resource IDs: (ID_REFRESHBROWSER - Menu)
 msgid "&Show HEAD revisions"
@@ -1644,7 +1644,7 @@ msgstr "&Siivoa alkuperäiskopiot"
 
 #. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1674)
 msgid "&Version"
-msgstr ""
+msgstr "&Versio"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
@@ -1823,7 +1823,7 @@ msgstr "... tutkitaan työkopion tilaa"
 #. Resource IDs: (IDS_ERR_SHELVE_FAILED_MORE)
 #, c-format
 msgid "...and %d more paths."
-msgstr ""
+msgstr "...ja vielä %d polulla."
 
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
@@ -1846,7 +1846,7 @@ msgstr "<uusi muutoslista>"
 msgid ""
 "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Clear "
 "errors=&Update all=&Options=="
-msgstr ""
+msgstr "=&Tarkista nyt=&Lisää projekti=&Muokkaa=P&oista=M&erkitse kaikki luetuksi=&Nollaa virheet=&Päivitä kaikki=&Asetukset=="
 
 #. Resource IDs: (ID_ABOUT - Menu)
 msgid "?"
@@ -1924,7 +1924,7 @@ msgstr "Peruuta"
 
 #. Resource IDs: (cmdAbout_LabelTitle_RESID)
 msgid "Abou&t TortoiseMerge"
-msgstr ""
+msgstr "&Tietoja TortoiseMergestä..."
 
 #. Resource IDs: (IDS_MENUABOUT)
 msgid "About"
@@ -2113,7 +2113,7 @@ msgstr "Edistyneet yhdistämisasetukset"
 
 #. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1675)
 msgid "Affected &files:"
-msgstr ""
+msgstr "Muutetut &tiedostot:"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Age"
@@ -2222,7 +2222,7 @@ msgstr "Tuntematon virhe kytkeydyttäessä osoitteeseen %1."
 #. Resource IDs: (IDS_ERR_PATCH_UNKOWNLINETYPE)
 #, c-format
 msgid "An unknown line type was found in line %d!"
-msgstr ""
+msgstr "Tuntematon rivityyppi rivillä %d!"
 
 #. Resource IDs: (IDS_SVNERR_SQLITEBUSY)
 msgid ""
@@ -2494,7 +2494,7 @@ msgstr "Riko lu&kko"
 
 #. Resource IDs: (IDS_MENUDESCUNSHELVE)
 msgid "Brings a shelved change back to the working copy"
-msgstr ""
+msgstr "Palauttaa hyllytetyt muutokset takaisin työkopioon"
 
 #. Resource IDs: (Dialog IDD_SETTINGSPROXY: Control id 1069)
 msgid "Browse..."
@@ -2528,7 +2528,7 @@ msgstr "Bugtraq testaus - TortoiseSVN"
 
 #. Resource IDs: (cmdCopy_Keytip_RESID)
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 1215)
 msgid "C&heck now"
@@ -3090,7 +3090,7 @@ msgstr "Toimita"
 #. Resource IDs: (IDS_PROGRS_CMD_COMMIT)
 #, c-format
 msgid "Commit to %1!ls!"
-msgstr ""
+msgstr "Toimita kohteeseen %1!ls!"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -3215,7 +3215,7 @@ msgstr "Säädä &TortoiseSVN olemaan koskaan käyttämättä roskakoria"
 
 #. Resource IDs: (cmdRegexFilterConfig2_LabelTitle_RESID)
 msgid "Configure Filter Regex"
-msgstr ""
+msgstr "Määritä suodatin"
 
 #. Resource IDs: (IDS_CONFIGUREREGEXES, ID_REGEXFILTER - Menu)
 msgid "Configure Filter Regexes"
@@ -3585,7 +3585,7 @@ msgstr "Luo &kirjasto"
 
 #. Resource IDs: (cmdCreateUnifiedDiff_LabelTitle_RESID)
 msgid "Create &patch file"
-msgstr ""
+msgstr "Luo &paikkatiedosto"
 
 #. Resource IDs: (IDS_MENUCREATEPATCH)
 msgid "Create &patch..."
@@ -3603,7 +3603,7 @@ msgstr "Luo paikkatiedosto"
 msgid ""
 "Create a checkpoint.\n"
 "The selected modifications are saved to a shelf, but the local modifications are kept."
-msgstr ""
+msgstr "Luo tarkistuspiste.\nValitut muutokset hyllytetään, mutta paikalliset muutokset säilytetään."
 
 #. Resource IDs: (IDS_LOG_CODE_COLLABORATOR)
 msgid "Create code collaborator revie&w..."
@@ -3663,7 +3663,7 @@ msgstr "Luo unified diff-tiedoston, jossa ovat mukana tekemäsi muutokset"
 #. Resource IDs: (IDS_SHELF_CHECKPOINTING)
 #, c-format
 msgid "Creating checkpoint \"%s\""
-msgstr ""
+msgstr "Luodaan tarkistuspistettä \"%s\""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Credits:"
@@ -4174,7 +4174,7 @@ msgstr "Pudottaminen %1!ls!:een ei ole mahdollista"
 
 #. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #. Resource IDs: (ID_INLINEEDIT - Menu)
 msgid "E&xact copy sources"
@@ -4241,11 +4241,11 @@ msgstr "Muokkaa ominaisuuksia"
 
 #. Resource IDs: (IDS_PROC_EDIT_PROP_CONFLICTS)
 msgid "Edit Property Conflicts"
-msgstr ""
+msgstr "Muokkaa ominaisuusristiriitoja"
 
 #. Resource IDs: (IDS_PROC_EDIT_TEXT_CONFLICTS)
 msgid "Edit Text Conflicts"
-msgstr ""
+msgstr "Muokkaa tekstiristiriitoja"
 
 #. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
@@ -4295,7 +4295,7 @@ msgstr "Muokkaa..."
 msgid ""
 "Edit\n"
 "Edit text conflicts"
-msgstr ""
+msgstr "Muokkaa\nMuokkaa tekstiristiriitoja"
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_EDITCMD)
 msgid ""
@@ -4582,7 +4582,7 @@ msgstr "Vie tiedostoja (*.tsex)|*.tsex|Kaikki tiedostot (*.*)|*.*||"
 #. Resource IDs: (IDS_PROGRS_CMD_EXPORT)
 #, c-format
 msgid "Export from %1!ls!"
-msgstr ""
+msgstr "Viedään kohteesta %1!ls!"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1667)
 msgid "Export settings to file..."
@@ -4655,7 +4655,7 @@ msgstr "Mukaanlukien svn:externals"
 
 #. Resource IDs: (cmdFind_Keytip_RESID)
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. Resource IDs: (Dialog IDD_MERGEALL: Control id 1480, Dialog
 #. IDD_MERGEWIZARD_OPTIONS: Control id 1480)
@@ -4922,7 +4922,7 @@ msgstr "Suodatin:"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Filtered"
-msgstr ""
+msgstr "Suodatettu"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
 #. cmdFind_LabelTitle_RESID)
@@ -5046,7 +5046,7 @@ msgstr "Täysin palautuva"
 
 #. Resource IDs: (cmdGotoLine_Keytip_RESID)
 msgid "G"
-msgstr ""
+msgstr "G"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_GDIINIT)
 msgid "GDI+ couldn't be initialized!"
@@ -5671,7 +5671,7 @@ msgstr "Ohita kommentit"
 
 #. Resource IDs: (IDS_DIFF_IGNORE_EOL)
 msgid "Ignore EOL changes"
-msgstr ""
+msgstr "Ohita EOL-muutokset"
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
 #. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
@@ -6023,7 +6023,7 @@ msgstr "Tyyppi"
 
 #. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
 msgid "L"
-msgstr ""
+msgstr "L"
 
 #. Resource IDs: (Dialog IDD_EDITPROPTSVNSIZES: Control id 65535)
 msgid "L&imit:"
@@ -6339,7 +6339,7 @@ msgstr "Useita vertailukohteita vallittu"
 
 #. Resource IDs: (IDS_MONITOR_MARKASREADTT)
 msgid "Mark all projects as read"
-msgstr ""
+msgstr "Merkitse kaikki projektit luetuiksi"
 
 #. Resource IDs: (IDS_PROGRS_REVERTMARKERS_TASK3)
 msgid ""
@@ -6751,15 +6751,15 @@ msgstr "Tiedostoni:"
 
 #. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
 msgid "NC"
-msgstr ""
+msgstr "NC"
 
 #. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
 msgid "ND"
-msgstr ""
+msgstr "ND"
 
 #. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #. Resource IDs: (59138)
 msgid "NUM"
@@ -6892,7 +6892,7 @@ msgstr "Tiedostoja ei ole muutettu/lisätty viimeisen arkistotoimituksen jälkee
 
 #. Resource IDs: (33002)
 msgid "No filter"
-msgstr ""
+msgstr "Ei suodatinta"
 
 #. Resource IDs: (IDS_REVGRAPH_ERR_NOGRAPH)
 msgid "No graph available"
@@ -6909,7 +6909,7 @@ msgstr "Polku tai polkutiedosto puuttuu komentoriviltä!"
 
 #. Resource IDs: (IDS_ERR_SHELVE_NOTHING_WAS_SHELVED)
 msgid "No path was shelved."
-msgstr ""
+msgstr "Ei hyllytettyjä polkuja."
 
 #. Resource IDs: (IDS_SETTINGS_CACHENONE_TT)
 msgid ""
@@ -6992,7 +6992,7 @@ msgstr "Yhtään tiedostoa ei ole valittu toimitettavaksi!"
 
 #. Resource IDs: (IDS_NOTHING_SHELVED)
 msgid "Nothing is shelved!"
-msgstr ""
+msgstr "Mitään ei hyllytetty!"
 
 #. Resource IDs: (IDS_WARN_NOTE)
 msgid "Notice"
@@ -7128,7 +7128,7 @@ msgid ""
 "One or more paths could not be shelved.\n"
 "The following paths failed:\n"
 "%s"
-msgstr ""
+msgstr "Yhtä tai useampaa polkua ei voitu hyllyttää.\nSeuraavat polut epäonnistuivat:\n%s"
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_TITLE)
 msgid "One project has updates:"
@@ -7270,15 +7270,15 @@ msgstr "Korvaa\nAsetukset korvataan"
 
 #. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
 msgid "PC"
-msgstr ""
+msgstr "PC"
 
 #. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
 msgid "PD"
-msgstr ""
+msgstr "PD"
 
 #. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
 msgid "PI"
-msgstr ""
+msgstr "PI"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7703,7 +7703,7 @@ msgstr "Lisää \"Lukitse\" päävalikkoon kun svn:needs-lock on asetettu"
 
 #. Resource IDs: (IDS_MENUDESCSHELVE)
 msgid "Puts all changes you made onto a shelf"
-msgstr ""
+msgstr "Siirtää tekemäsi paikalliset muutokset hyllylle"
 
 #. Resource IDs: (cmdExit)
 msgid ""
@@ -7719,7 +7719,7 @@ msgstr "Poistu\nPoistu TortoiseMergestä tallettamatta muutoksia"
 
 #. Resource IDs: (cmdReload_Keytip_RESID)
 msgid "R"
-msgstr ""
+msgstr "R"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1073)
 msgid "R&AM drives"
@@ -8411,7 +8411,7 @@ msgstr "Suorita &komento"
 
 #. Resource IDs: (cmdSave_Keytip_RESID)
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #. Resource IDs: (Dialog IDD_LOGMESSAGE: Control id 1132)
 msgid "S&tatistics"
@@ -8527,7 +8527,7 @@ msgstr "Tallenna"
 
 #. Resource IDs: (cmdSaveAs_LabelTitle_RESID)
 msgid "Save &as"
-msgstr ""
+msgstr "Tallenna &nimellä"
 
 #. Resource IDs: (IDS_REPOBROWSE_SAVEAS, ID_FILE_SAVE_AS - Menu)
 msgid "Save &as..."
@@ -8755,7 +8755,7 @@ msgstr "Valitse painike."
 msgid ""
 "Select an existing shelf to create a new version, or enter a new name to "
 "create a new shelf"
-msgstr ""
+msgstr "Valitse olemassa oleva hylly luodaksesi sille uuden version, tai syötä uusi nimi luodaksesi uuden hyllyn."
 
 #. Resource IDs: (57346)
 msgid "Select an object on which to get Help"
@@ -8921,7 +8921,7 @@ msgstr "Päivitetäänkö työkopio ja yritetään uudelleen?"
 #. Resource IDs: (IDS_SHELF_INFO_LABEL)
 #, c-format
 msgid "Shelf \"%s\" has %ld version(s)"
-msgstr ""
+msgstr "Hyllystä \"%s\" on %ld versiota"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1270,
 #. IDS_STATUSLIST_CONTEXT_SHELL)
@@ -8934,20 +8934,20 @@ msgstr "Komentotulkin kuvakemuisti rakennettiin uudelleen!"
 
 #. Resource IDs: (Dialog IDD_SHELVE: Control id 205)
 msgid "Shelve"
-msgstr ""
+msgstr "Hyllytä"
 
 #. Resource IDs: (IDS_SHELF_BTN_TT)
 msgid "Shelve the selected files and revert the changes."
-msgstr ""
+msgstr "Hyllyttää valitut tiedostot ja poistaa niiden paikalliset muutokset."
 
 #. Resource IDs: (IDS_MENUSHELVE)
 msgid "Shelve..."
-msgstr ""
+msgstr "Hyllytä..."
 
 #. Resource IDs: (IDS_SHELF_SHELVING)
 #, c-format
 msgid "Shelving to \"%s\""
-msgstr ""
+msgstr "Siirretään hyllylle \"%s\""
 
 #. Resource IDs: (32822)
 msgid ""
@@ -9879,7 +9879,7 @@ msgstr "Kohteella '%ls' on ominaisuusristiriitoja:\n%ls"
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
 msgid "The line '====' was expected in line %d!"
-msgstr ""
+msgstr "Riviä '====' odotettiin rivillä %d !"
 
 #. Resource IDs: (IDS_ERR_PATCH_NOINDEX)
 msgid ""
@@ -9890,7 +9890,7 @@ msgstr "Riviä 'Index: ' ei löydy!\nJoko tiedosto ei ole vertailutiedosto tai v
 #. Resource IDs: (IDS_ERR_PATCH_NOADDFILELINE)
 #, c-format
 msgid "The line indicating the new file was expected in line %d!"
-msgstr ""
+msgstr "Uudesta tiedostosta kertovaa riviä odotettiin rivillä %d!"
 
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
 #, c-format
@@ -10124,7 +10124,7 @@ msgid ""
 "incomplete or even misleading due to incomplete history data.\n"
 "\n"
 "The error was:"
-msgstr ""
+msgstr "Yhteyden muodostaminen palvelimeen epäonnistui.\nHaluatko sen sijaan käyttää aiemmin talletettuja tietoja?\n\nHuomaa, että nämä tiedot voivat olla vanhentuneita, epätäydellisiä\ntai jopa osittain harhaan johtavia epätäydellisistä historiatiedoista johtuen.\n\nVirhetiedot:"
 
 #. Resource IDs: (IDS_ERR_NOTHINGTOADD)
 msgid ""
@@ -10513,7 +10513,7 @@ msgstr "Paikannin:"
 
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_URLREV)
 msgid "URLs with revision"
-msgstr ""
+msgstr "Paikantimet versiolle"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1209)
 msgid "Un&modified"
@@ -10655,11 +10655,11 @@ msgstr "Ratkaisemattomia ristiriitoja!"
 
 #. Resource IDs: (Dialog IDD_UNSHELVE: Control id 206)
 msgid "Unshelve"
-msgstr ""
+msgstr "Palauta hyllystä"
 
 #. Resource IDs: (IDS_MENUUNSHELVE)
 msgid "Unshelve..."
-msgstr ""
+msgstr "Palauta hyllystä..."
 
 #. Resource IDs: (61443)
 msgid "Untitled"
@@ -11006,7 +11006,7 @@ msgstr "Käytä vålimuistityyppiä 'none' korotetuille prosesseille"
 
 #. Resource IDs: (cmdPaste_Keytip_RESID)
 msgid "V"
-msgstr ""
+msgstr "V"
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
@@ -11047,7 +11047,7 @@ msgstr "Versio"
 #. Resource IDs: (IDS_SHELF_VERSION_TIME)
 #, c-format
 msgid "Version %d - %s"
-msgstr ""
+msgstr "Versiot %d - %s"
 
 #. Resource IDs: (IDS_VERSION)
 #, c-format
@@ -11084,7 +11084,7 @@ msgstr "Käy verkkosivuillamme"
 
 #. Resource IDs: (cmdShowWhitespaces_Keytip_RESID)
 msgid "W"
-msgstr ""
+msgstr "W"
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CONFIG: Control id 65535)
 msgid ""
@@ -11205,7 +11205,7 @@ msgstr "Työkopio: %ls\n"
 
 #. Resource IDs: (cmdViewWrapLines_LabelTitle_RESID)
 msgid "Wrap Lines"
-msgstr ""
+msgstr "Rivitä"
 
 #. Resource IDs: (ID_VIEW_WRAPLONGLINES - Menu)
 msgid "Wrap long lines"
@@ -11219,7 +11219,7 @@ msgstr "Rivitä pitkät rivit näkymän oikeassa reunassa\nRivitä pitkät rivit
 
 #. Resource IDs: (cmdRedo_Keytip_RESID)
 msgid "Y"
-msgstr ""
+msgstr "Y"
 
 #. Resource IDs: (IDS_CHECKNEWER_YOURUPTODATE)
 msgid "You already have the latest version installed."
@@ -11343,7 +11343,7 @@ msgstr "Työkopiosi osoittaa paikantimeen %ls joka on merkitty versio!\nOn suosi
 
 #. Resource IDs: (cmdUndo_Keytip_RESID)
 msgid "Z"
-msgstr ""
+msgstr "Z"
 
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
@@ -11772,7 +11772,7 @@ msgstr "normaali"
 
 #. Resource IDs: (cmdOpen_Keytip_RESID)
 msgid "o1"
-msgstr ""
+msgstr "o1"
 
 #. Resource IDs: (IDS_STATUSOBSTRUCTED)
 msgid "obstructed"

@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-10-02 02:10+0000\n"
-"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2018-11-28 10:44+0000\n"
+"Last-Translator: mark van tilburg <markvantilburg@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -127,7 +127,7 @@ msgstr "%1!ls! : Werkbasis, revisie %2!ld!"
 #. Resource IDs: (IDS_PROGRS_UPDATE)
 #, c-format
 msgid "%1!ls! from %2!ls!"
-msgstr ""
+msgstr "%1!ls! van %2!ls!"
 
 #. Resource IDs: (IDS_PROGRS_FINALINFO)
 #, c-format
@@ -1617,7 +1617,7 @@ msgstr "&Verversen naar revisie..."
 msgid ""
 "&Update\n"
 "Update the file and try locking again."
-msgstr ""
+msgstr "&Bijwerken\nWerk het bestand bij en probeer het opnieuw te blokkeren."
 
 #. Resource IDs: (IDS_MSG_NEEDSUPDATE_TASK3)
 msgid ""
@@ -1830,7 +1830,7 @@ msgstr "... status werkkopie wordt gelezen"
 #. Resource IDs: (IDS_ERR_SHELVE_FAILED_MORE)
 #, c-format
 msgid "...and %d more paths."
-msgstr ""
+msgstr "...en %d meer paden."
 
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
@@ -2120,7 +2120,7 @@ msgstr "Geavanceerde merge-instellingen"
 
 #. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1675)
 msgid "Affected &files:"
-msgstr ""
+msgstr "Bewerkte bestanden"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Age"
@@ -3097,7 +3097,7 @@ msgstr "Vastleggen"
 #. Resource IDs: (IDS_PROGRS_CMD_COMMIT)
 #, c-format
 msgid "Commit to %1!ls!"
-msgstr ""
+msgstr "Inchecken naar %1!ls!"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -4252,7 +4252,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROC_EDIT_TEXT_CONFLICTS)
 msgid "Edit Text Conflicts"
-msgstr ""
+msgstr "Bewerk tekstconflicten"
 
 #. Resource IDs: (IDS_PROC_EDIT_TREE_CONFLICTS)
 msgid "Edit Tree Conflicts"
@@ -4589,7 +4589,7 @@ msgstr "Exporteer bestanden (*.tsex)|*.tsex|Alle bestanden (*.*)|*.*||"
 #. Resource IDs: (IDS_PROGRS_CMD_EXPORT)
 #, c-format
 msgid "Export from %1!ls!"
-msgstr ""
+msgstr "Exporteren vanaf %1!ls!"
 
 #. Resource IDs: (Dialog IDD_SETTINGSSYNC: Control id 1667)
 msgid "Export settings to file..."

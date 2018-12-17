@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2017
+# Kari Granö <kari.grano@gmail.com>, 2011-2018
 # luebbe <luebbe.opensource@gmail.com>, 2011
 # luebbe <luebbe.opensource@gmail.com>, 2011
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-11-17 01:52+0000\n"
+"PO-Revision-Date: 2018-12-15 12:36+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
@@ -112,13 +112,13 @@ msgstr "Jotkut versionhallintajärjestelmät ovat myös lähdekoodin konfiguroin
 
 #. (title)
 msgid "TortoiseSVN's Features"
-msgstr "TortoiseSVN-ohjelman ominaisuudet"
+msgstr "TortoiseSVN: ominaisuudet"
 
 #. (para)
 msgid ""
 "What makes TortoiseSVN such a good Subversion client? Here's a short list of"
 " features."
-msgstr "Mikä tekee TortoiseSVN-ohjelmasta niin näppärän?"
+msgstr "Mikä tekee TortoiseSVN-ohjelmasta näppärän?"
 
 #. (term)
 msgid "Shell integration"
@@ -317,7 +317,7 @@ msgid ""
 "named TortoiseCVS. Tim studied the source code of TortoiseCVS and used it as"
 " a base for TortoiseSVN. He then started the project, registered the domain "
 "<literal>tortoisesvn.org</literal> and put the source code online."
-msgstr "Vuonna 2002 Tim Kemp havaitsi, että Subversion on tehokas versionhallintajärjestelmä, mutta ilman toimivaa graafista käyttöliittymää. Ajatus Subversion-asiakasohjelmasta Windowsin Resurssienhallinnan laajennoksena sai alkunsa saman tyyppisestä CVS-asiakasohjelmasta nimeltä TortoiseCVS. Tim tutki TortoiseCVS-lähdekoodia ja käytti sitä TortoiseSVN-ohjelman pohjana. Sittemmin hän käynnisti projektin, rekisteröi nimialueen <literal>tortoisesvn.org</literal> ja julkaisi lähdekoodin verkossa."
+msgstr "Vuonna 2002 Tim Kemp päätti luoda graafisen käyttöliittymän Subversion-ohjelmalle. Ajatus Subversion-asiakasohjelmasta Windowsin Resurssienhallinnan laajennoksena sai alkunsa saman tyyppisestä CVS-asiakasohjelmasta nimeltä TortoiseCVS. Tim tutki TortoiseCVS-lähdekoodia ja käytti sitä TortoiseSVN-ohjelman pohjana. Sittemmin hän käynnisti projektin, rekisteröi nimialueen <literal>tortoisesvn.org</literal> ja julkaisi lähdekoodin verkossa."
 
 #. (para)
 msgid ""
@@ -327,7 +327,7 @@ msgid ""
 "programming. He soon rewrote most of the existing code and started adding "
 "commands and features, up to a point where nothing of the original code "
 "remained."
-msgstr "Samoihin aikoihin Stefan Küng etsiskeli hyvää ja ilmaista versionhallintajärjestelmää ja törmäsi Subversioniin sekä TortoiseSVN-lähdekoodeihin. Koska TortoiseSVN ei ollut vielä käyttövalmis, hän liittyi projektiin ja alkoi ohjelmoida. Pian hän oli kirjoittanut suurimman osan olemassa olevasta koodista uudelleen ja alkoi lisätä ominaisuuksia siinä laajuudessa, että ennen pitkää alkuperäisestä koodista ei ollut  jäljellä mitään."
+msgstr "Samoihin aikoihin Stefan Küng etsiskeli hyvää ja ilmaista versionhallintajärjestelmää ja löysi Subversion- ja TortoiseSVN-ohjelmat. Koska TortoiseSVN ei ollut vielä valmis, hän liittyi projektiin ja alkoi parantaa sitä. Pian hän oli kirjoittanut suurimman osan olemassa olevasta koodista uudelleen ja alkoi lisätä ominaisuuksia siinä laajuudessa, että lopulta alkuperäisestä koodista ei ollut mitään jäljellä."
 
 #. (para)
 msgid ""
@@ -369,7 +369,7 @@ msgstr "Stefan Küng"
 msgid ""
 "for the hard work to get TortoiseSVN to what it is now, and his leadership "
 "of the project"
-msgstr "uraauurtavasta työstä, jonka ansiosta TortoiseSVN on nykyisenlainen, ja projektin johtamisesta"
+msgstr "kovasta työstä, jonka ansiosta TortoiseSVN on nykyisenlainen, ja projektin johtamisesta"
 
 #. (term)
 msgid "Lübbe Onken"
@@ -483,6 +483,13 @@ msgid ""
 " it, committing your changes, etc. It then progresses to more advanced "
 "topics."
 msgstr "<xref linkend=\"tsvn-dug\"/> on tärkein luku, koska siinä käydään läpi TortoiseSVN-ohjelman kaikki keskeiset toiminnot ja niiden käyttö. Se on kirjoitettu käyttöoppaan muotoon, alkaen työkopion hakemisesta, muuttamisesta, muutosten toimittamisesta arkistoon, jne. Näistä edetään kehittyneempiin toimintoihin."
+
+#. (para)
+msgid ""
+"The <xref linkend=\"tsvn-projectmonitor\"/> explains how you can monitor "
+"your Subversion projects so you don't miss important commits from your other"
+" team members."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -4904,15 +4911,15 @@ msgstr "Huomaa. että jos käytät muutoslistoja, ulkoiset viitteet eivät enä�
 
 #. (title)
 msgid "Shelving"
-msgstr ""
+msgstr "Hyllyttäminen"
 
 #. (primary)
 msgid "shelve"
-msgstr ""
+msgstr "hyllytä"
 
 #. (primary)
 msgid "unshelve"
-msgstr ""
+msgstr "palauta hyllystä"
 
 #. (para)
 msgid ""
@@ -4922,7 +4929,7 @@ msgid ""
 "you should commit the changes you have done so far and then start working on"
 " the urgent issue, but often those changes would break the build or are just"
 " not ready for committing yet."
-msgstr ""
+msgstr "Joskus on tarpeen keskeyttää meneillään oleva työ ja siirtyä tekemään jotain muuta.  Vakavan ongelman löytyminen voi esimerkiksi vaatia korjauksen tekemistä välittömästi, jolloin meneillään oleva uuden ominaisuuden kehittäminen pitää väliaikaisesti keskeyttää. Mikäli mahdollista, tehdyt muutokset tulisi toimittaa arkistoon ennen ongelman korjausta. Usein tämä ei kuitenkaan ole mahdollista muutosten keskeneräisyyden vuoksi."
 
 #. (para)
 msgid ""
@@ -4933,17 +4940,17 @@ msgid ""
 " again and work on the issue. After you're finished with the urgent issue "
 "and you've committed those changes, you can <firstterm>unshelve</firstterm> "
 "your shelved work and continue working on your previous task again."
-msgstr ""
+msgstr "Jos et voi toimittaa muutoksiasi arkistoon, ne on siirrettävä sivuun siksi ajaksi, kun työskentelet kiireellisemmän asian parissa. <firstterm>Hyllytys</firstterm> auttaa juuri tässä: voit tallettaa muutoksesi hyllylle ja poistaa ne työkopiosta siksi aikaa, kun teet jotain muuta.  Kun olet saanut muun työn päätökseen ja toimitettua versionhallintaan, voit <firstterm>palauttaa hyllystä</firstterm> aiemmin kesken jääneet muutokset ja jatkaa niiden parissa."
 
 #. (para)
 msgid ""
 "Two new commands are implemented for this. One for shelving and one for "
 "unshelving."
-msgstr ""
+msgstr "Tätä ominaisuutta varten on kaksi komentoa, yksi hyllyttämiseen ja toinen hyllyltä palauttamiseen."
 
 #. (title)
 msgid "Shelve dialog"
-msgstr ""
+msgstr "Hyllytysikkuna"
 
 #. (para)
 msgid ""
@@ -4954,7 +4961,7 @@ msgid ""
 "under which you want to store them. <placeholder-1/> If you select an "
 "existing shelf, then a new version is created for that shelf. If you provide"
 " a new name, a new shelf is created for the selected files."
-msgstr ""
+msgstr "Hyllyttääksesi paikalliset muutokset, anna työkopiollesi komento <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Hyllytä</guimenuitem></menuchoice>.  Esiin aukeavassa ikkunassa voit valita hyllytettävät tiedostot ja antaa hyllylle nimen. <placeholder-1/> Mikäli haluat käyttää olemassa olevaa hyllyä, muutoksistasi luodaan uusi versio. Antamalla uuden nimen, valituille tiedostoille luodaan kokonaan uusi hylly."
 
 #. (para)
 msgid ""
@@ -4962,11 +4969,11 @@ msgid ""
 "and your working copy files are reset to a clean state. If you click the "
 "<guibutton>Checkpoint</guibutton> button, the shelf is created but your "
 "local modifications are kept."
-msgstr ""
+msgstr "Napsauttamalla <guibutton>Hyllytä</guibutton>, hylly luodaan ja muutokset poistetaan työkopiostasi. Jos sen sijaan valitset painikkeen <guibutton>Tarkistuspiste</guibutton>, hylly luodaan, mutta paikalliset muutokset säilyvät työkopiossasi. "
 
 #. (title)
 msgid "Unshelve dialog"
-msgstr ""
+msgstr "Palauta hyllystä -ikkuna"
 
 #. (para)
 msgid ""
@@ -4975,22 +4982,22 @@ msgid ""
 "unshelve dialog. This dialog shows you a list of all shelved items. Select "
 "the shelved item you want and the version to apply back to your working copy"
 " and click <guibutton>Apply</guibutton>. <placeholder-1/>"
-msgstr ""
+msgstr "Palauttaaksesi muutoksesi hyllystä, anna komento <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Palauta hyllystä</guimenuitem></menuchoice>. Esiin aukeavassa ikkunassa luetellaan kaikki hyllytetyt muutokset. Valitse hyllytetty muutos ja versio, jonka haluat palauttaa työkopioosi ja napsauta <guibutton>Käytä</guibutton>.<placeholder-1/>"
 
 #. (para)
 msgid ""
 "Shelves are purely a local client feature. Creating and removing Shelves "
 "will not affect the repository, nor anyone else's working copy."
-msgstr ""
+msgstr "Hyllyt ovat pelkästään paikallinen ominaisuus.  Hyllytys tai hyllytyksen poisto eivät vaikuta arkistoon eivätkä kenenkään muun työkopioon."
 
 #. (title)
 msgid "Experimental"
-msgstr ""
+msgstr "Kokeellinen"
 
 #. (para)
 msgid ""
 "The shelving feature is still marked as <literal>experimental</literal>."
-msgstr ""
+msgstr "Hyllytys on vielä <literal>kokeellinen</literal> ominaisuus."
 
 #. (para)
 msgid ""
@@ -4999,7 +5006,7 @@ msgid ""
 "guarantee that the shelves you create are upwards compatible and future "
 "versions might not be able to use them. And of course the UI might change as"
 " well in future versions to accommodate new features and behaviors."
-msgstr ""
+msgstr "Kokeellinen tarkoittaa, että vaikka hyllytys toimii dokumentoidusti, sitä kehitetään ja parannetaan vielä. Tämä tarkoittaa myös, että luomasi hyllytykset eivät mahdollisesti ole yhteensopivia tulevien ohjelmistoversioiden kanssa. Käyttöliittymä saattaa tietenkin myös muuttua."
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -14495,7 +14502,7 @@ msgstr "Päätä toimitus"
 
 #. (para)
 msgid "Called after the commit finishes successfully."
-msgstr ""
+msgstr "Kutsutaan, kun toimitus päättyy onnistuneesti."
 
 #. (term)
 #. (term)
@@ -15256,7 +15263,7 @@ msgid ""
 "If enabled, right-to-left language text editing is done properly. Since this"
 " feature is expensive, it is disabled by default. You can enable this by "
 "setting this value to <literal>true</literal>."
-msgstr ""
+msgstr "Tämä valinta kytkee toimitusviestin muokkauskontrollin kaksisuuntaiseen tilaan.  Mikäli sallittu, myös oikealta vasemmalle kirjoitettavien kielten muokkaus toimii. Koska ominaisuus hidastaa toimintaa, se on oletusarvoisesti kytketty pois päältä.  Voit kytkeä ominaisuuden päälle asettamalla arvoksi <literal>true</literal>."
 
 #. (para)
 msgid ""
@@ -15272,33 +15279,33 @@ msgstr "Tämä valinta asettaa päälle Direct2D-kiihdytyksen Scintilla-kontroll
 msgid ""
 "The user is asked whether to update the working copy or not, and the commit "
 "dialog is not reopened after the update."
-msgstr ""
+msgstr "Käyttäjältä kysytään, päivitetäänkö työkopio vai ei, ja toimitusikkunaa ei avata uudelleen päivityksen jälkeen."
 
 #. (para)
 msgid ""
 "This is the default. The user is asked whether to update the working copy or"
 " not, and the commit dialog is reopened after the update so the user can "
 "proceed with the commit right away."
-msgstr ""
+msgstr "Oletustoiminta. Käyttäjältä kysytään, päivitetäänkö työkopio vai ei, ja toimitusikkuna avataan uudelleen päivityksen jälkeen, jolloin käyttäjä voi suoraan jatkaa arkistoon toimitusta."
 
 #. (para)
 msgid ""
 "Similar to <literal>1</literal>, but instead of updating only the paths "
 "selected for a commit, the update is done on the working copy root. This "
 "helps to avoid inconsistent working copies."
-msgstr ""
+msgstr "Kuten <literal>1</literal>, mutta sen sijaan, että päivitettäisiin vain toimitukseen sisältyvät polut, päivitys tehdään koko työkopiolle.  Tämä auttaa pitämään työkopion yhtenäisenä."
 
 #. (para)
 msgid ""
 "The user is not asked to update the working copy. The commit simply fails "
 "with the out-of-date error message."
-msgstr ""
+msgstr "Käyttäjää ei pyydetä päivittämään työkopiota.  Toimitus epäonnistuu \"vanhentunut työkopio\" -virheen kera."
 
 #. (para)
 msgid ""
 "This parameter specifies how TortoiseSVN behaves if a commit fails due to an"
 " out-of-date error: <placeholder-1/>"
-msgstr ""
+msgstr "Tämä asetus määrittää, miten TortoiseSVN toimii, jos toimitus epäonnistuu siitä syystä, että työkopio on vanhentunut: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -15307,7 +15314,7 @@ msgid ""
 "requires your attention. Set this to <literal>false</literal> if you want to"
 " keep TortoiseSVN quiet. Note that the project monitor has its own setting "
 "for playing sounds, which you can configure in its settings dialog."
-msgstr ""
+msgstr "Mikäli arvona on <literal>true</literal>, TortoiseSVN toistaa systeemiäänen, jos on tarpeen antaa virheilmoitus, varoitus tai jokin muu tärkeä viesti. Asetuksen arvo <literal>false</literal> poistaa ääniefektit. Huomaa, että projektimonitorilla on oma ääniasetus, jota voi säätää sen omissa asetuksissa."
 
 #. (para)
 msgid ""
@@ -15356,7 +15363,7 @@ msgid ""
 "edit controls. If you don't want that and use the default instead, set this "
 "value to 0. If you only want the default for edit controls in combo boxes, "
 "set this value to 1."
-msgstr ""
+msgstr "TortoiseSVN käyttää omaa muokkauskontrollia, joka osaa esim. pysähtyä polkujen ja paikantimien sisältämien '/'-merkkien kohdalla. Jos haluat käyttää vakiomuokkauskontrollia, aseta arvoksi 0. Mikäli haluat käyttää vakiomuokkauskontrollia vain pudotusvalikoiden yhteydessä, aseta arvoksi 1."
 
 #. (para)
 msgid ""
@@ -18516,7 +18523,7 @@ msgid ""
 "destination are exactly the same. Specify <placeholder-3/> to skip the "
 "confirmation dialog, and <placeholder-4/> to also disable showing the "
 "progress dialog."
-msgstr ""
+msgstr "Kopioi kansion <placeholder-1/> palautuvasti kansioon <placeholder-2/>. Uudet tiedostot lisätään automaattisesti, ja puuttuvat tiedostot poistetaan kohdekansiosta. Tämä takaa, että lähde- ja kohdekansiot ovat samoja. Asetus <placeholder-3/> ohittaa vahvistusikkunan, ja asetus <placeholder-4/> estää edistymisikkunan näyttämisen."
 
 #. (option)
 #. (option)
@@ -18651,15 +18658,15 @@ msgstr "Käynnistää TortoiseSVN-asetuksissa määritellyn ulkoisen vertailuohj
 #. (option)
 #. (option)
 msgid "/shelfname:name"
-msgstr ""
+msgstr "/shelfname:name"
 
 #. (option)
 msgid "/logmsg:message"
-msgstr ""
+msgstr "/logmsg:message"
 
 #. (option)
 msgid "/checkpoint"
-msgstr ""
+msgstr "/checkpoint"
 
 #. (entry)
 msgid ""
@@ -18667,18 +18674,18 @@ msgid ""
 "specifies the name of the shelf. An optional log message can be specified "
 "with <placeholder-2/>. If option <placeholder-3/> is passed, the "
 "modifications of the files are kept."
-msgstr ""
+msgstr "Hyllyttää valitut polut uudelle hyllylle. Valitsin <placeholder-1/> määrittää hyllyn nimen. Valinnainen lokiviesti voidaan antaa valitsimella <placeholder-2/>. Mikäli valitsin <placeholder-3/>annetaan, hyllytetyt muutokset jätetään työkopioon."
 
 #. (option)
 msgid "/version:X"
-msgstr ""
+msgstr "/version:X"
 
 #. (entry)
 msgid ""
 "Applies the shelf with the name <placeholder-1/> to the working copy path. "
 "By default the last version of the shelf is applied, but you can specify a "
 "version with <placeholder-2/>."
-msgstr ""
+msgstr "Yhdistää hyllyn <placeholder-1/> sisällön työkopioon. Oletusarvoisesti käytetään hyllyn viimeisintä versiota, mutta tämän voi muuttaa valitsimella <placeholder-2/>."
 
 #. (para)
 msgid ""
@@ -18708,7 +18715,7 @@ msgid ""
 "If a unified diff is requested, an optional <option>prettyprint</option> "
 "option can be specified which will show the merge-info properties in a more "
 "user readable format."
-msgstr ""
+msgstr "Mikäli muutokset halutaan unified diff -muodossa, niiden luettavuutta voidaan tarvittaessa parantaa asetuksella <option>Lisää luettavuutta</option>. Asetus näyttää merge-info -ominaisuudet helpommin luettavassa muodossa."
 
 #. (entry)
 msgid ""
@@ -18827,7 +18834,7 @@ msgstr "/noview"
 
 #. (option)
 msgid "prettyprint"
-msgstr ""
+msgstr "Lisää luettavuutta"
 
 #. (entry)
 msgid ""
@@ -18837,7 +18844,7 @@ msgid ""
 "being started showing the patch file, pass <placeholder-3/>. If a unified "
 "diff is requested, an optional <placeholder-4/> option can be specified "
 "which will show the merge-info properties in a more user readable format."
-msgstr ""
+msgstr "Luo paikkatiedoston valitsemella  <placeholder-1/> annettuun polkuun. Ohittaaksesi Tallenna nimellä -ikkunan voit määritellä paikkatiedoston tallennuspolun valitsimella  <placeholder-2/>. Anna valitsin  <placeholder-3/> estääksesi paikkatiedoston näyttämisen unified diff -vertailuohjelmalla.\nMikäli muutokset halutaan unified diff -muodossa, niiden luettavuutta voidaan tarvittaessa parantaa asetuksella <placeholder-4/>. Asetus näyttää merge-info -ominaisuudet helpommin luettavassa muodossa."
 
 #. (para)
 msgid "Shows the revision graph for the path given in <option>/path</option>."
@@ -19982,13 +19989,13 @@ msgid ""
 "different language than the default OS language, you have to install the "
 "spell checker module in the Windows settings (<literal>Settings &gt; Time "
 "&amp; Language &gt; Region &amp; Language</literal>)."
-msgstr ""
+msgstr "TortoiseSVN käyttää Windowsin tavutustarkistajaa, mikäli sellainen on saatavilla (Windows 8 ja uudemmat). Tämä tarkoittaa, että jos haluat tavutustarkistuksen toimivan jollain muulla kuin käyttöjärjestelmän asennuskielellä, sinun on asennettava tavutusmoduuli Windows-asetuksissa (<literal>Asetukset &gt; Aika &amp; kieli &gt; Alue &amp; kieli</literal>)."
 
 #. (para)
 msgid ""
 "TortoiseSVN will use that spell checker if properly configured with the "
 "<literal>tsvn:projectlanguage</literal> project property."
-msgstr ""
+msgstr "TortoiseSVN käyttää tätä tavutustarkistajaa, mikäli projektiominaisuus <literal>tsvn:projectlanguage</literal> on määritetty."
 
 #. (para)
 msgid ""
@@ -19996,7 +20003,7 @@ msgid ""
 " spell checker dictionaries from <ulink "
 "url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and"
 " <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr ""
+msgstr "Mikäli Windowsin tavutustarkistaja ei ole saatavilla, TortoiseSVN voi myös käyttää tavutussanakirjoja <ulink url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> ja <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> -projekteista."
 
 #. (para)
 msgid ""
