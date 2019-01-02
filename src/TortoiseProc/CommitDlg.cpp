@@ -34,7 +34,6 @@
 #include "../version.h"
 #include "BstrSafeVector.h"
 #include "SmartHandle.h"
-#include "Hooks.h"
 #include "DPIAware.h"
 
 #ifdef _DEBUG
