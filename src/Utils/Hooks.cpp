@@ -930,7 +930,10 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
 bool CHooks::ApproveHook(HWND hWnd, hookiterator it, DWORD& exitcode)
 {
     if (it->second.bApproved || it->second.bStored)
+    {
+        exitcode = 0;
         return it->second.bApproved;
+    }
 
     CString sQuestion;
     sQuestion.Format(IDS_HOOKS_APPROVE_TASK1, (LPCWSTR)it->second.commandline);
