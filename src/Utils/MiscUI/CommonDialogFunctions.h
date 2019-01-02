@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2016 - TortoiseSVN
 
@@ -56,7 +56,7 @@ public:
         {
             CFont* font = pwndDlgItem->GetFont();
             CFont* pOldFont = pDC->SelectObject(font);
-            if (pDC->DrawText(sControlText, -1, &controlrect, DT_WORDBREAK | DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_CALCRECT))
+            if (pDC->DrawText(sControlText, -1, &controlrect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_CALCRECT))
             {
                 // now we have the rectangle the control really needs
                 if ((controlrectorig.right - controlrectorig.left) > (controlrect.right - controlrect.left))
