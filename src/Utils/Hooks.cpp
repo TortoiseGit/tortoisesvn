@@ -961,11 +961,11 @@ bool CHooks::ApproveHook(HWND hWnd, hookiterator it, DWORD& exitcode)
     if (bDoNotAskAgain)
     {
         CRegDWORD reg(it->second.sRegKey, 0);
-        reg = bApproved ? 1 : 0;
+        reg                  = bApproved ? 1 : 0;
+        it->second.bStored   = true;
+        it->second.bApproved = bApproved;
     }
-    it->second.bStored   = true;
-    it->second.bApproved = bApproved;
-    exitcode             = 0;
+    exitcode = 0;
     return bApproved;
 }
 
