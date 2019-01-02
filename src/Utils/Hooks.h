@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2006-2016 - TortoiseSVN
 
@@ -294,7 +294,7 @@ private:
      * Checks whether the hook script has been validated already and
      * if not, asks the user to validate it.
      */
-    bool                ApproveHook(HWND hWnd, hookiterator it);
+    bool                ApproveHook(HWND hWnd, hookiterator it, DWORD& exitcode);
 
     static CHooks *     m_pInstance;
     ULONGLONG           m_lastPreConnectTicks;
