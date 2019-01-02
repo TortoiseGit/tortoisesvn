@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2009-2010, 2013-2014 - TortoiseSVN
 
@@ -265,7 +265,10 @@ protected:
                 {
                     // we're dealing with radio buttons and check boxes,
                     // which means we have to add a little space for the checkbox
-                    controlrectorig.right = controlrectorig.left + (controlrect.right - controlrect.left) + 20;
+                    // the value of 3 pixels added here is necessary in case certain visual styles have
+                    // been disabled. Without this, the width is calculated too short.
+                    const int checkWidth  = GetSystemMetrics(SM_CXMENUCHECK) + 2 * GetSystemMetrics(SM_CXEDGE) + 3;
+                    controlrectorig.right = controlrectorig.left + (controlrect.right - controlrect.left) + checkWidth;
                     pwndDlgItem->MoveWindow(&controlrectorig);
                 }
             }
