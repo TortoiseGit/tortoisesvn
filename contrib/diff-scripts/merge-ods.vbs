@@ -28,6 +28,12 @@ sTheirDoc = objArgs(1)
 sMyDoc = objArgs(2)
 sBaseDoc = objArgs(3)
 
+'since i haven't found a way to tell OO a new "save" path after a document is opened,
+'the %mine and %merged paths need to be identical since it always saves to the %mine path
+if (sMergedDoc <> sMyDoc) Then
+    MsgBox "paths %mine and %merged must be identical", vbExclamation, "wrong parameters"
+    Wscript.Quit 1
+End If
 Set objScript = CreateObject("Scripting.FileSystemObject")
 If objScript.FileExists(sMyDoc) = False Then
     MsgBox "File " + sMyDoc + " does not exist.  Cannot compare the documents.", vbExclamation, "File not found"
