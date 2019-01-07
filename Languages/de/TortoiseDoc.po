@@ -37,7 +37,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-12-15 12:36+0000\n"
+"PO-Revision-Date: 2019-01-07 00:14+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -4980,7 +4980,7 @@ msgid ""
 "under which you want to store them. <placeholder-1/> If you select an "
 "existing shelf, then a new version is created for that shelf. If you provide"
 " a new name, a new shelf is created for the selected files."
-msgstr ""
+msgstr "Um Ihre lokalen Änderungen zurückzustellen, gehen Sie in ihre Arbeitskopie und wählen Sie<menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Zurückstellen</guimenuitem></menuchoice>. Mit dem folgenden Dialog wählen Sie die zurückzustellenden Dateien sowie den Namen unter dem sie gespeichert werden sollen.<placeholder-1/> Wenn Sie eine vorhandene Ablage wählen, wird für diese eine neue Version erstellt. Wenn Sie einen neuen Namen angeben, wird eine neue Ablage für die gewählten Dateien erstellt."
 
 #. (para)
 msgid ""
@@ -4988,7 +4988,7 @@ msgid ""
 "and your working copy files are reset to a clean state. If you click the "
 "<guibutton>Checkpoint</guibutton> button, the shelf is created but your "
 "local modifications are kept."
-msgstr ""
+msgstr "Sobald Sie die <guibutton>Zurückstellen</guibutton> Schaltfläche anklicken, wird das Regal angelegt und die Dateien in ihrer Arbeitskopie in den Ursprungszustand zurückversetzt.  Mit <guibutton>Kontrollpunkt</guibutton> wird das Regal angelegt, aber ihre lokalen Änderungen werden beibehalten."
 
 #. (title)
 msgid "Unshelve dialog"
@@ -5001,22 +5001,22 @@ msgid ""
 "unshelve dialog. This dialog shows you a list of all shelved items. Select "
 "the shelved item you want and the version to apply back to your working copy"
 " and click <guibutton>Apply</guibutton>. <placeholder-1/>"
-msgstr ""
+msgstr "Um Ihre Änderungen hervorzuholen, wählen Sie <menuchoice><guimenu>Kontextmenü</guimenu><guimenuitem>Hervorholen</guimenuitem></menuchoice> für den Hervorholen Dialog. Dieser zeigt Ihnen eine Liste der zurückgestellten Objekte. Markieren Sie das zurückgestellte Objekt sowie die Version, die in Ihre Arbeitskopie hervorgeholt werden soll und wählen Sie <guibutton>Anwenden</guibutton>. <placeholder-1/>"
 
 #. (para)
 msgid ""
 "Shelves are purely a local client feature. Creating and removing Shelves "
 "will not affect the repository, nor anyone else's working copy."
-msgstr ""
+msgstr "Ablagen sind eine rein clientseitige Funktion. Das Anlegen und entfernen von Ablagen beeinflusst weder das Projektarchiv noch jemand anderes Arbeitskopie."
 
 #. (title)
 msgid "Experimental"
-msgstr ""
+msgstr "Experimentell"
 
 #. (para)
 msgid ""
 "The shelving feature is still marked as <literal>experimental</literal>."
-msgstr ""
+msgstr "Die Ablagefunktion ist noch <literal>experimentell</literal>."
 
 #. (para)
 msgid ""
@@ -5025,7 +5025,7 @@ msgid ""
 "guarantee that the shelves you create are upwards compatible and future "
 "versions might not be able to use them. And of course the UI might change as"
 " well in future versions to accommodate new features and behaviors."
-msgstr ""
+msgstr "Das bedeutet, dass obwohl die Ablagefunktion bereits funktioniert, sie sich in einem Status befindet, in dem weiterentwickelt und Verbesserungen vorgenommen werden. Das bedeutet, dass nicht sichergestellt ist, dass Ablagen, die sie jetzt anlegen, von zukünftigen Versionen noch verwendet werden können. Außerdem kann sich die Oberfläche ändern, um neue Eigenschaften und Funktionen verfügbar zu machen."
 
 #. (title)
 msgid "Revision Log Dialog"
@@ -8164,10 +8164,10 @@ msgid ""
 "<literal>tsvn:projectlanguage</literal> sets the language module the spell "
 "checking engine should use when you enter a log message. You can find the "
 "values for your language on this page: <ulink "
-"url=\"http://msdn2.microsoft.com/en-"
-"us/library/ms776260.aspx\"><citetitle>MSDN: Language "
+"url=\"https://docs.microsoft.com/en-us/windows/desktop/intl/language-"
+"identifier-constants-and-strings\"><citetitle>MSDN: Language "
 "Identifiers</citetitle></ulink>."
-msgstr "TortoiseSVN kann eine Rechtschreibprüfung benutzen. Unter Windows 10 wird die Rechtschreibprüfung des Betriebssystems verwendet, unter früheren Versionen von Windows die Wörterbücher von OpenOffice oder Mozilla. Wenn Sie ein solches installiert haben, legt diese Eigenschaft fest, welches Sprachmodul für das Projekt benutzt werden soll.<literal>tsvn:projectlanguage</literal> setzt die Sprache des zu benutzenden Wörterbuchs. Die Werte für die Sprache können Sie hier nachschlagen: <ulink url=\"http://msdn2.microsoft.com/en-us/library/ms776260.aspx\"><citetitle>MSDN: Language Identifiers</citetitle></ulink>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -10106,7 +10106,7 @@ msgstr "Wenn es einen Baumkonflikt gibt, siehe <xref linkend=\"tsvn-dug-conflict
 
 #. (title)
 msgid "The Merge Tree Conflict Dialog"
-msgstr "Der Dialog Zusammenführen von Baumkonflikten"
+msgstr "Der Dialog zum Zusammenführen von Baumkonflikten"
 
 #. (para)
 msgid ""
@@ -18677,15 +18677,15 @@ msgstr "Startet das externe, in den TortoiseSVN Einstellungen angegebene Verglei
 #. (option)
 #. (option)
 msgid "/shelfname:name"
-msgstr ""
+msgstr "/shelfname:name"
 
 #. (option)
 msgid "/logmsg:message"
-msgstr ""
+msgstr "/logmsg:message"
 
 #. (option)
 msgid "/checkpoint"
-msgstr ""
+msgstr "/checkpoint"
 
 #. (entry)
 msgid ""
@@ -18693,18 +18693,18 @@ msgid ""
 "specifies the name of the shelf. An optional log message can be specified "
 "with <placeholder-2/>. If option <placeholder-3/> is passed, the "
 "modifications of the files are kept."
-msgstr ""
+msgstr "Stellt die gewählten Pfade in einer neuen Ablage zurück. Parameter<placeholder-1/> legt den Namen der Ablage fest. Eine optionale Logmeldung kann mit <placeholder-2/> angegeben werden. Mit der Option <placeholder-3/> werden die lokalen Änderungen beibehalten."
 
 #. (option)
 msgid "/version:X"
-msgstr ""
+msgstr "/version:X"
 
 #. (entry)
 msgid ""
 "Applies the shelf with the name <placeholder-1/> to the working copy path. "
 "By default the last version of the shelf is applied, but you can specify a "
 "version with <placeholder-2/>."
-msgstr ""
+msgstr "Wendet die Ablage mit dem Namen<placeholder-1/> auf den Pfad der Arbeitskopie an. Standardmäßig wird die neueste Version der Ablage verwendet, aber Sie können mit <placeholder-2/> eine Version auswählen."
 
 #. (para)
 msgid ""

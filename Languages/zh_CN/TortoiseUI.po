@@ -26,7 +26,7 @@
 # Nick Vrvilo <nick@vrvilo.com>, 2011, 2012
 # pluwen <pluwen@gmail.com>, 2011
 # pluwen <pluwen@gmail.com>, 2011
-# pop corner <memoword@163.com>, 2018
+# pop corner <memoword@163.com>, 2018-2019
 # qingxianhao <qinghao1@foxmail.com>, 2012
 # Verplusor, 2011
 # Shengbin Meng <shengbinmeng@gmail.com>, 2013
@@ -42,7 +42,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-10-24 09:13+0000\n"
+"PO-Revision-Date: 2019-01-02 14:20+0000\n"
 "Last-Translator: pop corner <memoword@163.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -142,7 +142,7 @@ msgstr "%1!ls! : 工作基础，版本 %2!ld!"
 #. Resource IDs: (IDS_PROGRS_UPDATE)
 #, c-format
 msgid "%1!ls! from %2!ls!"
-msgstr ""
+msgstr "%1!ls! 来自 %2!ls!"
 
 #. Resource IDs: (IDS_PROGRS_FINALINFO)
 #, c-format
@@ -1845,7 +1845,7 @@ msgstr "... 正在读取工作副本的状态"
 #. Resource IDs: (IDS_ERR_SHELVE_FAILED_MORE)
 #, c-format
 msgid "...and %d more paths."
-msgstr ""
+msgstr "...和%d更多路径"
 
 #. Resource IDs: (IDS_DIFF_REVISIONPATCHED)
 #, c-format
@@ -1868,7 +1868,7 @@ msgstr "(新修改列表)"
 msgid ""
 "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Clear "
 "errors=&Update all=&Options=="
-msgstr ""
+msgstr "=立即检查(&C)=添加项目(&A)=编辑(&D)=移除(&R)=全部标记为已读(&M)=清除错误(&C)=全部更新(&U)=选项(&O)=="
 
 #. Resource IDs: (ID_ABOUT - Menu)
 msgid "?"
@@ -3625,7 +3625,7 @@ msgstr "创建补丁"
 msgid ""
 "Create a checkpoint.\n"
 "The selected modifications are saved to a shelf, but the local modifications are kept."
-msgstr ""
+msgstr "创建一个检查点。\n选定的修改将保存到工具架，但会保留本地修改。"
 
 #. Resource IDs: (IDS_LOG_CODE_COLLABORATOR)
 msgid "Create code collaborator revie&w..."
@@ -7150,7 +7150,7 @@ msgid ""
 "One or more paths could not be shelved.\n"
 "The following paths failed:\n"
 "%s"
-msgstr ""
+msgstr "一条或多条路径无法贮藏。\n以下路径失败：\n%s"
 
 #. Resource IDs: (IDS_MONITOR_NOTIFY_TITLE)
 msgid "One project has updates:"
@@ -8943,7 +8943,7 @@ msgstr "是否更新工作副本并重试？"
 #. Resource IDs: (IDS_SHELF_INFO_LABEL)
 #, c-format
 msgid "Shelf \"%s\" has %ld version(s)"
-msgstr ""
+msgstr "贮藏%s有 %ld 版本"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1270,
 #. IDS_STATUSLIST_CONTEXT_SHELL)
@@ -8956,7 +8956,7 @@ msgstr "图标缓存重建完成！"
 
 #. Resource IDs: (Dialog IDD_SHELVE: Control id 205)
 msgid "Shelve"
-msgstr "搁置"
+msgstr "贮藏"
 
 #. Resource IDs: (IDS_SHELF_BTN_TT)
 msgid "Shelve the selected files and revert the changes."
@@ -8964,7 +8964,7 @@ msgstr "贮藏选中的文件并还原更改。"
 
 #. Resource IDs: (IDS_MENUSHELVE)
 msgid "Shelve..."
-msgstr "搁置..."
+msgstr "贮藏..."
 
 #. Resource IDs: (IDS_SHELF_SHELVING)
 #, c-format
@@ -10535,7 +10535,7 @@ msgstr "URL: "
 
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_URLREV)
 msgid "URLs with revision"
-msgstr ""
+msgstr "带修订版的网址"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1209)
 msgid "Un&modified"
@@ -10677,11 +10677,11 @@ msgstr "未解决的冲突！"
 
 #. Resource IDs: (Dialog IDD_UNSHELVE: Control id 206)
 msgid "Unshelve"
-msgstr "取消搁置"
+msgstr "取消贮藏"
 
 #. Resource IDs: (IDS_MENUUNSHELVE)
 msgid "Unshelve..."
-msgstr "取消搁置..."
+msgstr "取消贮藏..."
 
 #. Resource IDs: (61443)
 msgid "Untitled"

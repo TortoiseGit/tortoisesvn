@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-12-15 12:36+0000\n"
+"PO-Revision-Date: 2019-01-07 00:14+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -6210,7 +6210,7 @@ msgstr "Modalità offline"
 
 #. (title)
 msgid "Go Offline Dialog"
-msgstr ""
+msgstr "Finestra di dialogo Vai offline"
 
 #. (para)
 msgid ""
@@ -6218,7 +6218,7 @@ msgid ""
 "enabled you can use the log dialog and revision graph in offline mode. This "
 "uses data from the cache, which allows you to continue working although the "
 "information may not be up-to-date or even complete."
-msgstr ""
+msgstr "<placeholder-1/> Se il server non è raggiungibile e la memorizzazione nella cache del log è abilitata, è possibile utilizzare la finestra di dialogo del log e il grafico di revisione in modalità offline. Questo utilizza i dati dalla cache, che consente di continuare a lavorare anche se le informazioni potrebbero non essere aggiornate o complete."
 
 #. (term)
 msgid "Offline for now"
@@ -6228,7 +6228,7 @@ msgstr "Offline per adesso"
 msgid ""
 "Complete the current operation in offline mode, but retry the repository "
 "next time log data is requested."
-msgstr ""
+msgstr "Completa l'operazione corrente in modalità offline, ma riprova con il repository la prossima volta in cui vengono richiesti i dati del log."
 
 #. (term)
 msgid "Permanently offline"
@@ -6238,7 +6238,7 @@ msgstr "Permanentemente offline"
 msgid ""
 "Remain in offline mode until a repository check is specifically requested. "
 "See <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
-msgstr ""
+msgstr "Rimani in modalità offline fino a quando non viene richiesto specificamente un controllo del repository. Vedi <xref linkend=\"tsvn-dug-showlog-refresh\"/>."
 
 #. (term)
 msgid "Cancel"
@@ -6248,11 +6248,11 @@ msgstr "Annulla"
 msgid ""
 "If you don't want to continue the operation with possibly stale data, just "
 "cancel."
-msgstr ""
+msgstr "Se non si desidera continuare l'operazione con dati probabilmente obsoleti, basta annullare."
 
 #. (para)
 msgid "Here you have three options: <placeholder-1/>"
-msgstr ""
+msgstr "Qui hai tre opzioni: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -6260,7 +6260,7 @@ msgid ""
 " from re-appearing and always picks the option you choose next. You can "
 "still change (or remove) the default after doing this from "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Settings</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "La casella di controllo <guilabel>Rendi questo predefinito</guilabel> impedisce che questa finestra di dialogo riappaia e seleziona sempre l'opzione scelta. È ancora possibile modificare (o rimuovere) il valore predefinito dopo averlo fatto da <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Impostazioni</guimenuitem></menuchoice>."
 
 #. (title)
 #. (title)
@@ -6274,7 +6274,7 @@ msgid ""
 "(enabled by default), this will check the repository for newer messages and "
 "fetch only the new ones. If the log cache was in offline mode, this will "
 "also attempt to go back online."
-msgstr ""
+msgstr "Se si desidera verificare nuovamente il server per i messaggi di log più recenti, è sufficiente aggiornare la visualizzazione utilizzando <keycap>F5</keycap>. Se si utilizza la cache di log (abilitata per impostazione predefinita), questo controllerà il repository per i messaggi più recenti e recupererà solo quelli nuovi. Se la cache del registro era in modalità offline, questo tenterà anche di tornare online."
 
 #. (para)
 msgid ""
@@ -6283,16 +6283,16 @@ msgid ""
 "<keycap>Ctrl-F5</keycap> to re-fetch the displayed messages from the server "
 "and update the log cache. Note that this only affects messages currently "
 "shown and does not invalidate the entire cache for that repository."
-msgstr ""
+msgstr "Se si utilizza la cache di log e si ritiene che il contenuto del messaggio o dell'autore possa essere cambiato, è possibile utilizzare <keycap>Shift-F5</keycap> o <keycap>Ctrl-F5</keycap> per recuperare nuovamente i messaggi visualizzati dal server e aggiornare la cache di log. Nota che questo riguarda solo i messaggi attualmente mostrati e non invalida l'intera cache per quel repository."
 
 #. (title)
 msgid "Viewing Differences"
-msgstr ""
+msgstr "Visualizzazione delle differenze"
 
 #. (primary)
 #. (primary)
 msgid "diff"
-msgstr ""
+msgstr "diff"
 
 #. (primary)
 msgid "compare"
@@ -6307,7 +6307,7 @@ msgid ""
 "viewing differences of text files. For viewing differences of image files, "
 "TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. "
 "Of course, you can use your own favourite diff program if you like."
-msgstr ""
+msgstr "Uno dei requisiti più comuni nello sviluppo del progetto è vedere cosa è cambiato. Potresti voler vedere le differenze tra due revisioni dello stesso file o le differenze tra due file separati. TortoiseSVN fornisce uno strumento integrato denominato <application>TortoiseMerge</application> per visualizzare le differenze di file di testo. Per visualizzare le differenze dei file immagine, TortoiseSVN ha anche uno strumento chiamato <application>TortoiseIDiff</application>. Naturalmente, se lo desideri, puoi utilizzare il tuo programma diff preferito."
 
 #. (title)
 msgid "File Differences"
@@ -6322,11 +6322,11 @@ msgid ""
 "If you want to see what changes <emphasis>you</emphasis> have made in your "
 "working copy, just use the explorer context menu and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se vuoi vedere quali modifiche <emphasis>hai apportato</emphasis> nella tua copia di lavoro, usa il menu di scelta rapida di Explorer e seleziona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 
 #. (term)
 msgid "Difference to another branch/tag"
-msgstr ""
+msgstr "Differenza rispetto a un altro branch/tag"
 
 #. (para)
 msgid ""
@@ -6337,7 +6337,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff with "
 "URL</guimenuitem></menuchoice>. In the following dialog, specify the URL in "
 "the repository with which you want to compare your local file to."
-msgstr ""
+msgstr "Se vuoi vedere cosa è cambiato sul trunk (se stai lavorando su un branch) o su un branch specifico (se stai lavorando sul trunk), puoi usare il menu contestuale di explorer. Tieni premuto il tasto <keycap>Maiusc</keycap> mentre fai clic con il pulsante destro del mouse sul file. Quindi seleziona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff con URL</guimenuitem></menuchoice>. Nella seguente finestra di dialogo, specificare l'URL nel repository con cui si desidera confrontare il file locale."
 
 #. (para)
 msgid ""
@@ -6345,7 +6345,7 @@ msgid ""
 "perhaps two tags, or a branch/tag and trunk. The context menu there allows "
 "you to compare them using <guimenuitem>Compare revisions</guimenuitem>. Read"
 " more in <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Puoi anche utilizzare il browser del repository e selezionare due alberi da confrontare, oppure due tag oppure un branch/tag e il trunk. Il menu di scelta rapida consente di confrontarli utilizzando <guimenuitem>Confronta revisioni</guimenuitem>. Leggi di più in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "Difference from a previous revision"
@@ -6357,7 +6357,7 @@ msgid ""
 "working copy, use the Revision Log dialog, select the revision of interest, "
 "then select <guimenuitem>Compare with working copy</guimenuitem> from the "
 "context menu."
-msgstr ""
+msgstr "Se si desidera vedere la differenza tra una particolare revisione e la propria copia di lavoro, utilizzare la finestra di dialogo Log revisioni, selezionare la revisione di interesse, quindi selezionare <guimenuitem>Confronta con copia di lavoro</guimenuitem> dal menu di scelta rapida."
 
 #. (para)
 msgid ""
@@ -6370,11 +6370,11 @@ msgid ""
 "the working BASE. This shows you the last change made to that file to bring "
 "it to the state you now see in your working copy. It will not show changes "
 "newer than your working copy."
-msgstr ""
+msgstr "Se vuoi vedere la differenza tra l'ultima revisione committata e la tua copia di lavoro, supponendo che la copia di lavoro non sia stata modificata, fai semplicemente clic con il pulsante destro del mouse sul file. Quindi selezionare <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff con la versione precedente</guimenuitem></menuchoice>. Questo eseguirà un diff tra la revisione prima dell'ultima data di commit (come registrato nella copia di lavoro) e la BASE di lavoro. Questo ti mostra l'ultima modifica apportata a quel file per portarlo allo stato che ora vedi nella tua copia di lavoro. Non mostrerà cambiamenti più recenti della tua copia di lavoro."
 
 #. (term)
 msgid "Difference between two previous revisions"
-msgstr ""
+msgstr "Differenza tra due revisioni precedenti"
 
 #. (para)
 msgid ""
@@ -6382,7 +6382,7 @@ msgid ""
 "committed, use the Revision Log dialog and select the two revisions you want"
 " to compare (using the usual <keycap>Ctrl</keycap>-modifier). Then select "
 "<guimenuitem>Compare revisions</guimenuitem> from the context menu."
-msgstr ""
+msgstr "Se si desidera vedere la differenza tra due revisioni già committate, utilizzare la finestra di dialogo Registro log e selezionare le due revisioni che si desidera confrontare (utilizzando il solito modificatore <keycap>Ctrl</keycap>). Quindi selezionare <guimenuitem>Confronta revisioni</guimenuitem> dal menu di scelta rapida."
 
 #. (para)
 msgid ""
@@ -8163,8 +8163,8 @@ msgid ""
 "<literal>tsvn:projectlanguage</literal> sets the language module the spell "
 "checking engine should use when you enter a log message. You can find the "
 "values for your language on this page: <ulink "
-"url=\"http://msdn2.microsoft.com/en-"
-"us/library/ms776260.aspx\"><citetitle>MSDN: Language "
+"url=\"https://docs.microsoft.com/en-us/windows/desktop/intl/language-"
+"identifier-constants-and-strings\"><citetitle>MSDN: Language "
 "Identifiers</citetitle></ulink>."
 msgstr ""
 
