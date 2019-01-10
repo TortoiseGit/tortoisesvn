@@ -474,6 +474,9 @@
     <ClCompile Include="lexers\LexStata.cxx">
       <Filter>lexers</Filter>
     </ClCompile>
+    <ClCompile Include="lexers\LexNim.cxx">
+      <Filter>lexers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ILexer.h">
