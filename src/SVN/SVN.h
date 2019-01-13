@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -137,6 +137,22 @@ public:
         SVNExportIncludeUnversioned,
         SVNExportOnlyLocalChanges
     };
+
+    enum UnicodeType
+    {
+        AUTOTYPE,
+        BINARY,
+        ASCII,
+        UTF16_LE,       //=1200,
+        UTF16_BE,       //=1201,
+        UTF16_LEBOM,    //=1200,
+        UTF16_BEBOM,    //=1201,
+        UTF32_LE,       //=12000,
+        UTF32_BE,       //=12001,
+        UTF8,           //=65001,
+        UTF8BOM,        //=UTF8+65536,
+    };
+
 
     /**
     * Shelving
@@ -1041,9 +1057,12 @@ protected:
                                       svn_revnum_t merged_revision,
                                       apr_hash_t *merged_rev_props,
                                       const char *merged_path,
-                                      const char *line,
+                                      const svn_string_t *line,
                                       svn_boolean_t local_change,
-                    apr_pool_t *pool);
+                                      apr_pool_t *pool);
+    bool ignoreNextLine = false; ///< flag used in the blame receiver when dealing with utf16 files
+    bool ignoredLastLine = false; ///< flag used in the blame receiver when dealing with utf16 files
+    UnicodeType unicodeType = UnicodeType::AUTOTYPE; ///< flag used in the blame receiver
     static svn_error_t* listReceiver(void* baton,
                     const char* path,
                     const svn_dirent_t *dirent,
