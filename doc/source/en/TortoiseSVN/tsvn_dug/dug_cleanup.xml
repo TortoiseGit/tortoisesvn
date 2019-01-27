@@ -57,7 +57,9 @@
         <term>Fix time stamps</term>
         <listitem>
           <para>
-            Changes all file times to the time of the last commit.
+            Adjusts the recorded time stamps of all files, speeding up
+            future status checks. This can speed up all dialogs that
+            show working copy file lists, for example the Commit dialog.
           </para>
         </listitem>
       </varlistentry>
