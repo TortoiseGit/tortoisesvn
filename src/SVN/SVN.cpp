@@ -1830,7 +1830,8 @@ bool SVN::Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& end
     const char* svnPath = path.GetSVNApiPath(subpool);
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE(
-        Err = svn_client_blame6(svnPath,
+        Err = svn_client_blame6(nullptr, nullptr,
+                                svnPath,
                                 peg,
                                 rev1,
                                 rev2,
@@ -1848,7 +1849,8 @@ bool SVN::Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& end
     {
         Prepare();
         SVNTRACE(
-            Err = svn_client_blame6(svnPath,
+            Err = svn_client_blame6(nullptr, nullptr,
+                                    svnPath,
                                     peg,
                                     rev1,
                                     rev2,
@@ -1867,8 +1869,6 @@ bool SVN::Blame(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& end
 }
 
 svn_error_t* SVN::blameReceiver(void* baton,
-                                svn_revnum_t /*start_revnum*/,
-                                svn_revnum_t /*end_revnum*/,
                                 apr_int64_t   line_no,
                                 svn_revnum_t  revision,
                                 apr_hash_t*   rev_props,
