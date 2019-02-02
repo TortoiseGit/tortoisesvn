@@ -1,6 +1,6 @@
 ﻿// TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2291,18 +2291,18 @@ LRESULT CALLBACK WndBlameProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
                 SecureZeroMemory(app.m_wszTip, sizeof(app.m_wszTip));
                 std::map<LONG, tstring>::iterator iter;
                 tstring msg;
-                if ((iter = app.m_logMessages.find(rev)) != app.m_logMessages.end())
+                if (!ShowAuthor)
+                {
+                    msg += app.m_authors[line];
+                }
+                if (!ShowDate)
                 {
                     if (!ShowAuthor)
-                    {
-                        msg += app.m_authors[line];
-                    }
-                    if (!ShowDate)
-                    {
-                        if (!ShowAuthor)
-                            msg += L"  ";
-                        msg += app.m_dates[line];
-                    }
+                        msg += L"  ";
+                    msg += app.m_dates[line];
+                }
+                if ((iter = app.m_logMessages.find(rev)) != app.m_logMessages.end())
+                {
                     if (!ShowAuthor || !ShowDate)
                         msg += '\n';
                     msg += iter->second;
