@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-01-07 00:14+0000\n"
+"PO-Revision-Date: 2019-01-28 01:27+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -7606,8 +7606,11 @@ msgid "Fix time stamps"
 msgstr "Spravit časová razítka"
 
 #. (para)
-msgid "Changes all file times to the time of the last commit."
-msgstr "Nastaví všechny časy souborů na čas posledního odevzdání."
+msgid ""
+"Adjusts the recorded time stamps of all files, speeding up future status "
+"checks. This can speed up all dialogs that show working copy file lists, for"
+" example the Commit dialog."
+msgstr ""
 
 #. (term)
 msgid "Vacuum pristine copies"

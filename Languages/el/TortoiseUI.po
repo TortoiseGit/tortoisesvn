@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-01-14 15:34+0000\n"
+"PO-Revision-Date: 2019-01-30 00:36+0000\n"
 "Last-Translator: Apostolos Monocholias\n"
 "Language-Team: Greek (http://www.transifex.com/luebbe/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -54,7 +54,7 @@ msgstr "# συγγραφείς εμφανίζονται χωριστά:"
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALMBTRANSFERRED)
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "%.2f MBytes έχουν μεταφέρθεί."
+msgstr "%.2f MBytes έχουν μεταφερθεί."
 
 #. Resource IDs: (IDS_SVN_PROGRESS_KBYTES_SEC)
 #, c-format
@@ -1244,7 +1244,7 @@ msgstr "&Συνέχεια με την εισαχθείσα διαδρομή\nΕ�
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
 msgid "&Proceed with the merge."
-msgstr "&Συνέχεια της συγχώνευσης."
+msgstr "&Συνέχιση της συγχώνευσης."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
 msgid ""
@@ -1284,7 +1284,7 @@ msgstr "&Απόρριψη του πιστοποιητικού\nΑκύρωση τ
 msgid ""
 "&Relocate\n"
 "The working copy is relocated to the new URL."
-msgstr "&Μεταφορά\nΤο τρέχων αντίγραφο εργασίας μεταφέρεται στη νέα διεύθυνση URL."
+msgstr "&Επανατοποθέτηση\nΤο αντίγραφο εργασίας επανατοποθετείται στη νέα διεύθυνση URL."
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1562)
 msgid "&Remind me to enter a bug-ID"
@@ -1347,7 +1347,7 @@ msgstr "&Επισκόπηση-Αποθήκης"
 msgid ""
 "&Resolve\n"
 "The item is marked as resolved."
-msgstr "&Επίλυση\nΤο αντικείμενο έχει επισημανθεί ως επιλυμένο."
+msgstr "&Επίλυση\nΤο αντικείμενο σημειώνεται ως επιλυμένο."
 
 #. Resource IDs: (Dialog IDD_SETTINGSLOGCACHE: Control id 1488)
 msgid "&Restore defaults"
@@ -1359,7 +1359,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1545)
 msgid "&Retry as different user"
-msgstr ""
+msgstr "&Ξαναδοκιμάστε ως διαφορετικός χρήστης"
 
 #. Resource IDs: (Dialog IDD_SVNPROGRESS: Control id 1542,
 #. IDS_MSGBOX_RETRYWITHOUTHOOKS)
@@ -1382,7 +1382,7 @@ msgstr "&Επαναφορά αλλαγών από την παρούσα έκδο
 msgid ""
 "&Revert\n"
 "Changes will be applied to the working copy."
-msgstr "&Επαναφορά\nΟι αλλαγές θα εφαρμοστούν στο τρέχων αντίγραφο εργασίας."
+msgstr "&Επαναφορά\nΟι αλλαγές θα εφαρμοστούν στο αντίγραφο εργασίας."
 
 #. Resource IDs: (Dialog IDD_BLAME: Control id 1033, Dialog IDD_CHECKOUT:
 #. Control id 1033, Dialog IDD_EDITPROPEXTERNALSVALUE: Control id 1033, Dialog
@@ -1864,7 +1864,7 @@ msgstr "Μια λίστα από ιδιότητες φακέλων καθορι�
 msgid ""
 "A newer version is available.\r\n"
 "Please go to https://tortoisesvn.net and download the current version."
-msgstr "Μια νέα έκδοση είναι διαθέσιμη.\r\nΠαρακαλούμε μεταβείτε στη διεύθυνση https://tortoisesvn.net και κατεβάστε την τρέχουσα έκδοση."
+msgstr "Μια νεότερη έκδοση είναι διαθέσιμη.\r\nΠαρακαλούμε μεταβείτε στη διεύθυνση https://tortoisesvn.net και κατεβάστε την τρέχουσα έκδοση."
 
 #. Resource IDs: (IDS_SETTINGS_INCLUDELIST_TT)
 msgid ""
@@ -2809,7 +2809,7 @@ msgstr "Θέστε τις εισαγωγές του μενού που θέλετ
 
 #. Resource IDs: (IDS_SETTINGS_SHORTDATEFORMAT_TT)
 msgid "Check to use a less verbose date and time format in log messages"
-msgstr ""
+msgstr "Επιλέξτε αυτό για να χρησιμοποιήσετε μια πιό συνεπτυγμένη μορφή ημερομηνιάς και ώρας στα μηνύματα ιστορικού"
 
 #. Resource IDs: (32831)
 msgid "Check working copy for modifications"
@@ -2971,7 +2971,7 @@ msgstr ""
 msgid ""
 "Click on \"Advanced\" to specify alternate merge programs based on file "
 "extension"
-msgstr ""
+msgstr "Κάντε κλικ στο \"Για προχωρημένους\" για να καθορίσετε εναλλακτικά προγράμματα συγχώνευσης με βάση την προέκταση αρχείου"
 
 #. Resource IDs: (cmdUseBlocks)
 msgid ""
@@ -3001,7 +3001,7 @@ msgstr "Κατά&ρρευση πηγαίου δένδρου"
 
 #. Resource IDs: (Dialog IDD_COLLABORATORSETTINGS: Control id 65535)
 msgid "Collaborator &password"
-msgstr ""
+msgstr "Κωδικός πρόσβασης &συνεργάτη"
 
 #. Resource IDs: (ID_VIEW_COLLAPSED - Menu, cmdViewCollapsed_LabelTitle_RESID)
 msgid "Collapse"
@@ -4145,7 +4145,7 @@ msgstr ""
 msgid ""
 "Don't recover the auto-saved documents\n"
 "Use the last explicitly saved versions of the documents"
-msgstr ""
+msgstr "Να μην ανακτηθούν τα αυτομάτως αποθηκευμένα έγγραφα\nΧρήση των τελευταίων ρητώς αποθηκευμένων εκδόσεων των εγγράφων"
 
 #. Resource IDs: (IDS_ASKFORSAVE_NOSAVE_OPEN)
 msgid ""
@@ -4784,7 +4784,7 @@ msgstr "Το αρχείο υπάρχει ήδη"
 #. Resource IDs: (IDS_STATGRAPH_FILECHANGESBYUNIT)
 #, c-format
 msgid "File changes each %ls:"
-msgstr ""
+msgstr "Το αρχείο αλλάζει κάθε %ls:"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1138)
 msgid "File changes each week:"
@@ -4900,7 +4900,7 @@ msgstr "Αρχεία"
 
 #. Resource IDs: (IDS_LOG_FILTER_BY)
 msgid "Filter by"
-msgstr ""
+msgstr "Φιλτράρισμα με"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Filter match"
@@ -4910,7 +4910,7 @@ msgstr ""
 msgid ""
 "Filter out paths that contain one of the following strings\n"
 "(separate multiple paths with the '*' char):"
-msgstr ""
+msgstr "Φιλτράρισμα διαδρομών που περιέχουν ένα από τα επόμενα κείμενα\n(διαχωρίστε πολλαπλές διαδρομές με τον χαρακτήρα '*' ):"
 
 #. Resource IDs: (IDS_FILEDIFF_FILTERCUE)
 msgid "Filter paths"
@@ -5096,7 +5096,7 @@ msgstr "Προμήθεια κλείσ&θρου..."
 
 #. Resource IDs: (IDS_LOG_POPUP_GETMERGELOGS)
 msgid "Get merge logs"
-msgstr ""
+msgstr "Λήψη ιστορικού συγχώνευσης"
 
 #. Resource IDs: (IDS_PROGRESSGETFILE)
 #, c-format
@@ -5634,7 +5634,7 @@ msgid ""
 "If you use other SVN clients besides TortoiseSVN on this computer, you have "
 "to upgrade those clients too. Otherwise those clients won't be able to "
 "access the working copy with the new format."
-msgstr ""
+msgstr "Εάν χρησιμοποιείτε άλλες εφαρμογές-πελάτες SVN πέραν του TortoiseSVN σε αυτόν τον υπολογιστή, πρέπει να τις αναβαθμίσετε και αυτές. Αλλιώς, αυτές οι εφαρμογές-πελάτες δεν θα μπορέσουν να αποκτήσουν πρόσβαση στο αντίγραφο εργασίας με τη νέα διαμόρφωση."
 
 #. Resource IDs: (IDS_SVNERR_UNLOCKFAILED)
 msgid ""
@@ -5686,7 +5686,7 @@ msgstr "Παράβλεψη δια&φοράς πεζών/κεφαλαίων"
 msgid ""
 "Ignore changes\n"
 "Ignore the outside changes."
-msgstr "Αγνόηση αλλαγών\nΑγνόηση των αλλαγών από έξω."
+msgstr "Αγνόηση αλλαγών\nΑγνόηση των εξωτερικών αλλαγών."
 
 #. Resource IDs: (cmdViewIgnoreComments)
 msgid ""
@@ -5808,7 +5808,7 @@ msgstr "Εισαγωγή στο %1"
 
 #. Resource IDs: (IDS_MSG_IMPORTEDSTRUCTURE)
 msgid "Imported folder structure"
-msgstr "Εισήχθη η δομή φακέλου"
+msgstr "Εισήχθη η δομή φακέλων"
 
 #. Resource IDs: (IDS_PROGRESSIMPORT)
 #, c-format
@@ -6039,11 +6039,11 @@ msgstr "Γλώσσα:"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Last changed author:"
-msgstr ""
+msgstr "Τελευταίος αλλαγμένος συγγραφέας:"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Last changed revision:"
-msgstr ""
+msgstr "Τελευταία αλλαγμένη αναθεώρηση:"
 
 #. Resource IDs: (IDS_COLDESCREV)
 msgid "Last saved revision of item"
@@ -6093,7 +6093,7 @@ msgstr "Αριστερή εικόνα"
 
 #. Resource IDs: (IDS_SVNACTION_LEFTLOCALMODS)
 msgid "Left local modifications"
-msgstr ""
+msgstr "Αφέθηκαν οι τοπικές τροποποιήσεις"
 
 #. Resource IDs: (IDS_EDITPROPS_MERGETITLEHINTREVERSE)
 msgid "Like above, but used for reverse merges"
@@ -6376,7 +6376,7 @@ msgstr "Επισήμανση αυτής της αλλαγής"
 
 #. Resource IDs: (IDS_ASKFORSAVE_MARKEDBLOCKS)
 msgid "Marked Blocks"
-msgstr "Επισημασμένα Μπλοκ"
+msgstr "Μαρκαρισμένα Μπλοκ"
 
 #. Resource IDs: (Dialog IDD_SETTINGSREVGRAPHCOLORS: Control id 65535)
 msgid "Markers"
@@ -6458,7 +6458,7 @@ msgstr "Συγχώνευση όλων..."
 
 #. Resource IDs: (IDS_MENUDESCMERGE)
 msgid "Merge changes into the working copy"
-msgstr "Συγχώνευση αλλαγών μέσα στο τρέχον αντίγραφο εργασίας"
+msgstr "Συγχώνευση αλλαγών μέσα στο αντίγραφο εργασίας"
 
 #. Resource IDs: (IDS_EDITCONFLICT_TEXT_BINARY_MAININSTRUCTION)
 #, c-format
@@ -6972,7 +6972,7 @@ msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
 "explicitly save them to overwrite the original documents.  If you choose to "
 "not recover the auto-saved versions, they will be deleted."
-msgstr ""
+msgstr "Σημειώστε ότι εάν επιλέξετε να ανακτήσετε τα αυτομάτως αποθηκευμένα έγγραφα, πρέπει να τα αποθηκεύσετε ρητά για να επεγγράψετε τα αρχικά έγγραφα. Αν επιλέξετε να μην ανακτήσετε τις αυτομάτως αποθηκευμένες εκδόσεις, θα διαγραφούν."
 
 #. Resource IDs: (Dialog IDD_REVERT: Control id 1481)
 msgid "Note: the folder contains unversioned items"
@@ -6980,7 +6980,7 @@ msgstr "Σημείωση: ο φάκελος περιέχει στοιχεία χ
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAYHANDLERS: Control id 65535)
 msgid "Note: this affects all Tortoise clients, not just TortoiseSVN!"
-msgstr ""
+msgstr "Σημείωση: αυτό επηρεάζει ολές τις εφαρμογές-πελάτες Tortoise, όχι μόνο το TortoiseSVN!"
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXECUTABLE: Control id 1557)
 msgid "Note: this property has no effect on Windows"
@@ -7001,7 +7001,7 @@ msgstr "Ανακοίνωνη"
 #. Resource IDs: (IDS_STATGRAPH_NUMBEROFUNIT)
 #, c-format
 msgid "Number of %ls:"
-msgstr ""
+msgstr "Αριθμός των %ls:"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_AUTHORS)
 msgid "Number of authors in the cache"
@@ -7417,7 +7417,7 @@ msgstr "Εικόνα (Metafile)\nμια εικόνα"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
-msgstr "Εικόνες (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
+msgstr "Εικόνες (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Όλα (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"
@@ -7559,7 +7559,7 @@ msgstr "Εκτύπωση"
 
 #. Resource IDs: (IDS_HOOK_FORCEDPROCEED)
 msgid "Proceed anyway"
-msgstr "Προχώρα ούτως ή άλλως"
+msgstr "Συνέχιση ούτως ή άλλως"
 
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK3)
 msgid ""
@@ -7659,7 +7659,7 @@ msgstr "Κατάσταση Ιδιότητας:"
 
 #. Resource IDs: (IDS_EDITCONFLICT_PROP_DIFF)
 msgid "Property diff:\n"
-msgstr "Διαφορές ιδιότητας:\n"
+msgstr "Διαφορές ιδιοτήτων:\n"
 
 #. Resource IDs: (Dialog IDD_EDITPROPERTYVALUE: Control id 1292)
 msgid "Property name:"
@@ -7964,7 +7964,7 @@ msgstr "Γίνεται μεταστέγαση..."
 
 #. Resource IDs: (IDS_SWITCH_STICKYDEPTH_TT)
 msgid "Remember the depth for this working copy"
-msgstr ""
+msgstr "Απομνημόνευση του βάθους για αυτό το αντίγραφο εργασίας"
 
 #. Resource IDs: (IDS_STATUSLIST_COLREMOTEPROPSTATUS)
 msgid "Remote property status"
@@ -8007,7 +8007,7 @@ msgstr "Αφαίρεση Έργου"
 
 #. Resource IDs: (Dialog IDD_SETTINGS_CLEARAUTH: Control id 348)
 msgid "Remove Saved Authentication Data"
-msgstr "Αφαίρεση αποθηκευμένων δεδομένων ταυτοποίησης"
+msgstr "Αφαίρεση Αποθηκευμένων Δεδομένων Ταυτοποίησης"
 
 #. Resource IDs: (IDS_MENUUNIGNORE)
 msgid "Remove from &ignore list"
@@ -8591,13 +8591,13 @@ msgstr "Αποθήκευση και εξαίρεση\nΟι αλλαγές σας
 msgid ""
 "Save and ignore marked blocks\n"
 "Only your manual edits are saved, marked blocks are left as they are"
-msgstr "Αποθήκευση και αγνόηση σημαδεμένων τμημάτων\nΑποθηκεύονται μόνο οι χειροκίνητες μεταβολές σας, τα σημαδεμένα τμήματα παραμένουν όπως είναι"
+msgstr "Αποθήκευση και αγνόηση μαρκαρισμένων τμημάτων\nΑποθηκεύονται μόνο οι χειροκίνητες μεταβολές σας, τα σημαδεμένα τμήματα παραμένουν όπως είναι"
 
 #. Resource IDs: (IDS_MARKEDBLOCKSSAVEINCLUDE)
 msgid ""
 "Save and include\n"
 "Your changes are saved and the marked blocks are included"
-msgstr "Αποθήκευση και συμπερίληψη\nΟι αλλαγές σας αποθηκεύονται και τα σημαδεμένα τμήματα περιλαμβάνονται"
+msgstr "Αποθήκευση και συμπερίληψη\nΟι αλλαγές σας αποθηκεύονται και τα μαρκαρισμένα τμήματα περιλαμβάνονται"
 
 #. Resource IDs: (IDS_ASKFORSAVEAS)
 msgid "Save as"
@@ -9064,7 +9064,7 @@ msgstr "Εμφάνιση &μεταβολών αντιγράφου εργασία
 #. Resource IDs: (ID_VIEW_WHITESPACES - Menu,
 #. cmdShowWhitespaces_LabelTitle_RESID)
 msgid "Show Whitespaces"
-msgstr "Εμφάνιση Κενών Διαστημάτων"
+msgstr "Εμφάνιση Λευκών Διαστημάτων"
 
 #. Resource IDs: (32813)
 msgid "Show an overview of the whole graph"
@@ -9162,7 +9162,7 @@ msgstr "Προβολή ιδιοτήτων έκδοσης"
 msgid ""
 "Show special characters for whitespaces and newlines\n"
 "Show Whitespaces"
-msgstr "Εμφάνιση ειδικών χαρακτήρων για κενά διαστήματα και νέες γραμμές\nΕμφάνιση Κενών Διαστημάτων"
+msgstr "Εμφάνιση ειδικών χαρακτήρων για λευκά διαστήματα και νέες γραμμές\nΕμφάνιση Λευκών Διαστημάτων"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHE_DETAILS)
 msgid "Show statistics for the selected log cache"
@@ -9321,7 +9321,7 @@ msgstr "Κάποια αρχεία τροποποιήθηκαν έξω από τ�
 
 #. Resource IDs: (IDS_ERR_ERROROCCURED)
 msgid "Something went wrong"
-msgstr "Κάτι πήγε λάθος"
+msgstr "Κάτι πήγε στραβά"
 
 #. Resource IDs: (Dialog IDD_STATGRAPH: Control id 1126)
 msgid "Sort by commit count"
@@ -9572,7 +9572,7 @@ msgstr "Κωδικός πρόσβα&σης Subversion"
 msgid ""
 "Subversion reported an error while creating a repository!\n"
 "Make sure the folder is empty and not write protected."
-msgstr ""
+msgstr "Το Subversion ανέφερε σφάλμα κατά τη δημιουργία αποθετηρίου!\nΣιγουρευτείτε ότι ο φάκελος είναι άδειος και δεν προστατεύεται η εγγραφή σε αυτόν."
 
 #. Resource IDs: (IDS_SVNREPORTEDANERROR)
 msgid "Subversion reported an error:"
@@ -9592,7 +9592,7 @@ msgstr "Με&ταστροφή αντιγράφου εργασίας σε νέα 
 
 #. Resource IDs: (IDS_PROGRS_TITLE_SWITCH)
 msgid "Switch"
-msgstr ""
+msgstr "Μεταστροφή"
 
 #. Resource IDs: (IDS_PROGRS_CMD_SWITCH)
 #, c-format
@@ -9609,7 +9609,7 @@ msgstr "Μεταστροφή σε μία άλλη διακλάδωση / δελ�
 
 #. Resource IDs: (IDS_MENUSWITCHTOPARENT)
 msgid "Switch back to parent"
-msgstr ""
+msgstr "Μεταστροφή πίσω στον γονέα"
 
 #. Resource IDs: (57681)
 msgid ""
@@ -10059,7 +10059,7 @@ msgstr ""
 msgid ""
 "The two selected URL's are not created from the same root.\n"
 "It's not possible to show the log messages between them!"
-msgstr ""
+msgstr "Οι δύο επιλεγμένες URL δεν έχουν δημιουργηθεί από την ίδια ρίζα.\nΔεν είνα δυνατή η εμφάνιση των μηνυμάτων ιστορικού μεταξύ τους!"
 
 #. Resource IDs: (IDS_COLDESCAUTHOR)
 msgid "The user who did the last commit"
@@ -10204,13 +10204,13 @@ msgid ""
 "This method covers the case when you have made one or more revisions to a "
 "branch (or to the trunk) and you want to port those changes across to a "
 "different branch."
-msgstr ""
+msgstr "Αυτή η μέθοδος καλύπτει την περίπτωση όπου έχετε κάνει μία ή παραπάνω αναθεωρήσεις σε κάποιον κλάδο (ή στον κορμό) και θέλετε να μεταφέρετε αυτές τις αλλαγές σε διαφορετικό κλάδο."
 
 #. Resource IDs: (IDS_MERGEWIZARD_TREELABEL)
 msgid ""
 "This method covers the case when you want to merge the differences of two "
 "different branches into your working copy."
-msgstr ""
+msgstr "Αυτή η μέθοδος καλύπτει την περίπτωση όπου θέλετε να συγχωνεύσετε μέσα στο αντίγραφο εργασίας σας τις διαφορές μεταξύ δύο διαφορετικών κλάδων."
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 1532)
 msgid ""
@@ -10249,7 +10249,7 @@ msgstr "Αυτή η ιδιότητα δεν μπορεί να έχει πολα�
 msgid ""
 "This will upgrade your working copy to the new 1.8 format and make it "
 "unusable for older clients."
-msgstr ""
+msgstr "Αυτό θα αναβαθμίσει το αντίγραφο εργασίας σας στη νέα διαμόρφωση 1.8 και θα το καταστήσει αχρησιμοποίητο για παλαιότερες εφαρμογές-πελάτες."
 
 #. Resource IDs: (IDS_HOOKS_APPROVE_TASK1)
 #, c-format
@@ -10393,7 +10393,7 @@ msgstr ""
 msgid ""
 "TortoiseSVN detected a serious slowdown when moving %1!ld! items to the recycle bin. The recycle bin currently contains %2!ld! items, which most likely is the reason for this slowdown.\n"
 "To fix this, you should empty the recycle bin now."
-msgstr "Το TortoiseSVN ανίχνευσε σοβαρή επιβράδυνση κατά την μεταφορά %1!ld! αντικειμένων στον κάδο ανακύκλωσης. Ο κάδος ανακύκλωσης αυτή τη στιγμή περιέχει %2!ld! αντικείμενα και πιθανότατα είναι ο λόγος για αυτή την επιβράδυνση.\nΓια να διορθώσετε αυτό το πρόβλημα, θα πρέπει να αδειάσετε τώρα τον κάδο ανακύκλωσης."
+msgstr "Το TortoiseSVN ανίχνευσε σοβαρή επιβράδυνση κατά την μεταφορά %1!ld! αντικειμένων στον κάδο ανακύκλωσης. Ο κάδος ανακύκλωσης αυτή τη στιγμή περιέχει %2!ld! αντικείμενα και πιθανότατα αυτός είναι ο λόγος για την επιβράδυνση.\nΓια να διορθώσετε αυτό το πρόβλημα, θα πρέπει να αδειάσετε τώρα τον κάδο ανακύκλωσης."
 
 #. Resource IDs: (IDS_PROC_MULTIRENAME)
 #, c-format
@@ -10513,7 +10513,7 @@ msgstr "URL: "
 
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_URLREV)
 msgid "URLs with revision"
-msgstr "URLs με αναθεώρηση"
+msgstr "διευθύνσεις URL με αναθεώρηση"
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1209)
 msgid "Un&modified"
@@ -10601,7 +10601,7 @@ msgstr "Απροσδόκητη διαμόρφωση αρχείου"
 msgid ""
 "Unformatted Text\n"
 "text without any formatting"
-msgstr ""
+msgstr "Μη Μορφοποιημένο Κείμενο\nκείμενο χωρίς καμία μορφοποίηση"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_UNIDIFFHEADS,
 #. ID_VIEW_UNIFIEDDIFFOFHEADREVISIONS - Menu)
@@ -10757,7 +10757,7 @@ msgstr "Ενημέρωση cache αρχείου καταγραφών"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Αναβάθμιση του αντίγραφου εργασίας\nστη νέα διαμόρφωση 1.8."
 
 #. Resource IDs: (IDS_MENUUPGRADE, IDS_PROC_UPGRADE,
 #. IDS_PROC_UPGRADECONFIRMATION_TASK2)
@@ -10771,7 +10771,7 @@ msgstr "Ενημερώνεται '%1!ls!'"
 
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_URL)
 msgid "Urls"
-msgstr ""
+msgstr "Διευθύνσεις Url"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1024)
 msgid "Use &one-pane view as default for 2-file diff"
@@ -11253,7 +11253,7 @@ msgstr "Ρίξατε παραπάνω από ένα αρχείο ή φάκελο
 
 #. Resource IDs: (IDS_WARNMARKEDBLOCKS)
 msgid "You have marked changed blocks. How should those blocks be saved?"
-msgstr "Έχετε επισημάνει αλλαγμένα μπλοκ. Πώς να αποθηκευτούν αυτά τα μπλοκ;"
+msgstr "Έχετε μαρκάρει αλλαγμένα μπλοκ. Πώς να αποθηκευτούν αυτά τα μπλοκ;"
 
 #. Resource IDs: (IDS_PROPSNOTSAVED)
 msgid ""
@@ -11296,7 +11296,7 @@ msgid ""
 "\n"
 "It seems the item got renamed outside Subversion but only with case changes.\n"
 "Do you really want to add it?"
-msgstr ""
+msgstr "Προσπαθείτε να προσθέσετε το αντικείμενο\n'%1!ls!',\nαλλά το αντικείμενο\n'%2!ls!'\nυπάρχει ήδη.\n\nΦαίνεται ότι το αντικείμενο μετονομάστηκε έξω απο το Subversion αλλά οι διαφορές είναι μόνο μεταξύ κεφαλαίων και πεζών.\nΘέλετε να το προσθέσετε πραγματικά;"
 
 #. Resource IDs: (IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK2)
 msgid ""
@@ -11308,7 +11308,7 @@ msgstr ""
 msgid ""
 "Your previously entered log messages have been saved.\n"
 "Click here to read and insert them again."
-msgstr ""
+msgstr "Τα μηνύματα ιστορικού που εισάγατε προηγουμένως έχουν αποθηκευτεί.\nΚάντε κλικ εδώ για να τα διαβάσετε και να τα εισάγετε ξανά."
 
 #. Resource IDs: (Dialog IDD_CHECKFORUPDATES: Control id 1112)
 msgid "Your version is:"
@@ -11901,7 +11901,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPEXECUTABLE: Control id 312)
 msgid "svn:executable"
-msgstr "svn:εκτελέσιμο"
+msgstr ""
 
 #. Resource IDs: (IDS_PROP_TT_EXECUTABLE)
 msgid ""
@@ -12179,7 +12179,7 @@ msgstr ""
 #. IDD_EDITPROPUSERSTATE: Control id 1623, Dialog IDD_EDITPROPUSERSTATE:
 #. Control id 1624, Dialog IDD_EDITPROPUSERSTATE: Control id 337)
 msgid "user:state"
-msgstr "χρήστης:κατάσταση"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_EDITPROPBUGTRAQ: Control id 1583)
 msgid "uuid x6&4:"

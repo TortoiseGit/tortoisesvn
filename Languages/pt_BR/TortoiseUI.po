@@ -33,13 +33,14 @@
 # Rafael Heise <rmheise@gmail.com>, 2011-2015,2017
 # Ricardo Souza (RCDMK) <rcdmk@hotmail.com>, 2012
 # Rodrigo Monte <rodrigo.monte86@gmail.com>, 2014
+# Rui <xymarior@yandex.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-01-09 10:44+0000\n"
-"Last-Translator: Fagner Antunes Dornelles <fagdorn@gmail.com>\n"
+"PO-Revision-Date: 2019-01-30 19:32+0000\n"
+"Last-Translator: Rui <xymarior@yandex.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/luebbe/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -429,7 +430,7 @@ msgstr "&Ramos"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1645)
 msgid "&Break write locks"
-msgstr "Remover bloqueios de escrita"
+msgstr "&Remover bloqueios de escrita"
 
 #. Resource IDs: (IDS_LOG_BROWSEREPO)
 msgid "&Browse repository"
@@ -734,7 +735,7 @@ msgstr "&Não perguntar novamente"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr "Não executar\nNão executar o script"
+msgstr "&Não executar\nNão executar o script"
 
 #. Resource IDs: (ID_NEW_EOL - Menu)
 msgid "&EOL"
@@ -829,7 +830,7 @@ msgstr "&Procurar...\t(Ctrl+F)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
-msgstr "&Fit images in window\t(F)"
+msgstr "Ajustar imagens na &janela\t(F)"
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1646)
 msgid "&Fix time stamps"
@@ -909,7 +910,7 @@ msgstr "&Ocultar itens ignorados"
 
 #. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
 msgid "&Hide/Show the patch file list"
-msgstr "Ocultar/Mostrar o a lista de arquivos de correção"
+msgstr "&Ocultar/Mostrar a lista de arquivos de correção"
 
 #. Resource IDs: (Dialog IDD_SETOVERLAYICONS: Control id 1170)
 msgid "&Icon Set:"
@@ -1262,13 +1263,13 @@ msgstr "Continuar com o caminho completo\nEstou ciente de possíveis problemas."
 
 #. Resource IDs: (IDS_MERGE_WCDIRTYASK_TASK3)
 msgid "&Proceed with the merge."
-msgstr "Continuar com a unificação."
+msgstr "&Continuar com a unificação."
 
 #. Resource IDs: (IDS_COMMITDLG_WARNNOISSUE_TASK3)
 msgid ""
 "&Proceed without an issue number\n"
 "The commit won't be assigned to an issue."
-msgstr "Continuar sem um número de ocorrência\nA submissão não será vinculada com nenhuma ocorrência."
+msgstr "&Continuar sem um número de ocorrência\nA submissão não será vinculada com nenhuma ocorrência."
 
 #. Resource IDs: (Dialog IDD_CHANGEDFILES: Control id 1265)
 msgid "&Properties"
@@ -1960,7 +1961,7 @@ msgstr "Sobre o TortoiseSVN"
 msgid ""
 "Accept the certificate &permanently\n"
 "You won't get asked about this certificate again."
-msgstr "Aceitar o certificado &permanentemente\nVocê não será questionamento novamente sobre este certificado."
+msgstr "Aceitar o certificado &permanentemente\nVocê não será questionado novamente sobre este certificado."
 
 #. Resource IDs: (61861)
 #, c-format
@@ -3108,7 +3109,7 @@ msgstr "Submeter"
 #. Resource IDs: (IDS_PROGRS_CMD_COMMIT)
 #, c-format
 msgid "Commit to %1!ls!"
-msgstr ""
+msgstr "Submeter para %1!ls!"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1110)
 msgid "Commit to:"
@@ -3976,7 +3977,7 @@ msgstr "Diretório:"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1529)
 msgid "Disable status cache for elevated processes"
-msgstr "Desabilitar cachê de situação para processos prioritários"
+msgstr "Desabilitar cachê de estado para processos prioritários"
 
 #. Resource IDs: (IDS_MERGEWIZARD_OPTIONS_FORCE_TT)
 msgid "Discards local changes upon incoming deletes"
@@ -4213,7 +4214,7 @@ msgstr "Sai&r"
 
 #. Resource IDs: (105 - Menu)
 msgid "E&xit\t(Ctrl+W)"
-msgstr "Sair\t(Ctrl+W)"
+msgstr "S&air\t(Ctrl+W)"
 
 #. Resource IDs: (IDS_REVGRAPH_POPUP_EXPAND_ALL)
 msgid "E&xpand all"
@@ -4780,7 +4781,7 @@ msgstr "Obtendo revisão %ls do arquivo:"
 #. Resource IDs: (IDS_PROC_CLEANUP_INFOFETCHSTATUS)
 #, c-format
 msgid "Fetching status of %1!ls!"
-msgstr "Buscando situação de %1!ls!"
+msgstr "Buscando estado de %1!ls!"
 
 #. Resource IDs: (IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO)
 msgid "Fetching tree conflict information..."
@@ -4989,11 +4990,11 @@ msgstr "Ajustar à altura"
 
 #. Resource IDs: (ID_VIEW_FITIMAGEHEIGHTS - Menu)
 msgid "Fit image &heights\t(H)"
-msgstr "Ajustar alturas das imagens\t(H)"
+msgstr "Ajustar &alturas das imagens\t(H)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGEWIDTHS - Menu)
 msgid "Fit image &widths\t(W)"
-msgstr "Ajustar larguras das imagens\t(W)"
+msgstr "Ajustar &larguras das imagens\t(W)"
 
 #. Resource IDs: (ID_VIEW_ZOOMWIDTH - Menu)
 msgid "Fit width"
@@ -5056,7 +5057,7 @@ msgstr "Dados complestos"
 
 #. Resource IDs: (IDS_LOG_POPUP_CLIPBOARD_FULLNOPATHS)
 msgid "Full revision data without changed paths"
-msgstr "Dados da revisão completa sem alteração em caminhos"
+msgstr "Todos os dados da revisão sem alteração em caminhos"
 
 #. Resource IDs: (IDS_SVN_DEPTH_INFINITE)
 msgid "Fully recursive"
@@ -5611,7 +5612,7 @@ msgstr "Se habilitado, o repositório é acessado quando a janela é aberta.\r\n
 msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
-msgstr "Se habilitado, as pastas da cópia de trabalho que estão excluídas da\nexibição de sobreposição serão mostradas para as sobreposições com status 'normal'"
+msgstr "Se habilitado, as pastas da cópia de trabalho que estão excluídas da\nexibição de sobreposição serão mostradas para as sobreposições com estado 'normal'"
 
 #. Resource IDs: (IDS_SETTINGS_COMMITFILETIMES_TT)
 msgid ""
@@ -5629,7 +5630,7 @@ msgstr "Se ativo, arquivos pertencentes a pastas que não estão sob controle de
 msgid ""
 "If set, then modified files that are in the \"ignore-on-commit\" changelist do not mark the parent folders as modified\r\n"
 "i.e., they get the normal icon unless another file or folder is modified."
-msgstr "Se definido, arquivos modificados depois que estão na lista de alterações \"ignore-on-commit \" não marcadam as pastas pai como modificadas\r\nou seja, eles recebem o ícone normal, a menos que outro arquivo ou pasta seja modificado."
+msgstr "Se definido, então os arquivos modificados que estão na lista de alterações \"ignore-on-commit \" não marcam as pastas pai como modificadas\r\nou seja, eles recebem o ícone normal, a menos que outro arquivo ou pasta seja modificado."
 
 #. Resource IDs: (IDS_SETTINGS_UNVERSIONEDASMODIFIED_TT)
 msgid ""
@@ -6193,7 +6194,7 @@ msgstr "Ganc&hos Locais"
 
 #. Resource IDs: (Dialog IDD_EDITPROPLOCALHOOKS: Control id 334)
 msgid "Local hook scripts"
-msgstr "scripts hook locais"
+msgstr "Scripts hook locais"
 
 #. Resource IDs: (IDS_CHECKOUT_TT_DIR)
 msgid ""
@@ -6884,7 +6885,7 @@ msgstr "Não foram encontradas referências externas"
 msgid ""
 "No externals: For URLs, no externals are gathered.\n"
 "If you want to tag externals, start the command directly from a working copy."
-msgstr "Sem referência externas: Para URLs, nenhuma referência externa encontrada.\nSe você quer organizar referências externas, inicie o comando diretamente do cópia de trabalho."
+msgstr "Sem referência externas: Para URLs, nenhuma referência externa encontrada.\nSe você quer organizar referências externas, inicie o comando diretamente de uma cópia de trabalho."
 
 #. Resource IDs: (IDS_REPOSTATUS_EMPTYFILELIST)
 msgid ""
@@ -7435,7 +7436,7 @@ msgstr "Figura (Metarquivo)\numa figura"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
-msgstr "Imagens (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
+msgstr "Imagens (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Tudo (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"
@@ -7986,7 +7987,7 @@ msgstr "Lembrar a profundida para esta cópia de trabalho"
 
 #. Resource IDs: (IDS_STATUSLIST_COLREMOTEPROPSTATUS)
 msgid "Remote property status"
-msgstr "Status remoto da propriedade"
+msgstr "Estado da propriedade remota"
 
 #. Resource IDs: (IDS_STATUSLIST_COLREMOTEREVISION)
 msgid "Remote revision"
@@ -7994,11 +7995,11 @@ msgstr "Revisão Remota"
 
 #. Resource IDs: (IDS_STATUSLIST_COLREMOTESTATUS)
 msgid "Remote status"
-msgstr "Status remoto"
+msgstr "Estado remoto"
 
 #. Resource IDs: (IDS_STATUSLIST_COLREMOTETEXTSTATUS)
 msgid "Remote text status"
-msgstr "Status remoto do texto"
+msgstr "Estado do texto remoto"
 
 #. Resource IDs: (Dialog IDD_SETTINGSBUGTRAQ: Control id 1470, Dialog
 #. IDD_SETTINGSHOOKS: Control id 1332)
@@ -8453,7 +8454,7 @@ msgstr "SVN & Ramo do vendedor aqui"
 
 #. Resource IDs: (IDS_DROPEXTERNAL)
 msgid "SVN Add as &external here"
-msgstr "SVN Add como &externo aqui"
+msgstr "SVN Adicionar como &externo aqui"
 
 #. Resource IDs: (IDS_COLTITLEAUTHOR)
 msgid "SVN Author"
@@ -8501,7 +8502,7 @@ msgstr "SVN Revisão"
 
 #. Resource IDs: (IDS_COLTITLESTATUS)
 msgid "SVN Status"
-msgstr "SVN Status"
+msgstr "SVN Estado"
 
 #. Resource IDs: (IDS_COLTITLESTATUSNUMBER)
 msgid "SVN Statusnumber"
@@ -9273,7 +9274,7 @@ msgstr "Tamanho"
 
 #. Resource IDs: (Dialog IDD_LOGCACHESTATISTICS: Control id 65535)
 msgid "Size and status"
-msgstr "Tamanho e status"
+msgstr "Tamanho e estado"
 
 #. Resource IDs: (IDS_SETTINGS_LOGCACHESTATS_TEXTSIZE)
 msgid "Size of all cached text information"
@@ -9471,32 +9472,32 @@ msgstr "Estatísticas"
 #. IDS_SHELF_UNSHELVE_STATUSCOL, IDS_STATUSLIST_COLSTATUS,
 #. IDS_SVNACTION_STATUS)
 msgid "Status"
-msgstr "Status"
+msgstr "Estado"
 
 #. Resource IDs: (cmdViewStatusBar_LabelTitle_RESID)
 msgid "Status Bar"
-msgstr "Barra de Status"
+msgstr "Barra de Estado"
 
 #. Resource IDs: (Dialog IDD_SETTINGSCOLORS: Control id 65535)
 msgid "Status and action colors"
-msgstr "Status e cores de ações"
+msgstr "Estado e cores de ações"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 65535)
 msgid "Status cache"
-msgstr "Cache de status"
+msgstr "Cache de estado"
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDEFAULT_TT)
 msgid ""
 "Status cache kept in an external process, can show the overlay recursively"
-msgstr "Cache de situação mantido em um processo externo, poderá mostrar a sobre-escrita recursivamente"
+msgstr "Cache de estado mantido em um processo externo, poderá mostrar a sobre-escrita recursivamente"
 
 #. Resource IDs: (IDS_SETTINGS_CACHESHELL_TT)
 msgid "Status cache only for one folder, no recursive overlays"
-msgstr "Cache de status para apenas uma pasta, sem sobreposições recursivas"
+msgstr "Cache de estado para apenas uma pasta, sem sobreposições recursivas"
 
 #. Resource IDs: (IDS_COLDESCSTATUS)
 msgid "Status of item in SVN"
-msgstr "Status do item no SVN"
+msgstr "Estado do item no SVN"
 
 #. Resource IDs: (IDS_MENU_LOCKFORCE)
 msgid "Steal loc&k"
@@ -9536,7 +9537,7 @@ msgid ""
 "\" \"                        : commits with spaces (ex. when searching in paths only)\r\n"
 "-\"\"show all\"\"        : commits that don't contain the string \"show all\"\r\n"
 "!myname  .cpp    : everything but my commits to .cpp files"
-msgstr "Filtro de texto parcial: * Especifica um ou mais textos, separados por espaço. Eles serão avaliados da esquerda para a direita. * Coloque um - na frente de um texto para excluir as revisões que contém o texto. * Coloque um + na frente do texto para incluir as revisões que podem não estar de acordo com o filtro. * Use aspas \" para textos com espaço, etc. * Coloque um ! no início da linha para inverter a condição de filtro inteira. Exemplos: meunome 2008 : minhas submissões de 2008 .h -.cpp : submissões que alteraram o cabeçalho mas não implementações .doc +.xls 2010 : submissões de 2010 com arquivos .doc ou .xls \" \" : submissões com espaço (ex. quando procurando apenas em caminhos) -\"\"mostrar todos\"\" : submissões que não contém o texto \"mostrar todos\" !meunome .cpp : tudo menos as minhas submissões de arquivos .cpp"
+msgstr "Filtro de texto parcial:\r\n* Especifica um ou mais textos, separados por espaço. Eles serão avaliados da esquerda para a direita.\r\n* Coloque um - na frente de um texto para excluir as revisões que contém o texto.\r\n* Coloque um + na frente do texto para incluir as revisões que podem não estar de acordo com o filtro.\r\n* Use aspas \" para textos com espaço, etc.\r\n* Coloque um ! no início da linha para inverter a condição de filtro inteira.\r\n\r\nExemplos:\r\nmeunome 2008    : minhas submissões de 2008\r\n.h -.cpp                 : submissões que alteraram o cabeçalho mas não implementações\r\n.doc +.xls 2010     : submissões de 2010 com arquivos .doc ou .xls\r\n\" \"                         : submissões com espaço (ex. quando procurando apenas em caminhos)\r\n-\"\"mostrar todos\"\" : submissões que não contém o texto \"mostrar todos\"\r\n!meunome .cpp     : tudo menos as minhas submissões de arquivos .cpp"
 
 #. Resource IDs: (Dialog IDD_SETTINGSMAIN: Control id 65535)
 msgid "Subversion"
@@ -9744,11 +9745,11 @@ msgstr "Teste a expressão regular"
 
 #. Resource IDs: (Dialog IDD_PROPPAGE: Control id 65535)
 msgid "Text Status:"
-msgstr "Status do Texto:"
+msgstr "Estado do Texto:"
 
 #. Resource IDs: (IDS_STATUSLIST_COLTEXTSTATUS)
 msgid "Text status"
-msgstr "Status do texto"
+msgstr "Estado do texto"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK5)
 msgid ""
@@ -10021,7 +10022,7 @@ msgid ""
 "The specified path/url\n"
 "%ls\n"
 "is invalid!"
-msgstr "caminho/url especificado\n%ls\né invalido!"
+msgstr "O caminho/url especificado\n%ls\né inválido!"
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK2)
 msgid "The target already exists."
@@ -10167,7 +10168,7 @@ msgstr "Sinônimos"
 msgid ""
 "These are more recently saved than the currently open documents and contain "
 "changes that were made before the application closed."
-msgstr "Estes foram salvos mais recentementes que os documentos que estão atualmente abertos e possuem alterações que foram feitas antes da aplicação ser fechada."
+msgstr "Estes foram salvos mais recentemente que os documentos que estão atualmente abertos e possuem alterações que foram feitas antes da aplicação ser fechada."
 
 #. Resource IDs: (IDS_COMMITDLG_COPYDEPTH_TASK1)
 msgid ""
@@ -10493,7 +10494,7 @@ msgstr "Tente uma 'Limpeza'. Se isso não funcionar, você precisa obter tudo no
 
 #. Resource IDs: (IDS_SVNERR_CLEANUPWITHBREAKLOCKS)
 msgid "Try enabling the \"Break write locks\" option for the cleanup."
-msgstr "Tentar habilitar a opção \"Remoção de bloqueio de escrita\" para a rotina de limpeza."
+msgstr "Tente habilitar a opção \"Remover bloqueios de escrita\" para a rotina de limpeza."
 
 #. Resource IDs: (IDS_MENUDESCSETTINGS)
 msgid "Tweak TortoiseSVN"
@@ -11365,7 +11366,7 @@ msgstr "Z"
 
 #. Resource IDs: (ID_VIEW_ZOOMOUT - Menu)
 msgid "Zoo&m out\t(-)"
-msgstr "Afastar\t(-)"
+msgstr "A&fastar\t(-)"
 
 #. Resource IDs: (58117)
 msgid "Zoom &In"
@@ -11390,7 +11391,7 @@ msgstr "Zoom 100%"
 
 #. Resource IDs: (ID_VIEW_ZOOMIN - Menu)
 msgid "Zoom i&n\t(+)"
-msgstr "Aproximar\t(+)"
+msgstr "&Aproximar\t(+)"
 
 #. Resource IDs: (32772)
 msgid "Zoom in"
