@@ -99,7 +99,7 @@ private:
     apr_hash_t *                config;
     apr_array_header_t *        patterns;
     svn_error_t *               Err;
-    CComCriticalSection         m_critSec;
+    CComAutoCriticalSection     m_critSec;
     static SVNConfig *          m_pInstance;
     CTSVNPath                   m_lastWcIgnorePath;
 };

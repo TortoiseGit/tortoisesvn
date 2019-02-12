@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2011, 2013-2015, 2017 - TortoiseSVN
 
@@ -235,7 +235,7 @@ private:
     CRegStdString nocontextpaths;
     tstring excludecontextstr;
     std::vector<tstring> excontextvector;
-    CComCriticalSection m_critSec;
+    CComAutoCriticalSection m_critSec;
     HANDLE m_registryChangeEvent;
     HKEY m_hNotifyRegKey;
     bool isElevated;

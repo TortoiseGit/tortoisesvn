@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2011, 2014, 2017 - TortoiseSVN
 
@@ -57,7 +57,7 @@ private:
     CAutoFile m_hCommandPipe;
 
 
-    CComCriticalSection m_critSec;
+    CComAutoCriticalSection m_critSec;
     svn_client_status_t m_dummyStatus;
     LONGLONG m_lastTimeout;
 

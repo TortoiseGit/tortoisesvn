@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2009, 2012 - TortoiseSVN
 
@@ -22,12 +22,10 @@
 
 ShellObjects::ShellObjects()
 {
-    m_critSec.Init();
 }
 
 ShellObjects::~ShellObjects()
 {
-    m_critSec.Term();
 }
 
 void ShellObjects::Insert(CShellExt * obj)

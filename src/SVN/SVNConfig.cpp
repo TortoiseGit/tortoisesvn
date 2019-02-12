@@ -37,7 +37,6 @@ SVNConfig::SVNConfig(void)
     , patterns(nullptr)
     , Err(nullptr)
 {
-    m_critSec.Init();
     parentpool = svn_pool_create(NULL);
     m_pool = svn_pool_create (parentpool);
     wcignorespool = svn_pool_create(m_pool);
@@ -56,7 +55,6 @@ SVNConfig::~SVNConfig(void)
     svn_error_clear(Err);
     svn_pool_destroy (m_pool);
     svn_pool_destroy (parentpool);
-    m_critSec.Term();
     delete m_pInstance;
 }
 

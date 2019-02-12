@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2009 - TortoiseSVN
 
@@ -34,5 +34,5 @@ public:
 
 private:
     std::set<CShellExt *>   m_exts;
-    CComCriticalSection     m_critSec;
+    CComAutoCriticalSection m_critSec;
 };

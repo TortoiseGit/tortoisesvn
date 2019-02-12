@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2015, 2017 - TortoiseSVN
 
@@ -35,14 +35,12 @@ CRemoteCacheLink::CRemoteCacheLink(void)
     m_dummyStatus.repos_prop_status = svn_wc_status_none;
     m_dummyStatus.repos_node_status = svn_wc_status_none;
     m_lastTimeout = 0;
-    m_critSec.Init();
 }
 
 CRemoteCacheLink::~CRemoteCacheLink(void)
 {
     ClosePipe();
     CloseCommandPipe();
-    m_critSec.Term();
 }
 
 bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe, const CString& pipeName, bool overlapped) const
