@@ -470,10 +470,10 @@ BOOL CRepositoryBrowser::OnInitDialog()
         AddAnchor(IDC_REPOTREE, TOP_LEFT, BOTTOM_LEFT);
     }
     SetPromptParentWindow(m_hWnd);
-    m_bThreadRunning = true;
+    InterlockedExchange(&m_bThreadRunning, TRUE);
     if (AfxBeginThread(InitThreadEntry, this)==NULL)
     {
-        m_bThreadRunning = false;
+        InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
     }
     m_barRepository.SetFocusToURL();
@@ -754,7 +754,7 @@ UINT CRepositoryBrowser::InitThread()
     if (m_bStandAlone)
       GetDlgItem(IDCANCEL)->ShowWindow(FALSE);
 
-    m_bThreadRunning = false;
+    InterlockedExchange(&m_bThreadRunning, FALSE);
     m_cancelled = false;
 
     RefreshCursor();

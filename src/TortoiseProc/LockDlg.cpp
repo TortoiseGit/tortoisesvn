@@ -1,6 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,9 +31,8 @@
 IMPLEMENT_DYNAMIC(CLockDlg, CResizableStandAloneDialog)
 CLockDlg::CLockDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CLockDlg::IDD, pParent)
-    , m_bBlock(FALSE)
+    , m_bThreadRunning(FALSE)
     , m_bStealLocks(FALSE)
-    , m_pThread(NULL)
     , m_bCancelled(false)
     , m_ProjectProperties(NULL)
 {
@@ -40,7 +40,6 @@ CLockDlg::CLockDlg(CWnd* pParent /*=NULL*/)
 
 CLockDlg::~CLockDlg()
 {
-    delete m_pThread;
 }
 
 void CLockDlg::DoDataExchange(CDataExchange* pDX)
@@ -123,17 +122,12 @@ BOOL CLockDlg::OnInitDialog()
 
     // start a thread to obtain the file list with the status without
     // blocking the dialog
-    m_pThread = AfxBeginThread(StatusThreadEntry, this, THREAD_PRIORITY_NORMAL,0,CREATE_SUSPENDED);
-    if (m_pThread==NULL)
+    InterlockedExchange(&m_bThreadRunning, TRUE);
+    if (!AfxBeginThread(StatusThreadEntry, this))
     {
+        InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
     }
-    else
-    {
-        m_pThread->m_bAutoDelete = FALSE;
-        m_pThread->ResumeThread();
-    }
-    m_bBlock = TRUE;
 
     GetDlgItem(IDC_LOCKMESSAGE)->SetFocus();
     return FALSE;
@@ -141,7 +135,7 @@ BOOL CLockDlg::OnInitDialog()
 
 void CLockDlg::OnOK()
 {
-    if (m_bBlock)
+    if (m_bThreadRunning)
         return;
     m_cFileList.WriteCheckedNamesToPathList(m_pathList);
     UpdateData();
@@ -158,7 +152,7 @@ void CLockDlg::OnOK()
 void CLockDlg::OnCancel()
 {
     m_bCancelled = true;
-    if (m_bBlock)
+    if (m_bThreadRunning)
         return;
     UpdateData();
     if ((m_ProjectProperties == 0)||(m_ProjectProperties->GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATELOCK).Compare(m_cEdit.GetText()) != 0))
@@ -182,7 +176,6 @@ UINT CLockDlg::StatusThread()
     // get the status of all selected file/folders recursively
     // and show the ones which can be locked to the user
     // in a list control.
-    m_bBlock = TRUE;
     DialogEnableWindow(IDOK, false);
     m_bCancelled = false;
     // Initialise the list control with the status of the files/folders below us
@@ -198,7 +191,7 @@ UINT CLockDlg::StatusThread()
     CString logmsg;
     GetDlgItemText(IDC_LOCKMESSAGE, logmsg);
     DialogEnableWindow(IDOK, m_ProjectProperties ? m_ProjectProperties->nMinLockMsgSize <= logmsg.GetLength() : TRUE);
-    m_bBlock = FALSE;
+    m_bThreadRunning = FALSE;
     return 0;
 }
 
@@ -210,8 +203,6 @@ BOOL CLockDlg::PreTranslateMessage(MSG* pMsg)
         {
         case VK_F5:
             {
-                if (m_bBlock)
-                    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
                 Refresh();
             }
             break;
@@ -227,9 +218,11 @@ BOOL CLockDlg::PreTranslateMessage(MSG* pMsg)
 
 void CLockDlg::Refresh()
 {
-    m_bBlock = TRUE;
+    if (InterlockedExchange(&m_bThreadRunning, TRUE))
+        return;
     if (AfxBeginThread(StatusThreadEntry, this)==NULL)
     {
+        InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
     }
 }
@@ -245,7 +238,7 @@ void CLockDlg::OnEnChangeLockmessage()
     GetDlgItemText(IDC_LOCKMESSAGE, sTemp);
     if (m_ProjectProperties == NULL || sTemp.GetLength() >= m_ProjectProperties->nMinLockMsgSize)
     {
-        if (!m_bBlock)
+        if (!m_bThreadRunning)
             DialogEnableWindow(IDOK, TRUE);
     }
     else
@@ -356,7 +349,7 @@ void CLockDlg::OnTimer(UINT_PTR nIDEvent)
     switch (nIDEvent)
     {
     case REFRESHTIMER:
-        if (m_bBlock)
+        if (m_bThreadRunning)
         {
             SetTimer(REFRESHTIMER, 200, NULL);
             CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");

@@ -1,6 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -910,11 +911,13 @@ void CFileDiffDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     m_arSelectedFileList.Add(fd);
                 }
                 m_pProgDlg = new CProgressDlg();
-                InterlockedExchange(&m_bThreadRunning, TRUE);
-                if (AfxBeginThread(ExportThreadEntry, this)==NULL)
+                if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
-                    InterlockedExchange(&m_bThreadRunning, FALSE);
-                    OnCantStartThread();
+                    if (!AfxBeginThread(ExportThreadEntry, this))
+                    {
+                        InterlockedExchange(&m_bThreadRunning, FALSE);
+                        OnCantStartThread();
+                    }
                 }
             }
         }
@@ -1113,12 +1116,12 @@ BOOL CFileDiffDlg::PreTranslateMessage(MSG* pMsg)
             break;
         case VK_F5:
             {
-                if (!m_bThreadRunning)
+                if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
-                    InterlockedExchange(&m_bThreadRunning, TRUE);
                     if (AfxBeginThread(DiffThreadEntry, this)==NULL)
                     {
                         InterlockedExchange(&m_bThreadRunning, FALSE);
+                        OnCantStartThread();
                     }
                 }
             }
@@ -1229,11 +1232,13 @@ void CFileDiffDlg::OnBnClickedRev1btn()
         m_cRev1Btn.SetWindowText(m_rev1.ToString());
         m_cFileList.DeleteAllItems();
         // start a new thread to re-fetch the diff
-        InterlockedExchange(&m_bThreadRunning, TRUE);
-        if (AfxBeginThread(DiffThreadEntry, this)==NULL)
+        if (!InterlockedExchange(&m_bThreadRunning, TRUE))
         {
-            InterlockedExchange(&m_bThreadRunning, FALSE);
-            OnCantStartThread();
+            if (!AfxBeginThread(DiffThreadEntry, this))
+            {
+                InterlockedExchange(&m_bThreadRunning, FALSE);
+                OnCantStartThread();
+            }
         }
     }
 }
@@ -1255,11 +1260,13 @@ void CFileDiffDlg::OnBnClickedRev2btn()
         m_cRev2Btn.SetWindowText(m_rev2.ToString());
         m_cFileList.DeleteAllItems();
         // start a new thread to re-fetch the diff
-        InterlockedExchange(&m_bThreadRunning, TRUE);
-        if (AfxBeginThread(DiffThreadEntry, this)==NULL)
+        if (!InterlockedExchange(&m_bThreadRunning, TRUE))
         {
-            InterlockedExchange(&m_bThreadRunning, FALSE);
-            OnCantStartThread();
+            if (!AfxBeginThread(DiffThreadEntry, this))
+            {
+                InterlockedExchange(&m_bThreadRunning, FALSE);
+                OnCantStartThread();
+            }
         }
     }
 }

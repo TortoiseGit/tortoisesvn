@@ -1,6 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -95,11 +96,12 @@ BOOL CAddDlg::OnInitDialog()
 
     //first start a thread to obtain the file list with the status without
     //blocking the dialog
+    InterlockedExchange(&m_bThreadRunning, TRUE);
     if(AfxBeginThread(AddThreadEntry, this) == NULL)
     {
+        InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
     }
-    InterlockedExchange(&m_bThreadRunning, TRUE);
 
     return TRUE;
 }
@@ -180,14 +182,13 @@ BOOL CAddDlg::PreTranslateMessage(MSG* pMsg)
             break;
         case VK_F5:
             {
-                if (!m_bThreadRunning)
+                if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
                     if(AfxBeginThread(AddThreadEntry, this) == NULL)
                     {
+                        InterlockedExchange(&m_bThreadRunning, FALSE);
                         OnCantStartThread();
                     }
-                    else
-                        InterlockedExchange(&m_bThreadRunning, TRUE);
                 }
             }
             break;
@@ -199,8 +200,11 @@ BOOL CAddDlg::PreTranslateMessage(MSG* pMsg)
 
 LRESULT CAddDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
+    if (InterlockedExchange(&m_bThreadRunning, TRUE))
+        return 0;
     if(AfxBeginThread(AddThreadEntry, this) == NULL)
     {
+        InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
     }
     return 0;

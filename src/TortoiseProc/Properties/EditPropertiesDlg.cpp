@@ -285,9 +285,8 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 
 void CEditPropertiesDlg::Refresh()
 {
-    if (m_bThreadRunning)
+    if (InterlockedExchange(&m_bThreadRunning, TRUE))
         return;
-    InterlockedExchange(&m_bThreadRunning, TRUE);
     if (AfxBeginThread(PropsThreadEntry, this)==NULL)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
@@ -1041,8 +1040,6 @@ BOOL CEditPropertiesDlg::PreTranslateMessage(MSG* pMsg)
         {
         case VK_F5:
             {
-                if (m_bThreadRunning)
-                    return __super::PreTranslateMessage(pMsg);
                 Refresh();
             }
             break;

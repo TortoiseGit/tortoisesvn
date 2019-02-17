@@ -1,6 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2012, 2014 - TortoiseSVN
+// Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,11 +88,12 @@ BOOL CUnlockDlg::OnInitDialog()
 
     //first start a thread to obtain the file list with the status without
     //blocking the dialog
+    InterlockedExchange(&m_bThreadRunning, TRUE);
     if(AfxBeginThread(UnlockThreadEntry, this) == NULL)
     {
+        InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
     }
-    InterlockedExchange(&m_bThreadRunning, TRUE);
 
     return TRUE;
 }
@@ -171,14 +173,13 @@ BOOL CUnlockDlg::PreTranslateMessage(MSG* pMsg)
             break;
         case VK_F5:
             {
-                if (!m_bThreadRunning)
+                if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
                     if(AfxBeginThread(UnlockThreadEntry, this) == NULL)
                     {
+                        InterlockedExchange(&m_bThreadRunning, FALSE);
                         OnCantStartThread();
                     }
-                    else
-                        InterlockedExchange(&m_bThreadRunning, TRUE);
                 }
             }
             break;
@@ -190,8 +191,11 @@ BOOL CUnlockDlg::PreTranslateMessage(MSG* pMsg)
 
 LRESULT CUnlockDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
-    if(AfxBeginThread(UnlockThreadEntry, this) == NULL)
+    if (InterlockedExchange(&m_bThreadRunning, TRUE))
+        return 0;
+    if (AfxBeginThread(UnlockThreadEntry, this) == NULL)
     {
+        InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
     }
     return 0;

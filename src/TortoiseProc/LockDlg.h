@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2010, 2012, 2013, 2015 - TortoiseSVN
 
@@ -66,8 +66,7 @@ public:
     CTSVNPathList       m_pathList;
 
 private:
-    CWinThread*         m_pThread;
-    BOOL                m_bBlock;
+    volatile LONG       m_bThreadRunning;
     CSVNStatusListCtrl  m_cFileList;
     CSciEdit            m_cEdit;
     ProjectProperties * m_ProjectProperties;

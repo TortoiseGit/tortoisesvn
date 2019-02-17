@@ -1,6 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -285,9 +286,16 @@ BOOL CCopyDlg::OnInitDialog()
     {
         // start a thread to obtain the highest revision number of the working copy
         // without blocking the dialog
-        if ((m_pThread = AfxBeginThread(FindRevThreadEntry, this))==NULL)
+        InterlockedExchange(&m_bThreadRunning, TRUE);
+        if ((m_pThread = AfxBeginThread(FindRevThreadEntry, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED)) == nullptr)
         {
+            InterlockedExchange(&m_bThreadRunning, FALSE);
             OnCantStartThread();
+        }
+        else
+        {
+            m_pThread->m_bAutoDelete = FALSE;
+            m_pThread->ResumeThread();
         }
     }
     else
@@ -304,7 +312,6 @@ UINT CCopyDlg::FindRevThreadEntry(LPVOID pVoid)
 
 UINT CCopyDlg::FindRevThread()
 {
-    InterlockedExchange(&m_bThreadRunning, TRUE);
     m_bmodified = false;
     if (!m_bCancelled)
     {
@@ -376,6 +383,7 @@ void CCopyDlg::OnOK()
             // we gave the thread a chance to quit. Since the thread didn't
             // listen to us we have to kill it.
             TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+            delete m_pThread;
             InterlockedExchange(&m_bThreadRunning, FALSE);
         }
     }
@@ -679,6 +687,7 @@ void CCopyDlg::OnCancel()
             // we gave the thread a chance to quit. Since the thread didn't
             // listen to us we have to kill it.
             TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+            delete m_pThread;
             InterlockedExchange(&m_bThreadRunning, FALSE);
         }
     }

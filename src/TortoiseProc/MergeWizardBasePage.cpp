@@ -1,6 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2007-2010, 2012-2016, 2018 - TortoiseSVN
+// Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +41,18 @@ void CMergeWizardBasePage::SetButtonTexts()
 void CMergeWizardBasePage::StartWCCheckThread(const CTSVNPath& path)
 {
     m_path = path;
-    m_pThread = AfxBeginThread(FindRevThreadEntry, this);
+    if (InterlockedExchange(&m_bThreadRunning, TRUE))
+        return;
+    delete m_pThread;
+    m_pThread = AfxBeginThread(FindRevThreadEntry, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
+    if (!m_pThread)
+    {
+        InterlockedExchange(&m_bThreadRunning, FALSE);
+        // ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
+        return;
+    }
+    m_pThread->m_bAutoDelete = FALSE;
+    m_pThread->ResumeThread();
 }
 
 void CMergeWizardBasePage::StopWCCheckThread()
@@ -73,7 +85,6 @@ UINT CMergeWizardBasePage::FindRevThread()
     bool            bmodified;
     bool            bSparse;
 
-    InterlockedExchange(&m_bThreadRunning, TRUE);
     if (GetWCRevisionStatus(m_path, true, minrev, maxrev, bswitched, bmodified, bSparse))
     {
         if (!m_bCancelled)

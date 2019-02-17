@@ -1,6 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -158,7 +159,6 @@ UINT CChangedDlg::ChangedStatusThreadEntry(LPVOID pVoid)
 
 UINT CChangedDlg::ChangedStatusThread()
 {
-    InterlockedExchange(&m_bBlock, TRUE);
     RefreshCursor();
     m_bCanceled = false;
     SetDlgItemText(IDOK, CString(MAKEINTRESOURCE(IDS_MSGBOX_CANCEL)));
@@ -338,8 +338,6 @@ BOOL CChangedDlg::PreTranslateMessage(MSG* pMsg)
         {
         case VK_F5:
             {
-                if (m_bBlock)
-                    return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
                 OnBnClickedRefresh();
             }
             break;
@@ -354,10 +352,11 @@ BOOL CChangedDlg::PreTranslateMessage(MSG* pMsg)
 
 void CChangedDlg::OnBnClickedRefresh()
 {
-    if (!m_bBlock)
+    if (!InterlockedExchange(&m_bBlock, TRUE))
     {
         if (AfxBeginThread(ChangedStatusThreadEntry, this)==NULL)
         {
+            InterlockedExchange(&m_bBlock, FALSE);
             OnCantStartThread();
         }
     }

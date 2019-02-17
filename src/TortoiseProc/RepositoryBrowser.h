@@ -326,7 +326,7 @@ private:
     CTSVNPath           m_wcPath;
     CString             m_selectedURLs; ///< only valid after <OK>
     CString             m_initialFilename;
-    bool                m_bThreadRunning;
+    volatile LONG       m_bThreadRunning;
     static const UINT   m_AfterInitMessage;
     bool                m_bFetchChildren;
     bool                m_bShowExternals;
