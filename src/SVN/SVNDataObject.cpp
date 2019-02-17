@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2007-2014, 2016 - TortoiseSVN
 
@@ -211,8 +211,14 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
         }
         size_t dataSize = sizeof(FILEGROUPDESCRIPTOR) + ((m_allPaths.size() - 1) * sizeof(FILEDESCRIPTOR));
         HGLOBAL data = GlobalAlloc(GMEM_MOVEABLE | GMEM_SHARE | GMEM_ZEROINIT, dataSize);
-
+        if (!data)
+            return E_OUTOFMEMORY;
         FILEGROUPDESCRIPTOR* files = (FILEGROUPDESCRIPTOR*)GlobalLock(data);
+        if (!files)
+        {
+            GlobalFree(data);
+            return E_OUTOFMEMORY;
+        }
         files->cItems = static_cast<UINT>(m_allPaths.size());
         int index = 0;
         for (std::vector<SVNDataObject::SVNObjectInfoData>::const_iterator it = m_allPaths.begin(); it != m_allPaths.end(); ++it)
@@ -292,7 +298,14 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pmedium)
     else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->cfFormat == CF_PREFERREDDROPEFFECT))
     {
         HGLOBAL data = GlobalAlloc(GMEM_MOVEABLE | GMEM_SHARE | GMEM_ZEROINIT, sizeof(DWORD));
-        DWORD* effect = (DWORD*) GlobalLock(data);
+        if (!data)
+            return E_OUTOFMEMORY;
+        DWORD* effect = (DWORD*)GlobalLock(data);
+        if (!effect)
+        {
+            GlobalFree(data);
+            return E_OUTOFMEMORY;
+        }
         if (m_bFilesAsUrlLinks)
             (*effect) = DROPEFFECT_LINK;
         else
