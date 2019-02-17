@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2015, 2017 - TortoiseSVN
 
@@ -497,8 +497,11 @@ bool CPicture::LoadPictureData(BYTE *pBuffer, int nSize)
     }
 
     void* pData = GlobalLock(hGlobalMem);
-    if (pData == NULL)
+    if (!pData)
+    {
+        GlobalFree(hGlobalMem);
         return false;
+    }
     memcpy(pData, pBuffer, nSize);
     GlobalUnlock(hGlobalMem);
 
