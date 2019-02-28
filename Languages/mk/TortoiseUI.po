@@ -10,14 +10,15 @@
 # 
 # Authors:
 # Translators:
+# Dimitar Jordanov <dimitar@newland.com>, 2019
 # Srdjan Stokic <srdjan.stokic@gmail.com>, 2011,2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-10-02 02:10+0000\n"
-"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2019-02-14 17:36+0000\n"
+"Last-Translator: Dimitar Jordanov <dimitar@newland.com>\n"
 "Language-Team: Macedonian (http://www.transifex.com/luebbe/tortoisesvn/language/mk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,7 +102,7 @@ msgstr "%1!ld! минути and %2!ld! секунди"
 #. Resource IDs: (IDS_LOG_DLGTITLEOFFLINE)
 #, c-format
 msgid "%1!ls! (offline)"
-msgstr ""
+msgstr "%1!ls! (офлајн)"
 
 #. Resource IDs: (IDS_PROGRS_PATHATREV)
 #, c-format
@@ -116,7 +117,7 @@ msgstr "%1!ls! : Работна основа, Ревизија %2!ld!"
 #. Resource IDs: (IDS_PROGRS_UPDATE)
 #, c-format
 msgid "%1!ls! from %2!ls!"
-msgstr ""
+msgstr "%1!ls! од %2!ls!"
 
 #. Resource IDs: (IDS_PROGRS_FINALINFO)
 #, c-format
@@ -126,7 +127,7 @@ msgstr "%1!ls! во %2!ls!"
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALANDSPEED)
 #, c-format
 msgid "%1!ls!, %2!ls!"
-msgstr ""
+msgstr "%1!ls!, %2!ls!"
 
 #. Resource IDs: (IDS_PROC_EXPORTFOLDERNAME)
 #, c-format
@@ -143,14 +144,14 @@ msgstr "%1!ls!\\%2!ls! - Извоз (%3!d!)"
 msgid ""
 "%1!ls!\r\n"
 "Revision %2!ls!, Author %3!ls!, Date %4!ls!"
-msgstr ""
+msgstr "%1!ls!\r\nРевизија %2!ls!, Автор %3!ls!, Датум %4!ls!"
 
 #. Resource IDs: (IDS_REPOBROWSE_INFOFILE)
 #, c-format
 msgid ""
 "%1!ls!\r\n"
 "Revision %2!ls!, Author %3!ls!, Size %4!ls!, Date %5!ls!"
-msgstr ""
+msgstr "%1!ls!\r\nРевизија %2!ls!, Автор %3!ls!, Големина %4!ls!, Датум %5!ls!"
 
 #. Resource IDs: (IDS_REPOBROWSE_INFO)
 #, c-format
@@ -204,7 +205,7 @@ msgstr ""
 #. Resource IDs: (IDS_MONITOR_NOTIFY_MULTITITLE)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "%d проекти имаат надградби:"
 
 #. Resource IDs: (IDS_ALPHABUTTONTT)
 #, c-format
@@ -242,7 +243,7 @@ msgstr ""
 #. Resource IDs: (IDS_DIFF_MERGEDNAME)
 #, c-format
 msgid "%ls : Merged file"
-msgstr ""
+msgstr "%ls : Споена датотека"
 
 #. Resource IDs: (IDS_DIFF_REMOTENAME)
 #, c-format
@@ -318,7 +319,7 @@ msgstr "&Додади"
 
 #. Resource IDs: (Dialog IDD_REGEXFILTERS: Control id 1505)
 msgid "&Add Filter"
-msgstr ""
+msgstr "&Додади Филтер"
 
 #. Resource IDs: (IDS_WARN_ADDCASERENAMED_TASK4)
 msgid ""
@@ -448,7 +449,7 @@ msgstr ""
 msgid ""
 "&Cancel\n"
 "Do not remove"
-msgstr ""
+msgstr "&Откажи\nНе отстранувај"
 
 #. Resource IDs: (IDS_LOG_REVERT_CONFIRM_TASK4)
 msgid ""
@@ -904,7 +905,7 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_RECYCLEBIN: Control id 2)
 msgid "&Ignore and proceed"
-msgstr ""
+msgstr "&Игнорирај и продолжи"
 
 #. Resource IDs: (IDS_MENUIGNOREMULTIPLE2)
 msgid "&Ignore multiple items by name"
@@ -1045,11 +1046,11 @@ msgstr "&Измени боја за копии во стеблото"
 
 #. Resource IDs: (ID_VIEW_MOVEDBLOCKS - Menu)
 msgid "&Moved blocks"
-msgstr ""
+msgstr "&Преместени блокови"
 
 #. Resource IDs: (Dialog IDD_UNSHELVE: Control id 1672)
 msgid "&Name"
-msgstr ""
+msgstr "&Име"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&Navigate"
@@ -1083,7 +1084,7 @@ msgstr "&Следна страна"
 
 #. Resource IDs: (Dialog IDD_EDITPROPNEEDSLOCK: Control id 1555)
 msgid "&No locking required"
-msgstr ""
+msgstr "&Не е потребно заклучување"
 
 #. Resource IDs: (Dialog IDD_COMMITDLG: Control id 1506)
 msgid "&None"
@@ -4012,11 +4013,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK5)
 msgid "Do this for all existing files"
-msgstr ""
+msgstr "Направи го ова за сите постоечки датотеки"
 
 #. Resource IDs: (IDS_PROC_OVERWRITEEXPORT_TASK6)
 msgid "Do this for all existing folders"
-msgstr ""
+msgstr "Направи го ова за сите постоечки директориуми"
 
 #. Resource IDs: (IDS_PROC_REPLACEEXISTING_TASK5)
 msgid "Do this for all existing items"
@@ -4775,7 +4776,7 @@ msgstr ""
 #. Resource IDs: (IDS_PROC_OVERWRITE_CONFIRM_TASK2,
 #. IDS_WARN_ADDCASERENAMED_TASK2)
 msgid "File already exists"
-msgstr ""
+msgstr "Датотеката веќе постои"
 
 #. Resource IDs: (IDS_STATGRAPH_FILECHANGESBYUNIT)
 #, c-format

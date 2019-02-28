@@ -19,7 +19,7 @@
 # Emilio Bologna <io@emilio.i5-my.name>, 2012
 # Emilio Bologna <io@emilio.i5-my.name>, 2012
 # Fabio Turrin, 2018
-# Fabio Turrin, 2018
+# Fabio Turrin, 2018-2019
 # Leonardo <philyo1@gmail.com>, 2012
 # acehigh, 2011
 # Marco Scalcione <marco.scalcione@prae.it>, 2018
@@ -36,8 +36,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-01-28 01:27+0000\n"
-"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2019-02-12 16:30+0000\n"
+"Last-Translator: Fabio Turrin\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6389,11 +6389,11 @@ msgid ""
 "If you did this from the revision log for a folder, a Compare Revisions "
 "dialog appears, showing a list of changed files in that folder. Read more in"
 " <xref linkend=\"tsvn-dug-compare-revs\"/>."
-msgstr ""
+msgstr "Se si è eseguita questa operazione dal log delle revisioni di una cartella, viene visualizzata la finestra di dialogo Confronta Revisioni che mostra un elenco di file modificati in tale cartella. Leggi di più in <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (term)
 msgid "All changes made in a commit"
-msgstr ""
+msgstr "Tutte le modifiche apportate in un commit"
 
 #. (para)
 msgid ""
@@ -6404,7 +6404,7 @@ msgid ""
 "Revision Log dialog select the revision of interest, then select "
 "<guimenuitem>Show Differences as Unified-Diff</guimenuitem> from the context"
 " menu."
-msgstr ""
+msgstr "Se si desidera vedere le modifiche apportate a tutti i file in una revisione particolare in una vista, è possibile utilizzare l'output Unified-Diff (formato patch GNU). Questo mostra solo le differenze con alcune linee di contesto. È più difficile da leggere rispetto a un file di confronto, ma mostrerà tutte le modifiche insieme. Dalla finestra di dialogo Log delle Revisioni selezionare la revisione di interesse, quindi selezionare <guimenuitem>Mostra differenze come Unified-Diff</guimenuitem> dal menu di scelta rapida."
 
 #. (term)
 msgid "Difference between files"
@@ -6416,7 +6416,7 @@ msgid ""
 "that directly in explorer by selecting both files (using the usual "
 "<keycap>Ctrl</keycap>-modifier). Then from the explorer context menu select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se vuoi vedere le differenze tra due file diversi, puoi farlo direttamente in Explorer selezionando entrambi i file (usando il solito modificatore <keycap>Ctrl</keycap>). Quindi dal menu di scelta rapida di explorer selezionare <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -6430,7 +6430,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff "
 "later</guimenuitem></menuchoice> again, but hold down the "
 "<keycap>Ctrl</keycap>-modifier while clicking on it."
-msgstr ""
+msgstr "Se i file da confrontare non si trovano nella stessa cartella, utilizzare il comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff in seguito</guimenuitem></menuchoice> per contrassegnare il primo file da confrontare, quindi individuare il secondo file e utilizzare <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff con \"percorso/del/file/contrassegnato\"</guimenuitem></menuchoice>. Per rimuovere il file contrassegnato, usa di nuovo il comando <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff in seguito</guimenuitem></menuchoice>, ma tieni premuto il modificatore <keycap>Ctrl</keycap> mentre fai clic su di esso."
 
 #. (term)
 msgid "Difference between WC file/folder and a URL"
@@ -6446,7 +6446,7 @@ msgid ""
 "URL</guimenuitem></menuchoice>. You can do the same thing for a working copy"
 " folder. TortoiseMerge shows these differences in the same way as it shows a"
 " patch file - a list of changed files which you can view one at a time."
-msgstr ""
+msgstr "Se vuoi vedere le differenze tra un file nella tua copia di lavoro e un file in qualsiasi repository di Subversion, puoi farlo direttamente in explorer selezionando il file e tenendo premuto il tasto <keycap>Maiusc</keycap> mentre fai clic destro per ottenere il menu di scelta rapida. Seleziona <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff con URL</guimenuitem></menuchoice>. Puoi fare la stessa cosa per una cartella di lavoro. TortoiseMerge mostra queste differenze nello stesso modo in cui mostra un file patch: un elenco di file modificati che è possibile visualizzare uno alla volta."
 
 #. (term)
 msgid "Difference with blame information"
@@ -6470,7 +6470,7 @@ msgid ""
 "differences between directory hierarchies. But if you have an external tool "
 "which does support that feature, you can use that instead. In <xref linkend"
 "=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
-msgstr ""
+msgstr "Gli strumenti integrati forniti con TortoiseSVN non supportano la visualizzazione delle differenze tra le gerarchie di directory. Ma se hai uno strumento esterno che supporta questa funzione, puoi invece usarlo. In <xref linkend=\"tsvn-dug-diff-tools\"/> vi parleremo di alcuni strumenti che abbiamo usato."
 
 #. (para)
 msgid ""
@@ -6478,11 +6478,11 @@ msgid ""
 "<keycap>Shift</keycap> when selecting the Diff command to use the alternate "
 "tool. Read <xref linkend=\"tsvn-dug-settings-progs\"/> to find out about "
 "configuring other diff tools."
-msgstr ""
+msgstr "Se è stato configurato uno strumento di diff di terze parti, è possibile utilizzare <keycap>Shift</keycap> quando si seleziona il comando Diff per utilizzare lo strumento alternativo. Leggi <xref linkend=\"tsvn-dug-settings-progs\"/> per scoprire come configurare altri strumenti diff."
 
 #. (title)
 msgid "Line-end and Whitespace Options"
-msgstr ""
+msgstr "Opzioni di fine linea e spazi bianchi"
 
 #. (para)
 msgid ""
@@ -6494,19 +6494,19 @@ msgid ""
 "comparing and applying differences. You will see these settings in the "
 "<guilabel>Merge</guilabel> and <guilabel>Blame</guilabel> dialogs, as well "
 "as in the settings for TortoiseMerge."
-msgstr ""
+msgstr "A volte nella vita di un progetto è possibile modificare le terminazioni di riga da <literal>CRLF</literal> a <literal>LF</literal>, oppure è possibile modificare l'indentazione di una sezione. Sfortunatamente questo segnerà un numero elevato di righe come modificato, anche se non vi è alcun cambiamento nel significato del codice. Le opzioni seguenti aiuteranno a gestire questi cambiamenti quando si tratta di confrontare e applicare le differenze. Vedrai queste impostazioni nelle finestre di dialogo <guilabel>Unisci</guilabel> e <guilabel>Blame</guilabel>, nonché nelle impostazioni di TortoiseMerge."
 
 #. (para)
 msgid ""
 "<guilabel>Ignore line endings</guilabel> excludes changes which are due "
 "solely to difference in line-end style."
-msgstr ""
+msgstr "<guilabel>Ignora le terminazioni di riga</guilabel> esclude le modifiche dovute unicamente alla differenza nello stile di fine riga."
 
 #. (para)
 msgid ""
 "<guilabel>Compare whitespaces</guilabel> includes all changes in indentation"
 " and inline whitespace as added/removed lines."
-msgstr ""
+msgstr "<guilabel>Confronta gli spazi bianchi</guilabel> include tutte le modifiche nel rientro e negli spazi bianchi in linea come linee aggiunte/rimosse."
 
 #. (para)
 msgid ""
@@ -6515,18 +6515,18 @@ msgid ""
 "the indentation or changing tabs to spaces. Adding whitespace where there "
 "was none before, or removing a whitespace completely is still shown as a "
 "change."
-msgstr ""
+msgstr "<guilabel>Ignora le modifiche agli spazi bianchi</guilabel> esclude le modifiche che sono dovute esclusivamente a una modifica della quantità o del tipo di spazi bianchi, ad es. cambiare il rientro o cambiare tabulazioni in spazi. Aggiungere spazi bianchi dove non ce n'erano prima, o rimuovere completamente uno spazio bianco è ancora mostrato come una modifica."
 
 #. (para)
 msgid ""
 "<guilabel>Ignore all whitespaces</guilabel> excludes all whitespace-only "
 "changes."
-msgstr ""
+msgstr "<guilabel>Ignora tutti gli spazi bianchi</guilabel> esclude tutte le modifiche agli spazi bianchi."
 
 #. (para)
 msgid ""
 "Naturally, any line with changed content is always included in the diff."
-msgstr ""
+msgstr "Naturalmente, qualsiasi riga con contenuto modificato è sempre inclusa nel diff."
 
 #. (title)
 msgid "Comparing Folders"
@@ -6542,7 +6542,7 @@ msgstr "esporta modifiche"
 
 #. (title)
 msgid "The Compare Revisions Dialog"
-msgstr ""
+msgstr "La finestra di dialogo Confronto delle revisioni"
 
 #. (para)
 msgid ""
@@ -6550,7 +6550,7 @@ msgid ""
 " when you select two revisions of a folder in the log dialog, you can "
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Compare "
 "revisions</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "<placeholder-1/> Quando si selezionano due alberi all'interno del browser del repository o quando si selezionano due revisioni di una cartella nella finestra di dialogo del log, è possibile utilizzare <menuchoice><guimenu>Menu contestuale</guimenu><guimenuitem>Confronta revisioni</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
@@ -6568,14 +6568,14 @@ msgid ""
 "menu</guimenu><guimenuitem>Export selection "
 "to...</guimenuitem></menuchoice>. You will be prompted for a location to "
 "save the change tree."
-msgstr ""
+msgstr "È possibile esportare un <emphasis>albero delle modifiche</emphasis>, che è utile se è necessario inviare a qualcun altro la struttura dell'albero del progetto, ma contenente solo i file che sono stati modificati. Questa operazione funziona solo sui file selezionati, quindi è necessario selezionare i file di interesse - che in genere significa tutti - e quindi con il <menuchoice>menu contestuale<guimenu><guimenuitem>Esporta Selezione in...</guimenuitem></menuchoice>. Verrà richiesto un percorso in cui salvare l'albero delle modifiche."
 
 #. (para)
 msgid ""
 "You can also export the <emphasis>list</emphasis> of changed files to a text"
 " file using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Save "
 "list of selected files to...</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "È anche possibile esportare <emphasis>l'elenco</emphasis> dei file modificati in un file di testo utilizzando il <guimenu>menu contestuale</guimenu><guimenuitem>Salva l'elenco dei file selezionati in...</guimenuitem><menuchoice>."
 
 #. (para)
 msgid ""
@@ -6583,20 +6583,20 @@ msgid ""
 " (modified, added, deleted) as well, you can do that using "
 "<menuchoice><guimenu>Context menu</guimenu><guimenuitem>Copy selection to "
 "clipboard</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Se si desidera esportare l'elenco di file <emphasis>e</emphasis> le azioni (modificate, aggiunte, eliminate), è possibile farlo utilizzando il <menuchoice><guimenu>menu contestuale</guimenu><guimenuitem>Copia selezione negli appunti</guimenuitem></menuchoice>."
 
 #. (para)
 msgid ""
 "The button at the top allows you to change the direction of comparison. You "
 "can show the changes need to get from A to B, or if you prefer, from B to A."
-msgstr ""
+msgstr "Il pulsante in alto consente di modificare la direzione del confronto. Puoi mostrare che le modifiche devono andare da A a B, o se preferisci, da B a A."
 
 #. (para)
 msgid ""
 "The buttons with the revision numbers on can be used to change to a "
 "different revision range. When you change the range, the list of items which"
 " differ between the two revisions will be updated automatically."
-msgstr ""
+msgstr "I pulsanti con i numeri di revisione attivi possono essere utilizzati per passare a un intervallo di revisione diverso. Quando si modifica l'intervallo, l'elenco di elementi che differiscono tra le due revisioni verrà aggiornato automaticamente."
 
 #. (para)
 msgid ""
@@ -6604,7 +6604,7 @@ msgid ""
 "the list to filenames containing specific text. Note that a simple text "
 "search is used, so if you want to restrict the list to C source files you "
 "should enter <filename>.c</filename> rather than <filename>*.c</filename>."
-msgstr ""
+msgstr "Se l'elenco dei nomi di file è molto lungo, è possibile utilizzare la casella di ricerca per ridurre l'elenco ai nomi di file contenenti testo specifico. Si noti che viene utilizzata una semplice ricerca di testo, quindi se si desidera limitare l'elenco ai file scritti in linguaggio C, è necessario immettere <filename>.c</filename> anziché <filename>*.c</filename>."
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
@@ -6623,11 +6623,11 @@ msgid ""
 "There are many tools available for diffing text files, including our own "
 "TortoiseMerge, but we often find ourselves wanting to see how an image file "
 "has changed too. That's why we created TortoiseIDiff."
-msgstr ""
+msgstr "Ci sono molti strumenti disponibili per effettuare il diff di file di testo, incluso il nostro TortoiseMerge, ma spesso ci ritroviamo a voler vedere anche come è cambiato un file immagine. Ecco perché abbiamo creato TortoiseIDiff."
 
 #. (title)
 msgid "The image difference viewer"
-msgstr ""
+msgstr "Il visualizzatore delle differenze di immagine"
 
 #. (para)
 msgid ""
@@ -6637,7 +6637,7 @@ msgid ""
 "can use the View menu or toolbar to switch to a top-bottom view instead, or "
 "if you prefer, you can overlay the images and pretend you are using a "
 "lightbox."
-msgstr ""
+msgstr "<placeholder-1/><menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice> per qualsiasi formato di file di immagine comune avvierà TortoiseIDiff per mostrare le differenze di immagine. Per impostazione predefinita, le immagini vengono visualizzate affiancate ma è possibile utilizzare il menu Visualizza o la barra degli strumenti per passare invece a una vista dall'alto in basso oppure, se lo si preferisce, è possibile sovrapporre le immagini e far finta di utilizzare una lightbox."
 
 #. (para)
 msgid ""

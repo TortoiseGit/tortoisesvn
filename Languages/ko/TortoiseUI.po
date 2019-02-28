@@ -14,6 +14,7 @@
 # Sangjun Jung <spamcoffee+transifex@gmail.com>, 2011
 # Hyuk Jae Choi <certin1945@gmail.com>, 2016
 # 오준일 <juniri123@gmail.com>, 2018
+# Jun Jeong <jun.jeong@hotmail.com>, 2019
 # kim minhyouk <apollo8900@naver.com>, 2015
 # Kim KiHyeon <kmkh12@paran.com>, 2011
 # Ian Yoon <learder@gmail.com>, 2012
@@ -26,8 +27,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2018-10-02 02:10+0000\n"
-"Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2019-02-15 22:53+0000\n"
+"Last-Translator: Jun Jeong <jun.jeong@hotmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/luebbe/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,12 +61,12 @@ msgstr "개별적으로 표시되는 작성자 수:"
 #. Resource IDs: (IDS_SVN_PROGRESS_TOTALMBTRANSFERRED)
 #, c-format
 msgid "%.2f MBytes transferred"
-msgstr "%.2f MBytes 전송됨"
+msgstr "%.2f M 바이트 전송됨"
 
 #. Resource IDs: (IDS_SVN_PROGRESS_KBYTES_SEC)
 #, c-format
 msgid "%.2f kBytes/s"
-msgstr "%.2f kBytes/s"
+msgstr "%.2f k 바이트/초"
 
 #. Resource IDs: (61878)
 #, c-format
@@ -893,7 +894,7 @@ msgstr "숨기기(&H)"
 
 #. Resource IDs: (Dialog IDD_DELUNVERSIONED: Control id 1562)
 msgid "&Hide ignored items"
-msgstr "&무시한 항목들을 숨김"
+msgstr "무시한 항목들을 숨김(&H)"
 
 #. Resource IDs: (cmdShowFileList_LabelTitle_RESID)
 msgid "&Hide/Show the patch file list"
@@ -7423,7 +7424,7 @@ msgstr "그림 (메타 파일)\n그림"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
-msgstr ""
+msgstr "그림파일 (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
 
 #. Resource IDs: (IDS_STATGRAPH_PIEBUTTON_TT)
 msgid "Pie Graph"
@@ -11541,7 +11542,7 @@ msgstr "변경 합계:"
 #. Resource IDs: (IDS_STATUSLIST_CONTEXT_COPYCOL)
 #, c-format
 msgid "column '%ls'"
-msgstr ""
+msgstr "'%ls' 컬럼"
 
 #. Resource IDs: (IDS_STATGRAPH_COMMITSBYAUTHORY,
 #. IDS_STATGRAPH_COMMITSBYDATEY)
@@ -11654,7 +11655,7 @@ msgstr "상속"
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_MISSING)
 msgid "it does not exist (missing or moved away?)."
-msgstr ""
+msgstr "존재하지 않습니다. (찾을 수 없거나 다른곳으로 옮겨짐)"
 
 #. Resource IDs: (IDS_EDITCONFLICT_REASONINFO_DELETED)
 msgid "it is already deleted."
