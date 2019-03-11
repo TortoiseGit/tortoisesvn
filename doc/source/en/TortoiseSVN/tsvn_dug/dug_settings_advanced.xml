@@ -424,6 +424,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term condition="pot">MaxHistoryComboItems</term>
+      <listitem>
+        <para>
+          Comboboxes for URLs and paths show a history of previously used
+          URLs/paths if possible. This settings controls how many previous
+          items are saved and shown. The default is 25 items.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term condition="pot">MergeLogSeparator</term>
       <listitem>
         <para>
