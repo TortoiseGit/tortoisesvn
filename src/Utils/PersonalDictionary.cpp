@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008, 2010, 2014, 2016 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2010, 2014, 2016, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include <codecvt>
 #include "PersonalDictionary.h"
 #include "PathUtils.h"
+#include "UnicodeUtils.h"
 
 CPersonalDictionary::CPersonalDictionary(LONG lLanguage /* = 0*/) :
     m_bLoaded(false)
@@ -36,7 +37,7 @@ CPersonalDictionary::~CPersonalDictionary()
 bool CPersonalDictionary::Load()
 {
     CString sWord;
-    TCHAR line[PDICT_MAX_WORD_LENGTH + 1];
+    char line[PDICT_MAX_WORD_LENGTH + 1];
 
     if (m_bLoaded)
         return true;
@@ -51,9 +52,7 @@ bool CPersonalDictionary::Load()
     wcscat_s(path, sLang);
     wcscat_s(path, L".dic");
 
-    std::locale ulocale(std::locale(), new std::codecvt_utf8<wchar_t>);
-    std::wifstream File;
-    File.imbue(ulocale);
+    std::ifstream File;
     char filepath[MAX_PATH + 1] = { 0 };
     SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
@@ -65,7 +64,7 @@ bool CPersonalDictionary::Load()
     do
     {
         File.getline(line, _countof(line));
-        sWord = line;
+        sWord = CUnicodeUtils::GetUnicode(line);
         if (!sWord.IsEmpty())
             dict.insert(sWord);
     } while (File.gcount() > 0);
@@ -111,9 +110,7 @@ bool CPersonalDictionary::Save()
     wcscat_s(path, sLang);
     wcscat_s(path, L".dic");
 
-    std::locale ulocale(std::locale(), new std::codecvt_utf8<wchar_t>);
-    std::wofstream File;
-    File.imbue(ulocale);
+    std::ofstream File;
     char filepath[MAX_PATH + 1] = { 0 };
     SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
@@ -121,7 +118,7 @@ bool CPersonalDictionary::Save()
     for (std::set<CString>::iterator it = dict.begin(); it != dict.end(); ++it)
     {
         if (!it->IsEmpty())
-            File << (LPCTSTR)*it << L"\n";
+            File << CUnicodeUtils::StdGetUTF8((LPCWSTR)*it).c_str() << "\n";
     }
     File.close();
     return true;
