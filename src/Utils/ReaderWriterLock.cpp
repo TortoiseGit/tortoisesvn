@@ -61,7 +61,7 @@ CReaderWriterLockNonReentrance::~CReaderWriterLockNonReentrance()
     DeleteCriticalSection(&m_cs);
 }
 
-bool CReaderWriterLockNonReentrance::_ReaderWait(DWORD dwTimeout) throw()
+bool CReaderWriterLockNonReentrance::_ReaderWait(DWORD dwTimeout)
 {
     bool blCanRead;
 
@@ -196,7 +196,7 @@ bool CReaderWriterLockNonReentrance::_WriterWaitAndLeaveCSIfSuccess(DWORD dwTime
     return blCanWrite;
 }
 
-bool CReaderWriterLockNonReentrance::_UpgradeToWriterLockAndLeaveCS(DWORD dwTimeout) throw()
+bool CReaderWriterLockNonReentrance::_UpgradeToWriterLockAndLeaveCS(DWORD dwTimeout)
 {
     _ASSERT(m_iNumOfReaderEntered > 0);
 
@@ -340,7 +340,7 @@ void CReaderWriterLockNonReentrance::DowngradeFromWriterLock()
     LeaveCS();
 }
 
-bool CReaderWriterLockNonReentrance::UpgradeToWriterLock(DWORD dwTimeout) throw()
+bool CReaderWriterLockNonReentrance::UpgradeToWriterLock(DWORD dwTimeout)
 {
     EnterCS();
     return _UpgradeToWriterLockAndLeaveCS(dwTimeout);
@@ -546,7 +546,7 @@ void CReaderWriterLock::ReleaseAllLocks()
     m_impl.LeaveCS();
 }
 
-DWORD CReaderWriterLock::GetCurrentThreadStatus() const throw()
+DWORD CReaderWriterLock::GetCurrentThreadStatus() const
 {
     DWORD dwThreadState;
     const DWORD dwCurrentThreadId = GetCurrentThreadId();
