@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2018 - TortoiseSVN
+// Copyright (C) 2017-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -180,7 +180,7 @@ void CUnshelve::OnCbnSelchangeShelvename()
 void CUnshelve::OnCbnSelchangeVersioncombo()
 {
     auto sel = m_cVersionCombo.GetCurSel();
-    if ((sel != CB_ERR) && (sel < m_currentShelfInfo.versions.size()))
+    if ((sel != CB_ERR) && (sel < (int)m_currentShelfInfo.versions.size()))
     {
         auto version   = m_currentShelfInfo.versions[sel];
         m_currentFiles = std::get<1>(version);
