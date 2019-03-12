@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2015, 2017 - TortoiseSVN
+// Copyright (C) 2010-2015, 2017, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -312,33 +312,57 @@ bool SVNPatch::PatchPath( const CString& path )
     m_patchfile.Replace('\\', '/');
     m_targetpath.Replace('\\', '/');
 
-    m_filetopatch = path.Mid(m_targetpath.GetLength()+1);
+    m_filetopatch = path.Mid(m_targetpath.GetLength() + 1);
     m_filetopatch.Replace('\\', '/');
 
     apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
     svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchpool));
 
-    m_nRejected = 0;
-    err = svn_client_patch(svn_dirent_canonicalize(CUnicodeUtils::GetUTF8(m_patchfile), scratchpool),    // patch_abspath
-        svn_dirent_canonicalize(CUnicodeUtils::GetUTF8(m_targetpath), scratchpool),                      // local_abspath
-        false,                                   // dry_run
-        m_nStrip,                                // strip_count
-        false,                                   // reverse
-        true,                                    // ignore_whitespace
-        true,                                    // remove_tempfiles
-        patchfile_func,                          // patch_func
-        this,                                    // patch_baton
-        ctx,                                     // client context
-        scratchpool);
+    const char *patch_abspath = nullptr;
+    err                       = svn_uri_canonicalize_safe(&patch_abspath, nullptr,
+                                    CUnicodeUtils::GetUTF8(m_patchfile),
+                                    scratchpool, scratchpool);
+    if (err)
+    {
+        m_errorStr = GetErrorMessage(err);
+        svn_error_clear(err);
+        apr_pool_destroy(scratchpool);
+        return false;
+    }
 
-    apr_pool_destroy(scratchpool);
+    const char *local_abspath = nullptr;
+    err                       = svn_uri_canonicalize_safe(&local_abspath, nullptr,
+                                    CUnicodeUtils::GetUTF8(m_targetpath),
+                                    scratchpool, scratchpool);
+    if (err)
+    {
+        m_errorStr = GetErrorMessage(err);
+        svn_error_clear(err);
+        apr_pool_destroy(scratchpool);
+        return false;
+    }
+
+    m_nRejected = 0;
+    err         = svn_client_patch(patch_abspath,  // patch_abspath
+                           local_abspath,  // local_abspath
+                           false,          // dry_run
+                           m_nStrip,       // strip_count
+                           false,          // reverse
+                           true,           // ignore_whitespace
+                           true,           // remove_tempfiles
+                           patchfile_func, // patch_func
+                           this,           // patch_baton
+                           ctx,            // client context
+                           scratchpool);
 
     if (err)
     {
         m_errorStr = GetErrorMessage(err);
         svn_error_clear(err);
+        apr_pool_destroy(scratchpool);
         return false;
     }
+    apr_pool_destroy(scratchpool);
 
     return true;
 }
@@ -568,16 +592,24 @@ bool SVNPatch::RemoveFile( const CString& path )
 
     apr_array_header_t *targets = apr_array_make (scratchpool, 1, sizeof(const char *));
 
-    (*((const char **) apr_array_push (targets))) = svn_dirent_canonicalize(CUnicodeUtils::GetUTF8(path), scratchpool);
+    const char *canonicalized_path = nullptr;
+    svn_error_clear(svn_uri_canonicalize_safe(&canonicalized_path, nullptr, CUnicodeUtils::GetUTF8(path), scratchpool, scratchpool));
+    if (canonicalized_path == nullptr)
+    {
+        apr_pool_destroy(scratchpool);
+        return false;
+    }
+
+    (*((const char **) apr_array_push (targets))) = canonicalized_path;
 
     err = svn_client_delete4(targets, true, false, NULL, NULL, NULL, ctx, scratchpool);
-
-    apr_pool_destroy(scratchpool);
 
     if (err)
     {
         svn_error_clear(err);
+        apr_pool_destroy(scratchpool);
         return false;
     }
+    apr_pool_destroy(scratchpool);
     return true;
 }

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -457,7 +457,9 @@ CStringA CPathUtils::GetAbsoluteURL
 
     /* If the URL is already absolute, there is nothing to do. */
 
-    const char *canonicalized_url = svn_uri_canonicalize (URL, pool);
+    const char *canonicalized_url = nullptr;
+    svn_error_clear(svn_uri_canonicalize_safe(&canonicalized_url, nullptr, URL, pool, pool));
+
     if (svn_path_is_url (canonicalized_url))
         return canonicalized_url;
 
@@ -552,17 +554,13 @@ CStringA CPathUtils::GetAbsoluteURL
 
     if (0 == strncmp("//", URL, 2))
     {
-        CStringA scheme
-            = repositoryRootURL.Left (repositoryRootURL.Find (':'));
+        CStringA scheme = repositoryRootURL.Left(repositoryRootURL.Find(':'));
         if (scheme.IsEmpty())
             return errorResult;
 
-        return svn_uri_canonicalize ( apr_pstrcat ( pool
-                                                   , (LPCSTR)scheme
-                                                   , ":"
-                                                   , (LPCSTR)URL
-                                                   , NULL)
-                                     , pool);
+        canonicalized_url = nullptr;
+        svn_error_clear(svn_uri_canonicalize_safe(&canonicalized_url, nullptr, apr_pstrcat(pool, (LPCSTR)scheme, ":", (LPCSTR)URL, NULL), pool, pool));
+        return canonicalized_url;
     }
 
     /* Relative to the server root. */

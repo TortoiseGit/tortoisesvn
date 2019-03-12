@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -197,12 +197,16 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
     {
         m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
         m_sUTF8FwdslashPathEscaped.Replace("file:////", "file://");
-        m_sUTF8FwdslashPathEscaped = svn_uri_canonicalize(m_sUTF8FwdslashPathEscaped, pool);
+        const char * canonical_uri = nullptr;
+        svn_error_clear(svn_uri_canonicalize_safe(&canonical_uri, nullptr, m_sUTF8FwdslashPathEscaped, pool, pool));
+        m_sUTF8FwdslashPathEscaped = canonical_uri;
         return m_sUTF8FwdslashPathEscaped;
     }
     else
     {
-        m_sUTF8FwdslashPath = svn_dirent_canonicalize(m_sUTF8FwdslashPath, pool);
+        const char * canonicalized_dirent = nullptr;
+        svn_error_clear(svn_dirent_canonicalize_safe(&canonicalized_dirent, nullptr, m_sUTF8FwdslashPath, pool, pool));
+        m_sUTF8FwdslashPath = canonicalized_dirent;
         // for UNC paths that point to the server directly (e.g., \\MYSERVER), not
         // to a share on the server, the svn_dirent_canonicalize() API returns
         // a wrong path that asserts when subversion checks that the path is absolute

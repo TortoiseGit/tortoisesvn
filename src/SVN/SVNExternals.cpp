@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2015 - TortoiseSVN
+// Copyright (C) 2010-2015, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -81,7 +81,10 @@ resolve_relative_external_url(const char **resolved_url,
   if (svn_path_is_url(url))
     {
       /* "http://server/path" */
-      *resolved_url = svn_uri_canonicalize(url, result_pool);
+      const char *canonicalized_url = nullptr;
+      SVN_ERR(svn_uri_canonicalize_safe(&canonicalized_url, nullptr, url, result_pool, scratch_pool));
+      *resolved_url = canonicalized_url;
+
       return SVN_NO_ERROR;
     }
 
@@ -187,9 +190,12 @@ resolve_relative_external_url(const char **resolved_url,
 
       parent_dir_uri.path = (char *)svn_path_compose(base_components,
                                                      scratch_pool);
-      *resolved_url = svn_uri_canonicalize(apr_uri_unparse(scratch_pool,
-                                                           &parent_dir_uri, 0),
-                                       result_pool);
+      const char *canonicalized_url = nullptr;
+      SVN_ERR(svn_uri_canonicalize_safe(&canonicalized_url, nullptr, 
+          apr_uri_unparse(scratch_pool, &parent_dir_uri, 0),
+          result_pool, scratch_pool));
+      *resolved_url = canonicalized_url;
+
       return SVN_NO_ERROR;
     }
 
@@ -207,9 +213,11 @@ resolve_relative_external_url(const char **resolved_url,
       const char *scheme;
 
       SVN_ERR(uri_scheme(&scheme, repos_root_url, scratch_pool));
-      *resolved_url = svn_uri_canonicalize(apr_pstrcat(scratch_pool, scheme,
-                                                       ":", url, (char *)NULL),
-                                           result_pool);
+      const char *canonicalized_url = nullptr;
+      SVN_ERR(svn_uri_canonicalize_safe(&canonicalized_url, nullptr,
+          apr_pstrcat(scratch_pool, scheme, ":", url, (char *)NULL),
+          result_pool, scratch_pool));
+      *resolved_url = canonicalized_url;
       return SVN_NO_ERROR;
     }
 
@@ -218,9 +226,12 @@ resolve_relative_external_url(const char **resolved_url,
   if (url[0] == '/')
     {
       parent_dir_uri.path = (char *)url;
-      *resolved_url = svn_uri_canonicalize(apr_uri_unparse(scratch_pool,
-                                                           &parent_dir_uri, 0),
-                                           result_pool);
+
+      const char *canonicalized_url = nullptr;
+      SVN_ERR(svn_uri_canonicalize_safe(&canonicalized_url, nullptr,
+          apr_uri_unparse(scratch_pool, &parent_dir_uri, 0),
+          result_pool, scratch_pool));
+      *resolved_url = canonicalized_url;
       return SVN_NO_ERROR;
     }
 

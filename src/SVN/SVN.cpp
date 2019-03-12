@@ -1928,8 +1928,8 @@ svn_error_t* SVN::blameReceiver(void* baton,
             {
                 // we don't have a BOM, so we have to try to figure out
                 // the encoding using heuristics. But only if the line is long enough
-                int nullcount = 0;
-                for (int i = 0; i < line->len; ++i)
+                size_t nullcount = 0;
+                for (size_t i = 0; i < line->len; ++i)
                 {
                     if (line->data[i] == 0)
                         ++nullcount;
