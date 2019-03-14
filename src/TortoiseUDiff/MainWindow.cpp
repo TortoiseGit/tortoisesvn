@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2018 - TortoiseSVN
-// Copyright (C) 2012-2016, 2018 - TortoiseGit
+// Copyright (C) 2012-2016, 2018-2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -231,12 +231,30 @@ LRESULT CMainWindow::DoCommand(int id)
         break;
     case IDM_FINDNEXT:
         SendEditor(SCI_SEARCHANCHOR);
-        SendEditor(SCI_SEARCHNEXT, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str());
+        if (SendEditor(SCI_SEARCHNEXT, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str()) == -1)
+        {
+            FLASHWINFO fwi;
+            fwi.cbSize = sizeof(FLASHWINFO);
+            fwi.uCount = 3;
+            fwi.dwTimeout = 100;
+            fwi.dwFlags = FLASHW_ALL;
+            fwi.hwnd = m_hwnd;
+            FlashWindowEx(&fwi);
+        }
         SendEditor(SCI_SCROLLCARET);
         break;
     case IDM_FINDPREV:
         SendEditor(SCI_SEARCHANCHOR);
-        SendEditor(SCI_SEARCHPREV, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str());
+        if (SendEditor(SCI_SEARCHPREV, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str()) == -1)
+        {
+            FLASHWINFO fwi;
+            fwi.cbSize = sizeof(FLASHWINFO);
+            fwi.uCount = 3;
+            fwi.dwTimeout = 100;
+            fwi.dwFlags = FLASHW_ALL;
+            fwi.hwnd = m_hwnd;
+            FlashWindowEx(&fwi);
+        }
         SendEditor(SCI_SCROLLCARET);
         break;
     case IDM_FINDEXIT:
