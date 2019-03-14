@@ -1,4 +1,4 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
 // Copyright (C) 2006-2010, 2013-2014 - TortoiseSVN
 
@@ -51,7 +51,6 @@ protected:
 
     afx_msg void OnModified();
     afx_msg void OnModifiedWithReload();
-    afx_msg void OnBnClickedWhitespace();
 
     DECLARE_MESSAGE_MAP()
 
