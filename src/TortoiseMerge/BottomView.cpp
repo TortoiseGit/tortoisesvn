@@ -1,6 +1,7 @@
 // TortoiseMerge - a Diff/Patch program
 
 // Copyright (C) 2006-2013 - TortoiseSVN
+// Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,7 +61,7 @@ void CBottomView::UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastVi
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
         viewdata lineData = pwndView->GetViewData(viewLine);
-        if ((lineData.ending != EOL_NOENDING)||(viewLine < (GetViewCount()-1)))
+        if ((lineData.ending != EOL_NOENDING) || (viewLine < (GetViewCount() - 1) && lineData.state != DIFFSTATE_CONFLICTEMPTY && lineData.state != DIFFSTATE_IDENTICALREMOVED))
             lineData.ending = m_lineendings;
         lineData.state = ResolveState(lineData.state);
         SetViewData(viewLine, lineData);
@@ -70,7 +71,7 @@ void CBottomView::UseBlock(CBaseView * pwndView, int nFirstViewLine, int nLastVi
     // make sure previous (non empty) line have EOL set
     for (int nCheckViewLine = nFirstViewLine-1; nCheckViewLine > 0; nCheckViewLine--)
     {
-        if (!IsViewLineEmpty(nCheckViewLine))
+        if (!IsViewLineEmpty(nCheckViewLine) && GetViewState(nCheckViewLine) != DIFFSTATE_IDENTICALREMOVED)
         {
             if (GetViewLineEnding(nCheckViewLine) == EOL_NOENDING)
             {
@@ -113,7 +114,7 @@ void CBottomView::UseBothBlocks(CBaseView * pwndFirst, CBaseView * pwndLast)
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
         viewdata lineData = pwndFirst->GetViewData(viewLine);
-        if ((lineData.ending != EOL_NOENDING)||(viewLine < (GetViewCount()-1)))
+        if ((lineData.ending != EOL_NOENDING) || (viewLine < (GetViewCount() - 1) && lineData.state != DIFFSTATE_CONFLICTEMPTY && lineData.state != DIFFSTATE_IDENTICALREMOVED))
             lineData.ending = m_lineendings;
         lineData.state = ResolveState(lineData.state);
         SetViewData(viewLine, lineData);

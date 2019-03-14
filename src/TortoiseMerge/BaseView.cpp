@@ -1,6 +1,7 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
 // Copyright (C) 2003-2019 - TortoiseSVN
+// Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3887,7 +3888,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
                     lineData.sLine.Insert(ptCaretViewPos.x, (wchar_t)nChar);
             }
         }
-        if (IsStateEmpty(lineData.state))
+        if (IsStateEmpty(lineData.state) || IsStateConflicted(lineData.state) || lineData.state == DIFFSTATE_IDENTICALREMOVED)
         {
             // if not last line set EOL
             for (int nCheckViewLine = nViewLine+1; nCheckViewLine < GetViewCount(); nCheckViewLine++)
@@ -3901,7 +3902,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
             // make sure previous (non empty) line have EOL set
             for (int nCheckViewLine = nViewLine-1; nCheckViewLine > 0; nCheckViewLine--)
             {
-                if (!IsViewLineEmpty(nCheckViewLine))
+                if (!IsViewLineEmpty(nCheckViewLine) && GetViewState(nCheckViewLine) != DIFFSTATE_IDENTICALREMOVED)
                 {
                     if (GetViewLineEnding(nCheckViewLine) == EOL_NOENDING)
                     {
@@ -6585,6 +6586,31 @@ void CBaseView::InsertText(const CString& sText)
         sLine.Insert(nLeft, sText);
         ptCaretViewPos = SetupPoint(nLeft + sText.GetLength(), nViewLine);
         SetViewLine(nViewLine, sLine);
+
+        auto viewState = GetViewState(nViewLine);
+        if (IsStateEmpty(viewState) || IsStateConflicted(viewState) || viewState == DIFFSTATE_IDENTICALREMOVED)
+        {
+            // if not last line set EOL
+            for (int nCheckViewLine = nViewLine + 1; nCheckViewLine < GetViewCount(); ++nCheckViewLine)
+            {
+                if (!IsViewLineEmpty(nCheckViewLine))
+                {
+                    SetViewLineEnding(nViewLine, m_lineendings);
+                    break;
+                }
+            }
+            // make sure previous (non empty) line have EOL set
+            for (int nCheckViewLine = nViewLine - 1; nCheckViewLine > 0; --nCheckViewLine)
+            {
+                if (!IsViewLineEmpty(nCheckViewLine))
+                {
+                    if (GetViewLineEnding(nCheckViewLine) == EOL_NOENDING)
+                        SetViewLineEnding(nCheckViewLine, m_lineendings);
+                    break;
+                }
+            }
+        }
+
         SetViewState(nViewLine, DIFFSTATE_EDITED);
         SetModified();
         SaveUndoStep();
