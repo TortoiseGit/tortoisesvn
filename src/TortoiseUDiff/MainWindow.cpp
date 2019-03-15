@@ -156,7 +156,16 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
             SendEditor(SCI_SEARCHANCHOR);
             m_bMatchCase = !!wParam;
             m_findtext = (LPCTSTR)lParam;
-            SendEditor(SCI_SEARCHNEXT, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str());
+            if (SendEditor(SCI_SEARCHNEXT, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str()) == -1)
+            {
+                FLASHWINFO fwi;
+                fwi.cbSize = sizeof(FLASHWINFO);
+                fwi.uCount = 3;
+                fwi.dwTimeout = 100;
+                fwi.dwFlags = FLASHW_ALL;
+                fwi.hwnd = m_hwnd;
+                FlashWindowEx(&fwi);
+            }
             SendEditor(SCI_SCROLLCARET);
         }
         break;
@@ -165,7 +174,17 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
             SendEditor(SCI_SEARCHANCHOR);
             m_bMatchCase = !!wParam;
             m_findtext = (LPCTSTR)lParam;
-            SendEditor(SCI_SEARCHPREV, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str());
+            if (SendEditor(SCI_SEARCHPREV, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str()) == -1)
+            {
+                FLASHWINFO fwi;
+                fwi.cbSize = sizeof(FLASHWINFO);
+                fwi.uCount = 3;
+                fwi.dwTimeout = 100;
+                fwi.dwFlags = FLASHW_ALL;
+                fwi.hwnd = m_hwnd;
+                FlashWindowEx(&fwi);
+            }
+
             SendEditor(SCI_SCROLLCARET);
         }
         break;
