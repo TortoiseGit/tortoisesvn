@@ -1,4 +1,4 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
 // Copyright (C) 2006-2007, 2010-2011, 2013-2015 - TortoiseSVN
 
@@ -274,16 +274,15 @@ bool CUndo::Redo(CBaseView * pLeft, CBaseView * pRight, CBaseView * pBottom)
     {
         pActiveView = pBottom;
     }
+    else if (pRight && pRight->IsTarget())
+    {
+        pActiveView = pRight;
+    }
     else
-        if (pRight && pRight->IsTarget())
-        {
-            pActiveView = pRight;
-        }
-        else
-            //if (pLeft && pLeft->IsTarget())
-        {
-            pActiveView = pLeft;
-        }
+    //if (pLeft && pLeft->IsTarget())
+    {
+        pActiveView = pLeft;
+    }
 
 
     if (pActiveView)
