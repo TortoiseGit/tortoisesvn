@@ -730,12 +730,18 @@ void CMainWindow::SetupWindow(bool bUTF8)
               CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackCommentColor", UDIFF_COLORBACKCOMMENT));
     SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);
 
-    SetAStyle(SCE_DIFF_ADDED,
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeAddedColor", UDIFF_COLORFOREADDED),
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackAddedColor", UDIFF_COLORBACKADDED));
-    SetAStyle(SCE_DIFF_DELETED,
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeRemovedColor", UDIFF_COLORFOREREMOVED),
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackRemovedColor", UDIFF_COLORBACKREMOVED));
+    for (int style : { SCE_DIFF_ADDED, SCE_DIFF_PATCH_ADD, SCE_DIFF_PATCH_DELETE })
+    {
+        SetAStyle(style,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeAddedColor", UDIFF_COLORFOREADDED),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackAddedColor", UDIFF_COLORBACKADDED));
+    }
+    for (int style : { SCE_DIFF_DELETED, SCE_DIFF_REMOVED_PATCH_ADD, SCE_DIFF_REMOVED_PATCH_DELETE })
+    {
+        SetAStyle(style,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeRemovedColor", UDIFF_COLORFOREREMOVED),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackRemovedColor", UDIFF_COLORBACKREMOVED));
+    }
 
     SendEditor(SCI_SETLEXER, SCLEX_DIFF);
     SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)"revision");
