@@ -149,6 +149,8 @@
     <ClCompile Include="..\..\..\ldisc.c" />
     <ClCompile Include="..\..\..\ldiscucs.c" />
     <ClCompile Include="..\..\..\logging.c" />
+    <ClCompile Include="..\..\..\marshal.c" />
+    <ClCompile Include="..\..\..\memory.c" />
     <ClCompile Include="..\..\..\minibidi.c" />
     <ClCompile Include="..\..\..\misc.c" />
     <ClCompile Include="..\..\..\miscucs.c" />
@@ -159,11 +161,14 @@
     <ClCompile Include="..\..\..\raw.c" />
     <ClCompile Include="..\..\..\rlogin.c" />
     <ClCompile Include="..\..\..\sercfg.c" />
+    <ClCompile Include="..\..\..\sessprep.c" />
     <ClCompile Include="..\..\..\settings.c" />
+    <ClCompile Include="..\..\..\stripctrl.c" />
     <ClCompile Include="..\..\..\telnet.c" />
     <ClCompile Include="..\..\..\terminal.c" />
     <ClCompile Include="..\..\..\timing.c" />
     <ClCompile Include="..\..\..\tree234.c" />
+    <ClCompile Include="..\..\..\utils.c" />
     <ClCompile Include="..\..\..\version.c" />
     <ClCompile Include="..\..\..\wcwidth.c" />
     <ClCompile Include="..\..\sizetip.c" />
@@ -177,6 +182,7 @@
     <ClCompile Include="..\..\winhsock.c" />
     <ClCompile Include="..\..\winjump.c" />
     <ClCompile Include="..\..\winmisc.c" />
+    <ClCompile Include="..\..\winmiscs.c" />
     <ClCompile Include="..\..\winnet.c" />
     <ClCompile Include="..\..\winprint.c" />
     <ClCompile Include="..\..\winproxy.c" />
@@ -189,18 +195,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\charset\charset.h" />
+    <ClInclude Include="..\..\..\defs.h" />
     <ClInclude Include="..\..\..\dialog.h" />
     <ClInclude Include="..\..\..\empty.h" />
-    <ClInclude Include="..\..\..\int64.h" />
     <ClInclude Include="..\..\..\ldisc.h" />
     <ClInclude Include="..\..\..\licence.h" />
+    <ClInclude Include="..\..\..\marshal.h" />
     <ClInclude Include="..\..\..\misc.h" />
     <ClInclude Include="..\..\..\network.h" />
+    <ClInclude Include="..\..\..\pgssapi.h" />
     <ClInclude Include="..\..\..\proxy.h" />
     <ClInclude Include="..\..\..\putty.h" />
     <ClInclude Include="..\..\..\puttymem.h" />
     <ClInclude Include="..\..\..\puttyps.h" />
     <ClInclude Include="..\..\..\ssh.h" />
+    <ClInclude Include="..\..\..\sshgss.h" />
+    <ClInclude Include="..\..\..\sshgssc.h" />
+    <ClInclude Include="..\..\..\sshsignals.h" />
+    <ClInclude Include="..\..\..\sshttymodes.h" />
     <ClInclude Include="..\..\..\storage.h" />
     <ClInclude Include="..\..\..\terminal.h" />
     <ClInclude Include="..\..\..\tree234.h" />

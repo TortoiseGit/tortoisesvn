@@ -5,56 +5,72 @@
 
 AUTOMAKE_OPTIONS = subdir-objects
 
-allsources = aqsync.c be_all_s.c be_misc.c be_none.c be_nos_s.c be_ssh.c \
-		callback.c cgtest.c charset/charset.h charset/enum.c \
-		charset/fromucs.c charset/internal.h charset/localenc.c \
-		charset/macenc.c charset/mimeenc.c charset/sbcs.c \
-		charset/sbcsdat.c charset/slookup.c charset/toucs.c \
-		charset/utf8.c charset/xenc.c cmdgen.c cmdline.c conf.c \
-		config.c cproxy.c dialog.c dialog.h errsock.c fuzzterm.c \
-		import.c int64.c int64.h ldisc.c ldisc.h ldiscucs.c \
-		licence.h logging.c minibidi.c misc.c misc.h miscucs.c \
-		network.h nocproxy.c nogss.c noshare.c noterm.c notiming.c \
-		pageant.c pageant.h pgssapi.c pgssapi.h pinger.c portfwd.c \
-		proxy.c proxy.h pscp.c psftp.c psftp.h putty.h puttymem.h \
-		puttyps.h raw.c rlogin.c sercfg.c settings.c sftp.c sftp.h \
-		ssh.c ssh.h sshaes.c ssharcf.c sshbcrypt.c sshblowf.c \
-		sshblowf.h sshbn.c sshbn.h sshccp.c sshcrc.c sshcrcda.c \
-		sshdes.c sshdh.c sshdss.c sshdssg.c sshecc.c sshecdsag.c \
-		sshgss.h sshgssc.c sshgssc.h sshmd5.c sshprime.c sshpubk.c \
-		sshrand.c sshrsa.c sshrsag.c sshsh256.c sshsh512.c sshsha.c \
-		sshshare.c sshzlib.c storage.h telnet.c terminal.c \
-		terminal.h testbn.c time.c timing.c tree234.c tree234.h \
+allsources = agentf.c aqsync.c be_all_s.c be_misc.c be_none.c be_nos_s.c \
+		be_ssh.c callback.c cgtest.c charset/charset.h \
+		charset/enum.c charset/fromucs.c charset/internal.h \
+		charset/localenc.c charset/macenc.c charset/mimeenc.c \
+		charset/sbcs.c charset/sbcsdat.c charset/slookup.c \
+		charset/toucs.c charset/utf8.c charset/xenc.c cmdgen.c \
+		cmdline.c conf.c config.c cproxy.c defs.h dialog.c dialog.h \
+		ecc.c ecc.h errsock.c fuzzterm.c import.c ldisc.c ldisc.h \
+		ldiscucs.c licence.h logging.c mainchan.c marshal.c \
+		marshal.h memory.c minibidi.c misc.c misc.h miscucs.c \
+		mpint.c mpint.h mpint_i.h network.h nocmdline.c nocproxy.c \
+		nogss.c noshare.c noterm.c notiming.c nullplug.c pageant.c \
+		pageant.h pgssapi.c pgssapi.h pinger.c portfwd.c proxy.c \
+		proxy.h pscp.c psftp.c psftp.h putty.h puttymem.h puttyps.h \
+		raw.c rlogin.c scpserver.c sercfg.c sesschan.c sessprep.c \
+		settings.c sftp.c sftp.h sftpcommon.c sftpserver.c ssh.c \
+		ssh.h ssh1bpp.c ssh1censor.c ssh1connection-client.c \
+		ssh1connection-server.c ssh1connection.c ssh1connection.h \
+		ssh1login-server.c ssh1login.c ssh2bpp-bare.c ssh2bpp.c \
+		ssh2censor.c ssh2connection-client.c ssh2connection-server.c \
+		ssh2connection.c ssh2connection.h ssh2kex-client.c \
+		ssh2kex-server.c ssh2transhk.c ssh2transport.c \
+		ssh2transport.h ssh2userauth-server.c ssh2userauth.c \
+		sshaes.c ssharcf.c sshauxcrypt.c sshbcrypt.c sshblowf.c \
+		sshblowf.h sshbpp.h sshccp.c sshchan.h sshcommon.c sshcr.h \
+		sshcrc.c sshcrcda.c sshdes.c sshdh.c sshdss.c sshdssg.c \
+		sshecc.c sshecdsag.c sshgss.h sshgssc.c sshgssc.h sshhmac.c \
+		sshmac.c sshmd5.c sshppl.h sshprime.c sshprng.c sshpubk.c \
+		sshrand.c sshrsa.c sshrsag.c sshserver.c sshserver.h \
+		sshsh256.c sshsh512.c sshsha.c sshshare.c sshsignals.h \
+		sshttymodes.h sshverstring.c sshzlib.c storage.h stripctrl.c \
+		telnet.c terminal.c terminal.h testcrypt.c testcrypt.h \
+		testsc.c testzlib.c time.c timing.c tree234.c tree234.h \
 		unix/gtkapp.c unix/gtkask.c unix/gtkcfg.c unix/gtkcols.c \
 		unix/gtkcols.h unix/gtkcomm.c unix/gtkcompat.h unix/gtkdlg.c \
 		unix/gtkfont.c unix/gtkfont.h unix/gtkmain.c unix/gtkmisc.c \
 		unix/gtkmisc.h unix/gtkwin.c unix/osxlaunch.c unix/unix.h \
-		unix/ux_x11.c unix/uxagentc.c unix/uxcfg.c unix/uxcons.c \
-		unix/uxgen.c unix/uxgss.c unix/uxmisc.c unix/uxnet.c \
-		unix/uxnogtk.c unix/uxnoise.c unix/uxpeer.c unix/uxpgnt.c \
-		unix/uxplink.c unix/uxprint.c unix/uxproxy.c unix/uxpterm.c \
+		unix/ux_x11.c unix/uxagentc.c unix/uxagentsock.c \
+		unix/uxcfg.c unix/uxcons.c unix/uxfdsock.c unix/uxgen.c \
+		unix/uxgss.c unix/uxmisc.c unix/uxnet.c unix/uxnogtk.c \
+		unix/uxnoise.c unix/uxpeer.c unix/uxpgnt.c unix/uxplink.c \
+		unix/uxpoll.c unix/uxprint.c unix/uxproxy.c unix/uxpterm.c \
 		unix/uxpty.c unix/uxputty.c unix/uxsel.c unix/uxser.c \
-		unix/uxsftp.c unix/uxshare.c unix/uxsignal.c unix/uxstore.c \
-		unix/uxucs.c unix/x11misc.c unix/x11misc.h unix/xkeysym.c \
+		unix/uxserver.c unix/uxsftp.c unix/uxsftpserver.c \
+		unix/uxshare.c unix/uxsignal.c unix/uxstore.c unix/uxucs.c \
+		unix/uxutils.c unix/x11misc.c unix/x11misc.h unix/xkeysym.c \
 		unix/xpmptcfg.c unix/xpmpterm.c unix/xpmpucfg.c \
-		unix/xpmputty.c version.c version.h wcwidth.c wildcard.c \
-		windows/pageant.rc windows/plink.rc windows/pscp.rc \
-		windows/psftp.rc windows/putty.rc windows/puttygen.rc \
-		windows/puttytel.rc windows/rcstuff.h windows/sizetip.c \
-		windows/version.rc2 windows/win_res.h windows/win_res.rc2 \
-		windows/wincapi.c windows/wincapi.h windows/wincfg.c \
-		windows/wincons.c windows/winctrls.c windows/windefs.c \
-		windows/windlg.c windows/window.c windows/wingss.c \
-		windows/winhandl.c windows/winhelp.c windows/winhelp.h \
-		windows/winhsock.c windows/winjump.c windows/winmisc.c \
-		windows/winnet.c windows/winnoise.c windows/winnojmp.c \
-		windows/winnpc.c windows/winnps.c windows/winpgen.c \
-		windows/winpgnt.c windows/winpgntc.c windows/winplink.c \
-		windows/winprint.c windows/winproxy.c windows/winsecur.c \
-		windows/winsecur.h windows/winser.c windows/winsftp.c \
-		windows/winshare.c windows/winstore.c windows/winstuff.h \
-		windows/wintime.c windows/winucs.c windows/winutils.c \
-		windows/winx11.c x11fwd.c
+		unix/xpmputty.c utils.c version.c version.h wcwidth.c \
+		wildcard.c windows/pageant.rc windows/plink.rc \
+		windows/pscp.rc windows/psftp.rc windows/putty.rc \
+		windows/puttygen.rc windows/puttytel.rc windows/rcstuff.h \
+		windows/sizetip.c windows/version.rc2 windows/win_res.h \
+		windows/win_res.rc2 windows/wincapi.c windows/wincapi.h \
+		windows/wincfg.c windows/wincons.c windows/winctrls.c \
+		windows/windefs.c windows/windlg.c windows/window.c \
+		windows/wingss.c windows/winhandl.c windows/winhelp.c \
+		windows/winhelp.h windows/winhelp.rc2 windows/winhsock.c \
+		windows/winjump.c windows/winmisc.c windows/winmiscs.c \
+		windows/winnet.c windows/winnohlp.c windows/winnoise.c \
+		windows/winnojmp.c windows/winnpc.c windows/winnps.c \
+		windows/winpgen.c windows/winpgnt.c windows/winpgntc.c \
+		windows/winplink.c windows/winprint.c windows/winproxy.c \
+		windows/winsecur.c windows/winsecur.h windows/winser.c \
+		windows/winsftp.c windows/winshare.c windows/winstore.c \
+		windows/winstuff.h windows/wintime.c windows/winucs.c \
+		windows/winutils.c windows/winx11.c x11fwd.c
 
 if HAVE_GTK
 bin_PROGRAMS = plink pscp psftp puttygen pageant pterm putty puttytel
@@ -63,9 +79,10 @@ bin_PROGRAMS = plink pscp psftp puttygen
 endif
 
 if HAVE_GTK
-noinst_PROGRAMS = cgtest fuzzterm osxlaunch testbn ptermapp puttyapp
+noinst_PROGRAMS = cgtest fuzzterm osxlaunch testcrypt testsc testzlib uppity \
+		ptermapp puttyapp
 else
-noinst_PROGRAMS = cgtest fuzzterm osxlaunch testbn
+noinst_PROGRAMS = cgtest fuzzterm osxlaunch testcrypt testsc testzlib uppity
 endif
 
 AM_CPPFLAGS = -I$(srcdir)/./ -I$(srcdir)/charset/ -I$(srcdir)/windows/ \
@@ -80,76 +97,106 @@ libversion_a_SOURCES = version.c
 libversion_a_CFLAGS = $(COMPAT) $(XFLAGS) $(WARNINGOPTS) 
 noinst_LIBRARIES = libversion.a
 
-cgtest_SOURCES = cgtest.c conf.c import.c misc.c notiming.c sshaes.c \
-		sshbcrypt.c sshblowf.c sshbn.c sshdes.c sshdss.c sshdssg.c \
-		sshecc.c sshecdsag.c sshmd5.c sshprime.c sshpubk.c sshrand.c \
-		sshrsa.c sshrsag.c sshsh256.c sshsh512.c sshsha.c time.c \
-		tree234.c unix/uxcons.c unix/uxgen.c unix/uxmisc.c \
-		unix/uxnogtk.c unix/uxnoise.c unix/uxstore.c
+cgtest_SOURCES = cgtest.c conf.c ecc.c import.c marshal.c memory.c misc.c \
+		mpint.c notiming.c sshaes.c sshauxcrypt.c sshbcrypt.c \
+		sshblowf.c sshdes.c sshdss.c sshdssg.c sshecc.c sshecdsag.c \
+		sshhmac.c sshmd5.c sshprime.c sshprng.c sshpubk.c sshrand.c \
+		sshrsa.c sshrsag.c sshsh256.c sshsh512.c sshsha.c \
+		stripctrl.c time.c tree234.c unix/uxcons.c unix/uxgen.c \
+		unix/uxmisc.c unix/uxnogtk.c unix/uxnoise.c unix/uxpoll.c \
+		unix/uxstore.c utils.c wcwidth.c
 cgtest_LDADD = libversion.a
 
 fuzzterm_SOURCES = be_none.c callback.c charset/fromucs.c charset/localenc.c \
 		charset/macenc.c charset/mimeenc.c charset/sbcs.c \
 		charset/sbcsdat.c charset/slookup.c charset/toucs.c \
 		charset/utf8.c charset/xenc.c conf.c config.c dialog.c \
-		fuzzterm.c ldiscucs.c logging.c minibidi.c misc.c miscucs.c \
-		sercfg.c settings.c terminal.c time.c timing.c tree234.c \
-		unix/uxcfg.c unix/uxmisc.c unix/uxnogtk.c unix/uxprint.c \
-		unix/uxstore.c unix/uxucs.c wcwidth.c
+		fuzzterm.c ldiscucs.c logging.c marshal.c memory.c \
+		minibidi.c misc.c miscucs.c sercfg.c settings.c stripctrl.c \
+		terminal.c time.c timing.c tree234.c unix/uxcfg.c \
+		unix/uxmisc.c unix/uxnogtk.c unix/uxprint.c unix/uxstore.c \
+		unix/uxucs.c utils.c wcwidth.c
 fuzzterm_LDADD = libversion.a
 
 osxlaunch_SOURCES = unix/osxlaunch.c
 
 if HAVE_GTK
-pageant_SOURCES = aqsync.c be_misc.c be_none.c callback.c cmdline.c conf.c \
-		misc.c nocproxy.c nogss.c pageant.c proxy.c settings.c \
-		sshaes.c sshbn.c sshdes.c sshdss.c sshecc.c sshmd5.c \
-		sshpubk.c sshrsa.c sshsh256.c sshsh512.c sshsha.c time.c \
-		timing.c tree234.c unix/gtkask.c unix/gtkmisc.c \
-		unix/ux_x11.c unix/uxagentc.c unix/uxcons.c unix/uxmisc.c \
-		unix/uxnet.c unix/uxpeer.c unix/uxpgnt.c unix/uxproxy.c \
-		unix/uxsel.c unix/uxsignal.c unix/uxstore.c x11fwd.c
+pageant_SOURCES = aqsync.c be_misc.c be_none.c callback.c conf.c ecc.c \
+		errsock.c logging.c marshal.c memory.c misc.c mpint.c \
+		nocproxy.c nogss.c nullplug.c pageant.c proxy.c settings.c \
+		sshaes.c sshauxcrypt.c sshdes.c sshdss.c sshecc.c sshhmac.c \
+		sshmd5.c sshpubk.c sshrsa.c sshsh256.c sshsh512.c sshsha.c \
+		stripctrl.c time.c timing.c tree234.c unix/gtkask.c \
+		unix/gtkmisc.c unix/ux_x11.c unix/uxagentc.c \
+		unix/uxagentsock.c unix/uxcons.c unix/uxfdsock.c \
+		unix/uxmisc.c unix/uxnet.c unix/uxpeer.c unix/uxpgnt.c \
+		unix/uxpoll.c unix/uxproxy.c unix/uxsel.c unix/uxsignal.c \
+		unix/uxstore.c unix/uxutils.c utils.c wcwidth.c x11fwd.c
 pageant_LDADD = libversion.a $(GTK_LIBS)
 endif
 
-plink_SOURCES = aqsync.c be_all_s.c be_misc.c callback.c cmdline.c conf.c \
-		cproxy.c ldisc.c logging.c misc.c noterm.c pgssapi.c \
-		pinger.c portfwd.c proxy.c raw.c rlogin.c settings.c ssh.c \
-		sshaes.c ssharcf.c sshblowf.c sshbn.c sshccp.c sshcrc.c \
-		sshcrcda.c sshdes.c sshdh.c sshdss.c sshecc.c sshgssc.c \
-		sshmd5.c sshpubk.c sshrand.c sshrsa.c sshsh256.c sshsh512.c \
-		sshsha.c sshshare.c sshzlib.c telnet.c time.c timing.c \
-		tree234.c unix/ux_x11.c unix/uxagentc.c unix/uxcons.c \
-		unix/uxgss.c unix/uxmisc.c unix/uxnet.c unix/uxnogtk.c \
-		unix/uxnoise.c unix/uxpeer.c unix/uxplink.c unix/uxproxy.c \
-		unix/uxsel.c unix/uxser.c unix/uxshare.c unix/uxsignal.c \
-		unix/uxstore.c wildcard.c x11fwd.c
+plink_SOURCES = agentf.c aqsync.c be_all_s.c be_misc.c callback.c cmdline.c \
+		conf.c cproxy.c ecc.c errsock.c ldisc.c logging.c mainchan.c \
+		marshal.c memory.c misc.c mpint.c noterm.c nullplug.c \
+		pgssapi.c pinger.c portfwd.c proxy.c raw.c rlogin.c \
+		sessprep.c settings.c ssh.c ssh1bpp.c ssh1censor.c \
+		ssh1connection-client.c ssh1connection.c ssh1login.c \
+		ssh2bpp-bare.c ssh2bpp.c ssh2censor.c \
+		ssh2connection-client.c ssh2connection.c ssh2kex-client.c \
+		ssh2transhk.c ssh2transport.c ssh2userauth.c sshaes.c \
+		ssharcf.c sshauxcrypt.c sshblowf.c sshccp.c sshcommon.c \
+		sshcrc.c sshcrcda.c sshdes.c sshdh.c sshdss.c sshecc.c \
+		sshgssc.c sshhmac.c sshmac.c sshmd5.c sshprng.c sshpubk.c \
+		sshrand.c sshrsa.c sshsh256.c sshsh512.c sshsha.c sshshare.c \
+		sshverstring.c sshzlib.c stripctrl.c telnet.c time.c \
+		timing.c tree234.c unix/ux_x11.c unix/uxagentc.c \
+		unix/uxcons.c unix/uxfdsock.c unix/uxgss.c unix/uxmisc.c \
+		unix/uxnet.c unix/uxnogtk.c unix/uxnoise.c unix/uxpeer.c \
+		unix/uxplink.c unix/uxpoll.c unix/uxproxy.c unix/uxsel.c \
+		unix/uxser.c unix/uxshare.c unix/uxsignal.c unix/uxstore.c \
+		unix/uxutils.c utils.c wcwidth.c wildcard.c x11fwd.c
 plink_LDADD = libversion.a
 
-pscp_SOURCES = aqsync.c be_misc.c be_ssh.c callback.c cmdline.c conf.c \
-		cproxy.c int64.c logging.c misc.c pgssapi.c pinger.c \
-		portfwd.c proxy.c pscp.c settings.c sftp.c ssh.c sshaes.c \
-		ssharcf.c sshblowf.c sshbn.c sshccp.c sshcrc.c sshcrcda.c \
-		sshdes.c sshdh.c sshdss.c sshecc.c sshgssc.c sshmd5.c \
-		sshpubk.c sshrand.c sshrsa.c sshsh256.c sshsh512.c sshsha.c \
-		sshshare.c sshzlib.c time.c timing.c tree234.c \
-		unix/uxagentc.c unix/uxcons.c unix/uxgss.c unix/uxmisc.c \
-		unix/uxnet.c unix/uxnogtk.c unix/uxnoise.c unix/uxpeer.c \
-		unix/uxproxy.c unix/uxsel.c unix/uxsftp.c unix/uxshare.c \
-		unix/uxstore.c wildcard.c x11fwd.c
+pscp_SOURCES = agentf.c aqsync.c be_misc.c be_ssh.c callback.c cmdline.c \
+		conf.c cproxy.c ecc.c errsock.c logging.c mainchan.c \
+		marshal.c memory.c misc.c mpint.c nullplug.c pgssapi.c \
+		pinger.c portfwd.c proxy.c pscp.c settings.c sftp.c \
+		sftpcommon.c ssh.c ssh1bpp.c ssh1censor.c \
+		ssh1connection-client.c ssh1connection.c ssh1login.c \
+		ssh2bpp-bare.c ssh2bpp.c ssh2censor.c \
+		ssh2connection-client.c ssh2connection.c ssh2kex-client.c \
+		ssh2transhk.c ssh2transport.c ssh2userauth.c sshaes.c \
+		ssharcf.c sshauxcrypt.c sshblowf.c sshccp.c sshcommon.c \
+		sshcrc.c sshcrcda.c sshdes.c sshdh.c sshdss.c sshecc.c \
+		sshgssc.c sshhmac.c sshmac.c sshmd5.c sshprng.c sshpubk.c \
+		sshrand.c sshrsa.c sshsh256.c sshsh512.c sshsha.c sshshare.c \
+		sshverstring.c sshzlib.c stripctrl.c time.c timing.c \
+		tree234.c unix/uxagentc.c unix/uxcons.c unix/uxfdsock.c \
+		unix/uxgss.c unix/uxmisc.c unix/uxnet.c unix/uxnogtk.c \
+		unix/uxnoise.c unix/uxpeer.c unix/uxpoll.c unix/uxproxy.c \
+		unix/uxsel.c unix/uxsftp.c unix/uxshare.c unix/uxstore.c \
+		unix/uxutils.c utils.c wcwidth.c wildcard.c x11fwd.c
 pscp_LDADD = libversion.a
 
-psftp_SOURCES = aqsync.c be_misc.c be_ssh.c callback.c cmdline.c conf.c \
-		cproxy.c int64.c logging.c misc.c pgssapi.c pinger.c \
-		portfwd.c proxy.c psftp.c settings.c sftp.c ssh.c sshaes.c \
-		ssharcf.c sshblowf.c sshbn.c sshccp.c sshcrc.c sshcrcda.c \
-		sshdes.c sshdh.c sshdss.c sshecc.c sshgssc.c sshmd5.c \
-		sshpubk.c sshrand.c sshrsa.c sshsh256.c sshsh512.c sshsha.c \
-		sshshare.c sshzlib.c time.c timing.c tree234.c \
-		unix/uxagentc.c unix/uxcons.c unix/uxgss.c unix/uxmisc.c \
-		unix/uxnet.c unix/uxnogtk.c unix/uxnoise.c unix/uxpeer.c \
-		unix/uxproxy.c unix/uxsel.c unix/uxsftp.c unix/uxshare.c \
-		unix/uxstore.c wildcard.c x11fwd.c
+psftp_SOURCES = agentf.c aqsync.c be_misc.c be_ssh.c callback.c cmdline.c \
+		conf.c cproxy.c ecc.c errsock.c logging.c mainchan.c \
+		marshal.c memory.c misc.c mpint.c nullplug.c pgssapi.c \
+		pinger.c portfwd.c proxy.c psftp.c settings.c sftp.c \
+		sftpcommon.c ssh.c ssh1bpp.c ssh1censor.c \
+		ssh1connection-client.c ssh1connection.c ssh1login.c \
+		ssh2bpp-bare.c ssh2bpp.c ssh2censor.c \
+		ssh2connection-client.c ssh2connection.c ssh2kex-client.c \
+		ssh2transhk.c ssh2transport.c ssh2userauth.c sshaes.c \
+		ssharcf.c sshauxcrypt.c sshblowf.c sshccp.c sshcommon.c \
+		sshcrc.c sshcrcda.c sshdes.c sshdh.c sshdss.c sshecc.c \
+		sshgssc.c sshhmac.c sshmac.c sshmd5.c sshprng.c sshpubk.c \
+		sshrand.c sshrsa.c sshsh256.c sshsh512.c sshsha.c sshshare.c \
+		sshverstring.c sshzlib.c stripctrl.c time.c timing.c \
+		tree234.c unix/uxagentc.c unix/uxcons.c unix/uxfdsock.c \
+		unix/uxgss.c unix/uxmisc.c unix/uxnet.c unix/uxnogtk.c \
+		unix/uxnoise.c unix/uxpeer.c unix/uxpoll.c unix/uxproxy.c \
+		unix/uxsel.c unix/uxsftp.c unix/uxshare.c unix/uxstore.c \
+		unix/uxutils.c utils.c wcwidth.c wildcard.c x11fwd.c
 psftp_LDADD = libversion.a
 
 if HAVE_GTK
@@ -157,14 +204,15 @@ pterm_SOURCES = be_none.c callback.c charset/fromucs.c charset/localenc.c \
 		charset/macenc.c charset/mimeenc.c charset/sbcs.c \
 		charset/sbcsdat.c charset/slookup.c charset/toucs.c \
 		charset/utf8.c charset/xenc.c cmdline.c conf.c config.c \
-		dialog.c ldisc.c ldiscucs.c logging.c minibidi.c misc.c \
-		miscucs.c nocproxy.c nogss.c sercfg.c settings.c terminal.c \
-		time.c timing.c tree234.c unix/gtkcfg.c unix/gtkcols.c \
-		unix/gtkcomm.c unix/gtkdlg.c unix/gtkfont.c unix/gtkmain.c \
-		unix/gtkmisc.c unix/gtkwin.c unix/uxcfg.c unix/uxmisc.c \
-		unix/uxprint.c unix/uxpterm.c unix/uxpty.c unix/uxsel.c \
-		unix/uxsignal.c unix/uxstore.c unix/uxucs.c unix/x11misc.c \
-		unix/xkeysym.c unix/xpmptcfg.c unix/xpmpterm.c wcwidth.c
+		dialog.c ldisc.c ldiscucs.c logging.c marshal.c memory.c \
+		minibidi.c misc.c miscucs.c nocproxy.c nogss.c sercfg.c \
+		sessprep.c settings.c stripctrl.c terminal.c time.c timing.c \
+		tree234.c unix/gtkcfg.c unix/gtkcols.c unix/gtkcomm.c \
+		unix/gtkdlg.c unix/gtkfont.c unix/gtkmain.c unix/gtkmisc.c \
+		unix/gtkwin.c unix/uxcfg.c unix/uxmisc.c unix/uxprint.c \
+		unix/uxpterm.c unix/uxpty.c unix/uxsel.c unix/uxsignal.c \
+		unix/uxstore.c unix/uxucs.c unix/x11misc.c unix/xkeysym.c \
+		unix/xpmptcfg.c unix/xpmpterm.c utils.c wcwidth.c
 pterm_LDADD = libversion.a $(GTK_LIBS)
 endif
 
@@ -172,72 +220,91 @@ if HAVE_GTK
 ptermapp_SOURCES = be_none.c callback.c charset/fromucs.c charset/localenc.c \
 		charset/macenc.c charset/mimeenc.c charset/sbcs.c \
 		charset/sbcsdat.c charset/slookup.c charset/toucs.c \
-		charset/utf8.c charset/xenc.c cmdline.c conf.c config.c \
-		dialog.c ldisc.c ldiscucs.c logging.c minibidi.c misc.c \
-		miscucs.c nocproxy.c nogss.c sercfg.c settings.c terminal.c \
-		time.c timing.c tree234.c unix/gtkapp.c unix/gtkcfg.c \
-		unix/gtkcols.c unix/gtkcomm.c unix/gtkdlg.c unix/gtkfont.c \
-		unix/gtkmisc.c unix/gtkwin.c unix/uxcfg.c unix/uxmisc.c \
-		unix/uxprint.c unix/uxpterm.c unix/uxpty.c unix/uxsel.c \
-		unix/uxsignal.c unix/uxstore.c unix/uxucs.c unix/x11misc.c \
-		unix/xkeysym.c unix/xpmptcfg.c unix/xpmpterm.c wcwidth.c
+		charset/utf8.c charset/xenc.c conf.c config.c dialog.c \
+		ldisc.c ldiscucs.c logging.c marshal.c memory.c minibidi.c \
+		misc.c miscucs.c nocmdline.c nocproxy.c nogss.c sercfg.c \
+		sessprep.c settings.c stripctrl.c terminal.c time.c timing.c \
+		tree234.c unix/gtkapp.c unix/gtkcfg.c unix/gtkcols.c \
+		unix/gtkcomm.c unix/gtkdlg.c unix/gtkfont.c unix/gtkmisc.c \
+		unix/gtkwin.c unix/uxcfg.c unix/uxmisc.c unix/uxprint.c \
+		unix/uxpterm.c unix/uxpty.c unix/uxsel.c unix/uxsignal.c \
+		unix/uxstore.c unix/uxucs.c unix/x11misc.c unix/xkeysym.c \
+		unix/xpmptcfg.c unix/xpmpterm.c utils.c wcwidth.c
 ptermapp_LDADD = libversion.a $(GTK_LIBS)
 endif
 
 if HAVE_GTK
-putty_SOURCES = aqsync.c be_all_s.c be_misc.c callback.c charset/fromucs.c \
-		charset/localenc.c charset/macenc.c charset/mimeenc.c \
-		charset/sbcs.c charset/sbcsdat.c charset/slookup.c \
-		charset/toucs.c charset/utf8.c charset/xenc.c cmdline.c \
-		conf.c config.c cproxy.c dialog.c ldisc.c ldiscucs.c \
-		logging.c minibidi.c misc.c miscucs.c pgssapi.c pinger.c \
-		portfwd.c proxy.c raw.c rlogin.c sercfg.c settings.c ssh.c \
-		sshaes.c ssharcf.c sshblowf.c sshbn.c sshccp.c sshcrc.c \
-		sshcrcda.c sshdes.c sshdh.c sshdss.c sshecc.c sshgssc.c \
-		sshmd5.c sshpubk.c sshrand.c sshrsa.c sshsh256.c sshsh512.c \
-		sshsha.c sshshare.c sshzlib.c telnet.c terminal.c time.c \
-		timing.c tree234.c unix/gtkcfg.c unix/gtkcols.c \
-		unix/gtkcomm.c unix/gtkdlg.c unix/gtkfont.c unix/gtkmain.c \
-		unix/gtkmisc.c unix/gtkwin.c unix/ux_x11.c unix/uxagentc.c \
-		unix/uxcfg.c unix/uxgss.c unix/uxmisc.c unix/uxnet.c \
-		unix/uxnoise.c unix/uxpeer.c unix/uxprint.c unix/uxproxy.c \
-		unix/uxputty.c unix/uxsel.c unix/uxser.c unix/uxshare.c \
-		unix/uxsignal.c unix/uxstore.c unix/uxucs.c unix/x11misc.c \
-		unix/xkeysym.c unix/xpmpucfg.c unix/xpmputty.c wcwidth.c \
-		wildcard.c x11fwd.c
-putty_LDADD = libversion.a $(GTK_LIBS)
-endif
-
-if HAVE_GTK
-puttyapp_SOURCES = aqsync.c be_all_s.c be_misc.c callback.c \
+putty_SOURCES = agentf.c aqsync.c be_all_s.c be_misc.c callback.c \
 		charset/fromucs.c charset/localenc.c charset/macenc.c \
 		charset/mimeenc.c charset/sbcs.c charset/sbcsdat.c \
 		charset/slookup.c charset/toucs.c charset/utf8.c \
 		charset/xenc.c cmdline.c conf.c config.c cproxy.c dialog.c \
-		ldisc.c ldiscucs.c logging.c minibidi.c misc.c miscucs.c \
-		pgssapi.c pinger.c portfwd.c proxy.c raw.c rlogin.c sercfg.c \
-		settings.c ssh.c sshaes.c ssharcf.c sshblowf.c sshbn.c \
-		sshccp.c sshcrc.c sshcrcda.c sshdes.c sshdh.c sshdss.c \
-		sshecc.c sshgssc.c sshmd5.c sshpubk.c sshrand.c sshrsa.c \
-		sshsh256.c sshsh512.c sshsha.c sshshare.c sshzlib.c telnet.c \
-		terminal.c time.c timing.c tree234.c unix/gtkapp.c \
-		unix/gtkcfg.c unix/gtkcols.c unix/gtkcomm.c unix/gtkdlg.c \
-		unix/gtkfont.c unix/gtkmisc.c unix/gtkwin.c unix/ux_x11.c \
-		unix/uxagentc.c unix/uxcfg.c unix/uxgss.c unix/uxmisc.c \
-		unix/uxnet.c unix/uxnoise.c unix/uxpeer.c unix/uxprint.c \
-		unix/uxproxy.c unix/uxputty.c unix/uxsel.c unix/uxser.c \
-		unix/uxshare.c unix/uxsignal.c unix/uxstore.c unix/uxucs.c \
-		unix/x11misc.c unix/xkeysym.c unix/xpmpucfg.c \
-		unix/xpmputty.c wcwidth.c wildcard.c x11fwd.c
+		ecc.c errsock.c ldisc.c ldiscucs.c logging.c mainchan.c \
+		marshal.c memory.c minibidi.c misc.c miscucs.c mpint.c \
+		nullplug.c pgssapi.c pinger.c portfwd.c proxy.c raw.c \
+		rlogin.c sercfg.c sessprep.c settings.c ssh.c ssh1bpp.c \
+		ssh1censor.c ssh1connection-client.c ssh1connection.c \
+		ssh1login.c ssh2bpp-bare.c ssh2bpp.c ssh2censor.c \
+		ssh2connection-client.c ssh2connection.c ssh2kex-client.c \
+		ssh2transhk.c ssh2transport.c ssh2userauth.c sshaes.c \
+		ssharcf.c sshauxcrypt.c sshblowf.c sshccp.c sshcommon.c \
+		sshcrc.c sshcrcda.c sshdes.c sshdh.c sshdss.c sshecc.c \
+		sshgssc.c sshhmac.c sshmac.c sshmd5.c sshprng.c sshpubk.c \
+		sshrand.c sshrsa.c sshsh256.c sshsh512.c sshsha.c sshshare.c \
+		sshverstring.c sshzlib.c stripctrl.c telnet.c terminal.c \
+		time.c timing.c tree234.c unix/gtkcfg.c unix/gtkcols.c \
+		unix/gtkcomm.c unix/gtkdlg.c unix/gtkfont.c unix/gtkmain.c \
+		unix/gtkmisc.c unix/gtkwin.c unix/ux_x11.c unix/uxagentc.c \
+		unix/uxcfg.c unix/uxfdsock.c unix/uxgss.c unix/uxmisc.c \
+		unix/uxnet.c unix/uxnoise.c unix/uxpeer.c unix/uxpoll.c \
+		unix/uxprint.c unix/uxproxy.c unix/uxputty.c unix/uxsel.c \
+		unix/uxser.c unix/uxshare.c unix/uxsignal.c unix/uxstore.c \
+		unix/uxucs.c unix/uxutils.c unix/x11misc.c unix/xkeysym.c \
+		unix/xpmpucfg.c unix/xpmputty.c utils.c wcwidth.c wildcard.c \
+		x11fwd.c
+putty_LDADD = libversion.a $(GTK_LIBS)
+endif
+
+if HAVE_GTK
+puttyapp_SOURCES = agentf.c aqsync.c be_all_s.c be_misc.c callback.c \
+		charset/fromucs.c charset/localenc.c charset/macenc.c \
+		charset/mimeenc.c charset/sbcs.c charset/sbcsdat.c \
+		charset/slookup.c charset/toucs.c charset/utf8.c \
+		charset/xenc.c conf.c config.c cproxy.c dialog.c ecc.c \
+		errsock.c ldisc.c ldiscucs.c logging.c mainchan.c marshal.c \
+		memory.c minibidi.c misc.c miscucs.c mpint.c nocmdline.c \
+		nullplug.c pgssapi.c pinger.c portfwd.c proxy.c raw.c \
+		rlogin.c sercfg.c sessprep.c settings.c ssh.c ssh1bpp.c \
+		ssh1censor.c ssh1connection-client.c ssh1connection.c \
+		ssh1login.c ssh2bpp-bare.c ssh2bpp.c ssh2censor.c \
+		ssh2connection-client.c ssh2connection.c ssh2kex-client.c \
+		ssh2transhk.c ssh2transport.c ssh2userauth.c sshaes.c \
+		ssharcf.c sshauxcrypt.c sshblowf.c sshccp.c sshcommon.c \
+		sshcrc.c sshcrcda.c sshdes.c sshdh.c sshdss.c sshecc.c \
+		sshgssc.c sshhmac.c sshmac.c sshmd5.c sshprng.c sshpubk.c \
+		sshrand.c sshrsa.c sshsh256.c sshsh512.c sshsha.c sshshare.c \
+		sshverstring.c sshzlib.c stripctrl.c telnet.c terminal.c \
+		time.c timing.c tree234.c unix/gtkapp.c unix/gtkcfg.c \
+		unix/gtkcols.c unix/gtkcomm.c unix/gtkdlg.c unix/gtkfont.c \
+		unix/gtkmisc.c unix/gtkwin.c unix/ux_x11.c unix/uxagentc.c \
+		unix/uxcfg.c unix/uxfdsock.c unix/uxgss.c unix/uxmisc.c \
+		unix/uxnet.c unix/uxnoise.c unix/uxpeer.c unix/uxpoll.c \
+		unix/uxprint.c unix/uxproxy.c unix/uxputty.c unix/uxsel.c \
+		unix/uxser.c unix/uxshare.c unix/uxsignal.c unix/uxstore.c \
+		unix/uxucs.c unix/uxutils.c unix/x11misc.c unix/xkeysym.c \
+		unix/xpmpucfg.c unix/xpmputty.c utils.c wcwidth.c wildcard.c \
+		x11fwd.c
 puttyapp_LDADD = libversion.a $(GTK_LIBS)
 endif
 
-puttygen_SOURCES = cmdgen.c conf.c import.c misc.c notiming.c sshaes.c \
-		sshbcrypt.c sshblowf.c sshbn.c sshdes.c sshdss.c sshdssg.c \
-		sshecc.c sshecdsag.c sshmd5.c sshprime.c sshpubk.c sshrand.c \
-		sshrsa.c sshrsag.c sshsh256.c sshsh512.c sshsha.c time.c \
-		tree234.c unix/uxcons.c unix/uxgen.c unix/uxmisc.c \
-		unix/uxnogtk.c unix/uxnoise.c unix/uxstore.c
+puttygen_SOURCES = cmdgen.c conf.c ecc.c import.c marshal.c memory.c misc.c \
+		mpint.c notiming.c sshaes.c sshauxcrypt.c sshbcrypt.c \
+		sshblowf.c sshdes.c sshdss.c sshdssg.c sshecc.c sshecdsag.c \
+		sshhmac.c sshmd5.c sshprime.c sshprng.c sshpubk.c sshrand.c \
+		sshrsa.c sshrsag.c sshsh256.c sshsh512.c sshsha.c \
+		stripctrl.c time.c tree234.c unix/uxcons.c unix/uxgen.c \
+		unix/uxmisc.c unix/uxnogtk.c unix/uxnoise.c unix/uxpoll.c \
+		unix/uxstore.c utils.c wcwidth.c
 puttygen_LDADD = libversion.a
 
 if HAVE_GTK
@@ -245,22 +312,56 @@ puttytel_SOURCES = be_misc.c be_nos_s.c callback.c charset/fromucs.c \
 		charset/localenc.c charset/macenc.c charset/mimeenc.c \
 		charset/sbcs.c charset/sbcsdat.c charset/slookup.c \
 		charset/toucs.c charset/utf8.c charset/xenc.c cmdline.c \
-		conf.c config.c dialog.c ldisc.c ldiscucs.c logging.c \
-		minibidi.c misc.c miscucs.c nocproxy.c nogss.c pinger.c \
-		proxy.c raw.c rlogin.c sercfg.c settings.c telnet.c \
-		terminal.c time.c timing.c tree234.c unix/gtkcfg.c \
-		unix/gtkcols.c unix/gtkcomm.c unix/gtkdlg.c unix/gtkfont.c \
-		unix/gtkmain.c unix/gtkmisc.c unix/gtkwin.c unix/uxcfg.c \
-		unix/uxmisc.c unix/uxnet.c unix/uxpeer.c unix/uxprint.c \
-		unix/uxproxy.c unix/uxputty.c unix/uxsel.c unix/uxser.c \
-		unix/uxsignal.c unix/uxstore.c unix/uxucs.c unix/x11misc.c \
-		unix/xkeysym.c unix/xpmpucfg.c unix/xpmputty.c wcwidth.c
+		conf.c config.c dialog.c errsock.c ldisc.c ldiscucs.c \
+		logging.c marshal.c memory.c minibidi.c misc.c miscucs.c \
+		nocproxy.c nogss.c pinger.c proxy.c raw.c rlogin.c sercfg.c \
+		sessprep.c settings.c stripctrl.c telnet.c terminal.c time.c \
+		timing.c tree234.c unix/gtkcfg.c unix/gtkcols.c \
+		unix/gtkcomm.c unix/gtkdlg.c unix/gtkfont.c unix/gtkmain.c \
+		unix/gtkmisc.c unix/gtkwin.c unix/uxcfg.c unix/uxfdsock.c \
+		unix/uxmisc.c unix/uxnet.c unix/uxpeer.c unix/uxpoll.c \
+		unix/uxprint.c unix/uxproxy.c unix/uxputty.c unix/uxsel.c \
+		unix/uxser.c unix/uxsignal.c unix/uxstore.c unix/uxucs.c \
+		unix/uxutils.c unix/x11misc.c unix/xkeysym.c unix/xpmpucfg.c \
+		unix/xpmputty.c utils.c wcwidth.c
 puttytel_LDADD = libversion.a $(GTK_LIBS)
 endif
 
-testbn_SOURCES = conf.c misc.c sshbn.c testbn.c tree234.c unix/uxmisc.c \
-		unix/uxnogtk.c
-testbn_LDADD = libversion.a
+testcrypt_SOURCES = ecc.c marshal.c memory.c mpint.c sshaes.c ssharcf.c \
+		sshauxcrypt.c sshblowf.c sshccp.c sshcrc.c sshcrcda.c \
+		sshdes.c sshdh.c sshdss.c sshecc.c sshhmac.c sshmd5.c \
+		sshprime.c sshprng.c sshrsa.c sshsh256.c sshsh512.c sshsha.c \
+		testcrypt.c tree234.c unix/uxutils.c utils.c
+
+testsc_SOURCES = ecc.c marshal.c memory.c mpint.c sshaes.c ssharcf.c \
+		sshauxcrypt.c sshblowf.c sshccp.c sshcrc.c sshcrcda.c \
+		sshdes.c sshdh.c sshdss.c sshecc.c sshhmac.c sshmac.c \
+		sshmd5.c sshrsa.c sshsh256.c sshsh512.c sshsha.c testsc.c \
+		tree234.c unix/uxutils.c utils.c wildcard.c
+
+testzlib_SOURCES = marshal.c memory.c sshzlib.c testzlib.c utils.c
+
+uppity_SOURCES = be_misc.c be_none.c callback.c conf.c cproxy.c ecc.c \
+		errsock.c logging.c marshal.c memory.c misc.c mpint.c \
+		nullplug.c pgssapi.c portfwd.c proxy.c scpserver.c \
+		sesschan.c settings.c sftpcommon.c sftpserver.c ssh1bpp.c \
+		ssh1censor.c ssh1connection-server.c ssh1connection.c \
+		ssh1login-server.c ssh2bpp.c ssh2censor.c \
+		ssh2connection-server.c ssh2connection.c ssh2kex-server.c \
+		ssh2transhk.c ssh2transport.c ssh2userauth-server.c sshaes.c \
+		ssharcf.c sshauxcrypt.c sshblowf.c sshccp.c sshcommon.c \
+		sshcrc.c sshcrcda.c sshdes.c sshdh.c sshdss.c sshecc.c \
+		sshgssc.c sshhmac.c sshmac.c sshmd5.c sshprime.c sshprng.c \
+		sshpubk.c sshrand.c sshrsa.c sshrsag.c sshserver.c \
+		sshsh256.c sshsh512.c sshsha.c sshverstring.c sshzlib.c \
+		stripctrl.c time.c timing.c tree234.c unix/ux_x11.c \
+		unix/uxagentsock.c unix/uxfdsock.c unix/uxgss.c \
+		unix/uxmisc.c unix/uxnet.c unix/uxnogtk.c unix/uxnoise.c \
+		unix/uxpeer.c unix/uxpoll.c unix/uxproxy.c unix/uxpty.c \
+		unix/uxsel.c unix/uxserver.c unix/uxsftpserver.c \
+		unix/uxsignal.c unix/uxstore.c unix/uxutils.c utils.c \
+		wcwidth.c wildcard.c x11fwd.c
+uppity_LDADD = libversion.a
 
 if AUTO_GIT_COMMIT
 BUILT_SOURCES = empty.h
@@ -269,6 +370,14 @@ libversion_a_CFLAGS += -DSOURCE_COMMIT=\"`git --git-dir=$(srcdir)/.git rev-parse
 empty.h: $(allsources)
 	echo '/* Empty file touched by automake makefile to force rebuild of version.o */' >$@
 endif
+
+# Run the cryptsuite tests as part of 'make check'. Override
+# PUTTY_TESTCRYPT so that cryptsuite will take the testcrypt binary
+# from the build directory instead of the source directory, in case
+# this is an out-of-tree build.
+check-local: testcrypt
+	PUTTY_TESTCRYPT=./testcrypt $(srcdir)/test/cryptsuite.py
+
 if HAVE_GTK
 man1_MANS = doc/plink.1 doc/pscp.1 doc/psftp.1 doc/puttygen.1 \
 	    doc/pageant.1 doc/pterm.1 doc/putty.1 doc/puttytel.1
@@ -283,7 +392,7 @@ endif
 if HAVE_QUARTZ
 noinst_SCRIPTS = unix/PuTTY.app unix/Pterm.app
 unix/PuTTY.app: unix/putty.bundle puttyapp osxlaunch
-	rm -rf $@ && gtk-mac-bundler $<
+	rm -rf $@ && PUTTY_GTK_PREFIX_FROM_MAKEFILE=$$(pkg-config --variable=prefix gtk+-3.0) gtk-mac-bundler $<
 unix/Pterm.app: unix/pterm.bundle ptermapp osxlaunch
-	rm -rf $@ && gtk-mac-bundler $<
+	rm -rf $@ && PUTTY_GTK_PREFIX_FROM_MAKEFILE=$$(pkg-config --variable=prefix gtk+-3.0) gtk-mac-bundler $<
 endif

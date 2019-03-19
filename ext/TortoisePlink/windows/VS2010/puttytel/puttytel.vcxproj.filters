@@ -36,6 +36,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\logging.c">
       <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\marshal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\memory.c">
+      <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\minibidi.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\misc.c">
@@ -56,7 +60,11 @@
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sercfg.c">
       <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\sessprep.c">
+      <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\settings.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\stripctrl.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\telnet.c">
       <Filter>Source Files</Filter>
@@ -65,6 +73,8 @@
     </ClCompile>    <ClCompile Include="..\..\..\timing.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\tree234.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\version.c">
       <Filter>Source Files</Filter>
@@ -92,6 +102,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\winmisc.c">
       <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winmiscs.c">
+      <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\winnet.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\winprint.c">
@@ -114,19 +126,23 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\charset\charset.h">
       <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\defs.h">
+      <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\dialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\empty.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>    <ClInclude Include="..\..\..\int64.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\ldisc.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\licence.h">
       <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\marshal.h">
+      <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\misc.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\network.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\pgssapi.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\proxy.h">
       <Filter>Header Files</Filter>
@@ -137,6 +153,14 @@
     </ClInclude>    <ClInclude Include="..\..\..\puttyps.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\ssh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshgss.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshgssc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshsignals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshttymodes.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\storage.h">
       <Filter>Header Files</Filter>
