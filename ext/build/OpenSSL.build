@@ -46,6 +46,7 @@
       <arg value="no-asm" />
       <arg value="no-gost" />
       <arg value="no-shared" />
+      <arg value="no-autoload-config" />
       <arg value="-DOPENSSL_SSL_CLIENT_ENGINE_AUTO=capi" />
       <arg value="-DOPENSSL_CAPIENG_DIALOG" />
       <arg value="--prefix=${opensslPrefix}" />
