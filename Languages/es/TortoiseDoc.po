@@ -50,7 +50,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-01-28 01:27+0000\n"
+"PO-Revision-Date: 2019-03-12 01:28+0000\n"
 "Last-Translator: luebbe <luebbe.opensource@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -15260,6 +15260,13 @@ msgid ""
 " very big working copies this can take a while, you can set this value to "
 "<literal>false</literal> to deactivate this feature."
 msgstr "El diálogo de registro muestra la ruta de la revisión de la copia de trabajo en negrita. Pero esto require que el diálogo de registro obtenga el estado de esa ruta. Dado que esto puede tardar para copias de trabajo grandes, puede establecer este valor a <literal>false</literal> para desactivar esta característica."
+
+#. (para)
+msgid ""
+"Comboboxes for URLs and paths show a history of previously used URLs/paths "
+"if possible. This settings controls how many previous items are saved and "
+"shown. The default is 25 items."
+msgstr ""
 
 #. (para)
 msgid ""

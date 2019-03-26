@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-01-30 00:36+0000\n"
+"PO-Revision-Date: 2019-03-22 22:47+0000\n"
 "Last-Translator: Apostolos Monocholias\n"
 "Language-Team: Greek (http://www.transifex.com/luebbe/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
@@ -290,7 +290,7 @@ msgid ""
 "%ls\n"
 "The folder %ls\n"
 "contains unversioned and/or modified file(s). Do you want to remove it anyway?"
-msgstr "%ls\nΟ φάκελος %ls\nπεριέχει τροποποιημένα αρχεία ή/και αρχεία τα οποία δεν υπάγονται σε έλεγχο έκδοσης. Θέλετε να τον αφαιρέσετε ούτως ή άλλως;"
+msgstr "%ls\nΟ φάκελος %ls\nπεριέχει τροποποιημένα αρχεία ή/και αρχεία τα οποία δεν υπάγονται σε έλεγχο εκδόσεων. Θέλετε να τον αφαιρέσετε ούτως ή άλλως;"
 
 #. Resource IDs: (IDS_ERR_FILE_NOTAFILE)
 #, c-format
@@ -1300,7 +1300,7 @@ msgstr "&Αφαίρεση"
 msgid ""
 "&Remove from version control\n"
 "All .svn folders are removed"
-msgstr "&Αφαίρεση από τον έλεγχο έκδοσης\nΌλοι οι .svn φάκελοι θα αφαιρεθούν"
+msgstr "&Αφαίρεση από τον έλεγχο εκδόσεων\nΌλοι οι .svn φάκελοι θα αφαιρεθούν"
 
 #. Resource IDs: (IDS_LOG_POPUP_MONITORREMOVE)
 msgid "&Remove project"
@@ -1906,7 +1906,7 @@ msgid ""
 "A valid path on windows must not contain '<>|\"?*:' or one of the following device names:\n"
 "com1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\n"
 "See the <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">documentation</a> from Microsoft about this."
-msgstr ""
+msgstr "Μια έγκυρη διαδρομή στα Windows δεν πρέπει να περιέχει '<>|\"?*:' ή ένα από τα ακόλουθα ονόματα συσκευών:\ncom1-com9, lpt1-lpt9, prn, aux, con, nul, clock$\nΔείτε την <a href=\"http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx\">τεχνική τεκμηρίωση</a> της Microsoft σχετικά με αυτό."
 
 #. Resource IDs: (IDS_SETTINGS_DIFFVIEWER_TT)
 msgid ""
@@ -2977,7 +2977,7 @@ msgstr "Κάντε κλικ στο \"Για προχωρημένους\" για 
 msgid ""
 "Click to see commands to move blocks of text\n"
 "Use text blocks"
-msgstr ""
+msgstr "Κάντε κλικ για να δείτε εντολές για μετακίνηση τμημάτων κειμένου\nΧρήση τμημάτων κειμένου"
 
 #. Resource IDs: (IDS_CLIPBOARD_PROGRESS_DEST)
 msgid "Clipboard"
@@ -3353,7 +3353,7 @@ msgstr "Αντιγραφή URL στο πρόχειρο"
 msgid ""
 "Copy and add\n"
 "The file is copied to the destination and added to version control."
-msgstr "Αντιγραφή και προσθήκη\nΤο αρχείο αντιγράφεται στον προορισμό και προστίθεται στον έλεγχο έκδοσης."
+msgstr "Αντιγραφή και προσθήκη\nΤο αρχείο αντιγράφεται στον προορισμό και προστίθεται στον έλεγχο εκδόσεων."
 
 #. Resource IDs: (IDS_PROC_COPYRENAME)
 msgid "Copy and rename"
@@ -3403,7 +3403,7 @@ msgstr "Αντιγραφή: Νέο όνομα για %ls"
 msgid ""
 "Copy\n"
 "The file is copied to the destination and left unversioned."
-msgstr "Αντιγραφή\nΤο αρχείο αντιγράφεται στον προορισμό και παραμένει εκτός ελέγχου έκδοσης."
+msgstr "Αντιγραφή\nΤο αρχείο αντιγράφεται στον προορισμό και παραμένει εκτός ελέγχου εκδόσεων."
 
 #. Resource IDs: (IDS_PROC_COPYINGPROG)
 #, c-format
@@ -3748,7 +3748,7 @@ msgstr "Διαγραφή &αγνοηθέντων αρχείων και φακέ�
 
 #. Resource IDs: (Dialog IDD_CLEANUP: Control id 1613)
 msgid "Delete &unversioned files and folders"
-msgstr "Διαγραφή &αρχείων και φακέλων που δεν υπάγονται σε έλεγχο έκδοσης"
+msgstr "Διαγραφή &αρχείων και φακέλων που δεν υπάγονται σε έλεγχο εκδόσεων"
 
 #. Resource IDs: (IDS_SETTINGS_CACHEDELETEQUESTION_TASK2)
 msgid "Delete Repository cache"
@@ -4032,15 +4032,15 @@ msgstr "Κάνε το για όλα τα επιλεγμένα αντικείμε
 
 #. Resource IDs: (IDS_COMMITDLG_WARNUNVERSIONEDFOLDER_TASK5)
 msgid "Do this for all selected unversioned folders"
-msgstr "Κάνε το για όλους τους επιλεγμένους φακέλους που δεν υπάγονται σε έλεγχο έκδοσης"
+msgstr "Κάνε το για όλους τους επιλεγμένους φακέλους που δεν υπάγονται σε έλεγχο εκδόσεων"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK6)
 msgid "Do this for all unversioned items"
-msgstr "Κάνε το για όλα τα αντικείμενα που δεν υπάγονται σε έλεγχο έκδοσης"
+msgstr "Κάνε το για όλα τα αντικείμενα που δεν υπάγονται σε έλεγχο εκδόσεων"
 
 #. Resource IDs: (IDS_PROC_REMOVEFORCE_TASK5)
 msgid "Do this for all unversioned/modified items"
-msgstr "Κάνε το για όλα τα τροποποιημένα αντικείμενα/αντικείμενα που δεν υπάγονται σε έλεγχο έκδοσης"
+msgstr "Κάνε το για όλα τα τροποποιημένα αντικείμενα/αντικείμενα που δεν υπάγονται σε έλεγχο εκδόσεων"
 
 #. Resource IDs: (IDS_PROC_VENDORDROP_CONFIRM)
 #, c-format
@@ -4404,7 +4404,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_SETTINGS_HOOKS_ENFORCE)
 msgid "Enforce"
-msgstr ""
+msgstr "Επιβολή"
 
 #. Resource IDs: (61187)
 msgid "Enlarge the window to full size"
@@ -4616,7 +4616,7 @@ msgstr "Εξαγωγή ενός σετ ιδιοτήτων σε αρχείο"
 
 #. Resource IDs: (IDS_MENUDESCEXPORT)
 msgid "Exports a versioned folder as a separate unversioned folder"
-msgstr "Εξάγει ένα φάκελο με έλεγχο έκδοσης ως ξεχωριστό φάκελο χωρίς έλεγχο έκδοσης"
+msgstr "Εξάγει έναν φάκελο υπό έλεγχο εκδόσεων ως ξεχωριστό φάκελο χωρίς έλεγχο εκδόσεων"
 
 #. Resource IDs: (IDS_STATUSLIST_COLEXT)
 msgid "Extension"
@@ -6654,7 +6654,7 @@ msgstr "Μετακίνηση %1!ls!\r\nστο %2!ls!"
 msgid ""
 "Move and add\n"
 "The file is moved to the destination and added to version control."
-msgstr "Μετακίνηση και προσθήκη\nΤο αρχείο μετακινείται στον προορισμό και προστίθεται στον έλεγχο έκδοσης."
+msgstr "Μετακίνηση και προσθήκη\nΤο αρχείο μετακινείται στον προορισμό και προστίθεται στον έλεγχο εκδόσεων."
 
 #. Resource IDs: (IDS_PROC_MOVERENAME)
 msgid "Move and rename"
@@ -6702,7 +6702,7 @@ msgstr "Μετακίνηση: Καινούργιο όνομα για το %ls"
 msgid ""
 "Move\n"
 "The file is moved to the destination and left unversioned."
-msgstr "Μετακίνηση\nΤο αρχείο μετακινείται στον προορισμό και παραμένει εκτός ελέγχου έκδοσης."
+msgstr "Μετακίνηση\nΤο αρχείο μετακινείται στον προορισμό και παραμένει εκτός ελέγχου εκδόσεων."
 
 #. Resource IDs: (IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK3)
 msgid ""
@@ -6965,14 +6965,14 @@ msgstr "Δεν υπάρχει αρκετή μνήμη!\nΠροσπαθήστε �
 
 #. Resource IDs: (IDS_SVNACTION_PATHNOTEXIST)
 msgid "Not under version control"
-msgstr "Εκτός ελέγχου έκδοσης"
+msgstr "Εκτός ελέγχου εκδόσεων"
 
 #. Resource IDs: (62183)
 msgid ""
 "Note that if you choose to recover the auto-saved documents, you must "
 "explicitly save them to overwrite the original documents.  If you choose to "
 "not recover the auto-saved versions, they will be deleted."
-msgstr "Σημειώστε ότι εάν επιλέξετε να ανακτήσετε τα αυτομάτως αποθηκευμένα έγγραφα, πρέπει να τα αποθηκεύσετε ρητά για να επεγγράψετε τα αρχικά έγγραφα. Αν επιλέξετε να μην ανακτήσετε τις αυτομάτως αποθηκευμένες εκδόσεις, θα διαγραφούν."
+msgstr "Σημειώστε ότι εάν επιλέξετε να ανακτήσετε τα αυτομάτως αποθηκευμένα έγγραφα, πρέπει να τα αποθηκεύσετε ρητά για να επεγγράψετε τα αρχικά έγγραφα. Αν επιλέξετε να μην ανακτήσετε τις αυτομάτως αποθηκευμένες εκδόσεις, αυτές θα διαγραφούν."
 
 #. Resource IDs: (Dialog IDD_REVERT: Control id 1481)
 msgid "Note: the folder contains unversioned items"
@@ -9785,7 +9785,7 @@ msgstr "Δεν υπάρχει το αρχείο %ls !"
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK1)
 #, c-format
 msgid "The file %ls is not versioned. How do you want to proceed?"
-msgstr "Το αρχείο %ls δεν υπάγεται σε έλεγχο έκδοσης. Πώς θέλετε να προχωρήσετε;"
+msgstr "Το αρχείο %ls δεν υπάγεται σε έλεγχο εκδόσεων. Πώς θέλετε να προχωρήσετε;"
 
 #. Resource IDs: (IDS_ERR_PATCH_FILENOTINPATCH)
 #, c-format
@@ -10131,7 +10131,7 @@ msgid ""
 "There is nothing to add. All the files and folders are either under version "
 "control or have been ignored using the svn:ignore property or the global "
 "ignore configuration setting."
-msgstr "Δεν υπάρχει τίποτα για να προστεθεί. Όλα τα αρχεία ή υπάγονται ήδη σε έλεγχο έκδοσης ή έχουν αγνοηθεί χρησιμοποιώντας την svn:ignore ιδιότητα ή με τη ρύθμιση καθολικής αγνόησης."
+msgstr "Δεν υπάρχει τίποτα για να προστεθεί. Όλα τα αρχεία ή υπάγονται ήδη σε έλεγχο εκδόσεων ή έχουν αγνοηθεί χρησιμοποιώντας την svn:ignore ιδιότητα ή με τη ρύθμιση καθολικής αγνόησης."
 
 #. Resource IDs: (IDS_ERR_PROVIDER_PATH_ALREADY_CONFIGURED)
 msgid "There's already a plugin configured for this path"
@@ -10677,15 +10677,15 @@ msgstr "Χωρίς έκδοση"
 
 #. Resource IDs: (IDS_MENUDELETEIGNORE)
 msgid "Unversion and add to &ignore list"
-msgstr "Αφαίρεση από τον έλεγχο έκδοσης και προσθήκη στη &λίστα αγνοημένων"
+msgstr "Αφαίρεση από τον έλεγχο εκδόσεων και προσθήκη στη &λίστα αγνοημένων"
 
 #. Resource IDs: (IDS_PROC_EXPORTUNVERSION_TASK2)
 msgid "Unversion working copy"
-msgstr "Αφαίρεση του αντιγράφου εργασίας από τον έλεγχο έκδοσης"
+msgstr "Αφαίρεση του αντιγράφου εργασίας από τον έλεγχο εκδόσεων"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAYHANDLERS: Control id 1462)
 msgid "Unversioned"
-msgstr "Χωρίς έλεγχο έκδοσης"
+msgstr "Χωρίς έλεγχο εκδόσεων"
 
 #. Resource IDs: (Dialog IDD_SETTINGSOVERLAY: Control id 1313)
 msgid "Unversioned files mark parent folder as modified"
@@ -11764,7 +11764,7 @@ msgstr "χωρίς έκδοση"
 
 #. Resource IDs: (IDS_PROC_MOVEUNVERSIONED_TASK2)
 msgid "non-versioned item"
-msgstr "αντικείμενο χωρίς έλεγχο έκδοσης"
+msgstr "αντικείμενο χωρίς έλεγχο εκδόσεων"
 
 #. Resource IDs: (IDS_STATUSNORMAL)
 msgid "normal"
