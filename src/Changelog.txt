@@ -1,4 +1,8 @@
-﻿Version 1.11.1
+﻿Version 1.12.0
+- BUG: Ignoring comments in TMerge could
+       lead to memory exhaustion. (Stefan)
+
+Version 1.11.1
 - BUG: Diffing from the log dialog failed
        if the repository name itself
        contained non-ASCII chars. (Stefan)

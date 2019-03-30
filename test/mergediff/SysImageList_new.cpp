@@ -32,6 +32,8 @@ CSysImageList::~CSysImageList()
 	Detach();
 }
 
+std::string current_parse_problem = "Found a comment close ('*/') with no corresponding open ('/*')";
+
 // pointer to function returning pointer to int 
 
 // Singleton specific operations
