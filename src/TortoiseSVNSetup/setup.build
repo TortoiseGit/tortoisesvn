@@ -49,9 +49,9 @@
         </setenv>
       </if>
 
-      <!-- we're using VS2017 -->
+      <!-- we're using VS2019 -->
       <setenv>
-        <variable name="VCVERSION" value="140" />
+        <variable name="VCVERSION" value="160" />
       </setenv>
 
       <!-- find the path to the merge modules -->

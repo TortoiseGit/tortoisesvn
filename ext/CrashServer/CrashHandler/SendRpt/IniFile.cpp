@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "IniFile.h"
 #include "utils.h"
+#include <stdexcept>
 
 IniFile::IniFile(const wchar_t* path)
 {

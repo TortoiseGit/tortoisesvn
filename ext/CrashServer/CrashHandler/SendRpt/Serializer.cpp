@@ -17,6 +17,7 @@
 
 #include "StdAfx.h"
 #include "Serializer.h"
+#include <stdexcept>
 
 CString Serializer::GetHex() const
 {

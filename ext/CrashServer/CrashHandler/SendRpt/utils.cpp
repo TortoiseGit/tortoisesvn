@@ -17,6 +17,7 @@
 
 #include "StdAfx.h"
 #include "utils.h"
+#include <stdexcept>
 
 std::pair<LPCVOID, size_t> ExtractDataFromResource(HMODULE hImage, DWORD resId)
 {
