@@ -460,8 +460,10 @@ CStringA CPathUtils::GetAbsoluteURL
     const char *canonicalized_url = nullptr;
     svn_error_clear(svn_uri_canonicalize_safe(&canonicalized_url, nullptr, URL, pool, pool));
 
-    if (svn_path_is_url (canonicalized_url))
+    if (canonicalized_url && svn_path_is_url (canonicalized_url))
         return canonicalized_url;
+    if (canonicalized_url == nullptr)
+        canonicalized_url = URL;
 
     /* Parse the parent directory URL into its parts. */
 
