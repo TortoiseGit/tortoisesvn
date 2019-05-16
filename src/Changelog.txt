@@ -1,6 +1,8 @@
 ﻿Version 1.12.1
 - BUG: Crash in the repo browser if externals
        with relative paths were present. (Stefan)
+- BUG: "save as..." from the log dialog saved
+       the file with an escaped name. (Stefan)
 
 Version 1.12.0
 - BUG: Ignoring comments in TMerge could

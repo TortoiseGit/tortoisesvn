@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -5910,6 +5910,7 @@ void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
     //now first get the revision which is selected
     CString revFilename;
     CString strWinPath = CPathUtils::GetFileNameFromPath(pCmi->PathURL);
+    strWinPath = CPathUtils::PathUnescape(strWinPath);
     int     rfind      = strWinPath.ReverseFind('.');
     if (rfind > 0)
         revFilename.Format(L"%s-%s%s", (LPCTSTR)strWinPath.Left(rfind),
