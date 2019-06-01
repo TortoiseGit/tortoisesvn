@@ -301,7 +301,7 @@
         <listitem>
           <para>
             A path to a temporary file which contains all the
-            paths for which the operation was started.
+            paths for which the operation was started in UTF-8 encoding.
             Each path is on a separate line in the temp file.
           </para>
           <para>
@@ -434,7 +434,7 @@
         <listitem>
           <para>
             A path to a temporary file which contains all the
-            paths which were somehow touched by the operation.
+            paths in UTF-8 encoding which were somehow touched by the operation.
             Each path is on a separate line in the temp file.
           </para>
         </listitem>
