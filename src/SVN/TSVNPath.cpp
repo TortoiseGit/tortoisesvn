@@ -907,17 +907,17 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
     return true;
 }
 
-bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bANSI /* = false */) const
+bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bUTF8 /* = false */) const
 {
     try
     {
-        if (bANSI)
+        if (bUTF8)
         {
             CStdioFile file(sFilename, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate);
             PathVector::const_iterator it;
             for(it = m_paths.begin(); it != m_paths.end(); ++it)
             {
-                CStringA line = CStringA(it->GetSVNPathString()) + '\n';
+                CStringA line = CUnicodeUtils::GetUTF8(it->GetSVNPathString()) + '\n';
                 file.Write(line, line.GetLength());
             }
             file.Close();

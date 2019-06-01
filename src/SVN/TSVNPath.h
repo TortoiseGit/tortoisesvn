@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2017 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2017, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -328,7 +328,7 @@ public:
     void AddPath(const CTSVNPath& newPath);
 #if defined(_MFC_VER)
     bool LoadFromFile(const CTSVNPath& filename);
-    bool WriteToFile(const CString& sFilename, bool bANSI = false) const;
+    bool WriteToFile(const CString& sFilename, bool bUTF8 = false) const;
 #endif
     /**
      * Load from the path argument string, when the 'path' parameter is used
