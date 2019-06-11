@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013-2015, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -166,44 +166,62 @@ bool RenameCommand::Execute()
                     CString sNewFilename = sNewMask + sFilename.Mid(sFilemask.GetLength());
                     sTemp.Format(L"\n%s -> %s", (LPCTSTR)sFilename, (LPCTSTR)sNewFilename);
                     if (!renlist[i].IsEquivalentTo(cmdLinePath))
-                        sRenList += sTemp;
-                    renmap[renlist[i].GetWinPathString()] = renlist[i].GetContainingDirectory().GetWinPathString()+L"\\"+sNewFilename;
-                }
-                CString sRenameMultipleQuestion;
-                sRenameMultipleQuestion.Format(IDS_PROC_MULTIRENAME, (LPCTSTR)sRenList);
-                UINT idret = ::MessageBox(GetExplorerHWND(), sRenameMultipleQuestion, L"TortoiseSVN", MB_ICONQUESTION|MB_YESNOCANCEL);
-                if (idret == IDYES)
-                {
-                    CProgressDlg progress;
-                    progress.SetTitle(IDS_PROC_MOVING);
-                    progress.SetTime(true);
-                    progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
-                    DWORD count = 1;
-                    for (std::map<CString, CString>::iterator it=renmap.begin(); it != renmap.end(); ++it)
                     {
-                        progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, (LPCTSTR)it->first);
-                        progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, (LPCTSTR)it->second);
-                        progress.SetProgress64(count, renmap.size());
-                        if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(CTSVNPath(it->first)), CTSVNPath(it->second), sMsg))
+                        if (sFilename != sNewFilename)
                         {
-                            bRet = true;
-                            CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(it->second));
+                            sRenList += sTemp;
+                            renmap[renlist[i].GetWinPathString()] = renlist[i].GetContainingDirectory().GetWinPathString() + L"\\" + sNewFilename;
                         }
                     }
-                    progress.Stop();
+                    else
+                        renmap[renlist[i].GetWinPathString()] = renlist[i].GetContainingDirectory().GetWinPathString() + L"\\" + sNewFilename;
                 }
-                else if (idret == IDNO)
+                if (!renmap.empty())
                 {
-                    // no, user wants to just rename the file he selected
+                    CString sRenameMultipleQuestion;
+                    sRenameMultipleQuestion.Format(IDS_PROC_MULTIRENAME, (LPCTSTR)sRenList);
+                    UINT idret = ::MessageBox(GetExplorerHWND(), sRenameMultipleQuestion, L"TortoiseSVN", MB_ICONQUESTION | MB_YESNOCANCEL);
+                    if (idret == IDYES)
+                    {
+                        CProgressDlg progress;
+                        progress.SetTitle(IDS_PROC_MOVING);
+                        progress.SetTime(true);
+                        progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
+                        DWORD count = 1;
+                        for (std::map<CString, CString>::iterator it = renmap.begin(); it != renmap.end(); ++it)
+                        {
+                            progress.FormatPathLine(1, IDS_PROC_MOVINGPROG, (LPCTSTR)it->first);
+                            progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, (LPCTSTR)it->second);
+                            progress.SetProgress64(count, renmap.size());
+                            if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(CTSVNPath(it->first)), CTSVNPath(it->second), sMsg))
+                            {
+                                bRet = true;
+                                CShellUpdater::Instance().AddPathForUpdate(CTSVNPath(it->second));
+                            }
+                        }
+                        progress.Stop();
+                    }
+                    else if (idret == IDNO)
+                    {
+                        // no, user wants to just rename the file he selected
+                        if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(cmdLinePath), destinationPath, sMsg))
+                        {
+                            bRet = true;
+                            CShellUpdater::Instance().AddPathForUpdate(destinationPath);
+                        }
+                    }
+                    else if (idret == IDCANCEL)
+                    {
+                        // nothing
+                    }
+                }
+                else
+                {
                     if (RenameWithReplace(GetExplorerHWND(), CTSVNPathList(cmdLinePath), destinationPath, sMsg))
                     {
                         bRet = true;
                         CShellUpdater::Instance().AddPathForUpdate(destinationPath);
                     }
-                }
-                else if (idret == IDCANCEL)
-                {
-                    // nothing
                 }
             }
         }
