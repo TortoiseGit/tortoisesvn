@@ -3,6 +3,8 @@
        with relative paths were present. (Stefan)
 - BUG: "save as..." from the log dialog saved
        the file with an escaped name. (Stefan)
+- BUG: When parsing SVNParentPath pages, the
+       urls were not properly escaped. (Stefan)
 
 Version 1.12.0
 - BUG: Ignoring comments in TMerge could

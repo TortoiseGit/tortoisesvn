@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -5190,7 +5190,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
                 // what[2] contains the name
                 CString sMatch = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
                 sMatch.TrimRight('/');
-                CString url = m_InitialUrl + L"/" + sMatch;
+                CString url = m_InitialUrl + L"/" + CPathUtils::PathUnescape(sMatch);
                 CItem item;
                 item.absolutepath = url;
                 item.kind = svn_node_dir;
