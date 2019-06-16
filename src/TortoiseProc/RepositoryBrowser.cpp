@@ -5190,7 +5190,8 @@ bool CRepositoryBrowser::TrySVNParentPath()
                 // what[2] contains the name
                 CString sMatch = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
                 sMatch.TrimRight('/');
-                CString url = m_InitialUrl + L"/" + CPathUtils::PathUnescape(sMatch);
+                sMatch = CPathUtils::PathUnescape(sMatch);
+                CString url = m_InitialUrl + L"/" + sMatch;
                 CItem item;
                 item.absolutepath = url;
                 item.kind = svn_node_dir;
@@ -5215,6 +5216,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
                 // what[2] contains the name
                 CString sMatch = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
                 sMatch.TrimRight('/');
+                sMatch = CPathUtils::PathUnescape(sMatch);
                 CString url = m_InitialUrl + L"/" + sMatch;
                 CItem item;
                 item.absolutepath = url;
