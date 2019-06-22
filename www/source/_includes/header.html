@@ -11,6 +11,7 @@
     <meta name="description" content="{{ meta_description }}">
     {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
     <meta name="generator" content="Jekyll v{{ jekyll.version }}">
+    <link rel="canonical" href="{{ site.url | append: page.url }}">
 
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -22,9 +23,9 @@
     <meta property="og:type" content="website">
     <meta property="og:description" content="{{ meta_description }}">
     {% if page.slug == "home" %}
-    <meta property="og:url" content="{{ site.url }}/">
+    <meta property="og:url" content="{{ site.url }}">
     {% else %}
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:url" content="{{ site.url | append: page.url }}">
     {% endif %}
     <meta property="og:image" content="{{ site.url | replace: 'https://', 'http://' }}/assets/img/logo-256x256.png">
     <meta property="og:image:secure_url" content="{{ site.url }}/assets/img/logo-256x256.png">
