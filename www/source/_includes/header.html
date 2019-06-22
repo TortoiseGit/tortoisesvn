@@ -39,6 +39,7 @@
     {% for page in pages %}
     {% unless page.lang == current_page_lang %}
     <meta property="og:locale:alternate" content="{{ page.lang }}">
+    <link rel="alternate" href="{{ site.url | append: page.url }}" hreflang="{{ page.lang }}">
     {% endunless %}
     {% endfor %}
     {% endunless %}
