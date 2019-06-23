@@ -1,0 +1,169 @@
+# Here we list all the translations. Possible options:
+#   code: used as the default language code
+#   exeCode: used as the executable language code in case it differs from `code`
+#   flagCode: used as the flag image class in case it differs from `code`
+#   linkText: in case we need the "foo" part in "Translate to foo" text to differ
+#   isTranslated: true or false, used to mark if a translation exists
+
+- name: "Albanian"
+  code: al
+  exeCode: sq
+
+- name: "Arabic"
+  code: ar
+  flagCode: sa
+
+- name: "Belarussian (Tarask)"
+  code: be@tarask
+  flagCode: by
+
+- name: "Bulgarian"
+  code: bg
+
+- name: "Catalan"
+  code: ca_ES
+  exeCode: ca
+
+- name: "Chinese, simplified"
+  code: zh_CN
+  isTranslated: true
+
+- name: "Chinese, traditional"
+  code: zh_TW
+  linkText: "trad. Chinese"
+
+- name: "Croatian"
+  code: hr
+
+- name: "Czech"
+  code: cs
+  isTranslated: true
+
+- name: "Danish"
+  code: da
+
+- name: "Dutch"
+  code: nl
+  isTranslated: true
+
+- name: "Finnish"
+  code: fi
+  isTranslated: true
+
+- name: "French"
+  code: fr
+  isTranslated: true
+
+- name: "Georgian"
+  code: ka
+
+- name: "German"
+  code: de
+  isTranslated: true
+
+- name: "Greek"
+  code: el
+
+- name: "Hungarian"
+  code: hu
+
+- name: "Indonesian"
+  code: id
+  isTranslated: true
+
+- name: "Italian"
+  code: it
+
+- name: "Japanese"
+  code: ja
+  isTranslated: true
+
+- name: "Korean"
+  code: ko
+
+- name: "Latvian"
+  code: lv
+
+- name: "Lithuanian"
+  code: lt
+
+- name: "Macedonian"
+  code: mk
+
+- name: "Malayalam"
+  code: ml
+  flagCode: ml_IN
+
+- name: "Norwegian, bokmål"
+  code: nb
+  linkText: "Norwegian"
+
+- name: "Occitan"
+  code: oc
+
+- name: "Persian"
+  code: fa
+  flagCode: ir
+
+- name: "Polish"
+  code: pl
+  isTranslated: true
+
+- name: "Portuguese, Brazil"
+  code: pt_BR
+  isTranslated: true
+
+- name: "Portuguese, Portugal"
+  code: pt
+  flagCode: pt_PT
+  isTranslated: true
+
+- name: "Romanian"
+  code: ro
+
+- name: "Russian"
+  code: ru
+  isTranslated: true
+
+- name: "Serbian, cyrillic"
+  code: sr
+  flagCode: sr_spc
+  isTranslated: true
+
+- name: "Serbian, latin"
+  code: sr@latin
+  flagCode: sr_spl
+  isTranslated: true
+
+- name: "Slovak"
+  code: sk
+  isTranslated: true
+
+- name: "Slovenian"
+  code: sl
+  isTranslated: true
+
+- name: "Spanish"
+  code: es
+  isTranslated: true
+
+- name: "Swedish"
+  code: sv
+
+- name: "Tamil, India"
+  code: ta
+  exeCode: ta_IN
+
+- name: "Thai"
+  code: th
+
+- name: "Turkish"
+  code: tr
+
+- name: "Ukrainian"
+  code: uk
+
+- name: "Vietnamese"
+  code: vi
+  flagCode: vn
+  isTranslated: true

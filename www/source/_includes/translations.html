@@ -1,0 +1,23 @@
+{%- for lang in site.data.translations %}
+<tr>
+    <td class="flag-{{ lang.flagCode | default: lang.code }}">{{ lang.name }}</td>
+    <td>
+        <a href="https://osdn.net/projects/tortoisesvn/storage/{{ site.version.short }}/Language%20Packs/LanguagePack_{{ site.version.long }}-win32-{{ lang.exeCode | default: lang.code }}.msi/">Setup</a>
+    </td>
+    <td>
+        <a href="https://osdn.net/projects/tortoisesvn/storage/{{ site.version.short }}/Language%20Packs/LanguagePack_{{ site.version.long }}-x64-{{ lang.exeCode | default: lang.code }}.msi/">Setup</a>
+    </td>
+    {% if lang.isTranslated == true %}
+    <td>
+        <a href="https://osdn.net/projects/tortoisesvn/storage/{{ site.version.short }}/Documentation/TortoiseSVN-{{ site.version.short }}-{{ lang.exeCode | default: lang.code }}.pdf/">TSVN</a>
+    </td>
+    <td>
+        <a href="https://osdn.net/projects/tortoisesvn/storage/{{ site.version.short }}/Documentation/TortoiseMerge-{{ site.version.short }}-{{ lang.exeCode | default: lang.code }}.pdf/">TMerge</a>
+    </td>
+    {% else %}
+    <td colspan="2">
+        <a href="https://www.transifex.com/projects/p/tortoisesvn">Translate to {{ lang.linkText | default: lang.name }}</a>
+    </td>
+    {% endif %}
+</tr>
+{% endfor -%}
