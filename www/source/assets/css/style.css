@@ -134,6 +134,11 @@ pre code {
   white-space: pre-wrap;
 }
 
+.openhub-badge {
+    border: none;
+    overflow: hidden;
+}
+
 .table-hover > tbody > tr:hover {
     background-color: #e1eafe;
 }
