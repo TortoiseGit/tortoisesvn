@@ -66,8 +66,7 @@ module.exports = function(grunt) {
             mainJs: {
                 src: ['<%= dirs.src %>/assets/js/vendor/plugins.js',
                       '<%= dirs.src %>/assets/js/no-js-class.js',
-                      '<%= dirs.src %>/assets/js/onLoad.js',
-                      '<%= dirs.src %>/assets/js/google-analytics.js'
+                      '<%= dirs.src %>/assets/js/onLoad.js'
                 ],
                 dest: '<%= dirs.dest %>/assets/js/main.js'
             },
@@ -286,8 +285,7 @@ module.exports = function(grunt) {
             files: {
                 src: [
                     'Gruntfile.js',
-                    '<%= dirs.src %>/assets/js/*.js',
-                    '!<%= dirs.src %>/assets/js/google-analytics.js'
+                    '<%= dirs.src %>/assets/js/*.js'
                 ]
             }
         },
