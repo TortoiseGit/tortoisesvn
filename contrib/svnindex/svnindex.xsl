@@ -38,7 +38,7 @@
                     <xsl:element name="a">
                         <xsl:attribute name="style">float: right;</xsl:attribute>
                         <xsl:attribute name="href">
-                            http://tortoisesvn.net
+                            https://tortoisesvn.net
                         </xsl:attribute>
                         <xsl:text>TortoiseSVN</xsl:text>
                     </xsl:element>

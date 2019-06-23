@@ -101,18 +101,18 @@
               to be relative to the repository root.
               For example, <literal>^/../?do=details&amp;id=%BUGID%</literal>
               will resolve to
-              <systemitem class="url">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
+              <systemitem class="url">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
               if your repository is located on
-              <systemitem class="url">http://tortoisesvn.net/svn/trunk/</systemitem>.
+              <systemitem class="url">https://tortoisesvn.net/svn/trunk/</systemitem>.
             </para>
             <para>
               A URL beginning with the string <literal>/</literal> is assumed
               to be relative to the server's hostname.
               For example <literal>/?do=details&amp;id=%BUGID%</literal>
               will resolve to
-              <systemitem class="url">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
+              <systemitem class="url">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>
               if your repository is located anywhere on
-              <systemitem class="url">http://tortoisesvn.net</systemitem>.
+              <systemitem class="url">https://tortoisesvn.net</systemitem>.
             </para>
           </listitem>
         </varlistentry>
