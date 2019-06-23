@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012-2014 - TortoiseSVN
+// Copyright (C) 2012-2014, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -193,7 +193,7 @@ public:
         swprintf_s(subject, L"Crash report for %s, Version %d.%d.%d.%d", appname, TSVN_VERMAJOR, TSVN_VERMINOR, TSVN_VERMICRO, TSVN_VERBUILD);
         info.pszEmailSubject = subject;
         info.pszEmailTo = L"tortoisesvn@gmail.com";
-        info.pszUrl = L"http://tortoisesvn.net/scripts/crashrpt.php";
+        info.pszUrl = L"https://tortoisesvn.net/scripts/crashrpt.php";
         info.uPriorities[CR_HTTP] = 1;  // First (and only) try send report over HTTP
         info.uPriorities[CR_SMTP] = CR_NEGATIVE_PRIORITY;  // don't send report over SMTP
         info.uPriorities[CR_SMAPI] = CR_NEGATIVE_PRIORITY; // don't send report over Simple MAPI
@@ -203,7 +203,7 @@ public:
         info.dwFlags |= CR_INST_APP_RESTART;
         info.dwFlags |= CR_INST_SEND_QUEUED_REPORTS;
         // Define the Privacy Policy URL
-        info.pszPrivacyPolicyURL = L"http://tortoisesvn.net/crashreport_privacy.html";
+        info.pszPrivacyPolicyURL = L"https://tortoisesvn.net/crashreport_privacy.html";
 
         TCHAR module[MAX_PATH] = {0};
         GetModuleFileName(NULL, module, MAX_PATH);
