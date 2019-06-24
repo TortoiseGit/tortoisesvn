@@ -340,6 +340,7 @@ AddDefaultCharset utf-8
     RewriteRule ^docs/?$ support.html [R,NC]
     RewriteRule ^howpaypalscrewsopensourceprojects$ howpaypalscrewsopensourceprojects.html [R,NC]
     RewriteRule ^StExBar$ http://tools.tortoisesvn.net/StExBar.html [R,NC]
+    RewriteRule ^favicon.ico$ /assets/img/favicons/favicon.ico [R,NC]
 
     # prevent hotlinking
     RewriteCond %{HTTP_REFERER} !^(http|https)://(.+\.)?tortoisesvn\.net/ [NC]
