@@ -63,13 +63,6 @@ module.exports = function(grunt) {
                 ],
                 dest: '<%= dirs.dest %>/assets/css/pack.css'
             },
-            mainJs: {
-                src: ['<%= dirs.src %>/assets/js/vendor/plugins.js',
-                      '<%= dirs.src %>/assets/js/no-js-class.js',
-                      '<%= dirs.src %>/assets/js/onLoad.js'
-                ],
-                dest: '<%= dirs.dest %>/assets/js/main.js'
-            },
             baguetteBox: {
                 src: ['<%= dirs.src %>/assets/js/vendor/baguetteBox.js',
                       '<%= dirs.src %>/assets/js/baguetteBox-init.js'
@@ -128,8 +121,7 @@ module.exports = function(grunt) {
             },
             minify: {
                 files: {
-                    '<%= concat.baguetteBox.dest %>': '<%= concat.baguetteBox.dest %>',
-                    '<%= concat.mainJs.dest %>': '<%= concat.mainJs.dest %>'
+                    '<%= concat.baguetteBox.dest %>': '<%= concat.baguetteBox.dest %>'
                 }
             }
         },
