@@ -12,9 +12,9 @@
 # Translators:
 # Bas <duvel3@gmail.com>, 2013
 # Jean-Marc van Leerdam <j.m.van.leerdam@gmail.com>, 2011
-# luebbe <luebbe.opensource@gmail.com>, 2011
-# luebbe <luebbe.opensource@gmail.com>, 2011
-# luebbe <luebbe.opensource@gmail.com>, 2011
+# Lübbe Onken <luebbe.opensource@gmail.com>, 2011
+# Lübbe Onken <luebbe.opensource@gmail.com>, 2011
+# Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # mark van tilburg <markvantilburg@gmail.com>, 2015-2016,2018-2019
 # Paul <paul@piak.nl>, 2011
 # Paul <paul@piak.nl>, 2011
@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-04-11 11:31+0000\n"
-"Last-Translator: mark van tilburg <markvantilburg@gmail.com>\n"
+"PO-Revision-Date: 2019-06-01 12:34+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14608,8 +14608,9 @@ msgstr "De opdrachtregel bevast verschillende parameters, die door TortoiseSVN i
 #. (para)
 msgid ""
 "A path to a temporary file which contains all the paths for which the "
-"operation was started. Each path is on a separate line in the temp file."
-msgstr "Een pad met een tijdelijk bestand met daarin alle paden waarvoor de operatie gestart werd. Elk pad staat op een aparte regel in het tijdelijke bestand."
+"operation was started in UTF-8 encoding. Each path is on a separate line in "
+"the temp file."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14688,8 +14689,9 @@ msgstr "De huidige werk map waarmee het script gedraaid wordt. Deze is ingesteld
 
 #. (para)
 msgid ""
-"A path to a temporary file which contains all the paths which were somehow "
-"touched by the operation. Each path is on a separate line in the temp file."
+"A path to a temporary file which contains all the paths in UTF-8 encoding "
+"which were somehow touched by the operation. Each path is on a separate line"
+" in the temp file."
 msgstr ""
 
 #. (para)

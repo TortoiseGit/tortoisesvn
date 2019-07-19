@@ -27,17 +27,18 @@
 # Leonardo <philyo1@gmail.com>, 2012
 # Roberto Casazza <roberto.casazza@alice.it>, 2011
 # Roberto <roberto@elkgrove.us>, 2011-2012
-# Sebastiano Pistore <SebastianoPistore.info@protonmail.ch>, 2016
-# Sebastiano Pistore <SebastianoPistore.info@protonmail.ch>, 2016
+# SebastianoPistore <SebastianoPistore.info@protonmail.ch>, 2016
+# SebastianoPistore <SebastianoPistore.info@protonmail.ch>, 2016
 # Silvia, 2013
 # Silvia, 2013
+# Stefano Barenghi <steo.brs@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-04-05 08:02+0000\n"
-"Last-Translator: Fabio Turrin\n"
+"PO-Revision-Date: 2019-06-01 12:34+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -507,7 +508,7 @@ msgid ""
 "The <xref linkend=\"tsvn-projectmonitor\"/> explains how you can monitor "
 "your Subversion projects so you don't miss important commits from your other"
 " team members."
-msgstr ""
+msgstr "L'<xref linkend=\"tsvn-projectmonitor\"/> spiega come monitorare i tuoi progetti di Subversion per non perdere importanti commit approtate dai membri del tuo team"
 
 #. (para)
 msgid ""
@@ -2217,7 +2218,7 @@ msgid ""
 "bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Hook"
 " Scripts</citetitle></ulink> in the Subversion Book for full details about "
 "the hooks which are implemented."
-msgstr ""
+msgstr "Uno script di aggancio è un programma innestato da un evento del repository, ad esempio la creazione di una nuova revisione o la modifica di una proprietà non revisionata. Ad ogni script di aggancio sono fornite abbastanza informazioni per identificare l'evento, su quali oggetti sta operando e l'username della persona che ha scatenato l'evento. In base all'output dello script o al suo stato di ritorno, il programma di aggancio può continuare l'azione, fermarla o sospenderla in qualche modo. Riferirsi al capitolo sugli <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.reposadmin.create.html#svn.reposadmin.create.hooks\"><citetitle>Script di Aggancio</citetitle></ulink> nel libro di Subversion per tutti i dettagli riguardanti gli script  che sono stati implementati."
 
 #. (para)
 msgid ""
@@ -2864,7 +2865,7 @@ msgid ""
 " on this versioned folder to add some or all of the content. You can add and"
 " remove files, set <literal>svn:ignore</literal> properties on folders and "
 "make any other changes you need to."
-msgstr ""
+msgstr "Usa <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add...</guimenuitem></menuchoice> su questa cartella con versione per aggiungere tutto o parte del contenuto. Puoi aggiungere e rimuovere file, impostare sulle cartelle la proprietà <literal>svn:ignore</literal> e apportare qualsiasi modifica tu voglia."
 
 #. (para)
 msgid ""
@@ -2876,7 +2877,7 @@ msgstr ""
 msgid ""
 "Assuming you already have a repository, and you want to add a new folder "
 "structure to it, just follow these steps: <placeholder-1/>"
-msgstr ""
+msgstr "Assumendo che tu abbia già un repository e che tu voglia aggiungerci una nuova struttura di cartelle, segui questi passaggi: <placeholder-1/>"
 
 #. (title)
 msgid "Special Files"
@@ -2893,7 +2894,7 @@ msgid ""
 "to modify to suit his/her local setup. But versioning such a file is "
 "difficult because every user would commit his/her changes every time to the "
 "repository."
-msgstr ""
+msgstr "A volte potrebbe servire avere un file sotto controllo di versione contenente dei dati specifici di un utente. Questo implica avere un file che ogni sviluppatore/utente modifica per soddisfare le proprie esigenze di impostazione locale. Il versioning di un file del genere è difficile perché ogni utente farà il commit delle sue modifiche sul repository tutte le volte."
 
 #. (para)
 msgid ""
@@ -2987,7 +2988,7 @@ msgstr "Figli immediati, includi cartelle"
 msgid ""
 "Checkout the specified directory, including all files and child folders, but"
 " do not populate the child folders."
-msgstr ""
+msgstr "Checkout della cartella specificata, compresi tutti i suoi file e le sottocartelle, senza popolare le sottocartelle."
 
 #. (term)
 msgid "Only file children"
@@ -3031,7 +3032,7 @@ msgid ""
 "Used to reduce working copy depth after a folder has already been populated."
 " This option is only available in the <guilabel>Update to "
 "revision</guilabel> dialog."
-msgstr ""
+msgstr "Usato per ridurre la profondità della working copy dopo che una cartella è già stata popolata. Questa opzione è disponibile soltanto nella voce <guilabel>Aggiorna alla revisione</guilabel>."
 
 #. (para)
 msgid ""
@@ -3102,7 +3103,7 @@ msgid ""
 "click</action> on the folder(s) you would like to add to your working copy, "
 "then use <menuchoice><guimenu>Context "
 "menu</guimenu><guimenuitem>Update</guimenuitem></menuchoice>."
-msgstr ""
+msgstr "Nella finestra di controllo delle modifiche, per prima cosa fare click tenendo premuto <keycap>shift</keycap>. La finestra mostrerà tutti i file e le cartelle presenti nel repository delle quali non hai fatto il checkout come <literal>aggiunte da remoto</literal>. <action>Clicca con il tasto destro</action> sulla cartella (o cartelle) che vorresti aggiungere alla tua working copy, poi usa<menuchoice><guimenu>Menu</guimenu><guimenuitem>Aggiorna</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""
@@ -3209,7 +3210,7 @@ msgid ""
 "<filename>.svn</filename> directories, e.g. to create a zipped tarball of "
 "your source. Read <xref linkend=\"tsvn-dug-export\"/> to find out how to do "
 "that."
-msgstr ""
+msgstr "A volte vorresti creare una copia locale senza tutte le cartelle <filename>.svn</filename>, ad esempio per creare un tarball zippato del tuo sorgente. Leggi <xref linkend=\"tsvn-dug-export\"/> per scoprire come farlo."
 
 #. (title)
 msgid "Committing Your Changes To The Repository"
@@ -3241,11 +3242,11 @@ msgstr "L'invio delle modifiche apportate alla tua copia di lavoro è noto come 
 
 #. (title)
 msgid "The Commit Dialog"
-msgstr ""
+msgstr "La finestra di Commit"
 
 #. (title)
 msgid "The Commit dialog"
-msgstr ""
+msgstr "La finestra di Commit"
 
 #. (para)
 msgid ""
@@ -3282,7 +3283,7 @@ msgid ""
 "indicated using an <literal>(s)</literal> marker. You may have switched "
 "something while working on a branch and forgotten to switch back to trunk. "
 "This is your warning sign!"
-msgstr ""
+msgstr "Gli oggetti che sono stati spostati in un percorso diverso del repository sono anche indicati con il simbolo <literal>(s)</literal>. Potresti aver cambiato qualcosa mentre lavoravi su un branch dimenticandoti di tornare nel trunk. Questo è il tuo segnale di avvertimento!"
 
 #. (title)
 msgid "Commit files or folders?"
@@ -3528,7 +3529,7 @@ msgid ""
 "changes a timestamp in the project file every time you build. The project "
 "file has to be versioned as it includes all the build settings, but it "
 "doesn't need to be committed just because the timestamp changed."
-msgstr ""
+msgstr "A volte hai dei file con versione che cambiano di frequente dei quali non vuoi veramente fare il commit. Questo potrebbe indicare una falla nel tuo processo di sviluppo - perché quei file sono sotto controllo di versione? Dovresti usare dei file template? Ma occasionalmente è inevitabile. Un motivo tipico è che il tuo IDE cambia un timestamp nel file del progetto ogni volta che sviluppi. Il file del progetto deve avere un controllo di versione poiché contiene tutte le impostazioni di sviluppo, ma non si deve fare il commit solo perché è cambiato il suo timestamp."
 
 #. (para)
 msgid ""
@@ -3536,7 +3537,7 @@ msgid ""
 " <literal>ignore-on-commit</literal>. Any file added to this changelist will"
 " automatically be unchecked in the commit dialog. You can still commit "
 "changes, but you have to select it manually in the commit dialog."
-msgstr ""
+msgstr "Per aiutare in casi complciati come questo, abbiamo riservato una lista dei cambiamenti detta <literal>ignore-on-commit</literal>. Qualunque file aggiunto alla lista sarà automaticamente deselezionato dalla finestra di commit. Puoi ancora fare il commit delle modifiche, ma devi selezionarlo manualmente dalla finestra di commit."
 
 #. (title)
 msgid "Commit Log Messages"
@@ -14616,7 +14617,8 @@ msgstr ""
 #. (para)
 msgid ""
 "A path to a temporary file which contains all the paths for which the "
-"operation was started. Each path is on a separate line in the temp file."
+"operation was started in UTF-8 encoding. Each path is on a separate line in "
+"the temp file."
 msgstr ""
 
 #. (para)
@@ -14696,8 +14698,9 @@ msgstr ""
 
 #. (para)
 msgid ""
-"A path to a temporary file which contains all the paths which were somehow "
-"touched by the operation. Each path is on a separate line in the temp file."
+"A path to a temporary file which contains all the paths in UTF-8 encoding "
+"which were somehow touched by the operation. Each path is on a separate line"
+" in the temp file."
 msgstr ""
 
 #. (para)
