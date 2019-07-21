@@ -160,6 +160,7 @@
     <ClCompile Include="..\..\..\portfwd.c" />
     <ClCompile Include="..\..\..\proxy.c" />
     <ClCompile Include="..\..\..\pscp.c" />
+    <ClCompile Include="..\..\..\psftpcommon.c" />
     <ClCompile Include="..\..\..\settings.c" />
     <ClCompile Include="..\..\..\sftp.c" />
     <ClCompile Include="..\..\..\sftpcommon.c" />
@@ -266,6 +267,7 @@
     <ClInclude Include="..\..\..\sshgss.h" />
     <ClInclude Include="..\..\..\sshgssc.h" />
     <ClInclude Include="..\..\..\sshppl.h" />
+    <ClInclude Include="..\..\..\sshserver.h" />
     <ClInclude Include="..\..\..\sshsignals.h" />
     <ClInclude Include="..\..\..\sshttymodes.h" />
     <ClInclude Include="..\..\..\storage.h" />

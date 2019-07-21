@@ -292,10 +292,10 @@ $(BUILDDIR)pscp.exe: $(BUILDDIR)agentf.obj $(BUILDDIR)aqsync.obj \
 		$(BUILDDIR)nullplug.obj $(BUILDDIR)pgssapi.obj \
 		$(BUILDDIR)pinger.obj $(BUILDDIR)portfwd.obj \
 		$(BUILDDIR)proxy.obj $(BUILDDIR)pscp.obj $(BUILDDIR)pscp.res \
-		$(BUILDDIR)settings.obj $(BUILDDIR)sftp.obj \
-		$(BUILDDIR)sftpcommon.obj $(BUILDDIR)ssh.obj \
-		$(BUILDDIR)ssh1bpp.obj $(BUILDDIR)ssh1censor.obj \
-		$(BUILDDIR)ssh1connection.obj \
+		$(BUILDDIR)psftpcommon.obj $(BUILDDIR)settings.obj \
+		$(BUILDDIR)sftp.obj $(BUILDDIR)sftpcommon.obj \
+		$(BUILDDIR)ssh.obj $(BUILDDIR)ssh1bpp.obj \
+		$(BUILDDIR)ssh1censor.obj $(BUILDDIR)ssh1connection.obj \
 		$(BUILDDIR)ssh1connection-client.obj \
 		$(BUILDDIR)ssh1login.obj $(BUILDDIR)ssh2bpp.obj \
 		$(BUILDDIR)ssh2bpp-bare.obj $(BUILDDIR)ssh2censor.obj \
@@ -346,10 +346,10 @@ $(BUILDDIR)pscp.exe: $(BUILDDIR)agentf.obj $(BUILDDIR)aqsync.obj \
 		$(BUILDDIR)pgssapi.obj $(BUILDDIR)pinger.obj \
 		$(BUILDDIR)portfwd.obj $(BUILDDIR)proxy.obj \
 		$(BUILDDIR)pscp.obj $(BUILDDIR)pscp.res \
-		$(BUILDDIR)settings.obj $(BUILDDIR)sftp.obj \
-		$(BUILDDIR)sftpcommon.obj shell32.lib $(BUILDDIR)ssh.obj \
-		$(BUILDDIR)ssh1bpp.obj $(BUILDDIR)ssh1censor.obj \
-		$(BUILDDIR)ssh1connection.obj \
+		$(BUILDDIR)psftpcommon.obj $(BUILDDIR)settings.obj \
+		$(BUILDDIR)sftp.obj $(BUILDDIR)sftpcommon.obj shell32.lib \
+		$(BUILDDIR)ssh.obj $(BUILDDIR)ssh1bpp.obj \
+		$(BUILDDIR)ssh1censor.obj $(BUILDDIR)ssh1connection.obj \
 		$(BUILDDIR)ssh1connection-client.obj \
 		$(BUILDDIR)ssh1login.obj $(BUILDDIR)ssh2bpp.obj \
 		$(BUILDDIR)ssh2bpp-bare.obj $(BUILDDIR)ssh2censor.obj \
@@ -397,10 +397,11 @@ $(BUILDDIR)psftp.exe: $(BUILDDIR)agentf.obj $(BUILDDIR)aqsync.obj \
 		$(BUILDDIR)nullplug.obj $(BUILDDIR)pgssapi.obj \
 		$(BUILDDIR)pinger.obj $(BUILDDIR)portfwd.obj \
 		$(BUILDDIR)proxy.obj $(BUILDDIR)psftp.obj \
-		$(BUILDDIR)psftp.res $(BUILDDIR)settings.obj \
-		$(BUILDDIR)sftp.obj $(BUILDDIR)sftpcommon.obj \
-		$(BUILDDIR)ssh.obj $(BUILDDIR)ssh1bpp.obj \
-		$(BUILDDIR)ssh1censor.obj $(BUILDDIR)ssh1connection.obj \
+		$(BUILDDIR)psftp.res $(BUILDDIR)psftpcommon.obj \
+		$(BUILDDIR)settings.obj $(BUILDDIR)sftp.obj \
+		$(BUILDDIR)sftpcommon.obj $(BUILDDIR)ssh.obj \
+		$(BUILDDIR)ssh1bpp.obj $(BUILDDIR)ssh1censor.obj \
+		$(BUILDDIR)ssh1connection.obj \
 		$(BUILDDIR)ssh1connection-client.obj \
 		$(BUILDDIR)ssh1login.obj $(BUILDDIR)ssh2bpp.obj \
 		$(BUILDDIR)ssh2bpp-bare.obj $(BUILDDIR)ssh2censor.obj \
@@ -451,10 +452,10 @@ $(BUILDDIR)psftp.exe: $(BUILDDIR)agentf.obj $(BUILDDIR)aqsync.obj \
 		$(BUILDDIR)pgssapi.obj $(BUILDDIR)pinger.obj \
 		$(BUILDDIR)portfwd.obj $(BUILDDIR)proxy.obj \
 		$(BUILDDIR)psftp.obj $(BUILDDIR)psftp.res \
-		$(BUILDDIR)settings.obj $(BUILDDIR)sftp.obj \
-		$(BUILDDIR)sftpcommon.obj shell32.lib $(BUILDDIR)ssh.obj \
-		$(BUILDDIR)ssh1bpp.obj $(BUILDDIR)ssh1censor.obj \
-		$(BUILDDIR)ssh1connection.obj \
+		$(BUILDDIR)psftpcommon.obj $(BUILDDIR)settings.obj \
+		$(BUILDDIR)sftp.obj $(BUILDDIR)sftpcommon.obj shell32.lib \
+		$(BUILDDIR)ssh.obj $(BUILDDIR)ssh1bpp.obj \
+		$(BUILDDIR)ssh1censor.obj $(BUILDDIR)ssh1connection.obj \
 		$(BUILDDIR)ssh1connection-client.obj \
 		$(BUILDDIR)ssh1login.obj $(BUILDDIR)ssh2bpp.obj \
 		$(BUILDDIR)ssh2bpp-bare.obj $(BUILDDIR)ssh2censor.obj \
@@ -497,14 +498,14 @@ $(BUILDDIR)putty.exe: $(BUILDDIR)agentf.obj $(BUILDDIR)aqsync.obj \
 		$(BUILDDIR)conf.obj $(BUILDDIR)config.obj \
 		$(BUILDDIR)cproxy.obj $(BUILDDIR)dialog.obj \
 		$(BUILDDIR)ecc.obj $(BUILDDIR)errsock.obj \
-		$(BUILDDIR)ldisc.obj $(BUILDDIR)ldiscucs.obj \
-		$(BUILDDIR)logging.obj $(BUILDDIR)mainchan.obj \
-		$(BUILDDIR)marshal.obj $(BUILDDIR)memory.obj \
-		$(BUILDDIR)minibidi.obj $(BUILDDIR)misc.obj \
-		$(BUILDDIR)miscucs.obj $(BUILDDIR)mpint.obj \
-		$(BUILDDIR)nullplug.obj $(BUILDDIR)pgssapi.obj \
-		$(BUILDDIR)pinger.obj $(BUILDDIR)portfwd.obj \
-		$(BUILDDIR)proxy.obj $(BUILDDIR)putty.res $(BUILDDIR)raw.obj \
+		$(BUILDDIR)ldisc.obj $(BUILDDIR)logging.obj \
+		$(BUILDDIR)mainchan.obj $(BUILDDIR)marshal.obj \
+		$(BUILDDIR)memory.obj $(BUILDDIR)minibidi.obj \
+		$(BUILDDIR)misc.obj $(BUILDDIR)miscucs.obj \
+		$(BUILDDIR)mpint.obj $(BUILDDIR)nullplug.obj \
+		$(BUILDDIR)pgssapi.obj $(BUILDDIR)pinger.obj \
+		$(BUILDDIR)portfwd.obj $(BUILDDIR)proxy.obj \
+		$(BUILDDIR)putty.res $(BUILDDIR)raw.obj \
 		$(BUILDDIR)rlogin.obj $(BUILDDIR)sercfg.obj \
 		$(BUILDDIR)sessprep.obj $(BUILDDIR)settings.obj \
 		$(BUILDDIR)sizetip.obj $(BUILDDIR)ssh.obj \
@@ -558,14 +559,14 @@ $(BUILDDIR)putty.exe: $(BUILDDIR)agentf.obj $(BUILDDIR)aqsync.obj \
 		$(BUILDDIR)config.obj $(BUILDDIR)cproxy.obj \
 		$(BUILDDIR)dialog.obj $(BUILDDIR)ecc.obj \
 		$(BUILDDIR)errsock.obj gdi32.lib imm32.lib \
-		$(BUILDDIR)ldisc.obj $(BUILDDIR)ldiscucs.obj \
-		$(BUILDDIR)logging.obj $(BUILDDIR)mainchan.obj \
-		$(BUILDDIR)marshal.obj $(BUILDDIR)memory.obj \
-		$(BUILDDIR)minibidi.obj $(BUILDDIR)misc.obj \
-		$(BUILDDIR)miscucs.obj $(BUILDDIR)mpint.obj \
-		$(BUILDDIR)nullplug.obj ole32.lib $(BUILDDIR)pgssapi.obj \
-		$(BUILDDIR)pinger.obj $(BUILDDIR)portfwd.obj \
-		$(BUILDDIR)proxy.obj $(BUILDDIR)putty.res $(BUILDDIR)raw.obj \
+		$(BUILDDIR)ldisc.obj $(BUILDDIR)logging.obj \
+		$(BUILDDIR)mainchan.obj $(BUILDDIR)marshal.obj \
+		$(BUILDDIR)memory.obj $(BUILDDIR)minibidi.obj \
+		$(BUILDDIR)misc.obj $(BUILDDIR)miscucs.obj \
+		$(BUILDDIR)mpint.obj $(BUILDDIR)nullplug.obj ole32.lib \
+		$(BUILDDIR)pgssapi.obj $(BUILDDIR)pinger.obj \
+		$(BUILDDIR)portfwd.obj $(BUILDDIR)proxy.obj \
+		$(BUILDDIR)putty.res $(BUILDDIR)raw.obj \
 		$(BUILDDIR)rlogin.obj $(BUILDDIR)sercfg.obj \
 		$(BUILDDIR)sessprep.obj $(BUILDDIR)settings.obj shell32.lib \
 		$(BUILDDIR)sizetip.obj $(BUILDDIR)ssh.obj \
@@ -665,30 +666,29 @@ $(BUILDDIR)puttytel.exe: $(BUILDDIR)be_misc.obj $(BUILDDIR)be_nos_s.obj \
 		$(BUILDDIR)callback.obj $(BUILDDIR)cmdline.obj \
 		$(BUILDDIR)conf.obj $(BUILDDIR)config.obj \
 		$(BUILDDIR)dialog.obj $(BUILDDIR)errsock.obj \
-		$(BUILDDIR)ldisc.obj $(BUILDDIR)ldiscucs.obj \
-		$(BUILDDIR)logging.obj $(BUILDDIR)marshal.obj \
-		$(BUILDDIR)memory.obj $(BUILDDIR)minibidi.obj \
-		$(BUILDDIR)misc.obj $(BUILDDIR)miscucs.obj \
-		$(BUILDDIR)nocproxy.obj $(BUILDDIR)nogss.obj \
-		$(BUILDDIR)pinger.obj $(BUILDDIR)proxy.obj \
-		$(BUILDDIR)puttytel.res $(BUILDDIR)raw.obj \
-		$(BUILDDIR)rlogin.obj $(BUILDDIR)sercfg.obj \
-		$(BUILDDIR)sessprep.obj $(BUILDDIR)settings.obj \
-		$(BUILDDIR)sizetip.obj $(BUILDDIR)stripctrl.obj \
-		$(BUILDDIR)telnet.obj $(BUILDDIR)terminal.obj \
-		$(BUILDDIR)timing.obj $(BUILDDIR)tree234.obj \
-		$(BUILDDIR)utils.obj $(BUILDDIR)version.obj \
-		$(BUILDDIR)wcwidth.obj $(BUILDDIR)wincfg.obj \
-		$(BUILDDIR)winctrls.obj $(BUILDDIR)windefs.obj \
-		$(BUILDDIR)windlg.obj $(BUILDDIR)window.obj \
-		$(BUILDDIR)winhandl.obj $(BUILDDIR)winhelp.obj \
-		$(BUILDDIR)winhsock.obj $(BUILDDIR)winjump.obj \
-		$(BUILDDIR)winmisc.obj $(BUILDDIR)winmiscs.obj \
-		$(BUILDDIR)winnet.obj $(BUILDDIR)winprint.obj \
-		$(BUILDDIR)winproxy.obj $(BUILDDIR)winsecur.obj \
-		$(BUILDDIR)winser.obj $(BUILDDIR)winstore.obj \
-		$(BUILDDIR)wintime.obj $(BUILDDIR)winucs.obj \
-		$(BUILDDIR)winutils.obj
+		$(BUILDDIR)ldisc.obj $(BUILDDIR)logging.obj \
+		$(BUILDDIR)marshal.obj $(BUILDDIR)memory.obj \
+		$(BUILDDIR)minibidi.obj $(BUILDDIR)misc.obj \
+		$(BUILDDIR)miscucs.obj $(BUILDDIR)nocproxy.obj \
+		$(BUILDDIR)nogss.obj $(BUILDDIR)pinger.obj \
+		$(BUILDDIR)proxy.obj $(BUILDDIR)puttytel.res \
+		$(BUILDDIR)raw.obj $(BUILDDIR)rlogin.obj \
+		$(BUILDDIR)sercfg.obj $(BUILDDIR)sessprep.obj \
+		$(BUILDDIR)settings.obj $(BUILDDIR)sizetip.obj \
+		$(BUILDDIR)stripctrl.obj $(BUILDDIR)telnet.obj \
+		$(BUILDDIR)terminal.obj $(BUILDDIR)timing.obj \
+		$(BUILDDIR)tree234.obj $(BUILDDIR)utils.obj \
+		$(BUILDDIR)version.obj $(BUILDDIR)wcwidth.obj \
+		$(BUILDDIR)wincfg.obj $(BUILDDIR)winctrls.obj \
+		$(BUILDDIR)windefs.obj $(BUILDDIR)windlg.obj \
+		$(BUILDDIR)window.obj $(BUILDDIR)winhandl.obj \
+		$(BUILDDIR)winhelp.obj $(BUILDDIR)winhsock.obj \
+		$(BUILDDIR)winjump.obj $(BUILDDIR)winmisc.obj \
+		$(BUILDDIR)winmiscs.obj $(BUILDDIR)winnet.obj \
+		$(BUILDDIR)winprint.obj $(BUILDDIR)winproxy.obj \
+		$(BUILDDIR)winsecur.obj $(BUILDDIR)winser.obj \
+		$(BUILDDIR)winstore.obj $(BUILDDIR)wintime.obj \
+		$(BUILDDIR)winucs.obj $(BUILDDIR)winutils.obj
 	$(LD) $(LFLAGS) $(XLFLAGS) /out:$(BUILDDIR)puttytel.exe \
 		/lldmap:$(BUILDDIR)puttytel.map \
 		/subsystem:windows$(SUBSYSVER) $(EXTRA_windows) advapi32.lib \
@@ -696,30 +696,29 @@ $(BUILDDIR)puttytel.exe: $(BUILDDIR)be_misc.obj $(BUILDDIR)be_nos_s.obj \
 		$(BUILDDIR)callback.obj $(BUILDDIR)cmdline.obj comdlg32.lib \
 		$(BUILDDIR)conf.obj $(BUILDDIR)config.obj \
 		$(BUILDDIR)dialog.obj $(BUILDDIR)errsock.obj gdi32.lib \
-		imm32.lib $(BUILDDIR)ldisc.obj $(BUILDDIR)ldiscucs.obj \
-		$(BUILDDIR)logging.obj $(BUILDDIR)marshal.obj \
-		$(BUILDDIR)memory.obj $(BUILDDIR)minibidi.obj \
-		$(BUILDDIR)misc.obj $(BUILDDIR)miscucs.obj \
-		$(BUILDDIR)nocproxy.obj $(BUILDDIR)nogss.obj ole32.lib \
-		$(BUILDDIR)pinger.obj $(BUILDDIR)proxy.obj \
-		$(BUILDDIR)puttytel.res $(BUILDDIR)raw.obj \
-		$(BUILDDIR)rlogin.obj $(BUILDDIR)sercfg.obj \
-		$(BUILDDIR)sessprep.obj $(BUILDDIR)settings.obj shell32.lib \
-		$(BUILDDIR)sizetip.obj $(BUILDDIR)stripctrl.obj \
-		$(BUILDDIR)telnet.obj $(BUILDDIR)terminal.obj \
-		$(BUILDDIR)timing.obj $(BUILDDIR)tree234.obj user32.lib \
-		$(BUILDDIR)utils.obj $(BUILDDIR)version.obj \
-		$(BUILDDIR)wcwidth.obj $(BUILDDIR)wincfg.obj \
-		$(BUILDDIR)winctrls.obj $(BUILDDIR)windefs.obj \
-		$(BUILDDIR)windlg.obj $(BUILDDIR)window.obj \
-		$(BUILDDIR)winhandl.obj $(BUILDDIR)winhelp.obj \
-		$(BUILDDIR)winhsock.obj $(BUILDDIR)winjump.obj \
-		$(BUILDDIR)winmisc.obj $(BUILDDIR)winmiscs.obj \
-		$(BUILDDIR)winnet.obj $(BUILDDIR)winprint.obj \
-		$(BUILDDIR)winproxy.obj $(BUILDDIR)winsecur.obj \
-		$(BUILDDIR)winser.obj $(BUILDDIR)winstore.obj \
-		$(BUILDDIR)wintime.obj $(BUILDDIR)winucs.obj \
-		$(BUILDDIR)winutils.obj $(EXTRA_libs)
+		imm32.lib $(BUILDDIR)ldisc.obj $(BUILDDIR)logging.obj \
+		$(BUILDDIR)marshal.obj $(BUILDDIR)memory.obj \
+		$(BUILDDIR)minibidi.obj $(BUILDDIR)misc.obj \
+		$(BUILDDIR)miscucs.obj $(BUILDDIR)nocproxy.obj \
+		$(BUILDDIR)nogss.obj ole32.lib $(BUILDDIR)pinger.obj \
+		$(BUILDDIR)proxy.obj $(BUILDDIR)puttytel.res \
+		$(BUILDDIR)raw.obj $(BUILDDIR)rlogin.obj \
+		$(BUILDDIR)sercfg.obj $(BUILDDIR)sessprep.obj \
+		$(BUILDDIR)settings.obj shell32.lib $(BUILDDIR)sizetip.obj \
+		$(BUILDDIR)stripctrl.obj $(BUILDDIR)telnet.obj \
+		$(BUILDDIR)terminal.obj $(BUILDDIR)timing.obj \
+		$(BUILDDIR)tree234.obj user32.lib $(BUILDDIR)utils.obj \
+		$(BUILDDIR)version.obj $(BUILDDIR)wcwidth.obj \
+		$(BUILDDIR)wincfg.obj $(BUILDDIR)winctrls.obj \
+		$(BUILDDIR)windefs.obj $(BUILDDIR)windlg.obj \
+		$(BUILDDIR)window.obj $(BUILDDIR)winhandl.obj \
+		$(BUILDDIR)winhelp.obj $(BUILDDIR)winhsock.obj \
+		$(BUILDDIR)winjump.obj $(BUILDDIR)winmisc.obj \
+		$(BUILDDIR)winmiscs.obj $(BUILDDIR)winnet.obj \
+		$(BUILDDIR)winprint.obj $(BUILDDIR)winproxy.obj \
+		$(BUILDDIR)winsecur.obj $(BUILDDIR)winser.obj \
+		$(BUILDDIR)winstore.obj $(BUILDDIR)wintime.obj \
+		$(BUILDDIR)winucs.obj $(BUILDDIR)winutils.obj $(EXTRA_libs)
 
 $(BUILDDIR)testcrypt.exe: $(BUILDDIR)ecc.obj $(BUILDDIR)marshal.obj \
 		$(BUILDDIR)memory.obj $(BUILDDIR)mpint.obj \
@@ -879,8 +878,11 @@ $(BUILDDIR)gtkapp.obj: ../unix/gtkapp.c ../putty.h ../unix/gtkmisc.h \
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
 $(BUILDDIR)gtkask.obj: ../unix/gtkask.c ../defs.h ../unix/gtkfont.h \
-		../unix/gtkcompat.h ../unix/gtkmisc.h ../misc.h \
-		../puttymem.h ../marshal.h
+		../unix/gtkcompat.h ../unix/gtkmisc.h ../putty.h ../ssh.h \
+		../misc.h ../puttyps.h ../network.h ../marshal.h \
+		../sshsignals.h ../puttymem.h ../tree234.h ../sshttymodes.h \
+		../windows/winstuff.h ../unix/unix.h ../windows/winhelp.h \
+		../charset/charset.h
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
 $(BUILDDIR)gtkcfg.obj: ../unix/gtkcfg.c ../putty.h ../dialog.h ../storage.h \
@@ -950,13 +952,6 @@ $(BUILDDIR)import.obj: ../import.c ../putty.h ../ssh.h ../mpint.h ../misc.h \
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
 $(BUILDDIR)ldisc.obj: ../ldisc.c ../putty.h ../terminal.h ../ldisc.h \
-		../defs.h ../puttyps.h ../network.h ../misc.h ../marshal.h \
-		../sshsignals.h ../tree234.h ../windows/winstuff.h \
-		../unix/unix.h ../puttymem.h ../windows/winhelp.h \
-		../charset/charset.h
-	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
-
-$(BUILDDIR)ldiscucs.obj: ../ldiscucs.c ../putty.h ../terminal.h ../ldisc.h \
 		../defs.h ../puttyps.h ../network.h ../misc.h ../marshal.h \
 		../sshsignals.h ../tree234.h ../windows/winstuff.h \
 		../unix/unix.h ../puttymem.h ../windows/winhelp.h \
@@ -1096,6 +1091,10 @@ $(BUILDDIR)portfwd.obj: ../portfwd.c ../putty.h ../ssh.h ../sshchan.h \
 		../charset/charset.h
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
+$(BUILDDIR)procnet.obj: ../unix/procnet.c ../misc.h ../defs.h ../puttymem.h \
+		../marshal.h
+	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
+
 $(BUILDDIR)proxy.obj: ../proxy.c ../putty.h ../network.h ../proxy.h \
 		../defs.h ../puttyps.h ../misc.h ../marshal.h \
 		../sshsignals.h ../windows/winstuff.h ../unix/unix.h \
@@ -1124,6 +1123,13 @@ $(BUILDDIR)psftp.obj: ../psftp.c ../putty.h ../psftp.h ../storage.h ../ssh.h \
 $(BUILDDIR)psftp.res: $(BUILDDIR)psftp.rcpp ../windows/rcstuff.h \
 		../windows/pscp.ico ../version.h ../licence.h
 	$(RC) $(BUILDDIR)psftp.rcpp /FO $(BUILDDIR)psftp.res
+
+$(BUILDDIR)psftpcommon.obj: ../psftpcommon.c ../putty.h ../sftp.h ../psftp.h \
+		../defs.h ../puttyps.h ../network.h ../misc.h ../marshal.h \
+		../sshsignals.h ../windows/winstuff.h ../unix/unix.h \
+		../puttymem.h ../tree234.h ../windows/winhelp.h \
+		../charset/charset.h
+	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
 $(BUILDDIR)putty.res: $(BUILDDIR)putty.rcpp ../windows/rcstuff.h \
 		../windows/putty.mft ../windows/win_res.h \
@@ -1344,12 +1350,13 @@ $(BUILDDIR)ssh2kex-client.obj: ../ssh2kex-client.c ../putty.h ../ssh.h \
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
 $(BUILDDIR)ssh2kex-server.obj: ../ssh2kex-server.c ../putty.h ../ssh.h \
-		../sshbpp.h ../sshppl.h ../sshcr.h ../storage.h \
-		../ssh2transport.h ../mpint.h ../defs.h ../puttyps.h \
-		../network.h ../misc.h ../marshal.h ../sshsignals.h \
-		../puttymem.h ../tree234.h ../sshttymodes.h ../sshgssc.h \
-		../sshgss.h ../windows/winstuff.h ../unix/unix.h \
-		../pgssapi.h ../windows/winhelp.h ../charset/charset.h
+		../sshbpp.h ../sshppl.h ../sshcr.h ../sshserver.h \
+		../storage.h ../ssh2transport.h ../mpint.h ../defs.h \
+		../puttyps.h ../network.h ../misc.h ../marshal.h \
+		../sshsignals.h ../puttymem.h ../tree234.h ../sshttymodes.h \
+		../sshgssc.h ../sshgss.h ../windows/winstuff.h \
+		../unix/unix.h ../pgssapi.h ../windows/winhelp.h \
+		../charset/charset.h
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
 $(BUILDDIR)ssh2transhk.obj: ../ssh2transhk.c ../putty.h ../ssh.h ../defs.h \
@@ -1360,12 +1367,13 @@ $(BUILDDIR)ssh2transhk.obj: ../ssh2transhk.c ../putty.h ../ssh.h ../defs.h \
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
 $(BUILDDIR)ssh2transport.obj: ../ssh2transport.c ../putty.h ../ssh.h \
-		../sshbpp.h ../sshppl.h ../sshcr.h ../storage.h \
-		../ssh2transport.h ../mpint.h ../defs.h ../puttyps.h \
-		../network.h ../misc.h ../marshal.h ../sshsignals.h \
-		../puttymem.h ../tree234.h ../sshttymodes.h ../sshgssc.h \
-		../sshgss.h ../windows/winstuff.h ../unix/unix.h \
-		../pgssapi.h ../windows/winhelp.h ../charset/charset.h
+		../sshbpp.h ../sshppl.h ../sshcr.h ../sshserver.h \
+		../storage.h ../ssh2transport.h ../mpint.h ../defs.h \
+		../puttyps.h ../network.h ../misc.h ../marshal.h \
+		../sshsignals.h ../puttymem.h ../tree234.h ../sshttymodes.h \
+		../sshgssc.h ../sshgss.h ../windows/winstuff.h \
+		../unix/unix.h ../pgssapi.h ../windows/winhelp.h \
+		../charset/charset.h
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
 $(BUILDDIR)ssh2userauth.obj: ../ssh2userauth.c ../putty.h ../ssh.h \
@@ -1504,8 +1512,8 @@ $(BUILDDIR)sshpubk.obj: ../sshpubk.c ../putty.h ../mpint.h ../ssh.h \
 		../charset/charset.h
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
-$(BUILDDIR)sshrand.obj: ../sshrand.c ../putty.h ../ssh.h ../defs.h \
-		../puttyps.h ../network.h ../misc.h ../marshal.h \
+$(BUILDDIR)sshrand.obj: ../sshrand.c ../putty.h ../ssh.h ../storage.h \
+		../defs.h ../puttyps.h ../network.h ../misc.h ../marshal.h \
 		../sshsignals.h ../puttymem.h ../tree234.h ../sshttymodes.h \
 		../windows/winstuff.h ../unix/unix.h ../windows/winhelp.h \
 		../charset/charset.h
@@ -1818,9 +1826,11 @@ $(BUILDDIR)uxucs.obj: ../unix/uxucs.c ../putty.h ../charset/charset.h \
 		../windows/winstuff.h ../unix/unix.h ../windows/winhelp.h
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
-$(BUILDDIR)uxutils.obj: ../unix/uxutils.c ../ssh.h ../puttymem.h \
-		../tree234.h ../network.h ../misc.h ../sshttymodes.h \
-		../defs.h ../marshal.h
+$(BUILDDIR)uxutils.obj: ../unix/uxutils.c ../putty.h ../ssh.h ../defs.h \
+		../puttyps.h ../network.h ../misc.h ../marshal.h \
+		../sshsignals.h ../puttymem.h ../tree234.h ../sshttymodes.h \
+		../windows/winstuff.h ../unix/unix.h ../windows/winhelp.h \
+		../charset/charset.h
 	$(CC) /Fo$(BUILDDIR) $(COMPAT) $(CFLAGS) $(XFLAGS) /c $<
 
 $(BUILDDIR)version.obj: ../version.c ../empty.h ../version.h
@@ -2147,5 +2157,5 @@ cleantestprogs:
 	-rm -f $(BUILDDIR)testcrypt.exe
 
 clean:
-	rm -f $(BUILDDIR)*.obj $(BUILDDIR)*.exe $(BUILDDIR)*.res $(BUILDDIR)*.map \
-		$(BUILDDIR)*.exe.manifest
+	rm -f $(BUILDDIR)*.obj $(BUILDDIR)*.exe $(BUILDDIR)*.rcpp $(BUILDDIR)*.res \
+		$(BUILDDIR)*.map $(BUILDDIR)*.exe.manifest

@@ -184,8 +184,8 @@ plink.exe: agentf.o aqsync.o be_all_s.o be_misc.o callback.o cmdline.o \
 pscp.exe: agentf.o aqsync.o be_misc.o be_ssh.o callback.o cmdline.o conf.o \
 		cproxy.o ecc.o errsock.o logging.o mainchan.o marshal.o \
 		memory.o misc.o miscucs.o mpint.o nullplug.o pgssapi.o \
-		pinger.o portfwd.o proxy.o pscp.o pscp.res.o settings.o \
-		sftp.o sftpcommon.o ssh.o ssh1bpp.o ssh1censor.o \
+		pinger.o portfwd.o proxy.o pscp.o pscp.res.o psftpcommon.o \
+		settings.o sftp.o sftpcommon.o ssh.o ssh1bpp.o ssh1censor.o \
 		ssh1connection.o ssh1connection-client.o ssh1login.o \
 		ssh2bpp.o ssh2bpp-bare.o ssh2censor.o ssh2connection.o \
 		ssh2connection-client.o ssh2kex-client.o ssh2transhk.o \
@@ -204,8 +204,8 @@ pscp.exe: agentf.o aqsync.o be_misc.o be_ssh.o callback.o cmdline.o conf.o \
 		be_ssh.o callback.o cmdline.o conf.o cproxy.o ecc.o \
 		errsock.o logging.o mainchan.o marshal.o memory.o misc.o \
 		miscucs.o mpint.o nullplug.o pgssapi.o pinger.o portfwd.o \
-		proxy.o pscp.o pscp.res.o settings.o sftp.o sftpcommon.o \
-		ssh.o ssh1bpp.o ssh1censor.o ssh1connection.o \
+		proxy.o pscp.o pscp.res.o psftpcommon.o settings.o sftp.o \
+		sftpcommon.o ssh.o ssh1bpp.o ssh1censor.o ssh1connection.o \
 		ssh1connection-client.o ssh1login.o ssh2bpp.o ssh2bpp-bare.o \
 		ssh2censor.o ssh2connection.o ssh2connection-client.o \
 		ssh2kex-client.o ssh2transhk.o ssh2transport.o \
@@ -225,8 +225,8 @@ pscp.exe: agentf.o aqsync.o be_misc.o be_ssh.o callback.o cmdline.o conf.o \
 psftp.exe: agentf.o aqsync.o be_misc.o be_ssh.o callback.o cmdline.o conf.o \
 		cproxy.o ecc.o errsock.o logging.o mainchan.o marshal.o \
 		memory.o misc.o miscucs.o mpint.o nullplug.o pgssapi.o \
-		pinger.o portfwd.o proxy.o psftp.o psftp.res.o settings.o \
-		sftp.o sftpcommon.o ssh.o ssh1bpp.o ssh1censor.o \
+		pinger.o portfwd.o proxy.o psftp.o psftp.res.o psftpcommon.o \
+		settings.o sftp.o sftpcommon.o ssh.o ssh1bpp.o ssh1censor.o \
 		ssh1connection.o ssh1connection-client.o ssh1login.o \
 		ssh2bpp.o ssh2bpp-bare.o ssh2censor.o ssh2connection.o \
 		ssh2connection-client.o ssh2kex-client.o ssh2transhk.o \
@@ -245,38 +245,38 @@ psftp.exe: agentf.o aqsync.o be_misc.o be_ssh.o callback.o cmdline.o conf.o \
 		be_misc.o be_ssh.o callback.o cmdline.o conf.o cproxy.o \
 		ecc.o errsock.o logging.o mainchan.o marshal.o memory.o \
 		misc.o miscucs.o mpint.o nullplug.o pgssapi.o pinger.o \
-		portfwd.o proxy.o psftp.o psftp.res.o settings.o sftp.o \
-		sftpcommon.o ssh.o ssh1bpp.o ssh1censor.o ssh1connection.o \
-		ssh1connection-client.o ssh1login.o ssh2bpp.o ssh2bpp-bare.o \
-		ssh2censor.o ssh2connection.o ssh2connection-client.o \
-		ssh2kex-client.o ssh2transhk.o ssh2transport.o \
-		ssh2userauth.o sshaes.o ssharcf.o sshauxcrypt.o sshblowf.o \
-		sshccp.o sshcommon.o sshcrc.o sshcrcda.o sshdes.o sshdh.o \
-		sshdss.o sshecc.o sshgssc.o sshhmac.o sshmac.o sshmd5.o \
-		sshprng.o sshpubk.o sshrand.o sshrsa.o sshsh256.o sshsh512.o \
-		sshsha.o sshshare.o sshverstring.o sshzlib.o stripctrl.o \
-		timing.o tree234.o utils.o version.o wcwidth.o wildcard.o \
-		wincapi.o wincons.o windefs.o wingss.o winhandl.o winhsock.o \
-		winmisc.o winmiscs.o winnet.o winnohlp.o winnoise.o \
-		winnojmp.o winnpc.o winnps.o winpgntc.o winproxy.o \
-		winsecur.o winsftp.o winshare.o winstore.o wintime.o \
-		winucs.o x11fwd.o -ladvapi32 -lcomdlg32 -lgdi32 -limm32 \
-		-lole32 -lshell32 -luser32
+		portfwd.o proxy.o psftp.o psftp.res.o psftpcommon.o \
+		settings.o sftp.o sftpcommon.o ssh.o ssh1bpp.o ssh1censor.o \
+		ssh1connection.o ssh1connection-client.o ssh1login.o \
+		ssh2bpp.o ssh2bpp-bare.o ssh2censor.o ssh2connection.o \
+		ssh2connection-client.o ssh2kex-client.o ssh2transhk.o \
+		ssh2transport.o ssh2userauth.o sshaes.o ssharcf.o \
+		sshauxcrypt.o sshblowf.o sshccp.o sshcommon.o sshcrc.o \
+		sshcrcda.o sshdes.o sshdh.o sshdss.o sshecc.o sshgssc.o \
+		sshhmac.o sshmac.o sshmd5.o sshprng.o sshpubk.o sshrand.o \
+		sshrsa.o sshsh256.o sshsh512.o sshsha.o sshshare.o \
+		sshverstring.o sshzlib.o stripctrl.o timing.o tree234.o \
+		utils.o version.o wcwidth.o wildcard.o wincapi.o wincons.o \
+		windefs.o wingss.o winhandl.o winhsock.o winmisc.o \
+		winmiscs.o winnet.o winnohlp.o winnoise.o winnojmp.o \
+		winnpc.o winnps.o winpgntc.o winproxy.o winsecur.o winsftp.o \
+		winshare.o winstore.o wintime.o winucs.o x11fwd.o -ladvapi32 \
+		-lcomdlg32 -lgdi32 -limm32 -lole32 -lshell32 -luser32
 
 putty.exe: agentf.o aqsync.o be_all_s.o be_misc.o callback.o cmdline.o \
 		conf.o config.o cproxy.o dialog.o ecc.o errsock.o ldisc.o \
-		ldiscucs.o logging.o mainchan.o marshal.o memory.o \
-		minibidi.o misc.o miscucs.o mpint.o nullplug.o pgssapi.o \
-		pinger.o portfwd.o proxy.o putty.res.o raw.o rlogin.o \
-		sercfg.o sessprep.o settings.o sizetip.o ssh.o ssh1bpp.o \
-		ssh1censor.o ssh1connection.o ssh1connection-client.o \
-		ssh1login.o ssh2bpp.o ssh2bpp-bare.o ssh2censor.o \
-		ssh2connection.o ssh2connection-client.o ssh2kex-client.o \
-		ssh2transhk.o ssh2transport.o ssh2userauth.o sshaes.o \
-		ssharcf.o sshauxcrypt.o sshblowf.o sshccp.o sshcommon.o \
-		sshcrc.o sshcrcda.o sshdes.o sshdh.o sshdss.o sshecc.o \
-		sshgssc.o sshhmac.o sshmac.o sshmd5.o sshprng.o sshpubk.o \
-		sshrand.o sshrsa.o sshsh256.o sshsh512.o sshsha.o sshshare.o \
+		logging.o mainchan.o marshal.o memory.o minibidi.o misc.o \
+		miscucs.o mpint.o nullplug.o pgssapi.o pinger.o portfwd.o \
+		proxy.o putty.res.o raw.o rlogin.o sercfg.o sessprep.o \
+		settings.o sizetip.o ssh.o ssh1bpp.o ssh1censor.o \
+		ssh1connection.o ssh1connection-client.o ssh1login.o \
+		ssh2bpp.o ssh2bpp-bare.o ssh2censor.o ssh2connection.o \
+		ssh2connection-client.o ssh2kex-client.o ssh2transhk.o \
+		ssh2transport.o ssh2userauth.o sshaes.o ssharcf.o \
+		sshauxcrypt.o sshblowf.o sshccp.o sshcommon.o sshcrc.o \
+		sshcrcda.o sshdes.o sshdh.o sshdss.o sshecc.o sshgssc.o \
+		sshhmac.o sshmac.o sshmd5.o sshprng.o sshpubk.o sshrand.o \
+		sshrsa.o sshsh256.o sshsh512.o sshsha.o sshshare.o \
 		sshverstring.o sshzlib.o stripctrl.o telnet.o terminal.o \
 		timing.o tree234.o utils.o version.o wcwidth.o wildcard.o \
 		wincapi.o wincfg.o winctrls.o windefs.o windlg.o window.o \
@@ -286,28 +286,27 @@ putty.exe: agentf.o aqsync.o be_all_s.o be_misc.o callback.o cmdline.o \
 		winstore.o wintime.o winucs.o winutils.o winx11.o x11fwd.o
 	$(CC) -mwindows $(LDFLAGS) -o $@ -Wl,-Map,putty.map agentf.o \
 		aqsync.o be_all_s.o be_misc.o callback.o cmdline.o conf.o \
-		config.o cproxy.o dialog.o ecc.o errsock.o ldisc.o \
-		ldiscucs.o logging.o mainchan.o marshal.o memory.o \
-		minibidi.o misc.o miscucs.o mpint.o nullplug.o pgssapi.o \
-		pinger.o portfwd.o proxy.o putty.res.o raw.o rlogin.o \
-		sercfg.o sessprep.o settings.o sizetip.o ssh.o ssh1bpp.o \
-		ssh1censor.o ssh1connection.o ssh1connection-client.o \
-		ssh1login.o ssh2bpp.o ssh2bpp-bare.o ssh2censor.o \
-		ssh2connection.o ssh2connection-client.o ssh2kex-client.o \
-		ssh2transhk.o ssh2transport.o ssh2userauth.o sshaes.o \
-		ssharcf.o sshauxcrypt.o sshblowf.o sshccp.o sshcommon.o \
-		sshcrc.o sshcrcda.o sshdes.o sshdh.o sshdss.o sshecc.o \
-		sshgssc.o sshhmac.o sshmac.o sshmd5.o sshprng.o sshpubk.o \
-		sshrand.o sshrsa.o sshsh256.o sshsh512.o sshsha.o sshshare.o \
-		sshverstring.o sshzlib.o stripctrl.o telnet.o terminal.o \
-		timing.o tree234.o utils.o version.o wcwidth.o wildcard.o \
-		wincapi.o wincfg.o winctrls.o windefs.o windlg.o window.o \
-		wingss.o winhandl.o winhelp.o winhsock.o winjump.o winmisc.o \
-		winmiscs.o winnet.o winnoise.o winnpc.o winnps.o winpgntc.o \
-		winprint.o winproxy.o winsecur.o winser.o winshare.o \
-		winstore.o wintime.o winucs.o winutils.o winx11.o x11fwd.o \
-		-ladvapi32 -lcomdlg32 -lgdi32 -limm32 -lole32 -lshell32 \
-		-luser32
+		config.o cproxy.o dialog.o ecc.o errsock.o ldisc.o logging.o \
+		mainchan.o marshal.o memory.o minibidi.o misc.o miscucs.o \
+		mpint.o nullplug.o pgssapi.o pinger.o portfwd.o proxy.o \
+		putty.res.o raw.o rlogin.o sercfg.o sessprep.o settings.o \
+		sizetip.o ssh.o ssh1bpp.o ssh1censor.o ssh1connection.o \
+		ssh1connection-client.o ssh1login.o ssh2bpp.o ssh2bpp-bare.o \
+		ssh2censor.o ssh2connection.o ssh2connection-client.o \
+		ssh2kex-client.o ssh2transhk.o ssh2transport.o \
+		ssh2userauth.o sshaes.o ssharcf.o sshauxcrypt.o sshblowf.o \
+		sshccp.o sshcommon.o sshcrc.o sshcrcda.o sshdes.o sshdh.o \
+		sshdss.o sshecc.o sshgssc.o sshhmac.o sshmac.o sshmd5.o \
+		sshprng.o sshpubk.o sshrand.o sshrsa.o sshsh256.o sshsh512.o \
+		sshsha.o sshshare.o sshverstring.o sshzlib.o stripctrl.o \
+		telnet.o terminal.o timing.o tree234.o utils.o version.o \
+		wcwidth.o wildcard.o wincapi.o wincfg.o winctrls.o windefs.o \
+		windlg.o window.o wingss.o winhandl.o winhelp.o winhsock.o \
+		winjump.o winmisc.o winmiscs.o winnet.o winnoise.o winnpc.o \
+		winnps.o winpgntc.o winprint.o winproxy.o winsecur.o \
+		winser.o winshare.o winstore.o wintime.o winucs.o winutils.o \
+		winx11.o x11fwd.o -ladvapi32 -lcomdlg32 -lgdi32 -limm32 \
+		-lole32 -lshell32 -luser32
 
 puttygen.exe: conf.o ecc.o import.o marshal.o memory.o misc.o mpint.o \
 		notiming.o puttygen.res.o sshaes.o sshauxcrypt.o sshbcrypt.o \
@@ -329,18 +328,7 @@ puttygen.exe: conf.o ecc.o import.o marshal.o memory.o misc.o mpint.o \
 		-lcomdlg32 -lgdi32 -limm32 -lole32 -lshell32 -luser32
 
 puttytel.exe: be_misc.o be_nos_s.o callback.o cmdline.o conf.o config.o \
-		dialog.o errsock.o ldisc.o ldiscucs.o logging.o marshal.o \
-		memory.o minibidi.o misc.o miscucs.o nocproxy.o nogss.o \
-		pinger.o proxy.o puttytel.res.o raw.o rlogin.o sercfg.o \
-		sessprep.o settings.o sizetip.o stripctrl.o telnet.o \
-		terminal.o timing.o tree234.o utils.o version.o wcwidth.o \
-		wincfg.o winctrls.o windefs.o windlg.o window.o winhandl.o \
-		winhelp.o winhsock.o winjump.o winmisc.o winmiscs.o winnet.o \
-		winprint.o winproxy.o winsecur.o winser.o winstore.o \
-		wintime.o winucs.o winutils.o
-	$(CC) -mwindows $(LDFLAGS) -o $@ -Wl,-Map,puttytel.map be_misc.o \
-		be_nos_s.o callback.o cmdline.o conf.o config.o dialog.o \
-		errsock.o ldisc.o ldiscucs.o logging.o marshal.o memory.o \
+		dialog.o errsock.o ldisc.o logging.o marshal.o memory.o \
 		minibidi.o misc.o miscucs.o nocproxy.o nogss.o pinger.o \
 		proxy.o puttytel.res.o raw.o rlogin.o sercfg.o sessprep.o \
 		settings.o sizetip.o stripctrl.o telnet.o terminal.o \
@@ -348,8 +336,19 @@ puttytel.exe: be_misc.o be_nos_s.o callback.o cmdline.o conf.o config.o \
 		winctrls.o windefs.o windlg.o window.o winhandl.o winhelp.o \
 		winhsock.o winjump.o winmisc.o winmiscs.o winnet.o \
 		winprint.o winproxy.o winsecur.o winser.o winstore.o \
-		wintime.o winucs.o winutils.o -ladvapi32 -lcomdlg32 -lgdi32 \
-		-limm32 -lole32 -lshell32 -luser32
+		wintime.o winucs.o winutils.o
+	$(CC) -mwindows $(LDFLAGS) -o $@ -Wl,-Map,puttytel.map be_misc.o \
+		be_nos_s.o callback.o cmdline.o conf.o config.o dialog.o \
+		errsock.o ldisc.o logging.o marshal.o memory.o minibidi.o \
+		misc.o miscucs.o nocproxy.o nogss.o pinger.o proxy.o \
+		puttytel.res.o raw.o rlogin.o sercfg.o sessprep.o settings.o \
+		sizetip.o stripctrl.o telnet.o terminal.o timing.o tree234.o \
+		utils.o version.o wcwidth.o wincfg.o winctrls.o windefs.o \
+		windlg.o window.o winhandl.o winhelp.o winhsock.o winjump.o \
+		winmisc.o winmiscs.o winnet.o winprint.o winproxy.o \
+		winsecur.o winser.o winstore.o wintime.o winucs.o winutils.o \
+		-ladvapi32 -lcomdlg32 -lgdi32 -limm32 -lole32 -lshell32 \
+		-luser32
 
 testcrypt.exe: ecc.o marshal.o memory.o mpint.o sshaes.o ssharcf.o \
 		sshauxcrypt.o sshblowf.o sshccp.o sshcrc.o sshcrcda.o \
@@ -486,7 +485,10 @@ gtkapp.o: ../unix/gtkapp.c ../putty.h ../unix/gtkmisc.h ../defs.h \
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../unix/gtkapp.c
 
 gtkask.o: ../unix/gtkask.c ../defs.h ../unix/gtkfont.h ../unix/gtkcompat.h \
-		../unix/gtkmisc.h ../misc.h ../puttymem.h ../marshal.h
+		../unix/gtkmisc.h ../putty.h ../ssh.h ../misc.h ../puttyps.h \
+		../network.h ../marshal.h ../sshsignals.h ../puttymem.h \
+		../tree234.h ../sshttymodes.h ../windows/winstuff.h \
+		../unix/unix.h ../windows/winhelp.h ../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../unix/gtkask.c
 
 gtkcfg.o: ../unix/gtkcfg.c ../putty.h ../dialog.h ../storage.h ../defs.h \
@@ -558,13 +560,6 @@ ldisc.o: ../ldisc.c ../putty.h ../terminal.h ../ldisc.h ../defs.h \
 		../unix/unix.h ../puttymem.h ../windows/winhelp.h \
 		../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../ldisc.c
-
-ldiscucs.o: ../ldiscucs.c ../putty.h ../terminal.h ../ldisc.h ../defs.h \
-		../puttyps.h ../network.h ../misc.h ../marshal.h \
-		../sshsignals.h ../tree234.h ../windows/winstuff.h \
-		../unix/unix.h ../puttymem.h ../windows/winhelp.h \
-		../charset/charset.h
-	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../ldiscucs.c
 
 localenc.o: ../charset/localenc.c ../charset/charset.h ../charset/internal.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../charset/localenc.c
@@ -692,6 +687,9 @@ portfwd.o: ../portfwd.c ../putty.h ../ssh.h ../sshchan.h ../defs.h \
 		../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../portfwd.c
 
+procnet.o: ../unix/procnet.c ../misc.h ../defs.h ../puttymem.h ../marshal.h
+	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../unix/procnet.c
+
 proxy.o: ../proxy.c ../putty.h ../network.h ../proxy.h ../defs.h \
 		../puttyps.h ../misc.h ../marshal.h ../sshsignals.h \
 		../windows/winstuff.h ../unix/unix.h ../puttymem.h \
@@ -719,6 +717,13 @@ psftp.o: ../psftp.c ../putty.h ../psftp.h ../storage.h ../ssh.h ../sftp.h \
 psftp.res.o: ../windows/psftp.rc ../windows/rcstuff.h ../windows/pscp.ico \
 		../windows/version.rc2 ../version.h ../licence.h
 	$(RC) $(RCFL) $(RCFLAGS) ../windows/psftp.rc -o psftp.res.o
+
+psftpcommon.o: ../psftpcommon.c ../putty.h ../sftp.h ../psftp.h ../defs.h \
+		../puttyps.h ../network.h ../misc.h ../marshal.h \
+		../sshsignals.h ../windows/winstuff.h ../unix/unix.h \
+		../puttymem.h ../tree234.h ../windows/winhelp.h \
+		../charset/charset.h
+	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../psftpcommon.c
 
 putty.res.o: ../windows/putty.rc ../windows/rcstuff.h ../windows/winhelp.rc2 \
 		../windows/win_res.rc2 ../windows/putty.mft \
@@ -935,12 +940,12 @@ ssh2kex-client.o: ../ssh2kex-client.c ../putty.h ../ssh.h ../sshbpp.h \
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../ssh2kex-client.c
 
 ssh2kex-server.o: ../ssh2kex-server.c ../putty.h ../ssh.h ../sshbpp.h \
-		../sshppl.h ../sshcr.h ../storage.h ../ssh2transport.h \
-		../mpint.h ../defs.h ../puttyps.h ../network.h ../misc.h \
-		../marshal.h ../sshsignals.h ../puttymem.h ../tree234.h \
-		../sshttymodes.h ../sshgssc.h ../sshgss.h \
-		../windows/winstuff.h ../unix/unix.h ../pgssapi.h \
-		../windows/winhelp.h ../charset/charset.h
+		../sshppl.h ../sshcr.h ../sshserver.h ../storage.h \
+		../ssh2transport.h ../mpint.h ../defs.h ../puttyps.h \
+		../network.h ../misc.h ../marshal.h ../sshsignals.h \
+		../puttymem.h ../tree234.h ../sshttymodes.h ../sshgssc.h \
+		../sshgss.h ../windows/winstuff.h ../unix/unix.h \
+		../pgssapi.h ../windows/winhelp.h ../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../ssh2kex-server.c
 
 ssh2transhk.o: ../ssh2transhk.c ../putty.h ../ssh.h ../defs.h ../puttyps.h \
@@ -951,12 +956,12 @@ ssh2transhk.o: ../ssh2transhk.c ../putty.h ../ssh.h ../defs.h ../puttyps.h \
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../ssh2transhk.c
 
 ssh2transport.o: ../ssh2transport.c ../putty.h ../ssh.h ../sshbpp.h \
-		../sshppl.h ../sshcr.h ../storage.h ../ssh2transport.h \
-		../mpint.h ../defs.h ../puttyps.h ../network.h ../misc.h \
-		../marshal.h ../sshsignals.h ../puttymem.h ../tree234.h \
-		../sshttymodes.h ../sshgssc.h ../sshgss.h \
-		../windows/winstuff.h ../unix/unix.h ../pgssapi.h \
-		../windows/winhelp.h ../charset/charset.h
+		../sshppl.h ../sshcr.h ../sshserver.h ../storage.h \
+		../ssh2transport.h ../mpint.h ../defs.h ../puttyps.h \
+		../network.h ../misc.h ../marshal.h ../sshsignals.h \
+		../puttymem.h ../tree234.h ../sshttymodes.h ../sshgssc.h \
+		../sshgss.h ../windows/winstuff.h ../unix/unix.h \
+		../pgssapi.h ../windows/winhelp.h ../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../ssh2transport.c
 
 ssh2userauth.o: ../ssh2userauth.c ../putty.h ../ssh.h ../sshbpp.h \
@@ -1088,9 +1093,9 @@ sshpubk.o: ../sshpubk.c ../putty.h ../mpint.h ../ssh.h ../misc.h ../defs.h \
 		../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../sshpubk.c
 
-sshrand.o: ../sshrand.c ../putty.h ../ssh.h ../defs.h ../puttyps.h \
-		../network.h ../misc.h ../marshal.h ../sshsignals.h \
-		../puttymem.h ../tree234.h ../sshttymodes.h \
+sshrand.o: ../sshrand.c ../putty.h ../ssh.h ../storage.h ../defs.h \
+		../puttyps.h ../network.h ../misc.h ../marshal.h \
+		../sshsignals.h ../puttymem.h ../tree234.h ../sshttymodes.h \
 		../windows/winstuff.h ../unix/unix.h ../windows/winhelp.h \
 		../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../sshrand.c
@@ -1387,9 +1392,11 @@ uxucs.o: ../unix/uxucs.c ../putty.h ../charset/charset.h ../terminal.h \
 		../windows/winstuff.h ../unix/unix.h ../windows/winhelp.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../unix/uxucs.c
 
-uxutils.o: ../unix/uxutils.c ../ssh.h ../puttymem.h ../tree234.h \
-		../network.h ../misc.h ../sshttymodes.h ../defs.h \
-		../marshal.h
+uxutils.o: ../unix/uxutils.c ../putty.h ../ssh.h ../defs.h ../puttyps.h \
+		../network.h ../misc.h ../marshal.h ../sshsignals.h \
+		../puttymem.h ../tree234.h ../sshttymodes.h \
+		../windows/winstuff.h ../unix/unix.h ../windows/winhelp.h \
+		../charset/charset.h
 	$(CC) $(COMPAT) $(CFLAGS) $(XFLAGS) -c ../unix/uxutils.c
 
 version.o: ../version.c ../empty.h ../version.h

@@ -57,6 +57,8 @@
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\pscp.c">
       <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\psftpcommon.c">
+      <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\settings.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\sftp.c">
@@ -266,6 +268,8 @@
     </ClInclude>    <ClInclude Include="..\..\..\sshgssc.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\sshppl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshserver.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\sshsignals.h">
       <Filter>Header Files</Filter>

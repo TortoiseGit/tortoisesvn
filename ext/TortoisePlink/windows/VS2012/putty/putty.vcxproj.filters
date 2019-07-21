@@ -40,8 +40,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\ldisc.c">
       <Filter>Source Files</Filter>
-    </ClCompile>    <ClCompile Include="..\..\..\ldiscucs.c">
-      <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\logging.c">
       <Filter>Source Files</Filter>
     </ClCompile>    <ClCompile Include="..\..\..\mainchan.c">
@@ -299,6 +297,8 @@
     </ClInclude>    <ClInclude Include="..\..\..\sshgssc.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\sshppl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshserver.h">
       <Filter>Header Files</Filter>
     </ClInclude>    <ClInclude Include="..\..\..\sshsignals.h">
       <Filter>Header Files</Filter>

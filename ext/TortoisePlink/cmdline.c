@@ -586,7 +586,7 @@ int cmdline_process_param(const char *p, char *value,
 	conf_set_bool(conf, CONF_nopty, true);   /* command => no terminal */
 	strbuf_free(command);
     }
-    if ((!strcmp(p, "-P"))||(!strcmp(p, "-p"))) {
+    if (!strcmp(p, "-P")) {
 	RETURN(2);
 	UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
 	SAVEABLE(1);		       /* lower priority than -ssh,-telnet */
