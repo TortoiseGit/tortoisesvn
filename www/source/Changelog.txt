@@ -1,4 +1,14 @@
-﻿Version 1.12.0
+﻿Version 1.12.1
+- BUG: Crash in the repo browser if externals
+       with relative paths were present. (Stefan)
+- BUG: "save as..." from the log dialog saved
+       the file with an escaped name. (Stefan)
+- BUG: When parsing SVNParentPath pages, the
+       urls were not properly escaped. (Stefan)
+- BUG: Context menu in TMerge didn't show up
+       on secondary monitors. (Stefan)
+
+Version 1.12.0
 - BUG: Ignoring comments in TMerge could
        lead to memory exhaustion. (Stefan)
 

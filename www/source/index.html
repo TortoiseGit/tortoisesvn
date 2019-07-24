@@ -23,16 +23,19 @@ lang: en
 {% include adsense_inpage.html %}
 
 <div class="post">
-    <h2 class="title"><a href="/downloads.html">TortoiseSVN 1.12.0 released</a></h2>
-    <p class="meta">Posted on April 25, 2019</p>
+    <h2 class="title"><a href="/downloads.html">TortoiseSVN 1.12.1 released</a></h2>
+    <p class="meta">Posted on July 24, 2019</p>
     <div class="entry">
         <p>
-        We're proud to announce that TortoiseSVN 1.12.0 has been released.
-        It is linked against Subversion 1.12.0.
+        We're proud to announce that TortoiseSVN 1.12.1 has been released.
+        It is linked against Subversion 1.12.2.
         </p>
         <p>
-        This release contains a lot of new features, and we encourage all
-        users of TortoiseSVN to upgrade as soon as reasonable.
+        This is a bugfix release which includes also security updates in the
+        Subversion library:<br/>
+        <b>CVE-2018-11782</b>: Remotely triggerable DoS vulnerability in svnserve 'get-deleted-rev'<br/>
+        <b>CVE-2019-0203</b>: Remote unauthenticated denial-of-service in Subversion svnserve<br/>
+        For more details, see the <a href="http://subversion.apache.org/security/">Subversion security page</a>.
         </p>
         <p>
         Before upgrading from pre 1.12 versions please read the
