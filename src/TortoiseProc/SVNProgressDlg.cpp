@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1655,7 +1655,7 @@ LRESULT CSVNProgressDlg::OnCloseOnEnd(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     m_bCancelled = TRUE;
 
-    // always wait for the thread to truely terminate.
+    // always wait for the thread to truly terminate.
     // (this function can only be triggered from that thread)
 
     if (   (m_pThread != NULL) && (m_bThreadRunning)

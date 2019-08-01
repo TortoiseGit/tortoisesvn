@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2017 - TortoiseSVN
+// Copyright (C) 2009-2017, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,7 @@ namespace
     void FastLowerCaseConversion (char* s, size_t size)
     {
         // most of our strings will be tens of bytes long
-        // -> affort some minor overhead to handle the main part very fast
+        // -> afford some minor overhead to handle the main part very fast
 
         if (sse2supported)
         {
@@ -105,7 +105,7 @@ namespace
 
 };
 
-// filter utiltiy method
+// filter utility method
 
 bool CLogDlgFilter::Match (char* text, size_t size) const
 {

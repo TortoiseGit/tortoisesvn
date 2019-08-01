@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2015, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -282,7 +282,7 @@ void CStrictOrderNodePositioning::AssignRows
             node->treeShift.cy = rowStart;
         }
 
-        // minimum shift between consequtive revisions on different branches
+        // minimum shift between consecutive revisions on different branches
 
         rowStart += 10;
     }

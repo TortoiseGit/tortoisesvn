@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017 - TortoiseSVN
+// Copyright (C) 2003-2017, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -431,7 +431,7 @@ svn_status (    const char *path,
                     {
                         sb.SubStat->MinRev = minRev;
                     }
-                    // Set an extra variable, because when an fixed external has been manually updated to head, no error occour.
+                    // Set an extra variable, because when a fixed external has been manually updated to head, no error occurs.
                     sb.SubStat->bIsExternalMixed = TRUE;
                 }
             }

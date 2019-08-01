@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2018 - TortoiseSVN
-// Copyright (C) 2015 - TortoiseGit
+// Copyright (C) 2015, 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1281,9 +1281,9 @@ bool CAppUtils::SetupDiffScripts(bool force, const CString& type)
         }
     }
     // Initialize "Software\\TortoiseSVN\\DiffProps" once with the same value as "Software\\TortoiseSVN\\Diff"
-    CRegString regDiffPropsPath = CRegString(L"Software\\TortoiseSVN\\DiffProps",L"non-existant");
+    CRegString regDiffPropsPath = CRegString(L"Software\\TortoiseSVN\\DiffProps",L"non-existent");
     CString strDiffPropsPath = regDiffPropsPath;
-    if ( force || strDiffPropsPath==L"non-existant" )
+    if ( force || strDiffPropsPath==L"non-existent" )
     {
         CString strDiffPath = CRegString(L"Software\\TortoiseSVN\\Diff");
         regDiffPropsPath = strDiffPath;

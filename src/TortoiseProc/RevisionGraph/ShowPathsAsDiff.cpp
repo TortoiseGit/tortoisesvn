@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009 - TortoiseSVN
+// Copyright (C) 2003-2009, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,7 +78,7 @@ void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout)
                         != sourcePath[sourceDepth - tail - 1])
                         break;
 
-                // special case: no change but elements have been ommitted
+                // special case: no change but elements have been omitted
                 // (e.g. copy to parent)
 
                 if ((commonDepth + tail == nodeDepth) && (nodeDepth > 0))

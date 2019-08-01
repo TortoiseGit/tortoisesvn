@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -42,8 +42,8 @@ public:
     virtual void Apply (CVisibleGraph* graph, CVisibleGraphNode* node) = 0;
 
     /// will be called after each tree traversal.
-    /// Use this to modify the tree is a way that interfers
-    /// with the standard traveral, for instance.
+    /// Use this to modify the tree is a way that interferes
+    /// with the standard traversal, for instance.
 
     virtual void PostFilter (CVisibleGraph* graph) = 0;
 };
@@ -96,7 +96,7 @@ private:
 
     std::vector<IModificationOption*> options;
 
-    /// apply a filter using differnt traversal orders
+    /// apply a filter using different traversal orders
 
     void TraverseFromRootCopiesFirst ( IModificationOption* option
                                      , CVisibleGraph* graph

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2014, 2018 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2014, 2018-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -85,9 +85,9 @@ public:
 
     /**
      * Return an absolute URL for the given URL. If the
-     * latter is aready absolute, this function will return
+     * latter is already absolute, this function will return
      * it in canonical form. Otherwise, scheme, server,
-     * repository or path -relative URLs will be expanded.
+     * repository or path-relative URLs will be expanded.
      * Returns an empty string upon errors.
      */
     static CStringA GetAbsoluteURL

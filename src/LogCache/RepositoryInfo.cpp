@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014-2015, 2018 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015, 2018-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -378,7 +378,7 @@ CRepositoryInfo::CData::operator[](size_t index) const
     return data[index];
 }
 
-// share the repository info pool thoughout this application
+// share the repository info pool throughout this application
 // (it is unique per computer anyway)
 
 CRepositoryInfo::CData CRepositoryInfo::data;

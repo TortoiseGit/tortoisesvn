@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -127,7 +127,7 @@ public:
 
         index_t style;
 
-        /// extended style info (usually presense of sub-structures).
+        /// extended style info (usually presence of sub-structures).
         /// To be interpreted by drawing code. Starts with 0.
 
         DWORD styleFlags;

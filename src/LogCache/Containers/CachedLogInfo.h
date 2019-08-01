@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2015 - TortoiseSVN
+// Copyright (C) 2007-2010, 2015, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -57,7 +57,7 @@ private:
      *
      * If TSVN fails to close it properly (e.g. due to a segfault),
      * the stale lock will be detected the next time TSVN tries to
-     * aquire the lock.
+     * acquire the lock.
      *
      * Management is as follows:
      *
@@ -93,7 +93,7 @@ private:
 
         TFileName fileName;
 
-        /// number of times this cache was not released propertly
+        /// number of times this cache was not released properly
 
         int failureCount;
 #endif

@@ -74,7 +74,7 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCTSTR path)
 bool CPathUtils::ContainsEscapedChars(const char * psz, size_t length)
 {
     // most of our strings will be tens of bytes long
-    // -> affort some minor overhead to handle the main part very fast
+    // -> afford some minor overhead to handle the main part very fast
 
     const char* end = psz + length;
     if (sse2supported)

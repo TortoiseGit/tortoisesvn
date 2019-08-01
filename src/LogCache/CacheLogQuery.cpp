@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016, 2018 - TortoiseSVN
+// Copyright (C) 2007-2016, 2018-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1423,7 +1423,7 @@ void CCacheLogQuery::Log ( const CTSVNPathList& targets
 
     CTSVNPath path = GetPath (targets);
 
-    // resolve respository URL and UUID
+    // resolve repository URL and UUID
 
     root = repositoryInfoCache->GetRepositoryRootAndUUID (path, uuid);
     URL = CUnicodeUtils::GetUTF8 (root);

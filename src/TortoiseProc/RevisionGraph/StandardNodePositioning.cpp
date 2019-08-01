@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2009, 2014-2015, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -46,7 +46,7 @@ void CStandardNodePositioning::StackSubTree
     if (reduceCrossLines->IsActive())
     {
         // create a "stairs-like" branch start:
-        // columns must start at the same line or above their right neigbour
+        // columns must start at the same line or above their right neighbour
 
         long minStart = LONG_MAX;
         for (size_t i = branchColumnStarts.size(); i > 0; --i)
@@ -292,7 +292,7 @@ void CStandardNodePositioning::ApplyTo (IRevisionGraphLayout* layout)
 
             PlaceBranch (node, columnStarts, ColumnEnds);
 
-            // actually move the node rects to thier final position
+            // actually move the node rects to their final position
 
             ShiftNodes (node, treeShift);
             treeShift.cx = BoundingRect (node).right + 100;

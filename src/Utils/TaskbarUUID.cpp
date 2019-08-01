@@ -1,7 +1,7 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2016 - TortoiseGit
-// Copyright (C) 2011-2014, 2016-2017 - TortoiseSVN
+// Copyright (C) 2011-2014, 2016-2017, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -145,7 +145,7 @@ void SetUUIDOverlayIcon( HWND hWnd )
     ReleaseDC(NULL, hScreenDC);
 
     Gdiplus::SolidBrush black(Gdiplus::Color(0));
-    // draw the icon mask, to get correct transparancy
+    // draw the icon mask, to get correct transparency
     auto hOldBM = SelectObject(hdc, IconInfo.hbmMask);
     PatBlt(hdc, 0, 0, iconWidth, iconHeight, WHITENESS);
     {

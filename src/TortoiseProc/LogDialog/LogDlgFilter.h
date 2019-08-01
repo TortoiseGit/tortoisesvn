@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2011, 2013, 2015, 2017 - TortoiseSVN
+// Copyright (C) 2009-2011, 2013, 2015, 2017, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,7 +52,7 @@ private:
 
         std::string subString;
 
-        /// depending on the presense of a prefix, indicate
+        /// depending on the presence of a prefix, indicate
         /// how the sub-string match / mismatch gets combined
         /// with the current match result
 
@@ -153,7 +153,7 @@ public:
 
     std::vector<CHARRANGE> GetMatchRanges (std::wstring& text) const;
 
-    /// filter utiltiy method
+    /// filter utility method
 
     bool Match (char* text, size_t size) const;
 

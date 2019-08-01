@@ -2,7 +2,7 @@
 //
 // TortoiseSVN Diff script for Excel files
 //
-// Copyright (C) 2004-2008, 2012-2016 the TortoiseSVN team
+// Copyright (C) 2004-2008, 2012-2016, 2019 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -135,7 +135,7 @@ if (!bFastMode && objNewWorkbook.ProtectWindows)
     bFastMode = true;
 }
 
-// Create a special workbook for formula convertion.
+// Create a special workbook for formula conversion.
 var objSpecialWorkbook = objExcelApp.Workbooks.Add;
 
 // Mark differences in sNewDoc red

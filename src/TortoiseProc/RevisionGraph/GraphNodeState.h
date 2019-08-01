@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -85,7 +85,7 @@ private:
     typedef std::map<const CFullGraphNode*, DWORD> TStates;
     TStates states;
 
-    /// utiltiy methods: restore state from saved data
+    /// utility methods: restore state from saved data
 
     void RestoreStates ( const TSavedStates& saved
                        , const CFullGraphNode* node);

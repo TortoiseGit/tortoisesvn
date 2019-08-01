@@ -1,6 +1,6 @@
 // TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2007, 2013 - TortoiseSVN
+// Copyright (C) 2007, 2013, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@ enum EOL
     EOL_AUTOLINE,
     // MS native
     EOL_CRLF,  ///< CR (U+000D) followed by LF (U+000A)
-    // foregin
+    // foreign
     EOL_LF,    ///< Line Feed, U+000A
     EOL_CR,    ///< Carriage Return, U+000D
     // exotic - diff needs conversion

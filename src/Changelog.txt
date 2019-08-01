@@ -1445,7 +1445,7 @@ Version 1.6.0
 - NEW: The status list control shows the entries grouped by externals if
        no changelists are present. (Stefan)
 - NEW: two project properties (bugtraq:provideruuid and bugtraq:providerparams)
-       to specifiy the IBugTraqProvider for the project. (Stefan)
+       to specify the IBugTraqProvider for the project. (Stefan)
 - NEW: Helper dialog to resolve property conflicts. (Stefan)
 - NEW: Revision graph can be collapsed / expanded as well as
        split and joined. (Stefan Fuhrmann)
@@ -1809,7 +1809,7 @@ Version 1.5.0-RC1
 - NEW: The copy command now can take a /logmsg or /logmsgfile command
        line param to pre-fill the commit log message. (Stefan)
 - NEW: Context menu in the log message box of the log dialog. (Stefan)
-- NEW: Properies (svn:* etc.) can be shown in status dialog. (Stefan Fuhrmann)
+- NEW: Properties (svn:* etc.) can be shown in status dialog. (Stefan Fuhrmann)
 - CHG: Fall back to cached log data if forced refresh fails in log view
        and the user chooses to go off-line again. (Stefan Fuhrmann)
 - CHG: Finalize toolbar button icons. (Stefan Fuhrmann)
@@ -3405,7 +3405,7 @@ Version 1.1.1
 Version 1.1.0
 - NEW: Width marker for log messages. (Stefan)
 - NEW: Log message templates. (Stefan)
-- NEW: Possibility to delete mutliple selected files at
+- NEW: Possibility to delete multiple selected files at
        once in the repository browser. (Stefan)
 - NEW: new keywords $WCDATE$ and $WCMODS? for the
        SubWCRev-tool. (Simon Large)

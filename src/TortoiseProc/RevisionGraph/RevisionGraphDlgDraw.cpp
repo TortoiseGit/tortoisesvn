@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2016, 2018 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2016, 2018-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -426,7 +426,7 @@ RectF CRevisionGraphWnd::GetBranchCover
 
     cover.InflateRect (CDPIAware::Instance().Scale(10), CDPIAware::Instance().Scale(2), CDPIAware::Instance().Scale(10), CDPIAware::Instance().Scale(2));
 
-    // and now, transfrom it
+    // and now, transform it
 
     return TransformRectToScreen (cover, offset);
 }

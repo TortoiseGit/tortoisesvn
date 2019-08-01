@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2015, 2017-2018 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2015, 2017-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -341,16 +341,16 @@ void CFilterEdit::Validate()
         {
             // Use a background color slightly shifted to red.
             // We do this by increasing red component and decreasing green and blue.
-            const int SHIFT_PRECENTAGE = 10;
+            const int SHIFT_PERCENTAGE = 10;
             int r = GetRValue(m_backColor);
             int g = GetGValue(m_backColor);
             int b = GetBValue(m_backColor);
 
-            r = min(r * (100 + SHIFT_PRECENTAGE) / 100, 255);
+            r = min(r * (100 + SHIFT_PERCENTAGE) / 100, 255);
             // Ensure that there is at least some redness.
-            r = max(r, 255 * SHIFT_PRECENTAGE / 100);
-            g = g * (100 - SHIFT_PRECENTAGE) / 100;
-            b = b * (100 - SHIFT_PRECENTAGE) / 100;
+            r = max(r, 255 * SHIFT_PERCENTAGE / 100);
+            g = g * (100 - SHIFT_PERCENTAGE) / 100;
+            b = b * (100 - SHIFT_PERCENTAGE) / 100;
             m_backColor = RGB(r, g, b);
 
             m_brBack.DeleteObject();

@@ -8,7 +8,7 @@
 
 '''
 Developer tool to look for IDD_* fields in an RC file and scan all XML
-document files in the given directory looking for corrosponding HIDD_*
+document files in the given directory looking for corresponding HIDD_*
 fields.
 
 Print a list of the IDDs found in the RC files that ARE NOT found in
