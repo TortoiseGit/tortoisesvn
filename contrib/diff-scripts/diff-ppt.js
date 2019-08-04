@@ -2,7 +2,7 @@
 //
 // TortoiseSVN Diff script for Powerpoint files
 //
-// Copyright (C) 2004-2010, 2012-2013, 2015 the TortoiseSVN team
+// Copyright (C) 2004-2010, 2012-2013, 2015, 2019 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
@@ -74,6 +74,8 @@ objScript = null;
 try
 {
     powerpoint = WScript.CreateObject("Powerpoint.Application");
+    // disable macros
+    powerpoint.AutomationSecurity = 3; //msoAutomationSecurityForceDisable
 }
 catch (e)
 {

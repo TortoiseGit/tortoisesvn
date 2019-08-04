@@ -86,6 +86,10 @@ catch (e)
 {
     Abort("You must have Excel installed to perform this operation.", "Excel Instantiation Failed");
 }
+
+// disable all macros
+objExcelApp.AutomationSecurity = 3; //msoAutomationSecurityForceDisable
+
 var fExcelVersion = parseInt(objExcelApp.Version, 10);
 
 // Open base Excel book
