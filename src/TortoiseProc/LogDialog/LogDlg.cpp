@@ -7584,6 +7584,11 @@ void CLogDlg::ExecuteExportTreeChangedPaths(ContextMenuInfoForChangedPathsPtr pC
             progDlg.SetTime(true);
             for (size_t i = 0; i < pCmi->ChangedLogPathIndices.size(); ++i)
             {
+                if (m_currentChangedArray[pCmi->ChangedLogPathIndices[i]].GetAction() == LOGACTIONS_DELETED)
+                    continue;
+                if (m_currentChangedArray[pCmi->ChangedLogPathIndices[i]].GetNodeKind() == svn_node_dir)
+                    continue;
+
                 const CString& schangedlogpath = m_currentChangedArray[pCmi->ChangedLogPathIndices[i]].GetPath();
 
                 SVNRev getrev = pCmi->Rev1;
@@ -7598,6 +7603,8 @@ void CLogDlg::ExecuteExportTreeChangedPaths(ContextMenuInfoForChangedPathsPtr pC
                 progDlg.SetLine(2, tempfile.GetWinPath(), true);
                 progDlg.SetProgress64(i, pCmi->ChangedLogPathIndices.size());
                 progDlg.ShowModeless(m_hWnd);
+                if (progDlg.HasUserCancelled())
+                    break;
 
                 SHCreateDirectoryEx(m_hWnd, tempfile.GetContainingDirectory().GetWinPath(),
                                     NULL);
