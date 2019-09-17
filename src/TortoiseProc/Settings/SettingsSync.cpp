@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015 - TortoiseSVN
+// Copyright (C) 2014-2015, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -149,7 +149,7 @@ BOOL CSettingsSync::ValidateInput()
         iniFile.SetMultiLine(true);
         {
             // open the file in read mode
-            CAutoFile hFile = CreateFile(m_sSyncPath + L"\\tsvnsync.ini", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+            CAutoFile hFile = CreateFile(m_sSyncPath + L"\\tsvnsync.tsex", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
             if (hFile.IsValid())
             {
                 // load the file
