@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017-2018 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -332,6 +332,8 @@ public:
         {
             if ((!allowempty)&&(path.IsEquivalentTo(basepath)))
                 return path.GetSVNPathString();
+            if (basepath.GetSVNPathString().Mid(1,2)==L":/")
+                return path.GetSVNPathString().Mid(basepath.GetSVNPathString().GetLength());
             return path.GetSVNPathString().Mid(basepath.GetSVNPathString().GetLength()+1);
         }
         const bool IsLocked() const
