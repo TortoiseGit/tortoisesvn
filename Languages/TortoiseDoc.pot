@@ -7479,11 +7479,11 @@ msgid "You can also use relative URLs instead of absolute ones. This is useful w
 msgstr ""
 
 #. (para)
-msgid "If it begins with the string <literal>^/</literal> it is assumed to be relative to the repository root. For example, <literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located on <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
+msgid "If it begins with the string <literal>^/</literal> it is assumed to be relative to the repository root. For example, <literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located on <systemitem class=\"url\">https://tortoisesvn.net/svn/trunk/</systemitem>."
 msgstr ""
 
 #. (para)
-msgid "A URL beginning with the string <literal>/</literal> is assumed to be relative to the server's hostname. For example <literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located anywhere on <systemitem class=\"url\">http://tortoisesvn.net</systemitem>."
+msgid "A URL beginning with the string <literal>/</literal> is assumed to be relative to the server's hostname. For example <literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> if your repository is located anywhere on <systemitem class=\"url\">https://tortoisesvn.net</systemitem>."
 msgstr ""
 
 #. (para)
@@ -11754,6 +11754,10 @@ msgstr ""
 
 #. (para)
 msgid "<option>/endrev:xxx</option>,"
+msgstr ""
+
+#. (para)
+msgid "<option>/limit:xxx</option> limits the amount of fetched messages"
 msgstr ""
 
 #. (para)
