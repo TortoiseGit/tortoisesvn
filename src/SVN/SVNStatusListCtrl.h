@@ -332,7 +332,7 @@ public:
         {
             if ((!allowempty)&&(path.IsEquivalentTo(basepath)))
                 return path.GetSVNPathString();
-            if (basepath.GetSVNPathString().Mid(1,2)==L":/")
+            if (basepath.GetSVNPathString().Right(2)==L":/")
                 return path.GetSVNPathString().Mid(basepath.GetSVNPathString().GetLength());
             return path.GetSVNPathString().Mid(basepath.GetSVNPathString().GetLength()+1);
         }
