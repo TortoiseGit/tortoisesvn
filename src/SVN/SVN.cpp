@@ -2003,7 +2003,7 @@ svn_error_t* SVN::blameReceiver(void* baton,
     }
     else
         svn->ignoredLastLine = true;
-    svn->ignoreNextLine = utf16;
+    svn->ignoreNextLine = utf16 && !svn->ignoredLastLine;
     return error;
 }
 
