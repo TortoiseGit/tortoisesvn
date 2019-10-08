@@ -3841,9 +3841,6 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
     bool bControl = !!(GetKeyState(VK_CONTROL)&0x8000);
     bool bSkipSelectionClear = false;
 
-    if (bControl)
-        return;
-
     if (IsReadonly())
         return;
 
@@ -3977,7 +3974,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         m_pViewData->SetState(nViewLine, DIFFSTATE_EDITED);
         UpdateGoalPos();
     }
-    else if (nChar == VK_RETURN)
+    else if ((nChar == VK_RETURN) && !bControl)
     {
         // insert a new, fresh and empty line below the cursor
         RemoveSelectedText();
