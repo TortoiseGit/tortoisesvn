@@ -819,10 +819,16 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                         return false;
                     sLocalPathUrl = sLocalPathUrl.Left(sp);
 
-                    sp = sLocalPath.ReverseFind('\\');
-                    if (sp < 0)
-                        return false;
-                    sLocalPath = sLocalPath.Left(sp);
+                    do
+                    {
+                        sp = sLocalPath.ReverseFind('\\');
+                        if (sp < 0)
+                        {
+                            sLocalPath = rootPath;
+                            break;
+                        }
+                        sLocalPath = sLocalPath.Left(sp);
+                    } while (fullUrl.Left(sLocalPathUrl.GetLength()).Compare(sLocalPathUrl));
                 }
                 // now both sLocalPathUrl and sLocalPath can be used to construct
                 // the path to the script
