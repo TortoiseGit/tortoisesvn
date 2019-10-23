@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015, 2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,6 +37,8 @@ CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
     m_bTextView = m_regTextView;
     m_regIncludeMerge = CRegDWORD(L"Software\\TortoiseSVN\\BlameIncludeMerge", FALSE);
     m_bIncludeMerge = m_regIncludeMerge;
+    m_regIgnoreWhitespace = CRegDWORD(L"Software\\TortoiseSVN\\BlameIgnoreWhitespace", svn_diff_file_ignore_space_none);
+    m_IgnoreSpaces = (svn_diff_file_ignore_space_t)(DWORD)m_regIgnoreWhitespace;
 }
 
 CBlameDlg::~CBlameDlg()
@@ -84,6 +86,7 @@ BOOL CBlameDlg::OnInitDialog()
 
     m_bTextView = m_regTextView;
     m_bIncludeMerge = m_regIncludeMerge;
+    m_IgnoreSpaces = (svn_diff_file_ignore_space_t)(DWORD)m_regIgnoreWhitespace;
     // set head revision as default revision
     if (EndRev.IsHead())
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
@@ -95,6 +98,19 @@ BOOL CBlameDlg::OnInitDialog()
     }
 
     CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
+    switch (m_IgnoreSpaces)
+    {
+    case svn_diff_file_ignore_space_change:
+        CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREWHITESPACECHANGES);
+        break;
+    case svn_diff_file_ignore_space_all:
+        CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
+        break;
+    case svn_diff_file_ignore_space_none:
+    default:
+        CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_COMPAREWHITESPACES);
+        break;
+    }
 
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
@@ -145,6 +161,8 @@ void CBlameDlg::OnOK()
         m_IgnoreSpaces = svn_diff_file_ignore_space_none;
         break;
     }
+
+    m_regIgnoreWhitespace = m_IgnoreSpaces;
 
     UpdateData(FALSE);
 
