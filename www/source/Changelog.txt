@@ -1,4 +1,9 @@
-﻿Version 1.13.0
+﻿Version 1.13.1
+- BUG: binary files were not digitally signed
+       for the release. (Stefan)
+- BUG: missing c-runtime dlls. (Stefan)
+
+Version 1.13.0
 - NEW: linked against svn 1.13.
 - BUG: various bugfixes.
 
