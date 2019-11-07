@@ -6210,8 +6210,12 @@ int CBaseView::GetIndentCharsForLine(int x, int y)
                 bool below = j < GetViewCount() && j <= y + maxGuessLine;
                 if (!(above || below))
                     break;
-                auto ac = GetViewLine(i);
-                auto bc = GetViewLine(j);
+                auto ac = CString();
+                auto bc = CString();
+                if (above)
+                    ac = GetViewLine(i);
+                if (below)
+                    bc = GetViewLine(j);
                 if ((ac.Find('\t') >= 0) || (bc.Find('\t') >= 0))
                 {
                     nTabMode = 0;
