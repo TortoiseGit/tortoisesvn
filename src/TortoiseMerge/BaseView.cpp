@@ -6186,6 +6186,23 @@ void CBaseView::UseViewFileExceptEdited(CBaseView *pwndView)
     UseViewBlock(pwndView, 0, GetViewCount() - 1, fn);
 }
 
+int CBaseView::GetLargestSpaceStreak(const CString& line)
+{
+    int count = 0;
+    int maxstreak = 0;
+    for (int i = 0; i < line.GetLength(); ++i)
+    {
+        if (line[i] == ' ')
+            ++count;
+        else
+        {
+            maxstreak = std::max(count, maxstreak);
+            count = 0;
+        }
+    }
+    return std::max(count, maxstreak);
+}
+
 int CBaseView::GetIndentCharsForLine(int x, int y)
 {
     const int maxGuessLine = 100;
@@ -6197,35 +6214,32 @@ int CBaseView::GetIndentCharsForLine(int x, int y)
         // we can not test for spaces, since even if tabs are used,
         // spaces are used in a tabified file for alignment.
         if (line.Find('\t') >= 0)
-            nTabMode = 0;   // use tabs
-        else if (line.GetLength() > m_nTabSize)
-            nTabMode = 1;   // use spaces
+            nTabMode = 0; // use tabs
+        else if (GetLargestSpaceStreak(line) > m_nTabSize)
+            nTabMode = 1; // use spaces
 
-        if (m_nTabMode & TABMODE_SMARTINDENT)
+        // detect lines nearby
+        for (int i = y - 1, j = y + 1; nTabMode == -1; --i, ++j)
         {
-            // detect lines nearby
-            for (int i = y - 1, j = y + 1; nTabMode == -1; --i, ++j)
+            bool above = i >= 0 && i >= y - maxGuessLine;
+            bool below = j < GetViewCount() && j <= y + maxGuessLine;
+            if (!(above || below))
+                break;
+            auto ac = CString();
+            auto bc = CString();
+            if (above)
+                ac = GetViewLine(i);
+            if (below)
+                bc = GetViewLine(j);
+            if ((ac.Find('\t') >= 0) || (bc.Find('\t') >= 0))
             {
-                bool above = i > 0 && i >= y - maxGuessLine;
-                bool below = j < GetViewCount() && j <= y + maxGuessLine;
-                if (!(above || below))
-                    break;
-                auto ac = CString();
-                auto bc = CString();
-                if (above)
-                    ac = GetViewLine(i);
-                if (below)
-                    bc = GetViewLine(j);
-                if ((ac.Find('\t') >= 0) || (bc.Find('\t') >= 0))
-                {
-                    nTabMode = 0;
-                    break;
-                }
-                else if ((ac.GetLength() > m_nTabSize) && (bc.GetLength() > m_nTabSize))
-                {
-                    nTabMode = 1;
-                    break;
-                }
+                nTabMode = 0;
+                break;
+            }
+            else if ((GetLargestSpaceStreak(ac) > m_nTabSize) && (GetLargestSpaceStreak(bc) > m_nTabSize))
+            {
+                nTabMode = 1;
+                break;
             }
         }
     }
