@@ -609,6 +609,16 @@
       </listitem>
     </varlistentry>
     <varlistentry>
+      <term condition="pot">ShowNotifications</term>
+      <listitem>
+        <para>
+          Set this value to <literal>false</literal> if you don't want
+          the project monitor to show notification popups when new commits
+          are detected.
+        </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
       <term condition="pot">StyleCommitMessages</term>
       <listitem>
         <para>
