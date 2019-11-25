@@ -14,7 +14,7 @@
 # cuscu <agua.cuscu@gmail.com>, 2011
 # Alejandro Valenzuela <misteravg@gmail.com>, 2018
 # Arturo Álvarez García <mx1810@gmail.com>, 2014
-# augusto wloch <augustowloch@gmail.com>, 2014,2016
+# augusto wloch <augustowloch@gmail.com>, 2014,2016,2019
 # dark_nexus <cool.dark.nexus@gmail.com>, 2011
 # cuscu <agua.cuscu@gmail.com>, 2011
 # dark_nexus <cool.dark.nexus@gmail.com>, 2011
@@ -50,7 +50,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-06-01 12:34+0000\n"
+"PO-Revision-Date: 2019-10-01 00:20+0000\n"
 "Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -521,7 +521,7 @@ msgid ""
 "The <xref linkend=\"tsvn-projectmonitor\"/> explains how you can monitor "
 "your Subversion projects so you don't miss important commits from your other"
 " team members."
-msgstr ""
+msgstr "<xref linkend=\"tsvn-projectmonitor\"/>  explica como se pueden monitorear sus projectos Subversion, de modo que no se pierda ninguna confirmación de cambios importante realizada por otros miembros de su equipo."
 
 #. (para)
 msgid ""
@@ -12106,20 +12106,20 @@ msgid ""
 "relative to the repository root. For example, "
 "<literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to "
 "<systemitem "
-"class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
+"class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located on <systemitem "
-"class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
-msgstr "Si empieza con la cadena <literal>^/</literal> se asume que es relativa a la raíz del repositorio. Por ejemplo, <literal>^/../?do=details&amp;id=%BUGID%</literal> se resolverá como <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> si su repositorio está en <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
+"class=\"url\">https://tortoisesvn.net/svn/trunk/</systemitem>."
+msgstr ""
 
 #. (para)
 msgid ""
 "A URL beginning with the string <literal>/</literal> is assumed to be "
 "relative to the server's hostname. For example "
 "<literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem "
-"class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
+"class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located anywhere on <systemitem "
-"class=\"url\">http://tortoisesvn.net</systemitem>."
-msgstr "Una URL que comience con la cadena <literal>/</literal> se asume que es relativo al nombre del servidor. Por ejemplo, <literal>/?do=details&amp;id=%BUGID%</literal> se resolverá como <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> si su repositorio está localizado en cualquier parte de <systemitem class=\"url\">http://tortoisesvn.net</systemitem>."
+"class=\"url\">https://tortoisesvn.net</systemitem>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14921,7 +14921,7 @@ msgstr ""
 #. (para)
 msgid ""
 "<placeholder-1/> You can sync all TortoiseSVN settings to and from an "
-"encrypted file. The file is encrpyted with the password you enter so you "
+"encrypted file. The file is encrypted with the password you enter so you "
 "don't have to worry if you store that file on a cloud folder like OneDrive, "
 "GDrive, DropBox, ..."
 msgstr ""
@@ -15915,7 +15915,7 @@ msgstr ""
 
 #. (entry)
 msgid "The source file can not be scanned properly."
-msgstr ""
+msgstr "El archivo fuente no pudo escanearse correctamente"
 
 #. (entry)
 msgid ""
@@ -15931,7 +15931,7 @@ msgstr ""
 msgid ""
 "The working copy has local modifications. This requires the <placeholder-1/>"
 " switch."
-msgstr ""
+msgstr "La copia de trabajo tiene modificaciones locales. Esto requiere el switch  <placeholder-1/> ."
 
 #. (literal)
 msgid "-m"
@@ -18172,6 +18172,10 @@ msgstr ""
 
 #. (para)
 msgid "<option>/endrev:xxx</option>,"
+msgstr ""
+
+#. (para)
+msgid "<option>/limit:xxx</option> limits the amount of fetched messages"
 msgstr ""
 
 #. (para)

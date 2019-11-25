@@ -24,9 +24,9 @@
 # Jim Yao <yaoxu12345@gmail.com>, 2018
 # Thomas ZHANG <zjbthomas@gmail.com>, 2016
 # Gones <liejie050911@163.com>, 2013-2014
-# liushuyu011 <liushuyu011@gmail.com>, 2014
-# liushuyu011 <liushuyu011@gmail.com>, 2016
-# liushuyu011 <liushuyu011@gmail.com>, 2014,2016
+# shuyu liu <liushuyu011@gmail.com>, 2014
+# shuyu liu <liushuyu011@gmail.com>, 2016
+# shuyu liu <liushuyu011@gmail.com>, 2014,2016
 # LIU Tian <liutian666666@gmail.com>, 2016
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
@@ -44,15 +44,17 @@
 # Wanping Zhang <i@iwpz.net>, 2019
 # xiaobing chen <olivetchan@qq.com>, 2016
 # YFdyh000 <yfdyh000@gmail.com>, 2013
+# yu zhang <zy102600@163.com>, 2019
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 # ced773123cfad7b4e8b79ca80f736af9, 2011
+# 子毅 陈 <Iwonnasnow@outlook.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-06-01 12:34+0000\n"
-"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2019-11-19 07:11+0000\n"
+"Last-Translator: 子毅 陈 <Iwonnasnow@outlook.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -522,7 +524,7 @@ msgid ""
 "The <xref linkend=\"tsvn-projectmonitor\"/> explains how you can monitor "
 "your Subversion projects so you don't miss important commits from your other"
 " team members."
-msgstr ""
+msgstr "<xref linkend=\"tsvn-projectmonitor\"/>解释了如何监视您的Subversion项目，这样您就不会错过其他团队成员的重要提交。"
 
 #. (para)
 msgid ""
@@ -1101,7 +1103,7 @@ msgid ""
 "sorts of questions that are at the heart of any <firstterm>version control "
 "system</firstterm>: systems that are designed to record and track changes to"
 " data over time."
-msgstr ""
+msgstr "通常情况下，客户端只会从版本库中读取最新版本的文件树，但客户端还拥有读取<emphasis>前一版本</emphasis>文件树的功能。例如，客户端可以发起这样的请求：<quote>版本库在周三时包含哪些内容？</quote>或者<quote>针对某个文件，最后更改者是谁？具体的改动为何？</quote>这几类问题就是每个<firstterm>版本控制系统</firstterm>最需关注的核心问题：系统需要实时记录与追踪数据变动。"
 
 #. (title)
 msgid "Versioning Models"
@@ -1154,7 +1156,7 @@ msgid ""
 " she can do is read the file, and wait for Harry to finish his changes and "
 "release his lock. After Harry unlocks the file, his turn is over, and now "
 "Sally can take her turn by locking and editing."
-msgstr "许多版本控系统使用 <firstterm>锁定-修改-解锁</firstterm> 模型来解决这个问题，这是一个简单的解决方案。在这种系统中，在同一时间版本库只允许一个用户修改一个文件。首先，Barry 必须在修改前 <emphasis>锁定</emphasis> 该文件。锁定文件有点像从图书馆结束; 如果 Harry 锁定了一个文件，那么 Sally 就修改该文件。如果她试图锁定该文件，版本库会拒绝这个请求。她只能读取这个文件，并等待 Harry 结束修改并释放文件锁。在 Harry 解锁文件后，他的任务就完成了，现在 Sally 可以接手工作 - 锁定并编辑文件。"
+msgstr "许多版本控系统使用 <firstterm>锁定-修改-解锁</firstterm> 模型来解决这个问题，这是一个简单的解决方案。在这种系统中，在同一时间版本库只允许一个用户修改一个文件。首先，Harry 必须在修改前 <emphasis>锁定</emphasis> 该文件。锁定文件有点像从图书馆借书；如果 Harry 锁定了一个文件，那么 Sally 就无法修改该文件。如果她试图锁定该文件，版本库会拒绝这个请求。她只能读取这个文件，并等待 Harry 结束修改并释放文件锁。在 Harry 解锁文件后，他的“回合”就结束了，现在 Sally 可以接手工作 - 锁定并编辑文件。"
 
 #. (para)
 msgid ""
@@ -1209,7 +1211,7 @@ msgid ""
 "merged together into a new, final version. The version control system often "
 "assists with the merging, but ultimately a human being is responsible for "
 "making it happen correctly."
-msgstr ""
+msgstr "Subversion、CVS和其他的一些版本控制系统使用<firstterm>复制-修改-解锁</firstterm>模型作为变相的锁定方式。在这种模型下，每个用户的客户端会读取版本库内容，而后针对文件或者项目创建独属于单个用户的<firstterm>工作副本</firstterm>。用户接下来会平行地工作，修改他们的独属副本。最后，这些独属副本会上传并合并为全新的、最终的版本。版本控制系统会协助处理这项合并工作，但最终版的正确成型仍需人类负责。"
 
 #. (para)
 msgid ""
@@ -1386,7 +1388,7 @@ msgid ""
 "tell it to. The act of publishing your changes is more commonly known as "
 "<firstterm>committing</firstterm> (or <firstterm> checking in </firstterm>) "
 "changes to the repository."
-msgstr ""
+msgstr "假设你对<filename>button.c</filename>做出了修改。由于<filename>.svn</filename>目录记录了文件的修改日期和原始内容，Subversion得以告知使用者已经更改了这个文件。然而， Subversion 并不会将你的更改展示给全部用户，除非你明确指出要这么做。推送你做出的更改这一举动通常被称作<firstterm>提交修改</firstterm>（或者<firstterm>检入修改</firstterm>）到版本库。"
 
 #. (para)
 msgid ""
@@ -1522,7 +1524,7 @@ msgid ""
 "drive than the client's current working drive. Either of the two following "
 "URL path syntaxes will work where <literal>X</literal> is the drive on which"
 " the repository resides:"
-msgstr "同样，在 Windows 平台上使用 <literal>fiel://</literal> 方案的用户需要使用一种非官方的 <quote>标准</quote> 格式来访问哪些位于本机但是和客户端当前运行的硬盘分区不同的分区中的版本库。"
+msgstr "同样，在 Windows 平台上使用 <literal>file://</literal> 方案的用户需要使用一种非官方的 <quote>标准</quote> 协议格式来访问那些位于本机其他分区，即与客户端当前所处分区不同的版本库。如下两种格式的 URL 路径是有效的，其中<literal>X</literal>代表版本库目录所在分区的盘符："
 
 #. (screen)
 #, no-wrap
@@ -1650,7 +1652,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:4\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:4\n      "
 
 #. (para)
 msgid ""
@@ -1669,7 +1671,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:5\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:5\n      "
 
 #. (para)
 msgid ""
@@ -1687,7 +1689,7 @@ msgid ""
 "integer.c:6\n"
 "button.c:6\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:6\ninteger.c:6\nbutton.c:6\n      "
 
 #. (para)
 msgid ""
@@ -2025,7 +2027,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "    "
-msgstr ""
+msgstr "\n/trunk\n/branches\n/tags\n    "
 
 #. (para)
 msgid ""
@@ -2051,7 +2053,7 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 "    "
-msgstr ""
+msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n    "
 
 #. (para)
 msgid "...or by project:"
@@ -2068,7 +2070,7 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 "    "
-msgstr ""
+msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n    "
 
 #. (para)
 msgid ""
@@ -2401,11 +2403,11 @@ msgstr ""
 
 #. (citetitle)
 msgid "VisualSVN"
-msgstr ""
+msgstr "VisualSVN"
 
 #. (citetitle)
 msgid "CollabNet"
-msgstr ""
+msgstr "CollabNet"
 
 #. (para)
 msgid ""
@@ -2425,7 +2427,7 @@ msgid ""
 "You can find further How To guides on the <ulink "
 "url=\"https://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink>"
 " website."
-msgstr ""
+msgstr "您可以在 <ulink url=\"https://tortoisesvn.net/usefultips.html\"><citetitle>TortoiseSVN</citetitle></ulink> 网站上找到更多的指南。"
 
 #. (title)
 msgid "Daily Use Guide"
@@ -3077,7 +3079,7 @@ msgstr ""
 
 #. (title)
 msgid "Sparse Update using Update to Revision"
-msgstr ""
+msgstr "使用更新到版本部分更新"
 
 #. (para)
 msgid ""
@@ -3092,7 +3094,7 @@ msgstr ""
 
 #. (title)
 msgid "Sparse Update using Repo Browser"
-msgstr ""
+msgstr "使用版本库浏览器部分更新"
 
 #. (para)
 msgid ""
@@ -3106,7 +3108,7 @@ msgstr ""
 
 #. (title)
 msgid "Sparse Update using Check for Modifications"
-msgstr ""
+msgstr "使用检查修改部分更新"
 
 #. (para)
 msgid ""
@@ -3388,7 +3390,7 @@ msgstr "缺省情况下，当你成功提交修改后，你在这些文件上持
 
 #. (title)
 msgid "Warning when committing to a tag"
-msgstr ""
+msgstr "正在提交到Tag时警告"
 
 #. (para)
 msgid ""
@@ -3485,7 +3487,7 @@ msgstr "提交对话框支持 Subversion 的更改列表功能来分组相关的
 
 #. (title)
 msgid "Commit only parts of files"
-msgstr ""
+msgstr "仅提交文件的部分"
 
 #. (para)
 msgid ""
@@ -4697,13 +4699,13 @@ msgstr "对话框使用颜色代码来高亮显示状态。 <placeholder-1/>"
 
 #. (para)
 msgid "Checkout depth <literal>empty</literal>, meaning only the item itself."
-msgstr ""
+msgstr "检出深度<literal>空白</literal>，仅表示项目本身。"
 
 #. (para)
 msgid ""
 "Checkout depth <literal>files</literal>, meaning only the item itself and "
 "all file children without child folders."
-msgstr ""
+msgstr "检测深度<literal>文件</literal>，仅表示项本身和所有子文件不包括子文件夹。"
 
 #. (para)
 msgid ""
@@ -4713,13 +4715,13 @@ msgstr ""
 
 #. (para)
 msgid "Nested items, i.e., working copies inside the working copy."
-msgstr ""
+msgstr "嵌套项，即工作副本内的工作副本。"
 
 #. (para)
 msgid ""
 "External items, i.e., all items that are added via an "
 "<literal>svn:externals</literal> property."
-msgstr ""
+msgstr "外部项目，即通过<literal>svn:externals</literal>属性添加的所有项目。"
 
 #. (para)
 msgid ""
@@ -7601,11 +7603,11 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Cleanup</guimenuitem></menuchoice>"
 " on the folder. It is a good idea to do this at the top level of the working"
 " copy. <placeholder-1/>"
-msgstr ""
+msgstr "如果Subversion命令无法成功完成，可能是由于服务器问题，您的工作副本可能处于不一致的状态。在这种情况下，您需要在文件夹上使用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>清理</guimenuitem></menuchoice>。在工作副本的顶层这样做是个好主意。<placeholder-1/>"
 
 #. (term)
 msgid "Clean up working copy status"
-msgstr ""
+msgstr "清理工作副本状态"
 
 #. (para)
 msgid ""
@@ -7614,17 +7616,17 @@ msgid ""
 "the internal states of the working copy database. This is the actual "
 "<literal>Cleanup</literal> command you know from older TortoiseSVN clients "
 "or other SVN clients."
-msgstr ""
+msgstr "如上所述，此选项试图将不一致的工作副本转换为可操作和可用的状态。这不会影响您所拥有的任何数据，而仅影响工作副本数据库的内部状态。这是您从旧版TortoiseSVN客户端或其他SVN客户端了解到的<literal>清理</literal>命令。"
 
 #. (term)
 msgid "Break write locks"
-msgstr ""
+msgstr "解开写入锁定"
 
 #. (para)
 msgid ""
 "If checked, all write locks are removed from the working copy database. For "
 "most situations, this is required for the cleanup to work!"
-msgstr ""
+msgstr "如果选中此选项，所有写入锁定将从工作副本数据库中删除。对于大多数情况，清理工作需要此操作！"
 
 #. (para)
 msgid ""
@@ -12107,20 +12109,20 @@ msgid ""
 "relative to the repository root. For example, "
 "<literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to "
 "<systemitem "
-"class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
+"class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located on <systemitem "
-"class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
-msgstr "如果它以字符串 <literal>^/</literal> 开头，它被假定为对应于版本库的根目录。例如，如果您的版本库位于 <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>，<literal>^/../?do=details&amp;id=%BUGID%</literal> 将解析为 <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>。"
+"class=\"url\">https://tortoisesvn.net/svn/trunk/</systemitem>."
+msgstr ""
 
 #. (para)
 msgid ""
 "A URL beginning with the string <literal>/</literal> is assumed to be "
 "relative to the server's hostname. For example "
 "<literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem "
-"class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
+"class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located anywhere on <systemitem "
-"class=\"url\">http://tortoisesvn.net</systemitem>."
-msgstr "以字符串 <literal>/</literal> 开头的地址被假定为相对于服务器的主机名。例如，如果您的版本库位于 <systemitem class=\"url\">http://tortoisesvn.net</systemitem> 的任何地方，<literal>/?do=details&amp;id=%BUGID%</literal> 将解析为 <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>。"
+"class=\"url\">https://tortoisesvn.net</systemitem>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14922,7 +14924,7 @@ msgstr ""
 #. (para)
 msgid ""
 "<placeholder-1/> You can sync all TortoiseSVN settings to and from an "
-"encrypted file. The file is encrpyted with the password you enter so you "
+"encrypted file. The file is encrypted with the password you enter so you "
 "don't have to worry if you store that file on a cloud folder like OneDrive, "
 "GDrive, DropBox, ..."
 msgstr ""
@@ -18173,6 +18175,10 @@ msgstr ""
 
 #. (para)
 msgid "<option>/endrev:xxx</option>,"
+msgstr ""
+
+#. (para)
+msgid "<option>/limit:xxx</option> limits the amount of fetched messages"
 msgstr ""
 
 #. (para)

@@ -47,6 +47,7 @@
 # Philippe <kissifrot@gmail.com>, 2012
 # LoubiTek, 2018
 # ShevAbam, 2015
+# Stéphane Aulery <saulery@legtux.org>, 2019
 # Librius <inactive+Librius@transifex.com>, 2014
 # Thomas Lemoine, 2019
 # BASLEY Nicolas <basleynicolas@hotmail.com>, 2013
@@ -55,7 +56,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-07-12 14:57+0000\n"
+"PO-Revision-Date: 2019-11-12 15:33+0000\n"
 "Last-Translator: Thomas Lemoine\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -600,7 +601,7 @@ msgstr "&Choisir les éléments..."
 
 #. Resource IDs: (1562)
 msgid "&Clean up working copy status"
-msgstr "&Nettoyage du status de la copie de travail"
+msgstr "&Nettoyer le statut de la copie de travail"
 
 #. Resource IDs: (126)
 msgid "&Clean up..."
@@ -1107,7 +1108,7 @@ msgstr "&OK"
 
 #. Resource IDs: (1)
 msgid "&Offline for now"
-msgstr "H&ors-ligne à partir de maintenant"
+msgstr "H&ors ligne pour cette fois"
 
 #. Resource IDs: (61505)
 msgid "&One Page"
@@ -1169,7 +1170,7 @@ msgstr "&Piquet:"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
-msgstr "Etre hors-ligne en &permanence"
+msgstr "Hors ligne en &permanence"
 
 #. Resource IDs: (1588)
 msgid "&Platform dependent (native)"
@@ -1380,7 +1381,7 @@ msgstr "Enregistrer le graphique &sous..."
 
 #. Resource IDs: (5151)
 msgid "&Save list of selected files to..."
-msgstr "&Sauver la liste des fichiers sélectionnés vers..."
+msgstr "Enregistrer la liste des fichiers &sélectionnés vers..."
 
 #. Resource IDs: (1308, 9900)
 msgid "&Save value..."
@@ -1963,7 +1964,7 @@ msgstr "Ajouter à la liste des &ignorés"
 
 #. Resource IDs: (1619)
 msgid "Add to Bookmarks"
-msgstr "Ajouter au favoris"
+msgstr "Ajouter aux favoris"
 
 #. Resource IDs: (1279, 3341)
 msgid "Add..."
@@ -2450,7 +2451,7 @@ msgstr "Bugtraq Regex Tester- TortoiseSVN"
 
 #. Resource IDs: (cmdCopy_Keytip_RESID)
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. Resource IDs: (1215)
 msgid "C&heck now"
@@ -2655,11 +2656,11 @@ msgstr "Sélectionner"
 
 #. Resource IDs: (174)
 msgid "Check For Updates"
-msgstr "Vérifier les mises à jours"
+msgstr "Vérifier les mises à jour"
 
 #. Resource IDs: (1031)
 msgid "Check For Updates..."
-msgstr "Vérifier les mises à jours..."
+msgstr "Vérifier les mises à jour..."
 
 #. Resource IDs: (4401)
 msgid "Check for &modifications"
@@ -2675,7 +2676,7 @@ msgstr "Vérifier les modifications"
 
 #. Resource IDs: (65535)
 msgid "Check for updates"
-msgstr "Vérifier les mises à jours"
+msgstr "Vérifier les mises à jour"
 
 #. Resource IDs: (136)
 msgid "Check out a working copy from a repository"
@@ -3492,7 +3493,7 @@ msgstr "Créer une copie dans le dépôt depuis :"
 
 #. Resource IDs: (1562)
 msgid "Create intermediate folders"
-msgstr "Créer des dossiers intermédiaires"
+msgstr "Créer les dossiers intermédiaires"
 
 #. Resource IDs: (2013)
 #, c-format
@@ -3804,7 +3805,7 @@ msgstr "Comparer les différences avec l'URL"
 #. Resource IDs: (275)
 #, c-format
 msgid "Diff with \"%ls\""
-msgstr "Diff avec \"%ls\""
+msgstr "Comparer avec \"%ls\""
 
 #. Resource IDs: (1302)
 msgid "Difference between"
@@ -3923,7 +3924,7 @@ msgstr "Voulez-vous abandonner la branche du fournisseur dans la copie de travai
 
 #. Resource IDs: (IDS_WARNMODIFIEDOUTSIDE_TASK2)
 msgid "Do you want to load the changed files?"
-msgstr "Voulez-vous charger les files modifiés ?"
+msgstr "Voulez-vous charger les fichiers modifiés ?"
 
 #. Resource IDs: (1577)
 #, c-format
@@ -4048,7 +4049,7 @@ msgstr "Suppression impossible sur %1!ls!"
 
 #. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #. Resource IDs: (32816 - Menu)
 msgid "E&xact copy sources"
@@ -4527,7 +4528,7 @@ msgstr "Externes inclus"
 
 #. Resource IDs: (cmdFind_Keytip_RESID)
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
@@ -4792,7 +4793,7 @@ msgstr "Filtre:"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Filtered"
-msgstr ""
+msgstr "Filtré"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
 #. cmdFind_LabelTitle_RESID)
@@ -4913,7 +4914,7 @@ msgstr "Totalement récursive"
 
 #. Resource IDs: (cmdGotoLine_Keytip_RESID)
 msgid "G"
-msgstr ""
+msgstr "G"
 
 #. Resource IDs: (4360)
 msgid "GDI+ couldn't be initialized!"
@@ -4938,19 +4939,19 @@ msgstr "Général::Couleurs"
 
 #. Resource IDs: (195)
 msgid "General::Context Menu"
-msgstr "Général::Menu Contextuel"
+msgstr "Général::Menu contextuel"
 
 #. Resource IDs: (196)
 msgid "General::Dialogs 1"
-msgstr "Général::Boîte de Dialogue 1"
+msgstr "Général::Boîtes de dialogue 1"
 
 #. Resource IDs: (213)
 msgid "General::Dialogs 2"
-msgstr "Général::Boîte de Dialogue 2"
+msgstr "Général::Boîtes de dialogue 2"
 
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
-msgstr "Général::Dialogues 3"
+msgstr "Général::Boîtes de dialogue 3"
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -5097,7 +5098,7 @@ msgstr "Cacher les chemin &supprimés"
 
 #. Resource IDs: (1562)
 msgid "Hide Menus for unversioned paths"
-msgstr "Cacher les menu pour les dossiers non versionnés"
+msgstr "Cacher les menus pour les dossiers non versionnés"
 
 #. Resource IDs: (32830)
 msgid "Hide all branches that did not modify the item"
@@ -5147,7 +5148,7 @@ msgstr "Scripts associés"
 
 #. Resource IDs: (283)
 msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Scripts d'Accroche::Intégration du Système de Suivi de Problèmes"
+msgstr "Scripts associés::Intégration du système de suivi d'incidents"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5163,7 +5164,7 @@ msgstr "Echec du script associé"
 
 #. Resource IDs: (2760)
 msgid "Hook script failed!"
-msgstr "Le script assopcié a échoué !"
+msgstr "Le script associé a échoué !"
 
 #. Resource IDs: (1296)
 #, c-format
@@ -5860,7 +5861,7 @@ msgstr "Type"
 
 #. Resource IDs: (cmdViewWrapLines_Keytip_RESID)
 msgid "L"
-msgstr ""
+msgstr "L"
 
 #. Resource IDs: (65535)
 msgid "L&imit:"
@@ -6154,7 +6155,7 @@ msgstr "Menu contextuel principal"
 
 #. Resource IDs: (1431)
 msgid "Make this the default"
-msgstr "Définir comme valeurs par défaut"
+msgstr "Définir comme choix par défaut"
 
 #. Resource IDs: (258)
 msgid "Manage Subversion properties"
@@ -6574,15 +6575,15 @@ msgstr "Mon fichier :"
 
 #. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
 msgid "NC"
-msgstr ""
+msgstr "NC"
 
 #. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
 msgid "ND"
-msgstr ""
+msgstr "ND"
 
 #. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #. Resource IDs: (59138)
 msgid "NUM"
@@ -6655,7 +6656,7 @@ msgstr "Conflit suivant"
 #. Resource IDs: (ID_NAVIGATE_NEXTDIFFERENCE - Menu,
 #. cmdNavigateNextDifference_LabelTitle_RESID)
 msgid "Next difference"
-msgstr "Difference suivante"
+msgstr "Différence suivante"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTINLINEDIFF - Menu,
 #. cmdNavigateNextInlineDiff_LabelTitle_RESID)
@@ -7078,15 +7079,15 @@ msgstr "Ecraser\nLes réglages sont écrasés"
 
 #. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
 msgid "PC"
-msgstr ""
+msgstr "PC"
 
 #. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
 msgid "PD"
-msgstr ""
+msgstr "PD"
 
 #. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
 msgid "PI"
-msgstr ""
+msgstr "PI"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7286,7 +7287,7 @@ msgstr "Script associé après livraison"
 
 #. Resource IDs: (9110)
 msgid "Post-Lock Hook"
-msgstr "Hook post-verrouillage"
+msgstr "Script associé après verrouillage"
 
 #. Resource IDs: (9105)
 msgid "Post-Update Hook"
@@ -7306,7 +7307,7 @@ msgstr "Script associé avant connexion"
 
 #. Resource IDs: (9109)
 msgid "Pre-Lock Hook"
-msgstr "Hook pré-verrouillage"
+msgstr "Script associé avant verrouillage"
 
 #. Resource IDs: (9104)
 msgid "Pre-Update Hook"
@@ -7520,7 +7521,7 @@ msgstr "Quitter\nQuitter TortoiseMerge sans enregistrer les modifications"
 
 #. Resource IDs: (cmdReload_Keytip_RESID)
 msgid "R"
-msgstr ""
+msgstr "R"
 
 #. Resource IDs: (1073)
 msgid "R&AM drives"
@@ -7798,7 +7799,7 @@ msgstr "Supprimer %ls"
 
 #. Resource IDs: (1620)
 msgid "Remove Bookmark"
-msgstr "Supprimer le "
+msgstr "Supprimer le favori"
 
 #. Resource IDs: (1029)
 msgid "Remove Project"
@@ -8125,7 +8126,7 @@ msgstr "Filtre du graphique de révision "
 
 #. Resource IDs: (299)
 msgid "Revision Graph::Colors"
-msgstr "Graphe des révision::Couleurs"
+msgstr "Graphique de révision::Couleurs"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -8197,7 +8198,7 @@ msgstr "Exécuter l'a&ppel de script"
 
 #. Resource IDs: (cmdSave_Keytip_RESID)
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #. Resource IDs: (1132)
 msgid "S&tatistics"
@@ -9975,7 +9976,7 @@ msgstr "Cette méthode couvre le cas où vous avez effectué une ou plusieurs r�
 msgid ""
 "This method covers the case when you want to merge the differences of two "
 "different branches into your working copy."
-msgstr "Cette méthode couvre le cas où vous souhaitez fusionner les différences du deux branches différentes dans votre copie de travail."
+msgstr "Cette méthode couvre le cas où vous souhaitez fusionner les différences de deux branches différentes dans votre copie de travail."
 
 #. Resource IDs: (1532)
 msgid ""
@@ -10206,7 +10207,7 @@ msgstr "Nombre total de propriétés utilisateur de révision"
 
 #. Resource IDs: (32821 - Menu)
 msgid "Tr&ee stripes"
-msgstr "&Parties de l'arbre"
+msgstr "Ar&bre à rayures"
 
 #. Resource IDs: (5700)
 #, c-format
@@ -10571,7 +10572,7 @@ msgstr "Utilisez 'leur' bloc de texte puis le 'mien'"
 
 #. Resource IDs: (1538)
 msgid "Use Aero dialogs"
-msgstr "Utiliser les boîtes de dialogue Aero"
+msgstr "Utiliser des boîtes de dialogue Aero"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1066)
 msgid "Use Ribbons"
@@ -10876,7 +10877,7 @@ msgstr "En attente de la fin du processus de surveillance..."
 
 #. Resource IDs: (280)
 msgid "Want to go offline?"
-msgstr "Vous voulez passer en mode hors-ligne ?"
+msgstr "Vous voulez passer en mode hors ligne ?"
 
 #. Resource IDs: (1405)
 msgid "Warning"
@@ -11522,7 +11523,7 @@ msgstr "normal"
 
 #. Resource IDs: (cmdOpen_Keytip_RESID)
 msgid "o1"
-msgstr ""
+msgstr "o1"
 
 #. Resource IDs: (162)
 msgid "obstructed"
@@ -11758,7 +11759,7 @@ msgstr "tagger les externes"
 
 #. Resource IDs: (9601)
 msgid "temp. offline"
-msgstr "hors-ligne temporairement"
+msgstr "hors ligne temporairement"
 
 #. Resource IDs: (65535)
 msgid "text [token count]: "

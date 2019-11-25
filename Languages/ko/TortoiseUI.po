@@ -18,8 +18,9 @@
 # Jun Jeong <jun.jeong@hotmail.com>, 2019
 # kim minhyouk <apollo8900@naver.com>, 2015
 # Kim KiHyeon <kmkh12@paran.com>, 2011
+# ks k, 2019
 # Ian Yoon <learder@gmail.com>, 2012
-# luebbe <luebbe.opensource@gmail.com>, 2011
+# Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Mandy Cho <chohy@yahoo.com>, 2013
 # zzskm <rennintherynn@gmail.com>, 2019
 # Seongki Shin <skshin@gmail.com>, 2011-2013,2015,2017
@@ -30,8 +31,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-05-08 06:30+0000\n"
-"Last-Translator: zzskm <rennintherynn@gmail.com>\n"
+"PO-Revision-Date: 2019-11-01 05:41+0000\n"
+"Last-Translator: ks k\n"
 "Language-Team: Korean (http://www.transifex.com/luebbe/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3938,7 +3939,7 @@ msgstr "다시 읽어들이시겠습니까?\n주의: 바뀐 설정 내용이 모
 #. Resource IDs: (1030)
 #, c-format
 msgid "Do you want to remove the monitored project '%ls'?"
-msgstr ""
+msgstr "감시중인 '%ls' 프로젝트를 제거 하시겠습니까?"
 
 #. Resource IDs: (9402)
 #, c-format
@@ -3970,7 +3971,7 @@ msgstr "이 리비전에서 만들어진\n%ls\n에 대한 모든 변경사항을
 #, c-format
 msgid ""
 "Do you want to update the folder \"%ls\" to fetch the applied svn:externals?"
-msgstr ""
+msgstr "적용된 svn:externals 를 가져 오기 위해 폴더 \"% ls\" 을(를) 갱신 하시겠습니까?"
 
 #. Resource IDs: (65535)
 msgid "Document :"
@@ -4019,11 +4020,11 @@ msgstr "드라이브 A: 와 B:"
 #. Resource IDs: (9800)
 #, c-format
 msgid "Drop not possible on %1!ls!"
-msgstr ""
+msgstr "%1!ls 에서 삭제할 수 없습니다!"
 
 #. Resource IDs: (cmdEditEnabled_Keytip_RESID, cmdTabEdit_Keytip_RESID)
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #. Resource IDs: (32816 - Menu)
 msgid "E&xact copy sources"
@@ -4044,7 +4045,7 @@ msgstr "종료(&X)"
 
 #. Resource IDs: (105 - Menu)
 msgid "E&xit\t(Ctrl+W)"
-msgstr ""
+msgstr "종료(&X)\t(Ctrl+W)"
 
 #. Resource IDs: (4384)
 msgid "E&xpand all"
@@ -4081,7 +4082,7 @@ msgstr "외부경로 편집"
 
 #. Resource IDs: (359)
 msgid "Edit Project to monitor"
-msgstr ""
+msgstr "감시할 프로젝트 편집"
 
 #. Resource IDs: (227, 9408)
 msgid "Edit Properties"
@@ -4132,7 +4133,7 @@ msgstr "로그 메시지 수정"
 msgid ""
 "Edit property '%1!S!' on\r\n"
 "%2!ls!"
-msgstr ""
+msgstr "%2!ls! 의 속성\r\n'%1!S!' 편집"
 
 #. Resource IDs: (1331, 1382)
 msgid "Edit..."
@@ -4142,13 +4143,13 @@ msgstr "편집..."
 msgid ""
 "Edit\n"
 "Edit text conflicts"
-msgstr ""
+msgstr "편집\n글자 충돌 편집"
 
 #. Resource IDs: (1049)
 msgid ""
 "Edit\n"
 "change merged property value in editor"
-msgstr ""
+msgstr "편집\n편집기에서 병합된 속성 값 변경"
 
 #. Resource IDs: (9295)
 msgid "Edits the selected property value"
@@ -4180,7 +4181,7 @@ msgstr "편집 활성화"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1510)
 msgid "Enable EditorConfig"
-msgstr ""
+msgstr "구성 편집기 사용"
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
@@ -4210,7 +4211,7 @@ msgid ""
 "Encoding\n"
 "Convert to the specified encoding\n"
 "Hold down the Ctrl key to reload the file with the specified encoding."
-msgstr ""
+msgstr "부호화(인코딩)\n지정된 부호화로 변환\nCtrl 키를 누른 채로 지정된 부호화로 파일을 다시불러오기를 하십시오."
 
 #. Resource IDs: (61866)
 #, c-format
@@ -4334,7 +4335,7 @@ msgstr "글자 %1개까지만 입력하십시오."
 
 #. Resource IDs: (1017)
 msgid "Enter the prefix|*"
-msgstr ""
+msgstr "접두사 입력|*"
 
 #. Resource IDs: (65535)
 msgid "Enter the regex string below:"
@@ -4424,12 +4425,12 @@ msgstr "디렉토리 익스포트(&D):"
 
 #. Resource IDs: (2506)
 msgid "Export files (*.tsex)|*.tsex|All Files (*.*)|*.*||"
-msgstr ""
+msgstr "파일 내보내기 (*.tsex)|*.tsex|모든 파일 (*.*)|**||"
 
 #. Resource IDs: (3659)
 #, c-format
 msgid "Export from %1!ls!"
-msgstr ""
+msgstr "%1!ls! 에서 내보내기"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
@@ -4502,7 +4503,7 @@ msgstr "포함된 외부경로"
 
 #. Resource IDs: (cmdFind_Keytip_RESID)
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. Resource IDs: (1480)
 msgid "F&orce the merge"
@@ -4528,7 +4529,7 @@ msgid ""
 "Failed to copy the file '%ls' to '%ls'.\n"
 "\n"
 "%ls"
-msgstr ""
+msgstr "'%ls' 파일을 '%ls' (으)로 복사하지 못했습니다.\n\n%ls"
 
 #. Resource IDs: (61700)
 msgid "Failed to create empty document."
@@ -4550,7 +4551,7 @@ msgstr "서버 어플리케이션을 실행하는데 실패했습니다."
 
 #. Resource IDs: (1043)
 msgid "Failed to load the configuration file for the project monitor!"
-msgstr ""
+msgstr "프로젝트 감시의 구성 파일을 불러오지 못함!"
 
 #. Resource IDs: (61697)
 msgid "Failed to open document."
@@ -4577,7 +4578,7 @@ msgstr "실패하였습니다"
 
 #. Resource IDs: (4245)
 msgid "Failed: target required"
-msgstr ""
+msgstr "실패: 대상 필요"
 
 #. Resource IDs: (9444)
 msgid "Fetch HEAD revision and adjust to it"
@@ -4612,7 +4613,7 @@ msgstr "%1!ls!의 상태를 가져오는 중"
 
 #. Resource IDs: (1237)
 msgid "Fetching tree conflict information..."
-msgstr ""
+msgstr "트리 충돌 정보를 가져 오는 중..."
 
 #. Resource IDs: (1180, 5100)
 msgid "File"
@@ -4767,7 +4768,7 @@ msgstr "필터:"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Filtered"
-msgstr ""
+msgstr "걸러짐"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
 #. cmdFind_LabelTitle_RESID)
@@ -4791,16 +4792,16 @@ msgstr "특정 문자열 찾기\n찾기"
 #. Resource IDs: (IDS_FIND_NOTFOUND)
 #, c-format
 msgid "Find: Can't find the text \"%ls\""
-msgstr ""
+msgstr "찾기: \"%ls\" 텍스트를 찾을 수 없습니다"
 
 #. Resource IDs: (IDS_FIND_TOPREACHED)
 msgid ""
 "Find: First occurrence from the bottom found. Beginning of document reached."
-msgstr ""
+msgstr "찾기: 맨 아래에서 처음 발견했습니다. 문서의 처음에 도달했습니다."
 
 #. Resource IDs: (IDS_FIND_BOTTOMREACHED)
 msgid "Find: First occurrence from the top found. End of document reached."
-msgstr ""
+msgstr "찾기: 맨 처음 발견 되었습니다. 문서 끝에 도달했습니다."
 
 #. Resource IDs: (1224)
 msgid "Finished!"
@@ -4816,11 +4817,11 @@ msgstr "높이에 맞추기"
 
 #. Resource IDs: (ID_VIEW_FITIMAGEHEIGHTS - Menu)
 msgid "Fit image &heights\t(H)"
-msgstr ""
+msgstr "이미지 높이 맞춤\t(&H)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGEWIDTHS - Menu)
 msgid "Fit image &widths\t(W)"
-msgstr ""
+msgstr "이미지 넓이 맞춤\t(&W)"
 
 #. Resource IDs: (32803 - Menu)
 msgid "Fit width"
@@ -4860,7 +4861,7 @@ msgstr "강제 삭제"
 
 #. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Foreground"
-msgstr ""
+msgstr "전경색?"
 
 #. Resource IDs: (1683)
 msgid "Forwards in browsing history"
@@ -4876,11 +4877,11 @@ msgstr "시작:"
 
 #. Resource IDs: (1799)
 msgid "Full data"
-msgstr ""
+msgstr "전체 자료"
 
 #. Resource IDs: (1842)
 msgid "Full revision data without changed paths"
-msgstr ""
+msgstr "경로 변경 없는 전체 리비전 자료"
 
 #. Resource IDs: (300)
 msgid "Fully recursive"
@@ -4888,7 +4889,7 @@ msgstr "하위에 끝까지 적용"
 
 #. Resource IDs: (cmdGotoLine_Keytip_RESID)
 msgid "G"
-msgstr ""
+msgstr "G"
 
 #. Resource IDs: (4360)
 msgid "GDI+ couldn't be initialized!"
@@ -5322,7 +5323,7 @@ msgstr "ID:57643:V C +Z"
 
 #. Accelerator Entry for Menu ID:57644; ''
 msgid "ID:57644:V C +Y"
-msgstr ""
+msgstr "ID:57644:V C +Y"
 
 #. Accelerator Entry for Menu ID:57665; 'E&xit'
 msgid "ID:57665:V C +Q"
@@ -5511,7 +5512,7 @@ msgstr ""
 
 #. Resource IDs: (ID_VIEW_IGNORECOMMENTS - Menu)
 msgid "Ignore comments"
-msgstr ""
+msgstr "의견 무시"
 
 #. Resource IDs: (1126, 1127)
 msgid "Ignore line &endings"
@@ -6612,7 +6613,7 @@ msgstr "새 이름(&N):"
 
 #. Resource IDs: (1239)
 msgid "New branch/tag is not ready yet, retrying switch..."
-msgstr ""
+msgstr "새로운 분기/꼬리표가 아직 준비되지 않았으며 바꾸기를 다시 시도 중입니다..."
 
 #. Resource IDs: (1506)
 msgid "New name must not be empty or the same as the original name!"
@@ -6620,7 +6621,7 @@ msgstr "새 이름은 비어있거나 원래 이름과 동일해서는 안됩니
 
 #. Resource IDs: (IDS_TEXTIDENTICAL_EOL)
 msgid "Newlines"
-msgstr ""
+msgstr "줄바꿈"
 
 #. Resource IDs: (ID_NAVIGATE_NEXTCONFLICT - Menu,
 #. cmdNavigateNextConflict_LabelTitle_RESID)
@@ -6689,7 +6690,7 @@ msgstr "마지막 커밋 이후로 추가되거나 변경된 것이 없습니다
 
 #. Resource IDs: (33002)
 msgid "No filter"
-msgstr ""
+msgstr "거르개 없음"
 
 #. Resource IDs: (4363)
 msgid "No graph available"
@@ -6706,7 +6707,7 @@ msgstr "명령 줄에서 어떤 경로나 경로파일도 지정되지 않았습
 
 #. Resource IDs: (1058)
 msgid "No path was shelved."
-msgstr ""
+msgstr "보류된 경로가 없습니다."
 
 #. Resource IDs: (3125)
 msgid ""
@@ -6787,7 +6788,7 @@ msgstr "커밋할 대상이 선택되지 않았습니다."
 
 #. Resource IDs: (1052)
 msgid "Nothing is shelved!"
-msgstr ""
+msgstr "아무것도 보류된것은 없습니다!"
 
 #. Resource IDs: (1406)
 msgid "Notice"

@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-06-01 12:34+0000\n"
+"PO-Revision-Date: 2019-10-01 00:20+0000\n"
 "Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/luebbe/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -12084,20 +12084,20 @@ msgid ""
 "relative to the repository root. For example, "
 "<literal>^/../?do=details&amp;id=%BUGID%</literal> will resolve to "
 "<systemitem "
-"class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
+"class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located on <systemitem "
-"class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
-msgstr "Se começa com a cadeia de caracteres <literal>^/</literal> é assumido que é relativo à raiz do repositório. Por exemplo, <literal>^/../?do=details&amp;id=%BUGID%</literal> irá ser resolvido para <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> se o teu repositório está localizado em <systemitem class=\"url\">http://tortoisesvn.net/svn/trunk/</systemitem>."
+"class=\"url\">https://tortoisesvn.net/svn/trunk/</systemitem>."
+msgstr ""
 
 #. (para)
 msgid ""
 "A URL beginning with the string <literal>/</literal> is assumed to be "
 "relative to the server's hostname. For example "
 "<literal>/?do=details&amp;id=%BUGID%</literal> will resolve to <systemitem "
-"class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
+"class=\"url\">https://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem>"
 " if your repository is located anywhere on <systemitem "
-"class=\"url\">http://tortoisesvn.net</systemitem>."
-msgstr "Um URL que comece pela cadeia de caracteres <literal>/</literal> é assumido como sendo relativo ao nome do servidor. Por exemplo <literal>/?do=details&amp;id=%BUGID%</literal> será resolvido para <systemitem class=\"url\">http://tortoisesvn.net/?do=details&amp;id=%BUGID%</systemitem> se o teu repositório está localizado em qualquer ponto do dominio <systemitem class=\"url\">http://tortoisesvn.net</systemitem>."
+"class=\"url\">https://tortoisesvn.net</systemitem>."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -14899,7 +14899,7 @@ msgstr ""
 #. (para)
 msgid ""
 "<placeholder-1/> You can sync all TortoiseSVN settings to and from an "
-"encrypted file. The file is encrpyted with the password you enter so you "
+"encrypted file. The file is encrypted with the password you enter so you "
 "don't have to worry if you store that file on a cloud folder like OneDrive, "
 "GDrive, DropBox, ..."
 msgstr ""
@@ -18150,6 +18150,10 @@ msgstr ""
 
 #. (para)
 msgid "<option>/endrev:xxx</option>,"
+msgstr ""
+
+#. (para)
+msgid "<option>/limit:xxx</option> limits the amount of fetched messages"
 msgstr ""
 
 #. (para)

@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-07-01 09:48+0000\n"
+"PO-Revision-Date: 2019-10-27 10:30+0000\n"
 "Last-Translator: 藤本理弘 <mfujimot@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
@@ -136,7 +136,7 @@ msgstr "%1!ls! : 作業ベース、リビジョン %2!ld!"
 #. Resource IDs: (3667)
 #, c-format
 msgid "%1!ls! from %2!ls!"
-msgstr ""
+msgstr "%2!ls! からの %1!ls!"
 
 #. Resource IDs: (3603)
 #, c-format
@@ -2131,7 +2131,7 @@ msgstr "%1 にアクセス中に未知のエラーが発生しました。"
 #. Resource IDs: (IDS_ERR_PATCH_UNKOWNLINETYPE)
 #, c-format
 msgid "An unknown line type was found in line %d!"
-msgstr ""
+msgstr "%d行目の行の種類が不明です。"
 
 #. Resource IDs: (4010)
 msgid ""
@@ -3521,7 +3521,7 @@ msgstr "すべての変更をもとにUnified形式の差分ファイルを作�
 #. Resource IDs: (1060)
 #, c-format
 msgid "Creating checkpoint \"%s\""
-msgstr ""
+msgstr "チェックポイント「%s」を作成中"
 
 #. Resource IDs: (65535)
 msgid "Credits:"
@@ -4095,11 +4095,11 @@ msgstr "プロパティを編集"
 
 #. Resource IDs: (2322)
 msgid "Edit Property Conflicts"
-msgstr ""
+msgstr "プロパティの競合を編集"
 
 #. Resource IDs: (2321)
 msgid "Edit Text Conflicts"
-msgstr ""
+msgstr "テキストの競合を編集"
 
 #. Resource IDs: (2318)
 msgid "Edit Tree Conflicts"
@@ -4148,7 +4148,7 @@ msgstr "編集..."
 msgid ""
 "Edit\n"
 "Edit text conflicts"
-msgstr ""
+msgstr "編集\nテキストの競合を編集"
 
 #. Resource IDs: (1049)
 msgid ""
@@ -4435,7 +4435,7 @@ msgstr "エクスポートファイル (*.tsex)|*.tsex|すべてのファイル 
 #. Resource IDs: (3659)
 #, c-format
 msgid "Export from %1!ls!"
-msgstr ""
+msgstr "%1!ls! からエクスポート"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
@@ -5492,7 +5492,7 @@ msgstr "コメントを無視"
 
 #. Resource IDs: (IDS_DIFF_IGNORE_EOL)
 msgid "Ignore EOL changes"
-msgstr ""
+msgstr "改行コードの変更を無視"
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
 #. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
@@ -6155,7 +6155,7 @@ msgstr "差分を表示するために多くの項目が選択されました"
 
 #. Resource IDs: (1039)
 msgid "Mark all projects as read"
-msgstr ""
+msgstr "すべてのプロジェクトを確認済みにする"
 
 #. Resource IDs: (3608)
 msgid ""
