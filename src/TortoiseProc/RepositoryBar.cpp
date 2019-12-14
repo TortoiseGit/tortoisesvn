@@ -472,6 +472,11 @@ void CRepositoryBarCnr::OnSize(UINT /* nType */, int cx, int cy)
 
 void CRepositoryBarCnr::DrawItem(LPDRAWITEMSTRUCT)
 {
+    // move the child control to ensure it's drawn
+    // if necessary
+    CRect rc;
+    GetClientRect(&rc);
+    m_pbarRepository->MoveWindow(48, 0, rc.Width(), rc.Height());
 }
 
 UINT CRepositoryBarCnr::OnGetDlgCode()
