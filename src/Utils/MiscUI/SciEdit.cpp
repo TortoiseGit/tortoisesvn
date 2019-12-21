@@ -209,6 +209,8 @@ void CSciEdit::Init(LONG lLanguage)
                 if (supported)
                 {
                     hr = m_spellCheckerFactory->CreateSpellChecker(localename, &m_SpellChecker);
+                    if (SUCCEEDED(hr))
+                        m_personalDict.Init(langId);
                 }
                 if (!supported || FAILED(hr))
                 {
@@ -220,6 +222,8 @@ void CSciEdit::Init(LONG lLanguage)
                         if (supported)
                         {
                             hr = m_spellCheckerFactory->CreateSpellChecker(localename, &m_SpellChecker);
+                            if (SUCCEEDED(hr))
+                                m_personalDict.Init(langId);
                         }
                         DWORD lid = SUBLANGID(langId);
                         lid--;
