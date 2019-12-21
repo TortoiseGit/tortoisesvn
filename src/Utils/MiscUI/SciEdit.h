@@ -173,8 +173,8 @@ protected:
     BOOL        IsMisspelled(const CString& sWord);
     DWORD       GetStyleAt(Sci_Position pos) { return (DWORD)Call(SCI_GETSTYLEAT, pos) & 0x1f; }
     bool        IsUrlOrEmail(const CStringA& sText);
-    CStringA    GetWordForSpellChecker(const CString& sWord);
-    CString     GetWordFromSpellChecker(const CStringA& sWordA);
+    std::string GetWordForSpellChecker(const CString& sWord);
+    CString     GetWordFromSpellChecker(const std::string& sWordA);
 
     afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
     afx_msg void OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/);

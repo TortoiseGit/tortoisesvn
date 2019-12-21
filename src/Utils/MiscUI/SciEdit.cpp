@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2019 - TortoiseSVN
-// Copyright (C) 2015-2018 - TortoiseGit
+// Copyright (C) 2015-2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -599,7 +599,7 @@ BOOL CSciEdit::CheckWordSpelling(const CString& sWord)
     else if (pChecker)
     {
         // convert the string from the control to the encoding of the spell checker module.
-        CStringA sWordA = GetWordForSpellChecker(sWord);
+        auto sWordA = GetWordForSpellChecker(sWord);
 
         if (!pChecker->spell(sWordA))
         {
@@ -769,7 +769,6 @@ void CSciEdit::SuggestSpellingAlternatives()
     Call(SCI_SETCURRENTPOS, Call(SCI_WORDSTARTPOSITION, Call(SCI_GETCURRENTPOS), TRUE));
     if (word.IsEmpty())
         return;
-    CStringA sWordA = GetWordForSpellChecker(word);
 
     CString suggestions;
     if (m_SpellChecker)
@@ -787,17 +786,9 @@ void CSciEdit::SuggestSpellingAlternatives()
     }
     else if (pChecker)
     {
-        char ** wlst = NULL;
-        int ns = pChecker->suggest(&wlst, sWordA);
-        if (ns > 0)
-        {
-            for (int i = 0; i < ns; i++)
-            {
-                suggestions.AppendFormat(L"%s%c%d%c", (LPCWSTR)GetWordFromSpellChecker(wlst[i]), m_typeSeparator, AUTOCOMPLETE_SPELLING, m_separator);
-                free(wlst[i]);
-            }
-        }
-        free(wlst);
+        auto wlst = pChecker->suggest(GetWordForSpellChecker(word));
+        for (const auto& alternative : wlst)
+            suggestions.AppendFormat(L"%s%c%d%c", static_cast<LPCTSTR>(GetWordFromSpellChecker(alternative)), m_typeSeparator, AUTOCOMPLETE_SPELLING, m_separator);
     }
 
     suggestions.TrimRight(m_separator);
@@ -1202,12 +1193,12 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         }
         else
             sWord = GetWordUnderCursor();
-        CStringA worda = GetWordForSpellChecker(sWord);
+        auto worda = GetWordForSpellChecker(sWord);
 
         int nCorrections = 1;
         bool bSpellAdded = false;
         // check if the word under the cursor is spelled wrong
-        if (!bIsReadOnly && (pChecker || m_SpellChecker) && (!worda.IsEmpty()))
+        if (!bIsReadOnly && (pChecker || m_SpellChecker) && (!worda.empty()))
         {
             if (m_SpellChecker)
             {
@@ -1225,23 +1216,15 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             }
             else if (pChecker)
             {
-                char ** wlst = NULL;
                 // get the spell suggestions
-                int ns = pChecker->suggest(&wlst, worda);
-                if (ns > 0)
+                auto wlst = pChecker->suggest(worda);
+                // add the suggestions to the context menu
+                for (const auto& alternative : wlst)
                 {
-                    // add the suggestions to the context menu
-                    for (int i = 0; i < ns; i++)
-                    {
-                        bSpellAdded = true;
-                        CString sug = GetWordFromSpellChecker(wlst[i]);
-                        popup.InsertMenu((UINT)-1, 0, nCorrections++, sug);
-                        free(wlst[i]);
-                    }
-                    free(wlst);
+                    bSpellAdded = true;
+                    CString sug = GetWordFromSpellChecker(alternative);
+                    popup.InsertMenu((UINT)-1, 0, nCorrections++, sug);
                 }
-                else
-                    free(wlst);
             }
         }
         // only add a separator if spelling correction suggestions were added
@@ -1681,58 +1664,56 @@ bool CSciEdit::IsUrlOrEmail(const CStringA& sText)
     return false;
 }
 
-CStringA CSciEdit::GetWordForSpellChecker( const CString& sWord )
+std::string CSciEdit::GetWordForSpellChecker(const CString& sWord)
 {
     // convert the string from the control to the encoding of the spell checker module.
-    CStringA sWordA;
+    std::string sWordA;
     if (m_spellcodepage)
     {
-        char * buf;
-        buf = sWordA.GetBuffer(sWord.GetLength()*4 + 1);
-        int lengthIncTerminator =
-            WideCharToMultiByte(m_spellcodepage, 0, sWord, -1, buf, sWord.GetLength()*4, NULL, NULL);
-        if (lengthIncTerminator == 0)
-            return "";   // converting to the codepage failed
-        sWordA.ReleaseBuffer(lengthIncTerminator-1);
+        int lengthIncTerminator = WideCharToMultiByte(m_spellcodepage, 0, sWord, -1, nullptr, 0, nullptr, nullptr);
+        if (lengthIncTerminator <= 1)
+            return ""; // converting to the codepage failed
+        sWordA.resize(lengthIncTerminator - 1);
+        WideCharToMultiByte(m_spellcodepage, 0, sWord, -1, sWordA.data(), lengthIncTerminator - 1, nullptr, nullptr);
     }
     else
-        sWordA = CStringA(sWord);
+        sWordA = std::string(reinterpret_cast<LPCSTR>(static_cast<LPCTSTR>(sWord)));
 
-    sWordA.Trim("\'\".,");
+    sWordA.erase(sWordA.find_last_not_of("\'\".,") + 1);
+    sWordA.erase(0, sWordA.find_first_not_of("\'\".,"));
 
     if (m_bDoStyle)
     {
         for (const auto styleindicator : { '*', '_', '^' })
         {
-            if (sWordA.IsEmpty())
+            if (sWordA.empty())
                 break;
-            if (sWordA[sWordA.GetLength() - 1] == styleindicator)
-                sWordA.Truncate(sWordA.GetLength() - 1);
-            if (sWordA.IsEmpty())
+            if (sWordA[sWordA.size() - 1] == styleindicator)
+                sWordA.resize(sWordA.size() - 1);
+            if (sWordA.empty())
                 break;
             if (sWordA[0] == styleindicator)
-                sWordA = sWordA.Right(sWordA.GetLength() - 1);
+                sWordA = sWordA.substr(sWordA.size() - 1);
         }
     }
 
     return sWordA;
 }
 
-CString CSciEdit::GetWordFromSpellChecker( const CStringA& sWordA )
+CString CSciEdit::GetWordFromSpellChecker(const std::string& sWordA)
 {
     CString sWord;
     if (m_spellcodepage)
     {
-        wchar_t * buf;
-        buf = sWord.GetBuffer(sWordA.GetLength()*2);
+        wchar_t* buf = sWord.GetBuffer(static_cast<int>(sWordA.size()) * 2);
         int lengthIncTerminator =
-            MultiByteToWideChar(m_spellcodepage, 0, sWordA, -1, buf, sWordA.GetLength()*2);
+            MultiByteToWideChar(m_spellcodepage, 0, sWordA.c_str(), -1, buf, static_cast<int>(sWordA.size()) * 2);
         if (lengthIncTerminator == 0)
             return L"";
         sWord.ReleaseBuffer(lengthIncTerminator-1);
     }
     else
-        sWord = CString(sWordA);
+        sWord = CString(sWordA.c_str());
 
     sWord.Trim(L"\'\".,");
 
