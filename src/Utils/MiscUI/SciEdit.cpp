@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2019 - TortoiseSVN
 // Copyright (C) 2015-2018 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -261,7 +261,7 @@ void CSciEdit::Init(LONG lLanguage)
                             else
                                 langId = 1033;
                         }
-                    } while ((langId) && ((pChecker == NULL) || (pThesaur == NULL)));
+                    } while ((langId) && (!pChecker));
                 }
             }
         }
@@ -354,7 +354,7 @@ void CSciEdit::SetIcon(const std::map<int, UINT> &icons)
 
 BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 {
-    //Setup the spell checker and thesaurus
+    // Setup the spell checker
     TCHAR buf[6] = { 0 };
     CString sFolder = CPathUtils::GetAppDirectory();
     CString sFolderUp = CPathUtils::GetAppParentDirectory();
@@ -399,41 +399,6 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
             pChecker = std::make_unique<Hunspell>(CStringA(sFolderUp + L"Languages\\" + sFile + L".aff"), CStringA(sFolderUp + L"Languages\\" + sFile + L".dic"));
         }
     }
-#if THESAURUS
-    if (pThesaur==NULL)
-    {
-        if ((PathFileExists(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.idx"))) &&
-            (PathFileExists(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.dat"))))
-        {
-            pThesaur = std::make_unique<MyThes>(CStringA(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.idx")), CStringA(sFolderAppData + _T("dic\\th_") + sFile + _T("_v2.dat")));
-        }
-        else if ((PathFileExists(sFolder + L"th_" + sFile + L"_v2.idx")) &&
-            (PathFileExists(sFolder + L"th_" + sFile + L"_v2.dat")))
-        {
-            pThesaur = std::make_unique<MyThes>(CStringA(sFolder + sFile + L"_v2.idx"), CStringA(sFolder + sFile + L"_v2.dat"));
-        }
-        else if ((PathFileExists(sFolder + L"dic\\th_" + sFile + L"_v2.idx")) &&
-            (PathFileExists(sFolder + L"dic\\th_" + sFile + L"_v2.dat")))
-        {
-            pThesaur = std::make_unique<MyThes>(CStringA(sFolder + L"dic\\" + sFile + L"_v2.idx"), CStringA(sFolder + L"dic\\" + sFile + L"_v2.dat"));
-        }
-        else if ((PathFileExists(sFolderUp + L"th_" + sFile + L"_v2.idx")) &&
-            (PathFileExists(sFolderUp + L"th_" + sFile + L"_v2.dat")))
-        {
-            pThesaur = std::make_unique<MyThes>(CStringA(sFolderUp + L"th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"th_" + sFile + L"_v2.dat"));
-        }
-        else if ((PathFileExists(sFolderUp + L"dic\\th_" + sFile + L"_v2.idx")) &&
-            (PathFileExists(sFolderUp + L"dic\\th_" + sFile + L"_v2.dat")))
-        {
-            pThesaur = std::make_unique<MyThes>(CStringA(sFolderUp + L"dic\\th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"dic\\th_" + sFile + L"_v2.dat"));
-        }
-        else if ((PathFileExists(sFolderUp + L"Languages\\th_" + sFile + L"_v2.idx")) &&
-            (PathFileExists(sFolderUp + L"Languages\\th_" + sFile + L"_v2.dat")))
-        {
-            pThesaur = std::make_unique<MyThes>(CStringA(sFolderUp + L"Languages\\th_" + sFile + L"_v2.idx"), CStringA(sFolderUp + L"Languages\\th_" + sFile + L"_v2.dat"));
-        }
-    }
-#endif
     if (pChecker)
     {
         const char * encoding = pChecker->get_dic_encoding();
@@ -449,7 +414,7 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
         }
         m_personalDict.Init(lLanguageID);
     }
-    if ((pThesaur)||(pChecker))
+    if (pChecker)
         return TRUE;
     return FALSE;
 }
@@ -1335,60 +1300,6 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             popup.AppendMenu(MF_SEPARATOR);
         }
 
-#if THESAURUS
-        // add found thesauri to sub menu's
-        CMenu thesaurs;
-        int nThesaurs = 0;
-        CPtrArray menuArray;
-        if (thesaurs.CreatePopupMenu())
-        {
-            if ((pThesaur)&&(!worda.IsEmpty()))
-            {
-                mentry * pmean;
-                worda.MakeLower();
-                int count = pThesaur->Lookup(worda, worda.GetLength(),&pmean);
-                if (count)
-                {
-                    mentry * pm = pmean;
-                    for (int  i=0; i < count; i++)
-                    {
-                        CMenu * submenu = new CMenu();
-                        menuArray.Add(submenu);
-                        submenu->CreateMenu();
-                        for (int j=0; j < pm->count; j++)
-                        {
-                            CString sug = CString(pm->psyns[j]);
-                            submenu->InsertMenu((UINT)-1, 0, nCorrections + nCustoms + (nThesaurs++), sug);
-                        }
-                        thesaurs.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)(submenu->m_hMenu), CString(pm->defn));
-                        pm++;
-                    }
-                }
-                if ((count > 0)&&(point.x >= 0))
-                {
-#ifdef IDS_SPELLEDIT_THESAURUS
-                    sMenuItemText.LoadString(IDS_SPELLEDIT_THESAURUS);
-                    popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, sMenuItemText);
-#else
-                    popup.InsertMenu((UINT)-1, MF_POPUP, (UINT_PTR)thesaurs.m_hMenu, L"Thesaurus");
-#endif
-                    nThesaurs = nCustoms;
-                }
-                else
-                {
-                    sMenuItemText.LoadString(IDS_SPELLEDIT_NOTHESAURUS);
-                    popup.AppendMenu(MF_DISABLED | MF_GRAYED | MF_STRING, 0, sMenuItemText);
-                }
-
-                pThesaur->CleanUpAfterLookup(&pmean, count);
-            }
-            else
-            {
-                sMenuItemText.LoadString(IDS_SPELLEDIT_NOTHESAURUS);
-                popup.AppendMenu(MF_DISABLED | MF_GRAYED | MF_STRING, 0, sMenuItemText);
-            }
-        }
-#endif
         int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
         switch (cmd)
         {
@@ -1441,25 +1352,7 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                         break;
                 }
             }
-#if THESAURUS
-            else if (cmd <= (nThesaurs+nCorrections+nCustoms))
-            {
-                Call(SCI_SETANCHOR, pointpos);
-                Call(SCI_SETCURRENTPOS, pointpos);
-                GetWordUnderCursor(true);
-                CString temp;
-                thesaurs.GetMenuString(cmd, temp, 0);
-                Call(SCI_REPLACESEL, 0, (LPARAM)(LPCSTR)StringForControl(temp));
-            }
-#endif
         }
-#ifdef THESAURUS
-        for (INT_PTR index = 0; index < menuArray.GetCount(); ++index)
-        {
-            CMenu * pMenu = (CMenu*)menuArray[index];
-            delete pMenu;
-        }
-#endif
     }
     if (bRestoreCursor)
     {

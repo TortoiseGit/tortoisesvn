@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013, 2015-2018 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013, 2015-2019 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,6 @@
 #include "scintilla.h"
 #include "SciLexer.h"
 #include "../../../ext/hunspell/hunspell.hxx"
-#include "../../../ext/hunspell/mythes.hxx"
 #include "ProjectProperties.h"
 #include "PersonalDictionary.h"
 #include <regex>
@@ -137,7 +136,6 @@ private:
     LRESULT     m_DirectFunction;
     LRESULT     m_DirectPointer;
     std::unique_ptr<Hunspell> pChecker;
-    std::unique_ptr<MyThes>   pThesaur;
     UINT        m_spellcodepage;
     std::map<CString, int> m_autolist;
     TCHAR       m_separator;
