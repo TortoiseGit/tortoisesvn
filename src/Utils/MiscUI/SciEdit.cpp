@@ -356,7 +356,6 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 {
     // Setup the spell checker
     TCHAR buf[6] = { 0 };
-    CString sFolder = CPathUtils::GetAppDirectory();
     CString sFolderUp = CPathUtils::GetAppParentDirectory();
     CString sFolderAppData = CPathUtils::GetAppDataDirectory();
     CString sFile;
@@ -371,30 +370,10 @@ BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
         if ((PathFileExists(sFolderAppData + L"dic\\" + sFile + L".aff")) &&
             (PathFileExists(sFolderAppData + L"dic\\" + sFile + L".dic")))
         {
-            pChecker = std::make_unique<Hunspell>(CStringA(sFolderAppData + _T("dic\\") + sFile + _T(".aff")), CStringA(sFolderAppData + _T("dic\\") + sFile + _T(".dic")));
-        }
-        else if ((PathFileExists(sFolder + sFile + L".aff")) &&
-            (PathFileExists(sFolder + sFile + L".dic")))
-        {
-            pChecker = std::make_unique<Hunspell>(CStringA(sFolder + sFile + L".aff"), CStringA(sFolder + sFile + L".dic"));
-        }
-        else if ((PathFileExists(sFolder + L"dic\\" + sFile + L".aff")) &&
-            (PathFileExists(sFolder + L"dic\\" + sFile + L".dic")))
-        {
-            pChecker = std::make_unique<Hunspell>(CStringA(sFolder + L"dic\\" + sFile + L".aff"), CStringA(sFolder + L"dic\\" + sFile + L".dic"));
-        }
-        else if ((PathFileExists(sFolderUp + sFile + L".aff")) &&
-            (PathFileExists(sFolderUp + sFile + L".dic")))
-        {
-            pChecker = std::make_unique<Hunspell>(CStringA(sFolderUp + sFile + L".aff"), CStringA(sFolderUp + sFile + L".dic"));
-        }
-        else if ((PathFileExists(sFolderUp + L"dic\\" + sFile + L".aff")) &&
-            (PathFileExists(sFolderUp + L"dic\\" + sFile + L".dic")))
-        {
-            pChecker = std::make_unique<Hunspell>(CStringA(sFolderUp + L"dic\\" + sFile + L".aff"), CStringA(sFolderUp + L"dic\\" + sFile + L".dic"));
+            pChecker = std::make_unique<Hunspell>(CStringA(sFolderAppData + L"dic\\" + sFile + L".aff"), CStringA(sFolderAppData + L"dic\\" + sFile + L".dic"));
         }
         else if ((PathFileExists(sFolderUp + L"Languages\\" + sFile + L".aff")) &&
-            (PathFileExists(sFolderUp + L"Languages\\" + sFile + L".dic")))
+                 (PathFileExists(sFolderUp + L"Languages\\" + sFile + L".dic")))
         {
             pChecker = std::make_unique<Hunspell>(CStringA(sFolderUp + L"Languages\\" + sFile + L".aff"), CStringA(sFolderUp + L"Languages\\" + sFile + L".dic"));
         }
