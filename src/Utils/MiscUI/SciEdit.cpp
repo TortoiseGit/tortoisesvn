@@ -617,12 +617,10 @@ BOOL CSciEdit::CheckWordSpelling(const CString& sWord)
     if (m_SpellChecker)
     {
         IEnumSpellingErrorPtr enumSpellingError = nullptr;
-        HRESULT hr = m_SpellChecker->Check(sWord, &enumSpellingError);
-        if (SUCCEEDED(hr))
+        if (SUCCEEDED(m_SpellChecker->Check(sWord, &enumSpellingError)))
         {
             ISpellingErrorPtr spellingError = nullptr;
-            hr = enumSpellingError->Next(&spellingError);
-            if (hr == S_OK)
+            if (enumSpellingError->Next(&spellingError) == S_OK)
             {
                 CORRECTIVE_ACTION action = CORRECTIVE_ACTION_NONE;
                 spellingError->get_CorrectiveAction(&action);
@@ -812,20 +810,13 @@ void CSciEdit::SuggestSpellingAlternatives()
     if (m_SpellChecker)
     {
         IEnumStringPtr enumSpellingSuggestions = nullptr;
-        HRESULT hr = m_SpellChecker->Suggest(word, &enumSpellingSuggestions);
-        if (SUCCEEDED(hr))
+        if (SUCCEEDED(m_SpellChecker->Suggest(word, &enumSpellingSuggestions)))
         {
-            hr = S_OK;
-            while (hr == S_OK)
+            LPOLESTR string = nullptr;
+            while (enumSpellingSuggestions->Next(1, &string, nullptr) == S_OK)
             {
-                LPOLESTR string = nullptr;
-                hr = enumSpellingSuggestions->Next(1, &string, nullptr);
-
-                if (S_OK == hr)
-                {
-                    suggestions.AppendFormat(L"%s%c%d%c", (LPCWSTR)CString(string), m_typeSeparator, AUTOCOMPLETE_SPELLING, m_separator);
-                    CoTaskMemFree(string);
-                }
+                suggestions.AppendFormat(L"%s%c%d%c", (LPCWSTR)CString(string), m_typeSeparator, AUTOCOMPLETE_SPELLING, m_separator);
+                CoTaskMemFree(string);
             }
         }
     }
@@ -1256,21 +1247,14 @@ void CSciEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
             if (m_SpellChecker)
             {
                 IEnumStringPtr enumSpellingSuggestions = nullptr;
-                HRESULT hr = m_SpellChecker->Suggest(sWord, &enumSpellingSuggestions);
-                if (SUCCEEDED(hr))
+                if (SUCCEEDED(m_SpellChecker->Suggest(sWord, &enumSpellingSuggestions)))
                 {
-                    hr = S_OK;
-                    while (hr == S_OK)
+                    LPOLESTR string = nullptr;
+                    while (enumSpellingSuggestions->Next(1, &string, nullptr) == S_OK)
                     {
-                        LPOLESTR string = nullptr;
-                        hr = enumSpellingSuggestions->Next(1, &string, nullptr);
-
-                        if (S_OK == hr)
-                        {
-                            bSpellAdded = true;
-                            popup.InsertMenu((UINT)-1, 0, nCorrections++, string);
-                            CoTaskMemFree(string);
-                        }
+                        bSpellAdded = true;
+                        popup.InsertMenu((UINT)-1, 0, nCorrections++, string);
+                        CoTaskMemFree(string);
                     }
                 }
             }
