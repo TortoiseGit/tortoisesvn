@@ -192,6 +192,12 @@ void CSciEdit::Init(LONG lLanguage)
     // look for dictionary files and use them if found
     long langId = GetUserDefaultLCID();
     long origLangId = langId;
+    if (lLanguage > 0)
+    {
+        // if a specific language is requested, then use that
+        langId = lLanguage;
+        origLangId = lLanguage;
+    }
     if (lLanguage >= 0)
     {
         if (((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\Spellchecker", FALSE))==FALSE)
@@ -202,44 +208,32 @@ void CSciEdit::Init(LONG lLanguage)
             bool bFallbackUsed = false;
             if (SUCCEEDED(hr))
             {
-                wchar_t localename[LOCALE_NAME_MAX_LENGTH] = { 0 };
-                LCIDToLocaleName(lLanguage, localename, _countof(localename), 0);
-                supported = FALSE;
-                hr = m_spellCheckerFactory->IsSupported(localename, &supported);
-                if (supported)
+                wchar_t localename[LOCALE_NAME_MAX_LENGTH] = {0};
+                do
                 {
-                    hr = m_spellCheckerFactory->CreateSpellChecker(localename, &m_SpellChecker);
-                    if (SUCCEEDED(hr))
-                        m_personalDict.Init(langId);
-                }
-                if (!supported || FAILED(hr))
-                {
-                    do
+                    LCIDToLocaleName(langId, localename, _countof(localename), 0);
+                    supported = FALSE;
+                    hr        = m_spellCheckerFactory->IsSupported(localename, &supported);
+                    if (supported)
                     {
-                        LCIDToLocaleName(langId, localename, _countof(localename), 0);
-                        supported = FALSE;
-                        hr = m_spellCheckerFactory->IsSupported(localename, &supported);
-                        if (supported)
-                        {
-                            hr = m_spellCheckerFactory->CreateSpellChecker(localename, &m_SpellChecker);
-                            if (SUCCEEDED(hr))
-                                m_personalDict.Init(langId);
-                        }
-                        DWORD lid = SUBLANGID(langId);
-                        lid--;
-                        if (lid > 0)
-                        {
-                            langId = MAKELANGID(PRIMARYLANGID(langId), lid);
-                        }
-                        else if (langId == 1033)
-                            langId = 0;
-                        else
-                        {
-                            langId = 1033;
-                            bFallbackUsed = true;
-                        }
-                    } while ((langId) && (!supported || FAILED(hr)));
-                }
+                        hr = m_spellCheckerFactory->CreateSpellChecker(localename, &m_SpellChecker);
+                        if (SUCCEEDED(hr))
+                            m_personalDict.Init(langId);
+                    }
+                    DWORD lid = SUBLANGID(langId);
+                    lid--;
+                    if (lid > 0)
+                    {
+                        langId = MAKELANGID(PRIMARYLANGID(langId), lid);
+                    }
+                    else if (langId == 1033)
+                        langId = 0;
+                    else
+                    {
+                        langId        = 1033;
+                        bFallbackUsed = true;
+                    }
+                } while ((langId) && (!supported || FAILED(hr)));
             }
             if (FAILED(hr) || !supported || bFallbackUsed)
             {
