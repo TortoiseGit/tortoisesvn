@@ -359,14 +359,17 @@ bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, const
                     // revert the shelved files so they appear as not modified
                     Err = svn_client__shelf_unapply(new_version, false, subpool);
                 }
-                svn_string_t* propval = svn_string_create((LPCSTR)CUnicodeUtils::GetUTF8(logMsg), subpool);
-
-                apr_hash_t* revprop_table = apr_hash_make(subpool);
-                apr_hash_set(revprop_table, SVN_PROP_REVISION_LOG, APR_HASH_KEY_STRING, propval);
-                Err = svn_client__shelf_revprop_set_all(shelf, revprop_table, subpool);
                 if (Err == nullptr)
                 {
-                    Err = svn_client__shelf_close(shelf, subpool);
+                    svn_string_t* propval = svn_string_create((LPCSTR)CUnicodeUtils::GetUTF8(logMsg), subpool);
+
+                    apr_hash_t* revprop_table = apr_hash_make(subpool);
+                    apr_hash_set(revprop_table, SVN_PROP_REVISION_LOG, APR_HASH_KEY_STRING, propval);
+                    Err = svn_client__shelf_revprop_set_all(shelf, revprop_table, subpool);
+                    if (Err == nullptr)
+                    {
+                        Err = svn_client__shelf_close(shelf, subpool);
+                    }
                 }
             }
         }
