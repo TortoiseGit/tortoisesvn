@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Interop.BugTraqProvider")]
-[assembly: AssemblyCopyright("Copyright (c) 2008 TortoiseSVN")]
+[assembly: AssemblyCopyright("Copyright (c) 2008-2020 TortoiseSVN")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
