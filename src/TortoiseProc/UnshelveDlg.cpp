@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2019 - TortoiseSVN
+// Copyright (C) 2017-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@ CUnshelve::CUnshelve(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CUnshelve::IDD, pParent)
     , m_nIconFolder(0)
     , m_Version(-1)
+    , m_columnbuf{ 0 }
 {
 }
 
@@ -52,6 +53,7 @@ BEGIN_MESSAGE_MAP(CUnshelve, CResizableStandAloneDialog)
     ON_CBN_SELCHANGE(IDC_SHELVENAME, &CUnshelve::OnCbnSelchangeShelvename)
     ON_CBN_SELCHANGE(IDC_VERSIONCOMBO, &CUnshelve::OnCbnSelchangeVersioncombo)
     ON_NOTIFY(LVN_GETDISPINFO, IDC_FILELIST, &CUnshelve::OnLvnGetdispinfoFilelist)
+    ON_BN_CLICKED(IDC_DELETE, &CUnshelve::OnBnClickedDelete)
 END_MESSAGE_MAP()
 
 BOOL CUnshelve::OnInitDialog()
@@ -94,7 +96,8 @@ BOOL CUnshelve::OnInitDialog()
     m_cFileList.SetRedraw(true);
 
     std::vector<CString> Names;
-    m_svn.ShelvesList(Names, m_pathList.GetCommonRoot());
+    SVN svn;
+    svn.ShelvesList(Names, m_pathList.GetCommonRoot());
     for (const auto& name : Names)
     {
         m_cShelvesCombo.AddString(name);
@@ -112,6 +115,7 @@ BOOL CUnshelve::OnInitDialog()
     AddAnchor(IDC_LOGMESSAGE, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_FILESLABEL, TOP_LEFT);
     AddAnchor(IDC_FILELIST, TOP_LEFT, BOTTOM_RIGHT);
+    AddAnchor(IDC_DELETE, BOTTOM_LEFT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
@@ -156,7 +160,8 @@ void CUnshelve::OnCbnSelchangeShelvename()
         CString shelfName;
         m_cShelvesCombo.GetLBText(sel, shelfName);
         // get the info for the selected shelf
-        m_currentShelfInfo = m_svn.GetShelfInfo(shelfName, m_pathList.GetCommonRoot());
+        SVN svn;
+        m_currentShelfInfo = svn.GetShelfInfo(shelfName, m_pathList.GetCommonRoot());
         m_cLogMessage.SetText(m_currentShelfInfo.LogMessage);
         int v = 0;
         m_cVersionCombo.ResetContent();
@@ -247,4 +252,29 @@ void CUnshelve::OnLvnGetdispinfoFilelist(NMHDR* pNMHDR, LRESULT* pResult)
         }
     }
     *pResult = 0;
+}
+
+
+void CUnshelve::OnBnClickedDelete()
+{
+    int selectedName = m_cShelvesCombo.GetCurSel();
+    if (selectedName >= 0)
+    {
+        m_cShelvesCombo.GetLBText(selectedName, m_sShelveName);
+        SVN svn;
+        if (!svn.DropShelf(m_sShelveName, m_pathList.GetCommonRoot()))
+        {
+            svn.ShowErrorDialog(GetSafeHwnd(), m_pathList.GetCommonRoot());
+        }
+
+        m_cShelvesCombo.ResetContent();
+        std::vector<CString> Names;
+        svn.ShelvesList(Names, m_pathList.GetCommonRoot());
+        for (const auto& name : Names)
+        {
+            m_cShelvesCombo.AddString(name);
+        }
+        m_cShelvesCombo.SetCurSel(0);
+        OnCbnSelchangeShelvename();
+    }
 }
