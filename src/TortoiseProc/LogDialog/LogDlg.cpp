@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2019 - TortoiseSVN
+// Copyright (C) 2003-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -7119,13 +7119,14 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
             // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
             // pCmi->sUrl = http://mydomain.com/repos/trunk/folder
             CString sUnescapedUrl = CPathUtils::PathUnescape(pCmi->sUrl);
+            CString sUnescapedFileUrl = CPathUtils::PathUnescape(pCmi->fileUrl);
             // find out until which char the urls are identical
             int i = 0;
-            while ((i < pCmi->fileUrl.GetLength()) && (i < sUnescapedUrl.GetLength()) && (pCmi->fileUrl[i] == sUnescapedUrl[i]))
+            while ((i < pCmi->fileUrl.GetLength()) && (i < sUnescapedUrl.GetLength()) && (sUnescapedFileUrl[i] == sUnescapedUrl[i]))
                 i++;
             int leftcount = m_path.GetWinPathString().GetLength() - (sUnescapedUrl.GetLength() - i);
             pCmi->wcPath  = m_path.GetWinPathString().Left(leftcount);
-            pCmi->wcPath += pCmi->fileUrl.Mid(i);
+            pCmi->wcPath += sUnescapedFileUrl.Mid(i);
             pCmi->wcPath.Replace('/', '\\');
         }
     }

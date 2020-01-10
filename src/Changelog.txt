@@ -1,5 +1,8 @@
 ﻿Version 1.13.2
 - BUG: Crash in TMerge when indenting. (Stefan)
+- BUG: Context menu in log dialog bottom pane
+       would not work properly if repo url
+       contains escaped chars. (Stefan)
 
 Version 1.13.1
 - BUG: binary files were not digitally signed
