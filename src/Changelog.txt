@@ -3,6 +3,9 @@
 - BUG: Context menu in log dialog bottom pane
        would not work properly if repo url
        contains escaped chars. (Stefan)
+- BUG: The "open with" from commit and other
+       dialogs could show a dialog "server busy"
+       that blocks the app. (Stefan)
 
 Version 1.13.1
 - BUG: binary files were not digitally signed
