@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2019 - TortoiseSVN
-// Copyright (C) 2015-2019 - TortoiseGit
+// Copyright (C) 2003-2020 - TortoiseSVN
+// Copyright (C) 2015-2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -218,7 +218,10 @@ void CSciEdit::Init(LONG lLanguage)
                     {
                         hr = m_spellCheckerFactory->CreateSpellChecker(localename, &m_SpellChecker);
                         if (SUCCEEDED(hr))
+                        {
                             m_personalDict.Init(langId);
+                            break;
+                        }
                     }
                     DWORD lid = SUBLANGID(langId);
                     lid--;
@@ -261,6 +264,8 @@ void CSciEdit::Init(LONG lLanguage)
                         }
                     } while ((langId) && (!pChecker));
                 }
+                if (bFallbackUsed && pChecker)
+                    m_SpellChecker = nullptr;
             }
         }
     }
