@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2019 - TortoiseSVN
+// Copyright (C) 2003-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -163,6 +163,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
     ON_NOTIFY(LVN_GETDISPINFO, IDC_SVNPROGRESS, &CSVNProgressDlg::OnLvnGetdispinfoSvnprogress)
     ON_REGISTERED_MESSAGE(WM_TASKBARBTNCREATED, OnTaskbarBtnCreated)
     ON_BN_CLICKED(IDC_RETRYNOHOOKS, &CSVNProgressDlg::OnBnClickedRetrynohooks)
+    ON_BN_CLICKED(IDC_RETRYMERGE, &CSVNProgressDlg::OnBnClickedRetryMerge)
     ON_BN_CLICKED(IDC_RETRYDIFFERENTUSER, &CSVNProgressDlg::OnBnClickedRetryDifferentUser)
     ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CSVNProgressDlg::OnCheck)
     ON_REGISTERED_MESSAGE(WM_RESOLVEMSG, &CSVNProgressDlg::OnResolveMsg)
@@ -1109,6 +1110,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_PROGRESSLABEL);
     m_aeroControls.SubclassControl(this, IDC_JUMPCONFLICT);
     m_aeroControls.SubclassControl(this, IDC_RETRYNOHOOKS);
+    m_aeroControls.SubclassControl(this, IDC_RETRYMERGE);
     m_aeroControls.SubclassControl(this, IDC_RETRYDIFFERENTUSER);
     m_aeroControls.SubclassControl(this, IDC_PROGRESSBAR);
     m_aeroControls.SubclassControl(this, IDC_INFOTEXT);
@@ -1174,6 +1176,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
     AddAnchor(IDC_JUMPCONFLICT, BOTTOM_CENTER, BOTTOM_RIGHT);
     AddAnchor(IDC_PROGRESSBAR, BOTTOM_CENTER, BOTTOM_RIGHT);
     AddAnchor(IDC_RETRYNOHOOKS, BOTTOM_RIGHT);
+    AddAnchor(IDC_RETRYMERGE, BOTTOM_RIGHT);
     AddAnchor(IDC_RETRYDIFFERENTUSER, BOTTOM_RIGHT);
     AddAnchor(IDC_INFOTEXT, BOTTOM_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
@@ -1477,6 +1480,12 @@ UINT CSVNProgressDlg::ProgressThread()
         GetDlgItem(IDC_RETRYNOHOOKS)->ShowWindow(SW_SHOW);
     else if (m_bAuthorizationError && !PromptShown())
         GetDlgItem(IDC_RETRYDIFFERENTUSER)->ShowWindow(SW_SHOW);
+    else if (!bSuccess && (m_mergedRevisions.GetCount() != 0) && (m_nConflicts == 0) && (m_url.IsEquivalentTo(m_url2)) &&
+             ((m_Command == SVNProgress_Merge) || (m_Command == SVNProgress_MergeAll) || (m_Command == SVNProgress_MergeReintegrateOldStyle) || (m_Command == SVNProgress_MergeReintegrate)))
+    {
+        GetDlgItem(IDC_RETRYMERGE)->ShowWindow(SW_SHOW);
+    }
+
 
     CString info = BuildInfoString();
     if (!bSuccess)
@@ -1581,6 +1590,30 @@ void CSVNProgressDlg::OnBnClickedRetrynohooks()
     if (pWndButton)
         pWndButton->ShowWindow(SW_HIDE);
 }
+
+void CSVNProgressDlg::OnBnClickedRetryMerge()
+{
+    CWnd* pWndButton = GetDlgItem(IDC_RETRYMERGE);
+    if ((pWndButton == nullptr) || !pWndButton->IsWindowVisible())
+        return;
+    ResetVars();
+    m_bNoHooks = true;
+
+    m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
+    if (m_pThread == NULL)
+    {
+        ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
+        return;
+    }
+    else
+    {
+        m_pThread->m_bAutoDelete = FALSE;
+        m_pThread->ResumeThread();
+    }
+    if (pWndButton)
+        pWndButton->ShowWindow(SW_HIDE);
+}
+
 
 void CSVNProgressDlg::OnBnClickedRetryDifferentUser()
 {
