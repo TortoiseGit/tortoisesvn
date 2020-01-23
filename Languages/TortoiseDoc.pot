@@ -1,6 +1,6 @@
 #
 # Translation of the TortoiseSVN manuals
-# Copyright (C) 2004-2017 the TortoiseSVN team
+# Copyright (C) 2004-2020 the TortoiseSVN team
 #
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -9642,6 +9642,10 @@ msgid "If you don't want TortoiseSVN to show icons for the context menus in its 
 msgstr ""
 
 #. (para)
+msgid "Set this value to <literal>false</literal> if you don't want the project monitor to show notification popups when new commits are detected."
+msgstr ""
+
+#. (para)
 msgid "The commit and log dialog use styling (e.g. bold, italic) in commit messages (see <xref linkend=\"tsvn-dug-commit-log\"/> for details). If you don't want to do this, set the value to <literal>false</literal>."
 msgstr ""
 
@@ -13938,6 +13942,14 @@ msgstr ""
 
 #. (listitem)
 msgid "Characters used to indicate Whitespace are shown in a different colour from normal text."
+msgstr ""
+
+#. (term)
+msgid "Use dark mode"
+msgstr ""
+
+#. (listitem)
+msgid "Enables a dark mode for the UI. This requires at least Windows 10 1809."
 msgstr ""
 
 #. (title)
