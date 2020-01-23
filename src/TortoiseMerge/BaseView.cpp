@@ -49,7 +49,7 @@
 #define new DEBUG_NEW
 #endif
 
-#define HEADERHEIGHT 10
+#define HEADERHEIGHT (CDPIAware::Instance().Scale(10))
 
 #define IDT_SCROLLTIMER 101
 
@@ -1354,7 +1354,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
         int iconHeight = GetSystemMetrics(SM_CYSMICON);
         if (icon)
         {
-            ::DrawIconEx(pdc->m_hDC, rect.left + 2, rect.top + (rect.Height() - iconHeight) / 2, icon, iconWidth, iconHeight, 0, nullptr, DI_NORMAL);
+            ::DrawIconEx(pdc->m_hDC, rect.left + CDPIAware::Instance().Scale(2), rect.top + (rect.Height() - iconHeight) / 2, icon, iconWidth, iconHeight, 0, nullptr, DI_NORMAL);
         }
         if ((m_bViewLinenumbers)&&(m_nDigits))
         {
@@ -1388,7 +1388,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
                     pdc->SetTextColor(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
 
                     pdc->SelectObject(GetFont());
-                    pdc->ExtTextOut(rect.left + iconWidth + 2, rect.top, ETO_CLIPPED, &rect, sLinenumber, nullptr);
+                    pdc->ExtTextOut(rect.left + iconWidth + CDPIAware::Instance().Scale(2), rect.top, ETO_CLIPPED, &rect, sLinenumber, nullptr);
                 }
             }
         }
@@ -1397,7 +1397,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 
 int CBaseView::GetMarginWidth()
 {
-    int marginWidth = GetSystemMetrics(SM_CXSMICON) + 2 + 2;
+    int marginWidth = GetSystemMetrics(SM_CXSMICON) + CDPIAware::Instance().Scale(4);
 
     if ((m_bViewLinenumbers)&&(m_pViewData)&&(m_pViewData->GetCount()))
     {
@@ -1410,7 +1410,7 @@ int CBaseView::GetMarginWidth()
             m_nDigits = sMax.GetLength();
         }
         int nWidth = GetCharWidth();
-        marginWidth += (m_nDigits * nWidth) + 2;
+        marginWidth += (m_nDigits * nWidth) + CDPIAware::Instance().Scale(2);
     }
 
     return marginWidth;
