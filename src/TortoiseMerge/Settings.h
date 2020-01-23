@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009, 2015, 2018 - TortoiseSVN
+// Copyright (C) 2006, 2009, 2015, 2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -92,6 +92,7 @@ public:
     void SaveData();
 
     BOOL IsReloadNeeded() const;
+    bool IsDarkMode() const;
 protected:
     DECLARE_MESSAGE_MAP()
     virtual BOOL OnInitDialog();

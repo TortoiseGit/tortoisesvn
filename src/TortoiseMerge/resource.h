@@ -208,6 +208,7 @@
 #define IDC_NAME3                       1511
 #define IDC_REPLACE                     1511
 #define IDC_REPLACEALL                  1512
+#define IDC_DARKMODE                    1513
 #define IDS_TEXTIDENTICAL_MAIN          1600
 #define IDS_TEXTIDENTICAL_WHITESPACE    1601
 #define IDS_TEXTIDENTICAL_ENCODING      1602
@@ -413,9 +414,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        173
+#define _APS_NEXT_RESOURCE_VALUE        174
 #define _APS_NEXT_COMMAND_VALUE         33003
-#define _APS_NEXT_CONTROL_VALUE         1513
+#define _APS_NEXT_CONTROL_VALUE         1514
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

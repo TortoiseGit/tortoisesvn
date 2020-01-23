@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009-2010, 2014-2015, 2017-2018 - TortoiseSVN
+// Copyright (C) 2006, 2009-2010, 2014-2015, 2017-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -96,6 +96,11 @@ BOOL CSettings::IsReloadNeeded() const
     bReload = (m_pMainPage->m_bReloadNeeded || bReload);
     bReload = (m_pColorPage->m_bReloadNeeded || bReload);
     return bReload;
+}
+
+bool CSettings::IsDarkMode() const
+{
+    return (m_pColorPage->m_IsDarkMode);
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CPropertySheet)

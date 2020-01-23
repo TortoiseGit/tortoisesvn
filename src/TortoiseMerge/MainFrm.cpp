@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2019 - TortoiseSVN
+// Copyright (C) 2004-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,6 +35,10 @@
 #include "SVNHelpers.h"
 #include "SVNConfig.h"
 #include "RegexFiltersDlg.h"
+#include "Theme.h"
+#include "StringUtils.h"
+#include "Windows10Colors.h"
+#include "DarkModeHelper.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -174,7 +178,9 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_LEFTTABMODESTART, ID_INDICATOR_LEFTTABMODESTART + 19, &CMainFrame::OnUpdateTabModeLeft)
     ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_RIGHTTABMODESTART, ID_INDICATOR_RIGHTTABMODESTART + 19, &CMainFrame::OnUpdateTabModeRight)
     ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_BOTTOMTABMODESTART, ID_INDICATOR_BOTTOMTABMODESTART + 19, &CMainFrame::OnUpdateTabModeBottom)
-END_MESSAGE_MAP()
+        ON_WM_SETTINGCHANGE()
+        ON_WM_SYSCOLORCHANGE()
+        END_MESSAGE_MAP()
 
 static UINT indicators[] =
 {
@@ -219,6 +225,7 @@ CMainFrame::CMainFrame()
     , m_regUseTaskDialog(L"Software\\TortoiseMerge\\UseTaskDialog", TRUE)
     , m_regIgnoreComments(L"Software\\TortoiseMerge\\IgnoreComments", FALSE)
     , m_regexIndex(-1)
+    , m_themeCallbackId(0)
 {
     m_bOneWay = (0 != ((DWORD)m_regOneWay));
     m_bCollapsed = !!(DWORD)m_regCollapsed;
@@ -270,6 +277,14 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
             TRACE(L"Failed to load ribbon UI (%08x)\n", hr);
             return -1; // fail to create
         }
+
+        m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+            [this]()
+            {
+                SetTheme(CTheme::Instance().IsDarkTheme());
+            });
+        SetTheme(CTheme::Instance().IsDarkTheme());
+
         BuildRegexSubitems();
         if (!m_wndRibbonStatusBar.Create(this))
         {
@@ -374,6 +389,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 void CMainFrame::OnDestroy()
 {
+    CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
     if (m_pRibbonFramework)
     {
         m_pRibbonFramework->Destroy();
@@ -1247,6 +1263,80 @@ void CMainFrame::DiffTwo(const CWorkingFile& file1, const CWorkingFile& file2)
     CAppUtils::LaunchApplication(sCmd, 0, false);
 }
 
+// Implementation helper only,
+// use CTheme::Instance::SetDarkTheme to actually set the theme.
+#ifndef UI_PKEY_DarkModeRibbon
+DEFINE_UIPROPERTYKEY(UI_PKEY_DarkModeRibbon, VT_BOOL, 2004);
+DEFINE_UIPROPERTYKEY(UI_PKEY_ApplicationButtonColor, VT_UI4, 2003);
+#endif
+void CMainFrame::SetTheme(bool bDark)
+{
+    if (!m_bUseRibbons)
+        return;
+
+    SetAccentColor();
+
+    if (bDark)
+    {
+        CComPtr<IPropertyStore> spPropertyStore;
+        HRESULT                 hr = m_pRibbonFramework->QueryInterface(&spPropertyStore);
+        if (SUCCEEDED(hr))
+        {
+            DarkModeHelper::Instance().AllowDarkModeForApp(TRUE);
+            DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), TRUE);
+            PROPVARIANT propvarDarkMode;
+            InitPropVariantFromBoolean(1, &propvarDarkMode);
+            spPropertyStore->SetValue(UI_PKEY_DarkModeRibbon, propvarDarkMode);
+            spPropertyStore->Commit();
+        }
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+
+        // this is not ideal, but the office2007 black theme is better than
+        // implementing a custom status bar with proper dark theme colors...
+        CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_ObsidianBlack);
+        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2007));
+    }
+    else
+    {
+        DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), FALSE);
+        CComPtr<IPropertyStore> spPropertyStore;
+        HRESULT                 hr = m_pRibbonFramework->QueryInterface(&spPropertyStore);
+        if (SUCCEEDED(hr))
+        {
+            PROPVARIANT propvarDarkMode;
+            InitPropVariantFromBoolean(false, &propvarDarkMode);
+            spPropertyStore->SetValue(UI_PKEY_DarkModeRibbon, propvarDarkMode);
+            spPropertyStore->Commit();
+        }
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
+    }
+    ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+}
+
+void CMainFrame::SetAccentColor()
+{
+    // set the accent color for the main button
+    Win10Colors::AccentColor accentColor;
+    if (SUCCEEDED(Win10Colors::GetAccentColor(accentColor)))
+    {
+        BYTE h, s, b;
+        CTheme::RGBToHSB(accentColor.accent, h, s, b);
+        UI_HSBCOLOR aColor = UI_HSB(h, s, b);
+
+        CComPtr<IPropertyStore> spPropertyStore;
+        HRESULT                 hr = m_pRibbonFramework->QueryInterface(&spPropertyStore);
+        if (SUCCEEDED(hr))
+        {
+            PROPVARIANT propvarAccentColor;
+            InitPropVariantFromUInt32(aColor, &propvarAccentColor);
+            spPropertyStore->SetValue(UI_PKEY_ApplicationButtonColor, propvarAccentColor);
+            spPropertyStore->Commit();
+        }
+    }
+}
+
 int CMainFrame::CheckResolved()
 {
     //only in three way diffs can be conflicts!
@@ -1765,6 +1855,7 @@ void CMainFrame::OnViewOptions()
     sTemp.LoadString(IDS_SETTINGSTITLE);
     CSettings dlg(sTemp);
     dlg.DoModal();
+    CTheme::Instance().SetDarkTheme(dlg.IsDarkMode());
     if (dlg.IsReloadNeeded())
     {
         if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
@@ -2011,6 +2102,7 @@ void CMainFrame::ActivateFrame(int nCmdShow)
         // and finally, bring to top after showing
         BringToTop(nCmdShow);
     }
+    CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme());
 }
 
 BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
@@ -3583,4 +3675,18 @@ void CMainFrame::OnRegexNoFilter()
 void CMainFrame::OnUpdateRegexNoFilter(CCmdUI * pCmdUI)
 {
     pCmdUI->SetCheck(m_regexIndex < 0);
+}
+
+void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
+{
+    __super::OnSettingChange(uFlags, lpszSection);
+
+    SetAccentColor();
+}
+
+void CMainFrame::OnSysColorChange()
+{
+    __super::OnSysColorChange();
+
+    SetAccentColor();
 }
