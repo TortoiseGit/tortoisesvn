@@ -1,6 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2015, 2017 - TortoiseSVN
+// Copyright (C) 2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,8 +39,7 @@
 
 
 CPicture::CPicture()
-    : m_IPicture(NULL)
-    , m_Height(0)
+    : m_Height(0)
     , m_Weight(0)
     , m_Width(0)
     , pBitmap(NULL)
@@ -52,7 +52,6 @@ CPicture::CPicture()
     , bIsTiff(false)
     , m_nSize(0)
     , m_ColorDepth(0)
-    , hGlobal(NULL)
     , gdiplusToken(NULL)
 {
 }
@@ -69,8 +68,7 @@ void CPicture::FreePictureData()
 {
     if (m_IPicture != NULL)
     {
-        m_IPicture->Release();
-        m_IPicture = NULL;
+        m_IPicture = nullptr;
         m_Height = 0;
         m_Weight = 0;
         m_Width = 0;
@@ -267,37 +265,33 @@ bool CPicture::Load(tstring sFilePathName)
     if (!bResult)
     {
         // try WIC
-        IWICImagingFactory * pFactory = NULL;
-        HRESULT hr = CoCreateInstance(CLSID_WICImagingFactory,
-                                      NULL,
+        CComPtr<IWICImagingFactory> pFactory;
+        HRESULT                     hr = CoCreateInstance(CLSID_WICImagingFactory,
+                                      nullptr,
                                       CLSCTX_INPROC_SERVER,
                                       IID_IWICImagingFactory,
-                                      (LPVOID*)&pFactory);
+                                      reinterpret_cast<LPVOID*>(&pFactory));
 
         // Create a decoder from the file.
         if (SUCCEEDED(hr))
         {
-            IWICBitmapDecoder * pDecoder = NULL;
+            CComPtr<IWICBitmapDecoder> pDecoder;
             hr = pFactory->CreateDecoderFromFilename(m_Name.c_str(),
-                                                     NULL,
+                                                     nullptr,
                                                      GENERIC_READ,
                                                      WICDecodeMetadataCacheOnDemand,
                                                      &pDecoder);
             if (SUCCEEDED(hr))
             {
-                IWICBitmapFrameDecode * pBitmapFrameDecode = NULL;
+                CComPtr<IWICBitmapFrameDecode> pBitmapFrameDecode;
                 hr = pDecoder->GetFrame(0, &pBitmapFrameDecode);
                 if (SUCCEEDED(hr))
                 {
-                    IWICBitmapSource * pSource = NULL;
-                    pSource = pBitmapFrameDecode;
-                    pSource->AddRef();
-
-                    IWICFormatConverter * piFormatConverter = nullptr;
+                    CComPtr<IWICFormatConverter> piFormatConverter;
                     hr = pFactory->CreateFormatConverter(&piFormatConverter);
                     if (SUCCEEDED(hr))
                     {
-                        hr = piFormatConverter->Initialize(pSource, GUID_WICPixelFormat24bppBGR, WICBitmapDitherTypeNone, NULL, 0.0, WICBitmapPaletteTypeCustom);
+                        hr = piFormatConverter->Initialize(pBitmapFrameDecode, GUID_WICPixelFormat24bppBGR, WICBitmapDitherTypeNone, nullptr, 0.0, WICBitmapPaletteTypeCustom);
                         if (SUCCEEDED(hr))
                         {
                             UINT uWidth = 0;
@@ -342,15 +336,9 @@ bool CPicture::Load(tstring sFilePathName)
                                 }
                             }
                         }
-                        if (piFormatConverter)
-                            piFormatConverter->Release();
                     }
-                    pSource->Release();
-                    pBitmapFrameDecode->Release();
                 }
-                pDecoder->Release();
             }
-            pFactory->Release();
         }
     }
 
@@ -360,7 +348,7 @@ bool CPicture::Load(tstring sFilePathName)
 
         // NOTE: Currently just loading via FreeImage & using GDI+ for drawing.
         // It might be nice to remove this dependency in the future.
-        HMODULE hFreeImageLib = LoadLibrary(L"FreeImage.dll");
+        CAutoLibrary hFreeImageLib = LoadLibrary(L"FreeImage.dll");
 
         // FreeImage DLL functions
         typedef const char* (__stdcall *FreeImage_GetVersion_t)(void);
@@ -461,9 +449,6 @@ bool CPicture::Load(tstring sFilePathName)
                     }
                 }
             }
-
-            FreeLibrary(hFreeImageLib);
-            hFreeImageLib = NULL;
         }
     }
 
@@ -505,13 +490,12 @@ bool CPicture::LoadPictureData(BYTE *pBuffer, int nSize)
     memcpy(pData, pBuffer, nSize);
     GlobalUnlock(hGlobalMem);
 
-    IStream* pStream = NULL;
+    CComPtr<IStream> pStream;
 
     if ((CreateStreamOnHGlobal(hGlobalMem, true, &pStream) == S_OK) && (pStream))
     {
-        HRESULT hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, (LPVOID *)&m_IPicture);
-        pStream->Release();
-        pStream = NULL;
+        HRESULT hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, reinterpret_cast<LPVOID*>(&m_IPicture));
+        pStream    = nullptr;
 
         bResult = hr == S_OK;
     }
@@ -600,56 +584,47 @@ UINT CPicture::GetColorDepth() const
 
     // try first with WIC to get the pixel format since GDI+ often returns 32-bit even if it's not
     // Create the image factory.
-    UINT bpp = 0;
-    IWICImagingFactory * pFactory = NULL;
-    HRESULT hr = CoCreateInstance(CLSID_WICImagingFactory,
-                                  NULL,
+    UINT                        bpp = 0;
+    CComPtr<IWICImagingFactory> pFactory;
+    HRESULT                     hr = CoCreateInstance(CLSID_WICImagingFactory,
+                                  nullptr,
                                   CLSCTX_INPROC_SERVER,
                                   IID_IWICImagingFactory,
-                                  (LPVOID*)&pFactory);
+                                  reinterpret_cast<LPVOID*>(&pFactory));
 
     // Create a decoder from the file.
     if (SUCCEEDED(hr))
     {
-        IWICBitmapDecoder * pDecoder = NULL;
+        CComPtr<IWICBitmapDecoder> pDecoder;
         hr = pFactory->CreateDecoderFromFilename(m_Name.c_str(),
-                                                 NULL,
+                                                 nullptr,
                                                  GENERIC_READ,
                                                  WICDecodeMetadataCacheOnDemand,
                                                  &pDecoder);
         if (SUCCEEDED(hr))
         {
-            IWICBitmapFrameDecode * pBitmapFrameDecode = NULL;
+            CComPtr<IWICBitmapFrameDecode> pBitmapFrameDecode;
             hr = pDecoder->GetFrame(0, &pBitmapFrameDecode);
             if (SUCCEEDED(hr))
             {
-                IWICBitmapSource * pSource = NULL;
-                pSource = pBitmapFrameDecode;
-                pSource->AddRef();
                 WICPixelFormatGUID pixelFormat;
-                hr = pSource->GetPixelFormat(&pixelFormat);
+                hr = pBitmapFrameDecode->GetPixelFormat(&pixelFormat);
                 if (SUCCEEDED(hr))
                 {
-                    IWICComponentInfo * piCompInfo = NULL;
+                    CComPtr<IWICComponentInfo> piCompInfo;
                     hr = pFactory->CreateComponentInfo(pixelFormat, &piCompInfo);
                     if (SUCCEEDED(hr))
                     {
-                        IWICPixelFormatInfo * piPixelFormatInfo = NULL;
-                        hr = piCompInfo->QueryInterface(IID_IWICPixelFormatInfo, (LPVOID *)&piPixelFormatInfo);
+                        CComPtr<IWICPixelFormatInfo> piPixelFormatInfo;
+                        hr = piCompInfo->QueryInterface(IID_IWICPixelFormatInfo, reinterpret_cast<LPVOID*>(&piPixelFormatInfo));
                         if (SUCCEEDED(hr))
                         {
                             hr = piPixelFormatInfo->GetBitsPerPixel(&bpp);
-                            piPixelFormatInfo->Release();
                         }
-                        piCompInfo->Release();
                     }
-                    pSource->Release();
                 }
-                pBitmapFrameDecode->Release();
             }
-            pDecoder->Release();
         }
-        pFactory->Release();
     }
     if (bpp)
         return bpp;

@@ -1,6 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2007, 2009, 2012-2015, 2017 - TortoiseSVN
+// Copyright (C) 2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -167,10 +168,9 @@ public:
     CPicture();
     virtual ~CPicture();
 
-
     HGLOBAL     hGlobal;
 
-    IPicture* m_IPicture;   ///< Same As LPPICTURE (typedef IPicture __RPC_FAR *LPPICTURE)
+    CComPtr<IPicture> m_IPicture; ///< Same As LPPICTURE (typedef IPicture __RPC_FAR *LPPICTURE)
 
     LONG        m_Height;   ///< Height (in pixels)
     LONG        m_Width;    ///< Width (in pixels)
