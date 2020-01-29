@@ -70,21 +70,21 @@ void CPicture::FreePictureData()
         m_Width = 0;
         m_nSize = 0;
     }
-    if (hIcons)
+    if (m_hIcons)
     {
-        auto lpIconDir = reinterpret_cast<LPICONDIR>(lpIcons.get());
+        auto lpIconDir = reinterpret_cast<LPICONDIR>(m_lpIcons.get());
         if (lpIconDir)
         {
             for (int i = 0; i < lpIconDir->idCount; ++i)
             {
-                DestroyIcon(hIcons[i]);
+                DestroyIcon(m_hIcons[i]);
             }
         }
-        hIcons = NULL;
+        m_hIcons = nullptr;
     }
-    lpIcons = nullptr;
-    pBitmap = nullptr;
-    pBitmapBuffer = nullptr;
+    m_lpIcons       = nullptr;
+    m_pBitmap       = nullptr;
+    m_pBitmapBuffer = nullptr;
 }
 
 // Util function to ease loading of FreeImage library
@@ -118,7 +118,7 @@ bool CPicture::Load(tstring sFilePathName)
 {
     bool bResult = false;
     bIsIcon = false;
-    lpIcons = NULL;
+    m_lpIcons = NULL;
     //CFile PictureFile;
     //CFileException e;
     FreePictureData(); // Important - Avoid Leaks...
@@ -131,12 +131,12 @@ bool CPicture::Load(tstring sFilePathName)
     GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
     // Attempt to load using GDI+
-    pBitmap = std::make_unique<Bitmap>(sFilePathName.c_str(), FALSE);
+    auto pBitmap = std::make_unique<Bitmap>(sFilePathName.c_str(), FALSE);
     GUID guid;
     pBitmap->GetRawFormat(&guid);
 
     if (pBitmap->GetLastStatus() != Ok)
-        pBitmap = NULL;
+        pBitmap = nullptr;
 
     // gdiplus only loads the first icon found in an icon file
     // so we have to handle icon files ourselves :(
@@ -158,20 +158,13 @@ bool CPicture::Load(tstring sFilePathName)
     if (bIsIcon)
     {
         // Icon file, get special treatment...
-        if (pBitmap)
-        {
-            // Cleanup first...
-            pBitmap = NULL;
-            bIsIcon = true;
-        }
-
         CAutoFile hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
         if (hFile)
         {
             BY_HANDLE_FILE_INFORMATION fileinfo;
             if (GetFileInformationByHandle(hFile, &fileinfo))
             {
-                lpIcons = std::make_unique<BYTE[]>(fileinfo.nFileSizeLow);
+                auto lpIcons = std::make_unique<BYTE[]>(fileinfo.nFileSizeLow);
                 DWORD readbytes;
                 if (ReadFile(hFile, lpIcons.get(), fileinfo.nFileSizeLow, &readbytes, nullptr))
                 {
@@ -188,7 +181,7 @@ bool CPicture::Load(tstring sFilePathName)
                             {
                                 bResult = false;
                                 nCurrentIcon = 0;
-                                hIcons       = std::make_unique<HICON[]>(lpIconDir->idCount);
+                                auto hIcons  = std::make_unique<HICON[]>(lpIconDir->idCount);
                                 // check that the pointers point to data that we just loaded
                                 if (((BYTE*)lpIconDir->idEntries > (BYTE*)lpIconDir) &&
                                     (((BYTE*)lpIconDir->idEntries) + (lpIconDir->idCount * sizeof(ICONDIRENTRY)) < ((BYTE*)lpIconDir) + fileinfo.nFileSizeLow))
@@ -210,6 +203,11 @@ bool CPicture::Load(tstring sFilePathName)
                                             break;
                                         }
                                     }
+                                }
+                                if (bResult)
+                                {
+                                    m_lpIcons = std::move(lpIcons);
+                                    m_hIcons  = std::move(hIcons);
                                 }
                             }
                             catch (...)
@@ -241,6 +239,7 @@ bool CPicture::Load(tstring sFilePathName)
     {
         m_Height = pBitmap->GetHeight();
         m_Width = pBitmap->GetWidth();
+        m_pBitmap = std::move(pBitmap);
         bResult = true;
     }
 
@@ -295,7 +294,7 @@ bool CPicture::Load(tstring sFilePathName)
 
                                     UINT cbBufferSize = cbStride * uHeight;
                                     // note: the buffer must exist during the lifetime of the pBitmap object created below
-                                    pBitmapBuffer = std::make_unique<BYTE[]>(cbBufferSize);
+                                    auto pBitmapBuffer = std::make_unique<BYTE[]>(cbBufferSize);
 
                                     if (pBitmapBuffer != NULL)
                                     {
@@ -303,12 +302,9 @@ bool CPicture::Load(tstring sFilePathName)
                                         hr = piFormatConverter->CopyPixels(&rc, cbStride, cbStride * uHeight, pBitmapBuffer.get());
                                         if (SUCCEEDED(hr))
                                         {
-                                            pBitmap = std::make_unique<Bitmap>(uWidth, uHeight, cbStride, PixelFormat24bppRGB, pBitmapBuffer.get());
+                                            m_pBitmapBuffer = std::move(pBitmapBuffer);
+                                            m_pBitmap       = std::make_unique<Bitmap>(uWidth, uHeight, cbStride, PixelFormat24bppRGB, m_pBitmapBuffer.get());
                                             bResult = true;
-                                        }
-                                        else
-                                        {
-                                            pBitmapBuffer = nullptr;
                                         }
                                     }
                                     else
@@ -412,6 +408,7 @@ bool CPicture::Load(tstring sFilePathName)
 
                                 m_Width = width;
                                 m_Height = height;
+                                m_pBitmap = std::move(pBitmap);
                                 bResult = true;
                             }
                             else    // Failed to lock the destination Bitmap
@@ -489,12 +486,12 @@ bool CPicture::Show(HDC hDC, RECT DrawRect)
 {
     if (hDC == NULL)
         return false;
-    if (bIsIcon && lpIcons)
+    if (bIsIcon && m_lpIcons)
     {
-        ::DrawIconEx(hDC, DrawRect.left, DrawRect.top, hIcons[nCurrentIcon], DrawRect.right - DrawRect.left, DrawRect.bottom - DrawRect.top, 0, NULL, DI_NORMAL);
+        ::DrawIconEx(hDC, DrawRect.left, DrawRect.top, m_hIcons[nCurrentIcon], DrawRect.right - DrawRect.left, DrawRect.bottom - DrawRect.top, 0, nullptr, DI_NORMAL);
         return true;
     }
-    if ((m_IPicture == NULL) && (pBitmap == NULL))
+    if (!m_IPicture && !m_pBitmap)
         return false;
 
     if (m_IPicture)
@@ -518,7 +515,7 @@ bool CPicture::Show(HDC hDC, RECT DrawRect)
         if (SUCCEEDED(hr))
             return(true);
     }
-    else if (pBitmap)
+    else if (m_pBitmap)
     {
         Graphics graphics(hDC);
         graphics.SetInterpolationMode(m_ip);
@@ -527,7 +524,7 @@ bool CPicture::Show(HDC hDC, RECT DrawRect)
         ImageAttributes attr;
         attr.SetWrapMode(WrapModeTileFlipXY);
         Rect rect(DrawRect.left, DrawRect.top, DrawRect.right - DrawRect.left, DrawRect.bottom - DrawRect.top);
-        graphics.DrawImage(pBitmap.get(), rect, 0, 0, m_Width, m_Height, UnitPixel, &attr);
+        graphics.DrawImage(m_pBitmap.get(), rect, 0, 0, m_Width, m_Height, UnitPixel, &attr);
         return true;
     }
 
@@ -556,9 +553,9 @@ bool CPicture::UpdateSizeOnDC(HDC hDC)
 
 UINT CPicture::GetColorDepth() const
 {
-    if (bIsIcon && lpIcons)
+    if (bIsIcon && m_lpIcons)
     {
-        auto lpIconDir = reinterpret_cast<LPICONDIR>(lpIcons.get());
+        auto lpIconDir = reinterpret_cast<LPICONDIR>(m_lpIcons.get());
         return lpIconDir->idEntries[nCurrentIcon].wBitCount;
     }
 
@@ -642,18 +639,18 @@ UINT CPicture::GetColorDepth() const
 
 UINT CPicture::GetNumberOfFrames(int dimension)
 {
-    if (bIsIcon && lpIcons)
+    if (bIsIcon && m_lpIcons)
     {
         return 1;
     }
-    if (pBitmap == NULL)
+    if (!m_pBitmap)
         return 0;
-    UINT count = pBitmap->GetFrameDimensionsCount();
+    UINT count = m_pBitmap->GetFrameDimensionsCount();
     GUID* pDimensionIDs = (GUID*)malloc(sizeof(GUID)*count);
 
-    pBitmap->GetFrameDimensionsList(pDimensionIDs, count);
+    m_pBitmap->GetFrameDimensionsList(pDimensionIDs, count);
 
-    UINT frameCount = pBitmap->GetFrameCount(&pDimensionIDs[dimension]);
+    UINT frameCount = m_pBitmap->GetFrameCount(&pDimensionIDs[dimension]);
 
     free(pDimensionIDs);
     return frameCount;
@@ -661,32 +658,31 @@ UINT CPicture::GetNumberOfFrames(int dimension)
 
 UINT CPicture::GetNumberOfDimensions()
 {
-    if (bIsIcon && lpIcons)
+    if (bIsIcon && m_lpIcons)
     {
-        auto lpIconDir = reinterpret_cast<LPICONDIR>(lpIcons.get());
+        auto lpIconDir = reinterpret_cast<LPICONDIR>(m_lpIcons.get());
         return lpIconDir->idCount;
     }
-    return pBitmap ? pBitmap->GetFrameDimensionsCount() : 0;
+    return m_pBitmap ? m_pBitmap->GetFrameDimensionsCount() : 0;
 }
 
 long CPicture::SetActiveFrame(UINT frame)
 {
-    if (bIsIcon && lpIcons)
+    if (bIsIcon && m_lpIcons)
     {
         nCurrentIcon = frame - 1;
         m_Height = GetHeight();
         m_Width = GetWidth();
         return 0;
     }
-    if (pBitmap == NULL)
+    if (!m_pBitmap)
         return 0;
-    UINT count = 0;
-    count = pBitmap->GetFrameDimensionsCount();
+    UINT count          = m_pBitmap->GetFrameDimensionsCount();
     GUID* pDimensionIDs = (GUID*)malloc(sizeof(GUID)*count);
 
-    pBitmap->GetFrameDimensionsList(pDimensionIDs, count);
+    m_pBitmap->GetFrameDimensionsList(pDimensionIDs, count);
 
-    UINT frameCount = pBitmap->GetFrameCount(&pDimensionIDs[0]);
+    UINT frameCount = m_pBitmap->GetFrameCount(&pDimensionIDs[0]);
 
     free(pDimensionIDs);
 
@@ -696,16 +692,16 @@ long CPicture::SetActiveFrame(UINT frame)
     GUID pageGuid = FrameDimensionTime;
     if (bIsTiff)
         pageGuid = FrameDimensionPage;
-    pBitmap->SelectActiveFrame(&pageGuid, frame);
+    m_pBitmap->SelectActiveFrame(&pageGuid, frame);
 
     // Assume that the image has a property item of type PropertyItemEquipMake.
     // Get the size of that property item.
-    int nSize = pBitmap->GetPropertyItemSize(PropertyTagFrameDelay);
+    int nSize = m_pBitmap->GetPropertyItemSize(PropertyTagFrameDelay);
 
     // Allocate a buffer to receive the property item.
     PropertyItem* pPropertyItem = (PropertyItem*)malloc(nSize);
 
-    Status s = pBitmap->GetPropertyItem(PropertyTagFrameDelay, nSize, pPropertyItem);
+    Status s = m_pBitmap->GetPropertyItem(PropertyTagFrameDelay, nSize, pPropertyItem);
 
     UINT prevframe = frame;
     if (prevframe > 0)
@@ -723,29 +719,29 @@ long CPicture::SetActiveFrame(UINT frame)
 
 UINT CPicture::GetHeight() const
 {
-    if ((bIsIcon) && (lpIcons))
+    if ((bIsIcon) && (m_lpIcons))
     {
-        auto lpIconDir = reinterpret_cast<LPICONDIR>(lpIcons.get());
+        auto lpIconDir = reinterpret_cast<LPICONDIR>(m_lpIcons.get());
         return lpIconDir->idEntries[nCurrentIcon].bHeight == 0 ? 256 : lpIconDir->idEntries[nCurrentIcon].bHeight;
     }
-    return pBitmap ? pBitmap->GetHeight() : 0;
+    return m_pBitmap ? m_pBitmap->GetHeight() : 0;
 }
 
 UINT CPicture::GetWidth() const
 {
-    if ((bIsIcon) && (lpIcons))
+    if ((bIsIcon) && (m_lpIcons))
     {
-        auto lpIconDir = reinterpret_cast<LPICONDIR>(lpIcons.get());
+        auto lpIconDir = reinterpret_cast<LPICONDIR>(m_lpIcons.get());
         return lpIconDir->idEntries[nCurrentIcon].bWidth == 0 ? 256 : lpIconDir->idEntries[nCurrentIcon].bWidth;
     }
-    return pBitmap ? pBitmap->GetWidth() : 0;
+    return m_pBitmap ? m_pBitmap->GetWidth() : 0;
 }
 
 PixelFormat CPicture::GetPixelFormat() const
 {
-    if ((bIsIcon) && (lpIcons))
+    if ((bIsIcon) && (m_lpIcons))
     {
-        auto lpIconDir = reinterpret_cast<LPICONDIR>(lpIcons.get());
+        auto lpIconDir = reinterpret_cast<LPICONDIR>(m_lpIcons.get());
         if (lpIconDir->idEntries[nCurrentIcon].wPlanes == 1)
         {
             if (lpIconDir->idEntries[nCurrentIcon].wBitCount == 1)
@@ -760,5 +756,5 @@ PixelFormat CPicture::GetPixelFormat() const
             return PixelFormat32bppARGB;
         }
     }
-    return pBitmap ? pBitmap->GetPixelFormat() : 0;
+    return m_pBitmap ? m_pBitmap->GetPixelFormat() : 0;
 }
