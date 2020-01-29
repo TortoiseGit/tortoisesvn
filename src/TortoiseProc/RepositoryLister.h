@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2015 - TortoiseSVN
+// Copyright (C) 2009-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,13 +38,15 @@ struct SRepositoryInfo
     CString uuid;
     SVNRev revision;
     SVNRev peg_revision;
+    bool isSVNParentPath = false;
 
     bool operator== (const SRepositoryInfo& rhs) const
     {
         return (root == rhs.root)
             && (uuid == rhs.uuid)
             && (revision.IsEqual (rhs.revision))
-            && (peg_revision.IsEqual (rhs.peg_revision));
+            && (peg_revision.IsEqual (rhs.peg_revision))
+            && isSVNParentPath == rhs.isSVNParentPath;
     }
 
     bool operator!= (const SRepositoryInfo& rhs) const

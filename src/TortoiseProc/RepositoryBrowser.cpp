@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2019 - TortoiseSVN
+// Copyright (C) 2003-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -182,6 +182,7 @@ void CRepositoryBrowser::ConstructorInit(const SVNRev& rev)
     SecureZeroMemory(&m_arColumnWidths, sizeof(m_arColumnWidths));
     SecureZeroMemory(&m_arColumnAutoWidths, sizeof(m_arColumnAutoWidths));
     m_repository.revision = rev;
+    m_repository.isSVNParentPath = false;
     s_bSortLogical   = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
     if (s_bSortLogical)
         s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
@@ -522,6 +523,7 @@ void CRepositoryBrowser::InitRepo()
         if (!revString.IsEmpty())
             m_repository.revision = SVNRev(revString);
 
+        m_repository.isSVNParentPath = false;
         m_InitialUrl = m_InitialUrl.Left(questionMarkIndex);
     }
 
@@ -1163,7 +1165,7 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
           || root.Compare (url.Left (root.GetLength()))
           || ((url.GetAt(root.GetLength()) != '/') && ((url.GetLength() > root.GetLength()) && (url.GetAt(root.GetLength()) != '/')));
 
-    if ((LONG(rev) != LONG(m_repository.revision)) || urlHasDifferentRoot)
+    if ((LONG(rev) != LONG(m_repository.revision)) || urlHasDifferentRoot || m_repository.isSVNParentPath)
     {
         ShowText(CString(MAKEINTRESOURCE(IDS_REPOBROWSE_WAIT)), true);
 
@@ -1173,6 +1175,8 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
             m_ProjectProperties = ProjectProperties();
         m_InitialUrl = url;
         m_repository.revision = rev;
+        m_repository.isSVNParentPath = false;
+
         // if the revision changed, then invalidate everything
         m_bFetchChildren = false;
         ClearUI();
@@ -5117,6 +5121,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
         m_repository.root = m_InitialUrl;
         m_repository.revision = SVNRev::REV_HEAD;
         m_repository.peg_revision = SVNRev::REV_HEAD;
+        m_repository.isSVNParentPath = true;
 
         // insert our pseudo repo root into the tree view.
         CTreeItem * pTreeItem = new CTreeItem();
