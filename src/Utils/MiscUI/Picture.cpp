@@ -23,7 +23,6 @@
 #include <locale>
 #include <algorithm>
 #include "Picture.h"
-#include "SmartHandle.h"
 #include <memory>
 #include <atlbase.h>
 #include <Wincodec.h>
@@ -70,18 +69,7 @@ void CPicture::FreePictureData()
         m_Width = 0;
         m_nSize = 0;
     }
-    if (m_hIcons)
-    {
-        auto lpIconDir = reinterpret_cast<LPICONDIR>(m_lpIcons.get());
-        if (lpIconDir)
-        {
-            for (int i = 0; i < lpIconDir->idCount; ++i)
-            {
-                DestroyIcon(m_hIcons[i]);
-            }
-        }
-        m_hIcons = nullptr;
-    }
+    m_hIcons        = nullptr;
     m_lpIcons       = nullptr;
     m_pBitmap       = nullptr;
     m_pBitmapBuffer = nullptr;
@@ -181,7 +169,7 @@ bool CPicture::Load(tstring sFilePathName)
                             {
                                 bResult = false;
                                 nCurrentIcon = 0;
-                                auto hIcons  = std::make_unique<HICON[]>(lpIconDir->idCount);
+                                std::vector<CAutoIcon> hIcons;
                                 // check that the pointers point to data that we just loaded
                                 if (((BYTE*)lpIconDir->idEntries > (BYTE*)lpIconDir) &&
                                     (((BYTE*)lpIconDir->idEntries) + (lpIconDir->idCount * sizeof(ICONDIRENTRY)) < ((BYTE*)lpIconDir) + fileinfo.nFileSizeLow))
@@ -191,23 +179,24 @@ bool CPicture::Load(tstring sFilePathName)
                                     bResult = true;
                                     for (int i = 0; i < lpIconDir->idCount; ++i)
                                     {
-                                        hIcons[i] = (HICON)LoadImage(NULL, sFilePathName.c_str(), IMAGE_ICON,
-                                                                     lpIconDir->idEntries[i].bWidth == 0 ? 256 : lpIconDir->idEntries[i].bWidth,
-                                                                     lpIconDir->idEntries[i].bHeight == 0 ? 256 : lpIconDir->idEntries[i].bHeight,
-                                                                     LR_LOADFROMFILE);
-                                        if (hIcons[i] == NULL)
+                                        CAutoIcon hIcon = static_cast<HICON>(LoadImage(nullptr, sFilePathName.c_str(), IMAGE_ICON,
+                                                                                       lpIconDir->idEntries[i].bWidth == 0 ? 256 : lpIconDir->idEntries[i].bWidth,
+                                                                                       lpIconDir->idEntries[i].bHeight == 0 ? 256 : lpIconDir->idEntries[i].bHeight,
+                                                                                       LR_LOADFROMFILE));
+                                        if (!hIcon)
                                         {
                                             // if the icon couldn't be loaded, the data is most likely corrupt
                                             lpIcons = NULL;
                                             bResult = false;
                                             break;
                                         }
+                                        hIcons.emplace_back(std::move(hIcon));
                                     }
                                 }
                                 if (bResult)
                                 {
                                     m_lpIcons = std::move(lpIcons);
-                                    m_hIcons  = std::move(hIcons);
+                                    m_hIcons  = std::make_unique<std::vector<CAutoIcon>>(std::move(hIcons));
                                 }
                             }
                             catch (...)
@@ -488,7 +477,7 @@ bool CPicture::Show(HDC hDC, RECT DrawRect)
         return false;
     if (bIsIcon && m_lpIcons)
     {
-        ::DrawIconEx(hDC, DrawRect.left, DrawRect.top, m_hIcons[nCurrentIcon], DrawRect.right - DrawRect.left, DrawRect.bottom - DrawRect.top, 0, nullptr, DI_NORMAL);
+        ::DrawIconEx(hDC, DrawRect.left, DrawRect.top, m_hIcons.get()->at(nCurrentIcon), DrawRect.right - DrawRect.left, DrawRect.bottom - DrawRect.top, 0, nullptr, DI_NORMAL);
         return true;
     }
     if (!m_IPicture && !m_pBitmap)
