@@ -23,9 +23,9 @@
 #define INLINEADDED_COLOR                           RGB(255, 255, 150)
 #define INLINEREMOVED_COLOR                         RGB(200, 100, 100)
 #define MODIFIED_COLOR                              RGB(220, 220, 255)
-#define INLINEADDED_DARK_COLOR                      RGB(100, 100, 50)
-#define INLINEREMOVED_DARK_COLOR                    RGB(80, 20, 20)
-#define MODIFIED_DARK_COLOR                         RGB(60, 60, 83)
+#define INLINEADDED_DARK_COLOR                      RGB(120, 120, 50)
+#define INLINEREMOVED_DARK_COLOR                    RGB(100, 40, 40)
+#define MODIFIED_DARK_COLOR                         RGB(80, 80, 103)
 
 
 #define DIFFSTATE_UNKNOWN_DEFAULT_FG                ::GetSysColor(COLOR_WINDOWTEXT)
