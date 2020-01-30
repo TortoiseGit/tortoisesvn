@@ -26,6 +26,7 @@
 #include <memory>
 #include <atlbase.h>
 #include <Wincodec.h>
+#include "OnOutOfScope.h"
 
 #pragma comment(lib, "shlwapi.lib")
 #pragma comment(lib, "gdiplus.lib")
@@ -299,6 +300,7 @@ bool CPicture::TryLoadFreeImage(const tstring& sFilePathName)
     void* dib = FreeImage_Load(fileType, sFilePathName.c_str(), 0);
     if (!dib)
         return false;
+    OnOutOfScope(FreeImage_Unload(dib));
 
     unsigned width  = FreeImage_GetWidth(dib);
     unsigned height = FreeImage_GetHeight(dib);
