@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2014, 2018 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2014, 2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "ShellUpdater.h"
+#include "SmartHandle.h"
 
 IMPLEMENT_DYNAMIC(CSetOverlayIcons, ISettingsPropPage)
 CSetOverlayIcons::CSetOverlayIcons()
@@ -160,48 +161,38 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
     CImageList * pImageList = bSmallIcons ? &m_ImageList : &m_ImageListBig;
     int iconWidth = (bSmallIcons ? smallIconWidth : normalIconWidth);
     int iconHeight = (bSmallIcons ? smallIconHeight : normalIconHeight);
-    auto hNormalOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\NormalIcon.ico", iconWidth, iconHeight);
+    CAutoIcon hNormalOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\NormalIcon.ico", iconWidth, iconHeight);
     index = pImageList->Add(hNormalOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 1));
-    auto hModifiedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\ModifiedIcon.ico", iconWidth, iconHeight);
+    CAutoIcon hModifiedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\ModifiedIcon.ico", iconWidth, iconHeight);
     index = pImageList->Add(hModifiedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 2));
-    auto hConflictedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\ConflictIcon.ico", iconWidth, iconHeight);
+    CAutoIcon hConflictedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\ConflictIcon.ico", iconWidth, iconHeight);
     index = pImageList->Add(hConflictedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 3));
-    auto hReadOnlyOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\ReadOnlyIcon.ico", iconWidth, iconHeight);
+    CAutoIcon hReadOnlyOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\ReadOnlyIcon.ico", iconWidth, iconHeight);
     index = pImageList->Add(hReadOnlyOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 4));
-    auto hDeletedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\DeletedIcon.ico", iconWidth, iconHeight);
+    CAutoIcon hDeletedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\DeletedIcon.ico", iconWidth, iconHeight);
     index = pImageList->Add(hDeletedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 5));
-    auto hLockedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\LockedIcon.ico", iconWidth, iconHeight);
+    CAutoIcon hLockedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\LockedIcon.ico", iconWidth, iconHeight);
     index = pImageList->Add(hLockedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 6));
-    auto hAddedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\AddedIcon.ico", iconWidth, iconHeight);
+    CAutoIcon hAddedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\AddedIcon.ico", iconWidth, iconHeight);
     index = pImageList->Add(hAddedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 7));
-    auto hIgnoredOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\IgnoredIcon.ico", iconWidth, iconHeight);
+    CAutoIcon hIgnoredOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\IgnoredIcon.ico", iconWidth, iconHeight);
     index = pImageList->Add(hIgnoredOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 8));
-    auto hUnversionedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\UnversionedIcon.ico", iconWidth, iconHeight);
+    CAutoIcon hUnversionedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\UnversionedIcon.ico", iconWidth, iconHeight);
     index = pImageList->Add(hUnversionedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 9));
 
-    DestroyIcon(hNormalOverlay);
-    DestroyIcon(hModifiedOverlay);
-    DestroyIcon(hConflictedOverlay);
-    DestroyIcon(hReadOnlyOverlay);
-    DestroyIcon(hDeletedOverlay);
-    DestroyIcon(hLockedOverlay);
-    DestroyIcon(hAddedOverlay);
-    DestroyIcon(hIgnoredOverlay);
-    DestroyIcon(hUnversionedOverlay);
 
     // create an image list with different file icons
-    const HICON hIcon = GetFileIcon(L"Doesn't matter", bSmallIcons, FILE_ATTRIBUTE_DIRECTORY);
+    CAutoIcon hIcon = GetFileIcon(L"Doesn't matter", bSmallIcons, FILE_ATTRIBUTE_DIRECTORY);
     int folderindex = pImageList->Add(hIcon);   //folder
-    DestroyIcon(hIcon);
 
     //folders
     index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sNormal, folderindex);
@@ -254,7 +245,7 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
 }
 void CSetOverlayIcons::AddFileTypeGroup(CString sFileType, bool bSmallIcons)
 {
-    const HICON hIcon = GetFileIcon(sFileType, bSmallIcons, FILE_ATTRIBUTE_NORMAL);
+    CAutoIcon hIcon = GetFileIcon(sFileType, bSmallIcons, FILE_ATTRIBUTE_NORMAL);
 
     int imageindex = 0;
     if (bSmallIcons)
@@ -262,7 +253,6 @@ void CSetOverlayIcons::AddFileTypeGroup(CString sFileType, bool bSmallIcons)
     else
         imageindex = m_ImageListBig.Add(hIcon);
 
-    DestroyIcon(hIcon);
     int index = 0;
     index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sNormal+sFileType, imageindex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(1), TVIS_OVERLAYMASK);
