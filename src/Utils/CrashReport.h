@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2012-2014 - TortoiseSVN
 
@@ -378,8 +378,7 @@ public:
     CCrashReportTSVN(LPCTSTR appname, bool bOwnProcess = true)
         : m_nInstallStatus(0)
     {
-        ApplicationInfo appInfo;
-        SecureZeroMemory(&appInfo, sizeof(appInfo));
+        ApplicationInfo appInfo = {0};
         appInfo.ApplicationInfoSize = sizeof(ApplicationInfo);
         appInfo.ApplicationGUID = "71040f62-f78a-4953-b5b3-5c148349fed7";
         appInfo.Prefix = "tsvn";
@@ -392,8 +391,7 @@ public:
         appInfo.V[2] = TSVN_VERMICRO;
         appInfo.V[3] = TSVN_VERBUILD;
 
-        HandlerSettings handlerSettings;
-        SecureZeroMemory(&handlerSettings, sizeof(handlerSettings));
+        HandlerSettings handlerSettings = {0};
         handlerSettings.HandlerSettingsSize = sizeof(handlerSettings);
         handlerSettings.LeaveDumpFilesInTempFolder = FALSE;
         handlerSettings.UseWER = FALSE;

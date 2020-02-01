@@ -325,8 +325,7 @@ BOOL CSetOverlayIcons::OnApply()
 
 HICON CSetOverlayIcons::GetFileIcon(LPCTSTR fileType, bool bSmallIcons, DWORD attributes)
 {
-    SHFILEINFO sfi;
-    SecureZeroMemory(&sfi, sizeof sfi);
+    SHFILEINFO sfi = {0};
 
     UINT flags = SHGFI_ICON | SHGFI_USEFILEATTRIBUTES;
     if (bSmallIcons)

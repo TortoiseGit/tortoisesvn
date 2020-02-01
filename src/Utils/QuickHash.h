@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2007-2010, 2012, 2013-2015 - TortoiseSVN
 
@@ -326,8 +326,7 @@ public:
         std::unique_ptr<TPair[]> tempBuffer (new TPair[MAX_CLUSTERS * clusterSize]);
         TPair* temp = tempBuffer.get();
 
-        size_t used[MAX_CLUSTERS];
-        SecureZeroMemory(used, sizeof(used));
+        size_t used[MAX_CLUSTERS] = {0};
 
         // sort main: fill bucket chains
 

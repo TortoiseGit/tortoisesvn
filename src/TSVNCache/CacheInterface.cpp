@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // External Cache Copyright (C) 2007,2009-2012, 2014-2015 - TortoiseSVN
 
@@ -109,8 +109,7 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
         NULL))    // don't set maximum time
     {
         DWORD cbWritten;
-        TSVNCacheCommand cmd;
-        SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+        TSVNCacheCommand cmd = {0};
         cmd.command = command;
         if (path)
             wcsncpy_s(cmd.path, path, _TRUNCATE);

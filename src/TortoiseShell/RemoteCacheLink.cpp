@@ -134,8 +134,7 @@ void CRemoteCacheLink::CloseCommandPipe()
     {
         // now tell the cache we don't need it's command thread anymore
         DWORD cbWritten;
-        TSVNCacheCommand cmd;
-        SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+        TSVNCacheCommand cmd = {0};
         cmd.command = TSVNCACHECOMMAND_END;
         WriteFile(
             m_hCommandPipe,         // handle to pipe
@@ -251,8 +250,7 @@ bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
     if (m_hCommandPipe)
     {
         DWORD cbWritten;
-        TSVNCacheCommand cmd;
-        SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
+        TSVNCacheCommand cmd = {0};
         cmd.command = TSVNCACHECOMMAND_RELEASE;
         wcsncpy_s(cmd.path, path.GetDirectory().GetWinPath(), MAX_PATH - 1);
         BOOL fSuccess = WriteFile(

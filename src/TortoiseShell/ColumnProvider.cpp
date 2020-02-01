@@ -186,8 +186,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
 
         // reserve for the path + trailing \0
 
-        TCHAR buf[MAX_STATUS_STRING_LENGTH+1];
-        SecureZeroMemory(buf, sizeof(buf));
+        TCHAR buf[MAX_STATUS_STRING_LENGTH + 1] = {0};
         switch (pscid->pid)
         {
             case 0: // SVN Status
@@ -378,8 +377,7 @@ void CShellExt::SetExtraColumnStatus
 
     TCHAR urlpath[INTERNET_MAX_URL_LENGTH+1];
 
-    URL_COMPONENTS urlComponents;
-    SecureZeroMemory(&urlComponents, sizeof(URL_COMPONENTS));
+    URL_COMPONENTS urlComponents = {0};
     urlComponents.dwStructSize = sizeof(URL_COMPONENTS);
     urlComponents.dwUrlPathLength = INTERNET_MAX_URL_LENGTH;
     urlComponents.lpszUrlPath = urlpath;

@@ -54,10 +54,7 @@ BOOL CIconMenu::CreatePopupMenu()
 
 BOOL CIconMenu::SetMenuStyle(void)
 {
-    MENUINFO MenuInfo;
-
-    SecureZeroMemory(&MenuInfo, sizeof(MenuInfo));
-
+    MENUINFO MenuInfo = {0};
     MenuInfo.cbSize  = sizeof(MenuInfo);
     MenuInfo.fMask   = MIM_STYLE | MIM_APPLYTOSUBMENUS;
     MenuInfo.dwStyle = MNS_CHECKORBMP;

@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2008-2015 - TortoiseSVN
 
@@ -828,8 +828,7 @@ void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder()
 {
     // extract order of used columns from order of all columns
 
-    int order[SVNSLC_MAXCOLUMNCOUNT+1];
-    SecureZeroMemory (order, sizeof (order));
+    int order[SVNSLC_MAXCOLUMNCOUNT + 1] = {0};
 
     std::vector<int> gridColumnOrder = GetGridColumnOrder();
     std::copy (gridColumnOrder.begin(), gridColumnOrder.end(), stdext::checked_array_iterator<int*>(&order[0], sizeof(order)));

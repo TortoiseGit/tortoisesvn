@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2009-2010, 2013 - TortoiseSVN
 
@@ -45,8 +45,7 @@ inline bool CCreateProcessHelper::CreateProcess(LPCTSTR applicationName,
     LPCTSTR commandLine, LPCTSTR currentDirectory,
     LPPROCESS_INFORMATION processInfo)
 {
-    STARTUPINFO startupInfo;
-    SecureZeroMemory(&startupInfo, sizeof(STARTUPINFO));
+    STARTUPINFO startupInfo = {0};
     startupInfo.cb = sizeof(STARTUPINFO);
 
     SecureZeroMemory(processInfo, sizeof(PROCESS_INFORMATION));

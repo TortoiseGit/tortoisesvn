@@ -855,8 +855,7 @@ void MyGraph::DrawLegend(CDC& dc)
     VERIFY(fontLegend.CreatePointFont(pointFontHeight, L"Arial", &dc));
 
     // Get the height of each label.
-    LOGFONT lf;
-    ::SecureZeroMemory(&lf, sizeof(lf));
+    LOGFONT lf = {0};
     VERIFY(fontLegend.GetLogFont(&lf));
     // just in case the font height is invalid (zero), use min().
     int nLabelHeight = max(1l, abs(lf.lfHeight));
@@ -1599,9 +1598,7 @@ CPoint MyGraph::WedgeEndFromDegrees(double degrees, const CPoint& ptCenter,
                                                              bool bOnlyDrawing /* = false */ ,
                                                              UINT uiMsgAllowed /* = WM_NULL */ )
 {
-    MSG msg;
-    ::SecureZeroMemory(&msg, sizeof(msg));
-
+    MSG msg = {0};
     while (::PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {
 
         // Do painting only.

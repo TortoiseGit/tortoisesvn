@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2006, 2008-2010, 2014-2015, 2017 - TortoiseSVN
 // Copyright (C) 2017 - TortoiseGit
@@ -124,9 +124,7 @@ int CSysImageList::GetPathIconIndex(const CString & file)
 
 int CSysImageList::GetFileIcon(LPCTSTR file, DWORD attributes, UINT extraFlags)
 {
-    SHFILEINFO sfi;
-    SecureZeroMemory(&sfi, sizeof sfi);
-
+    SHFILEINFO sfi = {0};
     SHGetFileInfo(file,
                   attributes,
                   &sfi, sizeof sfi,

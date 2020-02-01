@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2012-2014 - TortoiseSVN
 
@@ -66,8 +66,7 @@ inline HRESULT GetShellVersion(
 {
     ATLENSURE(( pdwMajor != NULL) && ( pdwMinor != NULL ));
 
-    DLLVERSIONINFO dvi;
-    SecureZeroMemory(&dvi, sizeof(dvi));
+    DLLVERSIONINFO dvi = {0};
     dvi.cbSize = sizeof(dvi);
     HRESULT hRet = GetDllVersion(L"shell32.dll", &dvi);
 

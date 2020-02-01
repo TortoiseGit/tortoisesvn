@@ -647,8 +647,7 @@ hookiterator CHooks::FindItem(hooktype t, const CTSVNPathList& pathList)
 DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error, bool bWait, bool bShow)
 {
     DWORD exitcode = 0;
-    SECURITY_ATTRIBUTES sa;
-    SecureZeroMemory(&sa, sizeof(sa));
+    SECURITY_ATTRIBUTES sa = {0};
     sa.nLength = sizeof(sa);
     sa.bInheritHandle = TRUE;
 
@@ -706,17 +705,14 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
 
     // setup startup info, set std out/err handles
     // hide window
-    STARTUPINFO si;
-    SecureZeroMemory(&si, sizeof(si));
+    STARTUPINFO si = {0};
     si.cb = sizeof(si);
     si.dwFlags     = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
     si.hStdOutput  = hOut;
     si.hStdError   = hErr;
     si.wShowWindow = bShow ? SW_SHOW : SW_HIDE;
 
-    PROCESS_INFORMATION pi;
-    SecureZeroMemory(&pi, sizeof(pi));
-
+    PROCESS_INFORMATION pi = {0};
     if (!CreateProcess(NULL, cmd.GetBuffer(), NULL, NULL, TRUE, 0, NULL, curDir.IsEmpty() ? NULL : curDir.GetWinPath(), &si, &pi))
     {
         const DWORD err = GetLastError();  // preserve the CreateProcess error

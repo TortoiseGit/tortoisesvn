@@ -54,7 +54,6 @@ bool CPersonalDictionary::Load()
 
     std::ifstream File;
     char filepath[MAX_PATH + 1] = { 0 };
-    SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
     File.open(filepath);
     if (!File.good())
@@ -112,7 +111,6 @@ bool CPersonalDictionary::Save()
 
     std::ofstream File;
     char filepath[MAX_PATH + 1] = { 0 };
-    SecureZeroMemory(filepath, sizeof(filepath));
     WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
     File.open(filepath, std::ios_base::binary);
     for (std::set<CString>::iterator it = dict.begin(); it != dict.end(); ++it)

@@ -1103,8 +1103,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     int count = GetMenuItemCount(hMenu);
     for (int i=0; i<count; ++i)
     {
-        MENUITEMINFO miif;
-        SecureZeroMemory(&miif, sizeof(MENUITEMINFO));
+        MENUITEMINFO miif = {0};
         miif.cbSize = sizeof(MENUITEMINFO);
         miif.fMask = MIIM_DATA;
         miif.dwTypeData = menubuf;
@@ -1204,8 +1203,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         temp.erase(std::remove(temp.begin(), temp.end(), '&'), temp.end());
         wcscpy_s(stringtablebuffer, temp.c_str());
     }
-    MENUITEMINFO menuiteminfo;
-    SecureZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
+    MENUITEMINFO menuiteminfo = {0};
     menuiteminfo.cbSize = sizeof(menuiteminfo);
     menuiteminfo.fType = MFT_STRING;
     menuiteminfo.dwTypeData = stringtablebuffer;
@@ -2395,8 +2393,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT &idCmd, UINT idCmdFirst,
 
     if (bShowIgnoreMenu)
     {
-        MENUITEMINFO menuiteminfo;
-        SecureZeroMemory(&menuiteminfo, sizeof(menuiteminfo));
+        MENUITEMINFO menuiteminfo = {0};
         menuiteminfo.cbSize = sizeof(menuiteminfo);
         menuiteminfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
         menuiteminfo.fType = MFT_STRING;

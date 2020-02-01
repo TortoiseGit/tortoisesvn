@@ -1298,8 +1298,7 @@ void CAppUtils::SetCharFormat
     , DWORD effects
     , const std::vector<CHARRANGE>& positions)
 {
-    CHARFORMAT2 format;
-    SecureZeroMemory(&format, sizeof(CHARFORMAT2));
+    CHARFORMAT2 format = {0};
     format.cbSize = sizeof(CHARFORMAT2);
     format.dwMask = mask;
     format.dwEffects = effects;
@@ -1317,8 +1316,7 @@ void CAppUtils::SetCharFormat
 
 void CAppUtils::SetCharFormat(CWnd* window, DWORD mask, DWORD effects )
 {
-    CHARFORMAT2 format;
-    SecureZeroMemory(&format, sizeof(CHARFORMAT2));
+    CHARFORMAT2 format = {0};
     format.cbSize = sizeof(CHARFORMAT2);
     format.dwMask = mask;
     format.dwEffects = effects;

@@ -3726,8 +3726,7 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pLV
 {
     // Get the selected state of the
     // item being drawn.
-    LVITEM rItem;
-    SecureZeroMemory(&rItem, sizeof(LVITEM));
+    LVITEM rItem = {0};
     rItem.mask      = LVIF_STATE;
     rItem.iItem     = (int)pLVCD->nmcd.dwItemSpec;
     rItem.stateMask = LVIS_SELECTED | LVIS_FOCUSED;

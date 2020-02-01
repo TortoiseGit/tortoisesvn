@@ -80,8 +80,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         CFont *font = parent->GetFont();
         CString temp;
 
-        REBARINFO rbi;
-        SecureZeroMemory(&rbi, sizeof rbi);
+        REBARINFO rbi = {0};
         rbi.cbSize = sizeof rbi;
         rbi.fMask  = 0;
         rbi.himl   = (HIMAGELIST)0;
@@ -89,8 +88,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         if (!this->SetBarInfo(&rbi))
             return false;
 
-        REBARBANDINFO rbbi;
-        SecureZeroMemory(&rbbi, sizeof rbbi);
+        REBARBANDINFO rbbi = {0};
         rbbi.cbSize = REBARBANDINFO_V6_SIZE;
         rbbi.fMask  = RBBIM_TEXT | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE;
         rbbi.fStyle = RBBS_NOGRIPPER | RBBS_FIXEDBMP;

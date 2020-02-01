@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // External Cache Copyright (C) 2005-2008, 2011-2012, 2014-2015 - TortoiseSVN
 
@@ -322,8 +322,7 @@ void CDirectoryWatcher::WorkerThread()
                         break;
                     }
 
-                    DEV_BROADCAST_HANDLE NotificationFilter;
-                    SecureZeroMemory(&NotificationFilter, sizeof(NotificationFilter));
+                    DEV_BROADCAST_HANDLE NotificationFilter = {0};
                     NotificationFilter.dbch_size = sizeof(DEV_BROADCAST_HANDLE);
                     NotificationFilter.dbch_devicetype = DBT_DEVTYP_HANDLE;
                     NotificationFilter.dbch_handle = hDir;

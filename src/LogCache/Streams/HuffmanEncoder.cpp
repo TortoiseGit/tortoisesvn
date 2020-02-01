@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2007-2009, 2012, 2014 - TortoiseSVN
 
@@ -37,8 +37,7 @@ void CHuffmanEncoder::CountValues ( const unsigned char* source
     {
         // keep intermediate results
 
-        DWORD localCount[sizeof (count_block_type)][BUCKET_COUNT];
-        SecureZeroMemory (localCount, sizeof (localCount));
+        DWORD localCount[sizeof(count_block_type)][BUCKET_COUNT] = {0};
 
         // main loop
 

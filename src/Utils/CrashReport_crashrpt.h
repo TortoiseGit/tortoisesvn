@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2012-2014, 2019 - TortoiseSVN
 
@@ -184,8 +184,7 @@ public:
     //! Installs exception handlers to the caller process
     CCrashReportTSVN(LPCTSTR appname)
     {
-        CR_INSTALL_INFO info;
-        SecureZeroMemory(&info, sizeof(CR_INSTALL_INFO));
+        CR_INSTALL_INFO info = {0};
         info.cb = sizeof(CR_INSTALL_INFO);
         info.pszAppName = appname;
         info.pszAppVersion = _T(STRPRODUCTVER);

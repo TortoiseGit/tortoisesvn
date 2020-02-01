@@ -164,8 +164,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
         {
         case ShellCache::exe:
             {
-                TSVNCacheResponse itemStatus;
-                SecureZeroMemory(&itemStatus, sizeof(itemStatus));
+                TSVNCacheResponse itemStatus = {0};
                 if (m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, true))
                 {
                     status = (svn_wc_status_kind)itemStatus.m_Status;

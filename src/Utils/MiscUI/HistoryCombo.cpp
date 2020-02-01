@@ -110,8 +110,7 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
         m_arEntries.RemoveAt(m_nMaxHistoryItems);
     }
 
-    COMBOBOXEXITEM cbei;
-    SecureZeroMemory(&cbei, sizeof cbei);
+    COMBOBOXEXITEM cbei = {0};
     cbei.mask = CBEIF_TEXT;
 
     if (pos < 0)
