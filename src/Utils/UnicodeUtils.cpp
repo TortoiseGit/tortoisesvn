@@ -1,6 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2006, 2008-2013, 2015 - TortoiseSVN
+// Copyright (C) 2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -77,7 +78,7 @@ namespace
 
 CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
 {
-    int size = string.GetLength()+1;
+    int size = string.GetLength();
     CBuffer<char> buffer (4 * size);
 
     // Note: always use the Windows API function, do NOT try to implement a function that's faster.
@@ -85,12 +86,12 @@ CStringA CUnicodeUtils::GetUTF8(const CStringW& string)
     int len = WideCharToMultiByte(CP_UTF8, 0, (const wchar_t*)string, size, buffer, 4*size, 0, NULL);
     if (len == 0)
         return CStringA();
-    return CStringA (buffer, len-1);
+    return CStringA (buffer, len);
 }
 
 CString CUnicodeUtils::GetUnicode(const CStringA& string)
 {
-    int size = string.GetLength()+1;
+    int size = string.GetLength();
     CBuffer<wchar_t> buffer (2*size);
 
     // Note: always use the Windows API function, do NOT try to implement a function that's faster.
@@ -98,24 +99,24 @@ CString CUnicodeUtils::GetUnicode(const CStringA& string)
     int len = MultiByteToWideChar(CP_UTF8, 0, (const char*)string, size, buffer, 2*size);
     if (len == 0)
         return CString();
-    return CString (buffer, len-1);
+    return CString (buffer, len);
 }
 
 CString CUnicodeUtils::UTF8ToUTF16 (const std::string& string)
 {
-    int size = (int)string.length()+1;
+    int size = (int)string.length();
     CBuffer<wchar_t> buffer (2*size);
 
     int len = MultiByteToWideChar(CP_UTF8, 0, string.c_str(), size, buffer, 2*size);
     if (len==0)
         return CString();
-    return CString (buffer, len-1);
+    return CString (buffer, len);
 }
 #endif //_MFC_VER
 
 std::string CUnicodeUtils::StdGetUTF8(const std::wstring& wide)
 {
-    int size = (int)wide.length()+1;
+    int size = (int)wide.length();
     CBuffer<char> buffer (4 * size);
 
     int len = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), size, buffer, 4*size, 0, NULL);
@@ -126,18 +127,18 @@ std::string CUnicodeUtils::StdGetUTF8(const std::wstring& wide)
 
 std::wstring CUnicodeUtils::StdGetUnicode(const std::string& utf8)
 {
-    int size = (int)utf8.length()+1;
+    int size = (int)utf8.length();
     CBuffer<wchar_t> buffer (2*size);
 
     int len = MultiByteToWideChar(CP_UTF8, 0, utf8.c_str(), size, buffer, 2*size);
     if (len==0)
         return std::wstring();
-    return std::wstring (buffer, len-1);
+    return std::wstring (buffer, len);
 }
 
 std::string CUnicodeUtils::StdAnsiToUTF8( const std::string& ansi )
 {
-    int size = (int)ansi.length()+1;
+    int size = (int)ansi.length();
     CBuffer<wchar_t> buffer (2*size);
 
     int len = MultiByteToWideChar(CP_ACP, 0, ansi.c_str(), size, buffer, 2*size);
@@ -147,7 +148,7 @@ std::string CUnicodeUtils::StdAnsiToUTF8( const std::string& ansi )
     len = WideCharToMultiByte(CP_UTF8, 0, buffer, len, buffer2, 4*size, 0, NULL);
     if (len == 0)
         return ansi;
-    return std::string (buffer2, len-1);
+    return std::string (buffer2, len);
 }
 
 // load a string resource
