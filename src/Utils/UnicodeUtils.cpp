@@ -35,7 +35,8 @@ namespace
     // simple utility class that provides an efficient
     // writable string buffer. std::basic_string<> could
     // be used as well but has a less suitable interface.
-
+    // Note: using this CBuffer instead of CString.GetBuffer()
+    // is more than 20 times faster.
     template<class T> class CBuffer
     {
     private:
