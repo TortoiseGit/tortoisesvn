@@ -61,7 +61,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
     ASSERT(parent != 0);
     parent->GetWindowRect(&rect);
 
-    DWORD style = WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
+    DWORD style = WS_CHILD | WS_VISIBLE
                 | CCS_TOP | RBS_AUTOSIZE | RBS_VARHEIGHT;
 
     DWORD style_ex = WS_EX_TOOLWINDOW | WS_EX_TRANSPARENT;
