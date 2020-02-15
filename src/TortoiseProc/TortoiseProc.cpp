@@ -145,7 +145,7 @@ BOOL CTortoiseProcApp::InitInstance()
         hInst = LoadLibrary(langDll);
 
         CString sVer = _T(STRPRODUCTVER);
-        CString sFileVer = CPathUtils::GetVersionFromFile(langDll);
+        CString sFileVer = CPathUtils::GetVersionFromFile(langDll).c_str();
         if (sFileVer.Compare(sVer)!=0)
         {
             FreeLibrary(hInst);

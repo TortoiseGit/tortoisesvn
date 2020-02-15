@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2014, 2016-2018 - TortoiseSVN
+// Copyright (C) 2006-2014, 2016-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -107,7 +107,7 @@ BOOL CTortoiseMergeApp::InitInstance()
 
         hInst = LoadLibrary(langDll);
         CString sVer = _T(STRPRODUCTVER);
-        CString sFileVer = CPathUtils::GetVersionFromFile(langDll);
+        CString sFileVer = CPathUtils::GetVersionFromFile(langDll).c_str();
         if (sFileVer.Compare(sVer)!=0)
         {
             FreeLibrary(hInst);

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -113,7 +113,7 @@ BOOL CSetMainPage::OnInitDialog()
         {
             CString sVer = _T(STRPRODUCTVER);
             sVer = sVer.Left(sVer.ReverseFind('.'));
-            CString sFileVer = CPathUtils::GetVersionFromFile(file);
+            CString sFileVer = CPathUtils::GetVersionFromFile(file).c_str();
             sFileVer = sFileVer.Left(sFileVer.ReverseFind('.'));
             if (sFileVer.Compare(sVer)!=0)
                 continue;

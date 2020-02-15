@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2019 - TortoiseSVN
+// Copyright (C) 2003-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -286,6 +286,58 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
         return std::wstring(pathbuf.get(), ret);
     }
     return path;
+}
+
+std::wstring CPathUtils::GetVersionFromFile(LPCWSTR p_strFilename)
+{
+    struct TRANSARRAY
+    {
+        WORD wLanguageID;
+        WORD wCharacterSet;
+    };
+
+    std::wstring strReturn;
+    DWORD dwReserved = 0;
+    DWORD dwBufferSize = GetFileVersionInfoSize((LPWSTR)p_strFilename, &dwReserved);
+
+    if (dwBufferSize > 0)
+    {
+        auto pBuffer = std::make_unique<BYTE[]>(dwBufferSize);
+
+        if (pBuffer)
+        {
+            UINT         nInfoSize = 0,
+                nFixedLength = 0;
+            LPSTR        lpVersion = NULL;
+            VOID* lpFixedPointer;
+            TRANSARRAY* lpTransArray;
+            wchar_t      strLangProductVersion[255];
+
+            GetFileVersionInfo((LPWSTR)p_strFilename,
+                dwReserved,
+                dwBufferSize,
+                pBuffer.get());
+
+            // Check the current language
+            VerQueryValue(pBuffer.get(),
+                L"\\VarFileInfo\\Translation",
+                &lpFixedPointer,
+                &nFixedLength);
+            lpTransArray = (TRANSARRAY*)lpFixedPointer;
+
+            swprintf_s(strLangProductVersion, L"\\StringFileInfo\\%04x%04x\\ProductVersion",
+                lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
+
+            VerQueryValue(pBuffer.get(),
+                strLangProductVersion,
+                (LPVOID*)&lpVersion,
+                &nInfoSize);
+            if (nInfoSize && lpVersion)
+                strReturn = (LPCTSTR)lpVersion;
+        }
+    }
+
+    return strReturn;
 }
 
 #ifdef CSTRING_AVAILABLE
@@ -674,58 +726,6 @@ CString CPathUtils::PathUnescape (const char* path)
 
     // no escapement necessary, just unicode conversion
     return CUnicodeUtils::GetUnicode(path);
-}
-
-CString CPathUtils::GetVersionFromFile(const CString & p_strFilename)
-{
-    struct TRANSARRAY
-    {
-        WORD wLanguageID;
-        WORD wCharacterSet;
-    };
-
-    CString strReturn;
-    DWORD dwReserved = 0;
-    DWORD dwBufferSize = GetFileVersionInfoSize((LPTSTR)(LPCTSTR)p_strFilename,&dwReserved);
-
-    if (dwBufferSize > 0)
-    {
-        auto pBuffer = std::make_unique<BYTE[]>(dwBufferSize);
-
-        if (pBuffer)
-        {
-            UINT        nInfoSize = 0,
-                        nFixedLength = 0;
-            LPSTR       lpVersion = NULL;
-            VOID*       lpFixedPointer;
-            TRANSARRAY* lpTransArray;
-            CString     strLangProductVersion;
-
-            GetFileVersionInfo((LPTSTR)(LPCTSTR)p_strFilename,
-                dwReserved,
-                dwBufferSize,
-                pBuffer.get());
-
-            // Check the current language
-            VerQueryValue(  pBuffer.get(),
-                L"\\VarFileInfo\\Translation",
-                &lpFixedPointer,
-                &nFixedLength);
-            lpTransArray = (TRANSARRAY*) lpFixedPointer;
-
-            strLangProductVersion.Format(L"\\StringFileInfo\\%04x%04x\\ProductVersion",
-                lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
-
-            VerQueryValue(pBuffer.get(),
-                (LPTSTR)(LPCTSTR)strLangProductVersion,
-                (LPVOID *)&lpVersion,
-                &nInfoSize);
-            if (nInfoSize && lpVersion)
-                strReturn = (LPCTSTR)lpVersion;
-        }
-    }
-
-    return strReturn;
 }
 
 CString CPathUtils::PathPatternEscape(const CString& path)

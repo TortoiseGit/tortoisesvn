@@ -90,7 +90,7 @@ DarkModeHelper::DarkModeHelper()
         dllPath += L"\\uxtheme.dll";
         auto                      version = CPathUtils::GetVersionFromFile(L"uxtheme.dll");
         std::vector<std::wstring> tokens;
-        stringtok(tokens, (LPCWSTR)version, false, L".");
+        stringtok(tokens, version, false, L".");
         if (tokens.size() == 4)
         {
             auto major = std::stol(tokens[0]);

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2014, 2018-2019 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2014, 2018-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -49,6 +49,13 @@ public:
      */
     static std::wstring GetLongPathname(const std::wstring& path);
     static std::wstring GetLongPathname(LPCWSTR path);
+
+    /**
+     * Returns the version string from the VERSION resource of a dll or exe.
+     * \param p_strFilename path to the dll or exe
+     * \return the version string
+     */
+    static std::wstring GetVersionFromFile(LPCWSTR p_strFilename);
 
 #ifdef CSTRING_AVAILABLE
     /**
@@ -135,13 +142,6 @@ public:
      * Unescapes regexp-specific chars.
      */
     static CString PathPatternUnEscape(const CString& path);
-
-    /**
-     * Returns the version string from the VERSION resource of a dll or exe.
-     * \param p_strFilename path to the dll or exe
-     * \return the version string
-     */
-    static CString GetVersionFromFile(const CString & p_strFilename);
 
     /**
      * Combines two url parts, taking care of slashes.
