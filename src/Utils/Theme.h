@@ -17,6 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "registry.h"
 #include <string>
 #include <unordered_map>
 #include <functional>
