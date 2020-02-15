@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "Theme.h"
 #include "SimpleIni.h"
-#include "AppUtils.h"
 #include "resource.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
@@ -28,7 +27,7 @@ CTheme::CTheme()
     : m_bLoaded(false)
     , m_dark(false)
     , m_lastThemeChangeCallbackId(0)
-    , m_regDarkTheme(L"Software\\TortoiseMerge\\DarkTheme", 0)
+    , m_regDarkTheme(REGSTRING_DARKTHEME, 0) // define REGSTRING_DARKTHEME on app level as e.g. L"Software\\TortoiseMerge\\DarkTheme"
     , m_bDarkModeIsAllowed(false)
 {
 }
@@ -94,7 +93,7 @@ bool CTheme::IsDarkModeAllowed()
     m_bDarkModeIsAllowed              = false;
     auto                      version = CPathUtils::GetVersionFromFile(L"uiribbon.dll");
     std::vector<std::wstring> tokens;
-    stringtok(tokens, (LPCWSTR)version, false, L".");
+    stringtok(tokens, version, false, L".");
     if (tokens.size() == 4)
     {
         auto major = std::stol(tokens[0]);

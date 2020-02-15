@@ -70,6 +70,7 @@ using std::min;
 #define USE_GDI_GRADIENT
 
 #define XMESSAGEBOX_APPREGPATH "Software\\TortoiseMerge\\"
+#define REGSTRING_DARKTHEME L"Software\\TortoiseMerge\\DarkTheme"
 
 #include "ProfilingInfo.h"
 #include "DebugOutput.h"
