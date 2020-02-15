@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2013-2014, 2018 - TortoiseSVN
+// Copyright (C) 2003-2010, 2013-2014, 2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 
 #include <atlstr.h>
 #include <memory>
+#include <string>
 
 #ifdef UNICODE
 #define _tcswildcmp wcswildcmp
