@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2019 - TortoiseSVN
+// Copyright (C) 2003-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -470,11 +470,6 @@ void CRepositoryBarCnr::OnSize(UINT /* nType */, int cx, int cy)
 
 void CRepositoryBarCnr::DrawItem(LPDRAWITEMSTRUCT)
 {
-    // move the child control to ensure it's drawn
-    // if necessary
-    CRect rc;
-    GetClientRect(&rc);
-    m_pbarRepository->MoveWindow(48, 0, rc.Width(), rc.Height());
 }
 
 UINT CRepositoryBarCnr::OnGetDlgCode()
