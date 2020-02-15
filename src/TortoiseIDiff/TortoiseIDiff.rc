@@ -31,22 +31,39 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_TORTOISEIDIFF       ICON                    "Resources\\TortoiseIDiff.ico"
+
 IDI_OVERLAP             ICON                    "Resources\\overlap.ico"
+
 IDI_FITINWINDOW         ICON                    "Resources\\fitinwindow.ico"
+
 IDI_ORIGSIZE            ICON                    "Resources\\origsize.ico"
+
 IDI_ZOOMIN              ICON                    "Resources\\zoomin.ico"
+
 IDI_ZOOMOUT             ICON                    "Resources\\zoomout.ico"
+
 IDI_IMGINFO             ICON                    "Resources\\imginfo.ico"
+
 IDI_FORWARD             ICON                    "Resources\\player_fwd.ico"
+
 IDI_BACKWARD            ICON                    "Resources\\player_rew.ico"
+
 IDI_START               ICON                    "Resources\\player_start.ico"
+
 IDI_STOP                ICON                    "Resources\\player_stop.ico"
+
 IDI_VERTICAL            ICON                    "Resources\\vertical.ico"
+
 IDI_LINK                ICON                    "Resources\\link.ico"
+
 IDI_ALPHATOGGLE         ICON                    "Resources\\alphatoggle.ico"
+
 IDI_FITWIDTHS           ICON                    "Resources\\fitwidths.ico"
+
 IDI_BLEND               ICON                    "Resources\\blend.ico"
+
 IDI_FITHEIGHTS          ICON                    "Resources\\fitheights.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -54,7 +71,9 @@ IDI_FITHEIGHTS          ICON                    "Resources\\fitheights.ico"
 //
 
 IDC_PANCUR              CURSOR                  "..\\Resources\\pan.cur"
+
 IDC_PANDOWNCUR          CURSOR                  "..\\Resources\\pandown.cur"
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -125,6 +144,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Image info\t(I)",            ID_VIEW_IMAGEINFO
         MENUITEM "Arrange &vertical\t(V)",      ID_VIEW_ARRANGEVERTICAL
+        MENUITEM SEPARATOR
+        MENUITEM "&Dark Mode\t(D)",             ID_VIEW_DARKMODE
     END
     MENUITEM "?",                           ID_ABOUT
 END
@@ -146,6 +167,8 @@ BEGIN
         MENUITEM SEPARATOR
         MENUITEM "&Image info\t(I)",            ID_VIEW_IMAGEINFO
         MENUITEM "Arrange &vertical\t(V)",      ID_VIEW_ARRANGEVERTICAL
+        MENUITEM SEPARATOR
+        MENUITEM "&Dark Mode\t(D)",             ID_VIEW_DARKMODE
     END
     MENUITEM "?",                           ID_ABOUT
 END

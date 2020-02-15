@@ -1,6 +1,6 @@
 ﻿// TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2016, 2018-2019 - TortoiseSVN
+// Copyright (C) 2006-2016, 2018-2020 - TortoiseSVN
 // Copyright (C) 2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -25,6 +25,8 @@
 #include <memory>
 #include "../Utils/DPIAware.h"
 #include "../Utils/LoadIconEx.h"
+#include "../Utils/Theme.h"
+#include "../Utils/DarkModeHelper.h"
 
 #pragma comment(lib, "Msimg32.lib")
 #pragma comment(lib, "shell32.lib")
@@ -84,6 +86,12 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
     {
     case WM_CREATE:
         {
+            m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+                [this]()
+                {
+                    SetTheme(CTheme::Instance().IsDarkTheme());
+                });
+
             // create a slider control
             CreateTrackbar(hwnd);
             ShowWindow(m_AlphaSlider.GetWindow(), SW_HIDE);
@@ -131,6 +139,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
             SendMessage(hwndTT, TTM_SETMAXTIPWIDTH, 0, 600);
             nHSecondScrollPos = 0;
             nVSecondScrollPos = 0;
+            SetTheme(CTheme::Instance().IsDarkTheme());
         }
         break;
     case WM_SETFOCUS:
@@ -590,8 +599,8 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
         textrect.bottom += header_height;
 
     COLORREF crBk, crFg;
-    crBk = ::GetSysColor(COLOR_SCROLLBAR);
-    crFg = ::GetSysColor(COLOR_WINDOWTEXT);
+    crBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_SCROLLBAR));
+    crFg = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
     SetBkColor(hDC, crBk);
     ::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &textrect, nullptr, 0, nullptr);
 
@@ -1153,7 +1162,7 @@ void CPicWindow::FitHeights(bool bFit)
 
 void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, int scale)
 {
-    ::SetBkColor(hdc, transparentColor);
+    ::SetBkColor(hdc, CTheme::Instance().GetThemeColor(transparentColor));
     ::ExtTextOut(hdc, 0, 0, ETO_OPAQUE, &bounds, nullptr, 0, nullptr);
 
     RECT picrect;
@@ -1182,7 +1191,7 @@ void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, i
     border.right = picrect.right + bordersize;
     border.bottom = picrect.bottom + bordersize;
 
-    HPEN hPen = CreatePen(PS_SOLID, 1, GetSysColor(COLOR_3DDKSHADOW));
+    HPEN hPen = CreatePen(PS_SOLID, 1, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_3DDKSHADOW)));
     HPEN hOldPen = (HPEN)SelectObject(hdc, hPen);
     MoveToEx(hdc, border.left, border.top, nullptr);
     LineTo(hdc, border.left, border.bottom);
@@ -1216,7 +1225,7 @@ void CPicWindow::Paint(HWND hwnd)
         if ((pSecondPic)&&(m_blend != BLEND_ALPHA))
         {
             // erase the place where the alpha slider would be
-            ::SetBkColor(memDC, transparentColor);
+            ::SetBkColor(memDC, CTheme::Instance().GetThemeColor(transparentColor));
             RECT bounds = { 0, m_inforect.top - border, slider_width, m_inforect.bottom + border };
             ::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &bounds, nullptr, 0, nullptr);
         }
@@ -1235,7 +1244,7 @@ void CPicWindow::Paint(HWND hwnd)
                 if ((pSecondPic)&&(m_blend != BLEND_ALPHA))
                 {
                     // erase the place where the alpha slider would be
-                    ::SetBkColor(secondhdc, transparentColor);
+                    ::SetBkColor(secondhdc, CTheme::Instance().GetThemeColor(transparentColor));
                     RECT bounds = { 0, m_inforect.top - border, slider_width, m_inforect.bottom + border };
                     ::ExtTextOut(secondhdc, 0, 0, ETO_OPAQUE, &bounds, nullptr, 0, nullptr);
                 }
@@ -1283,7 +1292,7 @@ void CPicWindow::Paint(HWND hwnd)
             else if (bDragging && pTheOtherPic && !bLinkedPositions)
             {
                 // when dragging, show lines indicating the position of the other image
-                HPEN hPen = CreatePen(PS_SOLID, 1, GetSysColor(/*COLOR_ACTIVEBORDER*/COLOR_HIGHLIGHT));
+                HPEN hPen = CreatePen(PS_SOLID, 1, CTheme::Instance().GetThemeColor(GetSysColor(/*COLOR_ACTIVEBORDER*/COLOR_HIGHLIGHT)));
                 HPEN hOldPen = (HPEN)SelectObject(memDC, hPen);
                 int xpos = rect.left - pTheOtherPic->nHScrollPos - 1;
                 MoveToEx(memDC, xpos, rect.top, nullptr);
@@ -1315,7 +1324,7 @@ void CPicWindow::Paint(HWND hwnd)
             m_inforect.right = rect.right+sliderwidth;
             m_inforect.bottom = rect.bottom;
 
-            SetBkColor(memDC, transparentColor);
+            SetBkColor(memDC, CTheme::Instance().GetThemeColor(transparentColor));
             if (bShowInfo)
             {
                 auto infostring = std::make_unique<TCHAR[]>(8192);
@@ -1342,7 +1351,7 @@ void CPicWindow::Paint(HWND hwnd)
                 ::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &edgerect, nullptr, 0, nullptr);
                 DrawEdge(memDC, &edgerect, EDGE_BUMP, BF_RECT | BF_SOFT);
 
-                SetTextColor(memDC, GetSysColor(COLOR_WINDOWTEXT));
+                SetTextColor(memDC, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT)));
                 DrawText(memDC, infostring.get(), -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
                 SelectObject(memDC, (HGDIOBJ)hFontOld);
                 DeleteObject(hFont);
@@ -1350,8 +1359,8 @@ void CPicWindow::Paint(HWND hwnd)
         }
         else
         {
-            SetBkColor(memDC, ::GetSysColor(COLOR_WINDOW));
-            SetTextColor(memDC, ::GetSysColor(COLOR_WINDOWTEXT));
+            SetBkColor(memDC, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW)));
+            SetTextColor(memDC, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
             ::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, nullptr, 0, nullptr);
             SIZE stringsize;
             ResString str = ResString(hResource, IDS_INVALIDIMAGEINFO);
@@ -1514,7 +1523,7 @@ bool CPicWindow::HasMultipleImages()
 
 void CPicWindow::CreateTrackbar(HWND hwndParent)
 {
-    HWND hwndTrack = CreateWindowEx(
+    hwndTrack = CreateWindowEx(
         0,                                  // no extended styles
         TRACKBAR_CLASS,                     // class name
         L"Trackbar Control",             // title (caption)
@@ -1591,4 +1600,38 @@ void CPicWindow::SetZoomToHeight( long height )
         int zoom = height*100/picture.m_Height;
         SetZoom(zoom, false, true);
     }
+}
+
+void CPicWindow::SetTheme(bool bDark)
+{
+    //HWND                hwndLeftBtn;
+    //HWND                hwndRightBtn;
+    //HWND                hwndPlayBtn;
+    //HWND                hwndSelectBtn;
+
+    if (bDark)
+    {
+        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, TRUE);
+        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        if (FAILED(SetWindowTheme(*this, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(*this, L"Explorer", nullptr);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(hwndTrack, TRUE);
+        SetClassLongPtr(hwndTrack, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        if (FAILED(SetWindowTheme(hwndTrack, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(hwndTrack, L"Explorer", nullptr);
+        if (FAILED(SetWindowTheme(hwndTT, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(hwndTT, L"Explorer", nullptr);
+    }
+    else
+    {
+        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, FALSE);
+        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        SetWindowTheme(*this, L"Explorer", nullptr);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(hwndTrack, FALSE);
+        SetClassLongPtr(hwndTrack, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        SetWindowTheme(hwndTrack, L"Explorer", nullptr);
+        SetWindowTheme(hwndTT, L"Explorer", nullptr);
+    }
+
+    InvalidateRect(*this, nullptr, true);
 }

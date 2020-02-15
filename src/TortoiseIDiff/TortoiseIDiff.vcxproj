@@ -77,10 +77,10 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Utils;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Utils;..\Utils\MiscUI;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>UxTheme.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableDpiAwareness>true</EnableDpiAwareness>
@@ -88,10 +88,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Utils;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Utils;..\Utils\MiscUI;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>UxTheme.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableDpiAwareness>true</EnableDpiAwareness>
@@ -99,10 +99,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Utils;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Utils;..\Utils\MiscUI;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>UxTheme.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableDpiAwareness>true</EnableDpiAwareness>
@@ -110,10 +110,10 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\Utils;..\Utils\MiscUI;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Utils;..\Utils\MiscUI;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>UxTheme.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableDpiAwareness>true</EnableDpiAwareness>
@@ -121,14 +121,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Utils\CmdLineParser.cpp" />
+    <ClCompile Include="..\Utils\DarkModeHelper.cpp" />
     <ClCompile Include="..\Utils\LangDll.cpp" />
     <ClCompile Include="..\Utils\LoadIconEx.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BaseDialog.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BaseWindow.cpp" />
     <ClCompile Include="..\Utils\MiscUI\hyperlink_base.cpp" />
     <ClCompile Include="..\Utils\MiscUI\Picture.cpp" />
+    <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="..\Utils\Registry.cpp" />
     <ClCompile Include="..\Utils\TaskbarUUID.cpp" />
+    <ClCompile Include="..\Utils\Theme.cpp" />
     <ClCompile Include="AboutDlg.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="NiceTrackbar.cpp" />
@@ -140,6 +143,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Utils\CmdLineParser.h" />
+    <ClInclude Include="..\Utils\DarkModeHelper.h" />
     <ClInclude Include="..\Utils\DPIAware.h" />
     <ClInclude Include="..\Utils\LangDll.h" />
     <ClInclude Include="..\Utils\LoadIconEx.h" />
@@ -148,8 +152,10 @@
     <ClInclude Include="..\Utils\MiscUI\hyperlink_base.h" />
     <ClInclude Include="..\Utils\MiscUI\Picture.h" />
     <ClInclude Include="..\Utils\MiscUI\ResString.h" />
+    <ClInclude Include="..\Utils\PathUtils.h" />
     <ClInclude Include="..\Utils\registry.h" />
     <ClInclude Include="..\Utils\TaskbarUUID.h" />
+    <ClInclude Include="..\Utils\Theme.h" />
     <ClInclude Include="AboutDlg.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="NiceTrackbar.h" />

@@ -1,6 +1,6 @@
 ﻿// TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2015, 2018 - TortoiseSVN
+// Copyright (C) 2006-2015, 2018, 2020 - TortoiseSVN
 // Copyright (C) 2015-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -26,6 +26,9 @@
 #include "TaskbarUUID.h"
 #include "DPIAware.h"
 #include "LoadIconEx.h"
+#include "registry.h"
+#include "Theme.h"
+#include "DarkModeHelper.h"
 
 #pragma comment(lib, "comctl32.lib")
 
@@ -168,6 +171,11 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
     case WM_CREATE:
         {
             m_hwnd = hwnd;
+            m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+                [this]()
+                {
+                    SetTheme(CTheme::Instance().IsDarkTheme());
+                });
             picWindow1.RegisterAndCreateWindow(hwnd);
             picWindow2.RegisterAndCreateWindow(hwnd);
             if (selectionPaths.empty())
@@ -210,7 +218,17 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
             picWindow1.FitImageInWindow();
             picWindow2.FitImageInWindow();
             picWindow3.FitImageInWindow();
-        }
+
+            HMENU hMenu = GetMenu(*this);
+            UINT uCheck = MF_BYCOMMAND;
+            uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
+            uCheck |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
+            CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
+            UINT uEnabled = MF_BYCOMMAND;
+            uEnabled |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
+            EnableMenuItem(hMenu, ID_VIEW_DARKMODE, uEnabled);
+            SetTheme(CTheme::Instance().IsDarkTheme());
+    }
         break;
     case WM_COMMAND:
         {
@@ -405,6 +423,8 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
         PostQuitMessage(0);
         break;
     case WM_CLOSE:
+        CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
+        m_themeCallbackId = 0;
         ImageList_Destroy(hToolbarImgList);
         ::DestroyWindow(m_hwnd);
         break;
@@ -761,6 +781,16 @@ LRESULT CMainWindow::DoCommand(int id, LPARAM lParam)
             }
         }
         break;
+    case ID_VIEW_DARKMODE:
+        {
+            CTheme::Instance().SetDarkTheme(!CTheme::Instance().IsDarkTheme());
+
+            HMENU hMenu = GetMenu(*this);
+            UINT uCheck = MF_BYCOMMAND;
+            uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
+            CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
+        }
+        break;
     case IDM_EXIT:
         ::PostQuitMessage(0);
         return 0;
@@ -869,6 +899,34 @@ LRESULT CMainWindow::Splitter_OnLButtonDown(HWND hwnd, UINT /*iMsg*/, WPARAM /*w
 void CMainWindow::Splitter_CaptureChanged()
 {
     bDragMode = false;
+}
+
+void CMainWindow::SetTheme(bool bDark)
+{
+    if (bDark)
+    {
+        DarkModeHelper::Instance().AllowDarkModeForApp(TRUE);
+
+        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, TRUE);
+        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        if (FAILED(SetWindowTheme(*this, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(*this, L"Explorer", nullptr);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(hwndTB, TRUE);
+        //SetClassLongPtr(hwndTB, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        if (FAILED(SetWindowTheme(hwndTB, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(hwndTB, L"Explorer", nullptr);
+    }
+    else
+    {
+        DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, FALSE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(hwndTB, FALSE);
+        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        SetWindowTheme(*this, L"Explorer", nullptr);
+        //SetClassLongPtr(hwndTB, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        SetWindowTheme(hwndTB, L"Explorer", nullptr);
+    }
+    ::RedrawWindow(*this, nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
 LRESULT CMainWindow::Splitter_OnLButtonUp(HWND hwnd, UINT /*iMsg*/, WPARAM /*wParam*/, LPARAM lParam)
