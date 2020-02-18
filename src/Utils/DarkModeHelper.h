@@ -26,6 +26,12 @@ class DarkModeHelper
 public:
     static DarkModeHelper& Instance();
 
+    enum IMMERSIVE_HC_CACHE_MODE
+    {
+        IHCM_USE_CACHED_VALUE,
+        IHCM_REFRESH
+    };
+
     bool CanHaveDarkMode();
     void AllowDarkModeForApp(BOOL allow);
     void AllowDarkModeForWindow(HWND hwnd, BOOL allow);
@@ -34,6 +40,7 @@ public:
     BOOL IsDarkModeAllowedForApp();
     BOOL ShouldSystemUseDarkMode();
     void RefreshImmersiveColorPolicyState();
+    BOOL GetIsImmersiveColorUsingHighContrast(IMMERSIVE_HC_CACHE_MODE mode);
     //void FlushMenuThemes();
 
 private:
@@ -47,17 +54,19 @@ private:
     typedef BOOL(WINAPI* IsDarkModeAllowedForAppFPN)();
     typedef BOOL(WINAPI* ShouldSystemUseDarkModeFPN)();
     typedef void(WINAPI* RefreshImmersiveColorPolicyStateFN)();
+    typedef BOOL(WINAPI* GetIsImmersiveColorUsingHighContrastFN)(IMMERSIVE_HC_CACHE_MODE mode);
     //typedef void(WINAPI* FlushMenuThemesFN)();
     typedef HTHEME(WINAPI* OpenNCThemeDataFPN)(HWND hWnd, LPCWSTR pszClassList);
 
-    AllowDarkModeForAppFPN             m_pAllowDarkModeForApp              = nullptr;
-    AllowDarkModeForWindowFPN          m_pAllowDarkModeForWindow           = nullptr;
-    ShouldAppsUseDarkModeFPN           m_pShouldAppsUseDarkMode            = nullptr;
-    IsDarkModeAllowedForWindowFPN      m_pIsDarkModeAllowedForWindow       = nullptr;
-    IsDarkModeAllowedForAppFPN         m_pIsDarkModeAllowedForApp          = nullptr;
-    ShouldSystemUseDarkModeFPN         m_pShouldSystemUseDarkMode          = nullptr;
-    RefreshImmersiveColorPolicyStateFN m_pRefreshImmersiveColorPolicyState = nullptr;
+    AllowDarkModeForAppFPN                 m_pAllowDarkModeForApp                  = nullptr;
+    AllowDarkModeForWindowFPN              m_pAllowDarkModeForWindow               = nullptr;
+    ShouldAppsUseDarkModeFPN               m_pShouldAppsUseDarkMode                = nullptr;
+    IsDarkModeAllowedForWindowFPN          m_pIsDarkModeAllowedForWindow           = nullptr;
+    IsDarkModeAllowedForAppFPN             m_pIsDarkModeAllowedForApp              = nullptr;
+    ShouldSystemUseDarkModeFPN             m_pShouldSystemUseDarkMode              = nullptr;
+    RefreshImmersiveColorPolicyStateFN     m_pRefreshImmersiveColorPolicyState     = nullptr;
+    GetIsImmersiveColorUsingHighContrastFN m_pGetIsImmersiveColorUsingHighContrast = nullptr;
     //FlushMenuThemesFN                  m_pFlushMenuThemes                  = nullptr;
-    HMODULE                            m_hUxthemeLib                       = nullptr;
-    bool                               m_bCanHaveDarkMode                  = false;
+    HMODULE m_hUxthemeLib      = nullptr;
+    bool    m_bCanHaveDarkMode = false;
 };

@@ -80,6 +80,13 @@ void DarkModeHelper::RefreshImmersiveColorPolicyState()
         m_pRefreshImmersiveColorPolicyState();
 }
 
+BOOL DarkModeHelper::GetIsImmersiveColorUsingHighContrast(IMMERSIVE_HC_CACHE_MODE mode)
+{
+    if (m_pGetIsImmersiveColorUsingHighContrast)
+        return m_pGetIsImmersiveColorUsingHighContrast(mode);
+    return FALSE;
+}
+
 //void DarkModeHelper::FlushMenuThemes()
 //{
 //    if (m_pFlushMenuThemes)
@@ -134,13 +141,14 @@ DarkModeHelper::DarkModeHelper()
         // Let's just hope they change their minds and document these functions one day...
 
         // first try with the names, just in case MS decides to properly export these functions
-        m_pAllowDarkModeForApp        = (AllowDarkModeForAppFPN)GetProcAddress(m_hUxthemeLib, "AllowDarkModeForApp");
-        m_pAllowDarkModeForWindow     = (AllowDarkModeForWindowFPN)GetProcAddress(m_hUxthemeLib, "AllowDarkModeForWindow");
-        m_pShouldAppsUseDarkMode      = (ShouldAppsUseDarkModeFPN)GetProcAddress(m_hUxthemeLib, "ShouldAppsUseDarkMode");
-        m_pIsDarkModeAllowedForWindow = (IsDarkModeAllowedForWindowFPN)GetProcAddress(m_hUxthemeLib, "IsDarkModeAllowedForWindow");
-        m_pIsDarkModeAllowedForApp    = (IsDarkModeAllowedForAppFPN)GetProcAddress(m_hUxthemeLib, "IsDarkModeAllowedForApp");
-        m_pShouldSystemUseDarkMode    = (ShouldSystemUseDarkModeFPN)GetProcAddress(m_hUxthemeLib, "ShouldSystemUseDarkMode");
-        m_pRefreshImmersiveColorPolicyState = (RefreshImmersiveColorPolicyStateFN)GetProcAddress(m_hUxthemeLib, "RefreshImmersiveColorPolicyState");
+        m_pAllowDarkModeForApp                  = (AllowDarkModeForAppFPN)GetProcAddress(m_hUxthemeLib, "AllowDarkModeForApp");
+        m_pAllowDarkModeForWindow               = (AllowDarkModeForWindowFPN)GetProcAddress(m_hUxthemeLib, "AllowDarkModeForWindow");
+        m_pShouldAppsUseDarkMode                = (ShouldAppsUseDarkModeFPN)GetProcAddress(m_hUxthemeLib, "ShouldAppsUseDarkMode");
+        m_pIsDarkModeAllowedForWindow           = (IsDarkModeAllowedForWindowFPN)GetProcAddress(m_hUxthemeLib, "IsDarkModeAllowedForWindow");
+        m_pIsDarkModeAllowedForApp              = (IsDarkModeAllowedForAppFPN)GetProcAddress(m_hUxthemeLib, "IsDarkModeAllowedForApp");
+        m_pShouldSystemUseDarkMode              = (ShouldSystemUseDarkModeFPN)GetProcAddress(m_hUxthemeLib, "ShouldSystemUseDarkMode");
+        m_pRefreshImmersiveColorPolicyState     = (RefreshImmersiveColorPolicyStateFN)GetProcAddress(m_hUxthemeLib, "RefreshImmersiveColorPolicyState");
+        m_pGetIsImmersiveColorUsingHighContrast = (GetIsImmersiveColorUsingHighContrastFN)GetProcAddress(m_hUxthemeLib, "GetIsImmersiveColorUsingHighContrast");
         //m_pFlushMenuThemes = (FlushMenuThemesFN)GetProcAddress(m_hUxthemeLib, "FlushMenuThemes");
         if (m_pAllowDarkModeForApp == nullptr)
             m_pAllowDarkModeForApp = (AllowDarkModeForAppFPN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(135));
@@ -156,6 +164,8 @@ DarkModeHelper::DarkModeHelper()
             m_pShouldSystemUseDarkMode = (ShouldSystemUseDarkModeFPN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(138));
         if (m_pRefreshImmersiveColorPolicyState == nullptr)
             m_pRefreshImmersiveColorPolicyState = (RefreshImmersiveColorPolicyStateFN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(104));
+        if (m_pGetIsImmersiveColorUsingHighContrast == nullptr)
+            m_pGetIsImmersiveColorUsingHighContrast = (GetIsImmersiveColorUsingHighContrastFN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(106));
         //if (m_pFlushMenuThemes == nullptr)
         //    m_pFlushMenuThemes = (FlushMenuThemesFN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(136));
     }
