@@ -74,6 +74,18 @@ BOOL DarkModeHelper::ShouldSystemUseDarkMode()
     return FALSE;
 }
 
+void DarkModeHelper::RefreshImmersiveColorPolicyState()
+{
+    if (m_pRefreshImmersiveColorPolicyState)
+        m_pRefreshImmersiveColorPolicyState();
+}
+
+//void DarkModeHelper::FlushMenuThemes()
+//{
+//    if (m_pFlushMenuThemes)
+//        m_pFlushMenuThemes();
+//}
+
 DarkModeHelper::DarkModeHelper()
 {
     INITCOMMONCONTROLSEX used = {
@@ -128,6 +140,8 @@ DarkModeHelper::DarkModeHelper()
         m_pIsDarkModeAllowedForWindow = (IsDarkModeAllowedForWindowFPN)GetProcAddress(m_hUxthemeLib, "IsDarkModeAllowedForWindow");
         m_pIsDarkModeAllowedForApp    = (IsDarkModeAllowedForAppFPN)GetProcAddress(m_hUxthemeLib, "IsDarkModeAllowedForApp");
         m_pShouldSystemUseDarkMode    = (ShouldSystemUseDarkModeFPN)GetProcAddress(m_hUxthemeLib, "ShouldSystemUseDarkMode");
+        m_pRefreshImmersiveColorPolicyState = (RefreshImmersiveColorPolicyStateFN)GetProcAddress(m_hUxthemeLib, "RefreshImmersiveColorPolicyState");
+        //m_pFlushMenuThemes = (FlushMenuThemesFN)GetProcAddress(m_hUxthemeLib, "FlushMenuThemes");
         if (m_pAllowDarkModeForApp == nullptr)
             m_pAllowDarkModeForApp = (AllowDarkModeForAppFPN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(135));
         if (m_pAllowDarkModeForWindow == nullptr)
@@ -140,6 +154,10 @@ DarkModeHelper::DarkModeHelper()
             m_pIsDarkModeAllowedForApp = (IsDarkModeAllowedForAppFPN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(139));
         if (m_pShouldSystemUseDarkMode == nullptr)
             m_pShouldSystemUseDarkMode = (ShouldSystemUseDarkModeFPN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(138));
+        if (m_pRefreshImmersiveColorPolicyState == nullptr)
+            m_pRefreshImmersiveColorPolicyState = (RefreshImmersiveColorPolicyStateFN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(104));
+        //if (m_pFlushMenuThemes == nullptr)
+        //    m_pFlushMenuThemes = (FlushMenuThemesFN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(136));
     }
 }
 

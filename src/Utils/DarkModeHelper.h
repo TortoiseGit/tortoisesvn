@@ -33,6 +33,8 @@ public:
     BOOL IsDarkModeAllowedForWindow(HWND hwnd);
     BOOL IsDarkModeAllowedForApp();
     BOOL ShouldSystemUseDarkMode();
+    void RefreshImmersiveColorPolicyState();
+    //void FlushMenuThemes();
 
 private:
     DarkModeHelper();
@@ -44,14 +46,18 @@ private:
     typedef BOOL(WINAPI* IsDarkModeAllowedForWindowFPN)(HWND hwnd);
     typedef BOOL(WINAPI* IsDarkModeAllowedForAppFPN)();
     typedef BOOL(WINAPI* ShouldSystemUseDarkModeFPN)();
+    typedef void(WINAPI* RefreshImmersiveColorPolicyStateFN)();
+    //typedef void(WINAPI* FlushMenuThemesFN)();
     typedef HTHEME(WINAPI* OpenNCThemeDataFPN)(HWND hWnd, LPCWSTR pszClassList);
 
-    AllowDarkModeForAppFPN        m_pAllowDarkModeForApp        = nullptr;
-    AllowDarkModeForWindowFPN     m_pAllowDarkModeForWindow     = nullptr;
-    ShouldAppsUseDarkModeFPN      m_pShouldAppsUseDarkMode      = nullptr;
-    IsDarkModeAllowedForWindowFPN m_pIsDarkModeAllowedForWindow = nullptr;
-    IsDarkModeAllowedForAppFPN    m_pIsDarkModeAllowedForApp    = nullptr;
-    ShouldSystemUseDarkModeFPN    m_pShouldSystemUseDarkMode    = nullptr;
-    HMODULE                       m_hUxthemeLib                 = nullptr;
-    bool                          m_bCanHaveDarkMode            = false;
+    AllowDarkModeForAppFPN             m_pAllowDarkModeForApp              = nullptr;
+    AllowDarkModeForWindowFPN          m_pAllowDarkModeForWindow           = nullptr;
+    ShouldAppsUseDarkModeFPN           m_pShouldAppsUseDarkMode            = nullptr;
+    IsDarkModeAllowedForWindowFPN      m_pIsDarkModeAllowedForWindow       = nullptr;
+    IsDarkModeAllowedForAppFPN         m_pIsDarkModeAllowedForApp          = nullptr;
+    ShouldSystemUseDarkModeFPN         m_pShouldSystemUseDarkMode          = nullptr;
+    RefreshImmersiveColorPolicyStateFN m_pRefreshImmersiveColorPolicyState = nullptr;
+    //FlushMenuThemesFN                  m_pFlushMenuThemes                  = nullptr;
+    HMODULE                            m_hUxthemeLib                       = nullptr;
+    bool                               m_bCanHaveDarkMode                  = false;
 };
