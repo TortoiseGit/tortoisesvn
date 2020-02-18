@@ -171,11 +171,6 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
     case WM_CREATE:
         {
             m_hwnd = hwnd;
-            m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
-                [this]()
-                {
-                    SetTheme(CTheme::Instance().IsDarkTheme());
-                });
             picWindow1.RegisterAndCreateWindow(hwnd);
             picWindow2.RegisterAndCreateWindow(hwnd);
             if (selectionPaths.empty())
@@ -227,6 +222,11 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
             UINT uEnabled = MF_BYCOMMAND;
             uEnabled |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
             EnableMenuItem(hMenu, ID_VIEW_DARKMODE, uEnabled);
+            m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+                [this]()
+                {
+                    SetTheme(CTheme::Instance().IsDarkTheme());
+                });
             SetTheme(CTheme::Instance().IsDarkTheme());
     }
         break;
@@ -909,22 +909,24 @@ void CMainWindow::SetTheme(bool bDark)
 
         DarkModeHelper::Instance().AllowDarkModeForWindow(*this, TRUE);
         SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
-        if (FAILED(SetWindowTheme(*this, L"DarkMode_Explorer", nullptr)))
-            SetWindowTheme(*this, L"Explorer", nullptr);
+        //if (FAILED(SetWindowTheme(*this, L"DarkMode_Explorer", nullptr)))
+        //    SetWindowTheme(*this, L"Explorer", nullptr);
         DarkModeHelper::Instance().AllowDarkModeForWindow(hwndTB, TRUE);
         //SetClassLongPtr(hwndTB, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
         if (FAILED(SetWindowTheme(hwndTB, L"DarkMode_Explorer", nullptr)))
             SetWindowTheme(hwndTB, L"Explorer", nullptr);
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
     }
     else
     {
-        DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
-        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, FALSE);
-        DarkModeHelper::Instance().AllowDarkModeForWindow(hwndTB, FALSE);
         SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
         SetWindowTheme(*this, L"Explorer", nullptr);
         //SetClassLongPtr(hwndTB, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
         SetWindowTheme(hwndTB, L"Explorer", nullptr);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, FALSE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(hwndTB, FALSE);
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
+        DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
     }
     ::RedrawWindow(*this, nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }

@@ -54,6 +54,7 @@ bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
         ShowWindow(m_hwnd, SW_SHOW);
         UpdateWindow(m_hwnd);
         CreateButtons();
+        SetTheme(CTheme::Instance().IsDarkTheme());
         return true;
     }
     return false;
@@ -86,12 +87,6 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
     {
     case WM_CREATE:
         {
-            m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
-                [this]()
-                {
-                    SetTheme(CTheme::Instance().IsDarkTheme());
-                });
-
             // create a slider control
             CreateTrackbar(hwnd);
             ShowWindow(m_AlphaSlider.GetWindow(), SW_HIDE);
@@ -139,7 +134,11 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
             SendMessage(hwndTT, TTM_SETMAXTIPWIDTH, 0, 600);
             nHSecondScrollPos = 0;
             nVSecondScrollPos = 0;
-            SetTheme(CTheme::Instance().IsDarkTheme());
+            m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+                [this]()
+                {
+                    SetTheme(CTheme::Instance().IsDarkTheme());
+                });
         }
         break;
     case WM_SETFOCUS:
@@ -1604,11 +1603,6 @@ void CPicWindow::SetZoomToHeight( long height )
 
 void CPicWindow::SetTheme(bool bDark)
 {
-    //HWND                hwndLeftBtn;
-    //HWND                hwndRightBtn;
-    //HWND                hwndPlayBtn;
-    //HWND                hwndSelectBtn;
-
     if (bDark)
     {
         DarkModeHelper::Instance().AllowDarkModeForWindow(*this, TRUE);
@@ -1621,6 +1615,15 @@ void CPicWindow::SetTheme(bool bDark)
             SetWindowTheme(hwndTrack, L"Explorer", nullptr);
         if (FAILED(SetWindowTheme(hwndTT, L"DarkMode_Explorer", nullptr)))
             SetWindowTheme(hwndTT, L"Explorer", nullptr);
+
+        if (FAILED(SetWindowTheme(hwndLeftBtn, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(hwndLeftBtn, L"Explorer", nullptr);
+        if (FAILED(SetWindowTheme(hwndRightBtn, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(hwndRightBtn, L"Explorer", nullptr);
+        if (FAILED(SetWindowTheme(hwndPlayBtn, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(hwndPlayBtn, L"Explorer", nullptr);
+        if (FAILED(SetWindowTheme(hwndSelectBtn, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(hwndSelectBtn, L"Explorer", nullptr);
     }
     else
     {
@@ -1631,6 +1634,11 @@ void CPicWindow::SetTheme(bool bDark)
         SetClassLongPtr(hwndTrack, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
         SetWindowTheme(hwndTrack, L"Explorer", nullptr);
         SetWindowTheme(hwndTT, L"Explorer", nullptr);
+
+        SetWindowTheme(hwndLeftBtn, L"Explorer", nullptr);
+        SetWindowTheme(hwndRightBtn, L"Explorer", nullptr);
+        SetWindowTheme(hwndPlayBtn, L"Explorer", nullptr);
+        SetWindowTheme(hwndSelectBtn, L"Explorer", nullptr);
     }
 
     InvalidateRect(*this, nullptr, true);
