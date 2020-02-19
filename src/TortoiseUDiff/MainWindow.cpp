@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 // Copyright (C) 2012-2016, 2018-2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -28,7 +28,9 @@
 #include "registry.h"
 #include "DPIAware.h"
 #include "LoadIconEx.h"
-#include <VersionHelpers.h>
+#include "Theme.h"
+#include "DarkModeHelper.h"
+#include "VersionHelpers.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
@@ -39,6 +41,7 @@ CMainWindow::CMainWindow(HINSTANCE hInst, const WNDCLASSEX* wcx /* = nullptr*/)
     , m_directPointer(0)
     , m_hWndEdit(nullptr)
     , m_bMatchCase(false)
+    , m_themeCallbackId(0)
 {
     SetWindowTitle(L"TortoiseUDiff");
 }
@@ -553,6 +556,16 @@ LRESULT CMainWindow::DoCommand(int id)
             SendEditor(SCI_SETWRAPVISUALFLAGS, SC_WRAPVISUALFLAG_NONE);
         }
         break;
+    case ID_VIEW_DARKMODE:
+        {
+            CTheme::Instance().SetDarkTheme(!CTheme::Instance().IsDarkTheme());
+
+            HMENU hMenu = GetMenu(*this);
+            UINT uCheck = MF_BYCOMMAND;
+            uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
+            CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
+        }
+        break;
     default:
         break;
     };
@@ -593,6 +606,11 @@ LRESULT CMainWindow::SendEditor(UINT Msg, WPARAM wParam, LPARAM lParam)
 
 bool CMainWindow::Initialize()
 {
+    m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+        [this]()
+        {
+            SetTheme(CTheme::Instance().IsDarkTheme());
+        });
     m_hWndEdit = ::CreateWindow(
         L"Scintilla",
         L"Source",
@@ -621,11 +639,6 @@ bool CMainWindow::Initialize()
     bool enabled2d = false;
     if (IsWindows7OrGreater() && DWORD(used2d))
         enabled2d = true;
-    std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Consolas");
-    std::string fontName;
-    fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
-    SetAStyle(STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT), ::GetSysColor(COLOR_WINDOW),
-        CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10), fontName.c_str());
     SendEditor(SCI_SETTABWIDTH, CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffTabSize", 4));
     SendEditor(SCI_SETREADONLY, TRUE);
     LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)"_99999");
@@ -633,11 +646,6 @@ bool CMainWindow::Initialize()
     SendEditor(SCI_SETMARGINWIDTHN, 1);
     SendEditor(SCI_SETMARGINWIDTHN, 2);
     //Set the default windows colors for edit controls
-    SendEditor(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
-    SendEditor(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
-    SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
-    SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
-    SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
     if (enabled2d)
     {
         SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITERETAIN);
@@ -645,10 +653,134 @@ bool CMainWindow::Initialize()
     }
     SendEditor(SCI_SETVIEWWS, 1);
     SendEditor(SCI_SETWHITESPACESIZE, 2);
-    SendEditor(SCI_SETWHITESPACEFORE, true, ::GetSysColor(COLOR_3DSHADOW));
     SendEditor(SCI_STYLESETVISIBLE, STYLE_CONTROLCHAR, TRUE);
 
+    HMENU hMenu = GetMenu(*this);
+    UINT uCheck = MF_BYCOMMAND;
+    uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
+    CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
+    SetTheme(CTheme::Instance().IsDarkTheme());
     return true;
+}
+
+void CMainWindow::SetTheme(bool bDark)
+{
+    auto fontNameW = CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Consolas");
+    auto fontName  = CUnicodeUtils::StdGetUTF8(fontNameW);
+
+    if (bDark)
+    {
+        DarkModeHelper::Instance().AllowDarkModeForApp(TRUE);
+
+        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, TRUE);
+        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        if (FAILED(SetWindowTheme(*this, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(*this, L"Explorer", nullptr);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(m_hWndEdit, TRUE);
+        if (FAILED(SetWindowTheme(m_hWndEdit, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(m_hWndEdit, L"Explorer", nullptr);
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
+
+        SendEditor(SCI_STYLESETFORE, STYLE_DEFAULT, UDiffTextColorDark);
+        SendEditor(SCI_STYLESETBACK, STYLE_DEFAULT, UDiffBackColorDark);
+        SendEditor(SCI_SETSELFORE, TRUE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT)));
+        SendEditor(SCI_SETSELBACK, TRUE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHT)));
+        SendEditor(SCI_SETCARETFORE, UDiffTextColorDark);
+        SendEditor(SCI_SETWHITESPACEFORE, true, RGB(180, 180, 180));
+        SetAStyle(STYLE_DEFAULT, UDiffTextColorDark, UDiffBackColorDark,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10), fontName.c_str());
+        SetAStyle(SCE_DIFF_DEFAULT, UDiffTextColorDark, UDiffBackColorDark,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10), fontName.c_str());
+        SetAStyle(SCE_DIFF_COMMAND,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffForeCommandColor", UDIFF_COLORFORECOMMAND_DARK),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffBackCommandColor", UDIFF_COLORBACKCOMMAND_DARK));
+        SetAStyle(SCE_DIFF_POSITION,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffForePositionColor", UDIFF_COLORFOREPOSITION_DARK),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffBackPositionColor", UDIFF_COLORBACKPOSITION_DARK));
+        SetAStyle(SCE_DIFF_HEADER,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffForeHeaderColor", UDIFF_COLORFOREHEADER_DARK),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffBackHeaderColor", UDIFF_COLORBACKHEADER_DARK));
+        SetAStyle(SCE_DIFF_COMMENT,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffForeCommentColor", UDIFF_COLORFORECOMMENT_DARK),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffBackCommentColor", UDIFF_COLORBACKCOMMENT_DARK));
+        for (int style : {SCE_DIFF_ADDED, SCE_DIFF_PATCH_ADD, SCE_DIFF_PATCH_DELETE})
+        {
+            SetAStyle(style,
+                      CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffForeAddedColor", UDIFF_COLORFOREADDED_DARK),
+                      CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffBackAddedColor", UDIFF_COLORBACKADDED_DARK));
+        }
+        for (int style : {SCE_DIFF_DELETED, SCE_DIFF_REMOVED_PATCH_ADD, SCE_DIFF_REMOVED_PATCH_DELETE})
+        {
+            SetAStyle(style,
+                      CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffForeRemovedColor", UDIFF_COLORFOREREMOVED_DARK),
+                      CRegStdDWORD(L"Software\\TortoiseSVN\\DarkUDiffBackRemovedColor", UDIFF_COLORBACKREMOVED_DARK));
+        }
+
+        SendEditor(SCI_STYLESETFORE, STYLE_BRACELIGHT, RGB(0, 150, 0));
+        SendEditor(SCI_STYLESETBOLD, STYLE_BRACELIGHT, 1);
+        SendEditor(SCI_STYLESETFORE, STYLE_BRACEBAD, RGB(255, 0, 0));
+        SendEditor(SCI_STYLESETBOLD, STYLE_BRACEBAD, 1);
+        SendEditor(SCI_SETFOLDMARGINCOLOUR, true, UDiffTextColorDark);
+        SendEditor(SCI_SETFOLDMARGINHICOLOUR, true, RGB(0, 0, 0));
+        SendEditor(SCI_STYLESETFORE, STYLE_LINENUMBER, RGB(140, 140, 140));
+        SendEditor(SCI_STYLESETBACK, STYLE_LINENUMBER, UDiffBackColorDark);
+    }
+    else
+    {
+        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, FALSE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(m_hWndEdit, FALSE);
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
+        DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
+        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        SetWindowTheme(*this, L"Explorer", nullptr);
+        SetWindowTheme(m_hWndEdit, L"Explorer", nullptr);
+
+        SendEditor(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
+        SendEditor(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
+        SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
+        SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
+        SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+        SendEditor(SCI_SETWHITESPACEFORE, true, ::GetSysColor(COLOR_3DSHADOW));
+        SetAStyle(STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT), ::GetSysColor(COLOR_WINDOW),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10), fontName.c_str());
+        SetAStyle(SCE_DIFF_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT), ::GetSysColor(COLOR_WINDOW),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10), fontName.c_str());
+        SetAStyle(SCE_DIFF_COMMAND,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeCommandColor", UDIFF_COLORFORECOMMAND),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackCommandColor", UDIFF_COLORBACKCOMMAND));
+        SetAStyle(SCE_DIFF_POSITION,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForePositionColor", UDIFF_COLORFOREPOSITION),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackPositionColor", UDIFF_COLORBACKPOSITION));
+        SetAStyle(SCE_DIFF_HEADER,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeHeaderColor", UDIFF_COLORFOREHEADER),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackHeaderColor", UDIFF_COLORBACKHEADER));
+        SetAStyle(SCE_DIFF_COMMENT,
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeCommentColor", UDIFF_COLORFORECOMMENT),
+                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackCommentColor", UDIFF_COLORBACKCOMMENT));
+        for (int style : {SCE_DIFF_ADDED, SCE_DIFF_PATCH_ADD, SCE_DIFF_PATCH_DELETE})
+        {
+            SetAStyle(style,
+                      CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeAddedColor", UDIFF_COLORFOREADDED),
+                      CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackAddedColor", UDIFF_COLORBACKADDED));
+        }
+        for (int style : {SCE_DIFF_DELETED, SCE_DIFF_REMOVED_PATCH_ADD, SCE_DIFF_REMOVED_PATCH_DELETE})
+        {
+            SetAStyle(style,
+                      CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeRemovedColor", UDIFF_COLORFOREREMOVED),
+                      CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackRemovedColor", UDIFF_COLORBACKREMOVED));
+        }
+
+        SendEditor(SCI_STYLESETFORE, STYLE_BRACELIGHT, RGB(0, 150, 0));
+        SendEditor(SCI_STYLESETBOLD, STYLE_BRACELIGHT, 1);
+        SendEditor(SCI_STYLESETFORE, STYLE_BRACEBAD, RGB(255, 0, 0));
+        SendEditor(SCI_STYLESETBOLD, STYLE_BRACEBAD, 1);
+        SendEditor(SCI_SETFOLDMARGINCOLOUR, true, RGB(240, 240, 240));
+        SendEditor(SCI_SETFOLDMARGINHICOLOUR, true, RGB(255, 255, 255));
+        SendEditor(SCI_STYLESETFORE, STYLE_LINENUMBER, RGB(109, 109, 109));
+        SendEditor(SCI_STYLESETBACK, STYLE_LINENUMBER, RGB(230, 230, 230));
+    }
+
+    ::RedrawWindow(*this, nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
 bool CMainWindow::LoadFile(HANDLE hFile)
@@ -715,33 +847,7 @@ void CMainWindow::SetupWindow(bool bUTF8)
 
     SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
 
-    //SetAStyle(SCE_DIFF_DEFAULT, RGB(0, 0, 0));
-    SetAStyle(SCE_DIFF_COMMAND,
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeCommandColor", UDIFF_COLORFORECOMMAND),
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackCommandColor", UDIFF_COLORBACKCOMMAND));
-    SetAStyle(SCE_DIFF_POSITION,
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForePositionColor", UDIFF_COLORFOREPOSITION),
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackPositionColor", UDIFF_COLORBACKPOSITION));
-    SetAStyle(SCE_DIFF_HEADER,
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeHeaderColor", UDIFF_COLORFOREHEADER),
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackHeaderColor", UDIFF_COLORBACKHEADER));
-    SetAStyle(SCE_DIFF_COMMENT,
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeCommentColor", UDIFF_COLORFORECOMMENT),
-              CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackCommentColor", UDIFF_COLORBACKCOMMENT));
     SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);
-
-    for (int style : { SCE_DIFF_ADDED, SCE_DIFF_PATCH_ADD, SCE_DIFF_PATCH_DELETE })
-    {
-        SetAStyle(style,
-                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeAddedColor", UDIFF_COLORFOREADDED),
-                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackAddedColor", UDIFF_COLORBACKADDED));
-    }
-    for (int style : { SCE_DIFF_DELETED, SCE_DIFF_REMOVED_PATCH_ADD, SCE_DIFF_REMOVED_PATCH_DELETE })
-    {
-        SetAStyle(style,
-                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffForeRemovedColor", UDIFF_COLORFOREREMOVED),
-                  CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffBackRemovedColor", UDIFF_COLORBACKREMOVED));
-    }
 
     SendEditor(SCI_SETLEXER, SCLEX_DIFF);
     SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)"revision");

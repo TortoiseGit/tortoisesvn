@@ -32,6 +32,7 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_CANCELNORMAL        ICON                    "..\\Resources\\cancel-normal.ico"
+
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -51,6 +52,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_TORTOISEUDIFF       ICON                    "TortoiseUDiff.ico"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -88,6 +90,7 @@ BEGIN
         MENUITEM "&Print\t(Ctrl+P)",            ID_FILE_PRINT
         MENUITEM SEPARATOR
         MENUITEM "Se&ttings",                   ID_FILE_SETTINGS
+        MENUITEM "&Dark Mode\t(D)",             ID_VIEW_DARKMODE
         MENUITEM SEPARATOR
         MENUITEM "&Find\t(Ctrl+F)",             IDM_SHOWFINDBAR
         MENUITEM "Apply &Patch...",             ID_FILE_APPLYPATCH

@@ -32,6 +32,7 @@ using std::min;
 #define COMMITMONITOR_FINDEXIT          (WM_APP+3)
 #define COMMITMONITOR_FINDRESET         (WM_APP+4)
 
+#define REGSTRING_DARKTHEME L"Software\\TortoiseSVN\\UDiffDarkTheme"
 
 
 #ifdef _WIN64
