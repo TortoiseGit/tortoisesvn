@@ -1,6 +1,6 @@
 ﻿// TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2010, 2012-2014, 2017-2018 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2014, 2017-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -110,6 +110,9 @@ public:
 
     void SetSelectedLine(LONG line) { m_selectedLine=line;};
 
+    void SetTheme(bool bDark);
+
+    int                         m_themeCallbackId;
     LONG                        m_mouseRev;
     tstring                     m_mouseAuthor;
     LONG                        m_selectedRev;
@@ -176,6 +179,10 @@ protected:
     CRegStdDWORD                m_regNewLinesColor;
     CRegStdDWORD                m_regLocatorOldLinesColor;
     CRegStdDWORD                m_regLocatorNewLinesColor;
+    CRegStdDWORD                m_regDarkOldLinesColor;
+    CRegStdDWORD                m_regDarkNewLinesColor;
+    CRegStdDWORD                m_regDarkLocatorOldLinesColor;
+    CRegStdDWORD                m_regDarkLocatorNewLinesColor;
     CRegStdDWORD                m_regcolorby;
 
 private:

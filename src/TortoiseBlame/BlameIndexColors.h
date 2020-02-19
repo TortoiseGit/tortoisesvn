@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012 - TortoiseSVN
+// Copyright (C) 2012, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,6 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+
+const COLORREF BlameTextColorDark = RGB(240, 240, 240);
+const COLORREF BlameBackColorDark = RGB(30, 30, 30);
 
 #define MAX_BLAMECOLORS 12
 
@@ -38,3 +41,7 @@
 #define BLAMENEWCOLORBAR  RGB(255,255,0)
 #define BLAMEOLDCOLORBAR  RGB(255,255,255)
 
+#define DARKBLAMENEWCOLOR     RGB(80,80,0)
+#define DARKBLAMEOLDCOLOR     BlameBackColorDark
+#define DARKBLAMENEWCOLORBAR  RGB(80,80,0)
+#define DARKBLAMEOLDCOLORBAR  BlameBackColorDark

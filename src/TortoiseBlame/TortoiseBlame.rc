@@ -48,6 +48,8 @@ BEGIN
         MENUITEM "Color by au&thor",            ID_VIEW_COLORBYAUTHOR
         MENUITEM SEPARATOR
         MENUITEM "&Merge paths",                ID_VIEW_MERGEPATH
+        MENUITEM SEPARATOR
+        MENUITEM "&Dark Mode",                  ID_VIEW_DARKMODE
     END
 END
 

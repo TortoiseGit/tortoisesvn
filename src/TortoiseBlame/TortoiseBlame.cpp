@@ -1,6 +1,6 @@
 ﻿// TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2019 - TortoiseSVN
+// Copyright (C) 2003-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,6 +30,8 @@
 #include "DebugOutput.h"
 #include "DPIAware.h"
 #include "LoadIconEx.h"
+#include "Theme.h"
+#include "DarkModeHelper.h"
 
 #include <algorithm>
 #include <cctype>
@@ -45,7 +47,6 @@
 #define COLORBYAGE      1
 #define COLORBYAGECONT  2
 #define COLORBYAUTHOR   3
-
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 #pragma comment(lib, "Shlwapi.lib")
@@ -106,6 +107,7 @@ TortoiseBlame::TortoiseBlame()
     , m_directFunction(0)
     , m_lowestRev(LONG_MAX)
     , m_highestRev(0)
+    , m_themeCallbackId(0)
 {
     m_szTip[0]      = 0;
     m_wszTip[0]     = 0;
@@ -125,10 +127,7 @@ TortoiseBlame::TortoiseBlame()
     m_regcolorby    = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameColorBy",  COLORBYAGE);
     m_colorby       = m_regcolorby;
 
-    m_mouseRevColor = InterColor(m_windowColor, m_textColor, 20);
-    m_mouseAuthorColor = InterColor(m_windowColor, m_textColor, 10);
-    m_selectedRevColor = GetSysColor(COLOR_HIGHLIGHT);
-    m_selectedAuthorColor = InterColor(m_selectedRevColor, m_textHighLightColor, 35);
+    SetupColoring();
     SecureZeroMemory(&m_fr, sizeof(m_fr));
 
     NONCLIENTMETRICS metrics = { 0 };
@@ -711,11 +710,11 @@ void TortoiseBlame::InitialiseEditor()
     SendEditor(SCI_SETMARGINWIDTHN, 1);
     SendEditor(SCI_SETMARGINWIDTHN, 2);
     //Set the default windows colors for edit controls
-    SendEditor(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
-    SendEditor(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
-    SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
-    SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
-    SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+    SendEditor(SCI_STYLESETFORE, STYLE_DEFAULT, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+    SendEditor(SCI_STYLESETBACK, STYLE_DEFAULT, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW)));
+    SendEditor(SCI_SETSELFORE, TRUE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT)));
+    SendEditor(SCI_SETSELBACK, TRUE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHT)));
+    SendEditor(SCI_SETCARETFORE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
     if (enabled2d)
     {
         SendEditor(SCI_SETTECHNOLOGY, SC_TECHNOLOGY_DIRECTWRITERETAIN);
@@ -725,6 +724,11 @@ void TortoiseBlame::InitialiseEditor()
     m_regNewLinesColor = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameNewColor", BLAMENEWCOLOR);
     m_regLocatorOldLinesColor = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameLocatorOldColor", BLAMEOLDCOLORBAR);
     m_regLocatorNewLinesColor = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameLocatorNewColor", BLAMENEWCOLORBAR);
+
+    m_regDarkOldLinesColor = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameOldColorDark", DARKBLAMEOLDCOLOR);
+    m_regDarkNewLinesColor = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameNewColorDark", DARKBLAMENEWCOLOR);
+    m_regDarkLocatorOldLinesColor = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameLocatorOldColorDark", DARKBLAMEOLDCOLORBAR);
+    m_regDarkLocatorNewLinesColor = CRegStdDWORD(L"Software\\TortoiseSVN\\BlameLocatorNewColorDark", DARKBLAMENEWCOLORBAR);
 }
 
 void TortoiseBlame::SelectLine(int yPos, bool bAlwaysSelect) const
@@ -1311,6 +1315,17 @@ void TortoiseBlame::Command(int id)
             m_blameWidth = 0;
             InitSize();
         }
+        break;
+    case ID_VIEW_DARKMODE:
+        {
+            CTheme::Instance().SetDarkTheme(!CTheme::Instance().IsDarkTheme());
+
+            HMENU hMenu = GetMenu(wMain);
+            UINT uCheck = MF_BYCOMMAND;
+            uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
+            CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
+        }
+        break;
     default:
         break;
     };
@@ -1367,6 +1382,83 @@ INT_PTR CALLBACK TortoiseBlame::GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wPar
         break;
     }
     return FALSE;
+}
+
+void TortoiseBlame::SetTheme(bool bDark)
+{
+    std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Consolas");
+    std::string fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
+    if (bDark)
+    {
+        DarkModeHelper::Instance().AllowDarkModeForApp(TRUE);
+
+        SetClassLongPtr(wMain, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        SetClassLongPtr(wHeader, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+
+        auto controls = {wMain, wEditor, wBlame, wHeader, wLocator, hwndTT};
+        for (auto& wnd : controls)
+        {
+            DarkModeHelper::Instance().AllowDarkModeForWindow(wnd, TRUE);
+            if (FAILED(SetWindowTheme(wnd, L"DarkMode_Explorer", nullptr)))
+                SetWindowTheme(wnd, L"Explorer", nullptr);
+        }
+
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
+        SetupColoring();
+
+        for (int c = 0; c <= STYLE_DEFAULT; ++c)
+        {
+            SendEditor(SCI_STYLESETFORE, c, BlameTextColorDark);
+            SendEditor(SCI_STYLESETBACK, c, BlameBackColorDark);
+        }
+        SendEditor(SCI_SETSELFORE, TRUE, CTheme::Instance().GetThemeColor(RGB(0, 0, 0)));
+        SendEditor(SCI_SETSELBACK, TRUE, CTheme::Instance().GetThemeColor(RGB(51, 153, 255)));
+        SendEditor(SCI_SETCARETFORE, BlameTextColorDark);
+        SendEditor(SCI_SETWHITESPACEFORE, true, RGB(180, 180, 180));
+        SendEditor(SCI_STYLESETFORE, STYLE_BRACELIGHT, RGB(0, 150, 0));
+        SendEditor(SCI_STYLESETBOLD, STYLE_BRACELIGHT, 1);
+        SendEditor(SCI_STYLESETFORE, STYLE_BRACEBAD, RGB(255, 0, 0));
+        SendEditor(SCI_STYLESETBOLD, STYLE_BRACEBAD, 1);
+        SendEditor(SCI_SETFOLDMARGINCOLOUR, true, BlameTextColorDark);
+        SendEditor(SCI_SETFOLDMARGINHICOLOUR, true, RGB(0, 0, 0));
+        SendEditor(SCI_STYLESETFORE, STYLE_LINENUMBER, RGB(140, 140, 140));
+        SendEditor(SCI_STYLESETBACK, STYLE_LINENUMBER, BlameBackColorDark);
+    }
+    else
+    {
+        SetClassLongPtr(wMain, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        SetClassLongPtr(wHeader, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+
+        auto controls = {wMain, wEditor, wBlame, wHeader, wLocator, hwndTT};
+        for (auto& wnd : controls)
+        {
+            DarkModeHelper::Instance().AllowDarkModeForWindow(wnd, FALSE);
+            SetWindowTheme(wnd, L"Explorer", nullptr);
+        }
+
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
+        DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
+        SetupColoring();
+
+        for (int c = 0; c <= STYLE_DEFAULT; ++c)
+        {
+            SendEditor(SCI_STYLESETFORE, c, ::GetSysColor(COLOR_WINDOWTEXT));
+            SendEditor(SCI_STYLESETBACK, c, ::GetSysColor(COLOR_WINDOW));
+        }
+        SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
+        SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
+        SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+        SendEditor(SCI_SETWHITESPACEFORE, true, ::GetSysColor(COLOR_3DSHADOW));
+        SendEditor(SCI_STYLESETFORE, STYLE_BRACELIGHT, RGB(0, 150, 0));
+        SendEditor(SCI_STYLESETBOLD, STYLE_BRACELIGHT, 1);
+        SendEditor(SCI_STYLESETFORE, STYLE_BRACEBAD, RGB(255, 0, 0));
+        SendEditor(SCI_STYLESETBOLD, STYLE_BRACEBAD, 1);
+        SendEditor(SCI_SETFOLDMARGINCOLOUR, true, RGB(240, 240, 240));
+        SendEditor(SCI_SETFOLDMARGINHICOLOUR, true, RGB(255, 255, 255));
+        SendEditor(SCI_STYLESETFORE, STYLE_LINENUMBER, RGB(109, 109, 109));
+        SendEditor(SCI_STYLESETBACK, STYLE_LINENUMBER, RGB(230, 230, 230));
+    }
+    ::RedrawWindow(wMain, nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
 LONG TortoiseBlame::GetBlameWidth()
@@ -1560,8 +1652,8 @@ void TortoiseBlame::DrawHeader(HDC hDC)
     RECT rc;
     HFONT oldfont = (HFONT)::SelectObject(hDC, m_uiFont);
     GetClientRect(wHeader, &rc);
-    ::SetBkColor(hDC, ::GetSysColor(COLOR_BTNFACE));
-
+    ::SetBkColor(hDC, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE)));
+    ::SetTextColor(hDC, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
     RECT edgerc = rc;
     edgerc.bottom = edgerc.top + CDPIAware::Instance().Scale(HEADER_HEIGHT) /2;
     DrawEdge(hDC, &edgerc, EDGE_BUMP, BF_FLAT|BF_RECT|BF_ADJUST);
@@ -1632,7 +1724,7 @@ void TortoiseBlame::DrawLocatorBar(HDC hDC)
     LONG_PTR line = SendEditor(SCI_GETFIRSTVISIBLELINE);
     LONG_PTR linesonscreen = SendEditor(SCI_LINESONSCREEN);
     LONG_PTR Y = 0;
-    COLORREF blackColor = GetSysColor(COLOR_WINDOWTEXT);
+    COLORREF blackColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
 
     RECT rc;
     GetClientRect(wLocator, &rc);
@@ -2030,6 +2122,20 @@ BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
 
    uFindReplaceMsg = RegisterWindowMessage(FINDMSGSTRING);
 
+   HMENU hMenu = GetMenu(app.wMain);
+   UINT uCheck = MF_BYCOMMAND;
+   uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
+   CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
+   UINT uEnabled = MF_BYCOMMAND;
+   uEnabled |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
+   EnableMenuItem(hMenu, ID_VIEW_DARKMODE, uEnabled);
+   app.m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+       [&]()
+       {
+           app.SetTheme(CTheme::Instance().IsDarkTheme());
+       });
+   app.SetTheme(CTheme::Instance().IsDarkTheme());
+
    return TRUE;
 }
 
@@ -2069,26 +2175,54 @@ COLORREF TortoiseBlame::GetLineColor(Sci_Position line, bool bLocatorBar)
 {
     switch (m_colorby)
     {
-    case COLORBYAGE:
-        return m_revcolormap[m_revs[line]];
+        case COLORBYAGE:
+            return m_revcolormap[m_revs[line]];
+            break;
+        case COLORBYAGECONT:
+        {
+            if (bLocatorBar)
+            {
+                COLORREF newCol = CTheme::Instance().IsDarkTheme() ? DWORD(m_regDarkLocatorNewLinesColor) : DWORD(m_regLocatorNewLinesColor);
+                COLORREF oldCol = CTheme::Instance().IsDarkTheme() ? DWORD(m_regDarkLocatorOldLinesColor) : DWORD(m_regLocatorOldLinesColor);
+                return InterColor(oldCol, newCol, (m_revs[line] - m_lowestRev) * 100 / ((m_highestRev - m_lowestRev) + 1));
+            }
+            else
+            {
+                COLORREF newCol = CTheme::Instance().IsDarkTheme() ? DWORD(m_regDarkNewLinesColor) : DWORD(m_regNewLinesColor);
+                COLORREF oldCol = CTheme::Instance().IsDarkTheme() ? DWORD(m_regDarkOldLinesColor) : DWORD(m_regOldLinesColor);
+                return InterColor(oldCol, newCol, (m_revs[line] - m_lowestRev) * 100 / ((m_highestRev - m_lowestRev) + 1));
+            }
+        }
         break;
-    case COLORBYAGECONT:
-        if (bLocatorBar)
-            return InterColor(DWORD(m_regLocatorOldLinesColor), DWORD(m_regLocatorNewLinesColor), (m_revs[line]-m_lowestRev)*100/((m_highestRev-m_lowestRev)+1));
-        else
-            return InterColor(DWORD(m_regOldLinesColor), DWORD(m_regNewLinesColor), (m_revs[line]-m_lowestRev)*100/((m_highestRev-m_lowestRev)+1));
-        break;
-    case COLORBYAUTHOR:
-        return m_authorcolormap[m_authors[line]];
-        break;
-    case COLORBYNONE:
-    default:
-        return m_windowColor;
+        case COLORBYAUTHOR:
+            return m_authorcolormap[m_authors[line]];
+            break;
+        case COLORBYNONE:
+        default:
+            return m_windowColor;
     }
 }
 
 void TortoiseBlame::SetupColoring()
 {
+    m_windowColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW));
+    m_textColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+    if (CTheme::Instance().IsDarkTheme())
+    {
+        m_textHighLightColor = m_textColor;
+        m_selectedRevColor = RGB(0, 30, 80);
+        m_selectedAuthorColor = InterColor(m_selectedRevColor, m_textHighLightColor, 15);
+    }
+    else
+    {
+        m_textHighLightColor = GetSysColor(COLOR_HIGHLIGHTTEXT);
+        m_selectedRevColor = GetSysColor(COLOR_HIGHLIGHT);
+        m_selectedAuthorColor = InterColor(m_selectedRevColor, m_textHighLightColor, 35);
+    }
+
+    m_mouseRevColor       = InterColor(m_windowColor, m_textColor, 20);
+    m_mouseAuthorColor    = InterColor(m_windowColor, m_textColor, 10);
+
     HMENU hMenu = GetMenu(wMain);
     CheckMenuItem(hMenu, ID_VIEW_COLORBYAUTHOR, MF_BYCOMMAND | ((m_colorby == COLORBYAUTHOR) ? MF_CHECKED : MF_UNCHECKED));
     CheckMenuItem(hMenu, ID_VIEW_COLORAGEOFLINES, MF_BYCOMMAND | ((m_colorby == COLORBYAGE) ? MF_CHECKED : MF_UNCHECKED));
@@ -2098,24 +2232,24 @@ void TortoiseBlame::SetupColoring()
     int colindex = 0;
     switch (m_colorby)
     {
-    case COLORBYAGE:
+        case COLORBYAGE:
         {
             for (auto it = m_revset.cbegin(); it != m_revset.cend(); ++it)
             {
-                m_revcolormap[*it] = colorset[colindex++ % MAX_BLAMECOLORS];
+                m_revcolormap[*it] = CTheme::Instance().GetThemeColor(colorset[colindex++ % MAX_BLAMECOLORS]);
             }
         }
         break;
-    case COLORBYAGECONT:
+        case COLORBYAGECONT:
         {
             // nothing to do
         }
         break;
-    case COLORBYAUTHOR:
+        case COLORBYAUTHOR:
         {
             for (auto it = m_authorset.cbegin(); it != m_authorset.cend(); ++it)
             {
-                m_authorcolormap[*it] = colorset[colindex++ % MAX_BLAMECOLORS];
+                m_authorcolormap[*it] = CTheme::Instance().GetThemeColor(colorset[colindex++ % MAX_BLAMECOLORS]);
             }
         }
         break;
@@ -2234,6 +2368,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             wp.length = sizeof(WINDOWPLACEMENT);
             GetWindowPlacement(app.wMain, &wp);
             state = wp.showCmd;
+            CTheme::Instance().RemoveRegisteredCallback(app.m_themeCallbackId);
             ::DestroyWindow(app.wEditor);
             ::PostQuitMessage(0);
         }

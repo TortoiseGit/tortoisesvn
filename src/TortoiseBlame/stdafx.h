@@ -39,3 +39,5 @@ using std::min;
 #else
 #   define APP_X64_STRING   ""
 #endif
+
+#define REGSTRING_DARKTHEME L"Software\\TortoiseSVN\\TBlameDarkTheme"
