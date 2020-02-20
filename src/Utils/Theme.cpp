@@ -29,6 +29,8 @@ CTheme::CTheme()
     , m_lastThemeChangeCallbackId(0)
     , m_regDarkTheme(REGSTRING_DARKTHEME, 0) // define REGSTRING_DARKTHEME on app level as e.g. L"Software\\TortoiseMerge\\DarkTheme"
     , m_bDarkModeIsAllowed(false)
+    , m_isHighContrastMode(false)
+    , m_isHighContrastModeDark(false)
 {
 }
 
@@ -47,14 +49,25 @@ CTheme& CTheme::Instance()
 
 void CTheme::Load()
 {
-    m_dark = !!m_regDarkTheme;
     IsDarkModeAllowed();
-    m_bLoaded = true;
+    OnSysColorChanged();
+    m_dark       = !!m_regDarkTheme && IsDarkModeAllowed();
+    m_bLoaded    = true;
 }
 
-COLORREF CTheme::GetThemeColor(COLORREF clr) const
+bool CTheme::IsHighContrastMode() const
 {
-    if (m_dark)
+    return m_isHighContrastMode;
+}
+
+bool CTheme::IsHighContrastModeDark() const
+{
+    return m_isHighContrastModeDark;
+}
+
+COLORREF CTheme::GetThemeColor(COLORREF clr, bool fixed /*= false*/) const
+{
+    if (m_dark || (fixed && m_isHighContrastModeDark))
     {
         float h, s, l;
         CTheme::RGBtoHSL(clr, h, s, l);
@@ -84,8 +97,29 @@ bool CTheme::RemoveRegisteredCallback(int id)
     return false;
 }
 
+void CTheme::OnSysColorChanged()
+{
+    m_isHighContrastModeDark = false;
+    m_isHighContrastMode = false;
+    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+    SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
+    if ((hc.dwFlags & HCF_HIGHCONTRASTON) != 0)
+    {
+        m_isHighContrastMode = true;
+        // check if the high contrast mode is dark
+        float h1, h2, s1, s2, l1, l2;
+        RGBtoHSL(::GetSysColor(COLOR_WINDOWTEXT), h1, s1, l1);
+        RGBtoHSL(::GetSysColor(COLOR_WINDOW), h2, s2, l2);
+        m_isHighContrastModeDark = l2 < l1;
+    }
+    m_dark = !!m_regDarkTheme && IsDarkModeAllowed();
+}
+
 bool CTheme::IsDarkModeAllowed()
 {
+    if (IsHighContrastMode())
+        return false;
+
     if (m_bLoaded)
         return m_bDarkModeIsAllowed;
     // we only allow the dark mode for Win10 1809 and later,
@@ -116,17 +150,26 @@ bool CTheme::IsDarkModeAllowed()
     return m_bDarkModeIsAllowed;
 }
 
-void CTheme::SetDarkTheme(bool b /*= true*/)
+void CTheme::SetDarkTheme(bool b /*= true*/, bool force /*= false*/)
 {
-    if (!m_bDarkModeIsAllowed)
+    if (!m_bDarkModeIsAllowed && !force)
         return;
-    if (m_dark != b)
+    if (force || m_dark != b)
     {
-        m_dark         = b;
-        m_regDarkTheme = b ? 1 : 0;
+        bool highContrast = IsHighContrastMode();
+        m_dark            = b && !highContrast;
+        if (!highContrast)
+            m_regDarkTheme = b ? 1 : 0;
         for (auto& cb : m_themeChangeCallbacks)
             cb.second();
     }
+}
+
+/// returns true if dark theme is enabled. If false, then the normal theme is active.
+
+bool CTheme::IsDarkTheme() const
+{
+    return m_dark;
 }
 
 void CTheme::RGBToHSB(COLORREF rgb, BYTE& hue, BYTE& saturation, BYTE& brightness)
