@@ -1422,7 +1422,7 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
     COLORREF crBk, crFg;
     if (IsBottomViewGood())
     {
-        CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, CTheme::Instance().IsDarkTheme(), crBk, crFg);
+        CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, CTheme::Instance().IsDarkTheme() || CTheme::Instance().IsHighContrastModeDark(), crBk, crFg);
         crBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_SCROLLBAR));
     }
     else
@@ -1432,7 +1432,7 @@ void CBaseView::DrawHeader(CDC *pdc, const CRect &rect)
         {
             state = DIFFSTATE_ADDED;
         }
-        CDiffColors::GetInstance().GetColors(state, CTheme::Instance().IsDarkTheme(), crBk, crFg);
+        CDiffColors::GetInstance().GetColors(state, CTheme::Instance().IsDarkTheme() || CTheme::Instance().IsHighContrastModeDark(), crBk, crFg);
     }
     pdc->SetBkColor(crBk);
     pdc->FillSolidRect(textrect, crBk);
@@ -1981,7 +1981,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
     {
         // Draw line beyond the text
         COLORREF crBkgnd, crText;
-        CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, CTheme::Instance().IsDarkTheme(), crBkgnd, crText);
+        CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, CTheme::Instance().IsDarkTheme() || CTheme::Instance().IsHighContrastModeDark(), crBkgnd, crText);
         pDC->FillSolidRect(rc, crBkgnd);
         return;
     }
@@ -1992,7 +1992,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         if (m_pViewData->GetHideState(viewLine) == HIDESTATE_MARKER)
         {
             COLORREF crBkgnd, crText;
-            CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, CTheme::Instance().IsDarkTheme(), crBkgnd, crText);
+            CDiffColors::GetInstance().GetColors(DIFFSTATE_UNKNOWN, CTheme::Instance().IsDarkTheme() || CTheme::Instance().IsHighContrastModeDark(), crBkgnd, crText);
             pDC->FillSolidRect(rc, crBkgnd);
 
             const int THICKNESS = 2;
@@ -2008,7 +2008,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
 
     DiffStates diffState = m_pViewData->GetState(viewLine);
     COLORREF crBkgnd, crText;
-    CDiffColors::GetInstance().GetColors(diffState, CTheme::Instance().IsDarkTheme(), crBkgnd, crText);
+    CDiffColors::GetInstance().GetColors(diffState, CTheme::Instance().IsDarkTheme() || CTheme::Instance().IsHighContrastModeDark(), crBkgnd, crText);
     if (diffState == DIFFSTATE_CONFLICTED)
     {
         // conflicted lines are shown without 'text' on them
@@ -4934,7 +4934,7 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
     // set main line color
     COLORREF crBkgnd, crText;
     DiffStates diffState = m_pViewData->GetState(nViewLine);
-    CDiffColors::GetInstance().GetColors(diffState, CTheme::Instance().IsDarkTheme(), crBkgnd, crText);
+    CDiffColors::GetInstance().GetColors(diffState, CTheme::Instance().IsDarkTheme() || CTheme::Instance().IsHighContrastModeDark(), crBkgnd, crText);
     oLineColors.SetColor(0, crText, crBkgnd);
 
     do {
@@ -5005,7 +5005,7 @@ LineColors & CBaseView::GetLineColors(int nViewLine)
             }
             bool bInlineDiff = (diff->type == svn_diff__type_diff_modified);
 
-            CDiffColors::GetInstance().GetColors(diffState, CTheme::Instance().IsDarkTheme(), crBkgnd, crText);
+            CDiffColors::GetInstance().GetColors(diffState, CTheme::Instance().IsDarkTheme() || CTheme::Instance().IsHighContrastModeDark(), crBkgnd, crText);
             if ((m_bShowInlineDiff)&&(bInlineDiff))
             {
                 crBkgnd = InlineViewLineDiffColor(nViewLine);
@@ -5113,8 +5113,10 @@ void CBaseView::SaveUndoStep()
 
 void CBaseView::SetTheme(bool bDark)
 {
-    m_bDark = bDark;
+    m_bDark = bDark || CTheme::Instance().IsHighContrastModeDark();
     DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), m_bDark);
+    CDiffColors::GetInstance().LoadRegistry();
+    BuildAllScreen2ViewVector();
     if (IsWindow(GetSafeHwnd()))
     {
         if (m_bDark)
@@ -5128,6 +5130,7 @@ void CBaseView::SetTheme(bool bDark)
         }
         Invalidate();
     }
+    m_WhiteSpaceFg = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Whitespace", CTheme::Instance().GetThemeColor(GetSysColor(COLOR_3DSHADOW)));
 }
 
 void CBaseView::InsertViewData( int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline )

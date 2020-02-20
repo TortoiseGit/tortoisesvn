@@ -3688,5 +3688,7 @@ void CMainFrame::OnSysColorChange()
 {
     __super::OnSysColorChange();
 
+    CTheme::Instance().OnSysColorChanged();
+    CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme(), true);
     SetAccentColor();
 }

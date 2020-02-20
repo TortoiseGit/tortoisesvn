@@ -153,6 +153,10 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
     case WM_SETFOCUS:
         SetFocus(m_hWndEdit);
         break;
+    case WM_SYSCOLORCHANGE:
+        CTheme::Instance().OnSysColorChanged();
+        CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme(), true);
+        break;
     case COMMITMONITOR_FINDMSGNEXT:
         {
             SendEditor(SCI_CHARRIGHT);
@@ -559,11 +563,6 @@ LRESULT CMainWindow::DoCommand(int id)
     case ID_VIEW_DARKMODE:
         {
             CTheme::Instance().SetDarkTheme(!CTheme::Instance().IsDarkTheme());
-
-            HMENU hMenu = GetMenu(*this);
-            UINT uCheck = MF_BYCOMMAND;
-            uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
-            CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
         }
         break;
     default:
@@ -655,10 +654,6 @@ bool CMainWindow::Initialize()
     SendEditor(SCI_SETWHITESPACESIZE, 2);
     SendEditor(SCI_STYLESETVISIBLE, STYLE_CONTROLCHAR, TRUE);
 
-    HMENU hMenu = GetMenu(*this);
-    UINT uCheck = MF_BYCOMMAND;
-    uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
-    CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
     SetTheme(CTheme::Instance().IsDarkTheme());
     return true;
 }
@@ -680,7 +675,20 @@ void CMainWindow::SetTheme(bool bDark)
         if (FAILED(SetWindowTheme(m_hWndEdit, L"DarkMode_Explorer", nullptr)))
             SetWindowTheme(m_hWndEdit, L"Explorer", nullptr);
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
+    }
+    else
+    {
+        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, FALSE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(m_hWndEdit, FALSE);
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
+        DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
+        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        SetWindowTheme(*this, L"Explorer", nullptr);
+        SetWindowTheme(m_hWndEdit, L"Explorer", nullptr);
+    }
 
+    if (bDark || CTheme::Instance().IsHighContrastModeDark())
+    {
         SendEditor(SCI_STYLESETFORE, STYLE_DEFAULT, UDiffTextColorDark);
         SendEditor(SCI_STYLESETBACK, STYLE_DEFAULT, UDiffBackColorDark);
         SendEditor(SCI_SETSELFORE, TRUE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT)));
@@ -727,14 +735,6 @@ void CMainWindow::SetTheme(bool bDark)
     }
     else
     {
-        DarkModeHelper::Instance().AllowDarkModeForWindow(*this, FALSE);
-        DarkModeHelper::Instance().AllowDarkModeForWindow(m_hWndEdit, FALSE);
-        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
-        DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
-        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
-        SetWindowTheme(*this, L"Explorer", nullptr);
-        SetWindowTheme(m_hWndEdit, L"Explorer", nullptr);
-
         SendEditor(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
         SendEditor(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
         SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
@@ -779,6 +779,14 @@ void CMainWindow::SetTheme(bool bDark)
         SendEditor(SCI_STYLESETFORE, STYLE_LINENUMBER, RGB(109, 109, 109));
         SendEditor(SCI_STYLESETBACK, STYLE_LINENUMBER, RGB(230, 230, 230));
     }
+
+    HMENU hMenu = GetMenu(*this);
+    UINT uCheck = MF_BYCOMMAND;
+    uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
+    CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
+    UINT uEnabled = MF_BYCOMMAND;
+    uEnabled |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
+    EnableMenuItem(hMenu, ID_VIEW_DARKMODE, uEnabled);
 
     ::RedrawWindow(*this, nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }

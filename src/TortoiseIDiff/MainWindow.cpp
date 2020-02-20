@@ -214,14 +214,6 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
             picWindow2.FitImageInWindow();
             picWindow3.FitImageInWindow();
 
-            HMENU hMenu = GetMenu(*this);
-            UINT uCheck = MF_BYCOMMAND;
-            uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
-            uCheck |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
-            CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
-            UINT uEnabled = MF_BYCOMMAND;
-            uEnabled |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
-            EnableMenuItem(hMenu, ID_VIEW_DARKMODE, uEnabled);
             m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
                 [this]()
                 {
@@ -427,6 +419,10 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
         m_themeCallbackId = 0;
         ImageList_Destroy(hToolbarImgList);
         ::DestroyWindow(m_hwnd);
+        break;
+    case WM_SYSCOLORCHANGE:
+        CTheme::Instance().OnSysColorChanged();
+        CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme(), true);
         break;
     default:
         return DefWindowProc(hwnd, uMsg, wParam, lParam);
@@ -784,11 +780,6 @@ LRESULT CMainWindow::DoCommand(int id, LPARAM lParam)
     case ID_VIEW_DARKMODE:
         {
             CTheme::Instance().SetDarkTheme(!CTheme::Instance().IsDarkTheme());
-
-            HMENU hMenu = GetMenu(*this);
-            UINT uCheck = MF_BYCOMMAND;
-            uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
-            CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
         }
         break;
     case IDM_EXIT:
@@ -903,14 +894,18 @@ void CMainWindow::Splitter_CaptureChanged()
 
 void CMainWindow::SetTheme(bool bDark)
 {
+    transparentColor = ::GetSysColor(COLOR_WINDOW);
+    picWindow1.SetTransparentColor(transparentColor);
+    picWindow2.SetTransparentColor(transparentColor);
+    picWindow3.SetTransparentColor(transparentColor);
     if (bDark)
     {
         DarkModeHelper::Instance().AllowDarkModeForApp(TRUE);
 
         DarkModeHelper::Instance().AllowDarkModeForWindow(*this, TRUE);
         SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
-        //if (FAILED(SetWindowTheme(*this, L"DarkMode_Explorer", nullptr)))
-        //    SetWindowTheme(*this, L"Explorer", nullptr);
+        if (FAILED(SetWindowTheme(*this, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(*this, L"Explorer", nullptr);
         DarkModeHelper::Instance().AllowDarkModeForWindow(hwndTB, TRUE);
         //SetClassLongPtr(hwndTB, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
         if (FAILED(SetWindowTheme(hwndTB, L"DarkMode_Explorer", nullptr)))
@@ -928,6 +923,15 @@ void CMainWindow::SetTheme(bool bDark)
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
         DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
     }
+
+    HMENU hMenu = GetMenu(*this);
+    UINT uCheck = MF_BYCOMMAND;
+    uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
+    CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
+    UINT uEnabled = MF_BYCOMMAND;
+    uEnabled |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
+    EnableMenuItem(hMenu, ID_VIEW_DARKMODE, uEnabled);
+
     ::RedrawWindow(*this, nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 

@@ -29,6 +29,62 @@ CDiffColors& CDiffColors::GetInstance()
 
 CDiffColors::CDiffColors(void)
 {
+    LoadRegistry();
+}
+
+CDiffColors::~CDiffColors(void)
+{
+}
+
+void CDiffColors::GetColors(DiffStates state, bool darkMode, COLORREF &crBkgnd, COLORREF &crText)
+{
+    if ((state < DIFFSTATE_END)&&(state >= 0))
+    {
+        if (darkMode)
+        {
+            crBkgnd = (COLORREF)(DWORD)m_regDarkBackgroundColors[(int)state];
+            crText = (COLORREF)(DWORD)m_regDarkForegroundColors[(int)state];
+        }
+        else
+        {
+            crBkgnd = (COLORREF)(DWORD)m_regBackgroundColors[(int)state];
+            crText = (COLORREF)(DWORD)m_regForegroundColors[(int)state];
+        }
+    }
+    else
+    {
+        if (darkMode)
+        {
+            crBkgnd = ::GetSysColor(COLOR_WINDOWTEXT);
+            crText = ::GetSysColor(COLOR_WINDOW);
+        }
+        else
+        {
+            crBkgnd = ::GetSysColor(COLOR_WINDOW);
+            crText = ::GetSysColor(COLOR_WINDOWTEXT);
+        }
+    }
+}
+
+void CDiffColors::SetColors(DiffStates state, bool darkMode, const COLORREF &crBkgnd, const COLORREF &crText)
+{
+    if ((state < DIFFSTATE_END)&&(state >= 0))
+    {
+        if (darkMode)
+        {
+            m_regDarkBackgroundColors[(int)state] = crBkgnd;
+            m_regDarkForegroundColors[(int)state] = crText;
+        }
+        else
+        {
+            m_regBackgroundColors[(int)state] = crBkgnd;
+            m_regForegroundColors[(int)state] = crText;
+        }
+    }
+}
+
+void CDiffColors::LoadRegistry()
+{
     m_regForegroundColors[DIFFSTATE_UNKNOWN] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorUnknownF", DIFFSTATE_UNKNOWN_DEFAULT_FG);
     m_regForegroundColors[DIFFSTATE_NORMAL] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorNormalF", DIFFSTATE_NORMAL_DEFAULT_FG);
     m_regForegroundColors[DIFFSTATE_REMOVED] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorRemovedF", DIFFSTATE_REMOVED_DEFAULT_FG);
@@ -124,61 +180,7 @@ CDiffColors::CDiffColors(void)
     m_regDarkBackgroundColors[DIFFSTATE_YOURSADDED] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\DarkColorYoursAddedB", DIFFSTATE_YOURSADDED_DEFAULT_DARK_BG);
     m_regDarkBackgroundColors[DIFFSTATE_EDITED] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\DarkColorEditedB", DIFFSTATE_EDITED_DEFAULT_DARK_BG);
     m_regDarkBackgroundColors[DIFFSTATE_FILTEREDDIFF] = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\DarkColorFilteredB", DIFFSTATE_FILTERED_DEFAULT_DARK_BG);
-}
 
-CDiffColors::~CDiffColors(void)
-{
-}
-
-void CDiffColors::GetColors(DiffStates state, bool darkMode, COLORREF &crBkgnd, COLORREF &crText)
-{
-    if ((state < DIFFSTATE_END)&&(state >= 0))
-    {
-        if (darkMode)
-        {
-            crBkgnd = (COLORREF)(DWORD)m_regDarkBackgroundColors[(int)state];
-            crText = (COLORREF)(DWORD)m_regDarkForegroundColors[(int)state];
-        }
-        else
-        {
-            crBkgnd = (COLORREF)(DWORD)m_regBackgroundColors[(int)state];
-            crText = (COLORREF)(DWORD)m_regForegroundColors[(int)state];
-        }
-    }
-    else
-    {
-        if (darkMode)
-        {
-            crBkgnd = ::GetSysColor(COLOR_WINDOWTEXT);
-            crText = ::GetSysColor(COLOR_WINDOW);
-        }
-        else
-        {
-            crBkgnd = ::GetSysColor(COLOR_WINDOW);
-            crText = ::GetSysColor(COLOR_WINDOWTEXT);
-        }
-    }
-}
-
-void CDiffColors::SetColors(DiffStates state, bool darkMode, const COLORREF &crBkgnd, const COLORREF &crText)
-{
-    if ((state < DIFFSTATE_END)&&(state >= 0))
-    {
-        if (darkMode)
-        {
-            m_regDarkBackgroundColors[(int)state] = crBkgnd;
-            m_regDarkForegroundColors[(int)state] = crText;
-        }
-        else
-        {
-            m_regBackgroundColors[(int)state] = crBkgnd;
-            m_regForegroundColors[(int)state] = crText;
-        }
-    }
-}
-
-void CDiffColors::LoadRegistry()
-{
     for (int i=0; i<DIFFSTATE_END; ++i)
     {
         m_regForegroundColors[i].read();
