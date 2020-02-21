@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2013, 2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2013, 2015, 2020 - TortoiseSVN
 // Copyright (C) 2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -123,7 +123,7 @@ std::string CUnicodeUtils::StdGetUTF8(const std::wstring& wide)
     int len = WideCharToMultiByte(CP_UTF8, 0, wide.c_str(), size, buffer, 4*size, 0, NULL);
     if (len == 0)
         return std::string();
-    return std::string (buffer, len-1);
+    return std::string (buffer, len);
 }
 
 std::wstring CUnicodeUtils::StdGetUnicode(const std::string& utf8)
