@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013-2015 - TortoiseSVN
+// Copyright (C) 2013-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -352,6 +352,7 @@ bool SVNAuthData::ExportAuthData(const CString& targetpath, const CString& passw
             return false;
         }
     }
+    svn_error_clear(Err);
     return true;
 }
 
@@ -416,5 +417,6 @@ bool SVNAuthData::ImportAuthData(const CString& importpath, const CString& passw
             return false;
         }
     }
+    svn_error_clear(Err);
     return true;
 }
