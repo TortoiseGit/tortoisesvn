@@ -65,6 +65,7 @@
 #include "..\..\ext\snarl\SnarlInterface.h"
 #include "ToastNotifications.h"
 #include "DPIAware.h"
+#include "Theme.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 #include <fstream>
@@ -390,6 +391,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_WM_QUERYENDSESSION()
     ON_REGISTERED_MESSAGE(WM_TaskBarButtonCreated, OnTaskbarButtonCreated)
     ON_NOTIFY(LVN_BEGINDRAG, IDC_LOGMSG, &CLogDlg::OnLvnBegindragLogmsg)
+    ON_WM_SYSCOLORCHANGE()
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, const SVNRev& pegrev, const SVNRev& startrev, const SVNRev& endrev,
@@ -1058,7 +1060,7 @@ void CLogDlg::FillLogMessageCtrl(bool bShow /* = true*/)
             // combine ranges only separated by whitespace
             ReduceRanges(info.ranges, info.text);
 
-            CAppUtils::SetCharFormat(pMsgView, CFM_COLOR, m_Colors.GetColor(CColors::FilterMatch), info.ranges);
+            CAppUtils::SetCharFormat(pMsgView, CFM_COLOR, CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::FilterMatch), true), info.ranges);
         }
 
         if (((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\StyleCommitMessages", TRUE)) == TRUE)
@@ -3451,7 +3453,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR* pNMHDR, LRESULT* pResult)
     if (m_bLogThreadRunning)
         return;
 
-    static COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+    static COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
 
     switch (pLVCD->nmcd.dwDrawStage)
     {
@@ -3468,7 +3470,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR* pNMHDR, LRESULT* pResult)
 
             // Tell Windows to send draw notifications for each subitem.
             *pResult = CDRF_NOTIFYSUBITEMDRAW;
-            crText   = GetSysColor(COLOR_WINDOWTEXT);
+            crText   = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
             if (m_logEntries.GetVisibleCount() > pLVCD->nmcd.dwItemSpec)
             {
                 PLOGENTRYDATA data = m_logEntries.GetVisible(pLVCD->nmcd.dwItemSpec);
@@ -3480,14 +3482,14 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR* pNMHDR, LRESULT* pResult)
                         // with themes enabled)
                         if (!IsAppThemed() ||
                             ((pLVCD->nmcd.uItemState & CDIS_HOT) == 0))
-                            pLVCD->clrTextBk = GetSysColor(COLOR_MENU);
+                            pLVCD->clrTextBk = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_MENU));
                     }
                     if (data->GetChangedPaths().ContainsCopies())
-                        crText = m_Colors.GetColor(CColors::Modified);
+                        crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Modified), true);
                     if ((data->GetDepth()) || (m_mergedRevs.find(data->GetRevision()) != m_mergedRevs.end()))
-                        crText = GetSysColor(COLOR_GRAYTEXT);
+                        crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
                     if ((m_copyfromrev > data->GetRevision()) && !m_mergePath.IsEmpty())
-                        crText = GetSysColor(COLOR_GRAYTEXT);
+                        crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
                     if ((data->GetRevision() == m_wcRev) || data->GetUnread())
                     {
                         SelectObject(pLVCD->nmcd.hdc, data->GetUnread() ? m_unreadFont : m_wcRevFont);
@@ -3500,7 +3502,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR* pNMHDR, LRESULT* pResult)
             if (m_logEntries.GetVisibleCount() == pLVCD->nmcd.dwItemSpec)
             {
                 if (m_bStrictStopped)
-                    crText = GetSysColor(COLOR_GRAYTEXT);
+                    crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
             }
             // Store the color back in the NMLVCUSTOMDRAW struct.
             pLVCD->clrText = crText;
@@ -3659,7 +3661,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR* pNMHDR, LRESULT* pResult)
         // Tell Windows to send draw notifications for each subitem.
         *pResult = CDRF_NOTIFYSUBITEMDRAW;
 
-        COLORREF crText  = GetSysColor(COLOR_WINDOWTEXT);
+        COLORREF crText  = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
         bool     bGrayed = false;
         if ((m_cShowPaths.GetState() & 0x0003) == BST_UNCHECKED)
         {
@@ -3667,7 +3669,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR* pNMHDR, LRESULT* pResult)
             {
                 if (!m_currentChangedArray[pLVCD->nmcd.dwItemSpec].IsRelevantForStartPath())
                 {
-                    crText  = GetSysColor(COLOR_GRAYTEXT);
+                    crText  = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
                     bGrayed = true;
                 }
             }
@@ -3675,7 +3677,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR* pNMHDR, LRESULT* pResult)
             {
                 if (m_currentChangedPathList[pLVCD->nmcd.dwItemSpec].GetSVNPathString().Left(m_sRelativeRoot.GetLength()).Compare(m_sRelativeRoot) != 0)
                 {
-                    crText  = GetSysColor(COLOR_GRAYTEXT);
+                    crText  = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
                     bGrayed = true;
                 }
             }
@@ -3685,17 +3687,17 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR* pNMHDR, LRESULT* pResult)
         {
             DWORD action = m_currentChangedArray[pLVCD->nmcd.dwItemSpec].GetAction();
             if (action == LOGACTIONS_MODIFIED)
-                crText = m_Colors.GetColor(CColors::Modified);
+                crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Modified), true);
             if (action == LOGACTIONS_REPLACED)
-                crText = m_Colors.GetColor(CColors::Deleted);
+                crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Deleted), true);
             if (action == LOGACTIONS_ADDED)
-                crText = m_Colors.GetColor(CColors::Added);
+                crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Added), true);
             if (action == LOGACTIONS_DELETED)
-                crText = m_Colors.GetColor(CColors::Deleted);
+                crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Deleted), true);
             if (action == LOGACTIONS_MOVED)
-                crText = m_Colors.GetColor(CColors::Added);
+                crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Added), true);
             if (action == LOGACTIONS_MOVEREPLACED)
-                crText = m_Colors.GetColor(CColors::Deleted);
+                crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Deleted), true);
         }
         if (m_currentChangedArray.GetCount() > pLVCD->nmcd.dwItemSpec)
         {
@@ -3704,7 +3706,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR* pNMHDR, LRESULT* pResult)
             if ((propsModifies == svn_tristate_true) && (textModifies != svn_tristate_true))
             {
                 // property only modification, content of entry hasn't changed: show in gray
-                crText = GetSysColor(COLOR_GRAYTEXT);
+                crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
             }
         }
 
@@ -3763,10 +3765,10 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pLV
                 // unfortunately, the pLVCD->nmcd.uItemState does not contain valid
                 // information at this drawing stage. But we can check the whether the
                 // previous stage changed the background color of the item
-                if (pLVCD->clrTextBk == GetSysColor(COLOR_MENU))
+                if (pLVCD->clrTextBk == CTheme::Instance().GetThemeColor(GetSysColor(COLOR_MENU)))
                 {
                     HBRUSH brush;
-                    brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
+                    brush = ::CreateSolidBrush(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_MENU)));
                     if (brush)
                     {
                         ::FillRect(pLVCD->nmcd.hdc, &rect, brush);
@@ -3791,16 +3793,16 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pLV
         if (rItem.state & LVIS_SELECTED)
         {
             if (::GetFocus() == listCtrl.m_hWnd)
-                brush = ::CreateSolidBrush(::GetSysColor(COLOR_HIGHLIGHT));
+                brush = ::CreateSolidBrush(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHT)));
             else
-                brush = ::CreateSolidBrush(::GetSysColor(COLOR_BTNFACE));
+                brush = ::CreateSolidBrush(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE)));
         }
         else
         {
             if (pLogEntry && pLogEntry->GetChangedPaths().ContainsSelfCopy())
-                brush = ::CreateSolidBrush(::GetSysColor(COLOR_MENU));
+                brush = ::CreateSolidBrush(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_MENU)));
             else
-                brush = ::CreateSolidBrush(::GetSysColor(COLOR_WINDOW));
+                brush = ::CreateSolidBrush(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW)));
         }
         if (brush == NULL)
             return rect;
@@ -3944,9 +3946,9 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pL
         if ((item.state & LVIS_SELECTED) && !IsAppThemed())
         {
             if (::GetFocus() == listCtrl.GetSafeHwnd())
-                textColor = ::GetSysColor(COLOR_HIGHLIGHTTEXT);
+                textColor = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT));
             else
-                textColor = ::GetSysColor(COLOR_WINDOWTEXT);
+                textColor = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
         }
         SetTextColor(pLVCD->nmcd.hdc, textColor);
         SetBkMode(pLVCD->nmcd.hdc, TRANSPARENT);
@@ -3965,7 +3967,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pL
             drawPos = it->cpMin;
             if (it->cpMax - drawPos)
             {
-                SetTextColor(pLVCD->nmcd.hdc, m_Colors.GetColor(CColors::FilterMatch));
+                SetTextColor(pLVCD->nmcd.hdc, CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::FilterMatch), true));
                 DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMax - drawPos, &rc,
                          DT_SINGLELINE | DT_VCENTER | DT_NOPREFIX | DT_END_ELLIPSIS);
                 DrawText(pLVCD->nmcd.hdc, text.substr(drawPos).c_str(), it->cpMax - drawPos, &rc,
@@ -9887,4 +9889,12 @@ void CLogDlg::OnLvnBegindragLogmsg(NMHDR* pNMHDR, LRESULT* pResult)
     pdsrc->Release();
     pdsrc.release();
     pdobj->Release();
+}
+
+void CLogDlg::OnSysColorChange()
+{
+    __super::OnSysColorChange();
+    CTheme::Instance().OnSysColorChanged();
+    SendDlgItemMessage(IDC_MSGVIEW, WM_SYSCOLORCHANGE, 0, 0);
+    CMFCVisualManager::GetInstance()->RedrawAll();
 }

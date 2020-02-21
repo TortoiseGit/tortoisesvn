@@ -27,6 +27,7 @@
 #include "SciEdit.h"
 #include "OnOutOfScope.h"
 #include "LoadIconEx.h"
+#include "Theme.h"
 
 
 void CSciEditContextMenuInterface::InsertMenuItems(CMenu&, int&) {return;}
@@ -1041,7 +1042,16 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
 BEGIN_MESSAGE_MAP(CSciEdit, CWnd)
     ON_WM_KEYDOWN()
     ON_WM_CONTEXTMENU()
+    ON_WM_SYSCOLORCHANGE()
 END_MESSAGE_MAP()
+
+void CSciEdit::OnSysColorChange()
+{
+    __super::OnSysColorChange();
+    Call(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
+    Call(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
+    Call(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+}
 
 void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {

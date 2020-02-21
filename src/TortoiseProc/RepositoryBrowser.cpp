@@ -172,6 +172,7 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , oldx(0)
     , m_nBookmarksIcon(0)
     , m_bTrySVNParentPath(true)
+    , m_nBackgroundImageID(0)
 {
     ConstructorInit(rev);
 }
@@ -308,6 +309,7 @@ BEGIN_MESSAGE_MAP(CRepositoryBrowser, CResizableStandAloneDialog)
     ON_NOTIFY(NM_CUSTOMDRAW, IDC_REPOTREE, &CRepositoryBrowser::OnNMCustomdrawRepotree)
     ON_NOTIFY(TVN_ITEMCHANGING, IDC_REPOTREE, &CRepositoryBrowser::OnTvnItemChangingRepotree)
     ON_NOTIFY(NM_SETCURSOR, IDC_REPOTREE, &CRepositoryBrowser::OnNMSetCursorRepotree)
+    ON_WM_SYSCOLORCHANGE()
 END_MESSAGE_MAP()
 
 SVNRev CRepositoryBrowser::GetRevision() const
@@ -718,7 +720,10 @@ void CRepositoryBrowser::InitRepo()
             nID = IDI_REPO_FILE;
 
         if (IsAppThemed())
+        {
+            m_nBackgroundImageID = nID;
             CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), nID);
+        }
     }
 }
 
@@ -913,6 +918,13 @@ LPARAM CRepositoryBrowser::OnAuthCancelled(WPARAM /*wParam*/, LPARAM /*lParam*/)
     m_cancelled = TRUE;
     m_lister.Cancel();
     return 0;
+}
+
+void CRepositoryBrowser::OnSysColorChange()
+{
+    __super::OnSysColorChange();
+    CTheme::Instance().OnSysColorChanged();
+    CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), m_nBackgroundImageID);
 }
 
 void CRepositoryBrowser::OnBnClickedHelp()

@@ -28,6 +28,7 @@
 #include "LinkControl.h"
 #include "Hooks.h"
 #include "LogDialog/LogDlgDataModel.h"
+#include "Theme.h"
 
 class CCmdLineParser;
 
@@ -169,7 +170,7 @@ private:
             , content_state(svn_wc_notify_state_inapplicable)
             , prop_state(svn_wc_notify_state_inapplicable)
             , rev(0)
-            , color(::GetSysColor(COLOR_WINDOWTEXT))
+            , color(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT), true))
             , bConflictedActionItem(false)
             , bTreeConflict(false)
             , bAuxItem(false)
@@ -249,6 +250,7 @@ protected:
     afx_msg void    OnBnClickedRetryDifferentUser();
     afx_msg LRESULT OnCheck(WPARAM wnd, LPARAM);
     afx_msg LRESULT OnResolveMsg(WPARAM, LPARAM);
+    afx_msg void    OnSysColorChange();
 
     DECLARE_MESSAGE_MAP()
 
@@ -379,6 +381,7 @@ private:
     int                     iFirstResized;
     BOOL                    bSecondResized;
     int                     nEnsureVisibleCount;
+    UINT                    m_nBackgroundImageID;
 
     CString                 m_sTotalBytesTransferred;
     CLinkControl            m_jumpConflictControl;

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -239,6 +239,7 @@ protected:
     afx_msg BOOL OnQueryEndSession();
     afx_msg LRESULT OnTaskbarButtonCreated(WPARAM wParam, LPARAM lParam);
     afx_msg void OnLvnBegindragLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnSysColorChange();
 
     virtual void OnCancel();
     virtual void OnOK();

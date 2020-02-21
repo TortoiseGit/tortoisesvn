@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -55,6 +55,7 @@
 #include "DiffOptionsDlg.h"
 #include "RecycleBinDlg.h"
 #include "BrowseFolder.h"
+#include "Theme.h"
 
 #include <tuple>
 #include <strsafe.h>
@@ -301,6 +302,7 @@ BEGIN_MESSAGE_MAP(CSVNStatusListCtrl, CListCtrl)
     ON_NOTIFY_REFLECT(LVN_ITEMCHANGING, &CSVNStatusListCtrl::OnLvnItemchanging)
     ON_REGISTERED_MESSAGE(WM_RESOLVEMSG, &CSVNStatusListCtrl::OnResolveMsg)
     ON_REGISTERED_MESSAGE(WM_REFRESH_STATUS_MSG, &CSVNStatusListCtrl::OnRefreshStatusMsg)
+    ON_WM_SYSCOLORCHANGE()
 END_MESSAGE_MAP()
 
 
@@ -368,6 +370,7 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_pContextMenu(nullptr)
     , m_hShellMenu(0)
     , m_uiFont(0)
+    , m_nBackgroundImageID(0)
 {
     m_tooltipbuf[0] = 0;
     NONCLIENTMETRICS metrics = { 0 };
@@ -518,6 +521,7 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 
 bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 {
+    m_nBackgroundImageID = nID;
     return CAppUtils::SetListCtrlBackgroundImage(GetSafeHwnd(), nID);
 }
 
@@ -4872,7 +4876,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                 // Tell Windows to send draw notifications for each subitem.
                 *pResult = CDRF_NOTIFYSUBITEMDRAW;
 
-                COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+                COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
 
                 if (m_arListArray.size() > (DWORD_PTR)pLVCD->nmcd.dwItemSpec)
                 {
@@ -4893,33 +4897,33 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     case svn_wc_status_added:
                         if (entry->remotestatus > svn_wc_status_unversioned)
                             // locally added file, but file already exists in repository!
-                            crText = m_Colors.GetColor(CColors::Conflict);
+                            crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Conflict), true);
                         else
-                            crText = m_Colors.GetColor(CColors::Added);
+                            crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Added), true);
                         break;
                     case svn_wc_status_missing:
                     case svn_wc_status_deleted:
                     case svn_wc_status_replaced:
-                        crText = m_Colors.GetColor(CColors::Deleted);
+                        crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Deleted), true);
                         break;
                     case svn_wc_status_modified:
                         if (entry->remotestatus == svn_wc_status_modified)
                             // indicate a merge (both local and remote changes will require a merge)
-                            crText = m_Colors.GetColor(CColors::Merged);
+                            crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Merged), true);
                         else if (entry->remotestatus == svn_wc_status_deleted)
                             // locally modified, but already deleted in the repository
-                            crText = m_Colors.GetColor(CColors::Conflict);
+                            crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Conflict), true);
                         else if (entry->status == svn_wc_status_missing)
-                            crText = m_Colors.GetColor(CColors::Deleted);
+                            crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Deleted), true);
                         else
-                            crText = m_Colors.GetColor(CColors::Modified);
+                            crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Modified), true);
                         break;
                     case svn_wc_status_merged:
-                        crText = m_Colors.GetColor(CColors::Merged);
+                        crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Merged), true);
                         break;
                     case svn_wc_status_conflicted:
                     case svn_wc_status_obstructed:
-                        crText = m_Colors.GetColor(CColors::Conflict);
+                        crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Conflict), true);
                         break;
                     case svn_wc_status_none:
                     case svn_wc_status_unversioned:
@@ -4928,16 +4932,16 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     case svn_wc_status_normal:
                     case svn_wc_status_external:
                     default:
-                        crText = GetSysColor(COLOR_WINDOWTEXT);
+                        crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
                         break;
                     }
 
                     if (entry->isConflicted)
-                        crText = m_Colors.GetColor(CColors::Conflict);
+                        crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Conflict), true);
 
                     if ((m_dwShow & SVNSLC_SHOWEXTDISABLED)&&(entry->IsFromDifferentRepository() || entry->IsNested() || (!m_bAllowPeggedExternals && entry->IsPeggedExternal())))
                     {
-                        crText = GetSysColor(COLOR_GRAYTEXT);
+                        crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
                     }
 
                     if (!entry->onlyMergeInfoModsKnown)
@@ -5415,12 +5419,12 @@ void CSVNStatusListCtrl::OnPaint()
             else
                 str = m_sEmpty;
         }
-        COLORREF clrText = ::GetSysColor(COLOR_WINDOWTEXT);
+        COLORREF clrText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
         COLORREF clrTextBk;
         if (IsWindowEnabled())
-            clrTextBk = ::GetSysColor(COLOR_WINDOW);
+            clrTextBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW));
         else
-            clrTextBk = ::GetSysColor(COLOR_3DFACE);
+            clrTextBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_3DFACE));
 
         CRect rc;
         GetClientRect(&rc);
@@ -5518,6 +5522,13 @@ void CSVNStatusListCtrl::OnDestroy()
 {
     SaveColumnWidths(true);
     CListCtrl::OnDestroy();
+}
+
+void CSVNStatusListCtrl::OnSysColorChange()
+{
+    __super::OnSysColorChange();
+    CTheme::Instance().OnSysColorChanged();
+    SetBackgroundImage(m_nBackgroundImageID);
 }
 
 void CSVNStatusListCtrl::ShowErrorMessage()

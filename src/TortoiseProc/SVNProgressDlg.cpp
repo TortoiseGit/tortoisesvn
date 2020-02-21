@@ -50,8 +50,9 @@
 #include "SmartHandle.h"
 #include "RecycleBinDlg.h"
 #include "BrowseFolder.h"
-#include <strsafe.h>
 #include "SimplePrompt.h"
+#include "Theme.h"
+#include <strsafe.h>
 
 BOOL    CSVNProgressDlg::m_bAscending = FALSE;
 int     CSVNProgressDlg::m_nSortedColumn = -1;
@@ -125,6 +126,7 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , sDryRun(MAKEINTRESOURCE(IDS_PROGRS_DRYRUN))
     , sRecordOnly(MAKEINTRESOURCE(IDS_MERGE_RECORDONLY))
     , sForce(MAKEINTRESOURCE(IDS_MERGE_FORCE))
+    , m_nBackgroundImageID(0)
 {
     m_bHideExternalInfo = !!CRegStdDWORD(L"Software\\TortoiseSVN\\HideExternalInfo", TRUE);
     m_columnbuf[0] = 0;
@@ -167,6 +169,7 @@ BEGIN_MESSAGE_MAP(CSVNProgressDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_RETRYDIFFERENTUSER, &CSVNProgressDlg::OnBnClickedRetryDifferentUser)
     ON_REGISTERED_MESSAGE(CLinkControl::LK_LINKITEMCLICKED, &CSVNProgressDlg::OnCheck)
     ON_REGISTERED_MESSAGE(WM_RESOLVEMSG, &CSVNProgressDlg::OnResolveMsg)
+    ON_WM_SYSCOLORCHANGE()
 END_MESSAGE_MAP()
 
 BOOL CSVNProgressDlg::Cancel()
@@ -1205,6 +1208,7 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
 bool CSVNProgressDlg::SetBackgroundImage(UINT nID)
 {
+    m_nBackgroundImageID = nID;
     return CAppUtils::SetListCtrlBackgroundImage(m_ProgList.GetSafeHwnd(), nID);
 }
 
@@ -1808,7 +1812,7 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
             return;
 
         // Store the color back in the NMLVCUSTOMDRAW struct.
-        pLVCD->clrText = data->color;
+        pLVCD->clrText = CTheme::Instance().GetThemeColor(data->color, true);
         if (data->bBold)
         {
             SelectObject(pLVCD->nmcd.hdc, m_boldFont);
@@ -1980,6 +1984,13 @@ LRESULT CSVNProgressDlg::OnResolveMsg( WPARAM wParam, LPARAM)
         }
     }
     return 0;
+}
+
+void CSVNProgressDlg::OnSysColorChange()
+{
+    __super::OnSysColorChange();
+    CTheme::Instance().OnSysColorChanged();
+    CAppUtils::SetListCtrlBackgroundImage(m_ProgList.GetSafeHwnd(), m_nBackgroundImageID);
 }
 
 void CSVNProgressDlg::Sort()

@@ -101,6 +101,7 @@ using std::max;
 
 #define USE_GDI_GRADIENT
 #define HISTORYCOMBO_WITH_SYSIMAGELIST
+#define REGSTRING_DARKTHEME L"Software\\TortoiseSVN\\DarkTheme"
 
 #include "ProfilingInfo.h"
 #include "DebugOutput.h"

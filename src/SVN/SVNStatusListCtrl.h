@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017-2019 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1043,6 +1043,7 @@ private:
     afx_msg void OnHdnBegintrack(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHdnItemchanging(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnDestroy();
+    afx_msg void OnSysColorChange();
     afx_msg LRESULT OnResolveMsg(WPARAM, LPARAM);
     afx_msg LRESULT OnRefreshStatusMsg(WPARAM wParam, LPARAM);
 
@@ -1108,6 +1109,7 @@ private:
     bool                        m_bAllowPeggedExternals;
 
     int                         m_nIconFolder;
+    UINT                        m_nBackgroundImageID;
 
     CWnd *                      m_pStatLabel;
     CButton *                   m_pSelectButton;
