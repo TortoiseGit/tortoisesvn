@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2013-2016 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013-2016, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -125,7 +125,7 @@ bool RemoveCommand::Execute()
                                     delPath.Delete(true);
                                 // note: see comment for the delPath.Delete() above
                                 // don't try to 'svn rm' the file below if the file is unversioned: we just removed it here
-                                if ((svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE))
+                                if (!delPath.IsDirectory() && (svn.GetSVNError()->apr_err == SVN_ERR_UNVERSIONED_RESOURCE))
                                     continue;
                             }
                             if (!svn.Remove(removePathList, true, !!parser.HasKey(L"keep")))
