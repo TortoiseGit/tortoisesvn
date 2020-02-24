@@ -31,6 +31,14 @@ public:
         IHCM_USE_CACHED_VALUE,
         IHCM_REFRESH
     };
+    enum PreferredAppMode
+    {
+        Default,
+        AllowDark,
+        ForceDark,
+        ForceLight,
+        Max
+    };
 
     bool CanHaveDarkMode();
     void AllowDarkModeForApp(BOOL allow);
@@ -41,13 +49,14 @@ public:
     BOOL ShouldSystemUseDarkMode();
     void RefreshImmersiveColorPolicyState();
     BOOL GetIsImmersiveColorUsingHighContrast(IMMERSIVE_HC_CACHE_MODE mode);
-    //void FlushMenuThemes();
+    void FlushMenuThemes();
 
 private:
     DarkModeHelper();
     ~DarkModeHelper();
 
     typedef void(WINAPI* AllowDarkModeForAppFPN)(BOOL allow);
+    typedef PreferredAppMode(WINAPI* SetPreferredAppModeFPN)(PreferredAppMode appMode);
     typedef void(WINAPI* AllowDarkModeForWindowFPN)(HWND hwnd, BOOL allow);
     typedef BOOL(WINAPI* ShouldAppsUseDarkModeFPN)();
     typedef BOOL(WINAPI* IsDarkModeAllowedForWindowFPN)(HWND hwnd);
@@ -55,10 +64,11 @@ private:
     typedef BOOL(WINAPI* ShouldSystemUseDarkModeFPN)();
     typedef void(WINAPI* RefreshImmersiveColorPolicyStateFN)();
     typedef BOOL(WINAPI* GetIsImmersiveColorUsingHighContrastFN)(IMMERSIVE_HC_CACHE_MODE mode);
-    //typedef void(WINAPI* FlushMenuThemesFN)();
+    typedef void(WINAPI* FlushMenuThemesFN)();
     typedef HTHEME(WINAPI* OpenNCThemeDataFPN)(HWND hWnd, LPCWSTR pszClassList);
 
     AllowDarkModeForAppFPN                 m_pAllowDarkModeForApp                  = nullptr;
+    SetPreferredAppModeFPN                 m_pSetPreferredAppMode                  = nullptr;
     AllowDarkModeForWindowFPN              m_pAllowDarkModeForWindow               = nullptr;
     ShouldAppsUseDarkModeFPN               m_pShouldAppsUseDarkMode                = nullptr;
     IsDarkModeAllowedForWindowFPN          m_pIsDarkModeAllowedForWindow           = nullptr;
@@ -66,7 +76,7 @@ private:
     ShouldSystemUseDarkModeFPN             m_pShouldSystemUseDarkMode              = nullptr;
     RefreshImmersiveColorPolicyStateFN     m_pRefreshImmersiveColorPolicyState     = nullptr;
     GetIsImmersiveColorUsingHighContrastFN m_pGetIsImmersiveColorUsingHighContrast = nullptr;
-    //FlushMenuThemesFN                  m_pFlushMenuThemes                  = nullptr;
-    HMODULE m_hUxthemeLib      = nullptr;
-    bool    m_bCanHaveDarkMode = false;
+    FlushMenuThemesFN                      m_pFlushMenuThemes                      = nullptr;
+    HMODULE                                m_hUxthemeLib                           = nullptr;
+    bool                                   m_bCanHaveDarkMode                      = false;
 };
