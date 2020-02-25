@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2018 - TortoiseSVN
+// Copyright (C) 2016-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -415,55 +415,53 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
     {
         svn_client_conflict_option_t *opt = APR_ARRAY_IDX(options, i, svn_client_conflict_option_t *);
 
-        svn_client_conflict_option_id_t id = svn_client_conflict_option_get_id(opt);
-        const char *label = svn_client_conflict_option_get_label(opt, scratchpool);
-        const char *description = svn_client_conflict_option_get_description(opt, scratchpool);
+        svn_client_conflict_option_id_t id          = svn_client_conflict_option_get_id(opt);
+        const char *                    label       = svn_client_conflict_option_get_label(opt, scratchpool);
+        const char *                    description = svn_client_conflict_option_get_description(opt, scratchpool);
 
         bool bResultAdded = false;
-        if (id == svn_client_conflict_option_incoming_move_file_text_merge ||
-            id == svn_client_conflict_option_incoming_move_dir_merge)
+        // if we get only one possible path from all candidates, then we don't add
+        // custom buttons but use the one that's already provided: it will be the same.
+        // if we get more candidates, then we only add from the second one on, since
+        // the first one is already set by the normal conflict options.
+        apr_array_header_t *possible_moved_to_repos_relpaths = nullptr;
+
+        Err = svn_client_conflict_option_get_moved_to_repos_relpath_candidates2(&possible_moved_to_repos_relpaths, opt, result.GetPool(), scratchpool);
+        // TODO: what should we do if the number of candidates gets higher than e.g. 4?
+        // we can't just add a button for every candidate: the dialog would get a bigger height than the monitor.
+        if ((Err == nullptr) && possible_moved_to_repos_relpaths && (possible_moved_to_repos_relpaths->nelts > 1))
         {
-            // if we get only one possible path from all candidates, then we don't add
-            // custom buttons but use the one that's already provided: it will be the same.
-            // if we get more candidates, then we only add from the second one on, since
-            // the first one is already set by the normal conflict options.
-            apr_array_header_t *possible_moved_to_repos_relpaths = nullptr;
-            Err = svn_client_conflict_option_get_moved_to_repos_relpath_candidates(&possible_moved_to_repos_relpaths, opt, result.GetPool(), scratchpool);
-            // TODO: what should we do if the number of candidates gets higher than e.g. 4?
-            // we can't just add a button for every candidate: the dialog would get a bigger height than the monitor.
-            if ((Err == nullptr) && possible_moved_to_repos_relpaths && (possible_moved_to_repos_relpaths->nelts > 1))
+            for (int j = 0; j < possible_moved_to_repos_relpaths->nelts; ++j)
             {
-                for (int j = 0; j < possible_moved_to_repos_relpaths->nelts; ++j)
-                {
-                    svn_client_conflict_option_set_moved_to_repos_relpath(opt, j, m_pctx, scratchpool);
+                svn_client_conflict_option_set_moved_to_repos_relpath2(opt, j, m_pctx, scratchpool);
 
-                    label = svn_client_conflict_option_get_label(opt, scratchpool);
-                    description = svn_client_conflict_option_get_description(opt, scratchpool);
+                label       = svn_client_conflict_option_get_label(opt, scratchpool);
+                description = svn_client_conflict_option_get_description(opt, scratchpool);
 
-                    result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                                                                                              CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), -1, j)));
-                    bResultAdded = true;
-                }
+                result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
+                                                                                          CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), -1, j)));
+                bResultAdded = true;
             }
-
-            apr_array_header_t *possible_moved_to_abspaths = nullptr;
-            Err = svn_client_conflict_option_get_moved_to_abspath_candidates(&possible_moved_to_abspaths, opt, result.GetPool(), scratchpool);
-            if ((Err == nullptr) && possible_moved_to_abspaths && (possible_moved_to_abspaths->nelts > 1))
-            {
-                for (int j = 0; j < possible_moved_to_abspaths->nelts; ++j)
-                {
-                    svn_client_conflict_option_set_moved_to_abspath(opt, j, m_pctx, scratchpool);
-
-                    label = svn_client_conflict_option_get_label(opt, scratchpool);
-                    description = svn_client_conflict_option_get_description(opt, scratchpool);
-
-                    result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                                                                                              CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), j, -1)));
-                    bResultAdded = true;
-                }
-            }
-
         }
+
+        apr_array_header_t *possible_moved_to_abspaths = nullptr;
+
+        Err = svn_client_conflict_option_get_moved_to_abspath_candidates2(&possible_moved_to_abspaths, opt, result.GetPool(), scratchpool);
+        if ((Err == nullptr) && possible_moved_to_abspaths && (possible_moved_to_abspaths->nelts > 1))
+        {
+            for (int j = 0; j < possible_moved_to_abspaths->nelts; ++j)
+            {
+                svn_client_conflict_option_set_moved_to_abspath2(opt, j, m_pctx, scratchpool);
+
+                label       = svn_client_conflict_option_get_label(opt, scratchpool);
+                description = svn_client_conflict_option_get_description(opt, scratchpool);
+
+                result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
+                                                                                          CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), j, -1)));
+                bResultAdded = true;
+            }
+        }
+
         if (!bResultAdded)
         {
             result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
