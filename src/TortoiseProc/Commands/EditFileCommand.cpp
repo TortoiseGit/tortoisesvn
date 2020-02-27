@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2014 - TortoiseSVN
+// Copyright (C) 2009-2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -68,6 +68,9 @@ bool EditFileCommand::AutoCheckout()
         CTSVNPath tempWC = CTempFiles::Instance().GetTempDirPath
             (true, isFile ? cmdLinePath.GetContainingDirectory()
                           : cmdLinePath);
+
+        if (tempWC.IsEmpty())
+            return false;
 
         path = tempWC;
         if (isFile)
