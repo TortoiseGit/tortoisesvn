@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2003-2014, 2020 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
-// Copyright (C) 2003-2014 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -87,7 +87,8 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& rev
             i++;
             // now create the temp file in a thread safe way, so that subsequent calls to GetTempFile() return different filenames.
             CAutoFile hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, nullptr, CREATE_NEW, FILE_ATTRIBUTE_TEMPORARY, nullptr);
-            if (hFile || GetLastError() != ERROR_FILE_EXISTS)
+            auto lastErr = GetLastError();
+            if (hFile || ((lastErr != ERROR_FILE_EXISTS) && (lastErr != ERROR_ACCESS_DENIED)))
                 break;
         } while (true);
     }
@@ -113,7 +114,8 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
             DeleteFile(tempfile.GetWinPath());
             if (CreateDirectory (tempfile.GetWinPath(), NULL) == FALSE)
             {
-                if (GetLastError() != ERROR_ALREADY_EXISTS)
+                auto lastErr = GetLastError();
+                if ((lastErr != ERROR_ALREADY_EXISTS) && (lastErr != ERROR_ACCESS_DENIED))
                     return CTSVNPath();
             }
             else
@@ -124,7 +126,8 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
             CAutoFile hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
             if (!hFile)
             {
-                if (GetLastError() != ERROR_ALREADY_EXISTS)
+                auto lastErr = GetLastError();
+                if ((lastErr != ERROR_ALREADY_EXISTS) && (lastErr != ERROR_ACCESS_DENIED))
                     return CTSVNPath();
             }
             else
