@@ -674,8 +674,8 @@ BOOL TortoiseBlame::OpenFile(const TCHAR* fileName)
 
 void TortoiseBlame::SetAStyle(int style, COLORREF fore, COLORREF back, int size, const char* face)
 {
-    SendEditor(SCI_STYLESETFORE, style, fore);
-    SendEditor(SCI_STYLESETBACK, style, back);
+    SendEditor(SCI_STYLESETFORE, style, CTheme::Instance().GetThemeColor(fore));
+    SendEditor(SCI_STYLESETBACK, style, CTheme::Instance().GetThemeColor(back));
     if (size >= 1)
         SendEditor(SCI_STYLESETSIZE, style, size);
     if (face)
@@ -690,11 +690,7 @@ void TortoiseBlame::InitialiseEditor()
     bool         enabled2d = false;
     if (IsWindows7OrGreater() && DWORD(used2d))
         enabled2d = true;
-    // Set up the global default style. These attributes are used wherever no explicit choices are made.
-    std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Consolas");
-    std::string  fontName  = CUnicodeUtils::StdGetUTF8(fontNameW);
-    SetAStyle(STYLE_DEFAULT, black, white, (DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10), fontName.c_str());
-    //SetAStyle(STYLE_MARK, black, ::GetSysColor(COLOR_HIGHLIGHT));
+
     SendEditor(SCI_INDICSETSTYLE, STYLE_MARK, INDIC_ROUNDBOX);
     SendEditor(SCI_INDICSETFORE, STYLE_MARK, darkBlue);
     SendEditor(SCI_INDICSETUNDER, STYLE_MARK, TRUE);
