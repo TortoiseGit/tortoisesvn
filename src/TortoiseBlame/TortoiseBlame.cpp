@@ -691,6 +691,7 @@ void TortoiseBlame::InitialiseEditor()
     if (IsWindows7OrGreater() && DWORD(used2d))
         enabled2d = true;
 
+    CreateFont(0);
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
     std::wstring fontNameW = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Consolas");
     std::string  fontName = CUnicodeUtils::StdGetUTF8(fontNameW);
@@ -1176,6 +1177,24 @@ void TortoiseBlame::Notify(SCNotification* notification)
                 notification->lParam = GetLineColor(notification->line, false);
             }
             break;
+        case SCN_ZOOM:
+            if (ShowLine)
+            {
+                int numDigits = 0;
+                int lineCount = (int)m_authors.size();
+                while (lineCount)
+                {
+                    lineCount /= 10;
+                    numDigits++;
+                }
+                numDigits = max(numDigits, 3);
+                int pixelWidth = int(8 + numDigits * SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM) "8"));
+                SendEditor(SCI_SETMARGINWIDTHN, 0, pixelWidth);
+                CreateFont(SendEditor(SCI_TEXTHEIGHT));
+                m_blameWidth = 0;
+                InitSize();
+            }
+        break;
         case SCN_UPDATEUI:
         {
             LRESULT firstline     = SendEditor(SCI_GETFIRSTVISIBLELINE);
@@ -1469,7 +1488,6 @@ LONG TortoiseBlame::GetBlameWidth()
         return m_blameWidth;
     LONG blamewidth = 0;
     SIZE width;
-    CreateFont();
     HDC   hDC           = ::GetDC(wBlame);
     HFONT oldfont       = (HFONT)::SelectObject(hDC, m_font);
     TCHAR buf[MAX_PATH] = {0};
@@ -1516,15 +1534,21 @@ LONG TortoiseBlame::GetBlameWidth()
     return m_blameWidth;
 }
 
-void TortoiseBlame::CreateFont()
+void TortoiseBlame::CreateFont(int fontSize)
 {
     if (m_font)
-        return;
+        DeleteObject(m_font);
+    if (m_italicFont)
+        DeleteObject(m_italicFont);
+
     LOGFONT lf             = {0};
     lf.lfWeight            = FW_NORMAL;
     HDC hDC                = ::GetDC(wBlame);
-    lf.lfHeight            = -CDPIAware::Instance().PointsToPixels((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10));
     lf.lfCharSet           = DEFAULT_CHARSET;
+    if (fontSize == 0)
+        lf.lfHeight = -CDPIAware::Instance().PointsToPixels((DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\BlameFontSize", 10));
+    else
+        lf.lfHeight = -fontSize;
     CRegStdString fontname = CRegStdString(L"Software\\TortoiseSVN\\BlameFontName", L"Consolas");
     wcscpy_s(lf.lfFaceName, ((tstring)fontname).c_str());
     m_font = ::CreateFontIndirect(&lf);

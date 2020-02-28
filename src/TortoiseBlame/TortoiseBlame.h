@@ -142,7 +142,7 @@ public:
     void StringExpand(LPWSTR str) const;
     BOOL                        m_ttVisible;
 protected:
-    void CreateFont();
+    void CreateFont(int fontSize);
     void SetupLexer(LPCTSTR fileName);
     void SetupCppLexer();
     COLORREF InterColor(COLORREF c1, COLORREF c2, int Slider) const;
