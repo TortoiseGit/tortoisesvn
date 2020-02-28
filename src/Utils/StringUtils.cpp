@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2018 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2018, 2020 - TortoiseSVN
 // Copyright (C) 2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -712,7 +712,7 @@ std::string CStringUtils::Encrypt(const std::string& s, const std::string& passw
         if (CryptCreateHash(hProv, CALG_SHA_512, 0, 0, &hHash))
         {
             // Hash password string.
-            DWORD dwLength = DWORD(sizeof(WCHAR)*password.size());
+            DWORD dwLength = DWORD(password.size());
             if (CryptHashData(hHash, (BYTE *)password.c_str(), dwLength, 0))
             {
                 // Create block cipher session key based on hash of the password.
@@ -756,7 +756,7 @@ std::string CStringUtils::Decrypt(const std::string& s, const std::string& passw
         if (CryptCreateHash(hProv, CALG_SHA_512, 0, 0, &hHash))
         {
             // Hash password string.
-            DWORD dwLength = DWORD(sizeof(WCHAR)*password.size());
+            DWORD dwLength = DWORD(password.size());
             if (CryptHashData(hHash, (BYTE *)password.c_str(), dwLength, 0))
             {
                 HCRYPTKEY hKey = NULL;
