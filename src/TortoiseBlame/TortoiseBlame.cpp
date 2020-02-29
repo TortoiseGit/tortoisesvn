@@ -1190,7 +1190,7 @@ void TortoiseBlame::Notify(SCNotification* notification)
                 numDigits = max(numDigits, 3);
                 int pixelWidth = int(8 + numDigits * SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM) "8"));
                 SendEditor(SCI_SETMARGINWIDTHN, 0, pixelWidth);
-                CreateFont(SendEditor(SCI_TEXTHEIGHT));
+                CreateFont((int)SendEditor(SCI_TEXTHEIGHT));
                 m_blameWidth = 0;
                 InitSize();
             }
@@ -1411,6 +1411,10 @@ void TortoiseBlame::SetTheme(bool bDark)
                 SetWindowTheme(wnd, L"Explorer", nullptr);
         }
 
+        BOOL darkFlag = TRUE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(wMain, &data);
+        DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
         SetupColoring();
         SendEditor(SCI_SETSELFORE, TRUE, CTheme::Instance().GetThemeColor(RGB(0, 0, 0)));
@@ -1428,6 +1432,10 @@ void TortoiseBlame::SetTheme(bool bDark)
             SetWindowTheme(wnd, L"Explorer", nullptr);
         }
 
+        BOOL darkFlag = FALSE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(wMain, &data);
+        DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
         DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
         SetupColoring();
@@ -1479,7 +1487,7 @@ void TortoiseBlame::SetTheme(bool bDark)
     uEnabled |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
     EnableMenuItem(hMenu, ID_VIEW_DARKMODE, uEnabled);
 
-    ::RedrawWindow(wMain, nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+    ::RedrawWindow(wMain, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
 LONG TortoiseBlame::GetBlameWidth()

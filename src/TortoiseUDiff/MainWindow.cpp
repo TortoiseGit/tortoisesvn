@@ -674,12 +674,20 @@ void CMainWindow::SetTheme(bool bDark)
         DarkModeHelper::Instance().AllowDarkModeForWindow(m_hWndEdit, TRUE);
         if (FAILED(SetWindowTheme(m_hWndEdit, L"DarkMode_Explorer", nullptr)))
             SetWindowTheme(m_hWndEdit, L"Explorer", nullptr);
+        BOOL darkFlag = TRUE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
+        DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
     }
     else
     {
         DarkModeHelper::Instance().AllowDarkModeForWindow(*this, FALSE);
         DarkModeHelper::Instance().AllowDarkModeForWindow(m_hWndEdit, FALSE);
+        BOOL darkFlag = FALSE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
+        DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
         DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
         SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
@@ -788,7 +796,7 @@ void CMainWindow::SetTheme(bool bDark)
     uEnabled |= CTheme::Instance().IsDarkModeAllowed() ? MF_ENABLED : MF_DISABLED;
     EnableMenuItem(hMenu, ID_VIEW_DARKMODE, uEnabled);
 
-    ::RedrawWindow(*this, nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+    ::RedrawWindow(*this, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
 bool CMainWindow::LoadFile(HANDLE hFile)

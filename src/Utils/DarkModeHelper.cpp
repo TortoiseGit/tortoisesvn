@@ -95,6 +95,13 @@ void DarkModeHelper::FlushMenuThemes()
         m_pFlushMenuThemes();
 }
 
+BOOL DarkModeHelper::SetWindowCompositionAttribute(HWND hWnd, WINDOWCOMPOSITIONATTRIBDATA* data)
+{
+    if (m_pSetWindowCompositionAttribute)
+        return m_pSetWindowCompositionAttribute(hWnd, data);
+    return FALSE;
+}
+
 DarkModeHelper::DarkModeHelper()
 {
     INITCOMMONCONTROLSEX used = {
@@ -156,6 +163,7 @@ DarkModeHelper::DarkModeHelper()
         m_pRefreshImmersiveColorPolicyState     = (RefreshImmersiveColorPolicyStateFN)GetProcAddress(m_hUxthemeLib, "RefreshImmersiveColorPolicyState");
         m_pGetIsImmersiveColorUsingHighContrast = (GetIsImmersiveColorUsingHighContrastFN)GetProcAddress(m_hUxthemeLib, "GetIsImmersiveColorUsingHighContrast");
         m_pFlushMenuThemes                      = (FlushMenuThemesFN)GetProcAddress(m_hUxthemeLib, "FlushMenuThemes");
+        m_pSetWindowCompositionAttribute        = (SetWindowCompositionAttributeFPN)GetProcAddress(GetModuleHandleW(L"user32.dll"), "SetWindowCompositionAttribute");
         if (m_pAllowDarkModeForApp == nullptr && micro < 18362)
             m_pAllowDarkModeForApp = (AllowDarkModeForAppFPN)GetProcAddress(m_hUxthemeLib, MAKEINTRESOURCEA(135));
         if (m_pSetPreferredAppMode == nullptr && micro >= 18362)

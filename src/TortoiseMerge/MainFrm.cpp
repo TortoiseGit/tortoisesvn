@@ -1290,6 +1290,11 @@ void CMainFrame::SetTheme(bool bDark)
             spPropertyStore->Commit();
         }
         SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        BOOL darkFlag = TRUE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
+        DarkModeHelper::Instance().FlushMenuThemes();
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
 
         // this is not ideal, but the office2007 black theme is better than
         // implementing a custom status bar with proper dark theme colors...
@@ -1310,9 +1315,14 @@ void CMainFrame::SetTheme(bool bDark)
             spPropertyStore->Commit();
         }
         SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        BOOL darkFlag = FALSE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
+        DarkModeHelper::Instance().FlushMenuThemes();
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
         CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
     }
-    ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+    ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
 void CMainFrame::SetAccentColor()
