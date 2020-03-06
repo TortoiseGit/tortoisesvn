@@ -370,7 +370,6 @@ CSVNStatusListCtrl::CSVNStatusListCtrl() : CListCtrl()
     , m_pContextMenu(nullptr)
     , m_hShellMenu(0)
     , m_uiFont(0)
-    , m_nBackgroundImageID(0)
 {
     m_tooltipbuf[0] = 0;
     NONCLIENTMETRICS metrics = { 0 };
@@ -521,7 +520,6 @@ void CSVNStatusListCtrl::Init(DWORD dwColumns, const CString& sColumnInfoContain
 
 bool CSVNStatusListCtrl::SetBackgroundImage(UINT nID)
 {
-    m_nBackgroundImageID = nID;
     return CAppUtils::SetListCtrlBackgroundImage(GetSafeHwnd(), nID);
 }
 
@@ -5528,7 +5526,6 @@ void CSVNStatusListCtrl::OnSysColorChange()
 {
     __super::OnSysColorChange();
     CTheme::Instance().OnSysColorChanged();
-    SetBackgroundImage(m_nBackgroundImageID);
 }
 
 void CSVNStatusListCtrl::ShowErrorMessage()

@@ -172,7 +172,6 @@ CRepositoryBrowser::CRepositoryBrowser(const CString& url, const SVNRev& rev, CW
     , oldx(0)
     , m_nBookmarksIcon(0)
     , m_bTrySVNParentPath(true)
-    , m_nBackgroundImageID(0)
 {
     ConstructorInit(rev);
 }
@@ -721,7 +720,6 @@ void CRepositoryBrowser::InitRepo()
 
         if (IsAppThemed())
         {
-            m_nBackgroundImageID = nID;
             CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), nID);
         }
     }
@@ -924,7 +922,6 @@ void CRepositoryBrowser::OnSysColorChange()
 {
     __super::OnSysColorChange();
     CTheme::Instance().OnSysColorChanged();
-    CAppUtils::SetListCtrlBackgroundImage(m_RepoList.GetSafeHwnd(), m_nBackgroundImageID);
 }
 
 void CRepositoryBrowser::OnBnClickedHelp()

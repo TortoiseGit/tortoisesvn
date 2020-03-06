@@ -1109,7 +1109,6 @@ private:
     bool                        m_bAllowPeggedExternals;
 
     int                         m_nIconFolder;
-    UINT                        m_nBackgroundImageID;
 
     CWnd *                      m_pStatLabel;
     CButton *                   m_pSelectButton;

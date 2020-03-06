@@ -340,7 +340,6 @@ private:
     int                 m_nOpenIconFolder;
     int                 m_nExternalOvl;
     int                 m_nSVNParentPath;
-    UINT                m_nBackgroundImageID;
 
     volatile int        m_blockEvents;
 

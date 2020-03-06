@@ -126,7 +126,6 @@ CSVNProgressDlg::CSVNProgressDlg(CWnd* pParent /*=NULL*/)
     , sDryRun(MAKEINTRESOURCE(IDS_PROGRS_DRYRUN))
     , sRecordOnly(MAKEINTRESOURCE(IDS_MERGE_RECORDONLY))
     , sForce(MAKEINTRESOURCE(IDS_MERGE_FORCE))
-    , m_nBackgroundImageID(0)
 {
     m_bHideExternalInfo = !!CRegStdDWORD(L"Software\\TortoiseSVN\\HideExternalInfo", TRUE);
     m_columnbuf[0] = 0;
@@ -1208,7 +1207,6 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
 bool CSVNProgressDlg::SetBackgroundImage(UINT nID)
 {
-    m_nBackgroundImageID = nID;
     return CAppUtils::SetListCtrlBackgroundImage(m_ProgList.GetSafeHwnd(), nID);
 }
 
@@ -1990,7 +1988,6 @@ void CSVNProgressDlg::OnSysColorChange()
 {
     __super::OnSysColorChange();
     CTheme::Instance().OnSysColorChanged();
-    CAppUtils::SetListCtrlBackgroundImage(m_ProgList.GetSafeHwnd(), m_nBackgroundImageID);
 }
 
 void CSVNProgressDlg::Sort()

@@ -381,7 +381,6 @@ private:
     int                     iFirstResized;
     BOOL                    bSecondResized;
     int                     nEnsureVisibleCount;
-    UINT                    m_nBackgroundImageID;
 
     CString                 m_sTotalBytesTransferred;
     CLinkControl            m_jumpConflictControl;
