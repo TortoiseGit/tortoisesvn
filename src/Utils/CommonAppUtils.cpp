@@ -31,6 +31,7 @@
 #include "OnOutOfScope.h"
 #include "DPIAware.h"
 #include "LoadIconEx.h"
+#include "IconMenu.h"
 #include <WinInet.h>
 #include <oleacc.h>
 #include <initguid.h>
@@ -327,50 +328,17 @@ bool CCommonAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID)
 
 bool CCommonAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width /* = 128 */, int height /* = 128 */)
 {
-    ListView_SetTextBkColor(hListCtrl, CLR_NONE);
-    COLORREF bkColor = ListView_GetBkColor(hListCtrl);
     // create a bitmap from the icon
     CAutoIcon hIcon = ::LoadIconEx(AfxGetResourceHandle(), MAKEINTRESOURCE(nID), width, height);
     if (!hIcon)
         return false;
 
-    RECT rect = {0};
-    rect.right = width;
-    rect.bottom = height;
-
-    HWND desktop = ::GetDesktopWindow();
-    if (!desktop)
-        return false;
-
-    HDC screen_dev = ::GetDC(desktop);
-    if (!screen_dev)
-        return false;
-    OnOutOfScope(::ReleaseDC(desktop, screen_dev));
-
-    // Create a compatible DC
-    HDC dst_hdc = ::CreateCompatibleDC(screen_dev);
-    if (!dst_hdc)
-        return false;
-    OnOutOfScope(::DeleteDC(dst_hdc));
-
-    // Create a new bitmap of icon size
-    HBITMAP bmp = ::CreateCompatibleBitmap(screen_dev, rect.right, rect.bottom);
-    if (!bmp)
-        return false;
-
-    // Select it into the compatible DC
-    HBITMAP old_dst_bmp = (HBITMAP)::SelectObject(dst_hdc, bmp);
-    // Fill the background of the compatible DC with the given color
-    ::SetBkColor(dst_hdc, bkColor);
-    ::ExtTextOut(dst_hdc, 0, 0, ETO_OPAQUE, &rect, NULL, 0, NULL);
-
-    // Draw the icon into the compatible DC
-    ::DrawIconEx(dst_hdc, 0, 0, hIcon, rect.right, rect.bottom, 0, NULL, DI_NORMAL);
-    ::SelectObject(dst_hdc, old_dst_bmp);
+    IconBitmapUtils iutils;
+    auto bmp = iutils.IconToBitmapPARGB32(hIcon, width, height);
 
     LVBKIMAGE lv;
-    lv.ulFlags = LVBKIF_TYPE_WATERMARK;
-    lv.hbm = bmp;
+    lv.ulFlags        = LVBKIF_TYPE_WATERMARK | LVBKIF_FLAG_ALPHABLEND;
+    lv.hbm            = bmp;
     lv.xOffsetPercent = 100;
     lv.yOffsetPercent = 100;
     ListView_SetBkImage(hListCtrl, &lv);
