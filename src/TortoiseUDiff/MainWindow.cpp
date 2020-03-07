@@ -223,6 +223,10 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
         SendEditor(SCI_SETSELECTIONEND, 0);
         SendEditor(SCI_SEARCHANCHOR);
         break;
+    case WM_NOTIFY:
+        if (reinterpret_cast<LPNMHDR>(lParam)->code == SCN_PAINTED)
+            UpdateLineCount();
+        break;
     default:
         return DefWindowProc(hwnd, uMsg, wParam, lParam);
     }
