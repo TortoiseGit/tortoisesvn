@@ -89,8 +89,8 @@ BEGIN
         MENUITEM "P&age setup",                 ID_FILE_PAGESETUP
         MENUITEM "&Print\t(Ctrl+P)",            ID_FILE_PRINT
         MENUITEM SEPARATOR
+        MENUITEM "&Dark Mode",                  ID_VIEW_DARKMODE
         MENUITEM "Se&ttings",                   ID_FILE_SETTINGS
-        MENUITEM "&Dark Mode\t(D)",             ID_VIEW_DARKMODE
         MENUITEM SEPARATOR
         MENUITEM "&Find\t(Ctrl+F)",             IDM_SHOWFINDBAR
         MENUITEM "Apply &Patch...",             ID_FILE_APPLYPATCH
