@@ -812,7 +812,10 @@ void CMainWindow::SetTheme(bool bDark)
     else if (!CTheme::Instance().IsHighContrastMode() && curlexer != SCLEX_DIFF)
     {
         SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
+        SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);        
         SendEditor(SCI_SETLEXER, SCLEX_DIFF);
+        SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);
+        SendEditor(SCI_SETKEYWORDS, 0, reinterpret_cast<LPARAM>("revision"));
         SendEditor(SCI_COLOURISE, 0, -1);
     }
 
@@ -889,13 +892,6 @@ void CMainWindow::SetupWindow(bool bUTF8)
     SendEditor(SCI_SETSAVEPOINT);
     SendEditor(SCI_GOTOPOS, 0);
 
-    SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
-
-    SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);
-
-    SendEditor(SCI_SETLEXER, SCLEX_DIFF);
-    SendEditor(SCI_SETKEYWORDS, 0, (LPARAM)"revision");
-    SendEditor(SCI_COLOURISE, 0, -1);
     ::ShowWindow(m_hWndEdit, SW_SHOW);
 }
 
