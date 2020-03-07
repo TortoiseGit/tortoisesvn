@@ -278,7 +278,7 @@ void CSciEdit::Init(LONG lLanguage)
     Call(SCI_ASSIGNCMDKEY, SCK_HOME + (SCMOD_SHIFT << 16), SCI_HOMEWRAPEXTEND);
 
     CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
-    if (IsWindows7OrGreater() && DWORD(used2d))
+    if (DWORD(used2d))
     {
         // set font quality for the popup window, since that window does not use D2D
         Call(SCI_SETFONTQUALITY, SC_EFF_QUALITY_LCD_OPTIMIZED);

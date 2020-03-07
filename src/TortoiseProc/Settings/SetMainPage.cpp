@@ -94,7 +94,7 @@ BOOL CSetMainPage::OnInitDialog()
     m_tooltips.AddTool(IDC_COMMITFILETIMES, IDS_SETTINGS_COMMITFILETIMES_TT);
     m_tooltips.AddTool(IDC_CREATELIB, IDS_SETTINGS_CREATELIB_TT);
 
-    DialogEnableWindow(IDC_CREATELIB, IsWindows7OrGreater());
+    DialogEnableWindow(IDC_CREATELIB, TRUE);
 
     // set up the language selecting combobox
     TCHAR buf[MAX_PATH] = { 0 };

@@ -688,7 +688,7 @@ void TortoiseBlame::InitialiseEditor()
     m_directPointer  = SendMessage(wEditor, SCI_GETDIRECTPOINTER, 0, 0);
     CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
     bool         enabled2d = false;
-    if (IsWindows7OrGreater() && DWORD(used2d))
+    if (DWORD(used2d))
         enabled2d = true;
 
     CreateFont(0);

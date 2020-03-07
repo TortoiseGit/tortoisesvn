@@ -30,7 +30,6 @@
 #include "LoadIconEx.h"
 #include "Theme.h"
 #include "DarkModeHelper.h"
-#include "VersionHelpers.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
@@ -636,7 +635,7 @@ bool CMainWindow::Initialize()
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
     CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
     bool enabled2d = false;
-    if (IsWindows7OrGreater() && DWORD(used2d))
+    if (DWORD(used2d))
         enabled2d = true;
     SendEditor(SCI_SETTABWIDTH, CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffTabSize", 4));
     SendEditor(SCI_SETREADONLY, TRUE);

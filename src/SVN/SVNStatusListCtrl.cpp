@@ -5570,12 +5570,7 @@ void CSVNStatusListCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
     // the drop description label appears not at the mouse cursor position but floats around
 
     SetRedraw(false);
-    BOOL bCrashWorkaround = IsGroupViewEnabled() && !IsWindows7OrGreater();
-    if (bCrashWorkaround)
-        EnableGroupView(false);
     dragsrchelper.InitializeFromWindow(m_hWnd, pNMLV->ptAction, pdobj);
-    if (bCrashWorkaround)
-        EnableGroupView(true);
     SetRedraw(true);
     //dragsrchelper.InitializeFromBitmap()
     pdsrc->m_pIDataObj = pdobj;
