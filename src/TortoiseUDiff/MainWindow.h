@@ -1,6 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2007, 2009-2013, 2020 - TortoiseSVN
+// Copyright (C) 2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -65,6 +66,7 @@ private:
     bool                IsUTF8(LPVOID pBuffer, size_t cb);
     void                InitEditor();
     void                SetupWindow(bool bUTF8);
+    void                UpdateLineCount();
 
 private:
     LRESULT             m_directFunction;

@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2018, 2020 - TortoiseSVN
-// Copyright (C) 2012-2016, 2018-2019 - TortoiseGit
+// Copyright (C) 2012-2016, 2018-2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,6 +47,18 @@ CMainWindow::CMainWindow(HINSTANCE hInst, const WNDCLASSEX* wcx /* = nullptr*/)
 
 CMainWindow::~CMainWindow(void)
 {
+}
+
+void CMainWindow::UpdateLineCount()
+{
+    auto numberOfLines = static_cast<intptr_t>(SendEditor(SCI_GETLINECOUNT));
+    int  numDigits     = 2;
+    while (numberOfLines)
+    {
+        numberOfLines /= 10;
+        ++numDigits;
+    }
+    SendEditor(SCI_SETMARGINWIDTHN, 0, numDigits * static_cast<int>(SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, reinterpret_cast<LPARAM>("8"))));
 }
 
 bool CMainWindow::RegisterAndCreateWindow()
@@ -639,8 +651,7 @@ bool CMainWindow::Initialize()
         enabled2d = true;
     SendEditor(SCI_SETTABWIDTH, CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffTabSize", 4));
     SendEditor(SCI_SETREADONLY, TRUE);
-    LRESULT pix = SendEditor(SCI_TEXTWIDTH, STYLE_LINENUMBER, (LPARAM)"_99999");
-    SendEditor(SCI_SETMARGINWIDTHN, 0, pix);
+    UpdateLineCount();
     SendEditor(SCI_SETMARGINWIDTHN, 1);
     SendEditor(SCI_SETMARGINWIDTHN, 2);
     //Set the default windows colors for edit controls
