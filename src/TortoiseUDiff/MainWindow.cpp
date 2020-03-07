@@ -802,6 +802,20 @@ void CMainWindow::SetTheme(bool bDark)
         SendEditor(SCI_STYLESETBACK, STYLE_LINENUMBER, RGB(230, 230, 230));
     }
 
+    auto curlexer = SendEditor(SCI_GETLEXER);
+    if (CTheme::Instance().IsHighContrastMode() && curlexer != SCLEX_NULL)
+    {
+        SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
+        SendEditor(SCI_SETLEXER, SCLEX_NULL);
+        SendEditor(SCI_COLOURISE, 0, -1);
+    }
+    else if (!CTheme::Instance().IsHighContrastMode() && curlexer != SCLEX_DIFF)
+    {
+        SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
+        SendEditor(SCI_SETLEXER, SCLEX_DIFF);
+        SendEditor(SCI_COLOURISE, 0, -1);
+    }
+
     HMENU hMenu = GetMenu(*this);
     UINT uCheck = MF_BYCOMMAND;
     uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
