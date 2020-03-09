@@ -504,6 +504,7 @@ protected:  // variables
     int             m_nSelViewBlockEnd;
 
     int             m_nMouseLine;
+    int             m_nLDownLine;
     bool            m_mouseInMargin;
     HCURSOR         m_margincursor;
 
