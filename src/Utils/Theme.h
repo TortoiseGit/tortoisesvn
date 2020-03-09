@@ -60,12 +60,22 @@ public:
     /// unregisters a callback function.
     bool RemoveRegisteredCallback(int id);
 
+    /// sets the theme for a whole dialog. For dark mode, the
+    /// windows are subclassed if necessary. For normal mode,
+    /// subclassing is removed to ensure the behavior is
+    /// identical to the original.
+    bool SetThemeForDialog(HWND hWnd, bool bDark);
+
     static void     RGBToHSB(COLORREF rgb, BYTE& hue, BYTE& saturation, BYTE& brightness);
     static void     RGBtoHSL(COLORREF color, float& h, float& s, float& l);
     static COLORREF HSLtoRGB(float h, float s, float l);
 
 private:
-    void Load();
+    void           Load();
+    static BOOL    AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam);
+    static LRESULT ListViewSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uIdSubclass, DWORD_PTR dwRefData);
+    static LRESULT ComboBoxSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uIdSubclass, DWORD_PTR dwRefData);
+    static LRESULT MainSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR uIdSubclass, DWORD_PTR dwRefData);
 
 private:
     bool                                         m_bLoaded;
@@ -76,4 +86,5 @@ private:
     std::unordered_map<int, ThemeChangeCallback> m_themeChangeCallbacks;
     int                                          m_lastThemeChangeCallbackId;
     CRegStdDWORD                                 m_regDarkTheme;
+    static HBRUSH                                s_backBrush;
 };

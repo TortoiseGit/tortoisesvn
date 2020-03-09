@@ -22,6 +22,15 @@
 #include "resource.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
+#include "DarkModeHelper.h"
+#include <Uxtheme.h>
+#include <vssym32.h>
+#include <richedit.h>
+
+constexpr COLORREF darkBkColor   = 0x101010;
+constexpr COLORREF darkTextColor = 0xFFFFFF;
+
+HBRUSH CTheme::s_backBrush = nullptr;
 
 CTheme::CTheme()
     : m_bLoaded(false)
@@ -36,6 +45,8 @@ CTheme::CTheme()
 
 CTheme::~CTheme()
 {
+    if (s_backBrush)
+        DeleteObject(s_backBrush);
 }
 
 CTheme& CTheme::Instance()
@@ -51,8 +62,8 @@ void CTheme::Load()
 {
     IsDarkModeAllowed();
     OnSysColorChanged();
-    m_dark       = !!m_regDarkTheme && IsDarkModeAllowed();
-    m_bLoaded    = true;
+    m_dark    = !!m_regDarkTheme && IsDarkModeAllowed();
+    m_bLoaded = true;
 }
 
 bool CTheme::IsHighContrastMode() const
@@ -97,11 +108,317 @@ bool CTheme::RemoveRegisteredCallback(int id)
     return false;
 }
 
+bool CTheme::SetThemeForDialog(HWND hWnd, bool bDark)
+{
+    DarkModeHelper::Instance().AllowDarkModeForWindow(hWnd, bDark);
+    if (bDark)
+    {
+        SetWindowSubclass(hWnd, MainSubclassProc, 1234, (DWORD_PTR)&s_backBrush);
+    }
+    else
+    {
+        RemoveWindowSubclass(hWnd, MainSubclassProc, 1234);
+    }
+    EnumChildWindows(hWnd, AdjustThemeForChildrenProc, bDark ? TRUE : FALSE);
+    return true;
+}
+
+BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
+{
+    DarkModeHelper::Instance().AllowDarkModeForWindow(hwnd, (BOOL)lParam);
+    TCHAR szWndClassName[MAX_PATH] = {0};
+    GetClassName(hwnd, szWndClassName, _countof(szWndClassName));
+    if (lParam)
+    {
+        if ((wcscmp(szWndClassName, WC_LISTVIEW) == 0) || (wcscmp(szWndClassName, WC_LISTBOX) == 0))
+        {
+            SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr);
+            auto header = ListView_GetHeader(hwnd);
+            DarkModeHelper::Instance().AllowDarkModeForWindow(header, (BOOL)lParam);
+            HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
+            if (hTheme)
+            {
+                COLORREF color;
+                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_TEXTCOLOR, &color)))
+                {
+                    ListView_SetTextColor(hwnd, color);
+                }
+                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_FILLCOLOR, &color)))
+                {
+                    ListView_SetTextBkColor(hwnd, color);
+                    ListView_SetBkColor(hwnd, color);
+                }
+                CloseThemeData(hTheme);
+            }
+            SetWindowSubclass(hwnd, ListViewSubclassProc, 1234, (DWORD_PTR)&s_backBrush);
+        }
+        else if (wcscmp(szWndClassName, WC_HEADER) == 0)
+        {
+            SetWindowTheme(hwnd, L"ItemsView", nullptr);
+        }
+        else if (wcscmp(szWndClassName, WC_BUTTON) == 0)
+        {
+            auto style = GetWindowLongPtr(hwnd, GWL_STYLE) & 0x0F;
+            if ((style & BS_GROUPBOX) == BS_GROUPBOX)
+                SetWindowTheme(hwnd, L"", L"");
+            else if (style == BS_CHECKBOX || style == BS_AUTOCHECKBOX || style == BS_3STATE || style == BS_AUTO3STATE || style == BS_RADIOBUTTON || style == BS_AUTORADIOBUTTON)
+                SetWindowTheme(hwnd, L"", L"");
+            else if (FAILED(SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr)))
+                SetWindowTheme(hwnd, L"Explorer", nullptr);
+        }
+        else if (wcscmp(szWndClassName, WC_STATIC) == 0)
+        {
+            SetWindowTheme(hwnd, L"", L"");
+        }
+        else if (wcscmp(szWndClassName, L"SysDateTimePick32") == 0)
+        {
+            SetWindowTheme(hwnd, L"", L"");
+            SendMessage(hwnd, DTM_SETMCCOLOR, MCSC_BACKGROUND, RGB(0, 0, 0));
+        }
+        else if ((wcscmp(szWndClassName, WC_COMBOBOXEX) == 0) ||
+                 (wcscmp(szWndClassName, WC_COMBOBOX) == 0))
+        {
+            SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr);
+            HWND hCombo = hwnd;
+            if (wcscmp(szWndClassName, WC_COMBOBOXEX) == 0)
+            {
+                SendMessage(hwnd, CBEM_SETWINDOWTHEME, 0, (LPARAM)L"DarkMode_Explorer");
+                hCombo = (HWND)SendMessage(hwnd, CBEM_GETCOMBOCONTROL, 0, 0);
+            }
+            if (hCombo)
+            {
+                SetWindowSubclass(hCombo, ComboBoxSubclassProc, 1234, (DWORD_PTR)&s_backBrush);
+                COMBOBOXINFO info = {0};
+                info.cbSize       = sizeof(COMBOBOXINFO);
+                if (SendMessage(hCombo, CB_GETCOMBOBOXINFO, 0, (LPARAM)&info))
+                {
+                    DarkModeHelper::Instance().AllowDarkModeForWindow(info.hwndList, (BOOL)lParam);
+                    DarkModeHelper::Instance().AllowDarkModeForWindow(info.hwndItem, (BOOL)lParam);
+                    DarkModeHelper::Instance().AllowDarkModeForWindow(info.hwndCombo, (BOOL)lParam);
+
+                    SetWindowTheme(info.hwndList, L"DarkMode_Explorer", nullptr);
+                    SetWindowTheme(info.hwndItem, L"DarkMode_Explorer", nullptr);
+                    SetWindowTheme(info.hwndCombo, L"DarkMode_Explorer", nullptr);
+                }
+            }
+        }
+        else if (wcscmp(szWndClassName, WC_TREEVIEW) == 0)
+        {
+            SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr);
+            HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
+            if (hTheme)
+            {
+                COLORREF color;
+                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_TEXTCOLOR, &color)))
+                {
+                    TreeView_SetTextColor(hwnd, color);
+                }
+                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_FILLCOLOR, &color)))
+                {
+                    TreeView_SetBkColor(hwnd, color);
+                }
+                CloseThemeData(hTheme);
+            }
+        }
+        else if (wcsncmp(szWndClassName, L"RICHEDIT", 8) == 0)
+        {
+            SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr);
+            CHARFORMAT2 format = {0};
+            format.cbSize      = sizeof(CHARFORMAT2);
+            format.dwMask      = CFM_COLOR | CFM_BACKCOLOR;
+            format.crTextColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+            format.crBackColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW));
+            SendMessage(hwnd, EM_SETCHARFORMAT, SCF_ALL, (LPARAM)&format);
+            SendMessage(hwnd, EM_SETBKGNDCOLOR, 0, (LPARAM)format.crBackColor);
+        }
+        else if (FAILED(SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
+    }
+    else
+    {
+        if (wcscmp(szWndClassName, WC_LISTVIEW) == 0)
+        {
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
+            HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
+            if (hTheme)
+            {
+                COLORREF color;
+                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_TEXTCOLOR, &color)))
+                {
+                    ListView_SetTextColor(hwnd, color);
+                }
+                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_FILLCOLOR, &color)))
+                {
+                    ListView_SetTextBkColor(hwnd, color);
+                    ListView_SetBkColor(hwnd, color);
+                }
+                CloseThemeData(hTheme);
+            }
+            RemoveWindowSubclass(hwnd, ListViewSubclassProc, 1234);
+        }
+        else if (wcscmp(szWndClassName, L"ComboBoxEx32") == 0)
+        {
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
+            SendMessage(hwnd, CBEM_SETWINDOWTHEME, 0, (LPARAM)L"Explorer");
+            auto hCombo = (HWND)SendMessage(hwnd, CBEM_GETCOMBOCONTROL, 0, 0);
+            if (hCombo)
+            {
+                COMBOBOXINFO info = {0};
+                info.cbSize       = sizeof(COMBOBOXINFO);
+                if (SendMessage(hCombo, CB_GETCOMBOBOXINFO, 0, (LPARAM)&info))
+                {
+                    DarkModeHelper::Instance().AllowDarkModeForWindow(info.hwndList, (BOOL)lParam);
+                    DarkModeHelper::Instance().AllowDarkModeForWindow(info.hwndItem, (BOOL)lParam);
+                    DarkModeHelper::Instance().AllowDarkModeForWindow(info.hwndCombo, (BOOL)lParam);
+
+                    SetWindowTheme(info.hwndList, L"Explorer", nullptr);
+                    SetWindowTheme(info.hwndItem, L"Explorer", nullptr);
+                    SetWindowTheme(info.hwndCombo, L"Explorer", nullptr);
+
+                    HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
+                    if (hTheme)
+                    {
+                        COLORREF color;
+                        if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_TEXTCOLOR, &color)))
+                        {
+                            ListView_SetTextColor(info.hwndList, color);
+                        }
+                        if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_FILLCOLOR, &color)))
+                        {
+                            ListView_SetTextBkColor(info.hwndList, color);
+                            ListView_SetBkColor(info.hwndList, color);
+                        }
+                        CloseThemeData(hTheme);
+                    }
+
+                    RemoveWindowSubclass(info.hwndList, ListViewSubclassProc, 1234);
+                }
+                RemoveWindowSubclass(hCombo, ComboBoxSubclassProc, 1234);
+            }
+        }
+        else if (wcscmp(szWndClassName, WC_TREEVIEW) == 0)
+        {
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
+            HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
+            if (hTheme)
+            {
+                COLORREF color;
+                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_TEXTCOLOR, &color)))
+                {
+                    TreeView_SetTextColor(hwnd, color);
+                }
+                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_FILLCOLOR, &color)))
+                {
+                    TreeView_SetBkColor(hwnd, color);
+                }
+                CloseThemeData(hTheme);
+            }
+        }
+        else if (wcsncmp(szWndClassName, L"RICHEDIT", 8) == 0)
+        {
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
+            CHARFORMAT2 format = {0};
+            format.cbSize      = sizeof(CHARFORMAT2);
+            format.dwMask      = CFM_COLOR | CFM_BACKCOLOR;
+            format.crTextColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+            format.crBackColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW));
+            SendMessage(hwnd, EM_SETCHARFORMAT, SCF_ALL, (LPARAM)&format);
+            SendMessage(hwnd, EM_SETBKGNDCOLOR, 0, (LPARAM)format.crBackColor);
+        }
+        else
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
+    }
+    return TRUE;
+}
+
+LRESULT CTheme::ListViewSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR /*uIdSubclass*/, DWORD_PTR /*dwRefData*/)
+{
+    switch (uMsg)
+    {
+        case WM_NOTIFY:
+        {
+            if (reinterpret_cast<LPNMHDR>(lParam)->code == NM_CUSTOMDRAW)
+            {
+                LPNMCUSTOMDRAW nmcd = reinterpret_cast<LPNMCUSTOMDRAW>(lParam);
+                switch (nmcd->dwDrawStage)
+                {
+                    case CDDS_PREPAINT:
+                        return CDRF_NOTIFYITEMDRAW;
+                    case CDDS_ITEMPREPAINT:
+                    {
+                        HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
+                        if (hTheme)
+                        {
+                            COLORREF color;
+                            if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_TEXTCOLOR, &color)))
+                            {
+                                SetTextColor(nmcd->hdc, color);
+                            }
+                            CloseThemeData(hTheme);
+                        }
+                        return CDRF_DODEFAULT;
+                    }
+                }
+            }
+        }
+        break;
+    }
+    return DefSubclassProc(hWnd, uMsg, wParam, lParam);
+}
+
+LRESULT CTheme::ComboBoxSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR /*uIdSubclass*/, DWORD_PTR dwRefData)
+{
+    switch (uMsg)
+    {
+        case WM_CTLCOLORDLG:
+        case WM_CTLCOLORSTATIC:
+        case WM_CTLCOLOREDIT:
+        case WM_CTLCOLORLISTBOX:
+        case WM_CTLCOLORBTN:
+        {
+            auto hbrBkgnd = (HBRUSH*)dwRefData;
+            HDC  hdc      = reinterpret_cast<HDC>(wParam);
+            SetBkMode(hdc, TRANSPARENT);
+            SetTextColor(hdc, darkTextColor);
+            SetBkColor(hdc, darkBkColor);
+            if (!*hbrBkgnd)
+                *hbrBkgnd = CreateSolidBrush(darkBkColor);
+            return reinterpret_cast<LRESULT>(*hbrBkgnd);
+        }
+        break;
+    }
+    return DefSubclassProc(hWnd, uMsg, wParam, lParam);
+}
+
+LRESULT CTheme::MainSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam, UINT_PTR /*uIdSubclass*/, DWORD_PTR dwRefData)
+{
+    switch (uMsg)
+    {
+        case WM_CTLCOLORDLG:
+        case WM_CTLCOLORSTATIC:
+        case WM_CTLCOLOREDIT:
+        case WM_CTLCOLORLISTBOX:
+        case WM_CTLCOLORBTN:
+        {
+            auto hbrBkgnd = (HBRUSH*)dwRefData;
+            HDC  hdc      = reinterpret_cast<HDC>(wParam);
+            SetBkMode(hdc, TRANSPARENT);
+            SetTextColor(hdc, darkTextColor);
+            SetBkColor(hdc, darkBkColor);
+            if (!*hbrBkgnd)
+                *hbrBkgnd = CreateSolidBrush(darkBkColor);
+            return reinterpret_cast<LRESULT>(*hbrBkgnd);
+        }
+        break;
+    }
+    return DefSubclassProc(hWnd, uMsg, wParam, lParam);
+}
+
 void CTheme::OnSysColorChanged()
 {
     m_isHighContrastModeDark = false;
-    m_isHighContrastMode = false;
-    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+    m_isHighContrastMode     = false;
+    HIGHCONTRAST hc          = {sizeof(HIGHCONTRAST)};
     SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
     if ((hc.dwFlags & HCF_HIGHCONTRASTON) != 0)
     {
