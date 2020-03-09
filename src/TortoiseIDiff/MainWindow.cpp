@@ -1128,6 +1128,7 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
     {
     case WM_INITDIALOG:
         {
+            CTheme::Instance().SetThemeForDialog(hwndDlg, CTheme::Instance().IsDarkTheme());
             // center on the parent window
             HWND hParentWnd = ::GetParent(hwndDlg);
             RECT parentrect, childrect, centeredrect;
@@ -1177,6 +1178,7 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
             }
             // Fall through.
         case IDCANCEL:
+            CTheme::Instance().SetThemeForDialog(hwndDlg, false);
             EndDialog(hwndDlg, wParam);
             return TRUE;
         }

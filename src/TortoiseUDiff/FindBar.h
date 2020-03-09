@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2013 - TortoiseSVN
+// Copyright (C) 2007, 2013, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,8 +37,9 @@ protected:
     LRESULT                 DoCommand(int id, int msg);
 
     void                    DoFind(bool bFindPrev);
-
+    void                    SetTheme(bool bDark);
 private:
     HWND                    m_hParent;
     HICON                   m_hIcon;
+    int                     m_themeCallbackId;
 };

@@ -1354,6 +1354,7 @@ INT_PTR CALLBACK TortoiseBlame::GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wPar
     {
         case WM_INITDIALOG:
         {
+            CTheme::Instance().SetThemeForDialog(hwndDlg, CTheme::Instance().IsDarkTheme());
             HWND hwndOwner = GetParent(hwndDlg);
             RECT rc, rcOwner, rcDlg;
             GetWindowRect(hwndOwner, &rcOwner);
@@ -1383,6 +1384,7 @@ INT_PTR CALLBACK TortoiseBlame::GotoDlgProc(HWND hwndDlg, UINT uMsg, WPARAM wPar
                 }
                 // fall through
                 case IDCANCEL:
+                    CTheme::Instance().SetThemeForDialog(hwndDlg, false);
                     EndDialog(hwndDlg, wParam);
                     break;
             }

@@ -1624,6 +1624,8 @@ void CPicWindow::SetTheme(bool bDark)
             SetWindowTheme(hwndPlayBtn, L"Explorer", nullptr);
         if (FAILED(SetWindowTheme(hwndSelectBtn, L"DarkMode_Explorer", nullptr)))
             SetWindowTheme(hwndSelectBtn, L"Explorer", nullptr);
+        if (FAILED(SetWindowTheme(hwndAlphaToggleBtn, L"DarkMode_Explorer", nullptr)))
+            SetWindowTheme(hwndAlphaToggleBtn, L"Explorer", nullptr);
     }
     else
     {
@@ -1639,6 +1641,7 @@ void CPicWindow::SetTheme(bool bDark)
         SetWindowTheme(hwndRightBtn, L"Explorer", nullptr);
         SetWindowTheme(hwndPlayBtn, L"Explorer", nullptr);
         SetWindowTheme(hwndSelectBtn, L"Explorer", nullptr);
+        SetWindowTheme(hwndAlphaToggleBtn, L"Explorer", nullptr);
     }
 
     InvalidateRect(*this, nullptr, true);

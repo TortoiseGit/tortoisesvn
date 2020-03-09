@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2012-2014, 2018 - TortoiseSVN
+// Copyright (C) 2003-2007, 2012-2014, 2018, 2020 - TortoiseSVN
 // Copyright (C) 2012-2013, 2015-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -21,19 +21,22 @@
 #include "resource.h"
 #include "FindBar.h"
 #include "registry.h"
+#include "LoadIconEx.h"
+#include "Theme.h"
 #include <string>
 #include <Commdlg.h>
-#include "LoadIconEx.h"
 
 CFindBar::CFindBar()
     : m_hParent(nullptr)
     , m_hIcon(nullptr)
+    , m_themeCallbackId(0)
 {
 }
 
 CFindBar::~CFindBar(void)
 {
     DestroyIcon(m_hIcon);
+    CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
 }
 
 LRESULT CFindBar::DlgFunc(HWND /*hwndDlg*/, UINT uMsg, WPARAM wParam, LPARAM /*lParam*/)
@@ -44,6 +47,12 @@ LRESULT CFindBar::DlgFunc(HWND /*hwndDlg*/, UINT uMsg, WPARAM wParam, LPARAM /*l
         {
             m_hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_CANCELNORMAL));
             SendMessage(GetDlgItem(*this, IDC_FINDEXIT), BM_SETIMAGE, IMAGE_ICON, (LPARAM)m_hIcon);
+            m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+                [this]()
+                {
+                    SetTheme(CTheme::Instance().IsDarkTheme());
+                });
+            SetTheme(CTheme::Instance().IsDarkTheme());
         }
         return TRUE;
     case WM_COMMAND:
@@ -94,4 +103,9 @@ void CFindBar::DoFind(bool bFindPrev)
     const bool bCaseSensitive = !!SendMessage(GetDlgItem(*this, IDC_MATCHCASECHECK), BM_GETCHECK, 0, 0);
     const UINT message = bFindPrev ? COMMITMONITOR_FINDMSGPREV : COMMITMONITOR_FINDMSGNEXT;
     ::SendMessage(m_hParent, message, (WPARAM)bCaseSensitive, (LPARAM)ft.c_str());
+}
+
+void CFindBar::SetTheme(bool bDark)
+{
+    CTheme::Instance().SetThemeForDialog(*this, bDark);
 }
