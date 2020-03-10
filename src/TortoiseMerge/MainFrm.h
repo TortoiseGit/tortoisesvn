@@ -194,6 +194,7 @@ protected:
     afx_msg void OnUpdateTabModeRight(CCmdUI *pCmdUI);
     afx_msg void OnUpdateTabModeBottom(CCmdUI *pCmdUI);
     afx_msg void OnUpdateThreeWayActions(CCmdUI *pCmdUI);
+    afx_msg void OnUpdateColumnStatusBar(CCmdUI *pCmdUI);
     afx_msg void OnRegexNoFilter();
     afx_msg void OnUpdateRegexNoFilter(CCmdUI *pCmdUI);
     afx_msg void OnSettingChange(UINT uFlags, LPCTSTR lpszSection);
