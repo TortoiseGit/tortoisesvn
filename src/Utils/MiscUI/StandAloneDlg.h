@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,8 @@
 #include "CommonAppUtils.h"
 #include "LoadIconEx.h"
 #include "EditWordBreak.h"
+#include "Theme.h"
+#include "DarkModeHelper.h"
 #include <Dwmapi.h>
 #pragma comment(lib, "Dwmapi.lib")
 #pragma comment(lib, "htmlhelp.lib")
@@ -65,16 +67,24 @@ protected:
         m_nResizeBlock = 0;
         m_height = 0;
         m_width = 0;
+        m_themeCallbackId = 0;
 
         SetBackgroundIcon(IDI_AEROBACKGROUND, 256, 256);
     }
     ~CStandAloneDialogTmpl()
     {
+        CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
         if (m_hBkgndIcon)
             DestroyIcon(m_hBkgndIcon);
     }
     virtual BOOL OnInitDialog()
     {
+        m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+            [this]()
+            {
+                SetTheme(CTheme::Instance().IsDarkTheme());
+            });
+
         BaseType::OnInitDialog();
 
         // Set the icon for this dialog.  The framework does this automatically
@@ -88,6 +98,7 @@ protected:
         m_width = rect.right - rect.left;
         EnableToolTips();
         m_tooltips.Create(this);
+        SetTheme(CTheme::Instance().IsDarkTheme());
 
         auto CustomBreak = (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\UseCustomWordBreak", 2);
         if (CustomBreak)
@@ -114,6 +125,11 @@ protected:
                     return TRUE;
                 }
             }
+            if (nVirtKey == 'D' && (GetKeyState(VK_CONTROL) & 0x8000) && (GetKeyState(VK_MENU) & 0x8000))
+            {
+                CTheme::Instance().SetDarkTheme(!CTheme::Instance().IsDarkTheme());
+            }
+
         }
         return BaseType::PreTranslateMessage(pMsg);
     }
@@ -357,7 +373,7 @@ protected:
     int             m_nResizeBlock;
     long            m_width;
     long            m_height;
-
+    int             m_themeCallbackId;
     DECLARE_MESSAGE_MAP()
 private:
     HCURSOR OnQueryDragIcon()
@@ -374,6 +390,8 @@ private:
             AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
         }
     }
+
+    void SetTheme(bool bDark);
 protected:
     void OnCompositionChanged()
     {
@@ -504,3 +522,4 @@ protected:
 private:
     DECLARE_DYNAMIC(CStateStandAloneDialog)
 };
+

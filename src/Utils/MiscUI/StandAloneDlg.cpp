@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014-2017 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014-2017, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -306,6 +306,43 @@ bool CResizableStandAloneDialog::OnEnterPressed()
     }
     return false;
 }
+
+template<typename BaseType>
+void CStandAloneDialogTmpl<BaseType>::SetTheme(bool bDark)
+{
+    if (bDark)
+    {
+        DarkModeHelper::Instance().AllowDarkModeForApp(TRUE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), TRUE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(m_tooltips.GetSafeHwnd(), TRUE);
+        SetWindowTheme(m_tooltips.GetSafeHwnd(), L"Explorer", nullptr);
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        BOOL darkFlag = TRUE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(GetSafeHwnd(), &data);
+        DarkModeHelper::Instance().FlushMenuThemes();
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
+        BOOL dark = TRUE;
+        DwmSetWindowAttribute(GetSafeHwnd(), 19, &dark, sizeof(dark));
+    }
+    else
+    {
+        DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), FALSE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(m_tooltips.GetSafeHwnd(), FALSE);
+        SetWindowTheme(m_tooltips.GetSafeHwnd(), L"Explorer", nullptr);
+        BOOL darkFlag = FALSE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(GetSafeHwnd(), &data);
+        DarkModeHelper::Instance().FlushMenuThemes();
+        DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
+        DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+    }
+    CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), bDark);
+    ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+}
+
+
 
 IMPLEMENT_DYNAMIC(CStateDialog, CDialog)
 
