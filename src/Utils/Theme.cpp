@@ -132,7 +132,20 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
     {
         if ((wcscmp(szWndClassName, WC_LISTVIEW) == 0) || (wcscmp(szWndClassName, WC_LISTBOX) == 0))
         {
-            SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr);
+            // theme "Explorer" also gets the scrollbars with dark mode, but the hover color
+            // is the blueish from the bright mode.
+            // theme "ItemsView" has the hover color the same as the windows explorer (grayish),
+            // but then the scrollbars are not drawn for dark mode.
+            // theme "DarkMode_Explorer" doesn't paint a hover color at all.
+            //
+            // Also, the group headers are not affected in dark mode and therefore the group texts are
+            // hardly visible.
+            //
+            // so use "Explorer" for now. The downside of the bluish hover color isn't that bad,
+            // except in situations where both a treeview and a listview are on the same dialog
+            // at the same time (e.g. repobrowser) - then the difference is unfortunately very
+            // noticeable...
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
             auto header = ListView_GetHeader(hwnd);
             DarkModeHelper::Instance().AllowDarkModeForWindow(header, (BOOL)lParam);
             HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
@@ -149,6 +162,12 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
                     ListView_SetBkColor(hwnd, color);
                 }
                 CloseThemeData(hTheme);
+            }
+            auto hTT = ListView_GetToolTips(hwnd);
+            if (hTT)
+            {
+                DarkModeHelper::Instance().AllowDarkModeForWindow(hTT, (BOOL)lParam);
+                SetWindowTheme(hTT, L"Explorer", nullptr);
             }
             SetWindowSubclass(hwnd, ListViewSubclassProc, 1234, (DWORD_PTR)&s_backBrush);
         }
@@ -204,7 +223,7 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
         }
         else if (wcscmp(szWndClassName, WC_TREEVIEW) == 0)
         {
-            SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr);
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
             HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
             if (hTheme)
             {
@@ -219,10 +238,16 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
                 }
                 CloseThemeData(hTheme);
             }
+            auto hTT = TreeView_GetToolTips(hwnd);
+            if (hTT)
+            {
+                DarkModeHelper::Instance().AllowDarkModeForWindow(hTT, (BOOL)lParam);
+                SetWindowTheme(hTT, L"Explorer", nullptr);
+            }
         }
         else if (wcsncmp(szWndClassName, L"RICHEDIT", 8) == 0)
         {
-            SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr);
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
             CHARFORMAT2 format = {0};
             format.cbSize      = sizeof(CHARFORMAT2);
             format.dwMask      = CFM_COLOR | CFM_BACKCOLOR;
@@ -253,6 +278,12 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
                     ListView_SetBkColor(hwnd, color);
                 }
                 CloseThemeData(hTheme);
+            }
+            auto hTT = ListView_GetToolTips(hwnd);
+            if (hTT)
+            {
+                DarkModeHelper::Instance().AllowDarkModeForWindow(hTT, (BOOL)lParam);
+                SetWindowTheme(hTT, L"Explorer", nullptr);
             }
             RemoveWindowSubclass(hwnd, ListViewSubclassProc, 1234);
         }
@@ -312,6 +343,12 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
                     TreeView_SetBkColor(hwnd, color);
                 }
                 CloseThemeData(hTheme);
+            }
+            auto hTT = TreeView_GetToolTips(hwnd);
+            if (hTT)
+            {
+                DarkModeHelper::Instance().AllowDarkModeForWindow(hTT, (BOOL)lParam);
+                SetWindowTheme(hTT, L"Explorer", nullptr);
             }
         }
         else if (wcsncmp(szWndClassName, L"RICHEDIT", 8) == 0)
@@ -375,6 +412,7 @@ LRESULT CTheme::ComboBoxSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
         case WM_CTLCOLOREDIT:
         case WM_CTLCOLORLISTBOX:
         case WM_CTLCOLORBTN:
+        case WM_CTLCOLORSCROLLBAR:
         {
             auto hbrBkgnd = (HBRUSH*)dwRefData;
             HDC  hdc      = reinterpret_cast<HDC>(wParam);
@@ -399,6 +437,7 @@ LRESULT CTheme::MainSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
         case WM_CTLCOLOREDIT:
         case WM_CTLCOLORLISTBOX:
         case WM_CTLCOLORBTN:
+        case WM_CTLCOLORSCROLLBAR:
         {
             auto hbrBkgnd = (HBRUSH*)dwRefData;
             HDC  hdc      = reinterpret_cast<HDC>(wParam);
