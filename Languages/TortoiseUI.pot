@@ -1,6 +1,6 @@
 #
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2017 the TortoiseSVN team
+# Copyright (C) 2004-2020 the TortoiseSVN team
 #
 # This file is distributed under the same license as TortoiseSVN
 #
@@ -549,6 +549,14 @@ msgstr ""
 
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_DARKMODE - Menu)
+msgid "&Dark Mode"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_DARKMODE - Menu)
+msgid "&Dark Mode\t(D)"
 msgstr ""
 
 #. Resource IDs: (1638, 1641)
@@ -2635,6 +2643,11 @@ msgstr ""
 msgid "Colors"
 msgstr ""
 
+#. Resource IDs: (IDS_INDICATOR_COLUMN)
+#, c-format
+msgid "Column: %d"
+msgstr ""
+
 #. Resource IDs: (3506)
 msgid "Command"
 msgstr ""
@@ -2858,6 +2871,10 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
+msgstr ""
+
+#. Resource IDs: (1543)
+msgid "Continue &Merge"
 msgstr ""
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
@@ -3271,6 +3288,10 @@ msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
+msgstr ""
+
+#. Resource IDs: (1542)
+msgid "Delete"
 msgstr ""
 
 #. Resource IDs: (1617)
@@ -4340,6 +4361,22 @@ msgstr ""
 msgid "Find HEAD revisions"
 msgstr ""
 
+#. Resource IDs: (cmdFindNext_LabelTitle_RESID)
+msgid "Find Next"
+msgstr ""
+
+#. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
+msgid "Find Previous"
+msgstr ""
+
+#. Resource IDs: (cmdFindPrev)
+msgid "Find the last occurrence of the selected text\nSearch Previous"
+msgstr ""
+
+#. Resource IDs: (cmdFindNext)
+msgid "Find the next occurrence of the selected text\nSearch Next"
+msgstr ""
+
 #. Resource IDs: (cmdFind)
 msgid "Find the specified text\nFind"
 msgstr ""
@@ -4779,6 +4816,10 @@ msgstr ""
 
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
+msgstr ""
+
+#. Accelerator Entry for Menu ID:32819; '&Dark Mode\t(D)'
+msgid "ID:32819:V   +D"
 msgstr ""
 
 #. Accelerator Entry for Menu ID:32824; ''
@@ -5605,6 +5646,11 @@ msgstr ""
 
 #. Resource IDs: (IDS_ASKFORSAVE_MARKEDBLOCKS)
 msgid "Marked Blocks"
+msgstr ""
+
+#. Resource IDs: (IDS_INDICATOR_MARKEDWORDCOUNT)
+#, c-format
+msgid "Marked words: %s"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -9446,6 +9492,10 @@ msgstr ""
 
 #. Resource IDs: (IDS_VIEWCONTEXTMENU_USEBOTHTHISLAST)
 msgid "Use both text blocks (this one last)"
+msgstr ""
+
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 1513)
+msgid "Use dark mode"
 msgstr ""
 
 #. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu, cmdUseLeftBlock_LabelTitle_RESID)
