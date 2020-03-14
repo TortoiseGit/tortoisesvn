@@ -153,6 +153,7 @@ private:
     LruCache<std::wstring, BOOL> m_SpellingCache;
     bool        m_blockModifiedHandler;
     bool        m_bReadOnly;
+    int         m_themeCallbackId;
 
     static bool IsValidURLChar(unsigned char ch);
 protected:

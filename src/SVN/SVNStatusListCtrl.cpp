@@ -4857,6 +4857,36 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
     switch (pLVCD->nmcd.dwDrawStage)
     {
     case CDDS_PREPAINT:
+        if (pLVCD->dwItemType == LVCDI_GROUP)
+        {
+            if (CTheme::Instance().IsDarkTheme())
+            {
+                LVGROUP gInfo = { sizeof(LVGROUP) };
+                gInfo.mask = LVGF_STATE | LVGF_HEADER | LVGF_GROUPID;
+                SendMessage(LVM_GETGROUPINFO, pLVCD->nmcd.dwItemSpec, (LPARAM)&gInfo);
+
+                ::SetTextColor(pLVCD->nmcd.hdc, RGB(200, 0, 0));
+                RECT labelRect = { 0 };
+                labelRect.top = LVGGR_LABEL;
+                SendMessage(LVM_GETGROUPRECT, pLVCD->nmcd.dwItemSpec, (LPARAM)&labelRect);
+                ExtTextOut(pLVCD->nmcd.hdc, labelRect.left, labelRect.top, ETO_CLIPPED, &labelRect, gInfo.pszHeader, gInfo.cchHeader, nullptr);
+
+                RECT groupRect = { 0 };
+                groupRect.top = LVGGR_HEADER;
+                SendMessage(LVM_GETGROUPRECT, pLVCD->nmcd.dwItemSpec, (LPARAM)&groupRect);
+
+                auto pen = CreatePen(PS_SOLID, 2, RGB(180, 0, 0));
+                auto oldPen = SelectObject(pLVCD->nmcd.hdc, pen);
+                auto y = (groupRect.top + groupRect.bottom) / 2;
+                MoveToEx(pLVCD->nmcd.hdc, labelRect.right + 4, y, nullptr);
+                LineTo(pLVCD->nmcd.hdc, groupRect.right, y);
+                SelectObject(pLVCD->nmcd.hdc, oldPen);
+                DeleteObject(pen);
+
+                *pResult = CDRF_SKIPDEFAULT;
+                break;
+            }
+        }
         *pResult = CDRF_NOTIFYITEMDRAW;
         break;
     case CDDS_ITEMPREPAINT:

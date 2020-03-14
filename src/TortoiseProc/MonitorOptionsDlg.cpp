@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015 - TortoiseSVN
+// Copyright (C) 2014-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,10 +26,10 @@
 
 // CMonitorOptionsDlg dialog
 
-IMPLEMENT_DYNAMIC(CMonitorOptionsDlg, CDialogEx)
+IMPLEMENT_DYNAMIC(CMonitorOptionsDlg, CStandAloneDialog)
 
 CMonitorOptionsDlg::CMonitorOptionsDlg(CWnd* pParent /*=NULL*/)
-    : CDialogEx(CMonitorOptionsDlg::IDD, pParent)
+    : CStandAloneDialog(CMonitorOptionsDlg::IDD, pParent)
     , m_bStartWithWindows(FALSE)
     , m_bShowNotification(FALSE)
     , m_bPlaySound(FALSE)
@@ -44,7 +44,7 @@ CMonitorOptionsDlg::~CMonitorOptionsDlg()
 
 void CMonitorOptionsDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CDialogEx::DoDataExchange(pDX);
+    CStandAloneDialog::DoDataExchange(pDX);
     DDX_Check(pDX, IDC_CHECK1, m_bStartWithWindows);
     DDX_Check(pDX, IDC_SHOWNOTIFICATION, m_bShowNotification);
     DDX_Check(pDX, IDC_PLAYSOUND, m_bPlaySound);
@@ -53,7 +53,7 @@ void CMonitorOptionsDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CMonitorOptionsDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CMonitorOptionsDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
 
@@ -62,7 +62,7 @@ END_MESSAGE_MAP()
 
 BOOL CMonitorOptionsDlg::OnInitDialog()
 {
-    CDialogEx::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
     CRegString regStart(L"Software\\Microsoft\\Windows\\CurrentVersion\\Run\\TortoiseSVN Monitor");
     m_bStartWithWindows = !CString(regStart).IsEmpty();
@@ -88,5 +88,5 @@ void CMonitorOptionsDlg::OnOK()
     {
         regStart.removeValue();
     }
-    CDialogEx::OnOK();
+    CStandAloneDialog::OnOK();
 }

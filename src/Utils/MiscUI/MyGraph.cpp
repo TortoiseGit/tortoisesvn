@@ -3,6 +3,7 @@
 #include "stdafx.h"
 #include "MyGraph.h"
 #include "BufferDC.h"
+#include "Theme.h"
 
 #include <cmath>
 #define _USE_MATH_DEFINES
@@ -694,13 +695,19 @@ void MyGraph::DrawGraph(CDC& dc)
     if (GetMaxSeriesSize()) {
         dc.SetBkMode(TRANSPARENT);
 
+        dc.SetTextColor(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+        auto themePen = CreatePen(PS_SOLID, 1, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+        auto themeBrush = CreateSolidBrush(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW)));
+        auto oldThemePen = dc.SelectObject(themePen);
+        auto oldThemeBrush = dc.SelectObject(themeBrush);
+
         // Populate the colors as a group of evenly spaced colors of maximum
         // saturation.
         int nColorsDelta(240 / GetMaxSeriesSize());
 
         int baseColorL = 120;
         int diffColorL = 60;
-        DWORD backgroundColor = ::GetSysColor(COLOR_WINDOW);
+        DWORD backgroundColor = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW));
         // If graph is a non-stacked line graph, use darker colors if system window color is light.
 #if 0
         if (m_eGraphType == MyGraph::Line && !m_bStackedGraph) {
@@ -762,6 +769,10 @@ void MyGraph::DrawGraph(CDC& dc)
             case MyGraph::PieChart:  DrawSeriesPie(dc);  break;
             default: _ASSERTE(! "Bad default case"); break;
         }
+        dc.SelectObject(oldThemePen);
+        dc.SelectObject(oldThemeBrush);
+        DeleteObject(themeBrush);
+        DeleteObject(themePen);
     }
 }
 
@@ -910,6 +921,8 @@ void MyGraph::DrawLegend(CDC& dc)
     int skipped_row = -1; // if != -1, this is the row that we show the ... in
     if (nShownAuthors < GetMaxSeriesSize())
         skipped_row = nShownAuthors-2;
+
+    dc.SetTextColor(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
     // Draw each group's label and bar.
     for (int nGroup = 0; nGroup < nShownAuthors; ++nGroup) {
 
@@ -968,7 +981,7 @@ void MyGraph::DrawAxes(CDC& dc) const
     ASSERT_VALID(&dc);
     _ASSERTE(MyGraph::PieChart != m_eGraphType);
 
-    dc.SetTextColor(::GetSysColor(COLOR_WINDOWTEXT));
+    dc.SetTextColor(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
 
     // Draw y axis.
     dc.MoveTo(m_ptOrigin);

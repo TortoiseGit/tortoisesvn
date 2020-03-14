@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013, 2015 - TortoiseSVN
+// Copyright (C) 2013, 2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,10 +24,10 @@
 
 // CodeCollaboratorSettingsDlg dialog
 
-IMPLEMENT_DYNAMIC(CodeCollaboratorSettingsDlg, CDialog)
+IMPLEMENT_DYNAMIC(CodeCollaboratorSettingsDlg, CStandAloneDialog)
 
 CodeCollaboratorSettingsDlg::CodeCollaboratorSettingsDlg(CWnd* pParent /*=NULL*/)
-    : CDialog(CodeCollaboratorSettingsDlg::IDD, pParent)
+    : CStandAloneDialog(CodeCollaboratorSettingsDlg::IDD, pParent)
 {
     m_regCollabUser     = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabUser", L"");
     m_regCollabPassword = CRegString(L"Software\\TortoiseSVN\\CodeCollaborator\\CollabPassword", L"");
@@ -41,21 +41,21 @@ CodeCollaboratorSettingsDlg::~CodeCollaboratorSettingsDlg()
 
 void CodeCollaboratorSettingsDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_COLLABORATOR_USEREDIT, m_collabUser);
     DDX_Text(pDX, IDC_COLLABORATOR_PASSEDIT, m_collabPassword);
     DDX_Text(pDX, IDC_SVN_USEREDIT, m_svnUser);
     DDX_Text(pDX, IDC_SVN_PASSEDIT, m_svnPassword);
 }
 
-BEGIN_MESSAGE_MAP(CodeCollaboratorSettingsDlg, CDialog)
+BEGIN_MESSAGE_MAP(CodeCollaboratorSettingsDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDOK, &CodeCollaboratorSettingsDlg::OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
 BOOL CodeCollaboratorSettingsDlg::OnInitDialog()
 {
-    CDialog::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     m_collabUser = (CString)m_regCollabUser;
@@ -84,5 +84,5 @@ void CodeCollaboratorSettingsDlg::OnBnClickedOk()
     m_regCollabUser = (CString)m_collabUser;
     m_regCollabUser.write();
 
-    CDialog::OnOK();
+    CStandAloneDialog::OnOK();
 }

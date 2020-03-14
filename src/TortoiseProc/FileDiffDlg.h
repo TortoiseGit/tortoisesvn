@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2016, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,7 +27,7 @@
 #include "Colors.h"
 #include "FilterEdit.h"
 #include "JobScheduler.h"
-
+#include "ThemeControls.h"
 
 #define IDT_FILTER      101
 
@@ -107,7 +107,7 @@ private:
     CButton             m_cRev2Btn;
     CFilterEdit         m_cFilter;
 
-    CMFCButton          m_SwitchButton;
+    CThemeMFCButton     m_SwitchButton;
     CColors             m_colors;
     CHintCtrl<CListCtrl> m_cFileList;
     TCHAR               m_columnbuf[MAX_PATH];

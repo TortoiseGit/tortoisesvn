@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2015 - TortoiseSVN
+// Copyright (C) 2007-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,8 @@
 #include "SVN.h"
 #include "registry.h"
 #include "TaskbarUUID.h"
+#include "Theme.h"
+#include "DarkModeHelper.h"
 
 #define BOTTOMMARG 48
 
@@ -114,6 +116,9 @@ BOOL CMergeWizard::OnInitDialog()
     if ((m_pParentWnd == NULL) && (GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(L"MergeWizard");
+
+    DarkModeHelper::Instance().AllowDarkModeForApp(CTheme::Instance().IsDarkTheme());
+    CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
     return bResult;
 }

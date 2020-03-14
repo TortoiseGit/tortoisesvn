@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -435,28 +435,28 @@ void CEditPropertiesDlg::OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pRes
         if ((int)pLVCD->nmcd.dwItemSpec > m_propList.GetItemCount())
             return;
 
-        COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+        COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
         PropValue * pProp = (PropValue*)m_propList.GetItemData(static_cast<int>(pLVCD->nmcd.dwItemSpec));
 
         if (pProp->isbinary)
         {
-            crText = GetSysColor(COLOR_GRAYTEXT);
+            crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
         else if (pProp->count != m_pathlist.GetCount())
         {
             // if the property values are the same for all paths they're set
             // but they're not set for *all* paths, then we show the entry grayed out
-            crText = GetSysColor(COLOR_GRAYTEXT);
+            crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
         else if (pProp->allthesamevalue)
         {
             if (pProp->isinherited)
-                crText = GetSysColor(COLOR_GRAYTEXT);
+                crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
         else
         {
             // if the property values aren't the same for all paths
-            crText = GetSysColor(COLOR_GRAYTEXT);
+            crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
 
         // Store the color back in the NMLVCUSTOMDRAW struct.

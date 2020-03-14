@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2013, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,6 +22,7 @@
 #include "MyGraph.h"
 #include "TSVNPath.h"
 #include "UnicodeUtils.h"
+#include "MiscUI\ThemeControls.h"
 
 #include <map>
 #include <list>
@@ -209,11 +210,11 @@ protected:
     BOOL            m_bAuthorsCaseSensitive;
     BOOL            m_bSortByCommitCount;
 
-    CMFCButton      m_btnGraphBar;
-    CMFCButton      m_btnGraphBarStacked;
-    CMFCButton      m_btnGraphLine;
-    CMFCButton      m_btnGraphLineStacked;
-    CMFCButton      m_btnGraphPie;
+    CThemeMFCButton m_btnGraphBar;
+    CThemeMFCButton m_btnGraphBarStacked;
+    CThemeMFCButton m_btnGraphLine;
+    CThemeMFCButton m_btnGraphLineStacked;
+    CThemeMFCButton m_btnGraphPie;
 
     MyGraph::GraphType  m_GraphType;
     bool                m_bStacked;

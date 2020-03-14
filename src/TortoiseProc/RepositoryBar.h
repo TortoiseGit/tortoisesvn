@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012, 2016-2017 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2016-2017, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "SVNRev.h"
 #include "HistoryCombo.h"
 #include "Tooltip.h"
+#include "ThemeControls.h"
 
 class CRepositoryTree;
 
@@ -120,10 +121,13 @@ protected:
     afx_msg void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHistoryBack();
     afx_msg void OnHistoryForward();
+    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 
     DECLARE_MESSAGE_MAP()
 
 private:
+    void SetTheme(bool bDark);
+
     CString m_url;
     SVNRev m_rev;
 
@@ -137,13 +141,14 @@ private:
         virtual bool OnReturnKeyPressed();
     } m_cbxUrl;
 
-    CButton m_btnRevision;
-    CMFCButton m_btnUp;
-    CMFCButton m_btnBack;
-    CMFCButton m_btnForward;
+    CThemeMFCButton m_btnRevision;
+    CThemeMFCButton m_btnUp;
+    CThemeMFCButton m_btnBack;
+    CThemeMFCButton m_btnForward;
 
     SVNRev  m_headRev;
     CToolTips m_tooltips;
+    int m_themeCallbackId;
 };
 
 

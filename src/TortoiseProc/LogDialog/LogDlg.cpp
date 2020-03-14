@@ -254,6 +254,7 @@ CLogDlg::CLogDlg(CWnd* pParent /*=NULL*/)
     , m_bSystemShutDown(false)
     , m_pTreeDropTarget(NULL)
     , m_lastTooltipRect({0})
+    , m_themeCallbackId(0)
 {
     SecureZeroMemory(&m_SystemTray, sizeof(m_SystemTray));
     m_bFilterWithRegex =
@@ -516,10 +517,19 @@ void CLogDlg::RestoreSavedDialogSettings()
 
 void CLogDlg::SetupLogMessageViewControl()
 {
+    auto pWnd = GetDlgItem(IDC_MSGVIEW);
     // set the font to use in the log message view, configured in the settings dialog
-    GetDlgItem(IDC_MSGVIEW)->SetFont(&m_logFont);
+    pWnd->SetFont(&m_logFont);
     // make the log message rich edit control send a message when the mouse pointer is over a link
-    GetDlgItem(IDC_MSGVIEW)->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK | ENM_SCROLL);
+    pWnd->SendMessage(EM_SETEVENTMASK, NULL, ENM_LINK | ENM_SCROLL);
+
+    CHARFORMAT2 format = { 0 };
+    format.cbSize = sizeof(CHARFORMAT2);
+    format.dwMask = CFM_COLOR | CFM_BACKCOLOR;
+    format.crTextColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+    format.crBackColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW));
+    pWnd->SendMessage(EM_SETCHARFORMAT, SCF_ALL, (LPARAM)&format);
+    pWnd->SendMessage(EM_SETBKGNDCOLOR, 0, (LPARAM)format.crBackColor);
 }
 
 void CLogDlg::SetupLogListControl()
@@ -594,7 +604,8 @@ void CLogDlg::ConfigureColumnsForLogListControl()
     ResizeAllListCtrlCols(true);
     m_LogList.SetRedraw(true);
 
-    SetWindowTheme(m_LogList.GetSafeHwnd(), L"Explorer", NULL);
+    if (!CTheme::Instance().IsDarkTheme())
+        SetWindowTheme(m_LogList.GetSafeHwnd(), L"Explorer", NULL);
     GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 }
 
@@ -618,7 +629,8 @@ void CLogDlg::ConfigureColumnsForChangedFileListControl()
     CAppUtils::ResizeAllListCtrlCols(&m_ChangedFileListCtrl);
     m_ChangedFileListCtrl.SetRedraw(true);
 
-    SetWindowTheme(m_ChangedFileListCtrl.GetSafeHwnd(), L"Explorer", NULL);
+    if (!CTheme::Instance().IsDarkTheme())
+        SetWindowTheme(m_ChangedFileListCtrl.GetSafeHwnd(), L"Explorer", NULL);
 }
 
 void CLogDlg::SetupFilterControlBitmaps()
@@ -805,6 +817,14 @@ BOOL CLogDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
+
+    m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+        [this]()
+        {
+            SetTheme(CTheme::Instance().IsDarkTheme());
+        });
+
+
     ExtraInitialization();
     InitializeTaskBarListPtr();
     if (!m_bMonitoringMode)
@@ -842,6 +862,8 @@ BOOL CLogDlg::OnInitDialog()
     SetupButtonMenu();
     SetupAccessibility();
     SetupToolTips();
+
+    SetTheme(CTheme::Instance().IsDarkTheme());
 
     if (!m_bMonitoringMode)
     {
@@ -1267,6 +1289,21 @@ void CLogDlg::Refresh(bool autoGoOnline)
     GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
 }
 
+void CLogDlg::SetTheme(bool bDark)
+{
+    if (m_hwndToolbar)
+    {
+        DarkModeHelper::Instance().AllowDarkModeForWindow(m_hwndToolbar, bDark);
+        SetWindowTheme(m_hwndToolbar, L"Explorer", nullptr);
+        auto hTT = (HWND)::SendMessage(m_hwndToolbar, TB_GETTOOLTIPS, 0, 0);
+        if (hTT)
+        {
+            DarkModeHelper::Instance().AllowDarkModeForWindow(hTT, bDark);
+            SetWindowTheme(hTT, L"Explorer", nullptr);
+        }
+    }
+}
+
 void CLogDlg::OnBnClickedNexthundred()
 {
     UpdateData();
@@ -1458,6 +1495,7 @@ void CLogDlg::OnClose()
 
 void CLogDlg::OnDestroy()
 {
+    CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
     if (m_pLogListAccServer)
     {
         ListViewAccServer::ClearProvider(m_LogList.GetSafeHwnd());
@@ -2497,6 +2535,7 @@ void CLogDlg::CreateFindDialog()
     {
         m_pFindDialog = new CFindReplaceDialog();
         m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);
+        CTheme::Instance().SetThemeForDialog(m_pFindDialog->GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
     }
 }
 
@@ -4091,6 +4130,27 @@ LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
             {
                 SPC_NMHDR* pHdr = (SPC_NMHDR*)lParam;
                 DoSizeV3(pHdr->delta);
+            }
+            else
+            {
+                auto pNMHDR = reinterpret_cast<LPNMHDR>(lParam);
+                if ((pNMHDR->code == NM_CUSTOMDRAW) && (pNMHDR->hwndFrom == m_hwndToolbar))
+                {
+                    if (CTheme::Instance().IsDarkTheme())
+                    {
+                        auto pNMTB = reinterpret_cast<LPNMTBCUSTOMDRAW>(lParam);
+                        switch (pNMTB->nmcd.dwDrawStage)
+                        {
+                            case CDDS_PREPAINT:
+                                return CDRF_NOTIFYITEMDRAW;
+                            case CDDS_ITEMPREPAINT:
+                            {
+                                pNMTB->clrText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+                                return CDRF_DODEFAULT | TBCDRF_USECDCOLORS;
+                            }
+                        }
+                    }
+                }
             }
             break;
     }
@@ -8014,7 +8074,8 @@ void CLogDlg::InitMonitoringMode()
 
     DWORD exStyle = TVS_EX_AUTOHSCROLL | TVS_EX_DOUBLEBUFFER;
     m_projTree.SetExtendedStyle(exStyle, exStyle);
-    SetWindowTheme(m_projTree.GetSafeHwnd(), L"Explorer", NULL);
+    if (!CTheme::Instance().IsDarkTheme())
+        SetWindowTheme(m_projTree.GetSafeHwnd(), L"Explorer", NULL);
     m_nMonitorUrlIcon = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MONITORURL, 0, 0));
     m_nMonitorWCIcon  = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MONITORWC, 0, 0));
     m_nErrorOvl       = SYS_IMAGE_LIST().AddIcon(CCommonAppUtils::LoadIconEx(IDI_MODIFIEDOVL, 0, 0));

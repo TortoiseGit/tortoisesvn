@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012, 2013 - TortoiseSVN
+// Copyright (C) 2012, 2013, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,10 +24,10 @@
 
 // CWaitDlg dialog
 
-IMPLEMENT_DYNAMIC(CWaitDlg, CDialogEx)
+IMPLEMENT_DYNAMIC(CWaitDlg, CStandAloneDialog)
 
 CWaitDlg::CWaitDlg(CWnd* pParent /*=NULL*/)
-    : CDialogEx(CWaitDlg::IDD, pParent)
+    : CStandAloneDialog(CWaitDlg::IDD, pParent)
 {
 }
 
@@ -37,11 +37,11 @@ CWaitDlg::~CWaitDlg()
 
 void CWaitDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CDialogEx::DoDataExchange(pDX);
+    CStandAloneDialog::DoDataExchange(pDX);
 }
 
 
-BEGIN_MESSAGE_MAP(CWaitDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CWaitDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
 
@@ -50,7 +50,7 @@ END_MESSAGE_MAP()
 
 BOOL CWaitDlg::OnInitDialog()
 {
-    CDialogEx::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
     if (!m_title.IsEmpty())
         SetWindowText(m_title);

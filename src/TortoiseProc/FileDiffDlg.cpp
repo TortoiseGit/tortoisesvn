@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -550,7 +550,7 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
         // Tell Windows to paint the control itself.
         *pResult = CDRF_DODEFAULT;
 
-        COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+        COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
 
         if (m_arFilteredList.size() > pLVCD->nmcd.dwItemSpec)
         {
@@ -558,18 +558,18 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
             switch (fd.kind)
             {
             case svn_client_diff_summarize_kind_added:
-                crText = m_colors.GetColor(CColors::Added);
+                crText = CTheme::Instance().GetThemeColor(m_colors.GetColor(CColors::Added));
                 break;
             case svn_client_diff_summarize_kind_deleted:
-                crText = m_colors.GetColor(CColors::Deleted);
+                crText = CTheme::Instance().GetThemeColor(m_colors.GetColor(CColors::Deleted));
                 break;
             case svn_client_diff_summarize_kind_modified:
-                crText = m_colors.GetColor(CColors::Modified);
+                crText = CTheme::Instance().GetThemeColor(m_colors.GetColor(CColors::Modified));
                 break;
             case svn_client_diff_summarize_kind_normal:
             default:
                 if (fd.propchanged)
-                    crText = m_colors.GetColor(CColors::PropertyChanged);
+                    crText = CTheme::Instance().GetThemeColor(m_colors.GetColor(CColors::PropertyChanged));
                 break;
             }
         }

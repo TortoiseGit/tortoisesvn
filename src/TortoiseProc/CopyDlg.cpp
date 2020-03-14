@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -922,12 +922,12 @@ void CCopyDlg::OnNMCustomdrawExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
     {
         *pResult = CDRF_NOTIFYSUBITEMDRAW;
 
-        COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+        COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
         if (pLVCD->nmcd.dwItemSpec < (UINT_PTR)m_externals.size())
         {
             SVNExternal ext = m_externals[pLVCD->nmcd.dwItemSpec];
             if ((ext.origrevision.kind == svn_opt_revision_number)||(ext.origrevision.kind == svn_opt_revision_date))
-                crText = GetSysColor(COLOR_GRAYTEXT);
+                crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
         // Store the color back in the NMLVCUSTOMDRAW struct.
         pLVCD->clrText = crText;

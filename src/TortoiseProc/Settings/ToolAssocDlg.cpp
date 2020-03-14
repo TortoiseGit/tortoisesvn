@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2011, 2014 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2011, 2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,9 +22,9 @@
 #include "AppUtils.h"
 #include "StringUtils.h"
 
-IMPLEMENT_DYNAMIC(CToolAssocDlg, CDialog)
+IMPLEMENT_DYNAMIC(CToolAssocDlg, CStandAloneDialog)
 CToolAssocDlg::CToolAssocDlg(const CString& type, bool add, CWnd* pParent /*=NULL*/)
-    : CDialog(CToolAssocDlg::IDD, pParent)
+    : CStandAloneDialog(CToolAssocDlg::IDD, pParent)
     , m_sType(type)
     , m_bAdd(add)
 {
@@ -36,7 +36,7 @@ CToolAssocDlg::~CToolAssocDlg()
 
 void CToolAssocDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_EXTEDIT, m_sExtension);
     DDX_Text(pDX, IDC_TOOLEDIT, m_sTool);
 
@@ -50,13 +50,13 @@ void CToolAssocDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CToolAssocDlg, CDialog)
+BEGIN_MESSAGE_MAP(CToolAssocDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDC_TOOLBROWSE, OnBnClickedToolbrowse)
 END_MESSAGE_MAP()
 
 BOOL CToolAssocDlg::OnInitDialog()
 {
-    CDialog::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
     EnableToolTips();
     m_tooltips.Create(this);
@@ -83,7 +83,7 @@ BOOL CToolAssocDlg::OnInitDialog()
 BOOL CToolAssocDlg::PreTranslateMessage(MSG* pMsg)
 {
     m_tooltips.RelayEvent(pMsg);
-    return CDialog::PreTranslateMessage(pMsg);
+    return CStandAloneDialog::PreTranslateMessage(pMsg);
 }
 
 void CToolAssocDlg::OnBnClickedToolbrowse()

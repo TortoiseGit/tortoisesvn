@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,8 @@
 #include "Settings.h"
 #include "AppUtils.h"
 #include "../../TSVNCache/CacheInterface.h"
+#include "Theme.h"
+#include "DarkModeHelper.h"
 
 #define BOTTOMMARG 32
 
@@ -207,6 +209,9 @@ BOOL CSettings::OnInitDialog()
         m_aeroControls.SubclassOkCancelHelp(this);
         m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
     }
+
+    DarkModeHelper::Instance().AllowDarkModeForApp(CTheme::Instance().IsDarkTheme());
+    CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
     CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     return bResult;

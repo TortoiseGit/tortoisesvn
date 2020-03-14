@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2008-2012, 2014-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,6 +19,8 @@
 
 #include "stdafx.h"
 #include "Tooltip.h"
+#include "Theme.h"
+#include "DarkModeHelper.h"
 
 
 BEGIN_MESSAGE_MAP(CToolTips, CToolTipCtrl)
@@ -50,6 +52,28 @@ BOOL CToolTips::OnTtnNeedText(NMHDR *pNMHDR, LRESULT *pResult)
         }
     }
     return FALSE;
+}
+
+void CToolTips::SetTheme(bool bDark)
+{
+    DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), bDark);
+    ::SetWindowTheme(GetSafeHwnd(), L"Explorer", nullptr);
+}
+
+BOOL CToolTips::Create(CWnd* pParentWnd, DWORD dwStyle)
+{
+    m_pParentWnd = pParentWnd;
+    m_pParentWnd->EnableToolTips();
+    BOOL bRet = CToolTipCtrl::Create(pParentWnd, dwStyle);
+    SetMaxTipWidth(600);
+    SetDelayTime(TTDT_AUTOPOP, 30000);
+    m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+        [this]()
+        {
+            SetTheme(CTheme::Instance().IsDarkTheme());
+        });
+    SetTheme(CTheme::Instance().IsDarkTheme());
+    return bRet;
 }
 
 BOOL CToolTips::AddTool(CWnd* pWnd, UINT nIDText, LPCRECT lpRectTool /* = NULL */, UINT_PTR nIDTool /* = 0 */)
@@ -105,6 +129,9 @@ BOOL CToolTips::ShowBalloon(CWnd *pWnd, UINT nIDText, UINT nIDTitle, UINT icon /
         );
     if (hwndTT == NULL)
         return FALSE;
+
+    DarkModeHelper::Instance().AllowDarkModeForWindow(hwndTT, CTheme::Instance().IsDarkTheme());
+    ::SetWindowTheme(hwndTT, L"Explorer", nullptr);
 
     TOOLINFO ti = { 0 };
     ti.cbSize = sizeof(ti);

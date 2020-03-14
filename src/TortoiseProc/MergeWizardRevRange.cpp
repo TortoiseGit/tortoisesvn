@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2014 - TortoiseSVN
+// Copyright (C) 2007-2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,6 +23,7 @@
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "LogDialog/LogDlg.h"
+#include "Theme.h"
 
 IMPLEMENT_DYNAMIC(CMergeWizardRevRange, CMergeWizardBasePage)
 
@@ -219,6 +220,8 @@ BOOL CMergeWizardRevRange::OnInitDialog()
     AddAnchor(IDC_MERGEREVRANGEWCGROUP, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_WCEDIT, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_SHOWLOGWC, TOP_RIGHT);
+
+    CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
     StartWCCheckThread(((CMergeWizard*)GetParent())->wcPath);
 

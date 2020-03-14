@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2012, 2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,10 +21,10 @@
 #include "RevGraphFilterDlg.h"
 
 
-IMPLEMENT_DYNAMIC(CRevGraphFilterDlg, CDialog)
+IMPLEMENT_DYNAMIC(CRevGraphFilterDlg, CStandAloneDialog)
 
 CRevGraphFilterDlg::CRevGraphFilterDlg(CWnd* pParent /*=NULL*/)
-    : CDialog(CRevGraphFilterDlg::IDD, pParent)
+    : CStandAloneDialog(CRevGraphFilterDlg::IDD, pParent)
     , m_removeSubTree (FALSE)
     , m_minrev (1)
     , m_maxrev (1)
@@ -39,7 +39,7 @@ CRevGraphFilterDlg::~CRevGraphFilterDlg()
 
 void CRevGraphFilterDlg::DoDataExchange(CDataExchange* pDX)
 {
-    CDialog::DoDataExchange(pDX);
+    CStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_PATHFILTER, m_sFilterPaths);
     DDX_Check(pDX, IDC_REMOVESUBTREE, m_removeSubTree);
     DDX_Control(pDX, IDC_FROMSPIN, m_cFromSpin);
@@ -49,14 +49,14 @@ void CRevGraphFilterDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CRevGraphFilterDlg, CDialog)
+BEGIN_MESSAGE_MAP(CRevGraphFilterDlg, CStandAloneDialog)
     ON_NOTIFY(UDN_DELTAPOS, IDC_FROMSPIN, &CRevGraphFilterDlg::OnDeltaposFromspin)
     ON_NOTIFY(UDN_DELTAPOS, IDC_TOSPIN, &CRevGraphFilterDlg::OnDeltaposTospin)
 END_MESSAGE_MAP()
 
 BOOL CRevGraphFilterDlg::OnInitDialog()
 {
-    CDialog::OnInitDialog();
+    CStandAloneDialog::OnInitDialog();
 
     m_cFromSpin.SetBuddy(GetDlgItem(IDC_FROMREV));
     m_cFromSpin.SetRange32(1, m_HeadRev);
@@ -115,5 +115,5 @@ void CRevGraphFilterDlg::OnOK()
 {
     m_minrev = m_cFromSpin.GetPos32();
     m_maxrev = m_cToSpin.GetPos32();
-    CDialog::OnOK();
+    CStandAloneDialog::OnOK();
 }

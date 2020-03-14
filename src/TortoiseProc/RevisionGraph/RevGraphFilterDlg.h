@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2013 - TortoiseSVN
+// Copyright (C) 2003-2006, 2013, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,13 +17,14 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "StandAloneDlg.h"
 #include <afxcmn.h>
 
 /**
  * \ingroup TortoiseProc
  * helper dialog to enter filter data for the revision graph.
  */
-class CRevGraphFilterDlg : public CDialog
+class CRevGraphFilterDlg : public CStandAloneDialog
 {
     DECLARE_DYNAMIC(CRevGraphFilterDlg)
 

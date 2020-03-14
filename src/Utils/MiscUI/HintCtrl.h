@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013, 2015, 2017-2018 - TortoiseSVN
+// Copyright (C) 2011, 2013, 2015, 2017-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "MyMemDC.h"
+#include "Theme.h"
 
 /**
  * \ingroup Utils
@@ -71,12 +72,12 @@ protected:
         LRESULT defres = Default();
         if (!m_sText.IsEmpty())
         {
-            COLORREF clrText = ::GetSysColor(COLOR_WINDOWTEXT);
+            COLORREF clrText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
             COLORREF clrTextBk;
             if (IsWindowEnabled())
-                clrTextBk = ::GetSysColor(COLOR_WINDOW);
+                clrTextBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW));
             else
-                clrTextBk = ::GetSysColor(COLOR_3DFACE);
+                clrTextBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_3DFACE));
 
             CRect rc;
             GetClientRect(&rc);
@@ -97,10 +98,12 @@ protected:
             }
             CDC* pDC = GetDC();
             {
+                pDC->SetBkMode(TRANSPARENT);
                 CMyMemDC memDC(pDC, &rc);
 
                 memDC.SetTextColor(clrText);
                 memDC.SetBkColor(clrTextBk);
+                memDC.SetBkMode(TRANSPARENT);
                 if (bIsEmpty)
                     memDC.BitBlt(rc.left, rc.top, rc.Width(), rc.Height(), pDC, rc.left, rc.top, SRCCOPY);
                 else

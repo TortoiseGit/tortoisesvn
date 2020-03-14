@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015 - TortoiseSVN
+// Copyright (C) 2014-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,11 +17,12 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
+#include "StandAloneDlg.h"
 
 
 // CMonitorOptionsDlg dialog
 
-class CMonitorOptionsDlg : public CDialogEx
+class CMonitorOptionsDlg : public CStandAloneDialog
 {
     DECLARE_DYNAMIC(CMonitorOptionsDlg)
 

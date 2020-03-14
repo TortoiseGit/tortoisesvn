@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2013 - TortoiseSVN
+// Copyright (C) 2007-2008, 2013, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "MergeWizard.h"
 #include "MergeWizardStart.h"
 #include "AppUtils.h"
+#include "Theme.h"
 
 
 IMPLEMENT_DYNAMIC(CMergeWizardStart, CMergeWizardBasePage)
@@ -89,6 +90,7 @@ BOOL CMergeWizardStart::OnInitDialog()
     AddAnchor(IDC_MERGE_TREE, TOP_LEFT);
     AddAnchor(IDC_TREELABEL, TOP_LEFT, TOP_RIGHT);
 
+    CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
     return TRUE;
 }

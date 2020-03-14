@@ -84,12 +84,14 @@ CSciEdit::CSciEdit(void) : m_DirectFunction(NULL)
     , m_SpellingCache(2000)
     , m_blockModifiedHandler(false)
     , m_bReadOnly(false)
+    , m_themeCallbackId(0)
 {
     m_hModule = ::LoadLibrary(L"SciLexer.DLL");
 }
 
 CSciEdit::~CSciEdit(void)
 {
+    CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
     m_personalDict.Save();
 }
 
@@ -315,6 +317,12 @@ void CSciEdit::Init(LONG lLanguage)
         Call(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
         Call(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     }
+    m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+        [this]()
+        {
+            OnSysColorChange();
+        });
+    OnSysColorChange();
 }
 
 void CSciEdit::Init(const ProjectProperties& props)
@@ -1048,9 +1056,17 @@ END_MESSAGE_MAP()
 void CSciEdit::OnSysColorChange()
 {
     __super::OnSysColorChange();
-    Call(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
-    Call(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
-    Call(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+    if (CTheme::Instance().IsDarkTheme())
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+    else
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+
+    Call(SCI_CLEARDOCUMENTSTYLE);
+    Call(SCI_STYLESETFORE, STYLE_DEFAULT, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+    Call(SCI_STYLESETBACK, STYLE_DEFAULT, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW)));
+    Call(SCI_SETCARETFORE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+    Call(SCI_SETSELFORE, TRUE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT)));
+    Call(SCI_SETSELBACK, TRUE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHT)));
 }
 
 void CSciEdit::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)

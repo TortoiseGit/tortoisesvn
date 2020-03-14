@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2015, 2017-2019 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2015, 2017-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,7 @@
 #include "FilterEdit.h"
 #include "DPIAware.h"
 #include "LoadIconEx.h"
-
+#include "Theme.h"
 
 const UINT CFilterEdit::WM_FILTEREDIT_INFOCLICKED
                 = ::RegisterWindowMessage(L"TSVNWM_FILTEREDIT_INFOCLICKED");
@@ -29,7 +29,8 @@ const UINT CFilterEdit::WM_FILTEREDIT_CANCELCLICKED
 
 IMPLEMENT_DYNAMIC(CFilterEdit, CEdit)
 
-CFilterEdit::CFilterEdit() : m_hIconCancelNormal(NULL)
+CFilterEdit::CFilterEdit()
+    : m_hIconCancelNormal(NULL)
     , m_hIconCancelPressed(NULL)
     , m_hIconInfo(NULL)
     , m_bPressed(FALSE)
@@ -37,17 +38,25 @@ CFilterEdit::CFilterEdit() : m_hIconCancelNormal(NULL)
     , m_iButtonClickedMessageId(WM_FILTEREDIT_INFOCLICKED)
     , m_iCancelClickedMessageId(WM_FILTEREDIT_CANCELCLICKED)
     , m_pValidator(NULL)
-    , m_backColor(GetSysColor(COLOR_WINDOW))
+    , m_backColor(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)))
+    , m_themeCallbackId(0)
 {
     m_rcEditArea.SetRect(0, 0, 0, 0);
     m_rcButtonArea.SetRect(0, 0, 0, 0);
     m_rcInfoArea.SetRect(0, 0, 0, 0);
     m_sizeInfoIcon.SetSize(0, 0);
     m_sizeCancelIcon.SetSize(0, 0);
+    m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+        [this]()
+        {
+            SetTheme(CTheme::Instance().IsDarkTheme());
+        });
+    SetTheme(CTheme::Instance().IsDarkTheme());
 }
 
 CFilterEdit::~CFilterEdit()
 {
+    CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
     if (m_hIconCancelNormal)
         DestroyIcon(m_hIconCancelNormal);
     if (m_hIconCancelPressed)
@@ -72,6 +81,7 @@ BEGIN_MESSAGE_MAP(CFilterEdit, CEdit)
     ON_CONTROL_REFLECT(EN_KILLFOCUS, &CFilterEdit::OnEnKillfocus)
     ON_CONTROL_REFLECT(EN_SETFOCUS, &CFilterEdit::OnEnSetfocus)
     ON_MESSAGE(WM_PASTE,OnPaste)
+    ON_WM_THEMECHANGED()
 END_MESSAGE_MAP()
 
 
@@ -322,12 +332,18 @@ BOOL CFilterEdit::OnEnChange()
 
 HBRUSH CFilterEdit::CtlColor(CDC* pDC, UINT /*nCtlColor*/)
 {
-    if (m_backColor != GetSysColor(COLOR_WINDOW))
+    if (m_backColor != CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)))
     {
         pDC->SetBkColor(m_backColor);
         return m_brBack;
     }
     return NULL;
+}
+
+LRESULT CFilterEdit::OnThemeChanged()
+{
+    ResizeWindow();
+    return 0;
 }
 
 void CFilterEdit::Validate()
@@ -336,7 +352,7 @@ void CFilterEdit::Validate()
     {
         CString text;
         GetWindowText(text);
-        m_backColor = GetSysColor(COLOR_WINDOW);
+        m_backColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW));
         if (!m_pValidator->Validate(text))
         {
             // Use a background color slightly shifted to red.
@@ -391,8 +407,8 @@ void CFilterEdit::DrawDimText()
     int         iState = dcDraw.SaveDC();
 
     dcDraw.SelectObject((*GetFont()));
-    dcDraw.SetTextColor(GetSysColor(COLOR_GRAYTEXT));
-    dcDraw.SetBkColor(GetSysColor(COLOR_WINDOW));
+    dcDraw.SetTextColor(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT)));
+    dcDraw.SetBkColor(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)));
     dcDraw.DrawText(m_sCueBanner, m_sCueBanner.GetLength(), &m_rcEditArea, DT_CENTER | DT_VCENTER);
     dcDraw.RestoreDC(iState);
     return;
@@ -406,6 +422,11 @@ HICON CFilterEdit::LoadDpiScaledIcon(UINT resourceId, int cx96dpi, int cy96dpi)
     int cy = MulDiv(cy96dpi, dc.GetDeviceCaps(LOGPIXELSY), 96);
 
     return LoadIconEx(AfxGetResourceHandle(), MAKEINTRESOURCE(resourceId), cx, cy);
+}
+
+void CFilterEdit::SetTheme(bool /*bDark*/)
+{
+    Validate();
 }
 
 void CFilterEdit::OnEnKillfocus()

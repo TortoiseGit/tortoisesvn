@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2016, 2018-2019 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2016, 2018-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,6 +31,7 @@
 #include "UpsideDownLayout.h"
 #include "ShowTreeStripes.h"
 #include "DPIAware.h"
+#include "Theme.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -81,7 +82,7 @@ void CRevisionGraphWnd::OnPaint()
     CRect rect = GetClientRect();
     if (IsUpdateJobRunning())
     {
-        dc.FillSolidRect(rect, ::GetSysColor(COLOR_APPWORKSPACE));
+        dc.FillSolidRect(rect, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_APPWORKSPACE)));
         CWnd::OnPaint();
         return;
     }
@@ -315,12 +316,12 @@ void CRevisionGraphWnd::DrawNode(GraphicsDevice& graphics, const RectF& rect,
     // calculate the GDI+ color values we need to draw the node
 
     Color background;
-    background.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
+    background.SetFromCOLORREF (CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)));
     Color textColor;
     if (nodeClassification.Is (CNodeClassification::IS_MODIFIED_WC))
         textColor = m_Colors.GetColor (CColors::gdpWCNodeBorder);
     else
-        textColor.SetFromCOLORREF (GetSysColor(COLOR_WINDOWTEXT));
+        textColor.SetFromCOLORREF (CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT)));
 
     Color brightColor = LimitedScaleColor (background, contour, 0.9f);
 
@@ -436,9 +437,9 @@ void CRevisionGraphWnd::DrawShadows (GraphicsDevice& graphics, const CRect& logR
     // shadow color to use
 
     Color background;
-    background.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
+    background.SetFromCOLORREF (CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)));
     Color textColor;
-    textColor.SetFromCOLORREF (GetSysColor(COLOR_WINDOWTEXT));
+    textColor.SetFromCOLORREF (CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT)));
 
     Color shadowColor = LimitedScaleColor (background, ARGB (Color::Black), 0.5f);
 
@@ -684,7 +685,7 @@ void CRevisionGraphWnd::IndicateGlyphDirection
     // and the background color
 
     Color color;
-    color.SetFromCOLORREF (GetSysColor(COLOR_WINDOW));
+    color.SetFromCOLORREF (CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)));
     color.SetValue ((color.GetValue() & 0x807f7f7f) + 0x800000);
 
     SolidBrush brush (color);
@@ -906,7 +907,7 @@ void CRevisionGraphWnd::DrawConnections (GraphicsDevice& graphics, const CRect& 
     enum {MAX_POINTS = 100};
     CPoint points[MAX_POINTS];
 
-    CPen newpen(PS_SOLID, 0, GetSysColor(COLOR_WINDOWTEXT));
+    CPen newpen(PS_SOLID, 0, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT)));
     CPen * pOldPen = NULL;
     if (graphics.pDC)
         pOldPen = graphics.pDC->SelectObject(&newpen);
@@ -939,7 +940,7 @@ void CRevisionGraphWnd::DrawConnections (GraphicsDevice& graphics, const CRect& 
         else if (graphics.pSVG)
         {
             Color color;
-            color.SetFromCOLORREF(GetSysColor(COLOR_WINDOWTEXT));
+            color.SetFromCOLORREF(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT)));
             graphics.pSVG->PolyBezier(points, connection.numberOfPoints, color);
         }
     }
@@ -950,7 +951,7 @@ void CRevisionGraphWnd::DrawConnections (GraphicsDevice& graphics, const CRect& 
 
 void CRevisionGraphWnd::DrawTexts (GraphicsDevice& graphics, const CRect& logRect, const CSize& offset)
 {
-    COLORREF standardTextColor = GetSysColor(COLOR_WINDOWTEXT);
+    COLORREF standardTextColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
     if (m_nFontSize <= 0)
         return;
 
@@ -1042,7 +1043,7 @@ void CRevisionGraphWnd::DrawGraph(GraphicsDevice& graphics, const CRect& rect, i
             graphics.pDC = &memDC->GetDC();
         }
 
-        graphics.pDC->FillSolidRect(rect, GetSysColor(COLOR_WINDOW));
+        graphics.pDC->FillSolidRect(rect, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)));
         graphics.pDC->SetBkMode(TRANSPARENT);
     }
 

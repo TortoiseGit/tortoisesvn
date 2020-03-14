@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012, 2014, 2017 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012, 2014, 2017, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,7 +25,7 @@
 class IFilterEditValidator
 {
 public:
-    virtual bool    Validate(LPCTSTR string) = 0;
+    virtual bool Validate(LPCTSTR string) = 0;
 };
 
 /**
@@ -110,12 +110,13 @@ public:
      */
     BOOL SetCueBanner(LPCWSTR lpcwText);
 
-    void SetValidator(IFilterEditValidator * pValidator) {m_pValidator = pValidator;}
+    void SetValidator(IFilterEditValidator* pValidator) { m_pValidator = pValidator; }
     void Redraw() { ResizeWindow(); }
+
 protected:
-    virtual void    PreSubclassWindow( );
-    virtual BOOL    PreTranslateMessage( MSG* pMsg );
-    virtual ULONG   GetGestureStatus(CPoint ptTouch) override;
+    virtual void  PreSubclassWindow();
+    virtual BOOL  PreTranslateMessage(MSG* pMsg);
+    virtual ULONG GetGestureStatus(CPoint ptTouch) override;
 
     afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
     afx_msg void    OnLButtonUp(UINT nFlags, CPoint point);
@@ -126,36 +127,35 @@ protected:
     afx_msg void    OnLButtonDown(UINT nFlags, CPoint point);
     afx_msg BOOL    OnEnChange();
     afx_msg HBRUSH  CtlColor(CDC* /*pDC*/, UINT /*nCtlColor*/);
+    afx_msg LRESULT OnThemeChanged();
     afx_msg void    OnPaint();
     afx_msg void    OnEnKillfocus();
     afx_msg void    OnEnSetfocus();
     afx_msg LRESULT OnPaste(WPARAM wParam, LPARAM lParam);
     DECLARE_MESSAGE_MAP()
 
-
-    void            ResizeWindow();
-    CSize           GetIconSize(HICON hIcon);
-    void            Validate();
-    void            DrawDimText();
-    HICON           LoadDpiScaledIcon(UINT resourceId, int cx96dpi, int cy96dpi);
-
+    void  ResizeWindow();
+    CSize GetIconSize(HICON hIcon);
+    void  Validate();
+    void  DrawDimText();
+    HICON LoadDpiScaledIcon(UINT resourceId, int cx96dpi, int cy96dpi);
+    void SetTheme(bool bDark);
 protected:
-    HICON                   m_hIconCancelNormal;
-    HICON                   m_hIconCancelPressed;
-    HICON                   m_hIconInfo;
-    CSize                   m_sizeCancelIcon;
-    CSize                   m_sizeInfoIcon;
-    CRect                   m_rcEditArea;
-    CRect                   m_rcButtonArea;
-    CRect                   m_rcInfoArea;
-    BOOL                    m_bShowCancelButtonAlways;
-    BOOL                    m_bPressed;
-    UINT                    m_iButtonClickedMessageId;
-    UINT                    m_iCancelClickedMessageId;
-    COLORREF                m_backColor;
-    CBrush                  m_brBack;
-    IFilterEditValidator *  m_pValidator;
-    CString                 m_sCueBanner;
+    HICON                 m_hIconCancelNormal;
+    HICON                 m_hIconCancelPressed;
+    HICON                 m_hIconInfo;
+    CSize                 m_sizeCancelIcon;
+    CSize                 m_sizeInfoIcon;
+    CRect                 m_rcEditArea;
+    CRect                 m_rcButtonArea;
+    CRect                 m_rcInfoArea;
+    BOOL                  m_bShowCancelButtonAlways;
+    BOOL                  m_bPressed;
+    UINT                  m_iButtonClickedMessageId;
+    UINT                  m_iCancelClickedMessageId;
+    COLORREF              m_backColor;
+    CBrush                m_brBack;
+    int                   m_themeCallbackId;
+    IFilterEditValidator* m_pValidator;
+    CString               m_sCueBanner;
 };
-
-

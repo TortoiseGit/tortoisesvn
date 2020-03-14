@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2011, 2014-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "Tooltip.h"
+#include "Theme.h"
 
 /**
  * \ingroup TortoiseProc
@@ -125,6 +126,8 @@ protected:
     {
         CPropertyPage::OnInitDialog();
         m_tooltips.Create(this);
+        CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
+
         return FALSE;
     }
     virtual BOOL PreTranslateMessage(MSG* pMsg)

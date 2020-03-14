@@ -37,6 +37,7 @@
 #include "SimpleIni.h"
 #include "DragDropTreeCtrl.h"
 #include "ReaderWriterLock.h"
+#include "ThemeControls.h"
 
 // import EnvDTE for opening files in Visual Studio through COM
 #include "dte80a.tlh"
@@ -256,6 +257,7 @@ private:
     void LogThread();
     void StatusThread();
     void Refresh (bool autoGoOnline = false);
+    void SetTheme(bool bDark);
     BOOL IsDiffPossible (const CLogChangedPath& changedpath, svn_revnum_t rev);
     BOOL Open(bool bOpenWith, CString changedpath, svn_revnum_t rev);
     void EditAuthor(const std::vector<PLOGENTRYDATA>& logs);
@@ -448,6 +450,7 @@ public:
     ProjectProperties   m_ProjectProperties;
     WORD                m_wParam;
 private:
+    int                 m_themeCallbackId;
     CFont               m_unreadFont;
     CFont               m_wcRevFont;
     CString             m_sRelativeRoot;
@@ -459,7 +462,7 @@ private:
     CFilterEdit         m_cFilter;
     CLogDlgFilter       m_filter;
     CProgressCtrl       m_LogProgress;
-    CMFCMenuButton      m_btnShow;
+    CThemeMFCMenuButton m_btnShow;
     CMenu               m_btnMenu;
     CTSVNPath           m_path;
     CTSVNPath           m_mergePath;

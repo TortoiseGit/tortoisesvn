@@ -421,7 +421,6 @@ BOOL CRepositoryBrowser::OnInitDialog()
     if (m_bSparseCheckoutMode)
         exStyle |= TVS_EX_MULTISELECT;
     m_RepoTree.SetExtendedStyle(exStyle, exStyle);
-
     SetWindowTheme(m_RepoList.GetSafeHwnd(), L"Explorer", NULL);
     SetWindowTheme(m_RepoTree.GetSafeHwnd(), L"Explorer", NULL);
 
@@ -5030,12 +5029,12 @@ void CRepositoryBrowser::OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 
         if (m_RepoList.GetItemCount() > (int)pLVCD->nmcd.dwItemSpec)
         {
-            COLORREF crText = GetSysColor(COLOR_WINDOWTEXT);
+            COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
             CAutoReadLock locker(m_guard);
             CItem * pItem = (CItem*)m_RepoList.GetItemData((int)pLVCD->nmcd.dwItemSpec);
             if (pItem && pItem->unversioned)
             {
-                crText = GetSysColor(COLOR_GRAYTEXT);
+                crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
             }
             // Store the color back in the NMLVCUSTOMDRAW struct.
             pLVCD->clrText = crText;
@@ -5062,7 +5061,7 @@ void CRepositoryBrowser::OnNMCustomdrawRepotree(NMHDR *pNMHDR, LRESULT *pResult)
         if (pItem && pItem->unversioned)
         {
             // Store the color back in the NMLVCUSTOMDRAW struct.
-            pTVCD->clrText = GetSysColor(COLOR_GRAYTEXT);
+            pTVCD->clrText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
         if (pItem && pItem->dummy)
         {
