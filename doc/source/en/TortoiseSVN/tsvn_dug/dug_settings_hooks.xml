@@ -454,6 +454,16 @@
   <para>
     Normally you will want to hide ugly DOS boxes when the script runs,
     so <guilabel>Hide the script while running</guilabel> is checked by default.
+    Also you need to check this if your hook script might return an error that should
+    stop the operation.
+  </para>
+    The <literal>force</literal> flag can be set if the user must not proceed
+    with the operation without running the script, i.e. the script must always
+    run. If the <literal>force</literal> flag is not checked, then the user
+    is shown a button <guibutton>Retry without hooks</guibutton> to retry
+    the operation without running the hook script.
+  <para>
+    
   </para>
   <para>
     Sample client hook scripts can be found in the <literal>contrib</literal> folder in the
