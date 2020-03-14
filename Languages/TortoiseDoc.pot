@@ -9262,7 +9262,16 @@ msgid "If you want the Subversion operation to hold off until the hook has compl
 msgstr ""
 
 #. (para)
-msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <guilabel>Hide the script while running</guilabel> is checked by default."
+msgid "Normally you will want to hide ugly DOS boxes when the script runs, so <guilabel>Hide the script while running</guilabel> is checked by default. Also you need to check this if your hook script might return an error that should stop the operation."
+msgstr ""
+
+#. (literal)
+#. (literal)
+msgid "force"
+msgstr ""
+
+#. (guibutton)
+msgid "Retry without hooks"
 msgstr ""
 
 #. (para)
@@ -9307,6 +9316,10 @@ msgstr ""
 
 #. (para)
 msgid "If you want all users to use the same COM plugin for your project, you can specify the plugin also with the properties <literal>bugtraq:provideruuid</literal>, <literal>bugtraq:provideruuid64</literal> and <literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the documentation of your IBugtraqProvider plugin to find out what to specify in these two properties."
+msgstr ""
+
+#. (sect2)
+msgid "<placeholder-1/><?dbhh topicname=\"HIDD_SETTINGSHOOKS\"?><?dbhh topicname=\"HIDD_SETTINGSHOOKCONFIG\"?><indexterm significance=\"normal\"><placeholder-2/></indexterm><indexterm significance=\"normal\"><placeholder-3/></indexterm><placeholder-4/><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/><placeholder-13/><placeholder-14/><placeholder-15/> The <placeholder-16/> flag can be set if the user must not proceed with the operation without running the script, i.e. the script must always run. If the <placeholder-17/> flag is not checked, then the user is shown a button <placeholder-18/> to retry the operation without running the hook script. <placeholder-19/><placeholder-20/><placeholder-21/><placeholder-22/><sect3 id=\"tsvn-dug-settings-hooks-issuetracker\"><placeholder-23/><?dbhh topicname=\"HIDD_SETTINGSBUGTRAQ\"?><?dbhh topicname=\"HIDD_SETTINGSBUGTRAQADV\"?><placeholder-24/><placeholder-25/><placeholder-26/></sect3>"
 msgstr ""
 
 #. (title)
@@ -9458,6 +9471,10 @@ msgstr ""
 
 #. (para)
 msgid "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to dismiss the dialog as if you clicked on the OK button. If you don't want this, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid "The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 and later. This dark mode is considered experimental, because not all controls are shown in dark mode and some controls look pretty basic. Set this to <literal>true</literal> to enable the dark theme."
 msgstr ""
 
 #. (para)
