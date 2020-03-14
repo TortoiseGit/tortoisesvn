@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2010, 2013-2014, 2016 - TortoiseSVN
+// Copyright (C) 2006-2007, 2010, 2013-2014, 2016, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,8 +18,9 @@
 //
 #pragma once
 #include "resource.h"
-#include <afxcmn.h>
 #include "HistoryCombo.h"
+#include "StandAloneDlg.h"
+#include <afxcmn.h>
 
 #define REPLACEMSGSTRINGW  L"TortoiseMerge_FindReplace"
 
@@ -28,7 +29,7 @@
  * \ingroup TortoiseMerge
  * Find dialog used in TortoiseMerge.
  */
-class CFindDlg : public CDialog
+class CFindDlg : public CStandAloneDialog
 {
     DECLARE_DYNAMIC(CFindDlg)
 

@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2008, 2010-2017 - TortoiseSVN
+// Copyright (C) 2006, 2008, 2010-2017, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 #include "PathUtils.h"
 #include "ProgressDlg.h"
 #include "SysImageList.h"
+#include "Theme.h"
 
 
 IMPLEMENT_DYNAMIC(CFilePatchesDlg, CResizableStandAloneDialog)
@@ -283,21 +284,21 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
         // item's text color. Our return value will tell Windows to draw the
         // item itself, but it will use the new color we set here.
 
-        COLORREF crText = ::GetSysColor(COLOR_WINDOWTEXT);
+        COLORREF crText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
 
         if (m_arFileStates.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
         {
             if (m_arFileStates.GetAt(pLVCD->nmcd.dwItemSpec)==FPDLG_FILESTATE_ERROR)
             {
-                crText = RGB(200, 0, 0);
+                crText = CTheme::Instance().GetThemeColor(RGB(200, 0, 0), true);
             }
             if (m_arFileStates.GetAt(pLVCD->nmcd.dwItemSpec)>0)
             {
-                crText = RGB(100, 0, 0);
+                crText = CTheme::Instance().GetThemeColor(RGB(100, 0, 0), true);
             }
             if (m_arFileStates.GetAt(pLVCD->nmcd.dwItemSpec)==FPDLG_FILESTATE_PATCHED)
             {
-                crText = ::GetSysColor(COLOR_GRAYTEXT);
+                crText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_GRAYTEXT));
             }
             // Store the color back in the NMLVCUSTOMDRAW struct.
             pLVCD->clrText = crText;
