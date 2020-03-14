@@ -20,6 +20,7 @@
 #include "Settings.h"
 #include "SetMainPage.h"
 #include "SetColorPage.h"
+#include "Theme.h"
 
 #define BOTTOMMARG 32
 
@@ -125,6 +126,8 @@ BOOL CSettings::OnInitDialog()
         m_aeroControls.SubclassOkCancelHelp(this);
         m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
     }
+    CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
+
     return bResult;
 }
 

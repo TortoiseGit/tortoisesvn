@@ -37,7 +37,7 @@ CSetColorPage::CSetColorPage()
     , m_regDarkModifiedBackground(L"Software\\TortoiseMerge\\Colors\\DarkColorModifiedB", MODIFIED_DARK_COLOR)
     , m_regUseDarkMode(L"Software\\TortoiseMerge\\DarkTheme", FALSE)
     , m_bInit(false)
-    , m_IsDarkMode(false)
+    , m_IsDarkMode(CTheme::Instance().IsDarkTheme())
 {
 }
 
@@ -199,6 +199,8 @@ BOOL CSetColorPage::OnInitDialog()
     m_IsDarkMode = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
     SetupColorButtons();
     m_bInit = TRUE;
+
+    CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
     return TRUE; // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE

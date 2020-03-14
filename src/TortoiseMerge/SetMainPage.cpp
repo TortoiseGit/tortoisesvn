@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012-2014, 2016, 2018 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012-2014, 2016, 2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,6 +24,7 @@
 #include "PathUtils.h"
 #include "SetMainPage.h"
 #include "MainFrm.h"
+#include "Theme.h"
 
 
 // CSetMainPage dialog
@@ -207,6 +208,8 @@ BOOL CSetMainPage::OnInitDialog()
     m_cFontNames.SelectFont(m_sFontName);
 
     m_cFontNames.SendMessage(CB_SETITEMHEIGHT, (WPARAM)-1, m_cFontSizes.GetItemHeight(-1));
+
+    CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
     UpdateData(FALSE);
     return TRUE;  // return TRUE unless you set the focus to a control
