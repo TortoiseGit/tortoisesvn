@@ -120,6 +120,7 @@ bool CTheme::SetThemeForDialog(HWND hWnd, bool bDark)
         RemoveWindowSubclass(hWnd, MainSubclassProc, 1234);
     }
     EnumChildWindows(hWnd, AdjustThemeForChildrenProc, bDark ? TRUE : FALSE);
+    ::RedrawWindow(hWnd, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
     return true;
 }
 
