@@ -81,6 +81,8 @@ private:
     CSetColorPage *     m_pColorPage;
     AeroControlBase     m_aeroControls;
 
+    int                 m_themeCallbackId;
+
 public:
     CSettings(UINT nIDCaption, CWnd* pParentWnd = nullptr, UINT iSelectPage = 0);
     CSettings(LPCTSTR pszCaption, CWnd* pParentWnd = nullptr, UINT iSelectPage = 0);

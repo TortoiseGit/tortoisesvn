@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2013-2014 - TortoiseSVN
+// Copyright (C) 2006-2010, 2013-2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -95,4 +95,6 @@ protected:
 
     CMFCFontComboBox m_cFontNames;
     CComboBox       m_cFontSizes;
+
+    int             m_themeCallbackId;
 };

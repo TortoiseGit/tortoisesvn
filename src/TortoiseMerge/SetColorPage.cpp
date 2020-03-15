@@ -38,11 +38,13 @@ CSetColorPage::CSetColorPage()
     , m_regUseDarkMode(L"Software\\TortoiseMerge\\DarkTheme", FALSE)
     , m_bInit(false)
     , m_IsDarkMode(CTheme::Instance().IsDarkTheme())
+    , m_themeCallbackId(0)
 {
 }
 
 CSetColorPage::~CSetColorPage()
 {
+    CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
     m_bInit = FALSE;
 }
 
@@ -200,6 +202,12 @@ BOOL CSetColorPage::OnInitDialog()
     SetupColorButtons();
     m_bInit = TRUE;
 
+    m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+        [this]()
+        {
+            CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
+        });
+
     CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
     return TRUE; // return TRUE unless you set the focus to a control
@@ -348,6 +356,7 @@ void CSetColorPage::OnBnClickedRestore()
 void CSetColorPage::OnBnClickedDarkmode()
 {
     m_IsDarkMode = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
+    CTheme::Instance().SetDarkTheme(m_IsDarkMode);
     SetupColorButtons();
     m_bReloadNeeded = true;
     SetModified();

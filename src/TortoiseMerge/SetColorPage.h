@@ -88,4 +88,5 @@ protected:
     CMFCColorButton m_cFgWhitespaces;
     CMFCColorButton m_cBkFiltered;
     CButton         m_chkUseDarkMode;
+    int             m_themeCallbackId;
 };

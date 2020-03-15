@@ -58,6 +58,7 @@ CSettings::CSettings(LPCTSTR pszCaption, CWnd* pParentWnd, UINT iSelectPage)
 
 CSettings::~CSettings()
 {
+    CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
     RemovePropPages();
 }
 
@@ -126,6 +127,13 @@ BOOL CSettings::OnInitDialog()
         m_aeroControls.SubclassOkCancelHelp(this);
         m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
     }
+
+    m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+        [this]()
+        {
+            CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
+        });
+
     CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
     return bResult;
