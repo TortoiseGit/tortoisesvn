@@ -116,7 +116,7 @@ void CSetColorPage::SaveData()
             m_bReloadNeeded = true;
         m_regModifiedBackground = GetColorFromButton(m_cBkModified);
     }
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_EDITED, m_IsDarkMode, (DWORD)m_regModifiedBackground, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_EDITED, m_IsDarkMode, m_IsDarkMode ? (DWORD)m_regDarkModifiedBackground : (DWORD)m_regModifiedBackground, cFg);
 
     cFg = GetColorFromButton(m_cFgEmpty);
     cBk = GetColorFromButton(m_cBkEmpty);
