@@ -1852,6 +1852,14 @@ void CBaseView::DrawTextLine(
                 }
                 second.background = crBk;
                 second.text = CAppUtils::IntenseColor(nIntenseColorScale, second.text);
+                if (CTheme::Instance().IsDarkTheme())
+                {
+                    int bkGray = (((int)GetRValue(crBk)) + GetGValue(crBk) + GetBValue(crBk)) / 3;
+                    int frGray = (((int)GetRValue(second.text)) + GetGValue(second.text) + GetBValue(second.text)) / 3;
+                    if (abs(bkGray - frGray) < 100)
+                        second.text = CAppUtils::IntenseColor(nIntenseColorScale, second.text);
+                    ;
+                }
             }
         }
     }
