@@ -296,6 +296,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
         {
             data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
+            data->colorIsDirect = true;
             data->bConflictedActionItem = true;
             data->sActionColumnText.LoadString(((m_options & ProgOptDryRun)!=0) ? IDS_SVNACTION_DRYRUN_CONFLICTED : IDS_SVNACTION_CONFLICTED);
             m_nConflicts++;
@@ -307,6 +308,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             m_bMergesAddsDeletesOccurred = true;
             data->sActionColumnText.LoadString(IDS_SVNACTION_ADD);
             data->color = m_Colors.GetColor(CColors::Added);
+            data->colorIsDirect = true;
         }
         break;
     case svn_wc_notify_commit_added:
@@ -314,6 +316,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         {
             data->sActionColumnText.LoadString(IDS_SVNACTION_ADDING);
             data->color = m_Colors.GetColor(CColors::Added);
+            data->colorIsDirect = true;
             if ((data->action == svn_wc_notify_commit_copied)&&
                 (m_Command == SVNProgress_Commit)&&
                 (!m_bWarningShown)&&
@@ -327,6 +330,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
                 data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, (LPCWSTR)SVNStatus::GetDepthString(m_depth));
                 data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
+                data->colorIsDirect = true;
                 if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
                     PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
                 m_bWarningShown = true;
@@ -339,6 +343,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_commit_modified:
         data->sActionColumnText.LoadString(IDS_SVNACTION_MODIFIED);
         data->color = m_Colors.GetColor(CColors::Modified);
+        data->colorIsDirect = true;
         break;
     case svn_wc_notify_update_shadowed_delete:
     case svn_wc_notify_delete:
@@ -347,11 +352,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         data->sActionColumnText.LoadString(IDS_SVNACTION_DELETE);
         m_bMergesAddsDeletesOccurred = true;
         data->color = m_Colors.GetColor(CColors::Deleted);
+        data->colorIsDirect = true;
         break;
     case svn_wc_notify_commit_deleted:
     case svn_wc_notify_update_external_removed:
         data->sActionColumnText.LoadString(IDS_SVNACTION_DELETING);
         data->color = m_Colors.GetColor(CColors::Deleted);
+        data->colorIsDirect = true;
         break;
     case svn_wc_notify_restore:
         data->sActionColumnText.LoadString(IDS_SVNACTION_RESTORE);
@@ -406,6 +413,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                     }
                     it->sActionColumnText = it->sActionColumnText + L" (" + data->sActionColumnText + L")";
                     it->color = m_Colors.GetColor(CColors::Merged);
+                    it->colorIsDirect = true;
                     m_ProgList.RedrawItems((int)index-1, (int)index);
                 }
                 ++index;
@@ -420,6 +428,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_commit_copied_replaced:
         data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
         data->color = m_Colors.GetColor(CColors::Deleted);
+        data->colorIsDirect = true;
         if ((data->action == svn_wc_notify_commit_copied_replaced)&&
             (m_Command == SVNProgress_Commit)&&
             (!m_bWarningShown)&&
@@ -433,6 +442,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
             data->sPathColumnText.Format(IDS_PROGRS_COPYDEPTH_WARNING, (LPCWSTR)SVNStatus::GetDepthString(m_depth));
             data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
+            data->colorIsDirect = true;
             if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
                 PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
 
@@ -442,11 +452,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_commit_replaced:
         data->sActionColumnText.LoadString(IDS_SVNACTION_REPLACED);
         data->color = m_Colors.GetColor(CColors::Deleted);
+        data->colorIsDirect = true;
         break;
     case svn_wc_notify_exists:
         if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
         {
             data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
+            data->colorIsDirect = true;
             data->bConflictedActionItem = true;
             m_nConflicts++;
             m_nTotalConflicts++;
@@ -456,6 +468,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
         {
             data->color = m_Colors.GetColor(CColors::Merged);
+            data->colorIsDirect = true;
             m_bMergesAddsDeletesOccurred = true;
             data->sActionColumnText.LoadString(IDS_SVNACTION_MERGED);
         }
@@ -500,6 +513,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         if ((data->content_state == svn_wc_notify_state_conflicted) || (data->prop_state == svn_wc_notify_state_conflicted))
         {
             data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
+            data->colorIsDirect = true;
             data->bConflictedActionItem = true;
             m_nConflicts++;
             m_nTotalConflicts++;
@@ -509,6 +523,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         else if ((data->content_state == svn_wc_notify_state_merged) || (data->prop_state == svn_wc_notify_state_merged))
         {
             data->color = m_Colors.GetColor(CColors::Merged);
+            data->colorIsDirect = true;
             m_bMergesAddsDeletesOccurred = true;
             data->sActionColumnText.LoadString(IDS_SVNACTION_MERGED);
         }
@@ -549,6 +564,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                     data->bAuxItem = true;
                     data->sPathColumnText.LoadString(IDS_PROGRS_STARTING_EXTERNALS);
                     data->color = m_Colors.GetColor(CColors::Cmd);
+                    data->colorIsDirect = true;
                     m_bExternalStartInfoShown = true;
                 }
                 else
@@ -572,6 +588,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
                 data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
                 data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
+                data->colorIsDirect = true;
                 data->bConflictSummary = true;
                 if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
                     PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
@@ -630,6 +647,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->sActionColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED_WARNING);
                 data->sPathColumnText.LoadString(IDS_PROGRS_CONFLICTSOCCURED);
                 data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
+                data->colorIsDirect = true;
                 data->bConflictSummary = true;
                 if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
                     PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
@@ -662,17 +680,22 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         {
             data->sActionColumnText.LoadString(IDS_SVNACTION_SKIPMISSING);
             data->color = m_Colors.GetColor(CColors::Conflict);
+            data->colorIsDirect = true;
         }
         else
         {
             data->sActionColumnText.LoadString(IDS_SVNACTION_SKIP);
             if ((content_state == svn_wc_notify_state_obstructed)||(content_state == svn_wc_notify_state_conflicted))
+            {
                 data->color = m_Colors.GetColor(CColors::Conflict);
+                data->colorIsDirect = true;
+            }
         }
         break;
     case svn_wc_notify_update_skip_working_only:
         data->sActionColumnText.LoadString(IDS_SVNACTION_SKIPNOPARENT);
         data->color = m_Colors.GetColor(CColors::Conflict);
+        data->colorIsDirect = true;
         data->bConflictedActionItem = true;
         m_nConflicts++;
         m_nTotalConflicts++;
@@ -755,6 +778,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_update_skip_obstruction:
         data->sActionColumnText.LoadString(IDS_SVNACTION_OBSTRUCTED);
         data->color = m_Colors.GetColor(CColors::Conflict);
+        data->colorIsDirect = true;
         data->bConflictedActionItem = true;
         m_nConflicts++;
         m_nTotalConflicts++;
@@ -763,6 +787,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_tree_conflict:
         data->sActionColumnText.LoadString(IDS_SVNACTION_TREECONFLICTED);
         data->color = m_Colors.GetColor(((m_options & ProgOptDryRun)!=0) ? CColors::DryRunConflict : CColors::Conflict);
+        data->colorIsDirect = true;
         data->bConflictedActionItem = true;
         data->bTreeConflict = true;
         m_nConflicts++;
@@ -772,6 +797,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_failed_external:
         data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDEXTERNAL);
         data->color = m_Colors.GetColor(CColors::Conflict);
+        data->colorIsDirect = true;
         AddItemToList(data);
         bDoAddData = false;
         ReportError(SVN::GetErrorString(err));
@@ -819,6 +845,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_path_nonexistent:
         data->sActionColumnText.LoadString(IDS_SVNACTION_PATHNOTEXIST);
         data->color = m_Colors.GetColor(CColors::Conflict);
+        data->colorIsDirect = true;
         data->bConflictedActionItem = true;
         m_nConflicts++;
         m_nTotalConflicts++;
@@ -827,6 +854,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_update_skip_access_denied:
         data->sActionColumnText.LoadString(IDS_SVNACTION_ACCESSDENIED);
         data->color = m_Colors.GetColor(CColors::Conflict);
+        data->colorIsDirect = true;
         data->bConflictedActionItem = true;
         m_nConflicts++;
         m_nTotalConflicts++;
@@ -835,6 +863,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_skip_conflicted:
         data->sActionColumnText.LoadString(IDS_SVNACTION_REMAINSCONFLICTED);
         data->color = m_Colors.GetColor(CColors::Conflict);
+        data->colorIsDirect = true;
         data->bConflictedActionItem = true;
         m_nConflicts++;
         m_nTotalConflicts++;
@@ -852,6 +881,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
     case svn_wc_notify_failed_requires_target:
         data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDREQUIRESTARGET);
         data->color = m_Colors.GetColor(CColors::Conflict);
+        data->colorIsDirect = true;
         break;
     case svn_wc_notify_info_external:
         data->sActionColumnText.LoadString(IDS_SVNACTION_INFOEXTERNAL);
@@ -1249,22 +1279,22 @@ void CSVNProgressDlg::ReportWarning(const CString& sWarning)
 {
     if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
         PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
-    ReportString(sWarning, CString(MAKEINTRESOURCE(IDS_WARN_WARNING)), m_Colors.GetColor(CColors::Conflict));
+    ReportString(sWarning, CString(MAKEINTRESOURCE(IDS_WARN_WARNING)), true, m_Colors.GetColor(CColors::Conflict));
 }
 
 void CSVNProgressDlg::ReportNotification(const CString& sNotification)
 {
     if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
         PlaySound((LPCTSTR)SND_ALIAS_SYSTEMDEFAULT, NULL, SND_ALIAS_ID | SND_ASYNC);
-    ReportString(sNotification, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
+    ReportString(sNotification, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)), false);
 }
 
 void CSVNProgressDlg::ReportCmd(const CString& sCmd)
 {
-    ReportString(sCmd, CString(MAKEINTRESOURCE(IDS_PROGRS_CMDINFO)), m_Colors.GetColor(CColors::Cmd));
+    ReportString(sCmd, CString(MAKEINTRESOURCE(IDS_PROGRS_CMDINFO)), true, m_Colors.GetColor(CColors::Cmd));
 }
 
-void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, COLORREF color)
+void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, bool colorIsDirect, COLORREF color)
 {
     // instead of showing a dialog box with the error message or notification,
     // just insert the error text into the list control.
@@ -1283,6 +1313,7 @@ void CSVNProgressDlg::ReportString(CString sMessage, const CString& sMsgKind, CO
             data->sPathColumnText = sMessage;
         data->sPathColumnText.Trim(L"\n\r");
         data->color = color;
+        data->colorIsDirect = colorIsDirect;
         if (sMessage.Find('\n')>=0)
         {
             sMessage = sMessage.Mid(sMessage.Find('\n')+1);
@@ -1810,7 +1841,7 @@ void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR *pNMHDR, LRESULT *pResult)
             return;
 
         // Store the color back in the NMLVCUSTOMDRAW struct.
-        pLVCD->clrText = CTheme::Instance().GetThemeColor(data->color, true);
+        pLVCD->clrText = CTheme::Instance().GetThemeColor(data->color, data->colorIsDirect);
         if (data->bBold)
         {
             SelectObject(pLVCD->nmcd.hdc, m_boldFont);
@@ -1969,6 +2000,7 @@ LRESULT CSVNProgressDlg::OnResolveMsg( WPARAM wParam, LPARAM)
                 if ((*it)->bConflictedActionItem)
                 {
                     (*it)->color = ::GetSysColor(COLOR_WINDOWTEXT);
+                    (*it)->colorIsDirect = false;
                     (*it)->action = svn_wc_notify_resolved;
                     (*it)->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
                     (*it)->bConflictedActionItem = false;
@@ -2328,6 +2360,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     break;
                 }
                 data2->color = ::GetSysColor(COLOR_WINDOWTEXT);
+                data2->colorIsDirect = false;
                 data2->action = svn_wc_notify_resolved;
                 data2->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
                 data2->bConflictedActionItem = false;
@@ -3210,7 +3243,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
 
         if (bDoIt)
         {
-            ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
+            ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_UPDATEANDRETRY)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)), false);
             if (!Update(m_targetPathList, SVNRev::REV_HEAD, svn_depth_files, false, true, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), true))
             {
                 ReportSVNError();
@@ -3239,7 +3272,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
         // dialog back without changing the settings)
         if (!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\ShowLockDlg", TRUE)))
         {
-            ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_LOCKHINT)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)));
+            ReportString(CString(MAKEINTRESOURCE(IDS_SVNPROGRESS_LOCKHINT)), CString(MAKEINTRESOURCE(IDS_WARN_NOTE)), false);
         }
         return false;
     }

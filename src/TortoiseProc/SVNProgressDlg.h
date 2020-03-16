@@ -170,7 +170,8 @@ private:
             , content_state(svn_wc_notify_state_inapplicable)
             , prop_state(svn_wc_notify_state_inapplicable)
             , rev(0)
-            , color(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT), true))
+            , color(::GetSysColor(COLOR_WINDOWTEXT))
+            , colorIsDirect(false)
             , bConflictedActionItem(false)
             , bTreeConflict(false)
             , bAuxItem(false)
@@ -202,6 +203,7 @@ private:
         svn_merge_range_t       merge_range;
         svn_revnum_t            rev;
         COLORREF                color;
+        bool                    colorIsDirect;
         CString                 owner;                      ///< lock owner
         bool                    bConflictedActionItem;      ///< Is this item a conflict?
         bool                    bTreeConflict;              ///< item is tree conflict
@@ -274,7 +276,7 @@ private:
     void        ReportWarning(const CString& sWarning);
     void        ReportNotification(const CString& sNotification);
     void        ReportCmd(const CString& sCmd);
-    void        ReportString(CString sMessage, const CString& sMsgKind, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
+    void        ReportString(CString sMessage, const CString& sMsgKind, bool colorIsDirect, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
     void        AddItemToList(NotificationData * data);
     void        RemoveItemFromList(size_t index);
     CString     BuildInfoString();
