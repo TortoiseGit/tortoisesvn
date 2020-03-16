@@ -62,7 +62,7 @@ void CTheme::Load()
 {
     IsDarkModeAllowed();
     OnSysColorChanged();
-    m_dark    = !!m_regDarkTheme && IsDarkModeAllowed();
+    m_dark    = !!m_regDarkTheme && IsDarkModeAllowed() && !IsHighContrastMode() && DarkModeHelper::Instance().ShouldAppsUseDarkMode();
     m_bLoaded = true;
 }
 
@@ -149,21 +149,10 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
             SetWindowTheme(hwnd, L"Explorer", nullptr);
             auto header = ListView_GetHeader(hwnd);
             DarkModeHelper::Instance().AllowDarkModeForWindow(header, (BOOL)lParam);
-            HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
-            if (hTheme)
-            {
-                COLORREF color;
-                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_TEXTCOLOR, &color)))
-                {
-                    ListView_SetTextColor(hwnd, color);
-                }
-                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_FILLCOLOR, &color)))
-                {
-                    ListView_SetTextBkColor(hwnd, color);
-                    ListView_SetBkColor(hwnd, color);
-                }
-                CloseThemeData(hTheme);
-            }
+            SetWindowTheme(header, L"Explorer", nullptr);
+            ListView_SetTextColor(hwnd, darkTextColor);
+            ListView_SetTextBkColor(hwnd, darkBkColor);
+            ListView_SetBkColor(hwnd, darkBkColor);
             auto hTT = ListView_GetToolTips(hwnd);
             if (hTT)
             {
@@ -193,7 +182,7 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
         else if (wcscmp(szWndClassName, L"SysDateTimePick32") == 0)
         {
             SetWindowTheme(hwnd, L"", L"");
-            SendMessage(hwnd, DTM_SETMCCOLOR, MCSC_BACKGROUND, RGB(0, 0, 0));
+            SendMessage(hwnd, DTM_SETMCCOLOR, MCSC_BACKGROUND, darkBkColor);
         }
         else if ((wcscmp(szWndClassName, WC_COMBOBOXEX) == 0) ||
                  (wcscmp(szWndClassName, WC_COMBOBOX) == 0))
@@ -225,20 +214,8 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
         else if (wcscmp(szWndClassName, WC_TREEVIEW) == 0)
         {
             SetWindowTheme(hwnd, L"Explorer", nullptr);
-            HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
-            if (hTheme)
-            {
-                COLORREF color;
-                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_TEXTCOLOR, &color)))
-                {
-                    TreeView_SetTextColor(hwnd, color);
-                }
-                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_FILLCOLOR, &color)))
-                {
-                    TreeView_SetBkColor(hwnd, color);
-                }
-                CloseThemeData(hTheme);
-            }
+            TreeView_SetTextColor(hwnd, darkTextColor);
+            TreeView_SetBkColor(hwnd, darkBkColor);
             auto hTT = TreeView_GetToolTips(hwnd);
             if (hTT)
             {
@@ -384,16 +361,7 @@ LRESULT CTheme::ListViewSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
                         return CDRF_NOTIFYITEMDRAW;
                     case CDDS_ITEMPREPAINT:
                     {
-                        HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
-                        if (hTheme)
-                        {
-                            COLORREF color;
-                            if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_TEXTCOLOR, &color)))
-                            {
-                                SetTextColor(nmcd->hdc, color);
-                            }
-                            CloseThemeData(hTheme);
-                        }
+                        SetTextColor(nmcd->hdc, darkTextColor);
                         return CDRF_DODEFAULT;
                     }
                 }
@@ -469,7 +437,7 @@ void CTheme::OnSysColorChanged()
         RGBtoHSL(::GetSysColor(COLOR_WINDOW), h2, s2, l2);
         m_isHighContrastModeDark = l2 < l1;
     }
-    m_dark = !!m_regDarkTheme && IsDarkModeAllowed();
+    m_dark = !!m_regDarkTheme && IsDarkModeAllowed() && !IsHighContrastMode() && DarkModeHelper::Instance().ShouldAppsUseDarkMode();
 }
 
 bool CTheme::IsDarkModeAllowed()
@@ -514,8 +482,8 @@ void CTheme::SetDarkTheme(bool b /*= true*/, bool force /*= false*/)
     if (force || m_dark != b)
     {
         bool highContrast = IsHighContrastMode();
-        m_dark            = b && !highContrast;
-        if (!highContrast)
+        m_dark            = b && !highContrast && DarkModeHelper::Instance().ShouldAppsUseDarkMode();
+        if (!highContrast && DarkModeHelper::Instance().ShouldAppsUseDarkMode())
             m_regDarkTheme = b ? 1 : 0;
         for (auto& cb : m_themeChangeCallbacks)
             cb.second();
