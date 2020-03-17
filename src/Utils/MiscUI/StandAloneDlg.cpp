@@ -20,6 +20,8 @@
 #include "resource.h"
 #include "StandAloneDlg.h"
 
+#pragma comment(lib, "Dwmapi.lib")
+
 #ifndef _DLL
 // custom macro, adjusted from the MFC macro IMPLEMENT_DYNAMIC to make it work for templated
 // base classes.
