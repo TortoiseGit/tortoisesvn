@@ -234,8 +234,8 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
             CHARFORMAT2 format = {0};
             format.cbSize      = sizeof(CHARFORMAT2);
             format.dwMask      = CFM_COLOR | CFM_BACKCOLOR;
-            format.crTextColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
-            format.crBackColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW));
+            format.crTextColor = darkTextColor;
+            format.crBackColor = darkBkColor;
             SendMessage(hwnd, EM_SETCHARFORMAT, SCF_ALL, (LPARAM)&format);
             SendMessage(hwnd, EM_SETBKGNDCOLOR, 0, (LPARAM)format.crBackColor);
         }
