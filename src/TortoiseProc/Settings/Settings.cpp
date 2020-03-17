@@ -31,6 +31,7 @@ CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
     :CTreePropSheet(nIDCaption, pParentWnd, iSelectPage)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+    SetTheme(CTheme::Instance().IsDarkTheme());
     AddPropPages();
 }
 
