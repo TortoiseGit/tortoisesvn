@@ -186,8 +186,7 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
         }
         else if (wcscmp(szWndClassName, L"SysDateTimePick32") == 0)
         {
-            SetWindowTheme(hwnd, L"", L"");
-            SendMessage(hwnd, DTM_SETMCCOLOR, MCSC_BACKGROUND, darkBkColor);
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
         }
         else if ((wcscmp(szWndClassName, WC_COMBOBOXEX) == 0) ||
                  (wcscmp(szWndClassName, WC_COMBOBOX) == 0))
