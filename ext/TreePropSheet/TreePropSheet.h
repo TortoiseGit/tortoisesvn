@@ -199,6 +199,10 @@ public:
     */
     CTreeCtrl* GetPageTreeControl();
 
+    /**
+     set the dark theme mode
+     */
+    void SetTheme(bool bDark);
 // Public helpers
 public:
     //@{
@@ -496,6 +500,7 @@ private:
     /** The width of the page tree control in pixels. */
     int m_nPageTreeWidth;
 
+    bool m_bDark;
 // Static Properties
 private:
     /** The id of the tree view control, that shows the pages. */

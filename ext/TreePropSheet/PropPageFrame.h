@@ -169,6 +169,8 @@ public:
     */
     DWORD GetMsgFormat() const;
 
+    void SetTheme(bool bDark) { m_bDark = bDark; }
+    bool IsDarkTheme() const { return m_bDark; }
 // Overridable implementation helpers
 protected:
     /**
@@ -294,6 +296,7 @@ private:
     DWORD m_dwMsgFormat;
 
     HFONT m_uiFont;
+    bool m_bDark;
 };
 
 

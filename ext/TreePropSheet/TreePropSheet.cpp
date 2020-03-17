@@ -81,7 +81,8 @@ CTreePropSheet::CTreePropSheet()
     m_bTreeImages(FALSE),
     m_nPageTreeWidth(150),
     m_pwndPageTree(NULL),
-    m_pFrame(NULL)
+    m_pFrame(NULL),
+    m_bDark(false)
 {
     m_psh.pfnCallback = PropSheetProc;
     m_psh.dwFlags |= PSH_USECALLBACK;
@@ -96,7 +97,8 @@ CTreePropSheet::CTreePropSheet(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPa
     m_bTreeImages(FALSE),
     m_nPageTreeWidth(150),
     m_pwndPageTree(NULL),
-    m_pFrame(NULL)
+    m_pFrame(NULL),
+    m_bDark(false)
 {
     m_psh.pfnCallback = PropSheetProc;
     m_psh.dwFlags |= PSH_USECALLBACK;
@@ -111,7 +113,8 @@ CTreePropSheet::CTreePropSheet(LPCTSTR pszCaption, CWnd* pParentWnd, UINT iSelec
     m_bTreeImages(FALSE),
     m_nPageTreeWidth(150),
     m_pwndPageTree(NULL),
-    m_pFrame(NULL)
+    m_pFrame(NULL),
+    m_bDark(false)
 {
     m_psh.pfnCallback = PropSheetProc;
     m_psh.dwFlags |= PSH_USECALLBACK;
@@ -125,6 +128,15 @@ CTreePropSheet::~CTreePropSheet()
 
 /////////////////////////////////////////////////////////////////////
 // Operationen
+
+void CTreePropSheet::SetTheme(bool bDark)
+{
+    m_bDark = bDark;
+    if (m_pFrame)
+        m_pFrame->SetTheme(bDark);
+    if (IsWindow(GetSafeHwnd()))
+        Invalidate();
+}
 
 BOOL CTreePropSheet::SetTreeViewMode(BOOL bTreeViewMode /* = TRUE */, BOOL bPageCaption /* = FALSE */, BOOL bTreeImages /* = FALSE */)
 {
