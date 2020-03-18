@@ -39,7 +39,7 @@ void DarkModeHelper::AllowDarkModeForApp(BOOL allow)
     if (m_pAllowDarkModeForApp)
         m_pAllowDarkModeForApp(allow ? 1 : 0);
     if (m_pSetPreferredAppMode)
-        m_pSetPreferredAppMode(allow ? AllowDark : Default);
+        m_pSetPreferredAppMode(allow ? PreferredAppMode::AllowDark : PreferredAppMode::Default);
 }
 
 void DarkModeHelper::AllowDarkModeForWindow(HWND hwnd, BOOL allow)

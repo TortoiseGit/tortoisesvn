@@ -26,12 +26,12 @@ class DarkModeHelper
 public:
     static DarkModeHelper& Instance();
 
-    enum IMMERSIVE_HC_CACHE_MODE
+    enum class IMMERSIVE_HC_CACHE_MODE
     {
         IHCM_USE_CACHED_VALUE,
         IHCM_REFRESH
     };
-    enum PreferredAppMode
+    enum class PreferredAppMode
     {
         Default,
         AllowDark,
@@ -39,7 +39,7 @@ public:
         ForceLight,
         Max
     };
-    enum WINDOWCOMPOSITIONATTRIB
+    enum class WINDOWCOMPOSITIONATTRIB
     {
         WCA_UNDEFINED                     = 0,
         WCA_NCRENDERING_ENABLED           = 1,
