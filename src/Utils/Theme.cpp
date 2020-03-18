@@ -27,10 +27,23 @@
 #include <Uxtheme.h>
 #include <vssym32.h>
 #include <richedit.h>
+#pragma warning(push)
+#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#include <gdiplus.h>
+#pragma warning(pop)
 
 constexpr COLORREF darkBkColor           = 0x101010;
 constexpr COLORREF darkTextColor         = 0xEEEEEE;
 constexpr COLORREF darkDisabledTextColor = 0x808080;
+
+static int GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture);
+static void GetRoundRectPath(Gdiplus::GraphicsPath* pPath, const Gdiplus::Rect& r, int dia);
+static void DrawRect(LPRECT prc, HDC hdcPaint, Gdiplus::DashStyle dashStyle, Gdiplus::Color clr, Gdiplus::REAL width);
+static void DrawFocusRect(LPRECT prcFocus, HDC hdcPaint);
+static void PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBorder);
+static BOOL DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList = NULL);
+static BOOL GetEditBorderColor(HWND hWnd, COLORREF* pClr);
+
 
 HBRUSH CTheme::s_backBrush = nullptr;
 
@@ -462,7 +475,7 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                 LONG_PTR dwButtonStyle = LOWORD(dwStyle);
                 LONG_PTR dwButtonType  = dwButtonStyle & 0xF;
                 RECT     rcClient;
-                VERIFY(GetClientRect(hWnd, &rcClient));
+                GetClientRect(hWnd, &rcClient);
 
                 if ((dwButtonType & BS_GROUPBOX) == BS_GROUPBOX)
                 {
@@ -511,19 +524,19 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                             if (hFontOld)
                                 hFontOld = (HFONT)SelectObject(hdcPaint, hFontOld);
 
-                            VERIFY(PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS));
+                            PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS);
 
-                            VERIFY(S_OK == BufferedPaintSetAlpha(hBufferedPaint, &ps.rcPaint, 0x00));
+                            BufferedPaintSetAlpha(hBufferedPaint, &ps.rcPaint, 0x00);
 
                             DTTOPTS DttOpts   = {sizeof(DTTOPTS)};
                             DttOpts.dwFlags   = DTT_COMPOSITED | DTT_GLOWSIZE;
                             DttOpts.crText    = darkTextColor;
                             DttOpts.iGlowSize = 12; // Default value
 
-                            VERIFY(DetermineGlowSize(&DttOpts.iGlowSize));
+                            DetermineGlowSize(&DttOpts.iGlowSize);
 
                             COLORREF cr = RGB(0x00, 0x00, 0x00);
-                            VERIFY(GetEditBorderColor(hWnd, &cr));
+                            GetEditBorderColor(hWnd, &cr);
                             cr |= 0xff000000;
 
                             std::unique_ptr<Gdiplus::Pen>      myPen(new Gdiplus::Pen(Gdiplus::Color(cr), 1));
@@ -552,7 +565,7 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                                         rcDraw = rcClient;
                                         rcDraw.left += iX;
                                         DrawTextW(hdcPaint, szText, -1, &rcDraw, dwFlags | DT_CALCRECT);
-                                        VERIFY(PatBlt(hdcPaint, rcDraw.left, rcDraw.top, RECTWIDTH(rcDraw) + 3, RECTHEIGHT(rcDraw), BLACKNESS));
+                                        PatBlt(hdcPaint, rcDraw.left, rcDraw.top, RECTWIDTH(rcDraw) + 3, RECTHEIGHT(rcDraw), BLACKNESS);
                                         rcDraw.left++;
                                         rcDraw.right++;
 
@@ -561,7 +574,7 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                                         DrawText(hdcPaint, szText, -1, &rcDraw, dwFlags);
                                     }
 
-                                    VERIFY(!LocalFree(szText));
+                                    LocalFree(szText);
                                 }
                             }
 
@@ -571,10 +584,10 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                                 hFontOld = NULL;
                             }
 
-                            VERIFY(S_OK == EndBufferedPaint(hBufferedPaint, TRUE));
+                            EndBufferedPaint(hBufferedPaint, TRUE);
                         }
 
-                        VERIFY(S_OK == CloseThemeData(hTheme));
+                        CloseThemeData(hTheme);
                     }
                 }
 
@@ -590,9 +603,9 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                         HPAINTBUFFER hBufferedPaint = BeginBufferedPaint(hdc, &rcClient, BPBF_TOPDOWNDIB, &params, &hdcPaint);
                         if (hdcPaint)
                         {
-                            VERIFY(PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS));
+                            PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS);
 
-                            VERIFY(S_OK == BufferedPaintSetAlpha(hBufferedPaint, &ps.rcPaint, 0x00));
+                            BufferedPaintSetAlpha(hBufferedPaint, &ps.rcPaint, 0x00);
 
                             LRESULT dwCheckState = SendMessage(hWnd, BM_GETCHECK, 0, NULL);
                             POINT   pt;
@@ -652,10 +665,10 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                                 rcPaint.bottom = rcPaint.top + bmWidth;
                             }
 
-                            VERIFY(S_OK == DrawThemeBackground(hTheme, hdcPaint, iPartId, iState, &rcPaint, NULL));
+                            DrawThemeBackground(hTheme, hdcPaint, iPartId, iState, &rcPaint, NULL);
                             rcPaint = rcClient;
 
-                            VERIFY(S_OK == GetThemeBackgroundContentRect(hTheme, hdcPaint, iPartId, iState, &rcPaint, &rc));
+                            GetThemeBackgroundContentRect(hTheme, hdcPaint, iPartId, iState, &rcPaint, &rc);
 
                             if (dwButtonStyle & BS_LEFTTEXT)
                                 rc.right -= bmWidth + 2 * GetSystemMetrics(SM_CXEDGE);
@@ -667,7 +680,7 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                             DttOpts.crText    = darkTextColor;
                             DttOpts.iGlowSize = 12; // Default value
 
-                            VERIFY(DetermineGlowSize(&DttOpts.iGlowSize));
+                            DetermineGlowSize(&DttOpts.iGlowSize);
 
                             HFONT hFontOld = (HFONT)SendMessage(hWnd, WM_GETFONT, 0L, NULL);
                             if (hFontOld)
@@ -728,7 +741,7 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                                         {
                                             RECT rcDraw = rc;
 
-                                            VERIFY(DrawTextW(hdcPaint, szText, -1, &rcDraw, dwFlags | DT_CALCRECT));
+                                            DrawTextW(hdcPaint, szText, -1, &rcDraw, dwFlags | DT_CALCRECT);
                                             if (dwFlags & DT_SINGLELINE)
                                             {
                                                 dwFlags &= ~DT_VCENTER;
@@ -745,12 +758,12 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                                             }
 
                                             RECT rcFocus;
-                                            VERIFY(IntersectRect(&rcFocus, &rc, &rcDraw));
+                                            IntersectRect(&rcFocus, &rc, &rcDraw);
 
                                             DrawFocusRect(&rcFocus, hdcPaint);
                                         }
                                     }
-                                    VERIFY(!LocalFree(szText));
+                                    LocalFree(szText);
                                 }
                             }
 
@@ -760,9 +773,9 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                                 hFontOld = NULL;
                             }
 
-                            VERIFY(S_OK == EndBufferedPaint(hBufferedPaint, TRUE));
+                            EndBufferedPaint(hBufferedPaint, TRUE);
                         }
-                        VERIFY(S_OK == CloseThemeData(hTheme));
+                        CloseThemeData(hTheme);
                     }
                 }
                 else if (BS_PUSHBUTTON == dwButtonType || BS_DEFPUSHBUTTON == dwButtonType)
@@ -996,7 +1009,7 @@ COLORREF CTheme::HSLtoRGB(float h, float s, float l)
     return RGB(r, g, b);
 }
 
-int CTheme::GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture)
+int GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture)
 {
     int iState = 0;
     switch (iPartId)
@@ -1090,7 +1103,7 @@ int CTheme::GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESU
     return iState;
 }
 
-void CTheme::GetRoundRectPath(Gdiplus::GraphicsPath* pPath, const Gdiplus::Rect& r, int dia)
+void GetRoundRectPath(Gdiplus::GraphicsPath* pPath, const Gdiplus::Rect& r, int dia)
 {
     // diameter can't exceed width or height
     if (dia > r.Width)
@@ -1124,7 +1137,7 @@ void CTheme::GetRoundRectPath(Gdiplus::GraphicsPath* pPath, const Gdiplus::Rect&
     pPath->CloseFigure();
 }
 
-void CTheme::DrawRect(LPRECT prc, HDC hdcPaint, Gdiplus::DashStyle dashStyle, Gdiplus::Color clr, Gdiplus::REAL width)
+void DrawRect(LPRECT prc, HDC hdcPaint, Gdiplus::DashStyle dashStyle, Gdiplus::Color clr, Gdiplus::REAL width)
 {
     std::unique_ptr<Gdiplus::Pen> myPen(new Gdiplus::Pen(clr, width));
     myPen->SetDashStyle(dashStyle);
@@ -1134,51 +1147,51 @@ void CTheme::DrawRect(LPRECT prc, HDC hdcPaint, Gdiplus::DashStyle dashStyle, Gd
                               prc->right - 1 - prc->left, prc->bottom - 1 - prc->top);
 }
 
-void CTheme::DrawFocusRect(LPRECT prcFocus, HDC hdcPaint)
+void DrawFocusRect(LPRECT prcFocus, HDC hdcPaint)
 {
     DrawRect(prcFocus, hdcPaint, Gdiplus::DashStyleDot, Gdiplus::Color(0xFF, 0, 0, 0), 1.0);
 }
 
-void CTheme::PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBorder)
+void PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBorder)
 {
     HDC hdcPaint = NULL;
 
     if (bDrawBorder)
-        VERIFY(InflateRect(prc, 1, 1));
+        InflateRect(prc, 1, 1);
     HPAINTBUFFER hBufferedPaint = BeginBufferedPaint(hdc, prc, BPBF_TOPDOWNDIB, NULL, &hdcPaint);
     if (hdcPaint)
     {
         RECT rc;
-        VERIFY(GetWindowRect(hWnd, &rc));
+        GetWindowRect(hWnd, &rc);
 
         PatBlt(hdcPaint, 0, 0, RECTWIDTH(rc), RECTHEIGHT(rc), BLACKNESS);
-        VERIFY(S_OK == BufferedPaintSetAlpha(hBufferedPaint, &rc, 0x00));
+        BufferedPaintSetAlpha(hBufferedPaint, &rc, 0x00);
 
         ///
         /// first blit white so list ctrls don't look ugly:
         ///
-        VERIFY(PatBlt(hdcPaint, 0, 0, RECTWIDTH(rc), RECTHEIGHT(rc), WHITENESS));
+        PatBlt(hdcPaint, 0, 0, RECTWIDTH(rc), RECTHEIGHT(rc), WHITENESS);
 
         if (bDrawBorder)
-            VERIFY(InflateRect(prc, -1, -1));
+            InflateRect(prc, -1, -1);
         // Tell the control to paint itself in our memory buffer
         SendMessage(hWnd, WM_PRINTCLIENT, (WPARAM)hdcPaint, PRF_CLIENT | PRF_ERASEBKGND | PRF_NONCLIENT | PRF_CHECKVISIBLE);
 
         if (bDrawBorder)
         {
-            VERIFY(InflateRect(prc, 1, 1));
-            VERIFY(FrameRect(hdcPaint, prc, (HBRUSH)GetStockObject(BLACK_BRUSH)));
+            InflateRect(prc, 1, 1);
+            FrameRect(hdcPaint, prc, (HBRUSH)GetStockObject(BLACK_BRUSH));
         }
 
         // don't make a possible border opaque, only the inner part of the control
-        VERIFY(InflateRect(prc, -2, -2));
+        InflateRect(prc, -2, -2);
         // Make every pixel opaque
-        VERIFY(S_OK == BufferedPaintSetAlpha(hBufferedPaint, prc, 255));
-        VERIFY(S_OK == EndBufferedPaint(hBufferedPaint, TRUE));
+        BufferedPaintSetAlpha(hBufferedPaint, prc, 255);
+        EndBufferedPaint(hBufferedPaint, TRUE);
     }
 }
 
-BOOL CTheme::DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList /*= NULL*/)
+BOOL DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList /*= NULL*/)
 {
     if (!piSize)
     {
@@ -1192,8 +1205,8 @@ BOOL CTheme::DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList /*= NULL*/)
     HTHEME hThemeWindow = OpenThemeData(NULL, pszClassIdList);
     if (hThemeWindow != NULL)
     {
-        VERIFY(SUCCEEDED(GetThemeInt(hThemeWindow, 0, 0, TMT_TEXTGLOWSIZE, piSize)));
-        VERIFY(SUCCEEDED(CloseThemeData(hThemeWindow)));
+        SUCCEEDED(GetThemeInt(hThemeWindow, 0, 0, TMT_TEXTGLOWSIZE, piSize));
+        SUCCEEDED(CloseThemeData(hThemeWindow));
         return TRUE;
     }
 
@@ -1201,15 +1214,15 @@ BOOL CTheme::DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList /*= NULL*/)
     return FALSE;
 }
 
-BOOL CTheme::GetEditBorderColor(HWND hWnd, COLORREF* pClr)
+BOOL GetEditBorderColor(HWND hWnd, COLORREF* pClr)
 {
     ASSERT(pClr);
 
     HTHEME hTheme = OpenThemeData(hWnd, L"Edit");
     if (hTheme)
     {
-        VERIFY(S_OK == ::GetThemeColor(hTheme, EP_BACKGROUNDWITHBORDER, EBWBS_NORMAL, TMT_BORDERCOLOR, pClr));
-        VERIFY(S_OK == CloseThemeData(hTheme));
+        ::GetThemeColor(hTheme, EP_BACKGROUNDWITHBORDER, EBWBS_NORMAL, TMT_BORDERCOLOR, pClr);
+        CloseThemeData(hTheme);
         return TRUE;
     }
 
