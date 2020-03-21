@@ -31,6 +31,7 @@
 #pragma warning(disable : 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
 #pragma warning(pop)
+#include "SmartHandle.h"
 
 constexpr COLORREF darkBkColor           = 0x101010;
 constexpr COLORREF darkTextColor         = 0xEEEEEE;
@@ -258,7 +259,7 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
         if (wcscmp(szWndClassName, WC_LISTVIEW) == 0)
         {
             SetWindowTheme(hwnd, L"Explorer", nullptr);
-            HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
+            CAutoThemeData hTheme = OpenThemeData(nullptr, L"ItemsView");
             if (hTheme)
             {
                 COLORREF color;
@@ -271,7 +272,6 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
                     ListView_SetTextBkColor(hwnd, color);
                     ListView_SetBkColor(hwnd, color);
                 }
-                CloseThemeData(hTheme);
             }
             auto hTT = ListView_GetToolTips(hwnd);
             if (hTT)
@@ -310,7 +310,7 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
                     SetWindowTheme(info.hwndItem, L"Explorer", nullptr);
                     SetWindowTheme(info.hwndCombo, L"Explorer", nullptr);
 
-                    HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
+                    CAutoThemeData hTheme = OpenThemeData(nullptr, L"ItemsView");
                     if (hTheme)
                     {
                         COLORREF color;
@@ -323,7 +323,6 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
                             ListView_SetTextBkColor(info.hwndList, color);
                             ListView_SetBkColor(info.hwndList, color);
                         }
-                        CloseThemeData(hTheme);
                     }
 
                     RemoveWindowSubclass(info.hwndList, ListViewSubclassProc, 1234);
@@ -334,7 +333,7 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
         else if (wcscmp(szWndClassName, WC_TREEVIEW) == 0)
         {
             SetWindowTheme(hwnd, L"Explorer", nullptr);
-            HTHEME hTheme = OpenThemeData(nullptr, L"ItemsView");
+            CAutoThemeData hTheme = OpenThemeData(nullptr, L"ItemsView");
             if (hTheme)
             {
                 COLORREF color;
@@ -346,7 +345,6 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
                 {
                     TreeView_SetBkColor(hwnd, color);
                 }
-                CloseThemeData(hTheme);
             }
             auto hTT = TreeView_GetToolTips(hwnd);
             if (hTT)
@@ -483,7 +481,7 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 
                 if ((dwButtonType & BS_GROUPBOX) == BS_GROUPBOX)
                 {
-                    HTHEME hTheme = OpenThemeData(hWnd, L"Button");
+                    CAutoThemeData hTheme = OpenThemeData(hWnd, L"Button");
                     if (hTheme)
                     {
                         BP_PAINTPARAMS params = {sizeof(BP_PAINTPARAMS)};
@@ -591,14 +589,13 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                             EndBufferedPaint(hBufferedPaint, TRUE);
                         }
 
-                        CloseThemeData(hTheme);
                     }
                 }
 
                 else if (dwButtonType == BS_CHECKBOX || dwButtonType == BS_AUTOCHECKBOX ||
                          dwButtonType == BS_3STATE || dwButtonType == BS_AUTO3STATE || dwButtonType == BS_RADIOBUTTON || dwButtonType == BS_AUTORADIOBUTTON)
                 {
-                    HTHEME hTheme = OpenThemeData(hWnd, L"Button");
+                    CAutoThemeData hTheme = OpenThemeData(hWnd, L"Button");
                     if (hTheme)
                     {
                         HDC            hdcPaint     = NULL;
@@ -779,7 +776,6 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 
                             EndBufferedPaint(hBufferedPaint, TRUE);
                         }
-                        CloseThemeData(hTheme);
                     }
                 }
                 else if (BS_PUSHBUTTON == dwButtonType || BS_DEFPUSHBUTTON == dwButtonType)
@@ -1206,11 +1202,10 @@ BOOL DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList /*= NULL*/)
     if (!pszClassIdList)
         pszClassIdList = L"CompositedWindow::Window";
 
-    HTHEME hThemeWindow = OpenThemeData(NULL, pszClassIdList);
+    CAutoThemeData hThemeWindow = OpenThemeData(NULL, pszClassIdList);
     if (hThemeWindow != NULL)
     {
         SUCCEEDED(GetThemeInt(hThemeWindow, 0, 0, TMT_TEXTGLOWSIZE, piSize));
-        SUCCEEDED(CloseThemeData(hThemeWindow));
         return TRUE;
     }
 
@@ -1222,11 +1217,10 @@ BOOL GetEditBorderColor(HWND hWnd, COLORREF* pClr)
 {
     ASSERT(pClr);
 
-    HTHEME hTheme = OpenThemeData(hWnd, L"Edit");
+    CAutoThemeData hTheme = OpenThemeData(hWnd, L"Edit");
     if (hTheme)
     {
         ::GetThemeColor(hTheme, EP_BACKGROUNDWITHBORDER, EBWBS_NORMAL, TMT_BORDERCOLOR, pClr);
-        CloseThemeData(hTheme);
         return TRUE;
     }
 
