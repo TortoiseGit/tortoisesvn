@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2017, 2019 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2017, 2019-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -206,7 +206,7 @@ public:
     /**
      * Checks if the path really exists.
      */
-    bool Exists() const;
+    bool Exists(bool force = false) const;
 
     /**
      * Deletes the file/folder

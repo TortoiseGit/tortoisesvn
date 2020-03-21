@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2019 - TortoiseSVN
+// Copyright (C) 2003-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -321,9 +321,9 @@ bool CTSVNPath::IsDirectory() const
     return m_bIsDirectory;
 }
 
-bool CTSVNPath::Exists() const
+bool CTSVNPath::Exists(bool force) const
 {
-    if (!m_bExistsKnown)
+    if (!m_bExistsKnown || force)
     {
         UpdateAttributes();
     }
