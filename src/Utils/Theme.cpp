@@ -28,7 +28,7 @@
 #include <vssym32.h>
 #include <richedit.h>
 #pragma warning(push)
-#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#pragma warning(disable : 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
 #pragma warning(pop)
 
@@ -36,14 +36,13 @@ constexpr COLORREF darkBkColor           = 0x101010;
 constexpr COLORREF darkTextColor         = 0xEEEEEE;
 constexpr COLORREF darkDisabledTextColor = 0x808080;
 
-static int GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture);
+static int  GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture);
 static void GetRoundRectPath(Gdiplus::GraphicsPath* pPath, const Gdiplus::Rect& r, int dia);
 static void DrawRect(LPRECT prc, HDC hdcPaint, Gdiplus::DashStyle dashStyle, Gdiplus::Color clr, Gdiplus::REAL width);
 static void DrawFocusRect(LPRECT prcFocus, HDC hdcPaint);
 static void PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBorder);
 static BOOL DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList = NULL);
 static BOOL GetEditBorderColor(HWND hWnd, COLORREF* pClr);
-
 
 HBRUSH CTheme::s_backBrush = nullptr;
 
@@ -287,11 +286,16 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
             SetWindowTheme(hwnd, L"Explorer", nullptr);
             RemoveWindowSubclass(hwnd, ButtonSubclassProc, 1234);
         }
-        else if (wcscmp(szWndClassName, L"ComboBoxEx32") == 0)
+        else if ((wcscmp(szWndClassName, WC_COMBOBOXEX) == 0) ||
+                 (wcscmp(szWndClassName, WC_COMBOBOX) == 0))
         {
-            SetWindowTheme(hwnd, L"Explorer", nullptr);
-            SendMessage(hwnd, CBEM_SETWINDOWTHEME, 0, (LPARAM)L"Explorer");
-            auto hCombo = (HWND)SendMessage(hwnd, CBEM_GETCOMBOCONTROL, 0, 0);
+            SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr);
+            HWND hCombo = hwnd;
+            if (wcscmp(szWndClassName, WC_COMBOBOXEX) == 0)
+            {
+                SendMessage(hwnd, CBEM_SETWINDOWTHEME, 0, (LPARAM)L"DarkMode_Explorer");
+                hCombo = (HWND)SendMessage(hwnd, CBEM_GETCOMBOCONTROL, 0, 0);
+            }
             if (hCombo)
             {
                 COMBOBOXINFO info = {0};
