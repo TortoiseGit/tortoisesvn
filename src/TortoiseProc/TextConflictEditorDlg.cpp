@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2018 - TortoiseSVN
+// Copyright (C) 2016-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,7 +54,7 @@ HRESULT CTextConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM w
         case TDN_BUTTON_CLICKED:
         return OnButtonClicked(hWnd, (int)wParam);
         case TDN_TIMER:
-        return OnTimer(hWnd);
+        return OnTimer(hWnd, wParam);
         case TDN_HELP:
             if (!CAppUtils::StartHtmlHelp(IDD_CONFLICTRESOLVE + 0x20000))
             {
@@ -96,8 +96,8 @@ HRESULT CTextConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
         CTSVNPath theirs, mine, base;
         m_merged = m_conflictInfo->GetPath();
         m_conflictInfo->GetTextContentFiles(base, theirs, mine);
-        m_mergedCreationTime = m_merged.GetLastWriteTime();
         ::SendMessage(hWnd, TDM_ENABLE_BUTTON, 100 + svn_client_conflict_option_merged_text, 0);
+        m_mergedCreationTime = m_merged.GetLastWriteTime(true);
 
         CString filename, n1, n2, n3, n4;
         filename = m_merged.GetUIFileOrDirectoryName();
@@ -145,15 +145,19 @@ HRESULT CTextConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
     return S_OK;
 }
 
-HRESULT CTextConflictEditorDlg::OnTimer(HWND hWnd)
+HRESULT CTextConflictEditorDlg::OnTimer(HWND hWnd, WPARAM wParam)
 {
-    if ((m_mergedCreationTime > 0) && m_merged.Exists() && (m_merged.GetLastWriteTime(true) > m_mergedCreationTime))
+    // timer triggers every 200ms, but we don't want to check
+    // that frequently. So use the tickcount.
+    if (wParam < 500)
+        return S_OK;
+    if ((m_mergedCreationTime > 0) && m_merged.Exists(true) && (m_merged.GetLastWriteTime() > m_mergedCreationTime))
     {
         ::SendMessage(hWnd, TDM_ENABLE_BUTTON, 100 + svn_client_conflict_option_merged_text, 1);
         m_mergedCreationTime = 0;
     }
 
-    return S_OK;
+    return S_FALSE; // reset tick count
 }
 
 void CTextConflictEditorDlg::DoModal(HWND parent)

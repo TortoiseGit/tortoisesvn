@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2017 - TortoiseSVN
+// Copyright (C) 2016-2017, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,7 +38,7 @@ private:
     static HRESULT CALLBACK TaskDialogCallback(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam, LONG_PTR dwRefData);
     HRESULT OnDialogConstructed(HWND hWnd);
     HRESULT OnButtonClicked(HWND hWnd, int id);
-    HRESULT OnTimer(HWND hWnd);
+    HRESULT OnTimer(HWND hWnd, WPARAM wParam);
     HRESULT OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam);
 
     void AddCommandButton(int id, const CString & text);
