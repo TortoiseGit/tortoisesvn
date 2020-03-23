@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012,2013-2016 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012,2013-2016, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -154,8 +154,8 @@ public:
     std::vector<size_t> ChangedLogPathIndices;
     svn_revnum_t Rev1;
     svn_revnum_t Rev2;
-    CString sUrl;
-    CString fileUrl;
+    CString sUrl;           // url is escaped
+    CString fileUrl;        // url is unescaped
     CString wcPath;
 
     bool OneRev;

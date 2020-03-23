@@ -7170,24 +7170,24 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
 
     // find the working copy path of the selected item from the URL
     CString sUrlRoot = GetRepositoryRoot(m_path);
+    CString sUrlRootUnescaped = CPathUtils::PathUnescape(sUrlRoot);
     if (!sUrlRoot.IsEmpty())
     {
         const CLogChangedPath& changedlogpath = m_currentChangedArray[selIndex];
         pCmi->fileUrl                         = changedlogpath.GetPath();
-        pCmi->fileUrl                         = sUrlRoot + pCmi->fileUrl.Trim();
+        pCmi->fileUrl                         = sUrlRootUnescaped + pCmi->fileUrl.Trim();
         if (m_hasWC)
         {
             // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
             // pCmi->sUrl = http://mydomain.com/repos/trunk/folder
             CString sUnescapedUrl = CPathUtils::PathUnescape(pCmi->sUrl);
-            CString sUnescapedFileUrl = CPathUtils::PathUnescape(pCmi->fileUrl);
             // find out until which char the urls are identical
             int i = 0;
-            while ((i < pCmi->fileUrl.GetLength()) && (i < sUnescapedUrl.GetLength()) && (sUnescapedFileUrl[i] == sUnescapedUrl[i]))
+            while ((i < pCmi->fileUrl.GetLength()) && (i < sUnescapedUrl.GetLength()) && (pCmi->fileUrl[i] == sUnescapedUrl[i]))
                 i++;
             int leftcount = m_path.GetWinPathString().GetLength() - (sUnescapedUrl.GetLength() - i);
             pCmi->wcPath  = m_path.GetWinPathString().Left(leftcount);
-            pCmi->wcPath += sUnescapedFileUrl.Mid(i);
+            pCmi->wcPath += pCmi->fileUrl.Mid(i);
             pCmi->wcPath.Replace('/', '\\');
         }
     }
