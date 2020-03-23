@@ -24,6 +24,7 @@
 #include "StringUtils.h"
 #include "DarkModeHelper.h"
 #include "DPIAware.h"
+#include <algorithm>
 #include <Uxtheme.h>
 #include <vssym32.h>
 #include <richedit.h>
@@ -98,6 +99,14 @@ COLORREF CTheme::GetThemeColor(COLORREF clr, bool fixed /*= false*/) const
         float h, s, l;
         CTheme::RGBtoHSL(clr, h, s, l);
         l = 100.0f - l;
+        if (!m_isHighContrastModeDark)
+        {
+            // to avoid too much contrast, prevent
+            // too dark and too bright colors.
+            // this is because in dark mode, contrast is
+            // much more visible.
+            l = std::clamp(l, 5.0f, 90.0f);
+        }
         return CTheme::HSLtoRGB(h, s, l);
     }
 
