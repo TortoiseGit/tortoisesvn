@@ -401,6 +401,10 @@ LRESULT CTheme::ListViewSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
             }
         }
         break;
+        case WM_DESTROY:
+        case WM_NCDESTROY:
+            RemoveWindowSubclass(hWnd, ListViewSubclassProc, 1234);
+            break;
     }
     return DefSubclassProc(hWnd, uMsg, wParam, lParam);
 }
@@ -426,6 +430,10 @@ LRESULT CTheme::ComboBoxSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
             return reinterpret_cast<LRESULT>(*hbrBkgnd);
         }
         break;
+        case WM_DESTROY:
+        case WM_NCDESTROY:
+            RemoveWindowSubclass(hWnd, ComboBoxSubclassProc, 1234);
+            break;
     }
     return DefSubclassProc(hWnd, uMsg, wParam, lParam);
 }
@@ -451,6 +459,10 @@ LRESULT CTheme::MainSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
             return reinterpret_cast<LRESULT>(*hbrBkgnd);
         }
         break;
+        case WM_DESTROY:
+        case WM_NCDESTROY:
+            RemoveWindowSubclass(hWnd, MainSubclassProc, 1234);
+            break;
     }
     return DefSubclassProc(hWnd, uMsg, wParam, lParam);
 }
@@ -597,7 +609,6 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 
                             EndBufferedPaint(hBufferedPaint, TRUE);
                         }
-
                     }
                 }
 
