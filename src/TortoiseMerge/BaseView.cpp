@@ -2420,7 +2420,7 @@ void CBaseView::OnSetFocus(CWnd* pOldWnd)
 int CBaseView::GetLineFromPoint(CPoint point)
 {
     ScreenToClient(&point);
-    return (((point.y - (GetLineHeight() + HEADERHEIGHT)) / GetLineHeight()) + m_nTopLine);
+    return (((point.y - HEADERHEIGHT) / GetLineHeight()) + m_nTopLine);
 }
 
 void CBaseView::OnContextMenu(CPoint point, DiffStates state)
