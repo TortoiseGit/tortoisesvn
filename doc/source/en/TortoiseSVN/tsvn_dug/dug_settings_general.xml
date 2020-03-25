@@ -551,45 +551,84 @@
         <graphic fileref="../images/SettingsDialog3.png"/>
       </figure>
     </para>
-    <variablelist>
-      <varlistentry>
-        <term>Pre-fetch folders for faster browsing</term>
-        <listitem>
-          <para>
-            If this box is checked (default state), then
-            the repository browser fetches information about
-            shown folders in the background. That way as soon
-            as you browse into one of those folders, the
-            information is already available.
-          </para>
-          <para>
-            Some servers however can't handle the multiple
-            requests this causes or when not configured
-            correctly treat so many requests as something
-            bad and start blocking them. In this case you
-            can disable the pre-fetching here.
-          </para>
-        </listitem>
-      </varlistentry>
-      <varlistentry>
-        <term>Show externals</term>
-        <listitem>
-          <para>
-            If this box is checked (default state), then
-            the repository browser shows files and folders
-            that are included with the <literal>svn:externals</literal>
-            property as normal files and folders, but with
-            an overlay icon to mark them as from an external
-            source.
-          </para>
-          <para>
-            As with the pre-fetch feature explained above,
-            this too can put too much stress on weak servers.
-            In this case you can disable this feature here.
-          </para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
+    <para>
+      Settings for the repository browser:
+      <variablelist>
+        <varlistentry>
+          <term>Pre-fetch folders for faster browsing</term>
+          <listitem>
+            <para>
+              If this box is checked (default state), then
+              the repository browser fetches information about
+              shown folders in the background. That way as soon
+              as you browse into one of those folders, the
+              information is already available.
+            </para>
+            <para>
+              Some servers however can't handle the multiple
+              requests this causes or when not configured
+              correctly treat so many requests as something
+              bad and start blocking them. In this case you
+              can disable the pre-fetching here.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>Show externals</term>
+          <listitem>
+            <para>
+              If this box is checked (default state), then
+              the repository browser shows files and folders
+              that are included with the <literal>svn:externals</literal>
+              property as normal files and folders, but with
+              an overlay icon to mark them as from an external
+              source.
+            </para>
+            <para>
+              As with the pre-fetch feature explained above,
+              this too can put too much stress on weak servers.
+              In this case you can disable this feature here.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
+    <para>
+      There are two versions of shelfing implemented in SVN.
+      Here you can select which version you want to use.
+      Note that changing this setting might require an OS
+      restart to take effect.
+      <variablelist>
+        <varlistentry>
+          <term>V2</term>
+          <listitem>
+            <para>
+              this version is much faster than <literal>V3</literal> and
+              is the recommended version to use.
+            </para>
+            <para>
+              However, the speed comes at a prize: <literal>V2</literal>
+              does not handle directory changes, and can't handle copies and moves
+              of files.
+            </para>
+          </listitem>
+        </varlistentry>
+        <varlistentry>
+          <term>V3</term>
+          <listitem>
+            <para>
+              this is the latest version of the shelfing feature. It can
+              handle changes to directories as well as file moves/copies.
+            </para>
+            <para>
+              However, <literal>V3</literal> is much slower than <literal>V2</literal>
+              and can be unusably slow for big repositories or if you have
+              a slow connection to the repository.
+            </para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </para>
   </sect3>
   <sect3 id="tsvn-dug-settings-colours">
     <title>TortoiseSVN Colour Settings</title>

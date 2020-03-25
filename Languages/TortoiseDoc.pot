@@ -8057,6 +8057,38 @@ msgstr ""
 msgid "As with the pre-fetch feature explained above, this too can put too much stress on weak servers. In this case you can disable this feature here."
 msgstr ""
 
+#. (para)
+msgid "Settings for the repository browser: <placeholder-1/>"
+msgstr ""
+
+#. (term)
+msgid "V2"
+msgstr ""
+
+#. (para)
+msgid "this version is much faster than <literal>V3</literal> and is the recommended version to use."
+msgstr ""
+
+#. (para)
+msgid "However, the speed comes at a prize: <literal>V2</literal> does not handle directory changes, and can't handle copies and moves of files."
+msgstr ""
+
+#. (term)
+msgid "V3"
+msgstr ""
+
+#. (para)
+msgid "this is the latest version of the shelfing feature. It can handle changes to directories as well as file moves/copies."
+msgstr ""
+
+#. (para)
+msgid "However, <literal>V3</literal> is much slower than <literal>V2</literal> and can be unusably slow for big repositories or if you have a slow connection to the repository."
+msgstr ""
+
+#. (para)
+msgid "There are two versions of shelfing implemented in SVN. Here you can select which version you want to use. Note that changing this setting might require an OS restart to take effect. <placeholder-1/>"
+msgstr ""
+
 #. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr ""
