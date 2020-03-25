@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2018 - TortoiseSVN
+// Copyright (C) 2017-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -46,7 +46,7 @@ protected:
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual void OnCancel();
     virtual void OnOK();
-    void         FillData();
+    bool         FillData();
     afx_msg void OnBnClickedSelectall();
     afx_msg void OnBnClickedHelp();
     afx_msg void OnShelveNameChanged();

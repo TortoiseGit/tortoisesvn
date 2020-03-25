@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2018 - TortoiseSVN
+// Copyright (C) 2017-2018, 2020 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -239,7 +239,8 @@ void CShelve::OnOK()
     if (m_bThreadRunning)
         return;
 
-    FillData();
+    if (!FillData())
+        return;
     m_revert = true;
 
     CResizableStandAloneDialog::OnOK();
@@ -250,12 +251,14 @@ void CShelve::OnBnClickedCheckpoint()
     if (m_bThreadRunning)
         return;
 
-    FillData();
+    if (!FillData())
+        return;
+    m_revert = false;
 
     CResizableStandAloneDialog::OnOK();
 }
 
-void CShelve::FillData()
+bool CShelve::FillData()
 {
     CString val;
     auto    sel = m_cShelvesCombo.GetCurSel();
@@ -267,10 +270,17 @@ void CShelve::FillData()
         m_cShelvesCombo.GetWindowText(val);
     m_sShelveName = val;
 
+    if (m_sShelveName.IsEmpty())
+    {
+        m_tooltips.ShowBalloon(&m_cShelvesCombo, IDS_ERR_SHELFNAME_EMPTY, IDS_ERR_ERROR, TTI_ERROR);
+        return false;
+    }
+
     m_sLogMsg = m_cLogMessage.GetText();
 
     //save only the files the user has selected into the path list
     m_PatchList.WriteCheckedNamesToPathList(m_pathList);
+    return true;
 }
 
 LRESULT CShelve::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)

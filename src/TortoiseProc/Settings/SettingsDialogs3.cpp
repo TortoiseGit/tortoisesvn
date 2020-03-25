@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013-2016 - TortoiseSVN
+// Copyright (C) 2011, 2013-2016, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,6 @@
 #include "SettingsDialogs3.h"
 #include <afxdialogex.h>
 
-
 // SettingsDialogs3 dialog
 
 IMPLEMENT_DYNAMIC(SettingsDialogs3, ISettingsPropPage)
@@ -32,9 +31,9 @@ SettingsDialogs3::SettingsDialogs3()
     , m_bIncludeExternals(FALSE)
     , m_bIncludeLocks(FALSE)
 {
-    m_regPreFetch = CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", TRUE);
+    m_regPreFetch         = CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserPrefetch", TRUE);
     m_regIncludeExternals = CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowExternals", TRUE);
-    m_regIncludeLocks = CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowLocks", TRUE);
+    m_regIncludeLocks     = CRegDWORD(L"Software\\TortoiseSVN\\RepoBrowserShowLocks", TRUE);
 }
 
 SettingsDialogs3::~SettingsDialogs3()
@@ -46,19 +45,18 @@ void SettingsDialogs3::DoDataExchange(CDataExchange* pDX)
     ISettingsPropPage::DoDataExchange(pDX);
     DDX_Check(pDX, IDC_ALLOWPREFETCH, m_bPreFetch);
     DDX_Check(pDX, IDC_SHOWEXTERNALS, m_bIncludeExternals);
-    DDX_Check(pDX, IDC_SHOWLOCKS,     m_bIncludeLocks);
+    DDX_Check(pDX, IDC_SHOWLOCKS, m_bIncludeLocks);
 }
-
 
 BEGIN_MESSAGE_MAP(SettingsDialogs3, ISettingsPropPage)
     ON_BN_CLICKED(IDC_ALLOWPREFETCH, &SettingsDialogs3::OnBnClicked)
     ON_BN_CLICKED(IDC_SHOWEXTERNALS, &SettingsDialogs3::OnBnClicked)
-    ON_BN_CLICKED(IDC_SHOWLOCKS,     &SettingsDialogs3::OnBnClicked)
+    ON_BN_CLICKED(IDC_SHOWLOCKS, &SettingsDialogs3::OnBnClicked)
+    ON_BN_CLICKED(IDC_SHELF_V2, &SettingsDialogs3::OnBnClicked)
+    ON_BN_CLICKED(IDC_SHELF_V3, &SettingsDialogs3::OnBnClicked)
 END_MESSAGE_MAP()
 
-
 // SettingsDialogs3 message handlers
-
 
 void SettingsDialogs3::OnBnClicked()
 {
@@ -71,9 +69,16 @@ BOOL SettingsDialogs3::OnInitDialog()
 
     EnableToolTips();
 
-    m_bPreFetch = m_regPreFetch;
+    m_bPreFetch         = m_regPreFetch;
     m_bIncludeExternals = m_regIncludeExternals;
-    m_bIncludeLocks = m_regIncludeLocks;
+    m_bIncludeLocks     = m_regIncludeLocks;
+
+    char*   pValue = nullptr;
+    size_t  len    = 0;
+    errno_t err    = _dupenv_s(&pValue, &len, "SVN_EXPERIMENTAL_COMMANDS");
+    auto    isV3   = ((err == 0) && pValue && strstr(pValue, "shelf3"));
+    free(pValue);
+    CheckRadioButton(IDC_SHELF_V2, IDC_SHELF_V3, isV3 ? IDC_SHELF_V3 : IDC_SHELF_V2);
 
     m_tooltips.AddTool(IDC_ALLOWPREFETCH, IDS_SETTINGS_REPOBROWSER_PREFETCH_TT);
     m_tooltips.AddTool(IDC_SHOWEXTERNALS, IDS_SETTINGS_REPOBROWSER_EXTERNALS_TT);
@@ -86,12 +91,24 @@ BOOL SettingsDialogs3::OnInitDialog()
 BOOL SettingsDialogs3::OnApply()
 {
     UpdateData();
-    Store (m_bPreFetch, m_regPreFetch);
-    Store (m_bIncludeExternals, m_regIncludeExternals);
-    Store (m_bIncludeLocks, m_regIncludeLocks);
+    Store(m_bPreFetch, m_regPreFetch);
+    Store(m_bIncludeExternals, m_regIncludeExternals);
+    Store(m_bIncludeLocks, m_regIncludeLocks);
 
+    char* pValue = nullptr;
+    size_t  len = 0;
+    errno_t err = _dupenv_s(&pValue, &len, "SVN_EXPERIMENTAL_COMMANDS");
+    auto    wasV3 = ((err == 0) && pValue && strstr(pValue, "shelf3"));
+    free(pValue);
+
+    auto       isV3     = IsDlgButtonChecked(IDC_SHELF_V3) != FALSE;
+    CRegString regShelf = CRegString(L"Environment\\SVN_EXPERIMENTAL_COMMANDS");
+    regShelf            = isV3 ? L"shelf3" : L"shelf2";
+    if (isV3 != wasV3)
+    {
+        SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, (LPARAM)L"Environment", SMTO_ABORTIFHUNG, 5000, NULL);
+        m_restart = Restart_System;
+    }
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
 }
-
-
