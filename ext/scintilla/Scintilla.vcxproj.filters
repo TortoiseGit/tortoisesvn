@@ -16,6 +16,9 @@
     <Filter Include="win32">
       <UniqueIdentifier>{afe7e35e-cd81-406c-a770-df29d2b3fc95}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lexilla">
+      <UniqueIdentifier>{f53e1c32-a004-45c8-86b0-05a7c85a6455}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="lexlib\Accessor.cxx">
@@ -489,6 +492,15 @@
     <ClCompile Include="src\UniqueString.cxx">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="lexers\LexHollywood.cxx">
+      <Filter>lexers</Filter>
+    </ClCompile>
+    <ClCompile Include="lexers\LexRaku.cxx">
+      <Filter>lexers</Filter>
+    </ClCompile>
+    <ClCompile Include="lexilla\src\Lexilla.cxx">
+      <Filter>lexilla</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ILexer.h">
@@ -664,6 +676,12 @@
     </ClInclude>
     <ClInclude Include="src\ElapsedPeriod.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="lexlib\CatalogueModules.h">
+      <Filter>lexlib</Filter>
+    </ClInclude>
+    <ClInclude Include="lexilla\src\Lexilla.h">
+      <Filter>lexilla</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
