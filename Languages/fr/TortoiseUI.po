@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2017 the TortoiseSVN team
+# Copyright (C) 2004-2020 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -22,6 +22,7 @@
 # Groog <florentzimolo@gmail.com>, 2014
 # gobes <gobes2@gmail.com>, 2011
 # gobes <gobes2@gmail.com>, 2011
+# gomoko <gomoko@yahoo.com>, 2019
 # grokwik <grokwik@gmail.com>, 2011
 # grokwik <grokwik@gmail.com>, 2011, 2012
 # grokwik <grokwik@gmail.com>, 2011-2012
@@ -49,15 +50,15 @@
 # ShevAbam, 2015
 # Stéphane Aulery <saulery@legtux.org>, 2019
 # Librius <inactive+Librius@transifex.com>, 2014
-# Thomas Lemoine, 2019
+# Thomas Lemoine, 2019-2020
 # BASLEY Nicolas <basleynicolas@hotmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-11-12 15:33+0000\n"
-"Last-Translator: Thomas Lemoine\n"
+"PO-Revision-Date: 2020-03-26 01:43+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -671,6 +672,14 @@ msgstr "&Créer l'arborescence de répertoires"
 msgid "&Custom"
 msgstr "&Personnalisé"
 
+#. Resource IDs: (ID_VIEW_DARKMODE - Menu)
+msgid "&Dark Mode"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_DARKMODE - Menu)
+msgid "&Dark Mode\t(D)"
+msgstr ""
+
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
 msgstr "&Date"
@@ -1194,7 +1203,7 @@ msgstr "&Pré-charger les dossiers pour une navigation plus rapide"
 
 #. Resource IDs: (1676)
 msgid "&Pretty print"
-msgstr ""
+msgstr "Im&Pression jolie"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -2924,6 +2933,11 @@ msgstr "Couleur par au&teur"
 msgid "Colors"
 msgstr "Couleurs"
 
+#. Resource IDs: (IDS_INDICATOR_COLUMN)
+#, c-format
+msgid "Column: %d"
+msgstr ""
+
 #. Resource IDs: (3506)
 msgid "Command"
 msgstr "Commande"
@@ -3162,6 +3176,10 @@ msgstr "Taille des conteneurs"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr "Lignes de contexte pour des patchs"
+
+#. Resource IDs: (1543)
+msgid "Continue &Merge"
+msgstr ""
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3618,6 +3636,10 @@ msgstr "Chemin par défaut :"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "Encodage UTF-8 par défaut"
+
+#. Resource IDs: (1542)
+msgid "Delete"
+msgstr "Supprimer"
 
 #. Resource IDs: (1617)
 msgid "Delete &ignored files and folders"
@@ -4808,6 +4830,26 @@ msgstr "Trouver la révision &HEAD"
 msgid "Find HEAD revisions"
 msgstr "Trouver les révisions HEAD"
 
+#. Resource IDs: (cmdFindNext_LabelTitle_RESID)
+msgid "Find Next"
+msgstr ""
+
+#. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
+msgid "Find Previous"
+msgstr ""
+
+#. Resource IDs: (cmdFindPrev)
+msgid ""
+"Find the last occurrence of the selected text\n"
+"Search Previous"
+msgstr ""
+
+#. Resource IDs: (cmdFindNext)
+msgid ""
+"Find the next occurrence of the selected text\n"
+"Search Next"
+msgstr ""
+
 #. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
@@ -5267,6 +5309,10 @@ msgstr "ID:32817:V   +W"
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
 msgstr "ID:32818:V   +H"
+
+#. Accelerator Entry for Menu ID:32819; '&Dark Mode\t(D)'
+msgid "ID:32819:V   +D"
+msgstr ""
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -6214,6 +6260,11 @@ msgstr "Marquer ce changement"
 msgid "Marked Blocks"
 msgstr "Blocs Marqués"
 
+#. Resource IDs: (IDS_INDICATOR_MARKEDWORDCOUNT)
+#, c-format
+msgid "Marked words: %s"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Markers"
 msgstr "Marqueurs"
@@ -6744,10 +6795,6 @@ msgstr "Pas de cache du statut. Seuls les répertoires versionnés sont recouver
 #, c-format
 msgid "No such revision '%1!ls!'"
 msgstr "Il n'y a pas de révision '%1!ls!'"
-
-#. Resource IDs: (3003)
-msgid "No thesaurus suggestions"
-msgstr "Aucune suggestion du thésaurus"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -7613,7 +7660,7 @@ msgstr "Récupére les sauvegardes automatiques des documents\nOuvre les sauvega
 msgid ""
 "Recur&sive\n"
 "Remove the property also from items in Subfolders."
-msgstr ""
+msgstr "Récur&sif\nSupprime aussi la propriété des éléments dans les sous-répertoires."
 
 #. Resource IDs: (1260)
 msgid "Recurse into unversioned folders"
@@ -8702,6 +8749,14 @@ msgstr "Dois-je mettre à jour la copie de travail et réessayer?"
 msgid "Shelf \"%s\" has %ld version(s)"
 msgstr "L'archive \"%s\" a %ld version(s)"
 
+#. Resource IDs: (1345)
+msgid "Shelf name can not be empty!"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Shelfing"
+msgstr ""
+
 #. Resource IDs: (1270, 3349)
 msgid "Shell"
 msgstr "Shell"
@@ -9343,7 +9398,7 @@ msgstr "Subversion a reporté une erreur pendant la création du dépôt !\nCont
 
 #. Resource IDs: (239)
 msgid "Subversion reported an error:"
-msgstr "Subversion à rapporté une erreur:"
+msgstr "Subversion a rapporté une erreur :"
 
 #. Resource IDs: (65535)
 msgid "Subversion server file:"
@@ -9906,10 +9961,6 @@ msgstr "Il ya a déjà un plugin configuré pour ce chemin"
 #. Resource IDs: (1321)
 msgid "There's nothing to unlock. No file has a lock in this working copy."
 msgstr "Il n'y a rien à déverrouiller. Aucun fichier n'a de verrou dans cette copie de travail"
-
-#. Resource IDs: (3000)
-msgid "Thesaurus"
-msgstr "Dictionnaire de synonymes"
 
 #. Resource IDs: (62181)
 msgid ""
@@ -10622,6 +10673,10 @@ msgstr "Utiliser les deux blocs de texte (celui-ci en premier)"
 msgid "Use both text blocks (this one last)"
 msgstr "Utiliser les deux blocs de texte (celui-ci en dernier)"
 
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 1513)
+msgid "Use dark mode"
+msgstr ""
+
 #. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
 #. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
@@ -10765,6 +10820,14 @@ msgstr ""
 #. Resource IDs: (cmdPaste_Keytip_RESID)
 msgid "V"
 msgstr "V"
+
+#. Resource IDs: (1680)
+msgid "V2: Faster, no server connection required (recommended)"
+msgstr ""
+
+#. Resource IDs: (1681)
+msgid "V3: Slower, requires server connection."
+msgstr ""
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""

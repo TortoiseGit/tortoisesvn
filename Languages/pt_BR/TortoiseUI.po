@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN user interface
-# Copyright (C) 2004-2017 the TortoiseSVN team
+# Copyright (C) 2004-2020 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -18,7 +18,7 @@
 # FelipeL <felipe.idj@hotmail.com>, 2014
 # FelipeL <felipe.idj@hotmail.com>, 2014
 # Hugo Rossi <hugo.hrossi@gmail.com>, 2015
-# igorruckert <igorruckert@yahoo.com.br>, 2011-2012
+# Igor Rückert, 2011-2012
 # Jonas Ricardo Rossi Cardoso <jrrossicardoso@gmail.com>, 2015
 # Leandro Hermes Neto <leandro@leandrohermes.net>, 2015
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
@@ -39,8 +39,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-06-05 13:07+0000\n"
-"Last-Translator: Rafael Heise <rmheise@gmail.com>\n"
+"PO-Revision-Date: 2020-03-26 01:43+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/luebbe/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -653,6 +653,14 @@ msgstr "&Criar estrutura de diretório"
 #. Resource IDs: (1097, 1560)
 msgid "&Custom"
 msgstr "&Personalizado"
+
+#. Resource IDs: (ID_VIEW_DARKMODE - Menu)
+msgid "&Dark Mode"
+msgstr ""
+
+#. Resource IDs: (ID_VIEW_DARKMODE - Menu)
+msgid "&Dark Mode\t(D)"
+msgstr ""
 
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
@@ -2907,6 +2915,11 @@ msgstr "Cor por au&tor"
 msgid "Colors"
 msgstr "Cores"
 
+#. Resource IDs: (IDS_INDICATOR_COLUMN)
+#, c-format
+msgid "Column: %d"
+msgstr ""
+
 #. Resource IDs: (3506)
 msgid "Command"
 msgstr "Comando"
@@ -3145,6 +3158,10 @@ msgstr "Tamanhos dos contentores"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr "Linhas de contexto para correções"
+
+#. Resource IDs: (1543)
+msgid "Continue &Merge"
+msgstr ""
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3601,6 +3618,10 @@ msgstr "Caminho padrão:"
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 1064)
 msgid "Default to UTF-8 encoding"
 msgstr "Usar codificação UTF-8 por padrão"
+
+#. Resource IDs: (1542)
+msgid "Delete"
+msgstr "Excluir"
 
 #. Resource IDs: (1617)
 msgid "Delete &ignored files and folders"
@@ -4791,6 +4812,26 @@ msgstr "Localizar &Revisão-HEAD"
 msgid "Find HEAD revisions"
 msgstr "Localizar revisões HEAD"
 
+#. Resource IDs: (cmdFindNext_LabelTitle_RESID)
+msgid "Find Next"
+msgstr ""
+
+#. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
+msgid "Find Previous"
+msgstr ""
+
+#. Resource IDs: (cmdFindPrev)
+msgid ""
+"Find the last occurrence of the selected text\n"
+"Search Previous"
+msgstr ""
+
+#. Resource IDs: (cmdFindNext)
+msgid ""
+"Find the next occurrence of the selected text\n"
+"Search Next"
+msgstr ""
+
 #. Resource IDs: (cmdFind)
 msgid ""
 "Find the specified text\n"
@@ -5250,6 +5291,10 @@ msgstr "ID:32817:V   +W"
 #. Accelerator Entry for Menu ID:32818; 'Fit image &heights\t(H)'
 msgid "ID:32818:V   +H"
 msgstr "ID:32818:V   +H"
+
+#. Accelerator Entry for Menu ID:32819; '&Dark Mode\t(D)'
+msgid "ID:32819:V   +D"
+msgstr ""
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -6197,6 +6242,11 @@ msgstr "Marcar esta alteração"
 msgid "Marked Blocks"
 msgstr "Blocos marcados"
 
+#. Resource IDs: (IDS_INDICATOR_MARKEDWORDCOUNT)
+#, c-format
+msgid "Marked words: %s"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Markers"
 msgstr "Marcadores"
@@ -6727,10 +6777,6 @@ msgstr "Sem status de cache. Apenas as pastas com controle de versão são sobre
 #, c-format
 msgid "No such revision '%1!ls!'"
 msgstr "Sem a revisão '%1!ls!'"
-
-#. Resource IDs: (3003)
-msgid "No thesaurus suggestions"
-msgstr "Não há sugestões de sinônimos"
 
 #. Resource IDs: (65535)
 msgid "Node Status:"
@@ -8685,6 +8731,14 @@ msgstr "Atualizar a cópia de trabalho e então tentar novamente?"
 msgid "Shelf \"%s\" has %ld version(s)"
 msgstr "Agrupamento \"%s\" tem %ld vesão(ões)"
 
+#. Resource IDs: (1345)
+msgid "Shelf name can not be empty!"
+msgstr ""
+
+#. Resource IDs: (65535)
+msgid "Shelfing"
+msgstr ""
+
 #. Resource IDs: (1270, 3349)
 msgid "Shell"
 msgstr "Shell"
@@ -9890,10 +9944,6 @@ msgstr "Atualmente já existe um plugin configurado para este caminho"
 msgid "There's nothing to unlock. No file has a lock in this working copy."
 msgstr "Não há nada para desbloquear. Não há arquivos com bloqueio nesta cópia de trabalho."
 
-#. Resource IDs: (3000)
-msgid "Thesaurus"
-msgstr "Sinônimos"
-
 #. Resource IDs: (62181)
 msgid ""
 "These are more recently saved than the currently open documents and contain "
@@ -10605,6 +10655,10 @@ msgstr "Usar ambos os blocos de texto (este aqui primeiro)"
 msgid "Use both text blocks (this one last)"
 msgstr "Usar ambos os blocos de texto (este aqui por último)"
 
+#. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 1513)
+msgid "Use dark mode"
+msgstr ""
+
 #. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
 #. cmdUseLeftBlock_LabelTitle_RESID)
 msgid "Use left block"
@@ -10748,6 +10802,14 @@ msgstr "Usar o tipo de situação de cachê 'nenhum' para processos prioritário
 #. Resource IDs: (cmdPaste_Keytip_RESID)
 msgid "V"
 msgstr "V"
+
+#. Resource IDs: (1680)
+msgid "V2: Faster, no server connection required (recommended)"
+msgstr ""
+
+#. Resource IDs: (1681)
+msgid "V3: Slower, requires server connection."
+msgstr ""
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""

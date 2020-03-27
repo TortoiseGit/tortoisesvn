@@ -1,5 +1,5 @@
 # Translation of the TortoiseSVN manuals
-# Copyright (C) 2004-2017 the TortoiseSVN team
+# Copyright (C) 2004-2020 the TortoiseSVN team
 # 
 # This file is distributed under the same license as TortoiseSVN
 # 
@@ -17,6 +17,7 @@
 # Crhistian <crhistian.ti@gmail.com>, 2011, 2012
 # Edson Chen <edson.chen@gmail.com>, 2011
 # Edson Chen <edson.chen@gmail.com>, 2011
+# Fabio M. Caldas <fabiomcaldas@gmail.com>, 2020
 # Jonas Ricardo Rossi Cardoso <jrrossicardoso@gmail.com>, 2015
 # Leandro Hermes Neto <leandro@leandrohermes.net>, 2015
 # Lorhan Sohaky, 2018
@@ -45,8 +46,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2019-10-01 00:20+0000\n"
-"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
+"PO-Revision-Date: 2020-03-26 01:30+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/luebbe/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -516,7 +517,7 @@ msgid ""
 "The <xref linkend=\"tsvn-projectmonitor\"/> explains how you can monitor "
 "your Subversion projects so you don't miss important commits from your other"
 " team members."
-msgstr ""
+msgstr "O <xref linkend=\"tsvn-projectmonitor\"/> explica como você pode monitorar seus projetos Subversion para não perder submissões importantes dos outros membros da sua equipe."
 
 #. (para)
 msgid ""
@@ -852,7 +853,7 @@ msgid ""
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr ""
+msgstr "Agora que há um projeto em nosso repositório, precisamos criar uma cópia de trabalho para usar nas tarefas do dia-a-dia. Note que o ato de importar uma pasta não a transforma automaticamente em uma cópia de trabalho. O termo do Subversion para criar uma nova cópia de trabalho é <literal>Checkout</literal>. Vamos fazer o checkout da pasta Widget1 do nosso repositório para uma pasta de desenvolvimento chamada C:\\Projects\\Widget1-Dev. Crie essa pasta, depois clique com o botão direito do mouse sobre ela e selecione TortoiseSVN<guimenuitem>Checkout...</guimenuitem><menuchoice>. Depois, insira a URL para checkout, neste caso, <filename>file:///c:/svn_repos/trunk/Widget1, e clique em <guibutton>OK</guibutton>. A nossa pasta de desenvolvimento passa a ser carregada com arquivos do repositório."
 
 #. (para)
 #. (para)
@@ -13086,6 +13087,50 @@ msgid ""
 "stress on weak servers. In this case you can disable this feature here."
 msgstr ""
 
+#. (para)
+msgid "Settings for the repository browser: <placeholder-1/>"
+msgstr ""
+
+#. (term)
+msgid "V2"
+msgstr ""
+
+#. (para)
+msgid ""
+"this version is much faster than <literal>V3</literal> and is the "
+"recommended version to use."
+msgstr ""
+
+#. (para)
+msgid ""
+"However, the speed comes at a prize: <literal>V2</literal> does not handle "
+"directory changes, and can't handle copies and moves of files."
+msgstr ""
+
+#. (term)
+msgid "V3"
+msgstr ""
+
+#. (para)
+msgid ""
+"this is the latest version of the shelfing feature. It can handle changes to"
+" directories as well as file moves/copies."
+msgstr ""
+
+#. (para)
+msgid ""
+"However, <literal>V3</literal> is much slower than <literal>V2</literal> and"
+" can be unusably slow for big repositories or if you have a slow connection "
+"to the repository."
+msgstr ""
+
+#. (para)
+msgid ""
+"There are two versions of shelfing implemented in SVN. Here you can select "
+"which version you want to use. Note that changing this setting might require"
+" an OS restart to take effect. <placeholder-1/>"
+msgstr ""
+
 #. (title)
 msgid "TortoiseSVN Colour Settings"
 msgstr "Configurações de Cores do TortoiseSVN"
@@ -14733,7 +14778,18 @@ msgstr ""
 #. (para)
 msgid ""
 "Normally you will want to hide ugly DOS boxes when the script runs, so "
-"<guilabel>Hide the script while running</guilabel> is checked by default."
+"<guilabel>Hide the script while running</guilabel> is checked by default. "
+"Also you need to check this if your hook script might return an error that "
+"should stop the operation."
+msgstr ""
+
+#. (literal)
+#. (literal)
+msgid "force"
+msgstr ""
+
+#. (guibutton)
+msgid "Retry without hooks"
 msgstr ""
 
 #. (para)
@@ -14815,6 +14871,22 @@ msgid ""
 "<literal>bugtraq:providerparams</literal>. <placeholder-1/> Please check the"
 " documentation of your IBugtraqProvider plugin to find out what to specify "
 "in these two properties."
+msgstr ""
+
+#. (sect2)
+msgid ""
+"<placeholder-1/><?dbhh topicname=\"HIDD_SETTINGSHOOKS\"?><?dbhh "
+"topicname=\"HIDD_SETTINGSHOOKCONFIG\"?><indexterm "
+"significance=\"normal\"><placeholder-2/></indexterm><indexterm "
+"significance=\"normal\"><placeholder-3/></indexterm><placeholder-4/><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/><placeholder-13/><placeholder-14/><placeholder-15/>"
+" The <placeholder-16/> flag can be set if the user must not proceed with the"
+" operation without running the script, i.e. the script must always run. If "
+"the <placeholder-17/> flag is not checked, then the user is shown a button "
+"<placeholder-18/> to retry the operation without running the hook script. "
+"<placeholder-19/><placeholder-20/><placeholder-21/><placeholder-22/><sect3 "
+"id=\"tsvn-dug-settings-hooks-issuetracker\"><placeholder-23/><?dbhh "
+"topicname=\"HIDD_SETTINGSBUGTRAQ\"?><?dbhh "
+"topicname=\"HIDD_SETTINGSBUGTRAQADV\"?><placeholder-24/><placeholder-25/><placeholder-26/></sect3>"
 msgstr ""
 
 #. (title)
@@ -15047,6 +15119,14 @@ msgid ""
 "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to "
 "dismiss the dialog as if you clicked on the OK button. If you don't want "
 "this, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
+"and later. This dark mode is considered experimental, because not all "
+"controls are shown in dark mode and some controls look pretty basic. Set "
+"this to <literal>true</literal> to enable the dark theme."
 msgstr ""
 
 #. (para)
@@ -15378,6 +15458,12 @@ msgstr ""
 msgid ""
 "If you don't want TortoiseSVN to show icons for the context menus in its own"
 " dialogs, set this value to <literal>false</literal>."
+msgstr ""
+
+#. (para)
+msgid ""
+"Set this value to <literal>false</literal> if you don't want the project "
+"monitor to show notification popups when new commits are detected."
 msgstr ""
 
 #. (para)
@@ -21301,6 +21387,15 @@ msgid ""
 "Characters used to indicate Whitespace are shown in a different colour from "
 "normal text."
 msgstr "Caracteres usados para indicar Espaços em Branco são mostrados com cores diferentes da cor do texto normal."
+
+#. (term)
+msgid "Use dark mode"
+msgstr ""
+
+#. (listitem)
+msgid ""
+"Enables a dark mode for the UI. This requires at least Windows 10 1809."
+msgstr ""
 
 #. (title)
 msgid "keyboard shortcuts"
