@@ -236,7 +236,7 @@ void CThemeMFCMenuButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
         else
             pDC->FillSolidRect(rectArrow, RGB(51, 51, 51));
 
-        auto hPen    = CreatePen(PS_SOLID, 2, RGB(180, 180, 180));
+        auto hPen    = CreatePen(PS_SOLID, CDPIAware::Instance().Scale(1), RGB(180, 180, 180));
         auto hOldPen = pDC->SelectObject(hPen);
 
         auto hBrush    = CreateSolidBrush(RGB(255, 255, 255));
