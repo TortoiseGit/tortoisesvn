@@ -155,6 +155,11 @@ public:
      */
     CString GetBugIDUrl(const CString& sBugID);
 
+	/**
+	 * Replaces %BUGID% in the provided URL with the sBugID after doing URL encoding
+	 */
+    static void ReplaceBugIDPlaceholder(CString& url, const CString& sBugID);
+
     /**
      * Inserts the tsvn:autoprops into the Subversion config section.
      * Call this before an import or an add operation.

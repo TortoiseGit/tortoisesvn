@@ -997,7 +997,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                 else
                 {
                     url = m_sUrl;
-                    url.Replace(L"%BUGID%", StringFromControl(textbuffer.get()));
+                    ProjectProperties::ReplaceBugIDPlaceholder(url, StringFromControl(textbuffer.get()));
 
                     // is the URL a relative one?
                     if (url.Left(2).Compare(L"^/") == 0)
