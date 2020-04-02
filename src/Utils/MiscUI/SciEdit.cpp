@@ -1056,15 +1056,21 @@ END_MESSAGE_MAP()
 void CSciEdit::OnSysColorChange()
 {
     __super::OnSysColorChange();
-    if (CTheme::Instance().IsDarkTheme())
-        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
-    else
-        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
-
     Call(SCI_CLEARDOCUMENTSTYLE);
-    Call(SCI_STYLESETFORE, STYLE_DEFAULT, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
-    Call(SCI_STYLESETBACK, STYLE_DEFAULT, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW)));
-    Call(SCI_SETCARETFORE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+    if (CTheme::Instance().IsDarkTheme())
+    {
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        Call(SCI_STYLESETFORE, STYLE_DEFAULT, CTheme::darkTextColor);
+        Call(SCI_STYLESETBACK, STYLE_DEFAULT, CTheme::darkBkColor);
+        Call(SCI_SETCARETFORE, CTheme::darkTextColor);
+    }
+    else
+    {
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        Call(SCI_STYLESETFORE, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOWTEXT));
+        Call(SCI_STYLESETBACK, STYLE_DEFAULT, ::GetSysColor(COLOR_WINDOW));
+        Call(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+    }
     Call(SCI_SETSELFORE, TRUE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT)));
     Call(SCI_SETSELBACK, TRUE, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHT)));
 }

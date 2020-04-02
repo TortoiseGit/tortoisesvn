@@ -526,8 +526,16 @@ void CLogDlg::SetupLogMessageViewControl()
     CHARFORMAT2 format = { 0 };
     format.cbSize = sizeof(CHARFORMAT2);
     format.dwMask = CFM_COLOR | CFM_BACKCOLOR;
-    format.crTextColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
-    format.crBackColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW));
+    if (CTheme::Instance().IsDarkTheme())
+    {
+        format.crTextColor = CTheme::darkTextColor;
+        format.crBackColor = CTheme::darkBkColor;
+    }
+    else
+    {
+        format.crTextColor = GetSysColor(COLOR_WINDOWTEXT);
+        format.crBackColor = GetSysColor(COLOR_WINDOW);
+    }
     pWnd->SendMessage(EM_SETCHARFORMAT, SCF_ALL, (LPARAM)&format);
     pWnd->SendMessage(EM_SETBKGNDCOLOR, 0, (LPARAM)format.crBackColor);
 }
@@ -3492,7 +3500,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR* pNMHDR, LRESULT* pResult)
     if (m_bLogThreadRunning)
         return;
 
-    static COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+    static COLORREF crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
 
     switch (pLVCD->nmcd.dwDrawStage)
     {
@@ -3509,7 +3517,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR* pNMHDR, LRESULT* pResult)
 
             // Tell Windows to send draw notifications for each subitem.
             *pResult = CDRF_NOTIFYSUBITEMDRAW;
-            crText   = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+            crText   = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
             if (m_logEntries.GetVisibleCount() > pLVCD->nmcd.dwItemSpec)
             {
                 PLOGENTRYDATA data = m_logEntries.GetVisible(pLVCD->nmcd.dwItemSpec);
@@ -3700,7 +3708,7 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR* pNMHDR, LRESULT* pResult)
         // Tell Windows to send draw notifications for each subitem.
         *pResult = CDRF_NOTIFYSUBITEMDRAW;
 
-        COLORREF crText  = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+        COLORREF crText  = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
         bool     bGrayed = false;
         if ((m_cShowPaths.GetState() & 0x0003) == BST_UNCHECKED)
         {
@@ -3841,7 +3849,7 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pLV
             if (pLogEntry && pLogEntry->GetChangedPaths().ContainsSelfCopy())
                 brush = ::CreateSolidBrush(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_MENU)));
             else
-                brush = ::CreateSolidBrush(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW)));
+                brush = ::CreateSolidBrush(CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW));
         }
         if (brush == NULL)
             return rect;
@@ -3987,7 +3995,7 @@ LRESULT CLogDlg::DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pL
             if (::GetFocus() == listCtrl.GetSafeHwnd())
                 textColor = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT));
             else
-                textColor = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+                textColor = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
         }
         SetTextColor(pLVCD->nmcd.hdc, textColor);
         SetBkMode(pLVCD->nmcd.hdc, TRANSPARENT);
@@ -4145,7 +4153,7 @@ LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
                                 return CDRF_NOTIFYITEMDRAW;
                             case CDDS_ITEMPREPAINT:
                             {
-                                pNMTB->clrText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+                                pNMTB->clrText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
                                 return CDRF_DODEFAULT | TBCDRF_USECDCOLORS;
                             }
                         }

@@ -599,7 +599,7 @@ void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 
     COLORREF crBk, crFg;
     crBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_SCROLLBAR));
-    crFg = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+    crFg = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
     SetBkColor(hDC, crBk);
     ::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &textrect, nullptr, 0, nullptr);
 
@@ -1161,7 +1161,7 @@ void CPicWindow::FitHeights(bool bFit)
 
 void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, int scale)
 {
-    ::SetBkColor(hdc, CTheme::Instance().GetThemeColor(transparentColor));
+    ::SetBkColor(hdc, GetTransparentThemedColor());
     ::ExtTextOut(hdc, 0, 0, ETO_OPAQUE, &bounds, nullptr, 0, nullptr);
 
     RECT picrect;
@@ -1224,7 +1224,7 @@ void CPicWindow::Paint(HWND hwnd)
         if ((pSecondPic)&&(m_blend != BLEND_ALPHA))
         {
             // erase the place where the alpha slider would be
-            ::SetBkColor(memDC, CTheme::Instance().GetThemeColor(transparentColor));
+            ::SetBkColor(memDC, GetTransparentThemedColor());
             RECT bounds = { 0, m_inforect.top - border, slider_width, m_inforect.bottom + border };
             ::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &bounds, nullptr, 0, nullptr);
         }
@@ -1243,7 +1243,7 @@ void CPicWindow::Paint(HWND hwnd)
                 if ((pSecondPic)&&(m_blend != BLEND_ALPHA))
                 {
                     // erase the place where the alpha slider would be
-                    ::SetBkColor(secondhdc, CTheme::Instance().GetThemeColor(transparentColor));
+                    ::SetBkColor(secondhdc, GetTransparentThemedColor());
                     RECT bounds = { 0, m_inforect.top - border, slider_width, m_inforect.bottom + border };
                     ::ExtTextOut(secondhdc, 0, 0, ETO_OPAQUE, &bounds, nullptr, 0, nullptr);
                 }
@@ -1323,7 +1323,7 @@ void CPicWindow::Paint(HWND hwnd)
             m_inforect.right = rect.right+sliderwidth;
             m_inforect.bottom = rect.bottom;
 
-            SetBkColor(memDC, CTheme::Instance().GetThemeColor(transparentColor));
+            SetBkColor(memDC, GetTransparentThemedColor());
             if (bShowInfo)
             {
                 auto infostring = std::make_unique<TCHAR[]>(8192);
@@ -1350,7 +1350,7 @@ void CPicWindow::Paint(HWND hwnd)
                 ::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &edgerect, nullptr, 0, nullptr);
                 DrawEdge(memDC, &edgerect, EDGE_BUMP, BF_RECT | BF_SOFT);
 
-                SetTextColor(memDC, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT)));
+                SetTextColor(memDC, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
                 DrawText(memDC, infostring.get(), -1, &m_inforect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_VCENTER);
                 SelectObject(memDC, (HGDIOBJ)hFontOld);
                 DeleteObject(hFont);
@@ -1358,8 +1358,8 @@ void CPicWindow::Paint(HWND hwnd)
         }
         else
         {
-            SetBkColor(memDC, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW)));
-            SetTextColor(memDC, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+            SetBkColor(memDC, CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW));
+            SetTextColor(memDC, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
             ::ExtTextOut(memDC, 0, 0, ETO_OPAQUE, &rect, nullptr, 0, nullptr);
             SIZE stringsize;
             ResString str = ResString(hResource, IDS_INVALIDIMAGEINFO);
@@ -1645,4 +1645,14 @@ void CPicWindow::SetTheme(bool bDark)
     }
 
     InvalidateRect(*this, nullptr, true);
+}
+
+COLORREF CPicWindow::GetTransparentThemedColor()
+{
+    if (CTheme::Instance().IsDarkTheme())
+    {
+        if (transparentColor == 0xFFFFFF)
+            return CTheme::darkBkColor;
+    }
+    return CTheme::Instance().GetThemeColor(transparentColor);
 }

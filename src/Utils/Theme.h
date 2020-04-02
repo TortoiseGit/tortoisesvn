@@ -38,6 +38,10 @@ private:
 public:
     static CTheme& Instance();
 
+    static const COLORREF darkBkColor           = 0x202020;
+    static const COLORREF darkTextColor         = 0xDDDDDD;
+    static const COLORREF darkDisabledTextColor = 0x808080;
+
     /// call this on every WM_SYSCOLORCHANGED message
     void OnSysColorChanged();
     /// returns true if dark mode is even allowed. We only allow dark mode on Win10 1809 or later.

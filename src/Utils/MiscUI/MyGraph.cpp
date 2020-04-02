@@ -695,9 +695,9 @@ void MyGraph::DrawGraph(CDC& dc)
     if (GetMaxSeriesSize()) {
         dc.SetBkMode(TRANSPARENT);
 
-        dc.SetTextColor(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
-        auto themePen = CreatePen(PS_SOLID, 1, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
-        auto themeBrush = CreateSolidBrush(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW)));
+        dc.SetTextColor(CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
+        auto themePen = CreatePen(PS_SOLID, 1, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
+        auto themeBrush = CreateSolidBrush(CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW));
         auto oldThemePen = dc.SelectObject(themePen);
         auto oldThemeBrush = dc.SelectObject(themeBrush);
 
@@ -707,7 +707,7 @@ void MyGraph::DrawGraph(CDC& dc)
 
         int baseColorL = 120;
         int diffColorL = 60;
-        DWORD backgroundColor = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW));
+        DWORD backgroundColor = CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW);
         // If graph is a non-stacked line graph, use darker colors if system window color is light.
 #if 0
         if (m_eGraphType == MyGraph::Line && !m_bStackedGraph) {
@@ -922,7 +922,7 @@ void MyGraph::DrawLegend(CDC& dc)
     if (nShownAuthors < GetMaxSeriesSize())
         skipped_row = nShownAuthors-2;
 
-    dc.SetTextColor(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+    dc.SetTextColor(CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
     // Draw each group's label and bar.
     for (int nGroup = 0; nGroup < nShownAuthors; ++nGroup) {
 
@@ -981,7 +981,7 @@ void MyGraph::DrawAxes(CDC& dc) const
     ASSERT_VALID(&dc);
     _ASSERTE(MyGraph::PieChart != m_eGraphType);
 
-    dc.SetTextColor(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+    dc.SetTextColor(CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
 
     // Draw y axis.
     dc.MoveTo(m_ptOrigin);

@@ -284,7 +284,7 @@ void CFilePatchesDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
         // item's text color. Our return value will tell Windows to draw the
         // item itself, but it will use the new color we set here.
 
-        COLORREF crText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+        COLORREF crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
 
         if (m_arFileStates.GetCount() > (INT_PTR)pLVCD->nmcd.dwItemSpec)
         {

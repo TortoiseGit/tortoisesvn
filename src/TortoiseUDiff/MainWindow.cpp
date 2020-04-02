@@ -751,7 +751,7 @@ void CMainWindow::SetTheme(bool bDark)
         SendEditor(SCI_STYLESETFORE, STYLE_BRACEBAD, RGB(255, 0, 0));
         SendEditor(SCI_STYLESETBOLD, STYLE_BRACEBAD, 1);
         SendEditor(SCI_SETFOLDMARGINCOLOUR, true, UDiffTextColorDark);
-        SendEditor(SCI_SETFOLDMARGINHICOLOUR, true, RGB(0, 0, 0));
+        SendEditor(SCI_SETFOLDMARGINHICOLOUR, true, CTheme::darkBkColor);
         SendEditor(SCI_STYLESETFORE, STYLE_LINENUMBER, RGB(140, 140, 140));
         SendEditor(SCI_STYLESETBACK, STYLE_LINENUMBER, UDiffBackColorDark);
     }

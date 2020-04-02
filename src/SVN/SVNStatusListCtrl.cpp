@@ -4904,7 +4904,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                 // Tell Windows to send draw notifications for each subitem.
                 *pResult = CDRF_NOTIFYSUBITEMDRAW;
 
-                COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+                COLORREF crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
 
                 if (m_arListArray.size() > (DWORD_PTR)pLVCD->nmcd.dwItemSpec)
                 {
@@ -4960,7 +4960,7 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     case svn_wc_status_normal:
                     case svn_wc_status_external:
                     default:
-                        crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+                        crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
                         break;
                     }
 
@@ -5447,10 +5447,10 @@ void CSVNStatusListCtrl::OnPaint()
             else
                 str = m_sEmpty;
         }
-        COLORREF clrText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+        COLORREF clrText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
         COLORREF clrTextBk;
         if (IsWindowEnabled())
-            clrTextBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW));
+            clrTextBk = CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW);
         else
             clrTextBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_3DFACE));
 

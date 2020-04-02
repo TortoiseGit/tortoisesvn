@@ -550,7 +550,7 @@ void CFileDiffDlg::OnNMCustomdrawFilelist(NMHDR *pNMHDR, LRESULT *pResult)
         // Tell Windows to paint the control itself.
         *pResult = CDRF_DODEFAULT;
 
-        COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+        COLORREF crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
 
         if (m_arFilteredList.size() > pLVCD->nmcd.dwItemSpec)
         {

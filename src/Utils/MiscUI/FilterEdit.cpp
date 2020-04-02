@@ -38,7 +38,7 @@ CFilterEdit::CFilterEdit()
     , m_iButtonClickedMessageId(WM_FILTEREDIT_INFOCLICKED)
     , m_iCancelClickedMessageId(WM_FILTEREDIT_CANCELCLICKED)
     , m_pValidator(NULL)
-    , m_backColor(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)))
+    , m_backColor(CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW))
     , m_themeCallbackId(0)
 {
     m_rcEditArea.SetRect(0, 0, 0, 0);
@@ -332,7 +332,7 @@ BOOL CFilterEdit::OnEnChange()
 
 HBRUSH CFilterEdit::CtlColor(CDC* pDC, UINT /*nCtlColor*/)
 {
-    if (m_backColor != CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)))
+    if (m_backColor != (CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW)))
     {
         pDC->SetBkColor(m_backColor);
         return m_brBack;
@@ -352,7 +352,7 @@ void CFilterEdit::Validate()
     {
         CString text;
         GetWindowText(text);
-        m_backColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW));
+        m_backColor = CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW);
         if (!m_pValidator->Validate(text))
         {
             // Use a background color slightly shifted to red.
@@ -408,7 +408,7 @@ void CFilterEdit::DrawDimText()
 
     dcDraw.SelectObject((*GetFont()));
     dcDraw.SetTextColor(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT)));
-    dcDraw.SetBkColor(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW)));
+    dcDraw.SetBkColor(CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW));
     dcDraw.DrawText(m_sCueBanner, m_sCueBanner.GetLength(), &m_rcEditArea, DT_CENTER | DT_VCENTER);
     dcDraw.RestoreDC(iState);
     return;

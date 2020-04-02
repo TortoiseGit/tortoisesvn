@@ -242,6 +242,8 @@ protected:
     void                SetZoomToHeight(long height);
     /// sets the dark mode
     void                SetTheme(bool bDark);
+    /// returns the transparent color, adjusted for theme
+    COLORREF            GetTransparentThemedColor();
 
     tstring             picpath;            ///< the path to the image we show
     tstring             pictitle;           ///< the string to show in the image view as a title

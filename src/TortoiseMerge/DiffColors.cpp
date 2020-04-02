@@ -55,8 +55,8 @@ void CDiffColors::GetColors(DiffStates state, bool darkMode, COLORREF &crBkgnd, 
     {
         if (darkMode)
         {
-            crBkgnd = ::GetSysColor(COLOR_WINDOWTEXT);
-            crText = ::GetSysColor(COLOR_WINDOW);
+            crBkgnd = CTheme::darkBkColor;
+            crText = CTheme::darkTextColor;
         }
         else
         {

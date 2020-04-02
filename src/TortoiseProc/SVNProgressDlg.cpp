@@ -1999,7 +1999,7 @@ LRESULT CSVNProgressDlg::OnResolveMsg( WPARAM wParam, LPARAM)
             {
                 if ((*it)->bConflictedActionItem)
                 {
-                    (*it)->color = ::GetSysColor(COLOR_WINDOWTEXT);
+                    (*it)->color = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
                     (*it)->colorIsDirect = false;
                     (*it)->action = svn_wc_notify_resolved;
                     (*it)->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);
@@ -2359,7 +2359,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                     DialogEnableWindow(IDOK, TRUE);
                     break;
                 }
-                data2->color = ::GetSysColor(COLOR_WINDOWTEXT);
+                data2->color = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
                 data2->colorIsDirect = false;
                 data2->action = svn_wc_notify_resolved;
                 data2->sActionColumnText.LoadString(IDS_SVNACTION_RESOLVE);

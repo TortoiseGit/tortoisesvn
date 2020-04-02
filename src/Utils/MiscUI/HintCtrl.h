@@ -26,13 +26,16 @@
  * content. Can be used for example during lengthy operations (showing "please wait")
  * or to indicate why the control is empty (showing "no data available").
  */
-template <typename BaseType> class CHintCtrl : public BaseType
+template <typename BaseType>
+class CHintCtrl : public BaseType
 {
 public:
-    CHintCtrl() : BaseType(), m_uiFont(0)
+    CHintCtrl()
+        : BaseType()
+        , m_uiFont(0)
     {
-        NONCLIENTMETRICS metrics = { 0 };
-        metrics.cbSize = sizeof(NONCLIENTMETRICS);
+        NONCLIENTMETRICS metrics = {0};
+        metrics.cbSize           = sizeof(NONCLIENTMETRICS);
         SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
         m_uiFont = CreateFontIndirect(&metrics.lfMessageFont);
     }
@@ -61,28 +64,27 @@ public:
         Invalidate();
     }
 
-    bool HasText() const {return !m_sText.IsEmpty();}
+    bool HasText() const { return !m_sText.IsEmpty(); }
 
     DECLARE_MESSAGE_MAP()
 
 protected:
-
     afx_msg void CHintCtrl::OnPaint()
     {
         LRESULT defres = Default();
         if (!m_sText.IsEmpty())
         {
-            COLORREF clrText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+            COLORREF clrText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : ::GetSysColor(COLOR_WINDOWTEXT);
             COLORREF clrTextBk;
             if (IsWindowEnabled())
-                clrTextBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW));
+                clrTextBk = CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : ::GetSysColor(COLOR_WINDOW);
             else
                 clrTextBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_3DFACE));
 
             CRect rc;
             GetClientRect(&rc);
-            bool bIsEmpty = false;
-            CListCtrl * pListCtrl = dynamic_cast<CListCtrl*>(this);
+            bool       bIsEmpty  = false;
+            CListCtrl* pListCtrl = dynamic_cast<CListCtrl*>(this);
             if (pListCtrl)
             {
                 CHeaderCtrl* pHC;
@@ -99,6 +101,8 @@ protected:
             CDC* pDC = GetDC();
             {
                 pDC->SetBkMode(TRANSPARENT);
+                pDC->SetTextColor(clrText);
+                pDC->SetBkColor(clrTextBk);
                 CMyMemDC memDC(pDC, &rc);
 
                 memDC.SetTextColor(clrText);
@@ -109,9 +113,8 @@ protected:
                 else
                     memDC.FillSolidRect(rc, clrTextBk);
                 rc.top += 10;
-                CGdiObject * oldfont = memDC.SelectObject(CGdiObject::FromHandle(m_uiFont));
-                memDC.DrawText(m_sText, rc, DT_CENTER | DT_VCENTER |
-                    DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
+                CGdiObject* oldfont = memDC.SelectObject(CGdiObject::FromHandle(m_uiFont));
+                memDC.DrawText(m_sText, rc, DT_CENTER | DT_VCENTER | DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
                 memDC.SelectObject(oldfont);
             }
             ReleaseDC(pDC);
@@ -129,11 +132,11 @@ protected:
     }
 
 private:
-    CString         m_sText;
-    HFONT           m_uiFont;
+    CString m_sText;
+    HFONT   m_uiFont;
 };
 
 BEGIN_TEMPLATE_MESSAGE_MAP(CHintCtrl, BaseType, BaseType)
-    ON_WM_PAINT()
-END_MESSAGE_MAP()
-
+ON_WM_PAINT()
+END_MESSAGE_MAP
+()

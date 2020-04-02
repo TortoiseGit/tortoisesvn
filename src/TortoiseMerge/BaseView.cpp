@@ -1387,7 +1387,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
                 if (!sLinenumber.IsEmpty())
                 {
                     pdc->SetBkColor(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_SCROLLBAR)));
-                    pdc->SetTextColor(CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+                    pdc->SetTextColor(CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
 
                     pdc->SelectObject(GetFont());
                     pdc->ExtTextOut(rect.left + iconWidth + CDPIAware::Instance().Scale(2), rect.top, ETO_CLIPPED, &rect, sLinenumber, nullptr);
@@ -1711,7 +1711,7 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
             case EOL_LS:    // Line Separator, U+2028
             case EOL_PS:    // Paragraph Separator, U+2029
                 // draw a horizontal line at the bottom of this line
-                pDC->FillSolidRect(rc.left, rc.bottom-1, rc.right, rc.bottom, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT)));
+                pDC->FillSolidRect(rc.left, rc.bottom-1, rc.right, rc.bottom, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
                 pDC->MoveTo(origin.x+GetCharWidth()-1, rc.bottom-GetCharWidth()-2);
                 pDC->LineTo(origin.x, rc.bottom-2);
                 pDC->LineTo(origin.x+5, rc.bottom-2);
@@ -1745,7 +1745,11 @@ void CBaseView::DrawBlockLine(CDC *pDC, const CRect &rc, int nLineIndex)
         return;
 
     const int THICKNESS = 2;
-    COLORREF rectcol = CTheme::Instance().GetThemeColor(GetSysColor(m_bFocused ? COLOR_WINDOWTEXT : COLOR_GRAYTEXT));
+    COLORREF rectcol = 0;
+    if (m_bFocused)
+        rectcol = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
+    else
+        rectcol = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
 
     int nViewLineIndex = GetViewLineForScreen(nLineIndex);
     int nSubLine = GetSubLineOffset(nLineIndex);
@@ -2006,7 +2010,7 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
             pDC->FillSolidRect(rc, crBkgnd);
 
             const int THICKNESS = 2;
-            COLORREF rectcol = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+            COLORREF rectcol = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
             pDC->FillSolidRect(rc.left, rc.top + (rc.Height()/2), rc.Width(), THICKNESS, rectcol);
             pDC->SetTextColor(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT)));
             pDC->SetBkColor(crBkgnd);

@@ -34,10 +34,6 @@
 #pragma warning(pop)
 #include "SmartHandle.h"
 
-constexpr COLORREF darkBkColor           = 0x101010;
-constexpr COLORREF darkTextColor         = 0xEEEEEE;
-constexpr COLORREF darkDisabledTextColor = 0x808080;
-
 constexpr auto SubclassID = 1234;
 
 static int  GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture);
@@ -549,7 +545,8 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                             if (hFontOld)
                                 hFontOld = (HFONT)SelectObject(hdcPaint, hFontOld);
 
-                            PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS);
+                            ::SetBkColor(hdcPaint, darkBkColor);
+                            ::ExtTextOut(hdcPaint, 0, 0, ETO_OPAQUE, &rcClient, nullptr, 0, nullptr);
 
                             BufferedPaintSetAlpha(hBufferedPaint, &ps.rcPaint, 0x00);
 
@@ -560,7 +557,7 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 
                             DetermineGlowSize(&DttOpts.iGlowSize);
 
-                            COLORREF cr = RGB(0x00, 0x00, 0x00);
+                            COLORREF cr = darkBkColor;
                             GetEditBorderColor(hWnd, &cr);
                             cr |= 0xff000000;
 
@@ -590,7 +587,8 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                                         rcDraw = rcClient;
                                         rcDraw.left += iX;
                                         DrawTextW(hdcPaint, szText, -1, &rcDraw, dwFlags | DT_CALCRECT);
-                                        PatBlt(hdcPaint, rcDraw.left, rcDraw.top, RECTWIDTH(rcDraw) + 3, RECTHEIGHT(rcDraw), BLACKNESS);
+                                        ::SetBkColor(hdcPaint, darkBkColor);
+                                        ::ExtTextOut(hdcPaint, 0, 0, ETO_OPAQUE, &rcDraw, nullptr, 0, nullptr);
                                         rcDraw.left++;
                                         rcDraw.right++;
 
@@ -626,7 +624,8 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                         HPAINTBUFFER hBufferedPaint = BeginBufferedPaint(hdc, &rcClient, BPBF_TOPDOWNDIB, &params, &hdcPaint);
                         if (hdcPaint)
                         {
-                            PatBlt(hdcPaint, 0, 0, RECTWIDTH(rcClient), RECTHEIGHT(rcClient), BLACKNESS);
+                            ::SetBkColor(hdcPaint, darkBkColor);
+                            ::ExtTextOut(hdcPaint, 0, 0, ETO_OPAQUE, &rcClient, nullptr, 0, nullptr);
 
                             BufferedPaintSetAlpha(hBufferedPaint, &ps.rcPaint, 0x00);
 

@@ -435,7 +435,7 @@ void CEditPropertiesDlg::OnNMCustomdrawEditproplist(NMHDR *pNMHDR, LRESULT *pRes
         if ((int)pLVCD->nmcd.dwItemSpec > m_propList.GetItemCount())
             return;
 
-        COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+        COLORREF crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
         PropValue * pProp = (PropValue*)m_propList.GetItemData(static_cast<int>(pLVCD->nmcd.dwItemSpec));
 
         if (pProp->isbinary)

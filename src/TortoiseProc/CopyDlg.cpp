@@ -922,7 +922,7 @@ void CCopyDlg::OnNMCustomdrawExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
     {
         *pResult = CDRF_NOTIFYSUBITEMDRAW;
 
-        COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+        COLORREF crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
         if (pLVCD->nmcd.dwItemSpec < (UINT_PTR)m_externals.size())
         {
             SVNExternal ext = m_externals[pLVCD->nmcd.dwItemSpec];

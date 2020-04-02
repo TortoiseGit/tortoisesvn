@@ -5029,7 +5029,7 @@ void CRepositoryBrowser::OnNMCustomdrawRepolist(NMHDR *pNMHDR, LRESULT *pResult)
 
         if (m_RepoList.GetItemCount() > (int)pLVCD->nmcd.dwItemSpec)
         {
-            COLORREF crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+            COLORREF crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
             CAutoReadLock locker(m_guard);
             CItem * pItem = (CItem*)m_RepoList.GetItemData((int)pLVCD->nmcd.dwItemSpec);
             if (pItem && pItem->unversioned)

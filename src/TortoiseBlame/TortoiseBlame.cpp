@@ -96,8 +96,8 @@ TortoiseBlame::TortoiseBlame()
     , m_pathWidth(0)
     , m_lineWidth(0)
     , m_mouseRev(-2)
-    , m_windowColor(GetSysColor(COLOR_WINDOW))
-    , m_textColor(GetSysColor(COLOR_WINDOWTEXT))
+    , m_windowColor(CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW))
+    , m_textColor(CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT))
     , m_textHighLightColor(GetSysColor(COLOR_HIGHLIGHTTEXT))
     , m_selectedRev(-1)
     , m_selectedOrigRev(-1)
@@ -1466,10 +1466,10 @@ void TortoiseBlame::SetTheme(bool bDark)
     {
         for (int c = 0; c <= STYLE_DEFAULT; ++c)
         {
-            SendEditor(SCI_STYLESETFORE, c, ::GetSysColor(COLOR_WINDOWTEXT));
-            SendEditor(SCI_STYLESETBACK, c, ::GetSysColor(COLOR_WINDOW));
+            SendEditor(SCI_STYLESETFORE, c, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
+            SendEditor(SCI_STYLESETBACK, c, CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW));
         }
-        SendEditor(SCI_SETCARETFORE, ::GetSysColor(COLOR_WINDOWTEXT));
+        SendEditor(SCI_SETCARETFORE, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
         SendEditor(SCI_SETWHITESPACEFORE, true, ::GetSysColor(COLOR_3DSHADOW));
         SendEditor(SCI_STYLESETFORE, STYLE_BRACELIGHT, RGB(0, 150, 0));
         SendEditor(SCI_STYLESETBOLD, STYLE_BRACELIGHT, 1);
@@ -1689,7 +1689,7 @@ void TortoiseBlame::DrawHeader(HDC hDC)
     HFONT oldfont = (HFONT)::SelectObject(hDC, m_uiFont);
     GetClientRect(wHeader, &rc);
     ::SetBkColor(hDC, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE)));
-    ::SetTextColor(hDC, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT)));
+    ::SetTextColor(hDC, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
     RECT edgerc   = rc;
     edgerc.bottom = edgerc.top + CDPIAware::Instance().Scale(HEADER_HEIGHT) / 2;
     DrawEdge(hDC, &edgerc, EDGE_BUMP, BF_FLAT | BF_RECT | BF_ADJUST);
@@ -1760,7 +1760,7 @@ void TortoiseBlame::DrawLocatorBar(HDC hDC)
     LONG_PTR line          = SendEditor(SCI_GETFIRSTVISIBLELINE);
     LONG_PTR linesonscreen = SendEditor(SCI_LINESONSCREEN);
     LONG_PTR Y             = 0;
-    COLORREF blackColor    = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+    COLORREF blackColor    = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
 
     RECT rc;
     GetClientRect(wLocator, &rc);
@@ -2232,8 +2232,8 @@ COLORREF TortoiseBlame::GetLineColor(Sci_Position line, bool bLocatorBar)
 
 void TortoiseBlame::SetupColoring()
 {
-    m_windowColor = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOW));
-    m_textColor   = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+    m_windowColor = CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_WINDOW);
+    m_textColor   = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
     if (CTheme::Instance().IsDarkTheme() || CTheme::Instance().IsHighContrastModeDark())
     {
         m_textHighLightColor  = m_textColor;
