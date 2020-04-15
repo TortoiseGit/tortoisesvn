@@ -357,6 +357,10 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
 
         if (rev == SVN_INVALID_REVNUM)
         {
+            // sometimes we get more 'decrease depth' revisions than
+            // we get 'increase depth' revisions. So we ignore those.
+            if (depth <= 0)
+                return;
             --depth;
             if (options.GetReceiver() != NULL)
             {
