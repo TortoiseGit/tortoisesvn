@@ -111,6 +111,16 @@ COLORREF CTheme::GetThemeColor(COLORREF clr, bool fixed /*= false*/) const
     return clr;
 }
 
+Gdiplus::Color CTheme::GetThemeColor(Gdiplus::Color clr, bool fixed /*= false*/) const
+{
+    if (m_dark || (fixed && m_isHighContrastModeDark))
+    {
+        return GetThemeColor(clr.ToCOLORREF(), fixed);
+    }
+
+    return clr;
+}
+
 int CTheme::RegisterThemeChangeCallback(ThemeChangeCallback&& cb)
 {
     ++m_lastThemeChangeCallbackId;

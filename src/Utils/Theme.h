@@ -21,6 +21,10 @@
 #include <string>
 #include <unordered_map>
 #include <functional>
+#pragma warning(push)
+#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#include <gdiplus.h>
+#pragma warning(pop)
 
 using ThemeChangeCallback = std::function<void(void)>;
 
@@ -58,6 +62,7 @@ public:
     /// converts a color to the theme color. For normal theme the \b clr is returned unchanged.
     /// for dark theme, the color is adjusted in brightness.
     COLORREF GetThemeColor(COLORREF clr, bool fixed = false) const;
+    Gdiplus::Color GetThemeColor(Gdiplus::Color clr, bool fixed = false) const;
     /// registers a callback function that's called for every theme change.
     /// returns an id that can be used to unregister the callback function.
     int RegisterThemeChangeCallback(ThemeChangeCallback&& cb);
