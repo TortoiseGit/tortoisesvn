@@ -76,7 +76,7 @@
 #include <openssl/md4.h>
 #include <openssl/md5.h>
 #include <openssl/hmac.h>
-#include <hmac_lcl.h>
+#include <hmac_local.h>
 #include <openssl/des.h>
 #include <openssl/opensslv.h>
 #if (OPENSSL_VERSION_NUMBER >= 0x0090700f) && \
