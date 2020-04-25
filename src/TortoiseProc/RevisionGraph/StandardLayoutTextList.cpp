@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2014 - TortoiseSVN
+// Copyright (C) 2003-2010, 2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "UnicodeUtils.h"
 #include "VisibleGraphNode.h"
 #include "resource.h"
+#include "DPIAware.h"
 
 // construction
 
@@ -90,7 +91,7 @@ CStandardLayoutTextList::GetText (index_t index) const
     CRect rect = nodeInfo.rect;
     if (textInfo.subPathIndex > 0)
     {
-        rect.top = rect.top + 21 + 16 * (textInfo.subPathIndex-1);
+        rect.top = rect.top + CDPIAware::Instance().Scale(21) + CDPIAware::Instance().Scale(16) * (textInfo.subPathIndex-1);
 
         size_t localindex = textInfo.subPathIndex-1 + nodeInfo.skipStartPathElements;
         const CDictionaryBasedTempPath& path = nodeInfo.node->GetPath();
@@ -114,7 +115,7 @@ CStandardLayoutTextList::GetText (index_t index) const
     }
     else
     {
-        rect.top += 4;
+        rect.top += CDPIAware::Instance().Scale(4);
         if (isModifiedWC)
         {
             text.LoadString (IDS_SVN_SUMMARIZEMODIFIED);

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2018 - TortoiseSVN
+// Copyright (C) 2003-2010, 2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,7 +64,7 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
             size_t visibleElementCount = node->node->GetPath().GetDepth()
                                        - node->skipStartPathElements
                                        - node->skipTailPathElements;
-            height += (int)(CDPIAware::Instance().Scale(3) + visibleElementCount * 16);
+            height += (int)(CDPIAware::Instance().Scale(3) + visibleElementCount * CDPIAware::Instance().Scale(16));
         }
 
         // shift (root) nodes down, if their source has been folded
