@@ -41,7 +41,8 @@ CPropPageFrame::CPropPageFrame()
     m_nCaptionHeight(0),
     m_hCaptionIcon(NULL),
     m_dwMsgFormat(DT_CENTER|DT_VCENTER|DT_NOPREFIX|DT_SINGLELINE),
-    m_uiFont(0)
+    m_uiFont(0),
+    m_bDark(false)
 {
     NONCLIENTMETRICS metrics = { 0 };
     metrics.cbSize = sizeof(NONCLIENTMETRICS);
