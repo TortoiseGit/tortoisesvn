@@ -890,6 +890,7 @@ bool CTheme::IsDarkModeAllowed()
                 m_bDarkModeIsAllowed = true;
         }
     }
+    m_bDarkModeIsAllowed = m_bDarkModeIsAllowed && DarkModeHelper::Instance().ShouldAppsUseDarkMode();
     return m_bDarkModeIsAllowed;
 }
 
