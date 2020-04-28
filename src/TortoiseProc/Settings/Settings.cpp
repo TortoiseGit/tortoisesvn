@@ -212,6 +212,7 @@ BOOL CSettings::OnInitDialog()
     }
 
     DarkModeHelper::Instance().AllowDarkModeForApp(CTheme::Instance().IsDarkTheme());
+    SetTheme(CTheme::Instance().IsDarkTheme());
     CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
     CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
