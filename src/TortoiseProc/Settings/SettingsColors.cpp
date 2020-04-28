@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2013 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2013, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,10 +19,14 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SettingsColors.h"
+#include "Theme.h"
+#include "DarkModeHelper.h"
+#include "Settings\Settings.h"
 
 IMPLEMENT_DYNAMIC(CSettingsColors, ISettingsPropPage)
 CSettingsColors::CSettingsColors()
     : ISettingsPropPage(CSettingsColors::IDD)
+    , m_regUseDarkMode(REGSTRING_DARKTHEME, FALSE)
 {
 }
 
@@ -39,8 +43,8 @@ void CSettingsColors::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_MERGEDCOLOR, m_cMerged);
     DDX_Control(pDX, IDC_MODIFIEDCOLOR, m_cModified);
     DDX_Control(pDX, IDC_FILTERMATCHCOLOR, m_cFilterMatch);
+    DDX_Control(pDX, IDC_DARKTHEME, m_chkUseDarkMode);
 }
-
 
 BEGIN_MESSAGE_MAP(CSettingsColors, ISettingsPropPage)
     ON_BN_CLICKED(IDC_RESTORE, OnBnClickedRestore)
@@ -50,11 +54,16 @@ BEGIN_MESSAGE_MAP(CSettingsColors, ISettingsPropPage)
     ON_BN_CLICKED(IDC_MERGEDCOLOR, &CSettingsColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_MODIFIEDCOLOR, &CSettingsColors::OnBnClickedColor)
     ON_BN_CLICKED(IDC_FILTERMATCHCOLOR, &CSettingsColors::OnBnClickedColor)
+    ON_BN_CLICKED(IDC_DARKTHEME, &CSettingsColors::OnBnClickedTheme)
 END_MESSAGE_MAP()
 
 BOOL CSettingsColors::OnInitDialog()
 {
     ISettingsPropPage::OnInitDialog();
+
+    m_chkUseDarkMode.EnableWindow(CTheme::Instance().IsDarkModeAllowed());
+    m_chkUseDarkMode.SetCheck(DWORD(m_regUseDarkMode) != 0 ? BST_CHECKED : BST_UNCHECKED);
+    GetDlgItem(IDC_DARKTHEMEINFO)->ShowWindow(CTheme::Instance().IsDarkModeAllowed() ? SW_HIDE : SW_SHOW);
 
     m_cAdded.SetColor(m_Colors.GetColor(CColors::Added));
     m_cDeleted.SetColor(m_Colors.GetColor(CColors::Deleted));
@@ -103,10 +112,28 @@ BOOL CSettingsColors::OnApply()
     m_Colors.SetColor(CColors::PropertyChanged, m_cModified.GetColor() == -1 ? m_cModified.GetAutomaticColor() : m_cModified.GetColor());
     m_Colors.SetColor(CColors::FilterMatch, m_cFilterMatch.GetColor() == -1 ? m_cFilterMatch.GetAutomaticColor() : m_cFilterMatch.GetColor());
 
+    m_regUseDarkMode = ((m_chkUseDarkMode.GetCheck() == BST_CHECKED) && CTheme::Instance().IsDarkModeAllowed()) ? 1 : 0;
+
     return ISettingsPropPage::OnApply();
 }
 
 void CSettingsColors::OnBnClickedColor()
 {
+    SetModified();
+}
+
+void CSettingsColors::OnBnClickedTheme()
+{
+    CTheme::Instance().SetDarkTheme(m_chkUseDarkMode.GetCheck() == BST_CHECKED);
+    m_chkUseDarkMode.SetCheck(CTheme::Instance().IsDarkTheme() ? BST_CHECKED : BST_UNCHECKED);
+
+    auto parentSheet = dynamic_cast<CSettings*>(GetParentSheet());
+    if (parentSheet)
+    {
+        DarkModeHelper::Instance().AllowDarkModeForApp(CTheme::Instance().IsDarkTheme());
+        parentSheet->SetTheme(CTheme::Instance().IsDarkTheme());
+        CTheme::Instance().SetThemeForDialog(parentSheet->GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
+    }
+
     SetModified();
 }

@@ -31,13 +31,24 @@ CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
     :CTreePropSheet(nIDCaption, pParentWnd, iSelectPage)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-    SetTheme(CTheme::Instance().IsDarkTheme());
     AddPropPages();
+    SetTheme(CTheme::Instance().IsDarkTheme());
 }
 
 CSettings::~CSettings()
 {
     RemovePropPages();
+}
+
+void CSettings::SetTheme(bool bDark)
+{
+    __super::SetTheme(bDark);
+    for (int i = 0; i < GetPageCount(); ++i)
+    {
+        auto pPage = GetPage(i);
+        if (IsWindow(pPage->GetSafeHwnd()))
+            CTheme::Instance().SetThemeForDialog(pPage->GetSafeHwnd(), bDark);
+    }
 }
 
 void CSettings::AddPropPages()

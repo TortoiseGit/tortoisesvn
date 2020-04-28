@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2015 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,46 +71,48 @@ private:
     void RemovePropPages();
 
 private:
-    CSetMainPage *                  m_pMainPage;
-    CSetProxyPage *                 m_pProxyPage;
-    CSetOverlayPage *               m_pOverlayPage;
-    CSetOverlayIcons *              m_pOverlaysPage;
-    CSetOverlayHandlers *           m_pOverlayHandlersPage;
-    CSettingsProgsDiff *            m_pProgsDiffPage;
-    CSettingsProgsMerge *           m_pProgsMergePage;
-    CSetLookAndFeelPage *           m_pLookAndFeelPage;
-    CSetDialogs *                   m_pDialogsPage;
-    CSettingsRevisionGraph *        m_pRevisionGraphPage;
-    CSettingsRevisionGraphColors *  m_pRevisionGraphColorsPage;
-    CSettingsColors *               m_pColorsPage;
-    CSetMisc *                      m_pMiscPage;
-    CSetLogCache *                  m_pLogCachePage;
-    CSettingsLogCaches*             m_pLogCacheListPage;
-    CSetSavedDataPage *             m_pSavedPage;
-    CSetHooks *                     m_pHooksPage;
-    CSetBugTraq *                   m_pBugTraqPage;
-    CSettingsTBlame *               m_pTBlamePage;
-    CSettingsAdvanced *             m_pAdvanced;
-    SettingsDialogs3 *              m_pDialogs3Page;
-    CSettingsSync *                 m_pSyncPage;
-    CSettingsUDiff *                m_pUDiffPage;
+    CSetMainPage*                 m_pMainPage;
+    CSetProxyPage*                m_pProxyPage;
+    CSetOverlayPage*              m_pOverlayPage;
+    CSetOverlayIcons*             m_pOverlaysPage;
+    CSetOverlayHandlers*          m_pOverlayHandlersPage;
+    CSettingsProgsDiff*           m_pProgsDiffPage;
+    CSettingsProgsMerge*          m_pProgsMergePage;
+    CSetLookAndFeelPage*          m_pLookAndFeelPage;
+    CSetDialogs*                  m_pDialogsPage;
+    CSettingsRevisionGraph*       m_pRevisionGraphPage;
+    CSettingsRevisionGraphColors* m_pRevisionGraphColorsPage;
+    CSettingsColors*              m_pColorsPage;
+    CSetMisc*                     m_pMiscPage;
+    CSetLogCache*                 m_pLogCachePage;
+    CSettingsLogCaches*           m_pLogCacheListPage;
+    CSetSavedDataPage*            m_pSavedPage;
+    CSetHooks*                    m_pHooksPage;
+    CSetBugTraq*                  m_pBugTraqPage;
+    CSettingsTBlame*              m_pTBlamePage;
+    CSettingsAdvanced*            m_pAdvanced;
+    SettingsDialogs3*             m_pDialogs3Page;
+    CSettingsSync*                m_pSyncPage;
+    CSettingsUDiff*               m_pUDiffPage;
 
-    HICON                           m_hIcon;
-    AeroControlBase                 m_aeroControls;
+    HICON           m_hIcon;
+    AeroControlBase m_aeroControls;
+
 public:
     CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
     virtual ~CSettings();
+
+    void SetTheme(bool bDark);
 
     /**
      * Calls the SaveData()-methods of each of the settings pages.
      */
     void HandleRestart();
+
 protected:
     DECLARE_MESSAGE_MAP()
-    virtual BOOL OnInitDialog();
-    afx_msg void OnPaint();
-    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+    virtual BOOL    OnInitDialog();
+    afx_msg void    OnPaint();
+    afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
     afx_msg HCURSOR OnQueryDragIcon();
 };
-
-
