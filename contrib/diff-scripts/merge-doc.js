@@ -1,8 +1,8 @@
-// extensions: doc;docx;docm
+// extensions: doc;docx;docm;rtf
 //
 // TortoiseSVN Merge script for Word Doc files
 //
-// Copyright (C) 2004-2008, 2011-2016, 2019 the TortoiseSVN team
+// Copyright (C) 2004-2008, 2011-2016, 2019-2020 the TortoiseSVN team
 // This file is distributed under the same license as TortoiseSVN
 //
 // Last commit by:
