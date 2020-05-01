@@ -5602,6 +5602,10 @@ void CBaseView::OnEditFindprevStart()
 
 bool CBaseView::StringFound(const CString& str, SearchDirection srchDir, int& start, int& end) const
 {
+    bool bStringFound;
+    
+    do
+    {
     if (srchDir == SearchPrevious)
     {
         int laststart = -1;
@@ -5616,7 +5620,7 @@ bool CBaseView::StringFound(const CString& str, SearchDirection srchDir, int& st
     else
         start = str.Find(m_sFindText, start);
     end = start + m_sFindText.GetLength();
-    bool bStringFound = (start >= 0);
+    bStringFound = (start >= 0);
     if (bStringFound && m_bWholeWord)
     {
         if (start)
@@ -5627,7 +5631,17 @@ bool CBaseView::StringFound(const CString& str, SearchDirection srchDir, int& st
             if (str.GetLength() > end)
                 bStringFound = IsWordSeparator(str.Mid(end, 1).GetAt(0));
         }
+
+        if (!bStringFound)
+        {
+            if (srchDir == SearchPrevious)
+                start--;
+            else
+                start = end;
+        }
     }
+    } while (!bStringFound && start >= 0);
+
     return bStringFound;
 }
 
