@@ -1,4 +1,4 @@
-// extensions: doc;docx;docm;rtf;odt;ods
+// extensions: doc;docx;docm;odt;ods
 //
 // TortoiseSVN Diff script for Word Doc files
 //

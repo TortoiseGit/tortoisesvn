@@ -1,4 +1,4 @@
-// extensions: doc;docx;docm;rtf
+// extensions: doc;docx;docm
 //
 // TortoiseSVN Merge script for Word Doc files
 //
