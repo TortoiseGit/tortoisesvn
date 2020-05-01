@@ -1883,7 +1883,7 @@ void CBaseView::DrawTextLine(
             // change color of affected parts
             const long int nIntenseColorScale = 30;
             std::map<int, linecolors_t>::iterator it = lineCols.lower_bound(nMarkStart+nStringPos);
-            for ( ; it != lineCols.end() && it->first < nMarkEnd; ++it)
+            for ( ; it != lineCols.end() && it->first < nMarkEnd+nStringPos; ++it)
             {
                 auto& second = it->second;
                 COLORREF crBk = CAppUtils::IntenseColor(nIntenseColorScale, second.background);
@@ -1895,7 +1895,7 @@ void CBaseView::DrawTextLine(
                 second.text = CAppUtils::IntenseColor(nIntenseColorScale, second.text);
             }
             searchLine = searchLine.Mid(nMarkEnd);
-            nStringPos = nMarkEnd;
+            nStringPos += nMarkEnd;
             nMarkStart = 0;
             nMarkEnd = 0;
         }
