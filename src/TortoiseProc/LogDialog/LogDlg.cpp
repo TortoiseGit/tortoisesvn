@@ -8241,8 +8241,9 @@ void CLogDlg::RefreshMonitorProjTree()
             pMonitorItem->root               = m_monitoringFile.GetValue(mitem, L"root", L"");
             pMonitorItem->sMsgRegex          = m_monitoringFile.GetValue(mitem, L"MsgRegex", L"");
             pMonitorItem->projectproperties.LoadFromIni(m_monitoringFile, mitem);
-            pMonitorItem->lastErrorMsg = m_monitoringFile.GetValue(mitem, L"lastErrorMsg", L"");
-            pMonitorItem->authfailed   = _wtol(m_monitoringFile.GetValue(mitem, L"authfailed", L"0")) != 0;
+            pMonitorItem->lastErrorMsg    = m_monitoringFile.GetValue(mitem, L"lastErrorMsg", L"");
+            pMonitorItem->parentPath      = _wtoi(m_monitoringFile.GetValue(mitem, L"parentPath", L"0"));
+            pMonitorItem->authfailed      = _wtol(m_monitoringFile.GetValue(mitem, L"authfailed", L"0")) != 0;
             try
             {
                 pMonitorItem->msgregex = std::wregex(pMonitorItem->sMsgRegex, std::regex_constants::ECMAScript | std::regex_constants::icase);
@@ -8330,13 +8331,13 @@ HTREEITEM CLogDlg::InsertMonitorItem(MonitorItem* pMonitorItem, const CString& s
     tvinsert.hInsertAfter          = TVI_SORT;
     tvinsert.itemex.mask           = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_PARAM | TVIF_TEXT | TVIF_IMAGE | TVIF_EXPANDEDIMAGE | TVIF_SELECTEDIMAGE | TVIF_STATE;
     tvinsert.itemex.pszText        = LPSTR_TEXTCALLBACK;
-    tvinsert.itemex.cChildren      = pMonitorItem->WCPathOrUrl.IsEmpty() ? 1 : 0;
+    tvinsert.itemex.cChildren      = (pMonitorItem->WCPathOrUrl.IsEmpty() || pMonitorItem->parentPath) ? 1 : 0;
     tvinsert.itemex.state          = TVIS_EXPANDED | (pMonitorItem->UnreadItems ? TVIS_BOLD : 0) | ((pMonitorItem->authfailed || !pMonitorItem->lastErrorMsg.IsEmpty()) ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0);
     tvinsert.itemex.stateMask      = TVIS_EXPANDED | TVIS_OVERLAYMASK | TVIS_BOLD;
     tvinsert.itemex.lParam         = (LPARAM)pMonitorItem;
-    tvinsert.itemex.iImage         = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
-    tvinsert.itemex.iExpandedImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nOpenIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
-    tvinsert.itemex.iSelectedImage = pMonitorItem->WCPathOrUrl.IsEmpty() ? m_nIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
+    tvinsert.itemex.iImage         = (pMonitorItem->WCPathOrUrl.IsEmpty()|| pMonitorItem->parentPath) ? m_nIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
+    tvinsert.itemex.iExpandedImage = (pMonitorItem->WCPathOrUrl.IsEmpty()|| pMonitorItem->parentPath) ? m_nOpenIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
+    tvinsert.itemex.iSelectedImage = (pMonitorItem->WCPathOrUrl.IsEmpty()|| pMonitorItem->parentPath) ? m_nIconFolder : bUrl ? m_nMonitorUrlIcon : m_nMonitorWCIcon;
 
     // mark the parent as having children
     if (tvinsert.hParent && (tvinsert.hParent != TVI_ROOT))
@@ -8563,6 +8564,7 @@ void CLogDlg::MonitorEditProject(MonitorItem* pProject, const CString& sParentPa
         dlg.m_sPassword       = CStringUtils::Decrypt(pProject->password).get();
         dlg.m_monitorInterval = pProject->interval;
         dlg.m_sIgnoreRegex    = pProject->sMsgRegex;
+        dlg.m_isParentPath    = pProject->parentPath;
         dlg.m_sIgnoreUsers.Empty();
         for (const auto& s : pProject->authorstoignore)
         {
@@ -8587,9 +8589,10 @@ void CLogDlg::MonitorEditProject(MonitorItem* pProject, const CString& sParentPa
             // remove quotes in case the user put the url/path in quotes
             pEditProject->WCPathOrUrl.Trim(L"\" \t");
         }
-        pEditProject->interval = dlg.m_monitorInterval;
-        pEditProject->username = CStringUtils::Encrypt(dlg.m_sUsername);
-        pEditProject->password = CStringUtils::Encrypt(dlg.m_sPassword);
+        pEditProject->interval   = dlg.m_monitorInterval;
+        pEditProject->username   = CStringUtils::Encrypt(dlg.m_sUsername);
+        pEditProject->password   = CStringUtils::Encrypt(dlg.m_sPassword);
+        pEditProject->parentPath = dlg.m_isParentPath;
         pEditProject->username.Remove('\r');
         pEditProject->password.Remove('\r');
         pEditProject->username.Replace('\n', ' ');
@@ -8661,6 +8664,7 @@ void CLogDlg::SaveMonitorProjects(bool todisk)
         m_monitoringFile.SetValue(sSection, L"root", pItem->root);
         m_monitoringFile.SetValue(sSection, L"lastErrorMsg", pItem->lastErrorMsg);
         m_monitoringFile.SetValue(sSection, L"authfailed", pItem->authfailed ? L"1" : L"0");
+        m_monitoringFile.SetValue(sSection, L"parentPath", pItem->parentPath ? L"1" : L"0");
         pItem->projectproperties.SaveToIni(m_monitoringFile, sSection);
         sTmp.Empty();
         for (const auto& s : pItem->authorstoignore)
@@ -8822,6 +8826,7 @@ void CLogDlg::MonitorThread()
     _time64(&currenttime);
 
     CAutoReadLock locker(m_monitorguard);
+    m_monitorItemParentPathList.clear();
     for (auto& item : m_monitorItemListForThread)
     {
         if (m_bCancelled)
@@ -8831,90 +8836,234 @@ void CLogDlg::MonitorThread()
             continue;
         if (item.authfailed)
             continue; // if authentication failed before, don't try again
-        CTSVNPath WCPathOrUrl(item.WCPathOrUrl);
-        if ((item.lastchecked + (max(item.minminutesinterval, item.interval) * 60)) < currenttime)
+        if (item.parentPath)
         {
-            CString sCheckInfo;
-            sCheckInfo.Format(IDS_MONITOR_CHECKPROJECT, (LPCWSTR)item.Name);
-            if (!m_bCancelled)
-                SetDlgItemText(IDC_LOGINFO, sCheckInfo);
-            svn.SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
-            svn_revnum_t head = svn.GetHEADRevision(WCPathOrUrl, false);
-            if (m_bCancelled)
-                continue;
-            if (item.lastHEAD < 0)
-                item.lastHEAD = 0;
-            if ((head > 0) && (head != item.lastHEAD))
+            if ((item.lastchecked + (max(item.minminutesinterval, item.interval) * 60)) < currenttime)
             {
-                // new head revision: fetch the log
-                std::unique_ptr<const CCacheLogQuery> cachedData;
-                {
-                    CAutoWriteLock pathlock(m_monitorpathguard);
-                    m_pathCurrentlyChecked = item.WCPathOrUrl;
-                }
-                cachedData = svn.ReceiveLog(CTSVNPathList(WCPathOrUrl), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
-                // Err will also be set if the user cancelled.
+                // we have to include the authentication in the URL itself
+                auto                       tempfile = CTempFiles::Instance().GetTempFilePath(true);
+                std::unique_ptr<CCallback> callback(new CCallback);
+                callback->SetAuthData(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
+                DeleteFile(tempfile.GetWinPath());
+                HRESULT hResUDL = URLDownloadToFile(NULL, item.WCPathOrUrl, tempfile.GetWinPath(), 0, callback.get());
                 if (m_bCancelled)
                     continue;
-                if ((svn.GetSVNError() == nullptr) && (item.lastHEAD >= 0))
+                if (hResUDL == S_OK)
                 {
-                    CString                  sUUID;
-                    CString                  sRoot  = svn.GetRepositoryRootAndUUID(WCPathOrUrl, true, sUUID);
-                    CString                  sUrl   = svn.GetURLFromPath(WCPathOrUrl);
-                    CString                  relUrl = sUrl.Mid(sRoot.GetLength());
-                    CCachedLogInfo*          cache  = cachedData->GetCache();
-                    const CPathDictionary*   paths  = &cache->GetLogInfo().GetPaths();
-                    CDictionaryBasedTempPath logPath(paths, (const char*)CUnicodeUtils::GetUTF8(relUrl));
-                    CLogCacheUtility         logUtil(cache, &m_ProjectProperties);
-
-                    for (svn_revnum_t rev = item.lastHEAD + 1; rev <= head; ++rev)
+                    // we got a web page! But we can't be sure that it's the page from SVNParentPath.
+                    // Use a regex to parse the website and find out...
+                    std::ifstream fs(tempfile.GetWinPath());
+                    std::string   in;
+                    if (!fs.bad())
                     {
-                        if (logUtil.IsCached(rev))
+                        in.reserve((unsigned int)fs.rdbuf()->in_avail());
+                        char c;
+                        while (fs.get(c))
                         {
-                            auto pLogItem = logUtil.GetRevisionData(rev);
-                            if (pLogItem)
+                            if (in.capacity() == in.size())
+                                in.reserve(in.capacity() * 3);
+                            in.append(1, c);
+                        }
+                        fs.close();
+                        DeleteFile(tempfile.GetWinPath());
+
+                        // make sure this is a html page from an SVNParentPathList
+                        // we do this by checking for header titles looking like
+                        // "<h2>Revision XX: /</h2> - if we find that, it's a html
+                        // page from inside a repository
+                        // some repositories show
+                        // "<h2>projectname - Revision XX: /trunk</h2>
+                        const char* reTitle = "<\\s*h2\\s*>[^/]+Revision\\s*\\d+:[^<]+<\\s*/\\s*h2\\s*>";
+                        // xsl transformed pages don't have an easy way to determine
+                        // the inside from outside of a repository.
+                        // We therefore check for <index rev="0" to make sure it's either
+                        // an empty repository or really an SVNParentPathList
+                        const char*      reTitle2 = "<\\s*index\\s*rev\\s*=\\s*\"0\"";
+                        const std::regex titex(reTitle, std::regex_constants::icase | std::regex_constants::ECMAScript);
+                        const std::regex titex2(reTitle2, std::regex_constants::icase | std::regex_constants::ECMAScript);
+                        if (std::regex_search(in.begin(), in.end(), titex, std::regex_constants::match_default))
+                        {
+                            CTraceToOutputDebugString::Instance()(_T("found repository url instead of SVNParentPathList\n"));
+                            continue;
+                        }
+
+                        const char* re  = "<\\s*LI\\s*>\\s*<\\s*A\\s+[^>]*HREF\\s*=\\s*\"([^\"]*)\"\\s*>([^<]+)<\\s*/\\s*A\\s*>\\s*<\\s*/\\s*LI\\s*>";
+                        const char* re2 = "<\\s*DIR\\s*name\\s*=\\s*\"([^\"]*)\"\\s*HREF\\s*=\\s*\"([^\"]*)\"\\s*/\\s*>";
+
+                        const std::regex           expression(re, std::regex_constants::icase | std::regex_constants::ECMAScript);
+                        const std::regex           expression2(re2, std::regex_constants::icase | std::regex_constants::ECMAScript);
+                        std::wstring               popupText;
+                        const std::sregex_iterator end;
+                        for (std::sregex_iterator i(in.begin(), in.end(), expression); i != end; ++i)
+                        {
+                            if (m_bCancelled)
+                                break;
+                            const std::smatch match = *i;
+                            // what[0] contains the whole string
+                            // what[1] contains the url part.
+                            // what[2] contains the name
+                            auto url = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                            url      = item.WCPathOrUrl + _T("/") + url;
+
+                            // we found a new URL, add it to our list
+                            MonitorItem mi       = item;
+                            mi.Name              = CPathUtils::PathUnescape(std::string(match[2]).c_str()).TrimRight('/');
+                            mi.WCPathOrUrl       = url;
+                            mi.authfailed        = false;
+                            mi.parentPath        = false;
+                            mi.lastchecked       = 0;
+                            mi.lastcheckedrobots = 0;
+                            mi.lastErrorMsg.Empty();
+                            mi.lastHEAD    = 0;
+                            mi.unreadFirst = 0;
+                            mi.UnreadItems = 0;
+                            mi.uuid.Empty();
+                            m_monitorItemParentPathList.insert(std::pair<CString, MonitorItem>(item.WCPathOrUrl, mi));
+                        }
+                        if (m_bCancelled)
+                            continue;
+                        if (!regex_search(in.begin(), in.end(), titex2))
+                        {
+                            CTraceToOutputDebugString::Instance()(_T("found repository url instead of SVNParentPathList\n"));
+                            continue;
+                        }
+                        for (std::sregex_iterator i(in.begin(), in.end(), expression2); i != end; ++i)
+                        {
+                            if (m_bCancelled)
+                                break;
+                            const std::smatch match = *i;
+                            // what[0] contains the whole string
+                            // what[1] contains the url part.
+                            // what[2] contains the name
+                            auto url = CUnicodeUtils::GetUnicode(std::string(match[1]).c_str());
+                            url      = item.WCPathOrUrl + _T("/") + url;
+
+                            MonitorItem mi       = item;
+                            mi.Name              = CPathUtils::PathUnescape(std::string(match[2]).c_str()).TrimRight('/');
+                            mi.WCPathOrUrl       = url;
+                            mi.authfailed        = false;
+                            mi.parentPath        = false;
+                            mi.lastchecked       = 0;
+                            mi.lastcheckedrobots = 0;
+                            mi.lastErrorMsg.Empty();
+                            mi.lastHEAD    = 0;
+                            mi.unreadFirst = 0;
+                            mi.UnreadItems = 0;
+                            mi.uuid.Empty();
+                            m_monitorItemParentPathList.insert(std::pair<CString, MonitorItem>(item.WCPathOrUrl, mi));
+                        }
+                        if (m_bCancelled)
+                            continue;
+                    }
+                }
+                DeleteFile(tempfile.GetWinPath());
+            }
+        }
+        else
+        {
+            CTSVNPath WCPathOrUrl(item.WCPathOrUrl);
+            if ((item.lastchecked + (max(item.minminutesinterval, item.interval) * 60)) < currenttime)
+            {
+                CString sCheckInfo;
+                sCheckInfo.Format(IDS_MONITOR_CHECKPROJECT, (LPCWSTR)item.Name);
+                if (!m_bCancelled)
+                    SetDlgItemText(IDC_LOGINFO, sCheckInfo);
+                svn.SetAuthInfo(CStringUtils::Decrypt(item.username).get(), CStringUtils::Decrypt(item.password).get());
+                svn_revnum_t head = svn.GetHEADRevision(WCPathOrUrl, false);
+                if (m_bCancelled)
+                    continue;
+                if (item.lastHEAD < 0)
+                    item.lastHEAD = 0;
+                if ((head > 0) && (head != item.lastHEAD))
+                {
+                    // new head revision: fetch the log
+                    std::unique_ptr<const CCacheLogQuery> cachedData;
+                    {
+                        CAutoWriteLock pathlock(m_monitorpathguard);
+                        m_pathCurrentlyChecked = item.WCPathOrUrl;
+                    }
+                    cachedData = svn.ReceiveLog(CTSVNPathList(WCPathOrUrl), SVNRev::REV_HEAD, head, item.lastHEAD, m_limit, false, false, true);
+                    // Err will also be set if the user cancelled.
+                    if (m_bCancelled)
+                        continue;
+                    if ((svn.GetSVNError() == nullptr) && (item.lastHEAD >= 0))
+                    {
+                        CString                  sUUID;
+                        CString                  sRoot  = svn.GetRepositoryRootAndUUID(WCPathOrUrl, true, sUUID);
+                        CString                  sUrl   = svn.GetURLFromPath(WCPathOrUrl);
+                        CString                  relUrl = sUrl.Mid(sRoot.GetLength());
+                        CCachedLogInfo*          cache  = cachedData->GetCache();
+                        const CPathDictionary*   paths  = &cache->GetLogInfo().GetPaths();
+                        CDictionaryBasedTempPath logPath(paths, (const char*)CUnicodeUtils::GetUTF8(relUrl));
+                        CLogCacheUtility         logUtil(cache, &m_ProjectProperties);
+
+                        for (svn_revnum_t rev = item.lastHEAD + 1; rev <= head; ++rev)
+                        {
+                            if (logUtil.IsCached(rev))
                             {
-                                bool bIgnore = false;
-                                for (const auto& authortoignore : item.authorstoignore)
+                                auto pLogItem = logUtil.GetRevisionData(rev);
+                                if (pLogItem)
                                 {
-                                    if (_stricmp(pLogItem->GetAuthor().c_str(), authortoignore.c_str()) == 0)
+                                    bool bIgnore = false;
+                                    for (const auto& authortoignore : item.authorstoignore)
                                     {
-                                        bIgnore = true;
-                                        break;
-                                    }
-                                }
-                                if (!bIgnore && !item.sMsgRegex.IsEmpty())
-                                {
-                                    try
-                                    {
-                                        if (std::regex_match(pLogItem->GetMessageW().cbegin(),
-                                                             pLogItem->GetMessageW().cend(),
-                                                             item.msgregex))
+                                        if (_stricmp(pLogItem->GetAuthor().c_str(), authortoignore.c_str()) == 0)
                                         {
                                             bIgnore = true;
+                                            break;
                                         }
                                     }
-                                    catch (std::exception&)
+                                    if (!bIgnore && !item.sMsgRegex.IsEmpty())
                                     {
+                                        try
+                                        {
+                                            if (std::regex_match(pLogItem->GetMessageW().cbegin(),
+                                                                 pLogItem->GetMessageW().cend(),
+                                                                 item.msgregex))
+                                            {
+                                                bIgnore = true;
+                                            }
+                                        }
+                                        catch (std::exception&)
+                                        {
+                                        }
                                     }
-                                }
-                                if (bIgnore)
-                                    continue;
+                                    if (bIgnore)
+                                        continue;
 
-                                pLogItem->Finalize(cache, logPath);
-                                if (IsRevisionRelatedToUrl(logPath, pLogItem.get()))
-                                {
-                                    ++item.UnreadItems;
+                                    pLogItem->Finalize(cache, logPath);
+                                    if (IsRevisionRelatedToUrl(logPath, pLogItem.get()))
+                                    {
+                                        ++item.UnreadItems;
+                                    }
                                 }
                             }
                         }
+                        if (item.unreadFirst == 0)
+                            item.unreadFirst = item.lastHEAD;
+                        item.lastHEAD = head;
+                        item.root     = sRoot;
+                        item.uuid     = sUUID;
+                        item.lastErrorMsg.Empty();
                     }
-                    if (item.unreadFirst == 0)
-                        item.unreadFirst = item.lastHEAD;
-                    item.lastHEAD = head;
-                    item.root     = sRoot;
-                    item.uuid     = sUUID;
-                    item.lastErrorMsg.Empty();
+                    else
+                    {
+                        auto SVNError = svn.GetSVNError();
+                        if (SVNError)
+                        {
+                            if ((SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
+                                (SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
+                                (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN))
+                            {
+                                item.authfailed = true;
+                            }
+                            item.lastErrorMsg = svn.GetLastErrorMessage();
+                        }
+                        else
+                            item.lastErrorMsg.Empty();
+                    }
+                    // we should never get asked for authentication here!
+                    item.authfailed = item.authfailed || PromptShown();
                 }
                 else
                 {
@@ -8923,7 +9072,8 @@ void CLogDlg::MonitorThread()
                     {
                         if ((SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
                             (SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
-                            (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN))
+                            (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
+                            (SVNError->apr_err == SVN_ERR_WC_NOT_WORKING_COPY))
                         {
                             item.authfailed = true;
                         }
@@ -8932,167 +9082,148 @@ void CLogDlg::MonitorThread()
                     else
                         item.lastErrorMsg.Empty();
                 }
-                // we should never get asked for authentication here!
-                item.authfailed = item.authfailed || PromptShown();
-            }
-            else
-            {
-                auto SVNError = svn.GetSVNError();
-                if (SVNError)
+                item.lastchecked = currenttime;
                 {
-                    if ((SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
-                        (SVN_ERROR_IN_CATEGORY(SVNError->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
-                        (SVNError->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
-                        (SVNError->apr_err == SVN_ERR_WC_NOT_WORKING_COPY))
+                    CAutoWriteLock pathlock(m_monitorpathguard);
+                    m_pathCurrentlyChecked.Empty();
+                }
+                if (!m_bCancelled)
+                    SetDlgItemText(IDC_LOGINFO, L"");
+            }
+            if (!item.authfailed && ((item.lastcheckedrobots + (60 * 60 * 24)) < currenttime))
+            {
+                if (m_bCancelled)
+                    continue;
+                // try to read the project properties
+                ProjectProperties props;
+                if (!props.ReadProps(WCPathOrUrl))
+                {
+                    if (WCPathOrUrl.IsUrl() && (WCPathOrUrl.GetSVNPathString().Find(L"trunk") < 0))
                     {
-                        item.authfailed = true;
+                        CTSVNPath trunkpath = WCPathOrUrl;
+                        trunkpath.AppendPathString(L"trunk");
+                        if (props.ReadProps(trunkpath))
+                            item.projectproperties = props;
                     }
-                    item.lastErrorMsg = svn.GetLastErrorMessage();
                 }
                 else
-                    item.lastErrorMsg.Empty();
-            }
-            item.lastchecked = currenttime;
-            {
-                CAutoWriteLock pathlock(m_monitorpathguard);
-                m_pathCurrentlyChecked.Empty();
-            }
-            if (!m_bCancelled)
-                SetDlgItemText(IDC_LOGINFO, L"");
-        }
-        if (!item.authfailed && ((item.lastcheckedrobots + (60 * 60 * 24)) < currenttime))
-        {
-            if (m_bCancelled)
-                continue;
-            // try to read the project properties
-            ProjectProperties props;
-            if (!props.ReadProps(WCPathOrUrl))
-            {
-                if (WCPathOrUrl.IsUrl() && (WCPathOrUrl.GetSVNPathString().Find(L"trunk") < 0))
-                {
-                    CTSVNPath trunkpath = WCPathOrUrl;
-                    trunkpath.AppendPathString(L"trunk");
-                    if (props.ReadProps(trunkpath))
-                        item.projectproperties = props;
-                }
-            }
-            else
-                item.projectproperties = props;
+                    item.projectproperties = props;
 
-            if (m_bCancelled)
-                continue;
-            std::wstring sRobotsURL = svn.GetURLFromPath(WCPathOrUrl);
-            sRobotsURL += _T("/svnrobots.txt");
-            std::wstring sRootRobotsURL;
-            std::wstring sDomainRobotsURL = sRobotsURL.substr(0, sRobotsURL.find('/', sRobotsURL.find(':') + 3)) + _T("/svnrobots.txt");
-            sRootRobotsURL                = svn.GetRepositoryRoot(WCPathOrUrl);
-            if (!sRootRobotsURL.empty())
-                sRootRobotsURL += _T("/svnrobots.txt");
-            CTSVNPath sFile = CTempFiles::Instance().GetTempFilePath(true);
-            OnOutOfScope(DeleteFile(sFile.GetWinPath()));
-            std::string                in;
-            std::unique_ptr<CCallback> callback(new CCallback);
-            if (callback == nullptr)
-                continue;
-            {
-                std::wstring sU;
-                std::wstring sP;
-                auto         pU = CStringUtils::Decrypt(item.username).get();
-                if (pU)
-                    sU = pU;
-                auto pP = CStringUtils::Decrypt(item.password).get();
-                if (pP)
-                    sP = pP;
-                callback->SetAuthData(sU, sP);
-            }
-            if (m_bCancelled)
-                continue;
-            if ((!sDomainRobotsURL.empty()) && (URLDownloadToFile(NULL, sDomainRobotsURL.c_str(), sFile.GetWinPath(), 0, callback.get()) == S_OK))
-            {
-                std::ifstream fs(sFile.GetWinPath());
-                if (!fs.bad())
+                if (m_bCancelled)
+                    continue;
+                std::wstring sRobotsURL = svn.GetURLFromPath(WCPathOrUrl);
+                sRobotsURL += _T("/svnrobots.txt");
+                std::wstring sRootRobotsURL;
+                std::wstring sDomainRobotsURL = sRobotsURL.substr(0, sRobotsURL.find('/', sRobotsURL.find(':') + 3)) + _T("/svnrobots.txt");
+                sRootRobotsURL                = svn.GetRepositoryRoot(WCPathOrUrl);
+                if (!sRootRobotsURL.empty())
+                    sRootRobotsURL += _T("/svnrobots.txt");
+                CTSVNPath sFile = CTempFiles::Instance().GetTempFilePath(true);
+                OnOutOfScope(DeleteFile(sFile.GetWinPath()));
+                std::string                in;
+                std::unique_ptr<CCallback> callback(new CCallback);
+                if (callback == nullptr)
+                    continue;
                 {
-                    OnOutOfScope(fs.close());
-                    in.reserve((unsigned int)fs.rdbuf()->in_avail());
-                    char c;
-                    while (fs.get(c))
-                    {
-                        if (in.capacity() == in.size())
-                            in.reserve(in.capacity() * 3);
-                        in.append(1, c);
-                    }
-                    if ((in.find("<html>") != std::string::npos) ||
-                        (in.find("<HTML>") != std::string::npos) ||
-                        (in.find("<head>") != std::string::npos) ||
-                        (in.find("<HEAD>") != std::string::npos))
-                        in.clear();
+                    std::wstring sU;
+                    std::wstring sP;
+                    auto         pU = CStringUtils::Decrypt(item.username).get();
+                    if (pU)
+                        sU = pU;
+                    auto pP = CStringUtils::Decrypt(item.password).get();
+                    if (pP)
+                        sP = pP;
+                    callback->SetAuthData(sU, sP);
                 }
-            }
-            if (m_bCancelled)
-                continue;
-            if (in.empty() && (!sRootRobotsURL.empty()) && (svn.Export(CTSVNPath(sRootRobotsURL.c_str()), sFile, SVNRev::REV_HEAD, SVNRev::REV_HEAD)))
-            {
-                std::ifstream fs(sFile.GetWinPath());
-                if (!fs.bad())
+                if (m_bCancelled)
+                    continue;
+                if ((!sDomainRobotsURL.empty()) && (URLDownloadToFile(NULL, sDomainRobotsURL.c_str(), sFile.GetWinPath(), 0, callback.get()) == S_OK))
                 {
-                    OnOutOfScope(fs.close());
-                    in.reserve((unsigned int)fs.rdbuf()->in_avail());
-                    char c;
-                    while (fs.get(c))
+                    std::ifstream fs(sFile.GetWinPath());
+                    if (!fs.bad())
                     {
-                        if (in.capacity() == in.size())
-                            in.reserve(in.capacity() * 3);
-                        in.append(1, c);
-                    }
-                }
-            }
-            if (m_bCancelled)
-                continue;
-            if (in.empty() && svn.Export(CTSVNPath(sRobotsURL.c_str()), sFile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
-            {
-                std::ifstream fs(sFile.GetWinPath());
-                if (!fs.bad())
-                {
-                    OnOutOfScope(fs.close());
-                    in.reserve((unsigned int)fs.rdbuf()->in_avail());
-                    char c;
-                    while (fs.get(c))
-                    {
-                        if (in.capacity() == in.size())
-                            in.reserve(in.capacity() * 3);
-                        in.append(1, c);
-                    }
-                }
-            }
-            // the format of the svnrobots.txt file is as follows:
-            // # comment
-            // checkinterval = XXX
-            //
-            // with 'checkinterval' being the minimum amount of time to wait
-            // between checks in minutes.
-
-            std::istringstream iss(in);
-            std::string        line;
-            int                minutes = 0;
-            while (getline(iss, line))
-            {
-                if (line.length())
-                {
-                    if (line.at(0) != '#')
-                    {
-                        if ((line.length() > 13) && (line.substr(0, 13).compare("checkinterval") == 0))
+                        OnOutOfScope(fs.close());
+                        in.reserve((unsigned int)fs.rdbuf()->in_avail());
+                        char c;
+                        while (fs.get(c))
                         {
-                            std::string num = line.substr(line.find('=') + 1);
-                            minutes         = atoi(num.c_str());
+                            if (in.capacity() == in.size())
+                                in.reserve(in.capacity() * 3);
+                            in.append(1, c);
+                        }
+                        if ((in.find("<html>") != std::string::npos) ||
+                            (in.find("<HTML>") != std::string::npos) ||
+                            (in.find("<head>") != std::string::npos) ||
+                            (in.find("<HEAD>") != std::string::npos))
+                            in.clear();
+                    }
+                }
+                if (m_bCancelled)
+                    continue;
+                if (in.empty() && (!sRootRobotsURL.empty()) && (svn.Export(CTSVNPath(sRootRobotsURL.c_str()), sFile, SVNRev::REV_HEAD, SVNRev::REV_HEAD)))
+                {
+                    std::ifstream fs(sFile.GetWinPath());
+                    if (!fs.bad())
+                    {
+                        OnOutOfScope(fs.close());
+                        in.reserve((unsigned int)fs.rdbuf()->in_avail());
+                        char c;
+                        while (fs.get(c))
+                        {
+                            if (in.capacity() == in.size())
+                                in.reserve(in.capacity() * 3);
+                            in.append(1, c);
                         }
                     }
                 }
-            }
-            item.lastcheckedrobots  = currenttime;
-            item.minminutesinterval = minutes;
-        }
+                if (m_bCancelled)
+                    continue;
+                if (in.empty() && svn.Export(CTSVNPath(sRobotsURL.c_str()), sFile, SVNRev::REV_HEAD, SVNRev::REV_HEAD))
+                {
+                    std::ifstream fs(sFile.GetWinPath());
+                    if (!fs.bad())
+                    {
+                        OnOutOfScope(fs.close());
+                        in.reserve((unsigned int)fs.rdbuf()->in_avail());
+                        char c;
+                        while (fs.get(c))
+                        {
+                            if (in.capacity() == in.size())
+                                in.reserve(in.capacity() * 3);
+                            in.append(1, c);
+                        }
+                    }
+                }
+                // the format of the svnrobots.txt file is as follows:
+                // # comment
+                // checkinterval = XXX
+                //
+                // with 'checkinterval' being the minimum amount of time to wait
+                // between checks in minutes.
 
-        svn.SetAuthInfo(L"", L"");
+                std::istringstream iss(in);
+                std::string        line;
+                int                minutes = 0;
+                while (getline(iss, line))
+                {
+                    if (line.length())
+                    {
+                        if (line.at(0) != '#')
+                        {
+                            if ((line.length() > 13) && (line.substr(0, 13).compare("checkinterval") == 0))
+                            {
+                                std::string num = line.substr(line.find('=') + 1);
+                                minutes         = atoi(num.c_str());
+                            }
+                        }
+                    }
+                }
+                item.lastcheckedrobots  = currenttime;
+                item.minminutesinterval = minutes;
+            }
+
+            svn.SetAuthInfo(L"", L"");
+        }
     }
     // if the thread is cancelled, then don't update the log label
     // here to avoid a deadlock situation in MonitorShowProject() when
@@ -9126,6 +9257,7 @@ void CLogDlg::OnMonitorThreadFinished()
     CString sTemp;
     int     changedprojects = 0;
     bool    hasUnreadItems  = false;
+    bool    hasNewChildren  = false;
     {
         CAutoReadLock locker(m_monitorguard);
         for (const auto& item : m_monitorItemListForThread)
@@ -9187,6 +9319,22 @@ void CLogDlg::OnMonitorThreadFinished()
                 m_projTree.SetItemState(hItem, ((pItem->authfailed || !pItem->lastErrorMsg.IsEmpty()) ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0), TVIS_OVERLAYMASK);
             }
         }
+        for (const auto& mip : m_monitorItemParentPathList)
+        {
+            auto hItem = FindMonitorItem(mip.second.WCPathOrUrl);
+            if (hItem == nullptr)
+            {
+                auto item = new MonitorItem();
+                *item = mip.second;
+
+                auto hParent = FindMonitorItem(mip.first);
+                if (hParent)
+                {
+                    InsertMonitorItem(item, GetTreePath(hParent));
+                    hasNewChildren = true;
+                }
+            }
+        }
     }
     {
         CAutoWriteLock locker(m_monitorguard);
@@ -9207,7 +9355,7 @@ void CLogDlg::OnMonitorThreadFinished()
             m_pTaskbarList->SetOverlayIcon(GetSafeHwnd(), m_hMonitorIconNewCommits, L"");
         }
     }
-
+    m_monitorItemParentPathList.clear();
     m_projTree.Invalidate();
 
     if (!m_sMonitorNotificationTitle.IsEmpty() && !m_sMonitorNotificationText.IsEmpty())
@@ -9216,7 +9364,9 @@ void CLogDlg::OnMonitorThreadFinished()
         SaveMonitorProjects(true);
     }
     else
-        SaveMonitorProjects(false);
+        SaveMonitorProjects(hasNewChildren);
+    if (hasNewChildren)
+        RefreshMonitorProjTree();
 
     SVNReInit();
 }
@@ -9422,7 +9572,7 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT* pResult)
         m_sMonitorMsgRegex.Empty();
         OnClickedCancelFilter(0, 0);
         GetDlgItem(IDC_LOGLIST)->UpdateData(FALSE);
-        if (pItem->WCPathOrUrl.IsEmpty())
+        if (pItem->WCPathOrUrl.IsEmpty() || pItem->parentPath)
             return;
         if (pItem->authfailed && !pItem->lastErrorMsg.IsEmpty())
         {
@@ -9637,7 +9787,7 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
         popup.AppendMenu(MF_SEPARATOR, NULL);
         popup.AppendMenuIcon(ID_LOGDLG_MONITOR_ADDSUBPROJECT, IDS_LOG_POPUP_MONITORADDSUB, IDI_MONITOR_ADD);
 
-        if (!::PathIsURL(pItem->WCPathOrUrl) && PathFileExists(pItem->WCPathOrUrl) && !pItem->WCPathOrUrl.IsEmpty())
+        if (!::PathIsURL(pItem->WCPathOrUrl) && PathFileExists(pItem->WCPathOrUrl) && !pItem->WCPathOrUrl.IsEmpty() && !pItem->parentPath)
         {
             popup.AppendMenu(MF_SEPARATOR, NULL);
             popup.AppendMenuIcon(ID_UPDATE, IDS_MENUUPDATE, IDI_UPDATE);
@@ -9645,7 +9795,7 @@ void CLogDlg::ShowContextMenuForMonitorTree(CWnd* /*pWnd*/, CPoint point)
             popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL, IDI_URL);
             popup.AppendMenuIcon(ID_REPOBROWSE, IDS_LOG_BROWSEREPO, IDI_REPOBROWSE);
         }
-        else if (::PathIsURL(pItem->WCPathOrUrl) && !pItem->WCPathOrUrl.IsEmpty())
+        else if (::PathIsURL(pItem->WCPathOrUrl) && !pItem->WCPathOrUrl.IsEmpty() && !pItem->parentPath)
         {
             popup.AppendMenu(MF_SEPARATOR, NULL);
             popup.AppendMenuIcon(ID_VIEWPATHREV, IDS_LOG_POPUP_OPENURL, IDI_URL);

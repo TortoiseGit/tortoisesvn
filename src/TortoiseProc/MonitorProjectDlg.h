@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 
-
 // CMonitorProjectDlg dialog
 
 class CMonitorProjectDlg : public CStandAloneDialog
@@ -27,14 +26,17 @@ class CMonitorProjectDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CMonitorProjectDlg)
 
 public:
-    CMonitorProjectDlg(CWnd* pParent = NULL);   // standard constructor
+    CMonitorProjectDlg(CWnd* pParent = NULL); // standard constructor
     virtual ~CMonitorProjectDlg();
 
-// Dialog Data
-    enum { IDD = IDD_MONITORPROJECT };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_MONITORPROJECT
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
     virtual void OnOK();
 
     DECLARE_MESSAGE_MAP()
@@ -45,5 +47,6 @@ public:
     CString m_sPassword;
     CString m_sIgnoreUsers;
     CString m_sIgnoreRegex;
-    int m_monitorInterval;
+    BOOL    m_isParentPath;
+    int     m_monitorInterval;
 };

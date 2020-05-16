@@ -35,6 +35,7 @@ CMonitorProjectDlg::CMonitorProjectDlg(CWnd* pParent /*=NULL*/)
     , m_monitorInterval(30)
     , m_sIgnoreUsers(_T(""))
     , m_sIgnoreRegex(_T(""))
+    , m_isParentPath(false)
 {
 
 }
@@ -54,6 +55,7 @@ void CMonitorProjectDlg::DoDataExchange(CDataExchange* pDX)
     DDV_MinMaxInt(pDX, m_monitorInterval, 1, 1000);
     DDX_Text(pDX, IDC_IGNOREUSERS, m_sIgnoreUsers);
     DDX_Text(pDX, IDC_IGNOREREGEX, m_sIgnoreRegex);
+    DDX_Check(pDX, IDC_PARENTPATH, m_isParentPath);
 }
 
 

@@ -85,6 +85,7 @@ public:
         , UnreadItems(0)
         , unreadFirst(0)
         , authfailed(false)
+        , parentPath(false)
     {}
     MonitorItem()
         : interval(5)
@@ -95,6 +96,7 @@ public:
         , UnreadItems(0)
         , unreadFirst(0)
         , authfailed(false)
+        , parentPath(false)
     {}
     ~MonitorItem() {}
 
@@ -108,6 +110,7 @@ public:
     svn_revnum_t                unreadFirst;
     int                         UnreadItems;
     bool                        authfailed;
+    bool                        parentPath;
     CString                     lastErrorMsg;
     CString                     username;
     CString                     password;
@@ -573,7 +576,8 @@ private:
     CHintCtrl<CDragDropTreeCtrl> m_projTree;
     CSimpleIni          m_monitoringFile;
     volatile LONG       m_bMonitorThreadRunning;
-    std::vector<MonitorItem>    m_monitorItemListForThread;
+    std::vector<MonitorItem>            m_monitorItemListForThread;
+    std::multimap<CString, MonitorItem> m_monitorItemParentPathList;
     int                 m_nMonitorUrlIcon;
     int                 m_nMonitorWCIcon;
     int                 m_nErrorOvl;
