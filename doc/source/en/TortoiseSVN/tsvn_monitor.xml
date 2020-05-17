@@ -63,6 +63,14 @@
       a folder is added. This is useful to group monitored projects.
     </para>
     <para>
+      If you want to monitor all repositories served via the
+      <ulink url="http://svnbook.red-bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic">
+        <citetitle>SVNParentPath</citetitle>
+      </ulink>
+      directive, enter the root Url for your repositories and check the box
+      <literal>Url points to SVNParentPath list</literal>.
+    </para>
+    <para>
       The fields <literal>Username</literal> and <literal>Password</literal>
       should only be filled in if the repository does not provide anonymous
       read access, and only if the authentication is not stored by Subversion
