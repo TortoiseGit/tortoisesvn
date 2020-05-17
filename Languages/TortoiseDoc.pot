@@ -200,7 +200,7 @@ msgid "TortoiseSVN is an Open Source project developed under the GNU General Pub
 msgstr ""
 
 #. (para)
-msgid "Although most people just download the installer, you also have full read access to the source code of this program. You can browse it on this link <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. The current development line is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgid "Although most people just download the installer, you also have full read access to the source code of this program. You can browse it on this link <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. The current development line is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
 msgstr ""
 
 #. (title)
@@ -9799,6 +9799,10 @@ msgid "If the box for <literal>Path or Url</literal> is left empty, then a folde
 msgstr ""
 
 #. (para)
+msgid "If you want to monitor all repositories served via the <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink> directive, enter the root Url for your repositories and check the box <literal>Url points to SVNParentPath list</literal>."
+msgstr ""
+
+#. (para)
 msgid "The fields <literal>Username</literal> and <literal>Password</literal> should only be filled in if the repository does not provide anonymous read access, and only if the authentication is not stored by Subversion itself. If you're accessing the monitored repository with TortoiseSVN or other svn clients and you've stored the authentication already, you should leave this empty: you won't have to edit those projects manually if the password changes."
 msgstr ""
 
@@ -10991,19 +10995,15 @@ msgid "FAQ"
 msgstr ""
 
 #. (para)
-msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>online FAQ</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing lists <email>dev@tortoisesvn.tigris.org</email> and <email>users@tortoisesvn.tigris.org</email>."
+msgid "Because TortoiseSVN is being developed all the time it is sometimes hard to keep the documentation completely up to date. We maintain an <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>online FAQ</citetitle></ulink> which contains a selection of the questions we are asked the most on the TortoiseSVN mailing lists <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> and <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink>"
 msgstr ""
 
 #. (para)
-msgid "We also maintain a project <ulink url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>Issue Tracker</citetitle></ulink> which tells you about some of the things we have on our To-Do list, and bugs which have already been fixed. If you think you have found a bug, or want to request a new feature, check here first to see if someone else got there before you."
+msgid "<ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> is the one to use if you have questions about using TortoiseSVN."
 msgstr ""
 
 #. (para)
-msgid "<email>users@tortoisesvn.tigris.org</email> is the one to use if you have questions about using TortoiseSVN."
-msgstr ""
-
-#. (para)
-msgid "If you want to help out with the development of TortoiseSVN, then you should take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
+msgid "If you want to help out with the development of TortoiseSVN, then you should take part in discussions on <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink>"
 msgstr ""
 
 #. (para)
@@ -13506,7 +13506,7 @@ msgid "TortoiseMerge is free. You don't have to pay for it, you can use it any w
 msgstr ""
 
 #. (para)
-msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
+msgid "TortoiseMerge is an Open Source project. That means you have full read access to the source code of this program. You can browse it on this link <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. The most recent version (where we're currently working) is located under <filename>/trunk/</filename>, and the released versions are located under <filename>/tags/</filename>."
 msgstr ""
 
 #. (para)
