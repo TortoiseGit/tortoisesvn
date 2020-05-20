@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2017 - TortoiseSVN
+// Copyright (C) 2016-2017, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -105,6 +105,8 @@ public:
     svn_wc_conflict_action_t GetIncomingChange() const;
     // Wrapper for svn_client_conflict_get_local_change().
     svn_wc_conflict_reason_t GetLocalChange() const;
+    // Wrapper for svn_client_conflict_get_recommended_option_id().
+    svn_client_conflict_option_id_t GetRecommendedOptionId() const;
     bool HasTreeConflict() const { return m_tree_conflicted != FALSE; }
     bool HasTextConflict() const { return m_text_conflicted != FALSE; }
     bool HasPropConflict() const { return m_prop_conflicts->nelts > 0; }

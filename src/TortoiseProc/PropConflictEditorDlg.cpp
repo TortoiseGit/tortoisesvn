@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2018 - TortoiseSVN
+// Copyright (C) 2016-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -188,6 +188,19 @@ void CPropConflictEditorDlg::DoModal(HWND parent, int index)
 
     AddCommandButton(1000, CString(MAKEINTRESOURCE(IDS_EDITCONFLICT_PROP_EDITCMD)));
 
+    svn_client_conflict_option_id_t recommendedOptionId = m_conflictInfo->GetRecommendedOptionId();
+    int defaultButtonID = 0;
+
+    if (recommendedOptionId != svn_client_conflict_option_unspecified)
+    {
+        SVNConflictOption *recommendedOption = m_options.FindOptionById(recommendedOptionId);
+
+        if (recommendedOption)
+        {
+            defaultButtonID = 100 + recommendedOption->GetId();
+        }
+    }
+
     int button;
     TASKDIALOGCONFIG taskConfig = { 0 };
     taskConfig.cbSize = sizeof(taskConfig);
@@ -201,6 +214,7 @@ void CPropConflictEditorDlg::DoModal(HWND parent, int index)
     taskConfig.pszContent = sContent;
     taskConfig.pButtons = &m_buttons.front();
     taskConfig.cButtons = (int)m_buttons.size();
+    taskConfig.nDefaultButton = defaultButtonID;
     taskConfig.dwCommonButtons = TDCBF_CANCEL_BUTTON;
     TaskDialogIndirect(&taskConfig, &button, NULL, NULL);
     if (button == IDCANCEL)

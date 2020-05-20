@@ -195,6 +195,11 @@ svn_wc_conflict_reason_t SVNConflictInfo::GetLocalChange() const
     return svn_client_conflict_get_local_change(m_conflict);
 }
 
+svn_client_conflict_option_id_t SVNConflictInfo::GetRecommendedOptionId() const
+{
+    return svn_client_conflict_get_recommended_option_id(m_conflict);
+}
+
 bool SVNConflictInfo::IsBinary()
 {
     const char *mime_type = svn_client_conflict_text_get_mime_type(m_conflict);

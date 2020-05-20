@@ -193,6 +193,19 @@ void CTextConflictEditorDlg::DoModal(HWND parent)
 
     AddCommandButton(1000, CString(MAKEINTRESOURCE(IDS_EDITCONFLICT_TEXT_EDITCMD)));
 
+    svn_client_conflict_option_id_t recommendedOptionId = m_conflictInfo->GetRecommendedOptionId();
+    int defaultButtonID = 0;
+
+    if (recommendedOptionId != svn_client_conflict_option_unspecified)
+    {
+        SVNConflictOption *recommendedOption = m_options.FindOptionById(recommendedOptionId);
+
+        if (recommendedOption)
+        {
+            defaultButtonID = 100 + recommendedOption->GetId();
+        }
+    }
+
     int button;
     TASKDIALOGCONFIG taskConfig = { 0 };
     taskConfig.cbSize = sizeof(taskConfig);
@@ -205,6 +218,7 @@ void CTextConflictEditorDlg::DoModal(HWND parent)
     taskConfig.pszContent = sContent;
     taskConfig.pButtons = &m_buttons.front();
     taskConfig.cButtons = (int)m_buttons.size();
+    taskConfig.nDefaultButton = defaultButtonID;
     taskConfig.dwCommonButtons = TDCBF_CANCEL_BUTTON;
     TaskDialogIndirect(&taskConfig, &button, NULL, NULL);
     if (button == IDCANCEL)
