@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,6 +70,8 @@ BOOL CURLDlg::OnInitDialog()
     // in the edit box of the combo.
     m_URLCombo.SetCurSel(0);
     m_URLCombo.SetFocus();
+
+    SetTheme(CTheme::Instance().IsDarkTheme());
 
     // if there is an url on the clipboard, use that url as the default.
     CAppUtils::AddClipboardUrlToWindow(m_URLCombo.GetSafeHwnd());

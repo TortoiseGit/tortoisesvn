@@ -154,6 +154,7 @@ BOOL CFindDlg::OnInitDialog()
 
     m_FindCombo.SetFocus();
 
+    SetTheme(CTheme::Instance().IsDarkTheme());
     return FALSE;
 }
 

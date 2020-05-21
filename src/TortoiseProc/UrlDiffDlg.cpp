@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016, 2018 - TortoiseSVN
+// Copyright (C) 2007-2016, 2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -93,6 +93,8 @@ BOOL CUrlDiffDlg::OnInitDialog()
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, svnPath.GetUIPathString(), sWindowTitle);
+
+    SetTheme(CTheme::Instance().IsDarkTheme());
 
     AddAnchor(IDC_URLLABEL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_URLCOMBO, TOP_LEFT, TOP_RIGHT);

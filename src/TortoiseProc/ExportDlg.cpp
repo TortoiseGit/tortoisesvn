@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -159,6 +159,8 @@ BOOL CExportDlg::OnInitDialog()
         m_editRevision.SetWindowText(temp);
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     }
+
+    SetTheme(CTheme::Instance().IsDarkTheme());
 
     DialogEnableWindow(IDOK, !m_strExportDirectory.IsEmpty());
 

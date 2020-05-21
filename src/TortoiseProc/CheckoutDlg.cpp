@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -227,6 +227,8 @@ BOOL CCheckoutDlg::OnInitDialog()
     size.cx = MAXLONG;
     size.cy = rect.Height();
     SetMaxTrackSize(size);
+
+    SetTheme(CTheme::Instance().IsDarkTheme());
 
     if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));

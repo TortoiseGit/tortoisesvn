@@ -301,6 +301,8 @@ BOOL CCopyDlg::OnInitDialog()
     else
         m_ExtList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_NOEXTERNALSFORURLS)));
 
+    SetTheme(CTheme::Instance().IsDarkTheme());
+
     return TRUE;
 }
 
