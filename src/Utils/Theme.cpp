@@ -220,6 +220,7 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
             SetWindowTheme(hwnd, L"Explorer", nullptr);
         }
         else if ((wcscmp(szWndClassName, WC_COMBOBOXEX) == 0) ||
+                 (wcscmp(szWndClassName, L"ComboLBox") == 0) ||
                  (wcscmp(szWndClassName, WC_COMBOBOX) == 0))
         {
             SetWindowTheme(hwnd, L"DarkMode_Explorer", nullptr);
@@ -278,9 +279,6 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
         else if (wcscmp(szWndClassName, L"Auto-Suggest Dropdown") == 0)
         {
             SetWindowTheme(hwnd, L"Explorer", nullptr);
-            // note: since the list control used to show the suggest dropdown has
-            // the style LVS_OWNERDRAWFIXED setting the theme has no effect.
-            // that's why we don't enumerate over the children of the "Auto-Suggest Dropdown"
             SetWindowSubclass(hwnd, AutoSuggestSubclassProc, SubclassID, (DWORD_PTR)&s_backBrush);
             EnumChildWindows(hwnd, AdjustThemeForChildrenProc, lParam);
         }
@@ -470,6 +468,54 @@ LRESULT CTheme::ComboBoxSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM
             if (!*hbrBkgnd)
                 *hbrBkgnd = CreateSolidBrush(darkBkColor);
             return reinterpret_cast<LRESULT>(*hbrBkgnd);
+        }
+        break;
+        case WM_DRAWITEM:
+        {
+            LPDRAWITEMSTRUCT pDIS           = (LPDRAWITEMSTRUCT)(lParam);
+            HDC              hDC            = pDIS->hDC;
+            RECT             rc             = pDIS->rcItem;
+            wchar_t          itemText[1024] = {0};
+
+            COMBOBOXEXITEM cbi = {0};
+            cbi.mask           = CBEIF_TEXT | CBEIF_IMAGE | CBEIF_SELECTEDIMAGE | CBEIF_OVERLAY | CBEIF_INDENT;
+            cbi.iItem          = pDIS->itemID;
+            cbi.cchTextMax     = _countof(itemText);
+            cbi.pszText        = itemText;
+
+            auto cwnd = GetParent(hWnd);
+
+            if (SendMessage(cwnd, CBEM_GETITEM, 0, (LPARAM)&cbi))
+            {
+                rc.left += (cbi.iIndent * 10);
+                auto img = (pDIS->itemState & LVIS_SELECTED) ? cbi.iSelectedImage : cbi.iImage;
+                if (pDIS->itemState & LVIS_FOCUSED)
+                {
+                    ::SetBkColor(hDC, darkDisabledTextColor);
+                }
+                else
+                {
+                    ::SetBkColor(hDC, darkBkColor);
+                }
+                ::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &rc, nullptr, 0, nullptr);
+
+                if (img)
+                {
+                    auto imglist = (HIMAGELIST)SendMessage(cwnd, CBEM_GETIMAGELIST, 0, 0);
+                    if (imglist)
+                    {
+                        int iconX(0), iconY(0);
+                        ImageList_GetIconSize(imglist, &iconX, &iconY);
+                        ImageList_Draw(imglist, img, hDC, rc.left, rc.top, ILD_TRANSPARENT | INDEXTOOVERLAYMASK(cbi.iOverlay));
+                        rc.left += (iconX + 2);
+                    }
+                }
+
+                SetTextColor(pDIS->hDC, darkTextColor);
+                SetBkMode(hDC, TRANSPARENT);
+                DrawText(hDC, cbi.pszText, -1, &rc, DT_SINGLELINE | DT_VCENTER | DT_NOPREFIX | DT_END_ELLIPSIS);
+                return TRUE;
+            }
         }
         break;
         case WM_DESTROY:
