@@ -327,6 +327,7 @@ BOOL CRevisionGraphDlg::OnInitDialog()
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
 
+    __super::SetTheme(CTheme::Instance().IsDarkTheme());
     SetTheme(CTheme::Instance().IsDarkTheme());
 
     return TRUE;  // return TRUE unless you set the focus to a control
