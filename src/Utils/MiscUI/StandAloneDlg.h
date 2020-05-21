@@ -366,6 +366,8 @@ protected:
         BaseType::EnableSaveRestore(pszSection, bRectOnly, (m_nResizeBlock&DIALOG_BLOCKHORIZONTAL) == 0, (m_nResizeBlock&DIALOG_BLOCKVERTICAL) == 0);
     };
 
+    void SetTheme(bool bDark);
+
 protected:
     MARGINS         m_margins;
     AeroControlBase m_aeroControls;
@@ -391,7 +393,6 @@ private:
         }
     }
 
-    void SetTheme(bool bDark);
 protected:
     void OnCompositionChanged()
     {
