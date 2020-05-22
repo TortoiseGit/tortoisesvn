@@ -26,9 +26,9 @@
 # Jim Yao <yaoxu12345@gmail.com>, 2018
 # Thomas ZHANG <zjbthomas@gmail.com>, 2016
 # Gones <liejie050911@163.com>, 2013-2014
-# shuyu liu <liushuyu011@gmail.com>, 2014
-# shuyu liu <liushuyu011@gmail.com>, 2016
-# shuyu liu <liushuyu011@gmail.com>, 2014,2016
+# liushuyu011 <liushuyu011@gmail.com>, 2014
+# liushuyu011 <liushuyu011@gmail.com>, 2016
+# liushuyu011 <liushuyu011@gmail.com>, 2014,2016
 # LIU Tian <liutian666666@gmail.com>, 2016
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
@@ -40,6 +40,7 @@
 # pop corner <memoword@163.com>, 2018
 # Verplusor, 2011
 # stephen zhu <huasoft@163.com>, 2011
+# Finger.S <syx12321@qq.com>, 2020
 # szkingrose <1072258106@qq.com>, 2014
 # Thomas ZHANG <zjbthomas@gmail.com>, 2016
 # Verplusor, 2011
@@ -56,8 +57,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-03-26 13:31+0000\n"
-"Last-Translator: Jerlin Liu <1351567568@qq.com>\n"
+"PO-Revision-Date: 2020-05-17 12:22+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -327,10 +328,10 @@ msgid ""
 "Although most people just download the installer, you also have full read "
 "access to the source code of this program. You can browse it on this link "
 "<ulink "
-"url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
+"url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr "尽管很多用户只下载安装程序，但是你有这对这个项目的源码的所有阅读权限。你可以通过这个链接来访问源代码： <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>。当前开发中的最新版本位于<filename>/trunk/</filename> ，而发布版本位于<filename>/tags/</filename>。"
+msgstr ""
 
 #. (title)
 msgid "Development"
@@ -3636,7 +3637,7 @@ msgid ""
 "<literal>#</literal> is the comment character. Newlines can be inserted by "
 "escaping them like this: <literal>\\n</literal> and <literal>\\r</literal>. "
 "To insert a backslash, escape it like this: <literal>\\\\</literal>."
-msgstr ""
+msgstr "日志信息窗口里也同样包含了一个提交信息的片段工具。一旦你输入某个片段的快捷指令后他们就会出现在自动完成提示框内。你可以从提示框内选择一个片段这样整个片段的文字就会插入进来。TortoiseSVN自带的片段都被保存在TortoiseSVN安装目录下的<filename>bin</filename>文件夹内。你也可以在<filename>%APPDATA%\\TortoiseSVN\\snippet.txt</filename>里存储你自己的片段。<literal>#</literal>是注释符，换行符可以用反斜杠标记<literal>\\n</literal>和<literal>\\r</literal>。你还可以通过<literal>\\\\</literal>来输入反斜杠。"
 
 #. (para)
 msgid ""
@@ -7430,7 +7431,7 @@ msgid ""
 "scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
 "/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
 "in case conflicts."
-msgstr ""
+msgstr "在<ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"></citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink>有一个有用的服务器端脚本,它能防止大小写冲突的检入。"
 
 #. (title)
 msgid "Repairing File Renames"
@@ -7636,7 +7637,7 @@ msgid ""
 "Only uncheck this option if the working copy is used by other users/clients "
 "at the time. But if the cleanup then fails, you have to check this option "
 "for the cleanup to succeed."
-msgstr ""
+msgstr "如果同时其他用户/客户端在使用工作副本，则只能取消选中这个选项。但是如果清理后失败了，你必须勾上这个选项以便清理能够成功运行。"
 
 #. (term)
 msgid "Fix time stamps"
@@ -13254,6 +13255,25 @@ msgid ""
 "results using this colour."
 msgstr "当在日志对话框中使用筛选时，在结果中使用颜色来突出显示搜索对象。"
 
+#. (term)
+msgid "Dark theme"
+msgstr ""
+
+#. (para)
+msgid ""
+"The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
+"and later. This feature also requires that dark mode for applications is "
+"enabled in the Windows 10 settings."
+msgstr ""
+
+#. (para)
+msgid "Note that not all controls in all dialogs are shown in a dark theme."
+msgstr ""
+
+#. (para)
+msgid "other settings: <placeholder-1/>"
+msgstr ""
+
 #. (title)
 msgid "Revision Graph Settings"
 msgstr "版本图设置"
@@ -15133,14 +15153,6 @@ msgstr ""
 
 #. (para)
 msgid ""
-"The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
-"and later. This dark mode is considered experimental, because not all "
-"controls are shown in dark mode and some controls look pretty basic. Set "
-"this to <literal>true</literal> to enable the dark theme."
-msgstr ""
-
-#. (para)
-msgid ""
 "Set this to <literal>true</literal> if you want a dialog to pop up for every"
 " command showing the command line used to start TortoiseProc.exe."
 msgstr "如果希望在每一次在启动TortoiseProc.exe的命令行时都弹出对话框,可以设置这为<literal>true</literal>."
@@ -15612,6 +15624,15 @@ msgstr ""
 msgid ""
 "If the box for <literal>Path or Url</literal> is left empty, then a folder "
 "is added. This is useful to group monitored projects."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you want to monitor all repositories served via the <ulink "
+"url=\"http://svnbook.red-"
+"bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink>"
+" directive, enter the root Url for your repositories and check the box "
+"<literal>Url points to SVNParentPath list</literal>."
 msgstr ""
 
 #. (para)
@@ -17122,31 +17143,27 @@ msgid ""
 "keep the documentation completely up to date. We maintain an <ulink "
 "url=\"https://tortoisesvn.net/faq.html\"><citetitle>online "
 "FAQ</citetitle></ulink> which contains a selection of the questions we are "
-"asked the most on the TortoiseSVN mailing lists "
-"<email>dev@tortoisesvn.tigris.org</email> and "
-"<email>users@tortoisesvn.tigris.org</email>."
+"asked the most on the TortoiseSVN mailing lists <ulink "
+"url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink>"
+" and <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev</citetitle></ulink>"
 msgstr ""
 
 #. (para)
 msgid ""
-"We also maintain a project <ulink "
-"url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>Issue "
-"Tracker</citetitle></ulink> which tells you about some of the things we have"
-" on our To-Do list, and bugs which have already been fixed. If you think you"
-" have found a bug, or want to request a new feature, check here first to see"
-" if someone else got there before you."
-msgstr ""
-
-#. (para)
-msgid ""
-"<email>users@tortoisesvn.tigris.org</email> is the one to use if you have "
-"questions about using TortoiseSVN."
+"<ulink "
+"url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink>"
+" is the one to use if you have questions about using TortoiseSVN."
 msgstr ""
 
 #. (para)
 msgid ""
 "If you want to help out with the development of TortoiseSVN, then you should"
-" take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
+" take part in discussions on <ulink "
+"url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev</citetitle></ulink>"
 msgstr ""
 
 #. (para)
@@ -17667,7 +17684,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Undo "
 "Add...</guimenuitem></menuchoice> to undo the add. You should then add the "
 "file(s) to the ignore list so they don't get added again later by mistake."
-msgstr ""
+msgstr "如果你还没有提交你的新增变更，那你只需要用<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>撤销增加</guimenuitem></menuchoice>来撤销本次变更。你接下来可以把这些文件加入忽略列表，这样以后就不会错误地把他们标记为新增了"
 
 #. (para)
 msgid ""
@@ -17863,7 +17880,7 @@ msgid ""
 "VS.NET2002. All later versions of Visual Studio do <emphasis>not</emphasis> "
 "require this hack to be activated! So unless you're using that ancient tool,"
 " DO NOT USE THIS!"
-msgstr ""
+msgstr "请注意如果你还在用VS.NET2002的话这个hack才是必要的，所有更新版本的Visual Studio都<emphasis>不</emphasis>需要启用这个hack！所以如果你没在用这个古老的软件的话，不要启用！"
 
 #. (title)
 msgid "Disable context menu entries"
@@ -20613,11 +20630,11 @@ msgid ""
 "TortoiseMerge is an Open Source project. That means you have full read "
 "access to the source code of this program. You can browse it on this link "
 "<ulink "
-"url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
+"url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr "TortoiseMerge 是一个开源软件项目。这意味着你可以取得它的全部源代码。你可以访问以下链接得到源代码：<ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink>。我们当前正在开发的最新的版本放在 <filename>/trunk/</filename> 目录下，而已发布版本放在 <filename>/tags/</filename> 下。"
+msgstr ""
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"

@@ -25,18 +25,19 @@
 # Lübbe Onken <l.onken@rac.de>, 2011-2012, 2013-2016, 2017
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2012-2015
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2018-2019
+# Michael Tatarski <agentmoe@yahoo.de>, 2020
 # Mr.Update, 2019-2020
 # peu <peu@rekoba.de>, 2013
 # peu <peu@rekoba.de>, 2013
-# Stefan Kueng <tortoisesvn@gmail.com>, 2014,2019
+# Stefan Kueng <tortoisesvn@gmail.com>, 2014,2019-2020
 # Sven Strickroth <sstrickroth@googlemail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-03-26 16:55+0000\n"
-"Last-Translator: Mr.Update\n"
+"PO-Revision-Date: 2020-05-19 19:10+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -3579,6 +3580,16 @@ msgstr "Auswahl in die Zwischenablage verschieben\nAusschneiden"
 msgid "D&etails"
 msgstr "D&etails"
 
+#. Resource IDs: (1682)
+msgid "Dark theme"
+msgstr "Dunke Systemfarbe"
+
+#. Resource IDs: (1683)
+msgid ""
+"Dark theme requires at least Win10 1803, and it must be enabled in the "
+"Windows system settings."
+msgstr "Die dunkle Systemfarbe ist ab der Version Windows 10 1803 verwendbar. Dazu muss außerdem der Dark-Theme in den Windows-Einstellungen aktiviert sein."
+
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
 msgstr "Datum"
@@ -4210,7 +4221,7 @@ msgstr "Editor-Konfiguration aktivieren"
 
 #. Resource IDs: (1648)
 msgid "Enable drag context menu"
-msgstr "'Ziehen und Ablegen'-Kontextmenü aktivieren"
+msgstr "Ziehen-Kontextmenü aktivieren"
 
 #. Resource IDs: (5500)
 msgid "Enable log caching to speed up log and revision graph dialogs"
@@ -10556,6 +10567,10 @@ msgstr "Arbeitskopie hochstufen"
 #, c-format
 msgid "Upgrading '%1!ls!'"
 msgstr "'%1!ls!' hochstufen"
+
+#. Resource IDs: (1684)
+msgid "Url points to SVNParentPath list"
+msgstr "Url zeigt auf SVNParentPath Liste"
 
 #. Resource IDs: (1843)
 msgid "Urls"

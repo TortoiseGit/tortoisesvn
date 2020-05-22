@@ -55,7 +55,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-03-26 01:30+0000\n"
+"PO-Revision-Date: 2020-05-17 12:22+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -326,10 +326,10 @@ msgid ""
 "Although most people just download the installer, you also have full read "
 "access to the source code of this program. You can browse it on this link "
 "<ulink "
-"url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
+"url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr "Bien que la plupart des utilisateurs se contentent de télécharger l'application d'installation, vous avez un accès total en lecture au code source de ce logiciel. Vous pouvez le parcourir à l'adresse <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>. Le développement actuel est situé sous <filename>/trunk/</filename>, et les versions figées pour distribution (releases) sous <filename>/tags/</filename>."
+msgstr ""
 
 #. (title)
 msgid "Development"
@@ -13253,6 +13253,25 @@ msgid ""
 "results using this colour."
 msgstr "Lors de l'utilisation de filtrage dans la boîte de dialogue du journal, les termes de recherche sont mis en évidence dans les résultats en utilisant cette couleur."
 
+#. (term)
+msgid "Dark theme"
+msgstr ""
+
+#. (para)
+msgid ""
+"The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
+"and later. This feature also requires that dark mode for applications is "
+"enabled in the Windows 10 settings."
+msgstr ""
+
+#. (para)
+msgid "Note that not all controls in all dialogs are shown in a dark theme."
+msgstr ""
+
+#. (para)
+msgid "other settings: <placeholder-1/>"
+msgstr ""
+
 #. (title)
 msgid "Revision Graph Settings"
 msgstr "Options du Graphe des Révisions"
@@ -15132,14 +15151,6 @@ msgstr "Dans la plupart des dialogues de TortoiseSVN, vous pouvez utiliser <keyc
 
 #. (para)
 msgid ""
-"The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
-"and later. This dark mode is considered experimental, because not all "
-"controls are shown in dark mode and some controls look pretty basic. Set "
-"this to <literal>true</literal> to enable the dark theme."
-msgstr ""
-
-#. (para)
-msgid ""
 "Set this to <literal>true</literal> if you want a dialog to pop up for every"
 " command showing the command line used to start TortoiseProc.exe."
 msgstr "Définissez ceci à <literal>true</literal> si vous voulez qu'une boîte de dialogue apparaisse pour chaque commande, affichant la ligne de commande utilisée pour lancer TortoiseProc.exe."
@@ -15611,6 +15622,15 @@ msgstr ""
 msgid ""
 "If the box for <literal>Path or Url</literal> is left empty, then a folder "
 "is added. This is useful to group monitored projects."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you want to monitor all repositories served via the <ulink "
+"url=\"http://svnbook.red-"
+"bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink>"
+" directive, enter the root Url for your repositories and check the box "
+"<literal>Url points to SVNParentPath list</literal>."
 msgstr ""
 
 #. (para)
@@ -17121,32 +17141,28 @@ msgid ""
 "keep the documentation completely up to date. We maintain an <ulink "
 "url=\"https://tortoisesvn.net/faq.html\"><citetitle>online "
 "FAQ</citetitle></ulink> which contains a selection of the questions we are "
-"asked the most on the TortoiseSVN mailing lists "
-"<email>dev@tortoisesvn.tigris.org</email> and "
-"<email>users@tortoisesvn.tigris.org</email>."
+"asked the most on the TortoiseSVN mailing lists <ulink "
+"url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink>"
+" and <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev</citetitle></ulink>"
 msgstr ""
 
 #. (para)
 msgid ""
-"We also maintain a project <ulink "
-"url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>Issue "
-"Tracker</citetitle></ulink> which tells you about some of the things we have"
-" on our To-Do list, and bugs which have already been fixed. If you think you"
-" have found a bug, or want to request a new feature, check here first to see"
-" if someone else got there before you."
+"<ulink "
+"url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink>"
+" is the one to use if you have questions about using TortoiseSVN."
 msgstr ""
-
-#. (para)
-msgid ""
-"<email>users@tortoisesvn.tigris.org</email> is the one to use if you have "
-"questions about using TortoiseSVN."
-msgstr "<email> users@tortoisesvn.tigris.org</email> est celle à utiliser si vous avez des questions sur l'utilisation de TortoiseSVN."
 
 #. (para)
 msgid ""
 "If you want to help out with the development of TortoiseSVN, then you should"
-" take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
-msgstr "Si vous voulez aider au développement de TortoiseSVN, il faut alors prendre part aux discussions sur <email>dev@tortoisesvn.tigris.org</email>."
+" take part in discussions on <ulink "
+"url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev</citetitle></ulink>"
+msgstr ""
 
 #. (para)
 msgid ""
@@ -20612,7 +20628,7 @@ msgid ""
 "TortoiseMerge is an Open Source project. That means you have full read "
 "access to the source code of this program. You can browse it on this link "
 "<ulink "
-"url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
+"url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."

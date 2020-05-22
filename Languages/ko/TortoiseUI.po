@@ -13,7 +13,7 @@
 # Baek Gahui <dhkdhk32@naver.com>, 2016
 # Sangjun Jung <spamcoffee+transifex@gmail.com>, 2011
 # Hyuk Jae Choi <certin1945@gmail.com>, 2016
-# 백환승, 2019
+# 백환승, 2019-2020
 # 오준일 <juniri123@gmail.com>, 2018
 # Jun Jeong <jun.jeong@hotmail.com>, 2019
 # kim minhyouk <apollo8900@naver.com>, 2015
@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-03-26 01:43+0000\n"
+"PO-Revision-Date: 2020-05-17 13:41+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Korean (http://www.transifex.com/luebbe/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
@@ -3575,6 +3575,16 @@ msgstr "선택한 부분을 잘라 클립보드에 붙여넣습니다.\n자르�
 msgid "D&etails"
 msgstr "세부사항(&E)"
 
+#. Resource IDs: (1682)
+msgid "Dark theme"
+msgstr ""
+
+#. Resource IDs: (1683)
+msgid ""
+"Dark theme requires at least Win10 1803, and it must be enabled in the "
+"Windows system settings."
+msgstr ""
+
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
 msgstr "날짜"
@@ -4806,11 +4816,11 @@ msgstr "최신 리비전 찾기"
 
 #. Resource IDs: (cmdFindNext_LabelTitle_RESID)
 msgid "Find Next"
-msgstr ""
+msgstr "다음 찾기"
 
 #. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
 msgid "Find Previous"
-msgstr ""
+msgstr "이전 찾기"
 
 #. Resource IDs: (cmdFindPrev)
 msgid ""
@@ -10552,6 +10562,10 @@ msgstr "작업 사본 업그레이드"
 #, c-format
 msgid "Upgrading '%1!ls!'"
 msgstr "'%1!ls!' 업데이트 중"
+
+#. Resource IDs: (1684)
+msgid "Url points to SVNParentPath list"
+msgstr ""
 
 #. Resource IDs: (1843)
 msgid "Urls"

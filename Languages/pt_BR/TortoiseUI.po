@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# Caldas, 2020
 # Crhistian <crhistian.ti@gmail.com>, 2012
 # Crhistian <crhistian.ti@gmail.com>, 2012
 # Edson Chen <edson.chen@gmail.com>, 2011
@@ -39,7 +40,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-03-26 01:43+0000\n"
+"PO-Revision-Date: 2020-05-17 13:41+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/luebbe/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -656,11 +657,11 @@ msgstr "&Personalizado"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode"
-msgstr ""
+msgstr "&Modo Escuro"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode\t(D)"
-msgstr ""
+msgstr "&Modo Escuro \t(D)"
 
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
@@ -2918,7 +2919,7 @@ msgstr "Cores"
 #. Resource IDs: (IDS_INDICATOR_COLUMN)
 #, c-format
 msgid "Column: %d"
-msgstr ""
+msgstr "Coluna: %d"
 
 #. Resource IDs: (3506)
 msgid "Command"
@@ -3161,7 +3162,7 @@ msgstr "Linhas de contexto para correções"
 
 #. Resource IDs: (1543)
 msgid "Continue &Merge"
-msgstr ""
+msgstr "Continuar&Unir"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3582,6 +3583,16 @@ msgstr "Recorta a selecção e coloca-a na Área de Transferência\nRecortar"
 #. Resource IDs: (1279)
 msgid "D&etails"
 msgstr "D&etalhes"
+
+#. Resource IDs: (1682)
+msgid "Dark theme"
+msgstr ""
+
+#. Resource IDs: (1683)
+msgid ""
+"Dark theme requires at least Win10 1803, and it must be enabled in the "
+"Windows system settings."
+msgstr ""
 
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
@@ -4814,23 +4825,23 @@ msgstr "Localizar revisões HEAD"
 
 #. Resource IDs: (cmdFindNext_LabelTitle_RESID)
 msgid "Find Next"
-msgstr ""
+msgstr "Buscar próximo"
 
 #. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
 msgid "Find Previous"
-msgstr ""
+msgstr "Buscar anterior"
 
 #. Resource IDs: (cmdFindPrev)
 msgid ""
 "Find the last occurrence of the selected text\n"
 "Search Previous"
-msgstr ""
+msgstr "Encontrar a última ocorrência do texto selecionado\nBuscar anterior"
 
 #. Resource IDs: (cmdFindNext)
 msgid ""
 "Find the next occurrence of the selected text\n"
 "Search Next"
-msgstr ""
+msgstr "Encontrar a próxima ocorrência do texto selecionado\nBuscar próximo "
 
 #. Resource IDs: (cmdFind)
 msgid ""
@@ -5294,7 +5305,7 @@ msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32819; '&Dark Mode\t(D)'
 msgid "ID:32819:V   +D"
-msgstr ""
+msgstr "ID:32819:V   +D"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -6245,7 +6256,7 @@ msgstr "Blocos marcados"
 #. Resource IDs: (IDS_INDICATOR_MARKEDWORDCOUNT)
 #, c-format
 msgid "Marked words: %s"
-msgstr ""
+msgstr "Palavras marcadas: %s"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -8733,11 +8744,11 @@ msgstr "Agrupamento \"%s\" tem %ld vesão(ões)"
 
 #. Resource IDs: (1345)
 msgid "Shelf name can not be empty!"
-msgstr ""
+msgstr "Nome do agrupamento não pode ficar em branco."
 
 #. Resource IDs: (65535)
 msgid "Shelfing"
-msgstr ""
+msgstr "Salvar agrupamento"
 
 #. Resource IDs: (1270, 3349)
 msgid "Shell"
@@ -10561,6 +10572,10 @@ msgstr "Atualiza a cópia de trabalho"
 msgid "Upgrading '%1!ls!'"
 msgstr "Atualizando '%1!ls!'"
 
+#. Resource IDs: (1684)
+msgid "Url points to SVNParentPath list"
+msgstr ""
+
 #. Resource IDs: (1843)
 msgid "Urls"
 msgstr "Urls"
@@ -10657,7 +10672,7 @@ msgstr "Usar ambos os blocos de texto (este aqui por último)"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 1513)
 msgid "Use dark mode"
-msgstr ""
+msgstr "Usar modo escuro"
 
 #. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
 #. cmdUseLeftBlock_LabelTitle_RESID)
@@ -10805,11 +10820,11 @@ msgstr "V"
 
 #. Resource IDs: (1680)
 msgid "V2: Faster, no server connection required (recommended)"
-msgstr ""
+msgstr "V2: mais rápido, não requer conexão com servidor (recomendado)."
 
 #. Resource IDs: (1681)
 msgid "V3: Slower, requires server connection."
-msgstr ""
+msgstr "V3: mais lento, requer conexão com servidor."
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""

@@ -23,6 +23,7 @@
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011,2013
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011,2013,2018
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2018
+# Michael Tatarski <agentmoe@yahoo.de>, 2020
 # Mr.Update, 2019-2020
 # peu <peu@rekoba.de>, 2012-2013
 # peu <peu@rekoba.de>, 2012
@@ -31,15 +32,15 @@
 # r lvnt <michael.steinbrueck@airbus.com>, 2018
 # rs_bitbucket, 2017
 # rs_bitbucket, 2017
-# Stefan Kueng <tortoisesvn@gmail.com>, 2011
+# Stefan Kueng <tortoisesvn@gmail.com>, 2011,2020
 # Thomas Franck <transifex@digitalchaos.de>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-03-26 22:33+0000\n"
-"Last-Translator: Mr.Update\n"
+"PO-Revision-Date: 2020-05-19 19:12+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -309,10 +310,10 @@ msgid ""
 "Although most people just download the installer, you also have full read "
 "access to the source code of this program. You can browse it on this link "
 "<ulink "
-"url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
+"url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr "Obwohl die meisten Anwender nur das Installationsprogramm herunterladen, haben sie auch Zugang zum Quellcode des Programms. Sie können den Quellcode unter folgender URL <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink> ansehen. Die aktuelle Version (an der wir gerade arbeiten) ist immer im Ordner <filename>/trunk/</filename> zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <filename>/tags/</filename>."
+msgstr "Obwohl die meisten Leute den Installer benutzen haben Sie auch vollen Zugang zum Sourcecode des Programms. Sie können diesen mit diesem Link ansehen <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. Die aktuelle Entwicklungsversion finden Sie unter <filename>/trunk/</filename>, und die veröffentlichten Versionen unter <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
@@ -1767,7 +1768,7 @@ msgid ""
 "with the local changes. If Subversion can't complete the merge in a "
 "plausible way automatically, it leaves it to the user to resolve the "
 "conflict."
-msgstr "Die Datei wurde lokal und im Projektarchiv verändert. Ein <command>Übertragen</command> wird mit der Fehlermeldung <emphasis>nicht mehr aktuell</emphasis> fehlschlagen. Sie müssen die Datei zuerst <command>Aktualisieren</command>, um die Änderungen aus dem Projektarchiv in die lokale Kopie einzufügen. Falls Subversion nicht in der Lage sein sollte, diese Änderungen selbst zusammenzuführen, was selten der Fall ist, überlässt es das Auflösen des Konflikts dem Benutzer."
+msgstr "Die Datei wurde lokal und im Projektarchiv verändert. Ein <command>Übertragen</command> wird mit der Fehlermeldung <emphasis>nicht mehr aktuell</emphasis> fehlschlagen. Sie müssen die Datei zuerst <command>Aktualisieren</command>, um die Änderungen aus dem Projektarchiv in die lokale Kopie einzufügen. Wenn Subversion nicht in der Lage sein sollte, diese Änderungen selbst zusammenzuführen, was selten der Fall ist, überlässt es das Auflösen des Konflikts dem Benutzer."
 
 #. (title)
 msgid "Summary"
@@ -2131,7 +2132,7 @@ msgid ""
 "(in three separate commits). If you want to create a deeper hierarchy then "
 "it is simpler to create a folder structure on disk first and import it in a "
 "single commit, like this: <placeholder-1/>"
-msgstr "Falls Sie noch keine Ordnerstruktur in Ihrem Projektarchiv angelegt haben, sollten Sie das jetzt erledigen. Es gibt zwei Möglichkeiten dafür. Falls Sie nur die einfache <filename>/trunk /tags /branches</filename>-Struktur wünschen, können Sie diese in drei Schritten mit Hilfe des Projektarchivbetrachters anlegen. Wenn Sie eine tiefer verschachtelte Hierarchie wünschen, sollten Sie die zunächst auf der lokalen Platte anlegen und dann in einem Schritt wie hier importieren: <placeholder-1/>"
+msgstr "Wenn Sie noch keine Ordnerstruktur in Ihrem Projektarchiv angelegt haben, sollten Sie das jetzt erledigen. Es gibt zwei Möglichkeiten dafür. Wenn Sie nur die einfache <filename>/trunk /tags /branches</filename>-Struktur wünschen, können Sie diese in drei Schritten mit Hilfe des Projektarchivbetrachters anlegen. Wenn Sie eine tiefer verschachtelte Hierarchie wünschen, sollten Sie die zunächst auf der lokalen Platte anlegen und dann in einem Schritt wie hier importieren: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -2432,7 +2433,7 @@ msgid ""
 "If you need an introduction to version control with Subversion, then we "
 "recommend you read the fantastic book: <ulink url=\"http://svnbook.red-"
 "bean.com/\"><citetitle>Version Control with Subversion</citetitle></ulink>."
-msgstr "Falls Sie eine Anleitung für Versionskontrolle mit Subversion benötigen, empfehlen wir das fantastische Buch <ulink url=\"http://svnbook.red-bean.com/\"> <citetitle>Versionskontrolle mit Subversion</citetitle> </ulink>."
+msgstr "Wenn Sie eine Anleitung für Versionskontrolle mit Subversion benötigen, empfehlen wir das fantastische Buch <ulink url=\"http://svnbook.red-bean.com/\"> <citetitle>Versionskontrolle mit Subversion</citetitle> </ulink>."
 
 #. (para)
 msgid ""
@@ -2556,7 +2557,7 @@ msgstr "Drag and Drop"
 
 #. (primary)
 msgid "drag-n-drop"
-msgstr "Drag und Drop"
+msgstr "Ziehen und Ablegen"
 
 #. (primary)
 msgid "right drag"
@@ -2626,7 +2627,7 @@ msgid ""
 "Some common operations have well-known Windows shortcuts, but do not appear "
 "on buttons or in menus. If you can't work out how to do something obvious, "
 "like refreshing a view, check here. <placeholder-1/>"
-msgstr "Einige allgemeine Aktionen haben wohlbekannte Windowstastenkürzel, werden aber nicht auf Schaltflächen oder in Menüs angezeigt. Wenn Ihnen einige wichtige Funktionen, wie Aktualisieren der Anzeige, nicht klar sind, schauen Sie hier nach. <placeholder-1/>"
+msgstr "Einige allgemeine Aktionen haben wohlbekannte Windows-Tastaturkürzel, werden aber nicht auf Schaltflächen oder in Menüs angezeigt. Wenn Ihnen einige wichtige Funktionen wie Aktualisieren der Anzeige nicht klar sind, schauen Sie hier nach. <placeholder-1/>"
 
 #. (title)
 msgid "Authentication"
@@ -2712,7 +2713,7 @@ msgid ""
 "this on the <guilabel>Maximize</guilabel> button. Use the <action>middle "
 "mouse</action> button to maximize vertically, and <action>right "
 "mouse</action> to maximize horizontally."
-msgstr "Viele der Dialoge von TortoiseSVN zeigen eine große Menge an Informationen an. Manchmal ist es sinnvoll, anstatt das Fenster auf Vollbild zu vergrößern, nur die Breite oder die Höhe zu maximieren. Zu diesem Zweck stehen Ihnen Abkürzungen auf der <guilabel>Maximieren</guilabel>-Schaltfläche zur Verfügung. Klicken Sie mit der <action>mittleren Maustaste</action>, wird vertikal maximiert, mit der <action>rechten Maustaste</action> horizontal."
+msgstr "Viele der Dialoge von TortoiseSVN zeigen eine große Menge an Informationen an. Manchmal ist es sinnvoll, nur die Breite oder die Höhe zu maximieren, statt das Fenster auf Vollbild zu vergrößern. Zu diesem Zweck stehen Ihnen Abkürzungen auf der <guilabel>Maximieren</guilabel>-Schaltfläche zur Verfügung. Klicken Sie mit der <action>mittleren Maustaste</action>, wird vertikal maximiert, mit der <action>rechten Maustaste</action> horizontal."
 
 #. (title)
 msgid "Importing Data Into A Repository"
@@ -2809,7 +2810,7 @@ msgid ""
 "C:\\Projects\\Widget\\doc\n"
 "C:\\Projects\\Widget\\images\n"
 "      </screen> and you import <filename>C:\\Projects\\Widget</filename> into <systemitem class=\"url\">http://mydomain.com/svn/trunk</systemitem> then you may be surprised to find that your subdirectories go straight into <literal>trunk</literal> rather than being in a <literal>Widget</literal> subdirectory. You need to specify the subdirectory as part of the URL, <systemitem class=\"url\">http://mydomain.com/svn/trunk/Widget-X</systemitem>. Note that the import command will automatically create subdirectories within the repository if they do not exist."
-msgstr "In diesem Dialog geben Sie die URL des Projektarchivs ein, in das Sie Ihr Projekt importieren wollen. Es ist sehr wichtig zu verstehen, dass der lokale Ordner, den Sie importieren, nicht im Projektarchiv landet, sondern nur sein Inhalt. Wenn Sie z. B. die folgende Struktur haben:\n<screen>C:\\Projekte\\Grafik\\source\nC:\\Projekte\\Grafik\\doku\nC:\\Projekte\\Grafik\\bilder</screen>\nund Sie importieren <filename>C:\\Projekte\\Grafik</filename> in <systemitem class=\"url\">http://meinserver.com/svn/trunk</systemitem>, könnten Sie überrascht feststellen, dass Ihre Unterverzeichnisse direkt in <literal>trunk</literal> anstelle eines <literal>Grafik</literal>-Unterverzeichnisses landen. Sie müssen das Unterverzeichnis als Teil der URL <systemitem class=\"url\">http://meinserver.com/svn/trunk/Grafik-X</systemitem> angeben. Beachten Sie, dass der Importbefehl automatisch Unterverzeichnisse im Projektarchiv anlegt, falls diese noch nicht existieren."
+msgstr "In diesem Dialog geben Sie die URL des Projektarchivs ein, in das Sie Ihr Projekt importieren wollen. Es ist sehr wichtig zu verstehen, dass der lokale Ordner, den Sie importieren, nicht im Projektarchiv landet, sondern nur sein Inhalt. Wenn Sie z. B. die folgende Struktur haben:\n<screen>C:\\Projekte\\Grafik\\source\nC:\\Projekte\\Grafik\\doku\nC:\\Projekte\\Grafik\\bilder</screen>\nund Sie importieren <filename>C:\\Projekte\\Grafik</filename> in <systemitem class=\"url\">http://meinserver.com/svn/trunk</systemitem>, könnten Sie überrascht feststellen, dass Ihre Unterverzeichnisse direkt in <literal>trunk</literal> anstelle eines <literal>Grafik</literal>-Unterverzeichnisses landen. Sie müssen das Unterverzeichnis als Teil der URL <systemitem class=\"url\">http://meinserver.com/svn/trunk/Grafik-X</systemitem> angeben. Beachten Sie, dass der Importbefehl automatisch Unterverzeichnisse im Projektarchiv anlegt, wenn diese noch nicht existieren."
 
 #. (para)
 msgid "The import message is used as a log message."
@@ -4753,7 +4754,7 @@ msgid ""
 "You can also revert changes in individual files. If you have deleted a file "
 "accidentally, it will show up as <emphasis>Missing</emphasis> and you can "
 "use <emphasis>Revert</emphasis> to recover it."
-msgstr "Sie können auch Änderungen in einzelnen Dateien rückgängig machen. Falls Sie aus Versehen eine Datei gelöscht haben, wird sie in diesem Dialog als <emphasis>Fehlend</emphasis> angezeigt und kann mittels <emphasis>Rückgängig</emphasis> wiederhergestellt werden."
+msgstr "Sie können auch Änderungen in einzelnen Dateien rückgängig machen. Wenn Sie aus Versehen eine Datei gelöscht haben, wird sie in diesem Dialog als <emphasis>Fehlend</emphasis> angezeigt und kann mittels <emphasis>Rückgängig</emphasis> wiederhergestellt werden."
 
 #. (para)
 msgid ""
@@ -6036,7 +6037,7 @@ msgid ""
 " functions. The filter works by checking whether your filter string matches "
 "the log entries, and then only those entries which "
 "<emphasis>match</emphasis> the filter string are shown."
-msgstr "Klicken Sie auf das Suchsymbol, um auszuwählen, welche Werte Sie durchsuchen möchten und um die Suche mit regulären Ausdrücken zu aktivieren. Normalerweise benötigen Sie nur eine einfache Textsuche, aber falls Sie komplexere Suchbegriffe formulieren wollen, können Sie reguläre Ausdrücke verwenden. Wenn Sie mit dem Mauszeiger über das Eingabefeld fahren, erscheint ein Hinweistext zur Textsuche und den regulären Ausdrücken. Der Filter vergleicht Ihren Suchtext mit den Logmeldungen und zeigt nur die Einträge an, die mit dem Suchtext <emphasis>übereinstimmen</emphasis>."
+msgstr "Klicken Sie auf das Suchsymbol, um auszuwählen, welche Werte Sie durchsuchen möchten und um die Suche mit regulären Ausdrücken zu aktivieren. Normalerweise benötigen Sie nur eine einfache Textsuche, aber wenn Sie komplexere Suchbegriffe formulieren wollen, können Sie reguläre Ausdrücke verwenden. Wenn Sie mit dem Mauszeiger über das Eingabefeld fahren, erscheint ein Hinweistext zur Textsuche und den regulären Ausdrücken. Der Filter vergleicht Ihren Suchtext mit den Logmeldungen und zeigt nur die Einträge an, die mit dem Suchtext <emphasis>übereinstimmen</emphasis>."
 
 #. (para)
 msgid ""
@@ -6606,7 +6607,7 @@ msgid ""
 "the list to filenames containing specific text. Note that a simple text "
 "search is used, so if you want to restrict the list to C source files you "
 "should enter <filename>.c</filename> rather than <filename>*.c</filename>."
-msgstr "Wenn die Liste der Dateien sehr lang ist, kann sie mit Hilfe des Suchfeldes auf die Dateien mit einer bestimmten Zeichenfolge beschränkt werden. Es wird eine <emphasis>einfache Textsuche</emphasis> durchgeführt. Wenn Sie z. B. nur C-Quelltexte angezeigt haben wollen, geben Sie <filename>.c</filename> anstatt <filename>*.c</filename> ein."
+msgstr "Wenn die Liste der Dateien sehr lang ist, kann sie mit Hilfe des Suchfeldes auf die Dateien mit einer bestimmten Zeichenfolge beschränkt werden. Es wird eine <emphasis>einfache Textsuche</emphasis> durchgeführt. Wenn Sie z. B. nur C-Quelltexte angezeigt haben wollen, geben Sie <filename>.c</filename> statt <filename>*.c</filename> ein."
 
 #. (title)
 msgid "Diffing Images Using TortoiseIDiff"
@@ -8071,7 +8072,7 @@ msgid ""
 "<literal>tsvn:logtemplate</literal>. The action specific templates are used "
 "if set, but <literal>tsvn:logtemplate</literal> will be used if no action "
 "specific template is set."
-msgstr "Es gibt auch aktionsspezifische Schablonen, die Sie anstelle von <literal>tsvn:logtemplate</literal> verwenden können. Falls eine aktionsspezifische Schablone definiert ist, wird diese verwendet, ansonsten wird auf <literal>tsvn:logtemplate</literal> zurückgegriffen."
+msgstr "Es gibt auch aktionsspezifische Schablonen, die Sie anstelle von <literal>tsvn:logtemplate</literal> verwenden können. Wenn eine aktionsspezifische Schablone definiert ist, wird diese verwendet, ansonsten wird auf <literal>tsvn:logtemplate</literal> zurückgegriffen."
 
 #. (para)
 msgid ""
@@ -8209,7 +8210,7 @@ msgid ""
 " will either scroll to that revision (if the revision is already shown in "
 "the log dialog, or if it's available from the log cache) or open a new log "
 "dialog showing that revision."
-msgstr "Mit der Eigenschaft <literal>tsvn:logrevregex</literal> wird ein regulärer Ausdruck festgelegt, der Referenzen auf Revisionen in Logmeldungen sucht. Im Log-Dialog werden diese Referenzen als anklickbare Verweise angezeigt. Bei einem Mausklick auf einen solchen Verweis im Log-Dialog wird entweder im selben Fenster zu dieser Revision gesprungen, falls die Revision bereits geladen oder im Log-Puffer vorhanden ist oder es wird ein neuer Log-Dialog mit dieser Revision geöffnet."
+msgstr "Mit der Eigenschaft <literal>tsvn:logrevregex</literal> wird ein regulärer Ausdruck festgelegt, der Referenzen auf Revisionen in Logmeldungen sucht. Im Log-Dialog werden diese Referenzen als anklickbare Verweise angezeigt. Bei einem Mausklick auf einen solchen Verweis im Log-Dialog wird entweder im selben Fenster zu dieser Revision gesprungen, wenn die Revision bereits geladen oder im Log-Puffer vorhanden ist oder es wird ein neuer Log-Dialog mit dieser Revision geöffnet."
 
 #. (para)
 msgid ""
@@ -8394,7 +8395,7 @@ msgid ""
 "the <literal>regex</literal> specifies a regular expression which is used to"
 " validate (match) the text the user entered. If the text does not match the "
 "regex, then the user is shown an error and the property isn't set."
-msgstr "Die <literal>RegEx</literal> definiert einen regulären Ausdruck, der verwendet wird, um den vom Anwender eingegebenen  Eigenschaftswert zu überprüfen. Falls der Wert nicht korrekt ist, wird eine Fehlermeldung angezeigt und die Eigenschaft wird nicht gesetzt."
+msgstr "Die <literal>RegEx</literal> definiert einen regulären Ausdruck, der verwendet wird, um den vom Anwender eingegebenen  Eigenschaftswert zu überprüfen. Wenn der Wert nicht korrekt ist, wird eine Fehlermeldung angezeigt und die Eigenschaft wird nicht gesetzt."
 
 #. (title)
 msgid "Property dialog multi-line user types"
@@ -8468,7 +8469,7 @@ msgid ""
 "you use different values at different depths in your project hierarchy then "
 "you will get different results depending on where you click in the folder "
 "structure."
-msgstr "Diese speziellen Eigenschaften müssen für Ordner und nicht für Dateien gesetzt werden. Wenn Sie einen TortoiseSVN-Befehl aufrufen, der diese Eigenschaften verwendet, werden Sie aus dem gewählten Ordner gelesen. Wenn die Eigenschaften dort nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften oder der oberste Ordner des Ordnerbaums (z. B. <literal>C:\\</literal>) gefunden wurde. Wenn Sie also sicher sind, dass alle Benutzer ihre Arbeitskopie z. B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus, die Eigenschaften dort zu setzen. Falls Sie hingegen nicht sicher sein können, dann müssen Sie die Eigenschaften rekursiv auf alle Unterordner Ihres Projektes setzen. Wenn sie dieselbe Eigenschaft mit unterschiedlichen Werten an verschiedenen Stellen der Projekthierarchie setzen, erhalten Sie unterschiedliche Ergebnisse, je nachdem, wohin Sie in der Ordnerstruktur klicken."
+msgstr "Diese speziellen Eigenschaften müssen für Ordner und nicht für Dateien gesetzt werden. Wenn Sie einen TortoiseSVN-Befehl aufrufen, der diese Eigenschaften verwendet, werden Sie aus dem gewählten Ordner gelesen. Wenn die Eigenschaften dort nicht gefunden werden, sucht TortoiseSVN im Ordnerbaum aufwärts nach diesen Eigenschaften, bis entweder die Eigenschaften oder der oberste Ordner des Ordnerbaums (z. B. <literal>C:\\</literal>) gefunden wurde. Wenn Sie also sicher sind, dass alle Benutzer ihre Arbeitskopie z. B. von <filename>/trunk</filename> ausgecheckt haben, reicht es aus, die Eigenschaften dort zu setzen. Wenn Sie hingegen nicht sicher sein können, dann müssen Sie die Eigenschaften rekursiv auf alle Unterordner Ihres Projektes setzen. Wenn sie dieselbe Eigenschaft mit unterschiedlichen Werten an verschiedenen Stellen der Projekthierarchie setzen, erhalten Sie unterschiedliche Ergebnisse, je nachdem, wohin Sie in der Ordnerstruktur klicken."
 
 #. (para)
 #. (para)
@@ -8576,7 +8577,7 @@ msgid ""
 "update this item in your working copy. By specifying a peg revision you tell"
 " Subversion to look for an item that had that name at the peg revision "
 "rather than at HEAD."
-msgstr "Sie müssen die Subversion-URL des externen Ordners sowie den Namen des Unterordners angeben, als der der externe Ordner ausgecheckt wird. Sie können Externals in der HEAD-Revision auschecken, sodass bei Änderungen am externen Objekt Ihre Arbeitskopie die Änderungen erhält. Wenn Sie allerdings möchten, dass das External auf eine bestimmte Revision verweist, können Sie die zu verwendende Revisionsnummer als fixe Revision mit angeben. Falls das externe Objekt in der Zukunft umbenannt wird, kann Subversion es in Ihrer Arbeitskopie nicht mehr aktualisieren. Indem Sie eine fixe Revision angeben, teilen Sie Subversion mit, in einer bestimmten Revision (anstelle HEAD) nach dem Objekt mit dem angegebenen Namen zu suchen."
+msgstr "Sie müssen die Subversion-URL des externen Ordners sowie den Namen des Unterordners angeben, als der der externe Ordner ausgecheckt wird. Sie können Externals in der HEAD-Revision auschecken, sodass bei Änderungen am externen Objekt Ihre Arbeitskopie die Änderungen erhält. Wenn Sie allerdings möchten, dass das External auf eine bestimmte Revision verweist, können Sie die zu verwendende Revisionsnummer als fixe Revision mit angeben. Wenn das externe Objekt in der Zukunft umbenannt wird, kann Subversion es in Ihrer Arbeitskopie nicht mehr aktualisieren. Indem Sie eine fixe Revision angeben, teilen Sie Subversion mit, in einer bestimmten Revision (anstelle HEAD) nach dem Objekt mit dem angegebenen Namen zu suchen."
 
 #. (para)
 msgid ""
@@ -8586,7 +8587,7 @@ msgid ""
 "external gives you the command to peg the selected externals to their "
 "explicit HEAD revision. In case the HEAD revision is not known yet, the "
 "right click command will fetch the HEAD revision first."
-msgstr "Die Schaltfläche <guibutton>HEAD-Revision finden</guibutton> holt die HEAD-Revision jeder externen URL und zeigt sie in der rechten Spalte an. Nachdem diese Revision bekannt ist, genügt ein einfacher Rechtsklick, um den externen Verweis fest an diese HEAD-Revision zu binden. Falls die HEAD-Revision noch nicht bekannt ist, wird sie bei einem Rechtsklick zunächst geholt."
+msgstr "Die Schaltfläche <guibutton>HEAD-Revision finden</guibutton> holt die HEAD-Revision jeder externen URL und zeigt sie in der rechten Spalte an. Nachdem diese Revision bekannt ist, genügt ein einfacher Rechtsklick, um den externen Verweis fest an diese HEAD-Revision zu binden. Wenn die HEAD-Revision noch nicht bekannt ist, wird sie bei einem Rechtsklick zunächst geholt."
 
 #. (title)
 msgid "SVN Keywords"
@@ -8641,7 +8642,7 @@ msgid ""
 "shows a marker at the given column width as a guide for projects which have "
 "width limits on their log messages. Setting a value to zero will delete the "
 "property."
-msgstr "</placeholder-1>Diese drei Eigenschaften steuern die Formatierung von Logmeldungen. Die ersten beiden deaktivieren solange die <guibutton>OK</guibutton>-Schaltfläche in den Übertragen- und Sperren-Dialogen, bis die Meldung die minimale Länge erreicht hat. Die Randposition zeigt eine Markierung an der angegebenen Spalte als Hilfslinie für Projekte, die die Breite ihrer Logmeldungen begrenzen. Wenn Sie einen Wert auf Null setzen, wird die Eigenschaft gelöscht."
+msgstr "</placeholder-1>Diese drei Eigenschaften steuern die Formatierung von Logmeldungen. Die ersten beiden deaktivieren solange die <guibutton>OK</guibutton>-Schaltfläche in den Übertragen- und Sperren-Dialogen, bis die Meldung die minimale Länge erreicht hat. Die Randposition zeigt eine Markierung an der angegebenen Spalte als Hilfslinie für Projekte, die die Breite ihrer Logmeldungen begrenzen. Wenn Sie einen Wert auf null setzen, wird die Eigenschaft gelöscht."
 
 #. (title)
 msgid "Project Language"
@@ -8845,7 +8846,7 @@ msgid ""
 " from the menu. To add a new external, click the "
 "<guibutton>New...</guibutton> and then fill in the required information in "
 "the shown dialog."
-msgstr "Nehmen wir an, Sie erstellen eine Arbeitskopie von <filename>/projekt1</filename> in <filename>D:\\dev\\projekt1</filename>. Markieren Sie den Ordner <filename>D:\\dev\\projekt1</filename>, machen Sie einen <action>Rechtsklick</action> und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Windows-Eigenschaftendialog erscheint, auf dessen Subversion-Tab können Sie Eigenschaften anschauen, verändern oder setzen. Klicken Sie auf <guibutton>Eigenschaften...</guibutton>. Im TortoiseSVN-Eigenschaftendialog machen Sie entweder einen Doppelklick auf <literal>svn:externals</literal>, falls der Eintrag existiert oder klicken Sie auf <guibutton>Neu...</guibutton> und wählen Sie <literal>externals</literal> aus dem Menü. Dann füllen Sie den Dialog mit den benötigten Informationen aus."
+msgstr "Nehmen wir an, Sie erstellen eine Arbeitskopie von <filename>/projekt1</filename> in <filename>D:\\dev\\projekt1</filename>. Markieren Sie den Ordner <filename>D:\\dev\\projekt1</filename>, machen Sie einen <action>Rechtsklick</action> und wählen Sie <menuchoice> <guimenu>Windows Menü</guimenu> <guimenuitem>Eigenschaften</guimenuitem> </menuchoice> aus dem Kontextmenü. Der Windows-Eigenschaftendialog erscheint, auf dessen Subversion-Tab können Sie Eigenschaften anschauen, verändern oder setzen. Klicken Sie auf <guibutton>Eigenschaften...</guibutton>. Im TortoiseSVN-Eigenschaftendialog machen Sie entweder einen Doppelklick auf <literal>svn:externals</literal>, wenn der Eintrag existiert oder klicken Sie auf <guibutton>Neu...</guibutton> und wählen Sie <literal>externals</literal> aus dem Menü. Dann füllen Sie den Dialog mit den benötigten Informationen aus."
 
 #. (para)
 msgid ""
@@ -8962,7 +8963,7 @@ msgid ""
 "You can easily refer to other repositories with the same <literal>SVNParentPath</literal> (a common directory holding several repositories). For example: <screen>\n"
 "^/../repos-2/hammers/claw  common/claw-hammer\n"
 "            </screen> This will extract <systemitem class=\"url\">http://example.com/svn/repos-2/hammers/claw</systemitem> into <filename>C:\\Working\\common\\claw-hammer</filename>."
-msgstr "Sie können einfach auf andere Projekte innerhalb desselben <literal>SVNParentPath</literal> (ein gemeinsames Elternverzeichnis, das mehrere Projektarchive enthält) verweisen. Zum Beispiel:\n<screen>^/../repos-2/werkzeug/hammer  gemeinsam/hammer-werkzeug</screen>\nDadurch wird <systemitem class=\"url\">http://example.com/svn/repos-2/werkzeug/hammer</systemitem> in <filename>C:\\Projekt\\gemeinsam\\hammer-werkzeug</filename> extrahiert."
+msgstr "Sie können einfach auf andere Projekte innerhalb desselben <literal>SVNParentPath</literal> (ein gemeinsames Elternverzeichnis, das mehrere Projektarchive enthält) verweisen. Zum Beispiel:\n<screen>^/../repos-2/hammers/claw common/claw-hammer</screen>\nDadurch wird <systemitem class=\"url\">http://example.com/svn/repos-2/werkzeug/hammer</systemitem> in <filename>C:\\Projekt\\gemeinsam\\hammer-werkzeug</filename> extrahiert."
 
 #. (term)
 msgid "Relative to scheme"
@@ -9479,7 +9480,7 @@ msgid ""
 "merge does not go as you expect, you may want to revert the changes, and the"
 " <guilabel>Revert</guilabel> command will discard <emphasis>all</emphasis> "
 "changes including any you made before the merge."
-msgstr "Es ist grundsätzlich eine gute Idee, Revisionen in einer unmodifizierten Arbeitskopie zusammenzuführen. Wenn Ihre Arbeitskopie Änderungen enthält, übertragen Sie diese zuerst. Falls nämlich das Zusammenführen nicht zu dem von Ihnen gewünschten Ergebnis führt, und Sie die Änderungen <guilabel>Rückgängig</guilabel> machen, wird dieser Befehl <emphasis>alles</emphasis> inklusive Ihrer eigenen Änderungen verwerfen."
+msgstr "Es ist grundsätzlich eine gute Idee, Revisionen in einer unmodifizierten Arbeitskopie zusammenzuführen. Wenn Ihre Arbeitskopie Änderungen enthält, übertragen Sie diese zuerst. Falls nämlich das Zusammenführen nicht zu dem von Ihnen gewünschten Ergebnis führt und Sie die Änderungen <guilabel>Rückgängig</guilabel> machen, wird dieser Befehl <emphasis>alles</emphasis> verwerfen, inklusive Ihrer eigenen Änderungen."
 
 #. (para)
 msgid ""
@@ -9694,7 +9695,7 @@ msgid ""
 "other than HEAD. All changes to trunk made during branch development must "
 "have been merged across to the branch (or marked as having been merged). The"
 " range of revisions to merge will be calculated automatically."
-msgstr "Um einen Zweig wiedereingliedern zu können, müssen einige Bedingungen erfüllt sein. Zunächst muss der Server die Verfolgung der Datenintegration unterstützen. Die Tiefe der Arbeitskopie muss unendlich sein (keine spärliche Arbeitskopie) und sie darf weder lokale Änderungen noch Objekte auf einer anderen URL oder einer anderen Revision als HEAD enthalten. Alle Änderungen am Stamm während der Entwicklung des Zweiges müssen in den Zweig übertragen worden sein (oder als übertragen markiert worden sein). Der Bereich der zusammenzuführenden Revisionen wird dann automatisch berechnet."
+msgstr "Um einen Zweig wieder eingliedern zu können, müssen einige Bedingungen erfüllt sein. Zunächst muss der Server die Verfolgung der Datenintegration unterstützen. Die Tiefe der Arbeitskopie muss unendlich sein (keine spärliche Arbeitskopie) und sie darf weder lokale Änderungen noch Objekte auf einer anderen URL oder einer anderen Revision als HEAD enthalten. Alle Änderungen am Stamm während der Entwicklung des Zweiges müssen in den Zweig übertragen worden sein (oder als übertragen markiert worden sein). Der Bereich der zusammenzuführenden Revisionen wird dann automatisch berechnet."
 
 #. (para)
 msgid ""
@@ -9813,7 +9814,7 @@ msgid ""
 "want to prevent a particular revision from being merged. Marking it as "
 "already merged will prevent the merge occurring with merge-tracking-aware "
 "clients."
-msgstr "Falls Sie Ihre Datenintegrationsschritte verfolgen und eine Revision als zusammengeführt markieren wollen, ohne die Daten wirklich zusammenzuführen, aktivieren Sie die Option <guilabel>Zusammenführen nur aufzeichnen</guilabel>. Es gibt mehrere Gründe, dies zu tun. Zum Beispiel könnten die zusammenzuführenden Änderungen zu komplex für den Algorithmus sein, sodass Sie die Daten von Hand integrieren und die Revisionen als zusammengeführt markieren, damit die Änderungsverfolgung darüber informiert ist. Oder Sie möchten verhindern, dass eine bestimmte Revision zusammengeführt werden kann. Clients, die die Verfolgung der Datenintegration bereits beherrschen, werden diese Revision dann überspringen."
+msgstr "Wenn Sie Ihre Datenintegrationsschritte verfolgen und eine Revision als zusammengeführt markieren wollen, ohne die Daten wirklich zusammenzuführen, aktivieren Sie die Option <guilabel>Zusammenführen nur aufzeichnen</guilabel>. Es gibt mehrere Gründe, dies zu tun. Zum Beispiel könnten die zusammenzuführenden Änderungen zu komplex für den Algorithmus sein, sodass Sie die Daten von Hand integrieren und die Revisionen als zusammengeführt markieren, damit die Änderungsverfolgung darüber informiert ist. Oder Sie möchten verhindern, dass eine bestimmte Revision zusammengeführt werden kann. Clients, die die Verfolgung der Datenintegration bereits beherrschen, werden diese Revision dann überspringen."
 
 #. (para)
 msgid ""
@@ -9826,7 +9827,7 @@ msgid ""
 "merge process a lot more complicated, there is no guaranteed way to find out"
 " in advance whether the merge will complete without conflicts, so files "
 "marked as conflicted in a test merge may in fact merge without any problem."
-msgstr "Nun, da alles vorbereitet ist, müssen Sie nur noch auf <guibutton>Zusammenführen</guibutton> klicken. Falls Sie eine Vorschau der Ergebnisse wünschen, können Sie einen <guibutton>Trockenlauf</guibutton> durchführen, der das Zusammenführen lediglich simuliert und die Arbeitskopie <emphasis>nicht</emphasis> verändert. Eine Liste der veränderten Dateien und der <emphasis>eventuell</emphasis> resultierenden Konflikte wird angezeigt. Da die Protokollierung der Datenintegration das Zusammenführen weiter verkompliziert, gibt es kein sicheres Verfahren, im Vorhinein festzustellen, wo Konflikte auftreten. Dadurch kann es vorkommen, dass beim Trockenlauf als konfliktbehaftet markierte Dateien sich in Wirklichkeit problemlos zusammenführen lassen."
+msgstr "Nun, da alles vorbereitet ist, müssen Sie nur noch auf <guibutton>Zusammenführen</guibutton> klicken. Wenn Sie eine Vorschau der Ergebnisse wünschen, können Sie einen <guibutton>Trockenlauf</guibutton> durchführen, der das Zusammenführen lediglich simuliert und die Arbeitskopie <emphasis>nicht</emphasis> verändert. Eine Liste der veränderten Dateien und der <emphasis>eventuell</emphasis> resultierenden Konflikte wird angezeigt. Da die Protokollierung der Datenintegration das Zusammenführen weiter verkompliziert, gibt es kein sicheres Verfahren, im Vorhinein festzustellen, wo Konflikte auftreten. Dadurch kann es vorkommen, dass beim Trockenlauf als konfliktbehaftet markierte Dateien sich in Wirklichkeit problemlos zusammenführen lassen."
 
 #. (para)
 msgid ""
@@ -9888,7 +9889,7 @@ msgid ""
 "with the trunk, you should be sure to merge often so that the branch and "
 "trunk do not drift too far apart. Of course, you should still avoid repeated"
 " merging of changes, as explained above."
-msgstr "Das Verwalten von Zweigen ist wichtig. Falls Sie Ihren Zweig stets mit dem Stamm synchron halten wollen, stellen Sie sicher, dass Sie Änderungen häufig zusammenführen, damit Stamm und Zweig nicht zu weit auseinanderdriften. Wie bereits erklärt, sollten Sie wiederholtes Zusammenführen der gleichen Änderungen vermeiden."
+msgstr "Das Verwalten von Zweigen ist wichtig. Wenn Sie Ihren Zweig stets mit dem Stamm synchron halten wollen, stellen Sie sicher, dass Sie Änderungen häufig zusammenführen, damit Stamm und Zweig nicht zu weit auseinanderdriften. Wie bereits erklärt, sollten Sie wiederholtes Zusammenführen der gleichen Änderungen vermeiden."
 
 #. (para)
 msgid ""
@@ -9965,7 +9966,7 @@ msgid ""
 "server, the repository and all clients are upgraded. Earlier clients will "
 "not store the <literal>svn:mergeinfo</literal> property and earlier servers "
 "will not provide the information requested by new clients."
-msgstr "Die zusammengeführten Revisionen und Pfade werden durch den Subversion-Client beim Zusammenführen in der Eigenschaft <literal>svn:mergeinfo</literal> abgespeichert. Sobald die Änderungen übertragen wurden, speichert der Server sie in einer Datenbank. Falls jetzt Logdaten, Annotierungen oder Zusammenführen angefordert werden, kann der Server entsprechend reagieren. Damit das System korrekt arbeitet, müssen Sie sicherstellen, dass der Server, das Projektarchiv und alle Clients aktualisiert werden. Ältere Clients füllen die <literal>svn:mergeinfo</literal> nicht aus und ältere Server beantworten die Anfragen neuerer Clients nicht."
+msgstr "Die zusammengeführten Revisionen und Pfade werden durch den Subversion-Client beim Zusammenführen in der Eigenschaft <literal>svn:mergeinfo</literal> abgespeichert. Sobald die Änderungen übertragen wurden, speichert der Server sie in einer Datenbank. Wenn jetzt Logdaten, Annotierungen oder Zusammenführen angefordert werden, kann der Server entsprechend reagieren. Damit das System korrekt arbeitet, müssen Sie sicherstellen, dass der Server, das Projektarchiv und alle Clients aktualisiert werden. Ältere Clients füllen die <literal>svn:mergeinfo</literal> nicht aus und ältere Server beantworten die Anfragen neuerer Clients nicht."
 
 #. (para)
 msgid ""
@@ -10609,7 +10610,7 @@ msgid ""
 "patch from those files. If you want to see the <guilabel>Options</guilabel> "
 "dialog you have to hold <keycap>shift</keycap> when you <action>right "
 "click</action>."
-msgstr "Wenn Sie es vorziehen, können Sie eine Patchdatei innerhalb des <guilabel>Übertragen</guilabel>- oder des <guilabel>Auf Änderungen prüfen</guilabel>-Dialogs erstellen. Wählen Sie einfach die Dateien und erzeugen Sie per Kontextmenü einen Patch für diese Dateien. Falls Sie die <guilabel>Optionen</guilabel> verändern wollen, halten Sie die <keycap>Umschalt</keycap>-Taste während des <action>Rechtsklicks</action> gedrückt."
+msgstr "Wenn Sie es vorziehen, können Sie eine Patchdatei innerhalb des <guilabel>Übertragen</guilabel>- oder des <guilabel>Auf Änderungen prüfen</guilabel>-Dialogs erstellen. Wählen Sie einfach die Dateien und erzeugen Sie per Kontextmenü einen Patch für diese Dateien. Wenn Sie die <guilabel>Optionen</guilabel> verändern wollen, halten Sie die <keycap>Umschalt</keycap>-Taste während des <action>Rechtsklicks</action> gedrückt."
 
 #. (title)
 msgid "Applying a Patch File"
@@ -10793,7 +10794,7 @@ msgid ""
 "mouse hovers over the blame info column. If you want to copy the log message"
 " for that revision, use the context menu which appears when you right click "
 "on the blame info column."
-msgstr "Die Revisionskommentare (Logmeldungen) werden in einem Hinweistext angezeigt, wenn sich die Maus über der Informationsspalte befindet. Falls sie diese Logmeldung in die Zwischenablage kopieren wollen, benutzen Sie dazu das Kontextmenü, das bei einem Rechtsklick auf die Informationsspalte erscheint."
+msgstr "Die Revisionskommentare (Logmeldungen) werden in einem Hinweistext angezeigt, wenn sich die Maus über der Informationsspalte befindet. Wenn Sie diese Logmeldung in die Zwischenablage kopieren wollen, benutzen Sie dazu das Kontextmenü, das bei einem Rechtsklick auf die Informationsspalte erscheint."
 
 #. (para)
 msgid ""
@@ -10849,7 +10850,7 @@ msgid ""
 "the blame info columns. If you do not want merged lines shown in this way, "
 "uncheck the <guilabel>Include merge info</guilabel> checkbox when starting "
 "the blame."
-msgstr "Wenn Sie die Änderungsverfolgung verwenden und die Zusatzinformation beim Annotieren angefordert haben, werden zusammengeführte Zeilen leicht unterschiedlich angezeigt. Falls eine Zeile als Ergebnis des Zusammenführens mit einem anderen Pfad geändert wurde, zeigt TortoiseBlame die Revision und den Autor der letzten Änderung in der Originaldatei statt der Revision an, in der die Daten zusammengeführt wurden. Die entsprechenden Zeilen werden durch Kursivschrift hervorgehoben. Die Revision, in der die Änderungen zusammengeführt wurden, wird im Hinweistext angezeigt, sobald Sie mit der Maus über die Infospalten fahren. Wenn Sie nicht möchten, dass zusammengeführte Zeilen so angezeigt werden, deaktivieren Sie die Option <guilabel>Zusammenführen-Info einschließen</guilabel>, wenn Sie das Annotieren starten."
+msgstr "Wenn Sie die Änderungsverfolgung verwenden und die Zusatzinformation beim Annotieren angefordert haben, werden zusammengeführte Zeilen leicht unterschiedlich angezeigt. Wenn eine Zeile als Ergebnis des Zusammenführens mit einem anderen Pfad geändert wurde, zeigt TortoiseBlame die Revision und den Autor der letzten Änderung in der Originaldatei statt der Revision an, in der die Daten zusammengeführt wurden. Die entsprechenden Zeilen werden durch Kursivschrift hervorgehoben. Die Revision, in der die Änderungen zusammengeführt wurden, wird im Hinweistext angezeigt, sobald Sie mit der Maus über die Infospalten fahren. Wenn Sie nicht möchten, dass zusammengeführte Zeilen so angezeigt werden, deaktivieren Sie die Option <guilabel>Zusammenführen-Info einschließen</guilabel>, wenn Sie das Annotieren starten."
 
 #. (para)
 msgid ""
@@ -11683,7 +11684,7 @@ msgid ""
 "(enabled by default), this will check the repository for newer commits and "
 "fetch only the new ones. If the log cache was in offline mode, this will "
 "also attempt to go back online."
-msgstr "Wenn Sie den Server auf neue Informationen überprüfen wollen, können Sie die Sicht einfach per <keycap>F5</keycap> aktualisieren. Falls Sie den Log-Puffer verwenden (standardmäßig aktiv), wird das Projektarchiv auf neue Übertragungen abgefragt und nur diese werden geholt. Falls der Log-Puffer offline war, wird gleichzeitig versucht, ihn wieder online zu schalten."
+msgstr "Wenn Sie den Server auf neue Informationen überprüfen wollen, können Sie die Sicht einfach per <keycap>F5</keycap> aktualisieren. Falls Sie den Log-Puffer verwenden (standardmäßig aktiv), wird das Projektarchiv auf neue Übertragungen abgefragt und nur diese werden geholt. Wenn der Log-Puffer offline war, wird gleichzeitig versucht, ihn wieder online zu schalten."
 
 #. (para)
 msgid ""
@@ -12086,7 +12087,7 @@ msgid ""
 "In case the domain name ever changes, you don't have to adjust the "
 "<literal>bugtraq:url</literal> property. There are two ways to specify a "
 "relative URL:"
-msgstr "Sie können auch relative URLs anstelle von absoluten verwenden. Das ist nützlich, falls Ihr Fehlerverfolgungssystem sich in derselben Domäne oder auf demselben Server befindet wie Ihr Projektarchiv. Falls sich der Domänenname ändern sollte, müssen Sie die Eigenschaft <literal>bugtraq:url</literal> nicht anpassen. Es gibt zwei Möglichkeiten, relative URLs zu definieren:"
+msgstr "Sie können auch relative URLs anstelle von absoluten verwenden. Das ist nützlich, wenn Ihr Fehlerverfolgungssystem sich in derselben Domäne oder auf demselben Server befindet wie Ihr Projektarchiv. Falls sich der Domänenname ändern sollte, müssen Sie die Eigenschaft <literal>bugtraq:url</literal> nicht anpassen. Es gibt zwei Möglichkeiten, relative URLs zu definieren:"
 
 #. (para)
 msgid ""
@@ -13236,6 +13237,25 @@ msgid ""
 "results using this colour."
 msgstr "Bei der Verwendung von Filtern im Log-Dialog werden Suchbegriffe in den Ergebnissen mit dieser Farbe hervorgehoben."
 
+#. (term)
+msgid "Dark theme"
+msgstr "Dunke Systemfarbe"
+
+#. (para)
+msgid ""
+"The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
+"and later. This feature also requires that dark mode for applications is "
+"enabled in the Windows 10 settings."
+msgstr "Die Benutzeroberfläche kann ab der Version Windows 10 1809 in einer dunklen Systemfarbe dargestellt werden. Diese Option erfordert, dass das Dark-Theme in den Windows 10 Einstellungen aktiviert ist."
+
+#. (para)
+msgid "Note that not all controls in all dialogs are shown in a dark theme."
+msgstr "Bitte bemerke, dass nicht alle Interaktionstools in dunkler Systemfarbe dargestellt werden."
+
+#. (para)
+msgid "other settings: <placeholder-1/>"
+msgstr "weitere Einstellungen<placeholder-1/>"
+
 #. (title)
 msgid "Revision Graph Settings"
 msgstr "Einstellungen des Revisionsgraphen"
@@ -13370,7 +13390,7 @@ msgstr "Arbeitskopie"
 msgid ""
 "If you opt to show an extra node for your modified working copy, attached to"
 " its last-commit revision on the graph, use this color."
-msgstr "Falls Sie einen Extraknoten für Ihre geänderte Arbeitskopie anzeigen lassen, wird diese Farbe für die Fläche des Knotens verwendet."
+msgstr "Wenn Sie einen Extraknoten für Ihre geänderte Arbeitskopie anzeigen lassen, wird diese Farbe für die Fläche des Knotens verwendet."
 
 #. (term)
 msgid "WC Node Border"
@@ -13406,7 +13426,7 @@ msgstr "Zusammengeklappte Marken"
 msgid ""
 "If you use tag folding to save space, tags are marked on the copy source "
 "using a block in this color."
-msgstr "Falls Sie Marken zusammenklappen, um Platz zu sparen, werden sie an der Quelle der Kopie durch einen Block in der gewählten Farbe gekennzeichnet."
+msgstr "Wenn Sie Marken zusammenklappen, um Platz zu sparen, werden sie an der Quelle der Kopie durch einen Block in der gewählten Farbe gekennzeichnet."
 
 #. (term)
 msgid "Selected Node Markers"
@@ -14237,7 +14257,7 @@ msgid ""
 " all repositories. Older versions of <literal>svnbridge</literal> would do "
 "this. If you need to access such repositories you will have to check this "
 "option. If you don't, leave it unchecked to improve performance."
-msgstr "Aktivieren Sie diese Checkbox für den Fall, dass Sie zu einem Server Verbindung aufnehmen, der dieselbe URL für alle Projektarchive benutzt. Zum Beispiel verwenden ältere Versionen von <literal>svnbridge</literal> immer dieselbe URL. Falls Sie dies nicht benötigen, lassen Sie die Checkbox inaktiv, um die Performance zu verbessern."
+msgstr "Aktivieren Sie diese Checkbox für den Fall, dass Sie zu einem Server Verbindung aufnehmen, der dieselbe URL für alle Projektarchive benutzt. Zum Beispiel verwenden ältere Versionen von <literal>svnbridge</literal> immer dieselbe URL. Wenn Sie dies nicht benötigen, lassen Sie die Checkbox inaktiv, um die Performance zu verbessern."
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
@@ -14255,7 +14275,7 @@ msgstr "Einige Subversion-Hoster vergeben für alle Projektarchiven dieselbe UUI
 
 #. (term)
 msgid "If the repository cannot be contacted"
-msgstr "Falls das Projektarchiv nicht erreichbar ist"
+msgstr "Wenn das Projektarchiv nicht erreichbar ist"
 
 #. (para)
 msgid ""
@@ -14284,7 +14304,7 @@ msgid ""
 "log dialog frequently and the server is slow, but the data shown may not be "
 "completely up-to-date. If you want to use this feature we suggest using a "
 "value of 300 (5 minutes) as a compromise."
-msgstr "Wenn Sie den Log-Dialog aufrufen, soll normalerweise der Server kontaktiert werden, um neue Logmeldungen abzurufen. Wenn die eingestellte Wartezeit nicht Null ist, wird der Server nur kontaktiert, falls die Wartezeit seit dem letzten Aufruf abgelaufen ist. Dies kann die Reaktionszeit beim Aufruf des Log-Dialogs beschleunigen, wenn Sie diesen häufig aufrufen und der Server langsam ist. Andererseits ist es möglich, dass die Logdaten dadurch nicht aktuell sind. Wenn Sie diese Funktion nutzen wollen, schlagen wir einen Wert von 300 (5 Minuten) als Kompromiss vor."
+msgstr "Wenn Sie den Log-Dialog aufrufen, soll normalerweise der Server kontaktiert werden, um neue Logmeldungen abzurufen. Wenn die eingestellte Wartezeit nicht null ist, wird der Server nur kontaktiert, falls die Wartezeit seit dem letzten Aufruf abgelaufen ist. Dies kann die Reaktionszeit beim Aufruf des Log-Dialogs beschleunigen, wenn Sie diesen häufig aufrufen und der Server langsam ist. Andererseits ist es möglich, dass die Logdaten dadurch nicht aktuell sind. Wenn Sie diese Funktion nutzen wollen, schlagen wir einen Wert von 300 (5 Minuten) als Kompromiss vor."
 
 #. (term)
 msgid "Days of inactivity until small caches get removed"
@@ -14733,7 +14753,7 @@ msgstr "Entweder <literal>true</literal> oder <literal>false</literal>, je nachd
 msgid ""
 "Path to a file containing the error message. If there was no error, the file"
 " will be empty."
-msgstr "Pfad zu einer Datei, die die Fehlermeldung enthält. Falls kein Fehler auftrat, ist die Datei leer."
+msgstr "Pfad zu einer Datei, die die Fehlermeldung enthält. Wenn kein Fehler auftrat, ist die Datei leer."
 
 #. (para)
 msgid ""
@@ -15111,15 +15131,7 @@ msgid ""
 "In most dialogs in TortoiseSVN, you can use <keycap>Ctrl+Enter</keycap> to "
 "dismiss the dialog as if you clicked on the OK button. If you don't want "
 "this, set this value to <literal>false</literal>."
-msgstr "In den meisten Dialogen in TortoiseSVN können Sie <keycap>Strg+Enter</keycap> verwenden, um den Dialog mit OK zu bestätigen. Falls Sie das nicht möchten, setzen Sie diesen Eintrag auf<literal>false</literal>."
-
-#. (para)
-msgid ""
-"The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
-"and later. This dark mode is considered experimental, because not all "
-"controls are shown in dark mode and some controls look pretty basic. Set "
-"this to <literal>true</literal> to enable the dark theme."
-msgstr "Die Dialoge in TortoiseSVN können unter Windows 10 1809 und höher in einem Dunkelmodus angezeigt werden. Dieser Dunkelmodus wird als experimentell angesehen, da nicht alle Steuerelemente im Dunkelmodus angezeigt werden und einige Steuerelemente ziemlich einfach aussehen. Setzen Sie dies auf <literal>true</literal>, um das dunkle Thema zu aktivieren."
+msgstr "In den meisten Dialogen in TortoiseSVN können Sie <keycap>Strg+Enter</keycap> verwenden, um den Dialog mit OK zu bestätigen. Wenn Sie das nicht möchten, setzen Sie diesen Eintrag auf<literal>false</literal>."
 
 #. (para)
 msgid ""
@@ -15540,7 +15552,7 @@ msgstr "Projekte beobachten"
 msgid ""
 "The project monitor is a helpful tool that monitors repositories and "
 "notifies you in case there are new commits."
-msgstr "Der Projektmonitor ist ein nützliches Werkzeug, das Projektarchive beobachtet und Sie benachrichtigt, falls es neue Übertragungen gibt."
+msgstr "Der Projektmonitor ist ein nützliches Werkzeug, das Projektarchive beobachtet und Sie benachrichtigt, wenn es neue Übertragungen gibt."
 
 #. (para)
 msgid ""
@@ -15595,6 +15607,15 @@ msgid ""
 "If the box for <literal>Path or Url</literal> is left empty, then a folder "
 "is added. This is useful to group monitored projects."
 msgstr "Wenn Sie das Feld für <literal>Pfad oder URL</literal> leer lassen, wird ein Ordner hinzugefügt. Das ist nützlich, um überwachte Projekte zusammenzufassen."
+
+#. (para)
+msgid ""
+"If you want to monitor all repositories served via the <ulink "
+"url=\"http://svnbook.red-"
+"bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink>"
+" directive, enter the root Url for your repositories and check the box "
+"<literal>Url points to SVNParentPath list</literal>."
+msgstr "Wenn Sie alle Projektarchive welche via die <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink> Direktive ausgeliefert werden überwachen möchten, geben Sie die entsprechende Url ein und setzen Sie einen Haken für die Checkbox <literal>Url zeigt auf SVNParentPath Liste</literal>."
 
 #. (para)
 msgid ""
@@ -16953,7 +16974,7 @@ msgid ""
 "same size on return! Each property name in <literal>revPropNames</literal> "
 "must also have a corresponding value in <literal>revPropValues</literal>. If"
 " no revision properties are to be set, the plugin must return empty arrays."
-msgstr "Die Rückgabewerte <literal>revPropNames</literal> und <literal>revPropValues</literal> können Namen/Wertepaare für Revisionseigenschaften enthalten, die beim Übertragen gesetzt werden sollen. Ein Modul muss sicherstellen, dass beide Felder beim Rücksprung dieselbe Größe haben! Jeder Eigenschaftswert in <literal>revPropNames</literal> muss einen entsprechenden Wert in <literal>revPropValues</literal> besitzen. Falls keine Revisionseigenschaften gesetzt werden sollen, muss das Modul leere Felder zurückgeben."
+msgstr "Die Rückgabewerte <literal>revPropNames</literal> und <literal>revPropValues</literal> können Namen/Wertepaare für Revisionseigenschaften enthalten, die beim Übertragen gesetzt werden sollen. Ein Modul muss sicherstellen, dass beide Felder beim Rücksprung dieselbe Größe haben! Jeder Eigenschaftswert in <literal>revPropNames</literal> muss einen entsprechenden Wert in <literal>revPropValues</literal> besitzen. Wenn keine Revisionseigenschaften gesetzt werden sollen, muss das Modul leere Felder zurückgeben."
 
 #. (programlisting)
 #, no-wrap
@@ -17104,32 +17125,28 @@ msgid ""
 "keep the documentation completely up to date. We maintain an <ulink "
 "url=\"https://tortoisesvn.net/faq.html\"><citetitle>online "
 "FAQ</citetitle></ulink> which contains a selection of the questions we are "
-"asked the most on the TortoiseSVN mailing lists "
-"<email>dev@tortoisesvn.tigris.org</email> and "
-"<email>users@tortoisesvn.tigris.org</email>."
-msgstr "Da TortoiseSVN ständig weiter entwickelt wird, ist es manchmal schwer, die Dokumentation auf dem neuesten Stand zu halten. Wir unterhalten eine <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>Online-FAQ</citetitle></ulink>, die eine Auswahl der am häufigsten Fragen enthält, die auf den TortoiseSVN-Mailinglisten <email>dev@tortoisesvn.tigris.org</email> und <email>users@tortoisesvn.tigris.org</email> gestellt werden."
+"asked the most on the TortoiseSVN mailing lists <ulink "
+"url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink>"
+" and <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev</citetitle></ulink>"
+msgstr "Weil TortoiseSVN fortwährend weiterentwickelt wird kann die Dokumentation manchmal veraltet sein. Wir führen ein <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>Online FAQ</citetitle></ulink> welches eine Auswahl von häufig gestellten Fragen welche auf unserer Mailinglisten <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> und <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink> gestellt wurden."
 
 #. (para)
 msgid ""
-"We also maintain a project <ulink "
-"url=\"https://sourceforge.net/p/tortoisesvn/tickets/\"><citetitle>Issue "
-"Tracker</citetitle></ulink> which tells you about some of the things we have"
-" on our To-Do list, and bugs which have already been fixed. If you think you"
-" have found a bug, or want to request a new feature, check here first to see"
-" if someone else got there before you."
-msgstr "Wir unterhalten außerdem ein <ulink url=\"https://sourceforge.net/p/tortoisesvn/tickets\"> <citetitle>Fehlerverfolgungssystem</citetitle> </ulink>, mit dessen Hilfe Sie sich einen Überblick über die Liste der offenen Punkte sowie über bereits beseitigte Fehler verschaffen können. Wenn Sie glauben, einen Fehler gefunden zu haben oder wenn Sie einen Verbesserungsvorschlag haben, schauen Sie bitte erst dort nach, ob das Problem nicht bereits dokumentiert ist."
-
-#. (para)
-msgid ""
-"<email>users@tortoisesvn.tigris.org</email> is the one to use if you have "
-"questions about using TortoiseSVN."
-msgstr "<email>users@tortoisesvn.tigris.org</email> ist für Fragen zur Arbeit mit TortoiseSVN."
+"<ulink "
+"url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink>"
+" is the one to use if you have questions about using TortoiseSVN."
+msgstr "<ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> ist das Forum für Fragen über die Benutzung von TortoiseSVN."
 
 #. (para)
 msgid ""
 "If you want to help out with the development of TortoiseSVN, then you should"
-" take part in discussions on <email>dev@tortoisesvn.tigris.org</email>."
-msgstr "Wenn Sie bei der Entwicklung helfen wollen, sollten Sie an den Diskussionen auf <email>dev@tortoisesvn.tigris.org</email> teilnehmen."
+" take part in discussions on <ulink "
+"url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
+"dev</citetitle></ulink>"
+msgstr "Wenn Sie helfen möchten bei der Weiterentwicklung von TortoiseSVN dann nutzen Sie bitte das Entwicklerforum <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -17661,7 +17678,7 @@ msgid ""
 "deletion from the repository, keeping the local copy. It also adds this item"
 " to the ignore list so that it will not be added back into Subversion again "
 "by mistake. Once this is done you just need to commit the parent folder."
-msgstr "Falls sich die Dateien bereits im Projektarchiv befinden, müssen sie daraus gelöscht und zur Ignorierliste hinzugefügt werden. Glücklicherweise stellt TortoiseSVN eine Funktion dafür zur Verfügung. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aus SVN entfernen und ignorieren</guimenuitem></menuchoice> wird zunächst die Datei/den Ordner zum Löschen aus dem Projektarchiv markieren und die lokale Kopie beibehalten. Sie fügt das Objekt zur Liste der ignorierten Dateien hinzu, sodass es nicht versehentlich wieder zu Subversion hinzugefügt wird. Nachdem dies geschehen ist, müssen Sie lediglich den Elternordner wieder übertragen."
+msgstr "Wenn sich die Dateien bereits im Projektarchiv befinden, müssen sie daraus gelöscht und zur Ignorierliste hinzugefügt werden. Glücklicherweise stellt TortoiseSVN eine Funktion dafür zur Verfügung. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Aus SVN entfernen und ignorieren</guimenuitem></menuchoice> wird zunächst die Datei/den Ordner zum Löschen aus dem Projektarchiv markieren und die lokale Kopie beibehalten. Sie fügt das Objekt zur Liste der ignorierten Dateien hinzu, sodass es nicht versehentlich wieder zu Subversion hinzugefügt wird. Nachdem dies geschehen ist, müssen Sie lediglich den Elternordner wieder übertragen."
 
 #. (title)
 msgid "Unversion a working copy"
@@ -18093,7 +18110,7 @@ msgid ""
 "+ 0x2000000000000000\n"
 "= 0x2000000080080000\n"
 "      </screen> The lower <literal>DWORD</literal> value (<literal>0x80080000</literal>) must then be stored in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, the higher <literal>DWORD</literal> value (<literal>0x20000000</literal>) in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename>."
-msgstr "Beispiel: Um die <quote>Umplatzieren</quote>, <quote>Nicht versionierte Objekte Löschen</quote> und die <quote>Einstellungen</quote> Menüeinträge zu deaktivieren, addieren Sie die zu den Einträgen gehörenden Werte zusammen:\n<screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000</screen>\nDer niedrige <literal>DWORD</literal> Wert <literal>(0x80080000)</literal> muss dann in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, der hohe <literal>DWORD</literal> Wert <literal>(0x20000000)</literal> in <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> eingetragen werden."
+msgstr "Beispiel: Um die <quote>Umplatzieren</quote>, <quote>Nicht versionierte Objekte Löschen</quote> und die <quote>Einstellungen</quote> Menüeinträge zu deaktivieren, addieren Sie die zu den Einträgen gehörenden Werte zusammen:\n<screen>\n  0x0000000000080000\n+ 0x0000000080000000\n+ 0x2000000000000000\n= 0x2000000080080000</screen>\nDer niedrige <literal>DWORD</literal>-Wert <literal>(0x80080000)</literal> muss dann in <filename>HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskLow</filename>, der hohe <literal>DWORD</literal>-Wert <literal>(0x20000000)</literal> in <filename> HKEY_CURRENT_USER\\Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh</filename> eingetragen werden."
 
 #. (para)
 msgid "To enable the menu entries again, simply delete the two registry keys."
@@ -18116,12 +18133,12 @@ msgid ""
 "you how to make the TortoiseSVN dialogs appear to collect user input. If you"
 " want to write a script which requires no input, you should use the official"
 " Subversion command line client instead."
-msgstr "Beachten Sie, dass TortoiseSVN eine graphische Anwendung ist und dass diese Automatisierungsanleitung Ihnen erklärt, wie man die Dialoge von TortoiseSVN zur Abfrage von Benutzereingaben verwendet. Wenn Sie ein Skript schreiben wollen, das keine Eingaben erfordert, sollten Sie dafür das offizielle Subversion Kommandozeilenprogramm verwenden."
+msgstr "Beachten Sie, dass TortoiseSVN eine graphische Anwendung ist und dass diese Automatisierungsanleitung Ihnen erklärt, wie man die Dialoge von TortoiseSVN zur Abfrage von Benutzereingaben verwendet. Wenn Sie ein Skript schreiben wollen, das keine Eingaben erfordert, sollten Sie dafür das offizielle Subversion-Kommandozeilenprogramm verwenden."
 
 #. (title)
 #. (title)
 msgid "TortoiseSVN Commands"
-msgstr "TortoiseSVN Befehle"
+msgstr "TortoiseSVN-Befehle"
 
 #. (primary)
 #. (primary)
@@ -18145,7 +18162,7 @@ msgid ""
 "<option>/path:\"some\\path\"</option>. In the following table the command "
 "refers to the <option>/command:abcd</option> parameter and the path refers "
 "to the <option>/path:\"some\\path\"</option> parameter."
-msgstr "Das TortoiseSVN GUI Programm heißt <literal>TortoiseProc.exe</literal>. Alle Befehle werden in der Form <option>/command:abcd</option> angegeben, wobei <literal>abcd</literal> der - erforderliche - Befehlsname ist. Die meisten Befehle benötigen zumindest einen Parameter, der in der Form <option>/path:\"some\\path\"</option> übergeben wird. In der folgenden Tabelle bezieht sich der Befehl auf den <option>/command:abcd</option> Parameter und der Pfad auf den <option>/path:\"some\\path\"</option> Parameter."
+msgstr "Das TortoiseSVN-GUI-Programm heißt <literal>TortoiseProc.exe</literal>. Alle Befehle werden in der Form <option>/command:abcd</option> angegeben, wobei <literal>abcd</literal> der - erforderliche - Befehlsname ist. Die meisten Befehle benötigen zumindest einen Parameter, der in der Form <option>/path:\"some\\path\"</option> übergeben wird. In der folgenden Tabelle bezieht sich der Befehl auf den Parameter <option>/command:abcd</option> und der Pfad auf den Parameter <option>/path:\"some\\path\"</option>."
 
 #. (para)
 msgid ""
@@ -18154,14 +18171,14 @@ msgid ""
 "line, starts the project monitor instead. If <option>/tray</option> is "
 "specified, the project monitor starts hidden and only adds its icon to the "
 "system tray."
-msgstr "Es gibt einen besonderen Befehl, der den Parameter <option>/command:abcd</option> nicht benötigt, sondern, wenn nichts auf der Befehlszeile übergeben wird, stattdessen den Projektmonitor startet. Mit der Option <option>/tray</option> startet der Projektmonitor verborgen als Symbol im Windows Benachrichtigungsbereich."
+msgstr "Es gibt einen besonderen Befehl, der den Parameter <option>/command:abcd</option> nicht benötigt, sondern stattdessen den Projektmonitor startet, wenn nichts auf der Befehlszeile übergeben wird. Mit der Option <option>/tray</option> startet der Projektmonitor verborgen als Symbol im Windows-Benachrichtigungsbereich."
 
 #. (para)
 msgid ""
 "Since some of the commands can take a list of target paths (e.g. committing "
 "several specific files) the <option>/path</option> parameter can take "
 "several paths, separated by a <literal>*</literal> character."
-msgstr "Da einige Befehle eine Liste von Zielpfaden akzeptieren (z.B. Übertragen mehrerer Dateien), kann der <option>/path</option> Parameter mehrere, durch <literal>*</literal> getrennte Pfade enthalten."
+msgstr "Da einige Befehle eine Liste von Zielpfaden akzeptieren (z. B. Übertragen mehrerer Dateien), kann der Parameter <option>/path</option> mehrere, durch <literal>*</literal> getrennte Pfade enthalten."
 
 #. (para)
 msgid ""
@@ -18174,7 +18191,7 @@ msgid ""
 "the parameter <option>/deletepathfile</option>. If you don't pass "
 "<option>/deletepathfile</option>, you have to delete the file yourself or "
 "the file gets left behind."
-msgstr "Sie können auch eine Datei angeben, die eine durch Zeilenumbrüche getrennte Liste von Pfaden enthält. Die Datei muss im UTF-16 Format ohne eine <ulink url=\"https://de.wikipedia.org/wiki/Byte_Order_Mark\"><citetitle>BOM</citetitle></ulink> sein. Um eine solche Datei anzugeben, verwenden Sie <option>/pathfile</option> anstelle von <option>/path</option>. Damit TortoiseSVN die Datei nach Beendigung des Befehls löscht, übergeben Sie den Parameter <option>/deletepathfile</option>. Wenn Sie die <option>/deletepathfile</option> nicht angeben, müssen Sie die Datei anschließend selbst löschen."
+msgstr "Sie können auch eine Datei angeben, die eine durch Zeilenumbrüche getrennte Liste von Pfaden enthält. Die Datei muss im UTF-16-Format ohne eine <ulink url=\"https://de.wikipedia.org/wiki/Byte_Order_Mark\"><citetitle>BOM</citetitle></ulink> sein. Um eine solche Datei anzugeben, verwenden Sie <option>/pathfile</option> anstelle von <option>/path</option>. Damit TortoiseSVN die Datei nach Beendigung des Befehls löscht, übergeben Sie den Parameter <option>/deletepathfile</option>. Wenn Sie <option>/deletepathfile</option> nicht angeben, müssen Sie die Datei anschließend selbst löschen."
 
 #. (para)
 msgid ""
@@ -18184,14 +18201,14 @@ msgid ""
 "checking the corresponding option in the settings dialog. But using that "
 "setting will close the progress dialog, no matter if you start the command "
 "from your batch file or from the TortoiseSVN context menu."
-msgstr "Der Fortschrittsdialog, der für Übertragungen, Aktualisierungen und viele weitere Aktionen verwendet wird, bleibt normalerweise geöffnet nachdem die Aktion beendet ist bis der Anwender die <guibutton>OK</guibutton> Schaltfläche betätigt. Dieses Verhalten kann durch Auswahl der entsprechenden Option in den Einstellungen verändert werden. Die Verwendung dieser Einstellung wird den Dialog, unabhängig davon ob der Befehl aus dem TortoiseSVN Kontextmenü oder aus einer Batchdatei heraus aufgerufen wurde, schließen."
+msgstr "Der Fortschrittsdialog, der für Übertragungen, Aktualisierungen und viele weitere Aktionen verwendet wird, bleibt normalerweise geöffnet, nachdem                                        die Aktion beendet ist, bis der Anwender die Schaltfläche <guibutton>OK</guibutton> betätigt. Dieses Verhalten kann durch Auswahl der entsprechenden Option in den Einstellungen verändert werden. Die Verwendung dieser Einstellung wird den Dialog, unabhängig davon, ob der Befehl aus dem TortoiseSVN-Kontextmenü oder aus einer Batchdatei heraus aufgerufen wurde, schließen."
 
 #. (para)
 msgid ""
 "To specify a different location of the configuration file, use the parameter"
 " <option>/configdir:\"path\\to\\config\\directory\"</option>. This will "
 "override the default path, including any registry setting."
-msgstr "Um einen anderen Ort für die Konfigurationsdatei anzugeben, verwenden Sie den <option>/configdir:\"path\\to\\config\\dir\"</option> Parameter. Dies überschreibt alle Vorgaben, auch die aus der Registrierung."
+msgstr "Um einen anderen Ort für die Konfigurationsdatei anzugeben, verwenden Sie den Parameter <option>/configdir:\"path\\to\\config\\dir\"</option>. Dies überschreibt alle Vorgaben, auch die aus der Registrierung."
 
 #. (para)
 msgid "<option>/closeonend:0</option> don't close the dialog automatically"
@@ -18203,12 +18220,12 @@ msgstr "<option>/closeonend:1</option> Schließen, wenn keine Fehler aufgetreten
 
 #. (para)
 msgid "<option>/closeonend:2</option> auto close if no errors and conflicts"
-msgstr "<option>/closeonend:2</option> Schließen, wenn keine Fehler und keine Konflikte aufgetreten sind."
+msgstr "<option>/closeonend:2</option> Schließen, wenn keine Fehler und Konflikte aufgetreten sind."
 
 #. (para)
 msgid ""
 "<option>/closeonend:3</option> auto close if no errors, conflicts and merges"
-msgstr "<option>/closeonend:2</option> Schließen, wenn keine Fehler, Konflikte und Zusammenführungen aufgetreten sind."
+msgstr "<option>/closeonend:3</option> Schließen, wenn keine Fehler, Konflikte und Zusammenführungen aufgetreten sind."
 
 #. (para)
 msgid ""
@@ -18217,7 +18234,7 @@ msgid ""
 "parameter. <placeholder-1/> To close the progress dialog for local "
 "operations if there were no errors or conflicts, pass the "
 "<option>/closeforlocal</option> parameter."
-msgstr "Um den Fortschrittsdialog am Ende einer Aktion automatisch zu schließen, ohne die Standardeinstellung zu berücksichtigen, können Sie den <option>/closeonend</option> Parameter übergeben. <placeholder-1/>. Um den Fortschrittsdialog für lokale Operationen zu schließen, wenn keine Fehler, Konflikte und Zusammenführungen aufgetreten sind, übergeben Sie den Parameter <option>/closeforlocal</option>."
+msgstr "Um den Fortschrittsdialog am Ende einer Aktion automatisch zu schließen, ohne die Standardeinstellung zu berücksichtigen, können Sie den Parameter <option>/closeonend</option> übergeben. <placeholder-1/>. Um den Fortschrittsdialog für lokale Operationen zu schließen, wenn keine Fehler, Konflikte und Zusammenführungen aufgetreten sind, übergeben Sie den Parameter <option>/closeforlocal</option>."
 
 #. (para)
 msgid ""
@@ -18225,7 +18242,7 @@ msgid ""
 "TortoiseProc.exe command line. As described above, these should be used in "
 "the form <literal>/command:abcd</literal>. In the table, the "
 "<literal>/command</literal> prefix is omitted to save space."
-msgstr "Die untenstehende Tabelle listet alle Befehle, die mittels TortoiseProc.exe ausgeführt werden können. Wie oben beschrieben, müssen sie in der Form <literal>/command:abcd</literal> aufgerufen werden. In der Tabelle wird der <literal>/command</literal> Präfix weggelassen, um Platz zu sparen."
+msgstr "Die untenstehende Tabelle listet alle Befehle, die mittels TortoiseProc.exe ausgeführt werden können. Wie oben beschrieben, müssen sie in der Form <literal>/command:abcd</literal> aufgerufen werden. In der Tabelle wird der Präfix <literal>/command</literal> weggelassen, um Platz zu sparen."
 
 #. (title)
 msgid "List of available commands and options"
@@ -18270,7 +18287,7 @@ msgstr "<option>/datemin:\"{Datumsangabe}\"</option> setzt das Startdatum des Fi
 msgid ""
 "<option>/datemax:\"{datestring}\"</option> sets the end date of the filter. "
 "The date format is the same as used for svn date revisions."
-msgstr "<option>/datemax:\"{Datumsangabe}\"</option> setzt das Enddatum des Filters. Das Datumsformat ist das gleiche wie für SVN Datumsangaben."
+msgstr "<option>/datemax:\"{Datumsangabe}\"</option> setzt das Enddatum des Filters. Das Datumsformat ist das gleiche wie für SVN-Datumsangaben."
 
 #. (para)
 msgid "<option>/findstring:\"filterstring\"</option> fills in the filter text,"
@@ -18313,7 +18330,7 @@ msgstr "<option>/findtype:16</option> Nicht verwendet"
 
 #. (para)
 msgid "<option>/findtype:32</option> filter by bug ID"
-msgstr "<option>/findtype:32</option> Filtere nach Fehler ID"
+msgstr "<option>/findtype:32</option> Filtere nach Fehler-ID"
 
 #. (para)
 msgid "<option>/findtype:64</option> not used"
@@ -18350,7 +18367,7 @@ msgstr "Öffnet den Log-Dialog. Die Option <option>/path</option> legt die Datei
 
 #. (para)
 msgid "An svn date revision can be in one of the following formats:"
-msgstr "Eine SVN Datumsangabe kann in den folgenden Formaten erfolgen:"
+msgstr "Eine SVN-Datumsangabe kann in den folgenden Formaten erfolgen:"
 
 #. (option)
 #. (option)
@@ -18407,7 +18424,7 @@ msgid ""
 "you specify the key <placeholder-3/>, the automatic checkout path "
 "adjustments are blocked. The <placeholder-4/> specifies the revision to "
 "check out."
-msgstr "Öffnet den <guilabel>Auschecken</guilabel>-Dialog. <placeholder-1/> legt das Zielverzeichnis fest <placeholder-2/> definiert die URL von der ausgecheckt werden soll. Falls Sie den Schlüssel <placeholder-3/> angeben wird die automatische Anpassung des Auscheckpfades blockiert. Der <placeholder-4/> gibt die auszucheckende Revision an."
+msgstr "Öffnet den <guilabel>Auschecken</guilabel>-Dialog. <placeholder-1/> legt das Zielverzeichnis fest, <placeholder-2/> definiert die URL, von der ausgecheckt werden soll. Wenn Sie den Schlüssel <placeholder-3/> angeben, wird die automatische Anpassung des Auscheckpfades blockiert. Der <placeholder-4/> gibt die auszucheckende Revision an."
 
 #. (option)
 #. (option)
@@ -18434,7 +18451,7 @@ msgid ""
 " a predefined log message to the import dialog. Or, if you don't want to "
 "pass the log message on the command line, use <placeholder-3/>, where "
 "<placeholder-4/> points to a file containing the log message."
-msgstr "Öffnet den Importieren-Dialog. Der <placeholder-1/> gibt das Verzeichnis mit den zu importierenden Daten an. Sie können mit dem <placeholder-2/> eine Logmeldung übergeben oder, falls Sie das nicht per Kommandozeile tun wollen, <placeholder-3/> verwenden, wobei <placeholder-4/> auf eine Datei zeigt, die die Logmeldung enthält."
+msgstr "Öffnet den Import-Dialog. Der <placeholder-1/> gibt das Verzeichnis mit den zu importierenden Daten an. Sie können mit dem <placeholder-2/> eine Logmeldung übergeben oder, wenn Sie das nicht per Kommandozeile tun wollen, <placeholder-3/> verwenden, wobei <placeholder-4/> auf eine Datei zeigt, die die Logmeldung enthält."
 
 #. (option)
 msgid "/rev"
@@ -18475,7 +18492,7 @@ msgid ""
 "set to skip all checks that are done before an update. If this is specified,"
 " then the <placeholder-9/> button is disabled, and the context menu to show "
 "diffs is also disabled after the update."
-msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> auf HEAD. Mit der Option <placeholder-2/> wird ein Dialog angezeigt, in dem vom Anwender die Zielrevision abgefragt wird. Um den Dialog zu vermeiden, geben Sie in <placeholder-3/> die Revisionsnummer an. Weitere Optionen sind <placeholder-4/>, <placeholder-5/> und <placeholder-6/>. Der <placeholder-7/> sorgt dafür, dass die angegebene Tiefe bestehen bleibt und eine dünn besetzte Arbeitskopie angelegt wird. Mit <placeholder-8/> werden alle Prüfungen vor einer Aktualisierung übersprungen. Dadurch werden auch die <placeholder-9/> Schaltfläche und das Kontextmenü für Vergleiche nach der Aktualisierung deaktiviert."
+msgstr "Aktualisiert die Arbeitskopie in <placeholder-1/> auf HEAD. Mit der Option <placeholder-2/> wird ein Dialog angezeigt, in dem vom Anwender die Zielrevision abgefragt wird. Um den Dialog zu vermeiden, geben Sie in <placeholder-3/> die Revisionsnummer an. Weitere Optionen sind <placeholder-4/>, <placeholder-5/> und <placeholder-6/>. Der <placeholder-7/> sorgt dafür, dass die angegebene Tiefe bestehen bleibt und eine dünn besetzte Arbeitskopie angelegt wird. Mit <placeholder-8/> werden alle Prüfungen vor einer Aktualisierung übersprungen. Dadurch werden auch die Schaltfläche <placeholder-9/> und das Kontextmenü für Vergleiche nach der Aktualisierung deaktiviert."
 
 #. (option)
 msgid "/bugid:\"the bug id here\""
@@ -18490,7 +18507,7 @@ msgid ""
 "<placeholder-3/>, where <placeholder-4/> points to a file containing the log"
 " message. To pre-fill the bug ID box (in case you've set up integration with"
 " bug trackers properly), you can use the <placeholder-5/> to do that."
-msgstr "Öffnet den Übertragen-Dialog. Der <placeholder-1/> gibt das Zielverzeichnis oder die Liste der zu übertragenden Dateien an. Sie können mit Hilfe des <placeholder-2/> Parameters eine Logmeldung übergeben oder, falls Sie das nicht per Kommandozeile tun wollen, <placeholder-3/> verwenden, wobei <placeholder-4/> auf eine Datei zeigt, die die Logmeldung enthält. Falls Sie ein Fehlerverfolgungssystem nutzen, können Sie das Eingabefeld für die Fehler-ID mittels <placeholder-5/> vorbelegen."
+msgstr "Öffnet den Übertragen-Dialog. Der <placeholder-1/> gibt das Zielverzeichnis oder die Liste der zu übertragenden Dateien an. Sie können mit Hilfe des Parameters <placeholder-2/> eine Logmeldung übergeben oder, wenn Sie das nicht per Kommandozeile tun wollen, <placeholder-3/> verwenden, wobei <placeholder-4/> auf eine Datei zeigt, die die Logmeldung enthält. Wenn Sie ein Fehlerverfolgungssystem nutzen, können Sie das Eingabefeld für die Fehler-ID mittels <placeholder-5/> vorbelegen."
 
 #. (entry)
 msgid "Adds the files in <placeholder-1/> to version control."
@@ -18589,7 +18606,7 @@ msgstr "Erstellt ein Projektarchiv in <placeholder-1/>"
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
-msgstr "Öffnet den <guilabel>Wechseln zu</guilabel>-Dialog. <placeholder-1/> legt das Zielverzeichnis fest und <placeholder-2/> definiert die URL zu der gewechselt werden soll."
+msgstr "Öffnet den <guilabel>Wechseln zu</guilabel>-Dialog. <placeholder-1/> legt das Zielverzeichnis fest und <placeholder-2/> definiert die URL, zu der gewechselt werden soll."
 
 #. (entry)
 msgid ""
@@ -18597,7 +18614,7 @@ msgid ""
 "<placeholder-2/> points to an unversioned directory, a dialog will ask for "
 "an URL to export to the directory in <placeholder-3/>. If you specify the "
 "key <placeholder-4/>, the automatic export path adjustments are blocked."
-msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in ein anderes Verzeichnis. Wenn <placeholder-2/> auf ein nicht versioniertes Verzeichnis zeigt, wird ein Dialog angezeigt, der eine URL erfragt, die in das in <placeholder-3/> angegebene Verzeichnis exportiert wird. Falls Sie den Schlüssel <placeholder-4/> angeben wird die automatische Anpassung des Exportpfades blockiert."
+msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in ein anderes Verzeichnis. Wenn <placeholder-2/> auf ein nicht versioniertes Verzeichnis zeigt, wird ein Dialog angezeigt, der eine URL erfragt, die in das in <placeholder-3/> angegebene Verzeichnis exportiert wird. Wenn Sie den Schlüssel <placeholder-4/> angeben, wird die automatische Anpassung des Exportpfades blockiert."
 
 #. (option)
 #. (option)
@@ -18634,7 +18651,7 @@ msgid ""
 "renamed to avoid overwriting them. The option <placeholder-5/> can specify "
 "either <placeholder-6/> to only export files that got changed locally, or "
 "<placeholder-7/> to also export all unversioned items as well."
-msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in das in <placeholder-2/> angegebene Verzeichnis. Dieser Export verwendet nicht den Dialog sondern wird direkt ausgeführt. Mit der Option <placeholder-3/> legen Sie fest, dass vorhandene Dateien ohne Rückfrage überschrieben werden. Die Option <placeholder-4/> bedeutet, dass exportierte Dateien im Konfliktfall umbenannt werden, damit vorhandene Dateien nicht überschrieben werden. Option <placeholder-5/> hat die Parameter <placeholder-6/>, mit dem nur lokal veränderte Objekte exportiert werden und <placeholder-7/> mit dem zusätzlich alle nicht versionierten Objekte exportiert werden."
+msgstr "Exportiert die Arbeitskopie in <placeholder-1/> in das in <placeholder-2/> angegebene Verzeichnis. Dieser Export verwendet nicht den Dialog, sondern wird direkt ausgeführt. Mit der Option <placeholder-3/> legen Sie fest, dass vorhandene Dateien ohne Rückfrage überschrieben werden. Die Option <placeholder-4/> bedeutet, dass exportierte Dateien im Konfliktfall umbenannt werden, damit vorhandene Dateien nicht überschrieben werden. Option <placeholder-5/> hat die Parameter <placeholder-6/>, mit dem nur lokal veränderte Objekte exportiert werden, und <placeholder-7/>, mit dem zusätzlich alle nicht versionierten Objekte exportiert werden."
 
 #. (entry)
 msgid ""
@@ -18713,7 +18730,7 @@ msgid ""
 " pass a predefined log message to the branch/tag dialog. Or, if you don't "
 "want to pass the log message on the command line, use <placeholder-9/>, "
 "where <placeholder-10/> points to a file containing the log message."
-msgstr "Öffnet den Verzweigen/Markieren-Dialog. Der <placeholder-1/> gibt die Arbeitskopie an. Der <placeholder-2/> ist die Ziel URL. Wenn die URL mit einem <placeholder-3/> beginnt wird sie relativ zur Wurzel des Projektes betrachtet. Sie können die Option <placeholder-4/> gleich aktivieren, indem Sie den <placeholder-5/> Parameter mit übergeben. Um die Option <placeholder-6/> zu aktivieren, können Sie den <placeholder-7/> Parameter mit übergeben. Sie können mit dem <placeholder-8/> Parameter eine Logmeldung übergeben oder, falls Sie das nicht per Kommandozeile tun wollen, <placeholder-9/> verwenden, wobei <placeholder-10/> auf eine Datei zeigt, die die Logmeldung enthält."
+msgstr "Öffnet den Verzweigen/Markieren-Dialog. Der <placeholder-1/> gibt die Arbeitskopie an. Der <placeholder-2/> ist die Ziel-URL. Wenn die URL mit einem <placeholder-3/> beginnt, wird sie relativ zur Wurzel des Projektes betrachtet. Sie können die Option <placeholder-4/> gleich aktivieren, indem Sie den Parameter <placeholder-5/> mit übergeben. Um die Option <placeholder-6/> zu aktivieren, können Sie den Parameter <placeholder-7/> mit übergeben. Sie können mit dem Parameter <placeholder-8/> eine Logmeldung übergeben oder, wenn Sie das nicht per Kommandozeile tun wollen, <placeholder-9/> verwenden, wobei <placeholder-10/> auf eine Datei zeigt, die die Logmeldung enthält."
 
 #. (entry)
 msgid "Opens the settings dialog."
@@ -18806,7 +18823,7 @@ msgid ""
 "Applies the shelf with the name <placeholder-1/> to the working copy path. "
 "By default the last version of the shelf is applied, but you can specify a "
 "version with <placeholder-2/>."
-msgstr "Wendet die Ablage mit dem Namen<placeholder-1/> auf den Pfad der Arbeitskopie an. Standardmäßig wird die neueste Version der Ablage verwendet, aber Sie können mit <placeholder-2/> eine Version auswählen."
+msgstr "Wendet die Ablage mit dem Namen <placeholder-1/> auf den Pfad der Arbeitskopie an. Standardmäßig wird die neueste Version der Ablage verwendet, aber Sie können mit <placeholder-2/> eine Version auswählen."
 
 #. (para)
 msgid ""
@@ -18814,7 +18831,7 @@ msgid ""
 "diff (if the option <option>unified</option> is set), a dialog with a list "
 "of files that have changed or if the URLs point to files starts the diff "
 "viewer for those two files."
-msgstr "Abhängig von den URLs und den zu vergleichenden Revisionen wird entweder ein Standard-Diff (falls die Option <option>unified</option> gesetzt ist), ein Dialog mit einer Liste der geänderten Dateien oder, falls die URLs auf Dateien zeigen, das Vergleichsprogramm mit diesen Dateien angezeigt."
+msgstr "Abhängig von den URLs und den zu vergleichenden Revisionen wird entweder ein Standard-Diff (wenn die Option <option>unified</option> gesetzt ist), ein Dialog mit einer Liste der geänderten Dateien oder, wenn die URLs auf Dateien zeigen, das Vergleichsprogramm mit diesen Dateien angezeigt."
 
 #. (para)
 msgid ""
@@ -18842,7 +18859,7 @@ msgstr "Wenn ein Standard-Diff angefordert wird, kann eine optionale <option>Que
 msgid ""
 "Starts the conflict editor specified in the TortoiseSVN settings with the "
 "correct files for the conflicted file in <placeholder-1/>."
-msgstr "Startet den in der TortoiseSVN Einstellungen angegebenen Konflikteditor mit der konfliktbehafteten Datei in <placeholder-1/>."
+msgstr "Startet den in der TortoiseSVN-Einstellungen angegebenen Konflikteditor mit der konfliktbehafteten Datei in <placeholder-1/>."
 
 #. (entry)
 msgid ""
@@ -18868,14 +18885,14 @@ msgid ""
 " working copy directory. If <placeholder-2/> is specified, the dialog "
 "contacts the repository immediately on startup, as if the user clicked on "
 "the <placeholder-3/> button."
-msgstr "Öffnet den <guilabel>Auf Änderungen prüfen</guilabel>-Dialog. <placeholder-1/> legt die Arbeitskopie fest. Falls <placeholder-2/> angegeben wird, kontaktiert der Dialog beim Start das Projektarchiv, als ob der Anwender auf <placeholder-3/> geklickt hätte."
+msgstr "Öffnet den <guilabel>Auf Änderungen prüfen</guilabel>-Dialog. <placeholder-1/> legt die Arbeitskopie fest. Wenn <placeholder-2/> angegeben wird, kontaktiert der Dialog beim Start das Projektarchiv, als ob der Anwender auf <placeholder-3/> geklickt hätte."
 
 #. (para)
 msgid ""
 "Starts the repository browser dialog, pointing to the URL of the working "
 "copy given in <option>/path</option> or <option>/path</option> points "
 "directly to an URL."
-msgstr "Startet den Projektarchivbetrachter in der URL der Arbeitskopie, die in <option>/path</option> angegeben ist oder <option>/path</option> zeigt direkt auf eine URL."
+msgstr "Startet den Projektarchivbetrachter in der URL der Arbeitskopie, die in <option>/path</option> angegeben ist, oder <option>/path</option> zeigt direkt auf eine URL."
 
 #. (para)
 msgid ""
@@ -18889,7 +18906,7 @@ msgid ""
 "If <option>/path</option> points to an URL, the "
 "<option>/projectpropertiespath:path/to/wc</option> specifies the path from "
 "where to read and use the project properties."
-msgstr "Falls <option>/path</option> auf eine URL zeigt, enthält <option>/projectpropertiespath:path/to/wc</option> den Pfadnamen aus dem die Projekteigenschaften gelesen werden sollen."
+msgstr "Wenn <option>/path</option> auf eine URL zeigt, enthält <option>/projectpropertiespath:path/to/wc</option> den Pfadnamen, aus dem die Projekteigenschaften gelesen werden sollen."
 
 #. (para)
 msgid ""
@@ -18897,7 +18914,7 @@ msgid ""
 "and revision are written to that file when the repository browser is closed."
 " The first line in that text file contains the URL, the second line the "
 "revision in text format."
-msgstr "Falls <option>/outfile:path\\to\\file</option> angegeben ist, wird die gewählten URL und Revision in die angegebene Datei geschrieben, sobald der Projektarchivbetrachter geschlossen wird. Die erste Zeile darin enthält die URL, die zweite die Revision."
+msgstr "Wenn <option>/outfile:path\\to\\file</option> angegeben ist, wird die gewählte URL und Revision in die angegebene Datei geschrieben, sobald der Projektarchivbetrachter geschlossen wird. Die erste Zeile darin enthält die URL, die zweite die Revision."
 
 #. (literal)
 msgid "svn:ignore"
@@ -19009,7 +19026,7 @@ msgid ""
 " corrupted. A side effect of this (which can't be avoided) is that the icons"
 " on the desktop get rearranged. To suppress the message box, pass "
 "<placeholder-1/>."
-msgstr "Rekonstruiert den Windows Symbolspeicher. Verwenden Sie diese Funktion nur, wenn die Windows Symbole beschädigt sind. Ein (nicht vermeidbarer) Seiteneffekt dieser Aktion ist, dass die Desktopsymbole neu arrangiert werden. <placeholder-1/>."
+msgstr "Rekonstruiert den Windows-Symbolspeicher. Verwenden Sie diese Funktion nur, wenn die Windows-Symbole beschädigt sind. Ein (nicht vermeidbarer) Seiteneffekt dieser Aktion ist, dass die Desktopsymbole neu arrangiert werden. <placeholder-1/>."
 
 #. (para)
 msgid ""
@@ -19049,7 +19066,7 @@ msgstr "Wenn mittels <option>/path</option> ein Pfad übergeben wird, wird diese
 msgid ""
 "The parameter <option>/askforpath</option> will show a file open/save dialog"
 " for the user to chose the export/import path."
-msgstr "Der Parameter <option>/askforpath</option> zeigt einen Datei öffnen/-speichern Dialog an, in dem der Anwender den Pfad auswählen kann."
+msgstr "Der Parameter <option>/askforpath</option> zeigt den Dialog 'Datei öffnen/speichern' an, in dem der Anwender den Export-/Import-Pfad auswählen kann."
 
 #. (para)
 msgid ""
@@ -19059,7 +19076,7 @@ msgid ""
 "than the current settings, then the settings are loaded from the file. If "
 "the current settings are more recent, then the settings are exported to the "
 "settings file."
-msgstr "Wenn weder die Option <option>/load</option> noch <option>/save</option> angegeben wird, bestimmt TortoiseSVN, ob die Einstellungen exportiert oder importiert werden sollen, anhand des Dateidatums. Wenn die exportierte Datei neuer ist, als die aktuellen Einstellungen, wird importiert, ansonsten exportiert."
+msgstr "Wenn weder die Option <option>/load</option> noch <option>/save</option> angegeben wird, bestimmt TortoiseSVN anhand des Dateidatums, ob die Einstellungen exportiert oder importiert werden sollen. Wenn die exportierte Datei neuer ist als die aktuellen Einstellungen, wird importiert, ansonsten exportiert."
 
 #. (para)
 msgid ""
@@ -19077,7 +19094,7 @@ msgstr "Mit der Option <option>/save</option> werden die Einstellungen exportier
 msgid ""
 "The parameter <option>/local</option> forces a settings export to include "
 "local settings, i.e. settings that refer to local paths."
-msgstr "Der Parameter <option>/local</option> erzwingt, dass lokale Einstellungen, z.B. lokale Pfadnamen, im Export enthalten sind."
+msgstr "Der Parameter <option>/local</option> erzwingt, dass lokale Einstellungen, z. B. lokale Pfadnamen, im Export enthalten sind."
 
 #. (para)
 msgid ""
@@ -19095,11 +19112,11 @@ msgstr "Beispiele (die auf einer Zeile eingegeben werden sollten):\n<screen>Tort
 
 #. (title)
 msgid "Tsvncmd URL handler"
-msgstr "Tsvncmd URL Behandlung"
+msgstr "Tsvncmd-URL-Behandlung"
 
 #. (primary)
 msgid "URL handler"
-msgstr "URL Behandlung"
+msgstr "URL-Behandlung"
 
 #. (para)
 msgid ""
@@ -19117,7 +19134,7 @@ msgstr "TortoiseSVN registriert ein neues Protokoll <literal>tsvncmd:</literal>,
 
 #. (para)
 msgid "The format of the <literal>tsvncmd:</literal> URL is like this:"
-msgstr "Das Format der <literal>tsvncmd:</literal> URL sieht folgendermaßen aus:"
+msgstr "Das Format der URL <literal>tsvncmd:</literal> sieht folgendermaßen aus:"
 
 #. (literal)
 msgid "tsvncmd:command:cmd?parameter:paramvalue?parameter:paramvalue"
@@ -19159,18 +19176,18 @@ msgstr "\n&lt;a href=\"tsvncmd:command:showcompare?\nurl1:https://svn.code.sf.ne
 msgid ""
 "A simple example URL might look like this: <placeholder-1/> or in a more "
 "complex case: <placeholder-2/>"
-msgstr "Eine tsvncmd URL könnte zum Beispiel folgendermaßen aussehen: <placeholder-1/>, oder für komplexere Fälle: <placeholder-2/>"
+msgstr "Eine tsvncmd-URL könnte zum Beispiel folgendermaßen aussehen: <placeholder-1/>, oder für komplexere Fälle: <placeholder-2/>"
 
 #. (title)
 msgid "TortoiseIDiff Commands"
-msgstr "TortoiseIDiff Befehle"
+msgstr "TortoiseIDiff-Befehle"
 
 #. (para)
 msgid ""
 "The image diff tool has a few command line options which you can use to "
 "control how the tool is started. The program is called "
 "<literal>TortoiseIDiff.exe</literal>."
-msgstr "Das Programm zum Vergleichen von Bildern stellt ein paar Kommandozeilenbefehle zur Verfügung, mit denen Sie kontrollieren können, in welchen Modus das Programm startet. Die Anwendung selbst heißt <literal>TortoiseIDiff.exe</literal>."
+msgstr "Das Programm zum Vergleichen von Bildern stellt ein paar Kommandozeilenbefehle zur Verfügung, mit denen Sie kontrollieren können, in welchem Modus das Programm startet. Die Anwendung selbst heißt <literal>TortoiseIDiff.exe</literal>."
 
 #. (para)
 msgid ""
@@ -19228,7 +19245,7 @@ msgstr "Beispiele (die auf einer Zeile eingegeben werden sollten):\n<screen>Tort
 
 #. (title)
 msgid "TortoiseUDiff Commands"
-msgstr "TortoiseUDiff Befehle"
+msgstr "TortoiseUDiff-Befehle"
 
 #. (para)
 msgid "The unified diff viewer has only two command line options:"
@@ -19236,11 +19253,11 @@ msgstr "Der Standard-Diff-Betrachter hat nur zwei Kommandozeilenoptionen:"
 
 #. (entry)
 msgid "Path to the unified diff file."
-msgstr "Pfad zur Standard-Diff Datei."
+msgstr "Pfad zur Standard-Diff-Datei."
 
 #. (entry)
 msgid "Activates pipe mode. The unified diff is read from the console input."
-msgstr "Aktiviert den Pipe Modus. Das Standard-Diff wird von der Standardeingabe gelesen."
+msgstr "Aktiviert den Pipe-Modus. Das Standard-Diff wird von der Standardeingabe gelesen."
 
 #. (para)
 msgid ""
@@ -19272,21 +19289,21 @@ msgid ""
 "you understand what TortoiseSVN is doing behind the scenes, we have compiled"
 " a list showing the equivalent CLI commands for each of TortoiseSVN's GUI "
 "operations."
-msgstr "Manchmal finden sich in diesem Handbuch Verweise auf die allgemeine Subversion Dokumentation, die die Bedienung mit dem Kommandozeilen-Client (CLI) beschreibt. Um Ihnen zu verdeutlichen, welche Funktionen TortoiseSVN im Verborgenen aufruft, haben wir eine Liste der Kommandozeilenbefehle zusammengestellt, die den Funktionen der grafischen Oberfläche von TortoiseSVN entsprechen."
+msgstr "Manchmal finden sich in diesem Handbuch Verweise auf die allgemeine Subversion-Dokumentation, die die Bedienung mit dem Kommandozeilen-Client (CLI) beschreibt. Um Ihnen zu verdeutlichen, welche Funktionen TortoiseSVN im Verborgenen aufruft, haben wir eine Liste der Kommandozeilenbefehle zusammengestellt, die den Funktionen der grafischen Oberfläche von TortoiseSVN entsprechen."
 
 #. (para)
 msgid ""
 "Even though there are CLI equivalents to what TortoiseSVN does, remember "
 "that TortoiseSVN does <emphasis>not</emphasis> call the CLI but uses the "
 "Subversion library directly."
-msgstr "Obwohl es äquivalente Kommandozeilenbefehle gibt, beachten Sie bitte dass TortoiseSVN <emphasis>nicht</emphasis> das Subversion Kommandozeilenprogramm aufruft, sondern direkt auf die Subversion Bibliotheken zugreift."
+msgstr "Obwohl es äquivalente Kommandozeilenbefehle gibt, beachten Sie bitte, dass TortoiseSVN <emphasis>nicht</emphasis> das Subversion-Kommandozeilenprogramm aufruft, sondern direkt auf die Subversion-Bibliotheken zugreift."
 
 #. (para)
 msgid ""
 "If you think you have found a bug in TortoiseSVN, we may ask you to try to "
 "reproduce it using the CLI, so that we can distinguish TortoiseSVN issues "
 "from Subversion issues. This reference tells you which command to try."
-msgstr "Wenn Sie einen Fehler von TortoiseSVN berichten, kann es vorkommen, dass wir Sie auffordern, dieses Fehlverhalten mit dem Kommandozeilen-Client zu reproduzieren, damit wir TortoiseSVN Probleme von Subversion Problemen unterscheiden können. Diese Kurzreferenz zeigt Ihnen, welche Befehle Sie verwenden können."
+msgstr "Wenn Sie einen Fehler von TortoiseSVN berichten, kann es vorkommen, dass wir Sie auffordern, dieses Fehlverhalten mit dem Kommandozeilen-Client zu reproduzieren, damit wir TortoiseSVN-Probleme von Subversion-Problemen unterscheiden können. Diese Kurzreferenz zeigt Ihnen, welche Befehle Sie verwenden können."
 
 #. (title)
 msgid "Conventions and Basic Rules"
@@ -19306,7 +19323,7 @@ msgid ""
 "Because TortoiseSVN is a Windows Shell Extension, it is not able to use the "
 "notion of a current working directory. All working copy paths must be given "
 "using the absolute path, not a relative path."
-msgstr "Da es sich bei TortoiseSVN um eine Windows Shell Erweiterung handelt, kennt es das Konzept eines Arbeitsverzeichnisses nicht. Beim entsprechenden Aufruf der Kommandozeile müssen deshalb alle Pfade zu Arbeitskopien als absolute, nicht als relative Pfade angegeben werden."
+msgstr "Da es sich bei TortoiseSVN um eine Windows-Shell-Erweiterung handelt, kennt es das Konzept eines Arbeitsverzeichnisses nicht. Beim entsprechenden Aufruf der Kommandozeile müssen deshalb alle Pfade zu Arbeitskopien als absolute und nicht als relative Pfade angegeben werden."
 
 #. (para)
 msgid ""
@@ -19334,7 +19351,7 @@ msgstr "Die Elemente des Kombinationsfeldes <guilabel>Aktualisierungstiefe</guil
 msgid ""
 "If <guilabel>Omit externals</guilabel> is checked, use the <literal"
 ">--ignore-externals</literal> switch."
-msgstr "Wenn <guilabel>Externals auslassen</guilabel> gewählt ist, verwenden Sie die <literal>--ignore-externals</literal> Option."
+msgstr "Wenn <guilabel>Externals auslassen</guilabel> gewählt ist, verwenden Sie die Option <literal>--ignore-externals</literal>."
 
 #. (para)
 msgid ""
@@ -19370,7 +19387,7 @@ msgid ""
 "No command line options are used here. <guilabel>Update to "
 "revision</guilabel> also implements the update command, but offers more "
 "options."
-msgstr "An dieser Stelle werden keine Kommandozeilenoptionen verwendet. <guilabel>Aktualisiere zu Revision</guilabel> implementiert ebenfalls den Aktualisieren Befehl, bietet jedoch weitere Optionen."
+msgstr "An dieser Stelle werden keine Kommandozeilenoptionen verwendet. <guilabel>Aktualisiere zu Revision</guilabel> implementiert ebenfalls den Aktualisieren-Befehl, bietet jedoch weitere Optionen."
 
 #. (title)
 msgid "Update to Revision"
@@ -19391,7 +19408,7 @@ msgid ""
 "first stage is a status check which determines the items in your working "
 "copy which can potentially be committed. You can review the list, diff files"
 " against BASE and select the items you want to be included in the commit."
-msgstr "In TortoiseSVN nutzt der Übertragen-Dialog mehrere Subversion Befehle. Der erste Schritt ist eine Statusprüfung, die die Objekte in Ihrer Arbeitskopie ermittelt, die übertragen werden können. Sie können diese Liste überprüfen, Dateien mit dem Original (BASE) vergleichen und die Objekte, die Sie übertragen wollen, auswählen."
+msgstr "In TortoiseSVN nutzt der Übertragen-Dialog mehrere Subversion-Befehle. Der erste Schritt ist eine Statusprüfung, die die Objekte in Ihrer Arbeitskopie ermittelt, die übertragen werden können. Sie können diese Liste überprüfen, Dateien mit dem Original (BASE) vergleichen und die Objekte, die Sie übertragen wollen, auswählen."
 
 #. (screen)
 #. (screen)
@@ -19411,7 +19428,7 @@ msgid ""
 "taking account of the ignore rules. This particular feature has no direct "
 "equivalent in Subversion, as the <literal>svn status</literal> command does "
 "not descend into unversioned folders."
-msgstr "Wenn <guilabel>Zeige nicht versionierte Dateien</guilabel> gewählt ist, wird TortoiseSVN alle nicht versionierten Dateien und Ordner in der Arbeitskopie, unter Berücksichtigung der Ausschluss- / Ignorier-Regeln anzeigen. Diese Funktion besitzt in Subversion kein Äquivalent, da der <literal>svn status</literal> Befehl nicht in unversionierte Ordner hinabsteigt."
+msgstr "Wenn <guilabel>Zeige nicht versionierte Dateien</guilabel> gewählt ist, wird                  TortoiseSVN alle nicht versionierten Dateien und Ordner in der Hierarchie der Arbeitskopie unter Berücksichtigung der Ignorierregeln anzeigen. Diese spezielle Funktion besitzt in Subversion kein Äquivalent, da der Befehl <literal>svn status</literal> nicht in unversionierte Ordner hinabsteigt."
 
 #. (para)
 msgid ""
@@ -19435,7 +19452,7 @@ msgid ""
 " single recursive commit of the working copy. If you deselect some files, "
 "then a non-recursive commit (<literal>-N</literal>) must be used, and every "
 "path must be specified individually on the commit command line."
-msgstr "Sobald Sie auf OK klicken, wird die Übertragung zum Projektarchiv durchgeführt. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, wird TortoiseSVN die Daten in einem Schritt rekursiv übertragen. Sobald Sie einzelne Objekte abwählen, muss eine nicht-rekursive (<literal>-N</literal>) Übertragung durchgeführt werden. Dabei muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
+msgstr "Sobald Sie auf OK klicken, wird die Übertragung zum Projektarchiv durchgeführt. Wenn Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, wird TortoiseSVN die Daten in einem Schritt rekursiv übertragen. Sobald Sie einzelne Objekte abwählen, muss eine nicht-rekursive Übertragung (<literal>-N</literal>) durchgeführt werden. Dabei muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
 
 #. (screen)
 #, no-wrap
@@ -19457,7 +19474,7 @@ msgstr "<literal>LogMessage</literal> entspricht dem Inhalt des Eingabefeldes f�
 msgid ""
 "If <guilabel>Keep locks</guilabel> is checked, use the <literal>--no-"
 "unlock</literal> switch."
-msgstr "Wenn <guilabel>Sperren behalten</guilabel> gewählt ist, verwenden Sie die <literal>--no-unlock</literal> Option."
+msgstr "Wenn <guilabel>Sperren behalten</guilabel> gewählt ist, verwenden Sie die Option <literal>--no-unlock</literal>."
 
 #. (screen)
 #, no-wrap
@@ -19499,13 +19516,13 @@ msgid ""
 "By default, TortoiseSVN tries to fetch 100 log messages using the --limit "
 "method. If the settings instruct it to use old APIs, then the second form is"
 " used to fetch the log messages for 100 repository revisions."
-msgstr "Standardmäßig versucht TortoiseSVN 100 Logmeldungen mittels der <literal>--limit</literal> Option zu holen. Falls die Einstellungen jedoch den Einsatz der alten API für die Logmeldungen erfordern, wird die zweite Variante genutzt, um die Logmeldungen für 100 Revisionen im Projektarchiv zu holen."
+msgstr "Standardmäßig versucht TortoiseSVN, 100 Logmeldungen mittels der Option <literal>--limit</literal> zu holen. Wenn die Einstellungen den Einsatz der alten API für die Logmeldungen erfordern, wird die zweite Variante genutzt, um die Logmeldungen für 100 Revisionen im Projektarchiv zu holen."
 
 #. (para)
 msgid ""
 "If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal"
 ">--stop-on-copy</literal> switch."
-msgstr "Wenn <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gewählt ist, verwenden Sie die <literal>--stop-on-copy</literal> Option."
+msgstr "Wenn <guilabel>Bei Kopien/Umbenennen anhalten</guilabel> gewählt ist, verwenden Sie die Option <literal>--stop-on-copy</literal>."
 
 #. (screen)
 #, no-wrap
@@ -19523,7 +19540,7 @@ msgid ""
 "<guibutton>Check repository</guibutton> then the repository is also checked "
 "to see which files would be changed by an update, which requires the "
 "<literal>-u</literal> switch."
-msgstr "Die erste Statusprüfung betrachtet nur Ihre lokale Arbeitskopie. Wenn Sie auf die <guibutton>Projektarchiv prüfen</guibutton> Schaltfläche klicken, wird im Projektarchiv nachgeschaut, welche Dateien durch eine Aktualisierung betroffen wären. Dies erfordert die Verwendung der <literal>-u</literal> Option."
+msgstr "Die erste Statusprüfung betrachtet nur Ihre lokale Arbeitskopie. Wenn Sie auf die Schaltfläche <guibutton>Projektarchiv prüfen</guibutton> klicken, wird im Projektarchiv nachgeschaut, welche Dateien durch eine Aktualisierung betroffen wären. Dies erfordert die Verwendung der Option <literal>-u</literal>."
 
 #. (title)
 msgid "Revision Graph"
@@ -19568,7 +19585,7 @@ msgstr "Sie können <literal>svn info</literal> verwenden, um die Basis des Proj
 msgid ""
 "The <literal>svn list</literal> call will list the contents of a directory, "
 "given a URL and revision."
-msgstr "Der <literal>svn list</literal> Befehl listet bei Angabe einer URL und einer Revision den Inhalt eines Verzeichnisses auf."
+msgstr "Der Befehl <literal>svn list</literal> listet bei Angabe einer URL und einer Revision den Inhalt eines Verzeichnisses auf."
 
 #. (para)
 msgid ""
@@ -19619,7 +19636,7 @@ msgid ""
 " single recursive (<literal>-R</literal>) revert of the working copy. If you"
 " deselect some files, then every path must be specified individually on the "
 "revert command line."
-msgstr "Sobald Sie auf OK klicken, werden Ihre Änderungen rückgängig gemacht. Falls Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, führt TortoiseSVN die Aktion in einem Schritt rekursiv (<literal>-R</literal>) durch. Sobald Sie einzelne Objekte abwählen, muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
+msgstr "Sobald Sie auf OK klicken, werden Ihre Änderungen rückgängig gemacht. Wenn Sie alle Dateiauswahlboxen in der Voreinstellung belassen haben, führt TortoiseSVN die Aktion in einem Schritt rekursiv (<literal>-R</literal>) durch. Sobald Sie einzelne Objekte abwählen, muss jeder Pfad einzeln auf der Kommandozeile übergeben werden."
 
 #. (screen)
 #, no-wrap
@@ -19666,7 +19683,7 @@ msgstr "Die <literal>Sperrmeldung</literal> entspricht dem Inhalt des Eingabefel
 msgid ""
 "If <guilabel>Steal the locks</guilabel> is checked, use the "
 "<literal>--force</literal> switch."
-msgstr "Wenn <guilabel>Sperren stehlen</guilabel> gewählt ist, verwenden Sie die <literal>--force</literal> Option."
+msgstr "Wenn <guilabel>Sperren stehlen</guilabel> gewählt ist, verwenden Sie die Option <literal>--force</literal>."
 
 #. (title)
 msgid "Release Lock"
@@ -19697,7 +19714,7 @@ msgid ""
 "The Branch/Tag dialog performs a copy to the repository. There are 3 radio "
 "button options: <placeholder-1/> which correspond to the 3 command line "
 "variants above."
-msgstr "Der <guilabel>Verzweigen/Markieren</guilabel>-Dialog erzeugt eine Kopie im Projektarchiv. Es gibt drei Optionen: <placeholder-1/>, die den drei Kommandozeilenparametern entsprechen."
+msgstr "Der Dialog <guilabel>Verzweigen/Markieren</guilabel> erzeugt eine Kopie im Projektarchiv. Es gibt drei Optionen: <placeholder-1/>, die den drei Kommandozeilenparametern entsprechen."
 
 #. (screen)
 #, no-wrap
@@ -19720,7 +19737,7 @@ msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n      "
 msgid ""
 "The <guibutton>Test Merge</guibutton> performs the same merge with the "
 "<literal>--dry-run</literal> switch."
-msgstr "Die Schaltfläche <guibutton>Trockenlauf</guibutton> startet das Zusammenführen mit der <literal>--dry-run</literal> Option."
+msgstr "Die Schaltfläche <guibutton>Trockenlauf</guibutton> startet das Zusammenführen mit der Option <literal>--dry-run</literal>."
 
 #. (screen)
 #, no-wrap
@@ -19754,7 +19771,7 @@ msgstr "Dieser Dialog wird für nicht versionierte Ordner aufgerufen. Der Ordner
 msgid ""
 "Exporting a working copy to a different location is done without using the "
 "Subversion library, so there's no matching command line equivalent."
-msgstr "Der Export einer Arbeitskopie an einen anderen Ort wird ohne die Subversion Bibliotheken durchgeführt. Deshalb gibt es auch keinen entsprechenden Kommandozeilenbefehl."
+msgstr "Der Export einer Arbeitskopie an einen anderen Ort wird ohne die Subversion-Bibliotheken durchgeführt. Deshalb gibt es auch keinen entsprechenden Kommandozeilenbefehl."
 
 #. (para)
 msgid ""
@@ -19767,7 +19784,7 @@ msgstr "TortoiseSVN kopiert alle Dateien an den neuen Ort und zeigt Ihnen derwei
 msgid ""
 "In both cases, if <guilabel>Omit externals</guilabel> is checked, use the "
 "<literal>--ignore-externals</literal> switch."
-msgstr "In beiden Fällen gilt: wenn <guilabel>Externals auslassen</guilabel> gewählt ist, verwenden Sie die <literal>--ignore-externals</literal> Option."
+msgstr "In beiden Fällen gilt: Wenn <guilabel>Externals auslassen</guilabel> gewählt ist, verwenden Sie die Option<literal>--ignore-externals</literal>."
 
 #. (screen)
 #, no-wrap
@@ -19838,7 +19855,7 @@ msgid ""
 "Because the <literal>svn:ignore</literal> property is often a multi-line "
 "value, it is shown here as being changed via a text file rather than "
 "directly on the command line."
-msgstr "Da die <literal>svn:ignore</literal> Eigenschaft oft mehrere Zeilen hat, wird hier gezeigt, wie sie mit Hilfe einer Textdatei anstatt direkt per Kommandozeile geändert wird."
+msgstr "Da die Eigenschaft <literal>svn:ignore</literal> oft mehrere Zeilen hat, wird hier gezeigt, wie sie mit Hilfe einer Textdatei statt direkt per Kommandozeile geändert wird."
 
 #. (screen)
 #, no-wrap
@@ -19852,14 +19869,14 @@ msgstr "\nsvn diff PATH &gt; patch-file\n      "
 msgid ""
 "TortoiseSVN creates a patch file in unified diff format by comparing the "
 "working copy with its BASE version."
-msgstr "TortoiseSVN erzeugt eine Patchdatei im Standard-Diff Format, indem die Arbeitskopie mit ihrer BASE Version verglichen wird."
+msgstr "TortoiseSVN erzeugt eine Patchdatei im Standard-Diff-Format, indem die Arbeitskopie mit ihrer BASE-Version verglichen wird."
 
 #. (para)
 msgid ""
 "Applying patches is a tricky business unless the patch and working copy are "
 "at the same revision. Luckily for you, you can use TortoiseMerge, which has "
 "no direct equivalent in Subversion."
-msgstr "Patches anzuwenden ist ein kniffliges Unterfangen, es sei denn der Patch und die Arbeitskopie befinden sich in der gleichen Revision. Zum Glück für Sie existiert TortoiseMerge, für das es keine entsprechende Funktion in Subversion gibt."
+msgstr "Patches anzuwenden ist ein kniffliges Unterfangen, es sei denn, der Patch und die Arbeitskopie befinden sich in der gleichen Revision. Zum Glück für Sie existiert TortoiseMerge, für das es keine entsprechende Funktion in Subversion gibt."
 
 #. (title)
 msgid "Implementation Details"
@@ -19892,7 +19909,7 @@ msgid ""
 "conflicts between local changes and changes downloaded from the repository. "
 "It is also used to indicate the <literal>obstructed</literal> state, which "
 "can occur when an operation is unable to complete."
-msgstr "<graphic fileref=\"images/ConflictIcon.png\"/>\nDas <emphasis>Konflikt</emphasis> Symbol wird verwendet, um anzuzeigen, dass beim <emphasis>Aktualisieren</emphasis> oder <emphasis>Wechseln zu</emphasis> ein Konflikt zwischen lokalen Änderungen und Änderungen in der Arbeitskopie auftrat. Weiterhin wird durch dieses Symbol der <emphasis>Versperrt</emphasis> Status angezeigt."
+msgstr "<graphic fileref=\"images/ConflictIcon.png\"/>\nDas Symbol <emphasis>Konflikt</emphasis> wird verwendet, um anzuzeigen, dass beim <emphasis>Aktualisieren</emphasis> oder <emphasis>Wechseln zu</emphasis> ein Konflikt zwischen lokalen Änderungen und Änderungen in der Arbeitskopie auftrat. Weiterhin wird durch dieses Symbol der Status <emphasis>Versperrt</emphasis> angezeigt."
 
 #. (para)
 msgid ""
@@ -19913,14 +19930,14 @@ msgid ""
 "or the <literal>missing</literal> state, where an item is not present. "
 "Naturally an item which is missing cannot have an overlay itself, but the "
 "parent folder can be marked if one of its child items is missing."
-msgstr "<graphic fileref=\"images/DeletedIcon.png\"/>\nDieses überlagerte Symbol zeigt, dass Dateien oder Ordner zum <emphasis>Löschen</emphasis> aus der Versionskontrolle markiert wurden oder dass TortoiseSVN eine Datei unter Versionskontrolle vermisst. Eine fehlende Datei kann natürlich dieses Symbol nicht erhalten, aber der Elternordner zeigt es an, sobald ein Unterobjekt vermisst wird."
+msgstr "<graphic fileref=\"images/DeletedIcon.png\"/> Dieses überlagerte Symbol zeigt, dass Dateien oder Ordner zum <emphasis>Löschen</emphasis> aus der Versionskontrolle markiert wurden oder dass TortoiseSVN eine Datei unter Versionskontrolle vermisst. Eine fehlende Datei kann natürlich dieses Symbol nicht erhalten, aber der Elternordner zeigt es an, sobald ein Unterobjekt vermisst wird."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"images/AddedIcon.png\"/> The <emphasis>Added</emphasis> "
 "overlay is simply used to represent the <literal>added</literal> status when"
 " an item has been added to version control."
-msgstr "<graphic fileref=\"images/AddedIcon.png\"/>\nDieses Symbol zeigt an, dass eine Datei oder ein Ordner neu zur Versionskontrolle <emphasis>Hinzugefügt</emphasis> wurde."
+msgstr "<graphic fileref=\"images/AddedIcon.png\"/> Dieses Symbol zeigt an, dass eine Datei oder ein Ordner neu zur Versionskontrolle <emphasis>Hinzugefügt</emphasis> wurde."
 
 #. (para)
 msgid ""
@@ -19929,20 +19946,20 @@ msgid ""
 "<literal>normal</literal> state, or a versioned item whose state is not yet "
 "known. Because TortoiseSVN uses a background caching process to gather "
 "status, it may take a few seconds before the overlay updates."
-msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/>\nDieses Symbol bedeutet dass der Subversion Status <emphasis>Normal</emphasis> ist oder dass es sich um ein versioniertes Objekt handelt, dessen Status noch nicht bekannt ist. Da TortoiseSVN im Hintergrund einen Statusspeicher verwendet, kann es ein paar Sekunden dauern, bis das Symbol aktualisiert wird."
+msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> Dieses Symbol bedeutet dass der Subversion-Status <emphasis>Normal</emphasis> ist oder dass es sich um ein versioniertes Objekt handelt, dessen Status noch nicht bekannt ist. Da TortoiseSVN im Hintergrund einen Statusspeicher verwendet, kann es ein paar Sekunden dauern, bis das Symbol aktualisiert wird."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs "
 "Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
 ":needs-lock</literal> property set."
-msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"></graphic>\nDas <emphasis>Benötigt Sperre/emphasis> Symbol zeigt an, dass die <literal>svn:needs-lock</literal> Eigenschaft einer Datei gesetzt ist."
+msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> Das Symbol <emphasis>Benötigt Sperre</emphasis>zeigt an, dass die <literal>svn:needs-lock</literal>-Eigenschaft einer Datei gesetzt ist."
 
 #. (para)
 msgid ""
 "<graphic fileref=\"images/LockedIcon.png\"/> The <emphasis>Locked</emphasis>"
 " overlay is used when the local working copy holds a lock for that file."
-msgstr "<graphic fileref=\"images/LockedIcon.png\"/>\nDas <emphasis>Gesperrt</emphasis> Symbol zeigt an, dass die lokale Arbeitskopie die Sperre für die Datei besitzt."
+msgstr "<graphic fileref=\"images/LockedIcon.png\"/> Das Symbol <emphasis>Gesperrt</emphasis> zeigt an, dass die lokale Arbeitskopie die Sperre für die Datei besitzt."
 
 #. (para)
 msgid ""
@@ -19951,7 +19968,7 @@ msgid ""
 "in the <literal>ignored</literal> state, either due to a global ignore "
 "pattern, or the <literal>svn:ignore</literal> property of the parent folder."
 " This overlay is optional."
-msgstr "<graphic fileref=\"images/IgnoredIcon.png\"/>\nDieses Symbol bedeutet dass dieses Objekt von Subversion <emphasis>Ignoriert</emphasis> wird. Das kann aufgrund eines globalen Ignoriermusters oder der <literal>svn:ignore</literal> Eigenschaft des Elternobjekts der Fall sein. Dieses Symbol ist optional."
+msgstr "<graphic fileref=\"images/IgnoredIcon.png\"/> Dieses Symbol bedeutet, dass dieses Objekt von Subversion <emphasis>Ignoriert</emphasis> wird. Das kann aufgrund eines globalen Ignoriermusters oder der <literal>svn:ignore</literal>-Eigenschaft des Elternobjekts der Fall sein. Dieses Symbol ist optional."
 
 #. (para)
 msgid ""
@@ -19960,7 +19977,7 @@ msgid ""
 "is in the <literal>unversioned</literal> state. This is an item in a "
 "versioned folder, but which is not under version control itself. This "
 "overlay is optional."
-msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/>\nDieses Symbol zeigt an, dass eine Datei oder ein Ordner <emphasis>Nicht Versioniert</emphasis> ist. Das Objekt liegt innerhalb eines versionierten Ordners, befindet sich jedoch selbst nicht unter Versionskontrolle. Dieses Symbol ist optional."
+msgstr "<graphic fileref=\"images/UnversionedIcon.png\"/> Dieses Symbol zeigt an, dass eine Datei oder ein Ordner <emphasis>Nicht Versioniert</emphasis> ist. Das Objekt liegt innerhalb eines versionierten Ordners, befindet sich jedoch selbst nicht unter Versionskontrolle. Dieses Symbol ist optional."
 
 #. (para)
 msgid ""
@@ -19969,7 +19986,7 @@ msgid ""
 "disable the <emphasis>Ignored</emphasis> and "
 "<emphasis>Unversioned</emphasis> overlays then no overlay will be shown for "
 "those files either."
-msgstr "Wenn ein Objekt sich nicht in einer Arbeitskopie befindet (Subversion-Status <literal>none</literal>), wird kein überlagertes Symbol angezeigt. Wenn Sie die <emphasis>Ignoriert</emphasis> und <emphasis>Nicht Versioniert</emphasis> Symbole abgeschaltet haben, wird für solche Objekte auch innerhalb einer Arbeitskopie kein Symbol angezeigt."
+msgstr "Wenn ein Objekt sich nicht in einer Arbeitskopie befindet (Subversion-Status <literal>none</literal>), wird kein überlagertes Symbol angezeigt. Wenn Sie die Symbole <emphasis>Ignoriert</emphasis> und <emphasis>Nicht Versioniert</emphasis> abgeschaltet haben, wird für solche Objekte auch innerhalb einer Arbeitskopie kein Symbol angezeigt."
 
 #. (para)
 msgid ""
@@ -19978,7 +19995,7 @@ msgid ""
 "Subversion returns a single status value - in this case "
 "<literal>deleted</literal>. Those priorities are defined within Subversion "
 "itself."
-msgstr "Ein Objekt kann nur einen Subversion Status besitzen. Zum Beispiel kann eine Datei lokal verändert und gleichzeitig zum Löschen markiert sein. Subversion gibt in diesem Fall nur einen Wert - <emphasis>gelöscht</emphasis> zurück. Diese Prioritäten sind in Subversion selbst festgelegt."
+msgstr "Ein Objekt kann nur einen Subversion-Status besitzen. Zum Beispiel kann eine Datei lokal verändert und gleichzeitig zum Löschen markiert sein. Subversion gibt in diesem Fall nur einen Wert <literal>gelöscht</literal> zurück. Diese Prioritäten sind in Subversion selbst festgelegt."
 
 #. (para)
 msgid ""
@@ -19998,7 +20015,7 @@ msgid ""
 "applications. If there are not enough overlay slots available, TortoiseSVN "
 "tries to be a <emphasis>Good Citizen (TM)</emphasis> and limits its use of "
 "overlays to give other apps a chance."
-msgstr "Sie werden möglicherweise feststellen, dass nicht alle diese Symbole auf Ihrem Rechner dargestellt werden. Das liegt daran, dass Windows die Anzahl der überlagerten Symbole beschränkt auf 15. Windows selber verwendet 4, und die restlichen 11 werden geteilt von allen anderen Programmen. Wenn nicht mehr genug Plätze frei sind, versucht TortoiseSVN ein <emphasis>Guter Bürger (tm)</emphasis> zu sein und schränkt seine Verwendung von überlagerten Symbolen ein, damit andere Anwendungen eine Chance haben."
+msgstr "Sie werden möglicherweise feststellen, dass nicht alle diese Symbole auf Ihrem Rechner dargestellt werden. Das liegt daran, dass Windows die Anzahl der überlagerten Symbole auf 15 beschränkt. Windows selber verwendet 4, die restlichen 11 teilen sich alle anderen Programme. Wenn nicht mehr genug Plätze frei sind, versucht TortoiseSVN, ein <emphasis>Guter Bürger (tm)</emphasis> zu sein und schränkt seine Verwendung von überlagerten Symbolen ein, damit andere Anwendungen eine Chance haben."
 
 #. (para)
 msgid ""
@@ -20081,7 +20098,7 @@ msgid ""
 "Each language pack is packaged as a <literal>.msi</literal> installer. Just "
 "run the install program and follow the instructions. After the installation "
 "finishes, the translation will be available."
-msgstr "Jedes Sprachpaket ist in einem <literal>.msi</literal> Installer enthalten. Lassen Sie das Installationsprogramm einmal laufen und folgen Sie den Anweisungen. Nachdem die Installation abgeschlossenen ist, steht die Übersetzung zur Verfügung."
+msgstr "Jedes Sprachpaket ist in einem <literal>.msi</literal>-Installer enthalten. Lassen Sie das Installationsprogramm einmal laufen und folgen Sie den Anweisungen. Nachdem die Installation abgeschlossenen ist, steht die Übersetzung zur Verfügung."
 
 #. (para)
 msgid ""
@@ -20110,13 +20127,13 @@ msgid ""
 "different language than the default OS language, you have to install the "
 "spell checker module in the Windows settings (<literal>Settings &gt; Time "
 "&amp; Language &gt; Region &amp; Language</literal>)."
-msgstr "TortoiseSVN verwendet die Windows Rechtschreibprüfung (verfügbar ab Windows 8). Wenn Sie die Rechtschreibprüfung nicht in der Standardsprache des Betriebssystems verwenden wollen, müssen Sie die entsprechende Rechtschreibprüfung über die Windows Einstellungen installieren (<literal>Einstellungen &gt; Region &amp; Sprache</literal>)."
+msgstr "TortoiseSVN verwendet die Windows-Rechtschreibprüfung (verfügbar ab Windows 8). Wenn Sie die Rechtschreibprüfung nicht in der Standardsprache des Betriebssystems verwenden wollen, müssen Sie die entsprechende Rechtschreibprüfung über die Windows-Einstellungen installieren (<literal>Einstellungen &gt; Region &amp; Sprache</literal>)."
 
 #. (para)
 msgid ""
 "TortoiseSVN will use that spell checker if properly configured with the "
 "<literal>tsvn:projectlanguage</literal> project property."
-msgstr "TortoiseSVN wird diese Rechtschreibprüfung verwenden, wenn sie korrekt über die <literal>tsvn:projectlanguage</literal> Projekteigenschaft konfiguriert ist."
+msgstr "TortoiseSVN wird diese Rechtschreibprüfung verwenden, wenn sie korrekt über die Projekteigenschaft <literal>tsvn:projectlanguage</literal> konfiguriert ist."
 
 #. (para)
 msgid ""
@@ -20124,7 +20141,7 @@ msgid ""
 " spell checker dictionaries from <ulink "
 "url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> and"
 " <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink>."
-msgstr "Für den Fall, dass die Windows Rechtschreibprüfung nicht verfügbar ist, kann TortoiseSVN auch Wörterbücher von <ulink url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> und <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> verwenden."
+msgstr "Für den Fall, dass die Windows-Rechtschreibprüfung nicht verfügbar ist, kann TortoiseSVN auch Wörterbücher von <ulink url=\"https://openoffice.org\"><citetitle>OpenOffice</citetitle></ulink> und <ulink url=\"https://mozilla.org\"><citetitle>Mozilla</citetitle></ulink> verwenden."
 
 #. (para)
 msgid ""
@@ -20133,7 +20150,7 @@ msgid ""
 "TortoiseSVN's language packs. This will install the appropriate dictionary "
 "files as well as the TortoiseSVN local user interface. After the "
 "installation finishes, the dictionary will be available too."
-msgstr "Das Installationsprogramm bringt die englische und amerikanische Rechtschreibprüfung mit. Wenn Sie weitere Sprachen benötigen, installieren Sie einfach eines von TortoiseSVN's Sprachpaketen. Diese bringen außer der lokalisierten Anwenderoberfläche auch die entsprechende Rechtschreibprüfung mit. Nachdem die Installation abgeschlossenen ist, steht das Wörterbuch zur Verfügung."
+msgstr "Das Installationsprogramm bringt die englische und amerikanische Rechtschreibprüfung mit. Wenn Sie weitere Sprachen benötigen, installieren Sie einfach eines von TortoiseSVN's Sprachpaketen. Diese bringen außer der lokalisierten Anwenderoberfläche auch die entsprechende Rechtschreibprüfung mit. Nachdem die Installation abgeschlossen ist, steht das Wörterbuch zur Verfügung."
 
 #. (para)
 msgid ""
@@ -20165,27 +20182,27 @@ msgid ""
 "language packs put their files. However, the %APPDATA%-folder doesn't "
 "require administrator privileges and, thus, has higher priority. The next "
 "time you start TortoiseSVN, the spell checker will be available."
-msgstr "Sobald Sie die Wörterbücher haben, müssen Sie sie wahrscheinlich umbenennen, sodass die Dateinamen dem Kürzel für die Landessprache entsprechen. Beispiel: <placeholder-1/>. Danach kopieren Sie sie einfach in den Ordner <filename>%APPDATA%\\TortoiseSVN\\dic</filename>. Wenn dieser Ordner nicht existiert, müssen Sie ihn zuerst anlegen. TortoiseSVN wird auch im <filename>Languages</filename>-Unterordner des TortoiseSVN-Installationsordners suchen (normalerweise <filename>C:\\Programme\\TortoiseSVN\\Languages</filename>. Dies ist der Ordner, in dem die Dateien der Sprachpakete installiert werden. Dafür benötigt die Installation für den Ordner %APPDATA% keine Administratorrechte und erhält deswegen Vorrang. Beim nächsten Start von TortoiseSVN steht Ihnen dann die Rechtschreibprüfung zur Verfügung."
+msgstr "Sobald Sie die Wörterbücher haben, müssen Sie sie wahrscheinlich umbenennen, sodass die Dateinamen dem Kürzel für die Landessprache entsprechen. Beispiel: <placeholder-1/>. Danach kopieren Sie sie einfach in den Ordner <filename>%APPDATA%\\TortoiseSVN\\dic</filename>. Wenn dieser Ordner nicht existiert, müssen Sie ihn zuerst anlegen. TortoiseSVN wird auch im <filename>Languages</filename>-Unterordner des TortoiseSVN-Installationsordners suchen, normalerweise <filename>C:\\Programme\\TortoiseSVN\\Languages</filename>. Dies ist der Ordner, in dem die Dateien der Sprachpakete installiert werden. Dafür benötigt die Installation für den Ordner %APPDATA% keine Administratorrechte und erhält deswegen Vorrang. Beim nächsten Start von TortoiseSVN steht Ihnen dann die Rechtschreibprüfung zur Verfügung."
 
 #. (para)
 msgid ""
 "Check the <literal>tsvn:projectlanguage</literal> setting. Refer to <xref "
 "linkend=\"tsvn-dug-propertypage\"/> for information about setting project "
 "properties."
-msgstr "Prüfe die <literal>tsvn:projectlanguage</literal> Einstellung. Lesen Sie in <xref linkend=\"tsvn-dug-propertypage\"/> nach, wie Sie Projekteinstellungen vornehmen."
+msgstr "Prüfe die Einstellung <literal>tsvn:projectlanguage</literal>. Lesen Sie in <xref linkend=\"tsvn-dug-propertypage\"/> nach, wie Sie Projekteinstellungen vornehmen."
 
 #. (para)
 msgid ""
 "If no project language is set, or that language is not installed, try the "
 "language corresponding to the Windows locale."
-msgstr "Wenn keine Projektsprache eingestellt ist oder das entsprechende Sprachpaket nicht installiert ist, versuche ein zur Windows Spracheinstellung passendes Paket zu finden."
+msgstr "Wenn keine Projektsprache eingestellt ist oder diese Sprache nicht installiert ist, versuchen Sie die Sprache, die dem Windows-Gebietsschema entspricht."
 
 #. (para)
 msgid ""
 "If the exact Windows locale doesn't work, try the <quote>Base</quote> "
 "language, e.g. <literal>de_CH</literal> (Swiss-German) falls back to "
 "<literal>de_DE</literal> (German)."
-msgstr "Wenn kein Paket mit der Windows Spracheinstellung übereinstimmt, versuche es mit der <quote>Basis</quote>-Sprache, z.B. <literal>de_CH</literal> (Schweizerdeutsch) fällt zurück auf <literal>de_DE</literal> (Deutsch)."
+msgstr "Wenn kein Paket mit der Windows-Spracheinstellung übereinstimmt, versuchen Sie es mit der <quote>Basis</quote>-Sprache, z. B. <literal>de_CH</literal> (Schweizerdeutsch) fällt zurück auf <literal>de_DE</literal> (Deutsch)."
 
 #. (para)
 msgid ""
@@ -20197,7 +20214,7 @@ msgstr "Wenn keines der obenstehenden Verfahren funktioniert, wird Englisch verw
 msgid ""
 "If you install multiple dictionaries, TortoiseSVN uses these rules to select"
 " which one to use. <placeholder-1/>"
-msgstr "Falls Sie mehrere Wörterbücher installieren, verwendet TortoiseSVN die folgenden Regeln, um das zu verwendende Wörterbuch zu ermitteln. <placeholder-1/>"
+msgstr "Wenn Sie mehrere Wörterbücher installieren, verwendet TortoiseSVN die folgenden Regeln, um das zu verwendende Wörterbuch zu ermitteln. <placeholder-1/>"
 
 #. (title)
 msgid "Glossary"
@@ -20207,7 +20224,7 @@ msgstr "Glossar"
 msgid ""
 "A Subversion command that is used to add a file or directory to your working"
 " copy. The new items are added to the repository when you commit."
-msgstr "Ein Subversion Befehl, der zum Hinzufügen von Dateien oder Ordnern zu einem Projektarchiv benutzt wird. Die neuen Objekte werden beim Übertragen zum Projektarchiv hinzugefügt."
+msgstr "Ein Subversion-Befehl, der zum Hinzufügen von Dateien oder Ordnern zu einem Projektarchiv benutzt wird. Die neuen Objekte werden beim Übertragen zum Projektarchiv hinzugefügt."
 
 #. (glossterm)
 msgid "BASE revision"
@@ -20219,7 +20236,7 @@ msgid ""
 "copy</emphasis>. This is the revision the file or folder was in, when the "
 "last checkout, update or commit was run. The BASE revision is normally not "
 "equal to the HEAD revision."
-msgstr "Die aktuelle Basisrevision einer Datei oder eines Ordners in Ihrer <emphasis>Arbeitskopie</emphasis>. Dies ist die Revision, in der sich die Datei oder der Ordners befand, als zuletzt Auschecken, Aktualisieren oder Übertragen aufgerufen wurde. Die BASE-Revision entspricht normalerweise nicht der HEAD-Revision."
+msgstr "Die aktuelle Basisrevision einer Datei oder eines Ordners in Ihrer <emphasis>Arbeitskopie</emphasis>. Dies ist die Revision, in der sich die Datei oder der Ordner befand, als zuletzt Auschecken, Aktualisieren oder Übertragen aufgerufen wurde. Die BASE-Revision entspricht normalerweise nicht der HEAD-Revision."
 
 #. (para)
 msgid ""
@@ -20228,7 +20245,7 @@ msgid ""
 "that change. Our GUI implementation is called TortoiseBlame and it also "
 "shows the commit date/time and the log message when you hover the mouse of "
 "the revision number."
-msgstr "Dieser Befehl steht nur für Textdateien zur Verfügung und er annotiert jede Zeile mit der Revision und dem letzten Autor. In unserer GUI Anwendung namens TortoiseBlame wird zusätzlich die Logmeldung angezeigt, wenn Sie mit der Maus über die Revisionsnummer fahren."
+msgstr "Dieser Befehl steht nur für Textdateien zur Verfügung und er annotiert jede Zeile mit der Revision und dem letzten Autor. In unserer GUI-Anwendung namens TortoiseBlame wird zusätzlich die Logmeldung angezeigt, wenn Sie mit der Maus über die Revisionsnummer fahren."
 
 #. (glossterm)
 msgid "Branch"
@@ -20243,13 +20260,13 @@ msgid ""
 "stable release to which you make only bug fixes, while new developments take"
 " place on the unstable trunk. In Subversion a branch is implemented as a "
 "<quote>cheap copy</quote>."
-msgstr "Ein Begriff der häufig in Versionskontrollsystemen verwendet wird, um zu beschreiben, wenn sich die Entwicklung an einem bestimmten Punkt verzweigt und verschiedenen Wegen folgt. Sie können von der Hauptentwicklungslinie abzweigen, um neue Funktionen zu implementieren ohne den Hauptzweig instabil zu machen. Genauso können Sie eine stabile, freigegebene Version abzweigen, an der Sie nur noch Fehler beseitigen, während die Weiterentwicklung am instabilen Hauptzweig erfolgt. In Subversion sind Zweige als <quote>billige Kopien</quote> implementiert."
+msgstr "Ein Begriff, der häufig in Versionskontrollsystemen verwendet wird, um zu beschreiben, wenn sich die Entwicklung an einem bestimmten Punkt verzweigt und verschiedenen Wegen folgt. Sie können von der         Hauptentwicklungslinie abzweigen, um neue Funktionen zu implementieren, ohne den Hauptzweig instabil zu machen. Genauso können Sie eine stabile freigegebene Version abzweigen, an der Sie nur noch Fehler beseitigen, während die Weiterentwicklung am instabilen Hauptzweig erfolgt. In Subversion sind Zweige als <quote>billige Kopien</quote> implementiert."
 
 #. (para)
 msgid ""
 "A Subversion command which creates a local working copy in an empty "
 "directory by downloading versioned files from the repository."
-msgstr "Ein Subversionbefehl, der eine lokale Arbeitskopie in einem leeren Verzeichnis erstellt, indem versionierte Dateien aus einem Projektarchiv heruntergeladen werden."
+msgstr "Ein Subversion-Befehl, der eine lokale Arbeitskopie in einem leeren Verzeichnis erstellt, indem versionierte Dateien aus einem Projektarchiv heruntergeladen werden."
 
 #. (para)
 msgid ""
@@ -20259,13 +20276,13 @@ msgid ""
 "stale locks and get your working copy into a usable state again. </quote> "
 "Note that in this context <emphasis>lock</emphasis> refers to local "
 "filesystem locking, not repository locking."
-msgstr "Ein Zitat aus dem Subversion Buch: <quote>Bereinigt die Arbeitskopie rekursiv, entfernt dabei Sperren und setzt unvollendete Operationen fort. Wenn Sie jemals einen <emphasis>Arbeitskopie gesperrt</emphasis> Fehler bekommen, führen Sie diesen Befehl aus, um veraltete Sperren zu entfernen und Ihre Arbeitskopie wieder in einen nutzbaren Zustand zu versetzen.</quote> Beachten Sie, dass in diesem Zusammenhang <emphasis>Sperren</emphasis> lokale Dateisystemsperren bezeichnet und keine Sperren im Projektarchiv."
+msgstr "Ein Zitat aus dem Subversion-Buch: <quote>Bereinigt die Arbeitskopie rekursiv, entfernt dabei Sperren und setzt unvollendete Operationen fort. Wenn Sie jemals einen Fehler <emphasis>Arbeitskopie gesperrt</emphasis> bekommen, führen Sie diesen Befehl aus, um veraltete Sperren zu entfernen und Ihre Arbeitskopie wieder in einen nutzbaren Zustand zu versetzen.</quote> Beachten Sie, dass in diesem Zusammenhang <emphasis>Sperren</emphasis> lokale Dateisystemsperren bezeichnet und keine Sperren im Projektarchiv."
 
 #. (para)
 msgid ""
 "This Subversion command is used to pass the changes in your local working "
 "copy back into the repository, creating a new repository revision."
-msgstr "Dieser Subversionbefehl wird verwendet, um die Änderungen in Ihrer lokalen Arbeitskopie zurück in das Projektarchiv zu übertragen."
+msgstr "Dieser Subversion-Befehl wird verwendet, um die Änderungen in Ihrer lokalen Arbeitskopie zurück in das Projektarchiv zu übertragen."
 
 #. (glossterm)
 msgid "Conflict"
@@ -20300,7 +20317,7 @@ msgid ""
 "still exists in earlier repository revisions, so you can still access it. If"
 " necessary, you can copy a deleted item and <quote>resurrect</quote> it "
 "complete with history."
-msgstr "Wenn Sie ein versioniertes Objekt löschen (und dann Übertragen), existiert die Datei oder Ordner nach der übertragenen Revision nicht mehr im Projektarchiv. Aber selbstverständlich existiert diese noch in früheren Revisionen und es kann immer noch darauf zugegriffen werden. Falls notwendig, können Sie das gelöschte Objekt wieder in die Arbeitskopie kopieren und diese so mit der kompletten Historie <quote>wiederherstellen</quote>."
+msgstr "Wenn Sie ein versioniertes Objekt löschen (und dann übertragen), existiert die Datei oder Ordner nach der übertragenen Revision nicht mehr im Projektarchiv. Aber selbstverständlich existiert diese noch in früheren Revisionen und es kann immer noch darauf zugegriffen werden. Falls nötig, können Sie das gelöschte Objekt wieder in die Arbeitskopie kopieren und es so mit der kompletten Historie <quote>wiederherstellen</quote>."
 
 #. (para)
 msgid ""
@@ -20342,14 +20359,14 @@ msgstr "Die neueste Version einer Datei oder eines Ordners im <emphasis>Projekta
 msgid ""
 "Subversion command to import an entire folder hierarchy into the repository "
 "in a single revision."
-msgstr "Ein Subversionbefehl mit dem eine vollständige Ordnerhierarchie mit einer einzigen Revision in ein Projektarchiv importiert wird."
+msgstr "Ein Subversion-Befehl, mit dem eine vollständige Ordnerhierarchie mit einer einzigen Revision in ein Projektarchiv importiert wird."
 
 #. (para)
 msgid ""
 "When you take out a lock on a versioned item, you mark it in the repository "
 "as non-committable, except from the working copy where the lock was taken "
 "out."
-msgstr "Wenn Sie eine Datei sperren, wird diese im Projektarchiv als nicht übertragbar markiert, mit Ausnahme der Arbeitskopie von der aus aus die Sperre gesetzt wurde."
+msgstr "Wenn Sie eine Datei sperren, wird diese im Projektarchiv als nicht übertragbar markiert, mit Ausnahme der Arbeitskopie, von der aus die Sperre gesetzt wurde."
 
 #. (glossterm)
 msgid "Log"
@@ -20377,14 +20394,14 @@ msgid ""
 "copy without disrupting any changes you have already made locally. Sometimes"
 " these changes cannot be reconciled automatically and the working copy is "
 "said to be in conflict."
-msgstr "Der Prozess mit welchem Änderungen vom Projektarchiv zur Arbeitskopie hinzugefügt werden, ohne lokale Änderungen zu beeinträchtigen. Manchmal können diese Änderungen nicht automatisch hinzugefügt werden und die Arbeitskopie befindet sich dann in einem Konflikt."
+msgstr "Der Prozess, mit dem Änderungen vom Projektarchiv zur Arbeitskopie hinzugefügt werden, ohne lokale Änderungen zu beeinträchtigen. Manchmal können diese Änderungen nicht automatisch hinzugefügt werden und die Arbeitskopie befindet sich dann in einem Konflikt."
 
 #. (para)
 msgid ""
 "Merging happens automatically when you update your working copy. You can "
 "also merge specific changes from another branch using TortoiseSVN's Merge "
 "command."
-msgstr "Das Zusammenführen passiert automatisch, wenn Sie ihre Arbeitskopie aktualisieren. Sie können auch mit dem TortoiseSVN Befehl <quote>Zusammenführen</quote> spezifische Änderungen von einem Zweig in der Arbeitskopie zusammenführen."
+msgstr "Das Zusammenführen passiert automatisch, wenn Sie Ihre Arbeitskopie aktualisieren. Sie können auch mit dem TortoiseSVN-Befehl <quote>Zusammenführen</quote> spezifische Änderungen von einem Zweig in der Arbeitskopie zusammenführen."
 
 #. (glossterm)
 msgid "Patch"
@@ -20400,7 +20417,7 @@ msgid ""
 "can make changes and submit a patch file for an authorized committer to "
 "apply. Or if you are unsure about a change you can submit a patch for others"
 " to review."
-msgstr "Wenn eine Arbeitskopie nur Änderungen an Textdateien aufweist, ist es möglich, mit dem Diff-Befehl von Subversion eine Datei zu erstellen, die diese Änderungen im Standard-Diff Format enthält. Eine Datei mit solchem Inhalt wird üblicherweise als <quote>Patch</quote> bezeichnet und kann zum Beispiel jemandem per Mail geschickt werden, der diese Änderungen dann in seine Arbeitskopie übernehmen kann. Jemand ohne Übertragungsrechte zum Projektarchiv kann so Änderungen vornehmen, diese Änderungen an eine Person mit Übertragungsrechten schicken, die dann diese Änderungen übertragen kann. Oder man kann eine solche Patchdatei anderen zuerst zur Diskussion schicken, bevor man die Änderungen überträgt."
+msgstr "Wenn eine Arbeitskopie nur Änderungen an Textdateien aufweist, ist es möglich, mit dem Diff-Befehl von Subversion eine Datei zu erstellen, die diese Änderungen im Standard-Diff-Format enthält. Eine Datei mit solchem Inhalt wird üblicherweise als <quote>Patch</quote> bezeichnet und kann zum Beispiel jemandem per Mail geschickt werden, der diese Änderungen dann in seine Arbeitskopie übernehmen kann. Jemand ohne Übertragungsrechte zum Projektarchiv kann so Änderungen vornehmen, diese Änderungen an eine Person mit Übertragungsrechten schicken, die dann diese Änderungen übertragen kann. Oder man kann eine solche Patchdatei anderen zuerst zur Diskussion schicken, bevor man die Änderungen überträgt."
 
 #. (glossterm)
 msgid "Property"
@@ -20431,7 +20448,7 @@ msgid ""
 "the same location in the same repository, but the repository itself has "
 "moved. In any other circumstance you probably need the <quote>Switch</quote>"
 " command instead."
-msgstr "Hinweis: Sie sollten diesen Befehl nur benutzen wenn die Arbeitskopie zur selben Stelle im Projektarchiv selbst zeigt und nur das Projektarchiv selbst verschoben wurde. In allen anderen Situationen müssen Sie den Befehl <quote>Wechseln zu</quote> verwenden."
+msgstr "Hinweis: Sie sollten diesen Befehl nur benutzen, wenn die Arbeitskopie zur selben Stelle im Projektarchiv selbst zeigt und nur das Projektarchiv selbst verschoben wurde. In allen anderen Situationen müssen Sie den Befehl <quote>Wechseln zu</quote> verwenden."
 
 #. (glossterm)
 msgid "Repository"
@@ -20443,7 +20460,7 @@ msgid ""
 "repository can be a place where multiple databases or files are located for "
 "distribution over a network, or a repository can be a location that is "
 "directly accessible to the user without having to travel across a network."
-msgstr "Ein Projektarchiv ist ein zentraler Platz in dem Daten gespeichert und verwaltet werden. Das Projektarchiv kann sowohl auf einem Server liegen und über das Netzwerk angesprochen werden, als auch auf der lokalen Platte liegen."
+msgstr "Ein Projektarchiv ist ein zentraler Platz, in dem Daten gespeichert und verwaltet werden. Ein Projektarchiv kann ein Ort sein, an dem sich mehrere Datenbanken oder Dateien zur Verteilung über ein Netzwerk befinden, oder ein Projektarchiv kann ein Ort sein, auf den der Benutzer direkt zugreifen kann, ohne über ein Netzwerk reisen zu müssen."
 
 #. (para)
 msgid ""
@@ -20460,7 +20477,7 @@ msgid ""
 " when you last updated your working copy. If you have made changes and "
 "decide you want to undo them, you can use the <quote>revert</quote> command "
 "to go back to the pristine copy."
-msgstr "Subversion hält eine lokale <quote>Basis</quote>-Kopie von jeder Datei in dem Zustand, in dem sie zuletzt aktualisiert wurde in der Arbeitskopie. Wenn Sie Änderungen gemacht haben und diese rückgängig machen wollen, können Sie den Befehl <quote>Rückgängig</quote> verwenden, um zurück zur Basisversion der Datei zu kommen."
+msgstr "Subversion hält eine lokale <quote>Basis</quote>-Kopie von jeder Datei in dem Zustand, in dem sie zuletzt in der Arbeitskopie aktualisiert wurde. Wenn Sie Änderungen gemacht haben und diese rückgängig machen wollen, können Sie den Befehl <quote>Rückgängig</quote> verwenden, um zurück zur Basisversion der Datei zu kommen."
 
 #. (glossterm)
 msgid "Revision"
@@ -20472,13 +20489,13 @@ msgid ""
 "<quote>revision</quote> in the repository. Each revision represents the "
 "state of the repository tree at a certain point in its history. If you want "
 "to go back in time you can examine the repository as it was at revision N."
-msgstr "Jedes Mal, wenn Sie Änderungen übertragen, wird eine neue <quote>Revision</quote> im Projektarchiv erstellt. Jede Revision stellt den Status des Projektarchivs zu einem bestimmten Zeitpunkt in der Vergangenheit dar. Wenn Sie in der Zeit zurückgehen möchten, können Sie den Zustand des Projektarchivs, wie es zur Revision N war, ansehen."
+msgstr "Jedes Mal, wenn Sie Änderungen übertragen, wird eine neue <quote>Revision</quote> im Projektarchiv erstellt. Jede Revision stellt den Status des Projektarchivs zu einem bestimmten Zeitpunkt in der Vergangenheit dar. Wenn Sie in der Zeit zurückgehen möchten, können Sie das Projektarchiv so untersuchen, wie es bei Revision N war."
 
 #. (para)
 msgid ""
 "In another sense, a revision can refer to the set of changes that were made "
 "when that revision was created."
-msgstr "Anders ausgedrückt bezieht sich eine Revision auf eine Menge von Änderungen, die, als diese Revision erstellt wurde, vorgenommen wurden."
+msgstr "Anders ausgedrückt, bezieht sich eine Revision auf eine Menge von Änderungen, die bei der Erstellung dieser Revision vorgenommen wurden."
 
 #. (glossterm)
 msgid "Revision Property (revprop)"
@@ -20524,7 +20541,7 @@ msgid ""
 "This Subversion command pulls down the latest changes from the repository "
 "into your working copy, merging any changes made by others with local "
 "changes in the working copy."
-msgstr "Dieser Subversionbefehl holt die neuesten Änderungen aus dem Projektarchiv in Ihre Arbeitskopie und führt dabei die Änderungen von anderen mit Ihren Änderungen zusammen."
+msgstr "Dieser Subversion-Befehl holt die neuesten Änderungen aus dem Projektarchiv in Ihre Arbeitskopie und führt dabei die Änderungen von anderen mit Ihren Änderungen zusammen."
 
 #. (para)
 msgid ""
@@ -20532,7 +20549,7 @@ msgid ""
 "versioned files, and it normally resides on your local hard disk. You create"
 " a working copy by doing a <quote>Checkout</quote> from a repository, and "
 "you feed your changes back into the repository using <quote>Commit</quote>."
-msgstr "Dies ist Ihr lokaler <quote>Sandkasten</quote>, der Bereich, in dem Sie an versionierten Dateien arbeiten, und er liegt normalerweise auf Ihrer lokalen Festplatte. Sie erzeugen eine Arbeitskopie, indem Sie einen Ordner aus einem Projektarchiv <quote>Auschecken</quote> und Sie führen Ihre Änderungen mit einem <quote>Übertragen</quote> in das Projektarchiv zurück."
+msgstr "Dies ist Ihr lokaler <quote>Sandkasten</quote>, der Bereich, in dem Sie an versionierten Dateien arbeiten. Er liegt normalerweise auf Ihrer lokalen Festplatte. Sie erzeugen eine Arbeitskopie, indem Sie einen Ordner aus einem Projektarchiv <quote>Auschecken</quote> und Sie führen Ihre Änderungen mit einem <quote>Übertragen</quote> in das Projektarchiv zurück."
 
 #. Put one translator per line, in the form of NAME <EMAIL>.
 #. (None)
@@ -20588,18 +20605,18 @@ msgstr "TortoiseMerge ist frei!"
 msgid ""
 "TortoiseMerge is free. You don't have to pay for it, you can use it any way "
 "you want. It is developed under the GP license (GPL)."
-msgstr "TortoiseMerge ist freie Software. Sie brauchen nichts dafür zu bezahlen. Sie können das Programm benutzen wie Sie wollen. TortoiseMerge wird unter der GP Lizenz (GPL) entwickelt."
+msgstr "TortoiseMerge ist freie Software. Sie brauchen nichts dafür zu bezahlen. Sie können das Programm benutzen, wie Sie wollen. TortoiseMerge wird unter der General Public License (GPL) entwickelt."
 
 #. (para)
 msgid ""
 "TortoiseMerge is an Open Source project. That means you have full read "
 "access to the source code of this program. You can browse it on this link "
 "<ulink "
-"url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/</citetitle></ulink>."
+"url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr "TortoiseMerge ist ein Open-Source-Projekt. Das bedeutet, dass sie Zugang zum Quellcode des Programms haben. Sie können den Quellcode unter der URL <ulink url=\"https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/\"><citetitle>http://code.google.com/p/tortoisesvn/source/browse/</citetitle></ulink> ansehen. Die aktuellste Version (an der wir gerade arbeiten) ist immer im Ordner <filename>/trunk/</filename> zu finden. Die bereits veröffentlichten Versionen finden sich im Ordner <filename>/tags/</filename>."
+msgstr "TortoiseMerge ist ein Opensource-Projekt. Das bedeutet dass Sie vollen Zugang zum Code des Programms haben. Der Code findet sich hier: <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. Die aktuellste Version an der wir gerade arbeiten findet sich unter <filename>/trunk/</filename>, und die veröffentlichten Versionen finden sich unter <filename>/tags/</filename>."
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
@@ -20639,7 +20656,7 @@ msgid ""
 "often have a situation where you need to compare different versions of those"
 " files. Sometimes you get a different version from someone else, sometimes "
 "you just want to see the changes you've made."
-msgstr "Wenn Sie mit Textdateien, z.B. Quelltexten ihrer bevorzugten Programmiersprache oder HTML/XML Dateien ihrer Dokumentation oder Webseite arbeiten, werden Sie öfters in eine Situation kommen in der Sie verschiedene Versionen von solchen Dateien vergleichen möchten. Manchmal erhalten Sie eine veränderte Datei von jemand anderem, manchmal möchten Sie einfach nachsehen was Sie an einer Datei schon alles geändert haben."
+msgstr "Wenn Sie mit Textdateien, z. B. Quelltexten ihrer bevorzugten Programmiersprache oder HTML-/XML-Dateien Ihrer Dokumentation oder Webseite arbeiten, werden Sie öfters in eine Situation kommen, in der Sie verschiedene Versionen von solchen Dateien vergleichen möchten. Manchmal erhalten Sie eine veränderte Datei von jemand anderem, manchmal möchten Sie einfach nachsehen, was Sie an einer Datei schon alles geändert haben."
 
 #. (para)
 msgid ""
@@ -20663,7 +20680,7 @@ msgstr "Dateikonflikt"
 
 #. (title)
 msgid "TortoiseMerge's History"
-msgstr "TortoiseMerge's Geschichte"
+msgstr "Geschichte von TortoiseMerge"
 
 #. (para)
 msgid ""
@@ -20676,7 +20693,7 @@ msgid ""
 "url=\"https://unxutils.sourceforge.net/\"><citetitle>https://unxutils.sourceforge.net/</citetitle></ulink>"
 " because we were working on those files and had sometimes changed those "
 "files already."
-msgstr "Während der Arbeit an <ulink url=\"https://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> war es jedes Mal sehr aufwändig, wenn jemand uns Patches mit Fehlerkorrekturen oder Erweiterungen zugeschickt hat, diese Patches auch einzubinden. Häufig waren die Patches veraltet und konnten mit dem Kommandozeilenprogramm <ulink url=\"https://unxutils.sourceforge.net/\"><citetitle>https://unxutils.sourceforge.net/</citetitle></ulink> nicht appliziert werden, da wir an den Dateien arbeiteten und diese manchmal bereits geändert waren."
+msgstr "Während der Arbeit an <ulink url=\"https://tortoisesvn.net\"><citetitle>TortoiseSVN</citetitle></ulink> war es jedes Mal sehr aufwendig, wenn jemand uns Patches mit Fehlerkorrekturen oder Erweiterungen zugeschickt hat, diese Patches auch einzubinden. Häufig waren die Patches veraltet und konnten mit dem Kommandozeilenprogramm <ulink url=\"https://unxutils.sourceforge.net/\"><citetitle>https://unxutils.sourceforge.net/</citetitle></ulink> nicht appliziert werden, da wir an den Dateien arbeiteten und diese manchmal bereits geändert waren."
 
 #. (para)
 msgid ""
@@ -20684,7 +20701,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Create "
 "Patch</guimenuitem></menuchoice> implemented: we preferred users to send us "
 "the whole files because with those it was easier to apply patches."
-msgstr "Das war auch der Hauptgrund, weshalb TortoiseSVN keinen Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Erstelle Patch</guimenuitem></menuchoice> implementiert hatte: wir wollten anstatt der Patchdateien lieber die ganzen Dateien von den Anwendern haben, weil es für uns einfacher war Änderungen auf diese Weise zum Projekt hinzuzufügen."
+msgstr "Das war auch der Hauptgrund, weshalb TortoiseSVN keinen Befehl <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Erstelle Patch</guimenuitem></menuchoice> implementiert hatte: Wir wollten statt der Patchdateien lieber die ganzen Dateien von den Anwendern haben, weil es für uns einfacher war, Änderungen auf diese Weise zum Projekt hinzuzufügen."
 
 #. (para)
 msgid ""
@@ -20692,14 +20709,14 @@ msgid ""
 " apply patch files, but all we found was that such a tool didn't exist. So "
 "to cut a long story short: We decided that if no-one else could provide such"
 " a tool we would have to write our own. That's when TortoiseMerge was born."
-msgstr "Also haben wir viel Zeit damit verbracht, das Internet nach einem guten grafischen Tool abzusuchen, das Patchdateien zu Projekten hinzufügen konnte. Aber alles, was wir fanden, war, dass ein solches Programm nicht existierte. Um eine lange Geschichte zu einem Ende zu bringen: wir haben dann beschlossen, dass wir eben selbst eines schreiben müssen, wenn niemand ein solches Tool anbietet. So entstand TortoiseMerge."
+msgstr "Also haben wir viel Zeit damit verbracht, das Internet nach einem guten grafischen Tool abzusuchen, das Patchdateien zu Projekten hinzufügen konnte. Aber alles, was wir fanden, war, dass ein solches Programm nicht existierte. Um eine lange Geschichte zu einem Ende zu bringen: Wir haben dann beschlossen, dass wir eben selbst eines schreiben müssen, wenn niemand ein solches Tool anbietet. So entstand TortoiseMerge."
 
 #. (para)
 msgid ""
 "Since TortoiseSVN already uses the Subversion library, which has a nice "
 "diffing engine built in, it was just natural to use this library instead of "
 "the GNU diff."
-msgstr "Da TortoiseSVN schon die Subversion Bibliothek benutzt, die gute Vergleichsfunktionen enthält, war es nur natürlich, dieselbe Funktionsbibliothek anstelle von GNU Diff für TortoiseMerge zu nutzen."
+msgstr "Da TortoiseSVN schon die Subversion-Bibliothek benutzt, die gute Vergleichsfunktionen enthält, war es nur natürlich, dieselbe Funktionsbibliothek anstelle von GNU Diff für TortoiseMerge zu nutzen."
 
 #. (para)
 msgid ""
@@ -20719,7 +20736,7 @@ msgstr "Anzeigen von Unterschieden zwischen zwei Dateien, Zusammenführen von ge
 msgid ""
 "Editing conflicts between local changes and changes in the Subversion "
 "repository following an update."
-msgstr "Bearbeiten von Konflikten zwischen lokalen Änderungen und dem Subversion Projektarchiv in Folge einer Aktualisierung."
+msgstr "Bearbeiten von Konflikten zwischen lokalen Änderungen und dem Subversion-Projektarchiv in Folge einer Aktualisierung."
 
 #. (para)
 msgid "Applying patch files and reviewing them."
@@ -20756,7 +20773,7 @@ msgstr "Eine Kombination aus beiden Blöcken, entweder <emphasis>Deren</emphasis
 msgid ""
 "You can make simple line-based changes to the file in the right pane which "
 "include: <placeholder-1/>"
-msgstr "Sie können folgende einfache, zeilenbasierte Änderungen an der Datei im rechten Bereich vornehmen: <placeholder-1/>"
+msgstr "Sie können einfache zeilenbasierte Änderungen an der Datei im rechten Bereich vornehmen, darunter: <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -20766,7 +20783,7 @@ msgid ""
 "better to do those first since once you start editing the file yourself it "
 "becomes impossible for TortoiseMerge to keep track of the relationship to "
 "the original files."
-msgstr "Sie können die Datei im rechten Bereich wie in einem Texteditor bearbeiten. Solche Zeilen werden durch einen Stift gekennzeichnet. Beachten Sie bitte, dass Sie wenn Sie Zeilen- oder Blockoperationen vornehmen, diese zuerst - <emphasis>vor manuellen Änderungen</emphasis> - durchführen, da es für TortoiseMerge sonst unmöglich wird, die Beziehungen zur den Originaldateien aufrecht zu erhalten."
+msgstr "Sie können die Datei im rechten Bereich wie in einem Texteditor bearbeiten. Solche Zeilen werden durch einen Stift gekennzeichnet. Beachten Sie bitte, dass Sie, wenn Sie Zeilen- oder Blockoperationen vornehmen, diese zuerst - <emphasis>vor manuellen Änderungen</emphasis> - durchführen. Für TortoiseMerge wird es sonst unmöglich, die Beziehungen zu den Originaldateien aufrecht zu erhalten."
 
 #. (title)
 msgid "Editing Conflicts"
@@ -20792,7 +20809,7 @@ msgid ""
 "base file and the right pane shows the changes in <emphasis>Mine</emphasis> "
 "relative to the base file. The bottom pane is the output file which is where"
 " you are trying to resolve the conflicts."
-msgstr "Die <emphasis>Basis</emphasis> Datei entspricht der ältesten Version einer Datei, von der aus <emphasis>Sie</emphasis> und <emphasis>die Anderen</emphasis> Änderungen vorgenommen haben. <emphasis>Meine</emphasis> entspricht dabei der Basisdatei mit allen Änderungen, die <emphasis>Sie</emphasis> selbst vorgenommen haben und wird im rechten Bereich angezeigt. <emphasis>Deren</emphasis> entspricht der Basisdatei mit allen Änderungen, die <emphasis>die Anderen</emphasis> gemacht haben und wird im linken Bereich angezeigt. Der untere Bereich enthält die Ausgabedatei. In dieser werden die Konflikte aufgelöst."
+msgstr "Die <emphasis>Basis</emphasis>-Datei entspricht der ältesten Version einer Datei, von der aus <emphasis>Sie</emphasis> und <emphasis>die Anderen</emphasis> Änderungen vorgenommen haben. <emphasis>Meine</emphasis> entspricht dabei der Basisdatei mit allen Änderungen, die <emphasis>Sie</emphasis> selbst vorgenommen haben und wird im rechten Bereich angezeigt. <emphasis>Deren</emphasis> entspricht der Basisdatei mit allen Änderungen, die <emphasis>die Anderen</emphasis> gemacht haben und wird im linken Bereich angezeigt. Der untere Bereich enthält die Ausgabedatei. In dieser werden die Konflikte aufgelöst."
 
 #. (para)
 msgid ""
@@ -20805,7 +20822,7 @@ msgstr "Im Dreiwegevergleich, können Sie Blöcke aus <emphasis>Meiner</emphasis
 #. (title)
 #. (title)
 msgid "Applying Patches"
-msgstr "Patches Anwenden"
+msgstr "Patches anwenden"
 
 #. (para)
 msgid ""
@@ -20817,7 +20834,7 @@ msgid ""
 "compare a repository revision with your working copy folder, or if you "
 "compare two different repository revisions, or if you compare two different "
 "repository paths."
-msgstr "Ein Patch ist eine Datei im Subversion Standard-Diff-Format, die die Informationen über Änderungen an einem Satz von Dateien enthält. Der Patch kann von einem anderen Entwickler stammen, sodass Sie seine Änderungen anwenden, überprüfen und gegebenenfalls in das Projektarchiv übertragen können. Die Patchdatei kann auch intern durch TortoiseSVN beim Vergleich zweier Ordner generiert werden. Dies geschieht zum Beispiel, wenn Sie eine Revision im Projektarchiv mit der Arbeitskopie oder auch zwei Revisionen im Projektarchiv oder zwei verschiedene Pfade im Projektarchiv miteinander vergleichen."
+msgstr "Ein Patchdatei ist eine Subversion-Standard-Diff-Datei, die Informationen über Änderungen an einem Satz von Dateien enthält. Der Patch kann von einem anderen Entwickler stammen, sodass Sie seine Änderungen anwenden, überprüfen und gegebenenfalls in das Projektarchiv übertragen können. Die Patchdatei kann auch intern durch TortoiseSVN beim Vergleich zweier Ordner generiert werden. Dies geschieht zum Beispiel, wenn Sie eine Revision im Projektarchiv mit der Arbeitskopie oder auch zwei Revisionen im Projektarchiv oder zwei verschiedene Pfade im Projektarchiv miteinander vergleichen."
 
 #. (para)
 msgid ""
@@ -20842,7 +20859,7 @@ msgid ""
 "TortoiseMerge has three main viewing modes: one-pane, two-pane and three-"
 "pane view. One/two-pane view is used to view changes and three-pane view is "
 "used to resolve conflicts."
-msgstr "TortoiseSVN besitzt drei verschiedene Ansichten: mit einem, zwei oder drei Bereichen. Die Ein-/Zweifenstersicht dient zum Betrachten von Änderungen und die Dreifenstersicht zum Auflösen von Konflikten."
+msgstr "TortoiseSVN besitzt drei verschiedene Ansichten: mit einem, zwei oder drei Bereichen. Die Ein-/Zweifensteransicht dient zum Betrachten von Änderungen und die Dreifensteransicht zum Auflösen von Konflikten."
 
 #. (title)
 #. (title)
@@ -20887,20 +20904,20 @@ msgid ""
 "Such changes are marked with a pencil symbol. Hand editing of the file in "
 "the left pane is also possible, only when <guibutton>Enable Edit "
 "</guibutton> is pressed when the left pane is active."
-msgstr "Manuelles Bearbeiten der rechten Datei ist in der Zweifenstersicht möglich. Änderungen werden durch ein Stiftsymbol gekennzeichnet. Manuelles Bearbeiten der linken Datei ist nur möglich, wenn die Schaltfläche <guibutton>Bearbeiten aktivieren</guibutton> bei aktiver linker Seite gedrückt wurde."
+msgstr "Manuelles Bearbeiten der rechten Datei ist in der Zweifensteransicht möglich. Änderungen werden durch ein Stiftsymbol gekennzeichnet. Manuelles Bearbeiten der linken Datei ist nur möglich, wenn die Schaltfläche <guibutton>Bearbeiten aktivieren</guibutton> bei aktiver linker Seite gedrückt wurde."
 
 #. (para)
 msgid ""
 "The two pane view has some features which are not available in the one pane "
 "view: <placeholder-1/>"
-msgstr "Die Zweifenstersicht bietet einige Möglichkeiten, die in der Einfenstersicht nicht zur Verfügung stehen: <placeholder-1/>"
+msgstr "Die Zweifensteransicht bietet einige Möglichkeiten, die in der Einfensteransicht nicht zur Verfügung stehen: <placeholder-1/>"
 
 #. (para)
 msgid ""
 "If you want to compare/merge three files, TortoiseMerge will show you the "
 "differences in a three pane view. This view is also used if you need to "
 "resolve conflicted files."
-msgstr "Für den Fall dass Sie drei Dateien zusammenführen möchten, zeigt TortoiseMerge Ihnen diese in drei Bereichen an. Die gleiche Ansicht wird auch für das Auflösen von Konflikten verwendet."
+msgstr "Für den Fall, dass Sie drei Dateien zusammenführen möchten, zeigt TortoiseMerge Ihnen diese in drei Bereichen an. Die gleiche Ansicht wird auch für das Auflösen von Konflikten verwendet."
 
 #. (title)
 msgid "Three Pane View"
@@ -20914,7 +20931,7 @@ msgid ""
 "<emphasis>Base</emphasis> file. The bottom pane shows you the result of "
 "merging <emphasis>Base</emphasis>, <emphasis>Mine</emphasis> and "
 "<emphasis>Theirs</emphasis> with possible conflicts."
-msgstr "Der linke Bereich zeigt Ihnen die Unterschiede zwischen <emphasis>Deren</emphasis> Datei und der <emphasis>Basis</emphasis> Datei, während der rechte Bereich die Unterschiede zwischen <emphasis>Meiner</emphasis> Datei und der <emphasis>Basis</emphasis> Datei darstellt. Der untere Bereich zeigt Ihnen das Ergebnis des Zusammenführens der drei Dateien, inklusive möglicher Konflikte."
+msgstr "Der linke Bereich zeigt Ihnen die Unterschiede zwischen <emphasis>Deren</emphasis> Datei und der <emphasis>Basis</emphasis>-Datei, während der rechte Bereich die Unterschiede zwischen <emphasis>Meiner</emphasis> Datei und der <emphasis>Basis</emphasis>-Datei darstellt. Der untere Bereich zeigt Ihnen das Ergebnis des Zusammenführens der drei Dateien inklusive möglicher Konflikte."
 
 #. (para)
 msgid ""
@@ -20950,7 +20967,7 @@ msgid ""
 " save the changes for the selected file, or to apply and save changes to "
 "<emphasis>all</emphasis> files in the list. The double click action is to "
 "preview."
-msgstr "Das Patchdateifenster hat ein Kontextmenü, das Ihnen eine Vorschau der Änderungen an der aktuellen Datei ermöglicht (Anwenden ohne zu speichern), den Patch anzuwenden und zu speichern sowie den Patch auf <emphasis>alle</emphasis> Dateien in der Liste anzuwenden und die Änderungen zu speichern. Ein <action>Doppelklick</action> startet die Vorschau."
+msgstr "Das Patchdateifenster hat ein Kontextmenü, das Ihnen eine Vorschau der Änderungen an der aktuellen Datei ermöglicht (Anwenden, ohne zu speichern) sowie die Anwendung und Speicherung der Änderungen für die ausgewählte Datei oder auf alle Dateien in der Liste ermöglicht. Ein <action>Doppelklick</action> startet die Vorschau."
 
 #. (title)
 msgid "Buttons and Other Controls"
@@ -20971,14 +20988,14 @@ msgid ""
 "the right pane, and the centre column to the bottom pane (if present). In "
 "one-pane view only the left column is used. The locator bar can also be used"
 " as a scroll bar to scroll all the windows simultaneously."
-msgstr "Am linken Rand ist eine Navigationsleiste. Diese liefert einen schnellen Überblick, wo sich Änderungen in der Datei befinden. Die Leiste hat drei Spalten. Die linke Spalte entspricht dem linken Bereich, die rechte Spalte dem rechten Bereich, die mittlere Spalte, falls angezeigt, dem unteren Bereich. In der Einfenstersicht wird nur die linke Spalte benutzt. Die Navigationsleiste kann auch als Bildlaufleiste benutzt werden, wobei sich dann jeweils alle drei Bereiche synchron verschieben."
+msgstr "Am linken Rand ist eine Navigationsleiste. Diese liefert einen schnellen Überblick, wo sich Änderungen in der Datei befinden. Die Leiste hat drei Spalten. Die linke Spalte entspricht dem linken Bereich, die rechte Spalte dem rechten Bereich, die mittlere Spalte, falls angezeigt, dem unteren Bereich. In der Einfensteransicht wird nur die linke Spalte benutzt. Die Navigationsleiste kann auch als Bildlaufleiste benutzt werden, wobei sich dann alle drei Bereiche synchron verschieben."
 
 #. (para)
 msgid ""
 "If you double click on a word then every occurrence of that word will be "
 "highlighted throughout the document, both in the main panes and the locator "
 "bar. Double click on the word again to remove the highlighting."
-msgstr "Wenn Sie auf ein Wort doppelklicken wird jedes Vorkommen des Wortes im gesamten Dokument, sowohl in den Fenstern als auch in der Navigationsleiste hervorgehoben. Doppelklicken Sie erneut auf das Wort, um die Markierung zu entfernen."
+msgstr "Wenn Sie auf ein Wort doppelklicken, wird jedes Vorkommen des Wortes im gesamten Dokument hervorgehoben, sowohl in den Fenstern als auch in der Navigationsleiste. Doppelklicken Sie erneut auf das Wort, um die Markierung zu entfernen."
 
 #. (para)
 msgid ""
@@ -21015,7 +21032,7 @@ msgid ""
 " endings to whatever you like. Note that if you change the line endings, "
 "then <emphasis>all</emphasis> line endings in the whole file will change, "
 "even if when loaded the line endings were not all the same."
-msgstr "Unter Windows ist wird üblicherweise CRLF als Zeilenumbruch verwendet, aber Sie können die von Ihnen gewünschte Variante auswählen. Bitte beachten Sie, dass wenn Sie die Zeilenumbrüche ändern, <emphasis>alle</emphasis> Zeilenumbrüche in der gesamten Datei entsprechend geändert werden, auch wenn sie beim Laden unterschiedlich waren."
+msgstr "Unter Windows ist wird üblicherweise CRLF als Zeilenumbruch verwendet, aber Sie können die von Ihnen gewünschte Variante auswählen. Wenn Sie die Zeilenumbrüche ändern, werden <emphasis>alle</emphasis> Zeilenumbrüche in der gesamten Datei entsprechend geändert, auch wenn sie beim Laden unterschiedlich waren."
 
 #. (para)
 msgid ""
@@ -21114,7 +21131,7 @@ msgid ""
 "lines and select <menuchoice><guimenu>Context Menu</guimenu><guimenuitem> "
 "Use text block from 'theirs' </guimenuitem></menuchoice>. Then the changes "
 "from the left file are added to the right file."
-msgstr "Wenn Sie in der Zweifenstersicht sind, dann können nur Sie die Datei im rechten Bereich (<literal>Meiner</literal> Version) ändern. Um Unterschiede aus der linken Datei (<literal>Deren</literal>) in die rechte zu übernehmen, machen Sie einen <action>Rechts-Klick</action> auf die unterschiedliche Zeile und wählen Sie den gewünschten Befehl aus dem Kontextmenü aus."
+msgstr "Wenn Sie in der Zweifensteransicht sind, dann können nur Sie die Datei im rechten Bereich (<literal>Meiner</literal> Version) ändern. Um Unterschiede aus der linken Datei (<literal>Deren</literal>) in die rechte zu übernehmen, machen Sie einen <action>Rechtsklick</action> auf die unterschiedliche Zeile und wählen Sie den gewünschten Befehl aus dem Kontextmenü aus."
 
 #. (para)
 msgid ""
@@ -21133,7 +21150,7 @@ msgid ""
 "those first since once you start editing the file yourself it becomes "
 "impossible for TortoiseMerge to keep track of the relationship to the "
 "original files."
-msgstr "Sie können die Ausgabedatei wie in einem Texteditor bearbeiten. Solche Zeilen werden durch einen Stift gekennzeichnet. Beachten Sie bitte, dass Sie wenn Sie Zeilen- oder Blockoperationen vornehmen, diese zuerst - <emphasis>vor manuellen Änderungen</emphasis> - durchführen, da es für TortoiseMerge sonst unmöglich wird, die Beziehungen zur den Originaldateien aufrecht zu erhalten."
+msgstr "Sie können die Ausgabedatei wie in einem Texteditor bearbeiten. Solche Zeilen werden durch einen Stift gekennzeichnet. Wenn Sie Zeilen- oder Blockoperationen vornehmen, müssen Sie diese zuerst - <emphasis>vor manuellen Änderungen</emphasis> - durchführen, da es für TortoiseMerge sonst unmöglich wird, die Beziehungen zu den Originaldateien aufrecht zu erhalten."
 
 #. (para)
 msgid ""
@@ -21152,7 +21169,7 @@ msgid ""
 " 'theirs' before 'mine' </guimenuitem></menuchoice>. According to the "
 "command you've selected, the changes are used in the resulting "
 "<literal>Merged</literal> file."
-msgstr "Wenn Sie einen Dreiwegevergleich durchführen (auch <emphasis>Zusammenführen-</emphasis> oder <emphasis>Konfliktsicht</emphasis> genannt), können Sie nur die Ergebnisdatei im unteren Bereich bearbeiten. Wie auch in der Zweifenstersicht können Sie durch <action>Rechts-Klicken</action> auf Zeilen im Konflikt ein Kontextmenü anzeigen lassen und dann auswählen, wie Sie den Konflikt auflösen möchten. Sie können damit den rechten oder linken Block auswählen, aber auch beide Blöcke entweder <quote>Meiner vor Deren</quote> oder <quote>Deren vor Meinem</quote> in die Zieldatei übernehmen."
+msgstr "Wenn Sie einen Dreiwegevergleich durchführen (auch <emphasis>Zusammenführen-</emphasis> oder <emphasis>Konfliktansicht</emphasis> genannt), können Sie nur die Ergebnisdatei im unteren Bereich bearbeiten. Wie auch in der Zweifensteransicht können Sie durch einen <action>Rechtsklick</action> auf Zeilen im Konflikt ein Kontextmenü anzeigen lassen und dann auswählen, wie Sie den Konflikt auflösen möchten. Sie können damit den rechten oder linken Block auswählen, aber auch beide Blöcke entweder <quote>Meiner vor Deren</quote> oder <quote>Deren vor Meinem</quote> in die Zieldatei übernehmen."
 
 #. (para)
 msgid ""
@@ -21162,7 +21179,7 @@ msgid ""
 "endings or whitespace changes, those lines will be marked using the "
 "<emphasis>Conflict-Ignored</emphasis> icon. To resolve the conflict you "
 "still need to pick which version you want to use."
-msgstr "Manchmal wird in Subversion ein Dateikonflikt angezeigt, es sind jedoch keine Unterschiede sichtbar, wenn Sie die Datei in TortoiseMerge betrachten. Das kann an ihren Einstellungen für den Vergleich von Leerzeichen oder Zeilenumbrüchen liegen. Falls Sie beschlossen haben, solche Änderungen zu ignorieren, werden die entsprechenden Zeilen durch das <emphasis>Konflikt Ignoriert</emphasis> Symbol gekennzeichnet. Um den Konflikt aufzulösen müssen Sie trotzdem eine der beiden Varianten auswählen."
+msgstr "Manchmal wird in Subversion ein Dateikonflikt angezeigt, es sind jedoch keine Unterschiede sichtbar, wenn Sie die Datei in TortoiseMerge betrachten. Das kann an Ihren Einstellungen für den Vergleich von Leerzeichen oder Zeilenumbrüchen liegen. Falls Sie beschlossen haben, solche Änderungen zu ignorieren, werden die entsprechenden Zeilen durch das Symbol <emphasis>Konflikt Ignoriert</emphasis> gekennzeichnet. Um den Konflikt aufzulösen, müssen Sie trotzdem eine der beiden Varianten auswählen."
 
 #. (para)
 msgid ""
@@ -21170,7 +21187,7 @@ msgid ""
 "your working copy, whether in TortoiseMerge, or by hand-editing, "
 "<emphasis>will be discarded</emphasis> and the file will appear as it did "
 "when conflict-editing first started."
-msgstr "Beachten Sie, dass alle Änderungen der Ergebnisdatei <emphasis>verworfen werden</emphasis>, wenn TortoiseMerge nochmals mit denselben Dateien aufgerufen wird, egal ob durch TortoiseMerge oder manuelles Bearbeiten und die Ergebnisdatei im Ursprungszustand wiederhergestellt wird."
+msgstr "Beachten Sie, dass alle Änderungen der Ergebnisdatei <emphasis>verworfen werden</emphasis>, wenn TortoiseMerge nochmals mit denselben Dateien aufgerufen wird, egal ob durch TortoiseMerge oder manuelles Bearbeiten, und die Ergebnisdatei im Ursprungszustand wiederhergestellt wird."
 
 #. (title)
 msgid "Open Files"
@@ -21181,7 +21198,7 @@ msgid ""
 "When you start TortoiseMerge without any command line switches then you have"
 " to open the files manually, using "
 "<menuchoice><guimenu>File</guimenu><guimenuitem>Open</guimenuitem></menuchoice>."
-msgstr "Wenn Sie TortoiseMerge ohne Kommandozeilenbefehle starten, dann müssen Sie die Dateien mit dem <menuchoice> <guimenu>Datei</guimenu> <guimenuitem>Öffnen</guimenuitem> </menuchoice> von Hand öffnen."
+msgstr "Wenn Sie TortoiseMerge ohne Kommandozeilenbefehle starten, dann müssen Sie die Dateien mit <menuchoice> <guimenu>Datei</guimenu> <guimenuitem>Öffnen</guimenuitem> </menuchoice> von Hand öffnen."
 
 #. (title)
 msgid "The Open Dialog"
@@ -21193,7 +21210,7 @@ msgid ""
 "compare/merge files, or whether you want to apply a patch file. Depending on"
 " what you choose, the corresponding edit boxes and browse buttons are "
 "activated."
-msgstr "Das erste was Sie entscheiden müssen ist ob Sie Dateien vergleichen / zusammenführen möchten oder ob Sie eine Patchdatei anwenden möchten. Je nachdem was Sie wählen, werden die entsprechenden Schaltflächen und Eingabefelder aktiviert."
+msgstr "Als erstes müssen Sie entscheiden, ob Sie Dateien vergleichen / zusammenführen oder eine Patchdatei anwenden möchten. Je nachdem, was Sie wählen, werden die entsprechenden Schaltflächen und Eingabefelder aktiviert."
 
 #. (para)
 msgid ""
@@ -21202,7 +21219,7 @@ msgid ""
 "and <literal>Theirs</literal>. If you select only two files, then "
 "TortoiseMerge will show you the differences between those two files, either "
 "in a two pane view or in a one pane view."
-msgstr "Wenn Sie Dateien vergleichen / zusammenführen möchten, müssen Sie mindestens zwei der drei möglichen Pfade für <emphasis>Basis</emphasis>, <emphasis>Meiner</emphasis> und <emphasis>Deren</emphasis> angeben. Wenn Sie nur zwei Dateien auswählen, wird TortoiseMerge ihnen die Unterschiede zwischen diesen Dateien entweder in einem Bereich übereinander oder in zwei Bereichen nebeneinander anzeigen."
+msgstr "Wenn Sie Dateien vergleichen / zusammenführen möchten, müssen Sie mindestens zwei der drei möglichen Pfade für <emphasis>Basis</emphasis>, <emphasis>Meiner</emphasis> und <emphasis>Deren</emphasis> angeben. Wenn Sie nur zwei Dateien auswählen, wird TortoiseMerge Ihnen die Unterschiede zwischen diesen Dateien entweder in einem Bereich übereinander oder in zwei Bereichen nebeneinander anzeigen."
 
 #. (para)
 msgid ""
@@ -21211,7 +21228,7 @@ msgid ""
 " resolve conflicted files. The output file is not named in this case and you"
 " will have to use the <menuchoice><guimenu>File</guimenu><guimenuitem>Save "
 "As...</guimenuitem></menuchoice>. to save the results."
-msgstr "Wenn Sie drei Dateien zusammenführen, zeigt TortoiseMerge Ihnen diese in einer Dreifenstersicht. Diese Ansicht wird im Allgemeinen zum Auflösen von Konflikten verwendet. Die Ausgabedatei hat in diesem Fall keinen Namen und Sie müssen das Ergebnis mittels <menuchoice> <guimenu>Datei</guimenu> <guimenuitem>Speichen unter...</guimenuitem> </menuchoice> sichern."
+msgstr "Wenn Sie drei Dateien zusammenführen, zeigt TortoiseMerge Ihnen diese in einer Dreifensteransicht. Diese Ansicht wird im Allgemeinen zum Auflösen von Konflikten verwendet. Die Ausgabedatei hat in diesem Fall keinen Namen und Sie müssen das Ergebnis mittels <menuchoice> <guimenu>Datei</guimenu> <guimenuitem>Speichern unter...</guimenuitem> </menuchoice> sichern."
 
 #. (para)
 msgid ""
@@ -21222,7 +21239,7 @@ msgstr "Wenn Sie eine Patchdatei anwenden möchten, müssen Sie sowohl die Patch
 
 #. (title)
 msgid "Main Settings Page"
-msgstr "Einstellungen Allgemein"
+msgstr "Allgemeine Einstellungen"
 
 #. (title)
 msgid "The Settings Main Page"
@@ -21244,7 +21261,7 @@ msgstr "<guilabel>Erstelle Sicherheitskopie</guilabel> benennt die Originaldatei
 msgid ""
 "<guilabel>Default to UTF-8 encoding</guilabel> when set, ANSI files are "
 "loaded as UTF-8 encoded and saved as such when edited."
-msgstr "Wenn <guilabel>Standardmäßig UTF-8-Codierung</guilabel> festgelegt ist, werden ANSI-Dateien als UTF-8 codiert geladen und, wenn bearbeitet, als solche gespeichert."
+msgstr "Wenn <guilabel>Standardmäßig UTF-8-Codierung</guilabel> festgelegt ist, werden ANSI-Dateien als UTF-8 codiert geladen und nach der Bearbeitung als solche gespeichert."
 
 #. (para)
 msgid ""
@@ -21252,7 +21269,7 @@ msgid ""
 "slow when showing inline diffs for very long lines. Because of that only "
 "lines that are shorter than 3000 chars are shown with inline diffs. You can "
 "change this value here."
-msgstr "<guilabel>Max Zeilenlänge für Inline diffs</guilabel> TortoiseMerge kann langsam werden, wenn Inline Diffs für sehr lange Zeilen angezeigt werden sollen. Deshalb werden nur Zeilen, die kürzer als 3000 Zeichen sind mit Inline Diffs angezeigt. Sie können diesen Wert hier ändern."
+msgstr "<guilabel>Maximale Zeilenlänge für Inline-Diffs</guilabel> TortoiseMerge kann langsam werden, wenn Inline-Diffs für sehr lange Zeilen angezeigt werden sollen. Deshalb werden nur Zeilen, die kürzer als 3000 Zeichen sind, mit Inline-Diffs angezeigt. Sie können diesen Wert hier ändern."
 
 #. (para)
 msgid ""
@@ -21265,11 +21282,11 @@ msgid ""
 "<guilabel>Ignore case changes</guilabel> hides changes which are due solely "
 "to case changes within the text. This can be useful with apps such as Visual"
 " Basic, which changes case in variables without warning."
-msgstr "<guilabel>Ignoriere Groß- / Kleinschreibung</guilabel> verbirgt Groß- / Kleinbuchstaben Änderungen. Dies ist besonders nützlich bei Anwendungen wie Visual Basic, die die Schreibweise von Variablen ohne Warnung ändern."
+msgstr "<guilabel>Ignoriere Groß-/Kleinschreibung</guilabel> verbirgt Groß-/Kleinbuchstaben-Änderungen. Dies ist besonders nützlich bei Anwendungen wie Visual Basic, die die Schreibweise von Variablen ohne Warnung ändern."
 
 #. (title)
 msgid "Colour Settings Page"
-msgstr "Einstellungen Farben"
+msgstr "Farbeinstellungen"
 
 #. (title)
 msgid "The Settings Color Page"
@@ -21287,7 +21304,7 @@ msgstr "Normal"
 
 #. (listitem)
 msgid "All lines which are unchanged, or where changes are hidden."
-msgstr "Alle nicht veränderten Zeilen oder Zeilen deren Änderungen verborgen wurden."
+msgstr "Alle nicht veränderten Zeilen oder Zeilen, deren Änderungen ausgeblendet sind."
 
 #. (term)
 msgid "Added"
@@ -21328,7 +21345,7 @@ msgstr "Bei Zeilen mit geringem Änderungsumfang werden die Unterschiede innerha
 
 #. (term)
 msgid "Conflicted"
-msgstr "Konflikt"
+msgstr "Konfliktbehaftet"
 
 #. (listitem)
 msgid "Where the same line has been changed in both files."
@@ -21352,7 +21369,7 @@ msgstr "Leer"
 msgid ""
 "Where lines have been added in the opposite pane, and no such line existed "
 "in this pane."
-msgstr "Zeilen wurden im gegenüberliegenden Bereich hinzugefügt und keine entsprechende Zeile existiert in diesem Bereich."
+msgstr "Zeilen wurden im gegenüberliegenden Bereich hinzugefügt und in diesem Bereich existiert keine entsprechende Zeile."
 
 #. (term)
 msgid "Inline added text"
@@ -21423,7 +21440,7 @@ msgstr "Den markierten Text in die Zwischenablage ausschneiden"
 
 #. (term)
 msgid "Ctrl-V, Shift-Insert"
-msgstr "Strg+V, Umschalt+Einf"
+msgstr "Strg+V, Umschalt+Einfg"
 
 #. (para)
 msgid "Paste the selected text from the clipboard"
@@ -21431,7 +21448,7 @@ msgstr "Den markierten Text aus der Zwischenablage einfügen"
 
 #. (term)
 msgid "Ctrl-Z, Alt-Backspace"
-msgstr "Strg+Z, Alt+Rück"
+msgstr "Strg+Z, Alt+Rücktaste"
 
 #. (para)
 msgid "Undo the last edits"
@@ -21507,7 +21524,7 @@ msgstr "Strg+D"
 
 #. (para)
 msgid "Toggle between one-pane diff and two-pane diff"
-msgstr "Zwischen Einfenstersicht und Zweifenstersicht wechseln"
+msgstr "Zwischen Einfensteransicht und Zweifensteransicht wechseln"
 
 #. (term)
 msgid "Ctrl-R"
@@ -21593,7 +21610,7 @@ msgstr "TortoiseMerge kann auch über die Kommandozeile gestartet werden. Auf di
 
 #. (title)
 msgid "TortoiseMerge Command Line Switches"
-msgstr "TortoiseMerge Kommandozeilenbefehle"
+msgstr "TortoiseMerge-Kommandozeilenbefehle"
 
 #. (para)
 msgid ""
@@ -21623,13 +21640,13 @@ msgid ""
 "Specifies the <placeholder-1/> file used in three way diffs. This is the "
 "common ancestor of the files being diffed, although it is not shown in a "
 "separate window. For two way diffs, this is the left file."
-msgstr "Definiert die <placeholder-1/>datei für einen Dreiwegevergleich. Diese ist der gemeinsame Vorgänger der zu vergleichenden Dateien, auch wenn sie nicht angezeigt wird. Beim Zweiwegevergleich wird die Datei im linken Bereich angezeigt."
+msgstr "Definiert die Datei <placeholder-1/> für einen Dreiwegevergleich. Diese ist der gemeinsame Vorgänger der zu vergleichenden Dateien, auch wenn sie nicht angezeigt wird. Beim Zweiwegevergleich wird die Datei im linken Bereich angezeigt."
 
 #. (entry)
 msgid ""
 "The name of the base file. This is shown in the view title instead of the "
 "file path. For three way diffs it is shown in a tooltip for the view title."
-msgstr "Der Anzeigename der <emphasis>Basisdatei</emphasis>. Er wird anstatt des Dateinamens in der Titelzeile oder beim Dreiwegevergleich in einem Hinweistext angezeigt."
+msgstr "Der Anzeigename der <emphasis>Basisdatei</emphasis>. Er wird statt des Dateinamens in der Titelzeile oder beim Dreiwegevergleich in einem Hinweistext angezeigt."
 
 #. (entry)
 #. (entry)
@@ -21646,13 +21663,13 @@ msgstr "Deren"
 msgid ""
 "Specifies the <placeholder-1/> file used in three way diffs, displayed in "
 "the left pane."
-msgstr "Definiert <placeholder-1/> Datei einen Dreiwegevergleich, die im linken Bereich angezeigt wird."
+msgstr "Definiert die <placeholder-1/>-Datei für einen Dreiwegevergleich, die im linken Bereich angezeigt wird."
 
 #. (entry)
 msgid ""
 "The name of the theirs file. This is shown in the view title instead of the "
 "file path."
-msgstr "Der Anzeigename von <emphasis>Deren</emphasis> Datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
+msgstr "Der Anzeigename von <emphasis>Deren</emphasis> Datei. Er wird statt des Dateinamens in der Titelzeile angezeigt."
 
 #. (emphasis)
 msgid "mine"
@@ -21662,19 +21679,19 @@ msgstr "Meine"
 msgid ""
 "Specifies the <placeholder-1/> file used in three way diffs, displayed in "
 "the right pane. For two way diffs, this is the right file."
-msgstr "Definiert <placeholder-1/> Datei, die sowohl beim Dreiwege- als auch im Zweiwegevergleich im rechten Bereich dargestellt wird."
+msgstr "Definiert die <placeholder-1/>-Datei, die sowohl beim Dreiwege- als auch im Zweiwegevergleich im rechten Bereich dargestellt wird."
 
 #. (entry)
 msgid ""
 "The name of the mine file. This is shown in the view title instead of the "
 "file path."
-msgstr "Der Anzeigename von <emphasis>Meiner</emphasis> Datei. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
+msgstr "Der Anzeigename von <emphasis>Meiner</emphasis> Datei. Er wird statt des Dateinamens in der Titelzeile angezeigt."
 
 #. (para)
 msgid ""
 "Specifies the resulting <emphasis>merged</emphasis> file used in diffs. This"
 " is the file path where the result of the merge/conflict resolving is saved."
-msgstr "Legt die <emphasis>zusammegeführte</emphasis> Ergebnisdatei fest, die in Vergleichen verwendet wird. Dies ist der Dateipfad, in dem das Ergebnis des Zusammeführens, bzw. des Konfliktauflösens gespeichert wird."
+msgstr "Legt die <emphasis>zusammengeführte</emphasis> Ergebnisdatei fest, die in Vergleichen verwendet wird. Dies ist der Dateipfad, in dem das Ergebnis des Zusammenführens bzw. des Konfliktauflösens gespeichert wird."
 
 #. (para)
 msgid ""
@@ -21686,13 +21703,13 @@ msgstr "Wenn dieser Parameter für einen Dreiwegevergleich nicht angegeben wurde
 msgid ""
 "If this is not set for a two-way diff, then TortoiseMerge will automatically"
 " use the path of the file shown in the right view as the save path."
-msgstr "Wenn dieser Parameter für einen Zweiwegevergleich nicht angegeben wurde, wird TortoiseSVN automatisch die im rechten angezeigte Datei als Ziel verwenden."
+msgstr "Wenn dieser Parameter für einen Zweiwegevergleich nicht angegeben wurde, wird TortoiseSVN automatisch die im rechten Bereich angezeigte Datei als Ziel verwenden."
 
 #. (entry)
 msgid ""
 "The name of the merged file. This is shown in the view title instead of the "
 "file path."
-msgstr "Der Anzeigename der <emphasis>Zieldatei</emphasis>. Er wird anstatt des Dateinamens in der Titelzeile angezeigt."
+msgstr "Der Anzeigename der <emphasis>Zieldatei</emphasis>. Er wird statt des Dateinamens in der Titelzeile angezeigt."
 
 #. (emphasis)
 msgid "very long"
@@ -21703,7 +21720,7 @@ msgid ""
 "The path where a patch should be applied to. If you don't set this path, "
 "then TortoiseMerge will try to find the path itself to match the paths in "
 "the patch file, but that can take <placeholder-1/>."
-msgstr "Der Pfad in dem ein Patch angewendet werden soll. Wenn Sie diesen Parameter nicht angeben, versucht TortoiseMerge selbst, einen zu den Pfaden in der Patchdatei passenden Basispfad herauszufinden, aber das kann <placeholder-1/> dauern."
+msgstr "Der Pfad, in dem ein Patch angewendet werden soll. Wenn Sie diesen Parameter nicht angeben, versucht TortoiseMerge selbst, einen zu den Pfaden in der Patchdatei passenden Basispfad herauszufinden, aber das kann <placeholder-1/> dauern."
 
 #. (entry)
 msgid ""
@@ -21727,13 +21744,13 @@ msgstr "Der Anzeigename der Zieldatei."
 
 #. (entry)
 msgid "The path to the patch/diff file to apply to a directory."
-msgstr "Der Pfad zu der Patch- / Diffdatei, die auf ein Verzeichnis angewendet werden soll."
+msgstr "Der Pfad zu der Patch-/Diff-Datei, die auf ein Verzeichnis angewendet werden soll."
 
 #. (entry)
 msgid ""
 "Forces TortoiseMerge to start with the one-way view instead of the view the "
 "user specified in the settings."
-msgstr "Zwingt TortoiseMerge mit der Einfenstersicht anstatt der in den Optionen eingestellten Sicht zu starten."
+msgstr "Zwingt TortoiseMerge, mit der Einfensteransicht statt der in den Optionen eingestellten Sicht zu starten."
 
 #. (entry)
 msgid "Switches the left and right view of the specified two files to diff."
@@ -21766,7 +21783,7 @@ msgid ""
 "<placeholder-3/>. If <placeholder-4/> is not set, a file save dialog is "
 "shown so the user can choose the location to save the patch file. Note: If "
 "<placeholder-5/> is set, all other parameters are ignored."
-msgstr "Erzeugt eine Standard-Diff Datei (Patchdatei) aus den beiden in <placeholder-1/> und <placeholder-2/> übergebenen Dateien. Das Ziel wird in <placeholder-3/> spezifiziert. Wenn <placeholder-4/> leer ist, wird ein <quote>Datei Speichern</quote> Dialog angezeigt, in dem der Anwender die Ausgabedatei angeben kann. Hinweis: Wenn <placeholder-5/> gesetzt ist, werden alle anderen Parameter ignoriert."
+msgstr "Erzeugt eine Standard-Diff-Datei (Patchdatei) aus den beiden in <placeholder-1/> und <placeholder-2/> übergebenen Dateien. Das Ziel wird in <placeholder-3/> spezifiziert. Wenn <placeholder-4/> leer ist, wird ein <quote>Datei Speichern</quote>-Dialog angezeigt, in dem der Anwender die Ausgabedatei angeben kann. Hinweis: Wenn <placeholder-5/> gesetzt ist, werden alle anderen Parameter ignoriert."
 
 #. (entry)
 msgid "Specifies a line number to jump to after loading the files."
@@ -21789,4 +21806,4 @@ msgid ""
 "You can also supply simple filenames on the command line for compatibility with other diff programs. In this simplified form the command line is <screen>\n"
 "TortoiseMerge BaseFilePath MyFilePath [ TheirFilePath ]\n"
 "      </screen> If two files are given they will be compared with each other. If three files are given, the first is taken as the BASE file, and the other two are compared with it in a three-way diff."
-msgstr "Sie können aus Kompatibilitätsgründen mit anderen Vergleichsprogrammen auch einfache Dateinamen auf der Befehlszeile übergeben. In der Vereinfachten Form sieht der Aufruf folgendermaßen aus\n<screen>TortoiseMerge BasisDateiPfad MeinDateiPfad [ DerenDateiPfad ]</screen>\nBei zwei Dateien werden diese miteinander verglichen. Bei drei Dateien wird die erste als BASE Datei verwendet und die beiden anderen in einem Dreiwegevergleich mit ihr verglichen."
+msgstr "Sie können aus Kompatibilitätsgründen mit anderen Vergleichsprogrammen auch einfache Dateinamen auf der Befehlszeile übergeben. In der vereinfachten Form sieht der Aufruf folgendermaßen aus\n<screen>TortoiseMerge BasisDateiPfad MeinDateiPfad [ DerenDateiPfad ]</screen>\nBei zwei Dateien werden diese miteinander verglichen. Bei drei Dateien wird die erste als BASE-Datei verwendet und die beiden anderen in einem Dreiwegevergleich mit ihr verglichen."

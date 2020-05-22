@@ -13,6 +13,7 @@
 # Alessandro Menti <alessandro.menti@hotmail.it>, 2015-2016
 # Alessio <alessio@alessiodamato.com>, 2014-2015
 # Alessio <alessio@alessiodamato.com>, 2014
+# Alex Rigato <alex.rigato@gmail.com>, 2020
 # Andrea Tuscano <andrea.tuscano1997@gmail.com>, 2016
 # Cecilia Saltori <csaltori@gmail.com>, 2011
 # maxTransBrod <egianturco@gmail.com>, 2018
@@ -32,7 +33,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-03-26 01:43+0000\n"
+"PO-Revision-Date: 2020-05-17 13:41+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -3575,6 +3576,16 @@ msgstr "Taglia il testo selezionato e la copia negli Appunti\nTaglia"
 #. Resource IDs: (1279)
 msgid "D&etails"
 msgstr "D&ettagli"
+
+#. Resource IDs: (1682)
+msgid "Dark theme"
+msgstr ""
+
+#. Resource IDs: (1683)
+msgid ""
+"Dark theme requires at least Win10 1803, and it must be enabled in the "
+"Windows system settings."
+msgstr ""
 
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
@@ -9920,7 +9931,7 @@ msgid ""
 "incomplete or even misleading due to incomplete history data.\n"
 "\n"
 "The error was:"
-msgstr ""
+msgstr "Si è verificato un problema di connessione col server.\nSi desidera visualizzare i dati memorizzati nella cache?\n\nSi prega di considerare che i dati memorizzati nella cache\npotrebbero non essere aggiornati, incompleti o perfino\nfuorvianti a causa della cronologia incompleta."
 
 #. Resource IDs: (1306)
 msgid ""
@@ -10302,7 +10313,7 @@ msgstr "URL:"
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
-msgstr ""
+msgstr "URLs con revisione"
 
 #. Resource IDs: (1209)
 msgid "Un&modified"
@@ -10553,6 +10564,10 @@ msgstr "Aggiorna copia di lavoro"
 #, c-format
 msgid "Upgrading '%1!ls!'"
 msgstr "Aggiorno '%1!ls!'"
+
+#. Resource IDs: (1684)
+msgid "Url points to SVNParentPath list"
+msgstr ""
 
 #. Resource IDs: (1843)
 msgid "Urls"
