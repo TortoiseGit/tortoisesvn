@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012, 2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,9 +70,12 @@ bool UnIgnoreCommand::Execute()
         {
             if (!props.Remove(bRecursive ? SVN_PROP_INHERITABLE_IGNORES : SVN_PROP_IGNORE))
             {
-                CString temp;
-                temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
-                MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
+                if (!parser.HasKey(L"noui"))
+                {
+                    CString temp;
+                    temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
+                    MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
+                }
                 err = TRUE;
                 break;
             }
@@ -81,9 +84,12 @@ bool UnIgnoreCommand::Execute()
         {
             if (!props.Add(bRecursive ? SVN_PROP_INHERITABLE_IGNORES : SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
             {
-                CString temp;
-                temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
-                MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
+                if (!parser.HasKey(L"noui"))
+                {
+                    CString temp;
+                    temp.Format(IDS_ERR_FAILEDUNIGNOREPROPERTY, (LPCTSTR)name);
+                    MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
+                }
                 err = TRUE;
                 break;
             }
@@ -91,15 +97,18 @@ bool UnIgnoreCommand::Execute()
     }
     if (err == FALSE)
     {
-        CString filelist;
-        for (auto it = removeditems.cbegin(); it != removeditems.cend(); ++it)
+        if (!parser.HasKey(L"noui"))
         {
-            filelist += *it;
-            filelist += L"\n";
+            CString filelist;
+            for (auto it = removeditems.cbegin(); it != removeditems.cend(); ++it)
+            {
+                filelist += *it;
+                filelist += L"\n";
+            }
+            CString temp;
+            temp.Format(bRecursive ? IDS_PROC_UNIGNORERECURSIVESUCCESS : IDS_PROC_UNIGNORESUCCESS, (LPCTSTR)filelist);
+            MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONINFORMATION);
         }
-        CString temp;
-        temp.Format(bRecursive ? IDS_PROC_UNIGNORERECURSIVESUCCESS : IDS_PROC_UNIGNORESUCCESS, (LPCTSTR)filelist);
-        MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONINFORMATION);
         return true;
     }
     return false;
