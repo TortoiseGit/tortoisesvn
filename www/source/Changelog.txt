@@ -1,4 +1,16 @@
-﻿Version 1.13.1
+﻿Version 1.14.0
+See the release notes: https://tortoisesvn.net/tsvn_1.14_releasenotes.html
+
+Version 1.13.2
+- BUG: Crash in TMerge when indenting. (Stefan)
+- BUG: Context menu in log dialog bottom pane
+       would not work properly if repo url
+       contains escaped chars. (Stefan)
+- BUG: The "open with" from commit and other
+       dialogs could show a dialog "server busy"
+       that blocks the app. (Stefan)
+
+Version 1.13.1
 - BUG: binary files were not digitally signed
        for the release. (Stefan)
 - BUG: missing c-runtime dlls. (Stefan)
