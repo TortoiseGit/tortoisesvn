@@ -3,12 +3,12 @@
   <target name="setversioninfo">
     <setenv>
       <variable name="MajorVersion" value="1" />
-      <variable name="MinorVersion" value="13" />
+      <variable name="MinorVersion" value="14" />
       <variable name="MicroVersion" value="99" />
       <variable name="WCREV" value="$WCREV$" />
       <variable name="WCDATE" value="$WCDATE$" />
       <variable name="SVNMajorVersion" value="1" />
-      <variable name="SVNMinorVersion" value="13" />
+      <variable name="SVNMinorVersion" value="14" />
       <variable name="SVNMicroVersion" value="dev" />
     </setenv>
   </target>
