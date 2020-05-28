@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // External Cache Copyright (C) 2005-2012, 2014-2015 - TortoiseSVN
 
@@ -180,7 +180,7 @@ void CFolderCrawler::WorkerThread()
                 // Nothing left to do
                 break;
             }
-            if (m_pathsToUpdate.size())
+            if (!m_pathsToUpdate.empty())
             {
                 {
                     AutoLocker lock(m_critSec);
@@ -330,7 +330,7 @@ void CFolderCrawler::WorkerThread()
                     }
                 }
             }
-            if (m_foldersToUpdate.size())
+            if (!m_foldersToUpdate.empty())
             {
                 {
                     AutoLocker lock(m_critSec);
