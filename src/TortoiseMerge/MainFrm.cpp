@@ -1342,22 +1342,28 @@ void CMainFrame::SetTheme(bool bDark)
 
 void CMainFrame::SetAccentColor()
 {
-    // set the accent color for the main button
-    Win10Colors::AccentColor accentColor;
-    if (SUCCEEDED(Win10Colors::GetAccentColor(accentColor)))
-    {
-        BYTE h, s, b;
-        CTheme::RGBToHSB(accentColor.accent, h, s, b);
-        UI_HSBCOLOR aColor = UI_HSB(h, s, b);
+    if (!m_bUseRibbons)
+        return;
 
-        CComPtr<IPropertyStore> spPropertyStore;
-        HRESULT                 hr = m_pRibbonFramework->QueryInterface(&spPropertyStore);
-        if (SUCCEEDED(hr))
+    // set the accent color for the main button
+    if (m_pRibbonFramework)
+    {
+        Win10Colors::AccentColor accentColor;
+        if (SUCCEEDED(Win10Colors::GetAccentColor(accentColor)))
         {
-            PROPVARIANT propvarAccentColor;
-            InitPropVariantFromUInt32(aColor, &propvarAccentColor);
-            spPropertyStore->SetValue(UI_PKEY_ApplicationButtonColor, propvarAccentColor);
-            spPropertyStore->Commit();
+            BYTE h, s, b;
+            CTheme::RGBToHSB(accentColor.accent, h, s, b);
+            UI_HSBCOLOR aColor = UI_HSB(h, s, b);
+
+            CComPtr<IPropertyStore> spPropertyStore;
+            HRESULT                 hr = m_pRibbonFramework->QueryInterface(&spPropertyStore);
+            if (SUCCEEDED(hr))
+            {
+                PROPVARIANT propvarAccentColor;
+                InitPropVariantFromUInt32(aColor, &propvarAccentColor);
+                spPropertyStore->SetValue(UI_PKEY_ApplicationButtonColor, propvarAccentColor);
+                spPropertyStore->Commit();
+            }
         }
     }
 }
