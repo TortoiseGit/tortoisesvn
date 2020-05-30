@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2010-2012, 2014-2015 - TortoiseSVN
 
@@ -48,6 +48,8 @@ public:
     T               Pop();
     size_t          erase(T value);
     size_t          size() const { return m_Queue.size(); }
+    bool            empty() { return m_Queue.empty(); }
+
 private:
     struct UniqueQueueStruct
     {
