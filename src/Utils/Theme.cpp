@@ -115,7 +115,9 @@ Gdiplus::Color CTheme::GetThemeColor(Gdiplus::Color clr, bool fixed /*= false*/)
 {
     if (m_dark || (fixed && m_isHighContrastModeDark))
     {
-        return GetThemeColor(clr.ToCOLORREF(), fixed);
+        Gdiplus::Color color;
+        color.SetFromCOLORREF(GetThemeColor(clr.ToCOLORREF(), fixed));
+        return color;
     }
 
     return clr;
