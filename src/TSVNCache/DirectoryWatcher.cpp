@@ -508,7 +508,10 @@ void CDirectoryWatcher::WorkerThread()
                         // wait a while. We don't want to have this thread
                         // running using 100% CPU if something goes completely
                         // wrong.
+                        pdi->CloseDirectoryHandle();
+                        watchedPaths.RemovePath(pdi->m_DirName);
                         Sleep(200);
+                        CloseCompletionPort();
                     }
                 }
             }
