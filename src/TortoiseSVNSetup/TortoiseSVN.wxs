@@ -89,6 +89,9 @@
             <RegistrySearch Key="SOFTWARE\[Manufacturer]" Root="HKLM" Type="raw" Id="LANGUAGEFOLDER_REGSEARCH" Name="LanguageFolderPath" Win64="$(var.Win64YesNo)"/>
         </Property>
 
+        <!-- Specify the REINSTALLMODE property to allow proper installation of downgraded components. -->
+        <Property Id="REINSTALLMODE" Value="dmus" />
+
         <DirectoryRef Id="TARGETDIR"/>
 
         <FeatureRef Id="DefaultFeature" />
