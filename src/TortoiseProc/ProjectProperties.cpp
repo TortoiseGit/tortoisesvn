@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -539,7 +539,7 @@ bool ProjectProperties::MightContainABugID()
 
 CString ProjectProperties::GetBugIDUrl(const CString& sBugID)
 {
-    CString ret;
+    CString ret = sUrl;
     if (sUrl.IsEmpty())
         return ret;
     if (!sMessage.IsEmpty() || !sCheckRe.IsEmpty())
