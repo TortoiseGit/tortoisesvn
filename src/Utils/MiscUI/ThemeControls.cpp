@@ -55,6 +55,11 @@ void CThemeMFCButton::OnDrawBorder(CDC* pDC, CRect& rectClient, UINT uiState)
 
 void CThemeMFCButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
 {
+    if (!CTheme::Instance().IsDarkTheme())
+    {
+        return __super::OnDraw(pDC, rect, uiState);
+    }
+
     if (IsPressed())
         pDC->FillSolidRect(rect, RGB(102, 102, 102));
     else if (m_bHighlighted)
