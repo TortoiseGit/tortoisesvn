@@ -244,10 +244,20 @@ void CThemeMFCMenuButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
 
         auto  vmargin    = CDPIAware::Instance().Scale(6);
         auto  hmargin    = CDPIAware::Instance().Scale(3);
-        POINT vertices[] = {{rectArrow.left + hmargin, rectArrow.bottom - vmargin},
-                            {rectArrow.left + hmargin, rectArrow.top + vmargin},
-                            {rectArrow.right - hmargin, (rectArrow.top + rectArrow.bottom) / 2}};
-        pDC->Polygon(vertices, _countof(vertices));
+        if (m_bRightArrow)
+        {
+            POINT vertices[] = { { rectArrow.left + hmargin, rectArrow.bottom - vmargin },
+                                 { rectArrow.left + hmargin, rectArrow.top + vmargin },
+                                 { rectArrow.right - hmargin, (rectArrow.top + rectArrow.bottom) / 2 } };
+            pDC->Polygon(vertices, _countof(vertices));
+        }
+        else
+        {
+            POINT vertices[] = { { rectArrow.left + hmargin, rectArrow.top + vmargin },
+                                 { rectArrow.right - hmargin, rectArrow.top + vmargin },
+                                 { (rectArrow.left + rectArrow.right) / 2, rectArrow.bottom - vmargin } };
+            pDC->Polygon(vertices, _countof(vertices));
+        }
 
         pDC->SelectObject(hOldBrush);
         DeleteObject(hBrush);
