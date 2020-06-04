@@ -405,10 +405,6 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
         {
             SetWindowTheme(hwnd, nullptr, nullptr);
         }
-        else if (wcscmp(szWndClassName, PROGRESS_CLASS) == 0)
-        {
-            SetWindowTheme(hwnd, nullptr, nullptr);
-        }
         else if (wcscmp(szWndClassName, L"Auto-Suggest Dropdown") == 0)
         {
             SetWindowTheme(hwnd, L"Explorer", nullptr);
