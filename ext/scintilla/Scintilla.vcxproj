@@ -88,6 +88,9 @@
       <ModuleDefinitionFile>win32\Scintilla.def</ModuleDefinitionFile>
       <AdditionalDependencies>Msimg32.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -101,6 +104,9 @@
       <ModuleDefinitionFile>win32\Scintilla.def</ModuleDefinitionFile>
       <AdditionalDependencies>Msimg32.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -114,6 +120,9 @@
       <ModuleDefinitionFile>win32\Scintilla.def</ModuleDefinitionFile>
       <AdditionalDependencies>Msimg32.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -127,6 +136,9 @@
       <ModuleDefinitionFile>win32\Scintilla.def</ModuleDefinitionFile>
       <AdditionalDependencies>Msimg32.lib;imm32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="lexers\LexA68k.cxx" />

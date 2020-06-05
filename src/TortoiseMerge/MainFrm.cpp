@@ -184,6 +184,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_BOTTOMTABMODESTART, ID_INDICATOR_BOTTOMTABMODESTART + 19, &CMainFrame::OnUpdateTabModeBottom)
     ON_WM_SETTINGCHANGE()
     ON_WM_SYSCOLORCHANGE()
+    ON_MESSAGE(WM_DPICHANGED, OnDPIChanged)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -3686,6 +3687,13 @@ LRESULT CMainFrame::OnIdleUpdateCmdUI(WPARAM wParam, LPARAM lParam)
         BOOL bDisableIfNoHandler = (BOOL) wParam;
         m_pRibbonApp->UpdateCmdUI(bDisableIfNoHandler);
     }
+    return 0;
+}
+
+LRESULT CMainFrame::OnDPIChanged(WPARAM, LPARAM)
+{
+    CDPIAware::Instance().Invalidate();
+    ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
     return 0;
 }
 

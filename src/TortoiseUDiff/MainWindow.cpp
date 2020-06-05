@@ -168,6 +168,10 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
         CTheme::Instance().OnSysColorChanged();
         CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme(), true);
         break;
+    case WM_DPICHANGED:
+        CDPIAware::Instance().Invalidate();
+        ::RedrawWindow(*this, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+        break;
     case COMMITMONITOR_FINDMSGNEXT:
         {
             SendEditor(SCI_CHARRIGHT);

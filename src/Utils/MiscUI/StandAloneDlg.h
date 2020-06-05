@@ -30,6 +30,7 @@
 #include "EditWordBreak.h"
 #include "Theme.h"
 #include "DarkModeHelper.h"
+#include "DPIAware.h"
 #include <Dwmapi.h>
 #pragma comment(lib, "Dwmapi.lib")
 #pragma comment(lib, "htmlhelp.lib")
@@ -129,7 +130,13 @@ protected:
             {
                 CTheme::Instance().SetDarkTheme(!CTheme::Instance().IsDarkTheme());
             }
-
+        }
+        switch (pMsg->message)
+        {
+        case WM_DPICHANGED:
+            CDPIAware::Instance().Invalidate();
+            ::RedrawWindow(pMsg->hwnd, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+            break;
         }
         return BaseType::PreTranslateMessage(pMsg);
     }

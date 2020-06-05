@@ -2404,9 +2404,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             ::SetFocus(app.wBlame);
             break;
         case WM_SYSCOLORCHANGE:
+        case WM_SETTINGCHANGE:
+            SendMessage(app.wEditor, message, wParam, lParam);
             CTheme::Instance().OnSysColorChanged();
             CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme(), true);
             return 0;
+            break;
+        case WM_DPICHANGED:
+            SendMessage(app.wEditor, message, wParam, lParam);
+            CDPIAware::Instance().Invalidate();
+            ::RedrawWindow(app.wBlame, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
             break;
         default:
             return DefWindowProc(hWnd, message, wParam, lParam);
