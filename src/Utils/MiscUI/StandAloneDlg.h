@@ -131,13 +131,6 @@ protected:
                 CTheme::Instance().SetDarkTheme(!CTheme::Instance().IsDarkTheme());
             }
         }
-        switch (pMsg->message)
-        {
-        case WM_DPICHANGED:
-            CDPIAware::Instance().Invalidate();
-            ::RedrawWindow(pMsg->hwnd, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
-            break;
-        }
         return BaseType::PreTranslateMessage(pMsg);
     }
     virtual ULONG GetGestureStatus(CPoint /*ptTouch*/) override
@@ -415,6 +408,18 @@ protected:
         SetUUIDOverlayIcon(m_hWnd);
         return 0;
     }
+
+    LRESULT OnDPIChanged(WPARAM, LPARAM lParam)
+    {
+        CDPIAware::Instance().Invalidate();
+        const RECT* rect = reinterpret_cast<RECT*>(lParam);
+        m_height = rect->bottom - rect->top;
+        m_width = rect->right - rect->left;
+        SetWindowPos(NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+        ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+        return 1; // let MFC handle this message as well
+    }
+
 
     HICON           m_hIcon;
     HICON           m_hBkgndIcon;

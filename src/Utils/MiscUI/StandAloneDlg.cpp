@@ -50,7 +50,8 @@ BEGIN_TEMPLATE_MESSAGE_MAP(CStandAloneDialogTmpl, BaseType, BaseType)
     ON_WM_NCHITTEST()
     ON_WM_DWMCOMPOSITIONCHANGED()
     ON_REGISTERED_MESSAGE( TaskBarButtonCreated, OnTaskbarButtonCreated )
-END_MESSAGE_MAP()
+    ON_MESSAGE(WM_DPICHANGED, OnDPIChanged)
+    END_MESSAGE_MAP()
 
 #ifndef _DLL
 // Can't find a way to make the IMPLEMENT_DYNAMIC macro work for templated classes

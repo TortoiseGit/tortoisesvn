@@ -2411,9 +2411,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             return 0;
             break;
         case WM_DPICHANGED:
+        {
             SendMessage(app.wEditor, message, wParam, lParam);
             CDPIAware::Instance().Invalidate();
-            ::RedrawWindow(app.wBlame, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+            const RECT* rect = reinterpret_cast<RECT*>(lParam);
+            SetWindowPos(hWnd, NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+            ::RedrawWindow(hWnd, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+        }
             break;
         default:
             return DefWindowProc(hWnd, message, wParam, lParam);

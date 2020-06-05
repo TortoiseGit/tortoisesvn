@@ -169,8 +169,12 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
         CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme(), true);
         break;
     case WM_DPICHANGED:
+    {
         CDPIAware::Instance().Invalidate();
+        const RECT* rect = reinterpret_cast<RECT*>(lParam);
+        SetWindowPos(*this, NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
         ::RedrawWindow(*this, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+    }
         break;
     case COMMITMONITOR_FINDMSGNEXT:
         {
