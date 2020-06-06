@@ -37,7 +37,7 @@ CStandardNodeSizeAssignment::CStandardNodeSizeAssignment
 // cast @a layout pointer to the respective modification
 // interface and write the data.
 
-void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
+void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout, HWND hWnd)
 {
     // we need access to actual data
 
@@ -58,13 +58,13 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
                             || (   node->previousInBranch->node->GetPath()
                                 != node->node->GetPath());
 
-        int height = CDPIAware::Instance().Scale(21);
+        int height = CDPIAware::Instance().Scale(hWnd, 21);
         if (node->requiresPath)
         {
             size_t visibleElementCount = node->node->GetPath().GetDepth()
                                        - node->skipStartPathElements
                                        - node->skipTailPathElements;
-            height += (int)(CDPIAware::Instance().Scale(3) + visibleElementCount * CDPIAware::Instance().Scale(16));
+            height += (int)(CDPIAware::Instance().Scale(hWnd, 3) + visibleElementCount * CDPIAware::Instance().Scale(hWnd, 16));
         }
 
         // shift (root) nodes down, if their source has been folded
@@ -74,16 +74,16 @@ void CStandardNodeSizeAssignment::ApplyTo (IRevisionGraphLayout* layout)
         int shift = (state & ( CGraphNodeStates::COLLAPSED_ABOVE
                              | CGraphNodeStates::SPLIT_ABOVE)) == 0
                   ? 0
-                  : CDPIAware::Instance().Scale(6);
+                  : CDPIAware::Instance().Scale(hWnd, 6);
 
         int extension = (state & ( CGraphNodeStates::COLLAPSED_BELOW
                                  | CGraphNodeStates::SPLIT_BELOW)) == 0
                       ? 0
-                      : CDPIAware::Instance().Scale(6);
+                      : CDPIAware::Instance().Scale(hWnd, 6);
 
         // set result
 
-        node->requiredSize = CSize (CDPIAware::Instance().Scale(150), height + extension + shift);
-        node->rect = CRect (0, shift, CDPIAware::Instance().Scale(150), height + shift);
+        node->requiredSize = CSize (CDPIAware::Instance().Scale(hWnd, 150), height + extension + shift);
+        node->rect = CRect (0, shift, CDPIAware::Instance().Scale(hWnd, 150), height + shift);
     }
 }

@@ -77,7 +77,7 @@ void CMainWindow::PositionChildren(RECT * clientrect /* = nullptr */)
     RECT tbRect;
     if (!clientrect)
         return;
-    const auto splitter_border = CDPIAware::Instance().Scale(SPLITTER_BORDER);
+    const auto splitter_border = CDPIAware::Instance().Scale(*this, SPLITTER_BORDER);
     SendMessage(hwndTB, TB_AUTOSIZE, 0, 0);
     GetWindowRect(hwndTB, &tbRect);
     LONG tbHeight = tbRect.bottom-tbRect.top-1;
@@ -964,8 +964,8 @@ LRESULT CMainWindow::Splitter_OnLButtonUp(HWND hwnd, UINT /*iMsg*/, WPARAM /*wPa
     if (bDragMode == FALSE)
         return 0;
 
-    const auto bordersm = CDPIAware::Instance().Scale(2);
-    const auto borderl = CDPIAware::Instance().Scale(4);
+    const auto bordersm = CDPIAware::Instance().Scale(*this, 2);
+    const auto borderl = CDPIAware::Instance().Scale(*this, 4);
 
     GetClientRect(hwnd, &clientrect);
     GetWindowRect(hwnd, &rect);
@@ -1071,8 +1071,8 @@ LRESULT CMainWindow::Splitter_OnMouseMove(HWND hwnd, UINT /*iMsg*/, WPARAM wPara
     if (bDragMode == FALSE)
         return 0;
 
-    const auto bordersm = CDPIAware::Instance().Scale(2);
-    const auto borderl = CDPIAware::Instance().Scale(4);
+    const auto bordersm = CDPIAware::Instance().Scale(*this, 2);
+    const auto borderl = CDPIAware::Instance().Scale(*this, 4);
 
     pt.x = (short)LOWORD(lParam);  // horizontal position of cursor
     pt.y = (short)HIWORD(lParam);
@@ -1241,7 +1241,7 @@ bool CMainWindow::CreateToolbar()
 
     TBBUTTON tbb[14];
     // create an imagelist containing the icons for the toolbar
-    auto imgSize = CDPIAware::Instance().Scale(24);
+    auto imgSize = CDPIAware::Instance().Scale(*this, 24);
     hToolbarImgList = ImageList_Create(imgSize, imgSize, ILC_COLOR32 | ILC_MASK, 12, 4);
     if (!hToolbarImgList)
         return false;

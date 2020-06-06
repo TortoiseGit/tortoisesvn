@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -130,7 +130,13 @@ CRevisionGraphWnd::CRevisionGraphWnd()
 
 CRevisionGraphWnd::~CRevisionGraphWnd()
 {
-    for (int i=0; i<MAXFONTS; i++)
+    DeleteFonts();
+    delete m_pDlgTip;
+}
+
+void CRevisionGraphWnd::DeleteFonts()
+{
+    for (int i = 0; i<MAXFONTS; i++)
     {
         if (m_apFonts[i] != NULL)
         {
@@ -139,7 +145,6 @@ CRevisionGraphWnd::~CRevisionGraphWnd()
         }
         m_apFonts[i] = NULL;
     }
-    delete m_pDlgTip;
 }
 
 void CRevisionGraphWnd::DoDataExchange(CDataExchange* pDX)
@@ -254,7 +259,7 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
     // get node at point or node that is close enough
     // so that point may hit a glyph area
 
-    auto glyphsize = CDPIAware::Instance().Scale(GLYPH_SIZE);
+    auto glyphsize = CDPIAware::Instance().Scale(GetSafeHwnd(), GLYPH_SIZE);
     index_t nodeIndex = GetHitNode(point);
     if (nodeIndex == NO_INDEX)
         nodeIndex = GetHitNode(point, CSize (glyphsize, glyphsize / 2));
@@ -315,7 +320,7 @@ DWORD CRevisionGraphWnd::GetHoverGlyphs (CPoint point) const
 
 const CRevisionGraphState::SVisibleGlyph* CRevisionGraphWnd::GetHitGlyph (CPoint point) const
 {
-    float glyphSize = CDPIAware::Instance().Scale(GLYPH_SIZE) * m_fZoomFactor;
+    float glyphSize = CDPIAware::Instance().Scale(GetSafeHwnd(), GLYPH_SIZE) * m_fZoomFactor;
 
     CSyncPointer<const CRevisionGraphState::TVisibleGlyphs>
         visibleGlyphs (m_state.GetVisibleGlyphs());

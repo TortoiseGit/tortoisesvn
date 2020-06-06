@@ -346,6 +346,17 @@ void CStandAloneDialogTmpl<BaseType>::SetTheme(bool bDark)
     ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
+template <typename BaseType>
+LRESULT CStandAloneDialogTmpl<BaseType>::OnDPIChanged(WPARAM, LPARAM lParam)
+{
+    CDPIAware::Instance().Invalidate();
+    const RECT* rect = reinterpret_cast<RECT*>(lParam);
+    m_height         = rect->bottom - rect->top;
+    m_width          = rect->right - rect->left;
+    SetWindowPos(NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+    ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+    return 1; // let MFC handle this message as well
+}
 
 
 IMPLEMENT_DYNAMIC(CStateDialog, CDialog)

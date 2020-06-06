@@ -244,6 +244,7 @@ protected:
     afx_msg LRESULT OnTaskbarButtonCreated(WPARAM wParam, LPARAM lParam);
     afx_msg void OnLvnBegindragLogmsg(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnSysColorChange();
+    afx_msg LRESULT OnDPIChanged(WPARAM wParam, LPARAM lParam);
 
     virtual void OnCancel();
     virtual void OnOK();

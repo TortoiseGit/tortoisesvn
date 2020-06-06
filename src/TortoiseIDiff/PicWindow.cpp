@@ -62,15 +62,15 @@ bool CPicWindow::RegisterAndCreateWindow(HWND hParent)
 
 void CPicWindow::PositionTrackBar()
 {
-    const auto slider_width = CDPIAware::Instance().Scale(SLIDER_WIDTH);
+    const auto slider_width = CDPIAware::Instance().Scale(*this, SLIDER_WIDTH);
     RECT rc;
     GetClientRect(&rc);
     HWND slider = m_AlphaSlider.GetWindow();
     if ((pSecondPic) && (m_blend == BLEND_ALPHA))
     {
-        MoveWindow(slider, 0, rc.top - CDPIAware::Instance().Scale(4) + slider_width, slider_width, rc.bottom - rc.top - slider_width + CDPIAware::Instance().Scale(8), true);
+        MoveWindow(slider, 0, rc.top - CDPIAware::Instance().Scale(*this, 4) + slider_width, slider_width, rc.bottom - rc.top - slider_width + CDPIAware::Instance().Scale(*this, 8), true);
         ShowWindow(slider, SW_SHOW);
-        MoveWindow(hwndAlphaToggleBtn, 0, rc.top - CDPIAware::Instance().Scale(4), slider_width, slider_width, true);
+        MoveWindow(hwndAlphaToggleBtn, 0, rc.top - CDPIAware::Instance().Scale(*this, 4), slider_width, slider_width, true);
         ShowWindow(hwndAlphaToggleBtn, SW_SHOW);
     }
     else
@@ -255,7 +255,7 @@ LRESULT CALLBACK CPicWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, 
             mevt.hwndTrack = *this;
             ::TrackMouseEvent(&mevt);
             POINT pt = {((int)(short)LOWORD(lParam)), ((int)(short)HIWORD(lParam))};
-            if (pt.y < CDPIAware::Instance().Scale(HEADER_HEIGHT))
+            if (pt.y < CDPIAware::Instance().Scale(*this, HEADER_HEIGHT))
             {
                 ClientToScreen(*this, &pt);
                 if ((abs(m_lastTTPos.x - pt.x) > 20)||(abs(m_lastTTPos.y - pt.y) > 10))
@@ -584,9 +584,9 @@ void CPicWindow::SetPic(const tstring& path, const tstring& title, bool bFirst)
 
 void CPicWindow::DrawViewTitle(HDC hDC, RECT * rect)
 {
-    const auto header_height = CDPIAware::Instance().Scale(HEADER_HEIGHT);
+    const auto header_height = CDPIAware::Instance().Scale(*this, HEADER_HEIGHT);
     HFONT hFont = nullptr;
-    hFont = CreateFont(-CDPIAware::Instance().PointsToPixels(pSecondPic ? 8 : 10), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, L"MS Shell Dlg");
+    hFont = CreateFont(-CDPIAware::Instance().PointsToPixels(*this, pSecondPic ? 8 : 10), 0, 0, 0, FW_DONTCARE, false, false, false, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH, L"MS Shell Dlg");
     HFONT hFontOld = (HFONT)SelectObject(hDC, (HGDIOBJ)hFont);
 
     RECT textrect;
@@ -920,13 +920,13 @@ void CPicWindow::OnMouseWheel(short fwKeys, short zDelta)
 void CPicWindow::GetClientRect(RECT * pRect)
 {
     ::GetClientRect(*this, pRect);
-    pRect->top += CDPIAware::Instance().Scale(HEADER_HEIGHT);
+    pRect->top += CDPIAware::Instance().Scale(*this, HEADER_HEIGHT);
     if (HasMultipleImages())
     {
-        pRect->top += CDPIAware::Instance().Scale(HEADER_HEIGHT);
+        pRect->top += CDPIAware::Instance().Scale(*this, HEADER_HEIGHT);
     }
     if (pSecondPic)
-        pRect->left += CDPIAware::Instance().Scale(SLIDER_WIDTH);
+        pRect->left += CDPIAware::Instance().Scale(*this, SLIDER_WIDTH);
 }
 
 void CPicWindow::GetClientRectWithScrollbars(RECT * pRect)
@@ -937,13 +937,13 @@ void CPicWindow::GetClientRectWithScrollbars(RECT * pRect)
     pRect->bottom = pRect->bottom-pRect->top;
     pRect->top = 0;
     pRect->left = 0;
-    pRect->top += CDPIAware::Instance().Scale(HEADER_HEIGHT);
+    pRect->top += CDPIAware::Instance().Scale(*this, HEADER_HEIGHT);
     if (HasMultipleImages())
     {
-        pRect->top += CDPIAware::Instance().Scale(HEADER_HEIGHT);
+        pRect->top += CDPIAware::Instance().Scale(*this, HEADER_HEIGHT);
     }
     if (pSecondPic)
-        pRect->left += CDPIAware::Instance().Scale(SLIDER_WIDTH);
+        pRect->left += CDPIAware::Instance().Scale(*this, SLIDER_WIDTH);
 };
 
 
@@ -1070,7 +1070,7 @@ void CPicWindow::FitImageInWindow()
 
     GetClientRectWithScrollbars(&rect);
 
-    const auto border = CDPIAware::Instance().Scale(2);
+    const auto border = CDPIAware::Instance().Scale(*this, 2);
     if (rect.right-rect.left)
     {
         int Zoom = 100;
@@ -1119,7 +1119,7 @@ void CPicWindow::CenterImage()
 {
     RECT rect;
     GetClientRectWithScrollbars(&rect);
-    const auto border = CDPIAware::Instance().Scale(2);
+    const auto border = CDPIAware::Instance().Scale(*this, 2);
     long width = picture.m_Width*picscale / 100 + border;
     long height = picture.m_Height*picscale / 100 + border;
     if (pSecondPic && pTheOtherPic)
@@ -1182,7 +1182,7 @@ void CPicWindow::ShowPicWithBorder(HDC hdc, const RECT &bounds, CPicture &pic, i
 
     pic.Show(hdc, picrect);
 
-    const auto bordersize = CDPIAware::Instance().Scale(1);
+    const auto bordersize = CDPIAware::Instance().Scale(*this, 1);
 
     RECT border;
     border.left = picrect.left - bordersize;
@@ -1211,8 +1211,8 @@ void CPicWindow::Paint(HWND hwnd)
     if (IsRectEmpty(&rect))
         return;
 
-    const auto slider_width = CDPIAware::Instance().Scale(SLIDER_WIDTH);
-    const auto border = CDPIAware::Instance().Scale(4);
+    const auto slider_width = CDPIAware::Instance().Scale(*this, SLIDER_WIDTH);
+    const auto border = CDPIAware::Instance().Scale(*this, 4);
     ::GetClientRect(*this, &fullrect);
     hdc = BeginPaint(hwnd, &ps);
     {
@@ -1332,6 +1332,7 @@ void CPicWindow::Paint(HWND hwnd)
                 NONCLIENTMETRICS metrics = {0};
                 metrics.cbSize = sizeof(NONCLIENTMETRICS);
                 SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
+                metrics.lfStatusFont.lfHeight = (LONG)(CDPIAware::Instance().ScaleFactorSystemToWindow(*this) * metrics.lfStatusFont.lfHeight);
                 HFONT hFont = CreateFontIndirect(&metrics.lfStatusFont);
                 HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
                 // find out how big the rectangle for the text has to be
@@ -1368,6 +1369,7 @@ void CPicWindow::Paint(HWND hwnd)
             NONCLIENTMETRICS metrics = {0};
             metrics.cbSize = sizeof(NONCLIENTMETRICS);
             SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
+            metrics.lfStatusFont.lfHeight = (LONG)(CDPIAware::Instance().ScaleFactorSystemToWindow(*this) * metrics.lfStatusFont.lfHeight);
             HFONT hFont = CreateFontIndirect(&metrics.lfStatusFont);
             HFONT hFontOld = (HFONT)SelectObject(memDC, (HGDIOBJ)hFont);
 
@@ -1487,8 +1489,8 @@ bool CPicWindow::CreateButtons()
 
 void CPicWindow::PositionChildren()
 {
-    const auto header_height = CDPIAware::Instance().Scale(HEADER_HEIGHT);
-    const auto selBorder = CDPIAware::Instance().Scale(100);
+    const auto header_height = CDPIAware::Instance().Scale(*this, HEADER_HEIGHT);
+    const auto selBorder = CDPIAware::Instance().Scale(*this, 100);
     RECT rect;
     ::GetClientRect(*this, &rect);
     if (HasMultipleImages())

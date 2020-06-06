@@ -3695,7 +3695,13 @@ LRESULT CMainFrame::OnIdleUpdateCmdUI(WPARAM wParam, LPARAM lParam)
 LRESULT CMainFrame::OnDPIChanged(WPARAM, LPARAM lParam)
 {
     CDPIAware::Instance().Invalidate();
-    const RECT* rect = reinterpret_cast<RECT*>(lParam);
+    if (m_pwndLeftView)
+        m_pwndLeftView->DPIChanged();
+    if (m_pwndRightView)
+        m_pwndRightView->DPIChanged();
+    if (m_pwndBottomView)
+        m_pwndBottomView->DPIChanged();
+    const RECT *rect = reinterpret_cast<RECT *>(lParam);
     SetWindowPos(NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
     ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
     return 1; // let MFC handle this message as well

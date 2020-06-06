@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2016-2018 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -123,7 +123,7 @@ public:
     /**
      * Create a font which can is used for log messages, etc
      */
-    static void CreateFontForLogs(CFont& fontToCreate);
+    static void CreateFontForLogs(HWND hWnd, CFont& fontToCreate);
 
     /**
     * Launch the external blame viewer

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1542,7 +1542,7 @@ void CCommitDlg::SetSplitterRange()
         m_ListCtrl.GetWindowRect(rcMiddle);
         ScreenToClient(rcMiddle);
         if (rcMiddle.Height() && rcMiddle.Width())
-            m_wndSplitter.SetRange(rcTop.top + CDPIAware::Instance().Scale(60), rcMiddle.bottom - CDPIAware::Instance().Scale(80));
+            m_wndSplitter.SetRange(rcTop.top + CDPIAware::Instance().Scale(GetSafeHwnd(), 60), rcMiddle.bottom - CDPIAware::Instance().Scale(GetSafeHwnd(), 80));
     }
 }
 
@@ -1939,7 +1939,7 @@ void CCommitDlg::AdjustDialogSizeAndPanes()
         m_wndSplitter.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
         int delta = yPos - rectSplitter.top;
-        if ((rcLogMsg.bottom + delta > rcLogMsg.top)&&(rcLogMsg.bottom + delta < rcFileList.bottom - CDPIAware::Instance().Scale(30)))
+        if ((rcLogMsg.bottom + delta > rcLogMsg.top)&&(rcLogMsg.bottom + delta < rcFileList.bottom - CDPIAware::Instance().Scale(GetSafeHwnd(), 30)))
         {
             m_wndSplitter.SetWindowPos(NULL, rectSplitter.left, yPos, 0, 0, SWP_NOSIZE);
             DoSize(delta);

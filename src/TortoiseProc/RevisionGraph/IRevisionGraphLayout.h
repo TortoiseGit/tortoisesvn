@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012, 2019 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2019-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -177,7 +177,7 @@ public:
 
     /// standard data access
 
-    virtual SText GetText (index_t index) const = 0;
+    virtual SText GetText (index_t index, HWND hWnd) const = 0;
 };
 
 /** The 'graph' layout contains of three collections:

@@ -77,7 +77,7 @@ index_t CStandardLayoutTextList::GetAt
 // implement ILayoutTextList
 
 CStandardLayoutTextList::SText
-CStandardLayoutTextList::GetText (index_t index) const
+CStandardLayoutTextList::GetText (index_t index, HWND hWnd) const
 {
     // determine the text and its bounding rect
 
@@ -91,7 +91,7 @@ CStandardLayoutTextList::GetText (index_t index) const
     CRect rect = nodeInfo.rect;
     if (textInfo.subPathIndex > 0)
     {
-        rect.top = rect.top + CDPIAware::Instance().Scale(21) + CDPIAware::Instance().Scale(16) * (textInfo.subPathIndex-1);
+        rect.top = rect.top + CDPIAware::Instance().Scale(hWnd, 21) + CDPIAware::Instance().Scale(hWnd, 16) * (textInfo.subPathIndex-1);
 
         size_t localindex = textInfo.subPathIndex-1 + nodeInfo.skipStartPathElements;
         const CDictionaryBasedTempPath& path = nodeInfo.node->GetPath();
@@ -115,7 +115,7 @@ CStandardLayoutTextList::GetText (index_t index) const
     }
     else
     {
-        rect.top += CDPIAware::Instance().Scale(4);
+        rect.top += CDPIAware::Instance().Scale(hWnd, 4);
         if (isModifiedWC)
         {
             text.LoadString (IDS_SVN_SUMMARIZEMODIFIED);

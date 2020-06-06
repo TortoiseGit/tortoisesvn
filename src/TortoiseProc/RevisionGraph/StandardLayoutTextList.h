@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,5 +47,5 @@ public:
 
     /// implement ILayoutTextList
 
-    virtual SText GetText (index_t index) const override;
+    virtual SText GetText (index_t index, HWND hWnd) const override;
 };

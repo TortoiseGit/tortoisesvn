@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020 - TortoiseSVN
 // Copyright (C) 2015, 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -600,10 +600,10 @@ DWORD CAppUtils::GetLogFontSize()
     return (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LogFontSize", 9);
 }
 
-void CAppUtils::CreateFontForLogs(CFont& fontToCreate)
+void CAppUtils::CreateFontForLogs(HWND hWnd, CFont& fontToCreate)
 {
     LOGFONT logFont;
-    logFont.lfHeight         = -CDPIAware::Instance().PointsToPixels(GetLogFontSize());
+    logFont.lfHeight         = -CDPIAware::Instance().PointsToPixels(hWnd, GetLogFontSize());
     logFont.lfWidth          = 0;
     logFont.lfEscapement     = 0;
     logFont.lfOrientation    = 0;

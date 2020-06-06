@@ -49,7 +49,7 @@
 #define new DEBUG_NEW
 #endif
 
-#define HEADERHEIGHT (CDPIAware::Instance().Scale(10))
+#define HEADERHEIGHT (CDPIAware::Instance().Scale(GetSafeHwnd(), 10))
 
 #define IDT_SCROLLTIMER 101
 
@@ -304,6 +304,11 @@ void CBaseView::SetEditorConfigEnabled(bool bEditorConfigEnabled)
     }
 }
 
+void CBaseView::DPIChanged()
+{
+    DeleteFonts();
+}
+
 static CString GetTabModeString(int nTabMode, int nTabSize, bool bEditorConfig)
 {
     CString text;
@@ -511,7 +516,7 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/)
         m_lfBaseFont.lfCharSet = DEFAULT_CHARSET;
         m_lfBaseFont.lfWeight = bBold ? FW_BOLD : FW_NORMAL;
         m_lfBaseFont.lfItalic = (BYTE) bItalic;
-        m_lfBaseFont.lfHeight = -CDPIAware::Instance().PointsToPixels((DWORD)CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10));
+        m_lfBaseFont.lfHeight = -CDPIAware::Instance().PointsToPixels(GetSafeHwnd(), (DWORD)CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10));
         wcsncpy_s(m_lfBaseFont.lfFaceName, (LPCTSTR)(CString)CRegString(L"Software\\TortoiseMerge\\FontName", L"Consolas"), _countof(m_lfBaseFont.lfFaceName) - 1);
         if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
         {
@@ -1356,7 +1361,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
         int iconHeight = GetSystemMetrics(SM_CYSMICON);
         if (icon)
         {
-            ::DrawIconEx(pdc->m_hDC, rect.left + CDPIAware::Instance().Scale(2), rect.top + (rect.Height() - iconHeight) / 2, icon, iconWidth, iconHeight, 0, nullptr, DI_NORMAL);
+            ::DrawIconEx(pdc->m_hDC, rect.left + CDPIAware::Instance().Scale(GetSafeHwnd(), 2), rect.top + (rect.Height() - iconHeight) / 2, icon, iconWidth, iconHeight, 0, nullptr, DI_NORMAL);
         }
         if ((m_bViewLinenumbers)&&(m_nDigits))
         {
@@ -1390,7 +1395,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
                     pdc->SetTextColor(CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
 
                     pdc->SelectObject(GetFont());
-                    pdc->ExtTextOut(rect.left + iconWidth + CDPIAware::Instance().Scale(2), rect.top, ETO_CLIPPED, &rect, sLinenumber, nullptr);
+                    pdc->ExtTextOut(rect.left + iconWidth + CDPIAware::Instance().Scale(GetSafeHwnd(), 2), rect.top, ETO_CLIPPED, &rect, sLinenumber, nullptr);
                 }
             }
         }
@@ -1399,7 +1404,7 @@ void CBaseView::DrawMargin(CDC *pdc, const CRect &rect, int nLineIndex)
 
 int CBaseView::GetMarginWidth()
 {
-    int marginWidth = GetSystemMetrics(SM_CXSMICON) + CDPIAware::Instance().Scale(4);
+    int marginWidth = GetSystemMetrics(SM_CXSMICON) + CDPIAware::Instance().Scale(GetSafeHwnd(), 4);
 
     if ((m_bViewLinenumbers)&&(m_pViewData)&&(m_pViewData->GetCount()))
     {
@@ -1412,7 +1417,7 @@ int CBaseView::GetMarginWidth()
             m_nDigits = sMax.GetLength();
         }
         int nWidth = GetCharWidth();
-        marginWidth += (m_nDigits * nWidth) + CDPIAware::Instance().Scale(2);
+        marginWidth += (m_nDigits * nWidth) + CDPIAware::Instance().Scale(GetSafeHwnd(), 2);
     }
 
     return marginWidth;
@@ -1650,21 +1655,25 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
     }
     else
     {
-        CPen pen(PS_SOLID, 0, CTheme::Instance().GetThemeColor(m_WhiteSpaceFg));
-        CPen * oldpen = pDC->SelectObject(&pen);
-        int yMiddle = origin.y + rc.Height()/2;
-        int xMiddle = origin.x+GetCharWidth()/2;
-        bool bMultiline = false;
+        CPen  pen(PS_SOLID, 0, CTheme::Instance().GetThemeColor(m_WhiteSpaceFg));
+        CPen* oldpen     = pDC->SelectObject(&pen);
+        int   yMiddle    = origin.y + rc.Height() / 2;
+        int   xMiddle    = origin.x + GetCharWidth() / 2;
+        bool  bMultiline = false;
+        auto  onepix     = CDPIAware::Instance().Scale(GetSafeHwnd(), 1);
+        auto  twopix     = CDPIAware::Instance().Scale(GetSafeHwnd(), 2);
+        auto  fourpix    = CDPIAware::Instance().Scale(GetSafeHwnd(), 4);
+        auto  fivepix    = CDPIAware::Instance().Scale(GetSafeHwnd(), 5);
         if (((int)m_Screen2View.size() > nLineIndex+1) && (GetViewLineForScreen(nLineIndex+1) == viewLine))
         {
             if (GetLineLength(nLineIndex+1))
             {
                 // multiline
-                bMultiline = true;
-                pDC->MoveTo(origin.x, yMiddle- CDPIAware::Instance().Scale(2));
-                pDC->LineTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle-CDPIAware::Instance().Scale(2));
-                pDC->LineTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle+CDPIAware::Instance().Scale(2));
-                pDC->LineTo(origin.x, yMiddle+ CDPIAware::Instance().Scale(2));
+                bMultiline  = true;
+                pDC->MoveTo(origin.x, yMiddle - twopix);
+                pDC->LineTo(origin.x + GetCharWidth() - onepix, yMiddle - twopix);
+                pDC->LineTo(origin.x + GetCharWidth() - onepix, yMiddle + twopix);
+                pDC->LineTo(origin.x, yMiddle + twopix);
             }
             else if (GetLineLength(nLineIndex) == 0)
                 bMultiline = true;
@@ -1676,58 +1685,58 @@ void CBaseView::DrawLineEnding(CDC *pDC, const CRect &rc, int nLineIndex, const 
         {
             switch (ending)
             {
-            case EOL_AUTOLINE:
-            case EOL_CRLF:
-                // arrow from top to middle+2, then left
-                pDC->MoveTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), rc.top+ CDPIAware::Instance().Scale(1));
-                pDC->LineTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle);
-            case EOL_CR:
-                // arrow from right to left
-                pDC->MoveTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle);
-                pDC->LineTo(origin.x, yMiddle);
-                pDC->LineTo(origin.x+CDPIAware::Instance().Scale(4), yMiddle+CDPIAware::Instance().Scale(4));
-                pDC->MoveTo(origin.x, yMiddle);
-                pDC->LineTo(origin.x+CDPIAware::Instance().Scale(4), yMiddle-CDPIAware::Instance().Scale(4));
-                break;
-            case EOL_LFCR:
-                // from right-upper to left then down
-                pDC->MoveTo(origin.x+GetCharWidth()-CDPIAware::Instance().Scale(1), yMiddle-CDPIAware::Instance().Scale(2));
-                pDC->LineTo(xMiddle, yMiddle-CDPIAware::Instance().Scale(2));
-                pDC->LineTo(xMiddle, rc.bottom-CDPIAware::Instance().Scale(1));
-                pDC->LineTo(xMiddle+CDPIAware::Instance().Scale(4), rc.bottom-CDPIAware::Instance().Scale(5));
-                pDC->MoveTo(xMiddle, rc.bottom-CDPIAware::Instance().Scale(1));
-                pDC->LineTo(xMiddle-CDPIAware::Instance().Scale(4), rc.bottom-CDPIAware::Instance().Scale(5));
-                break;
-            case EOL_LF:
-                // arrow from top to bottom
-                pDC->MoveTo(xMiddle, rc.top);
-                pDC->LineTo(xMiddle, rc.bottom-CDPIAware::Instance().Scale(1));
-                pDC->LineTo(xMiddle+CDPIAware::Instance().Scale(4), rc.bottom-CDPIAware::Instance().Scale(5));
-                pDC->MoveTo(xMiddle, rc.bottom-CDPIAware::Instance().Scale(1));
-                pDC->LineTo(xMiddle-CDPIAware::Instance().Scale(4), rc.bottom-CDPIAware::Instance().Scale(5));
-                break;
-            case EOL_FF:    // Form Feed, U+000C
-            case EOL_NEL:   // Next Line, U+0085
-            case EOL_LS:    // Line Separator, U+2028
-            case EOL_PS:    // Paragraph Separator, U+2029
-                // draw a horizontal line at the bottom of this line
-                pDC->FillSolidRect(rc.left, rc.bottom-1, rc.right, rc.bottom, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
-                pDC->MoveTo(origin.x+GetCharWidth()-1, rc.bottom-GetCharWidth()-2);
-                pDC->LineTo(origin.x, rc.bottom-2);
-                pDC->LineTo(origin.x+5, rc.bottom-2);
-                pDC->MoveTo(origin.x, rc.bottom-2);
-                pDC->LineTo(origin.x+1, rc.bottom-6);
-                break;
-            default: // other EOLs
-                // arrow from top right to bottom left
-                pDC->MoveTo(origin.x+GetCharWidth()-1, rc.bottom-GetCharWidth());
-                pDC->LineTo(origin.x, rc.bottom-1);
-                pDC->LineTo(origin.x+5, rc.bottom-2);
-                pDC->MoveTo(origin.x, rc.bottom-1);
-                pDC->LineTo(origin.x+1, rc.bottom-6);
-                break;
-            case EOL_NOENDING:
-                break;
+                case EOL_AUTOLINE:
+                case EOL_CRLF:
+                    // arrow from top to middle+2, then left
+                    pDC->MoveTo(origin.x + GetCharWidth() - onepix, rc.top + onepix);
+                    pDC->LineTo(origin.x + GetCharWidth() - onepix, yMiddle);
+                case EOL_CR:
+                    // arrow from right to left
+                    pDC->MoveTo(origin.x + GetCharWidth() - onepix, yMiddle);
+                    pDC->LineTo(origin.x, yMiddle);
+                    pDC->LineTo(origin.x + fourpix, yMiddle + fourpix);
+                    pDC->MoveTo(origin.x, yMiddle);
+                    pDC->LineTo(origin.x + fourpix, yMiddle - fourpix);
+                    break;
+                case EOL_LFCR:
+                    // from right-upper to left then down
+                    pDC->MoveTo(origin.x + GetCharWidth() - onepix, yMiddle - twopix);
+                    pDC->LineTo(xMiddle, yMiddle - twopix);
+                    pDC->LineTo(xMiddle, rc.bottom - onepix);
+                    pDC->LineTo(xMiddle + fourpix, rc.bottom - fivepix);
+                    pDC->MoveTo(xMiddle, rc.bottom - onepix);
+                    pDC->LineTo(xMiddle - fourpix, rc.bottom - fivepix);
+                    break;
+                case EOL_LF:
+                    // arrow from top to bottom
+                    pDC->MoveTo(xMiddle, rc.top);
+                    pDC->LineTo(xMiddle, rc.bottom - onepix);
+                    pDC->LineTo(xMiddle + fourpix, rc.bottom - fivepix);
+                    pDC->MoveTo(xMiddle, rc.bottom - onepix);
+                    pDC->LineTo(xMiddle - fourpix, rc.bottom - fivepix);
+                    break;
+                case EOL_FF:  // Form Feed, U+000C
+                case EOL_NEL: // Next Line, U+0085
+                case EOL_LS:  // Line Separator, U+2028
+                case EOL_PS:  // Paragraph Separator, U+2029
+                    // draw a horizontal line at the bottom of this line
+                    pDC->FillSolidRect(rc.left, rc.bottom - 1, rc.right, rc.bottom, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
+                    pDC->MoveTo(origin.x + GetCharWidth() - 1, rc.bottom - GetCharWidth() - 2);
+                    pDC->LineTo(origin.x, rc.bottom - 2);
+                    pDC->LineTo(origin.x + 5, rc.bottom - 2);
+                    pDC->MoveTo(origin.x, rc.bottom - 2);
+                    pDC->LineTo(origin.x + 1, rc.bottom - 6);
+                    break;
+                default: // other EOLs
+                    // arrow from top right to bottom left
+                    pDC->MoveTo(origin.x + GetCharWidth() - 1, rc.bottom - GetCharWidth());
+                    pDC->LineTo(origin.x, rc.bottom - 1);
+                    pDC->LineTo(origin.x + 5, rc.bottom - 2);
+                    pDC->MoveTo(origin.x, rc.bottom - 1);
+                    pDC->LineTo(origin.x + 1, rc.bottom - 6);
+                    break;
+                case EOL_NOENDING:
+                    break;
             }
         }
         pDC->SelectObject(oldpen);
@@ -2071,11 +2080,14 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
         xpos -= m_nOffsetChar * GetCharWidth();
 
         CPen pen(PS_SOLID, 0, CTheme::Instance().GetThemeColor(m_WhiteSpaceFg));
+        auto twopix  = CDPIAware::Instance().Scale(GetSafeHwnd(), 2);
+        auto fourpix = CDPIAware::Instance().Scale(GetSafeHwnd(), 4);
+        auto sixpix  = CDPIAware::Instance().Scale(GetSafeHwnd(), 5);
         while (*pszChars)
         {
             switch (*pszChars)
             {
-            case '\t':
+                case '\t':
                 {
                     xpos += pDC->GetTextExtent(pLastSpace, (int)(pszChars - pLastSpace)).cx;
                     pLastSpace = pszChars + 1;
@@ -2086,12 +2098,12 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
                         int xposreal = max(xpos, 0);
                         if ((xposreal > 0) || (nSpaces > 0))
                         {
-                            CPen * oldPen = pDC->SelectObject(&pen);
-                            pDC->MoveTo(xposreal + rc.left + CDPIAware::Instance().Scale(2), y);
-                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().Scale(2), y);
-                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().Scale(6), y - CDPIAware::Instance().Scale(4));
-                            pDC->MoveTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().Scale(2), y);
-                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - CDPIAware::Instance().Scale(6), y + CDPIAware::Instance().Scale(4));
+                            CPen* oldPen = pDC->SelectObject(&pen);
+                            pDC->MoveTo(xposreal + rc.left + twopix, y);
+                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - twopix, y);
+                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - sixpix, y - fourpix);
+                            pDC->MoveTo((xpos + nSpaces * GetCharWidth()) + rc.left - twopix, y);
+                            pDC->LineTo((xpos + nSpaces * GetCharWidth()) + rc.left - sixpix, y + fourpix);
                             pDC->SelectObject(oldPen);
                         }
                     }
@@ -2099,25 +2111,25 @@ void CBaseView::DrawSingleLine(CDC *pDC, const CRect &rc, int nLineIndex)
                     nChars += nSpaces;
                 }
                 break;
-            case ' ':
+                case ' ':
                 {
                     xpos += pDC->GetTextExtent(pLastSpace, (int)(pszChars - pLastSpace)).cx;
                     pLastSpace = pszChars + 1;
                     if (xpos >= 0)
                     {
-                        const int cxWhitespace = CDPIAware::Instance().Scale(2);
-                        const int cyWhitespace = CDPIAware::Instance().Scale(2);
+                        const int cxWhitespace = twopix;
+                        const int cyWhitespace = twopix;
                         // draw 2-logical pixel rectangle, like Scintilla editor.
-                        pDC->FillSolidRect(xpos + rc.left + GetCharWidth() / 2 - cxWhitespace/2, y,
+                        pDC->FillSolidRect(xpos + rc.left + GetCharWidth() / 2 - cxWhitespace / 2, y,
                                            cxWhitespace, cyWhitespace, CTheme::Instance().GetThemeColor(m_WhiteSpaceFg));
                     }
                     xpos += GetCharWidth();
                     nChars++;
                 }
                 break;
-            default:
-                nChars++;
-                break;
+                default:
+                    nChars++;
+                    break;
             }
             pszChars++;
         }

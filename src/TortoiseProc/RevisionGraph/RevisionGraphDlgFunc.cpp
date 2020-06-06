@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2015, 2018 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2015, 2018, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,8 +70,8 @@ void CRevisionGraphWnd::BuildPreview()
     float origZoom = m_fZoomFactor;
 
     CRect clientRect = GetClientRect();
-    CSize preViewSize (max (CDPIAware::Instance().Scale(REVGRAPH_PREVIEW_WIDTH), clientRect.Width() / 4)
-                      ,max (CDPIAware::Instance().Scale(REVGRAPH_PREVIEW_HEIGHT), clientRect.Height() / 4));
+    CSize preViewSize (max (CDPIAware::Instance().Scale(GetSafeHwnd(), REVGRAPH_PREVIEW_WIDTH), clientRect.Width() / 4)
+                      ,max (CDPIAware::Instance().Scale(GetSafeHwnd(), REVGRAPH_PREVIEW_HEIGHT), clientRect.Height() / 4));
 
     // zoom the graph so that it is completely visible in the window
     CRect graphRect = GetGraphRect();
@@ -270,7 +270,7 @@ bool CRevisionGraphWnd::AnalyzeRevisionData()
             ( new CStandardLayout ( m_state.GetFullHistory()->GetCache()
                                   , visibleGraph.get()
                                   , m_state.GetFullHistory()->GetWCInfo()));
-        options->GetLayoutOptions().Apply (newLayout.get());
+        options->GetLayoutOptions().Apply (newLayout.get(), GetSafeHwnd());
         newLayout->Finalize();
 
         // switch state

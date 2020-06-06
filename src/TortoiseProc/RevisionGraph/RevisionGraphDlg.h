@@ -102,6 +102,7 @@ protected:
     afx_msg BOOL    OnToggleRedrawOption (UINT controlID);
     afx_msg BOOL    OnToolTipNotify (UINT id, NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void    OnWindowPosChanging(WINDOWPOS* lpwndpos);
+    afx_msg LRESULT OnDPIChanged(WPARAM, LPARAM lParam);
 
     DECLARE_MESSAGE_MAP()
 

@@ -322,7 +322,7 @@ void CCommonAppUtils::ResizeAllListCtrlCols(CListCtrl * pListCtrl)
 
 bool CCommonAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID)
 {
-    auto size = CDPIAware::Instance().Scale(128);
+    auto size = CDPIAware::Instance().Scale(hListCtrl, 128);
     return SetListCtrlBackgroundImage(hListCtrl, nID, size, size);
 }
 

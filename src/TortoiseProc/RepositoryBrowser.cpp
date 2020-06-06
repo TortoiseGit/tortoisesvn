@@ -454,7 +454,7 @@ BOOL CRepositoryBrowser::OnInitDialog()
         // the tree and the list control
         CRect drc(0, 0, 10, 10);
         MapDialogRect(&drc);
-        HandleDividerMove(CPoint(xPos + drc.right, CDPIAware::Instance().Scale(10)));
+        HandleDividerMove(CPoint(xPos + drc.right, CDPIAware::Instance().Scale(GetSafeHwnd(), 10)));
     }
     else
     {
@@ -997,7 +997,7 @@ void CRepositoryBrowser::OnMouseMove(UINT nFlags, CPoint point)
     //same for the window coordinates - make them relative to 0,0
     OffsetRect(&treelist, -treelist.left, -treelist.top);
 
-    auto minWidth = CDPIAware::Instance().Scale(REPOBROWSER_CTRL_MIN_WIDTH);
+    auto minWidth = CDPIAware::Instance().Scale(GetSafeHwnd(), REPOBROWSER_CTRL_MIN_WIDTH);
 
     if (point.x < treelist.left+minWidth)
         point.x = treelist.left+minWidth;
@@ -1040,8 +1040,8 @@ void CRepositoryBrowser::OnLButtonDown(UINT nFlags, CPoint point)
     //same for the window coordinates - make them relative to 0,0
     OffsetRect(&treelist, -treelist.left, -treelist.top);
 
-    auto minWidth = CDPIAware::Instance().Scale(REPOBROWSER_CTRL_MIN_WIDTH);
-    auto divWidth = CDPIAware::Instance().Scale(3);
+    auto minWidth = CDPIAware::Instance().Scale(GetSafeHwnd(), REPOBROWSER_CTRL_MIN_WIDTH);
+    auto divWidth = CDPIAware::Instance().Scale(GetSafeHwnd(), 3);
 
     if (point.x < treelist.left+minWidth)
         return CStandAloneDialogTmpl<CResizableDialog>::OnLButtonDown(nFlags, point);
@@ -1079,7 +1079,7 @@ void CRepositoryBrowser::HandleDividerMove(CPoint point)
     GetClientRect(&rect);
     ClientToScreen(&rect);
 
-    auto minWidth = CDPIAware::Instance().Scale(REPOBROWSER_CTRL_MIN_WIDTH);
+    auto minWidth = CDPIAware::Instance().Scale(GetSafeHwnd(), REPOBROWSER_CTRL_MIN_WIDTH);
 
     CPoint point2 = point;
     if (point2.x < treelist.left+minWidth)
@@ -1100,7 +1100,7 @@ void CRepositoryBrowser::HandleDividerMove(CPoint point)
     oldx = point.x;
     oldy = point.y;
 
-    auto divWidth = CDPIAware::Instance().Scale(2);
+    auto divWidth = CDPIAware::Instance().Scale(GetSafeHwnd(), 2);
     //position the child controls
     GetDlgItem(IDC_REPOTREE)->GetWindowRect(&treelist);
     treelist.right = point2.x - divWidth;

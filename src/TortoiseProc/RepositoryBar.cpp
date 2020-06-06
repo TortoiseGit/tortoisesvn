@@ -106,7 +106,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
             rbbi.fMask |= RBBS_CHILDEDGE;
         int bandpos = 0;
         // Create the "Back" button control to be added
-        auto size = CDPIAware::Instance().Scale(24);
+        auto size = CDPIAware::Instance().Scale(GetSafeHwnd(), 24);
         auto iconSize = GetSystemMetrics(SM_CXSMICON);
         rect = CRect(0, 0, size, size);
         m_btnBack.Create(L"BACK", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_BACK_BTN);
@@ -139,7 +139,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
             return false;
 
         // Create the "URL" combo box control to be added
-        rect = CRect(0, 0, CDPIAware::Instance().Scale(100), CDPIAware::Instance().Scale(400));
+        rect = CRect(0, 0, CDPIAware::Instance().Scale(GetSafeHwnd(), 100), CDPIAware::Instance().Scale(GetSafeHwnd(), 400));
         m_cbxUrl.Create(WS_CHILD | WS_TABSTOP | CBS_DROPDOWN, rect, this, IDC_URL_COMBO);
         m_cbxUrl.SetURLHistory(true, false);
         m_cbxUrl.SetFont(font);
@@ -151,16 +151,16 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
         rbbi.cx         = rect.Width();
         rbbi.cxMinChild = rect.Width();
-        rbbi.cyMinChild = m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(10);
+        rbbi.cyMinChild = m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 10);
         if (!InsertBand(bandpos++, &rbbi))
             return false;
 
         // Reposition the combobox for correct redrawing
         m_cbxUrl.GetWindowRect(rect);
-        m_cbxUrl.MoveWindow(rect.left, rect.top, rect.Width(), CDPIAware::Instance().Scale(300));
+        m_cbxUrl.MoveWindow(rect.left, rect.top, rect.Width(), CDPIAware::Instance().Scale(GetSafeHwnd(), 300));
 
         // Create the "Up" button control to be added
-        rect = CRect(0, 0, size, m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(8));
+        rect = CRect(0, 0, size, m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 8));
         m_btnUp.Create(L"UP", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_UP_BTN);
         m_btnUp.SetImage(CCommonAppUtils::LoadIconEx(IDI_UP, iconSize, iconSize));
         m_btnUp.SetWindowText(L"");
@@ -176,7 +176,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
             return false;
 
         // Create the "Revision" button control to be added
-        rect = CRect(0, 0, CDPIAware::Instance().Scale(60), m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(10));
+        rect = CRect(0, 0, CDPIAware::Instance().Scale(GetSafeHwnd(), 60), m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 10));
         m_btnRevision.Create(L"HEAD", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON, rect, this, IDC_REVISION_BTN);
         m_btnRevision.SetFont(font);
         temp.LoadString(IDS_REPO_BROWSEREV);

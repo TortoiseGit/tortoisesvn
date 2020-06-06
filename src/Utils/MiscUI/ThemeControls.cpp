@@ -241,14 +241,14 @@ void CThemeMFCMenuButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
         else
             pDC->FillSolidRect(rectArrow, RGB(51, 51, 51));
 
-        auto hPen    = CreatePen(PS_SOLID, CDPIAware::Instance().Scale(1), RGB(180, 180, 180));
+        auto hPen    = CreatePen(PS_SOLID, CDPIAware::Instance().Scale(GetSafeHwnd(), 1), RGB(180, 180, 180));
         auto hOldPen = pDC->SelectObject(hPen);
 
         auto hBrush    = CreateSolidBrush(RGB(255, 255, 255));
         auto hOldBrush = pDC->SelectObject(hBrush);
 
-        auto  vmargin    = CDPIAware::Instance().Scale(6);
-        auto  hmargin    = CDPIAware::Instance().Scale(3);
+        auto  vmargin    = CDPIAware::Instance().Scale(GetSafeHwnd(), 6);
+        auto  hmargin    = CDPIAware::Instance().Scale(GetSafeHwnd(), 3);
         if (m_bRightArrow)
         {
             POINT vertices[] = { { rectArrow.left + hmargin, rectArrow.bottom - vmargin },

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009, 2019 - TortoiseSVN
+// Copyright (C) 2003-2009, 2019-2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,7 @@ CShowPathsAsDiff::CShowPathsAsDiff (CRevisionGraphOptionList& list)
 // cast @a layout pointer to the respective modification
 // interface and write the data.
 
-void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout)
+void CShowPathsAsDiff::ApplyTo (IRevisionGraphLayout* layout, HWND /*hWnd*/)
 {
     // we need access to actual data
 

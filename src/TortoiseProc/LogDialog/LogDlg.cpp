@@ -74,8 +74,8 @@
 #include "../LogCache/Streams/StreamException.h"
 
 #define ICONITEMBORDER 5
-#define MIN_CTRL_HEIGHT (CDPIAware::Instance().Scale(20))
-#define MIN_SPLITTER_HEIGHT (CDPIAware::Instance().Scale(10))
+#define MIN_CTRL_HEIGHT (CDPIAware::Instance().Scale(GetSafeHwnd(), 20))
+#define MIN_SPLITTER_HEIGHT (CDPIAware::Instance().Scale(GetSafeHwnd(), 10))
 
 const UINT CLogDlg::m_FindDialogMessage              = RegisterWindowMessage(FINDMSGSTRING);
 const UINT CLogDlg::WM_TASKBARCREATED                = RegisterWindowMessage(L"TaskbarCreated");
@@ -393,6 +393,7 @@ BEGIN_MESSAGE_MAP(CLogDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(WM_TaskBarButtonCreated, OnTaskbarButtonCreated)
     ON_NOTIFY(LVN_BEGINDRAG, IDC_LOGMSG, &CLogDlg::OnLvnBegindragLogmsg)
     ON_WM_SYSCOLORCHANGE()
+    ON_MESSAGE(WM_DPICHANGED, OnDPIChanged)
 END_MESSAGE_MAP()
 
 void CLogDlg::SetParams(const CTSVNPath& path, const SVNRev& pegrev, const SVNRev& startrev, const SVNRev& endrev,
@@ -482,7 +483,7 @@ void CLogDlg::SetupDialogFonts()
 
     lf.lfWeight = FW_BOLD;
     m_wcRevFont.CreateFontIndirect(&lf);
-    CAppUtils::CreateFontForLogs(m_logFont);
+    CAppUtils::CreateFontForLogs(GetSafeHwnd(), m_logFont);
 }
 
 void CLogDlg::RestoreSavedDialogSettings()
@@ -670,27 +671,27 @@ void CLogDlg::RestoreLogDlgWindowAndSplitters()
     m_projTree.GetWindowRect(&rcProjTree);
     ScreenToClient(&rcProjTree);
 
-    if (yPos1 && ((LONG)yPos1 < rcDlg.bottom - CDPIAware::Instance().Scale(185)))
+    if (yPos1 && ((LONG)yPos1 < rcDlg.bottom - CDPIAware::Instance().Scale(GetSafeHwnd(), 185)))
     {
         RECT rectSplitter;
         m_wndSplitter1.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
         int delta = yPos1 - rectSplitter.top;
 
-        if ((rcLogList.bottom + delta > rcLogList.top) && (rcLogList.bottom + delta < rcChgMsg.bottom - CDPIAware::Instance().Scale(30)))
+        if ((rcLogList.bottom + delta > rcLogList.top) && (rcLogList.bottom + delta < rcChgMsg.bottom - CDPIAware::Instance().Scale(GetSafeHwnd(), 30)))
         {
             m_wndSplitter1.SetWindowPos(NULL, rectSplitter.left, yPos1, 0, 0, SWP_NOSIZE);
             DoSizeV1(delta);
         }
     }
-    if (yPos2 && ((LONG)yPos2 < rcDlg.bottom - CDPIAware::Instance().Scale(153)))
+    if (yPos2 && ((LONG)yPos2 < rcDlg.bottom - CDPIAware::Instance().Scale(GetSafeHwnd(), 153)))
     {
         RECT rectSplitter;
         m_wndSplitter2.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
         int delta = yPos2 - rectSplitter.top;
 
-        if ((rcChgMsg.top + delta < rcChgMsg.bottom) && (rcChgMsg.top + delta > rcLogList.top + CDPIAware::Instance().Scale(30)))
+        if ((rcChgMsg.top + delta < rcChgMsg.bottom) && (rcChgMsg.top + delta > rcLogList.top + CDPIAware::Instance().Scale(GetSafeHwnd(), 30)))
         {
             m_wndSplitter2.SetWindowPos(NULL, rectSplitter.left, yPos2, 0, 0, SWP_NOSIZE);
             DoSizeV2(delta);
@@ -699,7 +700,7 @@ void CLogDlg::RestoreLogDlgWindowAndSplitters()
     if (m_bMonitoringMode)
     {
         if (xPos == 0)
-            xPos = CDPIAware::Instance().Scale(80);
+            xPos = CDPIAware::Instance().Scale(GetSafeHwnd(), 80);
         RECT rectSplitter;
         m_wndSplitterLeft.GetWindowRect(&rectSplitter);
         ScreenToClient(&rectSplitter);
@@ -3592,7 +3593,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR* pNMHDR, LRESULT* pResult)
                     BitBlt(myDC.GetDC(), rect.left, rect.top, rect.Width(), rect.Height(), pLVCD->nmcd.hdc, rect.left, rect.top, SRCCOPY);
 
                     // Draw the icon(s) into the compatible DC
-                    auto  iconItemBorder = CDPIAware::Instance().Scale(ICONITEMBORDER);
+                    auto  iconItemBorder = CDPIAware::Instance().Scale(GetSafeHwnd(), ICONITEMBORDER);
                     DWORD actions        = pLogEntry->GetChangedPaths().GetActions();
                     if (actions & LOGACTIONS_MODIFIED)
                         ::DrawIconEx(myDC.GetDC(), rect.left + iconItemBorder, rect.top,
@@ -4184,7 +4185,7 @@ void CLogDlg::SetSplitterRange()
 
         m_wndSplitter1.SetRange(rcTop.top + MIN_CTRL_HEIGHT, rcBottom.bottom - (2 * MIN_CTRL_HEIGHT + MIN_SPLITTER_HEIGHT));
         m_wndSplitter2.SetRange(rcTop.top + (2 * MIN_CTRL_HEIGHT + MIN_SPLITTER_HEIGHT), rcBottom.bottom - MIN_CTRL_HEIGHT);
-        m_wndSplitterLeft.SetRange(CDPIAware::Instance().Scale(80), rcTop.right - m_LogListOrigRect.Width());
+        m_wndSplitterLeft.SetRange(CDPIAware::Instance().Scale(GetSafeHwnd(), 80), rcTop.right - m_LogListOrigRect.Width());
     }
 }
 
@@ -4952,7 +4953,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
         hdi.pszText                  = textbuf;
         hdi.cchTextMax               = _countof(textbuf) - 1;
         pHdrCtrl->GetItem(col, &hdi);
-        int cx = m_LogList.GetStringWidth(textbuf) + CDPIAware::Instance().Scale(20); // 20 pixels for col separator and margin
+        int cx = m_LogList.GetStringWidth(textbuf) + CDPIAware::Instance().Scale(GetSafeHwnd(), 20); // 20 pixels for col separator and margin
         for (size_t index = startRow; index < endRow; ++index)
         {
             // get the width of the string and add 14 pixels for the column separator and margins
@@ -4997,7 +4998,7 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
         // Adjust columns "Actions" containing icons
         if (col == 1)
         {
-            const int nMinimumWidth = CDPIAware::Instance().Scale(ICONITEMBORDER) + GetSystemMetrics(SM_CXSMICON) * 7;
+            const int nMinimumWidth = CDPIAware::Instance().Scale(GetSafeHwnd(), ICONITEMBORDER) + GetSystemMetrics(SM_CXSMICON) * 7;
             if (cx < nMinimumWidth)
             {
                 cx = nMinimumWidth;
@@ -6448,7 +6449,7 @@ void CLogDlg::OnSize(UINT nType, int cx, int cy)
 
         m_wndSplitter1.SetRange(rcTop.top + MIN_CTRL_HEIGHT, rcBottom.bottom - (2 * MIN_CTRL_HEIGHT + MIN_SPLITTER_HEIGHT));
         m_wndSplitter2.SetRange(rcTop.top + (2 * MIN_CTRL_HEIGHT + MIN_SPLITTER_HEIGHT), rcBottom.bottom - MIN_CTRL_HEIGHT);
-        m_wndSplitterLeft.SetRange(CDPIAware::Instance().Scale(80), rcTop.right - m_LogListOrigRect.Width());
+        m_wndSplitterLeft.SetRange(CDPIAware::Instance().Scale(GetSafeHwnd(), 80), rcTop.right - m_LogListOrigRect.Width());
 
         m_LogList.Invalidate();
         m_ChangedFileListCtrl.Invalidate();
@@ -7925,8 +7926,8 @@ bool CLogDlg::CreateToolbar()
 #define MONITORMODE_TOOLBARBUTTONCOUNT 11
     TBBUTTON tbb[MONITORMODE_TOOLBARBUTTONCOUNT] = {0};
     // create an image list containing the icons for the toolbar
-    const int iconSizeX = int(24 * CDPIAware::Instance().ScaleFactor());
-    const int iconSizeY = int(24 * CDPIAware::Instance().ScaleFactor());
+    const int iconSizeX = int(24 * CDPIAware::Instance().ScaleFactor(GetSafeHwnd()));
+    const int iconSizeY = int(24 * CDPIAware::Instance().ScaleFactor(GetSafeHwnd()));
     if (!m_toolbarImages.Create(iconSizeX, iconSizeY, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4))
         return false;
     auto  iString        = ::SendMessage(m_hwndToolbar, TB_ADDSTRING,
@@ -10116,4 +10117,27 @@ void CLogDlg::OnSysColorChange()
     CTheme::Instance().OnSysColorChanged();
     SendDlgItemMessage(IDC_MSGVIEW, WM_SYSCOLORCHANGE, 0, 0);
     CMFCVisualManager::GetInstance()->RedrawAll();
+}
+
+LRESULT CLogDlg::OnDPIChanged(WPARAM wParam, LPARAM lParam)
+{
+    CDPIAware::Instance().Invalidate();
+    if (m_bMonitoringMode)
+    {
+        RemoveAnchor(m_hwndToolbar);
+        m_toolbarImages.DeleteImageList();
+        ::CloseWindow(m_hwndToolbar);
+        ::DestroyWindow(m_hwndToolbar);
+        CreateToolbar();
+        CRect rcSearch;
+        m_cFilter.GetWindowRect(&rcSearch);
+        ScreenToClient(&rcSearch);
+        CRect rect;
+        ::GetClientRect(m_hwndToolbar, &rect);
+        CRect rcDlg;
+        GetClientRect(&rcDlg);
+        ::SetWindowPos(m_hwndToolbar, NULL, rcSearch.left, 0, rcDlg.Width(), rect.Height(), SWP_SHOWWINDOW);
+        AddAnchor(m_hwndToolbar, TOP_LEFT, TOP_RIGHT);
+    }
+    return __super::OnDPIChanged(wParam, lParam);
 }

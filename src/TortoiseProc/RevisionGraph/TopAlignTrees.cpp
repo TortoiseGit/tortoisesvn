@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009, 2014 - TortoiseSVN
+// Copyright (C) 2003-2009, 2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -64,7 +64,7 @@ CTopAlignTrees::CTopAlignTrees
 // cast @a layout pointer to the respective modification
 // interface and write the data.
 
-void CTopAlignTrees::ApplyTo (IRevisionGraphLayout* layout)
+void CTopAlignTrees::ApplyTo (IRevisionGraphLayout* layout, HWND /*hWnd*/)
 {
     // we need access to actual data
 

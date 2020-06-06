@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,9 +30,9 @@ CLayoutOptions::CLayoutOptions
 
 // apply all filters
 
-void CLayoutOptions::Apply (IRevisionGraphLayout* layout) const
+void CLayoutOptions::Apply (IRevisionGraphLayout* layout, HWND hWnd) const
 {
     for (size_t i = 0; i < options.size(); ++i)
-        options[i]->ApplyTo (layout);
+        options[i]->ApplyTo (layout, hWnd);
 };
 
