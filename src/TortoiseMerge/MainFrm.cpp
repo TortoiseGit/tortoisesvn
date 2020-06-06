@@ -39,6 +39,7 @@
 #include "StringUtils.h"
 #include "Windows10Colors.h"
 #include "DarkModeHelper.h"
+#include "ThemeMFCVisualManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -1314,11 +1315,7 @@ void CMainFrame::SetTheme(bool bDark)
         DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
         DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
-
-        // this is not ideal, but the office2007 black theme is better than
-        // implementing a custom status bar with proper dark theme colors...
-        CMFCVisualManagerOffice2007::SetStyle(CMFCVisualManagerOffice2007::Office2007_ObsidianBlack);
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerOffice2007));
+        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CThemeMFCVisualManager));
     }
     else
     {

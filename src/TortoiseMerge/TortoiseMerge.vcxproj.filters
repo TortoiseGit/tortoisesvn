@@ -249,6 +249,9 @@
     <ClCompile Include="..\Utils\Theme.cpp">
       <Filter>Utils\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\Utils\MiscUI\ThemeMFCVisualManager.cpp">
+      <Filter>Utils\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AboutDlg.h">
@@ -486,6 +489,9 @@
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\Utils\Theme.h">
+      <Filter>Utils\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Utils\MiscUI\ThemeMFCVisualManager.h">
       <Filter>Utils\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
