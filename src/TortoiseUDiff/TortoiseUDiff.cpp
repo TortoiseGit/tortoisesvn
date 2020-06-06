@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2008, 2010-2012, 2014-2015 - TortoiseSVN
 // Copyright (C) 2011-2016 - TortoiseGit
@@ -80,11 +80,11 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         mainWindow.SetTitle(parser.GetVal(L"title"));
     else if (parser.HasVal(L"patchfile"))
         mainWindow.SetTitle(parser.GetVal(L"patchfile"));
-    else if (lpCmdLine[0] != L'0')
+    else if (lpCmdLine[0])
     {
         // remove double quotes
         std::wstring path = lpCmdLine;
-        path.erase(std::remove(path.begin(), path.end(), '"'), path.end());
+        path.erase(std::remove(path.begin(), path.end(), L'"'), path.end());
         mainWindow.SetTitle(path.c_str());
     }
     else
@@ -100,7 +100,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     }
 
     bool bLoadedSuccessfully = false;
-    if ((lpCmdLine[0] == L'0') || (parser.HasKey(L"p")))
+    if ((lpCmdLine[0] == L'\0') || (parser.HasKey(L"p")))
     {
         // input from console pipe
         // set console to raw mode
@@ -112,7 +112,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     }
     else if (parser.HasVal(L"patchfile"))
         bLoadedSuccessfully = mainWindow.LoadFile(parser.GetVal(L"patchfile"));
-    else if (lpCmdLine[0] != L'0')
+    else if (lpCmdLine[0] != L'\0')
     {
         // remove double quotes
         std::wstring path = lpCmdLine;
