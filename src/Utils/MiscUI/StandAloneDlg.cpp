@@ -45,6 +45,7 @@ const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated")
 
 BEGIN_TEMPLATE_MESSAGE_MAP(CStandAloneDialogTmpl, BaseType, BaseType)
     ON_WM_ERASEBKGND()
+    ON_WM_SYSCOLORCHANGE()
     ON_WM_QUERYDRAGICON()
     ON_WM_PAINT()
     ON_WM_NCHITTEST()

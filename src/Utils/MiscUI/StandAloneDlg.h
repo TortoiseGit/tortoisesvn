@@ -409,6 +409,12 @@ protected:
         return 0;
     }
 
+    afx_msg void OnSysColorChange()
+    {
+        CTheme::Instance().OnSysColorChanged();
+        SetTheme(CTheme::Instance().IsDarkTheme());
+    }
+
     LRESULT OnDPIChanged(WPARAM, LPARAM lParam)
     {
         CDPIAware::Instance().Invalidate();
