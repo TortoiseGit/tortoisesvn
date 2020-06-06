@@ -411,6 +411,7 @@ protected:
 
     afx_msg void OnSysColorChange()
     {
+        BaseType::OnSysColorChange();
         CTheme::Instance().OnSysColorChanged();
         SetTheme(CTheme::Instance().IsDarkTheme());
     }
