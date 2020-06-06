@@ -304,12 +304,10 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
                 {
                     ListView_SetTextColor(hwnd, color);
                 }
-                if (SUCCEEDED(::GetThemeColor(hTheme, 0, 0, TMT_FILLCOLOR, &color)))
-                {
-                    ListView_SetTextBkColor(hwnd, color);
-                    ListView_SetBkColor(hwnd, color);
-                }
             }
+            COLORREF color = GetSysColor(COLOR_WINDOW);
+            ListView_SetTextBkColor(hwnd, color);
+            ListView_SetBkColor(hwnd, color);
             auto hTT = ListView_GetToolTips(hwnd);
             if (hTT)
             {
