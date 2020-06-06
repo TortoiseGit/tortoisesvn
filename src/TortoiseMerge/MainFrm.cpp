@@ -367,6 +367,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
             return -1;      // fail to create
         }
         m_wndStatusBar.EnablePaneDoubleClick();
+
+        m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
+            [this]() {
+                SetTheme(CTheme::Instance().IsDarkTheme());
+            });
+        SetTheme(CTheme::Instance().IsDarkTheme());
     }
 
     if (!m_wndLocatorBar.Create(this, IDD_DIFFLOCATOR,
@@ -1287,16 +1293,13 @@ DEFINE_UIPROPERTYKEY(UI_PKEY_ApplicationButtonColor, VT_UI4, 2003);
 #endif
 void CMainFrame::SetTheme(bool bDark)
 {
-    if (!m_bUseRibbons)
-        return;
-
-    SetAccentColor();
+    if (m_bUseRibbons)
+        SetAccentColor();
 
     if (bDark)
     {
         CComPtr<IPropertyStore> spPropertyStore;
-        HRESULT                 hr = m_pRibbonFramework->QueryInterface(&spPropertyStore);
-        if (SUCCEEDED(hr))
+        if (m_bUseRibbons && SUCCEEDED(m_pRibbonFramework->QueryInterface(&spPropertyStore)))
         {
             DarkModeHelper::Instance().AllowDarkModeForApp(TRUE);
             DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), TRUE);
@@ -1322,8 +1325,7 @@ void CMainFrame::SetTheme(bool bDark)
         DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
         DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), FALSE);
         CComPtr<IPropertyStore> spPropertyStore;
-        HRESULT                 hr = m_pRibbonFramework->QueryInterface(&spPropertyStore);
-        if (SUCCEEDED(hr))
+        if (m_bUseRibbons && SUCCEEDED(m_pRibbonFramework->QueryInterface(&spPropertyStore)))
         {
             PROPVARIANT propvarDarkMode;
             InitPropVariantFromBoolean(false, &propvarDarkMode);
