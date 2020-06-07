@@ -22,6 +22,47 @@
 
 #pragma comment(lib, "Dwmapi.lib")
 
+struct DPIAdjustData
+{
+    HWND hDlg;
+    double zoom;
+};
+
+static BOOL CALLBACK DPIAdjustChildren(HWND hWnd, LPARAM lParam)
+{
+    DPIAdjustData* data = (DPIAdjustData*)lParam;
+    if (data->hDlg != ::GetParent(hWnd))
+    {
+        return TRUE;
+    }
+    double zoom = data->zoom;
+
+    RECT rect = {};
+    ::GetWindowRect(hWnd, &rect);
+
+    POINT pt = {rect.left, rect.top};
+    ::ScreenToClient(::GetParent(hWnd), &pt);
+
+    ::MoveWindow(hWnd,
+                 (int)std::round((double)pt.x * zoom),
+                 (int)std::round((double)pt.y * zoom),
+                 (int)std::round(((double)rect.right - (double)rect.left) * zoom),
+                 (int)std::round(((double)rect.bottom - (double)rect.top) * zoom),
+                 TRUE);
+
+    HFONT font = (HFONT)::SendMessage(hWnd, WM_GETFONT, 0, 0);
+    if (font)
+    {
+        LOGFONT lf = { 0 };
+        GetObject(font, sizeof(LOGFONT), &lf);
+        lf.lfHeight = (LONG)(lf.lfHeight * zoom);
+        auto newFont = CreateFontIndirect(&lf);
+        ::SendMessage(hWnd, WM_SETFONT, (WPARAM)newFont, TRUE);
+    }
+
+    return TRUE;
+}
+
 #ifndef _DLL
 // custom macro, adjusted from the MFC macro IMPLEMENT_DYNAMIC to make it work for templated
 // base classes.
@@ -347,13 +388,45 @@ void CStandAloneDialogTmpl<BaseType>::SetTheme(bool bDark)
 }
 
 template <typename BaseType>
-LRESULT CStandAloneDialogTmpl<BaseType>::OnDPIChanged(WPARAM, LPARAM lParam)
+LRESULT CStandAloneDialogTmpl<BaseType>::OnDPIChanged(WPARAM wParam, LPARAM lParam)
 {
     CDPIAware::Instance().Invalidate();
     const RECT* rect = reinterpret_cast<RECT*>(lParam);
-    m_height         = rect->bottom - rect->top;
-    m_width          = rect->right - rect->left;
-    SetWindowPos(NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+
+    auto newDPI = HIWORD(wParam);
+    if (m_dpi == 0)
+    {
+        m_dpi = newDPI;
+        return 0;
+    }
+    double zoom = (((double)newDPI) / (((double)m_dpi) / 100.0)) / 100.0;
+
+    DPIAdjustData data = { GetSafeHwnd(), zoom };
+    if constexpr (std::is_same_v<BaseType, CResizableDialog>)
+    {
+        auto anchors = GetAllAnchors();
+        RemoveAllAnchors();
+
+        auto minTrackSize = GetMinTrackSize();
+        minTrackSize.cx = (LONG)(minTrackSize.cx * zoom);
+        minTrackSize.cy = (LONG)(minTrackSize.cy * zoom);
+        SetMinTrackSize(minTrackSize);
+
+        SetWindowPos(NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+        ::EnumChildWindows(GetSafeHwnd(), DPIAdjustChildren, (LPARAM)&data);
+
+        AddAllAnchors(anchors);
+    }
+    else
+    {
+        SetWindowPos(NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+        ::EnumChildWindows(GetSafeHwnd(), DPIAdjustChildren, (LPARAM)&data);
+    }
+
+    m_dpi = newDPI;
+    m_height = rect->bottom - rect->top;
+    m_width = rect->right - rect->left;
+
     ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
     return 1; // let MFC handle this message as well
 }

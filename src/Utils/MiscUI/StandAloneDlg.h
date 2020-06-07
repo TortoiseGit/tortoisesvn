@@ -69,6 +69,7 @@ protected:
         m_height = 0;
         m_width = 0;
         m_themeCallbackId = 0;
+        m_dpi = 0;
 
         SetBackgroundIcon(IDI_AEROBACKGROUND, 256, 256);
     }
@@ -104,6 +105,8 @@ protected:
         auto CustomBreak = (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\UseCustomWordBreak", 2);
         if (CustomBreak)
             SetUrlWordBreakProcToChildWindows(GetSafeHwnd(), CustomBreak == 2);
+
+        m_dpi = CDPIAware::Instance().GetDPI(GetSafeHwnd());
 
         return FALSE;
     }
@@ -376,6 +379,7 @@ protected:
     long            m_width;
     long            m_height;
     int             m_themeCallbackId;
+    int             m_dpi;
     DECLARE_MESSAGE_MAP()
 private:
     HCURSOR OnQueryDragIcon()
