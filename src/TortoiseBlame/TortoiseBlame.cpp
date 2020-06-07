@@ -796,7 +796,7 @@ void TortoiseBlame::StartSearch()
     m_fr.lStructSize   = sizeof(m_fr);
     m_fr.hwndOwner     = wMain;
     m_fr.lpstrFindWhat = m_szFindWhat;
-    m_fr.wFindWhatLen  = 80;
+    m_fr.wFindWhatLen  = _countof(m_szFindWhat);
     m_fr.Flags         = FR_HIDEWHOLEWORD | FR_DOWN;
     m_fr.Flags |= bCase ? FR_MATCHCASE : 0;
 
