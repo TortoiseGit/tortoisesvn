@@ -171,6 +171,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
     case WM_DPICHANGED:
     {
         CDPIAware::Instance().Invalidate();
+        SendMessage(m_hWndEdit, WM_DPICHANGED, wParam, lParam);
         const RECT* rect = reinterpret_cast<RECT*>(lParam);
         SetWindowPos(*this, NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
         ::RedrawWindow(*this, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
