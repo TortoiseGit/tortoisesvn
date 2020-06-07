@@ -125,10 +125,10 @@ CBaseView::CBaseView()
     m_nInlineDiffMaxLineLength = CRegDWORD(L"Software\\TortoiseMerge\\InlineDiffMaxLineLength", 3000);
     m_InlineAddedBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\InlineAdded", INLINEADDED_COLOR);
     m_InlineRemovedBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\InlineRemoved", INLINEREMOVED_COLOR);
-    m_ModifiedBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Colors\\ColorModifiedB", MODIFIED_COLOR);
+    m_ModifiedBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\ColorModifiedB", MODIFIED_COLOR);
     m_InlineAddedDarkBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\DarkInlineAdded", INLINEADDED_DARK_COLOR);
     m_InlineRemovedDarkBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\DarkInlineRemoved", INLINEREMOVED_DARK_COLOR);
-    m_ModifiedDarkBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Colors\\DarkColorModifiedB", MODIFIED_DARK_COLOR);
+    m_ModifiedDarkBk = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\DarkColorModifiedB", MODIFIED_DARK_COLOR);
     m_WhiteSpaceFg = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Whitespace", CTheme::Instance().GetThemeColor(GetSysColor(COLOR_3DSHADOW)));
     m_sWordSeparators = CRegString(L"Software\\TortoiseMerge\\WordSeparators", L"[]();:.,{}!@#$%^&*-+=|/\\<>'`~\"?");
     m_bIconLFs = CRegDWORD(L"Software\\TortoiseMerge\\IconLFs", 0);
