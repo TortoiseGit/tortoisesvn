@@ -471,19 +471,16 @@ void CLogDlg::SubclassControls()
 
 void CLogDlg::SetupDialogFonts()
 {
-    // use the default GUI font, create a copy of it and
-    // change the copy to BOLD (leave the rest of the font
-    // the same)
-    CFont*  font = m_LogList.GetFont();
-    LOGFONT lf   = {0};
-    font->GetLogFont(&lf);
-
+    m_logFont.DeleteObject();
+    m_unreadFont.DeleteObject();
+    m_wcRevFont.DeleteObject();
+    CAppUtils::CreateFontForLogs(GetSafeHwnd(), m_logFont);
+    LOGFONT lf = { 0 };
+    m_logFont.GetLogFont(&lf);
     lf.lfWeight = FW_DEMIBOLD;
     m_unreadFont.CreateFontIndirect(&lf);
-
     lf.lfWeight = FW_BOLD;
     m_wcRevFont.CreateFontIndirect(&lf);
-    CAppUtils::CreateFontForLogs(GetSafeHwnd(), m_logFont);
 }
 
 void CLogDlg::RestoreSavedDialogSettings()
@@ -10139,5 +10136,7 @@ LRESULT CLogDlg::OnDPIChanged(WPARAM wParam, LPARAM lParam)
         ::SetWindowPos(m_hwndToolbar, NULL, rcSearch.left, 0, rcDlg.Width(), rect.Height(), SWP_SHOWWINDOW);
         AddAnchor(m_hwndToolbar, TOP_LEFT, TOP_RIGHT);
     }
+    SetupDialogFonts();
+    SetupLogMessageViewControl();
     return __super::OnDPIChanged(wParam, lParam);
 }
