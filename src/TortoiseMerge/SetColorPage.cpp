@@ -197,7 +197,7 @@ BOOL CSetColorPage::OnInitDialog()
     CPropertyPage::OnInitDialog();
 
     m_chkUseDarkMode.EnableWindow(CTheme::Instance().IsDarkModeAllowed());
-    m_chkUseDarkMode.SetCheck(DWORD(m_regUseDarkMode) != 0 ? BST_CHECKED : BST_UNCHECKED);
+    m_chkUseDarkMode.SetCheck((static_cast<DWORD>(m_regUseDarkMode) != 0 && CTheme::Instance().IsDarkModeAllowed()) ? BST_CHECKED : BST_UNCHECKED);
     m_IsDarkMode = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
     SetupColorButtons();
     m_bInit = TRUE;
