@@ -474,13 +474,14 @@ void CLogDlg::SetupDialogFonts()
     m_logFont.DeleteObject();
     m_unreadFont.DeleteObject();
     m_wcRevFont.DeleteObject();
-    CAppUtils::CreateFontForLogs(GetSafeHwnd(), m_logFont);
+    CFont* font = m_LogList.GetFont();
     LOGFONT lf = { 0 };
-    m_logFont.GetLogFont(&lf);
+    font->GetLogFont(&lf);
     lf.lfWeight = FW_DEMIBOLD;
     m_unreadFont.CreateFontIndirect(&lf);
     lf.lfWeight = FW_BOLD;
     m_wcRevFont.CreateFontIndirect(&lf);
+    CAppUtils::CreateFontForLogs(GetSafeHwnd(), m_logFont);
 }
 
 void CLogDlg::RestoreSavedDialogSettings()
