@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015, 2017 - TortoiseSVN
+// Copyright (C) 2014-2015, 2017, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -322,7 +322,7 @@ void CDragDropTreeCtrl::CopyChildren(HTREEITEM hDest, HTREEITEM hSrc)
     while ((hItem = GetNextSiblingItem(hItem)) != NULL)
     {
         tvItem.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
-        tvItem.hItem = hSrc;
+        tvItem.hItem = hItem;
         GetItem((TVITEM*)&tvItem);
         tvInsertItem.itemex = tvItem;
         tvInsertItem.hInsertAfter = TVI_SORT;
