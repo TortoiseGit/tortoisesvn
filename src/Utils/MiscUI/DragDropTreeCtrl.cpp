@@ -274,21 +274,24 @@ void CDragDropTreeCtrl::MoveTree(HTREEITEM hDest, HTREEITEM hSrc)
 void CDragDropTreeCtrl::CopyTree(HTREEITEM hDest, HTREEITEM hSrc)
 {
     // Get the attributes of item to be copied.
+    wchar_t textbuf[1024] = { 0 };
     TVITEMEX tvItem = { 0 };
     tvItem.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
     tvItem.hItem = hSrc;
+    tvItem.cchTextMax = _countof(textbuf);
+    tvItem.pszText = textbuf;
     GetItem((TVITEM*)&tvItem);
-
 
     // Create an exact copy of the item at the destination.
     TVINSERTSTRUCT tvInsertItem = { 0 };
     tvInsertItem.itemex = tvItem;
+    tvInsertItem.itemex.hItem = 0;
     tvInsertItem.hInsertAfter = TVI_SORT;
     tvInsertItem.hParent = hDest;
     HTREEITEM hNewItem = InsertItem(&tvInsertItem);
 
     // If the item has subitems, copy them, too.
-    if (ItemHasChildren(hSrc))
+    if (GetChildItem(hSrc))
         CopyChildren(hNewItem, hSrc);
 
     // Select the newly added item.
@@ -303,13 +306,17 @@ void CDragDropTreeCtrl::CopyChildren(HTREEITEM hDest, HTREEITEM hSrc)
         return; // item has no children
 
     // Create a copy of it at the destination.
+    wchar_t textbuf[1024] = { 0 };
     TVITEMEX tvItem = { 0 };
     tvItem.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
     tvItem.hItem = hItem;
+    tvItem.cchTextMax = _countof(textbuf);
+    tvItem.pszText = textbuf;
     GetItem((TVITEM*)&tvItem);
 
     TVINSERTSTRUCT tvInsertItem = { 0 };
     tvInsertItem.itemex = tvItem;
+    tvInsertItem.itemex.hItem = 0;
     tvInsertItem.hInsertAfter = TVI_SORT;
     tvInsertItem.hParent = hDest;
     HTREEITEM hNewItem = InsertItem(&tvInsertItem);
@@ -323,8 +330,11 @@ void CDragDropTreeCtrl::CopyChildren(HTREEITEM hDest, HTREEITEM hSrc)
     {
         tvItem.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
         tvItem.hItem = hItem;
+        tvItem.cchTextMax = _countof(textbuf);
+        tvItem.pszText = textbuf;
         GetItem((TVITEM*)&tvItem);
         tvInsertItem.itemex = tvItem;
+        tvInsertItem.itemex.hItem = 0;
         tvInsertItem.hInsertAfter = TVI_SORT;
         tvInsertItem.hParent = hDest;
         hNewItem = InsertItem(&tvInsertItem);

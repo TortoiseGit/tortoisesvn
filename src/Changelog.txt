@@ -6,6 +6,8 @@
 - BUG: various problems with dark theme. (Stefan)
 - BUG: TortoiseBlame showd NUL chars if the
        file contained an utf8 BOM. (Stefan)
+- BUG: Crash in ProjectMonitor when rearranging
+       the tree view. (Stefan)
 
 Version 1.14.0
 See the release notes: https://tortoisesvn.net/tsvn_1.14_releasenotes.html
