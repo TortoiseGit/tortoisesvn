@@ -1592,6 +1592,8 @@ void TortoiseBlame::DrawBlame(HDC hDC)
     RECT     rc;
     BOOL     sel = FALSE;
     GetClientRect(wBlame, &rc);
+    ::SetBkColor(hDC, m_windowColor);
+    ::ExtTextOut(hDC, 0, 0, ETO_OPAQUE, &rc, nullptr, 0, nullptr);
     for (LRESULT i = line; i < (line + linesonscreen); ++i)
     {
         sel = FALSE;
@@ -1678,10 +1680,7 @@ void TortoiseBlame::DrawBlame(HDC hDC)
         }
         else
         {
-            ::SetBkColor(hDC, m_windowColor);
-            std::fill_n(buf, _countof(buf), ' ');
-            ::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, _countof(buf) - 1, 0);
-            Y += height;
+            break;
         }
     }
 }
