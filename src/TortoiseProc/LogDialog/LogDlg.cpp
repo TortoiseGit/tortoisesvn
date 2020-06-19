@@ -8212,8 +8212,8 @@ void CLogDlg::RefreshMonitorProjTree()
     // remove all existing data from the control and free the memory
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem) -> bool {
         MonitorItem* pItem = (MonitorItem*)m_projTree.GetItemData(hItem);
-        delete pItem;
         m_projTree.SetItemData(hItem, NULL);
+        delete pItem;
         return false;
     });
     m_projTree.DeleteAllItems();
