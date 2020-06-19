@@ -432,10 +432,12 @@ BOOL TortoiseBlame::OpenFile(const TCHAR* fileName)
             if (((unsigned char)lineptr[0] == 0xEF) && ((unsigned char)lineptr[1] == 0xBB) && ((unsigned char)lineptr[2] == 0xBF))
             {
                 lineptr += 3;
+                strLen -= 3;
             }
             if (((unsigned char)lineptr[0] == 0xBB) && ((unsigned char)lineptr[1] == 0xEF) && ((unsigned char)lineptr[2] == 0xBF))
             {
                 lineptr += 3;
+                strLen -= 3;
             }
             // check each line for illegal utf8 sequences. If one is found, we treat
             // the file as ASCII, otherwise we assume an UTF8 file.
