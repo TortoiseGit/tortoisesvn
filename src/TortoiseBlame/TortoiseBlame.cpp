@@ -39,6 +39,11 @@
 #include <strsafe.h>
 #include <VersionHelpers.h>
 
+#pragma warning(push)
+#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#include <gdiplus.h>
+#pragma warning(pop)
+
 #define MAX_LOADSTRING 1000
 
 #define STYLE_MARK 11
@@ -803,6 +808,7 @@ void TortoiseBlame::StartSearch()
     m_fr.Flags |= bCase ? FR_MATCHCASE : 0;
 
     currentDialog = FindText(&m_fr);
+    CTheme::Instance().SetThemeForDialog(currentDialog, CTheme::Instance().IsDarkTheme());
 }
 
 void TortoiseBlame::DoSearchNext()
@@ -1880,6 +1886,10 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     CCrashReportTSVN crasher(L"TortoiseBlame " _T(APP_X64_STRING));
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
 
+    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+    ULONG_PTR           gdiplusToken;
+    Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
+
     HMODULE hSciLexerDll = ::LoadLibrary(L"SciLexer.DLL");
     if (hSciLexerDll == NULL)
         return FALSE;
@@ -1986,6 +1996,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     }
     langDLL.Close();
     FreeLibrary(hSciLexerDll);
+    Gdiplus::GdiplusShutdown(gdiplusToken);
     return (int)msg.wParam;
 }
 
