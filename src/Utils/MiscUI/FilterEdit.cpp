@@ -436,6 +436,10 @@ void CFilterEdit::OnEnKillfocus()
 
 void CFilterEdit::OnEnSetfocus()
 {
+    if ((GetKeyState(VK_LBUTTON)&0x8000) ||
+        (GetKeyState(VK_MBUTTON) & 0x8000) ||
+        (GetKeyState(VK_RBUTTON) & 0x8000))
+        SetSel(0, -1);
     InvalidateRect(NULL);
 }
 
