@@ -436,10 +436,24 @@ void CFilterEdit::OnEnKillfocus()
 
 void CFilterEdit::OnEnSetfocus()
 {
-    if ((GetKeyState(VK_LBUTTON)&0x8000) ||
-        (GetKeyState(VK_MBUTTON) & 0x8000) ||
-        (GetKeyState(VK_RBUTTON) & 0x8000) ||
-        (GetKeyState(VK_TAB) & 0x8000))
+    // we don't want to select the entered text
+    // if the focus is set programmatically, because
+    // we set the focus back to the filter control
+    // after the filter-timer runs out and we apply
+    // the filter: if the user is slow to type, that
+    // could happen *while* typing and we must not
+    // select the partly entered word.
+    //
+    // so we check whether there's any key pressed
+    // that might be part of a accelerator/shortcut,
+    // and also if any mouse pointer is pressed:
+    // that would mean a focus change due to specific
+    // user interaction and we then *can* select the
+    // entered text.
+    bool keyPressed = false;
+    for (int k = 0x00; !keyPressed && (k <= 0xFF); ++k)
+        keyPressed |= ((GetKeyState(k) & 0x8000) != 0);
+    if (keyPressed)
         SetSel(0, -1);
     InvalidateRect(NULL);
 }
