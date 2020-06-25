@@ -60,7 +60,7 @@ CFont* CRevisionGraphWnd::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE
         m_lfBaseFont.lfHeight = -CDPIAware::Instance().PointsToPixels(GetSafeHwnd(), m_nFontSize);
         // use the empty font name, so GDI takes the first font which matches
         // the specs. Maybe this will help render chinese/japanese chars correctly.
-        wcsncpy_s(m_lfBaseFont.lfFaceName, L"Segoe UI", _countof(m_lfBaseFont.lfFaceName) - 1);
+        wcsncpy_s(m_lfBaseFont.lfFaceName, L"MS Shell Dlg 2", _countof(m_lfBaseFont.lfFaceName) - 1);
         if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
         {
             delete m_apFonts[nIndex];
