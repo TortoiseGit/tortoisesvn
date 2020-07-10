@@ -41,7 +41,7 @@ namespace TreePropSheet
         {
             LPDLGTEMPLATE pResource = (LPDLGTEMPLATE)lParam;
             CDialogTemplate dlgTemplate(pResource);
-            dlgTemplate.SetFont(L"MS Shell Dlg 2", 9);
+            dlgTemplate.SetFont(L"Segoe UI", 9);
             memmove((void*)lParam, dlgTemplate.m_hTemplate, dlgTemplate.m_dwTemplateSize);
         }
         break;
