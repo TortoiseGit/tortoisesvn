@@ -310,13 +310,21 @@ Don't touch these lines:
             <row>
               <entry condition="pot">:checkout</entry>
               <entry>
-                Opens the checkout dialog. The <option>/path</option>
-                specifies the target directory and the <option>/url</option>
-                specifies the URL to checkout from.
-                If you specify the key <option>/blockpathadjustments</option>,
-                the automatic checkout path adjustments are blocked.
-                The <option>/revision:XXX</option> specifies the revision to
-                check out.
+                <para>
+                  Opens the checkout dialog. The <option>/path</option>
+                  specifies the target directory and the <option>/url</option>
+                  specifies the URL to checkout from.
+                  If you specify the key <option>/blockpathadjustments</option>,
+                  the automatic checkout path adjustments are blocked.
+                  The <option>/revision:XXX</option> specifies the revision to
+                  check out.
+                </para>
+                <para>
+                  If you specify <option>/outfile:"path/to/file"</option> the
+                  specified file will contain three lines after a checkout.
+                  The first line is the checkout path, the second line the url
+                  and the third the revision.
+                </para>
               </entry>
             </row>
             <row>
