@@ -26,9 +26,9 @@
 # Jim Yao <yaoxu12345@gmail.com>, 2018
 # Thomas ZHANG <zjbthomas@gmail.com>, 2016
 # Gones <liejie050911@163.com>, 2013-2014
-# liushuyu011 <liushuyu011@gmail.com>, 2014
-# liushuyu011 <liushuyu011@gmail.com>, 2016
-# liushuyu011 <liushuyu011@gmail.com>, 2014,2016
+# shuyu liu <liushuyu011@gmail.com>, 2014
+# shuyu liu <liushuyu011@gmail.com>, 2016
+# shuyu liu <liushuyu011@gmail.com>, 2014,2016
 # LIU Tian <liutian666666@gmail.com>, 2016
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
@@ -50,14 +50,14 @@
 # yu zhang <zy102600@163.com>, 2019
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 # ced773123cfad7b4e8b79ca80f736af9, 2011
-# 子毅 陈 <Iwonnasnow@outlook.com>, 2019
+# 子毅 陈 <Iwonnasnow@outlook.com>, 2019-2020
 # 清燕 北门 <qq88268459@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-17 12:22+0000\n"
+"PO-Revision-Date: 2020-07-11 00:23+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -331,7 +331,7 @@ msgid ""
 "url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "尽管绝大多数人都仅仅下载安装包，但你仍然可以阅读本程序的源代码。你可以访问此链接以查看：<ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>。开发版存放于<filename>/trunk/</filename>下，正式版存放于<filename>/tags/</filename>下。"
 
 #. (title)
 msgid "Development"
@@ -444,7 +444,7 @@ msgstr "Subversion 手册"
 msgid ""
 "for the great introduction to Subversion and its chapter 2 which we copied "
 "here"
-msgstr "为了对 Subversion 大量介绍，我们复制了其第二章"
+msgstr "感谢他为 Subversion 编写了大量介绍，我们将其复制到了第2章。"
 
 #. (term)
 msgid "The Tigris Style project"
@@ -3861,7 +3861,7 @@ msgid ""
 "your working copy to a specific revision, not only to the most recent one. "
 "Suppose your working copy is at revision 100, but you want it to reflect the"
 " state which it had in revision 50 - then simply update to revision 50."
-msgstr ""
+msgstr "标准的更新命令是最常见的命令，它不含任何选项，仅用于将你本地的工作副本更新到版本库中的最新版本。如果你希望控制更新过程，你可以使用<menuchoice><guimenu>TortoiseSVN</guimenu>→<guimenuitem>更新至版本</guimenuitem></menuchoice>命令。这也允许你更新你的本地工作副本到指定的版本，而非最新版。假设你的工作副本的修订版本号为100，但你希望返回修订版本号为50时的状态，那么将它更新至版本50即可。"
 
 #. (para)
 msgid ""
@@ -13257,7 +13257,7 @@ msgstr "当在日志对话框中使用筛选时，在结果中使用颜色来突
 
 #. (term)
 msgid "Dark theme"
-msgstr ""
+msgstr "深色主题"
 
 #. (para)
 msgid ""
@@ -18387,7 +18387,22 @@ msgstr ""
 msgid "An svn date revision can be in one of the following formats:"
 msgstr ""
 
-#. (option)
+#. (para)
+msgid ""
+"Opens the checkout dialog. The <option>/path</option> specifies the target "
+"directory and the <option>/url</option> specifies the URL to checkout from. "
+"If you specify the key <option>/blockpathadjustments</option>, the automatic"
+" checkout path adjustments are blocked. The <option>/revision:XXX</option> "
+"specifies the revision to check out."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you specify <option>/outfile:\"path/to/file\"</option> the specified file"
+" will contain three lines after a checkout. The first line is the checkout "
+"path, the second line the url and the third the revision."
+msgstr ""
+
 #. (option)
 #. (option)
 #. (option)
@@ -18419,30 +18434,6 @@ msgstr ""
 #. (option)
 msgid "/path"
 msgstr "/path"
-
-#. (option)
-#. (option)
-#. (option)
-msgid "/url"
-msgstr "/url"
-
-#. (option)
-#. (option)
-msgid "/blockpathadjustments"
-msgstr "/blockpathadjustments"
-
-#. (option)
-msgid "/revision:XXX"
-msgstr "/revision:XXX"
-
-#. (entry)
-msgid ""
-"Opens the checkout dialog. The <placeholder-1/> specifies the target "
-"directory and the <placeholder-2/> specifies the URL to checkout from. If "
-"you specify the key <placeholder-3/>, the automatic checkout path "
-"adjustments are blocked. The <placeholder-4/> specifies the revision to "
-"check out."
-msgstr ""
 
 #. (option)
 #. (option)
@@ -18620,11 +18611,20 @@ msgstr "将<placeholder-1/>指定文件的冲突标示为解决，如果给定<p
 msgid "Creates a repository in <placeholder-1/>"
 msgstr "在<placeholder-1/>创建一个版本库。"
 
+#. (option)
+#. (option)
+msgid "/url"
+msgstr "/url"
+
 #. (entry)
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
 msgstr ""
+
+#. (option)
+msgid "/blockpathadjustments"
+msgstr "/blockpathadjustments"
 
 #. (entry)
 msgid ""
@@ -21425,16 +21425,13 @@ msgid ""
 msgstr "启用UI的暗黑模式。最低系统要求为 Windows 10 1809"
 
 #. (title)
-msgid "keyboard shortcuts"
-msgstr "快捷键"
+#. (title)
+msgid "Keyboard Shortcuts"
+msgstr ""
 
 #. (para)
 msgid "List of keyboard shortcuts and commands."
 msgstr "列出所有的快捷键和命令。"
-
-#. (title)
-msgid "Keyboard shortcuts"
-msgstr "快捷键"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
@@ -21505,16 +21502,16 @@ msgid "Save as..."
 msgstr "另存为..."
 
 #. (term)
-msgid "F7"
-msgstr "F7"
+msgid "F7, Ctrl-Down"
+msgstr ""
 
 #. (para)
 msgid "Go to next difference"
 msgstr "跳转到下一个不同点"
 
 #. (term)
-msgid "Shift-F7"
-msgstr "Shift-F7"
+msgid "Shift-F7, Ctrl-Up"
+msgstr ""
 
 #. (para)
 msgid "Go to previous difference"
@@ -21569,11 +21566,9 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "未修改部分显示切换"
 
 #. (term)
-#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
-#. (para)
 #. (para)
 msgid "Toggles between line wrapping"
 msgstr "切换自动换行"
@@ -21613,6 +21608,14 @@ msgstr "Ctrl-Tab"
 #. (para)
 msgid "Switch between left/right/bottom view"
 msgstr "切换视图左侧/右侧/底部视图"
+
+#. (term)
+msgid "Ctrl-M"
+msgstr ""
+
+#. (para)
+msgid "Toggles between marking the selected change"
+msgstr ""
 
 #. (title)
 msgid "Automating TortoiseMerge"

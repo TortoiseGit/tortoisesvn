@@ -21,7 +21,7 @@
 # Fabio Turrin, 2018
 # Fabio Turrin, 2018-2019
 # Leonardo <philyo1@gmail.com>, 2012
-# acehigh, 2011
+# 7d4c6d800cbafe3734eae1ab744c5b4e_d3bf78f, 2011
 # Marco Scalcione <marco.scalcione@prae.it>, 2018
 # maxTransBrod <egianturco@gmail.com>, 2012
 # Leonardo <philyo1@gmail.com>, 2012
@@ -37,7 +37,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-17 12:22+0000\n"
+"PO-Revision-Date: 2020-07-11 00:23+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Italian (http://www.transifex.com/luebbe/tortoisesvn/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -18367,7 +18367,22 @@ msgstr ""
 msgid "An svn date revision can be in one of the following formats:"
 msgstr ""
 
-#. (option)
+#. (para)
+msgid ""
+"Opens the checkout dialog. The <option>/path</option> specifies the target "
+"directory and the <option>/url</option> specifies the URL to checkout from. "
+"If you specify the key <option>/blockpathadjustments</option>, the automatic"
+" checkout path adjustments are blocked. The <option>/revision:XXX</option> "
+"specifies the revision to check out."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you specify <option>/outfile:\"path/to/file\"</option> the specified file"
+" will contain three lines after a checkout. The first line is the checkout "
+"path, the second line the url and the third the revision."
+msgstr ""
+
 #. (option)
 #. (option)
 #. (option)
@@ -18399,30 +18414,6 @@ msgstr ""
 #. (option)
 msgid "/path"
 msgstr "/path"
-
-#. (option)
-#. (option)
-#. (option)
-msgid "/url"
-msgstr "/url"
-
-#. (option)
-#. (option)
-msgid "/blockpathadjustments"
-msgstr "/blockpathadjustments"
-
-#. (option)
-msgid "/revision:XXX"
-msgstr "/revision:XXX"
-
-#. (entry)
-msgid ""
-"Opens the checkout dialog. The <placeholder-1/> specifies the target "
-"directory and the <placeholder-2/> specifies the URL to checkout from. If "
-"you specify the key <placeholder-3/>, the automatic checkout path "
-"adjustments are blocked. The <placeholder-4/> specifies the revision to "
-"check out."
-msgstr ""
 
 #. (option)
 #. (option)
@@ -18600,11 +18591,20 @@ msgstr ""
 msgid "Creates a repository in <placeholder-1/>"
 msgstr ""
 
+#. (option)
+#. (option)
+msgid "/url"
+msgstr "/url"
+
 #. (entry)
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
 msgstr ""
+
+#. (option)
+msgid "/blockpathadjustments"
+msgstr "/blockpathadjustments"
 
 #. (entry)
 msgid ""
@@ -21405,16 +21405,13 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "keyboard shortcuts"
-msgstr "scorciatoie da tastiera"
+#. (title)
+msgid "Keyboard Shortcuts"
+msgstr ""
 
 #. (para)
 msgid "List of keyboard shortcuts and commands."
 msgstr "Lista di scorciatoie da tastiera e comandi."
-
-#. (title)
-msgid "Keyboard shortcuts"
-msgstr "Scorciatoie da tastiera"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
@@ -21485,7 +21482,7 @@ msgid "Save as..."
 msgstr "Salva come..."
 
 #. (term)
-msgid "F7"
+msgid "F7, Ctrl-Down"
 msgstr ""
 
 #. (para)
@@ -21493,7 +21490,7 @@ msgid "Go to next difference"
 msgstr ""
 
 #. (term)
-msgid "Shift-F7"
+msgid "Shift-F7, Ctrl-Up"
 msgstr ""
 
 #. (para)
@@ -21549,11 +21546,9 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr ""
 
 #. (term)
-#. (term)
 msgid "Ctrl-P"
 msgstr ""
 
-#. (para)
 #. (para)
 msgid "Toggles between line wrapping"
 msgstr ""
@@ -21592,6 +21587,14 @@ msgstr "Ctrl-Tab"
 
 #. (para)
 msgid "Switch between left/right/bottom view"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-M"
+msgstr ""
+
+#. (para)
+msgid "Toggles between marking the selected change"
 msgstr ""
 
 #. (title)

@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-17 12:22+0000\n"
+"PO-Revision-Date: 2020-07-11 00:23+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -18349,7 +18349,22 @@ msgstr "Otevře dialogové okno záznamu. Volba <option>/path</option> udává s
 msgid "An svn date revision can be in one of the following formats:"
 msgstr "Datum revize svn může být v následujících formátech:"
 
-#. (option)
+#. (para)
+msgid ""
+"Opens the checkout dialog. The <option>/path</option> specifies the target "
+"directory and the <option>/url</option> specifies the URL to checkout from. "
+"If you specify the key <option>/blockpathadjustments</option>, the automatic"
+" checkout path adjustments are blocked. The <option>/revision:XXX</option> "
+"specifies the revision to check out."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you specify <option>/outfile:\"path/to/file\"</option> the specified file"
+" will contain three lines after a checkout. The first line is the checkout "
+"path, the second line the url and the third the revision."
+msgstr ""
+
 #. (option)
 #. (option)
 #. (option)
@@ -18381,30 +18396,6 @@ msgstr "Datum revize svn může být v následujících formátech:"
 #. (option)
 msgid "/path"
 msgstr "/path"
-
-#. (option)
-#. (option)
-#. (option)
-msgid "/url"
-msgstr "/url"
-
-#. (option)
-#. (option)
-msgid "/blockpathadjustments"
-msgstr "/blockpathadjustments"
-
-#. (option)
-msgid "/revision:XXX"
-msgstr "/revision:XXX"
-
-#. (entry)
-msgid ""
-"Opens the checkout dialog. The <placeholder-1/> specifies the target "
-"directory and the <placeholder-2/> specifies the URL to checkout from. If "
-"you specify the key <placeholder-3/>, the automatic checkout path "
-"adjustments are blocked. The <placeholder-4/> specifies the revision to "
-"check out."
-msgstr "Otevře dialogové okno získání. <placeholder-1/> určuje cílový adresář a <placeholder-2/> určuje adresu URL, z které získat. Pokud zadáte klíč <placeholder-3/> , jsou automatické úpravy cest získání blokovány. <placeholder-4/> určuje revizi k získání."
 
 #. (option)
 #. (option)
@@ -18582,11 +18573,20 @@ msgstr "Označí konfliktní soubor zadaný v <placeholder-1/> jako vyřešený.
 msgid "Creates a repository in <placeholder-1/>"
 msgstr "Vytvoří úložiště v <placeholder-1/>"
 
+#. (option)
+#. (option)
+msgid "/url"
+msgstr "/url"
+
 #. (entry)
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
 msgstr "Otevře dialogové okno překlopení. <placeholder-1/> určuje cílový adresář a <placeholder-2/> URL na kterou překlopit."
+
+#. (option)
+msgid "/blockpathadjustments"
+msgstr "/blockpathadjustments"
 
 #. (entry)
 msgid ""
@@ -21387,16 +21387,13 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "keyboard shortcuts"
-msgstr "klávesové zkratky"
+#. (title)
+msgid "Keyboard Shortcuts"
+msgstr ""
 
 #. (para)
 msgid "List of keyboard shortcuts and commands."
 msgstr "Seznam klávesových zkratek a příkazů."
-
-#. (title)
-msgid "Keyboard shortcuts"
-msgstr "Klávesové zkratky"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
@@ -21467,16 +21464,16 @@ msgid "Save as..."
 msgstr "Uložit jako..."
 
 #. (term)
-msgid "F7"
-msgstr "F7"
+msgid "F7, Ctrl-Down"
+msgstr ""
 
 #. (para)
 msgid "Go to next difference"
 msgstr "Přejít na další rozdíl"
 
 #. (term)
-msgid "Shift-F7"
-msgstr "Shift-F7"
+msgid "Shift-F7, Ctrl-Up"
+msgstr ""
 
 #. (para)
 msgid "Go to previous difference"
@@ -21531,11 +21528,9 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Přepíná mezi sbalení nezměněných sekcí, nebo ne"
 
 #. (term)
-#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
-#. (para)
 #. (para)
 msgid "Toggles between line wrapping"
 msgstr "Přepíná mezi zalamováním řádků"
@@ -21575,6 +21570,14 @@ msgstr "Ctrl-Tab"
 #. (para)
 msgid "Switch between left/right/bottom view"
 msgstr "Přepínání mezi levým/pravým/spodním zobrazením"
+
+#. (term)
+msgid "Ctrl-M"
+msgstr ""
+
+#. (para)
+msgid "Toggles between marking the selected change"
+msgstr ""
 
 #. (title)
 msgid "Automating TortoiseMerge"

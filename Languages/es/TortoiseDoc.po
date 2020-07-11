@@ -25,9 +25,9 @@
 # ggh <gdelahuebra@hotmail.com>, 2011
 # Gerardo Rodas <benjaminrodas@yahoo.com>, 2018
 # ggh <gdelahuebra@hotmail.com>, 2011
-# Javi <inactive+japaol@transifex.com>, 2014
-# Javi <inactive+japaol@transifex.com>, 2014
-# Javi <inactive+japaol@transifex.com>, 2014
+# b52b64301b7c9e1bd0f8ea5e43b6cb9c_1d7aeba <26d341a269a4e4afaee93599be03f0a0_117249>, 2014
+# b52b64301b7c9e1bd0f8ea5e43b6cb9c_1d7aeba <26d341a269a4e4afaee93599be03f0a0_117249>, 2014
+# b52b64301b7c9e1bd0f8ea5e43b6cb9c_1d7aeba <26d341a269a4e4afaee93599be03f0a0_117249>, 2014
 # juancentro <jmtruppia@gmail.com>, 2011
 # juancentro <jmtruppia@gmail.com>, 2011
 # Juan Chacon <jchacon.fossey@gmail.com>, 2012
@@ -50,7 +50,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-17 12:22+0000\n"
+"PO-Revision-Date: 2020-07-11 00:23+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -18380,7 +18380,22 @@ msgstr ""
 msgid "An svn date revision can be in one of the following formats:"
 msgstr ""
 
-#. (option)
+#. (para)
+msgid ""
+"Opens the checkout dialog. The <option>/path</option> specifies the target "
+"directory and the <option>/url</option> specifies the URL to checkout from. "
+"If you specify the key <option>/blockpathadjustments</option>, the automatic"
+" checkout path adjustments are blocked. The <option>/revision:XXX</option> "
+"specifies the revision to check out."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you specify <option>/outfile:\"path/to/file\"</option> the specified file"
+" will contain three lines after a checkout. The first line is the checkout "
+"path, the second line the url and the third the revision."
+msgstr ""
+
 #. (option)
 #. (option)
 #. (option)
@@ -18412,30 +18427,6 @@ msgstr ""
 #. (option)
 msgid "/path"
 msgstr "/path"
-
-#. (option)
-#. (option)
-#. (option)
-msgid "/url"
-msgstr "/url"
-
-#. (option)
-#. (option)
-msgid "/blockpathadjustments"
-msgstr "/blockpathadjustments"
-
-#. (option)
-msgid "/revision:XXX"
-msgstr "/revision:XXX"
-
-#. (entry)
-msgid ""
-"Opens the checkout dialog. The <placeholder-1/> specifies the target "
-"directory and the <placeholder-2/> specifies the URL to checkout from. If "
-"you specify the key <placeholder-3/>, the automatic checkout path "
-"adjustments are blocked. The <placeholder-4/> specifies the revision to "
-"check out."
-msgstr "Abre el diálogo de obtener. El <placeholder-1/> especifica el directorio de destino y el <placeholder-2/> especifica la URL de la cual se obtiene el proyecto. Si especifica las clave <placeholder-3/>, se bloquean los ajustes del path de obtención automática. El <placeholder-4/> especifica la revisión que se obtiene."
 
 #. (option)
 #. (option)
@@ -18613,11 +18604,20 @@ msgstr "Marca un archivo en conflicto especificado en <placeholder-1/> como resu
 msgid "Creates a repository in <placeholder-1/>"
 msgstr "Crea un repositorio en <placeholder-1/>"
 
+#. (option)
+#. (option)
+msgid "/url"
+msgstr "/url"
+
 #. (entry)
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
 msgstr ""
+
+#. (option)
+msgid "/blockpathadjustments"
+msgstr "/blockpathadjustments"
 
 #. (entry)
 msgid ""
@@ -21418,16 +21418,13 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "keyboard shortcuts"
-msgstr "Atajos de teclado"
+#. (title)
+msgid "Keyboard Shortcuts"
+msgstr ""
 
 #. (para)
 msgid "List of keyboard shortcuts and commands."
 msgstr "Lista de atajos y comandos de teclado"
-
-#. (title)
-msgid "Keyboard shortcuts"
-msgstr "Atajos de teclado"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
@@ -21498,16 +21495,16 @@ msgid "Save as..."
 msgstr "Guardar como..."
 
 #. (term)
-msgid "F7"
-msgstr "F7"
+msgid "F7, Ctrl-Down"
+msgstr ""
 
 #. (para)
 msgid "Go to next difference"
 msgstr "Ir a la siguiente diferencia"
 
 #. (term)
-msgid "Shift-F7"
-msgstr "Mayús-F7"
+msgid "Shift-F7, Ctrl-Up"
+msgstr ""
 
 #. (para)
 msgid "Go to previous difference"
@@ -21562,11 +21559,9 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Alterna entre colapsar las secciones sin cambios o no"
 
 #. (term)
-#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
-#. (para)
 #. (para)
 msgid "Toggles between line wrapping"
 msgstr "Alterna entre el ajuste de línea"
@@ -21605,6 +21600,14 @@ msgstr ""
 
 #. (para)
 msgid "Switch between left/right/bottom view"
+msgstr ""
+
+#. (term)
+msgid "Ctrl-M"
+msgstr ""
+
+#. (para)
+msgid "Toggles between marking the selected change"
 msgstr ""
 
 #. (title)

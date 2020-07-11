@@ -39,7 +39,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-19 19:12+0000\n"
+"PO-Revision-Date: 2020-07-11 06:12+0000\n"
 "Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -313,7 +313,7 @@ msgid ""
 "url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr "Obwohl die meisten Leute den Installer benutzen haben Sie auch vollen Zugang zum Sourcecode des Programms. Sie können diesen mit diesem Link ansehen <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. Die aktuelle Entwicklungsversion finden Sie unter <filename>/trunk/</filename>, und die veröffentlichten Versionen unter <filename>/tags/</filename>."
+msgstr "Obwohl die meisten Leute den Installer benutzen, haben Sie auch vollen Zugang zum Quellcode des Programms. Sie können diesen mit dem Link <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink> ansehen. Die aktuelle Entwicklungsversion finden Sie unter <filename>/trunk/</filename> und die veröffentlichten Versionen unter <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
@@ -2670,7 +2670,7 @@ msgid ""
 "Subversion's default directory: "
 "<filename>%APPDATA%\\Subversion\\auth</filename> in three subdirectories: "
 "<placeholder-2/>"
-msgstr "Wenn das Projektarchiv, auf das Sie zugreifen wollen, passwortgeschützt ist, erscheint folgender Anmeldedialog. <placeholder-1/> Geben Sie Ihren Benutzernamen und Ihr Passwort ein. Die Option bewirkt, dass TortoiseSVN die Anmeldeinformationen in einem von drei Unterordnern des Subversion- Konfigurationsverzeichnisses <filename>%APPDATA%\\Subversion\\auth</filename> ablegt: <placeholder-2/>"
+msgstr "Wenn das Projektarchiv, auf das Sie zugreifen wollen, passwortgeschützt ist, erscheint folgender Anmeldedialog. <placeholder-1/> Geben Sie Ihren Benutzernamen und Ihr Passwort ein. Die Option bewirkt, dass TortoiseSVN die Anmeldeinformationen in einem von drei Unterordnern des Subversion-Konfigurationsverzeichnisses <filename>%APPDATA%\\Subversion\\auth</filename> ablegt: <placeholder-2/>"
 
 #. (para)
 msgid ""
@@ -6310,7 +6310,7 @@ msgid ""
 "viewing differences of text files. For viewing differences of image files, "
 "TortoiseSVN also has a tool named <application>TortoiseIDiff</application>. "
 "Of course, you can use your own favourite diff program if you like."
-msgstr "Eine der häufigsten Anforderungen in der Projektarbeit ist herauszufinden, was sich geändert hat. Entweder möchten Sie die Unterschiede zwischen zwei Revisionen derselben Datei sehen oder aber die Unterschiede zwischen zwei verschiedenen Dateien. TortoiseSVN bietet Ihnen mit TortoiseMerge ein Programm an, das die meisten Anforderungen erfüllt, erlaubt es Ihnen aber auch, ein eigenes Programm zum Anzeigen und Bearbeiten von Differenzen zu verwenden. Um Unterschiede von Bilddateien zu erkennen, bietet TortoiseSVN ebenfalls ein Programm namens <application>TortoiseIDiff</application> an."
+msgstr "Eine der häufigsten Anforderungen in der Projektarbeit ist herauszufinden, was sich geändert hat. Entweder möchten Sie die Unterschiede zwischen zwei Revisionen derselben Datei sehen oder aber die Unterschiede zwischen zwei verschiedenen Dateien. TortoiseSVN bietet Ihnen mit <application>TortoiseMerge</application> ein Programm an, das die meisten Anforderungen erfüllt, erlaubt es Ihnen aber auch, ein eigenes Programm zum Anzeigen und Bearbeiten von Differenzen zu verwenden. Um Unterschiede von Bilddateien zu erkennen, bietet TortoiseSVN ebenfalls ein Programm namens <application>TortoiseIDiff</application> an."
 
 #. (title)
 msgid "File Differences"
@@ -12383,7 +12383,7 @@ msgid ""
 " which implements the required COM interface to interact with the <ulink "
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
-msgstr "Jede solche Schnittstelle ist natürlich sehr spezifisch für Ihr System, sodass wir diesen Teil nicht zur Verfügung stellen können. Die Beschreibung eines solchen Programms sprengt den Rahmen dieses Handbuchs. Die Schnittstellendefinition und Beispielanwendungen können Sie im <literal>contrib</literal>-Ordner des <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN-Projektarchivs</citetitle></ulink> finden. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN-Projektarchiv zugreift.) Eine Zusammenfassung der API findet sich in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Ein weiteres funktionierendes Beispiel in C# ist <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, das die COM-Schnittstelle für den Zugriff auf das <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>-Fehlerverfolgungssystem implementiert."
+msgstr "Jede solche Schnittstelle ist natürlich sehr spezifisch für Ihr System, sodass wir diesen Teil nicht zur Verfügung stellen können. Die Beschreibung eines solchen Programms sprengt den Rahmen dieses Handbuchs. Die Schnittstellendefinition und Beispielmodule in C# und C++/ATL können Sie im <literal>contrib</literal>-Ordner des <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-tracker-plugins\"><citetitle>TortoiseSVN-Projektarchivs</citetitle></ulink> finden. (<xref linkend=\"tsvn-preface-source\"/> erklärt, wie man auf das TortoiseSVN-Projektarchiv zugreift.) Eine Zusammenfassung der API findet sich in <xref linkend=\"tsvn-ibugtraqprovider\"/>. Ein weiteres funktionierendes Beispiel in C# ist <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, das die COM-Schnittstelle für den Zugriff auf das <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>-Fehlerverfolgungssystem implementiert."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -13239,22 +13239,22 @@ msgstr "Bei der Verwendung von Filtern im Log-Dialog werden Suchbegriffe in den 
 
 #. (term)
 msgid "Dark theme"
-msgstr "Dunke Systemfarbe"
+msgstr "Dunkle Systemfarbe"
 
 #. (para)
 msgid ""
 "The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
 "and later. This feature also requires that dark mode for applications is "
 "enabled in the Windows 10 settings."
-msgstr "Die Benutzeroberfläche kann ab der Version Windows 10 1809 in einer dunklen Systemfarbe dargestellt werden. Diese Option erfordert, dass das Dark-Theme in den Windows 10 Einstellungen aktiviert ist."
+msgstr "Die Benutzeroberfläche kann in Windows 10 ab der Version 1809 im Dunkelmodus dargestellt werden. Diese Option erfordert auch, dass der Dunkelmodus in den Windows-Einstellungen aktiviert ist."
 
 #. (para)
 msgid "Note that not all controls in all dialogs are shown in a dark theme."
-msgstr "Bitte bemerke, dass nicht alle Interaktionstools in dunkler Systemfarbe dargestellt werden."
+msgstr "Beachten Sie, dass nicht alle Steuerelemente in allen Dialogfeldern in dunkler Systemfarbe angezeigt werden."
 
 #. (para)
 msgid "other settings: <placeholder-1/>"
-msgstr "weitere Einstellungen<placeholder-1/>"
+msgstr "weitere Einstellungen: <placeholder-1/>"
 
 #. (title)
 msgid "Revision Graph Settings"
@@ -13745,7 +13745,7 @@ msgstr "Netzwerk-Einstellungen"
 
 #. (primary)
 msgid "proxy server"
-msgstr "Proxy-Server"
+msgstr "Proxyserver"
 
 #. (title)
 msgid "The Settings Dialog, Network Page"
@@ -15615,7 +15615,7 @@ msgid ""
 "bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink>"
 " directive, enter the root Url for your repositories and check the box "
 "<literal>Url points to SVNParentPath list</literal>."
-msgstr "Wenn Sie alle Projektarchive welche via die <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink> Direktive ausgeliefert werden überwachen möchten, geben Sie die entsprechende Url ein und setzen Sie einen Haken für die Checkbox <literal>Url zeigt auf SVNParentPath Liste</literal>."
+msgstr "Wenn Sie alle Projektarchive, die via <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink>-Direktive ausgeliefert werden, überwachen möchten, geben Sie die entsprechende URL ein und setzen einen Haken im Kontrollkästchen <literal>URL zeigt auf SVNParentPath-Liste</literal>."
 
 #. (para)
 msgid ""
@@ -16701,7 +16701,7 @@ msgid ""
 "tracker-plugins</filename> folder. In that folder you can also find the "
 "required include files you need to build your plugin. (<xref linkend=\"tsvn-"
 "preface-source\"/> explains how to access the repository.)"
-msgstr "Wir können Ihnen keine Anleitung liefern, wie Sie ein COM-Objekt in Ihrer bevorzugten Programmiersprache erstellen, aber wir haben einige Beispielmodule in C++/ATL und C# in dem Ordner <filename>contrib/issue-tracker-plugins</filename> unseres Projektarchivs. In diesem Ordner finden sich auch die nötigen Includedateien, die Sie zum Erstellen Ihres Moduls benötigen. <xref linkend=\"tsvn-preface-source\"/> erklärt, wie Sie auf das Projektarchiv zugreifen."
+msgstr "Wir können Ihnen keine Anleitung liefern, wie Sie ein COM-Objekt in Ihrer bevorzugten Programmiersprache erstellen, aber wir haben einige Beispielmodule in C++/ATL und C# im Ordner <filename>contrib/issue-tracker-plugins</filename> unseres Projektarchivs. In diesem Ordner finden sich auch die nötigen Includedateien, die Sie zum Erstellen Ihres Moduls benötigen. <xref linkend=\"tsvn-preface-source\"/> erklärt, wie Sie auf das Projektarchiv zugreifen."
 
 #. (para)
 msgid ""
@@ -17130,14 +17130,14 @@ msgid ""
 " and <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev</citetitle></ulink>"
-msgstr "Weil TortoiseSVN fortwährend weiterentwickelt wird kann die Dokumentation manchmal veraltet sein. Wir führen ein <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>Online FAQ</citetitle></ulink> welches eine Auswahl von häufig gestellten Fragen welche auf unserer Mailinglisten <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> und <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink> gestellt wurden."
+msgstr "Da TortoiseSVN ständig weiterentwickelt wird, kann die Dokumentation manchmal veraltet sein. Wir führen eine <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>Online-FAQ</citetitle></ulink>, die eine Auswahl von häufig gestellten Fragen enthält, die auf unseren Mailinglisten <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> und <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink> gestellt wurden."
 
 #. (para)
 msgid ""
 "<ulink "
 "url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink>"
 " is the one to use if you have questions about using TortoiseSVN."
-msgstr "<ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> ist das Forum für Fragen über die Benutzung von TortoiseSVN."
+msgstr "<ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> ist das Forum für Fragen zur Benutzung von TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -17146,7 +17146,7 @@ msgid ""
 "url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev</citetitle></ulink>"
-msgstr "Wenn Sie helfen möchten bei der Weiterentwicklung von TortoiseSVN dann nutzen Sie bitte das Entwicklerforum <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink>."
+msgstr "Wenn Sie bei der Weiterentwicklung von TortoiseSVN helfen möchten, dann nutzen Sie bitte das Entwicklerforum <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink>."
 
 #. (para)
 msgid ""
@@ -17601,7 +17601,7 @@ msgid ""
 "document the required drive mappings so your team know where these "
 "mysterious files are. This method is strictly for use in closed development "
 "environments, and not recommended for general use."
-msgstr "Diese Methode funktioniert jedoch nur in einer PC-Umgebung, und Sie müssen genau dokumentieren, wie die Laufwerks-Verbindung gemacht werden muss, damit die Team-Mitglieder die Projekte auch kompilieren können und die gemeinsamen Dateien auch finden. Diese Methode ist wirklich nur in geschlossene Umgebungen anwendbar und nicht für die normale Verwendung empfohlen."
+msgstr "Diese Methode funktioniert nur in einer PC-Umgebung, und Sie müssen die erforderlichen Laufwerkszuordnungen dokumentieren, damit die Team-Mitglieder die Projekte auch kompilieren können und die gemeinsamen Dateien auch finden. Diese Methode ist wirklich nur in geschlossenen Umgebungen anwendbar und nicht für die normale Verwendung empfohlen."
 
 #. (title)
 msgid "Add the project to the repository"
@@ -18369,7 +18369,22 @@ msgstr "Öffnet den Log-Dialog. Die Option <option>/path</option> legt die Datei
 msgid "An svn date revision can be in one of the following formats:"
 msgstr "Eine SVN-Datumsangabe kann in den folgenden Formaten erfolgen:"
 
-#. (option)
+#. (para)
+msgid ""
+"Opens the checkout dialog. The <option>/path</option> specifies the target "
+"directory and the <option>/url</option> specifies the URL to checkout from. "
+"If you specify the key <option>/blockpathadjustments</option>, the automatic"
+" checkout path adjustments are blocked. The <option>/revision:XXX</option> "
+"specifies the revision to check out."
+msgstr "Öffnet den Auschecken-Dialog. <option>/path</option> legt das Zielverzeichnis fest. <option>/url</option> definiert die URL, von der ausgecheckt werden soll. Wenn Sie den Schlüssel <option>/blockpathadjustments</option> angeben, wird die automatische Anpassung des Auscheckpfades blockiert. <option>/revision:XXX</option> gibt die auszucheckende Revision an. "
+
+#. (para)
+msgid ""
+"If you specify <option>/outfile:\"path/to/file\"</option> the specified file"
+" will contain three lines after a checkout. The first line is the checkout "
+"path, the second line the url and the third the revision."
+msgstr "Wenn Sie <option>/outfile:\"path/to/file\"</option> angeben wird die angegebene Datei nach dem Checkout erstellt mit drei Zeilen. Die erste Zeile enthält das Zielverzeichnis, die zweite Zeile die URL und die dritte Zeile die Revision des Checkouts."
+
 #. (option)
 #. (option)
 #. (option)
@@ -18401,30 +18416,6 @@ msgstr "Eine SVN-Datumsangabe kann in den folgenden Formaten erfolgen:"
 #. (option)
 msgid "/path"
 msgstr "/path"
-
-#. (option)
-#. (option)
-#. (option)
-msgid "/url"
-msgstr "/url"
-
-#. (option)
-#. (option)
-msgid "/blockpathadjustments"
-msgstr "/blockpathadjustments"
-
-#. (option)
-msgid "/revision:XXX"
-msgstr "/revision:XXX"
-
-#. (entry)
-msgid ""
-"Opens the checkout dialog. The <placeholder-1/> specifies the target "
-"directory and the <placeholder-2/> specifies the URL to checkout from. If "
-"you specify the key <placeholder-3/>, the automatic checkout path "
-"adjustments are blocked. The <placeholder-4/> specifies the revision to "
-"check out."
-msgstr "Öffnet den <guilabel>Auschecken</guilabel>-Dialog. <placeholder-1/> legt das Zielverzeichnis fest, <placeholder-2/> definiert die URL, von der ausgecheckt werden soll. Wenn Sie den Schlüssel <placeholder-3/> angeben, wird die automatische Anpassung des Auscheckpfades blockiert. Der <placeholder-4/> gibt die auszucheckende Revision an."
 
 #. (option)
 #. (option)
@@ -18602,11 +18593,20 @@ msgstr "Markiert den Konflikt der in <placeholder-1/> angegebenen Datei als gel�
 msgid "Creates a repository in <placeholder-1/>"
 msgstr "Erstellt ein Projektarchiv in <placeholder-1/>"
 
+#. (option)
+#. (option)
+msgid "/url"
+msgstr "/url"
+
 #. (entry)
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
 msgstr "Öffnet den <guilabel>Wechseln zu</guilabel>-Dialog. <placeholder-1/> legt das Zielverzeichnis fest und <placeholder-2/> definiert die URL, zu der gewechselt werden soll."
+
+#. (option)
+msgid "/blockpathadjustments"
+msgstr "/blockpathadjustments"
 
 #. (entry)
 msgid ""
@@ -20616,7 +20616,7 @@ msgid ""
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr "TortoiseMerge ist ein Opensource-Projekt. Das bedeutet dass Sie vollen Zugang zum Code des Programms haben. Der Code findet sich hier: <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. Die aktuellste Version an der wir gerade arbeiten findet sich unter <filename>/trunk/</filename>, und die veröffentlichten Versionen finden sich unter <filename>/tags/</filename>."
+msgstr "TortoiseMerge ist ein Open-Source-Projekt. Das bedeutet, dass Sie vollen Zugang zum Quellcode des Programms haben. Der Code findet sich hier: <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. Die aktuellste Version, an der wir gerade arbeiten, findet sich unter <filename>/trunk/</filename> und die veröffentlichten Versionen finden sich unter <filename>/tags/</filename>."
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
@@ -21407,16 +21407,13 @@ msgid ""
 msgstr "Dunkelmodus für Benutzeroberfläche aktivieren. Erfordert mindestens Windows 10 1809."
 
 #. (title)
-msgid "keyboard shortcuts"
+#. (title)
+msgid "Keyboard Shortcuts"
 msgstr "Tastaturkürzel"
 
 #. (para)
 msgid "List of keyboard shortcuts and commands."
 msgstr "Liste der Tastaturkürzel und Befehle."
-
-#. (title)
-msgid "Keyboard shortcuts"
-msgstr "Tastaturkürzel"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
@@ -21487,16 +21484,16 @@ msgid "Save as..."
 msgstr "Speichern unter..."
 
 #. (term)
-msgid "F7"
-msgstr "F7"
+msgid "F7, Ctrl-Down"
+msgstr "F7, Strg+Pfeil unten"
 
 #. (para)
 msgid "Go to next difference"
 msgstr "Zum nächsten Unterschied gehen"
 
 #. (term)
-msgid "Shift-F7"
-msgstr "Umschalt+F7"
+msgid "Shift-F7, Ctrl-Up"
+msgstr "Umschalt+F7, Strg+Pfeil oben"
 
 #. (para)
 msgid "Go to previous difference"
@@ -21551,11 +21548,9 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Unveränderte Abschnitte anzeigen/verstecken"
 
 #. (term)
-#. (term)
 msgid "Ctrl-P"
 msgstr "Strg+P"
 
-#. (para)
 #. (para)
 msgid "Toggles between line wrapping"
 msgstr "Zeilen umbrechen/nicht umbrechen"
@@ -21595,6 +21590,14 @@ msgstr "Strg+Tab"
 #. (para)
 msgid "Switch between left/right/bottom view"
 msgstr "Zwischen linker/rechter/unterer Ansicht wechseln"
+
+#. (term)
+msgid "Ctrl-M"
+msgstr "Strg+M"
+
+#. (para)
+msgid "Toggles between marking the selected change"
+msgstr "Ausgewählte Änderung markieren/nicht markieren"
 
 #. (title)
 msgid "Automating TortoiseMerge"

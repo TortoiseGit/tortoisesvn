@@ -11,8 +11,8 @@
 # Authors:
 # Translators:
 # alfalb_mansil, 2014
-# alfalb_mansil, 2014
-# alfalb_mansil, 2014
+# fc2d9c36d73e741383fbbf46a4aac49f_013445b, 2014
+# fc2d9c36d73e741383fbbf46a4aac49f_013445b, 2014
 # Bernardo Silva <benny.stuff@gmail.com>, 2011
 # JustinoAveiro <paulojustino.nec@gmail.com>, 2011,2013
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
@@ -28,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-17 12:22+0000\n"
+"PO-Revision-Date: 2020-07-11 00:23+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Portuguese (http://www.transifex.com/luebbe/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -13228,7 +13228,7 @@ msgstr "Ao usar filtragens na caixa de diálogo de registo, os termos de pesquis
 
 #. (term)
 msgid "Dark theme"
-msgstr ""
+msgstr "Tema Noturno"
 
 #. (para)
 msgid ""
@@ -18358,7 +18358,22 @@ msgstr ""
 msgid "An svn date revision can be in one of the following formats:"
 msgstr ""
 
-#. (option)
+#. (para)
+msgid ""
+"Opens the checkout dialog. The <option>/path</option> specifies the target "
+"directory and the <option>/url</option> specifies the URL to checkout from. "
+"If you specify the key <option>/blockpathadjustments</option>, the automatic"
+" checkout path adjustments are blocked. The <option>/revision:XXX</option> "
+"specifies the revision to check out."
+msgstr ""
+
+#. (para)
+msgid ""
+"If you specify <option>/outfile:\"path/to/file\"</option> the specified file"
+" will contain three lines after a checkout. The first line is the checkout "
+"path, the second line the url and the third the revision."
+msgstr ""
+
 #. (option)
 #. (option)
 #. (option)
@@ -18390,30 +18405,6 @@ msgstr ""
 #. (option)
 msgid "/path"
 msgstr "/path"
-
-#. (option)
-#. (option)
-#. (option)
-msgid "/url"
-msgstr "/url"
-
-#. (option)
-#. (option)
-msgid "/blockpathadjustments"
-msgstr "/blockpathadjustments"
-
-#. (option)
-msgid "/revision:XXX"
-msgstr "/revision:XXX"
-
-#. (entry)
-msgid ""
-"Opens the checkout dialog. The <placeholder-1/> specifies the target "
-"directory and the <placeholder-2/> specifies the URL to checkout from. If "
-"you specify the key <placeholder-3/>, the automatic checkout path "
-"adjustments are blocked. The <placeholder-4/> specifies the revision to "
-"check out."
-msgstr "Abre a caixa de diálogo checkout. O <placeholder-1/> específica a pasta destino e o <placeholder-2/> específica o URL de onde efectuar o checkout. Se especificares a chave <placeholder-3/>, são bloqueados os ajustamentos automáticos dos caminhos de checkout. O <placeholder-4/> especifica a revisão a efectuar checkout."
 
 #. (option)
 #. (option)
@@ -18591,11 +18582,20 @@ msgstr "Marca um ficheiro em conflito em <placeholder-1/> como resolvido. Se for
 msgid "Creates a repository in <placeholder-1/>"
 msgstr "Cria um repositório em <placeholder-1/>"
 
+#. (option)
+#. (option)
+msgid "/url"
+msgstr "/url"
+
 #. (entry)
 msgid ""
 "Opens the switch dialog. The <placeholder-1/> specifies the target directory"
 " and <placeholder-2/> the URL to switch to."
 msgstr "Abre a caixa de diálogo trocar. O <placeholder-1/> especifica a pasta de destino e o <placeholder-2/> o URL de destino da troca."
+
+#. (option)
+msgid "/blockpathadjustments"
+msgstr "/blockpathadjustments"
 
 #. (entry)
 msgid ""
@@ -21388,7 +21388,7 @@ msgstr "Os caracteres usados para indicar Espaço-em-Branco são mostrados numa 
 
 #. (term)
 msgid "Use dark mode"
-msgstr ""
+msgstr "Use o modo noturno"
 
 #. (listitem)
 msgid ""
@@ -21396,16 +21396,13 @@ msgid ""
 msgstr ""
 
 #. (title)
-msgid "keyboard shortcuts"
-msgstr "atalhos de teclado "
+#. (title)
+msgid "Keyboard Shortcuts"
+msgstr ""
 
 #. (para)
 msgid "List of keyboard shortcuts and commands."
 msgstr "Lista de atalhos e commandos de teclado."
-
-#. (title)
-msgid "Keyboard shortcuts"
-msgstr "Atalhos de teclado"
 
 #. (term)
 msgid "Ctrl-Q, Ctrl-W, Escape"
@@ -21476,16 +21473,16 @@ msgid "Save as..."
 msgstr "Guardar como..."
 
 #. (term)
-msgid "F7"
-msgstr "F7"
+msgid "F7, Ctrl-Down"
+msgstr ""
 
 #. (para)
 msgid "Go to next difference"
 msgstr "Avançar para a próxima diferença"
 
 #. (term)
-msgid "Shift-F7"
-msgstr "Shift-F7"
+msgid "Shift-F7, Ctrl-Up"
+msgstr ""
 
 #. (para)
 msgid "Go to previous difference"
@@ -21540,11 +21537,9 @@ msgid "Toggles between collapsing unchanged sections or not"
 msgstr "Alterna entre secções inalteradas colapsadas, ou não"
 
 #. (term)
-#. (term)
 msgid "Ctrl-P"
 msgstr "Ctrl-P"
 
-#. (para)
 #. (para)
 msgid "Toggles between line wrapping"
 msgstr "Alterna entre quebras de linha"
@@ -21584,6 +21579,14 @@ msgstr "Ctrl-Tab"
 #. (para)
 msgid "Switch between left/right/bottom view"
 msgstr "Alternar entre visualização esquerda/direita/base"
+
+#. (term)
+msgid "Ctrl-M"
+msgstr ""
+
+#. (para)
+msgid "Toggles between marking the selected change"
+msgstr ""
 
 #. (title)
 msgid "Automating TortoiseMerge"
