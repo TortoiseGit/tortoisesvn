@@ -739,10 +739,15 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         if (propName.size())
             dlg->SetPropertyName(sName);
         dlg->SetPathList(m_pathlist);
-        if (m_properties.find(sName) != m_properties.end())
+        auto foundIt = m_properties.find(sName);
+        if (foundIt != m_properties.end())
         {
             // the property already exists: switch to "edit" instead of "add"
-            PropValue * prop = (PropValue*)m_propList.GetItemData(selIndex);
+            PropValue* prop = nullptr;
+            if (selIndex >= 0 && propName.empty())
+                prop = (PropValue*)m_propList.GetItemData(selIndex);
+            else
+                prop = &foundIt->second;
             dlg->SetPropertyName(sName);
             if (prop->allthesamevalue && !prop->isinherited)
                 dlg->SetPropertyValue(prop->value);
