@@ -1,7 +1,7 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2003, 2013-2014, 2018, 2020 - TortoiseSVN
 // Copyright (C) 2018-2019 - TortoiseGit
-// Copyright (C) 2003, 2013-2014, 2018 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,8 +23,6 @@
 #include <memory>
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
-
-#define MAX_LENGTH_PASSWORD 256
 
 HINSTANCE g_hmodThisDll;
 HWND g_hwndMain;

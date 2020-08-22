@@ -583,13 +583,13 @@ int cmdline_process_param(const char *p, char *value,
         fclose(fp);
         conf_set_str(conf, CONF_remote_cmd, command->s);
         conf_set_str(conf, CONF_remote_cmd2, "");
-        conf_set_bool(conf, CONF_nopty, true);   /* command => no terminal */
-        strbuf_free(command);
+	conf_set_bool(conf, CONF_nopty, true);   /* command => no terminal */
+	strbuf_free(command);
     }
-    if (!strcmp(p, "-P")) {
-        RETURN(2);
-        UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
-        SAVEABLE(1);                   /* lower priority than -ssh,-telnet */
+    if ((!strcmp(p, "-P"))||(!strcmp(p, "-p"))) {
+	RETURN(2);
+	UNAVAILABLE_IN(TOOLTYPE_NONNETWORK);
+	SAVEABLE(1);		       /* lower priority than -ssh,-telnet */
         conf_set_int(conf, CONF_port, atoi(value));
     }
     if (!strcmp(p, "-pw")) {
