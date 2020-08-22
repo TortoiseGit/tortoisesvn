@@ -57,7 +57,7 @@ void ssh2kex_coroutine(struct ssh2_transport_state *s, bool *aborted)
         assert(s->hkey);
     }
 
-    s->hostkeyblob->len = 0;
+    strbuf_clear(s->hostkeyblob);
     ssh_key_public_blob(s->hkey, BinarySink_UPCAST(s->hostkeyblob));
     s->hostkeydata = ptrlen_from_strbuf(s->hostkeyblob);
 
@@ -261,9 +261,9 @@ void ssh2kex_coroutine(struct ssh2_transport_state *s, bool *aborted)
         if (!s->rsa_kex_key) {
             ppl_logevent("Generating a %d-bit RSA key", extra->minklen);
 
-	    s->rsa_kex_key = snew(RSAKey);
-	    rsa_generate(s->rsa_kex_key, extra->minklen, no_progress, NULL);
-	    s->rsa_kex_key->comment = NULL;
+            s->rsa_kex_key = snew(RSAKey);
+            rsa_generate(s->rsa_kex_key, extra->minklen, no_progress, NULL);
+            s->rsa_kex_key->comment = NULL;
             s->rsa_kex_key_needs_freeing = true;
         }
 

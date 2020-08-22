@@ -9,6 +9,7 @@
 #include "ssh.h"
 #include "sshbpp.h"
 #include "sshppl.h"
+#include "sshchan.h"
 #include "sshserver.h"
 #ifndef NO_GSSAPI
 #include "sshgssc.h"
@@ -85,7 +86,7 @@ void ssh_check_frozen(Ssh *ssh) {}
 
 mainchan *mainchan_new(
     PacketProtocolLayer *ppl, ConnectionLayer *cl, Conf *conf,
-    int term_width, int term_height, int is_simple, SshChannel **sc_out)
+    int term_width, int term_height, bool is_simple, SshChannel **sc_out)
 { return NULL; }
 void mainchan_get_specials(
     mainchan *mc, add_special_fn_t add_special, void *ctx) {}
@@ -148,8 +149,8 @@ static void server_receive(
 
     /* Log raw data, if we're in that mode. */
     if (srv->logctx)
-	log_packet(srv->logctx, PKT_INCOMING, -1, NULL, data, len,
-		   0, NULL, NULL, 0, NULL);
+        log_packet(srv->logctx, PKT_INCOMING, -1, NULL, data, len,
+                   0, NULL, NULL, 0, NULL);
 
     bufchain_add(&srv->in_raw, data, len);
     if (!srv->frozen && srv->bpp)
@@ -168,7 +169,7 @@ static void server_sent(Plug *plug, size_t bufsize)
      * some more data off its bufchain.
      */
     if (bufsize < SSH_MAX_BACKLOG) {
-	srv_throttle_all(srv, 0, bufsize);
+        srv_throttle_all(srv, 0, bufsize);
         queue_idempotent_callback(&srv->ic_out_raw);
     }
 #endif
@@ -497,7 +498,7 @@ static void server_got_ssh_version(struct ssh_version_receiver *rcv,
         server_connect_bpp(srv);
 
         connection_layer = ssh2_connection_new(
-            &srv->ssh, NULL, false, srv->conf, 
+            &srv->ssh, NULL, false, srv->conf,
             ssh_verstring_get_local(old_bpp), &srv->cl);
         ssh2connection_server_configure(connection_layer,
                                         srv->sftpserver_vt, srv->ssc);

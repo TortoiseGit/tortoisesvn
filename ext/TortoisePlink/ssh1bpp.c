@@ -236,6 +236,7 @@ static void ssh1_bpp_handle_input(BinaryPacketProtocol *bpp)
                        NULL, 0, NULL);
         }
 
+        s->pktin->qnode.formal_size = get_avail(s->pktin);
         pq_push(&s->bpp.in_pq, s->pktin);
 
         {
@@ -286,7 +287,7 @@ static void ssh1_bpp_handle_input(BinaryPacketProtocol *bpp)
 static PktOut *ssh1_bpp_new_pktout(int pkt_type)
 {
     PktOut *pkt = ssh_new_packet();
-    pkt->length = 4 + 8;	    /* space for length + max padding */
+    pkt->length = 4 + 8;            /* space for length + max padding */
     put_byte(pkt, pkt_type);
     pkt->prefix = pkt->length;
     pkt->type = pkt_type;

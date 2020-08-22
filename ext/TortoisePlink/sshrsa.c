@@ -43,6 +43,24 @@ void BinarySource_get_rsa_ssh1_priv(
     rsa->private_exponent = get_mp_ssh1(src);
 }
 
+RSAKey *BinarySource_get_rsa_ssh1_priv_agent(BinarySource *src)
+{
+    RSAKey *rsa = snew(RSAKey);
+    memset(rsa, 0, sizeof(RSAKey));
+
+    get_rsa_ssh1_pub(src, rsa, RSA_SSH1_MODULUS_FIRST);
+    get_rsa_ssh1_priv(src, rsa);
+
+    /* SSH-1 names p and q the other way round, i.e. we have the
+     * inverse of p mod q and not of q mod p. We swap the names,
+     * because our internal RSA wants iqmp. */
+    rsa->iqmp = get_mp_ssh1(src);
+    rsa->q = get_mp_ssh1(src);
+    rsa->p = get_mp_ssh1(src);
+
+    return rsa;
+}
+
 bool rsa_ssh1_encrypt(unsigned char *data, int length, RSAKey *key)
 {
     mp_int *b1, *b2;
@@ -50,7 +68,7 @@ bool rsa_ssh1_encrypt(unsigned char *data, int length, RSAKey *key)
     unsigned char *p;
 
     if (key->bytes < length + 4)
-	return false;                  /* RSA key too short! */
+        return false;                  /* RSA key too short! */
 
     memmove(data + key->bytes - length, data, length);
     data[0] = 0;
@@ -95,7 +113,7 @@ bool rsa_ssh1_encrypt(unsigned char *data, int length, RSAKey *key)
 
     p = data;
     for (i = key->bytes; i--;) {
-	*p++ = mp_get_byte(b2, i);
+        *p++ = mp_get_byte(b2, i);
     }
 
     mp_free(b1);
@@ -278,9 +296,9 @@ char *rsa_ssh1_fingerprint(RSAKey *key)
     ssh_hash_final(hash, digest);
 
     out = strbuf_new();
-    strbuf_catf(out, "%d ", mp_get_nbits(key->modulus));
+    strbuf_catf(out, "%"SIZEu" ", mp_get_nbits(key->modulus));
     for (i = 0; i < 16; i++)
-	strbuf_catf(out, "%s%02x", i ? ":" : "", digest[i]);
+        strbuf_catf(out, "%s%02x", i ? ":" : "", digest[i]);
     if (key->comment)
         strbuf_catf(out, " %s", key->comment);
     return strbuf_to_str(out);
@@ -370,7 +388,7 @@ int rsa_ssh1_public_blob_len(ptrlen data)
     mp_free(get_mp_ssh1(src));
 
     if (get_err(src))
-	return -1;
+        return -1;
 
     /* Return the number of bytes consumed. */
     return src->pos;
@@ -379,19 +397,19 @@ int rsa_ssh1_public_blob_len(ptrlen data)
 void freersapriv(RSAKey *key)
 {
     if (key->private_exponent) {
-	mp_free(key->private_exponent);
+        mp_free(key->private_exponent);
         key->private_exponent = NULL;
     }
     if (key->p) {
-	mp_free(key->p);
+        mp_free(key->p);
         key->p = NULL;
     }
     if (key->q) {
-	mp_free(key->q);
+        mp_free(key->q);
         key->q = NULL;
     }
     if (key->iqmp) {
-	mp_free(key->iqmp);
+        mp_free(key->iqmp);
         key->iqmp = NULL;
     }
 }
@@ -400,21 +418,21 @@ void freersakey(RSAKey *key)
 {
     freersapriv(key);
     if (key->modulus) {
-	mp_free(key->modulus);
+        mp_free(key->modulus);
         key->modulus = NULL;
     }
     if (key->exponent) {
-	mp_free(key->exponent);
+        mp_free(key->exponent);
         key->exponent = NULL;
     }
     if (key->comment) {
-	sfree(key->comment);
+        sfree(key->comment);
         key->comment = NULL;
     }
 }
 
 /* ----------------------------------------------------------------------
- * Implementation of the ssh-rsa signing key type. 
+ * Implementation of the ssh-rsa signing key type.
  */
 
 static void rsa2_freekey(ssh_key *key);   /* forward reference */
@@ -426,7 +444,7 @@ static ssh_key *rsa2_new_pub(const ssh_keyalg *self, ptrlen data)
 
     BinarySource_BARE_INIT_PL(src, data);
     if (!ptrlen_eq_string(get_string(src), "ssh-rsa"))
-	return NULL;
+        return NULL;
 
     rsa = snew(RSAKey);
     rsa->sshk.vt = &ssh_rsa;
@@ -437,8 +455,8 @@ static ssh_key *rsa2_new_pub(const ssh_keyalg *self, ptrlen data)
     rsa->comment = NULL;
 
     if (get_err(src)) {
-	rsa2_freekey(&rsa->sshk);
-	return NULL;
+        rsa2_freekey(&rsa->sshk);
+        return NULL;
     }
 
     return &rsa->sshk;
@@ -495,8 +513,8 @@ static ssh_key *rsa2_new_priv(const ssh_keyalg *self,
     rsa->iqmp = get_mp_ssh2(src);
 
     if (get_err(src) || !rsa_verify(rsa)) {
-	rsa2_freekey(&rsa->sshk);
-	return NULL;
+        rsa2_freekey(&rsa->sshk);
+        return NULL;
     }
 
     return &rsa->sshk;
@@ -519,8 +537,8 @@ static ssh_key *rsa2_new_priv_openssh(const ssh_keyalg *self,
     rsa->q = get_mp_ssh2(src);
 
     if (get_err(src) || !rsa_verify(rsa)) {
-	rsa2_freekey(&rsa->sshk);
-	return NULL;
+        rsa2_freekey(&rsa->sshk);
+        return NULL;
     }
 
     return &rsa->sshk;
@@ -704,7 +722,7 @@ static bool rsa2_verify(ssh_key *key, ptrlen sig, ptrlen data)
      */
     in_pl = get_string(src);
     if (get_err(src) || !ptrlen_eq_string(type, "ssh-rsa"))
-	return false;
+        return false;
 
     in = mp_from_bytes_be(in_pl);
     out = mp_modpow(in, rsa->exponent, rsa->modulus);
@@ -748,7 +766,7 @@ static void rsa2_sign(ssh_key *key, ptrlen data,
     nbytes = (mp_get_nbits(out) + 7) / 8;
     put_uint32(bs, nbytes);
     for (size_t i = 0; i < nbytes; i++)
-	put_byte(bs, mp_get_byte(out, nbytes - 1 - i));
+        put_byte(bs, mp_get_byte(out, nbytes - 1 - i));
 
     mp_free(out);
 }
@@ -761,7 +779,7 @@ char *rsa2_invalid(ssh_key *key, unsigned flags)
     const ssh_hashalg *halg = rsa2_hash_alg_for_flags(flags, &sign_alg_name);
     if (nbytes < rsa_pkcs1_length_of_fixed_parts(halg)) {
         return dupprintf(
-            "%zu-bit RSA key is too short to generate %s signatures",
+            "%"SIZEu"-bit RSA key is too short to generate %s signatures",
             bits, sign_alg_name);
     }
 
@@ -809,7 +827,7 @@ int ssh_rsakex_klen(RSAKey *rsa)
 }
 
 static void oaep_mask(const ssh_hashalg *h, void *seed, int seedlen,
-		      void *vdata, int datalen)
+                      void *vdata, int datalen)
 {
     unsigned char *data = (unsigned char *)vdata;
     unsigned count = 0;
@@ -819,7 +837,7 @@ static void oaep_mask(const ssh_hashalg *h, void *seed, int seedlen,
         ssh_hash *s;
         unsigned char hash[MAX_HASH_LEN];
 
-	assert(h->hlen <= MAX_HASH_LEN);
+        assert(h->hlen <= MAX_HASH_LEN);
         s = ssh_hash_new(h);
         put_data(s, seed, seedlen);
         put_uint32(s, count);
@@ -843,26 +861,26 @@ strbuf *ssh_rsakex_encrypt(RSAKey *rsa, const ssh_hashalg *h, ptrlen in)
 
     /*
      * Here we encrypt using RSAES-OAEP. Essentially this means:
-     * 
+     *
      *  - we have a SHA-based `mask generation function' which
      *    creates a pseudo-random stream of mask data
      *    deterministically from an input chunk of data.
-     * 
+     *
      *  - we have a random chunk of data called a seed.
-     * 
+     *
      *  - we use the seed to generate a mask which we XOR with our
      *    plaintext.
-     * 
+     *
      *  - then we use _the masked plaintext_ to generate a mask
      *    which we XOR with the seed.
-     * 
+     *
      *  - then we concatenate the masked seed and the masked
      *    plaintext, and RSA-encrypt that lot.
-     * 
+     *
      * The result is that the data input to the encryption function
      * is random-looking and (hopefully) contains no exploitable
      * structure such as PKCS1-v1_5 does.
-     * 
+     *
      * For a precise specification, see RFC 3447, section 7.1.1.
      * Some of the variable names below are derived from that, so
      * it'd probably help to read it anyway.
@@ -917,7 +935,7 @@ strbuf *ssh_rsakex_encrypt(RSAKey *rsa, const ssh_hashalg *h, ptrlen in)
     b2 = mp_modpow(b1, rsa->exponent, rsa->modulus);
     p = (char *)out;
     for (i = outlen; i--;) {
-	*p++ = mp_get_byte(b2, i);
+        *p++ = mp_get_byte(b2, i);
     }
     mp_free(b1);
     mp_free(b2);
@@ -980,7 +998,7 @@ mp_int *ssh_rsakex_decrypt(
         if (out[i] == 1) {
             i++;  /* skip over the 1 byte */
             break;
-        } else if (out[i] != 1) {
+        } else if (out[i] != 0) {
             sfree(out);
             return NULL;
         }

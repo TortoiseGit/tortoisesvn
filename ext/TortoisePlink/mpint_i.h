@@ -59,7 +59,11 @@
 
 /* You can lower the BignumInt size by defining BIGNUM_OVERRIDE on the
  * command line to be your chosen max value of BIGNUM_INT_BITS_BITS */
-#define BB_OK(b) (!defined BIGNUM_OVERRIDE || BIGNUM_OVERRIDE >= b)
+#if defined BIGNUM_OVERRIDE
+#define BB_OK(b) ((b) <= BIGNUM_OVERRIDE)
+#else
+#define BB_OK(b) (1)
+#endif
 
 #if defined __SIZEOF_INT128__ && BB_OK(6)
 
@@ -228,7 +232,7 @@
           (ret) = (BignumInt)ADC_temp;                            \
           (retc) = (BignumCarry)(ADC_temp >> BIGNUM_INT_BITS);    \
       } while (0)
-  
+
   #define BignumMUL(rh, rl, a, b) do                              \
       {                                                           \
           DEFINE_BIGNUMDBLINT;                                    \
@@ -237,7 +241,7 @@
           (rh) = (BignumInt)(MUL_temp >> BIGNUM_INT_BITS);        \
           (rl) = (BignumInt)(MUL_temp);                           \
       } while (0)
-  
+
   #define BignumMULADD(rh, rl, a, b, addend) do                   \
       {                                                           \
           DEFINE_BIGNUMDBLINT;                                    \
@@ -247,7 +251,7 @@
           (rh) = (BignumInt)(MUL_temp >> BIGNUM_INT_BITS);        \
           (rl) = (BignumInt)(MUL_temp);                           \
       } while (0)
-  
+
   #define BignumMULADD2(rh, rl, a, b, addend1, addend2) do        \
       {                                                           \
           DEFINE_BIGNUMDBLINT;                                    \
