@@ -3880,6 +3880,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     {
         for (auto it:wcroots)
         {
+            CHooks::Instance().clear();
             DWORD exitcode = 0;
             CString error;
             ProjectProperties pp;
@@ -3905,6 +3906,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
     }
     if (wcroots.size() <= 1)
     {
+        CHooks::Instance().clear();
         DWORD exitcode = 0;
         CString error;
         CHooks::Instance().SetProjectProperties(m_targetPathList.GetCommonRoot(), m_ProjectProperties);
@@ -3927,6 +3929,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         {
             for (auto it:wcroots)
             {
+                CHooks::Instance().clear();
                 DWORD exitcode = 0;
                 CString error;
                 ProjectProperties pp;
