@@ -1639,7 +1639,10 @@ void TortoiseBlame::DrawBlame(HDC hDC)
             else
                 wcscpy_s(buf, L"     ----       ");
             rc.right = rc.left + m_revWidth;
-            ::ExtTextOut(hDC, 0, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)wcslen(buf), 0);
+            RECT drawRC = rc;
+            drawRC.left = 0;
+            drawRC.top = (LONG)Y;
+            ::DrawText(hDC, buf, (int)wcslen(buf), &drawRC, DT_HIDEPREFIX | DT_NOPREFIX | DT_SINGLELINE);
             int Left = m_revWidth;
             if (ShowDate)
             {
@@ -1652,14 +1655,20 @@ void TortoiseBlame::DrawBlame(HDC hDC)
             {
                 rc.right = rc.left + Left + m_authorWidth;
                 swprintf_s(buf, L"%-30s            ", author.c_str());
-                ::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)wcslen(buf), 0);
+                drawRC = rc;
+                drawRC.left = Left;
+                drawRC.top = (LONG)Y;
+                ::DrawText(hDC, buf, (int)wcslen(buf), &drawRC, DT_HIDEPREFIX | DT_NOPREFIX | DT_SINGLELINE);
                 Left += m_authorWidth;
             }
             if (ShowPath && !m_mergedPaths.empty())
             {
                 rc.right = rc.left + Left + m_pathWidth;
                 swprintf_s(buf, L"%-60s            ", m_mergedPaths[i].c_str());
-                ::ExtTextOut(hDC, Left, (int)Y, ETO_CLIPPED, &rc, buf, (UINT)wcslen(buf), 0);
+                drawRC = rc;
+                drawRC.left = Left;
+                drawRC.top = (LONG)Y;
+                ::DrawText(hDC, buf, (int)wcslen(buf), &drawRC, DT_HIDEPREFIX | DT_NOPREFIX | DT_SINGLELINE);
                 Left += m_authorWidth;
             }
             if ((i == m_selectedLine) && (currentDialog))

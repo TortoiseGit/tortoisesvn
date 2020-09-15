@@ -958,7 +958,7 @@ void CRevisionGraphWnd::DrawTexts (GraphicsDevice& graphics, const CRect& logRec
     // iterate over all visible nodes
 
     if (graphics.pDC)
-        graphics.pDC->SetTextAlign (TA_CENTER | TA_TOP);
+        graphics.pDC->SetTextAlign (TA_LEFT | TA_TOP | TA_NOUPDATECP);
     CSyncPointer<const ILayoutTextList> texts (m_state.GetTexts());
     for ( index_t index = texts->GetFirstVisible (logRect)
         ; index != NO_INDEX
@@ -980,7 +980,7 @@ void CRevisionGraphWnd::DrawTexts (GraphicsDevice& graphics, const CRect& logRec
                 ? CTheme::Instance().GetThemeColor(m_Colors.GetColor (CColors::gdpWCNodeBorder), true).ToCOLORREF()
                 : standardTextColor );
             graphics.pDC->SelectObject (GetFont (FALSE, text.style != ILayoutTextList::SText::STYLE_DEFAULT));
-            graphics.pDC->ExtTextOut ((textRect.left + textRect.right)/2, textRect.top, 0, &textRect, text.text, NULL);
+            graphics.pDC->DrawText(text.text, &textRect, DT_HIDEPREFIX | DT_NOPREFIX | DT_SINGLELINE | DT_CENTER | DT_TOP);
         }
         else if (graphics.pSVG)
         {
