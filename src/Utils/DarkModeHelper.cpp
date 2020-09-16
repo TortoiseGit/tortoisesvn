@@ -114,9 +114,6 @@ DarkModeHelper::DarkModeHelper()
     long  micro        = 0;
     if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_System, 0, nullptr, &sysPath)))
     {
-        std::wstring dllPath = sysPath;
-        CoTaskMemFree(sysPath);
-        dllPath += L"\\uxtheme.dll";
         auto                      version = CPathUtils::GetVersionFromFile(L"uxtheme.dll");
         std::vector<std::wstring> tokens;
         stringtok(tokens, version, false, L".");
