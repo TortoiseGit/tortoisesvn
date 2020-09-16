@@ -7187,13 +7187,15 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
         {
             // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
             // pCmi->sUrl = http://mydomain.com/repos/trunk/folder
-            CString sUnescapedUrl = CPathUtils::PathUnescape(pCmi->sUrl);
+            auto wcroot = GetWCRootFromPath(m_path);
+            auto wcrooturl = GetURLFromPath(wcroot);
+            CString sUnescapedUrl = CPathUtils::PathUnescape(wcrooturl);
             // find out until which char the urls are identical
             int i = 0;
             while ((i < pCmi->fileUrl.GetLength()) && (i < sUnescapedUrl.GetLength()) && (pCmi->fileUrl[i] == sUnescapedUrl[i]))
                 i++;
-            int leftcount = m_path.GetWinPathString().GetLength() - (sUnescapedUrl.GetLength() - i);
-            pCmi->wcPath  = m_path.GetWinPathString().Left(leftcount);
+            int leftcount = wcroot.GetWinPathString().GetLength() - (sUnescapedUrl.GetLength() - i);
+            pCmi->wcPath  = wcroot.GetWinPathString().Left(leftcount);
             pCmi->wcPath += pCmi->fileUrl.Mid(i);
             pCmi->wcPath.Replace('/', '\\');
         }
