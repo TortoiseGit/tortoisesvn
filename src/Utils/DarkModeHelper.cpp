@@ -110,9 +110,7 @@ DarkModeHelper::DarkModeHelper()
     InitCommonControlsEx(&used);
 
     m_bCanHaveDarkMode = false;
-    PWSTR sysPath      = nullptr;
     long  micro        = 0;
-    if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_System, 0, nullptr, &sysPath)))
     {
         auto                      version = CPathUtils::GetVersionFromFile(L"uxtheme.dll");
         std::vector<std::wstring> tokens;
