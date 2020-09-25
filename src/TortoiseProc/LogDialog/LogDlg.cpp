@@ -7185,19 +7185,32 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
         pCmi->fileUrl                         = sUrlRootUnescaped + pCmi->fileUrl.Trim();
         if (m_hasWC)
         {
-            // firstfile = (e.g.) http://mydomain.com/repos/trunk/folder/file1
-            // pCmi->sUrl = http://mydomain.com/repos/trunk/folder
+            // sUnescapedUrl = (e.g.) http://mydomain.com/repos/trunk/folder/file1
+            // pCmi->sUrl    = (e.g.) http://mydomain.com/repos/trunk/folder
             auto wcroot = GetWCRootFromPath(m_path);
             auto wcrooturl = GetURLFromPath(wcroot);
             CString sUnescapedUrl = CPathUtils::PathUnescape(wcrooturl);
-            // find out until which char the urls are identical
+            std::wstring url1 = sUnescapedUrl;
+            std::wstring url2 = pCmi->fileUrl;
+            std::vector<std::wstring> vec1;
+            std::vector<std::wstring> vec2;
+            stringtok(vec1, url1, true, L"\\/");
+            stringtok(vec2, url2, true, L"\\/");
             int i = 0;
-            while ((i < pCmi->fileUrl.GetLength()) && (i < sUnescapedUrl.GetLength()) && (pCmi->fileUrl[i] == sUnescapedUrl[i]))
-                i++;
-            int leftcount = wcroot.GetWinPathString().GetLength() - (sUnescapedUrl.GetLength() - i);
-            pCmi->wcPath  = wcroot.GetWinPathString().Left(leftcount);
-            pCmi->wcPath += pCmi->fileUrl.Mid(i);
+            while (i < vec1.size() && i < vec2.size() && vec1[i] == vec2[i])
+                ++i;
+
+            pCmi->wcPath = wcroot.GetWinPathString();
+            while (i < vec2.size())
+            {
+                pCmi->wcPath += L"\\";
+                pCmi->wcPath += vec2[i].c_str();
+                ++i;
+            }
+
             pCmi->wcPath.Replace('/', '\\');
+            if (!PathFileExists(pCmi->wcPath))
+                pCmi->wcPath.Empty();
         }
     }
 
@@ -7220,7 +7233,7 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
                 popup.AppendMenuIcon(ID_BLAMEDIFF, IDS_LOG_POPUP_BLAMEDIFF, IDI_BLAME);
                 popup.SetDefaultItem(ID_DIFF, FALSE);
                 popup.AppendMenuIcon(ID_GNUDIFF1, IDS_LOG_POPUP_GNUDIFF_CH, IDI_DIFF);
-                if (m_hasWC)
+                if (m_hasWC && !pCmi->wcPath.IsEmpty())
                 {
                     popup.AppendMenuIcon(ID_COMPARE, IDS_LOG_POPUP_COMPARE, IDI_DIFF);
                 }
