@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2015 - TortoiseSVN
+// Copyright (C) 2009, 2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,11 +54,11 @@ public:
 
     /// data access
 
-    T* operator->() const throw();
-    T& operator*() const throw();
-    bool operator!() const throw();
+    T* operator->() const;
+    T& operator*() const;
+    bool operator!() const;
 
-    T* get() const throw();
+    T* get() const;
 
 private:
 
@@ -132,25 +132,25 @@ CSyncPointer<T>& CSyncPointer<T>::operator= (const CSyncPointer<T>& rhs)
 // data access
 
 template <class T>
-T* CSyncPointer<T>::operator->() const throw()
+T* CSyncPointer<T>::operator->() const
 {
     return ptr;
 }
 
 template <class T>
-T& CSyncPointer<T>::operator*() const throw()
+T& CSyncPointer<T>::operator*() const
 {
     return *ptr;
 }
 
 template <class T>
-bool CSyncPointer<T>::operator!() const throw()
+bool CSyncPointer<T>::operator!() const
 {
     return ptr == NULL;
 }
 
 template <class T>
-T* CSyncPointer<T>::get() const throw()
+T* CSyncPointer<T>::get() const
 {
     return ptr;
 }

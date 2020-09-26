@@ -51,7 +51,7 @@ protected:
     // data access
 
     DWORD InternalGetValue();
-    DWORD GetValue() throw();
+    DWORD GetValue();
 
 public:
 
@@ -73,7 +73,7 @@ public:
 // data access
 ///////////////////////////////////////////////////////////////
 
-inline DWORD CPackedDWORDInStreamBase::GetValue() throw()
+inline DWORD CPackedDWORDInStreamBase::GetValue()
 {
     for (;;)
     {

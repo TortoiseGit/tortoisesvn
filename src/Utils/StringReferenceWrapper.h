@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2015 - TortoiseSVN
+// Copyright (C) 2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,7 +79,7 @@ public:
     // Warning: The caller must ensure the lifetime of the buffer outlives this
     // object as it does not make a copy of the wide string memory.
 
-    StringReferenceWrapper(_In_reads_(length) PCWSTR stringRef, _In_ UINT32 length) throw()
+    StringReferenceWrapper(_In_reads_(length) PCWSTR stringRef, _In_ UINT32 length)
     {
         HRESULT hr = StringReferenceWrapperDynamicLoader::Instance().WindowsCreateStringReference(stringRef, length, &_header, &_hstring);
 
@@ -89,7 +89,7 @@ public:
         }
     }
 
-    StringReferenceWrapper(_In_reads_(length) const CString& stringRef) throw()
+    StringReferenceWrapper(_In_reads_(length) const CString& stringRef)
     {
         HRESULT hr = StringReferenceWrapperDynamicLoader::Instance().WindowsCreateStringReference(stringRef, stringRef.GetLength(), &_header, &_hstring);
 
@@ -105,7 +105,7 @@ public:
     }
 
     template <size_t N>
-    StringReferenceWrapper(_In_reads_(N) wchar_t const (&stringRef)[N]) throw()
+    StringReferenceWrapper(_In_reads_(N) wchar_t const (&stringRef)[N])
     {
         UINT32 length = N-1;
         HRESULT hr = StringReferenceWrapperDynamicLoader::Instance().WindowsCreateStringReference(stringRef, length, &_header, &_hstring);
@@ -117,7 +117,7 @@ public:
     }
 
     template <size_t _>
-    StringReferenceWrapper(_In_reads_(_) wchar_t (&stringRef)[_]) throw()
+    StringReferenceWrapper(_In_reads_(_) wchar_t (&stringRef)[_])
     {
         UINT32 length;
         HRESULT hr = SizeTToUInt32(wcslen(stringRef), &length);
@@ -130,7 +130,7 @@ public:
         StringReferenceWrapperDynamicLoader::Instance().WindowsCreateStringReference(stringRef, length, &_header, &_hstring);
     }
 
-    HSTRING Get() const throw()
+    HSTRING Get() const
     {
         return _hstring;
     }

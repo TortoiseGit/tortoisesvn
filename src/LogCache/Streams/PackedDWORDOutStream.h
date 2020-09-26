@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2012 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -72,12 +72,12 @@ protected:
 
     // add data to the stream
 
-    void InternalAdd (DWORD value) throw();
-    void FlushLastValue() throw();
+    void InternalAdd (DWORD value);
+    void FlushLastValue();
 
     // compression (RLE) support
 
-    void Add (DWORD value) throw();
+    void Add (DWORD value);
 
     virtual void FlushData() override;
 
@@ -98,7 +98,7 @@ public:
 // add data to the stream
 ///////////////////////////////////////////////////////////////
 
-inline void CPackedDWORDOutStreamBase::InternalAdd (DWORD value) throw()
+inline void CPackedDWORDOutStreamBase::InternalAdd (DWORD value)
 {
     for (;;)
     {
@@ -117,7 +117,7 @@ inline void CPackedDWORDOutStreamBase::InternalAdd (DWORD value) throw()
 // compress incoming data and write it to the stream
 ///////////////////////////////////////////////////////////////
 
-inline void CPackedDWORDOutStreamBase::Add (DWORD value) throw()
+inline void CPackedDWORDOutStreamBase::Add (DWORD value)
 {
     // that is the only value we cannot represent
 

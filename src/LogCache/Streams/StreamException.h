@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2013 - TortoiseSVN
+// Copyright (C) 2009, 2013, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,11 +35,11 @@ public:
     // construction / destruction
 
     CStreamException(const char* message);
-    virtual ~CStreamException() throw();
+    virtual ~CStreamException();
 
     // implement message access
 
-    virtual const char* what() const throw();
+    virtual const char* what() const;
 };
 
 #endif

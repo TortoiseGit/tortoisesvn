@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2008, 2010-2011, 2014 - TortoiseSVN
+// Copyright (C) 2005-2008, 2010-2011, 2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -425,7 +425,7 @@ HRESULT LoadTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex, BSTR* pbstrPath
     return hr;
 }
 
-static inline UINT WINAPI GetDirLen(LPCOLESTR lpszPathName) throw()
+static inline UINT WINAPI GetDirLen(LPCOLESTR lpszPathName)
 {
     ATLASSERT(lpszPathName != NULL);
 

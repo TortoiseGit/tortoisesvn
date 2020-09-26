@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2012 - TortoiseSVN
+// Copyright (C) 2007, 2012, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,7 +53,7 @@ private:
 
     // buffer management
 
-    void Flush() throw();
+    void Flush();
 
 protected:
 
@@ -65,7 +65,7 @@ protected:
 
     // add data to the stream
 
-    void Add (const unsigned char* source, size_t byteCount) throw()
+    void Add (const unsigned char* source, size_t byteCount)
     {
         while (current + byteCount > last)
             Flush();
@@ -74,7 +74,7 @@ protected:
         current += byteCount;
     }
 
-    void Add (unsigned char c) throw()
+    void Add (unsigned char c)
     {
         if (current == last)
             Flush();
