@@ -1,6 +1,12 @@
 'use strict';
 
+var autoprefixer = require('autoprefixer');
+
 module.exports = function(grunt) {
+    // Load any grunt plugins found in package.json.
+    require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
+    require('time-grunt')(grunt);
+
     grunt.initConfig({
         dirs: {
             dest: 'dist',
@@ -74,7 +80,7 @@ module.exports = function(grunt) {
         postcss: {
             options: {
                 processors: [
-                    require('autoprefixer')() // add vendor prefixes
+                    autoprefixer() // add vendor prefixes
                 ]
             },
             dist: {
@@ -90,7 +96,7 @@ module.exports = function(grunt) {
                         '<%= dirs.dest %>/assets/js/**/*.js'
                     ],
                     keyframes: true,
-                    whitelistPatternsChildren: [
+                    safelist: [
                         /bounce-from-/
                     ]
                 },
@@ -313,10 +319,6 @@ module.exports = function(grunt) {
         }
 
     });
-
-    // Load any grunt plugins found in package.json.
-    require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
-    require('time-grunt')(grunt);
 
     grunt.registerTask('build', [
         'clean',
