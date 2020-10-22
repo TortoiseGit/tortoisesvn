@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2011, 2016 - TortoiseSVN
+// Copyright (C) 2006, 2011, 2016, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,10 +18,11 @@
 //
 #include "stdafx.h"
 #include "XSplitter.h"
+#include "Theme.h"
 
 #ifdef _DEBUG
-#define new DEBUG_NEW
-#undef THIS_FILE
+#    define new DEBUG_NEW
+#    undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
 
@@ -38,8 +39,8 @@ CXSplitter::CXSplitter()
 
 CXSplitter::~CXSplitter()
 {
-    delete [] m_pRowOldSize;
-    delete [] m_pColOldSize;
+    delete[] m_pRowOldSize;
+    delete[] m_pColOldSize;
 }
 
 
@@ -75,10 +76,10 @@ BOOL CXSplitter::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 
 void CXSplitter::HideRow(int nRowHide)
 {
-    ASSERT_VALID( this );
-    ASSERT( m_nRows > 1 );
-    ASSERT( nRowHide < m_nRows );
-    ASSERT( m_nHiddenRow == -1 );
+    ASSERT_VALID(this);
+    ASSERT(m_nRows > 1);
+    ASSERT(nRowHide < m_nRows);
+    ASSERT(m_nHiddenRow == -1);
     m_nHiddenRow = nRowHide;
 
     int nActiveRow, nActiveCol;
@@ -86,29 +87,29 @@ void CXSplitter::HideRow(int nRowHide)
     // if the nRow has an active window -- change it
     if (GetActivePane(&nActiveRow, &nActiveCol) != nullptr)
     {
-        if( nActiveRow == nRowHide )
+        if (nActiveRow == nRowHide)
         {
-            if( ++nActiveRow >= m_nRows )
+            if (++nActiveRow >= m_nRows)
                 nActiveRow = 0;
-            SetActivePane( nActiveRow, nActiveCol );
+            SetActivePane(nActiveRow, nActiveCol);
         }
     }
 
     // hide all nRow panes.
-    for( int nCol = 0; nCol < m_nCols; ++nCol )
+    for (int nCol = 0; nCol < m_nCols; ++nCol)
     {
-        CWnd* pPaneHide = GetPane( nRowHide, nCol );
+        CWnd* pPaneHide = GetPane(nRowHide, nCol);
         ASSERT(pPaneHide != nullptr);
 
-        pPaneHide->ShowWindow( SW_HIDE );
-        pPaneHide->SetDlgCtrlID( AFX_IDW_PANE_FIRST+nCol * 16+m_nRows );
+        pPaneHide->ShowWindow(SW_HIDE);
+        pPaneHide->SetDlgCtrlID(AFX_IDW_PANE_FIRST + nCol * 16 + m_nRows);
 
-        for( int nRow = nRowHide+1; nRow < m_nRows; ++nRow )
+        for (int nRow = nRowHide + 1; nRow < m_nRows; ++nRow)
         {
-            CWnd* pPane = GetPane( nRow, nCol );
+            CWnd* pPane = GetPane(nRow, nCol);
             ASSERT(pPane != nullptr);
 
-            pPane->SetDlgCtrlID( IdFromRowCol( nRow-1, nCol ));
+            pPane->SetDlgCtrlID(IdFromRowCol(nRow - 1, nCol));
         }
     }
 
@@ -119,39 +120,39 @@ void CXSplitter::HideRow(int nRowHide)
 
 void CXSplitter::ShowRow()
 {
-    ASSERT_VALID( this );
-    ASSERT( m_nRows < m_nMaxRows );
-    ASSERT( m_nHiddenRow != -1 );
+    ASSERT_VALID(this);
+    ASSERT(m_nRows < m_nMaxRows);
+    ASSERT(m_nHiddenRow != -1);
 
     int nShowRow = m_nHiddenRow;
     m_nHiddenRow = -1;
 
     int cyNew = m_pRowInfo[m_nRows].nCurSize;
-    m_nRows++;  // add a nRow
+    m_nRows++; // add a nRow
 
-    ASSERT( m_nRows == m_nMaxRows );
+    ASSERT(m_nRows == m_nMaxRows);
 
     int nRow;
 
     // Show the hidden nRow
-    for( int nCol = 0; nCol < m_nCols; ++nCol )
+    for (int nCol = 0; nCol < m_nCols; ++nCol)
     {
-        CWnd* pPaneShow = GetDlgItem( AFX_IDW_PANE_FIRST+nCol * 16+m_nRows );
+        CWnd* pPaneShow = GetDlgItem(AFX_IDW_PANE_FIRST + nCol * 16 + m_nRows);
         ASSERT(pPaneShow != nullptr);
-        pPaneShow->ShowWindow( SW_SHOWNA );
+        pPaneShow->ShowWindow(SW_SHOWNA);
 
-        for( nRow = m_nRows - 2; nRow >= nShowRow; --nRow )
+        for (nRow = m_nRows - 2; nRow >= nShowRow; --nRow)
         {
-            CWnd* pPane = GetPane( nRow, nCol );
+            CWnd* pPane = GetPane(nRow, nCol);
             ASSERT(pPane != nullptr);
-            pPane->SetDlgCtrlID( IdFromRowCol( nRow + 1, nCol ));
+            pPane->SetDlgCtrlID(IdFromRowCol(nRow + 1, nCol));
         }
 
-        pPaneShow->SetDlgCtrlID( IdFromRowCol( nShowRow, nCol ));
+        pPaneShow->SetDlgCtrlID(IdFromRowCol(nShowRow, nCol));
     }
 
     // new panes have been created -- recalculate layout
-    for( nRow = nShowRow+1; nRow < m_nRows; nRow++ )
+    for (nRow = nShowRow + 1; nRow < m_nRows; nRow++)
         m_pRowInfo[nRow].nIdealSize = m_pRowInfo[nRow - 1].nCurSize;
 
     m_pRowInfo[nShowRow].nIdealSize = cyNew;
@@ -160,39 +161,39 @@ void CXSplitter::ShowRow()
 
 void CXSplitter::HideColumn(int nColHide)
 {
-    ASSERT_VALID( this );
-    ASSERT( m_nCols > 1 );
-    ASSERT( nColHide < m_nCols );
-    ASSERT( m_nHiddenCol == -1 );
+    ASSERT_VALID(this);
+    ASSERT(m_nCols > 1);
+    ASSERT(nColHide < m_nCols);
+    ASSERT(m_nHiddenCol == -1);
     m_nHiddenCol = nColHide;
 
     // if the column has an active window -- change it
     int nActiveRow, nActiveCol;
     if (GetActivePane(&nActiveRow, &nActiveCol) != nullptr)
     {
-        if( nActiveCol == nColHide )
+        if (nActiveCol == nColHide)
         {
-            if( ++nActiveCol >= m_nCols )
+            if (++nActiveCol >= m_nCols)
                 nActiveCol = 0;
-            SetActivePane( nActiveRow, nActiveCol );
+            SetActivePane(nActiveRow, nActiveCol);
         }
     }
 
     // hide all column panes
-    for( int nRow = 0; nRow < m_nRows; nRow++)
+    for (int nRow = 0; nRow < m_nRows; nRow++)
     {
         CWnd* pPaneHide = GetPane(nRow, nColHide);
         ASSERT(pPaneHide != nullptr);
 
         pPaneHide->ShowWindow(SW_HIDE);
-        pPaneHide->SetDlgCtrlID( AFX_IDW_PANE_FIRST+nRow * 16+m_nCols );
+        pPaneHide->SetDlgCtrlID(AFX_IDW_PANE_FIRST + nRow * 16 + m_nCols);
 
-        for( int nCol = nColHide + 1; nCol < m_nCols; nCol++ )
+        for (int nCol = nColHide + 1; nCol < m_nCols; nCol++)
         {
-            CWnd* pPane = GetPane( nRow, nCol );
+            CWnd* pPane = GetPane(nRow, nCol);
             ASSERT(pPane != nullptr);
 
-            pPane->SetDlgCtrlID( IdFromRowCol( nRow, nCol - 1 ));
+            pPane->SetDlgCtrlID(IdFromRowCol(nRow, nCol - 1));
         }
     }
 
@@ -203,39 +204,39 @@ void CXSplitter::HideColumn(int nColHide)
 
 void CXSplitter::ShowColumn()
 {
-    ASSERT_VALID( this );
-    ASSERT( m_nCols < m_nMaxCols );
-    ASSERT( m_nHiddenCol != -1 );
+    ASSERT_VALID(this);
+    ASSERT(m_nCols < m_nMaxCols);
+    ASSERT(m_nHiddenCol != -1);
 
     int nShowCol = m_nHiddenCol;
     m_nHiddenCol = -1;
 
     int cxNew = m_pColInfo[m_nCols].nCurSize;
-    m_nCols++;  // add a column
+    m_nCols++; // add a column
 
-    ASSERT( m_nCols == m_nMaxCols );
+    ASSERT(m_nCols == m_nMaxCols);
 
     int nCol;
 
     // Show the hidden column
-    for( int nRow = 0; nRow < m_nRows; ++nRow )
+    for (int nRow = 0; nRow < m_nRows; ++nRow)
     {
-        CWnd* pPaneShow = GetDlgItem( AFX_IDW_PANE_FIRST+nRow * 16+m_nCols );
+        CWnd* pPaneShow = GetDlgItem(AFX_IDW_PANE_FIRST + nRow * 16 + m_nCols);
         ASSERT(pPaneShow != nullptr);
-        pPaneShow->ShowWindow( SW_SHOWNA );
+        pPaneShow->ShowWindow(SW_SHOWNA);
 
-        for( nCol = m_nCols - 2; nCol >= nShowCol; --nCol )
+        for (nCol = m_nCols - 2; nCol >= nShowCol; --nCol)
         {
-            CWnd* pPane = GetPane( nRow, nCol );
+            CWnd* pPane = GetPane(nRow, nCol);
             ASSERT(pPane != nullptr);
-            pPane->SetDlgCtrlID( IdFromRowCol( nRow, nCol + 1 ));
+            pPane->SetDlgCtrlID(IdFromRowCol(nRow, nCol + 1));
         }
 
-        pPaneShow->SetDlgCtrlID( IdFromRowCol( nRow, nShowCol ));
+        pPaneShow->SetDlgCtrlID(IdFromRowCol(nRow, nShowCol));
     }
 
     // new panes have been created -- recalculate layout
-    for( nCol = nShowCol+1; nCol < m_nCols; nCol++ )
+    for (nCol = nShowCol + 1; nCol < m_nCols; nCol++)
         m_pColInfo[nCol].nIdealSize = m_pColInfo[nCol - 1].nCurSize;
 
     m_pColInfo[nShowCol].nIdealSize = cxNew;
@@ -245,23 +246,23 @@ void CXSplitter::ShowColumn()
 void CXSplitter::CenterSplitter()
 {
     // get the size of all views
-    int width = 0;
+    int width  = 0;
     int height = 0;
-    for( int nRow = 0; nRow < m_nRows; ++nRow )
+    for (int nRow = 0; nRow < m_nRows; ++nRow)
     {
         height += m_pRowInfo[nRow].nCurSize;
     }
-    for( int nCol = 0; nCol < m_nCols; ++nCol )
+    for (int nCol = 0; nCol < m_nCols; ++nCol)
     {
         width += m_pColInfo[nCol].nCurSize;
     }
 
     // now set the sizes of the views
-    for( int nRow = 0; nRow < m_nRows; ++nRow )
+    for (int nRow = 0; nRow < m_nRows; ++nRow)
     {
         m_pRowInfo[nRow].nIdealSize = height / m_nRows;
     }
-    for( int nCol = 0; nCol < m_nCols; ++nCol )
+    for (int nCol = 0; nCol < m_nCols; ++nCol)
     {
         m_pColInfo[nCol].nIdealSize = width / m_nCols;
     }
@@ -269,7 +270,7 @@ void CXSplitter::CenterSplitter()
     CopyRowAndColInfo();
 }
 
-void CXSplitter::OnLButtonDblClk( UINT /*nFlags*/, CPoint /*point*/ )
+void CXSplitter::OnLButtonDblClk(UINT /*nFlags*/, CPoint /*point*/)
 {
     CenterSplitter();
 }
@@ -282,8 +283,10 @@ void CXSplitter::OnLButtonUp(UINT nFlags, CPoint point)
 
 void CXSplitter::CopyRowAndColInfo()
 {
-    delete [] m_pColOldSize; m_pColOldSize = nullptr;
-    delete [] m_pRowOldSize; m_pRowOldSize = nullptr;
+    delete[] m_pColOldSize;
+    m_pColOldSize = nullptr;
+    delete[] m_pRowOldSize;
+    m_pRowOldSize = nullptr;
 
     m_nOldCols = m_nCols;
     m_nOldRows = m_nRows;
@@ -299,4 +302,48 @@ void CXSplitter::CopyRowAndColInfo()
         for (int i = 0; i < m_nRows; ++i)
             m_pRowOldSize[i] = m_pRowInfo[i].nCurSize;
     }
+}
+
+void CXSplitter::OnDrawSplitter(CDC* pDC, ESplitType nType, const CRect& rectArg)
+{
+    if (!CTheme::Instance().IsDarkTheme())
+        return __super::OnDrawSplitter(pDC, nType, rectArg);
+    // if pDC == NULL, then just invalidate
+    if (pDC == NULL)
+    {
+        RedrawWindow(rectArg, NULL, RDW_INVALIDATE | RDW_NOCHILDREN);
+        return;
+    }
+    ASSERT_VALID(pDC);
+
+    // otherwise, actually draw
+    CRect rect = rectArg;
+    switch (nType)
+    {
+        case splitBorder:
+            pDC->Draw3dRect(rect, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_BTNSHADOW)), CTheme::Instance().GetThemeColor(GetSysColor(COLOR_BTNHILIGHT)));
+            rect.InflateRect(-AFX_CX_BORDER, -AFX_CY_BORDER);
+            pDC->Draw3dRect(rect, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWFRAME)), CTheme::Instance().GetThemeColor(GetSysColor(COLOR_BTNFACE)));
+            return;
+
+        case splitIntersection:
+            break;
+
+        case splitBox:
+            pDC->Draw3dRect(rect, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_BTNFACE)), CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWFRAME)));
+            rect.InflateRect(-AFX_CX_BORDER, -AFX_CY_BORDER);
+            pDC->Draw3dRect(rect, CTheme::Instance().GetThemeColor(GetSysColor(COLOR_BTNHIGHLIGHT)), CTheme::Instance().GetThemeColor(GetSysColor(COLOR_BTNSHADOW)));
+            rect.InflateRect(-AFX_CX_BORDER, -AFX_CY_BORDER);
+            break;
+
+        case splitBar:
+            break;
+
+        default:
+            ASSERT(FALSE); // unknown splitter type
+    }
+
+    // fill the middle
+    COLORREF clr = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_BTNFACE));
+    pDC->FillSolidRect(rect, clr);
 }
