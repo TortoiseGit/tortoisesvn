@@ -182,7 +182,6 @@ CBaseView::CBaseView()
         {
             SetTheme(CTheme::Instance().IsDarkTheme());
         });
-    SetTheme(CTheme::Instance().IsDarkTheme());
 }
 
 CBaseView::~CBaseView()
@@ -5162,6 +5161,10 @@ void CBaseView::SetTheme(bool bDark)
 {
     m_bDark = bDark || CTheme::Instance().IsHighContrastModeDark();
     DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), m_bDark);
+    if (m_bDark)
+        ModifyStyleEx(WS_EX_CLIENTEDGE, 0);
+    else
+        ModifyStyleEx(0, WS_EX_CLIENTEDGE);
     CDiffColors::GetInstance().LoadRegistry();
     BuildAllScreen2ViewVector();
     if (IsWindow(GetSafeHwnd()))
