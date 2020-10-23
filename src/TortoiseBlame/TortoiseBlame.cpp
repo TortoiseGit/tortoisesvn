@@ -38,6 +38,7 @@
 #include <regex>
 #include <strsafe.h>
 #include <VersionHelpers.h>
+#include <dwmapi.h>
 
 #pragma warning(push)
 #pragma warning(disable: 4458) // declaration of 'xxx' hides class member
@@ -55,6 +56,7 @@
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 #pragma comment(lib, "Shlwapi.lib")
+#pragma comment(lib, "Dwmapi.lib")
 
 // Global Variables:
 TCHAR        szTitle[MAX_LOADSTRING]       = {0}; // The title bar text
@@ -1447,6 +1449,7 @@ void TortoiseBlame::SetTheme(bool bDark)
         SendEditor(SCI_SETSELFORE, TRUE, ::GetSysColor(COLOR_HIGHLIGHTTEXT));
         SendEditor(SCI_SETSELBACK, TRUE, ::GetSysColor(COLOR_HIGHLIGHT));
     }
+    DarkModeHelper::Instance().RefreshTitleBarThemeColor(wMain, bDark);
     if (bDark || CTheme::Instance().IsHighContrastModeDark())
     {
         for (int c = 0; c <= STYLE_DEFAULT; ++c)

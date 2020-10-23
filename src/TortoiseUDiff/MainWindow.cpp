@@ -717,6 +717,7 @@ void CMainWindow::SetTheme(bool bDark)
         SetWindowTheme(*this, L"Explorer", nullptr);
         SetWindowTheme(m_hWndEdit, L"Explorer", nullptr);
     }
+    DarkModeHelper::Instance().RefreshTitleBarThemeColor(*this, bDark);
 
     if (bDark || CTheme::Instance().IsHighContrastModeDark())
     {
