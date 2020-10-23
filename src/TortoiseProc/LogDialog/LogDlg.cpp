@@ -3524,10 +3524,7 @@ void CLogDlg::OnNMCustomdrawLoglist(NMHDR* pNMHDR, LRESULT* pResult)
                 {
                     if (data->GetChangedPaths().ContainsSelfCopy())
                     {
-                        // only change the background color if the item is not 'hot' (on vista
-                        // with themes enabled)
-                        if (!IsAppThemed() ||
-                            ((pLVCD->nmcd.uItemState & CDIS_HOT) == 0))
+                        if (!IsAppThemed())
                             pLVCD->clrTextBk = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_MENU));
                     }
                     if (data->GetChangedPaths().ContainsCopies())
