@@ -39,7 +39,7 @@ void DarkModeHelper::AllowDarkModeForApp(BOOL allow)
     if (m_pAllowDarkModeForApp)
         m_pAllowDarkModeForApp(allow ? 1 : 0);
     if (m_pSetPreferredAppMode)
-        m_pSetPreferredAppMode(allow ? PreferredAppMode::AllowDark : PreferredAppMode::Default);
+        m_pSetPreferredAppMode(allow ? PreferredAppMode::ForceDark : PreferredAppMode::Default);
 }
 
 void DarkModeHelper::AllowDarkModeForWindow(HWND hwnd, BOOL allow)
@@ -50,9 +50,9 @@ void DarkModeHelper::AllowDarkModeForWindow(HWND hwnd, BOOL allow)
 
 BOOL DarkModeHelper::ShouldAppsUseDarkMode()
 {
-    if (m_pShouldAppsUseDarkMode)
+    if (m_pShouldAppsUseDarkMode && m_pAllowDarkModeForApp)
         return m_pShouldAppsUseDarkMode() & 0x01;
-    return FALSE;
+    return ShouldSystemUseDarkMode();
 }
 
 BOOL DarkModeHelper::IsDarkModeAllowedForWindow(HWND hwnd)
@@ -102,6 +102,12 @@ BOOL DarkModeHelper::SetWindowCompositionAttribute(HWND hWnd, WINDOWCOMPOSITIONA
     return FALSE;
 }
 
+void DarkModeHelper::RefreshTitleBarThemeColor(HWND hWnd, BOOL dark)
+{
+    WINDOWCOMPOSITIONATTRIBDATA data = {WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &dark, sizeof(dark)};
+    SetWindowCompositionAttribute(hWnd, &data);
+}
+
 DarkModeHelper::DarkModeHelper()
 {
     INITCOMMONCONTROLSEX used = {
@@ -110,7 +116,7 @@ DarkModeHelper::DarkModeHelper()
     InitCommonControlsEx(&used);
 
     m_bCanHaveDarkMode = false;
-    long  micro        = 0;
+    long micro         = 0;
     {
         auto                      version = CPathUtils::GetVersionFromFile(L"uxtheme.dll");
         std::vector<std::wstring> tokens;
