@@ -7938,7 +7938,7 @@ bool CLogDlg::CreateToolbar()
     // create an image list containing the icons for the toolbar
     const int iconSizeX = int(24 * CDPIAware::Instance().ScaleFactor(GetSafeHwnd()));
     const int iconSizeY = int(24 * CDPIAware::Instance().ScaleFactor(GetSafeHwnd()));
-    if (!m_toolbarImages.Create(iconSizeX, iconSizeY, ILC_COLOR32 | ILC_MASK, MONITORMODE_TOOLBARBUTTONCOUNT, 4))
+    if (!m_toolbarImages.Create(iconSizeX, iconSizeY, ILC_COLOR32 | ILC_MASK | ILC_HIGHQUALITYSCALE, MONITORMODE_TOOLBARBUTTONCOUNT, 4))
         return false;
     auto  iString        = ::SendMessage(m_hwndToolbar, TB_ADDSTRING,
                                  (WPARAM)AfxGetResourceHandle(), (LPARAM)IDS_MONITOR_TOOLBARTEXTS);
