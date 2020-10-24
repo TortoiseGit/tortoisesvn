@@ -153,7 +153,7 @@ void CThemeMFCButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
 
     if ((uiState & ODS_DISABLED) && m_bGrayDisabled)
     {
-        pDC->SetTextColor(GetGlobalData()->clrBtnHilite);
+        pDC->SetTextColor(CTheme::Instance().GetThemeColor(GetGlobalData()->clrBtnHilite));
 
         CRect rectShft = rectText;
         rectShft.OffsetRect(1, 1);
