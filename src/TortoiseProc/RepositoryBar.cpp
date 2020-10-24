@@ -27,11 +27,12 @@
 #include "CommonAppUtils.h"
 #include "DPIAware.h"
 
-#define IDC_URL_COMBO     10000
-#define IDC_REVISION_BTN  10001
-#define IDC_UP_BTN        10002
-#define IDC_BACK_BTN      10003
-#define IDC_FORWARD_BTN   10004
+#define IDC_URL_COMBO      10000
+#define IDC_REVISION_BTN   10001
+#define IDC_UP_BTN         10002
+#define IDC_BACK_BTN       10003
+#define IDC_FORWARD_BTN    10004
+#define IDC_REVISION_LABEL 10005
 
 IMPLEMENT_DYNAMIC(CRepositoryBar, CReBarCtrl)
 
@@ -41,8 +42,7 @@ CRepositoryBar::CRepositoryBar()
     , m_themeCallbackId(0)
 {
     m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
-        [this]()
-        {
+        [this]() {
             SetTheme(CTheme::Instance().IsDarkTheme());
         });
 }
@@ -59,7 +59,6 @@ BEGIN_MESSAGE_MAP(CRepositoryBar, CReBarCtrl)
     ON_BN_CLICKED(IDC_FORWARD_BTN, OnHistoryForward)
     ON_WM_DESTROY()
     ON_NOTIFY(CBEN_DRAGBEGIN, IDC_URL_COMBO, OnCbenDragbeginUrlcombo)
-    ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
 bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
@@ -68,8 +67,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
     ASSERT(parent != 0);
     parent->GetWindowRect(&rect);
 
-    DWORD style = WS_CHILD | WS_VISIBLE
-                | CCS_TOP | RBS_AUTOSIZE | RBS_VARHEIGHT;
+    DWORD style = WS_CHILD | WS_VISIBLE | CCS_TOP | RBS_AUTOSIZE | RBS_VARHEIGHT;
 
     DWORD style_ex = WS_EX_TOOLWINDOW | WS_EX_TRANSPARENT;
 
@@ -82,23 +80,23 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         style |= RBS_BANDBORDERS;
     }
 
-    if (CReBarCtrl::CreateEx(style_ex, style, CRect(0,0,200,100), parent, id))
+    if (CReBarCtrl::CreateEx(style_ex, style, CRect(0, 0, 200, 100), parent, id))
     {
-        CFont *font = parent->GetFont();
+        CFont*  font = parent->GetFont();
         CString temp;
 
         REBARINFO rbi = {0};
-        rbi.cbSize = sizeof rbi;
-        rbi.fMask  = 0;
-        rbi.himl   = (HIMAGELIST)0;
+        rbi.cbSize    = sizeof rbi;
+        rbi.fMask     = 0;
+        rbi.himl      = (HIMAGELIST)0;
 
         if (!this->SetBarInfo(&rbi))
             return false;
 
         REBARBANDINFO rbbi = {0};
-        rbbi.cbSize = REBARBANDINFO_V6_SIZE;
-        rbbi.fMask  = RBBIM_TEXT | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE;
-        rbbi.fStyle = RBBS_NOGRIPPER | RBBS_FIXEDBMP;
+        rbbi.cbSize        = REBARBANDINFO_V6_SIZE;
+        rbbi.fMask         = RBBIM_TEXT | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE;
+        rbbi.fStyle        = RBBS_NOGRIPPER | RBBS_FIXEDBMP;
 
         if (in_dialog)
             rbbi.fMask |= RBBIM_COLORS;
@@ -106,9 +104,9 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
             rbbi.fMask |= RBBS_CHILDEDGE;
         int bandpos = 0;
         // Create the "Back" button control to be added
-        auto size = CDPIAware::Instance().Scale(GetSafeHwnd(), 24);
+        auto size     = CDPIAware::Instance().Scale(GetSafeHwnd(), 24);
         auto iconSize = GetSystemMetrics(SM_CXSMICON);
-        rect = CRect(0, 0, size, size);
+        rect          = CRect(0, 0, size, size);
         m_btnBack.Create(L"BACK", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON | BS_ICON, rect, this, IDC_BACK_BTN);
         m_btnBack.SetImage(CCommonAppUtils::LoadIconEx(IDI_BACKWARD, iconSize, iconSize));
         m_btnBack.SetWindowText(L"");
@@ -175,12 +173,25 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         if (!InsertBand(bandpos++, &rbbi))
             return false;
 
+        rect = CRect(0, 0, CDPIAware::Instance().Scale(GetSafeHwnd(), 100), m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 10));
+        temp.LoadString(IDS_REPO_BROWSEREV);
+        m_revText.Create(temp, WS_CHILD | SS_RIGHT | SS_CENTERIMAGE, rect, this, IDC_REVISION_LABEL);
+        m_revText.SetFont(font);
+        rbbi.lpText     = L"";
+        rbbi.hwndChild  = m_revText.m_hWnd;
+        rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+        rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
+        rbbi.cx         = rect.Width();
+        rbbi.cxMinChild = rect.Width();
+        rbbi.cyMinChild = rect.Height();
+        if (!InsertBand(bandpos++, &rbbi))
+            return false;
+
         // Create the "Revision" button control to be added
         rect = CRect(0, 0, CDPIAware::Instance().Scale(GetSafeHwnd(), 60), m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 10));
         m_btnRevision.Create(L"HEAD", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON, rect, this, IDC_REVISION_BTN);
         m_btnRevision.SetFont(font);
-        temp.LoadString(IDS_REPO_BROWSEREV);
-        rbbi.lpText     = const_cast<LPTSTR>((LPCTSTR)temp);
+        rbbi.lpText     = L"";
         rbbi.hwndChild  = m_btnRevision.m_hWnd;
         rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
         rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
@@ -207,7 +218,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
     return false;
 }
 
-void CRepositoryBar::OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult)
+void CRepositoryBar::OnCbenDragbeginUrlcombo(NMHDR* pNMHDR, LRESULT* pResult)
 {
     if (m_pRepo)
         m_pRepo->OnCbenDragbeginUrlcombo(pNMHDR, pResult);
@@ -215,10 +226,10 @@ void CRepositoryBar::OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CRepositoryBar::ShowUrl(const CString& url, const SVNRev& rev)
 {
-    if (url.Find('?')>=0)
+    if (url.Find('?') >= 0)
     {
         m_url = url.Left(url.Find('?'));
-        m_rev = SVNRev(url.Mid(url.Find('?')+1));
+        m_rev = SVNRev(url.Mid(url.Find('?') + 1));
     }
     else
     {
@@ -251,8 +262,8 @@ void CRepositoryBar::GotoUrl(const CString& url, const SVNRev& rev, bool bAlread
     {
         return;
     }
-    CString new_url = url;
-    SVNRev new_rev = rev;
+    CString       new_url = url;
+    SVNRev        new_rev = rev;
     CWaitCursorEx wait;
 
     new_url.TrimRight('/');
@@ -262,9 +273,9 @@ void CRepositoryBar::GotoUrl(const CString& url, const SVNRev& rev, bool bAlread
         new_rev = GetCurrentRev();
         new_url.TrimRight('/');
     }
-    if (new_url.Find('?')>=0)
+    if (new_url.Find('?') >= 0)
     {
-        new_rev = SVNRev(new_url.Mid(new_url.Find('?')+1));
+        new_rev = SVNRev(new_url.Mid(new_url.Find('?') + 1));
         if (!new_rev.IsValid())
             new_rev = SVNRev::REV_HEAD;
         new_url = new_url.Left(new_url.Find('?'));
@@ -279,7 +290,7 @@ void CRepositoryBar::GotoUrl(const CString& url, const SVNRev& rev, bool bAlread
             ::MessageBox(GetSafeHwnd(), sErr, L"TortoiseSVN", MB_ICONERROR);
             return;
         }
-        SVNRev r = new_rev;
+        SVNRev r  = new_rev;
         m_headRev = SVNRev();
         m_pRepo->ChangeToUrl(new_url, r, bAlreadyChecked);
         if (new_rev.IsHead() && !r.IsHead())
@@ -360,7 +371,6 @@ bool CRepositoryBar::CRepositoryCombo::OnReturnKeyPressed()
     return true;
 }
 
-
 void CRepositoryBar::OnCbnSelEndOK()
 {
     if (!IsWindowVisible())
@@ -392,7 +402,7 @@ void CRepositoryBar::OnBnClicked()
     if (dlg.DoModal() == IDOK)
     {
         revision = dlg.GetEnteredRevisionString();
-        m_rev = SVNRev(revision);
+        m_rev    = SVNRev(revision);
         m_btnRevision.SetWindowText(SVNRev(revision).ToString());
         GotoUrl();
     }
@@ -401,7 +411,7 @@ void CRepositoryBar::OnBnClicked()
 void CRepositoryBar::OnGoUp()
 {
     CString sCurrentUrl = GetCurrentUrl();
-    CString sNewUrl = sCurrentUrl.Left(sCurrentUrl.ReverseFind('/'));
+    CString sNewUrl     = sCurrentUrl.Left(sCurrentUrl.ReverseFind('/'));
     if (sNewUrl.GetLength() >= m_pRepo->GetRepoRoot().GetLength())
         GotoUrl(sNewUrl, GetCurrentRev(), true);
 }
@@ -424,7 +434,6 @@ void CRepositoryBar::OnDestroy()
     }
     CReBarCtrl::OnDestroy();
 }
-
 
 BOOL CRepositoryBar::PreTranslateMessage(MSG* pMsg)
 {
@@ -456,8 +465,8 @@ void CRepositoryBar::SetTheme(bool bDark)
 
 ////////////////////////////////////////////////////////////////////////////////
 
-CRepositoryBarCnr::CRepositoryBarCnr(CRepositoryBar *repository_bar) :
-    m_pbarRepository(repository_bar)
+CRepositoryBarCnr::CRepositoryBarCnr(CRepositoryBar* repository_bar)
+    : m_pbarRepository(repository_bar)
 {
 }
 
@@ -466,24 +475,12 @@ CRepositoryBarCnr::~CRepositoryBarCnr()
 }
 
 BEGIN_MESSAGE_MAP(CRepositoryBarCnr, CStatic)
-    ON_WM_ERASEBKGND()
     ON_WM_SIZE()
     ON_WM_GETDLGCODE()
     ON_WM_KEYDOWN()
 END_MESSAGE_MAP()
 
 IMPLEMENT_DYNAMIC(CRepositoryBarCnr, CStatic)
-
-BOOL CRepositoryBarCnr::OnEraseBkgnd(CDC* pDC)
-{
-    if (CTheme::Instance().IsDarkTheme())
-    {
-        CRect rc;
-        GetClientRect(&rc);
-        pDC->FillSolidRect(&rc, RGB(0, 0, 0));
-    }
-    return TRUE;
-}
 
 void CRepositoryBarCnr::OnSize(UINT /* nType */, int cx, int cy)
 {
@@ -503,7 +500,7 @@ void CRepositoryBarCnr::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
     if (nChar == VK_TAB)
     {
-        CWnd *child = m_pbarRepository->GetWindow(GW_CHILD);
+        CWnd* child = m_pbarRepository->GetWindow(GW_CHILD);
         if (child != 0)
         {
             child = child->GetWindow(GW_HWNDLAST);
@@ -513,16 +510,4 @@ void CRepositoryBarCnr::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
     }
 
     CStatic::OnKeyDown(nChar, nRepCnt, nFlags);
-}
-
-BOOL CRepositoryBar::OnEraseBkgnd(CDC* pDC)
-{
-    if (CTheme::Instance().IsDarkTheme())
-    {
-        CRect rc;
-        GetClientRect(&rc);
-        pDC->FillSolidRect(&rc, RGB(0, 0, 0));
-        return true;
-    }
-    return CReBarCtrl::OnEraseBkgnd(pDC);
 }

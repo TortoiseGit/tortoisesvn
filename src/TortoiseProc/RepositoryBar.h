@@ -121,7 +121,6 @@ protected:
     afx_msg void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHistoryBack();
     afx_msg void OnHistoryForward();
-    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 
     DECLARE_MESSAGE_MAP()
 
@@ -145,6 +144,7 @@ private:
     CThemeMFCButton m_btnUp;
     CThemeMFCButton m_btnBack;
     CThemeMFCButton m_btnForward;
+    CStatic m_revText;
 
     SVNRev  m_headRev;
     CToolTips m_tooltips;
@@ -168,7 +168,6 @@ public:
 
     // Generated message map functions
 protected:
-    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
     afx_msg void OnSize(UINT nType, int cx, int cy);
     afx_msg UINT OnGetDlgCode();
     afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
