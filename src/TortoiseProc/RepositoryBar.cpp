@@ -173,25 +173,32 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         if (!InsertBand(bandpos++, &rbbi))
             return false;
 
-        rect = CRect(0, 0, CDPIAware::Instance().Scale(GetSafeHwnd(), 100), m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 10));
-        temp.LoadString(IDS_REPO_BROWSEREV);
-        m_revText.Create(temp, WS_CHILD | SS_RIGHT | SS_CENTERIMAGE, rect, this, IDC_REVISION_LABEL);
-        m_revText.SetFont(font);
-        rbbi.lpText     = L"";
-        rbbi.hwndChild  = m_revText.m_hWnd;
-        rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
-        rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
-        rbbi.cx         = rect.Width();
-        rbbi.cxMinChild = rect.Width();
-        rbbi.cyMinChild = rect.Height();
-        if (!InsertBand(bandpos++, &rbbi))
-            return false;
+        if (CTheme::Instance().IsDarkTheme())
+        {
+            rect = CRect(0, 0, CDPIAware::Instance().Scale(GetSafeHwnd(), 100), m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 10));
+            temp.LoadString(IDS_REPO_BROWSEREV);
+            m_revText.Create(temp, WS_CHILD | SS_RIGHT | SS_CENTERIMAGE, rect, this, IDC_REVISION_LABEL);
+            m_revText.SetFont(font);
+            rbbi.lpText     = L"";
+            rbbi.hwndChild  = m_revText.m_hWnd;
+            rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+            rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
+            rbbi.cx         = rect.Width();
+            rbbi.cxMinChild = rect.Width();
+            rbbi.cyMinChild = rect.Height();
+            if (!InsertBand(bandpos++, &rbbi))
+                return false;
+        }
 
         // Create the "Revision" button control to be added
         rect = CRect(0, 0, CDPIAware::Instance().Scale(GetSafeHwnd(), 60), m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 10));
         m_btnRevision.Create(L"HEAD", WS_CHILD | WS_TABSTOP | BS_PUSHBUTTON, rect, this, IDC_REVISION_BTN);
         m_btnRevision.SetFont(font);
-        rbbi.lpText     = L"";
+        temp.LoadString(IDS_REPO_BROWSEREV);
+        if (CTheme::Instance().IsDarkTheme())
+            rbbi.lpText = L"";
+        else
+            rbbi.lpText = temp.GetBuffer();
         rbbi.hwndChild  = m_btnRevision.m_hWnd;
         rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
         rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
