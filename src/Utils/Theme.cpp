@@ -153,6 +153,7 @@ bool CTheme::SetThemeForDialog(HWND hWnd, bool bDark)
     {
         RemoveWindowSubclass(hWnd, MainSubclassProc, SubclassID);
     }
+    AdjustThemeForChildrenProc(hWnd, bDark ? TRUE : FALSE);
     EnumChildWindows(hWnd, AdjustThemeForChildrenProc, bDark ? TRUE : FALSE);
     EnumThreadWindows(GetCurrentThreadId(), AdjustThemeForChildrenProc, bDark ? TRUE : FALSE);
     ::RedrawWindow(hWnd, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
@@ -279,6 +280,10 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
             SendMessage(hwnd, PBM_SETBKCOLOR, 0, (LPARAM)darkBkColor);
             SendMessage(hwnd, PBM_SETBARCOLOR, 0, (LPARAM)RGB(50, 50, 180));
         }
+        else if (wcscmp(szWndClassName, REBARCLASSNAME) == 0)
+        {
+            SetWindowTheme(hwnd, L"DarkModeNavBar", nullptr);
+        }
         else if (wcscmp(szWndClassName, L"Auto-Suggest Dropdown") == 0)
         {
             SetWindowTheme(hwnd, L"Explorer", nullptr);
@@ -403,6 +408,10 @@ BOOL CTheme::AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam)
         else if (wcscmp(szWndClassName, PROGRESS_CLASS) == 0)
         {
             SetWindowTheme(hwnd, nullptr, nullptr);
+        }
+        else if (wcscmp(szWndClassName, REBARCLASSNAME) == 0)
+        {
+            SetWindowTheme(hwnd, L"Explorer", nullptr);
         }
         else if (wcscmp(szWndClassName, L"Auto-Suggest Dropdown") == 0)
         {
