@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2015 - TortoiseSVN
+// Copyright (C) 2010-2015, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -434,11 +434,14 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                                 m_externals[index].root = svn.GetRepositoryRoot(path_);
                             }
                             auto fullurl = CTSVNPath(m_externals[index].fullurl);
-                            auto youngestRev = logHelper.GetYoungestRev(fullurl);
-                            if (!youngestRev.IsValid())
-                                m_externals[index].headrev = svn.GetHEADRevision(fullurl, true);
-                            else
-                                m_externals[index].headrev = youngestRev;
+                            if (!fullurl.IsEmpty())
+                            {
+                                auto youngestRev = logHelper.GetYoungestRev(fullurl);
+                                if (!youngestRev.IsValid())
+                                    m_externals[index].headrev = svn.GetHEADRevision(fullurl, true);
+                                else
+                                    m_externals[index].headrev = youngestRev;
+                            }
                         }
                     }
                 }

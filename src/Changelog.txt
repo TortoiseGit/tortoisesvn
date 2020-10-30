@@ -18,6 +18,8 @@
        list of the log dialog failed if the path
        wasn't a child of the path the log dialog
        was shown for. (Stefan)
+- BUG: crash when updating an external with an
+       invalid/non-existing URL. (Stefan)
 
 Version 1.14.0
 See the release notes: https://tortoisesvn.net/tsvn_1.14_releasenotes.html
