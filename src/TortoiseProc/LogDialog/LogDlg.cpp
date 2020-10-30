@@ -2525,10 +2525,13 @@ void CLogDlg::NotifyTargetOnOk()
     }
     if (!bSentMessage)
     {
-        m_pNotifyWindow->SendMessage(WM_REVSELECTED,
-                                     m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
-        m_pNotifyWindow->SendMessage(WM_REVSELECTED,
-                                     m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
+        if (m_selectedRevs.GetCount() > 0)
+        {
+            m_pNotifyWindow->SendMessage(WM_REVSELECTED,
+                m_wParam & (MERGE_REVSELECTSTART | MERGE_REVSELECTMINUSONE), lowerRev);
+            m_pNotifyWindow->SendMessage(WM_REVSELECTED,
+                m_wParam & (MERGE_REVSELECTEND | MERGE_REVSELECTMINUSONE), higherRev);
+        }
         m_pNotifyWindow->SendMessage(WM_REVLIST,
                                      m_selectedRevs.GetCount(), (LPARAM)&m_selectedRevs);
         if (m_selectedRevsOneRange.GetCount())
