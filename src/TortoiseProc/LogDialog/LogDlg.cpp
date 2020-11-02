@@ -3793,7 +3793,7 @@ CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pLV
     // Fill the background
     if (IsAppThemed())
     {
-        HTHEME hTheme = OpenThemeData(m_hWnd, L"ListView");
+        HTHEME hTheme = OpenThemeData(m_hWnd, L"Explorer");
         OnOutOfScope(CloseThemeData(hTheme));
 
         int state = LISS_NORMAL;
