@@ -27,6 +27,7 @@
 #define _WIN32_WINNT_WINTHRESHOLD 0x0A00
 #define  IsWindows10OrGreater() (IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0))
 #endif
+using namespace Gdiplus;
 
 
 enum ControlType
