@@ -13,6 +13,7 @@
 # ABE Tsunehiko, 2015
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
 # Diego Búrigo Zacarão <diegobz@indifex.com>, 2011
+# tadasu <elsee9@me.com>, 2020
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2008
 # Ilias-Dimitrios Vrachnis, 2013
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
@@ -22,7 +23,7 @@
 # 藤本理弘 <mfujimot@gmail.com>, 2016-2017
 # Nozomu Kaneko <nozom.kaneko@gmail.com>, 2013
 # Osamu NAKAMURA, 2013
-# タカハシ <indexial@outlook.jp>, 2013
+# タカハシ, 2013
 # Ratnadeep Debnath <rtnpro@transifex.com>, 2012
 # Shinya Okano <tokibito@gmail.com>, 2011
 # Tadashi Jokagi <elf@elf.no-ip.org>, 2011
@@ -37,8 +38,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-17 13:41+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-10-09 03:06+0000\n"
+"Last-Translator: tadasu <elsee9@me.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -654,11 +655,11 @@ msgstr "カスタム(&C)"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode"
-msgstr ""
+msgstr "ダークモード(&D)"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode\t(D)"
-msgstr ""
+msgstr "ダークモード\t(&D)"
 
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
@@ -1580,7 +1581,7 @@ msgstr "未使用のコピーを削除(&V)"
 
 #. Resource IDs: (1674)
 msgid "&Version"
-msgstr ""
+msgstr "バージョン(&V)"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
@@ -2916,7 +2917,7 @@ msgstr "色"
 #. Resource IDs: (IDS_INDICATOR_COLUMN)
 #, c-format
 msgid "Column: %d"
-msgstr ""
+msgstr "列: %d"
 
 #. Resource IDs: (3506)
 msgid "Command"
@@ -3583,13 +3584,13 @@ msgstr "詳細(&E)"
 
 #. Resource IDs: (1682)
 msgid "Dark theme"
-msgstr ""
+msgstr "ダークテーマ"
 
 #. Resource IDs: (1683)
 msgid ""
 "Dark theme requires at least Win10 1803, and it must be enabled in the "
 "Windows system settings."
-msgstr ""
+msgstr "ダークテーマは Windows 10 1803 以降が必要で、Windows システム設定で有効にします。"
 
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
@@ -4822,23 +4823,23 @@ msgstr "最新リビジョンを探す"
 
 #. Resource IDs: (cmdFindNext_LabelTitle_RESID)
 msgid "Find Next"
-msgstr ""
+msgstr "次を検索"
 
 #. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
 msgid "Find Previous"
-msgstr ""
+msgstr "前を検索"
 
 #. Resource IDs: (cmdFindPrev)
 msgid ""
 "Find the last occurrence of the selected text\n"
 "Search Previous"
-msgstr ""
+msgstr "選択したテキストが最後に出現する箇所を検索\n前を検索"
 
 #. Resource IDs: (cmdFindNext)
 msgid ""
 "Find the next occurrence of the selected text\n"
 "Search Next"
-msgstr ""
+msgstr "選択したテキストが次に出現する箇所を検索\n次を検索"
 
 #. Resource IDs: (cmdFind)
 msgid ""
@@ -10317,7 +10318,7 @@ msgstr "URL: "
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
-msgstr ""
+msgstr "リビジョン付きの URL"
 
 #. Resource IDs: (1209)
 msgid "Un&modified"
@@ -10669,7 +10670,7 @@ msgstr "両方のテキストブロックを使用（こちらを後にする）
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 1513)
 msgid "Use dark mode"
-msgstr ""
+msgstr "ダークモードを使用"
 
 #. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
 #. cmdUseLeftBlock_LabelTitle_RESID)
@@ -10817,11 +10818,11 @@ msgstr "V"
 
 #. Resource IDs: (1680)
 msgid "V2: Faster, no server connection required (recommended)"
-msgstr ""
+msgstr "V2: 高速、サーバー接続が不要 (推奨)"
 
 #. Resource IDs: (1681)
 msgid "V3: Slower, requires server connection."
-msgstr ""
+msgstr "V3: 低速、サーバー接続が必要"
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""

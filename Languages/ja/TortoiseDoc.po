@@ -13,6 +13,7 @@
 # ABE Tsunehiko, 2015,2017
 # ABE Tsunehiko, 2015,2017
 # Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2011-2012
+# tadasu <elsee9@me.com>, 2020
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
@@ -27,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-07-11 00:23+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-10-24 15:33+0000\n"
+"Last-Translator: tadasu <elsee9@me.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -301,7 +302,7 @@ msgid ""
 "url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "ほとんどの人はただインストーラーをダウンロードしますが、このプログラムのソースコードへの完全な読み取りアクセスもできます。こちらのリンク <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink> から見ることができます。現在の開発ラインは <filename>/trunk/</filename> 以下にあり、リリースされたバージョンは <filename>/tags/</filename> 以下にあります。"
 
 #. (title)
 msgid "Development"
@@ -498,7 +499,7 @@ msgid ""
 "The <xref linkend=\"tsvn-projectmonitor\"/> explains how you can monitor "
 "your Subversion projects so you don't miss important commits from your other"
 " team members."
-msgstr ""
+msgstr "<xref linkend=\"tsvn-projectmonitor\"/> は、あなたがチームの他のメンバーからの重要なコミットを見逃さないように Subversion プロジェクトをモニターする方法を説明しています。"
 
 #. (para)
 msgid ""
@@ -4938,7 +4939,7 @@ msgid ""
 "you should commit the changes you have done so far and then start working on"
 " the urgent issue, but often those changes would break the build or are just"
 " not ready for committing yet."
-msgstr ""
+msgstr "望んでいなくても、今までの作業を中断し、他の作業に取り掛からなくてはならないことがあります。例えば、すぐ対処が必要な深刻な問題が発生し、新機能に関する作業を中断しなければならない場合などです。可能であれば、完了した変更をコミットしてから緊急の課題に取り掛かるべきですが、しばしばそれらの変更はビルドを破壊したり、そもそもまだコミットできる状態ではなかったりします。"
 
 #. (para)
 msgid ""
@@ -7618,7 +7619,7 @@ msgid ""
 "Adjusts the recorded time stamps of all files, speeding up future status "
 "checks. This can speed up all dialogs that show working copy file lists, for"
 " example the Commit dialog."
-msgstr ""
+msgstr "全てのファイルの記録されたタイムスタンプを調整し、将来の状態チェックを高速化します。これは例えばコミットダイアログのような、作業コピーのファイルリストを表示するすべてのダイアログを高速化します。"
 
 #. (term)
 msgid "Vacuum pristine copies"
@@ -8160,7 +8161,7 @@ msgid ""
 "url=\"https://docs.microsoft.com/en-us/windows/desktop/intl/language-"
 "identifier-constants-and-strings\"><citetitle>MSDN: Language "
 "Identifiers</citetitle></ulink>."
-msgstr ""
+msgstr "TortoiseSVN はスペルチェッカーを使用できます。Windows 10 では OS のスペルチェッカーが使用されます。それ以前のバージョンの Windows では、OpenOffice や Mozilla で使用されているスペルチェッカーモジュールを使用できます。もしもこれらがインストールされている場合、このプロパティーはどのスペルチェッカーを使用するか、すなわち、どの言語であなたのプロジェクトのログメッセージが書かれるかを決定します。<literal>tsvn:projectlanguage</literal>は、あなたがログメッセージを入力する際にスペルチェックエンジンが使用すべき言語モジュールを設定します。こちらのページ<ulink url=\"https://docs.microsoft.com/ja-jp/windows/desktop/intl/language-identifier-constants-and-strings\"><citetitle>MSDN: Language Identifies</citetitle></ulink>であなたの言語用の設定値を探すことができます。"
 
 #. (para)
 msgid ""
@@ -13074,23 +13075,23 @@ msgstr ""
 
 #. (term)
 msgid "V2"
-msgstr ""
+msgstr "V2"
 
 #. (para)
 msgid ""
 "this version is much faster than <literal>V3</literal> and is the "
 "recommended version to use."
-msgstr ""
+msgstr "このバージョンは<literal>V3</literal>よりもずっと高速で、使用を推奨します。"
 
 #. (para)
 msgid ""
 "However, the speed comes at a prize: <literal>V2</literal> does not handle "
 "directory changes, and can't handle copies and moves of files."
-msgstr ""
+msgstr "しかし、速度は犠牲も伴い、<literal>V2</literal>はディレクトリの変更を扱わず、ファイルのコピーや移動も扱うことができません。"
 
 #. (term)
 msgid "V3"
-msgstr ""
+msgstr "V3"
 
 #. (para)
 msgid ""
@@ -13103,7 +13104,7 @@ msgid ""
 "However, <literal>V3</literal> is much slower than <literal>V2</literal> and"
 " can be unusably slow for big repositories or if you have a slow connection "
 "to the repository."
-msgstr ""
+msgstr "しかし、<literal>V3</literal>は<literal>V2</literal>よりもずっと低速で、大きなリポジトリやリポジトリへの接続が遅い場合、使用に耐えないこともあり得ます。"
 
 #. (para)
 msgid ""
@@ -13227,18 +13228,18 @@ msgstr "ログダイアログで絞り込みをする際、検索語は検索結
 
 #. (term)
 msgid "Dark theme"
-msgstr ""
+msgstr "ダークテーマ"
 
 #. (para)
 msgid ""
 "The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
 "and later. This feature also requires that dark mode for applications is "
 "enabled in the Windows 10 settings."
-msgstr ""
+msgstr "Windows 10 1809 以降、TortoiseSVN のダイアログをダークモードで表示させることができます。この機能は Windows 10 の設定でアプリケーションのダークモードの有効化が必要です。"
 
 #. (para)
 msgid "Note that not all controls in all dialogs are shown in a dark theme."
-msgstr ""
+msgstr "全てのダイアログの全てのコントロールがダークテーマで表示されるわけではないことに注意してください。"
 
 #. (para)
 msgid "other settings: <placeholder-1/>"
@@ -17118,7 +17119,7 @@ msgid ""
 " and <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev</citetitle></ulink>"
-msgstr ""
+msgstr "TortoiseSVN は常に開発が行われているため、ドキュメントを完全に最新の状態に維持するのは困難なこともあります。私たちは TortoiseSVN のメーリングリストである <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> や <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink> でよく尋ねられる質問を含む <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>オンラインFAQ</citetitle></ulink> を整備しています。"
 
 #. (para)
 msgid ""
@@ -21387,7 +21388,7 @@ msgstr "空白を表す文字を、通常のテキストとは別の色で表示
 
 #. (term)
 msgid "Use dark mode"
-msgstr ""
+msgstr "ダークモードを使用"
 
 #. (listitem)
 msgid ""

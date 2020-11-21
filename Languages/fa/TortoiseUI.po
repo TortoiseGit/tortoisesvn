@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# A.Mehraban <Mehr.Ban@chmail.ir>, 2020
 # Ebrahim Byagowi, 2012
 # Ehsan Alimohammadi <alimohamadi.eh@gmail.com>, 2016
 # Emad Farrokhi <emadfh@gmail.com>, 2015
@@ -22,8 +23,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-17 13:41+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-09-08 16:27+0000\n"
+"Last-Translator: A.Mehraban <Mehr.Ban@chmail.ir>\n"
 "Language-Team: Persian (http://www.transifex.com/luebbe/tortoisesvn/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,7 +123,7 @@ msgstr "%1!ls! : پایه کاری, اصلاحیه %2!ld!"
 #. Resource IDs: (3667)
 #, c-format
 msgid "%1!ls! from %2!ls!"
-msgstr ""
+msgstr "%1!ls! از %2!ls!"
 
 #. Resource IDs: (3603)
 #, c-format
@@ -132,7 +133,7 @@ msgstr "%1!ls! با %2!ls!"
 #. Resource IDs: (5703)
 #, c-format
 msgid "%1!ls!, %2!ls!"
-msgstr ""
+msgstr "%1!ls!، %2!ls!"
 
 #. Resource IDs: (2316)
 #, c-format
@@ -205,12 +206,12 @@ msgstr "%Ts [بازیابی شد]"
 msgid ""
 "%Ts\n"
 "%Ts"
-msgstr ""
+msgstr "%Ts\n%Ts"
 
 #. Resource IDs: (1022)
 #, c-format
 msgid "%d projects have updates:"
-msgstr ""
+msgstr "%d پروژه دارای به‌روزرسانی است:"
 
 #. Resource IDs: (IDS_ALPHABUTTONTT)
 #, c-format
@@ -316,7 +317,7 @@ msgstr "&دربارهٔ TortoiseMerge..."
 msgid ""
 "&Accept the certificate\n"
 "The certificate is accepted only this one time."
-msgstr ""
+msgstr "&قبول شرایط\nگواهی فقط این یکبار پذیرفته می‌شود."
 
 #. Resource IDs: (229)
 msgid "&Add"
@@ -330,7 +331,7 @@ msgstr "افزودن فیلتر"
 msgid ""
 "&Add item\n"
 "This will lead to problems on Windows."
-msgstr ""
+msgstr "&افزودن مورد\nاین امر منجر به بروز مشکلاتی در ویندوز خواهد شد."
 
 #. Resource IDs: (1098, 124)
 msgid "&Add..."
@@ -639,11 +640,11 @@ msgstr "&سفارشی"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode"
-msgstr ""
+msgstr "&حالت تاریک"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode\t(D)"
-msgstr ""
+msgstr "&حالت تاریک\t(D)"
 
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
@@ -793,7 +794,7 @@ msgstr "&جستجو"
 
 #. Resource IDs: (ID_EDIT_FIND - Menu)
 msgid "&Find...\t(Ctrl+F)"
-msgstr ""
+msgstr "&جستجو ...\t(Ctrl+F)"
 
 #. Resource IDs: (ID_VIEW_FITIMAGESINWINDOW - Menu)
 msgid "&Fit images in window\t(F)"
@@ -833,7 +834,7 @@ msgstr "&از: (آدرس و اصلاحیهٔ شروع محدودهٔ‌ ادغا
 
 #. Resource IDs: (ID_EDIT_GOTOLINE - Menu)
 msgid "&Go To Line...\t(Ctrl+G)"
-msgstr ""
+msgstr "&رفتن به خطِ ...\t(Ctrl+G)"
 
 #. Resource IDs: (32799 - Menu)
 msgid "&Group by branch"
@@ -1094,7 +1095,7 @@ msgstr "&بازکردن"
 
 #. Resource IDs: (ID_FILE_OPEN - Menu)
 msgid "&Open\t(Ctrl+O)"
-msgstr ""
+msgstr "&بازکردن\t(Ctrl+O)"
 
 #. Resource IDs: (1602)
 msgid "&Operative:"
@@ -1106,7 +1107,7 @@ msgstr "&تنظیمات"
 
 #. Resource IDs: (32849 - Menu)
 msgid "&Other"
-msgstr ""
+msgstr "&سایر"
 
 #. Resource IDs: (ID_VIEW_OVERLAPIMAGES - Menu)
 msgid "&Overlay images\t(O)"
