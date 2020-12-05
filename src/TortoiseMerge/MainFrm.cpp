@@ -39,6 +39,7 @@
 #include "StringUtils.h"
 #include "Windows10Colors.h"
 #include "DarkModeHelper.h"
+#include "Monitor.h"
 #include "ThemeMFCVisualManager.h"
 
 #ifdef _DEBUG
@@ -2138,8 +2139,9 @@ void CMainFrame::ActivateFrame(int nCmdShow)
 
 BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
 {
-    CRegString placement = CRegString(L"Software\\TortoiseMerge\\WindowPos");
-    CString sPlacement = placement;
+    auto       monHash    = GetMonitorSetupHash();
+    CRegString placement  = CRegString(CString(L"Software\\TortoiseMerge\\WindowPos_") + monHash.c_str());
+    CString    sPlacement = placement;
     if (sPlacement.IsEmpty())
         return FALSE;
     int nRead = _stscanf_s(sPlacement, L"%u,%u,%d,%d,%d,%d,%d,%d,%d,%d",
@@ -2157,8 +2159,9 @@ BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
 
 void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
 {
-    CRegString placement(L"Software\\TortoiseMerge\\WindowPos");
-    TCHAR szBuffer[_countof("-32767")*8 + sizeof("65535")*2];
+    auto       monHash = GetMonitorSetupHash();
+    CRegString placement(CString(L"Software\\TortoiseMerge\\WindowPos_") + monHash.c_str());
+    TCHAR      szBuffer[_countof("-32767") * 8 + sizeof("65535") * 2];
 
     swprintf_s(szBuffer, L"%u,%u,%d,%d,%d,%d,%d,%d,%d,%d",
             pwp->flags, pwp->showCmd,

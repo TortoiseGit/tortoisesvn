@@ -161,6 +161,7 @@
     <ClCompile Include="..\Utils\DebugOutput.cpp" />
     <ClCompile Include="..\Utils\DirFileEnum.cpp" />
     <ClCompile Include="..\Utils\DragDropImpl.cpp" />
+    <ClCompile Include="..\Utils\Hash.cpp" />
     <ClCompile Include="..\Utils\LoadIconEx.cpp" />
     <ClCompile Include="..\Utils\MiscUI\AeroControls.cpp" />
     <ClCompile Include="..\Utils\MiscUI\BrowseFolder.cpp" />
@@ -178,6 +179,7 @@
     <ClCompile Include="..\Utils\MiscUI\ThemeMFCVisualManager.cpp" />
     <ClCompile Include="..\Utils\MiscUI\Tooltip.cpp" />
     <ClCompile Include="..\Utils\MiscUI\WaterEffect.cpp" />
+    <ClCompile Include="..\Utils\Monitor.cpp" />
     <ClCompile Include="..\Utils\PathUtils.cpp" />
     <ClCompile Include="..\Utils\PreserveChdir.cpp" />
     <ClCompile Include="..\Utils\ProfilingInfo.cpp" />
@@ -240,6 +242,7 @@
     <ClInclude Include="..\Utils\DirFileEnum.h" />
     <ClInclude Include="..\Utils\DpiScale.h" />
     <ClInclude Include="..\Utils\DragDropImpl.h" />
+    <ClInclude Include="..\Utils\Hash.h" />
     <ClInclude Include="..\Utils\LoadIconEx.h" />
     <ClInclude Include="..\Utils\MiscUI\AeroControls.h" />
     <ClInclude Include="..\Utils\MiscUI\BrowseFolder.h" />
@@ -259,6 +262,7 @@
     <ClInclude Include="..\Utils\MiscUI\Tooltip.h" />
     <ClInclude Include="..\Utils\MiscUI\TripleClick.h" />
     <ClInclude Include="..\Utils\MiscUI\WaterEffect.h" />
+    <ClInclude Include="..\Utils\Monitor.h" />
     <ClInclude Include="..\Utils\PathUtils.h" />
     <ClInclude Include="..\Utils\PreserveChdir.h" />
     <ClInclude Include="..\Utils\ProfilingInfo.h" />

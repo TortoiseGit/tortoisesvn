@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "resource.h"
 #include "StandAloneDlg.h"
+#include "Monitor.h"
 
 #pragma comment(lib, "Dwmapi.lib")
 
@@ -475,4 +476,21 @@ LRESULT CResizableStandAloneDialog::OnNcHitTest(CPoint point)
     }
 
     return ht;
+}
+
+// overloaded method, but since this dialog class is for non-resizable dialogs,
+// the bHorzResize and bVertResize params are ignored and passed as false
+// to the base method.
+
+void CStateDialog::EnableSaveRestore(LPCWSTR pszSection, bool bRectOnly, BOOL bHorzResize, BOOL bVertResize)
+{
+    UNREFERENCED_PARAMETER(bHorzResize);
+    UNREFERENCED_PARAMETER(bVertResize);
+    m_sSection = CString(pszSection) + GetMonitorSetupHash().c_str();
+
+    m_bEnableSaveRestore = true;
+    m_bRectOnly          = bRectOnly;
+
+    // restore immediately
+    LoadWindowRect(m_sSection, bRectOnly, false, false);
 }

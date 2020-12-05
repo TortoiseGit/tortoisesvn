@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2012, 2014-2015, 2020 - TortoiseSVN
 // Copyright (C) 2011-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -23,6 +23,7 @@
 #include "CmdLineParser.h"
 #include "TaskbarUUID.h"
 #include "LangDll.h"
+#include "Monitor.h"
 #include "../Utils/CrashReport.h"
 
 #include <algorithm>
@@ -75,7 +76,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
         return FALSE;
 
     CMainWindow mainWindow(hResource);
-    mainWindow.SetRegistryPath(L"Software\\TortoiseSVN\\UDiffViewerWindowPos");
+    auto        monHash = GetMonitorSetupHash();
+    mainWindow.SetRegistryPath(L"Software\\TortoiseSVN\\UDiffViewerWindowPos_" + monHash);
     if (parser.HasVal(L"title"))
         mainWindow.SetTitle(parser.GetVal(L"title"));
     else if (parser.HasVal(L"patchfile"))

@@ -38,6 +38,7 @@
 #define DIALOG_BLOCKHORIZONTAL 1
 #define DIALOG_BLOCKVERTICAL 2
 
+std::wstring GetMonitorSetupHash();
 
 /**
  * \ingroup TortoiseProc
@@ -362,12 +363,13 @@ protected:
         m_nResizeBlock = block;
     }
 
-    void EnableSaveRestore(LPCTSTR pszSection, bool bRectOnly = FALSE)
+    void EnableSaveRestore(LPCWSTR pszSection, bool bRectOnly = FALSE)
     {
         // call the base method with the bHorzResize and bVertResize parameters
         // figured out from the resize block flags.
-        BaseType::EnableSaveRestore(pszSection, bRectOnly, (m_nResizeBlock&DIALOG_BLOCKHORIZONTAL) == 0, (m_nResizeBlock&DIALOG_BLOCKVERTICAL) == 0);
-    };
+        std::wstring monitorSetupSection = pszSection + GetMonitorSetupHash();
+        BaseType::EnableSaveRestore(monitorSetupSection.c_str(), bRectOnly, (m_nResizeBlock & DIALOG_BLOCKHORIZONTAL) == 0, (m_nResizeBlock & DIALOG_BLOCKVERTICAL) == 0);
+    }
 
     void SetTheme(bool bDark);
 
@@ -456,19 +458,7 @@ protected:
     // overloaded method, but since this dialog class is for non-resizable dialogs,
     // the bHorzResize and bVertResize params are ignored and passed as false
     // to the base method.
-    void EnableSaveRestore(LPCTSTR pszSection, bool bRectOnly = FALSE, BOOL bHorzResize = TRUE, BOOL bVertResize = TRUE)
-    {
-        UNREFERENCED_PARAMETER(bHorzResize);
-        UNREFERENCED_PARAMETER(bVertResize);
-
-        m_sSection = pszSection;
-
-        m_bEnableSaveRestore = true;
-        m_bRectOnly = bRectOnly;
-
-        // restore immediately
-        LoadWindowRect(pszSection, bRectOnly, false, false);
-    };
+    void EnableSaveRestore(LPCWSTR pszSection, bool bRectOnly = FALSE, BOOL bHorzResize = TRUE, BOOL bVertResize = TRUE);
     virtual ULONG GetGestureStatus(CPoint /*ptTouch*/) override
     {
         return 0;

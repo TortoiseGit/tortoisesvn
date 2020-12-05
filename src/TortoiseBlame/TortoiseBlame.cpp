@@ -32,6 +32,7 @@
 #include "LoadIconEx.h"
 #include "Theme.h"
 #include "DarkModeHelper.h"
+#include "Monitor.h"
 
 #include <algorithm>
 #include <cctype>
@@ -2106,9 +2107,10 @@ BOOL InitInstance(HINSTANCE hResource, int nCmdShow)
         return FALSE;
     }
 
-    CRegStdDWORD pos(L"Software\\TortoiseSVN\\TBlamePos", 0);
-    CRegStdDWORD width(L"Software\\TortoiseSVN\\TBlameSize", 0);
-    CRegStdDWORD state(L"Software\\TortoiseSVN\\TBlameState", 0);
+    auto         monHash = GetMonitorSetupHash();
+    CRegStdDWORD pos(L"Software\\TortoiseSVN\\TBlamePos" + monHash, 0);
+    CRegStdDWORD width(L"Software\\TortoiseSVN\\TBlameSize" + monHash, 0);
+    CRegStdDWORD state(L"Software\\TortoiseSVN\\TBlameState" + monHash, 0);
     if (DWORD(pos) && DWORD(width))
     {
         RECT rc;
@@ -2409,9 +2411,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             break;
         case WM_CLOSE:
         {
-            CRegStdDWORD pos(L"Software\\TortoiseSVN\\TBlamePos", 0);
-            CRegStdDWORD width(L"Software\\TortoiseSVN\\TBlameSize", 0);
-            CRegStdDWORD state(L"Software\\TortoiseSVN\\TBlameState", 0);
+            auto         monHash = GetMonitorSetupHash();
+            CRegStdDWORD pos(L"Software\\TortoiseSVN\\TBlamePos_" + monHash, 0);
+            CRegStdDWORD width(L"Software\\TortoiseSVN\\TBlameSize_" + monHash, 0);
+            CRegStdDWORD state(L"Software\\TortoiseSVN\\TBlameState_" + monHash, 0);
             RECT         rc;
             GetWindowRect(app.wMain, &rc);
             if ((rc.left >= 0) && (rc.top >= 0))

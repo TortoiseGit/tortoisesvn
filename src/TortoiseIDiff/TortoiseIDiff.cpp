@@ -1,6 +1,6 @@
-// TortoiseIDiff - an image diff viewer in TortoiseSVN
+﻿// TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2007, 2010-2014 - TortoiseSVN
+// Copyright (C) 2006-2007, 2010-2014, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,6 +23,7 @@
 #include "LangDll.h"
 #include "TortoiseIDiff.h"
 #include "TaskbarUUID.h"
+#include "Monitor.h"
 #include "../Utils/CrashReport.h"
 
 #include <Shellapi.h>
@@ -79,8 +80,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     curHandDown = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
 
     auto mainWindow = std::make_unique<CMainWindow>(hResource);
-    mainWindow->SetRegistryPath(L"Software\\TortoiseSVN\\TortoiseIDiffWindowPos");
-    std::wstring leftfile = parser.HasVal(L"left") ? parser.GetVal(L"left") : L"";
+    auto monHash    = GetMonitorSetupHash();
+    mainWindow->SetRegistryPath(L"Software\\TortoiseSVN\\TortoiseIDiffWindowPos_" + monHash);
+    std::wstring leftfile  = parser.HasVal(L"left") ? parser.GetVal(L"left") : L"";
     std::wstring rightfile = parser.HasVal(L"right") ? parser.GetVal(L"right") : L"";
     if ((leftfile.empty()) && (lpCmdLine[0] != 0))
     {
