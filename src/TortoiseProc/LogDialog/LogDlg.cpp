@@ -2547,6 +2547,11 @@ void CLogDlg::CreateFindDialog()
         m_pFindDialog->Create(TRUE, NULL, NULL, FR_HIDEUPDOWN | FR_HIDEWHOLEWORD, this);
         CTheme::Instance().SetThemeForDialog(m_pFindDialog->GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
     }
+    else
+    {
+        m_pFindDialog->SetFocus();
+        return;
+    }
 }
 
 int CLogDlg::OpenWorkingCopyFileWithRegisteredProgram(CString& fullPath)
