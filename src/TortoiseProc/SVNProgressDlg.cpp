@@ -1534,7 +1534,7 @@ UINT CSVNProgressDlg::ProgressThread()
     }
 
     CString info = BuildInfoString();
-    if (!bSuccess)
+    if (!bSuccess && (m_nConflicts == 0))
         info.LoadString(IDS_PROGRS_INFOFAILED);
     SetDlgItemText(IDC_INFOTEXT, info);
     ResizeColumns();
@@ -4452,6 +4452,9 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
     {
         for (int i = 0; i < (int)m_arData.size(); ++i)
         {
+            CString info = BuildInfoString();
+            SetDlgItemText(IDC_INFOTEXT, info);
+
             NotificationData * data = m_arData[i];
             if (data->bConflictedActionItem)
             {
@@ -4570,6 +4573,8 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
             GetDlgItem(IDC_RETRYMERGE)->ShowWindow(SW_HIDE);
         }
     }
+    CString info = BuildInfoString();
+    SetDlgItemText(IDC_INFOTEXT, info);
 }
 
 bool CSVNProgressDlg::IsRevisionRelatedToMerge(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem)
