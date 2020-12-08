@@ -10,6 +10,7 @@
 # 
 # Authors:
 # Translators:
+# Jozef Matta <jozef.m923@gmail.com>, 2020
 # Michal Nosál <a2.nosal@gmail.com>, 2011
 # otik <otik@printflow.eu>, 2012
 # Oto BREZINA <otik@e-posta.sk>, 2011-2013
@@ -18,8 +19,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-07-11 00:23+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2020-12-08 15:28+0000\n"
+"Last-Translator: Jozef Matta <jozef.m923@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/luebbe/tortoisesvn/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +47,7 @@ msgstr "Stefan"
 
 #. (surname)
 msgid "Küng"
-msgstr "KÜNG"
+msgstr "Küng"
 
 #. (firstname)
 msgid "Lübbe"
@@ -54,7 +55,7 @@ msgstr "Lübbe"
 
 #. (surname)
 msgid "Onken"
-msgstr "ONKEN"
+msgstr "Onken"
 
 #. (firstname)
 msgid "Simon"
@@ -62,7 +63,7 @@ msgstr "Simon"
 
 #. (surname)
 msgid "Large"
-msgstr "LARGE"
+msgstr "Large"
 
 #. (title)
 msgid "Preface"
@@ -80,7 +81,7 @@ msgid ""
 " the next day. Imagine a team of such developers working concurrently - and "
 "perhaps even simultaneously on the very same files! - and you can see why a "
 "good system is needed to <emphasis>manage the potential chaos</emphasis>."
-msgstr "Správa verzií je umenie prevodu zmien na informácie. Je to dlhú dobu neodmysliteľná pomôcka pre programátorov, ktorí zvyčajne trávili svoj čas tvorbou malej zmeny na softvéry a potom vráteniu alebo kontrole týchto zmien na ďalší deň. Predstavte si tím takýchto programátorov, ktorí pracujú súčasne na rovnakom projekte - a prípadne aj súčasne na rovnakých súboroch! - a pochopíte, prečo je dobrý systém kontroly verzií potrebný pre <emphasis>spravovanie možného chaosu</emphasis>."
+msgstr "Správa verzií je umenie riadenia zmien informácií. Je to už dlho kritický nástroj pre programátorov, ktorí zvyčajne trávia čas malými zmenami v softvéri a nasledujúcim dňom potom vrátia alebo skontrolujú niektoré z týchto zmien. Predstavte si, že tím takýchto vývojárov pracuje súčasne - a možno aj súčasne na tých istých súboroch! - a vidíte, prečo je potrebný dobrý systém na <emphasis>spravovanie potenciálneho chaosu</emphasis> ."
 
 #. (title)
 msgid "What is TortoiseSVN?"
@@ -97,7 +98,7 @@ msgid ""
 " examine the history of how and when your data changed, and who changed it. "
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
-msgstr "TortoiseSVN je bezplatný Windows klient s voľným zdrojovým kódom (free/open-source) pre  systém správy verzií <firstterm>Apache™ Subversion®</firstterm> . To znamená, že TortoiseSVN spravuje súbory a adresáre v priebehu času. Súbory sú uložené v centrálnom <firstterm>úložisku</firstterm>. Úložisko je podoné ako bežnému súborovému serveru, s výnimkou, že si pamätá každú zmenu na vašich súboroch a adresároch. To vám umožní obnoviť staršie verzie vašich súborov a skúmať históriu, ako a kedy sa údaje zmenili, a kto to zmenil. To je dôvod, prečo mnoho ľudí rozmýšla o Subversion a systémoch správy verzií všeobecne ako akómsi <quote>stroji času</quote>."
+msgstr "TortoiseSVN je bezplatný klient Windows s otvoreným zdrojom pre <firstterm>Apache ™ Subversion®</firstterm> systém riadenia verzií. To znamená, že TortoiseSVN spravuje súbory a priečinky v priebehu času. Súbory sú uložené v ústrednom <firstterm>úložisku</firstterm>. Úložisko je podobné bežnému súborovému serveru, až na to, že si pamätá všetky zmeny, ktoré ste kedy vykonali vo svojich súboroch a priečinkoch. To vám umožní obnoviť staršie verzie súborov a preskúmať históriu toho, ako a kedy sa vaše údaje zmenili a kto ich zmenil. To je dôvod, prečo si mnoho ľudí myslí o systémoch Subversion a systémoch riadenia verzií všeobecne ako o nejakom druhu <quote>stroja času</quote> ."
 
 #. (para)
 msgid ""
@@ -108,25 +109,25 @@ msgid ""
 "supplying tools for building software. Subversion, however, is not one of "
 "these systems; it is a general system that can be used to manage "
 "<emphasis>any</emphasis> collection of files, including source code."
-msgstr "Niektoré systémy správy verzií sú aj systémy správy konfigurácie softvéru (SCM). Tieto systémy sú špeciálne prispôsobené pre správu stromov zdrojových kódov, a majú mnoho vlastností, ktoré sú špecifické pre vývoj software - napríklad nativné pochopenie programovacích jazykov, alebo dodávajú nástroje pre budovanie softvéru. Subversion však nie je ani jeden z týchto systémov; je to všeobecný systém, ktorý môže byť použitý k správe <emphasis>akéjkoľvek</emphasis> kolekcií súborov, vrátane zdrojového kódu."
+msgstr "Niektoré systémy na správu verzií sú tiež systémy na správu konfigurácie softvéru (SCM). Tieto systémy sú špeciálne prispôsobené na správu stromov zdrojového kódu a majú veľa funkcií špecifických pre vývoj softvéru - napríklad natívne porozumenie programovacím jazykom alebo dodávka nástrojov na tvorbu softvéru. Subversion však nie je jedným z týchto systémov; je to všeobecný systém, ktorý je možné použiť na správu <emphasis>akýkoľvek</emphasis> kolekcií súborov vrátane zdrojového kódu."
 
 #. (title)
 msgid "TortoiseSVN's Features"
-msgstr "Vlastnosti TortoiseSVN "
+msgstr "Funkcie TortoiseSVN"
 
 #. (para)
 msgid ""
 "What makes TortoiseSVN such a good Subversion client? Here's a short list of"
 " features."
-msgstr "Čo robí TortoiseSVN tak dobrým klientom pre Subversion? Tu je krátky zoznam funkcií:"
+msgstr "Čo robí TortoiseSVN tak dobrým klientom Subversion? Tu je krátky zoznam funkcií."
 
 #. (term)
 msgid "Shell integration"
-msgstr "Intergrovanie do šelu"
+msgstr "Integrácia do prostredia"
 
 #. (primary)
 msgid "Windows shell"
-msgstr "Windows šel"
+msgstr "Prostredie Windows"
 
 #. (primary)
 msgid "explorer"
@@ -138,7 +139,7 @@ msgid ""
 "explorer). This means you can keep working with the tools you're already "
 "familiar with. And you do not have to change into a different application "
 "each time you need the functions of version control."
-msgstr "TortoiseSVN sa hladko integruje do systému Windows (t.j. Prieskumníka - Explorer). To znamená, že môžete ďalej pracovať s nástrojmi, s ktorými ste už oboznámení. A nemusíte precháadzať do inej aplikácie zakaždým, keď budete potrebovať funkcie pre správu verzií!"
+msgstr "TortoiseSVN sa bezproblémovo integruje do prostredia Windows (t. j. Prieskumníka). To znamená, že môžete pokračovať v práci s nástrojmi, ktoré už poznáte. A nemusíte vždy prechádzať do inej aplikácie, keď potrebujete funkcie riadenia verzií."
 
 #. (para)
 msgid ""
@@ -148,18 +149,18 @@ msgid ""
 "bear in mind that TortoiseSVN is intentionally developed as an extension for"
 " the Windows Explorer. Thus it is possible that in other applications the "
 "integration is not as complete and e.g. the icon overlays may not be shown."
-msgstr "A nie ste ani nútení používať Prieskumníka (Windows Explorer). Kontextové menu TortoiseSVN pracuje v mnohých iných súborových správcoch v dialógoch Súbor/Otvoriť, ktorý je vo väčšine štandarných aplikáciach pre Windows. Mali by ste však mať na zretely, že TortoiseSVN je predovšetkým vyvýjaný ako rozšírenie pre Prieskumníka. Takže je možné, že nie všetky funkcie budú prístupné v iných aplikáciach, napr. prekrývacie ikonky nemusia byť zobrazené."
+msgstr "Nie ste obmedzovaní pri používaní programu Prieskumníka Windows; kontextové ponuky TortoiseSVN fungujú v mnohých ďalších programoch na správu súborov a tiež v dialógovom okne Súbor/Otvoriť, ktoré je spoločné pre väčšinu štandardných aplikácií pre Windows. Mali by ste však mať na pamäti, že TortoiseSVN je zámerne vyvinutý ako rozšírenie Prieskumníka Windows. Je teda možné, že v iných aplikáciách nie je integrácia taká komplexná a napr. prekrytia ikon sa nemusia zobrazovať."
 
 #. (term)
 msgid "Icon overlays"
-msgstr "Prekrývané ikony"
+msgstr "Prekrývanie ikon"
 
 #. (para)
 msgid ""
 "The status of every versioned file and folder is indicated by small overlay "
 "icons. That way you can see right away what the status of your working copy "
 "is."
-msgstr "Stav verziovaných súborovov a adresárov je zobrazený malou prekrývajúcou ikonkou. Takto môžete vidieť aký je stav vašej pracovnej kópie."
+msgstr "Stav všetkých verziových súborov a priečinkov je indikovaný malými ikonami prekrytia. Takto môžete okamžite vidieť, aký je stav vašej pracovnej kópie."
 
 #. (term)
 msgid "Graphical User Interface"
@@ -170,7 +171,7 @@ msgid ""
 "When you list the changes to a file or folder, you can click on a revision "
 "to see the comments for that commit. You can also see a list of changed "
 "files - just double click on a file to see exactly what changed."
-msgstr "Keď si prechádzate zmeny v súboroch alebo zložkách, možete kliknúť na revíziu, aby ste videli komentáre odovzdávateľa. Môžete taktiež vidieť zoznam zmenených súborov - dvojklikom na súbor vidíte, čo presne bolo zmenené."
+msgstr "Keď uvediete zoznam zmien v súbore alebo priečinku, kliknutím na revíziu zobrazíte komentáre k danému odovzdaniu. Môžete tiež vidieť zoznam zmenených súborov - stačí dvakrát kliknúť na súbor a uvidíte, čo sa presne zmenilo."
 
 #. (para)
 msgid ""
@@ -178,27 +179,27 @@ msgid ""
 " each item has a checkbox so you can choose which items you want to include."
 " Unversioned files can also be listed, in case you forgot to add that new "
 "file."
-msgstr "Odovzdávacie okno obsahuje zoznam všetkých položiek, ktoré budú zahrnuté pri odovzdávaní a každá položka ma zaškrtávacie políčko, takže môžete vybrať položky, ktoré majú byť zahrnuté pri odovzdávaní. Neverziované súbory môžu byť taktiež v zozname, v prípade, že ste ich zabudli pridať ako nové."
+msgstr "Dialógové okno odovzdania obsahuje zoznam všetkých položiek, ktoré budú zahrnuté do odovzdania a každá položka má zaškrtávacie políčko, aby ste si mohli vybrať, ktoré položky chcete zahrnúť. Môžu byť zaznamenané aj bezverziové súbory, pre prípad, že ste zabudli pridať tento nový súbor."
 
 #. (term)
 msgid "Easy access to Subversion commands"
-msgstr "Jednoduchý prístup k príkazom Subversion"
+msgstr "Ľahký prístup k príkazom Subversion"
 
 #. (para)
 msgid ""
 "All Subversion commands are available from the explorer context menu. "
 "TortoiseSVN adds its own submenu there."
-msgstr "Všetky príkazy Subversion sú prístupné z kontextovej ponuky Prieskumníka (Explorer). TortoiseSVN si tam pridá svoju (pod)ponuku."
+msgstr "Všetky príkazy Subversion sú dostupné z kontextovej ponuky prieskumníka. TortoiseSVN tam pridáva svoju vlastnú pod-ponuku."
 
 #. (para)
 msgid ""
 "Since TortoiseSVN is a Subversion client, we would also like to show you "
 "some of the features of Subversion itself:"
-msgstr "Keďže TortoiseSVN je klient pre Subversion, radi by sme ukázali niekoľko funkcií samotného Subversion:"
+msgstr "Pretože TortoiseSVN je klient Subversion, chceme vám tiež ukázať niektoré z funkcií samotného Subversion:"
 
 #. (term)
 msgid "Directory versioning"
-msgstr "Verziovanie adresárov"
+msgstr "Verziovanie priečinkov"
 
 #. (para)
 msgid ""
@@ -207,7 +208,7 @@ msgid ""
 "directory trees over time. Files <emphasis>and</emphasis> directories are "
 "versioned. As a result, there are real client-side <command>move</command> "
 "and <command>copy</command> commands that operate on files and directories."
-msgstr "CVS sleduje len históriu jednotlivých súborov, kým Subversion zahrňuje <quote>virtuálny</quote> verziovaný súborový systém, ktorý sleduje časové zmeny celých adresárových stromov. Verziované sú súbory <emphasis>aj</emphasis> adresáre. Výslekom je, že existujú skutočné klientské príkazy <command>presunúť</command> a <command>kopírovať</command>, ktoré pracujú so súbormi a adresármi."
+msgstr "CVS sleduje iba históriu jednotlivých súborov, ale Subversion implementuje <quote>virtuálne</quote> verziový súborový systém, ktorý v priebehu času sleduje zmeny v celých stromoch priečinkov. Súbory <emphasis>a</emphasis> priečinky sú verziové. Výsledkom je, že sú skutočné klientské príkazy <command>posunúť</command> a <command>kopírovať</command>, ktoré pracujú so súbormi a priečinkami."
 
 #. (term)
 msgid "Atomic commits"
@@ -217,18 +218,18 @@ msgstr "Nedeliteľné odovzdania"
 msgid ""
 "A commit either goes into the repository completely, or not at all. This "
 "allows developers to construct and commit changes as logical chunks."
-msgstr "Odovzdanie je pridané do úložiska kompletne, alebo nie je vôbec pridané. Toto umožňuje vyvojárom vytvárať a odovzdávať zmeny ako logické celky."
+msgstr "Odovzdanie je pridané do úložiska kompletne, alebo nie je vôbec pridané. Toto umožňuje vývojárom vytvárať a odovzdávať zmeny ako logické celky."
 
 #. (term)
 msgid "Versioned metadata"
-msgstr "Verziované metasúbory"
+msgstr "Verziové metasúbory"
 
 #. (para)
 msgid ""
 "Each file and directory has an invisible set of <quote>properties</quote> "
 "attached. You can invent and store any arbitrary key/value pairs you wish. "
 "Properties are versioned over time, just like file contents."
-msgstr "Každý súbor a adresár má neviditeľné <quote>vlastnosti</quote>. Môžete pridať a uložiť akýkoľvek pár kľúč/hodnota podľa vašeho želania. Vlastnosti sú verziované rovnako ako obsah."
+msgstr "Každý súbor a priečinok má neviditeľnú sústavu <quote>vlastností</quote>. Môžete si vymyslieť a uložiť ľubovoľný pár kľúč/hodnota podľa svojho želania. Vlastnosti sú označené verziou rovnako ako obsah súborov."
 
 #. (term)
 msgid "Choice of network layers"
@@ -245,11 +246,11 @@ msgid ""
 "compression, and repository browsing, for example. A smaller, standalone "
 "Subversion server process is also available. This server speaks a custom "
 "protocol which can be easily tunneled over ssh."
-msgstr "Subversion má abstraktný náhľad prístupu k úložisku, čo robí implementovanie nových sieťových mechanizmov ľahkým. Subversion <quote>advanced</quote> sieťový server je modul pre Apache server, ktorý komunikuje pomocou WebDAL/DeltaV - variantom HTTP. Toto dáva Subversion veľkú výhodu v stabilite, spolupráci a poskytuje rôzne kľúčové vlastnosti ako sú: autentifikácia, autorizácia, kompresia prenosu, prehliadanie úložiska. Menší samostatný Subversion server je tiež dostupný. Tento server používa vlastný protokol a môže byť jednoducho tunelovaný cez ssh."
+msgstr "Subversion má abstraktnú predstavu o prístupe do úložiska, čo ľuďom uľahčuje implementáciu nových sieťových mechanizmov. Subversion <quote>pokročilý</quote> sieťový server je modul pre webový server Apache, ktorý komunikuje variantom HTTP volaním WebDAV/DeltaV. To dáva Subversionu veľkú výhodu v stabilite a prevádzkyschopnosti pričom poskytuje rôzne kľúčové funkcie: napríklad autentifikáciu, autorizáciu, kompresiu prenosu a prehliadanie archívov. K dispozícii je tiež menší samostatný proces servera Subversion. Tento server komunikuje vlastným protokolom, ktorý je možné ľahko tunelovať cez ssh."
 
 #. (term)
 msgid "Consistent data handling"
-msgstr "Konzistentná manipulácia s dátami"
+msgstr "Dôsledné zaobchádzanie s údajmi"
 
 #. (para)
 msgid ""
@@ -258,11 +259,11 @@ msgid ""
 "unreadable) files. Both types of files are stored equally compressed in the "
 "repository, and differences are transmitted in both directions across the "
 "network."
-msgstr "Subversion vyjadruje súbor rozdielov pomocou binárného algoritmu porovnania, ktorý pracuje zhodne pre textové (ľudský-čitateľný) a binárne (ľudské-nečitateľné) súbory. Oba typy súborov sú uložené rovnako skomprimované v úložisku, a rozdiely sú prenášané v oboch smeroch cez sieť."
+msgstr "Subversion vyjadruje rozdiely v súboroch použitím binárneho diferenciačného algoritmu, ktorý pracuje rovnako na textových (človekom čitateľných) aj binárnych (človekom nečitateľných) súboroch. Oba typy súborov sú v úložisku uložené rovnako komprimované a rozdiely sa v sieti prenášajú oboma smermi."
 
 #. (term)
 msgid "Efficient branching and tagging"
-msgstr "Efektívne vetvenie a značkovanie"
+msgstr "Efektívne vetvenie a značenie príznakmi"
 
 #. (para)
 msgid ""
@@ -271,7 +272,7 @@ msgid ""
 "using a mechanism similar to a hard-link. Thus these operations take only a "
 "very small, constant amount of time, and very little space in the "
 "repository."
-msgstr "Náklady na vetvenie a tagovánie nemusia byť úmerné veľkosti projektu. Subversion vytvára vetvy a značky jednoduchým kopírovaním projektu pomocou mechanizmu podobnému hard-link. Preto táto operácia môže trvať len veľmi krátko, konštantné množstvo času, a zaberať veľmi malý priestor v úložisku."
+msgstr "Cena rozvetvenia a značenia príznakmi nemusí byť úmerná veľkosti projektu. Subversion vytvára vetvy a príznaky jednoduchým kopírovaním projektu použitím mechanizmu podobného pevnej linke. Tieto operácie teda zaberajú iba veľmi malé, stále množstvo času a veľmi málo miesta v úložisku."
 
 #. (title)
 msgid "License"
@@ -282,7 +283,7 @@ msgid ""
 "TortoiseSVN is an Open Source project developed under the GNU General Public"
 " License (GPL). It is free to download and free to use, either personally or"
 " commercially, on any number of PCs."
-msgstr "TortoiseSVN je Open Source projekt vyvýjaný pod GNU General Public License (GPL). Jeho stiahnutie a používanie je bezplatné pre osobné aj obchodné používanie pre ľubovolný počet počítačov."
+msgstr "TortoiseSVN je projekt s otvoreným zdrojom vyvinutý na základe GNU General Public License (GPL). Je zadarmo na stiahnutie a k osobnému alebo komerčnému použitiu na ľubovoľnom počte počítačov."
 
 #. (para)
 msgid ""
@@ -292,7 +293,7 @@ msgid ""
 "url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "Aj keď si väčšina ľudí stiahne iba inštalátor, máte tiež plný prístup na čítanie zdrojového kódu tohto programu. Môžete ich prehliadať na tomto odkaze <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink> . Aktuálna vývojová línia sa nachádza pod <filename>/trunk/</filename> a vydané verzie sú umiestnené pod <filename>/tags/</filename> ."
 
 #. (title)
 msgid "Development"
@@ -317,7 +318,7 @@ msgid ""
 "named TortoiseCVS. Tim studied the source code of TortoiseCVS and used it as"
 " a base for TortoiseSVN. He then started the project, registered the domain "
 "<literal>tortoisesvn.org</literal> and put the source code online."
-msgstr "V roku 2002, Tim KEMP zistil, že Subversion je veľmi dobrý systém na správu verzií, ale chýba mu dobré GUI - klientské grafické rozhranie. Myšlienka aby bol klient pre Subversion integrovaný do Windows šelu bola inšpirovaná podobným klientom pre CVS menovite TortoiseCVS. Tim študoval zdrojové kódy pre TortoiseCVS a použil ich ako základ pre TortoiseSVN. Potom začal project, registroval doménu <literal>tortoisesvn.org</literal> a poskytol zdrojové kódy online."
+msgstr "V roku 2002 Tim Kemp zistil, že Subversion je veľmi dobrý systém riadenia verzií, ale chýba mu dobrý klient GUI. Myšlienka klienta Subversion ako integrácie prostredia Windows bola inšpirovaná podobným klientom pre CVS s názvom TortoiseCVS. Tim študoval zdrojový kód TortoiseCVS a použil ho ako základ pre TortoiseSVN. Potom zahájil projekt, zaregistroval doménu <literal>tortoisesvn.org</literal> a dal zdrojový kód do režimu online."
 
 #. (para)
 msgid ""
@@ -327,7 +328,7 @@ msgid ""
 "programming. He soon rewrote most of the existing code and started adding "
 "commands and features, up to a point where nothing of the original code "
 "remained."
-msgstr "V tom čase Stefan KÜNG hľadal dobrý a voľne šíriteľný systém správy verzií a našiel Subversion a zdrojové kódy TortoiseSVN. Kedže TortoiseSVN ešte nebol vhodný na použitie, tak sa pripojil k projektu a začal programovať. Čoskoro prepísal väčšinu existujúceho kódu a začal pridávať príkazy a funkcie, až z pôvodného kódu neostalo nič."
+msgstr "V tom čase Stefan Küng hľadal dobrý a bezplatný systém riadenia verzií a našiel Subversion a zdroj pre TortoiseSVN. Pretože TortoiseSVN ešte nebol pripravený na použitie, zapojil sa do projektu a začal programovať. Čoskoro prepísal väčšinu existujúceho kódu a začal pridávať príkazy a funkcie, až do bodu, keď z pôvodného kódu nezostalo nič."
 
 #. (para)
 msgid ""
@@ -336,7 +337,7 @@ msgid ""
 "quickly (and is still growing every day). That's when Lübbe Onken offered to"
 " help out with some nice icons and a logo for TortoiseSVN. He now takes care"
 " of the website and manages the many translations."
-msgstr "Ako sa Subversion stával stabilným stával sa populárnejším pre viac a viac užívateľov, ktorí začali používať TortoiseSVN ako klienta pre Subversion. Užívateľská základňa rýchlo rástla (a rastie každým dňom). Vtedy Lübbe ONKEN ponúkol pomoc s peknými ikonkami a logom TortoiseSVN. A prevzal starostlivosť o stránku a koordináciul prekladov."
+msgstr "Keď sa Subversion stal stabilnejším, priťahoval čoraz viac používateľov, ktorí tiež začali používať TortoiseSVN ako svojho klienta Subversion. Užívateľská základňa sa rýchlo rozrastala (a stále rastie každým dňom). Vtedy sa Lübbe Onken ponúkol, že pomôže s peknými ikonami a logom pre TortoiseSVN. Teraz sa stará o webovú stránku a spravuje množstvo prekladov."
 
 #. (para)
 msgid ""
@@ -347,7 +348,7 @@ msgid ""
 "which allows all Tortoise clients to use the same icon overlays. Now all "
 "open source Tortoise clients and even some non-Tortoise clients use that "
 "shared component."
-msgstr ""
+msgstr "Postupom času všetky ostatné systémy na správu verzií dostali svojho vlastného klienta Tortoise, čo spôsobilo problém s prekrytiami ikon v Prieskumníkovi: počet takýchto prekrytí je obmedzený a dokonca jeden klient Tortoise môže tento limit ľahko prekročiť. Vtedy Stefan Küng implementoval komponent TortoiseOverlays, ktorý umožňuje všetkým klientom Tortoise používať rovnaké prekrytia ikon. Teraz používajú túto zdieľanú súčasť všetci klienti Tortoise s otvoreným zdrojom a dokonca aj niektorí iný klienti než Tortoise."
 
 #. (title)
 msgid "Acknowledgments"
@@ -355,15 +356,15 @@ msgstr "Poďakovania"
 
 #. (term)
 msgid "Tim Kemp"
-msgstr "Tim KEMP"
+msgstr "Tim Kemp"
 
 #. (para)
 msgid "for starting the TortoiseSVN project"
-msgstr "za začatie projektu"
+msgstr "za spustenie projektu TortoiseSVN"
 
 #. (term)
 msgid "Stefan Küng"
-msgstr "Stefan KÜNG"
+msgstr "Stefan Küng"
 
 #. (para)
 msgid ""
@@ -373,7 +374,7 @@ msgstr "za tvrdú prácu, aby TortoiseSVN bol tým, čím je teraz a vedenie pro
 
 #. (term)
 msgid "Lübbe Onken"
-msgstr "Lübbe ONKEN"
+msgstr "Lübbe Onken"
 
 #. (para)
 msgid ""
@@ -383,7 +384,7 @@ msgstr "za nádherné ikonky, logo, vychytávanie chýb, preklad a organizovanie
 
 #. (term)
 msgid "Simon Large"
-msgstr "Simon LARGE"
+msgstr "Simon Large"
 
 #. (para)
 msgid "for maintaining the documentation"
@@ -391,7 +392,7 @@ msgstr "za pomoc s dokumentaciou"
 
 #. (term)
 msgid "Stefan Fuhrmann"
-msgstr "Stefan FUHRMANN"
+msgstr "Stefan Fuhrmann"
 
 #. (para)
 msgid "for the log cache and revision graph"
@@ -423,7 +424,7 @@ msgstr "Naši spolupracovníci"
 msgid ""
 "for the patches, bug reports and new ideas, and for helping others by "
 "answering questions on our mailing list"
-msgstr "za záplaty, hlásenia chýb a nové nápady, a za pomoc iných, ktorý odpovedali na otázky v našich e-mailových konferenciách (mailing list)"
+msgstr "za záplaty, hlásenia chýb a nové nápady a za pomoc iných, ktorý odpovedali na otázky v našom poštovom zozname"
 
 #. (term)
 msgid "Our Donators"
@@ -435,7 +436,7 @@ msgstr "za mnoho hodín dobrej hudby, ktoré nám poslali"
 
 #. (title)
 msgid "Reading Guide"
-msgstr "Sprievodca čitateľa"
+msgstr "Sprievodca čítaním"
 
 #. (para)
 msgid ""
@@ -443,14 +444,14 @@ msgid ""
 "to manage their data, but prefer to use a GUI client rather than a command "
 "line client. TortoiseSVN is a windows shell extension and it is assumed that"
 " the user is familiar with the windows explorer and how to use it."
-msgstr "Táto kniha je písaná pre počítačovo gramotných ľudí, ktorí chcú používať Subversion na správu dát, ale nechcú na to používať príkazový riadok. Kedže TortoiseSVN je rozšírenie Windows šelu, predpokladá sa, že je užívateľ zvyknutý na Prieskumníka (Windows Explorer) a vie ako ho používať."
+msgstr "Táto kniha je určená pre počítačovo zdatných ľudí, ktorí chcú na správu svojich údajov použiť program Subversion, ale radšej používajú klienta GUI než klienta príkazového riadku. TortoiseSVN je rozšírenie prostredia Windows a predpokladá sa, že používateľ je oboznámený s programom Prieskumníka Windows a s tým, ako ho používať."
 
 #. (para)
 msgid ""
 "This <xref linkend=\"tsvn-preface\"/> explains what TortoiseSVN is, a little"
 " about the TortoiseSVN project and the community of people who work on it, "
 "and the licensing conditions for using it and distributing it."
-msgstr "Tento <xref linkend=\"tsvn-preface\"/> objasňuje čo je TortoiseSVN projekt, a trochu pojednáva o kommunite ľudí, korý na ňom pracujú, a licenčné podmienky na jeho používanie a distibuciu."
+msgstr "Tento <xref linkend=\"tsvn-preface\"/> vysvetľuje, čo je TortoiseSVN, trochu o projekte TortoiseSVN a komunite ľudí, ktorí na ňom pracujú, a licenčné podmienky na jeho použitie a distribúciu."
 
 #. (para)
 msgid ""
@@ -465,7 +466,7 @@ msgid ""
 "TortoiseSVN. This is borrowed from the documentation for the Subversion "
 "project and explains the different approaches to version control, and how "
 "Subversion works."
-msgstr "V <xref linkend=\"tsvn-basics\"/> dávame krátky úvod do správy verzií <emphasis>Subversion</emphasis>, ktoré je pod TortoiseSVN. Tento úvod je prevzatý z dokumentácie k Subversion a vysvetľujne rôzne prístupy k správe verziíí, a ako funguje Subversion."
+msgstr "V <xref linkend=\"tsvn-basics\"/> dávame krátky úvod do systému kontroly revízií <emphasis>Subversion</emphasis>, ktorý je základom TortoiseSVN. Toto je prevzaté z dokumentácie k projektu Subversion a vysvetľuje rôzne prístupy na riadenie verzií a fungovanie Subversion."
 
 #. (para)
 msgid ""
@@ -473,7 +474,7 @@ msgid ""
 "local repository, which is useful for testing Subversion and TortoiseSVN "
 "using a single PC. It also explains a bit about repository administration "
 "which is also relevant to repositories located on a server."
-msgstr ""
+msgstr "Kapitola o <xref linkend=\"tsvn-repository\"/> vysvetľuje, ako nastaviť miestne úložisko, ktoré je užitočné na testovanie serverov Subversion a TortoiseSVN použitím jedného počítača. Vysvetľuje tiež niečo o správe úložiska, ktorá je relevantná aj pre úložiská umiestnené na serveri."
 
 #. (para)
 msgid ""
@@ -482,14 +483,14 @@ msgid ""
 "the form of a tutorial, starting with checking out a working copy, modifying"
 " it, committing your changes, etc. It then progresses to more advanced "
 "topics."
-msgstr "<xref linkend=\"tsvn-dug\"/> je najdôležiteľším odielom, keďže vysvetluje všetky hlavné funkcie TortoiseSVN a ako ich používať. Má formu tutoriálu. Začína od získania pracovnej kópie, cez úpravy až po odovzdanie zmien. Nasledovne sú rozobrané pokročilejšie témy."
+msgstr "The <xref linkend=\"tsvn-dug\"/> je najdôležitejšou časťou, pretože vysvetľuje všetky hlavné vlastnosti TortoiseSVN a ako ich používať. Prebieha vo forme výučby, počnúc získaním pracovnej kópie, jej úpravou, odovzdávaním zmien atď. Potom prejde k pokročilejším témam."
 
 #. (para)
 msgid ""
 "The <xref linkend=\"tsvn-projectmonitor\"/> explains how you can monitor "
 "your Subversion projects so you don't miss important commits from your other"
 " team members."
-msgstr ""
+msgstr "The <xref linkend=\"tsvn-projectmonitor\"/> vysvetľuje, ako môžete sledovať svoje projekty Subversion, aby vám neunikli dôležité záväzky od vašich ostatných členov tímu."
 
 #. (para)
 msgid ""
@@ -497,38 +498,38 @@ msgid ""
 "TortoiseSVN which can extract the information from your working copy and "
 "write it into a file. This is useful for including build information in your"
 " projects."
-msgstr "<xref linkend=\"tsvn-subwcrev\"/> je samostatný program zahrnutý v TortoiseSVN, ktorý može extrahovať informácie z vašej pracovnej kópie do súboru. Toto je užitočné pre vkladanie informácií o revízií do prekladu."
+msgstr "<xref linkend=\"tsvn-subwcrev\"/> je samostatný program zahrnutý v TortoiseSVN, ktorý dokáže extrahovať informácie z vašej pracovnej kópie a zapísať ich do súboru. To je užitočné na zahrnutie informácií o zostavení do vašich projektov."
 
 #. (para)
 msgid ""
 "The <xref linkend=\"tsvn-howto\"/> section answers some common questions "
 "about performing tasks which are not explicitly covered elsewhere."
-msgstr "Sekcia<xref linkend=\"tsvn-howto\"/> odpovedá ne niektoré časté otázky o vykonávaní úloh, ktoré niesú popísane inde."
+msgstr "The <xref linkend=\"tsvn-howto\"/> časť odpovedá na niektoré bežné otázky týkajúce sa vykonávania úloh, ktoré nie sú explicitne uvedené inde."
 
 #. (para)
 msgid ""
 "The section on <xref linkend=\"tsvn-automation\"/> shows how the TortoiseSVN"
 " GUI dialogs can be called from the command line. This is useful for "
 "scripting where you still need user interaction."
-msgstr "Sekcia <xref linkend=\"tsvn-automation\"/> ukazuje ako TortoiseSVN GUI dialógy môžu byť volané z príkazového riadka. Tot je výhodné pri skriptoch, ktoré potrebujú interakciu s užívateľom."
+msgstr "Časť o <xref linkend=\"tsvn-automation\"/> ukazuje, ako je možné vyvolať dialógové okná GUI TortoiseSVN z príkazového riadku. Je to užitočné pri skriptovaní tam, kde stále potrebujete interakciu používateľa."
 
 #. (para)
 msgid ""
 "The <xref linkend=\"tsvn-cli\"/> give a correlation between TortoiseSVN "
 "commands and their equivalents in the Subversion command line client "
 "<literal>svn.exe</literal>."
-msgstr "<xref linkend=\"tsvn-cli\"/> dáva informáciu o vzťahu medzi príkazmi TortoiseSVN a ich ekvivaltami v príkazovom klievtovi Subversion <literal>svn.exe</literal>."
+msgstr "The <xref linkend=\"tsvn-cli\"/> udáva vzťahy medzi príkazmi TortoiseSVN a ich ekvivalentmi v klientovi príkazového riadku Subversion <literal>svn.exe</literal> ."
 
 #. (title)
 msgid "Terminology used in this document"
-msgstr "Použitá terminológia"
+msgstr "Terminológia použitá v tomto dokumente"
 
 #. (para)
 msgid ""
 "To make reading the docs easier, the names of all the screens and Menus from"
 " TortoiseSVN are marked up in a different font. The <guilabel>Log "
 "Dialog</guilabel> for instance."
-msgstr "Aby bolo čítanie manuálu jednoduchšie mená obrazoviek a Menu TortoiseSVN sú vyznačené použitím iného písma. Napríklad: The <guilabel>Denník</guilabel>."
+msgstr "Pre uľahčenie čítania dokumentov sú názvy všetkých zobrazení a ponúk z TortoiseSVN označené iným písmom. <guilabel>Dialógové okno záznamu</guilabel> pre inštanciu."
 
 #. (para)
 msgid ""
@@ -536,20 +537,20 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Show "
 "Log</guimenuitem></menuchoice> means: select <emphasis>Show Log</emphasis> "
 "from the <emphasis>TortoiseSVN</emphasis> context menu."
-msgstr "Položka menu je zobrazená šípkou. <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Zobraziť denník</guimenuitem></menuchoice> znamená: vyberte<emphasis>Zobraziť denník</emphasis> z kontextového menu <emphasis>TortoiseSVN</emphasis>."
+msgstr "Výber ponuky je označený šípkou. <menuchoice><guimenu>TortoiseSVN</guimenu> <guimenuitem>Zobraziť záznam</guimenuitem></menuchoice> spôsob: vybrať <emphasis>Zobraziť záznam</emphasis> z kontextovej ponuky <emphasis>TortoiseSVN</emphasis>."
 
 #. (para)
 msgid ""
 "Where a local context menu appears within one of the TortoiseSVN dialogs, it"
 " is shown like this: <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Save As ...</guimenuitem></menuchoice>"
-msgstr "Tam, kde sa objavuje miestne kontextové menu v jednom z TortoiseSVN dialógov, je to zobrazené, takto: <menuchoice><guimenu>Kontextové Menu</guimenu><guimenuitem>Uložiť ako...</guimenuitem></menuchoice>"
+msgstr "Ak sa v jednom z dialógových okien TortoiseSVN objaví lokálna kontextová ponuka, zobrazí sa takto:<menuchoice><guimenu>Kontextová ponuka</guimenu><guimenuitem>Uložiť ako...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""
 "User Interface Buttons are indicated like this: Press "
 "<guibutton>OK</guibutton> to continue."
-msgstr "Tlačitka Uživateľského rozhrania sú zobrazené: Stlačte <guibutton>OK</guibutton> pre pokračovanie."
+msgstr "Tlačidlá užívateľského rozhrania sú označené takto: Stlačte <guibutton>Ok</guibutton> pre pokračovanie."
 
 #. (para)
 msgid ""
@@ -558,31 +559,31 @@ msgid ""
 "press the <keycap>A</keycap>-Key as well. <action>Right drag</action>: press"
 " the right mouse button and while holding it down <emphasis>drag</emphasis> "
 "the items to the new location."
-msgstr "Užívateľské akcie sú vyznačené použitím tučného písma. <keycap>Alt+A</ keycap>: stlačte <keycap>Alt</ keycap>-klávesu na klávesnici a zároveň kým ho držíte stlačte aj <keycap>A</keycap>. <action>Pravé pretiahnúť</action>: stlačte pravé tlačidlo myši a zároveň kým ho držíte <emphasis>pretiahnite</emphasis> položky do nového umiestnenia."
+msgstr "Akcie používateľa sú označené tučným písmom. <keycap>Alt + A</keycap>: stlačte <keycap>Alt</keycap>-klávesu na klávesnici a podržte ju stlačenú spolu s klávesou <keycap>A</keycap>. <action> Presuňte sa doprava </action>: stlačte pravé tlačidlo myši a pridržte ho <emphasis>ťahaním</emphasis> položky na nové miesto."
 
 #. (para)
 msgid ""
 "System output and keyboard input is indicated with a "
 "<literal>different</literal> font as well."
-msgstr "Systémový vstup a výstup je označený s <literal>odlišným</literal> písmom."
+msgstr "Systémový výstup a vstup z klávesnice sú tiež označené <literal>odlišným</literal> písmom."
 
 #. (para)
 msgid "Important notes are marked with an icon."
-msgstr "Dôležité poznámky sú označené ikonkou."
+msgstr "Dôležité poznámky sú označené ikonou."
 
 #. (para)
 msgid "Tips that make your life easier."
-msgstr "Tipy, ktoré vám zjednodušujú život."
+msgstr "Tipy, ktoré vám uľahčia život."
 
 #. (para)
 msgid "Places where you have to be careful what you are doing."
-msgstr "Miesta, kde treba byť opatrný v tom čo robíte."
+msgstr "Miesta, kde musíte byť opatrní pritom, čo robíte."
 
 #. (para)
 msgid ""
 "Where extreme care has to be taken. Data corruption or other nasty things "
 "may occur if these warnings are ignored."
-msgstr "Tam kde treba zvláštnu opatrnosť. Ak toto varovanie zanedbáte môže vás čakať zničenie dát, alebo podobná nepríjemnosť."
+msgstr "Tam, kde je potrebné postupovať mimoriadne opatrne. Ak budú tieto varovania ignorované, môže dôjsť k poškodeniu údajov alebo k iným nepríjemným veciam."
 
 #. (title)
 msgid "Getting Started"
@@ -594,11 +595,11 @@ msgid ""
 "is all about and give it a test drive. It explains how to install "
 "TortoiseSVN and set up a local repository, and it walks you through the most"
 " commonly used operations."
-msgstr "Táto kapitola je zameraná pre ľudí, ktorý chcú zistiť o čom je TortoiseSVN. Vysvetľuje ako nainštalovat TortoiseSVN a nastaviť miestne úložisko a prblíži vám najviac používané operácie."
+msgstr "Táto sekcia je zameraná na ľudí, ktorí by chceli zistiť, o čom TortoiseSVN je a vyskúšať si ho. Vysvetľuje, ako nainštalovať TortoiseSVN a nastaviť miestne úložisko a prevedie vás najčastejšie používanými operáciami."
 
 #. (title)
 msgid "Installing TortoiseSVN"
-msgstr "Inštalovanie TortoiseSVN"
+msgstr "Inštalácia TortoiseSVN"
 
 #. (title)
 msgid "System requirements"
@@ -611,7 +612,7 @@ msgid ""
 "32-bit extension parts. Which means you don't need to install the 32-bit "
 "version separately to get the TortoiseSVN context menu and overlays in "
 "32-bit applications."
-msgstr ""
+msgstr "TortoiseSVN beží na systéme Windows Vista alebo novšom a je k dispozícii v 32-bitovej aj 64-bitovej verzii. Inštalátor pre 64-bitový Windows obsahuje aj 32-bitové rozšírenia. Čo znamená, že pre získanie kontextovej ponuky TortoiseSVN a prekrytí v 32-bitových aplikáciách nemusíte inštalovať 32-bitovú verziu osobitne."
 
 #. (para)
 msgid ""
@@ -619,7 +620,7 @@ msgid ""
 "1.2.0, and Windows 2000 and XP up to SP2 support was dropped in 1.7.0. "
 "Support for Windows XP with SP3 was dropped in 1.9.0. You can still download"
 " and install older versions if you need them."
-msgstr ""
+msgstr "Podpora Windows 98, Windows ME a Windows NT4 bola vo verzii 1.2.0 zrušená a podpora Windows 2000 a XP až do SP2 bola zrušená vo verzii 1.7.0. Podpora pre Windows XP s SP3 bola v 1.9.0 zrušená. V prípade potreby si môžete stiahnuť a nainštalovať staršie verzie."
 
 #. (title)
 msgid "Installation"
@@ -634,27 +635,27 @@ msgid ""
 "TortoiseSVN comes with an easy to use installer. Double click on the "
 "installer file and follow the instructions. The installer will take care of "
 "the rest. Don't forget to reboot after installation."
-msgstr "TortoiseSVN prichádza s ľahko použiteľným inštalátorom. Dvakrát kliknite na inštalačný súbor a postupujte podľa pokynov. Instalátor sa postará o zvyšok. Po inštalácií nezabudnite reštartovať."
+msgstr "TortoiseSVN sa dodáva s ľahko použiteľným inštalátorom. Dvakrát kliknite na inštalačný súbor a postupujte podľa pokynov. O zvyšok sa postará inštalátor. Po inštalácii nezabudnite reštartovať."
 
 #. (para)
 msgid ""
 "You need Administrator privileges to install TortoiseSVN. The installer will"
 " ask you for Administrator credentials if necessary."
-msgstr ""
+msgstr "Na inštaláciu TortoiseSVN potrebujete oprávnenie správcu. Inštalátor vás v prípade potreby požiada o prihlasovacie údaje správcu."
 
 #. (para)
 msgid ""
 "Language packs are available which translate the TortoiseSVN user interface "
 "into many different languages. Please check <xref linkend=\"tsvn-lang\"/> "
 "for more information on how to install these."
-msgstr "Dostupné sú aj jazykové balíčky, ktoré TortoiseSVN používateľské rozhranie prekladajú do mnohých jazykov. Pozrite <xref linkend=\"tsvn-lang\"/> pre viac informácii ako ich nainštalovať."
+msgstr "K dispozícii sú jazykové balíčky, ktoré prekladajú užívateľské rozhranie TortoiseSVN do mnohých rôznych jazykov. Skontrolujte, prosím, <xref linkend=\"tsvn-lang\"/> pre ďalšie informácie o tom, ako ich nainštalovať."
 
 #. (para)
 msgid ""
 "If you encounter any problems during or after installing TortoiseSVN please "
 "refer to our online FAQ at <ulink "
 "url=\"https://tortoisesvn.net/faq.html\"><citetitle>https://tortoisesvn.net/faq.html</citetitle></ulink>."
-msgstr ""
+msgstr "Ak narazíte na problémy počas alebo po inštalácie TortoiseSVN, prečítajte si naše online FAQ na adrese <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>https://tortoisesvn.net/faq.html</citetitle></ulink> ."
 
 #. (title)
 msgid "Basic Concepts"
@@ -664,7 +665,7 @@ msgstr "Základné princípy"
 msgid ""
 "Before we get stuck into working with some real files, it is important to "
 "get an overview of how Subversion works and the terms that are used."
-msgstr "Predtím ako sa zakusneme do pracovnej kópie s reálnymi súbormi, je dôležité získať prehľad ako Subversion pracuje a aká terminológia je použitá."
+msgstr "Predtým, než sa zasekneme v práci s niektorými skutočnými súbormi, je dôležité získať prehľad o tom, ako funguje Subversion a o použitých termínoch."
 
 #. (term)
 #. (title)
@@ -682,7 +683,7 @@ msgid ""
 " Subversion clients (like TortoiseSVN) on request. If you only back up one "
 "thing, back up your repository as it is the definitive master copy of all "
 "your data."
-msgstr "Subversion používa centrálnu databázu, ktorá obsahuje všetky kontrolované verzie s ich úplnou históriou. Databáza je opísaná ako <emphasis>úložisko</emphasis>. Úložisko sa normálne nachádza na serveri, na ktorom je spustený Subversion server program, ktorý poskytuje obsah Subversion klientom (ako TortoiseSVN) podľa požiadavok. Ak len zálohujete jednu vec, zálohujete úložisko ako jeho konečnú kópiu všetkých údajov."
+msgstr "Subversion používa centrálnu databázu, ktorá obsahuje všetky vaše súbory riadené verziou s ich úplnou históriou. Táto databáza sa označuje ako <emphasis>Úložisko</emphasis> . Úložisko normálne žije na súborovom serveri, na ktorom je spustený program servera Subversion, ktorý na požiadanie dodáva obsah klientom Subversion (napríklad TortoiseSVN). Ak zálohujete iba jednu vec, zálohujte svoje úložisko, pretože je to definitívna hlavná kópia všetkých vašich údajov."
 
 #. (term)
 #. (glossterm)
@@ -696,7 +697,7 @@ msgid ""
 "latest version from the repository, work on it locally without affecting "
 "anyone else, then when you are happy with the changes you made commit them "
 "back to the repository."
-msgstr "Toto je miesto, kde skutočne pracujete. Každý vývojár má svoju vlastnú pracovnú kópiu, tiež známa ako sandbox (pieskovisko) na jeho vlastnom PC. Môžete si stiahnúť poslednú verziu z úložiska, pracovať na nej na miestnom PC bez toho, aby bola ovplyvňovaná ostatnými, a keď budete hotový so zmenami, môžete to odovzdať naspäť na uĺožisko."
+msgstr "Tu robíte skutočnú prácu. Každý vývojár má na svojom lokálnom počítači svoju vlastnú pracovnú kópiu, ktorá sa niekedy nazýva \"pieskovisko\". Môžete si stiahnuť najnovšiu verziu z úložiska, pracovať na nej lokálne bez ovplyvnenia kohokoľvek iného, potom keď budete spokojní so zmenami, ktoré ste vykonali, odovzdáte ich späť do úložiska."
 
 #. (para)
 msgid ""
@@ -704,12 +705,12 @@ msgid ""
 "it does keep a copy of the files as they exist in the repository before you "
 "started making changes. This means that it is easy to check exactly what "
 "changes you have made."
-msgstr "Subversion pracovná kópia neobsahuje informáciu o histórii projektu, ale nechá kópiu týchto súborov v úložisku, predtým než ste začali robiť zmeny. Takže to znamená, že je veľmi jednoduché zistiť presné zmeny, ktoré ste spravili."
+msgstr "Pracovná kópia Subversion neobsahuje históriu projektu, ale uchová si kópiu súborov, ktoré existujú v úložisku, skôr ako začnete robiť zmeny. To znamená, že je ľahké presne skontrolovať, aké zmeny ste vykonali."
 
 #. (title)
 #. (title)
 msgid "The TortoiseSVN menu for unversioned folders"
-msgstr "Menu TortoiseSVN pre neverzované zložky"
+msgstr "Ponuka TortoiseSVN pre bezverziové priečinky"
 
 #. (para)
 msgid ""
@@ -718,7 +719,7 @@ msgid ""
 "so first of all, start Windows Explorer. Right click on a folder in Explorer"
 " and you should see some new entries in the context menu like this: "
 "<placeholder-1/>"
-msgstr "Tiež musíte vedieť kde TortoiseSVN nájsť, pretože sa nenáchádza v ponuke programov. Je to preto, že TortoiseSVN je rozšírenie šelu, takže najprv spustite Prieskumníka (Windows Explorer). Kliknite pravým na adresár a mali by ste vidieť položky v kontextovom menu podobné ako je: <placeholder-1/>"
+msgstr "Musíte tiež vedieť, kde nájsť TortoiseSVN, pretože z ponuky Štart nie je veľa toho vidieť. Je to preto, že TortoiseSVN je rozšírenie prostredia, takže v prvom rade spustite program Prieskumník Windows. Pravým tlačidlom myši kliknite na priečinok v Prieskumníku a v kontextovej ponuke by sa vám mali zobraziť niektoré nové položky, ako je táto: <placeholder-1/>"
 
 #. (title)
 msgid "Go for a Test Drive"
@@ -732,7 +733,7 @@ msgid ""
 " you should take the time to read the rest of this user guide, which takes "
 "you through things in much more detail. It also explains more about setting "
 "up a proper Subversion server."
-msgstr "Táto kapitola ukazuje ako vyskúšať niektoré najpoužívanejšie vlastnosti na malom testovacom úložisku. Prirodzene neukazuje všetko - nakoniec veď je to len Rýchly návod. Keď už bude všetko fungovať mali by ste si nájsť čas k prečítaniu zvyšku tohto užívateľského návodu, ktorý vás prevedie cez veci omnoho detailnejšie. Tiež vysvetľuje viac o správnom nastevní Subversion servera."
+msgstr "V tejto sekcii sa dozviete, ako vyskúšať niektoré z najčastejšie používaných funkcií v malom úložisku testov. Prirodzene, že to nevysvetľuje všetko - je to koniec koncov iba Stručný návod na obsluhu. Keď ste v prevádzke, mali by ste si čas prečítať zvyšok tejto používateľskej príručky, ktorá vás prevedie vecami podrobnejšie. Vysvetľuje tiež viac informácií o nastavení správneho servera Subversion."
 
 #. (title)
 msgid "Creating a Repository"
@@ -745,7 +746,7 @@ msgid ""
 "going to use Subversion's local repository feature which allows direct "
 "access to a repository created on your hard drive without needing a server "
 "at all."
-msgstr "Pre reálny project bude vaše úložisko umiestnené niekde v bezpečí a Subversion server na jeho správu. Pe účely tohoto návodu použijeme miestne úložisko Subversion, ktoré je možné umietniť priamo na pevný disk počítača bez potreby servera."
+msgstr "Pre skutočný projekt budete mať úložisko nastavené niekde v bezpečí a server Subversion ho bude ovládať. Na účely tohto tutoriálu budeme používať funkciu miestneho úložiska Subversion, ktorá umožňuje priamy prístup k úložisku vytvorenému na vašom pevnom disku bez potreby servera."
 
 #. (para)
 msgid ""
@@ -757,7 +758,7 @@ msgid ""
 "the folder, ready for you to use. We will also create the default internal "
 "folder structure by clicking the <guibutton>Create folder "
 "structure</guibutton> button."
-msgstr ""
+msgstr "Najskôr vytvorte vo svojom počítači nový prázdny priečinok. Môže prejsť kamkoľvek, ale v tomto tutoriáli to nazveme <filename>C:\\svn_repos</filename>. Teraz kliknite pravým tlačidlom myši na nový priečinok a z kontextovej ponuky vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Tu vytvoriť úložisko...</guimenuitem></menuchoice>. Úložisko sa potom vytvorí vo vnútri priečinka a je pripravené na použitie. Vytvoríme predvolenú štruktúru interných priečinkov kliknutím na tlačidlo <guibutton>Vytvoriť štruktúru priečinkov</guibutton>."
 
 #. (para)
 msgid ""
@@ -768,7 +769,7 @@ msgid ""
 "share. Don't ever do that. You will lose data. Read <xref linkend=\"tsvn-"
 "repository-local-share\"/> to find out why this is a bad idea, and how to "
 "set up a server."
-msgstr "Možnosť vytvoriť miestne úložisko je zvlášť výhodna na skúšanie, ale pokiaľ nie ste jediný vývojár pracujúci na projekte na jednom PC, mali by ste vždy použiť Subversion server. V malých spoločnostiach sa stáva, že pri snahe vyhnúť sa serveru jednoducho sprístupnia úložisko ako sieťovú jednotku. Toto nikdy nerobte! Stratíte vaše data. Prečítajte si <xref linkend=\"tsvn-repository-local-share\"/>, aby ste pochopili prečo je to zlý nápad a ako server nastaviť."
+msgstr "Funkcia miestneho úložiska je veľmi užitočná na testovanie a hodnotenie, ale pokiaľ nepracujete ako jediný vývojár na jednom počítači, mali by ste vždy používať správny server Subversion. V malej spoločnosti je lákavé vyhnúť sa práci s nastavením servera a jednoducho pristupovať k svojmu úložisku na zdieľanom sieťovom serveri. Toto nikdy nerobte. Stratíte údaje. Prečítaním <xref linkend=\"tsvn-repository-local-share\"/> zistíte, prečo to nie je dobrý nápad a ako nastaviť server."
 
 #. (title)
 msgid "Importing a Project"
@@ -777,7 +778,7 @@ msgstr "Importovanie projektu"
 #. (title)
 #. (title)
 msgid "The Import dialog"
-msgstr "Dialógové okno importovania"
+msgstr "Dialógové okno importu"
 
 #. (para)
 msgid ""
@@ -793,7 +794,7 @@ msgid ""
 "we add our own project name <filename>Widget1</filename>. Note that there "
 "are 3 slashes after <filename>file:</filename> and that forward slashes are "
 "used throughout."
-msgstr "Už máme úložisko, ale ešte je úplne prázdne. Predpokladajme, že v adresáry <filename>C:\\\\Projects\\\\Widget1</filename> máme sadu súborov, ktoré chceme pridať. V Preskumníkovi (Windows Explorer) najdeme adresár <filename>Widget1</filename> a pravým na neho kliknite. Teraz vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Importovať...</guimenuitem></menuchoice>, čo vyvolá dialógové okno :<placeholder-1/> Úložisko Subversion je označené ako URL adresa, ktorá nám umožní zadať úložisko nachádzajúce sa kdekoľvek na internete. V našom prípade potrebujeme zadať meno našeho miestneho úložiska, ktorého URL adresa je <filename>file:///c:/svn_repos/Widget1</filename>. Všimnite si tri lomky za <filename>file:</filename> ako aj to, že sú použíte dopredné lomky."
+msgstr "Teraz máme úložisko, ktoré je však momentálne úplne prázdne. Predpokladajme, že máme sústavu súborov v priečinku <filename>C:\\Projekty\\Widget1</filename>, ktorú chceme pridať. Prejdite na priečinok <filename>Widget1</filename> v Prieskumníkovi a kliknite naň pravým tlačidlom myši. Teraz vyberte <menuchoice><guimenu>TortioiseSVN</guimenu><guimenuitem>Importovať...</guimenuitem></menuchoice>, ktorý vyvolá dialógové okno: <placeholder-1/> Na úložisko Subversion sa odkazuje adresou URL, ktorá nám umožňuje určiť úložisko kdekoľvek na internete. V tomto prípade musíme ukázať na svoje vlastné lokálne úložisko, ktoré má URL <filename>file: ///c:/svn_repos/trunk</filename> a ku ktorému pridáme vlastný názov projektu <filename>Widget1</filename>. Upozorňujeme, že za nimi sú tri lomky <filename>file:</filename> a že lomky sa používajú v celom texte."
 
 #. (para)
 msgid ""
@@ -804,11 +805,11 @@ msgid ""
 " In this case we can say something simple like <quote>Import the Widget1 "
 "project</quote>. Click on <guibutton>OK</guibutton> and the folder is added "
 "to your repository."
-msgstr "Ďalšou dôležitou vlastnosťou dialógu je <guilabel>Import Message</guilabel>, kde môžete zadať správu popisujúcu čo robíme. Keď si budete prezerať históriu projektu, tieto správy sú cenními sprievodcami zmenami, aké boli vykonané a prečo. V tomto prípade jednoducho zadajte niečo ako <quote>Naimportovanie projektu Widget1</quote>. Kliknite na <guibutton>OK</guibutton> a adresár je pridaný do úložiska."
+msgstr "Ďalšou dôležitou vlastnosťou tohto dialógového okna je textové políčko <guilabel>Importovať správu</guilabel>, ktoré vám umožní zadať správu popisujúcu, čo robíte. Keď sa pozriete do histórie projektu, tieto správy o odovzdaní sú cenným sprievodcom o tom, aké zmeny a prečo boli urobené. V tomto prípade môžeme povedať niečo jednoduché ako <quote>Import projektu Widget1</quote>. Kliknite na <guibutton>OK</guibutton> a priečinok je pridaný do vášho úložiska."
 
 #. (title)
 msgid "Checking out a Working Copy"
-msgstr "Získanie pracovnej kópie"
+msgstr "Overenie pracovnej kópie"
 
 #. (para)
 msgid ""
@@ -825,7 +826,7 @@ msgid ""
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr ""
+msgstr "Teraz, keď máme v našom úložisku projekt, musíme vytvoriť pracovnú kópiu, ktorú budeme používať na každodennú prácu. Upozorňujeme, že akt importu priečinka tento priečinok automaticky nezmení na funkčnú kópiu. Termín Subversion na vytvorenie novej pracovnej kópie je <literal>Overenie</literal> . Chystáme sa overiť priečinok Widget1 v našom úložisku do vývojového priečinka na počítači s názvom <filename>C:\\Projects\\Widget1-Dev</filename>. Vytvorte tento priečinok, kliknite naň pravým tlačidlom myši a vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Overiť...</guimenuitem></menuchoice>. V takom prípade zadajte adresu URL úložiska <filename>file:///c:/svn_repos/trunk/Widget1</filename> a kliknite na <guibutton>OK</guibutton>. Náš vývojový priečinok je potom naplnený súbormi z úložiska."
 
 #. (para)
 #. (para)
@@ -834,7 +835,7 @@ msgid ""
 "TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
 "commands that are not in the submenu have <literal>SVN</literal> prepended: "
 "<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "V predvolenom nastavení sa položka ponuky overenia nenachádza v pod-ponuke TortoiseSVN, ale zobrazuje sa v hornej ponuke prieskumníka. Príkazy TortoiseSVN, ktoré nie sú v pod-ponuke, majú <literal>SVN</literal> pred-pripravené: <menuchoice><guimenuitem>SVN overenie...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""
@@ -843,11 +844,11 @@ msgid ""
 "corner. These are TortoiseSVN's status icons which are only present in a "
 "working copy. The green state indicates that the file is unchanged from the "
 "version in the repository."
-msgstr "Zbadáte, že zobrazenie adresára je rozdielne od pôvodného adresára. Každý súbor má zelenú značku v dolnom ľavom rohu. Toto sú stavové ikonky TortoiseSVN, ktoré sú len v pracovnej kópií. Zelený stav zobrazuje, že súbor nebol zmenený voči verzií z úložiska."
+msgstr "Všimnete si, že vzhľad tohto priečinka sa líši od nášho pôvodného priečinka. Každý súbor má v ľavom dolnom rohu zelenú značku zaškrtnutia. Toto sú ikony stavu TortoiseSVN, ktoré sa nachádzajú iba v pracovnej kópii. Zelený stav označuje, že súbor nie je zmenený od verzie v úložisku."
 
 #. (title)
 msgid "Making Changes"
-msgstr "Robenie zmien"
+msgstr "Vykonávanie zmien"
 
 #. (para)
 msgid ""
@@ -856,11 +857,11 @@ msgid ""
 " and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
 " files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr ""
+msgstr "Čas sa pustiť do práce. V priečinku <filename>Widget1-Dev</filename> začneme upravovať súbory - povedzme, že urobíme zmeny v priečinku <filename>Widget1.c</filename> a <filename>ReadMe.txt</filename>. Všimnite si, že prekrytia ikony na týchto súboroch sa teraz zmenili na červenú, čo znamená, že boli vykonané lokálne zmeny."
 
 #. (title)
 msgid "File Difference Viewer"
-msgstr "Prehliadač rozdielov"
+msgstr "Prehliadač odlišností súborov"
 
 #. (para)
 msgid ""
@@ -869,7 +870,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Diff</guimenuitem></menuchoice>."
 " TortoiseSVN's file compare tool starts, showing you exactly which lines "
 "have changed. <placeholder-1/>"
-msgstr "Ale aké sú tie zmeny? Pravým kliknutím na jeden zo zmenených súborov a vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Porovnať</guimenuitem></menuchoice>.  Bude spustený porovnávač súborov TortoiseSVN a zobrazí presne, ktoré riadky boli zmenené. <placeholder-1/>"
+msgstr "Aké sú však zmeny? Pravým tlačidlom myši kliknite na jeden zo zmenených súborov a vyberte možnosť <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem> Odlišnosti</guimenuitem></menuchoice>. Spustí sa nástroj na porovnávanie súborov TortoiseSVN, ktorý vám presne ukáže, ktoré riadky sa zmenili.<placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -882,11 +883,11 @@ msgid ""
 "to commit the changes to both files. Enter up a message to describe what the"
 " change is all about and click on <guibutton>OK</guibutton>. The progress "
 "dialog shows the files being uploaded to the repository and you're done."
-msgstr "Dobre, tak keď sme spokojný so zmenami poďme aktualizovať úložisko. Tento úkon je označovaný <literal>Odovzdať</literal> zmien. Kliknite pravým na adresár <filename>Widget1-Dev</filename> a vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Odovzdať</guimenuitem></menuchoice>. Odovzdávacie okno zobrazí zoznam zmenených súborov a každý so zaškrtávacím políčkom. Môžete chcieť vybrať len podmnožinu tíchto súborov, ale v našom prípade ideme odovzdať oba zmenené súbory. Zadajte správu denníka, o čom bola táto zmena a kliknite <guibutton>OK</guibutton>. Zobrazí sa okno s priebehom, kde budete vidieť súbory, ktoré sú odovzdávané a sme hotoví."
+msgstr "Fajn, takže sme spokojní so zmenami, poďme aktualizovať úložisko. Táto akcia sa označuje ako <literal>Odovzdať</literal> zmeny. Kliknite pravým tlačidlom myši na ikonu priečinok <filename>Widget1-Dev</filename> a vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Odovzdať</guimenuitem></menuchoice>. Dialógové okno potvrdenia obsahuje zoznam zmenených súborov, každý so zaškrtávacím políčkom. Možno si budete chcieť zvoliť iba časť týchto súborov, ale v takom prípade vykonáme zmeny v obidvoch súboroch. Zadajte správu, v ktorej popíšete, čoho sa zmena týka a kliknite na <guibutton>OK</guibutton>. Dialógové okno priebehu zobrazuje súbory, ktoré sa nahrávajú do úložiska a ste hotoví."
 
 #. (title)
 msgid "Adding More Files"
-msgstr "Pridanie viac súborov"
+msgstr "Pridávanie ďalších súborov"
 
 #. (para)
 msgid ""
@@ -898,7 +899,7 @@ msgid ""
 " ones you want to add. Another way of adding files would be to right click "
 "on the file itself and select "
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Add</guimenuitem></menuchoice>."
-msgstr "Ako sa projekt vyvýja budete potrebovať pridávať nový súbor - povedzme pridáme novú vlastnost do súboru <filename>Extras.c</filename> a pridáme odkaz do existujúceho súboru <filename>Makefile</filename>. Pravým klikom na adresár a vyberte <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pridať</guimenuitem></menuchoice>. Dialóg pridania zobrazí všetky neverziované súbory, z ktorých môžete vybrať tie, ktoré chcete pridať. Iným spôsobom pridania súboru je kliknuím pravím na samoný súbor a vybrať <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pridať</guimenuitem></menuchoice>"
+msgstr "S vývojom projektu budete musieť pridávať nové súbory - povedzme, že do nich pridáte niekoľko nových funkcií <filename>Extras.c</filename> a pridáte odkaz na existujúci <filename>Makefile</filename>. Kliknite pravým tlačidlom myši na priečinok <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pridať</guimenuitem></menuchoice>. Dialógové okno Pridať teraz zobrazuje všetky súbory bez verzie a môžete si vybrať, ktoré chcete pridať. Ďalším spôsobom pridávania súborov by bolo kliknutie pravým tlačidlom myši na samotný súbor a výber <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Pridať</guimenuitem></menuchoice> ."
 
 #. (para)
 msgid ""
@@ -906,7 +907,7 @@ msgid ""
 "<emphasis>Added</emphasis> and the existing file as "
 "<emphasis>Modified</emphasis>. Note that you can double click on the "
 "modified file to check exactly what changes were made."
-msgstr "Teraz, keď pojdete odovzdať adresár nové súbory sa zobrazia ako<emphasis>Pridané</emphasis> a existujúce súbory ako<emphasis>Zmenené</emphasis>. Poznamenávame, že môžete dvojklikom na zmenený súbor a skontrolovať, aké zmeny boli vykonané."
+msgstr "Keď teraz prejdete na odovzdanie priečinka, nový súbor sa zobrazí ako <emphasis>Pridané</emphasis> a existujúci súbor ako <emphasis>Zmenený</emphasis>. Dvojitým kliknutím na zmenený súbor môžete skontrolovať, aké zmeny boli vykonané."
 
 #. (title)
 msgid "Viewing the Project History"
@@ -914,7 +915,7 @@ msgstr "Prezeranie histórie projektu"
 
 #. (title)
 msgid "The Log Dialog"
-msgstr "Dialóg denníka"
+msgstr "Dialóg záznamu"
 
 #. (para)
 msgid ""
@@ -924,7 +925,7 @@ msgid ""
 "enter a commit message as suggested? If not, now you see why this is "
 "important). <placeholder-1/> OK, so I cheated a little here and used a "
 "screenshot from the TortoiseSVN repository."
-msgstr ""
+msgstr "Jednou z najužitočnejších funkcií TortoiseSVN je dialógové okno záznamu. Zobrazí sa zoznam všetkých odovzdaní, ktoré ste vykonali v súbore alebo priečinku a podrobné správy o odovzdaní, ktoré ste zadali (<emphasis>urobili</emphasis> ste správu o odovzdaní podľa návrhu? Ak nie, teraz vidíte, prečo je to dôležité). <placeholder-1/>OK, tak som tu trochu podvádzal a použil som snímku obrazovky z úložiska TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -932,7 +933,7 @@ msgid ""
 " commit message. If you select one of these revisions, the middle pane will "
 "show the full log message for that revision and the bottom pane will show a "
 "list of changed files and folders."
-msgstr "Horný zoznam zobrazuje odovzdané revízie so začiatkom správy. Ak vyberiete jednu z týchto revízií stredný panel zobrazí celú správu denníka pre danú revíziu a spodný panel zobrazí zoznam zmien súborov a adresárov."
+msgstr "Horný panel ukazuje zoznam odovzdaných revízií spolu so počiatočnou správou o odovzdaní. Ak vyberiete jednu z týchto revízií, na strednom paneli sa zobrazí úplná správa protokolu pre danú revíziu a na dolnom paneli sa zobrazí zoznam zmenených súborov a priečinkov."
 
 #. (para)
 msgid ""
@@ -940,11 +941,11 @@ msgid ""
 "ways of using the information. In the bottom pane you can <action>double "
 "click</action> on a file to see exactly what changes were made in that "
 "revision. Read <xref linkend=\"tsvn-dug-showlog\"/> to get the full story."
-msgstr "Každý z týchto panelov má kontextové menu poskytujúce mnoho spôsobov ako túto informáciu ďalej využiť. V spodnom panely <action>dvoj-klik</action> na súbor zobrazí čo sa presne zmenilo v danej revízií . Prečítajte si <xref linkend=\"tsvn-dug-showlog\"/> aby ste sa dozvedeli viac."
+msgstr "Každý z týchto panelov má kontextovú ponuku, ktoré vám poskytuje viacero spôsobov použitia týchto informácií. Na spodnom paneli môžete použiť <action>dvojklik</action> na súbor, aby ste presne videli, aké zmeny sa v tejto revízii vykonali. Prečítaním <xref linkend=\"tsvn-dug-showlog\"/> získate celý príbeh."
 
 #. (title)
 msgid "Undoing Changes"
-msgstr "Vrátenie zmien"
+msgstr "Zrušenie zmien"
 
 #. (para)
 msgid ""
@@ -12967,7 +12968,7 @@ msgstr ""
 
 #. (term)
 msgid "Reopen dialog after commit if items were left uncommitted"
-msgstr ""
+msgstr "Po odovzdaní znova otvorí dialógové okno, ak zostanú neodovzdané položky"
 
 #. (para)
 msgid ""
@@ -13218,7 +13219,7 @@ msgstr ""
 
 #. (term)
 msgid "Dark theme"
-msgstr ""
+msgstr "Tmavý motív"
 
 #. (para)
 msgid ""
@@ -21378,7 +21379,7 @@ msgstr "Znaky použité na zobrazenie bielych medzier sú zobrazené inou farbou
 
 #. (term)
 msgid "Use dark mode"
-msgstr ""
+msgstr "Použiť tmavý režim"
 
 #. (listitem)
 msgid ""
