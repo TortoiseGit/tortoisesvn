@@ -1200,7 +1200,6 @@ BOOL CSVNProgressDlg::OnInitDialog()
 
     SetTimer(VISIBLETIMER, 300, NULL);
 
-    AdjustControlSize(IDC_JUMPCONFLICT);
     CAppUtils::SetAccProperty(GetDlgItem(IDC_JUMPCONFLICT)->GetSafeHwnd(), PROPID_ACC_STATE, STATE_SYSTEM_READONLY|STATE_SYSTEM_UNAVAILABLE);
 
     AddAnchor(IDC_SVNPROGRESS, TOP_LEFT, BOTTOM_RIGHT);
@@ -1518,7 +1517,21 @@ UINT CSVNProgressDlg::ProgressThread()
     {
         GetDlgItem(IDC_RETRYMERGE)->ShowWindow(SW_SHOW);
     }
-
+    else if ((m_Command == SVNProgress_Merge) || (m_Command == SVNProgress_MergeAll) || (m_Command == SVNProgress_MergeReintegrateOldStyle) || (m_Command == SVNProgress_MergeReintegrate))
+    {
+        bool hasConflicts = false;
+        for (int i = 0; i < (int)m_arData.size(); ++i)
+        {
+            NotificationData* data = m_arData[i];
+            if (data->bConflictedActionItem)
+                hasConflicts = true;
+        }
+        if (hasConflicts)
+        {
+            SetDlgItemText(IDC_RETRYMERGE, CString(MAKEINTRESOURCE(IDS_RESOLVE_CONFLCTS)));
+            GetDlgItem(IDC_RETRYMERGE)->ShowWindow(SW_SHOW);
+        }
+    }
 
     CString info = BuildInfoString();
     if (!bSuccess)
@@ -1629,22 +1642,30 @@ void CSVNProgressDlg::OnBnClickedRetryMerge()
     CWnd* pWndButton = GetDlgItem(IDC_RETRYMERGE);
     if ((pWndButton == nullptr) || !pWndButton->IsWindowVisible())
         return;
-    ResetVars();
-    m_bNoHooks = true;
-
-    m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
-    if (m_pThread == NULL)
+    
+    if ((m_mergedRevisions.GetCount() == 0) || (m_nConflicts != 0) || (!m_url.IsEquivalentTo(m_url2)))
     {
-        ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
-        return;
+        ResolvePostOperationConflicts();
     }
     else
     {
-        m_pThread->m_bAutoDelete = FALSE;
-        m_pThread->ResumeThread();
+        ResetVars();
+        m_bNoHooks = true;
+
+        m_pThread = AfxBeginThread(ProgressThreadEntry, this, THREAD_PRIORITY_NORMAL, 0, CREATE_SUSPENDED);
+        if (m_pThread == NULL)
+        {
+            ReportError(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED)));
+            return;
+        }
+        else
+        {
+            m_pThread->m_bAutoDelete = FALSE;
+            m_pThread->ResumeThread();
+        }
+        if (pWndButton)
+            pWndButton->ShowWindow(SW_HIDE);
     }
-    if (pWndButton)
-        pWndButton->ShowWindow(SW_HIDE);
 }
 
 
@@ -4533,6 +4554,20 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                     }
                 }
             }
+        }
+        bool hasConflicts = false;
+        for (int i = 0; i < (int)m_arData.size(); ++i)
+        {
+            NotificationData* data = m_arData[i];
+            if (data->bConflictedActionItem)
+            {
+                hasConflicts = true;
+                break;
+            }
+        }
+        if (!hasConflicts)
+        {
+            GetDlgItem(IDC_RETRYMERGE)->ShowWindow(SW_HIDE);
         }
     }
 }
