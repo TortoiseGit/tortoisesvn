@@ -4953,11 +4953,15 @@ void CSVNStatusListCtrl::OnNMCustomdraw(NMHDR *pNMHDR, LRESULT *pResult)
                     case svn_wc_status_obstructed:
                         crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Conflict), true);
                         break;
+                    case svn_wc_status_normal:
+                        crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
+                        if (entry->copied)
+                            crText = CTheme::Instance().GetThemeColor(m_Colors.GetColor(CColors::Modified), true);
+                        break;
                     case svn_wc_status_none:
                     case svn_wc_status_unversioned:
                     case svn_wc_status_ignored:
                     case svn_wc_status_incomplete:
-                    case svn_wc_status_normal:
                     case svn_wc_status_external:
                     default:
                         crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
