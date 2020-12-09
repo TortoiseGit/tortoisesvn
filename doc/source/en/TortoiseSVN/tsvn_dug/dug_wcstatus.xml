@@ -150,6 +150,9 @@
     <indexterm>
       <primary>modifications</primary>
     </indexterm>
+    <indexterm>
+      <primary>(+)</primary>
+    </indexterm>
     <para>
       <figure id="tsvn-dug-wcstatus-dia-2">
         <title>Check for Modifications</title>
@@ -188,6 +191,12 @@
           <listitem>
             <para>
               Locally modified items.
+            </para>
+            <para>
+              if unchanged files are inside a directory that's been
+              moved, the status will show a <literal>+</literal> sign
+              in the <guilabel>status</guilabel> column, and it will
+              be colored in blue as well.
             </para>
           </listitem>
         </varlistentry>
