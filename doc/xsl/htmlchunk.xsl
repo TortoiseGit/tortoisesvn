@@ -4,4 +4,9 @@
 <xsl:param name="keep.relative.image.uris" select="0"/>
 <xsl:param name="chunker.output.encoding" select="'UTF-8'"/>
 
+<xsl:template name="user.footer.navigation">
+ <center><p><a href="https://tortoisesvn.net">TortoiseSVN homepage</a></p></center>
+</xsl:template>
+
+
 </xsl:stylesheet>

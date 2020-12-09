@@ -13,4 +13,8 @@
 <xsl:param name="htmlhelp.hhc.binary" select="0"></xsl:param>
 <xsl:param name="htmlhelp.use.hhk" select="1"></xsl:param>
 
+<xsl:template name="user.footer.navigation">
+ <center><p><a href="https://tortoisesvn.net">TortoiseSVN homepage</a></p></center>
+</xsl:template>
+
 </xsl:stylesheet>
