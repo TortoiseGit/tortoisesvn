@@ -628,9 +628,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         {
             // check whether the path we want the status for is already fetched due to status-fetching
             // of a parent path.
-            // this check is only done for file paths, because folder paths could be included already
-            // but not recursively
-            if (sortedPathList[nTarget].IsDirectory() || GetListEntry(sortedPathList[nTarget]) == NULL)
+            if (!m_bDepthInfinity || GetListEntry(sortedPathList[nTarget]) == NULL)
             {
                 if(!FetchStatusForSingleTarget(status, sortedPathList[nTarget], basepath, bUpdate, sUUID, arExtPaths, false, m_bDepthInfinity ? svn_depth_infinity : svn_depth_unknown, bShowIgnores))
                 {
