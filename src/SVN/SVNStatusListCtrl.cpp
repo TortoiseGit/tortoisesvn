@@ -628,7 +628,7 @@ BOOL CSVNStatusListCtrl::GetStatus ( const CTSVNPathList& pathList
         {
             // check whether the path we want the status for is already fetched due to status-fetching
             // of a parent path.
-            if (!m_bDepthInfinity || GetListEntry(sortedPathList[nTarget]) == NULL)
+            if (GetListEntry(sortedPathList[nTarget]) == nullptr)
             {
                 if(!FetchStatusForSingleTarget(status, sortedPathList[nTarget], basepath, bUpdate, sUUID, arExtPaths, false, m_bDepthInfinity ? svn_depth_infinity : svn_depth_unknown, bShowIgnores))
                 {
