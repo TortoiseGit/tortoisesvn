@@ -1645,6 +1645,7 @@ void CSVNProgressDlg::OnBnClickedRetryMerge()
     
     if ((m_mergedRevisions.GetCount() == 0) || (m_nConflicts != 0) || (!m_url.IsEquivalentTo(m_url2)))
     {
+        m_bCancelled = FALSE;
         ResolvePostOperationConflicts();
     }
     else
