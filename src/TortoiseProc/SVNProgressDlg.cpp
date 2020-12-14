@@ -1646,7 +1646,17 @@ void CSVNProgressDlg::OnBnClickedRetryMerge()
     if ((m_mergedRevisions.GetCount() == 0) || (m_nConflicts != 0) || (!m_url.IsEquivalentTo(m_url2)))
     {
         m_bCancelled = FALSE;
+        // svn_wc_notify_conflict_resolver_starting
+        Notify(CTSVNPath(), CTSVNPath(), svn_wc_notify_conflict_resolver_starting,
+            svn_node_none, CString(), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown,
+            0, NULL, svn_wc_notify_lock_state_unknown, CString(), CString(), NULL, NULL, m_pool);
+
         ResolvePostOperationConflicts();
+
+        // svn_wc_notify_conflict_resolver_done
+        Notify(CTSVNPath(), CTSVNPath(), svn_wc_notify_conflict_resolver_done,
+            svn_node_none, CString(), svn_wc_notify_state_unknown, svn_wc_notify_state_unknown,
+            0, NULL, svn_wc_notify_lock_state_unknown, CString(), CString(), NULL, NULL, m_pool);
     }
     else
     {
