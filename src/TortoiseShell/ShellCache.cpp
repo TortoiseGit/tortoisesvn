@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2017 - TortoiseSVN
+// Copyright (C) 2010-2017, 2020 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -350,9 +350,11 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
         wcsncpy_s(pathbuf, path, _countof(pathbuf) - 1);
         if (PathIsUNCServer(pathbuf))
             drivetype = DRIVE_REMOTE;
+        PathStripToRoot(pathbuf);
+        if (PathIsUNCServerShare(pathbuf))
+            drivetype = DRIVE_REMOTE;
         else
         {
-            PathStripToRoot(pathbuf);
             PathAddBackslash(pathbuf);
             if (wcsncmp(pathbuf, drivetypepathcache, MAX_PATH - 1) == 0)       // MAX_PATH ok.
                 drivetype = drivetypecache[26];
