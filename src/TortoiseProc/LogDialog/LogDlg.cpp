@@ -2853,6 +2853,12 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
     }
     m_bCancelled = FALSE;
     filepath     = GetRepositoryRoot(CTSVNPath(filepath));
+    if (filepath.IsEmpty())
+    {
+        ReportNoUrlOfFile(filepath);
+        EnableOKButton();
+        return; //exit
+    }
     // filepath is in escaped form. But since the changedpath
     // is not, we have to unescape the filepath here first,
     // so the escaped parts won't get escaped again in case changedpath
@@ -2938,6 +2944,12 @@ BOOL CLogDlg::Open(bool bOpenWith, CString changedpath, svn_revnum_t rev)
     }
     m_bCancelled = false;
     filepath     = GetRepositoryRoot(CTSVNPath(filepath));
+    if (filepath.IsEmpty())
+    {
+        ReportNoUrlOfFile(filepath);
+        EnableOKButton();
+        return false; //exit
+    }
     filepath += changedpath;
 
     CProgressDlg progDlg;
@@ -7385,6 +7397,12 @@ void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
         }
         m_bCancelled = false;
         filepath     = GetRepositoryRoot(CTSVNPath(filepath));
+        if (filepath.IsEmpty())
+        {
+            ReportNoUrlOfFile(filepath);
+            EnableOKButton();
+            return; //exit
+        }
         filepath += m_currentChangedArray[selIndex].GetPath();
         CTSVNPath tsvnfilepath = CTSVNPath(filepath);
 
