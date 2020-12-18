@@ -2855,7 +2855,7 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
     filepath     = GetRepositoryRoot(CTSVNPath(filepath));
     if (filepath.IsEmpty())
     {
-        ReportNoUrlOfFile(filepath);
+        ShowErrorDialog(m_hWnd);
         EnableOKButton();
         return; //exit
     }
@@ -2946,7 +2946,7 @@ BOOL CLogDlg::Open(bool bOpenWith, CString changedpath, svn_revnum_t rev)
     filepath     = GetRepositoryRoot(CTSVNPath(filepath));
     if (filepath.IsEmpty())
     {
-        ReportNoUrlOfFile(filepath);
+        ShowErrorDialog(m_hWnd);
         EnableOKButton();
         return false; //exit
     }
@@ -7399,7 +7399,7 @@ void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
         filepath     = GetRepositoryRoot(CTSVNPath(filepath));
         if (filepath.IsEmpty())
         {
-            ReportNoUrlOfFile(filepath);
+            ShowErrorDialog(m_hWnd);
             EnableOKButton();
             return; //exit
         }
