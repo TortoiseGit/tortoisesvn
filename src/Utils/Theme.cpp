@@ -145,6 +145,8 @@ bool CTheme::RemoveRegisteredCallback(int id)
 bool CTheme::SetThemeForDialog(HWND hWnd, bool bDark)
 {
     DarkModeHelper::Instance().AllowDarkModeForWindow(hWnd, bDark);
+    if (bDark && !DarkModeHelper::Instance().CanHaveDarkMode())
+        return false;
     if (bDark)
     {
         SetWindowSubclass(hWnd, MainSubclassProc, SubclassID, (DWORD_PTR)&s_backBrush);
