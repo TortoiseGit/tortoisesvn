@@ -522,7 +522,7 @@ public:
      */
     bool Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath& path2,
         const SVNRev& revision2, const CTSVNPath& localPath, bool force, svn_depth_t depth, const CString& options,
-        bool ignoreanchestry = FALSE, bool dryrun = FALSE, bool record_only = FALSE);
+        bool ignoreanchestry = FALSE, bool dryrun = FALSE, bool record_only = FALSE, bool allowmixedrevs = true);
 
     /**
      * Merge changes from source/revision1 to source/revision2 into the
@@ -560,7 +560,7 @@ public:
      */
     bool PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearray, const SVNRev& pegrevision,
         const CTSVNPath& destpath, bool force, svn_depth_t depth, const CString& options,
-        bool ignoreancestry = FALSE, bool dryrun = FALSE, bool record_only = FALSE);
+        bool ignoreancestry = FALSE, bool dryrun = FALSE, bool record_only = FALSE, bool allowmixedrevs = true);
     /**
      * Performs a reintegration merge of \c source into \c wcpath.
      */

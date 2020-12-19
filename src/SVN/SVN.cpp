@@ -1525,7 +1525,7 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
 
 bool SVN::Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath& path2, const SVNRev& revision2,
                 const CTSVNPath& localPath, bool force, svn_depth_t depth, const CString& options,
-                bool ignoreanchestry, bool dryrun, bool record_only)
+                bool ignoreanchestry, bool dryrun, bool record_only, bool allowmixedrevs)
 {
     SVNPool             subpool(m_pool);
     apr_array_header_t* opts;
@@ -1548,7 +1548,7 @@ bool SVN::Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath
                                 force,
                                 record_only,
                                 dryrun,
-                                true,
+                                allowmixedrevs,
                                 opts,
                                 m_pctx,
                                 subpool),
@@ -1560,7 +1560,7 @@ bool SVN::Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath
 
 bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearray, const SVNRev& pegrevision,
                    const CTSVNPath& destpath, bool force, svn_depth_t depth, const CString& options,
-                   bool ignoreancestry, bool dryrun, bool record_only)
+                   bool ignoreancestry, bool dryrun, bool record_only, bool allowmixedrevs)
 {
     SVNPool             subpool(m_pool);
     apr_array_header_t* opts;
@@ -1582,7 +1582,7 @@ bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revrangearra
                                     force,
                                     record_only,
                                     dryrun,
-                                    true,
+                                    allowmixedrevs,
                                     opts,
                                     m_pctx,
                                     subpool),

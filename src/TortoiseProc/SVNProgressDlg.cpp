@@ -3364,7 +3364,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
 
         if (!PegMerge(m_url, m_revisionArray,
             m_pegRev.IsValid() ? m_pegRev : (m_url.IsUrl() ? firstRevOfRange : SVNRev(SVNRev::REV_WC)),
-            m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
+            m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly), !!(m_options & ProgOptAllowMixedRev)))
         {
             if (m_ProgList.GetItemCount()>1)
             {
@@ -3374,7 +3374,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             // if the merge fails with the peg revision set,
             // try again with HEAD as the peg revision.
             else if (!PegMerge(m_url, m_revisionArray, SVNRev::REV_HEAD,
-                m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
+                m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly), !!(m_options & ProgOptAllowMixedRev)))
             {
                 ReportSVNError();
                 bFailed = true;
@@ -3395,7 +3395,7 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
         ReportCmd(sCmdInfo);
 
         if (!Merge(m_url, m_Revision, m_url2, m_RevisionEnd, m_targetPathList[0],
-            !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly)))
+            !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), !!(m_options & ProgOptDryRun), !!(m_options & ProgOptRecordOnly), !!(m_options & ProgOptAllowMixedRev)))
         {
             ReportSVNError();
             bFailed = true;
@@ -3450,7 +3450,7 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
     CBlockCacheForPath cacheBlock (m_targetPathList[0].GetWinPath());
     if (!PegMerge(suggestedSources[0], revarray,
         SVNRev::REV_HEAD,
-        m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE, !!(m_options & ProgOptRecordOnly)))
+        m_targetPathList[0], !!(m_options & ProgOptForce), m_depth, m_diffoptions, !!(m_options & ProgOptIgnoreAncestry), FALSE, !!(m_options & ProgOptRecordOnly), !!(m_options & ProgOptAllowMixedRev)))
     {
         ReportSVNError();
         return false;
@@ -3493,7 +3493,8 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
                   m_diffoptions,
                   !!(m_options & ProgOptIgnoreAncestry),
                   !!(m_options & ProgOptDryRun),
-                  !!(m_options & ProgOptRecordOnly)))
+                  !!(m_options & ProgOptRecordOnly),
+                  !!(m_options & ProgOptAllowMixedRev)))
     {
         ReportSVNError();
         return false;
