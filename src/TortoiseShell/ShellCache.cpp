@@ -351,7 +351,7 @@ BOOL ShellCache::IsPathAllowed(LPCTSTR path)
         if (PathIsUNCServer(pathbuf))
             drivetype = DRIVE_REMOTE;
         PathStripToRoot(pathbuf);
-        if (PathIsUNCServerShare(pathbuf))
+        if (PathIsNetworkPath(pathbuf))
             drivetype = DRIVE_REMOTE;
         else
         {
