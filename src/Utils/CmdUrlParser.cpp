@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2009, 2012, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -71,6 +71,8 @@ CString CmdUrlParser::GetCommandLine()
             else if (cmd.CompareNoCase(L"showcompare") == 0)
                 isCmdAllowed = true;
             else if (cmd.CompareNoCase(L"log") == 0)
+                isCmdAllowed = true;
+            else if (cmd.CompareNoCase(L"properties") == 0)
                 isCmdAllowed = true;
 
             if (!isCmdAllowed)
