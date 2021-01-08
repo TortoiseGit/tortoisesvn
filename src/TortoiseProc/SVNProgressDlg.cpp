@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2020 - TortoiseSVN
+// Copyright (C) 2003-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,6 +52,7 @@
 #include "BrowseFolder.h"
 #include "SimplePrompt.h"
 #include "Theme.h"
+#include "../SVN/SVNInfo.h"
 #include <strsafe.h>
 
 BOOL    CSVNProgressDlg::m_bAscending = FALSE;
@@ -716,7 +717,18 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
         if ((err)&&(err->apr_err == SVN_ERR_FS_OUT_OF_DATE))
             m_bLockWarning = true;
         if ((err)&&(err->apr_err == SVN_ERR_FS_PATH_ALREADY_LOCKED))
+        {
             m_bLockExists = true;
+            SVNInfo            info;
+            const SVNInfoData* infodata = info.GetFirstFileInfo(path, SVNRev(L"HEAD"), SVNRev(L"HEAD"));
+            if (infodata && !infodata->lock_comment.IsEmpty())
+            {
+                NotificationData* data2  = new NotificationData();
+                data2->sActionColumnText = L"";
+                data2->sPathColumnText = infodata->lock_comment;
+                AddItemToList(data2);
+            }
+        }
         break;
     case svn_wc_notify_failed_unlock:
         data->sActionColumnText.LoadString(IDS_SVNACTION_FAILEDUNLOCK);
