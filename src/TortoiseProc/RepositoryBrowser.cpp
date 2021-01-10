@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2020 - TortoiseSVN
+// Copyright (C) 2003-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -94,6 +94,8 @@ enum RepoBrowserContextMenuCommands
     ID_FULLTOCLIPBOARD,
     ID_URLTOCLIPBOARD,
     ID_URLTOCLIPBOARDREV,
+    ID_URLTOCLIPBOARDVIEWERREV,
+    ID_URLTOCLIPBOARDVIEWERPATHREV,
     ID_NAMETOCLIPBOARD,
     ID_AUTHORTOCLIPBOARD,
     ID_REVISIONTOCLIPBOARD,
@@ -3392,6 +3394,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 clipSubMenu.AppendMenuIcon(ID_FULLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FULL, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_URL, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
+	        if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
+            	clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDVIEWERREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERREV, IDI_COPYCLIP);
+	        if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
+            	clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_NAMETOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FILENAMES, IDI_COPYCLIP);
             if (pWnd == &m_RepoList)
             {
@@ -3582,6 +3588,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             break;
         case ID_URLTOCLIPBOARD:
         case ID_URLTOCLIPBOARDREV:
+        case ID_URLTOCLIPBOARDVIEWERREV:
+        case ID_URLTOCLIPBOARDVIEWERPATHREV:
         case ID_FULLTOCLIPBOARD:
         case ID_NAMETOCLIPBOARD:
         case ID_AUTHORTOCLIPBOARD:
@@ -3598,6 +3606,18 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         while ((index = m_RepoList.GetNextSelectedItem(pos))>=0)
                         {
                             CItem * pItem = (CItem *)m_RepoList.GetItemData (index);
+                            if (cmd == ID_URLTOCLIPBOARDVIEWERREV)
+                            {
+	                            CString weburl = GetUrlWebViewerRev(selection);
+	                            if (!weburl.IsEmpty())
+                                    sClipboard += weburl;
+                            }
+                            if (cmd == ID_URLTOCLIPBOARDVIEWERPATHREV)
+                            {
+	                            CString weburl = GetUrlWebViewerPathRev(selection);
+	                            if (!weburl.IsEmpty())
+	                                sClipboard += weburl;
+                            }
                             if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_URLTOCLIPBOARDREV) || (cmd == ID_FULLTOCLIPBOARD))
                             {
                                 CString path = pItem->absolutepath;
@@ -3650,6 +3670,18 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 {
                     for (size_t i=0; i < selection.GetPathCount(0); ++i)
                     {
+                        if (cmd == ID_URLTOCLIPBOARDVIEWERREV)
+                        {
+                            CString weburl = GetUrlWebViewerRev(selection);
+                            if (!weburl.IsEmpty())
+                                sClipboard += weburl;
+                        }
+                        if (cmd == ID_URLTOCLIPBOARDVIEWERPATHREV)
+                        {
+                            CString weburl = GetUrlWebViewerPathRev(selection);
+                            if (!weburl.IsEmpty())
+                                sClipboard += weburl;
+                        }
                         if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_FULLTOCLIPBOARD) || (cmd == ID_URLTOCLIPBOARDREV))
                         {
                             CString path = selection.GetURL (0, i).GetSVNPathString();
@@ -3776,25 +3808,14 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             break;
         case ID_VIEWREV:
             {
-                const SRepositoryInfo& repository = selection.GetRepository(0);
-                CString weburl = m_ProjectProperties.sWebViewerRev;
-                weburl = CAppUtils::GetAbsoluteUrlFromRelativeUrl(repository.root, weburl);
-                SVNRev headrev = selection.GetRepository(0).revision.IsHead() ? m_barRepository.GetHeadRevision() : selection.GetRepository(0).revision;
-                weburl.Replace(L"%REVISION%", headrev.ToString());
+                CString weburl = GetUrlWebViewerRev(selection);
                 if (!weburl.IsEmpty())
                     ShellExecute(this->m_hWnd, L"open", weburl, NULL, NULL, SW_SHOWDEFAULT);
             }
             break;
         case ID_VIEWPATHREV:
             {
-                const SRepositoryInfo& repository = selection.GetRepository(0);
-                CString relurl = selection.GetURLEscaped (0, 0).GetSVNPathString();
-                relurl = relurl.Mid (repository.root.GetLength());
-                CString weburl = m_ProjectProperties.sWebViewerPathRev;
-                weburl = CAppUtils::GetAbsoluteUrlFromRelativeUrl(repository.root, weburl);
-                SVNRev headrev = selection.GetRepository(0).revision.IsHead() ? m_barRepository.GetHeadRevision() : selection.GetRepository(0).revision;
-                weburl.Replace(L"%REVISION%", headrev.ToString());
-                weburl.Replace(L"%PATH%", relurl);
+                CString weburl = GetUrlWebViewerPathRev(selection);
                 if (!weburl.IsEmpty())
                     ShellExecute(this->m_hWnd, L"open", weburl, NULL, NULL, SW_SHOWDEFAULT);
             }
@@ -5485,5 +5506,25 @@ void CRepositoryBrowser::SaveBookmarks()
     }
 }
 
+CString CRepositoryBrowser::GetUrlWebViewerRev(CRepositoryBrowserSelection& selection)
+{
+    const SRepositoryInfo& repository = selection.GetRepository(0);
+    CString weburl = m_ProjectProperties.sWebViewerRev;
+    weburl = CAppUtils::GetAbsoluteUrlFromRelativeUrl(repository.root, weburl);
+    SVNRev headrev = selection.GetRepository(0).revision.IsHead() ? m_barRepository.GetHeadRevision() : selection.GetRepository(0).revision;
+    weburl.Replace(L"%REVISION%", headrev.ToString());
+    return weburl;
+}
 
-
+CString CRepositoryBrowser::GetUrlWebViewerPathRev(CRepositoryBrowserSelection& selection)
+{
+    const SRepositoryInfo& repository = selection.GetRepository(0);
+    CString relurl = selection.GetURLEscaped (0, 0).GetSVNPathString();
+    relurl = relurl.Mid (repository.root.GetLength());
+    CString weburl = m_ProjectProperties.sWebViewerPathRev;
+    weburl = CAppUtils::GetAbsoluteUrlFromRelativeUrl(repository.root, weburl);
+    SVNRev headrev = selection.GetRepository(0).revision.IsHead() ? m_barRepository.GetHeadRevision() : selection.GetRepository(0).revision;
+    weburl.Replace(L"%REVISION%", headrev.ToString());
+    weburl.Replace(L"%PATH%", relurl);
+    return weburl;
+}

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2020 - TortoiseSVN
+// Copyright (C) 2003-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -151,6 +151,9 @@ enum LogDlgContextMenuCommands
     ID_COPYCLIPBOARDMESSAGES,
     ID_COPYCLIPBOARDURL,
     ID_COPYCLIPBOARDURLREV,
+    ID_COPYCLIPBOARDURLVIEWERREV,
+    ID_COPYCLIPBOARDURLVIEWERPATHREV,
+    ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE,
     ID_COPYCLIPBOARDRELPATH,
     ID_COPYCLIPBOARDFILENAMES,
     ID_CHECKOUT,
@@ -2136,6 +2139,92 @@ void CLogDlg::CopySelectionToClipBoardRev()
             CString sLogCopyText;
             sLogCopyText.Format(L"%s/?r=%ld\r\n", (LPCWSTR)m_sURL, pLogEntry->GetRevision());
             sClipdata += sLogCopyText;
+        }
+        CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
+    }
+}
+
+void CLogDlg::CopySelectionToClipBoardViewerRev()
+{
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    if (pos != NULL)
+    {
+        CString sClipdata;
+        while (pos)
+        {
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= (int)m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
+            if (pLogEntry == NULL)
+                continue;
+
+            CString sUrl = m_ProjectProperties.sWebViewerRev;
+            CString rev;
+            rev.Format(L"%ld", pLogEntry->GetRevision());
+            CLogChangedPathArray array = pLogEntry->GetChangedPaths();
+            sUrl.Replace(L"%REVISION%", rev);
+            sClipdata += sUrl;
+            sClipdata += L"\r\n";
+        }
+        CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
+    }
+}
+
+void CLogDlg::CopySelectionToClipBoardViewerPathRev()
+{
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    if (pos != NULL)
+    {
+        CString sClipdata;
+        while (pos)
+        {
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= (int)m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
+            if (pLogEntry == NULL)
+                continue;
+
+            CString sUrl = m_ProjectProperties.sWebViewerPathRev;
+            CString rev;
+            rev.Format(L"%ld", pLogEntry->GetRevision());
+            sUrl.Replace(L"%REVISION%", rev);
+            sUrl.Replace(L"%PATH%", (LPCWSTR)m_sRelativeRoot);
+            sClipdata += sUrl;
+            sClipdata += L"\r\n";
+        }
+        CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
+    }
+}
+
+void CLogDlg::CopySelectionToClipBoardTsvnShowCompare()
+{
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    if (pos != NULL)
+    {
+        CString sClipdata;
+        while (pos)
+        {
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= (int)m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
+            if (pLogEntry == NULL)
+                continue;
+
+            CString sUrl = L"tsvncmd:command:showcompare?url1:";
+            sUrl += m_sRepositoryRoot;
+            sUrl += m_sRelativeRoot;
+            sUrl += "?revision1:";
+            sUrl += SVNRev(pLogEntry->GetRevision() - 1).ToString();
+            sUrl += "?url2:";
+            sUrl += m_sRepositoryRoot;
+            sUrl += m_sRelativeRoot;
+            sUrl += "?revision2:";
+            sUrl += SVNRev(pLogEntry->GetRevision()).ToString();
+            sClipdata += sUrl;
+            sClipdata += L"\r\n";
         }
         CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
     }
@@ -5359,6 +5448,11 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
     {
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFULL, IDS_LOG_POPUP_CLIPBOARD_FULL, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
+        if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
+	        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERREV, IDI_COPYCLIP);
+        if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
+	        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
+        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE, IDS_LOG_POPUP_CLIPBOARD_TSVNSHOWCOMPARE, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFULLNOPATHS, IDS_LOG_POPUP_CLIPBOARD_FULLNOPATHS, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDREVS, IDS_LOG_POPUP_CLIPBOARD_REVS, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDAUTHORS, IDS_LOG_POPUP_CLIPBOARD_AUTHORS, IDI_COPYCLIP);
@@ -5488,6 +5582,15 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_COPYCLIPBOARDURLREV:
             CopySelectionToClipBoardRev();
+            break;
+        case ID_COPYCLIPBOARDURLVIEWERREV:
+            CopySelectionToClipBoardViewerRev();
+            break;
+        case ID_COPYCLIPBOARDURLVIEWERPATHREV:
+            CopySelectionToClipBoardViewerPathRev();
+            break;
+        case ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE:
+            CopySelectionToClipBoardTsvnShowCompare();
             break;
         case ID_COPYCLIPBOARDFULLNOPATHS:
             CopySelectionToClipBoard(false);
@@ -6321,6 +6424,9 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_COPYCLIPBOARDURL:
         case ID_COPYCLIPBOARDURLREV:
+        case ID_COPYCLIPBOARDURLVIEWERREV:
+        case ID_COPYCLIPBOARDURLVIEWERPATHREV:
+        case ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE:
         case ID_COPYCLIPBOARDRELPATH:
         case ID_COPYCLIPBOARDFILENAMES:
             CopyChangedPathInfoToClipboard(pCmi, cmd);
@@ -7315,6 +7421,9 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
 
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURL, IDS_LOG_POPUP_CLIPBOARD_URL, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
+	        if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
+		        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
+	        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE, IDS_LOG_POPUP_CLIPBOARD_TSVNSHOWCOMPARE, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDRELPATH, IDS_LOG_POPUP_CLIPBOARD_RELPATH, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFILENAMES, IDS_LOG_POPUP_CLIPBOARD_FILENAMES, IDI_COPYCLIP);
 
@@ -7918,6 +8027,38 @@ void CLogDlg::CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr p
             case ID_COPYCLIPBOARDURLREV:
                 sClipboard += ((m_sRepositoryRoot + path.GetPath()) + L"/?r=" + SVNRev(pCmi->Rev1).ToString());
                 break;
+            case ID_COPYCLIPBOARDURLVIEWERREV:
+                {
+                    CString url = m_ProjectProperties.sWebViewerRev;
+                    url.Replace(L"%REVISION%", SVNRev(pCmi->Rev1).ToString());
+                    if (!url.IsEmpty())
+                        sClipboard += url;
+                }
+                break;
+            case ID_COPYCLIPBOARDURLVIEWERPATHREV:
+                {
+                    CString url = m_ProjectProperties.sWebViewerPathRev;
+                    url.Replace(L"%PATH%", path.GetPath());
+                    url.Replace(L"%REVISION%", SVNRev(pCmi->Rev1).ToString());
+                    if (!url.IsEmpty())
+                        sClipboard += url;
+                }
+                break;
+            case ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE:
+            {
+                CString url = L"tsvncmd:command:showcompare?url1:";
+                url += m_sRepositoryRoot;
+                url += path.GetPath();
+                url += "?revision1:";
+                url += SVNRev(pCmi->Rev1).ToString();
+                url += "?url2:";
+                url += m_sRepositoryRoot;
+                url += path.GetPath();
+                url += "?revision2:";
+                url += SVNRev(pCmi->Rev2).ToString();
+                sClipboard += url;
+            }
+            break;
             case ID_COPYCLIPBOARDRELPATH:
                 sClipboard += path.GetPath();
                 break;
