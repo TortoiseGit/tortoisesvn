@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2014 - TortoiseSVN
+// Copyright (C) 2007-2009, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,6 +48,7 @@ bool LockCommand::Execute()
             progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Lock);
             progDlg.SetOptions(lockDlg.m_bStealLocks ? ProgOptForce : ProgOptNone);
             progDlg.SetPathList(lockDlg.m_pathList);
+            progDlg.SetSelectedList(lockDlg.m_pathList);
             progDlg.SetCommitMessage(lockDlg.m_sLockMessage);
             progDlg.SetAutoClose (parser);
             progDlg.DoModal();
