@@ -2040,8 +2040,8 @@ void CLogDlg::CopySelectionToClipBoard()
 void CLogDlg::CopyCommaSeparatedRevisionsToClipboard()
 {
     POSITION pos = m_LogList.GetFirstSelectedItemPosition();
-    CString  sRevisions;
-    CString  sRevision;
+
+    std::set<svn_revnum_t> setSelectedRevisions;
 
     if (pos != NULL)
     {
@@ -2053,18 +2053,20 @@ void CLogDlg::CopyCommaSeparatedRevisionsToClipboard()
             PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
             if (pLogEntry)
             {
-                sRevision.Format(L"%ld, ", pLogEntry->GetRevision());
-                sRevisions += sRevision;
+                setSelectedRevisions.insert(pLogEntry->GetRevision());
             }
         }
-
-        // trim trailing comma and space
-        int revisionsLength = sRevisions.GetLength() - 2;
-        if (revisionsLength > 0)
-        {
-            sRevisions = sRevisions.Left(revisionsLength);
-            CStringUtils::WriteAsciiStringToClipboard(sRevisions, GetSafeHwnd());
+    }
+    if (setSelectedRevisions.size() > 0)
+    {
+        CString  sRevisions;
+        std::set<svn_revnum_t>::iterator it;
+        for (it = setSelectedRevisions.begin(); it != setSelectedRevisions.end(); ++it) {
+            if (!sRevisions.IsEmpty())
+                sRevisions += ", ";
+            sRevisions += SVNRev(*it).ToString();
         }
+        CStringUtils::WriteAsciiStringToClipboard(sRevisions, GetSafeHwnd());
     }
 }
 
