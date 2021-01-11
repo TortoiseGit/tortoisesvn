@@ -276,6 +276,9 @@ private:
     void CopySelectionToClipBoardViewerRev();
     void CopySelectionToClipBoardViewerPathRev();
     void CopySelectionToClipBoardTsvnShowCompare();
+    void CopySelectionToClipBoardBugId();
+    std::set<CString> GetSelectedBugIds();
+    void CopySelectionToClipBoardBugUrl();
     void CopyCommaSeparatedRevisionsToClipboard();
     void CopyChangedSelectionToClipBoard();
     void CopyCommaSeparatedAuthorsToClipboard();

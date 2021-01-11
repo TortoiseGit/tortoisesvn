@@ -154,6 +154,8 @@ enum LogDlgContextMenuCommands
     ID_COPYCLIPBOARDURLVIEWERREV,
     ID_COPYCLIPBOARDURLVIEWERPATHREV,
     ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE,
+    ID_COPYCLIPBOARDBUGID,
+    ID_COPYCLIPBOARDBUGURL,
     ID_COPYCLIPBOARDRELPATH,
     ID_COPYCLIPBOARDFILENAMES,
     ID_CHECKOUT,
@@ -2228,6 +2230,59 @@ void CLogDlg::CopySelectionToClipBoardTsvnShowCompare()
         }
         CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
     }
+}
+
+std::set<CString> CLogDlg::GetSelectedBugIds()
+{
+    std::set<CString> setAllBugIDs;
+    POSITION pos = m_LogList.GetFirstSelectedItemPosition();
+    if (pos != NULL)
+    {
+        while (pos)
+        {
+            int index = m_LogList.GetNextSelectedItem(pos);
+            if (index >= (int)m_logEntries.GetVisibleCount())
+                continue;
+            PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(index);
+            if (pLogEntry == NULL)
+                continue;
+
+            CString logMessage = CUnicodeUtils::StdGetUnicode(pLogEntry->GetMessageW()).c_str();
+
+            std::set<CString> setBugIDs = m_ProjectProperties.FindBugIDs(logMessage);
+            setAllBugIDs.merge(setBugIDs);
+
+        }
+    }
+    return setAllBugIDs;
+}
+
+void CLogDlg::CopySelectionToClipBoardBugId()
+{
+    std::set<CString> selectedBugIDs = GetSelectedBugIds();
+    CString sClipdata;
+    std::set<CString>::iterator it;
+    for (it = selectedBugIDs.begin(); it != selectedBugIDs.end(); ++it) {
+        if (!sClipdata.IsEmpty()) {
+            sClipdata += ", ";
+        }
+        sClipdata += *it;
+    }
+    CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
+}
+
+void CLogDlg::CopySelectionToClipBoardBugUrl()
+{
+    std::set<CString> selectedBugIDs = GetSelectedBugIds();
+    CString sClipdata;
+    std::set<CString>::iterator it;
+    for (it = selectedBugIDs.begin(); it != selectedBugIDs.end(); ++it) {
+        if (!sClipdata.IsEmpty()) {
+            sClipdata += "\r\n";
+        }
+        sClipdata += m_ProjectProperties.GetBugIDUrl(*it);
+    }
+    CStringUtils::WriteAsciiStringToClipboard(sClipdata, GetSafeHwnd());
 }
 
 void CLogDlg::CopySelectionToClipBoard(bool bIncludeChangedList)
@@ -5453,7 +5508,13 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
         if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
 	        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE, IDS_LOG_POPUP_CLIPBOARD_TSVNSHOWCOMPARE, IDI_COPYCLIP);
+        if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
+	        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERREV, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFULLNOPATHS, IDS_LOG_POPUP_CLIPBOARD_FULLNOPATHS, IDI_COPYCLIP);
+        if (GetSelectedBugIds().size() > 0) {
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDBUGID, IDS_LOG_POPUP_CLIPBOARD_BUGID, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDBUGURL, IDS_LOG_POPUP_CLIPBOARD_BUGURL, IDI_COPYCLIP);
+        }
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDREVS, IDS_LOG_POPUP_CLIPBOARD_REVS, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDAUTHORS, IDS_LOG_POPUP_CLIPBOARD_AUTHORS, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDMESSAGES, IDS_LOG_POPUP_CLIPBOARD_MSGS, IDI_COPYCLIP);
@@ -5591,6 +5652,12 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE:
             CopySelectionToClipBoardTsvnShowCompare();
+            break;
+        case ID_COPYCLIPBOARDBUGID:
+            CopySelectionToClipBoardBugId();
+            break;
+        case ID_COPYCLIPBOARDBUGURL:
+            CopySelectionToClipBoardBugUrl();
             break;
         case ID_COPYCLIPBOARDFULLNOPATHS:
             CopySelectionToClipBoard(false);
