@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-07-11 00:23+0000\n"
+"PO-Revision-Date: 2020-12-09 21:35+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Polish (http://www.transifex.com/luebbe/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -4601,6 +4601,10 @@ msgstr "Status lokalny i zdalny"
 msgid "modifications"
 msgstr "zmiany"
 
+#. (primary)
+msgid "(+)"
+msgstr ""
+
 #. (title)
 #. (title)
 msgid "Check for Modifications"
@@ -4632,6 +4636,13 @@ msgstr "Jeśli klikniecie na <guibutton>Sprawdź repozytorium</guibutton>, może
 #. (para)
 msgid "Locally modified items."
 msgstr "Elementy zmienione lokalnie."
+
+#. (para)
+msgid ""
+"if unchanged files are inside a directory that's been moved, the status will"
+" show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
+" and it will be colored in blue as well."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17186,6 +17197,10 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr "Zalecanym sposobem jest <action>przeciągnięcie prawym przyciskiem myszy</action> plików do nowej lokalizacji. Wystarczy <action>kliknąć prawym przyciskiem myszy</action> na pliki, które chcecie przenieść/skopiować, i nie zwalniać przycisku myszy. Następnie przeciągnąć pliki do nowej lokalizacji i zwolnić przycisk myszy. Pojawi się menu kontekstowe, gdzie możecie wybrać <menuchoice><guimenu>Menu kontekstowe</guimenu><guimenuitem>SVN Kopiuj wersjonowany(-e) plik(i) tutaj</guimenuitem></menuchoice>. lub <menuchoice><guimenu>Menu kontekstowe</guimenu><guimenuitem>SVN Przenieś wersjonowany(-e) plik(i) tutaj</guimenuitem></menuchoice>."
+
+#. (title)
+msgid "The TortoiseSVN right drag context menu for moving files"
+msgstr ""
 
 #. (title)
 msgid "Force users to enter a log message"

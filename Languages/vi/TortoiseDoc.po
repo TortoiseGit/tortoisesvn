@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-07-11 00:23+0000\n"
+"PO-Revision-Date: 2020-12-09 21:35+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/luebbe/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -4596,6 +4596,10 @@ msgstr "Trạng thái địa phương và từ xa"
 msgid "modifications"
 msgstr "các sửa đổi"
 
+#. (primary)
+msgid "(+)"
+msgstr ""
+
 #. (title)
 #. (title)
 msgid "Check for Modifications"
@@ -4627,6 +4631,13 @@ msgstr "Nếu bạn bấm vào <guibutton>Kiểm tra Kho</guibutton> thì bạn 
 #. (para)
 msgid "Locally modified items."
 msgstr "Các mục thay đổi tại địa phương."
+
+#. (para)
+msgid ""
+"if unchanged files are inside a directory that's been moved, the status will"
+" show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
+" and it will be colored in blue as well."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17181,6 +17192,10 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr "Cách đề nghị là <action> kéo phải </action> các tập tin đến vị trí mới. Đơn giản chỉ cần <action> nhấp chuột phải </action> trên các tập tin mà bạn muốn di chuyển / sao chép mà không phải thả nút chuột. Sau đó kéo các tập tin đến vị trí mới và thả chuột. Một trình đơn ngữ cảnh sẽ xuất hiện nơi bạn có thể chọn <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> SVN Sao chép tập tin được phiên bản ở đây </guimenuitem></menuchoice> . hoặc <menuchoice><guimenu> Trình Đơn Ngữ Cảnh </guimenu><guimenuitem> SVN Di chuyển các tập tin được phiên bản ở đây </guimenuitem></menuchoice> ."
+
+#. (title)
+msgid "The TortoiseSVN right drag context menu for moving files"
+msgstr ""
 
 #. (title)
 msgid "Force users to enter a log message"

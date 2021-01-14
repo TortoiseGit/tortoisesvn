@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-07-11 00:23+0000\n"
+"PO-Revision-Date: 2020-12-09 21:35+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Czech (http://www.transifex.com/luebbe/tortoisesvn/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -4598,6 +4598,10 @@ msgstr "Místní a Vzdálený Stav"
 msgid "modifications"
 msgstr "změny"
 
+#. (primary)
+msgid "(+)"
+msgstr ""
+
 #. (title)
 #. (title)
 msgid "Check for Modifications"
@@ -4629,6 +4633,13 @@ msgstr "Pokud kliknete na <guibutton>Zkontrolovat Úložiště</guibutton> můž
 #. (para)
 msgid "Locally modified items."
 msgstr "Lokálně změněné položky."
+
+#. (para)
+msgid ""
+"if unchanged files are inside a directory that's been moved, the status will"
+" show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
+" and it will be colored in blue as well."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17183,6 +17194,10 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr "Doporučený způsob je <action>táhnout pravým tlačítkem myši</action> soubory do nového umístění. Stačí <action>kliknout pravým tlačítkem myši</action> na soubory, které chcete přesunout/kopírovat, aniž byste ho pustili. Pak přetáhněte soubory do nového umístění a uvolněte ho. Zobrazí ss kontextové menu, kde si můžete buď vybrat <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem> SVN kopírovat soubory s verzí sem</guimenuitem></menuchoice>, nebo <menuchoice><guimenu>Kontextové menu</guimenu><guimenuitem>SVN přesunout soubory s verzí sem </guimenuitem></menuchoice>."
+
+#. (title)
+msgid "The TortoiseSVN right drag context menu for moving files"
+msgstr ""
 
 #. (title)
 msgid "Force users to enter a log message"

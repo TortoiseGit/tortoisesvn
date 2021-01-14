@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-07-11 00:23+0000\n"
+"PO-Revision-Date: 2020-12-09 21:35+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Serbian (http://www.transifex.com/luebbe/tortoisesvn/language/sr/)\n"
 "MIME-Version: 1.0\n"
@@ -4600,6 +4600,10 @@ msgstr "Локални и даљински статус"
 msgid "modifications"
 msgstr "измене"
 
+#. (primary)
+msgid "(+)"
+msgstr ""
+
 #. (title)
 #. (title)
 msgid "Check for Modifications"
@@ -4631,6 +4635,13 @@ msgstr "Ако кликнетет на <guibutton>Провери Спремиш�
 #. (para)
 msgid "Locally modified items."
 msgstr "Локално имењене ставке."
+
+#. (para)
+msgid ""
+"if unchanged files are inside a directory that's been moved, the status will"
+" show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
+" and it will be colored in blue as well."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17185,6 +17196,10 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr "Препоручен начин је помоћу <action>десно вучење</action> фајлова у нову локацију. Једноставно <action>десни клик</action> на фајлове које желите да се помере/копирају без отпуштања дугмета миша. Затим вуците фајлове у нову локацију и отпустите дугме миша. Контекст мени ће се појавити где можете или изабрати <menuchoice><guimenu>Контекст Мени</guimenu><guimenuitem>СВН Копирај верзионисане фајлове овде</guimenuitem></menuchoice>. или <menuchoice><guimenu>Контекст Мени</guimenu><guimenuitem>СВН Помери верзионисане фајлове овде</guimenuitem></menuchoice>."
+
+#. (title)
+msgid "The TortoiseSVN right drag context menu for moving files"
+msgstr ""
 
 #. (title)
 msgid "Force users to enter a log message"

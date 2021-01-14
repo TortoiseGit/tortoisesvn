@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-07-11 00:23+0000\n"
+"PO-Revision-Date: 2020-12-09 21:35+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -4636,6 +4636,10 @@ msgstr "本地与远程状态"
 msgid "modifications"
 msgstr "修改"
 
+#. (primary)
+msgid "(+)"
+msgstr ""
+
 #. (title)
 #. (title)
 msgid "Check for Modifications"
@@ -4667,6 +4671,13 @@ msgstr "如果单击 <guibutton>检查版本库</guibutton> 就会同时查看�
 #. (para)
 msgid "Locally modified items."
 msgstr "本地被修改过的项"
+
+#. (para)
+msgid ""
+"if unchanged files are inside a directory that's been moved, the status will"
+" show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
+" and it will be colored in blue as well."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17221,6 +17232,10 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr "推荐的方法是: 用鼠标<action>右键拖拽</action>这些文件到新的位置。就是用鼠标<action>右键选中</action>想要移动或复制的文件，不要释放鼠标右键。把选中的文件拖拽到新的位置后释放鼠标右键。在出现的右键菜单里可以选择<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>SVN 复制版本控制文件到当前位置</guimenuitem></menuchoice>或<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>SVN 移动版本控制文件到当前位置</guimenuitem></menuchoice>。"
+
+#. (title)
+msgid "The TortoiseSVN right drag context menu for moving files"
+msgstr ""
 
 #. (title)
 msgid "Force users to enter a log message"

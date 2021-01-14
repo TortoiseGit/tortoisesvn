@@ -23,7 +23,7 @@
 # Fernando Reyes <fernando.reyes@gmail.com>, 2016
 # Gerardo Rodas <benjaminrodas@yahoo.com>, 2018
 # German Angel <german.abarron@gmail.com>, 2017
-# Iván Volonté <ivanvolonte@gmail.com>, 2020
+# Iván Volonté <ivanvolonte@gmail.com>, 2020-2021
 # b52b64301b7c9e1bd0f8ea5e43b6cb9c_1d7aeba <26d341a269a4e4afaee93599be03f0a0_117249>, 2014
 # b52b64301b7c9e1bd0f8ea5e43b6cb9c_1d7aeba <26d341a269a4e4afaee93599be03f0a0_117249>, 2014
 # juancentro <jmtruppia@gmail.com>, 2011
@@ -45,7 +45,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-10-02 12:24+0000\n"
+"PO-Revision-Date: 2021-01-12 13:40+0000\n"
 "Last-Translator: Iván Volonté <ivanvolonte@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -927,7 +927,7 @@ msgstr "&Importar..."
 msgid ""
 "&Import\n"
 "The items are imported, creating a new revision for each item."
-msgstr ""
+msgstr "&Importar\nLos ítems son importados creando una nueva revisión por cada ítem."
 
 #. Resource IDs: (1562)
 msgid "&Include externals"
@@ -1211,7 +1211,7 @@ msgstr ""
 
 #. Resource IDs: (4460)
 msgid "&Proceed with the merge."
-msgstr ""
+msgstr "&Continuar con la fusión."
 
 #. Resource IDs: (2753)
 msgid ""
@@ -2438,9 +2438,13 @@ msgstr "E&xpresión de Id de incidente:"
 msgid "Bug-ID is:"
 msgstr "Número de Incidente:"
 
-#. Resource IDs: (1856)
+#. Resource IDs: (1856, 384)
 msgid "Bug-IDs"
 msgstr "Bug-IDs"
+
+#. Resource IDs: (385)
+msgid "Bug-Urls"
+msgstr ""
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -3167,7 +3171,7 @@ msgstr "Lineas contextuales para parches"
 
 #. Resource IDs: (1543)
 msgid "Continue &Merge"
-msgstr ""
+msgstr "Continuar con la &Fusión"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -8058,6 +8062,10 @@ msgstr "Resuelve el conflicto usando 'mío'"
 msgid "Resolve conflict using 'theirs'"
 msgstr "Resuelve el conflicto usando 'de otros'"
 
+#. Resource IDs: (3681)
+msgid "Resolve conflicts"
+msgstr "Resolver conflictos"
+
 #. Resource IDs: (1168, 3332)
 msgid "Resolved"
 msgstr "Resuelto"
@@ -10322,6 +10330,18 @@ msgstr "URL:"
 #. Resource IDs: (1191)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (383)
+msgid "URLs to TortoiseSvn compare"
+msgstr ""
+
+#. Resource IDs: (382)
+msgid "URLs to view revision for path in webviewer"
+msgstr ""
+
+#. Resource IDs: (381)
+msgid "URLs to view revision in webviewer"
+msgstr ""
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"

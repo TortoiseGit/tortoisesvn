@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # Christian Siegert <csi@xautomation.se>, 2019
-# Daniel Sahlberg <daniel.l.sahlberg@gmail.com>, 2015,2019
+# Daniel Sahlberg <daniel.l.sahlberg@gmail.com>, 2015,2019,2021
 # Fredrik Velin <figgemail@gmail.com>, 2014
 # Johan Foglemark <johanfoglemark@gmail.com>, 2011,2013
 # LordDaimos <karl.sjogren@gmail.com>, 2011
@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-17 13:41+0000\n"
+"PO-Revision-Date: 2021-01-11 19:31+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Swedish (http://www.transifex.com/luebbe/tortoisesvn/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -127,7 +127,7 @@ msgstr "%1!ls! : Arbetsbas, Revision %2!ld!"
 #. Resource IDs: (3667)
 #, c-format
 msgid "%1!ls! from %2!ls!"
-msgstr ""
+msgstr "%1!ls! från %2!ls!"
 
 #. Resource IDs: (3603)
 #, c-format
@@ -644,11 +644,11 @@ msgstr "&Egen"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode"
-msgstr ""
+msgstr "&Mörkt läge"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode\t(D)"
-msgstr ""
+msgstr "&Mörkt läge\t(D)"
 
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
@@ -712,7 +712,7 @@ msgstr "&Fråga ej igen"
 msgid ""
 "&Don't run\n"
 "Do not run the script"
-msgstr "&Kör inte\nKör inte scriptet"
+msgstr "Kör &inte\nKör inte scriptet"
 
 #. Resource IDs: (32851 - Menu)
 msgid "&EOL"
@@ -994,7 +994,7 @@ msgstr "&Gör djup sticky"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "&Max line length for inline diffs"
-msgstr ""
+msgstr "&Max radlängd för skillnad inom rad"
 
 #. Resource IDs: (1486)
 msgid "&Maximum size [kByte] of a removed inactive cache"
@@ -1121,19 +1121,19 @@ msgstr ""
 msgid ""
 "&Overwrite\n"
 "Replace the target folder."
-msgstr ""
+msgstr "Skriv &över\nErsätt målmappen."
 
 #. Resource IDs: (2340)
 msgid ""
 "&Overwrite\n"
 "The target file gets replaced"
-msgstr ""
+msgstr "Skriv &över\nMålfilen ersätts"
 
 #. Resource IDs: (1436)
 msgid ""
 "&Overwrite\n"
 "The target file is replaced."
-msgstr ""
+msgstr "Skriv &över\nMålfilen ersätts."
 
 #. Resource IDs: (1411, 65535)
 msgid "&Password:"
@@ -1145,7 +1145,7 @@ msgstr "K&listra in"
 
 #. Resource IDs: (1600)
 msgid "&Peg:"
-msgstr ""
+msgstr "&Nål:"
 
 #. Resource IDs: (1382)
 msgid "&Permanently offline"
@@ -1336,7 +1336,7 @@ msgstr "&Revision"
 msgid ""
 "&Run\n"
 "Run the hook script"
-msgstr ""
+msgstr "Kö&r\nKör scriptet"
 
 #. Resource IDs: (65535)
 msgid "&SSH client:"
@@ -2420,9 +2420,13 @@ msgstr "&Bugg ID uttryck:"
 msgid "Bug-ID is:"
 msgstr "Bugg ID är:"
 
-#. Resource IDs: (1856)
+#. Resource IDs: (1856, 384)
 msgid "Bug-IDs"
 msgstr "Bugg-IDn"
+
+#. Resource IDs: (385)
+msgid "Bug-Urls"
+msgstr ""
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -5734,12 +5738,12 @@ msgstr "Information"
 #. Resource IDs: (ID_VIEW_INLINEDIFF - Menu,
 #. cmdViewInlineDiff_LabelTitle_RESID)
 msgid "Inline diff"
-msgstr ""
+msgstr "Skillnader inom rad"
 
 #. Resource IDs: (ID_VIEW_INLINEDIFFWORD - Menu,
 #. cmdViewInlineDiffWord_LabelTitle_RESID)
 msgid "Inline diff word-wise"
-msgstr ""
+msgstr "Skillnader inom rad per ord"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Inline differences"
@@ -7040,7 +7044,7 @@ msgstr "Öppna mappens förälder"
 
 #. Resource IDs: (1846)
 msgid "Open repository &Url"
-msgstr ""
+msgstr "Öppna arkiv &Url"
 
 #. Resource IDs: (1807)
 msgid "Open with..."
@@ -7229,7 +7233,7 @@ msgstr "Sökvägar relativa till rooten"
 
 #. Resource IDs: (3480)
 msgid "Peg"
-msgstr ""
+msgstr "Nål"
 
 #. Resource IDs: (3913)
 msgid "Percent of authorship"
@@ -7249,7 +7253,7 @@ msgstr "Bild (Metafil)\nen bild"
 msgid ""
 "Pictures (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, "
 "*.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|All (*.*)|*.*||"
-msgstr ""
+msgstr "Bilder (*.svg, *.wmf, *.jpg, *.png, *.bmp, *.gif, *.webp)|*.svg;*.wmf;*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.webp|Alla (*.*)|*.*||"
 
 #. Resource IDs: (3930)
 msgid "Pie Graph"
@@ -7314,7 +7318,7 @@ msgstr "\"Efter arkivering\" krok"
 
 #. Resource IDs: (9110)
 msgid "Post-Lock Hook"
-msgstr ""
+msgstr "\"Före låsning\" krok"
 
 #. Resource IDs: (9105)
 msgid "Post-Update Hook"
@@ -8039,6 +8043,10 @@ msgstr "Använd \"min\" för att lösa konflikten"
 #. Resource IDs: (4500)
 msgid "Resolve conflict using 'theirs'"
 msgstr "Använd \"deras\" för att lösa konflikten"
+
+#. Resource IDs: (3681)
+msgid "Resolve conflicts"
+msgstr ""
 
 #. Resource IDs: (1168, 3332)
 msgid "Resolved"
@@ -8849,7 +8857,7 @@ msgstr "Visa skillnader inom rad ord för ord\nSkillnader inom rad per ord"
 msgid ""
 "Show Inline-Diff\n"
 "Inline diff"
-msgstr ""
+msgstr "Visa skillnader inom rad\nSkillnad inom rad"
 
 #. Resource IDs: (1126)
 msgid "Show Lock dialog before locking files"
@@ -10305,6 +10313,18 @@ msgstr "URL:"
 msgid "URL: "
 msgstr "URL:"
 
+#. Resource IDs: (383)
+msgid "URLs to TortoiseSvn compare"
+msgstr ""
+
+#. Resource IDs: (382)
+msgid "URLs to view revision for path in webviewer"
+msgstr ""
+
+#. Resource IDs: (381)
+msgid "URLs to view revision in webviewer"
+msgstr ""
+
 #. Resource IDs: (1847)
 msgid "URLs with revision"
 msgstr ""
@@ -10506,7 +10526,7 @@ msgstr "Uppdatera arbetskopian till revision"
 
 #. Resource IDs: (1042)
 msgid "Update check is currently running!"
-msgstr ""
+msgstr "Sökning efter uppdateringar körs!"
 
 #. Resource IDs: (4652)
 msgid "Update externals"
@@ -10548,7 +10568,7 @@ msgstr "Uppdaterar logg cache"
 msgid ""
 "Upgrade the working copy\n"
 "to the new 1.8 format."
-msgstr ""
+msgstr "Uppgradera arbetskopian\ntill det nya 1.8-formatet."
 
 #. Resource IDs: (1578, 1582, 227)
 msgid "Upgrade working copy"
@@ -10659,7 +10679,7 @@ msgstr "Använd båda textblocken (den här sist)"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 1513)
 msgid "Use dark mode"
-msgstr ""
+msgstr "Använd mörkt läge"
 
 #. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
 #. cmdUseLeftBlock_LabelTitle_RESID)

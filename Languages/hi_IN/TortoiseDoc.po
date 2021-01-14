@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-07-11 00:23+0000\n"
+"PO-Revision-Date: 2020-12-09 21:35+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Hindi (India) (http://www.transifex.com/luebbe/tortoisesvn/language/hi_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -4595,6 +4595,10 @@ msgstr ""
 msgid "modifications"
 msgstr ""
 
+#. (primary)
+msgid "(+)"
+msgstr ""
+
 #. (title)
 #. (title)
 msgid "Check for Modifications"
@@ -4625,6 +4629,13 @@ msgstr ""
 
 #. (para)
 msgid "Locally modified items."
+msgstr ""
+
+#. (para)
+msgid ""
+"if unchanged files are inside a directory that's been moved, the status will"
+" show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
+" and it will be colored in blue as well."
 msgstr ""
 
 #. (para)
@@ -17179,6 +17190,10 @@ msgid ""
 "here</guimenuitem></menuchoice>. or <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
+msgstr ""
+
+#. (title)
+msgid "The TortoiseSVN right drag context menu for moving files"
 msgstr ""
 
 #. (title)

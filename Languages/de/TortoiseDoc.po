@@ -35,13 +35,14 @@
 # rs_bitbucket, 2017
 # Stefan Kueng <tortoisesvn@gmail.com>, 2011,2020
 # Thomas Franck <transifex@digitalchaos.de>, 2017
+# Wolf Peuker <wolfpeuker@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-08-22 19:56+0000\n"
-"Last-Translator: Mr.Update\n"
+"PO-Revision-Date: 2021-01-08 17:55+0000\n"
+"Last-Translator: Wolf Peuker <wolfpeuker@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4619,6 +4620,10 @@ msgstr "Prüfe auf Änderungen"
 msgid "modifications"
 msgstr "Änderungen"
 
+#. (primary)
+msgid "(+)"
+msgstr "(+)"
+
 #. (title)
 #. (title)
 msgid "Check for Modifications"
@@ -4650,6 +4655,13 @@ msgstr "Mit der Schaltfläche <guibutton>Projektarchiv prüfen</guibutton> könn
 #. (para)
 msgid "Locally modified items."
 msgstr "Lokal veränderte Objekte."
+
+#. (para)
+msgid ""
+"if unchanged files are inside a directory that's been moved, the status will"
+" show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
+" and it will be colored in blue as well."
+msgstr "Wenn unveränderte Dateien innerhalb eines verschobenen Verzeichnisses liegen, zeigt der Status ein <literal>+</literal>Zeichen in der <guilabel>Status</guilabel>Spalte. Zusätzlich wird die Datei blau eingefärbt angezeigt."
 
 #. (para)
 msgid ""
@@ -5178,7 +5190,7 @@ msgid ""
 "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/> If a revision "
 "replaced a file or directory by moving/renaming it, the <emphasis>move "
 "replaced</emphasis> icon is shown in the fourth column."
-msgstr "<graphic fileref=\"../images/ActionMovedReplacedIcon.png\"/> in der vierten Spalte zeigt an, dass in einer Revision eine Datei oder ein Ordner <emphasis>verschoben bzw. umbenannt</emphasis> wurde."
+msgstr "<graphic fileref=\"../images/ActionMoveReplacedIcon.png\"/>in der vierten Spalte zeigt an, dass in einer Revision eine Datei oder ein Ordner <emphasis>verschoben bzw. umbenannt</emphasis> wurde."
 
 #. (para)
 msgid ""
@@ -11764,7 +11776,7 @@ msgid ""
 "<menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem>Export...</guimenuitem></menuchoice>."
 " Exporting from a URL and exporting from a working copy are treated slightly"
 " differently."
-msgstr "Es kommt vor, dass Sie eine saubere Kopie Ihres Projektes ohne die administrativen Ordner (<filename>.svn</filename>) benötigen, zum Beispiel, weil Sie das Projekt zippen oder auf einen Webserver exportieren möchten. Statt eine Kopie Ihrer Arbeitskopie zu erstellen und dann von Hand den <filename>.svn</filename>-Ordner zu löschen, können Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Exportieren...</guimenuitem> </menuchoice> verwenden. Exportieren von einer URL und von einer Arbeitskopie werden leicht unterschiedlich behandelt."
+msgstr "Es kommt vor, dass Sie eine saubere Kopie Ihres Projektes ohne die administrativen Ordner (<filename>.svn</filename>) benötigen, zum Beispiel, weil Sie das Projekt zippen oder auf einen Webserver exportieren möchten. Statt eine Kopie Ihrer Arbeitskopie zu erstellen und dann von Hand den <filename>.svn</filename>-Ordner zu löschen, können Sie den Befehl <menuchoice> <guimenu>TortoiseSVN</guimenu> <guimenuitem>Export...</guimenuitem> </menuchoice> verwenden. Exportieren von einer URL und von einer Arbeitskopie werden leicht unterschiedlich behandelt."
 
 #. (title)
 msgid "The Export-from-URL Dialog"
@@ -11787,7 +11799,7 @@ msgid ""
 "then use <menuchoice><guimenu>Context "
 "Menu</guimenu><guimenuitem>Export</guimenuitem></menuchoice>. You will get "
 "the <guilabel>Export from URL</guilabel> dialog described above."
-msgstr "Selbstverständlich können sie auch direkt aus einem Projektarchiv exportieren. Benutzen Sie dazu den Projektarchivbetrachter, wählen den entsprechenden Pfad und benutzen dann das <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Exportieren</guimenuitem> </menuchoice>. Ihnen wird dann der oben beschriebene <guilabel>Exportiere von URL</guilabel>-Dialog angezeigt."
+msgstr "Selbstverständlich können sie auch direkt aus einem Projektarchiv exportieren. Benutzen Sie dazu den Projektarchivbetrachter, wählen den entsprechenden Pfad und benutzen dann das <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>Export...</guimenuitem> </menuchoice>. Ihnen wird dann der oben beschriebene <guilabel>Exportiere von URL</guilabel>-Dialog angezeigt."
 
 #. (para)
 msgid ""
@@ -17204,6 +17216,10 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr "Der empfohlene Weg ist, die Dateien mittels <action>Rechts-Ziehen</action> an den gewünschten Ort zu befördern. Machen Sie einen <action>Rechtsklick</action> auf die Dateien, die Sie verschieben oder kopieren wollen, ohne die rechte Maustaste loszulassen. Dann ziehen Sie die Dateien an den neuen Ort und lassen die rechte Maustaste los. Ein Kontextmenü erscheint, aus dem Sie entweder <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>SVN-Dateien hierher kopieren</guimenuitem> </menuchoice> oder <menuchoice> <guimenu>Kontextmenü</guimenu> <guimenuitem>SVN-Dateien hierher verschieben</guimenuitem> </menuchoice> wählen können."
+
+#. (title)
+msgid "The TortoiseSVN right drag context menu for moving files"
+msgstr "Das TortoiseSVN Rechts-Drag Kontextmenu um Dateien zu verschieben"
 
 #. (title)
 msgid "Force users to enter a log message"

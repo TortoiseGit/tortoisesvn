@@ -19,6 +19,7 @@
 # Maarten Hilferink <mhilferink@objectvision.nl>, 2011
 # mark van tilburg <markvantilburg@gmail.com>, 2015-2020
 # Paul <paul@piak.nl>, 2011
+# Peter Wokke <peter@woksoft.nl>, 2020
 # Sander Boele <sander@addtest.nl>, 2018
 # Sander Boele <sboele@hotmail.com>, 2014
 # W VB <vanbeirendonck.willem@gmail.com>, 2011
@@ -27,7 +28,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-05-17 13:41+0000\n"
+"PO-Revision-Date: 2021-01-11 19:31+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -644,11 +645,11 @@ msgstr "&Aangepast"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode"
-msgstr ""
+msgstr "Donker thema"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode\t(D)"
-msgstr ""
+msgstr "Donker thema (D)"
 
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
@@ -2420,9 +2421,13 @@ msgstr "Bug-ID e&xpressie:"
 msgid "Bug-ID is:"
 msgstr "Bug-ID is:"
 
-#. Resource IDs: (1856)
+#. Resource IDs: (1856, 384)
 msgid "Bug-IDs"
 msgstr "Bug-IDs"
+
+#. Resource IDs: (385)
+msgid "Bug-Urls"
+msgstr ""
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -2691,7 +2696,7 @@ msgstr "Uitch&ecken\nUitchecken naar de niet lege map."
 
 #. Resource IDs: (9108)
 msgid "Check-Commit Hook"
-msgstr ""
+msgstr "Controleer-Vastleggen Hook"
 
 #. Resource IDs: (1504)
 msgid "Check:"
@@ -2906,7 +2911,7 @@ msgstr "Kleuren"
 #. Resource IDs: (IDS_INDICATOR_COLUMN)
 #, c-format
 msgid "Column: %d"
-msgstr ""
+msgstr "Kolom: %d"
 
 #. Resource IDs: (3506)
 msgid "Command"
@@ -3149,7 +3154,7 @@ msgstr "Context regels voor patches"
 
 #. Resource IDs: (1543)
 msgid "Continue &Merge"
-msgstr ""
+msgstr "Doorgaan Samenvoegen"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3573,7 +3578,7 @@ msgstr "&Details"
 
 #. Resource IDs: (1682)
 msgid "Dark theme"
-msgstr ""
+msgstr "Donker Thema"
 
 #. Resource IDs: (1683)
 msgid ""
@@ -4812,11 +4817,11 @@ msgstr "Vind HEAD revisies"
 
 #. Resource IDs: (cmdFindNext_LabelTitle_RESID)
 msgid "Find Next"
-msgstr ""
+msgstr "vind volgende"
 
 #. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
 msgid "Find Previous"
-msgstr ""
+msgstr "vind vorige"
 
 #. Resource IDs: (cmdFindPrev)
 msgid ""
@@ -5292,7 +5297,7 @@ msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32819; '&Dark Mode\t(D)'
 msgid "ID:32819:V   +D"
-msgstr ""
+msgstr "ID:32819:V  +D"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -6243,7 +6248,7 @@ msgstr "Gemarkeerde blokken"
 #. Resource IDs: (IDS_INDICATOR_MARKEDWORDCOUNT)
 #, c-format
 msgid "Marked words: %s"
-msgstr ""
+msgstr "Gemarkeerde woorden: %s"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -7010,7 +7015,7 @@ msgstr "&local openen"
 
 #. Resource IDs: (1827)
 msgid "Open &with local..."
-msgstr ""
+msgstr "Openen met lokale..."
 
 #. Resource IDs: (1202)
 msgid "Open client certificate file"
@@ -7102,7 +7107,7 @@ msgstr "Overrule de svn:eol-style eigenschap.\nBestanden zonder deze eigenschap 
 msgid ""
 "Overwrite\n"
 "The settings are overwritten"
-msgstr ""
+msgstr "Overschrijf\nDe settings worden overschreven"
 
 #. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
 msgid "PC"
@@ -7225,7 +7230,7 @@ msgstr "Paden"
 
 #. Resource IDs: (1844)
 msgid "Paths relative to root"
-msgstr ""
+msgstr "Relatieve paden van de hoofdmap"
 
 #. Resource IDs: (3480)
 msgid "Peg"
@@ -7488,7 +7493,7 @@ msgstr "Status Eigenschappen:"
 
 #. Resource IDs: (1048)
 msgid "Property diff:\n"
-msgstr ""
+msgstr "Property verschillen:\n"
 
 #. Resource IDs: (1292)
 msgid "Property name:"
@@ -8040,6 +8045,10 @@ msgstr "Los conflict op met 'mijn'"
 msgid "Resolve conflict using 'theirs'"
 msgstr "Los conflict op met 'hun'"
 
+#. Resource IDs: (3681)
+msgid "Resolve conflicts"
+msgstr ""
+
 #. Resource IDs: (1168, 3332)
 msgid "Resolved"
 msgstr "Opgelost"
@@ -8221,7 +8230,7 @@ msgstr "Voer &nu schoonmaak uit"
 
 #. Resource IDs: (1542)
 msgid "Run hoo&k script"
-msgstr ""
+msgstr "&Uitvoeren\nHook-script uitvoeren"
 
 #. Resource IDs: (cmdSave_Keytip_RESID)
 msgid "S"
@@ -8878,7 +8887,7 @@ msgstr "Toon een overzicht van het hele diagram"
 
 #. Resource IDs: (1828)
 msgid "Show c&hanges (content only)"
-msgstr ""
+msgstr "Toon &wijzigingen (alleen inhoud)"
 
 #. Resource IDs: (1819)
 msgid "Show changes as &unified diff"
@@ -8886,7 +8895,7 @@ msgstr "Toon wijzigingen als &unified diff"
 
 #. Resource IDs: (IDS_HEADER_DIFFLEFTTOBASE, IDS_HEADER_DIFFRIGHTTOBASE)
 msgid "Show diff separately"
-msgstr ""
+msgstr "Toon verschillen apart"
 
 #. Resource IDs: (1802)
 msgid "Show differences as &unified diff"
@@ -10139,7 +10148,7 @@ msgid ""
 "libsvn_diff %d.%d.%d, %ls\r\n"
 "apr %d.%d.%d\r\n"
 "apr-util %d.%d.%d"
-msgstr ""
+msgstr "TortoiseMerge %d.%d.%d, Build %d - %ls, %ls\r\nlibsvn_diff %d.%d.%d, %ls\r\napr %d.%d.%d\r\napr-util %d.%d.%d"
 
 #. Resource IDs: (1271, 65535)
 msgid "TortoiseSVN"
@@ -10156,7 +10165,7 @@ msgid ""
 "%ls\r\n"
 "zlib %ls\r\n"
 "SQLite %ls"
-msgstr ""
+msgstr "TortoiseSVN %d.%d.%d, Build %d - %ls, %ls%ls\r\nSubversion %d.%d.%d, %ls\r\napr %d.%d.%d\r\napr-util %d.%d.%d\r\nserf %d.%d.%d\r\n%ls\r\nzlib %ls\r\nSQLite %ls"
 
 #. Resource IDs: (1021)
 msgid "TortoiseSVN Project Monitor"
@@ -10304,6 +10313,18 @@ msgstr "URL:"
 #. Resource IDs: (1191)
 msgid "URL: "
 msgstr "URL: "
+
+#. Resource IDs: (383)
+msgid "URLs to TortoiseSvn compare"
+msgstr ""
+
+#. Resource IDs: (382)
+msgid "URLs to view revision for path in webviewer"
+msgstr ""
+
+#. Resource IDs: (381)
+msgid "URLs to view revision in webviewer"
+msgstr ""
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
@@ -10659,7 +10680,7 @@ msgstr "Gebruik beide tekstgedeeltes (deze laatst)"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 1513)
 msgid "Use dark mode"
-msgstr ""
+msgstr "Gebruik donker thema"
 
 #. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
 #. cmdUseLeftBlock_LabelTitle_RESID)
@@ -11570,7 +11591,7 @@ msgstr "gewoon"
 
 #. Resource IDs: (cmdOpen_Keytip_RESID)
 msgid "o1"
-msgstr ""
+msgstr "o1"
 
 #. Resource IDs: (162)
 msgid "obstructed"

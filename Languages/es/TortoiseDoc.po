@@ -25,7 +25,7 @@
 # ggh <gdelahuebra@hotmail.com>, 2011
 # Gerardo Rodas <benjaminrodas@yahoo.com>, 2018
 # ggh <gdelahuebra@hotmail.com>, 2011
-# Iván Volonté <ivanvolonte@gmail.com>, 2020
+# Iván Volonté <ivanvolonte@gmail.com>, 2020-2021
 # b52b64301b7c9e1bd0f8ea5e43b6cb9c_1d7aeba <26d341a269a4e4afaee93599be03f0a0_117249>, 2014
 # b52b64301b7c9e1bd0f8ea5e43b6cb9c_1d7aeba <26d341a269a4e4afaee93599be03f0a0_117249>, 2014
 # b52b64301b7c9e1bd0f8ea5e43b6cb9c_1d7aeba <26d341a269a4e4afaee93599be03f0a0_117249>, 2014
@@ -51,7 +51,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-10-02 12:27+0000\n"
+"PO-Revision-Date: 2021-01-12 13:34+0000\n"
 "Last-Translator: Iván Volonté <ivanvolonte@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
@@ -4630,6 +4630,10 @@ msgstr "Estado local y remoto"
 msgid "modifications"
 msgstr "modificaciones"
 
+#. (primary)
+msgid "(+)"
+msgstr ""
+
 #. (title)
 #. (title)
 msgid "Check for Modifications"
@@ -4661,6 +4665,13 @@ msgstr "Si pulsa en el botón <guibutton>Comprobar Repositorio</guibutton> tambi
 #. (para)
 msgid "Locally modified items."
 msgstr "Ítems modificados localmente."
+
+#. (para)
+msgid ""
+"if unchanged files are inside a directory that's been moved, the status will"
+" show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
+" and it will be colored in blue as well."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -8740,7 +8751,7 @@ msgstr "Usted puede configurar el mensaje generado con las siguientes propiedade
 msgid ""
 "A comma separated list of the merged revisions, e.g., <literal>3, 5, 6, "
 "7</literal>"
-msgstr ""
+msgstr "Una lista de elementos separada por comas de las revisiones fusionadas, ej., <literal>3, 5, 6, 7</literal>"
 
 #. (para)
 msgid ""
@@ -8752,7 +8763,7 @@ msgstr ""
 msgid ""
 "A comma separated list of the merged revisions, grouped into ranges if "
 "possible, e.g., <literal>3, 5-7</literal>"
-msgstr ""
+msgstr "Una lista de elementos separada por comas de las revisiones fusionadas, si es posible agrupadas en rangos, ej., <literal>3, 5-7</literal>"
 
 #. (para)
 msgid ""
@@ -11082,7 +11093,7 @@ msgstr "Crear una nueva carpeta en el repositorio."
 msgid ""
 "Add unversioned files or folders directly to the repository. This is "
 "effectively the Subversion Import operation."
-msgstr ""
+msgstr "Agregar archivos o carpetas no versionados directamente al repositorio. Esta es efectivamente la operación Importar de Subversion."
 
 #. (para)
 msgid "Delete or rename the folder."
@@ -17217,6 +17228,10 @@ msgid ""
 msgstr "La manera recomendada es a través de <action>right dragging</action> los archivos a la nueva ubicación. Simplemente <action>right click</action> en los archivos que deseas mover o copiar sin soltar el botón del mouse. Luego arrastra los archivos a su nueva ubicación y suelta el botón del mouse. Un menu contextual aparecerá donde podrás elegir <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Copy versioned files here</guimenuitem></menuchoice>. o <menuchoice><guimenu>Context Menu</guimenu><guimenuitem>SVN Move versioned files here</guimenuitem></menuchoice>."
 
 #. (title)
+msgid "The TortoiseSVN right drag context menu for moving files"
+msgstr ""
+
+#. (title)
 msgid "Force users to enter a log message"
 msgstr "Obligar a los usuarios a introducir un mensaje de registro"
 
@@ -18338,7 +18353,7 @@ msgstr "<option>/findtype:8</option> filtrar por revisiones"
 
 #. (para)
 msgid "<option>/findtype:16</option> not used"
-msgstr ""
+msgstr "<option>/findtype:16</option> no utilizado"
 
 #. (para)
 msgid "<option>/findtype:32</option> filter by bug ID"
@@ -18346,15 +18361,15 @@ msgstr ""
 
 #. (para)
 msgid "<option>/findtype:64</option> not used"
-msgstr ""
+msgstr "<option>/findtype:64</option> no utilizado"
 
 #. (para)
 msgid "<option>/findtype:128</option> filter by date"
-msgstr ""
+msgstr "<option>/findtype:128</option> filtro por fecha"
 
 #. (para)
 msgid "<option>/findtype:256</option> filter by date range"
-msgstr ""
+msgstr "<option>/findtype:256</option> filtro por rango de fecha"
 
 #. (para)
 msgid ""
@@ -18651,7 +18666,7 @@ msgstr ""
 
 #. (literal)
 msgid "unversioned"
-msgstr ""
+msgstr "no versionado"
 
 #. (entry)
 msgid ""

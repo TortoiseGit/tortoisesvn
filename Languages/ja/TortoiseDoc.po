@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2020-10-24 15:33+0000\n"
-"Last-Translator: tadasu <elsee9@me.com>\n"
+"PO-Revision-Date: 2020-12-09 21:35+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4607,6 +4607,10 @@ msgstr "ローカルとリモートの状態"
 msgid "modifications"
 msgstr "変更"
 
+#. (primary)
+msgid "(+)"
+msgstr ""
+
 #. (title)
 #. (title)
 msgid "Check for Modifications"
@@ -4638,6 +4642,13 @@ msgstr "<guibutton>リポジトリをチェック</guibutton> をクリックす
 #. (para)
 msgid "Locally modified items."
 msgstr "ローカルで変更された項目です。"
+
+#. (para)
+msgid ""
+"if unchanged files are inside a directory that's been moved, the status will"
+" show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
+" and it will be colored in blue as well."
+msgstr ""
 
 #. (para)
 msgid ""
@@ -17192,6 +17203,10 @@ msgid ""
 "Menu</guimenu><guimenuitem>SVN Move versioned files "
 "here</guimenuitem></menuchoice>."
 msgstr "お勧めの方法は、ファイルを新しい場所に<action>右ドラッグ</action>することです。単にファイルの上で<action>右クリック</action>し、マウスボタンを押したままにします。その後、新しい場所にファイルをドラッグし、マウスボタンを離します。コンテキストメニューが表示されるので、<menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN バージョン管理下の項目をここにコピーする</guimenuitem></menuchoice> か <menuchoice><guimenu>コンテキストメニュー</guimenu><guimenuitem>SVN バージョン管理下の項目をここに移動する</guimenuitem></menuchoice> を選択します。"
+
+#. (title)
+msgid "The TortoiseSVN right drag context menu for moving files"
+msgstr ""
 
 #. (title)
 msgid "Force users to enter a log message"
