@@ -28,13 +28,7 @@ So here's how you can help:
 - send us your regex string with the filetype you want it to apply to,
   and maybe some testfiles too.
 
-To help you with this task, there's a little tool to test your regex
-strings on files located here:
-http://tortoisesvn.tigris.org/files/documents/406/20668/RegExpTest.exe
-Just enter your regex string and drag the files you want to test it with
-over the dialog. The parsed strings will be listed at the bottom of the
-dialog.
-Or with TortoiseSVN 1.7.0 and later, you can enter
+With TortoiseSVN 1.7.0 and later, you can enter
 c:\program files\TortoiseSVN\bin\TortoiseProc.exe /command:autotexttest
 to get a test tool for those regex strings.
 

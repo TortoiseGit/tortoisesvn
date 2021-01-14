@@ -590,8 +590,6 @@ Make sure to also check the [changelog of Subversion](https://svn.apache.org/rep
             content = header + content;
             // format version titles as headings
             content = Regex.Replace( content, "(Version [^\\r\\n]*)", "### $0 ###" );
-            // convert issues to links
-            content = Regex.Replace( content, "Issue #?(\\d+)", "Issue #[$1](https://sourceforge.net/p/tortoisesvn/tickets/$17)" );
             // convert my name to links
             content = Regex.Replace( content, "\\(Stefan\\)", "[(Stefan)](https://tortoisesvn.net/stefan_kueng.html)" );
             // convert the link to the release notes to markdown links

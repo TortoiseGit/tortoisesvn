@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2020 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -544,7 +544,6 @@ void CCheckoutDlg::OnCbnEditchangeUrlcombo()
 
 void CCheckoutDlg::OnCbnSelchangeDepth()
 {
-    // http://subversion.tigris.org/issues/show_bug.cgi?id=3311
     bool bOmitExternals = false;
     switch (m_depthCombo.GetCurSel())
     {

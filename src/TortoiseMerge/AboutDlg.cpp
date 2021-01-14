@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2009-2010, 2013-2014, 2016-2017, 2020 - TortoiseSVN
+// Copyright (C) 2006-2007, 2009-2010, 2013-2014, 2016-2017, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -82,7 +82,7 @@ BOOL CAboutDlg::OnInitDialog()
     SetTimer(ID_DROPTIMER, 300, nullptr);
 
     m_cWebLink.SetURL(L"https://tortoisesvn.net");
-    m_cSupportLink.SetURL(L"https://tortoisesvn.tigris.org/contributors.html");
+    m_cSupportLink.SetURL(L"https://tortoisesvn.net/support.html");
 
     return TRUE;  // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
