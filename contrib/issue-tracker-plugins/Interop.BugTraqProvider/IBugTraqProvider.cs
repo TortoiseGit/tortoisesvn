@@ -4,8 +4,7 @@
     using System.Runtime.InteropServices;
 
     // Original IDL definition can be found at:
-    // https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/trunk/contrib/issue-tracker-plugins/inc/IBugTraqProvider.idl?format=raw
-    // https://sourceforge.net/p/tortoisesvn/code/HEAD/tree/trunk/contrib/issue-tracker-plugins/inc/IBugTraqProvider.idl
+    // https://svn.osdn.net/svnroot/tortoisesvn/trunk/contrib/issue-tracker-plugins/inc/IBugTraqProvider.idl
     //
     // See also:
     // https://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-ibugtraqprovider.html#tsvn-ibugtraqprovider-1
