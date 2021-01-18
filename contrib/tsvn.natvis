@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+
+  <!-- documentation of the natvis file format and examples can be found here:
+     https://docs.microsoft.com/en-us/visualstudio/debugger/create-custom-views-of-native-objects?view=vs-2019
+  -->
+
+  <Type Name="CTSVNPath">
+    <DisplayString Condition="m_bIsURL">{m_sFwdslashPath}</DisplayString>
+    <DisplayString Condition="!m_bIsURL &amp;&amp; m_bDirectoryKnown &amp;&amp; m_bIsDirectory">dir: {m_sBackslashPath}</DisplayString>
+    <DisplayString Condition="!m_bIsURL &amp;&amp; m_bDirectoryKnown &amp;&amp; !m_bIsDirectory">file: {m_sBackslashPath}</DisplayString>
+    <DisplayString Condition="!m_bIsURL">{m_sBackslashPath}</DisplayString>
+  </Type>
+
+  <Type Name="SVNRev">
+    <DisplayString Condition="!m_bIsValid">invalid rev</DisplayString>
+    <DisplayString Condition="rev.kind == svn_opt_revision_head">revision: HEAD</DisplayString>
+    <DisplayString Condition="rev.kind == svn_opt_revision_base">revision: BASE</DisplayString>
+    <DisplayString Condition="rev.kind == svn_opt_revision_working">revision: WC</DisplayString>
+    <DisplayString Condition="rev.kind == svn_opt_revision_previous">revision: PREV</DisplayString>
+    <DisplayString Condition="rev.kind == svn_opt_revision_committed">revision: COMMITTED</DisplayString>
+    <DisplayString Condition="rev.kind == svn_opt_revision_date">revision: {sDate}</DisplayString>
+    <DisplayString Condition="rev.kind == svn_opt_revision_number">revision: {rev.value.number}</DisplayString>
+  </Type>
+
+  <Type Name="svn_error_t">
+    <DisplayString>Err: {apr_err} - {message}</DisplayString>
+  </Type>
+
+  <Type Name="svn_client_status_t">
+    <DisplayString>node: {node_status}, text: {text_status}, prop: {prop_status}</DisplayString>
+  </Type>
+
+</AutoVisualizer>
