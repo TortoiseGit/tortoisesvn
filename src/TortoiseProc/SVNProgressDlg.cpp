@@ -1655,7 +1655,7 @@ void CSVNProgressDlg::OnBnClickedRetryMerge()
     if ((pWndButton == nullptr) || !pWndButton->IsWindowVisible())
         return;
     
-    if ((m_mergedRevisions.GetCount() == 0) || (m_nConflicts != 0) || (!m_url.IsEquivalentTo(m_url2)))
+    if ((m_mergedRevisions.GetCount() == 0) || (m_nTotalConflicts != 0) || (!m_url.IsEquivalentTo(m_url2)))
     {
         m_bCancelled = FALSE;
         // svn_wc_notify_conflict_resolver_starting
