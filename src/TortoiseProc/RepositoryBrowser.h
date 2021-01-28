@@ -106,6 +106,7 @@ public:
     /// the repository browser will show the content of that url.
     bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked) override;
 
+    void SetPegRev(SVNRev& pegRev);
     CString GetRepoRoot() override { return m_repository.root; }
     std::map<CString,svn_depth_t> GetCheckoutDepths() { return m_checkoutDepths; }
     std::map<CString,svn_depth_t> GetUpdateDepths() { return m_updateDepths; }

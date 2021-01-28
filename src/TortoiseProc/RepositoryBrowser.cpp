@@ -1236,6 +1236,11 @@ bool CRepositoryBrowser::ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChe
     return true;
 }
 
+void CRepositoryBrowser::SetPegRev(SVNRev& pegRev)
+{
+    m_repository.peg_revision = pegRev;
+}
+
 void CRepositoryBrowser::FillList(CTreeItem * pTreeItem)
 {
     if (pTreeItem == NULL)
@@ -3394,10 +3399,10 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 clipSubMenu.AppendMenuIcon(ID_FULLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FULL, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_URL, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
-	        if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
-            	clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDVIEWERREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERREV, IDI_COPYCLIP);
-	        if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
-            	clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
+            if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
+                clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDVIEWERREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERREV, IDI_COPYCLIP);
+            if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
+                clipSubMenu.AppendMenuIcon(ID_URLTOCLIPBOARDVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_NAMETOCLIPBOARD, IDS_LOG_POPUP_CLIPBOARD_FILENAMES, IDI_COPYCLIP);
             if (pWnd == &m_RepoList)
             {
@@ -3608,15 +3613,15 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             CItem * pItem = (CItem *)m_RepoList.GetItemData (index);
                             if (cmd == ID_URLTOCLIPBOARDVIEWERREV)
                             {
-	                            CString weburl = GetUrlWebViewerRev(selection);
-	                            if (!weburl.IsEmpty())
+                                CString weburl = GetUrlWebViewerRev(selection);
+                                if (!weburl.IsEmpty())
                                     sClipboard += weburl;
                             }
                             if (cmd == ID_URLTOCLIPBOARDVIEWERPATHREV)
                             {
-	                            CString weburl = GetUrlWebViewerPathRev(selection);
-	                            if (!weburl.IsEmpty())
-	                                sClipboard += weburl;
+                                CString weburl = GetUrlWebViewerPathRev(selection);
+                                if (!weburl.IsEmpty())
+                                    sClipboard += weburl;
                             }
                             if ((cmd == ID_URLTOCLIPBOARD) || (cmd == ID_URLTOCLIPBOARDREV) || (cmd == ID_FULLTOCLIPBOARD))
                             {

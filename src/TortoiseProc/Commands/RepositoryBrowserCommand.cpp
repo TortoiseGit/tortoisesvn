@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,6 +90,12 @@ bool RepositoryBrowserCommand::Execute()
     CString val = parser.GetVal(L"rev");
     SVNRev rev(val);
     CRepositoryBrowser dlg(url, rev);
+    if (parser.HasVal(L"pegrev"))
+    {
+        val = parser.GetVal(L"pegrev");
+        SVNRev pegRev(val);
+        dlg.SetPegRev(pegRev);
+    }
     if (!cmdLinePath.IsUrl())
         dlg.m_ProjectProperties.ReadProps(cmdLinePath);
     else

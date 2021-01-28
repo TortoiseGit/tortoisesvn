@@ -5504,12 +5504,12 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFULL, IDS_LOG_POPUP_CLIPBOARD_FULL, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
         if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
-	        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERREV, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERREV, IDI_COPYCLIP);
         if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
-	        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE, IDS_LOG_POPUP_CLIPBOARD_TSVNSHOWCOMPARE, IDI_COPYCLIP);
         if (!m_ProjectProperties.sWebViewerRev.IsEmpty())
-	        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERREV, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERREV, IDI_COPYCLIP);
         clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFULLNOPATHS, IDS_LOG_POPUP_CLIPBOARD_FULLNOPATHS, IDI_COPYCLIP);
         if (GetSelectedBugIds().size() > 0) {
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDBUGID, IDS_LOG_POPUP_CLIPBOARD_BUGID, IDI_COPYCLIP);
@@ -6319,8 +6319,8 @@ void CLogDlg::ExecuteFindEntryMenuRevisions()
 void CLogDlg::ExecuteRepoBrowseMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString sCmd;
-    sCmd.Format(L"/command:repobrowser /path:\"%s\" /rev:%s",
-                (LPCTSTR)pCmi->PathURL, (LPCTSTR)pCmi->RevSelected.ToString());
+    sCmd.Format(L"/command:repobrowser /path:\"%s\" /rev:%s /pegrev:%s",
+                (LPCWSTR)pCmi->PathURL, (LPCWSTR)pCmi->RevSelected.ToString(), (LPCWSTR)m_startrev.ToString());
 
     CAppUtils::RunTortoiseProc(sCmd);
 }
@@ -7488,9 +7488,9 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
 
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURL, IDS_LOG_POPUP_CLIPBOARD_URL, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLREV, IDS_LOG_POPUP_CLIPBOARD_URLREV, IDI_COPYCLIP);
-	        if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
-		        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
-	        clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE, IDS_LOG_POPUP_CLIPBOARD_TSVNSHOWCOMPARE, IDI_COPYCLIP);
+            if (!m_ProjectProperties.sWebViewerPathRev.IsEmpty())
+                clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLVIEWERPATHREV, IDS_LOG_POPUP_CLIPBOARD_URLVIEWERPATHREV, IDI_COPYCLIP);
+            clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDURLTSVNSHOWCOMPARE, IDS_LOG_POPUP_CLIPBOARD_TSVNSHOWCOMPARE, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDRELPATH, IDS_LOG_POPUP_CLIPBOARD_RELPATH, IDI_COPYCLIP);
             clipSubMenu.AppendMenuIcon(ID_COPYCLIPBOARDFILENAMES, IDS_LOG_POPUP_CLIPBOARD_FILENAMES, IDI_COPYCLIP);
 
