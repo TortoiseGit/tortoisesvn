@@ -5965,7 +5965,7 @@ void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             // should we show a progress dialog here? Copies are done really fast
             // and without much network traffic.
-            if (!Copy(CTSVNPathList(CTSVNPath(pCmi->PathURL)), url, copyrev, copyrev, logmsg, bMakeParents, bMakeParents, false, exts.NeedsTagging(), exts))
+            if (!Copy(CTSVNPathList(CTSVNPath(pCmi->PathURL)), url, copyrev, m_startrev, logmsg, bMakeParents, bMakeParents, false, exts.NeedsTagging(), exts))
                 ShowErrorDialog(m_hWnd);
             else
             {
