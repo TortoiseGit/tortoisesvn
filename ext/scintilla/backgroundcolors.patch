@@ -1,6 +1,6 @@
 Index: include/Scintilla.h
 ===================================================================
---- include/Scintilla.h	(revision 28965)
+--- include/Scintilla.h	(revision 29073)
 +++ include/Scintilla.h	(working copy)
 @@ -1173,6 +1173,8 @@
  
@@ -13,7 +13,7 @@ Index: include/Scintilla.h
   * So older code that treats Scintilla as a RichEdit will work. */
 Index: src/Editor.cxx
 ===================================================================
---- src/Editor.cxx	(revision 28965)
+--- src/Editor.cxx	(revision 29073)
 +++ src/Editor.cxx	(working copy)
 @@ -110,6 +110,7 @@
  }
@@ -25,7 +25,7 @@ Index: src/Editor.cxx
  	stylesValid = false;
 Index: src/Editor.h
 ===================================================================
---- src/Editor.h	(revision 28965)
+--- src/Editor.h	(revision 29073)
 +++ src/Editor.h	(working copy)
 @@ -623,6 +623,7 @@
  public:
@@ -37,7 +37,7 @@ Index: src/Editor.h
  	// Public so scintilla_send_message can use it.
 Index: src/EditView.cxx
 ===================================================================
---- src/EditView.cxx	(revision 28965)
+--- src/EditView.cxx	(revision 29073)
 +++ src/EditView.cxx	(working copy)
 @@ -56,6 +56,7 @@
  #include "MarginView.h"
@@ -76,7 +76,7 @@ Index: src/EditView.cxx
  
 Index: src/EditView.h
 ===================================================================
---- src/EditView.h	(revision 28965)
+--- src/EditView.h	(revision 29073)
 +++ src/EditView.h	(working copy)
 @@ -77,6 +77,7 @@
  	std::unique_ptr<Surface> pixmapLine;
@@ -88,7 +88,7 @@ Index: src/EditView.h
  	PositionCache posCache;
 Index: win32/ScintillaWin.cxx
 ===================================================================
---- win32/ScintillaWin.cxx	(revision 28965)
+--- win32/ScintillaWin.cxx	(revision 29073)
 +++ win32/ScintillaWin.cxx	(working copy)
 @@ -424,6 +424,7 @@
  	void SetCtrlID(int identifier) override;
