@@ -940,6 +940,10 @@ get int AutoCGetTypeSeparator=2285(,)
 # Default is '?' but can be changed if items contain '?'.
 set void AutoCSetTypeSeparator=2286(int separatorCharacter,)
 
+# Enables custom colors for the autocomplete popup list
+# Without custom styling, the values from the OS are used.
+set void AutoCSetUseStyling=2719(bool use,)
+
 # Set the maximum width, in characters, of auto-completion and user lists.
 # Set to 0 to autosize to fit longest item, which is the default.
 set void AutoCSetMaxWidth=2208(int characterCount,)
