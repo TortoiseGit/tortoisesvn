@@ -3067,47 +3067,23 @@ void CLogDlg::DoDiffFromLog(INT_PTR selIndex, svn_revnum_t rev1, svn_revnum_t re
     EnableOKButton();
 }
 
-BOOL CLogDlg::Open(bool bOpenWith, CString changedpath, svn_revnum_t rev)
+BOOL CLogDlg::Open(bool bOpenWith, CString fileUrl, svn_revnum_t rev)
 {
     DialogEnableWindow(IDOK, FALSE);
     SetPromptApp(&theApp);
-    CString filepath;
-    if (SVN::PathIsURL(m_path))
-    {
-        filepath = m_path.GetSVNPathString();
-    }
-    else
-    {
-        filepath = GetURLFromPath(m_path);
-        if (filepath.IsEmpty())
-        {
-            ReportNoUrlOfFile(filepath);
-            EnableOKButton();
-            return FALSE;
-        }
-    }
-    m_bCancelled = false;
-    filepath     = GetRepositoryRoot(CTSVNPath(filepath));
-    if (filepath.IsEmpty())
-    {
-        ShowErrorDialog(m_hWnd);
-        EnableOKButton();
-        return false; //exit
-    }
-    filepath += changedpath;
 
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_APPNAME);
     CString sInfoLine;
-    sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)filepath,
+    sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)fileUrl,
                             (LPCTSTR)SVNRev(rev).ToString());
     progDlg.SetLine(1, sInfoLine, true);
     SetAndClearProgressInfo(&progDlg);
     progDlg.ShowModeless(m_hWnd);
 
-    CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(filepath), rev);
+    CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, CTSVNPath(fileUrl), rev);
     m_bCancelled       = false;
-    if (!Export(CTSVNPath(filepath), tempfile, SVNRev(rev), rev))
+    if (!Export(CTSVNPath(fileUrl), tempfile, SVNRev(rev), rev))
     {
         progDlg.Stop();
         SetAndClearProgressInfo((HWND)NULL);
@@ -7556,36 +7532,12 @@ void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
 
         DialogEnableWindow(IDOK, FALSE);
         SetPromptApp(&theApp);
-        CString filepath;
-        if (SVN::PathIsURL(m_path))
-        {
-            filepath = m_path.GetSVNPathString();
-        }
-        else
-        {
-            filepath = GetURLFromPath(m_path);
-            if (filepath.IsEmpty())
-            {
-                ReportNoUrlOfFile(filepath);
-                EnableOKButton();
-                return;
-            }
-        }
-        m_bCancelled = false;
-        filepath     = GetRepositoryRoot(CTSVNPath(filepath));
-        if (filepath.IsEmpty())
-        {
-            ShowErrorDialog(m_hWnd);
-            EnableOKButton();
-            return; //exit
-        }
-        filepath += m_currentChangedArray[selIndex].GetPath();
-        CTSVNPath tsvnfilepath = CTSVNPath(filepath);
+        CTSVNPath tsvnfilepath = CTSVNPath(pCmi->fileUrl);
 
         CProgressDlg progDlg;
         progDlg.SetTitle(IDS_APPNAME);
         CString sInfoLine;
-        sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)filepath,
+        sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, (LPCTSTR)pCmi->fileUrl,
                                 (LPCTSTR)getrev.ToString());
         progDlg.SetLine(1, sInfoLine, true);
         SetAndClearProgressInfo(&progDlg);
@@ -7605,8 +7557,8 @@ void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
         SetAndClearProgressInfo((HWND)NULL);
 
         CString sName1, sName2;
-        sName1.Format(L"%s - Revision %ld", (LPCTSTR)CPathUtils::GetFileNameFromPath(filepath), (svn_revnum_t)getrev);
-        sName2.Format(IDS_DIFF_WCNAME, (LPCTSTR)CPathUtils::GetFileNameFromPath(filepath));
+        sName1.Format(L"%s - Revision %ld", (LPCTSTR)CPathUtils::GetFileNameFromPath(pCmi->fileUrl), (svn_revnum_t)getrev);
+        sName2.Format(IDS_DIFF_WCNAME, (LPCTSTR)CPathUtils::GetFileNameFromPath(pCmi->fileUrl));
         CAppUtils::DiffFlags flags;
         flags.AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
         CString mimetype;
@@ -7614,7 +7566,7 @@ void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
 
         CAppUtils::StartExtDiff(tempfile, CTSVNPath(pCmi->wcPath), sName1, sName2, tsvnfilepath, tsvnfilepath,
                                 getrev, getrev, getrev, flags, 0,
-                                CPathUtils::GetFileNameFromPath(filepath), mimetype);
+                                CPathUtils::GetFileNameFromPath(pCmi->fileUrl), mimetype);
         EnableOKButton();
     };
     new async::CAsyncCall(f, &netScheduler);
@@ -7748,6 +7700,7 @@ void CLogDlg::ExecuteSaveAsChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, 
     }
     m_bCancelled  = false;
     CString sRoot = GetRepositoryRoot(CTSVNPath(pCmi->fileUrl));
+    CString sUrlRootUnescaped = CPathUtils::PathUnescape(sRoot);
     // if more than one entry is selected, we save them
     // one by one into a folder the user has selected
     bool      bTargetSelected = false;
@@ -7816,7 +7769,7 @@ void CLogDlg::ExecuteSaveAsChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, 
                         sName = sName.Mid(slashpos);
                     tempfile.AppendPathString(sName);
                 }
-                CString filepath = sRoot + changedlogpathi.GetPath();
+                CString filepath = sUrlRootUnescaped + changedlogpathi.GetPath();
                 progDlg.SetLine(2, filepath, true);
                 if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev))
                 {
@@ -7891,7 +7844,7 @@ void CLogDlg::ExecuteExportTreeChangedPaths(ContextMenuInfoForChangedPathsPtr pC
 
                 SHCreateDirectoryEx(m_hWnd, tempfile.GetContainingDirectory().GetWinPath(),
                                     NULL);
-                CString filepath = m_sRepositoryRoot + schangedlogpath;
+                CString filepath = CPathUtils::PathUnescape(m_sRepositoryRoot) + schangedlogpath;
                 if (!Export(CTSVNPath(filepath), tempfile, getrev, getrev,
                             true, true, svn_depth_empty))
                 {
@@ -7918,7 +7871,7 @@ void CLogDlg::ExecuteOpenChangedPaths(INT_PTR selIndex, ContextMenuInfoForChange
         OnOutOfScope(CoUninitialize());
         this->EnableWindow(FALSE);
         OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
-        Open(bOpenWith, m_currentChangedArray[selIndex].GetPath(), getrev);
+        Open(bOpenWith, pCmi->fileUrl, getrev);
     };
     new async::CAsyncCall(f, &netScheduler);
 }
