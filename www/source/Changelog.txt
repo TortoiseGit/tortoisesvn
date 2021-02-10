@@ -1,4 +1,29 @@
-﻿Version 1.14.0
+﻿Version 1.14.1
+- BUG: TortoiseMerge crashed if configured to
+       not use Ribbons. (Stefan)
+- BUG: Bugtraq links in log dialog didn't
+       work anymore. (Stefan)
+- BUG: various problems with dark theme. (Stefan)
+- BUG: TortoiseBlame showd NUL chars if the
+       file contained an utf8 BOM. (Stefan)
+- BUG: Crash in ProjectMonitor when rearranging
+       the tree view. (Stefan)
+- BUG: opening the properties dialog from command
+       line with param /property showed wrong or
+       empty values. (Stefan)
+- BUG: hook scripts were executed for wc's that
+       didn't have them set up when updating
+       multiple wcs at once. (Stefan)
+- BUG: "compare with working copy" from the file
+       list of the log dialog failed if the path
+       wasn't a child of the path the log dialog
+       was shown for. (Stefan)
+- BUG: crash when updating an external with an
+       invalid/non-existing URL. (Stefan)
+- BUG: Lines with only ignored whitespace changes
+       were not collapsed in TMerge. (Stefan)
+
+Version 1.14.0
 See the release notes: https://tortoisesvn.net/tsvn_1.14_releasenotes.html
 
 Version 1.13.2
@@ -1529,7 +1554,7 @@ Version 1.6.0
 
 Version 1.5.10
 - SEC: Security update. Please see
-       http://subversion.tigris.org/security/CVE-2009-2411-advisory.txt
+       http://subversion.apache.org/security/CVE-2009-2411-advisory.txt
        for details.
        Note: the 1.5.x branch of TortoiseSVN is no longer maintained. Only
        use this if you really have to. Otherwise please update to version 1.6.4.
