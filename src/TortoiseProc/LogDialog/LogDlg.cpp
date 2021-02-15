@@ -7958,7 +7958,12 @@ void CLogDlg::ExecuteShowLogChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
         sCmd.Format(L"/command:log /path:\"%s\" /pegrev:%ld",
                     (LPCTSTR)pCmi->fileUrl, logrev);
     }
-
+    if (m_hasWC)
+    {
+        CString sTmp;
+        sTmp.Format(L" /propspath:\"%s\"", m_path.GetWinPath());
+        sCmd += sTmp;
+    }
     if (bMergeLog)
         sCmd += L" /merge";
     CAppUtils::RunTortoiseProc(sCmd);

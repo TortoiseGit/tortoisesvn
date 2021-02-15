@@ -1,4 +1,9 @@
-﻿Version 1.14.1
+﻿Version 1.14.2
+- BUG: when starting a log dialog from an existing
+       log dialog, the project properties were
+       not read anymore. (Stefan)
+
+Version 1.14.1
 - BUG: TortoiseMerge crashed if configured to
        not use Ribbons. (Stefan)
 - BUG: Bugtraq links in log dialog didn't
