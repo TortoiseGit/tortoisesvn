@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2020 - TortoiseSVN
+// Copyright (C) 2003-2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -32,6 +32,7 @@
 #include "DPIAware.h"
 #include "Theme.h"
 #include "DarkModeHelper.h"
+#include "OnOutOfScope.h"
 
 // Note about lines:
 // We use three different kind of lines here:
@@ -1784,6 +1785,10 @@ void CBaseView::DrawTextLine(
     int nViewLine = GetViewLineForScreen(nLineIndex);
     ASSERT(m_pViewData && (nViewLine < m_pViewData->GetCount()));
 
+    CRgn rgn;
+    rgn.CreateRectRgn(rc.left, rc.top, rc.right, rc.bottom);
+    pDC->SelectClipRgn(&rgn);
+    OnOutOfScope(pDC->SelectClipRgn(nullptr));
     LineColors lineCols = GetLineColors(nViewLine);
 
     CString sViewLine = GetViewLineChars(nViewLine);
