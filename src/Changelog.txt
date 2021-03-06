@@ -2,6 +2,9 @@
 - BUG: when starting a log dialog from an existing
        log dialog, the project properties were
        not read anymore. (Stefan)
+- BUG: When line-wrapping is on in TMerge and
+       the window is resized, the current line
+       was not kept in the view. (Stefan)
 
 Version 1.14.1
 - BUG: TortoiseMerge crashed if configured to

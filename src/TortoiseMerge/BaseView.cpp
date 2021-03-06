@@ -2294,10 +2294,18 @@ void CBaseView::OnSize(UINT nType, int cx, int cy)
     m_nScreenChars = -1;
     if (m_nLastScreenChars != GetScreenChars())
     {
+        auto oldCaretLine = m_ptCaretViewPos.y;
         BuildAllScreen2ViewVector();
         m_nLastScreenChars = m_nScreenChars;
         if (m_pMainFrame && m_pMainFrame->m_bWrapLines)
         {
+            auto newCaretLine = FindScreenLineForViewLine(oldCaretLine);
+            int  nNewTopLine  = newCaretLine - GetScreenLines() / 2;
+            if (nNewTopLine < 0)
+                nNewTopLine = 0;
+            if (nNewTopLine >= (int)m_Screen2View.size())
+                nNewTopLine = (int)m_Screen2View.size() - 1;
+            ScrollToLine(nNewTopLine);
             // if we're in wrap mode, the line wrapping most likely changed
             // and that means we have to redraw the whole window, not just the
             // scrolled part.
