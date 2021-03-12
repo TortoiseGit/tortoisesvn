@@ -1,0 +1,24 @@
+/* this script is a local pre-lock hook script that sets the lock message to include the computer name and wc path. */
+
+var ForAppending = 8;
+var objArgs, num;
+
+objArgs = WScript.Arguments;
+num = objArgs.length;
+if (num !== 5)
+{
+    WScript.Echo("Usage: [CScript | WScript] PreLock.js path/to/pathsfile lock force path/to/msgfile path/to/CWD ");
+    WScript.Quit(1);
+}
+
+if (objArgs(1) == "true")
+{
+    var fs = new ActiveXObject("Scripting.FileSystemObject");
+	if (fs.FileExists(objArgs(3)))
+    {
+        var wshl = new ActiveXObject("WScript.Shell")
+        var a = fs.OpenTextFile(objArgs(3), ForAppending);
+        a.WriteLine("Locked on " + wshl.ExpandEnvironmentStrings("%COMPUTERNAME%") + " in wc " + objArgs(4));
+        a.Close();
+    }
+}

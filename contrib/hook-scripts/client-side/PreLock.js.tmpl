@@ -1,0 +1,63 @@
+/* this script is a local pre-lock hook script. */
+
+var ForReading = 1;
+var objArgs, num;
+
+objArgs = WScript.Arguments;
+num = objArgs.length;
+if (num !== 5)
+{
+    WScript.Echo("Usage: [CScript | WScript] PreLock.js path/to/pathsfile lock force path/to/msgfile path/to/CWD ");
+    WScript.Quit(1);
+}
+
+var paths = readPaths(objArgs(0));
+var message = "list of paths selected for locking:\n";
+
+for (var i = 0; i < paths.length; i++)
+{
+    message = message + paths[i] + "\n";
+}
+
+message = message + (objArgs(1) == "true" ? "Getting" : "Releasing") + " lock" + (objArgs(2) == "true" ? " - forcefully" : "") + "\n";
+message = message + readFile(objArgs(3));
+message = message + "CWD is: " + objArgs(4) + "\n";
+
+WScript.Echo(message);
+WScript.Quit(0);
+
+
+function readPaths(path)
+{
+    var retPaths = [];
+    var fs = new ActiveXObject("Scripting.FileSystemObject");
+    if (fs.FileExists(path))
+    {
+        var a = fs.OpenTextFile(path, ForReading);
+        while (!a.AtEndOfStream)
+        {
+            var line = a.ReadLine();
+            retPaths.push(line);
+        }
+        a.Close();
+    }
+    return retPaths;
+}
+
+function readFile(path)
+{
+    var msg = "";
+	var lines = 0;
+    var fs = new ActiveXObject("Scripting.FileSystemObject");
+    if (fs.FileExists(path))
+    {
+        var a = fs.OpenTextFile(path, ForReading);
+        while (!a.AtEndOfStream)
+        {
+            msg += a.ReadLine() + "\r\n";
+			lines++;
+        }
+        a.Close();
+    }
+    return "Lock message (" + lines + " lines):\r\n" + msg;
+}
