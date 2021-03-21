@@ -28,19 +28,18 @@ You need to perform most steps only once.
 
 \subsection Requirements2 Next you need to install some utilities/programs.
 - Java runtime                      https://www.java.com
-- Python 2.6(\b 1 \b 3)             https://www.python.org/windows/
-- libxml2 python bindings(\b 2)     http://users.skynet.be/sbi/libxml-python/
+- Python 3 (\b 1)                   https://www.python.org/windows/
 - Perl                              http://strawberryperl.com/releases.html
                                     or
                                     https://www.activestate.com/products/perl/
-- WiX 3.10(\b 1)                    http://wixtoolset.org/
 - NAnt 0.92(\b 1)                   http://nant.sourceforge.net
+to build the docs, you need to install the lxml lib for python: pip install lxml
+to build the setup msi files, you'll also need
+- WiX 3.10(\b 1)                    http://wixtoolset.org/
 
 (\b 1) Add the paths of the binaries to the PATH environment variable. You may have to
     logoff/logon to make the new environment variables take effect!
     Also make sure to "unblock" the zip file before extracting when you install NAnt.
-(\b 2) right-click on the installer file and "run as administrator" to install it.
-(\b 3) use 32 bit installer (even on x64 OS)
 
 
 \subsection Requirements3 Finally, you may need to install some fonts.
