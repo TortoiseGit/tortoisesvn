@@ -2250,7 +2250,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
                 popup.AppendMenuIcon(ID_CONFLICTUSEMINE, IDS_SVNPROGRESS_MENUUSEMINE,IDI_RESOLVE);
             }
         }
-        else if ((data->content_state == svn_wc_notify_state_merged)||(SVNProgress_Merge == m_Command)||(data->action == svn_wc_notify_resolved))
+        else if ((data->action == svn_wc_notify_update_update) && ((data->content_state == svn_wc_notify_state_merged) || (SVNProgress_Merge == m_Command)) || (data->action == svn_wc_notify_resolved))
             popup.SetDefaultItem(ID_COMPARE, FALSE);
 
         if (m_ProgList.GetSelectedCount() == 1)
