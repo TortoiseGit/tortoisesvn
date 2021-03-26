@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012-2014, 2020 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012-2014, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -47,6 +47,7 @@ void CMergeWizardOptions::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_IGNOREEOL, ((CMergeWizard*)GetParent())->m_bIgnoreEOL);
     DDX_Check(pDX, IDC_RECORDONLY, ((CMergeWizard*)GetParent())->m_bRecordOnly);
     DDX_Check(pDX, IDC_FORCE, ((CMergeWizard*)GetParent())->m_bForce);
+    DDX_Check(pDX, IDC_ALLOWMIXED, ((CMergeWizard*)GetParent())->m_bAllowMixed);
     DDX_Check(pDX, IDC_REINTEGRATEOLDSTYLE, ((CMergeWizard*)GetParent())->bReintegrate);
 }
 
@@ -66,6 +67,10 @@ BOOL CMergeWizardOptions::OnInitDialog()
     CString sRegOptionIgnoreAncestry = L"Software\\TortoiseSVN\\Merge\\IgnoreAncestry_" + pWizard->sUUID;
     CRegDWORD regIgnoreAncestryOpt(sRegOptionIgnoreAncestry, FALSE);
     pWizard->m_bIgnoreAncestry = (DWORD)regIgnoreAncestryOpt;
+    if ((pWizard->nRevRangeMerge == MERGEWIZARD_REVRANGE) && (!pWizard->bReintegrate))
+    {
+        pWizard->m_bAllowMixed = false;
+    }
 
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_WORKING)));
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE)));
@@ -106,6 +111,7 @@ BOOL CMergeWizardOptions::OnInitDialog()
     AdjustControlSize(IDC_IGNOREWHITESPACECHANGES);
     AdjustControlSize(IDC_IGNOREALLWHITESPACES);
     AdjustControlSize(IDC_FORCE);
+    AdjustControlSize(IDC_ALLOWMIXED);
     AdjustControlSize(IDC_RECORDONLY);
     AdjustControlSize(IDC_REINTEGRATEOLDSTYLE);
 
@@ -118,6 +124,7 @@ BOOL CMergeWizardOptions::OnInitDialog()
     AddAnchor(IDC_IGNOREWHITESPACECHANGES, TOP_LEFT);
     AddAnchor(IDC_IGNOREALLWHITESPACES, TOP_LEFT);
     AddAnchor(IDC_FORCE, TOP_LEFT);
+    AddAnchor(IDC_ALLOWMIXED, TOP_LEFT);
     AddAnchor(IDC_RECORDONLY, TOP_LEFT);
     AddAnchor(IDC_REINTEGRATEOLDSTYLE, TOP_LEFT);
     AddAnchor(IDC_DRYRUN, BOTTOM_RIGHT);
@@ -161,10 +168,6 @@ BOOL CMergeWizardOptions::OnWizardFinish()
     }
     pWizard->m_IgnoreSpaces = GetIgnores();
 
-    if ((pWizard->nRevRangeMerge == MERGEWIZARD_REVRANGE) && (!pWizard->bReintegrate))
-    {
-        pWizard->bAllowMixedRev = false;
-    }
 
     CString sRegOptionIgnoreAncestry = L"Software\\TortoiseSVN\\Merge\\IgnoreAncestry_" + pWizard->sUUID;
     CRegDWORD regIgnoreAncestryOpt(sRegOptionIgnoreAncestry, FALSE);
@@ -207,6 +210,7 @@ void CMergeWizardOptions::OnBnClickedDryrun()
     options |= pWizard->m_bIgnoreAncestry ? ProgOptIgnoreAncestry : 0;
     options |= pWizard->m_bRecordOnly ? ProgOptRecordOnly : 0;
     options |= pWizard->m_bForce ? ProgOptForce : 0;
+    options |= pWizard->m_bAllowMixed ? ProgOptAllowMixedRev : 0;
     progDlg.SetOptions(options);
     progDlg.SetPathList(CTSVNPathList(pWizard->wcPath));
     progDlg.SetUrl(pWizard->URL1);
