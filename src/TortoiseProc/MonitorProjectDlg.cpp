@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014, 2016, 2020 - TortoiseSVN
+// Copyright (C) 2014, 2016, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,7 +52,7 @@ void CMonitorProjectDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_USERNAME, m_sUsername);
     DDX_Text(pDX, IDC_PASSWORD, m_sPassword);
     DDX_Text(pDX, IDC_INTERVAL, m_monitorInterval);
-    DDV_MinMaxInt(pDX, m_monitorInterval, 1, 1000);
+    DDV_MinMaxInt(pDX, m_monitorInterval, 1, INT_MAX);
     DDX_Text(pDX, IDC_IGNOREUSERS, m_sIgnoreUsers);
     DDX_Text(pDX, IDC_IGNOREREGEX, m_sIgnoreRegex);
     DDX_Check(pDX, IDC_PARENTPATH, m_isParentPath);
