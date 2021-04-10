@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2015, 2018 - TortoiseSVN
+// Copyright (C) 2009-2015, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -244,7 +244,7 @@ CRepositoryLister::CListQuery::CListQuery
             ? new CExternalsQuery (path, pegRevision, repository, runSilently, scheduler)
             : NULL)
 {
-    Schedule (false, scheduler);
+    CJobBase::Schedule (false, scheduler);
 }
 
 // cancel the svn:externals sub query as well
@@ -402,7 +402,7 @@ CRepositoryLister::CExternalsQuery::CExternalsQuery
     : CQuery (path, pegRevision, true, repository)
     , runSilently (runSilently)
 {
-    Schedule (false, scheduler);
+    CJobBase::Schedule (false, scheduler);
 }
 
 /////////////////////////////////////////////////////////////////////

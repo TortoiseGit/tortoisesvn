@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@ CStdioFileT::CStdioFileT(LPCTSTR lpszFileName, UINT nOpenFlags)
     ASSERT(AfxIsValidString(lpszFileName));
 
     CFileException e;
-    if (!Open(lpszFileName, nOpenFlags, &e))
+    if (!CStdioFile::Open(lpszFileName, nOpenFlags, &e))
         AfxThrowFileException(e.m_cause, e.m_lOsError, e.m_strFileName);
 }
 

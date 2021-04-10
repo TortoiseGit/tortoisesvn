@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009 - TortoiseSVN
+// Copyright (C) 2007-2009, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@ CRootOutStream::CRootOutStream (const TFileName& fileName)
 
 CRootOutStream::~CRootOutStream()
 {
-    AutoClose();
+    CHierachicalOutStreamBase::AutoClose();
 }
 
 // implement the rest of IHierarchicalOutStream

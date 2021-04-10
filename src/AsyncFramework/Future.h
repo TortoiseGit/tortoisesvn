@@ -1,4 +1,4 @@
-/***************************************************************************
+﻿/***************************************************************************
  *   Copyright (C) 2009, 2012 by Stefan Fuhrmann                           *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
@@ -65,7 +65,7 @@ private:
             : func (func)
             , result (result)
         {
-            Schedule (false, scheduler);
+            CJobBase::Schedule (false, scheduler);
         }
     };
 
@@ -92,7 +92,7 @@ private:
             , func (func)
             , result (result)
         {
-            Schedule (false, scheduler);
+            CJobBase::Schedule (false, scheduler);
         }
     };
 
@@ -119,7 +119,7 @@ private:
             , func (func)
             , result (result)
         {
-            Schedule (false, scheduler);
+            CJobBase::Schedule (false, scheduler);
         }
     };
 
@@ -148,7 +148,7 @@ private:
             , func (func)
             , result (result)
         {
-            Schedule (false, scheduler);
+            CJobBase::Schedule (false, scheduler);
         }
     };
 
@@ -177,7 +177,7 @@ private:
             , func (func)
             , result (result)
         {
-            Schedule (false, scheduler);
+            CJobBase::Schedule (false, scheduler);
         }
     };
 
@@ -208,7 +208,7 @@ private:
             , func (func)
             , result (result)
         {
-            Schedule (false, scheduler);
+            CJobBase::Schedule (false, scheduler);
         }
     };
 
@@ -239,7 +239,7 @@ private:
             , func (func)
             , result (result)
         {
-            Schedule (false, scheduler);
+            CJobBase::Schedule (false, scheduler);
         }
     };
 
@@ -272,7 +272,7 @@ private:
             , func (func)
             , result (result)
         {
-            Schedule (false, scheduler);
+            CJobBase::Schedule (false, scheduler);
         }
     };
 

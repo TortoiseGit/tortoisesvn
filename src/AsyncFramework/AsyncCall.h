@@ -1,4 +1,4 @@
-/***************************************************************************
+﻿/***************************************************************************
  *   Copyright (C) 2009, 2012 by Stefan Fuhrmann                           *
  *   stefanfuhrmann@alice-dsl.de                                           *
  *                                                                         *
@@ -229,14 +229,14 @@ public:
         : call (NULL)
     {
         call = new CCall0 (func);
-        Schedule (true, scheduler);
+        CJobBase::Schedule (true, scheduler);
     }
 
     CAsyncCall (std::function<void()> func, CJobScheduler* scheduler = NULL)
         : call (NULL)
     {
         call = new CCallStd (func);
-        Schedule (true, scheduler);
+        CJobBase::Schedule (true, scheduler);
     }
 
     template<class C>
@@ -244,7 +244,7 @@ public:
         : call (NULL)
     {
         call = new CCallMember0<C>(instance, func);
-        Schedule (true, scheduler);
+        CJobBase::Schedule (true, scheduler);
     }
 
     template<class T1>
@@ -252,7 +252,7 @@ public:
         : call (NULL)
     {
         call = new CCall1<T1>(func, parameter1);
-        Schedule (true, scheduler);
+        CJobBase::Schedule (true, scheduler);
     }
 
     template<class C, class T1>
@@ -260,7 +260,7 @@ public:
         : call (NULL)
     {
         call = new CCallMember1<C, T1>(instance, func, parameter1);
-        Schedule (true, scheduler);
+        CJobBase::Schedule (true, scheduler);
     }
 
     template<class T1, class T2>
@@ -268,7 +268,7 @@ public:
         : call (NULL)
     {
         call = new CCall2<T1, T2>(func, parameter1, parameter2);
-        Schedule (true, scheduler);
+        CJobBase::Schedule (true, scheduler);
     }
 
     template<class C, class T1, class T2>
@@ -276,7 +276,7 @@ public:
         : call (NULL)
     {
         call = new CCallMember2<C, T1, T2>(instance, func, parameter1, parameter2);
-        Schedule (true, scheduler);
+        CJobBase::Schedule (true, scheduler);
     }
 
     // cleanup
