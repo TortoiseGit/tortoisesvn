@@ -8649,12 +8649,12 @@ void CLogDlg::OnMonitorMarkAllAsRead()
 {
     // mark all entries as unread
     HTREEITEM hItem = m_projTree.GetSelectedItem();
-    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem) -> bool {
-        MonitorItem* pItem = (MonitorItem*)m_projTree.GetItemData(hItem);
+    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hLocalItem) -> bool {
+        MonitorItem* pItem = (MonitorItem*)m_projTree.GetItemData(hLocalItem);
         pItem->UnreadItems = 0;
         pItem->unreadFirst = 0;
-        m_projTree.SetItemState(hItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
-        m_projTree.SetItemState(hItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
+        m_projTree.SetItemState(hLocalItem, pItem->UnreadItems ? TVIS_BOLD : 0, TVIS_BOLD);
+        m_projTree.SetItemState(hLocalItem, pItem->authfailed ? INDEXTOOVERLAYMASK(OVERLAY_MODIFIED) : 0, TVIS_OVERLAYMASK);
         return false;
     });
 
@@ -8728,8 +8728,8 @@ void CLogDlg::OnMonitorRemoveProject()
             if (hChild)
             {
                 RecurseMonitorTree(hChild, [&](HTREEITEM hItem) -> bool {
-                    MonitorItem* pItem = (MonitorItem*)m_projTree.GetItemData(hItem);
-                    delete pItem;
+                    MonitorItem* pLocalItem = (MonitorItem*)m_projTree.GetItemData(hItem);
+                    delete pLocalItem;
                     return false;
                 });
             }
@@ -9864,9 +9864,9 @@ void CLogDlg::MonitorShowProject(HTREEITEM hItem, LRESULT* pResult)
     }
 
     bool hasUnreadItems = false;
-    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem) -> bool {
-        MonitorItem* pItem = (MonitorItem*)m_projTree.GetItemData(hItem);
-        if (pItem && pItem->UnreadItems)
+    RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hLocalItem) -> bool {
+        MonitorItem* pLocalItem = (MonitorItem*)m_projTree.GetItemData(hLocalItem);
+        if (pLocalItem && pLocalItem->UnreadItems)
         {
             hasUnreadItems = true;
             return true;
