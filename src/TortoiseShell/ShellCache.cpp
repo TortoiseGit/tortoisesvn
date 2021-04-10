@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2017, 2020 - TortoiseSVN
+// Copyright (C) 2010-2017, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -442,30 +442,28 @@ bool ShellCache::IsColumnsEveryWhere()
 
 void ShellCache::ExcludeContextValid()
 {
-    if (RefreshIfNeeded())
+    // Lock must be taken by caller, which is done by IsContextPathAllowed()
+    RefreshIfNeeded();
+    if (excludecontextstr.compare((tstring)nocontextpaths) == 0)
+        return;
+
+    excludecontextstr = (tstring)nocontextpaths;
+    excontextvector.clear();
+    size_t pos = 0, pos_ant = 0;
+    pos = excludecontextstr.find(L'\n', pos_ant);
+    while (pos != tstring::npos)
     {
-        Locker lock(m_critSec);
-        if (excludecontextstr.compare((tstring)nocontextpaths) == 0)
-            return;
-        excludecontextstr = (tstring)nocontextpaths;
-        excontextvector.clear();
-        size_t pos = 0, pos_ant = 0;
+        tstring token = excludecontextstr.substr(pos_ant, pos - pos_ant);
+        if (!token.empty())
+            excontextvector.push_back(token);
+        pos_ant = pos + 1;
         pos = excludecontextstr.find(L'\n', pos_ant);
-        while (pos != tstring::npos)
-        {
-            tstring token = excludecontextstr.substr(pos_ant, pos - pos_ant);
-            if (!token.empty())
-                excontextvector.push_back(token);
-            pos_ant = pos + 1;
-            pos = excludecontextstr.find(L'\n', pos_ant);
-        }
-        if (!excludecontextstr.empty())
-        {
-            tstring token = excludecontextstr.substr(pos_ant, excludecontextstr.size() - 1);
-            if (!token.empty())
-                excontextvector.push_back(token);
-        }
-        excludecontextstr = (tstring)nocontextpaths;
+    }
+    if (!excludecontextstr.empty())
+    {
+        tstring token = excludecontextstr.substr(pos_ant, excludecontextstr.size() - 1);
+        if (!token.empty())
+            excontextvector.push_back(token);
     }
 }
 
