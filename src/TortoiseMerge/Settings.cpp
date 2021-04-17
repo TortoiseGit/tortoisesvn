@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009-2010, 2014-2015, 2017-2018, 2020 - TortoiseSVN
+// Copyright (C) 2006, 2009-2010, 2014-2015, 2017-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,6 +45,7 @@ CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
     : CPropertySheet(nIDCaption, pParentWnd, iSelectPage)
     , m_pMainPage(nullptr)
     , m_pColorPage(nullptr)
+    , m_themeCallbackId(-1)
 {
 }
 
