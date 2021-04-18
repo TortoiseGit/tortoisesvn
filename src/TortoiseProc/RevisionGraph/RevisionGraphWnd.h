@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014, 2017, 2020 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014, 2017, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -274,8 +274,8 @@ private:
                 m_pSVG->EndGroup();
         }
     private:
-        SVGGrouper() {}
-
+        SVGGrouper() = delete;
+ 
         SVG *   m_pSVG;
     };
 

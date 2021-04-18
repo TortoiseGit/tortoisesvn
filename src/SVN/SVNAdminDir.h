@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2010, 2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -46,8 +46,8 @@
 class SVNAdminDir
 {
 private:
-    SVNAdminDir(const SVNAdminDir&);
-    SVNAdminDir& operator=(SVNAdminDir&);
+    SVNAdminDir(const SVNAdminDir&) = delete;
+    SVNAdminDir& operator=(SVNAdminDir&) = delete;
 public:
     SVNAdminDir();
     ~SVNAdminDir();

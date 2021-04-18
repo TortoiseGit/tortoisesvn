@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014-2015, 2017, 2019 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014-2015, 2017, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -179,8 +179,8 @@ private:
 
     /// no copy support
 
-    CLogEntryData (const CLogEntryData&);
-    CLogEntryData& operator=(const CLogEntryData&);
+    CLogEntryData (const CLogEntryData&) = delete;
+    CLogEntryData& operator=(const CLogEntryData&) = delete;
 
     /// initialization utility
     void InitDateStrings() const;

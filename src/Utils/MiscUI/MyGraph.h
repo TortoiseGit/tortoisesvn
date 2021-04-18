@@ -1,4 +1,4 @@
-// MyGraph.h
+﻿// MyGraph.h
 
 #pragma once
 
@@ -17,8 +17,8 @@ public:
 
 // Declared but not defined.
 private:
-    MyGraphSeries(const MyGraphSeries& rhs);
-    MyGraphSeries& operator=(const MyGraphSeries& rhs);
+    MyGraphSeries(const MyGraphSeries& rhs) = delete;
+    MyGraphSeries& operator=(const MyGraphSeries& rhs) = delete;
 
 // Operations.
 public:
@@ -63,8 +63,8 @@ public:
 
 // Declared but not defined.
 private:
-    MyGraph(const MyGraph& rhs);
-    MyGraph& operator=(const MyGraph& rhs);
+    MyGraph(const MyGraph& rhs) = delete;
+    MyGraph& operator=(const MyGraph& rhs) = delete;
 
 // Operations.
 public:
