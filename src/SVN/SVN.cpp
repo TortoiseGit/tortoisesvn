@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2020 - TortoiseSVN
+// Copyright (C) 2003-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,8 +22,6 @@
 #include "svn_props.h"
 #include "svn_sorts.h"
 #include "client.h"
-#include "svn_compat.h"
-#include "private/svn_client_private.h"
 #include "private/svn_client_shelf.h"
 #include "private/svn_client_shelf2.h"
 #pragma warning(pop)
@@ -33,12 +31,10 @@
 #include "UnicodeUtils.h"
 #include "DirFileEnum.h"
 #include "TSVNPath.h"
-#include "ShellUpdater.h"
 #include "registry.h"
 #include "SVNHelpers.h"
 #include "SVNStatus.h"
 #include "SVNInfo.h"
-#include "AppUtils.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
 #include "TempFile.h"
