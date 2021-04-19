@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,6 @@
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
 #include "libintl.h"
-#include "DirFileEnum.h"
 #include "SVN.h"
 #include "SVNAdminDir.h"
 #include "SVNGlobal.h"
@@ -65,16 +64,16 @@ END_MESSAGE_MAP()
 
 
 //////////////////////////////////////////////////////////////////////////
-CCrashReportTSVN crasher(L"TortoiseSVN " _T(APP_X64_STRING));
+CCrashReportTSVN crasher(L"TortoiseSVN " TEXT(APP_X64_STRING));
 
-CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL), m_GlobalPool(NULL)
+CTortoiseProcApp::CTortoiseProcApp() : hWndExplorer(NULL), m_globalPool(NULL)
 {
     SetDllDirectory(L"");
     EnableHtmlHelp();
     apr_initialize();
     svn_dso_initialize2();
-    m_GlobalPool = svn_pool_create(NULL);
-    svn_utf_initialize2(FALSE, m_GlobalPool);
+    m_globalPool = svn_pool_create(NULL);
+    svn_utf_initialize2(FALSE, m_globalPool);
     CHooks::Create();
     g_SVNAdminDir.Init();
     m_bLoadUserToolbars = FALSE;
@@ -94,7 +93,7 @@ CTortoiseProcApp::~CTortoiseProcApp()
     // *now* instead of later when the object itself is destroyed.
     g_SVNAdminDir.Close();
     CHooks::Destroy();
-    svn_pool_destroy(m_GlobalPool);
+    svn_pool_destroy(m_globalPool);
     apr_terminate();
     sasl_done();
 }
@@ -614,7 +613,7 @@ int CTortoiseProcApp::ExitInstance()
     return -1;
 }
 
-void CTortoiseProcApp::CheckForNewerVersion()
+void CTortoiseProcApp::CheckForNewerVersion() const
 {
     if (CRegDWORD(L"Software\\TortoiseSVN\\VersionCheck", TRUE) == FALSE)
         return;

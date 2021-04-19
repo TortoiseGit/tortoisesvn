@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2014, 2016 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2014, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -48,14 +48,14 @@ class CTortoiseProcApp : public CWinAppEx
 {
 public:
     CTortoiseProcApp();
-    ~CTortoiseProcApp();
+    ~CTortoiseProcApp() override;
 
 // Overrides
 public:
-    virtual BOOL InitInstance();
-    virtual int ExitInstance();
+    BOOL InitInstance() override;
+    int  ExitInstance() override;
 
-    void CheckUpgrade();
+    static void CheckUpgrade();
     void InitializeJumpList(const CString& appid);
     void DoInitializeJumpList(const CString& appid);
 
@@ -66,11 +66,11 @@ public:
 private:
     DECLARE_MESSAGE_MAP()
 private:
-    bool    retSuccess;
-    HWND    hWndExplorer;
-    apr_pool_t *m_GlobalPool;
-    void CheckForNewerVersion();
-    void Sync();
+    bool         retSuccess;
+    HWND         hWndExplorer;
+    apr_pool_t * m_globalPool;
+    void         CheckForNewerVersion() const;
+    static void  Sync();
 };
 
 extern CTortoiseProcApp theApp;
