@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "UnicodeUtils.h"
 #include "ProjectProperties.h"
 #include "SVNProperties.h"
@@ -30,30 +29,30 @@
 
 #define LOG_REVISIONREGEX L"\\b(r\\d+)|\\b(revisions?(\\(s\\))?\\s#?\\d+([, ]+(and\\s?)?\\d+)*)|\\b(revs?\\.?\\s?\\d+([, ]+(and\\s?)?\\d+)*)"
 
-const CString sLOG_REVISIONREGEX = LOG_REVISIONREGEX;
+const CString sLog_revisionregex = LOG_REVISIONREGEX;
 
-struct num_compare
+struct NumCompare
 {
-    bool operator() (const CString& lhs, const CString& rhs) const
+    bool operator()(const CString& lhs, const CString& rhs) const
     {
         return StrCmpLogicalW(lhs, rhs) < 0;
     }
 };
 
 ProjectProperties::ProjectProperties(void)
-    : regExNeedUpdate (true)
-    , bNumber (TRUE)
-    , bWarnIfNoIssue (FALSE)
-    , nLogWidthMarker (0)
-    , nMinLogSize (0)
-    , nMinLockMsgSize (0)
-    , bFileListInEnglish (TRUE)
-    , bAppend (TRUE)
-    , lProjectLanguage (0)
+    : bNumber(TRUE)
+    , bWarnIfNoIssue(FALSE)
+    , bAppend(TRUE)
+    , nLogWidthMarker(0)
+    , nMinLogSize(0)
+    , nMinLockMsgSize(0)
+    , bFileListInEnglish(TRUE)
+    , lProjectLanguage(0)
+    , bMergeLogTemplateMsgTitleBottom(FALSE)
+    , regExNeedUpdate(true)
     , nBugIdPos(-1)
     , m_bFound(false)
     , m_bPropsRead(false)
-    , bMergeLogTemplateMsgTitleBottom(FALSE)
 {
 }
 
@@ -61,10 +60,9 @@ ProjectProperties::~ProjectProperties(void)
 {
 }
 
-
 BOOL ProjectProperties::ReadPropsPathList(const CTSVNPathList& pathList)
 {
-    for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
+    for (int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         if (ReadProps(pathList[nPath]))
         {
@@ -77,7 +75,7 @@ BOOL ProjectProperties::ReadPropsPathList(const CTSVNPathList& pathList)
 BOOL ProjectProperties::ReadProps(CTSVNPath path)
 {
     regExNeedUpdate = true;
-    m_bPropsRead = true;
+    m_bPropsRead    = true;
 
     if (!path.IsUrl())
     {
@@ -88,27 +86,27 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
             path = path.GetContainingDirectory();
     }
 
-    SVN svn;
+    SVN           svn;
     SVNProperties props(path, path.IsUrl() ? SVNRev::REV_HEAD : SVNRev::REV_WC, false, true);
-    for (int i=0; i<props.GetCount(); ++i)
+    for (int i = 0; i < props.GetCount(); ++i)
     {
         std::string sPropName = props.GetItemName(i);
-        CString sPropVal = CUnicodeUtils::GetUnicode(((char *)props.GetItemValue(i).c_str()));
+        CString     sPropVal  = CUnicodeUtils::GetUnicode(const_cast<char*>(props.GetItemValue(i).c_str()));
         if (CheckStringProp(sMessage, sPropName, sPropVal, BUGTRAQPROPNAME_MESSAGE))
             nBugIdPos = sMessage.Find(L"%BUGID%");
-        if (sPropName.compare(BUGTRAQPROPNAME_NUMBER)==0)
+        if (sPropName.compare(BUGTRAQPROPNAME_NUMBER) == 0)
         {
             CString val;
             val = sPropVal;
             val = val.Trim(L" \n\r\t");
-            if ((val.CompareNoCase(L"false")==0)||(val.CompareNoCase(L"no")==0))
+            if ((val.CompareNoCase(L"false") == 0) || (val.CompareNoCase(L"no") == 0))
                 bNumber = FALSE;
             else
                 bNumber = TRUE;
         }
         if (CheckStringProp(sCheckRe, sPropName, sPropVal, BUGTRAQPROPNAME_LOGREGEX))
         {
-            if (sCheckRe.Find('\n')>=0)
+            if (sCheckRe.Find('\n') >= 0)
             {
                 sBugIDRe = sCheckRe.Mid(sCheckRe.Find('\n')).Trim();
                 sCheckRe = sCheckRe.Left(sCheckRe.Find('\n')).Trim();
@@ -120,22 +118,22 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         }
         CheckStringProp(sLabel, sPropName, sPropVal, BUGTRAQPROPNAME_LABEL);
         CheckStringProp(sUrl, sPropName, sPropVal, BUGTRAQPROPNAME_URL);
-        if (sPropName.compare(BUGTRAQPROPNAME_WARNIFNOISSUE)==0)
+        if (sPropName.compare(BUGTRAQPROPNAME_WARNIFNOISSUE) == 0)
         {
             CString val;
             val = sPropVal;
             val = val.Trim(L" \n\r\t");
-            if ((val.CompareNoCase(L"true")==0)||(val.CompareNoCase(L"yes")==0))
+            if ((val.CompareNoCase(L"true") == 0) || (val.CompareNoCase(L"yes") == 0))
                 bWarnIfNoIssue = TRUE;
             else
                 bWarnIfNoIssue = FALSE;
         }
-        if (sPropName.compare(BUGTRAQPROPNAME_APPEND)==0)
+        if (sPropName.compare(BUGTRAQPROPNAME_APPEND) == 0)
         {
             CString val;
             val = sPropVal;
             val = val.Trim(L" \n\r\t");
-            if ((val.CompareNoCase(L"true")==0)||(val.CompareNoCase(L"yes")==0))
+            if ((val.CompareNoCase(L"true") == 0) || (val.CompareNoCase(L"yes") == 0))
                 bAppend = TRUE;
             else
                 bAppend = FALSE;
@@ -143,7 +141,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         CheckStringProp(sProviderUuid, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERUUID);
         CheckStringProp(sProviderUuid64, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERUUID64);
         CheckStringProp(sProviderParams, sPropName, sPropVal, BUGTRAQPROPNAME_PROVIDERPARAMS);
-        if (sPropName.compare(PROJECTPROPNAME_LOGWIDTHLINE)==0)
+        if (sPropName.compare(PROJECTPROPNAME_LOGWIDTHLINE) == 0)
         {
             CString val;
             val = sPropVal;
@@ -161,7 +159,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
         CheckStringProp(sLogTemplateMkDir, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEMKDIR);
         CheckStringProp(sLogTemplatePropset, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
         CheckStringProp(sLogTemplateLock, sPropName, sPropVal, PROJECTPROPNAME_LOGTEMPLATELOCK);
-        if (sPropName.compare(PROJECTPROPNAME_LOGMINSIZE)==0)
+        if (sPropName.compare(PROJECTPROPNAME_LOGMINSIZE) == 0)
         {
             CString val;
             val = sPropVal;
@@ -170,7 +168,7 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 nMinLogSize = _wtoi(val);
             }
         }
-        if (sPropName.compare(PROJECTPROPNAME_LOCKMSGMINSIZE)==0)
+        if (sPropName.compare(PROJECTPROPNAME_LOCKMSGMINSIZE) == 0)
         {
             CString val;
             val = sPropVal;
@@ -179,17 +177,17 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 nMinLockMsgSize = _wtoi(val);
             }
         }
-        if (sPropName.compare(PROJECTPROPNAME_LOGFILELISTLANG)==0)
+        if (sPropName.compare(PROJECTPROPNAME_LOGFILELISTLANG) == 0)
         {
             CString val;
             val = sPropVal;
             val = val.Trim(L" \n\r\t");
-            if ((val.CompareNoCase(L"false")==0)||(val.CompareNoCase(L"no")==0))
+            if ((val.CompareNoCase(L"false") == 0) || (val.CompareNoCase(L"no") == 0))
                 bFileListInEnglish = FALSE;
             else
                 bFileListInEnglish = TRUE;
         }
-        if (sPropName.compare(PROJECTPROPNAME_PROJECTLANGUAGE)==0)
+        if (sPropName.compare(PROJECTPROPNAME_PROJECTLANGUAGE) == 0)
         {
             CString val;
             val = sPropVal;
@@ -199,8 +197,8 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
                 lProjectLanguage = wcstol(val, &strEnd, 0);
             }
         }
-        CheckStringProp(sFPPath, sPropName, sPropVal, PROJECTPROPNAME_USERFILEPROPERTY);
-        CheckStringProp(sDPPath, sPropName, sPropVal, PROJECTPROPNAME_USERDIRPROPERTY);
+        CheckStringProp(m_sFpPath, sPropName, sPropVal, PROJECTPROPNAME_USERFILEPROPERTY);
+        CheckStringProp(m_sDpPath, sPropName, sPropVal, PROJECTPROPNAME_USERDIRPROPERTY);
         CheckStringProp(sAutoProps, sPropName, sPropVal, PROJECTPROPNAME_AUTOPROPS);
         CheckStringProp(sWebViewerRev, sPropName, sPropVal, PROJECTPROPNAME_WEBVIEWER_REV);
         CheckStringProp(sWebViewerPathRev, sPropName, sPropVal, PROJECTPROPNAME_WEBVIEWER_PATHREV);
@@ -246,9 +244,9 @@ BOOL ProjectProperties::ReadProps(CTSVNPath path)
     return FALSE;
 }
 
-bool ProjectProperties::CheckStringProp( CString& s, const std::string& propname, const CString& propval, LPCSTR prop )
+bool ProjectProperties::CheckStringProp(CString& s, const std::string& propname, const CString& propval, LPCSTR prop)
 {
-    if (propname.compare(prop)==0)
+    if (propname.compare(prop) == 0)
     {
         if (s.IsEmpty())
         {
@@ -262,7 +260,7 @@ bool ProjectProperties::CheckStringProp( CString& s, const std::string& propname
     return false;
 }
 
-CString ProjectProperties::GetBugIDFromLog(CString& msg)
+CString ProjectProperties::GetBugIDFromLog(CString& msg) const
 {
     CString sBugID;
 
@@ -271,20 +269,20 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
         CString sBugLine;
         CString sFirstPart;
         CString sLastPart;
-        BOOL bTop = FALSE;
-        if (nBugIdPos<0)
+        BOOL    bTop = FALSE;
+        if (nBugIdPos < 0)
             return sBugID;
         sFirstPart = sMessage.Left(nBugIdPos);
-        sLastPart = sMessage.Mid(nBugIdPos+7);
+        sLastPart  = sMessage.Mid(nBugIdPos + 7);
         msg.TrimRight('\n');
-        if (msg.ReverseFind('\n')>=0)
+        if (msg.ReverseFind('\n') >= 0)
         {
             if (bAppend)
-                sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+                sBugLine = msg.Mid(msg.ReverseFind('\n') + 1);
             else
             {
                 sBugLine = msg.Left(msg.Find('\n'));
-                bTop = TRUE;
+                bTop     = TRUE;
             }
         }
         else
@@ -293,7 +291,7 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
             {
                 // find out if the message consists only of numbers
                 bool bOnlyNumbers = true;
-                for (int i=0; i<msg.GetLength(); ++i)
+                for (int i = 0; i < msg.GetLength(); ++i)
                 {
                     if (!_istdigit(msg[i]))
                     {
@@ -309,19 +307,19 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
         }
         if (sBugLine.IsEmpty() && (msg.ReverseFind('\n') < 0))
         {
-            sBugLine = msg.Mid(msg.ReverseFind('\n')+1);
+            sBugLine = msg.Mid(msg.ReverseFind('\n') + 1);
         }
-        if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+        if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart) != 0)
             sBugLine.Empty();
-        if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+        if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart) != 0)
             sBugLine.Empty();
         if (sBugLine.IsEmpty())
         {
-            if (msg.Find('\n')>=0)
+            if (msg.Find('\n') >= 0)
                 sBugLine = msg.Left(msg.Find('\n'));
-            if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+            if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart) != 0)
                 sBugLine.Empty();
-            if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+            if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart) != 0)
                 sBugLine.Empty();
             bTop = TRUE;
         }
@@ -335,7 +333,7 @@ CString ProjectProperties::GetBugIDFromLog(CString& msg)
         }
         else
         {
-            msg = msg.Left(msg.GetLength()-sBugLine.GetLength());
+            msg = msg.Left(msg.GetLength() - sBugLine.GetLength());
             msg.TrimRight('\n');
         }
     }
@@ -348,8 +346,8 @@ void ProjectProperties::AutoUpdateRegex()
     {
         try
         {
-            regCheck = std::wregex (sCheckRe);
-            regBugID = std::wregex (sBugIDRe);
+            regCheck = std::wregex(sCheckRe);
+            regBugID = std::wregex(sBugIDRe);
         }
         catch (std::exception&)
         {
@@ -368,28 +366,29 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
     {
         if (!sBugIDRe.IsEmpty())
         {
-
             // match with two regex strings (without grouping!)
             try
             {
                 AutoUpdateRegex();
                 const std::wsregex_iterator end;
-                std::wstring s = msg;
+                std::wstring                s = static_cast<LPCWSTR>(msg);
                 for (std::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
                 {
                     // (*it)[0] is the matched string
                     std::wstring matchedString = (*it)[0];
-                    ptrdiff_t matchpos = it->position(0);
+                    ptrdiff_t    matchpos      = it->position(0);
                     for (std::wsregex_iterator it2(matchedString.begin(), matchedString.end(), regBugID); it2 != end; ++it2)
                     {
                         ATLTRACE(L"matched id : %s\n", (*it2)[0].str().c_str());
                         ptrdiff_t matchposID = it2->position(0);
-                        CHARRANGE range = {(LONG)(matchpos+matchposID), (LONG)(matchpos+matchposID+(*it2)[0].str().size())};
-                        result.push_back (range);
+                        CHARRANGE range      = {static_cast<LONG>(matchpos + matchposID), static_cast<LONG>(matchpos + matchposID + (*it2)[0].str().size())};
+                        result.push_back(range);
                     }
                 }
             }
-            catch (std::exception&) {}
+            catch (std::exception&)
+            {
+            }
         }
         else
         {
@@ -397,7 +396,7 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
             {
                 AutoUpdateRegex();
                 const std::wsregex_iterator end;
-                std::wstring s = msg;
+                std::wstring                s = static_cast<LPCWSTR>(msg);
                 for (std::wsregex_iterator it(s.begin(), s.end(), regCheck); it != end; ++it)
                 {
                     const std::wsmatch match = *it;
@@ -406,50 +405,52 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
                     if (match.size() >= 2)
                     {
                         ATLTRACE(L"matched id : %s\n", std::wstring(match[1]).c_str());
-                        CHARRANGE range = {(LONG)(match[1].first-s.begin()), (LONG)(match[1].second-s.begin())};
-                        result.push_back (range);
+                        CHARRANGE range = {static_cast<LONG>(match[1].first - s.begin()), static_cast<LONG>(match[1].second - s.begin())};
+                        result.push_back(range);
                     }
                 }
             }
-            catch (std::exception&) {}
+            catch (std::exception&)
+            {
+            }
         }
     }
-    else if (result.empty()&&(!sMessage.IsEmpty()))
+    else if (result.empty() && (!sMessage.IsEmpty()))
     {
         CString sBugLine;
         CString sFirstPart;
         CString sLastPart;
-        BOOL bTop = FALSE;
-        if (nBugIdPos<0)
+        BOOL    bTop = FALSE;
+        if (nBugIdPos < 0)
             return result;
 
-        sFirstPart = sMessage.Left(nBugIdPos);
-        sLastPart = sMessage.Mid(nBugIdPos+7);
+        sFirstPart   = sMessage.Left(nBugIdPos);
+        sLastPart    = sMessage.Mid(nBugIdPos + 7);
         CString sMsg = msg;
         sMsg.TrimRight('\n');
-        if (sMsg.ReverseFind('\n')>=0)
+        if (sMsg.ReverseFind('\n') >= 0)
         {
             if (bAppend)
-                sBugLine = sMsg.Mid(sMsg.ReverseFind('\n')+1);
+                sBugLine = sMsg.Mid(sMsg.ReverseFind('\n') + 1);
             else
             {
                 sBugLine = sMsg.Left(sMsg.Find('\n'));
-                bTop = TRUE;
+                bTop     = TRUE;
             }
         }
         else
             sBugLine = sMsg;
-        if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+        if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart) != 0)
             sBugLine.Empty();
-        if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+        if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart) != 0)
             sBugLine.Empty();
         if (sBugLine.IsEmpty())
         {
-            if (sMsg.Find('\n')>=0)
+            if (sMsg.Find('\n') >= 0)
                 sBugLine = sMsg.Left(sMsg.Find('\n'));
-            if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart)!=0)
+            if (sBugLine.Left(sFirstPart.GetLength()).Compare(sFirstPart) != 0)
                 sBugLine.Empty();
-            if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart)!=0)
+            if (sBugLine.Right(sLastPart.GetLength()).Compare(sLastPart) != 0)
                 sBugLine.Empty();
             bTop = TRUE;
         }
@@ -468,40 +469,38 @@ std::vector<CHARRANGE> ProjectProperties::FindBugIDPositions(const CString& msg)
         else
             offset1 = sFirstPart.GetLength();
         sBugIDPart.Trim(L",");
-        while (sBugIDPart.Find(',')>=0)
+        while (sBugIDPart.Find(',') >= 0)
         {
-            offset2 = offset1 + sBugIDPart.Find(',');
-            CHARRANGE range = {(LONG)offset1, (LONG)offset2};
-            result.push_back (range);
-            sBugIDPart = sBugIDPart.Mid(sBugIDPart.Find(',')+1);
-            offset1 = offset2 + 1;
+            offset2         = offset1 + sBugIDPart.Find(',');
+            CHARRANGE range = {static_cast<LONG>(offset1), static_cast<LONG>(offset2)};
+            result.push_back(range);
+            sBugIDPart = sBugIDPart.Mid(sBugIDPart.Find(',') + 1);
+            offset1    = offset2 + 1;
         }
-        offset2 = offset1 + sBugIDPart.GetLength();
-        CHARRANGE range = {(LONG)offset1, (LONG)offset2};
-        result.push_back (range);
+        offset2         = offset1 + sBugIDPart.GetLength();
+        CHARRANGE range = {static_cast<LONG>(offset1), static_cast<LONG>(offset2)};
+        result.push_back(range);
     }
 
     return result;
 }
 
-BOOL ProjectProperties::FindBugID(const CString& msg, CWnd * pWnd)
+BOOL ProjectProperties::FindBugID(const CString& msg, CWnd* pWnd)
 {
-    std::vector<CHARRANGE> positions = FindBugIDPositions (msg);
-    CAppUtils::SetCharFormat (pWnd, CFM_LINK, CFE_LINK, positions);
+    std::vector<CHARRANGE> positions = FindBugIDPositions(msg);
+    CAppUtils::SetCharFormat(pWnd, CFM_LINK, CFE_LINK, positions);
 
     return positions.empty() ? FALSE : TRUE;
 }
 
-std::set<CString> ProjectProperties::FindBugIDs (const CString& msg)
+std::set<CString> ProjectProperties::FindBugIDs(const CString& msg)
 {
-    std::vector<CHARRANGE> positions = FindBugIDPositions (msg);
-    std::set<CString> bugIDs;
+    std::vector<CHARRANGE> positions = FindBugIDPositions(msg);
+    std::set<CString>      bugIDs;
 
-    for ( auto iter = positions.begin(), end = positions.end()
-        ; iter != end
-        ; ++iter)
+    for (auto iter = positions.begin(), end = positions.end(); iter != end; ++iter)
     {
-        bugIDs.insert (msg.Mid (iter->cpMin, iter->cpMax - iter->cpMin));
+        bugIDs.insert(msg.Mid(iter->cpMin, iter->cpMax - iter->cpMin));
     }
 
     return bugIDs;
@@ -512,16 +511,14 @@ CString ProjectProperties::FindBugID(const CString& msg)
     CString sRet;
     if (!sCheckRe.IsEmpty() || (nBugIdPos >= 0))
     {
-        std::vector<CHARRANGE> positions = FindBugIDPositions (msg);
-        std::set<CString, num_compare> bugIDs;
-        for ( auto iter = positions.begin(), end = positions.end()
-            ; iter != end
-            ; ++iter)
+        std::vector<CHARRANGE>        positions = FindBugIDPositions(msg);
+        std::set<CString, NumCompare> bugIDs;
+        for (auto iter = positions.begin(), end = positions.end(); iter != end; ++iter)
         {
-            bugIDs.insert (msg.Mid (iter->cpMin, iter->cpMax - iter->cpMin));
+            bugIDs.insert(msg.Mid(iter->cpMin, iter->cpMax - iter->cpMin));
         }
 
-        for (std::set<CString, num_compare>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
+        for (std::set<CString, NumCompare>::iterator it = bugIDs.begin(); it != bugIDs.end(); ++it)
         {
             sRet += *it;
             sRet += L" ";
@@ -532,12 +529,12 @@ CString ProjectProperties::FindBugID(const CString& msg)
     return sRet;
 }
 
-bool ProjectProperties::MightContainABugID()
+bool ProjectProperties::MightContainABugID() const
 {
     return !sCheckRe.IsEmpty() || (nBugIdPos >= 0);
 }
 
-CString ProjectProperties::GetBugIDUrl(const CString& sBugID)
+CString ProjectProperties::GetBugIDUrl(const CString& sBugID) const
 {
     CString ret = sUrl;
     if (sUrl.IsEmpty())
@@ -568,17 +565,17 @@ void ProjectProperties::ReplaceBugIDPlaceholder(CString& url, const CString& sBu
     url.Replace(L"%BUGID%", parameter);
 }
 
-BOOL ProjectProperties::CheckBugID(const CString& sID)
+BOOL ProjectProperties::CheckBugID(const CString& sID) const
 {
     if (bNumber)
     {
         // check if the revision actually _is_ a number
         // or a list of numbers separated by colons
         int len = sID.GetLength();
-        for (int i=0; i<len; ++i)
+        for (int i = 0; i < len; ++i)
         {
             TCHAR c = sID.GetAt(i);
-            if ((c < '0')&&(c != ',')&&(c != ' '))
+            if ((c < '0') && (c != ',') && (c != ' '))
             {
                 return FALSE;
             }
@@ -596,21 +593,23 @@ BOOL ProjectProperties::HasBugID(const CString& sMsg)
         try
         {
             AutoUpdateRegex();
-            return std::regex_search((LPCTSTR)sMsg, regCheck);
+            return std::regex_search(static_cast<LPCTSTR>(sMsg), regCheck);
         }
-        catch (std::exception&) {}
+        catch (std::exception&)
+        {
+        }
     }
     return FALSE;
 }
 
-void ProjectProperties::InsertAutoProps(svn_config_t *cfg)
+void ProjectProperties::InsertAutoProps(svn_config_t* cfg) const
 {
     // every line is an autoprop
-    CString sPropsData = sAutoProps;
-    bool bEnableAutoProps = false;
+    CString sPropsData       = sAutoProps;
+    bool    bEnableAutoProps = false;
     while (!sPropsData.IsEmpty())
     {
-        int pos = sPropsData.Find('\n');
+        int     pos   = sPropsData.Find('\n');
         CString sLine = pos >= 0 ? sPropsData.Left(pos) : sPropsData;
         sLine.Trim();
         if (!sLine.IsEmpty())
@@ -618,13 +617,13 @@ void ProjectProperties::InsertAutoProps(svn_config_t *cfg)
             // format is '*.something = property=value;property=value;....'
             // find first '=' char
             int equalpos = sLine.Find('=');
-            if ((equalpos >= 0)&&(sLine[0] != '#'))
+            if ((equalpos >= 0) && (sLine[0] != '#'))
             {
-                CString key = sLine.Left(equalpos);
+                CString key   = sLine.Left(equalpos);
                 CString value = sLine.Mid(equalpos);
                 key.Trim(L" =");
                 value.Trim(L" =");
-                svn_config_set(cfg, SVN_CONFIG_SECTION_AUTO_PROPS, (LPCSTR)CUnicodeUtils::GetUTF8(key), (LPCSTR)CUnicodeUtils::GetUTF8(value));
+                svn_config_set(cfg, SVN_CONFIG_SECTION_AUTO_PROPS, static_cast<LPCSTR>(CUnicodeUtils::GetUTF8(key)), static_cast<LPCSTR>(CUnicodeUtils::GetUTF8(value)));
                 bEnableAutoProps = true;
             }
         }
@@ -637,7 +636,7 @@ void ProjectProperties::InsertAutoProps(svn_config_t *cfg)
         svn_config_set(cfg, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_ENABLE_AUTO_PROPS, "yes");
 }
 
-CString ProjectProperties::GetLogSummary(const CString& sMsg)
+CString ProjectProperties::GetLogSummary(const CString& sMsg) const
 {
     CString sRet;
 
@@ -645,9 +644,9 @@ CString ProjectProperties::GetLogSummary(const CString& sMsg)
     {
         try
         {
-            const std::wregex regSum(sLogSummaryRe);
+            const std::wregex           regSum(sLogSummaryRe);
             const std::wsregex_iterator end;
-            std::wstring s = sMsg;
+            std::wstring                s = static_cast<LPCWSTR>(sMsg);
             for (std::wsregex_iterator it(s.begin(), s.end(), regSum); it != end; ++it)
             {
                 const std::wsmatch match = *it;
@@ -659,25 +658,27 @@ CString ProjectProperties::GetLogSummary(const CString& sMsg)
                 }
             }
         }
-        catch (std::exception&) {}
+        catch (std::exception&)
+        {
+        }
     }
     sRet.Trim();
 
     return sRet;
 }
 
-CString ProjectProperties::MakeShortMessage(const CString& message)
+CString ProjectProperties::MakeShortMessage(const CString& message) const
 {
     enum
     {
         MAX_SHORT_MESSAGE_LENGTH = 240
     };
 
-    bool bFoundShort = true;
+    bool    bFoundShort   = true;
     CString sShortMessage = GetLogSummary(message);
     if (sShortMessage.IsEmpty())
     {
-        bFoundShort = false;
+        bFoundShort   = false;
         sShortMessage = message;
     }
     // Remove newlines and tabs 'cause those are not shown nicely in the list control
@@ -703,7 +704,7 @@ CString ProjectProperties::MakeShortMessage(const CString& message)
     return sShortMessage;
 }
 
-const CString& ProjectProperties::GetLogMsgTemplate( const CStringA& prop ) const
+const CString& ProjectProperties::GetLogMsgTemplate(const CStringA& prop) const
 {
     if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATECOMMIT) == 0)
         return sLogTemplateCommit.IsEmpty() ? sLogTemplate : sLogTemplateCommit;
@@ -720,7 +721,7 @@ const CString& ProjectProperties::GetLogMsgTemplate( const CStringA& prop ) cons
     if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATEPROPSET) == 0)
         return sLogTemplatePropset.IsEmpty() ? sLogTemplate : sLogTemplatePropset;
     if (prop.Compare(PROJECTPROPNAME_LOGTEMPLATELOCK) == 0)
-        return sLogTemplateLock;    // we didn't use sLogTemplate before for lock messages, so we don't do that now either
+        return sLogTemplateLock; // we didn't use sLogTemplate before for lock messages, so we don't do that now either
 
     return sLogTemplate;
 }
@@ -729,10 +730,10 @@ const CString& ProjectProperties::GetLogRevRegex() const
 {
     if (!sLogRevRegex.IsEmpty())
         return sLogRevRegex;
-    return sLOG_REVISIONREGEX;
+    return sLog_revisionregex;
 }
 
-void ProjectProperties::SaveToIni(CSimpleIni& inifile, const CString& section, const CString& prefix /*= L"pp"*/)
+void ProjectProperties::SaveToIni(CSimpleIni& inifile, const CString& section, const CString& prefix /*= L"pp"*/) const
 {
     assert(inifile.IsMultiLine());
     inifile.SetValue(section, prefix + L"sLabel", sLabel);
@@ -747,8 +748,8 @@ void ProjectProperties::SaveToIni(CSimpleIni& inifile, const CString& section, c
     inifile.SetValue(section, prefix + L"nMinLockMsgSize", std::to_wstring(nMinLockMsgSize).c_str());
     inifile.SetValue(section, prefix + L"bFileListInEnglish", bFileListInEnglish ? L"1" : L"0");
     inifile.SetValue(section, prefix + L"lProjectLanguage", std::to_wstring(lProjectLanguage).c_str());
-    inifile.SetValue(section, prefix + L"sFPPath", sFPPath);
-    inifile.SetValue(section, prefix + L"sDPPath", sDPPath);
+    inifile.SetValue(section, prefix + L"sFPPath", m_sFpPath);
+    inifile.SetValue(section, prefix + L"sDPPath", m_sDpPath);
     inifile.SetValue(section, prefix + L"sWebViewerRev", sWebViewerRev);
     inifile.SetValue(section, prefix + L"sWebViewerPathRev", sWebViewerPathRev);
     inifile.SetValue(section, prefix + L"sLogSummaryRe", sLogSummaryRe);
@@ -792,109 +793,108 @@ void ProjectProperties::SaveToIni(CSimpleIni& inifile, const CString& section, c
 void ProjectProperties::LoadFromIni(CSimpleIni& inifile, const CString& section, const CString& prefix /*= L"pp"*/)
 {
     assert(inifile.IsMultiLine());
-    sLabel = inifile.GetValue(section, prefix + L"sLabel", L"");
-    sMessage = inifile.GetValue(section, prefix + L"sMessage", L"");
-    bNumber = _wtoi(inifile.GetValue(section, prefix + L"bNumber", L"1"));
-    sUrl = inifile.GetValue(section, prefix + L"sUrl", L"");
-    bWarnIfNoIssue = _wtoi(inifile.GetValue(section, prefix + L"bWarnIfNoIssue", L"0"));
-    bAppend = _wtoi(inifile.GetValue(section, prefix + L"bAppend", L"1"));
-    sProviderParams = inifile.GetValue(section, prefix + L"sProviderParams", L"");
-    nLogWidthMarker = _wtoi(inifile.GetValue(section, prefix + L"nLogWidthMarker", L"0"));
-    nMinLogSize = _wtoi(inifile.GetValue(section, prefix + L"nMinLogSize", L"0"));
-    nMinLockMsgSize = _wtoi(inifile.GetValue(section, prefix + L"nMinLockMsgSize", L"0"));
-    bFileListInEnglish = _wtoi(inifile.GetValue(section, prefix + L"bFileListInEnglish", L"1"));
-    lProjectLanguage = _wtoi(inifile.GetValue(section, prefix + L"lProjectLanguage", L"0"));
-    sFPPath = inifile.GetValue(section, prefix + L"sFPPath", L"");
-    sDPPath = inifile.GetValue(section, prefix + L"sDPPath", L"");
-    sWebViewerRev = inifile.GetValue(section, prefix + L"sWebViewerRev", L"");
-    sWebViewerPathRev = inifile.GetValue(section, prefix + L"sWebViewerPathRev", L"");
-    sLogSummaryRe = inifile.GetValue(section, prefix + L"sLogSummaryRe", L"");
-    sStartCommitHook = inifile.GetValue(section, prefix + L"sStartCommitHook", L"");
-    sCheckCommitHook = inifile.GetValue(section, prefix + L"sCheckCommitHook", L"");
-    sPreCommitHook = inifile.GetValue(section, prefix + L"sPreCommitHook", L"");
-    sManualPreCommitHook = inifile.GetValue(section, prefix + L"sManualPreCommitHook", L"");
-    sPostCommitHook = inifile.GetValue(section, prefix + L"sPostCommitHook", L"");
-    sStartUpdateHook = inifile.GetValue(section, prefix + L"sStartUpdateHook", L"");
-    sPreUpdateHook = inifile.GetValue(section, prefix + L"sPreUpdateHook", L"");
-    sPostUpdateHook = inifile.GetValue(section, prefix + L"sPostUpdateHook", L"");
-    sPreConnectHook = inifile.GetValue(section, prefix + L"sPreConnectHook", L"");
-    sPreLockHook = inifile.GetValue(section, prefix + L"sPreLockHook", L"");
-    sPostLockHook = inifile.GetValue(section, prefix + L"sPostLockHook", L"");
-    sRepositoryRootUrl = inifile.GetValue(section, prefix + L"sRepositoryRootUrl", L"");
-    sRepositoryPathUrl = inifile.GetValue(section, prefix + L"sRepositoryPathUrl", L"");
-    sMergeLogTemplateTitle = inifile.GetValue(section, prefix + L"sMergeLogTemplateTitle", L"");
-    sMergeLogTemplateReverseTitle = inifile.GetValue(section, prefix + L"sMergeLogTemplateReverseTitle", L"");
-    sMergeLogTemplateMsg = inifile.GetValue(section, prefix + L"sMergeLogTemplateMsg", L"");
+    sLabel                          = inifile.GetValue(section, prefix + L"sLabel", L"");
+    sMessage                        = inifile.GetValue(section, prefix + L"sMessage", L"");
+    bNumber                         = _wtoi(inifile.GetValue(section, prefix + L"bNumber", L"1"));
+    sUrl                            = inifile.GetValue(section, prefix + L"sUrl", L"");
+    bWarnIfNoIssue                  = _wtoi(inifile.GetValue(section, prefix + L"bWarnIfNoIssue", L"0"));
+    bAppend                         = _wtoi(inifile.GetValue(section, prefix + L"bAppend", L"1"));
+    sProviderParams                 = inifile.GetValue(section, prefix + L"sProviderParams", L"");
+    nLogWidthMarker                 = _wtoi(inifile.GetValue(section, prefix + L"nLogWidthMarker", L"0"));
+    nMinLogSize                     = _wtoi(inifile.GetValue(section, prefix + L"nMinLogSize", L"0"));
+    nMinLockMsgSize                 = _wtoi(inifile.GetValue(section, prefix + L"nMinLockMsgSize", L"0"));
+    bFileListInEnglish              = _wtoi(inifile.GetValue(section, prefix + L"bFileListInEnglish", L"1"));
+    lProjectLanguage                = _wtoi(inifile.GetValue(section, prefix + L"lProjectLanguage", L"0"));
+    m_sFpPath                       = inifile.GetValue(section, prefix + L"sFPPath", L"");
+    m_sDpPath                       = inifile.GetValue(section, prefix + L"sDPPath", L"");
+    sWebViewerRev                   = inifile.GetValue(section, prefix + L"sWebViewerRev", L"");
+    sWebViewerPathRev               = inifile.GetValue(section, prefix + L"sWebViewerPathRev", L"");
+    sLogSummaryRe                   = inifile.GetValue(section, prefix + L"sLogSummaryRe", L"");
+    sStartCommitHook                = inifile.GetValue(section, prefix + L"sStartCommitHook", L"");
+    sCheckCommitHook                = inifile.GetValue(section, prefix + L"sCheckCommitHook", L"");
+    sPreCommitHook                  = inifile.GetValue(section, prefix + L"sPreCommitHook", L"");
+    sManualPreCommitHook            = inifile.GetValue(section, prefix + L"sManualPreCommitHook", L"");
+    sPostCommitHook                 = inifile.GetValue(section, prefix + L"sPostCommitHook", L"");
+    sStartUpdateHook                = inifile.GetValue(section, prefix + L"sStartUpdateHook", L"");
+    sPreUpdateHook                  = inifile.GetValue(section, prefix + L"sPreUpdateHook", L"");
+    sPostUpdateHook                 = inifile.GetValue(section, prefix + L"sPostUpdateHook", L"");
+    sPreConnectHook                 = inifile.GetValue(section, prefix + L"sPreConnectHook", L"");
+    sPreLockHook                    = inifile.GetValue(section, prefix + L"sPreLockHook", L"");
+    sPostLockHook                   = inifile.GetValue(section, prefix + L"sPostLockHook", L"");
+    sRepositoryRootUrl              = inifile.GetValue(section, prefix + L"sRepositoryRootUrl", L"");
+    sRepositoryPathUrl              = inifile.GetValue(section, prefix + L"sRepositoryPathUrl", L"");
+    sMergeLogTemplateTitle          = inifile.GetValue(section, prefix + L"sMergeLogTemplateTitle", L"");
+    sMergeLogTemplateReverseTitle   = inifile.GetValue(section, prefix + L"sMergeLogTemplateReverseTitle", L"");
+    sMergeLogTemplateMsg            = inifile.GetValue(section, prefix + L"sMergeLogTemplateMsg", L"");
     bMergeLogTemplateMsgTitleBottom = _wtoi(inifile.GetValue(section, prefix + L"bMergeLogTemplateMsgTitleBottom", L"0"));
-    sAutoProps = inifile.GetValue(section, prefix + L"sAutoProps", L"");
-    sProviderUuid = inifile.GetValue(section, prefix + L"sProviderUuid", L"");
-    sProviderUuid64 = inifile.GetValue(section, prefix + L"sProviderUuid64", L"");
-    sCheckRe = inifile.GetValue(section, prefix + L"sCheckRe", L"");
-    sBugIDRe = inifile.GetValue(section, prefix + L"sBugIDRe", L"");
-    sLogTemplate = inifile.GetValue(section, prefix + L"sLogTemplate", L"");
-    sLogTemplateCommit = inifile.GetValue(section, prefix + L"sLogTemplateCommit", L"");
-    sLogTemplateBranch = inifile.GetValue(section, prefix + L"sLogTemplateBranch", L"");
-    sLogTemplateImport = inifile.GetValue(section, prefix + L"sLogTemplateImport", L"");
-    sLogTemplateDelete = inifile.GetValue(section, prefix + L"sLogTemplateDelete", L"");
-    sLogTemplateMove = inifile.GetValue(section, prefix + L"sLogTemplateMove", L"");
-    sLogTemplateMkDir = inifile.GetValue(section, prefix + L"sLogTemplateMkDir", L"");
-    sLogTemplatePropset = inifile.GetValue(section, prefix + L"sLogTemplatePropset", L"");
-    sLogTemplateLock = inifile.GetValue(section, prefix + L"sLogTemplateLock", L"");
-    sLogRevRegex = inifile.GetValue(section, prefix + L"sLogRevRegex", LOG_REVISIONREGEX);
-    nBugIdPos = _wtoi(inifile.GetValue(section, prefix + L"nBugIdPos", L"-1"));
-    m_bFound = _wtoi(inifile.GetValue(section, prefix + L"m_bFound", L"0")) != 0;
-    m_bPropsRead = _wtoi(inifile.GetValue(section, prefix + L"m_bPropsRead", L"0")) != 0;
+    sAutoProps                      = inifile.GetValue(section, prefix + L"sAutoProps", L"");
+    sProviderUuid                   = inifile.GetValue(section, prefix + L"sProviderUuid", L"");
+    sProviderUuid64                 = inifile.GetValue(section, prefix + L"sProviderUuid64", L"");
+    sCheckRe                        = inifile.GetValue(section, prefix + L"sCheckRe", L"");
+    sBugIDRe                        = inifile.GetValue(section, prefix + L"sBugIDRe", L"");
+    sLogTemplate                    = inifile.GetValue(section, prefix + L"sLogTemplate", L"");
+    sLogTemplateCommit              = inifile.GetValue(section, prefix + L"sLogTemplateCommit", L"");
+    sLogTemplateBranch              = inifile.GetValue(section, prefix + L"sLogTemplateBranch", L"");
+    sLogTemplateImport              = inifile.GetValue(section, prefix + L"sLogTemplateImport", L"");
+    sLogTemplateDelete              = inifile.GetValue(section, prefix + L"sLogTemplateDelete", L"");
+    sLogTemplateMove                = inifile.GetValue(section, prefix + L"sLogTemplateMove", L"");
+    sLogTemplateMkDir               = inifile.GetValue(section, prefix + L"sLogTemplateMkDir", L"");
+    sLogTemplatePropset             = inifile.GetValue(section, prefix + L"sLogTemplatePropset", L"");
+    sLogTemplateLock                = inifile.GetValue(section, prefix + L"sLogTemplateLock", L"");
+    sLogRevRegex                    = inifile.GetValue(section, prefix + L"sLogRevRegex", LOG_REVISIONREGEX);
+    nBugIdPos                       = _wtoi(inifile.GetValue(section, prefix + L"nBugIdPos", L"-1"));
+    m_bFound                        = _wtoi(inifile.GetValue(section, prefix + L"m_bFound", L"0")) != 0;
+    m_bPropsRead                    = _wtoi(inifile.GetValue(section, prefix + L"m_bPropsRead", L"0")) != 0;
 }
 
 #ifdef DEBUG
-static class PropTest
+[[maybe_unused]] static class PropTest
 {
 public:
     PropTest()
     {
-        CString msg = L"this is a test logmessage: issue 222\nIssue #456, #678, 901  #456";
-        CString sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
-        CString sCheckRe = L"[Ii]ssue #?(\\d+)(,? ?#?(\\d+))+";
-        CString sBugIDRe = L"(\\d+)";
+        CString           msg      = L"this is a test logmessage: issue 222\nIssue #456, #678, 901  #456";
+        CString           sUrl     = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
+        CString           sCheckRe = L"[Ii]ssue #?(\\d+)(,? ?#?(\\d+))+";
+        CString           sBugIDRe = L"(\\d+)";
         ProjectProperties props;
         props.sCheckRe = L"PAF-[0-9]+";
-        props.sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
-        CString sRet = props.FindBugID(L"This is a test for PAF-88");
+        props.sUrl     = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
+        CString sRet   = props.FindBugID(L"This is a test for PAF-88");
         ATLASSERT(sRet.IsEmpty());
-        props.sCheckRe = L"[Ii]ssue #?(\\d+)";
+        props.sCheckRe        = L"[Ii]ssue #?(\\d+)";
         props.regExNeedUpdate = true;
-        sRet = props.FindBugID(L"Testing issue #99");
+        sRet                  = props.FindBugID(L"Testing issue #99");
         sRet.Trim();
-        ATLASSERT(sRet.Compare(L"99")==0);
-        props.sCheckRe = L"[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+";
-        props.sBugIDRe = L"(\\d+)";
-        props.sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
+        ATLASSERT(sRet.Compare(L"99") == 0);
+        props.sCheckRe        = L"[Ii]ssues?:?(\\s*(,|and)?\\s*#\\d+)+";
+        props.sBugIDRe        = L"(\\d+)";
+        props.sUrl            = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
         props.regExNeedUpdate = true;
-        sRet = props.FindBugID(L"This is a test for Issue #7463,#666");
+        sRet                  = props.FindBugID(L"This is a test for Issue #7463,#666");
         ATLASSERT(props.HasBugID(L"This is a test for Issue #7463,#666"));
         ATLASSERT(!props.HasBugID(L"This is a test for Issue 7463,666"));
         sRet.Trim();
-        ATLASSERT(sRet.Compare(L"666 7463")==0);
+        ATLASSERT(sRet.Compare(L"666 7463") == 0);
         sRet = props.FindBugID(L"This is a test for Issue #850,#1234,#1345");
         sRet.Trim();
-        ATLASSERT(sRet.Compare(L"850 1234 1345")==0);
-        props.sCheckRe = L"^\\[(\\d+)\\].*";
-        props.sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
+        ATLASSERT(sRet.Compare(L"850 1234 1345") == 0);
+        props.sCheckRe        = L"^\\[(\\d+)\\].*";
+        props.sUrl            = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
         props.regExNeedUpdate = true;
-        sRet = props.FindBugID(L"[000815] some stupid programming error fixed");
+        sRet                  = props.FindBugID(L"[000815] some stupid programming error fixed");
         sRet.Trim();
-        ATLASSERT(sRet.Compare(L"000815")==0);
-        props.sCheckRe = L"\\[\\[(\\d+)\\]\\]\\]";
-        props.sUrl = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
+        ATLASSERT(sRet.Compare(L"000815") == 0);
+        props.sCheckRe        = L"\\[\\[(\\d+)\\]\\]\\]";
+        props.sUrl            = L"http://tortoisesvn.tigris.org/issues/show_bug.cgi?id=%BUGID%";
         props.regExNeedUpdate = true;
-        sRet = props.FindBugID(L"test test [[000815]]] some stupid programming error fixed");
+        sRet                  = props.FindBugID(L"test test [[000815]]] some stupid programming error fixed");
         sRet.Trim();
-        ATLASSERT(sRet.Compare(L"000815")==0);
+        ATLASSERT(sRet.Compare(L"000815") == 0);
         ATLASSERT(props.HasBugID(L"test test [[000815]]] some stupid programming error fixed"));
         ATLASSERT(!props.HasBugID(L"test test [000815]] some stupid programming error fixed"));
         props.sLogSummaryRe = L"\\[SUMMARY\\]:(.*)";
-        ATLASSERT(props.GetLogSummary(L"[SUMMARY]: this is my summary").Compare(L"this is my summary")==0);
+        ATLASSERT(props.GetLogSummary(L"[SUMMARY]: this is my summary").Compare(L"this is my summary") == 0);
     }
-} PropTest;
+} propTest;
 #endif
-

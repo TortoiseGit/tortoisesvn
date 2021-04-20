@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -172,23 +172,23 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     if (m_pProjectProperties)
     {
         int curPos = 0;
-        CString resToken = m_pProjectProperties->sFPPath.Tokenize(L"\n",curPos);
+        CString resToken = m_pProjectProperties->m_sFpPath.Tokenize(L"\n",curPos);
         while (!resToken.IsEmpty())
         {
             UserProp up(true);
             if (up.Parse(resToken))
                 m_userProperties.push_back(up);
-            resToken = m_pProjectProperties->sFPPath.Tokenize(L"\n",curPos);
+            resToken = m_pProjectProperties->m_sFpPath.Tokenize(L"\n",curPos);
         }
 
         curPos = 0;
-        resToken = m_pProjectProperties->sDPPath.Tokenize(L"\n",curPos);
+        resToken = m_pProjectProperties->m_sDpPath.Tokenize(L"\n",curPos);
         while (!resToken.IsEmpty())
         {
             UserProp up(false);
             if (up.Parse(resToken))
                 m_userProperties.push_back(up);
-            resToken = m_pProjectProperties->sDPPath.Tokenize(L"\n",curPos);
+            resToken = m_pProjectProperties->m_sDpPath.Tokenize(L"\n",curPos);
         }
     }
 

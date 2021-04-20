@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012, 2015 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,27 +21,32 @@
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
 
-#define MAX_TT_LENGTH           10000
+#define MAX_TT_LENGTH 10000
 
 /**
  * \ingroup TortoiseProc
  * Helper dialog to edit the Subversion properties.
  */
 
-class CEditPropertyValueDlg : public CResizableStandAloneDialog, public EditPropBase
+class CEditPropertyValueDlg : public CResizableStandAloneDialog
+    , public EditPropBase
 {
     DECLARE_DYNAMIC(CEditPropertyValueDlg)
 
 public:
-    CEditPropertyValueDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CEditPropertyValueDlg();
+    CEditPropertyValueDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CEditPropertyValueDlg() override;
 
-    enum { IDD = IDD_EDITPROPERTYVALUE };
+    enum
+    {
+        IDD = IDD_EDITPROPERTYVALUE
+    };
 
-    void            SetPropertyName(const std::string& sName) override;
-    void            SetPropertyValue(const std::string& sValue) override;
+    void SetPropertyName(const std::string& sName) override;
+    void SetPropertyValue(const std::string& sValue) override;
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
     virtual BOOL OnInitDialog();
     virtual void OnOK();
     virtual void OnCancel();
@@ -52,12 +57,13 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
-    void CheckRecursive();
+    void    CheckRecursive();
     INT_PTR DoModal() override { return CResizableStandAloneDialog::DoModal(); }
+
 protected:
-    CComboBox   m_PropNames;
-    CFont       m_valueFont;
-    CString     m_sPropValue;
-    CString     m_sPropName;
-    ProjectProperties   m_ProjectProperties;
+    CComboBox         m_propNames;
+    CFont             m_valueFont;
+    CString           m_sPropValue;
+    CString           m_sPropName;
+    ProjectProperties m_projectProperties;
 };
