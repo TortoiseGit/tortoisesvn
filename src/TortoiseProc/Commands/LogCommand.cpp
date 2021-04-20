@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2013-2014 - TortoiseSVN
+// Copyright (C) 2007-2010, 2013-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,46 +26,46 @@ bool LogCommand::Execute()
     //the log command line looks like this:
     //command:log path:<path_to_file_or_directory_to_show_the_log_messages> [startrev:<startrevision>] [endrev:<endrevision>]
     CString val = parser.GetVal(L"startrev");
-    if ( val.IsEmpty() )
+    if (val.IsEmpty())
     {
         // support deprecated parameter prior 1.5.0
         val = parser.GetVal(L"revstart");
     }
-    SVNRev revstart = val.IsEmpty() ? SVNRev() : SVNRev(val);
-    val = parser.GetVal(L"endrev");
-    if ( val.IsEmpty() )
+    SVNRev revStart = val.IsEmpty() ? SVNRev() : SVNRev(val);
+    val             = parser.GetVal(L"endrev");
+    if (val.IsEmpty())
     {
         // support deprecated parameter prior 1.5.0
         val = parser.GetVal(L"revend");
     }
-    SVNRev revend = val.IsEmpty() ? SVNRev() : SVNRev(val);
-    val = parser.GetVal(L"limit");
-    int limit = _tstoi(val);
-    val = parser.GetVal(L"pegrev");
-    if ( val.IsEmpty() )
+    SVNRev revEnd = val.IsEmpty() ? SVNRev() : SVNRev(val);
+    val           = parser.GetVal(L"limit");
+    int limit     = _tstoi(val);
+    val           = parser.GetVal(L"pegrev");
+    if (val.IsEmpty())
     {
         // support deprecated parameter prior 1.5.0
         val = parser.GetVal(L"revpeg");
     }
-    SVNRev pegrev = val.IsEmpty() ? SVNRev() : SVNRev(val);
-    if (!revstart.IsValid())
-        revstart = SVNRev::REV_HEAD;
-    if (!revend.IsValid())
-        revend = 0;
+    SVNRev pegRev = val.IsEmpty() ? SVNRev() : SVNRev(val);
+    if (!revStart.IsValid())
+        revStart = SVNRev::REV_HEAD;
+    if (!revEnd.IsValid())
+        revEnd = 0;
 
     if (limit == 0)
     {
         CRegDWORD reg = CRegDWORD(L"Software\\TortoiseSVN\\NumberOfLogs", 100);
-        limit = (int)(LONG)reg;
+        limit         = static_cast<int>(static_cast<LONG>(reg));
     }
-    BOOL bStrict = (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\LastLogStrict", FALSE);
+    BOOL bStrict = static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\LastLogStrict", FALSE));
     if (parser.HasKey(L"strict"))
     {
         bStrict = TRUE;
     }
-    CString findStr = parser.GetVal(L"findstring");
-    LONG findType = parser.GetLongVal(L"findtype");
-    bool findRegex = !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
+    CString findStr   = parser.GetVal(L"findstring");
+    LONG    findType  = parser.GetLongVal(L"findtype");
+    bool    findRegex = !!CRegDWORD(L"Software\\TortoiseSVN\\UseRegexFilter", FALSE);
     if (parser.HasKey(L"findtext"))
         findRegex = false;
     if (parser.HasKey(L"findregex"))
@@ -79,7 +79,7 @@ bool LogCommand::Execute()
 
     CLogDlg dlg;
     theApp.m_pMainWnd = &dlg;
-    dlg.SetParams(cmdLinePath, pegrev, revstart, revend, bStrict, TRUE, limit);
+    dlg.SetParams(cmdLinePath, pegRev, revStart, revEnd, bStrict, TRUE, limit);
     dlg.SetFilter(findStr, findType, findRegex, sFilterDateFrom, sFilterDateTo);
     dlg.SetIncludeMerge(!!parser.HasKey(L"merge"));
     val = parser.GetVal(L"propspath");
@@ -91,7 +91,7 @@ bool LogCommand::Execute()
     if (parser.HasVal(L"outfile"))
     {
         CString sText = dlg.GetSelectedRevRanges().ToListString();
-        CStringUtils::WriteStringToTextFile(parser.GetVal(L"outfile"), (LPCTSTR)sText, true);
+        CStringUtils::WriteStringToTextFile(parser.GetVal(L"outfile"), static_cast<LPCTSTR>(sText), true);
     }
     return true;
 }
