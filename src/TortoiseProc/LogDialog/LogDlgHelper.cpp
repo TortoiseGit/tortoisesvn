@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2016 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,7 +40,7 @@ CStoreSelection::CStoreSelection( CLogDlg* dlg, const SVNRevRangeArray& revRange
         const SVNRevRange range = revRange[i];
         for (svn_revnum_t rev = range.GetStartRevision(); rev <= range.GetEndRevision(); ++rev)
         {
-            m_SetSelectedRevisions.auto_insert(rev);
+            m_SetSelectedRevisions.insert(rev);
         }
     }
 }
@@ -59,6 +59,12 @@ void CStoreSelection::AddSelections()
 {
     int shownRows = static_cast<int>(m_logdlg->m_logEntries.GetVisibleCount());
 
+    for (int i = 0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
+    {
+        auto* pLogEntry = m_logdlg->m_logEntries.GetVisible(i);
+        m_SetSelectedRevisions.erase(pLogEntry->GetRevision());
+    }
+
     POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
     if (pos)
     {
@@ -66,14 +72,14 @@ void CStoreSelection::AddSelections()
         if (nIndex != -1 && nIndex < shownRows)
         {
             PLOGENTRYDATA pLogEntry = m_logdlg->m_logEntries.GetVisible(nIndex);
-            m_SetSelectedRevisions.auto_insert(pLogEntry->GetRevision());
+            m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
             while (pos)
             {
                 nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
                 if (nIndex != -1 && nIndex < shownRows)
                 {
                     pLogEntry = m_logdlg->m_logEntries.GetVisible(nIndex);
-                    m_SetSelectedRevisions.auto_insert(pLogEntry->GetRevision());
+                    m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
                 }
             }
         }
@@ -95,7 +101,7 @@ void CStoreSelection::RestoreSelection()
         {
             auto pLogEntry = m_logdlg->m_logEntries.GetVisible(i);
             LONG nRevision = pLogEntry ? pLogEntry->GetRevision() : 0;
-            if (m_SetSelectedRevisions.contains(nRevision))
+            if (m_SetSelectedRevisions.find(nRevision) != m_SetSelectedRevisions.end())
             {
                 m_logdlg->m_LogList.SetSelectionMark(i);
                 m_logdlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
