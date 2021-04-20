@@ -18,8 +18,6 @@
 //
 #pragma once
 #include "LogDlgDataModel.h"
-#include "LogCacheGlobals.h"
-#include "QuickHashSet.h"
 #include "DragDropImpl.h"
 
 class CLogDlg;
@@ -32,15 +30,16 @@ class CLogDlg;
 class CStoreSelection
 {
 public:
-    CStoreSelection(CLogDlg* dlg);
+    explicit CStoreSelection(CLogDlg* dlg);
     CStoreSelection(CLogDlg* dlg, const SVNRevRangeArray& revRange);
     ~CStoreSelection();
     void ClearSelection();
     void AddSelections();
     void RestoreSelection();
+
 protected:
-    CLogDlg* m_logdlg;
-    std::set<long> m_SetSelectedRevisions;
+    CLogDlg*       m_logDlg;
+    std::set<long> m_setSelectedRevisions;
 };
 
 /**
@@ -51,7 +50,6 @@ protected:
 class CLogCacheUtility
 {
 private:
-
     /// access the info from this cache:
 
     LogCache::CCachedLogInfo* cache;
@@ -61,17 +59,14 @@ private:
     ProjectProperties* projectProperties;
 
 public:
-
     /// construction
 
-    CLogCacheUtility
-        ( LogCache::CCachedLogInfo* cache
-        , ProjectProperties* projectProperties = NULL);
+    explicit CLogCacheUtility(LogCache::CCachedLogInfo* cache, ProjectProperties* projectProperties = nullptr);
 
     /// \returns @a false if standard revprops or changed paths are
     /// missing for the specififed \ref revision.
 
-    bool IsCached (svn_revnum_t revision) const;
+    bool IsCached(svn_revnum_t revision) const;
 
     /// \returns NULL if \ref IsCached returns false for that \ref revision.
     /// Otherwise, all cached log information for the respective revision
@@ -79,7 +74,7 @@ public:
     /// The bCopiedSelf, bChecked and hasChildren members will always be
     /// @a FALSE; childStackDepth will be 0.
 
-    std::unique_ptr<LOGENTRYDATA> GetRevisionData(svn_revnum_t revision);
+    std::unique_ptr<LOGENTRYDATA> GetRevisionData(svn_revnum_t revision) const;
 };
 
 /**
@@ -91,39 +86,38 @@ class CContextMenuInfoForRevisions
 public:
     CContextMenuInfoForRevisions()
     {
-        SelLogEntry = NULL;
-        AllFromTheSameAuthor = false;
-        RevPrevious = 0;
-        RevSelected = 0;
-        RevSelected2 = 0;
-        RevHighest = 0;
-        RevLowest = 0;
-        PathURL = L"";
-        SelEntries.clear();
-        RevisionRanges.Clear();
+        selLogEntry          = nullptr;
+        allFromTheSameAuthor = false;
+        revPrevious          = 0;
+        revSelected          = 0;
+        revSelected2         = 0;
+        revHighest           = 0;
+        revLowest            = 0;
+        pathURL              = L"";
+        selEntries.clear();
+        revisionRanges.Clear();
     }
 
     ~CContextMenuInfoForRevisions()
     {
-        SelEntries.clear();
-        RevisionRanges.Clear();
+        selEntries.clear();
+        revisionRanges.Clear();
     }
 
-    PLOGENTRYDATA SelLogEntry;
-    std::vector<PLOGENTRYDATA> SelEntries;
-    bool AllFromTheSameAuthor;
-    SVNRevRangeArray RevisionRanges;
-    SVNRev RevPrevious;
-    SVNRev RevSelected;
-    SVNRev RevSelected2;
-    SVNRev RevHighest;
-    SVNRev RevLowest;
-    CString PathURL;
+    PLOGENTRYDATA              selLogEntry;
+    std::vector<PLOGENTRYDATA> selEntries;
+    bool                       allFromTheSameAuthor;
+    SVNRevRangeArray           revisionRanges;
+    SVNRev                     revPrevious;
+    SVNRev                     revSelected;
+    SVNRev                     revSelected2;
+    SVNRev                     revHighest;
+    SVNRev                     revLowest;
+    CString                    pathURL;
 };
 
 // get an alias to a shared automatic pointer
 typedef std::shared_ptr<CContextMenuInfoForRevisions> ContextMenuInfoForRevisionsPtr;
-
 
 /**
  * \ingroup TortoiseProc
@@ -134,31 +128,31 @@ class CContextMenuInfoForChangedPaths
 public:
     CContextMenuInfoForChangedPaths()
     {
-        Rev1 = 0;
-        Rev2 = 0;
-        OneRev = false;
-        ChangedPaths.clear();
-        ChangedLogPathIndices.clear();
-        sUrl = L"";
-        wcPath = L"";
+        rev1   = 0;
+        rev2   = 0;
+        oneRev = false;
+        changedPaths.clear();
+        changedLogPathIndices.clear();
+        sUrl    = L"";
+        wcPath  = L"";
         fileUrl = L"";
     }
 
     ~CContextMenuInfoForChangedPaths()
     {
-        ChangedPaths.clear();
-        ChangedLogPathIndices.clear();
+        changedPaths.clear();
+        changedLogPathIndices.clear();
     }
 
-    std::vector<CString> ChangedPaths;
-    std::vector<size_t> ChangedLogPathIndices;
-    svn_revnum_t Rev1;
-    svn_revnum_t Rev2;
-    CString sUrl;           // url is escaped
-    CString fileUrl;        // url is unescaped
-    CString wcPath;
+    std::vector<CString> changedPaths;
+    std::vector<size_t>  changedLogPathIndices;
+    svn_revnum_t         rev1;
+    svn_revnum_t         rev2;
+    CString              sUrl;    // url is escaped
+    CString              fileUrl; // url is unescaped
+    CString              wcPath;
 
-    bool OneRev;
+    bool oneRev;
 };
 
 // get an alias to a shared automatic pointer
@@ -170,29 +164,28 @@ typedef std::shared_ptr<CContextMenuInfoForChangedPaths> ContextMenuInfoForChang
   */
 class CLogWndHourglass
 {
-    public:
-        CLogWndHourglass();
-        ~CLogWndHourglass();
-
+public:
+    CLogWndHourglass();
+    ~CLogWndHourglass();
 };
 
 class CMonitorTreeTarget : public CIDropTarget
 {
 public:
-    CMonitorTreeTarget(CLogDlg * pLogDlg);
+    explicit CMonitorTreeTarget(CLogDlg* pLogDlg);
 
-    void HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt, const CString& targetUrl);
+    void HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD* pdwEffect, POINTL pt, const CString& targetUrl) const;
 
-    virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt) override;
-    virtual HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
-    virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
-    virtual HRESULT STDMETHODCALLTYPE DragLeave(void) override;
+    bool                      OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD* pdwEffect, POINTL pt) override;
+    HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR* pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR* pdwEffect) override;
+    HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR* pdwEffect) override;
+    HRESULT STDMETHODCALLTYPE DragLeave(void) override;
 
 protected:
-    CLogDlg *               m_pLogDlg;
-    ULONGLONG               m_ullHoverStartTicks;
-    HTREEITEM               hLastItem;
+    CLogDlg*  m_pLogDlg;
+    ULONGLONG m_ullHoverStartTicks;
+    HTREEITEM hLastItem;
 
-    CString                 sNoDrop;
-    CString                 sImportDrop;
+    CString sNoDrop;
+    CString sImportDrop;
 };

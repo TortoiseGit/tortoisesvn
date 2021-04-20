@@ -27,20 +27,20 @@
 
 CStoreSelection::CStoreSelection(CLogDlg* dlg)
 {
-    m_logdlg = dlg;
+    m_logDlg = dlg;
     AddSelections();
 }
 
-CStoreSelection::CStoreSelection( CLogDlg* dlg, const SVNRevRangeArray& revRange )
+CStoreSelection::CStoreSelection(CLogDlg* dlg, const SVNRevRangeArray& revRange)
 {
-    m_logdlg = dlg;
+    m_logDlg = dlg;
 
     for (int i = 0; i < revRange.GetCount(); ++i)
     {
         const SVNRevRange range = revRange[i];
         for (svn_revnum_t rev = range.GetStartRevision(); rev <= range.GetEndRevision(); ++rev)
         {
-            m_SetSelectedRevisions.insert(rev);
+            m_setSelectedRevisions.insert(rev);
         }
     }
 }
@@ -52,34 +52,34 @@ CStoreSelection::~CStoreSelection()
 
 void CStoreSelection::ClearSelection()
 {
-    m_SetSelectedRevisions.clear();
+    m_setSelectedRevisions.clear();
 }
 
 void CStoreSelection::AddSelections()
 {
-    int shownRows = static_cast<int>(m_logdlg->m_logEntries.GetVisibleCount());
+    int shownRows = static_cast<int>(m_logDlg->m_logEntries.GetVisibleCount());
 
-    for (int i = 0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
+    for (int i = 0, count = static_cast<int>(m_logDlg->m_logEntries.GetVisibleCount()); i < count; ++i)
     {
-        auto* pLogEntry = m_logdlg->m_logEntries.GetVisible(i);
-        m_SetSelectedRevisions.erase(pLogEntry->GetRevision());
+        auto* pLogEntry = m_logDlg->m_logEntries.GetVisible(i);
+        m_setSelectedRevisions.erase(pLogEntry->GetRevision());
     }
 
-    POSITION pos = m_logdlg->m_LogList.GetFirstSelectedItemPosition();
+    POSITION pos = m_logDlg->m_LogList.GetFirstSelectedItemPosition();
     if (pos)
     {
-        int nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
+        int nIndex = m_logDlg->m_LogList.GetNextSelectedItem(pos);
         if (nIndex != -1 && nIndex < shownRows)
         {
-            PLOGENTRYDATA pLogEntry = m_logdlg->m_logEntries.GetVisible(nIndex);
-            m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
+            PLOGENTRYDATA pLogEntry = m_logDlg->m_logEntries.GetVisible(nIndex);
+            m_setSelectedRevisions.insert(pLogEntry->GetRevision());
             while (pos)
             {
-                nIndex = m_logdlg->m_LogList.GetNextSelectedItem(pos);
+                nIndex = m_logDlg->m_LogList.GetNextSelectedItem(pos);
                 if (nIndex != -1 && nIndex < shownRows)
                 {
-                    pLogEntry = m_logdlg->m_logEntries.GetVisible(nIndex);
-                    m_SetSelectedRevisions.insert(pLogEntry->GetRevision());
+                    pLogEntry = m_logDlg->m_logEntries.GetVisible(nIndex);
+                    m_setSelectedRevisions.insert(pLogEntry->GetRevision());
                 }
             }
         }
@@ -88,30 +88,30 @@ void CStoreSelection::AddSelections()
 
 void CStoreSelection::RestoreSelection()
 {
-    if (m_SetSelectedRevisions.size()>0)
+    if (m_setSelectedRevisions.size() > 0)
     {
         // inhibit UI event processing (and combined path list updates)
 
-        InterlockedExchange(&m_logdlg->m_bLogThreadRunning, TRUE);
+        InterlockedExchange(&m_logDlg->m_bLogThreadRunning, TRUE);
 
         int firstSelected = INT_MAX;
-        int lastSelected = INT_MIN;
+        int lastSelected  = INT_MIN;
 
-        for (int i = 0, count = (int)m_logdlg->m_logEntries.GetVisibleCount(); i < count; ++i)
+        for (int i = 0, count = static_cast<int>(m_logDlg->m_logEntries.GetVisibleCount()); i < count; ++i)
         {
-            auto pLogEntry = m_logdlg->m_logEntries.GetVisible(i);
+            auto pLogEntry = m_logDlg->m_logEntries.GetVisible(i);
             LONG nRevision = pLogEntry ? pLogEntry->GetRevision() : 0;
-            if (m_SetSelectedRevisions.find(nRevision) != m_SetSelectedRevisions.end())
+            if (m_setSelectedRevisions.find(nRevision) != m_setSelectedRevisions.end())
             {
-                m_logdlg->m_LogList.SetSelectionMark(i);
-                m_logdlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+                m_logDlg->m_LogList.SetSelectionMark(i);
+                m_logDlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
 
                 // record range of selected items.
                 // We must not call EnsureVisible here because it will scroll
                 // for a very long time if many items have been selected.
 
                 firstSelected = min(firstSelected, i);
-                lastSelected = max(lastSelected, i);
+                lastSelected  = max(lastSelected, i);
             }
         }
 
@@ -120,34 +120,30 @@ void CStoreSelection::RestoreSelection()
 
         if (lastSelected != INT_MIN)
         {
-            m_logdlg->m_LogList.EnsureVisible(lastSelected, FALSE);
-            m_logdlg->m_LogList.EnsureVisible(firstSelected, FALSE);
+            m_logDlg->m_LogList.EnsureVisible(lastSelected, FALSE);
+            m_logDlg->m_LogList.EnsureVisible(firstSelected, FALSE);
         }
 
         // UI updates are allowed, again
 
-        InterlockedExchange(&m_logdlg->m_bLogThreadRunning, FALSE);
+        InterlockedExchange(&m_logDlg->m_bLogThreadRunning, FALSE);
 
         // manually trigger UI processing that had been blocked before
 
-        m_logdlg->FillLogMessageCtrl(false);
-        m_logdlg->UpdateLogInfoLabel();
-        m_logdlg->m_LogList.Invalidate();
+        m_logDlg->FillLogMessageCtrl(false);
+        m_logDlg->UpdateLogInfoLabel();
+        m_logDlg->m_LogList.Invalidate();
     }
 }
 
-CLogCacheUtility::CLogCacheUtility
-    ( LogCache::CCachedLogInfo* cache
-    , ProjectProperties* projectProperties)
-    : cache (cache)
-    , projectProperties (projectProperties)
-{
-};
+CLogCacheUtility::CLogCacheUtility(LogCache::CCachedLogInfo* cache, ProjectProperties* projectProperties)
+    : cache(cache)
+    , projectProperties(projectProperties){};
 
-bool CLogCacheUtility::IsCached (svn_revnum_t revision) const
+bool CLogCacheUtility::IsCached(svn_revnum_t revision) const
 {
-    const LogCache::CRevisionIndex& revisions = cache->GetRevisions();
-    const LogCache::CRevisionInfoContainer& data = cache->GetLogInfo();
+    const LogCache::CRevisionIndex&         revisions = cache->GetRevisions();
+    const LogCache::CRevisionInfoContainer& data      = cache->GetLogInfo();
 
     // revision in cache at all?
 
@@ -159,44 +155,40 @@ bool CLogCacheUtility::IsCached (svn_revnum_t revision) const
 
     enum
     {
-        MASK = LogCache::CRevisionInfoContainer::HAS_STANDARD_INFO
+        Mask = LogCache::CRevisionInfoContainer::HAS_STANDARD_INFO
     };
 
-    return (data.GetPresenceFlags (index) & MASK) == MASK;
+    return (data.GetPresenceFlags(index) & Mask) == Mask;
 }
 
-std::unique_ptr<LOGENTRYDATA> CLogCacheUtility::GetRevisionData(svn_revnum_t revision)
+std::unique_ptr<LOGENTRYDATA> CLogCacheUtility::GetRevisionData(svn_revnum_t revision) const
 {
     // don't try to return what we don't have
 
-    if (!IsCached (revision))
-        return NULL;
+    if (!IsCached(revision))
+        return nullptr;
 
     // prepare data access
 
-    const LogCache::CRevisionIndex& revisions = cache->GetRevisions();
-    const LogCache::CRevisionInfoContainer& data = cache->GetLogInfo();
-    LogCache::index_t index = revisions[revision];
+    const LogCache::CRevisionIndex&         revisions = cache->GetRevisions();
+    const LogCache::CRevisionInfoContainer& data      = cache->GetLogInfo();
+    LogCache::index_t                       index     = revisions[revision];
 
     // query data
 
-    __time64_t date = data.GetTimeStamp (index);
-    const char * author = data.GetAuthor (index);
-    std::string message = data.GetComment (index);
+    __time64_t  date    = data.GetTimeStamp(index);
+    const char* author  = data.GetAuthor(index);
+    std::string message = data.GetComment(index);
 
     // construct result
 
-    std::unique_ptr<LOGENTRYDATA> result
-        (new CLogEntryData
-            ( NULL
-            , revision
-            , date / 1000000L
-            , author != NULL ? author : ""
-            , message
-            , projectProperties
-            , NULL
-            )
-        );
+    auto result = std::make_unique<CLogEntryData>(nullptr,
+                                                  revision,
+                                                  date / 1000000L,
+                                                  author != nullptr ? author : "",
+                                                  message,
+                                                  projectProperties,
+                                                  nullptr);
 
     // done here
 
@@ -213,24 +205,23 @@ CLogWndHourglass::~CLogWndHourglass()
     theApp.DoWaitCursor(-1);
 }
 
-CMonitorTreeTarget::CMonitorTreeTarget(CLogDlg * pLogDlg)
+CMonitorTreeTarget::CMonitorTreeTarget(CLogDlg* pLogDlg)
     : CIDropTarget(pLogDlg->m_projTree.GetSafeHwnd())
     , m_pLogDlg(pLogDlg)
     , m_ullHoverStartTicks(0)
-    , hLastItem(NULL)
+    , hLastItem(nullptr)
 {
     sNoDrop.LoadString(IDS_DROPDESC_NODROP);
     sImportDrop.LoadString(IDS_DROPDESC_ADD);
 }
 
-void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD * /*pdwEffect*/, POINTL /*pt*/, const CString& targetUrl)
+void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD* /*pdwEffect*/, POINTL /*pt*/, const CString& targetUrl) const
 {
-    if (((pFmtEtc->cfFormat == CF_UNICODETEXT) || (pFmtEtc->cfFormat == CF_INETURL) || (pFmtEtc->cfFormat == CF_SHELLURL))
-        && medium.tymed == TYMED_HGLOBAL)
+    if (((pFmtEtc->cfFormat == CF_UNICODETEXT) || (pFmtEtc->cfFormat == CF_INETURL) || (pFmtEtc->cfFormat == CF_SHELLURL)) && medium.tymed == TYMED_HGLOBAL)
     {
-        TCHAR* pStr = (TCHAR*)GlobalLock(medium.hGlobal);
+        TCHAR*  pStr = static_cast<TCHAR*>(GlobalLock(medium.hGlobal));
         CString urls;
-        if (pStr != NULL)
+        if (pStr != nullptr)
         {
             urls = pStr;
         }
@@ -244,9 +235,9 @@ void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium
 
     if (pFmtEtc->cfFormat == CF_SVNURL && medium.tymed == TYMED_HGLOBAL)
     {
-        TCHAR* pStr = (TCHAR*)GlobalLock(medium.hGlobal);
+        TCHAR*  pStr = static_cast<TCHAR*>(GlobalLock(medium.hGlobal));
         CString urls;
-        if (pStr != NULL)
+        if (pStr != nullptr)
         {
             urls = pStr;
         }
@@ -255,7 +246,7 @@ void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium
         CTSVNPathList urlListRevs;
         urlListRevs.LoadFromAsteriskSeparatedString(urls);
         CTSVNPathList urlList;
-        SVNRev srcRev;
+        SVNRev        srcRev;
         for (int i = 0; i < urlListRevs.GetCount(); ++i)
         {
             int pos = urlListRevs[i].GetSVNPathString().Find('?');
@@ -274,13 +265,13 @@ void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium
 
     if (pFmtEtc->cfFormat == CF_HDROP && medium.tymed == TYMED_HGLOBAL)
     {
-        HDROP hDrop = (HDROP)GlobalLock(medium.hGlobal);
-        if (hDrop != NULL)
+        HDROP hDrop = static_cast<HDROP>(GlobalLock(medium.hGlobal));
+        if (hDrop != nullptr)
         {
             CTSVNPathList urlList;
-            TCHAR szFileName[MAX_PATH] = { 0 };
+            TCHAR         szFileName[MAX_PATH] = {0};
 
-            UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, NULL, 0);
+            UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
             for (UINT i = 0; i < cFiles; ++i)
             {
                 if (DragQueryFile(hDrop, i, szFileName, _countof(szFileName)))
@@ -292,7 +283,7 @@ void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium
     }
 }
 
-bool CMonitorTreeTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt)
+bool CMonitorTreeTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD* pdwEffect, POINTL pt)
 {
     // find the target
     CString targetUrl;
@@ -307,36 +298,36 @@ bool CMonitorTreeTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pd
     return true;
 }
 
-HRESULT CMonitorTreeTarget::DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
+HRESULT CMonitorTreeTarget::DragEnter(IDataObject __RPC_FAR* pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR* pdwEffect)
 {
-    HRESULT hr = CIDropTarget::DragEnter(pDataObj, grfKeyState, pt, pdwEffect);
+    HRESULT hr           = CIDropTarget::DragEnter(pDataObj, grfKeyState, pt, pdwEffect);
     m_ullHoverStartTicks = 0;
-    hLastItem = NULL;
-    SetDropDescription(DROPIMAGE_COPY, NULL, NULL);
+    hLastItem            = nullptr;
+    SetDropDescription(DROPIMAGE_COPY, nullptr, nullptr);
     return hr;
 }
 
-HRESULT CMonitorTreeTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect)
+HRESULT CMonitorTreeTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR* pdwEffect)
 {
-    TCHAR targetName[MAX_PATH] = { 0 };
+    TCHAR         targetName[MAX_PATH] = {0};
     TVHITTESTINFO hit;
-    hit.pt = (POINT&)pt;
+    hit.pt = reinterpret_cast<POINT&>(pt);
     ScreenToClient(m_hTargetWnd, &hit.pt);
-    hit.flags = TVHT_ONITEM;
+    hit.flags       = TVHT_ONITEM;
     HTREEITEM hItem = TreeView_HitTest(m_hTargetWnd, &hit);
     if (hItem != hLastItem)
         m_ullHoverStartTicks = 0;
     hLastItem = hItem;
 
-    if (hItem != NULL)
+    if (hItem != nullptr)
     {
-        TVITEMEX tvItem = { 0 };
-        tvItem.mask = TVIF_TEXT;
-        tvItem.hItem = hItem;
-        tvItem.pszText = targetName;
+        TVITEMEX tvItem   = {0};
+        tvItem.mask       = TVIF_TEXT;
+        tvItem.hItem      = hItem;
+        tvItem.pszText    = targetName;
         tvItem.cchTextMax = MAX_PATH;
         TreeView_GetItem(m_hTargetWnd, &tvItem);
-        if ((m_pLogDlg->m_projTree.GetItemState(hItem, TVIS_EXPANDED)&TVIS_EXPANDED) != TVIS_EXPANDED)
+        if ((m_pLogDlg->m_projTree.GetItemState(hItem, TVIS_EXPANDED) & TVIS_EXPANDED) != TVIS_EXPANDED)
         {
             if (m_ullHoverStartTicks == 0)
                 m_ullHoverStartTicks = GetTickCount64();
@@ -367,7 +358,7 @@ HRESULT CMonitorTreeTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_F
 
     CRect rect;
     m_pLogDlg->m_projTree.GetWindowRect(&rect);
-    if (rect.PtInRect((POINT&)pt))
+    if (rect.PtInRect(reinterpret_cast<POINT&>(pt)))
     {
         if (pt.y > (rect.bottom - 20))
         {
@@ -387,8 +378,7 @@ HRESULT CMonitorTreeTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_F
 HRESULT CMonitorTreeTarget::DragLeave(void)
 {
     TreeView_SelectDropTarget(m_hTargetWnd, NULL);
-    SetDropDescription(DROPIMAGE_INVALID, NULL, NULL);
+    SetDropDescription(DROPIMAGE_INVALID, nullptr, nullptr);
     m_ullHoverStartTicks = 0;
     return CIDropTarget::DragLeave();
 }
-

@@ -66,6 +66,7 @@
 #include "ToastNotifications.h"
 #include "DPIAware.h"
 #include "Theme.h"
+#include "QuickHashSet.h"
 #include <tlhelp32.h>
 #include <shlwapi.h>
 #include <fstream>
@@ -5310,26 +5311,26 @@ void CLogDlg::AdjustContextMenuAnchorPointIfKeyboardInvoked(CPoint& point, int s
 bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // calculate some information the context menu commands can use
-    pCmi->PathURL       = GetURLFromPath(m_path);
-    CString  relPathURL = pCmi->PathURL.Mid(m_sRepositoryRoot.GetLength());
+    pCmi->pathURL       = GetURLFromPath(m_path);
+    CString  relPathURL = pCmi->pathURL.Mid(m_sRepositoryRoot.GetLength());
     POSITION pos        = m_LogList.GetFirstSelectedItemPosition();
     int      indexNext  = m_LogList.GetNextSelectedItem(pos);
     if ((indexNext < 0) || (indexNext >= (int)m_logEntries.GetVisibleCount()))
         return false;
-    pCmi->SelLogEntry = m_logEntries.GetVisible(indexNext);
-    if (pCmi->SelLogEntry == NULL)
+    pCmi->selLogEntry = m_logEntries.GetVisible(indexNext);
+    if (pCmi->selLogEntry == NULL)
         return false;
-    pCmi->RevSelected = pCmi->SelLogEntry->GetRevision();
-    pCmi->RevPrevious = svn_revnum_t(pCmi->RevSelected) - 1;
+    pCmi->revSelected = pCmi->selLogEntry->GetRevision();
+    pCmi->revPrevious = svn_revnum_t(pCmi->revSelected) - 1;
 
-    const CLogChangedPathArray& paths = pCmi->SelLogEntry->GetChangedPaths();
+    const CLogChangedPathArray& paths = pCmi->selLogEntry->GetChangedPaths();
     if (paths.GetCount() <= 2)
     {
         for (size_t i = 0; i < paths.GetCount(); ++i)
         {
             const CLogChangedPath& changedpath = paths[i];
             if (changedpath.GetCopyFromRev() && (changedpath.GetPath().Compare(relPathURL) == 0))
-                pCmi->RevPrevious = changedpath.GetCopyFromRev();
+                pCmi->revPrevious = changedpath.GetCopyFromRev();
         }
     }
 
@@ -5337,9 +5338,9 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
     {
         PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
         if (pLogEntry)
-            pCmi->RevSelected2 = pLogEntry->GetRevision();
+            pCmi->revSelected2 = pLogEntry->GetRevision();
     }
-    pCmi->AllFromTheSameAuthor = true;
+    pCmi->allFromTheSameAuthor = true;
 
     std::vector<svn_revnum_t> revisions;
     revisions.reserve(m_logEntries.GetVisibleCount());
@@ -5349,7 +5350,7 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
     if (pLogEntry == NULL)
         return false;
     revisions.push_back(pLogEntry->GetRevision());
-    pCmi->SelEntries.push_back(pLogEntry);
+    pCmi->selEntries.push_back(pLogEntry);
 
     const std::string& firstAuthor = pLogEntry->GetAuthor();
     while (pos2)
@@ -5361,23 +5362,23 @@ bool CLogDlg::GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCm
             if (pLogEntry)
             {
                 revisions.push_back(pLogEntry->GetRevision());
-                pCmi->SelEntries.push_back(pLogEntry);
+                pCmi->selEntries.push_back(pLogEntry);
                 if (firstAuthor != pLogEntry->GetAuthor())
-                    pCmi->AllFromTheSameAuthor = false;
+                    pCmi->allFromTheSameAuthor = false;
             }
         }
     }
 
-    pCmi->RevisionRanges.AddRevisions(revisions);
-    pCmi->RevLowest  = pCmi->RevisionRanges.GetLowestRevision();
-    pCmi->RevHighest = pCmi->RevisionRanges.GetHighestRevision();
+    pCmi->revisionRanges.AddRevisions(revisions);
+    pCmi->revLowest  = pCmi->revisionRanges.GetLowestRevision();
+    pCmi->revHighest = pCmi->revisionRanges.GetHighestRevision();
 
     return true;
 }
 
 void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup, CIconMenu& clipSubMenu)
 {
-    if ((m_LogList.GetSelectedCount() == 1) && (pCmi->SelLogEntry->GetDepth() == 0))
+    if ((m_LogList.GetSelectedCount() == 1) && (pCmi->selLogEntry->GetDepth() == 0))
     {
         if (!m_path.IsDirectory())
         {
@@ -5465,7 +5466,7 @@ void CLogDlg::PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pC
             popup.AppendMenu(MF_SEPARATOR, NULL);
     }
 
-    if ((!pCmi->SelEntries.empty()) && (pCmi->AllFromTheSameAuthor))
+    if ((!pCmi->selEntries.empty()) && (pCmi->allFromTheSameAuthor))
     {
         popup.AppendMenuIcon(ID_EDITAUTHOR, IDS_LOG_POPUP_EDITAUTHOR);
     }
@@ -5610,7 +5611,7 @@ void CLogDlg::ShowContextMenuForRevisions(CWnd* /*pWnd*/, CPoint point)
             EditLogMessage(selIndex);
             break;
         case ID_EDITAUTHOR:
-            EditAuthor(pCmi->SelEntries);
+            EditAuthor(pCmi->selEntries);
             break;
         case ID_REVPROPS:
             ExecuteRevisionPropsMenuRevisions(pCmi);
@@ -5750,23 +5751,23 @@ void CLogDlg::ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowUnifiedDiff(m_path, pCmi->RevPrevious, m_path, pCmi->RevSelected, SVNRev(), prettyprint, options, false, false, false);
+            diff.ShowUnifiedDiff(m_path, pCmi->revPrevious, m_path, pCmi->revSelected, SVNRev(), prettyprint, options, false, false, false);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
-        CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, pCmi->RevPrevious, m_path,
-                                        pCmi->RevSelected, SVNRev(), m_LogRevision, prettyprint, options, false, false, false, false);
+        CAppUtils::StartShowUnifiedDiff(m_hWnd, m_path, pCmi->revPrevious, m_path,
+                                        pCmi->revSelected, SVNRev(), m_LogRevision, prettyprint, options, false, false, false, false);
 }
 
 void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
-    SVNRev r1 = pCmi->RevSelected;
-    SVNRev r2 = pCmi->RevSelected2;
+    SVNRev r1 = pCmi->revSelected;
+    SVNRev r2 = pCmi->revSelected2;
     if (m_LogList.GetSelectedCount() > 2)
     {
-        r1 = pCmi->RevHighest;
-        r2 = pCmi->RevLowest;
+        r1 = pCmi->revHighest;
+        r2 = pCmi->revLowest;
     }
     // use the previous revision of the lowest rev so the lowest rev
     // is included in the diff
@@ -5805,7 +5806,7 @@ void CLogDlg::ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 void CLogDlg::ExecuteRevertRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // we need an URL to complete this command, so error out if we can't get an URL
-    if (pCmi->PathURL.IsEmpty())
+    if (pCmi->pathURL.IsEmpty())
     {
         ReportNoUrlOfFile(m_path.GetUIPathString());
         return; //exit
@@ -5817,10 +5818,10 @@ void CLogDlg::ExecuteRevertRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr&
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
         dlg.SetOptions(ProgOptIgnoreAncestry);
         dlg.SetPathList(CTSVNPathList(m_path));
-        dlg.SetUrl(pCmi->PathURL);
-        dlg.SetSecondUrl(pCmi->PathURL);
-        pCmi->RevisionRanges.AdjustForMerge(true);
-        dlg.SetRevisionRanges(pCmi->RevisionRanges);
+        dlg.SetUrl(pCmi->pathURL);
+        dlg.SetSecondUrl(pCmi->pathURL);
+        pCmi->revisionRanges.AdjustForMerge(true);
+        dlg.SetRevisionRanges(pCmi->revisionRanges);
         dlg.SetPegRevision(m_LogRevision);
         dlg.DoModal();
     }
@@ -5829,7 +5830,7 @@ void CLogDlg::ExecuteRevertRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr&
 void CLogDlg::ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // we need an URL to complete this command, so error out if we can't get an URL
-    if (pCmi->PathURL.IsEmpty())
+    if (pCmi->pathURL.IsEmpty())
     {
         ReportNoUrlOfFile(m_path.GetUIPathString());
         return; //exit
@@ -5880,10 +5881,10 @@ void CLogDlg::ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& 
         CSVNProgressDlg dlg;
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
         dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
-        dlg.SetUrl(pCmi->PathURL);
-        dlg.SetSecondUrl(pCmi->PathURL);
-        pCmi->RevisionRanges.AdjustForMerge(false);
-        dlg.SetRevisionRanges(pCmi->RevisionRanges);
+        dlg.SetUrl(pCmi->pathURL);
+        dlg.SetSecondUrl(pCmi->pathURL);
+        pCmi->revisionRanges.AdjustForMerge(false);
+        dlg.SetRevisionRanges(pCmi->revisionRanges);
         dlg.SetPegRevision(m_LogRevision);
         dlg.DoModal();
     }
@@ -5892,7 +5893,7 @@ void CLogDlg::ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& 
 void CLogDlg::ExecuteRevertToRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // we need an URL to complete this command, so error out if we can't get an URL
-    if (pCmi->PathURL.IsEmpty())
+    if (pCmi->pathURL.IsEmpty())
     {
         ReportNoUrlOfFile(m_path.GetUIPathString());
         return; //exit
@@ -5904,10 +5905,10 @@ void CLogDlg::ExecuteRevertToRevisionMenuRevisions(ContextMenuInfoForRevisionsPt
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
         dlg.SetOptions(ProgOptIgnoreAncestry);
         dlg.SetPathList(CTSVNPathList(m_path));
-        dlg.SetUrl(pCmi->PathURL);
-        dlg.SetSecondUrl(pCmi->PathURL);
+        dlg.SetUrl(pCmi->pathURL);
+        dlg.SetSecondUrl(pCmi->pathURL);
         SVNRevRangeArray revarray;
-        revarray.AddRevRange(SVNRev::REV_HEAD, pCmi->RevSelected);
+        revarray.AddRevRange(SVNRev::REV_HEAD, pCmi->revSelected);
         dlg.SetRevisionRanges(revarray);
         dlg.SetPegRevision(m_LogRevision);
         dlg.DoModal();
@@ -5917,16 +5918,16 @@ void CLogDlg::ExecuteRevertToRevisionMenuRevisions(ContextMenuInfoForRevisionsPt
 void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     // we need an URL to complete this command, so error out if we can't get an URL
-    if (pCmi->PathURL.IsEmpty())
+    if (pCmi->pathURL.IsEmpty())
     {
         ReportNoUrlOfFile(m_path.GetUIPathString());
         return; //exit
     }
 
     CCopyDlg dlg;
-    dlg.m_URL     = pCmi->PathURL;
+    dlg.m_URL     = pCmi->pathURL;
     dlg.m_path    = m_path;
-    dlg.m_CopyRev = pCmi->RevSelected;
+    dlg.m_CopyRev = pCmi->revSelected;
     if (dlg.DoModal() == IDOK)
     {
         CTSVNPath    url          = CTSVNPath(dlg.m_URL);
@@ -5942,7 +5943,7 @@ void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             // should we show a progress dialog here? Copies are done really fast
             // and without much network traffic.
-            if (!Copy(CTSVNPathList(CTSVNPath(pCmi->PathURL)), url, copyrev, m_startrev, logmsg, bMakeParents, bMakeParents, false, exts.NeedsTagging(), exts))
+            if (!Copy(CTSVNPathList(CTSVNPath(pCmi->pathURL)), url, copyrev, m_startrev, logmsg, bMakeParents, bMakeParents, false, exts.NeedsTagging(), exts))
                 ShowErrorDialog(m_hWnd);
             else
             {
@@ -5967,26 +5968,26 @@ void CLogDlg::ExecuteCompareWithWorkingCopyMenuRevisions(ContextMenuInfoForRevis
             SVNDiff diff(this, m_hWnd, true);
             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, pCmi->RevSelected, SVNRev(), false, true, L"");
+            diff.ShowCompare(m_path, SVNRev::REV_WC, m_path, pCmi->revSelected, SVNRev(), false, true, L"");
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
     {
         CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_WC, m_path,
-                                    pCmi->RevSelected, SVNRev(), m_LogRevision,
+                                    pCmi->revSelected, SVNRev(), m_LogRevision,
                                     false, true, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
     }
 }
 
 void CLogDlg::ExecuteCompareTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
-    SVNRev r1 = pCmi->RevSelected;
-    SVNRev r2 = pCmi->RevSelected2;
+    SVNRev r1 = pCmi->revSelected;
+    SVNRev r2 = pCmi->revSelected2;
     if (m_LogList.GetSelectedCount() > 2)
     {
-        r1 = pCmi->RevHighest;
-        r2 = pCmi->RevLowest;
+        r1 = pCmi->revHighest;
+        r2 = pCmi->revLowest;
     }
     svn_node_kind_t nodekind = svn_node_unknown;
     if (!m_path.IsUrl())
@@ -6005,13 +6006,13 @@ void CLogDlg::ExecuteCompareTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCm
             SVNDiff diff(this, m_hWnd, true);
             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowCompare(CTSVNPath(pCmi->PathURL), r2, CTSVNPath(pCmi->PathURL),
+            diff.ShowCompare(CTSVNPath(pCmi->pathURL), r2, CTSVNPath(pCmi->pathURL),
                              r1, SVNRev(), false, true, L"", false, false, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
-        CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL), r2, CTSVNPath(pCmi->PathURL), r1,
+        CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->pathURL), r2, CTSVNPath(pCmi->pathURL), r1,
                                     SVNRev(), m_LogRevision, false, true, L"", !!(GetAsyncKeyState(VK_SHIFT) & 0x8000),
                                     false, false, nodekind);
 }
@@ -6034,16 +6035,16 @@ void CLogDlg::ExecuteCompareWithPreviousMenuRevisions(ContextMenuInfoForRevision
             SVNDiff diff(this, m_hWnd, true);
             diff.SetAlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000));
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowCompare(CTSVNPath(pCmi->PathURL), pCmi->RevPrevious,
-                             CTSVNPath(pCmi->PathURL), pCmi->RevSelected, SVNRev(),
+            diff.ShowCompare(CTSVNPath(pCmi->pathURL), pCmi->revPrevious,
+                             CTSVNPath(pCmi->pathURL), pCmi->revSelected, SVNRev(),
                              false, true, L"", false, false, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
     {
-        CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL),
-                                    pCmi->RevPrevious, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
+        CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->pathURL),
+                                    pCmi->revPrevious, CTSVNPath(pCmi->pathURL), pCmi->revSelected,
                                     SVNRev(), m_LogRevision, false, true, L"",
                                     !!(GetAsyncKeyState(VK_SHIFT) & 0x8000), false, false, nodekind);
     }
@@ -6063,14 +6064,14 @@ void CLogDlg::ExecuteBlameCompareMenuRevisions(ContextMenuInfoForRevisionsPtr& p
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, pCmi->RevSelected, SVNRev(), false, true, L"", false, true);
+            diff.ShowCompare(m_path, SVNRev::REV_BASE, m_path, pCmi->revSelected, SVNRev(), false, true, L"", false, true);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
     {
         CAppUtils::StartShowCompare(m_hWnd, m_path, SVNRev::REV_BASE, m_path,
-                                    pCmi->RevSelected, SVNRev(), m_LogRevision, false, true, L"", false, false, true);
+                                    pCmi->revSelected, SVNRev(), m_LogRevision, false, true, L"", false, false, true);
     }
 }
 
@@ -6092,16 +6093,16 @@ void CLogDlg::ExecuteBlameTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowCompare(CTSVNPath(pCmi->PathURL), pCmi->RevSelected2,
-                             CTSVNPath(pCmi->PathURL), pCmi->RevSelected, SVNRev(),
+            diff.ShowCompare(CTSVNPath(pCmi->pathURL), pCmi->revSelected2,
+                             CTSVNPath(pCmi->pathURL), pCmi->revSelected, SVNRev(),
                              false, true, L"", false, true, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
     else
     {
-        CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL),
-                                    pCmi->RevSelected2, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
+        CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->pathURL),
+                                    pCmi->revSelected2, CTSVNPath(pCmi->pathURL), pCmi->revSelected,
                                     SVNRev(), m_LogRevision, false, true, L"", false, false, true, nodekind);
     }
 }
@@ -6122,8 +6123,8 @@ void CLogDlg::ExecuteWithPreviousMenuRevisions(ContextMenuInfoForRevisionsPtr& p
 
             SVNDiff diff(this, this->m_hWnd, true);
             diff.SetHEADPeg(m_LogRevision);
-            diff.ShowCompare(CTSVNPath(pCmi->PathURL), pCmi->RevPrevious,
-                             CTSVNPath(pCmi->PathURL), pCmi->RevSelected, SVNRev(),
+            diff.ShowCompare(CTSVNPath(pCmi->pathURL), pCmi->revPrevious,
+                             CTSVNPath(pCmi->pathURL), pCmi->revSelected, SVNRev(),
                              false, true, L"", false, true, nodekind);
         };
         new async::CAsyncCall(f, &netScheduler);
@@ -6131,8 +6132,8 @@ void CLogDlg::ExecuteWithPreviousMenuRevisions(ContextMenuInfoForRevisionsPtr& p
     }
     else
     {
-        CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->PathURL),
-                                    pCmi->RevPrevious, CTSVNPath(pCmi->PathURL), pCmi->RevSelected,
+        CAppUtils::StartShowCompare(m_hWnd, CTSVNPath(pCmi->pathURL),
+                                    pCmi->revPrevious, CTSVNPath(pCmi->pathURL), pCmi->revSelected,
                                     SVNRev(), m_LogRevision, false, true, L"", false, false, true, nodekind);
     }
 }
@@ -6141,14 +6142,14 @@ void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     //now first get the revision which is selected
     CString revFilename;
-    CString strWinPath = CPathUtils::GetFileNameFromPath(pCmi->PathURL);
+    CString strWinPath = CPathUtils::GetFileNameFromPath(pCmi->pathURL);
     strWinPath = CPathUtils::PathUnescape(strWinPath);
     int     rfind      = strWinPath.ReverseFind('.');
     if (rfind > 0)
         revFilename.Format(L"%s-%s%s", (LPCTSTR)strWinPath.Left(rfind),
-                           (LPCTSTR)pCmi->RevSelected.ToString(), (LPCTSTR)strWinPath.Mid(rfind));
+                           (LPCTSTR)pCmi->revSelected.ToString(), (LPCTSTR)strWinPath.Mid(rfind));
     else
-        revFilename.Format(L"%s-%s", (LPCTSTR)strWinPath, (LPCTSTR)pCmi->RevSelected.ToString());
+        revFilename.Format(L"%s-%s", (LPCTSTR)strWinPath, (LPCTSTR)pCmi->revSelected.ToString());
     if (CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE, IDS_COMMONFILEFILTER, false, m_path.IsUrl() ? CString() : m_path.GetDirectory().GetWinPathString(), m_hWnd))
     {
         auto f = [=]() {
@@ -6163,14 +6164,14 @@ void CLogDlg::ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
             progDlg.SetTitle(IDS_APPNAME);
             CString sInfoLine;
             sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(),
-                                    (LPCTSTR)pCmi->RevSelected.ToString());
+                                    (LPCTSTR)pCmi->revSelected.ToString());
             progDlg.SetLine(1, sInfoLine, true);
             SetAndClearProgressInfo(&progDlg);
             progDlg.ShowModeless(m_hWnd);
-            if (!Export(m_path, tempfile, SVNRev(SVNRev::REV_HEAD), pCmi->RevSelected))
+            if (!Export(m_path, tempfile, SVNRev(SVNRev::REV_HEAD), pCmi->revSelected))
             {
                 // try again with another peg revision
-                if (!Export(m_path, tempfile, pCmi->RevSelected, pCmi->RevSelected))
+                if (!Export(m_path, tempfile, pCmi->revSelected, pCmi->revSelected))
                 {
                     progDlg.Stop();
                     SetAndClearProgressInfo((HWND)NULL);
@@ -6197,17 +6198,17 @@ void CLogDlg::ExecuteOpenMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi, boo
         progDlg.SetTitle(IDS_APPNAME);
         CString sInfoLine;
         sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION, m_path.GetWinPath(),
-                                (LPCTSTR)pCmi->RevSelected.ToString());
+                                (LPCTSTR)pCmi->revSelected.ToString());
         progDlg.SetLine(1, sInfoLine, true);
         SetAndClearProgressInfo(&progDlg);
         progDlg.ShowModeless(m_hWnd);
-        CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path, pCmi->RevSelected);
+        CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(false, m_path, pCmi->revSelected);
         bool      bSuccess = true;
-        if (!Export(m_path, tempfile, SVNRev(SVNRev::REV_HEAD), pCmi->RevSelected))
+        if (!Export(m_path, tempfile, SVNRev(SVNRev::REV_HEAD), pCmi->revSelected))
         {
             bSuccess = false;
             // try again, but with the selected revision as the peg revision
-            if (!Export(m_path, tempfile, pCmi->RevSelected, pCmi->RevSelected))
+            if (!Export(m_path, tempfile, pCmi->revSelected, pCmi->revSelected))
             {
                 progDlg.Stop();
                 SetAndClearProgressInfo((HWND)NULL);
@@ -6230,7 +6231,7 @@ void CLogDlg::ExecuteOpenMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi, boo
 void CLogDlg::ExecuteBlameMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CBlameDlg dlg;
-    dlg.EndRev = pCmi->RevSelected;
+    dlg.EndRev = pCmi->revSelected;
     dlg.PegRev = m_pegrev;
     if (dlg.DoModal() == IDOK)
     {
@@ -6281,7 +6282,7 @@ void CLogDlg::ExecuteUpdateMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString sCmd;
     sCmd.Format(L"/command:update /path:\"%s\" /rev:%ld",
-                (LPCTSTR)m_path.GetWinPath(), (LONG)pCmi->RevSelected);
+                (LPCTSTR)m_path.GetWinPath(), (LONG)pCmi->revSelected);
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
@@ -6297,7 +6298,7 @@ void CLogDlg::ExecuteRepoBrowseMenuRevisions(ContextMenuInfoForRevisionsPtr& pCm
 {
     CString sCmd;
     sCmd.Format(L"/command:repobrowser /path:\"%s\" /rev:%s /pegrev:%s",
-                (LPCWSTR)pCmi->PathURL, (LPCWSTR)pCmi->RevSelected.ToString(), (LPCWSTR)m_startrev.ToString());
+                (LPCWSTR)pCmi->pathURL, (LPCWSTR)pCmi->revSelected.ToString(), (LPCWSTR)m_startrev.ToString());
 
     CAppUtils::RunTortoiseProc(sCmd);
 }
@@ -6306,8 +6307,8 @@ void CLogDlg::ExecuteRevisionPropsMenuRevisions(ContextMenuInfoForRevisionsPtr& 
 {
     CEditPropertiesDlg dlg;
     dlg.SetProjectProperties(&m_ProjectProperties);
-    dlg.SetPathList(CTSVNPathList(CTSVNPath(pCmi->PathURL)));
-    dlg.SetRevision(pCmi->RevSelected);
+    dlg.SetPathList(CTSVNPathList(CTSVNPath(pCmi->pathURL)));
+    dlg.SetRevision(pCmi->revSelected);
     dlg.RevProps(true);
     dlg.DoModal();
 }
@@ -6316,16 +6317,16 @@ void CLogDlg::ExecuteExportMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString sCmd;
     sCmd.Format(L"/command:export /path:\"%s\" /revision:%ld",
-                (LPCTSTR)pCmi->PathURL, (LONG)pCmi->RevSelected);
+                (LPCTSTR)pCmi->pathURL, (LONG)pCmi->revSelected);
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
 void CLogDlg::ExecuteCheckoutMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString sCmd;
-    CString url = L"tsvn:" + pCmi->PathURL;
+    CString url = L"tsvn:" + pCmi->pathURL;
     sCmd.Format(L"/command:checkout /url:\"%s\" /revision:%ld",
-                (LPCTSTR)url, (LONG)pCmi->RevSelected);
+                (LPCTSTR)url, (LONG)pCmi->revSelected);
     CAppUtils::RunTortoiseProc(sCmd);
 }
 
@@ -6333,19 +6334,19 @@ void CLogDlg::ExecuteViewRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CString url = m_ProjectProperties.sWebViewerRev;
     url         = CAppUtils::GetAbsoluteUrlFromRelativeUrl(m_sRepositoryRoot, url);
-    url.Replace(L"%REVISION%", pCmi->RevSelected.ToString());
+    url.Replace(L"%REVISION%", pCmi->revSelected.ToString());
     if (!url.IsEmpty())
         ShellExecute(this->m_hWnd, L"open", url, NULL, NULL, SW_SHOWDEFAULT);
 }
 
 void CLogDlg::ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
-    CString relurl = pCmi->PathURL;
+    CString relurl = pCmi->pathURL;
     CString sRoot  = GetRepositoryRoot(CTSVNPath(relurl));
     relurl         = relurl.Mid(sRoot.GetLength());
     CString url    = m_ProjectProperties.sWebViewerPathRev;
     url            = CAppUtils::GetAbsoluteUrlFromRelativeUrl(m_sRepositoryRoot, url);
-    url.Replace(L"%REVISION%", pCmi->RevSelected.ToString());
+    url.Replace(L"%REVISION%", pCmi->revSelected.ToString());
     url.Replace(L"%PATH%", relurl);
     if (!url.IsEmpty())
         ShellExecute(this->m_hWnd, L"open", url, NULL, NULL, SW_SHOWDEFAULT);
@@ -6357,11 +6358,11 @@ void CLogDlg::ExecuteGetMergeLogs(ContextMenuInfoForRevisionsPtr& pCmi)
     SetPromptApp(&theApp);
     OnOutOfScope(EnableOKButton());
     m_bCancelled        = false;
-    svn_revnum_t logrev = pCmi->RevSelected;
+    svn_revnum_t logrev = pCmi->revSelected;
     CString      sCmd;
 
     sCmd.Format(L"/command:log /path:\"%s\" /startrev:%ld /endrev:%ld /merge",
-                (LPCTSTR)pCmi->PathURL, logrev, logrev);
+                (LPCTSTR)pCmi->pathURL, logrev, logrev);
 
     if (m_pegrev.IsValid())
         sCmd.AppendFormat(L" /pegrev:%s", (LPCWSTR)m_pegrev.ToString());
@@ -6447,9 +6448,9 @@ void CLogDlg::ShowContextMenuForChangedPaths(CWnd* /*pWnd*/, CPoint point)
             break;
         case ID_OPENLOCAL_MULTIPLE:
             if (((GetKeyState(VK_CONTROL) & 0x8000) && m_bVisualStudioRunningAtStart == true))
-                OpenSelectedWcFilesWithVisualStudio(pCmi->ChangedLogPathIndices);
+                OpenSelectedWcFilesWithVisualStudio(pCmi->changedLogPathIndices);
             else
-                OpenSelectedWcFilesWithRegistedProgram(pCmi->ChangedLogPathIndices);
+                OpenSelectedWcFilesWithRegistedProgram(pCmi->changedLogPathIndices);
             break;
         case ID_BLAME:
             ExecuteBlameChangedPaths(pCmi, changedlogpath);
@@ -7255,9 +7256,9 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
     PLOGENTRYDATA pLogEntry = m_logEntries.GetVisible(m_LogList.GetNextSelectedItem(pos));
     if (pLogEntry == NULL)
         return false;
-    pCmi->Rev1   = pLogEntry->GetRevision();
-    pCmi->Rev2   = pCmi->Rev1;
-    pCmi->OneRev = true;
+    pCmi->rev1   = pLogEntry->GetRevision();
+    pCmi->rev2   = pCmi->rev1;
+    pCmi->oneRev = true;
     if (pos)
     {
         while (pos)
@@ -7268,28 +7269,28 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
                 pLogEntry = m_logEntries.GetVisible(index);
                 if (pLogEntry)
                 {
-                    pCmi->Rev1   = max(pCmi->Rev1, (svn_revnum_t)pLogEntry->GetRevision());
-                    pCmi->Rev2   = min(pCmi->Rev2, (svn_revnum_t)pLogEntry->GetRevision());
-                    pCmi->OneRev = false;
+                    pCmi->rev1   = max(pCmi->rev1, (svn_revnum_t)pLogEntry->GetRevision());
+                    pCmi->rev2   = min(pCmi->rev2, (svn_revnum_t)pLogEntry->GetRevision());
+                    pCmi->oneRev = false;
                 }
             }
         }
-        if (!pCmi->OneRev)
-            pCmi->Rev2--;
+        if (!pCmi->oneRev)
+            pCmi->rev2--;
 
         POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
         while (pos2)
         {
             int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
-            pCmi->ChangedPaths.push_back(m_currentChangedPathList[nItem].GetSVNPathString());
-            pCmi->ChangedLogPathIndices.push_back(static_cast<size_t>(nItem));
+            pCmi->changedPaths.push_back(m_currentChangedPathList[nItem].GetSVNPathString());
+            pCmi->changedLogPathIndices.push_back(static_cast<size_t>(nItem));
         }
     }
     else
     {
         // only one revision is selected in the log dialog top pane
         // but multiple items could be selected  in the changed items list
-        pCmi->Rev2 = pCmi->Rev1 - 1;
+        pCmi->rev2 = pCmi->rev1 - 1;
 
         POSITION pos2 = m_ChangedFileListCtrl.GetFirstSelectedItemPosition();
         while (pos2)
@@ -7297,7 +7298,7 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
             const CLogChangedPathArray& paths = pLogEntry->GetChangedPaths();
 
             int nItem = m_ChangedFileListCtrl.GetNextSelectedItem(pos2);
-            pCmi->ChangedLogPathIndices.push_back(static_cast<size_t>(nItem));
+            pCmi->changedLogPathIndices.push_back(static_cast<size_t>(nItem));
             if ((m_cShowPaths.GetState() & 0x0003) == BST_CHECKED)
             {
                 // some items are hidden! So find out which item the user really clicked on
@@ -7318,7 +7319,7 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
             if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
             {
                 if (!changedlogpath.GetCopyFromPath().IsEmpty())
-                    pCmi->Rev2 = changedlogpath.GetCopyFromRev();
+                    pCmi->rev2 = changedlogpath.GetCopyFromRev();
                 else
                 {
                     // if the path was modified but the parent path was 'added with history'
@@ -7330,13 +7331,13 @@ bool CLogDlg::GetContextMenuInfoForChangedPaths(ContextMenuInfoForChangedPathsPt
                         if (p.IsAncestorOf(cpath))
                         {
                             if (!paths[flist].GetCopyFromPath().IsEmpty())
-                                pCmi->Rev2 = paths[flist].GetCopyFromRev();
+                                pCmi->rev2 = paths[flist].GetCopyFromRev();
                         }
                     }
                 }
             }
 
-            pCmi->ChangedPaths.push_back(changedlogpath.GetPath());
+            pCmi->changedPaths.push_back(changedlogpath.GetPath());
         }
     }
 
@@ -7393,7 +7394,7 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
         bool bEntryAdded = false;
         if (m_ChangedFileListCtrl.GetSelectedCount() == 1)
         {
-            if ((!pCmi->OneRev) || (IsDiffPossible(m_currentChangedArray[selIndex], pCmi->Rev1)))
+            if ((!pCmi->oneRev) || (IsDiffPossible(m_currentChangedArray[selIndex], pCmi->rev1)))
             {
                 popup.AppendMenuIcon(ID_DIFF, IDS_LOG_POPUP_DIFF, IDI_DIFF);
                 popup.AppendMenuIcon(ID_DIFF_CONTENTONLY, IDS_LOG_POPUP_DIFF_CONTENTONLY, IDI_DIFF);
@@ -7406,14 +7407,14 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
                 }
                 bEntryAdded = true;
             }
-            else if (pCmi->OneRev)
+            else if (pCmi->oneRev)
             {
                 popup.AppendMenuIcon(ID_DIFF, IDS_LOG_POPUP_DIFF, IDI_DIFF);
                 popup.AppendMenuIcon(ID_DIFF_CONTENTONLY, IDS_LOG_POPUP_DIFF_CONTENTONLY, IDI_DIFF);
                 popup.SetDefaultItem(ID_DIFF, FALSE);
                 bEntryAdded = true;
             }
-            if ((pCmi->Rev2 == pCmi->Rev1 - 1) || (pCmi->ChangedPaths.size() == 1))
+            if ((pCmi->rev2 == pCmi->rev1 - 1) || (pCmi->changedPaths.size() == 1))
             {
                 if (bEntryAdded)
                     popup.AppendMenu(MF_SEPARATOR, NULL);
@@ -7426,7 +7427,7 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
                 }
                 popup.AppendMenuIcon(ID_BLAME, IDS_LOG_POPUP_BLAME, IDI_BLAME);
                 popup.AppendMenu(MF_SEPARATOR, NULL);
-                if ((m_hasWC) && (pCmi->OneRev) && (!pCmi->wcPath.IsEmpty()))
+                if ((m_hasWC) && (pCmi->oneRev) && (!pCmi->wcPath.IsEmpty()))
                     popup.AppendMenuIcon(ID_REVERTREV, IDS_LOG_POPUP_REVERTREV, IDI_REVERT);
                 // "Show Properties"
                 popup.AppendMenuIcon(ID_POPPROPS, IDS_REPOBROWSE_SHOWPROP, IDI_PROPERTIES);
@@ -7446,13 +7447,13 @@ bool CLogDlg::PopulateContextMenuForChangedPaths(ContextMenuInfoForChangedPathsP
                     popup.SetDefaultItem(ID_OPEN, FALSE);
             }
         }
-        else if (!pCmi->ChangedLogPathIndices.empty())
+        else if (!pCmi->changedLogPathIndices.empty())
         {
             // more than one entry is selected
             popup.AppendMenuIcon(ID_SAVEAS, IDS_LOG_POPUP_SAVE);
             bEntryAdded = true;
         }
-        if (!pCmi->ChangedPaths.empty())
+        if (!pCmi->changedPaths.empty())
         {
             if (m_ChangedFileListCtrl.GetSelectedCount() > 1)
             {
@@ -7509,7 +7510,7 @@ bool CLogDlg::CheckMultipleDiffs(UINT selCount)
 
 void CLogDlg::ExecuteMultipleDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, bool ignoreprops)
 {
-    int nPaths = (int)pCmi->ChangedLogPathIndices.size();
+    int nPaths = (int)pCmi->changedLogPathIndices.size();
 
     // warn if we exceed Software\\TortoiseSVN\\NumDiffWarning or 15 if not set
     if (!CheckMultipleDiffs(nPaths))
@@ -7517,14 +7518,14 @@ void CLogDlg::ExecuteMultipleDiffChangedPaths(ContextMenuInfoForChangedPathsPtr 
 
     for (int i = 0; i < nPaths; ++i)
     {
-        INT_PTR selIndex = (INT_PTR)pCmi->ChangedLogPathIndices[i];
+        INT_PTR selIndex = (INT_PTR)pCmi->changedLogPathIndices[i];
         ExecuteDiffChangedPaths(pCmi, selIndex, ignoreprops);
     }
 }
 
 void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, INT_PTR selIndex)
 {
-    SVNRev getrev = m_currentChangedArray[selIndex].GetAction() == LOGACTIONS_DELETED ? pCmi->Rev2 : pCmi->Rev1;
+    SVNRev getrev = m_currentChangedArray[selIndex].GetAction() == LOGACTIONS_DELETED ? pCmi->rev2 : pCmi->rev1;
     auto   f      = [=]() {
         CoInitialize(NULL);
         OnOutOfScope(CoUninitialize());
@@ -7575,14 +7576,14 @@ void CLogDlg::ExecuteCompareChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
 
 void CLogDlg::ExecuteDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, INT_PTR selIndex, bool ignoreprops)
 {
-    if ((!pCmi->OneRev) || IsDiffPossible(m_currentChangedArray[selIndex], pCmi->Rev1))
+    if ((!pCmi->oneRev) || IsDiffPossible(m_currentChangedArray[selIndex], pCmi->rev1))
     {
         auto f = [=]() {
             CoInitialize(NULL);
             OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
             OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
-            DoDiffFromLog(selIndex, pCmi->Rev1, pCmi->Rev2, false, false, ignoreprops);
+            DoDiffFromLog(selIndex, pCmi->rev1, pCmi->rev2, false, false, ignoreprops);
         };
         new async::CAsyncCall(f, &netScheduler);
     }
@@ -7593,8 +7594,8 @@ void CLogDlg::ExecuteDiffChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, IN
             OnOutOfScope(CoUninitialize());
             this->EnableWindow(FALSE);
             OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
-            if (pCmi->ChangedLogPathIndices.size() > 1)
-                DoDiffFromLog(selIndex, pCmi->Rev1, pCmi->Rev1, false, false, ignoreprops);
+            if (pCmi->changedLogPathIndices.size() > 1)
+                DoDiffFromLog(selIndex, pCmi->rev1, pCmi->rev1, false, false, ignoreprops);
             else
                 DiffSelectedFile(ignoreprops);
         };
@@ -7609,7 +7610,7 @@ void CLogDlg::ExecuteBlameDiffChangedPaths(INT_PTR selIndex, ContextMenuInfoForC
         OnOutOfScope(CoUninitialize());
         this->EnableWindow(FALSE);
         OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
-        DoDiffFromLog(selIndex, pCmi->Rev1, pCmi->Rev2, true, false, false);
+        DoDiffFromLog(selIndex, pCmi->rev1, pCmi->rev2, true, false, false);
     };
     new async::CAsyncCall(f, &netScheduler);
 }
@@ -7621,7 +7622,7 @@ void CLogDlg::ExecuteGnuDiff1ChangedPaths(INT_PTR selIndex, ContextMenuInfoForCh
         OnOutOfScope(CoUninitialize());
         this->EnableWindow(FALSE);
         OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
-        DoDiffFromLog(selIndex, pCmi->Rev1, pCmi->Rev2, false, true, false);
+        DoDiffFromLog(selIndex, pCmi->rev1, pCmi->rev2, false, true, false);
     };
     new async::CAsyncCall(f, &netScheduler);
 }
@@ -7644,8 +7645,8 @@ void CLogDlg::ExecuteRevertChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, 
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Copy);
         dlg.SetPathList(CTSVNPathList(CTSVNPath(pCmi->fileUrl)));
         dlg.SetUrl(pCmi->wcPath);
-        dlg.SetRevision(pCmi->Rev2);
-        dlg.SetPegRevision(pCmi->Rev2);
+        dlg.SetRevision(pCmi->rev2);
+        dlg.SetPegRevision(pCmi->rev2);
     }
     else
     {
@@ -7663,7 +7664,7 @@ void CLogDlg::ExecuteRevertChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, 
         dlg.SetUrl(pCmi->fileUrl);
         dlg.SetSecondUrl(pCmi->fileUrl);
         SVNRevRangeArray revarray;
-        revarray.AddRevRange(pCmi->Rev1, pCmi->Rev2);
+        revarray.AddRevRange(pCmi->rev1, pCmi->rev2);
         dlg.SetRevisionRanges(revarray);
     }
     if (ConfirmRevert(pCmi->wcPath))
@@ -7684,7 +7685,7 @@ void CLogDlg::ExecuteShowPropertiesChangedPaths(ContextMenuInfoForChangedPathsPt
         return;
     }
     CPropDlg dlg;
-    dlg.m_rev  = pCmi->Rev1;
+    dlg.m_rev  = pCmi->rev1;
     dlg.m_Path = CTSVNPath(pCmi->fileUrl);
     dlg.DoModal();
 }
@@ -7727,10 +7728,10 @@ void CLogDlg::ExecuteSaveAsChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, 
         temp      = CPathUtils::GetFileNameFromPath(m_currentChangedArray[selIndex].GetPath());
         int rfind = temp.ReverseFind('.');
         if (rfind > 0)
-            revFilename.Format(L"%s-%ld%s", (LPCTSTR)temp.Left(rfind), pCmi->Rev1,
+            revFilename.Format(L"%s-%ld%s", (LPCTSTR)temp.Left(rfind), pCmi->rev1,
                                (LPCTSTR)temp.Mid(rfind));
         else
-            revFilename.Format(L"%s-%ld", (LPCTSTR)temp, pCmi->Rev1);
+            revFilename.Format(L"%s-%ld", (LPCTSTR)temp, pCmi->rev1);
         bTargetSelected = CAppUtils::FileOpenSave(revFilename, NULL, IDS_LOG_POPUP_SAVE,
                                                   IDS_COMMONFILEFILTER, false, m_path.IsUrl() ? CString() : m_path.GetDirectory().GetWinPathString(), m_hWnd);
         TargetPath.SetFromWin(revFilename);
@@ -7744,11 +7745,11 @@ void CLogDlg::ExecuteSaveAsChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, 
             OnOutOfScope(this->EnableWindow(TRUE); this->SetFocus());
             CProgressDlg progDlg;
             progDlg.SetTitle(IDS_APPNAME);
-            for (size_t i = 0; i < pCmi->ChangedLogPathIndices.size(); ++i)
+            for (size_t i = 0; i < pCmi->changedLogPathIndices.size(); ++i)
             {
-                const CLogChangedPath& changedlogpathi = m_currentChangedArray[pCmi->ChangedLogPathIndices[i]];
+                const CLogChangedPath& changedlogpathi = m_currentChangedArray[pCmi->changedLogPathIndices[i]];
 
-                SVNRev getrev = (changedlogpathi.GetAction() == LOGACTIONS_DELETED) ? pCmi->Rev2 : pCmi->Rev1;
+                SVNRev getrev = (changedlogpathi.GetAction() == LOGACTIONS_DELETED) ? pCmi->rev2 : pCmi->rev1;
 
                 CString sInfoLine;
                 sInfoLine.FormatMessage(IDS_PROGRESSGETFILEREVISION,
@@ -7759,7 +7760,7 @@ void CLogDlg::ExecuteSaveAsChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, 
                 progDlg.ShowModeless(m_hWnd);
 
                 CTSVNPath tempfile = TargetPath;
-                if (pCmi->ChangedPaths.size() > 1)
+                if (pCmi->changedPaths.size() > 1)
                 {
                     // if multiple items are selected, then the TargetPath
                     // points to a folder and we have to append the filename
@@ -7780,7 +7781,7 @@ void CLogDlg::ExecuteSaveAsChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, 
                     tempfile.Delete(false);
                     return;
                 }
-                progDlg.SetProgress((DWORD)i + 1, (DWORD)pCmi->ChangedLogPathIndices.size());
+                progDlg.SetProgress((DWORD)i + 1, (DWORD)pCmi->changedLogPathIndices.size());
             }
             progDlg.Stop();
             SetAndClearProgressInfo((HWND)NULL);
@@ -7819,16 +7820,16 @@ void CLogDlg::ExecuteExportTreeChangedPaths(ContextMenuInfoForChangedPathsPtr pC
             CProgressDlg progDlg;
             progDlg.SetTitle(IDS_APPNAME);
             progDlg.SetTime(true);
-            for (size_t i = 0; i < pCmi->ChangedLogPathIndices.size(); ++i)
+            for (size_t i = 0; i < pCmi->changedLogPathIndices.size(); ++i)
             {
-                if (m_currentChangedArray[pCmi->ChangedLogPathIndices[i]].GetAction() == LOGACTIONS_DELETED)
+                if (m_currentChangedArray[pCmi->changedLogPathIndices[i]].GetAction() == LOGACTIONS_DELETED)
                     continue;
-                if (m_currentChangedArray[pCmi->ChangedLogPathIndices[i]].GetNodeKind() == svn_node_dir)
+                if (m_currentChangedArray[pCmi->changedLogPathIndices[i]].GetNodeKind() == svn_node_dir)
                     continue;
 
-                const CString& schangedlogpath = m_currentChangedArray[pCmi->ChangedLogPathIndices[i]].GetPath();
+                const CString& schangedlogpath = m_currentChangedArray[pCmi->changedLogPathIndices[i]].GetPath();
 
-                SVNRev getrev = pCmi->Rev1;
+                SVNRev getrev = pCmi->rev1;
 
                 CTSVNPath tempfile = TargetPath;
                 tempfile.AppendPathString(schangedlogpath);
@@ -7838,7 +7839,7 @@ void CLogDlg::ExecuteExportTreeChangedPaths(ContextMenuInfoForChangedPathsPtr pC
                                         (LPCTSTR)schangedlogpath, (LPCTSTR)getrev.ToString());
                 progDlg.SetLine(1, sInfoLine, true);
                 progDlg.SetLine(2, tempfile.GetWinPath(), true);
-                progDlg.SetProgress64(i, pCmi->ChangedLogPathIndices.size());
+                progDlg.SetProgress64(i, pCmi->changedLogPathIndices.size());
                 progDlg.ShowModeless(m_hWnd);
                 if (progDlg.HasUserCancelled())
                     break;
@@ -7866,7 +7867,7 @@ void CLogDlg::ExecuteExportTreeChangedPaths(ContextMenuInfoForChangedPathsPtr pC
 
 void CLogDlg::ExecuteOpenChangedPaths(INT_PTR selIndex, ContextMenuInfoForChangedPathsPtr pCmi, bool bOpenWith)
 {
-    SVNRev getrev = m_currentChangedArray[selIndex].GetAction() == LOGACTIONS_DELETED ? pCmi->Rev2 : pCmi->Rev1;
+    SVNRev getrev = m_currentChangedArray[selIndex].GetAction() == LOGACTIONS_DELETED ? pCmi->rev2 : pCmi->rev1;
     auto   f      = [=]() {
         CoInitialize(NULL);
         OnOutOfScope(CoUninitialize());
@@ -7887,13 +7888,13 @@ void CLogDlg::ExecuteBlameChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, c
     }
     CBlameDlg dlg;
     if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
-        pCmi->Rev1--;
-    dlg.EndRev = pCmi->Rev1;
+        pCmi->rev1--;
+    dlg.EndRev = pCmi->rev1;
     if (dlg.DoModal() == IDOK)
     {
         SVNRev  startrev     = dlg.StartRev;
         SVNRev  endrev       = dlg.EndRev;
-        SVNRev  pegrev       = pCmi->Rev1;
+        SVNRev  pegrev       = pCmi->rev1;
         bool    includeMerge = !!dlg.m_bIncludeMerge;
         bool    textView     = !!dlg.m_bTextView;
         CString options      = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
@@ -7944,7 +7945,7 @@ void CLogDlg::ExecuteShowLogChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi,
         return;
     }
     m_bCancelled        = false;
-    svn_revnum_t logrev = pCmi->Rev1;
+    svn_revnum_t logrev = pCmi->rev1;
     CString      sCmd;
     if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
     {
@@ -7981,7 +7982,7 @@ void CLogDlg::ExecuteShowMergedLogs(ContextMenuInfoForChangedPathsPtr pCmi)
         return;
     }
     m_bCancelled        = false;
-    svn_revnum_t logrev = pCmi->Rev1;
+    svn_revnum_t logrev = pCmi->rev1;
     CString      sCmd;
 
     sCmd.Format(L"/command:log /path:\"%s\" /pegrev:%ld /startrev:%ld /endrev:%ld /merge",
@@ -8001,7 +8002,7 @@ void CLogDlg::ExecuteBrowseRepositoryChangedPaths(ContextMenuInfoForChangedPaths
         return;
     }
     m_bCancelled        = false;
-    svn_revnum_t logrev = pCmi->Rev1;
+    svn_revnum_t logrev = pCmi->rev1;
     CString      sCmd;
     if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
     {
@@ -8037,12 +8038,12 @@ void CLogDlg::ExecuteViewPathRevisionChangedPaths(INT_PTR selIndex)
 
 void CLogDlg::CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr pCmi, int cmd)
 {
-    int nPaths = (int)pCmi->ChangedLogPathIndices.size();
+    int nPaths = (int)pCmi->changedLogPathIndices.size();
 
     CString sClipboard;
     for (int i = 0; i < nPaths; ++i)
     {
-        INT_PTR selIndex = (INT_PTR)pCmi->ChangedLogPathIndices[i];
+        INT_PTR selIndex = (INT_PTR)pCmi->changedLogPathIndices[i];
 
         CLogChangedPath path = m_currentChangedArray[selIndex];
         switch (cmd)
@@ -8051,12 +8052,12 @@ void CLogDlg::CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr p
                 sClipboard += (m_sRepositoryRoot + path.GetPath());
                 break;
             case ID_COPYCLIPBOARDURLREV:
-                sClipboard += ((m_sRepositoryRoot + path.GetPath()) + L"/?r=" + SVNRev(pCmi->Rev1).ToString());
+                sClipboard += ((m_sRepositoryRoot + path.GetPath()) + L"/?r=" + SVNRev(pCmi->rev1).ToString());
                 break;
             case ID_COPYCLIPBOARDURLVIEWERREV:
                 {
                     CString url = m_ProjectProperties.sWebViewerRev;
-                    url.Replace(L"%REVISION%", SVNRev(pCmi->Rev1).ToString());
+                    url.Replace(L"%REVISION%", SVNRev(pCmi->rev1).ToString());
                     if (!url.IsEmpty())
                         sClipboard += url;
                 }
@@ -8065,7 +8066,7 @@ void CLogDlg::CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr p
                 {
                     CString url = m_ProjectProperties.sWebViewerPathRev;
                     url.Replace(L"%PATH%", path.GetPath());
-                    url.Replace(L"%REVISION%", SVNRev(pCmi->Rev1).ToString());
+                    url.Replace(L"%REVISION%", SVNRev(pCmi->rev1).ToString());
                     if (!url.IsEmpty())
                         sClipboard += url;
                 }
@@ -8076,12 +8077,12 @@ void CLogDlg::CopyChangedPathInfoToClipboard(ContextMenuInfoForChangedPathsPtr p
                 url += m_sRepositoryRoot;
                 url += path.GetPath();
                 url += "?revision1:";
-                url += SVNRev(pCmi->Rev1).ToString();
+                url += SVNRev(pCmi->rev1).ToString();
                 url += "?url2:";
                 url += m_sRepositoryRoot;
                 url += path.GetPath();
                 url += "?revision2:";
-                url += SVNRev(pCmi->Rev2).ToString();
+                url += SVNRev(pCmi->rev2).ToString();
                 sClipboard += url;
             }
             break;
@@ -10276,9 +10277,9 @@ void CLogDlg::OnLvnBegindragLogmsg(NMHDR* pNMHDR, LRESULT* pResult)
     CTSVNPathList selectedUrls;
     CString       sRoot = GetRepositoryRoot(CTSVNPath(pCmi->fileUrl));
 
-    for (size_t i = 0; i < pCmi->ChangedLogPathIndices.size(); ++i)
+    for (size_t i = 0; i < pCmi->changedLogPathIndices.size(); ++i)
     {
-        const CLogChangedPath& changedlogpathi = m_currentChangedArray[pCmi->ChangedLogPathIndices[i]];
+        const CLogChangedPath& changedlogpathi = m_currentChangedArray[pCmi->changedLogPathIndices[i]];
 
         if (changedlogpathi.GetAction() == LOGACTIONS_DELETED)
             continue;
@@ -10294,7 +10295,7 @@ void CLogDlg::OnLvnBegindragLogmsg(NMHDR* pNMHDR, LRESULT* pResult)
 
     pdsrc->AddRef();
 
-    SVNDataObject* pdobj = new SVNDataObject(selectedUrls, pCmi->Rev1, pCmi->Rev1);
+    SVNDataObject* pdobj = new SVNDataObject(selectedUrls, pCmi->rev1, pCmi->rev1);
     if (pdobj == NULL)
     {
         return;
