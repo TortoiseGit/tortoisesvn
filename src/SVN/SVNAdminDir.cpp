@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,12 +19,13 @@
 #include "UnicodeUtils.h"
 #include "SVNAdminDir.h"
 
+// ReSharper disable once CppInconsistentNaming
 SVNAdminDir g_SVNAdminDir;
 
 SVNAdminDir::SVNAdminDir()
-    : m_nInit(0)
-    , m_bVSNETHack(false)
-    , m_pool(NULL)
+    : m_pool(nullptr)
+    , m_bVsnetHack(false)
+    , m_nInit(0)
 {
 }
 
@@ -36,16 +37,16 @@ SVNAdminDir::~SVNAdminDir()
 
 bool SVNAdminDir::Init()
 {
-    if (m_nInit==0)
+    if (m_nInit == 0)
     {
-        m_bVSNETHack = false;
-        m_pool = svn_pool_create(NULL);
-        size_t ret = 0;
-        getenv_s(&ret, NULL, 0, "SVN_ASP_DOT_NET_HACK");
+        m_bVsnetHack = false;
+        m_pool       = svn_pool_create(nullptr);
+        size_t ret   = 0;
+        getenv_s(&ret, nullptr, 0, "SVN_ASP_DOT_NET_HACK");
         if (ret)
         {
             svn_error_clear(svn_wc_set_adm_dir("_svn", m_pool));
-            m_bVSNETHack = true;
+            m_bVsnetHack = true;
         }
     }
     m_nInit++;
@@ -55,7 +56,7 @@ bool SVNAdminDir::Init()
 bool SVNAdminDir::Close()
 {
     m_nInit--;
-    if (m_nInit>0)
+    if (m_nInit > 0)
         return false;
     svn_pool_destroy(m_pool);
     return true;
@@ -71,7 +72,7 @@ bool SVNAdminDir::IsAdminDirName(const CString& name) const
     // catch everything: with MFC, an CInvalidArgException is thrown,
     // but with ATL only an CAtlException is thrown - and those
     // two exceptions are incompatible
-    catch(...)
+    catch (...)
     {
         return false;
     }
@@ -82,38 +83,38 @@ bool SVNAdminDir::IsAdminDirPath(const CString& path) const
 {
     if (path.IsEmpty())
         return false;
-    bool bIsAdminDir = false;
-    CString lowerpath = path;
-    lowerpath.MakeLower();
-    int ind = -1;
+    bool    bIsAdminDir = false;
+    CString lowerPath   = path;
+    lowerPath.MakeLower();
+    int ind  = -1;
     int ind1 = 0;
-    while ((ind1 = lowerpath.Find(L"\\.svn", ind1))>=0)
+    while ((ind1 = lowerPath.Find(L"\\.svn", ind1)) >= 0)
     {
         ind = ind1++;
-        if (ind == (lowerpath.GetLength() - 5))
+        if (ind == (lowerPath.GetLength() - 5))
         {
             bIsAdminDir = true;
             break;
         }
-        else if (lowerpath.Find(L"\\.svn\\", ind)>=0)
+        else if (lowerPath.Find(L"\\.svn\\", ind) >= 0)
         {
             bIsAdminDir = true;
             break;
         }
     }
-    if (!bIsAdminDir && m_bVSNETHack)
+    if (!bIsAdminDir && m_bVsnetHack)
     {
-        ind = -1;
+        ind  = -1;
         ind1 = 0;
-        while ((ind1 = lowerpath.Find(L"\\_svn", ind1))>=0)
+        while ((ind1 = lowerPath.Find(L"\\_svn", ind1)) >= 0)
         {
             ind = ind1++;
-            if (ind == (lowerpath.GetLength() - 5))
+            if (ind == (lowerPath.GetLength() - 5))
             {
                 bIsAdminDir = true;
                 break;
             }
-            else if (lowerpath.Find(L"\\_svn\\", ind)>=0)
+            else if (lowerPath.Find(L"\\_svn\\", ind) >= 0)
             {
                 bIsAdminDir = true;
                 break;
@@ -144,16 +145,13 @@ bool SVNAdminDir::IsWCRoot(const CString& path, bool bDir) const
         return false;
     if (PathIsUNCServer(path))
         return false;
-    bool bIsWCRoot = false;
     CString sDirName = path;
     if (!bDir)
     {
         sDirName = path.Left(path.ReverseFind('\\'));
     }
-    bIsWCRoot = !!PathFileExists(sDirName + L"\\.svn");
-    if (!bIsWCRoot && m_bVSNETHack)
-        bIsWCRoot = !!PathFileExists(sDirName + L"\\_svn");
-    return bIsWCRoot;
+    auto bIsWcRoot = !!PathFileExists(sDirName + L"\\.svn");
+    if (!bIsWcRoot && m_bVsnetHack)
+        bIsWcRoot = !!PathFileExists(sDirName + L"\\_svn");
+    return bIsWcRoot;
 }
-
-

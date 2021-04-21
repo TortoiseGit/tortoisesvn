@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #pragma once
 
-
 /**
  * \ingroup SVN
  * This class implements one global object, handling the Subversion admin
@@ -44,6 +43,7 @@ class SVNAdminDir
 private:
     SVNAdminDir(const SVNAdminDir&) = delete;
     SVNAdminDir& operator=(SVNAdminDir&) = delete;
+
 public:
     SVNAdminDir();
     ~SVNAdminDir();
@@ -69,15 +69,16 @@ public:
     bool IsWCRoot(const CString& path) const;
     bool IsWCRoot(const CString& path, bool bDir) const;
 
-
     /// Returns true if the admin dir name is set to "_svn".
-    bool IsVSNETHackActive() const {return m_bVSNETHack;}
+    bool IsVSNETHackActive() const { return m_bVsnetHack; }
 
-    CString GetAdminDirName() const {return m_bVSNETHack ? L"_svn" : L".svn";}
+    CString GetAdminDirName() const { return m_bVsnetHack ? L"_svn" : L".svn"; }
+
 private:
     apr_pool_t* m_pool;
-    bool m_bVSNETHack;
-    int m_nInit;
+    bool        m_bVsnetHack;
+    int         m_nInit;
 };
 
+// ReSharper disable once CppInconsistentNaming
 extern SVNAdminDir g_SVNAdminDir;

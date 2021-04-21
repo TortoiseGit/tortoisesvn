@@ -26,17 +26,17 @@
 
 struct SVNAuthDataInfo
 {
-    CString             username;
-    CString             password;
-    CString             passphrase;
-    CString             passtype;
-    CString             subject;
-    CString             hostname;
-    CString             validfrom;
-    CString             validuntil;
-    CString             issuer;
-    CString             fingerprint;
-    CString             failures;
+    CString userName;
+    CString password;
+    CString passPhrase;
+    CString passType;
+    CString subject;
+    CString hostName;
+    CString validFrom;
+    CString validUntil;
+    CString issuer;
+    CString fingerPrint;
+    CString failures;
 };
 
 /**
@@ -46,30 +46,30 @@ struct SVNAuthDataInfo
 class SVNAuthData : public SVNBase
 {
 private:
-    SVNAuthData(const SVNAuthData&) = delete;
-    SVNAuthData& operator=(SVNAuthData&) = delete;
+    SVNAuthData(const SVNAuthData &) = delete;
+    SVNAuthData &operator=(SVNAuthData &) = delete;
+
 public:
     SVNAuthData();
-    ~SVNAuthData(void);
+    ~SVNAuthData() override;
 
     std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> GetAuthList();
-    std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> DeleteAuthList(const std::vector<std::tuple<CString, CString, SVNAuthDataInfo>>& delList);
+    std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> DeleteAuthList(const std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> &delList);
 
-    bool ExportAuthData(const CString& targetpath, const CString& password, bool overwrite = false);
-    bool ImportAuthData(const CString& importpath, const CString& password, bool overwrite = false);
+    bool ExportAuthData(const CString &targetpath, const CString &password, bool overwrite = false);
+    bool ImportAuthData(const CString &importPath, const CString &password, bool overwrite = false);
 
-    static const svn_string_t * decrypt_data(const svn_string_t *crypted, apr_pool_t *pool);
-    static const svn_string_t * encrypt_data(const svn_string_t *orig, apr_pool_t *pool);
+    static const svn_string_t *decrypt_data(const svn_string_t *crypted, apr_pool_t *pool);
+    static const svn_string_t *encrypt_data(const svn_string_t *orig, apr_pool_t *pool);
 
 protected:
-    apr_pool_t *                m_pool;         ///< the memory pool
-    SVNPrompt                   m_prompt;       ///< auth_baton setup helper
+    apr_pool_t *m_pool;   ///< the memory pool
+    SVNPrompt   m_prompt; ///< auth_baton setup helper
 
-    static svn_error_t * cleanup_callback(svn_boolean_t *delete_cred, void *cleanup_baton,
-                                          const char *cred_kind, const char *realmstring,
-                                          apr_hash_t *hash, apr_pool_t *scratch_pool);
-    static svn_error_t * auth_callback(svn_boolean_t *delete_cred, void *auth_baton,
-                                          const char *cred_kind, const char *realmstring,
-                                          apr_hash_t *hash, apr_pool_t *scratch_pool);
+    static svn_error_t *cleanup_callback(svn_boolean_t *deleteCred, void *cleanupBaton,
+                                         const char *credKind, const char *realmString,
+                                         apr_hash_t *hash, apr_pool_t *scratchPool);
+    static svn_error_t *auth_callback(svn_boolean_t *deleteCred, void *authBaton,
+                                      const char *credKind, const char *realmString,
+                                      apr_hash_t *hash, apr_pool_t *scratchPool);
 };
-

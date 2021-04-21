@@ -1,6 +1,6 @@
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013-2015 - TortoiseSVN
+// Copyright (C) 2013-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -147,13 +147,13 @@ void CSettingsClearAuth::FillAuthListControl()
     {
         m_cAuthList.InsertItem (iItem,    std::get<0>(it));
         m_cAuthList.SetItemText(iItem, 1, std::get<1>(it));
-        m_cAuthList.SetItemText(iItem, 2, std::get<2>(it).username);
+        m_cAuthList.SetItemText(iItem, 2, std::get<2>(it).userName);
         if (m_bShowPasswords)
         {
             SVNPool pool;
             CStringA pwa = CUnicodeUtils::GetUTF8(std::get<2>(it).password);
             if (pwa.IsEmpty())
-                pwa = CUnicodeUtils::GetUTF8(std::get<2>(it).passphrase);
+                pwa = CUnicodeUtils::GetUTF8(std::get<2>(it).passPhrase);
             svn_string_t svns;
             svns.data = pwa;
             svns.len = pwa.GetLength();
