@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2016, 2018 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -350,7 +350,7 @@ void CSVNPropertyPage::InitWorkfileView()
                 SVNStatus::GetStatusString(g_hResInst, svn.status->prop_status, buf, _countof(buf), (WORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));
                 SetDlgItemText(m_hwnd, IDC_PROPSTATUS, buf);
                 if (infodata)
-                    time = (__time64_t)infodata->texttime;
+                    time = (__time64_t)infodata->textTime;
                 else
                     time = (__time64_t)svn.status->changed_date/1000000L;
                 Time64ToTimeString(time, buf, MAX_STRING_LENGTH);
@@ -365,7 +365,7 @@ void CSVNPropertyPage::InitWorkfileView()
                     SetDlgItemText(m_hwnd, IDC_LOCKDATE, buf);
                 }
                 if (infodata)
-                    SetDlgItemText(m_hwnd, IDC_REPOUUID, (LPCTSTR)infodata->reposUUID);
+                    SetDlgItemText(m_hwnd, IDC_REPOUUID, (LPCTSTR)infodata->reposUuid);
                 if (svn.status->changelist)
                     SetDlgItemText(m_hwnd, IDC_CHANGELIST, CUnicodeUtils::StdGetUnicode(svn.status->changelist).c_str());
                 SVNStatus::GetDepthString(g_hResInst, infodata ? infodata->depth : svn_depth_unknown, buf, sizeof(buf)/sizeof(TCHAR), (WORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)));

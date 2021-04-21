@@ -1054,21 +1054,21 @@ CSVNStatusListCtrl::AddNewFileEntry(
         {
             for (auto conflIt = infodata->conflicts.cbegin(); conflIt != infodata->conflicts.cend(); ++conflIt)
             {
-                if (!conflIt->conflict_wrk.IsEmpty())
+                if (!conflIt->conflictWrk.IsEmpty())
                 {
-                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->conflict_wrk));
+                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->conflictWrk));
                 }
-                if (!conflIt->conflict_old.IsEmpty())
+                if (!conflIt->conflictOld.IsEmpty())
                 {
-                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->conflict_old));
+                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->conflictOld));
                 }
-                if (!conflIt->conflict_new.IsEmpty())
+                if (!conflIt->conflictNew.IsEmpty())
                 {
-                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->conflict_new));
+                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->conflictNew));
                 }
-                if (!conflIt->prejfile.IsEmpty())
+                if (!conflIt->prejFile.IsEmpty())
                 {
-                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->prejfile));
+                    m_ConflictFileList.AddPath(CTSVNPath(conflIt->prejFile));
                 }
             }
         }
@@ -4026,7 +4026,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         SVNInfo info;
                         const SVNInfoData * infodata = info.GetFirstFileInfo(filepath, SVNRev(), SVNRev());
                         if (infodata)
-                            logPath = infodata->copyfromurl;
+                            logPath = infodata->copyFromUrl;
                     }
                     CString sCmd;
                     sCmd.Format(L"/command:log /path:\"%s\"", (LPCTSTR)logPath);
@@ -4043,7 +4043,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd * pWnd, CPoint point)
                         SVNInfo info;
                         const SVNInfoData * infodata = info.GetFirstFileInfo(filepath, SVNRev(), SVNRev());
                         if (infodata)
-                            blamePath = infodata->copyfromurl;
+                            blamePath = infodata->copyFromUrl;
                     }
                     CString sCmd;
                     sCmd.Format(L"/command:blame /path:\"%s\"", (LPCTSTR)blamePath);
@@ -5366,7 +5366,7 @@ BOOL CSVNStatusListCtrl::OnToolTipText(UINT /*id*/, NMHDR *pNMHDR, LRESULT *pRes
                         SVNInfo info;
                         const SVNInfoData * pInfo = info.GetFirstFileInfo(fentry->path, SVNRev(), SVNRev());
                         if (pInfo)
-                            fentry->copyfrom_url_string.FormatMessage(IDS_STATUSLIST_COPYFROM, (LPCWSTR)pInfo->copyfromurl, (svn_revnum_t)pInfo->copyfromrev);
+                            fentry->copyfrom_url_string.FormatMessage(IDS_STATUSLIST_COPYFROM, (LPCWSTR)pInfo->copyFromUrl, (svn_revnum_t)pInfo->copyFromRev);
                     }
                     if (!fentry->copyfrom_url_string.IsEmpty())
                     {

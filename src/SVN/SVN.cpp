@@ -271,14 +271,14 @@ bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, const
         svn_client__shelf_t* shelf = nullptr;
         // open or create the shelf
         m_err = svn_client__shelf_open_or_create(&shelf,
-                                               CUnicodeUtils::GetUTF8(shelveName),
-                                               pathlist[0].GetSVNApiPath(subPool),
-                                               m_pCtx, subPool);
+                                                 CUnicodeUtils::GetUTF8(shelveName),
+                                                 pathlist[0].GetSVNApiPath(subPool),
+                                                 m_pCtx, subPool);
         if (m_err == nullptr)
         {
             // get the last version if there is one
             svn_client__shelf_version_t* previousVersion = nullptr;
-            m_err                                          = svn_client__shelf_get_newest_version(&previousVersion, shelf, subPool, subPool);
+            m_err                                        = svn_client__shelf_get_newest_version(&previousVersion, shelf, subPool, subPool);
             if (m_err == nullptr)
             {
                 // set up the callback baton
@@ -293,10 +293,10 @@ bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, const
                 svn_client__shelf_version_t* newVersion = nullptr;
                 // now create the new version of the shelf
                 m_err = svn_client__shelf_save_new_version3(&newVersion, shelf,
-                                                          pathlist.MakePathArray(subPool), depth, nullptr,
-                                                          shelved_func, &sb,
-                                                          not_shelved_func, &sb,
-                                                          subPool);
+                                                            pathlist.MakePathArray(subPool), depth, nullptr,
+                                                            shelved_func, &sb,
+                                                            not_shelved_func, &sb,
+                                                            subPool);
 
                 if (sb.num_paths_not_shelved > 0)
                 {
@@ -383,14 +383,14 @@ bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, const
         svn_client__shelf2_t* shelf = nullptr;
         // open or create the shelf
         m_err = svn_client__shelf2_open_or_create(&shelf,
-                                                CUnicodeUtils::GetUTF8(shelveName),
-                                                pathlist[0].GetSVNApiPath(subPool),
-                                                m_pCtx, subPool);
+                                                  CUnicodeUtils::GetUTF8(shelveName),
+                                                  pathlist[0].GetSVNApiPath(subPool),
+                                                  m_pCtx, subPool);
         if (m_err == nullptr)
         {
             // get the last version if there is one
             svn_client__shelf2_version_t* previousVersion = nullptr;
-            m_err                                           = svn_client__shelf2_get_newest_version(&previousVersion, shelf, subPool, subPool);
+            m_err                                         = svn_client__shelf2_get_newest_version(&previousVersion, shelf, subPool, subPool);
             if (m_err == nullptr)
             {
                 // set up the callback baton
@@ -405,10 +405,10 @@ bool SVN::Shelve(const CString& shelveName, const CTSVNPathList& pathlist, const
                 svn_client__shelf2_version_t* newVersion = nullptr;
                 // now create the new version of the shelf
                 m_err = svn_client__shelf2_save_new_version3(&newVersion, shelf,
-                                                           pathlist.MakePathArray(subPool), depth, nullptr,
-                                                           shelved_func, &sb,
-                                                           not_shelved_func, &sb,
-                                                           subPool);
+                                                             pathlist.MakePathArray(subPool), depth, nullptr,
+                                                             shelved_func, &sb,
+                                                             not_shelved_func, &sb,
+                                                             subPool);
 
                 if (sb.num_paths_not_shelved > 0)
                 {
@@ -509,8 +509,8 @@ bool SVN::UnShelve(const CString& shelveName, int version, const CTSVNPath& loca
         svn_client__shelf_t* shelf = nullptr;
 
         m_err = svn_client__shelf_open_existing(&shelf,
-                                              CUnicodeUtils::GetUTF8(shelveName),
-                                              localAbspath.GetSVNApiPath(subPool), m_pCtx, subPool);
+                                                CUnicodeUtils::GetUTF8(shelveName),
+                                                localAbspath.GetSVNApiPath(subPool), m_pCtx, subPool);
         if (m_err == nullptr)
         {
             svn_client__shelf_version_t* shelfVersion = nullptr;
@@ -535,8 +535,8 @@ bool SVN::UnShelve(const CString& shelveName, int version, const CTSVNPath& loca
         svn_client__shelf2_t* shelf = nullptr;
 
         m_err = svn_client__shelf2_open_existing(&shelf,
-                                               CUnicodeUtils::GetUTF8(shelveName),
-                                               localAbspath.GetSVNApiPath(subPool), m_pCtx, subPool);
+                                                 CUnicodeUtils::GetUTF8(shelveName),
+                                                 localAbspath.GetSVNApiPath(subPool), m_pCtx, subPool);
         if (m_err == nullptr)
         {
             svn_client__shelf2_version_t* shelfVersion = nullptr;
@@ -574,20 +574,20 @@ ShelfInfo SVN::GetShelfInfo(const CString& shelfName, const CTSVNPath& localAbsp
     if ((err == 0) && pValue && strstr(pValue, "shelf3"))
     {
         svn_client__shelf_t* shelf = nullptr;
-        m_err                        = svn_client__shelf_open_existing(&shelf,
-                                              CUnicodeUtils::GetUTF8(shelfName),
-                                              localAbspath.GetSVNApiPath(subPool), m_pCtx, subPool);
+        m_err                      = svn_client__shelf_open_existing(&shelf,
+                                                CUnicodeUtils::GetUTF8(shelfName),
+                                                localAbspath.GetSVNApiPath(subPool), m_pCtx, subPool);
         if (m_err == nullptr)
         {
             info.name    = shelfName;
             char* logMsg = nullptr;
-            m_err          = svn_client__shelf_get_log_message(&logMsg, shelf, subPool);
+            m_err        = svn_client__shelf_get_log_message(&logMsg, shelf, subPool);
             if (m_err == nullptr)
             {
                 info.logMessage = CUnicodeUtils::GetUnicode(logMsg);
             }
             apr_array_header_t* versionsP = nullptr;
-            m_err                           = svn_client__shelf_get_all_versions(&versionsP, shelf, subPool, subPool);
+            m_err                         = svn_client__shelf_get_all_versions(&versionsP, shelf, subPool, subPool);
             if (m_err == nullptr)
             {
                 for (int i = 0; i < versionsP->nelts; i++)
@@ -596,7 +596,7 @@ ShelfInfo SVN::GetShelfInfo(const CString& shelfName, const CTSVNPath& localAbsp
 
                     CTSVNPathList changedFiles;
                     apr_hash_t*   affectedPaths = nullptr;
-                    m_err                         = svn_client__shelf_paths_changed(&affectedPaths, shelfVersion, subPool, subPool);
+                    m_err                       = svn_client__shelf_paths_changed(&affectedPaths, shelfVersion, subPool, subPool);
                     if (m_err == nullptr)
                     {
                         for (apr_hash_index_t* hi = apr_hash_first(subPool, affectedPaths); hi; hi = apr_hash_next(hi))
@@ -614,20 +614,20 @@ ShelfInfo SVN::GetShelfInfo(const CString& shelfName, const CTSVNPath& localAbsp
     else
     {
         svn_client__shelf2_t* shelf = nullptr;
-        m_err                         = svn_client__shelf2_open_existing(&shelf,
-                                               CUnicodeUtils::GetUTF8(shelfName),
-                                               localAbspath.GetSVNApiPath(subPool), m_pCtx, subPool);
+        m_err                       = svn_client__shelf2_open_existing(&shelf,
+                                                 CUnicodeUtils::GetUTF8(shelfName),
+                                                 localAbspath.GetSVNApiPath(subPool), m_pCtx, subPool);
         if (m_err == nullptr)
         {
             info.name    = shelfName;
             char* logMsg = nullptr;
-            m_err          = svn_client__shelf2_get_log_message(&logMsg, shelf, subPool);
+            m_err        = svn_client__shelf2_get_log_message(&logMsg, shelf, subPool);
             if (m_err == nullptr)
             {
                 info.logMessage = CUnicodeUtils::GetUnicode(logMsg);
             }
             apr_array_header_t* versionsP = nullptr;
-            m_err                           = svn_client__shelf2_get_all_versions(&versionsP, shelf, subPool, subPool);
+            m_err                         = svn_client__shelf2_get_all_versions(&versionsP, shelf, subPool, subPool);
             if (m_err == nullptr)
             {
                 for (int i = 0; i < versionsP->nelts; i++)
@@ -636,7 +636,7 @@ ShelfInfo SVN::GetShelfInfo(const CString& shelfName, const CTSVNPath& localAbsp
 
                     CTSVNPathList changedFiles;
                     apr_hash_t*   affectedPaths = nullptr;
-                    m_err                         = svn_client__shelf2_paths_changed(&affectedPaths, shelfVersion, subPool, subPool);
+                    m_err                       = svn_client__shelf2_paths_changed(&affectedPaths, shelfVersion, subPool, subPool);
                     if (m_err == nullptr)
                     {
                         for (apr_hash_index_t* hi = apr_hash_first(subPool, affectedPaths); hi; hi = apr_hash_next(hi))
@@ -669,9 +669,9 @@ bool SVN::ShelvesList(std::vector<CString>& names, const CTSVNPath& localAbspath
     {
         SVNTRACE(
             m_err = svn_client__shelf_list(&namesHash,
-                                         localAbspath.GetSVNApiPath(subPool),
-                                         m_pCtx,
-                                         subPool, subPool),
+                                           localAbspath.GetSVNApiPath(subPool),
+                                           m_pCtx,
+                                           subPool, subPool),
             NULL);
         if (m_err)
             return false;
@@ -688,9 +688,9 @@ bool SVN::ShelvesList(std::vector<CString>& names, const CTSVNPath& localAbspath
     {
         SVNTRACE(
             m_err = svn_client__shelf2_list(&namesHash,
-                                          localAbspath.GetSVNApiPath(subPool),
-                                          m_pCtx,
-                                          subPool, subPool),
+                                            localAbspath.GetSVNApiPath(subPool),
+                                            m_pCtx,
+                                            subPool, subPool),
             NULL);
         if (m_err)
             return false;
@@ -720,18 +720,18 @@ bool SVN::DropShelf(const CString& shelveName, const CTSVNPath& localAbspath)
     {
         SVNTRACE(
             m_err = svn_client__shelf_delete(CUnicodeUtils::GetUTF8(shelveName),
-                                           localAbspath.GetSVNApiPath(subPool),
-                                           false,
-                                           m_pCtx, subPool),
+                                             localAbspath.GetSVNApiPath(subPool),
+                                             false,
+                                             m_pCtx, subPool),
             NULL);
     }
     else
     {
         SVNTRACE(
             m_err = svn_client__shelf2_delete(CUnicodeUtils::GetUTF8(shelveName),
-                                            localAbspath.GetSVNApiPath(subPool),
-                                            false,
-                                            m_pCtx, subPool),
+                                              localAbspath.GetSVNApiPath(subPool),
+                                              false,
+                                              m_pCtx, subPool),
             NULL);
     }
     free(pValue);
@@ -749,15 +749,15 @@ bool SVN::Checkout(const CTSVNPath& moduleName, const CTSVNPath& destPath, const
     const char* svnPath = moduleName.GetSVNApiPath(subPool);
     SVNTRACE(
         m_err = svn_client_checkout3(NULL, // we don't need the resulting revision
-                                   svnPath,
-                                   destPath.GetSVNApiPath(subPool),
-                                   pegRev,
-                                   revision,
-                                   depth,
-                                   bIgnoreExternals,
-                                   bAllowUnverObstructions,
-                                   m_pCtx,
-                                   subPool),
+                                     svnPath,
+                                     destPath.GetSVNApiPath(subPool),
+                                     pegRev,
+                                     revision,
+                                     depth,
+                                     bIgnoreExternals,
+                                     bAllowUnverObstructions,
+                                     m_pCtx,
+                                     subPool),
         svnPath);
     ClearCAPIAuthCacheOnError();
 
@@ -779,13 +779,13 @@ bool SVN::Remove(const CTSVNPathList& pathlist, bool force, bool keepLocal, cons
 
     SVNTRACE(
         m_err = svn_client_delete4(pathlist.MakePathArray(subPool),
-                                 force,
-                                 keepLocal,
-                                 revPropHash,
-                                 commitCallback2,
-                                 this,
-                                 m_pCtx,
-                                 subPool),
+                                   force,
+                                   keepLocal,
+                                   revPropHash,
+                                   commitCallback2,
+                                   this,
+                                   m_pCtx,
+                                   subPool),
         NULL);
 
     ClearCAPIAuthCacheOnError();
@@ -820,13 +820,13 @@ bool SVN::Revert(const CTSVNPathList& pathList, const CStringArray& changeLists,
 
     SVNTRACE(
         m_err = svn_client_revert4(pathList.MakePathArray(subPool),
-                                 recurse ? svn_depth_infinity : svn_depth_empty,
-                                 cLists,
-                                 clearChangeLists,
-                                 metadataOnly,
-                                 TRUE,
-                                 m_pCtx,
-                                 subPool),
+                                   recurse ? svn_depth_infinity : svn_depth_empty,
+                                   cLists,
+                                   clearChangeLists,
+                                   metadataOnly,
+                                   TRUE,
+                                   m_pCtx,
+                                   subPool),
         NULL);
 
     return (m_err == nullptr);
@@ -852,7 +852,7 @@ bool SVN::Add(const CTSVNPathList& pathList, ProjectProperties* props, svn_depth
             if (mimetypesFile && *mimetypesFile)
             {
                 m_err = svn_io_parse_mimetypes_file(&(m_pCtx->mimetypes_map),
-                                                  mimetypesFile, m_pool);
+                                                    mimetypesFile, m_pool);
                 if (m_err)
                     return false;
             }
@@ -891,11 +891,11 @@ bool SVN::AddToChangeList(const CTSVNPathList& pathList, const CString& changeli
     apr_array_header_t* cLists = MakeChangeListArray(changeLists, subPool);
 
     m_err = svn_client_add_to_changelist(pathList.MakePathArray(subPool),
-                                       CUnicodeUtils::GetUTF8(changelist),
-                                       depth,
-                                       cLists,
-                                       m_pCtx,
-                                       subPool);
+                                         CUnicodeUtils::GetUTF8(changelist),
+                                         depth,
+                                         cLists,
+                                         m_pCtx,
+                                         subPool);
 
     return (m_err == nullptr);
 }
@@ -907,10 +907,10 @@ bool SVN::RemoveFromChangeList(const CTSVNPathList& pathList, const CStringArray
     apr_array_header_t* cLists = MakeChangeListArray(changeLists, subPool);
 
     m_err = svn_client_remove_from_changelists(pathList.MakePathArray(subPool),
-                                             depth,
-                                             cLists,
-                                             m_pCtx,
-                                             subPool);
+                                               depth,
+                                               cLists,
+                                               m_pCtx,
+                                               subPool);
 
     return (m_err == nullptr);
 }
@@ -925,16 +925,16 @@ bool SVN::Update(const CTSVNPathList& pathList, const SVNRev& revision,
     CHooks::Instance().PreConnect(pathList);
     SVNTRACE(
         m_err = svn_client_update4(NULL,
-                                 pathList.MakePathArray(localPool),
-                                 revision,
-                                 depth,
-                                 depthIsSticky,
-                                 ignoreExternals,
-                                 bAllowUnverObstructions,
-                                 true, // adds_as_modifications (why would anyone want a tree conflict? Set to true unconditionally)
-                                 makeParents,
-                                 m_pCtx,
-                                 localPool),
+                                   pathList.MakePathArray(localPool),
+                                   revision,
+                                   depth,
+                                   depthIsSticky,
+                                   ignoreExternals,
+                                   bAllowUnverObstructions,
+                                   true, // adds_as_modifications (why would anyone want a tree conflict? Set to true unconditionally)
+                                   makeParents,
+                                   m_pCtx,
+                                   localPool),
         NULL);
     ClearCAPIAuthCacheOnError();
     return (m_err == nullptr);
@@ -1003,18 +1003,18 @@ bool SVN::Copy(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
 
     SVNTRACE(
         m_err = svn_client_copy7(MakeCopyArray(srcPathList, revision, pegRev),
-                               destPath.GetSVNApiPath(subPool),
-                               copyAsChild,
-                               makeParents,
-                               ignoreExternals,
-                               false, // metadata only
-                               pinExternals,
-                               externalsToPin,
-                               revPropHash,
-                               commitCallback2,
-                               this,
-                               m_pCtx,
-                               subPool),
+                                 destPath.GetSVNApiPath(subPool),
+                                 copyAsChild,
+                                 makeParents,
+                                 ignoreExternals,
+                                 false, // metadata only
+                                 pinExternals,
+                                 externalsToPin,
+                                 revPropHash,
+                                 commitCallback2,
+                                 this,
+                                 m_pCtx,
+                                 subPool),
         NULL);
     ClearCAPIAuthCacheOnError();
     if (m_err != nullptr)
@@ -1040,16 +1040,16 @@ bool SVN::Move(const CTSVNPathList& srcPathList, const CTSVNPath& destPath,
     CallPreConnectHookIfUrl(srcPathList, destPath);
     SVNTRACE(
         m_err = svn_client_move7(srcPathList.MakePathArray(subPool),
-                               destPath.GetSVNApiPath(subPool),
-                               moveAsChild,
-                               makeParents,
-                               allowMixed,
-                               metadataOnly,
-                               revPropHash,
-                               commitCallback2,
-                               this,
-                               m_pCtx,
-                               subPool),
+                                 destPath.GetSVNApiPath(subPool),
+                                 moveAsChild,
+                                 makeParents,
+                                 allowMixed,
+                                 metadataOnly,
+                                 revPropHash,
+                                 commitCallback2,
+                                 this,
+                                 m_pCtx,
+                                 subPool),
         NULL);
 
     ClearCAPIAuthCacheOnError();
@@ -1072,12 +1072,12 @@ bool SVN::MakeDir(const CTSVNPathList& pathList, const CString& message, bool ma
 
     SVNTRACE(
         m_err = svn_client_mkdir4(pathList.MakePathArray(subPool),
-                                makeParents,
-                                revPropHash,
-                                commitCallback2,
-                                this,
-                                m_pCtx,
-                                subPool),
+                                  makeParents,
+                                  revPropHash,
+                                  commitCallback2,
+                                  this,
+                                  m_pCtx,
+                                  subPool),
         NULL);
     ClearCAPIAuthCacheOnError();
     if (m_err != nullptr)
@@ -1144,17 +1144,17 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
 
                 for (auto it = infoData->conflicts.cbegin(); it != infoData->conflicts.cend(); ++it)
                 {
-                    if ((it->conflict_new.GetLength()) && (result != svn_wc_conflict_choose_theirs_full))
+                    if ((it->conflictNew.GetLength()) && (result != svn_wc_conflict_choose_theirs_full))
                     {
-                        conflictedEntries.AddPath(CTSVNPath(it->conflict_new));
+                        conflictedEntries.AddPath(CTSVNPath(it->conflictNew));
                     }
-                    if ((it->conflict_old.GetLength()) && (result != svn_wc_conflict_choose_merged))
+                    if ((it->conflictOld.GetLength()) && (result != svn_wc_conflict_choose_merged))
                     {
-                        conflictedEntries.AddPath(CTSVNPath(it->conflict_old));
+                        conflictedEntries.AddPath(CTSVNPath(it->conflictOld));
                     }
-                    if ((it->conflict_wrk.GetLength()) && (result != svn_wc_conflict_choose_mine_full))
+                    if ((it->conflictWrk.GetLength()) && (result != svn_wc_conflict_choose_mine_full))
                     {
-                        conflictedEntries.AddPath(CTSVNPath(it->conflict_wrk));
+                        conflictedEntries.AddPath(CTSVNPath(it->conflictWrk));
                     }
                 }
                 conflictedEntries.DeleteAllPaths(true, false, nullptr);
@@ -1166,10 +1166,10 @@ bool SVN::Resolve(const CTSVNPath& path, svn_wc_conflict_choice_t result, bool r
     const char* svnPath = path.GetSVNApiPath(subPool);
     SVNTRACE(
         m_err = svn_client_resolve(svnPath,
-                                 recurse ? svn_depth_infinity : svn_depth_empty,
-                                 result,
-                                 m_pCtx,
-                                 subPool),
+                                   recurse ? svn_depth_infinity : svn_depth_empty,
+                                   result,
+                                   m_pCtx,
+                                   subPool),
         svnPath);
 
     // reset the conflict resolve callback data
@@ -1396,17 +1396,17 @@ bool SVN::Export(const CTSVNPath& srcPath, const CTSVNPath& destPath, const SVNR
         CHooks::Instance().PreConnect(CTSVNPathList(srcPath));
         SVNTRACE(
             m_err = svn_client_export5(NULL, //no resulting revision needed
-                                     source,
-                                     destPath.GetSVNApiPath(subPool),
-                                     pegRev,
-                                     revision,
-                                     force,
-                                     bIgnoreExternals,
-                                     bIgnoreKeywords,
-                                     depth,
-                                     eol.IsEmpty() ? NULL : static_cast<LPCSTR>(CStringA(eol)),
-                                     m_pCtx,
-                                     subPool),
+                                       source,
+                                       destPath.GetSVNApiPath(subPool),
+                                       pegRev,
+                                       revision,
+                                       force,
+                                       bIgnoreExternals,
+                                       bIgnoreKeywords,
+                                       depth,
+                                       eol.IsEmpty() ? NULL : static_cast<LPCSTR>(CStringA(eol)),
+                                       m_pCtx,
+                                       subPool),
             source);
         ClearCAPIAuthCacheOnError();
         if (m_err != nullptr)
@@ -1426,17 +1426,17 @@ bool SVN::Switch(const CTSVNPath& path, const CTSVNPath& url, const SVNRev& revi
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE(
         m_err = svn_client_switch3(NULL,
-                                 svnPath,
-                                 url.GetSVNApiPath(subPool),
-                                 pegRev,
-                                 revision,
-                                 depth,
-                                 depthIsSticky,
-                                 ignoreExternals,
-                                 allowUnverObstruction,
-                                 ignoreAncestry,
-                                 m_pCtx,
-                                 subPool),
+                                   svnPath,
+                                   url.GetSVNApiPath(subPool),
+                                   pegRev,
+                                   revision,
+                                   depth,
+                                   depthIsSticky,
+                                   ignoreExternals,
+                                   allowUnverObstruction,
+                                   ignoreAncestry,
+                                   m_pCtx,
+                                   subPool),
         svnPath);
 
     ClearCAPIAuthCacheOnError();
@@ -1478,7 +1478,7 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
         if (mimetypesFile && *mimetypesFile)
         {
             m_err = svn_io_parse_mimetypes_file(&(m_pCtx->mimetypes_map),
-                                              mimetypesFile, m_pool);
+                                                mimetypesFile, m_pool);
             if (m_err)
                 return FALSE;
         }
@@ -1494,18 +1494,18 @@ bool SVN::Import(const CTSVNPath& path, const CTSVNPath& url, const CString& mes
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE(
         m_err = svn_client_import5(svnPath,
-                                 url.GetSVNApiPath(subPool),
-                                 depth,
-                                 noIgnore,
-                                 !bUseAutoProps,
-                                 ignoreUnknown,
-                                 revPropHash,
-                                 import_filter,
-                                 this,
-                                 commitCallback2,
-                                 this,
-                                 m_pCtx,
-                                 subPool),
+                                   url.GetSVNApiPath(subPool),
+                                   depth,
+                                   noIgnore,
+                                   !bUseAutoProps,
+                                   ignoreUnknown,
+                                   revPropHash,
+                                   import_filter,
+                                   this,
+                                   commitCallback2,
+                                   this,
+                                   m_pCtx,
+                                   subPool),
         svnPath);
     m_pCtx->log_msg_baton3 = logMessage(L"");
     ClearCAPIAuthCacheOnError();
@@ -1531,20 +1531,20 @@ bool SVN::Merge(const CTSVNPath& path1, const SVNRev& revision1, const CTSVNPath
     CHooks::Instance().PreConnect(CTSVNPathList(path1));
     SVNTRACE(
         m_err = svn_client_merge5(svnPath,
-                                revision1,
-                                path2.GetSVNApiPath(subPool),
-                                revision2,
-                                localPath.GetSVNApiPath(subPool),
-                                depth,
-                                ignoreAnchestry,
-                                ignoreAnchestry,
-                                force,
-                                recordOnly,
-                                dryRun,
-                                allowMixedRevs,
-                                opts,
-                                m_pCtx,
-                                subPool),
+                                  revision1,
+                                  path2.GetSVNApiPath(subPool),
+                                  revision2,
+                                  localPath.GetSVNApiPath(subPool),
+                                  depth,
+                                  ignoreAnchestry,
+                                  ignoreAnchestry,
+                                  force,
+                                  recordOnly,
+                                  dryRun,
+                                  allowMixedRevs,
+                                  opts,
+                                  m_pCtx,
+                                  subPool),
         svnPath);
     ClearCAPIAuthCacheOnError();
 
@@ -1565,19 +1565,19 @@ bool SVN::PegMerge(const CTSVNPath& source, const SVNRevRangeArray& revRangeArra
     CHooks::Instance().PreConnect(CTSVNPathList(source));
     SVNTRACE(
         m_err = svn_client_merge_peg5(svnPath,
-                                    revRangeArray.GetCount() ? revRangeArray.GetAprArray(subPool) : NULL,
-                                    pegRevision,
-                                    destPath.GetSVNApiPath(subPool),
-                                    depth,
-                                    ignoreAncestry,
-                                    ignoreAncestry,
-                                    force,
-                                    recordOnly,
-                                    dryRun,
-                                    allowMixedRevs,
-                                    opts,
-                                    m_pCtx,
-                                    subPool),
+                                      revRangeArray.GetCount() ? revRangeArray.GetAprArray(subPool) : NULL,
+                                      pegRevision,
+                                      destPath.GetSVNApiPath(subPool),
+                                      depth,
+                                      ignoreAncestry,
+                                      ignoreAncestry,
+                                      force,
+                                      recordOnly,
+                                      dryRun,
+                                      allowMixedRevs,
+                                      opts,
+                                      m_pCtx,
+                                      subPool),
         svnPath);
     ClearCAPIAuthCacheOnError();
 
@@ -1598,12 +1598,12 @@ bool SVN::MergeReintegrate(const CTSVNPath& source, const SVNRev& pegRevision, c
 #pragma warning(disable : 4996) // disable deprecated warning: we use svn_client_merge_reintegrate specifically for 'old style' merges
     SVNTRACE(
         m_err = svn_client_merge_reintegrate(svnPath,
-                                           pegRevision,
-                                           wcPath.GetSVNApiPath(subPool),
-                                           dryRun,
-                                           opts,
-                                           m_pCtx,
-                                           subPool),
+                                             pegRevision,
+                                             wcPath.GetSVNApiPath(subPool),
+                                             dryRun,
+                                             opts,
+                                             m_pCtx,
+                                             subPool),
         svnPath);
 #pragma warning(pop)
 
@@ -1622,10 +1622,10 @@ bool SVN::SuggestMergeSources(const CTSVNPath& targetPath, const SVNRev& revisio
     CHooks::Instance().PreConnect(sourceUrLs);
     SVNTRACE(
         m_err = svn_client_suggest_merge_sources(&sourceUrls,
-                                               svnPath,
-                                               revision,
-                                               m_pCtx,
-                                               subPool),
+                                                 svnPath,
+                                                 revision,
+                                                 m_pCtx,
+                                                 subPool),
         svnPath);
 
     ClearCAPIAuthCacheOnError();
@@ -1705,8 +1705,8 @@ bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
     else
         flags |= APR_TRUNCATE;
     m_err = svn_io_file_open(&outFile, outputFile.GetSVNApiPath(localPool),
-                           flags,
-                           APR_OS_DEFAULT, localPool);
+                             flags,
+                             APR_OS_DEFAULT, localPool);
     if (m_err)
         return false;
 
@@ -1725,8 +1725,8 @@ bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
     }
 
     m_err = svn_io_file_open(&errFile, workingErrorFile.GetSVNApiPath(localPool),
-                           APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
-                           APR_OS_DEFAULT, localPool);
+                             APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
+                             APR_OS_DEFAULT, localPool);
     if (m_err)
         return false;
 
@@ -1735,27 +1735,27 @@ bool SVN::Diff(const CTSVNPath& path1, const SVNRev& revision1,
         CHooks::Instance().PreConnect(CTSVNPathList(path1));
     SVNTRACE(
         m_err = svn_client_diff7(opts,
-                               svnPath,
-                               revision1,
-                               path2.GetSVNApiPath(localPool),
-                               revision2,
-                               relativeToDir.IsEmpty() ? NULL : relativeToDir.GetSVNApiPath(localPool),
-                               depth,
-                               ignoreAncestry,
-                               noDiffAdded,
-                               noDiffDeleted,
-                               showCopiesAsAdds,
-                               ignoreContentType,
-                               ignoreProperties,
-                               propertiesOnly,
-                               useGitFormat,
-                               prettyPrint,
-                               "UTF-8",
-                               outStream,
-                               errStream,
-                               NULL, // we don't deal with change lists when diffing
-                               m_pCtx,
-                               localPool),
+                                 svnPath,
+                                 revision1,
+                                 path2.GetSVNApiPath(localPool),
+                                 revision2,
+                                 relativeToDir.IsEmpty() ? NULL : relativeToDir.GetSVNApiPath(localPool),
+                                 depth,
+                                 ignoreAncestry,
+                                 noDiffAdded,
+                                 noDiffDeleted,
+                                 showCopiesAsAdds,
+                                 ignoreContentType,
+                                 ignoreProperties,
+                                 propertiesOnly,
+                                 useGitFormat,
+                                 prettyPrint,
+                                 "UTF-8",
+                                 outStream,
+                                 errStream,
+                                 NULL, // we don't deal with change lists when diffing
+                                 m_pCtx,
+                                 localPool),
         svnPath);
     ClearCAPIAuthCacheOnError();
     if (m_err)
@@ -1800,8 +1800,8 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegRevision,
     else
         flags |= APR_TRUNCATE;
     m_err = svn_io_file_open(&outFile, outputFile.GetSVNApiPath(localpool),
-                           flags,
-                           APR_OS_DEFAULT, localpool);
+                             flags,
+                             APR_OS_DEFAULT, localpool);
 
     if (m_err)
         return false;
@@ -1818,8 +1818,8 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegRevision,
     }
 
     m_err = svn_io_file_open(&errFile, workingErrorFile.GetSVNApiPath(localpool),
-                           APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
-                           APR_OS_DEFAULT, localpool);
+                             APR_WRITE | APR_CREATE | APR_TRUNCATE | APR_BINARY,
+                             APR_OS_DEFAULT, localpool);
     if (m_err)
         return false;
 
@@ -1830,27 +1830,27 @@ bool SVN::PegDiff(const CTSVNPath& path, const SVNRev& pegRevision,
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE(
         m_err = svn_client_diff_peg7(opts,
-                                   svnPath,
-                                   pegRevision,
-                                   startRev,
-                                   endRev,
-                                   relativeToDir.IsEmpty() ? NULL : relativeToDir.GetSVNApiPath(localpool),
-                                   depth,
-                                   ignoreAncestry,
-                                   noDiffAdded,
-                                   noDiffDeleted,
-                                   showCopiesAsAdds,
-                                   ignoreContentType,
-                                   ignoreProperties,
-                                   propertiesOnly,
-                                   useGitFormat,
-                                   prettyPrint,
-                                   "UTF-8",
-                                   outStream,
-                                   errStream,
-                                   NULL, // we don't deal with change lists when diffing
-                                   m_pCtx,
-                                   localpool),
+                                     svnPath,
+                                     pegRevision,
+                                     startRev,
+                                     endRev,
+                                     relativeToDir.IsEmpty() ? NULL : relativeToDir.GetSVNApiPath(localpool),
+                                     depth,
+                                     ignoreAncestry,
+                                     noDiffAdded,
+                                     noDiffDeleted,
+                                     showCopiesAsAdds,
+                                     ignoreContentType,
+                                     ignoreProperties,
+                                     propertiesOnly,
+                                     useGitFormat,
+                                     prettyPrint,
+                                     "UTF-8",
+                                     outStream,
+                                     errStream,
+                                     NULL, // we don't deal with change lists when diffing
+                                     m_pCtx,
+                                     localpool),
         svnPath);
     ClearCAPIAuthCacheOnError();
     if (m_err)
@@ -1874,10 +1874,10 @@ bool SVN::DiffSummarize(const CTSVNPath& path1, const SVNRev& rev1, const CTSVNP
         CHooks::Instance().PreConnect(CTSVNPathList(path1));
     SVNTRACE(
         m_err = svn_client_diff_summarize2(svnPath, rev1,
-                                         path2.GetSVNApiPath(localPool), rev2,
-                                         depth, ignoreAncestry, NULL,
-                                         summarize_func, this,
-                                         m_pCtx, localPool),
+                                           path2.GetSVNApiPath(localPool), rev2,
+                                           depth, ignoreAncestry, NULL,
+                                           summarize_func, this,
+                                           m_pCtx, localPool),
         svnPath);
     ClearCAPIAuthCacheOnError();
 
@@ -1893,9 +1893,9 @@ bool SVN::DiffSummarizePeg(const CTSVNPath& path, const SVNRev& peg, const SVNRe
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE(
         m_err = svn_client_diff_summarize_peg2(svnPath, peg, rev1, rev2,
-                                             depth, ignoreAncestry, NULL,
-                                             summarize_func, this,
-                                             m_pCtx, localPool),
+                                               depth, ignoreAncestry, NULL,
+                                               summarize_func, this,
+                                               m_pCtx, localPool),
         svnPath);
     ClearCAPIAuthCacheOnError();
 
@@ -2080,17 +2080,17 @@ bool SVN::Blame(const CTSVNPath& path, const SVNRev& startRev, const SVNRev& end
     CHooks::Instance().PreConnect(CTSVNPathList(path));
     SVNTRACE(
         m_err = svn_client_blame6(nullptr, nullptr,
-                                svnPath,
-                                peg,
-                                rev1,
-                                rev2,
-                                options,
-                                ignoreMimeType,
-                                includeMerge,
-                                blameReceiver,
-                                this,
-                                m_pCtx,
-                                subPool),
+                                  svnPath,
+                                  peg,
+                                  rev1,
+                                  rev2,
+                                  options,
+                                  ignoreMimeType,
+                                  includeMerge,
+                                  blameReceiver,
+                                  this,
+                                  m_pCtx,
+                                  subPool),
         svnPath);
     ClearCAPIAuthCacheOnError();
 
@@ -2099,17 +2099,17 @@ bool SVN::Blame(const CTSVNPath& path, const SVNRev& startRev, const SVNRev& end
         Prepare();
         SVNTRACE(
             m_err = svn_client_blame6(nullptr, nullptr,
-                                    svnPath,
-                                    peg,
-                                    rev1,
-                                    rev2,
-                                    options,
-                                    ignoreMimeType,
-                                    false,
-                                    blameReceiver,
-                                    this,
-                                    m_pCtx,
-                                    subPool),
+                                      svnPath,
+                                      peg,
+                                      rev1,
+                                      rev2,
+                                      options,
+                                      ignoreMimeType,
+                                      false,
+                                      blameReceiver,
+                                      this,
+                                      m_pCtx,
+                                      subPool),
             svnPath)
     }
     ClearCAPIAuthCacheOnError();
@@ -2552,17 +2552,17 @@ bool SVN::List(const CTSVNPath& url, const SVNRev& revision, const SVNRev& pegRe
 
     SVNTRACE(
         m_err = svn_client_list4(svnPath,
-                               pegRev,
-                               revision,
-                               nullptr,
-                               depth,
-                               dirents,
-                               fetchLocks,
-                               includeExternals,
-                               listReceiver,
-                               this,
-                               m_pCtx,
-                               subPool),
+                                 pegRev,
+                                 revision,
+                                 nullptr,
+                                 depth,
+                                 dirents,
+                                 fetchLocks,
+                                 includeExternals,
+                                 listReceiver,
+                                 this,
+                                 m_pCtx,
+                                 subPool),
         svnPath)
     ClearCAPIAuthCacheOnError();
     return (m_err == nullptr);
@@ -2606,7 +2606,7 @@ bool SVN::IsRepository(const CTSVNPath& path)
     if (rootPath)
     {
         svn_repos_t* pRepos = nullptr;
-        m_err                 = svn_repos_open3(&pRepos, rootPath, nullptr, subPool, subPool);
+        m_err               = svn_repos_open3(&pRepos, rootPath, nullptr, subPool, subPool);
         if ((m_err) && (m_err->apr_err == SVN_ERR_FS_BERKELEY_DB))
             return true;
         if (m_err == nullptr)
@@ -2934,14 +2934,14 @@ svn_revnum_t SVN::RevPropertySet(const CString& sName, const CString& sValue, co
     CHooks::Instance().PreConnect(CTSVNPathList(url));
     SVNTRACE(
         m_err = svn_client_revprop_set2(CUnicodeUtils::GetUTF8(sName),
-                                      pVal,
-                                      pVal2,
-                                      svnPath,
-                                      rev,
-                                      &setRev,
-                                      FALSE,
-                                      m_pCtx,
-                                      subPool),
+                                        pVal,
+                                        pVal2,
+                                        svnPath,
+                                        rev,
+                                        &setRev,
+                                        FALSE,
+                                        m_pCtx,
+                                        subPool),
         svnPath);
     ClearCAPIAuthCacheOnError();
     if (m_err)

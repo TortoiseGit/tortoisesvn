@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010-2012, 2016 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010-2012, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,10 +23,12 @@
  * defined yet (i.e. in case of missing includes).
  */
 
+// ReSharper disable CppInconsistentNaming
 struct apr_pool_t;
 struct svn_client_ctx_t;
 struct svn_error_t;
 struct apr_hash_t;
+// ReSharper restore CppInconsistentNaming
 class CTSVNPath;
 
 /**
@@ -47,37 +49,34 @@ public:
     SVNPool& operator=(SVNPool& rhs) = delete;
 
 public:
-    operator apr_pool_t*();
+    operator apr_pool_t*() const;
 
 private:
     apr_pool_t* m_pool;
 };
 
-
 //////////////////////////////////////////////////////////////////////////
-
-
 
 class SVNHelper
 {
 public:
-    SVNHelper(void);
-    ~SVNHelper(void);
+    SVNHelper();
+    ~SVNHelper();
     SVNHelper(const SVNHelper&) = delete;
     SVNHelper& operator=(SVNHelper&) = delete;
 
 public:
-    apr_pool_t*         Pool() const { return m_pool; }
-    svn_client_ctx_t*   ClientContext(apr_pool_t * pool) const;
-    void                Cancel(bool bCancelled = true) {m_bCancelled = bCancelled;}
-    static const char * GetUserAgentString(apr_pool_t * pool);
-    static bool         IsVersioned(const CTSVNPath& path, bool mustbeok);
+    apr_pool_t*        Pool() const { return m_pool; }
+    svn_client_ctx_t*  ClientContext(apr_pool_t* pool) const;
+    void               Cancel(bool bCancelled = true) { m_bCancelled = bCancelled; }
+    static const char* GetUserAgentString(apr_pool_t* pool);
+    static bool        IsVersioned(const CTSVNPath& path, bool mustBeOk);
+
 protected:
-    apr_pool_t *        m_pool;
-    svn_client_ctx_t *  m_ctx;
-    apr_hash_t *        m_config;
-    bool                m_bCancelled;
+    apr_pool_t*       m_pool;
+    svn_client_ctx_t* m_ctx;
+    apr_hash_t*       m_config;
+    bool              m_bCancelled;
 
-    static svn_error_t * cancelfunc(void * cancelbaton);
+    static svn_error_t* cancelFunc(void* cancelBaton);
 };
-

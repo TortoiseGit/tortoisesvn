@@ -325,7 +325,7 @@ bool SVNExternals::Add(const CTSVNPath &path, const std::string &extValue, bool 
                         if (info)
                         {
                             ext.revision.kind         = svn_opt_revision_number;
-                            ext.revision.value.number = info->lastchangedrev;
+                            ext.revision.value.number = info->lastChangedRev;
                         }
                     }
                 }

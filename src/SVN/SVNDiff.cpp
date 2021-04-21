@@ -199,10 +199,10 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_revnum_t& baseR
 
             if (infoData)
             {
-                if (infoData->copyfromurl && infoData->copyfromurl[0])
-                    baseRev = infoData->copyfromrev;
+                if (infoData->copyFromUrl && infoData->copyFromUrl[0])
+                    baseRev = infoData->copyFromRev;
                 else
-                    baseRev = infoData->lastchangedrev;
+                    baseRev = infoData->lastChangedRev;
             }
         }
         // If necessary, convert the line-endings on the file before diffing

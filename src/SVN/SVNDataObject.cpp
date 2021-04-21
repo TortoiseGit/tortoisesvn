@@ -261,7 +261,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
                 // convert time to FILETIME
                 LONGLONG ll;
 #define APR_DELTA_EPOCH_IN_USEC APR_TIME_C(11644473600000000);
-                ll = it->infoData.lastchangedtime * 1000000L;               // create apr_time
+                ll = it->infoData.lastChangedTime * 1000000L;               // create apr_time
                 ll += APR_DELTA_EPOCH_IN_USEC;                              // add apr_time offset required
                 ll                                               = ll * 10; // to get the FILETIME
                 files->fgd[index].ftLastWriteTime.dwLowDateTime  = static_cast<DWORD>(ll);

@@ -721,11 +721,11 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             m_bLockExists = true;
             SVNInfo            info;
             const SVNInfoData* infodata = info.GetFirstFileInfo(path, SVNRev(L"HEAD"), SVNRev(L"HEAD"));
-            if (infodata && !infodata->lock_comment.IsEmpty())
+            if (infodata && !infodata->lockComment.IsEmpty())
             {
                 NotificationData* data2  = new NotificationData();
                 data2->sActionColumnText = L"";
-                data2->sPathColumnText = infodata->lock_comment;
+                data2->sPathColumnText = infodata->lockComment;
                 AddItemToList(data2);
             }
         }

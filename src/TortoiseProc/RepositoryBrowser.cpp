@@ -547,7 +547,7 @@ void CRepositoryBrowser::InitRepo()
     if (pInfData)
     {
         m_repository.root = CPathUtils::PathUnescape(pInfData->reposRoot);
-        m_repository.uuid = pInfData->reposUUID;
+        m_repository.uuid = pInfData->reposUuid;
         m_InitialUrl = CPathUtils::PathUnescape(pInfData->url);
     }
     else
@@ -690,7 +690,7 @@ void CRepositoryBrowser::InitRepo()
         }
 
         m_repository.root = CPathUtils::PathUnescape(data->reposRoot);
-        m_repository.uuid = data->reposUUID;
+        m_repository.uuid = data->reposUuid;
     }
 
     m_InitialUrl.TrimRight('/');
