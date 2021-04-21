@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013-2015, 2020 - TortoiseSVN
+// Copyright (C) 2013-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,21 +41,21 @@ SVNAuthData::SVNAuthData()
 {
     m_pool = svn_pool_create(NULL);
 
-    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
+    svn_error_clear(svn_client_create_context2(&m_pCtx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 
     // set up authentication
-    m_prompt.Init(m_pool, m_pctx);
+    m_prompt.Init(m_pool, m_pCtx);
     const char * path = nullptr;
     svn_config_get_user_config_path(&path, g_pConfigDir, NULL, m_pool);
 
-    svn_auth_set_parameter(m_pctx->auth_baton, SVN_AUTH_PARAM_CONFIG_DIR, path);
+    svn_auth_set_parameter(m_pCtx->auth_baton, SVN_AUTH_PARAM_CONFIG_DIR, path);
 
-    m_pctx->client_name = SVNHelper::GetUserAgentString(m_pool);
+    m_pCtx->client_name = SVNHelper::GetUserAgentString(m_pool);
 }
 
 SVNAuthData::~SVNAuthData(void)
 {
-    svn_error_clear(Err);
+    svn_error_clear(m_err);
     svn_pool_destroy(m_pool);                  // free the allocated memory
 }
 
@@ -254,8 +254,8 @@ std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> SVNAuthData::GetAuthL
     std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> delList;
     auto cleanup_baton = std::make_tuple(&authList, delList);
     SVNPool subpool(m_pool);
-    Err = svn_config_walk_auth_data(g_pConfigDir, cleanup_callback, &cleanup_baton, subpool);
-    if (Err)
+    m_err = svn_config_walk_auth_data(g_pConfigDir, cleanup_callback, &cleanup_baton, subpool);
+    if (m_err)
     {
         authList.clear();
     }
@@ -267,7 +267,7 @@ std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> SVNAuthData::DeleteAu
     std::vector<std::tuple<CString, CString, SVNAuthDataInfo>> authList;
     auto cleanup_baton = std::make_tuple(&authList, delList);
     SVNPool subpool(m_pool);
-    Err = svn_config_walk_auth_data(g_pConfigDir, cleanup_callback, &cleanup_baton, subpool);
+    m_err = svn_config_walk_auth_data(g_pConfigDir, cleanup_callback, &cleanup_baton, subpool);
     CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
     CTSVNPath syncPath = CTSVNPath(CString(rSyncPath));
     if (!syncPath.IsEmpty() && syncPath.Exists())
@@ -292,7 +292,7 @@ bool SVNAuthData::ExportAuthData(const CString& targetpath, const CString& passw
 {
     std::vector<std::tuple<std::string, std::string>> authdata;
     SVNPool subpool(m_pool);
-    Err = svn_config_walk_auth_data(g_pConfigDir, auth_callback, &authdata, subpool);
+    m_err = svn_config_walk_auth_data(g_pConfigDir, auth_callback, &authdata, subpool);
 
     CString tp = targetpath;
     tp.Replace('\\', '/');
@@ -301,24 +301,24 @@ bool SVNAuthData::ExportAuthData(const CString& targetpath, const CString& passw
     for (const auto& ad : authdata)
     {
         apr_hash_t * hash = nullptr;
-        Err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), NULL, subpool);
-        if (Err)
+        m_err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), NULL, subpool);
+        if (m_err)
         {
-            svn_error_clear(Err);
+            svn_error_clear(m_err);
             return false;
         }
 
         if (!overwrite)
         {
             apr_hash_t * hash2 = nullptr;
-            Err = svn_config_read_auth_data(&hash2, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), targetpathA.c_str(), subpool);
-            if ((Err != nullptr) || (hash2 != nullptr))
+            m_err = svn_config_read_auth_data(&hash2, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), targetpathA.c_str(), subpool);
+            if ((m_err != nullptr) || (hash2 != nullptr))
             {
-                svn_error_clear(Err);
+                svn_error_clear(m_err);
                 continue;
             }
 
-            svn_error_clear(Err);
+            svn_error_clear(m_err);
         }
 
         const svn_string_t * pw = (const svn_string_t *)svn_hash_gets(hash, SVN_CONFIG_AUTHN_PASSWORD_KEY);
@@ -345,14 +345,14 @@ bool SVNAuthData::ExportAuthData(const CString& targetpath, const CString& passw
             svn_hash_sets(hash, SVN_CONFIG_AUTHN_PASSPHRASE_KEY, svn_string_create(crypt.c_str(), subpool));
         }
 
-        Err = svn_config_write_auth_data(hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), targetpathA.c_str(), subpool);
-        if (Err)
+        m_err = svn_config_write_auth_data(hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), targetpathA.c_str(), subpool);
+        if (m_err)
         {
-            svn_error_clear(Err);
+            svn_error_clear(m_err);
             return false;
         }
     }
-    svn_error_clear(Err);
+    svn_error_clear(m_err);
     return true;
 }
 
@@ -364,30 +364,30 @@ bool SVNAuthData::ImportAuthData(const CString& importpath, const CString& passw
     std::vector<std::tuple<std::string, std::string>> authdata;
     SVNPool subpool(m_pool);
 
-    Err = svn_config_walk_auth_data(importpathA.c_str(), auth_callback, &authdata, subpool);
+    m_err = svn_config_walk_auth_data(importpathA.c_str(), auth_callback, &authdata, subpool);
 
     std::string passwordA = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
     for (const auto& ad : authdata)
     {
         apr_hash_t * hash = nullptr;
-        Err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), importpathA.c_str(), subpool);
-        if (Err)
+        m_err = svn_config_read_auth_data(&hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), importpathA.c_str(), subpool);
+        if (m_err)
         {
-            svn_error_clear(Err);
+            svn_error_clear(m_err);
             return false;
         }
 
         if (!overwrite)
         {
             apr_hash_t * hash2 = nullptr;
-            Err = svn_config_read_auth_data(&hash2, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), g_pConfigDir, subpool);
-            if ((Err != nullptr) || (hash2 != nullptr))
+            m_err = svn_config_read_auth_data(&hash2, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), g_pConfigDir, subpool);
+            if ((m_err != nullptr) || (hash2 != nullptr))
             {
-                svn_error_clear(Err);
+                svn_error_clear(m_err);
                 continue;
             }
 
-            svn_error_clear(Err);
+            svn_error_clear(m_err);
         }
 
         const svn_string_t * pw = (const svn_string_t *)svn_hash_gets(hash, SVN_CONFIG_AUTHN_PASSWORD_KEY);
@@ -410,13 +410,13 @@ bool SVNAuthData::ImportAuthData(const CString& importpath, const CString& passw
             svn_hash_sets(hash, SVN_CONFIG_AUTHN_PASSPHRASE_KEY, p);
         }
 
-        Err = svn_config_write_auth_data(hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), g_pConfigDir, subpool);
-        if (Err)
+        m_err = svn_config_write_auth_data(hash, std::get<0>(ad).c_str(), std::get<1>(ad).c_str(), g_pConfigDir, subpool);
+        if (m_err)
         {
-            svn_error_clear(Err);
+            svn_error_clear(m_err);
             return false;
         }
     }
-    svn_error_clear(Err);
+    svn_error_clear(m_err);
     return true;
 }

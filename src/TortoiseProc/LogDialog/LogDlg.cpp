@@ -1703,17 +1703,17 @@ void CLogDlg::LogThread()
         // of that path and check whether one of the merge URLs
         // match the URL we show the log for.
         SVNPool localpool(m_pool);
-        svn_error_clear(Err);
+        svn_error_clear(m_err);
         apr_hash_t* mergeinfo = nullptr;
         const char* svnPath   = m_mergePath.GetSVNApiPath(localpool);
 
         SVNTRACE(
-            Err = svn_client_mergeinfo_get_merged(&mergeinfo, svnPath, SVNRev(SVNRev::REV_WC),
-                                                  m_pctx, localpool),
+            m_err = svn_client_mergeinfo_get_merged(&mergeinfo, svnPath, SVNRev(SVNRev::REV_WC),
+                                                  m_pCtx, localpool),
             svnPath
 
         )
-        if (Err == nullptr)
+        if (m_err == nullptr)
         {
             // now check the relative paths
             apr_hash_index_t* hi;
@@ -1830,13 +1830,13 @@ void CLogDlg::LogThread()
 
         // Err will also be set if the user cancelled.
 
-        if (Err && (Err->apr_err == SVN_ERR_CANCELLED))
+        if (m_err && (m_err->apr_err == SVN_ERR_CANCELLED))
         {
-            svn_error_clear(Err);
-            Err = NULL;
+            svn_error_clear(m_err);
+            m_err = NULL;
         }
 
-        succeeded = Err == NULL;
+        succeeded = m_err == NULL;
 
         // make sure the m_logEntries is consistent
 

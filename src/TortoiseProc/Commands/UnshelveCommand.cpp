@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2018 - TortoiseSVN
+// Copyright (C) 2017-2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -72,7 +72,7 @@ bool UnshelveCommand::Unshelve(const CString& shelveName, int version, const CTS
     progDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
 
     SVN svn;
-    if (!svn.Unshelve(shelveName, version, sDir))
+    if (!svn.UnShelve(shelveName, version, sDir))
     {
         progDlg.Stop();
         svn.ShowErrorDialog(GetExplorerHWND(), sDir);

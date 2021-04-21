@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,24 +62,24 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
 {
     m_pool = svn_pool_create (NULL);
 
-    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
+    svn_error_clear(svn_client_create_context2(&m_pCtx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 
     if (pbCancelled)
     {
-        m_pctx->cancel_func = cancel;
-        m_pctx->cancel_baton = pbCancelled;
+        m_pCtx->cancel_func = cancel;
+        m_pCtx->cancel_baton = pbCancelled;
     }
-    m_pctx->client_name = SVNHelper::GetUserAgentString(m_pool);
+    m_pCtx->client_name = SVNHelper::GetUserAgentString(m_pool);
 
 
 #ifdef _MFC_VER
     // set up authentication
-    m_prompt.Init(m_pool, m_pctx);
+    m_prompt.Init(m_pool, m_pCtx);
 
-    if (Err)
+    if (m_err)
     {
         ShowErrorDialog(NULL);
-        svn_error_clear(Err);
+        svn_error_clear(m_err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
         exit(-1);
     }
@@ -88,7 +88,7 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
 
 SVNStatus::~SVNStatus(void)
 {
-    svn_error_clear(Err);
+    svn_error_clear(m_err);
     svn_pool_destroy (m_pool);                  // free the allocated memory
 }
 
@@ -204,7 +204,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
     apr_array_header_t *        statusarray;
     const sort_item*            item;
 
-    svn_error_clear(Err);
+    svn_error_clear(m_err);
     statushash = apr_hash_make(m_pool);
     exthash = apr_hash_make(m_pool);
     svn_revnum_t youngest = SVN_INVALID_REVNUM;
@@ -227,8 +227,8 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        Err = svn_client_status6 (&youngest,
-                                  m_pctx,
+        m_err = svn_client_status6 (&youngest,
+                                  m_pCtx,
                                   svnPath,
                                   &rev,
                                   svn_depth_empty,        // depth
@@ -247,7 +247,7 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
     ClearCAPIAuthCacheOnError();
 
     // Error present if function is not under version control
-    if ((Err != NULL) || (apr_hash_count(statushash) == 0))
+    if ((m_err != NULL) || (apr_hash_count(statushash) == 0))
     {
         status = NULL;
         return -2;
@@ -270,7 +270,7 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
 {
     const sort_item*            item;
 
-    svn_error_clear(Err);
+    svn_error_clear(m_err);
     m_statushash = apr_hash_make(m_pool);
     m_externalhash = apr_hash_make(m_pool);
     headrev = SVN_INVALID_REVNUM;
@@ -282,8 +282,8 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
     hashbaton.pThis = this;
     m_statushashindex = 0;
 
-    m_pctx->notify_func2 = notify;
-    m_pctx->notify_baton2 = &hashbaton;
+    m_pCtx->notify_func2 = notify;
+    m_pCtx->notify_baton2 = &hashbaton;
 
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
@@ -294,8 +294,8 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        Err = svn_client_status6 (&headrev,
-                                  m_pctx,
+        m_err = svn_client_status6 (&headrev,
+                                  m_pCtx,
                                   svnPath,
                                   &rev,
                                   depth,
@@ -314,7 +314,7 @@ svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVN
     ClearCAPIAuthCacheOnError();
 
     // Error present if function is not under version control
-    if ((Err != NULL) || (apr_hash_count(m_statushash) == 0))
+    if ((m_err != NULL) || (apr_hash_count(m_statushash) == 0))
     {
         return NULL;
     }

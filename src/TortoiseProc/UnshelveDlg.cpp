@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2020 - TortoiseSVN
+// Copyright (C) 2017-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -162,7 +162,7 @@ void CUnshelve::OnCbnSelchangeShelvename()
         // get the info for the selected shelf
         SVN svn;
         m_currentShelfInfo = svn.GetShelfInfo(shelfName, m_pathList.GetCommonRoot());
-        m_cLogMessage.SetText(m_currentShelfInfo.LogMessage);
+        m_cLogMessage.SetText(m_currentShelfInfo.logMessage);
         int v = 0;
         m_cVersionCombo.ResetContent();
         for (const auto& version : m_currentShelfInfo.versions)

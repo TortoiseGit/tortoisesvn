@@ -2059,7 +2059,7 @@ void CRepositoryBrowser::OnDelete()
             return;
         bool bRet = Remove(urlList, true, false, sLogMsg, input.m_revProps);
         RunPostCommit(urlList, svn_depth_unknown, m_commitRev, sLogMsg);
-        if (!bRet || !PostCommitErr.IsEmpty())
+        if (!bRet || !m_postCommitErr.IsEmpty())
         {
             wait_cursor.Hide();
             ShowErrorDialog(m_hWnd);
@@ -2637,7 +2637,7 @@ void CRepositoryBrowser::OnLvnEndlabeleditRepolist(NMHDR *pNMHDR, LRESULT *pResu
                          false, false, false, false,
                          input.m_revProps);
         RunPostCommit(plist, svn_depth_unknown, m_commitRev, sLogMsg);
-        if (!bRet || !PostCommitErr.IsEmpty())
+        if (!bRet || !m_postCommitErr.IsEmpty())
         {
             wait_cursor.Hide();
             ShowErrorDialog(m_hWnd);
@@ -2716,7 +2716,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR *pNMHDR, LRESULT *pResu
                          false, false, false, false,
                          input.m_revProps);
         RunPostCommit(plist, svn_depth_unknown, m_commitRev, sLogMsg);
-        if (!bRet || !PostCommitErr.IsEmpty())
+        if (!bRet || !m_postCommitErr.IsEmpty())
         {
             wait_cursor.Hide();
             ShowErrorDialog(m_hWnd);
@@ -3019,7 +3019,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                 else
                     bRet = Move(pathlist, target, sLogMsg, true, false, false, false, input.m_revProps);
             RunPostCommit(pathlist, svn_depth_unknown, m_commitRev, sLogMsg);
-            if (!bRet || !PostCommitErr.IsEmpty())
+            if (!bRet || !m_postCommitErr.IsEmpty())
             {
                 wait_cursor.Hide();
                 ShowErrorDialog(m_hWnd);
@@ -3138,7 +3138,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                 bool bRet = Import(pathlist[importindex],
                                    CTSVNPath(target.GetSVNPathString()+L"/"+filename),
                                    sLogMsg, &m_ProjectProperties, svn_depth_infinity, true, true, false, input.m_revProps);
-                if (!bRet || !PostCommitErr.IsEmpty())
+                if (!bRet || !m_postCommitErr.IsEmpty())
                 {
                     ShowErrorDialog(m_hWnd);
                     if (!bRet)
@@ -3930,7 +3930,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         break;
                     bool bRet = Remove (selection.GetURLsEscaped (0, false), true, false, sLogMsg, input.m_revProps);
                     RunPostCommit(selection.GetURLsEscaped(0, false), svn_depth_unknown, m_commitRev, sLogMsg);
-                    if (!bRet || !PostCommitErr.IsEmpty())
+                    if (!bRet || !m_postCommitErr.IsEmpty())
                     {
                         wait_cursor.Hide();
                         ShowErrorDialog(m_hWnd);
@@ -4006,7 +4006,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                                            svn_depth_infinity,
                                            true, false, false, input.m_revProps);
                         RunPostCommit(selection.GetURLsEscaped(0, true), svn_depth_unknown, m_commitRev, sLogMsg);
-                        if (!bRet || !PostCommitErr.IsEmpty())
+                        if (!bRet || !m_postCommitErr.IsEmpty())
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
@@ -4067,7 +4067,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                                            svn_depth_empty,
                                            true, true, false, input.m_revProps);
                         RunPostCommit(selection.GetURLsEscaped(0, true), svn_depth_unknown, m_commitRev, sLogMsg);
-                        if (!bRet || !PostCommitErr.IsEmpty())
+                        if (!bRet || !m_postCommitErr.IsEmpty())
                         {
                             progDlg.Stop();
                             SetAndClearProgressInfo((HWND)NULL);
@@ -4154,7 +4154,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 
                         bool bRet = Copy(selection.GetURLsEscaped(0, true), CTSVNPath(dlg.m_name), revision, revision, sLogMsg, true, true, false, false, SVNExternals(), input.m_revProps);
                         RunPostCommit(selection.GetURLsEscaped(0, true), svn_depth_unknown, m_commitRev, sLogMsg);
-                        if (!bRet || !PostCommitErr.IsEmpty())
+                        if (!bRet || !m_postCommitErr.IsEmpty())
                         {
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);
@@ -4234,7 +4234,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                         // when creating the new folder, also trim any whitespace chars from it
                         bool bRet = MakeDir(plist, sLogMsg, true, input.m_revProps);
                         RunPostCommit(plist, svn_depth_unknown, m_commitRev, sLogMsg);
-                        if (!bRet || !PostCommitErr.IsEmpty())
+                        if (!bRet || !m_postCommitErr.IsEmpty())
                         {
                             wait_cursor.Hide();
                             ShowErrorDialog(m_hWnd);

@@ -2003,13 +2003,13 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
         }
     }
     CString progText;
-    if (pProgressData->overall_total < 1024LL)
-        m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALBYTESTRANSFERRED, pProgressData->overall_total);
-    else if (pProgressData->overall_total < 1200000LL)
-        m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pProgressData->overall_total / 1024);
+    if (pProgressData->overallTotal < 1024LL)
+        m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALBYTESTRANSFERRED, pProgressData->overallTotal);
+    else if (pProgressData->overallTotal < 1200000LL)
+        m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pProgressData->overallTotal / 1024);
     else
-        m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pProgressData->overall_total / 1024000.0));
-    progText.FormatMessage(L"%1!s!, %2!s!", (LPCTSTR)m_sTotalBytesTransferred, (LPCTSTR)pProgressData->SpeedString);
+        m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, (double)((double)pProgressData->overallTotal / 1024000.0));
+    progText.FormatMessage(L"%1!s!, %2!s!", (LPCTSTR)m_sTotalBytesTransferred, (LPCTSTR)pProgressData->speedString);
     SetDlgItemText(IDC_PROGRESSLABEL, progText);
     return 0;
 }
@@ -2937,20 +2937,20 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
         error = GetLastErrorMessage();
         // if a non-recursive commit failed with SVN_ERR_UNSUPPORTED_FEATURE,
         // that means a folder deletion couldn't be committed.
-        if ((m_Revision != 0)&&(Err)&&(Err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))
+        if ((m_Revision != 0)&&(m_err)&&(m_err->apr_err == SVN_ERR_UNSUPPORTED_FEATURE))
         {
             ReportError(CString(MAKEINTRESOURCE(IDS_PROGRS_NONRECURSIVEHINT)));
         }
         commitSuccessful = false;
         return false;
     }
-    if (!PostCommitErr.IsEmpty())
+    if (!m_postCommitErr.IsEmpty())
     {
         // post commit errors, while still errors don't make
         // the commit itself fail. So we restore the old error
         // state after reporting the post-commit error.
         bool bErrState = m_bErrorsOccurred;
-        ReportError(PostCommitErr);
+        ReportError(m_postCommitErr);
         m_bErrorsOccurred = bErrState;
     }
     if (commitSuccessful)
@@ -3096,9 +3096,9 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
         ReportSVNError();
         return false;
     }
-    if (!PostCommitErr.IsEmpty())
+    if (!m_postCommitErr.IsEmpty())
     {
-        ReportError(PostCommitErr);
+        ReportError(m_postCommitErr);
     }
 
     if (m_options & ProgOptSwitchAfterCopy)
@@ -3117,7 +3117,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
             // post-commit hook on the main server catches up.
             if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, SVNRev::REV_HEAD, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), (m_options & ProgOptIgnoreAncestry) != 0))
             {
-                if (PostCommitErr.IsEmpty() && GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND)
+                if (m_postCommitErr.IsEmpty() && GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND)
                 {
                     CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_SWITCHNOTREADY));
                     ReportNotification(sMsg);
@@ -3131,7 +3131,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
                 }
                 else if (!Switch(m_targetPathList[0], m_url, SVNRev::REV_HEAD, m_Revision, m_depth, (m_options & ProgOptStickyDepth) != 0, (m_options & ProgOptIgnoreExternals) != 0, !!DWORD(CRegDWORD(L"Software\\TortoiseSVN\\AllowUnversionedObstruction", true)), (m_options & ProgOptIgnoreAncestry) != 0))
                 {
-                    if (PostCommitErr.IsEmpty() && GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND)
+                    if (m_postCommitErr.IsEmpty() && GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND)
                     {
                         CString sMsg(MAKEINTRESOURCE(IDS_PROGRS_COPY_SWITCHNOTREADY));
                         ReportNotification(sMsg);
@@ -3142,7 +3142,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
                     return false;
                 }
             }
-        } while (PostCommitErr.IsEmpty() && (GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND) && (retrycounter++ < 5));
+        } while (m_postCommitErr.IsEmpty() && (GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND) && (retrycounter++ < 5));
         if (GetSVNError() && GetSVNError()->apr_err == SVN_ERR_FS_NOT_FOUND)
         {
             ReportSVNError();

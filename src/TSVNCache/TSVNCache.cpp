@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005 - 2009, 2011-2012, 2014-2016 - TortoiseSVN
+// External Cache Copyright (C) 2005 - 2009, 2011-2012, 2014-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -62,7 +62,7 @@ CComAutoCriticalSection critSec;
 
 #define PACKVERSION(major,minor) MAKELONG(minor,major)
 
-svn_error_t * svn_error_handle_malfunction(svn_boolean_t can_return,
+svn_error_t * svnErrorHandleMalfunction(svn_boolean_t can_return,
                                            const char *file, int line,
                                            const char *expr)
 {
@@ -137,7 +137,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     svn_dso_initialize2();
     apr_pool_t *utfPool = svn_pool_create(NULL);
     svn_utf_initialize2(FALSE, utfPool);
-    svn_error_set_malfunction_handler(svn_error_handle_malfunction);
+    svn_error_set_malfunction_handler(svnErrorHandleMalfunction);
     g_SVNAdminDir.Init();
     CSVNStatusCache::Create();
     CSVNStatusCache::Instance().Init();

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2018, 2020 - TortoiseSVN
+// Copyright (C) 2016-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -89,15 +89,15 @@ SVNConflictInfo::SVNConflictInfo()
 {
     m_pool = svn_pool_create(NULL);
     m_infoPool = svn_pool_create(m_pool);
-    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
+    svn_error_clear(svn_client_create_context2(&m_pCtx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 
-    m_prompt.Init(m_pool, m_pctx);
+    m_prompt.Init(m_pool, m_pCtx);
 
-    m_pctx->cancel_func = cancelCallback;
-    m_pctx->cancel_baton = this;
-    m_pctx->client_name = SVNHelper::GetUserAgentString(m_pool);
-    m_pctx->notify_func2 = notifyCallback;
-    m_pctx->notify_baton2 = this;
+    m_pCtx->cancel_func = cancelCallback;
+    m_pCtx->cancel_baton = this;
+    m_pCtx->client_name = SVNHelper::GetUserAgentString(m_pool);
+    m_pCtx->notify_func2 = notifyCallback;
+    m_pCtx->notify_baton2 = this;
 }
 
 SVNConflictInfo::~SVNConflictInfo()
@@ -117,13 +117,13 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
     const char* svnPath = path.GetSVNApiPath(scratchpool);
 
     SVNTRACE(
-        Err = svn_client_conflict_get(&m_conflict, svnPath, m_pctx, m_infoPool, scratchpool),
+        m_err = svn_client_conflict_get(&m_conflict, svnPath, m_pCtx, m_infoPool, scratchpool),
         svnPath
     );
-    if (Err != NULL && Err->apr_err == SVN_ERR_WC_PATH_NOT_FOUND)
+    if (m_err != NULL && m_err->apr_err == SVN_ERR_WC_PATH_NOT_FOUND)
     {
-        svn_error_clear(Err);
-        Err = NULL;
+        svn_error_clear(m_err);
+        m_err = NULL;
         m_path = path;
         m_text_conflicted = FALSE;
         m_prop_conflicts = apr_array_make(m_infoPool, 0, sizeof(const char*));
@@ -133,7 +133,7 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
         m_localChangeSummary.Empty();
         return true;
     }
-    else if (Err != NULL)
+    else if (m_err != NULL)
     {
         return false;
     }
@@ -141,11 +141,11 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
     m_path = path;
 
     SVNTRACE(
-        Err = svn_client_conflict_get_conflicted(&m_text_conflicted, &m_prop_conflicts, &m_tree_conflicted, m_conflict, m_infoPool, scratchpool),
+        m_err = svn_client_conflict_get_conflicted(&m_text_conflicted, &m_prop_conflicts, &m_tree_conflicted, m_conflict, m_infoPool, scratchpool),
         svnPath
     );
 
-    if (Err != NULL)
+    if (m_err != NULL)
         return false;
 
     if (m_tree_conflicted)
@@ -153,12 +153,12 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
         const char *incoming_change;
         const char *local_change;
         SVNTRACE(
-            Err = svn_client_conflict_tree_get_description(&incoming_change, &local_change, m_conflict,
-                                                           m_pctx, scratchpool, scratchpool),
+            m_err = svn_client_conflict_tree_get_description(&incoming_change, &local_change, m_conflict,
+                                                           m_pCtx, scratchpool, scratchpool),
             svnPath
         );
 
-        if (Err != NULL)
+        if (m_err != NULL)
             return false;
 
         m_incomingChangeSummary = CUnicodeUtils::GetUnicode(incoming_change);
@@ -168,11 +168,11 @@ bool SVNConflictInfo::Get(const CTSVNPath & path)
     {
         const char * propdesc;
         SVNTRACE(
-            Err = svn_client_conflict_prop_get_description(&propdesc, m_conflict,
+            m_err = svn_client_conflict_prop_get_description(&propdesc, m_conflict,
                                                            scratchpool, scratchpool),
             svnPath
         );
-        if (Err != nullptr)
+        if (m_err != nullptr)
             return false;
 
         m_propDescription = CUnicodeUtils::GetUnicode(propdesc);
@@ -291,7 +291,7 @@ bool SVNConflictInfo::GetPropValFiles(const CString & propertyName, CTSVNPath & 
 
         const char *path = svn_client_conflict_get_local_abspath(m_conflict);
         SVNTRACE(
-            Err = createPropValFiles(CUnicodeUtils::GetUTF8(propertyName),
+            m_err = createPropValFiles(CUnicodeUtils::GetUTF8(propertyName),
                                      mergedfile.GetSVNApiPath(scratchpool),
                                      basefile.GetSVNApiPath(scratchpool),
                                      theirfile.GetSVNApiPath(scratchpool),
@@ -301,7 +301,7 @@ bool SVNConflictInfo::GetPropValFiles(const CString & propertyName, CTSVNPath & 
         );
     }
 
-    if (Err)
+    if (m_err)
     {
         // Delete files on error.
         mergedfile.Delete(false);
@@ -322,11 +322,11 @@ CString SVNConflictInfo::GetPropDiff(const CString & propertyName)
     const svn_string_t *their_propval;
     svn_stringbuf_t *merged_propval = svn_stringbuf_create_empty(scratchpool);
 
-    Err = svn_client_conflict_prop_get_propvals(
+    m_err = svn_client_conflict_prop_get_propvals(
         NULL, &my_propval, &base_propval,
         &their_propval, m_conflict, CUnicodeUtils::GetUTF8(propertyName),
         scratchpool);
-    if (Err)
+    if (m_err)
         return{};
 
     svn_diff_file_options_t *options = svn_diff_file_options_create(scratchpool);
@@ -343,11 +343,11 @@ CString SVNConflictInfo::GetPropDiff(const CString & propertyName)
         my_propval = svn_string_create_empty(scratchpool);
 
     options->ignore_eol_style = TRUE;
-    Err = svn_diff_mem_string_diff3(&diff, base_propval, my_propval, their_propval, options, scratchpool);
-    if (Err)
+    m_err = svn_diff_mem_string_diff3(&diff, base_propval, my_propval, their_propval, options, scratchpool);
+    if (m_err)
         return{};
 
-    Err = svn_diff_mem_string_output_merge3(
+    m_err = svn_diff_mem_string_output_merge3(
         svn_stream_from_stringbuf(merged_propval, scratchpool),
         diff, base_propval, my_propval, their_propval,
         "||||||| ORIGINAL",
@@ -356,7 +356,7 @@ CString SVNConflictInfo::GetPropDiff(const CString & propertyName)
         "=======",
         svn_diff_conflict_display_modified_original_latest,
         NULL, NULL, scratchpool);
-    if (Err)
+    if (m_err)
         return{};
 
     CStringA propValA(merged_propval->data, (int)merged_propval->len);
@@ -373,13 +373,13 @@ bool SVNConflictInfo::GetTextContentFiles(CTSVNPath & basefile, CTSVNPath & thei
 
     const char *path = svn_client_conflict_get_local_abspath(m_conflict);
     SVNTRACE(
-        Err = svn_client_conflict_text_get_contents(NULL, &my_abspath,
+        m_err = svn_client_conflict_text_get_contents(NULL, &my_abspath,
                                                     &base_abspath, &their_abspath,
                                                     m_conflict, scratchpool, scratchpool),
         path
     );
 
-    if (Err)
+    if (m_err)
         return false;
 
     if (base_abspath)
@@ -408,12 +408,12 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
     apr_array_header_t *options;
     const char *path = svn_client_conflict_get_local_abspath(m_conflict);
     SVNTRACE(
-        Err = svn_client_conflict_tree_get_resolution_options(&options, m_conflict,
-                                                              m_pctx, result.GetPool(), scratchpool),
+        m_err = svn_client_conflict_tree_get_resolution_options(&options, m_conflict,
+                                                              m_pCtx, result.GetPool(), scratchpool),
         path
     );
 
-    if (Err != NULL)
+    if (m_err != NULL)
         return false;
 
     for (int i = 0; i < options->nelts; i++)
@@ -431,14 +431,14 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
         // the first one is already set by the normal conflict options.
         apr_array_header_t *possible_moved_to_repos_relpaths = nullptr;
 
-        Err = svn_client_conflict_option_get_moved_to_repos_relpath_candidates2(&possible_moved_to_repos_relpaths, opt, result.GetPool(), scratchpool);
+        m_err = svn_client_conflict_option_get_moved_to_repos_relpath_candidates2(&possible_moved_to_repos_relpaths, opt, result.GetPool(), scratchpool);
         // TODO: what should we do if the number of candidates gets higher than e.g. 4?
         // we can't just add a button for every candidate: the dialog would get a bigger height than the monitor.
-        if ((Err == nullptr) && possible_moved_to_repos_relpaths && (possible_moved_to_repos_relpaths->nelts > 1))
+        if ((m_err == nullptr) && possible_moved_to_repos_relpaths && (possible_moved_to_repos_relpaths->nelts > 1))
         {
             for (int j = 0; j < possible_moved_to_repos_relpaths->nelts; ++j)
             {
-                svn_client_conflict_option_set_moved_to_repos_relpath2(opt, j, m_pctx, scratchpool);
+                svn_client_conflict_option_set_moved_to_repos_relpath2(opt, j, m_pCtx, scratchpool);
 
                 label       = svn_client_conflict_option_get_label(opt, scratchpool);
                 description = svn_client_conflict_option_get_description(opt, scratchpool);
@@ -451,12 +451,12 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions & result)
 
         apr_array_header_t *possible_moved_to_abspaths = nullptr;
 
-        Err = svn_client_conflict_option_get_moved_to_abspath_candidates2(&possible_moved_to_abspaths, opt, result.GetPool(), scratchpool);
-        if ((Err == nullptr) && possible_moved_to_abspaths && (possible_moved_to_abspaths->nelts > 1))
+        m_err = svn_client_conflict_option_get_moved_to_abspath_candidates2(&possible_moved_to_abspaths, opt, result.GetPool(), scratchpool);
+        if ((m_err == nullptr) && possible_moved_to_abspaths && (possible_moved_to_abspaths->nelts > 1))
         {
             for (int j = 0; j < possible_moved_to_abspaths->nelts; ++j)
             {
-                svn_client_conflict_option_set_moved_to_abspath2(opt, j, m_pctx, scratchpool);
+                svn_client_conflict_option_set_moved_to_abspath2(opt, j, m_pCtx, scratchpool);
 
                 label       = svn_client_conflict_option_get_label(opt, scratchpool);
                 description = svn_client_conflict_option_get_description(opt, scratchpool);
@@ -485,12 +485,12 @@ bool SVNConflictInfo::GetTextResolutionOptions(SVNConflictOptions & result)
     apr_array_header_t *options;
     const char *path = svn_client_conflict_get_local_abspath(m_conflict);
     SVNTRACE(
-        Err = svn_client_conflict_text_get_resolution_options(&options, m_conflict,
-                                                              m_pctx, result.GetPool(), scratchpool),
+        m_err = svn_client_conflict_text_get_resolution_options(&options, m_conflict,
+                                                              m_pCtx, result.GetPool(), scratchpool),
         path
     );
 
-    if (Err != NULL)
+    if (m_err != NULL)
         return false;
 
     for (int i = 0; i < options->nelts; i++)
@@ -516,12 +516,12 @@ bool SVNConflictInfo::GetPropResolutionOptions(SVNConflictOptions & result)
     apr_array_header_t *options;
     const char *path = svn_client_conflict_get_local_abspath(m_conflict);
     SVNTRACE(
-        Err = svn_client_conflict_prop_get_resolution_options(&options, m_conflict,
-                                                              m_pctx, result.GetPool(), scratchpool),
+        m_err = svn_client_conflict_prop_get_resolution_options(&options, m_conflict,
+                                                              m_pCtx, result.GetPool(), scratchpool),
         path
     );
 
-    if (Err != NULL)
+    if (m_err != NULL)
         return false;
 
     for (int i = 0; i < options->nelts; i++)
@@ -546,7 +546,7 @@ bool SVNConflictInfo::FetchTreeDetails()
 
     const char* svnPath = m_path.GetSVNApiPath(scratchpool);
     SVNTRACE(
-        Err = svn_client_conflict_tree_get_details(m_conflict, m_pctx, m_infoPool),
+        m_err = svn_client_conflict_tree_get_details(m_conflict, m_pCtx, m_infoPool),
         svnPath
     );
 
@@ -557,16 +557,16 @@ bool SVNConflictInfo::FetchTreeDetails()
         const char *incoming_change;
         const char *local_change;
         SVNTRACE(
-            Err = svn_client_conflict_tree_get_description(&incoming_change, &local_change, m_conflict,
-                                                           m_pctx, scratchpool, scratchpool),
+            m_err = svn_client_conflict_tree_get_description(&incoming_change, &local_change, m_conflict,
+                                                           m_pCtx, scratchpool, scratchpool),
             svnPath
         );
 
-        if (Err == NULL)
+        if (m_err == NULL)
             m_detailedIncomingChangeSummary = CUnicodeUtils::GetUnicode(incoming_change);
     }
 
-    return (Err == NULL);
+    return (m_err == NULL);
 }
 
 svn_error_t* SVNConflictInfo::cancelCallback(void *baton)

@@ -20,7 +20,6 @@
 #include "TSVNPath.h"
 #include "StringUtils.h"
 #include "UnicodeUtils.h"
-#include "PathUtils.h"
 #include <Commctrl.h>
 
 #pragma comment(lib, "Comctl32.lib")
@@ -29,7 +28,6 @@
 #include "AppUtils.h"
 #endif
 
-#include "resource.h"
 #include "../TortoiseShell/resource.h"
 
 #pragma warning(push)
@@ -37,12 +35,13 @@
 #pragma warning(pop)
 
 #ifndef TSVN_STATICSHELL
+// ReSharper disable once CppInconsistentNaming
 extern "C" void TSVN_ClearLastUsedAuthCache();
 #endif
 
 SVNBase::SVNBase()
-    : Err(NULL)
-    , m_pctx(NULL)
+    : m_err(nullptr)
+    , m_pCtx(nullptr)
 {
 }
 
@@ -52,79 +51,78 @@ SVNBase::~SVNBase()
 }
 
 #ifdef CSTRING_AVAILABLE
-CString SVNBase::GetLastErrorMessage(int wrap /* = 80 */)
+CString SVNBase::GetLastErrorMessage(int wrap /* = 80 */) const
 {
-    CString msg = GetErrorString(Err, wrap);
-    if (!PostCommitErr.IsEmpty())
+    CString msg = GetErrorString(m_err, wrap);
+    if (!m_postCommitErr.IsEmpty())
     {
 #ifdef _MFC_VER
-        msg += L"\n" + CStringUtils::LinesWrap(PostCommitErr, wrap);
+        msg += L"\n" + CStringUtils::LinesWrap(m_postCommitErr, wrap);
 #else
-        msg += L"\n" + CStringUtils::LinesWrap(PostCommitErr, wrap);
+        msg += L"\n" + CStringUtils::LinesWrap(m_postCommitErr, wrap);
 #endif
     }
     return msg;
 }
 
-CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
+CString SVNBase::GetErrorString(svn_error_t * err, int wrap /* = 80 */)
 {
-    CString msg;
-    CString temp;
-
-    if (Err != NULL)
+    if (err != nullptr)
     {
-        char errbuf[256] = { 0 };
-        svn_error_t * ErrPtr = Err;
-        if (ErrPtr->message)
-            msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+        CString       temp;
+        CString       msg;
+        char          errBuf[256] = { 0 };
+        svn_error_t * errPtr      = err;
+        if (errPtr->message)
+            msg = CUnicodeUtils::GetUnicode(errPtr->message);
         else
         {
             /* Is this a Subversion-specific error code? */
-            if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                msg = svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf));
+            if ((errPtr->apr_err > APR_OS_START_USEERR)
+                && (errPtr->apr_err <= APR_OS_START_CANONERR))
+                msg = svn_strerror (errPtr->apr_err, errBuf, _countof (errBuf));
             /* Otherwise, this must be an APR error code. */
             else
             {
-                const char * err_string = NULL;
-                svn_error_t * temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                if (temp_err)
+                const char *  errString = nullptr;
+                svn_error_t * tempErr   = svn_utf_cstring_to_utf8(&errString, apr_strerror (errPtr->apr_err, errBuf, _countof (errBuf)-1), errPtr->pool);
+                if (tempErr)
                 {
-                    svn_error_clear (temp_err);
+                    svn_error_clear (tempErr);
                     msg = L"Can't recode error string from APR";
                 }
                 else
                 {
-                    msg = CUnicodeUtils::GetUnicode(err_string);
+                    msg = CUnicodeUtils::GetUnicode(errString);
                 }
             }
         }
         msg = CStringUtils::LinesWrap(msg, wrap);
-        while (ErrPtr->child)
+        while (errPtr->child)
         {
-            ErrPtr = ErrPtr->child;
+            errPtr = errPtr->child;
             msg += L"\n";
-            if (ErrPtr->message)
-                temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
+            if (errPtr->message)
+                temp = CUnicodeUtils::GetUnicode(errPtr->message);
             else
             {
                 /* Is this a Subversion-specific error code? */
-                if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                    && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                    temp = svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf));
+                if ((errPtr->apr_err > APR_OS_START_USEERR)
+                    && (errPtr->apr_err <= APR_OS_START_CANONERR))
+                    temp = svn_strerror (errPtr->apr_err, errBuf, _countof (errBuf));
                 /* Otherwise, this must be an APR error code. */
                 else
                 {
-                    const char * err_string = NULL;
-                    svn_error_t * temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                    if (temp_err)
+                    const char *  errString = nullptr;
+                    svn_error_t * tempErr   = svn_utf_cstring_to_utf8(&errString, apr_strerror (errPtr->apr_err, errBuf, _countof (errBuf)-1), errPtr->pool);
+                    if (tempErr)
                     {
-                        svn_error_clear (temp_err);
+                        svn_error_clear (tempErr);
                         temp = L"Can't recode error string from APR";
                     }
                     else
                     {
-                        temp = CUnicodeUtils::GetUnicode(err_string);
+                        temp = CUnicodeUtils::GetUnicode(errString);
                     }
                 }
             }
@@ -132,7 +130,7 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
             msg += temp;
         }
         temp.Empty();
-        if (svn_error_find_cause(Err, SVN_ERR_WC_LOCKED) && (Err->apr_err != SVN_ERR_WC_CLEANUP_REQUIRED))
+        if (svn_error_find_cause(err, SVN_ERR_WC_LOCKED) && (err->apr_err != SVN_ERR_WC_CLEANUP_REQUIRED))
             temp.LoadString(IDS_SVNERR_RUNCLEANUP);
 
 #ifdef IDS_SVNERR_CHECKPATHORURL
@@ -199,17 +197,17 @@ CString SVNBase::GetErrorString(svn_error_t * Err, int wrap /* = 80 */)
     return L"";
 }
 
-int SVNBase::ShowErrorDialog( HWND hParent)
+int SVNBase::ShowErrorDialog( HWND hParent) const
 {
     return ShowErrorDialog(hParent, CTSVNPath());
 }
 
-int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath, const CString& sErr)
+int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath, const CString& sErr) const
 {
     UNREFERENCED_PARAMETER(wcPath);
     int ret = -1;
 
-    CString sError = Err ? GetErrorString(Err) : PostCommitErr;
+    CString sError = m_err ? GetErrorString(m_err) : m_postCommitErr;
     if (!sErr.IsEmpty())
         sError = sErr;
 
@@ -217,30 +215,30 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath, const CStri
     CString sClose = CString(MAKEINTRESOURCE(IDS_CLOSE));
     CString sInstruction = CString(MAKEINTRESOURCE(IDS_SVNREPORTEDANERROR));
 
-    TASKDIALOGCONFIG tconfig = { 0 };
-    tconfig.cbSize = sizeof(TASKDIALOGCONFIG);
-    tconfig.hwndParent = hParent;
-    tconfig.dwFlags = TDF_ENABLE_HYPERLINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT;
-    tconfig.dwCommonButtons = TDCBF_CLOSE_BUTTON;
-    tconfig.pszWindowTitle = L"TortoiseSVN";
-    tconfig.pszMainIcon = TD_ERROR_ICON;
-    tconfig.pszMainInstruction = sInstruction;
-    tconfig.pszContent = (LPCTSTR)sError;
+    TASKDIALOGCONFIG tConfig = { 0 };
+    tConfig.cbSize = sizeof(TASKDIALOGCONFIG);
+    tConfig.hwndParent = hParent;
+    tConfig.dwFlags = TDF_ENABLE_HYPERLINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT;
+    tConfig.dwCommonButtons = TDCBF_CLOSE_BUTTON;
+    tConfig.pszWindowTitle = L"TortoiseSVN";
+    tConfig.pszMainIcon = TD_ERROR_ICON;
+    tConfig.pszMainInstruction = sInstruction;
+    tConfig.pszContent = static_cast<LPCTSTR>(sError);
 #ifdef HAVE_APPUTILS
     TASKDIALOG_BUTTON aCustomButtons[2];
     aCustomButtons[0].nButtonID = 1000;
     aCustomButtons[0].pszButtonText = sCleanup;
     aCustomButtons[1].nButtonID = IDOK;
     aCustomButtons[1].pszButtonText = sClose;
-    if (Err && (Err->apr_err == SVN_ERR_WC_CLEANUP_REQUIRED) && (!wcPath.IsEmpty()))
+    if (m_err && (m_err->apr_err == SVN_ERR_WC_CLEANUP_REQUIRED) && (!wcPath.IsEmpty()))
     {
-        tconfig.dwCommonButtons = 0;
-        tconfig.dwFlags |= TDF_USE_COMMAND_LINKS;
-        tconfig.pButtons = aCustomButtons;
-        tconfig.cButtons = _countof(aCustomButtons);
+        tConfig.dwCommonButtons = 0;
+        tConfig.dwFlags |= TDF_USE_COMMAND_LINKS;
+        tConfig.pButtons = aCustomButtons;
+        tConfig.cButtons = _countof(aCustomButtons);
     }
 #endif
-    TaskDialogIndirect(&tconfig, &ret, NULL, NULL);
+    TaskDialogIndirect(&tConfig, &ret, nullptr, nullptr);
 #ifdef HAVE_APPUTILS
     if (ret == 1000)
     {
@@ -257,12 +255,12 @@ int SVNBase::ShowErrorDialog( HWND hParent, const CTSVNPath& wcPath, const CStri
 void SVNBase::ClearCAPIAuthCacheOnError() const
 {
 #ifndef TSVN_STATICSHELL
-    if (Err != NULL)
+    if (m_err != nullptr)
     {
-        if ( (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
-             (SVN_ERROR_IN_CATEGORY(Err->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
-             (Err->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
-             (Err->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
+        if ( (SVN_ERROR_IN_CATEGORY(m_err->apr_err, SVN_ERR_AUTHN_CATEGORY_START)) ||
+             (SVN_ERROR_IN_CATEGORY(m_err->apr_err, SVN_ERR_AUTHZ_CATEGORY_START)) ||
+             (m_err->apr_err == SVN_ERR_RA_DAV_FORBIDDEN) ||
+             (m_err->apr_err == SVN_ERR_RA_CANNOT_CREATE_SESSION))
              TSVN_ClearLastUsedAuthCache();
     }
 #endif

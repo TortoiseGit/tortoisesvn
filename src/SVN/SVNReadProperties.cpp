@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -84,8 +84,8 @@ svn_error_t*    SVNReadProperties::Refresh()
 {
     svn_opt_revision_t          rev;
     svn_opt_revision_t          peg_rev;
-    svn_error_clear(Err);
-    Err = NULL;
+    svn_error_clear(m_err);
+    m_err = NULL;
     if (m_bCancelled)
         (*m_bCancelled) = false;
     if (m_propCount > 0)
@@ -121,22 +121,22 @@ svn_error_t*    SVNReadProperties::Refresh()
         apr_hash_t * props;
 
         SVNTRACE (
-            Err = svn_client_revprop_list(  &props,
+            m_err = svn_client_revprop_list(  &props,
                                                 svnPath,
                                                 &rev,
                                                 &rev_set,
-                                                m_pctx,
+                                                m_pCtx,
                                                 m_pool),
             svnPath
         )
         ClearCAPIAuthCacheOnError();
-        if (Err == NULL)
+        if (m_err == NULL)
             m_props = apr_hash_copy(m_pool, props);
     }
     else
     {
         SVNTRACE (
-            Err = svn_client_proplist4 (svnPath,
+            m_err = svn_client_proplist4 (svnPath,
                                         &peg_rev,
                                         &rev,
                                         svn_depth_empty,
@@ -144,14 +144,14 @@ svn_error_t*    SVNReadProperties::Refresh()
                                         m_includeInherited,
                                         proplist_receiver,
                                         this,
-                                        m_pctx,
+                                        m_pCtx,
                                         m_pool),
             svnPath
         )
     }
     ClearCAPIAuthCacheOnError();
-    if(Err != NULL)
-        return Err;
+    if(m_err != NULL)
+        return m_err;
 
     if (m_props)
         m_propCount = apr_hash_count(m_props);
@@ -164,24 +164,24 @@ void SVNReadProperties::Construct()
     m_propCount = 0;
 
     m_pool = svn_pool_create (NULL);                // create the memory pool
-    Err = NULL;
-    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
+    m_err = NULL;
+    svn_error_clear(svn_client_create_context2(&m_pCtx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 
 #ifdef _MFC_VER
 
-    if (m_pctx->config == nullptr)
+    if (m_pCtx->config == nullptr)
     {
         svn_pool_destroy (m_pool);                  // free the allocated memory
         return;
     }
 
-    m_prompt.Init(m_pool, m_pctx);
+    m_prompt.Init(m_pool, m_pCtx);
 
-    m_pctx->log_msg_func3 = svn_get_log_message;
+    m_pCtx->log_msg_func3 = svn_get_log_message;
 
 #endif
-    m_pctx->cancel_func = cancelfunc;
-    m_pctx->cancel_baton = this;
+    m_pCtx->cancel_func = cancelfunc;
+    m_pCtx->cancel_baton = this;
     if (m_bCancelled)
         (*m_bCancelled) = false;
 }
@@ -251,7 +251,7 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, S
 
 SVNReadProperties::~SVNReadProperties(void)
 {
-    svn_error_clear(Err);
+    svn_error_clear(m_err);
     svn_pool_destroy (m_pool);                  // free the allocated memory
 }
 

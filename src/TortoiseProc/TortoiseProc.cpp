@@ -124,7 +124,7 @@ BOOL CTortoiseProcApp::InitInstance()
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 #endif
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
-    svn_error_set_malfunction_handler(svn_error_handle_malfunction);
+    svn_error_set_malfunction_handler(svnErrorHandleMalfunction);
     CheckUpgrade();
     CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
     CMFCButton::EnableWindowsTheming();

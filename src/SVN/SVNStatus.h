@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2013, 2016 - TortoiseSVN
+// Copyright (C) 2003-2010, 2013, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -161,7 +161,7 @@ public:
      * Returns true if the last error was SVN_ERR_WC_UNSUPPORTED_FORMAT, indicating that the
      * working copy is still in the old format (or a newer format than this client supports)
      */
-    bool IsUnsupportedFormat() const {return Err ? ((Err->apr_err == SVN_ERR_WC_UNSUPPORTED_FORMAT)||(Err->apr_err == SVN_ERR_WC_UPGRADE_REQUIRED)) : false;}
+    bool IsUnsupportedFormat() const {return m_err ? ((m_err->apr_err == SVN_ERR_WC_UNSUPPORTED_FORMAT)||(m_err->apr_err == SVN_ERR_WC_UPGRADE_REQUIRED)) : false;}
 
 friend class SVN;   // So that SVN can get to our m_err
 

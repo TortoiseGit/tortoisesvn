@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012-2014 - TortoiseSVN
+// Copyright (C) 2010, 2012-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,16 +23,18 @@
  * defined yet (i.e. in case of missing includes).
  */
 
+// ReSharper disable CppInconsistentNaming
 struct apr_pool_t;
 struct svn_client_ctx_t;
 struct svn_error_t;
 struct apr_hash_t;
+// ReSharper restore CppInconsistentNaming
 class CTSVNPath;
 
 #ifdef _MFC_VER
-#   ifndef CSTRING_AVAILABLE
-#       define CSTRING_AVAILABLE
-#   endif
+#    ifndef CSTRING_AVAILABLE
+#        define CSTRING_AVAILABLE
+#    endif
 #endif
 
 /**
@@ -43,7 +45,7 @@ class SVNBase
 {
 public:
     SVNBase();
-    ~SVNBase();
+    virtual ~SVNBase();
 
 #ifdef CSTRING_AVAILABLE
     /**
@@ -51,13 +53,13 @@ public:
      * get the detailed error message with this method.
      * \return the error message string
      */
-    CString GetLastErrorMessage(int wrap = 80);
+    CString GetLastErrorMessage(int wrap = 80) const;
 
     /**
      * Returns the string representation of the error object \c Err, wrapped
      * (if possible) at \c wrap chars.
      */
-    static CString GetErrorString(svn_error_t * Err, int wrap = 80);
+    static CString GetErrorString(svn_error_t* err, int wrap = 80);
 
     /**
      * Shows a dialog with the last error that occurred.
@@ -65,23 +67,25 @@ public:
      * \param wcPath path to a working copy folder or url, used to run user actions on if necessary
      * \param sErr the error string to show, or an empty string if the error to show should be taken from the Err object.
      */
-    int ShowErrorDialog(HWND hParent, const CTSVNPath& wcPath, const CString& sErr = CString());
-    int ShowErrorDialog(HWND hParent);
+    int ShowErrorDialog(HWND hParent, const CTSVNPath& wcPath, const CString& sErr = CString()) const;
+    int ShowErrorDialog(HWND hParent) const;
 
 #endif
 
-    void ClearSVNError() { svn_error_clear(Err); Err = NULL; }
-    const svn_error_t * GetSVNError() const { return Err; }
-    svn_client_ctx_t * GetSVNClientContext() const { return m_pctx; }
+    void ClearSVNError()
+    {
+        svn_error_clear(m_err);
+        m_err = nullptr;
+    }
+    const svn_error_t* GetSVNError() const { return m_err; }
+    svn_client_ctx_t*  GetSVNClientContext() const { return m_pCtx; }
 
 protected:
     void ClearCAPIAuthCacheOnError() const;
 
 #ifdef CSTRING_AVAILABLE
-    CString                     PostCommitErr;  ///< error string from post commit hook script
+    CString m_postCommitErr; ///< error string from post commit hook script
 #endif
-    svn_error_t *               Err;            ///< Global error object struct
-    svn_client_ctx_t *          m_pctx;         ///< pointer to client context
+    svn_error_t*      m_err;  ///< Global error object struct
+    svn_client_ctx_t* m_pCtx; ///< pointer to client context
 };
-
-

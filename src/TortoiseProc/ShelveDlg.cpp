@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2018, 2020 - TortoiseSVN
+// Copyright (C) 2017-2018, 2020-2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -386,9 +386,9 @@ void CShelve::OnCbnSelchangeShelves()
         CString name;
         m_cShelvesCombo.GetLBText(sel, name);
         auto info = m_svn.GetShelfInfo(name, m_pathList.GetCommonRoot());
-        m_cLogMessage.SetText(info.LogMessage);
+        m_cLogMessage.SetText(info.logMessage);
         CString sInfo;
-        sInfo.Format(IDS_SHELF_INFO_LABEL, (LPCWSTR)info.Name, (int)info.versions.size());
+        sInfo.Format(IDS_SHELF_INFO_LABEL, (LPCWSTR)info.name, (int)info.versions.size());
         SetDlgItemText(IDC_INFOLABEL, sInfo);
     }
     else

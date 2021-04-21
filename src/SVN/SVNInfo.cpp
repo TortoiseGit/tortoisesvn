@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -72,30 +72,30 @@ SVNInfo::SVNInfo (bool)
 {
     m_pool = svn_pool_create (NULL);
 
-    svn_error_clear(svn_client_create_context2(&m_pctx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
+    svn_error_clear(svn_client_create_context2(&m_pCtx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 
 #ifdef _MFC_VER
     // set up authentication
-    m_prompt.Init(m_pool, m_pctx);
+    m_prompt.Init(m_pool, m_pCtx);
 #endif
-    m_pctx->cancel_func = cancel;
-    m_pctx->cancel_baton = this;
-    m_pctx->client_name = SVNHelper::GetUserAgentString(m_pool);
+    m_pCtx->cancel_func = cancel;
+    m_pCtx->cancel_baton = this;
+    m_pCtx->client_name = SVNHelper::GetUserAgentString(m_pool);
 
 
-    if (Err)
+    if (m_err)
     {
 #ifdef _MFC_VER
         ShowErrorDialog(NULL);
 #endif
-        svn_error_clear(Err);
+        svn_error_clear(m_err);
         svn_pool_destroy (m_pool);                  // free the allocated memory
     }
 }
 
 SVNInfo::~SVNInfo(void)
 {
-    svn_error_clear(Err);
+    svn_error_clear(m_err);
     svn_pool_destroy (m_pool);                  // free the allocated memory
 }
 
@@ -118,8 +118,8 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
                                               svn_depth_t depth /*= svn_depth_empty*/,
                                               bool fetchExcluded /*= true */, bool fetchActualOnly /*= true*/, bool includeExternals /*= false */)
 {
-    svn_error_clear(Err);
-    Err = NULL;
+    svn_error_clear(m_err);
+    m_err = NULL;
     m_arInfo.clear();
     m_pos = 0;
 
@@ -131,11 +131,11 @@ const SVNInfoData * SVNInfo::GetFirstFileInfo(const CTSVNPath& path, SVNRev pegr
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
     SVNTRACE (
-        Err = svn_client_info4(svnPath, pegrev, revision, depth, fetchExcluded, fetchActualOnly, includeExternals, NULL, infoReceiver, this, m_pctx, m_pool),
+        m_err = svn_client_info4(svnPath, pegrev, revision, depth, fetchExcluded, fetchActualOnly, includeExternals, NULL, infoReceiver, this, m_pCtx, m_pool),
         svnPath
     )
     ClearCAPIAuthCacheOnError();
-    if (Err != NULL)
+    if (m_err != NULL)
         return NULL;
     if (m_arInfo.empty())
         return NULL;
