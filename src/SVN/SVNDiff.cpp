@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016, 2018 - TortoiseSVN
+// Copyright (C) 2003-2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 #pragma warning(pop)
 
 #include "resource.h"
-#include "../TortoiseShell/resource.h"
 #include "AppUtils.h"
 #include "TempFile.h"
 #include "SVNStatus.h"
@@ -35,72 +34,72 @@
 #include "ProgressDlg.h"
 #include "Blame.h"
 
-SVNDiff::SVNDiff(SVN * pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTempFiles /* = false */)
-    : m_bDeleteSVN(false)
-    , m_pSVN(NULL)
-    , m_hWnd(NULL)
+SVNDiff::SVNDiff(SVN* pSVN /* = NULL */, HWND hWnd /* = NULL */, bool bRemoveTempFiles /* = false */)
+    : m_pSVN(nullptr)
+    , m_bDeleteSVN(false)
+    , m_hWnd(nullptr)
     , m_bRemoveTempFiles(false)
     , m_headPeg(SVNRev::REV_HEAD)
     , m_bAlternativeTool(false)
-    , m_JumpLine(0)
+    , m_jumpLine(0)
 {
     if (pSVN)
         m_pSVN = pSVN;
     else
     {
-        m_pSVN = new SVN;
+        m_pSVN       = new SVN;
         m_bDeleteSVN = true;
     }
-    m_hWnd = hWnd;
+    m_hWnd             = hWnd;
     m_bRemoveTempFiles = bRemoveTempFiles;
 }
 
-SVNDiff::~SVNDiff(void)
+SVNDiff::~SVNDiff()
 {
     if (m_bDeleteSVN)
         delete m_pSVN;
 }
 
-bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
-                         bool ignoreprops,
+bool SVNDiff::DiffWCFile(const CTSVNPath&   filePath,
+                         bool               ignoreProps,
                          svn_wc_status_kind status, /* = svn_wc_status_none */
-                         svn_wc_status_kind text_status /* = svn_wc_status_none */,
-                         svn_wc_status_kind prop_status /* = svn_wc_status_none */,
-                         svn_wc_status_kind remotetext_status /* = svn_wc_status_none */,
-                         svn_wc_status_kind remoteprop_status /* = svn_wc_status_none */)
+                         svn_wc_status_kind textStatus /* = svn_wc_status_none */,
+                         svn_wc_status_kind propStatus /* = svn_wc_status_none */,
+                         svn_wc_status_kind remoteTextStatus /* = svn_wc_status_none */,
+                         svn_wc_status_kind remotePropStatus /* = svn_wc_status_none */) const
 {
-    CTSVNPath basePath;
-    CTSVNPath remotePath;
-    SVNRev remoteRev;
+    CTSVNPath    basePath;
+    CTSVNPath    remotePath;
+    SVNRev       remoteRev;
     svn_revnum_t baseRev = 0;
 
     // first diff the remote properties against the wc props
     // TODO: should we attempt to do a three way diff with the properties too
     // if they're modified locally and remotely?
-    if (!ignoreprops && (remoteprop_status > svn_wc_status_normal))
+    if (!ignoreProps && (remotePropStatus > svn_wc_status_normal))
     {
         DiffProps(filePath, SVNRev::REV_HEAD, SVNRev::REV_WC, baseRev);
     }
-    if (!ignoreprops && (prop_status > svn_wc_status_normal)&&(filePath.IsDirectory()))
+    if (!ignoreProps && (propStatus > svn_wc_status_normal) && (filePath.IsDirectory()))
     {
         DiffProps(filePath, SVNRev::REV_WC, SVNRev::REV_BASE, baseRev);
     }
     if (filePath.IsDirectory())
         return true;
 
-    if ((status > svn_wc_status_normal) || (text_status > svn_wc_status_normal))
+    if ((status > svn_wc_status_normal) || (textStatus > svn_wc_status_normal))
     {
         basePath = SVN::GetPristinePath(filePath);
         if (baseRev == 0)
         {
-            SVNStatus stat;
-            CTSVNPath dummy;
-            svn_client_status_t * s = stat.GetFirstFileStatus(filePath, dummy);
+            SVNStatus            stat;
+            CTSVNPath            dummy;
+            svn_client_status_t* s = stat.GetFirstFileStatus(filePath, dummy);
             if (s)
                 baseRev = s->revision >= 0 ? s->revision : s->changed_rev;
         }
         // If necessary, convert the line-endings on the file before diffing
-        if ((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\ConvertBase", TRUE))
+        if (static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\ConvertBase", TRUE)))
         {
             CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath, SVNRev::REV_BASE);
             if (!m_pSVN->Export(filePath, temporaryFile, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE)))
@@ -115,100 +114,100 @@ bool SVNDiff::DiffWCFile(const CTSVNPath& filePath,
         }
     }
 
-    if (remotetext_status > svn_wc_status_normal)
+    if (remoteTextStatus > svn_wc_status_normal)
     {
         remotePath = CTempFiles::Instance().GetTempFilePath(false, filePath, SVNRev::REV_HEAD);
 
         CProgressDlg progDlg;
         progDlg.SetTitle(IDS_APPNAME);
         progDlg.SetTime(false);
-        m_pSVN->SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
+        m_pSVN->SetAndClearProgressInfo(&progDlg, true); // activate progress bar
         progDlg.ShowModeless(GetHWND());
-        progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, (LPCTSTR)filePath.GetUIFileOrDirectoryName());
+        progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, static_cast<LPCTSTR>(filePath.GetUIFileOrDirectoryName()));
         remoteRev = SVNRev::REV_HEAD;
         if (!m_pSVN->Export(filePath, remotePath, remoteRev, remoteRev))
         {
             progDlg.Stop();
-            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
             m_pSVN->ShowErrorDialog(GetHWND());
             return false;
         }
         progDlg.Stop();
-        m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+        m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
         SetFileAttributes(remotePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
     }
 
     CString name = filePath.GetUIFileOrDirectoryName();
     CString n1, n2, n3;
-    n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
+    n1.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(name));
     if (baseRev)
-        n2.FormatMessage(IDS_DIFF_BASENAMEREV, (LPCTSTR)name, baseRev);
+        n2.FormatMessage(IDS_DIFF_BASENAMEREV, static_cast<LPCTSTR>(name), baseRev);
     else
-        n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-    n3.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)name);
+        n2.Format(IDS_DIFF_BASENAME, static_cast<LPCTSTR>(name));
+    n3.Format(IDS_DIFF_REMOTENAME, static_cast<LPCTSTR>(name));
 
-    if ((text_status <= svn_wc_status_normal)&&(prop_status <= svn_wc_status_normal)&&(status <= svn_wc_status_normal))
+    if ((textStatus <= svn_wc_status_normal) && (propStatus <= svn_wc_status_normal) && (status <= svn_wc_status_normal))
     {
         // Hasn't changed locally - diff remote against WC
         return CAppUtils::StartExtDiff(
             filePath, remotePath, n1, n3, filePath, filePath, SVNRev::REV_WC, remoteRev, remoteRev, CAppUtils::DiffFlags().AlternativeTool(m_bAlternativeTool),
-            m_JumpLine, filePath.GetFileOrDirectoryName(), L"");
+            m_jumpLine, filePath.GetFileOrDirectoryName(), L"");
     }
     else if (remotePath.IsEmpty())
     {
-        return DiffFileAgainstBase(filePath, baseRev, ignoreprops, status, text_status, prop_status);
+        return DiffFileAgainstBase(filePath, baseRev, ignoreProps, status, textStatus, propStatus);
     }
     else
     {
         // Three-way diff
         CAppUtils::MergeFlags flags;
         flags.bAlternativeTool = m_bAlternativeTool;
-        flags.bReadOnly = true;
+        flags.bReadOnly        = true;
         return !!CAppUtils::StartExtMerge(flags,
-            basePath, remotePath, filePath, CTSVNPath(), false, n2, n3, n1, CString(), filePath.GetFileOrDirectoryName());
+                                          basePath, remotePath, filePath, CTSVNPath(), false, n2, n3, n1, CString(), filePath.GetFileOrDirectoryName());
     }
 }
 
-bool SVNDiff::DiffFileAgainstBase( const CTSVNPath& filePath, svn_revnum_t & baseRev, bool ignoreprops, svn_wc_status_kind status /*= svn_wc_status_none*/, svn_wc_status_kind text_status /*= svn_wc_status_none*/, svn_wc_status_kind prop_status /*= svn_wc_status_none*/ )
+bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_revnum_t& baseRev, bool ignoreProps, svn_wc_status_kind status /*= svn_wc_status_none*/, svn_wc_status_kind textStatus /*= svn_wc_status_none*/, svn_wc_status_kind propStatus /*= svn_wc_status_none*/) const
 {
-    bool retvalue = false;
-    bool fileexternal = false;
-    if ((text_status == svn_wc_status_none)||(prop_status == svn_wc_status_none))
+    bool retValue     = false;
+    bool fileExternal = false;
+    if ((textStatus == svn_wc_status_none) || (propStatus == svn_wc_status_none))
     {
         SVNStatus stat;
         stat.GetStatus(filePath);
-        if (stat.status == NULL)
+        if (stat.status == nullptr)
             return false;
-        text_status = stat.status->text_status;
-        prop_status = stat.status->prop_status;
-        fileexternal = stat.status->file_external != 0;
+        textStatus   = stat.status->text_status;
+        propStatus   = stat.status->prop_status;
+        fileExternal = stat.status->file_external != 0;
     }
-    if (!ignoreprops && (prop_status > svn_wc_status_normal))
+    if (!ignoreProps && (propStatus > svn_wc_status_normal))
     {
         DiffProps(filePath, SVNRev::REV_WC, SVNRev::REV_BASE, baseRev);
     }
 
     if (filePath.IsDirectory())
         return true;
-    if ((status >= svn_wc_status_normal) || (text_status >= svn_wc_status_normal))
+    if ((status >= svn_wc_status_normal) || (textStatus >= svn_wc_status_normal))
     {
         CTSVNPath basePath(SVN::GetPristinePath(filePath));
         if (baseRev == 0)
         {
-            SVNInfo info;
-            const SVNInfoData * infodata = info.GetFirstFileInfo(filePath, SVNRev(), SVNRev());
+            SVNInfo            info;
+            const SVNInfoData* infoData = info.GetFirstFileInfo(filePath, SVNRev(), SVNRev());
 
-            if (infodata)
+            if (infoData)
             {
-                if (infodata->copyfromurl && infodata->copyfromurl[0])
-                    baseRev = infodata->copyfromrev;
+                if (infoData->copyfromurl && infoData->copyfromurl[0])
+                    baseRev = infoData->copyfromrev;
                 else
-                    baseRev = infodata->lastchangedrev;
+                    baseRev = infoData->lastchangedrev;
             }
         }
         // If necessary, convert the line-endings on the file before diffing
         // note: file externals can not be exported
-        if (((DWORD)CRegDWORD(L"Software\\TortoiseSVN\\ConvertBase", TRUE)) && (!fileexternal))
+        if (static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\ConvertBase", TRUE)) && (!fileExternal))
         {
             CTSVNPath temporaryFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath, SVNRev::REV_BASE);
             if (!m_pSVN->Export(filePath, temporaryFile, SVNRev(SVNRev::REV_BASE), SVNRev(SVNRev::REV_BASE)))
@@ -228,7 +227,7 @@ bool SVNDiff::DiffFileAgainstBase( const CTSVNPath& filePath, svn_revnum_t & bas
             basePath = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, filePath, SVNRev::REV_BASE);
             SetFileAttributes(basePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
         }
-        CString name = filePath.GetFilename();
+        CString   name       = filePath.GetFilename();
         CTSVNPath wcFilePath = filePath;
         if (!wcFilePath.Exists())
         {
@@ -236,22 +235,22 @@ bool SVNDiff::DiffFileAgainstBase( const CTSVNPath& filePath, svn_revnum_t & bas
             SetFileAttributes(wcFilePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
         }
         CString n1, n2;
-        n1.Format(IDS_DIFF_WCNAME, (LPCTSTR)name);
+        n1.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(name));
         if (baseRev)
-            n2.FormatMessage(IDS_DIFF_BASENAMEREV, (LPCTSTR)name, baseRev);
+            n2.FormatMessage(IDS_DIFF_BASENAMEREV, static_cast<LPCTSTR>(name), baseRev);
         else
-            n2.Format(IDS_DIFF_BASENAME, (LPCTSTR)name);
-        retvalue = CAppUtils::StartExtDiff(
+            n2.Format(IDS_DIFF_BASENAME, static_cast<LPCTSTR>(name));
+        retValue = CAppUtils::StartExtDiff(
             basePath, wcFilePath, n2, n1,
             filePath, filePath, SVNRev::REV_BASE, SVNRev::REV_WC, SVNRev::REV_BASE,
-            CAppUtils::DiffFlags().Wait().AlternativeTool(m_bAlternativeTool), m_JumpLine, name, L"");
+            CAppUtils::DiffFlags().Wait().AlternativeTool(m_bAlternativeTool), m_jumpLine, name, L"");
     }
-    return retvalue;
+    return retValue;
 }
 
-bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg, bool prettyprint, const CString& options, bool bIgnoreAncestry /* = false */, bool bIgnoreProperties /* = true */)
+bool SVNDiff::UnifiedDiff(CTSVNPath& tempFile, const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, const SVNRev& peg, bool prettyPrint, const CString& options, bool bIgnoreAncestry /* = false */, bool bIgnoreProperties /* = true */) const
 {
-    tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(L"Test.diff"));
+    tempFile    = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, CTSVNPath(L"Test.diff"));
     bool bIsUrl = !!SVN::PathIsURL(url1);
 
     CProgressDlg progDlg;
@@ -279,75 +278,75 @@ bool SVNDiff::UnifiedDiff(CTSVNPath& tempfile, const CTSVNPath& url1, const SVNR
     // the 'relativeTo' path must be a path: svn throws an error if it's used for urls.
     else if ((!url2.IsEquivalentTo(url1) && (relativeTo.IsEquivalentTo(url1) || relativeTo.IsEquivalentTo(url2))) || url1.IsUrl() || url2.IsUrl())
         relativeTo.Reset();
-    if ((!url1.IsEquivalentTo(url2))||((rev1.IsWorking() || rev1.IsBase())&&(rev2.IsWorking() || rev2.IsBase())))
+    if ((!url1.IsEquivalentTo(url2)) || ((rev1.IsWorking() || rev1.IsBase()) && (rev2.IsWorking() || rev2.IsBase())))
     {
-        if (!m_pSVN->Diff(url1, rev1, url2, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, bIgnoreProperties, false, prettyprint, options, bIgnoreAncestry, tempfile))
+        if (!m_pSVN->Diff(url1, rev1, url2, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, bIgnoreProperties, false, prettyPrint, options, bIgnoreAncestry, tempFile))
         {
             progDlg.Stop();
-            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
             m_pSVN->ShowErrorDialog(GetHWND());
             return false;
         }
     }
     else
     {
-        if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, bIgnoreProperties, false, prettyprint, options, false, tempfile))
+        if (!m_pSVN->PegDiff(url1, (peg.IsValid() ? peg : (bIsUrl ? m_headPeg : SVNRev::REV_WC)), rev1, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, bIgnoreProperties, false, prettyPrint, options, false, tempFile))
         {
-            if (!m_pSVN->Diff(url1, rev1, url2, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, bIgnoreProperties, false, prettyprint, options, false, tempfile))
+            if (!m_pSVN->Diff(url1, rev1, url2, rev2, relativeTo, svn_depth_infinity, true, false, false, false, false, false, bIgnoreProperties, false, prettyPrint, options, false, tempFile))
             {
                 progDlg.Stop();
-                m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                 m_pSVN->ShowErrorDialog(GetHWND());
                 return false;
             }
         }
     }
-    if (CAppUtils::CheckForEmptyDiff(tempfile))
+    if (CAppUtils::CheckForEmptyDiff(tempFile))
     {
         progDlg.Stop();
-        m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-        TaskDialog(GetHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_ERR_EMPTYDIFF), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
+        m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
+        TaskDialog(GetHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_ERR_EMPTYDIFF), TDCBF_OK_BUTTON, TD_ERROR_ICON, nullptr);
         return false;
     }
     progDlg.Stop();
-    m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+    m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
     return true;
 }
 
 bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
                               const CTSVNPath& url2, const SVNRev& rev2,
-                              const SVNRev& peg,
-                              bool prettyprint,
+                              const SVNRev&  peg,
+                              bool           prettyPrint,
                               const CString& options,
-                              bool bIgnoreAncestry /* = false */,
+                              bool           bIgnoreAncestry /* = false */,
                               bool /*blame*/,
-                              bool bIgnoreProperties /* = true */)
+                              bool bIgnoreProperties /* = true */) const
 {
-    CTSVNPath tempfile;
-    if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, peg, prettyprint, options, bIgnoreAncestry, bIgnoreProperties))
+    CTSVNPath tempFile;
+    if (UnifiedDiff(tempFile, url1, rev1, url2, rev2, peg, prettyPrint, options, bIgnoreAncestry, bIgnoreProperties))
     {
-        CString title;
+        CString       title;
         CTSVNPathList list;
         list.AddPath(url1);
         list.AddPath(url2);
         if (url1.IsEquivalentTo(url2))
-            title.FormatMessage(IDS_SVNDIFF_ONEURL, (LPCTSTR)rev1.ToString(), (LPCTSTR)rev2.ToString(), (LPCTSTR)url1.GetUIFileOrDirectoryName());
+            title.FormatMessage(IDS_SVNDIFF_ONEURL, static_cast<LPCTSTR>(rev1.ToString()), static_cast<LPCTSTR>(rev2.ToString()), static_cast<LPCTSTR>(url1.GetUIFileOrDirectoryName()));
         else
         {
             CTSVNPath root = list.GetCommonRoot();
-            CString u1 = url1.GetUIPathString().Mid(root.GetUIPathString().GetLength());
-            CString u2 = url2.GetUIPathString().Mid(root.GetUIPathString().GetLength());
-            title.FormatMessage(IDS_SVNDIFF_TWOURLS, (LPCTSTR)rev1.ToString(), (LPCTSTR)u1, (LPCTSTR)rev2.ToString(), (LPCTSTR)u2);
+            CString   u1   = url1.GetUIPathString().Mid(root.GetUIPathString().GetLength());
+            CString   u2   = url2.GetUIPathString().Mid(root.GetUIPathString().GetLength());
+            title.FormatMessage(IDS_SVNDIFF_TWOURLS, static_cast<LPCTSTR>(rev1.ToString()), static_cast<LPCTSTR>(u1), static_cast<LPCTSTR>(rev2.ToString()), static_cast<LPCTSTR>(u2));
         }
-        return !!CAppUtils::StartUnifiedDiffViewer(tempfile.GetWinPathString(), title);
+        return !!CAppUtils::StartUnifiedDiffViewer(tempFile.GetWinPathString(), title);
     }
     return false;
 }
 
-bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg, bool ignoreprops, bool prettyprint, const CString& options, bool ignoreancestry /*= false*/, bool blame /*= false*/, svn_node_kind_t nodekind /*= svn_node_unknown*/ )
+bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg, bool ignoreProps, bool prettyPrint, const CString& options, bool ignoreAncestry /*= false*/, bool blame /*= false*/, svn_node_kind_t nodeKind /*= svn_node_unknown*/)
 {
-    CTSVNPath tempfile;
-    CString mimetype;
+    CTSVNPath    tempFile;
+    CString      mimeType;
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_APPNAME);
     progDlg.SetTime(false);
@@ -355,115 +354,115 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
     CAppUtils::DiffFlags diffFlags;
     diffFlags.ReadOnly().AlternativeTool(m_bAlternativeTool);
 
-    if ((m_pSVN->PathIsURL(url1))||(!rev1.IsWorking())||(!url1.IsEquivalentTo(url2)))
+    if ((m_pSVN->PathIsURL(url1)) || (!rev1.IsWorking()) || (!url1.IsEquivalentTo(url2)))
     {
         // no working copy path!
         progDlg.ShowModeless(GetHWND());
 
-        tempfile = CTempFiles::Instance().GetTempFilePath(false, url1);
+        tempFile = CTempFiles::Instance().GetTempFilePath(false, url1);
         // first find out if the url points to a file or dir
         CString sRepoRoot;
-        if ((nodekind != svn_node_dir)&&(nodekind != svn_node_file))
+        if ((nodeKind != svn_node_dir) && (nodeKind != svn_node_file))
         {
             progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROGRESS_INFO)));
-            SVNInfo info;
-            const SVNInfoData * data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : m_headPeg), rev1, svn_depth_empty);
-            if (data == NULL)
+            SVNInfo            info;
+            const SVNInfoData* data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : m_headPeg), rev1, svn_depth_empty);
+            if (data == nullptr)
             {
                 data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev1), rev1, svn_depth_empty);
-                if (data == NULL)
+                if (data == nullptr)
                 {
                     data = info.GetFirstFileInfo(url1, (peg.IsValid() ? peg : rev2), rev1, svn_depth_empty);
-                    if (data == NULL)
+                    if (data == nullptr)
                     {
                         progDlg.Stop();
-                        m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                        m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                         info.ShowErrorDialog(GetHWND());
                         return false;
                     }
                     else
                     {
                         sRepoRoot = data->reposRoot;
-                        nodekind = data->kind;
-                        peg = peg.IsValid() ? peg : rev2;
+                        nodeKind  = data->kind;
+                        peg       = peg.IsValid() ? peg : rev2;
                     }
                 }
                 else
                 {
                     sRepoRoot = data->reposRoot;
-                    nodekind = data->kind;
-                    peg = peg.IsValid() ? peg : rev1;
+                    nodeKind  = data->kind;
+                    peg       = peg.IsValid() ? peg : rev1;
                 }
             }
             else
             {
                 sRepoRoot = data->reposRoot;
-                nodekind = data->kind;
-                peg = peg.IsValid() ? peg : m_headPeg;
+                nodeKind  = data->kind;
+                peg       = peg.IsValid() ? peg : m_headPeg;
             }
         }
         else
         {
             sRepoRoot = m_pSVN->GetRepositoryRoot(url1);
-            peg = peg.IsValid() ? peg : m_headPeg;
+            peg       = peg.IsValid() ? peg : m_headPeg;
         }
-        if (nodekind == svn_node_dir)
+        if (nodeKind == svn_node_dir)
         {
             if (rev1.IsWorking())
             {
-                if (UnifiedDiff(tempfile, url1, rev1, url2, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), prettyprint, options))
+                if (UnifiedDiff(tempFile, url1, rev1, url2, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), prettyPrint, options))
                 {
-                    CString sWC;
-                    sWC.LoadString(IDS_DIFF_WORKINGCOPY);
+                    CString sWc;
+                    sWc.LoadString(IDS_DIFF_WORKINGCOPY);
                     progDlg.Stop();
-                    m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                    return !!CAppUtils::StartExtPatch(tempfile, url1.GetDirectory(), sWC, url2.GetSVNPathString(), TRUE);
+                    m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
+                    return !!CAppUtils::StartExtPatch(tempFile, url1.GetDirectory(), sWc, url2.GetSVNPathString(), TRUE);
                 }
             }
             else
             {
                 progDlg.Stop();
-                m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                CFileDiffDlg fdlg;
-                fdlg.DoBlame(blame);
+                m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
+                CFileDiffDlg fDlg;
+                fDlg.DoBlame(blame);
                 if (url1.IsEquivalentTo(url2))
                 {
-                    fdlg.SetDiff(url1, (peg.IsValid() ? peg : m_headPeg), rev1, rev2, svn_depth_infinity, ignoreancestry);
-                    fdlg.DoModal();
+                    fDlg.SetDiff(url1, (peg.IsValid() ? peg : m_headPeg), rev1, rev2, svn_depth_infinity, ignoreAncestry);
+                    fDlg.DoModal();
                 }
                 else
                 {
-                    fdlg.SetDiff(url1, rev1, url2, rev2, svn_depth_infinity, ignoreancestry);
-                    fdlg.DoModal();
+                    fDlg.SetDiff(url1, rev1, url2, rev2, svn_depth_infinity, ignoreAncestry);
+                    fDlg.DoModal();
                 }
             }
         }
         else
         {
-            if (url1.IsEquivalentTo(url2) && !ignoreprops)
+            if (url1.IsEquivalentTo(url2) && !ignoreProps)
             {
                 svn_revnum_t baseRev = 0;
                 DiffProps(url1, rev2, rev1, baseRev);
             }
             // diffing two revs of a file, so export two files
-            CTSVNPath tempfile1 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, blame ? CTSVNPath() : url1, rev1);
-            CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, blame ? CTSVNPath() : url2, rev2);
+            CTSVNPath tempFile1 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, blame ? CTSVNPath() : url1, rev1);
+            CTSVNPath tempFile2 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, blame ? CTSVNPath() : url2, rev2);
 
-            m_pSVN->SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
-            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIFileOrDirectoryName(), (LPCTSTR)rev1.ToString());
-            CAppUtils::GetMimeType(url1, mimetype, rev1);
+            m_pSVN->SetAndClearProgressInfo(&progDlg, true); // activate progress bar
+            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, static_cast<LPCTSTR>(url1.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev1.ToString()));
+            CAppUtils::GetMimeType(url1, mimeType, rev1);
             CBlame blamer;
             blamer.SetAndClearProgressInfo(&progDlg, true);
             if (blame)
             {
-                if (!blamer.BlameToFile(url1, 1, rev1, peg.IsValid() ? peg : rev1, tempfile1, options, TRUE, TRUE))
+                if (!blamer.BlameToFile(url1, 1, rev1, peg.IsValid() ? peg : rev1, tempFile1, options, TRUE, TRUE))
                 {
-                    if ((peg.IsValid())&&(blamer.GetSVNError()->apr_err != SVN_ERR_CLIENT_IS_BINARY_FILE))
+                    if ((peg.IsValid()) && (blamer.GetSVNError()->apr_err != SVN_ERR_CLIENT_IS_BINARY_FILE))
                     {
-                        if (!blamer.BlameToFile(url1, 1, rev1, rev1, tempfile1, options, TRUE, TRUE))
+                        if (!blamer.BlameToFile(url1, 1, rev1, rev1, tempFile1, options, TRUE, TRUE))
                         {
                             progDlg.Stop();
-                            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                             blamer.ShowErrorDialog(GetHWND());
                             return false;
                         }
@@ -473,7 +472,7 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                         if (blamer.GetSVNError()->apr_err != SVN_ERR_CLIENT_IS_BINARY_FILE)
                         {
                             progDlg.Stop();
-                            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                         }
                         blamer.ShowErrorDialog(GetHWND());
                         if (blamer.GetSVNError()->apr_err == SVN_ERR_CLIENT_IS_BINARY_FILE)
@@ -486,14 +485,14 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
             if (!blame)
             {
                 bool tryWorking = (!m_pSVN->PathIsURL(url1) && rev1.IsWorking() && PathFileExists(url1.GetWinPath()));
-                if (!m_pSVN->Export(url1, tempfile1, peg.IsValid() && !tryWorking ? peg : rev1, rev1))
+                if (!m_pSVN->Export(url1, tempFile1, peg.IsValid() && !tryWorking ? peg : rev1, rev1))
                 {
                     if (peg.IsValid())
                     {
-                        if (!m_pSVN->Export(url1, tempfile1, rev1, rev1))
+                        if (!m_pSVN->Export(url1, tempFile1, rev1, rev1))
                         {
                             progDlg.Stop();
-                            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                             m_pSVN->ShowErrorDialog(GetHWND());
                             return false;
                         }
@@ -501,26 +500,26 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                     else
                     {
                         progDlg.Stop();
-                        m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                        m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                         m_pSVN->ShowErrorDialog(GetHWND());
                         return false;
                     }
                 }
             }
-            SetFileAttributes(tempfile1.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+            SetFileAttributes(tempFile1.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 
-            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url2.GetUIFileOrDirectoryName(), (LPCTSTR)rev2.ToString());
-            progDlg.SetProgress(50,100);
+            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, static_cast<LPCTSTR>(url2.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev2.ToString()));
+            progDlg.SetProgress(50, 100);
             if (blame)
             {
-                if (!blamer.BlameToFile(url2, 1, rev2, peg.IsValid() ? peg : rev2, tempfile2, options, TRUE, TRUE))
+                if (!blamer.BlameToFile(url2, 1, rev2, peg.IsValid() ? peg : rev2, tempFile2, options, TRUE, TRUE))
                 {
                     if (peg.IsValid())
                     {
-                        if (!blamer.BlameToFile(url2, 1, rev2, rev2, tempfile2, options, TRUE, TRUE))
+                        if (!blamer.BlameToFile(url2, 1, rev2, rev2, tempFile2, options, TRUE, TRUE))
                         {
                             progDlg.Stop();
-                            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                             m_pSVN->ShowErrorDialog(GetHWND());
                             return false;
                         }
@@ -528,7 +527,7 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                     else
                     {
                         progDlg.Stop();
-                        m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                        m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                         m_pSVN->ShowErrorDialog(GetHWND());
                         return false;
                     }
@@ -536,14 +535,14 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
             }
             else
             {
-                if (!m_pSVN->Export(url2, tempfile2, peg.IsValid() ? peg : rev2, rev2))
+                if (!m_pSVN->Export(url2, tempFile2, peg.IsValid() ? peg : rev2, rev2))
                 {
                     if (peg.IsValid())
                     {
-                        if (!m_pSVN->Export(url2, tempfile2, rev2, rev2))
+                        if (!m_pSVN->Export(url2, tempFile2, rev2, rev2))
                         {
                             progDlg.Stop();
-                            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                             m_pSVN->ShowErrorDialog(GetHWND());
                             return false;
                         }
@@ -551,45 +550,45 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                     else
                     {
                         progDlg.Stop();
-                        m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                        m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                         m_pSVN->ShowErrorDialog(GetHWND());
                         return false;
                     }
                 }
             }
-            SetFileAttributes(tempfile2.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+            SetFileAttributes(tempFile2.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 
-            progDlg.SetProgress(100,100);
+            progDlg.SetProgress(100, 100);
             progDlg.Stop();
-            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
 
-            CString revname1, revname2, fname;
+            CString revName1, revName2, fName;
             if (url1.IsEquivalentTo(url2))
             {
-                revname1.Format(L"%s Revision %s", (LPCTSTR)url1.GetUIFileOrDirectoryName(), (LPCTSTR)rev1.ToString());
-                revname2.Format(L"%s Revision %s", (LPCTSTR)url2.GetUIFileOrDirectoryName(), (LPCTSTR)rev2.ToString());
-                fname = url1.GetUIFileOrDirectoryName();
+                revName1.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev1.ToString()));
+                revName2.Format(L"%s Revision %s", static_cast<LPCTSTR>(url2.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev2.ToString()));
+                fName = url1.GetUIFileOrDirectoryName();
             }
             else
             {
                 if (sRepoRoot.IsEmpty())
                 {
-                    revname1.Format(L"%s Revision %s", (LPCTSTR)url1.GetSVNPathString(), (LPCTSTR)rev1.ToString());
-                    revname2.Format(L"%s Revision %s", (LPCTSTR)url2.GetSVNPathString(), (LPCTSTR)rev2.ToString());
+                    revName1.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetSVNPathString()), static_cast<LPCTSTR>(rev1.ToString()));
+                    revName2.Format(L"%s Revision %s", static_cast<LPCTSTR>(url2.GetSVNPathString()), static_cast<LPCTSTR>(rev2.ToString()));
                 }
                 else
                 {
                     if (url1.IsUrl())
-                        revname1.Format(L"%s Revision %s", (LPCTSTR)url1.GetSVNPathString().Mid(sRepoRoot.GetLength()), (LPCTSTR)rev1.ToString());
+                        revName1.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetSVNPathString().Mid(sRepoRoot.GetLength())), static_cast<LPCTSTR>(rev1.ToString()));
                     else
-                        revname1.Format(L"%s Revision %s", (LPCTSTR)url1.GetSVNPathString(), (LPCTSTR)rev1.ToString());
+                        revName1.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetSVNPathString()), static_cast<LPCTSTR>(rev1.ToString()));
                     if (url2.IsUrl() && (url2.GetSVNPathString().Left(sRepoRoot.GetLength()).Compare(sRepoRoot) == 0))
-                        revname2.Format(L"%s Revision %s", (LPCTSTR)url2.GetSVNPathString().Mid(sRepoRoot.GetLength()), (LPCTSTR)rev2.ToString());
+                        revName2.Format(L"%s Revision %s", static_cast<LPCTSTR>(url2.GetSVNPathString().Mid(sRepoRoot.GetLength())), static_cast<LPCTSTR>(rev2.ToString()));
                     else
-                        revname2.Format(L"%s Revision %s", (LPCTSTR)url2.GetSVNPathString(), (LPCTSTR)rev2.ToString());
+                        revName2.Format(L"%s Revision %s", static_cast<LPCTSTR>(url2.GetSVNPathString()), static_cast<LPCTSTR>(rev2.ToString()));
                 }
             }
-            return CAppUtils::StartExtDiff(tempfile1, tempfile2, revname1, revname2, url1, url2, rev1, rev2, peg, diffFlags.Blame(blame), m_JumpLine, fname, mimetype);
+            return CAppUtils::StartExtDiff(tempFile1, tempFile2, revName1, revName2, url1, url2, rev1, rev2, peg, diffFlags.Blame(blame), m_jumpLine, fName, mimeType);
         }
     }
     else
@@ -597,42 +596,42 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
         // compare with working copy
         if (PathIsDirectory(url1.GetWinPath()))
         {
-            if (UnifiedDiff(tempfile, url1, rev1, url1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), prettyprint, options))
+            if (UnifiedDiff(tempFile, url1, rev1, url1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), prettyPrint, options))
             {
-                CString sWC, sRev;
-                sWC.LoadString(IDS_DIFF_WORKINGCOPY);
-                sRev.Format(IDS_DIFF_REVISIONPATCHED, (LONG)rev2);
+                CString sWc, sRev;
+                sWc.LoadString(IDS_DIFF_WORKINGCOPY);
+                sRev.Format(IDS_DIFF_REVISIONPATCHED, static_cast<LONG>(rev2));
                 progDlg.Stop();
-                m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                return !!CAppUtils::StartExtPatch(tempfile, url1.GetDirectory(), sWC, sRev, TRUE);
+                m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
+                return !!CAppUtils::StartExtPatch(tempFile, url1.GetDirectory(), sWc, sRev, TRUE);
             }
         }
         else
         {
             ASSERT(rev1.IsWorking());
 
-            if (url1.IsEquivalentTo(url2) && !ignoreprops)
+            if (url1.IsEquivalentTo(url2) && !ignoreProps)
             {
                 svn_revnum_t baseRev = 0;
                 DiffProps(url1, rev1, rev2, baseRev);
             }
 
-            m_pSVN->SetAndClearProgressInfo(&progDlg, true);    // activate progress bar
+            m_pSVN->SetAndClearProgressInfo(&progDlg, true); // activate progress bar
             progDlg.ShowModeless(GetHWND());
-            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, (LPCTSTR)url1.GetUIFileOrDirectoryName(), (LPCTSTR)rev2.ToString());
+            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, static_cast<LPCTSTR>(url1.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev2.ToString()));
 
-            tempfile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1, rev2);
+            tempFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1, rev2);
             if (blame)
             {
                 CBlame blamer;
-                if (!blamer.BlameToFile(url1, 1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), tempfile, options, TRUE, TRUE))
+                if (!blamer.BlameToFile(url1, 1, rev2, (peg.IsValid() ? peg : SVNRev::REV_WC), tempFile, options, TRUE, TRUE))
                 {
                     if (peg.IsValid())
                     {
-                        if (!blamer.BlameToFile(url1, 1, rev2, SVNRev::REV_WC, tempfile, options, TRUE, TRUE))
+                        if (!blamer.BlameToFile(url1, 1, rev2, SVNRev::REV_WC, tempFile, options, TRUE, TRUE))
                         {
                             progDlg.Stop();
-                            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                             m_pSVN->ShowErrorDialog(GetHWND());
                             return false;
                         }
@@ -640,38 +639,38 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                     else
                     {
                         progDlg.Stop();
-                        m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                        m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                         m_pSVN->ShowErrorDialog(GetHWND());
                         return false;
                     }
                 }
                 progDlg.Stop();
-                m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-                CTSVNPath tempfile2 = CTempFiles::Instance().GetTempFilePath(false, url1);
-                if (!blamer.BlameToFile(url1, 1, SVNRev::REV_WC, SVNRev::REV_WC, tempfile2, options, TRUE, TRUE))
+                m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
+                SetFileAttributes(tempFile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+                CTSVNPath tempFile2 = CTempFiles::Instance().GetTempFilePath(false, url1);
+                if (!blamer.BlameToFile(url1, 1, SVNRev::REV_WC, SVNRev::REV_WC, tempFile2, options, TRUE, TRUE))
                 {
                     progDlg.Stop();
-                    m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                    m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                     m_pSVN->ShowErrorDialog(GetHWND());
                     return false;
                 }
-                CString revname, wcname;
-                revname.Format(L"%s Revision %ld", (LPCTSTR)url1.GetFilename(), (LONG)rev2);
-                wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
-                m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                return CAppUtils::StartExtDiff(tempfile, tempfile2, revname, wcname, url1, url2, rev1, rev2, peg, diffFlags, m_JumpLine, url1.GetFileOrDirectoryName(), L"");
+                CString revName, wcName;
+                revName.Format(L"%s Revision %ld", static_cast<LPCTSTR>(url1.GetFilename()), static_cast<LONG>(rev2));
+                wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(url1.GetFilename()));
+                m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
+                return CAppUtils::StartExtDiff(tempFile, tempFile2, revName, wcName, url1, url2, rev1, rev2, peg, diffFlags, m_jumpLine, url1.GetFileOrDirectoryName(), L"");
             }
             else
             {
-                if (!m_pSVN->Export(url1, tempfile, (peg.IsValid() ? peg : SVNRev::REV_WC), rev2))
+                if (!m_pSVN->Export(url1, tempFile, (peg.IsValid() ? peg : SVNRev::REV_WC), rev2))
                 {
                     if (peg.IsValid())
                     {
-                        if (!m_pSVN->Export(url1, tempfile, SVNRev::REV_WC, rev2))
+                        if (!m_pSVN->Export(url1, tempFile, SVNRev::REV_WC, rev2))
                         {
                             progDlg.Stop();
-                            m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                            m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                             m_pSVN->ShowErrorDialog(GetHWND());
                             return false;
                         }
@@ -679,65 +678,65 @@ bool SVNDiff::ShowCompare( const CTSVNPath& url1, const SVNRev& rev1, const CTSV
                     else
                     {
                         progDlg.Stop();
-                        m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+                        m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                         m_pSVN->ShowErrorDialog(GetHWND());
                         return false;
                     }
                 }
                 progDlg.Stop();
-                m_pSVN->SetAndClearProgressInfo((HWND)NULL);
-                SetFileAttributes(tempfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-                CString revname, wcname;
-                revname.Format(L"%s Revision %s", (LPCTSTR)url1.GetFilename(), (LPCTSTR)rev2.ToString());
-                wcname.Format(IDS_DIFF_WCNAME, (LPCTSTR)url1.GetFilename());
-                return CAppUtils::StartExtDiff(tempfile, url1, revname, wcname, url1, url1, rev2, rev1, peg, diffFlags, m_JumpLine, url1.GetFileOrDirectoryName(), L"");
+                m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
+                SetFileAttributes(tempFile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+                CString revName, wcName;
+                revName.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetFilename()), static_cast<LPCTSTR>(rev2.ToString()));
+                wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(url1.GetFilename()));
+                return CAppUtils::StartExtDiff(tempFile, url1, revName, wcName, url1, url1, rev2, rev1, peg, diffFlags, m_jumpLine, url1.GetFileOrDirectoryName(), L"");
             }
         }
     }
-    m_pSVN->SetAndClearProgressInfo((HWND)NULL);
+    m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
     return false;
 }
 
-bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVNRev& rev2, svn_revnum_t &baseRev) const
+bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVNRev& rev2, svn_revnum_t& baseRev) const
 {
-    bool retvalue = false;
+    bool retValue = false;
     // diff the properties
-    SVNProperties propswc(filePath, rev1, false, false);
-    SVNProperties propsbase(filePath, rev2, false, false);
+    SVNProperties propsWc(filePath, rev1, false, false);
+    SVNProperties propsBase(filePath, rev2, false, false);
 
 #define MAX_PATH_LENGTH 80
-    WCHAR pathbuf1[MAX_PATH] = {0};
+    WCHAR pathBuf1[MAX_PATH] = {0};
     if (filePath.GetWinPathString().GetLength() >= MAX_PATH)
     {
         std::wstring str = filePath.GetWinPath();
-        std::wregex rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
+        std::wregex  rx(L"^(\\w+:|(?:\\\\|/+))((?:\\\\|/+)[^\\\\/]+(?:\\\\|/)[^\\\\/]+(?:\\\\|/)).*((?:\\\\|/)[^\\\\/]+(?:\\\\|/)[^\\\\/]+)$");
         std::wstring replacement = L"$1$2...$3";
-        std::wstring str2 = std::regex_replace(str, rx, replacement);
+        std::wstring str2        = std::regex_replace(str, rx, replacement);
         if (str2.size() >= MAX_PATH)
-            str2 = str2.substr(0, MAX_PATH-2);
-        PathCompactPathEx(pathbuf1, str2.c_str(), MAX_PATH_LENGTH, 0);
+            str2 = str2.substr(0, MAX_PATH - 2);
+        PathCompactPathEx(pathBuf1, str2.c_str(), MAX_PATH_LENGTH, 0);
     }
     else
-        PathCompactPathEx(pathbuf1, filePath.GetWinPath(), MAX_PATH_LENGTH, 0);
+        PathCompactPathEx(pathBuf1, filePath.GetWinPath(), MAX_PATH_LENGTH, 0);
 
     if ((baseRev == 0) && (!filePath.IsUrl()) && (rev1.IsBase() || rev2.IsBase()))
     {
-        SVNStatus stat;
-        CTSVNPath dummy;
-        svn_client_status_t * s = stat.GetFirstFileStatus(filePath, dummy);
+        SVNStatus            stat;
+        CTSVNPath            dummy;
+        svn_client_status_t* s = stat.GetFirstFileStatus(filePath, dummy);
         if (s)
             baseRev = s->revision;
     }
     // check for properties that got removed
-    for (int baseindex = 0; baseindex < propsbase.GetCount(); ++baseindex)
+    for (int baseindex = 0; baseindex < propsBase.GetCount(); ++baseindex)
     {
-        std::string basename = propsbase.GetItemName(baseindex);
-        tstring basenameU = CUnicodeUtils::StdGetUnicode(basename);
-        tstring basevalue = (LPCTSTR)CUnicodeUtils::GetUnicode(propsbase.GetItemValue(baseindex).c_str());
-        bool bFound = false;
-        for (int wcindex = 0; wcindex < propswc.GetCount(); ++wcindex)
+        std::string  baseName  = propsBase.GetItemName(baseindex);
+        std::wstring baseNameU = CUnicodeUtils::StdGetUnicode(baseName);
+        std::wstring baseValue = static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(propsBase.GetItemValue(baseindex).c_str()));
+        bool         bFound    = false;
+        for (int wcIndex = 0; wcIndex < propsWc.GetCount(); ++wcIndex)
         {
-            if (basename.compare (propswc.GetItemName(wcindex))==0)
+            if (baseName.compare(propsWc.GetItemName(wcIndex)) == 0)
             {
                 bFound = true;
                 break;
@@ -746,18 +745,18 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
         if (!bFound)
         {
             // write the old property value to temporary file
-            CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(false);
-            CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(false);
-            FILE * pFile;
-            _tfopen_s(&pFile, wcpropfile.GetWinPath(), L"wb");
+            CTSVNPath wcPropFile   = CTempFiles::Instance().GetTempFilePath(false);
+            CTSVNPath basePropFile = CTempFiles::Instance().GetTempFilePath(false);
+            FILE*     pFile;
+            _tfopen_s(&pFile, wcPropFile.GetWinPath(), L"wb");
             if (pFile)
             {
                 fclose(pFile);
-                FILE * pFile2;
-                _tfopen_s(&pFile2, basepropfile.GetWinPath(), L"wb");
+                FILE* pFile2;
+                _tfopen_s(&pFile2, basePropFile.GetWinPath(), L"wb");
                 if (pFile2)
                 {
-                    fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile2);
+                    fputs(CUnicodeUtils::StdGetUTF8(baseValue).c_str(), pFile2);
                     fclose(pFile2);
                 }
                 else
@@ -765,80 +764,80 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
             }
             else
                 return false;
-            SetFileAttributes(wcpropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-            SetFileAttributes(basepropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+            SetFileAttributes(wcPropFile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+            SetFileAttributes(basePropFile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
             CString n1, n2;
-            bool bSwitch = false;
+            bool    bSwitch = false;
             if (rev1.IsWorking())
-                n1.Format(IDS_DIFF_PROP_WCNAME, basenameU.c_str());
+                n1.Format(IDS_DIFF_PROP_WCNAME, baseNameU.c_str());
             if (rev1.IsBase())
             {
                 if (baseRev)
-                    n1.FormatMessage(IDS_DIFF_PROP_BASENAMEREV, basenameU.c_str(), baseRev);
+                    n1.FormatMessage(IDS_DIFF_PROP_BASENAMEREV, baseNameU.c_str(), baseRev);
                 else
-                    n1.Format(IDS_DIFF_PROP_BASENAME, basenameU.c_str());
+                    n1.Format(IDS_DIFF_PROP_BASENAME, baseNameU.c_str());
             }
             if (rev1.IsHead())
-                n1.Format(IDS_DIFF_PROP_REMOTENAME, basenameU.c_str());
+                n1.Format(IDS_DIFF_PROP_REMOTENAME, baseNameU.c_str());
             if (n1.IsEmpty())
             {
                 CString temp;
-                temp.Format(IDS_DIFF_REVISIONPATCHED, (LONG)rev1);
-                n1 = basenameU.c_str();
+                temp.Format(IDS_DIFF_REVISIONPATCHED, static_cast<LONG>(rev1));
+                n1 = baseNameU.c_str();
                 n1 += L" " + temp;
                 bSwitch = true;
             }
             else
             {
-                n1 = CString(pathbuf1) + L" - " + n1;
+                n1 = CString(pathBuf1) + L" - " + n1;
             }
             if (rev2.IsWorking())
-                n2.Format(IDS_DIFF_PROP_WCNAME, basenameU.c_str());
+                n2.Format(IDS_DIFF_PROP_WCNAME, baseNameU.c_str());
             if (rev2.IsBase())
             {
                 if (baseRev)
-                    n2.FormatMessage(IDS_DIFF_PROP_BASENAMEREV, basenameU.c_str(), baseRev);
+                    n2.FormatMessage(IDS_DIFF_PROP_BASENAMEREV, baseNameU.c_str(), baseRev);
                 else
-                    n2.Format(IDS_DIFF_PROP_BASENAME, basenameU.c_str());
+                    n2.Format(IDS_DIFF_PROP_BASENAME, baseNameU.c_str());
             }
             if (rev2.IsHead())
-                n2.Format(IDS_DIFF_PROP_REMOTENAME, basenameU.c_str());
+                n2.Format(IDS_DIFF_PROP_REMOTENAME, baseNameU.c_str());
             if (n2.IsEmpty())
             {
                 CString temp;
-                temp.Format(IDS_DIFF_REVISIONPATCHED, (LONG)rev2);
-                n2 = basenameU.c_str();
+                temp.Format(IDS_DIFF_REVISIONPATCHED, static_cast<LONG>(rev2));
+                n2 = baseNameU.c_str();
                 n2 += L" " + temp;
                 bSwitch = true;
             }
             else
             {
-                n2 = CString(pathbuf1) + L" - " + n2;
+                n2 = CString(pathBuf1) + L" - " + n2;
             }
             if (bSwitch)
             {
-                retvalue = !!CAppUtils::StartExtDiffProps(wcpropfile, basepropfile, n1, n2, TRUE, TRUE);
+                retValue = !!CAppUtils::StartExtDiffProps(wcPropFile, basePropFile, n1, n2, TRUE, TRUE);
             }
             else
             {
-                retvalue = !!CAppUtils::StartExtDiffProps(basepropfile, wcpropfile, n2, n1, TRUE, TRUE);
+                retValue = !!CAppUtils::StartExtDiffProps(basePropFile, wcPropFile, n2, n1, TRUE, TRUE);
             }
         }
     }
 
-    for (int wcindex = 0; wcindex < propswc.GetCount(); ++wcindex)
+    for (int wcindex = 0; wcindex < propsWc.GetCount(); ++wcindex)
     {
-        std::string wcname = propswc.GetItemName(wcindex);
-        tstring wcnameU = CUnicodeUtils::StdGetUnicode(wcname);
-        tstring wcvalue = (LPCTSTR)CUnicodeUtils::GetUnicode(propswc.GetItemValue(wcindex).c_str());
-        tstring basevalue;
-        bool bDiffRequired = true;
-        for (int baseindex = 0; baseindex < propsbase.GetCount(); ++baseindex)
+        std::string  wcName  = propsWc.GetItemName(wcindex);
+        std::wstring wcNameU = CUnicodeUtils::StdGetUnicode(wcName);
+        std::wstring wcValue = static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(propsWc.GetItemValue(wcindex).c_str()));
+        std::wstring baseValue;
+        bool         bDiffRequired = true;
+        for (int baseIndex = 0; baseIndex < propsBase.GetCount(); ++baseIndex)
         {
-            if (propsbase.GetItemName(baseindex).compare(wcname)==0)
+            if (propsBase.GetItemName(baseIndex).compare(wcName) == 0)
             {
-                basevalue = CUnicodeUtils::GetUnicode(propsbase.GetItemValue(baseindex).c_str());
-                if (basevalue.compare(wcvalue)==0)
+                baseValue = CUnicodeUtils::GetUnicode(propsBase.GetItemValue(baseIndex).c_str());
+                if (baseValue.compare(wcValue) == 0)
                 {
                     // name and value are identical
                     bDiffRequired = false;
@@ -849,19 +848,19 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
         if (bDiffRequired)
         {
             // write both property values to temporary files
-            CTSVNPath wcpropfile = CTempFiles::Instance().GetTempFilePath(false);
-            CTSVNPath basepropfile = CTempFiles::Instance().GetTempFilePath(false);
-            FILE * pFile;
-            _tfopen_s(&pFile, wcpropfile.GetWinPath(), L"wb");
+            CTSVNPath wcPropFile   = CTempFiles::Instance().GetTempFilePath(false);
+            CTSVNPath basePropFile = CTempFiles::Instance().GetTempFilePath(false);
+            FILE*     pFile;
+            _tfopen_s(&pFile, wcPropFile.GetWinPath(), L"wb");
             if (pFile)
             {
-                fputs(CUnicodeUtils::StdGetUTF8(wcvalue).c_str(), pFile);
+                fputs(CUnicodeUtils::StdGetUTF8(wcValue).c_str(), pFile);
                 fclose(pFile);
-                FILE * pFile2;
-                _tfopen_s(&pFile2, basepropfile.GetWinPath(), L"wb");
+                FILE* pFile2;
+                _tfopen_s(&pFile2, basePropFile.GetWinPath(), L"wb");
                 if (pFile2)
                 {
-                    fputs(CUnicodeUtils::StdGetUTF8(basevalue).c_str(), pFile2);
+                    fputs(CUnicodeUtils::StdGetUTF8(baseValue).c_str(), pFile2);
                     fclose(pFile2);
                 }
                 else
@@ -869,31 +868,31 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
             }
             else
                 return false;
-            SetFileAttributes(wcpropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
-            SetFileAttributes(basepropfile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+            SetFileAttributes(wcPropFile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
+            SetFileAttributes(basePropFile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
             CString n1, n2;
             if (rev1.IsWorking())
-                n1.Format(IDS_DIFF_WCNAME, wcnameU.c_str());
+                n1.Format(IDS_DIFF_WCNAME, wcNameU.c_str());
             if (rev1.IsBase())
-                n1.Format(IDS_DIFF_BASENAME, wcnameU.c_str());
+                n1.Format(IDS_DIFF_BASENAME, wcNameU.c_str());
             if (rev1.IsHead())
-                n1.Format(IDS_DIFF_REMOTENAME, wcnameU.c_str());
+                n1.Format(IDS_DIFF_REMOTENAME, wcNameU.c_str());
             if (n1.IsEmpty())
-                n1.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcnameU.c_str(), (LPCTSTR)rev1.ToString());
+                n1.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcNameU.c_str(), static_cast<LPCTSTR>(rev1.ToString()));
             else
-                n1 = CString(pathbuf1) + L" - " + n1;
+                n1 = CString(pathBuf1) + L" - " + n1;
             if (rev2.IsWorking())
-                n2.Format(IDS_DIFF_WCNAME, wcnameU.c_str());
+                n2.Format(IDS_DIFF_WCNAME, wcNameU.c_str());
             if (rev2.IsBase())
-                n2.Format(IDS_DIFF_BASENAME, wcnameU.c_str());
+                n2.Format(IDS_DIFF_BASENAME, wcNameU.c_str());
             if (rev2.IsHead())
-                n2.Format(IDS_DIFF_REMOTENAME, wcnameU.c_str());
+                n2.Format(IDS_DIFF_REMOTENAME, wcNameU.c_str());
             if (n2.IsEmpty())
-                n2.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcnameU.c_str(), (LPCTSTR)rev2.ToString());
+                n2.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcNameU.c_str(), static_cast<LPCTSTR>(rev2.ToString()));
             else
-                n2 = CString(pathbuf1) + L" - " + n2;
-            retvalue = !!CAppUtils::StartExtDiffProps(basepropfile, wcpropfile, n2, n1, TRUE, TRUE);
+                n2 = CString(pathBuf1) + L" - " + n2;
+            retValue = !!CAppUtils::StartExtDiffProps(basePropFile, wcPropFile, n2, n1, TRUE, TRUE);
         }
     }
-    return retvalue;
+    return retValue;
 }

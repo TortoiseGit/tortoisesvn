@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012-2013, 2015 - TortoiseSVN
+// Copyright (C) 2010, 2012-2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,6 @@
 #include "TSVNPath.h"
 #include <string>
 #include <vector>
-#include <map>
 
 /**
  * Data class to hold information about one svn:external 'line', i.e.,
@@ -31,25 +30,26 @@ class SVNExternal
 {
 public:
     SVNExternal()
-        : adjust(false)
-        , headrev(SVN_INVALID_REVNUM)
+        : headRev(SVN_INVALID_REVNUM)
+        , adjust(false)
     {
-        revision.kind = svn_opt_revision_unspecified;
-        origrevision.kind = svn_opt_revision_unspecified;
-        pegrevision.kind = svn_opt_revision_unspecified;
+        revision.kind     = svn_opt_revision_unspecified;
+        origRevision.kind = svn_opt_revision_unspecified;
+        pegRevision.kind  = svn_opt_revision_unspecified;
     }
+    virtual ~SVNExternal() = default;
 
-    CTSVNPath           path;               ///< path of the folder that has the property
-    CString             pathurl;            ///< the repository url of path
-    CString             targetDir;          ///< the target folder where the external is put
-    CString             url;                ///< the url of the external
-    CString             fullurl;            ///< the full url of the external (relative urls are resolved)
-    CString             root;               ///< the root of the repository or empty string if not known
-    svn_revnum_t        headrev;            ///< the HEAD revision of the external repository, or SVN_INVALID_REVNUM if not known
-    svn_opt_revision_t  revision;           ///< the revision the external should be tagged to
-    svn_opt_revision_t  origrevision;       ///< the revision the external is tagged to
-    svn_opt_revision_t  pegrevision;        ///< the peg revision, if it has one
-    bool                adjust;             ///< whether the external requires tagging
+    CTSVNPath          path;         ///< path of the folder that has the property
+    CString            pathUrl;      ///< the repository url of path
+    CString            targetDir;    ///< the target folder where the external is put
+    CString            url;          ///< the url of the external
+    CString            fullUrl;      ///< the full url of the external (relative urls are resolved)
+    CString            root;         ///< the root of the repository or empty string if not known
+    svn_revnum_t       headRev;      ///< the HEAD revision of the external repository, or SVN_INVALID_REVNUM if not known
+    svn_opt_revision_t revision;     ///< the revision the external should be tagged to
+    svn_opt_revision_t origRevision; ///< the revision the external is tagged to
+    svn_opt_revision_t pegRevision;  ///< the peg revision, if it has one
+    bool               adjust;       ///< whether the external requires tagging
 };
 
 /**
@@ -59,18 +59,18 @@ class SVNExternals : public std::vector<SVNExternal>
 {
 public:
     SVNExternals();
-    virtual ~SVNExternals();
+    ~SVNExternals();
 
     /**
      * Adds a new svn:external property value, parses that value and fills the
      * class vector with the individual externals.
      * \param path the path of the folder that has the property
-     * \param extvalue the value of the svn:external property
-     * \param fetchrev if true, the highest 'last commit revision' is searched
+     * \param extValue the value of the svn:external property
+     * \param fetchRev if true, the highest 'last commit revision' is searched
      *                 in the target dir (the external directory)
-     * \param headrev  the revision the external should be tagged to
+     * \param headRev  the revision the external should be tagged to
      */
-    bool Add(const CTSVNPath& path, const std::string& extvalue, bool fetchrev, svn_revnum_t headrev = -1);
+    bool Add(const CTSVNPath& path, const std::string& extValue, bool fetchRev, svn_revnum_t headRev = -1);
 
     /**
      * changes the svn:externals property with the fixed revisions.
@@ -78,18 +78,18 @@ public:
      *                then \c message, \c headrev, \c origurl and \c tagurl must also be set
      *                to change the properties in the repository.
      * \param message message for remote tag
-     * \param headrev
-     * \param origurl
-     * \param tagurl
+     * \param headRev
+     * \param origUrl
+     * \param tagUrl
      */
-    bool TagExternals(bool bRemote, const CString& message = CString(), svn_revnum_t headrev = -1, const CTSVNPath& origurl = CTSVNPath(), const CTSVNPath& tagurl = CTSVNPath());
+    bool TagExternals(bool bRemote, const CString& message = CString(), svn_revnum_t headRev = -1, const CTSVNPath& origUrl = CTSVNPath(), const CTSVNPath& tagUrl = CTSVNPath());
     /// returns the svn:externals value for the specified \c path
     std::string GetValue(const CTSVNPath& path) const;
     /// return the error string of the last failed operation
-    CString GetLastErrorString() { return m_sError; }
+    CString GetLastErrorString() const { return m_sError; }
 
     /// return a hash with all the externals that are used for tagging to be used in svn_client_copy7
-    apr_hash_t * GetHash(bool bLocal, apr_pool_t * pool);
+    apr_hash_t* GetHash(bool bLocal, apr_pool_t* pool);
 
     /// returns true if any of the externals are marked to be tagged
     bool NeedsTagging() const;
@@ -98,5 +98,5 @@ public:
     static CString GetFullExternalUrl(const CString& extUrl, const CString& root, const CString& dirUrl);
 
 private:
-    CString                             m_sError;
+    CString m_sError;
 };

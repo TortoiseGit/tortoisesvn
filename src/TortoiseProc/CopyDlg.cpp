@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -928,7 +928,7 @@ void CCopyDlg::OnNMCustomdrawExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
         if (pLVCD->nmcd.dwItemSpec < (UINT_PTR)m_externals.size())
         {
             SVNExternal ext = m_externals[pLVCD->nmcd.dwItemSpec];
-            if ((ext.origrevision.kind == svn_opt_revision_number)||(ext.origrevision.kind == svn_opt_revision_date))
+            if ((ext.origRevision.kind == svn_opt_revision_number)||(ext.origRevision.kind == svn_opt_revision_date))
                 crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
         // Store the color back in the NMLVCUSTOMDRAW struct.
@@ -993,7 +993,7 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                 case 1: // url
                     {
                         lstrcpyn(m_columnbuf, ext.url, min(MAX_PATH - 2, pDispInfo->item.cchTextMax - 1));
-                        SVNRev peg(ext.pegrevision);
+                        SVNRev peg(ext.pegRevision);
                         if (peg.IsValid() && !peg.IsHead())
                         {
                             wcscat_s(m_columnbuf, L"@");
@@ -1013,11 +1013,11 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
                     break;
                 case 2: // tagged
                     m_columnbuf[0] = 0;
-                    if (ext.origrevision.kind == svn_opt_revision_number)
-                        swprintf_s(m_columnbuf, L"%ld", ext.origrevision.value.number);
-                    else if (ext.origrevision.kind == svn_opt_revision_date)
+                    if (ext.origRevision.kind == svn_opt_revision_number)
+                        swprintf_s(m_columnbuf, L"%ld", ext.origRevision.value.number);
+                    else if (ext.origRevision.kind == svn_opt_revision_date)
                     {
-                        SVNRev r(ext.origrevision);
+                        SVNRev r(ext.origRevision);
                         wcscpy_s(m_columnbuf, (LPCTSTR)r.ToString());
                     }
                     break;

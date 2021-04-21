@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2021 - TortoiseSVN
+// Copyright (C) 2003-2006, 2021, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,8 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #pragma once
 
-
-extern char * g_pConfigDir;
+extern char* g_pConfigDir;
 
 /**
  * \ingroup SVN
@@ -32,7 +31,8 @@ class SVNGlobal
 public:
     SVNGlobal();
     ~SVNGlobal();
-    void SetConfigDir(CString sConfigDir);
+    static void SetConfigDir(CString sConfigDir);
 };
 
+// ReSharper disable once CppInconsistentNaming
 extern SVNGlobal g_SVNGlobal;

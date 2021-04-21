@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2016, 2020 - TortoiseSVN
+// Copyright (C) 2010-2016, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -75,13 +75,13 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     m_sWCPath = m_External.targetDir;
 
     SVNRev rev = m_External.revision;
-    SVNRev pegRev = SVNRev(m_External.pegrevision);
+    SVNRev pegRev = SVNRev(m_External.pegRevision);
 
     if ((pegRev.IsValid() && !pegRev.IsHead()) || (rev.IsValid() && !rev.IsHead()))
     {
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 
-        if (m_External.revision.value.number == m_External.pegrevision.value.number)
+        if (m_External.revision.value.number == m_External.pegRevision.value.number)
         {
             m_sPegRev = pegRev.ToString();
         }
@@ -183,9 +183,9 @@ void CEditPropExternalsValue::OnOK()
     }
 
     if (m_sPegRev.IsEmpty())
-        m_External.pegrevision = *SVNRev(L"HEAD");
+        m_External.pegRevision = *SVNRev(L"HEAD");
     else
-        m_External.pegrevision = *SVNRev(m_sPegRev);
+        m_External.pegRevision = *SVNRev(m_sPegRev);
     m_External.targetDir = m_sWCPath;
 
     CResizableStandAloneDialog::OnOK();

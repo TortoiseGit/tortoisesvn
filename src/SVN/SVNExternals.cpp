@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2015, 2019 - TortoiseSVN
+// Copyright (C) 2010-2015, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,20 +30,18 @@
 #pragma warning(push)
 #include <apr_uri.h>
 #include "svn_wc.h"
-#include "svn_pools.h"
 #include "svn_client.h"
 #include "svn_types.h"
 #include "svn_error.h"
 #include "svn_dirent_uri.h"
 #include "svn_path.h"
 #include "svn_props.h"
-#include "svn_config.h"
 #include "client.h"
 #pragma warning(pop)
 
 // copied from subversion\libsvn_client\externals.c (private functions there, that's why we copy it here)
 static svn_error_t *
-    uri_scheme(const char **scheme, const char *uri, apr_pool_t *pool)
+    uriScheme(const char **scheme, const char *uri, apr_pool_t *pool)
 {
     apr_size_t i;
 
@@ -51,207 +49,208 @@ static svn_error_t *
         if (uri[i] == '/')
             goto error;
 
-    if (i > 0 && uri[i] == ':' && uri[i+1] == '/' && uri[i+2] == '/')
+    if (i > 0 && uri[i] == ':' && uri[i + 1] == '/' && uri[i + 2] == '/')
     {
         *scheme = apr_pstrmemdup(pool, uri, i);
-        return SVN_NO_ERROR;
+        return nullptr;
     }
 
 error:
-    return svn_error_createf(SVN_ERR_BAD_URL, 0,
-        "URL '%s' does not begin with a scheme",
-        uri);
+    return svn_error_createf(SVN_ERR_BAD_URL, nullptr,
+                             "URL '%s' does not begin with a scheme",
+                             uri);
 }
 
 static svn_error_t *
-resolve_relative_external_url(const char **resolved_url,
-                              const svn_wc_external_item2_t *item,
-                              const char *repos_root_url,
-                              const char *parent_dir_url,
-                              apr_pool_t *result_pool,
-                              apr_pool_t *scratch_pool)
+    resolveRelativeExternalURL(const char **                  resolvedURL,
+                               const svn_wc_external_item2_t *item,
+                               const char *                   reposRootURL,
+                               const char *                   parentDirURL,
+                               apr_pool_t *                   resultPool,
+                               apr_pool_t *                   scratchPool)
 {
-  const char *url = item->url;
-  apr_uri_t parent_dir_uri;
-  apr_status_t status;
+    const char * url = item->url;
+    apr_uri_t    parentDirUri{};
+    apr_status_t status{};
 
-  *resolved_url = item->url;
+    *resolvedURL = item->url;
 
-  /* If the URL is already absolute, there is nothing to do. */
-  if (svn_path_is_url(url))
+    /* If the URL is already absolute, there is nothing to do. */
+    if (svn_path_is_url(url))
     {
-      /* "http://server/path" */
-      const char *canonicalized_url = nullptr;
-      SVN_ERR(svn_uri_canonicalize_safe(&canonicalized_url, nullptr, url, result_pool, scratch_pool));
-      *resolved_url = canonicalized_url;
+        /* "http://server/path" */
+        const char *canonicalizedURL = nullptr;
+        SVN_ERR(svn_uri_canonicalize_safe(&canonicalizedURL, nullptr, url, resultPool, scratchPool));
+        *resolvedURL = canonicalizedURL;
 
-      return SVN_NO_ERROR;
+        return nullptr;
     }
 
-  if (url[0] == '/')
+    if (url[0] == '/')
     {
-      /* "/path", "//path", and "///path" */
-      int num_leading_slashes = 1;
-      if (url[1] == '/')
+        /* "/path", "//path", and "///path" */
+        int numLeadingSlashes = 1;
+        if (url[1] == '/')
         {
-          num_leading_slashes++;
-          if (url[2] == '/')
-            num_leading_slashes++;
+            numLeadingSlashes++;
+            if (url[2] == '/')
+                numLeadingSlashes++;
         }
 
-      /* "//schema-relative" and in some cases "///schema-relative".
+        /* "//schema-relative" and in some cases "///schema-relative".
          This last format is supported on file:// schema relative. */
-      url = apr_pstrcat(scratch_pool,
-                        apr_pstrndup(scratch_pool, url, num_leading_slashes),
-                        svn_relpath_canonicalize(url + num_leading_slashes,
-                                                 scratch_pool),
-                        (char*)NULL);
+        url = apr_pstrcat(scratchPool,
+                          apr_pstrndup(scratchPool, url, numLeadingSlashes),
+                          svn_relpath_canonicalize(url + numLeadingSlashes,
+                                                   scratchPool),
+                          static_cast<char *>(nullptr));
     }
-  else
+    else
     {
-      /* "^/path" and "../path" */
-      url = svn_relpath_canonicalize(url, scratch_pool);
+        /* "^/path" and "../path" */
+        url = svn_relpath_canonicalize(url, scratchPool);
     }
 
-  /* Parse the parent directory URL into its parts. */
-  status = apr_uri_parse(scratch_pool, parent_dir_url, &parent_dir_uri);
-  if (status)
-    return svn_error_createf(SVN_ERR_BAD_URL, 0,
-                             "Illegal parent directory URL '%s'",
-                             parent_dir_url);
+    /* Parse the parent directory URL into its parts. */
+    status = apr_uri_parse(scratchPool, parentDirURL, &parentDirUri);
+    if (status)
+        return svn_error_createf(SVN_ERR_BAD_URL, nullptr,
+                                 "Illegal parent directory URL '%s'",
+                                 parentDirURL);
 
-  /* If the parent directory URL is at the server root, then the URL
+    /* If the parent directory URL is at the server root, then the URL
      may have no / after the hostname so apr_uri_parse() will leave
      the URL's path as NULL. */
-  if (! parent_dir_uri.path)
-    parent_dir_uri.path = apr_pstrmemdup(scratch_pool, "/", 1);
-  parent_dir_uri.query = NULL;
-  parent_dir_uri.fragment = NULL;
+    if (!parentDirUri.path)
+        parentDirUri.path = apr_pstrmemdup(scratchPool, "/", 1);
+    parentDirUri.query    = nullptr;
+    parentDirUri.fragment = nullptr;
 
-  /* Handle URLs relative to the current directory or to the
+    /* Handle URLs relative to the current directory or to the
      repository root.  The backpaths may only remove path elements,
      not the hostname.  This allows an external to refer to another
      repository in the same server relative to the location of this
      repository, say using SVNParentPath. */
-  if ((0 == strncmp("../", url, 3)) ||
-      (0 == strncmp("^/", url, 2)))
+    if ((0 == strncmp("../", url, 3)) ||
+        (0 == strncmp("^/", url, 2)))
     {
-      apr_array_header_t *base_components;
-      apr_array_header_t *relative_components;
-      int i;
+        apr_array_header_t *baseComponents     = nullptr;
+        apr_array_header_t *relativeComponents = nullptr;
+        int                 i                  = 0;
 
-      /* Decompose either the parent directory's URL path or the
+        /* Decompose either the parent directory's URL path or the
          repository root's URL path into components.  */
-      if (0 == strncmp("../", url, 3))
+        if (0 == strncmp("../", url, 3))
         {
-          base_components = svn_path_decompose(parent_dir_uri.path,
-                                               scratch_pool);
-          relative_components = svn_path_decompose(url, scratch_pool);
+            baseComponents     = svn_path_decompose(parentDirUri.path,
+                                                scratchPool);
+            relativeComponents = svn_path_decompose(url, scratchPool);
         }
-      else
+        else
         {
-          apr_uri_t repos_root_uri;
+            apr_uri_t reposRootUri;
 
-          status = apr_uri_parse(scratch_pool, repos_root_url,
-                                 &repos_root_uri);
-          if (status)
-            return svn_error_createf(SVN_ERR_BAD_URL, 0,
-                                     "Illegal repository root URL '%s'",
-                                     repos_root_url);
+            status = apr_uri_parse(scratchPool, reposRootURL,
+                                   &reposRootUri);
+            if (status)
+                return svn_error_createf(SVN_ERR_BAD_URL, nullptr,
+                                         "Illegal repository root URL '%s'",
+                                         reposRootURL);
 
-          /* If the repository root URL is at the server root, then
+            /* If the repository root URL is at the server root, then
              the URL may have no / after the hostname so
              apr_uri_parse() will leave the URL's path as NULL. */
-          if (! repos_root_uri.path)
-            repos_root_uri.path = apr_pstrmemdup(scratch_pool, "/", 1);
+            if (!reposRootUri.path)
+                reposRootUri.path = apr_pstrmemdup(scratchPool, "/", 1);
 
-          base_components = svn_path_decompose(repos_root_uri.path,
-                                               scratch_pool);
-          relative_components = svn_path_decompose(url + 2, scratch_pool);
+            baseComponents     = svn_path_decompose(reposRootUri.path,
+                                                scratchPool);
+            relativeComponents = svn_path_decompose(url + 2, scratchPool);
         }
 
-      for (i = 0; i < relative_components->nelts; ++i)
+        for (i = 0; i < relativeComponents->nelts; ++i)
         {
-          const char *component = APR_ARRAY_IDX(relative_components,
-                                                i,
-                                                const char *);
-          if (0 == strcmp("..", component))
+            const char *component = APR_ARRAY_IDX(relativeComponents,
+                                                  i,
+                                                  const char *);
+            if (0 == strcmp("..", component))
             {
-              /* Constructing the final absolute URL together with
+                /* Constructing the final absolute URL together with
                  apr_uri_unparse() requires that the path be absolute,
                  so only pop a component if the component being popped
                  is not the component for the root directory. */
-              if (base_components->nelts > 1)
-                apr_array_pop(base_components);
+                if (baseComponents->nelts > 1)
+                    apr_array_pop(baseComponents);
             }
-          else
-            APR_ARRAY_PUSH(base_components, const char *) = component;
+            else
+                APR_ARRAY_PUSH(baseComponents, const char *) = component;
         }
 
-      parent_dir_uri.path = (char *)svn_path_compose(base_components,
-                                                     scratch_pool);
-      const char *canonicalized_url = nullptr;
-      SVN_ERR(svn_uri_canonicalize_safe(&canonicalized_url, nullptr, 
-          apr_uri_unparse(scratch_pool, &parent_dir_uri, 0),
-          result_pool, scratch_pool));
-      *resolved_url = canonicalized_url;
+        parentDirUri.path            = const_cast<char *>(svn_path_compose(baseComponents,
+                                                                scratchPool));
+        const char *canonicalizedURL = nullptr;
+        SVN_ERR(svn_uri_canonicalize_safe(&canonicalizedURL, nullptr,
+                                          apr_uri_unparse(scratchPool, &parentDirUri, 0),
+                                          resultPool, scratchPool));
+        *resolvedURL = canonicalizedURL;
 
-      return SVN_NO_ERROR;
+        return nullptr;
     }
 
-  /* The remaining URLs are relative to the either the scheme or
+    /* The remaining URLs are relative to the either the scheme or
      server root and can only refer to locations inside that scope, so
      backpaths are not allowed. */
-  if (svn_path_is_backpath_present(url + 2))
-    return svn_error_createf(SVN_ERR_BAD_URL, 0,
-                             "The external relative URL '%s' cannot have backpaths, i.e. '..'",
-                             item->url);
+    if (svn_path_is_backpath_present(url + 2))
+        return svn_error_createf(SVN_ERR_BAD_URL, nullptr,
+                                 "The external relative URL '%s' cannot have backpaths, i.e. '..'",
+                                 item->url);
 
-  /* Relative to the scheme: Build a new URL from the parts we know.  */
-  if (0 == strncmp("//", url, 2))
+    /* Relative to the scheme: Build a new URL from the parts we know.  */
+    if (0 == strncmp("//", url, 2))
     {
-      const char *scheme;
+        const char *scheme;
 
-      SVN_ERR(uri_scheme(&scheme, repos_root_url, scratch_pool));
-      const char *canonicalized_url = nullptr;
-      SVN_ERR(svn_uri_canonicalize_safe(&canonicalized_url, nullptr,
-          apr_pstrcat(scratch_pool, scheme, ":", url, (char *)NULL),
-          result_pool, scratch_pool));
-      *resolved_url = canonicalized_url;
-      return SVN_NO_ERROR;
+        SVN_ERR(uriScheme(&scheme, reposRootURL, scratchPool));
+        const char *canonicalizedURL = nullptr;
+        SVN_ERR(svn_uri_canonicalize_safe(&canonicalizedURL, nullptr,
+                                          apr_pstrcat(scratchPool, scheme, ":", url, nullptr),
+                                          resultPool, scratchPool));
+        *resolvedURL = canonicalizedURL;
+        return nullptr;
     }
 
-  /* Relative to the server root: Just replace the path portion of the
+    /* Relative to the server root: Just replace the path portion of the
      parent's URL.  */
-  if (url[0] == '/')
+    if (url[0] == '/')
     {
-      parent_dir_uri.path = (char *)url;
+        parentDirUri.path = const_cast<char *>(url);
 
-      const char *canonicalized_url = nullptr;
-      SVN_ERR(svn_uri_canonicalize_safe(&canonicalized_url, nullptr,
-          apr_uri_unparse(scratch_pool, &parent_dir_uri, 0),
-          result_pool, scratch_pool));
-      *resolved_url = canonicalized_url;
-      return SVN_NO_ERROR;
+        const char *canonicalizedURL = nullptr;
+        SVN_ERR(svn_uri_canonicalize_safe(&canonicalizedURL, nullptr,
+                                          apr_uri_unparse(scratchPool, &parentDirUri, 0),
+                                          resultPool, scratchPool));
+        *resolvedURL = canonicalizedURL;
+        return nullptr;
     }
 
-  return svn_error_createf(SVN_ERR_BAD_URL, 0,
-                           "Unrecognized format for the relative external URL '%s'",
-                           item->url);
+    return svn_error_createf(SVN_ERR_BAD_URL, nullptr,
+                             "Unrecognized format for the relative external URL '%s'",
+                             item->url);
 }
 
-
-class sb
+class Sb
 {
 public:
-    sb() : adjust(false) {}
-    ~sb() {}
+    Sb()
+        : adjust(false)
+    {
+    }
+    ~Sb() {}
 
-    std::string extvalue;
-    CString     pathurl;
+    std::string extValue;
+    CString     pathUrl;
     bool        adjust;
 };
-
 
 SVNExternals::SVNExternals()
 {
@@ -261,86 +260,80 @@ SVNExternals::~SVNExternals()
 {
 }
 
-bool SVNExternals::Add(const CTSVNPath& path, const std::string& extvalue, bool fetchrev, svn_revnum_t headrev)
+bool SVNExternals::Add(const CTSVNPath &path, const std::string &extValue, bool fetchRev, svn_revnum_t headRev)
 {
-    SVN svn;
-    CString pathurl = svn.GetURLFromPath(path);
-    CStringA dirurl = CUnicodeUtils::GetUTF8(pathurl);
-    CStringA root = CUnicodeUtils::GetUTF8(svn.GetRepositoryRoot(path));
+    SVN      svn;
+    CString  pathUrl = svn.GetURLFromPath(path);
+    CStringA dirUrl  = CUnicodeUtils::GetUTF8(pathUrl);
+    CStringA root    = CUnicodeUtils::GetUTF8(svn.GetRepositoryRoot(path));
 
     SVNExternal ext;
 
-    SVNPool pool;
-    apr_array_header_t* parsedExternals = NULL;
-    SVNError svnError
-        (svn_wc_parse_externals_description3
-                            ( &parsedExternals
-                            , path.GetSVNApiPath(pool)
-                            , extvalue.c_str()
-                            , TRUE
-                            , pool));
+    SVNPool             pool;
+    apr_array_header_t *parsedExternals = nullptr;
+    SVNError            svnError(svn_wc_parse_externals_description3(&parsedExternals, path.GetSVNApiPath(pool), extValue.c_str(), TRUE, pool));
 
     if (svnError.GetCode() == 0)
     {
-        for (long i=0; i < parsedExternals->nelts; ++i)
+        for (long i = 0; i < parsedExternals->nelts; ++i)
         {
-            svn_wc_external_item2_t * e = APR_ARRAY_IDX(parsedExternals, i, svn_wc_external_item2_t*);
+            svn_wc_external_item2_t *e = APR_ARRAY_IDX(parsedExternals, i, svn_wc_external_item2_t *);
 
-            if (e != NULL)
+            if (e != nullptr)
             {
-                ext.path = path;
-                ext.pathurl = pathurl;
-                ext.pegrevision = e->peg_revision;
+                ext.path        = path;
+                ext.pathUrl     = pathUrl;
+                ext.pegRevision = e->peg_revision;
                 if ((e->peg_revision.kind != svn_opt_revision_unspecified) &&
                     (e->revision.kind == svn_opt_revision_unspecified))
                 {
-                    ext.revision = e->peg_revision;
-                    ext.origrevision = e->peg_revision;
+                    ext.revision     = e->peg_revision;
+                    ext.origRevision = e->peg_revision;
                 }
                 else
                 {
-                    ext.revision = e->revision;
-                    ext.origrevision = e->revision;
+                    ext.revision     = e->revision;
+                    ext.origRevision = e->revision;
                 }
-                if (headrev >= 0)
+                if (headRev >= 0)
                 {
-                    ext.revision.kind = svn_opt_revision_number;
-                    ext.revision.value.number = headrev;
+                    ext.revision.kind         = svn_opt_revision_number;
+                    ext.revision.value.number = headRev;
                 }
-                ext.url = CUnicodeUtils::GetUnicode(e->url);
+                ext.url       = CUnicodeUtils::GetUnicode(e->url);
                 ext.targetDir = CUnicodeUtils::GetUnicode(e->target_dir);
-                if (fetchrev)
+                if (fetchRev)
                 {
                     CTSVNPath p = path;
                     p.AppendPathString(ext.targetDir);
                     if (p.IsDirectory())
                     {
-                        bool bswitched, bmodified, bsparse;
-                        svn_revnum_t maxrev, minrev;
-                        if (svn.GetWCRevisionStatus(p, false, minrev, maxrev, bswitched, bmodified, bsparse))
+                        bool         bSwitched, bModified, bSparse;
+                        svn_revnum_t maxRev, minRev;
+                        if (svn.GetWCRevisionStatus(p, false, minRev, maxRev, bSwitched, bModified, bSparse))
                         {
-                            ext.revision.kind = svn_opt_revision_number;
-                            ext.revision.value.number = maxrev;
+                            ext.revision.kind         = svn_opt_revision_number;
+                            ext.revision.value.number = maxRev;
                         }
                     }
                     else
                     {
                         // GetWCRevisionStatus() does not work for file externals, that's
                         // why we use SVNInfo here to get the revision.
-                        SVNInfo svninfo;
-                        const SVNInfoData * info = svninfo.GetFirstFileInfo(p, SVNRev::REV_WC, SVNRev::REV_WC);
+                        SVNInfo            svnInfo;
+                        const SVNInfoData *info = svnInfo.GetFirstFileInfo(p, SVNRev::REV_WC, SVNRev::REV_WC);
                         if (info)
                         {
-                            ext.revision.kind = svn_opt_revision_number;
+                            ext.revision.kind         = svn_opt_revision_number;
                             ext.revision.value.number = info->lastchangedrev;
                         }
                     }
                 }
 
-                const char * pFullUrl = NULL;
-                svn_error_t * error = resolve_relative_external_url(&pFullUrl, e, root, dirurl, pool, pool);
-                if ((error == NULL) && (pFullUrl))
-                    ext.fullurl = CUnicodeUtils::GetUnicode(pFullUrl);
+                const char * pFullUrl = nullptr;
+                svn_error_t *error    = resolveRelativeExternalURL(&pFullUrl, e, root, dirUrl, pool, pool);
+                if ((error == nullptr) && (pFullUrl))
+                    ext.fullUrl = CUnicodeUtils::GetUnicode(pFullUrl);
                 else
                     svn_error_clear(error);
 
@@ -353,21 +346,21 @@ bool SVNExternals::Add(const CTSVNPath& path, const std::string& extvalue, bool 
     return false;
 }
 
-bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum_t headrev, const CTSVNPath& origurl, const CTSVNPath& tagurl)
+bool SVNExternals::TagExternals(bool bRemote, const CString &message, svn_revnum_t headRev, const CTSVNPath &origUrl, const CTSVNPath &tagUrl)
 {
     // create a map of paths and external properties
     // so that we have all externals which belong to the same
     // property
 
-    std::map<CTSVNPath, sb> externals;
+    std::map<CTSVNPath, Sb> externals;
     for (std::vector<SVNExternal>::iterator it = begin(); it != end(); ++it)
     {
-        SVNRev rev = it->revision;
-        SVNRev origrev = it->origrevision;
-        SVNRev pegrev = it->pegrevision;
+        SVNRev  rev     = it->revision;
+        SVNRev  origRev = it->origRevision;
+        SVNRev  pegRev  = it->pegRevision;
         CString peg;
-        if (pegrev.IsValid() && !pegrev.IsHead())
-            peg = L"@" + pegrev.ToString();
+        if (pegRev.IsValid() && !pegRev.IsHead())
+            peg = L"@" + pegRev.ToString();
         else if (it->adjust)
             peg = L"@" + rev.ToString();
         else
@@ -379,26 +372,26 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
 
         CString temp;
         if (it->adjust && !rev.IsHead())
-            temp.Format(L"-r %s %s%s %s", (LPCWSTR)rev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
-        else if (origrev.IsValid() && !origrev.IsHead())
-            temp.Format(L"-r %s %s%s %s", (LPCWSTR)origrev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
+            temp.Format(L"-r %s %s%s %s", static_cast<LPCWSTR>(rev.ToString()), static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
+        else if (origRev.IsValid() && !origRev.IsHead())
+            temp.Format(L"-r %s %s%s %s", static_cast<LPCWSTR>(origRev.ToString()), static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
         else
-            temp.Format(L"%s%s %s", (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
+            temp.Format(L"%s%s %s", static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
 
-        sb val = externals[it->path];
-        if (!val.extvalue.empty())
-            val.extvalue += "\n";
-        val.extvalue += CUnicodeUtils::StdGetUTF8((LPCTSTR)temp);
-        val.adjust = val.adjust || it->adjust;
-        val.pathurl = it->pathurl;
+        Sb val = externals[it->path];
+        if (!val.extValue.empty())
+            val.extValue += "\n";
+        val.extValue += CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(temp));
+        val.adjust          = val.adjust || it->adjust;
+        val.pathUrl         = it->pathUrl;
         externals[it->path] = val;
     }
 
     m_sError.Empty();
     SVN svn;
     // now set the new properties
-    std::set<CTSVNPath> changedurls;
-    for (std::map<CTSVNPath, sb>::iterator it = externals.begin(); it != externals.end(); ++it)
+    std::set<CTSVNPath> changedUrls;
+    for (std::map<CTSVNPath, Sb>::iterator it = externals.begin(); it != externals.end(); ++it)
     {
         if (it->second.adjust)
         {
@@ -410,31 +403,31 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
                 // tagurl  : http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7
                 // pathurl : http://tortoisesvn.tigris.org/svn/tortoisesvn/trunk/ext
 
-                CString sInsidePath = it->second.pathurl.Mid(origurl.GetSVNPathString().GetLength()); // 'ext'
-                if (!origurl.IsUrl())
+                CString sInsidePath = it->second.pathUrl.Mid(origUrl.GetSVNPathString().GetLength()); // 'ext'
+                if (!origUrl.IsUrl())
                 {
-                    sInsidePath = it->second.pathurl.Mid(svn.GetURLFromPath(origurl).GetLength());
+                    sInsidePath = it->second.pathUrl.Mid(svn.GetURLFromPath(origUrl).GetLength());
                 }
 
-                CTSVNPath targeturl = tagurl; // http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7
-                targeturl.AppendRawString(sInsidePath); // http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7/ext
+                CTSVNPath targetUrl = tagUrl;           // http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7
+                targetUrl.AppendRawString(sInsidePath); // http://tortoisesvn.tigris.org/svn/tortoisesvn/tags/version-1.6.7/ext
 
-                if (changedurls.find(targeturl) == changedurls.end())
+                if (changedUrls.find(targetUrl) == changedUrls.end())
                 {
-                    SVNProperties props(targeturl, headrev, false, false);
-                    if (!props.Add(SVN_PROP_EXTERNALS, it->second.extvalue, false, svn_depth_empty, message))
+                    SVNProperties props(targetUrl, headRev, false, false);
+                    if (!props.Add(SVN_PROP_EXTERNALS, it->second.extValue, false, svn_depth_empty, message))
                         m_sError = props.GetLastErrorMessage();
                     else
                     {
-                        headrev = props.GetRevision();
+                        headRev = props.GetRevision();
                     }
-                    changedurls.insert(targeturl);
+                    changedUrls.insert(targetUrl);
                 }
             }
             else
             {
                 SVNProperties props(it->first, SVNRev::REV_WC, false, false);
-                if (!props.Add(SVN_PROP_EXTERNALS, it->second.extvalue))
+                if (!props.Add(SVN_PROP_EXTERNALS, it->second.extValue))
                     m_sError = props.GetLastErrorMessage();
             }
         }
@@ -443,15 +436,15 @@ bool SVNExternals::TagExternals(bool bRemote, const CString& message, svn_revnum
     return m_sError.IsEmpty();
 }
 
-std::string SVNExternals::GetValue(const CTSVNPath& path) const
+std::string SVNExternals::GetValue(const CTSVNPath &path) const
 {
     std::string ret;
     for (auto it = cbegin(); it != cend(); ++it)
     {
         if (path.IsEquivalentToWithoutCase(it->path))
         {
-            SVNRev rev = it->revision;
-            SVNRev pegrev = it->pegrevision;
+            SVNRev  rev    = it->revision;
+            SVNRev  pegrev = it->pegRevision;
             CString peg;
             if (pegrev.IsValid() && !pegrev.IsHead())
                 peg = L"@" + pegrev.ToString();
@@ -459,35 +452,35 @@ std::string SVNExternals::GetValue(const CTSVNPath& path) const
                 peg.Empty();
 
             CString targetDir = it->targetDir;
-            if (targetDir.Find(' ')>=0)
+            if (targetDir.Find(' ') >= 0)
                 targetDir = L"'" + targetDir + L"'";
             CString temp;
             if (rev.IsValid() && !rev.IsHead() && (!rev.IsEqual(pegrev)))
-                temp.Format(L"-r %s %s%s %s", (LPCWSTR)rev.ToString(), (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
+                temp.Format(L"-r %s %s%s %s", static_cast<LPCWSTR>(rev.ToString()), static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
             else
-                temp.Format(L"%s%s %s", (LPCWSTR)it->url, (LPCTSTR)peg, (LPCWSTR)targetDir);
+                temp.Format(L"%s%s %s", static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
             if (ret.size())
                 ret += "\n";
-            ret += CUnicodeUtils::StdGetUTF8((LPCTSTR)temp);
+            ret += CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(temp));
         }
     }
 
     return ret;
 }
 
-CString SVNExternals::GetFullExternalUrl( const CString& extUrl, const CString& root, const CString& dirUrl )
+CString SVNExternals::GetFullExternalUrl(const CString &extUrl, const CString &root, const CString &dirUrl)
 {
     CStringA extUrlA = CUnicodeUtils::GetUTF8(extUrl);
-    CStringA rootA = CUnicodeUtils::GetUTF8(root);
+    CStringA rootA   = CUnicodeUtils::GetUTF8(root);
     CStringA dirUrlA = CUnicodeUtils::GetUTF8(dirUrl);
-    CString url = extUrl;
+    CString  url     = extUrl;
 
-    SVNPool pool;
-    const char * pFullUrl = NULL;
+    SVNPool                 pool;
+    const char *            pFullUrl = nullptr;
     svn_wc_external_item2_t e;
-    e.url = extUrlA;
-    svn_error_t * error = resolve_relative_external_url(&pFullUrl, &e, rootA, dirUrlA, pool, pool);
-    if ((error == NULL) && (pFullUrl))
+    e.url              = extUrlA;
+    svn_error_t *error = resolveRelativeExternalURL(&pFullUrl, &e, rootA, dirUrlA, pool, pool);
+    if ((error == nullptr) && (pFullUrl))
         url = CUnicodeUtils::GetUnicode(pFullUrl);
     else
         svn_error_clear(error);
@@ -495,50 +488,49 @@ CString SVNExternals::GetFullExternalUrl( const CString& extUrl, const CString& 
     return url;
 }
 
-apr_hash_t * SVNExternals::GetHash(bool bLocal, apr_pool_t * pool)
+apr_hash_t *SVNExternals::GetHash(bool bLocal, apr_pool_t *pool)
 {
-    apr_hash_t * externals_to_pin = nullptr;
+    apr_hash_t *externalsToPin = nullptr;
     if (!empty())
     {
         if (NeedsTagging())
         {
-            externals_to_pin = apr_hash_make(pool);
+            externalsToPin = apr_hash_make(pool);
 
-            for (const auto& ext : *this)
+            for (const auto &ext : *this)
             {
-                const char * key = nullptr;
+                const char *key = nullptr;
                 if (bLocal)
                     key = apr_pstrdup(pool, ext.path.GetSVNApiPath(pool));
                 else
-                    key = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(ext.pathurl));
-                apr_array_header_t * extitemsarray = (apr_array_header_t *)apr_hash_get(externals_to_pin, key, APR_HASH_KEY_STRING);
+                    key = apr_pstrdup(pool, static_cast<LPCSTR>(CUnicodeUtils::GetUTF8(ext.pathUrl)));
+                apr_array_header_t *extitemsarray = static_cast<apr_array_header_t *>(apr_hash_get(externalsToPin, key, APR_HASH_KEY_STRING));
                 if (extitemsarray == nullptr)
                 {
                     extitemsarray = apr_array_make(pool, 0, sizeof(svn_wc_external_item2_t *));
                 }
                 if (ext.adjust)
                 {
-
-                    svn_wc_external_item2_t * item = nullptr;
+                    svn_wc_external_item2_t *item = nullptr;
                     svn_wc_external_item2_create(&item, pool);
-                    item->peg_revision = ext.pegrevision;
-                    item->revision = ext.origrevision;
-                    item->target_dir = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(ext.targetDir));
-                    item->url = apr_pstrdup(pool, (LPCSTR)CUnicodeUtils::GetUTF8(ext.url));
+                    item->peg_revision                                       = ext.pegRevision;
+                    item->revision                                           = ext.origRevision;
+                    item->target_dir                                         = apr_pstrdup(pool, static_cast<LPCSTR>(CUnicodeUtils::GetUTF8(ext.targetDir)));
+                    item->url                                                = apr_pstrdup(pool, static_cast<LPCSTR>(CUnicodeUtils::GetUTF8(ext.url)));
                     APR_ARRAY_PUSH(extitemsarray, svn_wc_external_item2_t *) = item;
                 }
-                apr_hash_set(externals_to_pin, key, APR_HASH_KEY_STRING, (const void*)extitemsarray);
+                apr_hash_set(externalsToPin, key, APR_HASH_KEY_STRING, static_cast<const void *>(extitemsarray));
             }
         }
     }
 
-    return externals_to_pin;
+    return externalsToPin;
 }
 
 bool SVNExternals::NeedsTagging() const
 {
     bool bHasExtsToPin = false;
-    for (const auto& ext : *this)
+    for (const auto &ext : *this)
     {
         if (ext.adjust)
         {

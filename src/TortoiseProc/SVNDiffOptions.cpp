@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016 - TortoiseSVN
+// Copyright (C) 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,12 +33,16 @@ CString SVNDiffOptions::GetOptionsString() const
 
     switch (m_ignoreSpace)
     {
-    case svn_diff_file_ignore_space_change:
-        opts.Append(L"-b");
-        break;
-    case svn_diff_file_ignore_space_all:
-        opts.Append(L"-w");
-        break;
+        case svn_diff_file_ignore_space_change:
+            opts.Append(L"-b");
+            break;
+        case svn_diff_file_ignore_space_all:
+            opts.Append(L"-w");
+            break;
+        case svn_diff_file_ignore_space_none:
+            break;
+        default:
+            break;
     }
     opts.Trim();
     return opts;

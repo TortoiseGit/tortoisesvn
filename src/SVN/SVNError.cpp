@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010, 2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,35 +23,35 @@
 // construction
 ///////////////////////////////////////////////////////////////
 
-SVNError::SVNError (svn_errno_t errcode, const CStringA& errmessage)
+SVNError::SVNError(svn_errno_t errCode, const CStringA& errMessage)
     : std::exception()
-    , code (errcode)
-    , message (errmessage)
+    , code(errCode)
+    , message(errMessage)
 {
 }
 
-SVNError::SVNError (const svn_error_t* error)
-    : code (error ? static_cast<svn_errno_t>(error->apr_err) : (svn_errno_t)0)
-    , message (error ? (error->message != NULL ? error->message : error->file) : 0)
+SVNError::SVNError(const svn_error_t* error)
+    : code(error ? static_cast<svn_errno_t>(error->apr_err) : static_cast<svn_errno_t>(0))
+    , message(error ? (error->message != nullptr ? error->message : error->file) : nullptr)
 {
 }
 
-SVNError::SVNError (svn_error_t* error)
-    : code (error ? static_cast<svn_errno_t>(error->apr_err) : (svn_errno_t)0)
-    , message (error ? (error->message != NULL ? error->message : error->file) : 0)
+SVNError::SVNError(svn_error_t* error)
+    : code(error ? static_cast<svn_errno_t>(error->apr_err) : static_cast<svn_errno_t>(0))
+    , message(error ? (error->message != nullptr ? error->message : error->file) : nullptr)
 {
-    svn_error_clear (error);
+    svn_error_clear(error);
 }
 
 ///////////////////////////////////////////////////////////////
 // frequently used
 ///////////////////////////////////////////////////////////////
 
-void SVNError::ThrowLastError (DWORD lastError)
+void SVNError::ThrowLastError(DWORD lastError)
 {
     // get formatted system error message
 
     CFormatMessageWrapper errorMessage(lastError);
-    CStringA errorText ((LPCTSTR)errorMessage);
-    throw SVNError (SVN_ERR_BASE, errorText);
+    CStringA              errorText(static_cast<LPCTSTR>(errorMessage));
+    throw SVNError(SVN_ERR_BASE, errorText);
 }

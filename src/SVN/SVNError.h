@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010, 2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 
 #pragma once
 
-
 /**
  * \ingroup SVN
  * handles svn errors
@@ -26,28 +25,26 @@
 class SVNError : public std::exception
 {
 private:
-
     // parameters required for svn_error_create
 
     svn_errno_t code;
-    CStringA message;
+    CStringA    message;
 
 public:
-
     // construction
 
-    SVNError (svn_errno_t errcode, const CStringA& errmessage);
-    explicit SVNError (svn_error_t* error);
-    explicit SVNError (const svn_error_t* error);
+    SVNError(svn_errno_t errCode, const CStringA& errMessage);
+    explicit SVNError(svn_error_t* error);
+    explicit SVNError(const svn_error_t* error);
 
     // access internal info
 
-    svn_errno_t GetCode() const;
+    svn_errno_t     GetCode() const;
     const CStringA& GetMessage() const;
 
     // frequently used
 
-    static void ThrowLastError (DWORD lastError = GetLastError());
+    static void ThrowLastError(DWORD lastError = GetLastError());
 };
 
 inline svn_errno_t SVNError::GetCode() const
@@ -59,4 +56,3 @@ inline const CStringA& SVNError::GetMessage() const
 {
     return message;
 }
-

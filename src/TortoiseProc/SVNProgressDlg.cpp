@@ -3004,14 +3004,14 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
                     {
                         if (it->targetDir.CompareNoCase(m_origPathList[0].GetFileOrDirectoryName()) == 0)
                         {
-                            if ((it->pegrevision.kind != svn_opt_revision_head) || (it->origrevision.kind != svn_opt_revision_head))
+                            if ((it->pegRevision.kind != svn_opt_revision_head) || (it->origRevision.kind != svn_opt_revision_head))
                             {
-                                it->pegrevision.kind = ((const svn_opt_revision_t*)m_RevisionEnd)->kind;
-                                it->pegrevision.value = ((const svn_opt_revision_t*)m_RevisionEnd)->value;
+                                it->pegRevision.kind = ((const svn_opt_revision_t*)m_RevisionEnd)->kind;
+                                it->pegRevision.value = ((const svn_opt_revision_t*)m_RevisionEnd)->value;
                                 it->revision.kind = svn_opt_revision_head;
                                 it->revision.value.number = (svn_revnum_t)-1;
-                                it->origrevision.kind = svn_opt_revision_head;
-                                it->origrevision.value.number = (svn_revnum_t)-1;
+                                it->origRevision.kind = svn_opt_revision_head;
+                                it->origRevision.value.number = (svn_revnum_t)-1;
                                 it->adjust = true;
                                 bFound = true;
                                 break;

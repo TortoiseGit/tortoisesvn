@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2015, 2020 - TortoiseSVN
+// Copyright (C) 2010-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -172,7 +172,7 @@ void CEditPropExternals::OnBnClickedEdit()
         size_t selIndex = m_ExtList.GetNextSelectedItem(pos);
         SVNExternal ext = m_externals[selIndex];
         if (ext.revision.kind == svn_opt_revision_unspecified)
-            ext.revision = ext.origrevision;
+            ext.revision = ext.origRevision;
 
         CEditPropExternalsValue dlg;
         dlg.SetURL(m_url);
@@ -217,7 +217,7 @@ void CEditPropExternals::OnNMDblclkExternalslist(NMHDR * pNMHDR, LRESULT *pResul
     {
         SVNExternal ext = m_externals[lpnmitem->iItem];
         if (ext.revision.kind == svn_opt_revision_unspecified)
-            ext.revision = ext.origrevision;
+            ext.revision = ext.origRevision;
 
         CEditPropExternalsValue dlg;
         dlg.SetURL(m_url);
@@ -268,20 +268,20 @@ void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *p
                     }
                     break;
                 case 2: // peg
-                    if ((ext.pegrevision.kind == svn_opt_revision_number) && (ext.pegrevision.value.number >= 0))
-                        swprintf_s(m_columnbuf, L"%ld", ext.pegrevision.value.number);
+                    if ((ext.pegRevision.kind == svn_opt_revision_number) && (ext.pegRevision.value.number >= 0))
+                        swprintf_s(m_columnbuf, L"%ld", ext.pegRevision.value.number);
                     else
                         m_columnbuf[0] = 0;
                     break;
                 case 3: // operative
-                    if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0) && (ext.revision.value.number != ext.pegrevision.value.number))
+                    if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0) && (ext.revision.value.number != ext.pegRevision.value.number))
                         swprintf_s(m_columnbuf, L"%ld", ext.revision.value.number);
                     else
                         m_columnbuf[0] = 0;
                     break;
                 case 4: // head revision
-                    if (ext.headrev != SVN_INVALID_REVNUM)
-                        swprintf_s(m_columnbuf, L"%ld", ext.headrev);
+                    if (ext.headRev != SVN_INVALID_REVNUM)
+                        swprintf_s(m_columnbuf, L"%ld", ext.headRev);
                     else
                         m_columnbuf[0] = 0;
                     break;
@@ -345,11 +345,11 @@ void CEditPropExternals::OnBnClickedFindhead()
         count += 4;
         if (!it->root.IsEmpty())
         {
-            auto youngestRev = logHelper.GetYoungestRev(CTSVNPath(it->fullurl));
+            auto youngestRev = logHelper.GetYoungestRev(CTSVNPath(it->fullUrl));
             if (!youngestRev.IsValid())
-                it->headrev = svn.GetHEADRevision(CTSVNPath(it->fullurl), true);
+                it->headRev = svn.GetHEADRevision(CTSVNPath(it->fullUrl), true);
             else
-                it->headrev = youngestRev;
+                it->headRev = youngestRev;
         }
     }
     progDlg.Stop();
@@ -384,7 +384,7 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         int index = m_ExtList.GetNextSelectedItem(pos);
         if ((index >= 0)&&(index < (int)m_externals.size()))
         {
-            if (m_externals[index].headrev == SVN_INVALID_REVNUM)
+            if (m_externals[index].headRev == SVN_INVALID_REVNUM)
             {
                 haveHead = false;
                 break;
@@ -425,7 +425,7 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                     if ((index >= 0)&&(index < (int)m_externals.size()))
                     {
                         progDlg.SetLine(2, m_externals[index].url, true);
-                        if (m_externals[index].headrev == SVN_INVALID_REVNUM)
+                        if (m_externals[index].headRev == SVN_INVALID_REVNUM)
                         {
                             if (m_externals[index].root.IsEmpty())
                             {
@@ -433,14 +433,14 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                                 path_.AppendPathString(m_externals[index].targetDir);
                                 m_externals[index].root = svn.GetRepositoryRoot(path_);
                             }
-                            auto fullurl = CTSVNPath(m_externals[index].fullurl);
+                            auto fullurl = CTSVNPath(m_externals[index].fullUrl);
                             if (!fullurl.IsEmpty())
                             {
                                 auto youngestRev = logHelper.GetYoungestRev(fullurl);
                                 if (!youngestRev.IsValid())
-                                    m_externals[index].headrev = svn.GetHEADRevision(fullurl, true);
+                                    m_externals[index].headRev = svn.GetHEADRevision(fullurl, true);
                                 else
-                                    m_externals[index].headrev = youngestRev;
+                                    m_externals[index].headRev = youngestRev;
                             }
                         }
                     }
@@ -456,15 +456,15 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                     int index = m_ExtList.GetNextSelectedItem(p);
                     if ((index >= 0)&&(index < (int)m_externals.size()))
                     {
-                        if (m_externals[index].headrev != SVN_INVALID_REVNUM)
+                        if (m_externals[index].headRev != SVN_INVALID_REVNUM)
                         {
                             if (m_externals[index].revision.kind == svn_opt_revision_number)
                             {
                                 m_externals[index].revision.value.number = -1;
                                 m_externals[index].revision.kind = svn_opt_revision_unspecified;
                             }
-                            m_externals[index].pegrevision.value.number = m_externals[index].headrev;
-                            m_externals[index].pegrevision.kind = svn_opt_revision_number;
+                            m_externals[index].pegRevision.value.number = m_externals[index].headRev;
+                            m_externals[index].pegRevision.kind = svn_opt_revision_number;
                         }
                     }
                 }
@@ -522,13 +522,13 @@ bool CEditPropExternals::SortCompare(const SVNExternal& Data1, const SVNExternal
         result = Data1.url.CompareNoCase(Data2.url);
         break;
         case 2:     //peg revision column
-        result = Data1.pegrevision.value.number < Data2.pegrevision.value.number;
+        result = Data1.pegRevision.value.number < Data2.pegRevision.value.number;
         break;
         case 3:     // operative revision column
         result = Data1.revision.value.number < Data2.revision.value.number;
         break;
         case 4:     // head revision column
-        result = Data1.headrev < Data2.headrev;
+        result = Data1.headRev < Data2.headRev;
         break;
         default:
         break;

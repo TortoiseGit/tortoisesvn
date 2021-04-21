@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009, 2013-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,13 +20,14 @@
 #include "UnicodeUtils.h"
 #include "SVNGlobal.h"
 
-char * g_pConfigDir = NULL;
+char* g_pConfigDir = nullptr;
+// ReSharper disable once CppInconsistentNaming
 SVNGlobal g_SVNGlobal;
 
 SVNGlobal::SVNGlobal()
 {
     CRegStdString regConfigDir = CRegStdString(L"Software\\TortoiseSVN\\ConfigDir");
-    tstring sConfigDir = regConfigDir;
+    tstring       sConfigDir   = regConfigDir;
     if (!sConfigDir.empty())
     {
         g_pConfigDir = StrDupA(CUnicodeUtils::StdGetUTF8(sConfigDir).c_str());
@@ -44,9 +45,9 @@ void SVNGlobal::SetConfigDir(CString sConfigDir)
     if (g_pConfigDir)
     {
         LocalFree(g_pConfigDir);
-        g_pConfigDir = NULL;
+        g_pConfigDir = nullptr;
     }
     if (sConfigDir.IsEmpty())
         return;
-    g_pConfigDir = StrDupA((LPCSTR)CUnicodeUtils::GetUTF8(sConfigDir));
+    g_pConfigDir = StrDupA(static_cast<LPCSTR>(CUnicodeUtils::GetUTF8(sConfigDir)));
 }
