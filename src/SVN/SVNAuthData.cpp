@@ -31,8 +31,10 @@
 #include "StringUtils.h"
 #include "SVNConfig.h"
 #include "SVNHelpers.h"
+#include "SVNGlobal.h"
 
 #include <Wincrypt.h>
+
 
 SVNAuthData::SVNAuthData()
     : SVNBase()

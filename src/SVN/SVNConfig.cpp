@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010-2015, 2018 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010-2015, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,42 +31,40 @@
 
 SVNConfig* SVNConfig::m_pInstance;
 
-
-SVNConfig::SVNConfig(void)
-    : config(nullptr)
-    , patterns(nullptr)
-    , Err(nullptr)
+SVNConfig::SVNConfig()
+    : m_config(nullptr)
+    , m_patterns(nullptr)
+    , m_err(nullptr)
 {
-    parentpool = svn_pool_create(NULL);
-    m_pool = svn_pool_create (parentpool);
-    wcignorespool = svn_pool_create(m_pool);
+    m_parentPool    = svn_pool_create(nullptr);
+    m_pool          = svn_pool_create(m_parentPool);
+    m_wcIgnoresPool = svn_pool_create(m_pool);
 
-    Err = svn_config_ensure(NULL, m_pool);
-    if (Err == nullptr)
+    m_err = svn_config_ensure(nullptr, m_pool);
+    if (m_err == nullptr)
         // set up the configuration
-        Err = svn_config_get_config (&(config), g_pConfigDir, m_pool);
+        m_err = svn_config_get_config(&(m_config), g_pConfigDir, m_pool);
 
-    if (config)
+    if (m_config)
         SetUpSSH();
 }
 
-SVNConfig::~SVNConfig(void)
+SVNConfig::~SVNConfig()
 {
-    svn_error_clear(Err);
-    svn_pool_destroy (m_pool);
-    svn_pool_destroy (parentpool);
+    svn_error_clear(m_err);
+    svn_pool_destroy(m_pool);
+    svn_pool_destroy(m_parentPool);
     delete m_pInstance;
 }
 
 BOOL SVNConfig::GetDefaultIgnores()
 {
-    if (config == nullptr)
+    if (m_config == nullptr)
         return FALSE;
 
-    svn_pool_clear(wcignorespool);
-    svn_error_t * err;
-    patterns = nullptr;
-    err = svn_wc_get_default_ignores(&patterns, config, wcignorespool);
+    svn_pool_clear(m_wcIgnoresPool);
+    m_patterns = nullptr;
+    auto err   = svn_wc_get_default_ignores(&m_patterns, m_config, m_wcIgnoresPool);
     if (err)
     {
         svn_error_clear(err);
@@ -78,19 +76,19 @@ BOOL SVNConfig::GetDefaultIgnores()
 
 BOOL SVNConfig::GetWCIgnores(const CTSVNPath& path)
 {
-    if (config == nullptr)
+    if (m_config == nullptr)
         return FALSE;
 
-    svn_pool_clear(wcignorespool);
-    patterns = nullptr;
-    svn_wc_context_t * pctx = NULL;
-    svn_error_t * err = svn_wc_context_create(&pctx, NULL, wcignorespool, wcignorespool);
+    svn_pool_clear(m_wcIgnoresPool);
+    m_patterns             = nullptr;
+    svn_wc_context_t* pctx = nullptr;
+    svn_error_t*      err  = svn_wc_context_create(&pctx, nullptr, m_wcIgnoresPool, m_wcIgnoresPool);
     if (err)
     {
         svn_error_clear(err);
         return FALSE;
     }
-    err = svn_wc_get_ignores2(&patterns, pctx, path.GetSVNApiPath(wcignorespool), config, wcignorespool, wcignorespool);
+    err = svn_wc_get_ignores2(&m_patterns, pctx, path.GetSVNApiPath(m_wcIgnoresPool), m_config, m_wcIgnoresPool, m_wcIgnoresPool);
     svn_wc_context_destroy(pctx);
     if (err)
     {
@@ -101,65 +99,65 @@ BOOL SVNConfig::GetWCIgnores(const CTSVNPath& path)
     return TRUE;
 }
 
-BOOL SVNConfig::MatchIgnorePattern(const CString& name)
+BOOL SVNConfig::MatchIgnorePattern(const CString& name) const
 {
-    if (patterns == nullptr)
+    if (m_patterns == nullptr)
         return FALSE;
-    return svn_wc_match_ignore_list(CUnicodeUtils::GetUTF8(name), patterns, wcignorespool);
+    return svn_wc_match_ignore_list(CUnicodeUtils::GetUTF8(name), m_patterns, m_wcIgnoresPool);
 }
 
-BOOL SVNConfig::KeepLocks()
+BOOL SVNConfig::KeepLocks() const
 {
-    if (config == nullptr)
+    if (m_config == nullptr)
         return FALSE;
-    svn_boolean_t no_unlock = FALSE;
-    svn_config_t * opt = (svn_config_t *)apr_hash_get (config, SVN_CONFIG_CATEGORY_CONFIG,
-        APR_HASH_KEY_STRING);
+    svn_boolean_t noUnlock = FALSE;
+    svn_config_t* opt      = static_cast<svn_config_t*>(apr_hash_get(m_config, SVN_CONFIG_CATEGORY_CONFIG,
+                                                                APR_HASH_KEY_STRING));
     if (opt)
-        svn_error_clear(svn_config_get_bool(opt, &no_unlock, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_NO_UNLOCK, FALSE));
-    return no_unlock;
+        svn_error_clear(svn_config_get_bool(opt, &noUnlock, SVN_CONFIG_SECTION_MISCELLANY, SVN_CONFIG_OPTION_NO_UNLOCK, FALSE));
+    return noUnlock;
 }
 
-BOOL SVNConfig::ConfigGetBool(const char * section, const char * option, bool defbool)
+BOOL SVNConfig::ConfigGetBool(const char* section, const char* option, bool defbool) const
 {
-    if (config == nullptr)
+    if (m_config == nullptr)
         return defbool;
     svn_boolean_t val = defbool;
-    svn_config_t * opt = (svn_config_t *)apr_hash_get(config, SVN_CONFIG_CATEGORY_CONFIG,
-                                                      APR_HASH_KEY_STRING);
+    svn_config_t* opt = static_cast<svn_config_t*>(apr_hash_get(m_config, SVN_CONFIG_CATEGORY_CONFIG,
+                                                                APR_HASH_KEY_STRING));
     if (opt)
         svn_error_clear(svn_config_get_bool(opt, &val, section, option, defbool));
     return val;
 }
 
-bool SVNConfig::SetUpSSH()
+bool SVNConfig::SetUpSSH() const
 {
     bool bRet = false;
-    if (config == nullptr)
+    if (m_config == nullptr)
         return bRet;
     //set up the SVN_SSH param
-    CString tsvn_ssh = CRegString(L"Software\\TortoiseSVN\\SSH");
-    if (tsvn_ssh.IsEmpty() && config)
+    CString tsvnSsh = CRegString(L"Software\\TortoiseSVN\\SSH");
+    if (tsvnSsh.IsEmpty() && m_config)
     {
-        // check whether the ssh client is already set in the Subversion config
-        svn_config_t * cfg = (svn_config_t *)apr_hash_get (config, SVN_CONFIG_CATEGORY_CONFIG,
-            APR_HASH_KEY_STRING);
+        // check whether the ssh client is already set in the Subversion m_config
+        svn_config_t* cfg = static_cast<svn_config_t*>(apr_hash_get(m_config, SVN_CONFIG_CATEGORY_CONFIG,
+                                                                    APR_HASH_KEY_STRING));
         if (cfg)
         {
-            const char * sshValue = NULL;
+            const char* sshValue = nullptr;
             svn_config_get(cfg, &sshValue, SVN_CONFIG_SECTION_TUNNELS, "ssh", "");
-            if ((sshValue == NULL)||(sshValue[0] == 0))
-                tsvn_ssh = L"\"" + CPathUtils::GetAppDirectory() + L"TortoisePlink.exe" + L"\"";
+            if ((sshValue == nullptr) || (sshValue[0] == 0))
+                tsvnSsh = L"\"" + CPathUtils::GetAppDirectory() + L"TortoisePlink.exe" + L"\"";
         }
     }
-    tsvn_ssh.Replace('\\', '/');
-    if (!tsvn_ssh.IsEmpty())
+    tsvnSsh.Replace('\\', '/');
+    if (!tsvnSsh.IsEmpty())
     {
-        svn_config_t * cfg = (svn_config_t *)apr_hash_get (config, SVN_CONFIG_CATEGORY_CONFIG,
-            APR_HASH_KEY_STRING);
+        svn_config_t* cfg = static_cast<svn_config_t*>(apr_hash_get(m_config, SVN_CONFIG_CATEGORY_CONFIG,
+                                                                    APR_HASH_KEY_STRING));
         if (cfg)
         {
-            svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvn_ssh));
+            svn_config_set(cfg, SVN_CONFIG_SECTION_TUNNELS, "ssh", CUnicodeUtils::GetUTF8(tsvnSsh));
             bRet = true;
         }
     }
@@ -170,47 +168,47 @@ void SVNConfig::Refresh()
 {
     // try to reload the configuration
     // if it fails, use the originally loaded configuration
-    // if it succeeds, use the reloaded config and clear
+    // if it succeeds, use the reloaded m_config and clear
     // the memory of the old configuration
-    apr_pool_t * pool = m_pool;
-    apr_hash_t * config2 = nullptr;
-    if (config)
-        pool = svn_pool_create (parentpool);
+    apr_pool_t* pool    = m_pool;
+    apr_hash_t* config2 = nullptr;
+    if (m_config)
+        pool = svn_pool_create(m_parentPool);
 
-    svn_error_clear(Err);
-    Err = svn_config_ensure(NULL, pool);
-    if (Err == nullptr)
-        Err = svn_config_get_config (&(config2), g_pConfigDir, pool);
+    svn_error_clear(m_err);
+    m_err = svn_config_ensure(nullptr, pool);
+    if (m_err == nullptr)
+        m_err = svn_config_get_config(&(config2), g_pConfigDir, pool);
 
     if (config2 == nullptr)
     {
         apr_pool_destroy(pool);
     }
-    else if (config)
+    else if (m_config)
     {
         apr_pool_destroy(m_pool);
-        m_pool = pool;
-        config = config2;
+        m_pool   = pool;
+        m_config = config2;
     }
-    if (config)
+    if (m_config)
         SetUpSSH();
 }
 
-apr_hash_t * SVNConfig::GetConfig( apr_pool_t * pool )
+apr_hash_t* SVNConfig::GetConfig(apr_pool_t* pool)
 {
-    if (config == NULL)
-        return NULL;
-    // create a copy of the config object we have
+    if (m_config == nullptr)
+        return nullptr;
+    // create a copy of the m_config object we have
     // to avoid threading issues
     CComCritSecLock<CComCriticalSection> lock(m_critSec);
 
-    apr_hash_t * rethash = apr_hash_make(pool);
-    svn_error_t * error = svn_config_copy_config(&rethash, config, pool);
+    apr_hash_t*  retHash = apr_hash_make(pool);
+    svn_error_t* error   = svn_config_copy_config(&retHash, m_config, pool);
     if (error)
     {
         svn_error_clear(error);
-        return NULL;
+        return nullptr;
     }
 
-    return rethash;
+    return retHash;
 }

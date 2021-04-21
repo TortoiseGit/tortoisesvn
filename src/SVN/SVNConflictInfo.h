@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2017, 2020 - TortoiseSVN
+// Copyright (C) 2016-2017, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,8 +24,10 @@
 #include "ProgressDlg.h"
 #include "TSVNPath.h"
 
+// ReSharper disable CppInconsistentNaming
 struct svn_client_conflict_t;
 struct svn_client_conflict_option_t;
+// ReSharper restore CppInconsistentNaming
 
 /**
 * \ingroup SVN
@@ -34,34 +36,34 @@ struct svn_client_conflict_option_t;
 class SVNConflictOption
 {
 public:
-    SVNConflictOption(const SVNConflictOption&) = delete;
-    SVNConflictOption& operator=(SVNConflictOption&) = delete;
+    SVNConflictOption(const SVNConflictOption &) = delete;
+    SVNConflictOption &operator=(SVNConflictOption &) = delete;
 
     svn_client_conflict_option_id_t GetId() const { return m_id; }
-    CString GetLabel() const { return m_label; }
-    CString GetDescription() const { return m_description; }
-    operator svn_client_conflict_option_t *() const { return m_option; }
-    int GetPreferredMovedTargetIdx() const { return m_preferred_moved_target_idx; }
-    int GetPreferredMovedRelTargetIdx() const { return m_preferred_moved_reltarget_idx; }
+    CString                         GetLabel() const { return m_label; }
+    CString                         GetDescription() const { return m_description; }
+                                    operator svn_client_conflict_option_t *() const { return m_option; }
+    int                             GetPreferredMovedTargetIdx() const { return m_preferredMovedTargetIdx; }
+    int                             GetPreferredMovedRelTargetIdx() const { return m_preferredMovedReltargetIdx; }
 
-    void SetMergedPropVal(const svn_string_t *propval);
-    svn_error_t * SetMergedPropValFile(const CTSVNPath & filePath, apr_pool_t * pool);
+    void         SetMergedPropVal(const svn_string_t *propVal) const;
+    svn_error_t *SetMergedPropValFile(const CTSVNPath &filePath, apr_pool_t *pool) const;
 
 protected:
-    SVNConflictOption(svn_client_conflict_option_t *option,
+    SVNConflictOption(svn_client_conflict_option_t *  option,
                       svn_client_conflict_option_id_t id,
-                      const CString & label,
-                      const CString & description,
-                      int preferred_moved_target_idx = -1,
-                      int preferred_moved_reltarget_idx = -1);
+                      const CString &                 label,
+                      const CString &                 description,
+                      int                             preferredMovedTargetIdx    = -1,
+                      int                             preferredMovedReltargetIdx = -1);
 
 private:
-    svn_client_conflict_option_t *m_option;
+    svn_client_conflict_option_t *  m_option;
     svn_client_conflict_option_id_t m_id;
-    int m_preferred_moved_target_idx;
-    int m_preferred_moved_reltarget_idx;
-    CString m_label;
-    CString m_description;
+    int                             m_preferredMovedTargetIdx;
+    int                             m_preferredMovedReltargetIdx;
+    CString                         m_label;
+    CString                         m_description;
 
     friend class SVNConflictInfo;
 };
@@ -76,8 +78,8 @@ public:
     SVNConflictOptions();
     ~SVNConflictOptions();
 
-    apr_pool_t *GetPool() { return m_pool; }
-    SVNConflictOption * FindOptionById(svn_client_conflict_option_id_t id);
+    apr_pool_t *       GetPool() const { return m_pool; }
+    SVNConflictOption *FindOptionById(svn_client_conflict_option_id_t id);
 
 private:
     apr_pool_t *m_pool;
@@ -91,13 +93,13 @@ class SVNConflictInfo : public SVNBase
 {
 public:
     SVNConflictInfo();
-    ~SVNConflictInfo();
-    SVNConflictInfo(const SVNConflictInfo&) = delete;
-    SVNConflictInfo& operator=(const SVNConflictInfo&) = delete;
+    ~SVNConflictInfo() override;
+    SVNConflictInfo(const SVNConflictInfo &) = delete;
+    SVNConflictInfo &operator=(const SVNConflictInfo &) = delete;
 
-    void SetProgressDlg(CProgressDlg * dlg) { m_pProgress = dlg; }
+    void SetProgressDlg(CProgressDlg *dlg) { m_pProgress = dlg; }
 
-    bool Get(const CTSVNPath & path);
+    bool      Get(const CTSVNPath &path);
     CTSVNPath GetPath() const { return m_path; }
     // Wrapper for svn_client_conflict_get_operation()
     svn_wc_operation_t GetOperation() const;
@@ -107,43 +109,44 @@ public:
     svn_wc_conflict_reason_t GetLocalChange() const;
     // Wrapper for svn_client_conflict_get_recommended_option_id().
     svn_client_conflict_option_id_t GetRecommendedOptionId() const;
-    bool HasTreeConflict() const { return m_tree_conflicted != FALSE; }
-    bool HasTextConflict() const { return m_text_conflicted != FALSE; }
-    bool HasPropConflict() const { return m_prop_conflicts->nelts > 0; }
-    bool IsBinary();
-    int GetPropConflictCount() const;
-    CString GetPropConflictName(int idx) const;
-    bool GetPropValFiles(const CString & propertyName, CTSVNPath & mergedfile, CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile);
-    CString GetPropDiff(const CString & propertyName);
-    bool GetTextContentFiles(CTSVNPath & basefile, CTSVNPath & theirfile, CTSVNPath & myfile);
+    bool                            HasTreeConflict() const { return m_treeConflicted != FALSE; }
+    bool                            HasTextConflict() const { return m_textConflicted != FALSE; }
+    bool                            HasPropConflict() const { return m_propConflicts->nelts > 0; }
+    bool                            IsBinary() const;
+    int                             GetPropConflictCount() const;
+    CString                         GetPropConflictName(int idx) const;
+    bool                            GetPropValFiles(const CString &propertyName, CTSVNPath &mergedfile, CTSVNPath &basefile, CTSVNPath &theirfile, CTSVNPath &myfile);
+    CString                         GetPropDiff(const CString &propertyName);
+    bool                            GetTextContentFiles(CTSVNPath &basefile, CTSVNPath &theirfile, CTSVNPath &myfile);
 
     CString GetIncomingChangeSummary() const { return m_incomingChangeSummary; }
     CString GetDetailedIncomingChangeSummary() const { return m_detailedIncomingChangeSummary; }
-    CString GetLocalChangeSummary() const { return m_localChangeSummary;  }
+    CString GetLocalChangeSummary() const { return m_localChangeSummary; }
     CString GetPropDescription() const { return m_propDescription; }
 
-    bool GetTreeResolutionOptions(SVNConflictOptions & result);
-    bool GetTextResolutionOptions(SVNConflictOptions & result);
-    bool GetPropResolutionOptions(SVNConflictOptions & result);
-    operator svn_client_conflict_t *() { return m_conflict; }
+    bool GetTreeResolutionOptions(SVNConflictOptions &result);
+    bool GetTextResolutionOptions(SVNConflictOptions &result);
+    bool GetPropResolutionOptions(SVNConflictOptions &result);
+         operator svn_client_conflict_t *() const { return m_conflict; }
 
     bool FetchTreeDetails();
-protected:
-    apr_pool_t *m_pool;
-    apr_pool_t *m_infoPool;
-    svn_client_conflict_t *m_conflict;
-    CString m_incomingChangeSummary;
-    CString m_detailedIncomingChangeSummary;
-    CString m_localChangeSummary;
-    CString m_propDescription;
-    svn_boolean_t m_tree_conflicted;
-    svn_boolean_t m_text_conflicted;
-    apr_array_header_t *m_prop_conflicts;
-    CTSVNPath m_path;
-    SVNPrompt m_prompt;
-    CProgressDlg *m_pProgress;
 
-    static svn_error_t* cancelCallback(void *baton);
-    static void notifyCallback(void *baton, const svn_wc_notify_t *notify, apr_pool_t * pool);
-    svn_error_t * createPropValFiles(const char *propname, const char *mergedfile, const char *basefile, const char *theirfile, const char *myfile, apr_pool_t *pool);
+protected:
+    apr_pool_t *           m_pool;
+    apr_pool_t *           m_infoPool;
+    svn_client_conflict_t *m_conflict;
+    CString                m_incomingChangeSummary;
+    CString                m_detailedIncomingChangeSummary;
+    CString                m_localChangeSummary;
+    CString                m_propDescription;
+    svn_boolean_t          m_treeConflicted;
+    svn_boolean_t          m_textConflicted;
+    apr_array_header_t *   m_propConflicts;
+    CTSVNPath              m_path;
+    SVNPrompt              m_prompt;
+    CProgressDlg *         m_pProgress;
+
+    static svn_error_t *cancelCallback(void *baton);
+    static void         notifyCallback(void *baton, const svn_wc_notify_t *notify, apr_pool_t *pool);
+    svn_error_t *       createPropValFiles(const char *propName, const char *mergedFile, const char *baseFile, const char *theirFile, const char *myFile, apr_pool_t *pool) const;
 };

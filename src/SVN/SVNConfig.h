@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2010, 2012-2015, 2018 - TortoiseSVN
+// Copyright (C) 2003-2006, 2010, 2012-2015, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,10 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #pragma once
-#include "SVNGlobal.h"
 #include "TSVNPath.h"
 #pragma warning(push)
-#include "svn_client.h"
 #include "apr_hash.h"
 #include "apr_tables.h"
 #pragma warning(pop)
@@ -32,15 +30,16 @@
 class SVNConfig
 {
 private:
-    SVNConfig(void);
-    ~SVNConfig(void);
+    SVNConfig();
+    ~SVNConfig();
     // prevent cloning
     SVNConfig(const SVNConfig&) = delete;
     SVNConfig& operator=(const SVNConfig&) = delete;
+
 public:
     static SVNConfig& Instance()
     {
-        if (m_pInstance == NULL)
+        if (m_pInstance == nullptr)
             m_pInstance = new SVNConfig();
         return *m_pInstance;
     }
@@ -48,7 +47,7 @@ public:
     /**
      * Returns the configuration
      */
-    apr_hash_t * GetConfig(apr_pool_t * pool);
+    apr_hash_t* GetConfig(apr_pool_t* pool);
 
     /**
      * Reloads the configuration
@@ -58,9 +57,9 @@ public:
     /**
      * Returns the error object from the initialization, or nullptr if there wasn't any
      */
-    svn_error_t * GetError() const
+    svn_error_t* GetError() const
     {
-        return Err;
+        return m_err;
     }
 
     /**
@@ -83,23 +82,24 @@ public:
      * \param name the name to check
      * \return TRUE if the name matches a pattern, FALSE if it doesn't.
      */
-    BOOL MatchIgnorePattern(const CString& name);
+    BOOL MatchIgnorePattern(const CString& name) const;
 
-    BOOL KeepLocks();
+    BOOL KeepLocks() const;
 
-    BOOL ConfigGetBool(const char * section, const char * option, bool defbool);
+    BOOL ConfigGetBool(const char* section, const char* option, bool defbool) const;
 
     const CTSVNPath& GetLastWCIgnorePath() const { return m_lastWcIgnorePath; }
-private:
-    bool SetUpSSH();
 
-    apr_pool_t *                parentpool;
-    apr_pool_t *                m_pool;
-    apr_pool_t *                wcignorespool;
-    apr_hash_t *                config;
-    apr_array_header_t *        patterns;
-    svn_error_t *               Err;
-    CComAutoCriticalSection     m_critSec;
-    static SVNConfig *          m_pInstance;
-    CTSVNPath                   m_lastWcIgnorePath;
+private:
+    bool SetUpSSH() const;
+
+    apr_pool_t*             m_parentPool;
+    apr_pool_t*             m_pool;
+    apr_pool_t*             m_wcIgnoresPool;
+    apr_hash_t*             m_config;
+    apr_array_header_t*     m_patterns;
+    svn_error_t*            m_err;
+    CComAutoCriticalSection m_critSec;
+    static SVNConfig*       m_pInstance;
+    CTSVNPath               m_lastWcIgnorePath;
 };
