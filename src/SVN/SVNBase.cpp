@@ -132,7 +132,7 @@ CString SVNBase::GetErrorString(svn_error_t* err, int wrap /* = 80 */)
 
 #    ifdef IDS_SVNERR_CHECKPATHORURL
         // add some hint text for some of the error messages
-        switch (Err->apr_err)
+        switch (err->apr_err)
         {
             case SVN_ERR_BAD_FILENAME:
             case SVN_ERR_BAD_URL:
@@ -171,15 +171,15 @@ CString SVNBase::GetErrorString(svn_error_t* err, int wrap /* = 80 */)
             default:
                 break;
         }
-        if ((Err->apr_err == SVN_ERR_FS_PATH_NOT_LOCKED) ||
-            (Err->apr_err == SVN_ERR_FS_NO_SUCH_LOCK) ||
-            (Err->apr_err == SVN_ERR_RA_NOT_LOCKED))
+        if ((err->apr_err == SVN_ERR_FS_PATH_NOT_LOCKED) ||
+            (err->apr_err == SVN_ERR_FS_NO_SUCH_LOCK) ||
+            (err->apr_err == SVN_ERR_RA_NOT_LOCKED))
         {
             // the lock has already been broken from another working copy
             temp.LoadString(IDS_SVNERR_UNLOCKFAILEDNOLOCK);
         }
-        else if ((Err->apr_err != SVN_ERR_REPOS_HOOK_FAILURE) &&
-                 SVN_ERR_IS_UNLOCK_ERROR(Err))
+        else if ((err->apr_err != SVN_ERR_REPOS_HOOK_FAILURE) &&
+                 SVN_ERR_IS_UNLOCK_ERROR(err))
         {
             // if you want to break the lock, use the "check for modifications" dialog
             temp.LoadString(IDS_SVNERR_UNLOCKFAILED);

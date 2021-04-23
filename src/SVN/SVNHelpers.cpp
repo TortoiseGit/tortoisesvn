@@ -20,6 +20,7 @@
 #include "TSVNPath.h"
 #include "SVNConfig.h"
 #include "../version.h"
+#include "UnicodeUtils.h"
 #pragma warning(push)
 #include "svn_config.h"
 #include "svn_pools.h"
