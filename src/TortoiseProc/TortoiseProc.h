@@ -19,15 +19,8 @@
 #pragma once
 
 #ifndef __AFXWIN_H__
-    #error include 'stdafx.h' before including this file for PCH
+#    error include 'stdafx.h' before including this file for PCH
 #endif
-
-
-#include "resource.h"       // main symbols
-
-
-#include "../TortoiseShell/resource.h"
-//#include "UnicodeUtils.h"
 
 class CTSVNPath;
 class CTSVNPathList;
@@ -43,39 +36,37 @@ class CTSVNPathList;
  * just displays the common notify callbacks of the Subversion commands.
  */
 
-
 class CTortoiseProcApp : public CWinAppEx
 {
 public:
     CTortoiseProcApp();
     ~CTortoiseProcApp() override;
 
-// Overrides
+    // Overrides
 public:
     BOOL InitInstance() override;
     int  ExitInstance() override;
 
     static void CheckUpgrade();
-    void InitializeJumpList(const CString& appid);
-    void DoInitializeJumpList(const CString& appid);
+    void        InitializeJumpList(const CString& appid);
+    static void DoInitializeJumpList(const CString& appid);
 
-    HWND GetExplorerHWND() { return (::IsWindow(hWndExplorer) ? hWndExplorer : NULL); }
+    HWND GetExplorerHWND() { return (::IsWindow(hWndExplorer) ? hWndExplorer : nullptr); }
 
-// Implementation
+    // Implementation
 
 private:
     DECLARE_MESSAGE_MAP()
 private:
-    bool         retSuccess;
-    HWND         hWndExplorer;
-    apr_pool_t * m_globalPool;
-    void         CheckForNewerVersion() const;
-    static void  Sync();
+    bool        retSuccess;
+    HWND        hWndExplorer;
+    apr_pool_t* m_globalPool;
+    void        CheckForNewerVersion() const;
+    static void Sync();
 };
 
 extern CTortoiseProcApp theApp;
-extern CString sOrigCWD;
-extern CString g_sGroupingUUID;
-HWND GetExplorerHWND();
-HWND FindParentWindow(HWND hWnd);
-
+extern CString          sOrigCWD;
+extern CString          g_sGroupingUUID;
+HWND                    GetExplorerHWND();
+HWND                    FindParentWindow(HWND hWnd);

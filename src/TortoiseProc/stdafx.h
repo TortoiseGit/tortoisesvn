@@ -107,6 +107,8 @@ using std::max;
 #include "DebugOutput.h"
 #include "CrashReport.h"
 #include "OnOutOfScope.h"
+#include "resource.h"
+#include "../TortoiseShell/resource.h"
 
 #ifdef _WIN64
 #   define APP_X64_STRING   "x64"
