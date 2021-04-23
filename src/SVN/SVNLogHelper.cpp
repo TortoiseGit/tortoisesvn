@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011, 2013, 2015-2016 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011, 2013, 2015-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,43 +22,39 @@
 #include "PathUtils.h"
 #include "Access/StrictLogIterator.h"
 
-SVNRev SVNLogHelper::GetCopyFromRev(const CTSVNPath& url, SVNRev pegrev, CString& copyfromURL)
+SVNRev SVNLogHelper::GetCopyFromRev(const CTSVNPath& url, SVNRev pegRev, CString& copyfromURL)
 {
     SVNRev result;
 
     // fill / update a suitable log cache
 
-    if (pegrev.IsHead())
-        pegrev = GetHEADRevision (url);
-    if (!pegrev.IsNumber())
+    if (pegRev.IsHead())
+        pegRev = GetHEADRevision(url);
+    if (!pegRev.IsNumber())
         return SVNRev();
 
-    std::unique_ptr<const CCacheLogQuery> query
-        (ReceiveLog (CTSVNPathList(url), pegrev, pegrev, 1, 0, TRUE, FALSE, false));
-    if (query.get() == NULL)
+    std::unique_ptr<const CCacheLogQuery> query(ReceiveLog(CTSVNPathList(url), pegRev, pegRev, 1, 0, TRUE, FALSE, false));
+    if (query.get() == nullptr)
         return result;
 
     // construct the path object
     // (URLs are always escaped, so we must unescape them)
 
-    CStringA svnURLPath = CUnicodeUtils::GetUTF8 (url.GetSVNPathString());
+    CStringA svnURLPath = CUnicodeUtils::GetUTF8(url.GetSVNPathString());
     if (svnURLPath.Left(9).CompareNoCase("file:///\\") == 0)
-        svnURLPath.Delete (7, 2);
+        svnURLPath.Delete(7, 2);
 
-    CStringA relPath = svnURLPath.Mid (query->GetRootURL().GetLength());
-    relPath = CPathUtils::PathUnescape (relPath);
+    CStringA relPath = svnURLPath.Mid(query->GetRootURL().GetLength());
+    relPath          = CPathUtils::PathUnescape(relPath);
 
-    const CPathDictionary* paths = &query->GetCache()->GetLogInfo().GetPaths();
-    CDictionaryBasedTempPath path (paths, (const char*)relPath);
+    const CPathDictionary*   paths = &query->GetCache()->GetLogInfo().GetPaths();
+    CDictionaryBasedTempPath path(paths, static_cast<const char*>(relPath));
 
     // follow the log
 
-    LogCache::CStrictLogIterator iterator
-        ( query->GetCache()
-        , pegrev
-        , path);
+    LogCache::CStrictLogIterator iterator(query->GetCache(), pegRev, path);
 
-    result = pegrev;
+    result = pegRev;
     iterator.Retry();
     while (!iterator.EndOfPath())
     {
@@ -73,20 +69,19 @@ SVNRev SVNLogHelper::GetCopyFromRev(const CTSVNPath& url, SVNRev pegrev, CString
 
     // return the results
 
-    copyfromURL = MakeUIUrlOrPath (  query->GetRootURL()
-                                   + iterator.GetPath().GetPath().c_str());
+    copyfromURL = MakeUIUrlOrPath(query->GetRootURL() + iterator.GetPath().GetPath().c_str());
     if (iterator.GetCopyFromRevision() != NO_REVISION)
         result = iterator.GetCopyFromRevision();
     return result;
 }
 
-std::vector<std::pair<CTSVNPath, SVNRev> >
-SVNLogHelper::GetCopyHistory(const CTSVNPath& url, const SVNRev& pegrev)
+std::vector<std::pair<CTSVNPath, SVNRev>>
+    SVNLogHelper::GetCopyHistory(const CTSVNPath& url, const SVNRev& pegRev)
 {
-    std::vector<std::pair<CTSVNPath, SVNRev> > result;
+    std::vector<std::pair<CTSVNPath, SVNRev>> result;
 
     CTSVNPath path = url;
-    SVNRev rev = pegrev.IsHead() ? GetHEADRevision (url) : pegrev;
+    SVNRev    rev  = pegRev.IsHead() ? GetHEADRevision(url) : pegRev;
 
     while (rev.IsNumber() && !path.IsEmpty())
     {
@@ -94,29 +89,27 @@ SVNLogHelper::GetCopyHistory(const CTSVNPath& url, const SVNRev& pegrev)
 
         CString copyFromURL;
         rev = GetCopyFromRev(path, rev, copyFromURL);
-        path.SetFromSVN (copyFromURL);
+        path.SetFromSVN(copyFromURL);
     }
 
     return result;
 }
 
 std::pair<CTSVNPath, SVNRev>
-SVNLogHelper::GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1,
-                              const CTSVNPath& url2, const SVNRev& pegrev2)
+    SVNLogHelper::GetCommonSource(const CTSVNPath& url1, const SVNRev& pegRev1,
+                                  const CTSVNPath& url2, const SVNRev& pegRev2)
 {
     // get the full copy histories of both urls
 
-    auto copyHistory1 = GetCopyHistory(url1, pegrev1);
-    auto copyHistory2 = GetCopyHistory(url2, pegrev2);
+    auto copyHistory1 = GetCopyHistory(url1, pegRev1);
+    auto copyHistory2 = GetCopyHistory(url2, pegRev2);
 
     // starting from the oldest paths, look for the first divergence
     // (this may be important in the case of cyclic renames)
 
     auto iter1 = copyHistory1.rbegin(), end1 = copyHistory1.rend();
     auto iter2 = copyHistory2.rbegin(), end2 = copyHistory2.rend();
-    for (;    iter1 != end1 && iter2 != end2
-           && iter1->first.IsEquivalentTo (iter2->first)
-         ; ++iter1, ++iter2 )
+    for (; iter1 != end1 && iter2 != end2 && iter1->first.IsEquivalentTo(iter2->first); ++iter1, ++iter2)
     {
     }
 
@@ -129,8 +122,8 @@ SVNLogHelper::GetCommonSource(const CTSVNPath& url1, const SVNRev& pegrev1,
 
     --iter1;
     --iter2;
-    SVNRev commonRev = min ((LONG)iter1->second, (LONG)iter2->second);
-    return std::make_pair (iter1->first, commonRev);
+    SVNRev commonRev = min(static_cast<LONG>(iter1->second), static_cast<LONG>(iter2->second));
+    return std::make_pair(iter1->first, commonRev);
 }
 
 SVNRev SVNLogHelper::GetYoungestRev(const CTSVNPath& url)
@@ -141,9 +134,8 @@ SVNRev SVNLogHelper::GetYoungestRev(const CTSVNPath& url)
 
     auto pegrev = GetHEADRevision(url);
 
-    std::unique_ptr<const CCacheLogQuery> query
-        (ReceiveLog(CTSVNPathList(url), pegrev, pegrev, 1, 1, TRUE, FALSE, false));
-    if (query.get() == NULL)
+    std::unique_ptr<const CCacheLogQuery> query(ReceiveLog(CTSVNPathList(url), pegrev, pegrev, 1, 1, TRUE, FALSE, false));
+    if (query.get() == nullptr)
         return pegrev;
 
     // construct the path object
@@ -154,17 +146,14 @@ SVNRev SVNLogHelper::GetYoungestRev(const CTSVNPath& url)
         svnURLPath.Delete(7, 2);
 
     CStringA relPath = svnURLPath.Mid(query->GetRootURL().GetLength());
-    relPath = CPathUtils::PathUnescape(relPath);
+    relPath          = CPathUtils::PathUnescape(relPath);
 
-    const CPathDictionary* paths = &query->GetCache()->GetLogInfo().GetPaths();
-    CDictionaryBasedTempPath path(paths, (const char*)relPath);
+    const CPathDictionary*   paths = &query->GetCache()->GetLogInfo().GetPaths();
+    CDictionaryBasedTempPath path(paths, static_cast<const char*>(relPath));
 
     // follow the log
 
-    LogCache::CStrictLogIterator iterator
-        (query->GetCache()
-         , pegrev
-         , path);
+    LogCache::CStrictLogIterator iterator(query->GetCache(), pegrev, path);
 
     iterator.Retry();
     if (!iterator.EndOfPath())
@@ -172,4 +161,3 @@ SVNRev SVNLogHelper::GetYoungestRev(const CTSVNPath& url)
 
     return result;
 }
-
