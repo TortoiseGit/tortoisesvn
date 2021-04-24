@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2012, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,16 +34,15 @@
 class StringPool
 {
 public:
-
-    StringPool() {emptyString[0] = 0;}
-    ~StringPool() {clear();}
+    StringPool() { emptyString[0] = 0; }
+    ~StringPool() { clear(); }
 
     /**
      * Return a string equal to value from the internal pool.
      * If no such string is available, a new one is allocated.
      * NULL is valid for value.
      */
-    const char* GetString (const char* value);
+    const char* GetString(const char* value);
 
     /**
      * invalidates all strings returned by GetString()
@@ -52,29 +51,27 @@ public:
     void clear();
 
 private:
-
     // comparator: compare C-style strings
 
     struct LessString
     {
         bool operator()(const char* lhs, const char* rhs) const
         {
-            return strcmp (lhs, rhs) < 0;
+            return strcmp(lhs, rhs) < 0;
         }
     };
 
     // store the strings in a map
     // caution: modifying the map must not modify the string pointers
 
-    typedef std::set<const char*, LessString> pool_type;
-    pool_type pool;
-    char emptyString[1];
+    std::set<const char*, LessString> pool;
+    char                              emptyString[1];
 };
 
-#define SVNFOLDERSTATUS_CACHETIMES              10
-#define SVNFOLDERSTATUS_CACHETIMEOUT            2000
-#define SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT   4000
-#define SVNFOLDERSTATUS_FOLDER                  500
+#define SVNFOLDERSTATUS_CACHETIMES            10
+#define SVNFOLDERSTATUS_CACHETIMEOUT          2000
+#define SVNFOLDERSTATUS_RECURSIVECACHETIMEOUT 4000
+#define SVNFOLDERSTATUS_FOLDER                500
 
 class FileStatusCacheEntry
 {
@@ -84,22 +81,22 @@ public:
         , author("")
         , url("")
         , owner("")
-        , needslock(false)
+        , needsLock(false)
         , rev(-1)
-        , askedcounter(SVNFOLDERSTATUS_CACHETIMES)
+        , askedCounter(SVNFOLDERSTATUS_CACHETIMES)
         , lock(nullptr)
-        , tree_conflict(false)
+        , treeConflict(false)
     {
     }
-    svn_wc_status_kind      status;
-    const char*             author;     ///< points to a (possibly) shared value
-    const char*             url;        ///< points to a (possibly) shared value
-    const char*             owner;      ///< points to a (possible) lock owner
-    bool                    needslock;
-    svn_revnum_t            rev;
-    int                     askedcounter;
-    const svn_lock_t *      lock;
-    bool                    tree_conflict;
+    svn_wc_status_kind status;
+    const char*        author; ///< points to a (possibly) shared value
+    const char*        url;    ///< points to a (possibly) shared value
+    const char*        owner;  ///< points to a (possible) lock owner
+    bool               needsLock;
+    svn_revnum_t       rev;
+    int                askedCounter;
+    const svn_lock_t*  lock;
+    bool               treeConflict;
 };
 
 /**
@@ -119,43 +116,42 @@ public:
 class SVNFolderStatus
 {
 public:
-    SVNFolderStatus(void);
-    ~SVNFolderStatus(void);
-    const FileStatusCacheEntry *    GetFullStatus(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bColumnProvider = FALSE);
-    const FileStatusCacheEntry *    GetCachedItem(const CTSVNPath& filepath);
+    SVNFolderStatus();
+    ~SVNFolderStatus();
+    const FileStatusCacheEntry* GetFullStatus(const CTSVNPath& filePath, BOOL bIsFolder, BOOL bColumnProvider = FALSE);
+    const FileStatusCacheEntry* GetCachedItem(const CTSVNPath& filepath);
 
-    FileStatusCacheEntry        invalidstatus;
+    FileStatusCacheEntry invalidStatus;
 
 private:
-    const FileStatusCacheEntry * BuildCache(const CTSVNPath& filepath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
-    ULONGLONG           GetTimeoutValue() const;
-    static svn_error_t* fillstatusmap (void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
-    static svn_error_t* findfolderstatus (void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
-    static CTSVNPath    folderpath;
-    void                ClearCache();
+    const FileStatusCacheEntry* BuildCache(const CTSVNPath& filePath, BOOL bIsFolder, BOOL bDirectFolder = FALSE);
+    ULONGLONG                   GetTimeoutValue() const;
+    static svn_error_t*         fillStatusMap(void* baton, const char* path, const svn_client_status_t* status, apr_pool_t* pool);
+    static svn_error_t*         findFolderStatus(void* baton, const char* path, const svn_client_status_t* status, apr_pool_t* pool);
+    static CTSVNPath            folderPath;
+    void                        ClearCache();
 
-    int                 m_nCounter;
+    int                                             m_nCounter;
     typedef std::map<tstring, FileStatusCacheEntry> FileStatusMap;
-    FileStatusMap           m_cache;
-    ULONGLONG               m_TimeStamp;
-    FileStatusCacheEntry    dirstat;
-    const svn_client_status_t * dirstatus;
-    apr_pool_t *            rootpool;
+    FileStatusMap                                   m_cache;
+    ULONGLONG                                       m_timeStamp;
+    FileStatusCacheEntry                            dirStat;
+    const svn_client_status_t*                      dirStatus;
+    apr_pool_t*                                     rootPool;
 
     // merging these pools won't save memory
     // but access will become slower
 
-    StringPool      authors;
-    StringPool      urls;
-    StringPool      owners;
-    char            emptyString[1];
+    StringPool authors;
+    StringPool urls;
+    StringPool owners;
+    char       emptyString[1];
 
-    tstring     sCacheKey;
+    tstring sCacheKey;
 
-    CAutoGeneralHandle  m_hInvalidationEvent;
+    CAutoGeneralHandle m_hInvalidationEvent;
 
     // The item we most recently supplied status for
-    CTSVNPath       m_mostRecentPath;
+    CTSVNPath                   m_mostRecentPath;
     const FileStatusCacheEntry* m_mostRecentStatus;
 };
-

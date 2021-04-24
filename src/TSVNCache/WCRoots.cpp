@@ -34,13 +34,13 @@ CWCRoots::~CWCRoots()
 __int64 CWCRoots::GetDBFileTime(const CTSVNPath& path)
 {
     AutoLocker                                  lock(m_critSec);
-    std::map<CTSVNPath, WCRootsTimes>::iterator it = m_WCDBs.lower_bound(path);
-    if (it != m_WCDBs.end())
+    std::map<CTSVNPath, WCRootsTimes>::iterator it = m_wcdBs.lower_bound(path);
+    if (it != m_wcdBs.end())
     {
         if (it->first.IsAncestorOf(path))
         {
             auto ticks = GetTickCount64();
-            if (ticks - it->second.LastTicks > DBTIMEOUT)
+            if (ticks - it->second.lastTicks > DBTIMEOUT)
             {
                 // refresh the file time
                 CTSVNPath wcDbFile(it->first);
@@ -48,31 +48,31 @@ __int64 CWCRoots::GetDBFileTime(const CTSVNPath& path)
                 if (wcDbFile.Exists())
                 {
                     WCRootsTimes dbTimes;
-                    dbTimes.LastTicks = ticks;
-                    dbTimes.FileTime  = wcDbFile.GetLastWriteTime();
+                    dbTimes.lastTicks = ticks;
+                    dbTimes.fileTime  = wcDbFile.GetLastWriteTime();
                     it->second        = dbTimes;
                 }
                 else
                 {
                     // remove the path from the map
-                    m_WCDBs.erase(it);
+                    m_wcdBs.erase(it);
                     return 0;
                 }
             }
-            return it->second.FileTime;
+            return it->second.fileTime;
         }
         else
         {
             it = AddPathInternal(path);
-            if (it != m_WCDBs.end())
-                return it->second.FileTime;
+            if (it != m_wcdBs.end())
+                return it->second.fileTime;
         }
     }
     else
     {
         it = AddPathInternal(path);
-        if (it != m_WCDBs.end())
-            return it->second.FileTime;
+        if (it != m_wcdBs.end())
+            return it->second.fileTime;
     }
     return 0;
 }
@@ -90,18 +90,18 @@ std::map<CTSVNPath, WCRootsTimes>::iterator CWCRoots::AddPathInternal(const CTSV
         else
         {
             WCRootsTimes dbTimes;
-            dbTimes.LastTicks = GetTickCount64();
-            dbTimes.FileTime  = dbPath.GetLastWriteTime();
-            return m_WCDBs.emplace(p, dbTimes).first;
+            dbTimes.lastTicks = GetTickCount64();
+            dbTimes.fileTime  = dbPath.GetLastWriteTime();
+            return m_wcdBs.emplace(p, dbTimes).first;
         }
     } while (!p.IsEmpty());
 
-    return m_WCDBs.end();
+    return m_wcdBs.end();
 }
 
 bool CWCRoots::AddPath(const CTSVNPath& path)
 {
-    return AddPathInternal(path) != m_WCDBs.end();
+    return AddPathInternal(path) != m_wcdBs.end();
 }
 
 bool CWCRoots::NotifyChange(const CTSVNPath& path)
@@ -113,8 +113,8 @@ bool CWCRoots::NotifyChange(const CTSVNPath& path)
     {
         p = p.GetContainingDirectory();
     }
-    std::map<CTSVNPath, WCRootsTimes>::iterator it = m_WCDBs.lower_bound(p);
-    if (it != m_WCDBs.end())
+    std::map<CTSVNPath, WCRootsTimes>::iterator it = m_wcdBs.lower_bound(p);
+    if (it != m_wcdBs.end())
     {
         if (it->first.IsAncestorOf(p))
         {
@@ -124,15 +124,15 @@ bool CWCRoots::NotifyChange(const CTSVNPath& path)
             if (wcDbFile.Exists())
             {
                 WCRootsTimes dbTimes;
-                dbTimes.LastTicks = GetTickCount64();
-                dbTimes.FileTime  = wcDbFile.GetLastWriteTime();
-                changed           = (dbTimes.FileTime != it->second.FileTime);
+                dbTimes.lastTicks = GetTickCount64();
+                dbTimes.fileTime  = wcDbFile.GetLastWriteTime();
+                changed           = (dbTimes.fileTime != it->second.fileTime);
                 it->second        = dbTimes;
             }
             else
             {
                 // remove the path from the map
-                m_WCDBs.erase(it);
+                m_wcdBs.erase(it);
             }
         }
     }

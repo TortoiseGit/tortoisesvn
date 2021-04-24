@@ -1,7 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2016 - TortoiseGit
-// Copyright (C) 2003-2006, 2009, 2011-2016 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009, 2011-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,20 +21,18 @@
 #include "ShellExt.h"
 #include "ItemIDList.h"
 
-
 ItemIDList::ItemIDList(PCUITEMID_CHILD item, PCUIDLIST_RELATIVE parent)
-    : item_ (item)
-    , parent_ (parent)
-    , count_ (-1)
+    : m_item(item)
+    , m_parent(parent)
+    , m_count(-1)
 {
 }
 
-ItemIDList::ItemIDList( PCIDLIST_ABSOLUTE item )
-    : item_ ((PCUITEMID_CHILD)item)
-    , parent_ (0)
-    , count_ (-1)
+ItemIDList::ItemIDList(PCIDLIST_ABSOLUTE item)
+    : m_item(reinterpret_cast<PCUITEMID_CHILD>(item))
+    , m_parent(nullptr)
+    , m_count(-1)
 {
-
 }
 
 ItemIDList::~ItemIDList()
@@ -43,65 +41,64 @@ ItemIDList::~ItemIDList()
 
 int ItemIDList::size() const
 {
-    if (count_ == -1)
+    if (m_count == -1)
     {
-        count_ = 0;
-        if (item_)
+        m_count = 0;
+        if (m_item)
         {
-            LPCSHITEMID ptr = &item_->mkid;
-            while (ptr != 0 && ptr->cb != 0)
+            LPCSHITEMID ptr = &m_item->mkid;
+            while (ptr != nullptr && ptr->cb != 0)
             {
-                ++count_;
-                LPBYTE byte = (LPBYTE) ptr;
+                ++m_count;
+                LPBYTE byte = reinterpret_cast<LPBYTE>(const_cast<LPSHITEMID>(ptr));
                 byte += ptr->cb;
-                ptr = (LPCSHITEMID) byte;
+                ptr = reinterpret_cast<LPCSHITEMID>(byte);
             }
         }
     }
-    return count_;
+    return m_count;
 }
 
 LPCSHITEMID ItemIDList::get(int index) const
 {
     int count = 0;
 
-    if (item_ == NULL)
-        return NULL;
-    LPCSHITEMID ptr = &item_->mkid;
-    if (ptr == NULL)
-        return NULL;
+    if (m_item == nullptr)
+        return nullptr;
+    LPCSHITEMID ptr = &m_item->mkid;
+    if (ptr == nullptr)
+        return nullptr;
     while (ptr->cb != 0)
     {
         if (count == index)
             break;
 
         ++count;
-        LPBYTE byte = (LPBYTE) ptr;
+        LPBYTE byte = reinterpret_cast<LPBYTE>(const_cast<LPSHITEMID>(ptr));
         byte += ptr->cb;
-        ptr = (LPCSHITEMID) byte;
+        ptr = reinterpret_cast<LPCSHITEMID>(byte);
     }
     return ptr;
-
 }
 
-tstring ItemIDList::toString(bool resolveLibraries /*= true*/)
+tstring ItemIDList::toString(bool resolveLibraries /*= true*/) const
 {
     CComPtr<IShellFolder> shellFolder;
     CComPtr<IShellFolder> parentFolder;
-    tstring ret;
+    tstring               ret;
 
     if (FAILED(::SHGetDesktopFolder(&shellFolder)))
         return ret;
-    if (!parent_ || FAILED(shellFolder->BindToObject(parent_, 0, IID_IShellFolder, (void**)&parentFolder)))
+    if (!m_parent || FAILED(shellFolder->BindToObject(m_parent, nullptr, IID_IShellFolder, reinterpret_cast<void**>(&parentFolder))))
         parentFolder = shellFolder;
 
     STRRET name;
     TCHAR* szDisplayName = nullptr;
-    if ((parentFolder != 0)&&(item_ != 0))
+    if ((parentFolder != nullptr) && (m_item != nullptr))
     {
-        if (FAILED(parentFolder->GetDisplayNameOf(item_, SHGDN_NORMAL | SHGDN_FORPARSING, &name)))
+        if (FAILED(parentFolder->GetDisplayNameOf(m_item, SHGDN_NORMAL | SHGDN_FORPARSING, &name)))
             return ret;
-        if (FAILED(StrRetToStr(&name, item_, &szDisplayName)))
+        if (FAILED(StrRetToStr(&name, m_item, &szDisplayName)))
             return ret;
     }
     if (!szDisplayName)
@@ -109,22 +106,22 @@ tstring ItemIDList::toString(bool resolveLibraries /*= true*/)
     ret = szDisplayName;
     CoTaskMemFree(szDisplayName);
 
-    if (!((resolveLibraries) && (wcsncmp(ret.c_str(), L"::{", 3)==0)))
+    if (!((resolveLibraries) && (wcsncmp(ret.c_str(), L"::{", 3) == 0)))
         return ret;
 
-    CComPtr<IShellLibrary> plib;
-    if (FAILED(plib.CoCreateInstance(CLSID_ShellLibrary, nullptr, CLSCTX_INPROC_SERVER)))
+    CComPtr<IShellLibrary> pLib;
+    if (FAILED(pLib.CoCreateInstance(CLSID_ShellLibrary, nullptr, CLSCTX_INPROC_SERVER)))
         return ret;
 
     CComPtr<IShellItem> psiLibrary;
     if (FAILED(SHCreateItemFromParsingName(ret.c_str(), nullptr, IID_PPV_ARGS(&psiLibrary))))
         return ret;
 
-    if (FAILED(plib->LoadLibraryFromItem(psiLibrary, STGM_READ | STGM_SHARE_DENY_NONE)))
+    if (FAILED(pLib->LoadLibraryFromItem(psiLibrary, STGM_READ | STGM_SHARE_DENY_NONE)))
         return ret;
 
     CComPtr<IShellItem> psiSaveLocation;
-    if (FAILED(plib->GetDefaultSaveFolder(DSFT_DETECT, IID_PPV_ARGS(&psiSaveLocation))))
+    if (FAILED(pLib->GetDefaultSaveFolder(DSFT_DETECT, IID_PPV_ARGS(&psiSaveLocation))))
         return ret;
 
     PWSTR pszName = nullptr;
@@ -137,7 +134,7 @@ tstring ItemIDList::toString(bool resolveLibraries /*= true*/)
     return ret;
 }
 
-PCUITEMID_CHILD ItemIDList::operator& ()
+PCUITEMID_CHILD ItemIDList::operator&() const
 {
-    return item_;
+    return m_item;
 }

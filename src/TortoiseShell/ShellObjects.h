@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,8 +28,8 @@ public:
     ShellObjects();
     ~ShellObjects();
 
-    void Insert(CShellExt * obj);
-    void Erase(CShellExt * obj);
+    void Insert(CShellExt *obj);
+    void Erase(CShellExt *obj);
     void DeleteAll();
 
 private:

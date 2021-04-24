@@ -51,7 +51,7 @@ public:
      */
     SVNProperties(const CTSVNPath& filepath, bool bRevProps, bool bIncludeInherited);
 #endif
-    virtual ~SVNProperties();
+    ~SVNProperties() override;
     /**
      * Adds a new property to the file/directory specified in the constructor.
      * \remark After using this method the indexes of the properties may change! Call Refresh() if you want to access other properties again.

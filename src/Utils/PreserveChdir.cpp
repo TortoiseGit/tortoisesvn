@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2010, 2012, 2014, 2016 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010, 2012, 2014, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,34 +19,35 @@
 #include "stdafx.h"
 #include "PreserveChdir.h"
 
-PreserveChdir::PreserveChdir() :
-    size(GetCurrentDirectory(0, NULL)),
-    originalCurrentDirectory(new TCHAR[size])
+PreserveChdir::PreserveChdir()
+    : m_size(GetCurrentDirectory(0, nullptr))
+    , m_originalCurrentDirectory(new TCHAR[m_size])
 {
-    if (size > 0)
-        if (GetCurrentDirectory((DWORD)size, originalCurrentDirectory.get()) !=0)
+    if (m_size > 0)
+        if (GetCurrentDirectory(static_cast<DWORD>(m_size), m_originalCurrentDirectory.get()) != 0)
             return; // succeeded
 
     // GetCurrentDirectory failed
-    originalCurrentDirectory.reset();
+    m_originalCurrentDirectory.reset();
 }
 
 PreserveChdir::~PreserveChdir()
 {
-    if (!originalCurrentDirectory)
+    if (!m_originalCurrentDirectory)
         return; // nothing to do
 
     // _tchdir is an expensive function - don't call it unless we really have to
-    const DWORD len = GetCurrentDirectory(0, NULL);
-    if(len == size) {
+    const DWORD len = GetCurrentDirectory(0, nullptr);
+    if (len == m_size)
+    {
         // same size, must check contents
         auto currentDirectory = std::make_unique<TCHAR[]>(len);
-        if(GetCurrentDirectory(len, currentDirectory.get()) != 0)
-            if(wcscmp(currentDirectory.get(), originalCurrentDirectory.get()) == 0)
+        if (GetCurrentDirectory(len, currentDirectory.get()) != 0)
+            if (wcscmp(currentDirectory.get(), m_originalCurrentDirectory.get()) == 0)
                 return; // no change required, reset of no use as dtor is called exactly once
     }
 
     // must reset directory
-    if(SetCurrentDirectory(originalCurrentDirectory.get()))
-        originalCurrentDirectory.reset();
+    if (SetCurrentDirectory(m_originalCurrentDirectory.get()))
+        m_originalCurrentDirectory.reset();
 }

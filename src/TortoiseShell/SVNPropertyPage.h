@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,36 +17,36 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "ShellUpdater.h"
 
-#define ListView_GetItemTextEx(hwndLV, i, iSubItem_, __buf) \
-{ \
-  int nLen = 1024;\
-  int nRes;\
-  LV_ITEM _ms_lvi;\
-  _ms_lvi.iSubItem = iSubItem_;\
-  do\
-  {\
-    nLen += 2;\
-    _ms_lvi.cchTextMax = nLen;\
-    delete[] __buf;\
-    __buf = new TCHAR[nLen];\
-    _ms_lvi.pszText = __buf;\
-    nRes  = (int)::SendMessage((hwndLV), LVM_GETITEMTEXT, (WPARAM)(i), (LPARAM)(LV_ITEM *)&_ms_lvi);\
-  } while (nRes == nLen-1);\
-}
-#define GetDlgItemTextEx(hwndDlg, _id, __buf) \
-{\
-    int nLen = 1024;\
-    int nRes;\
-    do\
-    {\
-        nLen *= 2;\
-        delete [] __buf;\
-        __buf = new TCHAR[nLen];\
-        nRes = GetDlgItemText(hwndDlg, _id, __buf, nLen);\
-    } while (nRes == nLen-1);\
-}
+// ReSharper disable once CppInconsistentNaming
+#define ListView_GetItemTextEx(hwndLV, i, iSubItem_, __buf)                                                            \
+    {                                                                                                                  \
+        int     nLen = 1024;                                                                                           \
+        int     nRes;                                                                                                  \
+        LV_ITEM _ms_lvi;                                                                                               \
+        _ms_lvi.iSubItem = iSubItem_;                                                                                  \
+        do                                                                                                             \
+        {                                                                                                              \
+            nLen += 2;                                                                                                 \
+            _ms_lvi.cchTextMax = nLen;                                                                                 \
+            delete[] __buf;                                                                                            \
+            __buf           = new TCHAR[nLen];                                                                         \
+            _ms_lvi.pszText = __buf;                                                                                   \
+            nRes            = (int)::SendMessage((hwndLV), LVM_GETITEMTEXT, (WPARAM)(i), (LPARAM)(LV_ITEM *)&_ms_lvi); \
+        } while (nRes == nLen - 1);                                                                                    \
+    }
+#define GetDlgItemTextEx(hwndDlg, _id, __buf)                  \
+    {                                                          \
+        int nLen = 1024;                                       \
+        int nRes;                                              \
+        do                                                     \
+        {                                                      \
+            nLen *= 2;                                         \
+            delete[] __buf;                                    \
+            __buf = new TCHAR[nLen];                           \
+            nRes  = GetDlgItemText(hwndDlg, _id, __buf, nLen); \
+        } while (nRes == nLen - 1);                            \
+    }
 
 /**
  * \ingroup TortoiseShell
@@ -75,20 +75,18 @@ protected:
      * Initializes the property page.
      */
     virtual void InitWorkfileView();
-    void Time64ToTimeString(__time64_t time, TCHAR * buf, size_t buflen) const;
-    static void RunCommand(const tstring& command);
-    void PageProcOnCommand(WPARAM wParam);
+    void         Time64ToTimeString(__time64_t time, TCHAR *buf, size_t buflen) const;
+    static void  RunCommand(const tstring &command);
+    void         PageProcOnCommand(WPARAM wParam);
 
-    struct listproperty
+    struct Listproperty
     {
-        tstring name;
+        tstring     name;
         std::string value;
-        int       count;
+        int         count;
     };
-    HWND m_hwnd;
-    std::vector<tstring> filenames;
-    std::map<tstring, std::string> propmap;
-    TCHAR stringtablebuffer[255];
+    HWND                           m_hwnd;
+    std::vector<tstring>           fileNames;
+    std::map<tstring, std::string> propMap;
+    TCHAR                          stringTableBuffer[255];
 };
-
-

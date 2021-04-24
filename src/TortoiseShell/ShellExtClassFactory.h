@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - TortoiseSVN
+// Copyright (C) 2003-2006, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 
-
 /**
  * \ingroup TortoiseShell
  * This class factory object creates the main handlers -
@@ -29,8 +28,7 @@ class CShellExtClassFactory : public IClassFactory
 protected:
     ULONG m_cRef;
     /// variable to contain class of object (i.e. not under source control, up to date)
-    FileState       m_StateToMake;
-
+    FileState m_stateToMake;
 
 public:
     CShellExtClassFactory(FileState state);
@@ -38,14 +36,14 @@ public:
 
     //@{
     /// IUnknown members
-    STDMETHODIMP         QueryInterface(REFIID, LPVOID FAR *);
-    STDMETHODIMP_(ULONG) AddRef();
-    STDMETHODIMP_(ULONG) Release();
+    HRESULT STDMETHODCALLTYPE QueryInterface(REFIID, LPVOID FAR *) override;
+    ULONG STDMETHODCALLTYPE   AddRef() override;
+    ULONG STDMETHODCALLTYPE   Release() override;
     //@}
 
     //@{
     /// IClassFactory members
-    STDMETHODIMP      CreateInstance(LPUNKNOWN, REFIID, LPVOID FAR *);
-    STDMETHODIMP      LockServer(BOOL);
+    HRESULT STDMETHODCALLTYPE CreateInstance(LPUNKNOWN, REFIID, LPVOID FAR *) override;
+    HRESULT STDMETHODCALLTYPE LockServer(BOOL) override;
     //@}
 };

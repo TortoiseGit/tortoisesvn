@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2020 - TortoiseSVN
+// Copyright (C) 2003-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,128 +23,126 @@
 #include "SVNHelpers.h"
 #include "PathUtils.h"
 #include "StringUtils.h"
-#include "DebugOutput.h"
 #include "svn_dirent_uri.h"
 #include "svn_path.h"
 #include <regex>
 #include <functional>
 #include <memory>
-#include <set>
 
 #if defined(_MFC_VER)
-#include "AppUtils.h"
-#include "StringUtils.h"
+#    include "AppUtils.h"
+#    include "StringUtils.h"
 #endif
 
-
-CTSVNPath::CTSVNPath(void) :
-    m_bDirectoryKnown(false),
-    m_bIsDirectory(false),
-    m_bIsURL(false),
-    m_bURLKnown(false),
-    m_bHasAdminDirKnown(false),
-    m_bHasAdminDir(false),
-    m_bIsValidOnWindowsKnown(false),
-    m_bIsValidOnWindows(false),
-    m_bIsReadOnly(false),
-    m_bIsAdminDirKnown(false),
-    m_bIsAdminDir(false),
-    m_bIsWCRootKnown(false),
-    m_bIsWCRoot(false),
-    m_bExists(false),
-    m_bExistsKnown(false),
-    m_bLastWriteTimeKnown(0),
-    m_lastWriteTime(0),
-    m_customData(NULL),
-    m_bIsSpecialDirectoryKnown(false),
-    m_bIsSpecialDirectory(false),
-    m_fileSize(0),
-    m_bIsAttributesKnown(false),
-    m_attributes(0)
+CTSVNPath::CTSVNPath()
+    : m_bDirectoryKnown(false)
+    , m_bIsDirectory(false)
+    , m_bLastWriteTimeKnown(false)
+    , m_bURLKnown(false)
+    , m_bIsURL(false)
+    , m_bIsAttributesKnown(false)
+    , m_lastWriteTime(0)
+    , m_fileSize(0)
+    , m_bIsReadOnly(false)
+    , m_bHasAdminDirKnown(false)
+    , m_bHasAdminDir(false)
+    , m_bIsValidOnWindowsKnown(false)
+    , m_bIsValidOnWindows(false)
+    , m_bIsAdminDirKnown(false)
+    , m_bIsAdminDir(false)
+    , m_bIsWCRootKnown(false)
+    , m_bIsWCRoot(false)
+    , m_bExists(false)
+    , m_bExistsKnown(false)
+    , m_customData(NULL)
+    , m_bIsSpecialDirectoryKnown(false)
+    , m_bIsSpecialDirectory(false)
+    , m_attributes(0)
 {
 }
 
-CTSVNPath::~CTSVNPath(void)
+CTSVNPath::~CTSVNPath()
 {
 }
 // Create a TSVNPath object from an unknown path type (same as using SetFromUnknown)
-CTSVNPath::CTSVNPath(const CString& sUnknownPath) : CTSVNPath()
+CTSVNPath::CTSVNPath(const CString& sUnknownPath)
+    : CTSVNPath()
 {
     SetFromUnknown(sUnknownPath);
 }
 
-void CTSVNPath::SetFromSVN(const char* pPath)
+void CTSVNPath::SetFromSVN(const char* pPath) const
 {
     Reset();
-    if (pPath == NULL)
+    if (pPath == nullptr)
         return;
     m_sFwdslashPath = CUnicodeUtils::GetUnicode(pPath);
     SanitizeRootPath(m_sFwdslashPath, true);
 }
 
-void CTSVNPath::SetFromSVN(const char* pPath, bool bIsDirectory)
+void CTSVNPath::SetFromSVN(const char* pPath, bool bIsDirectory) const
 {
     SetFromSVN(pPath);
     m_bDirectoryKnown = true;
-    m_bIsDirectory = bIsDirectory;
+    m_bIsDirectory    = bIsDirectory;
 }
 
-void CTSVNPath::SetFromSVN(const CString& sPath)
+void CTSVNPath::SetFromSVN(const CString& sPath) const
 {
     Reset();
     m_sFwdslashPath = sPath;
     SanitizeRootPath(m_sFwdslashPath, true);
 }
 
-void CTSVNPath::SetFromWin(LPCTSTR pPath)
+void CTSVNPath::SetFromWin(LPCWSTR pPath) const
 {
     Reset();
     m_sBackslashPath = pPath;
     m_sBackslashPath.Replace(L"\\\\?\\", L"");
     SanitizeRootPath(m_sBackslashPath, false);
-    ATLASSERT(m_sBackslashPath.Find('/')<0);
+    ATLASSERT(m_sBackslashPath.Find('/') < 0);
 }
-void CTSVNPath::SetFromWin(const CString& sPath)
+void CTSVNPath::SetFromWin(const CString& sPath) const
 {
     Reset();
     m_sBackslashPath = sPath;
     m_sBackslashPath.Replace(L"\\\\?\\", L"");
     SanitizeRootPath(m_sBackslashPath, false);
 }
-void CTSVNPath::SetFromWin(LPCTSTR pPath, bool bIsDirectory)
+void CTSVNPath::SetFromWin(LPCWSTR pPath, bool bIsDirectory) const
 {
     Reset();
-    m_sBackslashPath = pPath;
-    m_bIsDirectory = bIsDirectory;
+    m_sBackslashPath  = pPath;
+    m_bIsDirectory    = bIsDirectory;
     m_bDirectoryKnown = true;
     SanitizeRootPath(m_sBackslashPath, false);
 }
-void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory)
+void CTSVNPath::SetFromWin(const CString& sPath, bool bIsDirectory) const
 {
     Reset();
-    m_sBackslashPath = sPath;
-    m_bIsDirectory = bIsDirectory;
+    m_sBackslashPath  = sPath;
+    m_bIsDirectory    = bIsDirectory;
     m_bDirectoryKnown = true;
     SanitizeRootPath(m_sBackslashPath, false);
 }
-void CTSVNPath::SetFromUnknown(const CString& sPath)
+void CTSVNPath::SetFromUnknown(const CString& sPath) const
 {
     Reset();
     // Just set whichever path we think is most likely to be used
     SetFwdslashPath(sPath);
 }
 
-LPCTSTR CTSVNPath::GetWinPath() const
+LPCWSTR CTSVNPath::GetWinPath() const
 {
-    if(IsEmpty())
+    if (IsEmpty())
     {
         return L"";
     }
-    if(m_sBackslashPath.IsEmpty())
+    if (m_sBackslashPath.IsEmpty())
     {
         SetBackslashPath(m_sFwdslashPath);
     }
-    if(m_sBackslashPath.GetLength() >= 248)
+    if (m_sBackslashPath.GetLength() >= 248)
     {
         if (m_sLongBackslashPath.IsEmpty())
             m_sLongBackslashPath = L"\\\\?\\" + m_sBackslashPath;
@@ -156,7 +154,7 @@ LPCTSTR CTSVNPath::GetWinPath() const
 
 const CString& CTSVNPath::GetWinPathString() const
 {
-    if(m_sBackslashPath.IsEmpty())
+    if (m_sBackslashPath.IsEmpty())
     {
         SetBackslashPath(m_sFwdslashPath);
     }
@@ -165,30 +163,29 @@ const CString& CTSVNPath::GetWinPathString() const
 
 const CString& CTSVNPath::GetSVNPathString() const
 {
-    if(m_sFwdslashPath.IsEmpty())
+    if (m_sFwdslashPath.IsEmpty())
     {
         SetFwdslashPath(m_sBackslashPath);
     }
     return m_sFwdslashPath;
 }
 
-
-const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
+const char* CTSVNPath::GetSVNApiPath(apr_pool_t* pool) const
 {
     // This funny-looking 'if' is to avoid a subtle problem with empty paths, whereby
     // each call to GetSVNApiPath returns a different pointer value.
     // If you made multiple calls to GetSVNApiPath on the same string, only the last
     // one would give you a valid pointer to an empty string, because each
     // call would invalidate the previous call's return.
-    if(IsEmpty())
+    if (IsEmpty())
     {
         return "";
     }
-    if(m_sFwdslashPath.IsEmpty())
+    if (m_sFwdslashPath.IsEmpty())
     {
         SetFwdslashPath(m_sBackslashPath);
     }
-    if(m_sUTF8FwdslashPath.IsEmpty())
+    if (m_sUTF8FwdslashPath.IsEmpty())
     {
         SetUTF8FwdslashPath(m_sFwdslashPath);
     }
@@ -197,16 +194,16 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
     {
         m_sUTF8FwdslashPathEscaped = CPathUtils::PathEscape(m_sUTF8FwdslashPath);
         m_sUTF8FwdslashPathEscaped.Replace("file:////", "file://");
-        const char * canonical_uri = nullptr;
-        svn_error_clear(svn_uri_canonicalize_safe(&canonical_uri, nullptr, m_sUTF8FwdslashPathEscaped, pool, pool));
-        m_sUTF8FwdslashPathEscaped = canonical_uri;
+        const char* canonicalUri = nullptr;
+        svn_error_clear(svn_uri_canonicalize_safe(&canonicalUri, nullptr, m_sUTF8FwdslashPathEscaped, pool, pool));
+        m_sUTF8FwdslashPathEscaped = canonicalUri;
         return m_sUTF8FwdslashPathEscaped;
     }
     else
     {
-        const char * canonicalized_dirent = nullptr;
-        svn_error_clear(svn_dirent_canonicalize_safe(&canonicalized_dirent, nullptr, m_sUTF8FwdslashPath, pool, pool));
-        m_sUTF8FwdslashPath = canonicalized_dirent;
+        const char* canonicalizedDirent = nullptr;
+        svn_error_clear(svn_dirent_canonicalize_safe(&canonicalizedDirent, nullptr, m_sUTF8FwdslashPath, pool, pool));
+        m_sUTF8FwdslashPath = canonicalizedDirent;
         // for UNC paths that point to the server directly (e.g., \\MYSERVER), not
         // to a share on the server, the svn_dirent_canonicalize() API returns
         // a wrong path that asserts when subversion checks that the path is absolute
@@ -224,13 +221,13 @@ const char* CTSVNPath::GetSVNApiPath(apr_pool_t *pool) const
 bool CTSVNPath::IsCanonical() const
 {
     SVNPool pool;
-    auto canonicalizedPath = GetSVNApiPath(pool);
+    auto    canonicalizedPath = GetSVNApiPath(pool);
     if (IsUrl())
         return svn_uri_is_canonical(canonicalizedPath, pool) != FALSE;
     return svn_dirent_is_canonical(canonicalizedPath, pool) != FALSE;
 }
 
-bool CTSVNPath::IsCanonical(apr_pool_t *pool) const
+bool CTSVNPath::IsCanonical(apr_pool_t* pool) const
 {
     auto canonicalizedPath = GetSVNApiPath(pool);
     if (IsUrl())
@@ -248,7 +245,6 @@ const CString& CTSVNPath::GetUIPathString() const
         {
             m_sUIPath = CPathUtils::PathUnescape(GetSVNPathString());
             m_sUIPath.Replace(L"file:////", L"file://");
-
         }
         else
 #endif
@@ -288,7 +284,7 @@ void CTSVNPath::SetUTF8FwdslashPath(const CString& sPath) const
     m_sUTF8FwdslashPath = CUnicodeUtils::GetUTF8(sPath);
 }
 
-void CTSVNPath::SanitizeRootPath(CString& sPath, bool bIsForwardPath) const
+void CTSVNPath::SanitizeRootPath(CString& sPath, bool bIsForwardPath)
 {
     // Make sure to add the trailing slash to root paths such as 'C:'
     if (sPath.GetLength() == 2 && sPath[1] == ':')
@@ -302,11 +298,11 @@ bool CTSVNPath::IsUrl() const
     if (!m_bURLKnown)
     {
         EnsureFwdslashPathSet();
-        if(m_sUTF8FwdslashPath.IsEmpty())
+        if (m_sUTF8FwdslashPath.IsEmpty())
         {
             SetUTF8FwdslashPath(m_sFwdslashPath);
         }
-        m_bIsURL = !!svn_path_is_url(m_sUTF8FwdslashPath);
+        m_bIsURL    = !!svn_path_is_url(m_sUTF8FwdslashPath);
         m_bURLKnown = true;
     }
     return m_bIsURL;
@@ -314,7 +310,7 @@ bool CTSVNPath::IsUrl() const
 
 bool CTSVNPath::IsDirectory() const
 {
-    if(!m_bDirectoryKnown)
+    if (!m_bDirectoryKnown)
     {
         UpdateAttributes();
     }
@@ -330,7 +326,6 @@ bool CTSVNPath::Exists(bool force) const
     return m_bExists;
 }
 
-
 DWORD CTSVNPath::GetFileAttributes() const
 {
     if (!m_bIsAttributesKnown)
@@ -345,27 +340,27 @@ bool CTSVNPath::Delete(bool bTrash) const
     bool bRet = false;
     if (Exists())
     {
-        if ((bTrash)||(IsDirectory()))
+        if ((bTrash) || (IsDirectory()))
         {
-            auto buf = std::make_unique<TCHAR[]>(m_sBackslashPath.GetLength() + 2);
-            wcscpy_s(buf.get(), m_sBackslashPath.GetLength()+2, m_sBackslashPath);
-            buf[m_sBackslashPath.GetLength()] = 0;
-            buf[m_sBackslashPath.GetLength()+1] = 0;
-            bRet = CTSVNPathList::DeleteViaShell(buf.get(), bTrash, NULL);
+            auto buf = std::make_unique<wchar_t[]>(m_sBackslashPath.GetLength() + 2LL);
+            wcscpy_s(buf.get(), m_sBackslashPath.GetLength() + 2LL, m_sBackslashPath);
+            buf[m_sBackslashPath.GetLength()]       = 0;
+            buf[m_sBackslashPath.GetLength() + 1LL] = 0;
+            bRet                                    = CTSVNPathList::DeleteViaShell(buf.get(), bTrash, nullptr);
         }
         else
         {
             bRet = !!::DeleteFile(m_sBackslashPath);
         }
     }
-    m_bExists = false;
+    m_bExists      = false;
     m_bExistsKnown = true;
     return bRet;
 }
 
-__int64  CTSVNPath::GetLastWriteTime(bool force) const
+__int64 CTSVNPath::GetLastWriteTime(bool force) const
 {
-    if(!m_bLastWriteTimeKnown || force)
+    if (!m_bLastWriteTimeKnown || force)
     {
         UpdateAttributes();
     }
@@ -374,7 +369,7 @@ __int64  CTSVNPath::GetLastWriteTime(bool force) const
 
 __int64 CTSVNPath::GetFileSize() const
 {
-    if(!m_bDirectoryKnown)
+    if (!m_bDirectoryKnown)
     {
         UpdateAttributes();
     }
@@ -383,7 +378,7 @@ __int64 CTSVNPath::GetFileSize() const
 
 bool CTSVNPath::IsReadOnly() const
 {
-    if(!m_bLastWriteTimeKnown)
+    if (!m_bLastWriteTimeKnown)
     {
         UpdateAttributes();
     }
@@ -393,10 +388,10 @@ bool CTSVNPath::IsReadOnly() const
 void CTSVNPath::UpdateAttributes() const
 {
     EnsureBackslashPathSet();
-    WIN32_FILE_ATTRIBUTE_DATA attribs;
+    WIN32_FILE_ATTRIBUTE_DATA attribs{};
     if (m_sBackslashPath.GetLength() >= 248)
         m_sLongBackslashPath = L"\\\\?\\" + m_sBackslashPath;
-    if(GetFileAttributesEx(m_sBackslashPath.GetLength() >= 248 ? m_sLongBackslashPath : m_sBackslashPath, GetFileExInfoStandard, &attribs))
+    if (GetFileAttributesEx(m_sBackslashPath.GetLength() >= 248 ? m_sLongBackslashPath : m_sBackslashPath, GetFileExInfoStandard, &attribs))
     {
         m_bIsDirectory = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY);
         // don't cast directly to an __int64:
@@ -410,45 +405,44 @@ void CTSVNPath::UpdateAttributes() const
         }
         else
         {
-            m_fileSize = ((INT64)( (DWORD)(attribs.nFileSizeLow) ) | ( (INT64)( (DWORD)(attribs.nFileSizeHigh) )<<32 ));
+            m_fileSize = (static_cast<INT64>(static_cast<DWORD>(attribs.nFileSizeLow)) | (static_cast<INT64>(static_cast<DWORD>(attribs.nFileSizeHigh)) << 32));
         }
-        m_bIsReadOnly = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_READONLY);
-        m_bExists = true;
+        m_bIsReadOnly        = !!(attribs.dwFileAttributes & FILE_ATTRIBUTE_READONLY);
+        m_bExists            = true;
         m_bIsAttributesKnown = true;
-        m_attributes = attribs.dwFileAttributes;
+        m_attributes         = attribs.dwFileAttributes;
     }
     else
     {
-        DWORD err = GetLastError();
+        DWORD err       = GetLastError();
         m_lastWriteTime = 0;
-        m_fileSize = 0;
-        if ((err == ERROR_FILE_NOT_FOUND)||(err == ERROR_PATH_NOT_FOUND)||(err == ERROR_INVALID_NAME))
+        m_fileSize      = 0;
+        if ((err == ERROR_FILE_NOT_FOUND) || (err == ERROR_PATH_NOT_FOUND) || (err == ERROR_INVALID_NAME))
         {
             m_bIsDirectory = false;
-            m_bExists = false;
+            m_bExists      = false;
         }
         else if (err == ERROR_NOT_READY)
         {
             // this is a device root (e.g. a DVD drive with no media in it)
             m_bIsDirectory = true;
-            m_bExists = true;
+            m_bExists      = true;
         }
         else
         {
             m_bIsDirectory = false;
-            m_bExists = true;
+            m_bExists      = true;
             return;
         }
     }
-    m_bDirectoryKnown = true;
+    m_bDirectoryKnown     = true;
     m_bLastWriteTimeKnown = true;
-    m_bExistsKnown = true;
+    m_bExistsKnown        = true;
 }
-
 
 void CTSVNPath::EnsureBackslashPathSet() const
 {
-    if(m_sBackslashPath.IsEmpty())
+    if (m_sBackslashPath.IsEmpty())
     {
         SetBackslashPath(m_sFwdslashPath);
         ATLASSERT(IsEmpty() || !m_sBackslashPath.IsEmpty());
@@ -456,28 +450,27 @@ void CTSVNPath::EnsureBackslashPathSet() const
 }
 void CTSVNPath::EnsureFwdslashPathSet() const
 {
-    if(m_sFwdslashPath.IsEmpty())
+    if (m_sFwdslashPath.IsEmpty())
     {
         SetFwdslashPath(m_sBackslashPath);
         ATLASSERT(IsEmpty() || !m_sFwdslashPath.IsEmpty());
     }
 }
 
-
 // Reset all the caches
-void CTSVNPath::Reset()
+void CTSVNPath::Reset() const
 {
-    m_bDirectoryKnown = false;
-    m_bURLKnown = false;
-    m_bLastWriteTimeKnown = false;
-    m_bHasAdminDirKnown = false;
-    m_bIsValidOnWindowsKnown = false;
-    m_bIsAdminDirKnown = false;
-    m_bExistsKnown = false;
-    m_bIsWCRootKnown = false;
-    m_bIsWCRoot = false;
+    m_bDirectoryKnown          = false;
+    m_bURLKnown                = false;
+    m_bLastWriteTimeKnown      = false;
+    m_bHasAdminDirKnown        = false;
+    m_bIsValidOnWindowsKnown   = false;
+    m_bIsAdminDirKnown         = false;
+    m_bExistsKnown             = false;
+    m_bIsWCRootKnown           = false;
+    m_bIsWCRoot                = false;
     m_bIsSpecialDirectoryKnown = false;
-    m_bIsSpecialDirectory = false;
+    m_bIsSpecialDirectory      = false;
 
     m_sBackslashPath.Empty();
     m_sLongBackslashPath.Empty();
@@ -489,7 +482,7 @@ void CTSVNPath::Reset()
 
 CTSVNPath CTSVNPath::GetDirectory() const
 {
-    if ((IsDirectory())||(!Exists()))
+    if ((IsDirectory()) || (!Exists()))
     {
         return *this;
     }
@@ -501,17 +494,17 @@ CTSVNPath CTSVNPath::GetContainingDirectory() const
     EnsureBackslashPathSet();
 
     CString sDirName = m_sBackslashPath.Left(m_sBackslashPath.ReverseFind('\\'));
-    if(sDirName.GetLength() == 2 && sDirName[1] == ':')
+    if (sDirName.GetLength() == 2 && sDirName[1] == ':')
     {
         // This is a root directory, which needs a trailing slash
         sDirName += '\\';
-        if(sDirName == m_sBackslashPath)
+        if (sDirName == m_sBackslashPath)
         {
             // We were clearly provided with a root path to start with - we should return nothing now
             sDirName.Empty();
         }
     }
-    if(sDirName.GetLength() == 1 && sDirName[0] == '\\')
+    if (sDirName.GetLength() == 1 && sDirName[0] == '\\')
     {
         // We have an UNC path and we already are the root
         sDirName.Empty();
@@ -525,12 +518,11 @@ CString CTSVNPath::GetRootPathString() const
 {
     EnsureBackslashPathSet();
     CString workingPath = m_sBackslashPath;
-    LPTSTR pPath = workingPath.GetBuffer(MAX_PATH);     // MAX_PATH ok here.
+    LPTSTR  pPath       = workingPath.GetBuffer(MAX_PATH); // MAX_PATH ok here.
     ATLVERIFY(::PathStripToRoot(pPath));
     workingPath.ReleaseBuffer();
     return workingPath;
 }
-
 
 CString CTSVNPath::GetFilename() const
 {
@@ -541,7 +533,7 @@ CString CTSVNPath::GetFilename() const
 CString CTSVNPath::GetFileOrDirectoryName() const
 {
     EnsureBackslashPathSet();
-    return m_sBackslashPath.Mid(m_sBackslashPath.ReverseFind('\\')+1);
+    return m_sBackslashPath.Mid(m_sBackslashPath.ReverseFind('\\') + 1);
 }
 
 CString CTSVNPath::GetUIFileOrDirectoryName() const
@@ -549,12 +541,12 @@ CString CTSVNPath::GetUIFileOrDirectoryName() const
     GetUIPathString();
     CString sUIPath = m_sUIPath;
     sUIPath.Replace('\\', '/');
-    return sUIPath.Mid(sUIPath.ReverseFind('/')+1);
+    return sUIPath.Mid(sUIPath.ReverseFind('/') + 1);
 }
 
 CString CTSVNPath::GetFileExtension() const
 {
-    if(!IsDirectory())
+    if (!IsDirectory())
     {
         return GetFileOrDirExtension();
     }
@@ -564,7 +556,7 @@ CString CTSVNPath::GetFileExtension() const
 CString CTSVNPath::GetFileOrDirExtension() const
 {
     EnsureBackslashPathSet();
-    int dotPos = m_sBackslashPath.ReverseFind('.');
+    int dotPos   = m_sBackslashPath.ReverseFind('.');
     int slashPos = m_sBackslashPath.ReverseFind('\\');
     if (dotPos > slashPos)
         return m_sBackslashPath.Mid(dotPos);
@@ -574,19 +566,19 @@ CString CTSVNPath::GetFileOrDirExtension() const
 bool CTSVNPath::ArePathStringsEqual(const CString& sP1, const CString& sP2)
 {
     int length = sP1.GetLength();
-    if(length != sP2.GetLength())
+    if (length != sP2.GetLength())
     {
         // Different lengths
         return false;
     }
     // We work from the end of the strings, because path differences
     // are more likely to occur at the far end of a string
-    LPCTSTR pP1Start = sP1;
-    LPCTSTR pP1 = pP1Start+(length-1);
-    LPCTSTR pP2 = ((LPCTSTR)sP2)+(length-1);
-    while(length-- > 0)
+    LPCWSTR pP1Start = sP1;
+    LPCWSTR pP1      = pP1Start + (length - 1LL);
+    LPCWSTR pP2      = static_cast<LPCWSTR>(sP2) + (length - 1LL);
+    while (length-- > 0)
     {
-        if(_totlower(*pP1--) != _totlower(*pP2--))
+        if (_totlower(*pP1--) != _totlower(*pP2--))
         {
             return false;
         }
@@ -597,19 +589,19 @@ bool CTSVNPath::ArePathStringsEqual(const CString& sP1, const CString& sP2)
 bool CTSVNPath::ArePathStringsEqualWithCase(const CString& sP1, const CString& sP2)
 {
     int length = sP1.GetLength();
-    if(length != sP2.GetLength())
+    if (length != sP2.GetLength())
     {
         // Different lengths
         return false;
     }
     // We work from the end of the strings, because path differences
     // are more likely to occur at the far end of a string
-    LPCTSTR pP1Start = sP1;
-    LPCTSTR pP1 = pP1Start+(length-1);
-    LPCTSTR pP2 = ((LPCTSTR)sP2)+(length-1);
-    while(length-- > 0)
+    LPCWSTR pP1Start = sP1;
+    LPCWSTR pP1      = pP1Start + (length - 1LL);
+    LPCWSTR pP2      = static_cast<LPCWSTR>(sP2) + (length - 1LL);
+    while (length-- > 0)
     {
-        if((*pP1--) != (*pP2--))
+        if ((*pP1--) != (*pP2--))
         {
             return false;
         }
@@ -631,7 +623,7 @@ bool CTSVNPath::IsEquivalentTo(const CTSVNPath& rhs) const
 {
     // Try and find a slash direction which avoids having to convert
     // both filenames
-    if(!m_sBackslashPath.IsEmpty())
+    if (!m_sBackslashPath.IsEmpty())
     {
         // *We've* got a \ path - make sure that the RHS also has a \ path
         rhs.EnsureBackslashPathSet();
@@ -651,7 +643,7 @@ bool CTSVNPath::IsEquivalentToWithoutCase(const CTSVNPath& rhs) const
 {
     // Try and find a slash direction which avoids having to convert
     // both filenames
-    if(!m_sBackslashPath.IsEmpty())
+    if (!m_sBackslashPath.IsEmpty())
     {
         // *We've* got a \ path - make sure that the RHS also has a \ path
         rhs.EnsureBackslashPathSet();
@@ -677,22 +669,22 @@ bool CTSVNPath::IsAncestorOf(const CTSVNPath& possibleDescendant) const
     }
 
     return (bPathStringsEqual &&
-            ((possibleDescendant.m_sBackslashPath[m_sBackslashPath.GetLength()] == '\\')||
-            (m_sBackslashPath.GetLength()==3 && m_sBackslashPath[1]==':')));
+            ((possibleDescendant.m_sBackslashPath[m_sBackslashPath.GetLength()] == '\\') ||
+             (m_sBackslashPath.GetLength() == 3 && m_sBackslashPath[1] == ':')));
 }
 
 // Get a string representing the file path, optionally with a base
 // section stripped off the front.
-LPCTSTR CTSVNPath::GetDisplayString(const CTSVNPath* pOptionalBasePath /* = NULL*/) const
+LPCWSTR CTSVNPath::GetDisplayString(const CTSVNPath* pOptionalBasePath /* = NULL*/) const
 {
     EnsureFwdslashPathSet();
-    if(pOptionalBasePath != NULL)
+    if (pOptionalBasePath != nullptr)
     {
         // Find the length of the base-path without having to do an 'ensure' on it
         int baseLength = max(pOptionalBasePath->m_sBackslashPath.GetLength(), pOptionalBasePath->m_sFwdslashPath.GetLength());
 
         // Now, chop that baseLength of the front of the path
-        LPCTSTR result = m_sFwdslashPath;
+        LPCWSTR result = m_sFwdslashPath;
         result += baseLength;
         while (*result == '/')
             ++result;
@@ -713,7 +705,7 @@ int CTSVNPath::Compare(const CTSVNPath& left, const CTSVNPath& right)
 {
     left.EnsureBackslashPathSet();
     right.EnsureBackslashPathSet();
-    return CStringUtils::FastCompareNoCase (left.m_sBackslashPath, right.m_sBackslashPath);
+    return CStringUtils::FastCompareNoCase(left.m_sBackslashPath, right.m_sBackslashPath);
 }
 
 bool operator<(const CTSVNPath& left, const CTSVNPath& right)
@@ -726,19 +718,19 @@ bool CTSVNPath::PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath
     return left.IsEquivalentTo(right);
 }
 
-bool CTSVNPath::CheckChild(const CTSVNPath &parent, const CTSVNPath& child)
+bool CTSVNPath::CheckChild(const CTSVNPath& parent, const CTSVNPath& child)
 {
     return parent.IsAncestorOf(child);
 }
 
-void CTSVNPath::AppendRawString(const CString& sAppend)
+void CTSVNPath::AppendRawString(const CString& sAppend) const
 {
     EnsureFwdslashPathSet();
     CString strCopy = m_sFwdslashPath += sAppend;
     SetFromUnknown(strCopy);
 }
 
-void CTSVNPath::AppendPathString(const CString& sAppend)
+void CTSVNPath::AppendPathString(const CString& sAppend) const
 {
     EnsureBackslashPathSet();
     CString cleanAppend(sAppend);
@@ -749,14 +741,13 @@ void CTSVNPath::AppendPathString(const CString& sAppend)
     SetFromWin(strCopy);
 }
 
-
 bool CTSVNPath::IsAdminDir() const
 {
     if (m_bIsAdminDirKnown)
         return m_bIsAdminDir;
 
     EnsureBackslashPathSet();
-    m_bIsAdminDir = g_SVNAdminDir.IsAdminDirPath(m_sBackslashPath);
+    m_bIsAdminDir      = g_SVNAdminDir.IsAdminDirPath(m_sBackslashPath);
     m_bIsAdminDirKnown = true;
     return m_bIsAdminDir;
 }
@@ -767,7 +758,7 @@ bool CTSVNPath::IsWCRoot() const
         return m_bIsWCRoot;
 
     EnsureBackslashPathSet();
-    m_bIsWCRoot = g_SVNAdminDir.IsWCRoot(m_sBackslashPath);
+    m_bIsWCRoot      = g_SVNAdminDir.IsWCRoot(m_sBackslashPath);
     m_bIsWCRootKnown = true;
     return m_bIsWCRoot;
 }
@@ -779,13 +770,13 @@ bool CTSVNPath::IsValidOnWindows() const
 
     m_bIsValidOnWindows = true;
     EnsureBackslashPathSet();
-    std::wstring checkPath = m_sBackslashPath;
+    std::wstring checkPath = static_cast<LPCWSTR>(m_sBackslashPath);
     if (IsUrl())
     {
         CString uipath = CPathUtils::PathUnescape(GetSVNPathString());
         uipath.Replace('/', '\\');
         // remove the server part
-        checkPath = uipath.Mid(uipath.Find('\\', uipath.Find(L":\\\\")+3)+1);
+        checkPath = uipath.Mid(uipath.Find('\\', uipath.Find(L":\\\\") + 3) + 1);
     }
     try
     {
@@ -794,7 +785,9 @@ bool CTSVNPath::IsValidOnWindows() const
         if (std::regex_search(checkPath, rx2, std::regex_constants::match_default))
             m_bIsValidOnWindows = false;
     }
-    catch (std::exception&) {}
+    catch (std::exception&)
+    {
+    }
 
     m_bIsValidOnWindowsKnown = true;
     return m_bIsValidOnWindows;
@@ -805,10 +798,9 @@ bool CTSVNPath::IsSpecialDirectory() const
     if (m_bIsSpecialDirectoryKnown)
         return m_bIsSpecialDirectory;
 
-    static LPCTSTR specialDirectories[]
-        = { L"trunk", L"tags", L"branches" };
+    static LPCWSTR specialDirectories[] = {L"trunk", L"tags", L"branches"};
 
-    for (int i=0 ; i<_countof(specialDirectories) ; ++i)
+    for (int i = 0; i < _countof(specialDirectories); ++i)
     {
         CString name = GetFileOrDirectoryName();
         if (0 == name.CompareNoCase(specialDirectories[i]))
@@ -827,7 +819,6 @@ bool CTSVNPath::IsSpecialDirectory() const
 
 CTSVNPathList::CTSVNPathList()
 {
-
 }
 
 // A constructor which allows a path list to be easily built which one initial entry in
@@ -849,7 +840,7 @@ int CTSVNPathList::GetCount() const
     // - svn only handles path arrays of max size int
     // - in most places an int is used, by returning an int
     //   we avoid a lot of casts
-    return (int)m_paths.size();
+    return static_cast<int>(m_paths.size());
 }
 void CTSVNPathList::Clear()
 {
@@ -859,14 +850,14 @@ void CTSVNPathList::Clear()
 
 CTSVNPath& CTSVNPathList::operator[](INT_PTR index)
 {
-    ATLASSERT(index >= 0 && index < (INT_PTR)m_paths.size());
+    ATLASSERT(index >= 0 && index < static_cast<INT_PTR>(m_paths.size()));
     m_commonBaseDirectory.Reset();
     return m_paths[index];
 }
 
 const CTSVNPath& CTSVNPathList::operator[](INT_PTR index) const
 {
-    ATLASSERT(index >= 0 && index < (INT_PTR)m_paths.size());
+    ATLASSERT(index >= 0 && index < static_cast<INT_PTR>(m_paths.size()));
     return m_paths[index];
 }
 
@@ -876,7 +867,6 @@ bool CTSVNPathList::AreAllPathsFiles() const
     return std::find_if(m_paths.begin(), m_paths.end(), std::mem_fn(&CTSVNPath::IsDirectory)) == m_paths.end();
 }
 
-
 #if defined(_MFC_VER)
 
 bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
@@ -884,7 +874,7 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
     Clear();
     try
     {
-        CString strLine;
+        CString    strLine;
         CStdioFile file(filename.GetWinPath(), CFile::typeBinary | CFile::modeRead | CFile::shareDenyWrite);
 
         // for every selected file/folder
@@ -898,7 +888,7 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
     }
     catch (CFileException* pE)
     {
-        auto error = std::make_unique<TCHAR[]>(10000);
+        auto error = std::make_unique<wchar_t[]>(10000);
         pE->GetErrorMessage(error.get(), 10000);
         ::MessageBox(NULL, error.get(), L"TortoiseSVN", MB_ICONERROR);
         pE->Delete();
@@ -913,9 +903,9 @@ bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bUTF8 /* = false 
     {
         if (bUTF8)
         {
-            CStdioFile file(sFilename, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate);
+            CStdioFile                 file(sFilename, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate);
             PathVector::const_iterator it;
-            for(it = m_paths.begin(); it != m_paths.end(); ++it)
+            for (it = m_paths.begin(); it != m_paths.end(); ++it)
             {
                 CStringA line = CUnicodeUtils::GetUTF8(it->GetSVNPathString()) + '\n';
                 file.Write(line, line.GetLength());
@@ -924,11 +914,11 @@ bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bUTF8 /* = false 
         }
         else
         {
-            CStdioFile file(sFilename, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+            CStdioFile                 file(sFilename, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
             PathVector::const_iterator it;
-            for(it = m_paths.begin(); it != m_paths.end(); ++it)
+            for (it = m_paths.begin(); it != m_paths.end(); ++it)
             {
-                file.WriteString(it->GetSVNPathString()+L"\n");
+                file.WriteString(it->GetSVNPathString() + L"\n");
             }
             file.Close();
         }
@@ -943,30 +933,28 @@ bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bUTF8 /* = false 
 }
 #endif // _MFC_VER
 
-
 void CTSVNPathList::LoadFromAsteriskSeparatedString(const CString& sPathString)
 {
     if (GetCount() > 0)
         Clear();
 
-    int pos = 0;
+    int     pos = 0;
     CString temp;
-    for(;;)
+    for (;;)
     {
-        temp = sPathString.Tokenize(L"*",pos);
-        if(temp.IsEmpty())
+        temp = sPathString.Tokenize(L"*", pos);
+        if (temp.IsEmpty())
         {
             break;
         }
-        AddPath(CTSVNPath(CPathUtils::GetLongPathname((LPCWSTR)temp).c_str()));
+        AddPath(CTSVNPath(CPathUtils::GetLongPathname(static_cast<LPCWSTR>(temp)).c_str()));
     }
 }
 
 CString CTSVNPathList::CreateAsteriskSeparatedString() const
 {
     CString sRet;
-    PathVector::const_iterator it;
-    for(it = m_paths.begin(); it != m_paths.end(); ++it)
+    for (auto it = m_paths.cbegin(); it != m_paths.cend(); ++it)
     {
         if (!sRet.IsEmpty())
             sRet += L"*";
@@ -975,24 +963,22 @@ CString CTSVNPathList::CreateAsteriskSeparatedString() const
     return sRet;
 }
 
-bool
-CTSVNPathList::AreAllPathsFilesInOneDirectory() const
+bool CTSVNPathList::AreAllPathsFilesInOneDirectory() const
 {
     // Check if all the paths are files and in the same directory
-    PathVector::const_iterator it;
     m_commonBaseDirectory.Reset();
-    for(it = m_paths.begin(); it != m_paths.end(); ++it)
+    for (auto it = m_paths.cbegin(); it != m_paths.cend(); ++it)
     {
-        if(it->IsDirectory())
+        if (it->IsDirectory())
         {
             return false;
         }
         const CTSVNPath& baseDirectory = it->GetDirectory();
-        if(m_commonBaseDirectory.IsEmpty())
+        if (m_commonBaseDirectory.IsEmpty())
         {
             m_commonBaseDirectory = baseDirectory;
         }
-        else if(!m_commonBaseDirectory.IsEquivalentTo(baseDirectory))
+        else if (!m_commonBaseDirectory.IsEquivalentTo(baseDirectory))
         {
             // Different path
             m_commonBaseDirectory.Reset();
@@ -1006,15 +992,14 @@ CTSVNPath CTSVNPathList::GetCommonDirectory() const
 {
     if (m_commonBaseDirectory.IsEmpty())
     {
-        PathVector::const_iterator it;
-        for(it = m_paths.begin(); it != m_paths.end(); ++it)
+        for (auto it = m_paths.cbegin(); it != m_paths.cend(); ++it)
         {
             const CTSVNPath& baseDirectory = it->GetDirectory();
-            if(m_commonBaseDirectory.IsEmpty())
+            if (m_commonBaseDirectory.IsEmpty())
             {
                 m_commonBaseDirectory = baseDirectory;
             }
-            else if(!m_commonBaseDirectory.IsEquivalentTo(baseDirectory))
+            else if (!m_commonBaseDirectory.IsEquivalentTo(baseDirectory))
             {
                 // Different path
                 m_commonBaseDirectory.Reset();
@@ -1024,8 +1009,7 @@ CTSVNPath CTSVNPathList::GetCommonDirectory() const
     }
     // since we only checked strings, not paths,
     // we have to make sure now that we really return a *path* here
-    PathVector::const_iterator iter;
-    for(iter = m_paths.begin(); iter != m_paths.end(); ++iter)
+    for (auto iter = m_paths.cbegin(); iter != m_paths.cend(); ++iter)
     {
         if (!m_commonBaseDirectory.IsAncestorOf(*iter))
         {
@@ -1046,21 +1030,19 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
     // first entry is common root for itself
     // (add trailing '\\' to detect partial matches of the last path element)
 
-    CString root = m_paths[0].GetWinPathString() + '\\';
-    int rootLength = root.GetLength();
+    CString root       = m_paths[0].GetWinPathString() + '\\';
+    int     rootLength = root.GetLength();
 
     // determine common path string prefix
 
-    for ( PathVector::const_iterator it = m_paths.begin()+1
-        ; it != m_paths.end()
-        ; ++it)
+    for (auto it = m_paths.cbegin() + 1; it != m_paths.cend(); ++it)
     {
         CString path = it->GetWinPathString() + '\\';
 
-        int newLength = CStringUtils::GetMatchingLength (root, path);
+        int newLength = CStringUtils::GetMatchingLength(root, path);
         if (newLength != rootLength)
         {
-            root.Delete (newLength, rootLength);
+            root.Delete(newLength, rootLength);
             rootLength = newLength;
         }
     }
@@ -1068,11 +1050,11 @@ CTSVNPath CTSVNPathList::GetCommonRoot() const
     // remove the last (partial) path element
 
     if (rootLength > 0)
-        root.Delete (root.ReverseFind ('\\'), rootLength);
+        root.Delete(root.ReverseFind('\\'), rootLength);
 
     // done
 
-    return CTSVNPath (root);
+    return CTSVNPath(root);
 }
 
 void CTSVNPathList::SortByPathname(bool bReverse /*= false*/)
@@ -1086,13 +1068,12 @@ void CTSVNPathList::DeleteAllPaths(bool bTrash, bool bFilesOnly, HWND hErrorWnd)
 {
     if (m_paths.empty())
         return;
-    PathVector::const_iterator it;
-    SortByPathname (true); // nested ones first
+    SortByPathname(true); // nested ones first
 
     CString sPaths;
-    for (it = m_paths.begin(); it != m_paths.end(); ++it)
+    for (auto it = m_paths.cbegin(); it != m_paths.cend(); ++it)
     {
-        if ((it->Exists())&&((it->IsDirectory() != bFilesOnly)||!bFilesOnly))
+        if ((it->Exists()) && ((it->IsDirectory() != bFilesOnly) || !bFilesOnly))
         {
             if (!it->IsDirectory())
                 ::SetFileAttributes(it->GetWinPath(), FILE_ATTRIBUTE_NORMAL);
@@ -1105,7 +1086,7 @@ void CTSVNPathList::DeleteAllPaths(bool bTrash, bool bFilesOnly, HWND hErrorWnd)
         return;
     sPaths += '\0';
     sPaths += '\0';
-    DeleteViaShell((LPCTSTR)sPaths, bTrash, hErrorWnd);
+    DeleteViaShell(static_cast<LPCWSTR>(sPaths), bTrash, hErrorWnd);
     Clear();
 }
 
@@ -1119,8 +1100,7 @@ void CTSVNPathList::RemoveDuplicates()
 
 void CTSVNPathList::RemoveAdminPaths()
 {
-    PathVector::iterator it;
-    for(it = m_paths.begin(); it != m_paths.end(); )
+    for (auto it = m_paths.cbegin(); it != m_paths.cend();)
     {
         if (it->IsAdminDir())
         {
@@ -1134,8 +1114,7 @@ void CTSVNPathList::RemoveAdminPaths()
 
 void CTSVNPathList::RemovePath(const CTSVNPath& path)
 {
-    PathVector::iterator it;
-    for(it = m_paths.begin(); it != m_paths.end(); ++it)
+    for (auto it = m_paths.begin(); it != m_paths.end(); ++it)
     {
         if (it->IsEquivalentTo(path))
         {
@@ -1155,7 +1134,7 @@ bool CTSVNPathList::IsEqual(const CTSVNPathList& list)
 {
     if (list.GetCount() != GetCount())
         return false;
-    for (int i=0; i<list.GetCount(); ++i)
+    for (int i = 0; i < list.GetCount(); ++i)
     {
         if (!list[i].IsEquivalentTo(m_paths[i]))
             return false;
@@ -1165,27 +1144,27 @@ bool CTSVNPathList::IsEqual(const CTSVNPathList& list)
 
 //////////////////////////////////////////////////////////////////////////
 
-apr_array_header_t * CTSVNPathList::MakePathArray (apr_pool_t *pool) const
+apr_array_header_t* CTSVNPathList::MakePathArray(apr_pool_t* pool) const
 {
-    apr_array_header_t *targets = apr_array_make (pool, GetCount(), sizeof(const char *));
+    apr_array_header_t* targets = apr_array_make(pool, GetCount(), sizeof(const char*));
 
-    for(int nItem = 0; nItem < GetCount(); nItem++)
+    for (int nItem = 0; nItem < GetCount(); nItem++)
     {
-        const char * target = m_paths[nItem].GetSVNApiPath(pool);
-        (*((const char **) apr_array_push (targets))) = target;
+        const char* target                                    = m_paths[nItem].GetSVNApiPath(pool);
+        (*static_cast<const char**>(apr_array_push(targets))) = target;
     }
 
     return targets;
 }
 
-bool CTSVNPathList::DeleteViaShell(LPCTSTR path, bool bTrash, HWND hErrorWnd)
+bool CTSVNPathList::DeleteViaShell(LPCWSTR path, bool bTrash, HWND hErrorWnd)
 {
-    SHFILEOPSTRUCT shop = {0};
-    shop.hwnd = hErrorWnd;
-    shop.wFunc = FO_DELETE;
-    shop.pFrom = path;
-    shop.fFlags = FOF_NOCONFIRMATION|FOF_SILENT|FOF_NO_CONNECTED_ELEMENTS;
-    if (hErrorWnd == NULL)
+    SHFILEOPSTRUCT shop = {nullptr};
+    shop.hwnd           = hErrorWnd;
+    shop.wFunc          = FO_DELETE;
+    shop.pFrom          = path;
+    shop.fFlags         = FOF_NOCONFIRMATION | FOF_SILENT | FOF_NO_CONNECTED_ELEMENTS;
+    if (hErrorWnd == nullptr)
         shop.fFlags |= FOF_NOERRORUI;
     if (bTrash)
         shop.fFlags |= FOF_ALLOWUNDO;
@@ -1195,10 +1174,9 @@ bool CTSVNPathList::DeleteViaShell(LPCTSTR path, bool bTrash, HWND hErrorWnd)
 
 //////////////////////////////////////////////////////////////////////////
 
-
 #if defined(_DEBUG)
 // Some test cases for these classes
-static class CTSVNPathTests
+[[maybe_unused]] static class CTSVNPathTests
 {
 public:
     CTSVNPathTests()
@@ -1216,20 +1194,21 @@ public:
         AncestorTest();
         SubversionPathTest();
         GetCommonRootTest();
-#if defined(_MFC_VER)
+#    if defined(_MFC_VER)
         ValidPathAndUrlTest();
         ListLoadingTest();
-#endif
+#    endif
         apr_terminate();
     }
 
 private:
-    apr_pool_t * pool;
-    void GetDirectoryTest()
+    apr_pool_t* pool;
+
+    static void GetDirectoryTest()
     {
         // Bit tricky, this test, because we need to know something about the file
         // layout on the machine which is running the test
-        TCHAR winDir[MAX_PATH + 1] = { 0 };
+        wchar_t winDir[MAX_PATH + 1] = {0};
         GetWindowsDirectory(winDir, _countof(winDir));
         CString sWinDir(winDir);
 
@@ -1251,7 +1230,7 @@ private:
         // Try a root path
         testPath.SetFromUnknown(L"C:\\");
         ATLASSERT(testPath.IsDirectory());
-        ATLASSERT(testPath.GetDirectory().GetWinPathString().CompareNoCase(L"C:\\")==0);
+        ATLASSERT(testPath.GetDirectory().GetWinPathString().CompareNoCase(L"C:\\") == 0);
         ATLASSERT(testPath.GetContainingDirectory().IsEmpty());
         // Try a root UNC path
         testPath.SetFromUnknown(L"\\MYSTATION");
@@ -1260,13 +1239,13 @@ private:
         // test the UI path methods
         testPath.SetFromUnknown(L"c:\\testing%20test");
         ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(L"testing%20test") == 0);
-#ifdef _MFC_VER
+#    ifdef _MFC_VER
         testPath.SetFromUnknown(L"http://server.com/testing%20special%20chars%20%c3%a4%c3%b6%c3%bc");
         ATLASSERT(testPath.GetUIFileOrDirectoryName().CompareNoCase(L"testing special chars \344\366\374") == 0);
-#endif
+#    endif
     }
 
-    void AdminDirTest()
+    static void AdminDirTest()
     {
         CTSVNPath testPath;
         testPath.SetFromUnknown(L"c:\\.svndir");
@@ -1286,17 +1265,17 @@ private:
         pathList.AddPath(CTSVNPath(L"c:\\.svn\\test"));
         pathList.AddPath(CTSVNPath(L"c:\\test"));
         pathList.RemoveAdminPaths();
-        ATLASSERT(pathList.GetCount()==2);
+        ATLASSERT(pathList.GetCount() == 2);
         pathList.Clear();
         pathList.AddPath(CTSVNPath(L"c:\\test"));
         pathList.RemoveAdminPaths();
-        ATLASSERT(pathList.GetCount()==1);
+        ATLASSERT(pathList.GetCount() == 1);
     }
 
-    void SortTest()
+    static void SortTest()
     {
         CTSVNPathList testList;
-        CTSVNPath testPath;
+        CTSVNPath     testPath;
         testPath.SetFromUnknown(L"c:/Z");
         testList.AddPath(testPath);
         testPath.SetFromUnknown(L"c:/B");
@@ -1314,7 +1293,7 @@ private:
         ATLASSERT(testList[3].GetWinPathString() == L"c:\\Z");
     }
 
-    void RawAppendTest()
+    static void RawAppendTest()
     {
         CTSVNPath testPath(L"c:/test/");
         testPath.AppendRawString(L"/Hello");
@@ -1329,7 +1308,7 @@ private:
         ATLASSERT(testBasePath.GetWinPathString() == L"c:\\temp\\myfile.txt.ini");
     }
 
-    void PathAppendTest()
+    static void PathAppendTest()
     {
         CTSVNPath testPath(L"c:/test/");
         testPath.AppendPathString(L"/Hello");
@@ -1345,7 +1324,7 @@ private:
         ATLASSERT(testBasePath.GetWinPathString() == L"c:\\temp\\myfile.txt\\.ini");
     }
 
-    void RemoveDuplicatesTest()
+    static void RemoveDuplicatesTest()
     {
         CTSVNPathList list;
         list.AddPath(CTSVNPath(L"Z"));
@@ -1354,7 +1333,7 @@ private:
         list.AddPath(CTSVNPath(L"E"));
 
         ATLASSERT(list[2].IsEquivalentTo(list[3]));
-        ATLASSERT(list[2]==list[3]);
+        ATLASSERT(list[2] == list[3]);
 
         ATLASSERT(list.GetCount() == 4);
 
@@ -1367,7 +1346,7 @@ private:
         ATLASSERT(list[2].GetWinPathString() == L"Z");
     }
 
-    void RemoveChildrenTest()
+    static void RemoveChildrenTest()
     {
         CTSVNPathList list;
         list.AddPath(CTSVNPath(L"c:\\test"));
@@ -1392,12 +1371,12 @@ private:
         ATLASSERT(list[2].GetWinPathString().Compare(L"c:\\testfile") == 0);
     }
 
-#if defined(_MFC_VER)
-    void ListLoadingTest()
+#    if defined(_MFC_VER)
+    static void ListLoadingTest()
     {
-        TCHAR buf[MAX_PATH] = { 0 };
+        wchar_t buf[MAX_PATH] = {0};
         GetCurrentDirectory(_countof(buf), buf);
-        CString sPathList(L"Path1*c:\\path2 with spaces and stuff*\\funnypath\\*");
+        CString       sPathList(L"Path1*c:\\path2 with spaces and stuff*\\funnypath\\*");
         CTSVNPathList testList;
         testList.LoadFromAsteriskSeparatedString(sPathList);
 
@@ -1411,11 +1390,10 @@ private:
         testList.LoadFromAsteriskSeparatedString(sPathList);
         ATLASSERT(testList.GetCommonRoot().GetWinPathString() == L"c:\\");
     }
-#endif
+#    endif
 
-    void ContainingDirectoryTest()
+    static void ContainingDirectoryTest()
     {
-
         CTSVNPath testPath;
         testPath.SetFromWin(L"c:\\a\\b\\c\\d\\e");
         CTSVNPath dir;
@@ -1434,11 +1412,11 @@ private:
         ATLASSERT(dir.GetWinPathString().IsEmpty());
     }
 
-    void AncestorTest()
+    static void AncestorTest()
     {
         CTSVNPath testPath;
         testPath.SetFromWin(L"c:\\windows");
-        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\"))==false);
+        ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\")) == false);
         ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows")));
         ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windowsdummy")) == false);
         ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows test")) == false);
@@ -1446,7 +1424,7 @@ private:
         ATLASSERT(testPath.IsAncestorOf(CTSVNPath(L"c:\\windows\\system32\\test.txt")));
     }
 
-    void SubversionPathTest()
+    void SubversionPathTest() const
     {
         CTSVNPath testPath;
         testPath.SetFromWin(L"c:\\");
@@ -1457,14 +1435,14 @@ private:
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "C:/a/b/c/d/e") == 0);
         testPath.SetFromUnknown(L"http://testing/");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing") == 0);
-        testPath.SetFromSVN(NULL);
-        ATLASSERT(strlen(testPath.GetSVNApiPath(pool))==0);
+        testPath.SetFromSVN(nullptr);
+        ATLASSERT(strlen(testPath.GetSVNApiPath(pool)) == 0);
         testPath.SetFromWin(L"\\\\a\\b\\c\\d\\e");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "//a/b/c/d/e") == 0);
         testPath.SetFromWin(L"\\\\?\\C:\\Windows");
-        ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows")==0);
+        ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows") == 0);
         testPath.SetFromUnknown(L"\\\\?\\C:\\Windows");
-        ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows")==0);
+        ATLASSERT(wcscmp(testPath.GetWinPath(), L"C:\\Windows") == 0);
 
         // Make sure that GetWinPath() for long path has appropriate lifetime.
         testPath.SetFromUnknown(L"C:\\Windows\\" + CString(L'A', 260));
@@ -1473,7 +1451,7 @@ private:
         ATLASSERT(wcscmp(p1, L"\\\\?\\C:\\Windows\\" + CString(L'A', 260)) == 0);
         ATLASSERT(wcscmp(p2, L"\\\\?\\C:\\Windows\\" + CString(L'A', 260)) == 0);
 
-#if defined(_MFC_VER)
+#    if defined(_MFC_VER)
         testPath.SetFromUnknown(L"http://testing again");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://testing%20again") == 0);
         testPath.SetFromUnknown(L"http://testing%20again");
@@ -1484,50 +1462,50 @@ private:
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://branches/Branch%20at%2020%25cake") == 0);
         testPath.SetFromUnknown(L"http://server/trunk/only one %.txt");
         ATLASSERT(strcmp(testPath.GetSVNApiPath(pool), "http://server/trunk/only%20one%20%25.txt") == 0);
-#endif
+#    endif
     }
 
-    void GetCommonRootTest()
+    static void GetCommonRootTest()
     {
-        CTSVNPath pathA (L"C:\\Development\\LogDlg.cpp");
-        CTSVNPath pathB (L"C:\\Development\\LogDlg.h");
-        CTSVNPath pathC (L"C:\\Development\\SomeDir\\LogDlg.h");
+        CTSVNPath pathA(L"C:\\Development\\LogDlg.cpp");
+        CTSVNPath pathB(L"C:\\Development\\LogDlg.h");
+        CTSVNPath pathC(L"C:\\Development\\SomeDir\\LogDlg.h");
 
         CTSVNPathList list;
         list.AddPath(pathA);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"C:\\Development\\LogDlg.cpp")==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"C:\\Development\\LogDlg.cpp") == 0);
         list.AddPath(pathB);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"C:\\Development")==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"C:\\Development") == 0);
         list.AddPath(pathC);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"C:\\Development")==0);
-#ifdef _MFC_VER
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"C:\\Development") == 0);
+#    ifdef _MFC_VER
         CString sPathList = L"D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup64.wxs*D:\\Development\\StExBar\\StExBar\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup.wxs*D:\\Development\\StExBar\\SKTimeStamp\\src\\setup\\Setup64.wxs";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"D:\\Development\\StExBar")==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"D:\\Development\\StExBar") == 0);
 
         sPathList = L"c:\\windows\\explorer.exe*c:\\windows";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\windows")==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\windows") == 0);
 
         sPathList = L"c:\\windows\\*c:\\windows";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\windows")==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\windows") == 0);
 
         sPathList = L"c:\\windows\\system32*c:\\windows\\system";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\windows")==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\windows") == 0);
 
         sPathList = L"c:\\windowsdummy*c:\\windows";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\")==0);
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"c:\\") == 0);
 
         sPathList = L"https://svn.test.com/appidgd3fbn16y8*https://svn.test.com/appid";
         list.LoadFromAsteriskSeparatedString(sPathList);
-        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"https:\\\\svn.test.com")==0);
-#endif
+        ATLASSERT(list.GetCommonRoot().GetWinPathString().CompareNoCase(L"https:\\\\svn.test.com") == 0);
+#    endif
     }
 
-    void ValidPathAndUrlTest()
+    static void ValidPathAndUrlTest()
     {
         CTSVNPath testPath;
         testPath.SetFromWin(L"c:\\a\\b\\c.test.txt");
@@ -1623,6 +1601,6 @@ private:
         ATLASSERT(!testPath.IsValidOnWindows());
     }
 
+    // ReSharper disable once CppInconsistentNaming
 } TSVNPathTestobject;
 #endif
-

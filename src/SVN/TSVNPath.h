@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2017, 2019-2020 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2017, 2019-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 
 #if defined(_MFC_VER)
 // CSTRING is always available in an MFC build
-#define CSTRING_AVAILABLE
+#    define CSTRING_AVAILABLE
 #endif
 
 /**
@@ -33,8 +33,8 @@
 class CTSVNPath
 {
 public:
-    CTSVNPath(void);
-    ~CTSVNPath(void);
+    CTSVNPath();
+    ~CTSVNPath();
     // Create a TSVNPath object from an unknown path type (same as using SetFromUnknown)
     explicit CTSVNPath(const CString& sUnknownPath);
 
@@ -42,20 +42,20 @@ public:
     /**
      * Set the path as an UTF8 string with forward slashes
      */
-    void SetFromSVN(const char* pPath);
-    void SetFromSVN(const char* pPath, bool bIsDirectory);
-    void SetFromSVN(const CString& sPath);
+    void SetFromSVN(const char* pPath) const;
+    void SetFromSVN(const char* pPath, bool bIsDirectory) const;
+    void SetFromSVN(const CString& sPath) const;
     /**
      * Set the path as UNICODE with backslashes
      */
-    void SetFromWin(LPCTSTR pPath);
-    void SetFromWin(const CString& sPath);
-    void SetFromWin(LPCTSTR pPath, bool bIsDirectory);
-    void SetFromWin(const CString& sPath, bool bIsDirectory);
+    void SetFromWin(LPCTSTR pPath) const;
+    void SetFromWin(const CString& sPath) const;
+    void SetFromWin(LPCTSTR pPath, bool bIsDirectory) const;
+    void SetFromWin(const CString& sPath, bool bIsDirectory) const;
     /**
      * Set the path from an unknown source.
      */
-    void SetFromUnknown(const CString& sPath);
+    void SetFromUnknown(const CString& sPath) const;
     /**
      * Returns the path in Windows format, i.e. with backslashes
      */
@@ -72,7 +72,7 @@ public:
      * Returns the path completely prepared to be fed the the SVN APIs
      * It will be in UTF8, with URLs escaped, if necessary
      */
-    const char* GetSVNApiPath(apr_pool_t *pool) const;
+    const char* GetSVNApiPath(apr_pool_t* pool) const;
     /**
      * Returns true if the path returned by GetSVNApiPath() is properly
      * canonicalized so it won't throw an error later when passed to an
@@ -82,7 +82,7 @@ public:
      * Do not call this too often!
      **/
     bool IsCanonical() const;
-    bool IsCanonical(apr_pool_t *pool) const;
+    bool IsCanonical(apr_pool_t* pool) const;
     /**
      * Returns the path for showing in an UI.
      *
@@ -141,13 +141,13 @@ public:
     DWORD GetFileAttributes() const;
 
     bool IsEmpty() const;
-    void Reset();
+    void Reset() const;
     /**
      * Checks if two paths are equal. The slashes are taken care of.
      */
     bool IsEquivalentTo(const CTSVNPath& rhs) const;
     bool IsEquivalentToWithoutCase(const CTSVNPath& rhs) const;
-    bool operator==(const CTSVNPath& x) const {return IsEquivalentTo(x);}
+    bool operator==(const CTSVNPath& x) const { return IsEquivalentTo(x); }
 
     /**
      * Checks if \c possibleDescendant is a child of this path.
@@ -158,7 +158,7 @@ public:
      * section stripped off the front
      * Returns a string with fwdslash paths
      */
-    LPCTSTR GetDisplayString(const CTSVNPath* pOptionalBasePath = NULL) const;
+    LPCTSTR GetDisplayString(const CTSVNPath* pOptionalBasePath = nullptr) const;
     /**
      * Compares two paths, case insensitive. Slash format is irrelevant.
      */
@@ -172,7 +172,7 @@ public:
      */
     static bool PredLeftEquivalentToRight(const CTSVNPath& left, const CTSVNPath& right);
 
-    static bool CheckChild(const CTSVNPath &parent, const CTSVNPath& child);
+    static bool CheckChild(const CTSVNPath& parent, const CTSVNPath& child);
 
     /**
      * appends a string to this path.
@@ -180,14 +180,14 @@ public:
      * preservation of the proper caching behavior.
      * If you want to join a file- or directory-name onto the path, you should use AppendPathString
      */
-    void AppendRawString(const CString& sAppend);
+    void AppendRawString(const CString& sAppend) const;
 
     /**
     * appends a part of a path to this path.
     *\remark - missing slashes are dealt with properly. Don't use this to append a file extension, for example
     *
     */
-    void AppendPathString(const CString& sAppend);
+    void AppendPathString(const CString& sAppend) const;
 
     /**
      * Get the file modification time - returns zero for files which don't exist
@@ -199,7 +199,6 @@ public:
      * Get the file size. Returns zero for directories or files that don't exist.
      */
     __int64 GetFileSize() const;
-
 
     bool IsReadOnly() const;
 
@@ -224,8 +223,8 @@ public:
      */
     bool IsAdminDir() const;
 
-    void SetCustomData(LPARAM lp) {m_customData = lp;}
-    LPARAM GetCustomData() const {return m_customData;}
+    void   SetCustomData(LPARAM lp) const { m_customData = lp; }
+    LPARAM GetCustomData() const { return m_customData; }
 
     /**
      * Checks if the path or URL is valid on Windows.
@@ -243,6 +242,7 @@ public:
      * (branches, tags, or trunk).
      */
     bool IsSpecialDirectory() const;
+
 private:
     // All these functions are const, and all the data
     // is mutable, in order that the hidden caching operations
@@ -265,41 +265,41 @@ private:
     /**
      * Adds the required trailing slash to local root paths such as 'C:'
      */
-    void SanitizeRootPath(CString& sPath, bool bIsForwardPath) const;
+    static void SanitizeRootPath(CString& sPath, bool bIsForwardPath);
 
     void UpdateAttributes() const;
 
 private:
-    mutable CString m_sBackslashPath;
-    mutable CString m_sLongBackslashPath;
-    mutable CString m_sFwdslashPath;
-    mutable CString m_sUIPath;
+    mutable CString  m_sBackslashPath;
+    mutable CString  m_sLongBackslashPath;
+    mutable CString  m_sFwdslashPath;
+    mutable CString  m_sUIPath;
     mutable CStringA m_sUTF8FwdslashPath;
     mutable CStringA m_sUTF8FwdslashPathEscaped;
     // Have we yet determined if this is a directory or not?
-    mutable bool m_bDirectoryKnown;
-    mutable bool m_bIsDirectory;
-    mutable bool m_bLastWriteTimeKnown;
-    mutable bool m_bURLKnown;
-    mutable bool m_bIsURL;
-    mutable bool m_bIsAttributesKnown;
+    mutable bool    m_bDirectoryKnown;
+    mutable bool    m_bIsDirectory;
+    mutable bool    m_bLastWriteTimeKnown;
+    mutable bool    m_bURLKnown;
+    mutable bool    m_bIsURL;
+    mutable bool    m_bIsAttributesKnown;
     mutable __int64 m_lastWriteTime;
     mutable __int64 m_fileSize;
-    mutable bool m_bIsReadOnly;
-    mutable bool m_bHasAdminDirKnown;
-    mutable bool m_bHasAdminDir;
-    mutable bool m_bIsValidOnWindowsKnown;
-    mutable bool m_bIsValidOnWindows;
-    mutable bool m_bIsAdminDirKnown;
-    mutable bool m_bIsAdminDir;
-    mutable bool m_bIsWCRootKnown;
-    mutable bool m_bIsWCRoot;
-    mutable bool m_bExists;
-    mutable bool m_bExistsKnown;
-    mutable LPARAM m_customData;
-    mutable bool m_bIsSpecialDirectoryKnown;
-    mutable bool m_bIsSpecialDirectory;
-    mutable DWORD m_attributes;
+    mutable bool    m_bIsReadOnly;
+    mutable bool    m_bHasAdminDirKnown;
+    mutable bool    m_bHasAdminDir;
+    mutable bool    m_bIsValidOnWindowsKnown;
+    mutable bool    m_bIsValidOnWindows;
+    mutable bool    m_bIsAdminDirKnown;
+    mutable bool    m_bIsAdminDir;
+    mutable bool    m_bIsWCRootKnown;
+    mutable bool    m_bIsWCRoot;
+    mutable bool    m_bExists;
+    mutable bool    m_bExistsKnown;
+    mutable LPARAM  m_customData;
+    mutable bool    m_bIsSpecialDirectoryKnown;
+    mutable bool    m_bIsSpecialDirectory;
+    mutable DWORD   m_attributes;
 
     friend bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 };
@@ -308,8 +308,7 @@ private:
  * Compares two paths and return true if left is earlier in sort order than right
  * (Uses CTSVNPath::Compare logic, but is suitable for std::sort and similar)
  */
- bool operator<(const CTSVNPath& left, const CTSVNPath& right);
-
+bool operator<(const CTSVNPath& left, const CTSVNPath& right);
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -334,16 +333,16 @@ public:
      * Load from the path argument string, when the 'path' parameter is used
      * This is a list of paths, with '*' between them
      */
-    void LoadFromAsteriskSeparatedString(const CString& sPathString);
+    void    LoadFromAsteriskSeparatedString(const CString& sPathString);
     CString CreateAsteriskSeparatedString() const;
 
-    int GetCount() const;
-    bool IsEmpty() const { return m_paths.empty(); }
-    void Clear();
-    CTSVNPath& operator[](INT_PTR index);
+    int              GetCount() const;
+    bool             IsEmpty() const { return m_paths.empty(); }
+    void             Clear();
+    CTSVNPath&       operator[](INT_PTR index);
     const CTSVNPath& operator[](INT_PTR index) const;
-    bool AreAllPathsFiles() const;
-    bool AreAllPathsFilesInOneDirectory() const;
+    bool             AreAllPathsFiles() const;
+    bool             AreAllPathsFilesInOneDirectory() const;
     /**
      * returns the directory which all items have in common.
      * if not all paths are in the same directory, then
@@ -356,7 +355,7 @@ public:
      * the same drive/root.
      */
     CTSVNPath GetCommonRoot() const;
-    void SortByPathname(bool bReverse = false);
+    void      SortByPathname(bool bReverse = false);
     /**
      * Delete all the files and opt. directories in the list, then clear the list.
      * \param bTrash if true, the items are deleted using the Windows trash bin
@@ -380,13 +379,13 @@ public:
     bool IsEqual(const CTSVNPathList& list);
 
     /** Convert into the SVN API parameter format */
-    apr_array_header_t * MakePathArray (apr_pool_t *pool) const;
+    apr_array_header_t* MakePathArray(apr_pool_t* pool) const;
 
     static bool DeleteViaShell(LPCTSTR path, bool useTrashbin, HWND hErrorWnd);
 
 private:
     typedef std::vector<CTSVNPath> PathVector;
-    PathVector m_paths;
+    PathVector                     m_paths;
     // If the list contains just files in one directory, then
     // this contains the directory name
     mutable CTSVNPath m_commonBaseDirectory;

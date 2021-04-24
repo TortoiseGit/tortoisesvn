@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012 - TortoiseSVN
+// Copyright (C) 2009, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "ShellObjects.h"
 
-
 ShellObjects::ShellObjects()
 {
 }
@@ -28,13 +27,13 @@ ShellObjects::~ShellObjects()
 {
 }
 
-void ShellObjects::Insert(CShellExt * obj)
+void ShellObjects::Insert(CShellExt *obj)
 {
     AutoLocker lock(m_critSec);
     m_exts.insert(obj);
 }
 
-void ShellObjects::Erase(CShellExt * obj)
+void ShellObjects::Erase(CShellExt *obj)
 {
     AutoLocker lock(m_critSec);
     m_exts.erase(obj);

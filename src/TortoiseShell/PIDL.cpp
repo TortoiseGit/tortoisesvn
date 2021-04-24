@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2011 - TortoiseSVN
+// Copyright (C) 2003-2006, 2011, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,13 +19,14 @@
 #include "stdafx.h"
 #include "PIDL.h"
 
-PIDL::PIDL() : malloc_(0)
+PIDL::PIDL()
+    : m_malloc(nullptr)
 {
-    ::SHGetMalloc(&malloc_);
+    ::SHGetMalloc(&m_malloc);
 }
 
 PIDL::~PIDL()
 {
-    if (malloc_ != 0)
-        malloc_->Release();
+    if (m_malloc != nullptr)
+        m_malloc->Release();
 }

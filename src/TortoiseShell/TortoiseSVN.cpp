@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,38 +24,37 @@
 #include "SVNAdminDir.h"
 #include "svn_dso.h"
 
+volatile LONG      g_cRefThisDll = 0;       ///< reference count of this DLL.
+HINSTANCE          g_hModThisDll = nullptr; ///< handle to this DLL itself.
+int                g_cAprInit    = 0;
+ShellCache         g_shellCache; ///< caching of registry entries, ...
+DWORD              g_langId;
+ULONGLONG          g_langTimeout = 0;
+HINSTANCE          g_hResInst    = nullptr;
+tstring            g_filePath;
+svn_wc_status_kind g_fileStatus      = svn_wc_status_none; ///< holds the corresponding status to the file/dir above
+bool               g_readOnlyOverlay = false;
+bool               g_lockedOverlay   = false;
 
-volatile LONG       g_cRefThisDll = 0;              ///< reference count of this DLL.
-HINSTANCE           g_hmodThisDll = NULL;           ///< handle to this DLL itself.
-int                 g_cAprInit = 0;
-ShellCache          g_ShellCache;                   ///< caching of registry entries, ...
-DWORD               g_langid;
-ULONGLONG           g_langTimeout = 0;
-HINSTANCE           g_hResInst = NULL;
-tstring         g_filepath;
-svn_wc_status_kind  g_filestatus = svn_wc_status_none;  ///< holds the corresponding status to the file/dir above
-bool                g_readonlyoverlay = false;
-bool                g_lockedoverlay = false;
+bool                g_normalOvlLoaded      = false;
+bool                g_modifiedOvlLoaded    = false;
+bool                g_conflictedOvlLoaded  = false;
+bool                g_readonlyOvlLoaded    = false;
+bool                g_deletedOvlLoaded     = false;
+bool                g_lockedOvlLoaded      = false;
+bool                g_addedOvlLoaded       = false;
+bool                g_ignoredOvlLoaded     = false;
+bool                g_unversionedOvlLoaded = false;
+CComCriticalSection g_csGlobalComGuard;
 
-bool                g_normalovlloaded = false;
-bool                g_modifiedovlloaded = false;
-bool                g_conflictedovlloaded = false;
-bool                g_readonlyovlloaded = false;
-bool                g_deletedovlloaded = false;
-bool                g_lockedovlloaded = false;
-bool                g_addedovlloaded = false;
-bool                g_ignoredovlloaded = false;
-bool                g_unversionedovlloaded = false;
-CComCriticalSection g_csGlobalCOMGuard;
+LPCTSTR g_menuIDString = L"TortoiseSVN";
 
-LPCTSTR             g_MenuIDString = L"TortoiseSVN";
-
-ShellObjects        g_shellObjects;
+ShellObjects g_shellObjects;
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 extern "C" int APIENTRY
-DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
+    DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
 {
     // NOTE: Do *NOT* call apr_initialize() or apr_terminate() here in DllMain(),
     // because those functions call LoadLibrary() indirectly through malloc().
@@ -63,13 +62,13 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
     // behavior and even may create dependency loops in the dll load order.
     if (dwReason == DLL_PROCESS_ATTACH)
     {
-        if (g_hmodThisDll == NULL)
+        if (g_hModThisDll == nullptr)
         {
-            g_csGlobalCOMGuard.Init();
+            g_csGlobalComGuard.Init();
         }
 
         // Extension DLL one-time initialization
-        g_hmodThisDll = hInstance;
+        g_hModThisDll = hInstance;
     }
     else if (dwReason == DLL_PROCESS_DETACH)
     {
@@ -81,21 +80,21 @@ DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /* lpReserved */)
         // sometimes an application doesn't release all COM objects
         // but still unloads the dll.
         // in that case, we do it ourselves
-        g_csGlobalCOMGuard.Term();
+        g_csGlobalComGuard.Term();
     }
-    return 1;   // ok
+    return 1; // ok
 }
 
-STDAPI DllCanUnloadNow(void)
+STDAPI DllCanUnloadNow()
 {
     return (g_cRefThisDll == 0 ? S_OK : S_FALSE);
 }
 
 STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
 {
-    if (ppvOut == 0 )
+    if (ppvOut == nullptr)
         return E_POINTER;
-    *ppvOut = NULL;
+    *ppvOut = nullptr;
 
     FileState state = FileStateInvalid;
     if (IsEqualIID(rclsid, CLSID_TortoiseSVN_UPTODATE))
@@ -130,7 +129,7 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
             g_cAprInit++;
 
             CShellExtClassFactory *pcf = new (std::nothrow) CShellExtClassFactory(state);
-            if (pcf == NULL)
+            if (pcf == nullptr)
                 return E_OUTOFMEMORY;
             // refcount currently set to 0
             const HRESULT hr = pcf->QueryInterface(riid, ppvOut);
@@ -142,7 +141,4 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
     }
 
     return CLASS_E_CLASSNOTAVAILABLE;
-
 }
-
-

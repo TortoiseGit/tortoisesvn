@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014, 2017 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,15 +29,15 @@ class CTSVNPath;
 class CRemoteCacheLink
 {
 public:
-    CRemoteCacheLink(void);
-    ~CRemoteCacheLink(void);
+    CRemoteCacheLink();
+    ~CRemoteCacheLink();
 
 public:
-    bool GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCacheResponse* pReturnedStatus, bool bRecursive);
+    bool GetStatusFromRemoteCache(const CTSVNPath& path, TSVNCacheResponse* pReturnedStatus, bool bRecursive);
     bool ReleaseLockForPath(const CTSVNPath& path);
 
 private:
-    bool InternalEnsurePipeOpen(CAutoFile& hPipe, const CString& pipeName, bool overlapped) const;
+    static bool InternalEnsurePipeOpen(CAutoFile& hPipe, const CString& pipeName, bool overlapped);
 
     bool EnsurePipeOpen();
     void ClosePipe();
@@ -45,20 +45,18 @@ private:
     bool EnsureCommandPipeOpen();
     void CloseCommandPipe();
 
-    DWORD GetProcessIntegrityLevel() const;
-    bool RunTsvnCacheProcess();
-    CString GetTsvnCachePath() const;
+    static DWORD   GetProcessIntegrityLevel();
+    bool           RunTsvnCacheProcess() const;
+    static CString GetTsvnCachePath();
 
 private:
-    CAutoFile m_hPipe;
-    OVERLAPPED m_Overlapped;
+    CAutoFile          m_hPipe;
+    OVERLAPPED         m_overlapped;
     CAutoGeneralHandle m_hEvent;
 
     CAutoFile m_hCommandPipe;
 
-
     CComAutoCriticalSection m_critSec;
-    svn_client_status_t m_dummyStatus;
-    LONGLONG m_lastTimeout;
-
+    svn_client_status_t     m_dummyStatus;
+    LONGLONG                m_lastTimeout;
 };

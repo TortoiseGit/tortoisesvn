@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,26 +24,26 @@
 #include "PathUtils.h"
 #include "CreateProcessHelper.h"
 
-CRemoteCacheLink::CRemoteCacheLink(void)
+CRemoteCacheLink::CRemoteCacheLink()
 {
     SecureZeroMemory(&m_dummyStatus, sizeof(m_dummyStatus));
-    SecureZeroMemory(&m_Overlapped, sizeof(m_Overlapped));
-    m_dummyStatus.node_status = svn_wc_status_none;
-    m_dummyStatus.text_status = svn_wc_status_none;
-    m_dummyStatus.prop_status = svn_wc_status_none;
+    SecureZeroMemory(&m_overlapped, sizeof(m_overlapped));
+    m_dummyStatus.node_status       = svn_wc_status_none;
+    m_dummyStatus.text_status       = svn_wc_status_none;
+    m_dummyStatus.prop_status       = svn_wc_status_none;
     m_dummyStatus.repos_text_status = svn_wc_status_none;
     m_dummyStatus.repos_prop_status = svn_wc_status_none;
     m_dummyStatus.repos_node_status = svn_wc_status_none;
-    m_lastTimeout = 0;
+    m_lastTimeout                   = 0;
 }
 
-CRemoteCacheLink::~CRemoteCacheLink(void)
+CRemoteCacheLink::~CRemoteCacheLink()
 {
     ClosePipe();
     CloseCommandPipe();
 }
 
-bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe, const CString& pipeName, bool overlapped) const
+bool CRemoteCacheLink::InternalEnsurePipeOpen(CAutoFile& hPipe, const CString& pipeName, bool overlapped)
 {
     if (hPipe)
         return true;
@@ -52,20 +52,20 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe, const CString&
 
     while (!hPipe && tryleft--)
     {
-        hPipe = CreateFile(pipeName,                       // pipe name
-                           GENERIC_READ |                  // read and write access
-                           GENERIC_WRITE,
-                           0,                              // no sharing
-                           NULL,                           // default security attributes
-                           OPEN_EXISTING,                  // opens existing pipe
+        hPipe = CreateFile(pipeName,      // pipe name
+                           GENERIC_READ | // read and write access
+                               GENERIC_WRITE,
+                           0,                                     // no sharing
+                           nullptr,                               // default security attributes
+                           OPEN_EXISTING,                         // opens existing pipe
                            overlapped ? FILE_FLAG_OVERLAPPED : 0, // default attributes
-                           NULL);                          // no template file
+                           nullptr);                              // no template file
         if ((!hPipe) && (GetLastError() == ERROR_PIPE_BUSY))
         {
             // TSVNCache is running but is busy connecting a different client.
             // Do not give up immediately but wait for a few milliseconds until
             // the server has created the next pipe instance
-            if (!WaitNamedPipe (pipeName, 50))
+            if (!WaitNamedPipe(pipeName, 50))
             {
                 continue;
             }
@@ -78,11 +78,11 @@ bool CRemoteCacheLink::InternalEnsurePipeOpen ( CAutoFile& hPipe, const CString&
         DWORD dwMode;
 
         dwMode = PIPE_READMODE_MESSAGE;
-        if(!SetNamedPipeHandleState(
-            hPipe,    // pipe handle
-            &dwMode,  // new pipe mode
-            NULL,     // don't set maximum bytes
-            NULL))    // don't set maximum time
+        if (!SetNamedPipeHandleState(
+                hPipe,    // pipe handle
+                &dwMode,  // new pipe mode
+                nullptr,  // don't set maximum bytes
+                nullptr)) // don't set maximum time
         {
             CTraceToOutputDebugString::Instance()(__FUNCTION__ ": SetNamedPipeHandleState failed");
             hPipe.CloseHandle();
@@ -96,13 +96,13 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 {
     AutoLocker lock(m_critSec);
 
-    if (InternalEnsurePipeOpen (m_hPipe, GetCachePipeName(), true))
+    if (InternalEnsurePipeOpen(m_hPipe, GetCachePipeName(), true))
     {
         // create an unnamed (=local) manual reset event for use in the overlapped structure
         if (m_hEvent)
             return true;
 
-        m_hEvent = CreateEvent(NULL, TRUE, FALSE, NULL);
+        m_hEvent = CreateEvent(nullptr, TRUE, FALSE, nullptr);
         if (m_hEvent)
             return true;
 
@@ -115,7 +115,7 @@ bool CRemoteCacheLink::EnsurePipeOpen()
 
 bool CRemoteCacheLink::EnsureCommandPipeOpen()
 {
-    return InternalEnsurePipeOpen (m_hCommandPipe, GetCacheCommandPipeName(), false);
+    return InternalEnsurePipeOpen(m_hCommandPipe, GetCacheCommandPipeName(), false);
 }
 
 void CRemoteCacheLink::ClosePipe()
@@ -130,26 +130,26 @@ void CRemoteCacheLink::CloseCommandPipe()
 {
     AutoLocker lock(m_critSec);
 
-    if(m_hCommandPipe)
+    if (m_hCommandPipe)
     {
         // now tell the cache we don't need it's command thread anymore
-        DWORD cbWritten;
+        DWORD            cbWritten;
         TSVNCacheCommand cmd = {0};
-        cmd.command = TSVNCACHECOMMAND_END;
+        cmd.command          = TSVNCACHECOMMAND_END;
         WriteFile(
-            m_hCommandPipe,         // handle to pipe
+            m_hCommandPipe, // handle to pipe
             &cmd,           // buffer to write from
             sizeof(cmd),    // number of bytes to write
             &cbWritten,     // number of bytes written
-            NULL);          // not overlapped I/O
+            nullptr);       // not overlapped I/O
         DisconnectNamedPipe(m_hCommandPipe);
         m_hCommandPipe.CloseHandle();
     }
 }
 
-bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCacheResponse* pReturnedStatus, bool bRecursive)
+bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& path, TSVNCacheResponse* pReturnedStatus, bool bRecursive)
 {
-    if(!EnsurePipeOpen())
+    if (!EnsurePipeOpen())
     {
         // We've failed to open the pipe - try and start the cache
         // but only if the last try to start the cache was a certain time
@@ -157,7 +157,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
         // in between, the explorer is rendered unusable!
         // Failing to start the cache can have different reasons: missing exe,
         // missing registry key, corrupt exe, ...
-        if (((LONGLONG)GetTickCount64() - m_lastTimeout) < 0)
+        if ((static_cast<LONGLONG>(GetTickCount64()) - m_lastTimeout) < 0)
             return false;
         // if we're in protected mode, don't try to start the cache: since we're
         // here, we know we can't access it anyway and starting a new process will
@@ -169,30 +169,30 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
             return false;
 
         // Wait for the cache to open
-        LONGLONG endTime = (LONGLONG)GetTickCount64() + 1000;
-        while(!EnsurePipeOpen())
+        auto endTime = static_cast<LONGLONG>(GetTickCount64()) + 1000;
+        while (!EnsurePipeOpen())
         {
-            if (((LONGLONG)GetTickCount64() - endTime) > 0)
+            if ((static_cast<LONGLONG>(GetTickCount64()) - endTime) > 0)
             {
-                m_lastTimeout = (LONGLONG)GetTickCount64() + 10000;
+                m_lastTimeout = static_cast<LONGLONG>(GetTickCount64()) + 10000;
                 return false;
             }
         }
-        m_lastTimeout = (LONGLONG)GetTickCount64() + 10000;
+        m_lastTimeout = static_cast<LONGLONG>(GetTickCount64()) + 10000;
     }
 
     AutoLocker lock(m_critSec);
 
-    DWORD nBytesRead;
+    DWORD            nBytesRead;
     TSVNCacheRequest request;
     request.flags = TSVNCACHE_FLAGS_NONOTIFICATIONS;
-    if(bRecursive)
+    if (bRecursive)
     {
         request.flags |= TSVNCACHE_FLAGS_RECUSIVE_STATUS;
     }
-    wcsncpy_s(request.path, Path.GetWinPath(), MAX_PATH - 1);
-    SecureZeroMemory(&m_Overlapped, sizeof(OVERLAPPED));
-    m_Overlapped.hEvent = m_hEvent;
+    wcsncpy_s(request.path, path.GetWinPath(), MAX_PATH - 1);
+    SecureZeroMemory(&m_overlapped, sizeof(OVERLAPPED));
+    m_overlapped.hEvent = m_hEvent;
     // Do the transaction in overlapped mode.
     // That way, if anything happens which might block this call
     // we still can get out of it. We NEVER MUST BLOCK THE SHELL!
@@ -208,13 +208,13 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
     // report back to us so we can investigate further.
 
     BOOL fSuccess = TransactNamedPipe(m_hPipe,
-        &request, sizeof(request),
-        pReturnedStatus, sizeof(*pReturnedStatus),
-        &nBytesRead, &m_Overlapped);
+                                      &request, sizeof(request),
+                                      pReturnedStatus, sizeof(*pReturnedStatus),
+                                      &nBytesRead, &m_overlapped);
 
     if (!fSuccess)
     {
-        if (GetLastError()!=ERROR_IO_PENDING)
+        if (GetLastError() != ERROR_IO_PENDING)
         {
             //OutputDebugStringA("TortoiseShell: TransactNamedPipe failed\n");
             ClosePipe();
@@ -226,7 +226,7 @@ bool CRemoteCacheLink::GetStatusFromRemoteCache(const CTSVNPath& Path, TSVNCache
         DWORD dwWait = WaitForSingleObject(m_hEvent, 10000);
         if (dwWait == WAIT_OBJECT_0)
         {
-            fSuccess = GetOverlappedResult(m_hPipe, &m_Overlapped, &nBytesRead, FALSE);
+            fSuccess = GetOverlappedResult(m_hPipe, &m_overlapped, &nBytesRead, FALSE);
         }
         else
         {
@@ -249,17 +249,17 @@ bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
     EnsureCommandPipeOpen();
     if (m_hCommandPipe)
     {
-        DWORD cbWritten;
+        DWORD            cbWritten;
         TSVNCacheCommand cmd = {0};
-        cmd.command = TSVNCACHECOMMAND_RELEASE;
+        cmd.command          = TSVNCACHECOMMAND_RELEASE;
         wcsncpy_s(cmd.path, path.GetDirectory().GetWinPath(), MAX_PATH - 1);
         BOOL fSuccess = WriteFile(
             m_hCommandPipe, // handle to pipe
             &cmd,           // buffer to write from
             sizeof(cmd),    // number of bytes to write
             &cbWritten,     // number of bytes written
-            NULL);          // not overlapped I/O
-        if (! fSuccess || sizeof(cmd) != cbWritten)
+            nullptr);       // not overlapped I/O
+        if (!fSuccess || sizeof(cmd) != cbWritten)
         {
             CloseCommandPipe();
             return false;
@@ -269,32 +269,31 @@ bool CRemoteCacheLink::ReleaseLockForPath(const CTSVNPath& path)
     return false;
 }
 
-DWORD CRemoteCacheLink::GetProcessIntegrityLevel() const
+DWORD CRemoteCacheLink::GetProcessIntegrityLevel()
 {
     DWORD dwIntegrityLevel = SECURITY_MANDATORY_MEDIUM_RID;
 
     CAutoGeneralHandle hProcess = GetCurrentProcess();
     CAutoGeneralHandle hToken;
-    if (OpenProcessToken(hProcess, TOKEN_QUERY |
-        TOKEN_QUERY_SOURCE, hToken.GetPointer()))
+    if (OpenProcessToken(hProcess, TOKEN_QUERY | TOKEN_QUERY_SOURCE, hToken.GetPointer()))
     {
         // Get the Integrity level.
         DWORD dwLengthNeeded;
         if (!GetTokenInformation(hToken, TokenIntegrityLevel,
-            NULL, 0, &dwLengthNeeded))
+                                 nullptr, 0, &dwLengthNeeded))
         {
             DWORD dwError = GetLastError();
             if (dwError == ERROR_INSUFFICIENT_BUFFER)
             {
                 PTOKEN_MANDATORY_LABEL pTIL =
-                    (PTOKEN_MANDATORY_LABEL)LocalAlloc(0, dwLengthNeeded);
-                if (pTIL != NULL)
+                    static_cast<PTOKEN_MANDATORY_LABEL>(LocalAlloc(0, dwLengthNeeded));
+                if (pTIL != nullptr)
                 {
                     if (GetTokenInformation(hToken, TokenIntegrityLevel,
-                        pTIL, dwLengthNeeded, &dwLengthNeeded))
+                                            pTIL, dwLengthNeeded, &dwLengthNeeded))
                     {
                         dwIntegrityLevel = *GetSidSubAuthority(pTIL->Label.Sid,
-                            (DWORD)(UCHAR)(*GetSidSubAuthorityCount(pTIL->Label.Sid)-1));
+                                                               static_cast<DWORD>(static_cast<UCHAR>(*GetSidSubAuthorityCount(pTIL->Label.Sid) - 1)));
                     }
                     LocalFree(pTIL);
                 }
@@ -305,10 +304,10 @@ DWORD CRemoteCacheLink::GetProcessIntegrityLevel() const
     return dwIntegrityLevel;
 }
 
-bool CRemoteCacheLink::RunTsvnCacheProcess()
+bool CRemoteCacheLink::RunTsvnCacheProcess() const
 {
     const CString sCachePath = GetTsvnCachePath();
-    if (!CCreateProcessHelper::CreateProcessDetached(sCachePath, NULL))
+    if (!CCreateProcessHelper::CreateProcessDetached(sCachePath, nullptr))
     {
         // It's not appropriate to do a message box here, because there may be hundreds of calls
         CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Failed to start cache\n");
@@ -317,8 +316,8 @@ bool CRemoteCacheLink::RunTsvnCacheProcess()
     return true;
 }
 
-CString CRemoteCacheLink::GetTsvnCachePath() const
+CString CRemoteCacheLink::GetTsvnCachePath()
 {
-    CString sCachePath = CPathUtils::GetAppDirectory(g_hmodThisDll) + L"TSVNCache.exe";
+    CString sCachePath = CPathUtils::GetAppDirectory(g_hModThisDll) + L"TSVNCache.exe";
     return sCachePath;
 }

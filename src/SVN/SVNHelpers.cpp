@@ -20,6 +20,7 @@
 #include "TSVNPath.h"
 #include "SVNConfig.h"
 #include "../version.h"
+// ReSharper disable once CppUnusedIncludeDirective
 #include "UnicodeUtils.h"
 #pragma warning(push)
 #include "svn_config.h"

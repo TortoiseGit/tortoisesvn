@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2011, 2016 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2011, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,9 +20,8 @@
 #include "ShellExt.h"
 #include "ShellExtClassFactory.h"
 
-
 CShellExtClassFactory::CShellExtClassFactory(FileState state)
-    : m_StateToMake(state)
+    : m_stateToMake(state)
 {
     m_cRef = 0L;
 
@@ -34,13 +33,13 @@ CShellExtClassFactory::~CShellExtClassFactory()
     InterlockedDecrement(&g_cRefThisDll);
 }
 
-STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid,
-                                                   LPVOID FAR *ppv)
+HRESULT STDMETHODCALLTYPE CShellExtClassFactory::QueryInterface(REFIID riid,
+                                                                LPVOID FAR *ppv)
 {
-    if(ppv == 0)
+    if (ppv == nullptr)
         return E_POINTER;
 
-    *ppv = NULL;
+    *ppv = nullptr;
 
     // Any interface on this object is the object pointer
 
@@ -54,12 +53,12 @@ STDMETHODIMP CShellExtClassFactory::QueryInterface(REFIID riid,
     return E_NOINTERFACE;
 }
 
-STDMETHODIMP_(ULONG) CShellExtClassFactory::AddRef()
+ULONG STDMETHODCALLTYPE CShellExtClassFactory::AddRef()
 {
     return InterlockedIncrement(&m_cRef);
 }
 
-STDMETHODIMP_(ULONG) CShellExtClassFactory::Release()
+ULONG STDMETHODCALLTYPE CShellExtClassFactory::Release()
 {
     if (InterlockedDecrement(&m_cRef))
         return m_cRef;
@@ -69,14 +68,14 @@ STDMETHODIMP_(ULONG) CShellExtClassFactory::Release()
     return 0L;
 }
 
-STDMETHODIMP CShellExtClassFactory::CreateInstance(LPUNKNOWN pUnkOuter,
-                                                   REFIID riid,
-                                                   LPVOID *ppvObj)
+HRESULT STDMETHODCALLTYPE CShellExtClassFactory::CreateInstance(LPUNKNOWN pUnkOuter,
+                                                                REFIID    riid,
+                                                                LPVOID *  ppvObj)
 {
-    if(ppvObj == 0)
+    if (ppvObj == nullptr)
         return E_POINTER;
 
-    *ppvObj = NULL;
+    *ppvObj = nullptr;
 
     // Shell extensions typically don't support aggregation (inheritance)
 
@@ -87,18 +86,18 @@ STDMETHODIMP CShellExtClassFactory::CreateInstance(LPUNKNOWN pUnkOuter,
     // QueryInterface with IID_IShellExtInit--this is how shell extensions are
     // initialized.
 
-    CShellExt* pShellExt = new (std::nothrow) CShellExt(m_StateToMake);  //Create the CShellExt object
+    CShellExt *pShellExt = new (std::nothrow) CShellExt(m_stateToMake); //Create the CShellExt object
 
-    if (NULL == pShellExt)
+    if (nullptr == pShellExt)
         return E_OUTOFMEMORY;
 
     const HRESULT hr = pShellExt->QueryInterface(riid, ppvObj);
-    if(FAILED(hr))
+    if (FAILED(hr))
         delete pShellExt;
     return hr;
 }
 
-STDMETHODIMP CShellExtClassFactory::LockServer(BOOL /*fLock*/)
+HRESULT STDMETHODCALLTYPE CShellExtClassFactory::LockServer(BOOL /*fLock*/)
 {
     return E_NOTIMPL;
 }

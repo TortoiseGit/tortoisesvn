@@ -25,7 +25,7 @@
 
 ShellCache::ShellCache()
 {
-    cacheType                    = CRegStdDWORD(L"Software\\TortoiseSVN\\CacheType", GetSystemMetrics(SM_REMOTESESSION) ? Dll : Exe, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    cacheType                    = CRegStdDWORD(L"Software\\TortoiseSVN\\CacheType", GetSystemMetrics(SM_REMOTESESSION) ? CacheType::Dll : CacheType::Exe, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     onlyNonElevated              = CRegStdDWORD(L"Software\\TortoiseSVN\\ShowOverlaysOnlyNonElevated", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     showRecursive                = CRegStdDWORD(L"Software\\TortoiseSVN\\RecursiveOverlay", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     folderOverlay                = CRegStdDWORD(L"Software\\TortoiseSVN\\FolderOverlay", TRUE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
@@ -347,24 +347,24 @@ BOOL ShellCache::IsPathAllowed(LPCWSTR path)
     }
     else
     {
-        TCHAR pathbuf[MAX_PATH + 4] = {0}; // MAX_PATH ok here. PathIsUNCServer works with partial paths too.
-        wcsncpy_s(pathbuf, path, _countof(pathbuf) - 1);
-        if (PathIsUNCServer(pathbuf))
+        TCHAR pathBuf[MAX_PATH + 4] = {0}; // MAX_PATH ok here. PathIsUNCServer works with partial paths too.
+        wcsncpy_s(pathBuf, path, _countof(pathBuf) - 1);
+        if (PathIsUNCServer(pathBuf))
             driveType = DRIVE_REMOTE;
-        PathStripToRoot(pathbuf);
-        if (PathIsNetworkPath(pathbuf))
+        PathStripToRoot(pathBuf);
+        if (PathIsNetworkPath(pathBuf))
             driveType = DRIVE_REMOTE;
         else
         {
-            PathAddBackslash(pathbuf);
-            if (wcsncmp(pathbuf, driveTypePathCache, MAX_PATH - 1) == 0) // MAX_PATH ok.
+            PathAddBackslash(pathBuf);
+            if (wcsncmp(pathBuf, driveTypePathCache, MAX_PATH - 1) == 0) // MAX_PATH ok.
                 driveType = driveTypeCache[26];
             else
             {
-                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L"GetdriveType for %s\n", pathbuf);
-                driveType          = GetDriveType(pathbuf);
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L"GetdriveType for %s\n", pathBuf);
+                driveType          = GetDriveType(pathBuf);
                 driveTypeCache[26] = driveType;
-                wcsncpy_s(driveTypePathCache, pathbuf, MAX_PATH - 1); // MAX_PATH ok.
+                wcsncpy_s(driveTypePathCache, pathBuf, MAX_PATH - 1); // MAX_PATH ok.
             }
         }
     }
