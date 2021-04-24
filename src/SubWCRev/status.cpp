@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2017, 2019 - TortoiseSVN
+// Copyright (C) 2003-2017, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,30 +35,30 @@
 
 CRegStdString regTagsPattern = CRegStdString(L"Software\\TortoiseSVN\\RevisionGraph\\TagsPattern", L"tags");
 
-void LoadIgnorePatterns(const char * wc, SubWCRev_t * SubStat)
+void loadIgnorePatterns(const char* wc, SubWCRevT* subStat)
 {
-    std::string path = wc;
-    std::string ignorepath = path + "/.subwcrevignore";
+    std::string path       = wc;
+    std::string ignorePath = path + "/.subwcrevignore";
 
-    std::ifstream infile;
-    infile.open(ignorepath);
-    if (infile.good())
+    std::ifstream inFile;
+    inFile.open(ignorePath);
+    if (inFile.good())
     {
         std::string line;
-        while (std::getline(infile, line))
+        while (std::getline(inFile, line))
         {
             if (!line.empty())
-                SubStat->ignorepatterns.emplace(line, path.size());
+                subStat->ignorePatterns.emplace(line, path.size());
         }
     }
 }
 
 // Copy the URL from src to dest, unescaping on the fly.
-void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
+void UnescapeCopy(const char* root, const char* src, char* dest, int bufLen)
 {
-    const char * pszSource = root;
-    char * pszDest = dest;
-    int len = 0;
+    const char* pszSource = root;
+    char*       pszDest   = dest;
+    int         len       = 0;
 
     // under VS.NET2k5 strchr() wants this to be a non-const array :/
 
@@ -69,35 +69,35 @@ void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
     // in pszSource (they are both the same string anyway)
 
     bool bRoot = true;
-    while ((*pszSource != '\0') && (++len < buf_len))
+    while ((*pszSource != '\0') && (++len < bufLen))
     {
         if (*pszSource == '%')
         {
             // The next two chars following '%' should be digits
-            if ( *(pszSource + 1) == '\0' ||
-                *(pszSource + 2) == '\0' )
+            if (*(pszSource + 1) == '\0' ||
+                *(pszSource + 2) == '\0')
             {
                 // nothing left to do
                 break;
             }
 
-            char nValue = '?';
-            char * pszHigh = NULL;
+            char  nValue  = '?';
+            char* pszHigh = nullptr;
             pszSource++;
 
-            char up = (char) toupper(*pszSource);
+            char up = static_cast<char>(toupper(*pszSource));
             pszHigh = strchr(szHex, up);
 
-            if (pszHigh != NULL)
+            if (pszHigh != nullptr)
             {
                 pszSource++;
-                up = (char) toupper(*pszSource);
-                char *pszLow = strchr(szHex, up);
+                up           = static_cast<char>(toupper(*pszSource));
+                char* pszLow = strchr(szHex, up);
 
-                if (pszLow != NULL)
+                if (pszLow != nullptr)
                 {
-                    nValue = (char) (((pszHigh - szHex) << 4) +
-                        (pszLow - szHex));
+                    nValue = static_cast<char>(((pszHigh - szHex) << 4) +
+                                               (pszLow - szHex));
                 }
             }
             *pszDest++ = nValue;
@@ -106,44 +106,44 @@ void UnescapeCopy(const char * root, const char * src, char * dest, int buf_len)
             *pszDest++ = *pszSource;
 
         pszSource++;
-        if ((bRoot)&&(*pszSource == 0))
+        if ((bRoot) && (*pszSource == 0))
         {
             if (*pszDest != '/')
                 *pszDest++ = '/';
             pszSource = src;
-            bRoot = false;
+            bRoot     = false;
         }
     }
 
     *pszDest = '\0';
 }
 
-tstring Tokenize(const _TCHAR* str, const _TCHAR* delim, tstring::size_type& iStart)
+std::wstring Tokenize(const _TCHAR* str, const _TCHAR* delim, std::wstring::size_type& iStart)
 {
-    const _TCHAR* pstr = str + iStart;
-    const _TCHAR* r = wcsstr(pstr, delim);
-    tstring::size_type dlen = wcslen(delim);
+    const _TCHAR*           pStr = str + iStart;
+    const _TCHAR*           r    = wcsstr(pStr, delim);
+    std::wstring::size_type dLen = wcslen(delim);
 
-    while( r )
+    while (r)
     {
-        if( r > pstr )
+        if (r > pStr)
         {
-            iStart = tstring::size_type(r - str) + dlen;
-            return tstring(pstr, tstring::size_type(r - pstr));
+            iStart = static_cast<std::wstring::size_type>(r - str) + dLen;
+            return std::wstring(pStr, static_cast<std::wstring::size_type>(r - pStr));
         }
-        pstr = r + dlen;
-        r = wcsstr(pstr, delim);
+        pStr = r + dLen;
+        r    = wcsstr(pStr, delim);
     }
 
-    if( pstr[0] != 0)
+    if (pStr[0] != 0)
     {
-        iStart = tstring::size_type(wcslen(str));
-        return tstring(pstr);
+        iStart = static_cast<std::wstring::size_type>(wcslen(str));
+        return std::wstring(pStr);
     }
-    return tstring();
+    return std::wstring();
 }
 
-bool IsTaggedVersion(const char * url)
+bool IsTaggedVersion(const char* url)
 {
     bool isTag = false;
 
@@ -152,22 +152,22 @@ bool IsTaggedVersion(const char * url)
         return false;
     }
 
-    tstring urllower = Utf8ToWide(url);
+    std::wstring urllower = Utf8ToWide(url);
     std::transform(urllower.begin(), urllower.end(), urllower.begin(), ::towlower);
 
     // look for the tag pattern inside in the url
-    tstring sTags = regTagsPattern;
-    tstring::size_type pos = 0;
-    tstring temp;
+    std::wstring            sTags = regTagsPattern;
+    std::wstring::size_type pos   = 0;
+    std::wstring            temp;
     while (!isTag)
     {
         temp = Tokenize(sTags.c_str(), L";", pos);
         if (!temp.length())
             break;
 
-        tstring::size_type urlpos = 0;
-        tstring temp2;
-        for(;;)
+        std::wstring::size_type urlpos = 0;
+        std::wstring            temp2;
+        for (;;)
         {
             temp2 = Tokenize(urllower.c_str(), L"/", urlpos);
             if (!temp2.length())
@@ -183,94 +183,94 @@ bool IsTaggedVersion(const char * url)
     return isTag;
 }
 
-svn_error_t * getfirststatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool)
+svn_error_t* getfirststatus(void* baton, const char* path, const svn_client_status_t* status, apr_pool_t* pool)
 {
-    SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
-    if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
+    SubWCRevStatusBatonT* sb = static_cast<SubWCRevStatusBatonT*>(baton);
+    if ((nullptr == status) || (nullptr == sb) || (nullptr == sb->subStat))
     {
-        return SVN_NO_ERROR;
+        return nullptr;
     }
-    if ((status->repos_relpath)&&(sb->SubStat->Url[0] == 0))
+    if ((status->repos_relpath) && (sb->subStat->url[0] == 0))
     {
-        UnescapeCopy(status->repos_root_url, status->repos_relpath, sb->SubStat->Url, URL_BUF);
-        sb->SubStat->bIsTagged = IsTaggedVersion(sb->SubStat->Url);
+        UnescapeCopy(status->repos_root_url, status->repos_relpath, sb->subStat->url, URL_BUF);
+        sb->subStat->bIsTagged = IsTaggedVersion(sb->subStat->url);
     }
     if (status->kind == svn_node_file)
     {
-        const svn_string_t * value = NULL;
-        svn_error_t * e = svn_wc_prop_get2(&value, sb->wc_ctx, path, "svn:needs-lock", pool, pool);
+        const svn_string_t* value = nullptr;
+        svn_error_t*        e     = svn_wc_prop_get2(&value, sb->wcCtx, path, "svn:needs-lock", pool, pool);
         if (e == nullptr)
-            sb->SubStat->LockData.NeedsLocks = (value != 0);
+            sb->subStat->lockData.needsLocks = (value != nullptr);
         else
         {
-            sb->SubStat->LockData.NeedsLocks = false;
+            sb->subStat->lockData.needsLocks = false;
             svn_error_clear(e);
         }
     }
 
-    return SVN_NO_ERROR;
+    return nullptr;
 }
 
-svn_error_t * getallstatus(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * pool)
+svn_error_t* getallstatus(void* baton, const char* path, const svn_client_status_t* status, apr_pool_t* pool)
 {
-    SubWCRev_StatusBaton_t * sb = (SubWCRev_StatusBaton_t *) baton;
-    if((NULL == status) || (NULL == sb) || (NULL == sb->SubStat))
+    SubWCRevStatusBatonT* sb = static_cast<SubWCRevStatusBatonT*>(baton);
+    if ((nullptr == status) || (nullptr == sb) || (nullptr == sb->subStat))
     {
-        return SVN_NO_ERROR;
+        return nullptr;
     }
 
-    if (status->repos_relpath && !sb->SubStat->ignorepatterns.empty())
+    if (status->repos_relpath && !sb->subStat->ignorePatterns.empty())
     {
-        for (const auto& pattern : sb->SubStat->ignorepatterns)
+        for (const auto& pattern : sb->subStat->ignorePatterns)
         {
             if (strwildcmp(std::get<0>(pattern).c_str(), status->repos_relpath))
-                return SVN_NO_ERROR;
+                return nullptr;
         }
     }
-    if (status->local_abspath && !sb->SubStat->ignorepatterns.empty())
+    if (status->local_abspath && !sb->subStat->ignorePatterns.empty())
     {
-        auto la_len = strlen(status->local_abspath);
-        for (const auto& pattern : sb->SubStat->ignorepatterns)
+        auto laLen = strlen(status->local_abspath);
+        for (const auto& pattern : sb->subStat->ignorePatterns)
         {
             auto offset = std::get<1>(pattern);
-            if (la_len <= offset)
+            if (laLen <= offset)
                 continue;
-            const char * relativepath = &status->local_abspath[offset];
+            const char* relativepath = &status->local_abspath[offset];
             if (*relativepath == '/')
                 ++relativepath;
             if (strwildcmp(std::get<0>(pattern).c_str(), relativepath))
-                return SVN_NO_ERROR;
+                return nullptr;
         }
     }
 
     if (status->kind == svn_node_dir)
     {
-        const svn_string_t * value = NULL;
-        svn_wc_prop_get2(&value, sb->wc_ctx, path, "svn:externals", pool, pool);
+        const svn_string_t* value = nullptr;
+        svn_wc_prop_get2(&value, sb->wcCtx, path, "svn:externals", pool, pool);
         if (value)
         {
-            apr_array_header_t* parsedExternals = NULL;
-            svn_error_t * err = svn_wc_parse_externals_description3( &parsedExternals, path, value->data, TRUE, pool);
+            apr_array_header_t* parsedExternals = nullptr;
+            svn_error_t*        err             = svn_wc_parse_externals_description3(&parsedExternals, path, value->data, TRUE, pool);
 
             if (err == nullptr)
             {
-                for (long i=0; i < parsedExternals->nelts; ++i)
+                for (long i = 0; i < parsedExternals->nelts; ++i)
                 {
-                    svn_wc_external_item2_t * e = APR_ARRAY_IDX(parsedExternals, i, svn_wc_external_item2_t*);
+                    svn_wc_external_item2_t* e = APR_ARRAY_IDX(parsedExternals, i, svn_wc_external_item2_t*);
 
-                    if (e != NULL)
+                    if (e != nullptr)
                     {
                         if (e->revision.kind != svn_opt_revision_number)
                         {
-                            sb->SubStat->bIsExternalsNotFixed = TRUE;
+                            sb->subStat->bIsExternalsNotFixed = TRUE;
                         }
 
-                        if (((sb->SubStat->bExternals) || (sb->SubStat->bExternalsNoMixedRevision)) && (NULL != sb->extarray))
+                        if (((sb->subStat->bExternals) || (sb->subStat->bExternalsNoMixedRevision)) && (nullptr != sb->extArray))
                         {
-                            SubWcExtData_t extdata;
-                            extdata.Path = apr_pstrcat(sb->pool, path, "/", e->target_dir, NULL);
-                            extdata.Revision = e->revision;
-                            sb->extarray->push_back(extdata);
+                            SubWcExtDataT extData;
+                            extData.path     = apr_pstrcat(sb->pool, path, "/", e->target_dir, NULL);
+                            extData.revision = e->revision;
+                            sb->extArray->push_back(extData);
                         }
                     }
                 }
@@ -280,113 +280,113 @@ svn_error_t * getallstatus(void * baton, const char * path, const svn_client_sta
 
     if (status->repos_root_url)
     {
-        if (sb->SubStat->RootUrl[0] == 0)
+        if (sb->subStat->rootUrl[0] == 0)
         {
-            strncpy_s(sb->SubStat->RootUrl, URL_BUF, status->repos_root_url, URL_BUF);
+            strncpy_s(sb->subStat->rootUrl, URL_BUF, status->repos_root_url, URL_BUF);
         }
-        if (strncmp(sb->SubStat->RootUrl, status->repos_root_url, URL_BUF) != 0)
-            return SVN_NO_ERROR;
+        if (strncmp(sb->subStat->rootUrl, status->repos_root_url, URL_BUF) != 0)
+            return nullptr;
     }
     if (status->changed_author)
     {
-        if ((sb->SubStat->Author[0] == 0)&&(status->repos_relpath)&&(status->repos_root_url))
+        if ((sb->subStat->author[0] == 0) && (status->repos_relpath) && (status->repos_root_url))
         {
-            char EntryUrl[URL_BUF] = { 0 };
-            UnescapeCopy(status->repos_root_url, status->repos_relpath,EntryUrl, URL_BUF);
-            if (strncmp(sb->SubStat->Url, EntryUrl, URL_BUF) == 0)
+            char entryUrl[URL_BUF] = {0};
+            UnescapeCopy(status->repos_root_url, status->repos_relpath, entryUrl, URL_BUF);
+            if (strncmp(sb->subStat->url, entryUrl, URL_BUF) == 0)
             {
-                strncpy_s(sb->SubStat->Author, URL_BUF, status->changed_author, URL_BUF);
+                strncpy_s(sb->subStat->author, URL_BUF, status->changed_author, URL_BUF);
             }
         }
     }
-    if ((status->kind == svn_node_file)||(sb->SubStat->bFolders))
+    if ((status->kind == svn_node_file) || (sb->subStat->bFolders))
     {
-        if (sb->SubStat->CmtRev < status->changed_rev)
+        if (sb->subStat->cmtRev < status->changed_rev)
         {
-            sb->SubStat->CmtRev = status->changed_rev;
-            sb->SubStat->CmtDate = status->changed_date;
+            sb->subStat->cmtRev  = status->changed_rev;
+            sb->subStat->cmtDate = status->changed_date;
         }
     }
-    if (sb->SubStat->MaxRev < status->revision)
+    if (sb->subStat->maxRev < status->revision)
     {
-        sb->SubStat->MaxRev = status->revision;
+        sb->subStat->maxRev = status->revision;
     }
-    if ((status->revision > 0)&&(sb->SubStat->MinRev > status->revision || sb->SubStat->MinRev == 0))
+    if ((status->revision > 0) && (sb->subStat->minRev > status->revision || sb->subStat->minRev == 0))
     {
-        sb->SubStat->MinRev = status->revision;
+        sb->subStat->minRev = status->revision;
     }
 
-    sb->SubStat->bIsSvnItem = false;
+    sb->subStat->bIsSvnItem = false;
     switch (status->node_status)
     {
-    case svn_wc_status_none:
-    case svn_wc_status_unversioned:
-        sb->SubStat->HasUnversioned = TRUE;
-        break;
-    case svn_wc_status_ignored:
-        break;
-    case svn_wc_status_external:
-    case svn_wc_status_incomplete:
-    case svn_wc_status_normal:
-        sb->SubStat->bIsSvnItem = true;
-        break;
-    default:
-        sb->SubStat->bIsSvnItem = true;
-        sb->SubStat->HasMods = TRUE;
-        break;
+        case svn_wc_status_none:
+        case svn_wc_status_unversioned:
+            sb->subStat->hasUnversioned = TRUE;
+            break;
+        case svn_wc_status_ignored:
+            break;
+        case svn_wc_status_external:
+        case svn_wc_status_incomplete:
+        case svn_wc_status_normal:
+            sb->subStat->bIsSvnItem = true;
+            break;
+        default:
+            sb->subStat->bIsSvnItem = true;
+            sb->subStat->hasMods    = TRUE;
+            break;
     }
 
     switch (status->prop_status)
     {
-    case svn_wc_status_none:
-    case svn_wc_status_unversioned:
-    case svn_wc_status_ignored:
-        break;
-    case svn_wc_status_external:
-    case svn_wc_status_incomplete:
-    case svn_wc_status_normal:
-        sb->SubStat->bIsSvnItem = true;
-        break;
-    default:
-        sb->SubStat->bIsSvnItem = true;
-        sb->SubStat->HasMods = TRUE;
-        break;
+        case svn_wc_status_none:
+        case svn_wc_status_unversioned:
+        case svn_wc_status_ignored:
+            break;
+        case svn_wc_status_external:
+        case svn_wc_status_incomplete:
+        case svn_wc_status_normal:
+            sb->subStat->bIsSvnItem = true;
+            break;
+        default:
+            sb->subStat->bIsSvnItem = true;
+            sb->subStat->hasMods    = TRUE;
+            break;
     }
 
     // Assign the values for the lock information
-    sb->SubStat->LockData.IsLocked = false;
-    strcpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, "");
-    strcpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, "");
-    sb->SubStat->LockData.CreationDate = 0;
+    sb->subStat->lockData.isLocked = false;
+    strcpy_s(sb->subStat->lockData.owner, OWNER_BUF, "");
+    strcpy_s(sb->subStat->lockData.comment, COMMENT_BUF, "");
+    sb->subStat->lockData.creationDate = 0;
 
-    if ((status->lock)&&(status->lock->token))
+    if ((status->lock) && (status->lock->token))
     {
-        if((status->lock->token[0] != 0))
+        if ((status->lock->token[0] != 0))
         {
-            sb->SubStat->LockData.IsLocked = true;
-            if(NULL != status->lock->owner)
-                strncpy_s(sb->SubStat->LockData.Owner, OWNER_BUF, status->lock->owner, OWNER_BUF);
-            if(NULL != status->lock->comment)
-                strncpy_s(sb->SubStat->LockData.Comment, COMMENT_BUF, status->lock->comment, COMMENT_BUF);
-            sb->SubStat->LockData.CreationDate = status->lock->creation_date;
+            sb->subStat->lockData.isLocked = true;
+            if (nullptr != status->lock->owner)
+                strncpy_s(sb->subStat->lockData.owner, OWNER_BUF, status->lock->owner, OWNER_BUF);
+            if (nullptr != status->lock->comment)
+                strncpy_s(sb->subStat->lockData.comment, COMMENT_BUF, status->lock->comment, COMMENT_BUF);
+            sb->subStat->lockData.creationDate = status->lock->creation_date;
         }
     }
-    return SVN_NO_ERROR;
+    return nullptr;
 }
 
-svn_error_t *
-svn_status (    const char *path,
-                void *status_baton,
-                svn_boolean_t no_ignore,
-                svn_client_ctx_t *ctx,
-                apr_pool_t *pool)
+svn_error_t*
+    svnStatus(const char*       path,
+              void*             statusBaton,
+              svn_boolean_t     noIgnore,
+              svn_client_ctx_t* ctx,
+              apr_pool_t*       pool)
 {
-    SubWCRev_StatusBaton_t sb;
-    auto extarray = std::make_unique<std::vector<SubWcExtData_t>>();
-    sb.SubStat = (SubWCRev_t *)status_baton;
-    sb.extarray = extarray.get();
-    sb.pool = pool;
-    sb.wc_ctx = ctx->wc_ctx;
+    SubWCRevStatusBatonT sb{};
+    auto                 extArray = std::make_unique<std::vector<SubWcExtDataT>>();
+    sb.subStat                    = static_cast<SubWCRevT*>(statusBaton);
+    sb.extArray                   = extArray.get();
+    sb.pool                       = pool;
+    sb.wcCtx                      = ctx->wc_ctx;
 
     svn_opt_revision_t wcrev;
     wcrev.kind = svn_opt_revision_working;
@@ -394,49 +394,48 @@ svn_status (    const char *path,
     SVN_ERR(svn_client_status6(NULL, ctx, path, &wcrev, svn_depth_empty, true, false, true, true, true, true, NULL, getfirststatus, &sb, pool));
     SVN_ERR(svn_client_status6(NULL, ctx, path, &wcrev, svn_depth_infinity, true, false, true, true, true, true, NULL, getallstatus, &sb, pool));
 
-
     // now crawl through all externals
-    for (std::vector<SubWcExtData_t>::iterator I = extarray->begin(); I != extarray->end(); ++I)
+    for (std::vector<SubWcExtDataT>::iterator I = extArray->begin(); I != extArray->end(); ++I)
     {
-        SubWcExtData_t extdata = *I;
-        if (strcmp(path, extdata.Path))
+        SubWcExtDataT extData = *I;
+        if (strcmp(path, extData.path))
         {
             svn_revnum_t minRev = -1;
             svn_revnum_t maxRev = -1;
-            if (sb.SubStat->bExternalsNoMixedRevision && (extdata.Revision.kind == svn_opt_revision_number))
+            if (sb.subStat->bExternalsNoMixedRevision && (extData.revision.kind == svn_opt_revision_number))
             {
-                minRev = sb.SubStat->MinRev;
-                maxRev = sb.SubStat->MaxRev;
-                sb.SubStat->MinRev = 0;
-                sb.SubStat->MaxRev = 0;
+                minRev             = sb.subStat->minRev;
+                maxRev             = sb.subStat->maxRev;
+                sb.subStat->minRev = 0;
+                sb.subStat->maxRev = 0;
             }
 
-            svn_status (extdata.Path, sb.SubStat, no_ignore, ctx, pool);
+            svnStatus(extData.path, sb.subStat, noIgnore, ctx, pool);
 
-            if (sb.SubStat->bExternalsNoMixedRevision && (extdata.Revision.kind == svn_opt_revision_number))
+            if (sb.subStat->bExternalsNoMixedRevision && (extData.revision.kind == svn_opt_revision_number))
             {
                 // Check if the used revsions are only same as the external explicit revision
-                if ((extdata.Revision.value.number == sb.SubStat->MaxRev) && (extdata.Revision.value.number == sb.SubStat->MinRev))
+                if ((extData.revision.value.number == sb.subStat->maxRev) && (extData.revision.value.number == sb.subStat->minRev))
                 {
-                    sb.SubStat->MaxRev = maxRev;
-                    sb.SubStat->MinRev = minRev;
+                    sb.subStat->maxRev = maxRev;
+                    sb.subStat->minRev = minRev;
                 }
                 else
                 {
-                    if (sb.SubStat->MaxRev < maxRev)
+                    if (sb.subStat->maxRev < maxRev)
                     {
-                        sb.SubStat->MaxRev = maxRev;
+                        sb.subStat->maxRev = maxRev;
                     }
-                    if ((minRev > 0)&&(sb.SubStat->MinRev > minRev || sb.SubStat->MinRev == 0))
+                    if ((minRev > 0) && (sb.subStat->minRev > minRev || sb.subStat->minRev == 0))
                     {
-                        sb.SubStat->MinRev = minRev;
+                        sb.subStat->minRev = minRev;
                     }
                     // Set an extra variable, because when a fixed external has been manually updated to head, no error occurs.
-                    sb.SubStat->bIsExternalMixed = TRUE;
+                    sb.subStat->bIsExternalMixed = TRUE;
                 }
             }
         }
     }
 
-    return SVN_NO_ERROR;
+    return nullptr;
 }

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018 - TortoiseSVN
+// Copyright (C) 2003-2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,10 +21,8 @@
 #include "../Utils/PathUtils.h"
 
 #include <iostream>
-#include <tchar.h>
 #include <windows.h>
 #include <shlwapi.h>
-#include <shellapi.h>
 #include <io.h>
 #include <fcntl.h>
 #include <memory>
@@ -39,7 +37,6 @@
 #include "../version.h"
 #include "svn_dso.h"
 #pragma warning(pop)
-
 
 // Define the help text as a multi-line macro
 // Every line except the last must be terminated with a backslash
@@ -125,71 +122,70 @@ $WCNEEDSLOCK$   True if the svn:needs-lock property is set\n\
 $WCISLOCKED$    True if the item is locked\n"
 // End of multi-line help text.
 
-#define VERDEF           "$WCREV$"
-#define VERDEFAND        "$WCREV&"
-#define VERDEFOFFSET1    "$WCREV-"
-#define VERDEFOFFSET2    "$WCREV+"
-#define DATEDEF          "$WCDATE$"
-#define DATEDEFUTC       "$WCDATEUTC$"
-#define DATEWFMTDEF      "$WCDATE="
-#define DATEWFMTDEFUTC   "$WCDATEUTC="
-#define MODDEF           "$WCMODS?"
-#define RANGEDEF         "$WCRANGE$"
-#define MIXEDDEF         "$WCMIXED?"
-#define EXTALLFIXED      "$WCEXTALLFIXED?"
-#define ISTAGGED         "$WCISTAGGED?"
-#define URLDEF           "$WCURL$"
-#define NOWDEF           "$WCNOW$"
-#define NOWDEFUTC        "$WCNOWUTC$"
-#define NOWWFMTDEF       "$WCNOW="
-#define NOWWFMTDEFUTC    "$WCNOWUTC="
-#define ISINSVN          "$WCINSVN?"
-#define NEEDSLOCK        "$WCNEEDSLOCK?"
-#define ISLOCKED         "$WCISLOCKED?"
-#define LOCKDATE         "$WCLOCKDATE$"
-#define LOCKDATEUTC      "$WCLOCKDATEUTC$"
-#define LOCKWFMTDEF      "$WCLOCKDATE="
-#define LOCKWFMTDEFUTC   "$WCLOCKDATEUTC="
-#define LOCKOWNER        "$WCLOCKOWNER$"
-#define LOCKCOMMENT      "$WCLOCKCOMMENT$"
-#define UNVERDEF         "$WCUNVER?"
+#define VERDEF         "$WCREV$"
+#define VERDEFAND      "$WCREV&"
+#define VERDEFOFFSET1  "$WCREV-"
+#define VERDEFOFFSET2  "$WCREV+"
+#define DATEDEF        "$WCDATE$"
+#define DATEDEFUTC     "$WCDATEUTC$"
+#define DATEWFMTDEF    "$WCDATE="
+#define DATEWFMTDEFUTC "$WCDATEUTC="
+#define MODDEF         "$WCMODS?"
+#define RANGEDEF       "$WCRANGE$"
+#define MIXEDDEF       "$WCMIXED?"
+#define EXTALLFIXED    "$WCEXTALLFIXED?"
+#define ISTAGGED       "$WCISTAGGED?"
+#define URLDEF         "$WCURL$"
+#define NOWDEF         "$WCNOW$"
+#define NOWDEFUTC      "$WCNOWUTC$"
+#define NOWWFMTDEF     "$WCNOW="
+#define NOWWFMTDEFUTC  "$WCNOWUTC="
+#define ISINSVN        "$WCINSVN?"
+#define NEEDSLOCK      "$WCNEEDSLOCK?"
+#define ISLOCKED       "$WCISLOCKED?"
+#define LOCKDATE       "$WCLOCKDATE$"
+#define LOCKDATEUTC    "$WCLOCKDATEUTC$"
+#define LOCKWFMTDEF    "$WCLOCKDATE="
+#define LOCKWFMTDEFUTC "$WCLOCKDATEUTC="
+#define LOCKOWNER      "$WCLOCKOWNER$"
+#define LOCKCOMMENT    "$WCLOCKCOMMENT$"
+#define UNVERDEF       "$WCUNVER?"
 
 // Internal error codes
 // Note: these error codes are documented in /doc/source/en/TortoiseSVN/tsvn_subwcrev.xml
-#define ERR_SYNTAX      1   // Syntax error
-#define ERR_FNF         2   // File/folder not found
-#define ERR_OPEN        3   // File open error
-#define ERR_ALLOC       4   // Memory allocation error
-#define ERR_READ        5   // File read/write/size error
-#define ERR_SVN_ERR     6   // SVN error
+#define ERR_SYNTAX  1 // Syntax error
+#define ERR_FNF     2 // File/folder not found
+#define ERR_OPEN    3 // File open error
+#define ERR_ALLOC   4 // Memory allocation error
+#define ERR_READ    5 // File read/write/size error
+#define ERR_SVN_ERR 6 // SVN error
 // Documented error codes
-#define ERR_SVN_MODS    7   // Local mods found (-n)
-#define ERR_SVN_MIXED   8   // Mixed rev WC found (-m)
-#define ERR_OUT_EXISTS  9   // Output file already exists (-d)
-#define ERR_NOWC       10   // the path is not a working copy or part of one
-#define ERR_SVN_UNVER  11   // Unversioned items found (-N)
+#define ERR_SVN_MODS   7  // Local mods found (-n)
+#define ERR_SVN_MIXED  8  // Mixed rev WC found (-m)
+#define ERR_OUT_EXISTS 9  // Output file already exists (-d)
+#define ERR_NOWC       10 // the path is not a working copy or part of one
+#define ERR_SVN_UNVER  11 // Unversioned items found (-N)
 
 // Value for apr_time_t to signify "now"
-#define USE_TIME_NOW    -2  // 0 and -1 might already be significant.
+#define USE_TIME_NOW -2 // 0 and -1 might already be significant.
 
-
-bool FindPlaceholder(char *def, char *pBuf, size_t & index, size_t filelength)
+bool FindPlaceholder(char *def, char *pBuf, size_t &index, size_t filelength)
 {
-    size_t deflen = strlen(def);
-    while (index + deflen <= filelength)
+    size_t defLen = strlen(def);
+    while (index + defLen <= filelength)
     {
-        if (memcmp(pBuf + index, def, deflen) == 0)
+        if (memcmp(pBuf + index, def, defLen) == 0)
             return true;
         index++;
     }
     return false;
 }
-bool FindPlaceholderW(wchar_t *def, wchar_t *pBuf, size_t & index, size_t filelength)
+bool FindPlaceholderW(wchar_t *def, wchar_t *pBuf, size_t &index, size_t filelength)
 {
-    size_t deflen = wcslen(def);
-    while ((index + deflen)*sizeof(wchar_t) <= filelength)
+    size_t defLen = wcslen(def);
+    while ((index + defLen) * sizeof(wchar_t) <= filelength)
     {
-        if (memcmp(pBuf + index, def, deflen*sizeof(wchar_t)) == 0)
+        if (memcmp(pBuf + index, def, defLen * sizeof(wchar_t)) == 0)
             return true;
         index++;
     }
@@ -197,451 +193,457 @@ bool FindPlaceholderW(wchar_t *def, wchar_t *pBuf, size_t & index, size_t filele
     return false;
 }
 
-bool InsertRevision(char * def, char * pBuf, size_t & index,
-                    size_t & filelength, size_t maxlength,
-                    long MinRev, long MaxRev, SubWCRev_t * SubStat)
+bool InsertRevision(char *def, char *pBuf, size_t &index,
+                    size_t &fileLength, size_t maxLength,
+                    long minRev, long maxRev, SubWCRevT *subStat)
 {
     // Search for first occurrence of def in the buffer, starting at index.
-    if (!FindPlaceholder(def, pBuf, index, filelength))
+    if (!FindPlaceholder(def, pBuf, index, fileLength))
     {
         // No more matches found.
         return false;
     }
     ptrdiff_t exp = 0;
-    if ((strcmp(def,VERDEFAND) == 0) || (strcmp(def,VERDEFOFFSET1) == 0) || (strcmp(def,VERDEFOFFSET2) == 0))
+    if ((strcmp(def, VERDEFAND) == 0) || (strcmp(def, VERDEFOFFSET1) == 0) || (strcmp(def, VERDEFOFFSET2) == 0))
     {
-        char format[1024] = { 0 };
-        char * pStart = pBuf + index + strlen(def);
-        char * pEnd = pStart;
+        char  format[1024] = {0};
+        char *pStart       = pBuf + index + strlen(def);
+        char *pEnd         = pStart;
 
         while (*pEnd != '$')
         {
             pEnd++;
-            if (pEnd - pBuf >= (__int64)filelength)
-                return false;   // No terminator - malformed so give up.
+            if (pEnd - pBuf >= static_cast<long long>(fileLength))
+                return false; // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
         {
             return false; // value specifier too big
         }
         exp = pEnd - pStart + 1;
-        memcpy(format,pStart,pEnd - pStart);
-        unsigned long number = strtoul(format, NULL, 0);
-        if (strcmp(def,VERDEFAND) == 0)
+        memcpy(format, pStart, pEnd - pStart);
+        unsigned long number = strtoul(format, nullptr, 0);
+        if (strcmp(def, VERDEFAND) == 0)
         {
-            if (MinRev != -1)
-                MinRev &= number;
-            MaxRev &= number;
+            if (minRev != -1)
+                minRev &= number;
+            maxRev &= number;
         }
-        if (strcmp(def,VERDEFOFFSET1) == 0)
+        if (strcmp(def, VERDEFOFFSET1) == 0)
         {
-            if (MinRev != -1)
-                MinRev -= number;
-            MaxRev -= number;
+            if (minRev != -1)
+                minRev -= number;
+            maxRev -= number;
         }
-        if (strcmp(def,VERDEFOFFSET2) == 0)
+        if (strcmp(def, VERDEFOFFSET2) == 0)
         {
-            if (MinRev != -1)
-                MinRev += number;
-            MaxRev += number;
+            if (minRev != -1)
+                minRev += number;
+            maxRev += number;
         }
     }
     // Format the text to insert at the placeholder
-    char destbuf[40] = { 0 };
-    if (MinRev == -1 || MinRev == MaxRev)
+    char destBuf[40] = {0};
+    if (minRev == -1 || minRev == maxRev)
     {
-        if ((SubStat)&&(SubStat->bHexPlain))
-            sprintf_s(destbuf, "%lX", MaxRev);
-        else if ((SubStat)&&(SubStat->bHexX))
-            sprintf_s(destbuf, "%#lX", MaxRev);
+        if ((subStat) && (subStat->bHexPlain))
+            sprintf_s(destBuf, "%lX", maxRev);
+        else if ((subStat) && (subStat->bHexX))
+            sprintf_s(destBuf, "%#lX", maxRev);
         else
-            sprintf_s(destbuf, "%ld", MaxRev);
+            sprintf_s(destBuf, "%ld", maxRev);
     }
     else
     {
-        if ((SubStat)&&(SubStat->bHexPlain))
-            sprintf_s(destbuf, "%lX:%lX", MinRev, MaxRev);
-        else if ((SubStat)&&(SubStat->bHexX))
-            sprintf_s(destbuf, "%#lX:%#lX", MinRev, MaxRev);
+        if ((subStat) && (subStat->bHexPlain))
+            sprintf_s(destBuf, "%lX:%lX", minRev, maxRev);
+        else if ((subStat) && (subStat->bHexX))
+            sprintf_s(destBuf, "%#lX:%#lX", minRev, maxRev);
         else
-            sprintf_s(destbuf, "%ld:%ld", MinRev, MaxRev);
+            sprintf_s(destBuf, "%ld:%ld", minRev, maxRev);
     }
     // Replace the $WCxxx$ string with the actual revision number
-    char * pBuild = pBuf + index;
-    ptrdiff_t Expansion = strlen(destbuf) - exp - strlen(def);
-    if (Expansion < 0)
+    char *    pBuild    = pBuf + index;
+    ptrdiff_t expansion = strlen(destBuf) - exp - strlen(def);
+    if (expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
+        memmove(pBuild, pBuild - expansion, fileLength - ((pBuild - expansion) - pBuf));
     }
-    else if (Expansion > 0)
+    else if (expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return false;
-        memmove(pBuild + Expansion, pBuild, filelength - (pBuild - pBuf));
+        if (maxLength < expansion + fileLength)
+            return false;
+        memmove(pBuild + expansion, pBuild, fileLength - (pBuild - pBuf));
     }
-    memmove(pBuild, destbuf, strlen(destbuf));
-    filelength += Expansion;
+    memmove(pBuild, destBuf, strlen(destBuf));
+    fileLength += expansion;
     return true;
 }
-bool InsertRevisionW(wchar_t * def, wchar_t * pBuf, size_t & index,
-    size_t & filelength, size_t maxlength,
-    long MinRev, long MaxRev, SubWCRev_t * SubStat)
+bool InsertRevisionW(wchar_t *def, wchar_t *pBuf, size_t &index,
+                     size_t &fileLength, size_t maxLength,
+                     long minRev, long maxRev, SubWCRevT *subStat)
 {
     // Search for first occurrence of def in the buffer, starting at index.
-    if (!FindPlaceholderW(def, pBuf, index, filelength))
+    if (!FindPlaceholderW(def, pBuf, index, fileLength))
     {
         // No more matches found.
         return false;
     }
 
     ptrdiff_t exp = 0;
-    if ((wcscmp(def,TEXT(VERDEFAND)) == 0) || (wcscmp(def,TEXT(VERDEFOFFSET1)) == 0) || (wcscmp(def,TEXT(VERDEFOFFSET2)) == 0))
+    if ((wcscmp(def, TEXT(VERDEFAND)) == 0) || (wcscmp(def, TEXT(VERDEFOFFSET1)) == 0) || (wcscmp(def, TEXT(VERDEFOFFSET2)) == 0))
     {
-        wchar_t format[1024] = { 0 };
-        wchar_t * pStart = pBuf + index + wcslen(def);
-        wchar_t * pEnd = pStart;
+        wchar_t  format[1024] = {0};
+        wchar_t *pStart       = pBuf + index + wcslen(def);
+        wchar_t *pEnd         = pStart;
 
         while (*pEnd != '$')
         {
             pEnd++;
-            if (((__int64)(pEnd - pBuf))*((__int64)sizeof(wchar_t)) >= (__int64)filelength)
-                return false;   // No terminator - malformed so give up.
+            if (static_cast<long long>(pEnd - pBuf) * static_cast<long long>(sizeof(wchar_t)) >= static_cast<long long>(fileLength))
+                return false; // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
         {
             return false; // Format specifier too big
         }
         exp = pEnd - pStart + 1;
-        memcpy(format,pStart,(pEnd - pStart)*sizeof(wchar_t));
-        unsigned long number = wcstoul(format, NULL, 0);
-        if (wcscmp(def,TEXT(VERDEFAND)) == 0)
+        memcpy(format, pStart, (pEnd - pStart) * sizeof(wchar_t));
+        unsigned long number = wcstoul(format, nullptr, 0);
+        if (wcscmp(def, TEXT(VERDEFAND)) == 0)
         {
-            if (MinRev != -1)
-                MinRev &= number;
-            MaxRev &= number;
+            if (minRev != -1)
+                minRev &= number;
+            maxRev &= number;
         }
-        if (wcscmp(def,TEXT(VERDEFOFFSET1)) == 0)
+        if (wcscmp(def, TEXT(VERDEFOFFSET1)) == 0)
         {
-            if (MinRev != -1)
-                MinRev -= number;
-            MaxRev -= number;
+            if (minRev != -1)
+                minRev -= number;
+            maxRev -= number;
         }
-        if (wcscmp(def,TEXT(VERDEFOFFSET2)) == 0)
+        if (wcscmp(def, TEXT(VERDEFOFFSET2)) == 0)
         {
-            if (MinRev != -1)
-                MinRev += number;
-            MaxRev += number;
+            if (minRev != -1)
+                minRev += number;
+            maxRev += number;
         }
     }
 
     // Format the text to insert at the placeholder
-    wchar_t destbuf[40];
-    if (MinRev == -1 || MinRev == MaxRev)
+    wchar_t destBuf[40];
+    if (minRev == -1 || minRev == maxRev)
     {
-        if ((SubStat)&&(SubStat->bHexPlain))
-            swprintf_s(destbuf, L"%lX", MaxRev);
-        else if ((SubStat)&&(SubStat->bHexX))
-            swprintf_s(destbuf, L"%#lX", MaxRev);
+        if ((subStat) && (subStat->bHexPlain))
+            swprintf_s(destBuf, L"%lX", maxRev);
+        else if ((subStat) && (subStat->bHexX))
+            swprintf_s(destBuf, L"%#lX", maxRev);
         else
-            swprintf_s(destbuf, L"%ld", MaxRev);
+            swprintf_s(destBuf, L"%ld", maxRev);
     }
     else
     {
-        if ((SubStat)&&(SubStat->bHexPlain))
-            swprintf_s(destbuf, L"%lX:%lX", MinRev, MaxRev);
-        else if ((SubStat)&&(SubStat->bHexX))
-            swprintf_s(destbuf, L"%#lX:%#lX", MinRev, MaxRev);
+        if ((subStat) && (subStat->bHexPlain))
+            swprintf_s(destBuf, L"%lX:%lX", minRev, maxRev);
+        else if ((subStat) && (subStat->bHexX))
+            swprintf_s(destBuf, L"%#lX:%#lX", minRev, maxRev);
         else
-            swprintf_s(destbuf, L"%ld:%ld", MinRev, MaxRev);
+            swprintf_s(destBuf, L"%ld:%ld", minRev, maxRev);
     }
     // Replace the $WCxxx$ string with the actual revision number
-    wchar_t * pBuild = pBuf + index;
-    ptrdiff_t Expansion = wcslen(destbuf) - exp - wcslen(def);
-    if (Expansion < 0)
+    wchar_t * pBuild    = pBuf + index;
+    ptrdiff_t expansion = wcslen(destBuf) - exp - wcslen(def);
+    if (expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf) * sizeof(wchar_t)));
+        memmove(pBuild, pBuild - expansion, (fileLength - ((pBuild - expansion) - pBuf) * sizeof(wchar_t)));
     }
-    else if (Expansion > 0)
+    else if (expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion * sizeof(wchar_t) + filelength) return false;
-        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf) * sizeof(wchar_t)));
+        if (maxLength < expansion * sizeof(wchar_t) + fileLength)
+            return false;
+        memmove(pBuild + expansion, pBuild, (fileLength - (pBuild - pBuf) * sizeof(wchar_t)));
     }
-    memmove(pBuild, destbuf, wcslen(destbuf)*sizeof(wchar_t));
-    filelength += (Expansion*sizeof(wchar_t));
+    memmove(pBuild, destBuf, wcslen(destBuf) * sizeof(wchar_t));
+    fileLength += (expansion * sizeof(wchar_t));
     return true;
 }
 
-void _invalid_parameter_donothing(
+void invalidParameterDonothing(
     const wchar_t * /*expression*/,
     const wchar_t * /*function*/,
     const wchar_t * /*file*/,
     unsigned int /*line*/,
     uintptr_t /*pReserved*/
-    )
+)
 {
     // do nothing
 }
 
-bool InsertDate(char * def, char * pBuf, size_t & index,
-                size_t & filelength, size_t maxlength,
-                apr_time_t date_svn)
+bool InsertDate(char *def, char *pBuf, size_t &index,
+                size_t &fileLength, size_t maxLength,
+                apr_time_t dateSVN)
 {
     // Search for first occurrence of def in the buffer, starting at index.
-    if (!FindPlaceholder(def, pBuf, index, filelength))
+    if (!FindPlaceholder(def, pBuf, index, fileLength))
     {
         // No more matches found.
         return false;
     }
     // Format the text to insert at the placeholder
-    __time64_t ttime;
-    if (date_svn == USE_TIME_NOW)
-        _time64(&ttime);
+    __time64_t tTime;
+    if (dateSVN == USE_TIME_NOW)
+        _time64(&tTime);
     else
-        ttime = date_svn/1000000L;
+        tTime = dateSVN / 1000000L;
 
-    struct tm newtime;
+    struct tm newTime;
     if (strstr(def, "UTC"))
     {
-        if (_gmtime64_s(&newtime, &ttime))
+        if (_gmtime64_s(&newTime, &tTime))
             return false;
     }
     else
     {
-        if (_localtime64_s(&newtime, &ttime))
+        if (_localtime64_s(&newTime, &tTime))
             return false;
     }
-    char destbuf[1024] = { 0 };
-    char * pBuild = pBuf + index;
-    ptrdiff_t Expansion;
-    if ((strcmp(def,DATEWFMTDEF) == 0) || (strcmp(def,NOWWFMTDEF) == 0) || (strcmp(def,LOCKWFMTDEF) == 0) ||
-        (strcmp(def,DATEWFMTDEFUTC) == 0) || (strcmp(def,NOWWFMTDEFUTC) == 0) || (strcmp(def,LOCKWFMTDEFUTC) == 0))
+    char      destBuf[1024] = {0};
+    char *    pBuild        = pBuf + index;
+    ptrdiff_t expansion     = 0;
+    if ((strcmp(def, DATEWFMTDEF) == 0) || (strcmp(def, NOWWFMTDEF) == 0) || (strcmp(def, LOCKWFMTDEF) == 0) ||
+        (strcmp(def, DATEWFMTDEFUTC) == 0) || (strcmp(def, NOWWFMTDEFUTC) == 0) || (strcmp(def, LOCKWFMTDEFUTC) == 0))
     {
         // Format the date/time according to the supplied strftime format string
-        char format[1024] = { 0 };
-        char * pStart = pBuf + index + strlen(def);
-        char * pEnd = pStart;
+        char  format[1024] = {0};
+        char *pStart       = pBuf + index + strlen(def);
+        char *pEnd         = pStart;
 
         while (*pEnd != '$')
         {
             pEnd++;
-            if (pEnd - pBuf >= (__int64)filelength)
-                return false;   // No terminator - malformed so give up.
+            if (pEnd - pBuf >= static_cast<long long>(fileLength))
+                return false; // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
         {
             return false; // Format specifier too big
         }
-        memcpy(format,pStart,pEnd - pStart);
+        memcpy(format, pStart, pEnd - pStart);
 
         // to avoid wcsftime aborting if the user specified an invalid time format,
         // we set a custom invalid parameter handler that does nothing at all:
         // that makes wcsftime do nothing and set errno to EINVAL.
         // we restore the invalid parameter handler right after
-        _invalid_parameter_handler oldHandler = _set_invalid_parameter_handler(_invalid_parameter_donothing);
+        _invalid_parameter_handler oldHandler = _set_invalid_parameter_handler(invalidParameterDonothing);
 
-        if (strftime(destbuf,1024,format,&newtime) == 0)
+        if (strftime(destBuf, 1024, format, &newTime) == 0)
         {
             if (errno == EINVAL)
-                strcpy_s(destbuf, "Invalid Time Format Specified");
+                strcpy_s(destBuf, "Invalid Time Format Specified");
         }
         _set_invalid_parameter_handler(oldHandler);
-        Expansion = strlen(destbuf) - (strlen(def) + pEnd - pStart + 1);
+        expansion = strlen(destBuf) - (strlen(def) + pEnd - pStart + 1);
     }
     else
     {
         // Format the date/time in international format as yyyy/mm/dd hh:mm:ss
-        sprintf_s(destbuf, "%04d/%02d/%02d %02d:%02d:%02d",
-            newtime.tm_year + 1900,
-            newtime.tm_mon + 1,
-            newtime.tm_mday,
-            newtime.tm_hour,
-            newtime.tm_min,
-            newtime.tm_sec);
+        sprintf_s(destBuf, "%04d/%02d/%02d %02d:%02d:%02d",
+                  newTime.tm_year + 1900,
+                  newTime.tm_mon + 1,
+                  newTime.tm_mday,
+                  newTime.tm_hour,
+                  newTime.tm_min,
+                  newTime.tm_sec);
 
-        Expansion = strlen(destbuf) - strlen(def);
+        expansion = strlen(destBuf) - strlen(def);
     }
     // Replace the def string with the actual commit date
-    if (Expansion < 0)
+    if (expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
+        memmove(pBuild, pBuild - expansion, fileLength - ((pBuild - expansion) - pBuf));
     }
-    else if (Expansion > 0)
+    else if (expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return false;
-        memmove(pBuild + Expansion, pBuild, filelength - (pBuild - pBuf));
+        if (maxLength < expansion + fileLength)
+            return false;
+        memmove(pBuild + expansion, pBuild, fileLength - (pBuild - pBuf));
     }
-    memmove(pBuild, destbuf, strlen(destbuf));
-    filelength += Expansion;
+    memmove(pBuild, destBuf, strlen(destBuf));
+    fileLength += expansion;
     return true;
 }
-bool InsertDateW(wchar_t * def, wchar_t * pBuf, size_t & index,
-    size_t & filelength, size_t maxlength,
-    apr_time_t date_svn)
+bool InsertDateW(wchar_t *def, wchar_t *pBuf, size_t &index,
+                 size_t &fileLength, size_t maxLength,
+                 apr_time_t dateSVN)
 {
     // Search for first occurrence of def in the buffer, starting at index.
-    if (!FindPlaceholderW(def, pBuf, index, filelength))
+    if (!FindPlaceholderW(def, pBuf, index, fileLength))
     {
         // No more matches found.
         return false;
     }
     // Format the text to insert at the placeholder
-    __time64_t ttime;
-    if (date_svn == USE_TIME_NOW)
-        _time64(&ttime);
+    __time64_t tTime;
+    if (dateSVN == USE_TIME_NOW)
+        _time64(&tTime);
     else
-        ttime = date_svn/1000000L;
+        tTime = dateSVN / 1000000L;
 
-    struct tm newtime;
+    struct tm newTime;
     if (wcsstr(def, L"UTC"))
     {
-        if (_gmtime64_s(&newtime, &ttime))
+        if (_gmtime64_s(&newTime, &tTime))
             return false;
     }
     else
     {
-        if (_localtime64_s(&newtime, &ttime))
+        if (_localtime64_s(&newTime, &tTime))
             return false;
     }
-    wchar_t destbuf[1024];
-    wchar_t * pBuild = pBuf + index;
-    ptrdiff_t Expansion;
-    if ((wcscmp(def,TEXT(DATEWFMTDEF)) == 0) || (wcscmp(def,TEXT(NOWWFMTDEF)) == 0) || (wcscmp(def,TEXT(LOCKWFMTDEF)) == 0) ||
-        (wcscmp(def,TEXT(DATEWFMTDEFUTC)) == 0) || (wcscmp(def,TEXT(NOWWFMTDEFUTC)) == 0) || (wcscmp(def,TEXT(LOCKWFMTDEFUTC)) == 0))
+    wchar_t   destBuf[1024];
+    wchar_t * pBuild    = pBuf + index;
+    ptrdiff_t expansion = 0;
+    if ((wcscmp(def, TEXT(DATEWFMTDEF)) == 0) || (wcscmp(def, TEXT(NOWWFMTDEF)) == 0) || (wcscmp(def, TEXT(LOCKWFMTDEF)) == 0) ||
+        (wcscmp(def, TEXT(DATEWFMTDEFUTC)) == 0) || (wcscmp(def, TEXT(NOWWFMTDEFUTC)) == 0) || (wcscmp(def, TEXT(LOCKWFMTDEFUTC)) == 0))
     {
         // Format the date/time according to the supplied strftime format string
-        wchar_t format[1024] = { 0 };
-        wchar_t * pStart = pBuf + index + wcslen(def);
-        wchar_t * pEnd = pStart;
+        wchar_t  format[1024] = {0};
+        wchar_t *pStart       = pBuf + index + wcslen(def);
+        wchar_t *pEnd         = pStart;
 
         while (*pEnd != '$')
         {
             pEnd++;
-            if (((__int64)(pEnd - pBuf))*((__int64)sizeof(wchar_t)) >= (__int64)filelength)
-                return false;   // No terminator - malformed so give up.
+            if (static_cast<long long>(pEnd - pBuf) * static_cast<long long>(sizeof(wchar_t)) >= static_cast<long long>(fileLength))
+                return false; // No terminator - malformed so give up.
         }
         if ((pEnd - pStart) > 1024)
         {
             return false; // Format specifier too big
         }
-        memcpy(format,pStart,(pEnd - pStart)*sizeof(wchar_t));
+        memcpy(format, pStart, (pEnd - pStart) * sizeof(wchar_t));
 
         // to avoid wcsftime aborting if the user specified an invalid time format,
         // we set a custom invalid parameter handler that does nothing at all:
         // that makes wcsftime do nothing and set errno to EINVAL.
         // we restore the invalid parameter handler right after
-        _invalid_parameter_handler oldHandler = _set_invalid_parameter_handler(_invalid_parameter_donothing);
+        _invalid_parameter_handler oldHandler = _set_invalid_parameter_handler(invalidParameterDonothing);
 
-        if (wcsftime(destbuf,1024,format,&newtime) == 0)
+        if (wcsftime(destBuf, 1024, format, &newTime) == 0)
         {
             if (errno == EINVAL)
-                wcscpy_s(destbuf, L"Invalid Time Format Specified");
+                wcscpy_s(destBuf, L"Invalid Time Format Specified");
         }
         _set_invalid_parameter_handler(oldHandler);
 
-        Expansion = wcslen(destbuf) - (wcslen(def) + pEnd - pStart + 1);
+        expansion = wcslen(destBuf) - (wcslen(def) + pEnd - pStart + 1);
     }
     else
     {
         // Format the date/time in international format as yyyy/mm/dd hh:mm:ss
-        swprintf_s(destbuf, L"%04d/%02d/%02d %02d:%02d:%02d",
-            newtime.tm_year + 1900,
-            newtime.tm_mon + 1,
-            newtime.tm_mday,
-            newtime.tm_hour,
-            newtime.tm_min,
-            newtime.tm_sec);
+        swprintf_s(destBuf, L"%04d/%02d/%02d %02d:%02d:%02d",
+                   newTime.tm_year + 1900,
+                   newTime.tm_mon + 1,
+                   newTime.tm_mday,
+                   newTime.tm_hour,
+                   newTime.tm_min,
+                   newTime.tm_sec);
 
-        Expansion = wcslen(destbuf) - wcslen(def);
+        expansion = wcslen(destBuf) - wcslen(def);
     }
     // Replace the def string with the actual commit date
-    if (Expansion < 0)
+    if (expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf) * sizeof(wchar_t)));
+        memmove(pBuild, pBuild - expansion, (fileLength - ((pBuild - expansion) - pBuf) * sizeof(wchar_t)));
     }
-    else if (Expansion > 0)
+    else if (expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion * sizeof(wchar_t) + filelength) return false;
-        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf) * sizeof(wchar_t)));
+        if (maxLength < expansion * sizeof(wchar_t) + fileLength)
+            return false;
+        memmove(pBuild + expansion, pBuild, (fileLength - (pBuild - pBuf) * sizeof(wchar_t)));
     }
-    memmove(pBuild, destbuf, wcslen(destbuf)*sizeof(wchar_t));
-    filelength += Expansion*sizeof(wchar_t);
+    memmove(pBuild, destBuf, wcslen(destBuf) * sizeof(wchar_t));
+    fileLength += expansion * sizeof(wchar_t);
     return true;
 }
 
-bool InsertUrl(char * def, char * pBuf, size_t & index,
-                    size_t & filelength, size_t maxlength,
-                    char * pUrl)
+bool InsertUrl(char *def, char *pBuf, size_t &index,
+               size_t &fileLength, size_t maxLength,
+               char *pUrl)
 {
     // Search for first occurrence of def in the buffer, starting at index.
-    if (!FindPlaceholder(def, pBuf, index, filelength))
+    if (!FindPlaceholder(def, pBuf, index, fileLength))
     {
         // No more matches found.
         return false;
     }
     // Replace the $WCURL$ string with the actual URL
-    char * pBuild = pBuf + index;
-    ptrdiff_t Expansion = strlen(pUrl) - strlen(def);
-    if (Expansion < 0)
+    char *    pBuild    = pBuf + index;
+    ptrdiff_t expansion = strlen(pUrl) - strlen(def);
+    if (expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, filelength - ((pBuild - Expansion) - pBuf));
+        memmove(pBuild, pBuild - expansion, fileLength - ((pBuild - expansion) - pBuf));
     }
-    else if (Expansion > 0)
+    else if (expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion + filelength) return false;
-        memmove(pBuild + Expansion, pBuild, filelength - (pBuild - pBuf));
+        if (maxLength < expansion + fileLength)
+            return false;
+        memmove(pBuild + expansion, pBuild, fileLength - (pBuild - pBuf));
     }
     memmove(pBuild, pUrl, strlen(pUrl));
-    filelength += Expansion;
+    fileLength += expansion;
     return true;
 }
-bool InsertUrlW(wchar_t * def, wchar_t * pBuf, size_t & index,
-    size_t & filelength, size_t maxlength,
-    const wchar_t * pUrl)
+bool InsertUrlW(wchar_t *def, wchar_t *pBuf, size_t &index,
+                size_t &fileLength, size_t maxLength,
+                const wchar_t *pUrl)
 {
     // Search for first occurrence of def in the buffer, starting at index.
-    if (!FindPlaceholderW(def, pBuf, index, filelength))
+    if (!FindPlaceholderW(def, pBuf, index, fileLength))
     {
         // No more matches found.
         return false;
     }
     // Replace the $WCURL$ string with the actual URL
-    wchar_t * pBuild = pBuf + index;
-    ptrdiff_t Expansion = wcslen(pUrl) - wcslen(def);
-    if (Expansion < 0)
+    wchar_t * pBuild    = pBuf + index;
+    ptrdiff_t expansion = wcslen(pUrl) - wcslen(def);
+    if (expansion < 0)
     {
-        memmove(pBuild, pBuild - Expansion, (filelength - ((pBuild - Expansion) - pBuf) * sizeof(wchar_t)));
+        memmove(pBuild, pBuild - expansion, (fileLength - ((pBuild - expansion) - pBuf) * sizeof(wchar_t)));
     }
-    else if (Expansion > 0)
+    else if (expansion > 0)
     {
         // Check for buffer overflow
-        if (maxlength < Expansion * sizeof(wchar_t) + filelength) return false;
-        memmove(pBuild + Expansion, pBuild, (filelength - (pBuild - pBuf) * sizeof(wchar_t)));
+        if (maxLength < expansion * sizeof(wchar_t) + fileLength)
+            return false;
+        memmove(pBuild + expansion, pBuild, (fileLength - (pBuild - pBuf) * sizeof(wchar_t)));
     }
-    memmove(pBuild, pUrl, wcslen(pUrl)*sizeof(wchar_t));
-    filelength += Expansion*sizeof(wchar_t);
+    memmove(pBuild, pUrl, wcslen(pUrl) * sizeof(wchar_t));
+    fileLength += expansion * sizeof(wchar_t);
     return true;
 }
 
-int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, BOOL isTrue)
+int InsertBoolean(char *def, char *pBuf, size_t &index, size_t &fileLength, BOOL isTrue)
 {
     // Search for first occurrence of def in the buffer, starting at index.
-    if (!FindPlaceholder(def, pBuf, index, filelength))
+    if (!FindPlaceholder(def, pBuf, index, fileLength))
     {
         // No more matches found.
         return false;
     }
     // Look for the terminating '$' character
-    char * pBuild = pBuf + index;
-    char * pEnd = pBuild + 1;
+    char *pBuild = pBuf + index;
+    char *pEnd   = pBuild + 1;
     while (*pEnd != '$')
     {
         pEnd++;
-        if (pEnd - pBuf >= (__int64)filelength)
-            return false;   // No terminator - malformed so give up.
+        if (pEnd - pBuf >= static_cast<long long>(fileLength))
+            return false; // No terminator - malformed so give up.
     }
 
     // Look for the ':' dividing TrueText from FalseText
@@ -651,47 +653,47 @@ int InsertBoolean(char * def, char * pBuf, size_t & index, size_t & filelength, 
         pSplit++;
 
     if (*pSplit == '$')
-        return false;       // No split - malformed so give up.
+        return false; // No split - malformed so give up.
 
     if (isTrue)
     {
         // Replace $WCxxx?TrueText:FalseText$ with TrueText
         // Remove :FalseText$
-        memmove(pSplit, pEnd + 1, filelength - (pEnd + 1 - pBuf));
-        filelength -= (pEnd + 1 - pSplit);
+        memmove(pSplit, pEnd + 1, fileLength - (pEnd + 1 - pBuf));
+        fileLength -= (pEnd + 1 - pSplit);
         // Remove $WCxxx?
-        size_t deflen = strlen(def);
-        memmove(pBuild, pBuild + deflen, filelength - (pBuild + deflen - pBuf));
-        filelength -= deflen;
+        size_t defLen = strlen(def);
+        memmove(pBuild, pBuild + defLen, fileLength - (pBuild + defLen - pBuf));
+        fileLength -= defLen;
     }
     else
     {
         // Replace $WCxxx?TrueText:FalseText$ with FalseText
         // Remove terminating $
-        memmove(pEnd, pEnd + 1, filelength - (pEnd + 1 - pBuf));
-        filelength--;
+        memmove(pEnd, pEnd + 1, fileLength - (pEnd + 1 - pBuf));
+        fileLength--;
         // Remove $WCxxx?TrueText:
-        memmove(pBuild, pSplit + 1, filelength - (pSplit + 1 - pBuf));
-        filelength -= (pSplit + 1 - pBuild);
+        memmove(pBuild, pSplit + 1, fileLength - (pSplit + 1 - pBuf));
+        fileLength -= (pSplit + 1 - pBuild);
     }
     return true;
 }
-bool InsertBooleanW(wchar_t * def, wchar_t * pBuf, size_t & index, size_t & filelength, BOOL isTrue)
+bool InsertBooleanW(wchar_t *def, wchar_t *pBuf, size_t &index, size_t &fileLength, BOOL isTrue)
 {
     // Search for first occurrence of def in the buffer, starting at index.
-    if (!FindPlaceholderW(def, pBuf, index, filelength))
+    if (!FindPlaceholderW(def, pBuf, index, fileLength))
     {
         // No more matches found.
         return false;
     }
     // Look for the terminating '$' character
-    wchar_t * pBuild = pBuf + index;
-    wchar_t * pEnd = pBuild + 1;
+    wchar_t *pBuild = pBuf + index;
+    wchar_t *pEnd   = pBuild + 1;
     while (*pEnd != '$')
     {
         pEnd++;
-        if (pEnd - pBuf >= (__int64)filelength)
-            return false;   // No terminator - malformed so give up.
+        if (pEnd - pBuf >= static_cast<long long>(fileLength))
+            return false; // No terminator - malformed so give up.
     }
 
     // Look for the ':' dividing TrueText from FalseText
@@ -701,56 +703,57 @@ bool InsertBooleanW(wchar_t * def, wchar_t * pBuf, size_t & index, size_t & file
         pSplit++;
 
     if (*pSplit == '$')
-        return false;       // No split - malformed so give up.
+        return false; // No split - malformed so give up.
 
     if (isTrue)
     {
         // Replace $WCxxx?TrueText:FalseText$ with TrueText
         // Remove :FalseText$
-        memmove(pSplit, pEnd + 1, (filelength - (pEnd + 1 - pBuf))*sizeof(wchar_t));
-        filelength -= ((pEnd + 1 - pSplit)*sizeof(wchar_t));
+        memmove(pSplit, pEnd + 1, (fileLength - (pEnd + 1 - pBuf)) * sizeof(wchar_t));
+        fileLength -= ((pEnd + 1 - pSplit) * sizeof(wchar_t));
         // Remove $WCxxx?
-        size_t deflen = wcslen(def);
-        memmove(pBuild, pBuild + deflen, (filelength - (pBuild + deflen - pBuf) * sizeof(wchar_t)));
-        filelength -= (deflen*sizeof(wchar_t));
+        size_t defLen = wcslen(def);
+        memmove(pBuild, pBuild + defLen, (fileLength - (pBuild + defLen - pBuf) * sizeof(wchar_t)));
+        fileLength -= (defLen * sizeof(wchar_t));
     }
     else
     {
         // Replace $WCxxx?TrueText:FalseText$ with FalseText
         // Remove terminating $
-        memmove(pEnd, pEnd + 1, (filelength - (pEnd + 1 - pBuf) * sizeof(wchar_t)));
-        filelength -= sizeof(wchar_t);
+        memmove(pEnd, pEnd + 1, (fileLength - (pEnd + 1 - pBuf) * sizeof(wchar_t)));
+        fileLength -= sizeof(wchar_t);
         // Remove $WCxxx?TrueText:
-        memmove(pBuild, pSplit + 1, (filelength - (pSplit + 1 - pBuf) * sizeof(wchar_t)));
-        filelength -= ((pSplit + 1 - pBuild)*sizeof(wchar_t));
+        memmove(pBuild, pSplit + 1, (fileLength - (pSplit + 1 - pBuf) * sizeof(wchar_t)));
+        fileLength -= ((pSplit + 1 - pBuild) * sizeof(wchar_t));
     }
     return true;
 }
 
 #pragma warning(push)
-#pragma warning(disable: 4702)
-int abort_on_pool_failure (int /*retcode*/)
+#pragma warning(disable : 4702)
+int abortOnPoolFailure(int /*retcode*/)
 {
-    abort ();
+    abort();
+    // ReSharper disable once CppUnreachableCode
     return -1;
 }
 #pragma warning(pop)
 
-int _tmain(int argc, _TCHAR* argv[])
+int wmain(int argc, wchar_t *argv[])
 {
     // we have three parameters
-    const TCHAR * src = NULL;
-    const TCHAR * dst = NULL;
-    const TCHAR * wc = NULL;
-    BOOL bErrOnMods = FALSE;
-    BOOL bErrOnUnversioned = FALSE;
-    BOOL bErrOnMixed = FALSE;
-    BOOL bQuiet = FALSE;
-    BOOL bUseSubWCRevIgnore = TRUE;
-    SubWCRev_t SubStat;
+    const wchar_t *src                = nullptr;
+    const wchar_t *dst                = nullptr;
+    const wchar_t *wc                 = nullptr;
+    BOOL           bErrOnMods         = FALSE;
+    BOOL           bErrOnUnversioned  = FALSE;
+    BOOL           bErrOnMixed        = FALSE;
+    BOOL           bQuiet             = FALSE;
+    BOOL           bUseSubWCRevIgnore = TRUE;
+    SubWCRevT      subStat;
 
     SetDllDirectory(L"");
-    CCrashReportTSVN crasher(L"SubWCRev " _T(APP_X64_STRING));
+    CCrashReportTSVN crasher(L"SubWCRev " TEXT(APP_X64_STRING));
 
     if (argc >= 2 && argc <= 5)
     {
@@ -764,32 +767,32 @@ int _tmain(int argc, _TCHAR* argv[])
         dst = argv[3];
         if (!PathFileExists(src))
         {
-            _tprintf(L"File '%s' does not exist\n", src);
-            return ERR_FNF;     // file does not exist
+            wprintf(L"File '%s' does not exist\n", src);
+            return ERR_FNF; // file does not exist
         }
     }
     if (argc == 3 || argc == 5)
     {
         // SubWCRev Path -params
         // SubWCRev Path Tmpl.in Tmpl.out -params
-        const TCHAR * Params = argv[argc-1];
-        if (Params[0] == '-')
+        const wchar_t *params = argv[argc - 1];
+        if (params[0] == '-')
         {
-            if (wcschr(Params, 'u') != 0)
+            if (wcschr(params, 'u') != nullptr)
                 _setmode(_fileno(stdout), _O_U16TEXT);
-            if (wcschr(Params, 'q') != 0)
+            if (wcschr(params, 'q') != nullptr)
                 bQuiet = TRUE;
-            if (wcschr(Params, 'n') != 0)
+            if (wcschr(params, 'n') != nullptr)
                 bErrOnMods = TRUE;
-            if (wcschr(Params, 'N') != 0)
+            if (wcschr(params, 'N') != nullptr)
                 bErrOnUnversioned = TRUE;
-            if (wcschr(Params, 'm') != 0)
+            if (wcschr(params, 'm') != nullptr)
                 bErrOnMixed = TRUE;
-            if (wcschr(Params, 'd') != 0)
+            if (wcschr(params, 'd') != nullptr)
             {
-                if ((dst != NULL) && PathFileExists(dst))
+                if ((dst != nullptr) && PathFileExists(dst))
                 {
-                    _tprintf(L"File '%s' already exists\n", dst);
+                    wprintf(L"File '%s' already exists\n", dst);
                     return ERR_OUT_EXISTS;
                 }
             }
@@ -800,43 +803,43 @@ int _tmain(int argc, _TCHAR* argv[])
             // that tag will get the HEAD revision of the time you check out (or
             // do an update). The files alone however won't have their last-committed
             // revision changed at all.
-            if (wcschr(Params, 'f') != 0)
-                SubStat.bFolders = TRUE;
-            if (wcschr(Params, 'e') != 0)
-                SubStat.bExternals = TRUE;
-            if (wcschr(Params, 'E') != 0)
-                SubStat.bExternalsNoMixedRevision = TRUE;
-            if (wcschr(Params, 'x') != 0)
-                SubStat.bHexPlain = TRUE;
-            if (wcschr(Params, 'X') != 0)
-                SubStat.bHexX = TRUE;
-            if (wcschr(Params, 'F') != 0)
+            if (wcschr(params, 'f') != nullptr)
+                subStat.bFolders = TRUE;
+            if (wcschr(params, 'e') != nullptr)
+                subStat.bExternals = TRUE;
+            if (wcschr(params, 'E') != nullptr)
+                subStat.bExternalsNoMixedRevision = TRUE;
+            if (wcschr(params, 'x') != nullptr)
+                subStat.bHexPlain = TRUE;
+            if (wcschr(params, 'X') != nullptr)
+                subStat.bHexX = TRUE;
+            if (wcschr(params, 'F') != nullptr)
                 bUseSubWCRevIgnore = FALSE;
         }
         else
         {
             // Bad params - abort and display help.
-            wc = NULL;
+            wc = nullptr;
         }
     }
 
-    if (wc == NULL)
+    if (wc == nullptr)
     {
-        _tprintf(L"SubWCRev %d.%d.%d, Build %d - %s\n\n",
-            TSVN_VERMAJOR, TSVN_VERMINOR,
-            TSVN_VERMICRO, TSVN_VERBUILD,
-            _T(TSVN_PLATFORM));
-        _putts(_T(HelpText1));
-        _putts(_T(HelpText2));
-        _putts(_T(HelpText3));
-        _putts(_T(HelpText4));
-        _putts(_T(HelpText5));
+        wprintf(L"SubWCRev %d.%d.%d, Build %d - %s\n\n",
+                TSVN_VERMAJOR, TSVN_VERMINOR,
+                TSVN_VERMICRO, TSVN_VERBUILD,
+                TEXT(TSVN_PLATFORM));
+        _putws(TEXT(HelpText1));
+        _putws(TEXT(HelpText2));
+        _putws(TEXT(HelpText3));
+        _putws(TEXT(HelpText4));
+        _putws(TEXT(HelpText5));
         return ERR_SYNTAX;
     }
 
-    DWORD reqLen = GetFullPathName(wc, 0, NULL, NULL);
-    auto wcfullPath = std::make_unique<TCHAR[]>(reqLen + 1);
-    GetFullPathName(wc, reqLen, wcfullPath.get(), NULL);
+    DWORD reqLen     = GetFullPathName(wc, 0, nullptr, nullptr);
+    auto  wcFullPath = std::make_unique<wchar_t[]>(reqLen + 1LL);
+    GetFullPathName(wc, reqLen, wcFullPath.get(), nullptr);
     // GetFullPathName() sometimes returns the full path with the wrong
     // case. This is not a problem on Windows since its filesystem is
     // case-insensitive. But for SVN that's a problem if the wrong case
@@ -844,211 +847,211 @@ int _tmain(int argc, _TCHAR* argv[])
     // To fix the casing of the path, we use a trick:
     // convert the path to its short form, then back to its long form.
     // That will fix the wrong casing of the path.
-    int shortlen = GetShortPathName(wcfullPath.get(), NULL, 0);
-    if (shortlen)
+    int shortLen = GetShortPathName(wcFullPath.get(), nullptr, 0);
+    if (shortLen)
     {
-        auto shortPath = std::make_unique<TCHAR[]>(shortlen + 1);
-        if (GetShortPathName(wcfullPath.get(), shortPath.get(), shortlen + 1))
+        auto shortPath = std::make_unique<wchar_t[]>(shortLen + 1LL);
+        if (GetShortPathName(wcFullPath.get(), shortPath.get(), shortLen + 1))
         {
-            reqLen = GetLongPathName(shortPath.get(), NULL, 0);
-            wcfullPath = std::make_unique<TCHAR[]>(reqLen + 1);
-            GetLongPathName(shortPath.get(), wcfullPath.get(), reqLen);
+            reqLen     = GetLongPathName(shortPath.get(), nullptr, 0);
+            wcFullPath = std::make_unique<wchar_t[]>(reqLen + 1LL);
+            GetLongPathName(shortPath.get(), wcFullPath.get(), reqLen);
         }
     }
-    wc = wcfullPath.get();
-    std::wstring dstfullPath;
+    wc = wcFullPath.get();
+    std::wstring dstFullPath;
     if (dst)
     {
-        dstfullPath = CPathUtils::GetLongPathname(dst);
-        dst = dstfullPath.c_str();
+        dstFullPath = CPathUtils::GetLongPathname(dst);
+        dst         = dstFullPath.c_str();
     }
-    std::wstring srcfullPath;
+    std::wstring srcFullPath;
     if (src)
     {
-        srcfullPath = CPathUtils::GetLongPathname(src);
-        src = srcfullPath.c_str();
+        srcFullPath = CPathUtils::GetLongPathname(src);
+        src         = srcFullPath.c_str();
     }
 
     if (!PathFileExists(wc))
     {
-        _tprintf(L"Directory or file '%s' does not exist\n", wc);
-        if (wcschr(wc, '\"') != NULL) // dir contains a quotation mark
+        wprintf(L"Directory or file '%s' does not exist\n", wc);
+        if (wcschr(wc, '\"') != nullptr) // dir contains a quotation mark
         {
-            _tprintf(L"The WorkingCopyPath contains a quotation mark.\n");
-            _tprintf(L"this indicates a problem when calling SubWCRev from an interpreter which treats\n");
-            _tprintf(L"a backslash char specially.\n");
-            _tprintf(L"Try using double backslashes or insert a dot after the last backslash when\n");
-            _tprintf(L"calling SubWCRev\n");
-            _tprintf(L"Examples:\n");
-            _tprintf(L"SubWCRev \"path to wc\\\\\"\n");
-            _tprintf(L"SubWCRev \"path to wc\\.\"\n");
+            wprintf(L"The WorkingCopyPath contains a quotation mark.\n");
+            wprintf(L"this indicates a problem when calling SubWCRev from an interpreter which treats\n");
+            wprintf(L"a backslash char specially.\n");
+            wprintf(L"Try using double backslashes or insert a dot after the last backslash when\n");
+            wprintf(L"calling SubWCRev\n");
+            wprintf(L"Examples:\n");
+            wprintf(L"SubWCRev \"path to wc\\\\\"\n");
+            wprintf(L"SubWCRev \"path to wc\\.\"\n");
         }
-        return ERR_FNF;         // dir does not exist
+        return ERR_FNF; // dir does not exist
     }
-    std::unique_ptr<char[]> pBuf = nullptr;
-    DWORD readlength = 0;
-    size_t filelength = 0;
-    size_t maxlength  = 0;
-    if (dst != NULL)
+    std::unique_ptr<char[]> pBuf       = nullptr;
+    DWORD                   readLength = 0;
+    size_t                  fileLength = 0;
+    size_t                  maxLength  = 0;
+    if (dst != nullptr)
     {
         // open the file and read the contents
-        CAutoFile hFile = CreateFile(src, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+        CAutoFile hFile = CreateFile(src, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, NULL, nullptr);
         if (!hFile)
         {
-            _tprintf(L"Unable to open input file '%s'\n", src);
-            return ERR_OPEN;        // error opening file
+            wprintf(L"Unable to open input file '%s'\n", src);
+            return ERR_OPEN; // error opening file
         }
-        filelength = GetFileSize(hFile, NULL);
-        if (filelength == INVALID_FILE_SIZE)
+        fileLength = GetFileSize(hFile, nullptr);
+        if (fileLength == INVALID_FILE_SIZE)
         {
-            _tprintf(L"Could not determine file size of '%s'\n", src);
+            wprintf(L"Could not determine file size of '%s'\n", src);
             return ERR_READ;
         }
-        maxlength = filelength+4096;    // We might be increasing file size.
-        pBuf = std::make_unique<char[]>(maxlength);
-        if (pBuf == NULL)
+        maxLength = fileLength + 4096; // We might be increasing file size.
+        pBuf      = std::make_unique<char[]>(maxLength);
+        if (pBuf == nullptr)
         {
-            _tprintf(L"Could not allocate enough memory!\n");
+            wprintf(L"Could not allocate enough memory!\n");
             return ERR_ALLOC;
         }
-        if (!ReadFile(hFile, pBuf.get(), (DWORD)filelength, &readlength, NULL))
+        if (!ReadFile(hFile, pBuf.get(), static_cast<DWORD>(fileLength), &readLength, nullptr))
         {
-            _tprintf(L"Could not read the file '%s'\n", src);
+            wprintf(L"Could not read the file '%s'\n", src);
             return ERR_READ;
         }
-        if (readlength != filelength)
+        if (readLength != fileLength)
         {
-            _tprintf(L"Could not read the file '%s' to the end!\n", src);
+            wprintf(L"Could not read the file '%s' to the end!\n", src);
             return ERR_READ;
         }
     }
     // Now check the status of every file in the working copy
     // and gather revision status information in SubStat.
 
-    apr_pool_t * pool;
-    svn_error_t * svnerr = NULL;
-    svn_client_ctx_t * ctx;
-    const char * internalpath;
-    apr_hash_t * config = nullptr;;
+    apr_pool_t *      pool         = nullptr;
+    svn_error_t *     svnErr       = nullptr;
+    svn_client_ctx_t *ctx          = nullptr;
+    const char *      internalPath = nullptr;
+    apr_hash_t *      config       = nullptr;
+    ;
     apr_initialize();
     svn_dso_initialize2();
-    apr_pool_create_ex (&pool, NULL, abort_on_pool_failure, NULL);
+    apr_pool_create_ex(&pool, nullptr, abortOnPoolFailure, nullptr);
     svn_config_get_config(&(config), nullptr, pool);
     svn_client_create_context2(&ctx, config, pool);
 
     size_t ret = 0;
-    getenv_s(&ret, NULL, 0, "SVN_ASP_DOT_NET_HACK");
+    getenv_s(&ret, nullptr, 0, "SVN_ASP_DOT_NET_HACK");
     if (ret)
     {
         svn_wc_set_adm_dir("_svn", pool);
     }
 
-    char *wc_utf8 = Utf16ToUtf8(wc, pool);
-    internalpath = svn_dirent_internal_style (wc_utf8, pool);
+    char *wcUTF8 = Utf16ToUtf8(wc, pool);
+    internalPath = svn_dirent_internal_style(wcUTF8, pool);
     if (bUseSubWCRevIgnore)
     {
         const char *wcroot;
-        svnerr = svn_client_get_wc_root(&wcroot, internalpath, ctx, pool, pool);
-        if ((svnerr == SVN_NO_ERROR) && wcroot)
-            LoadIgnorePatterns(wcroot, &SubStat);
-        svn_error_clear(svnerr);
-        LoadIgnorePatterns(internalpath, &SubStat);
+        svnErr = svn_client_get_wc_root(&wcroot, internalPath, ctx, pool, pool);
+        if ((svnErr == nullptr) && wcroot)
+            loadIgnorePatterns(wcroot, &subStat);
+        svn_error_clear(svnErr);
+        loadIgnorePatterns(internalPath, &subStat);
     }
 
-    svnerr = svn_status(    internalpath,   //path
-                            &SubStat,       //status_baton
-                            TRUE,           //noignore
-                            ctx,
-                            pool);
+    svnErr = svnStatus(internalPath, //path
+                       &subStat,     //status_baton
+                       TRUE,         //noignore
+                       ctx,
+                       pool);
 
-    if (svnerr)
+    if (svnErr)
     {
-        svn_handle_error2(svnerr, stdout, FALSE, "SubWCRev : ");
+        svn_handle_error2(svnErr, stdout, FALSE, "SubWCRev : ");
     }
-    TCHAR wcfullpath[MAX_PATH] = { 0 };
-    LPTSTR dummy;
-    GetFullPathName(wc, MAX_PATH, wcfullpath, &dummy);
+    wchar_t wcFullPathBuf[MAX_PATH] = {0};
+    LPTSTR  dummy;
+    GetFullPathName(wc, MAX_PATH, wcFullPathBuf, &dummy);
     apr_status_t e = 0;
-    if (svnerr)
+    if (svnErr)
     {
-        e = svnerr->apr_err;
-        svn_error_clear(svnerr);
+        e = svnErr->apr_err;
+        svn_error_clear(svnErr);
     }
     apr_terminate2();
-    if (svnerr)
+    if (svnErr)
     {
         if (e == SVN_ERR_WC_NOT_DIRECTORY)
             return ERR_NOWC;
         return ERR_SVN_ERR;
     }
 
-    char wcfull_oem[MAX_PATH] = { 0 };
-    CharToOem(wcfullpath, wcfull_oem);
-    _tprintf(L"SubWCRev: '%hs'\n", wcfull_oem);
+    char wcFullOem[MAX_PATH] = {0};
+    CharToOem(wcFullPathBuf, wcFullOem);
+    wprintf(L"SubWCRev: '%hs'\n", wcFullOem);
 
-
-    if (bErrOnMods && SubStat.HasMods)
+    if (bErrOnMods && subStat.hasMods)
     {
-        _tprintf(L"Working copy has local modifications!\n");
+        wprintf(L"Working copy has local modifications!\n");
         return ERR_SVN_MODS;
     }
-    if (bErrOnUnversioned && SubStat.HasUnversioned)
+    if (bErrOnUnversioned && subStat.hasUnversioned)
     {
-        _tprintf(L"Working copy has unversioned items!\n");
+        wprintf(L"Working copy has unversioned items!\n");
         return ERR_SVN_UNVER;
     }
 
-    if (bErrOnMixed && (SubStat.MinRev != SubStat.MaxRev))
+    if (bErrOnMixed && (subStat.minRev != subStat.maxRev))
     {
-        if (SubStat.bHexPlain)
-            _tprintf(L"Working copy contains mixed revisions %lX:%lX!\n", SubStat.MinRev, SubStat.MaxRev);
-        else if (SubStat.bHexX)
-            _tprintf(L"Working copy contains mixed revisions %#lX:%#lX!\n", SubStat.MinRev, SubStat.MaxRev);
+        if (subStat.bHexPlain)
+            wprintf(L"Working copy contains mixed revisions %lX:%lX!\n", subStat.minRev, subStat.maxRev);
+        else if (subStat.bHexX)
+            wprintf(L"Working copy contains mixed revisions %#lX:%#lX!\n", subStat.minRev, subStat.maxRev);
         else
-            _tprintf(L"Working copy contains mixed revisions %ld:%ld!\n", SubStat.MinRev, SubStat.MaxRev);
+            wprintf(L"Working copy contains mixed revisions %ld:%ld!\n", subStat.minRev, subStat.maxRev);
         return ERR_SVN_MIXED;
     }
 
     if (!bQuiet)
     {
-        if (SubStat.bHexPlain)
-            _tprintf(L"Last committed at revision %lX\n", SubStat.CmtRev);
-        else if (SubStat.bHexX)
-            _tprintf(L"Last committed at revision %#lX\n", SubStat.CmtRev);
+        if (subStat.bHexPlain)
+            wprintf(L"Last committed at revision %lX\n", subStat.cmtRev);
+        else if (subStat.bHexX)
+            wprintf(L"Last committed at revision %#lX\n", subStat.cmtRev);
         else
-            _tprintf(L"Last committed at revision %ld\n", SubStat.CmtRev);
+            wprintf(L"Last committed at revision %ld\n", subStat.cmtRev);
 
-        if (SubStat.MinRev != SubStat.MaxRev)
+        if (subStat.minRev != subStat.maxRev)
         {
-            if (SubStat.bHexPlain)
-                _tprintf(L"Mixed revision range %lX:%lX\n", SubStat.MinRev, SubStat.MaxRev);
-            else if (SubStat.bHexX)
-                _tprintf(L"Mixed revision range %#lX:%#lX\n", SubStat.MinRev, SubStat.MaxRev);
+            if (subStat.bHexPlain)
+                wprintf(L"Mixed revision range %lX:%lX\n", subStat.minRev, subStat.maxRev);
+            else if (subStat.bHexX)
+                wprintf(L"Mixed revision range %#lX:%#lX\n", subStat.minRev, subStat.maxRev);
             else
-                _tprintf(L"Mixed revision range %ld:%ld\n", SubStat.MinRev, SubStat.MaxRev);
+                wprintf(L"Mixed revision range %ld:%ld\n", subStat.minRev, subStat.maxRev);
         }
         else
         {
-            if (SubStat.bHexPlain)
-                _tprintf(L"Updated to revision %lX\n", SubStat.MaxRev);
-            else if (SubStat.bHexX)
-                _tprintf(L"Updated to revision %#lX\n", SubStat.MaxRev);
+            if (subStat.bHexPlain)
+                wprintf(L"Updated to revision %lX\n", subStat.maxRev);
+            else if (subStat.bHexX)
+                wprintf(L"Updated to revision %#lX\n", subStat.maxRev);
             else
-                _tprintf(L"Updated to revision %ld\n", SubStat.MaxRev);
+                wprintf(L"Updated to revision %ld\n", subStat.maxRev);
         }
 
-        if (SubStat.HasMods)
+        if (subStat.hasMods)
         {
-            _tprintf(L"Local modifications found\n");
+            wprintf(L"Local modifications found\n");
         }
 
-        if (SubStat.HasUnversioned)
+        if (subStat.hasUnversioned)
         {
-            _tprintf(L"Unversioned items found\n");
+            wprintf(L"Unversioned items found\n");
         }
     }
 
-    if (dst == NULL)
+    if (dst == nullptr)
     {
         return 0;
     }
@@ -1057,190 +1060,245 @@ int _tmain(int argc, _TCHAR* argv[])
 
     size_t index = 0;
 
-    while (InsertRevision(VERDEF, pBuf.get(), index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    while (InsertRevision(VERDEF, pBuf.get(), index, fileLength, maxLength, -1, subStat.cmtRev, &subStat))
+        ;
     index = 0;
-    while (InsertRevisionW(TEXT(VERDEF), (wchar_t*)pBuf.get(), index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    while (InsertRevisionW(TEXT(VERDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, -1, subStat.cmtRev, &subStat))
+        ;
 
     index = 0;
-    while (InsertRevision(VERDEFAND, pBuf.get(), index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    while (InsertRevision(VERDEFAND, pBuf.get(), index, fileLength, maxLength, -1, subStat.cmtRev, &subStat))
+        ;
     index = 0;
-    while (InsertRevisionW(TEXT(VERDEFAND), (wchar_t*)pBuf.get(), index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    while (InsertRevisionW(TEXT(VERDEFAND), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, -1, subStat.cmtRev, &subStat))
+        ;
 
     index = 0;
-    while (InsertRevision(VERDEFOFFSET1, pBuf.get(), index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    while (InsertRevision(VERDEFOFFSET1, pBuf.get(), index, fileLength, maxLength, -1, subStat.cmtRev, &subStat))
+        ;
     index = 0;
-    while (InsertRevisionW(TEXT(VERDEFOFFSET1), (wchar_t*)pBuf.get(), index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    while (InsertRevisionW(TEXT(VERDEFOFFSET1), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, -1, subStat.cmtRev, &subStat))
+        ;
 
     index = 0;
-    while (InsertRevision(VERDEFOFFSET2, pBuf.get(), index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    while (InsertRevision(VERDEFOFFSET2, pBuf.get(), index, fileLength, maxLength, -1, subStat.cmtRev, &subStat))
+        ;
     index = 0;
-    while (InsertRevisionW(TEXT(VERDEFOFFSET2), (wchar_t*)pBuf.get(), index, filelength, maxlength, -1, SubStat.CmtRev, &SubStat));
+    while (InsertRevisionW(TEXT(VERDEFOFFSET2), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, -1, subStat.cmtRev, &subStat))
+        ;
 
     index = 0;
-    while (InsertRevision(RANGEDEF, pBuf.get(), index, filelength, maxlength, SubStat.MinRev, SubStat.MaxRev, &SubStat));
+    while (InsertRevision(RANGEDEF, pBuf.get(), index, fileLength, maxLength, subStat.minRev, subStat.maxRev, &subStat))
+        ;
     index = 0;
-    while (InsertRevisionW(TEXT(RANGEDEF), (wchar_t*)pBuf.get(), index, filelength, maxlength, SubStat.MinRev, SubStat.MaxRev, &SubStat));
+    while (InsertRevisionW(TEXT(RANGEDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, subStat.minRev, subStat.maxRev, &subStat))
+        ;
 
     index = 0;
-    while (InsertDate(DATEDEF, pBuf.get(), index, filelength, maxlength, SubStat.CmtDate));
+    while (InsertDate(DATEDEF, pBuf.get(), index, fileLength, maxLength, subStat.cmtDate))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(DATEDEF), (wchar_t*)pBuf.get(), index, filelength, maxlength, SubStat.CmtDate));
+    while (InsertDateW(TEXT(DATEDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, subStat.cmtDate))
+        ;
 
     index = 0;
-    while (InsertDate(DATEDEFUTC, pBuf.get(), index, filelength, maxlength, SubStat.CmtDate));
+    while (InsertDate(DATEDEFUTC, pBuf.get(), index, fileLength, maxLength, subStat.cmtDate))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(DATEDEFUTC), (wchar_t*)pBuf.get(), index, filelength, maxlength, SubStat.CmtDate));
+    while (InsertDateW(TEXT(DATEDEFUTC), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, subStat.cmtDate))
+        ;
 
     index = 0;
-    while (InsertDate(DATEWFMTDEF, pBuf.get(), index, filelength, maxlength, SubStat.CmtDate));
+    while (InsertDate(DATEWFMTDEF, pBuf.get(), index, fileLength, maxLength, subStat.cmtDate))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(DATEWFMTDEF), (wchar_t*)pBuf.get(), index, filelength, maxlength, SubStat.CmtDate));
+    while (InsertDateW(TEXT(DATEWFMTDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, subStat.cmtDate))
+        ;
     index = 0;
-    while (InsertDate(DATEWFMTDEFUTC, pBuf.get(), index, filelength, maxlength, SubStat.CmtDate));
+    while (InsertDate(DATEWFMTDEFUTC, pBuf.get(), index, fileLength, maxLength, subStat.cmtDate))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(DATEWFMTDEFUTC), (wchar_t*)pBuf.get(), index, filelength, maxlength, SubStat.CmtDate));
+    while (InsertDateW(TEXT(DATEWFMTDEFUTC), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, subStat.cmtDate))
+        ;
 
     index = 0;
-    while (InsertDate(NOWDEF, pBuf.get(), index, filelength, maxlength, USE_TIME_NOW));
+    while (InsertDate(NOWDEF, pBuf.get(), index, fileLength, maxLength, USE_TIME_NOW))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(NOWDEF), (wchar_t*)pBuf.get(), index, filelength, maxlength, USE_TIME_NOW));
+    while (InsertDateW(TEXT(NOWDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, USE_TIME_NOW))
+        ;
 
     index = 0;
-    while (InsertDate(NOWDEFUTC, pBuf.get(), index, filelength, maxlength, USE_TIME_NOW));
+    while (InsertDate(NOWDEFUTC, pBuf.get(), index, fileLength, maxLength, USE_TIME_NOW))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(NOWDEFUTC), (wchar_t*)pBuf.get(), index, filelength, maxlength, USE_TIME_NOW));
+    while (InsertDateW(TEXT(NOWDEFUTC), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, USE_TIME_NOW))
+        ;
 
     index = 0;
-    while (InsertDate(NOWWFMTDEF, pBuf.get(), index, filelength, maxlength, USE_TIME_NOW));
+    while (InsertDate(NOWWFMTDEF, pBuf.get(), index, fileLength, maxLength, USE_TIME_NOW))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(NOWWFMTDEF), (wchar_t*)pBuf.get(), index, filelength, maxlength, USE_TIME_NOW));
+    while (InsertDateW(TEXT(NOWWFMTDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, USE_TIME_NOW))
+        ;
 
     index = 0;
-    while (InsertDate(NOWWFMTDEFUTC, pBuf.get(), index, filelength, maxlength, USE_TIME_NOW));
+    while (InsertDate(NOWWFMTDEFUTC, pBuf.get(), index, fileLength, maxLength, USE_TIME_NOW))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(NOWWFMTDEFUTC), (wchar_t*)pBuf.get(), index, filelength, maxlength, USE_TIME_NOW));
+    while (InsertDateW(TEXT(NOWWFMTDEFUTC), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, USE_TIME_NOW))
+        ;
 
     index = 0;
-    while (InsertBoolean(MODDEF, pBuf.get(), index, filelength, SubStat.HasMods));
+    while (InsertBoolean(MODDEF, pBuf.get(), index, fileLength, subStat.hasMods))
+        ;
     index = 0;
-    while (InsertBooleanW(TEXT(MODDEF), (wchar_t*)pBuf.get(), index, filelength, SubStat.HasMods));
+    while (InsertBooleanW(TEXT(MODDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, subStat.hasMods))
+        ;
 
     index = 0;
-    while (InsertBoolean(UNVERDEF, pBuf.get(), index, filelength, SubStat.HasUnversioned));
+    while (InsertBoolean(UNVERDEF, pBuf.get(), index, fileLength, subStat.hasUnversioned))
+        ;
     index = 0;
-    while (InsertBooleanW(TEXT(UNVERDEF), (wchar_t*)pBuf.get(), index, filelength, SubStat.HasUnversioned));
+    while (InsertBooleanW(TEXT(UNVERDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, subStat.hasUnversioned))
+        ;
 
     index = 0;
-    while (InsertBoolean(MIXEDDEF, pBuf.get(), index, filelength, (SubStat.MinRev != SubStat.MaxRev) || SubStat.bIsExternalMixed));
+    while (InsertBoolean(MIXEDDEF, pBuf.get(), index, fileLength, (subStat.minRev != subStat.maxRev) || subStat.bIsExternalMixed))
+        ;
     index = 0;
-    while (InsertBooleanW(TEXT(MIXEDDEF), (wchar_t*)pBuf.get(), index, filelength, (SubStat.MinRev != SubStat.MaxRev) || SubStat.bIsExternalMixed));
+    while (InsertBooleanW(TEXT(MIXEDDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, (subStat.minRev != subStat.maxRev) || subStat.bIsExternalMixed))
+        ;
 
     index = 0;
-    while (InsertBoolean(EXTALLFIXED, pBuf.get(), index, filelength, !SubStat.bIsExternalsNotFixed));
+    while (InsertBoolean(EXTALLFIXED, pBuf.get(), index, fileLength, !subStat.bIsExternalsNotFixed))
+        ;
     index = 0;
-    while (InsertBooleanW(TEXT(EXTALLFIXED), (wchar_t*)pBuf.get(), index, filelength, !SubStat.bIsExternalsNotFixed));
+    while (InsertBooleanW(TEXT(EXTALLFIXED), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, !subStat.bIsExternalsNotFixed))
+        ;
 
     index = 0;
-    while (InsertBoolean(ISTAGGED, pBuf.get(), index, filelength, SubStat.bIsTagged));
+    while (InsertBoolean(ISTAGGED, pBuf.get(), index, fileLength, subStat.bIsTagged))
+        ;
     index = 0;
-    while (InsertBooleanW(TEXT(ISTAGGED), (wchar_t*)pBuf.get(), index, filelength, SubStat.bIsTagged));
+    while (InsertBooleanW(TEXT(ISTAGGED), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, subStat.bIsTagged))
+        ;
 
     index = 0;
-    while (InsertUrl(URLDEF, pBuf.get(), index, filelength, maxlength, SubStat.Url));
+    while (InsertUrl(URLDEF, pBuf.get(), index, fileLength, maxLength, subStat.url))
+        ;
     index = 0;
-    while (InsertUrlW(TEXT(URLDEF), (wchar_t*)pBuf.get(), index, filelength, maxlength, Utf8ToWide(SubStat.Url).c_str()));
+    while (InsertUrlW(TEXT(URLDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, Utf8ToWide(subStat.url).c_str()))
+        ;
 
     index = 0;
-    while (InsertBoolean(ISINSVN, pBuf.get(), index, filelength, SubStat.bIsSvnItem));
+    while (InsertBoolean(ISINSVN, pBuf.get(), index, fileLength, subStat.bIsSvnItem))
+        ;
     index = 0;
-    while (InsertBooleanW(TEXT(ISINSVN), (wchar_t*)pBuf.get(), index, filelength, SubStat.bIsSvnItem));
+    while (InsertBooleanW(TEXT(ISINSVN), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, subStat.bIsSvnItem))
+        ;
 
     index = 0;
-    while (InsertBoolean(NEEDSLOCK, pBuf.get(), index, filelength, SubStat.LockData.NeedsLocks));
+    while (InsertBoolean(NEEDSLOCK, pBuf.get(), index, fileLength, subStat.lockData.needsLocks))
+        ;
     index = 0;
-    while (InsertBooleanW(TEXT(NEEDSLOCK), (wchar_t*)pBuf.get(), index, filelength, SubStat.LockData.NeedsLocks));
+    while (InsertBooleanW(TEXT(NEEDSLOCK), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, subStat.lockData.needsLocks))
+        ;
 
     index = 0;
-    while (InsertBoolean(ISLOCKED, pBuf.get(), index, filelength, SubStat.LockData.IsLocked));
+    while (InsertBoolean(ISLOCKED, pBuf.get(), index, fileLength, subStat.lockData.isLocked))
+        ;
     index = 0;
-    while (InsertBooleanW(TEXT(ISLOCKED), (wchar_t*)pBuf.get(), index, filelength, SubStat.LockData.IsLocked));
+    while (InsertBooleanW(TEXT(ISLOCKED), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, subStat.lockData.isLocked))
+        ;
 
     index = 0;
-    while (InsertDate(LOCKDATE, pBuf.get(), index, filelength, maxlength, SubStat.LockData.CreationDate));
+    while (InsertDate(LOCKDATE, pBuf.get(), index, fileLength, maxLength, subStat.lockData.creationDate))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(LOCKDATE), (wchar_t*)pBuf.get(), index, filelength, maxlength, SubStat.LockData.CreationDate));
+    while (InsertDateW(TEXT(LOCKDATE), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, subStat.lockData.creationDate))
+        ;
 
     index = 0;
-    while (InsertDate(LOCKDATEUTC, pBuf.get(), index, filelength, maxlength, SubStat.LockData.CreationDate));
+    while (InsertDate(LOCKDATEUTC, pBuf.get(), index, fileLength, maxLength, subStat.lockData.creationDate))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(LOCKDATEUTC), (wchar_t*)pBuf.get(), index, filelength, maxlength, SubStat.LockData.CreationDate));
+    while (InsertDateW(TEXT(LOCKDATEUTC), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, subStat.lockData.creationDate))
+        ;
 
     index = 0;
-    while (InsertDate(LOCKWFMTDEF, pBuf.get(), index, filelength, maxlength, SubStat.LockData.CreationDate));
+    while (InsertDate(LOCKWFMTDEF, pBuf.get(), index, fileLength, maxLength, subStat.lockData.creationDate))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(LOCKWFMTDEF), (wchar_t*)pBuf.get(), index, filelength, maxlength, SubStat.LockData.CreationDate));
+    while (InsertDateW(TEXT(LOCKWFMTDEF), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, subStat.lockData.creationDate))
+        ;
 
     index = 0;
-    while (InsertDate(LOCKWFMTDEFUTC, pBuf.get(), index, filelength, maxlength, SubStat.LockData.CreationDate));
+    while (InsertDate(LOCKWFMTDEFUTC, pBuf.get(), index, fileLength, maxLength, subStat.lockData.creationDate))
+        ;
     index = 0;
-    while (InsertDateW(TEXT(LOCKWFMTDEFUTC), (wchar_t*)pBuf.get(), index, filelength, maxlength, SubStat.LockData.CreationDate));
+    while (InsertDateW(TEXT(LOCKWFMTDEFUTC), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, subStat.lockData.creationDate))
+        ;
 
     index = 0;
-    while (InsertUrl(LOCKOWNER, pBuf.get(), index, filelength, maxlength, SubStat.LockData.Owner));
+    while (InsertUrl(LOCKOWNER, pBuf.get(), index, fileLength, maxLength, subStat.lockData.owner))
+        ;
     index = 0;
-    while (InsertUrlW(TEXT(LOCKOWNER), (wchar_t*)pBuf.get(), index, filelength, maxlength, Utf8ToWide(SubStat.LockData.Owner).c_str()));
+    while (InsertUrlW(TEXT(LOCKOWNER), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, Utf8ToWide(subStat.lockData.owner).c_str()))
+        ;
 
     index = 0;
-    while (InsertUrl(LOCKCOMMENT, pBuf.get(), index, filelength, maxlength, SubStat.LockData.Comment));
+    while (InsertUrl(LOCKCOMMENT, pBuf.get(), index, fileLength, maxLength, subStat.lockData.comment))
+        ;
     index = 0;
-    while (InsertUrlW(TEXT(LOCKCOMMENT), (wchar_t*)pBuf.get(), index, filelength, maxlength, Utf8ToWide(SubStat.LockData.Comment).c_str()));
+    while (InsertUrlW(TEXT(LOCKCOMMENT), reinterpret_cast<wchar_t *>(pBuf.get()), index, fileLength, maxLength, Utf8ToWide(subStat.lockData.comment).c_str()))
+        ;
 
-    CAutoFile hFile = CreateFile(dst, GENERIC_WRITE|GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
+    CAutoFile hFile = CreateFile(dst, GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_ALWAYS, NULL, nullptr);
     if (!hFile)
     {
-        _tprintf(L"Unable to open output file '%s' for writing\n", dst);
+        wprintf(L"Unable to open output file '%s' for writing\n", dst);
         return ERR_OPEN;
     }
 
-    size_t filelengthExisting = GetFileSize(hFile, NULL);
-    BOOL sameFileContent = FALSE;
-    if (filelength == filelengthExisting)
+    size_t fileLengthExisting = GetFileSize(hFile, nullptr);
+    BOOL   sameFileContent    = FALSE;
+    if (fileLength == fileLengthExisting)
     {
-        DWORD readlengthExisting = 0;
-        auto pBufExisting = std::make_unique<char[]>(filelength);
-        if (!ReadFile(hFile, pBufExisting.get(), (DWORD)filelengthExisting, &readlengthExisting, NULL))
+        DWORD readLengthExisting = 0;
+        auto  pBufExisting       = std::make_unique<char[]>(fileLength);
+        if (!ReadFile(hFile, pBufExisting.get(), static_cast<DWORD>(fileLengthExisting), &readLengthExisting, nullptr))
         {
-            _tprintf(L"Could not read the file '%s'\n", dst);
+            wprintf(L"Could not read the file '%s'\n", dst);
             return ERR_READ;
         }
-        if (readlengthExisting != filelengthExisting)
+        if (readLengthExisting != fileLengthExisting)
         {
-            _tprintf(L"Could not read the file '%s' to the end!\n", dst);
+            wprintf(L"Could not read the file '%s' to the end!\n", dst);
             return ERR_READ;
         }
-        sameFileContent = (memcmp(pBuf.get(), pBufExisting.get(), filelength) == 0);
+        sameFileContent = (memcmp(pBuf.get(), pBufExisting.get(), fileLength) == 0);
     }
 
     // The file is only written if its contents would change.
     // this object prevents the timestamp from changing.
     if (!sameFileContent)
     {
-        SetFilePointer(hFile, 0, NULL, FILE_BEGIN);
+        SetFilePointer(hFile, 0, nullptr, FILE_BEGIN);
 
-        WriteFile(hFile, pBuf.get(), (DWORD)filelength, &readlength, NULL);
-        if (readlength != filelength)
+        WriteFile(hFile, pBuf.get(), static_cast<DWORD>(fileLength), &readLength, nullptr);
+        if (readLength != fileLength)
         {
-            _tprintf(L"Could not write the file '%s' to the end!\n", dst);
+            wprintf(L"Could not write the file '%s' to the end!\n", dst);
             return ERR_READ;
         }
 
         if (!SetEndOfFile(hFile))
         {
-            _tprintf(L"Could not truncate the file '%s' to the end!\n", dst);
+            wprintf(L"Could not truncate the file '%s' to the end!\n", dst);
             return ERR_READ;
         }
     }
 
     return 0;
 }
-

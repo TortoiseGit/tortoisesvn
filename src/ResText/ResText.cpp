@@ -23,7 +23,7 @@
 #include <Shlwapi.h>
 #pragma comment(lib, "shlwapi.lib")
 
-int wmain(int argc, _TCHAR* argv[])
+int wmain(int argc, wchar_t* argv[])
 {
     bool bShowHelp   = true;
     bool bQuiet      = false;
