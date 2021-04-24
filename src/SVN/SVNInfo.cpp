@@ -90,7 +90,7 @@ SVNInfo::SVNInfo(bool)
     }
 }
 
-SVNInfo::~SVNInfo(void)
+SVNInfo::~SVNInfo()
 {
     svn_error_clear(m_err);
     svn_pool_destroy(m_pool); // free the allocated memory

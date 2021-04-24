@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2014, 2016 - TortoiseSVN
+// Copyright (C) 2009, 2014, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,36 +28,31 @@ volatile LONG CSVNTrace::counter = 0;
 
 // construction: write call description to ODS and start clock
 
-CSVNTrace::CSVNTrace
-    ( const wchar_t* name
-    , int lineNo
-    , const wchar_t* line
-    , const char* svnPath)
-    : id (InterlockedIncrement (&counter))
-    , threadID (GetCurrentThreadId())
+CSVNTrace::CSVNTrace(const wchar_t* name, int lineNo, const wchar_t* line, const char* svnPath)
+    : id(InterlockedIncrement(&counter))
+    , threadID(GetCurrentThreadId())
 {
     if (!CTraceToOutputDebugString::Active())
         return;
 
-    CString svnAPI = line;
-    int assignPos = svnAPI.Find ('=');
+    CString svnAPI    = line;
+    int     assignPos = svnAPI.Find('=');
     if (assignPos > 0)
-        svnAPI.Delete (0, assignPos+1);
+        svnAPI.Delete(0, assignPos + 1);
 
-    svnAPI = svnAPI.TrimLeft().SpanExcluding (L" \r\n\t(");
+    svnAPI = svnAPI.TrimLeft().SpanExcluding(L" \r\n\t(");
     CString path;
     if (svnPath)
-        path = CString (L"Path=") + CUnicodeUtils::GetUnicode(svnPath);
+        path = CString(L"Path=") + CUnicodeUtils::GetUnicode(svnPath);
 
-    CTraceToOutputDebugString::Instance()(L"#%d Thread:%d %s(line %d) %s %s\n"
-             , id
-             , threadID
-             , name
-             , lineNo
-             , (const wchar_t*)svnAPI
-             , (const wchar_t*)path);
+    CTraceToOutputDebugString::Instance()(L"#%d Thread:%d %s(line %d) %s %s\n",
+                                          id,
+                                          threadID,
+                                          name,
+                                          lineNo,
+                                          static_cast<const wchar_t*>(svnAPI),
+                                          static_cast<const wchar_t*>(path));
 }
-
 
 // destruction: call \ref Stop, if it has not been called, yet
 
@@ -73,10 +68,7 @@ void CSVNTrace::Stop()
 {
     clock.Stop();
 
-    CTraceToOutputDebugString::Instance() ( L"#%d Thread:%d done (%d �s)\n"
-             , id
-             , threadID
-             , clock.GetMusecsTaken());
+    CTraceToOutputDebugString::Instance()(L"#%d Thread:%d done (%d µs)\n", id, threadID, clock.GetMusecsTaken());
 
     id = -1;
 }

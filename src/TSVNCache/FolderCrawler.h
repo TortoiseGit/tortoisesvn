@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2007, 2009-2010, 2014 TortoiseSVN
+// External Cache Copyright (C) 2005-2007, 2009-2010, 2014, 2021 TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,13 +19,9 @@
 #pragma once
 
 #include "TSVNPath.h"
-#include "CacheInterface.h"
 #include "UniqueQueue.h"
 #include "SmartHandle.h"
-#include <set>
 //////////////////////////////////////////////////////////////////////////
-
-
 
 #pragma pack(push, r1, 16)
 
@@ -37,8 +33,8 @@
 class CFolderCrawler
 {
 public:
-    CFolderCrawler(void);
-    ~CFolderCrawler(void);
+    CFolderCrawler();
+    ~CFolderCrawler();
 
 public:
     void Initialise();
@@ -48,17 +44,18 @@ public:
     bool SetHoldoff(DWORD milliseconds = 500);
     bool IsHoldOff() const;
     void BlockPath(const CTSVNPath& path, DWORD ticks = 0);
+
 private:
     static unsigned int __stdcall ThreadEntry(void* pContext);
     void WorkerThread();
 
 private:
     CComAutoCriticalSection m_critSec;
-    CAutoGeneralHandle m_hThread;
-    UniqueQueue<CTSVNPath> m_foldersToUpdate;
-    UniqueQueue<CTSVNPath> m_pathsToUpdate;
-    CAutoGeneralHandle m_hTerminationEvent;
-    CAutoGeneralHandle m_hWakeEvent;
+    CAutoGeneralHandle      m_hThread;
+    UniqueQueue<CTSVNPath>  m_foldersToUpdate;
+    UniqueQueue<CTSVNPath>  m_pathsToUpdate;
+    CAutoGeneralHandle      m_hTerminationEvent;
+    CAutoGeneralHandle      m_hWakeEvent;
 
     // This will be *asynchronously* modified by CCrawlInhibitor.
     // So, we have to mark it volatile, preparing compiler and
@@ -70,20 +67,17 @@ private:
     // every shell request, and stops us crawling until
     // a bit of quiet time has elapsed
     LONGLONG m_crawlHoldoffReleasesAt;
-    bool m_bItemsAddedSinceLastCrawl;
-    bool m_bPathsAddedSinceLastCrawl;
+    bool     m_bItemsAddedSinceLastCrawl;
+    bool     m_bPathsAddedSinceLastCrawl;
 
     CTSVNPath m_blockedPath;
     ULONGLONG m_blockReleasesAt;
-    bool m_bRun;
-
+    bool      m_bRun;
 
     friend class CCrawlInhibitor;
 };
 
-
 //////////////////////////////////////////////////////////////////////////
-
 
 class CCrawlInhibitor
 {
@@ -103,6 +97,7 @@ public:
         ::InterlockedDecrement(&m_pCrawler->m_lCrawlInhibitSet);
         m_pCrawler->SetHoldoff();
     }
+
 private:
     CFolderCrawler* m_pCrawler;
 };

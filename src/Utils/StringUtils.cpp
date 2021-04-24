@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2018, 2020-2021 - TortoiseSVN
 // Copyright (C) 2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -28,10 +28,10 @@
 
 #pragma comment(lib, "Crypt32.lib")
 
-int strwildcmp(const char *wild, const char *string)
+int strwildcmp(const char* wild, const char* string)
 {
-    const char *cp = NULL;
-    const char *mp = NULL;
+    const char* cp = nullptr;
+    const char* mp = nullptr;
     while ((*string) && (*wild != '*'))
     {
         if ((*wild != *string) && (*wild != '?'))
@@ -50,7 +50,7 @@ int strwildcmp(const char *wild, const char *string)
                 return 1;
             }
             mp = wild;
-            cp = string+1;
+            cp = string + 1;
         }
         else if ((*wild == *string) || (*wild == '?'))
         {
@@ -59,7 +59,7 @@ int strwildcmp(const char *wild, const char *string)
         }
         else
         {
-            wild = mp;
+            wild   = mp;
             string = cp++;
         }
     }
@@ -71,10 +71,10 @@ int strwildcmp(const char *wild, const char *string)
     return !*wild;
 }
 
-int wcswildcmp(const wchar_t *wild, const wchar_t *string)
+int wcswildcmp(const wchar_t* wild, const wchar_t* string)
 {
-    const wchar_t *cp = NULL;
-    const wchar_t *mp = NULL;
+    const wchar_t* cp = nullptr;
+    const wchar_t* mp = nullptr;
     while ((*string) && (*wild != '*'))
     {
         if ((*wild != *string) && (*wild != '?'))
@@ -93,7 +93,7 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
                 return 1;
             }
             mp = wild;
-            cp = string+1;
+            cp = string + 1;
         }
         else if ((*wild == *string) || (*wild == '?'))
         {
@@ -102,7 +102,7 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
         }
         else
         {
-            wild = mp;
+            wild   = mp;
             string = cp++;
         }
     }
@@ -119,11 +119,11 @@ int wcswildcmp(const wchar_t *wild, const wchar_t *string)
 void CStringUtils::RemoveAccelerators(CString& text)
 {
     int pos = 0;
-    while ((pos=text.Find('&',pos))>=0)
+    while ((pos = text.Find('&', pos)) >= 0)
     {
-        if (text.GetLength() > (pos-1))
+        if (text.GetLength() > (pos - 1))
         {
-            if (text.GetAt(pos+1)!=' ')
+            if (text.GetAt(pos + 1) != ' ')
                 text.Delete(pos);
         }
         pos++;
@@ -141,11 +141,11 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
     if (!hClipboardData)
         return false;
 
-    char* pchData = (char*)GlobalLock(hClipboardData);
+    char* pchData = static_cast<char*>(GlobalLock(hClipboardData));
     if (!pchData)
         return false;
 
-    strcpy_s(pchData, sClipdata.GetLength() + 1, (LPCSTR)sClipdata);
+    strcpy_s(pchData, sClipdata.GetLength() + 1, static_cast<LPCSTR>(sClipdata));
     GlobalUnlock(hClipboardData);
     if (!SetClipboardData(CF_TEXT, hClipboardData))
         return false;
@@ -154,7 +154,7 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID l
     if (!hlocmem)
         return false;
 
-    PLCID plcid = (PLCID)GlobalLock(hlocmem);
+    PLCID plcid = static_cast<PLCID>(GlobalLock(hlocmem));
     if (plcid)
     {
         *plcid = lcid;
@@ -176,11 +176,11 @@ bool CStringUtils::WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND h
     if (!hClipboardData)
         return false;
 
-    WCHAR* pchData = (WCHAR*)GlobalLock(hClipboardData);
+    WCHAR* pchData = static_cast<WCHAR*>(GlobalLock(hClipboardData));
     if (!pchData)
         return false;
 
-    _tcscpy_s(pchData, sClipdata.GetLength()+1, (LPCWSTR)sClipdata);
+    _tcscpy_s(pchData, sClipdata.GetLength() + 1, static_cast<LPCWSTR>(sClipdata));
     GlobalUnlock(hClipboardData);
     if (!SetClipboardData(CF_UNICODETEXT, hClipboardData))
         return false;
@@ -204,27 +204,27 @@ bool CStringUtils::WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningW
     if (!hClipboardData)
         return false;
 
-    char* pchData = (char*)GlobalLock(hClipboardData);
+    char* pchData = static_cast<char*>(GlobalLock(hClipboardData));
     if (!pchData)
         return false;
 
-    strcpy_s(pchData, sClipdata.GetLength()+1, (LPCSTR)sClipdata);
+    strcpy_s(pchData, sClipdata.GetLength() + 1, static_cast<LPCSTR>(sClipdata));
     GlobalUnlock(hClipboardData);
-    if (!SetClipboardData(cFormat,hClipboardData))
+    if (!SetClipboardData(cFormat, hClipboardData))
         return false;
     if (!SetClipboardData(CF_TEXT, hClipboardData))
         return false;
 
-    CString sClipdataW = CUnicodeUtils::GetUnicode(sClipdata);
-    auto hClipboardDataW = CClipboardHelper::GlobalAlloc((sClipdataW.GetLength() + 1) * sizeof(wchar_t));
+    CString sClipdataW      = CUnicodeUtils::GetUnicode(sClipdata);
+    auto    hClipboardDataW = CClipboardHelper::GlobalAlloc((sClipdataW.GetLength() + 1) * sizeof(wchar_t));
     if (!hClipboardDataW)
         return false;
 
-    wchar_t* pchDataW = (wchar_t*)GlobalLock(hClipboardDataW);
+    wchar_t* pchDataW = static_cast<wchar_t*>(GlobalLock(hClipboardDataW));
     if (!pchDataW)
         return false;
 
-    wcscpy_s(pchDataW, sClipdataW.GetLength() + 1, (LPCWSTR)sClipdataW);
+    wcscpy_s(pchDataW, sClipdataW.GetLength() + 1, static_cast<LPCWSTR>(sClipdataW));
     GlobalUnlock(hClipboardDataW);
     if (!SetClipboardData(CF_UNICODETEXT, hClipboardDataW))
         return false;
@@ -242,11 +242,11 @@ bool CStringUtils::ReadStringFromTextFile(const CString& path, CString& text)
         if (!file.Open(path, CFile::modeRead | CFile::shareDenyWrite))
             return false;
 
-        CStringA filecontent;
-        UINT filelength = (UINT)file.GetLength();
-        int bytesread = (int)file.Read(filecontent.GetBuffer(filelength), filelength);
-        filecontent.ReleaseBuffer(bytesread);
-        text = CUnicodeUtils::GetUnicode(filecontent);
+        CStringA fileContent;
+        UINT     filelength = static_cast<UINT>(file.GetLength());
+        int      bytesRead  = static_cast<int>(file.Read(fileContent.GetBuffer(filelength), filelength));
+        fileContent.ReleaseBuffer(bytesRead);
+        text = CUnicodeUtils::GetUnicode(fileContent);
         file.Close();
     }
     catch (CFileException* pE)
@@ -269,25 +269,25 @@ CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */,
 {
     CString retString;
     if ((longstring.GetLength() < limit) || (limit == 0))
-        return longstring;  // no wrapping needed.
+        return longstring; // no wrapping needed.
     // now start breaking the string into lines
 
-    int linepos = 0;
-    int lineposold = 0;
+    int     linePos    = 0;
+    int     linePosOld = 0;
     CString temp;
-    while ((linepos = longstring.Find('\n', linepos)) >= 0)
+    while ((linePos = longstring.Find('\n', linePos)) >= 0)
     {
-        temp = longstring.Mid(lineposold, linepos-lineposold);
-        if ((linepos+1)<longstring.GetLength())
-            linepos++;
+        temp = longstring.Mid(linePosOld, linePos - linePosOld);
+        if ((linePos + 1) < longstring.GetLength())
+            linePos++;
         else
             break;
-        lineposold = linepos;
+        linePosOld = linePos;
         if (!retString.IsEmpty())
             retString += L"\n";
         retString += WordWrap(temp, limit, bCompactPaths, bForceWrap, tabSize);
     }
-    temp = longstring.Mid(lineposold);
+    temp = longstring.Mid(linePosOld);
     if (!temp.IsEmpty())
         retString += L"\n";
     retString += WordWrap(temp, limit, bCompactPaths, bForceWrap, tabSize);
@@ -297,18 +297,18 @@ CString CStringUtils::LinesWrap(const CString& longstring, int limit /* = 80 */,
 
 CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompactPaths, bool bForceWrap, int tabSize)
 {
-    int nLength = longstring.GetLength();
+    int     nLength = longstring.GetLength();
     CString retString;
 
     if (limit < 0)
         limit = 0;
 
     int nLineStart = 0;
-    int nLineEnd = 0;
-    int tabOffset = 0;
+    int nLineEnd   = 0;
+    int tabOffset  = 0;
     for (int i = 0; i < nLength; ++i)
     {
-        if (i-nLineStart+tabOffset >= limit)
+        if (i - nLineStart + tabOffset >= limit)
         {
             if (nLineEnd == nLineStart)
             {
@@ -323,15 +323,15 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
             }
             if (bCompactPaths)
             {
-                CString longline = longstring.Mid(nLineStart, nLineEnd-nLineStart).Left(MAX_PATH-1);
-                bool compacted = false;
-                if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+                CString longLine  = longstring.Mid(nLineStart, nLineEnd - nLineStart).Left(MAX_PATH - 1);
+                bool    compacted = false;
+                if ((bCompactPaths) && (longLine.GetLength() < MAX_PATH))
                 {
-                    if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline) || (longline.Find('^') < 3)))
+                    if (((!PathIsFileSpec(longLine)) && longLine.Find(':') < 3) || (PathIsURL(longLine) || (longLine.Find('^') < 3)))
                     {
-                        TCHAR buf[MAX_PATH] = { 0 };
-                        PathCompactPathEx(buf, longline, limit+1, 0);
-                        longline = buf;
+                        TCHAR buf[MAX_PATH] = {0};
+                        PathCompactPathEx(buf, longLine, limit + 1, 0);
+                        longLine  = buf;
                         compacted = true;
                     }
                 }
@@ -341,12 +341,12 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
                     retString += longstring.Mid(nLineStart, nLineEnd - nLineStart);
                 }
                 else
-                    retString += longline;
+                    retString += longLine;
             }
             else
-                retString += longstring.Mid(nLineStart, nLineEnd-nLineStart);
+                retString += longstring.Mid(nLineStart, nLineEnd - nLineStart);
             retString += L"\n";
-            tabOffset = 0;
+            tabOffset  = 0;
             nLineStart = nLineEnd;
         }
         if (longstring[i] == ' ')
@@ -359,28 +359,28 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
     }
     if (bCompactPaths)
     {
-        CString longline = longstring.Mid(nLineStart).Left(MAX_PATH-1);
-        if ((bCompactPaths)&&(longline.GetLength() < MAX_PATH))
+        CString longLine = longstring.Mid(nLineStart).Left(MAX_PATH - 1);
+        if ((bCompactPaths) && (longLine.GetLength() < MAX_PATH))
         {
-            if (((!PathIsFileSpec(longline))&&longline.Find(':')<3)||(PathIsURL(longline)))
+            if (((!PathIsFileSpec(longLine)) && longLine.Find(':') < 3) || (PathIsURL(longLine)))
             {
-                TCHAR buf[MAX_PATH] = { 0 };
-                PathCompactPathEx(buf, longline, limit+1, 0);
-                longline = buf;
+                TCHAR buf[MAX_PATH] = {0};
+                PathCompactPathEx(buf, longLine, limit + 1, 0);
+                longLine = buf;
             }
         }
-        retString += longline;
+        retString += longLine;
     }
     else
         retString += longstring.Mid(nLineStart);
 
     return retString;
 }
-int CStringUtils::GetMatchingLength (const CString& lhs, const CString& rhs)
+int CStringUtils::GetMatchingLength(const CString& lhs, const CString& rhs)
 {
     int lhsLength = lhs.GetLength();
     int rhsLength = rhs.GetLength();
-    int maxResult = min (lhsLength, rhsLength);
+    int maxResult = min(lhsLength, rhsLength);
 
     LPCTSTR pLhs = lhs;
     LPCTSTR pRhs = rhs;
@@ -392,16 +392,16 @@ int CStringUtils::GetMatchingLength (const CString& lhs, const CString& rhs)
     return maxResult;
 }
 
-int CStringUtils::FastCompareNoCase (const CStringW& lhs, const CStringW& rhs)
+int CStringUtils::FastCompareNoCase(const CStringW& lhs, const CStringW& rhs)
 {
     // attempt Latin-only comparison
 
-    INT_PTR count = min (lhs.GetLength(), rhs.GetLength()+1);
-    const wchar_t* left = lhs;
+    INT_PTR        count = min(lhs.GetLength(), rhs.GetLength() + 1);
+    const wchar_t* left  = lhs;
     const wchar_t* right = rhs;
-    for (const wchar_t* last = left + count+1; left < last; ++left, ++right)
+    for (const wchar_t* last = left + count + 1; left < last; ++left, ++right)
     {
-        int leftChar = *left;
+        int leftChar  = *left;
         int rightChar = *right;
 
         int diff = leftChar - rightChar;
@@ -415,7 +415,7 @@ int CStringUtils::FastCompareNoCase (const CStringW& lhs, const CStringW& rhs)
                 // (full comparison required as we might have
                 // skipped special chars / UTF plane selectors)
 
-                return _wcsicmp (lhs, rhs);
+                return _wcsicmp(lhs, rhs);
             }
 
             // normalize to lower case
@@ -440,22 +440,22 @@ int CStringUtils::FastCompareNoCase (const CStringW& lhs, const CStringW& rhs)
 
 bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::wstring& text, bool bUTF8 /* = true */)
 {
-    DWORD dwWritten = 0;
-    CAutoFile hFile = CreateFile(path.c_str(), GENERIC_WRITE, FILE_SHARE_DELETE, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    DWORD     dwWritten = 0;
+    CAutoFile hFile     = CreateFile(path.c_str(), GENERIC_WRITE, FILE_SHARE_DELETE, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
     if (!hFile)
         return false;
 
     if (bUTF8)
     {
         std::string buf = CUnicodeUtils::StdGetUTF8(text);
-        if (!WriteFile(hFile, buf.c_str(), (DWORD)buf.length(), &dwWritten, NULL))
+        if (!WriteFile(hFile, buf.c_str(), static_cast<DWORD>(buf.length()), &dwWritten, nullptr))
         {
             return false;
         }
     }
     else
     {
-        if (!WriteFile(hFile, text.c_str(), (DWORD)text.length(), &dwWritten, NULL))
+        if (!WriteFile(hFile, text.c_str(), static_cast<DWORD>(text.length()), &dwWritten, nullptr))
         {
             return false;
         }
@@ -465,12 +465,12 @@ bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::ws
 
 bool CStringUtils::WriteStringToTextFile(const std::wstring& path, const std::string& text)
 {
-    DWORD dwWritten = 0;
-    CAutoFile hFile = CreateFile(path.c_str(), GENERIC_WRITE, FILE_SHARE_DELETE, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    DWORD     dwWritten = 0;
+    CAutoFile hFile     = CreateFile(path.c_str(), GENERIC_WRITE, FILE_SHARE_DELETE, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
     if (!hFile)
         return false;
 
-    if (!WriteFile(hFile, text.c_str(), (DWORD)text.length(), &dwWritten, NULL))
+    if (!WriteFile(hFile, text.c_str(), static_cast<DWORD>(text.length()), &dwWritten, nullptr))
     {
         return false;
     }
@@ -481,17 +481,17 @@ bool CStringUtils::ValidateFormatString(LPCWSTR pszFormat, ...)
 {
     __try
     {
-        DWORD dwResult;
-        LPWSTR pszTemp = NULL;
-        va_list args;
+        DWORD   dwResult = 0;
+        LPWSTR  pszTemp  = nullptr;
+        va_list args{};
 
         va_start(args, pszFormat);
         dwResult = FormatMessage(FORMAT_MESSAGE_FROM_STRING |
-            FORMAT_MESSAGE_ALLOCATE_BUFFER,
-            pszFormat, 0, 0,
-            reinterpret_cast<LPWSTR>(&pszTemp),
-            0,
-            &args);
+                                     FORMAT_MESSAGE_ALLOCATE_BUFFER,
+                                 pszFormat, 0, 0,
+                                 reinterpret_cast<LPWSTR>(&pszTemp),
+                                 0,
+                                 &args);
         va_end(args);
         if (dwResult == 0)
         {
@@ -538,107 +538,107 @@ void CStringUtils::PipesToNulls(TCHAR* buffer)
     }
 }
 
-std::unique_ptr<char[]> CStringUtils::Decrypt(const char * text)
+std::unique_ptr<char[]> CStringUtils::Decrypt(const char* text)
 {
     DWORD dwLen = 0;
-    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL) == FALSE)
-        return NULL;
+    if (CryptStringToBinaryA(text, static_cast<DWORD>(strlen(text)), CRYPT_STRING_HEX, nullptr, &dwLen, nullptr, nullptr) == FALSE)
+        return nullptr;
 
-    std::unique_ptr<BYTE[]> strIn(new BYTE[dwLen + 1]);
-    if (CryptStringToBinaryA(text, (DWORD)strlen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL) == FALSE)
-        return NULL;
+    auto strIn = std::make_unique<BYTE[]>(dwLen + 1);
+    if (CryptStringToBinaryA(text, static_cast<DWORD>(strlen(text)), CRYPT_STRING_HEX, strIn.get(), &dwLen, nullptr, nullptr) == FALSE)
+        return nullptr;
 
-    DATA_BLOB blobin;
-    blobin.cbData = dwLen;
-    blobin.pbData = strIn.get();
-    LPWSTR descr = nullptr;
-    DATA_BLOB blobout = {0};
-    if (CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
-        return NULL;
-    SecureZeroMemory(blobin.pbData, blobin.cbData);
+    DATA_BLOB blobIn;
+    blobIn.cbData     = dwLen;
+    blobIn.pbData     = strIn.get();
+    LPWSTR    descr   = nullptr;
+    DATA_BLOB blobOut = {0};
+    if (CryptUnprotectData(&blobIn, &descr, nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &blobOut) == FALSE)
+        return nullptr;
+    SecureZeroMemory(blobIn.pbData, blobIn.cbData);
 
-    std::unique_ptr<char[]> result(new char[blobout.cbData + 1]);
-    strncpy_s(result.get(), blobout.cbData+1, (const char*)blobout.pbData, blobout.cbData);
-    SecureZeroMemory(blobout.pbData, blobout.cbData);
-    LocalFree(blobout.pbData);
+    auto result = std::make_unique<char[]>(blobOut.cbData + 1);
+    strncpy_s(result.get(), blobOut.cbData + 1, reinterpret_cast<const char*>(blobOut.pbData), blobOut.cbData);
+    SecureZeroMemory(blobOut.pbData, blobOut.cbData);
+    LocalFree(blobOut.pbData);
     LocalFree(descr);
     return result;
 }
 
-std::unique_ptr<wchar_t[]> CStringUtils::Decrypt(const wchar_t * text)
+std::unique_ptr<wchar_t[]> CStringUtils::Decrypt(const wchar_t* text)
 {
     DWORD dwLen = 0;
-    if (CryptStringToBinaryW(text, (DWORD)wcslen(text), CRYPT_STRING_HEX, NULL, &dwLen, NULL, NULL) == FALSE)
-        return NULL;
+    if (CryptStringToBinaryW(text, static_cast<DWORD>(wcslen(text)), CRYPT_STRING_HEX, nullptr, &dwLen, nullptr, nullptr) == FALSE)
+        return nullptr;
 
-    std::unique_ptr<BYTE[]> strIn(new BYTE[dwLen + 1]);
-    if (CryptStringToBinaryW(text, (DWORD)wcslen(text), CRYPT_STRING_HEX, strIn.get(), &dwLen, NULL, NULL) == FALSE)
-        return NULL;
+    auto strIn = std::make_unique<BYTE[]>(dwLen + 1);
+    if (CryptStringToBinaryW(text, static_cast<DWORD>(wcslen(text)), CRYPT_STRING_HEX, strIn.get(), &dwLen, nullptr, nullptr) == FALSE)
+        return nullptr;
 
-    DATA_BLOB blobin;
-    blobin.cbData = dwLen;
-    blobin.pbData = strIn.get();
-    LPWSTR descr = nullptr;
-    DATA_BLOB blobout = {0};
-    if (CryptUnprotectData(&blobin, &descr, NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
-        return NULL;
-    SecureZeroMemory(blobin.pbData, blobin.cbData);
+    DATA_BLOB blobIn;
+    blobIn.cbData     = dwLen;
+    blobIn.pbData     = strIn.get();
+    LPWSTR    descr   = nullptr;
+    DATA_BLOB blobOut = {0};
+    if (CryptUnprotectData(&blobIn, &descr, nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &blobOut) == FALSE)
+        return nullptr;
+    SecureZeroMemory(blobIn.pbData, blobIn.cbData);
 
-    std::unique_ptr<wchar_t[]> result(new wchar_t[(blobout.cbData) / sizeof(wchar_t) + 1]);
-    wcsncpy_s(result.get(), (blobout.cbData)/sizeof(wchar_t)+1, (const wchar_t*)blobout.pbData, blobout.cbData/sizeof(wchar_t));
-    SecureZeroMemory(blobout.pbData, blobout.cbData);
-    LocalFree(blobout.pbData);
+    auto result = std::make_unique<wchar_t[]>(blobOut.cbData / sizeof(wchar_t) + 1);
+    wcsncpy_s(result.get(), (blobOut.cbData) / sizeof(wchar_t) + 1, reinterpret_cast<const wchar_t*>(blobOut.pbData), blobOut.cbData / sizeof(wchar_t));
+    SecureZeroMemory(blobOut.pbData, blobOut.cbData);
+    LocalFree(blobOut.pbData);
     LocalFree(descr);
     return result;
 }
 
-CStringA CStringUtils::Encrypt( const char * text )
+CStringA CStringUtils::Encrypt(const char* text)
 {
-    DATA_BLOB blobin = {0};
-    DATA_BLOB blobout = {0};
-    CStringA result;
+    DATA_BLOB blobIn  = {0};
+    DATA_BLOB blobOut = {0};
+    CStringA  result;
 
-    blobin.cbData = (DWORD)strlen(text);
-    blobin.pbData = (BYTE*) (LPCSTR)text;
-    if (CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
+    blobIn.cbData = static_cast<DWORD>(strlen(text));
+    blobIn.pbData = reinterpret_cast<BYTE*>(const_cast<LPSTR>(text));
+    if (CryptProtectData(&blobIn, L"TSVNAuth", nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &blobOut) == FALSE)
         return result;
     DWORD dwLen = 0;
-    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, NULL, &dwLen) == FALSE)
+    if (CryptBinaryToStringA(blobOut.pbData, blobOut.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, nullptr, &dwLen) == FALSE)
         return result;
-    std::unique_ptr<char[]> strOut(new char[dwLen + 1]);
-    if (CryptBinaryToStringA(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, strOut.get(), &dwLen) == FALSE)
+    auto strOut = std::make_unique<char[]>(dwLen + 1);
+    if (CryptBinaryToStringA(blobOut.pbData, blobOut.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, strOut.get(), &dwLen) == FALSE)
         return result;
-    LocalFree(blobout.pbData);
+    LocalFree(blobOut.pbData);
 
     result = strOut.get();
 
     return result;
 }
 
-CStringW CStringUtils::Encrypt( const wchar_t * text )
+CStringW CStringUtils::Encrypt(const wchar_t* text)
 {
-    DATA_BLOB blobin = {0};
-    DATA_BLOB blobout = {0};
-    CStringW result;
+    DATA_BLOB blobIn  = {0};
+    DATA_BLOB blobOut = {0};
+    CStringW  result;
 
-    blobin.cbData = (DWORD)wcslen(text)*sizeof(wchar_t);
-    blobin.pbData = (BYTE*) (LPCWSTR)text;
-    if (CryptProtectData(&blobin, L"TSVNAuth", NULL, NULL, NULL, CRYPTPROTECT_UI_FORBIDDEN, &blobout)==FALSE)
+    blobIn.cbData = static_cast<DWORD>(wcslen(text)) * sizeof(wchar_t);
+    blobIn.pbData = reinterpret_cast<BYTE*>(const_cast<LPWSTR>(text));
+    if (CryptProtectData(&blobIn, L"TSVNAuth", nullptr, nullptr, nullptr, CRYPTPROTECT_UI_FORBIDDEN, &blobOut) == FALSE)
         return result;
     DWORD dwLen = 0;
-    if (CryptBinaryToStringW(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, NULL, &dwLen) == FALSE)
+    if (CryptBinaryToStringW(blobOut.pbData, blobOut.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, nullptr, &dwLen) == FALSE)
         return result;
-    std::unique_ptr<wchar_t[]> strOut(new wchar_t[dwLen + 1]);
-    if (CryptBinaryToStringW(blobout.pbData, blobout.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, strOut.get(), &dwLen) == FALSE)
+    auto strOut = std::make_unique<wchar_t[]>(dwLen + 1);
+    if (CryptBinaryToStringW(blobOut.pbData, blobOut.cbData, CRYPT_STRING_HEX | CRYPT_STRING_NOCRLF, strOut.get(), &dwLen) == FALSE)
         return result;
-    LocalFree(blobout.pbData);
+    LocalFree(blobOut.pbData);
 
     result = strOut.get();
 
     return result;
 }
 
-BYTE HexLookup[513] = {
+BYTE hexLookup[513] = {
     "000102030405060708090a0b0c0d0e0f"
     "101112131415161718191a1b1c1d1e1f"
     "202122232425262728292a2b2c2d2e2f"
@@ -654,31 +654,31 @@ BYTE HexLookup[513] = {
     "c0c1c2c3c4c5c6c7c8c9cacbcccdcecf"
     "d0d1d2d3d4d5d6d7d8d9dadbdcdddedf"
     "e0e1e2e3e4e5e6e7e8e9eaebecedeeef"
-    "f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff"
-};
-BYTE DecLookup[] = {
+    "f0f1f2f3f4f5f6f7f8f9fafbfcfdfeff"};
+BYTE decLookup[] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // gap before first hex digit
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9,       // 0123456789
-    0, 0, 0, 0, 0, 0, 0,             // :;<=>?@ (gap)
-    10, 11, 12, 13, 14, 15,         // ABCDEF
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9,          // 0123456789
+    0, 0, 0, 0, 0, 0, 0,                   // :;<=>?@ (gap)
+    10, 11, 12, 13, 14, 15,                // ABCDEF
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // GHIJKLMNOPQRS (gap)
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, // TUVWXYZ[/]^_` (gap)
-    10, 11, 12, 13, 14, 15          // abcdef
+    10, 11, 12, 13, 14, 15                 // abcdef
 };
 
 std::string CStringUtils::ToHexString(BYTE* pSrc, int nSrcLen)
 {
-    WORD * pwHex = (WORD*)HexLookup;
-    auto dest = std::make_unique<char[]>((nSrcLen * 2) + 1);
-    WORD * pwDest = (WORD*)dest.get();
+    WORD* pwHex  = reinterpret_cast<WORD*>(hexLookup);
+    auto  dest   = std::make_unique<char[]>((nSrcLen * 2) + 1);
+    WORD* pwDest = reinterpret_cast<WORD*>(dest.get());
     for (int j = 0; j < nSrcLen; j++)
     {
         *pwDest = pwHex[*pSrc];
-        pwDest++; pSrc++;
+        pwDest++;
+        pSrc++;
     }
-    *((BYTE*)pwDest) = 0;  // terminate the string
+    *reinterpret_cast<BYTE*>(pwDest) = 0; // terminate the string
     return std::string(dest.get());
 }
 
@@ -690,30 +690,30 @@ bool CStringUtils::FromHexString(const std::string& src, BYTE* pDest)
     {
         if ((*it < '0') || (*it > 'f'))
             return false;
-        int d = DecLookup[*it] << 4;
+        int d = decLookup[*it] << 4;
         // no bounds check necessary, since the 'if (src.size %2)' above
         // ensures that we have always one item more available
         ++it;
-        d |= DecLookup[*it];
-        *pDest++ = (BYTE)d;
+        d |= decLookup[*it];
+        *pDest++ = static_cast<BYTE>(d);
     }
     return true;
 }
 
 std::string CStringUtils::Encrypt(const std::string& s, const std::string& password)
 {
-    std::string encryptedstring;
-    HCRYPTPROV hProv = NULL;
+    std::string encryptedString;
+    HCRYPTPROV  hProv = NULL;
     // Get handle to user default provider.
-    if (CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_AES, CRYPT_VERIFYCONTEXT | CRYPT_SILENT))
+    if (CryptAcquireContext(&hProv, nullptr, nullptr, PROV_RSA_AES, CRYPT_VERIFYCONTEXT | CRYPT_SILENT))
     {
         HCRYPTHASH hHash = NULL;
         // Create hash object.
         if (CryptCreateHash(hProv, CALG_SHA_512, 0, 0, &hHash))
         {
             // Hash password string.
-            DWORD dwLength = DWORD(password.size());
-            if (CryptHashData(hHash, (BYTE *)password.c_str(), dwLength, 0))
+            DWORD dwLength = static_cast<DWORD>(password.size());
+            if (CryptHashData(hHash, reinterpret_cast<BYTE*>(const_cast<char*>(password.c_str())), dwLength, 0))
             {
                 // Create block cipher session key based on hash of the password.
                 HCRYPTKEY hKey = NULL;
@@ -723,15 +723,15 @@ std::string CStringUtils::Encrypt(const std::string& s, const std::string& passw
                     std::string starname = "*";
                     starname += s;
 
-                    dwLength = (DWORD)starname.size();
-                    std::unique_ptr<BYTE[]> buffer(new BYTE[dwLength + 1024]);
+                    dwLength    = static_cast<DWORD>(starname.size());
+                    auto buffer = std::make_unique<BYTE[]>(dwLength + 1024);
                     memcpy(buffer.get(), starname.c_str(), dwLength);
                     // Encrypt data
                     if (CryptEncrypt(hKey, 0, true, 0, buffer.get(), &dwLength, dwLength + 1024))
                     {
-                        encryptedstring = CStringUtils::ToHexString(buffer.get(), dwLength);
+                        encryptedString = CStringUtils::ToHexString(buffer.get(), dwLength);
                     }
-                    CryptDestroyKey(hKey);  // Release provider handle.
+                    CryptDestroyKey(hKey); // Release provider handle.
                 }
             }
             CryptDestroyHash(hHash);
@@ -740,30 +740,29 @@ std::string CStringUtils::Encrypt(const std::string& s, const std::string& passw
     }
     else
         DebugBreak();
-    return encryptedstring;
-
+    return encryptedString;
 }
 
 std::string CStringUtils::Decrypt(const std::string& s, const std::string& password)
 {
-    std::string decryptstring;
-    HCRYPTPROV hProv = NULL;
+    std::string decryptString;
+    HCRYPTPROV  hProv = NULL;
     // Get handle to user default provider.
-    if (CryptAcquireContext(&hProv, NULL, NULL, PROV_RSA_AES, CRYPT_VERIFYCONTEXT | CRYPT_SILENT))
+    if (CryptAcquireContext(&hProv, nullptr, nullptr, PROV_RSA_AES, CRYPT_VERIFYCONTEXT | CRYPT_SILENT))
     {
         HCRYPTHASH hHash = NULL;
         // Create hash object.
         if (CryptCreateHash(hProv, CALG_SHA_512, 0, 0, &hHash))
         {
             // Hash password string.
-            DWORD dwLength = DWORD(password.size());
-            if (CryptHashData(hHash, (BYTE *)password.c_str(), dwLength, 0))
+            DWORD dwLength = static_cast<DWORD>(password.size());
+            if (CryptHashData(hHash, reinterpret_cast<BYTE*>(const_cast<char*>(password.c_str())), dwLength, 0))
             {
                 HCRYPTKEY hKey = NULL;
                 // Create block cipher session key based on hash of the password.
                 if (CryptDeriveKey(hProv, CALG_AES_256, hHash, CRYPT_EXPORTABLE, &hKey))
                 {
-                    dwLength = DWORD(s.size() + 1024); // 1024 bytes should be enough for padding
+                    dwLength = static_cast<DWORD>(s.size() + 1024); // 1024 bytes should be enough for padding
                     std::unique_ptr<BYTE[]> buffer(new BYTE[dwLength]);
 
                     std::unique_ptr<BYTE[]> strIn(new BYTE[s.size() + 1]);
@@ -773,18 +772,18 @@ std::string CStringUtils::Decrypt(const std::string& s, const std::string& passw
                         {
                             // copy encrypted password to temporary buffer
                             memcpy(buffer.get(), strIn.get(), s.size());
-                            dwLength = DWORD(s.size() / 2);
-                            CryptDecrypt(hKey, 0, true, 0, (BYTE *)buffer.get(), &dwLength);
-                            decryptstring = std::string((char*)buffer.get(), dwLength);
-                            if (!decryptstring.empty() && (decryptstring[0] == '*'))
+                            dwLength = static_cast<DWORD>(s.size() / 2);
+                            CryptDecrypt(hKey, 0, true, 0, static_cast<BYTE*>(buffer.get()), &dwLength);
+                            decryptString = std::string(reinterpret_cast<char*>(buffer.get()), dwLength);
+                            if (!decryptString.empty() && (decryptString[0] == '*'))
                             {
-                                decryptstring = decryptstring.substr(1);
+                                decryptString = decryptString.substr(1);
                             }
                             else
-                                decryptstring.clear();
+                                decryptString.clear();
                         }
                     }
-                    CryptDestroyKey(hKey);  // Release provider handle.
+                    CryptDestroyKey(hKey); // Release provider handle.
                 }
             }
             CryptDestroyHash(hHash); // Destroy session key.
@@ -794,49 +793,49 @@ std::string CStringUtils::Decrypt(const std::string& s, const std::string& passw
     else
         DebugBreak();
 
-    return decryptstring;
+    return decryptString;
 }
 
 #if defined(_DEBUG) && defined(_MFC_VER)
 // Some test cases for these classes
-static class StringUtilsTest
+[[maybe_unused]] static class StringUtilsTest
 {
 public:
     StringUtilsTest()
     {
-        CString longline = L"this is a test of how a string can be splitted into several lines";
+        CString longline     = L"this is a test of how a string can be splitted into several lines";
         CString splittedline = CStringUtils::WordWrap(longline, 10, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
         splittedline = CStringUtils::LinesWrap(longline, 10, true);
-        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
-        longline = L"c:\\this_is_a_very_long\\path_on_windows and of course some other words added to make the line longer";
+        ATLTRACE(L"LinesWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
+        longline     = L"c:\\this_is_a_very_long\\path_on_windows and of course some other words added to make the line longer";
         splittedline = CStringUtils::WordWrap(longline, 10, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
         splittedline = CStringUtils::LinesWrap(longline, 10);
-        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
-        longline = L"Forced failure in https://myserver.com/a_long_url_to_split PROPFIND error";
+        ATLTRACE(L"LinesWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
+        longline     = L"Forced failure in https://myserver.com/a_long_url_to_split PROPFIND error";
         splittedline = CStringUtils::WordWrap(longline, 20, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
         splittedline = CStringUtils::LinesWrap(longline, 20, true);
-        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
-        longline = L"Forced\nfailure in https://myserver.com/a_long_url_to_split PROPFIND\nerror";
+        ATLTRACE(L"LinesWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
+        longline     = L"Forced\nfailure in https://myserver.com/a_long_url_to_split PROPFIND\nerror";
         splittedline = CStringUtils::WordWrap(longline, 40, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
         splittedline = CStringUtils::LinesWrap(longline, 40);
-        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
-        longline = L"Failed to add file\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO1.java\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO2.java";
+        ATLTRACE(L"LinesWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
+        longline     = L"Failed to add file\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO1.java\nc:\\export\\spare\\Devl-JBoss\\development\\head\\src\\something\\CoreApplication\\somethingelse\\src\\com\\yetsomthingelse\\shipper\\DAO\\ShipmentInfoDAO2.java";
         splittedline = CStringUtils::WordWrap(longline, 80, true, false, 4);
-        ATLTRACE(L"WordWrap:\n%s\n", (LPCWSTR)splittedline);
+        ATLTRACE(L"WordWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
         splittedline = CStringUtils::LinesWrap(longline);
-        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
-        longline = L"The commit comment is not properly formatted.\nFormat:\n  Field 1 : Field 2 : Field 3\nWhere:\nField 1 - Team Name|Triage|Merge|Goal\nField 2 - V1 Backlog Item ID|Triage Number|SVNBranch|Goal Name\nField 3 - Description of change\nExamples:\n\nTeam Gamma : B-12345 : Changed some code\n  Triage : 123 : Fixed production release bug\n  Merge : sprint0812 : Merged sprint0812 into prod\n  Goal : Implement Pre-Commit Hook : Commit message hook impl";
+        ATLTRACE(L"LinesWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
+        longline     = L"The commit comment is not properly formatted.\nFormat:\n  Field 1 : Field 2 : Field 3\nWhere:\nField 1 - Team Name|Triage|Merge|Goal\nField 2 - V1 Backlog Item ID|Triage Number|SVNBranch|Goal Name\nField 3 - Description of change\nExamples:\n\nTeam Gamma : B-12345 : Changed some code\n  Triage : 123 : Fixed production release bug\n  Merge : sprint0812 : Merged sprint0812 into prod\n  Goal : Implement Pre-Commit Hook : Commit message hook impl";
         splittedline = CStringUtils::LinesWrap(longline, 80);
-        ATLTRACE(L"LinesWrap:\n%s\n", (LPCWSTR)splittedline);
+        ATLTRACE(L"LinesWrap:\n%s\n", static_cast<LPCWSTR>(splittedline));
         CString widecrypt = CStringUtils::Encrypt(L"test");
-        auto wide = CStringUtils::Decrypt(widecrypt);
+        auto    wide      = CStringUtils::Decrypt(widecrypt);
         ATLASSERT(wcscmp(wide.get(), L"test") == 0);
         CStringA charcrypt = CStringUtils::Encrypt("test");
-        auto charnorm = CStringUtils::Decrypt(charcrypt);
+        auto     charnorm  = CStringUtils::Decrypt(charcrypt);
         ATLASSERT(strcmp(charnorm.get(), "test") == 0);
 
         std::string encrypted = CStringUtils::Encrypt("test", "test");
@@ -845,6 +844,7 @@ public:
 
         ATLASSERT(CStringUtils::ValidateFormatString(L"%1!ld! %2!s!", 0, L"test") == true);
     }
+    // ReSharper disable once CppInconsistentNaming
 } StringUtilsTest;
 
 #endif

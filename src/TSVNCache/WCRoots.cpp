@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2010, 2014-2015 - TortoiseSVN
+// External Cache Copyright (C) 2010, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,28 +21,25 @@
 #include "WCRoots.h"
 #include "SVNAdminDir.h"
 
-
 #define DBTIMEOUT 10000
 
 CWCRoots::CWCRoots()
 {
-
 }
 
 CWCRoots::~CWCRoots()
 {
-
 }
 
-__int64 CWCRoots::GetDBFileTime( const CTSVNPath& path )
+__int64 CWCRoots::GetDBFileTime(const CTSVNPath& path)
 {
-    AutoLocker lock(m_critSec);
+    AutoLocker                                  lock(m_critSec);
     std::map<CTSVNPath, WCRootsTimes>::iterator it = m_WCDBs.lower_bound(path);
     if (it != m_WCDBs.end())
     {
         if (it->first.IsAncestorOf(path))
         {
-            ULONGLONG ticks = GetTickCount64();
+            auto ticks = GetTickCount64();
             if (ticks - it->second.LastTicks > DBTIMEOUT)
             {
                 // refresh the file time
@@ -52,8 +49,8 @@ __int64 CWCRoots::GetDBFileTime( const CTSVNPath& path )
                 {
                     WCRootsTimes dbTimes;
                     dbTimes.LastTicks = ticks;
-                    dbTimes.FileTime = wcDbFile.GetLastWriteTime();
-                    it->second = dbTimes;
+                    dbTimes.FileTime  = wcDbFile.GetLastWriteTime();
+                    it->second        = dbTimes;
                 }
                 else
                 {
@@ -80,11 +77,10 @@ __int64 CWCRoots::GetDBFileTime( const CTSVNPath& path )
     return 0;
 }
 
-
-std::map<CTSVNPath, WCRootsTimes>::iterator CWCRoots::AddPathInternal( const CTSVNPath& path )
+std::map<CTSVNPath, WCRootsTimes>::iterator CWCRoots::AddPathInternal(const CTSVNPath& path)
 {
     AutoLocker lock(m_critSec);
-    CTSVNPath p(path);
+    CTSVNPath  p(path);
     do
     {
         CTSVNPath dbPath(p);
@@ -95,7 +91,7 @@ std::map<CTSVNPath, WCRootsTimes>::iterator CWCRoots::AddPathInternal( const CTS
         {
             WCRootsTimes dbTimes;
             dbTimes.LastTicks = GetTickCount64();
-            dbTimes.FileTime = dbPath.GetLastWriteTime();
+            dbTimes.FileTime  = dbPath.GetLastWriteTime();
             return m_WCDBs.emplace(p, dbTimes).first;
         }
     } while (!p.IsEmpty());
@@ -103,16 +99,16 @@ std::map<CTSVNPath, WCRootsTimes>::iterator CWCRoots::AddPathInternal( const CTS
     return m_WCDBs.end();
 }
 
-bool CWCRoots::AddPath( const CTSVNPath& path )
+bool CWCRoots::AddPath(const CTSVNPath& path)
 {
     return AddPathInternal(path) != m_WCDBs.end();
 }
 
-bool CWCRoots::NotifyChange( const CTSVNPath& path )
+bool CWCRoots::NotifyChange(const CTSVNPath& path)
 {
     AutoLocker lock(m_critSec);
-    CTSVNPath p(path);
-    bool changed = true;
+    CTSVNPath  p(path);
+    bool       changed = true;
     while (p.IsAdminDir())
     {
         p = p.GetContainingDirectory();
@@ -129,9 +125,9 @@ bool CWCRoots::NotifyChange( const CTSVNPath& path )
             {
                 WCRootsTimes dbTimes;
                 dbTimes.LastTicks = GetTickCount64();
-                dbTimes.FileTime = wcDbFile.GetLastWriteTime();
-                changed = (dbTimes.FileTime != it->second.FileTime);
-                it->second = dbTimes;
+                dbTimes.FileTime  = wcDbFile.GetLastWriteTime();
+                changed           = (dbTimes.FileTime != it->second.FileTime);
+                it->second        = dbTimes;
             }
             else
             {

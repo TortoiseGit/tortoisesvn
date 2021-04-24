@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2010, 2014-2015, 2017, 2020 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010, 2014-2015, 2017, 2020-2021 - TortoiseSVN
 // Copyright (C) 2017 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -27,21 +27,21 @@ CSysImageList* CSysImageList::instance = nullptr;
 
 CSysImageList::CSysImageList()
 {
-    SHFILEINFO ssfi;
-    TCHAR windir[MAX_PATH] = { 0 };
-    GetWindowsDirectory(windir, _countof(windir));  // MAX_PATH ok.
+    SHFILEINFO ssFi;
+    TCHAR      winDir[MAX_PATH] = {0};
+    GetWindowsDirectory(winDir, _countof(winDir)); // MAX_PATH ok.
     hSystemImageList =
-        (HIMAGELIST)SHGetFileInfo(windir,
-                                  0,
-                                  &ssfi, sizeof ssfi,
-                                  SHGFI_SYSICONINDEX | SHGFI_SMALLICON);
+        reinterpret_cast<HIMAGELIST>(SHGetFileInfo(winDir,
+                                                   0,
+                                                   &ssFi, sizeof ssFi,
+                                                   SHGFI_SYSICONINDEX | SHGFI_SMALLICON));
 
     int cx, cy;
     ImageList_GetIconSize(hSystemImageList, &cx, &cy);
     auto emptyImageList = ImageList_Create(cx, cy, ILC_COLOR32 | ILC_MASK | ILC_HIGHQUALITYSCALE, ImageList_GetImageCount(hSystemImageList), 10);
     Attach(emptyImageList);
 
-    m_dirIconIndex = GetFileIcon(L"Doesn't matter", FILE_ATTRIBUTE_DIRECTORY, 0);
+    m_dirIconIndex     = GetFileIcon(L"Doesn't matter", FILE_ATTRIBUTE_DIRECTORY, 0);
     m_dirOpenIconIndex = GetFileIcon(L"Doesn't matter", FILE_ATTRIBUTE_DIRECTORY, SHGFI_OPENICON);
     m_defaultIconIndex = GetFileIcon(L"", FILE_ATTRIBUTE_NORMAL, 0);
 }
@@ -67,22 +67,22 @@ void CSysImageList::Cleanup()
 
 // Operations
 
-int CSysImageList::AddIcon(const HICON hIcon)
+int CSysImageList::AddIcon(HICON hIcon)
 {
     return this->Add(hIcon);
 }
 
-int CSysImageList::GetDirIconIndex()
+int CSysImageList::GetDirIconIndex() const
 {
     return m_dirIconIndex;
 }
 
-int CSysImageList::GetDirOpenIconIndex()
+int CSysImageList::GetDirOpenIconIndex() const
 {
     return m_dirOpenIconIndex;
 }
 
-int CSysImageList::GetDefaultIconIndex()
+int CSysImageList::GetDefaultIconIndex() const
 {
     return m_defaultIconIndex;
 }
@@ -101,13 +101,13 @@ int CSysImageList::GetPathIconIndex(const CTSVNPath& filePath)
     {
         // We don't have this extension in the map
         int iconIndex = GetFileIconIndex(filePath.GetFilename());
-        it = m_indexCache.emplace_hint(it, strExtension, iconIndex);
+        it            = m_indexCache.emplace_hint(it, strExtension, iconIndex);
     }
     // We must have found it
     return it->second;
 }
 
-int CSysImageList::GetPathIconIndex(const CString & file)
+int CSysImageList::GetPathIconIndex(const CString& file)
 {
     CString strExtension = file.Mid(file.ReverseFind('.') + 1);
     strExtension.MakeUpper();
@@ -116,7 +116,7 @@ int CSysImageList::GetPathIconIndex(const CString & file)
     {
         // We don't have this extension in the map
         int iconIndex = GetFileIconIndex(file);
-        it = m_indexCache.emplace_hint(it, strExtension, iconIndex);
+        it            = m_indexCache.emplace_hint(it, strExtension, iconIndex);
     }
     // We must have found it
     return it->second;
@@ -124,7 +124,7 @@ int CSysImageList::GetPathIconIndex(const CString & file)
 
 int CSysImageList::GetFileIcon(LPCTSTR file, DWORD attributes, UINT extraFlags)
 {
-    SHFILEINFO sfi = {0};
+    SHFILEINFO sfi = {nullptr};
     SHGetFileInfo(file,
                   attributes,
                   &sfi, sizeof sfi,

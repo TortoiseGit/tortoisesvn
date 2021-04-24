@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2010, 2012, 2014-2015 - TortoiseSVN
 
@@ -21,6 +21,7 @@
 #include "Guids.h"
 #include "ShellExtClassFactory.h"
 #include "ShellObjects.h"
+#include "SVNAdminDir.h"
 #include "svn_dso.h"
 
 

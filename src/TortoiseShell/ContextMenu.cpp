@@ -23,6 +23,7 @@
 #include "UnicodeUtils.h"
 #include "SVNProperties.h"
 #include "SVNStatus.h"
+#include "SVNAdminDir.h"
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
 #include "PathUtils.h"

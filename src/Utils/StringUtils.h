@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2013-2014, 2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2010, 2013-2014, 2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,15 +17,17 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-
+// ReSharper disable once CppUnusedIncludeDirective
 #include <atlstr.h>
 #include <memory>
 #include <string>
 
 #ifdef UNICODE
-#define _tcswildcmp wcswildcmp
+// ReSharper disable once CppInconsistentNaming
+#    define _tcswildcmp wcswildcmp
 #else
-#define _tcswildcmp strwildcmp
+// ReSharper disable once CppInconsistentNaming
+#    define _tcswildcmp strwildcmp
 #endif
 
 /**
@@ -51,15 +53,15 @@
  * not found
  * \endcode
  */
-int strwildcmp(const char * wild, const char * string);
-int wcswildcmp(const wchar_t * wild, const wchar_t * string);
+int strwildcmp(const char* wild, const char* string);
+int wcswildcmp(const wchar_t* wild, const wchar_t* string);
 
 template <typename Container>
-void stringtok(Container &container, const std::wstring  &in, bool trim,
-               const wchar_t * const delimiters = L"|", bool append = false)
+void stringtok(Container& container, const std::wstring& in, bool trim,
+               const wchar_t* const delimiters = L"|", bool append = false)
 {
     const std::string::size_type len = in.length();
-    std::string::size_type i = 0;
+    std::string::size_type       i   = 0;
     if (!append)
         container.clear();
 
@@ -70,7 +72,7 @@ void stringtok(Container &container, const std::wstring  &in, bool trim,
             // eat leading whitespace
             i = in.find_first_not_of(delimiters, i);
             if (i == std::string::npos)
-                return;   // nothing left but white space
+                return; // nothing left but white space
         }
 
         // find the end of the token
@@ -91,11 +93,11 @@ void stringtok(Container &container, const std::wstring  &in, bool trim,
 }
 
 template <typename Container>
-void stringtok(Container &container, const std::string  &in, bool trim,
-               const char * const delimiters = "|", bool append = false)
+void stringtok(Container& container, const std::string& in, bool trim,
+               const char* const delimiters = "|", bool append = false)
 {
     const std::string::size_type len = in.length();
-    std::string::size_type i = 0;
+    std::string::size_type       i   = 0;
     if (!append)
         container.clear();
 
@@ -106,7 +108,7 @@ void stringtok(Container &container, const std::string  &in, bool trim,
             // eat leading whitespace
             i = in.find_first_not_of(delimiters, i);
             if (i == std::string::npos)
-                return;   // nothing left but white space
+                return; // nothing left but white space
         }
 
         // find the end of the token
@@ -143,17 +145,17 @@ public:
     /**
      * Writes an ASCII CString to the clipboard in CF_TEXT format
      */
-    static bool WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID lcid, HWND hOwningWnd = NULL);
+    static bool WriteAsciiStringToClipboard(const CStringA& sClipdata, LCID lcid, HWND hOwningWnd = nullptr);
     /**
      * Writes a String to the clipboard in both CF_UNICODETEXT and CF_TEXT format
      */
-    static bool WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND hOwningWnd = NULL);
+    static bool WriteAsciiStringToClipboard(const CStringW& sClipdata, HWND hOwningWnd = nullptr);
 
     /**
     * Writes an ASCII CString to the clipboard in TSVN_UNIFIEDDIFF format, which is basically the patch file
     * as a ASCII string.
     */
-    static bool WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningWnd = NULL);
+    static bool WriteDiffToClipboard(const CStringA& sClipdata, HWND hOwningWnd = nullptr);
 
     /**
      * Reads the string \text from the file \path in utf8 encoding.
@@ -162,19 +164,19 @@ public:
 
 #endif
 #if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
-    static BOOL WildCardMatch(const CString& wildcard, const CString& string);
+    static BOOL    WildCardMatch(const CString& wildcard, const CString& string);
     static CString LinesWrap(const CString& longstring, int limit = 80, bool bCompactPaths = false, bool bForceWrap = false, int tabSize = 4);
     static CString WordWrap(const CString& longstring, int limit, bool bCompactPaths, bool bForceWrap, int tabSize);
     /**
      * Find and return the number n of starting characters equal between
      * \ref lhs and \ref rhs. (max n: lhs.Left(n) == rhs.Left(n))
      */
-    static int GetMatchingLength (const CString& lhs, const CString& rhs);
+    static int GetMatchingLength(const CString& lhs, const CString& rhs);
 
     /**
      * Optimizing wrapper around CompareNoCase.
      */
-    static int FastCompareNoCase (const CStringW& lhs, const CStringW& rhs);
+    static int FastCompareNoCase(const CStringW& lhs, const CStringW& rhs);
 
     /**
      * Writes the string \text to the file \path, either in utf16 or utf8 encoding,
@@ -195,15 +197,13 @@ public:
     static void PipesToNulls(TCHAR* buffer, size_t length);
     static void PipesToNulls(TCHAR* buffer);
 
+    static std::unique_ptr<char[]>    Decrypt(const char* text);
+    static CStringA                   Encrypt(const char* text);
+    static std::unique_ptr<wchar_t[]> Decrypt(const wchar_t* text);
+    static CStringW                   Encrypt(const wchar_t* text);
 
-    static std::unique_ptr<char[]>      Decrypt(const char * text);
-    static CStringA                     Encrypt(const char * text);
-    static std::unique_ptr<wchar_t[]>   Decrypt(const wchar_t * text);
-    static CStringW                     Encrypt(const wchar_t * text);
-
-    static std::string                  Encrypt(const std::string& s, const std::string& password);
-    static std::string                  Decrypt(const std::string& s, const std::string& password);
-    static std::string                  ToHexString(BYTE* pSrc, int nSrcLen);
-    static bool                         FromHexString(const std::string& src, BYTE* pDest);
+    static std::string Encrypt(const std::string& s, const std::string& password);
+    static std::string Decrypt(const std::string& s, const std::string& password);
+    static std::string ToHexString(BYTE* pSrc, int nSrcLen);
+    static bool        FromHexString(const std::string& src, BYTE* pDest);
 };
-

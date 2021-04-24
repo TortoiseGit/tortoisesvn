@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2011-2013 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2011-2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,8 +19,6 @@
 #pragma once
 
 #include <string>
-#include "tstring.h"
-
 
 /**
  * \ingroup Utils
@@ -29,22 +27,22 @@
 class CUnicodeUtils
 {
 public:
-    CUnicodeUtils(void);
-    ~CUnicodeUtils(void);
+    CUnicodeUtils();
+    ~CUnicodeUtils();
 
     // conversion from / to MFC strings
 
 #if defined(_MFC_VER) || defined(CSTRING_AVAILABLE)
     static CStringA GetUTF8(const CStringW& string);
-    static CString GetUnicode(const CStringA& string);
-    static CString UTF8ToUTF16 (const std::string& string);
+    static CString  GetUnicode(const CStringA& string);
+    static CString  UTF8ToUTF16(const std::string& string);
 #endif
 
     // conversion from / to STL strings
 
-    static std::string StdGetUTF8(const std::wstring& wide);
+    static std::string  StdGetUTF8(const std::wstring& wide);
     static std::wstring StdGetUnicode(const std::string& utf8);
-    static std::string StdAnsiToUTF8(const std::string& ansi);
+    static std::string  StdAnsiToUTF8(const std::string& ansi);
 };
 
 // resource handling utility

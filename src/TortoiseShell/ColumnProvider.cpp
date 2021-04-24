@@ -59,12 +59,12 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
     switch (dwIndex)
     {
         case 0: // SVN Status
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             GetColumnInfo(psci, dwIndex, 15, IDS_COLTITLESTATUS, IDS_COLDESCSTATUS);
             break;
         case 1: // SVN Revision
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
             psci->scid.pid = dwIndex;
@@ -79,17 +79,17 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
             StringCchCopy(psci->wszDescription, _countof(psci->wszDescription), stringtablebuffer);
             break;
         case 2: // SVN Url
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEURL, IDS_COLDESCURL);
             break;
         case 3: // SVN Short Url
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLESHORTURL, IDS_COLDESCSHORTURL);
             break;
         case 4: // Author
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             psci->scid.fmtid = FMTID_SummaryInformation;    // predefined FMTID
             psci->scid.pid   = PIDSI_AUTHOR;                // Predefined - author
@@ -99,27 +99,27 @@ STDMETHODIMP CShellExt::GetColumnInfo(DWORD dwIndex, SHCOLUMNINFO *psci)
             psci->cChars     = 32;                          // Default col width in chars
             break;
         case 5: // SVN mime-type
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEMIMETYPE, IDS_COLDESCMIMETYPE);
             break;
         case 6: // SVN Lock Owner
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEOWNER, IDS_COLDESCOWNER);
             break;
         case 7: // SVN eol-style
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEEOLSTYLE, IDS_COLDESCEOLSTYLE);
             break;
         case 8: // SVN Author
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             GetColumnInfo(psci, dwIndex, 30, IDS_COLTITLEAUTHOR, IDS_COLDESCAUTHOR);
             break;
         case 9: // SVN Status
-            if (cachetype == ShellCache::none)
+            if (cachetype == ShellCache::None)
                 return S_FALSE;
             psci->scid.fmtid = CLSID_TortoiseSVN_UPTODATE;
             psci->scid.pid = dwIndex;
@@ -212,7 +212,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
                 szInfo = itemshorturl;
                 break;
             case 5: // SVN mime-type
-                if (cachetype == ShellCache::none)
+                if (cachetype == ShellCache::None)
                     return S_FALSE;
                 if (g_ShellCache.IsPathAllowed(path))
                     ExtractProperty(path, SVN_PROP_MIME_TYPE, szInfo);
@@ -222,7 +222,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
                 szInfo = owner;
                 break;
             case 7: // SVN eol-style
-                if (cachetype == ShellCache::none)
+                if (cachetype == ShellCache::None)
                     return S_FALSE;
                 if (g_ShellCache.IsPathAllowed(path))
                     ExtractProperty(path, SVN_PROP_EOL_STYLE, szInfo);
@@ -243,7 +243,7 @@ STDMETHODIMP CShellExt::GetItemData(LPCSHCOLUMNID pscid, LPCSHCOLUMNDATA pscd, V
     }
     if ((pscid->fmtid == FMTID_SummaryInformation)||(pscid->pid == 8))
     {
-        if (cachetype == ShellCache::none)
+        if (cachetype == ShellCache::None)
             return S_FALSE;
 
         tstring szInfo;
@@ -301,7 +301,7 @@ STDMETHODIMP CShellExt::Initialize(LPCSHCOLUMNINIT psci)
     extracolumnfilepath.clear();
 
     // load SVN custom properties of the folder
-    if(g_ShellCache.GetCacheType() != ShellCache::none && path != columnfolder)
+    if(g_ShellCache.GetCacheType() != ShellCache::None && path != columnfolder)
     {
         columnfolder = path;
         columnuserprops.clear();
@@ -447,14 +447,14 @@ void CShellExt::GetExtraColumnStatus(const TCHAR * path, BOOL bIsDir)
     CTSVNPath tsvnPath (path);
     switch (cacheType)
     {
-    case ShellCache::exe:
+    case ShellCache::Exe:
         {
             TSVNCacheResponse itemStatus;
             if (m_remoteCacheLink.GetStatusFromRemoteCache(tsvnPath, &itemStatus, true))
                 status = m_CachedStatus.GetFullStatus(tsvnPath, bIsDir, TRUE);
         }
         break;
-    case ShellCache::dll:
+    case ShellCache::Dll:
         {
             status = m_CachedStatus.GetFullStatus(tsvnPath, bIsDir, TRUE);
         }
@@ -479,14 +479,14 @@ void CShellExt::GetMainColumnStatus(const TCHAR * path, BOOL bIsDir)
     filestatus = svn_wc_status_none;
     switch (cacheType)
     {
-    case ShellCache::exe:
+    case ShellCache::Exe:
         {
             TSVNCacheResponse itemStatus;
             if (m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(path), &itemStatus, true))
-                filestatus = (svn_wc_status_kind)itemStatus.m_Status;
+                filestatus = (svn_wc_status_kind)itemStatus.m_status;
         }
         break;
-    case ShellCache::dll:
+    case ShellCache::Dll:
         {
             const FileStatusCacheEntry * status
                 = m_CachedStatus.GetFullStatus(CTSVNPath(path), bIsDir, TRUE);
@@ -496,7 +496,7 @@ void CShellExt::GetMainColumnStatus(const TCHAR * path, BOOL bIsDir)
         }
         break;
     default:
-    case ShellCache::none:
+    case ShellCache::None:
         {
             if (g_ShellCache.IsVersioned(path, !!bIsDir, true))
                 filestatus = svn_wc_status_normal;

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2014, 2018-2020 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2014, 2018-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,7 @@
 #include <string>
 #if defined(_MFC_VER)
 // CSTRING is always available in an MFC build
-#define CSTRING_AVAILABLE
+#    define CSTRING_AVAILABLE
 #endif
 
 /**
@@ -30,19 +30,19 @@
 class CPathUtils
 {
 public:
-    static BOOL         MakeSureDirectoryPathExists(LPCTSTR path);
-    static void         ConvertToBackslash(LPTSTR dest, LPCTSTR src, size_t len);
+    static BOOL MakeSureDirectoryPathExists(LPCWSTR path);
+    static void ConvertToBackslash(LPTSTR dest, LPCWSTR src, size_t len);
 
     /**
      * Returns false if calling \ref Unescape is not necessary.
      */
-    static bool ContainsEscapedChars(const char * psz, size_t length);
+    static bool ContainsEscapedChars(const char* psz, size_t length);
 
     /**
      * Replaces escaped sequences with the corresponding characters in a string.
      * \return Position of the terminating \0 char.
      */
-    static char* Unescape(char * psz);
+    static char* Unescape(char* psz);
 
     /**
      * Returns the long pathname of a path which may be in 8.3 format.
@@ -52,10 +52,10 @@ public:
 
     /**
      * Returns the version string from the VERSION resource of a dll or exe.
-     * \param p_strFilename path to the dll or exe
+     * \param pStrFilename path to the dll or exe
      * \return the version string
      */
-    static std::wstring GetVersionFromFile(LPCWSTR p_strFilename);
+    static std::wstring GetVersionFromFile(LPCWSTR pStrFilename);
 
 #ifdef CSTRING_AVAILABLE
     /**
@@ -97,10 +97,7 @@ public:
      * repository or path-relative URLs will be expanded.
      * Returns an empty string upon errors.
      */
-    static CStringA GetAbsoluteURL
-        ( const CStringA& URL
-        , const CStringA& repositoryRootURL
-        , const CStringA& parentPathURL);
+    static CStringA GetAbsoluteURL(const CStringA& URL, const CStringA& repositoryRootURL, const CStringA& parentPathURL);
 
     /**
      * Copies a file or a folder from \a srcPath to \a destpath, creating
@@ -132,7 +129,7 @@ public:
     static CStringA PathUnescape(const CStringA& path);
     static CStringW PathUnescape(const CStringW& path);
 
-    static CString PathUnescape (const char* path);
+    static CString PathUnescape(const char* path);
 
     /**
     * Escapes regexp-specific chars.

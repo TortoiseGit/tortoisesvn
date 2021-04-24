@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2007,2009-2012, 2014-2015 - TortoiseSVN
+// External Cache Copyright (C) 2007,2009-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,30 +39,30 @@ CString GetCacheMutexName()
 
 CString GetCacheID()
 {
-    CString t;
+    CString            t;
     CAutoGeneralHandle token;
-    BOOL result = OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, token.GetPointer());
-    if(result)
+    BOOL               result = OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, token.GetPointer());
+    if (result)
     {
         DWORD len = 0;
-        GetTokenInformation(token, TokenStatistics, NULL, 0, &len);
-        if (len >= sizeof (TOKEN_STATISTICS))
+        GetTokenInformation(token, TokenStatistics, nullptr, 0, &len);
+        if (len >= sizeof(TOKEN_STATISTICS))
         {
             auto data = std::make_unique<BYTE[]>(len);
             GetTokenInformation(token, TokenStatistics, data.get(), len, &len);
-            LUID uid = ((PTOKEN_STATISTICS)data.get())->AuthenticationId;
-            t.Format(L"-%08x%08x", uid.HighPart, uid.LowPart);
+            auto [LowPart, HighPart] = reinterpret_cast<PTOKEN_STATISTICS>(data.get())->AuthenticationId;
+            t.Format(L"-%08x%08x", HighPart, LowPart);
         }
     }
     return t;
 }
 
-bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
+bool SendCacheCommand(BYTE command, const WCHAR* path /* = NULL */)
 {
     CAutoFile hPipe;
-    CString pipeName = GetCacheCommandPipeName();
+    CString   pipeName = GetCacheCommandPipeName();
 
-    for(int retry = 0; retry < 2; retry++)
+    for (int retry = 0; retry < 2; retry++)
     {
         if (retry > 0)
         {
@@ -70,14 +70,14 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
         }
 
         hPipe = CreateFile(
-            pipeName,                       // pipe name
-            GENERIC_READ |                  // read and write access
-            GENERIC_WRITE,
-            0,                              // no sharing
-            NULL,                           // default security attributes
-            OPEN_EXISTING,                  // opens existing pipe
-            FILE_FLAG_OVERLAPPED,           // default attributes
-            NULL);                          // no template file
+            pipeName,      // pipe name
+            GENERIC_READ | // read and write access
+                GENERIC_WRITE,
+            0,                    // no sharing
+            nullptr,              // default security attributes
+            OPEN_EXISTING,        // opens existing pipe
+            FILE_FLAG_OVERLAPPED, // default attributes
+            nullptr);             // no template file
         if (hPipe)
             break;
 
@@ -103,14 +103,14 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
     // The pipe connected; change to message-read mode.
     DWORD dwMode = PIPE_READMODE_MESSAGE;
     if (SetNamedPipeHandleState(
-        hPipe,    // pipe handle
-        &dwMode,  // new pipe mode
-        NULL,     // don't set maximum bytes
-        NULL))    // don't set maximum time
+            hPipe,    // pipe handle
+            &dwMode,  // new pipe mode
+            nullptr,  // don't set maximum bytes
+            nullptr)) // don't set maximum time
     {
-        DWORD cbWritten;
+        DWORD            cbWritten;
         TSVNCacheCommand cmd = {0};
-        cmd.command = command;
+        cmd.command          = command;
         if (path)
             wcsncpy_s(cmd.path, path, _TRUNCATE);
 
@@ -121,17 +121,17 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
                 Sleep(10);
 
             fSuccess = WriteFile(
-                hPipe,          // handle to pipe
-                &cmd,           // buffer to write from
-                sizeof(cmd),    // number of bytes to write
-                &cbWritten,     // number of bytes written
-                NULL);          // not overlapped I/O
+                hPipe,       // handle to pipe
+                &cmd,        // buffer to write from
+                sizeof(cmd), // number of bytes to write
+                &cbWritten,  // number of bytes written
+                nullptr);    // not overlapped I/O
 
             if (fSuccess && sizeof(cmd) == cbWritten)
                 break;
         }
 
-        if (! fSuccess || sizeof(cmd) != cbWritten)
+        if (!fSuccess || sizeof(cmd) != cbWritten)
         {
             CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Could not write to pipe\n");
             DisconnectNamedPipe(hPipe);
@@ -141,11 +141,11 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
         SecureZeroMemory(&cmd, sizeof(TSVNCacheCommand));
         cmd.command = TSVNCACHECOMMAND_END;
         WriteFile(
-            hPipe,          // handle to pipe
-            &cmd,           // buffer to write from
-            sizeof(cmd),    // number of bytes to write
-            &cbWritten,     // number of bytes written
-            NULL);          // not overlapped I/O
+            hPipe,       // handle to pipe
+            &cmd,        // buffer to write from
+            sizeof(cmd), // number of bytes to write
+            &cbWritten,  // number of bytes written
+            nullptr);    // not overlapped I/O
         DisconnectNamedPipe(hPipe);
     }
     else
@@ -157,7 +157,7 @@ bool SendCacheCommand(BYTE command, const WCHAR * path /* = NULL */)
     return true;
 }
 
-CBlockCacheForPath::CBlockCacheForPath(const WCHAR * aPath)
+CBlockCacheForPath::CBlockCacheForPath(const WCHAR* aPath)
     : m_bBlocked(false)
 {
     wcsncpy_s(path, aPath, MAX_PATH - 1);

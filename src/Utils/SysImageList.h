@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2015, 2017 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2015, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,21 +52,20 @@ public:
      */
     static void Cleanup();
 
-// Operations
+    // Operations
 public:
-
     /**
      * Returns the icon index for a directory.
      */
-    int GetDirIconIndex();
+    int GetDirIconIndex() const;
     /**
      * Returns the icon index for a directory that's open (e.g. for a tree control)
      */
-    int GetDirOpenIconIndex();
+    int GetDirOpenIconIndex() const;
     /**
      * Returns the icon index for a file which has no special icon associated.
      */
-    int GetDefaultIconIndex();
+    int GetDefaultIconIndex() const;
     /**
      * Get the index for a SVN-style path file.
      * Uses a cache to speed things up
@@ -78,7 +77,7 @@ public:
      * Adds an icon to the image list and returns the index of the
      * added icon (or -1 if adding the icon fails)
      */
-    int AddIcon(const HICON hIcon);
+    int AddIcon(HICON hIcon);
 
 private:
     /**
@@ -88,19 +87,18 @@ private:
     int GetFileIconIndex(const CString& file);
     int GetFileIcon(LPCTSTR file, DWORD attributes, UINT extraFlags);
 
+    static CSysImageList* instance;
 
-    static CSysImageList *instance;
-
-    HIMAGELIST hSystemImageList;
+    HIMAGELIST                     hSystemImageList;
     mutable std::map<CString, int> m_indexCache;
-    int m_dirIconIndex;
-    int m_dirOpenIconIndex;
-    int m_defaultIconIndex;
+    int                            m_dirIconIndex;
+    int                            m_dirOpenIconIndex;
+    int                            m_defaultIconIndex;
 };
-
 
 /**
  * \relates CSysImageList
  * Singleton access for CSysImageList.
  */
+// ReSharper disable once CppInconsistentNaming
 inline CSysImageList& SYS_IMAGE_LIST() { return CSysImageList::GetInstance(); }

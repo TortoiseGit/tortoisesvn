@@ -49,7 +49,7 @@ SVNPool::operator apr_pool_t*() const
 
 // The time is not yet right for this base class, but I'm thinking about it...
 
-SVNHelper::SVNHelper(void)
+SVNHelper::SVNHelper()
     : m_ctx(nullptr)
     , m_bCancelled(false)
 {
@@ -62,7 +62,7 @@ SVNHelper::SVNHelper(void)
     m_ctx->client_name  = SVNHelper::GetUserAgentString(m_pool);
 }
 
-SVNHelper::~SVNHelper(void)
+SVNHelper::~SVNHelper()
 {
     svn_pool_destroy(m_pool);
 }

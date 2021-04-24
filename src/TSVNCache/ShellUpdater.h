@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2006, 2016 - TortoiseSVN
+// Copyright (C) 2005-2006, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 
 #include "TSVNPath.h"
 #include "SmartHandle.h"
+#include <deque>
 
 /**
  * \ingroup TSVNCache
@@ -29,8 +30,8 @@
 class CShellUpdater
 {
 public:
-    CShellUpdater(void);
-    ~CShellUpdater(void);
+    CShellUpdater();
+    ~CShellUpdater();
 
 public:
     void Initialise();
@@ -43,13 +44,11 @@ private:
 
 private:
     CComAutoCriticalSection m_critSec;
-    CAutoGeneralHandle m_hThread;
-    std::deque<CTSVNPath> m_pathsToUpdate;
-    CAutoGeneralHandle m_hTerminationEvent;
-    CAutoGeneralHandle m_hWakeEvent;
+    CAutoGeneralHandle      m_hThread;
+    std::deque<CTSVNPath>   m_pathsToUpdate;
+    CAutoGeneralHandle      m_hTerminationEvent;
+    CAutoGeneralHandle      m_hWakeEvent;
 
     volatile LONG m_bItemsAddedSinceLastUpdate;
     volatile LONG m_bRunning;
 };
-
-

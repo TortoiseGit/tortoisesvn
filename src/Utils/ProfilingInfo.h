@@ -1,8 +1,8 @@
-#pragma once
+﻿#pragma once
 
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011, 2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,25 +23,27 @@
 // required includes
 //////////////////////////////////////////////////////////////////////
 
+// ReSharper disable CppUnusedIncludeDirective
+
 #ifndef _DEBUG
-#ifndef __INTRIN_H_
-#include <intrin.h>
-#endif
+#    ifndef __INTRIN_H_
+#        include <intrin.h>
+#    endif
 #endif
 
 #ifndef _PSAPI_H_
-#include <psapi.h>
+#    include <psapi.h>
 #endif
 
 #ifndef _STRING_
-#include <string>
+#    include <string>
 #endif
 
 #ifndef _VECTOR_
-#include <vector>
+#    include <vector>
 #endif
 
-#pragma comment (lib, "psapi.lib")
+#pragma comment(lib, "psapi.lib")
 
 /**
 * Collects the profiling info for a given profiled block / line.
@@ -54,12 +56,13 @@ class CProfilingRecord
 public:
     /// collected profiling info
 
-    struct CSpent {
+    struct CSpent
+    {
         unsigned __int64 sum;
         unsigned __int64 minValue;
         unsigned __int64 maxValue;
 
-        void Add(unsigned __int64  value)
+        void Add(unsigned __int64 value)
         {
             sum += value;
 
@@ -69,15 +72,15 @@ public:
                 maxValue = value;
         }
         /// First value add
-        void Init(unsigned __int64  value)
+        void Init(unsigned __int64 value)
         {
-            sum = value;
+            sum      = value;
             minValue = value;
             maxValue = value;
         }
         void Init()
         {
-            sum = 0;
+            sum      = 0;
             minValue = ULLONG_MAX; /* -1 */
             maxValue = 0;
         }
@@ -85,17 +88,11 @@ public:
 
     /// construction
 
-    CProfilingRecord ( const char* name
-                     , const char* file
-                     , int line);
+    CProfilingRecord(const char* name, const char* file, int line);
 
     /// record values
 
-    void Add ( unsigned __int64 valueRdtsc
-             , unsigned __int64 valueWall
-             , unsigned __int64 valueUser
-             , unsigned __int64 valueKernel
-             );
+    void Add(unsigned __int64 valueRdtsc, unsigned __int64 valueWall, unsigned __int64 valueUser, unsigned __int64 valueKernel);
 
     /// modification
 
@@ -103,24 +100,22 @@ public:
 
     /// data access
 
-    const char* GetName() const {return name;}
-    const char* GetFile() const {return file;}
-    int GetLine() const {return line;}
+    const char* GetName() const { return name; }
+    const char* GetFile() const { return file; }
+    int         GetLine() const { return line; }
 
-    size_t GetCount() const {return count;}
-    const CSpent & Get() const {return m_rdtsc; }
-    const CSpent & GetU() const {return m_user; }
-    const CSpent & GetK() const {return m_kernel; }
-    const CSpent & GetW() const {return m_wall; }
-
+    size_t        GetCount() const { return count; }
+    const CSpent& Get() const { return m_rdtsc; }
+    const CSpent& GetU() const { return m_user; }
+    const CSpent& GetK() const { return m_kernel; }
+    const CSpent& GetW() const { return m_wall; }
 
 private:
-
     /// identification
 
     const char* name;
     const char* file;
-    int line;
+    int         line;
 
     CSpent m_rdtsc, m_user, m_kernel, m_wall;
     size_t count;
@@ -134,23 +129,21 @@ private:
 class CRecordProfileEvent
 {
 private:
-
     CProfilingRecord* record;
 
     /// the initial counter values
     unsigned __int64 m_rdtscStart;
-    FILETIME m_kernelStart;
-    FILETIME m_userStart;
-    FILETIME m_wallStart;
+    FILETIME         m_kernelStart;
+    FILETIME         m_userStart;
+    FILETIME         m_wallStart;
 
     /// Temp object for parameters we don't care, but can't be NULL
     static FILETIME ftTemp;
 
 public:
-
     /// construction: start clock
 
-    CRecordProfileEvent (CProfilingRecord* aRecord);
+    CRecordProfileEvent(CProfilingRecord* aRecord);
 
     /// destruction: time interval to profiling record,
     /// if Stop() had not been called before
@@ -164,8 +157,8 @@ public:
 
 /// construction / destruction
 
-inline CRecordProfileEvent::CRecordProfileEvent (CProfilingRecord* aRecord)
-    : record (aRecord)
+inline CRecordProfileEvent::CRecordProfileEvent(CProfilingRecord* aRecord)
+    : record(aRecord)
 {
     // less precise first
     SYSTEMTIME st;
@@ -184,7 +177,7 @@ inline CRecordProfileEvent::~CRecordProfileEvent()
 
 UINT64 inline DiffFiletime(FILETIME time1, FILETIME time2)
 {
-    return *(UINT64 *)&time1 - *(UINT64 *)&time2;
+    return *reinterpret_cast<UINT64*>(&time1) - *reinterpret_cast<UINT64*>(&time2);
 }
 
 /// stop counting
@@ -204,11 +197,8 @@ inline void CRecordProfileEvent::Stop()
         FILETIME oTime;
         SystemTimeToFileTime(&st, &oTime);
 
-        record->Add (nTake
-                   , DiffFiletime(oTime, m_wallStart)
-                   , DiffFiletime(userEnd, m_userStart)
-                   , DiffFiletime(kernelEnd, m_kernelStart));
-        record = NULL;
+        record->Add(nTake, DiffFiletime(oTime, m_wallStart), DiffFiletime(userEnd, m_userStart), DiffFiletime(kernelEnd, m_kernelStart));
+        record = nullptr;
     }
 }
 
@@ -220,14 +210,13 @@ inline void CRecordProfileEvent::Stop()
 class CProfilingInfo
 {
 private:
-
     typedef std::vector<CProfilingRecord*> TRecords;
-    TRecords records;
+    TRecords                               records;
 
     /// construction / destruction
 
     CProfilingInfo();
-    ~CProfilingInfo(void);
+    ~CProfilingInfo();
 
     // prevent cloning
     CProfilingInfo(const CProfilingInfo&) = delete;
@@ -238,42 +227,36 @@ private:
     std::string GetReport() const;
 
 public:
-
     /// access to default instance
 
     static CProfilingInfo* GetInstance();
 
     /// add a new record
 
-    CProfilingRecord* Create ( const char* name
-                             , const char* file
-                             , int line);
+    CProfilingRecord* Create(const char* name, const char* file, int line);
 
     /// write the current results to disk
 
-    void DumpReport();
+    void DumpReport() const;
 };
 
 /**
 * Profiling macros
 */
 
-#define PROFILE_CONCAT( a, b )   PROFILE_CONCAT3( a, b )
-#define PROFILE_CONCAT3( a, b )  a##b
+#define PROFILE_CONCAT(a, b)  PROFILE_CONCAT3(a, b)
+#define PROFILE_CONCAT3(a, b) a##b
 
 /// measures the time from the point of usage to the end of the respective block
 
-#define PROFILE_BLOCK\
-    static CProfilingRecord* PROFILE_CONCAT(record,__LINE__) \
-        = CProfilingInfo::GetInstance()->Create(__FUNCTION__,__FILE__,__LINE__);\
-    CRecordProfileEvent PROFILE_CONCAT(profileSection,__LINE__) (PROFILE_CONCAT(record,__LINE__));
+#define PROFILE_BLOCK                                                                                                                    \
+    static CProfilingRecord* PROFILE_CONCAT(record, __LINE__) = CProfilingInfo::GetInstance()->Create(__FUNCTION__, __FILE__, __LINE__); \
+    CRecordProfileEvent      PROFILE_CONCAT(profileSection, __LINE__)(PROFILE_CONCAT(record, __LINE__));
 
 /// measures the time taken to execute the respective code line
 
-#define PROFILE_LINE(line)\
-    static CProfilingRecord* PROFILE_CONCAT(record,__LINE__) \
-        = CProfilingInfo::GetInstance()->Create(__FUNCTION__,__FILE__,__LINE__);\
-    CRecordProfileEvent PROFILE_CONCAT(profileSection,__LINE__) (PROFILE_CONCAT(record,__LINE__));\
-    line;\
-    PROFILE_CONCAT(profileSection,__LINE__).Stop();
-
+#define PROFILE_LINE(line)                                                                                                               \
+    static CProfilingRecord* PROFILE_CONCAT(record, __LINE__) = CProfilingInfo::GetInstance()->Create(__FUNCTION__, __FILE__, __LINE__); \
+    CRecordProfileEvent      PROFILE_CONCAT(profileSection, __LINE__)(PROFILE_CONCAT(record, __LINE__));                                 \
+    line;                                                                                                                                \
+    PROFILE_CONCAT(profileSection, __LINE__).Stop();

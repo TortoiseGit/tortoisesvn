@@ -1,8 +1,8 @@
-#pragma once
+﻿#pragma once
 
 // TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2014 - TortoiseSVN
+// Copyright (C) 2009, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -33,7 +33,6 @@
 class CSVNTrace
 {
 private:
-
     /// global instance counter
 
     static volatile LONG counter;
@@ -52,14 +51,13 @@ private:
     DWORD threadID;
 
 public:
-
     /// construction: write call description to ODS and start clock
 
-    CSVNTrace ( const wchar_t* name     ///< name of the calling function
-              , int lineNo              ///< line number in the same source file
-              , const wchar_t* line     ///< svn API call
-              , const char* svnPath = NULL  ///< usually the main parameter
-              );
+    CSVNTrace(const wchar_t* name,             ///< name of the calling function
+              int            lineNo,           ///< line number in the same source file
+              const wchar_t* line,             ///< svn API call
+              const char*    svnPath = nullptr ///< usually the main parameter
+    );
 
     /// destruction: call \ref Stop, if it has not been called, yet
 
@@ -74,15 +72,14 @@ public:
 * Tracing macros
 */
 
-#define SVNTRACE_CONCAT3( a, b )  a##b
-#define SVNTRACE_CONCAT2( a, b )  SVNTRACE_CONCAT3( a, b )
-#define SVNTRACE_CONCAT( a, b )   SVNTRACE_CONCAT2( a, b )
+#define SVNTRACE_CONCAT3(a, b) a##b
+#define SVNTRACE_CONCAT2(a, b) SVNTRACE_CONCAT3(a, b)
+#define SVNTRACE_CONCAT(a, b)  SVNTRACE_CONCAT2(a, b)
 
-#define SVNTRACE(line,path)\
-    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (_T(__FUNCTION__),__LINE__,_T(#line),path);\
-    line;\
-    SVNTRACE_CONCAT(__svnTrace,__LINE__).Stop();
+#define SVNTRACE(line, path)                                                                      \
+    CSVNTrace SVNTRACE_CONCAT(__svnTrace, __LINE__)(_T(__FUNCTION__), __LINE__, _T(#line), path); \
+    line;                                                                                         \
+    SVNTRACE_CONCAT(__svnTrace, __LINE__).Stop();
 
-#define SVNTRACE_BLOCK\
-    CSVNTrace SVNTRACE_CONCAT(__svnTrace,__LINE__) (_T(__FUNCTION__),__LINE__,L"<whole_block>",NULL);
-
+#define SVNTRACE_BLOCK \
+    CSVNTrace SVNTRACE_CONCAT(__svnTrace, __LINE__)(_T(__FUNCTION__), __LINE__, L"<whole_block>", NULL);

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2008, 2011-2012, 2014-2015 - TortoiseSVN
+// External Cache Copyright (C) 2005-2008, 2011-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,20 +19,21 @@
 
 #include "stdafx.h"
 #include "SVNStatusCache.h"
+#include "SVNAdminDir.h"
 #pragma warning(push)
-#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
+#pragma warning(disable : 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <shlobj.h>
 #pragma warning(pop)
 
-CShellUpdater::CShellUpdater(void)
+CShellUpdater::CShellUpdater()
 {
-    m_hWakeEvent = CreateEvent(NULL,FALSE,FALSE,NULL);
-    m_hTerminationEvent = CreateEvent(NULL,TRUE,FALSE,NULL);
-    m_bRunning = FALSE;
+    m_hWakeEvent                 = CreateEvent(nullptr, FALSE, FALSE, nullptr);
+    m_hTerminationEvent          = CreateEvent(nullptr, TRUE, FALSE, nullptr);
+    m_bRunning                   = FALSE;
     m_bItemsAddedSinceLastUpdate = FALSE;
 }
 
-CShellUpdater::~CShellUpdater(void)
+CShellUpdater::~CShellUpdater()
 {
     Stop();
 }
@@ -43,7 +44,7 @@ void CShellUpdater::Stop()
     if (m_hTerminationEvent)
     {
         SetEvent(m_hTerminationEvent);
-        if(WaitForSingleObject(m_hThread, 200) != WAIT_OBJECT_0)
+        if (WaitForSingleObject(m_hThread, 200) != WAIT_OBJECT_0)
         {
             CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Error terminating shell updater thread\n");
         }
@@ -65,7 +66,7 @@ void CShellUpdater::Initialise()
 
     InterlockedExchange(&m_bRunning, TRUE);
     unsigned int threadId = 0;
-    m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
+    m_hThread             = reinterpret_cast<HANDLE>(_beginthreadex(nullptr, 0, ThreadEntry, this, 0, &threadId));
     SetThreadPriority(m_hThread, THREAD_PRIORITY_LOWEST);
 }
 
@@ -83,11 +84,10 @@ void CShellUpdater::AddPathForUpdate(const CTSVNPath& path)
     SetEvent(m_hWakeEvent);
 }
 
-
 unsigned int CShellUpdater::ThreadEntry(void* pContext)
 {
-    CCrashReportThread crashthread;
-    ((CShellUpdater*)pContext)->WorkerThread();
+    CCrashReportThread crashThread;
+    static_cast<CShellUpdater*>(pContext)->WorkerThread();
     return 0;
 }
 
@@ -97,21 +97,21 @@ void CShellUpdater::WorkerThread()
     hWaitHandles[0] = m_hTerminationEvent;
     hWaitHandles[1] = m_hWakeEvent;
 
-    for(;;)
+    for (;;)
     {
         DWORD waitResult = WaitForMultipleObjects(_countof(hWaitHandles), hWaitHandles, FALSE, INFINITE);
 
         // exit event/working loop if the first event (m_hTerminationEvent)
         // has been signaled or if one of the events has been abandoned
         // (i.e. ~CShellUpdater() is being executed)
-        if(waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0+1)
+        if (waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0 + 1)
         {
             // Termination event
             break;
         }
         // wait some time before we notify the shell
         Sleep(50);
-        for(;;)
+        for (;;)
         {
             CTSVNPath workingPath;
             if (!m_bRunning)
@@ -119,13 +119,13 @@ void CShellUpdater::WorkerThread()
             Sleep(0);
             {
                 AutoLocker lock(m_critSec);
-                if(m_pathsToUpdate.empty())
+                if (m_pathsToUpdate.empty())
                 {
                     // Nothing left to do
                     break;
                 }
 
-                if(InterlockedExchange(&m_bItemsAddedSinceLastUpdate, FALSE))
+                if (InterlockedExchange(&m_bItemsAddedSinceLastUpdate, FALSE))
                 {
                     m_pathsToUpdate.erase(std::unique(m_pathsToUpdate.begin(), m_pathsToUpdate.end(), &CTSVNPath::PredLeftEquivalentToRight), m_pathsToUpdate.end());
                 }
@@ -142,8 +142,8 @@ void CShellUpdater::WorkerThread()
                 // the folder notification. Since we only know for sure that the subversion admin
                 // dir is present, we send a notification for that folder.
                 CString admindir = workingPath.GetWinPathString() + L"\\" + g_SVNAdminDir.GetAdminDirName();
-                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, (LPCTSTR)admindir, NULL);
-                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
+                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, static_cast<LPCTSTR>(admindir), nullptr);
+                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), nullptr);
                 // Sending an UPDATEDIR notification somehow overwrites/deletes the UPDATEITEM message. And without
                 // that message, the folder overlays in the current view don't get updated without hitting F5.
                 // Drawback is, without UPDATEDIR, the left tree view isn't always updated...
@@ -151,9 +151,8 @@ void CShellUpdater::WorkerThread()
                 //SHChangeNotify(SHCNE_UPDATEDIR, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
             }
             else
-                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), NULL);
+                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), nullptr);
         }
     }
     _endthread();
 }
-

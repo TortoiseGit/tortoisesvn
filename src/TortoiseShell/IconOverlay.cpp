@@ -157,28 +157,28 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
         auto cacheType = g_ShellCache.GetCacheType();
         if (g_ShellCache.IsOnlyNonElevated() && g_ShellCache.IsProcessElevated())
         {
-            cacheType = ShellCache::none;
+            cacheType = ShellCache::None;
             CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": elevated overlays blocked\n");
         }
         switch (cacheType)
         {
-        case ShellCache::exe:
+        case ShellCache::Exe:
             {
                 TSVNCacheResponse itemStatus = {0};
                 if (m_remoteCacheLink.GetStatusFromRemoteCache(CTSVNPath(pPath), &itemStatus, true))
                 {
-                    status = (svn_wc_status_kind)itemStatus.m_Status;
-                    if (itemStatus.m_has_lockonwner)
+                    status = (svn_wc_status_kind)itemStatus.m_status;
+                    if (itemStatus.m_hasLockOwner)
                         lockedoverlay = true;
-                    else if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&(itemStatus.m_needslock))
+                    else if ((itemStatus.m_kind == svn_node_file)&&(status == svn_wc_status_normal)&&(itemStatus.m_needsLock))
                         readonlyoverlay = true;
 
-                    if (itemStatus.m_tree_conflict)
+                    if (itemStatus.m_treeConflict)
                         status = SVNStatus::GetMoreImportant(status, svn_wc_status_conflicted);
                 }
             }
             break;
-        case ShellCache::dll:
+        case ShellCache::Dll:
             {
                 // Look in our caches for this item
                 const FileStatusCacheEntry * s = m_CachedStatus.GetCachedItem(CTSVNPath(pPath));
@@ -242,7 +242,7 @@ STDMETHODIMP CShellExt::IsMemberOf(LPCWSTR pwszPath, DWORD /*dwAttrib*/)
             }
             break;
         default:
-        case ShellCache::none:
+        case ShellCache::None:
             {
                 // no cache means we only show a 'versioned' overlay on folders
                 // with an admin directory

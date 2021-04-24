@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2005-2012, 2014-2015 - TortoiseSVN
+// External Cache Copyright (C) 2005-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,24 +23,23 @@
 #include "registry.h"
 #include "TSVNCache.h"
 #pragma warning(push)
-#pragma warning(disable: 4091) // 'typedef ': ignored on left of '' when no variable is declared
+#pragma warning(disable : 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <shlobj.h>
 #pragma warning(pop)
 
-
-CFolderCrawler::CFolderCrawler(void)
+CFolderCrawler::CFolderCrawler()
     : m_lCrawlInhibitSet(0)
-    , m_crawlHoldoffReleasesAt((LONGLONG)GetTickCount64())
-    , m_bRun(false)
-    , m_bPathsAddedSinceLastCrawl(false)
+    , m_crawlHoldoffReleasesAt(static_cast<LONGLONG>(GetTickCount64()))
     , m_bItemsAddedSinceLastCrawl(false)
+    , m_bPathsAddedSinceLastCrawl(false)
     , m_blockReleasesAt(0)
+    , m_bRun(false)
 {
-    m_hWakeEvent = CreateEvent(NULL,FALSE,FALSE,NULL);
-    m_hTerminationEvent = CreateEvent(NULL,TRUE,FALSE,NULL);
+    m_hWakeEvent        = CreateEvent(nullptr, FALSE, FALSE, nullptr);
+    m_hTerminationEvent = CreateEvent(nullptr, TRUE, FALSE, nullptr);
 }
 
-CFolderCrawler::~CFolderCrawler(void)
+CFolderCrawler::~CFolderCrawler()
 {
     Stop();
 }
@@ -51,7 +50,7 @@ void CFolderCrawler::Stop()
     if (m_hTerminationEvent)
     {
         SetEvent(m_hTerminationEvent);
-        if(WaitForSingleObject(m_hThread, 4000) != WAIT_OBJECT_0)
+        if (WaitForSingleObject(m_hThread, 4000) != WAIT_OBJECT_0)
         {
             CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Error terminating crawler thread\n");
         }
@@ -71,9 +70,9 @@ void CFolderCrawler::Initialise()
     // If m_hWakeEvent is already signaled the worker thread
     // will behave properly (with normal priority at worst).
 
-    m_bRun = true;
+    m_bRun                = true;
     unsigned int threadId = 0;
-    m_hThread = (HANDLE)_beginthreadex(NULL,0,ThreadEntry,this,0,&threadId);
+    m_hThread             = reinterpret_cast<HANDLE>(_beginthreadex(nullptr, 0, ThreadEntry, this, 0, &threadId));
     SetThreadPriority(m_hThread, THREAD_PRIORITY_BELOW_NORMAL);
 }
 
@@ -107,8 +106,8 @@ void CFolderCrawler::AddPathForUpdate(const CTSVNPath& path)
 
 unsigned int CFolderCrawler::ThreadEntry(void* pContext)
 {
-    CCrashReportThread crashthread;
-    ((CFolderCrawler*)pContext)->WorkerThread();
+    CCrashReportThread crashThread;
+    static_cast<CFolderCrawler*>(pContext)->WorkerThread();
     return 0;
 }
 
@@ -119,15 +118,15 @@ void CFolderCrawler::WorkerThread()
     hWaitHandles[1] = m_hWakeEvent;
     CTSVNPath workingPath;
 
-    for(;;)
+    for (;;)
     {
-        bool bRecursive = !!(DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\RecursiveOverlay", TRUE);
+        bool  bRecursive = !!static_cast<DWORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\RecursiveOverlay", TRUE));
         DWORD waitResult = WaitForMultipleObjects(_countof(hWaitHandles), hWaitHandles, FALSE, INFINITE);
 
         // exit event/working loop if the first event (m_hTerminationEvent)
         // has been signaled or if one of the events has been abandoned
         // (i.e. ~CFolderCrawler() is being executed)
-        if(m_bRun == false || waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0+1)
+        if (m_bRun == false || waitResult == WAIT_OBJECT_0 || waitResult == WAIT_ABANDONED_0 || waitResult == WAIT_ABANDONED_0 + 1)
         {
             // Termination event
             break;
@@ -157,7 +156,7 @@ void CFolderCrawler::WorkerThread()
                 CSVNStatusCache::Instance().ClearCache();
                 CSVNStatusCache::Instance().m_bClearMemory = false;
             }
-            if(m_lCrawlInhibitSet > 0)
+            if (m_lCrawlInhibitSet > 0)
             {
                 // We're in crawl hold-off
                 Sleep(200);
@@ -169,13 +168,13 @@ void CFolderCrawler::WorkerThread()
                 bFirstRunAfterWakeup = false;
                 continue;
             }
-            if ((m_blockReleasesAt < GetTickCount64())&&(!m_blockedPath.IsEmpty()))
+            if ((m_blockReleasesAt < GetTickCount64()) && (!m_blockedPath.IsEmpty()))
             {
                 m_blockedPath.Reset();
             }
             CSVNStatusCache::Instance().RemoveTimedoutBlocks();
 
-            if ((m_foldersToUpdate.size() == 0)&&(m_pathsToUpdate.size() == 0))
+            if ((m_foldersToUpdate.size() == 0) && (m_pathsToUpdate.size() == 0))
             {
                 // Nothing left to do
                 break;
@@ -188,7 +187,7 @@ void CFolderCrawler::WorkerThread()
                     m_bPathsAddedSinceLastCrawl = false;
 
                     workingPath = m_pathsToUpdate.Pop();
-                    if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
+                    if ((!m_blockedPath.IsEmpty()) && (m_blockedPath.IsAncestorOf(workingPath)))
                     {
                         // move the path to the end of the list
                         m_pathsToUpdate.Push(workingPath);
@@ -211,11 +210,11 @@ void CFolderCrawler::WorkerThread()
                     // to ignore notifications on those paths.
                     if (workingPath.IsAdminDir())
                     {
-                        CString lowerpath = workingPath.GetWinPathString();
-                        lowerpath.MakeLower();
-                        if (lowerpath.Find(L"\\wc.db-journal")>0)
+                        CString lowerPath = workingPath.GetWinPathString();
+                        lowerPath.MakeLower();
+                        if (lowerPath.Find(L"\\wc.db-journal") > 0)
                             continue;
-                        if (lowerpath.Find(L"\\wc.db")>0)
+                        if (lowerPath.Find(L"\\wc.db") > 0)
                         {
                             bool changed = CSVNStatusCache::Instance().WCRoots()->NotifyChange(workingPath);
                             // do nothing if the file hasn't really changed
@@ -238,7 +237,7 @@ void CFolderCrawler::WorkerThread()
                     do
                     {
                         workingPath = workingPath.GetContainingDirectory();
-                    } while(workingPath.IsAdminDir());
+                    } while (workingPath.IsAdminDir());
 
                     {
                         AutoLocker print(critSec);
@@ -248,11 +247,11 @@ void CFolderCrawler::WorkerThread()
                             nCurrentCrawledpathIndex = 0;
                         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Invalidating/refreshing folder %s\n", workingPath.GetWinPath());
                     }
-                    InvalidateRect(hWndHidden, NULL, FALSE);
+                    InvalidateRect(hWndHidden, nullptr, FALSE);
                     {
                         CAutoReadLock readLock(CSVNStatusCache::Instance().GetGuard());
                         // Invalidate the cache of this folder, to make sure its status is fetched again.
-                        CCachedDirectory * pCachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath);
+                        CCachedDirectory* pCachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath);
                         if (pCachedDir)
                         {
                             svn_wc_status_kind status = pCachedDir->GetCurrentFullStatus();
@@ -265,7 +264,7 @@ void CFolderCrawler::WorkerThread()
                                 // We do this here because GetCurrentFullStatus() doesn't send
                                 // notifications for 'normal' status - if it would, we'd get tons
                                 // of notifications when crawling a working copy not yet in the cache.
-                                if ((status != svn_wc_status_normal)&&(pCachedDir->GetCurrentFullStatus() != status))
+                                if ((status != svn_wc_status_normal) && (pCachedDir->GetCurrentFullStatus() != status))
                                 {
                                     CSVNStatusCache::Instance().UpdateShell(workingPath);
                                 }
@@ -302,13 +301,13 @@ void CFolderCrawler::WorkerThread()
                             nCurrentCrawledpathIndex = 0;
                         CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": updating path %s\n", workingPath.GetWinPath());
                     }
-                    InvalidateRect(hWndHidden, NULL, FALSE);
+                    InvalidateRect(hWndHidden, nullptr, FALSE);
                     {
                         CAutoReadLock readLock(CSVNStatusCache::Instance().GetGuard());
                         // Invalidate the cache of folders manually. The cache of files is invalidated
                         // automatically if the status is asked for it and the file times don't match
                         // anymore, so we don't need to manually invalidate those.
-                        CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath.GetDirectory());
+                        CCachedDirectory* cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath.GetDirectory());
                         if (cachedDir && workingPath.IsDirectory())
                         {
                             cachedDir->Invalidate();
@@ -342,10 +341,10 @@ void CFolderCrawler::WorkerThread()
                     // now when crawling.
                     workingPath = CTSVNPath(m_foldersToUpdate.Pop().GetWinPath());
 
-                    if ((!m_blockedPath.IsEmpty())&&(m_blockedPath.IsAncestorOf(workingPath)))
+                    if ((!m_blockedPath.IsEmpty()) && (m_blockedPath.IsAncestorOf(workingPath)))
                     {
                         // move the path to the end of the list
-                        m_foldersToUpdate.Push (workingPath);
+                        m_foldersToUpdate.Push(workingPath);
                         if (m_foldersToUpdate.size() < 3)
                             Sleep(200);
                         continue;
@@ -364,11 +363,11 @@ void CFolderCrawler::WorkerThread()
                         nCurrentCrawledpathIndex = 0;
                     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Crawling folder %s\n", workingPath.GetWinPath());
                 }
-                InvalidateRect(hWndHidden, NULL, FALSE);
+                InvalidateRect(hWndHidden, nullptr, FALSE);
                 {
                     CAutoReadLock readLock(CSVNStatusCache::Instance().GetGuard());
                     // Now, we need to visit this folder, to make sure that we know its 'most important' status
-                    CCachedDirectory * cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath.GetDirectory());
+                    CCachedDirectory* cachedDir = CSVNStatusCache::Instance().GetDirectoryCacheEntry(workingPath.GetDirectory());
                     // check if the path is monitored by the watcher. If it isn't, then we have to invalidate the cache
                     // for that path and add it to the watcher.
                     if (!CSVNStatusCache::Instance().IsPathWatched(workingPath))
@@ -382,7 +381,7 @@ void CFolderCrawler::WorkerThread()
                             CAutoWriteLock writeLock(CSVNStatusCache::Instance().GetGuard());
                             CSVNStatusCache::Instance().RemoveCacheForPath(workingPath);
                             // now cacheDir is invalid because it got deleted in the RemoveCacheForPath() call above.
-                            cachedDir = NULL;
+                            cachedDir = nullptr;
                         }
                     }
                     if (cachedDir)
@@ -395,7 +394,7 @@ void CFolderCrawler::WorkerThread()
                 AutoLocker lock(m_critSec);
                 if (m_bItemsAddedSinceLastCrawl)
                 {
-                    m_foldersToUpdate.erase (workingPath);
+                    m_foldersToUpdate.erase(workingPath);
                 }
             }
         }
@@ -405,15 +404,15 @@ void CFolderCrawler::WorkerThread()
 
 bool CFolderCrawler::SetHoldoff(DWORD milliseconds /* = 500*/)
 {
-    LONGLONG tick = (LONGLONG)GetTickCount64();
-    bool ret = ((tick - m_crawlHoldoffReleasesAt) > 0);
+    LONGLONG tick            = static_cast<LONGLONG>(GetTickCount64());
+    bool     ret             = ((tick - m_crawlHoldoffReleasesAt) > 0);
     m_crawlHoldoffReleasesAt = tick + milliseconds;
     return ret;
 }
 
 bool CFolderCrawler::IsHoldOff() const
 {
-    return (((LONGLONG)GetTickCount64() - m_crawlHoldoffReleasesAt) < 0);
+    return ((static_cast<LONGLONG>(GetTickCount64()) - m_crawlHoldoffReleasesAt) < 0);
 }
 
 void CFolderCrawler::BlockPath(const CTSVNPath& path, DWORD ticks)
@@ -421,7 +420,7 @@ void CFolderCrawler::BlockPath(const CTSVNPath& path, DWORD ticks)
     AutoLocker lock(m_critSec);
     m_blockedPath = path;
     if (ticks == 0)
-        m_blockReleasesAt = GetTickCount64()+10000;
+        m_blockReleasesAt = GetTickCount64() + 10000;
     else
-        m_blockReleasesAt = GetTickCount64()+ticks;
+        m_blockReleasesAt = GetTickCount64() + ticks;
 }

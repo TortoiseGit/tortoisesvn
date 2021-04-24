@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2010, 2014 - TortoiseSVN
+// External Cache Copyright (C) 2010, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,8 +23,8 @@
 
 struct WCRootsTimes
 {
-    __int64     FileTime;
-    ULONGLONG   LastTicks;
+    __int64   fileTime;
+    ULONGLONG lastTicks;
 };
 
 class CWCRoots
@@ -51,6 +51,6 @@ public:
 private:
     std::map<CTSVNPath, WCRootsTimes>::iterator AddPathInternal(const CTSVNPath& path);
 
-    CComAutoCriticalSection                 m_critSec;
-    std::map<CTSVNPath, WCRootsTimes>       m_WCDBs;
+    CComAutoCriticalSection           m_critSec;
+    std::map<CTSVNPath, WCRootsTimes> m_wcdBs;
 };
