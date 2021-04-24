@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2016, 2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -367,9 +367,9 @@ void CChangedDlg::UpdateStatistics()
     LONG lMin, lMax;
     CString temp;
     m_FileListCtrl.GetMinMaxRevisions(lMin, lMax, true, false);
-    if (LONG(m_FileListCtrl.m_HeadRev) >= 0)
+    if (LONG(m_FileListCtrl.m_headRev) >= 0)
     {
-        temp.FormatMessage(IDS_REPOSTATUS_HEADREV, lMin, lMax, LONG(m_FileListCtrl.m_HeadRev));
+        temp.FormatMessage(IDS_REPOSTATUS_HEADREV, lMin, lMax, LONG(m_FileListCtrl.m_headRev));
         SetDlgItemText(IDC_SUMMARYTEXT, temp);
     }
     else

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -58,7 +58,7 @@ public:
     SVNReadProperties(SVNRev rev, bool bRevProps, bool includeInherited);
     SVNReadProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps, bool includeInherited);
     SVNReadProperties(const CTSVNPath& filepath, SVNRev pegRev, SVNRev rev, bool suppressUI, bool includeInherited);
-    void SetProgressDlg(CProgressDlg * dlg) { m_pProgress = dlg; }
+    void SetProgressDlg(CProgressDlg* dlg) { m_pProgress = dlg; }
 #else
     SVNReadProperties(bool bRevProps, bool includeInherited);
     /**
@@ -68,14 +68,14 @@ public:
      */
     SVNReadProperties(const CTSVNPath& filepath, bool bRevProps, bool includeInherited);
 #endif
-    virtual ~SVNReadProperties(void);
+    ~SVNReadProperties() override;
 
     /**
      * Run SVN query again on different path.
      * (session init takes a long time -> reuse it)
      */
 
-    void SetFilePath (const CTSVNPath& filepath);
+    void SetFilePath(const CTSVNPath& filepath);
 
     /**
      * Returns the number of properties the file/directory has.
@@ -115,7 +115,7 @@ public:
      * Checks if the property value is binary or text.
      * \return true if the property has a binary value.
      */
-    bool IsBinary(int index) const;
+    bool        IsBinary(int index) const;
     static bool IsBinary(const std::string& value);
 
     /**
@@ -123,14 +123,14 @@ public:
      * \param name name of the property to find
      * \return index of the property. -1, if not found
      */
-    int IndexOf (const std::string& name) const;
+    int IndexOf(const std::string& name) const;
 
     /**
      * Test, whether a property exists.
      * \param name name of the property to find
      * \return true, if property has been found
      */
-    bool HasProperty (const std::string& name) const;
+    bool HasProperty(const std::string& name) const;
 
     /**
      * Create a string containing all properties in
@@ -145,12 +145,12 @@ public:
     /**
      * Adds a property name to the list of properties that can only be set on folders
      */
-    void AddFolderPropName(const std::string& p) {m_folderprops.push_back(p);}
+    void AddFolderPropName(const std::string& p) { m_folderProps.push_back(p); }
 
     /**
      * Returns the object with all inherited properties.
      */
-    std::vector<std::tuple<std::string, std::multimap<std::string,std::string>>> GetInheritedProperties() const { return m_inheritedProperties; }
+    std::vector<std::tuple<std::string, std::multimap<std::string, std::string>>> GetInheritedProperties() const { return m_inheritedProperties; }
 
     CTSVNPath GetPath() const { return m_path; }
 
@@ -162,38 +162,38 @@ public:
     /**
      * Set to true to cancel operations
      */
-    bool * m_bCancelled;
-private:        //methods
+    bool* m_bCancelled;
+
+private: //methods
     /**
      * Builds the properties (again) and fills the apr_array_header_t structure.
      * \return the svn error structure
      */
-    svn_error_t*            Refresh();
+    svn_error_t* Refresh();
 
     /**
      * Returns either the property name (name == TRUE) or value (name == FALSE).
      */
-    std::string             GetItem(int index, BOOL name) const;
+    std::string GetItem(int index, BOOL name) const;
 
-protected:        //members
-    apr_pool_t *                m_pool;             ///< memory pool baton
-    CTSVNPath                   m_path;             ///< the path to the file/directory this properties object acts upon
-    apr_hash_t *                m_props;
-    std::vector<std::tuple<std::string, std::multimap<std::string,std::string>>>  m_inheritedProperties;
-    int                         m_propCount;        ///< number of properties found
-    SVNRev                      m_rev;
-    bool                        m_bRevProps;
-    bool                        m_includeInherited;
-    std::vector<std::string>    m_folderprops;
+protected:                                                                                //members
+    apr_pool_t*                                                                   m_pool; ///< memory pool baton
+    CTSVNPath                                                                     m_path; ///< the path to the file/directory this properties object acts upon
+    apr_hash_t*                                                                   m_props;
+    std::vector<std::tuple<std::string, std::multimap<std::string, std::string>>> m_inheritedProperties;
+    int                                                                           m_propCount; ///< number of properties found
+    SVNRev                                                                        m_rev;
+    bool                                                                          m_bRevProps;
+    bool                                                                          m_includeInherited;
+    std::vector<std::string>                                                      m_folderProps;
 #ifdef _MFC_VER
-    SVNPrompt                   m_prompt;
-    CProgressDlg *              m_pProgress;
+    SVNPrompt     m_prompt;
+    CProgressDlg* m_pProgress;
 #endif
 
-private:        //members
-    SVNRev                      m_peg_rev;
+private: //members
+    SVNRev m_pegRev;
 
 private:
-    static svn_error_t *        proplist_receiver(void *baton, const char *path, apr_hash_t *prop_hash, apr_array_header_t *inherited_props, apr_pool_t *pool);
-
+    static svn_error_t* proplist_receiver(void* baton, const char* path, apr_hash_t* propHash, apr_array_header_t* inheritedProps, apr_pool_t* pool);
 };

@@ -200,7 +200,7 @@ BOOL         SVN::ReportList(const CString& path, svn_node_kind_t kind,
 #pragma warning(pop)
 
 // ReSharper disable CppInconsistentNaming
-struct log_msg_baton3
+struct LogMsgBaton3
 {
     const char* message;          /* the message. */
     const char* message_encoding; /* the locale/encoding of the message. */
@@ -2421,7 +2421,7 @@ void* SVN::logMessage(CString message, char* baseDirectory) const
 {
     message.Remove('\r');
 
-    log_msg_baton3* baton = static_cast<log_msg_baton3*>(apr_palloc(m_pool, sizeof(*baton)));
+    LogMsgBaton3* baton = static_cast<LogMsgBaton3*>(apr_palloc(m_pool, sizeof(*baton)));
     baton->message        = apr_pstrdup(m_pool, CUnicodeUtils::GetUTF8(message));
     baton->base_dir       = baseDirectory ? baseDirectory : "";
 
@@ -2496,7 +2496,7 @@ svn_error_t* svnClGetLogMessage(const char** logMsg,
                                 void*       baton,
                                 apr_pool_t* pool)
 {
-    log_msg_baton3* lmb = static_cast<log_msg_baton3*>(baton);
+    LogMsgBaton3* lmb = static_cast<LogMsgBaton3*>(baton);
     *tmpFile            = nullptr;
     if (lmb->message)
     {

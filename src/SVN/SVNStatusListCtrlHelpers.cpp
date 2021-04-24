@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2015 - TortoiseSVN
+// Copyright (C) 2008-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 
 #include "stdafx.h"
 #include "resource.h"
-#include "../TortoiseShell/resource.h"
 #include "SVNStatusListCtrl.h"
 #include <iterator>
 
@@ -28,23 +27,23 @@
 // assign property list
 
 CSVNStatusListCtrl::PropertyList&
-CSVNStatusListCtrl::PropertyList::operator= (const char* rhs)
+    CSVNStatusListCtrl::PropertyList::operator=(const char* rhs)
 {
     // do you really want to replace the property list?
 
-    assert (properties.empty());
+    assert(properties.empty());
     properties.clear();
 
     // add all properties in the list
 
-    while ((rhs != NULL) && (*rhs != 0))
+    while ((rhs != nullptr) && (*rhs != 0))
     {
-        const char* next = strchr (rhs, ' ');
+        const char* next = strchr(rhs, ' ');
 
-        CString name (rhs, static_cast<int>(next == NULL ? strlen (rhs) : next - rhs));
+        CString name(rhs, static_cast<int>(next == nullptr ? strlen(rhs) : next - rhs));
         properties.emplace(name, CString());
 
-        rhs = next == NULL ? NULL : next+1;
+        rhs = next == nullptr ? nullptr : next + 1;
     }
 
     // done
@@ -54,13 +53,11 @@ CSVNStatusListCtrl::PropertyList::operator= (const char* rhs)
 
 // collect property names in a set
 
-void CSVNStatusListCtrl::PropertyList::GetPropertyNames (std::set<CString>& names) const
+void CSVNStatusListCtrl::PropertyList::GetPropertyNames(std::set<CString>& names) const
 {
-    for ( CIT iter = properties.begin(), end = properties.end()
-        ; iter != end
-        ; ++iter)
+    for (const auto& [name, value] : properties)
     {
-        names.insert (iter->first);
+        names.insert(name);
     }
 }
 
@@ -69,11 +66,11 @@ void CSVNStatusListCtrl::PropertyList::GetPropertyNames (std::set<CString>& name
 const CString& CSVNStatusListCtrl::PropertyList::operator[](const CString& name) const
 {
     static const CString empty;
-    CIT iter = properties.find (name);
+    auto                 iter = properties.find(name);
 
     return iter == properties.end()
-        ? empty
-        : iter->second;
+               ? empty
+               : iter->second;
 }
 
 // set a property value.
@@ -85,17 +82,17 @@ CString& CSVNStatusListCtrl::PropertyList::operator[](const CString& name)
 
 /// check whether that property has been set on this item.
 
-bool CSVNStatusListCtrl::PropertyList::HasProperty (const CString& name) const
+bool CSVNStatusListCtrl::PropertyList::HasProperty(const CString& name) const
 {
-    return properties.find (name) != properties.end();
+    return properties.find(name) != properties.end();
 }
 
 // due to frequent use: special check for svn:needs-lock
 
 bool CSVNStatusListCtrl::PropertyList::IsNeedsLockSet() const
 {
-    static const CString svnNeedsLock (SVN_PROP_NEEDS_LOCK);
-    return HasProperty (svnNeedsLock);
+    static const CString svnNeedsLock(SVN_PROP_NEEDS_LOCK);
+    return HasProperty(svnNeedsLock);
 }
 
 // remove all entries
@@ -113,20 +110,18 @@ size_t CSVNStatusListCtrl::PropertyList::Count() const
 
 // registry access
 
-void CSVNStatusListCtrl::ColumnManager::ReadSettings
-    ( DWORD defaultColumns
-    , const CString& containerName)
+void CSVNStatusListCtrl::ColumnManager::ReadSettings(DWORD defaultColumns, const CString& containerName)
 {
     // defaults
 
     DWORD selectedStandardColumns = defaultColumns;
 
-    columns.resize (SVNSLC_NUMCOLUMNS);
+    columns.resize(SVNSLC_NUMCOLUMNS);
     for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
     {
-        columns[i].index = static_cast<int>(i);
-        columns[i].width = 0;
-        columns[i].visible = true;
+        columns[i].index    = static_cast<int>(i);
+        columns[i].width    = 0;
+        columns[i].visible  = true;
         columns[i].relevant = true;
     }
 
@@ -134,56 +129,51 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
 
     // where the settings are stored within the registry
 
-    registryPrefix
-        = L"Software\\TortoiseSVN\\StatusColumns\\" + containerName;
+    registryPrefix = L"Software\\TortoiseSVN\\StatusColumns\\" + containerName;
 
     // we accept only the current version
-    bool valid = (DWORD)CRegDWORD (registryPrefix + L"Version", 0xff) == SVNSLC_COL_VERSION;
+    bool valid = static_cast<DWORD>(CRegDWORD(registryPrefix + L"Version", 0xff)) == SVNSLC_COL_VERSION;
     if (valid)
     {
         // read (possibly different) column selection
 
-        selectedStandardColumns
-            = CRegDWORD (registryPrefix, selectedStandardColumns);
+        selectedStandardColumns = CRegDWORD(registryPrefix, selectedStandardColumns);
 
         // read user-prop lists
 
-        CString userPropList
-            = CRegString (registryPrefix + L"UserProps");
-        CString shownUserProps
-            = CRegString (registryPrefix + L"ShownUserProps");
+        CString userPropList   = CRegString(registryPrefix + L"UserProps");
+        CString shownUserProps = CRegString(registryPrefix + L"ShownUserProps");
 
-        ParseUserPropSettings (userPropList, shownUserProps);
+        ParseUserPropSettings(userPropList, shownUserProps);
 
         // read column widths
 
-        CString colWidths
-            = CRegString (registryPrefix + L"_Width");
+        CString colWidths = CRegString(registryPrefix + L"_Width");
 
-        ParseWidths (colWidths);
+        ParseWidths(colWidths);
     }
 
     // process old-style visibility setting
 
-    SetStandardColumnVisibility (selectedStandardColumns);
+    SetStandardColumnVisibility(selectedStandardColumns);
 
     // clear all previously set header columns
 
-    int c = control->GetHeaderCtrl()->GetItemCount()-1;
-    while (c>=0)
+    int c = control->GetHeaderCtrl()->GetItemCount() - 1;
+    while (c >= 0)
         control->DeleteColumn(c--);
 
     // create columns
 
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
-        control->InsertColumn (i, GetName(i), LVCFMT_LEFT, IsVisible(i) ? -1 : GetVisibleWidth(i, false));
+        control->InsertColumn(i, GetName(i), LVCFMT_LEFT, IsVisible(i) ? -1 : GetVisibleWidth(i, false));
 
     // restore column ordering
 
     if (valid)
-        ParseColumnOrder (CRegString (registryPrefix + L"_Order"));
+        ParseColumnOrder(CRegString(registryPrefix + L"_Order"));
     else
-        ParseColumnOrder (CString());
+        ParseColumnOrder(CString());
 
     ApplyColumnOrder();
 
@@ -192,36 +182,38 @@ void CSVNStatusListCtrl::ColumnManager::ReadSettings
 
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
         if (IsVisible(i))
-            control->SetColumnWidth (i, GetVisibleWidth (i, true));
+            control->SetColumnWidth(i, GetVisibleWidth(i, true));
 }
 
 void CSVNStatusListCtrl::ColumnManager::WriteSettings() const
 {
-    CRegDWORD regVersion (registryPrefix + L"Version", 0, TRUE);
+    // ReSharper disable CppEntityAssignedButNoRead
+    CRegDWORD regVersion(registryPrefix + L"Version", 0, TRUE);
     regVersion = SVNSLC_COL_VERSION;
 
     // write (possibly different) column selection
 
-    CRegDWORD regStandardColumns (registryPrefix, 0, TRUE);
+    CRegDWORD regStandardColumns(registryPrefix, 0, TRUE);
     regStandardColumns = GetSelectedStandardColumns();
 
     // write user-prop lists
 
-    CRegString regUserProps (registryPrefix + L"UserProps", CString(), TRUE);
+    CRegString regUserProps(registryPrefix + L"UserProps", CString(), TRUE);
     regUserProps = GetUserPropList();
 
-    CRegString regShownUserProps (registryPrefix + L"ShownUserProps", CString(), TRUE);
+    CRegString regShownUserProps(registryPrefix + L"ShownUserProps", CString(), TRUE);
     regShownUserProps = GetShownUserProps();
 
     // write column widths
 
-    CRegString regWidths (registryPrefix + L"_Width", CString(), TRUE);
+    CRegString regWidths(registryPrefix + L"_Width", CString(), TRUE);
     regWidths = GetWidthString();
 
     // write column ordering
 
-    CRegString regColumnOrder (registryPrefix + L"_Order", CString(), TRUE);
+    CRegString regColumnOrder(registryPrefix + L"_Order", CString(), TRUE);
     regColumnOrder = GetColumnOrderString();
+    // ReSharper restore CppEntityAssignedButNoRead
 }
 
 // read column definitions
@@ -231,10 +223,10 @@ int CSVNStatusListCtrl::ColumnManager::GetColumnCount() const
     return static_cast<int>(columns.size());
 }
 
-bool CSVNStatusListCtrl::ColumnManager::IsVisible (int column) const
+bool CSVNStatusListCtrl::ColumnManager::IsVisible(int column) const
 {
     size_t index = static_cast<size_t>(column);
-    assert (columns.size() > index);
+    assert(columns.size() > index);
 
     return columns[index].visible;
 }
@@ -250,51 +242,43 @@ int CSVNStatusListCtrl::ColumnManager::GetInvisibleCount() const
     return invisibleCount;
 }
 
-bool CSVNStatusListCtrl::ColumnManager::IsRelevant (int column) const
+bool CSVNStatusListCtrl::ColumnManager::IsRelevant(int column) const
 {
     size_t index = static_cast<size_t>(column);
-    assert (columns.size() > index);
+    assert(columns.size() > index);
 
     return columns[index].relevant;
 }
 
-bool CSVNStatusListCtrl::ColumnManager::IsUserProp (int column) const
+bool CSVNStatusListCtrl::ColumnManager::IsUserProp(int column) const
 {
     size_t index = static_cast<size_t>(column);
-    assert (columns.size() > index);
+    assert(columns.size() > index);
 
     return columns[index].index >= SVNSLC_USERPROPCOLOFFSET;
 }
 
-const CString& CSVNStatusListCtrl::ColumnManager::GetName (int column) const
+const CString& CSVNStatusListCtrl::ColumnManager::GetName(int column) const
 {
-    static const UINT standardColumnNames[SVNSLC_NUMCOLUMNS]
-        = { IDS_STATUSLIST_COLFILE
+    static const UINT standardColumnNames[SVNSLC_NUMCOLUMNS] = {IDS_STATUSLIST_COLFILE
 
-          , IDS_STATUSLIST_COLFILENAME
-          , IDS_STATUSLIST_COLEXT
-          , IDS_STATUSLIST_COLSTATUS
+                                                                ,
+                                                                IDS_STATUSLIST_COLFILENAME, IDS_STATUSLIST_COLEXT, IDS_STATUSLIST_COLSTATUS
 
-          , IDS_STATUSLIST_COLREMOTESTATUS
-          , IDS_STATUSLIST_COLTEXTSTATUS
-          , IDS_STATUSLIST_COLPROPSTATUS
+                                                                ,
+                                                                IDS_STATUSLIST_COLREMOTESTATUS, IDS_STATUSLIST_COLTEXTSTATUS, IDS_STATUSLIST_COLPROPSTATUS
 
-          , IDS_STATUSLIST_COLREMOTETEXTSTATUS
-          , IDS_STATUSLIST_COLREMOTEPROPSTATUS
-          , IDS_STATUSLIST_COLDEPTH
-          , IDS_STATUSLIST_COLURL
+                                                                ,
+                                                                IDS_STATUSLIST_COLREMOTETEXTSTATUS, IDS_STATUSLIST_COLREMOTEPROPSTATUS, IDS_STATUSLIST_COLDEPTH, IDS_STATUSLIST_COLURL
 
-          , IDS_STATUSLIST_COLLOCK
-          , IDS_STATUSLIST_COLLOCKCOMMENT
-          , IDS_STATUSLIST_COLLOCKDATE
+                                                                ,
+                                                                IDS_STATUSLIST_COLLOCK, IDS_STATUSLIST_COLLOCKCOMMENT, IDS_STATUSLIST_COLLOCKDATE
 
-          , IDS_STATUSLIST_COLAUTHOR
-          , IDS_STATUSLIST_COLREVISION
-          , IDS_STATUSLIST_COLREMOTEREVISION
-          , IDS_STATUSLIST_COLDATE
+                                                                ,
+                                                                IDS_STATUSLIST_COLAUTHOR, IDS_STATUSLIST_COLREVISION, IDS_STATUSLIST_COLREMOTEREVISION, IDS_STATUSLIST_COLDATE
 
-          , IDS_STATUSLIST_COLMODIFICATIONDATE
-          , IDS_STATUSLIST_COLSIZE};
+                                                                ,
+                                                                IDS_STATUSLIST_COLMODIFICATIONDATE, IDS_STATUSLIST_COLSIZE};
 
     static CString standardColumnNameStrings[SVNSLC_NUMCOLUMNS];
 
@@ -305,7 +289,7 @@ const CString& CSVNStatusListCtrl::ColumnManager::GetName (int column) const
     {
         CString& result = standardColumnNameStrings[index];
         if (result.IsEmpty())
-            result.LoadString (standardColumnNames[index]);
+            result.LoadString(standardColumnNames[index]);
 
         return result;
     }
@@ -321,10 +305,10 @@ const CString& CSVNStatusListCtrl::ColumnManager::GetName (int column) const
     return empty;
 }
 
-int CSVNStatusListCtrl::ColumnManager::GetWidth (int column, bool useDefaults) const
+int CSVNStatusListCtrl::ColumnManager::GetWidth(int column, bool useDefaults) const
 {
     size_t index = static_cast<size_t>(column);
-    assert (columns.size() > index);
+    assert(columns.size() > index);
 
     int width = columns[index].width;
     if ((width == 0) && useDefaults)
@@ -333,21 +317,19 @@ int CSVNStatusListCtrl::ColumnManager::GetWidth (int column, bool useDefaults) c
     return width;
 }
 
-int CSVNStatusListCtrl::ColumnManager::GetVisibleWidth (int column, bool useDefaults) const
+int CSVNStatusListCtrl::ColumnManager::GetVisibleWidth(int column, bool useDefaults) const
 {
-    return IsVisible (column)
-        ? GetWidth (column, useDefaults)
-        : 0;
+    return IsVisible(column)
+               ? GetWidth(column, useDefaults)
+               : 0;
 }
 
 // switch columns on and off
 
-void CSVNStatusListCtrl::ColumnManager::SetVisible
-    ( int column
-    , bool visible)
+void CSVNStatusListCtrl::ColumnManager::SetVisible(int column, bool visible)
 {
     size_t index = static_cast<size_t>(column);
-    assert (index < columns.size());
+    assert(index < columns.size());
 
     if (columns[index].visible != visible)
     {
@@ -356,16 +338,16 @@ void CSVNStatusListCtrl::ColumnManager::SetVisible
         if (!visible)
             columns[index].width = 0;
 
-        control->SetColumnWidth (column, GetVisibleWidth (column, true));
+        control->SetColumnWidth(column, GetVisibleWidth(column, true));
         ApplyColumnOrder();
 
-        control->Invalidate (FALSE);
+        control->Invalidate(FALSE);
     }
 }
 
 // tracking column modifications
 
-void CSVNStatusListCtrl::ColumnManager::ColumnMoved (int column, int position)
+void CSVNStatusListCtrl::ColumnManager::ColumnMoved(int column, int position)
 {
     // in front of what column has it been inserted?
 
@@ -374,61 +356,53 @@ void CSVNStatusListCtrl::ColumnManager::ColumnMoved (int column, int position)
     std::vector<int> gridColumnOrder = GetGridColumnOrder();
 
     size_t visiblePosition = static_cast<size_t>(position);
-    size_t columnCount = gridColumnOrder.size();
+    size_t columnCount     = gridColumnOrder.size();
 
-    for (;    (visiblePosition < columnCount)
-           && !columns[gridColumnOrder[visiblePosition]].visible
-         ; ++visiblePosition )
+    for (; (visiblePosition < columnCount) && !columns[gridColumnOrder[visiblePosition]].visible; ++visiblePosition)
     {
     }
 
-    int next = visiblePosition == (columnCount-1)
-             ? -1
-             : gridColumnOrder[visiblePosition];
+    int next = visiblePosition == (columnCount - 1)
+                   ? -1
+                   : gridColumnOrder[visiblePosition];
 
     // move logical column index just in front of that "next" column
 
-    columnOrder.erase (std::find ( columnOrder.begin()
-                                 , columnOrder.end()
-                                 , index));
-    columnOrder.insert ( std::find ( columnOrder.begin()
-                                   , columnOrder.end()
-                                   , next)
-                       , index);
+    columnOrder.erase(std::find(columnOrder.begin(), columnOrder.end(), index));
+    columnOrder.insert(std::find(columnOrder.begin(), columnOrder.end(), next), index);
 
     // make sure, invisible columns are still put in front of all others
 
     ApplyColumnOrder();
 }
 
-void CSVNStatusListCtrl::ColumnManager::ColumnResized (int column)
+void CSVNStatusListCtrl::ColumnManager::ColumnResized(int column)
 {
     size_t index = static_cast<size_t>(column);
-    assert (index < columns.size());
-    assert (columns[index].visible);
+    assert(index < columns.size());
+    assert(columns[index].visible);
 
-    int width = control->GetColumnWidth (column);
+    int width            = control->GetColumnWidth(column);
     columns[index].width = width;
 
     int propertyIndex = columns[index].index;
     if (propertyIndex >= SVNSLC_USERPROPCOLOFFSET)
         userProps[propertyIndex - SVNSLC_USERPROPCOLOFFSET].width = width;
 
-    control->Invalidate  (FALSE);
+    control->Invalidate(FALSE);
 }
 
 // call these to update the user-prop list
 // (will also auto-insert /-remove new list columns)
 
-void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
-    (const std::map<CTSVNPath, PropertyList>& propertymap)
+void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList(const std::map<CTSVNPath, PropertyList>& propertyMap)
 {
     // collect all user-defined props
 
     std::set<CString> aggregatedProps;
 
-    for (auto it = propertymap.cbegin(); it != propertymap.cend(); ++it)
-        it->second.GetPropertyNames (aggregatedProps);
+    for (auto it = propertyMap.cbegin(); it != propertyMap.cend(); ++it)
+        it->second.GetPropertyNames(aggregatedProps);
 
     itemProps = aggregatedProps;
 
@@ -436,41 +410,36 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
 
     std::set<CString> newProps = aggregatedProps;
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
-        newProps.erase (userProps[i].name);
+        newProps.erase(userProps[i].name);
 
     while (newProps.size() && (newProps.size() + userProps.size() > SVNSLC_MAXCOLUMNCOUNT - SVNSLC_USERPROPCOLOFFSET))
-        newProps.erase (--newProps.end());
+        newProps.erase(--newProps.end());
 
-    typedef std::set<CString>::const_iterator CIT;
-    for ( CIT iter = newProps.begin(), end = newProps.end()
-        ; iter != end
-        ; ++iter)
+    for (auto iter = newProps.begin(), end = newProps.end(); iter != end; ++iter)
     {
-        int index = static_cast<int>(userProps.size())
-                  + SVNSLC_USERPROPCOLOFFSET;
+        int index = static_cast<int>(userProps.size()) + SVNSLC_USERPROPCOLOFFSET;
         if (columnOrder.size() < SVNSLC_MAXCOLUMNCOUNT)
-            columnOrder.push_back (index);
+            columnOrder.push_back(index);
 
         UserProp userProp;
-        userProp.name = *iter;
+        userProp.name  = *iter;
         userProp.width = 0;
 
-        userProps.push_back (userProp);
+        userProps.push_back(userProp);
     }
 
     // remove unused columns from control.
     // remove used ones from the set of aggregatedProps.
 
     for (size_t i = columns.size(); i > 0; --i)
-        if (   (columns[i-1].index >= SVNSLC_USERPROPCOLOFFSET)
-            && (aggregatedProps.erase (GetName ((int)i-1)) == 0))
+        if ((columns[i - 1].index >= SVNSLC_USERPROPCOLOFFSET) && (aggregatedProps.erase(GetName(static_cast<int>(i) - 1)) == 0))
         {
             // this user-prop has not been set on any item
 
-            if (!columns[i-1].visible)
+            if (!columns[i - 1].visible)
             {
-                control->DeleteColumn (static_cast<int>(i-1));
-                columns.erase (columns.begin() + i-1);
+                control->DeleteColumn(static_cast<int>(i - 1));
+                columns.erase(columns.begin() + i - 1);
             }
         }
 
@@ -479,9 +448,7 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
     // earlier but were not in the recent list of used props.
     // -> they are neither in columns[] nor in newProps.
 
-    for ( CIT iter = aggregatedProps.begin(), end = aggregatedProps.end()
-        ; iter != end
-        ; ++iter)
+    for (auto iter = aggregatedProps.begin(), end = aggregatedProps.end(); iter != end; ++iter)
     {
         // get the logical column index / ID
 
@@ -504,21 +471,22 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
         // find insertion position
 
         std::vector<ColumnInfo>::iterator columnIter = columns.begin();
-        std::vector<ColumnInfo>::iterator end2 = columns.end();
-        for (; (columnIter != end2) && columnIter->index < index; ++columnIter);
+        std::vector<ColumnInfo>::iterator end2       = columns.end();
+        for (; (columnIter != end2) && columnIter->index < index; ++columnIter)
+            ;
         int pos = static_cast<int>(columnIter - columns.begin());
 
         ColumnInfo column;
-        column.index = index;
-        column.width = width;
+        column.index   = index;
+        column.width   = width;
         column.visible = false;
 
-        columns.insert (columnIter, column);
+        columns.insert(columnIter, column);
 
         // update control
 
-        int result = control->InsertColumn (pos, *iter, LVCFMT_LEFT, GetVisibleWidth(pos, false));
-        assert (result != -1);
+        int result = control->InsertColumn(pos, *iter, LVCFMT_LEFT, GetVisibleWidth(pos, false));
+        assert(result != -1);
         UNREFERENCED_PARAMETER(result);
     }
 
@@ -527,20 +495,17 @@ void CSVNStatusListCtrl::ColumnManager::UpdateUserPropList
     ApplyColumnOrder();
 }
 
-void CSVNStatusListCtrl::ColumnManager::UpdateRelevance
-    ( const std::vector<FileEntry*>& files
-    , const std::vector<size_t>& visibleFiles
-    , const std::map<CTSVNPath, PropertyList>& propertymap)
+void CSVNStatusListCtrl::ColumnManager::UpdateRelevance(const std::vector<FileEntry*>& files, const std::vector<size_t>& visibleFiles, const std::map<CTSVNPath, PropertyList>& propertyMap)
 {
     // collect all user-defined props that belong to shown files
 
     std::set<CString> aggregatedProps;
     for (size_t i = 0, count = visibleFiles.size(); i < count; ++i)
     {
-        auto propEntry = propertymap.find(files[visibleFiles[i]]->GetPath());
-        if (propEntry != propertymap.end())
+        auto propEntry = propertyMap.find(files[visibleFiles[i]]->GetPath());
+        if (propEntry != propertyMap.end())
         {
-            propEntry->second.GetPropertyNames (aggregatedProps);
+            propEntry->second.GetPropertyNames(aggregatedProps);
         }
     }
 
@@ -551,8 +516,7 @@ void CSVNStatusListCtrl::ColumnManager::UpdateRelevance
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
         if (IsUserProp(i) && !IsVisible(i))
         {
-            columns[i].relevant
-                = aggregatedProps.find (GetName(i)) != aggregatedProps.end();
+            columns[i].relevant = aggregatedProps.find(GetName(i)) != aggregatedProps.end();
         }
 }
 
@@ -569,19 +533,17 @@ void CSVNStatusListCtrl::ColumnManager::RemoveUnusedProps()
     // map them onto new IDs (we may delete some IDs in between)
 
     std::map<int, int> validIndices;
-    int userPropID = SVNSLC_USERPROPCOLOFFSET;
+    int                userPropID = SVNSLC_USERPROPCOLOFFSET;
 
     for (size_t i = 0, count = columns.size(); i < count; ++i)
     {
         int index = columns[i].index;
 
-        if (   itemProps.find (GetName((int)i)) != itemProps.end()
-            || columns[i].visible
-            || index < SVNSLC_USERPROPCOLOFFSET)
+        if (itemProps.find(GetName(static_cast<int>(i))) != itemProps.end() || columns[i].visible || index < SVNSLC_USERPROPCOLOFFSET)
         {
             validIndices[index] = index < SVNSLC_USERPROPCOLOFFSET
-                                ? index
-                                : userPropID++;
+                                      ? index
+                                      : userPropID++;
         }
     }
 
@@ -592,17 +554,16 @@ void CSVNStatusListCtrl::ColumnManager::RemoveUnusedProps()
 
     for (size_t i = columns.size(); i > 0; --i)
     {
-        std::map<int, int>::const_iterator iter
-            = validIndices.find (columns[i-1].index);
+        std::map<int, int>::const_iterator iter = validIndices.find(columns[i - 1].index);
 
         if (iter == validIndices.end())
         {
-            control->DeleteColumn (static_cast<int>(i-1));
-            columns.erase (columns.begin() + i-1);
+            control->DeleteColumn(static_cast<int>(i - 1));
+            columns.erase(columns.begin() + i - 1);
         }
         else
         {
-            columns[i-1].index = iter->second;
+            columns[i - 1].index = iter->second;
         }
     }
 
@@ -610,36 +571,35 @@ void CSVNStatusListCtrl::ColumnManager::RemoveUnusedProps()
 
     for (size_t i = userProps.size(); i > 0; --i)
     {
-        int index = static_cast<int>(i)-1 + SVNSLC_USERPROPCOLOFFSET;
-        if (validIndices.find (index) == validIndices.end())
-            userProps.erase (userProps.begin() + i-1);
+        int index = static_cast<int>(i) - 1 + SVNSLC_USERPROPCOLOFFSET;
+        if (validIndices.find(index) == validIndices.end())
+            userProps.erase(userProps.begin() + i - 1);
     }
 
     // remove from and update column order
 
     for (size_t i = columnOrder.size(); i > 0; --i)
     {
-        std::map<int, int>::const_iterator iter
-            = validIndices.find (columnOrder[i-1]);
+        std::map<int, int>::const_iterator iter = validIndices.find(columnOrder[i - 1]);
 
         if (iter == validIndices.end())
-            columnOrder.erase (columnOrder.begin() + i-1);
+            columnOrder.erase(columnOrder.begin() + i - 1);
         else
-            columnOrder[i-1] = iter->second;
+            columnOrder[i - 1] = iter->second;
     }
 }
 
 // bring everything back to its "natural" order
 
-void CSVNStatusListCtrl::ColumnManager::ResetColumns (DWORD defaultColumns)
+void CSVNStatusListCtrl::ColumnManager::ResetColumns(DWORD defaultColumns)
 {
     // update internal data
 
-    std::sort (columnOrder.begin(), columnOrder.end());
+    std::sort(columnOrder.begin(), columnOrder.end());
 
     for (size_t i = 0, count = columns.size(); i < count; ++i)
     {
-        columns[i].width = 0;
+        columns[i].width   = 0;
         columns[i].visible = (i < 32) && (((defaultColumns >> i) & 1) != 0);
     }
 
@@ -649,48 +609,46 @@ void CSVNStatusListCtrl::ColumnManager::ResetColumns (DWORD defaultColumns)
     // update UI
 
     for (int i = 0, count = GetColumnCount(); i < count; ++i)
-        control->SetColumnWidth (i, GetVisibleWidth (i, true));
+        control->SetColumnWidth(i, GetVisibleWidth(i, true));
 
     ApplyColumnOrder();
 
-    control->Invalidate (FALSE);
+    control->Invalidate(FALSE);
 }
 
 // initialization utilities
 
-void CSVNStatusListCtrl::ColumnManager::ParseUserPropSettings
-    ( const CString& userPropList
-    , const CString& shownUserProps)
+void CSVNStatusListCtrl::ColumnManager::ParseUserPropSettings(const CString& userPropList, const CString& shownUserProps)
 {
-    assert (userProps.empty());
+    assert(userProps.empty());
 
-    static CString delimiters (L" ");
+    static CString delimiters(L" ");
 
     // parse list of visible user-props
 
     std::set<CString> visibles;
 
-    int pos = 0;
-    CString name = shownUserProps.Tokenize (delimiters, pos);
+    int     pos  = 0;
+    CString name = shownUserProps.Tokenize(delimiters, pos);
     while (!name.IsEmpty())
     {
-        visibles.insert (name);
-        name = shownUserProps.Tokenize (delimiters, pos);
+        visibles.insert(name);
+        name = shownUserProps.Tokenize(delimiters, pos);
     }
 
     // create list of all user-props
 
-    pos = 0;
-    name = userPropList.Tokenize (delimiters, pos);
+    pos  = 0;
+    name = userPropList.Tokenize(delimiters, pos);
     while (!name.IsEmpty())
     {
-        bool visible = visibles.find (name) != visibles.end();
+        bool visible = visibles.find(name) != visibles.end();
 
         UserProp newEntry;
-        newEntry.name = name;
+        newEntry.name  = name;
         newEntry.width = 0;
 
-        userProps.push_back (newEntry);
+        userProps.push_back(newEntry);
 
         // auto-create columns for visible user-props
         // (others may be added later)
@@ -698,24 +656,23 @@ void CSVNStatusListCtrl::ColumnManager::ParseUserPropSettings
         if (visible)
         {
             ColumnInfo newColumn;
-            newColumn.width = 0;
-            newColumn.visible = true;
+            newColumn.width    = 0;
+            newColumn.visible  = true;
             newColumn.relevant = true;
-            newColumn.index = static_cast<int>(userProps.size())
-                            + SVNSLC_USERPROPCOLOFFSET - 1;
+            newColumn.index    = static_cast<int>(userProps.size()) + SVNSLC_USERPROPCOLOFFSET - 1;
 
-            columns.push_back (newColumn);
+            columns.push_back(newColumn);
         }
 
-        name = userPropList.Tokenize (delimiters, pos);
+        name = userPropList.Tokenize(delimiters, pos);
     }
 }
 
-void CSVNStatusListCtrl::ColumnManager::ParseWidths (const CString& widths)
+void CSVNStatusListCtrl::ColumnManager::ParseWidths(const CString& widths)
 {
     for (int i = 0, count = widths.GetLength() / 8; i < count; ++i)
     {
-        long width = wcstol (widths.Mid (i*8, 8), NULL, 16);
+        long width = wcstol(widths.Mid(i * 8, 8), nullptr, 16);
         if (i < SVNSLC_NUMCOLUMNS)
         {
             // a standard column
@@ -743,13 +700,12 @@ void CSVNStatusListCtrl::ColumnManager::ParseWidths (const CString& widths)
         {
             // there is no such column
 
-            assert (width == 0);
+            assert(width == 0);
         }
     }
 }
 
-void CSVNStatusListCtrl::ColumnManager::SetStandardColumnVisibility
-    (DWORD visibility)
+void CSVNStatusListCtrl::ColumnManager::SetStandardColumnVisibility(DWORD visibility)
 {
     for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
     {
@@ -758,8 +714,7 @@ void CSVNStatusListCtrl::ColumnManager::SetStandardColumnVisibility
     }
 }
 
-void CSVNStatusListCtrl::ColumnManager::ParseColumnOrder
-    (const CString& widths)
+void CSVNStatusListCtrl::ColumnManager::ParseColumnOrder(const CString& widths)
 {
     std::set<int> alreadyPlaced;
     columnOrder.clear();
@@ -769,24 +724,23 @@ void CSVNStatusListCtrl::ColumnManager::ParseColumnOrder
     int limit = static_cast<int>(SVNSLC_USERPROPCOLOFFSET + userProps.size());
     for (int i = 0, count = widths.GetLength() / 2; i < count; ++i)
     {
-        int index = wcstol (widths.Mid (i*2, 2), NULL, 16);
-        if (   (index < SVNSLC_NUMCOLUMNS)
-            || ((index >= SVNSLC_USERPROPCOLOFFSET) && (index < limit)))
+        int index = wcstol(widths.Mid(i * 2, 2), nullptr, 16);
+        if ((index < SVNSLC_NUMCOLUMNS) || ((index >= SVNSLC_USERPROPCOLOFFSET) && (index < limit)))
         {
-            alreadyPlaced.insert (index);
-            columnOrder.push_back (index);
+            alreadyPlaced.insert(index);
+            columnOrder.push_back(index);
         }
     }
 
     // place the remaining colums behind it
 
     for (int i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
-        if (alreadyPlaced.find (i) == alreadyPlaced.end())
-            columnOrder.push_back (i);
+        if (alreadyPlaced.find(i) == alreadyPlaced.end())
+            columnOrder.push_back(i);
 
     for (int i = SVNSLC_USERPROPCOLOFFSET; i < limit; ++i)
-        if (alreadyPlaced.find (i) == alreadyPlaced.end())
-            columnOrder.push_back (i);
+        if (alreadyPlaced.find(i) == alreadyPlaced.end())
+            columnOrder.push_back(i);
 }
 
 // map internal column order onto visible column order
@@ -797,10 +751,10 @@ std::vector<int> CSVNStatusListCtrl::ColumnManager::GetGridColumnOrder() const
     // extract order of used columns from order of all columns
 
     std::vector<int> result;
-    result.reserve (SVNSLC_MAXCOLUMNCOUNT+1);
+    result.reserve(SVNSLC_MAXCOLUMNCOUNT + 1);
 
     size_t colCount = columns.size();
-    bool visible = false;
+    bool   visible  = false;
 
     do
     {
@@ -813,34 +767,33 @@ std::vector<int> CSVNStatusListCtrl::ColumnManager::GetGridColumnOrder() const
             {
                 const ColumnInfo& column = columns[k];
                 if ((column.index == index) && (column.visible == visible))
-                    result.push_back (static_cast<int>(k));
+                    result.push_back(static_cast<int>(k));
             }
         }
 
         visible = !visible;
-    }
-    while (visible);
+    } while (visible);
 
     return result;
 }
 
-void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder()
+void CSVNStatusListCtrl::ColumnManager::ApplyColumnOrder() const
 {
     // extract order of used columns from order of all columns
 
     int order[SVNSLC_MAXCOLUMNCOUNT + 1] = {0};
 
     std::vector<int> gridColumnOrder = GetGridColumnOrder();
-    std::copy (gridColumnOrder.begin(), gridColumnOrder.end(), stdext::checked_array_iterator<int*>(&order[0], sizeof(order)));
+    std::copy(gridColumnOrder.begin(), gridColumnOrder.end(), stdext::checked_array_iterator<int*>(&order[0], sizeof(order)));
 
     // we must have placed all columns or something is really fishy ..
 
-    assert (gridColumnOrder.size() == columns.size());
-    assert (GetColumnCount() == control->GetHeaderCtrl()->GetItemCount());
+    assert(gridColumnOrder.size() == columns.size());
+    assert(GetColumnCount() == control->GetHeaderCtrl()->GetItemCount());
 
     // o.k., apply our column ordering
 
-    control->SetColumnOrderArray (GetColumnCount(), order);
+    control->SetColumnOrderArray(GetColumnCount(), order);
 }
 
 // utilities used when writing data to the registry
@@ -849,7 +802,7 @@ DWORD CSVNStatusListCtrl::ColumnManager::GetSelectedStandardColumns() const
 {
     DWORD result = 0;
     for (size_t i = SVNSLC_NUMCOLUMNS; i > 0; --i)
-        result = result * 2 + (columns[i-1].visible ? 1 : 0);
+        result = result * 2 + (columns[i - 1].visible ? 1 : 0);
 
     return result;
 }
@@ -872,8 +825,7 @@ CString CSVNStatusListCtrl::ColumnManager::GetShownUserProps() const
     {
         size_t index = static_cast<size_t>(columns[i].index);
         if (columns[i].visible && (index >= SVNSLC_USERPROPCOLOFFSET))
-            result += userProps[index - SVNSLC_USERPROPCOLOFFSET].name
-                    + ' ';
+            result += userProps[index - SVNSLC_USERPROPCOLOFFSET].name + ' ';
     }
 
     return result;
@@ -885,22 +837,22 @@ CString CSVNStatusListCtrl::ColumnManager::GetWidthString() const
 
     // regular columns
 
-    TCHAR buf[10] = { 0 };
+    TCHAR buf[10] = {0};
     for (size_t i = 0; i < SVNSLC_NUMCOLUMNS; ++i)
     {
-        swprintf_s (buf, L"%08X", columns[i].width);
+        swprintf_s(buf, L"%08X", columns[i].width);
         result += buf;
     }
 
     // range with no column IDs
 
-    result += CString ('0', 8 * (SVNSLC_USERPROPCOLOFFSET - SVNSLC_NUMCOLUMNS));
+    result += CString('0', 8 * (SVNSLC_USERPROPCOLOFFSET - SVNSLC_NUMCOLUMNS));
 
     // user-prop columns
 
     for (size_t i = 0, count = userProps.size(); i < count; ++i)
     {
-        swprintf_s (buf, L"%08X", userProps[i].width);
+        swprintf_s(buf, L"%08X", userProps[i].width);
         result += buf;
     }
 
@@ -911,12 +863,12 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
 {
     CString result;
 
-    TCHAR buf[3] = { 0 };
+    TCHAR buf[3] = {0};
     for (size_t i = 0, count = columnOrder.size(); i < count; ++i)
     {
         if (columnOrder[i] < SVNSLC_MAXCOLUMNCOUNT)
         {
-            swprintf_s (buf, L"%02X", columnOrder[i]);
+            swprintf_s(buf, L"%02X", columnOrder[i]);
             result += buf;
         }
     }
@@ -926,225 +878,241 @@ CString CSVNStatusListCtrl::ColumnManager::GetColumnOrderString() const
 
 // sorter utility class
 
-CSVNStatusListCtrl::CSorter::CSorter ( ColumnManager* columnManager
-                                      , CSVNStatusListCtrl * listControl
-                                      , int sortedColumn
-                                      , bool ascending)
-                                      : columnManager (columnManager)
-                                      , control(listControl)
-                                      , sortedColumn (sortedColumn)
-                                      , ascending (ascending)
+CSVNStatusListCtrl::CSorter::CSorter(ColumnManager* columnManager, CSVNStatusListCtrl* listControl, int sortedColumn, bool ascending)
+    : columnManager(columnManager)
+    , control(listControl)
+    , sortedColumn(sortedColumn)
+    , ascending(ascending)
 {
-    s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
-    if (s_bSortLogical)
-        s_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
+    m_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_CURRENT_USER);
+    if (m_bSortLogical)
+        m_bSortLogical = !CRegDWORD(L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\\NoStrCmpLogical", 0, false, HKEY_LOCAL_MACHINE);
 }
 
-bool CSVNStatusListCtrl::CSorter::operator()
-( const FileEntry* entry1
- , const FileEntry* entry2) const
+bool CSVNStatusListCtrl::CSorter::operator()(const FileEntry* entry1, const FileEntry* entry2) const
 {
-#define SGN(x) ((x)==0?0:((x)>0?1:-1))
+#define SGN(x) ((x) == 0 ? 0 : ((x) > 0 ? 1 : -1))
 
     int result = 0;
     switch (sortedColumn)
     {
-    case 19:
+        case 19:
         {
             if (result == 0)
             {
-                __int64 fileSize1 = entry1->isfolder ? 0 : entry1->working_size != (-1) ? entry1->working_size : entry1->GetPath().GetFileSize();
-                __int64 fileSize2 = entry2->isfolder ? 0 : entry2->working_size != (-1) ? entry2->working_size : entry2->GetPath().GetFileSize();
+                __int64 fileSize1 = entry1->isFolder ? 0 : entry1->workingSize != (-1) ? entry1->workingSize
+                                                                                       : entry1->GetPath().GetFileSize();
+                __int64 fileSize2 = entry2->isFolder ? 0 : entry2->workingSize != (-1) ? entry2->workingSize
+                                                                                       : entry2->GetPath().GetFileSize();
 
-                result = int(fileSize1 - fileSize2);
+                result = static_cast<int>(fileSize1 - fileSize2);
             }
         }
-    case 18:
+            [[fallthrough]];
+        case 18:
         {
             if (result == 0)
             {
                 __int64 writetime1 = entry1->GetPath().GetLastWriteTime();
                 __int64 writetime2 = entry2->GetPath().GetLastWriteTime();
 
-                FILETIME* filetime1 = (FILETIME*)(__int64*)&writetime1;
-                FILETIME* filetime2 = (FILETIME*)(__int64*)&writetime2;
+                FILETIME* filetime1 = reinterpret_cast<FILETIME*>(static_cast<long long*>(&writetime1));
+                FILETIME* filetime2 = reinterpret_cast<FILETIME*>(static_cast<long long*>(&writetime2));
 
-                result = CompareFileTime(filetime1,filetime2);
+                result = CompareFileTime(filetime1, filetime2);
             }
         }
-    case 17:
+            [[fallthrough]];
+        case 17:
         {
             if (result == 0)
             {
-                result = SGN(entry1->last_commit_date - entry2->last_commit_date);
+                result = SGN(entry1->lastCommitDate - entry2->lastCommitDate);
             }
         }
-    case 16:
+            [[fallthrough]];
+        case 16:
         {
             if (result == 0)
             {
-                result = entry1->remoterev - entry2->remoterev;
+                result = entry1->remoteRev - entry2->remoteRev;
             }
         }
-    case 15:
+            [[fallthrough]];
+        case 15:
         {
             if (result == 0)
             {
-                result = entry1->last_commit_rev - entry2->last_commit_rev;
+                result = entry1->lastCommitRev - entry2->lastCommitRev;
             }
         }
-    case 14:
+            [[fallthrough]];
+        case 14:
         {
             if (result == 0)
             {
-                if (s_bSortLogical)
-                    result = StrCmpLogicalW(entry1->last_commit_author, entry2->last_commit_author);
+                if (m_bSortLogical)
+                    result = StrCmpLogicalW(entry1->lastCommitAuthor, entry2->lastCommitAuthor);
                 else
-                    result = StrCmpI(entry1->last_commit_author, entry2->last_commit_author);
+                    result = StrCmpI(entry1->lastCommitAuthor, entry2->lastCommitAuthor);
             }
         }
-    case 13:
+            [[fallthrough]];
+        case 13:
         {
             if (result == 0)
             {
-                result = (int)(entry1->lock_date - entry2->lock_date);
+                result = static_cast<int>(entry1->lockDate - entry2->lockDate);
             }
         }
-    case 12:
+            [[fallthrough]];
+        case 12:
         {
             if (result == 0)
             {
-                if (s_bSortLogical)
-                    result = StrCmpLogicalW(entry1->lock_comment, entry2->lock_comment);
+                if (m_bSortLogical)
+                    result = StrCmpLogicalW(entry1->lockComment, entry2->lockComment);
                 else
-                    result = StrCmpI(entry1->lock_comment, entry2->lock_comment);
+                    result = StrCmpI(entry1->lockComment, entry2->lockComment);
             }
         }
-    case 11:
+            [[fallthrough]];
+        case 11:
         {
             if (result == 0)
             {
-                if (s_bSortLogical)
-                    result = StrCmpLogicalW(entry1->lock_owner, entry2->lock_owner);
+                if (m_bSortLogical)
+                    result = StrCmpLogicalW(entry1->lockOwner, entry2->lockOwner);
                 else
-                    result = StrCmpI(entry1->lock_owner, entry2->lock_owner);
+                    result = StrCmpI(entry1->lockOwner, entry2->lockOwner);
             }
         }
-    case 10:
+            [[fallthrough]];
+        case 10:
         {
             if (result == 0)
             {
-                if (s_bSortLogical)
+                if (m_bSortLogical)
                     result = StrCmpLogicalW(entry1->url, entry2->url);
                 else
                     result = StrCmpI(entry1->url, entry2->url);
             }
         }
-    case 9:
+            [[fallthrough]];
+        case 9:
         {
             if (result == 0)
             {
                 result = entry1->depth - entry2->depth;
             }
         }
-    case 8:
+            [[fallthrough]];
+        case 8:
         {
             if (result == 0)
             {
-                result = entry1->remotepropstatus - entry2->remotepropstatus;
+                result = entry1->remotePropStatus - entry2->remotePropStatus;
             }
         }
-    case 7:
+            [[fallthrough]];
+        case 7:
         {
             if (result == 0)
             {
-                result = entry1->remotetextstatus - entry2->remotetextstatus;
+                result = entry1->remoteTextStatus - entry2->remoteTextStatus;
             }
         }
-    case 6:
+            [[fallthrough]];
+        case 6:
         {
             if (result == 0)
             {
-                result = entry1->propstatus - entry2->propstatus;
+                result = entry1->propStatus - entry2->propStatus;
             }
         }
-    case 5:
+            [[fallthrough]];
+        case 5:
         {
             if (result == 0)
             {
-                result = entry1->textstatus - entry2->textstatus;
+                result = entry1->textStatus - entry2->textStatus;
             }
         }
-    case 4:
+            [[fallthrough]];
+        case 4:
         {
             if (result == 0)
             {
-                result = entry1->remotestatus - entry2->remotestatus;
+                result = entry1->remoteStatus - entry2->remoteStatus;
             }
         }
-    case 3:
+            [[fallthrough]];
+        case 3:
         {
             if (result == 0)
             {
                 result = entry1->status - entry2->status;
             }
         }
-    case 2:
+            [[fallthrough]];
+        case 2:
         {
             if (result == 0)
             {
-                if (s_bSortLogical)
+                if (m_bSortLogical)
                     result = StrCmpLogicalW(entry1->path.GetFileExtension(), entry2->path.GetFileExtension());
                 else
                     result = StrCmpI(entry1->path.GetFileExtension(), entry2->path.GetFileExtension());
             }
         }
-    case 1:
+            [[fallthrough]];
+        case 1:
         {
             // do not sort by file/dirname if the sorting isn't done by this specific column but let the second-order
             // sorting be done by path
-            if ((result == 0)&&(sortedColumn == 1))
+            if ((result == 0) && (sortedColumn == 1))
             {
-                if (s_bSortLogical)
+                if (m_bSortLogical)
                     result = StrCmpLogicalW(entry1->path.GetFileOrDirectoryName(), entry2->path.GetFileOrDirectoryName());
                 else
                     result = StrCmpI(entry1->path.GetFileOrDirectoryName(), entry2->path.GetFileOrDirectoryName());
             }
         }
-    case 0:     // path column
+            [[fallthrough]];
+        case 0: // path column
         {
             if (result == 0)
             {
-                if (s_bSortLogical)
+                if (m_bSortLogical)
                     result = StrCmpLogicalW(entry1->path.GetWinPath(), entry2->path.GetWinPath());
                 else
                     result = StrCmpI(entry1->path.GetWinPath(), entry2->path.GetWinPath());
             }
         }
-    default:
-        if ((result == 0) && (sortedColumn > 0))
-        {
-            // N/A props are "less than" empty props
-
-            const CString& propName = columnManager->GetName (sortedColumn);
-
-            auto propEntry1 = control->m_PropertyMap.find(entry1->GetPath());
-            auto propEntry2 = control->m_PropertyMap.find(entry2->GetPath());
-            bool entry1HasProp = (propEntry1 != control->m_PropertyMap.end()) && propEntry1->second.HasProperty (propName);
-            bool entry2HasProp = (propEntry2 != control->m_PropertyMap.end()) && propEntry2->second.HasProperty (propName);
-
-            if (entry1HasProp)
+            [[fallthrough]];
+        default:
+            if ((result == 0) && (sortedColumn > 0))
             {
-                result = entry2HasProp
-                    ? propEntry1->second[propName].Compare
-                    (propEntry2->second[propName])
-                    : 1;
+                // N/A props are "less than" empty props
+
+                const CString& propName = columnManager->GetName(sortedColumn);
+
+                auto propEntry1    = control->m_propertyMap.find(entry1->GetPath());
+                auto propEntry2    = control->m_propertyMap.find(entry2->GetPath());
+                bool entry1HasProp = (propEntry1 != control->m_propertyMap.end()) && propEntry1->second.HasProperty(propName);
+                bool entry2HasProp = (propEntry2 != control->m_propertyMap.end()) && propEntry2->second.HasProperty(propName);
+
+                if (entry1HasProp)
+                {
+                    result = entry2HasProp
+                                 ? propEntry1->second[propName].Compare(propEntry2->second[propName])
+                                 : 1;
+                }
+                else
+                {
+                    result = entry2HasProp ? -1 : 0;
+                }
             }
-            else
-            {
-                result = entry2HasProp ? -1 : 0;
-            }
-        }
     } // switch (m_nSortedColumn)
     if (!ascending)
         result = -result;

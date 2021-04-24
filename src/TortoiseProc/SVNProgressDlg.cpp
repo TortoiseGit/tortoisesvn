@@ -2453,7 +2453,8 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
         break;
         case ID_OPENWITH:
             bOpenWith = true;
-            [[fallthrough]] case ID_OPEN:
+            [[fallthrough]];
+        case ID_OPEN:
             {
                 if (data == nullptr)
                     break;

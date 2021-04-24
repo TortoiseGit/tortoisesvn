@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013 - TortoiseSVN
+// Copyright (C) 2003-2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,6 @@
 class SVNProperties : public SVNReadProperties
 {
 public:
-
 #ifdef _MFC_VER
     SVNProperties(SVNRev rev, bool bRevProps, bool bIncludeInherited);
     SVNProperties(const CTSVNPath& filepath, SVNRev rev, bool bRevProps, bool bIncludeInherited);
@@ -52,39 +51,40 @@ public:
      */
     SVNProperties(const CTSVNPath& filepath, bool bRevProps, bool bIncludeInherited);
 #endif
-    virtual ~SVNProperties(void);
+    virtual ~SVNProperties();
     /**
      * Adds a new property to the file/directory specified in the constructor.
      * \remark After using this method the indexes of the properties may change! Call Refresh() if you want to access other properties again.
-     * \param Name the name of the new property
-     * \param Value the value of the new property
+     * \param name the name of the new property
+     * \param value the value of the new property
      * \param force
      * \param depth the depth with which the property is added
      * \param message an optional commit message if the property is set directly on the repository
      * \return TRUE if the property is added successfully
      */
-    BOOL Add(const std::string& Name, const std::string& Value, bool force = false, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
+    BOOL Add(const std::string& name, const std::string& value, bool force = false, svn_depth_t depth = svn_depth_empty, const TCHAR* message = nullptr);
     /**
      * Removes an existing property from the file/directory specified in the constructor.
      * \remark After using this method the indexes of the properties may change! Call Refresh() if you want to access other properties again.
-     * \param Name the name of the property to delete
+     * \param name the name of the property to delete
      * \param depth the depth with which the property is removed
      * \param message an optional commit message if the property is removed directly from the repository
      * \return TRUE if the property is removed successfully
      */
-    BOOL Remove(const std::string& Name, svn_depth_t depth = svn_depth_empty, const TCHAR * message = NULL);
+    BOOL Remove(const std::string& name, svn_depth_t depth = svn_depth_empty, const TCHAR* message = nullptr);
 
     /**
      * Clear current content and read properties from
      * K / V notation as created by \ref GetSerializedForm.
      * \param text serialized property list
      */
-    void SetFromSerializedForm (const std::string& text);
+    void SetFromSerializedForm(const std::string& text);
 
-    svn_revnum_t GetCommitRev() const { return rev_set; }
+    svn_revnum_t GetCommitRev() const { return m_revSet; }
+
 private:
-    void PrepareMsgForUrl( const TCHAR * message, SVNPool& subpool );
-    static svn_error_t* CommitCallback(const svn_commit_info_t *commit_info, void *baton, apr_pool_t *pool);
+    void                PrepareMsgForUrl(const TCHAR* message, SVNPool& subPool) const;
+    static svn_error_t* CommitCallback(const svn_commit_info_t* commitInfo, void* baton, apr_pool_t* pool);
 
-    svn_revnum_t rev_set;
+    svn_revnum_t m_revSet;
 };

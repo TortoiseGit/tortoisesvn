@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -289,7 +289,7 @@ void CCommitDlg::OnOK()
                     // items which are not modified, i.e. won't get committed can
                     // still be shown in a changelist, e.g. the 'don't commit' changelist.
                     if ((entry->status > svn_wc_status_normal) ||
-                        (entry->propstatus > svn_wc_status_normal) ||
+                        (entry->propStatus > svn_wc_status_normal) ||
                         (entry->IsCopied()))
                     {
                         // items that can't be checked don't count as unchecked.
@@ -1147,7 +1147,7 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
             (entry->status != svn_wc_status_none) &&
             (entry->status != svn_wc_status_ignored) &&
             (entry->status != svn_wc_status_added) &&
-            (entry->textstatus != svn_wc_status_normal))
+            (entry->textStatus != svn_wc_status_normal))
         {
             CTSVNPath basePath = SVN::GetPristinePath(entry->GetPath());
             if (!basePath.IsEmpty())

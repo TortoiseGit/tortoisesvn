@@ -20,15 +20,13 @@
 #pragma once
 
 #ifdef _MFC_VER
-#   include "SVNPrompt.h"
+#    include "SVNPrompt.h"
 #endif
 #include "SVNBase.h"
 #include "TSVNPath.h"
 #include <set>
-#include "tstring.h"
 
-#define MAX_STATUS_STRING_LENGTH        100
-
+#define MAX_STATUS_STRING_LENGTH 100
 
 /**
  * \ingroup SVN
@@ -37,11 +35,10 @@
 class SVNStatus : public SVNBase
 {
 public:
-    SVNStatus(const SVNStatus&) = delete;
-    SVNStatus& operator=(SVNStatus&) = delete;
-    SVNStatus(bool * pbCancelled = NULL, bool suppressUI = false);
-    ~SVNStatus(void);
-
+    SVNStatus(const SVNStatus &) = delete;
+    SVNStatus &operator=(SVNStatus &) = delete;
+    explicit SVNStatus(bool *pbCancelled = nullptr, bool suppressUI = false);
+    ~SVNStatus() override;
 
     /**
      * Reads the Subversion status of the working copy entry. No
@@ -49,7 +46,7 @@ public:
      * If the status of the text and property part are different
      * then the more important status is returned.
      */
-    static svn_wc_status_kind GetAllStatus(const CTSVNPath& path, svn_depth_t depth = svn_depth_empty);
+    static svn_wc_status_kind GetAllStatus(const CTSVNPath &path, svn_depth_t depth = svn_depth_empty);
 
     /**
      * Reads the Subversion status of the working copy entry and all its
@@ -58,7 +55,7 @@ public:
      * If the status of the text and property part are different then
      * the more important status is returned.
      */
-    static svn_wc_status_kind GetAllStatusRecursive(const CTSVNPath& path);
+    static svn_wc_status_kind GetAllStatusRecursive(const CTSVNPath &path);
 
     /**
      * Returns the status which is more "important" of the two statuses specified.
@@ -73,7 +70,7 @@ public:
      * E.g. a "normal" status is not important, but "modified" is.
      * \param status the status to check
      */
-    static BOOL IsImportant(svn_wc_status_kind status) {return (GetMoreImportant(svn_wc_status_added, status)==status);}
+    static BOOL IsImportant(svn_wc_status_kind status) { return (GetMoreImportant(svn_wc_status_added, status) == status); }
 
     /**
      * Reads the Subversion text status of the working copy entry. No
@@ -88,24 +85,24 @@ public:
      * \return If update is set to true the HEAD revision of the repository is returned. If update is false then -1 is returned.
      * \remark If the return value is -2 then the status could not be obtained.
      */
-    svn_revnum_t GetStatus(const CTSVNPath& path, bool update = false, bool noignore = false, bool noexternals = false);
+    svn_revnum_t GetStatus(const CTSVNPath &path, bool update = false, bool noignore = false, bool noexternals = false);
 
     /**
      * Returns a string representation of a Subversion status.
      * \param status the status enum
-     * \param buflen
+     * \param bufLen
      * \param string a string representation
      */
-    static void GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR * string);
-    static void GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR * string, int size, WORD lang);
+    static void GetStatusString(svn_wc_status_kind status, size_t bufLen, TCHAR *string);
+    static void GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR *string, int size, WORD lang);
 
     /**
      * Returns the string representation of a depth.
      */
 #ifdef _MFC_VER
-    static const CString& GetDepthString(svn_depth_t depth);
+    static const CString &GetDepthString(svn_depth_t depth);
 #endif
-    static void GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR * string, int size, WORD lang);
+    static void GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR *string, int size, WORD lang);
 
     /**
      * Returns the status of the first file of the given path. Use GetNextFileStatus() to obtain
@@ -119,73 +116,73 @@ public:
      * \param bNoExternals true to not fetch the status of included svn:externals
      * \return the status
      */
-    svn_client_status_t * GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update = false, svn_depth_t depth = svn_depth_infinity, bool bNoIgnore = true, bool bNoExternals = false);
-    unsigned int GetFileCount() const {return apr_hash_count(m_statushash);}
-    unsigned int GetVersionedCount() const;
+    svn_client_status_t *GetFirstFileStatus(const CTSVNPath &path, CTSVNPath &retPath, bool update = false, svn_depth_t depth = svn_depth_infinity, bool bNoIgnore = true, bool bNoExternals = false);
+    unsigned int         GetFileCount() const { return apr_hash_count(m_statusHash); }
+    unsigned int         GetVersionedCount() const;
     /**
      * Returns the status of the next file in the file list. If no more files are in the list then NULL is returned.
      * See GetFirstFileStatus() for details.
      */
-    svn_client_status_t * GetNextFileStatus(CTSVNPath& retPath);
+    svn_client_status_t *GetNextFileStatus(CTSVNPath &retPath);
     /**
      * Checks if a path is an external folder.
      * This is necessary since Subversion returns two entries for external folders: one with the status svn_wc_status_external
      * and one with the 'real' status of that folder. GetFirstFileStatus() and GetNextFileStatus() only return the 'real'
      * status, so with this method it's possible to check if the status also is svn_wc_status_external.
      */
-    bool IsExternal(const CTSVNPath& path) const;
+    bool IsExternal(const CTSVNPath &path) const;
     /**
      * Checks if a path is in an external folder.
      */
-    bool IsInExternal(const CTSVNPath& path) const;
+    bool IsInExternal(const CTSVNPath &path) const;
 
     /**
      * Fills the \c externals set with all external root paths.
      * \remark the set is not cleared first!
      */
-    void GetExternals(std::set<CTSVNPath>& externals) const;
+    void GetExternals(std::set<CTSVNPath> &externals) const;
 
     /**
      * Clears the memory pool.
      */
-    void ClearPool();
+    void ClearPool() const;
 
     /**
      * This member variable hold the status of the last call to GetStatus().
      */
-    svn_client_status_t *       status;             ///< the status result of GetStatus()
+    svn_client_status_t *status; ///< the status result of GetStatus()
 
-    svn_revnum_t                headrev;            ///< the head revision fetched with GetFirstStatus()
+    svn_revnum_t headrev; ///< the head revision fetched with GetFirstStatus()
 
     /**
      * Returns true if the last error was SVN_ERR_WC_UNSUPPORTED_FORMAT, indicating that the
      * working copy is still in the old format (or a newer format than this client supports)
      */
-    bool IsUnsupportedFormat() const {return m_err ? ((m_err->apr_err == SVN_ERR_WC_UNSUPPORTED_FORMAT)||(m_err->apr_err == SVN_ERR_WC_UPGRADE_REQUIRED)) : false;}
+    bool IsUnsupportedFormat() const { return m_err ? ((m_err->apr_err == SVN_ERR_WC_UNSUPPORTED_FORMAT) || (m_err->apr_err == SVN_ERR_WC_UPGRADE_REQUIRED)) : false; }
 
-friend class SVN;   // So that SVN can get to our m_err
+    friend class SVN; // So that SVN can get to our m_err
 
 protected:
-    apr_pool_t *                m_pool;         ///< the memory pool
+    apr_pool_t *m_pool; ///< the memory pool
 private:
-    typedef struct sort_item
+    typedef struct SortItem
     {
         const void *key;
-        apr_ssize_t klen;
-        void *value;
-    } sort_item;
+        apr_ssize_t kLen;
+        void *      value;
+    } SortItem;
 
-    typedef struct hashbaton_t
+    typedef struct HashbatonT
     {
-        SVNStatus*      pThis;
-        apr_hash_t *    hash;
-        apr_hash_t *    exthash;
-    } hash_baton_t;
+        SVNStatus * pThis;
+        apr_hash_t *hash;
+        apr_hash_t *extHash;
+    } HashBatonT;
 
-    svn_wc_status_kind          m_allstatus;    ///< used by GetAllStatus and GetAllStatusRecursive
+    svn_wc_status_kind m_allstatus; ///< used by GetAllStatus and GetAllStatusRecursive
 
 #ifdef _MFC_VER
-    SVNPrompt                   m_prompt;
+    SVNPrompt m_prompt;
 #endif
 
     /**
@@ -197,13 +194,13 @@ private:
     /**
      * Callback function which collects the raw status from a svn_client_status() function call
      */
-    static svn_error_t * getallstatus (void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
+    static svn_error_t *getallstatus(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
 
     /**
      * Callback function which stores the raw status from a svn_client_status() function call
      * in a hash table.
      */
-    static svn_error_t * getstatushash (void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
+    static svn_error_t *getstatushash(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
 
     /**
      * notification callback used to gather the externals.
@@ -213,30 +210,29 @@ private:
     /**
      * helper function to sort a hash to an array
      */
-    static apr_array_header_t * sort_hash (apr_hash_t *ht, int (*comparison_func) (const sort_item *,
-                                        const sort_item *), apr_pool_t *pool);
+    static apr_array_header_t *sort_hash(apr_hash_t *ht, int (*comparisonFunc)(const SortItem *, const SortItem *), apr_pool_t *pool);
 
     /**
      * Callback function used by qsort() which does the comparison of two elements
      */
-    static int __cdecl sort_compare_items_as_paths (const sort_item *a, const sort_item *b);
+    static int __cdecl sort_compare_items_as_paths(const SortItem *a, const SortItem *b);
 
     //for GetFirstFileStatus and GetNextFileStatus
-    apr_hash_t *                m_statushash;
-    apr_array_header_t *        m_statusarray;
-    unsigned int                m_statushashindex;
-    apr_hash_t *                m_externalhash;
+    apr_hash_t *        m_statusHash;
+    apr_array_header_t *m_statusArray;
+    unsigned int        m_statusHashIndex;
+    apr_hash_t *        m_externalHash;
 
 #pragma warning(push)
-#pragma warning(disable: 4200)
+#pragma warning(disable : 4200)
+    // ReSharper disable once CppInconsistentNaming
     struct STRINGRESOURCEIMAGE
     {
-        WORD nLength;
+        WORD  nLength;
         WCHAR achString[];
     };
-#pragma warning(pop)    // C4200
+#pragma warning(pop) // C4200
 
-    static int LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);
-    static svn_error_t* cancel(void *baton);
+    static int          LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);
+    static svn_error_t *cancel(void *baton);
 };
-

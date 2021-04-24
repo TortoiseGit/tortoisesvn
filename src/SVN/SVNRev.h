@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012, 2016 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,6 @@
 #pragma warning(pop)
 #include <vector>
 
-
 /**
  * \ingroup SVN
  * SVNRev represents a subversion revision. A subversion revision can
@@ -42,56 +41,71 @@ class SVNRev
 public:
     SVNRev(svn_revnum_t nRev);
     SVNRev(const CString& sRev);
-    SVNRev(svn_opt_revision_t revision) {rev = revision;m_bIsValid = (rev.kind != svn_opt_revision_unspecified);}
-    SVNRev(){rev.kind = svn_opt_revision_unspecified;m_bIsValid = FALSE;}
+
+    SVNRev(svn_opt_revision_t revision)
+    {
+        rev        = revision;
+        m_bIsValid = (rev.kind != svn_opt_revision_unspecified);
+    }
+    SVNRev()
+    {
+        rev.kind   = svn_opt_revision_unspecified;
+        m_bIsValid = FALSE;
+    }
     ~SVNRev();
 
     /// returns TRUE if the revision is valid (i.e. not unspecified)
-    BOOL IsValid() const {return m_bIsValid;}
+    BOOL IsValid() const { return m_bIsValid; }
     /// returns TRUE if the revision is HEAD
-    BOOL IsHead() const {return (rev.kind == svn_opt_revision_head);}
+    BOOL IsHead() const { return (rev.kind == svn_opt_revision_head); }
     /// returns TRUE if the revision is BASE
-    BOOL IsBase() const {return (rev.kind == svn_opt_revision_base);}
+    BOOL IsBase() const { return (rev.kind == svn_opt_revision_base); }
     /// returns TRUE if the revision is WORKING
-    BOOL IsWorking() const {return (rev.kind == svn_opt_revision_working);}
+    BOOL IsWorking() const { return (rev.kind == svn_opt_revision_working); }
     /// returns TRUE if the revision is PREV
-    BOOL IsPrev() const {return (rev.kind == svn_opt_revision_previous);}
+    BOOL IsPrev() const { return (rev.kind == svn_opt_revision_previous); }
     /// returns TRUE if the revision is COMMITTED
-    BOOL IsCommitted() const {return (rev.kind == svn_opt_revision_committed);}
+    BOOL IsCommitted() const { return (rev.kind == svn_opt_revision_committed); }
     /// returns TRUE if the revision is a date
-    BOOL IsDate() const {return (rev.kind == svn_opt_revision_date);}
+    BOOL IsDate() const { return (rev.kind == svn_opt_revision_date); }
     /// returns TRUE if the revision is a number
-    BOOL IsNumber() const {return (rev.kind == svn_opt_revision_number);}
+    BOOL IsNumber() const { return (rev.kind == svn_opt_revision_number); }
 
     // Returns the kind of revision representation (number, HEAD, BASE, etc.)
-    svn_opt_revision_kind GetKind() const {return rev.kind;}
+    svn_opt_revision_kind GetKind() const { return rev.kind; }
 
     /// Returns a string representing the date of a DATE revision, otherwise an empty string.
-    CString GetDateString() const {return sDate;}
+    CString GetDateString() const { return sDate; }
     /// Returns the date if the revision is of type svn_opt_revision_date
-    apr_time_t GetDate() const {ATLASSERT(IsDate()); return rev.value.date;}
+    apr_time_t GetDate() const
+    {
+        ATLASSERT(IsDate());
+        return rev.value.date;
+    }
     /// Converts the revision into a string representation.
     CString ToString() const;
     /// checks whether two SVNRev objects are the same
     bool IsEqual(const SVNRev& revision) const;
 
-    operator LONG () const;
-    operator const svn_opt_revision_t * () const;
+    operator LONG() const;
+    operator const svn_opt_revision_t*() const;
     enum
     {
-        REV_HEAD = -1,          ///< head revision
-        REV_BASE = -2,          ///< base revision
-        REV_WC = -3,            ///< revision of the working copy
-        REV_DATE = -4,          ///< a date revision
-        REV_UNSPECIFIED = -5,   ///< unspecified revision
+        REV_HEAD        = -1, ///< head revision
+        REV_BASE        = -2, ///< base revision
+        REV_WC          = -3, ///< revision of the working copy
+        REV_DATE        = -4, ///< a date revision
+        REV_UNSPECIFIED = -5, ///< unspecified revision
     };
+
 protected:
     void Create(svn_revnum_t nRev);
     void Create(CString sRev);
+
 private:
     svn_opt_revision_t rev;
-    BOOL m_bIsValid;
-    CString sDate;
+    BOOL               m_bIsValid;
+    CString            sDate;
 };
 
 /**
@@ -108,20 +122,23 @@ public:
     SVNRevRange(const SVNRev& start, const SVNRev& end)
     {
         SecureZeroMemory(&revrange, sizeof(svn_opt_revision_range_t));
-        revrange.start = *(const svn_opt_revision_t*)start;
-        revrange.end = *(const svn_opt_revision_t*)end;
+        revrange.start = *static_cast<const svn_opt_revision_t*>(start);
+        revrange.end   = *static_cast<const svn_opt_revision_t*>(end);
     }
 
-    void        SetRange(const SVNRev& rev1, const SVNRev& rev2) {revrange.start = *(const svn_opt_revision_t*)rev1; revrange.end = *(const svn_opt_revision_t*)rev2;}
-    SVNRev      GetStartRevision() const {return SVNRev(revrange.start);}
-    SVNRev      GetEndRevision() const {return SVNRev(revrange.end);}
+    void SetRange(const SVNRev& rev1, const SVNRev& rev2)
+    {
+        revrange.start = *static_cast<const svn_opt_revision_t*>(rev1);
+        revrange.end   = *static_cast<const svn_opt_revision_t*>(rev2);
+    }
+    SVNRev GetStartRevision() const { return SVNRev(revrange.start); }
+    SVNRev GetEndRevision() const { return SVNRev(revrange.end); }
 
-    operator const svn_opt_revision_range_t * () const {return &revrange;}
+    operator const svn_opt_revision_range_t*() const { return &revrange; }
 
 private:
     svn_opt_revision_range_t revrange;
 };
-
 
 class SVNRevRangeArray
 {
@@ -129,41 +146,39 @@ public:
     SVNRevRangeArray() {}
     ~SVNRevRangeArray() {}
 
-    int                 AddRevision(const SVNRev& revision, bool reverse);
-    int                 AddRevRange(const SVNRevRange& revrange);
-    int                 AddRevRange(const SVNRev& start, const SVNRev& end);
-    void                AddRevisions(const std::vector<svn_revnum_t>& revisions);
-    int                 GetCount() const;
-    void                Clear();
-    void                AdjustForMerge(bool bReverse = false);
+    int  AddRevision(const SVNRev& revision, bool reverse);
+    int  AddRevRange(const SVNRevRange& revrange);
+    int  AddRevRange(const SVNRev& start, const SVNRev& end);
+    void AddRevisions(const std::vector<svn_revnum_t>& revisions);
+    int  GetCount() const;
+    void Clear();
+    void AdjustForMerge(bool bReverse = false);
 
-    const apr_array_header_t* GetAprArray(apr_pool_t * pool) const;
+    const apr_array_header_t* GetAprArray(apr_pool_t* pool) const;
 
-    const SVNRevRange&  operator[](int index) const;
-    SVNRev              GetHighestRevision() const;
-    SVNRev              GetLowestRevision() const;
+    const SVNRevRange& operator[](int index) const;
+    SVNRev             GetHighestRevision() const;
+    SVNRev             GetLowestRevision() const;
 
-    bool                FromListString(const CString& string);
-    CString             ToListString(bool bReverse = false) const;
+    bool    FromListString(const CString& string);
+    CString ToListString(bool bReverse = false) const;
 
     struct AscSort
     {
-        bool operator()(SVNRevRange& pStart, SVNRevRange& pEnd)
+        bool operator()(SVNRevRange& pStart, SVNRevRange& pEnd) const
         {
-            return svn_revnum_t(pStart.GetStartRevision()) < svn_revnum_t(pEnd.GetStartRevision());
+            return static_cast<svn_revnum_t>(pStart.GetStartRevision()) < static_cast<svn_revnum_t>(pEnd.GetStartRevision());
         }
     };
 
     struct DescSort
     {
-        bool operator()(SVNRevRange& pStart, SVNRevRange& pEnd)
+        bool operator()(SVNRevRange& pStart, SVNRevRange& pEnd) const
         {
-            return svn_revnum_t(pStart.GetStartRevision()) > svn_revnum_t(pEnd.GetStartRevision());
+            return static_cast<svn_revnum_t>(pStart.GetStartRevision()) > static_cast<svn_revnum_t>(pEnd.GetStartRevision());
         }
     };
 
 private:
-
-    std::vector<SVNRevRange>    m_array;
+    std::vector<SVNRevRange> m_array;
 };
-

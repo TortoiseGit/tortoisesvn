@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2011-2014 - TortoiseSVN
+// Copyright (C) 2008, 2011-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,18 +22,17 @@
 class Creds
 {
 public:
-    std::unique_ptr<char[]> GetUsername() { return CStringUtils::Decrypt(username); }
-    bool                    SetUsername(const char * user) { username = CStringUtils::Encrypt(user); return !username.IsEmpty(); }
-    std::unique_ptr<char[]> GetPassword() { return CStringUtils::Decrypt(password); }
-    bool                    SetPassword(const char * pass) { password = CStringUtils::Encrypt(pass); return !password.IsEmpty(); }
-private:
-    CStringA                username;
-    CStringA                password;
-};
+    std::unique_ptr<char[]> GetUsername() const { return CStringUtils::Decrypt(username); }
+    bool                    SetUsername(const char *user);
+    std::unique_ptr<char[]> GetPassword() const { return CStringUtils::Decrypt(password); }
+    bool                    SetPassword(const char *pass);
 
+private:
+    CStringA username;
+    CStringA password;
+};
 
 extern std::map<CStringA, Creds> tsvn_creds;
 
-void svn_auth_get_tsvn_simple_provider(svn_auth_provider_object_t **provider,
-                                       apr_pool_t *pool);
-
+void svnAuthGetTsvnSimpleProvider(svn_auth_provider_object_t **provider,
+                                  apr_pool_t *                 pool);

@@ -18,59 +18,51 @@
 //
 
 #include "stdafx.h"
-#pragma warning(push)
-#include "svn_config.h"
-#pragma warning(pop)
-#include "resource.h"
 #include "../TortoiseShell/resource.h"
 #include "SVNStatus.h"
 #include "UnicodeUtils.h"
-#include "SVNGlobal.h"
 #include "SVNConfig.h"
 #include "SVNHelpers.h"
 #include "SVNTrace.h"
 #ifdef _MFC_VER
-#   include "SVN.h"
-#   include "registry.h"
-#   include "TSVNPath.h"
-#   include "PathUtils.h"
-#   include "Hooks.h"
+#    include "SVN.h"
+#    include "TSVNPath.h"
+#    include "Hooks.h"
 #endif
 
 #ifdef _MFC_VER
-SVNStatus::SVNStatus(bool * pbCancelled, bool suppressUI)
+SVNStatus::SVNStatus(bool* pbCancelled, bool suppressUI)
     : SVNBase()
-    , status(NULL)
+    , status(nullptr)
     , headrev(-1)
     , m_allstatus(svn_wc_status_none)
-    , m_statushash(NULL)
-    , m_statusarray(NULL)
-    , m_statushashindex(0)
-    , m_externalhash(NULL)
-    , m_prompt (suppressUI)
+    , m_prompt(suppressUI)
+    , m_statusHash(nullptr)
+    , m_statusArray(nullptr)
+    , m_statusHashIndex(0)
+    , m_externalHash(nullptr)
 #else
-SVNStatus::SVNStatus(bool * pbCancelled, bool)
+SVNStatus::SVNStatus(bool* pbCancelled, bool)
     : SVNBase()
-    , status(NULL)
+    , status(nullptr)
     , headrev(-1)
     , m_allstatus(svn_wc_status_none)
-    , m_statushash(NULL)
-    , m_statusarray(NULL)
-    , m_statushashindex(0)
-    , m_externalhash(NULL)
+    , m_statusHash(nullptr)
+    , m_statusArray(nullptr)
+    , m_statusHashIndex(0)
+    , m_externalHash(nullptr)
 #endif
 {
-    m_pool = svn_pool_create (NULL);
+    m_pool = svn_pool_create(NULL);
 
     svn_error_clear(svn_client_create_context2(&m_pCtx, SVNConfig::Instance().GetConfig(m_pool), m_pool));
 
     if (pbCancelled)
     {
-        m_pCtx->cancel_func = cancel;
+        m_pCtx->cancel_func  = cancel;
         m_pCtx->cancel_baton = pbCancelled;
     }
     m_pCtx->client_name = SVNHelper::GetUserAgentString(m_pool);
-
 
 #ifdef _MFC_VER
     // set up authentication
@@ -78,9 +70,9 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
 
     if (m_err)
     {
-        ShowErrorDialog(NULL);
+        ShowErrorDialog(nullptr);
         svn_error_clear(m_err);
-        svn_pool_destroy (m_pool);                  // free the allocated memory
+        svn_pool_destroy(m_pool); // free the allocated memory
         exit(-1);
     }
 #endif
@@ -89,10 +81,10 @@ SVNStatus::SVNStatus(bool * pbCancelled, bool)
 SVNStatus::~SVNStatus(void)
 {
     svn_error_clear(m_err);
-    svn_pool_destroy (m_pool);                  // free the allocated memory
+    svn_pool_destroy(m_pool); // free the allocated memory
 }
 
-void SVNStatus::ClearPool()
+void SVNStatus::ClearPool() const
 {
     svn_pool_clear(m_pool);
 }
@@ -100,52 +92,51 @@ void SVNStatus::ClearPool()
 // static method
 svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t depth)
 {
-    svn_client_ctx_t *          ctx;
-    svn_wc_status_kind          statuskind;
-    apr_pool_t *                pool;
-    svn_error_t *               err;
+    svn_client_ctx_t*  ctx;
+    svn_wc_status_kind statusKind;
+    apr_pool_t*        pool = nullptr;
+    svn_error_t*       err  = nullptr;
 
-    pool = svn_pool_create (NULL);              // create the memory pool
+    pool = svn_pool_create(NULL); // create the memory pool
 
     svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
 
-    svn_revnum_t youngest = SVN_INVALID_REVNUM;
+    svn_revnum_t       youngest = SVN_INVALID_REVNUM;
     svn_opt_revision_t rev;
-    rev.kind = svn_opt_revision_unspecified;
-    statuskind = svn_wc_status_none;
+    rev.kind   = svn_opt_revision_unspecified;
+    statusKind = svn_wc_status_none;
 
     const char* svnPath = path.GetSVNApiPath(pool);
-    if ((svnPath == NULL)||(svnPath[0] == 0))
+    if ((svnPath == nullptr) || (svnPath[0] == 0))
         return svn_wc_status_none;
-    SVNTRACE (
-        err = svn_client_status6 (&youngest,
-                                  ctx,
-                                  svnPath,
-                                  &rev,
-                                  depth,
-                                  TRUE,           // get all
-                                  FALSE,          // check out-of-date
-                                  TRUE,           // check working copy
-                                  TRUE,           // no ignore
-                                  FALSE,          // ignore externals
-                                  TRUE,           // depth as sticky
-                                  NULL,
-                                  getallstatus,
-                                  &statuskind,
-                                  pool),
-        svnPath
-    )
+    SVNTRACE(
+        err = svn_client_status6(&youngest,
+                                 ctx,
+                                 svnPath,
+                                 &rev,
+                                 depth,
+                                 TRUE,  // get all
+                                 FALSE, // check out-of-date
+                                 TRUE,  // check working copy
+                                 TRUE,  // no ignore
+                                 FALSE, // ignore externals
+                                 TRUE,  // depth as sticky
+                                 NULL,
+                                 getallstatus,
+                                 &statusKind,
+                                 pool),
+        svnPath)
 
     // Error present
-    if (err != NULL)
+    if (err != nullptr)
     {
         svn_error_clear(err);
-        svn_pool_destroy (pool);                //free allocated memory
+        svn_pool_destroy(pool); //free allocated memory
         return svn_wc_status_none;
     }
 
-    svn_pool_destroy (pool);                //free allocated memory
-    return statuskind;
+    svn_pool_destroy(pool); //free allocated memory
+    return statusKind;
 }
 
 // static method
@@ -199,26 +190,26 @@ int SVNStatus::GetStatusRanking(svn_wc_status_kind status)
 
 svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false */, bool noignore /* = false */, bool noexternals /* = false */)
 {
-    apr_hash_t *                statushash;
-    apr_hash_t *                exthash;
-    apr_array_header_t *        statusarray;
-    const sort_item*            item;
+    apr_hash_t*         statusHash  = nullptr;
+    apr_hash_t*         extHash     = nullptr;
+    apr_array_header_t* statusArray = nullptr;
+    const SortItem*     item;
 
     svn_error_clear(m_err);
-    statushash = apr_hash_make(m_pool);
-    exthash = apr_hash_make(m_pool);
-    svn_revnum_t youngest = SVN_INVALID_REVNUM;
+    statusHash                  = apr_hash_make(m_pool);
+    extHash                     = apr_hash_make(m_pool);
+    svn_revnum_t       youngest = SVN_INVALID_REVNUM;
     svn_opt_revision_t rev;
     rev.kind = svn_opt_revision_unspecified;
-    struct hashbaton_t hashbaton;
-    hashbaton.hash = statushash;
-    hashbaton.exthash = exthash;
-    hashbaton.pThis = this;
+    struct HashbatonT hashBaton;
+    hashBaton.hash    = statusHash;
+    hashBaton.extHash = extHash;
+    hashBaton.pThis   = this;
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
-    if ((svnPath == NULL)||(svnPath[0] == 0))
+    if ((svnPath == nullptr) || (svnPath[0] == 0))
     {
-        status = NULL;
+        status = nullptr;
         return -2;
     }
 
@@ -226,158 +217,155 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
     if (update)
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
-    SVNTRACE (
-        m_err = svn_client_status6 (&youngest,
-                                  m_pCtx,
-                                  svnPath,
-                                  &rev,
-                                  svn_depth_empty,        // depth
-                                  TRUE,                   // get all
-                                  update,                 // check out-of-date
-                                  true,                   // check working copy
-                                  noignore,
-                                  noexternals,
-                                  TRUE,           // depth as sticky
-                                  NULL,
-                                  getstatushash,
-                                  &hashbaton,
-                                  m_pool),
-        svnPath
-    );
+    SVNTRACE(
+        m_err = svn_client_status6(&youngest,
+                                   m_pCtx,
+                                   svnPath,
+                                   &rev,
+                                   svn_depth_empty, // depth
+                                   TRUE,            // get all
+                                   update,          // check out-of-date
+                                   true,            // check working copy
+                                   noignore,
+                                   noexternals,
+                                   TRUE, // depth as sticky
+                                   NULL,
+                                   getstatushash,
+                                   &hashBaton,
+                                   m_pool),
+        svnPath);
     ClearCAPIAuthCacheOnError();
 
     // Error present if function is not under version control
-    if ((m_err != NULL) || (apr_hash_count(statushash) == 0))
+    if ((m_err != nullptr) || (apr_hash_count(statusHash) == 0))
     {
-        status = NULL;
+        status = nullptr;
         return -2;
     }
 
     // Convert the unordered hash to an ordered, sorted array
-    statusarray = sort_hash (statushash,
-                              sort_compare_items_as_paths,
-                              m_pool);
+    statusArray = sort_hash(statusHash,
+                            sort_compare_items_as_paths,
+                            m_pool);
 
     // only the first entry is needed (no recurse)
-    item = &APR_ARRAY_IDX (statusarray, 0, const sort_item);
+    item = &APR_ARRAY_IDX(statusArray, 0, const SortItem);
 
-    status = (svn_client_status_t *) item->value;
+    status = static_cast<svn_client_status_t*>(item->value);
 
     return youngest;
 }
 
-svn_client_status_t * SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update, svn_depth_t depth, bool bNoIgnore /* = true */, bool bNoExternals /* = false */)
+svn_client_status_t* SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNPath& retPath, bool update, svn_depth_t depth, bool bNoIgnore /* = true */, bool bNoExternals /* = false */)
 {
-    const sort_item*            item;
+    const SortItem* item = nullptr;
 
     svn_error_clear(m_err);
-    m_statushash = apr_hash_make(m_pool);
-    m_externalhash = apr_hash_make(m_pool);
-    headrev = SVN_INVALID_REVNUM;
+    m_statusHash   = apr_hash_make(m_pool);
+    m_externalHash = apr_hash_make(m_pool);
+    headrev        = SVN_INVALID_REVNUM;
     svn_opt_revision_t rev;
     rev.kind = svn_opt_revision_unspecified;
-    struct hashbaton_t hashbaton;
-    hashbaton.hash = m_statushash;
-    hashbaton.exthash = m_externalhash;
-    hashbaton.pThis = this;
-    m_statushashindex = 0;
+    struct HashbatonT hashBaton;
+    hashBaton.hash    = m_statusHash;
+    hashBaton.extHash = m_externalHash;
+    hashBaton.pThis   = this;
+    m_statusHashIndex = 0;
 
-    m_pCtx->notify_func2 = notify;
-    m_pCtx->notify_baton2 = &hashbaton;
-
+    m_pCtx->notify_func2  = notify;
+    m_pCtx->notify_baton2 = &hashBaton;
 
     const char* svnPath = path.GetSVNApiPath(m_pool);
-    if ((svnPath == NULL)||(svnPath[0] == 0))
-        return NULL;
+    if ((svnPath == nullptr) || (svnPath[0] == 0))
+        return nullptr;
 #ifdef _MFC_VER
     if (update)
         CHooks::Instance().PreConnect(CTSVNPathList(path));
 #endif
-    SVNTRACE (
-        m_err = svn_client_status6 (&headrev,
-                                  m_pCtx,
-                                  svnPath,
-                                  &rev,
-                                  depth,
-                                  TRUE,                   // get all
-                                  update,                 // check out-of-date
-                                  true,                   // check working copy
-                                  bNoIgnore,
-                                  bNoExternals,
-                                  TRUE,           // depth as sticky
-                                  NULL,
-                                  getstatushash,
-                                  &hashbaton,
-                                  m_pool),
-        svnPath
-    )
+    SVNTRACE(
+        m_err = svn_client_status6(&headrev,
+                                   m_pCtx,
+                                   svnPath,
+                                   &rev,
+                                   depth,
+                                   TRUE,   // get all
+                                   update, // check out-of-date
+                                   true,   // check working copy
+                                   bNoIgnore,
+                                   bNoExternals,
+                                   TRUE, // depth as sticky
+                                   NULL,
+                                   getstatushash,
+                                   &hashBaton,
+                                   m_pool),
+        svnPath)
     ClearCAPIAuthCacheOnError();
 
     // Error present if function is not under version control
-    if ((m_err != NULL) || (apr_hash_count(m_statushash) == 0))
+    if ((m_err != nullptr) || (apr_hash_count(m_statusHash) == 0))
     {
-        return NULL;
+        return nullptr;
     }
 
     // Convert the unordered hash to an ordered, sorted array
-    m_statusarray = sort_hash (m_statushash,
-                                sort_compare_items_as_paths,
-                                m_pool);
+    m_statusArray = sort_hash(m_statusHash,
+                              sort_compare_items_as_paths,
+                              m_pool);
 
     // only the first entry is needed (no recurse)
-    m_statushashindex = 0;
-    item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
-    retPath.SetFromSVN((const char*)item->key);
-    return (svn_client_status_t *) item->value;
+    m_statusHashIndex = 0;
+    item              = &APR_ARRAY_IDX(m_statusArray, m_statusHashIndex, const SortItem);
+    retPath.SetFromSVN(static_cast<const char*>(item->key));
+    return static_cast<svn_client_status_t*>(item->value);
 }
 
 unsigned int SVNStatus::GetVersionedCount() const
 {
-    unsigned int count = 0;
-    const sort_item* item;
-    for (unsigned int i=0; i<apr_hash_count(m_statushash); ++i)
+    unsigned int    count = 0;
+    const SortItem* item  = nullptr;
+    for (unsigned int i = 0; i < apr_hash_count(m_statusHash); ++i)
     {
-        item = &APR_ARRAY_IDX(m_statusarray, i, const sort_item);
+        item = &APR_ARRAY_IDX(m_statusArray, i, const SortItem);
         if (item)
         {
-            if (SVNStatus::GetMoreImportant(((svn_client_status_t *)item->value)->node_status, svn_wc_status_ignored)!=svn_wc_status_ignored)
+            if (SVNStatus::GetMoreImportant(static_cast<svn_client_status_t*>(item->value)->node_status, svn_wc_status_ignored) != svn_wc_status_ignored)
                 count++;
         }
     }
     return count;
 }
 
-svn_client_status_t * SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
+svn_client_status_t* SVNStatus::GetNextFileStatus(CTSVNPath& retPath)
 {
-    const sort_item*            item;
+    const SortItem* item = nullptr;
 
-    if ((m_statushashindex+1) >= apr_hash_count(m_statushash))
-        return NULL;
-    m_statushashindex++;
+    if ((m_statusHashIndex + 1) >= apr_hash_count(m_statusHash))
+        return nullptr;
+    m_statusHashIndex++;
 
-    item = &APR_ARRAY_IDX (m_statusarray, m_statushashindex, const sort_item);
-    retPath.SetFromSVN((const char*)item->key);
-    return (svn_client_status_t *) item->value;
+    item = &APR_ARRAY_IDX(m_statusArray, m_statusHashIndex, const SortItem);
+    retPath.SetFromSVN(static_cast<const char*>(item->key));
+    return static_cast<svn_client_status_t*>(item->value);
 }
 
 bool SVNStatus::IsExternal(const CTSVNPath& path) const
 {
-    if (apr_hash_get(m_externalhash, path.GetSVNApiPath(m_pool), APR_HASH_KEY_STRING))
+    if (apr_hash_get(m_externalHash, path.GetSVNApiPath(m_pool), APR_HASH_KEY_STRING))
         return true;
     return false;
 }
 
 bool SVNStatus::IsInExternal(const CTSVNPath& path) const
 {
-    if (apr_hash_count(m_statushash) == 0)
+    if (apr_hash_count(m_statusHash) == 0)
         return false;
 
-    SVNPool localpool(m_pool);
-    apr_hash_index_t *hi;
-    const char* key;
-    for (hi = apr_hash_first(localpool, m_externalhash); hi; hi = apr_hash_next(hi))
+    SVNPool           localPool(m_pool);
+    apr_hash_index_t* hi = nullptr;
+    const char*       key;
+    for (hi = apr_hash_first(localPool, m_externalHash); hi; hi = apr_hash_next(hi))
     {
-        apr_hash_this(hi, (const void**)&key, NULL, NULL);
+        apr_hash_this(hi, reinterpret_cast<const void**>(&key), nullptr, nullptr);
         if (key)
         {
             if (CTSVNPath(CUnicodeUtils::GetUnicode(key)).IsAncestorOf(path))
@@ -389,15 +377,15 @@ bool SVNStatus::IsInExternal(const CTSVNPath& path) const
 
 void SVNStatus::GetExternals(std::set<CTSVNPath>& externals) const
 {
-    if (apr_hash_count(m_statushash) == 0)
+    if (apr_hash_count(m_statusHash) == 0)
         return;
 
-    SVNPool localpool(m_pool);
-    apr_hash_index_t *hi;
-    const char* key;
-    for (hi = apr_hash_first(localpool, m_externalhash); hi; hi = apr_hash_next(hi))
+    SVNPool           localPool(m_pool);
+    apr_hash_index_t* hi = nullptr;
+    const char*       key;
+    for (hi = apr_hash_first(localPool, m_externalHash); hi; hi = apr_hash_next(hi))
     {
-        apr_hash_this(hi, (const void**)&key, NULL, NULL);
+        apr_hash_this(hi, reinterpret_cast<const void**>(&key), nullptr, nullptr);
         if (key)
         {
             externals.insert(CTSVNPath(CUnicodeUtils::GetUnicode(key)));
@@ -405,9 +393,9 @@ void SVNStatus::GetExternals(std::set<CTSVNPath>& externals) const
     }
 }
 
-void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR * string)
+void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t bufLen, TCHAR* string)
 {
-    TCHAR * buf;
+    TCHAR* buf;
     switch (status)
     {
         case svn_wc_status_none:
@@ -456,43 +444,41 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t buflen, TCHAR 
             buf = L"\0";
             break;
     }
-    swprintf_s(string, buflen, L"%s", buf);
+    swprintf_s(string, bufLen, L"%s", buf);
 }
 
-void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR * string, int size, WORD lang)
+void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR* string, int size, WORD lang)
 {
-    enum {MAX_STATUS_LENGTH = 240};
+    enum
+    {
+        MAX_STATUS_LENGTH = 240
+    };
 
     struct SCacheEntry
     {
         TCHAR buffer[MAX_STATUS_LENGTH];
 
-        HINSTANCE hInst;
+        HINSTANCE          hInst;
         svn_wc_status_kind status;
-        WORD lang;
+        WORD               lang;
     };
 
     static std::vector<SCacheEntry> cache;
     for (size_t count = cache.size(), i = 0; i < count; ++i)
     {
         const SCacheEntry& entry = cache[i];
-        if (   (entry.status == status)
-            && (entry.hInst == hInst)
-            && (entry.lang == lang))
+        if ((entry.status == status) && (entry.hInst == hInst) && (entry.lang == lang))
         {
-            wcsncpy_s ( string
-                      , size
-                      , entry.buffer
-                      , min(size, (int)MAX_STATUS_LENGTH) - 1);
+            wcsncpy_s(string, size, entry.buffer, min(size, static_cast<int>(MAX_STATUS_LENGTH)) - 1);
             return;
         }
     }
 
-    cache.push_back (SCacheEntry());
+    cache.push_back(SCacheEntry());
     SCacheEntry& entry = cache.back();
-    entry.status = status;
-    entry.hInst = hInst;
-    entry.lang = lang;
+    entry.status       = status;
+    entry.hInst        = hInst;
+    entry.lang         = lang;
 
     switch (status)
     {
@@ -543,97 +529,96 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
             break;
     }
 
-    wcsncpy_s(string, size, entry.buffer, min(size, (int)MAX_STATUS_LENGTH) - 1);
+    wcsncpy_s(string, size, entry.buffer, min(size, static_cast<int>(MAX_STATUS_LENGTH)) - 1);
 }
 
 #ifdef _MFC_VER
-const CString& SVNStatus::GetDepthString (svn_depth_t depth)
+const CString& SVNStatus::GetDepthString(svn_depth_t depth)
 {
-    static const CString sUnknown (MAKEINTRESOURCE(IDS_SVN_DEPTH_UNKNOWN));
-    static const CString sExclude (MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE));
-    static const CString sEmpty (MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY));
-    static const CString sFiles (MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES));
-    static const CString sImmediate (MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE));
-    static const CString sInfinite (MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE));
+    static const CString sUnknown(MAKEINTRESOURCE(IDS_SVN_DEPTH_UNKNOWN));
+    static const CString sExclude(MAKEINTRESOURCE(IDS_SVN_DEPTH_EXCLUDE));
+    static const CString sEmpty(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY));
+    static const CString sFiles(MAKEINTRESOURCE(IDS_SVN_DEPTH_FILES));
+    static const CString sImmediate(MAKEINTRESOURCE(IDS_SVN_DEPTH_IMMEDIATE));
+    static const CString sInfinite(MAKEINTRESOURCE(IDS_SVN_DEPTH_INFINITE));
     static const CString sDefault;
 
     switch (depth)
     {
-    case svn_depth_unknown:
-        return sUnknown;
-    case svn_depth_exclude:
-        return sExclude;
-    case svn_depth_empty:
-        return sEmpty;
-    case svn_depth_files:
-        return sFiles;
-    case svn_depth_immediates:
-        return sImmediate;
-    case svn_depth_infinity:
-        return sInfinite;
+        case svn_depth_unknown:
+            return sUnknown;
+        case svn_depth_exclude:
+            return sExclude;
+        case svn_depth_empty:
+            return sEmpty;
+        case svn_depth_files:
+            return sFiles;
+        case svn_depth_immediates:
+            return sImmediate;
+        case svn_depth_infinity:
+            return sInfinite;
     }
 
     return sDefault;
 }
 #endif
 
-void SVNStatus::GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR * string, int size, WORD lang)
+void SVNStatus::GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR* string, int size, WORD lang)
 {
     switch (depth)
     {
-    case svn_depth_unknown:
-        LoadStringEx(hInst, IDS_SVN_DEPTH_UNKNOWN, string, size, lang);
-        break;
-    case svn_depth_exclude:
-        LoadStringEx(hInst, IDS_SVN_DEPTH_EXCLUDE, string, size, lang);
-        break;
-    case svn_depth_empty:
-        LoadStringEx(hInst, IDS_SVN_DEPTH_EMPTY, string, size, lang);
-        break;
-    case svn_depth_files:
-        LoadStringEx(hInst, IDS_SVN_DEPTH_FILES, string, size, lang);
-        break;
-    case svn_depth_immediates:
-        LoadStringEx(hInst, IDS_SVN_DEPTH_IMMEDIATE, string, size, lang);
-        break;
-    case svn_depth_infinity:
-        LoadStringEx(hInst, IDS_SVN_DEPTH_INFINITE, string, size, lang);
-        break;
+        case svn_depth_unknown:
+            LoadStringEx(hInst, IDS_SVN_DEPTH_UNKNOWN, string, size, lang);
+            break;
+        case svn_depth_exclude:
+            LoadStringEx(hInst, IDS_SVN_DEPTH_EXCLUDE, string, size, lang);
+            break;
+        case svn_depth_empty:
+            LoadStringEx(hInst, IDS_SVN_DEPTH_EMPTY, string, size, lang);
+            break;
+        case svn_depth_files:
+            LoadStringEx(hInst, IDS_SVN_DEPTH_FILES, string, size, lang);
+            break;
+        case svn_depth_immediates:
+            LoadStringEx(hInst, IDS_SVN_DEPTH_IMMEDIATE, string, size, lang);
+            break;
+        case svn_depth_infinity:
+            LoadStringEx(hInst, IDS_SVN_DEPTH_INFINITE, string, size, lang);
+            break;
     }
 }
 
-
 int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage)
 {
-    const STRINGRESOURCEIMAGE* pImage;
-    const STRINGRESOURCEIMAGE* pImageEnd;
-    ULONG nResourceSize;
-    HGLOBAL hGlobal;
-    UINT iIndex;
-    int ret;
+    const STRINGRESOURCEIMAGE* pImage        = nullptr;
+    const STRINGRESOURCEIMAGE* pImageEnd     = nullptr;
+    ULONG                      nResourceSize = 0;
+    HGLOBAL                    hGlobal       = nullptr;
+    UINT                       iIndex        = 0;
+    int                        ret           = 0;
 
-    HRSRC hResource =  FindResourceEx(hInstance, RT_STRING, MAKEINTRESOURCE(((uID>>4)+1)), wLanguage);
+    HRSRC hResource = FindResourceEx(hInstance, RT_STRING, MAKEINTRESOURCE(((uID >> 4) + 1)), wLanguage);
     if (!hResource)
     {
         // try the default language before giving up!
-        hResource = FindResource(hInstance, MAKEINTRESOURCE(((uID>>4)+1)), RT_STRING);
+        hResource = FindResource(hInstance, MAKEINTRESOURCE(((uID >> 4) + 1)), RT_STRING);
         if (!hResource)
             return 0;
     }
     hGlobal = LoadResource(hInstance, hResource);
     if (!hGlobal)
         return 0;
-    pImage = (const STRINGRESOURCEIMAGE*)::LockResource(hGlobal);
-    if(!pImage)
+    pImage = static_cast<const STRINGRESOURCEIMAGE*>(::LockResource(hGlobal));
+    if (!pImage)
         return 0;
 
     nResourceSize = ::SizeofResource(hInstance, hResource);
-    pImageEnd = (const STRINGRESOURCEIMAGE*)(LPBYTE(pImage)+nResourceSize);
-    iIndex = uID&0x000f;
+    pImageEnd     = reinterpret_cast<const STRINGRESOURCEIMAGE*>(reinterpret_cast<LPBYTE>(const_cast<STRINGRESOURCEIMAGE*>(pImage)) + nResourceSize);
+    iIndex        = uID & 0x000f;
 
     while ((iIndex > 0) && (pImage < pImageEnd))
     {
-        pImage = (const STRINGRESOURCEIMAGE*)(LPBYTE(pImage)+(sizeof(STRINGRESOURCEIMAGE)+(pImage->nLength*sizeof(WCHAR))));
+        pImage = reinterpret_cast<const STRINGRESOURCEIMAGE*>((reinterpret_cast<LPBYTE>(const_cast<STRINGRESOURCEIMAGE*>(pImage) + (sizeof(STRINGRESOURCEIMAGE) + (pImage->nLength * sizeof(WCHAR))))));
         iIndex--;
     }
     if (pImage >= pImageEnd)
@@ -645,7 +630,7 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
     if (pImage->nLength >= nBufferMax)
     {
         wcsncpy_s(lpBuffer, nBufferMax, pImage->achString, pImage->nLength);
-        lpBuffer[nBufferMax-1] = 0;
+        lpBuffer[nBufferMax - 1] = 0;
     }
     else
     {
@@ -655,84 +640,82 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int 
     return ret;
 }
 
-svn_error_t * SVNStatus::getallstatus(void * baton, const char * /*path*/, const svn_client_status_t * status, apr_pool_t * /*pool*/)
+svn_error_t* SVNStatus::getallstatus(void* baton, const char* /*path*/, const svn_client_status_t* status, apr_pool_t* /*pool*/)
 {
-    svn_wc_status_kind * s = (svn_wc_status_kind *)baton;
-    *s = SVNStatus::GetMoreImportant(*s, status->node_status);
-    return SVN_NO_ERROR;
+    svn_wc_status_kind* s = static_cast<svn_wc_status_kind*>(baton);
+    *s                    = SVNStatus::GetMoreImportant(*s, status->node_status);
+    return nullptr;
 }
 
-svn_error_t * SVNStatus::getstatushash(void * baton, const char * path, const svn_client_status_t * status, apr_pool_t * /*pool*/)
+svn_error_t* SVNStatus::getstatushash(void* baton, const char* path, const svn_client_status_t* status, apr_pool_t* /*pool*/)
 {
-    hashbaton_t * hash = (hashbaton_t *)baton;
+    HashbatonT* hash = static_cast<HashbatonT*>(baton);
     if (status->node_status == svn_wc_status_external)
     {
-        apr_hash_set (hash->exthash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, (const void*)1);
-        return SVN_NO_ERROR;
+        apr_hash_set(hash->extHash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, reinterpret_cast<const void*>(1));
+        return nullptr;
     }
     if (status->file_external)
     {
-        apr_hash_set (hash->exthash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, (const void*)1);
+        apr_hash_set(hash->extHash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, reinterpret_cast<const void*>(1));
     }
-    svn_client_status_t * statuscopy = svn_client_status_dup (status, hash->pThis->m_pool);
-    apr_hash_set (hash->hash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, statuscopy);
-    return SVN_NO_ERROR;
+    svn_client_status_t* statusCopy = svn_client_status_dup(status, hash->pThis->m_pool);
+    apr_hash_set(hash->hash, apr_pstrdup(hash->pThis->m_pool, path), APR_HASH_KEY_STRING, statusCopy);
+    return nullptr;
 }
 
-void SVNStatus::notify(void *baton, const svn_wc_notify_t *notify, apr_pool_t * /*pool*/)
+void SVNStatus::notify(void* baton, const svn_wc_notify_t* notify, apr_pool_t* /*pool*/)
 {
-    hashbaton_t * hash = (hashbaton_t *)baton;
+    HashbatonT* hash = static_cast<HashbatonT*>(baton);
 
     if (notify->action == svn_wc_notify_status_external)
     {
-        apr_hash_set (hash->exthash, apr_pstrdup(hash->pThis->m_pool, notify->path), APR_HASH_KEY_STRING, (const void*)1);
+        apr_hash_set(hash->extHash, apr_pstrdup(hash->pThis->m_pool, notify->path), APR_HASH_KEY_STRING, reinterpret_cast<const void*>(1));
     }
 }
 
-apr_array_header_t * SVNStatus::sort_hash (apr_hash_t *ht,
-                                        int (*comparison_func) (const SVNStatus::sort_item *, const SVNStatus::sort_item *),
-                                        apr_pool_t *pool)
+apr_array_header_t* SVNStatus::sort_hash(apr_hash_t* ht,
+                                         int (*comparisonFunc)(const SVNStatus::SortItem*, const SVNStatus::SortItem*),
+                                         apr_pool_t* pool)
 {
-    apr_hash_index_t *hi;
-    apr_array_header_t *ary;
+    apr_hash_index_t*   hi  = nullptr;
+    apr_array_header_t* ary = nullptr;
 
     /* allocate an array with only one element to begin with. */
-    ary = apr_array_make (pool, 1, sizeof(sort_item));
+    ary = apr_array_make(pool, 1, sizeof(SortItem));
 
     /* loop over hash table and push all keys into the array */
-    for (hi = apr_hash_first (pool, ht); hi; hi = apr_hash_next (hi))
+    for (hi = apr_hash_first(pool, ht); hi; hi = apr_hash_next(hi))
     {
-        sort_item *item = (sort_item*)apr_array_push (ary);
+        SortItem* item = static_cast<SortItem*>(apr_array_push(ary));
 
-        apr_hash_this (hi, &item->key, &item->klen, &item->value);
+        apr_hash_this(hi, &item->key, &item->kLen, &item->value);
     }
 
     /* now quick sort the array.  */
-    qsort (ary->elts, ary->nelts, ary->elt_size,
-        (int (*)(const void *, const void *))comparison_func);
+    qsort(ary->elts, ary->nelts, ary->elt_size,
+          reinterpret_cast<int (*)(const void*, const void*)>(comparisonFunc));
 
     return ary;
 }
 
-int SVNStatus::sort_compare_items_as_paths (const sort_item *a, const sort_item *b)
+int SVNStatus::sort_compare_items_as_paths(const SortItem* a, const SortItem* b)
 {
-    const char *astr, *bstr;
-
-    astr = (const char*)a->key;
-    bstr = (const char*)b->key;
-    return svn_path_compare_paths (astr, bstr);
+    const char* astr = static_cast<const char*>(a->key);
+    const char* bstr = static_cast<const char*>(b->key);
+    return svn_path_compare_paths(astr, bstr);
 }
 
-svn_error_t* SVNStatus::cancel(void *baton)
+svn_error_t* SVNStatus::cancel(void* baton)
 {
-    volatile bool * canceled = (bool *)baton;
+    volatile bool* canceled = static_cast<bool*>(baton);
     if (*canceled)
     {
         CString temp;
         temp.LoadString(IDS_SVN_USERCANCELLED);
-        return svn_error_create(SVN_ERR_CANCELLED, NULL, CUnicodeUtils::GetUTF8(temp));
+        return svn_error_create(SVN_ERR_CANCELLED, nullptr, CUnicodeUtils::GetUTF8(temp));
     }
-    return SVN_NO_ERROR;
+    return nullptr;
 }
 
 #ifdef _MFC_VER
@@ -755,4 +738,3 @@ svn_error_t* SVNStatus::cancel(void *baton)
 //}
 
 #endif // _MFC_VER
-

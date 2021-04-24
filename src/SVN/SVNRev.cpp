@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016 - TortoiseSVN
+// Copyright (C) 2003-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,7 +25,6 @@
 #include "SVNHelpers.h"
 #include <algorithm>
 
-
 SVNRev::SVNRev(const CString& sRev)
 {
     SecureZeroMemory(&rev, sizeof(rev));
@@ -38,58 +37,58 @@ void SVNRev::Create(CString sRev)
     sDate.Empty();
     m_bIsValid = FALSE;
     SecureZeroMemory(&rev, sizeof(rev));
-    if (sRev.Left(1).Compare(L"{")==0)
+    if (sRev.Left(1).Compare(L"{") == 0)
     {
         // brackets denote a date
-        SVNPool pool;
+        SVNPool       pool;
         svn_boolean_t matched;
-        apr_time_t tm;
+        apr_time_t    tm;
 
-        if ((apr_pool_t*)pool)
+        if (static_cast<apr_pool_t*>(pool))
         {
-            CStringA sRevA = CStringA(sRev);
-            sRevA = sRevA.Mid(1, sRevA.GetLength()-2);
-            svn_error_t * err = svn_parse_date(&matched, &tm, sRevA, apr_time_now(), pool);
-            if (err == NULL)
+            CStringA sRevA   = CStringA(sRev);
+            sRevA            = sRevA.Mid(1, sRevA.GetLength() - 2);
+            svn_error_t* err = svn_parse_date(&matched, &tm, sRevA, apr_time_now(), pool);
+            if (err == nullptr)
             {
                 if (!matched)
                     return;
-                rev.kind = svn_opt_revision_date;
+                rev.kind       = svn_opt_revision_date;
                 rev.value.date = tm;
-                m_bIsValid = TRUE;
-                sDate = sRev;
+                m_bIsValid     = TRUE;
+                sDate          = sRev;
             }
             svn_error_clear(err);
         }
     }
-    else if (sRev.CompareNoCase(L"HEAD")==0)
+    else if (sRev.CompareNoCase(L"HEAD") == 0)
     {
-        rev.kind = svn_opt_revision_head;
+        rev.kind   = svn_opt_revision_head;
         m_bIsValid = TRUE;
     }
-    else if (sRev.CompareNoCase(L"BASE")==0)
+    else if (sRev.CompareNoCase(L"BASE") == 0)
     {
-        rev.kind = svn_opt_revision_base;
+        rev.kind   = svn_opt_revision_base;
         m_bIsValid = TRUE;
     }
-    else if (sRev.CompareNoCase(L"WC")==0)
+    else if (sRev.CompareNoCase(L"WC") == 0)
     {
-        rev.kind = svn_opt_revision_working;
+        rev.kind   = svn_opt_revision_working;
         m_bIsValid = TRUE;
     }
-    else if (sRev.CompareNoCase(L"PREV")==0)
+    else if (sRev.CompareNoCase(L"PREV") == 0)
     {
-        rev.kind = svn_opt_revision_previous;
+        rev.kind   = svn_opt_revision_previous;
         m_bIsValid = TRUE;
     }
-    else if (sRev.CompareNoCase(L"COMMITTED")==0)
+    else if (sRev.CompareNoCase(L"COMMITTED") == 0)
     {
-        rev.kind = svn_opt_revision_committed;
+        rev.kind   = svn_opt_revision_committed;
         m_bIsValid = TRUE;
     }
     else if (sRev.IsEmpty())
     {
-        rev.kind = svn_opt_revision_head;
+        rev.kind   = svn_opt_revision_head;
         m_bIsValid = TRUE;
     }
     else
@@ -99,7 +98,7 @@ void SVNRev::Create(CString sRev)
             sRev = sRev.Mid(1);
 
         bool bAllNumbers = true;
-        for (int i=0; i<sRev.GetLength(); ++i)
+        for (int i = 0; i < sRev.GetLength(); ++i)
         {
             if (!_istdigit(sRev[i]))
             {
@@ -109,12 +108,12 @@ void SVNRev::Create(CString sRev)
         }
         if (bAllNumbers)
         {
-            LONG nRev = _wtol(sRev);
+            auto nRev = _wtol(sRev);
             if (nRev >= 0)
             {
-                rev.kind = svn_opt_revision_number;
+                rev.kind         = svn_opt_revision_number;
                 rev.value.number = nRev;
-                m_bIsValid = TRUE;
+                m_bIsValid       = TRUE;
             }
         }
     }
@@ -129,7 +128,7 @@ void SVNRev::Create(svn_revnum_t nRev)
 {
     m_bIsValid = TRUE;
     SecureZeroMemory(&rev, sizeof(rev));
-    if(nRev == SVNRev::REV_HEAD)
+    if (nRev == SVNRev::REV_HEAD)
     {
         rev.kind = svn_opt_revision_head;
     }
@@ -143,12 +142,12 @@ void SVNRev::Create(svn_revnum_t nRev)
     }
     else if (nRev == SVNRev::REV_UNSPECIFIED)
     {
-        rev.kind = svn_opt_revision_unspecified;
+        rev.kind   = svn_opt_revision_unspecified;
         m_bIsValid = FALSE;
     }
     else
     {
-        rev.kind = svn_opt_revision_number;
+        rev.kind         = svn_opt_revision_number;
         rev.value.number = nRev;
     }
 }
@@ -159,7 +158,7 @@ bool SVNRev::IsEqual(const SVNRev& revision) const
         return false;
     if (IsNumber())
     {
-        return (rev.value.number == LONG(revision));
+        return (rev.value.number == static_cast<LONG>(revision));
     }
     if (IsDate())
     {
@@ -176,17 +175,25 @@ SVNRev::operator LONG() const
 {
     switch (rev.kind)
     {
-    case svn_opt_revision_head:     return SVNRev::REV_HEAD;
-    case svn_opt_revision_base:     return SVNRev::REV_BASE;
-    case svn_opt_revision_working:  return SVNRev::REV_WC;
-    case svn_opt_revision_date:     return SVNRev::REV_DATE;
-    case svn_opt_revision_number:   return rev.value.number;
-    case svn_opt_revision_unspecified: return SVNRev::REV_UNSPECIFIED;
+        case svn_opt_revision_head:
+            return SVNRev::REV_HEAD;
+        case svn_opt_revision_base:
+            return SVNRev::REV_BASE;
+        case svn_opt_revision_working:
+            return SVNRev::REV_WC;
+        case svn_opt_revision_date:
+            return SVNRev::REV_DATE;
+        case svn_opt_revision_number:
+            return rev.value.number;
+        case svn_opt_revision_unspecified:
+            return SVNRev::REV_UNSPECIFIED;
+        default:
+            break;
     }
     return SVNRev::REV_HEAD;
 }
 
-SVNRev::operator const svn_opt_revision_t * () const
+SVNRev::operator const svn_opt_revision_t*() const
 {
     return &rev;
 }
@@ -196,21 +203,28 @@ CString SVNRev::ToString() const
     CString sRev;
     switch (rev.kind)
     {
-    case svn_opt_revision_head:         return L"HEAD";
-    case svn_opt_revision_base:         return L"BASE";
-    case svn_opt_revision_working:      return L"WC";
-    case svn_opt_revision_number:       sRev.Format(L"%ld", rev.value.number);return sRev;
-    case svn_opt_revision_committed:    return L"COMMITTED";
-    case svn_opt_revision_previous:     return L"PREV";
-    case svn_opt_revision_unspecified:  return L"UNSPECIFIED";
-    case svn_opt_revision_date:         return GetDateString();
+        case svn_opt_revision_head:
+            return L"HEAD";
+        case svn_opt_revision_base:
+            return L"BASE";
+        case svn_opt_revision_working:
+            return L"WC";
+        case svn_opt_revision_number:
+            sRev.Format(L"%ld", rev.value.number);
+            return sRev;
+        case svn_opt_revision_committed:
+            return L"COMMITTED";
+        case svn_opt_revision_previous:
+            return L"PREV";
+        case svn_opt_revision_unspecified:
+            return L"UNSPECIFIED";
+        case svn_opt_revision_date:
+            return GetDateString();
     }
     return sRev;
 }
 
-
 //////////////////////////////////////////////////////////////////////////
-
 
 int SVNRevRangeArray::AddRevRange(const SVNRev& start, const SVNRev& end)
 {
@@ -239,20 +253,20 @@ int SVNRevRangeArray::AddRevision(const SVNRev& revision, bool reverse)
     svn_revnum_t nRev = revision;
     for (int i = 0, count = GetCount(); i < count; ++i)
     {
-        svn_revnum_t start = m_array[i].GetStartRevision();
-        svn_revnum_t end = m_array[i].GetEndRevision();
-        bool reversed = false;
+        svn_revnum_t start    = m_array[i].GetStartRevision();
+        svn_revnum_t end      = m_array[i].GetEndRevision();
+        bool         reversed = false;
         if (start > end)
         {
             svn_revnum_t t = start;
-            start = end;
-            end = t;
-            reversed = true;
+            start          = end;
+            end            = t;
+            reversed       = true;
         }
         else if (start == end)
             reversed = reverse;
-        if ((start <= nRev)&&(nRev <= end))
-            return count;  // revision is inside an existing range
+        if ((start <= nRev) && (nRev <= end))
+            return count; // revision is inside an existing range
         if (start == nRev + 1)
         {
             if (reversed)
@@ -280,13 +294,13 @@ void SVNRevRangeArray::AddRevisions(const std::vector<svn_revnum_t>& revisions)
         return;
 
     std::vector<svn_revnum_t> sorted = revisions;
-    std::sort (sorted.begin(), sorted.end());
+    std::sort(sorted.begin(), sorted.end());
 
     svn_revnum_t startRev = -1;
-    svn_revnum_t lastRev = -1;
+    svn_revnum_t lastRev  = -1;
     for (auto iter = sorted.begin(), end = sorted.end(); iter != end; ++iter)
     {
-        if (*iter == lastRev+1)
+        if (*iter == lastRev + 1)
         {
             ++lastRev;
         }
@@ -296,7 +310,7 @@ void SVNRevRangeArray::AddRevisions(const std::vector<svn_revnum_t>& revisions)
                 m_array.emplace_back(startRev, lastRev);
 
             startRev = *iter;
-            lastRev = startRev;
+            lastRev  = startRev;
         }
     }
 
@@ -317,36 +331,36 @@ void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
                 {
                     // reverse merge means: start is the higher value, end is the lower value -1
                     svn_revnum_t start = range.GetStartRevision();
-                    svn_revnum_t end = range.GetEndRevision();
+                    svn_revnum_t end   = range.GetEndRevision();
                     if (start > end)
                     {
                         svn_revnum_t t = start;
-                        start = end;
-                        end = t;
+                        start          = end;
+                        end            = t;
                     }
-                    m_array[i] = SVNRevRange(end, start-1);
+                    m_array[i] = SVNRevRange(end, start - 1);
                 }
                 else
                 {
                     // normal merge means: start is the lower value - 1, end is the higher value
                     svn_revnum_t start = range.GetStartRevision();
-                    svn_revnum_t end = range.GetEndRevision();
+                    svn_revnum_t end   = range.GetEndRevision();
                     if (start > end)
                     {
                         svn_revnum_t t = start;
-                        start = end;
-                        end = t;
+                        start          = end;
+                        end            = t;
                     }
-                    m_array[i] = SVNRevRange(start-1, end);
+                    m_array[i] = SVNRevRange(start - 1, end);
                 }
             }
             else
             {
                 // only the end revision is not a number, we have to adjust the start revision
                 if (bReverse)
-                    m_array[i] = SVNRevRange(LONG(range.GetStartRevision()), range.GetEndRevision());
+                    m_array[i] = SVNRevRange(static_cast<LONG>(range.GetStartRevision()), range.GetEndRevision());
                 else
-                    m_array[i] = SVNRevRange(LONG(range.GetStartRevision())-1, range.GetEndRevision());
+                    m_array[i] = SVNRevRange(static_cast<LONG>(range.GetStartRevision()) - 1, range.GetEndRevision());
             }
         }
         else
@@ -355,9 +369,9 @@ void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
             {
                 // only the start revision is not a number, we have to adjust the end revision
                 if (bReverse)
-                    m_array[i] = SVNRevRange(range.GetStartRevision(), LONG(range.GetEndRevision())-1);
+                    m_array[i] = SVNRevRange(range.GetStartRevision(), static_cast<LONG>(range.GetEndRevision()) - 1);
                 else
-                    m_array[i] = SVNRevRange(range.GetStartRevision(), LONG(range.GetEndRevision()));
+                    m_array[i] = SVNRevRange(range.GetStartRevision(), static_cast<LONG>(range.GetEndRevision()));
             }
         }
     }
@@ -369,7 +383,7 @@ void SVNRevRangeArray::AdjustForMerge(bool bReverse /* = false */)
 
 int SVNRevRangeArray::GetCount() const
 {
-    return (int)m_array.size();
+    return static_cast<int>(m_array.size());
 }
 
 void SVNRevRangeArray::Clear()
@@ -379,7 +393,7 @@ void SVNRevRangeArray::Clear()
 
 const SVNRevRange& SVNRevRangeArray::operator[](int index) const
 {
-    ATLASSERT(index >= 0 && index < (int)m_array.size());
+    ATLASSERT(index >= 0 && index < static_cast<int>(m_array.size()));
     return m_array[index];
 }
 
@@ -392,8 +406,8 @@ SVNRev SVNRevRangeArray::GetHighestRevision() const
     for (size_t i = 0, count = m_array.size(); i < count; ++i)
     {
         svn_revnum_t first = m_array[i].GetStartRevision();
-        svn_revnum_t last = m_array[i].GetEndRevision();
-        highest = max (highest, max (first, last));
+        svn_revnum_t last  = m_array[i].GetEndRevision();
+        highest            = max(highest, max(first, last));
     }
 
     return highest;
@@ -408,8 +422,8 @@ SVNRev SVNRevRangeArray::GetLowestRevision() const
     for (size_t i = 0, count = m_array.size(); i < count; ++i)
     {
         svn_revnum_t first = m_array[i].GetStartRevision();
-        svn_revnum_t last = m_array[i].GetEndRevision();
-        lowest = min (lowest, min (first, last));
+        svn_revnum_t last  = m_array[i].GetEndRevision();
+        lowest             = min(lowest, min(first, last));
     }
 
     return lowest;
@@ -421,14 +435,14 @@ bool SVNRevRangeArray::FromListString(const CString& string)
 
     if (string.GetLength())
     {
-        const TCHAR * str = (LPCTSTR)string;
-        const TCHAR * result = wcspbrk((LPCTSTR)string, L",-");
-        SVNRev prevRev;
+        const TCHAR* str    = static_cast<LPCTSTR>(string);
+        const TCHAR* result = wcspbrk(static_cast<LPCTSTR>(string), L",-");
+        SVNRev       prevRev;
         while (result)
         {
             if (*result == ',')
             {
-                SVNRev rev = SVNRev(CString(str, (int)(result-str)));
+                SVNRev rev = SVNRev(CString(str, static_cast<int>(result - str)));
                 if (!rev.IsValid())
                 {
                     Clear();
@@ -444,7 +458,7 @@ bool SVNRevRangeArray::FromListString(const CString& string)
             }
             else if (*result == '-')
             {
-                prevRev = SVNRev(CString(str, (int)(result-str)));
+                prevRev = SVNRev(CString(str, static_cast<int>(result - str)));
                 if (!prevRev.IsValid())
                 {
                     Clear();
@@ -452,7 +466,7 @@ bool SVNRevRangeArray::FromListString(const CString& string)
                 }
             }
             result++;
-            str = result;
+            str    = result;
             result = wcspbrk(result, L",-");
         }
         SVNRev rev = SVNRev(CString(str));
@@ -496,24 +510,21 @@ CString SVNRevRangeArray::ToListString(bool bReverse /* = false */) const
     return sRet;
 }
 
-const apr_array_header_t * SVNRevRangeArray::GetAprArray(apr_pool_t * pool) const
+const apr_array_header_t* SVNRevRangeArray::GetAprArray(apr_pool_t* pool) const
 {
-    apr_array_header_t * sources = apr_array_make(pool, GetCount(),
-        sizeof(svn_opt_revision_range_t *));
+    apr_array_header_t* sources = apr_array_make(pool, GetCount(),
+                                                 sizeof(svn_opt_revision_range_t*));
 
     for (int nItem = 0; nItem < GetCount(); ++nItem)
     {
-        APR_ARRAY_PUSH(sources, const svn_opt_revision_range_t *) = (const svn_opt_revision_range_t*)m_array[nItem];
+        APR_ARRAY_PUSH(sources, const svn_opt_revision_range_t*) = static_cast<const svn_opt_revision_range_t*>(m_array[nItem]);
     }
     return sources;
 }
 
-
-
-
 #if defined(_DEBUG) && defined(_MFC_VER)
 // Some test cases for these classes
-static class SVNRevListTests
+[[maybe_unused]] static class SVNRevListTests
 {
 public:
     SVNRevListTests()
@@ -529,10 +540,10 @@ public:
         array.AddRevRange(SVNRev(26), SVNRev(30));
         array.AddRevision(SVNRev(4896), false);
         array.AddRevRange(SVNRev(4898), SVNRev(4900));
-        ATLASSERT(wcscmp((LPCTSTR)array.ToListString(), L"1,3-5,7-9,20,25-30,4896,4898-4900")==0);
+        ATLASSERT(wcscmp(static_cast<LPCTSTR>(array.ToListString()), L"1,3-5,7-9,20,25-30,4896,4898-4900") == 0);
         SVNRevRangeArray array2;
         array2.FromListString(array.ToListString());
-        ATLASSERT(array2.GetCount()==7);
+        ATLASSERT(array2.GetCount() == 7);
         SVNRevRange range = array2[6];
         ATLASSERT(range.GetStartRevision() == 4898);
         ATLASSERT(range.GetEndRevision() == 4900);
@@ -540,12 +551,12 @@ public:
         ATLASSERT(range.GetStartRevision() == 4898);
         ATLASSERT(range.GetEndRevision() == 4900);
         array.AddRevRange(1, SVNRev::REV_HEAD);
-        ATLASSERT(array.GetCount()==8);
+        ATLASSERT(array.GetCount() == 8);
         SVNRevRangeArray revarray;
-        ATLASSERT(revarray.AddRevRange(25, 24)==1);
-        ATLASSERT(wcscmp((LPCTSTR)revarray.ToListString(true), L"25-24")==0);
+        ATLASSERT(revarray.AddRevRange(25, 24) == 1);
+        ATLASSERT(wcscmp(static_cast<LPCTSTR>(revarray.ToListString(true)), L"25-24") == 0);
         revarray.AdjustForMerge(true);
-        ATLASSERT(wcscmp((LPCTSTR)revarray.ToListString(true), L"25-23")==0);
+        ATLASSERT(wcscmp(static_cast<LPCTSTR>(revarray.ToListString(true)), L"25-23") == 0);
 
         array.FromListString(L"r1,r3-5,r10");
         ATLASSERT(array.GetCount() == 3);
@@ -559,5 +570,6 @@ public:
         ATLASSERT(range.GetStartRevision() == 10);
         ATLASSERT(range.GetEndRevision() == 10);
     }
+    // ReSharper disable once CppInconsistentNaming
 } SVNRevListTests;
 #endif
