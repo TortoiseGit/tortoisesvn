@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2012, 2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,14 +27,13 @@
 class CUtils
 {
 public:
-    CUtils(void);
-    ~CUtils(void);
-    static void StringExtend(LPTSTR str);
-    static void StringCollapse(LPTSTR str);
+    CUtils();
+    ~CUtils();
+    static void StringExtend(LPWSTR str);
+    static void StringCollapse(LPWSTR str);
     static void Error();
-    static void SearchReplace(std::wstring& str, const std::wstring& toreplace, const std::wstring& replacewith);
+    static void SearchReplace(std::wstring &str, const std::wstring &toReplace, const std::wstring &replaceWith);
 };
-
 
 // trim from start
 inline std::string &ltrim(std::string &s)
