@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2017 - TortoiseSVN
+// Copyright (C) 2014-2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -120,12 +120,12 @@ bool DropExternalCommand::Execute()
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK4)));
+            taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK3)));
+            taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK4)));
             taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(2);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
-            bool doUpdate = (taskdlg.DoModal(GetExplorerHWND()) == 1);
+            bool doUpdate = (taskdlg.DoModal(GetExplorerHWND()) == 100);
             if (doUpdate)
             {
                 DWORD exitcode = 0;

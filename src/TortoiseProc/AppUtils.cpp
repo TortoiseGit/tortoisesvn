@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020, 2021 - TortoiseSVN
 // Copyright (C) 2015, 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -1330,15 +1330,15 @@ bool CAppUtils::AskToUpdate(HWND hParent, LPCWSTR error)
                         L"TortoiseSVN",
                         0,
                         TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK3)));
-    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK4)));
+    taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK3)));
+    taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
     taskdlg.SetDefaultCommandControl(1);
     CString details;
     details.Format(IDS_MSG_NEEDSUPDATE_ERRORDETAILS, error);
     taskdlg.SetExpansionArea(details);
     taskdlg.SetMainIcon(TD_WARNING_ICON);
-    return (taskdlg.DoModal(hParent) == 1);
+    return (taskdlg.DoModal(hParent) == 100);
 }
 
 void CAppUtils::ReportFailedHook( HWND hWnd, const CString& sError )

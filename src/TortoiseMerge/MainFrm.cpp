@@ -811,17 +811,17 @@ bool CMainFrame::LoadViews(int line)
                 CString cp = betterpatchpath.Left(MAX_PATH - 1);
                 PathCompactPathEx(t3, cp, 50, 0);
                 task3.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK3, t3);
-                taskdlg.AddCommandControl(1, task3);
+                taskdlg.AddCommandControl(100, task3);
                 CString task4;
                 WCHAR t4[MAX_PATH] = { 0 };
                 cp = m_Data.m_sPatchPath.Left(MAX_PATH - 1);
                 PathCompactPathEx(t4, cp, 50, 0);
                 task4.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK4, t4);
-                taskdlg.AddCommandControl(2, task4);
+                taskdlg.AddCommandControl(200, task4);
                 taskdlg.SetDefaultCommandControl(1);
                 taskdlg.SetMainIcon(TD_INFORMATION_ICON);
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                if (taskdlg.DoModal(m_hWnd) == 1)
+                if (taskdlg.DoModal(m_hWnd) == 100)
                 {
                     m_Data.m_sPatchPath = betterpatchpath;
                     m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
@@ -1683,12 +1683,12 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                             CString(MAKEINTRESOURCE(IDS_APPNAME)),
                             0,
                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK4)));
+        taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK3)));
+        taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
         taskdlg.SetDefaultCommandControl(1);
         taskdlg.SetMainIcon(TD_WARNING_ICON);
-        bool bDelete = (taskdlg.DoModal(m_hWnd) == 1);
+        bool bDelete = (taskdlg.DoModal(m_hWnd) == 100);
         if (bDelete)
         {
             m_Patch.RemoveFile(m_Data.m_mergedFile.GetFilename());
@@ -1735,12 +1735,12 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                                     CString(MAKEINTRESOURCE(IDS_APPNAME)),
                                     0,
                                     TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK3)));
-                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK4)));
+                taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK3)));
+                taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK4)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 taskdlg.SetDefaultCommandControl(1);
                 taskdlg.SetMainIcon(TD_WARNING_ICON);
-                bool bResolve = (taskdlg.DoModal(m_hWnd) == 1);
+                bool bResolve = (taskdlg.DoModal(m_hWnd) == 100);
                 if (bResolve)
                 {
                     MarkAsResolved();
@@ -3015,12 +3015,12 @@ bool CMainFrame::HasConflictsWontKeep()
                         L"TortoiseMerge",
                         0,
                         TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK3)));
-    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)));
+    taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK3)));
+    taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
     taskdlg.SetDefaultCommandControl(2);
     taskdlg.SetMainIcon(TD_ERROR_ICON);
-    bool bSave = (taskdlg.DoModal(m_hWnd) == 1);
+    bool bSave = (taskdlg.DoModal(m_hWnd) == 100);
 
     if (bSave)
         return false;

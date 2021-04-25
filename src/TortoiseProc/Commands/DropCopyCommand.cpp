@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -105,15 +105,15 @@ bool DropCopyCommand::Execute()
                                         L"TortoiseSVN",
                                         0,
                                         TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
-                    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
+                    taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
+                    taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
                     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                     taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK5)));
                     taskdlg.SetVerificationCheckbox(false);
                     taskdlg.SetDefaultCommandControl(2);
                     taskdlg.SetMainIcon(TD_WARNING_ICON);
                     INT_PTR ret = taskdlg.DoModal(GetExplorerHWND());
-                    if (ret == 1) // replace
+                    if (ret == 100) // replace
                         msgRet = taskdlg.GetVerificationCheckboxState() ? IDYESTOALL : IDYES;
                     else
                         msgRet = taskdlg.GetVerificationCheckboxState() ? IDNOTOALL : IDNO;

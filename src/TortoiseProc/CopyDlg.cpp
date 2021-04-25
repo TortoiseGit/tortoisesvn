@@ -407,12 +407,12 @@ void CCopyDlg::OnOK()
                             L"TortoiseSVN",
                             0,
                             TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
+        taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
+        taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
         taskdlg.SetDefaultCommandControl(2);
         taskdlg.SetMainIcon(TD_WARNING_ICON);
-        if (taskdlg.DoModal(m_hWnd) != 1)
+        if (taskdlg.DoModal(m_hWnd) != 100)
             return;
     }
     UpdateData(TRUE);
@@ -455,13 +455,13 @@ void CCopyDlg::OnOK()
                             L"TortoiseSVN",
                             0,
                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK4)));
+        taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK3)));
+        taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
         taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK5)));
         taskdlg.SetDefaultCommandControl(2);
         taskdlg.SetMainIcon(TD_WARNING_ICON);
-        if (taskdlg.DoModal(m_hWnd) != 1)
+        if (taskdlg.DoModal(m_hWnd) != 100)
             return;
     }
     CStringUtils::WriteAsciiStringToClipboard(m_URL);
@@ -519,11 +519,11 @@ void CCopyDlg::OnOK()
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
+            taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
+            taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
             taskdlg.SetDefaultCommandControl(1);
             taskdlg.SetMainIcon(TD_ERROR_ICON);
-            bool retry = (taskdlg.DoModal(GetSafeHwnd()) == 1);
+            bool retry = (taskdlg.DoModal(GetSafeHwnd()) == 100);
 
             if (retry)
                 return;

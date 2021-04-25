@@ -381,12 +381,12 @@ void CCheckoutDlg::OnOK()
                                     L"TortoiseSVN",
                                     0,
                                     TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3)));
-                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
+                taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3)));
+                taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 taskdlg.SetDefaultCommandControl(2);
                 taskdlg.SetMainIcon(TD_WARNING_ICON);
-                bool doIt = (taskdlg.DoModal(GetExplorerHWND()) == 1);
+                bool doIt = (taskdlg.DoModal(GetExplorerHWND()) == 100);
 
                 if (!doIt)
                 {
@@ -415,12 +415,12 @@ void CCheckoutDlg::OnOK()
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
+            taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3)));
+            taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
             taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(2);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
-            bool doIt = (taskdlg.DoModal(GetExplorerHWND()) == 1);
+            bool doIt = (taskdlg.DoModal(GetExplorerHWND()) == 100);
 
             if (!doIt)
             {

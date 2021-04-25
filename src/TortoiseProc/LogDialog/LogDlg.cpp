@@ -5869,12 +5869,12 @@ void CLogDlg::ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& 
                                     0,
                                     TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION |
                                         TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
-                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
+                taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
+                taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 taskdlg.SetDefaultCommandControl(2);
                 taskdlg.SetMainIcon(TD_WARNING_ICON);
-                if (taskdlg.DoModal(m_hWnd) != 1)
+                if (taskdlg.DoModal(m_hWnd) != 100)
                     return;
             }
         }
@@ -6948,13 +6948,13 @@ bool CLogDlg::ConfirmRevert(const CString& path, bool bToRev /*= false*/)
                         0,
                         TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION |
                             TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-    taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK3)));
-    taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK4)));
+    taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK3)));
+    taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
     taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK5)));
     taskdlg.SetDefaultCommandControl(2);
     taskdlg.SetMainIcon(TD_INFORMATION_ICON);
-    return (taskdlg.DoModal(m_hWnd) == 1);
+    return (taskdlg.DoModal(m_hWnd) == 100);
 }
 
 // this to be called on a thread so we don't delay the startup of the dialog
@@ -7497,12 +7497,12 @@ bool CLogDlg::CheckMultipleDiffs(UINT selCount)
                             L"TortoiseSVN",
                             0,
                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-        taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
-        taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
+        taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
+        taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
         taskdlg.SetDefaultCommandControl(2);
         taskdlg.SetMainIcon(TD_WARNING_ICON);
-        bool doIt = (taskdlg.DoModal(m_hWnd) == 1);
+        bool doIt = (taskdlg.DoModal(m_hWnd) == 100);
         return doIt;
     }
     return true;
@@ -8719,12 +8719,12 @@ void CLogDlg::OnMonitorRemoveProject()
                                 0,
                                 TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION |
                                     TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK3)));
-            taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK4)));
+            taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK3)));
+            taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK4)));
             taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskdlg.SetDefaultCommandControl(2);
             taskdlg.SetMainIcon(TD_WARNING_ICON);
-            if (taskdlg.DoModal(m_hWnd) != 1)
+            if (taskdlg.DoModal(m_hWnd) != 100)
                 return;
             HTREEITEM hChild = m_projTree.GetChildItem(hSelItem);
             if (hChild)

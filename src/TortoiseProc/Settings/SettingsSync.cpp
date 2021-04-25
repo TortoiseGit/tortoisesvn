@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015, 2019 - TortoiseSVN
+// Copyright (C) 2014-2015, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -192,12 +192,12 @@ BOOL CSettingsSync::ValidateInput()
                                                     L"TortoiseSVN",
                                                     0,
                                                     TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                                taskdlg.AddCommandControl(1, CString(MAKEINTRESOURCE(IDS_WARN_SYNCPWWRONG_TASK3)));
-                                taskdlg.AddCommandControl(2, CString(MAKEINTRESOURCE(IDS_WARN_SYNCPWWRONG_TASK4)));
+                                taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_SYNCPWWRONG_TASK3)));
+                                taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_SYNCPWWRONG_TASK4)));
                                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                                 taskdlg.SetDefaultCommandControl(2);
                                 taskdlg.SetMainIcon(TD_WARNING_ICON);
-                                bool doIt = (taskdlg.DoModal(GetSafeHwnd()) == 1);
+                                bool doIt = (taskdlg.DoModal(GetSafeHwnd()) == 100);
                                 if (!doIt)
                                     return FALSE;
                             }
