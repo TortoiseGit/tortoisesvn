@@ -18,8 +18,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseUDiff.h"
 #include "MainWindow.h"
+#include "resource.h"
 #include "UnicodeUtils.h"
 #include "StringUtils.h"
 #include "TaskbarUUID.h"
@@ -31,26 +31,27 @@
 #include "Theme.h"
 #include "DarkModeHelper.h"
 #include "ResString.h"
+#include "SciLexer.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
 CMainWindow::CMainWindow(HINSTANCE hInst, const WNDCLASSEX* wcx /* = nullptr*/)
     : CWindow(hInst, wcx)
-    , m_bShowFindBar(false)
     , m_directFunction(0)
     , m_directPointer(0)
-    , m_hWndEdit(nullptr)
-    , m_bMatchCase(false)
     , m_themeCallbackId(0)
+    , m_hWndEdit(nullptr)
+    , m_bShowFindBar(false)
+    , m_bMatchCase(false)
 {
     SetWindowTitle(L"TortoiseUDiff");
 }
 
-CMainWindow::~CMainWindow(void)
+CMainWindow::~CMainWindow()
 {
 }
 
-void CMainWindow::UpdateLineCount()
+void CMainWindow::UpdateLineCount() const
 {
     auto numberOfLines = static_cast<intptr_t>(SendEditor(SCI_GETLINECOUNT));
     int  numDigits     = 2;
@@ -67,25 +68,25 @@ bool CMainWindow::RegisterAndCreateWindow()
     WNDCLASSEX wcx;
 
     // Fill in the window class structure with default parameters
-    wcx.cbSize = sizeof(WNDCLASSEX);
-    wcx.style = CS_HREDRAW | CS_VREDRAW;
+    wcx.cbSize      = sizeof(WNDCLASSEX);
+    wcx.style       = CS_HREDRAW | CS_VREDRAW;
     wcx.lpfnWndProc = CWindow::stWinMsgHandler;
-    wcx.cbClsExtra = 0;
-    wcx.cbWndExtra = 0;
-    wcx.hInstance = hResource;
-    wcx.hCursor = nullptr;
+    wcx.cbClsExtra  = 0;
+    wcx.cbWndExtra  = 0;
+    wcx.hInstance   = hResource;
+    wcx.hCursor     = nullptr;
     ResString clsname(hResource, IDS_APP_TITLE);
     wcx.lpszClassName = clsname;
-    wcx.hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_TORTOISEUDIFF), GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON));
-    wcx.hbrBackground = (HBRUSH)(COLOR_3DFACE+1);
-    wcx.lpszMenuName = MAKEINTRESOURCE(IDC_TORTOISEUDIFF);
-    wcx.hIconSm = LoadIconEx(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEUDIFF));
+    wcx.hIcon         = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_TORTOISEUDIFF), GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON));
+    wcx.hbrBackground = reinterpret_cast<HBRUSH>((COLOR_3DFACE + 1));
+    wcx.lpszMenuName  = MAKEINTRESOURCE(IDC_TORTOISEUDIFF);
+    wcx.hIconSm       = LoadIconEx(wcx.hInstance, MAKEINTRESOURCE(IDI_TORTOISEUDIFF));
     if (RegisterWindow(&wcx))
     {
         if (Create(WS_CAPTION | WS_MAXIMIZEBOX | WS_MINIMIZEBOX | WS_SIZEBOX | WS_SYSMENU | WS_CLIPCHILDREN, nullptr))
         {
-            m_FindBar.SetParent(*this);
-            m_FindBar.Create(hResource, IDD_FINDBAR, *this);
+            m_findBar.SetParent(*this);
+            m_findBar.Create(hResource, IDD_FINDBAR, *this);
             UpdateWindow(*this);
             return true;
         }
@@ -101,144 +102,142 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
     }
     switch (uMsg)
     {
-    case WM_CREATE:
+        case WM_CREATE:
         {
             m_hwnd = hwnd;
             Initialize();
         }
         break;
-    case WM_COMMAND:
+        case WM_COMMAND:
         {
             return DoCommand(LOWORD(wParam));
         }
-        break;
-    case WM_MOUSEWHEEL:
+        case WM_MOUSEWHEEL:
         {
             if (GET_KEYSTATE_WPARAM(wParam) == MK_SHIFT)
             {
                 // scroll sideways
-                SendEditor(SCI_LINESCROLL, -GET_WHEEL_DELTA_WPARAM(wParam)/40, 0);
+                SendEditor(SCI_LINESCROLL, -GET_WHEEL_DELTA_WPARAM(wParam) / 40, 0);
             }
             else
                 return DefWindowProc(hwnd, uMsg, wParam, lParam);
         }
         break;
-    case WM_SIZE:
+        case WM_SIZE:
         {
             RECT rect;
             GetClientRect(*this, &rect);
             if (m_bShowFindBar)
             {
                 ::SetWindowPos(m_hWndEdit, HWND_TOP,
-                    rect.left, rect.top,
-                    rect.right - rect.left, rect.bottom - rect.top - int(30 * CDPIAware::Instance().ScaleFactor(hwnd)),
-                    SWP_SHOWWINDOW);
-                ::SetWindowPos(m_FindBar, HWND_TOP,
-                    rect.left, rect.bottom - int(30 * CDPIAware::Instance().ScaleFactor(hwnd)),
-                    rect.right - rect.left, int(30 * CDPIAware::Instance().ScaleFactor(hwnd)),
-                    SWP_SHOWWINDOW);
+                               rect.left, rect.top,
+                               rect.right - rect.left, rect.bottom - rect.top - static_cast<int>(30 * CDPIAware::Instance().ScaleFactor(hwnd)),
+                               SWP_SHOWWINDOW);
+                ::SetWindowPos(m_findBar, HWND_TOP,
+                               rect.left, rect.bottom - static_cast<int>(30 * CDPIAware::Instance().ScaleFactor(hwnd)),
+                               rect.right - rect.left, static_cast<int>(30 * CDPIAware::Instance().ScaleFactor(hwnd)),
+                               SWP_SHOWWINDOW);
             }
             else
             {
                 ::SetWindowPos(m_hWndEdit, HWND_TOP,
-                    rect.left, rect.top,
-                    rect.right-rect.left, rect.bottom-rect.top,
-                    SWP_SHOWWINDOW);
-                ::ShowWindow(m_FindBar, SW_HIDE);
+                               rect.left, rect.top,
+                               rect.right - rect.left, rect.bottom - rect.top,
+                               SWP_SHOWWINDOW);
+                ::ShowWindow(m_findBar, SW_HIDE);
             }
         }
         break;
-    case WM_GETMINMAXINFO:
+        case WM_GETMINMAXINFO:
         {
-            MINMAXINFO * mmi = (MINMAXINFO*)lParam;
+            MINMAXINFO* mmi       = reinterpret_cast<MINMAXINFO*>(lParam);
             mmi->ptMinTrackSize.x = 100;
             mmi->ptMinTrackSize.y = 100;
             return 0;
         }
+        case WM_DESTROY:
+            PostQuitMessage(0);
+            break;
+        case WM_CLOSE:
+            ::DestroyWindow(m_hwnd);
+            break;
+        case WM_SETFOCUS:
+            SetFocus(m_hWndEdit);
+            break;
+        case WM_SYSCOLORCHANGE:
+            CTheme::Instance().OnSysColorChanged();
+            CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme(), true);
+            break;
+        case WM_DPICHANGED:
+        {
+            CDPIAware::Instance().Invalidate();
+            SendMessage(m_hWndEdit, WM_DPICHANGED, wParam, lParam);
+            const RECT* rect = reinterpret_cast<RECT*>(lParam);
+            SetWindowPos(*this, nullptr, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+            ::RedrawWindow(*this, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+        }
         break;
-    case WM_DESTROY:
-        PostQuitMessage(0);
-        break;
-    case WM_CLOSE:
-        ::DestroyWindow(m_hwnd);
-        break;
-    case WM_SETFOCUS:
-        SetFocus(m_hWndEdit);
-        break;
-    case WM_SYSCOLORCHANGE:
-        CTheme::Instance().OnSysColorChanged();
-        CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme(), true);
-        break;
-    case WM_DPICHANGED:
-    {
-        CDPIAware::Instance().Invalidate();
-        SendMessage(m_hWndEdit, WM_DPICHANGED, wParam, lParam);
-        const RECT* rect = reinterpret_cast<RECT*>(lParam);
-        SetWindowPos(*this, NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
-        ::RedrawWindow(*this, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
-    }
-        break;
-    case COMMITMONITOR_FINDMSGNEXT:
+        case COMMITMONITOR_FINDMSGNEXT:
         {
             SendEditor(SCI_CHARRIGHT);
             SendEditor(SCI_SEARCHANCHOR);
             m_bMatchCase = !!wParam;
-            m_findtext = (LPCTSTR)lParam;
-            if (SendEditor(SCI_SEARCHNEXT, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str()) == -1)
+            m_findText   = reinterpret_cast<LPCTSTR>(lParam);
+            if (SendEditor(SCI_SEARCHNEXT, m_bMatchCase ? SCFIND_MATCHCASE : 0, reinterpret_cast<LPARAM>(CUnicodeUtils::StdGetUTF8(m_findText).c_str())) == -1)
             {
                 FLASHWINFO fwi;
-                fwi.cbSize = sizeof(FLASHWINFO);
-                fwi.uCount = 3;
+                fwi.cbSize    = sizeof(FLASHWINFO);
+                fwi.uCount    = 3;
                 fwi.dwTimeout = 100;
-                fwi.dwFlags = FLASHW_ALL;
-                fwi.hwnd = m_hwnd;
+                fwi.dwFlags   = FLASHW_ALL;
+                fwi.hwnd      = m_hwnd;
                 FlashWindowEx(&fwi);
             }
             SendEditor(SCI_SCROLLCARET);
         }
         break;
-    case COMMITMONITOR_FINDMSGPREV:
+        case COMMITMONITOR_FINDMSGPREV:
         {
             SendEditor(SCI_SEARCHANCHOR);
             m_bMatchCase = !!wParam;
-            m_findtext = (LPCTSTR)lParam;
-            if (SendEditor(SCI_SEARCHPREV, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str()) == -1)
+            m_findText   = reinterpret_cast<LPCTSTR>(lParam);
+            if (SendEditor(SCI_SEARCHPREV, m_bMatchCase ? SCFIND_MATCHCASE : 0, reinterpret_cast<LPARAM>(CUnicodeUtils::StdGetUTF8(m_findText).c_str())) == -1)
             {
                 FLASHWINFO fwi;
-                fwi.cbSize = sizeof(FLASHWINFO);
-                fwi.uCount = 3;
+                fwi.cbSize    = sizeof(FLASHWINFO);
+                fwi.uCount    = 3;
                 fwi.dwTimeout = 100;
-                fwi.dwFlags = FLASHW_ALL;
-                fwi.hwnd = m_hwnd;
+                fwi.dwFlags   = FLASHW_ALL;
+                fwi.hwnd      = m_hwnd;
                 FlashWindowEx(&fwi);
             }
 
             SendEditor(SCI_SCROLLCARET);
         }
         break;
-    case COMMITMONITOR_FINDEXIT:
+        case COMMITMONITOR_FINDEXIT:
         {
             RECT rect;
             GetClientRect(*this, &rect);
             m_bShowFindBar = false;
-            ::ShowWindow(m_FindBar, SW_HIDE);
+            ::ShowWindow(m_findBar, SW_HIDE);
             ::SetWindowPos(m_hWndEdit, HWND_TOP,
-                rect.left, rect.top,
-                rect.right-rect.left, rect.bottom-rect.top,
-                SWP_SHOWWINDOW);
+                           rect.left, rect.top,
+                           rect.right - rect.left, rect.bottom - rect.top,
+                           SWP_SHOWWINDOW);
         }
         break;
-    case COMMITMONITOR_FINDRESET:
-        SendEditor(SCI_SETSELECTIONSTART, 0);
-        SendEditor(SCI_SETSELECTIONEND, 0);
-        SendEditor(SCI_SEARCHANCHOR);
-        break;
-    case WM_NOTIFY:
-        if (reinterpret_cast<LPNMHDR>(lParam)->code == SCN_PAINTED)
-            UpdateLineCount();
-        break;
-    default:
-        return DefWindowProc(hwnd, uMsg, wParam, lParam);
+        case COMMITMONITOR_FINDRESET:
+            SendEditor(SCI_SETSELECTIONSTART, 0);
+            SendEditor(SCI_SETSELECTIONEND, 0);
+            SendEditor(SCI_SEARCHANCHOR);
+            break;
+        case WM_NOTIFY:
+            if (reinterpret_cast<LPNMHDR>(lParam)->code == SCN_PAINTED)
+                UpdateLineCount();
+            break;
+        default:
+            return DefWindowProc(hwnd, uMsg, wParam, lParam);
     }
 
     return 0;
@@ -248,218 +247,218 @@ LRESULT CMainWindow::DoCommand(int id)
 {
     switch (id)
     {
-    case ID_FILE_OPEN:
-        loadOrSaveFile(true);
-        break;
-    case ID_FILE_SAVEAS:
-        loadOrSaveFile(false);
-        break;
-    case ID_FILE_SAVE:
-        loadOrSaveFile(false, m_filename);
-        break;
-    case ID_FILE_EXIT:
-        ::PostQuitMessage(0);
-        return 0;
-    case IDM_SHOWFINDBAR:
+        case ID_FILE_OPEN:
+            loadOrSaveFile(true);
+            break;
+        case ID_FILE_SAVEAS:
+            loadOrSaveFile(false);
+            break;
+        case ID_FILE_SAVE:
+            loadOrSaveFile(false, m_fileName);
+            break;
+        case ID_FILE_EXIT:
+            ::PostQuitMessage(0);
+            return 0;
+        case IDM_SHOWFINDBAR:
         {
             m_bShowFindBar = true;
-            ::ShowWindow(m_FindBar, SW_SHOW);
+            ::ShowWindow(m_findBar, SW_SHOW);
             RECT rect;
             GetClientRect(*this, &rect);
             ::SetWindowPos(m_hWndEdit, HWND_TOP,
-                rect.left, rect.top,
-                rect.right - rect.left, rect.bottom - rect.top - int(30 * CDPIAware::Instance().ScaleFactor(*this)),
-                SWP_SHOWWINDOW);
-            ::SetWindowPos(m_FindBar, HWND_TOP,
-                rect.left, rect.bottom - int(30 * CDPIAware::Instance().ScaleFactor(*this)),
-                rect.right - rect.left, int(30 * CDPIAware::Instance().ScaleFactor(*this)),
-                SWP_SHOWWINDOW);
-            ::SetFocus(m_FindBar);
+                           rect.left, rect.top,
+                           rect.right - rect.left, rect.bottom - rect.top - static_cast<int>(30 * CDPIAware::Instance().ScaleFactor(*this)),
+                           SWP_SHOWWINDOW);
+            ::SetWindowPos(m_findBar, HWND_TOP,
+                           rect.left, rect.bottom - static_cast<int>(30 * CDPIAware::Instance().ScaleFactor(*this)),
+                           rect.right - rect.left, static_cast<int>(30 * CDPIAware::Instance().ScaleFactor(*this)),
+                           SWP_SHOWWINDOW);
+            ::SetFocus(m_findBar);
             SendEditor(SCI_SETSELECTIONSTART, 0);
             SendEditor(SCI_SETSELECTIONEND, 0);
             SendEditor(SCI_SEARCHANCHOR);
         }
         break;
-    case IDM_FINDNEXT:
-        SendEditor(SCI_CHARRIGHT);
-        SendEditor(SCI_SEARCHANCHOR);
-        if (SendEditor(SCI_SEARCHNEXT, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str()) == -1)
-        {
-            FLASHWINFO fwi;
-            fwi.cbSize = sizeof(FLASHWINFO);
-            fwi.uCount = 3;
-            fwi.dwTimeout = 100;
-            fwi.dwFlags = FLASHW_ALL;
-            fwi.hwnd = m_hwnd;
-            FlashWindowEx(&fwi);
-        }
-        SendEditor(SCI_SCROLLCARET);
-        break;
-    case IDM_FINDPREV:
-        SendEditor(SCI_SEARCHANCHOR);
-        if (SendEditor(SCI_SEARCHPREV, m_bMatchCase ? SCFIND_MATCHCASE : 0, (LPARAM)CUnicodeUtils::StdGetUTF8(m_findtext).c_str()) == -1)
-        {
-            FLASHWINFO fwi;
-            fwi.cbSize = sizeof(FLASHWINFO);
-            fwi.uCount = 3;
-            fwi.dwTimeout = 100;
-            fwi.dwFlags = FLASHW_ALL;
-            fwi.hwnd = m_hwnd;
-            FlashWindowEx(&fwi);
-        }
-        SendEditor(SCI_SCROLLCARET);
-        break;
-    case IDM_FINDEXIT:
-        if (IsWindowVisible(m_FindBar))
-        {
-            RECT rect;
-            GetClientRect(*this, &rect);
-            m_bShowFindBar = false;
-            ::ShowWindow(m_FindBar, SW_HIDE);
-            ::SetWindowPos(m_hWndEdit, HWND_TOP,
-                rect.left, rect.top,
-                rect.right-rect.left, rect.bottom-rect.top,
-                SWP_SHOWWINDOW);
-        }
-        else
-            PostQuitMessage(0);
-        break;
-    case ID_FILE_SETTINGS:
+        case IDM_FINDNEXT:
+            SendEditor(SCI_CHARRIGHT);
+            SendEditor(SCI_SEARCHANCHOR);
+            if (SendEditor(SCI_SEARCHNEXT, m_bMatchCase ? SCFIND_MATCHCASE : 0, reinterpret_cast<LPARAM>(CUnicodeUtils::StdGetUTF8(m_findText).c_str())) == -1)
+            {
+                FLASHWINFO fwi;
+                fwi.cbSize    = sizeof(FLASHWINFO);
+                fwi.uCount    = 3;
+                fwi.dwTimeout = 100;
+                fwi.dwFlags   = FLASHW_ALL;
+                fwi.hwnd      = m_hwnd;
+                FlashWindowEx(&fwi);
+            }
+            SendEditor(SCI_SCROLLCARET);
+            break;
+        case IDM_FINDPREV:
+            SendEditor(SCI_SEARCHANCHOR);
+            if (SendEditor(SCI_SEARCHPREV, m_bMatchCase ? SCFIND_MATCHCASE : 0, reinterpret_cast<LPARAM>(CUnicodeUtils::StdGetUTF8(m_findText).c_str())) == -1)
+            {
+                FLASHWINFO fwi;
+                fwi.cbSize    = sizeof(FLASHWINFO);
+                fwi.uCount    = 3;
+                fwi.dwTimeout = 100;
+                fwi.dwFlags   = FLASHW_ALL;
+                fwi.hwnd      = m_hwnd;
+                FlashWindowEx(&fwi);
+            }
+            SendEditor(SCI_SCROLLCARET);
+            break;
+        case IDM_FINDEXIT:
+            if (IsWindowVisible(m_findBar))
+            {
+                RECT rect;
+                GetClientRect(*this, &rect);
+                m_bShowFindBar = false;
+                ::ShowWindow(m_findBar, SW_HIDE);
+                ::SetWindowPos(m_hWndEdit, HWND_TOP,
+                               rect.left, rect.top,
+                               rect.right - rect.left, rect.bottom - rect.top,
+                               SWP_SHOWWINDOW);
+            }
+            else
+                PostQuitMessage(0);
+            break;
+        case ID_FILE_SETTINGS:
         {
             tstring svnCmd = L" /command:settings /page:20";
             RunCommand(svnCmd);
         }
         break;
-    case ID_FILE_APPLYPATCH:
+        case ID_FILE_APPLYPATCH:
         {
             std::wstring command = L" /diff:\"";
-            command += m_filename;
+            command += m_fileName;
             command += L"\"";
             std::wstring tortoiseMergePath = GetAppDirectory() + L"TortoiseMerge.exe";
             CCreateProcessHelper::CreateProcessDetached(tortoiseMergePath.c_str(), command.c_str());
         }
         break;
-    case ID_FILE_PAGESETUP:
+        case ID_FILE_PAGESETUP:
         {
-            TCHAR localeInfo[3] = { 0 };
+            TCHAR localeInfo[3] = {0};
             GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IMEASURE, localeInfo, 3);
             // Metric system. '1' is US System
             int defaultMargin = localeInfo[0] == '0' ? 2540 : 1000;
 
-            PAGESETUPDLG pdlg = {0};
-            pdlg.lStructSize = sizeof(PAGESETUPDLG);
-            pdlg.hwndOwner = *this;
-            pdlg.hInstance = nullptr;
-            pdlg.Flags = PSD_DEFAULTMINMARGINS|PSD_MARGINS|PSD_DISABLEPAPER|PSD_DISABLEORIENTATION;
+            PAGESETUPDLG pDlg = {0};
+            pDlg.lStructSize  = sizeof(PAGESETUPDLG);
+            pDlg.hwndOwner    = *this;
+            pDlg.hInstance    = nullptr;
+            pDlg.Flags        = PSD_DEFAULTMINMARGINS | PSD_MARGINS | PSD_DISABLEPAPER | PSD_DISABLEORIENTATION;
             if (localeInfo[0] == '0')
-                pdlg.Flags |= PSD_INHUNDREDTHSOFMILLIMETERS;
+                pDlg.Flags |= PSD_INHUNDREDTHSOFMILLIMETERS;
 
-            CRegStdDWORD m_regMargLeft   = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginleft", defaultMargin);
-            CRegStdDWORD m_regMargTop    = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmargintop", defaultMargin);
-            CRegStdDWORD m_regMargRight  = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginright", defaultMargin);
-            CRegStdDWORD m_regMargBottom = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginbottom", defaultMargin);
+            CRegStdDWORD regMargLeft   = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginleft", defaultMargin);
+            CRegStdDWORD regMargTop    = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmargintop", defaultMargin);
+            CRegStdDWORD regMargRight  = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginright", defaultMargin);
+            CRegStdDWORD regMargBottom = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginbottom", defaultMargin);
 
-            pdlg.rtMargin.left   = (long)(DWORD)m_regMargLeft;
-            pdlg.rtMargin.top    = (long)(DWORD)m_regMargTop;
-            pdlg.rtMargin.right  = (long)(DWORD)m_regMargRight;
-            pdlg.rtMargin.bottom = (long)(DWORD)m_regMargBottom;
+            pDlg.rtMargin.left   = static_cast<long>(static_cast<DWORD>(regMargLeft));
+            pDlg.rtMargin.top    = static_cast<long>(static_cast<DWORD>(regMargTop));
+            pDlg.rtMargin.right  = static_cast<long>(static_cast<DWORD>(regMargRight));
+            pDlg.rtMargin.bottom = static_cast<long>(static_cast<DWORD>(regMargBottom));
 
-            if (!PageSetupDlg(&pdlg))
+            if (!PageSetupDlg(&pDlg))
                 return false;
 
-            m_regMargLeft   = pdlg.rtMargin.left;
-            m_regMargTop    = pdlg.rtMargin.top;
-            m_regMargRight  = pdlg.rtMargin.right;
-            m_regMargBottom = pdlg.rtMargin.bottom;
+            regMargLeft   = pDlg.rtMargin.left;
+            regMargTop    = pDlg.rtMargin.top;
+            regMargRight  = pDlg.rtMargin.right;
+            regMargBottom = pDlg.rtMargin.bottom;
         }
         break;
-    case ID_FILE_PRINT:
+        case ID_FILE_PRINT:
         {
-            PRINTDLGEX pdlg = {0};
-            pdlg.lStructSize = sizeof(PRINTDLGEX);
-            pdlg.hwndOwner = *this;
-            pdlg.hInstance = nullptr;
-            pdlg.Flags = PD_USEDEVMODECOPIESANDCOLLATE | PD_ALLPAGES | PD_RETURNDC | PD_NOCURRENTPAGE | PD_NOPAGENUMS;
-            pdlg.nMinPage = 1;
-            pdlg.nMaxPage = 0xffffU; // We do not know how many pages in the document
-            pdlg.nCopies = 1;
-            pdlg.hDC = 0;
-            pdlg.nStartPage = START_PAGE_GENERAL;
+            PRINTDLGEX pDlg  = {0};
+            pDlg.lStructSize = sizeof(PRINTDLGEX);
+            pDlg.hwndOwner   = *this;
+            pDlg.hInstance   = nullptr;
+            pDlg.Flags       = PD_USEDEVMODECOPIESANDCOLLATE | PD_ALLPAGES | PD_RETURNDC | PD_NOCURRENTPAGE | PD_NOPAGENUMS;
+            pDlg.nMinPage    = 1;
+            pDlg.nMaxPage    = 0xffffU; // We do not know how many pages in the document
+            pDlg.nCopies     = 1;
+            pDlg.hDC         = nullptr;
+            pDlg.nStartPage  = START_PAGE_GENERAL;
 
             // See if a range has been selected
             size_t startPos = SendEditor(SCI_GETSELECTIONSTART);
-            size_t endPos = SendEditor(SCI_GETSELECTIONEND);
+            size_t endPos   = SendEditor(SCI_GETSELECTIONEND);
 
             if (startPos == endPos)
-                pdlg.Flags |= PD_NOSELECTION;
+                pDlg.Flags |= PD_NOSELECTION;
             else
-                pdlg.Flags |= PD_SELECTION;
+                pDlg.Flags |= PD_SELECTION;
 
-            HRESULT hResult = PrintDlgEx(&pdlg);
-            if ((hResult != S_OK) || (pdlg.dwResultAction != PD_RESULT_PRINT))
+            HRESULT hResult = PrintDlgEx(&pDlg);
+            if ((hResult != S_OK) || (pDlg.dwResultAction != PD_RESULT_PRINT))
                 return 0;
 
             // reset all indicators
-            size_t endpos = SendEditor(SCI_GETLENGTH);
+            size_t endDoc = SendEditor(SCI_GETLENGTH);
             for (int i = INDIC_CONTAINER; i <= INDIC_MAX; ++i)
             {
                 SendEditor(SCI_SETINDICATORCURRENT, i);
-                SendEditor(SCI_INDICATORCLEARRANGE, 0, endpos);
+                SendEditor(SCI_INDICATORCLEARRANGE, 0, endDoc);
             }
             // store and reset UI settings
-            int viewws = (int)SendEditor(SCI_GETVIEWWS);
+            int viewWs = static_cast<int>(SendEditor(SCI_GETVIEWWS));
             SendEditor(SCI_SETVIEWWS, 0);
-            int edgemode = (int)SendEditor(SCI_GETEDGEMODE);
+            int edgeMode = static_cast<int>(SendEditor(SCI_GETEDGEMODE));
             SendEditor(SCI_SETEDGEMODE, EDGE_NONE);
             SendEditor(SCI_SETWRAPVISUALFLAGS, SC_WRAPVISUALFLAG_END);
 
-            HDC hdc = pdlg.hDC;
+            HDC hdc = pDlg.hDC;
 
-            RECT rectMargins, rectPhysMargins;
+            RECT  rectMargins, rectPhysMargins;
             POINT ptPage;
             POINT ptDpi;
 
             // Get printer resolution
-            ptDpi.x = GetDeviceCaps(hdc, LOGPIXELSX);    // dpi in X direction
-            ptDpi.y = GetDeviceCaps(hdc, LOGPIXELSY);    // dpi in Y direction
+            ptDpi.x = GetDeviceCaps(hdc, LOGPIXELSX); // dpi in X direction
+            ptDpi.y = GetDeviceCaps(hdc, LOGPIXELSY); // dpi in Y direction
 
             // Start by getting the physical page size (in device units).
-            ptPage.x = GetDeviceCaps(hdc, PHYSICALWIDTH);   // device units
-            ptPage.y = GetDeviceCaps(hdc, PHYSICALHEIGHT);  // device units
+            ptPage.x = GetDeviceCaps(hdc, PHYSICALWIDTH);  // device units
+            ptPage.y = GetDeviceCaps(hdc, PHYSICALHEIGHT); // device units
 
             // Get the dimensions of the unprintable
             // part of the page (in device units).
             rectPhysMargins.left = GetDeviceCaps(hdc, PHYSICALOFFSETX);
-            rectPhysMargins.top = GetDeviceCaps(hdc, PHYSICALOFFSETY);
+            rectPhysMargins.top  = GetDeviceCaps(hdc, PHYSICALOFFSETY);
 
             // To get the right and lower unprintable area,
             // we take the entire width and height of the paper and
             // subtract everything else.
-            rectPhysMargins.right = ptPage.x                        // total paper width
-                - GetDeviceCaps(hdc, HORZRES)                       // printable width
-                - rectPhysMargins.left;                             // left unprintable margin
+            rectPhysMargins.right = ptPage.x                      // total paper width
+                                    - GetDeviceCaps(hdc, HORZRES) // printable width
+                                    - rectPhysMargins.left;       // left unprintable margin
 
-            rectPhysMargins.bottom = ptPage.y                       // total paper height
-                - GetDeviceCaps(hdc, VERTRES)                       // printable height
-                - rectPhysMargins.top;                              // right unprintable margin
+            rectPhysMargins.bottom = ptPage.y                      // total paper height
+                                     - GetDeviceCaps(hdc, VERTRES) // printable height
+                                     - rectPhysMargins.top;        // right unprintable margin
 
-            TCHAR localeInfo[3] = { 0 };
+            TCHAR localeInfo[3] = {0};
             GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IMEASURE, localeInfo, 3);
             // Metric system. '1' is US System
-            int defaultMargin = localeInfo[0] == '0' ? 2540 : 1000;
-            RECT pagesetupMargin;
-            CRegStdDWORD m_regMargLeft   = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginleft", defaultMargin);
-            CRegStdDWORD m_regMargTop    = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmargintop", defaultMargin);
-            CRegStdDWORD m_regMargRight  = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginright", defaultMargin);
-            CRegStdDWORD m_regMargBottom = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginbottom", defaultMargin);
+            int          defaultMargin = localeInfo[0] == '0' ? 2540 : 1000;
+            RECT         pageSetupMargin;
+            CRegStdDWORD regMargLeft   = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginleft", defaultMargin);
+            CRegStdDWORD regMargTop    = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmargintop", defaultMargin);
+            CRegStdDWORD regMargRight  = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginright", defaultMargin);
+            CRegStdDWORD regMargBottom = CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffpagesetupmarginbottom", defaultMargin);
 
-            pagesetupMargin.left   = (long)(DWORD)m_regMargLeft;
-            pagesetupMargin.top    = (long)(DWORD)m_regMargTop;
-            pagesetupMargin.right  = (long)(DWORD)m_regMargRight;
-            pagesetupMargin.bottom = (long)(DWORD)m_regMargBottom;
+            pageSetupMargin.left   = static_cast<long>(static_cast<DWORD>(regMargLeft));
+            pageSetupMargin.top    = static_cast<long>(static_cast<DWORD>(regMargTop));
+            pageSetupMargin.right  = static_cast<long>(static_cast<DWORD>(regMargRight));
+            pageSetupMargin.bottom = static_cast<long>(static_cast<DWORD>(regMargBottom));
 
-            if (pagesetupMargin.left != 0 || pagesetupMargin.right != 0 ||
-                pagesetupMargin.top != 0 || pagesetupMargin.bottom != 0)
+            if (pageSetupMargin.left != 0 || pageSetupMargin.right != 0 ||
+                pageSetupMargin.top != 0 || pageSetupMargin.bottom != 0)
             {
                 RECT rectSetup;
 
@@ -470,71 +469,70 @@ LRESULT CMainWindow::DoCommand(int id)
                 if (localeInfo[0] == '0')
                 {
                     // Metric system. '1' is US System
-                    rectSetup.left      = MulDiv (pagesetupMargin.left, ptDpi.x, 2540);
-                    rectSetup.top       = MulDiv (pagesetupMargin.top, ptDpi.y, 2540);
-                    rectSetup.right     = MulDiv(pagesetupMargin.right, ptDpi.x, 2540);
-                    rectSetup.bottom    = MulDiv(pagesetupMargin.bottom, ptDpi.y, 2540);
+                    rectSetup.left   = MulDiv(pageSetupMargin.left, ptDpi.x, 2540);
+                    rectSetup.top    = MulDiv(pageSetupMargin.top, ptDpi.y, 2540);
+                    rectSetup.right  = MulDiv(pageSetupMargin.right, ptDpi.x, 2540);
+                    rectSetup.bottom = MulDiv(pageSetupMargin.bottom, ptDpi.y, 2540);
                 }
                 else
                 {
-                    rectSetup.left      = MulDiv(pagesetupMargin.left, ptDpi.x, 1000);
-                    rectSetup.top       = MulDiv(pagesetupMargin.top, ptDpi.y, 1000);
-                    rectSetup.right     = MulDiv(pagesetupMargin.right, ptDpi.x, 1000);
-                    rectSetup.bottom    = MulDiv(pagesetupMargin.bottom, ptDpi.y, 1000);
+                    rectSetup.left   = MulDiv(pageSetupMargin.left, ptDpi.x, 1000);
+                    rectSetup.top    = MulDiv(pageSetupMargin.top, ptDpi.y, 1000);
+                    rectSetup.right  = MulDiv(pageSetupMargin.right, ptDpi.x, 1000);
+                    rectSetup.bottom = MulDiv(pageSetupMargin.bottom, ptDpi.y, 1000);
                 }
 
                 // Don't reduce margins below the minimum printable area
-                rectMargins.left    = max(rectPhysMargins.left, rectSetup.left);
-                rectMargins.top     = max(rectPhysMargins.top, rectSetup.top);
-                rectMargins.right   = max(rectPhysMargins.right, rectSetup.right);
-                rectMargins.bottom  = max(rectPhysMargins.bottom, rectSetup.bottom);
+                rectMargins.left   = max(rectPhysMargins.left, rectSetup.left);
+                rectMargins.top    = max(rectPhysMargins.top, rectSetup.top);
+                rectMargins.right  = max(rectPhysMargins.right, rectSetup.right);
+                rectMargins.bottom = max(rectPhysMargins.bottom, rectSetup.bottom);
             }
             else
             {
-                rectMargins.left    = rectPhysMargins.left;
-                rectMargins.top     = rectPhysMargins.top;
-                rectMargins.right   = rectPhysMargins.right;
-                rectMargins.bottom  = rectPhysMargins.bottom;
+                rectMargins.left   = rectPhysMargins.left;
+                rectMargins.top    = rectPhysMargins.top;
+                rectMargins.right  = rectPhysMargins.right;
+                rectMargins.bottom = rectPhysMargins.bottom;
             }
 
             // rectMargins now contains the values used to shrink the printable
             // area of the page.
 
             // Convert device coordinates into logical coordinates
-            DPtoLP(hdc, (LPPOINT) &rectMargins, 2);
-            DPtoLP(hdc, (LPPOINT)&rectPhysMargins, 2);
+            DPtoLP(hdc, reinterpret_cast<LPPOINT>(&rectMargins), 2);
+            DPtoLP(hdc, reinterpret_cast<LPPOINT>(&rectPhysMargins), 2);
 
             // Convert page size to logical units and we're done!
-            DPtoLP(hdc, (LPPOINT) &ptPage, 1);
+            DPtoLP(hdc, static_cast<LPPOINT>(&ptPage), 1);
 
-
-            DOCINFO di = {sizeof(DOCINFO), 0, 0, 0, 0};
-            di.lpszDocName = m_filename.c_str();
-            di.lpszOutput = 0;
-            di.lpszDatatype = 0;
-            di.fwType = 0;
+            DOCINFO di      = {sizeof(DOCINFO), nullptr, nullptr, nullptr, 0};
+            di.lpszDocName  = m_fileName.c_str();
+            di.lpszOutput   = nullptr;
+            di.lpszDatatype = nullptr;
+            di.fwType       = 0;
             if (::StartDoc(hdc, &di) < 0)
             {
                 ::DeleteDC(hdc);
                 return 0;
             }
 
-            size_t lengthDoc = SendEditor(SCI_GETLENGTH);
-            size_t lengthDocMax = lengthDoc;
+            size_t lengthDoc     = SendEditor(SCI_GETLENGTH);
+            size_t lengthDocMax  = lengthDoc;
             size_t lengthPrinted = 0;
 
             // Requested to print selection
-            if (pdlg.Flags & PD_SELECTION)
+            if (pDlg.Flags & PD_SELECTION)
             {
                 if (startPos > endPos)
                 {
                     lengthPrinted = endPos;
-                    lengthDoc = startPos;
+                    lengthDoc     = startPos;
                 }
                 else
                 {
                     lengthPrinted = startPos;
-                    lengthDoc = endPos;
+                    lengthDoc     = endPos;
                 }
 
                 if (lengthDoc > lengthDocMax)
@@ -543,24 +541,24 @@ LRESULT CMainWindow::DoCommand(int id)
 
             // We must subtract the physical margins from the printable area
             Sci_RangeToFormat frPrint;
-            frPrint.hdc             = hdc;
-            frPrint.hdcTarget       = hdc;
-            frPrint.rc.left         = rectMargins.left - rectPhysMargins.left;
-            frPrint.rc.top          = rectMargins.top - rectPhysMargins.top;
-            frPrint.rc.right        = ptPage.x - rectMargins.right - rectPhysMargins.left;
-            frPrint.rc.bottom       = ptPage.y - rectMargins.bottom - rectPhysMargins.top;
-            frPrint.rcPage.left     = 0;
-            frPrint.rcPage.top      = 0;
-            frPrint.rcPage.right    = ptPage.x - rectPhysMargins.left - rectPhysMargins.right - 1;
-            frPrint.rcPage.bottom   = ptPage.y - rectPhysMargins.top - rectPhysMargins.bottom - 1;
+            frPrint.hdc           = hdc;
+            frPrint.hdcTarget     = hdc;
+            frPrint.rc.left       = rectMargins.left - rectPhysMargins.left;
+            frPrint.rc.top        = rectMargins.top - rectPhysMargins.top;
+            frPrint.rc.right      = ptPage.x - rectMargins.right - rectPhysMargins.left;
+            frPrint.rc.bottom     = ptPage.y - rectMargins.bottom - rectPhysMargins.top;
+            frPrint.rcPage.left   = 0;
+            frPrint.rcPage.top    = 0;
+            frPrint.rcPage.right  = ptPage.x - rectPhysMargins.left - rectPhysMargins.right - 1;
+            frPrint.rcPage.bottom = ptPage.y - rectPhysMargins.top - rectPhysMargins.bottom - 1;
 
             // Print each page
             while (lengthPrinted < lengthDoc)
             {
                 ::StartPage(hdc);
 
-                frPrint.chrg.cpMin = (long)lengthPrinted;
-                frPrint.chrg.cpMax = (long)lengthDoc;
+                frPrint.chrg.cpMin = static_cast<long>(lengthPrinted);
+                frPrint.chrg.cpMax = static_cast<long>(lengthDoc);
 
                 lengthPrinted = SendEditor(SCI_FORMATRANGE, true, reinterpret_cast<LPARAM>(&frPrint));
 
@@ -572,67 +570,66 @@ LRESULT CMainWindow::DoCommand(int id)
             ::EndDoc(hdc);
             ::DeleteDC(hdc);
 
-            if (pdlg.hDevMode)
-                GlobalFree(pdlg.hDevMode);
-            if (pdlg.hDevNames)
-                GlobalFree(pdlg.hDevNames);
-            if (pdlg.lpPageRanges)
-                GlobalFree(pdlg.lpPageRanges);
+            if (pDlg.hDevMode)
+                GlobalFree(pDlg.hDevMode);
+            if (pDlg.hDevNames)
+                GlobalFree(pDlg.hDevNames);
+            if (pDlg.lpPageRanges)
+                GlobalFree(pDlg.lpPageRanges);
 
             // reset the UI
-            SendEditor(SCI_SETVIEWWS, viewws);
-            SendEditor(SCI_SETEDGEMODE, edgemode);
+            SendEditor(SCI_SETVIEWWS, viewWs);
+            SendEditor(SCI_SETEDGEMODE, edgeMode);
             SendEditor(SCI_SETWRAPVISUALFLAGS, SC_WRAPVISUALFLAG_NONE);
         }
         break;
-    case ID_VIEW_DARKMODE:
+        case ID_VIEW_DARKMODE:
         {
             CTheme::Instance().SetDarkTheme(!CTheme::Instance().IsDarkTheme());
         }
         break;
-    default:
-        break;
+        default:
+            break;
     };
     return 1;
 }
 
-std::wstring CMainWindow::GetAppDirectory()
+std::wstring CMainWindow::GetAppDirectory() const
 {
     std::wstring path;
-    DWORD len = 0;
-    DWORD bufferlen = MAX_PATH;     // MAX_PATH is not the limit here!
+    DWORD        len       = 0;
+    DWORD        bufferLen = MAX_PATH; // MAX_PATH is not the limit here!
     do
     {
-        bufferlen += MAX_PATH;      // MAX_PATH is not the limit here!
-        auto pBuf = std::make_unique<TCHAR[]>(bufferlen);
-        len = GetModuleFileName(nullptr, pBuf.get(), bufferlen);
-        path = std::wstring(pBuf.get(), len);
-    } while(len == bufferlen);
+        bufferLen += MAX_PATH; // MAX_PATH is not the limit here!
+        auto pBuf = std::make_unique<TCHAR[]>(bufferLen);
+        len       = GetModuleFileName(nullptr, pBuf.get(), bufferLen);
+        path      = std::wstring(pBuf.get(), len);
+    } while (len == bufferLen);
     path = path.substr(0, path.rfind('\\') + 1);
 
     return path;
 }
 
-void CMainWindow::RunCommand(const std::wstring& command)
+void CMainWindow::RunCommand(const std::wstring& command) const
 {
     tstring tortoiseProcPath = GetAppDirectory() + L"TortoiseProc.exe";
     CCreateProcessHelper::CreateProcessDetached(tortoiseProcPath.c_str(), command.c_str());
 }
 
-LRESULT CMainWindow::SendEditor(UINT Msg, WPARAM wParam, LPARAM lParam)
+LRESULT CMainWindow::SendEditor(UINT msg, WPARAM wParam, LPARAM lParam) const
 {
     if (m_directFunction)
     {
-        return ((SciFnDirect) m_directFunction)(m_directPointer, Msg, wParam, lParam);
+        return reinterpret_cast<SciFnDirect>(m_directFunction)(m_directPointer, msg, wParam, lParam);
     }
-    return ::SendMessage(m_hWndEdit, Msg, wParam, lParam);
+    return ::SendMessage(m_hWndEdit, msg, wParam, lParam);
 }
 
 bool CMainWindow::Initialize()
 {
     m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
-        [this]()
-        {
+        [this]() {
             SetTheme(CTheme::Instance().IsDarkTheme());
         });
     m_hWndEdit = ::CreateWindow(
@@ -651,17 +648,17 @@ bool CMainWindow::Initialize()
     RECT rect;
     GetClientRect(*this, &rect);
     ::SetWindowPos(m_hWndEdit, HWND_TOP,
-        rect.left, rect.top,
-        rect.right-rect.left, rect.bottom-rect.top,
-        SWP_SHOWWINDOW);
+                   rect.left, rect.top,
+                   rect.right - rect.left, rect.bottom - rect.top,
+                   SWP_SHOWWINDOW);
 
     m_directFunction = SendMessage(m_hWndEdit, SCI_GETDIRECTFUNCTION, 0, 0);
-    m_directPointer = SendMessage(m_hWndEdit, SCI_GETDIRECTPOINTER, 0, 0);
+    m_directPointer  = SendMessage(m_hWndEdit, SCI_GETDIRECTPOINTER, 0, 0);
 
     // Set up the global default style. These attributes are used wherever no explicit choices are made.
     CRegStdDWORD used2d(L"Software\\TortoiseSVN\\ScintillaDirect2D", TRUE);
-    bool enabled2d = false;
-    if (DWORD(used2d))
+    bool         enabled2d = false;
+    if (static_cast<DWORD>(used2d))
         enabled2d = true;
     SendEditor(SCI_SETTABWIDTH, CRegStdDWORD(L"Software\\TortoiseSVN\\UDiffTabSize", 4));
     SendEditor(SCI_SETREADONLY, TRUE);
@@ -682,7 +679,7 @@ bool CMainWindow::Initialize()
     return true;
 }
 
-void CMainWindow::SetTheme(bool bDark)
+void CMainWindow::SetTheme(bool bDark) const
 {
     auto fontNameW = CRegStdString(L"Software\\TortoiseSVN\\UDiffFontName", L"Consolas");
     auto fontName  = CUnicodeUtils::StdGetUTF8(fontNameW);
@@ -692,14 +689,14 @@ void CMainWindow::SetTheme(bool bDark)
         DarkModeHelper::Instance().AllowDarkModeForApp(TRUE);
 
         DarkModeHelper::Instance().AllowDarkModeForWindow(*this, TRUE);
-        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetStockObject(BLACK_BRUSH)));
         if (FAILED(SetWindowTheme(*this, L"DarkMode_Explorer", nullptr)))
             SetWindowTheme(*this, L"Explorer", nullptr);
         DarkModeHelper::Instance().AllowDarkModeForWindow(m_hWndEdit, TRUE);
         if (FAILED(SetWindowTheme(m_hWndEdit, L"DarkMode_Explorer", nullptr)))
             SetWindowTheme(m_hWndEdit, L"Explorer", nullptr);
-        BOOL darkFlag = TRUE;
-        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        BOOL                                        darkFlag = TRUE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data     = {DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag)};
         DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
         DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
@@ -708,13 +705,13 @@ void CMainWindow::SetTheme(bool bDark)
     {
         DarkModeHelper::Instance().AllowDarkModeForWindow(*this, FALSE);
         DarkModeHelper::Instance().AllowDarkModeForWindow(m_hWndEdit, FALSE);
-        BOOL darkFlag = FALSE;
-        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        BOOL                                        darkFlag = FALSE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data     = {DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag)};
         DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
         DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
         DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
-        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        SetClassLongPtr(*this, GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetSysColorBrush(COLOR_3DFACE)));
         SetWindowTheme(*this, L"Explorer", nullptr);
         SetWindowTheme(m_hWndEdit, L"Explorer", nullptr);
     }
@@ -813,25 +810,25 @@ void CMainWindow::SetTheme(bool bDark)
         SendEditor(SCI_STYLESETBACK, STYLE_LINENUMBER, RGB(230, 230, 230));
     }
 
-    auto curlexer = SendEditor(SCI_GETLEXER);
-    if (CTheme::Instance().IsHighContrastMode() && curlexer != SCLEX_NULL)
+    auto curLexer = SendEditor(SCI_GETLEXER);
+    if (CTheme::Instance().IsHighContrastMode() && curLexer != SCLEX_NULL)
     {
         SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
         SendEditor(SCI_SETLEXER, SCLEX_NULL);
         SendEditor(SCI_COLOURISE, 0, -1);
     }
-    else if (!CTheme::Instance().IsHighContrastMode() && curlexer != SCLEX_DIFF)
+    else if (!CTheme::Instance().IsHighContrastMode() && curLexer != SCLEX_DIFF)
     {
         SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
-        SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);        
+        SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);
         SendEditor(SCI_SETLEXER, SCLEX_DIFF);
         SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);
         SendEditor(SCI_SETKEYWORDS, 0, reinterpret_cast<LPARAM>("revision"));
         SendEditor(SCI_COLOURISE, 0, -1);
     }
 
-    HMENU hMenu = GetMenu(*this);
-    UINT uCheck = MF_BYCOMMAND;
+    HMENU hMenu  = GetMenu(*this);
+    UINT  uCheck = MF_BYCOMMAND;
     uCheck |= CTheme::Instance().IsDarkTheme() ? MF_CHECKED : MF_UNCHECKED;
     CheckMenuItem(hMenu, ID_VIEW_DARKMODE, uCheck);
     UINT uEnabled = MF_BYCOMMAND;
@@ -841,18 +838,18 @@ void CMainWindow::SetTheme(bool bDark)
     ::RedrawWindow(*this, nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
-bool CMainWindow::LoadFile(HANDLE hFile)
+bool CMainWindow::LoadFile(HANDLE hFile) const
 {
     InitEditor();
-    char data[4096] = { 0 };
-    DWORD dwRead = 0;
+    char  data[4096] = {0};
+    DWORD dwRead     = 0;
 
-    BOOL bRet = ReadFile(hFile, data, sizeof(data), &dwRead, nullptr);
+    BOOL bRet  = ReadFile(hFile, data, sizeof(data), &dwRead, nullptr);
     bool bUTF8 = IsUTF8(data, dwRead);
     while ((dwRead > 0) && (bRet))
     {
         SendEditor(SCI_ADDTEXT, dwRead,
-            reinterpret_cast<LPARAM>(static_cast<char *>(data)));
+                   reinterpret_cast<LPARAM>(static_cast<char*>(data)));
         bRet = ReadFile(hFile, data, sizeof(data), &dwRead, nullptr);
     }
     SetupWindow(bUTF8);
@@ -868,22 +865,22 @@ bool CMainWindow::LoadFile(LPCTSTR filename)
         return false;
 
     //SetTitle();
-    char data[4096] = { 0 };
-    size_t lenFile = fread(data, 1, sizeof(data), fp);
-    bool bUTF8 = IsUTF8(data, lenFile);
+    char   data[4096] = {0};
+    size_t lenFile    = fread(data, 1, sizeof(data), fp);
+    bool   bUTF8      = IsUTF8(data, lenFile);
     while (lenFile > 0)
     {
         SendEditor(SCI_ADDTEXT, lenFile,
-            reinterpret_cast<LPARAM>(static_cast<char *>(data)));
+                   reinterpret_cast<LPARAM>(static_cast<char*>(data)));
         lenFile = fread(data, 1, sizeof(data), fp);
     }
     fclose(fp);
     SetupWindow(bUTF8);
-    m_filename = filename;
+    m_fileName = filename;
     return true;
 }
 
-void CMainWindow::InitEditor()
+void CMainWindow::InitEditor() const
 {
     SendEditor(SCI_SETREADONLY, FALSE);
     SendEditor(SCI_CLEARALL);
@@ -893,7 +890,7 @@ void CMainWindow::InitEditor()
     SendEditor(SCI_SETUNDOCOLLECTION, 0);
 }
 
-void CMainWindow::SetupWindow(bool bUTF8)
+void CMainWindow::SetupWindow(bool bUTF8) const
 {
     SendEditor(SCI_SETCODEPAGE, bUTF8 ? SC_CP_UTF8 : GetACP());
 
@@ -906,7 +903,7 @@ void CMainWindow::SetupWindow(bool bUTF8)
     ::ShowWindow(m_hWndEdit, SW_SHOW);
 }
 
-bool CMainWindow::SaveFile(LPCTSTR filename)
+bool CMainWindow::SaveFile(LPCTSTR filename) const
 {
     FILE* fp = nullptr;
     _wfopen_s(&fp, filename, L"w+b");
@@ -915,15 +912,15 @@ bool CMainWindow::SaveFile(LPCTSTR filename)
         TCHAR fmt[1024] = {0};
         LoadString(hResource, IDS_ERRORSAVE, fmt, _countof(fmt));
         TCHAR error[1024] = {0};
-        _snwprintf_s(error, _countof(error), fmt, filename, (LPCTSTR)CFormatMessageWrapper());
+        _snwprintf_s(error, _countof(error), fmt, filename, static_cast<LPCTSTR>(CFormatMessageWrapper()));
         MessageBox(*this, error, L"TortoiseUDiff", MB_OK);
         return false;
     }
 
-    LRESULT len = SendEditor(SCI_GETTEXT, 0, 0);
-    auto data = std::make_unique<char[]>(len + 1);
-    SendEditor(SCI_GETTEXT, len, reinterpret_cast<LPARAM>(static_cast<char *>(data.get())));
-    fwrite(data.get(), sizeof(char), len-1, fp);
+    LRESULT len  = SendEditor(SCI_GETTEXT, 0, 0);
+    auto    data = std::make_unique<char[]>(len + 1);
+    SendEditor(SCI_GETTEXT, len, reinterpret_cast<LPARAM>(static_cast<char*>(data.get())));
+    fwrite(data.get(), sizeof(char), len - 1, fp);
     fclose(fp);
 
     SendEditor(SCI_SETSAVEPOINT);
@@ -933,13 +930,13 @@ bool CMainWindow::SaveFile(LPCTSTR filename)
 
 void CMainWindow::SetTitle(LPCTSTR title)
 {
-    size_t len = wcslen(title);
-    auto pBuf = std::make_unique<TCHAR[]>(len + 40);
-    swprintf_s(pBuf.get(), len+40, L"%s - TortoiseUDiff", title);
+    size_t len  = wcslen(title);
+    auto   pBuf = std::make_unique<TCHAR[]>(len + 40);
+    swprintf_s(pBuf.get(), len + 40, L"%s - TortoiseUDiff", title);
     SetWindowTitle(std::wstring(pBuf.get()));
 }
 
-void CMainWindow::SetAStyle(int style, COLORREF fore, COLORREF back, int size, const char *face)
+void CMainWindow::SetAStyle(int style, COLORREF fore, COLORREF back, int size, const char* face) const
 {
     SendEditor(SCI_STYLESETFORE, style, fore);
     SendEditor(SCI_STYLESETBACK, style, back);
@@ -953,16 +950,16 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
 {
     if (cb < 2)
         return true;
-    UINT16 * pVal16 = (UINT16 *)pBuffer;
-    UINT8 * pVal8 = (UINT8 *)(pVal16+1);
+    UINT16* pVal16 = static_cast<UINT16*>(pBuffer);
+    UINT8*  pVal8  = reinterpret_cast<UINT8*>(pVal16 + 1);
     // scan the whole buffer for a 0x0000 sequence
     // if found, we assume a binary file
-    for (size_t i=0; i<(cb-2); i=i+2)
+    for (size_t i = 0; i < (cb - 2); i = i + 2)
     {
         if (0x0000 == *pVal16++)
             return false;
     }
-    pVal16 = (UINT16 *)pBuffer;
+    pVal16 = static_cast<UINT16*>(pBuffer);
     if (*pVal16 == 0xFEFF)
         return false;
     if (cb < 3)
@@ -973,44 +970,50 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
             return true;
     }
     // check for illegal UTF8 chars
-    pVal8 = (UINT8 *)pBuffer;
-    for (size_t i=0; i<cb; ++i)
+    pVal8 = static_cast<UINT8*>(pBuffer);
+    for (size_t i = 0; i < cb; ++i)
     {
-        if ((*pVal8 == 0xC0)||(*pVal8 == 0xC1)||(*pVal8 >= 0xF5))
+        if ((*pVal8 == 0xC0) || (*pVal8 == 0xC1) || (*pVal8 >= 0xF5))
             return false;
         pVal8++;
     }
-    pVal8 = (UINT8 *)pBuffer;
+    pVal8      = static_cast<UINT8*>(pBuffer);
     bool bUTF8 = false;
-    for (size_t i=0; i<(cb-3); ++i)
+    for (size_t i = 0; i < (cb - 3); ++i)
     {
-        if ((*pVal8 & 0xE0)==0xC0)
+        if ((*pVal8 & 0xE0) == 0xC0)
         {
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
+            pVal8++;
+            i++;
+            if ((*pVal8 & 0xC0) != 0x80)
                 return false;
             bUTF8 = true;
         }
-        else if ((*pVal8 & 0xF0)==0xE0)
+        else if ((*pVal8 & 0xF0) == 0xE0)
         {
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
+            pVal8++;
+            i++;
+            if ((*pVal8 & 0xC0) != 0x80)
                 return false;
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
+            pVal8++;
+            i++;
+            if ((*pVal8 & 0xC0) != 0x80)
                 return false;
             bUTF8 = true;
         }
-        else if ((*pVal8 & 0xF8)==0xF0)
+        else if ((*pVal8 & 0xF8) == 0xF0)
         {
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
+            pVal8++;
+            i++;
+            if ((*pVal8 & 0xC0) != 0x80)
                 return false;
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
+            pVal8++;
+            i++;
+            if ((*pVal8 & 0xC0) != 0x80)
                 return false;
-            pVal8++;i++;
-            if ((*pVal8 & 0xC0)!=0x80)
+            pVal8++;
+            i++;
+            if ((*pVal8 & 0xC0) != 0x80)
                 return false;
             bUTF8 = true;
         }
@@ -1026,34 +1029,34 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
 
 void CMainWindow::loadOrSaveFile(bool doLoad, const std::wstring& filename /* = L"" */)
 {
-    OPENFILENAME ofn = {0};             // common dialog box structure
-    TCHAR szFile[MAX_PATH] = {0};       // buffer for file name
+    OPENFILENAME ofn              = {0}; // common dialog box structure
+    TCHAR        szFile[MAX_PATH] = {0}; // buffer for file name
     // Initialize OPENFILENAME
-    ofn.lStructSize = sizeof(OPENFILENAME);
-    ofn.hwndOwner = *this;
-    ofn.lpstrFile = szFile;
-    ofn.nMaxFile = sizeof(szFile)/sizeof(TCHAR);
-    TCHAR filter[1024] = { 0 };
-    LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter)/sizeof(TCHAR));
+    ofn.lStructSize    = sizeof(OPENFILENAME);
+    ofn.hwndOwner      = *this;
+    ofn.lpstrFile      = szFile;
+    ofn.nMaxFile       = sizeof(szFile) / sizeof(TCHAR);
+    TCHAR filter[1024] = {0};
+    LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter) / sizeof(TCHAR));
     CStringUtils::PipesToNulls(filter);
-    ofn.lpstrFilter = filter;
-    ofn.nFilterIndex = 1;
-    ofn.lpstrFileTitle = nullptr;
-    ofn.lpstrDefExt = L"diff";
-    ofn.nMaxFileTitle = 0;
-    ofn.lpstrInitialDir = nullptr;
-    TCHAR fileTitle[1024] = { 0 };
-    LoadString(hResource, doLoad ? IDS_OPENPATCH : IDS_SAVEPATCH, fileTitle, sizeof(fileTitle)/sizeof(TCHAR));
+    ofn.lpstrFilter       = filter;
+    ofn.nFilterIndex      = 1;
+    ofn.lpstrFileTitle    = nullptr;
+    ofn.lpstrDefExt       = L"diff";
+    ofn.nMaxFileTitle     = 0;
+    ofn.lpstrInitialDir   = nullptr;
+    TCHAR fileTitle[1024] = {0};
+    LoadString(hResource, doLoad ? IDS_OPENPATCH : IDS_SAVEPATCH, fileTitle, sizeof(fileTitle) / sizeof(TCHAR));
     ofn.lpstrTitle = fileTitle;
-    ofn.Flags = OFN_ENABLESIZING | OFN_EXPLORER;
-    if(doLoad)
+    ofn.Flags      = OFN_ENABLESIZING | OFN_EXPLORER;
+    if (doLoad)
         ofn.Flags |= OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST;
     else
         ofn.Flags |= OFN_OVERWRITEPROMPT;
     // Display the Open dialog box.
-    if( doLoad )
+    if (doLoad)
     {
-        if (GetOpenFileName(&ofn)==TRUE)
+        if (GetOpenFileName(&ofn) == TRUE)
         {
             LoadFile(ofn.lpstrFile);
         }
@@ -1062,7 +1065,7 @@ void CMainWindow::loadOrSaveFile(bool doLoad, const std::wstring& filename /* = 
     {
         if (filename.empty())
         {
-            if (GetSaveFileName(&ofn)==TRUE)
+            if (GetSaveFileName(&ofn) == TRUE)
             {
                 SaveFile(ofn.lpstrFile);
             }

@@ -18,8 +18,10 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
+// ReSharper disable once CppUnusedIncludeDirective
 #include "UnicodeUtils.h"
 #include "StringUtils.h"
+// ReSharper disable once CppUnusedIncludeDirective
 #include "ClipboardHelper.h"
 #include "SmartHandle.h"
 #include <memory>

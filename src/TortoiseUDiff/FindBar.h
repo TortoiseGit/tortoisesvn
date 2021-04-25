@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2013, 2020 - TortoiseSVN
+// Copyright (C) 2007, 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "BaseDialog.h"
 
-
 /**
  * \ingroup TortoiseUDiff
  * FindBar.
@@ -29,17 +28,19 @@ class CFindBar : public CDialog
 {
 public:
     CFindBar();
-    ~CFindBar(void);
+    ~CFindBar() override;
 
-    void                    SetParent(HWND hParent) {m_hParent = hParent;}
+    void SetParent(HWND hParent) { m_hParent = hParent; }
+
 protected:
-    LRESULT CALLBACK        DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
-    LRESULT                 DoCommand(int id, int msg);
+    LRESULT CALLBACK DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
+    LRESULT          DoCommand(int id, int msg) const;
 
-    void                    DoFind(bool bFindPrev);
-    void                    SetTheme(bool bDark);
+    void DoFind(bool bFindPrev) const;
+    void SetTheme(bool bDark) const;
+
 private:
-    HWND                    m_hParent;
-    HICON                   m_hIcon;
-    int                     m_themeCallbackId;
+    HWND  m_hParent;
+    HICON m_hIcon;
+    int   m_themeCallbackId;
 };

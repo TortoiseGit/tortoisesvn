@@ -19,6 +19,7 @@
 #include "stdafx.h"
 #include "PathUtils.h"
 #include "UnicodeUtils.h"
+// ReSharper disable once CppUnusedIncludeDirective
 #include "SmartHandle.h"
 #include <emmintrin.h>
 #include <memory>
@@ -161,7 +162,7 @@ char* CPathUtils::Unescape(char* psz)
     return pszDest;
 }
 
-static const char iri_escape_chars[256] = {
+[[maybe_unused]] static const char iri_escape_chars[256] = {
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,

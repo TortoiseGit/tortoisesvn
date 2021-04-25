@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2012-2014, 2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2007, 2012-2014, 2018, 2020-2021 - TortoiseSVN
 // Copyright (C) 2012-2013, 2015-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -33,7 +33,7 @@ CFindBar::CFindBar()
 {
 }
 
-CFindBar::~CFindBar(void)
+CFindBar::~CFindBar()
 {
     DestroyIcon(m_hIcon);
     CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
@@ -43,44 +43,43 @@ LRESULT CFindBar::DlgFunc(HWND /*hwndDlg*/, UINT uMsg, WPARAM wParam, LPARAM /*l
 {
     switch (uMsg)
     {
-    case WM_INITDIALOG:
+        case WM_INITDIALOG:
         {
             m_hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_CANCELNORMAL));
-            SendMessage(GetDlgItem(*this, IDC_FINDEXIT), BM_SETIMAGE, IMAGE_ICON, (LPARAM)m_hIcon);
+            SendMessage(GetDlgItem(*this, IDC_FINDEXIT), BM_SETIMAGE, IMAGE_ICON, reinterpret_cast<LPARAM>(m_hIcon));
             m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
-                [this]()
-                {
+                [this]() {
                     SetTheme(CTheme::Instance().IsDarkTheme());
                 });
             SetTheme(CTheme::Instance().IsDarkTheme());
         }
-        return TRUE;
-    case WM_COMMAND:
-        return DoCommand(LOWORD(wParam), HIWORD(wParam));
-    default:
-        return FALSE;
+            return TRUE;
+        case WM_COMMAND:
+            return DoCommand(LOWORD(wParam), HIWORD(wParam));
+        default:
+            return FALSE;
     }
 }
 
-LRESULT CFindBar::DoCommand(int id, int msg)
+LRESULT CFindBar::DoCommand(int id, int msg) const
 {
     bool bFindPrev = false;
     switch (id)
     {
-    case IDC_FINDPREV:
-        bFindPrev = true;
-        // fallthrough
-    case IDC_FINDNEXT:
+        case IDC_FINDPREV:
+            bFindPrev = true;
+            // fallthrough
+        case IDC_FINDNEXT:
         {
             DoFind(bFindPrev);
         }
         break;
-    case IDC_FINDEXIT:
+        case IDC_FINDEXIT:
         {
             ::SendMessage(m_hParent, COMMITMONITOR_FINDEXIT, 0, 0);
         }
         break;
-    case IDC_FINDTEXT:
+        case IDC_FINDTEXT:
         {
             if (msg == EN_CHANGE)
             {
@@ -93,19 +92,19 @@ LRESULT CFindBar::DoCommand(int id, int msg)
     return 1;
 }
 
-void CFindBar::DoFind(bool bFindPrev)
+void CFindBar::DoFind(bool bFindPrev) const
 {
-    int len = ::GetWindowTextLength(GetDlgItem(*this, IDC_FINDTEXT));
-    auto findtext = std::make_unique<TCHAR[]>(len + 1);
+    int  len      = ::GetWindowTextLength(GetDlgItem(*this, IDC_FINDTEXT));
+    auto findtext = std::make_unique<TCHAR[]>(len + 1LL);
     if (!::GetWindowText(GetDlgItem(*this, IDC_FINDTEXT), findtext.get(), len + 1))
         return;
-    std::wstring ft = std::wstring(findtext.get());
-    const bool bCaseSensitive = !!SendMessage(GetDlgItem(*this, IDC_MATCHCASECHECK), BM_GETCHECK, 0, 0);
-    const UINT message = bFindPrev ? COMMITMONITOR_FINDMSGPREV : COMMITMONITOR_FINDMSGNEXT;
-    ::SendMessage(m_hParent, message, (WPARAM)bCaseSensitive, (LPARAM)ft.c_str());
+    std::wstring ft             = std::wstring(findtext.get());
+    const bool   bCaseSensitive = !!SendMessage(GetDlgItem(*this, IDC_MATCHCASECHECK), BM_GETCHECK, 0, 0);
+    const UINT   message        = bFindPrev ? COMMITMONITOR_FINDMSGPREV : COMMITMONITOR_FINDMSGNEXT;
+    ::SendMessage(m_hParent, message, static_cast<WPARAM>(bCaseSensitive), reinterpret_cast<LPARAM>(ft.c_str()));
 }
 
-void CFindBar::SetTheme(bool bDark)
+void CFindBar::SetTheme(bool bDark) const
 {
     CTheme::Instance().SetThemeForDialog(*this, bDark);
 }
