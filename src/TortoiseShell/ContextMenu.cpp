@@ -1263,12 +1263,12 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
 
 void CShellExt::TweakMenu(HMENU hMenu)
 {
-    MENUINFO menuInfo = {};
-    menuInfo.cbSize   = sizeof(menuInfo);
-    menuInfo.fMask    = MIM_STYLE | MIM_APPLYTOSUBMENUS;
-    menuInfo.dwStyle  = MNS_CHECKORBMP;
+    MENUINFO mInfo = {};
+    mInfo.cbSize   = sizeof(mInfo);
+    mInfo.fMask    = MIM_STYLE | MIM_APPLYTOSUBMENUS;
+    mInfo.dwStyle  = MNS_CHECKORBMP;
 
-    SetMenuInfo(hMenu, &menuInfo);
+    SetMenuInfo(hMenu, &mInfo);
 }
 
 void CShellExt::AddPathCommand(std::wstring& svnCmd, LPCWSTR command, bool bFilesAllowed)

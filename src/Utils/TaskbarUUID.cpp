@@ -27,41 +27,40 @@
 #include <atlbase.h>
 
 #pragma warning(push)
-#pragma warning(disable: 4458)
+#pragma warning(disable : 4458)
 #include <GdiPlus.h>
 #pragma warning(pop)
 #pragma comment(lib, "gdiplus.lib")
 
 #define APPID (L"TSVN.TSVN.1")
 
-
-void SetTaskIDPerUUID()
+void setTaskIDPerUuid()
 {
-    typedef HRESULT STDAPICALLTYPE SetCurrentProcessExplicitAppUserModelIDFN(PCWSTR AppID);
-    CAutoLibrary hShell = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
+    typedef HRESULT STDAPICALLTYPE SetCurrentProcessExplicitAppUserModelIdfn(PCWSTR appID);
+    CAutoLibrary                   hShell = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
     if (hShell)
     {
-        SetCurrentProcessExplicitAppUserModelIDFN *pfnSetCurrentProcessExplicitAppUserModelID = (SetCurrentProcessExplicitAppUserModelIDFN*)GetProcAddress(hShell, "SetCurrentProcessExplicitAppUserModelID");
+        SetCurrentProcessExplicitAppUserModelIdfn *pfnSetCurrentProcessExplicitAppUserModelID = reinterpret_cast<SetCurrentProcessExplicitAppUserModelIdfn *>(GetProcAddress(hShell, "SetCurrentProcessExplicitAppUserModelID"));
         if (pfnSetCurrentProcessExplicitAppUserModelID)
         {
-            std::wstring id = GetTaskIDPerUUID();
+            std::wstring id = getTaskIDPerUuid();
             pfnSetCurrentProcessExplicitAppUserModelID(id.c_str());
         }
     }
 }
 
-std::wstring GetTaskIDPerUUID(LPCTSTR uuid /*= NULL */)
+std::wstring getTaskIDPerUuid(LPCTSTR uuid /*= NULL */)
 {
-    CRegStdDWORD r = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3);
+    CRegStdDWORD r  = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3);
     std::wstring id = APPID;
-    if ((r < 2)||(r == 3))
+    if ((r < 2) || (r == 3))
     {
         wchar_t buf[MAX_PATH] = {0};
-        GetModuleFileName(NULL, buf, MAX_PATH);
+        GetModuleFileName(nullptr, buf, MAX_PATH);
         std::wstring n = buf;
-        n = n.substr(n.find_last_of('\\') + 1);
-        n = n.substr(0, n.find_last_of('.'));
-        n = L"." + n;
+        n              = n.substr(n.find_last_of('\\') + 1);
+        n              = n.substr(0, n.find_last_of('.'));
+        n              = L"." + n;
         id += n;
     }
 
@@ -87,7 +86,7 @@ std::wstring GetTaskIDPerUUID(LPCTSTR uuid /*= NULL */)
 extern CString g_sGroupingUUID;
 #endif
 
-void SetUUIDOverlayIcon( HWND hWnd )
+void setUuidOverlayIcon(HWND hWnd)
 {
     if (!CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3))
         return;
@@ -110,75 +109,75 @@ void SetUUIDOverlayIcon( HWND hWnd )
     if (FAILED(pTaskbarInterface.CoCreateInstance(CLSID_TaskbarList, NULL, CLSCTX_INPROC_SERVER)))
         return;
 
-    int foundUUIDIndex = 0;
+    int foundUuidIndex = 0;
     do
     {
-        wchar_t buf[MAX_PATH] = { 0 };
-        swprintf_s(buf, _countof(buf), L"%s%d", L"Software\\TortoiseSVN\\LastUsedUUIDsForGrouping\\", foundUUIDIndex);
-        CRegStdString r = CRegStdString(buf);
-        std::wstring sr = r;
-        if (sr.empty() || (sr.compare(uuid)==0))
+        wchar_t buf[MAX_PATH] = {0};
+        swprintf_s(buf, _countof(buf), L"%s%d", L"Software\\TortoiseSVN\\LastUsedUUIDsForGrouping\\", foundUuidIndex);
+        CRegStdString r  = CRegStdString(buf);
+        std::wstring  sr = r;
+        if (sr.empty() || (sr.compare(uuid) == 0))
         {
             r = uuid;
             break;
         }
-        foundUUIDIndex++;
-    } while (foundUUIDIndex < 20);
-    if (foundUUIDIndex >= 20)
+        foundUuidIndex++;
+    } while (foundUuidIndex < 20);
+    if (foundUuidIndex >= 20)
     {
         CRegStdString r = CRegStdString(L"Software\\TortoiseSVN\\LastUsedUUIDsForGrouping\\1");
         r.removeKey();
     }
-    auto iconWidth = GetSystemMetrics(SM_CXSMICON);
+    auto iconWidth  = GetSystemMetrics(SM_CXSMICON);
     auto iconHeight = GetSystemMetrics(SM_CYSMICON);
 
-    DWORD colors[6] = { 0x80FF0000, 0xB0FFFF00, 0x8000FF00, 0x800000FF, 0x80000000, 0xB000FFFF };
+    DWORD colors[6] = {0x80FF0000, 0xB0FFFF00, 0x8000FF00, 0x800000FF, 0x80000000, 0xB000FFFF};
 
-    ICONINFO IconInfo;
-    auto hScreenDC = GetDC(NULL);
-    auto hdc = CreateCompatibleDC(hScreenDC);
+    ICONINFO iconInfo;
+    auto     hScreenDC = GetDC(nullptr);
+    auto     hdc       = CreateCompatibleDC(hScreenDC);
 
-    IconInfo.hbmColor = CreateCompatibleBitmap(hScreenDC, iconWidth, iconHeight);
-    IconInfo.hbmMask = CreateCompatibleBitmap(hdc, iconWidth, iconHeight);
-    IconInfo.fIcon = TRUE;
-    ReleaseDC(NULL, hScreenDC);
+    iconInfo.hbmColor = CreateCompatibleBitmap(hScreenDC, iconWidth, iconHeight);
+    iconInfo.hbmMask  = CreateCompatibleBitmap(hdc, iconWidth, iconHeight);
+    iconInfo.fIcon    = TRUE;
+    ReleaseDC(nullptr, hScreenDC);
 
     Gdiplus::SolidBrush black(Gdiplus::Color(0));
     // draw the icon mask, to get correct transparency
-    auto hOldBM = SelectObject(hdc, IconInfo.hbmMask);
+    auto hOldBm = SelectObject(hdc, iconInfo.hbmMask);
     PatBlt(hdc, 0, 0, iconWidth, iconHeight, WHITENESS);
     {
         Gdiplus::Graphics gmask(hdc);
-        switch ((foundUUIDIndex / 6) % 4)
+        switch ((foundUuidIndex / 6) % 4)
         {
             case 0:
-            gmask.FillEllipse(&black, 0, 0, iconWidth, iconHeight);
-            break;
+                gmask.FillEllipse(&black, 0, 0, iconWidth, iconHeight);
+                break;
             case 1:
             {
                 Gdiplus::Point pts[4];
-                pts[0] = { iconWidth / 2,0 };
-                pts[1] = { 0,iconHeight / 2 };
-                pts[2] = { iconWidth / 2,iconHeight };
-                pts[3] = { iconWidth,iconHeight / 2 };
+                pts[0] = {iconWidth / 2, 0};
+                pts[1] = {0, iconHeight / 2};
+                pts[2] = {iconWidth / 2, iconHeight};
+                pts[3] = {iconWidth, iconHeight / 2};
                 gmask.FillPolygon(&black, pts, 4);
             }
             break;
             case 2:
             {
                 Gdiplus::Point pts[3];
-                pts[0] = { iconWidth / 2,0 };
-                pts[1] = { 0,iconHeight };
-                pts[2] = { iconWidth,iconHeight };
+                pts[0] = {iconWidth / 2, 0};
+                pts[1] = {0, iconHeight};
+                pts[2] = {iconWidth, iconHeight};
                 gmask.FillPolygon(&black, pts, 3);
             }
             break;
             case 3:
             {
                 Gdiplus::Point pts[3];
-                pts[0] = { 0,0 };
-                pts[1] = { iconWidth, 0 };
-                pts[2] = { iconWidth / 2,iconHeight };
+                pts[0] = {0, 0};
+                pts[1] = {iconWidth, 0};
+                pts[2] = {iconWidth / 2, iconHeight};
                 gmask.FillPolygon(&black, pts, 3);
             }
             break;
@@ -186,54 +185,54 @@ void SetUUIDOverlayIcon( HWND hWnd )
     }
 
     // draw the icon itself
-    SelectObject(hdc, IconInfo.hbmColor);
+    SelectObject(hdc, iconInfo.hbmColor);
     {
         Gdiplus::Graphics g(hdc);
         g.FillRectangle(&black, 0, 0, iconWidth, iconHeight);
-        Gdiplus::SolidBrush brush(Gdiplus::Color((Gdiplus::ARGB)colors[foundUUIDIndex % 6]));
-        switch ((foundUUIDIndex / 6) % 4)
+        Gdiplus::SolidBrush brush(Gdiplus::Color(static_cast<Gdiplus::ARGB>(colors[foundUuidIndex % 6])));
+        switch ((foundUuidIndex / 6) % 4)
         {
             case 0:
-            g.FillEllipse(&brush, 0, 0, iconWidth, iconHeight);
-            break;
+                g.FillEllipse(&brush, 0, 0, iconWidth, iconHeight);
+                break;
             case 1:
             {
                 Gdiplus::Point pts[4];
-                pts[0] = { iconWidth / 2,0 };
-                pts[1] = { 0,iconHeight / 2 };
-                pts[2] = { iconWidth / 2,iconHeight };
-                pts[3] = { iconWidth,iconHeight / 2 };
+                pts[0] = {iconWidth / 2, 0};
+                pts[1] = {0, iconHeight / 2};
+                pts[2] = {iconWidth / 2, iconHeight};
+                pts[3] = {iconWidth, iconHeight / 2};
                 g.FillPolygon(&brush, pts, 4);
             }
             break;
             case 2:
             {
                 Gdiplus::Point pts[3];
-                pts[0] = { iconWidth / 2,0 };
-                pts[1] = { 0,iconHeight };
-                pts[2] = { iconWidth,iconHeight };
+                pts[0] = {iconWidth / 2, 0};
+                pts[1] = {0, iconHeight};
+                pts[2] = {iconWidth, iconHeight};
                 g.FillPolygon(&brush, pts, 3);
             }
             break;
             case 3:
             {
                 Gdiplus::Point pts[3];
-                pts[0] = { 0,0 };
-                pts[1] = { iconWidth, 0 };
-                pts[2] = { iconWidth/2,iconHeight };
+                pts[0] = {0, 0};
+                pts[1] = {iconWidth, 0};
+                pts[2] = {iconWidth / 2, iconHeight};
                 g.FillPolygon(&brush, pts, 3);
             }
             break;
         }
     }
 
-    SelectObject(hdc, hOldBM);
+    SelectObject(hdc, hOldBm);
     DeleteDC(hdc);
 
-    CAutoIcon hIcon = CreateIconIndirect(&IconInfo);
+    CAutoIcon hIcon = CreateIconIndirect(&iconInfo);
 
-    DeleteObject(IconInfo.hbmColor);
-    DeleteObject(IconInfo.hbmMask);
+    DeleteObject(iconInfo.hbmColor);
+    DeleteObject(iconInfo.hbmMask);
 
     pTaskbarInterface->SetOverlayIcon(hWnd, hIcon, uuid.c_str());
 }

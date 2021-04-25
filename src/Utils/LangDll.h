@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2007, 2014 - TortoiseSVN
 
@@ -28,9 +28,10 @@ public:
     CLangDll();
     ~CLangDll();
 
-    HINSTANCE   Init(LPCTSTR appname, unsigned long langID);
-    void        Close();
+    HINSTANCE Init(LPCTSTR appName, unsigned long langID);
+    void      Close();
+
 private:
-    bool        DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll) const;
-    HINSTANCE   m_hInstance;
+    bool      DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll) const;
+    HINSTANCE m_hInstance;
 };

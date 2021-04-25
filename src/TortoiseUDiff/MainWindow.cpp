@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
 // Copyright (C) 2012-2016, 2018-2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -96,7 +96,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 {
     if (uMsg == TaskBarButtonCreated)
     {
-        SetUUIDOverlayIcon(hwnd);
+        setUuidOverlayIcon(hwnd);
     }
     switch (uMsg)
     {

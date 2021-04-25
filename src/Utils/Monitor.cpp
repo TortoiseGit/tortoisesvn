@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2020 - TortoiseSVN
+// Copyright (C) 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,12 +39,12 @@ static BOOL CALLBACK MonitorEnum(HMONITOR hMon, HDC /*hdc*/, LPRECT lprcMonitor,
 std::wstring GetMonitorSetupHash()
 {
     std::vector<RECT> monRects;
-    EnumDisplayMonitors(0, 0, MonitorEnum, (LPARAM)&monRects);
+    EnumDisplayMonitors(nullptr, nullptr, MonitorEnum, reinterpret_cast<LPARAM>(&monRects));
     std::sort(monRects.begin(), monRects.end(),
-        [](const RECT& a, const RECT& b) -> bool {
-            if (a.left == b.left)
-                return a.top < b.top;
-            return a.left < b.left;
-        });
+              [](const RECT& a, const RECT& b) -> bool {
+                  if (a.left == b.left)
+                      return a.top < b.top;
+                  return a.left < b.left;
+              });
     return GetHashText(monRects.data(), monRects.size() * sizeof(RECT), HashType::HashMd5);
 }

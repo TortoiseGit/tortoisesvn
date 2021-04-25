@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2014, 2016-2018, 2020 - TortoiseSVN
+// Copyright (C) 2006-2014, 2016-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -80,7 +80,7 @@ CString g_sGroupingUUID;
 BOOL CTortoiseMergeApp::InitInstance()
 {
     SetDllDirectory(L"");
-    SetTaskIDPerUUID();
+    setTaskIDPerUuid();
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
 
     {

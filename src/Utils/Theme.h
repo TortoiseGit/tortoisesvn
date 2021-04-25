@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2020 - TortoiseSVN
+// Copyright (C) 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,11 +18,10 @@
 //
 #pragma once
 #include "registry.h"
-#include <string>
 #include <unordered_map>
 #include <functional>
 #pragma warning(push)
-#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#pragma warning(disable : 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
 #pragma warning(pop)
 
@@ -42,9 +41,11 @@ private:
 public:
     static CTheme& Instance();
 
+    // ReSharper disable CppInconsistentNaming
     static const COLORREF darkBkColor           = 0x202020;
     static const COLORREF darkTextColor         = 0xDDDDDD;
     static const COLORREF darkDisabledTextColor = 0x808080;
+    // ReSharper restore CppInconsistentNaming
 
     /// call this on every WM_SYSCOLORCHANGED message
     void OnSysColorChanged();
@@ -61,7 +62,7 @@ public:
     bool IsHighContrastModeDark() const;
     /// converts a color to the theme color. For normal theme the \b clr is returned unchanged.
     /// for dark theme, the color is adjusted in brightness.
-    COLORREF GetThemeColor(COLORREF clr, bool fixed = false) const;
+    COLORREF       GetThemeColor(COLORREF clr, bool fixed = false) const;
     Gdiplus::Color GetThemeColor(Gdiplus::Color clr, bool fixed = false) const;
     /// registers a callback function that's called for every theme change.
     /// returns an id that can be used to unregister the callback function.
@@ -73,7 +74,7 @@ public:
     /// windows are subclassed if necessary. For normal mode,
     /// subclassing is removed to ensure the behavior is
     /// identical to the original.
-    bool SetThemeForDialog(HWND hWnd, bool bDark);
+    static bool SetThemeForDialog(HWND hWnd, bool bDark);
 
     static void     RGBToHSB(COLORREF rgb, BYTE& hue, BYTE& saturation, BYTE& brightness);
     static void     RGBtoHSL(COLORREF color, float& h, float& s, float& l);
@@ -97,5 +98,5 @@ private:
     std::unordered_map<int, ThemeChangeCallback> m_themeChangeCallbacks;
     int                                          m_lastThemeChangeCallbackId;
     CRegStdDWORD                                 m_regDarkTheme;
-    static HBRUSH                                s_backBrush;
+    static HBRUSH                                m_sBackBrush;
 };

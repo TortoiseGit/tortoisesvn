@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2020 - TortoiseSVN
+// Copyright (C) 2004-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -248,7 +248,7 @@ CMainFrame::~CMainFrame()
 
 LRESULT CMainFrame::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
-    SetUUIDOverlayIcon(m_hWnd);
+    setUuidOverlayIcon(m_hWnd);
     return 0;
 }
 

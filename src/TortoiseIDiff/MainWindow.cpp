@@ -1,6 +1,6 @@
 ﻿// TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2015, 2018, 2020 - TortoiseSVN
+// Copyright (C) 2006-2015, 2018, 2020-2021 - TortoiseSVN
 // Copyright (C) 2015-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -164,7 +164,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 {
     if (uMsg == TaskBarButtonCreated)
     {
-        SetUUIDOverlayIcon(hwnd);
+        setUuidOverlayIcon(hwnd);
     }
     switch (uMsg)
     {

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011 - TortoiseSVN
+// Copyright (C) 2011, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 #include <string>
-
 
 /**
  * Sets the Task ID (Win7) for the process according to settings
@@ -44,12 +43,12 @@
  * The repository uuid is used by examining the command line of the process:
  * it must be set with /groupuuid:"uuid".
  */
-void SetTaskIDPerUUID();
+void setTaskIDPerUuid();
 
 /**
  * Returns the App ID string. See \ref SetTaskIDPerUUID() for details.
  */
-std::wstring GetTaskIDPerUUID(LPCTSTR uuid = NULL);
+std::wstring getTaskIDPerUuid(LPCTSTR uuid = nullptr);
 
 /**
  * Sets a different overlay icon for the taskbar icon on Win7 for each
@@ -64,5 +63,4 @@ std::wstring GetTaskIDPerUUID(LPCTSTR uuid = NULL);
  * The repository uuid is used by examining the command line of the process:
  * it must be set with /groupuuid:"uuid".
  */
-void SetUUIDOverlayIcon(HWND hWnd);
-
+void setUuidOverlayIcon(HWND hWnd);

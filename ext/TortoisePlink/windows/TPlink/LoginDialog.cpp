@@ -24,7 +24,7 @@
 
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
-HINSTANCE g_hmodThisDll;
+HINSTANCE g_hModThisDll;
 HWND g_hwndMain;
 
 class LoginDialog
@@ -52,7 +52,7 @@ private:
 
 BOOL DoLoginDialog(char* password, int maxlen, const char* prompt)
 {
-    g_hmodThisDll = GetModuleHandle(0);
+    g_hModThisDll = GetModuleHandle(0);
     g_hwndMain = GetParentHwnd();
     return LoginDialog::DoLoginDialog(password, maxlen, prompt);
 }
@@ -111,7 +111,7 @@ LoginDialog::~LoginDialog()
 
 void LoginDialog::CreateModule(void)
 {
-    DialogBoxParam(g_hmodThisDll, MAKEINTRESOURCE(IDD_LOGIN), g_hwndMain,
+    DialogBoxParam(g_hModThisDll, MAKEINTRESOURCE(IDD_LOGIN), g_hwndMain,
                    (DLGPROC)(LoginDialogProc), (LPARAM)this);
 }
 

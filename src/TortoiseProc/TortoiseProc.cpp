@@ -425,7 +425,7 @@ BOOL CTortoiseProcApp::InitInstance()
             }
         }
     }
-    CString sAppID = GetTaskIDPerUUID(g_sGroupingUUID).c_str();
+    CString sAppID = getTaskIDPerUuid(g_sGroupingUUID).c_str();
     CString sCmd   = parser.GetVal(L"command");
     if (sCmd.IsEmpty() || (sCmd.CompareNoCase(L"monitor") == 0))
         sAppID = L"TSVN.MONITOR.1";

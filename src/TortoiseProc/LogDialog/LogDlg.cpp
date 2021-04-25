@@ -10241,7 +10241,7 @@ void CLogDlg::OnDrop(const CTSVNPathList& pathList, const CString& parent)
 
 LRESULT CLogDlg::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
-    SetUUIDOverlayIcon(m_hWnd);
+    setUuidOverlayIcon(m_hWnd);
     if (m_bMonitoringMode)
     {
         RefreshMonitorProjTree();

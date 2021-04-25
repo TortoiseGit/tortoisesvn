@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2020 - TortoiseSVN
+// Copyright (C) 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,11 +26,13 @@ class DarkModeHelper
 public:
     static DarkModeHelper& Instance();
 
+    // ReSharper disable CppInconsistentNaming
     enum class IMMERSIVE_HC_CACHE_MODE
     {
         IHCM_USE_CACHED_VALUE,
         IHCM_REFRESH
     };
+
     enum class PreferredAppMode
     {
         Default,
@@ -39,6 +41,7 @@ public:
         ForceLight,
         Max
     };
+
     enum class WINDOWCOMPOSITIONATTRIB
     {
         WCA_UNDEFINED                     = 0,
@@ -77,48 +80,49 @@ public:
         PVOID                   pvData;
         SIZE_T                  cbData;
     };
+    // ReSharper restore CppInconsistentNaming
 
-    bool CanHaveDarkMode();
-    void AllowDarkModeForApp(BOOL allow);
-    void AllowDarkModeForWindow(HWND hwnd, BOOL allow);
-    BOOL ShouldAppsUseDarkMode();
-    BOOL IsDarkModeAllowedForWindow(HWND hwnd);
-    BOOL IsDarkModeAllowedForApp();
-    BOOL ShouldSystemUseDarkMode();
-    void RefreshImmersiveColorPolicyState();
-    BOOL GetIsImmersiveColorUsingHighContrast(IMMERSIVE_HC_CACHE_MODE mode);
-    void FlushMenuThemes();
-    BOOL SetWindowCompositionAttribute(HWND hWnd, WINDOWCOMPOSITIONATTRIBDATA* data);
-    void RefreshTitleBarThemeColor(HWND hWnd, BOOL dark);
+    bool CanHaveDarkMode() const;
+    void AllowDarkModeForApp(BOOL allow) const;
+    void AllowDarkModeForWindow(HWND hwnd, BOOL allow) const;
+    BOOL ShouldAppsUseDarkMode() const;
+    BOOL IsDarkModeAllowedForWindow(HWND hwnd) const;
+    BOOL IsDarkModeAllowedForApp() const;
+    BOOL ShouldSystemUseDarkMode() const;
+    void RefreshImmersiveColorPolicyState() const;
+    BOOL GetIsImmersiveColorUsingHighContrast(IMMERSIVE_HC_CACHE_MODE mode) const;
+    void FlushMenuThemes() const;
+    BOOL SetWindowCompositionAttribute(HWND hWnd, WINDOWCOMPOSITIONATTRIBDATA* data) const;
+    void RefreshTitleBarThemeColor(HWND hWnd, BOOL dark) const;
 
 private:
     DarkModeHelper();
     ~DarkModeHelper();
 
-    typedef void(WINAPI* AllowDarkModeForAppFPN)(BOOL allow);
-    typedef PreferredAppMode(WINAPI* SetPreferredAppModeFPN)(PreferredAppMode appMode);
-    typedef void(WINAPI* AllowDarkModeForWindowFPN)(HWND hwnd, BOOL allow);
-    typedef BOOL(WINAPI* ShouldAppsUseDarkModeFPN)();
-    typedef BOOL(WINAPI* IsDarkModeAllowedForWindowFPN)(HWND hwnd);
-    typedef BOOL(WINAPI* IsDarkModeAllowedForAppFPN)();
-    typedef BOOL(WINAPI* ShouldSystemUseDarkModeFPN)();
-    typedef void(WINAPI* RefreshImmersiveColorPolicyStateFN)();
-    typedef BOOL(WINAPI* GetIsImmersiveColorUsingHighContrastFN)(IMMERSIVE_HC_CACHE_MODE mode);
-    typedef void(WINAPI* FlushMenuThemesFN)();
-    typedef HTHEME(WINAPI* OpenNCThemeDataFPN)(HWND hWnd, LPCWSTR pszClassList);
-    typedef BOOL(WINAPI* SetWindowCompositionAttributeFPN)(HWND hwnd, WINDOWCOMPOSITIONATTRIBDATA* data);
+    using AllowDarkModeForAppFpn                 = void(WINAPI*)(BOOL allow);
+    using SetPreferredAppModeFpn                 = PreferredAppMode(WINAPI*)(PreferredAppMode appMode);
+    using AllowDarkModeForWindowFpn              = void(WINAPI*)(HWND hwnd, BOOL allow);
+    using ShouldAppsUseDarkModeFpn               = BOOL(WINAPI*)();
+    using IsDarkModeAllowedForWindowFpn          = BOOL(WINAPI*)(HWND hwnd);
+    using IsDarkModeAllowedForAppFpn             = BOOL(WINAPI*)();
+    using ShouldSystemUseDarkModeFpn             = BOOL(WINAPI*)();
+    using RefreshImmersiveColorPolicyStateFn     = void(WINAPI*)();
+    using GetIsImmersiveColorUsingHighContrastFn = BOOL(WINAPI*)(IMMERSIVE_HC_CACHE_MODE mode);
+    using FlushMenuThemesFn                      = void(WINAPI*)();
+    using OpenNcThemeDataFpn                     = HTHEME(WINAPI*)(HWND hWnd, LPCWSTR pszClassList);
+    using SetWindowCompositionAttributeFpn       = BOOL(WINAPI*)(HWND hwnd, WINDOWCOMPOSITIONATTRIBDATA* data);
 
-    AllowDarkModeForAppFPN                 m_pAllowDarkModeForApp                  = nullptr;
-    SetPreferredAppModeFPN                 m_pSetPreferredAppMode                  = nullptr;
-    AllowDarkModeForWindowFPN              m_pAllowDarkModeForWindow               = nullptr;
-    ShouldAppsUseDarkModeFPN               m_pShouldAppsUseDarkMode                = nullptr;
-    IsDarkModeAllowedForWindowFPN          m_pIsDarkModeAllowedForWindow           = nullptr;
-    IsDarkModeAllowedForAppFPN             m_pIsDarkModeAllowedForApp              = nullptr;
-    ShouldSystemUseDarkModeFPN             m_pShouldSystemUseDarkMode              = nullptr;
-    RefreshImmersiveColorPolicyStateFN     m_pRefreshImmersiveColorPolicyState     = nullptr;
-    GetIsImmersiveColorUsingHighContrastFN m_pGetIsImmersiveColorUsingHighContrast = nullptr;
-    FlushMenuThemesFN                      m_pFlushMenuThemes                      = nullptr;
-    SetWindowCompositionAttributeFPN       m_pSetWindowCompositionAttribute        = nullptr;
+    AllowDarkModeForAppFpn                 m_pAllowDarkModeForApp                  = nullptr;
+    SetPreferredAppModeFpn                 m_pSetPreferredAppMode                  = nullptr;
+    AllowDarkModeForWindowFpn              m_pAllowDarkModeForWindow               = nullptr;
+    ShouldAppsUseDarkModeFpn               m_pShouldAppsUseDarkMode                = nullptr;
+    IsDarkModeAllowedForWindowFpn          m_pIsDarkModeAllowedForWindow           = nullptr;
+    IsDarkModeAllowedForAppFpn             m_pIsDarkModeAllowedForApp              = nullptr;
+    ShouldSystemUseDarkModeFpn             m_pShouldSystemUseDarkMode              = nullptr;
+    RefreshImmersiveColorPolicyStateFn     m_pRefreshImmersiveColorPolicyState     = nullptr;
+    GetIsImmersiveColorUsingHighContrastFn m_pGetIsImmersiveColorUsingHighContrast = nullptr;
+    FlushMenuThemesFn                      m_pFlushMenuThemes                      = nullptr;
+    SetWindowCompositionAttributeFpn       m_pSetWindowCompositionAttribute        = nullptr;
     HMODULE                                m_hUxthemeLib                           = nullptr;
     bool                                   m_bCanHaveDarkMode                      = false;
 };

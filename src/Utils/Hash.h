@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2020 - TortoiseSVN
+// Copyright (C) 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,10 +18,7 @@
 //
 
 #pragma once
-#include <Wincrypt.h>
 #include <string>
-#include <vector>
-#include <sstream>
 
 enum class HashType
 {
@@ -30,4 +27,4 @@ enum class HashType
     HashSha256
 };
 
-std::wstring GetHashText(const void* data, const size_t data_size, HashType hashType);
+std::wstring GetHashText(const void* data, const size_t dataSize, HashType hashType);

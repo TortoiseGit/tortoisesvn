@@ -1,6 +1,6 @@
 ﻿// TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2007, 2010-2014, 2020 - TortoiseSVN
+// Copyright (C) 2006-2007, 2010-2014, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,7 +44,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     SetDllDirectory(L"");
     CCrashReportTSVN crasher(L"TortoiseIDiff " _T(APP_X64_STRING));
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
-    SetTaskIDPerUUID();
+    setTaskIDPerUuid();
     CRegStdDWORD loc = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
     long langId = loc;
     CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);

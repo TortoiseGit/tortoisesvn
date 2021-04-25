@@ -224,6 +224,6 @@ BOOL CMergeWizard::OnEraseBkgnd(CDC* pDC)
 
 LRESULT CMergeWizard::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
-    SetUUIDOverlayIcon(m_hWnd);
+    setUuidOverlayIcon(m_hWnd);
     return 0;
 }

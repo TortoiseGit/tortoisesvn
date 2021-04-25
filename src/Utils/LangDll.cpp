@@ -1,7 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2016 - TortoiseGit
-// Copyright (C) 2003-2006, 2008, 2013-2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2013-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,40 +28,39 @@
 
 CLangDll::CLangDll()
 {
-    m_hInstance = NULL;
+    m_hInstance = nullptr;
 }
 
 CLangDll::~CLangDll()
 {
-
 }
 
-HINSTANCE CLangDll::Init(LPCTSTR appname, unsigned long langID)
+HINSTANCE CLangDll::Init(LPCTSTR appName, unsigned long langID)
 {
-    TCHAR langpath[MAX_PATH] = { 0 };
-    TCHAR sVer[MAX_PATH] = { 0 };
-    wcscpy_s(sVer, _T(STRPRODUCTVER));
-    GetModuleFileName(NULL, langpath, _countof(langpath));
-    TCHAR * pSlash = wcsrchr(langpath, '\\');
+    TCHAR langPath[MAX_PATH] = {0};
+    TCHAR sVer[MAX_PATH]     = {0};
+    wcscpy_s(sVer, TEXT(STRPRODUCTVER));
+    GetModuleFileName(nullptr, langPath, _countof(langPath));
+    TCHAR* pSlash = wcsrchr(langPath, '\\');
     if (!pSlash)
         return m_hInstance;
 
     *pSlash = 0;
-    pSlash = wcsrchr(langpath, '\\');
+    pSlash  = wcsrchr(langPath, '\\');
     if (!pSlash)
         return m_hInstance;
 
     *pSlash = 0;
-    wcscat_s(langpath, L"\\Languages\\");
+    wcscat_s(langPath, L"\\Languages\\");
     assert(m_hInstance == NULL);
     do
     {
-        TCHAR langdllpath[MAX_PATH] = { 0 };
-        swprintf_s(langdllpath, L"%s%s%lu.dll", langpath, appname, langID);
+        TCHAR langDllPath[MAX_PATH] = {0};
+        swprintf_s(langDllPath, L"%s%s%lu.dll", langPath, appName, langID);
 
-        m_hInstance = LoadLibrary(langdllpath);
+        m_hInstance = LoadLibrary(langDllPath);
 
-        if (!DoVersionStringsMatch(sVer, langdllpath))
+        if (!DoVersionStringsMatch(sVer, langDllPath))
         {
             FreeLibrary(m_hInstance);
             m_hInstance = nullptr;
@@ -91,14 +90,14 @@ void CLangDll::Close()
 
 bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll) const
 {
-    struct TRANSARRAY
+    struct Transarray
     {
         WORD wLanguageID;
         WORD wCharacterSet;
     };
 
-    DWORD dwReserved = 0;
-    DWORD dwBufferSize = GetFileVersionInfoSize((LPTSTR)langDll,&dwReserved);
+    DWORD dwReserved   = 0;
+    DWORD dwBufferSize = GetFileVersionInfoSize(const_cast<LPTSTR>(langDll), &dwReserved);
     if (dwBufferSize == 0)
         return false;
 
@@ -106,24 +105,23 @@ bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll) const
     if (!pBuffer)
         return false;
 
-    UINT        nInfoSize = 0;
-    UINT        nFixedLength = 0;
-    LPSTR       lpVersion = nullptr;
-    VOID*       lpFixedPointer;
-    TRANSARRAY* lpTransArray;
-    TCHAR       strLangProductVersion[MAX_PATH] = { 0 };
+    UINT        nInfoSize                       = 0;
+    UINT        nFixedLength                    = 0;
+    LPSTR       lpVersion                       = nullptr;
+    VOID*       lpFixedPointer                  = nullptr;
+    Transarray* lpTransArray                    = nullptr;
+    TCHAR       strLangProductVersion[MAX_PATH] = {0};
 
-    if (!GetFileVersionInfo((LPTSTR)langDll, dwReserved, dwBufferSize, pBuffer.get()))
+    if (!GetFileVersionInfo(const_cast<LPTSTR>(langDll), dwReserved, dwBufferSize, pBuffer.get()))
         return false;
 
     VerQueryValue(pBuffer.get(), L"\\VarFileInfo\\Translation", &lpFixedPointer, &nFixedLength);
-    lpTransArray = (TRANSARRAY*)lpFixedPointer;
+    lpTransArray = static_cast<Transarray*>(lpFixedPointer);
 
     swprintf_s(strLangProductVersion, L"\\StringFileInfo\\%04x%04x\\ProductVersion", lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
-    VerQueryValue(pBuffer.get(), (LPTSTR)strLangProductVersion, (LPVOID*)&lpVersion, &nInfoSize);
+    VerQueryValue(pBuffer.get(), static_cast<LPTSTR>(strLangProductVersion), reinterpret_cast<LPVOID*>(&lpVersion), &nInfoSize);
     if (lpVersion && nInfoSize)
-        return (wcscmp(sVer, (LPCTSTR)lpVersion) == 0);
+        return (wcscmp(sVer, reinterpret_cast<LPCTSTR>(lpVersion)) == 0);
     return false;
 }
-

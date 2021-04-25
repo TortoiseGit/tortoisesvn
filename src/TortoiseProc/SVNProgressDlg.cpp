@@ -3995,7 +3995,7 @@ LRESULT CSVNProgressDlg::OnTaskbarBtnCreated(WPARAM /*wParam*/, LPARAM /*lParam*
     m_pTaskbarList.Release();
     if (FAILED(m_pTaskbarList.CoCreateInstance(CLSID_TaskbarList)))
         m_pTaskbarList = nullptr;
-    SetUUIDOverlayIcon(m_hWnd);
+    setUuidOverlayIcon(m_hWnd);
     return 0;
 }
 
