@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017, 2021 - TortoiseSVN
 // Copyright (C) 2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -37,18 +37,17 @@
 
 #define HIMETRIC_INCH 2540
 
-
 CPicture::CPicture()
-    : m_Height(0)
-    , m_Weight(0)
-    , m_Width(0)
+    : m_height(0)
+    , m_width(0)
+    , m_colorDepth(0)
+    , m_weight(0)
+    , gdiplusToken(NULL)
     , m_ip(InterpolationModeDefault)
-    , nCurrentIcon(0)
     , bIsIcon(false)
     , bIsTiff(false)
+    , nCurrentIcon(0)
     , m_nSize(0)
-    , m_ColorDepth(0)
-    , gdiplusToken(NULL)
 {
 }
 
@@ -59,16 +58,15 @@ CPicture::~CPicture()
         GdiplusShutdown(gdiplusToken);
 }
 
-
 void CPicture::FreePictureData()
 {
-    if (m_IPicture != NULL)
+    if (m_iPicture != nullptr)
     {
-        m_IPicture = nullptr;
-        m_Height = 0;
-        m_Weight = 0;
-        m_Width = 0;
-        m_nSize = 0;
+        m_iPicture = nullptr;
+        m_height   = 0;
+        m_weight   = 0;
+        m_width    = 0;
+        m_nSize    = 0;
     }
     m_hIcons        = nullptr;
     m_lpIcons       = nullptr;
@@ -77,9 +75,9 @@ void CPicture::FreePictureData()
 }
 
 // Util function to ease loading of FreeImage library
-static FARPROC s_GetProcAddressEx(HMODULE hDll, const char* procName, bool& valid)
+static FARPROC sGetProcAddressEx(HMODULE hDll, const char* procName, bool& valid)
 {
-    FARPROC proc = NULL;
+    FARPROC proc = nullptr;
 
     if (valid)
     {
@@ -92,42 +90,42 @@ static FARPROC s_GetProcAddressEx(HMODULE hDll, const char* procName, bool& vali
     return proc;
 }
 
-tstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */)
+std::wstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */) const
 {
-    TCHAR buf[100] = { 0 };
+    TCHAR buf[100] = {0};
     if (bAbbrev)
         StrFormatByteSize(m_nSize, buf, _countof(buf));
     else
         swprintf_s(buf, L"%lu Bytes", m_nSize);
 
-    return tstring(buf);
+    return std::wstring(buf);
 }
 
-bool CPicture::TryLoadIcon(const tstring& sFilePathName)
+bool CPicture::TryLoadIcon(const std::wstring& sFilePathName)
 {
     // Icon file, get special treatment...
     CAutoFile hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
     if (!hFile)
         return false;
 
-    BY_HANDLE_FILE_INFORMATION fileinfo;
-    if (!GetFileInformationByHandle(hFile, &fileinfo))
+    BY_HANDLE_FILE_INFORMATION fileInfo;
+    if (!GetFileInformationByHandle(hFile, &fileInfo))
         return false;
 
-    auto  lpIcons = std::make_unique<BYTE[]>(fileinfo.nFileSizeLow);
-    DWORD readbytes;
-    if (!ReadFile(hFile, lpIcons.get(), fileinfo.nFileSizeLow, &readbytes, nullptr))
+    auto  lpIcons = std::make_unique<BYTE[]>(fileInfo.nFileSizeLow);
+    DWORD readBytes;
+    if (!ReadFile(hFile, lpIcons.get(), fileInfo.nFileSizeLow, &readBytes, nullptr))
         return false;
 
     // we have the icon. Now gather the information we need later
-    if (readbytes < sizeof(ICONDIR))
+    if (readBytes < sizeof(ICONDIR))
         return false;
 
     // we are going to open same file second time so we have to close the file now
     hFile.CloseHandle();
 
     auto lpIconDir = reinterpret_cast<LPICONDIR>(lpIcons.get());
-    if (!((lpIconDir->idCount) && ((lpIconDir->idCount * sizeof(ICONDIR)) <= fileinfo.nFileSizeLow)))
+    if (!((lpIconDir->idCount) && ((lpIconDir->idCount * sizeof(ICONDIR)) <= fileInfo.nFileSizeLow)))
         return false;
 
     try
@@ -136,10 +134,10 @@ bool CPicture::TryLoadIcon(const tstring& sFilePathName)
         std::vector<CAutoIcon> hIcons;
         // check that the pointers point to data that we just loaded
         if ((reinterpret_cast<BYTE*>(lpIconDir->idEntries) > reinterpret_cast<BYTE*>(lpIconDir)) &&
-            (reinterpret_cast<BYTE*>(lpIconDir->idEntries) + (lpIconDir->idCount * sizeof(ICONDIRENTRY)) < reinterpret_cast<BYTE*>(lpIconDir) + fileinfo.nFileSizeLow))
+            (reinterpret_cast<BYTE*>(lpIconDir->idEntries) + (lpIconDir->idCount * sizeof(ICONDIRENTRY)) < reinterpret_cast<BYTE*>(lpIconDir) + fileInfo.nFileSizeLow))
         {
-            m_Width  = lpIconDir->idEntries[0].bWidth == 0 ? 256 : lpIconDir->idEntries[0].bWidth;
-            m_Height = lpIconDir->idEntries[0].bHeight == 0 ? 256 : lpIconDir->idEntries[0].bHeight;
+            m_width  = lpIconDir->idEntries[0].bWidth == 0 ? 256 : lpIconDir->idEntries[0].bWidth;
+            m_height = lpIconDir->idEntries[0].bHeight == 0 ? 256 : lpIconDir->idEntries[0].bHeight;
             for (int i = 0; i < lpIconDir->idCount; ++i)
             {
                 CAutoIcon hIcon = static_cast<HICON>(LoadImage(nullptr, sFilePathName.c_str(), IMAGE_ICON,
@@ -166,7 +164,7 @@ bool CPicture::TryLoadIcon(const tstring& sFilePathName)
     return true;
 }
 
-bool CPicture::TryLoadWIC(const tstring& sFilePathName)
+bool CPicture::TryLoadWIC(const std::wstring& sFilePathName)
 {
     CComPtr<IWICImagingFactory> pFactory;
     HRESULT                     hr = CoCreateInstance(CLSID_WICImagingFactory,
@@ -224,12 +222,12 @@ bool CPicture::TryLoadWIC(const tstring& sFilePathName)
 
     m_pBitmapBuffer = std::move(pBitmapBuffer);
     m_pBitmap       = std::make_unique<Bitmap>(uWidth, uHeight, cbStride, PixelFormat24bppRGB, m_pBitmapBuffer.get());
-    m_Height        = uHeight;
-    m_Width         = uWidth;
+    m_height        = uHeight;
+    m_width         = uWidth;
     return true;
 }
 
-bool CPicture::TryLoadFreeImage(const tstring& sFilePathName)
+bool CPicture::TryLoadFreeImage(const std::wstring& sFilePathName)
 {
     // Attempt to load the FreeImage library as an optional DLL to support additional formats
 
@@ -238,25 +236,25 @@ bool CPicture::TryLoadFreeImage(const tstring& sFilePathName)
     CAutoLibrary hFreeImageLib = LoadLibrary(L"FreeImage.dll");
 
     // FreeImage DLL functions
-    typedef const char*(__stdcall * FreeImage_GetVersion_t)(void);
-    typedef int(__stdcall * FreeImage_GetFileType_t)(const TCHAR* filename, int size);
-    typedef int(__stdcall * FreeImage_GetFIFFromFilename_t)(const TCHAR* filename);
-    typedef void*(__stdcall * FreeImage_Load_t)(int format, const TCHAR* filename, int flags);
-    typedef void(__stdcall * FreeImage_Unload_t)(void* dib);
-    typedef int(__stdcall * FreeImage_GetColorType_t)(void* dib);
-    typedef unsigned(__stdcall * FreeImage_GetWidth_t)(void* dib);
-    typedef unsigned(__stdcall * FreeImage_GetHeight_t)(void* dib);
-    typedef void(__stdcall * FreeImage_ConvertToRawBits_t)(BYTE * bits, void* dib, int pitch, unsigned bpp, unsigned red_mask, unsigned green_mask, unsigned blue_mask, BOOL topdown);
+    using FreeImageGetVersionT         = const char*(__stdcall*)();
+    using FreeImageGetFileTypeT        = int(__stdcall*)(const TCHAR* filename, int size);
+    using FreeImageGetFifFromFilenameT = int(__stdcall*)(const TCHAR* filename);
+    using FreeImageLoadT               = void*(__stdcall*)(int format, const TCHAR* filename, int flags);
+    using FreeImageUnloadT             = void(__stdcall*)(void* dib);
+    using FreeImageGetColorTypeT       = int(__stdcall*)(void* dib);
+    using FreeImageGetWidthT           = unsigned(__stdcall*)(void* dib);
+    using FreeImageGetHeightT          = unsigned(__stdcall*)(void* dib);
+    using FreeImageConvertToRawBitsT   = void(__stdcall*)(BYTE * bits, void* dib, int pitch, unsigned bpp, unsigned redMask, unsigned greenMask, unsigned blueMask, BOOL topDown);
 
     //FreeImage_GetVersion_t FreeImage_GetVersion = nullptr;
-    FreeImage_GetFileType_t        FreeImage_GetFileType        = nullptr;
-    FreeImage_GetFIFFromFilename_t FreeImage_GetFIFFromFilename = nullptr;
-    FreeImage_Load_t               FreeImage_Load               = nullptr;
-    FreeImage_Unload_t             FreeImage_Unload             = nullptr;
+    FreeImageGetFileTypeT        freeImageGetFileType        = nullptr;
+    FreeImageGetFifFromFilenameT freeImageGetFifFromFilename = nullptr;
+    FreeImageLoadT               freeImageLoad               = nullptr;
+    FreeImageUnloadT             freeImageUnload             = nullptr;
     //FreeImage_GetColorType_t FreeImage_GetColorType = nullptr;
-    FreeImage_GetWidth_t         FreeImage_GetWidth         = nullptr;
-    FreeImage_GetHeight_t        FreeImage_GetHeight        = nullptr;
-    FreeImage_ConvertToRawBits_t FreeImage_ConvertToRawBits = nullptr;
+    FreeImageGetWidthT         freeImageGetWidth         = nullptr;
+    FreeImageGetHeightT        freeImageGetHeight        = nullptr;
+    FreeImageConvertToRawBitsT freeImageConvertToRawBits = nullptr;
 
     if (!hFreeImageLib)
         return false;
@@ -264,20 +262,14 @@ bool CPicture::TryLoadFreeImage(const tstring& sFilePathName)
     bool exportsValid = true;
 
     //FreeImage_GetVersion = reinterpret_cast<FreeImage_GetVersion_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetVersion@0", valid));
-    FreeImage_GetWidth         = reinterpret_cast<FreeImage_GetWidth_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetWidth@4", exportsValid));
-    FreeImage_GetHeight        = reinterpret_cast<FreeImage_GetHeight_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetHeight@4", exportsValid));
-    FreeImage_Unload           = reinterpret_cast<FreeImage_Unload_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_Unload@4", exportsValid));
-    FreeImage_ConvertToRawBits = reinterpret_cast<FreeImage_ConvertToRawBits_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_ConvertToRawBits@32", exportsValid));
+    freeImageGetWidth         = reinterpret_cast<FreeImageGetWidthT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetWidth@4", exportsValid));
+    freeImageGetHeight        = reinterpret_cast<FreeImageGetHeightT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetHeight@4", exportsValid));
+    freeImageUnload           = reinterpret_cast<FreeImageUnloadT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_Unload@4", exportsValid));
+    freeImageConvertToRawBits = reinterpret_cast<FreeImageConvertToRawBitsT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_ConvertToRawBits@32", exportsValid));
 
-#ifdef UNICODE
-    FreeImage_GetFileType        = reinterpret_cast<FreeImage_GetFileType_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetFileTypeU@8", exportsValid));
-    FreeImage_GetFIFFromFilename = reinterpret_cast<FreeImage_GetFIFFromFilename_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetFIFFromFilenameU@4", exportsValid));
-    FreeImage_Load               = reinterpret_cast<FreeImage_Load_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_LoadU@12", exportsValid));
-#else
-    FreeImage_GetFileType        = reinterpret_cast<FreeImage_GetFileType_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetFileType@8", exportsValid));
-    FreeImage_GetFIFFromFilename = reinterpret_cast<FreeImage_GetFIFFromFilename_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_GetFIFFromFilename@4", exportsValid));
-    FreeImage_Load               = reinterpret_cast<FreeImage_Load_t>(s_GetProcAddressEx(hFreeImageLib, "_FreeImage_Load@12", exportsValid));
-#endif
+    freeImageGetFileType        = reinterpret_cast<FreeImageGetFileTypeT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetFileTypeU@8", exportsValid));
+    freeImageGetFifFromFilename = reinterpret_cast<FreeImageGetFifFromFilenameT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_GetFIFFromFilenameU@4", exportsValid));
+    freeImageLoad               = reinterpret_cast<FreeImageLoadT>(sGetProcAddressEx(hFreeImageLib, "_FreeImage_LoadU@12", exportsValid));
 
     //const char* version = FreeImage_GetVersion();
 
@@ -286,24 +278,24 @@ bool CPicture::TryLoadFreeImage(const tstring& sFilePathName)
         return false;
 
     // Derive file type from file header.
-    int fileType = FreeImage_GetFileType(sFilePathName.c_str(), 0);
+    int fileType = freeImageGetFileType(sFilePathName.c_str(), 0);
     if (fileType < 0)
     {
         // No file header available, attempt to parse file name for extension.
-        fileType = FreeImage_GetFIFFromFilename(sFilePathName.c_str());
+        fileType = freeImageGetFifFromFilename(sFilePathName.c_str());
     }
 
     // If we have a valid file type
     if (fileType < 0)
         return false;
 
-    void* dib = FreeImage_Load(fileType, sFilePathName.c_str(), 0);
+    void* dib = freeImageLoad(fileType, sFilePathName.c_str(), 0);
     if (!dib)
         return false;
-    OnOutOfScope(FreeImage_Unload(dib));
+    OnOutOfScope(freeImageUnload(dib));
 
-    unsigned width  = FreeImage_GetWidth(dib);
-    unsigned height = FreeImage_GetHeight(dib);
+    unsigned width  = freeImageGetWidth(dib);
+    unsigned height = freeImageGetHeight(dib);
 
     // Create a GDI+ bitmap to load into...
     auto pBitmap = std::make_unique<Bitmap>(width, height, PixelFormat32bppARGB);
@@ -317,21 +309,21 @@ bool CPicture::TryLoadFreeImage(const tstring& sFilePathName)
     if (pBitmap->LockBits(&rect, ImageLockModeWrite, PixelFormat32bppARGB, &bitmapData) != Ok)
         return false;
 
-    FreeImage_ConvertToRawBits(static_cast<BYTE*>(bitmapData.Scan0), dib, bitmapData.Stride, 32, 0xff << RED_SHIFT, 0xff << GREEN_SHIFT, 0xff << BLUE_SHIFT, FALSE);
+    freeImageConvertToRawBits(static_cast<BYTE*>(bitmapData.Scan0), dib, bitmapData.Stride, 32, 0xff << RED_SHIFT, 0xff << GREEN_SHIFT, 0xff << BLUE_SHIFT, FALSE);
 
     pBitmap->UnlockBits(&bitmapData);
 
-    m_Width   = width;
-    m_Height  = height;
+    m_width   = width;
+    m_height  = height;
     m_pBitmap = std::move(pBitmap);
 
     return true;
 }
 
-bool CPicture::Load(tstring sFilePathName)
+bool CPicture::Load(std::wstring sFilePathName)
 {
     bool bResult = false;
-    bIsIcon = false;
+    bIsIcon      = false;
     //CFile PictureFile;
     //CFileException e;
     FreePictureData(); // Important - Avoid Leaks...
@@ -341,7 +333,7 @@ bool CPicture::Load(tstring sFilePathName)
         return true;
 
     // Load & initialize the GDI+ library
-    GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
+    GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
 
     // Attempt to load using GDI+
     auto pBitmap = std::make_unique<Bitmap>(sFilePathName.c_str(), FALSE);
@@ -362,20 +354,20 @@ bool CPicture::Load(tstring sFilePathName)
     // For that reason, we don't rely on gdiplus telling us if
     // the image format is "icon" or not, we also check the
     // file extension for ".ico".
-    auto lowerfilename = sFilePathName;
-    std::transform(lowerfilename.begin(), lowerfilename.end(), lowerfilename.begin(), ::towlower);
-    bIsIcon = (guid == ImageFormatIcon) || (wcsstr(lowerfilename.c_str(), L".ico") != NULL) || (wcsstr(lowerfilename.c_str(), L".cur") != NULL);
-    bIsTiff = (guid == ImageFormatTIFF) || (wcsstr(lowerfilename.c_str(), L".tiff") != NULL);
-    m_Name = sFilePathName;
+    auto lowerFileName = sFilePathName;
+    std::transform(lowerFileName.begin(), lowerFileName.end(), lowerFileName.begin(), ::towlower);
+    bIsIcon = (guid == ImageFormatIcon) || (wcsstr(lowerFileName.c_str(), L".ico") != nullptr) || (wcsstr(lowerFileName.c_str(), L".cur") != nullptr);
+    bIsTiff = (guid == ImageFormatTIFF) || (wcsstr(lowerFileName.c_str(), L".tiff") != nullptr);
+    m_name  = sFilePathName;
 
     if (bIsIcon)
         bResult = TryLoadIcon(sFilePathName);
     else if (pBitmap) // Image loaded successfully with GDI+
     {
-        m_Height  = pBitmap->GetHeight();
-        m_Width   = pBitmap->GetWidth();
+        m_height  = pBitmap->GetHeight();
+        m_width   = pBitmap->GetWidth();
         m_pBitmap = std::move(pBitmap);
-        bResult = true;
+        bResult   = true;
     }
 
     // If still failed to load the file...
@@ -387,31 +379,31 @@ bool CPicture::Load(tstring sFilePathName)
 
     if (bResult)
     {
-        CAutoFile hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, NULL);
+        CAutoFile hFile = CreateFile(sFilePathName.c_str(), GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_HIDDEN, nullptr);
         if (hFile)
         {
-            BY_HANDLE_FILE_INFORMATION fileinfo;
-            if (GetFileInformationByHandle(hFile, &fileinfo))
+            BY_HANDLE_FILE_INFORMATION fileInfo;
+            if (GetFileInformationByHandle(hFile, &fileInfo))
             {
-                m_nSize = fileinfo.nFileSizeLow;
+                m_nSize = fileInfo.nFileSizeLow;
             }
         }
     }
 
-    m_ColorDepth = GetColorDepth();
+    m_colorDepth = GetColorDepth();
 
-    return(bResult);
+    return (bResult);
 }
 
-bool CPicture::LoadPictureData(BYTE *pBuffer, int nSize)
+bool CPicture::LoadPictureData(BYTE* pBuffer, int nSize)
 {
     bool bResult = false;
 
     HGLOBAL hGlobalMem = GlobalAlloc(GMEM_MOVEABLE, nSize);
 
-    if (hGlobalMem == NULL)
+    if (hGlobalMem == nullptr)
     {
-        return(false);
+        return (false);
     }
 
     void* pData = GlobalLock(hGlobalMem);
@@ -427,7 +419,7 @@ bool CPicture::LoadPictureData(BYTE *pBuffer, int nSize)
 
     if ((CreateStreamOnHGlobal(hGlobalMem, true, &pStream) == S_OK) && (pStream))
     {
-        HRESULT hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, reinterpret_cast<LPVOID*>(&m_IPicture));
+        HRESULT hr = OleLoadPicture(pStream, nSize, false, IID_IPicture, reinterpret_cast<LPVOID*>(&m_iPicture));
         pStream    = nullptr;
 
         bResult = hr == S_OK;
@@ -435,41 +427,41 @@ bool CPicture::LoadPictureData(BYTE *pBuffer, int nSize)
 
     FreeResource(hGlobalMem); // 16Bit Windows Needs This (32Bit - Automatic Release)
 
-    return(bResult);
+    return (bResult);
 }
 
-bool CPicture::Show(HDC hDC, RECT DrawRect)
+bool CPicture::Show(HDC hDC, RECT drawRect) const
 {
-    if (hDC == NULL)
+    if (hDC == nullptr)
         return false;
     if (bIsIcon && m_lpIcons)
     {
-        ::DrawIconEx(hDC, DrawRect.left, DrawRect.top, m_hIcons.get()->at(nCurrentIcon), DrawRect.right - DrawRect.left, DrawRect.bottom - DrawRect.top, 0, nullptr, DI_NORMAL);
+        ::DrawIconEx(hDC, drawRect.left, drawRect.top, m_hIcons.get()->at(nCurrentIcon), drawRect.right - drawRect.left, drawRect.bottom - drawRect.top, 0, nullptr, DI_NORMAL);
         return true;
     }
-    if (!m_IPicture && !m_pBitmap)
+    if (!m_iPicture && !m_pBitmap)
         return false;
 
-    if (m_IPicture)
+    if (m_iPicture)
     {
-        long Width = 0;
-        long Height = 0;
-        m_IPicture->get_Width(&Width);
-        m_IPicture->get_Height(&Height);
+        long width  = 0;
+        long height = 0;
+        m_iPicture->get_Width(&width);
+        m_iPicture->get_Height(&height);
 
-        HRESULT hr = m_IPicture->Render(hDC,
-                                        DrawRect.left,                  // Left
-                                        DrawRect.top,                   // Top
-                                        DrawRect.right - DrawRect.left, // Right
-                                        DrawRect.bottom - DrawRect.top, // Bottom
+        HRESULT hr = m_iPicture->Render(hDC,
+                                        drawRect.left,                  // Left
+                                        drawRect.top,                   // Top
+                                        drawRect.right - drawRect.left, // Right
+                                        drawRect.bottom - drawRect.top, // Bottom
                                         0,
-                                        Height,
-                                        Width,
-                                        -Height,
-                                        &DrawRect);
+                                        height,
+                                        width,
+                                        -height,
+                                        &drawRect);
 
         if (SUCCEEDED(hr))
-            return(true);
+            return (true);
     }
     else if (m_pBitmap)
     {
@@ -479,32 +471,34 @@ bool CPicture::Show(HDC hDC, RECT DrawRect)
         graphics.SetPixelOffsetMode(PixelOffsetModeHalf);
         ImageAttributes attr;
         attr.SetWrapMode(WrapModeTileFlipXY);
-        Rect rect(DrawRect.left, DrawRect.top, DrawRect.right - DrawRect.left, DrawRect.bottom - DrawRect.top);
-        graphics.DrawImage(m_pBitmap.get(), rect, 0, 0, m_Width, m_Height, UnitPixel, &attr);
+        Rect rect(drawRect.left, drawRect.top, drawRect.right - drawRect.left, drawRect.bottom - drawRect.top);
+        graphics.DrawImage(m_pBitmap.get(), rect, 0, 0, m_width, m_height, UnitPixel, &attr);
         return true;
     }
 
-    return(false);
+    return (false);
 }
 
 bool CPicture::UpdateSizeOnDC(HDC hDC)
 {
-    if (hDC == NULL || m_IPicture == NULL)
+    if (hDC == nullptr || m_iPicture == nullptr)
     {
-        m_Height = 0; m_Width = 0; return(false);
+        m_height = 0;
+        m_width  = 0;
+        return (false);
     };
 
-    m_IPicture->get_Height(&m_Height);
-    m_IPicture->get_Width(&m_Width);
+    m_iPicture->get_Height(&m_height);
+    m_iPicture->get_Width(&m_width);
 
     // Get Current DPI - Dot Per Inch
-    int CurrentDPI_X = GetDeviceCaps(hDC, LOGPIXELSX);
-    int CurrentDPI_Y = GetDeviceCaps(hDC, LOGPIXELSY);
+    int currentDpiX = GetDeviceCaps(hDC, LOGPIXELSX);
+    int currentDpiY = GetDeviceCaps(hDC, LOGPIXELSY);
 
-    m_Height = MulDiv(m_Height, CurrentDPI_Y, HIMETRIC_INCH);
-    m_Width = MulDiv(m_Width, CurrentDPI_X, HIMETRIC_INCH);
+    m_height = MulDiv(m_height, currentDpiY, HIMETRIC_INCH);
+    m_width  = MulDiv(m_width, currentDpiX, HIMETRIC_INCH);
 
-    return(true);
+    return (true);
 }
 
 UINT CPicture::GetColorDepth() const
@@ -529,7 +523,7 @@ UINT CPicture::GetColorDepth() const
     if (SUCCEEDED(hr))
     {
         CComPtr<IWICBitmapDecoder> pDecoder;
-        hr = pFactory->CreateDecoderFromFilename(m_Name.c_str(),
+        hr = pFactory->CreateDecoderFromFilename(m_name.c_str(),
                                                  nullptr,
                                                  GENERIC_READ,
                                                  WICDecodeMetadataCacheOnDemand,
@@ -593,7 +587,7 @@ UINT CPicture::GetColorDepth() const
     return 0;
 }
 
-UINT CPicture::GetNumberOfFrames(int dimension)
+UINT CPicture::GetNumberOfFrames(int dimension) const
 {
     if (bIsIcon && m_lpIcons)
     {
@@ -601,8 +595,8 @@ UINT CPicture::GetNumberOfFrames(int dimension)
     }
     if (!m_pBitmap)
         return 0;
-    UINT count = m_pBitmap->GetFrameDimensionsCount();
-    GUID* pDimensionIDs = (GUID*)malloc(sizeof(GUID)*count);
+    UINT  count         = m_pBitmap->GetFrameDimensionsCount();
+    GUID* pDimensionIDs = static_cast<GUID*>(malloc(sizeof(GUID) * count));
 
     m_pBitmap->GetFrameDimensionsList(pDimensionIDs, count);
 
@@ -612,7 +606,7 @@ UINT CPicture::GetNumberOfFrames(int dimension)
     return frameCount;
 }
 
-UINT CPicture::GetNumberOfDimensions()
+UINT CPicture::GetNumberOfDimensions() const
 {
     if (bIsIcon && m_lpIcons)
     {
@@ -627,14 +621,14 @@ long CPicture::SetActiveFrame(UINT frame)
     if (bIsIcon && m_lpIcons)
     {
         nCurrentIcon = frame - 1;
-        m_Height = GetHeight();
-        m_Width = GetWidth();
+        m_height     = GetHeight();
+        m_width      = GetWidth();
         return 0;
     }
     if (!m_pBitmap)
         return 0;
-    UINT count          = m_pBitmap->GetFrameDimensionsCount();
-    GUID* pDimensionIDs = (GUID*)malloc(sizeof(GUID)*count);
+    UINT  count         = m_pBitmap->GetFrameDimensionsCount();
+    GUID* pDimensionIDs = static_cast<GUID*>(malloc(sizeof(GUID) * count));
 
     m_pBitmap->GetFrameDimensionsList(pDimensionIDs, count);
 
@@ -655,7 +649,7 @@ long CPicture::SetActiveFrame(UINT frame)
     int nSize = m_pBitmap->GetPropertyItemSize(PropertyTagFrameDelay);
 
     // Allocate a buffer to receive the property item.
-    PropertyItem* pPropertyItem = (PropertyItem*)malloc(nSize);
+    PropertyItem* pPropertyItem = static_cast<PropertyItem*>(malloc(nSize));
 
     Status s = m_pBitmap->GetPropertyItem(PropertyTagFrameDelay, nSize, pPropertyItem);
 
@@ -665,11 +659,11 @@ long CPicture::SetActiveFrame(UINT frame)
     long delay = 0;
     if (s == Ok)
     {
-        delay = ((long*)pPropertyItem->value)[prevframe] * 10;
+        delay = static_cast<long*>(pPropertyItem->value)[prevframe] * 10;
     }
     free(pPropertyItem);
-    m_Height = GetHeight();
-    m_Width = GetWidth();
+    m_height = GetHeight();
+    m_width  = GetWidth();
     return delay;
 }
 

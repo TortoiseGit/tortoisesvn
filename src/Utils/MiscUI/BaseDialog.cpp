@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2012-2013, 2015, 2018 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2012-2013, 2015, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,21 +21,20 @@
 #include "BaseDialog.h"
 #include "LoadIconEx.h"
 #include <CommCtrl.h>
-#include <WindowsX.h>
 
 INT_PTR CDialog::DoModal(HINSTANCE hInstance, int resID, HWND hWndParent)
 {
     m_bPseudoModal = false;
-    hResource = hInstance;
-    return DialogBoxParam(hInstance, MAKEINTRESOURCE(resID), hWndParent, &CDialog::stDlgFunc, (LPARAM)this);
+    hResource      = hInstance;
+    return DialogBoxParam(hInstance, MAKEINTRESOURCE(resID), hWndParent, &CDialog::stDlgFunc, reinterpret_cast<LPARAM>(this));
 }
 
 INT_PTR CDialog::DoModal(HINSTANCE hInstance, int resID, HWND hWndParent, UINT idAccel)
 {
     m_bPseudoModal = true;
     m_bPseudoEnded = false;
-    hResource = hInstance;
-    m_hwnd = CreateDialogParam(hInstance, MAKEINTRESOURCE(resID), hWndParent, &CDialog::stDlgFunc, (LPARAM)this);
+    hResource      = hInstance;
+    m_hwnd         = CreateDialogParam(hInstance, MAKEINTRESOURCE(resID), hWndParent, &CDialog::stDlgFunc, reinterpret_cast<LPARAM>(this));
 
     // deactivate the parent window
     if (hWndParent)
@@ -46,10 +45,10 @@ INT_PTR CDialog::DoModal(HINSTANCE hInstance, int resID, HWND hWndParent, UINT i
     ::SetForegroundWindow(m_hwnd);
 
     // Main message loop:
-    MSG msg = {0};
+    MSG    msg         = {nullptr};
     HACCEL hAccelTable = LoadAccelerators(hResource, MAKEINTRESOURCE(idAccel));
-    BOOL bRet = TRUE;
-    while (!m_bPseudoEnded && ((bRet = GetMessage(&msg, NULL, 0, 0)) != 0))
+    BOOL   bRet        = TRUE;
+    while (!m_bPseudoEnded && ((bRet = GetMessage(&msg, nullptr, 0, 0)) != 0))
     {
         if (bRet == -1)
         {
@@ -61,8 +60,7 @@ INT_PTR CDialog::DoModal(HINSTANCE hInstance, int resID, HWND hWndParent, UINT i
             if (!PreTranslateMessage(&msg))
             {
                 if (!TranslateAccelerator(m_hwnd, hAccelTable, &msg) &&
-                    !IsDialogMessage(m_hwnd, &msg)
-                    )
+                    !IsDialogMessage(m_hwnd, &msg))
                 {
                     TranslateMessage(&msg);
                     DispatchMessage(&msg);
@@ -71,7 +69,7 @@ INT_PTR CDialog::DoModal(HINSTANCE hInstance, int resID, HWND hWndParent, UINT i
         }
     }
     if (msg.message == WM_QUIT)
-        PostQuitMessage((int)msg.wParam);
+        PostQuitMessage(static_cast<int>(msg.wParam));
     // re-enable the parent window
     if (hWndParent)
         ::EnableWindow(hWndParent, TRUE);
@@ -86,7 +84,7 @@ BOOL CDialog::EndDialog(HWND hDlg, INT_PTR nResult)
     if (m_bPseudoModal)
     {
         m_bPseudoEnded = true;
-        m_iPseudoRet = nResult;
+        m_iPseudoRet   = nResult;
     }
     return ::EndDialog(hDlg, nResult);
 }
@@ -94,21 +92,21 @@ BOOL CDialog::EndDialog(HWND hDlg, INT_PTR nResult)
 HWND CDialog::Create(HINSTANCE hInstance, int resID, HWND hWndParent)
 {
     m_bPseudoModal = true;
-    hResource = hInstance;
-    m_hwnd = CreateDialogParam(hInstance, MAKEINTRESOURCE(resID), hWndParent, &CDialog::stDlgFunc, (LPARAM)this);
+    hResource      = hInstance;
+    m_hwnd         = CreateDialogParam(hInstance, MAKEINTRESOURCE(resID), hWndParent, &CDialog::stDlgFunc, reinterpret_cast<LPARAM>(this));
     return m_hwnd;
 }
 
-void CDialog::InitDialog(HWND hwndDlg, UINT iconID)
+void CDialog::InitDialog(HWND hwndDlg, UINT iconID) const
 {
-    HWND hwndOwner;
-    RECT rc, rcDlg, rcOwner;
+    HWND            hwndOwner = nullptr;
+    RECT            rc{}, rcDlg{}, rcOwner{};
     WINDOWPLACEMENT placement;
     placement.length = sizeof(WINDOWPLACEMENT);
 
     hwndOwner = ::GetParent(hwndDlg);
     GetWindowPlacement(hwndOwner, &placement);
-    if ((hwndOwner == NULL) || (placement.showCmd == SW_SHOWMINIMIZED) || (placement.showCmd == SW_SHOWMINNOACTIVE))
+    if ((hwndOwner == nullptr) || (placement.showCmd == SW_SHOWMINIMIZED) || (placement.showCmd == SW_SHOWMINNOACTIVE))
         hwndOwner = ::GetDesktopWindow();
 
     GetWindowRect(hwndOwner, &rcOwner);
@@ -119,25 +117,24 @@ void CDialog::InitDialog(HWND hwndDlg, UINT iconID)
     OffsetRect(&rc, -rc.left, -rc.top);
     OffsetRect(&rc, -rcDlg.right, -rcDlg.bottom);
 
-    SetWindowPos(hwndDlg, HWND_TOP, rcOwner.left + (rc.right / 2), rcOwner.top + (rc.bottom / 2), 0, 0, SWP_NOSIZE|SWP_SHOWWINDOW);
+    SetWindowPos(hwndDlg, HWND_TOP, rcOwner.left + (rc.right / 2), rcOwner.top + (rc.bottom / 2), 0, 0, SWP_NOSIZE | SWP_SHOWWINDOW);
     auto hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(iconID), ::GetSystemMetrics(SM_CXICON), ::GetSystemMetrics(SM_CYICON));
-    ::SendMessage(hwndDlg, WM_SETICON, ICON_BIG, (LPARAM)hIcon);
+    ::SendMessage(hwndDlg, WM_SETICON, ICON_BIG, reinterpret_cast<LPARAM>(hIcon));
     hIcon = LoadIconEx(hResource, MAKEINTRESOURCE(iconID), ::GetSystemMetrics(SM_CXSMICON), ::GetSystemMetrics(SM_CYSMICON));
-    ::SendMessage(hwndDlg, WM_SETICON, ICON_SMALL, (LPARAM)hIcon);
+    ::SendMessage(hwndDlg, WM_SETICON, ICON_SMALL, reinterpret_cast<LPARAM>(hIcon));
 }
 
-void CDialog::AddToolTip(UINT ctrlID, LPTSTR text)
+void CDialog::AddToolTip(UINT ctrlID, LPTSTR text) const
 {
     TOOLINFO tt;
-    tt.cbSize = sizeof(TOOLINFO);
-    tt.uFlags = TTF_IDISHWND|TTF_CENTERTIP|TTF_SUBCLASS;
-    tt.hwnd = GetDlgItem(*this, ctrlID);
-    tt.uId = (UINT_PTR)GetDlgItem(*this, ctrlID);
+    tt.cbSize   = sizeof(TOOLINFO);
+    tt.uFlags   = TTF_IDISHWND | TTF_CENTERTIP | TTF_SUBCLASS;
+    tt.hwnd     = GetDlgItem(*this, ctrlID);
+    tt.uId      = reinterpret_cast<UINT_PTR>(GetDlgItem(*this, ctrlID));
     tt.lpszText = text;
 
-    SendMessage (m_hToolTips, TTM_ADDTOOL, 0, (LPARAM) &tt);
+    SendMessage(m_hToolTips, TTM_ADDTOOL, 0, reinterpret_cast<LPARAM>(&tt));
 }
-
 
 INT_PTR CALLBACK CDialog::stDlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -146,20 +143,20 @@ INT_PTR CALLBACK CDialog::stDlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPAR
     {
         // get the pointer to the window from lpCreateParams
         SetWindowLongPtr(hwndDlg, GWLP_USERDATA, lParam);
-        pWnd = (CDialog*)lParam;
+        pWnd         = reinterpret_cast<CDialog*>(lParam);
         pWnd->m_hwnd = hwndDlg;
         // create the tooltip control
         pWnd->m_hToolTips = CreateWindowEx(NULL,
-            TOOLTIPS_CLASS, NULL,
-            WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP,
-            CW_USEDEFAULT, CW_USEDEFAULT,
-            CW_USEDEFAULT, CW_USEDEFAULT,
-            hwndDlg,
-            NULL, pWnd->hResource,
-            NULL);
+                                           TOOLTIPS_CLASS, nullptr,
+                                           WS_POPUP | TTS_NOPREFIX | TTS_ALWAYSTIP,
+                                           CW_USEDEFAULT, CW_USEDEFAULT,
+                                           CW_USEDEFAULT, CW_USEDEFAULT,
+                                           hwndDlg,
+                                           nullptr, pWnd->hResource,
+                                           nullptr);
 
-        SetWindowPos(pWnd->m_hToolTips, HWND_TOP,0, 0, 0, 0,
-            SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
+        SetWindowPos(pWnd->m_hToolTips, HWND_TOP, 0, 0, 0, 0,
+                     SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE);
         SendMessage(pWnd->m_hToolTips, TTM_SETMAXTIPWIDTH, 0, 600);
         SendMessage(pWnd->m_hToolTips, TTM_ACTIVATE, TRUE, 0);
     }

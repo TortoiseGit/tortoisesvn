@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "MainWindow.h"
+#include "resource.h"
 #include "CmdLineParser.h"
 #include "registry.h"
 #include "LangDll.h"
@@ -31,26 +32,26 @@
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 // Global Variables:
-HINSTANCE hInst;                                // current instance
-HINSTANCE hResource;                            // the resource dll
+HINSTANCE hInst;     // current instance
+HINSTANCE hResource; // the resource dll
 HCURSOR   curHand;
 HCURSOR   curHandDown;
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                        HINSTANCE /*hPrevInstance*/,
-                       LPTSTR    lpCmdLine,
-                       int       /*nCmdShow*/)
+                       LPTSTR lpCmdLine,
+                       int /*nCmdShow*/)
 {
     SetDllDirectory(L"");
     CCrashReportTSVN crasher(L"TortoiseIDiff " _T(APP_X64_STRING));
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
     setTaskIDPerUuid();
-    CRegStdDWORD loc = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
-    long langId = loc;
+    CRegStdDWORD loc    = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
+    long         langId = loc;
     CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
 
-    CLangDll langDLL;
-    hResource = langDLL.Init(L"TortoiseIDiff", langId);
+    CLangDll langDll;
+    hResource = langDll.Init(L"TortoiseIDiff", langId);
     if (!hResource)
         hResource = hInstance;
 
@@ -58,26 +59,24 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
     if (parser.HasKey(L"?") || parser.HasKey(L"help"))
     {
-        TCHAR buf[1024] = { 0 };
+        TCHAR buf[1024] = {0};
         LoadString(hResource, IDS_COMMANDLINEHELP, buf, _countof(buf));
         MessageBox(nullptr, buf, L"TortoiseIDiff", MB_ICONINFORMATION);
-        langDLL.Close();
+        langDll.Close();
         return 0;
     }
-
 
     MSG msg;
     hInst = hInstance;
 
     INITCOMMONCONTROLSEX used = {
         sizeof(INITCOMMONCONTROLSEX),
-        ICC_STANDARD_CLASSES | ICC_BAR_CLASSES | ICC_WIN95_CLASSES
-    };
+        ICC_STANDARD_CLASSES | ICC_BAR_CLASSES | ICC_WIN95_CLASSES};
     InitCommonControlsEx(&used);
 
     // load the cursors we need
-    curHand = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
-    curHandDown = (HCURSOR)LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE);
+    curHand     = static_cast<HCURSOR>(LoadImage(hInst, MAKEINTRESOURCE(IDC_PANCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE));
+    curHandDown = static_cast<HCURSOR>(LoadImage(hInst, MAKEINTRESOURCE(IDC_PANDOWNCUR), IMAGE_CURSOR, 0, 0, LR_DEFAULTSIZE));
 
     auto mainWindow = std::make_unique<CMainWindow>(hResource);
     auto monHash    = GetMonitorSetupHash();
@@ -86,8 +85,8 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
     std::wstring rightfile = parser.HasVal(L"right") ? parser.GetVal(L"right") : L"";
     if ((leftfile.empty()) && (lpCmdLine[0] != 0))
     {
-        int nArgs;
-        LPWSTR * szArglist = CommandLineToArgvW(GetCommandLineW(), &nArgs);
+        int     nArgs;
+        LPWSTR* szArglist = CommandLineToArgvW(GetCommandLineW(), &nArgs);
         if (szArglist)
         {
             if (nArgs == 3)
@@ -98,7 +97,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                 // [2]: right file
                 if (PathFileExists(szArglist[1]) && PathFileExists(szArglist[2]))
                 {
-                    leftfile = szArglist[1];
+                    leftfile  = szArglist[1];
                     rightfile = szArglist[2];
                 }
             }
@@ -154,9 +153,9 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
                 DispatchMessage(&msg);
             }
         }
-        return (int) msg.wParam;
+        return static_cast<int>(msg.wParam);
     }
-    langDLL.Close();
+    langDll.Close();
     DestroyCursor(curHand);
     DestroyCursor(curHandDown);
     CoUninitialize();

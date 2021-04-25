@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2013, 2020 - TortoiseSVN
+// Copyright (C) 2007, 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,16 +27,17 @@ class CAboutDlg : public CDialog
 {
 public:
     CAboutDlg(HWND hParent);
-    ~CAboutDlg(void);
+    ~CAboutDlg() override;
 
-    void                    SetHiddenWnd(HWND hWnd) {m_hHiddenWnd = hWnd;}
+    void SetHiddenWnd(HWND hWnd) { m_hHiddenWnd = hWnd; }
+
 protected:
-    LRESULT CALLBACK        DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
-    LRESULT                 DoCommand(int id);
+    LRESULT CALLBACK DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam) override;
+    LRESULT          DoCommand(int id);
 
 private:
-    HWND                    m_hParent;
-    HWND                    m_hHiddenWnd;
-    CHyperLink              m_link;
-    int                     m_themeCallbackId;
+    HWND       m_hParent;
+    HWND       m_hHiddenWnd;
+    CHyperLink m_link;
+    int        m_themeCallbackId;
 };

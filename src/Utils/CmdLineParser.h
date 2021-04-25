@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2013-2014 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2013-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,6 @@
 #include <string>
 
 using std::map;
-
 
 /**
  * \ingroup Utils
@@ -55,13 +54,14 @@ class CCmdLineParser
 {
 public:
     typedef map<std::wstring, std::wstring> CValsMap;
-    typedef CValsMap::const_iterator ITERPOS;
+    typedef CValsMap::const_iterator        ITERPOS;
+
 public:
     /**
      * Creates a CCmdLineParser object and parses the parameters in.
      * \param sCmdLine the command line
      */
-    CCmdLineParser(LPCWSTR sCmdLine = NULL);
+    CCmdLineParser(LPCWSTR sCmdLine = nullptr);
     virtual ~CCmdLineParser();
 
     /**
@@ -124,16 +124,17 @@ public:
     LONG GetLongVal(LPCWSTR sKey) const;
 
     __int64 GetLongLongVal(LPCWSTR sKey) const;
+
 private:
-    BOOL Parse(LPCWSTR sCmdLine);
+    BOOL                     Parse(LPCWSTR sCmdLine);
     CValsMap::const_iterator findKey(LPCWSTR sKey) const;
-    const CValsMap& getVals() const { return m_valueMap; }
+    const CValsMap&          getVals() const { return m_valueMap; }
+
 private:
-    std::wstring    m_sCmdLine;
-    CValsMap        m_valueMap;
+    std::wstring m_sCmdLine;
+    CValsMap     m_valueMap;
 
     static const wchar_t m_sDelims[];
     static const wchar_t m_sValueSep[];
     static const wchar_t m_sQuotes[];
 };
-

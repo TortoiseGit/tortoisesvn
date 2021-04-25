@@ -30,6 +30,7 @@
 #include "LoadIconEx.h"
 #include "Theme.h"
 #include "DarkModeHelper.h"
+#include "ResString.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 

@@ -1,6 +1,6 @@
-// TortoiseIDiff - an image diff viewer in TortoiseSVN
+﻿// TortoiseIDiff - an image diff viewer in TortoiseSVN
 
-// Copyright (C) 2006-2008 - TortoiseSVN
+// Copyright (C) 2006-2008, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,23 +23,30 @@
  * Subclassed trackbar control that jumps to the mouse click positions immediately, instead of
  * changing the value "towards it".
  */
-class CNiceTrackbar {
+class CNiceTrackbar
+{
 public:
-    CNiceTrackbar() : m_Window(nullptr), m_OrigProc(nullptr), m_Dragging(false), m_DragChanged(false) {}
+    CNiceTrackbar()
+        : m_window(nullptr)
+        , m_origProc(nullptr)
+        , m_dragging(false)
+        , m_dragChanged(false)
+    {
+    }
 
-    HWND GetWindow() const { return m_Window; }
-    bool IsValid() const { return m_Window != nullptr; }
+    HWND GetWindow() const { return m_window; }
+    bool IsValid() const { return m_window != nullptr; }
 
-    void ConvertTrackbarToNice( HWND window );
+    void ConvertTrackbarToNice(HWND window);
 
 private:
     static LRESULT CALLBACK NiceTrackbarProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
-    void PostMessageToParent (int tbCode) const;
-    bool SetThumb (LPARAM lparamPoint);
+    void                    PostMessageToParent(int tbCode) const;
+    bool                    SetThumb(LPARAM lParamPoint) const;
 
 private:
-    HWND m_Window;
-    WNDPROC m_OrigProc;
-    bool m_Dragging;
-    bool m_DragChanged;
+    HWND    m_window;
+    WNDPROC m_origProc;
+    bool    m_dragging;
+    bool    m_dragChanged;
 };

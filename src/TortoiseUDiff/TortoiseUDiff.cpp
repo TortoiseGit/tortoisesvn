@@ -25,6 +25,7 @@
 #include "LangDll.h"
 #include "Monitor.h"
 #include "../Utils/CrashReport.h"
+#include "ResString.h"
 
 #include <algorithm>
 #include <commctrl.h>

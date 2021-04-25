@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2012-2015, 2017 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2012-2015, 2017, 2021 - TortoiseSVN
 // Copyright (C) 2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -18,15 +18,15 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 #pragma once
-#include "tstring.h"
 #include <string>
 #include <ocidl.h>
 #pragma warning(push)
-#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#pragma warning(disable : 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
 #pragma warning(pop)
 #include "SmartHandle.h"
 #include <vector>
+#include <memory>
 
 using namespace Gdiplus;
 
@@ -76,17 +76,17 @@ public:
      * \param sFilePathName the path of the picture file
      * \return TRUE if succeeded.
      */
-    bool Load(tstring sFilePathName);
+    bool Load(std::wstring sFilePathName);
     /**
      * draws the loaded picture directly to the given device context.
      * \note
      * if the given size is not the actual picture size, then the picture will
      * be drawn stretched to the given dimensions.
      * \param hDC the device context to draw on
-     * \param DrawRect the dimensions to draw the picture on
+     * \param drawRect the dimensions to draw the picture on
      * \return TRUE if succeeded
      */
-    bool Show(HDC hDC, RECT DrawRect);
+    bool Show(HDC hDC, RECT drawRect) const;
     /**
      * get the original picture pixel size. A pointer to a device context is needed
      * for the pixel calculation (DPI). Also updates the classes height and width
@@ -100,12 +100,12 @@ public:
      * Return the horizontal resolutions in dpi of the loaded picture.
      * \remark this only works if gdi+ is installed.
      */
-    float GetHorizontalResolution() { return m_pBitmap ? m_pBitmap->GetHorizontalResolution() : 0.0f; }
+    float GetHorizontalResolution() const { return m_pBitmap ? m_pBitmap->GetHorizontalResolution() : 0.0f; }
     /**
      * Return the vertical resolution in dpi of the loaded picture.
      * \remark this only works if gdi+ is installed.
      */
-    float GetVerticalResolution() { return m_pBitmap ? m_pBitmap->GetVerticalResolution() : 0.0f; }
+    float GetVerticalResolution() const { return m_pBitmap ? m_pBitmap->GetVerticalResolution() : 0.0f; }
     /**
      * Returns the picture height in pixels.
      * \remark this only works if gdi+ is installed.
@@ -140,17 +140,17 @@ public:
      * InterpolationModeHighQualityBilinear
      * InterpolationModeHighQualityBicubic
      */
-    void SetInterpolationMode(InterpolationMode ip) {m_ip = ip;}
+    void SetInterpolationMode(InterpolationMode ip) { m_ip = ip; }
 
     /**
      * Returns the number of frames in the specified dimension of the image.
      */
-    UINT GetNumberOfFrames(int dimension);
+    UINT GetNumberOfFrames(int dimension) const;
     /**
      * Returns the number of dimensions in the image.
      * For example, icons can have multiple dimensions (sizes).
      */
-    UINT GetNumberOfDimensions();
+    UINT GetNumberOfDimensions() const;
 
     /**
      * Sets the active frame which is used when drawing the image.
@@ -165,18 +165,18 @@ public:
      */
     void FreePictureData();
 
-    DWORD GetFileSize() const {return m_nSize;}
-    tstring GetFileSizeAsText(bool bAbbrev = true);
+    DWORD        GetFileSize() const { return m_nSize; }
+    std::wstring GetFileSizeAsText(bool bAbbrev = true) const;
     CPicture();
     virtual ~CPicture();
 
-    CComPtr<IPicture> m_IPicture; ///< Same As LPPICTURE (typedef IPicture __RPC_FAR *LPPICTURE)
+    CComPtr<IPicture> m_iPicture; ///< Same As LPPICTURE (typedef IPicture __RPC_FAR *LPPICTURE)
 
-    LONG        m_Height;   ///< Height (in pixels)
-    LONG        m_Width;    ///< Width (in pixels)
-    UINT        m_ColorDepth;///< the color depth
-    LONG        m_Weight;   ///< Size Of The Image Object In Bytes (File OR Resource)
-    tstring m_Name;     ///< The FileName of the Picture as used in Load()
+    LONG         m_height;     ///< Height (in pixels)
+    LONG         m_width;      ///< Width (in pixels)
+    UINT         m_colorDepth; ///< the color depth
+    LONG         m_weight;     ///< Size Of The Image Object In Bytes (File OR Resource)
+    std::wstring m_name;       ///< The FileName of the Picture as used in Load()
 
 protected:
     /**
@@ -188,42 +188,41 @@ protected:
     bool LoadPictureData(BYTE* pBuffer, int nSize);
 
 private:
-    bool TryLoadIcon(const tstring& sFilePathName);
-    bool TryLoadWIC(const tstring& sFilePathName);
-    bool TryLoadFreeImage(const tstring& sFilePathName);
+    bool TryLoadIcon(const std::wstring& sFilePathName);
+    bool TryLoadWIC(const std::wstring& sFilePathName);
+    bool TryLoadFreeImage(const std::wstring& sFilePathName);
 
-    GdiplusStartupInput gdiplusStartupInput;
-    ULONG_PTR           gdiplusToken;
-    std::unique_ptr<Bitmap> m_pBitmap;
-    std::unique_ptr<BYTE[]>  m_pBitmapBuffer;
-    InterpolationMode   m_ip;
-    bool                bIsIcon;
-    bool                bIsTiff;
-    UINT                nCurrentIcon;
-    std::unique_ptr<BYTE[]>  m_lpIcons;
+    GdiplusStartupInput                     gdiplusStartupInput;
+    ULONG_PTR                               gdiplusToken;
+    std::unique_ptr<Bitmap>                 m_pBitmap;
+    std::unique_ptr<BYTE[]>                 m_pBitmapBuffer;
+    InterpolationMode                       m_ip;
+    bool                                    bIsIcon;
+    bool                                    bIsTiff;
+    UINT                                    nCurrentIcon;
+    std::unique_ptr<BYTE[]>                 m_lpIcons;
     std::unique_ptr<std::vector<CAutoIcon>> m_hIcons;
-    DWORD               m_nSize;
+    DWORD                                   m_nSize;
 
-    #pragma pack(push, r1, 2)   // n = 16, pushed to stack
+#pragma pack(push, r1, 2) // n = 16, pushed to stack
 
     typedef struct
     {
-        BYTE    bWidth;               // Width of the image
-        BYTE    bHeight;              // Height of the image (times 2)
-        BYTE    bColorCount;          // Number of colors in image (0 if >=8bpp)
-        BYTE    bReserved;            // Reserved
-        WORD    wPlanes;              // Color Planes
-        WORD    wBitCount;            // Bits per pixel
-        DWORD   dwBytesInRes;         // how many bytes in this resource?
-        DWORD   dwImageOffset;        // where in the file is this image
+        BYTE  bWidth;        // Width of the image
+        BYTE  bHeight;       // Height of the image (times 2)
+        BYTE  bColorCount;   // Number of colors in image (0 if >=8bpp)
+        BYTE  bReserved;     // Reserved
+        WORD  wPlanes;       // Color Planes
+        WORD  wBitCount;     // Bits per pixel
+        DWORD dwBytesInRes;  // how many bytes in this resource?
+        DWORD dwImageOffset; // where in the file is this image
     } ICONDIRENTRY, *LPICONDIRENTRY;
     typedef struct
     {
-        WORD            idReserved;   // Reserved
-        WORD            idType;       // resource type (1 for icons)
-        WORD            idCount;      // how many images?
-        ICONDIRENTRY    idEntries[1]; // the entries for each image
+        WORD         idReserved;   // Reserved
+        WORD         idType;       // resource type (1 for icons)
+        WORD         idCount;      // how many images?
+        ICONDIRENTRY idEntries[1]; // the entries for each image
     } ICONDIR, *LPICONDIR;
-    #pragma pack(pop, r1)
+#pragma pack(pop, r1)
 };
-

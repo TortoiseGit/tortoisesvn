@@ -18,10 +18,7 @@
 //
 
 #pragma once
-#include "ResString.h"
-
 #include <string>
-
 
 /**
  * \ingroup Utils
@@ -32,6 +29,7 @@
 class CWindow
 {
 public:
+    virtual ~CWindow() = default;
     virtual bool RegisterWindow(UINT style, HICON hIcon, HCURSOR hCursor,
                                 HBRUSH hbrBackground, LPCTSTR lpszMenuName,
                                 LPCTSTR lpszClassName, HICON hIconSm);
@@ -51,45 +49,46 @@ public:
     void SetRegistryPath(const std::wstring& sPath)
     {
         size_t slashPos = sPath.find_last_of('\\');
-        sRegistryPath = sPath.substr(0, slashPos);
-        sRegistryValue = sPath.substr(slashPos+1);
+        sRegistryPath   = sPath.substr(0, slashPos);
+        sRegistryValue  = sPath.substr(slashPos + 1);
     }
 
     /**
      * Sets the transparency of the window.
      * \remark note that this also sets the WS_EX_LAYERED style!
      */
-    void SetTransparency(BYTE alpha, COLORREF color = 0xFF000000);
+    void SetTransparency(BYTE alpha, COLORREF color = 0xFF000000) const;
 
     virtual bool Create();
-    virtual bool Create(DWORD dwStyles, HWND hParent = NULL, RECT* rect = NULL);
-    virtual bool CreateEx(DWORD dwExStyles, DWORD dwStyles, HWND hParent = NULL, RECT* rect = NULL, LPCTSTR classname = NULL);
+    virtual bool Create(DWORD dwStyles, HWND hParent = nullptr, RECT* rect = nullptr);
+    virtual bool CreateEx(DWORD dwExStyles, DWORD dwStyles, HWND hParent = nullptr, RECT* rect = nullptr, LPCTSTR classname = nullptr);
 
     //void MsgLoop();
     bool IsWindowClosed() const { return bWindowClosed; };
 
-    operator HWND() const {return m_hwnd;}
+    operator HWND() const { return m_hwnd; }
+
 protected:
-    HINSTANCE hResource;
-    HWND m_hwnd;
-    HWND m_hParent;
-    bool bWindowClosed;
+    HINSTANCE    hResource;
+    HWND         m_hwnd;
+    HWND         m_hParent;
+    bool         bWindowClosed;
     std::wstring sClassName;
     std::wstring sWindowTitle;
     std::wstring sRegistryPath;
     std::wstring sRegistryValue;
-    bool bWindowRestored;
+    bool         bWindowRestored;
 
     //constructor
-    CWindow(HINSTANCE hInstance, CONST WNDCLASSEX* wcx = NULL)
-        : m_hwnd(NULL)
-        , hResource(NULL)
-        , m_hParent(NULL)
+    CWindow(HINSTANCE hInstance, CONST WNDCLASSEX* wcx = nullptr)
+        : hResource(nullptr)
+        , m_hwnd(nullptr)
+        , m_hParent(nullptr)
         , bWindowClosed(FALSE)
         , bWindowRestored(false)
     {
         hResource = hInstance;
-        if (wcx != NULL)
+        if (wcx != nullptr)
             CWindow::RegisterWindow(wcx);
     };
 
@@ -97,8 +96,8 @@ protected:
     virtual LRESULT CALLBACK WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) = 0;
 
     // returns a pointer the window (stored as the WindowLong)
-    inline static CWindow * GetObjectFromWindow(HWND hWnd)
+    inline static CWindow* GetObjectFromWindow(HWND hWnd)
     {
-        return (CWindow *)GetWindowLongPtr(hWnd, GWLP_USERDATA);
+        return reinterpret_cast<CWindow*>(GetWindowLongPtr(hWnd, GWLP_USERDATA));
     }
 };
