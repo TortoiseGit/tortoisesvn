@@ -613,7 +613,7 @@ protected: // variables
     CDC*        m_pDC;
     CScrollTool m_scrollTool;
     CString     m_sWordSeparators;
-    CString     m_eols[EOL__COUNT];
+    CString     m_eols[EOL_COUNT];
 
     UnicodeType m_textType;    ///< the text encoding this view uses
     EOL         m_lineEndings; ///< the line endings the view uses

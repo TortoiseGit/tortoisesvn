@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012, 2015, 2020 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012, 2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,10 +36,11 @@ class CLocatorBar : public CPaneDialog
 
 public:
     CLocatorBar();
-    virtual ~CLocatorBar();
+    ~CLocatorBar() override;
+    // ReSharper disable once CppHidingFunction
     BOOL Create(CWnd* pParentWnd, UINT nIDTemplate, UINT nStyle, UINT nID)
     {
-        BOOL bRet = CPaneDialog::Create(pParentWnd, nIDTemplate, nStyle, nID);
+        BOOL bRet           = CPaneDialog::Create(pParentWnd, nIDTemplate, nStyle, nID);
         m_dwControlBarStyle = 0; // can't float, resize, close, slide
         CRect rc;
         GetClientRect(&rc);
@@ -47,10 +48,10 @@ public:
         return bRet;
     }
 
-    void            DocumentUpdated();
+    void DocumentUpdated();
 
 protected:
-    virtual CSize   CalcFixedLayout(BOOL bStretch, BOOL bHorz);
+    CSize           CalcFixedLayout(BOOL bStretch, BOOL bHorz) override;
     afx_msg void    OnPaint();
     afx_msg void    OnSize(UINT nType, int cx, int cy);
     afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
@@ -58,30 +59,30 @@ protected:
     afx_msg void    OnMouseMove(UINT nFlags, CPoint point);
     afx_msg void    OnLButtonUp(UINT nFlags, CPoint point);
     afx_msg LRESULT OnMouseLeave(WPARAM wParam, LPARAM lParam);
-    void            ScrollOnMouseMove(const CPoint& point );
-    void            ScrollViewToLine(CBaseView* view, int nLine) const;
+    void            ScrollOnMouseMove(const CPoint& point) const;
+    static void     ScrollViewToLine(CBaseView* view, int nLine);
     void            PaintView(CDC& cacheDC, CBaseView* view, CDWordArray& indents, CDWordArray& states,
-                        const CRect& rect, int stripeIndex);
-    void            DrawFishEye(CDC& dc, const CRect& rect );
-    void            DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordArray& states);
+                              const CRect& rect, int stripeIndex) const;
+    void            DrawFishEye(CDC& dc, const CRect& rect) const;
+    static void     DocumentUpdated(CBaseView* view, CDWordArray& indents, CDWordArray& states);
     void            SetTheme(bool bDark);
 
-    CBitmap *       m_pCacheBitmap;
+    CBitmap* m_pCacheBitmap;
 
-    int             m_minWidth;
-    int             m_nLines;
-    CPoint          m_MousePos;
-    CDWordArray     m_arLeftIdent;
-    CDWordArray     m_arLeftState;
-    CDWordArray     m_arRightIdent;
-    CDWordArray     m_arRightState;
-    CDWordArray     m_arBottomIdent;
-    CDWordArray     m_arBottomState;
+    int         m_minWidth;
+    int         m_nLines;
+    CPoint      m_mousePos;
+    CDWordArray m_arLeftIdent;
+    CDWordArray m_arLeftState;
+    CDWordArray m_arRightIdent;
+    CDWordArray m_arRightState;
+    CDWordArray m_arBottomIdent;
+    CDWordArray m_arBottomState;
 
-    CRegDWORD       m_regUseFishEye;
-    bool            m_bDark;
-    int             m_themeCallbackId;
+    CRegDWORD m_regUseFishEye;
+    bool      m_bDark;
+    int       m_themeCallbackId;
     DECLARE_MESSAGE_MAP()
 public:
-    CMainFrame *    m_pMainFrm;
+    CMainFrame* m_pMainFrm;
 };

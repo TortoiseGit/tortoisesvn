@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2010 - TortoiseSVN
+// Copyright (C) 2006-2008, 2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,15 +22,15 @@
 #include "LocatorBar.h"
 #include "LeftView.h"
 #include "RightView.h"
-#include "BottomView.h"
 
 IMPLEMENT_DYNAMIC(CLineDiffBar, CPaneDialog)
-CLineDiffBar::CLineDiffBar() : CPaneDialog()
+CLineDiffBar::CLineDiffBar()
+    : CPaneDialog()
 {
-    m_pMainFrm = nullptr;
-    m_pCacheBitmap = nullptr;
-    m_nLineIndex = -1;
-    m_nLineHeight = 0;
+    m_pMainFrm      = nullptr;
+    m_pCacheBitmap  = nullptr;
+    m_nLineIndex    = -1;
+    m_nLineHeight   = 0;
     m_bExclusiveRow = TRUE;
 }
 
@@ -53,14 +53,14 @@ END_MESSAGE_MAP()
 void CLineDiffBar::DocumentUpdated()
 {
     //resize according to the font size
-    if ((m_pMainFrm)&&(m_pMainFrm->m_pwndLeftView))
+    if ((m_pMainFrm) && (m_pMainFrm->m_pwndLeftView))
     {
         m_nLineHeight = m_pMainFrm->m_pwndLeftView->GetLineHeight();
     }
     CRect rect;
     GetWindowRect(rect);
     CSize size = rect.Size();
-    size.cy = 2 * m_nLineHeight;
+    size.cy    = 2 * m_nLineHeight;
     SetMinSize(size);
     SetWindowPos(nullptr, 0, 0, size.cx, 2 * m_nLineHeight, SWP_NOMOVE);
     RecalcLayout();
@@ -77,10 +77,10 @@ void CLineDiffBar::ShowLines(int nLineIndex)
 void CLineDiffBar::OnPaint()
 {
     CPaintDC dc(this); // device context for painting
-    CRect rect;
+    CRect    rect;
     GetClientRect(rect);
     int height = rect.Height();
-    int width = rect.Width();
+    int width  = rect.Width();
 
     CDC cacheDC;
     VERIFY(cacheDC.CreateCompatibleDC(&dc));
@@ -90,41 +90,41 @@ void CLineDiffBar::OnPaint()
         m_pCacheBitmap = new CBitmap;
         VERIFY(m_pCacheBitmap->CreateCompatibleBitmap(&dc, width, height));
     }
-    CBitmap *pOldBitmap = cacheDC.SelectObject(m_pCacheBitmap);
+    CBitmap* pOldBitmap = cacheDC.SelectObject(m_pCacheBitmap);
 
-    CRect upperrect = CRect(rect.left, rect.top, rect.right, rect.bottom/2);
-    CRect lowerrect = CRect(rect.left, rect.bottom/2, rect.right, rect.bottom);
+    CRect upperRect = CRect(rect.left, rect.top, rect.right, rect.bottom / 2);
+    CRect lowerRect = CRect(rect.left, rect.bottom / 2, rect.right, rect.bottom);
 
-    if (m_pMainFrm!=0)
+    if (m_pMainFrm != nullptr)
     {
-        CLeftView* leftView = m_pMainFrm->m_pwndLeftView;
+        CLeftView*  leftView  = m_pMainFrm->m_pwndLeftView;
         CRightView* rightView = m_pMainFrm->m_pwndRightView;
-        if (CBaseView::IsViewGood(leftView)&&CBaseView::IsViewGood(rightView))
+        if (CBaseView::IsViewGood(leftView) && CBaseView::IsViewGood(rightView))
         {
             BOOL bViewWhiteSpace = leftView->m_bViewWhitespace;
-            BOOL bInlineDiffs = leftView->m_bShowInlineDiff;
+            BOOL bInlineDiffs    = leftView->m_bShowInlineDiff;
 
-            leftView->m_bViewWhitespace = TRUE;
-            leftView->m_bShowInlineDiff = TRUE;
-            leftView->m_bWhitespaceInlineDiffs = true;
-            leftView->m_bShowSelection = false;
-            rightView->m_bViewWhitespace = TRUE;
-            rightView->m_bShowInlineDiff = TRUE;
+            leftView->m_bViewWhitespace         = TRUE;
+            leftView->m_bShowInlineDiff         = TRUE;
+            leftView->m_bWhitespaceInlineDiffs  = true;
+            leftView->m_bShowSelection          = false;
+            rightView->m_bViewWhitespace        = TRUE;
+            rightView->m_bShowInlineDiff        = TRUE;
             rightView->m_bWhitespaceInlineDiffs = true;
-            rightView->m_bShowSelection = false;
+            rightView->m_bShowSelection         = false;
 
             // Use left and right view to display lines next to each other
-            leftView->DrawSingleLine(&cacheDC, &upperrect, m_nLineIndex);
-            rightView->DrawSingleLine(&cacheDC, &lowerrect, m_nLineIndex);
+            leftView->DrawSingleLine(&cacheDC, &upperRect, m_nLineIndex);
+            rightView->DrawSingleLine(&cacheDC, &lowerRect, m_nLineIndex);
 
-            leftView->m_bViewWhitespace = bViewWhiteSpace;
-            leftView->m_bShowInlineDiff = bInlineDiffs;
-            leftView->m_bWhitespaceInlineDiffs = false;
-            leftView->m_bShowSelection = true;
-            rightView->m_bViewWhitespace = bViewWhiteSpace;
-            rightView->m_bShowInlineDiff = bInlineDiffs;
+            leftView->m_bViewWhitespace         = bViewWhiteSpace;
+            leftView->m_bShowInlineDiff         = bInlineDiffs;
+            leftView->m_bWhitespaceInlineDiffs  = false;
+            leftView->m_bShowSelection          = true;
+            rightView->m_bViewWhitespace        = bViewWhiteSpace;
+            rightView->m_bShowInlineDiff        = bInlineDiffs;
             rightView->m_bWhitespaceInlineDiffs = false;
-            rightView->m_bShowSelection = true;
+            rightView->m_bShowSelection         = true;
         }
     }
 
@@ -148,6 +148,7 @@ void CLineDiffBar::OnSize(UINT nType, int cx, int cy)
     Invalidate();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 BOOL CLineDiffBar::OnEraseBkgnd(CDC* /*pDC*/)
 {
     return TRUE;

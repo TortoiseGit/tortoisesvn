@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,8 +26,8 @@ bool CEditorConfigWrapper::Load(CString filename)
 {
     if (filename.IsEmpty())
         return false;
-    CStringA filenameA = CUnicodeUtils::GetUTF8(filename);
-    editorconfig_handle eh = editorconfig_handle_init();
+    CStringA            filenameA = CUnicodeUtils::GetUTF8(filename);
+    editorconfig_handle eh        = editorconfig_handle_init();
     if (editorconfig_parse(filenameA, eh))
     {
         editorconfig_handle_destroy(eh);
@@ -42,7 +42,7 @@ bool CEditorConfigWrapper::Load(CString filename)
     }
     for (int i = 0; i < count; ++i)
     {
-        const char* name, *value;
+        const char *name, *value;
         editorconfig_handle_get_name_value(eh, i, &name, &value);
         if (!strcmp(name, "indent_style"))
         {
@@ -60,26 +60,26 @@ bool CEditorConfigWrapper::Load(CString filename)
         else if (!strcmp(name, "end_of_line"))
         {
             if (!strcmp(value, "lf"))
-                m_EndOfLine = EOL::EOL_LF;
+                m_endOfLine = EOL::EOL_LF;
             else if (!strcmp(value, "cr"))
-                m_EndOfLine = EOL::EOL_CR;
+                m_endOfLine = EOL::EOL_CR;
             else if (!strcmp(value, "crlf"))
-                m_EndOfLine = EOL::EOL_CRLF;
+                m_endOfLine = EOL::EOL_CRLF;
             else
-                m_EndOfLine = nullptr;
+                m_endOfLine = nullptr;
         }
         else if (!strcmp(name, "charset"))
         {
             if (!strcmp(value, "utf-8"))
-                m_Charset = CFileTextLines::UnicodeType::UTF8;
+                m_charset = CFileTextLines::UnicodeType::UTF8;
             else if (!strcmp(value, "utf-8-bom"))
-                m_Charset = CFileTextLines::UnicodeType::UTF8BOM;
+                m_charset = CFileTextLines::UnicodeType::UTF8BOM;
             else if (!strcmp(value, "utf-16be"))
-                m_Charset = CFileTextLines::UnicodeType::UTF16_BE;
+                m_charset = CFileTextLines::UnicodeType::UTF16_BE;
             else if (!strcmp(value, "utf-16le"))
-                m_Charset = CFileTextLines::UnicodeType::UTF16_LE;
+                m_charset = CFileTextLines::UnicodeType::UTF16_LE;
             else
-                m_Charset = nullptr;
+                m_charset = nullptr;
         }
         else if (!strcmp(name, "trim_trailing_whitespace"))
         {

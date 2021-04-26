@@ -176,8 +176,8 @@ CBaseView::CBaseView()
     m_eols[EOL_AUTOLINE]       = m_eols[m_lineEndings == EOL_AUTOLINE
                                             ? EOL_CRLF
                                             : m_lineEndings];
-    m_saveParams.m_LineEndings = EOL::EOL_AUTOLINE;
-    m_saveParams.m_UnicodeType = CFileTextLines::AUTOTYPE;
+    m_saveParams.lineEndings = EOL::EOL_AUTOLINE;
+    m_saveParams.unicodeType = CFileTextLines::AUTOTYPE;
 
     m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
         [this]() {
@@ -5996,8 +5996,8 @@ int CBaseView::SaveFile(int nFlags)
     if (m_pViewData && m_pWorkingFile)
     {
         CFileTextLines file;
-        m_saveParams.m_LineEndings = m_lineEndings;
-        m_saveParams.m_UnicodeType = m_textType;
+        m_saveParams.lineEndings = m_lineEndings;
+        m_saveParams.unicodeType = m_textType;
         file.SetSaveParams(m_saveParams);
 
         for (int i = 0; i < m_pViewData->GetCount(); i++)
@@ -6153,11 +6153,11 @@ void CBaseView::AskUserForNewLineEndingsAndTextType(int nTextId)
     CEncodingDlg dlg;
     dlg.view        = CString(MAKEINTRESOURCE(nTextId));
     dlg.texttype    = m_textType;
-    dlg.lineendings = GetLineEndings();
+    dlg.m_lineEndings = GetLineEndings();
     if (dlg.DoModal() != IDOK)
         return;
     SetTextType(dlg.texttype);
-    ReplaceLineEndings(dlg.lineendings);
+    ReplaceLineEndings(dlg.m_lineEndings);
 }
 
 /**

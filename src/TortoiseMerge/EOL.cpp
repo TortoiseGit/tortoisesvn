@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,31 +19,32 @@
 #include "stdafx.h"
 #include "EOL.h"
 
-
-const wchar_t * GetEolName(EOL eEol)
+const wchar_t* GetEolName(EOL eEol)
 {
-    switch(eEol)
+    switch (eEol)
     {
-    case EOL_LF:
-        return L"LF";
-    case EOL_CRLF:
-        return L"CRLF";
-    case EOL_LFCR:
-        return L"LFCR";
-    case EOL_CR:
-        return L"CR";
-    case EOL_VT:
-        return L"VT";
-    case EOL_FF:
-        return L"FF";
-    case EOL_NEL:
-        return L"NEL";
-    case EOL_LS:
-        return L"LS";
-    case EOL_PS:
-        return L"PS";
-    case EOL_AUTOLINE:
-        return L"AEOL";
+        case EOL_LF:
+            return L"LF";
+        case EOL_CRLF:
+            return L"CRLF";
+        case EOL_LFCR:
+            return L"LFCR";
+        case EOL_CR:
+            return L"CR";
+        case EOL_VT:
+            return L"VT";
+        case EOL_FF:
+            return L"FF";
+        case EOL_NEL:
+            return L"NEL";
+        case EOL_LS:
+            return L"LS";
+        case EOL_PS:
+            return L"PS";
+        case EOL_AUTOLINE:
+            return L"AEOL";
+        default:
+            break;
     }
     return L"";
 }

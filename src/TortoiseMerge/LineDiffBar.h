@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2008 - TortoiseSVN
+// Copyright (C) 2006, 2008, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,36 +34,34 @@ class CLineDiffBar : public CPaneDialog
 
 public:
     CLineDiffBar();
-    virtual ~CLineDiffBar();
+    ~CLineDiffBar() override;
+    // ReSharper disable once CppHidingFunction
     BOOL Create(CWnd* pParentWnd, UINT nIDTemplate, UINT nStyle, UINT nID)
     {
-        BOOL bRet = CPaneDialog::Create(pParentWnd, nIDTemplate, nStyle, nID);
+        BOOL bRet           = CPaneDialog::Create(pParentWnd, nIDTemplate, nStyle, nID);
         m_dwControlBarStyle = 0; // can't float, resize, close, slide
         return bRet;
     }
 
-    CSize CalcFixedLayout(BOOL, BOOL)
+    CSize CalcFixedLayout(BOOL, BOOL) override
     {
-        return CSize(32767, 2*m_nLineHeight);
+        return CSize(32767, 2 * m_nLineHeight);
     }
 
-    void            ShowLines(int nLineIndex);
-    void            DocumentUpdated();
+    void ShowLines(int nLineIndex);
+    void DocumentUpdated();
 
 protected:
-    afx_msg void    OnPaint();
-    afx_msg void    OnSize(UINT nType, int cx, int cy);
-    afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
+    afx_msg void OnPaint();
+    afx_msg void OnSize(UINT nType, int cx, int cy);
+    afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 
-    CBitmap *       m_pCacheBitmap;
+    CBitmap* m_pCacheBitmap;
 
-    int             m_nLineIndex;
-    int             m_nLineHeight;
-
+    int m_nLineIndex;
+    int m_nLineHeight;
 
     DECLARE_MESSAGE_MAP()
 public:
-    CMainFrame *    m_pMainFrm;
+    CMainFrame* m_pMainFrm;
 };
-
-

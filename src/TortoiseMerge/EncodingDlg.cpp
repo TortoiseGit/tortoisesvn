@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2013, 2020 - TortoiseSVN
+// Copyright (C) 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,33 +19,30 @@
 #include "stdafx.h"
 #include "EncodingDlg.h"
 
-
 const CFileTextLines::UnicodeType uctArray[] =
-{
-    CFileTextLines::ASCII,
-    CFileTextLines::UTF16_LE,
-    CFileTextLines::UTF16_BE,
-    CFileTextLines::UTF16_LEBOM,
-    CFileTextLines::UTF16_BEBOM,
-    CFileTextLines::UTF32_LE,
-    CFileTextLines::UTF32_BE,
-    CFileTextLines::UTF8,
-    CFileTextLines::UTF8BOM
-};
+    {
+        CFileTextLines::ASCII,
+        CFileTextLines::UTF16_LE,
+        CFileTextLines::UTF16_BE,
+        CFileTextLines::UTF16_LEBOM,
+        CFileTextLines::UTF16_BEBOM,
+        CFileTextLines::UTF32_LE,
+        CFileTextLines::UTF32_BE,
+        CFileTextLines::UTF8,
+        CFileTextLines::UTF8BOM};
 
 const EOL eolArray[] =
-{
-    EOL_AUTOLINE,
-    EOL_CRLF,
-    EOL_LF,
-    EOL_CR,
-    EOL_LFCR,
-    EOL_VT,
-    EOL_FF,
-    EOL_NEL,
-    EOL_LS,
-    EOL_PS
-};
+    {
+        EOL_AUTOLINE,
+        EOL_CRLF,
+        EOL_LF,
+        EOL_CR,
+        EOL_LFCR,
+        EOL_VT,
+        EOL_FF,
+        EOL_NEL,
+        EOL_LS,
+        EOL_PS};
 
 // dialog
 
@@ -54,7 +51,7 @@ IMPLEMENT_DYNAMIC(CEncodingDlg, CStandAloneDialog)
 CEncodingDlg::CEncodingDlg(CWnd* pParent)
     : CStandAloneDialog(CEncodingDlg::IDD, pParent)
     , texttype(CFileTextLines::ASCII)
-    , lineendings(EOL_AUTOLINE)
+    , m_lineEndings(EOL_AUTOLINE)
 {
 }
 
@@ -65,14 +62,12 @@ CEncodingDlg::~CEncodingDlg()
 void CEncodingDlg::DoDataExchange(CDataExchange* pDX)
 {
     CStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_COMBO_ENCODING, m_Encoding);
-    DDX_Control(pDX, IDC_COMBO_EOL, m_EOL);
+    DDX_Control(pDX, IDC_COMBO_ENCODING, m_encoding);
+    DDX_Control(pDX, IDC_COMBO_EOL, m_eol);
 }
-
 
 BEGIN_MESSAGE_MAP(CEncodingDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
-
 
 // message handlers
 
@@ -84,8 +79,8 @@ void CEncodingDlg::OnCancel()
 void CEncodingDlg::OnOK()
 {
     UpdateData();
-    texttype = uctArray[m_Encoding.GetCurSel()];
-    lineendings = eolArray[m_EOL.GetCurSel()];
+    texttype      = uctArray[m_encoding.GetCurSel()];
+    m_lineEndings = eolArray[m_eol.GetCurSel()];
     __super::OnOK();
 }
 
@@ -101,19 +96,19 @@ BOOL CEncodingDlg::OnInitDialog()
 
     for (int i = 0; i < _countof(uctArray); i++)
     {
-        m_Encoding.AddString(CFileTextLines::GetEncodingName(uctArray[i]));
+        m_encoding.AddString(CFileTextLines::GetEncodingName(uctArray[i]));
         if (texttype == uctArray[i])
         {
-            m_Encoding.SetCurSel(i);
+            m_encoding.SetCurSel(i);
         }
     }
 
     for (int i = 0; i < _countof(eolArray); i++)
     {
-        m_EOL.AddString(GetEolName(eolArray[i]));
-        if (lineendings == eolArray[i])
+        m_eol.AddString(GetEolName(eolArray[i]));
+        if (m_lineEndings == eolArray[i])
         {
-            m_EOL.SetCurSel(i);
+            m_eol.SetCurSel(i);
         }
     }
 

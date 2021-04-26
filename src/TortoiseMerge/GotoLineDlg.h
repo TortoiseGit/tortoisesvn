@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2011, 2013, 2020 - TortoiseSVN
+// Copyright (C) 2011, 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "StandAloneDlg.h"
 #include <afxwin.h>
 
-
 // CGotoLineDlg dialog
 
 class CGotoLineDlg : public CStandAloneDialog
@@ -28,26 +27,33 @@ class CGotoLineDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CGotoLineDlg)
 
 public:
-    CGotoLineDlg(CWnd* pParent = nullptr);   // standard constructor
-    virtual ~CGotoLineDlg();
+    CGotoLineDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CGotoLineDlg() override;
 
-    int         GetLineNumber() const {return m_nLine;}
-    void        SetLabel(const CString& label) { m_sLabel = label; }
-    void        SetLimits(int low, int high) { m_nLow = low; m_nHigh = high; }
+    int  GetLineNumber() const { return m_nLine; }
+    void SetLabel(const CString& label) { m_sLabel = label; }
+    void SetLimits(int low, int high)
+    {
+        m_nLow  = low;
+        m_nHigh = high;
+    }
 
     // Dialog Data
-    enum { IDD = IDD_GOTO };
+    enum
+    {
+        IDD = IDD_GOTO
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
 
     DECLARE_MESSAGE_MAP()
 private:
-    int         m_nLine;
-    int         m_nLow;
-    int         m_nHigh;
-    CString     m_sLabel;
-    CEdit       m_cNumber;
+    int     m_nLine;
+    int     m_nLow;
+    int     m_nHigh;
+    CString m_sLabel;
+    CEdit   m_cNumber;
 };

@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2011-2014, 2016, 2020 - TortoiseSVN
+// Copyright (C) 2006, 2011-2014, 2016, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,9 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseMerge.h"
 #include "FindDlg.h"
-
 
 // CFindDlg dialog
 
@@ -27,19 +25,19 @@ IMPLEMENT_DYNAMIC(CFindDlg, CStandAloneDialog)
 
 CFindDlg::CFindDlg(CWnd* pParent /*=nullptr*/)
     : CStandAloneDialog(CFindDlg::IDD, pParent)
-    , m_pParent(pParent)
+    , m_findMsg(0)
     , m_bTerminating(false)
     , m_bFindNext(false)
     , m_bMatchCase(FALSE)
     , m_bLimitToDiffs(FALSE)
     , m_bWholeWord(FALSE)
     , m_bSearchUp(FALSE)
-    , m_FindMsg(0)
-    , m_clrFindStatus(RGB(0, 0, 255))
-    , m_bReadonly(false)
+    , m_pParent(pParent)
     , m_regMatchCase(L"Software\\TortoiseMerge\\FindMatchCase", FALSE)
     , m_regLimitToDiffs(L"Software\\TortoiseMerge\\FindLimitToDiffs", FALSE)
     , m_regWholeWord(L"Software\\TortoiseMerge\\FindWholeWord", FALSE)
+    , m_clrFindStatus(RGB(0, 0, 255))
+    , m_bReadonly(false)
     , m_id(0)
 {
 }
@@ -48,18 +46,18 @@ CFindDlg::~CFindDlg()
 {
 }
 
-void CFindDlg::Create(CWnd * pParent, int id /* = 0 */)
+void CFindDlg::Create(CWnd* pParent, int id /* = 0 */)
 {
     CStandAloneDialog::Create(IDD, pParent);
     if (id && pParent)
     {
-        m_id = id;
-        POINT pt = { 0 };
+        m_id       = id;
+        POINT   pt = {0};
         CString sRegPath;
         sRegPath.Format(L"Software\\TortoiseMerge\\FindDlgPosX%d", id);
-        pt.x = (int)(DWORD)CRegDWORD(sRegPath, 0);
+        pt.x = static_cast<int>(static_cast<DWORD>(CRegDWORD(sRegPath, 0)));
         sRegPath.Format(L"Software\\TortoiseMerge\\FindDlgPosY%d", id);
-        pt.y = (int)(DWORD)CRegDWORD(sRegPath, 0);
+        pt.y = static_cast<int>(static_cast<DWORD>(CRegDWORD(sRegPath, 0)));
         pParent->ClientToScreen(&pt);
         if (MonitorFromPoint(pt, MONITOR_DEFAULTTONULL))
             SetWindowPos(nullptr, pt.x, pt.y, 0, 0, SWP_NOACTIVATE | SWP_NOREDRAW | SWP_NOSIZE);
@@ -75,11 +73,10 @@ void CFindDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_LIMITTODIFFS, m_bLimitToDiffs);
     DDX_Check(pDX, IDC_WHOLEWORD, m_bWholeWord);
     DDX_Check(pDX, IDC_SEARCHUP, m_bSearchUp);
-    DDX_Control(pDX, IDC_FINDCOMBO, m_FindCombo);
-    DDX_Control(pDX, IDC_REPLACECOMBO, m_ReplaceCombo);
-    DDX_Control(pDX, IDC_FINDSTATUS, m_FindStatus);
+    DDX_Control(pDX, IDC_FINDCOMBO, m_findCombo);
+    DDX_Control(pDX, IDC_REPLACECOMBO, m_replaceCombo);
+    DDX_Control(pDX, IDC_FINDSTATUS, m_findStatus);
 }
-
 
 BEGIN_MESSAGE_MAP(CFindDlg, CStandAloneDialog)
     ON_CBN_EDITCHANGE(IDC_FINDCOMBO, &CFindDlg::OnCbnEditchangeFindcombo)
@@ -90,12 +87,11 @@ BEGIN_MESSAGE_MAP(CFindDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDC_REPLACEALL, &CFindDlg::OnBnClickedReplaceall)
 END_MESSAGE_MAP()
 
-
 // CFindDlg message handlers
 
 void CFindDlg::OnCancel()
 {
-    CWnd * pParent = m_pParent;
+    CWnd* pParent = m_pParent;
     if (pParent == nullptr)
         pParent = GetParent();
     SaveWindowPos(pParent);
@@ -103,7 +99,7 @@ void CFindDlg::OnCancel()
     m_bTerminating = true;
     SetStatusText(L"");
     if (pParent)
-        pParent->SendMessage(m_FindMsg);
+        pParent->SendMessage(m_findMsg);
     DestroyWindow();
 }
 
@@ -114,45 +110,45 @@ void CFindDlg::PostNcDestroy()
 
 void CFindDlg::OnOK()
 {
-    CWnd * pParent = m_pParent;
+    CWnd* pParent = m_pParent;
     if (pParent == nullptr)
         pParent = GetParent();
     SaveWindowPos(pParent);
 
     UpdateData();
     SetStatusText(L"");
-    m_FindCombo.SaveHistory();
-    m_regMatchCase = m_bMatchCase;
+    m_findCombo.SaveHistory();
+    m_regMatchCase    = m_bMatchCase;
     m_regLimitToDiffs = m_bLimitToDiffs;
-    m_regWholeWord = m_bWholeWord;
+    m_regWholeWord    = m_bWholeWord;
 
-    if (m_FindCombo.GetString().IsEmpty())
+    if (m_findCombo.GetString().IsEmpty())
         return;
     m_bFindNext = true;
     if (pParent)
-        pParent->SendMessage(m_FindMsg);
+        pParent->SendMessage(m_findMsg);
     m_bFindNext = false;
 }
 
 BOOL CFindDlg::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
-    m_FindMsg = RegisterWindowMessage(FINDMSGSTRING);
+    m_findMsg = RegisterWindowMessage(FINDMSGSTRING);
 
-    m_bMatchCase    = (BOOL)(DWORD)m_regMatchCase;
-    m_bLimitToDiffs = (BOOL)(DWORD)m_regLimitToDiffs;
-    m_bWholeWord    = (BOOL)(DWORD)m_regWholeWord;
+    m_bMatchCase    = static_cast<BOOL>(static_cast<DWORD>(m_regMatchCase));
+    m_bLimitToDiffs = static_cast<BOOL>(static_cast<DWORD>(m_regLimitToDiffs));
+    m_bWholeWord    = static_cast<BOOL>(static_cast<DWORD>(m_regWholeWord));
     UpdateData(FALSE);
 
-    m_FindCombo.DisableTrimming();
-    m_FindCombo.LoadHistory(L"Software\\TortoiseMerge\\History\\Find", L"Search");
-    m_FindCombo.SetCurSel(0);
+    m_findCombo.DisableTrimming();
+    m_findCombo.LoadHistory(L"Software\\TortoiseMerge\\History\\Find", L"Search");
+    m_findCombo.SetCurSel(0);
 
-    m_ReplaceCombo.DisableTrimming();
-    m_ReplaceCombo.LoadHistory(L"Software\\TortoiseMerge\\History\\Find", L"Replace");
-    m_ReplaceCombo.SetCurSel(0);
+    m_replaceCombo.DisableTrimming();
+    m_replaceCombo.LoadHistory(L"Software\\TortoiseMerge\\History\\Find", L"Replace");
+    m_replaceCombo.SetCurSel(0);
 
-    m_FindCombo.SetFocus();
+    m_findCombo.SetFocus();
 
     SetTheme(CTheme::Instance().IsDarkTheme());
     return FALSE;
@@ -161,7 +157,7 @@ BOOL CFindDlg::OnInitDialog()
 void CFindDlg::OnCbnEditchangeFindcombo()
 {
     UpdateData();
-    auto s = m_FindCombo.GetString();
+    auto s = m_findCombo.GetString();
     GetDlgItem(IDOK)->EnableWindow(!s.IsEmpty());
     GetDlgItem(IDC_REPLACE)->EnableWindow(!m_bReadonly && !s.IsEmpty());
     GetDlgItem(IDC_REPLACEALL)->EnableWindow(!m_bReadonly && !s.IsEmpty());
@@ -171,35 +167,36 @@ void CFindDlg::OnBnClickedCount()
 {
     UpdateData();
     SetStatusText(L"");
-    m_FindCombo.SaveHistory();
-    m_regMatchCase = m_bMatchCase;
+    m_findCombo.SaveHistory();
+    m_regMatchCase    = m_bMatchCase;
     m_regLimitToDiffs = m_bLimitToDiffs;
-    m_regWholeWord = m_bWholeWord;
+    m_regWholeWord    = m_bWholeWord;
 
-    if (m_FindCombo.GetString().IsEmpty())
+    if (m_findCombo.GetString().IsEmpty())
         return;
     m_bFindNext = true;
     if (m_pParent)
-        m_pParent->SendMessage(m_FindMsg, FindType::Count);
+        m_pParent->SendMessage(m_findMsg, FindType::Count);
     else if (GetParent())
-        GetParent()->SendMessage(m_FindMsg, FindType::Count);
+        GetParent()->SendMessage(m_findMsg, FindType::Count);
     m_bFindNext = false;
 }
 
-HBRUSH CFindDlg::OnCtlColor(CDC* pDC, CWnd *pWnd, UINT nCtlColor)
+HBRUSH CFindDlg::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor)
 {
     switch (nCtlColor)
     {
-    case CTLCOLOR_STATIC:
-        if (pWnd == &m_FindStatus)
-        {
-            HBRUSH hbr = CStandAloneDialog::OnCtlColor(pDC, pWnd, nCtlColor);
-            pDC->SetTextColor(m_clrFindStatus);
-            pDC->SetBkMode(TRANSPARENT);
-            return hbr;
-        }
-    default:
-        break;
+        case CTLCOLOR_STATIC:
+            if (pWnd == &m_findStatus)
+            {
+                HBRUSH hbr = CStandAloneDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+                pDC->SetTextColor(m_clrFindStatus);
+                pDC->SetBkMode(TRANSPARENT);
+                return hbr;
+            }
+            break;
+        default:
+            break;
     }
     return CStandAloneDialog::OnCtlColor(pDC, pWnd, nCtlColor);
 }
@@ -207,55 +204,54 @@ HBRUSH CFindDlg::OnCtlColor(CDC* pDC, CWnd *pWnd, UINT nCtlColor)
 void CFindDlg::SetStatusText(const CString& str, COLORREF color)
 {
     m_clrFindStatus = color;
-    m_FindStatus.SetWindowText(str);
+    m_findStatus.SetWindowText(str);
 }
 
 void CFindDlg::SetReadonly(bool bReadonly)
 {
     m_bReadonly = bReadonly;
-    m_ReplaceCombo.EnableWindow(bReadonly ? FALSE : TRUE);
-    GetDlgItem(IDC_REPLACE)->EnableWindow(!m_bReadonly && !m_FindCombo.GetString().IsEmpty());
-    GetDlgItem(IDC_REPLACEALL)->EnableWindow(!m_bReadonly && !m_FindCombo.GetString().IsEmpty());
+    m_replaceCombo.EnableWindow(bReadonly ? FALSE : TRUE);
+    GetDlgItem(IDC_REPLACE)->EnableWindow(!m_bReadonly && !m_findCombo.GetString().IsEmpty());
+    GetDlgItem(IDC_REPLACEALL)->EnableWindow(!m_bReadonly && !m_findCombo.GetString().IsEmpty());
 }
 
 void CFindDlg::OnBnClickedReplace()
 {
     UpdateData();
     SetStatusText(L"");
-    m_FindCombo.SaveHistory();
-    m_ReplaceCombo.SaveHistory();
-    m_regMatchCase = m_bMatchCase;
+    m_findCombo.SaveHistory();
+    m_replaceCombo.SaveHistory();
+    m_regMatchCase    = m_bMatchCase;
     m_regLimitToDiffs = m_bLimitToDiffs;
-    m_regWholeWord = m_bWholeWord;
+    m_regWholeWord    = m_bWholeWord;
 
     m_bFindNext = true;
     if (m_pParent)
-        m_pParent->SendMessage(m_FindMsg, FindType::Replace);
+        m_pParent->SendMessage(m_findMsg, FindType::Replace);
     else if (GetParent())
-        GetParent()->SendMessage(m_FindMsg, FindType::Replace);
+        GetParent()->SendMessage(m_findMsg, FindType::Replace);
     m_bFindNext = false;
 }
-
 
 void CFindDlg::OnBnClickedReplaceall()
 {
     UpdateData();
     SetStatusText(L"");
-    m_FindCombo.SaveHistory();
-    m_ReplaceCombo.SaveHistory();
-    m_regMatchCase = m_bMatchCase;
+    m_findCombo.SaveHistory();
+    m_replaceCombo.SaveHistory();
+    m_regMatchCase    = m_bMatchCase;
     m_regLimitToDiffs = m_bLimitToDiffs;
-    m_regWholeWord = m_bWholeWord;
+    m_regWholeWord    = m_bWholeWord;
 
     m_bFindNext = true;
     if (m_pParent)
-        m_pParent->SendMessage(m_FindMsg, FindType::ReplaceAll);
+        m_pParent->SendMessage(m_findMsg, FindType::ReplaceAll);
     else if (GetParent())
-        GetParent()->SendMessage(m_FindMsg, FindType::ReplaceAll);
+        GetParent()->SendMessage(m_findMsg, FindType::ReplaceAll);
     m_bFindNext = false;
 }
 
-void CFindDlg::SaveWindowPos(CWnd * pParent)
+void CFindDlg::SaveWindowPos(CWnd* pParent) const
 {
     if (pParent && m_id)
     {

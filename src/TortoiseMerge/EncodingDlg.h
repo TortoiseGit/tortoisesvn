@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2013, 2020 - TortoiseSVN
+// Copyright (C) 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,13 +18,11 @@
 //
 #pragma once
 #include "resource.h"
-#include <afxcmn.h>
-#include "HistoryCombo.h"
 #include "FileTextLines.h"
 #include "StandAloneDlg.h"
 
 extern const CFileTextLines::UnicodeType uctArray[9];
-extern const EOL eolArray[10];
+extern const EOL                         eolArray[10];
 
 /**
  * \ingroup TortoiseMerge
@@ -35,22 +33,31 @@ class CEncodingDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CEncodingDlg)
 
 public:
-    CEncodingDlg(CWnd* pParent = nullptr);   // standard constructor
-    virtual ~CEncodingDlg();
-    void Create(CWnd* pParent = nullptr) { CStandAloneDialog::Create(IDD, pParent); ShowWindow(SW_SHOW); UpdateWindow(); }
-// Dialog Data
-    enum { IDD = IDD_ENCODING };
+    CEncodingDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CEncodingDlg() override;
+    void Create(CWnd* pParent = nullptr)
+    {
+        CStandAloneDialog::Create(IDD, pParent);
+        ShowWindow(SW_SHOW);
+        UpdateWindow();
+    }
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_ENCODING
+    };
 
     CFileTextLines::UnicodeType texttype;
-    EOL lineendings;
-    CString view;
+    EOL                         m_lineEndings;
+    CString                     view;
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
 
     DECLARE_MESSAGE_MAP()
-    virtual void OnCancel();
-    virtual void OnOK();
-    virtual BOOL OnInitDialog();
-    CComboBox m_Encoding;
-    CComboBox m_EOL;
+    void      OnCancel() override;
+    void      OnOK() override;
+    BOOL      OnInitDialog() override;
+    CComboBox m_encoding;
+    CComboBox m_eol;
 };

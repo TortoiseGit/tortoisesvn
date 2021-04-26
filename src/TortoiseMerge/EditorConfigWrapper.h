@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,57 +25,58 @@ class CEditorConfigWrapper
 public:
     bool Load(CString filename);
 
-    template <typename T> class Nullable
+    template <typename T>
+    class Nullable
     {
-        T m_Value;
+        T    m_value;
         bool m_bNull;
 
     public:
         Nullable()
-            : m_bNull(true)
-            , m_Value()
+            : m_value()
+            , m_bNull(true)
         {
         }
 
         Nullable(T value)
-            : m_bNull(false)
-            , m_Value(value)
+            : m_value(value)
+            , m_bNull(false)
         {
         }
 
         operator T()
         {
-            return m_Value;
+            return m_value;
         }
 
-        void operator = (T value)
+        void operator=(T value)
         {
             m_bNull = false;
-            m_Value = value;
+            m_value = value;
         }
 
-        void operator = (void *ptrnull)
+        void operator=(void* ptrNull)
         {
-            if (ptrnull == nullptr)
+            if (ptrNull == nullptr)
                 m_bNull = true;
         }
 
-        bool operator == (void* ptrnull)
+        bool operator==(void* ptrnull) const
         {
             return ptrnull == nullptr ? m_bNull : false;
         }
 
-        bool operator != (void* ptrnull)
+        bool operator!=(void* ptrnull) const
         {
             return ptrnull == nullptr ? !m_bNull : false;
         }
     };
 
-    Nullable<bool> m_bIndentStyle;
-    Nullable<int> m_nIndentSize;
-    Nullable<int> m_nTabWidth;
-    Nullable<EOL> m_EndOfLine;
-    Nullable<CFileTextLines::UnicodeType> m_Charset;
-    Nullable<bool> m_bTrimTrailingWhitespace;
-    Nullable<bool> m_bInsertFinalNewline;
+    Nullable<bool>                        m_bIndentStyle;
+    Nullable<int>                         m_nIndentSize;
+    Nullable<int>                         m_nTabWidth;
+    Nullable<EOL>                         m_endOfLine;
+    Nullable<CFileTextLines::UnicodeType> m_charset;
+    Nullable<bool>                        m_bTrimTrailingWhitespace;
+    Nullable<bool>                        m_bInsertFinalNewline;
 };
