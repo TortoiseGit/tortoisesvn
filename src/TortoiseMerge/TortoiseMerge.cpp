@@ -241,26 +241,26 @@ BOOL CTortoiseMergeApp::InitInstance()
         return FALSE;
 
     // Fill in the command line options
-    pFrame->m_Data.m_baseFile.SetFileName(parser.GetVal(L"base"));
-    pFrame->m_Data.m_baseFile.SetDescriptiveName(parser.GetVal(L"basename"));
-    pFrame->m_Data.m_baseFile.SetReflectedName(parser.GetVal(L"basereflectedname"));
-    pFrame->m_Data.m_theirFile.SetFileName(parser.GetVal(L"theirs"));
-    pFrame->m_Data.m_theirFile.SetDescriptiveName(parser.GetVal(L"theirsname"));
-    pFrame->m_Data.m_theirFile.SetReflectedName(parser.GetVal(L"theirsreflectedname"));
-    pFrame->m_Data.m_yourFile.SetFileName(parser.GetVal(L"mine"));
-    pFrame->m_Data.m_yourFile.SetDescriptiveName(parser.GetVal(L"minename"));
-    pFrame->m_Data.m_yourFile.SetReflectedName(parser.GetVal(L"minereflectedname"));
-    pFrame->m_Data.m_mergedFile.SetFileName(parser.GetVal(L"merged"));
-    pFrame->m_Data.m_mergedFile.SetDescriptiveName(parser.GetVal(L"mergedname"));
-    pFrame->m_Data.m_mergedFile.SetReflectedName(parser.GetVal(L"mergedreflectedname"));
-    pFrame->m_Data.m_sPatchPath = parser.HasVal(L"patchpath") ? parser.GetVal(L"patchpath") : L"";
-    pFrame->m_Data.m_sPatchPath.Replace('/', '\\');
+    pFrame->m_data.m_baseFile.SetFileName(parser.GetVal(L"base"));
+    pFrame->m_data.m_baseFile.SetDescriptiveName(parser.GetVal(L"basename"));
+    pFrame->m_data.m_baseFile.SetReflectedName(parser.GetVal(L"basereflectedname"));
+    pFrame->m_data.m_theirFile.SetFileName(parser.GetVal(L"theirs"));
+    pFrame->m_data.m_theirFile.SetDescriptiveName(parser.GetVal(L"theirsname"));
+    pFrame->m_data.m_theirFile.SetReflectedName(parser.GetVal(L"theirsreflectedname"));
+    pFrame->m_data.m_yourFile.SetFileName(parser.GetVal(L"mine"));
+    pFrame->m_data.m_yourFile.SetDescriptiveName(parser.GetVal(L"minename"));
+    pFrame->m_data.m_yourFile.SetReflectedName(parser.GetVal(L"minereflectedname"));
+    pFrame->m_data.m_mergedFile.SetFileName(parser.GetVal(L"merged"));
+    pFrame->m_data.m_mergedFile.SetDescriptiveName(parser.GetVal(L"mergedname"));
+    pFrame->m_data.m_mergedFile.SetReflectedName(parser.GetVal(L"mergedreflectedname"));
+    pFrame->m_data.m_sPatchPath = parser.HasVal(L"patchpath") ? parser.GetVal(L"patchpath") : L"";
+    pFrame->m_data.m_sPatchPath.Replace('/', '\\');
     if (parser.HasKey(L"patchoriginal"))
-        pFrame->m_Data.m_sPatchOriginal = parser.GetVal(L"patchoriginal");
+        pFrame->m_data.m_sPatchOriginal = parser.GetVal(L"patchoriginal");
     if (parser.HasKey(L"patchpatched"))
-        pFrame->m_Data.m_sPatchPatched = parser.GetVal(L"patchpatched");
-    pFrame->m_Data.m_sDiffFile = parser.GetVal(L"diff");
-    pFrame->m_Data.m_sDiffFile.Replace('/', '\\');
+        pFrame->m_data.m_sPatchPatched = parser.GetVal(L"patchpatched");
+    pFrame->m_data.m_sDiffFile = parser.GetVal(L"diff");
+    pFrame->m_data.m_sDiffFile.Replace('/', '\\');
     if (parser.HasKey(L"oneway"))
         pFrame->m_bOneWay = TRUE;
     if (parser.HasKey(L"diff"))
@@ -273,9 +273,9 @@ BOOL CTortoiseMergeApp::InitInstance()
         pFrame->m_bSaveRequiredOnConflicts = true;
     if (parser.HasKey(L"nosvnresolve"))
         pFrame->m_bAskToMarkAsResolved = false;
-    if (pFrame->m_Data.IsBaseFileInUse() && !pFrame->m_Data.IsYourFileInUse() && pFrame->m_Data.IsTheirFileInUse())
+    if (pFrame->m_data.IsBaseFileInUse() && !pFrame->m_data.IsYourFileInUse() && pFrame->m_data.IsTheirFileInUse())
     {
-        pFrame->m_Data.m_yourFile.TransferDetailsFrom(pFrame->m_Data.m_theirFile);
+        pFrame->m_data.m_yourFile.TransferDetailsFrom(pFrame->m_data.m_theirFile);
     }
 
     if ((!parser.HasKey(L"patchpath"))&&(parser.HasVal(L"diff")))
@@ -284,12 +284,12 @@ BOOL CTortoiseMergeApp::InitInstance()
         // If the patchfile is located inside a working copy, then use the parent directory
         // of the patchfile as the target directory, otherwise ask the user for a path.
         if (parser.HasKey(L"wc"))
-            pFrame->m_Data.m_sPatchPath = pFrame->m_Data.m_sDiffFile.Left(pFrame->m_Data.m_sDiffFile.ReverseFind('\\'));
+            pFrame->m_data.m_sPatchPath = pFrame->m_data.m_sDiffFile.Left(pFrame->m_data.m_sDiffFile.ReverseFind('\\'));
         else
         {
             CBrowseFolder fbrowser;
             fbrowser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
-            if (fbrowser.Show(nullptr, pFrame->m_Data.m_sPatchPath) == CBrowseFolder::CANCEL)
+            if (fbrowser.Show(nullptr, pFrame->m_data.m_sPatchPath) == CBrowseFolder::CANCEL)
                 return FALSE;
         }
     }
@@ -363,7 +363,7 @@ BOOL CTortoiseMergeApp::InitInstance()
                     hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
                     if (SUCCEEDED(hr))
                     {
-                        pFrame->m_Data.m_sDiffFile = pszPath;
+                        pFrame->m_data.m_sDiffFile = pszPath;
                         CoTaskMemFree(pszPath);
                     }
                 }
@@ -372,7 +372,7 @@ BOOL CTortoiseMergeApp::InitInstance()
                     // no result, which means we closed the dialog in our button handler
                     std::wstring sTempFile;
                     if (TrySavePatchFromClipboard(sTempFile))
-                        pFrame->m_Data.m_sDiffFile = sTempFile.c_str();
+                        pFrame->m_data.m_sDiffFile = sTempFile.c_str();
                 }
             }
             else
@@ -384,7 +384,7 @@ BOOL CTortoiseMergeApp::InitInstance()
         }
     }
 
-    if ( pFrame->m_Data.m_baseFile.GetFilename().IsEmpty() && pFrame->m_Data.m_yourFile.GetFilename().IsEmpty() )
+    if ( pFrame->m_data.m_baseFile.GetFilename().IsEmpty() && pFrame->m_data.m_yourFile.GetFilename().IsEmpty() )
     {
         int nArgs;
         LPWSTR *szArglist = CommandLineToArgvW(GetCommandLineW(), &nArgs);
@@ -404,11 +404,11 @@ BOOL CTortoiseMergeApp::InitInstance()
                 // other diff tools use it too.
                 if ( PathFileExists(szArglist[1]) && PathFileExists(szArglist[2]) )
                 {
-                    pFrame->m_Data.m_baseFile.SetFileName(szArglist[1]);
-                    pFrame->m_Data.m_yourFile.SetFileName(szArglist[2]);
+                    pFrame->m_data.m_baseFile.SetFileName(szArglist[1]);
+                    pFrame->m_data.m_yourFile.SetFileName(szArglist[2]);
                     if ( nArgs == 4 && PathFileExists(szArglist[3]) )
                     {
-                        pFrame->m_Data.m_theirFile.SetFileName(szArglist[3]);
+                        pFrame->m_data.m_theirFile.SetFileName(szArglist[3]);
                     }
                 }
             }
@@ -417,8 +417,8 @@ BOOL CTortoiseMergeApp::InitInstance()
                 // only one path specified: use it to fill the "open" dialog
                 if (PathFileExists(szArglist[1]))
                 {
-                    pFrame->m_Data.m_yourFile.SetFileName(szArglist[1]);
-                    pFrame->m_Data.m_yourFile.StoreFileAttributes();
+                    pFrame->m_data.m_yourFile.SetFileName(szArglist[1]);
+                    pFrame->m_data.m_yourFile.StoreFileAttributes();
                 }
             }
         }
@@ -428,7 +428,7 @@ BOOL CTortoiseMergeApp::InitInstance()
     }
 
     pFrame->m_bReadOnly = !!parser.HasKey(L"readonly");
-    if (GetFileAttributes(pFrame->m_Data.m_yourFile.GetFilename()) & FILE_ATTRIBUTE_READONLY)
+    if (GetFileAttributes(pFrame->m_data.m_yourFile.GetFilename()) & FILE_ATTRIBUTE_READONLY)
         pFrame->m_bReadOnly = true;
     pFrame->m_bBlame = !!parser.HasKey(L"blame");
     // diffing a blame means no editing!
@@ -467,9 +467,9 @@ BOOL CTortoiseMergeApp::InitInstance()
     pFrame->ShowWindow(SW_SHOW);
     pFrame->UpdateWindow();
     pFrame->ShowDiffBar(!pFrame->m_bOneWay);
-    if (!pFrame->m_Data.IsBaseFileInUse() && pFrame->m_Data.m_sPatchPath.IsEmpty() && pFrame->m_Data.m_sDiffFile.IsEmpty())
+    if (!pFrame->m_data.IsBaseFileInUse() && pFrame->m_data.m_sPatchPath.IsEmpty() && pFrame->m_data.m_sDiffFile.IsEmpty())
     {
-        pFrame->OnFileOpen(pFrame->m_Data.m_yourFile.InUse());
+        pFrame->OnFileOpen(pFrame->m_data.m_yourFile.InUse());
         return TRUE;
     }
 

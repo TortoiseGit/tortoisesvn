@@ -29,8 +29,6 @@
 #include "RightView.h"
 #include "BottomView.h"
 #include "DiffColors.h"
-#include "SelectFileFilter.h"
-#include "FormatMessageWrapper.h"
 #include "TaskbarUUID.h"
 #include "SVNHelpers.h"
 #include "SVNConfig.h"
@@ -39,7 +37,6 @@
 #include "StringUtils.h"
 #include "Windows10Colors.h"
 #include "DarkModeHelper.h"
-#include "Monitor.h"
 #include "ThemeMFCVisualManager.h"
 
 #ifdef _DEBUG
@@ -205,24 +202,11 @@ static UINT indicators[] =
 
 CMainFrame::CMainFrame()
     : m_bInitSplitter(FALSE)
-    , m_bReversedPatch(FALSE)
+    , m_bCheckReload(false)
     , m_bHasConflicts(false)
     , m_bInlineWordDiff(true)
     , m_bLineDiff(true)
     , m_bLocatorBar(true)
-    , m_nMoveMovesToIgnore(0)
-    , m_pwndLeftView(nullptr)
-    , m_pwndRightView(nullptr)
-    , m_pwndBottomView(nullptr)
-    , m_bReadOnly(false)
-    , m_bBlame(false)
-    , m_bCheckReload(false)
-    , m_bSaveRequired(false)
-    , m_bSaveRequiredOnConflicts(false)
-    , m_bAskToMarkAsResolved(true)
-    , resolveMsgWnd(0)
-    , resolveMsgWParam(0)
-    , resolveMsgLParam(0)
     , m_regWrapLines(L"Software\\TortoiseMerge\\WrapLines", 0)
     , m_regViewModedBlocks(L"Software\\TortoiseMerge\\ViewMovedBlocks", TRUE)
     , m_regOneWay(L"Software\\TortoiseMerge\\OnePane")
@@ -232,20 +216,34 @@ CMainFrame::CMainFrame()
     , m_regUseTaskDialog(L"Software\\TortoiseMerge\\UseTaskDialog", TRUE)
     , m_regIgnoreComments(L"Software\\TortoiseMerge\\IgnoreComments", FALSE)
     , m_regexIndex(-1)
+    , m_pwndLeftView(nullptr)
+    , m_pwndRightView(nullptr)
+    , m_pwndBottomView(nullptr)
+    , m_bReversedPatch(FALSE)
+    , m_bReadOnly(false)
+    , m_bBlame(false)
+    , m_nMoveMovesToIgnore(0)
+    , m_bSaveRequired(false)
+    , m_bSaveRequiredOnConflicts(false)
+    , m_bAskToMarkAsResolved(true)
+    , resolveMsgWnd(nullptr)
+    , resolveMsgWParam(0)
+    , resolveMsgLParam(0)
     , m_themeCallbackId(0)
 {
-    m_bOneWay = (0 != ((DWORD)m_regOneWay));
-    m_bCollapsed = !!(DWORD)m_regCollapsed;
-    m_bViewMovedBlocks = !!(DWORD)m_regViewModedBlocks;
-    m_bWrapLines = !!(DWORD)m_regWrapLines;
-    m_bInlineDiff = !!m_regInlineDiff;
-    m_bUseRibbons = !!m_regUseRibbons;
+    m_bOneWay          = (0 != static_cast<DWORD>(m_regOneWay));
+    m_bCollapsed       = !!static_cast<DWORD>(m_regCollapsed);
+    m_bViewMovedBlocks = !!static_cast<DWORD>(m_regViewModedBlocks);
+    m_bWrapLines       = !!static_cast<DWORD>(m_regWrapLines);
+    m_bInlineDiff      = !!m_regInlineDiff;
+    m_bUseRibbons      = !!m_regUseRibbons;
 }
 
 CMainFrame::~CMainFrame()
 {
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 LRESULT CMainFrame::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     setUuidOverlayIcon(m_hWnd);
@@ -260,8 +258,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
     if (m_bUseRibbons)
     {
-        HRESULT hr;
-        hr = m_pRibbonFramework.CoCreateInstance(__uuidof(UIRibbonFramework));
+        HRESULT hr = m_pRibbonFramework.CoCreateInstance(__uuidof(UIRibbonFramework));
         if (FAILED(hr))
         {
             TRACE(L"Failed to create ribbon framework (%08x)\n", hr);
@@ -307,9 +304,9 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         sColumn.Format(IDS_INDICATOR_COLUMN, 999999);
         columnPane->SetAlmostLargeText(sColumn);
         // marked word counter
-        auto columnPaneMW = new CMFCRibbonStatusBarPane(ID_INDICATOR_MARKEDWORDS, L"", FALSE);
-        m_wndRibbonStatusBar.AddElement(columnPaneMW, L"");
-        columnPaneMW->SetAlmostLargeText(L"Marked words: l: XXXX | r: XXXX | b: XXXX");
+        auto columnPaneMw = new CMFCRibbonStatusBarPane(ID_INDICATOR_MARKEDWORDS, L"", FALSE);
+        m_wndRibbonStatusBar.AddElement(columnPaneMw, L"");
+        columnPaneMw->SetAlmostLargeText(L"Marked words: l: XXXX | r: XXXX | b: XXXX");
 
         CString sTooltip(MAKEINTRESOURCE(IDS_ENCODING_COMBO_TOOLTIP));
         auto apBtnGroupLeft = std::make_unique<CMFCRibbonButtonsGroup>();
@@ -490,8 +487,8 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
         TRACE0("Failed to create first pane\n");
         return FALSE;
     }
-    m_pwndBottomView = (CBottomView *)m_wndSplitter.GetPane(1,0);
-    m_pwndBottomView->m_pwndLocator = &m_wndLocatorBar;
+    m_pwndBottomView                    = static_cast<CBottomView*>(m_wndSplitter.GetPane(1, 0));
+    m_pwndBottomView->m_pwndLocator     = &m_wndLocatorBar;
     m_pwndBottomView->m_pwndLineDiffBar = &m_wndLineDiffBar;
     if (m_bUseRibbons)
         m_pwndBottomView->m_pwndRibbonStatusBar = &m_wndRibbonStatusBar;
@@ -507,8 +504,8 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
         TRACE0("Failed to create second pane\n");
         return FALSE;
     }
-    m_pwndLeftView = (CLeftView *)m_wndSplitter2.GetPane(0,0);
-    m_pwndLeftView->m_pwndLocator = &m_wndLocatorBar;
+    m_pwndLeftView                    = static_cast<CLeftView*>(m_wndSplitter2.GetPane(0, 0));
+    m_pwndLeftView->m_pwndLocator     = &m_wndLocatorBar;
     m_pwndLeftView->m_pwndLineDiffBar = &m_wndLineDiffBar;
     if (m_bUseRibbons)
         m_pwndLeftView->m_pwndRibbonStatusBar = &m_wndRibbonStatusBar;
@@ -522,8 +519,8 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
         TRACE0("Failed to create third pane\n");
         return FALSE;
     }
-    m_pwndRightView = (CRightView *)m_wndSplitter2.GetPane(0,1);
-    m_pwndRightView->m_pwndLocator = &m_wndLocatorBar;
+    m_pwndRightView                    = static_cast<CRightView*>(m_wndSplitter2.GetPane(0, 1));
+    m_pwndRightView->m_pwndLocator     = &m_wndLocatorBar;
     m_pwndRightView->m_pwndLineDiffBar = &m_wndLineDiffBar;
     if (m_bUseRibbons)
         m_pwndRightView->m_pwndRibbonStatusBar = &m_wndRibbonStatusBar;
@@ -543,55 +540,55 @@ BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropM
     //"dry run" was successful, so save the patched file somewhere...
     CString sTempFile = CTempFiles::Instance().GetTempFilePathString();
     CString sRejectedFile;
-    if (m_Patch.GetPatchResult(sFilePath, sTempFile, sRejectedFile) < 0)
+    if (m_patch.GetPatchResult(sFilePath, sTempFile, sRejectedFile) < 0)
     {
-        MessageBox(m_Patch.GetErrorMessage(), nullptr, MB_ICONERROR);
+        MessageBox(m_patch.GetErrorMessage(), nullptr, MB_ICONERROR);
         return FALSE;
     }
-    sFilePath = m_Patch.GetTargetPath() + L"\\" + sFilePath;
+    sFilePath = m_patch.GetTargetPath() + L"\\" + sFilePath;
     sFilePath.Replace('/', '\\');
     if (m_bReversedPatch)
     {
-        m_Data.m_baseFile.SetFileName(sTempFile);
+        m_data.m_baseFile.SetFileName(sTempFile);
         CString temp;
-        temp.Format(L"%s %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
-        m_Data.m_baseFile.SetDescriptiveName(temp);
-        m_Data.m_yourFile.SetFileName(sFilePath);
-        temp.Format(L"%s %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
-        m_Data.m_yourFile.SetDescriptiveName(temp);
-        m_Data.m_theirFile.SetOutOfUse();
-        m_Data.m_mergedFile.SetOutOfUse();
+        temp.Format(L"%s %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCTSTR>(m_data.m_sPatchPatched));
+        m_data.m_baseFile.SetDescriptiveName(temp);
+        m_data.m_yourFile.SetFileName(sFilePath);
+        temp.Format(L"%s %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCTSTR>(m_data.m_sPatchOriginal));
+        m_data.m_yourFile.SetDescriptiveName(temp);
+        m_data.m_theirFile.SetOutOfUse();
+        m_data.m_mergedFile.SetOutOfUse();
     }
     else
     {
         if ((!PathFileExists(sFilePath))||(PathIsDirectory(sFilePath)))
         {
-            m_Data.m_baseFile.SetFileName(CTempFiles::Instance().GetTempFilePathString());
-            m_Data.m_baseFile.CreateEmptyFile();
+            m_data.m_baseFile.SetFileName(CTempFiles::Instance().GetTempFilePathString());
+            m_data.m_baseFile.CreateEmptyFile();
         }
         else
         {
-            m_Data.m_baseFile.SetFileName(sFilePath);
+            m_data.m_baseFile.SetFileName(sFilePath);
         }
         CString sDescription;
-        sDescription.Format(L"%s %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchOriginal);
-        m_Data.m_baseFile.SetDescriptiveName(sDescription);
-        m_Data.m_yourFile.SetFileName(sTempFile);
+        sDescription.Format(L"%s %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCTSTR>(m_data.m_sPatchOriginal));
+        m_data.m_baseFile.SetDescriptiveName(sDescription);
+        m_data.m_yourFile.SetFileName(sTempFile);
         CString temp;
-        temp.Format(L"%s %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath), (LPCTSTR)m_Data.m_sPatchPatched);
-        m_Data.m_yourFile.SetDescriptiveName(temp);
-        m_Data.m_theirFile.SetOutOfUse();
-        m_Data.m_mergedFile.SetFileName(sFilePath);
-        m_Data.m_bPatchRequired = bPropMods;
+        temp.Format(L"%s %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCTSTR>(m_data.m_sPatchPatched));
+        m_data.m_yourFile.SetDescriptiveName(temp);
+        m_data.m_theirFile.SetOutOfUse();
+        m_data.m_mergedFile.SetFileName(sFilePath);
+        m_data.m_bPatchRequired = bPropMods;
     }
-    TRACE(L"comparing %s\nwith the patched result %s\n", (LPCTSTR)sFilePath, (LPCTSTR)sTempFile);
+    TRACE(L"comparing %s\nwith the patched result %s\n", static_cast<LPCTSTR>(sFilePath), static_cast<LPCTSTR>(sTempFile));
 
     LoadViews();
     if (!sRejectedFile.IsEmpty())
     {
         // start TortoiseUDiff with the rejected hunks
         CString sTitle;
-        sTitle.Format(IDS_TITLE_REJECTEDHUNKS, (LPCTSTR)CPathUtils::GetFileNameFromPath(sFilePath));
+        sTitle.Format(IDS_TITLE_REJECTEDHUNKS, static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)));
         CAppUtils::StartUnifiedDiffViewer(sRejectedFile, sTitle);
     }
     if (bAutoPatch)
@@ -611,7 +608,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 
     CString sTemp;
     CProgressDlg progDlg;
-    sTemp.Format(IDS_GETVERSIONOFFILE, (LPCTSTR)sRev1);
+    sTemp.Format(IDS_GETVERSIONOFFILE, static_cast<LPCTSTR>(sRev1));
     progDlg.SetLine(1, sTemp, true);
     progDlg.SetLine(2, sURL1, true);
     sTemp.LoadString(IDS_GETVERSIONOFFILETITLE);
@@ -624,11 +621,11 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
     {
         progDlg.Stop();
         CString sErrMsg;
-        sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, (LPCTSTR)sRev1, (LPCTSTR)sURL1);
+        sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, static_cast<LPCTSTR>(sRev1), static_cast<LPCTSTR>(sURL1));
         MessageBox(sErrMsg, nullptr, MB_ICONERROR);
         return FALSE;
     }
-    sTemp.Format(IDS_GETVERSIONOFFILE, (LPCTSTR)sRev2);
+    sTemp.Format(IDS_GETVERSIONOFFILE, static_cast<LPCTSTR>(sRev2));
     progDlg.SetLine(1, sTemp, true);
     progDlg.SetLine(2, sURL2, true);
     progDlg.SetProgress(50, 100);
@@ -636,19 +633,19 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
     {
         progDlg.Stop();
         CString sErrMsg;
-        sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, (LPCTSTR)sRev2, (LPCTSTR)sURL2);
+        sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, static_cast<LPCTSTR>(sRev2), static_cast<LPCTSTR>(sURL2));
         MessageBox(sErrMsg, nullptr, MB_ICONERROR);
         return FALSE;
     }
     progDlg.SetProgress(100,100);
     progDlg.Stop();
     CString temp;
-    temp.Format(L"%s Revision %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sURL1), (LPCTSTR)sRev1);
-    m_Data.m_baseFile.SetFileName(tempfile1);
-    m_Data.m_baseFile.SetDescriptiveName(temp);
-    temp.Format(L"%s Revision %s", (LPCTSTR)CPathUtils::GetFileNameFromPath(sURL2), (LPCTSTR)sRev2);
-    m_Data.m_yourFile.SetFileName(tempfile2);
-    m_Data.m_yourFile.SetDescriptiveName(temp);
+    temp.Format(L"%s Revision %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sURL1)), static_cast<LPCTSTR>(sRev1));
+    m_data.m_baseFile.SetFileName(tempfile1);
+    m_data.m_baseFile.SetDescriptiveName(temp);
+    temp.Format(L"%s Revision %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sURL2)), static_cast<LPCTSTR>(sRev2));
+    m_data.m_yourFile.SetFileName(tempfile2);
+    m_data.m_yourFile.SetDescriptiveName(temp);
 
     LoadViews();
 
@@ -666,42 +663,42 @@ void CMainFrame::OnFileOpen(bool fillyours)
 {
     COpenDlg dlg;
     if (fillyours)
-        dlg.m_sBaseFile = m_Data.m_yourFile.GetFilename();
+        dlg.m_sBaseFile = m_data.m_yourFile.GetFilename();
     if (dlg.DoModal() != IDOK)
     {
         return;
     }
     m_dlgFilePatches.ShowWindow(SW_HIDE);
     m_dlgFilePatches.Init(nullptr, nullptr, CString(), nullptr);
-    TRACE(L"got the files:\n   %s\n   %s\n   %s\n   %s\n   %s\n", (LPCTSTR)dlg.m_sBaseFile, (LPCTSTR)dlg.m_sTheirFile, (LPCTSTR)dlg.m_sYourFile,
-          (LPCTSTR)dlg.m_sUnifiedDiffFile, (LPCTSTR)dlg.m_sPatchDirectory);
-    m_Data.m_baseFile.SetFileName(dlg.m_sBaseFile);
-    m_Data.m_theirFile.SetFileName(dlg.m_sTheirFile);
-    m_Data.m_yourFile.SetFileName(dlg.m_sYourFile);
-    m_Data.m_sDiffFile = dlg.m_sUnifiedDiffFile;
-    m_Data.m_sPatchPath = dlg.m_sPatchDirectory;
-    m_Data.m_mergedFile.SetOutOfUse();
+    TRACE(L"got the files:\n   %s\n   %s\n   %s\n   %s\n   %s\n", static_cast<LPCTSTR>(dlg.m_sBaseFile), static_cast<LPCTSTR>(dlg.m_sTheirFile), static_cast<LPCTSTR>(dlg.m_sYourFile),
+          static_cast<LPCTSTR>(dlg.m_sUnifiedDiffFile), static_cast<LPCTSTR>(dlg.m_sPatchDirectory));
+    m_data.m_baseFile.SetFileName(dlg.m_sBaseFile);
+    m_data.m_theirFile.SetFileName(dlg.m_sTheirFile);
+    m_data.m_yourFile.SetFileName(dlg.m_sYourFile);
+    m_data.m_sDiffFile = dlg.m_sUnifiedDiffFile;
+    m_data.m_sPatchPath = dlg.m_sPatchDirectory;
+    m_data.m_mergedFile.SetOutOfUse();
     CCrashReport::Instance().AddFile2(dlg.m_sBaseFile, nullptr, L"Basefile", CR_AF_MAKE_FILE_COPY);
     CCrashReport::Instance().AddFile2(dlg.m_sTheirFile, nullptr, L"Theirfile", CR_AF_MAKE_FILE_COPY);
     CCrashReport::Instance().AddFile2(dlg.m_sYourFile, nullptr, L"Yourfile", CR_AF_MAKE_FILE_COPY);
     CCrashReport::Instance().AddFile2(dlg.m_sUnifiedDiffFile, nullptr, L"Difffile", CR_AF_MAKE_FILE_COPY);
 
-    if (!m_Data.IsBaseFileInUse() && m_Data.IsTheirFileInUse() && m_Data.IsYourFileInUse())
+    if (!m_data.IsBaseFileInUse() && m_data.IsTheirFileInUse() && m_data.IsYourFileInUse())
     {
         // a diff between two files means "Yours" against "Base", not "Theirs" against "Yours"
-        m_Data.m_baseFile.TransferDetailsFrom(m_Data.m_theirFile);
+        m_data.m_baseFile.TransferDetailsFrom(m_data.m_theirFile);
     }
-    if (m_Data.IsBaseFileInUse() && m_Data.IsTheirFileInUse() && !m_Data.IsYourFileInUse())
+    if (m_data.IsBaseFileInUse() && m_data.IsTheirFileInUse() && !m_data.IsYourFileInUse())
     {
         // a diff between two files means "Yours" against "Base", not "Theirs" against "Base"
-        m_Data.m_yourFile.TransferDetailsFrom(m_Data.m_theirFile);
+        m_data.m_yourFile.TransferDetailsFrom(m_data.m_theirFile);
     }
     m_bSaveRequired = false;
 
     LoadViews();
 }
 
-void CMainFrame::ClearViewNamesAndPaths()
+void CMainFrame::ClearViewNamesAndPaths() const
 {
     m_pwndLeftView->m_sWindowName.Empty();
     m_pwndLeftView->m_sFullFilePath.Empty();
@@ -717,8 +714,8 @@ void CMainFrame::ClearViewNamesAndPaths()
 bool CMainFrame::LoadViews(int line)
 {
     LoadIgnoreCommentData();
-    m_Data.SetBlame(m_bBlame);
-    m_Data.SetMovedBlocks(m_bViewMovedBlocks);
+    m_data.SetBlame(m_bBlame);
+    m_data.SetMovedBlocks(m_bViewMovedBlocks);
     m_bHasConflicts = false;
     CBaseView* pwndActiveView = m_pwndLeftView;
     int nOldLine = m_pwndRightView ? m_pwndRightView->m_nTopLine : -1;
@@ -730,24 +727,24 @@ bool CMainFrame::LoadViews(int line)
         ptOldCaretPos = m_pwndRightView->GetCaretPosition();
     if (m_pwndBottomView && m_pwndBottomView->IsTarget())
         ptOldCaretPos = m_pwndBottomView->GetCaretPosition();
-    CString sExt = CPathUtils::GetFileExtFromPath(m_Data.m_baseFile.GetFilename()).MakeLower();
+    CString sExt = CPathUtils::GetFileExtFromPath(m_data.m_baseFile.GetFilename()).MakeLower();
     sExt.TrimLeft(L".");
-    auto sC = m_IgnoreCommentsMap.find(sExt);
-    if (sC == m_IgnoreCommentsMap.end())
+    auto sC = m_ignoreCommentsMap.find(sExt);
+    if (sC == m_ignoreCommentsMap.end())
     {
-        sExt = CPathUtils::GetFileExtFromPath(m_Data.m_yourFile.GetFilename()).MakeLower();
-        sC = m_IgnoreCommentsMap.find(sExt);
-        if (sC == m_IgnoreCommentsMap.end())
+        sExt = CPathUtils::GetFileExtFromPath(m_data.m_yourFile.GetFilename()).MakeLower();
+        sC = m_ignoreCommentsMap.find(sExt);
+        if (sC == m_ignoreCommentsMap.end())
         {
-            sExt = CPathUtils::GetFileExtFromPath(m_Data.m_theirFile.GetFilename()).MakeLower();
-            sC = m_IgnoreCommentsMap.find(sExt);
+            sExt = CPathUtils::GetFileExtFromPath(m_data.m_theirFile.GetFilename()).MakeLower();
+            sC = m_ignoreCommentsMap.find(sExt);
         }
     }
-    if (sC != m_IgnoreCommentsMap.end())
-        m_Data.SetCommentTokens(std::get<0>(sC->second), std::get<1>(sC->second), std::get<2>(sC->second));
+    if (sC != m_ignoreCommentsMap.end())
+        m_data.SetCommentTokens(std::get<0>(sC->second), std::get<1>(sC->second), std::get<2>(sC->second));
     else
-        m_Data.SetCommentTokens(L"", L"", L"");
-    if (!m_Data.Load())
+        m_data.SetCommentTokens(L"", L"", L"");
+    if (!m_data.Load())
     {
         m_pwndLeftView->BuildAllScreen2ViewVector();
         m_pwndLeftView->DocumentUpdated();
@@ -755,8 +752,8 @@ bool CMainFrame::LoadViews(int line)
         m_pwndBottomView->DocumentUpdated();
         m_wndLocatorBar.DocumentUpdated();
         m_wndLineDiffBar.DocumentUpdated();
-        ::MessageBox(m_hWnd, m_Data.GetError(), L"TortoiseMerge", MB_ICONERROR);
-        m_Data.m_mergedFile.SetOutOfUse();
+        ::MessageBox(m_hWnd, m_data.GetError(), L"TortoiseMerge", MB_ICONERROR);
+        m_data.m_mergedFile.SetOutOfUse();
         m_bSaveRequired = false;
         return false;
     }
@@ -778,29 +775,29 @@ bool CMainFrame::LoadViews(int line)
     m_pwndBottomView->SetWritableIsChangable(false);
     m_pwndBottomView->SetTarget(false);
 
-    if (!m_Data.IsBaseFileInUse())
+    if (!m_data.IsBaseFileInUse())
     {
         CProgressDlg progDlg;
-        if (m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
+        if (m_data.IsYourFileInUse() && m_data.IsTheirFileInUse())
         {
-            m_Data.m_baseFile.TransferDetailsFrom(m_Data.m_theirFile);
+            m_data.m_baseFile.TransferDetailsFrom(m_data.m_theirFile);
         }
-        else if ((!m_Data.m_sDiffFile.IsEmpty())&&(!m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg)))
+        else if ((!m_data.m_sDiffFile.IsEmpty())&&(!m_patch.Init(m_data.m_sDiffFile, m_data.m_sPatchPath, &progDlg)))
         {
             progDlg.Stop();
             ClearViewNamesAndPaths();
-            MessageBox(m_Patch.GetErrorMessage(), nullptr, MB_ICONERROR);
+            MessageBox(m_patch.GetErrorMessage(), nullptr, MB_ICONERROR);
             m_bSaveRequired = false;
             return false;
         }
-        if (m_Patch.GetNumberOfFiles() > 0)
+        if (m_patch.GetNumberOfFiles() > 0)
         {
-            CString betterpatchpath = m_Patch.CheckPatchPath(m_Data.m_sPatchPath);
-            if (betterpatchpath.CompareNoCase(m_Data.m_sPatchPath)!=0)
+            CString betterpatchpath = m_patch.CheckPatchPath(m_data.m_sPatchPath);
+            if (betterpatchpath.CompareNoCase(m_data.m_sPatchPath)!=0)
             {
                 progDlg.Stop();
                 CString msg;
-                msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, (LPCTSTR)m_Data.m_sPatchPath, (LPCTSTR)betterpatchpath);
+                msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, static_cast<LPCTSTR>(m_data.m_sPatchPath), static_cast<LPCTSTR>(betterpatchpath));
                 CTaskDialog taskdlg(msg,
                                     CString(MAKEINTRESOURCE(IDS_WARNBETTERPATCHPATHFOUND_TASK2)),
                                     L"TortoiseMerge",
@@ -814,7 +811,7 @@ bool CMainFrame::LoadViews(int line)
                 taskdlg.AddCommandControl(100, task3);
                 CString task4;
                 WCHAR t4[MAX_PATH] = { 0 };
-                cp = m_Data.m_sPatchPath.Left(MAX_PATH - 1);
+                cp = m_data.m_sPatchPath.Left(MAX_PATH - 1);
                 PathCompactPathEx(t4, cp, 50, 0);
                 task4.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK4, t4);
                 taskdlg.AddCommandControl(200, task4);
@@ -823,11 +820,11 @@ bool CMainFrame::LoadViews(int line)
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 if (taskdlg.DoModal(m_hWnd) == 100)
                 {
-                    m_Data.m_sPatchPath = betterpatchpath;
-                    m_Patch.Init(m_Data.m_sDiffFile, m_Data.m_sPatchPath, &progDlg);
+                    m_data.m_sPatchPath = betterpatchpath;
+                    m_patch.Init(m_data.m_sDiffFile, m_data.m_sPatchPath, &progDlg);
                 }
             }
-            m_dlgFilePatches.Init(&m_Patch, this, m_Data.m_sPatchPath, this);
+            m_dlgFilePatches.Init(&m_patch, this, m_data.m_sPatchPath, this);
             m_dlgFilePatches.ShowWindow(SW_SHOW);
             ClearViewNamesAndPaths();
             if (!m_wndSplitter.IsRowHidden(1))
@@ -838,11 +835,11 @@ bool CMainFrame::LoadViews(int line)
             progDlg.Stop();
         }
     }
-    if (m_Data.IsBaseFileInUse() && !m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
+    if (m_data.IsBaseFileInUse() && !m_data.IsYourFileInUse() && m_data.IsTheirFileInUse())
     {
-        m_Data.m_yourFile.TransferDetailsFrom(m_Data.m_theirFile);
+        m_data.m_yourFile.TransferDetailsFrom(m_data.m_theirFile);
     }
-    if (m_Data.IsBaseFileInUse() && m_Data.IsYourFileInUse() && !m_Data.IsTheirFileInUse())
+    if (m_data.IsBaseFileInUse() && m_data.IsYourFileInUse() && !m_data.IsTheirFileInUse())
     {
         //diff between YOUR and BASE
         if (m_bOneWay)
@@ -851,13 +848,13 @@ bool CMainFrame::LoadViews(int line)
             if (!m_wndSplitter2.IsColumnHidden(1))
                 m_wndSplitter2.HideColumn(1);
 
-            m_pwndLeftView->m_pViewData = &m_Data.m_YourBaseBoth;
-            m_pwndLeftView->SetTextType(m_Data.m_arYourFile.GetUnicodeType());
-            m_pwndLeftView->SetLineEndingStyle(m_Data.m_arYourFile.GetLineEndings());
-            m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName() + L" - " + m_Data.m_yourFile.GetWindowName();
-            m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename() + L" - " + m_Data.m_yourFile.GetFilename();
-            m_pwndLeftView->m_sReflectedName = m_Data.m_yourFile.GetReflectedName();
-            m_pwndLeftView->m_pWorkingFile = &m_Data.m_yourFile;
+            m_pwndLeftView->m_pViewData = &m_data.m_yourBaseBoth;
+            m_pwndLeftView->SetTextType(m_data.m_arYourFile.GetUnicodeType());
+            m_pwndLeftView->SetLineEndingStyle(m_data.m_arYourFile.GetLineEndings());
+            m_pwndLeftView->m_sWindowName = m_data.m_baseFile.GetWindowName() + L" - " + m_data.m_yourFile.GetWindowName();
+            m_pwndLeftView->m_sFullFilePath = m_data.m_baseFile.GetFilename() + L" - " + m_data.m_yourFile.GetFilename();
+            m_pwndLeftView->m_sReflectedName = m_data.m_yourFile.GetReflectedName();
+            m_pwndLeftView->m_pWorkingFile = &m_data.m_yourFile;
             m_pwndLeftView->SetTarget();
             m_pwndLeftView->SetWritableIsChangable(true);
 
@@ -879,24 +876,24 @@ bool CMainFrame::LoadViews(int line)
             if (m_wndSplitter2.IsColumnHidden(1))
                 m_wndSplitter2.ShowColumn();
 
-            m_pwndLeftView->m_pViewData = &m_Data.m_YourBaseLeft;
-            m_pwndLeftView->SetTextType(m_Data.m_arBaseFile.GetUnicodeType());
-            m_pwndLeftView->SetLineEndingStyle(m_Data.m_arBaseFile.GetLineEndings());
-            m_pwndLeftView->m_sWindowName = m_Data.m_baseFile.GetWindowName();
-            m_pwndLeftView->m_sFullFilePath = m_Data.m_baseFile.GetFilename();
-            m_pwndLeftView->m_sConvertedFilePath = m_Data.m_baseFile.GetConvertedFileName();
-            m_pwndLeftView->m_sReflectedName = m_Data.m_baseFile.GetReflectedName();
-            m_pwndLeftView->m_pWorkingFile = &m_Data.m_baseFile;
+            m_pwndLeftView->m_pViewData = &m_data.m_yourBaseLeft;
+            m_pwndLeftView->SetTextType(m_data.m_arBaseFile.GetUnicodeType());
+            m_pwndLeftView->SetLineEndingStyle(m_data.m_arBaseFile.GetLineEndings());
+            m_pwndLeftView->m_sWindowName = m_data.m_baseFile.GetWindowName();
+            m_pwndLeftView->m_sFullFilePath = m_data.m_baseFile.GetFilename();
+            m_pwndLeftView->m_sConvertedFilePath = m_data.m_baseFile.GetConvertedFileName();
+            m_pwndLeftView->m_sReflectedName = m_data.m_baseFile.GetReflectedName();
+            m_pwndLeftView->m_pWorkingFile = &m_data.m_baseFile;
             m_pwndLeftView->SetWritableIsChangable(true);
 
-            m_pwndRightView->m_pViewData = &m_Data.m_YourBaseRight;
-            m_pwndRightView->SetTextType(m_Data.m_arYourFile.GetUnicodeType());
-            m_pwndRightView->SetLineEndingStyle(m_Data.m_arYourFile.GetLineEndings());
-            m_pwndRightView->m_sWindowName = m_Data.m_yourFile.GetWindowName();
-            m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
-            m_pwndRightView->m_sConvertedFilePath = m_Data.m_yourFile.GetConvertedFileName();
-            m_pwndRightView->m_sReflectedName = m_Data.m_yourFile.GetReflectedName();
-            m_pwndRightView->m_pWorkingFile = &m_Data.m_yourFile;
+            m_pwndRightView->m_pViewData = &m_data.m_yourBaseRight;
+            m_pwndRightView->SetTextType(m_data.m_arYourFile.GetUnicodeType());
+            m_pwndRightView->SetLineEndingStyle(m_data.m_arYourFile.GetLineEndings());
+            m_pwndRightView->m_sWindowName = m_data.m_yourFile.GetWindowName();
+            m_pwndRightView->m_sFullFilePath = m_data.m_yourFile.GetFilename();
+            m_pwndRightView->m_sConvertedFilePath = m_data.m_yourFile.GetConvertedFileName();
+            m_pwndRightView->m_sReflectedName = m_data.m_yourFile.GetReflectedName();
+            m_pwndRightView->m_pWorkingFile = &m_data.m_yourFile;
             m_pwndRightView->SetWritable();
             m_pwndRightView->SetTarget();
 
@@ -915,8 +912,8 @@ bool CMainFrame::LoadViews(int line)
         {
             // files appear identical, show a dialog informing the user that there are or might
             // be other differences
-            bool hasEncodingDiff = m_Data.m_arBaseFile.GetUnicodeType() != m_Data.m_arYourFile.GetUnicodeType();
-            bool hasEOLDiff = m_Data.m_arBaseFile.GetLineEndings() != m_Data.m_arYourFile.GetLineEndings();
+            bool hasEncodingDiff = m_data.m_arBaseFile.GetUnicodeType() != m_data.m_arYourFile.GetUnicodeType();
+            bool hasEOLDiff = m_data.m_arBaseFile.GetLineEndings() != m_data.m_arYourFile.GetLineEndings();
             if (hasWhitespaceMods || hasEncodingDiff || hasEOLDiff)
             {
                 // text is identical, but the files do not match
@@ -934,9 +931,9 @@ bool CMainFrame::LoadViews(int line)
                     sWarning += L"\r\n";
                     sWarning += sEncoding;
                     sWarning += L" (";
-                    sWarning += m_Data.m_arBaseFile.GetEncodingName(m_Data.m_arBaseFile.GetUnicodeType());
+                    sWarning += m_data.m_arBaseFile.GetEncodingName(m_data.m_arBaseFile.GetUnicodeType());
                     sWarning += L", ";
-                    sWarning += m_Data.m_arYourFile.GetEncodingName(m_Data.m_arYourFile.GetUnicodeType());
+                    sWarning += m_data.m_arYourFile.GetEncodingName(m_data.m_arYourFile.GetUnicodeType());
                     sWarning += L")";
                 }
                 if (hasEOLDiff)
@@ -948,42 +945,42 @@ bool CMainFrame::LoadViews(int line)
             }
         }
     }
-    else if (m_Data.IsBaseFileInUse() && m_Data.IsYourFileInUse() && m_Data.IsTheirFileInUse())
+    else if (m_data.IsBaseFileInUse() && m_data.IsYourFileInUse() && m_data.IsTheirFileInUse())
     {
         //diff between THEIR, YOUR and BASE
         m_pwndBottomView->SetWritable();
         m_pwndBottomView->SetTarget();
         pwndActiveView = m_pwndBottomView;
 
-        m_pwndLeftView->m_pViewData = &m_Data.m_TheirBaseBoth;
-        m_pwndLeftView->SetTextType(m_Data.m_arTheirFile.GetUnicodeType());
-        m_pwndLeftView->SetLineEndingStyle(m_Data.m_arTheirFile.GetLineEndings());
+        m_pwndLeftView->m_pViewData = &m_data.m_theirBaseBoth;
+        m_pwndLeftView->SetTextType(m_data.m_arTheirFile.GetUnicodeType());
+        m_pwndLeftView->SetLineEndingStyle(m_data.m_arTheirFile.GetLineEndings());
         m_pwndLeftView->m_sWindowName.LoadString(IDS_VIEWTITLE_THEIRS);
-        m_pwndLeftView->m_sWindowName += L" - " + m_Data.m_theirFile.GetWindowName();
-        m_pwndLeftView->m_sFullFilePath = m_Data.m_theirFile.GetFilename();
-        m_pwndLeftView->m_sConvertedFilePath = m_Data.m_theirFile.GetConvertedFileName();
-        m_pwndLeftView->m_sReflectedName = m_Data.m_theirFile.GetReflectedName();
-        m_pwndLeftView->m_pWorkingFile = &m_Data.m_theirFile;
+        m_pwndLeftView->m_sWindowName += L" - " + m_data.m_theirFile.GetWindowName();
+        m_pwndLeftView->m_sFullFilePath = m_data.m_theirFile.GetFilename();
+        m_pwndLeftView->m_sConvertedFilePath = m_data.m_theirFile.GetConvertedFileName();
+        m_pwndLeftView->m_sReflectedName = m_data.m_theirFile.GetReflectedName();
+        m_pwndLeftView->m_pWorkingFile = &m_data.m_theirFile;
 
-        m_pwndRightView->m_pViewData = &m_Data.m_YourBaseBoth;
-        m_pwndRightView->SetTextType(m_Data.m_arYourFile.GetUnicodeType());
-        m_pwndRightView->SetLineEndingStyle(m_Data.m_arYourFile.GetLineEndings());
+        m_pwndRightView->m_pViewData = &m_data.m_yourBaseBoth;
+        m_pwndRightView->SetTextType(m_data.m_arYourFile.GetUnicodeType());
+        m_pwndRightView->SetLineEndingStyle(m_data.m_arYourFile.GetLineEndings());
         m_pwndRightView->m_sWindowName.LoadString(IDS_VIEWTITLE_MINE);
-        m_pwndRightView->m_sWindowName += L" - " + m_Data.m_yourFile.GetWindowName();
-        m_pwndRightView->m_sFullFilePath = m_Data.m_yourFile.GetFilename();
-        m_pwndRightView->m_sConvertedFilePath = m_Data.m_yourFile.GetConvertedFileName();
-        m_pwndRightView->m_sReflectedName = m_Data.m_yourFile.GetReflectedName();
-        m_pwndRightView->m_pWorkingFile = &m_Data.m_yourFile;
+        m_pwndRightView->m_sWindowName += L" - " + m_data.m_yourFile.GetWindowName();
+        m_pwndRightView->m_sFullFilePath = m_data.m_yourFile.GetFilename();
+        m_pwndRightView->m_sConvertedFilePath = m_data.m_yourFile.GetConvertedFileName();
+        m_pwndRightView->m_sReflectedName = m_data.m_yourFile.GetReflectedName();
+        m_pwndRightView->m_pWorkingFile = &m_data.m_yourFile;
 
-        m_pwndBottomView->m_pViewData = &m_Data.m_Diff3;
-        m_pwndBottomView->SetTextType(m_Data.m_arTheirFile.GetUnicodeType());
-        m_pwndBottomView->SetLineEndingStyle(m_Data.m_arTheirFile.GetLineEndings());
+        m_pwndBottomView->m_pViewData = &m_data.m_diff3;
+        m_pwndBottomView->SetTextType(m_data.m_arTheirFile.GetUnicodeType());
+        m_pwndBottomView->SetLineEndingStyle(m_data.m_arTheirFile.GetLineEndings());
         m_pwndBottomView->m_sWindowName.LoadString(IDS_VIEWTITLE_MERGED);
-        m_pwndBottomView->m_sWindowName += L" - " + m_Data.m_mergedFile.GetWindowName();
-        m_pwndBottomView->m_sFullFilePath = m_Data.m_mergedFile.GetFilename();
-        m_pwndBottomView->m_sConvertedFilePath = m_Data.m_mergedFile.GetConvertedFileName();
-        m_pwndBottomView->m_sReflectedName = m_Data.m_mergedFile.GetReflectedName();
-        m_pwndBottomView->m_pWorkingFile = &m_Data.m_mergedFile;
+        m_pwndBottomView->m_sWindowName += L" - " + m_data.m_mergedFile.GetWindowName();
+        m_pwndBottomView->m_sFullFilePath = m_data.m_mergedFile.GetFilename();
+        m_pwndBottomView->m_sConvertedFilePath = m_data.m_mergedFile.GetConvertedFileName();
+        m_pwndBottomView->m_sReflectedName = m_data.m_mergedFile.GetReflectedName();
+        m_pwndBottomView->m_pWorkingFile = &m_data.m_mergedFile;
 
         if (m_wndSplitter2.IsColumnHidden(1))
             m_wndSplitter2.ShowColumn();
@@ -996,9 +993,9 @@ bool CMainFrame::LoadViews(int line)
         m_wndLineDiffBar.ShowPane(false, false, true);
         m_wndLineDiffBar.DocumentUpdated();
     }
-    if (!m_Data.m_mergedFile.InUse())
+    if (!m_data.m_mergedFile.InUse())
     {
-        m_Data.m_mergedFile.SetFileName(m_Data.m_yourFile.GetFilename());
+        m_data.m_mergedFile.SetFileName(m_data.m_yourFile.GetFilename());
     }
     m_pwndLeftView->BuildAllScreen2ViewVector();
     m_pwndLeftView->DocumentUpdated();
@@ -1051,10 +1048,10 @@ bool CMainFrame::LoadViews(int line)
     }
     else
     {
-        CRegDWORD regFirstDiff = CRegDWORD(L"Software\\TortoiseMerge\\FirstDiffOnLoad", TRUE);
+        CRegDWORD regFirstDiff     = CRegDWORD(L"Software\\TortoiseMerge\\FirstDiffOnLoad", TRUE);
         CRegDWORD regFirstConflict = CRegDWORD(L"Software\\TortoiseMerge\\FirstConflictOnLoad", TRUE);
-        bool bGoFirstDiff = (0 != (DWORD)regFirstDiff);
-        bool bGoFirstConflict = (0 != (DWORD)regFirstConflict);
+        bool      bGoFirstDiff     = (0 != static_cast<DWORD>(regFirstDiff));
+        bool      bGoFirstConflict = (0 != static_cast<DWORD>(regFirstConflict));
         if (bGoFirstConflict && (CheckResolved()>=0))
         {
             pwndActiveView->GoToFirstConflict();
@@ -1150,6 +1147,7 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnViewWhitespaces()
 {
     CRegDWORD regViewWhitespaces = CRegDWORD(L"Software\\TortoiseMerge\\ViewWhitespaces", 1);
@@ -1176,6 +1174,7 @@ void CMainFrame::OnViewWhitespaces()
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewWhitespaces(CCmdUI *pCmdUI)
 {
     if (m_pwndLeftView)
@@ -1184,13 +1183,14 @@ void CMainFrame::OnUpdateViewWhitespaces(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewCollapsed()
 {
-    m_regCollapsed = !(DWORD)m_regCollapsed;
-    m_bCollapsed = !!(DWORD)m_regCollapsed;
+    m_regCollapsed = !static_cast<DWORD>(m_regCollapsed);
+    m_bCollapsed   = !!static_cast<DWORD>(m_regCollapsed);
 
     OnViewTextFoldUnfold();
     m_wndLocatorBar.Invalidate();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewCollapsed(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(m_bCollapsed);
@@ -1198,7 +1198,7 @@ void CMainFrame::OnUpdateViewCollapsed(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewWraplonglines()
 {
-    m_bWrapLines = !(DWORD)m_regWrapLines;
+    m_bWrapLines   = !static_cast<DWORD>(m_regWrapLines);
     m_regWrapLines = m_bWrapLines;
 
     if (m_pwndLeftView)   m_pwndLeftView  ->WrapChanged();
@@ -1215,9 +1215,10 @@ void CMainFrame::OnViewTextFoldUnfold()
     OnViewTextFoldUnfold(m_pwndBottomView);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CMainFrame::OnViewTextFoldUnfold(CBaseView* view)
 {
-    if (view == 0)
+    if (view == nullptr)
         return;
     view->BuildAllScreen2ViewVector();
     view->UpdateCaret();
@@ -1225,6 +1226,7 @@ void CMainFrame::OnViewTextFoldUnfold(CBaseView* view)
     view->EnsureCaretVisible();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewWraplonglines(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(m_bWrapLines);
@@ -1258,22 +1260,22 @@ void CMainFrame::ShowDiffBar(bool bShow)
     }
 }
 
-void CMainFrame::DiffLeftToBase()
+void CMainFrame::DiffLeftToBase() const
 {
-    DiffTwo(m_Data.m_baseFile, m_Data.m_theirFile);
+    DiffTwo(m_data.m_baseFile, m_data.m_theirFile);
 }
 
-void CMainFrame::DiffRightToBase()
+void CMainFrame::DiffRightToBase() const
 {
-    DiffTwo(m_Data.m_baseFile, m_Data.m_yourFile);
+    DiffTwo(m_data.m_baseFile, m_data.m_yourFile);
 }
 
 void CMainFrame::DiffTwo(const CWorkingFile& file1, const CWorkingFile& file2)
 {
-    wchar_t ownpath[MAX_PATH] = { 0 };
-    GetModuleFileName(nullptr, ownpath, MAX_PATH);
+    wchar_t ownPath[MAX_PATH] = { 0 };
+    GetModuleFileName(nullptr, ownPath, MAX_PATH);
     CString sCmd;
-    sCmd.Format(L"\"%s\"", ownpath);
+    sCmd.Format(L"\"%s\"", ownPath);
     sCmd += L" /base:\"";
     sCmd += file1.GetFilename();
     sCmd += L"\" /mine:\"";
@@ -1290,10 +1292,13 @@ void CMainFrame::DiffTwo(const CWorkingFile& file1, const CWorkingFile& file2)
 // Implementation helper only,
 // use CTheme::Instance::SetDarkTheme to actually set the theme.
 #ifndef UI_PKEY_DarkModeRibbon
+// ReSharper disable CppInconsistentNaming
 DEFINE_UIPROPERTYKEY(UI_PKEY_DarkModeRibbon, VT_BOOL, 2004);
 DEFINE_UIPROPERTYKEY(UI_PKEY_ApplicationButtonColor, VT_UI4, 2003);
+// ReSharper restore CppInconsistentNaming
 #endif
-void CMainFrame::SetTheme(bool bDark)
+
+void CMainFrame::SetTheme(bool bDark) const
 {
     if (m_bUseRibbons)
         SetAccentColor();
@@ -1310,7 +1315,7 @@ void CMainFrame::SetTheme(bool bDark)
             spPropertyStore->SetValue(UI_PKEY_DarkModeRibbon, propvarDarkMode);
             spPropertyStore->Commit();
         }
-        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetStockObject(BLACK_BRUSH));
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetStockObject(BLACK_BRUSH)));
         BOOL darkFlag = TRUE;
         DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
         DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
@@ -1330,7 +1335,7 @@ void CMainFrame::SetTheme(bool bDark)
             spPropertyStore->SetValue(UI_PKEY_DarkModeRibbon, propvarDarkMode);
             spPropertyStore->Commit();
         }
-        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, (LONG_PTR)GetSysColorBrush(COLOR_3DFACE));
+        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetSysColorBrush(COLOR_3DFACE)));
         BOOL darkFlag = FALSE;
         DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
         DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
@@ -1341,7 +1346,7 @@ void CMainFrame::SetTheme(bool bDark)
     ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
-void CMainFrame::SetAccentColor()
+void CMainFrame::SetAccentColor() const
 {
     if (!m_bUseRibbons)
         return;
@@ -1375,12 +1380,12 @@ int CMainFrame::CheckResolved()
     m_bHasConflicts = true;
     if (IsViewGood(m_pwndBottomView))
     {
-        CViewData* viewdata = m_pwndBottomView->m_pViewData;
-        if (viewdata)
+        CViewData* viewData = m_pwndBottomView->m_pViewData;
+        if (viewData)
         {
-            for (int i=0; i<viewdata->GetCount(); i++)
+            for (int i=0; i<viewData->GetCount(); i++)
             {
-                const DiffStates state = viewdata->GetState(i);
+                const DiffStates state = viewData->GetState(i);
                 if ((DIFFSTATE_CONFLICTED == state)||(DIFFSTATE_CONFLICTED_IGNORED == state))
                     return i;
             }
@@ -1394,7 +1399,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
 {
     CBaseView* pView = nullptr;
     CViewData* pViewData = nullptr;
-    CFileTextLines * pOriginFile = &m_Data.m_arBaseFile;
+    CFileTextLines * pOriginFile = &m_data.m_arBaseFile;
     if (IsViewGood(m_pwndBottomView))
     {
         pView = m_pwndBottomView;
@@ -1404,10 +1409,10 @@ int CMainFrame::SaveFile(const CString& sFilePath)
     {
         pView = m_pwndRightView;
         pViewData = m_pwndRightView->m_pViewData;
-        if (m_Data.IsYourFileInUse())
-            pOriginFile = &m_Data.m_arYourFile;
-        else if (m_Data.IsTheirFileInUse())
-            pOriginFile = &m_Data.m_arTheirFile;
+        if (m_data.IsYourFileInUse())
+            pOriginFile = &m_data.m_arYourFile;
+        else if (m_data.IsTheirFileInUse())
+            pOriginFile = &m_data.m_arTheirFile;
     }
     else
     {
@@ -1420,8 +1425,8 @@ int CMainFrame::SaveFile(const CString& sFilePath)
         CFileTextLines file;
         pOriginFile->CopySettings(&file);
         CFileTextLines::SaveParams saveParams;
-        saveParams.m_LineEndings = pView->GetLineEndings();
-        saveParams.m_UnicodeType = pView->GetTextType();
+        saveParams.lineEndings = pView->GetLineEndings();
+        saveParams.unicodeType = pView->GetTextType();
         file.SetSaveParams(saveParams);
         for (int i=0; i<pViewData->GetCount(); i++)
         {
@@ -1471,17 +1476,17 @@ int CMainFrame::SaveFile(const CString& sFilePath)
             ::MessageBox(m_hWnd, file.GetErrorString(), L"TortoiseMerge", MB_ICONERROR);
             return -1;
         }
-        if (sFilePath == m_Data.m_baseFile.GetFilename())
+        if (sFilePath == m_data.m_baseFile.GetFilename())
         {
-            m_Data.m_baseFile.StoreFileAttributes();
+            m_data.m_baseFile.StoreFileAttributes();
         }
-        if (sFilePath == m_Data.m_theirFile.GetFilename())
+        if (sFilePath == m_data.m_theirFile.GetFilename())
         {
-            m_Data.m_theirFile.StoreFileAttributes();
+            m_data.m_theirFile.StoreFileAttributes();
         }
-        if (sFilePath == m_Data.m_yourFile.GetFilename())
+        if (sFilePath == m_data.m_yourFile.GetFilename())
         {
-            m_Data.m_yourFile.StoreFileAttributes();
+            m_data.m_yourFile.StoreFileAttributes();
         }
         /*if (sFilePath == m_Data.m_mergedFile.GetFilename())
         {
@@ -1530,38 +1535,38 @@ void CMainFrame::OnFileSave()
         {
             // both views
             UINT ret = IDNO;
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_SAVE_MORE)),
+            CTaskDialog taskDlg(CString(MAKEINTRESOURCE(IDS_SAVE_MORE)),
                                 CString(MAKEINTRESOURCE(IDS_SAVE)),
                                 CString(MAKEINTRESOURCE(IDS_APPNAME)),
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             CString sTaskTemp;
             if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
-                sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, (LPCTSTR)m_pwndLeftView->m_pWorkingFile->GetFilename());
+                sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, static_cast<LPCTSTR>(m_pwndLeftView->m_pWorkingFile->GetFilename()));
             else
                 sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVELEFTAS));
-            taskdlg.AddCommandControl(201, sTaskTemp, bLeftIsModified);// left
+            taskDlg.AddCommandControl(201, sTaskTemp, bLeftIsModified);// left
             if (bLeftIsModified)
             {
-                taskdlg.SetDefaultCommandControl(201);
+                taskDlg.SetDefaultCommandControl(201);
             }
             if (m_pwndRightView->m_pWorkingFile->InUse() && !m_pwndRightView->m_pWorkingFile->IsReadonly())
-                sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, (LPCTSTR)m_pwndRightView->m_pWorkingFile->GetFilename());
+                sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, static_cast<LPCTSTR>(m_pwndRightView->m_pWorkingFile->GetFilename()));
             else
                 sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVERIGHTAS));
-            taskdlg.AddCommandControl(202, sTaskTemp, bRightIsModified); // right
+            taskDlg.AddCommandControl(202, sTaskTemp, bRightIsModified); // right
             if (bRightIsModified)
             {
-                taskdlg.SetDefaultCommandControl(202);
+                taskDlg.SetDefaultCommandControl(202);
             }
-            taskdlg.AddCommandControl(203, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVEALL2)), nModifiedViewCount > 1); // both
+            taskDlg.AddCommandControl(203, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVEALL2)), nModifiedViewCount > 1); // both
             if (nModifiedViewCount > 1)
             {
-                taskdlg.SetDefaultCommandControl(203);
+                taskDlg.SetDefaultCommandControl(203);
             }
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            ret = (UINT)taskdlg.DoModal(m_hWnd);
+            taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskDlg.SetMainIcon(TD_WARNING_ICON);
+            ret = static_cast<UINT>(taskDlg.DoModal(m_hWnd));
             switch (ret)
             {
                 case 201: // left
@@ -1569,6 +1574,7 @@ void CMainFrame::OnFileSave()
                     break;
                 case 203: // both
                     m_pwndLeftView->SaveFile(SAVE_REMOVEDLINES);
+                    [[fallthrough]];
                 case 202: // right
                     m_pwndRightView->SaveFile();
                     break;
@@ -1584,29 +1590,29 @@ void CMainFrame::OnFileSave()
 
 void CMainFrame::PatchSave()
 {
-    bool bDoesNotExist = !PathFileExists(m_Data.m_mergedFile.GetFilename());
-    if (m_Data.m_bPatchRequired)
+    bool bDoesNotExist = !PathFileExists(m_data.m_mergedFile.GetFilename());
+    if (m_data.m_bPatchRequired)
     {
-        m_Patch.PatchPath(m_Data.m_mergedFile.GetFilename());
+        m_patch.PatchPath(m_data.m_mergedFile.GetFilename());
     }
-    if (!PathIsDirectory(m_Data.m_mergedFile.GetFilename()))
+    if (!PathIsDirectory(m_data.m_mergedFile.GetFilename()))
     {
-        int saveret = SaveFile(m_Data.m_mergedFile.GetFilename());
-        if (saveret==0)
+        int saveRet = SaveFile(m_data.m_mergedFile.GetFilename());
+        if (saveRet==0)
         {
             // file was saved with 0 lines, remove it.
-            m_Patch.RemoveFile(m_Data.m_mergedFile.GetFilename());
+            m_patch.RemoveFile(m_data.m_mergedFile.GetFilename());
             // just in case
-            DeleteFile(m_Data.m_mergedFile.GetFilename());
+            DeleteFile(m_data.m_mergedFile.GetFilename());
         }
-        m_Data.m_mergedFile.StoreFileAttributes();
-        if (m_Data.m_mergedFile.GetFilename() == m_Data.m_yourFile.GetFilename())
-            m_Data.m_yourFile.StoreFileAttributes();
-        if ((bDoesNotExist)&&(DWORD(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE))))
+        m_data.m_mergedFile.StoreFileAttributes();
+        if (m_data.m_mergedFile.GetFilename() == m_data.m_yourFile.GetFilename())
+            m_data.m_yourFile.StoreFileAttributes();
+        if ((bDoesNotExist)&&static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE)))
         {
             // call TortoiseProc to add the new file to version control
             CString cmd = L"/command:add /noui /path:\"";
-            cmd += m_Data.m_mergedFile.GetFilename() + L"\"";
+            cmd += m_data.m_mergedFile.GetFilename() + L"\"";
             CAppUtils::RunTortoiseProc(cmd);
         }
     }
@@ -1614,9 +1620,9 @@ void CMainFrame::PatchSave()
 
 svn_error_t * CMainFrame::getallstatus(void * baton, const char * /*path*/, const svn_client_status_t * status, apr_pool_t * /*pool*/)
 {
-    svn_wc_status_kind * s = (svn_wc_status_kind *)baton;
-    *s = status->node_status;
-    return SVN_NO_ERROR;
+    svn_wc_status_kind * s = static_cast<svn_wc_status_kind*>(baton);
+    *s                     = status->node_status;
+    return nullptr;
 }
 
 bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
@@ -1626,19 +1632,19 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         CString sTitle(MAKEINTRESOURCE(IDS_WARNMARKEDBLOCKS));
         CString sSubTitle(MAKEINTRESOURCE(IDS_ASKFORSAVE_MARKEDBLOCKS));
         CString sAppName(MAKEINTRESOURCE(IDS_APPNAME));
-        CTaskDialog taskdlg(sTitle,
+        CTaskDialog taskDlg(sTitle,
                             sSubTitle,
                             sAppName,
                             0,
                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-        taskdlg.AddCommandControl(10, CString(MAKEINTRESOURCE(IDS_MARKEDBLOCKSSAVEINCLUDE)));
-        taskdlg.AddCommandControl(11, CString(MAKEINTRESOURCE(IDS_MARKEDBLOCKSSAVEEXCLUDE)));
-        taskdlg.AddCommandControl(12, CString(MAKEINTRESOURCE(IDS_MARKEDBLCOKSSAVEIGNORE)));
-        taskdlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_CANCEL_OPEN)));
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetDefaultCommandControl(10);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        UINT ret = (UINT)taskdlg.DoModal(m_hWnd);
+        taskDlg.AddCommandControl(10, CString(MAKEINTRESOURCE(IDS_MARKEDBLOCKSSAVEINCLUDE)));
+        taskDlg.AddCommandControl(11, CString(MAKEINTRESOURCE(IDS_MARKEDBLOCKSSAVEEXCLUDE)));
+        taskDlg.AddCommandControl(12, CString(MAKEINTRESOURCE(IDS_MARKEDBLCOKSSAVEIGNORE)));
+        taskDlg.AddCommandControl(IDCANCEL, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_CANCEL_OPEN)));
+        taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskDlg.SetDefaultCommandControl(10);
+        taskDlg.SetMainIcon(TD_WARNING_ICON);
+        UINT ret = static_cast<UINT>(taskDlg.DoModal(m_hWnd));
         if (ret == 10)
             m_pwndRightView->LeaveOnlyMarkedBlocks();
         else if (ret == 11)
@@ -1649,11 +1655,11 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
             return false;
     }
 
-    if (!m_Data.m_mergedFile.InUse())
+    if (!m_data.m_mergedFile.InUse())
         return FileSaveAs(bCheckResolved);
     // check if the file has the readonly attribute set
     bool bDoesNotExist = false;
-    DWORD fAttribs = GetFileAttributes(m_Data.m_mergedFile.GetFilename());
+    DWORD fAttribs = GetFileAttributes(m_data.m_mergedFile.GetFilename());
     if ((fAttribs != INVALID_FILE_ATTRIBUTES)&&(fAttribs & FILE_ATTRIBUTE_READONLY))
         return FileSaveAs(bCheckResolved);
     if (fAttribs == INVALID_FILE_ATTRIBUTES)
@@ -1663,36 +1669,36 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     if (bCheckResolved && HasConflictsWontKeep())
         return false;
 
-    if (((DWORD)CRegDWORD(L"Software\\TortoiseMerge\\Backup")) != 0)
+    if (static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseMerge\\Backup")) != 0)
     {
-        MoveFileEx(m_Data.m_mergedFile.GetFilename(), m_Data.m_mergedFile.GetFilename() + L".bak", MOVEFILE_COPY_ALLOWED | MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH);
+        MoveFileEx(m_data.m_mergedFile.GetFilename(), m_data.m_mergedFile.GetFilename() + L".bak", MOVEFILE_COPY_ALLOWED | MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH);
     }
-    if (m_Data.m_bPatchRequired)
+    if (m_data.m_bPatchRequired)
     {
-        m_Patch.PatchPath(m_Data.m_mergedFile.GetFilename());
+        m_patch.PatchPath(m_data.m_mergedFile.GetFilename());
     }
-    int saveret = SaveFile(m_Data.m_mergedFile.GetFilename());
+    int saveret = SaveFile(m_data.m_mergedFile.GetFilename());
     if (saveret==0)
     {
         // file was saved with 0 lines!
         // ask the user if the file should be deleted
         CString msg;
-        msg.Format(IDS_DELETEWHENEMPTY, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
-        CTaskDialog taskdlg(msg,
+        msg.Format(IDS_DELETEWHENEMPTY, static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(m_data.m_mergedFile.GetFilename())));
+        CTaskDialog taskDlg(msg,
                             CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK2)),
                             CString(MAKEINTRESOURCE(IDS_APPNAME)),
                             0,
                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-        taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK3)));
-        taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK4)));
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetDefaultCommandControl(1);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        bool bDelete = (taskdlg.DoModal(m_hWnd) == 100);
+        taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK3)));
+        taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK4)));
+        taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskDlg.SetDefaultCommandControl(1);
+        taskDlg.SetMainIcon(TD_WARNING_ICON);
+        bool bDelete = (taskDlg.DoModal(m_hWnd) == 100);
         if (bDelete)
         {
-            m_Patch.RemoveFile(m_Data.m_mergedFile.GetFilename());
-            DeleteFile(m_Data.m_mergedFile.GetFilename());
+            m_patch.RemoveFile(m_data.m_mergedFile.GetFilename());
+            DeleteFile(m_data.m_mergedFile.GetFilename());
         }
     }
     else if (saveret < 0)
@@ -1705,16 +1711,16 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     // and if there aren't, ask to mark the file as resolved
     if (IsViewGood(m_pwndBottomView) && !m_bHasConflicts && bCheckResolved)
     {
-        CTSVNPath svnpath = CTSVNPath(m_Data.m_mergedFile.GetFilename());
-        if (m_bAskToMarkAsResolved && SVNHelper::IsVersioned(svnpath, true))
+        CTSVNPath svnPath = CTSVNPath(m_data.m_mergedFile.GetFilename());
+        if (m_bAskToMarkAsResolved && SVNHelper::IsVersioned(svnPath, true))
         {
             SVNPool pool;
             svn_opt_revision_t rev;
             rev.kind = svn_opt_revision_unspecified;
-            svn_wc_status_kind statuskind = svn_wc_status_none;
+            svn_wc_status_kind statusKind = svn_wc_status_none;
             svn_client_ctx_t* ctx = nullptr;
             svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
-            svn_error_t* err = svn_client_status6(nullptr, ctx, svnpath.GetSVNApiPath(pool), &rev,
+            svn_error_t* err = svn_client_status6(nullptr, ctx, svnPath.GetSVNApiPath(pool), &rev,
                                                    svn_depth_empty,
                                                    true,
                                                    false,
@@ -1724,23 +1730,23 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                                                    false,
                                                    nullptr,
                                                    getallstatus,
-                                                   &statuskind,
+                                                   &statusKind,
                                                    pool);
-            if ((!err) && (statuskind == svn_wc_status_conflicted))
+            if ((!err) && (statusKind == svn_wc_status_conflicted))
             {
                 CString msg;
-                msg.Format(IDS_MARKASRESOLVED, (LPCTSTR)CPathUtils::GetFileNameFromPath(m_Data.m_mergedFile.GetFilename()));
-                CTaskDialog taskdlg(msg,
+                msg.Format(IDS_MARKASRESOLVED, static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(m_data.m_mergedFile.GetFilename())));
+                CTaskDialog taskDlg(msg,
                                     CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK2)),
                                     CString(MAKEINTRESOURCE(IDS_APPNAME)),
                                     0,
                                     TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK3)));
-                taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK4)));
-                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskdlg.SetDefaultCommandControl(1);
-                taskdlg.SetMainIcon(TD_WARNING_ICON);
-                bool bResolve = (taskdlg.DoModal(m_hWnd) == 100);
+                taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK3)));
+                taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK4)));
+                taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                taskDlg.SetDefaultCommandControl(1);
+                taskDlg.SetMainIcon(TD_WARNING_ICON);
+                bool bResolve = (taskDlg.DoModal(m_hWnd) == 100);
                 if (bResolve)
                 {
                     MarkAsResolved();
@@ -1751,13 +1757,13 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     }
 
     m_bSaveRequired = false;
-    m_Data.m_mergedFile.StoreFileAttributes();
+    m_data.m_mergedFile.StoreFileAttributes();
 
-    if ((bDoesNotExist)&&(DWORD(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE))))
+    if ((bDoesNotExist)&&static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE)))
     {
         // call TortoiseProc to add the new file to version control
         CString cmd = L"/command:add /noui /path:\"";
-        cmd += m_Data.m_mergedFile.GetFilename() + L"\"";
+        cmd += m_data.m_mergedFile.GetFilename() + L"\"";
         if(!CAppUtils::RunTortoiseProc(cmd))
             return false;
     }
@@ -1797,7 +1803,7 @@ void CMainFrame::OnFileSaveAs()
     }
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
     taskdlg.SetMainIcon(bHaveConflict ? TD_WARNING_ICON : TD_INFORMATION_ICON);
-    int nCommand = (int)taskdlg.DoModal(m_hWnd);
+    int     nCommand = static_cast<int>(taskdlg.DoModal(m_hWnd));
     CString sFileName;
     switch (nCommand)
     {
@@ -1839,15 +1845,16 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
     return true;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
 {
     BOOL bEnable = FALSE;
-    if (m_Data.m_mergedFile.InUse())
+    if (m_data.m_mergedFile.InUse())
     {
         if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
             bEnable = TRUE;
         else if ( (IsViewGood(m_pwndRightView)&&(m_pwndRightView->m_pViewData)) &&
-                  (m_pwndRightView->IsModified() || (m_Data.m_yourFile.GetWindowName().Right(9).Compare(L": patched")==0)) )
+                  (m_pwndRightView->IsModified() || (m_data.m_yourFile.GetWindowName().Right(9).Compare(L": patched")==0)) )
             bEnable = TRUE;
         else if (IsViewGood(m_pwndLeftView)
                 && (m_pwndLeftView->m_pViewData)
@@ -1857,6 +1864,7 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
     pCmdUI->Enable(bEnable);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 {
     // any file is open we can save it as
@@ -1870,6 +1878,7 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
     pCmdUI->Enable(bEnable);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewOnewaydiff(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(!m_bOneWay);
@@ -1976,17 +1985,19 @@ void CMainFrame::OnViewLineUpDown(int direction)
     m_nMoveMovesToIgnore = MOVESTOIGNORE;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnViewLineleft()
 {
     OnViewLineLeftRight(-1);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnViewLineright()
 {
     OnViewLineLeftRight(1);
 }
 
-void CMainFrame::OnViewLineLeftRight(int direction)
+void CMainFrame::OnViewLineLeftRight(int direction) const
 {
     if (m_pwndLeftView)
         m_pwndLeftView->ScrollSide(direction);
@@ -2001,11 +2012,13 @@ void CMainFrame::OnEditUseTheirs()
     if (m_pwndBottomView)
         m_pwndBottomView->UseTheirTextBlock();
 }
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateEditUsetheirblock(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(m_pwndBottomView && m_pwndBottomView->HasSelection());
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditUseMine()
 {
     if (m_pwndBottomView)
@@ -2016,6 +2029,7 @@ void CMainFrame::OnUpdateEditUsemyblock(CCmdUI *pCmdUI)
     OnUpdateEditUsetheirblock(pCmdUI);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditUseTheirsThenMine()
 {
     if (m_pwndBottomView)
@@ -2027,6 +2041,7 @@ void CMainFrame::OnUpdateEditUsetheirthenmyblock(CCmdUI *pCmdUI)
     OnUpdateEditUsetheirblock(pCmdUI);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditUseMineThenTheirs()
 {
     if (m_pwndBottomView)
@@ -2038,6 +2053,7 @@ void CMainFrame::OnUpdateEditUseminethentheirblock(CCmdUI *pCmdUI)
     OnUpdateEditUsetheirblock(pCmdUI);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditUseleftblock()
 {
     if (m_pwndBottomView->IsWindowVisible())
@@ -2046,16 +2062,19 @@ void CMainFrame::OnEditUseleftblock()
         m_pwndRightView->UseLeftBlock();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateEditUseleftblock(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(IsViewGood(m_pwndRightView) && m_pwndRightView->IsTarget() && m_pwndRightView->HasSelection());
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CMainFrame::OnUpdateUseBlock(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(TRUE);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditUseleftfile()
 {
     if (m_pwndBottomView->IsWindowVisible())
@@ -2064,11 +2083,13 @@ void CMainFrame::OnEditUseleftfile()
         m_pwndRightView->UseLeftFile();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateEditUseleftfile(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(IsViewGood(m_pwndRightView) && m_pwndRightView->IsTarget());
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditUseblockfromleftbeforeright()
 {
     if (m_pwndRightView)
@@ -2080,6 +2101,7 @@ void CMainFrame::OnUpdateEditUseblockfromleftbeforeright(CCmdUI *pCmdUI)
     OnUpdateEditUseleftblock(pCmdUI);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditUseblockfromrightbeforeleft()
 {
     if (m_pwndRightView)
@@ -2157,7 +2179,7 @@ BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
     return TRUE;
 }
 
-void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
+void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp) const
 {
     auto       monHash = GetMonitorSetupHash();
     CRegString placement(CString(L"Software\\TortoiseMerge\\WindowPos_") + monHash.c_str());
@@ -2172,12 +2194,13 @@ void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp)
     placement = szBuffer;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
 {
     if (!pCmdUI)
         return;
     BOOL bEnable = FALSE;
-    if ((!m_bReadOnly)&&(m_Data.m_mergedFile.InUse()))
+    if ((!m_bReadOnly)&&(m_data.m_mergedFile.InUse()))
     {
         if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
         {
@@ -2193,7 +2216,7 @@ void CMainFrame::OnMergeMarkasresolved()
         return;
 
     // now check if the file has already been saved and if not, save it.
-    if (m_Data.m_mergedFile.InUse())
+    if (m_data.m_mergedFile.InUse())
     {
         if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
         {
@@ -2213,16 +2236,17 @@ BOOL CMainFrame::MarkAsResolved()
         return FALSE;
 
     CString cmd = L"/command:resolve /path:\"";
-    cmd += m_Data.m_mergedFile.GetFilename();
+    cmd += m_data.m_mergedFile.GetFilename();
     cmd += L"\" /closeonend:1 /noquestion /skipcheck /silent";
     if (resolveMsgWnd)
-        cmd.AppendFormat(L" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d /resolvemsglparam:%I64d", (__int64)resolveMsgWnd, (__int64)resolveMsgWParam, (__int64)resolveMsgLParam);
+        cmd.AppendFormat(L" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d /resolvemsglparam:%I64d", reinterpret_cast<long long>(resolveMsgWnd), static_cast<long long>(resolveMsgWParam), static_cast<long long>(resolveMsgLParam));
     if(!CAppUtils::RunTortoiseProc(cmd))
         return FALSE;
     m_bSaveRequired = false;
     return TRUE;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
@@ -2237,13 +2261,14 @@ void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
 
 bool CMainFrame::HasNextConflict(CBaseView* view)
 {
-    if (view == 0)
+    if (view == nullptr)
         return false;
     if (!view->IsTarget())
         return false;
     return view->HasNextConflict();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
@@ -2258,31 +2283,34 @@ void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
 
 bool CMainFrame::HasPrevConflict(CBaseView* view)
 {
-    if (view == 0)
+    if (view == nullptr)
         return false;
     if (!view->IsTarget())
         return false;
     return view->HasPrevConflict();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateNavigateNextdifference(CCmdUI *pCmdUI)
 {
     CBaseView* baseView = GetActiveBaseView();
     BOOL bShow = FALSE;
-    if (baseView != 0)
+    if (baseView != nullptr)
         bShow = baseView->HasNextDiff();
     pCmdUI->Enable(bShow);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI)
 {
     CBaseView* baseView = GetActiveBaseView();
     BOOL bShow = FALSE;
-    if (baseView != 0)
+    if (baseView != nullptr)
         bShow = baseView->HasPrevDiff();
     pCmdUI->Enable(bShow);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateNavigateNextinlinediff(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
@@ -2297,13 +2325,14 @@ void CMainFrame::OnUpdateNavigateNextinlinediff(CCmdUI *pCmdUI)
 
 bool CMainFrame::HasNextInlineDiff(CBaseView* view)
 {
-    if (view == 0)
+    if (view == nullptr)
         return false;
     if (!view->IsTarget())
         return false;
     return view->HasNextInlineDiff();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateNavigatePrevinlinediff(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
@@ -2318,7 +2347,7 @@ void CMainFrame::OnUpdateNavigatePrevinlinediff(CCmdUI *pCmdUI)
 
 bool CMainFrame::HasPrevInlineDiff(CBaseView* view)
 {
-    if (view == 0)
+    if (view == nullptr)
         return false;
     if (!view->IsTarget())
         return false;
@@ -2331,15 +2360,15 @@ void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
     // move it along with the mainframe
     if (::IsWindow(m_dlgFilePatches.m_hWnd))
     {
-        RECT patchrect;
-        m_dlgFilePatches.GetWindowRect(&patchrect);
+        RECT patchRect;
+        m_dlgFilePatches.GetWindowRect(&patchRect);
         if (::IsWindow(m_hWnd))
         {
-            RECT thisrect;
-            GetWindowRect(&thisrect);
-            if (patchrect.right == thisrect.left)
+            RECT thisRect;
+            GetWindowRect(&thisRect);
+            if (patchRect.right == thisRect.left)
             {
-                m_dlgFilePatches.SetWindowPos(nullptr, patchrect.left - (thisrect.left - pRect->left), patchrect.top - (thisrect.top - pRect->top),
+                m_dlgFilePatches.SetWindowPos(nullptr, patchRect.left - (thisRect.left - pRect->left), patchRect.top - (thisRect.top - pRect->top),
                     0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOSIZE | SWP_NOZORDER);
             }
         }
@@ -2347,6 +2376,7 @@ void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
     __super::OnMoving(fwSide, pRect);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
@@ -2359,6 +2389,7 @@ void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
     pCmdUI->Enable(bShow);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateEditPaste(CCmdUI *pCmdUI)
 {
     BOOL bWritable = FALSE;
@@ -2375,27 +2406,29 @@ void CMainFrame::OnViewSwitchleft()
 {
     if (CheckForSave(CHFSR_SWITCH)!=IDCANCEL)
     {
-        CWorkingFile file = m_Data.m_baseFile;
-        m_Data.m_baseFile = m_Data.m_yourFile;
-        m_Data.m_yourFile = file;
-        if (m_Data.m_mergedFile.GetFilename().CompareNoCase(m_Data.m_yourFile.GetFilename())==0)
+        CWorkingFile file = m_data.m_baseFile;
+        m_data.m_baseFile = m_data.m_yourFile;
+        m_data.m_yourFile = file;
+        if (m_data.m_mergedFile.GetFilename().CompareNoCase(m_data.m_yourFile.GetFilename())==0)
         {
-            m_Data.m_mergedFile = m_Data.m_baseFile;
+            m_data.m_mergedFile = m_data.m_baseFile;
         }
-        else if (m_Data.m_mergedFile.GetFilename().CompareNoCase(m_Data.m_baseFile.GetFilename())==0)
+        else if (m_data.m_mergedFile.GetFilename().CompareNoCase(m_data.m_baseFile.GetFilename())==0)
         {
-            m_Data.m_mergedFile = m_Data.m_yourFile;
+            m_data.m_mergedFile = m_data.m_yourFile;
         }
         LoadViews();
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewSwitchleft(CCmdUI *pCmdUI)
 {
     BOOL bEnable = !IsViewGood(m_pwndBottomView);
     pCmdUI->Enable(bEnable);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewShowfilelist(CCmdUI *pCmdUI)
 {
     BOOL bEnable = m_dlgFilePatches.HasFiles();
@@ -2408,6 +2441,7 @@ void CMainFrame::OnViewShowfilelist()
     m_dlgFilePatches.ShowWindow(m_dlgFilePatches.IsWindowVisible() ? SW_HIDE : SW_SHOW);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditUndo()
 {
     if (CUndo::GetInstance().CanUndo())
@@ -2416,11 +2450,13 @@ void CMainFrame::OnEditUndo()
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CMainFrame::OnUpdateEditUndo(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(CUndo::GetInstance().CanUndo());
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditRedo()
 {
     if (CUndo::GetInstance().CanRedo())
@@ -2429,11 +2465,13 @@ void CMainFrame::OnEditRedo()
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CMainFrame::OnUpdateEditRedo(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(CUndo::GetInstance().CanRedo());
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditEnable()
 {
     CBaseView * pView = GetActiveBaseView();
@@ -2444,6 +2482,7 @@ void CMainFrame::OnEditEnable()
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateEditEnable(CCmdUI *pCmdUI)
 {
     CBaseView * pView = GetActiveBaseView();
@@ -2458,6 +2497,7 @@ void CMainFrame::OnUpdateEditEnable(CCmdUI *pCmdUI)
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnIndicatorLeftview()
 {
     if (m_bUseRibbons)
@@ -2468,6 +2508,7 @@ void CMainFrame::OnIndicatorLeftview()
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnIndicatorRightview()
 {
     if (m_bUseRibbons)
@@ -2478,6 +2519,7 @@ void CMainFrame::OnIndicatorRightview()
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnIndicatorBottomview()
 {
     if (m_bUseRibbons)
@@ -2497,9 +2539,9 @@ int CMainFrame::CheckForReload()
     }
     bLock = true;
     bool bSourceChanged =
-            m_Data.m_baseFile.HasSourceFileChanged()
-            || m_Data.m_yourFile.HasSourceFileChanged()
-            || m_Data.m_theirFile.HasSourceFileChanged()
+            m_data.m_baseFile.HasSourceFileChanged()
+            || m_data.m_yourFile.HasSourceFileChanged()
+            || m_data.m_theirFile.HasSourceFileChanged()
             /*|| m_Data.m_mergedFile.HasSourceFileChanged()*/;
     if (!bSourceChanged)
     {
@@ -2508,7 +2550,7 @@ int CMainFrame::CheckForReload()
     }
 
     CString msg = HasUnsavedEdits() ? CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDELOOSECHANGES)) : CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE));
-    CTaskDialog taskdlg(msg,
+    CTaskDialog taskDlg(msg,
                         CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK2)),
                         L"TortoiseMerge",
                         0,
@@ -2518,12 +2560,12 @@ int CMainFrame::CheckForReload()
         sTask3.LoadString(IDS_WARNMODIFIEDOUTSIDE_TASK3);
     else
         sTask3.LoadString(IDS_WARNMODIFIEDOUTSIDE_TASK4);
-    taskdlg.AddCommandControl(IDYES, sTask3);
-    taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK5)));
-    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-    taskdlg.SetDefaultCommandControl(IDYES);
-    taskdlg.SetMainIcon(TD_WARNING_ICON);
-    UINT ret = (UINT)taskdlg.DoModal(m_hWnd);
+    taskDlg.AddCommandControl(IDYES, sTask3);
+    taskDlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK5)));
+    taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+    taskDlg.SetDefaultCommandControl(IDYES);
+    taskDlg.SetMainIcon(TD_WARNING_ICON);
+    UINT ret = static_cast<UINT>(taskDlg.DoModal(m_hWnd));
 
     if (ret == IDYES)
     {
@@ -2538,28 +2580,28 @@ int CMainFrame::CheckForReload()
                 m_pwndBottomView->SetModified();
             if (m_Data.m_mergedFile.HasSourceFileChanged())
                 m_pwndBottomView->SetModified();//*/
-            if (m_Data.m_yourFile.HasSourceFileChanged())
+            if (m_data.m_yourFile.HasSourceFileChanged())
                 m_pwndRightView->SetModified();
-            if (m_Data.m_theirFile.HasSourceFileChanged())
+            if (m_data.m_theirFile.HasSourceFileChanged())
                 m_pwndLeftView->SetModified();
         }
         else if (IsViewGood(m_pwndRightView)) // two pane view
         {
-            if (m_Data.m_baseFile.HasSourceFileChanged())
+            if (m_data.m_baseFile.HasSourceFileChanged())
                 m_pwndLeftView->SetModified();
-            if (m_Data.m_yourFile.HasSourceFileChanged())
+            if (m_data.m_yourFile.HasSourceFileChanged())
                 m_pwndRightView->SetModified();
         }
         else
         {
-            if (m_Data.m_yourFile.HasSourceFileChanged())
+            if (m_data.m_yourFile.HasSourceFileChanged())
                 m_pwndLeftView->SetModified();
         }
 
         // no reload just store updated file time
-        m_Data.m_baseFile.StoreFileAttributes();
-        m_Data.m_theirFile.StoreFileAttributes();
-        m_Data.m_yourFile.StoreFileAttributes();
+        m_data.m_baseFile.StoreFileAttributes();
+        m_data.m_theirFile.StoreFileAttributes();
+        m_data.m_yourFile.StoreFileAttributes();
         //m_Data.m_mergedFile.StoreFileAttributes();
     }
     bLock = false;
@@ -2619,33 +2661,33 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
         if (HasUnsavedEdits(m_pwndLeftView))
         {
             // both views
-            CTaskDialog taskdlg(sTitle,
+            CTaskDialog taskDlg(sTitle,
                                 sSubTitle,
                                 sAppName,
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             CString sTaskTemp;
             if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
-                sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, (LPCTSTR)m_pwndLeftView->m_pWorkingFile->GetFilename());
+                sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, static_cast<LPCTSTR>(m_pwndLeftView->m_pWorkingFile->GetFilename()));
             else
                 sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVELEFTAS));
-            taskdlg.AddCommandControl(201, sTaskTemp); // left
-            taskdlg.SetDefaultCommandControl(201);
+            taskDlg.AddCommandControl(201, sTaskTemp); // left
+            taskDlg.SetDefaultCommandControl(201);
             if (HasUnsavedEdits(m_pwndRightView))
             {
                 if (m_pwndRightView->m_pWorkingFile->InUse() && !m_pwndRightView->m_pWorkingFile->IsReadonly())
-                    sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, (LPCTSTR)m_pwndRightView->m_pWorkingFile->GetFilename());
+                    sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, static_cast<LPCTSTR>(m_pwndRightView->m_pWorkingFile->GetFilename()));
                 else
                     sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVERIGHTAS));
-                taskdlg.AddCommandControl(202, sTaskTemp); // right
-                taskdlg.AddCommandControl(203, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVEALL2))); // both
-                taskdlg.SetDefaultCommandControl(203);
+                taskDlg.AddCommandControl(202, sTaskTemp); // right
+                taskDlg.AddCommandControl(203, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVEALL2))); // both
+                taskDlg.SetDefaultCommandControl(203);
             }
-            taskdlg.AddCommandControl(IDNO, sNoSave); // none
-            taskdlg.AddCommandControl(IDCANCEL, sCancelAction); // cancel
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            UINT ret = (UINT)taskdlg.DoModal(m_hWnd);
+            taskDlg.AddCommandControl(IDNO, sNoSave); // none
+            taskDlg.AddCommandControl(IDCANCEL, sCancelAction); // cancel
+            taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskDlg.SetMainIcon(TD_WARNING_ICON);
+            UINT ret = static_cast<UINT>(taskDlg.DoModal(m_hWnd));
             switch (ret)
             {
                 case 201: // left
@@ -2653,6 +2695,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                     break;
                 case 203: // both
                     m_pwndLeftView->SaveFile(SAVE_REMOVEDLINES);
+                    [[fallthrough]];
                 case 202: // right
                     m_pwndRightView->SaveFile();
                     break;
@@ -2671,23 +2714,23 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
         // 1.7 FileSave don't support this mode
         if (HasUnsavedEdits(m_pwndLeftView))
         {
-            CTaskDialog taskdlg(sTitle,
+            CTaskDialog taskDlg(sTitle,
                                 sSubTitle,
                                 sAppName,
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             CString sTask3;
-            if (m_Data.m_mergedFile.InUse())
-                sTask3.Format(IDS_ASKFORSAVE_TASK3, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
+            if (m_data.m_mergedFile.InUse())
+                sTask3.Format(IDS_ASKFORSAVE_TASK3, static_cast<LPCTSTR>(m_data.m_mergedFile.GetFilename()));
             else
                 sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
-            taskdlg.AddCommandControl(IDYES, sTask3);
-            taskdlg.AddCommandControl(IDNO, sNoSave);
-            taskdlg.AddCommandControl(IDCANCEL, sCancelAction);
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(IDYES);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            UINT ret = (UINT)taskdlg.DoModal(m_hWnd);
+            taskDlg.AddCommandControl(IDYES, sTask3);
+            taskDlg.AddCommandControl(IDNO, sNoSave);
+            taskDlg.AddCommandControl(IDCANCEL, sCancelAction);
+            taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskDlg.SetDefaultCommandControl(IDYES);
+            taskDlg.SetMainIcon(TD_WARNING_ICON);
+            UINT ret = static_cast<UINT>(taskDlg.DoModal(m_hWnd));
 
             if (ret == IDYES)
             {
@@ -2706,23 +2749,23 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
     UINT ret = IDNO;
     if (HasUnsavedEdits())
     {
-        CTaskDialog taskdlg(sTitle,
+        CTaskDialog taskDlg(sTitle,
                             sSubTitle,
                             sAppName,
                             0,
                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         CString sTask3;
-        if (m_Data.m_mergedFile.InUse())
-            sTask3.Format(IDS_ASKFORSAVE_TASK3, (LPCTSTR)m_Data.m_mergedFile.GetFilename());
+        if (m_data.m_mergedFile.InUse())
+            sTask3.Format(IDS_ASKFORSAVE_TASK3, static_cast<LPCTSTR>(m_data.m_mergedFile.GetFilename()));
         else
             sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
-        taskdlg.AddCommandControl(IDYES, sTask3);
-        taskdlg.AddCommandControl(IDNO, sNoSave);
-        taskdlg.AddCommandControl(IDCANCEL, sCancelAction);
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetDefaultCommandControl(IDYES);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        ret = (UINT)taskdlg.DoModal(m_hWnd);
+        taskDlg.AddCommandControl(IDYES, sTask3);
+        taskDlg.AddCommandControl(IDNO, sNoSave);
+        taskDlg.AddCommandControl(IDCANCEL, sCancelAction);
+        taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskDlg.SetDefaultCommandControl(IDYES);
+        taskDlg.SetMainIcon(TD_WARNING_ICON);
+        ret = static_cast<UINT>(taskDlg.DoModal(m_hWnd));
 
         if (ret == IDYES)
         {
@@ -2779,6 +2822,7 @@ void CMainFrame::OnViewInlinediffword()
     m_wndLineDiffBar.DocumentUpdated();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewInlinediffword(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(m_bInlineDiff && IsViewGood(m_pwndLeftView) && IsViewGood(m_pwndRightView));
@@ -2809,12 +2853,14 @@ void CMainFrame::OnViewInlinediff()
     m_wndLineDiffBar.DocumentUpdated();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewInlinediff(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable(IsViewGood(m_pwndLeftView) && IsViewGood(m_pwndRightView));
     pCmdUI->SetCheck(m_bInlineDiff);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI)
 {
     // "create unified diff file" is only available if two files
@@ -2829,6 +2875,7 @@ void CMainFrame::OnUpdateEditCreateunifieddifffile(CCmdUI *pCmdUI)
     pCmdUI->Enable(bEnabled);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditCreateunifieddifffile()
 {
     CString origFile, modifiedFile;
@@ -2844,9 +2891,9 @@ void CMainFrame::OnEditCreateunifieddifffile()
     CString outputFile;
     bool ignoreEOL = true;
     // Create a new common save file dialog
-    CComPtr<IFileDialog> pfd = NULL;
+    CComPtr<IFileDialog> pfd = nullptr;
 
-    auto hr = pfd.CoCreateInstance(CLSID_FileSaveDialog, NULL, CLSCTX_INPROC_SERVER);
+    auto hr = pfd.CoCreateInstance(CLSID_FileSaveDialog, nullptr, CLSCTX_INPROC_SERVER);
     if (SUCCEEDED(hr))
     {
         // Set the dialog options
@@ -2877,12 +2924,12 @@ void CMainFrame::OnEditCreateunifieddifffile()
             }
 
             // Get the selection from the user
-            CComPtr<IShellItem> psiResult = NULL;
-            hr = pfd->GetResult(&psiResult);
+            CComPtr<IShellItem> psiResult = nullptr;
+            hr                            = pfd->GetResult(&psiResult);
             if (SUCCEEDED(hr))
             {
-                PWSTR pszPath = NULL;
-                hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                PWSTR pszPath = nullptr;
+                hr            = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
                 if (SUCCEEDED(hr))
                 {
                     outputFile = CString(pszPath);
@@ -2899,6 +2946,7 @@ void CMainFrame::OnEditCreateunifieddifffile()
     CAppUtils::StartUnifiedDiffViewer(outputFile, CPathUtils::GetFileNameFromPath(outputFile));
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewLinediffbar(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(m_bLineDiff);
@@ -2914,13 +2962,15 @@ void CMainFrame::OnViewLinediffbar()
     m_wndLocatorBar.DocumentUpdated();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewLocatorbar(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(m_bLocatorBar);
     pCmdUI->Enable();
 }
 
-void CMainFrame::OnUpdateViewBars(CCmdUI * pCmdUI)
+// ReSharper disable once CppMemberFunctionMayBeStatic
+void CMainFrame::OnUpdateViewBars(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable();
 }
@@ -2939,14 +2989,15 @@ void CMainFrame::OnViewComparewhitespaces()
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
-    regIgnoreWS = (int)IgnoreWS::None;
+    regIgnoreWS = static_cast<int>(IgnoreWS::None);
     LoadViews(-1);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CMainFrame::OnUpdateViewComparewhitespaces(CCmdUI *pCmdUI)
 {
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
-    IgnoreWS ignoreWs = (IgnoreWS)(DWORD)regIgnoreWS;
+    IgnoreWS ignoreWs = static_cast<IgnoreWS>(static_cast<DWORD>(regIgnoreWS));
     pCmdUI->SetCheck(ignoreWs == IgnoreWS::None);
 }
 
@@ -2955,14 +3006,15 @@ void CMainFrame::OnViewIgnorewhitespacechanges()
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
-    regIgnoreWS = (int)IgnoreWS::WhiteSpaces;
+    regIgnoreWS = static_cast<int>(IgnoreWS::WhiteSpaces);
     LoadViews(-1);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CMainFrame::OnUpdateViewIgnorewhitespacechanges(CCmdUI *pCmdUI)
 {
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
-    IgnoreWS ignoreWs = (IgnoreWS)(DWORD)regIgnoreWS;
+    IgnoreWS ignoreWs = static_cast<IgnoreWS>(static_cast<DWORD>(regIgnoreWS));
     pCmdUI->SetCheck(ignoreWs == IgnoreWS::WhiteSpaces);
 }
 
@@ -2971,24 +3023,26 @@ void CMainFrame::OnViewIgnoreallwhitespacechanges()
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
-    regIgnoreWS = (int)IgnoreWS::AllWhiteSpaces;
+    regIgnoreWS = static_cast<int>(IgnoreWS::AllWhiteSpaces);
     LoadViews(-1);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CMainFrame::OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI)
 {
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
-    IgnoreWS ignoreWs = (IgnoreWS)(DWORD)regIgnoreWS;
+    IgnoreWS ignoreWs = static_cast<IgnoreWS>(static_cast<DWORD>(regIgnoreWS));
     pCmdUI->SetCheck(ignoreWs == IgnoreWS::AllWhiteSpaces);
 }
 
 void CMainFrame::OnViewMovedBlocks()
 {
-    m_bViewMovedBlocks = !(DWORD)m_regViewModedBlocks;
+    m_bViewMovedBlocks   = !static_cast<DWORD>(m_regViewModedBlocks);
     m_regViewModedBlocks = m_bViewMovedBlocks;
     LoadViews(-1);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateViewMovedBlocks(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(m_bViewMovedBlocks);
@@ -3010,17 +3064,17 @@ bool CMainFrame::HasConflictsWontKeep()
 
     CString sTemp;
     sTemp.Format(IDS_ERR_MAINFRAME_FILEHASCONFLICTS, m_pwndBottomView->m_pViewData->GetLineNumber(nConflictLine) + 1);
-    CTaskDialog taskdlg(sTemp,
+    CTaskDialog taskDlg(sTemp,
                         CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK2)),
                         L"TortoiseMerge",
                         0,
                         TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-    taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK3)));
-    taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)));
-    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-    taskdlg.SetDefaultCommandControl(2);
-    taskdlg.SetMainIcon(TD_ERROR_ICON);
-    bool bSave = (taskdlg.DoModal(m_hWnd) == 100);
+    taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK3)));
+    taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)));
+    taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+    taskDlg.SetDefaultCommandControl(2);
+    taskDlg.SetMainIcon(TD_ERROR_ICON);
+    bool bSave = (taskDlg.DoModal(m_hWnd) == 100);
 
     if (bSave)
         return false;
@@ -3029,7 +3083,7 @@ bool CMainFrame::HasConflictsWontKeep()
     return true;
 }
 
-bool CMainFrame::TryGetFileName(CString& result)
+bool CMainFrame::TryGetFileName(CString& result) const
 {
     return CCommonAppUtils::FileOpenSave(result, nullptr, IDS_SAVEASTITLE, IDS_COMMONFILEFILTER, false, CString(), m_hWnd);
 }
@@ -3044,14 +3098,14 @@ CBaseView* CMainFrame::GetActiveBaseView() const
 void CMainFrame::SetWindowTitle()
 {
     // try to find a suitable window title
-    CString sYour = m_Data.m_yourFile.GetDescriptiveName();
+    CString sYour = m_data.m_yourFile.GetDescriptiveName();
     if (sYour.Find(L" - ")>=0)
         sYour = sYour.Left(sYour.Find(L" - "));
     if (sYour.Find(L" : ")>=0)
         sYour = sYour.Left(sYour.Find(L" : "));
-    CString sTheir = m_Data.m_theirFile.GetDescriptiveName();
+    CString sTheir = m_data.m_theirFile.GetDescriptiveName();
     if (sTheir.IsEmpty())
-        sTheir = m_Data.m_baseFile.GetDescriptiveName();
+        sTheir = m_data.m_baseFile.GetDescriptiveName();
     if (sTheir.Find(L" - ")>=0)
         sTheir = sTheir.Left(sTheir.Find(L" - "));
     if (sTheir.Find(L" : ")>=0)
@@ -3109,8 +3163,8 @@ void CMainFrame::LoadIgnoreCommentData()
             HGLOBAL hResourceLoaded = LoadResource(nullptr, hRes);
             if (hResourceLoaded)
             {
-                char * lpResLock = (char *) LockResource(hResourceLoaded);
-                DWORD dwSizeRes = SizeofResource(nullptr, hRes);
+                char * lpResLock = static_cast<char*>(LockResource(hResourceLoaded));
+                DWORD  dwSizeRes = SizeofResource(nullptr, hRes);
                 if (lpResLock)
                 {
                     HANDLE hFile = CreateFile(sPath, GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
@@ -3157,8 +3211,8 @@ void CMainFrame::LoadIgnoreCommentData()
                         {
                             break;
                         }
-                        ASSERT(m_IgnoreCommentsMap.find(temp) == m_IgnoreCommentsMap.end());
-                        m_IgnoreCommentsMap[temp] = commentTuple;
+                        ASSERT(m_ignoreCommentsMap.find(temp) == m_ignoreCommentsMap.end());
+                        m_ignoreCommentsMap[temp] = commentTuple;
                     }
                 }
             }
@@ -3175,31 +3229,31 @@ void CMainFrame::OnViewIgnorecomments()
 {
     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
         return;
-    m_regIgnoreComments = !DWORD(m_regIgnoreComments);
+    m_regIgnoreComments = !static_cast<DWORD>(m_regIgnoreComments);
     LoadViews(-1);
 }
 
 void CMainFrame::OnUpdateViewIgnorecomments(CCmdUI *pCmdUI)
 {
     // only enable if we have comments defined for this file extension
-    CString sExt = CPathUtils::GetFileExtFromPath(m_Data.m_baseFile.GetFilename()).MakeLower();
+    CString sExt = CPathUtils::GetFileExtFromPath(m_data.m_baseFile.GetFilename()).MakeLower();
     sExt.TrimLeft(L".");
-    auto sC = m_IgnoreCommentsMap.find(sExt);
-    if (sC == m_IgnoreCommentsMap.end())
+    auto sC = m_ignoreCommentsMap.find(sExt);
+    if (sC == m_ignoreCommentsMap.end())
     {
-        sExt = CPathUtils::GetFileExtFromPath(m_Data.m_yourFile.GetFilename()).MakeLower();
+        sExt = CPathUtils::GetFileExtFromPath(m_data.m_yourFile.GetFilename()).MakeLower();
         sExt.TrimLeft(L".");
-        sC = m_IgnoreCommentsMap.find(sExt);
-        if (sC == m_IgnoreCommentsMap.end())
+        sC = m_ignoreCommentsMap.find(sExt);
+        if (sC == m_ignoreCommentsMap.end())
         {
-            sExt = CPathUtils::GetFileExtFromPath(m_Data.m_theirFile.GetFilename()).MakeLower();
+            sExt = CPathUtils::GetFileExtFromPath(m_data.m_theirFile.GetFilename()).MakeLower();
             sExt.TrimLeft(L".");
-            sC = m_IgnoreCommentsMap.find(sExt);
+            sC = m_ignoreCommentsMap.find(sExt);
         }
     }
-    pCmdUI->Enable(sC != m_IgnoreCommentsMap.end());
+    pCmdUI->Enable(sC != m_ignoreCommentsMap.end());
 
-    pCmdUI->SetCheck(DWORD(m_regIgnoreComments) != 0);
+    pCmdUI->SetCheck(static_cast<DWORD>(m_regIgnoreComments) != 0);
 }
 
 
@@ -3220,15 +3274,15 @@ void CMainFrame::OnRegexfilter(UINT cmd)
     }
     else
     {
-        if (cmd == (UINT)m_regexIndex && !m_bUseRibbons)
+        if (cmd == static_cast<UINT>(m_regexIndex) && !m_bUseRibbons)
         {
             if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
                 return;
-            m_Data.SetRegexTokens(std::wregex(), L"");
+            m_data.SetRegexTokens(std::wregex(), L"");
             m_regexIndex = -1;
             LoadViews(-1);
         }
-        else if (cmd != (UINT)m_regexIndex)
+        else if (cmd != static_cast<UINT>(m_regexIndex))
         {
             CSimpleIni::TNamesDepend sections;
             m_regexIni.GetAllSections(sections);
@@ -3236,14 +3290,14 @@ void CMainFrame::OnRegexfilter(UINT cmd)
             m_regexIndex = -1;
             for (const auto& section : sections)
             {
-                if (cmd == (UINT)index)
+                if (cmd == static_cast<UINT>(index))
                 {
                     if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
                         break;
                     try
                     {
                         std::wregex rx(m_regexIni.GetValue(section, L"regex", L""));
-                        m_Data.SetRegexTokens(rx, m_regexIni.GetValue(section, L"replace", L""));
+                        m_data.SetRegexTokens(rx, m_regexIni.GetValue(section, L"replace", L""));
                     }
                     catch (std::exception &ex)
                     {
@@ -3259,7 +3313,7 @@ void CMainFrame::OnRegexfilter(UINT cmd)
                         CString sErr;
                         sErr.Format(IDS_ERR_REGEX_INVALIDRETRY, ex.what());
                         MessageBox(sErr);
-                        m_Data.SetRegexTokens(std::wregex(), L"");
+                        m_data.SetRegexTokens(std::wregex(), L"");
                         m_regexIndex = -1;
                         LoadViews(-1);
                     }
@@ -3271,10 +3325,11 @@ void CMainFrame::OnRegexfilter(UINT cmd)
     }
 }
 
-void CMainFrame::OnUpdateViewRegexFilter( CCmdUI *pCmdUI )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateViewRegexFilter(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable();
-    pCmdUI->SetCheck(pCmdUI->m_nID == (UINT)m_regexIndex);
+    pCmdUI->SetCheck(pCmdUI->m_nID == static_cast<UINT>(m_regexIndex));
 }
 
 void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
@@ -3289,8 +3344,8 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
             HGLOBAL hResourceLoaded = LoadResource(nullptr, hRes);
             if (hResourceLoaded)
             {
-                char * lpResLock = (char *)LockResource(hResourceLoaded);
-                DWORD dwSizeRes = SizeofResource(nullptr, hRes);
+                char * lpResLock = static_cast<char*>(LockResource(hResourceLoaded));
+                DWORD  dwSizeRes = SizeofResource(nullptr, hRes);
                 if (lpResLock)
                 {
                     HANDLE hFile = CreateFile(sIniPath, GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
@@ -3333,7 +3388,7 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
             int cmdIndex = 2;
             for (const auto& section : sections)
             {
-                pMenuPopup->InsertItem(CMFCToolBarMenuButton(ID_REGEXFILTER + cmdIndex, nullptr, -1, (LPCWSTR)section), iIndex + cmdIndex);
+                pMenuPopup->InsertItem(CMFCToolBarMenuButton(ID_REGEXFILTER + cmdIndex, nullptr, -1, static_cast<LPCWSTR>(section)), iIndex + cmdIndex);
                 cmdIndex++;
             }
         }
@@ -3423,18 +3478,18 @@ void CMainFrame::OnEncodingLeft( UINT cmd )
         if (GetKeyState(VK_CONTROL) & 0x8000)
         {
             // reload with selected encoding
-            auto saveparams = m_Data.m_arBaseFile.GetSaveParams();
-            saveparams.m_UnicodeType = CFileTextLines::UnicodeType(cmd - ID_INDICATOR_LEFTENCODINGSTART);
-            if (AdjustUnicodeTypeForLoad(saveparams.m_UnicodeType))
+            auto saveParams = m_data.m_arBaseFile.GetSaveParams();
+            saveParams.unicodeType = static_cast<CFileTextLines::UnicodeType>(cmd - ID_INDICATOR_LEFTENCODINGSTART);
+            if (AdjustUnicodeTypeForLoad(saveParams.unicodeType))
             {
-                m_Data.m_arBaseFile.SetSaveParams(saveparams);
-                m_Data.m_arBaseFile.KeepEncoding();
+                m_data.m_arBaseFile.SetSaveParams(saveParams);
+                m_data.m_arBaseFile.KeepEncoding();
                 LoadViews();
             }
         }
         else
         {
-            m_pwndLeftView->SetTextType(CFileTextLines::UnicodeType(cmd - ID_INDICATOR_LEFTENCODINGSTART));
+            m_pwndLeftView->SetTextType(static_cast<CFileTextLines::UnicodeType>(cmd - ID_INDICATOR_LEFTENCODINGSTART));
             m_pwndLeftView->RefreshViews();
         }
     }
@@ -3447,18 +3502,18 @@ void CMainFrame::OnEncodingRight( UINT cmd )
         if (GetKeyState(VK_CONTROL) & 0x8000)
         {
             // reload with selected encoding
-            auto saveparams = m_Data.m_arYourFile.GetSaveParams();
-            saveparams.m_UnicodeType = CFileTextLines::UnicodeType(cmd - ID_INDICATOR_RIGHTENCODINGSTART);
-            if (AdjustUnicodeTypeForLoad(saveparams.m_UnicodeType))
+            auto saveParams = m_data.m_arYourFile.GetSaveParams();
+            saveParams.unicodeType = static_cast<CFileTextLines::UnicodeType>(cmd - ID_INDICATOR_RIGHTENCODINGSTART);
+            if (AdjustUnicodeTypeForLoad(saveParams.unicodeType))
             {
-                m_Data.m_arYourFile.SetSaveParams(saveparams);
-                m_Data.m_arYourFile.KeepEncoding();
+                m_data.m_arYourFile.SetSaveParams(saveParams);
+                m_data.m_arYourFile.KeepEncoding();
                 LoadViews();
             }
         }
         else
         {
-            m_pwndRightView->SetTextType(CFileTextLines::UnicodeType(cmd - ID_INDICATOR_RIGHTENCODINGSTART));
+            m_pwndRightView->SetTextType(static_cast<CFileTextLines::UnicodeType>(cmd - ID_INDICATOR_RIGHTENCODINGSTART));
             m_pwndRightView->RefreshViews();
         }
     }
@@ -3471,63 +3526,69 @@ void CMainFrame::OnEncodingBottom( UINT cmd )
         if (GetKeyState(VK_CONTROL) & 0x8000)
         {
             // reload with selected encoding
-            auto saveparams = m_Data.m_arTheirFile.GetSaveParams();
-            saveparams.m_UnicodeType = CFileTextLines::UnicodeType(cmd - ID_INDICATOR_BOTTOMENCODINGSTART);
-            if (AdjustUnicodeTypeForLoad(saveparams.m_UnicodeType))
+            auto saveParams = m_data.m_arTheirFile.GetSaveParams();
+            saveParams.unicodeType = static_cast<CFileTextLines::UnicodeType>(cmd - ID_INDICATOR_BOTTOMENCODINGSTART);
+            if (AdjustUnicodeTypeForLoad(saveParams.unicodeType))
             {
-                m_Data.m_arTheirFile.SetSaveParams(saveparams);
-                m_Data.m_arTheirFile.KeepEncoding();
+                m_data.m_arTheirFile.SetSaveParams(saveParams);
+                m_data.m_arTheirFile.KeepEncoding();
                 LoadViews();
             }
         }
         else
         {
-            m_pwndBottomView->SetTextType(CFileTextLines::UnicodeType(cmd - ID_INDICATOR_BOTTOMENCODINGSTART));
+            m_pwndBottomView->SetTextType(static_cast<CFileTextLines::UnicodeType>(cmd - ID_INDICATOR_BOTTOMENCODINGSTART));
             m_pwndBottomView->RefreshViews();
         }
     }
 }
 
-void CMainFrame::OnEOLLeft( UINT cmd )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnEOLLeft(UINT cmd)
 {
     if (m_pwndLeftView)
     {
-        m_pwndLeftView->ReplaceLineEndings(EOL(cmd-ID_INDICATOR_LEFTEOLSTART));
+        m_pwndLeftView->ReplaceLineEndings(static_cast<EOL>(cmd - ID_INDICATOR_LEFTEOLSTART));
         m_pwndLeftView->RefreshViews();
     }
 }
 
-void CMainFrame::OnEOLRight( UINT cmd )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnEOLRight(UINT cmd)
 {
     if (m_pwndRightView)
     {
-        m_pwndRightView->ReplaceLineEndings(EOL(cmd-ID_INDICATOR_RIGHTEOLSTART));
+        m_pwndRightView->ReplaceLineEndings(static_cast<EOL>(cmd - ID_INDICATOR_RIGHTEOLSTART));
         m_pwndRightView->RefreshViews();
     }
 }
 
-void CMainFrame::OnEOLBottom( UINT cmd )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnEOLBottom(UINT cmd)
 {
     if (m_pwndBottomView)
     {
-        m_pwndBottomView->ReplaceLineEndings(EOL(cmd-ID_INDICATOR_BOTTOMEOLSTART));
+        m_pwndBottomView->ReplaceLineEndings(static_cast<EOL>(cmd - ID_INDICATOR_BOTTOMEOLSTART));
         m_pwndBottomView->RefreshViews();
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnTabModeLeft(UINT cmd)
 {
-    OnTabMode(m_pwndLeftView, (int)cmd - ID_INDICATOR_LEFTTABMODESTART);
+    OnTabMode(m_pwndLeftView, static_cast<int>(cmd) - ID_INDICATOR_LEFTTABMODESTART);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnTabModeRight(UINT cmd)
 {
-    OnTabMode(m_pwndRightView, (int)cmd - ID_INDICATOR_RIGHTTABMODESTART);
+    OnTabMode(m_pwndRightView, static_cast<int>(cmd) - ID_INDICATOR_RIGHTTABMODESTART);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnTabModeBottom(UINT cmd)
 {
-    OnTabMode(m_pwndBottomView, (int)cmd - ID_INDICATOR_BOTTOMTABMODESTART);
+    OnTabMode(m_pwndBottomView, static_cast<int>(cmd) - ID_INDICATOR_BOTTOMTABMODESTART);
 }
 
 void CMainFrame::OnTabMode(CBaseView *view, int cmd)
@@ -3552,82 +3613,91 @@ void CMainFrame::OnTabMode(CBaseView *view, int cmd)
     view->RefreshViews();
 }
 
-void CMainFrame::OnUpdateEncodingLeft( CCmdUI *pCmdUI )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateEncodingLeft(CCmdUI *pCmdUI)
 {
     if (m_pwndLeftView)
     {
-        pCmdUI->SetCheck(CFileTextLines::UnicodeType(pCmdUI->m_nID - ID_INDICATOR_LEFTENCODINGSTART) == m_pwndLeftView->GetTextType());
+        pCmdUI->SetCheck(static_cast<CFileTextLines::UnicodeType>(pCmdUI->m_nID - ID_INDICATOR_LEFTENCODINGSTART) == m_pwndLeftView->GetTextType());
         pCmdUI->Enable(m_pwndLeftView->IsWritable() || (GetKeyState(VK_CONTROL)&0x8000));
     }
     else
         pCmdUI->Enable(FALSE);
 }
 
-void CMainFrame::OnUpdateEncodingRight( CCmdUI *pCmdUI )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateEncodingRight(CCmdUI *pCmdUI)
 {
     if (m_pwndRightView)
     {
-        pCmdUI->SetCheck(CFileTextLines::UnicodeType(pCmdUI->m_nID - ID_INDICATOR_RIGHTENCODINGSTART) == m_pwndRightView->GetTextType());
+        pCmdUI->SetCheck(static_cast<CFileTextLines::UnicodeType>(pCmdUI->m_nID - ID_INDICATOR_RIGHTENCODINGSTART) == m_pwndRightView->GetTextType());
         pCmdUI->Enable(m_pwndRightView->IsWritable() || (GetKeyState(VK_CONTROL) & 0x8000));
     }
     else
         pCmdUI->Enable(FALSE);
 }
 
-void CMainFrame::OnUpdateEncodingBottom( CCmdUI *pCmdUI )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateEncodingBottom(CCmdUI *pCmdUI)
 {
     if (m_pwndBottomView)
     {
-        pCmdUI->SetCheck(CFileTextLines::UnicodeType(pCmdUI->m_nID - ID_INDICATOR_BOTTOMENCODINGSTART) == m_pwndBottomView->GetTextType());
+        pCmdUI->SetCheck(static_cast<CFileTextLines::UnicodeType>(pCmdUI->m_nID - ID_INDICATOR_BOTTOMENCODINGSTART) == m_pwndBottomView->GetTextType());
         pCmdUI->Enable(m_pwndBottomView->IsWritable() || (GetKeyState(VK_CONTROL) & 0x8000));
     }
     else
         pCmdUI->Enable(FALSE);
 }
 
-void CMainFrame::OnUpdateEOLLeft( CCmdUI *pCmdUI )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateEOLLeft(CCmdUI *pCmdUI)
 {
     if (m_pwndLeftView)
     {
-        pCmdUI->SetCheck(EOL(pCmdUI->m_nID - ID_INDICATOR_LEFTEOLSTART) == m_pwndLeftView->GetLineEndings());
+        pCmdUI->SetCheck(static_cast<EOL>(pCmdUI->m_nID - ID_INDICATOR_LEFTEOLSTART) == m_pwndLeftView->GetLineEndings());
         pCmdUI->Enable(m_pwndLeftView->IsWritable());
     }
     else
         pCmdUI->Enable(FALSE);
 }
 
-void CMainFrame::OnUpdateEOLRight( CCmdUI *pCmdUI )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateEOLRight(CCmdUI *pCmdUI)
 {
     if (m_pwndRightView)
     {
-        pCmdUI->SetCheck(EOL(pCmdUI->m_nID - ID_INDICATOR_RIGHTEOLSTART) == m_pwndRightView->GetLineEndings());
+        pCmdUI->SetCheck(static_cast<EOL>(pCmdUI->m_nID - ID_INDICATOR_RIGHTEOLSTART) == m_pwndRightView->GetLineEndings());
         pCmdUI->Enable(m_pwndRightView->IsWritable());
     }
     else
         pCmdUI->Enable(FALSE);
 }
 
-void CMainFrame::OnUpdateEOLBottom( CCmdUI *pCmdUI )
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateEOLBottom(CCmdUI *pCmdUI)
 {
     if (m_pwndBottomView)
     {
-        pCmdUI->SetCheck(EOL(pCmdUI->m_nID - ID_INDICATOR_BOTTOMEOLSTART) == m_pwndBottomView->GetLineEndings());
+        pCmdUI->SetCheck(static_cast<EOL>(pCmdUI->m_nID - ID_INDICATOR_BOTTOMEOLSTART) == m_pwndBottomView->GetLineEndings());
         pCmdUI->Enable(m_pwndBottomView->IsWritable());
     }
     else
         pCmdUI->Enable(FALSE);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateTabModeLeft(CCmdUI *pCmdUI)
 {
     OnUpdateTabMode(m_pwndLeftView, pCmdUI, ID_INDICATOR_LEFTTABMODESTART);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateTabModeRight(CCmdUI *pCmdUI)
 {
     OnUpdateTabMode(m_pwndRightView, pCmdUI, ID_INDICATOR_RIGHTTABMODESTART);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateTabModeBottom(CCmdUI *pCmdUI)
 {
     OnUpdateTabMode(m_pwndBottomView, pCmdUI, ID_INDICATOR_BOTTOMTABMODESTART);
@@ -3637,7 +3707,7 @@ void CMainFrame::OnUpdateTabMode(CBaseView *view, CCmdUI *pCmdUI, int startid)
 {
     if (view)
     {
-        int cmd = (int)pCmdUI->m_nID - startid;
+        int cmd = static_cast<int>(pCmdUI->m_nID) - startid;
         if (cmd == TABMODE_NONE)
             pCmdUI->SetCheck((view->GetTabMode() & TABMODE_USESPACES) == TABMODE_NONE);
         else if (cmd == TABMODE_USESPACES)
@@ -3686,7 +3756,7 @@ LRESULT CMainFrame::OnIdleUpdateCmdUI(WPARAM wParam, LPARAM lParam)
 
     if (m_pRibbonApp)
     {
-        BOOL bDisableIfNoHandler = (BOOL) wParam;
+        BOOL bDisableIfNoHandler = static_cast<BOOL>(wParam);
         m_pRibbonApp->UpdateCmdUI(bDisableIfNoHandler);
     }
     return 0;
@@ -3702,17 +3772,19 @@ LRESULT CMainFrame::OnDPIChanged(WPARAM, LPARAM lParam)
     if (m_pwndBottomView)
         m_pwndBottomView->DPIChanged();
     const RECT *rect = reinterpret_cast<RECT *>(lParam);
-    SetWindowPos(NULL, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+    SetWindowPos(nullptr, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
     ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
     return 1; // let MFC handle this message as well
 }
 
-void CMainFrame::OnUpdateThreeWayActions(CCmdUI * pCmdUI)
+// ReSharper disable once CppMemberFunctionMayBeStatic
+void CMainFrame::OnUpdateThreeWayActions(CCmdUI *pCmdUI)
 {
     pCmdUI->Enable();
 }
 
-void CMainFrame::OnUpdateColumnStatusBar(CCmdUI* pCmdUI)
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateColumnStatusBar(CCmdUI *pCmdUI)
 {
     int column = 0;
     auto pWndWithFocus = GetFocus();
@@ -3731,7 +3803,8 @@ void CMainFrame::OnUpdateColumnStatusBar(CCmdUI* pCmdUI)
     pCmdUI->Enable(true);
 }
 
-void CMainFrame::OnUpdateMarkedWords(CCmdUI* pCmdUI)
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateMarkedWords(CCmdUI *pCmdUI)
 {
     CString sText;
     CString sTmp;
@@ -3759,13 +3832,14 @@ void CMainFrame::OnUpdateMarkedWords(CCmdUI* pCmdUI)
     if (!sText.IsEmpty())
     {
         CString sStatusBarText;
-        sStatusBarText.Format(IDS_INDICATOR_MARKEDWORDCOUNT, LPCWSTR(sText));
+        sStatusBarText.Format(IDS_INDICATOR_MARKEDWORDCOUNT, static_cast<LPCWSTR>(sText));
         pCmdUI->SetText(sStatusBarText);
         pCmdUI->Enable(true);
     }
 }
 
-void CMainFrame::OnUpdateEnableIfSelection(CCmdUI* pCmdUI)
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateEnableIfSelection(CCmdUI *pCmdUI)
 {
     bool bEnabled = false;
     auto pWndWithFocus = GetFocus();
@@ -3785,12 +3859,13 @@ void CMainFrame::OnRegexNoFilter()
 {
     if (CheckForSave(CHFSR_OPTIONS) == IDCANCEL)
         return;
-    m_Data.SetRegexTokens(std::wregex(), L"");
+    m_data.SetRegexTokens(std::wregex(), L"");
     m_regexIndex = -1;
     LoadViews(-1);
 }
 
-void CMainFrame::OnUpdateRegexNoFilter(CCmdUI * pCmdUI)
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CMainFrame::OnUpdateRegexNoFilter(CCmdUI *pCmdUI)
 {
     pCmdUI->SetCheck(m_regexIndex < 0);
 }

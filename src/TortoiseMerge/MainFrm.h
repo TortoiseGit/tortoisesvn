@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2015, 2017, 2020 - TortoiseSVN
+// Copyright (C) 2006-2015, 2017, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,6 @@
 #include "LocatorBar.h"
 #include "LineDiffBar.h"
 #include "FilePatchesDlg.h"
-#include "TempFile.h"
 #include "XSplitter.h"
 #include "SVNPatch.h"
 #include "SimpleIni.h"
@@ -36,14 +35,14 @@ class CRightView;
 class CBottomView;
 #define MOVESTOIGNORE 3
 
-#define TABMODE_NONE 0x00
-#define TABMODE_USESPACES 0x01
+#define TABMODE_NONE        0x00
+#define TABMODE_USESPACES   0x01
 #define TABMODE_SMARTINDENT 0x02
 
-#define TABSIZEBUTTON1 3
-#define TABSIZEBUTTON2 4
-#define TABSIZEBUTTON4 5
-#define TABSIZEBUTTON8 6
+#define TABSIZEBUTTON1     3
+#define TABSIZEBUTTON2     4
+#define TABSIZEBUTTON4     5
+#define TABSIZEBUTTON8     6
 #define ENABLEEDITORCONFIG 8
 
 /**
@@ -55,31 +54,32 @@ class CMainFrame : public CFrameWndEx
 {
 public:
     CMainFrame();
-    virtual ~CMainFrame();
+    ~CMainFrame() override;
 
     void ShowDiffBar(bool bShow);
-    void DiffLeftToBase();
-    void DiffRightToBase();
+    void DiffLeftToBase() const;
+    void DiffRightToBase() const;
 
 #ifdef _DEBUG
-    virtual void AssertValid() const;
-    virtual void Dump(CDumpContext &dc) const;
+    void AssertValid() const override;
+    void Dump(CDumpContext &dc) const override;
 #endif
 protected:
     DECLARE_DYNCREATE(CMainFrame)
 
-    virtual BOOL PreCreateWindow(CREATESTRUCT &cs);
-    virtual BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext *pContext);
-    virtual void ActivateFrame(int nCmdShow = -1);
-    virtual BOOL OnShowPopupMenu(CMFCPopupMenu *pMenuPopup);
+    BOOL PreCreateWindow(CREATESTRUCT &cs) override;
+    BOOL OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext *pContext) override;
+    void ActivateFrame(int nCmdShow = -1) override;
+    BOOL OnShowPopupMenu(CMFCPopupMenu *pMenuPopup) override;
     /// line = -1 means keep the current position,
     /// line >= 0 means scroll to that line,
     /// and line == -2 means do nothing or scroll to first diff depending on registry setting
     bool LoadViews(int line = -2);
-    void ClearViewNamesAndPaths();
+    void ClearViewNamesAndPaths() const;
     void SetWindowTitle();
     void RecalcLayout(BOOL bNotify = TRUE) override;
 
+    // ReSharper disable CppMemberFunctionMayBeConst
     afx_msg LRESULT OnTaskbarButtonCreated(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnIdleUpdateCmdUI(WPARAM wParam, LPARAM);
     afx_msg LRESULT OnDPIChanged(WPARAM wParam, LPARAM);
@@ -202,6 +202,8 @@ protected:
     afx_msg void OnUpdateRegexNoFilter(CCmdUI *pCmdUI);
     afx_msg void OnSettingChange(UINT uFlags, LPCTSTR lpszSection);
     afx_msg void OnSysColorChange();
+
+    // ReSharper restore CppMemberFunctionMayBeConst
     DECLARE_MESSAGE_MAP()
 protected:
     void         UpdateLayout();
@@ -210,8 +212,8 @@ protected:
     int          CheckResolved();
     BOOL         MarkAsResolved();
     int          SaveFile(const CString &sFilePath);
-    void         WriteWindowPlacement(WINDOWPLACEMENT *pwp);
-    BOOL         ReadWindowPlacement(WINDOWPLACEMENT *pwp);
+    void         WriteWindowPlacement(WINDOWPLACEMENT *pwp) const;
+    static BOOL  ReadWindowPlacement(WINDOWPLACEMENT *pwp);
     bool         FileSave(bool bCheckResolved = true);
     void         PatchSave();
     bool         FileSaveAs(bool bCheckResolved = true);
@@ -235,11 +237,11 @@ protected:
     /// itself.
     int         CheckForSave(ECheckForSaveReason eReason /* = CHFSR_SWITCH*/);
     void        OnViewLineUpDown(int direction);
-    void        OnViewLineLeftRight(int direction);
+    void        OnViewLineLeftRight(int direction) const;
     static void OnTabMode(CBaseView *view, int cmd);
     static void OnUpdateTabMode(CBaseView *view, CCmdUI *pCmdUI, int startid);
     bool        HasConflictsWontKeep();
-    bool        TryGetFileName(CString &result);
+    bool        TryGetFileName(CString &result) const;
     CBaseView * GetActiveBaseView() const;
     void        OnViewTextFoldUnfold();
     void        OnViewTextFoldUnfold(CBaseView *view);
@@ -252,10 +254,10 @@ protected:
     static bool HasPrevInlineDiff(CBaseView *view);
     static bool HasNextInlineDiff(CBaseView *view);
     void        BuildRegexSubitems(CMFCPopupMenu *pMenuPopup = nullptr);
-    bool        AdjustUnicodeTypeForLoad(CFileTextLines::UnicodeType &type);
-    void        DiffTwo(const CWorkingFile &file1, const CWorkingFile &file2);
-    void        SetTheme(bool bDark);
-    void        SetAccentColor();
+    static bool AdjustUnicodeTypeForLoad(CFileTextLines::UnicodeType &type);
+    static void DiffTwo(const CWorkingFile &file1, const CWorkingFile &file2);
+    void        SetTheme(bool bDark) const;
+    void        SetAccentColor() const;
 
     static svn_error_t *getallstatus(void *baton, const char *path, const svn_client_status_t *status, apr_pool_t *pool);
 
@@ -268,7 +270,7 @@ protected:
     CXSplitter                m_wndSplitter2;
     CFilePatchesDlg           m_dlgFilePatches;
 
-    SVNPatch m_Patch;
+    SVNPatch m_patch;
     BOOL     m_bInitSplitter;
     bool     m_bCheckReload;
 
@@ -289,7 +291,7 @@ protected:
     CRegDWORD m_regUseTaskDialog;
     CRegDWORD m_regIgnoreComments;
 
-    std::map<CString, std::tuple<CString, CString, CString>> m_IgnoreCommentsMap;
+    std::map<CString, std::tuple<CString, CString, CString>> m_ignoreCommentsMap;
     CSimpleIni                                               m_regexIni;
     int                                                      m_regexIndex;
 
@@ -299,7 +301,7 @@ public:
     CBottomView *m_pwndBottomView;
     BOOL         m_bOneWay;
     BOOL         m_bReversedPatch;
-    CDiffData    m_Data;
+    CDiffData    m_data;
     bool         m_bReadOnly;
     bool         m_bBlame;
     int          m_nMoveMovesToIgnore;
@@ -314,9 +316,9 @@ public:
     LPARAM       resolveMsgLParam;
 
     const CMFCToolBar *GetToolbar() const { return &m_wndToolBar; }
-    void               FillEncodingButton(CMFCRibbonButton *pButton, int start);
-    void               FillEOLButton(CMFCRibbonButton *pButton, int start);
-    void               FillTabModeButton(CMFCRibbonButton *pButton, int start);
+    static void        FillEncodingButton(CMFCRibbonButton *pButton, int start);
+    static void        FillEOLButton(CMFCRibbonButton *pButton, int start);
+    static void        FillTabModeButton(CMFCRibbonButton *pButton, int start);
     CMFCMenuBar        m_wndMenuBar;
     CMFCToolBar        m_wndToolBar;
 
