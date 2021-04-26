@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2006-2008, 2011, 2013-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,18 +28,18 @@ class CRightView : public CBaseView
 {
     DECLARE_DYNCREATE(CRightView)
 public:
-    CRightView(void);
-    ~CRightView(void);
+    CRightView();
+    ~CRightView() override;
 
-    void    UseBothLeftFirst() override;
-    void    UseBothRightFirst() override;
-    void    UseLeftBlock() override; ///< Use Block from Left
-    void    UseLeftFile() override; ///< Use File from Left
-    void    MarkBlock(bool marked) override;
-    void    LeaveOnlyMarkedBlocks();
-    void    UseViewFileOfMarked();
-    void    UseViewFileExceptEdited();
+    void UseBothLeftFirst() override;
+    void UseBothRightFirst() override;
+    void UseLeftBlock() override; ///< Use Block from Left
+    void UseLeftFile() override;  ///< Use File from Left
+    void MarkBlock(bool marked) override;
+    void LeaveOnlyMarkedBlocks() override;
+    void UseViewFileOfMarked() override;
+    void UseViewFileExceptEdited() override;
 
 protected:
-    void    AddContextItems(CIconMenu& popup, DiffStates state) override;
+    void AddContextItems(CIconMenu& popup, DiffStates state) override;
 };

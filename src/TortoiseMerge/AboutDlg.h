@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009-2010, 2013 - TortoiseSVN
+// Copyright (C) 2006, 2009-2010, 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,7 +24,7 @@
 #include "StandAloneDlg.h"
 
 #define ID_EFFECTTIMER 1111
-#define ID_DROPTIMER 1112
+#define ID_DROPTIMER   1112
 
 /**
  * \ingroup TortoiseMerge
@@ -37,15 +37,18 @@ class CAboutDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CAboutDlg)
 
 public:
-    CAboutDlg(CWnd* pParent = nullptr);   // standard constructor
-    virtual ~CAboutDlg();
+    CAboutDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CAboutDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_ABOUT };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_ABOUT
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);
     afx_msg void OnClose();
@@ -54,8 +57,8 @@ protected:
 
 private:
     CWaterEffect m_waterEffect;
-    CDib m_renderSrc;
-    CDib m_renderDest;
-    CHyperLink m_cWebLink;
-    CHyperLink m_cSupportLink;
+    CDib         m_renderSrc;
+    CDib         m_renderDest;
+    CHyperLink   m_cWebLink;
+    CHyperLink   m_cSupportLink;
 };

@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2014 - TortoiseSVN
+// Copyright (C) 2006-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,23 +17,20 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "resource.h"
-#include "AppUtils.h"
-#include "IconBitmapUtils.h"
 
 #include "RightView.h"
 #include "BottomView.h"
 
 IMPLEMENT_DYNCREATE(CRightView, CBaseView)
 
-CRightView::CRightView(void)
+CRightView::CRightView()
 {
-    m_pwndRight = this;
-    m_pState = &m_AllState.right;
+    m_pwndRight    = this;
+    m_pState       = &m_allState.right;
     m_nStatusBarID = ID_INDICATOR_RIGHTVIEW;
 }
 
-CRightView::~CRightView(void)
+CRightView::~CRightView()
 {
 }
 
@@ -93,7 +90,7 @@ void CRightView::UseBothLeftFirst()
 
     // final clean up
     ClearSelection();
-    SetupAllViewSelection(nFirstViewLine, 2*nLastViewLine - nFirstViewLine - nRemovedLines + 1);
+    SetupAllViewSelection(nFirstViewLine, 2 * nLastViewLine - nFirstViewLine - nRemovedLines + 1);
     BuildAllScreen2ViewVector();
     m_pwndLeft->Invalidate();
     RefreshViews();
@@ -126,7 +123,7 @@ void CRightView::UseBothRightFirst()
     SaveUndoStep();
 
     // your block is done, now insert their block
-    int viewindex = nNextViewLine;
+    int viewIndex = nNextViewLine;
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
         viewdata line = m_pwndLeft->GetViewData(viewLine);
@@ -139,7 +136,7 @@ void CRightView::UseBothRightFirst()
             SetModified();
             line.state = DIFFSTATE_THEIRSADDED;
         }
-        InsertViewData(viewindex++, line);
+        InsertViewData(viewIndex++, line);
     }
     SaveUndoStep();
 
@@ -158,7 +155,7 @@ void CRightView::UseBothRightFirst()
 
     // final clean up
     ClearSelection();
-    SetupAllViewSelection(nFirstViewLine, 2*nLastViewLine - nFirstViewLine - nRemovedLines + 1);
+    SetupAllViewSelection(nFirstViewLine, 2 * nLastViewLine - nFirstViewLine - nRemovedLines + 1);
     BuildAllScreen2ViewVector();
     m_pwndLeft->Invalidate();
     RefreshViews();
@@ -180,7 +177,7 @@ void CRightView::UseLeftBlock()
 void CRightView::UseLeftFile()
 {
     int nFirstViewLine = 0;
-    int nLastViewLine = GetViewCount()-1;
+    int nLastViewLine  = GetViewCount() - 1;
 
     if (!IsWritable())
         return;
@@ -251,12 +248,12 @@ void CRightView::AddContextItems(CIconMenu& popup, DiffStates state)
         int nLastViewLine  = 0;
         if (GetViewSelection(nFirstViewLine, nLastViewLine))
         {
-            bool showMark = true;
+            bool showMark   = true;
             bool showUnmark = true;
             if (nFirstViewLine == nLastViewLine)
             {
                 showUnmark = GetViewMarked(nFirstViewLine);
-                showMark = !showUnmark;
+                showMark   = !showUnmark;
             }
             if (showMark)
                 popup.AppendMenuIcon(POPUPCOMMAND_MARKBLOCK, IDS_VIEWCONTEXTMENU_MARKBLOCK);
