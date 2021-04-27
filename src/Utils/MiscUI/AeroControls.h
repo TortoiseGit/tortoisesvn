@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2014-2016, 2020 - TortoiseSVN
+// Copyright (C) 2009-2010, 2014-2016, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -44,19 +44,19 @@ private:
     LRESULT                 ButtonWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
     LRESULT                 ProgressbarWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-    BOOL DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList = NULL);
-    void DrawFocusRect(LPRECT prcFocus, HDC hdcPaint);
-    void DrawRect(LPRECT prc, HDC hdcPaint, Gdiplus::DashStyle dashStyle, Gdiplus::Color clr, Gdiplus::REAL width) const;
-    void FillRect(LPRECT prc, HDC hdcPaint, Gdiplus::Color clr) const;
-    int  GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture) const;
-    void PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBorder);
-    void ScreenToClient(HWND hWnd, LPRECT lprc);
-    void DrawSolidWndRectOnParent(HWND hWnd, Gdiplus::Color clr);
-    void DrawEditBorder(HWND hWnd);
-    BOOL GetEditBorderColor(HWND hWnd, COLORREF* pClr);
-    void GetRoundRectPath(Gdiplus::GraphicsPath* pPath, const Gdiplus::Rect& r, int dia) const;
+    static BOOL DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList = NULL);
+    static void DrawFocusRect(LPRECT prcFocus, HDC hdcPaint);
+    static void DrawRect(LPRECT prc, HDC hdcPaint, Gdiplus::DashStyle dashStyle, Gdiplus::Color clr, Gdiplus::REAL width);
+    static void FillRect(LPRECT prc, HDC hdcPaint, Gdiplus::Color clr);
+    static int  GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture);
+    static void PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBorder);
+    static void ScreenToClient(HWND hWnd, LPRECT lprc);
+    static void DrawSolidWndRectOnParent(HWND hWnd, Gdiplus::Color clr);
+    static void DrawEditBorder(HWND hWnd);
+    static BOOL GetEditBorderColor(HWND hWnd, COLORREF* pClr);
+    static void GetRoundRectPath(Gdiplus::GraphicsPath* pPath, const Gdiplus::Rect& r, int dia);
 
-    CRegDWORD                m_regEnableDWMFrame;
-    std::map<HWND, UINT_PTR> subclassedControls;
-    ULONG_PTR                gdiplusToken;
+    CRegDWORD                m_regEnableDwmFrame;
+    std::map<HWND, UINT_PTR> m_subclassedControls;
+    ULONG_PTR                m_gdiplusToken;
 };
