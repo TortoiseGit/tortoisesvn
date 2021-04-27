@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2013, 2016 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2013, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,28 +25,30 @@
 class CBrowseFolder
 {
 public:
-    enum retVal
+    enum RetVal
     {
-        CANCEL = 0,     ///< the user has pressed cancel
-        NOPATH,         ///< no folder was selected
-        OK              ///< everything went just fine
+        CANCEL = 0, ///< the user has pressed cancel
+        NOPATH,     ///< no folder was selected
+        OK          ///< everything went just fine
     };
+
 public:
     //constructor / deconstructor
-    CBrowseFolder(void);
-    ~CBrowseFolder(void);
+    CBrowseFolder();
+    ~CBrowseFolder();
+
 public:
-    DWORD m_style;      ///< styles of the dialog.
+    DWORD m_style; ///< styles of the dialog.
     /**
      * Sets the info text of the dialog. Call this method before calling Show().
      */
-    void SetInfo(LPCTSTR title);
+    void SetInfo(LPCWSTR title);
     /*
      * Sets the text to show for the checkbox. If this method is not called,
      * then no checkbox is added.
      */
-    void SetCheckBoxText(LPCTSTR checktext);
-    void SetCheckBoxText2(LPCTSTR checktext);
+    void SetCheckBoxText(LPCWSTR checktext);
+    void SetCheckBoxText2(LPCWSTR checktext);
     /**
      * Shows the Dialog.
      * \param parent [in] window handle of the parent window.
@@ -54,22 +56,23 @@ public:
      * \param sDefaultPath [in]
      * \return one of CANCEL, NOPATH or OK
      */
-    CBrowseFolder::retVal Show(HWND parent, CString& path, const CString& sDefaultPath = CString());
-    CBrowseFolder::retVal Show(HWND parent, LPTSTR path, size_t pathlen, LPCTSTR szDefaultPath = NULL);
+    CBrowseFolder::RetVal Show(HWND parent, CString& path, const CString& sDefaultPath = CString());
+    CBrowseFolder::RetVal Show(HWND parent, LPTSTR path, size_t pathlen, LPCWSTR szDefaultPath = nullptr);
 
     /**
      * If this is set to true, then the second checkbox gets disabled as soon as the first
      * checkbox is checked. If the first checkbox is unchecked, then the second checkbox is enabled
      * again.
      */
-    void DisableCheckBox2WhenCheckbox1IsEnabled(bool bSet = true) {m_DisableCheckbox2WhenCheckbox1IsChecked = bSet;}
+    void DisableCheckBox2WhenCheckbox1IsEnabled(bool bSet = true) { m_disableCheckbox2WhenCheckbox1IsChecked = bSet; }
 
-    static BOOL m_bCheck;       ///< state of the checkbox on closing the dialog
+    static BOOL m_bCheck; ///< state of the checkbox on closing the dialog
     static BOOL m_bCheck2;
+
 protected:
     static CString m_sDefaultPath;
-    TCHAR m_title[200];
-    CString m_CheckText;
-    CString m_CheckText2;
-    bool m_DisableCheckbox2WhenCheckbox1IsChecked;
+    TCHAR          m_title[200];
+    CString        m_checkText;
+    CString        m_checkText2;
+    bool           m_disableCheckbox2WhenCheckbox1IsChecked;
 };

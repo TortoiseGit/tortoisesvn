@@ -1,7 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2016 - TortoiseGit
-// Copyright (C) 2003-2014, 2016 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,30 +21,29 @@
 #include <windowsx.h>
 #include "BrowseFolder.h"
 #include "PathUtils.h"
-#include "SmartHandle.h"
 #include "OnOutOfScope.h"
 #include "FileDlgEventHandler.h"
 #include <strsafe.h>
 
-BOOL CBrowseFolder::m_bCheck = FALSE;
-BOOL CBrowseFolder::m_bCheck2 = FALSE;
+BOOL    CBrowseFolder::m_bCheck  = FALSE;
+BOOL    CBrowseFolder::m_bCheck2 = FALSE;
 CString CBrowseFolder::m_sDefaultPath;
 
 class BrowseFolderDlgEventHandler : public CFileDlgEventHandler
 {
 public:
     BrowseFolderDlgEventHandler()
-        : m_DisableCheckbox2WhenCheckbox1IsChecked(false)
+        : m_disableCheckbox2WhenCheckbox1IsChecked(false)
     {
     }
 
-    bool m_DisableCheckbox2WhenCheckbox1IsChecked;
+    bool m_disableCheckbox2WhenCheckbox1IsChecked;
 
-    STDMETHODIMP OnCheckButtonToggled(IFileDialogCustomize *pfdc,
-                                      DWORD dwIDCtl,
-                                      BOOL bChecked) override
+    STDMETHODIMP OnCheckButtonToggled(IFileDialogCustomize* pfdc,
+                                      DWORD                 dwIDCtl,
+                                      BOOL                  bChecked) override
     {
-        if (m_DisableCheckbox2WhenCheckbox1IsChecked && dwIDCtl == 101)
+        if (m_disableCheckbox2WhenCheckbox1IsChecked && dwIDCtl == 101)
         {
             if (bChecked)
                 pfdc->SetControlState(102, CDCS_VISIBLE | CDCS_INACTIVE);
@@ -55,30 +54,29 @@ public:
     }
 };
 
-CBrowseFolder::CBrowseFolder(void)
-:   m_style(0),
-    m_DisableCheckbox2WhenCheckbox1IsChecked(false)
+CBrowseFolder::CBrowseFolder()
+    : m_style(0)
+    , m_disableCheckbox2WhenCheckbox1IsChecked(false)
 {
     SecureZeroMemory(&m_title, sizeof(m_title));
 }
 
-CBrowseFolder::~CBrowseFolder(void)
+CBrowseFolder::~CBrowseFolder()
 {
 }
 
 //show the dialog
-CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, LPTSTR path, size_t pathlen, LPCTSTR szDefaultPath /* = NULL */)
+CBrowseFolder::RetVal CBrowseFolder::Show(HWND parent, LPTSTR path, size_t pathlen, LPCWSTR szDefaultPath /* = NULL */)
 {
-    CString temp;
-    temp = path;
+    CString temp = path;
     CString sDefault;
     if (szDefaultPath)
         sDefault = szDefaultPath;
-    CBrowseFolder::retVal ret = Show(parent, temp, sDefault);
+    CBrowseFolder::RetVal ret = Show(parent, temp, sDefault);
     wcscpy_s(path, pathlen, temp);
     return ret;
 }
-CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CString& sDefaultPath /* = CString() */)
+CBrowseFolder::RetVal CBrowseFolder::Show(HWND parent, CString& path, const CString& sDefaultPath /* = CString() */)
 {
     m_sDefaultPath = sDefaultPath;
     if (m_sDefaultPath.IsEmpty() && !path.IsEmpty())
@@ -86,7 +84,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         while (!PathFileExists(path) && !path.IsEmpty())
         {
             CString p = path.Left(path.ReverseFind('\\'));
-            if ((p.GetLength() == 2)&&(p[1] == ':'))
+            if ((p.GetLength() == 2) && (p[1] == ':'))
             {
                 p += L"\\";
                 if (p.Compare(path) == 0)
@@ -113,7 +111,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         return CANCEL;
 
     // Set a title
-    TCHAR * nl = wcschr(m_title, '\n');
+    auto* nl = wcschr(m_title, '\n');
     if (nl)
         *nl = 0;
     pfd->SetTitle(m_title);
@@ -126,19 +124,19 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
         return CANCEL;
 
     CComObjectStackEx<BrowseFolderDlgEventHandler> cbk;
-    cbk.m_DisableCheckbox2WhenCheckbox1IsChecked = m_DisableCheckbox2WhenCheckbox1IsChecked;
-    CComQIPtr<IFileDialogEvents> pEvents = cbk.GetUnknown();
+    cbk.m_disableCheckbox2WhenCheckbox1IsChecked = m_disableCheckbox2WhenCheckbox1IsChecked;
+    CComQIPtr<IFileDialogEvents> pEvents         = cbk.GetUnknown();
 
-    if (!m_CheckText.IsEmpty())
+    if (!m_checkText.IsEmpty())
     {
         CComPtr<IFileDialogCustomize> pfdCustomize;
         if (FAILED(pfd.QueryInterface(&pfdCustomize)))
             return CANCEL;
 
         pfdCustomize->StartVisualGroup(100, L"");
-        pfdCustomize->AddCheckButton(101, m_CheckText, FALSE);
-        if (!m_CheckText2.IsEmpty())
-            pfdCustomize->AddCheckButton(102, m_CheckText2, FALSE);
+        pfdCustomize->AddCheckButton(101, m_checkText, FALSE);
+        if (!m_checkText2.IsEmpty())
+            pfdCustomize->AddCheckButton(102, m_checkText2, FALSE);
         pfdCustomize->EndVisualGroup();
     }
 
@@ -174,7 +172,7 @@ CBrowseFolder::retVal CBrowseFolder::Show(HWND parent, CString& path, const CStr
     return OK;
 }
 
-void CBrowseFolder::SetInfo(LPCTSTR title)
+void CBrowseFolder::SetInfo(LPCWSTR title)
 {
     ASSERT(title);
 
@@ -182,18 +180,18 @@ void CBrowseFolder::SetInfo(LPCTSTR title)
         wcscpy_s(m_title, title);
 }
 
-void CBrowseFolder::SetCheckBoxText(LPCTSTR checktext)
+void CBrowseFolder::SetCheckBoxText(LPCWSTR checktext)
 {
     ASSERT(checktext);
 
     if (checktext)
-        m_CheckText = checktext;
+        m_checkText = checktext;
 }
 
-void CBrowseFolder::SetCheckBoxText2(LPCTSTR checktext)
+void CBrowseFolder::SetCheckBoxText2(LPCWSTR checktext)
 {
     ASSERT(checktext);
 
     if (checktext)
-        m_CheckText2 = checktext;
+        m_checkText2 = checktext;
 }
