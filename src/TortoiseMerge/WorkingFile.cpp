@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2007, 2011-2014 - TortoiseSVN
+// Copyright (C) 2006-2007, 2011-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,17 +18,16 @@
 //
 #include "stdafx.h"
 #include "WorkingFile.h"
-#include "AppUtils.h"
 #include "PathUtils.h"
 #include "resource.h"
 #include "SmartHandle.h"
 
-CWorkingFile::CWorkingFile(void)
+CWorkingFile::CWorkingFile()
 {
     ClearStoredAttributes();
 }
 
-CWorkingFile::~CWorkingFile(void)
+CWorkingFile::~CWorkingFile()
 {
 }
 
@@ -45,12 +44,12 @@ void CWorkingFile::SetDescriptiveName(const CString& newDescName)
     m_sDescriptiveName = newDescName;
 }
 
-CString CWorkingFile::GetDescriptiveName()
+CString CWorkingFile::GetDescriptiveName() const
 {
     if (m_sDescriptiveName.IsEmpty())
     {
-        CString sDescriptiveName = CPathUtils::GetFileNameFromPath(m_sFilename);
-        WCHAR pathbuf[MAX_PATH] = {0};
+        CString sDescriptiveName  = CPathUtils::GetFileNameFromPath(m_sFilename);
+        WCHAR   pathbuf[MAX_PATH] = {0};
         PathCompactPathEx(pathbuf, sDescriptiveName, 50, 0);
         sDescriptiveName = pathbuf;
         return sDescriptiveName;
@@ -58,7 +57,7 @@ CString CWorkingFile::GetDescriptiveName()
     return m_sDescriptiveName;
 }
 
-CString CWorkingFile::GetReflectedName()
+CString CWorkingFile::GetReflectedName() const
 {
     return m_sReflectedName;
 }
@@ -70,7 +69,7 @@ void CWorkingFile::SetReflectedName(const CString& newReflectedName)
 
 //
 // Make an empty file with this name
-void CWorkingFile::CreateEmptyFile()
+void CWorkingFile::CreateEmptyFile() const
 {
     CAutoFile hFile = CreateFile(m_sFilename, GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
 }
@@ -82,7 +81,7 @@ void CWorkingFile::TransferDetailsFrom(CWorkingFile& rightHandFile)
     // We don't do this to files which are already in use
     ASSERT(!InUse());
 
-    m_sFilename = rightHandFile.m_sFilename;
+    m_sFilename        = rightHandFile.m_sFilename;
     m_sDescriptiveName = rightHandFile.m_sDescriptiveName;
     rightHandFile.SetOutOfUse();
     m_attribs = rightHandFile.m_attribs;
@@ -93,12 +92,12 @@ CString CWorkingFile::GetWindowName() const
     CString sErrMsg;
     // TortoiseMerge allows non-existing files to be used in a merge
     // Inform the user (in a non-intrusive way) if a file is absent
-    if (! this->Exists())
+    if (!this->Exists())
     {
         sErrMsg = CString(MAKEINTRESOURCE(IDS_NOTFOUNDVIEWTITLEINDICATOR));
     }
 
-    if(m_sDescriptiveName.IsEmpty())
+    if (m_sDescriptiveName.IsEmpty())
     {
         // We don't have a proper name - use the filename part of the path
         // return the filename part of the path.
@@ -123,7 +122,6 @@ void CWorkingFile::SetOutOfUse()
     ClearStoredAttributes();
 }
 
-
 bool CWorkingFile::HasSourceFileChanged() const
 {
     if (!InUse())
@@ -135,11 +133,11 @@ bool CWorkingFile::HasSourceFileChanged() const
     {
         if (GetFileAttributesEx(m_sFilename, GetFileExInfoStandard, &attribs))
         {
-            if ( (m_attribs.nFileSizeHigh != attribs.nFileSizeHigh) ||
-                (m_attribs.nFileSizeLow != attribs.nFileSizeLow) )
+            if ((m_attribs.nFileSizeHigh != attribs.nFileSizeHigh) ||
+                (m_attribs.nFileSizeLow != attribs.nFileSizeLow))
                 return true;
-            return ( (CompareFileTime(&m_attribs.ftCreationTime, &attribs.ftCreationTime)!=0) ||
-                (CompareFileTime(&m_attribs.ftLastWriteTime, &attribs.ftLastWriteTime)!=0) );
+            return ((CompareFileTime(&m_attribs.ftCreationTime, &attribs.ftCreationTime) != 0) ||
+                    (CompareFileTime(&m_attribs.ftLastWriteTime, &attribs.ftLastWriteTime) != 0));
         }
     }
 
@@ -160,7 +158,7 @@ void CWorkingFile::StoreFileAttributes()
 void CWorkingFile::ClearStoredAttributes()
 {
     static const WIN32_FILE_ATTRIBUTE_DATA attribsEmpty = {0};
-    m_attribs = attribsEmpty;
+    m_attribs                                           = attribsEmpty;
 }
 
 bool CWorkingFile::IsReadonly() const
