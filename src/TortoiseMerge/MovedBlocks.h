@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,13 +18,12 @@
 //
 #pragma once
 
-#include "diff.h"
-
 // Inheritance emulation (adding extra fields)
+// ReSharper disable once CppInconsistentNaming
 struct tsvn_svn_diff_t_extension
 {
-    svn_diff_t * base;
-    tsvn_svn_diff_t_extension * next;
-    int moved_from;
-    int moved_to;
+    svn_diff_t*                base;
+    tsvn_svn_diff_t_extension* next;
+    int                        movedFrom;
+    int                        movedTo;
 };

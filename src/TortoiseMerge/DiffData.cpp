@@ -638,15 +638,15 @@ bool CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourF
     while (movedBlocks)
     {
         tempdiff = movedBlocks->base;
-        if (movedBlocks->moved_to != -1)
+        if (movedBlocks->movedTo != -1)
         {
             // set states in a block original:length -> moved_to:length
-            TieMovedBlocks(static_cast<int>(tempdiff->original_start), movedBlocks->moved_to, tempdiff->original_length);
+            TieMovedBlocks(static_cast<int>(tempdiff->original_start), movedBlocks->movedTo, tempdiff->original_length);
         }
-        if (movedBlocks->moved_from != -1)
+        if (movedBlocks->movedFrom != -1)
         {
             // set states in a block modified:length -> moved_from:length
-            TieMovedBlocks(movedBlocks->moved_from, static_cast<int>(tempdiff->modified_start), tempdiff->modified_length);
+            TieMovedBlocks(movedBlocks->movedFrom, static_cast<int>(tempdiff->modified_start), tempdiff->modified_length);
         }
         movedBlocks = movedBlocks->next;
     }
