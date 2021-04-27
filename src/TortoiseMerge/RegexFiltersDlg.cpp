@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2013, 2015, 2020 - TortoiseSVN
+// Copyright (C) 2013, 2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,14 +20,12 @@
 #include "TortoiseMerge.h"
 #include "RegexFiltersDlg.h"
 #include "RegexFilterDlg.h"
-#include <afxdialogex.h>
-
 
 // CRegexFiltersDlg dialog
 
 IMPLEMENT_DYNAMIC(CRegexFiltersDlg, CStandAloneDialog)
 
-CRegexFiltersDlg::CRegexFiltersDlg(CWnd* pParent /*=nullptr*/)
+CRegexFiltersDlg::CRegexFiltersDlg(CWnd *pParent /*=nullptr*/)
     : CStandAloneDialog(CRegexFiltersDlg::IDD, pParent)
     , m_pIni(nullptr)
 {
@@ -37,12 +35,11 @@ CRegexFiltersDlg::~CRegexFiltersDlg()
 {
 }
 
-void CRegexFiltersDlg::DoDataExchange(CDataExchange* pDX)
+void CRegexFiltersDlg::DoDataExchange(CDataExchange *pDX)
 {
     CStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_REGEXLIST, m_RegexList);
+    DDX_Control(pDX, IDC_REGEXLIST, m_regexList);
 }
-
 
 BEGIN_MESSAGE_MAP(CRegexFiltersDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDC_ADD, &CRegexFiltersDlg::OnBnClickedAdd)
@@ -52,9 +49,7 @@ BEGIN_MESSAGE_MAP(CRegexFiltersDlg, CStandAloneDialog)
     ON_NOTIFY(LVN_ITEMCHANGED, IDC_REGEXLIST, &CRegexFiltersDlg::OnLvnItemchangedRegexlist)
 END_MESSAGE_MAP()
 
-
 // CRegexFiltersDlg message handlers
-
 
 void CRegexFiltersDlg::OnBnClickedAdd()
 {
@@ -67,20 +62,19 @@ void CRegexFiltersDlg::OnBnClickedAdd()
     SetupListControl();
 }
 
-
 void CRegexFiltersDlg::OnBnClickedEdit()
 {
     CRegexFilterDlg dlg(this);
-    auto pos = m_RegexList.GetFirstSelectedItemPosition();
-    int index = m_RegexList.GetNextSelectedItem(pos);
+    auto            pos   = m_regexList.GetFirstSelectedItemPosition();
+    int             index = m_regexList.GetNextSelectedItem(pos);
     if (index >= 0)
     {
-        CString sName = m_RegexList.GetItemText(index, 0);
-        dlg.m_sName = sName;
-        CString sRegex = m_pIni->GetValue(sName, L"regex", L"");
-        dlg.m_sRegex = sRegex;
+        CString sName    = m_regexList.GetItemText(index, 0);
+        dlg.m_sName      = sName;
+        CString sRegex   = m_pIni->GetValue(sName, L"regex", L"");
+        dlg.m_sRegex     = sRegex;
         CString sReplace = m_pIni->GetValue(sName, L"replace", L"");
-        dlg.m_sReplace = sReplace;
+        dlg.m_sReplace   = sReplace;
         if (dlg.DoModal() == IDOK)
         {
             if (sName != dlg.m_sName)
@@ -98,31 +92,28 @@ void CRegexFiltersDlg::OnBnClickedEdit()
     SetupListControl();
 }
 
-
 void CRegexFiltersDlg::OnBnClickedRemove()
 {
-    auto pos = m_RegexList.GetFirstSelectedItemPosition();
-    int index = m_RegexList.GetNextSelectedItem(pos);
+    auto pos   = m_regexList.GetFirstSelectedItemPosition();
+    int  index = m_regexList.GetNextSelectedItem(pos);
     if (index >= 0)
     {
-        CString sName = m_RegexList.GetItemText(index, 0);
+        CString sName = m_regexList.GetItemText(index, 0);
         m_pIni->Delete(sName, L"regex", true);
         m_pIni->Delete(sName, L"replace", true);
     }
     SetupListControl();
 }
 
-
 BOOL CRegexFiltersDlg::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
 
-    SetWindowTheme(m_RegexList.GetSafeHwnd(), L"Explorer", nullptr);
+    SetWindowTheme(m_regexList.GetSafeHwnd(), L"Explorer", nullptr);
 
     SetupListControl();
 
-
-    return TRUE;  // return TRUE unless you set the focus to a control
+    return TRUE; // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
 }
 
@@ -136,37 +127,37 @@ void CRegexFiltersDlg::OnNMDblclkRegexlist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CRegexFiltersDlg::SetupListControl()
 {
-    m_RegexList.SetRedraw(false);
-    m_RegexList.DeleteAllItems();
+    m_regexList.SetRedraw(false);
+    m_regexList.DeleteAllItems();
 
-    int c = m_RegexList.GetHeaderCtrl()->GetItemCount()-1;
-    while (c>=0)
-        m_RegexList.DeleteColumn(c--);
-    m_RegexList.InsertColumn(0, L"Regex");
+    int c = m_regexList.GetHeaderCtrl()->GetItemCount() - 1;
+    while (c >= 0)
+        m_regexList.DeleteColumn(c--);
+    m_regexList.InsertColumn(0, L"Regex");
 
     CRect rect;
-    m_RegexList.GetClientRect(&rect);
-    m_RegexList.SetColumnWidth(0, LVSCW_AUTOSIZE_USEHEADER);
+    m_regexList.GetClientRect(&rect);
+    m_regexList.SetColumnWidth(0, LVSCW_AUTOSIZE_USEHEADER);
 
     CSimpleIni::TNamesDepend sections;
     m_pIni->GetAllSections(sections);
 
     int index = 0;
-    for (const auto& section : sections)
+    for (const auto &section : sections)
     {
-        m_RegexList.InsertItem(index++, section);
+        m_regexList.InsertItem(index++, section);
     }
 
-    m_RegexList.SetRedraw(true);
+    m_regexList.SetRedraw(true);
 }
 
-
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CRegexFiltersDlg::OnLvnItemchangedRegexlist(NMHDR *pNMHDR, LRESULT *pResult)
 {
     UNREFERENCED_PARAMETER(pNMHDR);
     //LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-    *pResult = 0;
-    bool bOneItemSelected = (m_RegexList.GetSelectedCount() == 1);
-    GetDlgItem(IDC_EDIT)  ->EnableWindow(bOneItemSelected);
+    *pResult              = 0;
+    bool bOneItemSelected = (m_regexList.GetSelectedCount() == 1);
+    GetDlgItem(IDC_EDIT)->EnableWindow(bOneItemSelected);
     GetDlgItem(IDC_REMOVE)->EnableWindow(bOneItemSelected);
 }

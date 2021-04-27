@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009-2010 - TortoiseSVN
+// Copyright (C) 2006, 2009-2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,14 +27,17 @@ class COpenDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(COpenDlg)
 
 public:
-    COpenDlg(CWnd* pParent = nullptr);   // standard constructor
-    virtual ~COpenDlg();
+    COpenDlg(CWnd* pParent = nullptr); // standard constructor
+    ~COpenDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_OPENDLG };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_OPENDLG
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
     void OnBrowseForFile(CString& filepath, UINT nFileFilter = IDS_COMMONFILEFILTER);
     void GroupRadio(UINT nID);
     bool CheckAndEnableClipboardChecker();
@@ -67,11 +70,11 @@ protected:
     afx_msg void OnDestroy();
     afx_msg void OnBnClickedPatchfromclipboard();
 
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    void AutoCompleteOn(int controlId);
+    BOOL OnInitDialog() override;
+    void OnOK() override;
+    void AutoCompleteOn(int controlId) const;
 
-    BOOL    m_bFromClipboard;
-    UINT    m_cFormat;
-    HWND    m_nextViewer;
+    BOOL m_bFromClipboard;
+    UINT m_cFormat;
+    HWND m_nextViewer;
 };

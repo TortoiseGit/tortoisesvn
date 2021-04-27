@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2013, 2020 - TortoiseSVN
+// Copyright (C) 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,26 +28,31 @@ class CRegexFiltersDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CRegexFiltersDlg)
 
 public:
-    CRegexFiltersDlg(CWnd* pParent = nullptr);   // standard constructor
-    virtual ~CRegexFiltersDlg();
+    CRegexFiltersDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CRegexFiltersDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_REGEXFILTERS };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_REGEXFILTERS
+    };
 
-    void            SetIniFile(CSimpleIni * pIni) { m_pIni = pIni; }
+    void SetIniFile(CSimpleIni* pIni) { m_pIni = pIni; }
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
     afx_msg void OnBnClickedAdd();
     afx_msg void OnBnClickedEdit();
     afx_msg void OnBnClickedRemove();
-    afx_msg void OnNMDblclkRegexlist(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnLvnItemchangedRegexlist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMDblclkRegexlist(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnLvnItemchangedRegexlist(NMHDR* pNMHDR, LRESULT* pResult);
 
     DECLARE_MESSAGE_MAP()
 
-    void        SetupListControl();
+    void SetupListControl();
+
 private:
-    CListCtrl       m_RegexList;
-    CSimpleIni *    m_pIni;
+    CListCtrl   m_regexList;
+    CSimpleIni* m_pIni;
 };

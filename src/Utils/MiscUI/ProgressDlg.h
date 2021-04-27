@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013, 2015 - TortoiseSVN
+// Copyright (C) 2003-2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,11 +37,11 @@ public:
      * sets the title of the progress dialog box.
      * \param szTitle pointer to a NULL-terminated string that contains the dialog box title
      */
-    void SetTitle ( LPCTSTR szTitle );
+    void SetTitle(LPCTSTR szTitle) const;
     /**
     * sets the title of the progress dialog box to a string resource value.
     */
-    void SetTitle ( UINT idTitle);
+    void SetTitle(UINT idTitle) const;
 
     /**
      * Displays a message.
@@ -52,7 +52,7 @@ public:
      * \remark This call should be made *after* the dialog has been shown - this allows
      * the system to measure the space available for the text, and do path compaction properly
      */
-    void SetLine ( DWORD dwLine, LPCTSTR szText, bool bCompactPath = false );
+    void SetLine(DWORD dwLine, LPCTSTR szText, bool bCompactPath = false) const;
 
 #ifdef _MFC_VER
     /**
@@ -62,8 +62,8 @@ public:
     * \remark These calls should be made *after* the dialog has been shown - this allows
     * the system to measure the space available for the text, and do path compaction properly
     */
-    void FormatPathLine ( DWORD dwLine, UINT idFormatText, ...);
-    void FormatNonPathLine ( DWORD dwLine, UINT idFormatText, ...);
+    void FormatPathLine(DWORD dwLine, UINT idFormatText, ...) const;
+    void FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...) const;
 #endif
     /**
      * Sets a message to be displayed if the user clicks the cancel button.
@@ -78,32 +78,32 @@ public:
      * the progress dialog box will be closed shortly. It is typically is set to
      * something like "Please wait while ...".
      */
-    void SetCancelMsg ( LPCTSTR szMessage );
+    void SetCancelMsg(LPCTSTR szMessage) const;
 #ifdef _MFC_VER
-    void SetCancelMsg ( UINT idMessage );
+    void SetCancelMsg(UINT idMessage) const;
     /**
      * Specifies an AVI-clip that will run in the dialog box.
      * \param uRsrcID AVI resource identifier. To create this value use the MAKEINTRESOURCE macro.
      */
-    void SetAnimation ( UINT uRsrcID );
+    void SetAnimation(UINT uRsrcID) const;
 #endif
     /**
      * Specifies an AVI-clip that will run in the dialog box.
      * \param hinst instance handle to the module from which the avi resource should be loaded.
      * \param uRsrcID AVI resource identifier. To create this value use the MAKEINTRESOURCE macro.
      */
-    void SetAnimation ( HINSTANCE hinst, UINT uRsrcID );
+    void SetAnimation(HINSTANCE hinst, UINT uRsrcID) const;
 
     /**
      * Specifies that the progress dialog should have a line indicating the time remaining to complete.
      * \param bTime false to deactivate the time remaining line.
      */
-    void SetTime ( bool bTime = true );
+    void SetTime(bool bTime = true);
 
     /**
      * Specifies if the progress bar should be shown or not.
      */
-    void SetShowProgressBar ( bool bShow = true );
+    void SetShowProgressBar(bool bShow = true);
 
     /**
      * Resets the progress dialog box timer to zero.
@@ -113,22 +113,22 @@ public:
      * This practice ensures that the time estimates will be as accurate as possible.
      * This method should not be called after the first call to UpdateProgress().
      */
-    void ResetTimer();
+    void ResetTimer() const;
 
-  /**
+    /**
    * Shows the progress dialog box modal.
    */
 #ifdef _MFC_VER
-    HRESULT ShowModal ( CWnd* pwndParent, BOOL immediately = true );
+    HRESULT ShowModal(CWnd* pwndParent, BOOL immediately = true);
 #endif
-    HRESULT ShowModal ( HWND hWndParent, BOOL immediately = true );
+    HRESULT ShowModal(HWND hWndParent, BOOL immediately = true);
     /**
      * Shows the progress dialog box modeless.
      */
 #ifdef _MFC_VER
-    HRESULT ShowModeless ( CWnd* pwndParent, BOOL immediately = true );
+    HRESULT ShowModeless(CWnd* pwndParent, BOOL immediately = true);
 #endif
-    HRESULT ShowModeless ( HWND hWndParent, BOOL immediately = true );
+    HRESULT ShowModeless(HWND hWndParent, BOOL immediately = true);
 
     /**
      * Stops the progress dialog box and removes it from the screen.
@@ -140,24 +140,24 @@ public:
      * \param dwProgress Application-defined value that indicates what proportion of the operation has been completed at the time the method was called
      * \param dwMax Application-defined value that specifies what value dwCompleted will have when the operation is complete
      */
-    void SetProgress ( DWORD dwProgress, DWORD dwMax );
+    void SetProgress(DWORD dwProgress, DWORD dwMax) const;
     /**
      * Updates the progress dialog box with the current state of the operation.
      * \param u64Progress Application-defined value that indicates what proportion of the operation has been completed at the time the method was called
      * \param u64ProgressMax Application-defined value that specifies what value dwCompleted will have when the operation is complete
      */
-    void SetProgress64 ( ULONGLONG u64Progress, ULONGLONG u64ProgressMax );
+    void SetProgress64(ULONGLONG u64Progress, ULONGLONG u64ProgressMax) const;
 
     /**
      * Checks whether the user has canceled the operation.
      */
-    bool HasUserCancelled();
+    bool HasUserCancelled() const;
 
     /**
      * Checks whether this object was created successfully. If the return value is false then
      * you MUST NOT use the current instance of this class.
      */
-    bool IsValid() const { return m_pIDlg != 0; }
+    bool IsValid() const { return m_pIDlg != nullptr; }
 
     /**
      * Checks whether the window is shown.
@@ -178,9 +178,9 @@ public:
 
 protected:
     ATL::CComPtr<IProgressDialog> m_pIDlg;
-    bool                m_isVisible;
-    DWORD               m_dwDlgFlags;
-    HWND                m_hWndProgDlg;
-    HWND                m_hWndParent;
-    HWND                m_hWndFocus;
+    bool                          m_isVisible;
+    DWORD                         m_dwDlgFlags;
+    HWND                          m_hWndProgDlg;
+    HWND                          m_hWndParent;
+    HWND                          m_hWndFocus;
 };

@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2013-2014, 2020 - TortoiseSVN
+// Copyright (C) 2013-2014, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 
-
 // CRegexFilterDlg dialog
 
 class CRegexFilterDlg : public CStandAloneDialog
@@ -27,21 +26,24 @@ class CRegexFilterDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CRegexFilterDlg)
 
 public:
-    CRegexFilterDlg(CWnd* pParent = nullptr);   // standard constructor
-    virtual ~CRegexFilterDlg();
+    CRegexFilterDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CRegexFilterDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_REGEXFILTER };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_REGEXFILTER
+    };
 
-    CString         m_sName;
-    CString         m_sRegex;
-    CString         m_sReplace;
+    CString m_sName;
+    CString m_sRegex;
+    CString m_sReplace;
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    void ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING);
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
+    void ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING) override;
 
     DECLARE_MESSAGE_MAP()
 };

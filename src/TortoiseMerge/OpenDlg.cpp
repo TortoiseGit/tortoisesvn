@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012-2014 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -80,10 +80,10 @@ BOOL COpenDlg::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     CRegDWORD lastRadioButton(L"Software\\TortoiseMerge\\OpenRadio", IDC_MERGERADIO);
-    if (((DWORD)lastRadioButton != IDC_MERGERADIO)&&((DWORD)lastRadioButton != IDC_APPLYRADIO))
+    if ((static_cast<DWORD>(lastRadioButton) != IDC_MERGERADIO) && (static_cast<DWORD>(lastRadioButton) != IDC_APPLYRADIO))
         lastRadioButton = IDC_MERGERADIO;
-    GroupRadio((DWORD)lastRadioButton);
-    CheckRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO, (DWORD)lastRadioButton);
+    GroupRadio(static_cast<DWORD>(lastRadioButton));
+    CheckRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO, static_cast<DWORD>(lastRadioButton));
 
     // turn on auto completion for the edit controls
     AutoCompleteOn(IDC_BASEFILEEDIT);
@@ -92,10 +92,10 @@ BOOL COpenDlg::OnInitDialog()
     AutoCompleteOn(IDC_DIFFFILEEDIT);
     AutoCompleteOn(IDC_DIRECTORYEDIT);
 
-    m_cFormat = RegisterClipboardFormat(L"TSVN_UNIFIEDDIFF");
+    m_cFormat    = RegisterClipboardFormat(L"TSVN_UNIFIEDDIFF");
     m_nextViewer = SetClipboardViewer();
 
-    return TRUE;  // return TRUE unless you set the focus to a control
+    return TRUE; // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
 }
 
@@ -156,7 +156,7 @@ void COpenDlg::OnBnClickedApplyradio()
 
 void COpenDlg::GroupRadio(UINT nID)
 {
-    BOOL bMerge = FALSE;
+    BOOL bMerge   = FALSE;
     BOOL bUnified = FALSE;
     if (nID == IDC_MERGERADIO)
         bMerge = TRUE;
@@ -192,7 +192,7 @@ void COpenDlg::OnOK()
             {
                 bUDiffOnClipboard = true;
             }
-        } while((enumFormat = EnumClipboardFormats(enumFormat))!=0);
+        } while ((enumFormat = EnumClipboardFormats(enumFormat)) != 0);
         CloseClipboard();
     }
 
@@ -229,23 +229,23 @@ void COpenDlg::OnOK()
     {
         if (OpenClipboard())
         {
-            HGLOBAL hglb = GetClipboardData(m_cFormat);
-            LPCSTR lpstr = (LPCSTR)GlobalLock(hglb);
+            HGLOBAL hGlb  = GetClipboardData(m_cFormat);
+            LPCSTR  lpStr = static_cast<LPCSTR>(GlobalLock(hGlb));
 
-            DWORD len = GetTempPath(0, nullptr);
-            auto path = std::make_unique<TCHAR[]>(len + 1);
-            auto tempF = std::make_unique<TCHAR[]>(len + 100);
-            GetTempPath (len+1, path.get());
-            GetTempFileName (path.get(), L"tsm", 0, tempF.get());
+            DWORD len   = GetTempPath(0, nullptr);
+            auto  path  = std::make_unique<TCHAR[]>(len + 1LL);
+            auto  tempF = std::make_unique<TCHAR[]>(len + 100LL);
+            GetTempPath(len + 1, path.get());
+            GetTempFileName(path.get(), L"tsm", 0, tempF.get());
             CString sTempFile = CString(tempF.get());
 
-            FILE * outFile;
-            size_t patchlen = strlen(lpstr);
+            FILE*  outFile;
+            size_t patchLen = strlen(lpStr);
             _tfopen_s(&outFile, sTempFile, L"wb");
-            if(outFile)
+            if (outFile)
             {
-                size_t size = fwrite(lpstr, sizeof(char), patchlen, outFile);
-                if (size < patchlen)
+                size_t size = fwrite(lpStr, sizeof(char), patchLen, outFile);
+                if (size < patchLen)
                     bUDiffOnClipboard = false;
                 else
                 {
@@ -255,16 +255,15 @@ void COpenDlg::OnOK()
                 }
                 fclose(outFile);
             }
-            GlobalUnlock(hglb);
+            GlobalUnlock(hGlb);
             CloseClipboard();
         }
-
     }
 
     if (!sFile.IsEmpty())
     {
         CString sErr;
-        sErr.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, (LPCTSTR)sFile);
+        sErr.Format(IDS_ERR_PATCH_INVALIDPATCHFILE, static_cast<LPCTSTR>(sFile));
         MessageBox(sErr, nullptr, MB_ICONERROR);
         return;
     }
@@ -280,7 +279,7 @@ void COpenDlg::OnChangeCbChain(HWND hWndRemove, HWND hWndAfter)
 
 bool COpenDlg::CheckAndEnableClipboardChecker()
 {
-    int radio = GetCheckedRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO);
+    int  radio             = GetCheckedRadioButton(IDC_MERGERADIO, IDC_APPLYRADIO);
     bool bUDiffOnClipboard = false;
     if (radio == IDC_APPLYRADIO)
     {
@@ -293,7 +292,7 @@ bool COpenDlg::CheckAndEnableClipboardChecker()
                 {
                     bUDiffOnClipboard = true;
                 }
-            } while((enumFormat = EnumClipboardFormats(enumFormat))!=0);
+            } while ((enumFormat = EnumClipboardFormats(enumFormat)) != 0);
             CloseClipboard();
         }
     }
@@ -321,7 +320,7 @@ void COpenDlg::OnBnClickedPatchfromclipboard()
     DialogEnableWindow(IDC_DIFFFILEBROWSE, !m_bFromClipboard);
 }
 
-void COpenDlg::AutoCompleteOn(int controlId)
+void COpenDlg::AutoCompleteOn(int controlId) const
 {
     HWND hwnd;
     GetDlgItem(controlId, &hwnd);

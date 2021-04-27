@@ -1,4 +1,4 @@
-// Copyright (C) 2017 - TortoiseSVN
+﻿// Copyright (C) 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,85 +19,84 @@
 class CNativeRibbonDynamicItemInfo
 {
 public:
-    CNativeRibbonDynamicItemInfo(UINT cmdId, const CString & text, UINT imageId)
-        : m_CmdId(cmdId)
-        , m_Text(text)
-        , m_ImageId(imageId)
+    CNativeRibbonDynamicItemInfo(UINT cmdId, const CString &text, UINT imageId)
+        : m_cmdId(cmdId)
+        , m_text(text)
+        , m_imageId(imageId)
     {
     }
 
-    const CString & GetLabel() const { return m_Text; }
-    UINT GetCommandId() const { return m_CmdId; }
-    UINT GetImageId() const { return m_ImageId; }
+    const CString &GetLabel() const { return m_text; }
+    UINT           GetCommandId() const { return m_cmdId; }
+    UINT           GetImageId() const { return m_imageId; }
+
 private:
-    UINT m_CmdId;
-    CString m_Text;
-    UINT m_ImageId;
+    UINT    m_cmdId;
+    CString m_text;
+    UINT    m_imageId;
 };
 
-class CNativeRibbonApp : public IUIApplication, public IUICommandHandler
+class CNativeRibbonApp
+    : public IUIApplication
+    , public IUICommandHandler
 {
 public:
     CNativeRibbonApp(CFrameWnd *pFrame, IUIFramework *pFramework);
-    ~CNativeRibbonApp();
+    virtual ~CNativeRibbonApp();
 
-    void SetSettingsFileName(const CString & file)
+    void SetSettingsFileName(const CString &file)
     {
-        m_SettingsFileName = file;
+        m_settingsFileName = file;
     }
 
     void UpdateCmdUI(BOOL bDisableIfNoHandler);
-    int GetRibbonHeight();
-    void SetItems(UINT cmdId, const std::list<CNativeRibbonDynamicItemInfo> & items);
+    int  GetRibbonHeight() const;
+    void SetItems(UINT cmdId, const std::list<CNativeRibbonDynamicItemInfo> &items) const;
 
 protected:
     // IUnknown
-    STDMETHOD(QueryInterface)(REFIID riid, void **ppvObject);
-    STDMETHOD_(ULONG, AddRef)(void);
-    STDMETHOD_(ULONG, Release)(void);
+    HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void **ppvObject) override;
+    ULONG STDMETHODCALLTYPE   AddRef() override;
+    ULONG STDMETHODCALLTYPE   Release() override;
 
-        // IUIApplication
-    STDMETHOD(OnViewChanged)(
-        UINT32 viewId,
-        UI_VIEWTYPE typeID,
-        IUnknown *view,
-        UI_VIEWVERB verb,
-        INT32 uReasonCode);
+    // IUIApplication
+    HRESULT STDMETHODCALLTYPE OnViewChanged(UINT32      viewId,
+                                            UI_VIEWTYPE typeID,
+                                            IUnknown *  view,
+                                            UI_VIEWVERB verb,
+                                            INT32       uReasonCode) override;
 
-    STDMETHOD(OnCreateUICommand)(
-        UINT32 commandId,
-        UI_COMMANDTYPE typeID,
-        IUICommandHandler **commandHandler);
+    HRESULT STDMETHODCALLTYPE OnCreateUICommand(UINT32              commandId,
+                                                UI_COMMANDTYPE      typeID,
+                                                IUICommandHandler **commandHandler) override;
 
-    STDMETHOD(OnDestroyUICommand)(
-        UINT32 commandId,
-        UI_COMMANDTYPE typeID,
-        IUICommandHandler *commandHandler);
+    HRESULT STDMETHODCALLTYPE OnDestroyUICommand(UINT32             commandId,
+                                                 UI_COMMANDTYPE     typeID,
+                                                 IUICommandHandler *commandHandler) override;
 
     // IUICommandHandler
-    STDMETHOD(Execute)(
-        UINT32 commandId,
-        UI_EXECUTIONVERB verb,
-        const PROPERTYKEY *key,
-        const PROPVARIANT *currentValue,
-        IUISimplePropertySet *commandExecutionProperties);
+    HRESULT STDMETHODCALLTYPE Execute(UINT32                commandId,
+                                      UI_EXECUTIONVERB      verb,
+                                      const PROPERTYKEY *   key,
+                                      const PROPVARIANT *   currentValue,
+                                      IUISimplePropertySet *commandExecutionProperties) override;
 
-    STDMETHOD(UpdateProperty)(
-        UINT32 commandId,
-        REFPROPERTYKEY key,
-        const PROPVARIANT *currentValue,
-        PROPVARIANT *newValue);
+    HRESULT STDMETHODCALLTYPE UpdateProperty(UINT32             commandId,
+                                             REFPROPERTYKEY     key,
+                                             const PROPVARIANT *currentValue,
+                                             PROPVARIANT *      newValue) override;
 
-    HRESULT SaveRibbonViewSettings(IUIRibbon *pRibbonView, const CString & fileName);
-    HRESULT LoadRibbonViewSettings(IUIRibbon *pRibbonView, const CString & fileName);
-    CComPtr<IUICollection> GetUICommandItemsSource(UINT commandId);
-    void SetUICommandItemsSource(UINT commandId, IUICollection *pItems);
-    static UINT GetCommandIdProperty(IUISimplePropertySet *propertySet);
+    static HRESULT         SaveRibbonViewSettings(IUIRibbon *pRibbonView, const CString &fileName);
+    static HRESULT         LoadRibbonViewSettings(IUIRibbon *pRibbonView, const CString &fileName);
+    CComPtr<IUICollection> GetUICommandItemsSource(UINT commandId) const;
+    void                   SetUICommandItemsSource(UINT commandId, IUICollection *pItems) const;
+    static UINT            GetCommandIdProperty(IUISimplePropertySet *propertySet);
+
 private:
-    CFrameWnd* m_pFrame;
+    CFrameWnd *           m_pFrame;
     CComPtr<IUIFramework> m_pFramework;
-    std::list<UINT32> m_commandIds;
-    std::list<UINT32> m_collectionCommandIds;
-    ULONG m_cRefCount;
-    CString m_SettingsFileName;
+    std::list<UINT32>     m_commandIds;
+    std::list<UINT32>     m_collectionCommandIds;
+    ULONG                 m_cRefCount;
+    CString               m_settingsFileName;
 };

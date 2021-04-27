@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016 - TortoiseSVN
+// Copyright (C) 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,13 +17,16 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-template <typename BaseType> class CommonDialogFunctions
+template <typename BaseType>
+class CommonDialogFunctions
 {
 public:
     CommonDialogFunctions(BaseType* ctrl)
     {
         m_ctrl = ctrl;
     }
+    virtual ~CommonDialogFunctions() = default;
+
 private:
     BaseType* m_ctrl;
 
@@ -39,7 +42,7 @@ public:
     {
         CWnd* pwndDlgItem = m_ctrl->GetDlgItem(nID);
         if (!pwndDlgItem)
-            return { 0 };
+            return {0};
         // adjust the size of the control to fit its content
         CString sControlText;
         pwndDlgItem->GetWindowText(sControlText);
@@ -47,33 +50,33 @@ public:
         // be displayed
 
         CDC* pDC = pwndDlgItem->GetWindowDC();
-        RECT controlrect;
-        RECT controlrectorig;
-        pwndDlgItem->GetWindowRect(&controlrect);
-        ::MapWindowPoints(nullptr, m_ctrl->GetSafeHwnd(), (LPPOINT)&controlrect, 2);
-        controlrectorig = controlrect;
+        RECT controlRect;
+        RECT controlRectOrig;
+        pwndDlgItem->GetWindowRect(&controlRect);
+        ::MapWindowPoints(nullptr, m_ctrl->GetSafeHwnd(), reinterpret_cast<LPPOINT>(&controlRect), 2);
+        controlRectOrig = controlRect;
         if (pDC)
         {
-            CFont* font = pwndDlgItem->GetFont();
+            CFont* font     = pwndDlgItem->GetFont();
             CFont* pOldFont = pDC->SelectObject(font);
-            if (pDC->DrawText(sControlText, -1, &controlrect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_CALCRECT))
+            if (pDC->DrawText(sControlText, -1, &controlRect, DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_CALCRECT))
             {
                 // now we have the rectangle the control really needs
-                if ((controlrectorig.right - controlrectorig.left) > (controlrect.right - controlrect.left))
+                if ((controlRectOrig.right - controlRectOrig.left) > (controlRect.right - controlRect.left))
                 {
                     // we're dealing with radio buttons and check boxes,
                     // which means we have to add a little space for the checkbox
                     // the value of 3 pixels added here is necessary in case certain visual styles have
                     // been disabled. Without this, the width is calculated too short.
-                    const int checkWidth = GetSystemMetrics(SM_CXMENUCHECK) + 2 * GetSystemMetrics(SM_CXEDGE) + 3;
-                    controlrectorig.right = controlrectorig.left + (controlrect.right - controlrect.left) + checkWidth;
-                    pwndDlgItem->MoveWindow(&controlrectorig);
+                    const int checkWidth  = GetSystemMetrics(SM_CXMENUCHECK) + 2 * GetSystemMetrics(SM_CXEDGE) + 3;
+                    controlRectOrig.right = controlRectOrig.left + (controlRect.right - controlRect.left) + checkWidth;
+                    pwndDlgItem->MoveWindow(&controlRectOrig);
                 }
             }
             pDC->SelectObject(pOldFont);
             m_ctrl->ReleaseDC(pDC);
         }
-        return controlrectorig;
+        return controlRectOrig;
     }
 
     /**
@@ -93,40 +96,39 @@ public:
         // be displayed
 
         CDC* pDC = pwndDlgItem->GetWindowDC();
-        RECT controlrect;
-        RECT controlrectorig;
-        pwndDlgItem->GetWindowRect(&controlrect);
-        ::MapWindowPoints(nullptr, m_ctrl->GetSafeHwnd(), (LPPOINT)&controlrect, 2);
-        controlrect.right += 200;   // in case the control needs to be bigger than it currently is (e.g., due to translations)
-        controlrectorig = controlrect;
+        RECT controlRect;
+        pwndDlgItem->GetWindowRect(&controlRect);
+        ::MapWindowPoints(nullptr, m_ctrl->GetSafeHwnd(), reinterpret_cast<LPPOINT>(&controlRect), 2);
+        controlRect.right += 200; // in case the control needs to be bigger than it currently is (e.g., due to translations)
+        RECT controlRectOrig = controlRect;
 
-        long height = controlrectorig.bottom - controlrectorig.top;
-        long width = controlrectorig.right - controlrectorig.left;
-        controlrectorig.left = rc.right + spacing;
-        controlrectorig.right = controlrectorig.left + width;
-        controlrectorig.bottom = rc.bottom;
-        controlrectorig.top = controlrectorig.bottom - height;
+        long height            = controlRectOrig.bottom - controlRectOrig.top;
+        long width             = controlRectOrig.right - controlRectOrig.left;
+        controlRectOrig.left   = rc.right + spacing;
+        controlRectOrig.right  = controlRectOrig.left + width;
+        controlRectOrig.bottom = rc.bottom;
+        controlRectOrig.top    = controlRectOrig.bottom - height;
 
         if (pDC)
         {
-            CFont* font = pwndDlgItem->GetFont();
+            CFont* font     = pwndDlgItem->GetFont();
             CFont* pOldFont = pDC->SelectObject(font);
-            if (pDC->DrawText(sControlText, -1, &controlrect, DT_WORDBREAK | DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_CALCRECT))
+            if (pDC->DrawText(sControlText, -1, &controlRect, DT_WORDBREAK | DT_EDITCONTROL | DT_EXPANDTABS | DT_LEFT | DT_CALCRECT))
             {
                 // now we have the rectangle the control really needs
-                controlrectorig.right = controlrectorig.left + (controlrect.right - controlrect.left);
-                pwndDlgItem->MoveWindow(&controlrectorig);
+                controlRectOrig.right = controlRectOrig.left + (controlRect.right - controlRect.left);
+                pwndDlgItem->MoveWindow(&controlRectOrig);
             }
             pDC->SelectObject(pOldFont);
             m_ctrl->ReleaseDC(pDC);
         }
-        return controlrectorig;
+        return controlRectOrig;
     }
 
     /**
     * Display a balloon with close button, anchored at a given edit control on this dialog.
     */
-    void ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING)
+    virtual void ShowEditBalloon(UINT nIdControl, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING)
     {
         CString text(MAKEINTRESOURCE(nIdText));
         CString title(MAKEINTRESOURCE(nIdTitle));
@@ -136,9 +138,9 @@ public:
     {
         EDITBALLOONTIP bt;
         bt.cbStruct = sizeof(bt);
-        bt.pszText = text;
+        bt.pszText  = text;
         bt.pszTitle = title;
-        bt.ttiIcon = nIcon;
-        m_ctrl->SendDlgItemMessage(nIdControl, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+        bt.ttiIcon  = nIcon;
+        m_ctrl->SendDlgItemMessage(nIdControl, EM_SHOWBALLOONTIP, 0, reinterpret_cast<LPARAM>(&bt));
     }
 };

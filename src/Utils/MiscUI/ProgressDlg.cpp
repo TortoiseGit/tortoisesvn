@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,12 +20,12 @@
 #include "ProgressDlg.h"
 
 CProgressDlg::CProgressDlg()
-    : m_pIDlg(NULL)
+    : m_pIDlg(nullptr)
     , m_isVisible(false)
     , m_dwDlgFlags(PROGDLG_NORMAL)
-    , m_hWndProgDlg(NULL)
-    , m_hWndParent(NULL)
-    , m_hWndFocus(NULL)
+    , m_hWndProgDlg(nullptr)
+    , m_hWndParent(nullptr)
+    , m_hWndFocus(nullptr)
 {
     EnsureValid();
 }
@@ -34,24 +34,24 @@ CProgressDlg::~CProgressDlg()
 {
     if (IsValid())
     {
-        if (m_isVisible)            //still visible, so stop first before destroying
+        if (m_isVisible) //still visible, so stop first before destroying
             m_pIDlg->StopProgressDialog();
 
-        m_pIDlg = nullptr;
-        m_hWndProgDlg = NULL;
+        m_pIDlg       = nullptr;
+        m_hWndProgDlg = nullptr;
     }
 }
 
 bool CProgressDlg::EnsureValid()
 {
-    if(IsValid())
+    if (IsValid())
         return true;
 
-    HRESULT hr = m_pIDlg.CoCreateInstance (CLSID_ProgressDialog, NULL, CLSCTX_INPROC_SERVER);
+    HRESULT hr = m_pIDlg.CoCreateInstance(CLSID_ProgressDialog, nullptr, CLSCTX_INPROC_SERVER);
     return (SUCCEEDED(hr));
 }
 
-void CProgressDlg::SetTitle(LPCTSTR szTitle)
+void CProgressDlg::SetTitle(LPCTSTR szTitle) const
 {
     USES_CONVERSION;
     if (IsValid())
@@ -59,37 +59,37 @@ void CProgressDlg::SetTitle(LPCTSTR szTitle)
         m_pIDlg->SetTitle(T2COLE(szTitle));
     }
 }
-void CProgressDlg::SetTitle ( UINT idTitle)
+void CProgressDlg::SetTitle(UINT idTitle) const
 {
     SetTitle(CString(MAKEINTRESOURCE(idTitle)));
 }
 
-void CProgressDlg::SetLine(DWORD dwLine, LPCTSTR szText, bool bCompactPath /* = false */)
+void CProgressDlg::SetLine(DWORD dwLine, LPCTSTR szText, bool bCompactPath /* = false */) const
 {
     USES_CONVERSION;
     if (IsValid())
     {
-        m_pIDlg->SetLine(dwLine, T2COLE(szText), bCompactPath, NULL);
+        m_pIDlg->SetLine(dwLine, T2COLE(szText), bCompactPath, nullptr);
     }
 }
 
 #ifdef _MFC_VER
-void CProgressDlg::SetCancelMsg ( UINT idMessage )
+void CProgressDlg::SetCancelMsg(UINT idMessage) const
 {
     SetCancelMsg(CString(MAKEINTRESOURCE(idMessage)));
 }
 #endif // _MFC_VER
 
-void CProgressDlg::SetCancelMsg(LPCTSTR szMessage)
+void CProgressDlg::SetCancelMsg(LPCTSTR szMessage) const
 {
     USES_CONVERSION;
     if (IsValid())
     {
-        m_pIDlg->SetCancelMsg(T2COLE(szMessage), NULL);
+        m_pIDlg->SetCancelMsg(T2COLE(szMessage), nullptr);
     }
 }
 
-void CProgressDlg::SetAnimation(HINSTANCE hinst, UINT uRsrcID)
+void CProgressDlg::SetAnimation(HINSTANCE hinst, UINT uRsrcID) const
 {
     if (IsValid())
     {
@@ -97,7 +97,7 @@ void CProgressDlg::SetAnimation(HINSTANCE hinst, UINT uRsrcID)
     }
 }
 #ifdef _MFC_VER
-void CProgressDlg::SetAnimation(UINT uRsrcID)
+void CProgressDlg::SetAnimation(UINT uRsrcID) const
 {
     if (IsValid())
     {
@@ -123,10 +123,10 @@ void CProgressDlg::SetShowProgressBar(bool bShow /* = true */)
         m_dwDlgFlags |= PROGDLG_NOPROGRESSBAR;
 }
 #ifdef _MFC_VER
-HRESULT CProgressDlg::ShowModal (CWnd* pwndParent, BOOL immediately /* = true */)
+HRESULT CProgressDlg::ShowModal(CWnd* pwndParent, BOOL immediately /* = true */)
 {
-  EnsureValid();
-  return ShowModal(pwndParent->GetSafeHwnd(), immediately);
+    EnsureValid();
+    return ShowModal(pwndParent->GetSafeHwnd(), immediately);
 }
 
 HRESULT CProgressDlg::ShowModeless(CWnd* pwndParent, BOOL immediately)
@@ -135,7 +135,7 @@ HRESULT CProgressDlg::ShowModeless(CWnd* pwndParent, BOOL immediately)
     return ShowModeless(pwndParent->GetSafeHwnd(), immediately);
 }
 
-void CProgressDlg::FormatPathLine ( DWORD dwLine, UINT idFormatText, ...)
+void CProgressDlg::FormatPathLine(DWORD dwLine, UINT idFormatText, ...) const
 {
     va_list args;
     va_start(args, idFormatText);
@@ -147,7 +147,7 @@ void CProgressDlg::FormatPathLine ( DWORD dwLine, UINT idFormatText, ...)
     va_end(args);
 }
 
-void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
+void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...) const
 {
     va_list args;
     va_start(args, idFormatText);
@@ -159,34 +159,33 @@ void CProgressDlg::FormatNonPathLine(DWORD dwLine, UINT idFormatText, ...)
     va_end(args);
 }
 
-
 #endif
 HRESULT CProgressDlg::ShowModal(HWND hWndParent, BOOL immediately /* = true */)
 {
     EnsureValid();
-    m_hWndProgDlg = NULL;
+    m_hWndProgDlg = nullptr;
     if (!IsValid())
         return E_FAIL;
-    m_hWndParent = hWndParent;
-    auto winId = GetWindowThreadProcessId(m_hWndParent, 0);
+    m_hWndParent  = hWndParent;
+    auto winId    = GetWindowThreadProcessId(m_hWndParent, nullptr);
     auto threadId = GetCurrentThreadId();
     if (winId != threadId)
         AttachThreadInput(winId, threadId, TRUE);
     m_hWndFocus = GetFocus();
     if (winId != threadId)
         AttachThreadInput(winId, threadId, FALSE);
-    HRESULT hr = m_pIDlg->StartProgressDialog(hWndParent, NULL, m_dwDlgFlags | PROGDLG_MODAL, NULL);
-    if(FAILED(hr))
+    HRESULT hr = m_pIDlg->StartProgressDialog(hWndParent, nullptr, m_dwDlgFlags | PROGDLG_MODAL, nullptr);
+    if (FAILED(hr))
         return hr;
 
     ATL::CComPtr<IOleWindow> pOleWindow;
-    HRESULT hr2 = m_pIDlg.QueryInterface(&pOleWindow);
-    if(SUCCEEDED(hr2))
+    HRESULT                  hr2 = m_pIDlg.QueryInterface(&pOleWindow);
+    if (SUCCEEDED(hr2))
     {
         hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
-        if(SUCCEEDED(hr2))
+        if (SUCCEEDED(hr2))
         {
-            if(immediately)
+            if (immediately)
                 ShowWindow(m_hWndProgDlg, SW_SHOW);
         }
     }
@@ -198,27 +197,27 @@ HRESULT CProgressDlg::ShowModal(HWND hWndParent, BOOL immediately /* = true */)
 HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
 {
     EnsureValid();
-    m_hWndProgDlg = NULL;
+    m_hWndProgDlg = nullptr;
     if (!IsValid())
         return E_FAIL;
-    m_hWndParent = hWndParent;
-    auto winId = GetWindowThreadProcessId(m_hWndParent, 0);
+    m_hWndParent  = hWndParent;
+    auto winId    = GetWindowThreadProcessId(m_hWndParent, nullptr);
     auto threadId = GetCurrentThreadId();
     if (winId != threadId)
         AttachThreadInput(winId, threadId, TRUE);
     m_hWndFocus = GetFocus();
     if (winId != threadId)
         AttachThreadInput(winId, threadId, FALSE);
-    HRESULT hr = m_pIDlg->StartProgressDialog(hWndParent, NULL, m_dwDlgFlags, NULL);
-    if(FAILED(hr))
+    HRESULT hr = m_pIDlg->StartProgressDialog(hWndParent, nullptr, m_dwDlgFlags, nullptr);
+    if (FAILED(hr))
         return hr;
 
     ATL::CComPtr<IOleWindow> pOleWindow;
-    HRESULT hr2 = m_pIDlg.QueryInterface(&pOleWindow);
-    if(SUCCEEDED(hr2))
+    HRESULT                  hr2 = m_pIDlg.QueryInterface(&pOleWindow);
+    if (SUCCEEDED(hr2))
     {
         hr2 = pOleWindow->GetWindow(&m_hWndProgDlg);
-        if(SUCCEEDED(hr2))
+        if (SUCCEEDED(hr2))
         {
             if (immediately)
                 ShowWindow(m_hWndProgDlg, SW_SHOW);
@@ -228,7 +227,7 @@ HRESULT CProgressDlg::ShowModeless(HWND hWndParent, BOOL immediately)
     return hr;
 }
 
-void CProgressDlg::SetProgress(DWORD dwProgress, DWORD dwMax)
+void CProgressDlg::SetProgress(DWORD dwProgress, DWORD dwMax) const
 {
     if (IsValid())
     {
@@ -236,7 +235,7 @@ void CProgressDlg::SetProgress(DWORD dwProgress, DWORD dwMax)
     }
 }
 
-void CProgressDlg::SetProgress64(ULONGLONG u64Progress, ULONGLONG u64ProgressMax)
+void CProgressDlg::SetProgress64(ULONGLONG u64Progress, ULONGLONG u64ProgressMax) const
 {
     if (IsValid())
     {
@@ -244,7 +243,7 @@ void CProgressDlg::SetProgress64(ULONGLONG u64Progress, ULONGLONG u64ProgressMax
     }
 }
 
-bool CProgressDlg::HasUserCancelled()
+bool CProgressDlg::HasUserCancelled() const
 {
     if (!IsValid())
         return false;
@@ -254,7 +253,7 @@ bool CProgressDlg::HasUserCancelled()
 
 void CProgressDlg::Stop()
 {
-    if ((m_isVisible)&&(IsValid()))
+    if ((m_isVisible) && (IsValid()))
     {
         m_pIDlg->StopProgressDialog();
         // Sometimes the progress dialog sticks around after stopping it,
@@ -280,7 +279,7 @@ void CProgressDlg::Stop()
             // and destroyed, we have to attach to its UI thread and handle
             // all messages until there are no more messages: that's when
             // the progress dialog is really gone.
-            AttachThreadInput(GetWindowThreadProcessId(m_hWndProgDlg, 0), GetCurrentThreadId(), TRUE);
+            AttachThreadInput(GetWindowThreadProcessId(m_hWndProgDlg, nullptr), GetCurrentThreadId(), TRUE);
             // StartProgressDialog creates a new thread to host the progress window.
             // When the window receives WM_DESTROY message StopProgressDialog() wrongly
             // attempts to re-enable the parent in the calling thread (our thread),
@@ -300,23 +299,22 @@ void CProgressDlg::Stop()
             auto start = GetTickCount64();
             while (::IsWindow(m_hWndProgDlg) && ((GetTickCount64() - start) < 3000))
             {
-                MSG msg = { 0 };
+                MSG msg = {nullptr};
                 while (PeekMessage(&msg, m_hWndProgDlg, 0, 0, PM_REMOVE))
                 {
                 }
             }
         }
-        m_isVisible = false;
-        m_pIDlg = nullptr;
-        m_hWndProgDlg = NULL;
+        m_isVisible   = false;
+        m_pIDlg       = nullptr;
+        m_hWndProgDlg = nullptr;
     }
 }
 
-void CProgressDlg::ResetTimer()
+void CProgressDlg::ResetTimer() const
 {
     if (IsValid())
     {
-        m_pIDlg->Timer(PDTIMER_RESET, NULL);
+        m_pIDlg->Timer(PDTIMER_RESET, nullptr);
     }
 }
-

@@ -1,4 +1,6 @@
-// Copyright (C) 2017 - TortoiseSVN
+﻿// TortoiseMerge - a Diff/Patch program
+
+// Copyright (C) 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,19 +37,19 @@ STDMETHODIMP CNativeRibbonApp::QueryInterface(REFIID riid, void **ppvObject)
     if (riid == IID_IUnknown)
     {
         AddRef();
-        *ppvObject = (IUICommandHandler*)this;
+        *ppvObject = static_cast<IUICommandHandler *>(this);
         return S_OK;
     }
     else if (riid == __uuidof(IUIApplication))
     {
         AddRef();
-        *ppvObject = (IUIApplication*)this;
+        *ppvObject = static_cast<IUIApplication *>(this);
         return S_OK;
     }
     else if (riid == __uuidof(IUICommandHandler))
     {
         AddRef();
-        *ppvObject = (IUICommandHandler*)this;
+        *ppvObject = static_cast<IUICommandHandler *>(this);
         return S_OK;
     }
     else
@@ -56,22 +58,24 @@ STDMETHODIMP CNativeRibbonApp::QueryInterface(REFIID riid, void **ppvObject)
     }
 }
 
-STDMETHODIMP_(ULONG) CNativeRibbonApp::AddRef(void)
+STDMETHODIMP_(ULONG)
+CNativeRibbonApp::AddRef()
 {
     return InterlockedIncrement(&m_cRefCount);
 }
 
-STDMETHODIMP_(ULONG) CNativeRibbonApp::Release(void)
+STDMETHODIMP_(ULONG)
+CNativeRibbonApp::Release()
 {
     return InterlockedDecrement(&m_cRefCount);
 }
 
 STDMETHODIMP CNativeRibbonApp::OnViewChanged(
-    UINT32 viewId,
+    UINT32      viewId,
     UI_VIEWTYPE typeID,
-    IUnknown *view,
+    IUnknown *  view,
     UI_VIEWVERB verb,
-    INT32 uReasonCode)
+    INT32       uReasonCode)
 {
     UNREFERENCED_PARAMETER(viewId);
     UNREFERENCED_PARAMETER(view);
@@ -82,12 +86,12 @@ STDMETHODIMP CNativeRibbonApp::OnViewChanged(
     {
         if (verb == UI_VIEWVERB_CREATE)
         {
-            if (!m_SettingsFileName.IsEmpty())
+            if (!m_settingsFileName.IsEmpty())
             {
                 CComQIPtr<IUIRibbon> ribbonView(view);
                 if (ribbonView)
                 {
-                    LoadRibbonViewSettings(ribbonView, m_SettingsFileName);
+                    LoadRibbonViewSettings(ribbonView, m_settingsFileName);
                 }
             }
 
@@ -98,7 +102,7 @@ STDMETHODIMP CNativeRibbonApp::OnViewChanged(
             CComQIPtr<IUIRibbon> ribbonView(view);
             if (ribbonView)
             {
-                SaveRibbonViewSettings(ribbonView, m_SettingsFileName);
+                SaveRibbonViewSettings(ribbonView, m_settingsFileName);
             }
         }
         else if (verb == UI_VIEWVERB_SIZE)
@@ -110,9 +114,9 @@ STDMETHODIMP CNativeRibbonApp::OnViewChanged(
     return S_OK;
 }
 
-STDMETHODIMP CNativeRibbonApp::OnCreateUICommand(UINT32 commandId,
-    UI_COMMANDTYPE typeID,
-    IUICommandHandler **commandHandler)
+STDMETHODIMP CNativeRibbonApp::OnCreateUICommand(UINT32              commandId,
+                                                 UI_COMMANDTYPE      typeID,
+                                                 IUICommandHandler **commandHandler)
 {
     UNREFERENCED_PARAMETER(typeID);
 
@@ -124,9 +128,9 @@ STDMETHODIMP CNativeRibbonApp::OnCreateUICommand(UINT32 commandId,
     return QueryInterface(IID_PPV_ARGS(commandHandler));
 }
 
-STDMETHODIMP CNativeRibbonApp::OnDestroyUICommand(UINT32 commandId,
-    UI_COMMANDTYPE typeID,
-    IUICommandHandler *commandHandler)
+STDMETHODIMP CNativeRibbonApp::OnDestroyUICommand(UINT32             commandId,
+                                                  UI_COMMANDTYPE     typeID,
+                                                  IUICommandHandler *commandHandler)
 {
     UNREFERENCED_PARAMETER(typeID);
     UNREFERENCED_PARAMETER(commandHandler);
@@ -136,11 +140,11 @@ STDMETHODIMP CNativeRibbonApp::OnDestroyUICommand(UINT32 commandId,
     return S_OK;
 }
 
-STDMETHODIMP CNativeRibbonApp::Execute(UINT32 commandId,
-    UI_EXECUTIONVERB verb,
-    const PROPERTYKEY *key,
-    const PROPVARIANT *currentValue,
-    IUISimplePropertySet *commandExecutionProperties)
+STDMETHODIMP CNativeRibbonApp::Execute(UINT32                commandId,
+                                       UI_EXECUTIONVERB      verb,
+                                       const PROPERTYKEY *   key,
+                                       const PROPVARIANT *   currentValue,
+                                       IUISimplePropertySet *commandExecutionProperties)
 {
     UNREFERENCED_PARAMETER(key);
     UNREFERENCED_PARAMETER(currentValue);
@@ -150,8 +154,8 @@ STDMETHODIMP CNativeRibbonApp::Execute(UINT32 commandId,
     {
         if (key && IsEqualPropertyKey(*key, UI_PKEY_SelectedItem))
         {
-            CComPtr<IUICollection> items = GetUICommandItemsSource(commandId);
-            UINT32 selectedItemIdx = 0;
+            CComPtr<IUICollection> items           = GetUICommandItemsSource(commandId);
+            UINT32                 selectedItemIdx = 0;
             UIPropertyToUInt32(UI_PKEY_SelectedItem, *currentValue, &selectedItemIdx);
             UINT32 count = 0;
             items->GetCount(&count);
@@ -182,10 +186,10 @@ STDMETHODIMP CNativeRibbonApp::Execute(UINT32 commandId,
 class CRibbonCmdUI : public CCmdUI
 {
 public:
-    CString m_Text;
-    BOOL m_bOn;
-    int m_nCheck;
-    int m_bCheckChanged;
+    CString m_text;
+    BOOL    m_bOn;
+    int     m_nCheck;
+    int     m_bCheckChanged;
 
     CRibbonCmdUI(int commandId)
         : m_bOn(FALSE)
@@ -194,30 +198,30 @@ public:
     {
         m_nID = commandId;
     }
+    virtual ~CRibbonCmdUI() = default;
 
-    virtual void Enable(BOOL bOn)
+    void Enable(BOOL bOn) override
     {
-        m_bOn = bOn;
+        m_bOn            = bOn;
         m_bEnableChanged = TRUE;
     }
 
-    virtual void SetCheck(int nCheck)
+    void SetCheck(int nCheck) override
     {
-        m_nCheck = nCheck;
+        m_nCheck        = nCheck;
         m_bCheckChanged = TRUE;
     }
 
-    virtual void SetText(LPCTSTR lpszText)
+    void SetText(LPCTSTR lpszText) override
     {
-        m_Text = lpszText;
+        m_text = lpszText;
     }
 };
 
-STDMETHODIMP CNativeRibbonApp::UpdateProperty(
-    UINT32 commandId,
-    REFPROPERTYKEY key,
-    const PROPVARIANT *currentValue,
-    PROPVARIANT *newValue)
+STDMETHODIMP CNativeRibbonApp::UpdateProperty(UINT32             commandId,
+                                              REFPROPERTYKEY     key,
+                                              const PROPVARIANT *currentValue,
+                                              PROPVARIANT *      newValue)
 {
     UNREFERENCED_PARAMETER(currentValue);
 
@@ -235,8 +239,8 @@ STDMETHODIMP CNativeRibbonApp::UpdateProperty(
 
         CString strLabel;
 
-        if (m_pFrame != NULL && (CKeyboardManager::FindDefaultAccelerator(commandId, strLabel, m_pFrame, TRUE) ||
-            CKeyboardManager::FindDefaultAccelerator(commandId, strLabel, m_pFrame->GetActiveFrame(), FALSE)))
+        if (m_pFrame != nullptr && (CKeyboardManager::FindDefaultAccelerator(commandId, strLabel, m_pFrame, TRUE) ||
+                                    CKeyboardManager::FindDefaultAccelerator(commandId, strLabel, m_pFrame->GetActiveFrame(), FALSE)))
         {
             str += _T(" (");
             str += strLabel;
@@ -289,8 +293,8 @@ STDMETHODIMP CNativeRibbonApp::UpdateProperty(
             CComQIPtr<IUISimplePropertySet> simplePropertySet(item);
             if (simplePropertySet)
             {
-                PROPVARIANT var = { 0 };
-                UINT32 uiVal;
+                PROPVARIANT var = {0};
+                UINT32      uiVal;
                 simplePropertySet->GetValue(UI_PKEY_CommandId, &var);
                 UIPropertyToUInt32(UI_PKEY_CommandId, var, &uiVal);
 
@@ -306,7 +310,7 @@ STDMETHODIMP CNativeRibbonApp::UpdateProperty(
         }
 
         // No selected item.
-        UIInitPropertyFromUInt32(UI_PKEY_SelectedItem, (UINT)-1, newValue);
+        UIInitPropertyFromUInt32(UI_PKEY_SelectedItem, static_cast<UINT>(-1), newValue);
 
         return S_OK;
     }
@@ -316,12 +320,11 @@ STDMETHODIMP CNativeRibbonApp::UpdateProperty(
     }
 }
 
-HRESULT CNativeRibbonApp::SaveRibbonViewSettings(IUIRibbon * pRibbonView, const CString & fileName)
+HRESULT CNativeRibbonApp::SaveRibbonViewSettings(IUIRibbon *pRibbonView, const CString &fileName)
 {
-    HRESULT hr;
     CComPtr<IStream> stream;
 
-    hr = SHCreateStreamOnFileEx(fileName, STGM_WRITE | STGM_CREATE, FILE_ATTRIBUTE_NORMAL, TRUE, nullptr, &stream);
+    HRESULT hr = SHCreateStreamOnFileEx(fileName, STGM_WRITE | STGM_CREATE, FILE_ATTRIBUTE_NORMAL, TRUE, nullptr, &stream);
     if (FAILED(hr))
         return hr;
 
@@ -337,12 +340,11 @@ HRESULT CNativeRibbonApp::SaveRibbonViewSettings(IUIRibbon * pRibbonView, const 
     return hr;
 }
 
-HRESULT CNativeRibbonApp::LoadRibbonViewSettings(IUIRibbon * pRibbonView, const CString & fileName)
+HRESULT CNativeRibbonApp::LoadRibbonViewSettings(IUIRibbon *pRibbonView, const CString &fileName)
 {
-    HRESULT hr;
     CComPtr<IStream> stream;
 
-    hr = SHCreateStreamOnFileEx(fileName, STGM_READ, FILE_ATTRIBUTE_NORMAL, FALSE, nullptr, &stream);
+    HRESULT hr = SHCreateStreamOnFileEx(fileName, STGM_READ, FILE_ATTRIBUTE_NORMAL, FALSE, nullptr, &stream);
     if (FAILED(hr))
         return hr;
 
@@ -351,9 +353,9 @@ HRESULT CNativeRibbonApp::LoadRibbonViewSettings(IUIRibbon * pRibbonView, const 
     return hr;
 }
 
-CComPtr<IUICollection> CNativeRibbonApp::GetUICommandItemsSource(UINT commandId)
+CComPtr<IUICollection> CNativeRibbonApp::GetUICommandItemsSource(UINT commandId) const
 {
-    PROPVARIANT prop = { 0 };
+    PROPVARIANT prop = {0};
 
     m_pFramework->GetUICommandProperty(commandId, UI_PKEY_ItemsSource, &prop);
 
@@ -364,9 +366,9 @@ CComPtr<IUICollection> CNativeRibbonApp::GetUICommandItemsSource(UINT commandId)
     return uiCollection;
 }
 
-void CNativeRibbonApp::SetUICommandItemsSource(UINT commandId, IUICollection *pItems)
+void CNativeRibbonApp::SetUICommandItemsSource(UINT commandId, IUICollection *pItems) const
 {
-    PROPVARIANT prop = { 0 };
+    PROPVARIANT prop = {0};
 
     UIInitPropertyFromInterface(UI_PKEY_ItemsSource, pItems, &prop);
 
@@ -377,8 +379,8 @@ void CNativeRibbonApp::SetUICommandItemsSource(UINT commandId, IUICollection *pI
 
 UINT CNativeRibbonApp::GetCommandIdProperty(IUISimplePropertySet *propertySet)
 {
-    PROPVARIANT var = { 0 };
-    UINT32 commandId = 0;
+    PROPVARIANT var       = {0};
+    UINT32      commandId = 0;
 
     if (propertySet->GetValue(UI_PKEY_CommandId, &var) == S_OK)
     {
@@ -396,14 +398,14 @@ void CNativeRibbonApp::UpdateCmdUI(BOOL bDisableIfNoHandler)
         ui.DoUpdate(m_pFrame, bDisableIfNoHandler);
         if (ui.m_bEnableChanged)
         {
-            PROPVARIANT val = { 0 };
+            PROPVARIANT val = {0};
             UIInitPropertyFromBoolean(UI_PKEY_Enabled, ui.m_bOn, &val);
             m_pFramework->SetUICommandProperty(*it, UI_PKEY_Enabled, val);
         }
 
         if (ui.m_bCheckChanged)
         {
-            PROPVARIANT val = { 0 };
+            PROPVARIANT val = {0};
             UIInitPropertyFromBoolean(UI_PKEY_BooleanValue, ui.m_nCheck, &val);
             m_pFramework->SetUICommandProperty(*it, UI_PKEY_BooleanValue, val);
         }
@@ -411,15 +413,15 @@ void CNativeRibbonApp::UpdateCmdUI(BOOL bDisableIfNoHandler)
 
     for (auto it = m_collectionCommandIds.begin(); it != m_collectionCommandIds.end(); ++it)
     {
-        PROPVARIANT currentValue = { 0 };
-        PROPVARIANT newValue = { 0 };
+        PROPVARIANT currentValue = {0};
+        PROPVARIANT newValue     = {0};
 
         UpdateProperty(*it, UI_PKEY_SelectedItem, &currentValue, &newValue);
         m_pFramework->SetUICommandProperty(*it, UI_PKEY_SelectedItem, newValue);
     }
 }
 
-int CNativeRibbonApp::GetRibbonHeight()
+int CNativeRibbonApp::GetRibbonHeight() const
 {
     CComPtr<IUIRibbon> pRibbon;
 
@@ -427,7 +429,7 @@ int CNativeRibbonApp::GetRibbonHeight()
     {
         UINT32 cy = 0;
         pRibbon->GetHeight(&cy);
-        return (int)cy;
+        return static_cast<int>(cy);
     }
     else
     {
@@ -438,32 +440,33 @@ int CNativeRibbonApp::GetRibbonHeight()
 class UIDynamicCommandItem : public IUISimplePropertySet
 {
 private:
-    ULONG m_RefCount;
-    CString m_Label;
-    int m_CommandId;
-    CComPtr<IUIImage> m_Image;
+    ULONG             m_refCount;
+    CString           m_label;
+    int               m_commandId;
+    CComPtr<IUIImage> m_image;
 
 public:
-    class UIDynamicCommandItem(int commandId, LPCWSTR label, IUIImage *image)
-        : m_RefCount(0)
-        , m_Label(label)
-        , m_CommandId(commandId)
-        , m_Image(image)
+    UIDynamicCommandItem(int commandId, LPCWSTR label, IUIImage *image)
+        : m_refCount(0)
+        , m_label(label)
+        , m_commandId(commandId)
+        , m_image(image)
     {
     }
+    virtual ~UIDynamicCommandItem() = default;
 
-    STDMETHOD(QueryInterface)(REFIID riid, void **ppvObject)
+    HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void **ppvObject) override
     {
         if (riid == __uuidof(IUnknown))
         {
             AddRef();
-            *ppvObject = (IUnknown*)this;
+            *ppvObject = static_cast<IUnknown *>(this);
             return S_OK;
         }
         else if (riid == __uuidof(IUISimplePropertySet))
         {
             AddRef();
-            *ppvObject = (IUISimplePropertySet*)this;
+            *ppvObject = static_cast<IUISimplePropertySet *>(this);
             return S_OK;
         }
         else
@@ -472,37 +475,37 @@ public:
         }
     }
 
-    STDMETHOD_(ULONG, AddRef)(void)
+    ULONG STDMETHODCALLTYPE AddRef() override
     {
-        return InterlockedIncrement(&m_RefCount);
+        return InterlockedIncrement(&m_refCount);
     }
 
-    STDMETHOD_(ULONG, Release)(void)
+    ULONG STDMETHODCALLTYPE Release() override
     {
-        if (InterlockedDecrement(&m_RefCount) == 0)
+        if (InterlockedDecrement(&m_refCount) == 0)
         {
             delete this;
             return 0;
         }
         else
         {
-            return m_RefCount;
+            return m_refCount;
         }
     }
 
-    STDMETHOD(GetValue)(REFPROPERTYKEY key, PROPVARIANT *value)
+    HRESULT STDMETHODCALLTYPE GetValue(REFPROPERTYKEY key, PROPVARIANT *value) override
     {
         if (key == UI_PKEY_Label)
         {
-            return UIInitPropertyFromString(key, m_Label, value);
+            return UIInitPropertyFromString(key, m_label, value);
         }
         else if (key == UI_PKEY_CommandId)
         {
-            return UIInitPropertyFromUInt32(UI_PKEY_CommandId, m_CommandId, value);
+            return UIInitPropertyFromUInt32(UI_PKEY_CommandId, m_commandId, value);
         }
         else if (key == UI_PKEY_ItemImage)
         {
-            return UIInitPropertyFromInterface(UI_PKEY_ItemImage, m_Image, value);
+            return UIInitPropertyFromInterface(UI_PKEY_ItemImage, m_image, value);
         }
         else
         {
@@ -511,7 +514,7 @@ public:
     }
 };
 
-void CNativeRibbonApp::SetItems(UINT cmdId, const std::list<CNativeRibbonDynamicItemInfo> & items)
+void CNativeRibbonApp::SetItems(UINT cmdId, const std::list<CNativeRibbonDynamicItemInfo> &items) const
 {
     CComPtr<IUICollection> uiCollection = GetUICommandItemsSource(cmdId);
 
@@ -520,19 +523,18 @@ void CNativeRibbonApp::SetItems(UINT cmdId, const std::list<CNativeRibbonDynamic
         CComPtr<IUIImageFromBitmap> imageFactory;
         imageFactory.CoCreateInstance(__uuidof(UIRibbonImageFromBitmapFactory));
 
-        UINT32 idx = 0;
+        UINT32 idx   = 0;
         UINT32 count = 0;
         uiCollection->GetCount(&count);
-        for (const auto & item : items)
+        for (const auto &item : items)
         {
             CComPtr<IUIImage> image;
 
             if (imageFactory && item.GetImageId() > 0)
             {
-                HBITMAP hbm =
-                    (HBITMAP)LoadImage(
-                        AfxGetResourceHandle(), MAKEINTRESOURCE(item.GetImageId()),
-                        IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION);
+                HBITMAP hbm = static_cast<HBITMAP>(LoadImage(
+                    AfxGetResourceHandle(), MAKEINTRESOURCE(item.GetImageId()),
+                    IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION));
 
                 imageFactory->CreateImage(hbm, UI_OWNERSHIP_TRANSFER, &image);
             }
