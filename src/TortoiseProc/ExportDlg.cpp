@@ -196,7 +196,7 @@ void CExportDlg::OnOK()
     CTSVNPath ExportDirectory;
     if (::PathIsRelative(m_strExportDirectory))
     {
-        ExportDirectory = CTSVNPath(sOrigCWD);
+        ExportDirectory = CTSVNPath(sOrigCwd);
         ExportDirectory.AppendPathString(L"\\" + m_strExportDirectory);
         m_strExportDirectory = ExportDirectory.GetWinPathString();
     }

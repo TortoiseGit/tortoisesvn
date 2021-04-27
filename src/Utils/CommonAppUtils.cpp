@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2018, 2020 - TortoiseSVN
+// Copyright (C) 2010-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,8 +38,8 @@
 #include <regex>
 #include <propkey.h>
 
-extern CString sOrigCWD;
-extern CString g_sGroupingUUID;
+extern CString sOrigCwd;
+extern CString g_sGroupingUuid;
 
 BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CString& title, BOOL bWait)
 {
@@ -55,10 +55,10 @@ BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CSt
         viewer = L"\"" + viewer + L"\"";
         // add the params
         viewer = viewer + L" /patchfile:%1 /title:\"%title\"";
-        if (!g_sGroupingUUID.IsEmpty())
+        if (!g_sGroupingUuid.IsEmpty())
         {
             viewer += L" /groupuuid:\"";
-            viewer += g_sGroupingUUID;
+            viewer += g_sGroupingUuid;
             viewer += L"\"";
         }
     }
@@ -223,7 +223,7 @@ bool CCommonAppUtils::LaunchApplication
 {
     PROCESS_INFORMATION process;
 
-    if (!CCreateProcessHelper::CreateProcess(NULL, sCommandLine, sOrigCWD, &process))
+    if (!CCreateProcessHelper::CreateProcess(NULL, sCommandLine, sOrigCwd, &process))
     {
         if(idErrMessageFormat != 0)
         {
@@ -269,10 +269,10 @@ bool CCommonAppUtils::RunTortoiseProc(const CString& sCommandLine)
     sCmd.Format(L"\"%s\" %s", (LPCTSTR)pathToExecutable, (LPCTSTR)sCommandLine);
     if (AfxGetMainWnd()->GetSafeHwnd() && (sCommandLine.Find(L"/hwnd:")<0))
         sCmd.AppendFormat(L" /hwnd:%p", (void*)AfxGetMainWnd()->GetSafeHwnd());
-    if (!g_sGroupingUUID.IsEmpty())
+    if (!g_sGroupingUuid.IsEmpty())
     {
         sCmd += L" /groupuuid:\"";
-        sCmd += g_sGroupingUUID;
+        sCmd += g_sGroupingUuid;
         sCmd += L"\"";
     }
 

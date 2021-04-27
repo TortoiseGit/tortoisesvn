@@ -83,7 +83,7 @@ std::wstring getTaskIDPerUuid(LPCTSTR uuid /*= NULL */)
 }
 
 #ifdef _MFC_VER
-extern CString g_sGroupingUUID;
+extern CString g_sGroupingUuid;
 #endif
 
 void setUuidOverlayIcon(HWND hWnd)
@@ -96,7 +96,7 @@ void setUuidOverlayIcon(HWND hWnd)
 
     std::wstring uuid;
 #ifdef _MFC_VER
-    uuid = g_sGroupingUUID;
+    uuid = g_sGroupingUuid;
 #else
     CCmdLineParser parser(GetCommandLine());
     if (parser.HasVal(L"groupuuid"))

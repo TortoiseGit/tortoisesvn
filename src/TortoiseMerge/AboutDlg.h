@@ -21,6 +21,7 @@
 #include "WaterEffect.h"
 #include "DIB.h"
 #include "HyperLink.h"
+#include "resource.h"
 #include "StandAloneDlg.h"
 
 #define ID_EFFECTTIMER 1111

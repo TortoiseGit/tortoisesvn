@@ -593,7 +593,7 @@ bool CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourF
         }
         else
         {
-            viewdata oViewData(m_arBaseFile.GetAt(baseline), DIFFSTATE_REMOVED, baseline, m_arBaseFile.GetLineEnding(baseline), HIDESTATE_SHOWN);
+            ViewData oViewData(m_arBaseFile.GetAt(baseline), DIFFSTATE_REMOVED, baseline, m_arBaseFile.GetLineEnding(baseline), HIDESTATE_SHOWN);
             baseline++;
 
             // find first EMPTY line in last blok
@@ -614,7 +614,7 @@ bool CDiffData::DoTwoWayDiff(const CString& sBaseFilename, const CString& sYourF
     }
     else if (m_arYourFile.GetCount() > yourline)
     {
-        viewdata oViewData(m_arYourFile.GetAt(yourline), DIFFSTATE_ADDED, yourline, m_arYourFile.GetLineEnding(yourline), HIDESTATE_SHOWN);
+        ViewData oViewData(m_arYourFile.GetAt(yourline), DIFFSTATE_ADDED, yourline, m_arYourFile.GetLineEnding(yourline), HIDESTATE_SHOWN);
         yourline++;
 
         // try to move last line higher
@@ -704,9 +704,9 @@ bool CDiffData::DoThreeWayDiff(const CString& sBaseFilename, const CString& sYou
     LONG        yourLine  = 0;
     LONG        theirLine = 0;
     LONG        resLine   = 0;
-    // common viewdata
-    const viewdata emptyConflictEmpty(L"", DIFFSTATE_CONFLICTEMPTY, DIFF_EMPTYLINENUMBER, EOL_NOENDING, HIDESTATE_SHOWN);
-    const viewdata emptyIdenticalRemoved(L"", DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, EOL_NOENDING, HIDESTATE_SHOWN);
+    // common ViewData
+    const ViewData emptyConflictEmpty(L"", DIFFSTATE_CONFLICTEMPTY, DIFF_EMPTYLINENUMBER, EOL_NOENDING, HIDESTATE_SHOWN);
+    const ViewData emptyIdenticalRemoved(L"", DIFFSTATE_IDENTICALREMOVED, DIFF_EMPTYLINENUMBER, EOL_NOENDING, HIDESTATE_SHOWN);
     while (tempDiff)
     {
         if (tempDiff->type == svn_diff__type_common)
@@ -1028,7 +1028,7 @@ void CDiffData::HideUnchangedSections(CViewData* data1, CViewData* data2, CViewD
 
     if (data1->GetCount() > 1)
     {
-        HIDESTATE lastHideState = data1->GetHideState(0);
+        HideState lastHideState = data1->GetHideState(0);
         if (lastHideState == HIDESTATE_HIDDEN)
         {
             data1->SetLineHideState(0, HIDESTATE_MARKER);
@@ -1039,7 +1039,7 @@ void CDiffData::HideUnchangedSections(CViewData* data1, CViewData* data2, CViewD
         }
         for (int i = 1; i < data1->GetCount(); ++i)
         {
-            HIDESTATE hideState = data1->GetHideState(i);
+            HideState hideState = data1->GetHideState(i);
             if (hideState != lastHideState)
             {
                 if (hideState == HIDESTATE_SHOWN)

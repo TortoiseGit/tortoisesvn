@@ -20,6 +20,7 @@
 #include "afxcmn.h"
 #include "SimpleIni.h"
 #include "StandAloneDlg.h"
+#include "resource.h"
 
 // CRegexFiltersDlg dialog
 

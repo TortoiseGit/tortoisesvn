@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
+#include "resource.h"
 
 // CRegexFilterDlg dialog
 

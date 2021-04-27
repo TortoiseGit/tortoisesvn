@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014, 2020 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,7 +37,7 @@ bool CheckoutCommand::Execute()
     {
         if (CString(regDefCheckoutPath).IsEmpty())
         {
-            checkoutDirectory.SetFromWin(sOrigCWD, true);
+            checkoutDirectory.SetFromWin(sOrigCwd, true);
             DWORD                    len = ::GetTempPath(0, NULL);
             std::unique_ptr<TCHAR[]> tszPath(new TCHAR[len]);
             ::GetTempPath(len, tszPath.get());

@@ -62,7 +62,7 @@ void CRightView::UseBothLeftFirst()
 
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        viewdata line = m_pwndLeft->GetViewData(viewLine);
+        ViewData line = m_pwndLeft->GetViewData(viewLine);
         if (IsStateEmpty(line.state))
         {
             line.state = DIFFSTATE_EMPTY;
@@ -126,7 +126,7 @@ void CRightView::UseBothRightFirst()
     int viewIndex = nNextViewLine;
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        viewdata line = m_pwndLeft->GetViewData(viewLine);
+        ViewData line = m_pwndLeft->GetViewData(viewLine);
         if (IsStateEmpty(line.state))
         {
             line.state = DIFFSTATE_EMPTY;

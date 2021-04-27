@@ -19,6 +19,7 @@
 #pragma once
 #include "FileDropEdit.h"
 #include "StandAloneDlg.h"
+#include "resource.h"
 
 // COpenDlg dialog
 

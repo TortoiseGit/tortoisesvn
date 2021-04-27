@@ -18,7 +18,7 @@
 //
 #pragma once
 #include "StandAloneDlg.h"
-#include <afxwin.h>
+#include "resource.h"
 
 // CGotoLineDlg dialog
 

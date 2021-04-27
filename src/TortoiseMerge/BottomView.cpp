@@ -56,7 +56,7 @@ void CBottomView::UseBlock(CBaseView* pwndView, int nFirstViewLine, int nLastVie
 
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        viewdata lineData = pwndView->GetViewData(viewLine);
+        ViewData lineData = pwndView->GetViewData(viewLine);
         if ((lineData.ending != EOL_NOENDING) || (viewLine < (GetViewCount() - 1) && lineData.state != DIFFSTATE_CONFLICTEMPTY && lineData.state != DIFFSTATE_IDENTICALREMOVED))
             lineData.ending = m_lineEndings;
         lineData.state = ResolveState(lineData.state);
@@ -109,7 +109,7 @@ void CBottomView::UseBothBlocks(CBaseView* pwndFirst, CBaseView* pwndLast)
     // use (copy) first block
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        viewdata lineData = pwndFirst->GetViewData(viewLine);
+        ViewData lineData = pwndFirst->GetViewData(viewLine);
         if ((lineData.ending != EOL_NOENDING) || (viewLine < (GetViewCount() - 1) && lineData.state != DIFFSTATE_CONFLICTEMPTY && lineData.state != DIFFSTATE_IDENTICALREMOVED))
             lineData.ending = m_lineEndings;
         lineData.state = ResolveState(lineData.state);
@@ -138,7 +138,7 @@ void CBottomView::UseBothBlocks(CBaseView* pwndFirst, CBaseView* pwndLast)
     int nViewIndex = nNextViewLine;
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++, nViewIndex++)
     {
-        viewdata lineData = pwndLast->GetViewData(viewLine);
+        ViewData lineData = pwndLast->GetViewData(viewLine);
         lineData.state    = ResolveState(lineData.state);
         InsertViewData(nViewIndex, lineData);
         if (!IsStateEmpty(pwndLast->GetViewState(viewLine)))

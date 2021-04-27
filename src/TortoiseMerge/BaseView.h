@@ -226,7 +226,7 @@ public: // methods
     bool HasNextInlineDiff();
     bool HasPrevInlineDiff();
 
-    static const viewdata& GetEmptyLineData();
+    static const ViewData& GetEmptyLineData();
     void                   InsertViewEmptyLines(int nFirstView, int nCount) const;
 
     virtual void UseBothLeftFirst() { return UseBothBlocks(m_pwndLeft, m_pwndRight); }
@@ -243,14 +243,14 @@ public: // methods
     virtual void UseViewFileExceptEdited() { UseViewFileExceptEdited(m_pwndLeft); }
 
     // ViewData methods
-    void InsertViewData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline) const;
-    void InsertViewData(int index, const viewdata& data) const;
+    void InsertViewData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HideState hide, int movedline) const;
+    void InsertViewData(int index, const ViewData& data) const;
     void RemoveViewData(int index) const;
 
-    const viewdata& GetViewData(int index) const { return m_pViewData->GetData(index); }
+    const ViewData& GetViewData(int index) const { return m_pViewData->GetData(index); }
     const CString&  GetViewLine(int index) const { return m_pViewData->GetLine(index); }
     DiffStates      GetViewState(int index) const { return m_pViewData->GetState(index); }
-    HIDESTATE       GetViewHideState(int index) const { return m_pViewData->GetHideState(index); }
+    HideState       GetViewHideState(int index) const { return m_pViewData->GetHideState(index); }
     int             GetViewLineNumber(int index) const { return m_pViewData->GetLineNumber(index); }
     int             GetViewMovedIndex(int index) const { return m_pViewData->GetMovedIndex(index); }
     int             FindViewLineNumber(int number) const { return m_pViewData->FindLineNumber(number); }
@@ -259,7 +259,7 @@ public: // methods
 
     int GetViewCount() const { return m_pViewData ? m_pViewData->GetCount() : -1; }
 
-    void SetViewData(int index, const viewdata& data) const;
+    void SetViewData(int index, const ViewData& data) const;
     void SetViewState(int index, DiffStates state) const;
     void SetViewLine(int index, const CString& sLine) const;
     void SetViewLineNumber(int index, int linenumber) const;
@@ -678,8 +678,8 @@ protected: // variables
     };
     std::vector<TScreenedViewLine> m_screenedViewLine; ///< cached data for screening
 
-    static allviewstate m_allState;
-    viewstate*          m_pState;
+    static AllViewState m_allState;
+    ViewState*          m_pState;
 
     enum PopupCommands
     {

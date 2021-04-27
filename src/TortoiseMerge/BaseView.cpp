@@ -65,7 +65,7 @@ CMainFrame*            CBaseView::m_pMainFrame          = nullptr;
 CBaseView::Screen2View CBaseView::m_screen2View;
 const UINT             CBaseView::FIND_DIALOG_MESSAGE = RegisterWindowMessage(FINDMSGSTRING);
 
-allviewstate CBaseView::m_allState;
+AllViewState CBaseView::m_allState;
 
 IMPLEMENT_DYNCREATE(CBaseView, CView)
 
@@ -3669,9 +3669,9 @@ void CBaseView::ShowDiffLines(int nLine)
     m_pMainFrame->m_nMoveMovesToIgnore = MOVESTOIGNORE;
 }
 
-const viewdata& CBaseView::GetEmptyLineData()
+const ViewData& CBaseView::GetEmptyLineData()
 {
-    static const viewdata emptyLine(L"", DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
+    static const ViewData emptyLine(L"", DIFFSTATE_EMPTY, -1, EOL_NOENDING, HIDESTATE_SHOWN);
     return emptyLine;
 }
 
@@ -3955,7 +3955,7 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         if ((nViewLine == 0) && (GetViewCount() == 0))
             OnChar(VK_RETURN, 0, 0);
         int      charCount = 1;
-        viewdata lineData  = GetViewData(nViewLine);
+        ViewData lineData  = GetViewData(nViewLine);
         if (nChar == VK_TAB)
         {
             int indentChars = GetIndentCharsForLine(ptCaretViewPos.x, nViewLine);
@@ -4005,9 +4005,9 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
         }
         lineData.state     = DIFFSTATE_EDITED;
         bool bNeedRenumber = false;
-        if (lineData.linenumber == -1)
+        if (lineData.lineNumber == -1)
         {
-            lineData.linenumber = 0;
+            lineData.lineNumber = 0;
             bNeedRenumber       = true;
         }
         SetViewData(nViewLine, lineData);
@@ -4071,12 +4071,12 @@ void CBaseView::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 
         if (!sLineRight.IsEmpty() || (eOriginalEnding != m_lineEndings))
         {
-            viewdata newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, m_lineEndings, HIDESTATE_SHOWN);
+            ViewData newFirstLine(sLineLeft, DIFFSTATE_EDITED, 1, m_lineEndings, HIDESTATE_SHOWN);
             SetViewData(nViewLine, newFirstLine);
         }
 
         int      nInsertLine = (m_pViewData->GetCount() == 0) ? 0 : nViewLine + 1;
-        viewdata newLastLine(sLineRight, DIFFSTATE_EDITED, 1, eOriginalEnding, HIDESTATE_SHOWN);
+        ViewData newLastLine(sLineRight, DIFFSTATE_EDITED, 1, eOriginalEnding, HIDESTATE_SHOWN);
         InsertViewData(nInsertLine, newLastLine);
         SetModified();
         SaveUndoStep();
@@ -4136,7 +4136,7 @@ void CBaseView::AddEmptyViewLine(int nViewLineIndex)
     {
         ending = m_lineEndings;
     }
-    viewdata newLine(L"", DIFFSTATE_EDITED, -1, ending, HIDESTATE_SHOWN);
+    ViewData newLine(L"", DIFFSTATE_EDITED, -1, ending, HIDESTATE_SHOWN);
     if (IsTarget()) // TODO: once more wievs will writable this is not correct anymore
     {
         CString sPartLine = GetViewLineChars(nViewLineIndex);
@@ -4178,8 +4178,8 @@ void CBaseView::RemoveSelectedText()
     CUndo::GetInstance().BeginGrouping();
 
     // combine first and last line
-    viewdata oFirstLine = GetViewData(m_ptSelectionViewPosStart.y);
-    viewdata oLastLine  = GetViewData(m_ptSelectionViewPosEnd.y);
+    ViewData oFirstLine = GetViewData(m_ptSelectionViewPosStart.y);
+    ViewData oLastLine  = GetViewData(m_ptSelectionViewPosEnd.y);
     oFirstLine.sLine    = oFirstLine.sLine.Left(m_ptSelectionViewPosStart.x) + oLastLine.sLine.Mid(m_ptSelectionViewPosEnd.x);
     oFirstLine.ending   = oLastLine.ending;
     oFirstLine.state    = DIFFSTATE_EDITED;
@@ -4188,7 +4188,7 @@ void CBaseView::RemoveSelectedText()
     // clean up middle lines if any
     if (m_ptSelectionViewPosStart.y != m_ptSelectionViewPosEnd.y)
     {
-        viewdata oEmptyLine = GetEmptyLineData();
+        ViewData oEmptyLine = GetEmptyLineData();
         for (int nViewLine = m_ptSelectionViewPosStart.y + 1; nViewLine <= m_ptSelectionViewPosEnd.y; nViewLine++)
         {
             SetViewData(nViewLine, oEmptyLine);
@@ -4757,7 +4757,7 @@ bool CBaseView::GetInlineDiffPositions(int nViewLine, std::vector<InlineDiffPos>
 
         for (apr_off_t i = 0; i < len; ++i)
         {
-            position += (this == m_pwndRight) ? m_svnlinediff.m_line2tokens[lineOffset].size() : m_svnlinediff.m_line1tokens[lineOffset].size();
+            position += (this == m_pwndRight) ? m_svnlinediff.m_line2Tokens[lineOffset].size() : m_svnlinediff.m_line1Tokens[lineOffset].size();
             lineOffset++;
         }
 
@@ -5071,7 +5071,7 @@ LineColors& CBaseView::GetLineColors(int nViewLine)
             size_t nTextLength = 0;
             for (int i = 0; i < len; ++i)
             {
-                nTextLength += (this == m_pwndRight) ? m_svnlinediff.m_line2tokens[lineoffset].size() : m_svnlinediff.m_line1tokens[lineoffset].size();
+                nTextLength += (this == m_pwndRight) ? m_svnlinediff.m_line2Tokens[lineoffset].size() : m_svnlinediff.m_line1Tokens[lineoffset].size();
                 lineoffset++;
             }
             bool bInlineDiff = (diff->type == svn_diff__type_diff_modified);
@@ -5208,39 +5208,39 @@ void CBaseView::SetTheme(bool bDark)
     m_whiteSpaceFg = CRegDWORD(L"Software\\TortoiseMerge\\Colors\\Whitespace", CTheme::Instance().GetThemeColor(GetSysColor(COLOR_3DSHADOW)));
 }
 
-void CBaseView::InsertViewData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HIDESTATE hide, int movedline) const
+void CBaseView::InsertViewData(int index, const CString& sLine, DiffStates state, int linenumber, EOL ending, HideState hide, int movedline) const
 {
-    m_pState->addedlines.push_back(index);
+    m_pState->addedLines.push_back(index);
     m_pViewData->InsertData(index, sLine, state, linenumber, ending, hide, movedline);
 }
 
-void CBaseView::InsertViewData(int index, const viewdata& data) const
+void CBaseView::InsertViewData(int index, const ViewData& data) const
 {
-    m_pState->addedlines.push_back(index);
+    m_pState->addedLines.push_back(index);
     m_pViewData->InsertData(index, data);
 }
 
 void CBaseView::RemoveViewData(int index) const
 {
-    m_pState->removedlines[index] = m_pViewData->GetData(index);
+    m_pState->removedLines[index] = m_pViewData->GetData(index);
     m_pViewData->RemoveData(index);
 }
 
-void CBaseView::SetViewData(int index, const viewdata& data) const
+void CBaseView::SetViewData(int index, const ViewData& data) const
 {
-    m_pState->replacedlines[index] = m_pViewData->GetData(index);
+    m_pState->replacedLines[index] = m_pViewData->GetData(index);
     m_pViewData->SetData(index, data);
 }
 
 void CBaseView::SetViewState(int index, DiffStates state) const
 {
-    m_pState->linestates[index] = m_pViewData->GetState(index);
+    m_pState->lineStates[index] = m_pViewData->GetState(index);
     m_pViewData->SetState(index, state);
 }
 
 void CBaseView::SetViewLine(int index, const CString& sLine) const
 {
-    m_pState->difflines[index] = m_pViewData->GetLine(index);
+    m_pState->diffLines[index] = m_pViewData->GetLine(index);
     m_pViewData->SetLine(index, sLine);
 }
 
@@ -5262,7 +5262,7 @@ void CBaseView::SetViewLineEnding(int index, EOL ending) const
 
 void CBaseView::SetViewMarked(int index, bool marked) const
 {
-    m_pState->markedlines[index] = m_pViewData->GetMarked(index);
+    m_pState->markedLines[index] = m_pViewData->GetMarked(index);
     m_pViewData->SetMarked(index, marked);
 }
 
@@ -6180,7 +6180,7 @@ void CBaseView::UseViewBlock(CBaseView* pwndView, int nFirstViewLine, int nLastV
                 SetViewMarked(viewLine, false);
             continue;
         }
-        viewdata line = pwndView->GetViewData(viewLine);
+        ViewData line = pwndView->GetViewData(viewLine);
         if (line.ending != EOL_NOENDING)
             line.ending = m_lineEndings;
         switch (line.state)
@@ -6249,7 +6249,7 @@ void CBaseView::UseViewBlock(CBaseView* pwndView, int nFirstViewLine, int nLastV
                 // so next line is empty
                 ASSERT(IsViewLineEmpty(nLine + 1));
                 // and we can turn it to normal empty line
-                SetViewData(nLine + 1, viewdata(CString(), DIFFSTATE_ADDED, 1, EOL_NOENDING, HIDESTATE_SHOWN));
+                SetViewData(nLine + 1, ViewData(CString(), DIFFSTATE_ADDED, 1, EOL_NOENDING, HIDESTATE_SHOWN));
             }
             break;
         }
@@ -6707,7 +6707,7 @@ void CBaseView::InsertText(const CString& sText)
         CString  sLineLeft       = sLine.Left(nLeft);
         CString  sLineRight      = sLine.Right(sLine.GetLength() - nLeft);
         EOL      eOriginalEnding = GetViewLineEnding(nViewLine);
-        viewdata newLine(L"", DIFFSTATE_EDITED, 1, m_lineEndings, HIDESTATE_SHOWN);
+        ViewData newLine(L"", DIFFSTATE_EDITED, 1, m_lineEndings, HIDESTATE_SHOWN);
         if (!lines[0].IsEmpty() || !sLineRight.IsEmpty() || (eOriginalEnding != m_lineEndings))
         {
             newLine.sLine = sLineLeft + lines[0];

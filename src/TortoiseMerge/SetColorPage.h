@@ -20,6 +20,7 @@
 #pragma once
 
 #include "registry.h"
+#include "resource.h"
 
 /**
  * \ingroup TortoiseMerge

@@ -275,7 +275,7 @@ void CCheckoutDlg::OnOK()
     CTSVNPath checkoutDirectory;
     if (::PathIsRelative(m_strCheckoutDirectory))
     {
-        checkoutDirectory = CTSVNPath(sOrigCWD);
+        checkoutDirectory = CTSVNPath(sOrigCwd);
         checkoutDirectory.AppendPathString(L"\\" + m_strCheckoutDirectory);
         m_strCheckoutDirectory = checkoutDirectory.GetWinPathString();
     }

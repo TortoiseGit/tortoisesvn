@@ -101,8 +101,8 @@ CTortoiseProcApp::~CTortoiseProcApp()
 
 // The one and only CTortoiseProcApp object
 CTortoiseProcApp theApp;
-CString          sOrigCWD;
-CString          g_sGroupingUUID;
+CString          sOrigCwd;
+CString          g_sGroupingUuid;
 HWND             GetExplorerHWND()
 {
     return theApp.GetExplorerHWND();
@@ -329,8 +329,8 @@ BOOL CTortoiseProcApp::InitInstance()
 
     CTSVNPath     cmdLinePath;
     CTSVNPathList pathList;
-    if (g_sGroupingUUID.IsEmpty())
-        g_sGroupingUUID = parser.GetVal(L"groupuuid");
+    if (g_sGroupingUuid.IsEmpty())
+        g_sGroupingUuid = parser.GetVal(L"groupuuid");
     if (parser.HasKey(L"pathfile"))
     {
         CString sPathfileArgument = CPathUtils::GetLongPathname(parser.GetVal(L"pathfile")).c_str();
@@ -401,7 +401,7 @@ BOOL CTortoiseProcApp::InitInstance()
         cmdLinePath.SetFromUnknown(asterisk >= 0 ? sPathArgument.Left(asterisk) : sPathArgument);
         pathList.LoadFromAsteriskSeparatedString(sPathArgument);
     }
-    if (g_sGroupingUUID.IsEmpty() && !cmdLinePath.IsEmpty())
+    if (g_sGroupingUuid.IsEmpty() && !cmdLinePath.IsEmpty())
     {
         // when started from the win7 library buttons, we don't get the /groupuuid:xxx parameter
         // passed to us. In that case we have to fetch the uuid (or try to) here,
@@ -413,7 +413,7 @@ BOOL CTortoiseProcApp::InitInstance()
             case 2:
             {
                 SVN svn;
-                g_sGroupingUUID = svn.GetUUIDFromPath(cmdLinePath);
+                g_sGroupingUuid = svn.GetUUIDFromPath(cmdLinePath);
             }
             break;
             case 3:
@@ -421,11 +421,11 @@ BOOL CTortoiseProcApp::InitInstance()
             {
                 SVN     svn;
                 CString wcroot  = svn.GetWCRootFromPath(cmdLinePath).GetWinPathString();
-                g_sGroupingUUID = svn.GetChecksumString(svn_checksum_md5, wcroot);
+                g_sGroupingUuid = svn.GetChecksumString(svn_checksum_md5, wcroot);
             }
         }
     }
-    CString sAppID = getTaskIDPerUuid(g_sGroupingUUID).c_str();
+    CString sAppID = getTaskIDPerUuid(g_sGroupingUuid).c_str();
     CString sCmd   = parser.GetVal(L"command");
     if (sCmd.IsEmpty() || (sCmd.CompareNoCase(L"monitor") == 0))
         sAppID = L"TSVN.MONITOR.1";
@@ -443,8 +443,8 @@ BOOL CTortoiseProcApp::InitInstance()
             auto originalCurrentDirectory = std::make_unique<TCHAR[]>(len);
             if (GetCurrentDirectory(len, originalCurrentDirectory.get()))
             {
-                sOrigCWD = originalCurrentDirectory.get();
-                sOrigCWD = CPathUtils::GetLongPathname(static_cast<LPCWSTR>(sOrigCWD)).c_str();
+                sOrigCwd = originalCurrentDirectory.get();
+                sOrigCwd = CPathUtils::GetLongPathname(static_cast<LPCWSTR>(sOrigCwd)).c_str();
             }
         }
         TCHAR pathBuf[MAX_PATH] = {0};

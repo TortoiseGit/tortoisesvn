@@ -132,10 +132,10 @@ BOOL CAppUtils::StartExtMerge(const MergeFlags& flags,
             com = com + L" /base:%base /theirs:%theirs /mine:%mine /merged:%merged";
             com = com + L" /basename:%bname /theirsname:%tname /minename:%yname /mergedname:%mname";
         }
-        if (!g_sGroupingUUID.IsEmpty())
+        if (!g_sGroupingUuid.IsEmpty())
         {
             com += L" /groupuuid:\"";
-            com += g_sGroupingUUID;
+            com += g_sGroupingUuid;
             com += L"\"";
         }
         if (bSaveRequired)
@@ -313,10 +313,10 @@ BOOL CAppUtils::StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir, 
         viewer = viewer + L" /patchoriginal:\"" + sOriginalDescription + L"\"";
     if (!sPatchedDescription.IsEmpty())
         viewer = viewer + L" /patchpatched:\"" + sPatchedDescription + L"\"";
-    if (!g_sGroupingUUID.IsEmpty())
+    if (!g_sGroupingUuid.IsEmpty())
     {
         viewer += L" /groupuuid:\"";
-        viewer += g_sGroupingUUID;
+        viewer += g_sGroupingUuid;
         viewer += L"\"";
     }
     if(!LaunchApplication(viewer, IDS_ERR_DIFFVIEWSTART, !!bWait))
@@ -365,7 +365,7 @@ CString CAppUtils::PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2, 
             return
                 L"\"" + CPathUtils::GetAppDirectory() + L"TortoiseIDiff.exe" + L"\"" +
                 L" /left:%base /right:%mine /lefttitle:%bname /righttitle:%yname" +
-                L" /groupuuid:\"" + g_sGroupingUUID + L"\"";
+                L" /groupuuid:\"" + g_sGroupingUuid + L"\"";
         }
     }
 
@@ -417,10 +417,10 @@ bool CAppUtils::StartExtDiff(
             L" /basereflectedname:%burl /minereflectedname:%yurl";
         if (flags.bBlame)
             viewer += L" /blame";
-        if (!g_sGroupingUUID.IsEmpty())
+        if (!g_sGroupingUuid.IsEmpty())
         {
             viewer += L" /groupuuid:\"";
-            viewer += g_sGroupingUUID;
+            viewer += g_sGroupingUuid;
             viewer += L"\"";
         }
     }
@@ -523,10 +523,10 @@ BOOL CAppUtils::StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2
         viewer += L"TortoiseMerge.exe";
         viewer = L"\"" + viewer + L"\"";
         viewer = viewer + L" /base:%base /mine:%mine /basename:%bname /minename:%yname";
-        if (!g_sGroupingUUID.IsEmpty())
+        if (!g_sGroupingUuid.IsEmpty())
         {
             viewer += L" /groupuuid:\"";
-            viewer += g_sGroupingUUID;
+            viewer += g_sGroupingUuid;
             viewer += L"\"";
         }
     }
@@ -643,10 +643,10 @@ bool CAppUtils::LaunchTortoiseBlame(const CString& sBlameFile,
     if (pegrev.IsValid())
         viewer += L" /pegrev:" + pegrev.ToString();
 
-    if (!g_sGroupingUUID.IsEmpty())
+    if (!g_sGroupingUuid.IsEmpty())
     {
         viewer += L" /groupuuid:\"";
-        viewer += g_sGroupingUUID;
+        viewer += g_sGroupingUuid;
         viewer += L"\"";
     }
 

@@ -63,7 +63,7 @@ void CLeftView::UseBothLeftFirst()
     int viewindex = nNextViewLine;
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        viewdata line = m_pwndRight->GetViewData(viewLine);
+        ViewData line = m_pwndRight->GetViewData(viewLine);
         if (IsStateEmpty(line.state))
         {
             line.state = DIFFSTATE_EMPTY;
@@ -130,7 +130,7 @@ void CLeftView::UseBothRightFirst()
 
     for (int viewLine = nFirstViewLine; viewLine <= nLastViewLine; viewLine++)
     {
-        viewdata line = m_pwndRight->GetViewData(viewLine);
+        ViewData line = m_pwndRight->GetViewData(viewLine);
         if (IsStateEmpty(line.state))
         {
             line.state = DIFFSTATE_EMPTY;

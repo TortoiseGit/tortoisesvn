@@ -1,6 +1,6 @@
-// TortoiseMerge - a Diff/Patch program
+﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2010-2012, 2016 - TortoiseSVN
+// Copyright (C) 2006-2008, 2010-2012, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,12 +19,8 @@
 #pragma once
 
 #ifndef __AFXWIN_H__
-    #error include 'stdafx.h' before including this file for PCH
+#    error include 'stdafx.h' before including this file for PCH
 #endif
-
-#include "resource.h"       // main symbols
-#include "CrashReport.h"
-
 
 /**
  * \ingroup TortoiseMerge
@@ -35,19 +31,18 @@ class CTortoiseMergeApp : public CWinAppEx
 public:
     CTortoiseMergeApp();
 
-
-// Overrides
+    // Overrides
 public:
-    virtual BOOL InitInstance();
-    virtual int ExitInstance();
+    BOOL InitInstance() override;
+    int  ExitInstance() override;
 
 protected:
     afx_msg void OnAppAbout();
     DECLARE_MESSAGE_MAP()
 private:
-    bool HasClipboardPatch();
+    static bool HasClipboardPatch();
     static bool TrySavePatchFromClipboard(std::wstring& resultFile);
 };
 
 extern CTortoiseMergeApp theApp;
-extern CString g_sGroupingUUID;
+extern CString           g_sGroupingUuid;

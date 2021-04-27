@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2015, 2017, 2019 - TortoiseSVN
+// Copyright (C) 2010-2015, 2017, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,45 +32,43 @@
 #include "svn_dirent_uri.h"
 #pragma warning(pop)
 
-
 #define STRIP_LIMIT 10
 
-int SVNPatch::abort_on_pool_failure (int /*retcode*/)
+int SVNPatch::abort_on_pool_failure(int /*retcode*/)
 {
-    abort ();
+    abort();
     //return -1;
 }
 
 SVNPatch::SVNPatch()
-    : m_pool(NULL)
+    : m_pool(nullptr)
     , m_nStrip(0)
     , m_bSuccessfullyPatched(false)
     , m_nRejected(0)
-    , m_pProgDlg(NULL)
+    , m_pProgDlg(nullptr)
 {
     apr_initialize();
     svn_dso_initialize2();
     g_SVNAdminDir.Init();
-    apr_pool_create_ex (&m_pool, NULL, abort_on_pool_failure, NULL);
+    apr_pool_create_ex(&m_pool, nullptr, abort_on_pool_failure, nullptr);
 }
 
 SVNPatch::~SVNPatch()
 {
-    apr_pool_destroy (m_pool);
+    apr_pool_destroy(m_pool);
     g_SVNAdminDir.Close();
     apr_terminate();
 }
 
-
-void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * /*pool*/ )
+void SVNPatch::notify(void* baton, const svn_wc_notify_t* notify, apr_pool_t* /*pool*/)
 {
-    SVNPatch * pThis = (SVNPatch*)baton;
+    SVNPatch* pThis = static_cast<SVNPatch*>(baton);
     if (pThis && notify)
     {
-        PathRejects * pInfo = NULL;
+        PathRejects* pInfo = nullptr;
         if (!pThis->m_filePaths.empty())
-            pInfo = &pThis->m_filePaths[pThis->m_filePaths.size()-1];
-        if ((notify->action == svn_wc_notify_skip)||(notify->action == svn_wc_notify_patch_rejected_hunk))
+            pInfo = &pThis->m_filePaths[pThis->m_filePaths.size() - 1];
+        if ((notify->action == svn_wc_notify_skip) || (notify->action == svn_wc_notify_patch_rejected_hunk))
         {
             if (pInfo)
             {
@@ -81,42 +79,42 @@ void SVNPatch::notify( void *baton, const svn_wc_notify_t *notify, apr_pool_t * 
         if (notify->action != svn_wc_notify_add)
         {
             CString abspath = CUnicodeUtils::GetUnicode(notify->path);
-            if (abspath.Left(pThis->m_targetpath.GetLength()).Compare(pThis->m_targetpath) == 0)
-                pThis->m_testPath = abspath.Mid(pThis->m_targetpath.GetLength());
+            if (abspath.Left(pThis->m_targetPath.GetLength()).Compare(pThis->m_targetPath) == 0)
+                pThis->m_testPath = abspath.Mid(pThis->m_targetPath.GetLength());
             else
                 pThis->m_testPath = abspath;
         }
         if (pInfo)
         {
             pInfo->content = pInfo->content || (notify->content_state != svn_wc_notify_state_unknown);
-            pInfo->props   = pInfo->props   || (notify->prop_state    != svn_wc_notify_state_unknown);
+            pInfo->props   = pInfo->props || (notify->prop_state != svn_wc_notify_state_unknown);
         }
 
-        if (((notify->action == svn_wc_notify_patch)||(notify->action == svn_wc_notify_add))&&(pThis->m_pProgDlg))
+        if (((notify->action == svn_wc_notify_patch) || (notify->action == svn_wc_notify_add)) && (pThis->m_pProgDlg))
         {
-            pThis->m_pProgDlg->FormatPathLine(2, IDS_PATCH_PATHINGFILE, (LPCTSTR)CUnicodeUtils::GetUnicode(notify->path));
+            pThis->m_pProgDlg->FormatPathLine(2, IDS_PATCH_PATHINGFILE, static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(notify->path)));
         }
     }
 }
 
-svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile,
-                                    const char *patch_abspath,
-                                    const char *reject_abspath,
-                                    apr_pool_t * /*scratch_pool*/ )
+svn_error_t* SVNPatch::patch_func(void* baton, svn_boolean_t* filtered, const char* canonPathFromPatchfile,
+                                  const char* patchAbspath,
+                                  const char* rejectAbspath,
+                                  apr_pool_t* /*scratch_pool*/)
 {
-    SVNPatch * pThis = (SVNPatch*)baton;
+    SVNPatch* pThis = static_cast<SVNPatch*>(baton);
     if (pThis)
     {
-        CString abspath = CUnicodeUtils::GetUnicode(canon_path_from_patchfile);
+        CString     absPath = CUnicodeUtils::GetUnicode(canonPathFromPatchfile);
         PathRejects pr;
-        pr.path = PathIsRelative(abspath) ? abspath : pThis->Strip(abspath);
-        pr.rejects = 0;
-        pr.resultPath = CUnicodeUtils::GetUnicode(patch_abspath);
+        pr.path       = PathIsRelative(absPath) ? absPath : pThis->Strip(absPath);
+        pr.rejects    = 0;
+        pr.resultPath = CUnicodeUtils::GetUnicode(patchAbspath);
         pr.resultPath.Replace('/', '\\');
-        pr.rejectsPath = CUnicodeUtils::GetUnicode(reject_abspath);
+        pr.rejectsPath = CUnicodeUtils::GetUnicode(rejectAbspath);
         pr.rejectsPath.Replace('/', '\\');
         pr.content = false;
-        pr.props = false;
+        pr.props   = false;
         // only add this entry if it hasn't been added already
         bool bExists = false;
         for (auto it = pThis->m_filePaths.rbegin(); it != pThis->m_filePaths.rend(); ++it)
@@ -130,52 +128,52 @@ svn_error_t * SVNPatch::patch_func( void *baton, svn_boolean_t * filtered, const
         if (!bExists)
             pThis->m_filePaths.push_back(pr);
         pThis->m_nRejected = 0;
-        *filtered = false;
+        *filtered          = false;
 
         CTempFiles::Instance().AddFileToRemove(pr.resultPath);
         CTempFiles::Instance().AddFileToRemove(pr.rejectsPath);
     }
-    return NULL;
+    return nullptr;
 }
 
-svn_error_t * SVNPatch::patchfile_func( void *baton, svn_boolean_t * filtered, const char * canon_path_from_patchfile,
-                                        const char * /*patch_abspath*/,
-                                        const char * /*reject_abspath*/,
-                                        apr_pool_t * /*scratch_pool*/ )
+svn_error_t* SVNPatch::patchfile_func(void* baton, svn_boolean_t* filtered, const char* canonPathFromPatchfile,
+                                      const char* /*patch_abspath*/,
+                                      const char* /*reject_abspath*/,
+                                      apr_pool_t* /*scratch_pool*/)
 {
-    SVNPatch * pThis = (SVNPatch*)baton;
+    SVNPatch* pThis = static_cast<SVNPatch*>(baton);
     if (pThis)
     {
-        CString relpath = CUnicodeUtils::GetUnicode(canon_path_from_patchfile);
-        relpath = PathIsRelative(relpath) ? relpath : relpath.Mid(pThis->m_targetpath.GetLength());
-        *filtered = relpath.CompareNoCase(pThis->m_filetopatch) != 0;
+        CString relpath = CUnicodeUtils::GetUnicode(canonPathFromPatchfile);
+        relpath         = PathIsRelative(relpath) ? relpath : relpath.Mid(pThis->m_targetPath.GetLength());
+        *filtered       = relpath.CompareNoCase(pThis->m_fileToPatch) != 0;
     }
-    return NULL;
+    return nullptr;
 }
 
-int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgressDlg *pPprogDlg )
+int SVNPatch::Init(const CString& patchFile, const CString& targetPath, CProgressDlg* pPprogDlg)
 {
-    CTSVNPath target = CTSVNPath(targetpath);
-    if (patchfile.IsEmpty() || targetpath.IsEmpty() || !svn_dirent_is_absolute(target.GetSVNApiPath(m_pool)))
+    CTSVNPath target = CTSVNPath(targetPath);
+    if (patchFile.IsEmpty() || targetPath.IsEmpty() || !svn_dirent_is_absolute(target.GetSVNApiPath(m_pool)))
     {
         m_errorStr.LoadString(IDS_ERR_PATCHPATHS);
         return 0;
     }
-    svn_error_t *               err         = NULL;
-    apr_pool_t *                scratchpool = NULL;
-    svn_client_ctx_t *          ctx         = NULL;
+    svn_error_t*      err         = nullptr;
+    apr_pool_t*       scratchpool = nullptr;
+    svn_client_ctx_t* ctx         = nullptr;
 
     m_errorStr.Empty();
-    m_patchfile = patchfile;
-    m_targetpath = targetpath;
+    m_patchFile  = patchFile;
+    m_targetPath = targetPath;
     m_testPath.Empty();
 
-    m_patchfile.Replace('\\', '/');
-    m_targetpath.Replace('\\', '/');
+    m_patchFile.Replace('\\', '/');
+    m_targetPath.Replace('\\', '/');
 
-    apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
+    apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, nullptr);
     svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchpool));
-    ctx->notify_func2 = notify;
+    ctx->notify_func2  = notify;
     ctx->notify_baton2 = this;
 
     if (pPprogDlg)
@@ -188,21 +186,21 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
     }
 
     m_filePaths.clear();
-    m_nRejected = 0;
-    m_nStrip = 0;
-    CTSVNPath tsvnpatchfile = CTSVNPath(m_patchfile);
-    CTSVNPath tsvntargetpath = CTSVNPath(m_targetpath);
+    m_nRejected              = 0;
+    m_nStrip                 = 0;
+    CTSVNPath tsvnPatchFile  = CTSVNPath(m_patchFile);
+    CTSVNPath tsvnTargetPath = CTSVNPath(m_targetPath);
 
-    err = svn_client_patch(tsvnpatchfile.GetSVNApiPath(scratchpool),     // patch_abspath
-                           tsvntargetpath.GetSVNApiPath(scratchpool),    // local_abspath
-                           true,                                    // dry_run
-                           m_nStrip,                                // strip_count
-                           false,                                   // reverse
-                           true,                                    // ignore_whitespace
-                           false,                                   // remove_tempfiles
-                           patch_func,                              // patch_func
-                           this,                                    // patch_baton
-                           ctx,                                     // client context
+    err = svn_client_patch(tsvnPatchFile.GetSVNApiPath(scratchpool),  // patch_abspath
+                           tsvnTargetPath.GetSVNApiPath(scratchpool), // local_abspath
+                           true,                                      // dry_run
+                           m_nStrip,                                  // strip_count
+                           false,                                     // reverse
+                           true,                                      // ignore_whitespace
+                           false,                                     // remove_tempfiles
+                           patch_func,                                // patch_func
+                           this,                                      // patch_baton
+                           ctx,                                       // client context
                            scratchpool);
     if (m_filePaths.empty() && (m_nStrip == 0))
     {
@@ -212,25 +210,25 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
         // the patch_func and we then get the data we need to later
         // adjust the strip value correctly.
         m_nStrip++;
-        err = svn_client_patch(tsvnpatchfile.GetSVNApiPath(scratchpool),     // patch_abspath
-                               tsvntargetpath.GetSVNApiPath(scratchpool),    // local_abspath
-                               true,                                    // dry_run
-                               m_nStrip,                                // strip_count
-                               false,                                   // reverse
-                               true,                                    // ignore_whitespace
-                               false,                                   // remove_tempfiles
-                               patch_func,                              // patch_func
-                               this,                                    // patch_baton
-                               ctx,                                     // client context
+        err = svn_client_patch(tsvnPatchFile.GetSVNApiPath(scratchpool),  // patch_abspath
+                               tsvnTargetPath.GetSVNApiPath(scratchpool), // local_abspath
+                               true,                                      // dry_run
+                               m_nStrip,                                  // strip_count
+                               false,                                     // reverse
+                               true,                                      // ignore_whitespace
+                               false,                                     // remove_tempfiles
+                               patch_func,                                // patch_func
+                               this,                                      // patch_baton
+                               ctx,                                       // client context
                                scratchpool);
     }
 
-    m_pProgDlg = NULL;
+    m_pProgDlg = nullptr;
     apr_pool_destroy(scratchpool);
 
     // since we're doing a dry-run, a 'path not found' can happen
     // since new files/dirs aren't added in the patch func.
-    if ((err)&&(err->apr_err != SVN_ERR_WC_PATH_NOT_FOUND))
+    if ((err) && (err->apr_err != SVN_ERR_WC_PATH_NOT_FOUND))
     {
         m_errorStr = GetErrorMessage(err);
         m_filePaths.clear();
@@ -238,7 +236,7 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
         return 0;
     }
 
-    if ((m_nRejected > ((int)m_filePaths.size() / 3)) && !m_testPath.IsEmpty())
+    if ((m_nRejected > (static_cast<int>(m_filePaths.size()) / 3)) && !m_testPath.IsEmpty())
     {
         auto startStrip = m_nStrip;
         for (m_nStrip = 0; m_nStrip < STRIP_LIMIT; ++m_nStrip)
@@ -252,10 +250,10 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
                     m_nStrip = STRIP_LIMIT;
                     break;
                 }
-                else if (PathFileExists(m_targetpath + L"\\" + p))
+                else if (PathFileExists(m_targetPath + L"\\" + p))
                     ++nExisting;
             }
-            if (nExisting > int(m_filePaths.size()-m_nRejected))
+            if (nExisting > static_cast<int>(m_filePaths.size() - m_nRejected))
             {
                 m_nStrip += startStrip;
                 break;
@@ -269,23 +267,23 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
     }
     else if (m_nStrip > 0)
     {
-        apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
+        apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, nullptr);
         svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchpool));
-        ctx->notify_func2 = notify;
+        ctx->notify_func2  = notify;
         ctx->notify_baton2 = this;
 
         m_filePaths.clear();
         m_nRejected = 0;
-        err = svn_client_patch(tsvnpatchfile.GetSVNApiPath(scratchpool),     // patch_abspath
-                               tsvntargetpath.GetSVNApiPath(scratchpool),    // local_abspath
-                               true,                                    // dry_run
-                               m_nStrip,                                // strip_count
-                               false,                                   // reverse
-                               true,                                    // ignore_whitespace
-                               false,                                   // remove_tempfiles
-                               patch_func,                              // patch_func
-                               this,                                    // patch_baton
-                               ctx,                                     // client context
+        err         = svn_client_patch(tsvnPatchFile.GetSVNApiPath(scratchpool),  // patch_abspath
+                               tsvnTargetPath.GetSVNApiPath(scratchpool), // local_abspath
+                               true,                                      // dry_run
+                               m_nStrip,                                  // strip_count
+                               false,                                     // reverse
+                               true,                                      // ignore_whitespace
+                               false,                                     // remove_tempfiles
+                               patch_func,                                // patch_func
+                               this,                                      // patch_baton
+                               ctx,                                       // client context
                                scratchpool);
 
         apr_pool_destroy(scratchpool);
@@ -298,53 +296,53 @@ int SVNPatch::Init( const CString& patchfile, const CString& targetpath, CProgre
         }
     }
 
-    return (int)m_filePaths.size();
+    return static_cast<int>(m_filePaths.size());
 }
 
-bool SVNPatch::PatchPath( const CString& path )
+bool SVNPatch::PatchPath(const CString& path)
 {
-    svn_error_t *               err         = NULL;
-    apr_pool_t *                scratchpool = NULL;
-    svn_client_ctx_t *          ctx         = NULL;
+    svn_error_t*      err         = nullptr;
+    apr_pool_t*       scratchPool = nullptr;
+    svn_client_ctx_t* ctx         = nullptr;
 
     m_errorStr.Empty();
 
-    m_patchfile.Replace('\\', '/');
-    m_targetpath.Replace('\\', '/');
+    m_patchFile.Replace('\\', '/');
+    m_targetPath.Replace('\\', '/');
 
-    m_filetopatch = path.Mid(m_targetpath.GetLength() + 1);
-    m_filetopatch.Replace('\\', '/');
+    m_fileToPatch = path.Mid(m_targetPath.GetLength() + 1);
+    m_fileToPatch.Replace('\\', '/');
 
-    apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
-    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchpool));
+    apr_pool_create_ex(&scratchPool, m_pool, abort_on_pool_failure, nullptr);
+    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchPool));
 
-    const char *patch_abspath = nullptr;
-    err                       = svn_uri_canonicalize_safe(&patch_abspath, nullptr,
-                                    CUnicodeUtils::GetUTF8(m_patchfile),
-                                    scratchpool, scratchpool);
+    const char* patchAbspath = nullptr;
+    err                      = svn_uri_canonicalize_safe(&patchAbspath, nullptr,
+                                    CUnicodeUtils::GetUTF8(m_patchFile),
+                                    scratchPool, scratchPool);
     if (err)
     {
         m_errorStr = GetErrorMessage(err);
         svn_error_clear(err);
-        apr_pool_destroy(scratchpool);
+        apr_pool_destroy(scratchPool);
         return false;
     }
 
-    const char *local_abspath = nullptr;
-    err                       = svn_uri_canonicalize_safe(&local_abspath, nullptr,
-                                    CUnicodeUtils::GetUTF8(m_targetpath),
-                                    scratchpool, scratchpool);
+    const char* localAbspath = nullptr;
+    err                      = svn_uri_canonicalize_safe(&localAbspath, nullptr,
+                                    CUnicodeUtils::GetUTF8(m_targetPath),
+                                    scratchPool, scratchPool);
     if (err)
     {
         m_errorStr = GetErrorMessage(err);
         svn_error_clear(err);
-        apr_pool_destroy(scratchpool);
+        apr_pool_destroy(scratchPool);
         return false;
     }
 
     m_nRejected = 0;
-    err         = svn_client_patch(patch_abspath,  // patch_abspath
-                           local_abspath,  // local_abspath
+    err         = svn_client_patch(patchAbspath,   // patch_abspath
+                           localAbspath,   // local_abspath
                            false,          // dry_run
                            m_nStrip,       // strip_count
                            false,          // reverse
@@ -353,20 +351,19 @@ bool SVNPatch::PatchPath( const CString& path )
                            patchfile_func, // patch_func
                            this,           // patch_baton
                            ctx,            // client context
-                           scratchpool);
+                           scratchPool);
 
     if (err)
     {
         m_errorStr = GetErrorMessage(err);
         svn_error_clear(err);
-        apr_pool_destroy(scratchpool);
+        apr_pool_destroy(scratchPool);
         return false;
     }
-    apr_pool_destroy(scratchpool);
+    apr_pool_destroy(scratchPool);
 
     return true;
 }
-
 
 int SVNPatch::GetPatchResult(const CString& sPath, CString& sSavePath, CString& sRejectPath) const
 {
@@ -385,7 +382,7 @@ int SVNPatch::GetPatchResult(const CString& sPath, CString& sSavePath, CString& 
     return -1;
 }
 
-CString SVNPatch::CheckPatchPath( const CString& path )
+CString SVNPatch::CheckPatchPath(const CString& path) const
 {
     // first check if the path already matches
     int origMatches = CountMatches(path);
@@ -393,7 +390,7 @@ CString SVNPatch::CheckPatchPath( const CString& path )
         return path;
 
     CProgressDlg progress;
-    CString tmp;
+    CString      tmp;
     progress.SetTitle(IDS_PATCH_SEARCHPATHTITLE);
     progress.SetShowProgressBar(false);
     tmp.LoadString(IDS_PATCH_SEARCHPATHLINE1);
@@ -401,76 +398,76 @@ CString SVNPatch::CheckPatchPath( const CString& path )
     progress.ShowModeless(AfxGetMainWnd());
 
     // now go up the tree and try again
-    CString upperpath = path;
-    while (upperpath.ReverseFind('\\')>0)
+    CString upperPath = path;
+    while (upperPath.ReverseFind('\\') > 0)
     {
-        upperpath = upperpath.Left(upperpath.ReverseFind('\\'));
-        progress.SetLine(2, upperpath, true);
+        upperPath = upperPath.Left(upperPath.ReverseFind('\\'));
+        progress.SetLine(2, upperPath, true);
         if (progress.HasUserCancelled())
             return path;
-        if (CountMatches(upperpath) > origMatches)
-            return upperpath;
+        if (CountMatches(upperPath) > origMatches)
+            return upperPath;
     }
     // still no match found. So try sub folders
-    bool isDir = false;
-    CString subpath;
-    CDirFileEnum filefinder(path);
-    while (filefinder.NextFile(subpath, &isDir))
+    bool         isDir = false;
+    CString      subPath;
+    CDirFileEnum fileFinder(path);
+    while (fileFinder.NextFile(subPath, &isDir))
     {
         if (progress.HasUserCancelled())
             return path;
         if (!isDir)
             continue;
-        if (g_SVNAdminDir.IsAdminDirPath(subpath))
+        if (g_SVNAdminDir.IsAdminDirPath(subPath))
             continue;
-        progress.SetLine(2, subpath, true);
-        if (CountMatches(subpath) > origMatches)
-            return subpath;
+        progress.SetLine(2, subPath, true);
+        if (CountMatches(subPath) > origMatches)
+            return subPath;
     }
 
     // if a patch file only contains newly added files
     // we can't really find the correct path.
     // But: we can compare paths strings without the filenames
     // and check if at least those match
-    upperpath = path;
-    while (upperpath.ReverseFind('\\')>0)
+    upperPath = path;
+    while (upperPath.ReverseFind('\\') > 0)
     {
-        upperpath = upperpath.Left(upperpath.ReverseFind('\\'));
-        progress.SetLine(2, upperpath, true);
+        upperPath = upperPath.Left(upperPath.ReverseFind('\\'));
+        progress.SetLine(2, upperPath, true);
         if (progress.HasUserCancelled())
             return path;
-        if (CountDirMatches(upperpath) > origMatches)
-            return upperpath;
+        if (CountDirMatches(upperPath) > origMatches)
+            return upperPath;
     }
 
     return path;
 }
 
-int SVNPatch::CountMatches( const CString& path ) const
+int SVNPatch::CountMatches(const CString& path) const
 {
     int matches = 0;
-    for (int i=0; i<GetNumberOfFiles(); ++i)
+    for (int i = 0; i < GetNumberOfFiles(); ++i)
     {
         CString temp = GetFilePath(i);
         temp.Replace('/', '\\');
         if ((PathIsRelative(temp)) ||
-            ((temp.GetLength() > 1) && (temp[0]=='\\') && (temp[1]!='\\')) )
-            temp = path + L"\\"+ temp;
+            ((temp.GetLength() > 1) && (temp[0] == '\\') && (temp[1] != '\\')))
+            temp = path + L"\\" + temp;
         if (PathFileExists(temp))
             matches++;
     }
     return matches;
 }
 
-int SVNPatch::CountDirMatches( const CString& path ) const
+int SVNPatch::CountDirMatches(const CString& path) const
 {
     int matches = 0;
-    for (int i=0; i<GetNumberOfFiles(); ++i)
+    for (int i = 0; i < GetNumberOfFiles(); ++i)
     {
         CString temp = GetFilePath(i);
         temp.Replace('/', '\\');
         if (PathIsRelative(temp))
-            temp = path + L"\\"+ temp;
+            temp = path + L"\\" + temp;
         // remove the filename
         temp = temp.Left(temp.ReverseFind('\\'));
         if (PathFileExists(temp))
@@ -479,11 +476,11 @@ int SVNPatch::CountDirMatches( const CString& path ) const
     return matches;
 }
 
-CString SVNPatch::GetStrippedPath( int nIndex ) const
+CString SVNPatch::GetStrippedPath(int nIndex) const
 {
     if (nIndex < 0)
         return L"";
-    if (nIndex < (int)m_filePaths.size())
+    if (nIndex < static_cast<int>(m_filePaths.size()))
     {
         CString filepath = Strip(GetFilePath(nIndex));
         return filepath;
@@ -492,18 +489,18 @@ CString SVNPatch::GetStrippedPath( int nIndex ) const
     return L"";
 }
 
-CString SVNPatch::Strip( const CString& filename ) const
+CString SVNPatch::Strip(const CString& filename) const
 {
     CString s = filename;
-    if ( m_nStrip>0 )
+    if (m_nStrip > 0)
     {
         // Remove windows drive letter "c:"
-        if ( s.GetLength()>2 && s[1]==':')
+        if (s.GetLength() > 2 && s[1] == ':')
         {
             s = s.Mid(2);
         }
 
-        for (int nStrip=1;nStrip<=m_nStrip;nStrip++)
+        for (int nStrip = 1; nStrip <= m_nStrip; nStrip++)
         {
             // "/home/ts/my-working-copy/dir/file.txt"
             //  "home/ts/my-working-copy/dir/file.txt"
@@ -516,63 +513,60 @@ CString SVNPatch::Strip( const CString& filename ) const
                 s.Empty();
                 break;
             }
-            s = s.Mid(p+1);
+            s = s.Mid(p + 1);
         }
     }
     return s;
 }
 
-CString SVNPatch::GetErrorMessage(svn_error_t * Err) const
+CString SVNPatch::GetErrorMessage(svn_error_t* err)
 {
     CString msg;
-    CString temp;
 
-    if (Err != NULL)
+    if (err != nullptr)
     {
-        svn_error_t * ErrPtr = Err;
-        msg = GetErrorMessageForNode(ErrPtr);
-        while (ErrPtr->child)
+        svn_error_t* errPtr = err;
+        msg                 = GetErrorMessageForNode(errPtr);
+        while (errPtr->child)
         {
-            ErrPtr = ErrPtr->child;
+            errPtr = errPtr->child;
             msg += L"\n";
-            temp = GetErrorMessageForNode(ErrPtr);
-            msg += temp;
+            msg += GetErrorMessageForNode(errPtr);
         }
     }
     return msg;
 }
 
-CString SVNPatch::GetErrorMessageForNode(svn_error_t* Err) const
+CString SVNPatch::GetErrorMessageForNode(svn_error_t* err)
 {
     CString msg;
-    if (Err != NULL)
+    if (err != nullptr)
     {
-        svn_error_t * ErrPtr = Err;
-        if (ErrPtr->message)
-            msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+        svn_error_t* errPtr = err;
+        if (errPtr->message)
+            msg = CUnicodeUtils::GetUnicode(errPtr->message);
         else
         {
             char errbuf[256] = {0};
             /* Is this a Subversion-specific error code? */
-            if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
+            if ((errPtr->apr_err > APR_OS_START_USEERR) && (errPtr->apr_err <= APR_OS_START_CANONERR))
             {
-                msg = svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf));
+                msg = svn_strerror(errPtr->apr_err, errbuf, _countof(errbuf));
             }
             /* Otherwise, this must be an APR error code. */
             else
             {
-                svn_error_t *temp_err = NULL;
-                const char * err_string = NULL;
-                temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                if (temp_err)
+                svn_error_t* tempErr   = nullptr;
+                const char*  errString = nullptr;
+                tempErr                = svn_utf_cstring_to_utf8(&errString, apr_strerror(errPtr->apr_err, errbuf, _countof(errbuf) - 1), errPtr->pool);
+                if (tempErr)
                 {
-                    svn_error_clear (temp_err);
+                    svn_error_clear(tempErr);
                     msg = L"Can't recode error string from APR";
                 }
                 else
                 {
-                    msg = CUnicodeUtils::GetUnicode(err_string);
+                    msg = CUnicodeUtils::GetUnicode(errString);
                 }
             }
         }
@@ -581,35 +575,35 @@ CString SVNPatch::GetErrorMessageForNode(svn_error_t* Err) const
     return msg;
 }
 
-bool SVNPatch::RemoveFile( const CString& path )
+bool SVNPatch::RemoveFile(const CString& path) const
 {
-    svn_error_t *               err         = NULL;
-    apr_pool_t *                scratchpool = NULL;
-    svn_client_ctx_t *          ctx         = NULL;
+    svn_error_t*      err         = nullptr;
+    apr_pool_t*       scratchPool = nullptr;
+    svn_client_ctx_t* ctx         = nullptr;
 
-    apr_pool_create_ex(&scratchpool, m_pool, abort_on_pool_failure, NULL);
-    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchpool));
+    apr_pool_create_ex(&scratchPool, m_pool, abort_on_pool_failure, nullptr);
+    svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchPool));
 
-    apr_array_header_t *targets = apr_array_make (scratchpool, 1, sizeof(const char *));
+    apr_array_header_t* targets = apr_array_make(scratchPool, 1, sizeof(const char*));
 
-    const char *canonicalized_path = nullptr;
-    svn_error_clear(svn_uri_canonicalize_safe(&canonicalized_path, nullptr, CUnicodeUtils::GetUTF8(path), scratchpool, scratchpool));
-    if (canonicalized_path == nullptr)
+    const char* canonicalizedPath = nullptr;
+    svn_error_clear(svn_uri_canonicalize_safe(&canonicalizedPath, nullptr, CUnicodeUtils::GetUTF8(path), scratchPool, scratchPool));
+    if (canonicalizedPath == nullptr)
     {
-        apr_pool_destroy(scratchpool);
+        apr_pool_destroy(scratchPool);
         return false;
     }
 
-    (*((const char **) apr_array_push (targets))) = canonicalized_path;
+    (*static_cast<const char**>(apr_array_push(targets))) = canonicalizedPath;
 
-    err = svn_client_delete4(targets, true, false, NULL, NULL, NULL, ctx, scratchpool);
+    err = svn_client_delete4(targets, true, false, nullptr, nullptr, nullptr, ctx, scratchPool);
 
     if (err)
     {
         svn_error_clear(err);
-        apr_pool_destroy(scratchpool);
+        apr_pool_destroy(scratchPool);
         return false;
     }
-    apr_pool_destroy(scratchpool);
+    apr_pool_destroy(scratchPool);
     return true;
 }
