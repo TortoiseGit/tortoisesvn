@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2012-2014, 2017, 2020 - TortoiseSVN
+// Copyright (C) 2006-2008, 2012-2014, 2017, 2020-2021 - TortoiseSVN
 // Copyright (C) 2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -29,6 +29,8 @@ IMPLEMENT_DYNAMIC(CSetColorPage, CPropertyPage)
 CSetColorPage::CSetColorPage()
     : CPropertyPage(CSetColorPage::IDD)
     , m_bReloadNeeded(FALSE)
+    , m_isDarkMode(CTheme::Instance().IsDarkTheme())
+    , m_bInit(false)
     , m_regInlineAdded(L"Software\\TortoiseMerge\\Colors\\InlineAdded", INLINEADDED_COLOR)
     , m_regInlineRemoved(L"Software\\TortoiseMerge\\Colors\\InlineRemoved", INLINEREMOVED_COLOR)
     , m_regModifiedBackground(L"Software\\TortoiseMerge\\Colors\\ColorModifiedB", MODIFIED_COLOR)
@@ -36,8 +38,6 @@ CSetColorPage::CSetColorPage()
     , m_regDarkInlineRemoved(L"Software\\TortoiseMerge\\Colors\\DarkInlineRemoved", INLINEREMOVED_DARK_COLOR)
     , m_regDarkModifiedBackground(L"Software\\TortoiseMerge\\Colors\\DarkColorModifiedB", MODIFIED_DARK_COLOR)
     , m_regUseDarkMode(L"Software\\TortoiseMerge\\DarkTheme", FALSE)
-    , m_bInit(false)
-    , m_IsDarkMode(CTheme::Instance().IsDarkTheme())
     , m_themeCallbackId(0)
 {
 }
@@ -63,86 +63,86 @@ void CSetColorPage::SaveData()
 
     COLORREF cFg = GetColorFromButton(m_cFgNormal);
     COLORREF cBk = GetColorFromButton(m_cBkNormal);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_NORMAL, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_UNKNOWN, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_NORMAL, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_UNKNOWN, m_isDarkMode, cBk, cFg);
 
     cFg = GetColorFromButton(m_cFgRemoved);
     cBk = GetColorFromButton(m_cBkRemoved);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_REMOVED, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALREMOVED, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSREMOVED, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSREMOVED, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_REMOVED, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALREMOVED, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSREMOVED, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSREMOVED, m_isDarkMode, cBk, cFg);
 
     cFg = GetColorFromButton(m_cFgAdded);
     cBk = GetColorFromButton(m_cBkAdded);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_ADDED, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALADDED, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSADDED, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSADDED, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_ADDED, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_IDENTICALADDED, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_THEIRSADDED, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_YOURSADDED, m_isDarkMode, cBk, cFg);
 
-    if (m_IsDarkMode)
+    if (m_isDarkMode)
     {
-        if ((DWORD)m_regDarkInlineAdded != (DWORD)m_cBkInlineAdded.GetColor())
+        if (static_cast<DWORD>(m_regDarkInlineAdded) != static_cast<DWORD>(m_cBkInlineAdded.GetColor()))
             m_bReloadNeeded = true;
         m_regDarkInlineAdded = GetColorFromButton(m_cBkInlineAdded);
     }
     else
     {
-        if ((DWORD)m_regInlineAdded != (DWORD)m_cBkInlineAdded.GetColor())
+        if (static_cast<DWORD>(m_regInlineAdded) != static_cast<DWORD>(m_cBkInlineAdded.GetColor()))
             m_bReloadNeeded = true;
         m_regInlineAdded = GetColorFromButton(m_cBkInlineAdded);
     }
-    if (m_IsDarkMode)
+    if (m_isDarkMode)
     {
-        if ((DWORD)m_regDarkInlineRemoved != (DWORD)m_cBkInlineRemoved.GetColor())
+        if (static_cast<DWORD>(m_regDarkInlineRemoved) != static_cast<DWORD>(m_cBkInlineRemoved.GetColor()))
             m_bReloadNeeded = true;
         m_regDarkInlineRemoved = GetColorFromButton(m_cBkInlineRemoved);
     }
     else
     {
-        if ((DWORD)m_regInlineRemoved != (DWORD)m_cBkInlineRemoved.GetColor())
+        if (static_cast<DWORD>(m_regInlineRemoved) != static_cast<DWORD>(m_cBkInlineRemoved.GetColor()))
             m_bReloadNeeded = true;
         m_regInlineRemoved = GetColorFromButton(m_cBkInlineRemoved);
     }
-    if (m_IsDarkMode)
+    if (m_isDarkMode)
     {
-        if ((DWORD)m_regDarkModifiedBackground != (DWORD)m_cBkModified.GetColor())
+        if (static_cast<DWORD>(m_regDarkModifiedBackground) != static_cast<DWORD>(m_cBkModified.GetColor()))
             m_bReloadNeeded = true;
         m_regDarkModifiedBackground = GetColorFromButton(m_cBkModified);
     }
     else
     {
-        if ((DWORD)m_regModifiedBackground != (DWORD)m_cBkModified.GetColor())
+        if (static_cast<DWORD>(m_regModifiedBackground) != static_cast<DWORD>(m_cBkModified.GetColor()))
             m_bReloadNeeded = true;
         m_regModifiedBackground = GetColorFromButton(m_cBkModified);
     }
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_EDITED, m_IsDarkMode, m_IsDarkMode ? (DWORD)m_regDarkModifiedBackground : (DWORD)m_regModifiedBackground, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_EDITED, m_isDarkMode, m_isDarkMode ? static_cast<DWORD>(m_regDarkModifiedBackground) : static_cast<DWORD>(m_regModifiedBackground), cFg);
 
     cFg = GetColorFromButton(m_cFgEmpty);
     cBk = GetColorFromButton(m_cBkEmpty);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_EMPTY, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_EMPTY, m_isDarkMode, cBk, cFg);
 
     COLORREF adjustedcolor = cBk;
     cFg                    = GetColorFromButton(m_cFgConflict);
     cBk                    = GetColorFromButton(m_cBkConflict);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED_IGNORED, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTADDED, m_IsDarkMode, cBk, cFg);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTEMPTY, m_IsDarkMode, adjustedcolor, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTED_IGNORED, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTADDED, m_isDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTEMPTY, m_isDarkMode, adjustedcolor, cFg);
 
     cFg = GetColorFromButton(m_cFgConflictResolved);
     cBk = GetColorFromButton(m_cBkConflictResolved);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTRESOLVED, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_CONFLICTRESOLVED, m_isDarkMode, cBk, cFg);
 
     cFg = GetColorFromButton(m_cFgWhitespaces);
     CRegDWORD regWhitespaceColor(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_3DSHADOW));
     regWhitespaceColor = cFg;
 
     cBk = GetColorFromButton(m_cBkFiltered);
-    CDiffColors::GetInstance().SetColors(DIFFSTATE_FILTEREDDIFF, m_IsDarkMode, cBk, m_IsDarkMode ? DIFFSTATE_NORMAL_DEFAULT_DARK_FG : DIFFSTATE_NORMAL_DEFAULT_FG);
+    CDiffColors::GetInstance().SetColors(DIFFSTATE_FILTEREDDIFF, m_isDarkMode, cBk, m_isDarkMode ? DIFFSTATE_NORMAL_DEFAULT_DARK_FG : DIFFSTATE_NORMAL_DEFAULT_FG);
 
-    m_IsDarkMode     = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
-    m_regUseDarkMode = m_IsDarkMode ? 1 : 0;
+    m_isDarkMode     = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
+    m_regUseDarkMode = m_isDarkMode ? 1 : 0;
 }
 
 void CSetColorPage::DoDataExchange(CDataExchange* pDX)
@@ -198,13 +198,12 @@ BOOL CSetColorPage::OnInitDialog()
 
     m_chkUseDarkMode.EnableWindow(CTheme::Instance().IsDarkModeAllowed());
     m_chkUseDarkMode.SetCheck((static_cast<DWORD>(m_regUseDarkMode) != 0 && CTheme::Instance().IsDarkModeAllowed()) ? BST_CHECKED : BST_UNCHECKED);
-    m_IsDarkMode = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
+    m_isDarkMode = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
     SetupColorButtons();
     m_bInit = TRUE;
 
     m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
-        [this]()
-        {
+        [this]() {
             CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
         });
 
@@ -223,74 +222,74 @@ void CSetColorPage::SetupColorButtons()
     sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
     sCustomText.LoadString(IDS_COLOURPICKER_CUSTOMTEXT);
 
-    CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().GetColors(DIFFSTATE_NORMAL, m_isDarkMode, cBk, cFg);
     m_cFgNormal.SetColor(cFg);
-    m_cFgNormal.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_NORMAL_DEFAULT_DARK_FG : DIFFSTATE_NORMAL_DEFAULT_FG);
+    m_cFgNormal.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_NORMAL_DEFAULT_DARK_FG : DIFFSTATE_NORMAL_DEFAULT_FG);
     m_cFgNormal.EnableOtherButton(sCustomText);
     m_cBkNormal.SetColor(cBk);
-    m_cBkNormal.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_NORMAL_DEFAULT_DARK_BG : DIFFSTATE_NORMAL_DEFAULT_BG);
+    m_cBkNormal.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_NORMAL_DEFAULT_DARK_BG : DIFFSTATE_NORMAL_DEFAULT_BG);
     m_cBkNormal.EnableOtherButton(sCustomText);
 
-    CDiffColors::GetInstance().GetColors(DIFFSTATE_REMOVED, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().GetColors(DIFFSTATE_REMOVED, m_isDarkMode, cBk, cFg);
     m_cFgRemoved.SetColor(cFg);
-    m_cFgRemoved.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_REMOVED_DEFAULT_DARK_FG : DIFFSTATE_REMOVED_DEFAULT_FG);
+    m_cFgRemoved.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_REMOVED_DEFAULT_DARK_FG : DIFFSTATE_REMOVED_DEFAULT_FG);
     m_cFgRemoved.EnableOtherButton(sCustomText);
     m_cBkRemoved.SetColor(cBk);
-    m_cBkRemoved.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_REMOVED_DEFAULT_DARK_BG : DIFFSTATE_REMOVED_DEFAULT_BG);
+    m_cBkRemoved.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_REMOVED_DEFAULT_DARK_BG : DIFFSTATE_REMOVED_DEFAULT_BG);
     m_cBkRemoved.EnableOtherButton(sCustomText);
 
-    CDiffColors::GetInstance().GetColors(DIFFSTATE_ADDED, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().GetColors(DIFFSTATE_ADDED, m_isDarkMode, cBk, cFg);
     m_cFgAdded.SetColor(cFg);
-    m_cFgAdded.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_ADDED_DEFAULT_DARK_FG : DIFFSTATE_ADDED_DEFAULT_FG);
+    m_cFgAdded.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_ADDED_DEFAULT_DARK_FG : DIFFSTATE_ADDED_DEFAULT_FG);
     m_cFgAdded.EnableOtherButton(sCustomText);
     m_cBkAdded.SetColor(cBk);
-    m_cBkAdded.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_ADDED_DEFAULT_DARK_BG : DIFFSTATE_ADDED_DEFAULT_BG);
+    m_cBkAdded.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_ADDED_DEFAULT_DARK_BG : DIFFSTATE_ADDED_DEFAULT_BG);
     m_cBkAdded.EnableOtherButton(sCustomText);
 
-    m_cBkInlineAdded.SetColor(m_IsDarkMode ? (DWORD)m_regDarkInlineAdded : (DWORD)m_regInlineAdded);
-    m_cBkInlineAdded.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? INLINEADDED_DARK_COLOR : INLINEADDED_COLOR);
+    m_cBkInlineAdded.SetColor(m_isDarkMode ? static_cast<DWORD>(m_regDarkInlineAdded) : static_cast<DWORD>(m_regInlineAdded));
+    m_cBkInlineAdded.EnableAutomaticButton(sDefaultText, m_isDarkMode ? INLINEADDED_DARK_COLOR : INLINEADDED_COLOR);
     m_cBkInlineAdded.EnableOtherButton(sCustomText);
 
-    m_cBkInlineRemoved.SetColor(m_IsDarkMode ? (DWORD)m_regDarkInlineRemoved : (DWORD)m_regInlineRemoved);
-    m_cBkInlineRemoved.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? INLINEREMOVED_DARK_COLOR : INLINEREMOVED_COLOR);
+    m_cBkInlineRemoved.SetColor(m_isDarkMode ? static_cast<DWORD>(m_regDarkInlineRemoved) : static_cast<DWORD>(m_regInlineRemoved));
+    m_cBkInlineRemoved.EnableAutomaticButton(sDefaultText, m_isDarkMode ? INLINEREMOVED_DARK_COLOR : INLINEREMOVED_COLOR);
     m_cBkInlineRemoved.EnableOtherButton(sCustomText);
 
-    m_cBkModified.SetColor(m_IsDarkMode ? (DWORD)m_regDarkModifiedBackground : (DWORD)m_regModifiedBackground);
-    m_cBkModified.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? MODIFIED_DARK_COLOR : MODIFIED_COLOR);
+    m_cBkModified.SetColor(m_isDarkMode ? static_cast<DWORD>(m_regDarkModifiedBackground) : static_cast<DWORD>(m_regModifiedBackground));
+    m_cBkModified.EnableAutomaticButton(sDefaultText, m_isDarkMode ? MODIFIED_DARK_COLOR : MODIFIED_COLOR);
     m_cBkModified.EnableOtherButton(sCustomText);
 
-    CDiffColors::GetInstance().GetColors(DIFFSTATE_EMPTY, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().GetColors(DIFFSTATE_EMPTY, m_isDarkMode, cBk, cFg);
     m_cFgEmpty.SetColor(cFg);
-    m_cFgEmpty.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_EMPTY_DEFAULT_DARK_FG : DIFFSTATE_EMPTY_DEFAULT_FG);
+    m_cFgEmpty.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_EMPTY_DEFAULT_DARK_FG : DIFFSTATE_EMPTY_DEFAULT_FG);
     m_cFgEmpty.EnableOtherButton(sCustomText);
     m_cBkEmpty.SetColor(cBk);
-    m_cBkEmpty.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_EMPTY_DEFAULT_DARK_BG : DIFFSTATE_EMPTY_DEFAULT_BG);
+    m_cBkEmpty.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_EMPTY_DEFAULT_DARK_BG : DIFFSTATE_EMPTY_DEFAULT_BG);
     m_cBkEmpty.EnableOtherButton(sCustomText);
 
-    CDiffColors::GetInstance().GetColors(DIFFSTATE_CONFLICTED, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().GetColors(DIFFSTATE_CONFLICTED, m_isDarkMode, cBk, cFg);
     m_cFgConflict.SetColor(cFg);
-    m_cFgConflict.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_CONFLICTED_DEFAULT_DARK_FG : DIFFSTATE_CONFLICTED_DEFAULT_FG);
+    m_cFgConflict.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_CONFLICTED_DEFAULT_DARK_FG : DIFFSTATE_CONFLICTED_DEFAULT_FG);
     m_cFgConflict.EnableOtherButton(sCustomText);
     m_cBkConflict.SetColor(cBk);
-    m_cBkConflict.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_CONFLICTED_DEFAULT_DARK_BG : DIFFSTATE_CONFLICTED_DEFAULT_BG);
+    m_cBkConflict.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_CONFLICTED_DEFAULT_DARK_BG : DIFFSTATE_CONFLICTED_DEFAULT_BG);
     m_cBkConflict.EnableOtherButton(sCustomText);
 
-    CDiffColors::GetInstance().GetColors(DIFFSTATE_CONFLICTRESOLVED, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().GetColors(DIFFSTATE_CONFLICTRESOLVED, m_isDarkMode, cBk, cFg);
     m_cFgConflictResolved.SetColor(cFg);
-    m_cFgConflictResolved.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_CONFLICTRESOLVED_DEFAULT_DARK_FG : DIFFSTATE_CONFLICTRESOLVED_DEFAULT_FG);
+    m_cFgConflictResolved.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_CONFLICTRESOLVED_DEFAULT_DARK_FG : DIFFSTATE_CONFLICTRESOLVED_DEFAULT_FG);
     m_cFgConflictResolved.EnableOtherButton(sCustomText);
     m_cBkConflictResolved.SetColor(cBk);
-    m_cBkConflictResolved.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_CONFLICTRESOLVED_DEFAULT_DARK_BG : DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG);
+    m_cBkConflictResolved.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_CONFLICTRESOLVED_DEFAULT_DARK_BG : DIFFSTATE_CONFLICTRESOLVED_DEFAULT_BG);
     m_cBkConflictResolved.EnableOtherButton(sCustomText);
 
     CRegDWORD regWhitespaceColor(L"Software\\TortoiseMerge\\Colors\\Whitespace", GetSysColor(COLOR_3DSHADOW));
-    m_cFgWhitespaces.SetColor((COLORREF)(DWORD)regWhitespaceColor);
+    m_cFgWhitespaces.SetColor(static_cast<COLORREF>(static_cast<DWORD>(regWhitespaceColor)));
     m_cFgWhitespaces.EnableAutomaticButton(sDefaultText, GetSysColor(COLOR_3DSHADOW));
     m_cFgWhitespaces.EnableOtherButton(sCustomText);
 
-    CDiffColors::GetInstance().GetColors(DIFFSTATE_FILTEREDDIFF, m_IsDarkMode, cBk, cFg);
+    CDiffColors::GetInstance().GetColors(DIFFSTATE_FILTEREDDIFF, m_isDarkMode, cBk, cFg);
     m_cBkFiltered.SetColor(cBk);
-    m_cBkEmpty.EnableAutomaticButton(sDefaultText, m_IsDarkMode ? DIFFSTATE_FILTERED_DEFAULT_DARK_BG : DIFFSTATE_FILTERED_DEFAULT_BG);
+    m_cBkEmpty.EnableAutomaticButton(sDefaultText, m_isDarkMode ? DIFFSTATE_FILTERED_DEFAULT_DARK_BG : DIFFSTATE_FILTERED_DEFAULT_BG);
     m_cBkEmpty.EnableOtherButton(sCustomText);
 }
 
@@ -309,8 +308,8 @@ void CSetColorPage::OnBnClickedColor()
 
 void CSetColorPage::OnBnClickedRestore()
 {
-    m_IsDarkMode = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
-    if (m_IsDarkMode)
+    m_isDarkMode = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
+    if (m_isDarkMode)
     {
         m_cBkNormal.SetColor(DIFFSTATE_NORMAL_DEFAULT_DARK_BG);
         m_cBkRemoved.SetColor(DIFFSTATE_REMOVED_DEFAULT_DARK_BG);
@@ -355,8 +354,8 @@ void CSetColorPage::OnBnClickedRestore()
 
 void CSetColorPage::OnBnClickedDarkmode()
 {
-    m_IsDarkMode = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
-    CTheme::Instance().SetDarkTheme(m_IsDarkMode);
+    m_isDarkMode = m_chkUseDarkMode.GetCheck() == BST_CHECKED;
+    CTheme::Instance().SetDarkTheme(m_isDarkMode);
     SetupColorButtons();
     m_bReloadNeeded = true;
     SetModified();

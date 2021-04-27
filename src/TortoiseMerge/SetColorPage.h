@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2008, 2013-2014, 2017, 2020 - TortoiseSVN
+// Copyright (C) 2006-2008, 2013-2014, 2017, 2020-2021 - TortoiseSVN
 // Copyright (C) 2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -31,7 +31,7 @@ class CSetColorPage : public CPropertyPage
 
 public:
     CSetColorPage();
-    virtual ~CSetColorPage();
+    ~CSetColorPage() override;
     /**
      * Saves the changed settings to the registry.
      * \remark If the dialog is closed/dismissed without calling
@@ -41,7 +41,7 @@ public:
     void SaveData();
 
     BOOL m_bReloadNeeded;
-    bool m_IsDarkMode;
+    bool m_isDarkMode;
 
     // Dialog Data
     enum
@@ -50,10 +50,10 @@ public:
     };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    void         SetupColorButtons();
-    virtual BOOL OnApply();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    BOOL OnApply() override;
+    void SetupColorButtons();
 
     afx_msg void OnBnClickedColor();
     afx_msg void OnBnClickedRestore();

@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2009, 2015, 2018, 2020 - TortoiseSVN
+// Copyright (C) 2006, 2009, 2015, 2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "AeroControls.h"
-#include "DPIAware.h"
 
 class CSetMainPage;
 class CSetColorPage;
@@ -64,41 +63,41 @@ private:
         for (decltype(nPages) i = 0; i < nPages; ++i)
         {
             const DLGTEMPLATE* pResource = ppsp->pResource;
-            CDialogTemplate dlgTemplate(pResource);
+            CDialogTemplate    dlgTemplate(pResource);
             dlgTemplate.SetFont(L"Segoe UI", 9);
-            HGLOBAL hNew = GlobalAlloc(GPTR, dlgTemplate.m_dwTemplateSize);
-            ppsp->pResource = (DLGTEMPLATE*)GlobalLock(hNew);
-            Checked::memcpy_s((void*)ppsp->pResource, dlgTemplate.m_dwTemplateSize, dlgTemplate.m_hTemplate, dlgTemplate.m_dwTemplateSize);
+            HGLOBAL hNew    = GlobalAlloc(GPTR, dlgTemplate.m_dwTemplateSize);
+            ppsp->pResource = static_cast<DLGTEMPLATE*>(GlobalLock(hNew));
+            Checked::memcpy_s(static_cast<void*>(const_cast<DLGTEMPLATE*>(ppsp->pResource)), dlgTemplate.m_dwTemplateSize, dlgTemplate.m_hTemplate, dlgTemplate.m_dwTemplateSize);
             GlobalUnlock(hNew);
-            (BYTE*&)ppsp += ppsp->dwSize;
+            reinterpret_cast<BYTE*&>(ppsp) += ppsp->dwSize;
         }
         // free existing PROPSHEETPAGE array and assign the new one
-        free((void*)m_psh.ppsp);
+        free(static_cast<void*>(const_cast<PROPSHEETPAGE*>(m_psh.ppsp)));
         m_psh.ppsp = ppsp0;
     }
-private:
-    CSetMainPage *      m_pMainPage;
-    CSetColorPage *     m_pColorPage;
-    AeroControlBase     m_aeroControls;
 
-    int                 m_themeCallbackId;
+private:
+    CSetMainPage*   m_pMainPage;
+    CSetColorPage*  m_pColorPage;
+    AeroControlBase m_aeroControls;
+
+    int m_themeCallbackId;
 
 public:
     CSettings(UINT nIDCaption, CWnd* pParentWnd = nullptr, UINT iSelectPage = 0);
     CSettings(LPCTSTR pszCaption, CWnd* pParentWnd = nullptr, UINT iSelectPage = 0);
-    virtual ~CSettings();
+    ~CSettings() override;
 
     /**
      * Calls the SaveData()-methods of each of the settings pages.
      */
-    void SaveData();
+    void SaveData() const;
 
     BOOL IsReloadNeeded() const;
     bool IsDarkMode() const;
+
 protected:
     DECLARE_MESSAGE_MAP()
-    virtual BOOL OnInitDialog();
+    BOOL         OnInitDialog() override;
     afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 };
-
-

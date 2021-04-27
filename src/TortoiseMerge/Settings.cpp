@@ -28,14 +28,14 @@ int CALLBACK PropSheetProc(HWND /*hWndDlg*/, UINT uMsg, LPARAM lParam)
 {
     switch (uMsg)
     {
-    case PSCB_PRECREATE:
-    {
-        LPDLGTEMPLATE pResource = (LPDLGTEMPLATE)lParam;
-        CDialogTemplate dlgTemplate(pResource);
-        dlgTemplate.SetFont(L"Segoe UI", 9);
-        memmove((void*)lParam, dlgTemplate.m_hTemplate, dlgTemplate.m_dwTemplateSize);
-    }
-    break;
+        case PSCB_PRECREATE:
+        {
+            LPDLGTEMPLATE   pResource = reinterpret_cast<LPDLGTEMPLATE>(lParam);
+            CDialogTemplate dlgTemplate(pResource);
+            dlgTemplate.SetFont(L"Segoe UI", 9);
+            memmove(reinterpret_cast<void*>(lParam), dlgTemplate.m_hTemplate, dlgTemplate.m_dwTemplateSize);
+        }
+        break;
     }
     return 0;
 }
@@ -65,7 +65,7 @@ CSettings::~CSettings()
 
 void CSettings::AddPropPages()
 {
-    m_pMainPage = new CSetMainPage();
+    m_pMainPage  = new CSetMainPage();
     m_pColorPage = new CSetColorPage();
 
     AddPage(m_pMainPage);
@@ -87,7 +87,7 @@ void CSettings::RemovePropPages()
     m_pColorPage = nullptr;
 }
 
-void CSettings::SaveData()
+void CSettings::SaveData() const
 {
     m_pMainPage->SaveData();
     m_pColorPage->SaveData();
@@ -96,30 +96,29 @@ void CSettings::SaveData()
 BOOL CSettings::IsReloadNeeded() const
 {
     BOOL bReload = FALSE;
-    bReload = (m_pMainPage->m_bReloadNeeded || bReload);
-    bReload = (m_pColorPage->m_bReloadNeeded || bReload);
+    bReload      = (m_pMainPage->m_bReloadNeeded || bReload);
+    bReload      = (m_pColorPage->m_bReloadNeeded || bReload);
     return bReload;
 }
 
 bool CSettings::IsDarkMode() const
 {
-    return (m_pColorPage->m_IsDarkMode);
+    return (m_pColorPage->m_isDarkMode);
 }
 
 BEGIN_MESSAGE_MAP(CSettings, CPropertySheet)
     ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
 
-
 // CSettings message handlers
 
 BOOL CSettings::OnInitDialog()
 {
-    BOOL bResult = CPropertySheet::OnInitDialog();
+    BOOL    bResult = CPropertySheet::OnInitDialog();
     MARGINS margs;
-    margs.cxLeftWidth = 0;
-    margs.cyTopHeight = 0;
-    margs.cxRightWidth = 0;
+    margs.cxLeftWidth    = 0;
+    margs.cyTopHeight    = 0;
+    margs.cxRightWidth   = 0;
     margs.cyBottomHeight = BOTTOMMARG;
 
     if (m_aeroControls.AeroDialogsEnabled())
@@ -130,8 +129,7 @@ BOOL CSettings::OnInitDialog()
     }
 
     m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
-        [this]()
-        {
+        [this]() {
             CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
         });
 
@@ -149,7 +147,7 @@ BOOL CSettings::OnEraseBkgnd(CDC* pDC)
         // draw the frame margins in black
         RECT rc;
         GetClientRect(&rc);
-        pDC->FillSolidRect(rc.left, rc.bottom-BOTTOMMARG, rc.right-rc.left, BOTTOMMARG, RGB(0,0,0));
+        pDC->FillSolidRect(rc.left, rc.bottom - BOTTOMMARG, rc.right - rc.left, BOTTOMMARG, RGB(0, 0, 0));
     }
     return TRUE;
 }
