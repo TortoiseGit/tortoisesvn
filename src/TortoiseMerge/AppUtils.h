@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2013-2014, 2018 - TortoiseSVN
+// Copyright (C) 2006-2010, 2013-2014, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,8 +30,8 @@ class CProgressDlg;
 class CAppUtils : public CCommonAppUtils
 {
 public:
-    CAppUtils(void);
-    ~CAppUtils(void);
+    CAppUtils();
+    ~CAppUtils();
 
     /**
      * Starts an external program to get a file with a specific revision.
@@ -42,16 +42,14 @@ public:
      * \param hWnd the window handle of the calling app
      * \return TRUE if successful
      */
-    static BOOL GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd = nullptr);
+    static BOOL GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg* progDlg, HWND hWnd = nullptr);
 
     /**
      * Creates a unified diff from two files
      */
     static bool CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output, int contextsize, bool ignoreEOL, bool bShowError);
 
-
-    static bool HasClipboardFormat(UINT format);
-    static CString GetErrorString(svn_error_t * Err);
+    static bool     HasClipboardFormat(UINT format);
+    static CString  GetErrorString(svn_error_t* err);
     static COLORREF IntenseColor(long scale, COLORREF col);
-
 };

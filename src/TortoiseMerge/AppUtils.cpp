@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012-2014, 2018 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012-2014, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -34,32 +34,32 @@
 #include "CreateProcessHelper.h"
 #include "FormatMessageWrapper.h"
 
-CAppUtils::CAppUtils(void)
+CAppUtils::CAppUtils()
 {
 }
 
-CAppUtils::~CAppUtils(void)
+CAppUtils::~CAppUtils()
 {
 }
 
-BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg * progDlg, HWND hWnd /*=nullptr*/)
+BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSavePath, CProgressDlg* progDlg, HWND hWnd /*=nullptr*/)
 {
-    CString sSCMPath = CRegString(L"Software\\TortoiseMerge\\SCMPath", L"");
-    if (sSCMPath.IsEmpty())
+    CString sScmPath = CRegString(L"Software\\TortoiseMerge\\SCMPath", L"");
+    if (sScmPath.IsEmpty())
     {
         // no path set, so use TortoiseSVN as default
-        sSCMPath = CPathUtils::GetAppDirectory() + L"TortoiseProc.exe";
-        sSCMPath += L" /command:cat /path:\"%1\" /revision:%2 /savepath:\"%3\" /hwnd:%4";
+        sScmPath = CPathUtils::GetAppDirectory() + L"TortoiseProc.exe";
+        sScmPath += L" /command:cat /path:\"%1\" /revision:%2 /savepath:\"%3\" /hwnd:%4";
     }
     CString sTemp;
-    sTemp.Format(L"%p", (void*)hWnd);
-    sSCMPath.Replace(L"%1", sPath);
-    sSCMPath.Replace(L"%2", sVersion);
-    sSCMPath.Replace(L"%3", sSavePath);
-    sSCMPath.Replace(L"%4", sTemp);
+    sTemp.Format(L"%p", static_cast<void*>(hWnd));
+    sScmPath.Replace(L"%1", sPath);
+    sScmPath.Replace(L"%2", sVersion);
+    sScmPath.Replace(L"%3", sSavePath);
+    sScmPath.Replace(L"%4", sTemp);
     // start the external SCM program to fetch the specific version of the file
     PROCESS_INFORMATION process;
-    if (!CCreateProcessHelper::CreateProcess(nullptr, sSCMPath, &process))
+    if (!CCreateProcessHelper::CreateProcess(nullptr, sScmPath, &process))
     {
         CFormatMessageWrapper errorDetails;
         MessageBox(nullptr, errorDetails, L"TortoiseMerge", MB_OK | MB_ICONERROR);
@@ -84,32 +84,32 @@ BOOL CAppUtils::GetVersionedFile(CString sPath, CString sVersion, CString sSaveP
 
 bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, const CString& output, int contextsize, bool ignoreEOL, bool bShowError)
 {
-    apr_file_t* outfile = nullptr;
-    apr_pool_t* pool = svn_pool_create(nullptr);
+    apr_file_t* outFile = nullptr;
+    apr_pool_t* pool    = svn_pool_create(nullptr);
 
-    svn_error_t * err = svn_io_file_open (&outfile, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(output), pool),
-        APR_WRITE | APR_CREATE | APR_BINARY | APR_TRUNCATE,
-        APR_OS_DEFAULT, pool);
+    svn_error_t* err = svn_io_file_open(&outFile, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(output), pool),
+                                        APR_WRITE | APR_CREATE | APR_BINARY | APR_TRUNCATE,
+                                        APR_OS_DEFAULT, pool);
     if (!err)
     {
-        svn_stream_t * stream = svn_stream_from_aprfile2(outfile, false, pool);
+        svn_stream_t* stream = svn_stream_from_aprfile2(outFile, false, pool);
         if (stream)
         {
-            svn_diff_t* diff = nullptr;
-            svn_diff_file_options_t * opts = svn_diff_file_options_create(pool);
-            opts->ignore_eol_style = ignoreEOL;
-            opts->ignore_space = svn_diff_file_ignore_space_none;
-            err = svn_diff_file_diff_2(&diff, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
-                svn_dirent_internal_style(CUnicodeUtils::GetUTF8(modified), pool), opts, pool);
+            svn_diff_t*              diff = nullptr;
+            svn_diff_file_options_t* opts = svn_diff_file_options_create(pool);
+            opts->ignore_eol_style        = ignoreEOL;
+            opts->ignore_space            = svn_diff_file_ignore_space_none;
+            err                           = svn_diff_file_diff_2(&diff, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
+                                       svn_dirent_internal_style(CUnicodeUtils::GetUTF8(modified), pool), opts, pool);
             if (!err)
             {
                 err = svn_diff_file_output_unified4(stream, diff, svn_dirent_internal_style(CUnicodeUtils::GetUTF8(orig), pool),
-                    svn_dirent_internal_style(CUnicodeUtils::GetUTF8(modified), pool),
-                    nullptr, nullptr, SVN_APR_LOCALE_CHARSET, nullptr, true, contextsize, nullptr, nullptr, pool);
+                                                    svn_dirent_internal_style(CUnicodeUtils::GetUTF8(modified), pool),
+                                                    nullptr, nullptr, SVN_APR_LOCALE_CHARSET, nullptr, true, contextsize, nullptr, nullptr, pool);
                 svn_stream_close(stream);
             }
         }
-        apr_file_close(outfile);
+        apr_file_close(outFile);
     }
     if (err)
     {
@@ -123,66 +123,64 @@ bool CAppUtils::CreateUnifiedDiff(const CString& orig, const CString& modified, 
     return true;
 }
 
-CString CAppUtils::GetErrorString(svn_error_t * Err)
+CString CAppUtils::GetErrorString(svn_error_t* err)
 {
     CString msg;
     CString temp;
 
-    if (Err)
+    if (err)
     {
-        char errbuf[256] = { 0 };
-        svn_error_t * ErrPtr = Err;
-        if (ErrPtr->message)
-            msg = CUnicodeUtils::GetUnicode(ErrPtr->message);
+        char         errBuf[256] = {0};
+        svn_error_t* errPtr      = err;
+        if (errPtr->message)
+            msg = CUnicodeUtils::GetUnicode(errPtr->message);
         else
         {
             /* Is this a Subversion-specific error code? */
-            if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                msg = svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf));
+            if ((errPtr->apr_err > APR_OS_START_USEERR) && (errPtr->apr_err <= APR_OS_START_CANONERR))
+                msg = svn_strerror(errPtr->apr_err, errBuf, _countof(errBuf));
             /* Otherwise, this must be an APR error code. */
             else
             {
-                svn_error_t* temp_err = nullptr;
-                const char* err_string = nullptr;
-                temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                if (temp_err)
+                svn_error_t* tempErr   = nullptr;
+                const char*  errString = nullptr;
+                tempErr                = svn_utf_cstring_to_utf8(&errString, apr_strerror(errPtr->apr_err, errBuf, _countof(errBuf) - 1), errPtr->pool);
+                if (tempErr)
                 {
-                    svn_error_clear (temp_err);
+                    svn_error_clear(tempErr);
                     msg = L"Can't recode error string from APR";
                 }
                 else
                 {
-                    msg = CUnicodeUtils::GetUnicode(err_string);
+                    msg = CUnicodeUtils::GetUnicode(errString);
                 }
             }
         }
-        while (ErrPtr->child)
+        while (errPtr->child)
         {
-            ErrPtr = ErrPtr->child;
+            errPtr = errPtr->child;
             msg += L"\n";
-            if (ErrPtr->message)
-                temp = CUnicodeUtils::GetUnicode(ErrPtr->message);
+            if (errPtr->message)
+                temp = CUnicodeUtils::GetUnicode(errPtr->message);
             else
             {
                 /* Is this a Subversion-specific error code? */
-                if ((ErrPtr->apr_err > APR_OS_START_USEERR)
-                    && (ErrPtr->apr_err <= APR_OS_START_CANONERR))
-                    temp = svn_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf));
+                if ((errPtr->apr_err > APR_OS_START_USEERR) && (errPtr->apr_err <= APR_OS_START_CANONERR))
+                    temp = svn_strerror(errPtr->apr_err, errBuf, _countof(errBuf));
                 /* Otherwise, this must be an APR error code. */
                 else
                 {
-                    svn_error_t* temp_err = nullptr;
-                    const char* err_string = nullptr;
-                    temp_err = svn_utf_cstring_to_utf8(&err_string, apr_strerror (ErrPtr->apr_err, errbuf, _countof (errbuf)-1), ErrPtr->pool);
-                    if (temp_err)
+                    svn_error_t* tempErr   = nullptr;
+                    const char*  errString = nullptr;
+                    tempErr                = svn_utf_cstring_to_utf8(&errString, apr_strerror(errPtr->apr_err, errBuf, _countof(errBuf) - 1), errPtr->pool);
+                    if (tempErr)
                     {
-                        svn_error_clear (temp_err);
+                        svn_error_clear(tempErr);
                         temp = L"Can't recode error string from APR";
                     }
                     else
                     {
-                        temp = CUnicodeUtils::GetUnicode(err_string);
+                        temp = CUnicodeUtils::GetUnicode(errString);
                     }
                 }
             }
@@ -205,7 +203,7 @@ bool CAppUtils::HasClipboardFormat(UINT format)
                 CloseClipboard();
                 return true;
             }
-        } while((enumFormat = EnumClipboardFormats(enumFormat))!=0);
+        } while ((enumFormat = EnumClipboardFormats(enumFormat)) != 0);
         CloseClipboard();
     }
     return false;
@@ -215,20 +213,18 @@ COLORREF CAppUtils::IntenseColor(long scale, COLORREF col)
 {
     // if the color is already dark (gray scale below 127),
     // then lighten the color by 'scale', otherwise darken it
-    int Gray  = (((int)GetRValue(col)) + GetGValue(col) + GetBValue(col))/3;
+    int Gray = (static_cast<int>(GetRValue(col)) + GetGValue(col) + GetBValue(col)) / 3;
     if (Gray > 127)
     {
-        long red   = MulDiv(GetRValue(col),(255-scale),255);
-        long green = MulDiv(GetGValue(col),(255-scale),255);
-        long blue  = MulDiv(GetBValue(col),(255-scale),255);
+        long red   = MulDiv(GetRValue(col), (255 - scale), 255);
+        long green = MulDiv(GetGValue(col), (255 - scale), 255);
+        long blue  = MulDiv(GetBValue(col), (255 - scale), 255);
 
         return RGB(red, green, blue);
     }
-    long R = MulDiv(255-GetRValue(col),scale,255)+GetRValue(col);
-    long G = MulDiv(255-GetGValue(col),scale,255)+GetGValue(col);
-    long B = MulDiv(255-GetBValue(col),scale,255)+GetBValue(col);
+    long R = MulDiv(255 - GetRValue(col), scale, 255) + GetRValue(col);
+    long G = MulDiv(255 - GetGValue(col), scale, 255) + GetGValue(col);
+    long B = MulDiv(255 - GetBValue(col), scale, 255) + GetBValue(col);
 
     return RGB(R, G, B);
 }
-
-
