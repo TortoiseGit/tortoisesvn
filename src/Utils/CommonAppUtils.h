@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012, 2014, 2016-2018 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014, 2016-2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,7 +25,6 @@
 class CCommonAppUtils
 {
 public:
-
     /**
      * Starts the external unified diff viewer (the app associated with *.diff or *.patch files).
      * If no app is associated with those file types, the default text editor is used.
@@ -37,7 +36,7 @@ public:
      * their respective values. If the replacements should fail,
      * the string will be returned unaltered.
      */
-    static CString ExpandEnvironmentStrings (const CString& s);
+    static CString ExpandEnvironmentStrings(const CString& s);
 
     /**
      * Finds the standard application to open / process the given file
@@ -53,11 +52,7 @@ public:
      * \return application command line to execute. An empty string,
      *         if lookup failed.
      */
-    static CString GetAppForFile
-        ( const CString& fileName
-        , const CString& extension
-        , const CString& verb
-        , bool applySecurityHeuristics);
+    static CString GetAppForFile(const CString& fileName, const CString& extension, const CString& verb, bool applySecurityHeuristics);
 
     /**
      * Launches the standard text viewer/editor application which is associated
@@ -69,12 +64,11 @@ public:
     /**
     * Launch an external application (usually the diff viewer)
     */
-    static bool LaunchApplication(
-        const CString& sCommandLine,
-        UINT idErrMessageFormat,
-        bool bWaitForStartup,
-        bool bWaitForExit = false,
-        HANDLE hWaitHandle = NULL);
+    static bool LaunchApplication(const CString& sCommandLine,
+                                  UINT           idErrMessageFormat,
+                                  bool           bWaitForStartup,
+                                  bool           bWaitForExit = false,
+                                  HANDLE         hWaitHandle  = nullptr);
 
     static bool RunTortoiseProc(const CString& sCommandLine);
 
@@ -82,7 +76,7 @@ public:
      * Resizes all columns in a list control. Considers also icons in columns
      * with no text.
      */
-    static void ResizeAllListCtrlCols(CListCtrl * pListCtrl);
+    static void ResizeAllListCtrlCols(CListCtrl* pListCtrl);
 
     static bool SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID);
     static bool SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width, int height);
@@ -90,49 +84,49 @@ public:
     /**
      * Creates a .lnk file (a windows shortcut file)
      */
-    static HRESULT CreateShortCut(LPCTSTR pszTargetfile, LPCTSTR pszTargetargs,
-                                LPCTSTR pszLinkfile, LPCTSTR pszDescription,
-                                int iShowmode, LPCTSTR pszCurdir, LPCTSTR pszIconfile, int iIconindex);
+    static HRESULT CreateShortCut(LPCWSTR pszTargetfile, LPCWSTR pszTargetargs,
+                                  LPCWSTR pszLinkfile, LPCWSTR pszDescription,
+                                  int iShowmode, LPCWSTR pszCurdir, LPCWSTR pszIconfile, int iIconIndex);
     /**
      * Creates an url shortcut file (.url)
      */
-    static HRESULT CreateShortcutToURL(LPCTSTR pszUrl, LPCTSTR pszLinkFile);
-
+    static HRESULT CreateShortcutToURL(LPCWSTR pszUrl, LPCWSTR pszLinkFile);
 
     /**
      * Sets the Accessibility property for the specified window.
      * \param hWnd the handle of the control to set the property for
-     * \param propid the id of the property to set, e.g., PROPID_ACC_DESCRIPTION
+     * \param propId the id of the property to set, e.g., PROPID_ACC_DESCRIPTION
      * \param text the text for the property
      */
-    static bool SetAccProperty(HWND hWnd, const MSAAPROPID& propid, const CString& text);
-    static bool SetAccProperty(HWND hWnd, const MSAAPROPID& propid, long value);
+    static bool SetAccProperty(HWND hWnd, const MSAAPROPID& propId, const CString& text);
+    static bool SetAccProperty(HWND hWnd, const MSAAPROPID& propId, long value);
 
     /**
      * finds the accelerator char from a dialog control
      */
-    static TCHAR FindAcceleratorKey(CWnd * pWnd, UINT id);
+    static TCHAR FindAcceleratorKey(CWnd* pWnd, UINT id);
 
     static CString GetAbsoluteUrlFromRelativeUrl(const CString& root, const CString& url);
 
     static void ExtendControlOverHiddenControl(CWnd* parent, UINT controlToExtend, UINT hiddenControl);
 
-    static bool FileOpenSave(CString& path, int * filterindex, UINT title, UINT filter, bool bOpen, const CString& initialDir = CString(), HWND hwndOwner = NULL);
+    static bool FileOpenSave(CString& path, int* filterindex, UINT title, UINT filter, bool bOpen, const CString& initialDir = CString(), HWND hwndOwner = NULL);
 
     static bool AddClipboardUrlToWindow(HWND hWnd);
 
-    static CString FormatWindowTitle(const CString& urlorpath, const CString& dialogname);
-    static void SetWindowTitle(HWND hWnd, const CString& urlorpath, const CString& dialogname);
+    static CString FormatWindowTitle(const CString& urlOrPath, const CString& dialogName);
+    static void    SetWindowTitle(HWND hWnd, const CString& urlOrPath, const CString& dialogName);
 
     static void MarkWindowAsUnpinnable(HWND hWnd);
 
-    static HRESULT EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorkingDirectory = NULL, AUTOCOMPLETELISTOPTIONS acloOptions = ACLO_NONE, AUTOCOMPLETEOPTIONS acoOptions = ACO_AUTOSUGGEST, REFCLSID clsid = CLSID_ACListISF);
+    static HRESULT EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorkingDirectory = nullptr, AUTOCOMPLETELISTOPTIONS acloOptions = ACLO_NONE, AUTOCOMPLETEOPTIONS acoOptions = ACO_AUTOSUGGEST, REFCLSID clsid = CLSID_ACListISF);
 
     // Wrapper for LoadImage(IMAGE_ICON)
     static HICON LoadIconEx(UINT resourceId, UINT cx, UINT cy);
 
     static bool StartHtmlHelp(DWORD_PTR id);
+
 protected:
-    CCommonAppUtils(void){};
-    ~CCommonAppUtils(void){};
+    CCommonAppUtils(){};
+    ~CCommonAppUtils(){};
 };
