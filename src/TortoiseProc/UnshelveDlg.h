@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2018, 2020 - TortoiseSVN
+// Copyright (C) 2017-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,8 +31,8 @@ class CUnshelve : public CResizableStandAloneDialog //CResizableStandAloneDialog
     DECLARE_DYNAMIC(CUnshelve)
 
 public:
-    CUnshelve(CWnd* pParent = NULL); // standard constructor
-    virtual ~CUnshelve();
+    CUnshelve(CWnd* pParent = nullptr); // standard constructor
+    ~CUnshelve() override;
 
     enum
     {
@@ -40,10 +40,10 @@ public:
     };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnCancel();
-    virtual void OnOK();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnCancel() override;
+    void         OnOK() override;
     afx_msg void OnBnClickedHelp();
     afx_msg void OnBnClickedDelete();
     afx_msg void OnCbnSelchangeShelvename();
@@ -60,10 +60,10 @@ private:
     ShelfInfo     m_currentShelfInfo;
     CTSVNPathList m_currentFiles;
     int           m_nIconFolder;
-    TCHAR         m_columnbuf[MAX_PATH];
+    TCHAR         m_columnBuf[MAX_PATH];
 
 public:
     CString       m_sShelveName;
     CTSVNPathList m_pathList;
-    int           m_Version;
+    int           m_version;
 };

@@ -30,8 +30,8 @@ IMPLEMENT_DYNAMIC(CUnshelve, CResizableStandAloneDialog)
 CUnshelve::CUnshelve(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CUnshelve::IDD, pParent)
     , m_nIconFolder(0)
-    , m_Version(-1)
-    , m_columnbuf{ 0 }
+    , m_columnBuf{0}
+    , m_version(-1)
 {
 }
 
@@ -88,17 +88,17 @@ BOOL CUnshelve::OnInitDialog()
     m_cFileList.InsertColumn(0, CString(MAKEINTRESOURCE(IDS_SHELF_UNSHELVE_FILECOL)));
     //m_cFileList.InsertColumn(1, CString(MAKEINTRESOURCE(IDS_SHELF_UNSHELVE_STATUSCOL)));
 
-    int maxcol = m_cFileList.GetHeaderCtrl()->GetItemCount() - 1;
-    for (int col = 0; col <= maxcol; col++)
+    int maxCol = m_cFileList.GetHeaderCtrl()->GetItemCount() - 1;
+    for (int col = 0; col <= maxCol; col++)
     {
         m_cFileList.SetColumnWidth(col, LVSCW_AUTOSIZE);
     }
     m_cFileList.SetRedraw(true);
 
-    std::vector<CString> Names;
-    SVN svn;
-    svn.ShelvesList(Names, m_pathList.GetCommonRoot());
-    for (const auto& name : Names)
+    std::vector<CString> names;
+    SVN                  svn;
+    svn.ShelvesList(names, m_pathList.GetCommonRoot());
+    for (const auto& name : names)
     {
         m_cShelvesCombo.AddString(name);
     }
@@ -148,7 +148,7 @@ void CUnshelve::OnOK()
     auto vSel = m_cVersionCombo.GetCurSel();
     if (vSel != CB_ERR)
     {
-        m_Version = vSel + 1;
+        m_version = vSel + 1;
     }
 }
 
@@ -167,11 +167,11 @@ void CUnshelve::OnCbnSelchangeShelvename()
         m_cVersionCombo.ResetContent();
         for (const auto& version : m_currentShelfInfo.versions)
         {
-            wchar_t date_native[SVN_DATE_BUFFER] = {0};
-            SVN::formatDate(date_native, std::get<0>(version), true);
+            wchar_t dateNative[SVN_DATE_BUFFER] = {0};
+            SVN::formatDate(dateNative, std::get<0>(version), true);
 
             CString sVersion;
-            sVersion.Format(IDS_SHELF_VERSION_TIME, v + 1, date_native);
+            sVersion.Format(IDS_SHELF_VERSION_TIME, v + 1, dateNative);
             m_cVersionCombo.AddString(sVersion);
             ++v;
         }
@@ -185,7 +185,7 @@ void CUnshelve::OnCbnSelchangeShelvename()
 void CUnshelve::OnCbnSelchangeVersioncombo()
 {
     auto sel = m_cVersionCombo.GetCurSel();
-    if ((sel != CB_ERR) && (sel < (int)m_currentShelfInfo.versions.size()))
+    if ((sel != CB_ERR) && (sel < static_cast<int>(m_currentShelfInfo.versions.size())))
     {
         auto version   = m_currentShelfInfo.versions[sel];
         m_currentFiles = std::get<1>(version);
@@ -195,8 +195,8 @@ void CUnshelve::OnCbnSelchangeVersioncombo()
     m_cFileList.SetItemCount(m_currentFiles.GetCount());
     if (m_currentFiles.GetCount() > 0)
     {
-        int maxcol = m_cFileList.GetHeaderCtrl()->GetItemCount() - 1;
-        for (int col = 0; col <= maxcol; col++)
+        int maxCol = m_cFileList.GetHeaderCtrl()->GetItemCount() - 1;
+        for (int col = 0; col <= maxCol; col++)
         {
             m_cFileList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
         }
@@ -210,7 +210,7 @@ void CUnshelve::OnLvnGetdispinfoFilelist(NMHDR* pNMHDR, LRESULT* pResult)
 
     if (pDispInfo)
     {
-        if (pDispInfo->item.iItem < (int)m_currentFiles.GetCount())
+        if (pDispInfo->item.iItem < static_cast<int>(m_currentFiles.GetCount()))
         {
             const auto& path = m_currentFiles[pDispInfo->item.iItem];
             if (pDispInfo->item.mask & LVIF_TEXT)
@@ -219,41 +219,40 @@ void CUnshelve::OnLvnGetdispinfoFilelist(NMHDR* pNMHDR, LRESULT* pResult)
                 {
                     case 0: // path
                     {
-                        lstrcpyn(m_columnbuf, path.GetSVNPathString(), pDispInfo->item.cchTextMax - 1);
+                        lstrcpyn(m_columnBuf, path.GetSVNPathString(), pDispInfo->item.cchTextMax - 1);
                         int cWidth = m_cFileList.GetColumnWidth(0);
                         cWidth     = max(28, cWidth - 28);
                         CDC* pDC   = m_cFileList.GetDC();
-                        if (pDC != NULL)
+                        if (pDC != nullptr)
                         {
                             CFont* pFont = pDC->SelectObject(m_cFileList.GetFont());
-                            PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+                            PathCompactPath(pDC->GetSafeHdc(), m_columnBuf, cWidth);
                             pDC->SelectObject(pFont);
                             ReleaseDC(pDC);
                         }
                     }
                     break;
                     case 1: // status
-                        m_columnbuf[0] = 0;
+                        m_columnBuf[0] = 0;
                         // we could show the status of the corresponding file in the working copy,
                         // but do we really need that info?
                         // I prefer to do a forced unshelve even if there are conflicts -
                         // the user can resolve the conflicts easy enough.
                         break;
                     default:
-                        m_columnbuf[0] = 0;
+                        m_columnBuf[0] = 0;
                 }
-                pDispInfo->item.pszText = m_columnbuf;
+                pDispInfo->item.pszText = m_columnBuf;
             }
             if (pDispInfo->item.mask & LVIF_IMAGE)
             {
-                auto icon_idx          = SYS_IMAGE_LIST().GetPathIconIndex(path);
-                pDispInfo->item.iImage = icon_idx;
+                auto iconIdx           = SYS_IMAGE_LIST().GetPathIconIndex(path);
+                pDispInfo->item.iImage = iconIdx;
             }
         }
     }
     *pResult = 0;
 }
-
 
 void CUnshelve::OnBnClickedDelete()
 {
@@ -268,9 +267,9 @@ void CUnshelve::OnBnClickedDelete()
         }
 
         m_cShelvesCombo.ResetContent();
-        std::vector<CString> Names;
-        svn.ShelvesList(Names, m_pathList.GetCommonRoot());
-        for (const auto& name : Names)
+        std::vector<CString> names;
+        svn.ShelvesList(names, m_pathList.GetCommonRoot());
+        for (const auto& name : names)
         {
             m_cShelvesCombo.AddString(name);
         }

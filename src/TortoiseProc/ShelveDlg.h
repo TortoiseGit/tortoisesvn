@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2018, 2020 - TortoiseSVN
+// Copyright (C) 2017-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,8 +32,8 @@ class CShelve : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CShelve)
 
 public:
-    CShelve(CWnd* pParent = NULL); // standard constructor
-    virtual ~CShelve();
+    CShelve(CWnd* pParent = nullptr); // standard constructor
+    ~CShelve() override;
 
     enum
     {
@@ -41,15 +41,15 @@ public:
     };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual void OnCancel();
-    virtual void OnOK();
-    bool         FillData();
-    afx_msg void OnBnClickedSelectall();
-    afx_msg void OnBnClickedHelp();
-    afx_msg void OnShelveNameChanged();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    BOOL            PreTranslateMessage(MSG* pMsg) override;
+    void            OnCancel() override;
+    void            OnOK() override;
+    bool            FillData();
+    afx_msg void    OnBnClickedSelectall();
+    afx_msg void    OnBnClickedHelp();
+    afx_msg void    OnShelveNameChanged();
     afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
     afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
     afx_msg void    OnTimer(UINT_PTR nIDEvent);
@@ -60,29 +60,25 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    static UINT PatchThreadEntry(LPVOID pVoid);
-    UINT        PatchThread();
-    DWORD       ShowMask();
-    void        LockOrUnlockBtns();
+    static UINT  PatchThreadEntry(LPVOID pVoid);
+    UINT         PatchThread();
+    static DWORD ShowMask();
+    void         LockOrUnlockBtns();
 
 private:
     SVN                m_svn;
-    CSVNStatusListCtrl m_PatchList;
+    CSVNStatusListCtrl m_patchList;
     LONG               m_bThreadRunning;
-    CButton            m_SelectAll;
+    CButton            m_selectAll;
     bool               m_bCancelled;
     CRegDWORD          m_regAddBeforeCommit;
     CSciEdit           m_cLogMessage;
     CComboBox          m_cShelvesCombo;
-    ProjectProperties  m_ProjectProperties;
+    ProjectProperties  m_projectProperties;
 
 public:
-    /// the list of files to include in the patch
-    CTSVNPathList m_pathList;
-    /// the name of the shelf
-    CString m_sShelveName;
-    /// the log message to store with the shelf
-    CString m_sLogMsg;
-    /// if true, do a shelve. Otherwise only create a checkpoint
-    bool m_revert;
+    CTSVNPathList m_pathList;    ///< the list of files to include in the patch
+    CString       m_sShelveName; ///< the name of the shelf
+    CString       m_sLogMsg;     ///< the log message to store with the shelf
+    bool          m_revert;      ///< if true, do a shelve. Otherwise only create a checkpoint
 };

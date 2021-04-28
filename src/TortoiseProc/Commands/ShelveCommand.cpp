@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2018 - TortoiseSVN
+// Copyright (C) 2017-2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,17 +18,10 @@
 //
 #include "stdafx.h"
 #include "ShelveCommand.h"
-
-#include "PathUtils.h"
-#include "StringUtils.h"
-#include "AppUtils.h"
 #include "ShelveDlg.h"
 #include "SVN.h"
 #include "TempFile.h"
 #include "ProgressDlg.h"
-#include "SelectFileFilter.h"
-#include "SmartHandle.h"
-#include "PreserveChdir.h"
 
 bool ShelveCommand::Execute()
 {
@@ -56,14 +49,14 @@ bool ShelveCommand::Execute()
     return bRet;
 }
 
-bool ShelveCommand::Shelve(const CString& shelveName, const CTSVNPathList& paths, const CString& logMsg, bool revert)
+bool ShelveCommand::Shelve(const CString& shelveName, const CTSVNPathList& paths, const CString& logMsg, bool revert) const
 {
     CProgressDlg progDlg;
     CString      sTitle;
     if (revert)
-        sTitle.Format(IDS_SHELF_SHELVING, (LPCWSTR)shelveName);
+        sTitle.Format(IDS_SHELF_SHELVING, static_cast<LPCWSTR>(shelveName));
     else
-        sTitle.Format(IDS_SHELF_CHECKPOINTING, (LPCWSTR)shelveName);
+        sTitle.Format(IDS_SHELF_CHECKPOINTING, static_cast<LPCWSTR>(shelveName));
     progDlg.SetTitle(sTitle);
     progDlg.SetShowProgressBar(false);
     progDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
