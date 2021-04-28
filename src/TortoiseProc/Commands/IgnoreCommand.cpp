@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2014, 2020 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2014, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,29 +25,29 @@
 
 bool IgnoreCommand::Execute()
 {
-    BOOL err = FALSE;
-    std::set<CString> addeditems;
-    bool bRecursive = !!parser.HasKey(L"recursive");
-    for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
+    BOOL              err = FALSE;
+    std::set<CString> addedItems;
+    bool              bRecursive = !!parser.HasKey(L"recursive");
+    for (int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         CString name = CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirectoryName());
         if (parser.HasKey(L"onlymask"))
         {
-            name = L"*"+CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirExtension());
+            name = L"*" + CPathUtils::PathPatternEscape(pathList[nPath].GetFileOrDirExtension());
         }
-        addeditems.insert(name);
-        CTSVNPath parentfolder = pathList[nPath].GetContainingDirectory();
-        SVNProperties props(parentfolder, SVNRev::REV_WC, false, false);
-        CString value;
-        for (int i=0; i<props.GetCount(); i++)
+        addedItems.insert(name);
+        CTSVNPath     parentFolder = pathList[nPath].GetContainingDirectory();
+        SVNProperties props(parentFolder, SVNRev::REV_WC, false, false);
+        CString       value;
+        for (int i = 0; i < props.GetCount(); i++)
         {
-            if (!bRecursive && (props.GetItemName(i).compare(SVN_PROP_IGNORE)==0))
+            if (!bRecursive && (props.GetItemName(i).compare(SVN_PROP_IGNORE) == 0))
             {
                 //treat values as normal text even if they're not
                 value = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
                 break;
             }
-            else if (bRecursive && (props.GetItemName(i).compare(SVN_PROP_INHERITABLE_IGNORES)==0))
+            else if (bRecursive && (props.GetItemName(i).compare(SVN_PROP_INHERITABLE_IGNORES) == 0))
             {
                 value = CUnicodeUtils::GetUnicode(props.GetItemValue(i).c_str());
                 break;
@@ -61,8 +61,8 @@ bool IgnoreCommand::Execute()
             std::set<CString> ignoreItems;
             ignoreItems.insert(name);
             CString token;
-            int curPos = 0;
-            token = value.Tokenize(L"\n",curPos);
+            int     curPos = 0;
+            token          = value.Tokenize(L"\n", curPos);
             while (!token.IsEmpty())
             {
                 token.Trim();
@@ -76,12 +76,12 @@ bool IgnoreCommand::Execute()
                 value += L"\n";
             }
         }
-        if (!props.Add(bRecursive ? SVN_PROP_INHERITABLE_IGNORES : SVN_PROP_IGNORE, (LPCSTR)CUnicodeUtils::GetUTF8(value)))
+        if (!props.Add(bRecursive ? SVN_PROP_INHERITABLE_IGNORES : SVN_PROP_IGNORE, static_cast<LPCSTR>(CUnicodeUtils::GetUTF8(value))))
         {
             if (!parser.HasKey(L"noui"))
             {
                 CString temp;
-                temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, (LPCTSTR)name);
+                temp.Format(IDS_ERR_FAILEDIGNOREPROPERTY, static_cast<LPCWSTR>(name));
                 temp += L"\n";
                 temp += props.GetLastErrorMessage();
                 MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
@@ -90,7 +90,7 @@ bool IgnoreCommand::Execute()
             break;
         }
     }
-    if ((err == FALSE)&&(parser.HasKey(L"delete")))
+    if ((err == FALSE) && (parser.HasKey(L"delete")))
     {
         SVN svn;
         if (!svn.Remove(pathList, TRUE))
@@ -103,14 +103,14 @@ bool IgnoreCommand::Execute()
     {
         if (!parser.HasKey(L"noui"))
         {
-            CString filelist;
-            for (auto it = addeditems.cbegin(); it != addeditems.cend(); ++it)
+            CString fileList;
+            for (auto it = addedItems.cbegin(); it != addedItems.cend(); ++it)
             {
-                filelist += *it;
-                filelist += L"\n";
+                fileList += *it;
+                fileList += L"\n";
             }
             CString temp;
-            temp.Format(bRecursive ? IDS_PROC_IGNORERECURSIVESUCCESS : IDS_PROC_IGNORESUCCESS, (LPCTSTR)filelist);
+            temp.Format(bRecursive ? IDS_PROC_IGNORERECURSIVESUCCESS : IDS_PROC_IGNORESUCCESS, static_cast<LPCWSTR>(fileList));
             MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONINFORMATION);
         }
         return true;

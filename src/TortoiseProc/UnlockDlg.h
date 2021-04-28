@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,37 +31,40 @@ class CUnlockDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CUnlockDlg)
 
 public:
-    CUnlockDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CUnlockDlg();
+    CUnlockDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CUnlockDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_UNLOCK };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_UNLOCK
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    afx_msg void OnBnClickedSelectall();
-    afx_msg void OnBnClickedHelp();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    afx_msg void    OnBnClickedSelectall();
+    afx_msg void    OnBnClickedHelp();
     afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
     afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
-    afx_msg void OnTimer(UINT_PTR nIDEvent);
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
+    afx_msg void    OnTimer(UINT_PTR nIDEvent);
+    BOOL            PreTranslateMessage(MSG* pMsg) override;
+    BOOL            OnInitDialog() override;
+    void            OnOK() override;
+    void            OnCancel() override;
 
     DECLARE_MESSAGE_MAP()
 private:
     static UINT UnlockThreadEntry(LPVOID pVoid);
-    UINT UnlockThread();
+    UINT        UnlockThread();
 
 public:
     /** holds all the selected files/folders the user wants to unlock
      *  on exit */
-    CTSVNPathList   m_pathList;
+    CTSVNPathList m_pathList;
 
 private:
-    CSVNStatusListCtrl  m_unlockListCtrl;
-    volatile LONG   m_bThreadRunning;
-    CButton         m_SelectAll;
-    bool            m_bCancelled;
+    CSVNStatusListCtrl m_unlockListCtrl;
+    volatile LONG      m_bThreadRunning;
+    CButton            m_selectAll;
+    bool               m_bCancelled;
 };

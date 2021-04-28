@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014, 2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -22,8 +22,7 @@
 #include "UnlockDlg.h"
 #include "AppUtils.h"
 
-
-#define REFRESHTIMER   100
+#define REFRESHTIMER 100
 
 IMPLEMENT_DYNAMIC(CUnlockDlg, CResizableStandAloneDialog)
 
@@ -32,7 +31,6 @@ CUnlockDlg::CUnlockDlg(CWnd* pParent /*=NULL*/)
     , m_bThreadRunning(FALSE)
     , m_bCancelled(false)
 {
-
 }
 
 CUnlockDlg::~CUnlockDlg()
@@ -43,9 +41,8 @@ void CUnlockDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_UNLOCKLIST, m_unlockListCtrl);
-    DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+    DDX_Control(pDX, IDC_SELECTALL, m_selectAll);
 }
-
 
 BEGIN_MESSAGE_MAP(CUnlockDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
@@ -55,7 +52,6 @@ BEGIN_MESSAGE_MAP(CUnlockDlg, CResizableStandAloneDialog)
     ON_WM_TIMER()
 END_MESSAGE_MAP()
 
-
 BOOL CUnlockDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
@@ -64,8 +60,8 @@ BOOL CUnlockDlg::OnInitDialog()
     // initialize the svn status list control
     m_unlockListCtrl.Init(0, L"UnlockDlg", SVNSLC_POPALL ^ SVNSLC_POPRESTORE);
     m_unlockListCtrl.SetIgnoreRemoveOnly(); // when ignoring, don't add the parent folder since we're in the unlock dialog
-    m_unlockListCtrl.SetSelectButton(&m_SelectAll);
-    m_unlockListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
+    m_unlockListCtrl.SetSelectButton(&m_selectAll);
+    m_unlockListCtrl.SetConfirmButton(static_cast<CButton*>(GetDlgItem(IDOK)));
     m_unlockListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOUNLOCK);
     m_unlockListCtrl.SetCancelBool(&m_bCancelled);
     m_unlockListCtrl.SetBackgroundImage(IDI_UNLOCK_BKG);
@@ -89,7 +85,7 @@ BOOL CUnlockDlg::OnInitDialog()
     //first start a thread to obtain the file list with the status without
     //blocking the dialog
     InterlockedExchange(&m_bThreadRunning, TRUE);
-    if(AfxBeginThread(UnlockThreadEntry, this) == NULL)
+    if (AfxBeginThread(UnlockThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -120,13 +116,13 @@ void CUnlockDlg::OnCancel()
 
 void CUnlockDlg::OnBnClickedSelectall()
 {
-    UINT state = (m_SelectAll.GetState() & 0x0003);
+    UINT state = (m_selectAll.GetState() & 0x0003);
     if (state == BST_INDETERMINATE)
     {
         // It is not at all useful to manually place the checkbox into the indeterminate state...
         // We will force this on to the unchecked state
         state = BST_UNCHECKED;
-        m_SelectAll.SetCheck(state);
+        m_selectAll.SetCheck(state);
     }
     theApp.DoWaitCursor(1);
     m_unlockListCtrl.SelectAll(state == BST_CHECKED);
@@ -136,7 +132,7 @@ void CUnlockDlg::OnBnClickedSelectall()
 UINT CUnlockDlg::UnlockThreadEntry(LPVOID pVoid)
 {
     CCrashReportThread crashthread;
-    return ((CUnlockDlg*)pVoid)->UnlockThread();
+    return static_cast<CUnlockDlg*>(pVoid)->UnlockThread();
 }
 
 UINT CUnlockDlg::UnlockThread()
@@ -167,15 +163,15 @@ BOOL CUnlockDlg::PreTranslateMessage(MSG* pMsg)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if(OnEnterPressed())
-                return TRUE;
-            break;
-        case VK_F5:
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
+                break;
+            case VK_F5:
             {
                 if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
-                    if(AfxBeginThread(UnlockThreadEntry, this) == NULL)
+                    if (AfxBeginThread(UnlockThreadEntry, this) == nullptr)
                     {
                         InterlockedExchange(&m_bThreadRunning, FALSE);
                         OnCantStartThread();
@@ -193,7 +189,7 @@ LRESULT CUnlockDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
     if (InterlockedExchange(&m_bThreadRunning, TRUE))
         return 0;
-    if (AfxBeginThread(UnlockThreadEntry, this) == NULL)
+    if (AfxBeginThread(UnlockThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -216,7 +212,7 @@ LRESULT CUnlockDlg::OnFileDropped(WPARAM, LPARAM lParam)
     // but only if it isn't already running - otherwise we
     // restart the timer.
     CTSVNPath path;
-    path.SetFromWin((LPCTSTR)lParam);
+    path.SetFromWin(reinterpret_cast<LPCWSTR>(lParam));
 
     if (!m_unlockListCtrl.HasPath(path))
     {
@@ -232,7 +228,7 @@ LRESULT CUnlockDlg::OnFileDropped(WPARAM, LPARAM lParam)
             // a child of a folder already in the list, we must not add it. Otherwise
             // that path could show up twice in the list.
             bool bHasParentInList = false;
-            for (int i=0; i<m_pathList.GetCount(); ++i)
+            for (int i = 0; i < m_pathList.GetCount(); ++i)
             {
                 if (m_pathList[i].IsAncestorOf(path))
                 {
@@ -249,7 +245,7 @@ LRESULT CUnlockDlg::OnFileDropped(WPARAM, LPARAM lParam)
     }
 
     // Always start the timer, since the status of an existing item might have changed
-    SetTimer(REFRESHTIMER, 200, NULL);
+    SetTimer(REFRESHTIMER, 200, nullptr);
     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Item %s dropped, timer started\n", path.GetWinPath());
     return 0;
 }
@@ -258,19 +254,19 @@ void CUnlockDlg::OnTimer(UINT_PTR nIDEvent)
 {
     switch (nIDEvent)
     {
-    case REFRESHTIMER:
-        if (m_bThreadRunning)
-        {
-            SetTimer(REFRESHTIMER, 200, NULL);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
-        }
-        else
-        {
-            KillTimer(REFRESHTIMER);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
-            OnSVNStatusListCtrlNeedsRefresh(0, 0);
-        }
-        break;
+        case REFRESHTIMER:
+            if (m_bThreadRunning)
+            {
+                SetTimer(REFRESHTIMER, 200, nullptr);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
+            }
+            else
+            {
+                KillTimer(REFRESHTIMER);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
+                OnSVNStatusListCtrlNeedsRefresh(0, 0);
+            }
+            break;
     }
     __super::OnTimer(nIDEvent);
 }
