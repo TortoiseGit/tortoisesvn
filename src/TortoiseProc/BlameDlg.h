@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2015, 2019 - TortoiseSVN
+// Copyright (C) 2003-2012, 2015, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,35 +32,38 @@ class CBlameDlg : public CStateStandAloneDialog
     DECLARE_DYNAMIC(CBlameDlg)
 
 public:
-    CBlameDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CBlameDlg();
+    CBlameDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CBlameDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_BLAME };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_BLAME
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
     afx_msg void OnBnClickedHelp();
     afx_msg void OnEnChangeRevisionEnd();
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
 
     DECLARE_MESSAGE_MAP()
 
 protected:
-    CString m_sStartRev;
-    CString m_sEndRev;
+    CString   m_sStartRev;
+    CString   m_sEndRev;
     CRegDWORD m_regTextView;
     CRegDWORD m_regIncludeMerge;
     CRegDWORD m_regIgnoreWhitespace;
 
 public:
-    SVNRev  StartRev;
-    SVNRev  EndRev;
-    SVNRev  PegRev;
-    BOOL    m_bTextView;
-    BOOL    m_bIgnoreEOL;
-    BOOL    m_bIncludeMerge;
-    svn_diff_file_ignore_space_t    m_IgnoreSpaces;
-    CTSVNPath m_path;
+    SVNRev                       m_startRev;
+    SVNRev                       m_endRev;
+    SVNRev                       m_pegRev;
+    BOOL                         m_bTextView;
+    BOOL                         m_bIgnoreEOL;
+    BOOL                         m_bIncludeMerge;
+    svn_diff_file_ignore_space_t m_ignoreSpaces;
+    CTSVNPath                    m_path;
 };

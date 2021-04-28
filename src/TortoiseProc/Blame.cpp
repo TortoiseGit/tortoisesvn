@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2016 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,16 +28,16 @@
 CBlame::CBlame()
     : SVN()
     , m_bCancelled(FALSE)
-    , m_lowestrev(-1)
-    , m_highestrev(-1)
     , m_nCounter(0)
     , m_nHeadRev(-1)
     , m_bNoLineNo(false)
-    , extBlame(FALSE)
-    , m_nFormatLine(2)
-    , m_bSetProgress(true)
     , m_bHasMerges(false)
     , m_bIncludeMerge(false)
+    , m_nFormatLine(2)
+    , m_bSetProgress(true)
+    , m_lowestRev(-1)
+    , m_highestRev(-1)
+    , extBlame(FALSE)
 {
 }
 CBlame::~CBlame()
@@ -45,52 +45,51 @@ CBlame::~CBlame()
     m_progressDlg.Stop();
 }
 
-BOOL CBlame::BlameCallback(LONG linenumber, bool /*localchange*/, svn_revnum_t revision, const CString& author, const CString& date,
-                           svn_revnum_t merged_revision, const CString& merged_author, const CString& merged_date, const CString& merged_path,
-                           const CStringA& line, const CStringA& log_msg, const CStringA& merged_log_msg)
+BOOL CBlame::BlameCallback(LONG lineNumber, bool /*localchange*/, svn_revnum_t revision, const CString& author, const CString& date,
+                           svn_revnum_t mergedRevision, const CString& mergedAuthor, const CString& mergedDate, const CString& mergedPath,
+                           const CStringA& line, const CStringA& logMsg, const CStringA& mergedLogMsg)
 {
-    if (((m_lowestrev < 0)||(m_lowestrev > revision))&&(revision >= 0))
-        m_lowestrev = revision;
-    if (m_highestrev < revision)
-        m_highestrev = revision;
-    if ((merged_revision > 0)&&(merged_revision < revision))
+    if (((m_lowestRev < 0) || (m_lowestRev > revision)) && (revision >= 0))
+        m_lowestRev = revision;
+    if (m_highestRev < revision)
+        m_highestRev = revision;
+    if ((mergedRevision > 0) && (mergedRevision < revision))
         m_bHasMerges = true;
 
     if (extBlame)
     {
-        CStringA infolineA;
-        CStringA fulllineA;
-        svn_revnum_t origrev = revision;
+        CStringA     infoLineA;
+        svn_revnum_t origRev = revision;
 
         CStringA dateA(date);
         CStringA authorA(author);
-        CStringA pathA(merged_path);
-        char c = ' ';
-        if ((merged_revision > 0)&&(merged_revision < revision))
+        CStringA pathA(mergedPath);
+        char     c = ' ';
+        if ((mergedRevision > 0) && (mergedRevision < revision))
         {
-            dateA = CStringA(merged_date);
-            authorA = CStringA(merged_author);
-            revision = merged_revision;
-            c = 'G';
+            dateA    = CStringA(mergedDate);
+            authorA  = CStringA(mergedAuthor);
+            revision = mergedRevision;
+            c        = 'G';
         }
 
-        if (authorA.GetLength() > 30 )
+        if (authorA.GetLength() > 30)
             authorA = authorA.Left(30);
         if (m_bNoLineNo)
         {
             if (m_bIncludeMerge)
             {
                 if (pathA.IsEmpty())
-                    infolineA.Format("%c %8ld %8ld %-30s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+                    infoLineA.Format("%c %8ld %8ld %-30s %-30s ", c, revision, origRev, static_cast<LPCSTR>(dateA), static_cast<LPCSTR>(authorA));
                 else
-                    infolineA.Format("%c %8ld %8ld %-30s %-60s %-30s ", c, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+                    infoLineA.Format("%c %8ld %8ld %-30s %-60s %-30s ", c, revision, origRev, static_cast<LPCSTR>(dateA), static_cast<LPCSTR>(pathA), static_cast<LPCSTR>(authorA));
             }
             else
             {
                 if (pathA.IsEmpty())
-                    infolineA.Format("%8ld %-30s %-30s ", revision, (LPCSTR)dateA, (LPCSTR)authorA);
+                    infoLineA.Format("%8ld %-30s %-30s ", revision, static_cast<LPCSTR>(dateA), static_cast<LPCSTR>(authorA));
                 else
-                    infolineA.Format("%8ld %-30s %-60s %-30s ", revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+                    infoLineA.Format("%8ld %-30s %-60s %-30s ", revision, static_cast<LPCSTR>(dateA), static_cast<LPCSTR>(pathA), static_cast<LPCSTR>(authorA));
             }
         }
         else
@@ -98,25 +97,25 @@ BOOL CBlame::BlameCallback(LONG linenumber, bool /*localchange*/, svn_revnum_t r
             if (m_bIncludeMerge)
             {
                 if (pathA.IsEmpty())
-                    infolineA.Format("%c %6ld %8ld %8ld %-30s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)authorA);
+                    infoLineA.Format("%c %6ld %8ld %8ld %-30s %-30s ", c, lineNumber, revision, origRev, static_cast<LPCSTR>(dateA), static_cast<LPCSTR>(authorA));
                 else
-                    infolineA.Format("%c %6ld %8ld %8ld %-30s %-60s %-30s ", c, linenumber, revision, origrev, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+                    infoLineA.Format("%c %6ld %8ld %8ld %-30s %-60s %-30s ", c, lineNumber, revision, origRev, static_cast<LPCSTR>(dateA), static_cast<LPCSTR>(pathA), static_cast<LPCSTR>(authorA));
             }
             else
             {
                 if (pathA.IsEmpty())
-                    infolineA.Format("%6ld %8ld %-30s %-30s ", linenumber, revision, (LPCSTR)dateA, (LPCSTR)authorA);
+                    infoLineA.Format("%6ld %8ld %-30s %-30s ", lineNumber, revision, static_cast<LPCSTR>(dateA), static_cast<LPCSTR>(authorA));
                 else
-                    infolineA.Format("%6ld %8ld %-30s %-60s %-30s ", linenumber, revision, (LPCSTR)dateA, (LPCSTR)pathA, (LPCSTR)authorA);
+                    infoLineA.Format("%6ld %8ld %-30s %-60s %-30s ", lineNumber, revision, static_cast<LPCSTR>(dateA), static_cast<LPCSTR>(pathA), static_cast<LPCSTR>(authorA));
             }
         }
-        fulllineA = line;
-        fulllineA.TrimRight("\r\n");
-        fulllineA += "\n";
+        CStringA fullLineA = line;
+        fullLineA.TrimRight("\r\n");
+        fullLineA += "\n";
         if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
         {
-            m_saveFile.WriteString(infolineA);
-            m_saveFile.WriteString(fulllineA);
+            m_saveFile.WriteString(infoLineA);
+            m_saveFile.WriteString(fullLineA);
             return TRUE;
         }
         else
@@ -126,47 +125,47 @@ BOOL CBlame::BlameCallback(LONG linenumber, bool /*localchange*/, svn_revnum_t r
     {
         if (m_saveFile.m_hFile != INVALID_HANDLE_VALUE)
         {
-            m_saveFile.Write(&linenumber, sizeof(LONG));
+            m_saveFile.Write(&lineNumber, sizeof(LONG));
             m_saveFile.Write(&revision, sizeof(svn_revnum_t));
 
-            CStringA tempA = CUnicodeUtils::GetUTF8(author);
-            int length = tempA.GetLength();
+            CStringA tempA  = CUnicodeUtils::GetUTF8(author);
+            int      length = tempA.GetLength();
             m_saveFile.Write(&length, sizeof(int));
-            m_saveFile.Write((LPCSTR)tempA, length);
+            m_saveFile.Write(static_cast<LPCSTR>(tempA), length);
 
-            tempA = CUnicodeUtils::GetUTF8(date);
+            tempA  = CUnicodeUtils::GetUTF8(date);
             length = tempA.GetLength();
             m_saveFile.Write(&length, sizeof(int));
-            m_saveFile.Write((LPCSTR)tempA, length);
+            m_saveFile.Write(static_cast<LPCSTR>(tempA), length);
 
-            m_saveFile.Write(&merged_revision, sizeof(svn_revnum_t));
+            m_saveFile.Write(&mergedRevision, sizeof(svn_revnum_t));
 
-            tempA = CUnicodeUtils::GetUTF8(merged_author);
+            tempA  = CUnicodeUtils::GetUTF8(mergedAuthor);
             length = tempA.GetLength();
             m_saveFile.Write(&length, sizeof(int));
-            m_saveFile.Write((LPCSTR)tempA, length);
+            m_saveFile.Write(static_cast<LPCSTR>(tempA), length);
 
-            tempA = CUnicodeUtils::GetUTF8(merged_date);
+            tempA  = CUnicodeUtils::GetUTF8(mergedDate);
             length = tempA.GetLength();
             m_saveFile.Write(&length, sizeof(int));
-            m_saveFile.Write((LPCSTR)tempA, length);
+            m_saveFile.Write(static_cast<LPCSTR>(tempA), length);
 
-            tempA = CUnicodeUtils::GetUTF8(merged_path);
+            tempA  = CUnicodeUtils::GetUTF8(mergedPath);
             length = tempA.GetLength();
             m_saveFile.Write(&length, sizeof(int));
-            m_saveFile.Write((LPCSTR)tempA, length);
+            m_saveFile.Write(static_cast<LPCSTR>(tempA), length);
 
             length = line.GetLength();
             m_saveFile.Write(&length, sizeof(int));
-            m_saveFile.Write((LPCSTR)line, length);
+            m_saveFile.Write(static_cast<LPCSTR>(line), length);
 
-            length = log_msg.GetLength();
+            length = logMsg.GetLength();
             m_saveFile.Write(&length, sizeof(int));
-            m_saveFile.Write((LPCSTR)log_msg, length);
+            m_saveFile.Write(static_cast<LPCSTR>(logMsg), length);
 
-            length = merged_log_msg.GetLength();
+            length = mergedLogMsg.GetLength();
             m_saveFile.Write(&length, sizeof(int));
-            m_saveFile.Write((LPCSTR)merged_log_msg, length);
+            m_saveFile.Write(static_cast<LPCSTR>(mergedLogMsg), length);
 
             return TRUE;
         }
@@ -182,20 +181,19 @@ BOOL CBlame::Cancel()
     return m_bCancelled;
 }
 
-CString CBlame::BlameToTempFile(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& endrev, SVNRev pegrev,
-                                const CString& options, BOOL includemerge,
-                                BOOL showprogress, BOOL ignoremimetype)
+CString CBlame::BlameToTempFile(const CTSVNPath& path, const SVNRev& startRev, const SVNRev& endRev, SVNRev pegRev,
+                                const CString& options, BOOL includeMerge,
+                                BOOL showProgress, BOOL ignoreMimeType)
 {
     // if the user specified to use another tool to show the blames, there's no
     // need to fetch the log later: only TortoiseBlame uses those logs to give
     // the user additional information for the blame.
-    extBlame = CRegDWORD(L"Software\\TortoiseSVN\\TextBlame", FALSE);
-    m_bIncludeMerge = !!includemerge;
-    CString temp;
-    m_sSavePath = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
+    extBlame        = CRegDWORD(L"Software\\TortoiseSVN\\TextBlame", FALSE);
+    m_bIncludeMerge = !!includeMerge;
+    m_sSavePath     = CTempFiles::Instance().GetTempFilePath(false).GetWinPathString();
     if (m_sSavePath.IsEmpty())
         return L"";
-    temp = path.GetFileExtension();
+    CString temp = path.GetFileExtension();
     if (!temp.IsEmpty() && !extBlame)
         m_sSavePath += temp;
     if (!m_saveFile.Open(m_sSavePath, (extBlame ? CFile::typeText : CFile::typeBinary) | CFile::modeReadWrite | CFile::modeCreate))
@@ -204,17 +202,17 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, const SVNRev& startrev, c
     m_bNoLineNo = false;
     if (extBlame)
     {
-        if(includemerge)
+        if (includeMerge)
             headline.Format(L"%c %-6s %-8s %-8s %-30s %-60s %-30s %-s \n", L' ', L"line", L"rev", L"merged", L"date", L"path", L"author", L"content");
         else
-            headline.Format(L"%c %-6s %-8s %-8s %-30s %-30s %-s \n", L' ', L"line", L"rev", L"merged", L"date",L"author", L"content");
+            headline.Format(L"%c %-6s %-8s %-8s %-30s %-30s %-s \n", L' ', L"line", L"rev", L"merged", L"date", L"author", L"content");
         m_saveFile.WriteString(headline);
         m_saveFile.WriteString(L"\n");
     }
 
     m_progressDlg.SetTitle(IDS_BLAME_PROGRESSTITLE);
     m_progressDlg.SetShowProgressBar(TRUE);
-    if (showprogress)
+    if (showProgress)
     {
         m_progressDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     }
@@ -222,20 +220,20 @@ CString CBlame::BlameToTempFile(const CTSVNPath& path, const SVNRev& startrev, c
     m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSINFOSTART);
     m_progressDlg.SetCancelMsg(IDS_BLAME_PROGRESSCANCEL);
     m_progressDlg.SetTime(FALSE);
-    m_nHeadRev = endrev;
+    m_nHeadRev = endRev;
     if (m_nHeadRev < 0)
         m_nHeadRev = GetHEADRevision(path);
     m_progressDlg.SetProgress(0, m_nHeadRev);
 
-    m_bHasMerges = false;
-    BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, pegrev, options, !!ignoremimetype, !!includemerge);
-    if (!bBlameSuccesful && !pegrev.IsValid())
+    m_bHasMerges         = false;
+    BOOL bBlameSuccesful = this->Blame(path, startRev, endRev, pegRev, options, !!ignoreMimeType, !!includeMerge);
+    if (!bBlameSuccesful && !pegRev.IsValid())
     {
         // retry with the end rev as peg rev
-        if (this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype, !!includemerge))
+        if (this->Blame(path, startRev, endRev, endRev, options, !!ignoreMimeType, !!includeMerge))
         {
             bBlameSuccesful = TRUE;
-            pegrev = endrev;
+            pegRev          = endRev;
         }
     }
     m_saveFile.Close();
@@ -255,11 +253,11 @@ BOOL CBlame::Notify(const CTSVNPath& /*path*/, const CTSVNPath& /*url*/, svn_wc_
                     svn_node_kind_t /*kind*/, const CString& /*mime_type*/,
                     svn_wc_notify_state_t /*content_state*/,
                     svn_wc_notify_state_t /*prop_state*/, svn_revnum_t rev,
-                    const svn_lock_t * /*lock*/, svn_wc_notify_lock_state_t /*lock_state*/,
+                    const svn_lock_t* /*lock*/, svn_wc_notify_lock_state_t /*lock_state*/,
                     const CString& /*changelistname*/,
                     const CString& /*propertyName*/,
-                    svn_merge_range_t * /*range*/,
-                    svn_error_t * /*err*/, apr_pool_t * /*pool*/)
+                    svn_merge_range_t* /*range*/,
+                    svn_error_t* /*err*/, apr_pool_t* /*pool*/)
 {
     m_progressDlg.FormatNonPathLine(2, IDS_BLAME_PROGRESSINFO2, rev, m_nHeadRev);
     m_progressDlg.SetProgress(rev, m_nHeadRev);
@@ -272,26 +270,26 @@ BOOL CBlame::Notify(const CTSVNPath& /*path*/, const CTSVNPath& /*url*/, svn_wc_
     return TRUE;
 }
 
-bool CBlame::BlameToFile(const CTSVNPath& path, const SVNRev& startrev, const SVNRev& endrev, SVNRev peg,
-                         const CTSVNPath& tofile, const CString& options, BOOL ignoremimetype, BOOL includemerge)
+bool CBlame::BlameToFile(const CTSVNPath& path, const SVNRev& startRev, const SVNRev& endRev, SVNRev peg,
+                         const CTSVNPath& toFile, const CString& options, BOOL ignoreMimeType, BOOL includeMerge)
 {
     extBlame = TRUE;
-    if (!m_saveFile.Open(tofile.GetWinPathString(), CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
+    if (!m_saveFile.Open(toFile.GetWinPathString(), CFile::typeText | CFile::modeReadWrite | CFile::modeCreate))
         return false;
     m_bNoLineNo = true;
-    m_nHeadRev = endrev;
+    m_nHeadRev  = endRev;
     if (m_nHeadRev < 0)
         m_nHeadRev = GetHEADRevision(path);
-    m_bIncludeMerge = !!includemerge;
+    m_bIncludeMerge = !!includeMerge;
 
-    BOOL bBlameSuccesful = this->Blame(path, startrev, endrev, peg, options, !!ignoremimetype, !!includemerge);
-    if ( !bBlameSuccesful && !peg.IsValid() )
+    BOOL bBlameSuccesful = this->Blame(path, startRev, endRev, peg, options, !!ignoreMimeType, !!includeMerge);
+    if (!bBlameSuccesful && !peg.IsValid())
     {
         // retry with the end rev as peg rev
-        if (this->Blame(path, startrev, endrev, endrev, options, !!ignoremimetype, !!includemerge))
+        if (this->Blame(path, startRev, endRev, endRev, options, !!ignoreMimeType, !!includeMerge))
         {
             bBlameSuccesful = TRUE;
-            peg = endrev;
+            peg             = endRev;
         }
     }
 

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -19,20 +19,19 @@
 //
 #include "stdafx.h"
 #include "TortoiseProc.h"
-#include "DirFileEnum.h"
 #include "AddDlg.h"
 #include "SVNConfig.h"
 #include "registry.h"
 #include "AppUtils.h"
 
-#define REFRESHTIMER   100
+#define REFRESHTIMER 100
 
 IMPLEMENT_DYNAMIC(CAddDlg, CResizableStandAloneDialog)
 CAddDlg::CAddDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CAddDlg::IDD, pParent)
+    , m_useAutoprops(true)
     , m_bThreadRunning(FALSE)
     , m_bCancelled(false)
-    , m_UseAutoprops(true)
 {
 }
 
@@ -44,8 +43,8 @@ void CAddDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_ADDLIST, m_addListCtrl);
-    DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
-    DDX_Check(pDX, IDC_USEAUTOPROPS, m_UseAutoprops);
+    DDX_Control(pDX, IDC_SELECTALL, m_selectAll);
+    DDX_Check(pDX, IDC_USEAUTOPROPS, m_useAutoprops);
 }
 
 BEGIN_MESSAGE_MAP(CAddDlg, CResizableStandAloneDialog)
@@ -55,7 +54,6 @@ BEGIN_MESSAGE_MAP(CAddDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_ADDFILE, OnFileDropped)
     ON_WM_TIMER()
 END_MESSAGE_MAP()
-
 
 BOOL CAddDlg::OnInitDialog()
 {
@@ -68,11 +66,11 @@ BOOL CAddDlg::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     // initialize the svn status list control
-    m_addListCtrl.Init(SVNSLC_COLEXT, L"AddDlg", SVNSLC_POPALL ^ (SVNSLC_POPADD|SVNSLC_POPCOMMIT|SVNSLC_POPCHANGELISTS|SVNSLC_POPCREATEPATCH|SVNSLC_POPRESTORE)); // adding and committing is useless in the add dialog
-    m_addListCtrl.SetIgnoreRemoveOnly();    // when ignoring, don't add the parent folder since we're in the add dialog
-    m_addListCtrl.SetUnversionedRecurse(true);  // recurse into unversioned folders - user might want to add those too
-    m_addListCtrl.SetSelectButton(&m_SelectAll);
-    m_addListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
+    m_addListCtrl.Init(SVNSLC_COLEXT, L"AddDlg", SVNSLC_POPALL ^ (SVNSLC_POPADD | SVNSLC_POPCOMMIT | SVNSLC_POPCHANGELISTS | SVNSLC_POPCREATEPATCH | SVNSLC_POPRESTORE)); // adding and committing is useless in the add dialog
+    m_addListCtrl.SetIgnoreRemoveOnly();                                                                                                                                  // when ignoring, don't add the parent folder since we're in the add dialog
+    m_addListCtrl.SetUnversionedRecurse(true);                                                                                                                            // recurse into unversioned folders - user might want to add those too
+    m_addListCtrl.SetSelectButton(&m_selectAll);
+    m_addListCtrl.SetConfirmButton(static_cast<CButton*>(GetDlgItem(IDOK)));
     m_addListCtrl.SetEmptyString(IDS_ERR_NOTHINGTOADD);
     m_addListCtrl.SetCancelBool(&m_bCancelled);
     m_addListCtrl.SetBackgroundImage(IDI_ADD_BKG);
@@ -97,7 +95,7 @@ BOOL CAddDlg::OnInitDialog()
     //first start a thread to obtain the file list with the status without
     //blocking the dialog
     InterlockedExchange(&m_bThreadRunning, TRUE);
-    if(AfxBeginThread(AddThreadEntry, this) == NULL)
+    if (AfxBeginThread(AddThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -128,13 +126,13 @@ void CAddDlg::OnCancel()
 
 void CAddDlg::OnBnClickedSelectall()
 {
-    UINT state = (m_SelectAll.GetState() & 0x0003);
+    UINT state = (m_selectAll.GetState() & 0x0003);
     if (state == BST_INDETERMINATE)
     {
         // It is not at all useful to manually place the checkbox into the indeterminate state...
         // We will force this on to the unchecked state
         state = BST_UNCHECKED;
-        m_SelectAll.SetCheck(state);
+        m_selectAll.SetCheck(state);
     }
     theApp.DoWaitCursor(1);
     m_addListCtrl.SelectAll(state == BST_CHECKED);
@@ -144,7 +142,7 @@ void CAddDlg::OnBnClickedSelectall()
 UINT CAddDlg::AddThreadEntry(LPVOID pVoid)
 {
     CCrashReportThread crashthread;
-    return ((CAddDlg*)pVoid)->AddThread();
+    return static_cast<CAddDlg*>(pVoid)->AddThread();
 }
 
 UINT CAddDlg::AddThread()
@@ -157,9 +155,9 @@ UINT CAddDlg::AddThread()
     {
         m_addListCtrl.SetEmptyString(m_addListCtrl.GetLastErrorMessage());
     }
-    bool bSelectFilesForCommit = !!DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\SelectFilesForCommit", TRUE));
+    bool bSelectFilesForCommit = !!static_cast<DWORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\SelectFilesForCommit", TRUE));
     m_addListCtrl.Show(SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT, CTSVNPathList(),
-                        bSelectFilesForCommit ? SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT : 0, true, true);
+                       bSelectFilesForCommit ? SVNSLC_SHOWUNVERSIONED | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWREMOVEDANDPRESENT : 0, true, true);
 
     InterlockedExchange(&m_bThreadRunning, FALSE);
     return 0;
@@ -176,15 +174,15 @@ BOOL CAddDlg::PreTranslateMessage(MSG* pMsg)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if(OnEnterPressed())
-                return TRUE;
-            break;
-        case VK_F5:
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
+                break;
+            case VK_F5:
             {
                 if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
-                    if(AfxBeginThread(AddThreadEntry, this) == NULL)
+                    if (AfxBeginThread(AddThreadEntry, this) == nullptr)
                     {
                         InterlockedExchange(&m_bThreadRunning, FALSE);
                         OnCantStartThread();
@@ -202,7 +200,7 @@ LRESULT CAddDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
     if (InterlockedExchange(&m_bThreadRunning, TRUE))
         return 0;
-    if(AfxBeginThread(AddThreadEntry, this) == NULL)
+    if (AfxBeginThread(AddThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -225,7 +223,7 @@ LRESULT CAddDlg::OnFileDropped(WPARAM, LPARAM lParam)
     // but only if it isn't already running - otherwise we
     // restart the timer.
     CTSVNPath path;
-    path.SetFromWin((LPCTSTR)lParam);
+    path.SetFromWin(reinterpret_cast<LPCWSTR>(lParam));
 
     if (!m_addListCtrl.HasPath(path))
     {
@@ -241,7 +239,7 @@ LRESULT CAddDlg::OnFileDropped(WPARAM, LPARAM lParam)
             // a child of a folder already in the list, we must not add it. Otherwise
             // that path could show up twice in the list.
             bool bHasParentInList = false;
-            for (int i=0; i<m_pathList.GetCount(); ++i)
+            for (int i = 0; i < m_pathList.GetCount(); ++i)
             {
                 if (m_pathList[i].IsAncestorOf(path))
                 {
@@ -258,7 +256,7 @@ LRESULT CAddDlg::OnFileDropped(WPARAM, LPARAM lParam)
     }
 
     // Always start the timer, since the status of an existing item might have changed
-    SetTimer(REFRESHTIMER, 200, NULL);
+    SetTimer(REFRESHTIMER, 200, nullptr);
     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Item %s dropped, timer started\n", path.GetWinPath());
     return 0;
 }
@@ -267,19 +265,19 @@ void CAddDlg::OnTimer(UINT_PTR nIDEvent)
 {
     switch (nIDEvent)
     {
-    case REFRESHTIMER:
-        if (m_bThreadRunning)
-        {
-            SetTimer(REFRESHTIMER, 200, NULL);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
-        }
-        else
-        {
-            KillTimer(REFRESHTIMER);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
-            OnSVNStatusListCtrlNeedsRefresh(0, 0);
-        }
-        break;
+        case REFRESHTIMER:
+            if (m_bThreadRunning)
+            {
+                SetTimer(REFRESHTIMER, 200, nullptr);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
+            }
+            else
+            {
+                KillTimer(REFRESHTIMER);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
+                OnSVNStatusListCtrlNeedsRefresh(0, 0);
+            }
+            break;
     }
     __super::OnTimer(nIDEvent);
 }

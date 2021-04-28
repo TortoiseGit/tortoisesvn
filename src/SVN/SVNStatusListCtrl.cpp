@@ -4178,7 +4178,7 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd* pWnd, CPoint point)
                         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Add);
                         progDlg.SetPathList(dlg.m_pathList);
                         DWORD dwOpts = ProgOptForce;
-                        if (dlg.m_UseAutoprops)
+                        if (dlg.m_useAutoprops)
                             dwOpts |= ProgOptUseAutoprops;
                         progDlg.SetOptions(dwOpts);
                         ProjectProperties props;

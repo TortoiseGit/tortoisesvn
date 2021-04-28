@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014-2015, 2019 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,20 +25,20 @@
 IMPLEMENT_DYNAMIC(CBlameDlg, CStateStandAloneDialog)
 CBlameDlg::CBlameDlg(CWnd* pParent /*=NULL*/)
     : CStateStandAloneDialog(CBlameDlg::IDD, pParent)
-    , StartRev(1)
-    , EndRev(0)
     , m_sStartRev(L"1")
+    , m_startRev(1)
+    , m_endRev(0)
     , m_bTextView(FALSE)
     , m_bIgnoreEOL(TRUE)
     , m_bIncludeMerge(TRUE)
-    , m_IgnoreSpaces(svn_diff_file_ignore_space_none)
+    , m_ignoreSpaces(svn_diff_file_ignore_space_none)
 {
-    m_regTextView = CRegDWORD(L"Software\\TortoiseSVN\\TextBlame", FALSE);
-    m_bTextView = m_regTextView;
-    m_regIncludeMerge = CRegDWORD(L"Software\\TortoiseSVN\\BlameIncludeMerge", FALSE);
-    m_bIncludeMerge = m_regIncludeMerge;
+    m_regTextView         = CRegDWORD(L"Software\\TortoiseSVN\\TextBlame", FALSE);
+    m_bTextView           = m_regTextView;
+    m_regIncludeMerge     = CRegDWORD(L"Software\\TortoiseSVN\\BlameIncludeMerge", FALSE);
+    m_bIncludeMerge       = m_regIncludeMerge;
     m_regIgnoreWhitespace = CRegDWORD(L"Software\\TortoiseSVN\\BlameIgnoreWhitespace", svn_diff_file_ignore_space_none);
-    m_IgnoreSpaces = (svn_diff_file_ignore_space_t)(DWORD)m_regIgnoreWhitespace;
+    m_ignoreSpaces        = static_cast<svn_diff_file_ignore_space_t>(static_cast<DWORD>(m_regIgnoreWhitespace));
 }
 
 CBlameDlg::~CBlameDlg()
@@ -55,13 +55,10 @@ void CBlameDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_INCLUDEMERGEINFO, m_bIncludeMerge);
 }
 
-
 BEGIN_MESSAGE_MAP(CBlameDlg, CStateStandAloneDialog)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
     ON_EN_CHANGE(IDC_REVISION_END, &CBlameDlg::OnEnChangeRevisionEnd)
 END_MESSAGE_MAP()
-
-
 
 BOOL CBlameDlg::OnInitDialog()
 {
@@ -84,35 +81,35 @@ BOOL CBlameDlg::OnInitDialog()
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_path.GetUIPathString(), sWindowTitle);
 
-    m_bTextView = m_regTextView;
+    m_bTextView     = m_regTextView;
     m_bIncludeMerge = m_regIncludeMerge;
-    m_IgnoreSpaces = (svn_diff_file_ignore_space_t)(DWORD)m_regIgnoreWhitespace;
+    m_ignoreSpaces  = static_cast<svn_diff_file_ignore_space_t>(static_cast<DWORD>(m_regIgnoreWhitespace));
     // set head revision as default revision
-    if (EndRev.IsHead())
+    if (m_endRev.IsHead())
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     else
     {
-        m_sEndRev = EndRev.ToString();
+        m_sEndRev = m_endRev.ToString();
         UpdateData(FALSE);
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
     }
 
     CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
-    switch (m_IgnoreSpaces)
+    switch (m_ignoreSpaces)
     {
-    case svn_diff_file_ignore_space_change:
-        CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREWHITESPACECHANGES);
-        break;
-    case svn_diff_file_ignore_space_all:
-        CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
-        break;
-    case svn_diff_file_ignore_space_none:
-    default:
-        CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_COMPAREWHITESPACES);
-        break;
+        case svn_diff_file_ignore_space_change:
+            CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREWHITESPACECHANGES);
+            break;
+        case svn_diff_file_ignore_space_all:
+            CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_IGNOREALLWHITESPACES);
+            break;
+        case svn_diff_file_ignore_space_none:
+        default:
+            CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_COMPAREWHITESPACES);
+            break;
     }
 
-    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+    if ((m_pParentWnd == nullptr) && (GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(L"BlameDlg");
 
@@ -124,21 +121,21 @@ void CBlameDlg::OnOK()
     if (!UpdateData(TRUE))
         return; // don't dismiss dialog (error message already shown by MFC framework)
 
-    m_regTextView = m_bTextView;
+    m_regTextView     = m_bTextView;
     m_regIncludeMerge = m_bIncludeMerge;
-    StartRev = SVNRev(m_sStartRev);
-    EndRev = SVNRev(m_sEndRev);
-    if (!StartRev.IsValid())
+    m_startRev        = SVNRev(m_sStartRev);
+    m_endRev          = SVNRev(m_sEndRev);
+    if (!m_startRev.IsValid())
     {
         ShowEditBalloon(IDC_REVISON_START, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
         return;
     }
-    EndRev = SVNRev(m_sEndRev);
+    m_endRev = SVNRev(m_sEndRev);
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
-        EndRev = SVNRev(L"HEAD");
+        m_endRev = SVNRev(L"HEAD");
     }
-    if (!EndRev.IsValid())
+    if (!m_endRev.IsValid())
     {
         ShowEditBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
         return;
@@ -150,19 +147,19 @@ void CBlameDlg::OnOK()
     int rb = GetCheckedRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES);
     switch (rb)
     {
-    case IDC_IGNOREWHITESPACECHANGES:
-        m_IgnoreSpaces = svn_diff_file_ignore_space_change;
-        break;
-    case IDC_IGNOREALLWHITESPACES:
-        m_IgnoreSpaces = svn_diff_file_ignore_space_all;
-        break;
-    case IDC_COMPAREWHITESPACES:
-    default:
-        m_IgnoreSpaces = svn_diff_file_ignore_space_none;
-        break;
+        case IDC_IGNOREWHITESPACECHANGES:
+            m_ignoreSpaces = svn_diff_file_ignore_space_change;
+            break;
+        case IDC_IGNOREALLWHITESPACES:
+            m_ignoreSpaces = svn_diff_file_ignore_space_all;
+            break;
+        case IDC_COMPAREWHITESPACES:
+        default:
+            m_ignoreSpaces = svn_diff_file_ignore_space_none;
+            break;
     }
 
-    m_regIgnoreWhitespace = m_IgnoreSpaces;
+    m_regIgnoreWhitespace = m_ignoreSpaces;
 
     UpdateData(FALSE);
 

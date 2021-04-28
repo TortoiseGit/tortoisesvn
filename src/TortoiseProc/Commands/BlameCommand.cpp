@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,14 +25,13 @@
 #include "SVNInfo.h"
 #include "AppUtils.h"
 
-
 bool BlameCommand::Execute()
 {
-    bool bRet = false;
-    bool bShowDialog = true;
+    bool      bRet        = false;
+    bool      bShowDialog = true;
     CBlameDlg dlg;
-    CString options;
-    dlg.EndRev = SVNRev::REV_HEAD;
+    CString   options;
+    dlg.m_endRev = SVNRev::REV_HEAD;
     dlg.m_path = cmdLinePath;
 
     if (!cmdLinePath.IsUrl() && (!parser.HasKey(L"startrev") || !parser.HasKey(L"pegrev")))
@@ -40,51 +39,51 @@ bool BlameCommand::Execute()
         // if the file has been moved/deleted/renamed in HEAD, the default
         // range from 1 to HEAD won't work so we find the WC revision
         // of the file and use that as the default end revision
-        SVNInfo info;
-        const SVNInfoData * idata = info.GetFirstFileInfo(cmdLinePath, SVNRev(), SVNRev());
+        SVNInfo            info;
+        const SVNInfoData* idata = info.GetFirstFileInfo(cmdLinePath, SVNRev(), SVNRev());
         if (idata)
         {
-            dlg.EndRev = idata->rev;
-            dlg.PegRev = idata->rev;
+            dlg.m_endRev = idata->rev;
+            dlg.m_pegRev = idata->rev;
         }
     }
 
     if (parser.HasKey(L"pegrev"))
-        dlg.PegRev = SVNRev(parser.GetVal(L"pegrev"));
+        dlg.m_pegRev = SVNRev(parser.GetVal(L"pegrev"));
 
     if (parser.HasKey(L"startrev") && parser.HasKey(L"endrev"))
     {
-        bShowDialog = false;
-        dlg.StartRev = SVNRev(parser.GetVal(L"startrev"));
-        dlg.EndRev = SVNRev(parser.GetVal(L"endrev"));
+        bShowDialog  = false;
+        dlg.m_startRev = SVNRev(parser.GetVal(L"startrev"));
+        dlg.m_endRev   = SVNRev(parser.GetVal(L"endrev"));
         if (parser.HasKey(L"ignoreeol") || parser.HasKey(L"ignorespaces") || parser.HasKey(L"ignoreallspaces"))
         {
             options = SVN::GetOptionsString(!!parser.HasKey(L"ignoreeol"), !!parser.HasKey(L"ignorespaces"), !!parser.HasKey(L"ignoreallspaces"));
         }
     }
 
-    if ((!bShowDialog)||(dlg.DoModal() == IDOK))
+    if ((!bShowDialog) || (dlg.DoModal() == IDOK))
     {
-        CString tempfile;
+        CString tempFile;
         {
             CBlame blame;
             if (bShowDialog)
-                options = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
+                options = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_ignoreSpaces);
 
-            tempfile = blame.BlameToTempFile(cmdLinePath, dlg.StartRev, dlg.EndRev,
-                cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC,
-                options, dlg.m_bIncludeMerge, TRUE, TRUE);
-            if (tempfile.IsEmpty())
+            tempFile = blame.BlameToTempFile(cmdLinePath, dlg.m_startRev, dlg.m_endRev,
+                                             cmdLinePath.IsUrl() ? SVNRev() : SVNRev::REV_WC,
+                                             options, dlg.m_bIncludeMerge, TRUE, TRUE);
+            if (tempFile.IsEmpty())
             {
                 blame.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);
             }
         }
-        if (!tempfile.IsEmpty())
+        if (!tempFile.IsEmpty())
         {
             if (dlg.m_bTextView)
             {
                 //open the default text editor for the result file
-                bRet = !!CAppUtils::StartTextViewer(tempfile);
+                bRet = !!CAppUtils::StartTextViewer(tempFile);
             }
             else
             {
@@ -101,13 +100,16 @@ bool BlameCommand::Execute()
                 {
                     if (dlg.m_bIgnoreEOL)
                         sVal += L"/ignoreeol ";
-                    switch (dlg.m_IgnoreSpaces)
+                    switch (dlg.m_ignoreSpaces)
                     {
-                    case svn_diff_file_ignore_space_change:
-                        sVal += L"/ignorespaces ";
-                        break;
-                    case svn_diff_file_ignore_space_all:
-                        sVal += L"/ignoreallspaces ";
+                        case svn_diff_file_ignore_space_change:
+                            sVal += L"/ignorespaces ";
+                            break;
+                        case svn_diff_file_ignore_space_all:
+                            sVal += L"/ignoreallspaces ";
+                        case svn_diff_file_ignore_space_none:
+                            break;
+                        default:;
                     }
                 }
                 else
@@ -120,12 +122,12 @@ bool BlameCommand::Execute()
                         sVal += L"/ignoreallspaces ";
                 }
 
-                bRet = CAppUtils::LaunchTortoiseBlame(tempfile,
+                bRet = CAppUtils::LaunchTortoiseBlame(tempFile,
                                                       cmdLinePath.GetFileOrDirectoryName(),
                                                       sVal,
-                                                      dlg.StartRev,
-                                                      dlg.EndRev,
-                                                      dlg.PegRev);
+                                                      dlg.m_startRev,
+                                                      dlg.m_endRev,
+                                                      dlg.m_pegRev);
             }
         }
     }

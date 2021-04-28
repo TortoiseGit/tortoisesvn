@@ -6231,15 +6231,15 @@ void CLogDlg::ExecuteOpenMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi, boo
 void CLogDlg::ExecuteBlameMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
 {
     CBlameDlg dlg;
-    dlg.EndRev = pCmi->revSelected;
-    dlg.PegRev = m_pegrev;
+    dlg.m_endRev = pCmi->revSelected;
+    dlg.m_pegRev = m_pegrev;
     if (dlg.DoModal() == IDOK)
     {
-        SVNRev  startrev     = dlg.StartRev;
-        SVNRev  endrev       = dlg.EndRev;
+        SVNRev  startrev     = dlg.m_startRev;
+        SVNRev  endrev       = dlg.m_endRev;
         bool    includeMerge = !!dlg.m_bIncludeMerge;
         bool    textViewer   = !!dlg.m_bTextView;
-        CString options      = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
+        CString options      = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_ignoreSpaces);
 
         auto f = [=]() {
             CoInitialize(NULL);
@@ -7889,15 +7889,15 @@ void CLogDlg::ExecuteBlameChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, c
     CBlameDlg dlg;
     if (changedlogpath.GetAction() == LOGACTIONS_DELETED)
         pCmi->rev1--;
-    dlg.EndRev = pCmi->rev1;
+    dlg.m_endRev = pCmi->rev1;
     if (dlg.DoModal() == IDOK)
     {
-        SVNRev  startrev     = dlg.StartRev;
-        SVNRev  endrev       = dlg.EndRev;
+        SVNRev  startrev     = dlg.m_startRev;
+        SVNRev  endrev       = dlg.m_endRev;
         SVNRev  pegrev       = pCmi->rev1;
         bool    includeMerge = !!dlg.m_bIncludeMerge;
         bool    textView     = !!dlg.m_bTextView;
-        CString options      = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_IgnoreSpaces);
+        CString options      = SVN::GetOptionsString(!!dlg.m_bIgnoreEOL, dlg.m_ignoreSpaces);
         auto    f            = [=]() {
             CoInitialize(NULL);
             OnOutOfScope(CoUninitialize());

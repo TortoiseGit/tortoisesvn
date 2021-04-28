@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2011 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2011, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,26 +31,29 @@ class CAddDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CAddDlg)
 
 public:
-    CAddDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CAddDlg();
+    CAddDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CAddDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_ADD };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_ADD
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    afx_msg void OnBnClickedSelectall();
-    afx_msg void OnBnClickedHelp();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    afx_msg void    OnBnClickedSelectall();
+    afx_msg void    OnBnClickedHelp();
     afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
-    afx_msg void OnTimer(UINT_PTR nIDEvent);
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
+    afx_msg void    OnTimer(UINT_PTR nIDEvent);
+    BOOL            PreTranslateMessage(MSG* pMsg) override;
+    BOOL            OnInitDialog() override;
+    void            OnOK() override;
+    void            OnCancel() override;
 
 private:
-    static UINT AddThreadEntry(LPVOID pVoid);
-    UINT AddThread();
+    static UINT     AddThreadEntry(LPVOID pVoid);
+    UINT            AddThread();
     afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
 
     DECLARE_MESSAGE_MAP()
@@ -58,13 +61,12 @@ private:
 public:
     /** holds all the selected files/folders the user wants to add to version
      * control on exit */
-    CTSVNPathList   m_pathList;
-    BOOL            m_UseAutoprops;
+    CTSVNPathList m_pathList;
+    BOOL          m_useAutoprops;
 
 private:
-    CSVNStatusListCtrl  m_addListCtrl;
-    volatile LONG   m_bThreadRunning;
-    CButton         m_SelectAll;
-    bool            m_bCancelled;
+    CSVNStatusListCtrl m_addListCtrl;
+    volatile LONG      m_bThreadRunning;
+    CButton            m_selectAll;
+    bool               m_bCancelled;
 };
-
