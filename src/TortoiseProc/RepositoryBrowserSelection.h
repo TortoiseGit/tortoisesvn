@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2015, 2018 - TortoiseSVN
+// Copyright (C) 2009-2010, 2015, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,86 +25,81 @@ class CTreeItem;
 class CRepositoryBrowserSelection
 {
 private:
-
     struct SPath
     {
         CTSVNPath url;
         CTSVNPath urlEscaped;
         SVNRev    revision;
 
-        bool isFolder;
-        bool isLocked;
-        bool isExternal;
-        bool isRoot;
+        bool isFolder   = false;
+        bool isLocked   = false;
+        bool isExternal = false;
+        bool isRoot     = false;
     };
-
-    typedef std::vector<SPath> TPaths;
 
     struct SPathsPerRepository
     {
-        SRepositoryInfo repository;
-        TPaths paths;
+        SRepositoryInfo    repository;
+        std::vector<SPath> paths;
 
-        size_t folderCount;
-        size_t lockCount;
-        size_t externalCount;
+        size_t folderCount   = 0;
+        size_t lockCount     = 0;
+        size_t externalCount = 0;
     };
 
-    typedef std::vector<SPathsPerRepository> TRepositories;
-    TRepositories repositories;
+    std::vector<SPathsPerRepository> repositories;
 
     /// lookup bucket by repository. Automatically add a suitable
     /// bucket if there is none yet.
 
-    SPathsPerRepository& AutoAddRepository (const SRepositoryInfo& repository);
+    SPathsPerRepository& AutoAddRepository(const SRepositoryInfo& repository);
 
     /// store & accumulate in the corresponding repository bucket
 
-    void InternalAdd (const SRepositoryInfo& repository, SPath& path);
+    void InternalAdd(const SRepositoryInfo& repository, SPath& path);
 
 public:
-
     /// construction / destruction
 
-    CRepositoryBrowserSelection(void);
-    ~CRepositoryBrowserSelection(void);
+    CRepositoryBrowserSelection();
+    ~CRepositoryBrowserSelection();
 
     /// add new URL from \ref item.
 
-    void Add (const CItem* item);
-    void Add (const CTreeItem* item);
+    void Add(const CItem* item);
+    void Add(const CTreeItem* item);
 
     /// get the number of repository buckets
 
     size_t GetRepositoryCount() const;
-    bool IsEmpty() const;
+    bool   IsEmpty() const;
 
     /// lookup
 
-    std::pair<size_t, size_t> FindURL (const CTSVNPath& url) const;
-    bool Contains (const CTSVNPath& url) const;
+    std::pair<size_t, size_t> FindURL(const CTSVNPath& url) const;
+    bool                      Contains(const CTSVNPath& url) const;
 
     /// access repository bucket properties
 
-    const SRepositoryInfo& GetRepository (size_t repositoryIndex) const;
-    size_t GetPathCount (size_t repositoryIndex) const;
-    size_t GetFolderCount (size_t repositoryIndex) const;
-    size_t GetExternalCount (size_t repositoryIndex) const;
-    size_t GetLockCount (size_t repositoryIndex) const;
+    const SRepositoryInfo& GetRepository(size_t repositoryIndex) const;
+    size_t                 GetPathCount(size_t repositoryIndex) const;
+    size_t                 GetFolderCount(size_t repositoryIndex) const;
+    size_t                 GetExternalCount(size_t repositoryIndex) const;
+    size_t                 GetLockCount(size_t repositoryIndex) const;
 
     /// access path properties
 
-    const CTSVNPath& GetURL (size_t repositoryIndex, size_t index) const;
+    const CTSVNPath& GetURL(size_t repositoryIndex, size_t index) const;
     const CTSVNPath& GetURLEscaped(size_t repositoryIndex, size_t index) const;
-    const SVNRev& GetRevision(size_t repositoryIndex, size_t index) const;
+    const SVNRev&    GetRevision(size_t repositoryIndex, size_t index) const;
 
-    bool IsFolder (size_t repositoryIndex, size_t index) const;
-    bool IsExternal (size_t repositoryIndex, size_t index) const;
-    bool IsLocked (size_t repositoryIndex, size_t index) const;
-    bool IsRoot (size_t repositoryIndex, size_t index) const;
+    bool IsFolder(size_t repositoryIndex, size_t index) const;
+    bool IsExternal(size_t repositoryIndex, size_t index) const;
+    bool IsLocked(size_t repositoryIndex, size_t index) const;
+    bool IsRoot(size_t repositoryIndex, size_t index) const;
 
     /// convenience methods
 
-    CTSVNPathList GetURLs (size_t repositoryIndex) const;
-    CTSVNPathList GetURLsEscaped (size_t repositoryIndex, bool bIncludeExternals) const;
+    CTSVNPathList GetURLs(size_t repositoryIndex) const;
+    CTSVNPathList GetURLsEscaped(size_t repositoryIndex, bool bIncludeExternals) const;
 };

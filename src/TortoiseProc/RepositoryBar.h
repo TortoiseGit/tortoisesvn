@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012, 2016-2017, 2020 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2016-2017, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,13 +32,14 @@ class CRepositoryTree;
 class IRepo
 {
 public:
-    virtual bool ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked) = 0;
-    virtual CString GetRepoRoot() = 0;
-    virtual void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult) = 0;
-    virtual HWND GetHWND() const = 0;
-    virtual size_t GetHistoryForwardCount() const = 0;
-    virtual size_t GetHistoryBackwardCount() const = 0;
-    virtual bool IsThreadRunning() const = 0;
+    virtual ~IRepo()                                                             = default;
+    virtual bool    ChangeToUrl(CString& url, SVNRev& rev, bool bAlreadyChecked) = 0;
+    virtual CString GetRepoRoot()                                                = 0;
+    virtual void    OnCbenDragbeginUrlcombo(NMHDR* pNMHDR, LRESULT* pResult)     = 0;
+    virtual HWND    GetHWND() const                                              = 0;
+    virtual size_t  GetHistoryForwardCount() const                               = 0;
+    virtual size_t  GetHistoryBackwardCount() const                              = 0;
+    virtual bool    IsThreadRunning() const                                      = 0;
 };
 
 /**
@@ -55,7 +56,7 @@ class CRepositoryBar : public CReBarCtrl
 
 public:
     CRepositoryBar();
-    virtual ~CRepositoryBar();
+    ~CRepositoryBar() override;
 
 public:
     /**
@@ -63,7 +64,7 @@ public:
      * is placed inside of a dialog. Otherwise it is assumed that the
      * bar is placed in a frame window.
      */
-    bool Create(CWnd* parent, UINT id, bool in_dialog = true);
+    bool Create(CWnd* parent, UINT id, bool inDialog = true);
 
     /**
      * Show the given \a svn_url in the URL combo and the revision button.
@@ -103,54 +104,58 @@ public:
      */
     void SetHeadRevision(svn_revnum_t rev);
 
-    void SetFocusToURL();
+    void SetFocusToURL() const;
 
-    void SetIRepo(IRepo * pRepo) {m_pRepo = pRepo;}
+    void SetIRepo(IRepo* pRepo) { m_pRepo = pRepo; }
 
-    SVNRev GetHeadRevision() {return m_headRev;}
+    SVNRev GetHeadRevision() const { return m_headRev; }
 
-    HWND GetComboWindow() { return m_cbxUrl.GetSafeHwnd(); }
+    HWND GetComboWindow() const { return m_cbxUrl.GetSafeHwnd(); }
 
     afx_msg void OnGoUp();
+
 protected:
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual ULONG GetGestureStatus(CPoint ptTouch) override;
+    BOOL         PreTranslateMessage(MSG* pMsg) override;
+    ULONG        GetGestureStatus(CPoint ptTouch) override;
     afx_msg void OnCbnSelEndOK();
     afx_msg void OnBnClicked();
     afx_msg void OnDestroy();
-    afx_msg void OnCbenDragbeginUrlcombo(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnCbenDragbeginUrlcombo(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnHistoryBack();
     afx_msg void OnHistoryForward();
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    void SetTheme(bool bDark);
+    void SetTheme(bool bDark) const;
 
     CString m_url;
-    SVNRev m_rev;
+    SVNRev  m_rev;
 
-    IRepo * m_pRepo;
+    IRepo* m_pRepo;
 
     class CRepositoryCombo : public CHistoryCombo
     {
-        CRepositoryBar *m_bar;
+        CRepositoryBar* m_bar;
+
     public:
-        CRepositoryCombo(CRepositoryBar *bar) : m_bar(bar) {}
-        virtual bool OnReturnKeyPressed();
+        CRepositoryCombo(CRepositoryBar* bar)
+            : m_bar(bar)
+        {
+        }
+        bool OnReturnKeyPressed() override;
     } m_cbxUrl;
 
     CThemeMFCButton m_btnRevision;
     CThemeMFCButton m_btnUp;
     CThemeMFCButton m_btnBack;
     CThemeMFCButton m_btnForward;
-    CStatic m_revText;
+    CStatic         m_revText;
 
-    SVNRev  m_headRev;
+    SVNRev    m_headRev;
     CToolTips m_tooltips;
-    int m_themeCallbackId;
+    int       m_themeCallbackId;
 };
-
 
 /**
  * \ingroup TortoiseProc
@@ -163,8 +168,8 @@ class CRepositoryBarCnr : public CStatic
     DECLARE_DYNAMIC(CRepositoryBarCnr)
 
 public:
-    CRepositoryBarCnr(CRepositoryBar *repository_bar);
-    ~CRepositoryBarCnr();
+    CRepositoryBarCnr(CRepositoryBar* repositoryBar);
+    ~CRepositoryBarCnr() override;
 
     // Generated message map functions
 protected:
@@ -172,13 +177,10 @@ protected:
     afx_msg UINT OnGetDlgCode();
     afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 
-    virtual void DrawItem(LPDRAWITEMSTRUCT);
+    void DrawItem(LPDRAWITEMSTRUCT) override;
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    CRepositoryBar *m_pbarRepository;
-
+    CRepositoryBar* m_pbarRepository;
 };
-
-

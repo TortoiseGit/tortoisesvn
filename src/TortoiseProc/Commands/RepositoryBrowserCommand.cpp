@@ -97,12 +97,12 @@ bool RepositoryBrowserCommand::Execute()
         dlg.SetPegRev(pegRev);
     }
     if (!cmdLinePath.IsUrl())
-        dlg.m_ProjectProperties.ReadProps(cmdLinePath);
+        dlg.m_projectProperties.ReadProps(cmdLinePath);
     else
     {
         if (parser.HasVal(L"projectpropertiespath"))
         {
-            dlg.m_ProjectProperties.ReadProps(CTSVNPath(parser.GetVal(L"projectpropertiespath")));
+            dlg.m_projectProperties.ReadProps(CTSVNPath(parser.GetVal(L"projectpropertiespath")));
         }
     }
     if (parser.HasKey(L"sparse"))

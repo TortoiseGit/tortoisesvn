@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2020 - TortoiseSVN
+// Copyright (C) 2003-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,12 +17,10 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "RepositoryBar.h"
 #include "RevisionDlg.h"
 #include "SVNInfo.h"
 #include "SVN.h"
-#include "SVNHelpers.h"
 #include "WaitCursorEx.h"
 #include "CommonAppUtils.h"
 #include "DPIAware.h"
@@ -37,8 +35,8 @@
 IMPLEMENT_DYNAMIC(CRepositoryBar, CReBarCtrl)
 
 CRepositoryBar::CRepositoryBar()
-    : m_cbxUrl(this)
-    , m_pRepo(NULL)
+    : m_pRepo(nullptr)
+    , m_cbxUrl(this)
     , m_themeCallbackId(0)
 {
     m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
@@ -61,17 +59,17 @@ BEGIN_MESSAGE_MAP(CRepositoryBar, CReBarCtrl)
     ON_NOTIFY(CBEN_DRAGBEGIN, IDC_URL_COMBO, OnCbenDragbeginUrlcombo)
 END_MESSAGE_MAP()
 
-bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
+bool CRepositoryBar::Create(CWnd* parent, UINT id, bool inDialog)
 {
     CRect rect;
-    ASSERT(parent != 0);
+    ASSERT(parent != nullptr);
     parent->GetWindowRect(&rect);
 
     DWORD style = WS_CHILD | WS_VISIBLE | CCS_TOP | RBS_AUTOSIZE | RBS_VARHEIGHT;
 
-    DWORD style_ex = WS_EX_TOOLWINDOW | WS_EX_TRANSPARENT;
+    DWORD styleEx = WS_EX_TOOLWINDOW | WS_EX_TRANSPARENT;
 
-    if (in_dialog)
+    if (inDialog)
     {
         style |= CCS_NODIVIDER;
     }
@@ -80,7 +78,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         style |= RBS_BANDBORDERS;
     }
 
-    if (CReBarCtrl::CreateEx(style_ex, style, CRect(0, 0, 200, 100), parent, id))
+    if (CReBarCtrl::CreateEx(styleEx, style, CRect(0, 0, 200, 100), parent, id))
     {
         CFont*  font = parent->GetFont();
         CString temp;
@@ -88,21 +86,21 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         REBARINFO rbi = {0};
         rbi.cbSize    = sizeof rbi;
         rbi.fMask     = 0;
-        rbi.himl      = (HIMAGELIST)0;
+        rbi.himl      = static_cast<HIMAGELIST>(nullptr);
 
         if (!this->SetBarInfo(&rbi))
             return false;
 
-        REBARBANDINFO rbbi = {0};
-        rbbi.cbSize        = REBARBANDINFO_V6_SIZE;
-        rbbi.fMask         = RBBIM_TEXT | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE;
-        rbbi.fStyle        = RBBS_NOGRIPPER | RBBS_FIXEDBMP;
+        REBARBANDINFO rbBi = {0};
+        rbBi.cbSize        = REBARBANDINFO_V6_SIZE;
+        rbBi.fMask         = RBBIM_TEXT | RBBIM_STYLE | RBBIM_CHILD | RBBIM_CHILDSIZE | RBBIM_SIZE;
+        rbBi.fStyle        = RBBS_NOGRIPPER | RBBS_FIXEDBMP;
 
-        if (in_dialog)
-            rbbi.fMask |= RBBIM_COLORS;
+        if (inDialog)
+            rbBi.fMask |= RBBIM_COLORS;
         else
-            rbbi.fMask |= RBBS_CHILDEDGE;
-        int bandpos = 0;
+            rbBi.fMask |= RBBS_CHILDEDGE;
+        int bandPos = 0;
         // Create the "Back" button control to be added
         auto size     = CDPIAware::Instance().Scale(GetSafeHwnd(), 24);
         auto iconSize = GetSystemMetrics(SM_CXSMICON);
@@ -111,14 +109,14 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         m_btnBack.SetImage(CCommonAppUtils::LoadIconEx(IDI_BACKWARD, iconSize, iconSize));
         m_btnBack.SetWindowText(L"");
         m_btnBack.Invalidate();
-        rbbi.lpText     = L"";
-        rbbi.hwndChild  = m_btnBack.m_hWnd;
-        rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
-        rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
-        rbbi.cx         = rect.Width();
-        rbbi.cxMinChild = rect.Width();
-        rbbi.cyMinChild = rect.Height();
-        if (!InsertBand(bandpos++, &rbbi))
+        rbBi.lpText     = L"";
+        rbBi.hwndChild  = m_btnBack.m_hWnd;
+        rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+        rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
+        rbBi.cx         = rect.Width();
+        rbBi.cxMinChild = rect.Width();
+        rbBi.cyMinChild = rect.Height();
+        if (!InsertBand(bandPos++, &rbBi))
             return false;
         // Create the "Forward" button control to be added
         rect = CRect(0, 0, size, size);
@@ -126,14 +124,14 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         m_btnForward.SetImage(CCommonAppUtils::LoadIconEx(IDI_FORWARD, iconSize, iconSize));
         m_btnForward.SetWindowText(L"");
         m_btnForward.Invalidate();
-        rbbi.lpText     = L"";
-        rbbi.hwndChild  = m_btnForward.m_hWnd;
-        rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
-        rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
-        rbbi.cx         = rect.Width();
-        rbbi.cxMinChild = rect.Width();
-        rbbi.cyMinChild = rect.Height();
-        if (!InsertBand(bandpos++, &rbbi))
+        rbBi.lpText     = L"";
+        rbBi.hwndChild  = m_btnForward.m_hWnd;
+        rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+        rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
+        rbBi.cx         = rect.Width();
+        rbBi.cxMinChild = rect.Width();
+        rbBi.cyMinChild = rect.Height();
+        if (!InsertBand(bandPos++, &rbBi))
             return false;
 
         // Create the "URL" combo box control to be added
@@ -143,14 +141,14 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         m_cbxUrl.SetFont(font);
         m_cbxUrl.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
         temp.LoadString(IDS_REPO_BROWSEURL);
-        rbbi.lpText     = const_cast<LPTSTR>((LPCTSTR)temp);
-        rbbi.hwndChild  = m_cbxUrl.m_hWnd;
-        rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
-        rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
-        rbbi.cx         = rect.Width();
-        rbbi.cxMinChild = rect.Width();
-        rbbi.cyMinChild = m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 10);
-        if (!InsertBand(bandpos++, &rbbi))
+        rbBi.lpText     = const_cast<LPWSTR>(static_cast<LPCWSTR>(temp));
+        rbBi.hwndChild  = m_cbxUrl.m_hWnd;
+        rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+        rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
+        rbBi.cx         = rect.Width();
+        rbBi.cxMinChild = rect.Width();
+        rbBi.cyMinChild = m_cbxUrl.GetItemHeight(-1) + CDPIAware::Instance().Scale(GetSafeHwnd(), 10);
+        if (!InsertBand(bandPos++, &rbBi))
             return false;
 
         // Reposition the combobox for correct redrawing
@@ -163,14 +161,14 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         m_btnUp.SetImage(CCommonAppUtils::LoadIconEx(IDI_UP, iconSize, iconSize));
         m_btnUp.SetWindowText(L"");
         m_btnUp.Invalidate();
-        rbbi.lpText     = L"";
-        rbbi.hwndChild  = m_btnUp.m_hWnd;
-        rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
-        rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
-        rbbi.cx         = rect.Width();
-        rbbi.cxMinChild = rect.Width();
-        rbbi.cyMinChild = rect.Height();
-        if (!InsertBand(bandpos++, &rbbi))
+        rbBi.lpText     = L"";
+        rbBi.hwndChild  = m_btnUp.m_hWnd;
+        rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+        rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
+        rbBi.cx         = rect.Width();
+        rbBi.cxMinChild = rect.Width();
+        rbBi.cyMinChild = rect.Height();
+        if (!InsertBand(bandPos++, &rbBi))
             return false;
 
         if (CTheme::Instance().IsDarkTheme())
@@ -179,14 +177,14 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
             temp.LoadString(IDS_REPO_BROWSEREV);
             m_revText.Create(temp, WS_CHILD | SS_RIGHT | SS_CENTERIMAGE, rect, this, IDC_REVISION_LABEL);
             m_revText.SetFont(font);
-            rbbi.lpText     = L"";
-            rbbi.hwndChild  = m_revText.m_hWnd;
-            rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
-            rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
-            rbbi.cx         = rect.Width();
-            rbbi.cxMinChild = rect.Width();
-            rbbi.cyMinChild = rect.Height();
-            if (!InsertBand(bandpos++, &rbbi))
+            rbBi.lpText     = L"";
+            rbBi.hwndChild  = m_revText.m_hWnd;
+            rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+            rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
+            rbBi.cx         = rect.Width();
+            rbBi.cxMinChild = rect.Width();
+            rbBi.cyMinChild = rect.Height();
+            if (!InsertBand(bandPos++, &rbBi))
                 return false;
         }
 
@@ -196,16 +194,16 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
         m_btnRevision.SetFont(font);
         temp.LoadString(IDS_REPO_BROWSEREV);
         if (CTheme::Instance().IsDarkTheme())
-            rbbi.lpText = L"";
+            rbBi.lpText = L"";
         else
-            rbbi.lpText = temp.GetBuffer();
-        rbbi.hwndChild  = m_btnRevision.m_hWnd;
-        rbbi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
-        rbbi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
-        rbbi.cx         = rect.Width();
-        rbbi.cxMinChild = rect.Width();
-        rbbi.cyMinChild = rect.Height();
-        if (!InsertBand(bandpos++, &rbbi))
+            rbBi.lpText = temp.GetBuffer();
+        rbBi.hwndChild  = m_btnRevision.m_hWnd;
+        rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+        rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
+        rbBi.cx         = rect.Width();
+        rbBi.cxMinChild = rect.Width();
+        rbBi.cyMinChild = rect.Height();
+        if (!InsertBand(bandPos++, &rbBi))
             return false;
 
         MaximizeBand(2);
@@ -225,6 +223,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool in_dialog)
     return false;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CRepositoryBar::OnCbenDragbeginUrlcombo(NMHDR* pNMHDR, LRESULT* pResult)
 {
     if (m_pRepo)
@@ -250,7 +249,7 @@ void CRepositoryBar::ShowUrl(const CString& url, const SVNRev& rev)
     if (m_headRev.IsValid())
     {
         CString sTTText;
-        sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, (LPCTSTR)m_headRev.ToString());
+        sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, static_cast<LPCWSTR>(m_headRev.ToString()));
         m_tooltips.AddTool(&m_btnRevision, sTTText);
     }
     else
@@ -269,46 +268,46 @@ void CRepositoryBar::GotoUrl(const CString& url, const SVNRev& rev, bool bAlread
     {
         return;
     }
-    CString       new_url = url;
-    SVNRev        new_rev = rev;
+    CString       newURL = url;
+    SVNRev        newRev = rev;
     CWaitCursorEx wait;
 
-    new_url.TrimRight('/');
-    if (new_url.IsEmpty())
+    newURL.TrimRight('/');
+    if (newURL.IsEmpty())
     {
-        new_url = GetCurrentUrl();
-        new_rev = GetCurrentRev();
-        new_url.TrimRight('/');
+        newURL = GetCurrentUrl();
+        newRev = GetCurrentRev();
+        newURL.TrimRight('/');
     }
-    if (new_url.Find('?') >= 0)
+    if (newURL.Find('?') >= 0)
     {
-        new_rev = SVNRev(new_url.Mid(new_url.Find('?') + 1));
-        if (!new_rev.IsValid())
-            new_rev = SVNRev::REV_HEAD;
-        new_url = new_url.Left(new_url.Find('?'));
+        newRev = SVNRev(newURL.Mid(newURL.Find('?') + 1));
+        if (!newRev.IsValid())
+            newRev = SVNRev::REV_HEAD;
+        newURL = newURL.Left(newURL.Find('?'));
     }
 
     if (m_pRepo)
     {
-        if (!CTSVNPath(new_url).IsCanonical())
+        if (!CTSVNPath(newURL).IsCanonical())
         {
             CString sErr;
-            sErr.Format(IDS_ERR_INVALIDURLORPATH, (LPCWSTR)new_url);
+            sErr.Format(IDS_ERR_INVALIDURLORPATH, static_cast<LPCWSTR>(newURL));
             ::MessageBox(GetSafeHwnd(), sErr, L"TortoiseSVN", MB_ICONERROR);
             return;
         }
-        SVNRev r  = new_rev;
+        SVNRev r  = newRev;
         m_headRev = SVNRev();
-        m_pRepo->ChangeToUrl(new_url, r, bAlreadyChecked);
-        if (new_rev.IsHead() && !r.IsHead())
+        m_pRepo->ChangeToUrl(newURL, r, bAlreadyChecked);
+        if (newRev.IsHead() && !r.IsHead())
             m_headRev = r;
         if (!m_headRev.IsValid())
         {
             SVN svn;
-            m_headRev = svn.GetHEADRevision(CTSVNPath(new_url));
+            m_headRev = svn.GetHEADRevision(CTSVNPath(newURL));
         }
     }
-    ShowUrl(new_url, new_rev);
+    ShowUrl(newURL, newRev);
 }
 
 void CRepositoryBar::SetRevision(const SVNRev& rev)
@@ -317,7 +316,7 @@ void CRepositoryBar::SetRevision(const SVNRev& rev)
     if (m_headRev.IsValid())
     {
         CString sTTText;
-        sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, (LPCTSTR)m_headRev.ToString());
+        sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, static_cast<LPCWSTR>(m_headRev.ToString()));
         m_tooltips.AddTool(&m_btnRevision, sTTText);
     }
     else
@@ -331,13 +330,13 @@ void CRepositoryBar::SetHeadRevision(svn_revnum_t rev)
 
     m_headRev = rev;
     CString sTTText;
-    sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, (LPCTSTR)m_headRev.ToString());
+    sTTText.Format(IDS_REPOBROWSE_TT_HEADREV, static_cast<LPCWSTR>(m_headRev.ToString()));
     m_tooltips.AddTool(&m_btnRevision, sTTText);
 }
 
 CString CRepositoryBar::GetCurrentUrl() const
 {
-    if (m_cbxUrl.m_hWnd != 0)
+    if (m_cbxUrl.m_hWnd != nullptr)
     {
         CString path;
         m_cbxUrl.GetWindowText(path);
@@ -352,7 +351,7 @@ CString CRepositoryBar::GetCurrentUrl() const
 
 SVNRev CRepositoryBar::GetCurrentRev() const
 {
-    if (m_cbxUrl.m_hWnd != 0)
+    if (m_cbxUrl.m_hWnd != nullptr)
     {
         CString revision;
         m_btnRevision.GetWindowText(revision);
@@ -371,7 +370,7 @@ void CRepositoryBar::SaveHistory()
 
 bool CRepositoryBar::CRepositoryCombo::OnReturnKeyPressed()
 {
-    if (m_bar != 0)
+    if (m_bar != nullptr)
         m_bar->GotoUrl();
     if (GetDroppedState())
         ShowDropDown(FALSE);
@@ -404,7 +403,7 @@ void CRepositoryBar::OnBnClicked()
     CRevisionDlg dlg(this);
     dlg.AllowWCRevs(false);
     dlg.SetLogPath(CTSVNPath(GetCurrentUrl()), GetCurrentRev());
-    *((SVNRev*)&dlg) = SVNRev(revision);
+    *static_cast<SVNRev*>(&dlg) = SVNRev(revision);
 
     if (dlg.DoModal() == IDOK)
     {
@@ -423,7 +422,7 @@ void CRepositoryBar::OnGoUp()
         GotoUrl(sNewUrl, GetCurrentRev(), true);
 }
 
-void CRepositoryBar::SetFocusToURL()
+void CRepositoryBar::SetFocusToURL() const
 {
     m_cbxUrl.GetEditCtrl()->SetFocus();
 }
@@ -453,27 +452,29 @@ ULONG CRepositoryBar::GetGestureStatus(CPoint /*ptTouch*/)
     return 0;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CRepositoryBar::OnHistoryBack()
 {
     if (m_pRepo)
         ::SendMessage(m_pRepo->GetHWND(), WM_COMMAND, MAKEWPARAM(ID_URL_HISTORY_BACK, 1), 0);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CRepositoryBar::OnHistoryForward()
 {
     if (m_pRepo)
         ::SendMessage(m_pRepo->GetHWND(), WM_COMMAND, MAKEWPARAM(ID_URL_HISTORY_FORWARD, 1), 0);
 }
 
-void CRepositoryBar::SetTheme(bool bDark)
+void CRepositoryBar::SetTheme(bool bDark) const
 {
     CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), bDark);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-CRepositoryBarCnr::CRepositoryBarCnr(CRepositoryBar* repository_bar)
-    : m_pbarRepository(repository_bar)
+CRepositoryBarCnr::CRepositoryBarCnr(CRepositoryBar* repositoryBar)
+    : m_pbarRepository(repositoryBar)
 {
 }
 
@@ -489,6 +490,7 @@ END_MESSAGE_MAP()
 
 IMPLEMENT_DYNAMIC(CRepositoryBarCnr, CStatic)
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CRepositoryBarCnr::OnSize(UINT /* nType */, int cx, int cy)
 {
     m_pbarRepository->MoveWindow(48, 0, cx, cy);
@@ -508,10 +510,10 @@ void CRepositoryBarCnr::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
     if (nChar == VK_TAB)
     {
         CWnd* child = m_pbarRepository->GetWindow(GW_CHILD);
-        if (child != 0)
+        if (child != nullptr)
         {
             child = child->GetWindow(GW_HWNDLAST);
-            if (child != 0)
+            if (child != nullptr)
                 child->SetFocus();
         }
     }

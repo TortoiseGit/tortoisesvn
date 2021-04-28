@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2012, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "DragDropImpl.h"
 
-
 class CItem;
 class CTreeItem;
 class CRepositoryBrowser;
@@ -31,14 +30,14 @@ class CRepositoryBrowser;
 class CBaseDropTarget : public CIDropTarget
 {
 public:
-    CBaseDropTarget(CRepositoryBrowser * pRepoBrowser, HWND hTargetWnd);
+    CBaseDropTarget(CRepositoryBrowser *pRepoBrowser, HWND hTargetWnd);
 
-    void HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt, const CString& targetUrl, const CString& root);
+    void HandleDropFormats(FORMATETC *pFmtEtc, STGMEDIUM &medium, DWORD *pdwEffect, POINTL pt, const CString &targetUrl, const CString &root) const;
 
 protected:
-    CRepositoryBrowser * m_pRepoBrowser;
+    CRepositoryBrowser *m_pRepoBrowser;
 
-    bool m_bFiles;
+    bool    m_bFiles;
     CString sNoDrop;
     CString sImportDrop;
     CString sCopyDrop;
@@ -52,16 +51,16 @@ protected:
 class CTreeDropTarget : public CBaseDropTarget
 {
 public:
-    CTreeDropTarget(CRepositoryBrowser * pRepoBrowser);
+    CTreeDropTarget(CRepositoryBrowser *pRepoBrowser);
 
-    virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt) override;
-    virtual HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
-    virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
-    virtual HRESULT STDMETHODCALLTYPE DragLeave(void) override;
+    bool                      OnDrop(FORMATETC *pFmtEtc, STGMEDIUM &medium, DWORD *pdwEffect, POINTL pt) override;
+    HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
+    HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
+    HRESULT STDMETHODCALLTYPE DragLeave() override;
 
 private:
-    ULONGLONG               m_ullHoverStartTicks;
-    HTREEITEM               hLastItem;
+    ULONGLONG m_ullHoverStartTicks;
+    HTREEITEM hLastItem;
 };
 
 /**
@@ -71,12 +70,10 @@ private:
 class CListDropTarget : public CBaseDropTarget
 {
 public:
-    CListDropTarget(CRepositoryBrowser * pRepoBrowser);
+    CListDropTarget(CRepositoryBrowser *pRepoBrowser);
 
-    virtual bool OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD *pdwEffect, POINTL pt) override;
-    virtual HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
-    virtual HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
-    virtual HRESULT STDMETHODCALLTYPE DragLeave(void) override;
+    bool                      OnDrop(FORMATETC *pFmtEtc, STGMEDIUM &medium, DWORD *pdwEffect, POINTL pt) override;
+    HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR *pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
+    HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR *pdwEffect) override;
+    HRESULT STDMETHODCALLTYPE DragLeave() override;
 };
-
-

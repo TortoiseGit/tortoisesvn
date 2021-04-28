@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2012, 2014-2015, 2018 - TortoiseSVN
+// Copyright (C) 2009-2010, 2012, 2014-2015, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,8 +24,7 @@
 // bucket if there is none yet.
 
 CRepositoryBrowserSelection::SPathsPerRepository&
-CRepositoryBrowserSelection::AutoAddRepository
-    (const SRepositoryInfo& repository)
+    CRepositoryBrowserSelection::AutoAddRepository(const SRepositoryInfo& repository)
 {
     // search for an exisiting entry for that repository
 
@@ -36,20 +35,18 @@ CRepositoryBrowserSelection::AutoAddRepository
     // not found -> add one and return it
 
     SPathsPerRepository newEntry;
-    newEntry.repository = repository;
-    newEntry.folderCount = 0;
+    newEntry.repository    = repository;
+    newEntry.folderCount   = 0;
     newEntry.externalCount = 0;
-    newEntry.lockCount = 0;
+    newEntry.lockCount     = 0;
 
-    repositories.push_back (newEntry);
+    repositories.push_back(newEntry);
     return repositories.back();
 }
 
 // store & accumulate in the corresponding repository bucket
 
-void CRepositoryBrowserSelection::InternalAdd
-    ( const SRepositoryInfo& repository
-    , SPath& path)
+void CRepositoryBrowserSelection::InternalAdd(const SRepositoryInfo& repository, SPath& path)
 {
     // set common info
 
@@ -57,9 +54,9 @@ void CRepositoryBrowserSelection::InternalAdd
 
     // finally, add it
 
-    SPathsPerRepository& repositoryInfo = AutoAddRepository (repository);
+    SPathsPerRepository& repositoryInfo = AutoAddRepository(repository);
 
-    repositoryInfo.paths.push_back (path);
+    repositoryInfo.paths.push_back(path);
     repositoryInfo.externalCount += path.isExternal ? 1 : 0;
     repositoryInfo.folderCount += path.isFolder ? 1 : 0;
     repositoryInfo.lockCount += path.isLocked ? 1 : 0;
@@ -67,76 +64,76 @@ void CRepositoryBrowserSelection::InternalAdd
 
 // construction / destruction
 
-CRepositoryBrowserSelection::CRepositoryBrowserSelection(void)
+CRepositoryBrowserSelection::CRepositoryBrowserSelection()
 {
 }
 
-CRepositoryBrowserSelection::~CRepositoryBrowserSelection(void)
+CRepositoryBrowserSelection::~CRepositoryBrowserSelection()
 {
 }
 
 // add new URL from \ref item.
 
-void CRepositoryBrowserSelection::Add (const CItem* item)
+void CRepositoryBrowserSelection::Add(const CItem* item)
 {
-    if (item == NULL)
+    if (item == nullptr)
         return;
 
     // extract the info from the list item
 
-    SPath path;
-    CString absPath = item->absolutepath;
+    SPath   path;
+    CString absPath = item->m_absolutePath;
 
-    absPath.Replace (L"\\", L"%5C");
-    path.url = CTSVNPath (absPath);
+    absPath.Replace(L"\\", L"%5C");
+    path.url = CTSVNPath(absPath);
 
     // we don't fully escape the urls, because the GetSVNApiPath() method
     // of the CTSVNPath already does escaping.
     // We only escape special chars here:
     // the '%' because we know that this char isn't escaped yet, and
     // the '"' char, because we pass these urls to the command line as well
-    absPath.Replace (L"%", L"%25");
-    absPath.Replace (L"\"", L"%22");
-    path.urlEscaped = CTSVNPath (absPath);
-    path.revision = item->created_rev;
+    absPath.Replace(L"%", L"%25");
+    absPath.Replace(L"\"", L"%22");
+    path.urlEscaped = CTSVNPath(absPath);
+    path.revision   = item->m_createdRev;
 
-    path.isExternal = item->is_external;
-    path.isFolder = item->kind == svn_node_dir;
-    path.isLocked = !item->locktoken.IsEmpty();
+    path.isExternal = item->m_isExternal;
+    path.isFolder   = item->m_kind == svn_node_dir;
+    path.isLocked   = !item->m_lockToken.IsEmpty();
 
     // store & accumulate in the corresponding repository bucket
 
-    InternalAdd (item->repository, path);
+    InternalAdd(item->m_repository, path);
 }
 
-void CRepositoryBrowserSelection::Add (const CTreeItem* item)
+void CRepositoryBrowserSelection::Add(const CTreeItem* item)
 {
-    if (item == NULL)
+    if (item == nullptr)
         return;
 
     // extract the info from the list item
 
-    SPath path;
-    CString absPath = item->url;
-    path.url = CTSVNPath (absPath);
+    SPath   path;
+    CString absPath = item->m_url;
+    path.url        = CTSVNPath(absPath);
 
     // we don't fully escape the urls, because the GetSVNApiPath() method
     // of the CTSVNPath already does escaping.
     // We only escape special chars here:
     // the '%' because we know that this char isn't escaped yet, and
     // the '"' char, because we pass these urls to the command line as well
-    absPath.Replace (L"%", L"%25");
-    absPath.Replace (L"\"", L"%22");
-    path.urlEscaped = CTSVNPath (absPath);
-    path.revision = item->revision;
+    absPath.Replace(L"%", L"%25");
+    absPath.Replace(L"\"", L"%22");
+    path.urlEscaped = CTSVNPath(absPath);
+    path.revision   = item->m_revision;
 
-    path.isExternal = item->is_external;
-    path.isFolder = true;
-    path.isLocked = false;
+    path.isExternal = item->m_isExternal;
+    path.isFolder   = true;
+    path.isLocked   = false;
 
     // store & accumulate in the corresponding repository bucket
 
-    InternalAdd (item->repository, path);
+    InternalAdd(item->m_repository, path);
 }
 
 // get the number of repository buckets
@@ -153,125 +150,99 @@ bool CRepositoryBrowserSelection::IsEmpty() const
 
 // lookup
 
-std::pair<size_t, size_t>
-CRepositoryBrowserSelection::FindURL (const CTSVNPath& url) const
+std::pair<size_t, size_t> CRepositoryBrowserSelection::FindURL(const CTSVNPath& url) const
 {
     for (size_t i = 0, repoCount = GetRepositoryCount(); i < repoCount; ++i)
-        for (size_t k = 0, pathCount = GetPathCount (i); k < pathCount; ++k)
-            if (GetURL (i, k).IsEquivalentTo (url))
-                return std::make_pair (i, k);
+        for (size_t k = 0, pathCount = GetPathCount(i); k < pathCount; ++k)
+            if (GetURL(i, k).IsEquivalentTo(url))
+                return std::make_pair(i, k);
 
-    return std::pair<size_t, size_t>((size_t)-1, (size_t)-1);
+    return std::pair<size_t, size_t>(static_cast<size_t>(-1), static_cast<size_t>(-1));
 }
 
-bool CRepositoryBrowserSelection::Contains (const CTSVNPath& url) const
+bool CRepositoryBrowserSelection::Contains(const CTSVNPath& url) const
 {
-    return FindURL (url).first != (size_t)(-1);
+    return FindURL(url).first != static_cast<size_t>(-1);
 }
 
 // access repository bucket properties
 
-const SRepositoryInfo&
-CRepositoryBrowserSelection::GetRepository (size_t repositoryIndex) const
+const SRepositoryInfo& CRepositoryBrowserSelection::GetRepository(size_t repositoryIndex) const
 {
-    return repositories [repositoryIndex].repository;
+    return repositories[repositoryIndex].repository;
 }
 
-size_t
-CRepositoryBrowserSelection::GetPathCount (size_t repositoryIndex) const
+size_t CRepositoryBrowserSelection::GetPathCount(size_t repositoryIndex) const
 {
-    return repositories [repositoryIndex].paths.size();
+    return repositories[repositoryIndex].paths.size();
 }
 
-size_t
-CRepositoryBrowserSelection::GetFolderCount (size_t repositoryIndex) const
+size_t CRepositoryBrowserSelection::GetFolderCount(size_t repositoryIndex) const
 {
-    return repositories [repositoryIndex].folderCount;
+    return repositories[repositoryIndex].folderCount;
 }
 
-size_t
-CRepositoryBrowserSelection::GetExternalCount (size_t repositoryIndex) const
+size_t CRepositoryBrowserSelection::GetExternalCount(size_t repositoryIndex) const
 {
-    return repositories [repositoryIndex].externalCount;
+    return repositories[repositoryIndex].externalCount;
 }
 
-size_t
-CRepositoryBrowserSelection::GetLockCount (size_t repositoryIndex) const
+size_t CRepositoryBrowserSelection::GetLockCount(size_t repositoryIndex) const
 {
-    return repositories [repositoryIndex].lockCount;
+    return repositories[repositoryIndex].lockCount;
 }
 
 // access path properties
 
-const CTSVNPath&
-CRepositoryBrowserSelection::GetURL
-    ( size_t repositoryIndex
-    , size_t index) const
+const CTSVNPath& CRepositoryBrowserSelection::GetURL(size_t repositoryIndex, size_t index) const
 {
-    return repositories [repositoryIndex].paths[index].url;
+    return repositories[repositoryIndex].paths[index].url;
 }
 
-const CTSVNPath&
-CRepositoryBrowserSelection::GetURLEscaped
-    ( size_t repositoryIndex
-    , size_t index) const
+const CTSVNPath& CRepositoryBrowserSelection::GetURLEscaped(size_t repositoryIndex, size_t index) const
 {
-    return repositories [repositoryIndex].paths[index].urlEscaped;
+    return repositories[repositoryIndex].paths[index].urlEscaped;
 }
 
-const SVNRev & CRepositoryBrowserSelection::GetRevision(size_t repositoryIndex, size_t index) const
+const SVNRev& CRepositoryBrowserSelection::GetRevision(size_t repositoryIndex, size_t index) const
 {
     return repositories[repositoryIndex].paths[index].revision;
 }
 
-bool
-CRepositoryBrowserSelection::IsFolder
-    ( size_t repositoryIndex
-    , size_t index) const
+bool CRepositoryBrowserSelection::IsFolder(size_t repositoryIndex, size_t index) const
 {
-    return repositories [repositoryIndex].paths[index].isFolder;
+    return repositories[repositoryIndex].paths[index].isFolder;
 }
 
-bool
-CRepositoryBrowserSelection::IsExternal
-    ( size_t repositoryIndex
-    , size_t index) const
+bool CRepositoryBrowserSelection::IsExternal(size_t repositoryIndex, size_t index) const
 {
-    return repositories [repositoryIndex].paths[index].isExternal;
+    return repositories[repositoryIndex].paths[index].isExternal;
 }
 
-bool
-CRepositoryBrowserSelection::IsLocked
-    ( size_t repositoryIndex
-    , size_t index) const
+bool CRepositoryBrowserSelection::IsLocked(size_t repositoryIndex, size_t index) const
 {
-    return repositories [repositoryIndex].paths[index].isLocked;
+    return repositories[repositoryIndex].paths[index].isLocked;
 }
 
-bool
-CRepositoryBrowserSelection::IsRoot
-    ( size_t repositoryIndex
-    , size_t index) const
+bool CRepositoryBrowserSelection::IsRoot(size_t repositoryIndex, size_t index) const
 {
-    return repositories [repositoryIndex].paths[index].isRoot;
+    return repositories[repositoryIndex].paths[index].isRoot;
 }
 
 // convenience methods
 
-CTSVNPathList
-CRepositoryBrowserSelection::GetURLs (size_t repositoryIndex) const
+CTSVNPathList CRepositoryBrowserSelection::GetURLs(size_t repositoryIndex) const
 {
     CTSVNPathList result;
 
     const SPathsPerRepository& info = repositories[repositoryIndex];
     for (size_t i = 0, count = info.paths.size(); i < count; ++i)
-        result.AddPath (info.paths[i].url);
+        result.AddPath(info.paths[i].url);
 
     return result;
 }
 
-CTSVNPathList
-CRepositoryBrowserSelection::GetURLsEscaped(size_t repositoryIndex, bool bIncludeExternals) const
+CTSVNPathList CRepositoryBrowserSelection::GetURLsEscaped(size_t repositoryIndex, bool bIncludeExternals) const
 {
     CTSVNPathList result;
 
@@ -279,7 +250,7 @@ CRepositoryBrowserSelection::GetURLsEscaped(size_t repositoryIndex, bool bInclud
     for (size_t i = 0, count = info.paths.size(); i < count; ++i)
     {
         if (bIncludeExternals || !info.paths[i].isExternal)
-        result.AddPath(info.paths[i].urlEscaped);
+            result.AddPath(info.paths[i].urlEscaped);
     }
 
     return result;
