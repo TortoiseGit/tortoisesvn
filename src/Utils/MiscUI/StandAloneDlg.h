@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,6 @@
 #include "ResizableDialog.h"
 #include "registry.h"
 #include "AeroControls.h"
-#include "CreateProcessHelper.h"
 #include "TaskbarUUID.h"
 #include "Tooltip.h"
 #include "CommonDialogFunctions.h"
@@ -36,7 +35,7 @@
 #pragma comment(lib, "htmlhelp.lib")
 
 #define DIALOG_BLOCKHORIZONTAL 1
-#define DIALOG_BLOCKVERTICAL 2
+#define DIALOG_BLOCKVERTICAL   2
 
 std::wstring GetMonitorSetupHash();
 
@@ -50,27 +49,31 @@ std::wstring GetMonitorSetupHash();
  * \remark Replace all references to CDialog or CResizableDialog in your dialog class with
  * either CResizableStandAloneDialog, CStandAloneDialog or CStateStandAloneDialog, as appropriate
  */
-template <typename BaseType> class CStandAloneDialogTmpl : public BaseType, protected CommonDialogFunctions<BaseType>
+template <typename BaseType>
+class CStandAloneDialogTmpl : public BaseType
+    , protected CommonDialogFunctions<BaseType>
 {
 #ifndef _DLL
     DECLARE_DYNAMIC(CStandAloneDialogTmpl)
 #endif
 protected:
-    CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = nullptr) : BaseType(nIDTemplate, pParentWnd), CommonDialogFunctions(this)
+    CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = nullptr)
+        : BaseType(nIDTemplate, pParentWnd)
+        , CommonDialogFunctions(this)
     {
-        m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-        m_margins.cxLeftWidth = 0;
-        m_margins.cyTopHeight = 0;
-        m_margins.cxRightWidth = 0;
+        m_hIcon                  = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+        m_margins.cxLeftWidth    = 0;
+        m_margins.cyTopHeight    = 0;
+        m_margins.cxRightWidth   = 0;
         m_margins.cyBottomHeight = 0;
-        m_bkgndIconWidth = 0;
-        m_bkgndIconHeight = 0;
-        m_hBkgndIcon = 0;
-        m_nResizeBlock = 0;
-        m_height = 0;
-        m_width = 0;
-        m_themeCallbackId = 0;
-        m_dpi = 0;
+        m_bkgndIconWidth         = 0;
+        m_bkgndIconHeight        = 0;
+        m_hBkgndIcon             = nullptr;
+        m_nResizeBlock           = 0;
+        m_height                 = 0;
+        m_width                  = 0;
+        m_themeCallbackId        = 0;
+        m_dpi                    = 0;
 
         SetBackgroundIcon(IDI_AEROBACKGROUND, 256, 256);
     }
@@ -83,8 +86,7 @@ protected:
     virtual BOOL OnInitDialog()
     {
         m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
-            [this]()
-            {
+            [this]() {
                 SetTheme(CTheme::Instance().IsDarkTheme());
             });
 
@@ -92,18 +94,18 @@ protected:
 
         // Set the icon for this dialog.  The framework does this automatically
         //  when the application's main window is not a dialog
-        SetIcon(m_hIcon, TRUE);         // Set big icon
-        SetIcon(m_hIcon, FALSE);        // Set small icon
+        SetIcon(m_hIcon, TRUE);  // Set big icon
+        SetIcon(m_hIcon, FALSE); // Set small icon
 
         RECT rect;
         GetWindowRect(&rect);
         m_height = rect.bottom - rect.top;
-        m_width = rect.right - rect.left;
+        m_width  = rect.right - rect.left;
         EnableToolTips();
         m_tooltips.Create(this);
         SetTheme(CTheme::Instance().IsDarkTheme());
 
-        auto CustomBreak = (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\UseCustomWordBreak", 2);
+        auto CustomBreak = static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\UseCustomWordBreak", 2));
         if (CustomBreak)
             SetUrlWordBreakProcToChildWindows(GetSafeHwnd(), CustomBreak == 2);
 
@@ -117,7 +119,7 @@ protected:
         m_tooltips.RelayEvent(pMsg, this);
         if (pMsg->message == WM_KEYDOWN)
         {
-            int nVirtKey = (int)pMsg->wParam;
+            int nVirtKey = static_cast<int>(pMsg->wParam);
 
             if (nVirtKey == 'A' && (GetKeyState(VK_CONTROL) & 0x8000))
             {
@@ -151,8 +153,8 @@ protected:
             SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
             // Center icon in client rectangle
-            int cxIcon = GetSystemMetrics(SM_CXICON);
-            int cyIcon = GetSystemMetrics(SM_CYICON);
+            int   cxIcon = GetSystemMetrics(SM_CXICON);
+            int   cyIcon = GetSystemMetrics(SM_CYICON);
             CRect rect;
             GetClientRect(&rect);
             int x = (rect.Width() - cxIcon + 1) / 2;
@@ -167,7 +169,7 @@ protected:
         }
     }
 
-    BOOL OnEraseBkgnd(CDC*  pDC)
+    BOOL OnEraseBkgnd(CDC* pDC)
     {
         BOOL baseRet = BaseType::OnEraseBkgnd(pDC);
         if (m_aeroControls.AeroDialogsEnabled())
@@ -177,29 +179,29 @@ protected:
             GetClientRect(&rc);
             if (m_margins.cxLeftWidth < 0)
             {
-                pDC->FillSolidRect(rc.left, rc.top, rc.right-rc.left, rc.bottom-rc.top, RGB(0,0,0));
+                pDC->FillSolidRect(rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top, RGB(0, 0, 0));
                 if (m_hBkgndIcon)
                 {
                     // center the icon
                     double scale = 1.0;
-                    scale = min(scale, double(rc.Width())/double(m_bkgndIconWidth));
-                    scale = min(scale, double(rc.Height())/double(m_bkgndIconHeight));
+                    scale        = min(scale, static_cast<double>(rc.Width()) / static_cast<double>(m_bkgndIconWidth));
+                    scale        = min(scale, static_cast<double>(rc.Height()) / static_cast<double>(m_bkgndIconHeight));
                     if (scale > 1.0)
                         scale = 1.0;
                     DrawIconEx(pDC->GetSafeHdc(),
-                        int((rc.Width()-(scale*m_bkgndIconWidth))/1.0),
-                        0,
-                        m_hBkgndIcon,
-                        int(scale*m_bkgndIconWidth), int(scale*m_bkgndIconHeight),
-                        0, NULL, DI_NORMAL);
+                               static_cast<int>((rc.Width() - (scale * m_bkgndIconWidth)) / 1.0),
+                               0,
+                               m_hBkgndIcon,
+                               static_cast<int>(scale * m_bkgndIconWidth), static_cast<int>(scale * m_bkgndIconHeight),
+                               0, nullptr, DI_NORMAL);
                 }
             }
             else
             {
-                pDC->FillSolidRect(rc.left, rc.top, m_margins.cxLeftWidth, rc.bottom-rc.top, RGB(0,0,0));
-                pDC->FillSolidRect(rc.left, rc.top, rc.right-rc.left, m_margins.cyTopHeight, RGB(0,0,0));
-                pDC->FillSolidRect(rc.right-m_margins.cxRightWidth, rc.top, m_margins.cxRightWidth, rc.bottom-rc.top, RGB(0,0,0));
-                pDC->FillSolidRect(rc.left, rc.bottom-m_margins.cyBottomHeight, rc.right-rc.left, m_margins.cyBottomHeight, RGB(0,0,0));
+                pDC->FillSolidRect(rc.left, rc.top, m_margins.cxLeftWidth, rc.bottom - rc.top, RGB(0, 0, 0));
+                pDC->FillSolidRect(rc.left, rc.top, rc.right - rc.left, m_margins.cyTopHeight, RGB(0, 0, 0));
+                pDC->FillSolidRect(rc.right - m_margins.cxRightWidth, rc.top, m_margins.cxRightWidth, rc.bottom - rc.top, RGB(0, 0, 0));
+                pDC->FillSolidRect(rc.left, rc.bottom - m_margins.cyBottomHeight, rc.right - rc.left, m_margins.cyBottomHeight, RGB(0, 0, 0));
             }
         }
         return baseRet;
@@ -244,15 +246,15 @@ protected:
         GetClientRect(&rc2);
         ClientToScreen(&rc2);
 
-        RECT rccontrol;
+        RECT rcControl;
         if (leftControl)
         {
             HWND hw = GetDlgItem(leftControl)->GetSafeHwnd();
-            if (hw == NULL)
+            if (hw == nullptr)
                 return;
-            ::GetWindowRect(hw, &rccontrol);
-            m_margins.cxLeftWidth = rccontrol.left - rc.left;
-            m_margins.cxLeftWidth -= (rc2.left-rc.left);
+            ::GetWindowRect(hw, &rcControl);
+            m_margins.cxLeftWidth = rcControl.left - rc.left;
+            m_margins.cxLeftWidth -= (rc2.left - rc.left);
         }
         else
             m_margins.cxLeftWidth = 0;
@@ -260,11 +262,11 @@ protected:
         if (topControl)
         {
             HWND hw = GetDlgItem(topControl)->GetSafeHwnd();
-            if (hw == NULL)
+            if (hw == nullptr)
                 return;
-            ::GetWindowRect(hw, &rccontrol);
-            m_margins.cyTopHeight = rccontrol.top - rc.top;
-            m_margins.cyTopHeight -= (rc2.top-rc.top);
+            ::GetWindowRect(hw, &rcControl);
+            m_margins.cyTopHeight = rcControl.top - rc.top;
+            m_margins.cyTopHeight -= (rc2.top - rc.top);
         }
         else
             m_margins.cyTopHeight = 0;
@@ -272,11 +274,11 @@ protected:
         if (rightControl)
         {
             HWND hw = GetDlgItem(rightControl)->GetSafeHwnd();
-            if (hw == NULL)
+            if (hw == nullptr)
                 return;
-            ::GetWindowRect(hw, &rccontrol);
-            m_margins.cxRightWidth = rc.right - rccontrol.right;
-            m_margins.cxRightWidth -= (rc.right-rc2.right);
+            ::GetWindowRect(hw, &rcControl);
+            m_margins.cxRightWidth = rc.right - rcControl.right;
+            m_margins.cxRightWidth -= (rc.right - rc2.right);
         }
         else
             m_margins.cxRightWidth = 0;
@@ -284,23 +286,23 @@ protected:
         if (botomControl)
         {
             HWND hw = GetDlgItem(botomControl)->GetSafeHwnd();
-            if (hw == NULL)
+            if (hw == nullptr)
                 return;
-            ::GetWindowRect(hw, &rccontrol);
-            m_margins.cyBottomHeight = rc.bottom - rccontrol.bottom;
-            m_margins.cyBottomHeight -= (rc.bottom-rc2.bottom);
+            ::GetWindowRect(hw, &rcControl);
+            m_margins.cyBottomHeight = rc.bottom - rcControl.bottom;
+            m_margins.cyBottomHeight -= (rc.bottom - rc2.bottom);
         }
         else
             m_margins.cyBottomHeight = 0;
 
-        if ((m_margins.cxLeftWidth == 0)&&
-            (m_margins.cyTopHeight == 0)&&
-            (m_margins.cxRightWidth == 0)&&
+        if ((m_margins.cxLeftWidth == 0) &&
+            (m_margins.cyTopHeight == 0) &&
+            (m_margins.cxRightWidth == 0) &&
             (m_margins.cyBottomHeight == 0))
         {
-            m_margins.cxLeftWidth = -1;
-            m_margins.cyTopHeight = -1;
-            m_margins.cxRightWidth = -1;
+            m_margins.cxLeftWidth    = -1;
+            m_margins.cyTopHeight    = -1;
+            m_margins.cxRightWidth   = -1;
             m_margins.cyBottomHeight = -1;
         }
         DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
@@ -313,8 +315,8 @@ protected:
      */
     BOOL DialogEnableWindow(UINT nID, BOOL bEnable)
     {
-        CWnd * pwndDlgItem = GetDlgItem(nID);
-        if (pwndDlgItem == NULL)
+        CWnd* pwndDlgItem = GetDlgItem(nID);
+        if (pwndDlgItem == nullptr)
             return FALSE;
         if (bEnable)
             return pwndDlgItem->EnableWindow(bEnable);
@@ -337,20 +339,20 @@ protected:
 
     bool IsCursorOverWindowBorder()
     {
-        RECT wrc, crc;
-        this->GetWindowRect(&wrc);
-        this->GetClientRect(&crc);
-        ClientToScreen(&crc);
+        RECT wRc{}, cRc{};
+        this->GetWindowRect(&wRc);
+        this->GetClientRect(&cRc);
+        ClientToScreen(&cRc);
         DWORD pos = GetMessagePos();
         POINT pt;
         pt.x = GET_X_LPARAM(pos);
         pt.y = GET_Y_LPARAM(pos);
-        return (PtInRect(&wrc, pt) && !PtInRect(&crc, pt));
+        return (PtInRect(&wRc, pt) && !PtInRect(&cRc, pt));
     }
     void SetBackgroundIcon(HICON hIcon, int width, int height)
     {
-        m_hBkgndIcon = hIcon;
-        m_bkgndIconWidth = width;
+        m_hBkgndIcon      = hIcon;
+        m_bkgndIconWidth  = width;
         m_bkgndIconHeight = height;
     }
     void SetBackgroundIcon(UINT idi, int width, int height)
@@ -424,27 +426,37 @@ protected:
 
     LRESULT OnDPIChanged(WPARAM, LPARAM lParam);
 
-
-    HICON           m_hIcon;
-    HICON           m_hBkgndIcon;
-    int             m_bkgndIconWidth;
-    int             m_bkgndIconHeight;
+    HICON m_hIcon;
+    HICON m_hBkgndIcon;
+    int   m_bkgndIconWidth;
+    int   m_bkgndIconHeight;
 };
 
-class CStateDialog : public CDialog, public CResizableWndState
+class CStateDialog : public CDialog
+    , public CResizableWndState
 {
     DECLARE_DYNAMIC(CStateDialog)
 public:
-    CStateDialog() : CDialog()
+    CStateDialog()
+        : CDialog()
         , m_bEnableSaveRestore(false)
-        , m_bRectOnly(false){}
-    CStateDialog(UINT nIDTemplate, CWnd* pParentWnd = NULL) : CDialog(nIDTemplate, pParentWnd)
+        , m_bRectOnly(false)
+    {
+    }
+    CStateDialog(UINT nIDTemplate, CWnd* pParentWnd = nullptr)
+        : CDialog(nIDTemplate, pParentWnd)
         , m_bEnableSaveRestore(false)
-        , m_bRectOnly(false){}
-    CStateDialog(LPCTSTR lpszTemplateName, CWnd* pParentWnd = NULL) : CDialog(lpszTemplateName, pParentWnd)
+        , m_bRectOnly(false)
+    {
+    }
+    CStateDialog(LPCTSTR lpszTemplateName, CWnd* pParentWnd = nullptr)
+        : CDialog(lpszTemplateName, pParentWnd)
         , m_bEnableSaveRestore(false)
-        , m_bRectOnly(false){}
-    virtual ~CStateDialog(){};
+        , m_bRectOnly(false)
+    {
+    }
+
+    ~CStateDialog() override{};
 
 private:
     // flags
@@ -452,19 +464,19 @@ private:
     bool m_bRectOnly;
 
     // internal status
-    CString m_sSection;         // section name (identifies a parent window)
+    CString m_sSection; // section name (identifies a parent window)
 
 protected:
     // overloaded method, but since this dialog class is for non-resizable dialogs,
     // the bHorzResize and bVertResize params are ignored and passed as false
     // to the base method.
-    void EnableSaveRestore(LPCWSTR pszSection, bool bRectOnly = FALSE, BOOL bHorzResize = TRUE, BOOL bVertResize = TRUE);
+    void          EnableSaveRestore(LPCWSTR pszSection, bool bRectOnly = FALSE, BOOL bHorzResize = TRUE, BOOL bVertResize = TRUE);
     virtual ULONG GetGestureStatus(CPoint /*ptTouch*/) override
     {
         return 0;
     }
 
-    virtual CWnd* GetResizableWnd() const
+    CWnd* GetResizableWnd() const override
     {
         // make the layout know its parent window
         return CWnd::FromHandle(m_hWnd);
@@ -478,7 +490,6 @@ protected:
     };
 
     DECLARE_MESSAGE_MAP()
-
 };
 
 class CResizableStandAloneDialog : public CStandAloneDialogTmpl<CResizableDialog>
@@ -495,16 +506,17 @@ protected:
     afx_msg void    OnNcMButtonUp(UINT nHitTest, CPoint point);
     afx_msg void    OnNcRButtonUp(UINT nHitTest, CPoint point);
     afx_msg LRESULT OnNcHitTest(CPoint point);
-    void            OnCantStartThread();
+    void            OnCantStartThread() const;
     bool            OnEnterPressed();
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    bool        m_bVertical;
-    bool        m_bHorizontal;
-    CRect       m_rcOrgWindowRect;
-    int         m_stickySize;
+    bool  m_bVertical;
+    bool  m_bHorizontal;
+    CRect m_rcOrgWindowRect;
+    int   m_stickySize;
+
 public:
 };
 
@@ -512,6 +524,7 @@ class CStandAloneDialog : public CStandAloneDialogTmpl<CDialog>
 {
 public:
     CStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd = nullptr);
+
 protected:
     DECLARE_MESSAGE_MAP()
 private:
@@ -522,9 +535,9 @@ class CStateStandAloneDialog : public CStandAloneDialogTmpl<CStateDialog>
 {
 public:
     CStateStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd = nullptr);
+
 protected:
     DECLARE_MESSAGE_MAP()
 private:
     DECLARE_DYNAMIC(CStateStandAloneDialog)
 };
-

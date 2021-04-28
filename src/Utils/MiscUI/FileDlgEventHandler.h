@@ -24,32 +24,33 @@
  * use this class as a base class so you only need to implement
  * the methods you actually need and not all of them.
  */
-class CFileDlgEventHandler : public CComObjectRootEx<CComSingleThreadModel>,
-                         public CComCoClass<CFileDlgEventHandler>,
-                         public IFileDialogEvents,
-                         public IFileDialogControlEvents
+class CFileDlgEventHandler : public CComObjectRootEx<CComSingleThreadModel>
+    , public CComCoClass<CFileDlgEventHandler>
+    , public IFileDialogEvents
+    , public IFileDialogControlEvents
 {
 public:
     CFileDlgEventHandler();
+    // ReSharper disable once CppHidingFunction
     virtual ~CFileDlgEventHandler();
 
     BEGIN_COM_MAP(CFileDlgEventHandler)
-        COM_INTERFACE_ENTRY(IFileDialogEvents)
-        COM_INTERFACE_ENTRY(IFileDialogControlEvents)
+    COM_INTERFACE_ENTRY(IFileDialogEvents)
+    COM_INTERFACE_ENTRY(IFileDialogControlEvents)
     END_COM_MAP()
 
     // IFileDialogEvents
-    virtual STDMETHODIMP OnFileOk(IFileDialog* pfd);
-    virtual STDMETHODIMP OnFolderChanging(IFileDialog* pfd, IShellItem* psiFolder);
-    virtual STDMETHODIMP OnFolderChange(IFileDialog* pfd);
-    virtual STDMETHODIMP OnSelectionChange(IFileDialog* pfd);
-    virtual STDMETHODIMP OnShareViolation(IFileDialog* pfd, IShellItem* psi, FDE_SHAREVIOLATION_RESPONSE* pResponse);
-    virtual STDMETHODIMP OnTypeChange(IFileDialog* pfd);
-    virtual STDMETHODIMP OnOverwrite(IFileDialog* pfd, IShellItem* psi, FDE_OVERWRITE_RESPONSE* pResponse);
+    STDMETHODIMP OnFileOk(IFileDialog* pfd) override;
+    STDMETHODIMP OnFolderChanging(IFileDialog* pfd, IShellItem* psiFolder) override;
+    STDMETHODIMP OnFolderChange(IFileDialog* pfd) override;
+    STDMETHODIMP OnSelectionChange(IFileDialog* pfd) override;
+    STDMETHODIMP OnShareViolation(IFileDialog* pfd, IShellItem* psi, FDE_SHAREVIOLATION_RESPONSE* pResponse) override;
+    STDMETHODIMP OnTypeChange(IFileDialog* pfd) override;
+    STDMETHODIMP OnOverwrite(IFileDialog* pfd, IShellItem* psi, FDE_OVERWRITE_RESPONSE* pResponse) override;
 
     // IFileDialogControlEvents
-    virtual STDMETHODIMP OnItemSelected(IFileDialogCustomize* pfdc, DWORD dwIDCtl, DWORD dwIDItem);
-    virtual STDMETHODIMP OnButtonClicked(IFileDialogCustomize* pfdc, DWORD dwIDCtl);
-    virtual STDMETHODIMP OnCheckButtonToggled(IFileDialogCustomize* pfdc, DWORD dwIDCtl, BOOL bChecked);
-    virtual STDMETHODIMP OnControlActivating(IFileDialogCustomize* pfdc, DWORD dwIDCtl);
+    STDMETHODIMP OnItemSelected(IFileDialogCustomize* pfdc, DWORD dwIDCtl, DWORD dwIDItem) override;
+    STDMETHODIMP OnButtonClicked(IFileDialogCustomize* pfdc, DWORD dwIDCtl) override;
+    STDMETHODIMP OnCheckButtonToggled(IFileDialogCustomize* pfdc, DWORD dwIDCtl, BOOL bChecked) override;
+    STDMETHODIMP OnControlActivating(IFileDialogCustomize* pfdc, DWORD dwIDCtl) override;
 };

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008, 2010, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2010, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -39,8 +39,8 @@ public:
      *                     as this path.
      * \param revision     if set, the temp file name will include the revision number
      */
-    CTSVNPath       GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev& revision = SVNRev());
-    CString         GetTempFilePathString();
+    CTSVNPath GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev& revision = SVNRev());
+    CString   GetTempFilePathString();
 
     /**
      * Returns a path to a temporary directory.
@@ -50,33 +50,35 @@ public:
      *                     as this path.
      * \param revision     if set, the temp directory name will include the revision number
      */
-    CTSVNPath       GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev& revision = SVNRev());
+    CTSVNPath GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path = CTSVNPath(), const SVNRev& revision = SVNRev());
 
     // Look for temporary files left around by TortoiseMerge and
     // remove them. But only delete 'old' files
-    static void     DeleteOldTempFiles(LPCTSTR wildCard);
+    static void DeleteOldTempFiles(LPCTSTR wildCard);
 
-    void            AddFileToRemove(const CString& file) { m_TempFileList.AddPath(CTSVNPath(file)); }
+    void AddFileToRemove(const CString& file) { m_tempFileList.AddPath(CTSVNPath(file)); }
 
 private:
-
     // try to allocate an unused temp file / dir at most MAX_RETRIES times
 
-    enum {MAX_RETRIES = 100};
+    enum
+    {
+        MAX_RETRIES = 100
+    };
 
     // list of paths to delete when terminating the app
 
-    CTSVNPathList m_TempFileList;
+    CTSVNPathList m_tempFileList;
 
     // actual implementation
 
     CTSVNPath ConstructTempPath(const CTSVNPath& path, const SVNRev& revision) const;
-    CTSVNPath CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev& revision, bool directory);
+    CTSVNPath CreateTempPath(bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev& revision, bool directory);
 
     // construction / destruction
 
-    CTempFiles(void);
-    ~CTempFiles(void);
+    CTempFiles();
+    ~CTempFiles();
     // prevent cloning
     CTempFiles(const CTempFiles&) = delete;
     CTempFiles& operator=(const CTempFiles&) = delete;

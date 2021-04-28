@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2009, 2011 - TortoiseSVN
+// Copyright (C) 2008-2009, 2011, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "IconBitmapUtils.h"
 
-
 /**
  * \ingroup utils
  * Extends the CMenu class with a convenience method to insert a menu
@@ -31,23 +30,25 @@
 class CIconMenu : public CMenu
 {
 public:
-    CIconMenu(void);
-    ~CIconMenu(void);
+    CIconMenu();
+    ~CIconMenu() override;
 
+    // ReSharper disable once CppHidingFunction
     BOOL CreateMenu();
+    // ReSharper disable once CppHidingFunction
     BOOL CreatePopupMenu();
     BOOL AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon = 0);
     BOOL AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, UINT uIcon = 0);
     BOOL AppendMenuIcon(UINT_PTR nIDNewItem, UINT_PTR nNewItem, HICON hIcon);
-    void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct);
-    void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct);
+    void DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct) override;
+    void MeasureItem(LPMEASUREITEMSTRUCT lpMeasureItemStruct) override;
 
 private:
-    BOOL SetMenuStyle(void);
+    BOOL SetMenuStyle();
 
 private:
-    IconBitmapUtils             bitmapUtils;
-    std::map<UINT_PTR, UINT>    icons;
-    std::map<UINT_PTR, HICON>   iconhandles;
-    bool                        bShowIcons;
+    IconBitmapUtils           m_bitmapUtils;
+    std::map<UINT_PTR, UINT>  m_icons;
+    std::map<UINT_PTR, HICON> m_iconHandles;
+    bool                      m_bShowIcons;
 };

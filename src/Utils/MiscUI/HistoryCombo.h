@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2012 - TortoioseSVN
+// Copyright (C) 2003-2008, 2010-2012, 2021 - TortoioseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,12 +38,12 @@
  */
 class CHistoryCombo : public CComboBoxEx
 {
-// Construction
+    // Construction
 public:
     CHistoryCombo(BOOL bAllowSortStyle = FALSE);
-    virtual ~CHistoryCombo();
+    ~CHistoryCombo() override;
 
-// Operations
+    // Operations
 public:
     /**
      * Adds the string \a str to both the combobox and the history.
@@ -54,17 +54,17 @@ public:
 
 protected:
     DECLARE_MESSAGE_MAP()
-    virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual void PreSubclassWindow();
+    BOOL PreCreateWindow(CREATESTRUCT& cs) override;
+    BOOL PreTranslateMessage(MSG* pMsg) override;
+    void PreSubclassWindow() override;
 
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);
     afx_msg void OnTimer(UINT_PTR nIDEvent);
-    afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+    afx_msg int  OnCreate(LPCREATESTRUCT lpCreateStruct);
 
     void CreateToolTip();
 
-// Implementation
+    // Implementation
 public:
     /**
      * Clears the history in the registry/inifile and the ComboBox.
@@ -120,7 +120,7 @@ public:
      * Disables trimming of strings in the combobox. Useful if the combo box is
      * used e.g. for searching.
      */
-    void DisableTrimming() {m_bTrim=false;}
+    void DisableTrimming() { m_bTrim = false; }
 
 protected:
     /**
@@ -137,23 +137,21 @@ protected:
      * the registry settings. Returns TRUE if successful.
      */
     BOOL RemoveSelectedItem();
-    void SetAutoComplete(DWORD flags);
+    void SetAutoComplete(DWORD flags) const;
     void SetStylesAndImageList();
 
 protected:
-    CStringArray    m_arEntries;
-    CString         m_sSection;
-    CString         m_sKeyPrefix;
-    int             m_nMaxHistoryItems;
-    BOOL            m_bAllowSortStyle;
-    BOOL            m_bURLHistory;
-    BOOL            m_bPathHistory;
-    HWND            m_hWndToolTip;
-    TOOLINFO        m_ToolInfo;
-    CString         m_ToolText;
-    BOOL            m_ttShown;
-    BOOL            m_bDyn;
-    BOOL            m_bTrim;
+    CStringArray m_arEntries;
+    CString      m_sSection;
+    CString      m_sKeyPrefix;
+    int          m_nMaxHistoryItems;
+    BOOL         m_bAllowSortStyle;
+    BOOL         m_bURLHistory;
+    BOOL         m_bPathHistory;
+    HWND         m_hWndToolTip;
+    TOOLINFO     m_toolInfo;
+    CString      m_toolText;
+    BOOL         m_ttShown;
+    BOOL         m_bDyn;
+    BOOL         m_bTrim;
 };
-
-

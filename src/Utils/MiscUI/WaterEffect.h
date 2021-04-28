@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2010, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,7 @@
 //
 #pragma once
 
-#define random( min, max ) (( rand() % (int)((( max ) + 1 ) - ( min ))) + ( min ))
+#define random(min, max) ((rand() % (int)(((max) + 1) - (min))) + (min))
 
 /**
  * \ingroup Utils
@@ -88,14 +88,14 @@ public:
      * \param iWidth the width of the picture in pixels
      * \param iHeight the height of the picture in pixels
      */
-    void Create(int iWidth,int iHeight);
+    void Create(int iWidth, int iHeight);
     /**
      * Renders the picture, i.e. perform the required calculations on \a pSrcImage and store the result in
      * \a pTargetImage
      * \param pSrcImage the image to perform the rendering on
      * \param pTargetImage the resulting image
      */
-    void Render(DWORD* pSrcImage,DWORD* pTargetImage);
+    void Render(DWORD* pSrcImage, DWORD* pTargetImage);
     /**
      * Adds a 'Blob' to the picture, i.e. the effect of a drop falling in the water.
      * \param x the x coordinate of the blob position
@@ -106,45 +106,45 @@ public:
      * \remark since DIB's are drawn upside down the y coordinate has to be 'flipped', i.e. subtract the
      * height of the picture from the real y coordinate first.
      */
-    void Blob(int x, int y, int radius, int height, int page);
+    void Blob(int x, int y, int radius, int height, int page) const;
 
-    int         m_iDensity; ///< The water density, higher values lead to slower water motion
-    int         m_iHpage;   ///< the buffer which is in use
+    int m_iDensity; ///< The water density, higher values lead to slower water motion
+    int m_iHpage;   ///< the buffer which is in use
 private:
     /**
      * Clears both buffers. The result is that all effects are cleared.
      */
-    void ClearWater();
+    void ClearWater() const;
     /**
      * performs the calculations.
      * \param npage which buffer to use
      * \param density the water density
      */
-    void CalcWater(int npage, int density);
+    void CalcWater(int npage, int density) const;
     /**
      * Smooths the waves of the water so that they disappear after a while
      * \param npage the buffer to use
      */
-    void SmoothWater(int npage);
+    void SmoothWater(int npage) const;
 
     /**
      * Draws the water effect to the resulting image buffer
      * \param page the internal buffer to use
-     * \param LightModifier how much light to use. Higher values give more 'contrast/shadows' of the waves.
+     * \param lightModifier how much light to use. Higher values give more 'contrast/shadows' of the waves.
      * \param pSrcImage the image to use
      * \param pTargetImage the resulting image
      */
-    void DrawWater(int page, int LightModifier,DWORD* pSrcImage,DWORD* pTargetImage);
+    void DrawWater(int page, int lightModifier, DWORD* pSrcImage, DWORD* pTargetImage) const;
     /**
      * Converts the colors of the source picture (perhaps with color tables) to true color values.
      */
-    COLORREF GetShiftedColor(COLORREF color,int shift);
-    int NormalizeColor(long color) const;
+    COLORREF   GetShiftedColor(COLORREF color, int shift) const;
+    static int NormalizeColor(long color);
 
-    int         m_iLightModifier;
-    int         m_iWidth;
-    int         m_iHeight;
+    int m_iLightModifier;
+    int m_iWidth;
+    int m_iHeight;
 
-    std::unique_ptr<int[]>    m_iBuffer1;
-    std::unique_ptr<int[]>    m_iBuffer2;
+    std::unique_ptr<int[]> m_iBuffer1;
+    std::unique_ptr<int[]> m_iBuffer2;
 };

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2020 - TortoiseSVN
+// Copyright (C) 2003-2014, 2020-2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -19,17 +19,16 @@
 //
 #include "stdafx.h"
 #include "TempFile.h"
-#include "PathUtils.h"
 #include "DirFileEnum.h"
 #include "SmartHandle.h"
 
-CTempFiles::CTempFiles(void)
+CTempFiles::CTempFiles()
 {
 }
 
-CTempFiles::~CTempFiles(void)
+CTempFiles::~CTempFiles()
 {
-    m_TempFileList.DeleteAllPaths(false, false, NULL);
+    m_tempFileList.DeleteAllPaths(false, false, nullptr);
 }
 
 CTempFiles& CTempFiles::Instance()
@@ -40,20 +39,20 @@ CTempFiles& CTempFiles::Instance()
 
 CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& revision) const
 {
-    DWORD len = ::GetTempPath(0, NULL);
-    auto temppath = std::make_unique<TCHAR[]>(len + 1);
-    auto tempF = std::make_unique<TCHAR[]>(len + 50);
-    ::GetTempPath (len+1, temppath.get());
-    CTSVNPath tempfile;
-    CString possibletempfile;
+    DWORD len      = ::GetTempPath(0, nullptr);
+    auto  tempPath = std::make_unique<wchar_t[]>(len + 1LL);
+    auto  tempF    = std::make_unique<wchar_t[]>(len + 50LL);
+    ::GetTempPath(len + 1, tempPath.get());
+    CTSVNPath tempFile;
+    CString   possibleTempFile;
     if (path.IsEmpty())
     {
-        ::GetTempFileName (temppath.get(), L"svn", 0, tempF.get());
-        tempfile = CTSVNPath (tempF.get());
+        ::GetTempFileName(tempPath.get(), L"svn", 0, tempF.get());
+        tempFile = CTSVNPath(tempF.get());
     }
     else
     {
-        int i=0;
+        int i = 0;
         do
         {
             // use the UI path, which does unescaping for urls
@@ -74,20 +73,19 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& rev
             {
                 if (revision.IsValid())
                 {
-                    possibletempfile.Format(L"%s%s-rev%s.svn%3.3x.tmp%s", temppath.get(), (LPCTSTR)filename, (LPCTSTR)revision.ToString(), i, (LPCTSTR)path.GetFileExtension());
+                    possibleTempFile.Format(L"%s%s-rev%s.svn%3.3x.tmp%s", tempPath.get(), static_cast<LPCTSTR>(filename), static_cast<LPCTSTR>(revision.ToString()), i, static_cast<LPCTSTR>(path.GetFileExtension()));
                 }
                 else
                 {
-                    possibletempfile.Format(L"%s%s.svn%3.3x.tmp%s", temppath.get(), (LPCTSTR)filename, i, (LPCTSTR)path.GetFileExtension());
+                    possibleTempFile.Format(L"%s%s.svn%3.3x.tmp%s", tempPath.get(), static_cast<LPCTSTR>(filename), i, static_cast<LPCTSTR>(path.GetFileExtension()));
                 }
-                tempfile.SetFromWin(possibletempfile);
-                filename = filename.Left(filename.GetLength()-1);
-            } while (   (filename.GetLength() > 4)
-                     && (tempfile.GetWinPathString().GetLength() >= MAX_PATH));
+                tempFile.SetFromWin(possibleTempFile);
+                filename = filename.Left(filename.GetLength() - 1);
+            } while ((filename.GetLength() > 4) && (tempFile.GetWinPathString().GetLength() >= MAX_PATH));
             i++;
             // now create the temp file in a thread safe way, so that subsequent calls to GetTempFile() return different filenames.
-            CAutoFile hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, nullptr, CREATE_NEW, FILE_ATTRIBUTE_TEMPORARY, nullptr);
-            auto lastErr = GetLastError();
+            CAutoFile hFile   = CreateFile(tempFile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, nullptr, CREATE_NEW, FILE_ATTRIBUTE_TEMPORARY, nullptr);
+            auto      lastErr = GetLastError();
             if (hFile || ((lastErr != ERROR_FILE_EXISTS) && (lastErr != ERROR_ACCESS_DENIED)))
                 break;
         } while (true);
@@ -95,15 +93,15 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& rev
 
     // caller has to actually grab the file path
 
-    return tempfile;
+    return tempFile;
 }
 
-CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev& revision, bool directory)
+CTSVNPath CTempFiles::CreateTempPath(bool bRemoveAtEnd, const CTSVNPath& path, const SVNRev& revision, bool directory)
 {
     bool succeeded = false;
     for (int retryCount = 0; retryCount < MAX_RETRIES; ++retryCount)
     {
-        CTSVNPath tempfile = ConstructTempPath (path, revision);
+        CTSVNPath tempFile = ConstructTempPath(path, revision);
 
         // now create the temp file / directory, so that subsequent calls to GetTempFile() return
         // different filenames.
@@ -111,8 +109,8 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
 
         if (directory)
         {
-            DeleteFile(tempfile.GetWinPath());
-            if (CreateDirectory (tempfile.GetWinPath(), NULL) == FALSE)
+            DeleteFile(tempFile.GetWinPath());
+            if (CreateDirectory(tempFile.GetWinPath(), nullptr) == FALSE)
             {
                 auto lastErr = GetLastError();
                 if ((lastErr != ERROR_ALREADY_EXISTS) && (lastErr != ERROR_ACCESS_DENIED))
@@ -123,7 +121,7 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
         }
         else
         {
-            CAutoFile hFile = CreateFile(tempfile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, NULL);
+            CAutoFile hFile = CreateFile(tempFile.GetWinPath(), GENERIC_READ, FILE_SHARE_READ, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, nullptr);
             if (!hFile)
             {
                 auto lastErr = GetLastError();
@@ -141,9 +139,9 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
         if (succeeded)
         {
             if (bRemoveAtEnd)
-                m_TempFileList.AddPath(tempfile);
+                m_tempFileList.AddPath(tempFile);
 
-            return tempfile;
+            return tempFile;
         }
     }
 
@@ -154,43 +152,42 @@ CTSVNPath CTempFiles::CreateTempPath (bool bRemoveAtEnd, const CTSVNPath& path, 
 
 CTSVNPath CTempFiles::GetTempFilePath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev& revision /* = SVNRev() */)
 {
-    return CreateTempPath (bRemoveAtEnd, path, revision, false);
+    return CreateTempPath(bRemoveAtEnd, path, revision, false);
 }
 
 CString CTempFiles::GetTempFilePathString()
 {
-    return CreateTempPath (true, CTSVNPath(), SVNRev(), false).GetWinPathString();
+    return CreateTempPath(true, CTSVNPath(), SVNRev(), false).GetWinPathString();
 }
 
 CTSVNPath CTempFiles::GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path /* = CTSVNPath() */, const SVNRev& revision /* = SVNRev() */)
 {
-    return CreateTempPath (bRemoveAtEnd, path, revision, true);
+    return CreateTempPath(bRemoveAtEnd, path, revision, true);
 }
 
 void CTempFiles::DeleteOldTempFiles(LPCTSTR wildCard)
 {
-    DWORD len = ::GetTempPath(0, NULL);
-    auto path = std::make_unique<TCHAR[]>(len + 100);
-    len = ::GetTempPath (len+100, path.get());
+    DWORD len  = ::GetTempPath(0, nullptr);
+    auto  path = std::make_unique<wchar_t[]>(len + 100LL);
+    len        = ::GetTempPath(len + 100, path.get());
     if (len == 0)
         return;
 
     CSimpleFileFind finder = CSimpleFileFind(path.get(), wildCard);
-    FILETIME systime_;
-    ::GetSystemTimeAsFileTime(&systime_);
-    __int64 systime = (__int64)systime_.dwLowDateTime | (__int64)systime_.dwHighDateTime << 32LL;
+    FILETIME        sysFileTime;
+    ::GetSystemTimeAsFileTime(&sysFileTime);
+    __int64 sysTime = static_cast<long long>(sysFileTime.dwLowDateTime) | static_cast<long long>(sysFileTime.dwHighDateTime) << 32LL;
     while (finder.FindNextFileNoDirectories())
     {
         CString filepath = finder.GetFilePath();
 
-        FILETIME createtime_ = finder.GetCreateTime();
-        __int64 createtime = (__int64)createtime_.dwLowDateTime | (__int64)createtime_.dwHighDateTime << 32LL;
-        createtime += 864000000000LL;      //only delete files older than a day
-        if (createtime < systime)
+        FILETIME createFileTime = finder.GetCreateTime();
+        __int64  createTime     = static_cast<long long>(createFileTime.dwLowDateTime) | static_cast<long long>(createFileTime.dwHighDateTime) << 32LL;
+        createTime += 864000000000LL; //only delete files older than a day
+        if (createTime < sysTime)
         {
             ::SetFileAttributes(filepath, FILE_ATTRIBUTE_NORMAL);
             ::DeleteFile(filepath);
         }
     }
 }
-

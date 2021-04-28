@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2018 - TortoiseSVN
+// Copyright (C) 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,12 +28,12 @@
  * \endcode
  * to initialize the edit control
  */
- int CALLBACK UrlWordBreakProc(LPCWSTR edit_text, int current_pos, int length, int action);
+int CALLBACK UrlWordBreakProc(LPCWSTR editText, int currentPos, int length, int action);
 
- /**
+/**
   * Goes through the whole window and sets the UrlWordBreakProc to all
   * child edit controls. If \b includeComboboxes is true, then
   * the edit controls of comboboxes have the UrlWordBreakProc set too
   * \return the number of controls for which the WordBreakProc has been set
   */
- int SetUrlWordBreakProcToChildWindows(HWND hParent, bool includeComboboxes);
+int SetUrlWordBreakProcToChildWindows(HWND hParent, bool includeComboboxes);

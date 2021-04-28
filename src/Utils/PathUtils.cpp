@@ -989,7 +989,7 @@ CString CPathUtils::CombineUrls(CString first, CString second)
 
 #if defined(_DEBUG) && defined(_MFC_VER)
 // Some test cases for these classes
-static class CPathTests
+[[maybe_unused]] static class CPathTests
 {
 public:
     CPathTests()
@@ -1001,7 +1001,7 @@ public:
     }
 
 private:
-    void EscapeTest()
+    static void EscapeTest()
     {
         CStringA test("http://domain.com/page");
         CStringA test2 = CPathUtils::PathEscape(test);
@@ -1015,7 +1015,7 @@ private:
         test2 = CPathUtils::PathEscape("https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]:443/page[]/test");
         ATLASSERT(test.Compare(test2) == 0);
     }
-    void UnescapeTest()
+    static void UnescapeTest()
     {
         CString test(L"file:///d:/REpos1/uCOS-100/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest");
         CString test2 = CPathUtils::PathUnescape(test);
@@ -1029,7 +1029,7 @@ private:
         CStringA test4 = CPathUtils::PathEscape("file:///d:/REpos1/uCOS 1.0/Trunk/name with spaces/NewTest % NewTest");
         ATLASSERT(test4.Compare("file:///d:/REpos1/uCOS%201.0/Trunk/name%20with%20spaces/NewTest%20%25%20NewTest") == 0);
     }
-    void ExtTest()
+    static void ExtTest()
     {
         CString test(L"d:\\test\filename.ext");
         ATLASSERT(CPathUtils::GetFileExtFromPath(test).Compare(L".ext") == 0);
@@ -1040,7 +1040,7 @@ private:
         test = L"filename";
         ATLASSERT(CPathUtils::GetFileExtFromPath(test).IsEmpty());
     }
-    void ParseTests()
+    static void ParseTests()
     {
         CString test(L"test 'd:\\testpath with spaces' test");
         ATLASSERT(CPathUtils::ParsePathInString(test).Compare(L"d:\\testpath with spaces") == 0);
@@ -1048,5 +1048,6 @@ private:
         ATLASSERT(CPathUtils::ParsePathInString(test).Compare(L"d:\\testpath with spaces") == 0);
     }
 
+    // ReSharper disable once CppInconsistentNaming
 } CPathTests;
 #endif

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2005-2006, 2009-2010, 2014 - TortoiseSVN
+// Copyright (C) 2005-2006, 2009-2010, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,78 +18,83 @@
 #include "stdafx.h"
 #include "DirFileEnum.h"
 
-
-CSimpleFileFind::CSimpleFileFind(const CString &sPath, LPCTSTR pPattern) :
-   m_dError(ERROR_SUCCESS),
-   m_bFirst(TRUE),
-   m_sPathPrefix(sPath)
+CSimpleFileFind::CSimpleFileFind(const CString& sPath, LPCWSTR pPattern)
+    : m_dError(ERROR_SUCCESS)
+    , m_bFirst(TRUE)
+    , m_sPathPrefix(sPath)
 {
     // Add a trailing \ to m_sPathPrefix if it is missing.
     // Do not add one to "C:" since "C:" and "C:\" are different.
     int len = m_sPathPrefix.GetLength();
     if (len != 0)
     {
-        TCHAR ch = sPath[len-1];
+        wchar_t ch = sPath[len - 1];
         if (ch != '\\' && (ch != ':' || len != 2))
         {
             m_sPathPrefix += "\\";
         }
     }
-    if ((len >= 248)&&(m_sPathPrefix.Left(4).Compare(L"\\\\?\\")))
-        m_hFindFile = ::FindFirstFile((LPCTSTR)(L"\\\\?\\" + m_sPathPrefix + pPattern), &m_FindFileData);
+    if ((len >= 248) && (m_sPathPrefix.Left(4).Compare(L"\\\\?\\")))
+        m_hFindFile = ::FindFirstFile(static_cast<LPCWSTR>(L"\\\\?\\" + m_sPathPrefix + pPattern), &m_findFileData);
     else
-        m_hFindFile = ::FindFirstFile((LPCTSTR)(m_sPathPrefix + pPattern), &m_FindFileData);
-    if (m_hFindFile == INVALID_HANDLE_VALUE) {
+        m_hFindFile = ::FindFirstFile(static_cast<LPCWSTR>(m_sPathPrefix + pPattern), &m_findFileData);
+    if (m_hFindFile == INVALID_HANDLE_VALUE)
+    {
         m_dError = ::GetLastError();
     }
-   }
+}
 
 CSimpleFileFind::~CSimpleFileFind()
 {
-   if (m_hFindFile != INVALID_HANDLE_VALUE) {
-      ::FindClose(m_hFindFile);
-   }
+    if (m_hFindFile != INVALID_HANDLE_VALUE)
+    {
+        ::FindClose(m_hFindFile);
+    }
 }
 
 BOOL CSimpleFileFind::FindNextFile()
 {
-   if (m_dError) {
-      return FALSE;
-   }
+    if (m_dError)
+    {
+        return FALSE;
+    }
 
-   if (m_bFirst) {
-      m_bFirst = FALSE;
-      return TRUE;
-   }
+    if (m_bFirst)
+    {
+        m_bFirst = FALSE;
+        return TRUE;
+    }
 
-   if (!::FindNextFile(m_hFindFile, &m_FindFileData)) {
-      m_dError = ::GetLastError();
-      return FALSE;
-   }
+    if (!::FindNextFile(m_hFindFile, &m_findFileData))
+    {
+        m_dError = ::GetLastError();
+        return FALSE;
+    }
 
-   return TRUE;
+    return TRUE;
 }
 
 BOOL CSimpleFileFind::FindNextFileNoDots()
 {
-   BOOL result;
-   do {
-      result = FindNextFile();
-   } while (result && IsDots());
+    BOOL result;
+    do
+    {
+        result = FindNextFile();
+    } while (result && IsDots());
 
-   return result;
+    return result;
 }
 
 BOOL CSimpleFileFind::FindNextFileNoDirectories()
 {
-   BOOL result;
-   do {
-      result = FindNextFile();
-   } while (result && IsDirectory());
+    BOOL result;
+    do
+    {
+        result = FindNextFile();
+    } while (result && IsDirectory());
 
-   return result;
+    return result;
 }
-
 
 /*
  * Implementation notes:
@@ -112,11 +117,10 @@ BOOL CSimpleFileFind::FindNextFileNoDirectories()
  * The "." and ".." psedo-directories are ignored for obvious reasons.
  */
 
-
-CDirFileEnum::CDirStackEntry::CDirStackEntry(CDirStackEntry * seNext,
-                                             const CString& sDirName)
-                                             : CSimpleFileFind(sDirName),
-                                             m_seNext(seNext)
+CDirFileEnum::CDirStackEntry::CDirStackEntry(CDirStackEntry* seNext,
+                                             const CString&  sDirName)
+    : CSimpleFileFind(sDirName)
+    , m_seNext(seNext)
 {
 }
 
@@ -126,54 +130,61 @@ CDirFileEnum::CDirStackEntry::~CDirStackEntry()
 
 inline void CDirFileEnum::PopStack()
 {
-   CDirStackEntry * seToDelete = m_seStack;
-   m_seStack = seToDelete->m_seNext;
-   delete seToDelete;
+    CDirStackEntry* seToDelete = m_seStack;
+    m_seStack                  = seToDelete->m_seNext;
+    delete seToDelete;
 }
 
 inline void CDirFileEnum::PushStack(const CString& sDirName)
 {
-   m_seStack = new CDirStackEntry(m_seStack,sDirName);
+    m_seStack = new CDirStackEntry(m_seStack, sDirName);
 }
 
-CDirFileEnum::CDirFileEnum(const CString& sDirName) :
-   m_seStack(NULL),
-   m_bIsNew(TRUE)
+CDirFileEnum::CDirFileEnum(const CString& sDirName)
+    : m_seStack(nullptr)
+    , m_bIsNew(TRUE)
 {
-   PushStack(sDirName);
+    PushStack(sDirName);
 }
 
 CDirFileEnum::~CDirFileEnum()
 {
-   while (m_seStack != NULL) {
-      PopStack();
-   }
+    while (m_seStack != nullptr)
+    {
+        PopStack();
+    }
 }
 
-BOOL CDirFileEnum::NextFile(CString &sResult, bool* pbIsDirectory, bool bRecurse /* = true */)
+BOOL CDirFileEnum::NextFile(CString& sResult, bool* pbIsDirectory, bool bRecurse /* = true */)
 {
-   if (m_bIsNew) {
-      // Special-case first time - haven't found anything yet,
-      // so don't do recurse-into-directory check.
-      m_bIsNew = FALSE;
-   } else if (m_seStack && m_seStack->IsDirectory() && bRecurse) {
-      PushStack(m_seStack->GetFilePath());
-   }
+    if (m_bIsNew)
+    {
+        // Special-case first time - haven't found anything yet,
+        // so don't do recurse-into-directory check.
+        m_bIsNew = FALSE;
+    }
+    else if (m_seStack && m_seStack->IsDirectory() && bRecurse)
+    {
+        PushStack(m_seStack->GetFilePath());
+    }
 
-   while (m_seStack && !m_seStack->FindNextFileNoDots()) {
-      // No more files in this directory, try parent.
-      PopStack();
-   }
+    while (m_seStack && !m_seStack->FindNextFileNoDots())
+    {
+        // No more files in this directory, try parent.
+        PopStack();
+    }
 
-   if (m_seStack)
-   {
-      sResult = m_seStack->GetFilePath();
-      if(pbIsDirectory != NULL)
-      {
-          *pbIsDirectory = m_seStack->IsDirectory();
-      }
-      return TRUE;
-   } else {
-      return FALSE;
-   }
+    if (m_seStack)
+    {
+        sResult = m_seStack->GetFilePath();
+        if (pbIsDirectory != nullptr)
+        {
+            *pbIsDirectory = m_seStack->IsDirectory();
+        }
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
 }

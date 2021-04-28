@@ -205,9 +205,9 @@ std::string CProfilingInfo::GetReport() const
     if (lError == ERROR_SUCCESS)
     {
         // query the key:
-        DWORD BufSize = MAX_PATH;
+        DWORD bufSize = MAX_PATH;
         DWORD dwMHz   = 0;
-        RegQueryValueEx(hKey, L"~MHz", nullptr, nullptr, reinterpret_cast<LPBYTE>(&dwMHz), &BufSize);
+        RegQueryValueEx(hKey, L"~MHz", nullptr, nullptr, reinterpret_cast<LPBYTE>(&dwMHz), &bufSize);
         RegCloseKey(hKey);
 
         sprintf_s(lineBuffer, "processor speed is %lu MHz\n", dwMHz);

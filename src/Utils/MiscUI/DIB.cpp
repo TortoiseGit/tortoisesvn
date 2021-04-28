@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2013, 2017 - TortoiseSVN
+// Copyright (C) 2003-2006, 2013, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 
 CDib::CDib()
 {
-    m_hBitmap = NULL;
+    m_hBitmap = nullptr;
     DeleteObject();
 }
 
@@ -34,35 +34,35 @@ CDib::~CDib()
 int CDib::BytesPerLine(int nWidth, int nBitsPerPixel)
 {
     int nBytesPerLine = nWidth * nBitsPerPixel;
-    nBytesPerLine = ( (nBytesPerLine + 31) & (~31) ) / 8;
+    nBytesPerLine     = ((nBytesPerLine + 31) & (~31)) / 8;
     return nBytesPerLine;
 }
 
 void CDib::DeleteObject()
 {
-    m_pBits = NULL;
+    m_pBits = nullptr;
     if (m_hBitmap)
         ::DeleteObject(m_hBitmap);
-    m_hBitmap = NULL;
+    m_hBitmap = nullptr;
 
-    SecureZeroMemory(&m_BMinfo, sizeof(m_BMinfo));
+    SecureZeroMemory(&m_bmInfo, sizeof(m_bmInfo));
 }
 
-void CDib::Create32BitFromPicture (CPictureHolder* pPicture, int iWidth, int iHeight)
+void CDib::Create32BitFromPicture(CPictureHolder* pPicture, int iWidth, int iHeight)
 {
-    CRect r;
-    CBitmap newBMP;
-    CWindowDC dc(NULL);
-    CDC tempDC;
+    CRect     r;
+    CBitmap   newBmp;
+    CWindowDC dc(nullptr);
+    CDC       tempDC;
 
     tempDC.CreateCompatibleDC(&dc);
 
-    newBMP.CreateDiscardableBitmap(&dc,iWidth,iHeight);
+    newBmp.CreateDiscardableBitmap(&dc, iWidth, iHeight);
 
-    CBitmap* pOldBitmap = tempDC.SelectObject(&newBMP);
+    CBitmap* pOldBitmap = tempDC.SelectObject(&newBmp);
 
-    r.SetRect(0,0,iWidth,iHeight);
-    pPicture->Render(&tempDC,r,r);
+    r.SetRect(0, 0, iWidth, iHeight);
+    pPicture->Render(&tempDC, r, r);
 
     // Create a 32 bit bitmap
     std::vector<DWORD> pBits(iWidth * iHeight);
@@ -80,17 +80,16 @@ void CDib::Create32BitFromPicture (CPictureHolder* pPicture, int iWidth, int iHe
     bi.bmiHeader.biClrUsed       = 0;
     bi.bmiHeader.biClrImportant  = 0;
 
-
     SetBitmap(&bi, pBits.data());
 
-    DWORD* pAr = (DWORD*)GetDIBits();
+    DWORD* pAr = static_cast<DWORD*>(GetDIBits());
 
     // Copy data into the 32 bit dib..
-    for(int i=0;i<iHeight;i++)
+    for (int i = 0; i < iHeight; i++)
     {
-        for(int j=0;j<iWidth;j++)
+        for (int j = 0; j < iWidth; j++)
         {
-            pAr[(i*iWidth)+j] = FixColorRef(tempDC.GetPixel(j,i));
+            pAr[(i * iWidth) + j] = FixColorRef(tempDC.GetPixel(j, i));
         }
     }
 
@@ -104,34 +103,34 @@ BOOL CDib::SetBitmap(const LPBITMAPINFO lpBitmapInfo, const LPVOID lpBits)
     if (!lpBitmapInfo || !lpBits)
         return FALSE;
 
-    HDC hDC = NULL;
+    HDC hDC = nullptr;
 
     DWORD dwBitmapInfoSize = sizeof(BITMAPINFO);
 
-    memcpy(&m_BMinfo, lpBitmapInfo, dwBitmapInfoSize);
+    memcpy(&m_bmInfo, lpBitmapInfo, dwBitmapInfoSize);
 
-    hDC = ::GetDC(NULL);
+    hDC = ::GetDC(nullptr);
     if (!hDC)
     {
         DeleteObject();
         return FALSE;
     }
 
-    m_hBitmap = CreateDIBSection(hDC, &m_BMinfo,
-                                    DIB_RGB_COLORS, &m_pBits, NULL, 0);
-    ::ReleaseDC(NULL, hDC);
+    m_hBitmap = CreateDIBSection(hDC, &m_bmInfo,
+                                 DIB_RGB_COLORS, &m_pBits, nullptr, 0);
+    ::ReleaseDC(nullptr, hDC);
     if (!m_hBitmap)
     {
         DeleteObject();
         return FALSE;
     }
 
-    DWORD dwImageSize = m_BMinfo.bmiHeader.biSizeImage;
+    DWORD dwImageSize = m_bmInfo.bmiHeader.biSizeImage;
     if (dwImageSize == 0)
     {
         int nBytesPerLine = BytesPerLine(lpBitmapInfo->bmiHeader.biWidth,
-                                            lpBitmapInfo->bmiHeader.biBitCount);
-        dwImageSize = nBytesPerLine * lpBitmapInfo->bmiHeader.biHeight;
+                                         lpBitmapInfo->bmiHeader.biBitCount);
+        dwImageSize       = nBytesPerLine * lpBitmapInfo->bmiHeader.biHeight;
     }
 
     GdiFlush();
@@ -146,16 +145,16 @@ BOOL CDib::Draw(CDC* pDC, CPoint ptDest)
     if (!m_hBitmap)
         return FALSE;
 
-    CSize size = GetSize();
-    CPoint SrcOrigin = CPoint(0,0);
+    CSize  size      = GetSize();
+    CPoint srcOrigin = CPoint(0, 0);
 
     BOOL resVal = SetDIBitsToDevice(pDC->GetSafeHdc(),
-                                ptDest.x, ptDest.y,
-                                size.cx, size.cy,
-                                SrcOrigin.x, SrcOrigin.y,
-                                SrcOrigin.y, size.cy - SrcOrigin.y,
-                                GetDIBits(), &m_BMinfo,
-                                DIB_RGB_COLORS);
+                                    ptDest.x, ptDest.y,
+                                    size.cx, size.cy,
+                                    srcOrigin.x, srcOrigin.y,
+                                    srcOrigin.y, size.cy - srcOrigin.y,
+                                    GetDIBits(), &m_bmInfo,
+                                    DIB_RGB_COLORS);
 
     return resVal;
 }
@@ -164,8 +163,7 @@ COLORREF CDib::FixColorRef(COLORREF clr)
 {
     int r = GetRValue(clr);
     int g = GetGValue(clr);
-    int b =  GetBValue(clr);
+    int b = GetBValue(clr);
 
-    return RGB(b,g,r);
+    return RGB(b, g, r);
 }
-

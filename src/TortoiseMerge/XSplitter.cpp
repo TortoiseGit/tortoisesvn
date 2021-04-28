@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006, 2011, 2016, 2020 - TortoiseSVN
+// Copyright (C) 2006, 2011, 2016, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 #include "Theme.h"
 
 #ifdef _DEBUG
+// ReSharper disable once CppInconsistentNaming
 #    define new DEBUG_NEW
 #    undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
@@ -42,7 +43,6 @@ CXSplitter::~CXSplitter()
     delete[] m_pRowOldSize;
     delete[] m_pColOldSize;
 }
-
 
 BEGIN_MESSAGE_MAP(CXSplitter, CSplitterWnd)
     ON_WM_LBUTTONDBLCLK()
@@ -309,9 +309,9 @@ void CXSplitter::OnDrawSplitter(CDC* pDC, ESplitType nType, const CRect& rectArg
     if (!CTheme::Instance().IsDarkTheme())
         return __super::OnDrawSplitter(pDC, nType, rectArg);
     // if pDC == NULL, then just invalidate
-    if (pDC == NULL)
+    if (pDC == nullptr)
     {
-        RedrawWindow(rectArg, NULL, RDW_INVALIDATE | RDW_NOCHILDREN);
+        RedrawWindow(rectArg, nullptr, RDW_INVALIDATE | RDW_NOCHILDREN);
         return;
     }
     ASSERT_VALID(pDC);

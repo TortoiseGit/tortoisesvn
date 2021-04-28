@@ -30,8 +30,10 @@
 #include <memory>
 
 #if defined(_MFC_VER)
+// ReSharper disable CppUnusedIncludeDirective
 #    include "AppUtils.h"
 #    include "StringUtils.h"
+// ReSharper restore CppUnusedIncludeDirective
 #endif
 
 CTSVNPath::CTSVNPath()
@@ -890,7 +892,7 @@ bool CTSVNPathList::LoadFromFile(const CTSVNPath& filename)
     {
         auto error = std::make_unique<wchar_t[]>(10000);
         pE->GetErrorMessage(error.get(), 10000);
-        ::MessageBox(NULL, error.get(), L"TortoiseSVN", MB_ICONERROR);
+        ::MessageBox(nullptr, error.get(), L"TortoiseSVN", MB_ICONERROR);
         pE->Delete();
         return false;
     }

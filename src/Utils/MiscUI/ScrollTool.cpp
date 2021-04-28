@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "ScrollTool.h"
 
-
 CScrollTool::CScrollTool()
     : m_bInitCalled(false)
     , m_bRightAligned(false)
@@ -31,10 +30,8 @@ CScrollTool::~CScrollTool()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CScrollTool, CWnd)
 END_MESSAGE_MAP()
-
 
 bool CScrollTool::Init(LPPOINT pos, bool bRightAligned /* = false */)
 {
@@ -42,73 +39,73 @@ bool CScrollTool::Init(LPPOINT pos, bool bRightAligned /* = false */)
     {
         // create the tooltip window
         if (!CreateEx(NULL,
-                     TOOLTIPS_CLASS,
-                     NULL,
-                     TTS_NOPREFIX | TTS_ALWAYSTIP,
-                     CW_USEDEFAULT,
-                     CW_USEDEFAULT,
-                     CW_USEDEFAULT,
-                     CW_USEDEFAULT,
-                     NULL,
-                     NULL,
-                     NULL))
+                      TOOLTIPS_CLASS,
+                      nullptr,
+                      TTS_NOPREFIX | TTS_ALWAYSTIP,
+                      CW_USEDEFAULT,
+                      CW_USEDEFAULT,
+                      CW_USEDEFAULT,
+                      CW_USEDEFAULT,
+                      nullptr,
+                      nullptr,
+                      nullptr))
         {
             return false;
         }
 
-        ti.cbSize = sizeof(TOOLINFO);
-        ti.uFlags = TTF_TRACK;
-        ti.hwnd = NULL;
-        ti.hinst = NULL;
-        ti.uId = 0;
+        ti.cbSize   = sizeof(TOOLINFO);
+        ti.uFlags   = TTF_TRACK;
+        ti.hwnd     = nullptr;
+        ti.hinst    = nullptr;
+        ti.uId      = 0;
         ti.lpszText = L" ";
 
         // ToolTip control will cover the whole window
-        ti.rect.left = 0;
-        ti.rect.top = 0;
-        ti.rect.right = 0;
+        ti.rect.left   = 0;
+        ti.rect.top    = 0;
+        ti.rect.right  = 0;
         ti.rect.bottom = 0;
 
         CPoint point;
         ::GetCursorPos(&point);
 
-        SendMessage(TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &ti);
+        SendMessage(TTM_ADDTOOL, 0, reinterpret_cast<LPARAM>(&ti));
 
-        SendMessage(TTM_TRACKPOSITION, 0, (LPARAM)(DWORD) MAKELONG(point.x, point.y));
-        SendMessage(TTM_TRACKACTIVATE, true, (LPARAM)(LPTOOLINFO) &ti);
+        SendMessage(TTM_TRACKPOSITION, 0, static_cast<LPARAM>(MAKELONG(point.x, point.y)));
+        SendMessage(TTM_TRACKACTIVATE, true, reinterpret_cast<LPARAM>(&ti));
         SendMessage(TTM_TRACKPOSITION, 0, MAKELONG(pos->x, pos->y));
         m_bRightAligned = bRightAligned;
-        m_bInitCalled = true;
+        m_bInitCalled   = true;
     }
     return true;
 }
 
-void CScrollTool::SetText(LPPOINT pos, const TCHAR * fmt, ...)
+void CScrollTool::SetText(LPPOINT pos, const TCHAR *fmt, ...)
 {
     if (!m_bInitCalled)
     {
-        ASSERT( 0 );
+        ASSERT(0);
         return;
     }
 
     CString s;
     va_list marker;
 
-    va_start( marker, fmt );
+    va_start(marker, fmt);
     s.FormatV(fmt, marker);
-    va_end( marker );
+    va_end(marker);
 
-    CSize textsize(0);
+    CSize textSize(0);
     if (m_bRightAligned)
     {
         CDC *pDC = GetDC();
-        textsize = pDC->GetTextExtent(s);
+        textSize = pDC->GetTextExtent(s);
         ReleaseDC(pDC);
     }
 
     ti.lpszText = s.GetBuffer();
-    SendMessage(TTM_UPDATETIPTEXT, 0, (LPARAM)(LPTOOLINFO) &ti);
-    SendMessage(TTM_TRACKPOSITION, 0, MAKELONG(pos->x-textsize.cx, pos->y));
+    SendMessage(TTM_UPDATETIPTEXT, 0, reinterpret_cast<LPARAM>(&ti));
+    SendMessage(TTM_TRACKPOSITION, 0, MAKELONG(pos->x - textSize.cx, pos->y));
     s.ReleaseBuffer();
 }
 
@@ -116,7 +113,7 @@ void CScrollTool::Clear()
 {
     if (m_bInitCalled)
     {
-        SendMessage(TTM_DELTOOL, 0, (LPARAM)(LPTOOLINFO) &ti);
+        SendMessage(TTM_DELTOOL, 0, reinterpret_cast<LPARAM>(&ti));
         DestroyWindow();
     }
     m_bInitCalled = false;
@@ -124,8 +121,8 @@ void CScrollTool::Clear()
 
 LONG CScrollTool::GetTextWidth(LPCTSTR szText)
 {
-    CDC *pDC = GetDC();
-    CSize textsize = pDC->GetTextExtent(szText, (int)wcslen(szText));
+    CDC * pDC      = GetDC();
+    CSize textSize = pDC->GetTextExtent(szText, static_cast<int>(wcslen(szText)));
     ReleaseDC(pDC);
-    return textsize.cx;
+    return textSize.cx;
 }

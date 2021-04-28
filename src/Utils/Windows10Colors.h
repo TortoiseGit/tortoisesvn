@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2020 - TortoiseSVN
+// Copyright (C) 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,6 @@
  */
 
 #include <Windows.h>
-#include <vector>
 #include <wrl.h>
 #include <windows.ui.viewmanagement.h>
 
@@ -66,18 +65,18 @@ public:
     /// Dynamically loaded WindowsCreateStringReference, if available
     static HRESULT WindowsCreateStringReference(PCWSTR sourceString, UINT32 length, HSTRING_HEADER* hstringHeader, HSTRING* string)
     {
-        return instance.WindowsCreateStringReferenceImpl(sourceString, length, hstringHeader, string);
+        return m_instance.WindowsCreateStringReferenceImpl(sourceString, length, hstringHeader, string);
     }
 
     /// Dynamically loaded RoActivateInstance, if available
     static HRESULT RoActivateInstance(HSTRING activatableClassId, IInspectable** newInstance)
     {
-        return instance.RoActivateInstanceImpl(activatableClassId, newInstance);
+        return m_instance.RoActivateInstanceImpl(activatableClassId, newInstance);
     }
 
 protected:
     /// Wrap WindowsCreateStringReference
-    inline HRESULT WindowsCreateStringReferenceImpl(PCWSTR sourceString, UINT32 length, HSTRING_HEADER* hstringHeader, HSTRING* string)
+    HRESULT WindowsCreateStringReferenceImpl(PCWSTR sourceString, UINT32 length, HSTRING_HEADER* hstringHeader, HSTRING* string) const
     {
         if (!pWindowsCreateStringReference)
             return E_NOTIMPL;
@@ -85,32 +84,31 @@ protected:
     }
 
     /// Wrap RoActivateInstance
-    inline HRESULT RoActivateInstanceImpl(HSTRING activatableClassId, IInspectable** inst)
+    HRESULT RoActivateInstanceImpl(HSTRING activatableClassId, IInspectable** inst) const
     {
         if (!pRoActivateInstance)
             return E_NOTIMPL;
         return pRoActivateInstance(activatableClassId, inst);
     }
 
-    static inline RGBA MakeRGBA(uint8_t R, uint8_t G, uint8_t B, uint8_t A)
+    static RGBA MakeRGBA(uint8_t r, uint8_t g, uint8_t b, uint8_t a)
     {
-        return RGB(R, G, B) | (A << 24);
+        return RGB(r, g, b) | (a << 24);
     }
 
-    static inline RGBA ToRGBA(ABI::Windows::UI::Color color)
+    static RGBA ToRGBA(ABI::Windows::UI::Color color)
     {
         return MakeRGBA(color.R, color.G, color.B, color.A);
     }
 
 private:
-    static Win10Colors instance;
-    bool               modules_loaded = false;
-    HMODULE            winrt          = 0;
-    HMODULE            winrt_string   = 0;
+    static Win10Colors m_instance;
+    bool               m_modulesLoaded = false;
+    HMODULE            m_winRt         = nullptr;
+    HMODULE            m_winrtString   = nullptr;
 
-    typedef HRESULT(STDAPICALLTYPE* pfnWindowsCreateStringReference)(
-        PCWSTR sourceString, UINT32 length, HSTRING_HEADER* hstringHeader, HSTRING* string);
-    pfnWindowsCreateStringReference pWindowsCreateStringReference = nullptr;
-    typedef HRESULT(WINAPI* pfnRoActivateInstance)(HSTRING activatableClassId, IInspectable** instance);
-    pfnRoActivateInstance pRoActivateInstance = nullptr;
+    using PfnWindowsCreateStringReference                         = HRESULT(STDAPICALLTYPE*)(PCWSTR sourceString, UINT32 length, HSTRING_HEADER* hstringHeader, HSTRING* string);
+    PfnWindowsCreateStringReference pWindowsCreateStringReference = nullptr;
+    using PfnRoActivateInstance                                   = HRESULT(WINAPI*)(HSTRING activatableClassId, IInspectable** instance);
+    PfnRoActivateInstance pRoActivateInstance                     = nullptr;
 };

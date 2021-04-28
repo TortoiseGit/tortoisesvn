@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2014 - TortoiseSVN
+// Copyright (C) 2003-2006, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -54,7 +54,7 @@ public:
      * \param pos the position in screen coordinates where the tooltip should be shown
      * \fmt a format string
      */
-    void SetText(LPPOINT pos, const TCHAR * fmt, ...);
+    void SetText(LPPOINT pos, const TCHAR* fmt, ...);
     /**
      * Removes the tooltip control.
      */
@@ -64,12 +64,12 @@ public:
      */
     LONG GetTextWidth(LPCTSTR szText);
 
-    virtual ~CScrollTool();
+    ~CScrollTool() override;
 
 protected:
     DECLARE_MESSAGE_MAP()
 private:
     TOOLINFO ti;
-    bool m_bInitCalled;
-    bool m_bRightAligned;
+    bool     m_bInitCalled;
+    bool     m_bRightAligned;
 };

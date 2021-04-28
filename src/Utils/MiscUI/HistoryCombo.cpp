@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017, 2019-2020 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017, 2019-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,23 +22,23 @@
 #include "Theme.h"
 
 #ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
-#include "SysImageList.h"
+#    include "SysImageList.h"
 #endif
 
 #define MAX_HISTORY_ITEMS 25
 
-CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/ )
+CHistoryCombo::CHistoryCombo(BOOL bAllowSortStyle /*=FALSE*/)
     : CComboBoxEx()
-    , m_nMaxHistoryItems((INT)(DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\MaxHistoryComboItems", MAX_HISTORY_ITEMS))
+    , m_nMaxHistoryItems(static_cast<INT>(static_cast<DWORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\MaxHistoryComboItems", MAX_HISTORY_ITEMS))))
     , m_bAllowSortStyle(bAllowSortStyle)
     , m_bURLHistory(FALSE)
     , m_bPathHistory(FALSE)
-    , m_hWndToolTip(NULL)
+    , m_hWndToolTip(nullptr)
     , m_ttShown(FALSE)
     , m_bDyn(FALSE)
     , m_bTrim(TRUE)
 {
-    SecureZeroMemory(&m_ToolInfo, sizeof(m_ToolInfo));
+    SecureZeroMemory(&m_toolInfo, sizeof(m_toolInfo));
 }
 
 CHistoryCombo::~CHistoryCombo()
@@ -47,7 +47,7 @@ CHistoryCombo::~CHistoryCombo()
 
 BOOL CHistoryCombo::PreCreateWindow(CREATESTRUCT& cs)
 {
-    if (!m_bAllowSortStyle)  //turn off CBS_SORT style
+    if (!m_bAllowSortStyle) //turn off CBS_SORT style
         cs.style &= ~CBS_SORT;
     cs.style |= CBS_AUTOHSCROLL;
     m_bDyn = TRUE;
@@ -58,36 +58,36 @@ BOOL CHistoryCombo::PreTranslateMessage(MSG* pMsg)
 {
     switch (pMsg->message)
     {
-    case WM_KEYDOWN:
+        case WM_KEYDOWN:
         {
-            bool bShift = !!(GetKeyState(VK_SHIFT) & 0x8000);
-            int nVirtKey = (int) pMsg->wParam;
+            bool bShift   = !!(GetKeyState(VK_SHIFT) & 0x8000);
+            int  nVirtKey = static_cast<int>(pMsg->wParam);
 
             if (nVirtKey == VK_RETURN)
                 return OnReturnKeyPressed();
-            else if (nVirtKey == VK_DELETE && bShift && GetDroppedState() )
+            else if (nVirtKey == VK_DELETE && bShift && GetDroppedState())
             {
                 RemoveSelectedItem();
                 return TRUE;
             }
         }
         break;
-    case WM_MOUSEMOVE:
+        case WM_MOUSEMOVE:
         {
             if ((pMsg->wParam & MK_LBUTTON) == 0)
             {
                 CPoint pt;
                 pt.x = LOWORD(pMsg->lParam);
                 pt.y = HIWORD(pMsg->lParam);
-                OnMouseMove((UINT)pMsg->wParam, pt);
+                OnMouseMove(static_cast<UINT>(pMsg->wParam), pt);
                 return TRUE;
             }
         }
         break;
-    case WM_MOUSEWHEEL:
-    case WM_MOUSEHWHEEL:
-        if (!GetDroppedState())
-            return TRUE;
+        case WM_MOUSEWHEEL:
+        case WM_MOUSEHWHEEL:
+            if (!GetDroppedState())
+                return TRUE;
     }
     return CComboBoxEx::PreTranslateMessage(pMsg);
 }
@@ -112,7 +112,7 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
     }
 
     COMBOBOXEXITEM cbei = {0};
-    cbei.mask = CBEIF_TEXT;
+    cbei.mask           = CBEIF_TEXT;
 
     if (pos < 0)
         cbei.iItem = GetCount();
@@ -175,21 +175,21 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
     return nRet;
 }
 
-CString CHistoryCombo::LoadHistory(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
+CString CHistoryCombo::LoadHistory(LPCWSTR lpszSection, LPCWSTR lpszKeyPrefix)
 {
-    if (lpszSection == NULL || lpszKeyPrefix == NULL || *lpszSection == '\0')
+    if (lpszSection == nullptr || lpszKeyPrefix == nullptr || *lpszSection == '\0')
         return L"";
 
-    m_sSection = lpszSection;
+    m_sSection   = lpszSection;
     m_sKeyPrefix = lpszKeyPrefix;
 
-    int n = 0;
+    int     n = 0;
     CString sText;
     do
     {
         //keys are of form <lpszKeyPrefix><entrynumber>
         CString sKey;
-        sKey.Format(L"%s\\%s%d", (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n++);
+        sKey.Format(L"%s\\%s%d", static_cast<LPCWSTR>(m_sSection), static_cast<LPCWSTR>(m_sKeyPrefix), n++);
         sText = CRegString(sKey);
         if (!sText.IsEmpty())
             AddString(sText);
@@ -218,42 +218,42 @@ void CHistoryCombo::SaveHistory()
     GetWindowText(sCurItem);
     if (m_bTrim)
         sCurItem.Trim();
-    if (!sCurItem.IsEmpty()&&(sCurItem.GetLength() < MAX_PATH))
+    if (!sCurItem.IsEmpty() && (sCurItem.GetLength() < MAX_PATH))
         AddString(sCurItem, 0);
     //save history to registry/inifile
     int nMax = min(GetCount(), m_nMaxHistoryItems + 1);
     for (int n = 0; n < nMax; n++)
     {
         CString sKey;
-        sKey.Format(L"%s\\%s%d", (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n);
+        sKey.Format(L"%s\\%s%d", static_cast<LPCWSTR>(m_sSection), static_cast<LPCWSTR>(m_sKeyPrefix), n);
         CRegString regkey(sKey);
         regkey = m_arEntries.GetAt(n);
     }
     //remove items exceeding the max number of history items
-    for (int n = nMax; ; n++)
+    for (int n = nMax;; n++)
     {
         CString sKey;
-        sKey.Format(L"%s\\%s%d", (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n);
+        sKey.Format(L"%s\\%s%d", static_cast<LPCWSTR>(m_sSection), static_cast<LPCWSTR>(m_sKeyPrefix), n);
         CRegString regkey = CRegString(sKey);
-        CString sText = regkey;
+        CString    sText  = regkey;
         if (sText.IsEmpty())
             break;
         regkey.removeValue(); // remove entry
     }
 }
 
-void CHistoryCombo::ClearHistory(BOOL bDeleteRegistryEntries/*=TRUE*/)
+void CHistoryCombo::ClearHistory(BOOL bDeleteRegistryEntries /*=TRUE*/)
 {
     ResetContent();
-    if (! m_sSection.IsEmpty() && bDeleteRegistryEntries)
+    if (!m_sSection.IsEmpty() && bDeleteRegistryEntries)
     {
         //remove profile entries
         CString sKey;
-        for (int n = 0; ; n++)
+        for (int n = 0;; n++)
         {
-            sKey.Format(L"%s\\%s%d", (LPCTSTR)m_sSection, (LPCTSTR)m_sKeyPrefix, n);
+            sKey.Format(L"%s\\%s%d", static_cast<LPCWSTR>(m_sSection), static_cast<LPCWSTR>(m_sKeyPrefix), n);
             CRegString regkey = CRegString(sKey);
-            CString sText = regkey;
+            CString    sText  = regkey;
             if (sText.IsEmpty())
                 break;
             regkey.removeValue(); // remove entry
@@ -265,7 +265,7 @@ void CHistoryCombo::SetURLHistory(bool bURLHistory, bool bAutoComplete)
 {
     m_bURLHistory = bURLHistory;
 
-    if ((m_bURLHistory)&&(bAutoComplete))
+    if ((m_bURLHistory) && (bAutoComplete))
         SetAutoComplete(SHACF_URLALL);
 
     SetStylesAndImageList();
@@ -281,15 +281,15 @@ void CHistoryCombo::SetPathHistory(BOOL bPathHistory)
     SetStylesAndImageList();
 }
 
-void CHistoryCombo::SetAutoComplete(DWORD flags)
+void CHistoryCombo::SetAutoComplete(DWORD flags) const
 {
     // use for ComboEx
-    HWND hwndEdit = (HWND)::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0);
-    if (NULL == hwndEdit)
+    HWND hwndEdit = reinterpret_cast<HWND>(::SendMessage(this->m_hWnd, CBEM_GETEDITCONTROL, 0, 0));
+    if (nullptr == hwndEdit)
     {
         // Try the unofficial way of getting the edit control CWnd*
         CWnd* pWnd = this->GetDlgItem(1001);
-        if(pWnd)
+        if (pWnd)
         {
             hwndEdit = pWnd->GetSafeHwnd();
         }
@@ -300,7 +300,7 @@ void CHistoryCombo::SetAutoComplete(DWORD flags)
 
 void CHistoryCombo::SetStylesAndImageList()
 {
-    SetExtendedStyle(CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE, CBES_EX_PATHWORDBREAKPROC|CBES_EX_CASESENSITIVE);
+    SetExtendedStyle(CBES_EX_PATHWORDBREAKPROC | CBES_EX_CASESENSITIVE, CBES_EX_PATHWORDBREAKPROC | CBES_EX_CASESENSITIVE);
 #ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
     SetImageList(&SYS_IMAGE_LIST());
 #endif
@@ -319,9 +319,8 @@ void CHistoryCombo::SetMaxHistoryItems(int nMaxItems)
 CString CHistoryCombo::GetString() const
 {
     CString str;
-    int sel;
-    sel = GetCurSel();
-    int len = 0;
+    int     sel = GetCurSel();
+    int     len = 0;
     if (sel != CB_ERR)
         len = GetLBTextLen(sel);
     if (sel == CB_ERR)
@@ -329,12 +328,12 @@ CString CHistoryCombo::GetString() const
         GetWindowText(str);
         return str;
     }
-    if (len >= (MAX_PATH-1))
+    if (len >= (MAX_PATH - 1))
     {
         GetWindowText(str);
         return str;
     }
-    if ((m_bURLHistory)||(m_bPathHistory)||(GetStyle()&CBS_DROPDOWNLIST))
+    if ((m_bURLHistory) || (m_bPathHistory) || (GetStyle() & CBS_DROPDOWNLIST))
     {
         //URL and path history combo boxes are editable, so get
         //the string directly from the combobox
@@ -363,7 +362,7 @@ BOOL CHistoryCombo::RemoveSelectedItem()
     DeleteItem(nIndex);
     m_arEntries.RemoveAt(nIndex);
 
-    if ( nIndex < GetCount() )
+    if (nIndex < GetCount())
     {
         // index stays the same to select the
         // next item after the item which has
@@ -376,7 +375,7 @@ BOOL CHistoryCombo::RemoveSelectedItem()
         nIndex--;
     }
 
-    if ( nIndex == -1 )
+    if (nIndex == -1)
     {
         // The one and only item has just been
         // deleted -> reset window text since
@@ -395,7 +394,7 @@ BOOL CHistoryCombo::RemoveSelectedItem()
     // the selection after saving.
     SetCurSel(0);
     SaveHistory();
-    if ( nIndex != -1 )
+    if (nIndex != -1)
     {
         SetCurSel(nIndex);
     }
@@ -416,22 +415,22 @@ void CHistoryCombo::OnMouseMove(UINT nFlags, CPoint point)
     CRect rectClient;
     GetClientRect(&rectClient);
     int nComboButtonWidth = ::GetSystemMetrics(SM_CXHTHUMB) + 2;
-    rectClient.right = rectClient.right - nComboButtonWidth;
+    rectClient.right      = rectClient.right - nComboButtonWidth;
 
     if (rectClient.PtInRect(point))
     {
         ClientToScreen(&rectClient);
 
-        m_ToolText = GetString();
-        m_ToolInfo.lpszText = (LPTSTR)(LPCTSTR)m_ToolText;
+        m_toolText          = GetString();
+        m_toolInfo.lpszText = const_cast<LPWSTR>(static_cast<LPCWSTR>(m_toolText));
 
         HDC hDC = ::GetDC(m_hWnd);
 
-        CFont *pFont = GetFont();
-        HFONT hOldFont = (HFONT) ::SelectObject(hDC, (HFONT) *pFont);
+        CFont* pFont    = GetFont();
+        HFONT  hOldFont = static_cast<HFONT>(::SelectObject(hDC, static_cast<HFONT>(*pFont)));
 
         SIZE size;
-        ::GetTextExtentPoint32(hDC, m_ToolText, m_ToolText.GetLength(), &size);
+        ::GetTextExtentPoint32(hDC, m_toolText, m_toolText.GetLength(), &size);
         ::SelectObject(hDC, hOldFont);
         ::ReleaseDC(m_hWnd, hDC);
 
@@ -440,15 +439,15 @@ void CHistoryCombo::OnMouseMove(UINT nFlags, CPoint point)
             rectClient.left += 1;
             rectClient.top += 3;
 
-            COLORREF rgbText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
+            COLORREF rgbText       = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
             COLORREF rgbBackground = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOW));
 
-            CWnd *pWnd = GetFocus();
+            CWnd* pWnd = GetFocus();
             if (pWnd)
             {
                 if (pWnd->m_hWnd == m_hWnd)
                 {
-                    rgbText = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT));
+                    rgbText       = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT));
                     rgbBackground = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHT));
                 }
             }
@@ -457,23 +456,23 @@ void CHistoryCombo::OnMouseMove(UINT nFlags, CPoint point)
             {
                 ::SendMessage(m_hWndToolTip, TTM_SETTIPBKCOLOR, rgbBackground, 0);
                 ::SendMessage(m_hWndToolTip, TTM_SETTIPTEXTCOLOR, rgbText, 0);
-                ::SendMessage(m_hWndToolTip, TTM_UPDATETIPTEXT, 0, (LPARAM) &m_ToolInfo);
-                ::SendMessage(m_hWndToolTip, TTM_TRACKPOSITION, 0, (LPARAM)MAKELONG(rectClient.left, rectClient.top));
-                ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, TRUE, (LPARAM)(LPTOOLINFO) &m_ToolInfo);
-                SetTimer(1, 80, NULL);
-                SetTimer(2, 2000, NULL);
+                ::SendMessage(m_hWndToolTip, TTM_UPDATETIPTEXT, 0, reinterpret_cast<LPARAM>(&m_toolInfo));
+                ::SendMessage(m_hWndToolTip, TTM_TRACKPOSITION, 0, static_cast<LPARAM>(MAKELONG(rectClient.left, rectClient.top)));
+                ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, TRUE, reinterpret_cast<LPARAM>(&m_toolInfo));
+                SetTimer(1, 80, nullptr);
+                SetTimer(2, 2000, nullptr);
                 m_ttShown = TRUE;
             }
         }
         else
         {
-            ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, FALSE, (LPARAM)(LPTOOLINFO) &m_ToolInfo);
+            ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, FALSE, reinterpret_cast<LPARAM>(&m_toolInfo));
             m_ttShown = FALSE;
         }
     }
     else
     {
-        ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, FALSE, (LPARAM)(LPTOOLINFO) &m_ToolInfo);
+        ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, FALSE, reinterpret_cast<LPARAM>(&m_toolInfo));
         m_ttShown = FALSE;
     }
 
@@ -483,9 +482,9 @@ void CHistoryCombo::OnMouseMove(UINT nFlags, CPoint point)
 void CHistoryCombo::OnTimer(UINT_PTR nIDEvent)
 {
     CPoint point;
-    DWORD ptW = GetMessagePos();
-    point.x = GET_X_LPARAM(ptW);
-    point.y = GET_Y_LPARAM(ptW);
+    DWORD  ptW = GetMessagePos();
+    point.x    = GET_X_LPARAM(ptW);
+    point.y    = GET_Y_LPARAM(ptW);
     ScreenToClient(&point);
 
     CRect rectClient;
@@ -497,13 +496,13 @@ void CHistoryCombo::OnTimer(UINT_PTR nIDEvent)
     if (!rectClient.PtInRect(point))
     {
         KillTimer(nIDEvent);
-        ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, FALSE, (LPARAM)(LPTOOLINFO) &m_ToolInfo);
+        ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, FALSE, reinterpret_cast<LPARAM>(&m_toolInfo));
         m_ttShown = FALSE;
     }
     if (nIDEvent == 2)
     {
         // tooltip timeout, just deactivate it
-        ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, FALSE, (LPARAM)(LPTOOLINFO) &m_ToolInfo);
+        ::SendMessage(m_hWndToolTip, TTM_TRACKACTIVATE, FALSE, reinterpret_cast<LPARAM>(&m_toolInfo));
         // don't set m_ttShown to FALSE, because we don't want the tooltip to show up again
         // without the mouse pointer first leaving the control and entering it again
     }
@@ -515,34 +514,34 @@ void CHistoryCombo::CreateToolTip()
 {
     // create tooltip
     m_hWndToolTip = ::CreateWindowEx(NULL,
-        TOOLTIPS_CLASS,
-        NULL,
-        TTS_NOPREFIX | TTS_ALWAYSTIP,
-        CW_USEDEFAULT,
-        CW_USEDEFAULT,
-        CW_USEDEFAULT,
-        CW_USEDEFAULT,
-        m_hWnd,
-        NULL,
-        NULL,
-        NULL);
+                                     TOOLTIPS_CLASS,
+                                     nullptr,
+                                     TTS_NOPREFIX | TTS_ALWAYSTIP,
+                                     CW_USEDEFAULT,
+                                     CW_USEDEFAULT,
+                                     CW_USEDEFAULT,
+                                     CW_USEDEFAULT,
+                                     m_hWnd,
+                                     nullptr,
+                                     nullptr,
+                                     nullptr);
 
     // initialize tool info struct
-    SecureZeroMemory(&m_ToolInfo, sizeof(m_ToolInfo));
-    m_ToolInfo.cbSize = sizeof(m_ToolInfo);
-    m_ToolInfo.uFlags = TTF_TRANSPARENT;
-    m_ToolInfo.hwnd = m_hWnd;
+    SecureZeroMemory(&m_toolInfo, sizeof(m_toolInfo));
+    m_toolInfo.cbSize = sizeof(m_toolInfo);
+    m_toolInfo.uFlags = TTF_TRANSPARENT;
+    m_toolInfo.hwnd   = m_hWnd;
 
     ::SendMessage(m_hWndToolTip, TTM_SETMAXTIPWIDTH, 0, SHRT_MAX);
-    ::SendMessage(m_hWndToolTip, TTM_ADDTOOL, 0, (LPARAM) (LPTOOLINFO) &m_ToolInfo);
+    ::SendMessage(m_hWndToolTip, TTM_ADDTOOL, 0, reinterpret_cast<LPARAM>(&m_toolInfo));
     ::SendMessage(m_hWndToolTip, TTM_SETTIPBKCOLOR, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHT)), 0);
     ::SendMessage(m_hWndToolTip, TTM_SETTIPTEXTCOLOR, CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_HIGHLIGHTTEXT)), 0);
 
-    CRect rectMargins(0,-1,0,-1);
-    ::SendMessage(m_hWndToolTip, TTM_SETMARGIN, 0, (LPARAM)&rectMargins);
+    CRect rectMargins(0, -1, 0, -1);
+    ::SendMessage(m_hWndToolTip, TTM_SETMARGIN, 0, reinterpret_cast<LPARAM>(&rectMargins));
 
-    CFont *pFont = GetFont();
-    ::SendMessage(m_hWndToolTip, WM_SETFONT, (WPARAM)(HFONT)*pFont, FALSE);
+    CFont* pFont = GetFont();
+    ::SendMessage(m_hWndToolTip, WM_SETFONT, reinterpret_cast<WPARAM>(static_cast<HFONT>(*pFont)), FALSE);
 }
 
 int CHistoryCombo::OnCreate(LPCREATESTRUCT lpCreateStruct)

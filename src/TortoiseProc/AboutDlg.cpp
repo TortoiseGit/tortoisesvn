@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2016-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,7 @@
 #include "../../ext/serf/serf.h"
 #include "../../ext/sqlite/sqlite3.h"
 #include "../../ext/openssl/include/openssl/opensslv.h"
+#include "CreateProcessHelper.h"
 #include "AppUtils.h"
 #include "../Utils/DPIAware.h"
 

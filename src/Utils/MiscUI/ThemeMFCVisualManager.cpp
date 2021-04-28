@@ -1,6 +1,6 @@
 ﻿// TortoiseGit - a Windows shell extension for easy version control
 
-// Copyright (C) 2020 - TortoiseGit
+// Copyright (C) 2020-2021 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,9 +37,9 @@ void CThemeMFCVisualManager::OnUpdateSystemColors()
     __super::OnUpdateSystemColors();
 
     // set the menu fore and back colors
-    m_clrMenuText = CTheme::darkTextColor;
+    m_clrMenuText         = CTheme::darkTextColor;
     m_clrMenuTextDisabled = CTheme::darkDisabledTextColor;
-    m_clrMenuLight = CTheme::darkBkColor;
+    m_clrMenuLight        = CTheme::darkBkColor;
     m_brMenuLight.DeleteObject();
     m_brMenuLight.CreateSolidBrush(m_clrMenuLight);
 
@@ -54,13 +54,13 @@ void CThemeMFCVisualManager::OnUpdateSystemColors()
 
     // set the empty space menu/toolbar background color
     m_clrBarGradientLight = CTheme::darkBkColor;
-    m_clrBarGradientDark = m_clrBarGradientLight;
+    m_clrBarGradientDark  = m_clrBarGradientLight;
 
     // set the menu bar background color
-    m_clrMenuBarGradientLight = m_clrBarGradientLight;
-    m_clrMenuBarGradientDark = m_clrMenuBarGradientLight;
+    m_clrMenuBarGradientLight     = m_clrBarGradientLight;
+    m_clrMenuBarGradientDark      = m_clrMenuBarGradientLight;
     m_clrMenuBarGradientVertLight = m_clrMenuBarGradientLight;
-    m_clrMenuBarGradientVertDark = m_clrMenuBarGradientDark;
+    m_clrMenuBarGradientVertDark  = m_clrMenuBarGradientDark;
 
     // use the same color for the toolbar background as for the menu
     // not used ATM as the icons don't look nice
