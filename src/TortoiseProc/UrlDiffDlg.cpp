@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016, 2018, 2020 - TortoiseSVN
+// Copyright (C) 2007-2016, 2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "TortoiseProc.h"
 #include "UrlDiffDlg.h"
 #include "RepositoryBrowser.h"
-#include "BrowseFolder.h"
 #include "TSVNPath.h"
 #include "AppUtils.h"
 #include "DiffOptionsDlg.h"
@@ -28,9 +27,9 @@
 IMPLEMENT_DYNAMIC(CUrlDiffDlg, CResizableStandAloneDialog)
 CUrlDiffDlg::CUrlDiffDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CUrlDiffDlg::IDD, pParent)
-    , Revision(L"HEAD")
-    , m_pLogDlg(NULL)
     , m_bFolder(false)
+    , m_pLogDlg(nullptr)
+    , m_revision(L"HEAD")
     , m_bPrettyPrint(true)
 {
 }
@@ -43,10 +42,9 @@ CUrlDiffDlg::~CUrlDiffDlg()
 void CUrlDiffDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
+    DDX_Control(pDX, IDC_URLCOMBO, m_urlCombo);
     DDX_Text(pDX, IDC_REVISION_NUM, m_rev);
 }
-
 
 BEGIN_MESSAGE_MAP(CUrlDiffDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_BROWSE, OnBnClickedBrowse)
@@ -57,7 +55,6 @@ BEGIN_MESSAGE_MAP(CUrlDiffDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(WM_REVSELECTED, &CUrlDiffDlg::OnRevSelected)
     ON_CBN_EDITCHANGE(IDC_URLCOMBO, &CUrlDiffDlg::OnCbnEditchangeUrlcombo)
 END_MESSAGE_MAP()
-
 
 BOOL CUrlDiffDlg::OnInitDialog()
 {
@@ -71,20 +68,20 @@ BOOL CUrlDiffDlg::OnInitDialog()
 
     CTSVNPath svnPath(m_path);
     m_bFolder = svnPath.IsDirectory();
-    SVN svn;
-    CString url = svn.GetURLFromPath(svnPath);
-    CString sUUID = svn.GetUUIDFromPath(svnPath);
-    m_URLCombo.SetURLHistory(true, false);
-    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\"+sUUID, L"url");
-    m_URLCombo.SetCurSel(0);
-    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+    SVN     svn;
+    CString url   = svn.GetURLFromPath(svnPath);
+    CString sUuid = svn.GetUUIDFromPath(svnPath);
+    m_urlCombo.SetURLHistory(true, false);
+    m_urlCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\" + sUuid, L"url");
+    m_urlCombo.SetCurSel(0);
+    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_urlCombo.GetString().IsEmpty());
 
     if (!url.IsEmpty())
     {
         m_path = url;
-        m_URLCombo.AddString(CTSVNPath(url).GetUIPathString(), 0);
-        m_URLCombo.SelectString(-1, CTSVNPath(url).GetUIPathString());
-        m_URL = m_path;
+        m_urlCombo.AddString(CTSVNPath(url).GetUIPathString(), 0);
+        m_urlCombo.SelectString(-1, CTSVNPath(url).GetUIPathString());
+        m_url = m_path;
     }
 
     // set head revision as default revision
@@ -109,7 +106,7 @@ BOOL CUrlDiffDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
 
-    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+    if ((m_pParentWnd == nullptr) && (GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(L"URLDiff");
     return TRUE;
@@ -127,13 +124,13 @@ void CUrlDiffDlg::OnBnClickedBrowse()
         rev = SVNRev(m_rev);
     if (!rev.IsValid())
         rev = SVNRev::REV_HEAD;
-    CAppUtils::BrowseRepository(m_URLCombo, this, rev);
+    CAppUtils::BrowseRepository(m_urlCombo, this, rev);
     SetRevision(rev);
 }
 
 void CUrlDiffDlg::OnCancel()
 {
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return;
@@ -147,7 +144,7 @@ void CUrlDiffDlg::OnOK()
     if (!UpdateData(TRUE))
         return; // don't dismiss dialog (error message already shown by MFC framework)
 
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return;
@@ -158,15 +155,15 @@ void CUrlDiffDlg::OnOK()
     {
         m_rev = L"HEAD";
     }
-    Revision = SVNRev(m_rev);
-    if (!Revision.IsValid())
+    m_revision = SVNRev(m_rev);
+    if (!m_revision.IsValid())
     {
         ShowEditBalloon(IDC_REVISION_NUM, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
         return;
     }
 
-    m_URLCombo.SaveHistory();
-    m_URL = m_URLCombo.GetString();
+    m_urlCombo.SaveHistory();
+    m_url = m_urlCombo.GetString();
 
     UpdateData(FALSE);
     CResizableStandAloneDialog::OnOK();
@@ -201,7 +198,7 @@ void CUrlDiffDlg::SetRevision(const SVNRev& rev)
 void CUrlDiffDlg::OnBnClickedLog()
 {
     UpdateData(TRUE);
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
         return;
     if (!m_path.IsEmpty())
     {
@@ -209,7 +206,7 @@ void CUrlDiffDlg::OnBnClickedLog()
         m_pLogDlg = new CLogDlg();
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
-        m_pLogDlg->m_wParam = 0;
+        m_pLogDlg->m_wParam        = 0;
         m_pLogDlg->SetParams(CTSVNPath(m_path), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE);
         m_pLogDlg->ContinuousSelection(true);
         m_pLogDlg->Create(IDD_LOGMESSAGE, this);
@@ -227,9 +224,10 @@ LPARAM CUrlDiffDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
     return 0;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CUrlDiffDlg::OnCbnEditchangeUrlcombo()
 {
-    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_urlCombo.GetString().IsEmpty());
 }
 
 void CUrlDiffDlg::OnBnClickedDiffOptions()
@@ -238,7 +236,7 @@ void CUrlDiffDlg::OnBnClickedDiffOptions()
     dlg.SetDiffOptions(m_diffOptions);
     if (dlg.DoModal() == IDOK)
     {
-        m_diffOptions = dlg.GetDiffOptions();
+        m_diffOptions  = dlg.GetDiffOptions();
         m_bPrettyPrint = dlg.GetPrettyPrint();
     }
 }

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2013-2014, 2018 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013-2014, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,11 +21,10 @@
 #include "ChangedDlg.h"
 #include "SVNDiff.h"
 #include "SVNStatus.h"
-#include "AppUtils.h"
 
 bool PrevDiffCommand::Execute()
 {
-    bool bRet = false;
+    bool bRet             = false;
     bool bAlternativeTool = !!parser.HasKey(L"alternative");
     if (cmdLinePath.IsDirectory())
     {
@@ -36,7 +35,7 @@ bool PrevDiffCommand::Execute()
     }
     else
     {
-        SVNDiff diff(NULL, GetExplorerHWND());
+        SVNDiff diff(nullptr, GetExplorerHWND());
         diff.SetAlternativeTool(bAlternativeTool);
         diff.SetJumpLine(parser.GetLongVal(L"line"));
         SVNStatus st;
@@ -44,7 +43,7 @@ bool PrevDiffCommand::Execute()
         if (st.status && st.status->changed_rev)
         {
             bool ignoreprops = !!parser.HasKey(L"ignoreprops");
-            bRet = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->changed_rev - 1, st.status->changed_rev, ignoreprops, true, L"", false, false, st.status->kind);
+            bRet             = diff.ShowCompare(cmdLinePath, SVNRev::REV_WC, cmdLinePath, st.status->changed_rev - 1, st.status->changed_rev, ignoreprops, true, L"", false, false, st.status->kind);
         }
         else
         {

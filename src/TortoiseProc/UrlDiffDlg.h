@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009-2010, 2012, 2015-2016, 2018 - TortoiseSVN
+// Copyright (C) 2007, 2009-2010, 2012, 2015-2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,39 +38,41 @@ class CUrlDiffDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CUrlDiffDlg)
 
 public:
-    CUrlDiffDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CUrlDiffDlg();
+    CUrlDiffDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CUrlDiffDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_URLDIFF };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_URLDIFF
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
-    afx_msg void OnBnClickedBrowse();
-    afx_msg void OnBnClickedDiffOptions();
-    afx_msg void OnBnClickedHelp();
-    afx_msg void OnEnChangeRevisionNum();
-    afx_msg void OnBnClickedLog();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    void            OnOK() override;
+    void            OnCancel() override;
+    afx_msg void    OnBnClickedBrowse();
+    afx_msg void    OnBnClickedDiffOptions();
+    afx_msg void    OnBnClickedHelp();
+    afx_msg void    OnEnChangeRevisionNum();
+    afx_msg void    OnBnClickedLog();
     afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
-    afx_msg void OnCbnEditchangeUrlcombo();
+    afx_msg void    OnCbnEditchangeUrlcombo();
 
-    void        SetRevision(const SVNRev& rev);
+    void SetRevision(const SVNRev& rev);
 
     DECLARE_MESSAGE_MAP()
 
-    CString         m_rev;
-    CHistoryCombo   m_URLCombo;
-    BOOL            m_bFolder;
-    CLogDlg *       m_pLogDlg;
+    CString       m_rev;
+    CHistoryCombo m_urlCombo;
+    BOOL          m_bFolder;
+    CLogDlg*      m_pLogDlg;
 
 public:
-    CString         m_path;
-    CString         m_URL;
-    SVNRev          Revision;
-    SVNDiffOptions  m_diffOptions;
-    bool            m_bPrettyPrint;
+    CString        m_path;
+    CString        m_url;
+    SVNRev         m_revision;
+    SVNDiffOptions m_diffOptions;
+    bool           m_bPrettyPrint;
 };

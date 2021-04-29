@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011, 2013-2015, 2018 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2013-2015, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,27 +26,27 @@
 
 bool DiffCommand::Execute()
 {
-    bool bRet = false;
-    auto path2 = CPathUtils::GetLongPathname(parser.GetVal(L"path2"));
+    bool bRet             = false;
+    auto path2            = CPathUtils::GetLongPathname(parser.GetVal(L"path2"));
     bool bAlternativeTool = !!parser.HasKey(L"alternative");
-    bool bBlame = !!parser.HasKey(L"blame");
-    bool ignoreprops = !!parser.HasKey(L"ignoreprops");
+    bool bBlame           = !!parser.HasKey(L"blame");
+    bool ignoreProps      = !!parser.HasKey(L"ignoreprops");
     if (path2.empty())
     {
-        SVNDiff diff(NULL, GetExplorerHWND());
+        SVNDiff diff(nullptr, GetExplorerHWND());
         diff.SetAlternativeTool(bAlternativeTool);
         diff.SetJumpLine(parser.GetLongVal(L"line"));
-        if ( parser.HasKey(L"startrev") && parser.HasKey(L"endrev") )
+        if (parser.HasKey(L"startrev") && parser.HasKey(L"endrev"))
         {
-            SVNRev StartRevision = SVNRev(parser.GetVal(L"startrev"));
-            SVNRev EndRevision = SVNRev(parser.GetVal(L"endrev"));
+            SVNRev startRevision = SVNRev(parser.GetVal(L"startrev"));
+            SVNRev endRevision   = SVNRev(parser.GetVal(L"endrev"));
             SVNRev pegRevision;
             if (parser.HasVal(L"pegrevision"))
                 pegRevision = SVNRev(parser.GetVal(L"pegrevision"));
-            CString diffoptions;
+            CString diffOptions;
             if (parser.HasVal(L"diffoptions"))
-                diffoptions = parser.GetVal(L"diffoptions");
-            bRet = diff.ShowCompare(cmdLinePath, StartRevision, cmdLinePath, EndRevision, pegRevision, ignoreprops, parser.HasKey(L"prettyprint"), diffoptions, false, bBlame);
+                diffOptions = parser.GetVal(L"diffoptions");
+            bRet = diff.ShowCompare(cmdLinePath, startRevision, cmdLinePath, endRevision, pegRevision, ignoreProps, parser.HasKey(L"prettyprint"), diffOptions, false, bBlame);
         }
         else
         {
@@ -56,16 +56,16 @@ bool DiffCommand::Execute()
                 SVNRev pegRevision;
                 if (parser.HasVal(L"pegrevision"))
                     pegRevision = SVNRev(parser.GetVal(L"pegrevision"));
-                CString diffoptions;
+                CString diffOptions;
                 if (parser.HasVal(L"diffoptions"))
-                    diffoptions = parser.GetVal(L"diffoptions");
-                diff.ShowUnifiedDiff(cmdLinePath, SVNRev::REV_BASE, cmdLinePath, SVNRev::REV_WC, pegRevision, !!parser.HasKey(L"prettyprint"), diffoptions, false, bBlame, false);
+                    diffOptions = parser.GetVal(L"diffoptions");
+                diff.ShowUnifiedDiff(cmdLinePath, SVNRev::REV_BASE, cmdLinePath, SVNRev::REV_WC, pegRevision, !!parser.HasKey(L"prettyprint"), diffOptions, false, bBlame, false);
             }
             else
             {
                 if (cmdLinePath.IsDirectory())
                 {
-                    if (!ignoreprops)
+                    if (!ignoreProps)
                         bRet = diff.DiffProps(cmdLinePath, SVNRev::REV_WC, SVNRev::REV_BASE, baseRev);
                     if (bRet == false)
                     {
@@ -77,7 +77,7 @@ bool DiffCommand::Execute()
                 }
                 else
                 {
-                    bRet = diff.DiffFileAgainstBase(cmdLinePath, baseRev, ignoreprops);
+                    bRet = diff.DiffFileAgainstBase(cmdLinePath, baseRev, ignoreProps);
                 }
             }
         }
