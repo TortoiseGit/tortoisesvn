@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012, 2016 - TortoiseSVN
+// Copyright (C) 2009, 2012, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,7 +30,6 @@
 class EditFileCommand : public Command
 {
 private:
-
     /// "revision" parameter, if specified
 
     SVNRev revision;
@@ -46,12 +45,12 @@ private:
     /// additional wait handle, used to stop waiting for the editor to close
 
     HANDLE hWaitHandle;
-    bool abandonedWait;
+    bool   abandonedWait;
 
     /// status check
 
-    bool IsModified();
-    bool IsLocked();
+    bool IsModified() const;
+    bool IsLocked() const;
 
     /// the individual steps of the sequence
 
@@ -59,23 +58,20 @@ private:
     bool AutoLock();
     bool Edit();
     bool AutoCheckin();
-    bool AutoUnLock();
+    bool AutoUnLock() const;
 
 public:
-
     /// construction / destruction
 
     EditFileCommand();
-    virtual ~EditFileCommand();
+    ~EditFileCommand() override;
 
     /**
      * Executes the command.
      */
-    virtual bool            Execute() override;
+    bool Execute() override;
 
     /// stop waiting for the editor to finish
     bool StopWaitingForEditor();
-    bool IsWaiting() { return hWaitHandle != NULL; }
+    bool IsWaiting() const { return hWaitHandle != nullptr; }
 };
-
-
