@@ -22,7 +22,6 @@
 #include "CopyDlg.h"
 #include "UnicodeUtils.h"
 #include "RepositoryBrowser.h"
-#include "BrowseFolder.h"
 #include "registry.h"
 #include "TSVNPath.h"
 #include "AppUtils.h"
@@ -35,22 +34,21 @@
 #include "COMError.h"
 #include "Hooks.h"
 
-
 IMPLEMENT_DYNAMIC(CCopyDlg, CResizableStandAloneDialog)
-CCopyDlg::CCopyDlg(CWnd* pParent /*=NULL*/)
+CCopyDlg::CCopyDlg(CWnd *pParent /*=NULL*/)
     : CResizableStandAloneDialog(CCopyDlg::IDD, pParent)
-    , m_CopyRev(SVNRev::REV_HEAD)
+    , m_copyRev(SVNRev::REV_HEAD)
     , m_bDoSwitch(false)
     , m_bMakeParents(false)
+    , m_pLogDlg(nullptr)
+    , m_maxRev(0)
+    , m_bModified(false)
     , m_bSettingChanged(false)
+    , m_pThread(nullptr)
     , m_bCancelled(false)
-    , m_pThread(NULL)
-    , m_pLogDlg(NULL)
     , m_bThreadRunning(0)
-    , m_maxrev(0)
-    , m_bmodified(false)
 {
-    m_columnbuf[0] = 0;
+    m_columnBuf[0] = 0;
 }
 
 CCopyDlg::~CCopyDlg()
@@ -58,22 +56,21 @@ CCopyDlg::~CCopyDlg()
     delete m_pLogDlg;
 }
 
-void CCopyDlg::DoDataExchange(CDataExchange* pDX)
+void CCopyDlg::DoDataExchange(CDataExchange *pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
+    DDX_Control(pDX, IDC_URLCOMBO, m_urlCombo);
     DDX_Control(pDX, IDC_BROWSE, m_butBrowse);
     DDX_Text(pDX, IDC_BUGID, m_sBugID);
     DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
     DDX_Check(pDX, IDC_DOSWITCH, m_bDoSwitch);
     DDX_Check(pDX, IDC_MAKEPARENTS, m_bMakeParents);
-    DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
-    DDX_Control(pDX, IDC_DESTURL, m_DestUrl);
-    DDX_Control(pDX, IDC_EXTERNALSLIST, m_ExtList);
-    DDX_Control(pDX, IDC_CHECKALL, m_CheckAll);
-    DDX_Control(pDX, IDC_CHECKNONE, m_CheckNone);
+    DDX_Control(pDX, IDC_FROMURL, m_fromUrl);
+    DDX_Control(pDX, IDC_DESTURL, m_destUrl);
+    DDX_Control(pDX, IDC_EXTERNALSLIST, m_extList);
+    DDX_Control(pDX, IDC_CHECKALL, m_checkAll);
+    DDX_Control(pDX, IDC_CHECKNONE, m_checkNone);
 }
-
 
 BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(WM_REVSELECTED, OnRevSelected)
@@ -97,7 +94,6 @@ BEGIN_MESSAGE_MAP(CCopyDlg, CResizableStandAloneDialog)
     ON_WM_QUERYENDSESSION()
 END_MESSAGE_MAP()
 
-
 BOOL CCopyDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
@@ -110,9 +106,9 @@ BOOL CCopyDlg::OnInitDialog()
     m_bCancelled = false;
 
     DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_CHECKBOXES;
-    m_ExtList.SetExtendedStyle(exStyle);
-    SetWindowTheme(m_ExtList.GetSafeHwnd(), L"Explorer", NULL);
-    m_ExtList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_WAITFOREXTERNALS)));
+    m_extList.SetExtendedStyle(exStyle);
+    SetWindowTheme(m_extList.GetSafeHwnd(), L"Explorer", nullptr);
+    m_extList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_WAITFOREXTERNALS)));
 
     AdjustControlSize(IDC_COPYHEAD);
     AdjustControlSize(IDC_COPYREV);
@@ -121,13 +117,13 @@ BOOL CCopyDlg::OnInitDialog()
     AdjustControlSize(IDC_MAKEPARENTS);
 
     CTSVNPath path(m_path);
-    CString sWindowTitle;
+    CString   sWindowTitle;
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, path.GetUIPathString(), sWindowTitle);
 
-    m_History.SetMaxHistoryItems((LONG)CRegDWORD(L"Software\\TortoiseSVN\\MaxHistoryItems", 25));
+    m_history.SetMaxHistoryItems(static_cast<LONG>(CRegDWORD(L"Software\\TortoiseSVN\\MaxHistoryItems", 25)));
 
-    SetRevision(m_CopyRev);
+    SetRevision(m_copyRev);
 
     m_tooltips.AddTool(IDC_HISTORY, IDS_COMMITDLG_HISTORY_TT);
 
@@ -138,65 +134,66 @@ BOOL CCopyDlg::OnInitDialog()
         SetDlgItemText(IDC_COPYSTARTLABEL, CString(MAKEINTRESOURCE(IDS_COPYDLG_FROMURL)));
     }
 
-    SVN svn;
-    CString sUUID;
-    m_repoRoot = svn.GetRepositoryRootAndUUID(path, true, sUUID);
+    SVN     svn;
+    CString sUuid;
+    m_repoRoot = svn.GetRepositoryRootAndUUID(path, true, sUuid);
     m_repoRoot.TrimRight('/');
     m_wcURL = svn.GetURLFromPath(path);
     if (m_wcURL.IsEmpty() || (!path.IsUrl() && !path.Exists()))
     {
-        CString Wrong_URL=path.GetSVNPathString();
+        CString wrongURL = path.GetSVNPathString();
         CString temp;
-        temp.Format(IDS_ERR_NOURLOFFILE, (LPCTSTR)Wrong_URL);
+        temp.Format(IDS_ERR_NOURLOFFILE, static_cast<LPCWSTR>(wrongURL));
         ::MessageBox(this->m_hWnd, temp, L"TortoiseSVN", MB_ICONERROR);
-        this->EndDialog(IDCANCEL);      //exit
+        this->EndDialog(IDCANCEL); //exit
     }
-    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoPaths\\"+sUUID, L"url");
-    m_URLCombo.SetCurSel(0);
+    m_urlCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoPaths\\" + sUuid, L"url");
+    m_urlCombo.SetCurSel(0);
     CString relPath = m_wcURL.Mid(m_repoRoot.GetLength());
-    if (!m_URL.IsEmpty())
+    if (!m_url.IsEmpty())
     {
         // allow the use of urls relative to the repo root
-        if (m_URL[0] != '^')
-            relPath = m_URL.Mid(m_repoRoot.GetLength());
+        if (m_url[0] != '^')
+            relPath = m_url.Mid(m_repoRoot.GetLength());
         else
-            relPath = m_URL.Mid(1);
+            relPath = m_url.Mid(1);
     }
     CTSVNPath r = CTSVNPath(relPath);
-    relPath = CPathUtils::PathUnescape(r.GetSVNPathString());
+    relPath     = CPathUtils::PathUnescape(r.GetSVNPathString());
     relPath.Replace('\\', '/');
-    m_URLCombo.AddString(relPath, 0);
-    m_URLCombo.SelectString(-1, relPath);
-    m_URL = m_wcURL;
-    OnCbnEditchangeUrlcombo(); m_bSettingChanged = false;
+    m_urlCombo.AddString(relPath, 0);
+    m_urlCombo.SelectString(-1, relPath);
+    m_url = m_wcURL;
+    OnCbnEditchangeUrlcombo();
+    m_bSettingChanged = false;
     SetDlgItemText(IDC_FROMURL, m_wcURL);
 
     CString reg;
-    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", (LPCTSTR)sUUID);
-    m_History.Load(reg, L"logmsgs");
+    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", static_cast<LPCWSTR>(sUuid));
+    m_history.Load(reg, L"logmsgs");
 
-    m_ProjectProperties.ReadProps(m_path);
+    m_projectProperties.ReadProps(m_path);
     if (CRegDWORD(L"Software\\TortoiseSVN\\AlwaysWarnIfNoIssue", FALSE))
-        m_ProjectProperties.bWarnIfNoIssue = TRUE;
+        m_projectProperties.bWarnIfNoIssue = TRUE;
 
-    m_cLogMessage.Init(m_ProjectProperties);
+    m_cLogMessage.Init(m_projectProperties);
     m_cLogMessage.SetFont(CAppUtils::GetLogFontName(), CAppUtils::GetLogFontSize());
 
     GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_HIDE);
     GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(FALSE);
-    CBugTraqAssociations bugtraq_associations;
-    bugtraq_associations.Load(m_ProjectProperties.GetProviderUUID(), m_ProjectProperties.sProviderParams);
+    CBugTraqAssociations bugtraqAssociations;
+    bugtraqAssociations.Load(m_projectProperties.GetProviderUUID(), m_projectProperties.sProviderParams);
 
-    if (bugtraq_associations.FindProvider(CTSVNPathList(m_path), &m_bugtraq_association))
+    if (bugtraqAssociations.FindProvider(CTSVNPathList(m_path), &m_bugtraqAssociation))
     {
         CComPtr<IBugTraqProvider> pProvider;
-        HRESULT hr = pProvider.CoCreateInstance(m_bugtraq_association.GetProviderClass());
+        HRESULT                   hr = pProvider.CoCreateInstance(m_bugtraqAssociation.GetProviderClass());
         if (SUCCEEDED(hr))
         {
-            m_BugTraqProvider = pProvider;
+            m_bugTraqProvider = pProvider;
             ATL::CComBSTR temp;
             ATL::CComBSTR parameters;
-            parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+            parameters.Attach(m_bugtraqAssociation.GetParameters().AllocSysString());
             hr = pProvider->GetLinkText(GetSafeHwnd(), parameters, &temp);
             if (SUCCEEDED(hr))
             {
@@ -208,7 +205,7 @@ BOOL CCopyDlg::OnInitDialog()
 
         GetDlgItem(IDC_LOGMESSAGE)->SetFocus();
     }
-    if (m_ProjectProperties.sMessage.IsEmpty())
+    if (m_projectProperties.sMessage.IsEmpty())
     {
         GetDlgItem(IDC_BUGID)->ShowWindow(SW_HIDE);
         GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_HIDE);
@@ -218,15 +215,15 @@ BOOL CCopyDlg::OnInitDialog()
     {
         GetDlgItem(IDC_BUGID)->ShowWindow(SW_SHOW);
         GetDlgItem(IDC_BUGIDLABEL)->ShowWindow(SW_SHOW);
-        if (!m_ProjectProperties.sLabel.IsEmpty())
-            SetDlgItemText(IDC_BUGIDLABEL, m_ProjectProperties.sLabel);
+        if (!m_projectProperties.sLabel.IsEmpty())
+            SetDlgItemText(IDC_BUGIDLABEL, m_projectProperties.sLabel);
         GetDlgItem(IDC_BUGID)->SetFocus();
     }
 
     if (!m_sLogMessage.IsEmpty())
         m_cLogMessage.SetText(m_sLogMessage);
     else
-        m_cLogMessage.SetText(m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH));
+        m_cLogMessage.SetText(m_projectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH));
 
     OnEnChangeLogmessage();
 
@@ -239,11 +236,11 @@ BOOL CCopyDlg::OnInitDialog()
 
     CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_TEXT);
     CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_HELP, CString(MAKEINTRESOURCE(IDS_INPUT_ENTERLOG)));
-    CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_INVISIBLE)));
+    CAppUtils::SetAccProperty(m_cLogMessage.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+" + CString(CAppUtils::FindAcceleratorKey(this, IDC_INVISIBLE)));
 
-    CAppUtils::SetAccProperty(m_URLCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_TOURLLABEL)));
-    CAppUtils::SetAccProperty(GetDlgItem(IDC_FROMURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_COPYSTARTLABEL)));
-    CAppUtils::SetAccProperty(GetDlgItem(IDC_DESTURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+"+CString(CAppUtils::FindAcceleratorKey(this, IDC_DESTLABEL)));
+    CAppUtils::SetAccProperty(m_urlCombo.GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+" + CString(CAppUtils::FindAcceleratorKey(this, IDC_TOURLLABEL)));
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_FROMURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+" + CString(CAppUtils::FindAcceleratorKey(this, IDC_COPYSTARTLABEL)));
+    CAppUtils::SetAccProperty(GetDlgItem(IDC_DESTURL)->GetSafeHwnd(), PROPID_ACC_KEYBOARDSHORTCUT, L"Alt+" + CString(CAppUtils::FindAcceleratorKey(this, IDC_DESTLABEL)));
 
     AddAnchor(IDC_REPOGROUP, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_COPYSTARTLABEL, TOP_LEFT, TOP_RIGHT);
@@ -277,7 +274,7 @@ BOOL CCopyDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDHELP, BOTTOM_RIGHT);
 
-    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+    if ((m_pParentWnd == nullptr) && (GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(L"CopyDlg");
 
@@ -299,7 +296,7 @@ BOOL CCopyDlg::OnInitDialog()
         }
     }
     else
-        m_ExtList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_NOEXTERNALSFORURLS)));
+        m_extList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_NOEXTERNALSFORURLS)));
 
     SetTheme(CTheme::Instance().IsDarkTheme());
 
@@ -309,30 +306,30 @@ BOOL CCopyDlg::OnInitDialog()
 UINT CCopyDlg::FindRevThreadEntry(LPVOID pVoid)
 {
     CCrashReportThread crashthread;
-    return ((CCopyDlg*)pVoid)->FindRevThread();
+    return static_cast<CCopyDlg *>(pVoid)->FindRevThread();
 }
 
 UINT CCopyDlg::FindRevThread()
 {
-    m_bmodified = false;
+    m_bModified = false;
     if (!m_bCancelled)
     {
         // find the external properties
-        SVNStatus stats(&m_bCancelled);
-        CTSVNPath retPath;
-        svn_client_status_t * s = NULL;
-        m_maxrev = 0;
+        SVNStatus            stats(&m_bCancelled);
+        CTSVNPath            retPath;
+        svn_client_status_t *s = nullptr;
+        m_maxRev               = 0;
         m_externals.clear();
         s = stats.GetFirstFileStatus(m_path, retPath, false, svn_depth_unknown, true, true);
         if (s)
         {
-            std::string sUUID;
+            std::string sUuid;
             if (s->repos_uuid)
-                sUUID = s->repos_uuid;
+                sUuid = s->repos_uuid;
             while ((s) && (!m_bCancelled))
             {
-                if (s->repos_uuid && sUUID.empty())
-                    sUUID = s->repos_uuid;
+                if (s->repos_uuid && sUuid.empty())
+                    sUuid = s->repos_uuid;
                 if (s->kind == svn_node_dir)
                 {
                     // read the props of this dir and find out if it has svn:external props
@@ -345,14 +342,14 @@ UINT CCopyDlg::FindRevThread()
                         }
                     }
                 }
-                if (s->changed_rev > m_maxrev)
-                    m_maxrev = s->changed_rev;
-                if ( (s->node_status != svn_wc_status_none) &&
+                if (s->changed_rev > m_maxRev)
+                    m_maxRev = s->changed_rev;
+                if ((s->node_status != svn_wc_status_none) &&
                     (s->node_status != svn_wc_status_normal) &&
                     (s->node_status != svn_wc_status_external) &&
                     (s->node_status != svn_wc_status_unversioned) &&
                     (s->node_status != svn_wc_status_ignored))
-                    m_bmodified = true;
+                    m_bModified = true;
 
                 s = stats.GetNextFileStatus(retPath);
             }
@@ -370,21 +367,21 @@ UINT CCopyDlg::FindRevThread()
 
 void CCopyDlg::OnOK()
 {
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return;
     }
     m_bCancelled = true;
     // check if the status thread has already finished
-    if ((m_pThread)&&(m_bThreadRunning))
+    if ((m_pThread) && (m_bThreadRunning))
     {
         WaitForSingleObject(m_pThread->m_hThread, 1000);
         if (m_bThreadRunning)
         {
             // we gave the thread a chance to quit. Since the thread didn't
             // listen to us we have to kill it.
-            TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+            TerminateThread(m_pThread->m_hThread, static_cast<DWORD>(-1));
             delete m_pThread;
             InterlockedExchange(&m_bThreadRunning, FALSE);
         }
@@ -394,92 +391,92 @@ void CCopyDlg::OnOK()
     GetDlgItemText(IDC_BUGID, id);
     CString sRevText;
     GetDlgItemText(IDC_COPYREVTEXT, sRevText);
-    if (!m_ProjectProperties.CheckBugID(id))
+    if (!m_projectProperties.CheckBugID(id))
     {
         ShowEditBalloon(IDC_BUGID, IDS_COMMITDLG_ONLYNUMBERS, IDS_ERR_ERROR, TTI_ERROR);
         return;
     }
     m_sLogMessage = m_cLogMessage.GetText();
-    if ((m_ProjectProperties.bWarnIfNoIssue) && (id.IsEmpty() && !m_ProjectProperties.HasBugID(m_sLogMessage)))
+    if ((m_projectProperties.bWarnIfNoIssue) && (id.IsEmpty() && !m_projectProperties.HasBugID(m_sLogMessage)))
     {
-        CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK1)),
+        CTaskDialog taskDlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK1)),
                             CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK2)),
                             L"TortoiseSVN",
                             0,
                             TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-        taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
-        taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetDefaultCommandControl(2);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        if (taskdlg.DoModal(m_hWnd) != 100)
+        taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
+        taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
+        taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskDlg.SetDefaultCommandControl(2);
+        taskDlg.SetMainIcon(TD_WARNING_ICON);
+        if (taskDlg.DoModal(m_hWnd) != 100)
             return;
     }
     UpdateData(TRUE);
 
     if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYHEAD)
-        m_CopyRev = SVNRev(SVNRev::REV_HEAD);
+        m_copyRev = SVNRev(SVNRev::REV_HEAD);
     else if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYWC)
-        m_CopyRev = SVNRev(SVNRev::REV_WC);
+        m_copyRev = SVNRev(SVNRev::REV_WC);
     else
-        m_CopyRev = SVNRev(sRevText);
+        m_copyRev = SVNRev(sRevText);
 
-    if (!m_CopyRev.IsValid())
+    if (!m_copyRev.IsValid())
     {
         ShowEditBalloon(IDC_COPYREVTEXT, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
         return;
     }
 
-    CString combourl = m_URLCombo.GetWindowString();
-    if (combourl.IsEmpty())
-        combourl = m_URLCombo.GetString();
-    auto comboUrlA = CUnicodeUtils::GetUTF8(combourl);
+    CString comboUrl = m_urlCombo.GetWindowString();
+    if (comboUrl.IsEmpty())
+        comboUrl = m_urlCombo.GetString();
+    auto comboUrlA = CUnicodeUtils::GetUTF8(comboUrl);
     auto comboUrlW = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(comboUrlA));
 
-    if ((m_wcURL.CompareNoCase(comboUrlW)==0)&&(m_CopyRev.IsHead()))
+    if ((m_wcURL.CompareNoCase(comboUrlW) == 0) && (m_copyRev.IsHead()))
     {
         CString temp;
-        temp.FormatMessage(IDS_ERR_COPYITSELF, (LPCTSTR)m_wcURL, (LPCTSTR)m_URLCombo.GetString());
+        temp.FormatMessage(IDS_ERR_COPYITSELF, static_cast<LPCWSTR>(m_wcURL), static_cast<LPCWSTR>(m_urlCombo.GetString()));
         ::MessageBox(this->m_hWnd, temp, L"TortoiseSVN", MB_ICONERROR);
         return;
     }
 
-    m_URLCombo.SaveHistory();
-    m_URL = CPathUtils::CombineUrls(m_repoRoot, m_URLCombo.GetString());
-    if (!CTSVNPath(m_URL).IsValidOnWindows())
+    m_urlCombo.SaveHistory();
+    m_url = CPathUtils::CombineUrls(m_repoRoot, m_urlCombo.GetString());
+    if (!CTSVNPath(m_url).IsValidOnWindows())
     {
         CString sInfo;
-        sInfo.Format(IDS_WARN_NOVALIDPATH_TASK1, (LPCTSTR)m_URL);
-        CTaskDialog taskdlg(sInfo,
+        sInfo.Format(IDS_WARN_NOVALIDPATH_TASK1, static_cast<LPCWSTR>(m_url));
+        CTaskDialog taskDlg(sInfo,
                             CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK2)),
                             L"TortoiseSVN",
                             0,
                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-        taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK3)));
-        taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK4)));
-        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK5)));
-        taskdlg.SetDefaultCommandControl(2);
-        taskdlg.SetMainIcon(TD_WARNING_ICON);
-        if (taskdlg.DoModal(m_hWnd) != 100)
+        taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK3)));
+        taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK4)));
+        taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+        taskDlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK5)));
+        taskDlg.SetDefaultCommandControl(2);
+        taskDlg.SetMainIcon(TD_WARNING_ICON);
+        if (taskDlg.DoModal(m_hWnd) != 100)
             return;
     }
-    CStringUtils::WriteAsciiStringToClipboard(m_URL);
+    CStringUtils::WriteAsciiStringToClipboard(m_url);
 
     // now let the bugtraq plugin check the commit message
-    CComPtr<IBugTraqProvider2> pProvider2 = NULL;
-    if (m_BugTraqProvider)
+    CComPtr<IBugTraqProvider2> pProvider2 = nullptr;
+    if (m_bugTraqProvider)
     {
-        HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
+        HRESULT hr = m_bugTraqProvider.QueryInterface(&pProvider2);
         if (SUCCEEDED(hr))
         {
             ATL::CComBSTR temp;
             ATL::CComBSTR sourceURL;
             sourceURL.Attach(m_wcURL.AllocSysString());
             ATL::CComBSTR parameters;
-            parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+            parameters.Attach(m_bugtraqAssociation.GetParameters().AllocSysString());
             ATL::CComBSTR targetURL;
-            targetURL.Attach(m_URL.AllocSysString());
+            targetURL.Attach(m_url.AllocSysString());
             ATL::CComBSTR commitMessage;
             commitMessage.Attach(m_sLogMessage.AllocSysString());
             CBstrSafeVector pathList(1);
@@ -492,7 +489,7 @@ void CCopyDlg::OnOK()
             }
             else
             {
-                CString sError = temp == 0 ? L"" : temp;
+                CString sError = temp == 0 ? L"" : static_cast<LPCWSTR>(temp);
                 if (!sError.IsEmpty())
                 {
                     CAppUtils::ReportFailedHook(m_hWnd, sError);
@@ -504,26 +501,26 @@ void CCopyDlg::OnOK()
 
     CTSVNPathList checkedItems;
     checkedItems.AddPath(m_path);
-    DWORD exitcode = 0;
+    DWORD   exitCode = 0;
     CString error;
-    CHooks::Instance().SetProjectProperties(m_path, m_ProjectProperties);
-    if (CHooks::Instance().CheckCommit(m_hWnd, checkedItems, m_sLogMessage, exitcode, error))
+    CHooks::Instance().SetProjectProperties(m_path, m_projectProperties);
+    if (CHooks::Instance().CheckCommit(m_hWnd, checkedItems, m_sLogMessage, exitCode, error))
     {
-        if (exitcode)
+        if (exitCode)
         {
             CString sErrorMsg;
-            sErrorMsg.Format(IDS_HOOK_ERRORMSG, (LPCWSTR)error);
+            sErrorMsg.Format(IDS_HOOK_ERRORMSG, static_cast<LPCWSTR>(error));
 
-            CTaskDialog taskdlg(sErrorMsg,
+            CTaskDialog taskDlg(sErrorMsg,
                                 CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
-            taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
-            taskdlg.SetDefaultCommandControl(1);
-            taskdlg.SetMainIcon(TD_ERROR_ICON);
-            bool retry = (taskdlg.DoModal(GetSafeHwnd()) == 100);
+            taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
+            taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
+            taskDlg.SetDefaultCommandControl(1);
+            taskDlg.SetMainIcon(TD_ERROR_ICON);
+            bool retry = (taskDlg.DoModal(GetSafeHwnd()) == 100);
 
             if (retry)
                 return;
@@ -532,8 +529,8 @@ void CCopyDlg::OnOK()
 
     if (!m_sLogMessage.IsEmpty())
     {
-        m_History.AddEntry(m_sLogMessage);
-        m_History.Save();
+        m_history.AddEntry(m_sLogMessage);
+        m_history.Save();
     }
 
     m_sBugID.Trim();
@@ -541,9 +538,9 @@ void CCopyDlg::OnOK()
     {
         m_sBugID.Replace(L", ", L",");
         m_sBugID.Replace(L" ,", L",");
-        CString sBugID = m_ProjectProperties.sMessage;
+        CString sBugID = m_projectProperties.sMessage;
         sBugID.Replace(L"%BUGID%", m_sBugID);
-        if (m_ProjectProperties.bAppend)
+        if (m_projectProperties.bAppend)
             m_sLogMessage += L"\n" + sBugID + L"\n";
         else
             m_sLogMessage = sBugID + L"\n" + m_sLogMessage;
@@ -554,14 +551,14 @@ void CCopyDlg::OnOK()
 
 void CCopyDlg::OnBnClickedBugtraqbutton()
 {
-    m_tooltips.Pop();   // hide the tooltips
+    m_tooltips.Pop(); // hide the tooltips
     CString sMsg = m_cLogMessage.GetText();
 
-    if (m_BugTraqProvider == NULL)
+    if (m_bugTraqProvider == nullptr)
         return;
 
     ATL::CComBSTR parameters;
-    parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
+    parameters.Attach(m_bugtraqAssociation.GetParameters().AllocSysString());
     ATL::CComBSTR commonRoot;
     commonRoot.Attach(m_path.GetWinPathString().AllocSysString());
     CBstrSafeVector pathList(1);
@@ -573,8 +570,8 @@ void CCopyDlg::OnBnClickedBugtraqbutton()
     m_revProps.clear();
 
     // first try the IBugTraqProvider2 interface
-    CComPtr<IBugTraqProvider2> pProvider2 = NULL;
-    HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
+    CComPtr<IBugTraqProvider2> pProvider2 = nullptr;
+    HRESULT                    hr         = m_bugTraqProvider.QueryInterface(&pProvider2);
     if (SUCCEEDED(hr))
     {
         ATL::CComBSTR repositoryRoot;
@@ -596,14 +593,14 @@ void CCopyDlg::OnBnClickedBugtraqbutton()
                 m_sBugID = bugIDOut;
                 SetDlgItemText(IDC_BUGID, m_sBugID);
             }
-            m_cLogMessage.SetText((LPCTSTR)temp);
-            BSTR HUGEP *pbRevNames;
-            BSTR HUGEP *pbRevValues;
+            m_cLogMessage.SetText(static_cast<LPCWSTR>(temp));
+            BSTR *pbRevNames;
+            BSTR *pbRevValues;
 
-            HRESULT hr1 = SafeArrayAccessData(revPropNames, (void HUGEP**)&pbRevNames);
+            HRESULT hr1 = SafeArrayAccessData(revPropNames, reinterpret_cast<void **>(&pbRevNames));
             if (SUCCEEDED(hr1))
             {
-                HRESULT hr2 = SafeArrayAccessData(revPropValues, (void HUGEP**)&pbRevValues);
+                HRESULT hr2 = SafeArrayAccessData(revPropValues, reinterpret_cast<void **>(&pbRevValues));
                 if (SUCCEEDED(hr2))
                 {
                     if (revPropNames->rgsabound->cElements == revPropValues->rgsabound->cElements)
@@ -622,8 +619,8 @@ void CCopyDlg::OnBnClickedBugtraqbutton()
     else
     {
         // if IBugTraqProvider2 failed, try IBugTraqProvider
-        CComPtr<IBugTraqProvider> pProvider = NULL;
-        hr = m_BugTraqProvider.QueryInterface(&pProvider);
+        CComPtr<IBugTraqProvider> pProvider = nullptr;
+        hr                                  = m_bugTraqProvider.QueryInterface(&pProvider);
         if (FAILED(hr))
         {
             OnComError(hr);
@@ -635,12 +632,12 @@ void CCopyDlg::OnBnClickedBugtraqbutton()
             OnComError(hr);
         }
         else
-            m_cLogMessage.SetText((LPCTSTR)temp);
+            m_cLogMessage.SetText(static_cast<LPCWSTR>(temp));
     }
     m_sLogMessage = m_cLogMessage.GetText();
-    if (!m_ProjectProperties.sMessage.IsEmpty())
+    if (!m_projectProperties.sMessage.IsEmpty())
     {
-        CString sBugID = m_ProjectProperties.FindBugID(m_sLogMessage);
+        CString sBugID = m_projectProperties.FindBugID(m_sLogMessage);
         if (!sBugID.IsEmpty())
         {
             SetDlgItemText(IDC_BUGID, sBugID);
@@ -650,70 +647,70 @@ void CCopyDlg::OnBnClickedBugtraqbutton()
     m_cLogMessage.SetFocus();
 }
 
-void CCopyDlg::OnComError( HRESULT hr )
+void CCopyDlg::OnComError(HRESULT hr) const
 {
     COMError ce(hr);
-    CString sErr;
-    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, (LPCWSTR)m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
+    CString  sErr;
+    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, static_cast<LPCWSTR>(m_bugtraqAssociation.GetProviderName()), ce.GetMessageAndDescription().c_str());
     ::MessageBox(m_hWnd, sErr, L"TortoiseSVN", MB_ICONERROR);
 }
 
 void CCopyDlg::OnBnClickedBrowse()
 {
-    m_tooltips.Pop();   // hide the tooltips
+    m_tooltips.Pop(); // hide the tooltips
     SVNRev rev = SVNRev::REV_HEAD;
 
-    CAppUtils::BrowseRepository(m_repoRoot, m_URLCombo, this, rev);
+    CAppUtils::BrowseRepository(m_repoRoot, m_urlCombo, this, rev);
 }
 
 void CCopyDlg::OnBnClickedHelp()
 {
-    m_tooltips.Pop();   // hide the tooltips
+    m_tooltips.Pop(); // hide the tooltips
     OnHelp();
 }
 
 void CCopyDlg::OnCancel()
 {
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return;
     }
     m_bCancelled = true;
     // check if the status thread has already finished
-    if ((m_pThread)&&(m_bThreadRunning))
+    if ((m_pThread) && (m_bThreadRunning))
     {
         WaitForSingleObject(m_pThread->m_hThread, 1000);
         if (m_bThreadRunning)
         {
             // we gave the thread a chance to quit. Since the thread didn't
             // listen to us we have to kill it.
-            TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+            TerminateThread(m_pThread->m_hThread, static_cast<DWORD>(-1));
             delete m_pThread;
             InterlockedExchange(&m_bThreadRunning, FALSE);
         }
     }
-    if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH).Compare(m_cLogMessage.GetText()) != 0)
+    if (m_projectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH).Compare(m_cLogMessage.GetText()) != 0)
     {
         CString sMsg = m_cLogMessage.GetText();
         if (!sMsg.IsEmpty())
         {
-            m_History.AddEntry(sMsg);
-            m_History.Save();
+            m_history.AddEntry(sMsg);
+            m_history.Save();
         }
     }
     CResizableStandAloneDialog::OnCancel();
 }
 
-BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
+BOOL CCopyDlg::PreTranslateMessage(MSG *pMsg)
 {
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if (OnEnterPressed())
-                return TRUE;
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
         }
     }
 
@@ -722,9 +719,9 @@ BOOL CCopyDlg::PreTranslateMessage(MSG* pMsg)
 
 void CCopyDlg::OnBnClickedBrowsefrom()
 {
-    m_tooltips.Pop();   // hide the tooltips
+    m_tooltips.Pop(); // hide the tooltips
     UpdateData(TRUE);
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
         return;
     AfxGetApp()->DoWaitCursor(1);
     //now show the log dialog
@@ -736,7 +733,7 @@ void CCopyDlg::OnBnClickedBrowsefrom()
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->Create(IDD_LOGMESSAGE, this);
         m_pLogDlg->ShowWindow(SW_SHOW);
-        m_pLogDlg->m_wParam = 0;
+        m_pLogDlg->m_wParam        = 0;
         m_pLogDlg->m_pNotifyWindow = this;
     }
     AfxGetApp()->DoWaitCursor(-1);
@@ -745,7 +742,7 @@ void CCopyDlg::OnBnClickedBrowsefrom()
 void CCopyDlg::OnEnChangeLogmessage()
 {
     CString sTemp = m_cLogMessage.GetText();
-    DialogEnableWindow(IDOK, sTemp.GetLength() >= m_ProjectProperties.nMinLogSize);
+    DialogEnableWindow(IDOK, sTemp.GetLength() >= m_projectProperties.nMinLogSize);
 }
 
 LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
@@ -759,45 +756,45 @@ LPARAM CCopyDlg::OnRevSelected(WPARAM /*wParam*/, LPARAM lParam)
 
 void CCopyDlg::OnBnClickedCopyhead()
 {
-    m_tooltips.Pop();   // hide the tooltips
+    m_tooltips.Pop(); // hide the tooltips
     m_bSettingChanged = true;
 }
 
 void CCopyDlg::OnBnClickedCopyrev()
 {
-    m_tooltips.Pop();   // hide the tooltips
+    m_tooltips.Pop(); // hide the tooltips
     m_bSettingChanged = true;
 }
 
 void CCopyDlg::OnBnClickedCopywc()
 {
-    m_tooltips.Pop();   // hide the tooltips
+    m_tooltips.Pop(); // hide the tooltips
     m_bSettingChanged = true;
 }
 
 void CCopyDlg::OnBnClickedHistory()
 {
-    m_tooltips.Pop();   // hide the tooltips
-    SVN svn;
+    m_tooltips.Pop(); // hide the tooltips
+    SVN         svn;
     CHistoryDlg historyDlg;
-    historyDlg.SetHistory(m_History);
-    if (historyDlg.DoModal()==IDOK)
+    historyDlg.SetHistory(m_history);
+    if (historyDlg.DoModal() == IDOK)
     {
         CString sMsg = historyDlg.GetSelectedText();
 
-        if (sMsg.Compare(m_cLogMessage.GetText().Left(sMsg.GetLength()))!=0)
+        if (sMsg.Compare(m_cLogMessage.GetText().Left(sMsg.GetLength())) != 0)
         {
-            CString sBugID = m_ProjectProperties.FindBugID(sMsg);
+            CString sBugID = m_projectProperties.FindBugID(sMsg);
             if ((!sBugID.IsEmpty()) && ((GetDlgItem(IDC_BUGID)->IsWindowVisible())))
             {
                 SetDlgItemText(IDC_BUGID, sBugID);
             }
-            if (m_ProjectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH).Compare(m_cLogMessage.GetText())!=0)
+            if (m_projectProperties.GetLogMsgTemplate(PROJECTPROPNAME_LOGTEMPLATEBRANCH).Compare(m_cLogMessage.GetText()) != 0)
                 m_cLogMessage.InsertText(sMsg, !m_cLogMessage.GetText().IsEmpty());
             else
                 m_cLogMessage.SetText(sMsg);
         }
-        DialogEnableWindow(IDOK, m_ProjectProperties.nMinLogSize <= m_cLogMessage.GetText().GetLength());
+        DialogEnableWindow(IDOK, m_projectProperties.nMinLogSize <= m_cLogMessage.GetText().GetLength());
     }
 }
 
@@ -805,14 +802,14 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
     // we have found the highest last-committed revision
     // in the working copy
-    if ((!m_bSettingChanged)&&(m_maxrev != 0)&&(!m_bCancelled))
+    if ((!m_bSettingChanged) && (m_maxRev != 0) && (!m_bCancelled))
     {
         // we only change the setting automatically if the user hasn't done so
         // already him/herself, if the highest revision is valid. And of course,
         // if the thread hasn't been stopped forcefully.
         if (GetCheckedRadioButton(IDC_COPYHEAD, IDC_COPYREV) == IDC_COPYHEAD)
         {
-            if (m_bmodified)
+            if (m_bModified)
             {
                 // the working copy has local modifications.
                 // show a warning balloon if the user has selected HEAD as the
@@ -824,48 +821,47 @@ LPARAM CCopyDlg::OnRevFound(WPARAM /*wParam*/, LPARAM /*lParam*/)
                 // and of course, we only change it if the radio button for a REPO-to-REPO copy
                 // is enabled for HEAD and if there are no local modifications
                 CString temp;
-                temp.Format(L"%ld", m_maxrev);
+                temp.Format(L"%ld", m_maxRev);
                 SetDlgItemText(IDC_COPYREVTEXT, temp);
                 CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
             }
         }
     }
 
-
     if (m_externals.size())
-        m_ExtList.ClearText();
+        m_extList.ClearText();
     else
-        m_ExtList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_NOEXTERNALSFOUND)));
+        m_extList.ShowText(CString(MAKEINTRESOURCE(IDS_COPY_NOEXTERNALSFOUND)));
 
-    m_ExtList.SetRedraw(false);
-    m_ExtList.DeleteAllItems();
+    m_extList.SetRedraw(false);
+    m_extList.DeleteAllItems();
 
-    int c = m_ExtList.GetHeaderCtrl()->GetItemCount()-1;
-    while (c>=0)
-        m_ExtList.DeleteColumn(c--);
+    int c = m_extList.GetHeaderCtrl()->GetItemCount() - 1;
+    while (c >= 0)
+        m_extList.DeleteColumn(c--);
     CString temp;
     temp.LoadString(IDS_STATUSLIST_COLFILE);
-    m_ExtList.InsertColumn(0, temp);
+    m_extList.InsertColumn(0, temp);
     temp.LoadString(IDS_STATUSLIST_COLURL);
-    m_ExtList.InsertColumn(1, temp);
+    m_extList.InsertColumn(1, temp);
     temp.LoadString(IDS_COPYEXTLIST_COLTAGGED);
-    m_ExtList.InsertColumn(2, temp, LVCFMT_RIGHT);
-    m_ExtList.SetItemCountEx((int)m_externals.size());
+    m_extList.InsertColumn(2, temp, LVCFMT_RIGHT);
+    m_extList.SetItemCountEx(static_cast<int>(m_externals.size()));
 
     CRect rect;
-    m_ExtList.GetClientRect(&rect);
-    int cx = (rect.Width()-180)/2;
-    m_ExtList.SetColumnWidth(0, cx);
-    m_ExtList.SetColumnWidth(1, cx);
-    m_ExtList.SetColumnWidth(2, 80);
+    m_extList.GetClientRect(&rect);
+    int cx = (rect.Width() - 180) / 2;
+    m_extList.SetColumnWidth(0, cx);
+    m_extList.SetColumnWidth(1, cx);
+    m_extList.SetColumnWidth(2, 80);
 
-    m_ExtList.SetRedraw(true);
+    m_extList.SetRedraw(true);
     DialogEnableWindow(IDC_EXTERNALSLIST, true);
 
     return 0;
 }
 
-void CCopyDlg::SetRevision(const SVNRev& rev)
+void CCopyDlg::SetRevision(const SVNRev &rev)
 {
     if (rev.IsHead())
     {
@@ -879,7 +875,7 @@ void CCopyDlg::SetRevision(const SVNRev& rev)
     {
         CheckRadioButton(IDC_COPYHEAD, IDC_COPYREV, IDC_COPYREV);
         CString temp;
-        temp.Format(L"%ld", (LONG)rev);
+        temp.Format(L"%ld", static_cast<LONG>(rev));
         SetDlgItemText(IDC_COPYREVTEXT, temp);
     }
 }
@@ -901,34 +897,34 @@ void CCopyDlg::OnEnChangeCopyrevtext()
 void CCopyDlg::OnCbnEditchangeUrlcombo()
 {
     m_bSettingChanged = true;
-    auto urlA = CUnicodeUtils::GetUTF8(m_URLCombo.GetWindowString());
-    auto urlW = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(urlA));
+    auto urlA         = CUnicodeUtils::GetUTF8(m_urlCombo.GetWindowString());
+    auto urlW         = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(urlA));
     SetDlgItemText(IDC_DESTURL, CPathUtils::CombineUrls(m_repoRoot, urlW));
 }
 
 void CCopyDlg::OnNMCustomdrawExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
+    NMLVCUSTOMDRAW *pLVCD = reinterpret_cast<NMLVCUSTOMDRAW *>(pNMHDR);
     // Take the default processing unless we set this to something else below.
     *pResult = CDRF_DODEFAULT;
 
-    if (m_ExtList.HasText())
+    if (m_extList.HasText())
         return;
 
     // Draw externals that are already tagged to a specific revision in gray.
-    if ( CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage )
+    if (CDDS_PREPAINT == pLVCD->nmcd.dwDrawStage)
     {
         *pResult = CDRF_NOTIFYITEMDRAW;
     }
-    else if ( CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage )
+    else if (CDDS_ITEMPREPAINT == pLVCD->nmcd.dwDrawStage)
     {
         *pResult = CDRF_NOTIFYSUBITEMDRAW;
 
         COLORREF crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
-        if (pLVCD->nmcd.dwItemSpec < (UINT_PTR)m_externals.size())
+        if (pLVCD->nmcd.dwItemSpec < static_cast<UINT_PTR>(m_externals.size()))
         {
             SVNExternal ext = m_externals[pLVCD->nmcd.dwItemSpec];
-            if ((ext.origRevision.kind == svn_opt_revision_number)||(ext.origRevision.kind == svn_opt_revision_date))
+            if ((ext.origRevision.kind == svn_opt_revision_number) || (ext.origRevision.kind == svn_opt_revision_date))
                 crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
         // Store the color back in the NMLVCUSTOMDRAW struct.
@@ -938,15 +934,15 @@ void CCopyDlg::OnNMCustomdrawExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
-    *pResult = 0;
+    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO *>(pNMHDR);
+    *pResult                = 0;
 
-    if (m_ExtList.HasText())
+    if (m_extList.HasText())
         return;
 
     if (pDispInfo)
     {
-        if (pDispInfo->item.iItem < (int)m_externals.size())
+        if (pDispInfo->item.iItem < static_cast<int>(m_externals.size()))
         {
             SVNExternal ext = m_externals[pDispInfo->item.iItem];
             if (pDispInfo->item.mask & LVIF_INDENT)
@@ -973,58 +969,58 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
             {
                 switch (pDispInfo->item.iSubItem)
                 {
-                case 0: // folder
+                    case 0: // folder
                     {
                         CTSVNPath p = ext.path;
                         p.AppendPathString(ext.targetDir);
-                        lstrcpyn(m_columnbuf, p.GetWinPath(), min(MAX_PATH - 2, pDispInfo->item.cchTextMax - 1));
-                        int cWidth = m_ExtList.GetColumnWidth(0);
-                        cWidth = max(28, cWidth-28);
-                        CDC * pDC = m_ExtList.GetDC();
-                        if (pDC != NULL)
+                        lstrcpyn(m_columnBuf, p.GetWinPath(), min(MAX_PATH - 2, pDispInfo->item.cchTextMax - 1));
+                        int cWidth = m_extList.GetColumnWidth(0);
+                        cWidth     = max(28, cWidth - 28);
+                        CDC *pDC   = m_extList.GetDC();
+                        if (pDC != nullptr)
                         {
-                            CFont * pFont = pDC->SelectObject(m_ExtList.GetFont());
-                            PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+                            CFont *pFont = pDC->SelectObject(m_extList.GetFont());
+                            PathCompactPath(pDC->GetSafeHdc(), m_columnBuf, cWidth);
                             pDC->SelectObject(pFont);
                             ReleaseDC(pDC);
                         }
                     }
                     break;
-                case 1: // url
+                    case 1: // url
                     {
-                        lstrcpyn(m_columnbuf, ext.url, min(MAX_PATH - 2, pDispInfo->item.cchTextMax - 1));
+                        lstrcpyn(m_columnBuf, ext.url, min(MAX_PATH - 2, pDispInfo->item.cchTextMax - 1));
                         SVNRev peg(ext.pegRevision);
                         if (peg.IsValid() && !peg.IsHead())
                         {
-                            wcscat_s(m_columnbuf, L"@");
-                            wcscat_s(m_columnbuf, peg.ToString());
+                            wcscat_s(m_columnBuf, L"@");
+                            wcscat_s(m_columnBuf, peg.ToString());
                         }
-                        int cWidth = m_ExtList.GetColumnWidth(1);
-                        cWidth = max(14, cWidth-14);
-                        CDC * pDC = m_ExtList.GetDC();
-                        if (pDC != NULL)
+                        int cWidth = m_extList.GetColumnWidth(1);
+                        cWidth     = max(14, cWidth - 14);
+                        CDC *pDC   = m_extList.GetDC();
+                        if (pDC != nullptr)
                         {
-                            CFont * pFont = pDC->SelectObject(m_ExtList.GetFont());
-                            PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+                            CFont *pFont = pDC->SelectObject(m_extList.GetFont());
+                            PathCompactPath(pDC->GetSafeHdc(), m_columnBuf, cWidth);
                             pDC->SelectObject(pFont);
                             ReleaseDC(pDC);
                         }
                     }
                     break;
-                case 2: // tagged
-                    m_columnbuf[0] = 0;
-                    if (ext.origRevision.kind == svn_opt_revision_number)
-                        swprintf_s(m_columnbuf, L"%ld", ext.origRevision.value.number);
-                    else if (ext.origRevision.kind == svn_opt_revision_date)
-                    {
-                        SVNRev r(ext.origRevision);
-                        wcscpy_s(m_columnbuf, (LPCTSTR)r.ToString());
-                    }
-                    break;
-                default:
-                    m_columnbuf[0] = 0;
+                    case 2: // tagged
+                        m_columnBuf[0] = 0;
+                        if (ext.origRevision.kind == svn_opt_revision_number)
+                            swprintf_s(m_columnBuf, L"%ld", ext.origRevision.value.number);
+                        else if (ext.origRevision.kind == svn_opt_revision_date)
+                        {
+                            SVNRev r(ext.origRevision);
+                            wcscpy_s(m_columnBuf, static_cast<LPCWSTR>(r.ToString()));
+                        }
+                        break;
+                    default:
+                        m_columnBuf[0] = 0;
                 }
-                pDispInfo->item.pszText = m_columnbuf;
+                pDispInfo->item.pszText = m_columnBuf;
             }
         }
     }
@@ -1032,15 +1028,15 @@ void CCopyDlg::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CCopyDlg::OnLvnKeydownExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    LPNMLVKEYDOWN pLVKeyDow = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
-    *pResult = 0;
+    LPNMLVKEYDOWN pLvKeyDown = reinterpret_cast<LPNMLVKEYDOWN>(pNMHDR);
+    *pResult                 = 0;
 
-    if (m_ExtList.HasText())
+    if (m_extList.HasText())
         return;
 
-    if (pLVKeyDow->wVKey == VK_SPACE)
+    if (pLvKeyDown->wVKey == VK_SPACE)
     {
-        int nFocusedItem = m_ExtList.GetNextItem(-1, LVNI_FOCUSED);
+        int nFocusedItem = m_extList.GetNextItem(-1, LVNI_FOCUSED);
         if (nFocusedItem >= 0)
             ToggleCheckbox(nFocusedItem);
     }
@@ -1049,20 +1045,20 @@ void CCopyDlg::OnLvnKeydownExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 void CCopyDlg::OnNMClickExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 {
     LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
-    *pResult = 0;
+    *pResult                         = 0;
 
-    if (m_ExtList.HasText())
+    if (m_extList.HasText())
         return;
 
-    UINT flags = 0;
+    UINT   flags = 0;
     CPoint point(pNMItemActivate->ptAction);
     // Make the hit test...
-    int item = m_ExtList.HitTest(point, &flags);
+    int item = m_extList.HitTest(point, &flags);
 
     if (item != -1)
     {
         // We hit one item... did we hit state image (check box)?
-        if( (flags & LVHT_ONITEMSTATEICON) != 0)
+        if ((flags & LVHT_ONITEMSTATEICON) != 0)
         {
             ToggleCheckbox(item);
         }
@@ -1071,16 +1067,16 @@ void CCopyDlg::OnNMClickExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 
 void CCopyDlg::ToggleCheckbox(int index)
 {
-    SVNExternal ext = m_externals[index];
-    ext.adjust = !ext.adjust;
+    SVNExternal ext    = m_externals[index];
+    ext.adjust         = !ext.adjust;
     m_externals[index] = ext;
-    m_ExtList.RedrawItems(index, index);
-    m_ExtList.UpdateWindow();
+    m_extList.RedrawItems(index, index);
+    m_extList.UpdateWindow();
 }
 
 LRESULT CCopyDlg::OnCheck(WPARAM wnd, LPARAM)
 {
-    HWND hwnd = (HWND)wnd;
+    HWND hwnd  = reinterpret_cast<HWND>(wnd);
     bool check = false;
     if (hwnd == GetDlgItem(IDC_CHECKALL)->GetSafeHwnd())
         check = true;
@@ -1089,8 +1085,8 @@ LRESULT CCopyDlg::OnCheck(WPARAM wnd, LPARAM)
     {
         it->adjust = check;
     }
-    m_ExtList.RedrawItems(0, m_ExtList.GetItemCount());
-    m_ExtList.UpdateWindow();
+    m_extList.RedrawItems(0, m_extList.GetItemCount());
+    m_extList.UpdateWindow();
 
     return 0;
 }
