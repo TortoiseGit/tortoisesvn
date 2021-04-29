@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2007, 2012, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,9 +29,8 @@ public:
     /**
      * Executes the command.
      */
-    virtual bool            Execute() override;
+    bool Execute() override;
+
 private:
     void ShowErrorMessage() const;
 };
-
-

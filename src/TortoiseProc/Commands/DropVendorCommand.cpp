@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013-2015, 2017-2018 - TortoiseSVN
+// Copyright (C) 2013-2015, 2017-2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,15 +29,15 @@
 
 bool DropVendorCommand::Execute()
 {
-    CString droppath = parser.GetVal(L"droptarget");
-    CTSVNPath droptsvnpath = CTSVNPath(droppath);
-    if (droptsvnpath.IsAdminDir())
+    CString   dropPath    = parser.GetVal(L"droptarget");
+    CTSVNPath dropSvnPath = CTSVNPath(dropPath);
+    if (dropSvnPath.IsAdminDir())
         return FALSE;
     if (!parser.HasKey(L"noui"))
     {
         CString sAsk;
-        sAsk.Format(IDS_PROC_VENDORDROP_CONFIRM, (LPCWSTR)droptsvnpath.GetFileOrDirectoryName());
-        if (MessageBox(GetExplorerHWND(), sAsk, L"TortoiseSVN", MB_YESNO|MB_ICONQUESTION) != IDYES)
+        sAsk.Format(IDS_PROC_VENDORDROP_CONFIRM, static_cast<LPCWSTR>(dropSvnPath.GetFileOrDirectoryName()));
+        if (MessageBox(GetExplorerHWND(), sAsk, L"TortoiseSVN", MB_YESNO | MB_ICONQUESTION) != IDYES)
             return FALSE;
     }
 
@@ -47,13 +47,13 @@ bool DropVendorCommand::Execute()
     if (!parser.HasKey(L"noprogressui"))
         progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
 
-    std::map<CString,bool> versionedFiles;
-    CTSVNPath path;
-    SVNStatus st;
-    svn_client_status_t * status = st.GetFirstFileStatus(droptsvnpath, path, false, svn_depth_infinity, true, true);
+    std::map<CString, bool> versionedFiles;
+    CTSVNPath               path;
+    SVNStatus               st;
+    svn_client_status_t*    status = st.GetFirstFileStatus(dropSvnPath, path, false, svn_depth_infinity, true, true);
     if (status)
     {
-        while ((status = st.GetNextFileStatus(path)) != NULL && !progress.HasUserCancelled())
+        while ((status = st.GetNextFileStatus(path)) != nullptr && !progress.HasUserCancelled())
         {
             if (status->node_status == svn_wc_status_deleted)
             {
@@ -64,42 +64,42 @@ bool DropVendorCommand::Execute()
                 else
                     continue;
             }
-            versionedFiles[path.GetWinPathString().Mid(droppath.GetLength() + 1)] = status->kind == svn_node_dir;
+            versionedFiles[path.GetWinPathString().Mid(dropPath.GetLength() + 1)] = status->kind == svn_node_dir;
         }
     }
 
     pathList.RemoveAdminPaths();
-    std::map<CString,bool> vendorFiles;
-    CTSVNPath root = pathList.GetCommonRoot();
-    int rootlen = root.GetWinPathString().GetLength()+1;
+    std::map<CString, bool> vendorFiles;
+    CTSVNPath               root    = pathList.GetCommonRoot();
+    int                     rootLen = root.GetWinPathString().GetLength() + 1;
     progress.SetLine(1, CString(MAKEINTRESOURCE(IDS_PROC_VENDORDROP_GETDATA2)));
-    for(int nPath = 0; (nPath < pathList.GetCount()) && (!progress.HasUserCancelled()); nPath++)
+    for (int nPath = 0; (nPath < pathList.GetCount()) && (!progress.HasUserCancelled()); nPath++)
     {
         CDirFileEnum crawler(pathList[nPath].GetWinPathString());
-        CString sPath;
-        bool bDir = false;
+        CString      sPath;
+        bool         bDir = false;
         while (crawler.NextFile(sPath, &bDir, true))
         {
             if (!g_SVNAdminDir.IsAdminDirPath(sPath))
-                vendorFiles[sPath.Mid(rootlen)] = bDir;
+                vendorFiles[sPath.Mid(rootLen)] = bDir;
         }
     }
 
     // now start copying the vendor files over the versioned files
-    ProjectProperties projectproperties;
-    projectproperties.ReadPropsPathList(pathList);
+    ProjectProperties projectProperties;
+    projectProperties.ReadPropsPathList(pathList);
     SVN svn;
     progress.SetTime(true);
-    progress.SetProgress(0, (DWORD)vendorFiles.size());
+    progress.SetProgress(0, static_cast<DWORD>(vendorFiles.size()));
     DWORD count = 0;
     for (auto it = vendorFiles.cbegin(); (it != vendorFiles.cend()) && (!progress.HasUserCancelled()); ++it)
     {
         CString srcPath = root.GetWinPathString() + L"\\" + it->first;
-        CString dstPath = droppath + L"\\" + it->first;
+        CString dstPath = dropPath + L"\\" + it->first;
 
-        progress.FormatPathLine(1, IDS_PROC_COPYINGPROG, (LPCWSTR)srcPath);
-        progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, (LPCWSTR)dstPath);
-        progress.SetProgress(++count, (DWORD)vendorFiles.size());
+        progress.FormatPathLine(1, IDS_PROC_COPYINGPROG, static_cast<LPCWSTR>(srcPath));
+        progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, static_cast<LPCWSTR>(dstPath));
+        progress.SetProgress(++count, static_cast<DWORD>(vendorFiles.size()));
 
         auto found = versionedFiles.find(it->first);
         if (found != versionedFiles.end())
@@ -114,7 +114,7 @@ bool DropVendorCommand::Execute()
                         CFormatMessageWrapper error;
                         progress.Stop();
                         CString sErr;
-                        sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
+                        sErr.Format(IDS_ERR_COPYFAILED, static_cast<LPCWSTR>(srcPath), static_cast<LPCWSTR>(dstPath), static_cast<LPCWSTR>(error));
                         MessageBox(progress.GetHwnd(), sErr, L"TortoiseSVN", MB_ICONERROR);
                     }
                     return FALSE;
@@ -130,8 +130,8 @@ bool DropVendorCommand::Execute()
                 {
                     if (v->first.CompareNoCase(it->first) == 0)
                     {
-                        CString dstsrc = droppath + L"\\" + v->first;
-                        if (!svn.Move(CTSVNPathList(CTSVNPath(dstsrc)), CTSVNPath(dstPath)))
+                        CString dstSrc = dropPath + L"\\" + v->first;
+                        if (!svn.Move(CTSVNPathList(CTSVNPath(dstSrc)), CTSVNPath(dstPath)))
                         {
                             progress.Stop();
                             svn.ShowErrorDialog(GetExplorerHWND());
@@ -146,7 +146,7 @@ bool DropVendorCommand::Execute()
                                     CFormatMessageWrapper error;
                                     progress.Stop();
                                     CString sErr;
-                                    sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
+                                    sErr.Format(IDS_ERR_COPYFAILED, static_cast<LPCWSTR>(srcPath), static_cast<LPCWSTR>(dstPath), static_cast<LPCWSTR>(error));
                                     MessageBox(progress.GetHwnd(), sErr, L"TortoiseSVN", MB_ICONERROR);
                                 }
                                 return FALSE;
@@ -158,12 +158,12 @@ bool DropVendorCommand::Execute()
                             versionedFiles.erase(v);
                             // adjust all paths inside the renamed folder
                             std::map<CString, bool> versionedFilesTemp;
-                            for (auto vv = versionedFiles.begin(); vv != versionedFiles.end(); )
+                            for (auto vv = versionedFiles.begin(); vv != versionedFiles.end();)
                             {
                                 if ((vv->first.Left(it->first.GetLength()).CompareNoCase(it->first) == 0) && (vv->first[it->first.GetLength()] == '\\'))
                                 {
                                     versionedFilesTemp[it->first + vv->first.Mid(it->first.GetLength())] = vv->second;
-                                    auto curIter = vv++;
+                                    auto curIter                                                         = vv++;
                                     versionedFiles.erase(curIter);
                                 }
                                 else
@@ -189,15 +189,15 @@ bool DropVendorCommand::Execute()
                             CFormatMessageWrapper error;
                             progress.Stop();
                             CString sErr;
-                            sErr.Format(IDS_ERR_COPYFAILED, (LPCWSTR)srcPath, (LPCWSTR)dstPath, (LPCWSTR)error);
+                            sErr.Format(IDS_ERR_COPYFAILED, static_cast<LPCWSTR>(srcPath), static_cast<LPCWSTR>(dstPath), static_cast<LPCWSTR>(error));
                             MessageBox(progress.GetHwnd(), sErr, L"TortoiseSVN", MB_ICONERROR);
                         }
                         return FALSE;
                     }
                 }
                 else
-                    CreateDirectory(dstPath, NULL);
-                if (!svn.Add(plist, &projectproperties, svn_depth_infinity, true, true, true, true))
+                    CreateDirectory(dstPath, nullptr);
+                if (!svn.Add(plist, &projectProperties, svn_depth_infinity, true, true, true, true))
                 {
                     progress.Stop();
                     if (!parser.HasKey(L"noui"))
@@ -212,7 +212,7 @@ bool DropVendorCommand::Execute()
         // remove the source paths from the list:
         // they're definitely not missing
         for (int nPath = 0; nPath < pathList.GetCount(); nPath++)
-            versionedFiles.erase(pathList[nPath].GetWinPathString().Mid(rootlen));
+            versionedFiles.erase(pathList[nPath].GetWinPathString().Mid(rootLen));
     }
 
     // now go through all files still in the versionedFiles map
@@ -224,15 +224,15 @@ bool DropVendorCommand::Execute()
         auto it = versionedFiles.begin();
         // first move the file to the recycle bin so it's possible to retrieve it later
         // again in case removing it was done accidentally
-        CTSVNPath delpath = CTSVNPath(droppath + L"\\" + it->first);
-        bool isDir = delpath.IsDirectory();
+        CTSVNPath delpath = CTSVNPath(dropPath + L"\\" + it->first);
+        bool      isDir   = delpath.IsDirectory();
         delpath.Delete(true);
         // create the deleted file or directory again to avoid svn throwing an error
         if (isDir)
-            CreateDirectory(delpath.GetWinPath(), NULL);
+            CreateDirectory(delpath.GetWinPath(), nullptr);
         else
         {
-            CAutoFile hFile = CreateFile(delpath.GetWinPath(), GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+            CAutoFile hFile = CreateFile(delpath.GetWinPath(), GENERIC_WRITE, FILE_SHARE_READ, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
         }
         if (!svn.Remove(CTSVNPathList(delpath), true, false))
         {

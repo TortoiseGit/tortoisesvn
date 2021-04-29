@@ -25,17 +25,17 @@
 
 bool DropExternalCommand::Execute()
 {
-    bool bSuccess = false;
-    CString droppath = parser.GetVal(L"droptarget");
-    CTSVNPath droptsvnpath = CTSVNPath(droppath);
-    if (droptsvnpath.IsAdminDir())
-        droptsvnpath = droptsvnpath.GetDirectory();
-    if (!droptsvnpath.IsDirectory())
-        droptsvnpath = droptsvnpath.GetDirectory();
+    bool      bSuccess     = false;
+    CString   dropPath     = parser.GetVal(L"droptarget");
+    CTSVNPath droptSvnPath = CTSVNPath(dropPath);
+    if (droptSvnPath.IsAdminDir())
+        droptSvnPath = droptSvnPath.GetDirectory();
+    if (!droptSvnPath.IsDirectory())
+        droptSvnPath = droptSvnPath.GetDirectory();
 
     // first get the svn:externals property from the target folder
-    SVNProperties props(droptsvnpath, SVNRev::REV_WC, false, false);
-    std::string sExternalsValue;
+    SVNProperties props(droptSvnPath, SVNRev::REV_WC, false, false);
+    std::string   sExternalsValue;
     for (int i = 0; i < props.GetCount(); ++i)
     {
         if (props.GetItemName(i).compare(SVN_PROP_EXTERNALS) == 0)
@@ -51,7 +51,7 @@ bool DropExternalCommand::Execute()
         return bSuccess;
 
     SVNStatus status;
-    status.GetStatus(droptsvnpath);
+    status.GetStatus(droptSvnPath);
     CString sTargetRepoRootUrl;
     if (status.status && status.status->repos_root_url)
     {
@@ -61,13 +61,13 @@ bool DropExternalCommand::Execute()
     {
         // failed to get the status and/or the repo root url
         CString messageString;
-        messageString.Format(IDS_ERR_NOURLOFFILE, droptsvnpath.GetWinPath());
+        messageString.Format(IDS_ERR_NOURLOFFILE, droptSvnPath.GetWinPath());
         ::MessageBox(GetExplorerHWND(), messageString, L"TortoiseSVN", MB_ICONERROR);
     }
     SVN svn;
     for (auto i = 0; i < pathList.GetCount(); ++i)
     {
-        CTSVNPath destPath = droptsvnpath;
+        CTSVNPath destPath = droptSvnPath;
         destPath.AppendPathString(pathList[i].GetFileOrDirectoryName());
         bool bExists = !!PathFileExists(destPath.GetWinPath());
         if (!bExists)
@@ -76,8 +76,8 @@ bool DropExternalCommand::Execute()
             sourceStatus.GetStatus(pathList[i]);
             if (sourceStatus.status && sourceStatus.status->repos_root_url)
             {
-                CString sExternalRootUrl = CUnicodeUtils::GetUnicode(sourceStatus.status->repos_root_url);
-                CString sExternalUrl = svn.GetURLFromPath(pathList[i]);
+                CString sExternalRootUrl     = CUnicodeUtils::GetUnicode(sourceStatus.status->repos_root_url);
+                CString sExternalUrl         = svn.GetURLFromPath(pathList[i]);
                 CString sFileOrDirectoryName = pathList[i].GetFileOrDirectoryName();
                 if (sFileOrDirectoryName.Find(L" ") > 0)
                     sFileOrDirectoryName = L"\"" + sFileOrDirectoryName + L"\"";
@@ -93,7 +93,7 @@ bool DropExternalCommand::Execute()
                     if (sExternalsValue[sExternalsValue.size() - 1] != '\n')
                         sExternalsValue += "\n";
                 }
-                sExternalsValue += CUnicodeUtils::StdGetUTF8((LPCWSTR)sExtValue);
+                sExternalsValue += CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(sExtValue));
                 bSuccess = true;
             }
         }
@@ -103,7 +103,7 @@ bool DropExternalCommand::Execute()
             // same name.
 
             CString messageString;
-            messageString.Format(IDS_DROPEXT_FILEEXISTS, (LPCWSTR)pathList[i].GetFileOrDirectoryName());
+            messageString.Format(IDS_DROPEXT_FILEEXISTS, static_cast<LPCWSTR>(pathList[i].GetFileOrDirectoryName()));
             ::MessageBox(GetExplorerHWND(), messageString, L"TortoiseSVN", MB_ICONERROR);
             bSuccess = false;
         }
@@ -114,31 +114,31 @@ bool DropExternalCommand::Execute()
         if (bSuccess)
         {
             CString sInfo;
-            sInfo.Format(IDS_DROPEXT_UPDATE_TASK1, (LPCTSTR)droptsvnpath.GetFileOrDirectoryName());
-            CTaskDialog taskdlg(sInfo,
+            sInfo.Format(IDS_DROPEXT_UPDATE_TASK1, static_cast<LPCWSTR>(droptSvnPath.GetFileOrDirectoryName()));
+            CTaskDialog taskDlg(sInfo,
                                 CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK3)));
-            taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            bool doUpdate = (taskdlg.DoModal(GetExplorerHWND()) == 100);
+            taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK3)));
+            taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK4)));
+            taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetMainIcon(TD_WARNING_ICON);
+            bool doUpdate = (taskDlg.DoModal(GetExplorerHWND()) == 100);
             if (doUpdate)
             {
-                DWORD exitcode = 0;
-                CString error;
+                DWORD             exitCode = 0;
+                CString           error;
                 ProjectProperties pprops;
                 pprops.ReadPropsPathList(pathList);
-                CHooks::Instance().SetProjectProperties(droptsvnpath, pprops);
-                if (CHooks::Instance().StartUpdate(GetExplorerHWND(), pathList, exitcode, error))
+                CHooks::Instance().SetProjectProperties(droptSvnPath, pprops);
+                if (CHooks::Instance().StartUpdate(GetExplorerHWND(), pathList, exitCode, error))
                 {
-                    if (exitcode)
+                    if (exitCode)
                     {
                         CString temp;
-                        temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
+                        temp.Format(IDS_ERR_HOOKFAILED, static_cast<LPCWSTR>(error));
                         ::MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
                         return FALSE;
                     }
@@ -149,7 +149,7 @@ bool DropExternalCommand::Execute()
                 progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Update);
                 progDlg.SetAutoClose(parser);
                 progDlg.SetOptions(ProgOptSkipPreChecks);
-                progDlg.SetPathList(CTSVNPathList(droptsvnpath));
+                progDlg.SetPathList(CTSVNPathList(droptSvnPath));
                 progDlg.SetRevision(SVNRev(L"HEAD"));
                 progDlg.SetProjectProperties(pprops);
                 progDlg.SetDepth(svn_depth_unknown);

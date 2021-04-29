@@ -26,19 +26,19 @@
 #include "SVN.h"
 #include "ShellUpdater.h"
 
-#define IDYESTOALL          19
-#define IDNOTOALL           20
+#define IDYESTOALL 19
+#define IDNOTOALL  20
 
 bool DropCopyCommand::Execute()
 {
     CString sDroppath = parser.GetVal(L"droptarget");
     if (CTSVNPath(sDroppath).IsAdminDir())
         return FALSE;
-    SVN svn;
+    SVN           svn;
     unsigned long count = 0;
-    CString sNewName;
+    CString       sNewName;
     pathList.RemoveAdminPaths();
-    if ((parser.HasKey(L"rename"))&&(pathList.GetCount()==1))
+    if ((parser.HasKey(L"rename")) && (pathList.GetCount() == 1))
     {
         // ask for a new name of the source item
         CRenameDlg renDlg;
@@ -56,8 +56,8 @@ bool DropCopyCommand::Execute()
     progress.SetTitle(IDS_PROC_COPYING);
     progress.SetTime(true);
     progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
-    UINT msgRet = IDNO;
-    INT_PTR msgRetNonversioned = 0;
+    UINT    msgRet             = IDNO;
+    INT_PTR msgRetNonVersioned = 0;
     for (int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         const CTSVNPath& sourcePath = pathList[nPath];
@@ -75,7 +75,7 @@ bool DropCopyCommand::Execute()
             progress.Stop();
             CRenameDlg dlg;
             dlg.SetFileSystemAutoComplete();
-            dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, (LPCTSTR)sourcePath.GetUIFileOrDirectoryName());
+            dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, static_cast<LPCWSTR>(sourcePath.GetUIFileOrDirectoryName()));
             if (dlg.DoModal() != IDOK)
             {
                 return FALSE;
@@ -100,23 +100,23 @@ bool DropCopyCommand::Execute()
                     // target file already exists. Ask user if he wants to replace the file
                     CString sReplace;
                     sReplace.Format(IDS_PROC_REPLACEEXISTING, fullDropPath.GetWinPath());
-                    CTaskDialog taskdlg(sReplace,
+                    CTaskDialog taskDlg(sReplace,
                                         CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK2)),
                                         L"TortoiseSVN",
                                         0,
                                         TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                    taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
-                    taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
-                    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                    taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK5)));
-                    taskdlg.SetVerificationCheckbox(false);
-                    taskdlg.SetDefaultCommandControl(2);
-                    taskdlg.SetMainIcon(TD_WARNING_ICON);
-                    INT_PTR ret = taskdlg.DoModal(GetExplorerHWND());
+                    taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
+                    taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
+                    taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                    taskDlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK5)));
+                    taskDlg.SetVerificationCheckbox(false);
+                    taskDlg.SetDefaultCommandControl(2);
+                    taskDlg.SetMainIcon(TD_WARNING_ICON);
+                    INT_PTR ret = taskDlg.DoModal(GetExplorerHWND());
                     if (ret == 100) // replace
-                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDYESTOALL : IDYES;
+                        msgRet = taskDlg.GetVerificationCheckboxState() ? IDYESTOALL : IDYES;
                     else
-                        msgRet = taskdlg.GetVerificationCheckboxState() ? IDNOTOALL : IDNO;
+                        msgRet = taskDlg.GetVerificationCheckboxState() ? IDNOTOALL : IDNO;
 
                     progress.EnsureValid();
                     progress.SetTitle(IDS_PROC_COPYING);
@@ -135,7 +135,7 @@ bool DropCopyCommand::Execute()
                     {
                         progress.Stop();
                         svn.ShowErrorDialog(GetExplorerHWND(), pathList[nPath]);
-                        return FALSE;       //get out of here
+                        return FALSE; //get out of here
                     }
                 }
             }
@@ -143,33 +143,33 @@ bool DropCopyCommand::Execute()
             {
                 progress.Stop();
                 svn.ShowErrorDialog(GetExplorerHWND(), sourcePath);
-                return FALSE;       //get out of here
+                return FALSE; //get out of here
             }
         }
         else if (svn.GetSVNError() && svn.GetSVNError()->apr_err == SVN_ERR_WC_PATH_NOT_FOUND)
         {
             INT_PTR ret = 0;
-            if (msgRetNonversioned == 0)
+            if (msgRetNonVersioned == 0)
             {
                 progress.Stop();
 
                 CString sReplace;
                 sReplace.Format(IDS_PROC_MOVEUNVERSIONED_TASK1, fullDropPath.GetWinPath());
-                CTaskDialog taskdlg(sReplace,
+                CTaskDialog taskDlg(sReplace,
                                     CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK2)),
                                     L"TortoiseSVN",
                                     TDCBF_CANCEL_BUTTON,
                                     TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                taskdlg.AddCommandControl(101, CString(MAKEINTRESOURCE(IDS_PROC_COPYUNVERSIONED_TASK3)));
-                taskdlg.AddCommandControl(102, CString(MAKEINTRESOURCE(IDS_PROC_COPYUNVERSIONED_TASK4)));
-                taskdlg.AddCommandControl(103, CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK5)));
-                taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK6)));
-                taskdlg.SetVerificationCheckbox(false);
-                taskdlg.SetDefaultCommandControl(103);
-                taskdlg.SetMainIcon(TD_WARNING_ICON);
-                ret = taskdlg.DoModal(GetExplorerHWND());
-                if (taskdlg.GetVerificationCheckboxState())
-                    msgRetNonversioned = ret;
+                taskDlg.AddCommandControl(101, CString(MAKEINTRESOURCE(IDS_PROC_COPYUNVERSIONED_TASK3)));
+                taskDlg.AddCommandControl(102, CString(MAKEINTRESOURCE(IDS_PROC_COPYUNVERSIONED_TASK4)));
+                taskDlg.AddCommandControl(103, CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK5)));
+                taskDlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_MOVEUNVERSIONED_TASK6)));
+                taskDlg.SetVerificationCheckbox(false);
+                taskDlg.SetDefaultCommandControl(103);
+                taskDlg.SetMainIcon(TD_WARNING_ICON);
+                ret = taskDlg.DoModal(GetExplorerHWND());
+                if (taskDlg.GetVerificationCheckboxState())
+                    msgRetNonVersioned = ret;
 
                 progress.EnsureValid();
                 progress.SetTitle(IDS_PROC_COPYING);
@@ -179,7 +179,7 @@ bool DropCopyCommand::Execute()
             }
             else
             {
-                ret = msgRetNonversioned;
+                ret = msgRetNonVersioned;
             }
             switch (ret)
             {
@@ -188,10 +188,10 @@ bool DropCopyCommand::Execute()
                     break;
                 case 102: // copy and add
                     CopyFile(pathList[nPath].GetWinPath(), fullDropPath.GetWinPath(), FALSE);
-                    if (!svn.Add(CTSVNPathList(fullDropPath), NULL, svn_depth_infinity, true, false, false, false))
+                    if (!svn.Add(CTSVNPathList(fullDropPath), nullptr, svn_depth_infinity, true, false, false, false))
                     {
                         svn.ShowErrorDialog(GetExplorerHWND(), fullDropPath);
-                        return FALSE;       //get out of here
+                        return FALSE; //get out of here
                     }
                     break;
                 case 103: // skip
@@ -208,10 +208,10 @@ bool DropCopyCommand::Execute()
             progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, fullDropPath.GetWinPath());
             progress.SetProgress(count, pathList.GetCount());
         }
-        if ((progress.IsValid())&&(progress.HasUserCancelled()))
+        if ((progress.IsValid()) && (progress.HasUserCancelled()))
         {
             progress.Stop();
-            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SVN_USERCANCELLED), NULL, TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
+            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SVN_USERCANCELLED), nullptr, TDCBF_OK_BUTTON, TD_INFORMATION_ICON, nullptr);
             return false;
         }
     }
@@ -225,7 +225,7 @@ CString DropCopyCommand::Validate(const int /*nID*/, const CString& input)
     CString sDroppath = parser.GetVal(L"droptarget");
     if (input.IsEmpty())
         sError.LoadString(IDS_ERR_NOVALIDPATH);
-    else if (!CTSVNPath(sDroppath+L"\\"+input).IsValidOnWindows())
+    else if (!CTSVNPath(sDroppath + L"\\" + input).IsValidOnWindows())
         sError.LoadString(IDS_ERR_NOVALIDPATH);
 
     return sError;
