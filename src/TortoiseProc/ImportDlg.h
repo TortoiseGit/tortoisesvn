@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2015 - TortoiseSVN
+// Copyright (C) 2003-2011, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,20 +35,23 @@ class CImportDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CImportDlg)
 
 public:
-    CImportDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CImportDlg();
+    CImportDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CImportDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_IMPORT };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_IMPORT
+    };
 
 protected:
-    CFont       m_logFont;
-    CButton     m_butBrowse;
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual void OnOK();
-    virtual void OnCancel();
-    virtual BOOL OnInitDialog();
+    CFont        m_logFont;
+    CButton      m_butBrowse;
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         PreTranslateMessage(MSG* pMsg) override;
+    void         OnOK() override;
+    void         OnCancel() override;
+    BOOL         OnInitDialog() override;
     afx_msg void OnBnClickedBrowse();
     afx_msg void OnBnClickedSelectall();
     afx_msg void OnBnClickedHelp();
@@ -57,14 +60,15 @@ protected:
     afx_msg void OnCbnEditchangeUrlcombo();
     DECLARE_MESSAGE_MAP()
 public:
-    CTSVNPath           m_path;
-    CString             m_url;
-    BOOL                m_bIncludeIgnored;
-    BOOL                m_UseAutoprops;
-    CString             m_sMessage;
+    CTSVNPath m_path;
+    CString   m_url;
+    BOOL      m_bIncludeIgnored;
+    BOOL      m_useAutoprops;
+    CString   m_sMessage;
+
 private:
-    CSciEdit            m_cMessage;
-    CHistoryCombo       m_URLCombo;
-    ProjectProperties   m_ProjectProperties;
-    CRegHistory         m_History;
+    CSciEdit          m_cMessage;
+    CHistoryCombo     m_urlCombo;
+    ProjectProperties m_projectProperties;
+    CRegHistory       m_history;
 };

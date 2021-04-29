@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2011, 2014 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,7 +25,7 @@
 
 bool ImportCommand::Execute()
 {
-    bool bRet = false;
+    bool    bRet = false;
     CString msg;
     if (parser.HasKey(L"logmsg"))
     {
@@ -33,11 +33,11 @@ bool ImportCommand::Execute()
     }
     if (parser.HasKey(L"logmsgfile"))
     {
-        CString logmsgfile = parser.GetVal(L"logmsgfile");
-        CStringUtils::ReadStringFromTextFile(logmsgfile, msg);
+        CString logMsgFile = parser.GetVal(L"logmsgfile");
+        CStringUtils::ReadStringFromTextFile(logMsgFile, msg);
     }
     CImportDlg dlg;
-    dlg.m_path = cmdLinePath;
+    dlg.m_path     = cmdLinePath;
     dlg.m_sMessage = msg;
     if (parser.HasVal(L"url"))
         dlg.m_url = parser.GetVal(L"url");
@@ -46,9 +46,9 @@ bool ImportCommand::Execute()
         CSVNProgressDlg progDlg;
         theApp.m_pMainWnd = &progDlg;
         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Import);
-        progDlg.SetAutoClose (parser);
+        progDlg.SetAutoClose(parser);
         DWORD dwOpts = dlg.m_bIncludeIgnored ? ProgOptIncludeIgnored : ProgOptNone;
-        if (dlg.m_UseAutoprops)
+        if (dlg.m_useAutoprops)
             dwOpts |= ProgOptUseAutoprops;
         progDlg.SetOptions(dwOpts);
         progDlg.SetPathList(pathList);
