@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2018, 2020 - TortoiseSVN
+// Copyright (C) 2016-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,15 +20,14 @@
 #include "stdafx.h"
 #include "PropConflictEditorDlg.h"
 #include "CommonAppUtils.h"
-#include "TortoiseProc.h"
 #include "SVN.h"
 #include "AppUtils.h"
 
 CPropConflictEditorDlg::CPropConflictEditorDlg()
-    : m_conflictInfo(NULL)
+    : m_conflictInfo(nullptr)
     , m_choice(svn_client_conflict_option_undefined)
+    , m_svn(nullptr)
     , m_bCancelled(false)
-    , m_svn(NULL)
     , m_mergedCreationTime(0)
 {
 }
@@ -39,7 +38,7 @@ CPropConflictEditorDlg::~CPropConflictEditorDlg()
 
 HRESULT CALLBACK CPropConflictEditorDlg::TaskDialogCallback(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam, LONG_PTR dwRefData)
 {
-    CPropConflictEditorDlg *pThis = reinterpret_cast<CPropConflictEditorDlg*>(dwRefData);
+    CPropConflictEditorDlg *pThis = reinterpret_cast<CPropConflictEditorDlg *>(dwRefData);
     return pThis->OnNotify(hWnd, uNotification, wParam, lParam);
 }
 
@@ -48,28 +47,28 @@ HRESULT CPropConflictEditorDlg::OnNotify(HWND hWnd, UINT uNotification, WPARAM w
     switch (uNotification)
     {
         case TDN_DIALOG_CONSTRUCTED:
-        return OnDialogConstructed(hWnd);
+            return OnDialogConstructed(hWnd);
         case TDN_BUTTON_CLICKED:
-        return OnButtonClicked(hWnd, (int)wParam);
+            return OnButtonClicked(hWnd, static_cast<int>(wParam));
         case TDN_TIMER:
-        return OnTimer(hWnd);
+            return OnTimer(hWnd);
         case TDN_HELP:
             if (!CAppUtils::StartHtmlHelp(IDD_CONFLICTRESOLVE + 0x20000))
             {
                 AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
             }
-        break;
+            break;
         default:
-        break;
+            break;
     }
     return S_OK;
 }
 
-void CPropConflictEditorDlg::AddCommandButton(int id, const CString & text)
+void CPropConflictEditorDlg::AddCommandButton(int id, const CString &text)
 {
-    TASKDIALOG_BUTTON btn = { 0 };
+    TASKDIALOG_BUTTON btn = {0};
     m_buttonTexts.push_back(text);
-    btn.nButtonID = id;
+    btn.nButtonID     = id;
     btn.pszButtonText = m_buttonTexts.back().GetString();
 
     m_buttons.push_back(btn);
@@ -80,8 +79,8 @@ HRESULT CPropConflictEditorDlg::OnDialogConstructed(HWND hWnd)
     CCommonAppUtils::MarkWindowAsUnpinnable(hWnd);
 
     HICON hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
-    ::SendMessage(hWnd, WM_SETICON, ICON_BIG, (LPARAM)hIcon);
-    ::SendMessage(hWnd, WM_SETICON, ICON_SMALL, (LPARAM)hIcon);
+    ::SendMessage(hWnd, WM_SETICON, ICON_BIG, reinterpret_cast<LPARAM>(hIcon));
+    ::SendMessage(hWnd, WM_SETICON, ICON_SMALL, reinterpret_cast<LPARAM>(hIcon));
     ::SendMessage(hWnd, TDM_ENABLE_BUTTON, 100 + svn_client_conflict_option_merged_text, 0);
     return S_OK;
 }
@@ -97,10 +96,10 @@ HRESULT CPropConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
         ::SendMessage(hWnd, TDM_ENABLE_BUTTON, 100 + svn_client_conflict_option_merged_text, 0);
 
         CString n1, n2, n3, n4;
-        n1.Format(IDS_DIFF_PROP_BASENAME, (LPCTSTR)m_propName);
-        n2.Format(IDS_DIFF_PROP_REMOTENAME, (LPCTSTR)m_propName);
-        n3.Format(IDS_DIFF_PROP_WCNAME, (LPCTSTR)m_propName);
-        n4.Format(IDS_DIFF_PROP_MERGENAME, (LPCTSTR)m_propName);
+        n1.Format(IDS_DIFF_PROP_BASENAME, static_cast<LPCWSTR>(m_propName));
+        n2.Format(IDS_DIFF_PROP_REMOTENAME, static_cast<LPCWSTR>(m_propName));
+        n3.Format(IDS_DIFF_PROP_WCNAME, static_cast<LPCWSTR>(m_propName));
+        n4.Format(IDS_DIFF_PROP_MERGENAME, static_cast<LPCWSTR>(m_propName));
 
         CAppUtils::MergeFlags flags;
         flags.AlternativeTool((GetKeyState(VK_SHIFT) & 0x8000) != 0);
@@ -112,7 +111,7 @@ HRESULT CPropConflictEditorDlg::OnButtonClicked(HWND hWnd, int id)
     for (SVNConflictOptions::const_iterator it = m_options.begin(); it != m_options.end(); ++it)
     {
         svn_client_conflict_option_id_t optionId = (*it)->GetId();
-        int buttonID = 100 + optionId;
+        int                             buttonID = 100 + optionId;
 
         if (buttonID == id)
         {
@@ -158,7 +157,7 @@ HRESULT CPropConflictEditorDlg::OnTimer(HWND hWnd)
 
 void CPropConflictEditorDlg::DoModal(HWND parent, int index)
 {
-    auto path = m_conflictInfo->GetPath().GetFileOrDirectoryName();
+    auto    path = m_conflictInfo->GetPath().GetFileOrDirectoryName();
     CString sDialogTitle;
     sDialogTitle.LoadString(IDS_PROC_EDIT_PROP_CONFLICTS);
     sDialogTitle = CCommonAppUtils::FormatWindowTitle(path, sDialogTitle);
@@ -170,7 +169,7 @@ void CPropConflictEditorDlg::DoModal(HWND parent, int index)
 
     m_propName = m_conflictInfo->GetPropConflictName(index);
     CString sMainInstruction;
-    sMainInstruction.Format(IDS_EDITCONFLICT_PROP_MAININSTRUCTION, (LPCWSTR)m_propName);
+    sMainInstruction.Format(IDS_EDITCONFLICT_PROP_MAININSTRUCTION, static_cast<LPCWSTR>(m_propName));
     CString sContent = m_conflictInfo->GetPropDescription();
     sContent += L"\n" + m_conflictInfo->GetPath().GetUIPathString();
     CString sDetailedInfo = CString(MAKEINTRESOURCE(IDS_EDITCONFLICT_PROP_DIFF)) + m_conflictInfo->GetPropDiff(m_propName);
@@ -189,7 +188,7 @@ void CPropConflictEditorDlg::DoModal(HWND parent, int index)
     AddCommandButton(1000, CString(MAKEINTRESOURCE(IDS_EDITCONFLICT_PROP_EDITCMD)));
 
     svn_client_conflict_option_id_t recommendedOptionId = m_conflictInfo->GetRecommendedOptionId();
-    int defaultButtonID = 0;
+    int                             defaultButtonID     = 0;
 
     if (recommendedOptionId != svn_client_conflict_option_unspecified)
     {
@@ -201,22 +200,22 @@ void CPropConflictEditorDlg::DoModal(HWND parent, int index)
         }
     }
 
-    int button;
-    TASKDIALOGCONFIG taskConfig = { 0 };
-    taskConfig.cbSize = sizeof(taskConfig);
-    taskConfig.hwndParent = parent;
-    taskConfig.dwFlags = TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_EXPAND_FOOTER_AREA | TDF_CALLBACK_TIMER;
-    taskConfig.lpCallbackData = (LONG_PTR) this;
-    taskConfig.pfCallback = TaskDialogCallback;
-    taskConfig.pszWindowTitle = sDialogTitle;
-    taskConfig.pszMainInstruction = sMainInstruction;
+    int              button;
+    TASKDIALOGCONFIG taskConfig       = {0};
+    taskConfig.cbSize                 = sizeof(taskConfig);
+    taskConfig.hwndParent             = parent;
+    taskConfig.dwFlags                = TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_EXPAND_FOOTER_AREA | TDF_CALLBACK_TIMER;
+    taskConfig.lpCallbackData         = reinterpret_cast<LONG_PTR>(this);
+    taskConfig.pfCallback             = TaskDialogCallback;
+    taskConfig.pszWindowTitle         = sDialogTitle;
+    taskConfig.pszMainInstruction     = sMainInstruction;
     taskConfig.pszExpandedInformation = sDetailedInfo;
-    taskConfig.pszContent = sContent;
-    taskConfig.pButtons = &m_buttons.front();
-    taskConfig.cButtons = (int)m_buttons.size();
-    taskConfig.nDefaultButton = defaultButtonID;
-    taskConfig.dwCommonButtons = TDCBF_CANCEL_BUTTON;
-    TaskDialogIndirect(&taskConfig, &button, NULL, NULL);
+    taskConfig.pszContent             = sContent;
+    taskConfig.pButtons               = &m_buttons.front();
+    taskConfig.cButtons               = static_cast<int>(m_buttons.size());
+    taskConfig.nDefaultButton         = defaultButtonID;
+    taskConfig.dwCommonButtons        = TDCBF_CANCEL_BUTTON;
+    TaskDialogIndirect(&taskConfig, &button, nullptr, nullptr);
     if (button == IDCANCEL)
     {
         m_bCancelled = true;

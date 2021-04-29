@@ -19,20 +19,17 @@
 #include "stdafx.h"
 #include "ConflictEditorCommand.h"
 #include "SVNStatus.h"
-#include "SVNDiff.h"
 #include "SVNInfo.h"
-#include "UnicodeUtils.h"
-#include "PathUtils.h"
 #include "AppUtils.h"
 #include "TreeConflictEditorDlg.h"
 #include "PropConflictEditorDlg.h"
 
 bool ConflictEditorCommand::Execute()
 {
-    CTSVNPath merge = cmdLinePath;
-    CTSVNPath directory = merge.GetDirectory();
-    bool bRet = false;
-    bool bAlternativeTool = !!parser.HasKey(L"alternative");
+    CTSVNPath merge            = cmdLinePath;
+    CTSVNPath directory        = merge.GetDirectory();
+    bool      bRet             = false;
+    bool      bAlternativeTool = !!parser.HasKey(L"alternative");
 
     // Use Subversion 1.10 API to resolve possible tree conlifcts.
     SVNConflictInfo conflict;
@@ -59,7 +56,7 @@ bool ConflictEditorCommand::Execute()
             conflict.ClearSVNError();
         }
         progressDlg.Stop();
-        conflict.SetProgressDlg(NULL);
+        conflict.SetProgressDlg(nullptr);
 
         CTreeConflictEditorDlg dlg;
         dlg.SetConflictInfo(&conflict);
@@ -76,7 +73,7 @@ bool ConflictEditorCommand::Execute()
         // during tree conflict resolution.
         if (parser.HasVal(L"refreshmsghwnd"))
         {
-            HWND refreshMsgWnd = (HWND)parser.GetLongLongVal(L"refreshmsghwnd");
+            HWND refreshMsgWnd         = reinterpret_cast<HWND>(parser.GetLongLongVal(L"refreshmsghwnd"));
             UINT WM_REFRESH_STATUS_MSG = RegisterWindowMessage(L"TORTOISESVN_REFRESH_STATUS_MSG");
             ::PostMessage(refreshMsgWnd, WM_REFRESH_STATUS_MSG, 0, 0);
         }
@@ -97,10 +94,10 @@ bool ConflictEditorCommand::Execute()
 
         CString filename, n1, n2, n3, n4;
         filename = merge.GetUIFileOrDirectoryName();
-        n1.Format(IDS_DIFF_BASENAME, (LPCTSTR)filename);
-        n2.Format(IDS_DIFF_REMOTENAME, (LPCTSTR)filename);
-        n3.Format(IDS_DIFF_WCNAME, (LPCTSTR)filename);
-        n4.Format(IDS_DIFF_MERGEDNAME, (LPCTSTR)filename);
+        n1.Format(IDS_DIFF_BASENAME, static_cast<LPCWSTR>(filename));
+        n2.Format(IDS_DIFF_REMOTENAME, static_cast<LPCWSTR>(filename));
+        n3.Format(IDS_DIFF_WCNAME, static_cast<LPCWSTR>(filename));
+        n4.Format(IDS_DIFF_MERGEDNAME, static_cast<LPCWSTR>(filename));
 
         bRet = !!CAppUtils::StartExtMerge(CAppUtils::MergeFlags().AlternativeTool(bAlternativeTool),
                                           base, theirs, mine, merge, true, n1, n2, n3, n4, filename);
@@ -123,7 +120,7 @@ bool ConflictEditorCommand::Execute()
         // during tree conflict resolution.
         if (parser.HasVal(L"refreshmsghwnd"))
         {
-            HWND refreshMsgWnd = (HWND)parser.GetLongLongVal(L"refreshmsghwnd");
+            HWND refreshMsgWnd         = reinterpret_cast<HWND>(parser.GetLongLongVal(L"refreshmsghwnd"));
             UINT WM_REFRESH_STATUS_MSG = RegisterWindowMessage(L"TORTOISESVN_REFRESH_STATUS_MSG");
             ::PostMessage(refreshMsgWnd, WM_REFRESH_STATUS_MSG, 0, 0);
         }
@@ -131,5 +128,3 @@ bool ConflictEditorCommand::Execute()
 
     return bRet;
 }
-
-

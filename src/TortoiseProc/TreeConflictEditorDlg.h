@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2017 - TortoiseSVN
+// Copyright (C) 2016-2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,26 +29,27 @@ public:
     ~CTreeConflictEditorDlg();
 
     void DoModal(HWND parent);
-    void SetConflictInfo(SVNConflictInfo * conflictInfo) { m_conflictInfo = conflictInfo; }
-    void SetSVNContext(SVN * svn) { m_svn = svn; }
+    void SetConflictInfo(SVNConflictInfo* conflictInfo) { m_conflictInfo = conflictInfo; }
+    void SetSVNContext(SVN* svn) { m_svn = svn; }
 
-    svn_client_conflict_option_id_t GetResult() { return m_choice; }
-    bool IsCancelled() const { return m_bCancelled; }
+    svn_client_conflict_option_id_t GetResult() const { return m_choice; }
+    bool                            IsCancelled() const { return m_bCancelled; }
+
 private:
     static HRESULT CALLBACK TaskDialogCallback(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam, LONG_PTR dwRefData);
-    HRESULT OnDialogConstructed(HWND hWnd);
-    HRESULT OnButtonClicked(HWND hWnd, int id);
-    HRESULT OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam);
+    static HRESULT          OnDialogConstructed(HWND hWnd);
+    HRESULT                 OnButtonClicked(HWND hWnd, int id);
+    HRESULT                 OnNotify(HWND hWnd, UINT uNotification, WPARAM wParam, LPARAM lParam);
 
-    void AddCommandButton(int id, const CString & text);
-    int GetButtonIDFromConflictOption(SVNConflictOption * option);
+    void       AddCommandButton(int id, const CString& text);
+    static int GetButtonIDFromConflictOption(SVNConflictOption* option);
 
-    SVNConflictInfo * m_conflictInfo;
-    SVNConflictOptions m_options;
+    SVNConflictInfo*                m_conflictInfo;
+    SVNConflictOptions              m_options;
     svn_client_conflict_option_id_t m_choice;
-    SVN * m_svn;
-    bool m_bCancelled;
+    SVN*                            m_svn;
+    bool                            m_bCancelled;
 
     std::vector<TASKDIALOG_BUTTON> m_buttons;
-    std::deque<CString> m_buttonTexts;
+    std::deque<CString>            m_buttonTexts;
 };
