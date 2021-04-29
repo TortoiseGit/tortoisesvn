@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2012, 2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,50 +36,52 @@ class CExportDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CExportDlg)
 
 public:
-    CExportDlg(CWnd* pParent = NULL);   ///< standard constructor
-    virtual ~CExportDlg();
+    CExportDlg(CWnd* pParent = nullptr); ///< standard constructor
+    ~CExportDlg() override;
 
     // Dialog Data
-    enum { IDD = IDD_EXPORT };
+    enum
+    {
+        IDD = IDD_EXPORT
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
-    afx_msg void OnBnClickedBrowse();
-    afx_msg void OnBnClickedCheckoutdirectoryBrowse();
-    afx_msg void OnEnChangeCheckoutdirectory();
-    afx_msg void OnBnClickedHelp();
-    afx_msg void OnBnClickedShowlog();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    void            OnOK() override;
+    void            OnCancel() override;
+    afx_msg void    OnBnClickedBrowse();
+    afx_msg void    OnBnClickedCheckoutdirectoryBrowse();
+    afx_msg void    OnEnChangeCheckoutdirectory();
+    afx_msg void    OnBnClickedHelp();
+    afx_msg void    OnBnClickedShowlog();
     afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
-    afx_msg void OnEnChangeRevisionNum();
-    afx_msg void OnCbnSelchangeEolcombo();
-    afx_msg void OnCbnEditchangeUrlcombo();
+    afx_msg void    OnEnChangeRevisionNum();
+    afx_msg void    OnCbnSelchangeEolcombo();
+    afx_msg void    OnCbnEditchangeUrlcombo();
 
-    void        SetRevision(const SVNRev& rev);
+    void SetRevision(const SVNRev& rev);
 
     DECLARE_MESSAGE_MAP()
 protected:
-    CString         m_sRevision;
-    CComboBox       m_eolCombo;
-    CString         m_sExportDirOrig;
-    bool            m_bAutoCreateTargetName;
-    CComboBox       m_depthCombo;
+    CString   m_sRevision;
+    CComboBox m_eolCombo;
+    CString   m_sExportDirOrig;
+    bool      m_bAutoCreateTargetName;
+    CComboBox m_depthCombo;
 
 public:
-    CHistoryCombo   m_URLCombo;
-    CString         m_URL;
-    CString         m_eolStyle;
-    SVNRev          Revision;
-    BOOL            m_bNoExternals;
-    BOOL            m_bNoKeywords;
-    CButton         m_butBrowse;
-    CEdit           m_editRevision;
-    CString         m_strExportDirectory;
-    CFileDropEdit   m_cCheckoutEdit;
-    CLogDlg *       m_pLogDlg;
-    svn_depth_t     m_depth;
-    BOOL            m_blockPathAdjustments;
+    CHistoryCombo m_urlCombo;
+    CString       m_url;
+    CString       m_eolStyle;
+    SVNRev        m_revision;
+    BOOL          m_bNoExternals;
+    BOOL          m_bNoKeywords;
+    CButton       m_butBrowse;
+    CEdit         m_editRevision;
+    CString       m_strExportDirectory;
+    CFileDropEdit m_cCheckoutEdit;
+    CLogDlg*      m_pLogDlg;
+    svn_depth_t   m_depth;
+    BOOL          m_blockPathAdjustments;
 };

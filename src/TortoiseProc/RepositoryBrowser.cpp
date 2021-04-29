@@ -3771,8 +3771,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             case ID_EXPORT:
             {
                 CExportDlg dlg(this);
-                dlg.m_URL    = selection.GetURL(0, 0).GetSVNPathString();
-                dlg.Revision = selection.GetRepository(0).revision;
+                dlg.m_url    = selection.GetURL(0, 0).GetSVNPathString();
+                dlg.m_revision = selection.GetRepository(0).revision;
                 if (dlg.DoModal() == IDOK)
                 {
                     CTSVNPath exportDirectory;
@@ -3791,8 +3791,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                     progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Export);
                     progDlg.SetOptions(opts);
                     progDlg.SetPathList(CTSVNPathList(exportDirectory));
-                    progDlg.SetUrl(dlg.m_URL);
-                    progDlg.SetRevision(dlg.Revision);
+                    progDlg.SetUrl(dlg.m_url);
+                    progDlg.SetRevision(dlg.m_revision);
                     progDlg.SetDepth(dlg.m_depth);
                     progDlg.DoModal();
                 }

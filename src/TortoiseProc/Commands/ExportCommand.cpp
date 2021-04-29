@@ -36,20 +36,20 @@ bool ExportCommand::Execute()
     // If however the user clicked on an unversioned folder, we assume that
     // this is where the export should go to and have to ask from where
     // the export should be done from.
-    bool bURL = !!SVN::PathIsURL(cmdLinePath);
-    svn_wc_status_kind s = SVNStatus::GetAllStatus(cmdLinePath);
-    if ((bURL)||(s == svn_wc_status_unversioned)||(s == svn_wc_status_none))
+    bool               bURL = !!SVN::PathIsURL(cmdLinePath);
+    svn_wc_status_kind s    = SVNStatus::GetAllStatus(cmdLinePath);
+    if ((bURL) || (s == svn_wc_status_unversioned) || (s == svn_wc_status_none))
     {
         // ask from where the export has to be done
         CExportDlg dlg;
         if (bURL)
-            dlg.m_URL = cmdLinePath.GetSVNPathString();
+            dlg.m_url = cmdLinePath.GetSVNPathString();
         else
             dlg.m_strExportDirectory = cmdLinePath.GetWinPathString();
         if (parser.HasKey(L"revision"))
         {
-            SVNRev Rev = SVNRev(parser.GetVal(L"revision"));
-            dlg.Revision = Rev;
+            SVNRev rev   = SVNRev(parser.GetVal(L"revision"));
+            dlg.m_revision = rev;
         }
         dlg.m_blockPathAdjustments = parser.HasKey(L"blockpathadjustments");
         if (dlg.DoModal() == IDOK)
@@ -59,19 +59,19 @@ bool ExportCommand::Execute()
             CSVNProgressDlg progDlg;
             theApp.m_pMainWnd = &progDlg;
             progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Export);
-            progDlg.SetAutoClose (parser);
+            progDlg.SetAutoClose(parser);
             DWORD options = dlg.m_bNoExternals ? ProgOptIgnoreExternals : ProgOptNone;
             options |= dlg.m_bNoKeywords ? ProgOptIgnoreKeywords : ProgOptNone;
-            if (dlg.m_eolStyle.CompareNoCase(L"CRLF")==0)
+            if (dlg.m_eolStyle.CompareNoCase(L"CRLF") == 0)
                 options |= ProgOptEolCRLF;
-            if (dlg.m_eolStyle.CompareNoCase(L"CR")==0)
+            if (dlg.m_eolStyle.CompareNoCase(L"CR") == 0)
                 options |= ProgOptEolCR;
-            if (dlg.m_eolStyle.CompareNoCase(L"LF")==0)
+            if (dlg.m_eolStyle.CompareNoCase(L"LF") == 0)
                 options |= ProgOptEolLF;
             progDlg.SetOptions(options);
             progDlg.SetPathList(CTSVNPathList(exportPath));
-            progDlg.SetUrl(dlg.m_URL);
-            progDlg.SetRevision(dlg.Revision);
+            progDlg.SetUrl(dlg.m_url);
+            progDlg.SetRevision(dlg.m_revision);
             progDlg.SetDepth(dlg.m_depth);
             progDlg.DoModal();
             bRet = !progDlg.DidErrorsOccur();
@@ -86,10 +86,10 @@ bool ExportCommand::Execute()
         folderBrowser.SetCheckBoxText(CString(MAKEINTRESOURCE(IDS_PROC_EXPORT_2)));
         folderBrowser.SetCheckBoxText2(CString(MAKEINTRESOURCE(IDS_PROC_OMMITEXTERNALS)));
         folderBrowser.DisableCheckBox2WhenCheckbox1IsEnabled(true);
-        CRegDWORD regExtended = CRegDWORD(L"Software\\TortoiseSVN\\ExportExtended", FALSE);
+        CRegDWORD regExtended   = CRegDWORD(L"Software\\TortoiseSVN\\ExportExtended", FALSE);
         CBrowseFolder::m_bCheck = regExtended;
-        TCHAR saveto[MAX_PATH] = { 0 };
-        if (folderBrowser.Show(GetExplorerHWND(), saveto, _countof(saveto))==CBrowseFolder::OK)
+        TCHAR saveto[MAX_PATH]  = {0};
+        if (folderBrowser.Show(GetExplorerHWND(), saveto, _countof(saveto)) == CBrowseFolder::OK)
         {
             CString saveplace = CString(saveto);
 
@@ -98,18 +98,18 @@ bool ExportCommand::Execute()
                 // exporting to itself:
                 // remove all svn admin dirs, effectively unversion the 'exported' folder.
                 CString msg;
-                msg.Format(IDS_PROC_EXPORTUNVERSION, (LPCTSTR)saveplace);
-                CTaskDialog taskdlg(msg,
+                msg.Format(IDS_PROC_EXPORTUNVERSION, static_cast<LPCWSTR>(saveplace));
+                CTaskDialog taskDlg(msg,
                                     CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK2)),
                                     L"TortoiseSVN",
                                     0,
                                     TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK3)));
-                taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK4)));
-                taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskdlg.SetDefaultCommandControl(1);
-                taskdlg.SetMainIcon(TD_WARNING_ICON);
-                bool bUnversion = (taskdlg.DoModal(GetExplorerHWND()) == 100);
+                taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK3)));
+                taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK4)));
+                taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                taskDlg.SetDefaultCommandControl(1);
+                taskDlg.SetMainIcon(TD_WARNING_ICON);
+                bool bUnversion = (taskDlg.DoModal(GetExplorerHWND()) == 100);
                 if (bUnversion)
                 {
                     CProgressDlg progress;
@@ -120,12 +120,12 @@ bool ExportCommand::Execute()
                     std::vector<CTSVNPath> removeVector;
 
                     CDirFileEnum lister(saveplace);
-                    CString srcFile;
-                    bool bFolder = false;
+                    CString      srcFile;
+                    bool         bFolder = false;
                     while (lister.NextFile(srcFile, &bFolder))
                     {
                         CTSVNPath item(srcFile);
-                        if ((bFolder)&&(g_SVNAdminDir.IsAdminDirName(item.GetFileOrDirectoryName())))
+                        if ((bFolder) && (g_SVNAdminDir.IsAdminDirName(item.GetFileOrDirectoryName())))
                         {
                             removeVector.push_back(item);
                         }
@@ -133,7 +133,7 @@ bool ExportCommand::Execute()
                     DWORD count = 0;
                     for (std::vector<CTSVNPath>::iterator it = removeVector.begin(); (it != removeVector.end()) && (!progress.HasUserCancelled()); ++it)
                     {
-                        progress.FormatPathLine(1, IDS_SVNPROGRESS_UNVERSION, (LPCTSTR)it->GetWinPath());
+                        progress.FormatPathLine(1, IDS_SVNPROGRESS_UNVERSION, static_cast<LPCWSTR>(it->GetWinPath()));
                         progress.SetProgress64(count, removeVector.size());
                         count++;
                         it->Delete(false);
@@ -146,11 +146,11 @@ bool ExportCommand::Execute()
             }
             else
             {
-                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": export %s to %s\n", (LPCTSTR)cmdLinePath.GetUIPathString(), (LPCTSTR)saveto);
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": export %s to %s\n", static_cast<LPCWSTR>(cmdLinePath.GetUIPathString()), static_cast<LPCWSTR>(saveto));
                 SVN svn;
                 if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), SVNRev::REV_WC,
-                    SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, false, svn_depth_infinity,
-                    GetExplorerHWND(), folderBrowser.m_bCheck ? SVN::SVNExportIncludeUnversioned : SVN::SVNExportNormal))
+                                SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, false, svn_depth_infinity,
+                                GetExplorerHWND(), folderBrowser.m_bCheck ? SVN::SVNExportIncludeUnversioned : SVN::SVNExportNormal))
                 {
                     svn.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);
                     bRet = false;
