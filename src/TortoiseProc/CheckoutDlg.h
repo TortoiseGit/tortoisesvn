@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2015 - TortoiseSVN
+// Copyright (C) 2003-2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -37,59 +37,61 @@ class CCheckoutDlg : public CResizableStandAloneDialog //CResizableStandAloneDia
     DECLARE_DYNAMIC(CCheckoutDlg)
 
 public:
-    CCheckoutDlg(CWnd* pParent = NULL);   ///< standard constructor
-    virtual ~CCheckoutDlg();
+    CCheckoutDlg(CWnd* pParent = nullptr); ///< standard constructor
+    ~CCheckoutDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_CHECKOUT };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_CHECKOUT
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
-    afx_msg void OnBnClickedBrowse();
-    afx_msg void OnBnClickedCheckoutdirectoryBrowse();
-    afx_msg void OnEnChangeCheckoutdirectory();
-    afx_msg void OnBnClickedHelp();
-    afx_msg void OnBnClickedShowlog();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    void            OnOK() override;
+    void            OnCancel() override;
+    afx_msg void    OnBnClickedBrowse();
+    afx_msg void    OnBnClickedCheckoutdirectoryBrowse();
+    afx_msg void    OnEnChangeCheckoutdirectory();
+    afx_msg void    OnBnClickedHelp();
+    afx_msg void    OnBnClickedShowlog();
     afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
-    afx_msg void OnEnChangeRevisionNum();
-    afx_msg void OnCbnEditchangeUrlcombo();
-    afx_msg void OnCbnSelchangeDepth();
-    afx_msg void OnBnClickedSparse();
+    afx_msg void    OnEnChangeRevisionNum();
+    afx_msg void    OnCbnEditchangeUrlcombo();
+    afx_msg void    OnCbnSelchangeDepth();
+    afx_msg void    OnBnClickedSparse();
 
     DECLARE_MESSAGE_MAP()
 
-    void UpdateURLsFromCombo();
-    bool IsStandardCheckout();
-    void SetRevision(const SVNRev& rev);
-    SVNRev GetSelectedRevision();
-    SVNRev GetSelectedRevisionOrHead();
+    void   UpdateURLsFromCombo();
+    bool   IsStandardCheckout();
+    void   SetRevision(const SVNRev& rev);
+    SVNRev GetSelectedRevision() const;
+    SVNRev GetSelectedRevisionOrHead() const;
 
 protected:
-    CString         m_sRevision;
-    CString         m_sCheckoutDirOrig;
-    bool            m_bAutoCreateTargetName;
-    CComboBox       m_depthCombo;
-    bool            m_bBlockMessages;
+    CString   m_sRevision;
+    CString   m_sCheckoutDirOrig;
+    bool      m_bAutoCreateTargetName;
+    CComboBox m_depthCombo;
+    bool      m_bBlockMessages;
 
 public:
-    CHistoryCombo   m_URLCombo;
-    CTSVNPathList   m_URLs;
-    SVNRev          Revision;
-    BOOL            m_bNoExternals;
-    BOOL            m_bIndependentWCs;
-    CButton         m_butBrowse;
-    CEdit           m_editRevision;
-    CString         m_strCheckoutDirectory;
-    CFileDropEdit   m_cCheckoutEdit;
-    CLogDlg *       m_pLogDlg;
-    svn_depth_t     m_depth;
-    BOOL            m_blockPathAdjustments;
+    CHistoryCombo m_urlCombo;
+    CTSVNPathList m_urLs;
+    SVNRev        m_revision;
+    BOOL          m_bNoExternals;
+    BOOL          m_bIndependentWCs;
+    CButton       m_butBrowse;
+    CEdit         m_editRevision;
+    CString       m_strCheckoutDirectory;
+    CFileDropEdit m_cCheckoutEdit;
+    CLogDlg*      m_pLogDlg;
+    svn_depth_t   m_depth;
+    BOOL          m_blockPathAdjustments;
 
-    std::map<CString,svn_depth_t> m_checkoutDepths;
-    bool            m_standardCheckout; ///< true if only one path got selected and that URL path is a folder
-    bool            m_parentExists; ///< W/C for parent folder already exists. Only valid if \ref m_standardCheckout is false.
+    std::map<CString, svn_depth_t> m_checkoutDepths;
+    bool                           m_standardCheckout; ///< true if only one path got selected and that URL path is a folder
+    bool                           m_parentExists;     ///< W/C for parent folder already exists. Only valid if \ref m_standardCheckout is false.
 };

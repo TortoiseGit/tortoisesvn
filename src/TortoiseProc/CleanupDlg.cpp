@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2011, 2013-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,9 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "CleanupDlg.h"
-#include <afxdialogex.h>
 #include "AppUtils.h"
-
 
 // CCleanupDlg dialog
 
@@ -64,7 +62,6 @@ void CCleanupDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_VACUUM, m_bVacuum);
 }
 
-
 BEGIN_MESSAGE_MAP(CCleanupDlg, CStateStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CCleanupDlg::OnBnClickedHelp)
     ON_BN_CLICKED(IDC_CLEANUP, &CCleanupDlg::OnBnClicked)
@@ -78,9 +75,7 @@ BEGIN_MESSAGE_MAP(CCleanupDlg, CStateStandAloneDialog)
     ON_BN_CLICKED(IDC_VACUUM, &CCleanupDlg::OnBnClicked)
 END_MESSAGE_MAP()
 
-
 // CCleanupDlg message handlers
-
 
 BOOL CCleanupDlg::OnInitDialog()
 {
@@ -109,12 +104,12 @@ BOOL CCleanupDlg::OnInitDialog()
     AdjustControlSize(IDC_FIXTIMESTAMPS);
     AdjustControlSize(IDC_VACUUM);
 
-    m_bCleanup = true;
-    m_bBreakLocks = m_regBreakLocks;
-    m_bExternals = m_regExternals;
-    m_bRefreshShell= m_regRefreshShell;
+    m_bCleanup       = true;
+    m_bBreakLocks    = m_regBreakLocks;
+    m_bExternals     = m_regExternals;
+    m_bRefreshShell  = m_regRefreshShell;
     m_bFixTimestamps = m_regFixTimestamps;
-    m_bVacuum = m_regVacuum;
+    m_bVacuum        = m_regVacuum;
     UpdateData(FALSE);
     EnableOKButton();
 
@@ -129,11 +124,11 @@ void CCleanupDlg::EnableOKButton()
 {
     UpdateData();
     DialogEnableWindow(IDOK, m_bCleanup || m_bRevert || m_bDelUnversioned || m_bRefreshShell || m_bDelIgnored);
-    m_regExternals = m_bExternals;
-    m_regRefreshShell = m_bRefreshShell;
+    m_regExternals     = m_bExternals;
+    m_regRefreshShell  = m_bRefreshShell;
     m_regFixTimestamps = m_bFixTimestamps;
-    m_regVacuum = m_bVacuum;
-    m_regBreakLocks = m_bBreakLocks;
+    m_regVacuum        = m_bVacuum;
+    m_regBreakLocks    = m_bBreakLocks;
 }
 
 void CCleanupDlg::OnBnClickedHelp()
@@ -148,4 +143,3 @@ void CCleanupDlg::OnBnClicked()
     DialogEnableWindow(IDC_FIXTIMESTAMPS, m_bCleanup);
     DialogEnableWindow(IDC_VACUUM, m_bCleanup);
 }
-

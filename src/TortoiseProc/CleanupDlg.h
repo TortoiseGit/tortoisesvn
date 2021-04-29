@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2011-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 
-
 // CCleanupDlg dialog
 
 class CCleanupDlg : public CStateStandAloneDialog
@@ -27,11 +26,14 @@ class CCleanupDlg : public CStateStandAloneDialog
     DECLARE_DYNAMIC(CCleanupDlg)
 
 public:
-    CCleanupDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CCleanupDlg();
+    CCleanupDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CCleanupDlg() override;
 
     // Dialog Data
-    enum { IDD = IDD_CLEANUP };
+    enum
+    {
+        IDD = IDD_CLEANUP
+    };
 
 public:
     BOOL m_bCleanup;
@@ -45,20 +47,20 @@ public:
     BOOL m_bVacuum;
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
 
     afx_msg void OnBnClickedHelp();
     afx_msg void OnBnClicked();
 
-    void         EnableOKButton();
+    void EnableOKButton();
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    CRegDWORD           m_regRefreshShell;
-    CRegDWORD           m_regExternals;
-    CRegDWORD           m_regFixTimestamps;
-    CRegDWORD           m_regVacuum;
-    CRegDWORD           m_regBreakLocks;
+    CRegDWORD m_regRefreshShell;
+    CRegDWORD m_regExternals;
+    CRegDWORD m_regFixTimestamps;
+    CRegDWORD m_regVacuum;
+    CRegDWORD m_regBreakLocks;
 };
