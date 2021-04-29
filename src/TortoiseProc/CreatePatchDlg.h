@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2016, 2018 - TortoiseSVN
+// Copyright (C) 2003-2011, 2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,52 +31,53 @@ class CCreatePatch : public CResizableStandAloneDialog //CResizableStandAloneDia
     DECLARE_DYNAMIC(CCreatePatch)
 
 public:
-    CCreatePatch(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CCreatePatch();
+    CCreatePatch(CWnd* pParent = nullptr); // standard constructor
+    ~CCreatePatch() override;
 
-    enum { IDD = IDD_CREATEPATCH };
+    enum
+    {
+        IDD = IDD_CREATEPATCH
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual void OnCancel();
-    virtual void OnOK();
-    afx_msg void OnBnClickedSelectall();
-    afx_msg void OnBnClickedShowunversioned();
-    afx_msg void OnBnClickedHelp();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    BOOL            PreTranslateMessage(MSG* pMsg) override;
+    void            OnCancel() override;
+    void            OnOK() override;
+    afx_msg void    OnBnClickedSelectall();
+    afx_msg void    OnBnClickedShowunversioned();
+    afx_msg void    OnBnClickedHelp();
     afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
     afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
-    afx_msg void OnTimer(UINT_PTR nIDEvent);
-    afx_msg void OnBnClickedDiffoptions();
+    afx_msg void    OnTimer(UINT_PTR nIDEvent);
+    afx_msg void    OnBnClickedDiffoptions();
 
     DECLARE_MESSAGE_MAP()
 
 private:
     static UINT PatchThreadEntry(LPVOID pVoid);
-    UINT PatchThread();
-    DWORD   ShowMask();
+    UINT        PatchThread();
+    DWORD       ShowMask() const;
 
 private:
-    CSVNStatusListCtrl  m_PatchList;
-    LONG                m_bThreadRunning;
-    CButton             m_SelectAll;
-    bool                m_bCancelled;
-    BOOL                m_bShowUnversioned;
-    CRegDWORD           m_regAddBeforeCommit;
+    CSVNStatusListCtrl m_patchList;
+    LONG               m_bThreadRunning;
+    CButton            m_selectAll;
+    bool               m_bCancelled;
+    BOOL               m_bShowUnversioned;
+    CRegDWORD          m_regAddBeforeCommit;
 
 public:
     /// the list of files to include in the patch
-    CTSVNPathList       m_pathList;
+    CTSVNPathList m_pathList;
     /**
      * The files which have to be reverted after the patch was created.
      * That's necessary if the user selected an unversioned file - such files
      * are added automatically to version control so they can be included in
      * the patch, but then must be reverted later.
      */
-    CTSVNPathList       m_filesToRevert;
-
-    SVNDiffOptions      m_diffOptions;
-
-    bool                m_bPrettyPrint;
+    CTSVNPathList  m_filesToRevert;
+    SVNDiffOptions m_diffOptions;
+    bool           m_bPrettyPrint;
 };

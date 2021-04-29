@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016, 2018 - TortoiseSVN
+// Copyright (C) 2007-2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,20 +28,17 @@
 #include "TempFile.h"
 #include "ProgressDlg.h"
 #include "SelectFileFilter.h"
-#include "SmartHandle.h"
 #include "PreserveChdir.h"
 
-#define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME      L".TSVNPatchToClipboard"
-
-
+#define PATCH_TO_CLIPBOARD_PSEUDO_FILENAME L".TSVNPatchToClipboard"
 
 bool CreatePatchCommand::Execute()
 {
-    bool bRet = false;
-    auto savepath = CPathUtils::GetLongPathname(parser.GetVal(L"savepath"));
+    bool         bRet     = false;
+    auto         savePath = CPathUtils::GetLongPathname(parser.GetVal(L"savepath"));
     CCreatePatch dlg;
     dlg.m_pathList = pathList;
-    if (parser.HasKey(L"noui")||(dlg.DoModal()==IDOK))
+    if (parser.HasKey(L"noui") || (dlg.DoModal() == IDOK))
     {
         if (cmdLinePath.IsEmpty())
         {
@@ -49,33 +46,33 @@ bool CreatePatchCommand::Execute()
         }
         if (parser.HasKey(L"showoptions"))
         {
-            CDiffOptionsDlg optionsdlg(CWnd::FromHandle(GetExplorerHWND()));
-            optionsdlg.SetDiffOptions(dlg.m_diffOptions);
-            if (optionsdlg.DoModal() == IDOK)
-                dlg.m_diffOptions = optionsdlg.GetDiffOptions();
+            CDiffOptionsDlg optionsDlg(CWnd::FromHandle(GetExplorerHWND()));
+            optionsDlg.SetDiffOptions(dlg.m_diffOptions);
+            if (optionsDlg.DoModal() == IDOK)
+                dlg.m_diffOptions = optionsDlg.GetDiffOptions();
             else
                 return false;
         }
-        bRet = CreatePatch(pathList.GetCommonRoot(), dlg.m_pathList, dlg.m_bPrettyPrint, dlg.m_diffOptions, CTSVNPath(savepath.c_str()));
+        bRet = CreatePatch(pathList.GetCommonRoot(), dlg.m_pathList, dlg.m_bPrettyPrint, dlg.m_diffOptions, CTSVNPath(savePath.c_str()));
         SVN svn;
         svn.Revert(dlg.m_filesToRevert, CStringArray(), false, false, false);
     }
     return bRet;
 }
 
-bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList& paths, bool prettyprint, const CString& diffoptions, const CTSVNPath& cmdLineSavePath)
+bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList& paths, bool prettyprint, const CString& diffoptions, const CTSVNPath& cmdLineSavePath) const
 {
     CTSVNPath savePath;
-    BOOL gitFormat = false;
-    BOOL ignoreproperties = false;
+    BOOL      gitFormat        = false;
+    BOOL      ignoreProperties = false;
 
     if (cmdLineSavePath.IsEmpty())
     {
         PreserveChdir preserveDir;
-        HRESULT hr;
+        HRESULT       hr;
         // Create a new common save file dialog
-        CComPtr<IFileSaveDialog> pfd = NULL;
-        hr = pfd.CoCreateInstance(CLSID_FileSaveDialog, NULL, CLSCTX_INPROC_SERVER);
+        CComPtr<IFileSaveDialog> pfd = nullptr;
+        hr                           = pfd.CoCreateInstance(CLSID_FileSaveDialog, nullptr, CLSCTX_INPROC_SERVER);
         if (SUCCEEDED(hr))
         {
             // Set the dialog options
@@ -104,16 +101,16 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
             if (SUCCEEDED(hr))
             {
                 CComPtr<IShellItem> psiDefault = 0;
-                hr = SHCreateItemFromParsingName(root.GetWinPath(), NULL, IID_PPV_ARGS(&psiDefault));
+                hr                             = SHCreateItemFromParsingName(root.GetWinPath(), NULL, IID_PPV_ARGS(&psiDefault));
                 if (SUCCEEDED(hr))
                 {
                     hr = pfd->SetFolder(psiDefault);
                 }
             }
-            bool bAdvised = false;
-            DWORD dwCookie = 0;
+            bool                                        bAdvised = false;
+            DWORD                                       dwCookie = 0;
             CComObjectStackEx<PatchSaveDlgEventHandler> cbk;
-            CComQIPtr<IFileDialogEvents> pEvents = cbk.GetUnknown();
+            CComQIPtr<IFileDialogEvents>                pEvents = cbk.GetUnknown();
 
             {
                 CComPtr<IFileDialogCustomize> pfdCustomize;
@@ -140,19 +137,19 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
                 if (SUCCEEDED(hr))
                 {
                     pfdCustomize->GetCheckButtonState(101, &gitFormat);
-                    pfdCustomize->GetCheckButtonState(102, &ignoreproperties);
-                    ignoreproperties = !ignoreproperties;
+                    pfdCustomize->GetCheckButtonState(102, &ignoreProperties);
+                    ignoreProperties = !ignoreProperties;
                 }
 
                 // Get the selection from the user
-                CComPtr<IShellItem> psiResult = NULL;
-                hr = pfd->GetResult(&psiResult);
+                CComPtr<IShellItem> psiResult = nullptr;
+                hr                            = pfd->GetResult(&psiResult);
                 if (bAdvised)
                     pfd->Unadvise(dwCookie);
                 if (SUCCEEDED(hr))
                 {
-                    PWSTR pszPath = NULL;
-                    hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                    PWSTR pszPath = nullptr;
+                    hr            = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
                     if (SUCCEEDED(hr))
                     {
                         savePath = CTSVNPath(pszPath);
@@ -183,14 +180,14 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     // This is horrible and I should be ashamed of myself, but basically, the
     // the file-open dialog writes ".TSVNPatchToClipboard" to its file field if the user clicks
     // the "Save To Clipboard" button.
-    bool bToClipboard = wcsstr(savePath.GetWinPath(), PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != NULL;
+    bool bToClipboard = wcsstr(savePath.GetWinPath(), PATCH_TO_CLIPBOARD_PSEUDO_FILENAME) != nullptr;
 
     CProgressDlg progDlg;
     progDlg.SetTitle(IDS_PROC_PATCHTITLE);
     progDlg.SetShowProgressBar(false);
     progDlg.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
     progDlg.FormatNonPathLine(1, IDS_PROC_SAVEPATCHTO);
-    if(bToClipboard)
+    if (bToClipboard)
     {
         progDlg.FormatNonPathLine(2, IDS_CLIPBOARD_PROGRESS_DEST);
     }
@@ -212,31 +209,31 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
         sDir = paths.GetCommonRoot();
 
     SVN svn;
-    for (int fileindex = 0; fileindex < paths.GetCount(); ++fileindex)
+    for (int fileIndex = 0; fileIndex < paths.GetCount(); ++fileIndex)
     {
-        svn_depth_t depth = paths[fileindex].IsDirectory() ? svn_depth_empty : svn_depth_files;
-        if (!svn.CreatePatch(paths[fileindex], SVNRev::REV_BASE, paths[fileindex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, false, true, false, !!gitFormat, !!ignoreproperties, false, prettyprint, diffoptions, true, tempPatchFilePath))
+        svn_depth_t depth = paths[fileIndex].IsDirectory() ? svn_depth_empty : svn_depth_files;
+        if (!svn.CreatePatch(paths[fileIndex], SVNRev::REV_BASE, paths[fileIndex], SVNRev::REV_WC, sDir.GetDirectory(), depth, false, false, false, true, false, !!gitFormat, !!ignoreProperties, false, prettyprint, diffoptions, true, tempPatchFilePath))
         {
             progDlg.Stop();
-            svn.ShowErrorDialog(GetExplorerHWND(), paths[fileindex]);
+            svn.ShowErrorDialog(GetExplorerHWND(), paths[fileIndex]);
             return FALSE;
         }
     }
 
     progDlg.Stop();
-    if(bToClipboard)
+    if (bToClipboard)
     {
         // The user actually asked for the patch to be written to the clipboard
-        FILE * inFile = 0;
+        FILE* inFile = nullptr;
         _tfopen_s(&inFile, tempPatchFilePath.GetWinPath(), L"rb");
-        if(inFile)
+        if (inFile)
         {
             CStringA sClipdata;
-            char chunkBuffer[16384] = { 0 };
-            while(!feof(inFile))
+            char     chunkBuffer[16384] = {0};
+            while (!feof(inFile))
             {
                 size_t readLength = fread(chunkBuffer, 1, sizeof(chunkBuffer), inFile);
-                sClipdata.Append(chunkBuffer, (int)readLength);
+                sClipdata.Append(chunkBuffer, static_cast<int>(readLength));
             }
             fclose(inFile);
 
@@ -251,8 +248,7 @@ bool CreatePatchCommand::CreatePatch(const CTSVNPath& root, const CTSVNPathList&
     return TRUE;
 }
 
-
-STDMETHODIMP PatchSaveDlgEventHandler::OnButtonClicked( IFileDialogCustomize* pfdc, DWORD dwIDCtl )
+STDMETHODIMP PatchSaveDlgEventHandler::OnButtonClicked(IFileDialogCustomize* pfdc, DWORD dwIDCtl)
 {
     if (dwIDCtl == 103)
     {

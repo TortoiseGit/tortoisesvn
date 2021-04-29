@@ -5925,13 +5925,13 @@ void CLogDlg::ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi)
     }
 
     CCopyDlg dlg;
-    dlg.m_URL     = pCmi->pathURL;
+    dlg.m_url     = pCmi->pathURL;
     dlg.m_path    = m_path;
-    dlg.m_CopyRev = pCmi->revSelected;
+    dlg.m_copyRev = pCmi->revSelected;
     if (dlg.DoModal() == IDOK)
     {
-        CTSVNPath    url          = CTSVNPath(dlg.m_URL);
-        SVNRev       copyrev      = dlg.m_CopyRev;
+        CTSVNPath    url          = CTSVNPath(dlg.m_url);
+        SVNRev       copyrev      = dlg.m_copyRev;
         CString      logmsg       = dlg.m_sLogMessage;
         SVNExternals exts         = dlg.GetExternalsToTag();
         bool         bMakeParents = !!dlg.m_bMakeParents;

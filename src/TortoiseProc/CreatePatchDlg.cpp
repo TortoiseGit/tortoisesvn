@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2018 - TortoiseSVN
+// Copyright (C) 2003-2014, 2018, 2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -25,7 +25,7 @@
 #include "DiffOptionsDlg.h"
 #include "AppUtils.h"
 
-#define REFRESHTIMER   100
+#define REFRESHTIMER 100
 
 IMPLEMENT_DYNAMIC(CCreatePatch, CResizableStandAloneDialog)
 CCreatePatch::CCreatePatch(CWnd* pParent /*=NULL*/)
@@ -44,11 +44,10 @@ CCreatePatch::~CCreatePatch()
 void CCreatePatch::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_PATCHLIST, m_PatchList);
-    DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+    DDX_Control(pDX, IDC_PATCHLIST, m_patchList);
+    DDX_Control(pDX, IDC_SELECTALL, m_selectAll);
     DDX_Check(pDX, IDC_SHOWUNVERSIONED, m_bShowUnversioned);
 }
-
 
 BEGIN_MESSAGE_MAP(CCreatePatch, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
@@ -72,15 +71,15 @@ BOOL CCreatePatch::OnInitDialog()
     m_aeroControls.SubclassOkCancelHelp(this);
 
     m_regAddBeforeCommit = CRegDWORD(L"Software\\TortoiseSVN\\AddBeforeCommit", TRUE);
-    m_bShowUnversioned = m_regAddBeforeCommit;
+    m_bShowUnversioned   = m_regAddBeforeCommit;
     UpdateData(FALSE);
 
-    m_PatchList.Init(0, L"CreatePatchDlg", SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH|SVNSLC_POPRESTORE));
-    m_PatchList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
-    m_PatchList.SetSelectButton(&m_SelectAll);
-    m_PatchList.SetCancelBool(&m_bCancelled);
-    m_PatchList.EnableFileDrop();
-    m_PatchList.SetRevertMode(true);
+    m_patchList.Init(0, L"CreatePatchDlg", SVNSLC_POPALL ^ (SVNSLC_POPIGNORE | SVNSLC_POPCOMMIT | SVNSLC_POPCREATEPATCH | SVNSLC_POPRESTORE));
+    m_patchList.SetConfirmButton(static_cast<CButton*>(GetDlgItem(IDOK)));
+    m_patchList.SetSelectButton(&m_selectAll);
+    m_patchList.SetCancelBool(&m_bCancelled);
+    m_patchList.EnableFileDrop();
+    m_patchList.SetRevertMode(true);
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
@@ -103,7 +102,7 @@ BOOL CCreatePatch::OnInitDialog()
     // first start a thread to obtain the file list with the status without
     // blocking the dialog
     InterlockedExchange(&m_bThreadRunning, TRUE);
-    if(AfxBeginThread(PatchThreadEntry, this) == NULL)
+    if (AfxBeginThread(PatchThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -114,15 +113,14 @@ BOOL CCreatePatch::OnInitDialog()
 
 UINT CCreatePatch::PatchThreadEntry(LPVOID pVoid)
 {
-    CCrashReportThread crashthread;
-    return ((CCreatePatch*)pVoid)->PatchThread();
+    CCrashReportThread crashThread;
+    return static_cast<CCreatePatch*>(pVoid)->PatchThread();
 }
 
-DWORD CCreatePatch::ShowMask()
+DWORD CCreatePatch::ShowMask() const
 {
-    return
-        SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES |
-        (m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0);
+    return SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES |
+           (m_bShowUnversioned ? SVNSLC_SHOWUNVERSIONED : 0);
 }
 
 UINT CCreatePatch::PatchThread()
@@ -133,12 +131,12 @@ UINT CCreatePatch::PatchThread()
     DialogEnableWindow(IDC_SHOWUNVERSIONED, false);
     m_bCancelled = false;
 
-    if (!m_PatchList.GetStatus(m_pathList))
+    if (!m_patchList.GetStatus(m_pathList))
     {
-        m_PatchList.SetEmptyString(m_PatchList.GetLastErrorMessage());
+        m_patchList.SetEmptyString(m_patchList.GetLastErrorMessage());
     }
 
-    m_PatchList.Show(
+    m_patchList.Show(
         ShowMask(), CTSVNPathList(), SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS, true, true);
 
     DialogEnableWindow(IDC_SHOWUNVERSIONED, true);
@@ -152,15 +150,15 @@ BOOL CCreatePatch::PreTranslateMessage(MSG* pMsg)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if(OnEnterPressed())
-                return TRUE;
-            break;
-        case VK_F5:
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
+                break;
+            case VK_F5:
             {
                 if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
-                    if(AfxBeginThread(PatchThreadEntry, this) == NULL)
+                    if (AfxBeginThread(PatchThreadEntry, this) == nullptr)
                     {
                         InterlockedExchange(&m_bThreadRunning, FALSE);
                         OnCantStartThread();
@@ -176,16 +174,16 @@ BOOL CCreatePatch::PreTranslateMessage(MSG* pMsg)
 
 void CCreatePatch::OnBnClickedSelectall()
 {
-    UINT state = (m_SelectAll.GetState() & 0x0003);
+    UINT state = (m_selectAll.GetState() & 0x0003);
     if (state == BST_INDETERMINATE)
     {
         // It is not at all useful to manually place the checkbox into the indeterminate state...
         // We will force this on to the unchecked state
         state = BST_UNCHECKED;
-        m_SelectAll.SetCheck(state);
+        m_selectAll.SetCheck(state);
     }
     theApp.DoWaitCursor(1);
-    m_PatchList.SelectAll(state == BST_CHECKED);
+    m_patchList.SelectAll(state == BST_CHECKED);
     theApp.DoWaitCursor(-1);
 }
 
@@ -194,7 +192,7 @@ void CCreatePatch::OnBnClickedShowunversioned()
     UpdateData();
     m_regAddBeforeCommit = m_bShowUnversioned;
     if (!m_bThreadRunning)
-        m_PatchList.Show(ShowMask(), CTSVNPathList(), 0, true, true);
+        m_patchList.Show(ShowMask(), CTSVNPathList(), 0, true, true);
 }
 
 void CCreatePatch::OnBnClickedHelp()
@@ -216,18 +214,18 @@ void CCreatePatch::OnOK()
     if (m_bThreadRunning)
         return;
 
-    int nListItems = m_PatchList.GetItemCount();
+    int nListItems = m_patchList.GetItemCount();
     m_filesToRevert.Clear();
 
-    for (int j=0; j<nListItems; j++)
+    for (int j = 0; j < nListItems; j++)
     {
-        const CSVNStatusListCtrl::FileEntry * entry = m_PatchList.GetConstListEntry(j);
+        const CSVNStatusListCtrl::FileEntry* entry = m_patchList.GetConstListEntry(j);
         if (entry->IsChecked())
         {
             // Unversioned files are not included in the resulting patch file!
             // We add those files to a list which will be used to add those files
             // before creating the patch.
-            if ((entry->status == svn_wc_status_none)||(entry->status == svn_wc_status_unversioned))
+            if ((entry->status == svn_wc_status_none) || (entry->status == svn_wc_status_unversioned))
             {
                 m_filesToRevert.AddPath(entry->GetPath());
             }
@@ -242,11 +240,11 @@ void CCreatePatch::OnOK()
         // has been created! Since this dialog doesn't create the patch
         // itself, the calling function is responsible to revert these files!
         SVN svn;
-        svn.Add(m_filesToRevert, NULL, svn_depth_empty, false, false, false, true);
+        svn.Add(m_filesToRevert, nullptr, svn_depth_empty, false, false, false, true);
     }
 
     //save only the files the user has selected into the path list
-    m_PatchList.WriteCheckedNamesToPathList(m_pathList);
+    m_patchList.WriteCheckedNamesToPathList(m_pathList);
 
     CResizableStandAloneDialog::OnOK();
 }
@@ -255,7 +253,7 @@ LRESULT CCreatePatch::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
     if (InterlockedExchange(&m_bThreadRunning, TRUE))
         return 0;
-    if (AfxBeginThread(PatchThreadEntry, this) == NULL)
+    if (AfxBeginThread(PatchThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -278,9 +276,9 @@ LRESULT CCreatePatch::OnFileDropped(WPARAM, LPARAM lParam)
     // but only if it isn't already running - otherwise we
     // restart the timer.
     CTSVNPath path;
-    path.SetFromWin((LPCTSTR)lParam);
+    path.SetFromWin(reinterpret_cast<LPCWSTR>(lParam));
 
-    if (!m_PatchList.HasPath(path))
+    if (!m_patchList.HasPath(path))
     {
         if (m_pathList.AreAllPathsFiles())
         {
@@ -294,7 +292,7 @@ LRESULT CCreatePatch::OnFileDropped(WPARAM, LPARAM lParam)
             // a child of a folder already in the list, we must not add it. Otherwise
             // that path could show up twice in the list.
             bool bHasParentInList = false;
-            for (int i=0; i<m_pathList.GetCount(); ++i)
+            for (int i = 0; i < m_pathList.GetCount(); ++i)
             {
                 if (m_pathList[i].IsAncestorOf(path))
                 {
@@ -311,7 +309,7 @@ LRESULT CCreatePatch::OnFileDropped(WPARAM, LPARAM lParam)
     }
 
     // Always start the timer, since the status of an existing item might have changed
-    SetTimer(REFRESHTIMER, 200, NULL);
+    SetTimer(REFRESHTIMER, 200, nullptr);
     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Item %s dropped, timer started\n", path.GetWinPath());
     return 0;
 }
@@ -320,19 +318,19 @@ void CCreatePatch::OnTimer(UINT_PTR nIDEvent)
 {
     switch (nIDEvent)
     {
-    case REFRESHTIMER:
-        if (m_bThreadRunning)
-        {
-            SetTimer(REFRESHTIMER, 200, NULL);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
-        }
-        else
-        {
-            KillTimer(REFRESHTIMER);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
-            OnSVNStatusListCtrlNeedsRefresh(0, 0);
-        }
-        break;
+        case REFRESHTIMER:
+            if (m_bThreadRunning)
+            {
+                SetTimer(REFRESHTIMER, 200, nullptr);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
+            }
+            else
+            {
+                KillTimer(REFRESHTIMER);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
+                OnSVNStatusListCtrlNeedsRefresh(0, 0);
+            }
+            break;
     }
     __super::OnTimer(nIDEvent);
 }
@@ -344,7 +342,7 @@ void CCreatePatch::OnBnClickedDiffoptions()
 
     if (dlg.DoModal() == IDOK)
     {
-        m_diffOptions = dlg.GetDiffOptions();
+        m_diffOptions  = dlg.GetDiffOptions();
         m_bPrettyPrint = dlg.GetPrettyPrint();
     }
 }

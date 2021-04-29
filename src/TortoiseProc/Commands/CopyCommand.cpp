@@ -49,9 +49,9 @@ bool CopyCommand::Execute()
     do
     {
         repeat             = FALSE;
-        dlg.m_URL          = url;
+        dlg.m_url          = url;
         dlg.m_sLogMessage  = logMessage;
-        dlg.m_CopyRev      = copyRev;
+        dlg.m_copyRev      = copyRev;
         dlg.m_bDoSwitch    = doSwitch;
         dlg.m_bMakeParents = makeParents;
         if (dlg.DoModal() == IDOK)
@@ -70,13 +70,13 @@ bool CopyCommand::Execute()
             options |= ignoreExternals ? ProgOptIgnoreExternals : ProgOptNone;
             progDlg.SetOptions(options);
             progDlg.SetPathList(pathList);
-            progDlg.SetUrl(dlg.m_URL);
+            progDlg.SetUrl(dlg.m_url);
             progDlg.SetCommitMessage(dlg.m_sLogMessage);
-            progDlg.SetRevision(dlg.m_CopyRev);
+            progDlg.SetRevision(dlg.m_copyRev);
             progDlg.SetExternals(dlg.GetExternalsToTag());
-            url         = dlg.m_URL;
+            url         = dlg.m_url;
             logMessage  = dlg.m_sLogMessage;
-            copyRev     = dlg.m_CopyRev;
+            copyRev     = dlg.m_copyRev;
             doSwitch    = dlg.m_bDoSwitch;
             makeParents = dlg.m_bMakeParents;
             progDlg.DoModal();

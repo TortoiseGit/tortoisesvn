@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010-2012, 2016, 2018 - TortoiseSVN
+// Copyright (C) 2007, 2010-2012, 2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,11 +24,10 @@ class PatchSaveDlgEventHandler : public CFileDlgEventHandler
 {
 public:
     PatchSaveDlgEventHandler() {}
-    ~PatchSaveDlgEventHandler() {}
+    ~PatchSaveDlgEventHandler() override {}
 
-    virtual STDMETHODIMP OnButtonClicked(IFileDialogCustomize* pfdc, DWORD dwIDCtl) override;
+    STDMETHODIMP OnButtonClicked(IFileDialogCustomize* pfdc, DWORD dwIDCtl) override;
 };
-
 
 /**
  * \ingroup TortoiseProc
@@ -40,9 +39,8 @@ public:
     /**
      * Executes the command.
      */
-    virtual bool                Execute() override;
+    bool Execute() override;
+
 protected:
-    bool                        CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, bool prettyprint, const CString& diffoptions, const CTSVNPath& savepath);
+    bool CreatePatch(const CTSVNPath& root, const CTSVNPathList& path, bool prettyprint, const CString& diffoptions, const CTSVNPath& savepath) const;
 };
-
-
