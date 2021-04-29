@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010, 2012, 2014 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2012, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@
 
 bool DelUnversionedCommand::Execute()
 {
-    bool bRet = false;
+    bool                  bRet = false;
     CDeleteUnversionedDlg dlg;
     dlg.m_pathList = pathList;
     if (dlg.DoModal() == IDOK)
@@ -32,26 +32,26 @@ bool DelUnversionedCommand::Execute()
             return FALSE;
         // now remove all items by moving them to the trash bin
         dlg.m_pathList.RemoveChildren();
-        CString filelist;
-        for (INT_PTR i=0; i<dlg.m_pathList.GetCount(); ++i)
+        CString fileList;
+        for (INT_PTR i = 0; i < dlg.m_pathList.GetCount(); ++i)
         {
-            filelist += dlg.m_pathList[i].GetWinPathString();
-            filelist += L"|";
+            fileList += dlg.m_pathList[i].GetWinPathString();
+            fileList += L"|";
         }
-        filelist += L"|";
-        int len = filelist.GetLength();
-        std::unique_ptr<TCHAR[]> buf(new TCHAR[len+2]);
-        wcscpy_s(buf.get(), len+2, filelist);
+        fileList += L"|";
+        int  len = fileList.GetLength();
+        auto buf = std::make_unique<wchar_t[]>(len + 2);
+        wcscpy_s(buf.get(), len + 2LL, fileList);
         CStringUtils::PipesToNulls(buf.get(), len);
-        SHFILEOPSTRUCT fileop;
-        fileop.hwnd = GetExplorerHWND();
-        fileop.wFunc = FO_DELETE;
-        fileop.pFrom = buf.get();
-        fileop.pTo = NULL;
-        fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS;
-        fileop.fFlags |= dlg.m_bUseRecycleBin ? FOF_ALLOWUNDO : 0;
-        fileop.lpszProgressTitle = (LPCTSTR)CString(MAKEINTRESOURCE(IDS_DELUNVERSIONED));
-        bRet = (SHFileOperation(&fileop) == 0);
+        SHFILEOPSTRUCT fileOp;
+        fileOp.hwnd   = GetExplorerHWND();
+        fileOp.wFunc  = FO_DELETE;
+        fileOp.pFrom  = buf.get();
+        fileOp.pTo    = nullptr;
+        fileOp.fFlags = FOF_NO_CONNECTED_ELEMENTS;
+        fileOp.fFlags |= dlg.m_bUseRecycleBin ? FOF_ALLOWUNDO : 0;
+        fileOp.lpszProgressTitle = static_cast<LPCWSTR>(CString(MAKEINTRESOURCE(IDS_DELUNVERSIONED)));
+        bRet                     = (SHFileOperation(&fileOp) == 0);
     }
     return bRet;
 }

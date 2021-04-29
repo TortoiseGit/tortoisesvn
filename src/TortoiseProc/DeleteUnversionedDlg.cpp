@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -20,15 +20,14 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "SVN.h"
-#include "registry.h"
 #include "DeleteUnversionedDlg.h"
 #include "AppUtils.h"
 
 IMPLEMENT_DYNAMIC(CDeleteUnversionedDlg, CResizableStandAloneDialog)
 CDeleteUnversionedDlg::CDeleteUnversionedDlg(CWnd* pParent /*=NULL*/)
-: CResizableStandAloneDialog(CDeleteUnversionedDlg::IDD, pParent)
-    , m_bSelectAll(TRUE)
+    : CResizableStandAloneDialog(CDeleteUnversionedDlg::IDD, pParent)
     , m_bUseRecycleBin(TRUE)
+    , m_bSelectAll(TRUE)
     , m_bHideIgnored(FALSE)
     , m_bThreadRunning(FALSE)
     , m_bCancelled(false)
@@ -42,21 +41,18 @@ CDeleteUnversionedDlg::~CDeleteUnversionedDlg()
 void CDeleteUnversionedDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_ITEMLIST, m_StatusList);
+    DDX_Control(pDX, IDC_ITEMLIST, m_statusList);
     DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
-    DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+    DDX_Control(pDX, IDC_SELECTALL, m_selectAll);
     DDX_Check(pDX, IDC_HIDEIGNORED, m_bHideIgnored);
     DDX_Check(pDX, IDC_USERECYCLEBIN, m_bUseRecycleBin);
 }
-
 
 BEGIN_MESSAGE_MAP(CDeleteUnversionedDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
     ON_REGISTERED_MESSAGE(CSVNStatusListCtrl::SVNSLNM_NEEDSREFRESH, OnSVNStatusListCtrlNeedsRefresh)
     ON_BN_CLICKED(IDC_HIDEIGNORED, &CDeleteUnversionedDlg::OnBnClickedHideignored)
 END_MESSAGE_MAP()
-
-
 
 BOOL CDeleteUnversionedDlg::OnInitDialog()
 {
@@ -69,14 +65,14 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_HIDEIGNORED);
     m_aeroControls.SubclassOkCancel(this);
 
-    m_StatusList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS, L"DeleteUnversionedDlg", 0, true);
-    m_StatusList.SetUnversionedRecurse(true);
-    m_StatusList.PutUnversionedLast(false);
-    m_StatusList.CheckChildrenWithParent(true);
-    m_StatusList.SetConfirmButton((CButton*)GetDlgItem(IDOK));
-    m_StatusList.SetSelectButton(&m_SelectAll);
-    m_StatusList.SetCancelBool(&m_bCancelled);
-    m_StatusList.SetBackgroundImage(IDI_DELUNVERSIONED_BKG);
+    m_statusList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS, L"DeleteUnversionedDlg", 0, true);
+    m_statusList.SetUnversionedRecurse(true);
+    m_statusList.PutUnversionedLast(false);
+    m_statusList.CheckChildrenWithParent(true);
+    m_statusList.SetConfirmButton(static_cast<CButton*>(GetDlgItem(IDOK)));
+    m_statusList.SetSelectButton(&m_selectAll);
+    m_statusList.SetCancelBool(&m_bCancelled);
+    m_statusList.SetBackgroundImage(IDI_DELUNVERSIONED_BKG);
 
     GetWindowText(m_sWindowTitle);
 
@@ -95,7 +91,7 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
     // first start a thread to obtain the file list with the status without
     // blocking the dialog
     InterlockedExchange(&m_bThreadRunning, TRUE);
-    if (AfxBeginThread(StatusThreadEntry, this)==0)
+    if (AfxBeginThread(StatusThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -106,8 +102,8 @@ BOOL CDeleteUnversionedDlg::OnInitDialog()
 
 UINT CDeleteUnversionedDlg::StatusThreadEntry(LPVOID pVoid)
 {
-    CCrashReportThread crashthread;
-    return ((CDeleteUnversionedDlg*)pVoid)->StatusThread();
+    CCrashReportThread crashThread;
+    return static_cast<CDeleteUnversionedDlg*>(pVoid)->StatusThread();
 }
 
 UINT CDeleteUnversionedDlg::StatusThread()
@@ -119,16 +115,16 @@ UINT CDeleteUnversionedDlg::StatusThread()
     DialogEnableWindow(IDC_HIDEIGNORED, false);
     m_bCancelled = false;
 
-    if (!m_StatusList.GetStatus(m_pathList, false, !m_bHideIgnored))
+    if (!m_statusList.GetStatus(m_pathList, false, !m_bHideIgnored))
     {
-        m_StatusList.SetEmptyString(m_StatusList.GetLastErrorMessage());
+        m_statusList.SetEmptyString(m_statusList.GetLastErrorMessage());
     }
     DWORD dwShow = SVNSLC_SHOWUNVERSIONED;
     if (!m_bHideIgnored)
         dwShow |= SVNSLC_SHOWIGNORED;
-    m_StatusList.Show(dwShow, CTSVNPathList(), dwShow, true, true);
+    m_statusList.Show(dwShow, CTSVNPathList(), dwShow, true, true);
 
-    CTSVNPath commonDir = m_StatusList.GetCommonDirectory(false);
+    CTSVNPath commonDir = m_statusList.GetCommonDirectory(false);
     CAppUtils::SetWindowTitle(m_hWnd, commonDir.GetWinPathString(), m_sWindowTitle);
 
     InterlockedExchange(&m_bThreadRunning, FALSE);
@@ -143,7 +139,7 @@ void CDeleteUnversionedDlg::OnOK()
     if (m_bThreadRunning)
         return;
     // save only the files the user has selected into the temporary file
-    m_StatusList.WriteCheckedNamesToPathList(m_pathList);
+    m_statusList.WriteCheckedNamesToPathList(m_pathList);
 
     CResizableStandAloneDialog::OnOK();
 }
@@ -162,16 +158,16 @@ void CDeleteUnversionedDlg::OnBnClickedSelectall()
     if (m_bThreadRunning)
         return;
 
-    UINT state = (m_SelectAll.GetState() & 0x0003);
+    UINT state = (m_selectAll.GetState() & 0x0003);
     if (state == BST_INDETERMINATE)
     {
         // It is not at all useful to manually place the checkbox into the indeterminate state...
         // We will force this on to the unchecked state
         state = BST_UNCHECKED;
-        m_SelectAll.SetCheck(state);
+        m_selectAll.SetCheck(state);
     }
     theApp.DoWaitCursor(1);
-    m_StatusList.SelectAll(state == BST_CHECKED);
+    m_statusList.SelectAll(state == BST_CHECKED);
     theApp.DoWaitCursor(-1);
 }
 
@@ -181,15 +177,15 @@ BOOL CDeleteUnversionedDlg::PreTranslateMessage(MSG* pMsg)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if(OnEnterPressed())
-                return TRUE;
-            break;
-        case VK_F5:
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
+                break;
+            case VK_F5:
             {
                 if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
-                    if (AfxBeginThread(StatusThreadEntry, this)==0)
+                    if (AfxBeginThread(StatusThreadEntry, this) == nullptr)
                     {
                         InterlockedExchange(&m_bThreadRunning, FALSE);
                         OnCantStartThread();
@@ -207,7 +203,7 @@ LRESULT CDeleteUnversionedDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
     if (InterlockedExchange(&m_bThreadRunning, TRUE))
         return 0;
-    if (AfxBeginThread(StatusThreadEntry, this)==0)
+    if (AfxBeginThread(StatusThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -220,7 +216,7 @@ void CDeleteUnversionedDlg::OnBnClickedHideignored()
     UpdateData();
     if (InterlockedExchange(&m_bThreadRunning, TRUE))
         return;
-    if (AfxBeginThread(StatusThreadEntry, this) == 0)
+    if (AfxBeginThread(StatusThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
