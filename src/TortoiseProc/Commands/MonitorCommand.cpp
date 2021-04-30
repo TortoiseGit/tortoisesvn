@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,19 +24,19 @@
 
 static CString GetMonitorID()
 {
-    CString t;
+    CString            t;
     CAutoGeneralHandle token;
-    BOOL result = OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, token.GetPointer());
+    BOOL               result = OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, token.GetPointer());
     if (result)
     {
         DWORD len = 0;
-        GetTokenInformation(token, TokenStatistics, NULL, 0, &len);
+        GetTokenInformation(token, TokenStatistics, nullptr, 0, &len);
         if (len >= sizeof(TOKEN_STATISTICS))
         {
-            std::unique_ptr<BYTE[]> data(new BYTE[len]);
+            auto data = std::make_unique<BYTE[]>(len);
             GetTokenInformation(token, TokenStatistics, data.get(), len, &len);
-            LUID uid = ((PTOKEN_STATISTICS)data.get())->AuthenticationId;
-            t.Format(L"-%08x%08x", uid.HighPart, uid.LowPart);
+            auto [LowPart, HighPart] = reinterpret_cast<PTOKEN_STATISTICS>(data.get())->AuthenticationId;
+            t.Format(L"-%08x%08x", HighPart, LowPart);
         }
     }
     return t;
@@ -44,12 +44,12 @@ static CString GetMonitorID()
 
 bool MonitorCommand::Execute()
 {
-    CAutoGeneralHandle hReloadProtection = ::CreateMutex(NULL, FALSE, L"TSVN_Monitor_" + GetMonitorID());
+    CAutoGeneralHandle hReloadProtection = ::CreateMutex(nullptr, FALSE, L"TSVN_Monitor_" + GetMonitorID());
 
     if ((!hReloadProtection) || (GetLastError() == ERROR_ALREADY_EXISTS))
     {
         // An instance of the commit monitor is already running
-        HWND hWnd = FindWindow(NULL, CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
+        HWND hWnd = FindWindow(nullptr, CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
         if (hWnd)
         {
             UINT TSVN_COMMITMONITOR_SHOWDLGMSG = RegisterWindowMessage(L"TSVNCommitMonitor_ShowDlgMsg");
@@ -57,7 +57,7 @@ bool MonitorCommand::Execute()
             SetForegroundWindow(hWnd);                              //set the window to front
         }
         CTraceToOutputDebugString::Instance()(__FUNCTION__ ": TSVN Commit Monitor ignoring restart\n");
-        return 0;
+        return false;
     }
 
     CLogDlg dlg;

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015, 2020 - TortoiseSVN
+// Copyright (C) 2014-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,12 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "MonitorOptionsDlg.h"
-#include "afxdialogex.h"
 #include "registry.h"
 #include "PathUtils.h"
-
 
 // CMonitorOptionsDlg dialog
 
@@ -35,7 +32,6 @@ CMonitorOptionsDlg::CMonitorOptionsDlg(CWnd* pParent /*=NULL*/)
     , m_bPlaySound(FALSE)
     , m_defaultInterval(30)
 {
-
 }
 
 CMonitorOptionsDlg::~CMonitorOptionsDlg()
@@ -52,13 +48,10 @@ void CMonitorOptionsDlg::DoDataExchange(CDataExchange* pDX)
     DDV_MinMaxInt(pDX, m_defaultInterval, 1, INT_MAX);
 }
 
-
 BEGIN_MESSAGE_MAP(CMonitorOptionsDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
-
 // CMonitorOptionsDlg message handlers
-
 
 BOOL CMonitorOptionsDlg::OnInitDialog()
 {
@@ -69,10 +62,9 @@ BOOL CMonitorOptionsDlg::OnInitDialog()
 
     UpdateData(FALSE);
 
-    return TRUE;  // return TRUE unless you set the focus to a control
+    return TRUE; // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
 }
-
 
 void CMonitorOptionsDlg::OnOK()
 {

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015, 2020 - TortoiseSVN
+// Copyright (C) 2014-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 
-
 // CMonitorOptionsDlg dialog
 
 class CMonitorOptionsDlg : public CStandAloneDialog
@@ -27,16 +26,19 @@ class CMonitorOptionsDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CMonitorOptionsDlg)
 
 public:
-    CMonitorOptionsDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CMonitorOptionsDlg();
+    CMonitorOptionsDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CMonitorOptionsDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_MONITOROPTIONS };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_MONITOROPTIONS
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
 
     DECLARE_MESSAGE_MAP()
 public:

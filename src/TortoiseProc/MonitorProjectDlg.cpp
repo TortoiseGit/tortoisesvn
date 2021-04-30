@@ -17,10 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "MonitorProjectDlg.h"
-#include "afxdialogex.h"
-
 
 // CMonitorProjectDlg dialog
 
@@ -32,12 +29,11 @@ CMonitorProjectDlg::CMonitorProjectDlg(CWnd* pParent /*=NULL*/)
     , m_sPathOrURL(_T(""))
     , m_sUsername(_T(""))
     , m_sPassword(_T(""))
-    , m_monitorInterval(30)
     , m_sIgnoreUsers(_T(""))
     , m_sIgnoreRegex(_T(""))
     , m_isParentPath(false)
+    , m_monitorInterval(30)
 {
-
 }
 
 CMonitorProjectDlg::~CMonitorProjectDlg()
@@ -58,13 +54,10 @@ void CMonitorProjectDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PARENTPATH, m_isParentPath);
 }
 
-
 BEGIN_MESSAGE_MAP(CMonitorProjectDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
-
 // CMonitorProjectDlg message handlers
-
 
 void CMonitorProjectDlg::OnOK()
 {
@@ -77,14 +70,14 @@ void CMonitorProjectDlg::OnOK()
     }
     catch (std::exception&)
     {
-        CString text = CString(MAKEINTRESOURCE(IDS_ERR_INVALIDREGEX));
-        CString title = CString(MAKEINTRESOURCE(IDS_ERR_ERROR));
+        CString        text  = CString(MAKEINTRESOURCE(IDS_ERR_INVALIDREGEX));
+        CString        title = CString(MAKEINTRESOURCE(IDS_ERR_ERROR));
         EDITBALLOONTIP bt;
         bt.cbStruct = sizeof(bt);
-        bt.pszText = text;
+        bt.pszText  = text;
         bt.pszTitle = title;
-        bt.ttiIcon = TTI_WARNING;
-        SendDlgItemMessage(IDC_IGNOREREGEX, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+        bt.ttiIcon  = TTI_WARNING;
+        SendDlgItemMessage(IDC_IGNOREREGEX, EM_SHOWBALLOONTIP, 0, reinterpret_cast<LPARAM>(&bt));
         return;
     }
     // remove newlines in case the url was pasted with such
