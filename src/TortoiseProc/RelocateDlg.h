@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2011, 2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2011, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,24 +31,28 @@ class CRelocateDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CRelocateDlg)
 
 public:
-    CRelocateDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CRelocateDlg();
+    CRelocateDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CRelocateDlg() override;
 
-    enum { IDD = IDD_RELOCATE };
+    enum
+    {
+        IDD = IDD_RELOCATE
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual void OnOK();
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    void         OnOK() override;
+    BOOL         OnInitDialog() override;
     afx_msg void OnBnClickedHelp();
 
     DECLARE_MESSAGE_MAP()
 
-    CPathEdit       m_FromUrl;
+    CPathEdit m_fromUrl;
+
 public:
-    CTSVNPath       m_path;
-    CHistoryCombo   m_URLCombo;
-    CString         m_sToUrl;
-    CString         m_sFromUrl;
-    BOOL            m_bIncludeExternals;
+    CTSVNPath     m_path;
+    CHistoryCombo m_urlCombo;
+    CString       m_sToUrl;
+    CString       m_sFromUrl;
+    BOOL          m_bIncludeExternals;
 };

@@ -27,59 +27,59 @@
 
 bool RelocateCommand::Execute()
 {
-    bool bRet = false;
-    SVN svn;
+    bool         bRet = false;
+    SVN          svn;
     CRelocateDlg dlg;
-    dlg.m_path = cmdLinePath;
+    dlg.m_path     = cmdLinePath;
     dlg.m_sFromUrl = CPathUtils::PathUnescape(svn.GetRepositoryRoot(cmdLinePath));
-    dlg.m_sToUrl = dlg.m_sFromUrl;
+    dlg.m_sToUrl   = dlg.m_sFromUrl;
 
     if (dlg.DoModal() == IDOK)
     {
-        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": relocate from %s to %s\n", (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
+        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": relocate from %s to %s\n", static_cast<LPCWSTR>(dlg.m_sFromUrl), static_cast<LPCWSTR>(dlg.m_sToUrl));
         // crack the urls into their components
-        TCHAR urlpath1[INTERNET_MAX_PATH_LENGTH+1];
-        TCHAR scheme1[INTERNET_MAX_SCHEME_LENGTH+1];
-        TCHAR hostname1[INTERNET_MAX_HOST_NAME_LENGTH+1];
-        TCHAR username1[INTERNET_MAX_USER_NAME_LENGTH+1];
-        TCHAR password1[INTERNET_MAX_PASSWORD_LENGTH+1];
-        TCHAR urlpath2[INTERNET_MAX_PATH_LENGTH+1];
-        TCHAR scheme2[INTERNET_MAX_SCHEME_LENGTH+1];
-        TCHAR hostname2[INTERNET_MAX_HOST_NAME_LENGTH+1];
-        TCHAR username2[INTERNET_MAX_USER_NAME_LENGTH+1];
-        TCHAR password2[INTERNET_MAX_PASSWORD_LENGTH+1];
-        URL_COMPONENTS components1 = {0};
-        URL_COMPONENTS components2 = {0};
-        components1.dwStructSize = sizeof(URL_COMPONENTS);
-        components1.dwUrlPathLength = _countof(urlpath1) - 1;
-        components1.lpszUrlPath = urlpath1;
-        components1.lpszScheme = scheme1;
-        components1.dwSchemeLength = _countof(scheme1) - 1;
-        components1.lpszHostName = hostname1;
-        components1.dwHostNameLength = _countof(hostname1) - 1;
-        components1.lpszUserName = username1;
-        components1.dwUserNameLength = _countof(username1) - 1;
-        components1.lpszPassword = password1;
+        wchar_t        urlPath1[INTERNET_MAX_PATH_LENGTH + 1];
+        wchar_t        scheme1[INTERNET_MAX_SCHEME_LENGTH + 1];
+        wchar_t        hostName1[INTERNET_MAX_HOST_NAME_LENGTH + 1];
+        wchar_t        userName1[INTERNET_MAX_USER_NAME_LENGTH + 1];
+        wchar_t        password1[INTERNET_MAX_PASSWORD_LENGTH + 1];
+        wchar_t        urlPath2[INTERNET_MAX_PATH_LENGTH + 1];
+        wchar_t        scheme2[INTERNET_MAX_SCHEME_LENGTH + 1];
+        wchar_t        hostName2[INTERNET_MAX_HOST_NAME_LENGTH + 1];
+        wchar_t        userName2[INTERNET_MAX_USER_NAME_LENGTH + 1];
+        wchar_t        password2[INTERNET_MAX_PASSWORD_LENGTH + 1];
+        URL_COMPONENTS components1   = {0};
+        URL_COMPONENTS components2   = {0};
+        components1.dwStructSize     = sizeof(URL_COMPONENTS);
+        components1.dwUrlPathLength  = _countof(urlPath1) - 1;
+        components1.lpszUrlPath      = urlPath1;
+        components1.lpszScheme       = scheme1;
+        components1.dwSchemeLength   = _countof(scheme1) - 1;
+        components1.lpszHostName     = hostName1;
+        components1.dwHostNameLength = _countof(hostName1) - 1;
+        components1.lpszUserName     = userName1;
+        components1.dwUserNameLength = _countof(userName1) - 1;
+        components1.lpszPassword     = password1;
         components1.dwPasswordLength = _countof(password1) - 1;
-        components2.dwStructSize = sizeof(URL_COMPONENTS);
-        components2.dwUrlPathLength = _countof(urlpath2) - 1;
-        components2.lpszUrlPath = urlpath2;
-        components2.lpszScheme = scheme2;
-        components2.dwSchemeLength = _countof(scheme2) - 1;
-        components2.lpszHostName = hostname2;
-        components2.dwHostNameLength = _countof(hostname2) - 1;
-        components2.lpszUserName = username2;
-        components2.dwUserNameLength = _countof(username2) - 1;
-        components2.lpszPassword = password2;
+        components2.dwStructSize     = sizeof(URL_COMPONENTS);
+        components2.dwUrlPathLength  = _countof(urlPath2) - 1;
+        components2.lpszUrlPath      = urlPath2;
+        components2.lpszScheme       = scheme2;
+        components2.dwSchemeLength   = _countof(scheme2) - 1;
+        components2.lpszHostName     = hostName2;
+        components2.dwHostNameLength = _countof(hostName2) - 1;
+        components2.lpszUserName     = userName2;
+        components2.dwUserNameLength = _countof(userName2) - 1;
+        components2.lpszPassword     = password2;
         components2.dwPasswordLength = _countof(password2) - 1;
-        CString sTempUrl = dlg.m_sFromUrl;
-        if (sTempUrl.Left(8).Compare(L"file:///\\")==0)
+        CString sTempUrl             = dlg.m_sFromUrl;
+        if (sTempUrl.Left(8).Compare(L"file:///\\") == 0)
             sTempUrl.Replace(L"file:///\\", L"file://");
-        InternetCrackUrl((LPCTSTR)sTempUrl, sTempUrl.GetLength(), 0, &components1);
+        InternetCrackUrl(static_cast<LPCWSTR>(sTempUrl), sTempUrl.GetLength(), 0, &components1);
         sTempUrl = dlg.m_sToUrl;
-        if (sTempUrl.Left(8).Compare(L"file:///\\")==0)
+        if (sTempUrl.Left(8).Compare(L"file:///\\") == 0)
             sTempUrl.Replace(L"file:///\\", L"file://");
-        InternetCrackUrl((LPCTSTR)sTempUrl, sTempUrl.GetLength(), 0, &components2);
+        InternetCrackUrl(static_cast<LPCWSTR>(sTempUrl), sTempUrl.GetLength(), 0, &components2);
         // now compare the url components.
         // If the 'main' parts differ (e.g. hostname, port, scheme, ...) then a relocate is
         // necessary and we don't show a warning. But if only the path part of the url
@@ -124,19 +124,19 @@ bool RelocateCommand::Execute()
         if (bPossibleSwitch)
         {
             CString sInfo;
-            sInfo.FormatMessage(IDS_WARN_RELOCATEREALLY_TASK1, (LPCTSTR)dlg.m_sFromUrl, (LPCTSTR)dlg.m_sToUrl);
-            CTaskDialog taskdlg(sInfo,
+            sInfo.FormatMessage(IDS_WARN_RELOCATEREALLY_TASK1, static_cast<LPCWSTR>(dlg.m_sFromUrl), static_cast<LPCWSTR>(dlg.m_sToUrl));
+            CTaskDialog taskDlg(sInfo,
                                 CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK3)));
-            taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK5)));
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            if (taskdlg.DoModal(GetExplorerHWND()) == 100)
+            taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK3)));
+            taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK4)));
+            taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskDlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK5)));
+            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetMainIcon(TD_WARNING_ICON);
+            if (taskDlg.DoModal(GetExplorerHWND()) == 100)
                 bPossibleSwitch = false;
         }
 
@@ -159,7 +159,7 @@ bool RelocateCommand::Execute()
             {
                 progress.Stop();
                 CString strMessage;
-                strMessage.Format(IDS_PROC_RELOCATEFINISHED, (LPCTSTR)dlg.m_sToUrl);
+                strMessage.Format(IDS_PROC_RELOCATEFINISHED, static_cast<LPCWSTR>(dlg.m_sToUrl));
                 ::MessageBox(GetExplorerHWND(), strMessage, L"TortoiseSVN", MB_ICONINFORMATION);
                 bRet = true;
             }

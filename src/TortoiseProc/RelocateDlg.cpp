@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014-2015, 2020 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,11 +35,10 @@ CRelocateDlg::~CRelocateDlg()
 void CRelocateDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_TOURL, m_URLCombo);
-    DDX_Control(pDX, IDC_FROMURL, m_FromUrl);
+    DDX_Control(pDX, IDC_TOURL, m_urlCombo);
+    DDX_Control(pDX, IDC_FROMURL, m_fromUrl);
     DDX_Check(pDX, IDC_INCLUDEEXTERNALS, m_bIncludeExternals);
 }
-
 
 BEGIN_MESSAGE_MAP(CRelocateDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
@@ -55,9 +54,9 @@ BOOL CRelocateDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_INCLUDEEXTERNALS);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_URLCombo.SetURLHistory(true, true);
-    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
-    m_URLCombo.SetCurSel(0);
+    m_urlCombo.SetURLHistory(true, true);
+    m_urlCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
+    m_urlCombo.SetCurSel(0);
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
@@ -73,8 +72,8 @@ BOOL CRelocateDlg::OnInitDialog()
     AddAnchor(IDHELP, BOTTOM_RIGHT);
 
     SetDlgItemText(IDC_FROMURL, m_sFromUrl);
-    m_URLCombo.SetWindowText(m_sFromUrl);
-    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+    m_urlCombo.SetWindowText(m_sFromUrl);
+    if ((m_pParentWnd == nullptr) && (GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     EnableSaveRestore(L"RelocateDlg");
 
@@ -86,8 +85,8 @@ BOOL CRelocateDlg::OnInitDialog()
 void CRelocateDlg::OnOK()
 {
     UpdateData(TRUE);
-    m_URLCombo.SaveHistory();
-    m_sToUrl = m_URLCombo.GetString();
+    m_urlCombo.SaveHistory();
+    m_sToUrl = m_urlCombo.GetString();
     UpdateData(FALSE);
 
     CResizableStandAloneDialog::OnOK();
@@ -97,4 +96,3 @@ void CRelocateDlg::OnBnClickedHelp()
 {
     OnHelp();
 }
-
