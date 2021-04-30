@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007 - TortoiseSVN
+// Copyright (C) 2007, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "MergeWizardBasePage.h"
 
-
 /**
  * First page in the merge wizard for selecting the merge type
  */
@@ -29,15 +28,18 @@ class CMergeWizardStart : public CMergeWizardBasePage
 
 public:
     CMergeWizardStart();
-    virtual ~CMergeWizardStart();
+    ~CMergeWizardStart() override;
 
-    enum { IDD = IDD_MERGEWIZARD_START };
+    enum
+    {
+        IDD = IDD_MERGEWIZARD_START
+    };
 
 protected:
-    virtual void        DoDataExchange(CDataExchange* pDX);
-    virtual LRESULT     OnWizardNext();
-    virtual BOOL        OnInitDialog();
-    virtual BOOL        OnSetActive();
+    void    DoDataExchange(CDataExchange* pDX) override;
+    LRESULT OnWizardNext() override;
+    BOOL    OnInitDialog() override;
+    BOOL    OnSetActive() override;
 
     DECLARE_MESSAGE_MAP()
 };

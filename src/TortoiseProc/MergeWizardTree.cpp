@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2014, 2020 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2014, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "MergeWizard.h"
 #include "MergeWizardTree.h"
 
@@ -30,14 +29,14 @@ IMPLEMENT_DYNAMIC(CMergeWizardTree, CMergeWizardBasePage)
 
 CMergeWizardTree::CMergeWizardTree()
     : CMergeWizardBasePage(CMergeWizardTree::IDD)
-    , StartRev(0)
-    , EndRev(L"HEAD")
-    , m_pLogDlg(NULL)
-    , m_pLogDlg2(NULL)
-    , m_pLogDlg3(NULL)
+    , m_pLogDlg(nullptr)
+    , m_pLogDlg2(nullptr)
+    , m_pLogDlg3(nullptr)
+    , m_startRev(0)
+    , m_endRev(L"HEAD")
 {
-    m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
-    m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_TREETITLE);
+    m_psp.dwFlags |= PSP_DEFAULT | PSP_USEHEADERTITLE | PSP_USEHEADERSUBTITLE;
+    m_psp.pszHeaderTitle    = MAKEINTRESOURCE(IDS_MERGEWIZARD_TREETITLE);
     m_psp.pszHeaderSubTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_TREESUBTITLE);
 }
 
@@ -63,13 +62,12 @@ CMergeWizardTree::~CMergeWizardTree()
 void CMergeWizardTree::DoDataExchange(CDataExchange* pDX)
 {
     CMergeWizardBasePage::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
+    DDX_Control(pDX, IDC_URLCOMBO, m_urlCombo);
     DDX_Text(pDX, IDC_REVISION_START, m_sStartRev);
     DDX_Text(pDX, IDC_REVISION_END, m_sEndRev);
-    DDX_Control(pDX, IDC_URLCOMBO2, m_URLCombo2);
-    DDX_Control(pDX, IDC_WCEDIT, m_WC);
+    DDX_Control(pDX, IDC_URLCOMBO2, m_urlCombo2);
+    DDX_Control(pDX, IDC_WCEDIT, m_wc);
 }
-
 
 BEGIN_MESSAGE_MAP(CMergeWizardTree, CMergeWizardBasePage)
     ON_MESSAGE(WM_TSVN_MAXREVFOUND, &CMergeWizardTree::OnWCStatus)
@@ -85,62 +83,61 @@ BEGIN_MESSAGE_MAP(CMergeWizardTree, CMergeWizardBasePage)
     ON_CBN_EDITCHANGE(IDC_URLCOMBO2, &CMergeWizardTree::OnCbnEditchangeUrlcombo2)
 END_MESSAGE_MAP()
 
-
 BOOL CMergeWizardTree::OnInitDialog()
 {
     CMergeWizardBasePage::OnInitDialog();
 
-    CMergeWizard * pWizard = (CMergeWizard*)GetParent();
-    CString sUUID = pWizard->sUUID;
-    m_URLCombo.SetURLHistory(true, false);
-    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\"+sUUID, L"url");
-    m_URLCombo2.SetURLHistory(true, false);
-    m_URLCombo2.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\"+sUUID, L"url");
-    m_URLCombo2.SetCurSel(0);
+    CMergeWizard* pWizard = static_cast<CMergeWizard*>(GetParent());
+    CString       sUuid   = pWizard->m_sUuid;
+    m_urlCombo.SetURLHistory(true, false);
+    m_urlCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\" + sUuid, L"url");
+    m_urlCombo2.SetURLHistory(true, false);
+    m_urlCombo2.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\" + sUuid, L"url");
+    m_urlCombo2.SetCurSel(0);
 
-    CString sRegKeyFrom = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForFrom" + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CString sRegKeyFrom        = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForFrom" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
     CString sMergeUrlForWCFrom = CRegString(sRegKeyFrom);
-    CString sRegKeyTo = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForTo" + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
-    CString sMergeUrlForWCTo = CRegString(sRegKeyTo);
+    CString sRegKeyTo          = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForTo" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
+    CString sMergeUrlForWCTo   = CRegString(sRegKeyTo);
 
-    if (!(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\MergeWCURL", FALSE))
-        m_URLCombo.SetCurSel(0);
+    if (!static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\MergeWCURL", FALSE)))
+        m_urlCombo.SetCurSel(0);
     else
     {
         if (!sMergeUrlForWCFrom.IsEmpty())
-            m_URLCombo.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWCFrom));
+            m_urlCombo.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWCFrom));
         if (!sMergeUrlForWCTo.IsEmpty())
-            m_URLCombo2.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWCTo));
+            m_urlCombo2.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWCTo));
     }
     // Only set the "From" Url if there is no url history available
-    if (m_URLCombo.GetString().IsEmpty())
-        m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
-    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
-    if (m_URLCombo2.GetString().IsEmpty())
-        m_URLCombo2.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
-    if (!pWizard->URL1.IsEmpty())
-        m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->URL1));
-    if (!pWizard->URL2.IsEmpty())
-        m_URLCombo2.SetWindowText(CPathUtils::PathUnescape(pWizard->URL2));
-    GetDlgItem(IDC_BROWSE2)->EnableWindow(!m_URLCombo2.GetString().IsEmpty());
+    if (m_urlCombo.GetString().IsEmpty())
+        m_urlCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->m_url));
+    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_urlCombo.GetString().IsEmpty());
+    if (m_urlCombo2.GetString().IsEmpty())
+        m_urlCombo2.SetWindowText(CPathUtils::PathUnescape(pWizard->m_url));
+    if (!pWizard->m_url1.IsEmpty())
+        m_urlCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->m_url1));
+    if (!pWizard->m_url2.IsEmpty())
+        m_urlCombo2.SetWindowText(CPathUtils::PathUnescape(pWizard->m_url2));
+    GetDlgItem(IDC_BROWSE2)->EnableWindow(!m_urlCombo2.GetString().IsEmpty());
 
-    SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
+    SetDlgItemText(IDC_WCEDIT, static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetWinPath());
 
     // set head revision as default revision
-    if (pWizard->startRev.IsHead() || !pWizard->startRev.IsValid())
+    if (pWizard->m_startRev.IsHead() || !pWizard->m_startRev.IsValid())
         CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_HEAD1);
     else
     {
         CheckRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1, IDC_REVISION_N1);
-        m_sStartRev = pWizard->startRev.ToString();
+        m_sStartRev = pWizard->m_startRev.ToString();
         SetDlgItemText(IDC_REVISION_START, m_sStartRev);
     }
-    if (pWizard->endRev.IsHead() || !pWizard->endRev.IsValid())
+    if (pWizard->m_endRev.IsHead() || !pWizard->m_endRev.IsValid())
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     else
     {
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
-        m_sEndRev = pWizard->endRev.ToString();
+        m_sEndRev = pWizard->m_endRev.ToString();
         SetDlgItemText(IDC_REVISION_END, m_sEndRev);
     }
 
@@ -169,7 +166,7 @@ BOOL CMergeWizardTree::OnInitDialog()
 
     CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
-    StartWCCheckThread(((CMergeWizard*)GetParent())->wcPath);
+    StartWCCheckThread(static_cast<CMergeWizard*>(GetParent())->m_wcPath);
 
     return TRUE;
 }
@@ -179,13 +176,13 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
     if (!UpdateData(TRUE))
         return FALSE;
 
-    StartRev = SVNRev(m_sStartRev);
-    EndRev = SVNRev(m_sEndRev);
+    m_startRev = SVNRev(m_sStartRev);
+    m_endRev   = SVNRev(m_sEndRev);
     if (GetCheckedRadioButton(IDC_REVISION_HEAD1, IDC_REVISION_N1) == IDC_REVISION_HEAD1)
     {
-        StartRev = SVNRev(L"HEAD");
+        m_startRev = SVNRev(L"HEAD");
     }
-    if (!StartRev.IsValid())
+    if (!m_startRev.IsValid())
     {
         if (bShowErrors)
             ShowEditBalloon(IDC_REVISION_START, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
@@ -195,9 +192,9 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
     // if head revision, set revision as -1
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
-        EndRev = SVNRev(L"HEAD");
+        m_endRev = SVNRev(L"HEAD");
     }
-    if (!EndRev.IsValid())
+    if (!m_endRev.IsValid())
     {
         if (bShowErrors)
             ShowEditBalloon(IDC_REVISION_END, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
@@ -205,38 +202,38 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
     }
 
     CString sUrl;
-    m_URLCombo.GetWindowText(sUrl);
+    m_urlCombo.GetWindowText(sUrl);
     CTSVNPath url(sUrl);
     if (!url.IsUrl())
     {
-        ShowComboBalloon(&m_URLCombo, IDS_ERR_MUSTBEURL, IDS_ERR_ERROR, TTI_ERROR);
+        ShowComboBalloon(&m_urlCombo, IDS_ERR_MUSTBEURL, IDS_ERR_ERROR, TTI_ERROR);
         return FALSE;
     }
-    m_URLCombo2.GetWindowText(sUrl);
+    m_urlCombo2.GetWindowText(sUrl);
     CTSVNPath url2(sUrl);
     if (!url2.IsUrl())
     {
-        ShowComboBalloon(&m_URLCombo2, IDS_ERR_MUSTBEURL, IDS_ERR_ERROR, TTI_ERROR);
+        ShowComboBalloon(&m_urlCombo2, IDS_ERR_MUSTBEURL, IDS_ERR_ERROR, TTI_ERROR);
         return FALSE;
     }
 
-    m_URLCombo.SaveHistory();
-    m_URLFrom = m_URLCombo.GetString();
+    m_urlCombo.SaveHistory();
+    m_urlFrom = m_urlCombo.GetString();
 
-    m_URLCombo2.SaveHistory();
-    m_URLTo = m_URLCombo2.GetString();
+    m_urlCombo2.SaveHistory();
+    m_urlTo = m_urlCombo2.GetString();
 
-    CString sRegKeyFrom = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForFrom" + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CString    sRegKeyFrom = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForFrom" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
     CRegString regMergeUrlForWCFrom(sRegKeyFrom);
-    regMergeUrlForWCFrom = m_URLFrom;
-    CString sRegKeyTo = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForTo" + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    regMergeUrlForWCFrom = m_urlFrom;
+    CString    sRegKeyTo = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForTo" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
     CRegString regMergeUrlForWCTo(sRegKeyTo);
-    regMergeUrlForWCTo = m_URLTo;
+    regMergeUrlForWCTo = m_urlTo;
 
-    ((CMergeWizard*)GetParent())->URL1 = m_URLFrom;
-    ((CMergeWizard*)GetParent())->URL2 = m_URLTo;
-    ((CMergeWizard*)GetParent())->startRev = StartRev;
-    ((CMergeWizard*)GetParent())->endRev = EndRev;
+    static_cast<CMergeWizard*>(GetParent())->m_url1     = m_urlFrom;
+    static_cast<CMergeWizard*>(GetParent())->m_url2     = m_urlTo;
+    static_cast<CMergeWizard*>(GetParent())->m_startRev = m_startRev;
+    static_cast<CMergeWizard*>(GetParent())->m_endRev   = m_endRev;
 
     UpdateData(FALSE);
     return TRUE;
@@ -287,11 +284,11 @@ void CMergeWizardTree::SetEndRevision(const SVNRev& rev)
 void CMergeWizardTree::OnBnClickedBrowse()
 {
     CheckData(false);
-    if ((!StartRev.IsValid())||(StartRev == 0))
-        StartRev = SVNRev::REV_HEAD;
-    if (CAppUtils::BrowseRepository(m_URLCombo, this, StartRev))
+    if ((!m_startRev.IsValid()) || (m_startRev == 0))
+        m_startRev = SVNRev::REV_HEAD;
+    if (CAppUtils::BrowseRepository(m_urlCombo, this, m_startRev))
     {
-        SetStartRevision(StartRev);
+        SetStartRevision(m_startRev);
     }
 }
 
@@ -299,39 +296,39 @@ void CMergeWizardTree::OnBnClickedBrowse2()
 {
     CheckData(false);
 
-    if ((!EndRev.IsValid())||(EndRev == 0))
-        EndRev = SVNRev::REV_HEAD;
+    if ((!m_endRev.IsValid()) || (m_endRev == 0))
+        m_endRev = SVNRev::REV_HEAD;
 
-    CAppUtils::BrowseRepository(m_URLCombo2, this, EndRev);
-    SetEndRevision(EndRev);
+    CAppUtils::BrowseRepository(m_urlCombo2, this, m_endRev);
+    SetEndRevision(m_endRev);
 }
 
 void CMergeWizardTree::OnBnClickedFindbranchstart()
 {
     CheckData(false);
-    if ((!StartRev.IsValid())||(StartRev == 0))
-        StartRev = SVNRev::REV_HEAD;
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if ((!m_startRev.IsValid()) || (m_startRev == 0))
+        m_startRev = SVNRev::REV_HEAD;
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
         return;
     CString sUrl;
-    m_URLCombo.GetWindowText(sUrl);
+    m_urlCombo.GetWindowText(sUrl);
     //now show the log dialog for the main trunk
     CTSVNPath url(sUrl);
     if (!url.IsEmpty() && url.IsUrl())
     {
         StopWCCheckThread();
-        CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
+        CTSVNPath wcPath = static_cast<CMergeWizard*>(GetParent())->m_wcPath;
         if (m_pLogDlg)
         {
             m_pLogDlg->DestroyWindow();
             delete m_pLogDlg;
         }
-        m_pLogDlg = new CLogDlg();
+        m_pLogDlg           = new CLogDlg();
         m_pLogDlg->m_wParam = MERGE_REVSELECTSTART;
         m_pLogDlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTSTARTREVISION)));
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
-        m_pLogDlg->SetParams(url, StartRev, StartRev, 1, TRUE, FALSE);
+        m_pLogDlg->SetParams(url, m_startRev, m_startRev, 1, TRUE, FALSE);
         m_pLogDlg->SetProjectPropertiesPath(wcPath);
         m_pLogDlg->ContinuousSelection(true);
         m_pLogDlg->SetMergePath(wcPath);
@@ -344,31 +341,31 @@ void CMergeWizardTree::OnBnClickedFindbranchend()
 {
     CheckData(false);
 
-    if ((!EndRev.IsValid())||(EndRev == 0))
-        EndRev = SVNRev::REV_HEAD;
-    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    if ((!m_endRev.IsValid()) || (m_endRev == 0))
+        m_endRev = SVNRev::REV_HEAD;
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd()) && (m_pLogDlg2->IsWindowVisible()))
         return;
     CString sUrl;
 
-    m_URLCombo2.GetWindowText(sUrl);
+    m_urlCombo2.GetWindowText(sUrl);
     //now show the log dialog for the main trunk
     CTSVNPath url(sUrl);
     if (!url.IsEmpty() && url.IsUrl())
     {
         StopWCCheckThread();
-        CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
+        CTSVNPath wcPath = static_cast<CMergeWizard*>(GetParent())->m_wcPath;
         if (m_pLogDlg2)
         {
             m_pLogDlg2->DestroyWindow();
             delete m_pLogDlg2;
         }
-        m_pLogDlg2 = new CLogDlg();
+        m_pLogDlg2           = new CLogDlg();
         m_pLogDlg2->m_wParam = MERGE_REVSELECTEND;
         m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTENDREVISION)));
         m_pLogDlg2->SetSelect(true);
         m_pLogDlg2->m_pNotifyWindow = this;
         m_pLogDlg2->SetProjectPropertiesPath(wcPath);
-        m_pLogDlg2->SetParams(url, EndRev, EndRev, 1, TRUE, FALSE);
+        m_pLogDlg2->SetParams(url, m_endRev, m_endRev, 1, TRUE, FALSE);
         m_pLogDlg2->ContinuousSelection(true);
         m_pLogDlg2->SetMergePath(wcPath);
         m_pLogDlg2->Create(IDD_LOGMESSAGE, this);
@@ -397,7 +394,6 @@ LPARAM CMergeWizardTree::OnRevSelected(WPARAM wParam, LPARAM lParam)
     return 0;
 }
 
-
 LRESULT CMergeWizardTree::OnWizardNext()
 {
     StopWCCheckThread();
@@ -405,17 +401,17 @@ LRESULT CMergeWizardTree::OnWizardNext()
     if (!CheckData(true))
         return -1;
 
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return -1;
     }
-    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd()) && (m_pLogDlg2->IsWindowVisible()))
     {
         m_pLogDlg2->SendMessage(WM_CLOSE);
         return -1;
     }
-    if (::IsWindow(m_pLogDlg3->GetSafeHwnd())&&(m_pLogDlg3->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg3->GetSafeHwnd()) && (m_pLogDlg3->IsWindowVisible()))
     {
         m_pLogDlg3->SendMessage(WM_CLOSE);
         return -1;
@@ -426,17 +422,17 @@ LRESULT CMergeWizardTree::OnWizardNext()
 
 LRESULT CMergeWizardTree::OnWizardBack()
 {
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return -1;
     }
-    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd()) && (m_pLogDlg2->IsWindowVisible()))
     {
         m_pLogDlg2->SendMessage(WM_CLOSE);
         return -1;
     }
-    if (::IsWindow(m_pLogDlg3->GetSafeHwnd())&&(m_pLogDlg3->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg3->GetSafeHwnd()) && (m_pLogDlg3->IsWindowVisible()))
     {
         m_pLogDlg3->SendMessage(WM_CLOSE);
         return -1;
@@ -447,8 +443,8 @@ LRESULT CMergeWizardTree::OnWizardBack()
 
 BOOL CMergeWizardTree::OnSetActive()
 {
-    CPropertySheet* psheet = (CPropertySheet*) GetParent();
-    psheet->SetWizardButtons(PSWIZB_NEXT|PSWIZB_BACK);
+    CPropertySheet* pSheet = static_cast<CPropertySheet*>(GetParent());
+    pSheet->SetWizardButtons(PSWIZB_NEXT | PSWIZB_BACK);
     SetButtonTexts();
 
     return CMergeWizardBasePage::OnSetActive();
@@ -457,14 +453,14 @@ BOOL CMergeWizardTree::OnSetActive()
 void CMergeWizardTree::OnBnClickedShowlogwc()
 {
     StopWCCheckThread();
-    CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
+    CTSVNPath wcPath = static_cast<CMergeWizard*>(GetParent())->m_wcPath;
     if (m_pLogDlg3)
         m_pLogDlg3->DestroyWindow();
     delete m_pLogDlg3;
     m_pLogDlg3 = new CLogDlg();
     m_pLogDlg3->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
 
-    m_pLogDlg3->m_pNotifyWindow = NULL;
+    m_pLogDlg3->m_pNotifyWindow = nullptr;
     m_pLogDlg3->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE, FALSE);
     m_pLogDlg3->SetProjectPropertiesPath(wcPath);
     m_pLogDlg3->SetMergePath(wcPath);
@@ -472,14 +468,16 @@ void CMergeWizardTree::OnBnClickedShowlogwc()
     m_pLogDlg3->ShowWindow(SW_SHOW);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMergeWizardTree::OnCbnEditchangeUrlcombo()
 {
-    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_URLCombo.GetString().IsEmpty());
+    GetDlgItem(IDC_BROWSE)->EnableWindow(!m_urlCombo.GetString().IsEmpty());
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMergeWizardTree::OnCbnEditchangeUrlcombo2()
 {
-    GetDlgItem(IDC_BROWSE2)->EnableWindow(!m_URLCombo2.GetString().IsEmpty());
+    GetDlgItem(IDC_BROWSE2)->EnableWindow(!m_urlCombo2.GetString().IsEmpty());
 }
 
 LPARAM CMergeWizardTree::OnWCStatus(WPARAM wParam, LPARAM /*lParam*/)
@@ -494,17 +492,17 @@ LPARAM CMergeWizardTree::OnWCStatus(WPARAM wParam, LPARAM /*lParam*/)
 bool CMergeWizardTree::OkToCancel()
 {
     StopWCCheckThread();
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return false;
     }
-    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd()) && (m_pLogDlg2->IsWindowVisible()))
     {
         m_pLogDlg2->SendMessage(WM_CLOSE);
         return false;
     }
-    if (::IsWindow(m_pLogDlg3->GetSafeHwnd())&&(m_pLogDlg3->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg3->GetSafeHwnd()) && (m_pLogDlg3->IsWindowVisible()))
     {
         m_pLogDlg3->SendMessage(WM_CLOSE);
         return false;

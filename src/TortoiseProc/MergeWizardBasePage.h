@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2013, 2015-2016, 2018 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2013, 2015-2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,14 +20,15 @@
 #include "SVN.h"
 #include "ResizablePageEx.h"
 #include "CommonDialogFunctions.h"
-#include "AppUtils.h"
 
-#define WM_TSVN_MAXREVFOUND         (WM_APP + 1)
+#define WM_TSVN_MAXREVFOUND (WM_APP + 1)
 
 /**
  * base class for the merge wizard property pages
  */
-class CMergeWizardBasePage : public CResizablePageEx, public SVN, protected CommonDialogFunctions<CResizablePageEx>
+class CMergeWizardBasePage : public CResizablePageEx
+    , public SVN
+    , protected CommonDialogFunctions<CResizablePageEx>
 {
     DECLARE_DYNAMIC(CMergeWizardBasePage)
 public:
@@ -35,36 +36,43 @@ public:
         : CResizablePageEx()
         , CommonDialogFunctions(this)
         , m_bCancelled(FALSE)
+        , m_pThread(nullptr)
         , m_bThreadRunning(FALSE)
-        , m_pThread(nullptr) {;}
+    {
+    }
     explicit CMergeWizardBasePage(UINT nIDTemplate, UINT nIDCaption = 0)
         : CResizablePageEx(nIDTemplate, nIDCaption, 0)
         , CommonDialogFunctions(this)
         , m_bCancelled(FALSE)
+        , m_pThread(nullptr)
         , m_bThreadRunning(FALSE)
-        , m_pThread(nullptr) {;}
+    {
+    }
     explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0)
         : CResizablePageEx(lpszTemplateName, nIDCaption, 0)
         , CommonDialogFunctions(this)
         , m_bCancelled(FALSE)
+        , m_pThread(nullptr)
         , m_bThreadRunning(FALSE)
-        , m_pThread(nullptr) {;}
+    {
+    }
 
-    virtual ~CMergeWizardBasePage() {;}
-    virtual bool    OkToCancel() { return true; }
+    ~CMergeWizardBasePage() override { ; }
+    virtual bool OkToCancel() { return true; }
 
 protected:
-    virtual void    SetButtonTexts();
-    void            StartWCCheckThread(const CTSVNPath& path);
-    void            StopWCCheckThread();
-    void            ShowComboBalloon(CComboBoxEx * pCombo, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING);
+    virtual void SetButtonTexts();
+    void         StartWCCheckThread(const CTSVNPath& path);
+    void         StopWCCheckThread();
+    static void  ShowComboBalloon(CComboBoxEx* pCombo, UINT nIdText, UINT nIdTitle, int nIcon = TTI_WARNING);
 
-    static UINT     FindRevThreadEntry(LPVOID pVoid);
-    UINT            FindRevThread();
-    virtual BOOL    Cancel() override {return m_bCancelled;}
+    static UINT FindRevThreadEntry(LPVOID pVoid);
+    UINT        FindRevThread();
+    BOOL        Cancel() override { return m_bCancelled; }
+
 private:
-    CTSVNPath       m_path;
-    volatile LONG   m_bCancelled;
-    CWinThread *    m_pThread;
-    volatile LONG   m_bThreadRunning;
+    CTSVNPath     m_path;
+    volatile LONG m_bCancelled;
+    CWinThread*   m_pThread;
+    volatile LONG m_bThreadRunning;
 };

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2013, 2020 - TortoiseSVN
+// Copyright (C) 2007-2008, 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,20 +17,18 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "MergeWizard.h"
 #include "MergeWizardStart.h"
 #include "AppUtils.h"
 #include "Theme.h"
-
 
 IMPLEMENT_DYNAMIC(CMergeWizardStart, CMergeWizardBasePage)
 
 CMergeWizardStart::CMergeWizardStart()
     : CMergeWizardBasePage(CMergeWizardStart::IDD)
 {
-    m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
-    m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_STARTTITLE);
+    m_psp.dwFlags |= PSP_DEFAULT | PSP_USEHEADERTITLE | PSP_USEHEADERSUBTITLE;
+    m_psp.pszHeaderTitle    = MAKEINTRESOURCE(IDS_MERGEWIZARD_STARTTITLE);
     m_psp.pszHeaderSubTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_STARTSUBTITLE);
 }
 
@@ -43,24 +41,22 @@ void CMergeWizardStart::DoDataExchange(CDataExchange* pDX)
     CMergeWizardBasePage::DoDataExchange(pDX);
 }
 
-
 BEGIN_MESSAGE_MAP(CMergeWizardStart, CMergeWizardBasePage)
 END_MESSAGE_MAP()
-
 
 LRESULT CMergeWizardStart::OnWizardNext()
 {
     int nButton = GetCheckedRadioButton(IDC_MERGE_REVRANGE, IDC_MERGE_TREE);
 
-    CMergeWizard* wiz = (CMergeWizard*)GetParent();
+    CMergeWizard* wiz = static_cast<CMergeWizard*>(GetParent());
     switch (nButton)
     {
-    case IDC_MERGE_REVRANGE:
-        wiz->nRevRangeMerge = MERGEWIZARD_REVRANGE;
-        break;
-    case IDC_MERGE_TREE:
-        wiz->nRevRangeMerge = MERGEWIZARD_TREE;
-        break;
+        case IDC_MERGE_REVRANGE:
+            wiz->m_nRevRangeMerge = MERGEWIZARD_REVRANGE;
+            break;
+        case IDC_MERGE_TREE:
+            wiz->m_nRevRangeMerge = MERGEWIZARD_TREE;
+            break;
     }
 
     wiz->SaveMode();
@@ -97,20 +93,20 @@ BOOL CMergeWizardStart::OnInitDialog()
 
 BOOL CMergeWizardStart::OnSetActive()
 {
-    CMergeWizard* wiz = (CMergeWizard*)GetParent();
+    CMergeWizard* wiz = static_cast<CMergeWizard*>(GetParent());
 
     wiz->SetWizardButtons(PSWIZB_NEXT);
     SetButtonTexts();
 
     int nButton = IDC_MERGE_REVRANGE;
-    switch (wiz->nRevRangeMerge)
+    switch (wiz->m_nRevRangeMerge)
     {
-    case MERGEWIZARD_REVRANGE:
-        nButton = IDC_MERGE_REVRANGE;
-        break;
-    case MERGEWIZARD_TREE:
-        nButton = IDC_MERGE_TREE;
-        break;
+        case MERGEWIZARD_REVRANGE:
+            nButton = IDC_MERGE_REVRANGE;
+            break;
+        case MERGEWIZARD_TREE:
+            nButton = IDC_MERGE_TREE;
+            break;
     }
     CheckRadioButton(
         IDC_MERGE_REVRANGE, IDC_MERGE_TREE,

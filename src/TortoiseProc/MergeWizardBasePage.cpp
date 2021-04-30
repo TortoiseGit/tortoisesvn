@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2010, 2012-2016, 2018, 2020 - TortoiseSVN
+// Copyright (C) 2007-2010, 2012-2016, 2018, 2020-2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -19,13 +19,15 @@
 //
 #include "stdafx.h"
 #include "MergeWizardBasePage.h"
+
+#include "AppUtils.h"
 #include "resource.h"
 
 IMPLEMENT_DYNAMIC(CMergeWizardBasePage, CResizablePageEx)
 
 void CMergeWizardBasePage::SetButtonTexts()
 {
-    CPropertySheet* psheet = (CPropertySheet*) GetParent();
+    CPropertySheet* psheet = static_cast<CPropertySheet*>(GetParent());
     if (psheet)
     {
         psheet->GetDlgItem(ID_WIZFINISH)->SetWindowText(CString(MAKEINTRESOURCE(IDS_MERGE_MERGE)));
@@ -58,14 +60,14 @@ void CMergeWizardBasePage::StartWCCheckThread(const CTSVNPath& path)
 void CMergeWizardBasePage::StopWCCheckThread()
 {
     InterlockedExchange(&m_bCancelled, TRUE);
-    if ((m_pThread)&&(m_bThreadRunning))
+    if ((m_pThread) && (m_bThreadRunning))
     {
         WaitForSingleObject(m_pThread->m_hThread, 2000);
         if (m_bThreadRunning)
         {
             // we gave the thread a chance to quit. Since the thread didn't
             // listen to us we have to kill it.
-            TerminateThread(m_pThread->m_hThread, (DWORD)-1);
+            TerminateThread(m_pThread->m_hThread, static_cast<DWORD>(-1));
             InterlockedExchange(&m_bThreadRunning, FALSE);
         }
     }
@@ -73,22 +75,22 @@ void CMergeWizardBasePage::StopWCCheckThread()
 
 UINT CMergeWizardBasePage::FindRevThreadEntry(LPVOID pVoid)
 {
-    CCrashReportThread crashthread;
-    return ((CMergeWizardBasePage*)pVoid)->FindRevThread();
+    CCrashReportThread crashThread;
+    return static_cast<CMergeWizardBasePage*>(pVoid)->FindRevThread();
 }
 
 UINT CMergeWizardBasePage::FindRevThread()
 {
-    svn_revnum_t    minrev;
-    svn_revnum_t    maxrev;
-    bool            bswitched;
-    bool            bmodified;
-    bool            bSparse;
+    svn_revnum_t minRev    = 0;
+    svn_revnum_t maxRev    = 0;
+    bool         bSwitched = false;
+    bool         bModified = false;
+    bool         bSparse   = false;
 
-    if (GetWCRevisionStatus(m_path, true, minrev, maxrev, bswitched, bmodified, bSparse))
+    if (GetWCRevisionStatus(m_path, true, minRev, maxRev, bSwitched, bModified, bSparse))
     {
         if (!m_bCancelled)
-            SendMessage(WM_TSVN_MAXREVFOUND, (WPARAM)bmodified);
+            SendMessage(WM_TSVN_MAXREVFOUND, static_cast<WPARAM>(bModified));
     }
     InterlockedExchange(&m_bThreadRunning, FALSE);
     return 0;
@@ -97,15 +99,15 @@ UINT CMergeWizardBasePage::FindRevThread()
 /**
  * Display a balloon with close button, anchored at a given combo box edit control on this dialog.
  */
-void CMergeWizardBasePage::ShowComboBalloon(CComboBoxEx * pCombo, UINT nIdText, UINT nIdTitle, int nIcon /* = TTI_WARNING */)
+void CMergeWizardBasePage::ShowComboBalloon(CComboBoxEx* pCombo, UINT nIdText, UINT nIdTitle, int nIcon /* = TTI_WARNING */)
 {
-    CString text(MAKEINTRESOURCE(nIdText));
-    CString title(MAKEINTRESOURCE(nIdTitle));
+    CString        text(MAKEINTRESOURCE(nIdText));
+    CString        title(MAKEINTRESOURCE(nIdTitle));
     EDITBALLOONTIP bt;
     bt.cbStruct = sizeof(bt);
     bt.pszText  = text;
     bt.pszTitle = title;
-    bt.ttiIcon = nIcon;
-    HWND hEdit = pCombo->GetEditCtrl()->GetSafeHwnd();
-    ::SendMessage(hEdit, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+    bt.ttiIcon  = nIcon;
+    HWND hEdit  = pCombo->GetEditCtrl()->GetSafeHwnd();
+    ::SendMessage(hEdit, EM_SHOWBALLOONTIP, 0, reinterpret_cast<LPARAM>(&bt));
 }

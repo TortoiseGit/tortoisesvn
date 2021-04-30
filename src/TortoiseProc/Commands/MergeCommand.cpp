@@ -20,13 +20,11 @@
 #include "MergeCommand.h"
 
 #include "MergeWizard.h"
-#include "MergeWizardStart.h"
 #include "SVNProgressDlg.h"
 
 bool MergeCommand::Execute()
 {
-    DWORD nMergeWizardMode =
-        (DWORD)CRegDWORD(L"Software\\TortoiseSVN\\MergeWizardMode", 0);
+    DWORD nMergeWizardMode = static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\MergeWizardMode", 0));
 
     if (parser.HasVal(L"fromurl"))
     {
@@ -39,20 +37,20 @@ bool MergeCommand::Execute()
         nMergeWizardMode = 1;
     }
 
-    CMergeWizard wizard(IDS_PROGRS_CMDINFO, NULL, nMergeWizardMode);
-    wizard.wcPath = cmdLinePath;
+    CMergeWizard wizard(IDS_PROGRS_CMDINFO, nullptr, nMergeWizardMode);
+    wizard.m_wcPath = cmdLinePath;
 
     if (parser.HasVal(L"fromurl"))
     {
-        wizard.URL1 = parser.GetVal(L"fromurl");
-        wizard.url = parser.GetVal(L"fromurl");
-        wizard.revRangeArray.FromListString(parser.GetVal(L"revrange"));
+        wizard.m_url1 = parser.GetVal(L"fromurl");
+        wizard.m_url  = parser.GetVal(L"fromurl");
+        wizard.m_revRangeArray.FromListString(parser.GetVal(L"revrange"));
     }
     if (parser.HasVal(L"tourl"))
     {
-        wizard.URL2 = parser.GetVal(L"tourl");
-        wizard.startRev = SVNRev(parser.GetVal(L"fromrev"));
-        wizard.endRev = SVNRev(parser.GetVal(L"torev"));
+        wizard.m_url2     = parser.GetVal(L"tourl");
+        wizard.m_startRev = SVNRev(parser.GetVal(L"fromrev"));
+        wizard.m_endRev   = SVNRev(parser.GetVal(L"torev"));
     }
     if (wizard.DoModal() == ID_WIZFINISH)
     {
@@ -64,44 +62,44 @@ bool MergeCommand::Execute()
         options |= wizard.m_bForce ? ProgOptForce : 0;
         options |= wizard.m_bAllowMixed ? ProgOptAllowMixedRev : 0;
         progDlg.SetOptions(options);
-        progDlg.SetPathList(CTSVNPathList(wizard.wcPath));
-        progDlg.SetUrl(wizard.URL1);
-        progDlg.SetSecondUrl(wizard.URL2);
-        switch (wizard.nRevRangeMerge)
+        progDlg.SetPathList(CTSVNPathList(wizard.m_wcPath));
+        progDlg.SetUrl(wizard.m_url1);
+        progDlg.SetSecondUrl(wizard.m_url2);
+        switch (wizard.m_nRevRangeMerge)
         {
-        case MERGEWIZARD_REVRANGE:
+            case MERGEWIZARD_REVRANGE:
             {
-                if (wizard.revRangeArray.GetCount())
+                if (wizard.m_revRangeArray.GetCount())
                 {
-                    wizard.revRangeArray.AdjustForMerge(!!wizard.bReverseMerge);
-                    progDlg.SetRevisionRanges(wizard.revRangeArray);
+                    wizard.m_revRangeArray.AdjustForMerge(!!wizard.m_bReverseMerge);
+                    progDlg.SetRevisionRanges(wizard.m_revRangeArray);
                 }
                 else
                 {
-                    if (wizard.bReintegrate)
+                    if (wizard.m_bReintegrate)
                         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrateOldStyle);
                     else
                         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_MergeReintegrate);
                 }
-                progDlg.SetPegRevision(wizard.pegRev);
+                progDlg.SetPegRevision(wizard.m_pegRev);
             }
             break;
-        case MERGEWIZARD_TREE:
+            case MERGEWIZARD_TREE:
             {
-                progDlg.SetRevision(wizard.startRev);
-                progDlg.SetRevisionEnd(wizard.endRev);
-                if (wizard.URL1.Compare(wizard.URL2) == 0)
+                progDlg.SetRevision(wizard.m_startRev);
+                progDlg.SetRevisionEnd(wizard.m_endRev);
+                if (wizard.m_url1.Compare(wizard.m_url2) == 0)
                 {
                     SVNRevRangeArray tempRevArray;
-                    tempRevArray.AdjustForMerge(!!wizard.bReverseMerge);
-                    tempRevArray.AddRevRange(wizard.startRev, wizard.endRev);
+                    tempRevArray.AdjustForMerge(!!wizard.m_bReverseMerge);
+                    tempRevArray.AddRevRange(wizard.m_startRev, wizard.m_endRev);
                     progDlg.SetRevisionRanges(tempRevArray);
                 }
             }
             break;
         }
         progDlg.SetDepth(wizard.m_depth);
-        progDlg.SetDiffOptions(SVN::GetOptionsString(!!wizard.m_bIgnoreEOL, wizard.m_IgnoreSpaces));
+        progDlg.SetDiffOptions(SVN::GetOptionsString(!!wizard.m_bIgnoreEOL, wizard.m_ignoreSpaces));
         progDlg.DoModal();
         return !progDlg.DidErrorsOccur();
     }

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009-2012 - TortoiseSVN
+// Copyright (C) 2007, 2009-2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,18 +21,16 @@
 #include "MergeAllDlg.h"
 #include "AppUtils.h"
 
-
 IMPLEMENT_DYNAMIC(CMergeAllDlg, CStandAloneDialog)
 
 CMergeAllDlg::CMergeAllDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CMergeAllDlg::IDD, pParent)
+    , m_bForce(FALSE)
+    , m_bIgnoreAncestry(FALSE)
     , m_depth(svn_depth_unknown)
     , m_bIgnoreEOL(FALSE)
-    , m_bIgnoreAncestry(FALSE)
-    , m_bForce(FALSE)
-    , m_IgnoreSpaces(svn_diff_file_ignore_space_none)
+    , m_ignoreSpaces(svn_diff_file_ignore_space_none)
 {
-
 }
 
 CMergeAllDlg::~CMergeAllDlg()
@@ -49,11 +47,9 @@ void CMergeAllDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_FORCE, m_bForce);
 }
 
-
 BEGIN_MESSAGE_MAP(CMergeAllDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CMergeAllDlg::OnBnClickedHelp)
 END_MESSAGE_MAP()
-
 
 // CMergeAllDlg message handlers
 
@@ -77,24 +73,24 @@ BOOL CMergeAllDlg::OnInitDialog()
     m_depthCombo.AddString(CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_EMPTY)));
     switch (m_depth)
     {
-    case svn_depth_unknown:
-        m_depthCombo.SetCurSel(0);
-        break;
-    case svn_depth_infinity:
-        m_depthCombo.SetCurSel(1);
-        break;
-    case svn_depth_immediates:
-        m_depthCombo.SetCurSel(2);
-        break;
-    case svn_depth_files:
-        m_depthCombo.SetCurSel(3);
-        break;
-    case svn_depth_empty:
-        m_depthCombo.SetCurSel(4);
-        break;
-    default:
-        m_depthCombo.SetCurSel(0);
-        break;
+        case svn_depth_unknown:
+            m_depthCombo.SetCurSel(0);
+            break;
+        case svn_depth_infinity:
+            m_depthCombo.SetCurSel(1);
+            break;
+        case svn_depth_immediates:
+            m_depthCombo.SetCurSel(2);
+            break;
+        case svn_depth_files:
+            m_depthCombo.SetCurSel(3);
+            break;
+        case svn_depth_empty:
+            m_depthCombo.SetCurSel(4);
+            break;
+        default:
+            m_depthCombo.SetCurSel(0);
+            break;
     }
 
     CheckRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES, IDC_COMPAREWHITESPACES);
@@ -103,7 +99,7 @@ BOOL CMergeAllDlg::OnInitDialog()
     GetWindowText(sWindowTitle);
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
-    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+    if ((m_pParentWnd == nullptr) && (GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     return TRUE;
 }
@@ -112,39 +108,39 @@ void CMergeAllDlg::OnOK()
 {
     switch (m_depthCombo.GetCurSel())
     {
-    case 0:
-        m_depth = svn_depth_unknown;
-        break;
-    case 1:
-        m_depth = svn_depth_infinity;
-        break;
-    case 2:
-        m_depth = svn_depth_immediates;
-        break;
-    case 3:
-        m_depth = svn_depth_files;
-        break;
-    case 4:
-        m_depth = svn_depth_empty;
-        break;
-    default:
-        m_depth = svn_depth_empty;
-        break;
+        case 0:
+            m_depth = svn_depth_unknown;
+            break;
+        case 1:
+            m_depth = svn_depth_infinity;
+            break;
+        case 2:
+            m_depth = svn_depth_immediates;
+            break;
+        case 3:
+            m_depth = svn_depth_files;
+            break;
+        case 4:
+            m_depth = svn_depth_empty;
+            break;
+        default:
+            m_depth = svn_depth_empty;
+            break;
     }
 
     int rb = GetCheckedRadioButton(IDC_COMPAREWHITESPACES, IDC_IGNOREALLWHITESPACES);
     switch (rb)
     {
-    case IDC_IGNOREWHITESPACECHANGES:
-        m_IgnoreSpaces = svn_diff_file_ignore_space_change;
-        break;
-    case IDC_IGNOREALLWHITESPACES:
-        m_IgnoreSpaces = svn_diff_file_ignore_space_all;
-        break;
-    case IDC_COMPAREWHITESPACES:
-    default:
-        m_IgnoreSpaces = svn_diff_file_ignore_space_none;
-        break;
+        case IDC_IGNOREWHITESPACECHANGES:
+            m_ignoreSpaces = svn_diff_file_ignore_space_change;
+            break;
+        case IDC_IGNOREALLWHITESPACES:
+            m_ignoreSpaces = svn_diff_file_ignore_space_all;
+            break;
+        case IDC_COMPAREWHITESPACES:
+        default:
+            m_ignoreSpaces = svn_diff_file_ignore_space_none;
+            break;
     }
 
     CStandAloneDialog::OnOK();

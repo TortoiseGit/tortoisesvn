@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2012 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,46 +36,50 @@ class CMergeWizardTree : public CMergeWizardBasePage
 
 public:
     CMergeWizardTree();
-    virtual ~CMergeWizardTree();
+    ~CMergeWizardTree() override;
 
-    enum { IDD = IDD_MERGEWIZARD_TREE };
+    enum
+    {
+        IDD = IDD_MERGEWIZARD_TREE
+    };
 
 protected:
-    virtual void        DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL        OnInitDialog();
-    virtual LRESULT     OnWizardNext();
-    virtual LRESULT     OnWizardBack();
-    virtual BOOL        OnSetActive();
-    virtual bool        OkToCancel() override;
-    afx_msg void        OnBnClickedBrowse();
-    afx_msg void        OnBnClickedFindbranchstart();
-    afx_msg void        OnBnClickedFindbranchend();
-    afx_msg void        OnBnClickedShowlogwc();
-    afx_msg void        OnBnClickedBrowse2();
-    afx_msg void        OnEnChangeRevisionEnd();
-    afx_msg void        OnEnChangeRevisionStart();
-    afx_msg LRESULT     OnRevSelected(WPARAM wParam, LPARAM lParam);
-    afx_msg void        OnCbnEditchangeUrlcombo();
-    afx_msg void        OnCbnEditchangeUrlcombo2();
-    afx_msg LRESULT     OnWCStatus(WPARAM wParam, LPARAM lParam);
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    LRESULT         OnWizardNext() override;
+    LRESULT         OnWizardBack() override;
+    BOOL            OnSetActive() override;
+    bool            OkToCancel() override;
+    afx_msg void    OnBnClickedBrowse();
+    afx_msg void    OnBnClickedFindbranchstart();
+    afx_msg void    OnBnClickedFindbranchend();
+    afx_msg void    OnBnClickedShowlogwc();
+    afx_msg void    OnBnClickedBrowse2();
+    afx_msg void    OnEnChangeRevisionEnd();
+    afx_msg void    OnEnChangeRevisionStart();
+    afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
+    afx_msg void    OnCbnEditchangeUrlcombo();
+    afx_msg void    OnCbnEditchangeUrlcombo2();
+    afx_msg LRESULT OnWCStatus(WPARAM wParam, LPARAM lParam);
 
-    BOOL                CheckData(bool bShowErrors = true);
-    void                SetStartRevision(const SVNRev& rev);
-    void                SetEndRevision(const SVNRev& rev);
+    BOOL CheckData(bool bShowErrors = true);
+    void SetStartRevision(const SVNRev& rev);
+    void SetEndRevision(const SVNRev& rev);
 
     DECLARE_MESSAGE_MAP()
 
-    CLogDlg *           m_pLogDlg;
-    CLogDlg *           m_pLogDlg2;
-    CLogDlg *           m_pLogDlg3;
-    CHistoryCombo       m_URLCombo;
-    CHistoryCombo       m_URLCombo2;
-    CString             m_sStartRev;
-    CString             m_sEndRev;
-    CPathEdit           m_WC;
+    CLogDlg*      m_pLogDlg;
+    CLogDlg*      m_pLogDlg2;
+    CLogDlg*      m_pLogDlg3;
+    CHistoryCombo m_urlCombo;
+    CHistoryCombo m_urlCombo2;
+    CString       m_sStartRev;
+    CString       m_sEndRev;
+    CPathEdit     m_wc;
+
 public:
-    CString             m_URLFrom;
-    CString             m_URLTo;
-    SVNRev              StartRev;
-    SVNRev              EndRev;
+    CString m_urlFrom;
+    CString m_urlTo;
+    SVNRev  m_startRev;
+    SVNRev  m_endRev;
 };

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2014, 2020 - TortoiseSVN
+// Copyright (C) 2007-2014, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "MergeWizard.h"
 #include "MergeWizardRevRange.h"
 #include "AppUtils.h"
@@ -29,11 +28,11 @@ IMPLEMENT_DYNAMIC(CMergeWizardRevRange, CMergeWizardBasePage)
 
 CMergeWizardRevRange::CMergeWizardRevRange()
     : CMergeWizardBasePage(CMergeWizardRevRange::IDD)
-    , m_pLogDlg(NULL)
-    , m_pLogDlg2(NULL)
+    , m_pLogDlg(nullptr)
+    , m_pLogDlg2(nullptr)
 {
-    m_psp.dwFlags |= PSP_DEFAULT|PSP_USEHEADERTITLE|PSP_USEHEADERSUBTITLE;
-    m_psp.pszHeaderTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_REVRANGETITLE);
+    m_psp.dwFlags |= PSP_DEFAULT | PSP_USEHEADERTITLE | PSP_USEHEADERSUBTITLE;
+    m_psp.pszHeaderTitle    = MAKEINTRESOURCE(IDS_MERGEWIZARD_REVRANGETITLE);
     m_psp.pszHeaderSubTitle = MAKEINTRESOURCE(IDS_MERGEWIZARD_REVRANGESUBTITLE);
 }
 
@@ -55,11 +54,10 @@ void CMergeWizardRevRange::DoDataExchange(CDataExchange* pDX)
 {
     CMergeWizardBasePage::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_REVISION_RANGE, m_sRevRange);
-    DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
-    DDX_Check(pDX, IDC_REVERSEMERGE, ((CMergeWizard*)GetParent())->bReverseMerge);
-    DDX_Control(pDX, IDC_WCEDIT, m_WC);
+    DDX_Control(pDX, IDC_URLCOMBO, m_urlCombo);
+    DDX_Check(pDX, IDC_REVERSEMERGE, static_cast<CMergeWizard*>(GetParent())->m_bReverseMerge);
+    DDX_Control(pDX, IDC_WCEDIT, m_wc);
 }
-
 
 BEGIN_MESSAGE_MAP(CMergeWizardRevRange, CMergeWizardBasePage)
     ON_MESSAGE(WM_TSVN_MAXREVFOUND, &CMergeWizardRevRange::OnWCStatus)
@@ -72,15 +70,14 @@ BEGIN_MESSAGE_MAP(CMergeWizardRevRange, CMergeWizardBasePage)
     ON_BN_CLICKED(IDC_MERGERADIO_SPECIFIC, &CMergeWizardRevRange::OnBnClickedMergeradioSpecific)
 END_MESSAGE_MAP()
 
-
 LRESULT CMergeWizardRevRange::OnWizardBack()
 {
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return -1;
     }
-    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd()) && (m_pLogDlg2->IsWindowVisible()))
     {
         m_pLogDlg2->SendMessage(WM_CLOSE);
         return -1;
@@ -94,48 +91,48 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
 
     UpdateData();
 
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return -1;
     }
-    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd()) && (m_pLogDlg2->IsWindowVisible()))
     {
         m_pLogDlg2->SendMessage(WM_CLOSE);
         return -1;
     }
 
     CString sUrl;
-    m_URLCombo.GetWindowText(sUrl);
+    m_urlCombo.GetWindowText(sUrl);
     // check if the url has a revision appended to it and remove it if there is one
     auto atposurl = sUrl.ReverseFind('@');
     if (atposurl >= 0)
     {
-        CString sRev = sUrl.Mid(atposurl+1);
-        SVNRev rev(sRev);
+        CString sRev = sUrl.Mid(atposurl + 1);
+        SVNRev  rev(sRev);
         if (rev.IsValid())
         {
-            ((CMergeWizard*)GetParent())->pegRev = rev;
-            sUrl = sUrl.Left(atposurl);
+            static_cast<CMergeWizard*>(GetParent())->m_pegRev = rev;
+            sUrl                                              = sUrl.Left(atposurl);
         }
     }
     CTSVNPath url(sUrl);
     if (!url.IsUrl())
     {
-        ShowComboBalloon(&m_URLCombo, IDS_ERR_MUSTBEURL, IDS_ERR_ERROR, TTI_ERROR);
+        ShowComboBalloon(&m_urlCombo, IDS_ERR_MUSTBEURL, IDS_ERR_ERROR, TTI_ERROR);
         return -1;
     }
 
-    m_URLCombo.SaveHistory();
+    m_urlCombo.SaveHistory();
 
-    CString sRegKey = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor" + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CString    sRegKey = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
     CRegString regMergeUrlForWC(sRegKey);
     regMergeUrlForWC = sUrl;
 
-    ((CMergeWizard*)GetParent())->URL1 = sUrl;
-    ((CMergeWizard*)GetParent())->URL2 = sUrl;
+    static_cast<CMergeWizard*>(GetParent())->m_url1 = sUrl;
+    static_cast<CMergeWizard*>(GetParent())->m_url2 = sUrl;
 
-    if (GetCheckedRadioButton(IDC_MERGERADIO_ALL, IDC_MERGERADIO_SPECIFIC)==IDC_MERGERADIO_ALL)
+    if (GetCheckedRadioButton(IDC_MERGERADIO_ALL, IDC_MERGERADIO_SPECIFIC) == IDC_MERGERADIO_ALL)
         m_sRevRange.Empty();
 
     // if the revision range has HEAD as a revision specified, we have to
@@ -144,20 +141,20 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
     // ranges correctly
     if (m_sRevRange.Find(L"HEAD") >= 0)
     {
-        if (!m_HEAD.IsValid())
+        if (!m_head.IsValid())
         {
             SVN svn;
-            m_HEAD = svn.GetHEADRevision(CTSVNPath(((CMergeWizard*)GetParent())->URL1));
+            m_head = svn.GetHEADRevision(CTSVNPath(static_cast<CMergeWizard*>(GetParent())->m_url1));
         }
-        m_sRevRange.Replace(L"HEAD", m_HEAD.ToString());
+        m_sRevRange.Replace(L"HEAD", m_head.ToString());
     }
     int atpos = -1;
     if ((atpos = m_sRevRange.ReverseFind('@')) >= 0)
     {
-        ((CMergeWizard*)GetParent())->pegRev = SVNRev(m_sRevRange.Mid(atpos+1));
-        m_sRevRange = m_sRevRange.Left(atpos);
+        static_cast<CMergeWizard*>(GetParent())->m_pegRev = SVNRev(m_sRevRange.Mid(atpos + 1));
+        m_sRevRange                                       = m_sRevRange.Left(atpos);
     }
-    if (!((CMergeWizard*)GetParent())->revRangeArray.FromListString(m_sRevRange))
+    if (!static_cast<CMergeWizard*>(GetParent())->m_revRangeArray.FromListString(m_sRevRange))
     {
         ShowEditBalloon(IDC_REVISION_RANGE, IDS_ERR_INVALIDREVRANGE, IDS_ERR_ERROR, TTI_ERROR);
         return -1;
@@ -165,35 +162,34 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
     return IDD_MERGEWIZARD_OPTIONS;
 }
 
-
 BOOL CMergeWizardRevRange::OnInitDialog()
 {
     CMergeWizardBasePage::OnInitDialog();
 
-    CMergeWizard * pWizard = (CMergeWizard*)GetParent();
+    CMergeWizard* pWizard = static_cast<CMergeWizard*>(GetParent());
 
-    CString sRegKey = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor" + ((CMergeWizard*)GetParent())->wcPath.GetSVNPathString();
+    CString sRegKey        = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
     CString sMergeUrlForWC = CRegString(sRegKey);
 
-    CString sUUID = pWizard->sUUID;
-    m_URLCombo.SetURLHistory(true, false);
-    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\"+sUUID, L"url");
-    if (!(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\MergeWCURL", FALSE))
-        m_URLCombo.SetCurSel(0);
+    CString sUuid = pWizard->m_sUuid;
+    m_urlCombo.SetURLHistory(true, false);
+    m_urlCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\" + sUuid, L"url");
+    if (!static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\MergeWCURL", FALSE)))
+        m_urlCombo.SetCurSel(0);
     else if (!sMergeUrlForWC.IsEmpty())
-        m_URLCombo.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWC));
-    else if (!pWizard->url.IsEmpty())
-        m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
+        m_urlCombo.SetWindowText(CPathUtils::PathUnescape(sMergeUrlForWC));
+    else if (!pWizard->m_url.IsEmpty())
+        m_urlCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->m_url));
 
-    if (m_URLCombo.GetString().IsEmpty())
-        m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->url));
-    if (!pWizard->URL1.IsEmpty())
-        m_URLCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->URL1));
-    if (pWizard->revRangeArray.GetCount())
+    if (m_urlCombo.GetString().IsEmpty())
+        m_urlCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->m_url));
+    if (!pWizard->m_url1.IsEmpty())
+        m_urlCombo.SetWindowText(CPathUtils::PathUnescape(pWizard->m_url1));
+    if (pWizard->m_revRangeArray.GetCount())
     {
-        m_sRevRange = pWizard->revRangeArray.ToListString();
-        if (pWizard->pegRev.IsValid())
-            m_sRevRange = m_sRevRange + L"@" + pWizard->pegRev.ToString();
+        m_sRevRange = pWizard->m_revRangeArray.ToListString();
+        if (pWizard->m_pegRev.IsValid())
+            m_sRevRange = m_sRevRange + L"@" + pWizard->m_pegRev.ToString();
         SetDlgItemText(IDC_REVISION_RANGE, m_sRevRange);
     }
 
@@ -203,7 +199,7 @@ BOOL CMergeWizardRevRange::OnInitDialog()
     sLabel.LoadString(IDS_MERGEWIZARD_REVRANGESTRING);
     SetDlgItemText(IDC_REVRANGELABEL, sLabel);
 
-    SetDlgItemText(IDC_WCEDIT, ((CMergeWizard*)GetParent())->wcPath.GetWinPath());
+    SetDlgItemText(IDC_WCEDIT, static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetWinPath());
 
     AdjustControlSize(IDC_REVERSEMERGE);
 
@@ -223,30 +219,30 @@ BOOL CMergeWizardRevRange::OnInitDialog()
 
     CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), CTheme::Instance().IsDarkTheme());
 
-    StartWCCheckThread(((CMergeWizard*)GetParent())->wcPath);
+    StartWCCheckThread(static_cast<CMergeWizard*>(GetParent())->m_wcPath);
 
     return TRUE;
 }
 
 void CMergeWizardRevRange::OnBnClickedShowlog()
 {
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
         return;
 
     CString sUrl;
-    m_URLCombo.GetWindowText(sUrl);
+    m_urlCombo.GetWindowText(sUrl);
 
     SVNRev rev(SVNRev::REV_HEAD);
 
     // check if the url has a revision appended to it
-    auto atposurl = sUrl.ReverseFind('@');
-    if (atposurl >= 0)
+    auto atPosUrl = sUrl.ReverseFind('@');
+    if (atPosUrl >= 0)
     {
-        CString sRev = sUrl.Mid(atposurl+1);
-        rev = SVNRev(sRev);
+        CString sRev = sUrl.Mid(atPosUrl + 1);
+        rev          = SVNRev(sRev);
         if (rev.IsValid())
         {
-            sUrl = sUrl.Left(atposurl);
+            sUrl = sUrl.Left(atPosUrl);
         }
         else
             rev = SVNRev::REV_HEAD;
@@ -257,7 +253,7 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
     if (!url.IsEmpty() && url.IsUrl())
     {
         StopWCCheckThread();
-        CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
+        CTSVNPath wcPath = static_cast<CMergeWizard*>(GetParent())->m_wcPath;
         if (m_pLogDlg)
             m_pLogDlg->DestroyWindow();
         delete m_pLogDlg;
@@ -274,14 +270,14 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
         if (!m_sRevRange.IsEmpty() && (m_sRevRange.Find(L"HEAD") < 0))
         {
             CString sRevRange = m_sRevRange;
-            int atpos = -1;
+            int     atpos     = -1;
             if ((atpos = sRevRange.ReverseFind('@')) >= 0)
             {
                 sRevRange = sRevRange.Left(atpos);
             }
-            if (((CMergeWizard*)GetParent())->revRangeArray.FromListString(sRevRange))
+            if (static_cast<CMergeWizard*>(GetParent())->m_revRangeArray.FromListString(sRevRange))
             {
-                m_pLogDlg->SetSelectedRevRanges(((CMergeWizard*)GetParent())->revRangeArray);
+                m_pLogDlg->SetSelectedRevRanges(static_cast<CMergeWizard*>(GetParent())->m_revRangeArray);
             }
         }
 
@@ -292,18 +288,18 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
 
 LPARAM CMergeWizardRevRange::OnRevSelected(WPARAM wParam, LPARAM lParam)
 {
-    ((CMergeWizard*)GetParent())->revRangeArray.Clear();
+    static_cast<CMergeWizard*>(GetParent())->m_revRangeArray.Clear();
 
     // lParam is a pointer to an SVNRevList, wParam contains the number of elements in that list.
-    if ((lParam)&&(wParam))
+    if ((lParam) && (wParam))
     {
         UpdateData(TRUE);
-        CMergeWizard* dlg = (CMergeWizard*)GetParent();
-        dlg->revRangeArray = *((SVNRevRangeArray*)lParam);
-        bool bReverse = !!dlg->bReverseMerge;
-        m_sRevRange = dlg->revRangeArray.ToListString(bReverse);
-        if (dlg->pegRev.IsValid())
-            m_sRevRange = m_sRevRange + L"@" + dlg->pegRev.ToString();
+        CMergeWizard* dlg    = static_cast<CMergeWizard*>(GetParent());
+        dlg->m_revRangeArray = *reinterpret_cast<SVNRevRangeArray*>(lParam);
+        bool bReverse        = !!dlg->m_bReverseMerge;
+        m_sRevRange          = dlg->m_revRangeArray.ToListString(bReverse);
+        if (dlg->m_pegRev.IsValid())
+            m_sRevRange = m_sRevRange + L"@" + dlg->m_pegRev.ToString();
         UpdateData(FALSE);
         SetFocus();
     }
@@ -312,18 +308,18 @@ LPARAM CMergeWizardRevRange::OnRevSelected(WPARAM wParam, LPARAM lParam)
 
 LPARAM CMergeWizardRevRange::OnRevSelectedOneRange(WPARAM /*wParam*/, LPARAM lParam)
 {
-    ((CMergeWizard*)GetParent())->revRangeArray.Clear();
+    ((CMergeWizard*)GetParent())->m_revRangeArray.Clear();
 
     // lParam is a pointer to an SVNRevList
     if ((lParam))
     {
         UpdateData(TRUE);
-        CMergeWizard* dlg = (CMergeWizard*)GetParent();
-        dlg->revRangeArray = *((SVNRevRangeArray*)lParam);
-        bool bReverse = !!dlg->bReverseMerge;
-        m_sRevRange = dlg->revRangeArray.ToListString(bReverse);
-        if (dlg->pegRev.IsValid())
-            m_sRevRange = m_sRevRange + L"@" + dlg->pegRev.ToString();
+        CMergeWizard* dlg    = static_cast<CMergeWizard*>(GetParent());
+        dlg->m_revRangeArray = *reinterpret_cast<SVNRevRangeArray*>(lParam);
+        bool bReverse        = !!dlg->m_bReverseMerge;
+        m_sRevRange          = dlg->m_revRangeArray.ToListString(bReverse);
+        if (dlg->m_pegRev.IsValid())
+            m_sRevRange = m_sRevRange + L"@" + dlg->m_pegRev.ToString();
         UpdateData(FALSE);
         SetFocus();
     }
@@ -333,21 +329,20 @@ LPARAM CMergeWizardRevRange::OnRevSelectedOneRange(WPARAM /*wParam*/, LPARAM lPa
 void CMergeWizardRevRange::OnBnClickedBrowse()
 {
     SVNRev rev(SVNRev::REV_HEAD);
-    CAppUtils::BrowseRepository(m_URLCombo, this, rev);
+    CAppUtils::BrowseRepository(m_urlCombo, this, rev);
     if (!rev.IsHead() && rev.IsNumber())
     {
         CString sUrl;
-        m_URLCombo.GetWindowText(sUrl);
+        m_urlCombo.GetWindowText(sUrl);
 
-        m_URLCombo.SetWindowText(CPathUtils::PathUnescape(sUrl + L"@" + rev.ToString()));
+        m_urlCombo.SetWindowText(CPathUtils::PathUnescape(sUrl + L"@" + rev.ToString()));
     }
 }
 
-
 BOOL CMergeWizardRevRange::OnSetActive()
 {
-    CPropertySheet* psheet = (CPropertySheet*) GetParent();
-    psheet->SetWizardButtons(PSWIZB_NEXT|PSWIZB_BACK);
+    CPropertySheet* psheet = static_cast<CPropertySheet*>(GetParent());
+    psheet->SetWizardButtons(PSWIZB_NEXT | PSWIZB_BACK);
     SetButtonTexts();
 
     return CMergeWizardBasePage::OnSetActive();
@@ -356,14 +351,14 @@ BOOL CMergeWizardRevRange::OnSetActive()
 void CMergeWizardRevRange::OnBnClickedShowlogwc()
 {
     StopWCCheckThread();
-    CTSVNPath wcPath = ((CMergeWizard*)GetParent())->wcPath;
+    CTSVNPath wcPath = static_cast<CMergeWizard*>(GetParent())->m_wcPath;
     if (m_pLogDlg2)
         m_pLogDlg2->DestroyWindow();
     delete m_pLogDlg2;
     m_pLogDlg2 = new CLogDlg();
     m_pLogDlg2->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_MERGE_SELECTRANGE)));
 
-    m_pLogDlg2->m_pNotifyWindow = NULL;
+    m_pLogDlg2->m_pNotifyWindow = nullptr;
     m_pLogDlg2->SetParams(wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE, FALSE);
     m_pLogDlg2->SetProjectPropertiesPath(wcPath);
     m_pLogDlg2->SetMergePath(wcPath);
@@ -380,10 +375,11 @@ LPARAM CMergeWizardRevRange::OnWCStatus(WPARAM wParam, LPARAM /*lParam*/)
     return 0;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMergeWizardRevRange::OnBnClickedMergeradioAll()
 {
-    CWnd * pwndDlgItem = GetDlgItem(IDC_REVISION_RANGE);
-    if (pwndDlgItem == NULL)
+    CWnd* pwndDlgItem = GetDlgItem(IDC_REVISION_RANGE);
+    if (pwndDlgItem == nullptr)
         return;
     if (GetFocus() == pwndDlgItem)
     {
@@ -392,10 +388,11 @@ void CMergeWizardRevRange::OnBnClickedMergeradioAll()
     pwndDlgItem->EnableWindow(FALSE);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CMergeWizardRevRange::OnBnClickedMergeradioSpecific()
 {
-    CWnd * pwndDlgItem = GetDlgItem(IDC_REVISION_RANGE);
-    if (pwndDlgItem == NULL)
+    CWnd* pwndDlgItem = GetDlgItem(IDC_REVISION_RANGE);
+    if (pwndDlgItem == nullptr)
         return;
     pwndDlgItem->EnableWindow(TRUE);
 }
@@ -403,12 +400,12 @@ void CMergeWizardRevRange::OnBnClickedMergeradioSpecific()
 bool CMergeWizardRevRange::OkToCancel()
 {
     StopWCCheckThread();
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return false;
     }
-    if (::IsWindow(m_pLogDlg2->GetSafeHwnd())&&(m_pLogDlg2->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg2->GetSafeHwnd()) && (m_pLogDlg2->IsWindowVisible()))
     {
         m_pLogDlg2->SendMessage(WM_CLOSE);
         return false;

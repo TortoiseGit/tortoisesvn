@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2013 - TortoiseSVN
+// Copyright (C) 2007-2009, 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,25 +29,27 @@ class CMergeWizardOptions : public CMergeWizardBasePage
 
 public:
     CMergeWizardOptions();
-    virtual ~CMergeWizardOptions();
+    ~CMergeWizardOptions() override;
 
-
-    enum { IDD = IDD_MERGEWIZARD_OPTIONS };
+    enum
+    {
+        IDD = IDD_MERGEWIZARD_OPTIONS
+    };
 
 protected:
-    virtual void        DoDataExchange(CDataExchange* pDX);
-    virtual BOOL        OnInitDialog();
-    virtual LRESULT     OnWizardBack();
-    virtual BOOL        OnWizardFinish();
-    virtual BOOL        OnSetActive();
-    virtual BOOL        PreTranslateMessage(MSG* pMsg);
-    afx_msg void        OnBnClickedDryrun();
-    afx_msg void        OnBnClickedReintegrateoldstyle();
+    void         DoDataExchange(CDataExchange* pDX) override;
+    BOOL         OnInitDialog() override;
+    LRESULT      OnWizardBack() override;
+    BOOL         OnWizardFinish() override;
+    BOOL         OnSetActive() override;
+    BOOL         PreTranslateMessage(MSG* pMsg) override;
+    afx_msg void OnBnClickedDryrun();
+    afx_msg void OnBnClickedReintegrateoldstyle();
 
     DECLARE_MESSAGE_MAP()
 
-    svn_diff_file_ignore_space_t GetIgnores();
+    svn_diff_file_ignore_space_t GetIgnores() const;
 
-    CComboBox                       m_depthCombo;
-    CToolTips                       m_tooltips;
+    CComboBox m_depthCombo;
+    CToolTips m_tooltips;
 };

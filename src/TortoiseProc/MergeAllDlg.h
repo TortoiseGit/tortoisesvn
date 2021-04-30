@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009-2011 - TortoiseSVN
+// Copyright (C) 2007, 2009-2011, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,26 +29,29 @@ class CMergeAllDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CMergeAllDlg)
 
 public:
-    CMergeAllDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CMergeAllDlg();
+    CMergeAllDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CMergeAllDlg() override;
 
-    enum { IDD = IDD_MERGEALL };
+    enum
+    {
+        IDD = IDD_MERGEALL
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual void OnOK();
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    void         OnOK() override;
+    BOOL         OnInitDialog() override;
     afx_msg void OnBnClickedHelp();
 
     DECLARE_MESSAGE_MAP()
 
-    CComboBox                       m_depthCombo;
+    CComboBox m_depthCombo;
 
 public:
-    BOOL                            m_bForce;
-    BOOL                            m_bIgnoreAncestry;
-    svn_depth_t                     m_depth;
-    BOOL                            m_bIgnoreEOL;
-    svn_diff_file_ignore_space_t    m_IgnoreSpaces;
-    CTSVNPathList                   m_pathList;
+    BOOL                         m_bForce;
+    BOOL                         m_bIgnoreAncestry;
+    svn_depth_t                  m_depth;
+    BOOL                         m_bIgnoreEOL;
+    svn_diff_file_ignore_space_t m_ignoreSpaces;
+    CTSVNPathList                m_pathList;
 };
