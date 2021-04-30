@@ -44,7 +44,7 @@ bool DropCopyCommand::Execute()
         CRenameDlg renDlg;
         renDlg.SetInputValidator(this);
         renDlg.SetFileSystemAutoComplete();
-        renDlg.m_windowtitle.LoadString(IDS_PROC_COPYRENAME);
+        renDlg.m_windowTitle.LoadString(IDS_PROC_COPYRENAME);
         renDlg.m_name = pathList[0].GetFileOrDirectoryName();
         if (renDlg.DoModal() != IDOK)
         {
@@ -75,7 +75,7 @@ bool DropCopyCommand::Execute()
             progress.Stop();
             CRenameDlg dlg;
             dlg.SetFileSystemAutoComplete();
-            dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, static_cast<LPCWSTR>(sourcePath.GetUIFileOrDirectoryName()));
+            dlg.m_windowTitle.Format(IDS_PROC_NEWNAMECOPY, static_cast<LPCWSTR>(sourcePath.GetUIFileOrDirectoryName()));
             if (dlg.DoModal() != IDOK)
             {
                 return FALSE;

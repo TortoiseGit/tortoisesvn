@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2013-2016, 2020 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013-2016, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,13 +18,11 @@
 //
 #include "stdafx.h"
 #include "RemoveCommand.h"
-
-#include "ProgressDlg.h"
 #include "SVN.h"
 #include "InputLogDlg.h"
 #include "ShellUpdater.h"
 
-#define IDYESTOALL          19
+#define IDYESTOALL 19
 
 bool RemoveCommand::Execute()
 {
@@ -35,21 +33,21 @@ bool RemoveCommand::Execute()
     // removing items from an URL in the repository requires that we
     // ask the user for a log message.
     SVN svn;
-    if ((pathList.GetCount())&&(SVN::PathIsURL(pathList[0])))
+    if ((pathList.GetCount()) && (SVN::PathIsURL(pathList[0])))
     {
         // Delete using URL's, not wc paths
         svn.SetPromptApp(&theApp);
         CInputLogDlg dlg;
-        CString sUUID;
-        svn.GetRepositoryRootAndUUID(pathList[0], true, sUUID);
-        dlg.SetUUID(sUUID);
+        CString      sUuid;
+        svn.GetRepositoryRootAndUUID(pathList[0], true, sUuid);
+        dlg.SetUUID(sUuid);
         CString sHint;
         if (pathList.GetCount() == 1)
-            sHint.Format(IDS_INPUT_REMOVEONE, (LPCTSTR)pathList[0].GetSVNPathString());
+            sHint.Format(IDS_INPUT_REMOVEONE, static_cast<LPCWSTR>(pathList[0].GetSVNPathString()));
         else
             sHint.Format(IDS_INPUT_REMOVEMORE, pathList.GetCount());
         dlg.SetActionText(sHint);
-        if (dlg.DoModal()==IDOK)
+        if (dlg.DoModal() == IDOK)
         {
             if (!svn.Remove(pathList, true, !!parser.HasKey(L"keep"), dlg.GetLogMessage()))
             {
@@ -62,17 +60,17 @@ bool RemoveCommand::Execute()
     }
     else
     {
-        bool bForce = false;
+        bool bForce    = false;
         bool bDoForAll = false;
-        for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
+        for (int nPath = 0; nPath < pathList.GetCount(); nPath++)
         {
-            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": remove file %s\n", (LPCTSTR)pathList[nPath].GetUIPathString());
+            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": remove file %s\n", static_cast<LPCWSTR>(pathList[nPath].GetUIPathString()));
             // even though SVN::Remove takes a list of paths to delete at once
             // we delete each item individually so we can prompt the user
             // if something goes wrong or unversioned/modified items are
             // to be deleted
             CTSVNPathList removePathList(pathList[nPath]);
-            if ((bForce)&&(!parser.HasKey(L"keep")))
+            if ((bForce) && (!parser.HasKey(L"keep")))
             {
                 CTSVNPath delPath = removePathList[0];
                 if (!delPath.IsDirectory())
@@ -94,25 +92,25 @@ bool RemoveCommand::Execute()
                 {
                     if (!bDoForAll)
                     {
-                        UINT ret = 0;
+                        UINT    ret = 0;
                         CString msg;
                         if (pathList[nPath].IsDirectory())
-                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1_2, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
+                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1_2, static_cast<LPCWSTR>(svn.GetLastErrorMessage(0)), static_cast<LPCWSTR>(pathList[nPath].GetFileOrDirectoryName()));
                         else
-                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1, (LPCTSTR)svn.GetLastErrorMessage(0), (LPCTSTR)pathList[nPath].GetFileOrDirectoryName());
-                        CTaskDialog taskdlg(msg,
+                            msg.Format(IDS_PROC_REMOVEFORCE_TASK1, static_cast<LPCWSTR>(svn.GetLastErrorMessage(0)), static_cast<LPCWSTR>(pathList[nPath].GetFileOrDirectoryName()));
+                        CTaskDialog taskDlg(msg,
                                             CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK2)),
                                             L"TortoiseSVN",
                                             0,
                                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                        taskdlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
-                        taskdlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
-                        taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                        taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK5)));
-                        taskdlg.SetDefaultCommandControl(IDNO);
-                        taskdlg.SetMainIcon(TD_WARNING_ICON);
-                        ret = (UINT)taskdlg.DoModal(GetExplorerHWND());
-                        if (taskdlg.GetVerificationCheckboxState())
+                        taskDlg.AddCommandControl(IDYES, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
+                        taskDlg.AddCommandControl(IDNO, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
+                        taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+                        taskDlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK5)));
+                        taskDlg.SetDefaultCommandControl(IDNO);
+                        taskDlg.SetMainIcon(TD_WARNING_ICON);
+                        ret = static_cast<UINT>(taskDlg.DoModal(GetExplorerHWND()));
+                        if (taskDlg.GetVerificationCheckboxState())
                             bDoForAll = true;
                         if (ret == IDYES)
                         {

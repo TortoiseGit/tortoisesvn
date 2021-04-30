@@ -3122,7 +3122,7 @@ void CLogDlg::EditAuthor(const std::vector<PLOGENTRYDATA>& logs)
     CRenameDlg dlg(this);
     dlg.m_label.LoadString(IDS_LOG_AUTHOR);
     dlg.m_name = value;
-    dlg.m_windowtitle.LoadString(IDS_LOG_AUTHOREDITTITLE);
+    dlg.m_windowTitle.LoadString(IDS_LOG_AUTHOREDITTITLE);
     // gather all authors for autocomplete
     std::set<std::string> authorsA;
     for (size_t i = 0; i < m_logEntries.size(); ++i)

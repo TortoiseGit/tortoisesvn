@@ -2846,9 +2846,9 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     dwEffect = DROPEFFECT_COPY;
                     CRenameDlg dlg;
                     dlg.m_name = targetName;
-                    dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_RENAME);
+                    dlg.m_windowTitle.LoadString(IDS_REPOBROWSE_RENAME);
                     dlg.SetRenameRequired(sameParent);
-                    CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
+                    CStringUtils::RemoveAccelerators(dlg.m_windowTitle);
                     if (dlg.DoModal() != IDOK)
                         return false;
                     targetName = dlg.m_name;
@@ -2861,9 +2861,9 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                     dwEffect = DROPEFFECT_MOVE;
                     CRenameDlg dlg;
                     dlg.m_name = targetName;
-                    dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_RENAME);
+                    dlg.m_windowTitle.LoadString(IDS_REPOBROWSE_RENAME);
                     dlg.SetRenameRequired(sameParent);
-                    CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
+                    CStringUtils::RemoveAccelerators(dlg.m_windowTitle);
                     if (dlg.DoModal() != IDOK)
                         return false;
                     targetName = dlg.m_name;
@@ -4044,11 +4044,11 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
 
                 CRenameDlg dlg(this);
                 dlg.m_name = path.GetSVNPathString();
-                dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_COPY);
+                dlg.m_windowTitle.LoadString(IDS_REPOBROWSE_COPY);
                 dlg.m_label.LoadString(IDS_REPO_BROWSEURL);
                 dlg.m_infoLabel.Format(IDS_PROC_NEWNAMECOPY, static_cast<LPCWSTR>(path.GetSVNPathString()));
                 dlg.SetRenameRequired(GetRevision().IsHead() != FALSE);
-                CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
+                CStringUtils::RemoveAccelerators(dlg.m_windowTitle);
                 if (dlg.DoModal() == IDOK)
                 {
                     CWaitCursorEx waitCursor;
@@ -4128,8 +4128,8 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             {
                 const CTSVNPath& path = selection.GetURL(0, 0);
                 CRenameDlg       dlg(this);
-                dlg.m_windowtitle.LoadString(IDS_REPOBROWSE_MKDIR);
-                CStringUtils::RemoveAccelerators(dlg.m_windowtitle);
+                dlg.m_windowTitle.LoadString(IDS_REPOBROWSE_MKDIR);
+                CStringUtils::RemoveAccelerators(dlg.m_windowTitle);
                 if (dlg.DoModal() == IDOK)
                 {
                     CWaitCursorEx wait_cursor;

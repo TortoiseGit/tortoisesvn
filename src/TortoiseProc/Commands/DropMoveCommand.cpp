@@ -42,7 +42,7 @@ bool DropMoveCommand::Execute()
         CRenameDlg renDlg;
         renDlg.SetFileSystemAutoComplete();
         renDlg.SetInputValidator(this);
-        renDlg.m_windowtitle.LoadString(IDS_PROC_MOVERENAME);
+        renDlg.m_windowTitle.LoadString(IDS_PROC_MOVERENAME);
         renDlg.m_name = pathList[0].GetFileOrDirectoryName();
         if (renDlg.DoModal() != IDOK)
         {
@@ -81,7 +81,7 @@ bool DropMoveCommand::Execute()
                 dlg.SetFileSystemAutoComplete();
                 dlg.SetInputValidator(this);
                 dlg.m_name = name;
-                dlg.m_windowtitle.Format(IDS_PROC_NEWNAMEMOVE, static_cast<LPCWSTR>(name));
+                dlg.m_windowTitle.Format(IDS_PROC_NEWNAMEMOVE, static_cast<LPCWSTR>(name));
                 if (dlg.DoModal() != IDOK)
                 {
                     return FALSE;

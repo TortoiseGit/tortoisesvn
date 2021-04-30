@@ -63,7 +63,7 @@ bool PasteCopyCommand::Execute()
             dlg.SetFileSystemAutoComplete();
             dlg.SetInputValidator(this);
             m_renPath = sourcePath;
-            dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, static_cast<LPCWSTR>(sourcePath.GetUIFileOrDirectoryName()));
+            dlg.m_windowTitle.Format(IDS_PROC_NEWNAMECOPY, static_cast<LPCWSTR>(sourcePath.GetUIFileOrDirectoryName()));
             if (dlg.DoModal() != IDOK)
             {
                 return FALSE;

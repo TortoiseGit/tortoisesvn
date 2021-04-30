@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2013-2015, 2017-2018 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2013-2015, 2017-2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,23 +30,30 @@ class CRenameDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CRenameDlg)
 
 public:
-    CRenameDlg(CWnd* pParent = NULL);
-    virtual ~CRenameDlg();
+    CRenameDlg(CWnd* pParent = nullptr);
+    ~CRenameDlg() override;
 
-    void SetInputValidator(IInputValidator * validator) { m_pInputValidator = validator; }
+    void SetInputValidator(IInputValidator* validator) { m_pInputValidator = validator; }
     void SetRenameRequired(bool renameRequired) { m_renameRequired = renameRequired; }
-    void SetFileSystemAutoComplete() { m_bFSAutoComplete = true; }
+    void SetFileSystemAutoComplete() { m_bFsAutoComplete = true; }
     void SetAutoComplete(bool bAutoComplete) { m_bAutoComplete = bAutoComplete; }
-    template<typename T> void SetCustomAutoComplete(T t) { m_bCustomAutocomplete = true; m_AutoCompleteCustom.SetEntries(t); }
+    template <typename T>
+    void SetCustomAutoComplete(T t)
+    {
+        m_bCustomAutocomplete = true;
+        m_autoCompleteCustom.SetEntries(t);
+    }
 
-    enum { IDD = IDD_RENAME };
+    enum
+    {
+        IDD = IDD_RENAME
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
+    void OnCancel() override;
 
     afx_msg void OnEnSetfocusName();
 
@@ -54,17 +61,17 @@ protected:
 
 public:
     CString m_name;
-    CString m_windowtitle;
+    CString m_windowTitle;
     CString m_label;
     CString m_infoLabel;
 
 private:
-    bool                m_bBalloonVisible;
-    bool                m_renameRequired;
-    bool                m_bFSAutoComplete;
-    bool                m_bAutoComplete;
-    bool                m_bCustomAutocomplete;
-    CString             m_originalName;
-    IInputValidator *   m_pInputValidator;
-    CAutoComplete       m_AutoCompleteCustom;
+    bool             m_bBalloonVisible;
+    bool             m_renameRequired;
+    bool             m_bFsAutoComplete;
+    bool             m_bAutoComplete;
+    bool             m_bCustomAutocomplete;
+    CString          m_originalName;
+    IInputValidator* m_pInputValidator;
+    CAutoComplete    m_autoCompleteCustom;
 };

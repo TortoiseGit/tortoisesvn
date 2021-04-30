@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2015, 2017-2018 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2015, 2017-2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,16 +23,15 @@
 #include "AppUtils.h"
 #include "ControlsBridge.h"
 
-
 IMPLEMENT_DYNAMIC(CRenameDlg, CResizableStandAloneDialog)
 CRenameDlg::CRenameDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRenameDlg::IDD, pParent)
-    , m_renameRequired(true)
-    , m_pInputValidator(NULL)
     , m_bBalloonVisible(false)
-    , m_bFSAutoComplete(false)
+    , m_renameRequired(true)
+    , m_bFsAutoComplete(false)
     , m_bAutoComplete(true)
     , m_bCustomAutocomplete(false)
+    , m_pInputValidator(nullptr)
 {
 }
 
@@ -45,7 +44,6 @@ void CRenameDlg::DoDataExchange(CDataExchange* pDX)
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_NAME, m_name);
 }
-
 
 BEGIN_MESSAGE_MAP(CRenameDlg, CResizableStandAloneDialog)
     ON_EN_SETFOCUS(IDC_NAME, &CRenameDlg::OnEnSetfocusName)
@@ -62,28 +60,28 @@ BOOL CRenameDlg::OnInitDialog()
 
     if (m_bAutoComplete)
     {
-        if (m_bFSAutoComplete)
+        if (m_bFsAutoComplete)
         {
-            DWORD len = GetCurrentDirectory(0, NULL);
+            DWORD len = GetCurrentDirectory(0, nullptr);
             if (len)
             {
-                std::unique_ptr<TCHAR[]> originalCurrentDirectory(new TCHAR[len]);
+                auto originalCurrentDirectory = std::make_unique<wchar_t[]>(len);
                 if (GetCurrentDirectory(len, originalCurrentDirectory.get()))
                 {
-                    CAppUtils::EnableAutoComplete(GetDlgItem(IDC_NAME)->GetSafeHwnd(), originalCurrentDirectory.get(), AUTOCOMPLETELISTOPTIONS(ACLO_CURRENTDIR | ACLO_FILESYSONLY), AUTOCOMPLETEOPTIONS(ACO_AUTOSUGGEST | ACO_USETAB));
+                    CAppUtils::EnableAutoComplete(GetDlgItem(IDC_NAME)->GetSafeHwnd(), originalCurrentDirectory.get(), static_cast<AUTOCOMPLETELISTOPTIONS>(ACLO_CURRENTDIR | ACLO_FILESYSONLY), static_cast<AUTOCOMPLETEOPTIONS>(ACO_AUTOSUGGEST | ACO_USETAB));
                 }
             }
         }
         else if (m_bCustomAutocomplete)
         {
-            m_AutoCompleteCustom.Init(GetDlgItem(IDC_NAME)->GetSafeHwnd());
+            m_autoCompleteCustom.Init(GetDlgItem(IDC_NAME)->GetSafeHwnd());
         }
         else
             SHAutoComplete(GetDlgItem(IDC_NAME)->m_hWnd, SHACF_DEFAULT);
     }
 
-    if (!m_windowtitle.IsEmpty())
-        this->SetWindowText(m_windowtitle);
+    if (!m_windowTitle.IsEmpty())
+        this->SetWindowText(m_windowTitle);
     if (!m_label.IsEmpty())
         SetDlgItemText(IDC_LABEL, m_label);
 
@@ -92,7 +90,7 @@ BOOL CRenameDlg::OnInitDialog()
     else if (!m_name.IsEmpty())
     {
         CString sTmp;
-        sTmp.Format(IDS_RENAME_INFO, (LPCWSTR)m_name);
+        sTmp.Format(IDS_RENAME_INFO, static_cast<LPCWSTR>(m_name));
         SetDlgItemText(IDC_RENINFOLABEL, sTmp);
     }
 
@@ -125,8 +123,7 @@ void CRenameDlg::OnOK()
             return;
         }
     }
-    bool nameAllowed = ((m_originalName != m_name) || !m_renameRequired)
-                       && !m_name.IsEmpty();
+    bool nameAllowed = ((m_originalName != m_name) || !m_renameRequired) && !m_name.IsEmpty();
     if (!nameAllowed)
     {
         m_bBalloonVisible = true;

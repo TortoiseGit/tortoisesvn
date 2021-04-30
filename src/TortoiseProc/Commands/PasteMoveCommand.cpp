@@ -59,7 +59,7 @@ bool PasteMoveCommand::Execute()
             dlg.m_name = name;
             dlg.SetInputValidator(this);
             m_renPath = pathList[nPath];
-            dlg.m_windowtitle.Format(IDS_PROC_NEWNAMEMOVE, static_cast<LPCWSTR>(name));
+            dlg.m_windowTitle.Format(IDS_PROC_NEWNAMEMOVE, static_cast<LPCWSTR>(name));
             if (dlg.DoModal() != IDOK)
             {
                 return FALSE;
