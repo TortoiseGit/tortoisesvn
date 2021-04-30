@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014 - TortoiseSVN
+// Copyright (C) 2003-2014, 2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
 #include "ResolveDlg.h"
 #include "AppUtils.h"
 
-#define REFRESHTIMER   100
+#define REFRESHTIMER 100
 
 IMPLEMENT_DYNAMIC(CResolveDlg, CResizableStandAloneDialog)
 CResolveDlg::CResolveDlg(CWnd* pParent /*=NULL*/)
@@ -40,9 +40,8 @@ void CResolveDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_RESOLVELIST, m_resolveListCtrl);
-    DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+    DDX_Control(pDX, IDC_SELECTALL, m_selectAll);
 }
-
 
 BEGIN_MESSAGE_MAP(CResolveDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_SELECTALL, OnBnClickedSelectall)
@@ -61,9 +60,9 @@ BOOL CResolveDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_SELECTALL);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_resolveListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS, L"ResolveDlg", SVNSLC_POPALL ^ (SVNSLC_POPIGNORE|SVNSLC_POPADD|SVNSLC_POPCOMMIT|SVNSLC_POPCREATEPATCH|SVNSLC_POPRESTORE));
-    m_resolveListCtrl.SetConfirmButton((CButton*)GetDlgItem(IDOK));
-    m_resolveListCtrl.SetSelectButton(&m_SelectAll);
+    m_resolveListCtrl.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS, L"ResolveDlg", SVNSLC_POPALL ^ (SVNSLC_POPIGNORE | SVNSLC_POPADD | SVNSLC_POPCOMMIT | SVNSLC_POPCREATEPATCH | SVNSLC_POPRESTORE));
+    m_resolveListCtrl.SetConfirmButton(static_cast<CButton*>(GetDlgItem(IDOK)));
+    m_resolveListCtrl.SetSelectButton(&m_selectAll);
     m_resolveListCtrl.SetCancelBool(&m_bCancelled);
     m_resolveListCtrl.SetBackgroundImage(IDI_RESOLVE_BKG);
     m_resolveListCtrl.EnableFileDrop();
@@ -86,7 +85,7 @@ BOOL CResolveDlg::OnInitDialog()
     // first start a thread to obtain the file list with the status without
     // blocking the dialog
     InterlockedExchange(&m_bThreadRunning, TRUE);
-    if(AfxBeginThread(ResolveThreadEntry, this) == NULL)
+    if (AfxBeginThread(ResolveThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -117,13 +116,13 @@ void CResolveDlg::OnCancel()
 
 void CResolveDlg::OnBnClickedSelectall()
 {
-    UINT state = (m_SelectAll.GetState() & 0x0003);
+    UINT state = (m_selectAll.GetState() & 0x0003);
     if (state == BST_INDETERMINATE)
     {
         // It is not at all useful to manually place the checkbox into the indeterminate state...
         // We will force this on to the unchecked state
         state = BST_UNCHECKED;
-        m_SelectAll.SetCheck(state);
+        m_selectAll.SetCheck(state);
     }
     theApp.DoWaitCursor(1);
     m_resolveListCtrl.SelectAll(state == BST_CHECKED);
@@ -132,8 +131,8 @@ void CResolveDlg::OnBnClickedSelectall()
 
 UINT CResolveDlg::ResolveThreadEntry(LPVOID pVoid)
 {
-    CCrashReportThread crashthread;
-    return ((CResolveDlg*)pVoid)->ResolveThread();
+    CCrashReportThread crashThread;
+    return static_cast<CResolveDlg*>(pVoid)->ResolveThread();
 }
 UINT CResolveDlg::ResolveThread()
 {
@@ -147,7 +146,7 @@ UINT CResolveDlg::ResolveThread()
     {
         m_resolveListCtrl.SetEmptyString(m_resolveListCtrl.GetLastErrorMessage());
     }
-    m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED|SVNSLC_SHOWINEXTERNALS, CTSVNPathList(), SVNSLC_SHOWCONFLICTED, true, true);
+    m_resolveListCtrl.Show(SVNSLC_SHOWCONFLICTED | SVNSLC_SHOWINEXTERNALS, CTSVNPathList(), SVNSLC_SHOWCONFLICTED, true, true);
 
     InterlockedExchange(&m_bThreadRunning, FALSE);
     return 0;
@@ -164,15 +163,15 @@ BOOL CResolveDlg::PreTranslateMessage(MSG* pMsg)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if(OnEnterPressed())
-                return TRUE;
-            break;
-        case VK_F5:
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
+                break;
+            case VK_F5:
             {
                 if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
-                    if(AfxBeginThread(ResolveThreadEntry, this) == NULL)
+                    if (AfxBeginThread(ResolveThreadEntry, this) == nullptr)
                     {
                         InterlockedExchange(&m_bThreadRunning, FALSE);
                         OnCantStartThread();
@@ -190,7 +189,7 @@ LRESULT CResolveDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
     if (InterlockedExchange(&m_bThreadRunning, TRUE))
         return 0;
-    if (AfxBeginThread(ResolveThreadEntry, this) == NULL)
+    if (AfxBeginThread(ResolveThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -213,7 +212,7 @@ LRESULT CResolveDlg::OnFileDropped(WPARAM, LPARAM lParam)
     // but only if it isn't already running - otherwise we
     // restart the timer.
     CTSVNPath path;
-    path.SetFromWin((LPCTSTR)lParam);
+    path.SetFromWin(reinterpret_cast<LPCWSTR>(lParam));
 
     if (!m_resolveListCtrl.HasPath(path))
     {
@@ -229,7 +228,7 @@ LRESULT CResolveDlg::OnFileDropped(WPARAM, LPARAM lParam)
             // a child of a folder already in the list, we must not add it. Otherwise
             // that path could show up twice in the list.
             bool bHasParentInList = false;
-            for (int i=0; i<m_pathList.GetCount(); ++i)
+            for (int i = 0; i < m_pathList.GetCount(); ++i)
             {
                 if (m_pathList[i].IsAncestorOf(path))
                 {
@@ -246,7 +245,7 @@ LRESULT CResolveDlg::OnFileDropped(WPARAM, LPARAM lParam)
     }
 
     // Always start the timer, since the status of an existing item might have changed
-    SetTimer(REFRESHTIMER, 200, NULL);
+    SetTimer(REFRESHTIMER, 200, nullptr);
     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Item %s dropped, timer started\n", path.GetWinPath());
     return 0;
 }
@@ -255,19 +254,19 @@ void CResolveDlg::OnTimer(UINT_PTR nIDEvent)
 {
     switch (nIDEvent)
     {
-    case REFRESHTIMER:
-        if (m_bThreadRunning)
-        {
-            SetTimer(REFRESHTIMER, 200, NULL);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
-        }
-        else
-        {
-            KillTimer(REFRESHTIMER);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
-            OnSVNStatusListCtrlNeedsRefresh(0, 0);
-        }
-        break;
+        case REFRESHTIMER:
+            if (m_bThreadRunning)
+            {
+                SetTimer(REFRESHTIMER, 200, nullptr);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
+            }
+            else
+            {
+                KillTimer(REFRESHTIMER);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
+                OnSVNStatusListCtrlNeedsRefresh(0, 0);
+            }
+            break;
     }
     __super::OnTimer(nIDEvent);
 }
