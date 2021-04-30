@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -25,16 +25,16 @@
 #include "AppUtils.h"
 #include "RevertDlg.h"
 
-#define REFRESHTIMER   100
+#define REFRESHTIMER 100
 
 IMPLEMENT_DYNAMIC(CRevertDlg, CResizableStandAloneDialog)
 CRevertDlg::CRevertDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CRevertDlg::IDD, pParent)
-    , m_bSelectAll(TRUE)
+    , m_bRecursive(false)
     , m_bClearChangeLists(TRUE)
+    , m_bSelectAll(TRUE)
     , m_bThreadRunning(FALSE)
     , m_bCancelled(false)
-    , m_bRecursive(false)
 {
 }
 
@@ -45,12 +45,11 @@ CRevertDlg::~CRevertDlg()
 void CRevertDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_REVERTLIST, m_RevertList);
+    DDX_Control(pDX, IDC_REVERTLIST, m_revertList);
     DDX_Check(pDX, IDC_SELECTALL, m_bSelectAll);
     DDX_Check(pDX, IDC_CLEARCHANGELISTS, m_bClearChangeLists);
-    DDX_Control(pDX, IDC_SELECTALL, m_SelectAll);
+    DDX_Control(pDX, IDC_SELECTALL, m_selectAll);
 }
-
 
 BEGIN_MESSAGE_MAP(CRevertDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, OnBnClickedHelp)
@@ -61,8 +60,6 @@ BEGIN_MESSAGE_MAP(CRevertDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_DELUNVERSIONED, &CRevertDlg::OnBnClickedDelunversioned)
     ON_BN_CLICKED(ID_OK, &CRevertDlg::OnBnClickedOk)
 END_MESSAGE_MAP()
-
-
 
 BOOL CRevertDlg::OnInitDialog()
 {
@@ -77,13 +74,13 @@ BOOL CRevertDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, ID_OK);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_RevertList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS, L"RevertDlg");
-    m_RevertList.SetConfirmButton((CButton*)GetDlgItem(ID_OK));
-    m_RevertList.SetSelectButton(&m_SelectAll);
-    m_RevertList.SetCancelBool(&m_bCancelled);
-    m_RevertList.SetBackgroundImage(IDI_REVERT_BKG);
-    m_RevertList.EnableFileDrop();
-    m_RevertList.SetRevertMode(true);
+    m_revertList.Init(SVNSLC_COLEXT | SVNSLC_COLSTATUS | SVNSLC_COLPROPSTATUS, L"RevertDlg");
+    m_revertList.SetConfirmButton(static_cast<CButton*>(GetDlgItem(ID_OK)));
+    m_revertList.SetSelectButton(&m_selectAll);
+    m_revertList.SetCancelBool(&m_bCancelled);
+    m_revertList.SetBackgroundImage(IDI_REVERT_BKG);
+    m_revertList.EnableFileDrop();
+    m_revertList.SetRevertMode(true);
 
     GetWindowText(m_sWindowTitle);
 
@@ -105,7 +102,7 @@ BOOL CRevertDlg::OnInitDialog()
     // first start a thread to obtain the file list with the status without
     // blocking the dialog
     InterlockedExchange(&m_bThreadRunning, TRUE);
-    if (AfxBeginThread(RevertThreadEntry, this)==0)
+    if (AfxBeginThread(RevertThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -116,8 +113,8 @@ BOOL CRevertDlg::OnInitDialog()
 
 UINT CRevertDlg::RevertThreadEntry(LPVOID pVoid)
 {
-    CCrashReportThread crashthread;
-    return ((CRevertDlg*)pVoid)->RevertThread();
+    CCrashReportThread crashThread;
+    return static_cast<CRevertDlg*>(pVoid)->RevertThread();
 }
 
 UINT CRevertDlg::RevertThread()
@@ -128,21 +125,21 @@ UINT CRevertDlg::RevertThread()
     DialogEnableWindow(ID_OK, false);
     m_bCancelled = false;
 
-    if (!m_RevertList.GetStatus(m_pathList))
+    if (!m_revertList.GetStatus(m_pathList))
     {
-        m_RevertList.SetEmptyString(m_RevertList.GetLastErrorMessage());
+        m_revertList.SetEmptyString(m_revertList.GetLastErrorMessage());
     }
-    m_RevertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWNESTED,
-                        CTSVNPathList(),
-                        // do not select all files, only the ones the user has selected directly
-                        SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWADDED | SVNSLC_SHOWADDEDINADDED, true, true);
+    m_revertList.Show(SVNSLC_SHOWVERSIONEDBUTNORMALANDEXTERNALSFROMDIFFERENTREPOS | SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWEXTERNALFROMDIFFERENTREPO | SVNSLC_SHOWNESTED,
+                      CTSVNPathList(),
+                      // do not select all files, only the ones the user has selected directly
+                      SVNSLC_SHOWDIRECTFILES | SVNSLC_SHOWADDED | SVNSLC_SHOWADDEDINADDED, true, true);
 
-    CTSVNPath commonDir = m_RevertList.GetCommonDirectory(false);
+    CTSVNPath commonDir = m_revertList.GetCommonDirectory(false);
     CAppUtils::SetWindowTitle(m_hWnd, commonDir.GetWinPathString(), m_sWindowTitle);
 
-    if (m_RevertList.HasUnversionedItems())
+    if (m_revertList.HasUnversionedItems())
     {
-        if (DWORD(CRegStdDWORD(L"Software\\TortoiseSVN\\UnversionedAsModified", FALSE)))
+        if (static_cast<DWORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\UnversionedAsModified", FALSE)))
         {
             GetDlgItem(IDC_UNVERSIONEDITEMS)->ShowWindow(SW_SHOW);
         }
@@ -164,15 +161,15 @@ void CRevertDlg::OnBnClickedOk()
         return;
     // save only the files the user has selected into the temporary file
     m_bRecursive = TRUE;
-    for (int i=0; i<m_RevertList.GetItemCount(); ++i)
+    for (int i = 0; i < m_revertList.GetItemCount(); ++i)
     {
-        if (!m_RevertList.GetCheck(i))
+        if (!m_revertList.GetCheck(i))
         {
             m_bRecursive = FALSE;
         }
         else
         {
-            const CSVNStatusListCtrl::FileEntry * entry = m_RevertList.GetConstListEntry(i);
+            const CSVNStatusListCtrl::FileEntry* entry = m_revertList.GetConstListEntry(i);
             // add all selected entries to the list, except the ones with 'added'
             // status: we later *delete* all the entries in the list before
             // the actual revert is done (so the user has the reverted files
@@ -189,7 +186,7 @@ void CRevertDlg::OnBnClickedOk()
     }
     if (!m_bRecursive)
     {
-        m_RevertList.WriteCheckedNamesToPathList(m_pathList);
+        m_revertList.WriteCheckedNamesToPathList(m_pathList);
     }
     m_selectedPathList.SortByPathname();
     CResizableStandAloneDialog::OnOK();
@@ -211,16 +208,16 @@ void CRevertDlg::OnBnClickedHelp()
 
 void CRevertDlg::OnBnClickedSelectall()
 {
-    UINT state = (m_SelectAll.GetState() & 0x0003);
+    UINT state = (m_selectAll.GetState() & 0x0003);
     if (state == BST_INDETERMINATE)
     {
         // It is not at all useful to manually place the checkbox into the indeterminate state...
         // We will force this on to the unchecked state
         state = BST_UNCHECKED;
-        m_SelectAll.SetCheck(state);
+        m_selectAll.SetCheck(state);
     }
     theApp.DoWaitCursor(1);
-    m_RevertList.SelectAll(state == BST_CHECKED);
+    m_revertList.SelectAll(state == BST_CHECKED);
     theApp.DoWaitCursor(-1);
 }
 
@@ -230,15 +227,15 @@ BOOL CRevertDlg::PreTranslateMessage(MSG* pMsg)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if(OnEnterPressed())
-                return TRUE;
-            break;
-        case VK_F5:
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
+                break;
+            case VK_F5:
             {
                 if (!InterlockedExchange(&m_bThreadRunning, TRUE))
                 {
-                    if (AfxBeginThread(RevertThreadEntry, this)==0)
+                    if (AfxBeginThread(RevertThreadEntry, this) == nullptr)
                     {
                         InterlockedExchange(&m_bThreadRunning, FALSE);
                         OnCantStartThread();
@@ -256,7 +253,7 @@ LRESULT CRevertDlg::OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM)
 {
     if (InterlockedExchange(&m_bThreadRunning, TRUE))
         return 0;
-    if (AfxBeginThread(RevertThreadEntry, this)==0)
+    if (AfxBeginThread(RevertThreadEntry, this) == nullptr)
     {
         InterlockedExchange(&m_bThreadRunning, FALSE);
         OnCantStartThread();
@@ -279,9 +276,9 @@ LRESULT CRevertDlg::OnFileDropped(WPARAM, LPARAM lParam)
     // but only if it isn't already running - otherwise we
     // restart the timer.
     CTSVNPath path;
-    path.SetFromWin((LPCTSTR)lParam);
+    path.SetFromWin(reinterpret_cast<LPCWSTR>(lParam));
 
-    if (!m_RevertList.HasPath(path))
+    if (!m_revertList.HasPath(path))
     {
         if (m_pathList.AreAllPathsFiles())
         {
@@ -295,7 +292,7 @@ LRESULT CRevertDlg::OnFileDropped(WPARAM, LPARAM lParam)
             // a child of a folder already in the list, we must not add it. Otherwise
             // that path could show up twice in the list.
             bool bHasParentInList = false;
-            for (int i=0; i<m_pathList.GetCount(); ++i)
+            for (int i = 0; i < m_pathList.GetCount(); ++i)
             {
                 if (m_pathList[i].IsAncestorOf(path))
                 {
@@ -312,7 +309,7 @@ LRESULT CRevertDlg::OnFileDropped(WPARAM, LPARAM lParam)
     }
 
     // Always start the timer, since the status of an existing item might have changed
-    SetTimer(REFRESHTIMER, 200, NULL);
+    SetTimer(REFRESHTIMER, 200, nullptr);
     CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Item %s dropped, timer started\n", path.GetWinPath());
     return 0;
 }
@@ -321,29 +318,29 @@ void CRevertDlg::OnTimer(UINT_PTR nIDEvent)
 {
     switch (nIDEvent)
     {
-    case REFRESHTIMER:
-        if (m_bThreadRunning)
-        {
-            SetTimer(REFRESHTIMER, 200, NULL);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
-        }
-        else
-        {
-            KillTimer(REFRESHTIMER);
-            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
-            OnSVNStatusListCtrlNeedsRefresh(0, 0);
-        }
-        break;
+        case REFRESHTIMER:
+            if (m_bThreadRunning)
+            {
+                SetTimer(REFRESHTIMER, 200, nullptr);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Wait some more before refreshing\n");
+            }
+            else
+            {
+                KillTimer(REFRESHTIMER);
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Refreshing after items dropped\n");
+                OnSVNStatusListCtrlNeedsRefresh(0, 0);
+            }
+            break;
     }
     __super::OnTimer(nIDEvent);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CRevertDlg::OnBnClickedDelunversioned()
 {
     CString sCmd;
 
     sCmd.Format(L"/command:delunversioned /path:\"%s\"",
-        (LPCTSTR)m_pathList.CreateAsteriskSeparatedString());
+                static_cast<LPCWSTR>(m_pathList.CreateAsteriskSeparatedString()));
     CAppUtils::RunTortoiseProc(sCmd);
 }
-

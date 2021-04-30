@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,23 +31,26 @@ class CRevertDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CRevertDlg)
 
 public:
-    CRevertDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CRevertDlg();
+    CRevertDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CRevertDlg() override;
 
-    enum { IDD = IDD_REVERT };
+    enum
+    {
+        IDD = IDD_REVERT
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnCancel();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    afx_msg void OnBnClickedHelp();
-    afx_msg void OnBnClickedSelectall();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    void            OnCancel() override;
+    BOOL            PreTranslateMessage(MSG* pMsg) override;
+    afx_msg void    OnBnClickedHelp();
+    afx_msg void    OnBnClickedSelectall();
     afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
     afx_msg LRESULT OnFileDropped(WPARAM, LPARAM lParam);
-    afx_msg void OnTimer(UINT_PTR nIDEvent);
-    afx_msg void OnBnClickedDelunversioned();
-    afx_msg void OnBnClickedOk();
+    afx_msg void    OnTimer(UINT_PTR nIDEvent);
+    afx_msg void    OnBnClickedDelunversioned();
+    afx_msg void    OnBnClickedOk();
 
     DECLARE_MESSAGE_MAP()
 
@@ -56,17 +59,16 @@ private:
     UINT        RevertThread();
 
 public:
-    CTSVNPathList       m_pathList;
-    CTSVNPathList       m_selectedPathList;
-    BOOL                m_bRecursive;
-    BOOL                m_bClearChangeLists;
+    CTSVNPathList m_pathList;
+    CTSVNPathList m_selectedPathList;
+    BOOL          m_bRecursive;
+    BOOL          m_bClearChangeLists;
 
 private:
-    BOOL                m_bSelectAll;
-    CString             m_sWindowTitle;
-    volatile LONG       m_bThreadRunning;
-    CSVNStatusListCtrl  m_RevertList;
-    CButton             m_SelectAll;
-    bool                m_bCancelled;
+    BOOL               m_bSelectAll;
+    CString            m_sWindowTitle;
+    volatile LONG      m_bThreadRunning;
+    CSVNStatusListCtrl m_revertList;
+    CButton            m_selectAll;
+    bool               m_bCancelled;
 };
-

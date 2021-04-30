@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2007-2009, 2014 - TortoiseSVN
 
@@ -35,7 +35,7 @@ bool RevertCommand::Execute()
         CSVNProgressDlg progDlg;
         theApp.m_pMainWnd = &progDlg;
         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Revert);
-        progDlg.SetAutoClose (parser);
+        progDlg.SetAutoClose(parser);
         progDlg.SetOptions(options);
         progDlg.SetPathList(dlg.m_pathList);
         progDlg.SetItemCount(dlg.m_selectedPathList.GetCount());
