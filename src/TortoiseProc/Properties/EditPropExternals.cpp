@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropExternals.h"
 #include "EditPropExternalsValue.h"
 #include "SVN.h"
@@ -27,31 +26,30 @@
 #include "ProgressDlg.h"
 #include "IconMenu.h"
 
-#define CMD_ADJUST 1
+#define CMD_ADJUST           1
 #define CMD_FETCH_AND_ADJUST 2
 
-int      CEditPropExternals::m_nSortedColumn = -1;
-bool     CEditPropExternals::m_bAscending = false;
+int  CEditPropExternals::m_nSortedColumn = -1;
+bool CEditPropExternals::m_bAscending    = false;
 
 IMPLEMENT_DYNAMIC(CEditPropExternals, CResizableStandAloneDialog)
 
-CEditPropExternals::CEditPropExternals(CWnd* pParent /*=NULL*/)
+CEditPropExternals::CEditPropExternals(CWnd *pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropExternals::IDD, pParent)
     , EditPropBase()
 {
-    m_columnbuf[0] = 0;
+    m_columnBuf[0] = 0;
 }
 
 CEditPropExternals::~CEditPropExternals()
 {
 }
 
-void CEditPropExternals::DoDataExchange(CDataExchange* pDX)
+void CEditPropExternals::DoDataExchange(CDataExchange *pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_EXTERNALSLIST, m_ExtList);
+    DDX_Control(pDX, IDC_EXTERNALSLIST, m_extList);
 }
-
 
 BEGIN_MESSAGE_MAP(CEditPropExternals, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_ADD, &CEditPropExternals::OnBnClickedAdd)
@@ -65,7 +63,6 @@ BEGIN_MESSAGE_MAP(CEditPropExternals, CResizableStandAloneDialog)
     ON_WM_CONTEXTMENU()
     ON_NOTIFY(HDN_ITEMCLICK, 0, &CEditPropExternals::OnHdnItemclickExternalslist)
 END_MESSAGE_MAP()
-
 
 BOOL CEditPropExternals::OnInitDialog()
 {
@@ -82,45 +79,45 @@ BOOL CEditPropExternals::OnInitDialog()
     ATLASSERT(m_pathList.GetCount() == 1);
 
     SVN svn;
-    m_url = CTSVNPath(svn.GetURLFromPath(m_pathList[0]));
+    m_url      = CTSVNPath(svn.GetURLFromPath(m_pathList[0]));
     m_repoRoot = CTSVNPath(svn.GetRepositoryRoot(m_pathList[0]));
 
-    m_externals.Add(m_pathList[0], m_PropValue, false);
+    m_externals.Add(m_pathList[0], m_propValue, false);
 
     DWORD exStyle = LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER;
-    m_ExtList.SetExtendedStyle(exStyle);
+    m_extList.SetExtendedStyle(exStyle);
 
-    SetWindowTheme(m_ExtList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_extList.GetSafeHwnd(), L"Explorer", nullptr);
 
-    m_ExtList.SetRedraw(false);
-    m_ExtList.DeleteAllItems();
+    m_extList.SetRedraw(false);
+    m_extList.DeleteAllItems();
 
-    int c = m_ExtList.GetHeaderCtrl()->GetItemCount()-1;
-    while (c>=0)
-        m_ExtList.DeleteColumn(c--);
+    int c = m_extList.GetHeaderCtrl()->GetItemCount() - 1;
+    while (c >= 0)
+        m_extList.DeleteColumn(c--);
     CString temp;
     temp.LoadString(IDS_STATUSLIST_COLFILE);
-    m_ExtList.InsertColumn(0, temp);
+    m_extList.InsertColumn(0, temp);
     temp.LoadString(IDS_STATUSLIST_COLURL);
-    m_ExtList.InsertColumn(1, temp);
+    m_extList.InsertColumn(1, temp);
     temp.LoadString(IDS_EXTERNALS_PEG);
-    m_ExtList.InsertColumn(2, temp);
+    m_extList.InsertColumn(2, temp);
     temp.LoadString(IDS_EXTERNALS_OPERATIVE);
-    m_ExtList.InsertColumn(3, temp);
+    m_extList.InsertColumn(3, temp);
     temp.LoadString(IDS_EXTERNALS_HEADREV);
-    m_ExtList.InsertColumn(4, temp);
-    m_ExtList.SetItemCountEx((int)m_externals.size());
+    m_extList.InsertColumn(4, temp);
+    m_extList.SetItemCountEx(static_cast<int>(m_externals.size()));
 
     CRect rect;
-    m_ExtList.GetClientRect(&rect);
-    m_ExtList.SetColumnWidth(0, LVSCW_AUTOSIZE_USEHEADER);
-    int cx = (rect.Width()-240-m_ExtList.GetColumnWidth(0));
-    m_ExtList.SetColumnWidth(1, cx);
-    m_ExtList.SetColumnWidth(2, 80);
-    m_ExtList.SetColumnWidth(3, 80);
-    m_ExtList.SetColumnWidth(4, 80);
+    m_extList.GetClientRect(&rect);
+    m_extList.SetColumnWidth(0, LVSCW_AUTOSIZE_USEHEADER);
+    int cx = (rect.Width() - 240 - m_extList.GetColumnWidth(0));
+    m_extList.SetColumnWidth(1, cx);
+    m_extList.SetColumnWidth(2, 80);
+    m_extList.SetColumnWidth(3, 80);
+    m_extList.SetColumnWidth(4, 80);
 
-    m_ExtList.SetRedraw(true);
+    m_extList.SetRedraw(true);
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
@@ -142,8 +139,8 @@ BOOL CEditPropExternals::OnInitDialog()
 void CEditPropExternals::OnOK()
 {
     UpdateData();
-    m_bChanged = true;
-    m_PropValue = m_externals.GetValue(m_pathList[0]);
+    m_bChanged  = true;
+    m_propValue = m_externals.GetValue(m_pathList[0]);
 
     CResizableStandAloneDialog::OnOK();
 }
@@ -157,20 +154,20 @@ void CEditPropExternals::OnBnClickedAdd()
     if (dlg.DoModal() == IDOK)
     {
         SVNExternal ext = dlg.GetExternal();
-        ext.path = m_pathList[0];
+        ext.path        = m_pathList[0];
         m_externals.push_back(ext);
-        m_ExtList.SetItemCountEx((int)m_externals.size());
-        m_ExtList.Invalidate();
+        m_extList.SetItemCountEx(static_cast<int>(m_externals.size()));
+        m_extList.Invalidate();
     }
 }
 
 void CEditPropExternals::OnBnClickedEdit()
 {
-    if (m_ExtList.GetSelectedCount() == 1)
+    if (m_extList.GetSelectedCount() == 1)
     {
-        POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
-        size_t selIndex = m_ExtList.GetNextSelectedItem(pos);
-        SVNExternal ext = m_externals[selIndex];
+        POSITION    pos      = m_extList.GetFirstSelectedItemPosition();
+        size_t      selIndex = m_extList.GetNextSelectedItem(pos);
+        SVNExternal ext      = m_externals[selIndex];
         if (ext.revision.kind == svn_opt_revision_unspecified)
             ext.revision = ext.origRevision;
 
@@ -181,9 +178,9 @@ void CEditPropExternals::OnBnClickedEdit()
         dlg.SetPathList(m_pathList);
         if (dlg.DoModal() == IDOK)
         {
-            ext = dlg.GetExternal();
+            ext                   = dlg.GetExternal();
             m_externals[selIndex] = ext;
-            m_ExtList.Invalidate();
+            m_extList.Invalidate();
         }
     }
 }
@@ -191,11 +188,11 @@ void CEditPropExternals::OnBnClickedEdit()
 void CEditPropExternals::OnBnClickedRemove()
 {
     std::vector<size_t> indexestoremove;
-    size_t selIndex = 0;
-    POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
+    size_t              selIndex = 0;
+    POSITION            pos      = m_extList.GetFirstSelectedItemPosition();
     while (pos)
     {
-        selIndex = m_ExtList.GetNextSelectedItem(pos);
+        selIndex = m_extList.GetNextSelectedItem(pos);
         if (m_externals.size() > selIndex)
             indexestoremove.push_back(selIndex);
     }
@@ -203,17 +200,17 @@ void CEditPropExternals::OnBnClickedRemove()
     {
         m_externals.erase(m_externals.begin() + *it);
     }
-    m_ExtList.SetItemCountEx((int)m_externals.size());
-    m_ExtList.Invalidate();
+    m_extList.SetItemCountEx(static_cast<int>(m_externals.size()));
+    m_extList.Invalidate();
 }
 
-void CEditPropExternals::OnNMDblclkExternalslist(NMHDR * pNMHDR, LRESULT *pResult)
+void CEditPropExternals::OnNMDblclkExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 {
     // a double click on an entry in the revision list has happened
-    LPNMITEMACTIVATE lpnmitem = (LPNMITEMACTIVATE) pNMHDR;
-    *pResult = 0;
+    LPNMITEMACTIVATE lpnmitem = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
+    *pResult                  = 0;
 
-    if ((lpnmitem->iItem >= 0)&&(lpnmitem->iItem < (int)m_externals.size()))
+    if ((lpnmitem->iItem >= 0) && (lpnmitem->iItem < static_cast<int>(m_externals.size())))
     {
         SVNExternal ext = m_externals[lpnmitem->iItem];
         if (ext.revision.kind == svn_opt_revision_unspecified)
@@ -226,69 +223,69 @@ void CEditPropExternals::OnNMDblclkExternalslist(NMHDR * pNMHDR, LRESULT *pResul
         dlg.SetPathList(m_pathList);
         if (dlg.DoModal() == IDOK)
         {
-            ext = dlg.GetExternal();
+            ext                          = dlg.GetExternal();
             m_externals[lpnmitem->iItem] = ext;
-            m_ExtList.Invalidate();
+            m_extList.Invalidate();
         }
     }
 }
 
 void CEditPropExternals::OnLvnGetdispinfoExternalslist(NMHDR *pNMHDR, LRESULT *pResult)
 {
-    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO*>(pNMHDR);
-    *pResult = 0;
+    NMLVDISPINFO *pDispInfo = reinterpret_cast<NMLVDISPINFO *>(pNMHDR);
+    *pResult                = 0;
 
     if (pDispInfo)
     {
-        if ((pDispInfo->item.iItem >= 0)&&(pDispInfo->item.iItem < (int)m_externals.size()))
+        if ((pDispInfo->item.iItem >= 0) && (pDispInfo->item.iItem < static_cast<int>(m_externals.size())))
         {
             SVNExternal ext = m_externals[pDispInfo->item.iItem];
             if (pDispInfo->item.mask & LVIF_TEXT)
             {
                 switch (pDispInfo->item.iSubItem)
                 {
-                case 0: // folder or file
+                    case 0: // folder or file
                     {
-                        lstrcpyn(m_columnbuf, ext.targetDir, pDispInfo->item.cchTextMax - 1);
+                        lstrcpyn(m_columnBuf, ext.targetDir, pDispInfo->item.cchTextMax - 1LL);
                     }
                     break;
-                case 1: // url
+                    case 1: // url
                     {
-                        lstrcpyn(m_columnbuf, ext.url, pDispInfo->item.cchTextMax - 1);
-                        int cWidth = m_ExtList.GetColumnWidth(1);
-                        cWidth = max(14, cWidth-14);
-                        CDC * pDC = m_ExtList.GetDC();
-                        if (pDC != NULL)
+                        lstrcpyn(m_columnBuf, ext.url, pDispInfo->item.cchTextMax - 1LL);
+                        int cWidth = m_extList.GetColumnWidth(1);
+                        cWidth     = max(14, cWidth - 14);
+                        CDC *pDC   = m_extList.GetDC();
+                        if (pDC != nullptr)
                         {
-                            CFont * pFont = pDC->SelectObject(m_ExtList.GetFont());
-                            PathCompactPath(pDC->GetSafeHdc(), m_columnbuf, cWidth);
+                            CFont *pFont = pDC->SelectObject(m_extList.GetFont());
+                            PathCompactPath(pDC->GetSafeHdc(), m_columnBuf, cWidth);
                             pDC->SelectObject(pFont);
                             ReleaseDC(pDC);
                         }
                     }
                     break;
-                case 2: // peg
-                    if ((ext.pegRevision.kind == svn_opt_revision_number) && (ext.pegRevision.value.number >= 0))
-                        swprintf_s(m_columnbuf, L"%ld", ext.pegRevision.value.number);
-                    else
-                        m_columnbuf[0] = 0;
-                    break;
-                case 3: // operative
-                    if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0) && (ext.revision.value.number != ext.pegRevision.value.number))
-                        swprintf_s(m_columnbuf, L"%ld", ext.revision.value.number);
-                    else
-                        m_columnbuf[0] = 0;
-                    break;
-                case 4: // head revision
-                    if (ext.headRev != SVN_INVALID_REVNUM)
-                        swprintf_s(m_columnbuf, L"%ld", ext.headRev);
-                    else
-                        m_columnbuf[0] = 0;
-                    break;
-                default:
-                    m_columnbuf[0] = 0;
+                    case 2: // peg
+                        if ((ext.pegRevision.kind == svn_opt_revision_number) && (ext.pegRevision.value.number >= 0))
+                            swprintf_s(m_columnBuf, L"%ld", ext.pegRevision.value.number);
+                        else
+                            m_columnBuf[0] = 0;
+                        break;
+                    case 3: // operative
+                        if ((ext.revision.kind == svn_opt_revision_number) && (ext.revision.value.number >= 0) && (ext.revision.value.number != ext.pegRevision.value.number))
+                            swprintf_s(m_columnBuf, L"%ld", ext.revision.value.number);
+                        else
+                            m_columnBuf[0] = 0;
+                        break;
+                    case 4: // head revision
+                        if (ext.headRev != SVN_INVALID_REVNUM)
+                            swprintf_s(m_columnBuf, L"%ld", ext.headRev);
+                        else
+                            m_columnBuf[0] = 0;
+                        break;
+                    default:
+                        m_columnBuf[0] = 0;
                 }
-                pDispInfo->item.pszText = m_columnbuf;
+                pDispInfo->item.pszText = m_columnBuf;
             }
         }
     }
@@ -299,15 +296,13 @@ void CEditPropExternals::OnBnClickedHelp()
     OnHelp();
 }
 
-
 void CEditPropExternals::OnLvnItemchangedExternalslist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
     //LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
-    DialogEnableWindow(IDC_REMOVE, m_ExtList.GetSelectedCount());
-    DialogEnableWindow(IDC_EDIT, m_ExtList.GetSelectedCount() == 1);
+    DialogEnableWindow(IDC_REMOVE, m_extList.GetSelectedCount());
+    DialogEnableWindow(IDC_EDIT, m_extList.GetSelectedCount() == 1);
     *pResult = 0;
 }
-
 
 void CEditPropExternals::OnBnClickedFindhead()
 {
@@ -316,8 +311,8 @@ void CEditPropExternals::OnBnClickedFindhead()
     progDlg.SetTitle(IDS_EDITPROPS_PROG_FINDHEADTITLE);
     progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_PROG_FINDHEADROOTS)));
     DWORD count = 0;
-    DWORD total = (DWORD)m_externals.size()*4;
-    SVN svn;
+    DWORD total = static_cast<DWORD>(m_externals.size()) * 4;
+    SVN   svn;
     svn.SetPromptParentWindow(m_hWnd);
     SVNInfo svnInfo;
     svnInfo.SetPromptParentWindow(m_hWnd);
@@ -353,16 +348,15 @@ void CEditPropExternals::OnBnClickedFindhead()
         }
     }
     progDlg.Stop();
-    m_ExtList.Invalidate();
+    m_extList.Invalidate();
 }
 
-
-void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
+void CEditPropExternals::OnContextMenu(CWnd * /*pWnd*/, CPoint point)
 {
-    int selIndex = m_ExtList.GetSelectionMark();
+    int selIndex = m_extList.GetSelectionMark();
     if (selIndex < 0)
         return; // nothing selected, nothing to do with a context menu
-    int selCount = m_ExtList.GetSelectedCount();
+    int selCount = m_extList.GetSelectedCount();
     if (selCount <= 0)
         return; // nothing selected, nothing to do with a context menu
 
@@ -371,18 +365,18 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
     if ((point.x == -1) && (point.y == -1))
     {
         CRect rect;
-        m_ExtList.GetItemRect(selIndex, &rect, LVIR_LABEL);
-        m_ExtList.ClientToScreen(&rect);
+        m_extList.GetItemRect(selIndex, &rect, LVIR_LABEL);
+        m_extList.ClientToScreen(&rect);
         point = rect.CenterPoint();
     }
 
     bool haveHead = true;
 
-    POSITION pos = m_ExtList.GetFirstSelectedItemPosition();
+    POSITION pos = m_extList.GetFirstSelectedItemPosition();
     while (pos)
     {
-        int index = m_ExtList.GetNextSelectedItem(pos);
-        if ((index >= 0)&&(index < (int)m_externals.size()))
+        int index = m_extList.GetNextSelectedItem(pos);
+        if ((index >= 0) && (index < static_cast<int>(m_externals.size())))
         {
             if (m_externals[index].headRev == SVN_INVALID_REVNUM)
             {
@@ -400,11 +394,11 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
         else
             popup.AppendMenuIcon(CMD_FETCH_AND_ADJUST, IDS_EDITPROPS_FETCH_AND_ADJUST_TO_HEAD);
 
-        int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, 0);
+        int cmd = popup.TrackPopupMenu(TPM_RETURNCMD | TPM_LEFTALIGN | TPM_NONOTIFY | TPM_RIGHTBUTTON, point.x, point.y, this, nullptr);
 
         switch (cmd)
         {
-        case CMD_FETCH_AND_ADJUST:
+            case CMD_FETCH_AND_ADJUST:
             {
                 SVN svn;
                 svn.SetPromptParentWindow(m_hWnd);
@@ -415,23 +409,23 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 progDlg.ShowModal(m_hWnd, TRUE);
                 progDlg.SetTitle(IDS_EDITPROPS_PROG_FINDHEADTITLE);
                 progDlg.SetLine(1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_PROG_FINDHEADREVS)));
-                DWORD count = 0;
-                DWORD total = m_ExtList.GetSelectedCount();
-                POSITION p = m_ExtList.GetFirstSelectedItemPosition();
+                DWORD    count = 0;
+                DWORD    total = m_extList.GetSelectedCount();
+                POSITION p     = m_extList.GetFirstSelectedItemPosition();
                 while (p)
                 {
-                    int index = m_ExtList.GetNextSelectedItem(p);
+                    int index = m_extList.GetNextSelectedItem(p);
                     progDlg.SetProgress(count++, total);
-                    if ((index >= 0)&&(index < (int)m_externals.size()))
+                    if ((index >= 0) && (index < static_cast<int>(m_externals.size())))
                     {
                         progDlg.SetLine(2, m_externals[index].url, true);
                         if (m_externals[index].headRev == SVN_INVALID_REVNUM)
                         {
                             if (m_externals[index].root.IsEmpty())
                             {
-                                CTSVNPath path_ = m_externals[index].path;
-                                path_.AppendPathString(m_externals[index].targetDir);
-                                m_externals[index].root = svn.GetRepositoryRoot(path_);
+                                CTSVNPath exPath = m_externals[index].path;
+                                exPath.AppendPathString(m_externals[index].targetDir);
+                                m_externals[index].root = svn.GetRepositoryRoot(exPath);
                             }
                             auto fullurl = CTSVNPath(m_externals[index].fullUrl);
                             if (!fullurl.IsEmpty())
@@ -447,28 +441,28 @@ void CEditPropExternals::OnContextMenu(CWnd* /*pWnd*/, CPoint point)
                 }
                 progDlg.Stop();
             }
-            // intentional fall through
-        case CMD_ADJUST:
+                [[fallthrough]];
+            case CMD_ADJUST:
             {
-                POSITION p = m_ExtList.GetFirstSelectedItemPosition();
+                POSITION p = m_extList.GetFirstSelectedItemPosition();
                 while (p)
                 {
-                    int index = m_ExtList.GetNextSelectedItem(p);
-                    if ((index >= 0)&&(index < (int)m_externals.size()))
+                    int index = m_extList.GetNextSelectedItem(p);
+                    if ((index >= 0) && (index < static_cast<int>(m_externals.size())))
                     {
                         if (m_externals[index].headRev != SVN_INVALID_REVNUM)
                         {
                             if (m_externals[index].revision.kind == svn_opt_revision_number)
                             {
                                 m_externals[index].revision.value.number = -1;
-                                m_externals[index].revision.kind = svn_opt_revision_unspecified;
+                                m_externals[index].revision.kind         = svn_opt_revision_unspecified;
                             }
                             m_externals[index].pegRevision.value.number = m_externals[index].headRev;
-                            m_externals[index].pegRevision.kind = svn_opt_revision_number;
+                            m_externals[index].pegRevision.kind         = svn_opt_revision_number;
                         }
                     }
                 }
-                m_ExtList.Invalidate();
+                m_extList.Invalidate();
             }
             break;
         }
@@ -487,61 +481,60 @@ void CEditPropExternals::OnHdnItemclickExternalslist(NMHDR *pNMHDR, LRESULT *pRe
 
     std::sort(m_externals.begin(), m_externals.end(), &CEditPropExternals::SortCompare);
 
-    m_ExtList.SetRedraw(FALSE);
-    m_ExtList.DeleteAllItems();
-    m_ExtList.SetItemCountEx((int)m_externals.size());
+    m_extList.SetRedraw(FALSE);
+    m_extList.DeleteAllItems();
+    m_extList.SetItemCountEx(static_cast<int>(m_externals.size()));
 
-    CHeaderCtrl * pHeader = m_ExtList.GetHeaderCtrl();
-    HDITEM HeaderItem = { 0 };
-    HeaderItem.mask = HDI_FORMAT;
-    const int itemCount = pHeader->GetItemCount();
-    for (int i = 0; i<itemCount; ++i)
+    CHeaderCtrl *pHeader    = m_extList.GetHeaderCtrl();
+    HDITEM       headerItem = {0};
+    headerItem.mask         = HDI_FORMAT;
+    const int itemCount     = pHeader->GetItemCount();
+    for (int i = 0; i < itemCount; ++i)
     {
-        pHeader->GetItem(i, &HeaderItem);
-        HeaderItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
-        pHeader->SetItem(i, &HeaderItem);
+        pHeader->GetItem(i, &headerItem);
+        headerItem.fmt &= ~(HDF_SORTDOWN | HDF_SORTUP);
+        pHeader->SetItem(i, &headerItem);
     }
-    pHeader->GetItem(m_nSortedColumn, &HeaderItem);
-    HeaderItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
-    pHeader->SetItem(m_nSortedColumn, &HeaderItem);
+    pHeader->GetItem(m_nSortedColumn, &headerItem);
+    headerItem.fmt |= (m_bAscending ? HDF_SORTUP : HDF_SORTDOWN);
+    pHeader->SetItem(m_nSortedColumn, &headerItem);
 
-    m_ExtList.SetRedraw(TRUE);
+    m_extList.SetRedraw(TRUE);
 
     *pResult = 0;
 }
 
-bool CEditPropExternals::SortCompare(const SVNExternal& Data1, const SVNExternal& Data2)
+bool CEditPropExternals::SortCompare(const SVNExternal &data1, const SVNExternal &data2)
 {
     int result = 0;
     switch (m_nSortedColumn)
     {
-        case 0:     // file column
-        result = Data1.targetDir.CompareNoCase(Data2.targetDir);
-        break;
-        case 1:     // url column
-        result = Data1.url.CompareNoCase(Data2.url);
-        break;
-        case 2:     //peg revision column
-        result = Data1.pegRevision.value.number < Data2.pegRevision.value.number;
-        break;
-        case 3:     // operative revision column
-        result = Data1.revision.value.number < Data2.revision.value.number;
-        break;
-        case 4:     // head revision column
-        result = Data1.headRev < Data2.headRev;
-        break;
+        case 0: // file column
+            result = data1.targetDir.CompareNoCase(data2.targetDir);
+            break;
+        case 1: // url column
+            result = data1.url.CompareNoCase(data2.url);
+            break;
+        case 2: //peg revision column
+            result = data1.pegRevision.value.number < data2.pegRevision.value.number;
+            break;
+        case 3: // operative revision column
+            result = data1.revision.value.number < data2.revision.value.number;
+            break;
+        case 4: // head revision column
+            result = data1.headRev < data2.headRev;
+            break;
         default:
-        break;
+            break;
     }
 
     // Sort by path if everything else is equal
     if (result == 0)
     {
-        result = Data1.path < Data2.path;
+        result = data1.path < data2.path;
     }
 
     if (!m_bAscending)
         result = -result;
     return result < 0;
 }
-

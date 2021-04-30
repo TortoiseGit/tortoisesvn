@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2016 - TortoiseSVN
+// Copyright (C) 2011-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,11 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropsLocalHooks.h"
 #include "UnicodeUtils.h"
-#include <afxdialogex.h>
-
+#include "Hooks.h"
 
 // CEditPropsLocalHooks dialog
 
@@ -33,7 +31,6 @@ CEditPropsLocalHooks::CEditPropsLocalHooks(CWnd* pParent /*=NULL*/)
     , m_bHide(false)
     , m_bEnforce(false)
 {
-
 }
 
 CEditPropsLocalHooks::~CEditPropsLocalHooks()
@@ -51,14 +48,11 @@ void CEditPropsLocalHooks::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 
-
 BEGIN_MESSAGE_MAP(CEditPropsLocalHooks, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CEditPropsLocalHooks::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
-
 // CEditPropsLocalHooks message handlers
-
 
 BOOL CEditPropsLocalHooks::OnInitDialog()
 {
@@ -93,67 +87,66 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     // line 2: 'true' or 'false' for waiting for the script to finish
     // line 3: 'show' or 'hide' on how to start the hook script
     hookcmd cmd;
-    cmd.bShow = false;
-    cmd.bWait = false;
-    cmd.bEnforce = false;
-    cmd.bApproved = false;
-    hooktype htype = unknown_hook;
-    CString temp;
-    CString strhook = CUnicodeUtils::GetUnicode(m_PropValue.c_str());
-    if (!strhook.IsEmpty())
+    cmd.bShow        = false;
+    cmd.bWait        = false;
+    cmd.bEnforce     = false;
+    cmd.bApproved    = false;
+    hooktype hType   = unknown_hook;
+    CString  strHook = CUnicodeUtils::GetUnicode(m_propValue.c_str());
+    if (!strHook.IsEmpty())
     {
-        int pos = 0;
-        temp = strhook.Tokenize(L"\n", pos);
-        htype = CHooks::GetHookType(temp);
+        int     pos  = 0;
+        CString temp = strHook.Tokenize(L"\n", pos);
+        hType        = CHooks::GetHookType(temp);
         if (!temp.IsEmpty())
         {
-            temp = strhook.Tokenize(L"\n", pos);
+            temp            = strHook.Tokenize(L"\n", pos);
             cmd.commandline = temp;
-            temp = strhook.Tokenize(L"\n", pos);
+            temp            = strHook.Tokenize(L"\n", pos);
             if (!temp.IsEmpty())
             {
-                cmd.bWait = (temp.CompareNoCase(L"true")==0);
-                temp = strhook.Tokenize(L"\n", pos);
+                cmd.bWait = (temp.CompareNoCase(L"true") == 0);
+                temp      = strHook.Tokenize(L"\n", pos);
                 if (!temp.IsEmpty())
                 {
-                    cmd.bShow = (temp.CompareNoCase(L"show")==0);
+                    cmd.bShow = (temp.CompareNoCase(L"show") == 0);
 
-                    temp = strhook.Tokenize(L"\n", pos);
-                    cmd.bEnforce = (temp.CompareNoCase(L"enforce")==0);
+                    temp         = strHook.Tokenize(L"\n", pos);
+                    cmd.bEnforce = (temp.CompareNoCase(L"enforce") == 0);
                 }
             }
         }
     }
 
-    if (htype == unknown_hook)
+    if (hType == unknown_hook)
     {
-        if (m_PropName.compare(PROJECTPROPNAME_STARTCOMMITHOOK)==0)
-            htype = start_commit_hook;
-        if (m_PropName.compare(PROJECTPROPNAME_CHECKCOMMITHOOK)==0)
-            htype = pre_commit_hook;
-        if (m_PropName.compare(PROJECTPROPNAME_PRECOMMITHOOK)==0)
-            htype = pre_commit_hook;
-        if (m_PropName.compare(PROJECTPROPNAME_MANUALPRECOMMITHOOK)==0)
-            htype = manual_precommit;
-        if (m_PropName.compare(PROJECTPROPNAME_POSTCOMMITHOOK)==0)
-            htype = post_commit_hook;
-        if (m_PropName.compare(PROJECTPROPNAME_STARTUPDATEHOOK)==0)
-            htype = start_update_hook;
-        if (m_PropName.compare(PROJECTPROPNAME_PREUPDATEHOOK)==0)
-            htype = pre_update_hook;
-        if (m_PropName.compare(PROJECTPROPNAME_POSTUPDATEHOOK)==0)
-            htype = post_update_hook;
-        if (m_PropName.compare(PROJECTPROPNAME_PRELOCKHOOK) == 0)
-            htype = pre_lock_hook;
-        if (m_PropName.compare(PROJECTPROPNAME_POSTLOCKHOOK) == 0)
-            htype = post_lock_hook;
+        if (m_propName.compare(PROJECTPROPNAME_STARTCOMMITHOOK) == 0)
+            hType = start_commit_hook;
+        if (m_propName.compare(PROJECTPROPNAME_CHECKCOMMITHOOK) == 0)
+            hType = pre_commit_hook;
+        if (m_propName.compare(PROJECTPROPNAME_PRECOMMITHOOK) == 0)
+            hType = pre_commit_hook;
+        if (m_propName.compare(PROJECTPROPNAME_MANUALPRECOMMITHOOK) == 0)
+            hType = manual_precommit;
+        if (m_propName.compare(PROJECTPROPNAME_POSTCOMMITHOOK) == 0)
+            hType = post_commit_hook;
+        if (m_propName.compare(PROJECTPROPNAME_STARTUPDATEHOOK) == 0)
+            hType = start_update_hook;
+        if (m_propName.compare(PROJECTPROPNAME_PREUPDATEHOOK) == 0)
+            hType = pre_update_hook;
+        if (m_propName.compare(PROJECTPROPNAME_POSTUPDATEHOOK) == 0)
+            hType = post_update_hook;
+        if (m_propName.compare(PROJECTPROPNAME_PRELOCKHOOK) == 0)
+            hType = pre_lock_hook;
+        if (m_propName.compare(PROJECTPROPNAME_POSTLOCKHOOK) == 0)
+            hType = post_lock_hook;
     }
 
     // preselect the right hook type in the combobox
-    for (int i=0; i<m_cHookTypeCombo.GetCount(); ++i)
+    for (int i = 0; i < m_cHookTypeCombo.GetCount(); ++i)
     {
-        hooktype ht = (hooktype)m_cHookTypeCombo.GetItemData(i);
-        if (ht == htype)
+        hooktype ht = static_cast<hooktype>(m_cHookTypeCombo.GetItemData(i));
+        if (ht == hType)
         {
             CString str;
             m_cHookTypeCombo.GetLBText(i, str);
@@ -166,9 +159,9 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps || (!m_bFolder && !m_bMultiple) || m_bRemote ? SW_HIDE : SW_SHOW);
 
     m_sCommandLine = cmd.commandline;
-    m_bWait = cmd.bWait;
-    m_bHide = !cmd.bShow;
-    m_bEnforce = cmd.bEnforce;
+    m_bWait        = cmd.bWait;
+    m_bHide        = !cmd.bShow;
+    m_bEnforce     = cmd.bEnforce;
     UpdateData(FALSE);
 
     AddAnchor(IDC_HOOKTYPELABEL, TOP_LEFT, TOP_RIGHT);
@@ -200,13 +193,13 @@ void CEditPropsLocalHooks::OnCancel()
 void CEditPropsLocalHooks::OnOK()
 {
     UpdateData();
-    int cursel = m_cHookTypeCombo.GetCurSel();
-    hooktype htype = unknown_hook;
-    if (cursel != CB_ERR)
+    int      curSel = m_cHookTypeCombo.GetCurSel();
+    hooktype hType  = unknown_hook;
+    if (curSel != CB_ERR)
     {
-        htype = (hooktype)m_cHookTypeCombo.GetItemData(cursel);
+        hType = static_cast<hooktype>(m_cHookTypeCombo.GetItemData(curSel));
     }
-    if (htype == unknown_hook)
+    if (hType == unknown_hook)
     {
         m_tooltips.ShowBalloon(IDC_HOOKTYPECOMBO, IDS_ERR_NOHOOKTYPESPECIFIED, IDS_ERR_ERROR, TTI_ERROR);
         return;
@@ -217,45 +210,51 @@ void CEditPropsLocalHooks::OnOK()
         return;
     }
 
-    CString sHookType = CHooks::GetHookTypeString(htype);
-    m_PropValue = CUnicodeUtils::StdGetUTF8((LPCWSTR)sHookType) + "\n";
-    m_PropValue += CUnicodeUtils::StdGetUTF8((LPCWSTR)m_sCommandLine) + "\n";
-    m_PropValue += m_bWait ? "true\n" : "false\n";
-    m_PropValue += m_bHide ? "hide" : "show";
-    m_PropValue += m_bEnforce ? "\nenforce" : "";
+    CString sHookType = CHooks::GetHookTypeString(hType);
+    m_propValue       = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(sHookType)) + "\n";
+    m_propValue += CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_sCommandLine)) + "\n";
+    m_propValue += m_bWait ? "true\n" : "false\n";
+    m_propValue += m_bHide ? "hide" : "show";
+    m_propValue += m_bEnforce ? "\nenforce" : "";
 
-    switch (htype)
+    switch (hType)
     {
-    case start_commit_hook:
-        m_PropName = PROJECTPROPNAME_STARTCOMMITHOOK;
-        break;
-    case check_commit_hook:
-        m_PropName = PROJECTPROPNAME_CHECKCOMMITHOOK;
-        break;
-    case pre_commit_hook:
-        m_PropName = PROJECTPROPNAME_PRECOMMITHOOK;
-        break;
-    case manual_precommit:
-        m_PropName = PROJECTPROPNAME_MANUALPRECOMMITHOOK;
-        break;
-    case post_commit_hook:
-        m_PropName = PROJECTPROPNAME_POSTCOMMITHOOK;
-        break;
-    case start_update_hook:
-        m_PropName = PROJECTPROPNAME_STARTUPDATEHOOK;
-        break;
-    case pre_update_hook:
-        m_PropName = PROJECTPROPNAME_PREUPDATEHOOK;
-        break;
-    case post_update_hook:
-        m_PropName = PROJECTPROPNAME_POSTUPDATEHOOK;
-        break;
-    case pre_lock_hook:
-        m_PropName = PROJECTPROPNAME_PRELOCKHOOK;
-        break;
-    case post_lock_hook:
-        m_PropName = PROJECTPROPNAME_POSTLOCKHOOK;
-        break;
+        case start_commit_hook:
+            m_propName = PROJECTPROPNAME_STARTCOMMITHOOK;
+            break;
+        case check_commit_hook:
+            m_propName = PROJECTPROPNAME_CHECKCOMMITHOOK;
+            break;
+        case pre_commit_hook:
+            m_propName = PROJECTPROPNAME_PRECOMMITHOOK;
+            break;
+        case manual_precommit:
+            m_propName = PROJECTPROPNAME_MANUALPRECOMMITHOOK;
+            break;
+        case post_commit_hook:
+            m_propName = PROJECTPROPNAME_POSTCOMMITHOOK;
+            break;
+        case start_update_hook:
+            m_propName = PROJECTPROPNAME_STARTUPDATEHOOK;
+            break;
+        case pre_update_hook:
+            m_propName = PROJECTPROPNAME_PREUPDATEHOOK;
+            break;
+        case post_update_hook:
+            m_propName = PROJECTPROPNAME_POSTUPDATEHOOK;
+            break;
+        case pre_lock_hook:
+            m_propName = PROJECTPROPNAME_PRELOCKHOOK;
+            break;
+        case post_lock_hook:
+            m_propName = PROJECTPROPNAME_POSTLOCKHOOK;
+            break;
+        case unknown_hook:
+            break;
+        case pre_connect_hook:
+            break;
+        default:
+            break;
     }
     m_bChanged = true;
     CResizableStandAloneDialog::OnOK();

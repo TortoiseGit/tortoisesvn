@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013, 2016-2017 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013, 2016-2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,11 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropKeywords.h"
 #include "AppUtils.h"
 #include <cctype>
-
 
 IMPLEMENT_DYNAMIC(CEditPropKeywords, CStandAloneDialog)
 
@@ -35,7 +33,6 @@ CEditPropKeywords::CEditPropKeywords(CWnd* pParent /*=NULL*/)
     , m_bURL(FALSE)
     , m_bHeader(FALSE)
 {
-
 }
 
 CEditPropKeywords::~CEditPropKeywords()
@@ -54,12 +51,10 @@ void CEditPropKeywords::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 
-
 BEGIN_MESSAGE_MAP(CEditPropKeywords, CStandAloneDialog)
     ON_BN_CLICKED(IDC_PROPRECURSIVE, &CEditPropKeywords::OnBnClickedProprecursive)
     ON_BN_CLICKED(IDHELP, &CEditPropKeywords::OnBnClickedHelp)
 END_MESSAGE_MAP()
-
 
 // CEditPropKeywords message handlers
 
@@ -72,25 +67,25 @@ BOOL CEditPropKeywords::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    std::transform(m_PropValue.begin(), m_PropValue.end(), m_PropValue.begin(),
-                   [](wint_t i) { return (char)towlower(i); });
+    std::transform(m_propValue.begin(), m_propValue.end(), m_propValue.begin(),
+                   [](wint_t i) { return static_cast<char>(towlower(i)); });
 
-    if ((m_PropValue.find("author") != std::string::npos) ||
-        (m_PropValue.find("lastchangedby") != std::string::npos))
+    if ((m_propValue.find("author") != std::string::npos) ||
+        (m_propValue.find("lastchangedby") != std::string::npos))
         m_bAuthor = true;
-    if ((m_PropValue.find("date") != std::string::npos) ||
-        (m_PropValue.find("lastchangeddate") != std::string::npos))
+    if ((m_propValue.find("date") != std::string::npos) ||
+        (m_propValue.find("lastchangeddate") != std::string::npos))
         m_bDate = true;
-    if (m_PropValue.find("id") != std::string::npos)
+    if (m_propValue.find("id") != std::string::npos)
         m_bID = true;
-    if ((m_PropValue.find("revision") != std::string::npos) ||
-        (m_PropValue.find("rev") != std::string::npos) ||
-        (m_PropValue.find("lastchangedrevision") != std::string::npos))
+    if ((m_propValue.find("revision") != std::string::npos) ||
+        (m_propValue.find("rev") != std::string::npos) ||
+        (m_propValue.find("lastchangedrevision") != std::string::npos))
         m_bRevision = true;
-    if ((m_PropValue.find("url") != std::string::npos) ||
-        (m_PropValue.find("headurl") != std::string::npos))
+    if ((m_propValue.find("url") != std::string::npos) ||
+        (m_propValue.find("headurl") != std::string::npos))
         m_bURL = true;
-    if (m_PropValue.find("header") != std::string::npos)
+    if (m_propValue.find("header") != std::string::npos)
         m_bHeader = true;
 
     GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(!m_bFolder || m_bMultiple);
@@ -136,8 +131,8 @@ void CEditPropKeywords::OnOK()
     if (m_bHeader)
         AddSpacedWord(keywords, "Header");
 
-    m_PropValue = keywords;
-    m_bChanged = true;
+    m_propValue = keywords;
+    m_bChanged  = true;
 
     CStandAloneDialog::OnOK();
 }

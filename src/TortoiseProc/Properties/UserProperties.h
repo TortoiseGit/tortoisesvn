@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012 - TortoiseSVN
+// Copyright (C) 2011-2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,14 +17,13 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include <map>
 #include <tuple>
 
 enum UserPropType
 {
     UserPropTypeUnknown,
-    UserPropTypeBool,           // checkbox
-    UserPropTypeState,          // combo list
+    UserPropTypeBool,  // checkbox
+    UserPropTypeState, // combo list
     UserPropTypeSingleLine,
     UserPropTypeMultiLine,
 };
@@ -40,20 +39,21 @@ public:
     }
 
     bool Parse(const CString& line);
-    void SetMenuID(int menuID) {m_menuID = menuID;}
-    int  GetMenuID() const {return m_menuID;}
-public:
-    CString         propName;
-    UserPropType    propType;
-    bool            file;                           // if true, property is used on files. if false, property is for directories only
-    CString         labelText;
-    CString         validationRegex;
-    CString         boolYes;
-    CString         boolNo;
-    CString         boolCheckText;
-    CString         stateDefaultVal;
-    std::vector<std::tuple<CString, CString>>  stateEntries;
-private:
-    int             m_menuID;
-};
+    void SetMenuID(int menuID) { m_menuID = menuID; }
+    int  GetMenuID() const { return m_menuID; }
 
+public:
+    CString                                   propName;
+    UserPropType                              propType;
+    bool                                      file; // if true, property is used on files. if false, property is for directories only
+    CString                                   labelText;
+    CString                                   validationRegex;
+    CString                                   boolYes;
+    CString                                   boolNo;
+    CString                                   boolCheckText;
+    CString                                   stateDefaultVal;
+    std::vector<std::tuple<CString, CString>> stateEntries;
+
+private:
+    int m_menuID;
+};

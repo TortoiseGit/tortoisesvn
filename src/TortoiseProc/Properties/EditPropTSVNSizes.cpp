@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,10 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropTSVNSizes.h"
 #include "AppUtils.h"
-
 
 // CEditPropTSVNSizes dialog
 
@@ -29,11 +27,10 @@ IMPLEMENT_DYNAMIC(CEditPropTSVNSizes, CStandAloneDialog)
 CEditPropTSVNSizes::CEditPropTSVNSizes(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CEditPropTSVNSizes::IDD, pParent)
     , EditPropBase()
-    , m_LogMinSize(0)
-    , m_LockMinSize(0)
-    , m_Border(0)
+    , m_logMinSize(0)
+    , m_lockMinSize(0)
+    , m_border(0)
 {
-
 }
 
 CEditPropTSVNSizes::~CEditPropTSVNSizes()
@@ -43,20 +40,18 @@ CEditPropTSVNSizes::~CEditPropTSVNSizes()
 void CEditPropTSVNSizes::DoDataExchange(CDataExchange* pDX)
 {
     CStandAloneDialog::DoDataExchange(pDX);
-    DDX_Text(pDX, IDC_LOGMINSIZE, m_LogMinSize);
-    DDV_MinMaxInt(pDX, m_LogMinSize, 0, 1000);
-    DDX_Text(pDX, IDC_LOCKMINSIZE, m_LockMinSize);
-    DDV_MinMaxInt(pDX, m_LockMinSize, 0, 1000);
-    DDX_Text(pDX, IDC_BORDER, m_Border);
-    DDV_MinMaxInt(pDX, m_Border, 0, 1000);
+    DDX_Text(pDX, IDC_LOGMINSIZE, m_logMinSize);
+    DDV_MinMaxInt(pDX, m_logMinSize, 0, 1000);
+    DDX_Text(pDX, IDC_LOCKMINSIZE, m_lockMinSize);
+    DDV_MinMaxInt(pDX, m_lockMinSize, 0, 1000);
+    DDX_Text(pDX, IDC_BORDER, m_border);
+    DDV_MinMaxInt(pDX, m_border, 0, 1000);
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
-
 
 BEGIN_MESSAGE_MAP(CEditPropTSVNSizes, CStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CEditPropTSVNSizes::OnBnClickedHelp)
 END_MESSAGE_MAP()
-
 
 // CEditPropTSVNSizes message handlers
 
@@ -71,19 +66,19 @@ BOOL CEditPropTSVNSizes::OnInitDialog()
 
     for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
     {
-        if (it->second.isinherited)
+        if (it->second.isInherited)
             continue;
         if (it->first.compare(PROJECTPROPNAME_LOGMINSIZE) == 0)
         {
-            m_LogMinSize = atoi(it->second.value.c_str());
+            m_logMinSize = atoi(it->second.value.c_str());
         }
         else if (it->first.compare(PROJECTPROPNAME_LOCKMSGMINSIZE) == 0)
         {
-            m_LockMinSize = atoi(it->second.value.c_str());
+            m_lockMinSize = atoi(it->second.value.c_str());
         }
         else if (it->first.compare(PROJECTPROPNAME_LOGWIDTHLINE) == 0)
         {
-            m_Border = atoi(it->second.value.c_str());
+            m_border = atoi(it->second.value.c_str());
         }
     }
 
@@ -104,25 +99,25 @@ void CEditPropTSVNSizes::OnOK()
     UpdateData();
 
     TProperties newProps;
-    PropValue pVal;
+    PropValue   pVal;
 
-    char numBuf[20] = { 0 };
-    sprintf_s(numBuf, "%d", m_LogMinSize);
-    pVal.value = numBuf;
-    pVal.remove = (m_LogMinSize == 0);
+    char numBuf[20] = {0};
+    sprintf_s(numBuf, "%d", m_logMinSize);
+    pVal.value  = numBuf;
+    pVal.remove = (m_logMinSize == 0);
     newProps.emplace(PROJECTPROPNAME_LOGMINSIZE, pVal);
 
-    sprintf_s(numBuf, "%d", m_LockMinSize);
-    pVal.value = numBuf;
-    pVal.remove = (m_LockMinSize == 0);
+    sprintf_s(numBuf, "%d", m_lockMinSize);
+    pVal.value  = numBuf;
+    pVal.remove = (m_lockMinSize == 0);
     newProps.emplace(PROJECTPROPNAME_LOCKMSGMINSIZE, pVal);
 
-    sprintf_s(numBuf, "%d", m_Border);
-    pVal.value = numBuf;
-    pVal.remove = (m_Border == 0);
+    sprintf_s(numBuf, "%d", m_border);
+    pVal.value  = numBuf;
+    pVal.remove = (m_border == 0);
     newProps.emplace(PROJECTPROPNAME_LOGWIDTHLINE, pVal);
 
-    m_bChanged = true;
+    m_bChanged   = true;
     m_properties = newProps;
 
     CStandAloneDialog::OnOK();

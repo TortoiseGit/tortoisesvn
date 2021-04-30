@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,10 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropNeedsLock.h"
 #include "AppUtils.h"
-
 
 // CEditPropNeedsLock dialog
 
@@ -30,7 +28,6 @@ CEditPropNeedsLock::CEditPropNeedsLock(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CEditPropNeedsLock::IDD, pParent)
     , EditPropBase()
 {
-
 }
 
 CEditPropNeedsLock::~CEditPropNeedsLock()
@@ -43,7 +40,6 @@ void CEditPropNeedsLock::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 
-
 BEGIN_MESSAGE_MAP(CEditPropNeedsLock, CStandAloneDialog)
     ON_BN_CLICKED(IDC_PROPRECURSIVE, &CEditPropNeedsLock::OnBnClickedProprecursive)
     ON_BN_CLICKED(IDHELP, &CEditPropNeedsLock::OnBnClickedHelp)
@@ -54,7 +50,7 @@ BOOL CEditPropNeedsLock::OnInitDialog()
     CStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
-    ExtendFrameIntoClientArea(0,0,0,0);
+    ExtendFrameIntoClientArea(0, 0, 0, 0);
     m_aeroControls.SubclassControl(this, IDC_PROPSET);
     m_aeroControls.SubclassControl(this, IDC_PROPNOTSET);
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
@@ -64,7 +60,7 @@ BOOL CEditPropNeedsLock::OnInitDialog()
     AdjustControlSize(IDC_PROPNOTSET);
     AdjustControlSize(IDC_PROPRECURSIVE);
 
-    CheckRadioButton(IDC_PROPSET, IDC_PROPNOTSET, m_PropValue.size() ? IDC_PROPSET : IDC_PROPNOTSET);
+    CheckRadioButton(IDC_PROPSET, IDC_PROPNOTSET, m_propValue.size() ? IDC_PROPSET : IDC_PROPNOTSET);
 
     GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(!m_bFolder || m_bMultiple);
     GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps || (!m_bFolder && !m_bMultiple) || m_bRemote ? SW_HIDE : SW_SHOW);
@@ -90,9 +86,9 @@ void CEditPropNeedsLock::OnOK()
     bool bSet = (GetCheckedRadioButton(IDC_PROPSET, IDC_PROPNOTSET) == IDC_PROPSET);
 
     if (bSet)
-        m_PropValue = "*";
+        m_propValue = "*";
     else
-        m_PropValue.clear();
+        m_propValue.clear();
     m_bChanged = true;
 
     CStandAloneDialog::OnOK();
@@ -105,7 +101,6 @@ void CEditPropNeedsLock::OnBnClickedProprecursive()
         m_bRecursive = TRUE;
     UpdateData(false);
 }
-
 
 void CEditPropNeedsLock::OnBnClickedHelp()
 {

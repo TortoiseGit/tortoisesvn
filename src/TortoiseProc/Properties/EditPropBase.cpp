@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012-2013 - TortoiseSVN
+// Copyright (C) 2010, 2012-2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,22 +17,17 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SVNProperties.h"
-#include "UnicodeUtils.h"
-#include "AppUtils.h"
-#include "StringUtils.h"
 #include "EditPropBase.h"
-
 
 EditPropBase::EditPropBase()
     : m_bFolder(false)
     , m_bMultiple(false)
     , m_bIsBinary(false)
     , m_bChanged(false)
-    , m_bRevProps(false)
     , m_bRecursive(false)
     , m_bRemote(false)
+    , m_bRevProps(false)
 {
 }
 
@@ -42,7 +37,7 @@ EditPropBase::~EditPropBase()
 
 void EditPropBase::SetPropertyName(const std::string& sName)
 {
-    m_PropName = sName;
+    m_propName = sName;
 }
 
 void EditPropBase::SetPropertyValue(const std::string& sValue)
@@ -55,17 +50,15 @@ void EditPropBase::SetPropertyValue(const std::string& sValue)
     {
         m_bIsBinary = false;
     }
-    m_PropValue = sValue;
+    m_propValue = sValue;
 }
 
-void EditPropBase::SetPathList( const CTSVNPathList& pathlist )
+void EditPropBase::SetPathList(const CTSVNPathList& pathList)
 {
-    m_pathList = pathlist;
+    m_pathList = pathList;
     if (m_pathList.GetCount())
     {
         if (m_pathList[0].IsUrl())
             m_bRemote = true;
     }
 }
-
-

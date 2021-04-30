@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,10 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropExecutable.h"
 #include "AppUtils.h"
-
 
 // CEditPropExecutable dialog
 
@@ -30,7 +28,6 @@ CEditPropExecutable::CEditPropExecutable(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CEditPropExecutable::IDD, pParent)
     , EditPropBase()
 {
-
 }
 
 CEditPropExecutable::~CEditPropExecutable()
@@ -43,7 +40,6 @@ void CEditPropExecutable::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 
-
 BEGIN_MESSAGE_MAP(CEditPropExecutable, CStandAloneDialog)
     ON_BN_CLICKED(IDC_PROPRECURSIVE, &CEditPropExecutable::OnBnClickedProprecursive)
     ON_BN_CLICKED(IDHELP, &CEditPropExecutable::OnBnClickedHelp)
@@ -54,7 +50,7 @@ BOOL CEditPropExecutable::OnInitDialog()
     CStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
-    ExtendFrameIntoClientArea(0,0,0,0);
+    ExtendFrameIntoClientArea(0, 0, 0, 0);
     m_aeroControls.SubclassControl(this, IDC_NOTE);
     m_aeroControls.SubclassControl(this, IDC_PROPSET);
     m_aeroControls.SubclassControl(this, IDC_PROPNOTSET);
@@ -72,7 +68,7 @@ BOOL CEditPropExecutable::OnInitDialog()
     AdjustControlSize(IDC_PROPNOTSET);
     AdjustControlSize(IDC_PROPRECURSIVE);
 
-    CheckRadioButton(IDC_PROPSET, IDC_PROPNOTSET, m_PropValue.size() ? IDC_PROPSET : IDC_PROPNOTSET);
+    CheckRadioButton(IDC_PROPSET, IDC_PROPNOTSET, m_propValue.size() ? IDC_PROPSET : IDC_PROPNOTSET);
 
     if (m_bFolder)
     {
@@ -91,9 +87,9 @@ void CEditPropExecutable::OnOK()
     bool bSet = (GetCheckedRadioButton(IDC_PROPSET, IDC_PROPNOTSET) == IDC_PROPSET);
 
     if (bSet)
-        m_PropValue = "*";
+        m_propValue = "*";
     else
-        m_PropValue.clear();
+        m_propValue.clear();
     m_bChanged = true;
 
     CStandAloneDialog::OnOK();

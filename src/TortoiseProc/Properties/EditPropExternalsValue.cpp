@@ -17,13 +17,10 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropExternalsValue.h"
 #include "AppUtils.h"
 #include "UnicodeUtils.h"
 #include "PathUtils.h"
-#include "SVNHelpers.h"
-#include "AppUtils.h"
 
 // CEditPropExternalsValue dialog
 
@@ -31,9 +28,8 @@ IMPLEMENT_DYNAMIC(CEditPropExternalsValue, CResizableStandAloneDialog)
 
 CEditPropExternalsValue::CEditPropExternalsValue(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropExternalsValue::IDD, pParent)
-    , m_pLogDlg(NULL)
+    , m_pLogDlg(nullptr)
 {
-
 }
 
 CEditPropExternalsValue::~CEditPropExternalsValue()
@@ -44,12 +40,11 @@ CEditPropExternalsValue::~CEditPropExternalsValue()
 void CEditPropExternalsValue::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
+    DDX_Control(pDX, IDC_URLCOMBO, m_urlCombo);
     DDX_Text(pDX, IDC_WCPATH, m_sWCPath);
     DDX_Text(pDX, IDC_REVISION_NUM, m_sRevision);
     DDX_Text(pDX, IDC_PEGREV, m_sPegRev);
 }
-
 
 BEGIN_MESSAGE_MAP(CEditPropExternalsValue, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_BROWSE, &CEditPropExternalsValue::OnBnClickedBrowse)
@@ -59,7 +54,6 @@ BEGIN_MESSAGE_MAP(CEditPropExternalsValue, CResizableStandAloneDialog)
     ON_EN_CHANGE(IDC_PEGREV, &CEditPropExternalsValue::OnEnChangeRevisionNum)
     ON_BN_CLICKED(IDHELP, &CEditPropExternalsValue::OnBnClickedHelp)
 END_MESSAGE_MAP()
-
 
 // CEditPropExternalsValue message handlers
 
@@ -72,23 +66,23 @@ BOOL CEditPropExternalsValue::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_GROUPBOTTOM);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    m_sWCPath = m_External.targetDir;
+    m_sWCPath = m_external.targetDir;
 
-    SVNRev rev = m_External.revision;
-    SVNRev pegRev = SVNRev(m_External.pegRevision);
+    SVNRev rev    = m_external.revision;
+    SVNRev pegRev = SVNRev(m_external.pegRevision);
 
     if ((pegRev.IsValid() && !pegRev.IsHead()) || (rev.IsValid() && !rev.IsHead()))
     {
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_N);
 
-        if (m_External.revision.value.number == m_External.pegRevision.value.number)
+        if (m_external.revision.value.number == m_external.pegRevision.value.number)
         {
             m_sPegRev = pegRev.ToString();
         }
         else
         {
             m_sRevision = rev.ToString();
-            m_sPegRev = pegRev.ToString();
+            m_sPegRev   = pegRev.ToString();
         }
     }
     else
@@ -96,9 +90,9 @@ BOOL CEditPropExternalsValue::OnInitDialog()
         CheckRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N, IDC_REVISION_HEAD);
     }
 
-    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
-    m_URLCombo.SetURLHistory(true, false);
-    m_URLCombo.SetWindowText(CPathUtils::PathUnescape(m_External.url));
+    m_urlCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
+    m_urlCombo.SetURLHistory(true, false);
+    m_urlCombo.SetWindowText(CPathUtils::PathUnescape(m_external.url));
 
     UpdateData(false);
 
@@ -132,7 +126,7 @@ BOOL CEditPropExternalsValue::OnInitDialog()
 
 void CEditPropExternalsValue::OnCancel()
 {
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return;
@@ -151,7 +145,7 @@ void CEditPropExternalsValue::OnOK()
         return;
     }
 
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return;
@@ -159,7 +153,7 @@ void CEditPropExternalsValue::OnOK()
 
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
-        m_External.revision.kind = svn_opt_revision_head;
+        m_external.revision.kind = svn_opt_revision_head;
         m_sPegRev.Empty();
     }
     else
@@ -170,23 +164,23 @@ void CEditPropExternalsValue::OnOK()
             ShowEditBalloon(IDC_REVISION_N, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
             return;
         }
-        m_External.revision = *rev;
+        m_external.revision = *rev;
     }
-    m_URLCombo.SaveHistory();
-    m_URL = CTSVNPath(m_URLCombo.GetString());
-    m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_URL.GetSVNPathString())));
-    if (m_URL.GetSVNPathString().GetLength() && (m_URL.GetSVNPathString()[0] == '^'))
+    m_urlCombo.SaveHistory();
+    m_url          = CTSVNPath(m_urlCombo.GetString());
+    m_external.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_url.GetSVNPathString())));
+    if (m_url.GetSVNPathString().GetLength() && (m_url.GetSVNPathString()[0] == '^'))
     {
         // the ^ char must not be escaped
-        m_External.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_URL.GetSVNPathString().Mid(1))));
-        m_External.url = '^' + m_External.url;
+        m_external.url = CUnicodeUtils::GetUnicode(CPathUtils::PathEscape(CUnicodeUtils::GetUTF8(m_url.GetSVNPathString().Mid(1))));
+        m_external.url = '^' + m_external.url;
     }
 
     if (m_sPegRev.IsEmpty())
-        m_External.pegRevision = *SVNRev(L"HEAD");
+        m_external.pegRevision = *SVNRev(L"HEAD");
     else
-        m_External.pegRevision = *SVNRev(m_sPegRev);
-    m_External.targetDir = m_sWCPath;
+        m_external.pegRevision = *SVNRev(m_sPegRev);
+    m_external.targetDir = m_sWCPath;
 
     CResizableStandAloneDialog::OnOK();
 }
@@ -194,25 +188,25 @@ void CEditPropExternalsValue::OnOK()
 void CEditPropExternalsValue::OnBnClickedBrowse()
 {
     SVNRev rev = SVNRev::REV_HEAD;
-    CAppUtils::BrowseRepository(m_URLCombo, this, rev, false, m_RepoRoot.GetSVNPathString(), m_URL.GetSVNPathString());
+    CAppUtils::BrowseRepository(m_urlCombo, this, rev, false, m_repoRoot.GetSVNPathString(), m_url.GetSVNPathString());
 
     // if possible, create a repository-root relative url
-    CString strURLs;
-    m_URLCombo.GetWindowText(strURLs);
-    if (strURLs.IsEmpty())
-        strURLs = m_URLCombo.GetString();
-    strURLs.Replace('\\', '/');
-    strURLs.Replace(L"%", L"%25");
+    CString strUrLs;
+    m_urlCombo.GetWindowText(strUrLs);
+    if (strUrLs.IsEmpty())
+        strUrLs = m_urlCombo.GetString();
+    strUrLs.Replace('\\', '/');
+    strUrLs.Replace(L"%", L"%25");
 
-    CString root = m_RepoRoot.GetSVNPathString();
-    int rootlength = root.GetLength();
-    if (strURLs.Left(rootlength).Compare(root)==0)
+    CString root       = m_repoRoot.GetSVNPathString();
+    int     rootlength = root.GetLength();
+    if (strUrLs.Left(rootlength).Compare(root) == 0)
     {
-        if ((strURLs.GetLength() > rootlength) && (strURLs.GetAt(rootlength) == '/'))
+        if ((strUrLs.GetLength() > rootlength) && (strUrLs.GetAt(rootlength) == '/'))
         {
-            strURLs = L"^/" + strURLs.Mid(rootlength);
-            strURLs.Replace(L"^//", L"^/");
-            m_URLCombo.SetWindowText(strURLs);
+            strUrLs = L"^/" + strUrLs.Mid(rootlength);
+            strUrLs.Replace(L"^//", L"^/");
+            m_urlCombo.SetWindowText(strUrLs);
         }
     }
 }
@@ -220,17 +214,17 @@ void CEditPropExternalsValue::OnBnClickedBrowse()
 void CEditPropExternalsValue::OnBnClickedShowLog()
 {
     UpdateData(TRUE);
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
         return;
-    CString urlString = m_URLCombo.GetString();
-    CTSVNPath logUrl = m_URL;
-    if (urlString.GetLength()>1)
+    CString   urlString = m_urlCombo.GetString();
+    CTSVNPath logUrl    = m_url;
+    if (urlString.GetLength() > 1)
     {
-        logUrl = CTSVNPath(SVNExternals::GetFullExternalUrl(urlString, m_RepoRoot.GetSVNPathString(), m_URL.GetSVNPathString()));
+        logUrl = CTSVNPath(SVNExternals::GetFullExternalUrl(urlString, m_repoRoot.GetSVNPathString(), m_url.GetSVNPathString()));
     }
     else
     {
-        logUrl = m_RepoRoot;
+        logUrl = m_repoRoot;
         logUrl.AppendPathString(urlString);
     }
 
@@ -240,7 +234,7 @@ void CEditPropExternalsValue::OnBnClickedShowLog()
         m_pLogDlg = new CLogDlg();
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
-        m_pLogDlg->m_wParam = 0;
+        m_pLogDlg->m_wParam        = 0;
         m_pLogDlg->SetParams(CTSVNPath(logUrl), SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE);
         m_pLogDlg->ContinuousSelection(true);
         m_pLogDlg->Create(IDD_LOGMESSAGE, this);

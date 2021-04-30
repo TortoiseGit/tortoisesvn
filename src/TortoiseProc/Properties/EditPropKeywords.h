@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012 - TortoiseSVN
+// Copyright (C) 2010, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,30 +20,33 @@
 #include "EditPropBase.h"
 #include "StandAloneDlg.h"
 
-
-class CEditPropKeywords : public CStandAloneDialog, public EditPropBase
+class CEditPropKeywords : public CStandAloneDialog
+    , public EditPropBase
 {
     DECLARE_DYNAMIC(CEditPropKeywords)
 
 public:
-    CEditPropKeywords(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CEditPropKeywords();
+    CEditPropKeywords(CWnd* pParent = nullptr); // standard constructor
+    ~CEditPropKeywords() override;
 
-    enum { IDD = IDD_EDITPROPKEYWORDS };
+    enum
+    {
+        IDD = IDD_EDITPROPKEYWORDS
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual void OnOK();
-    virtual BOOL OnInitDialog();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    void OnOK() override;
+    BOOL OnInitDialog() override;
 
     DECLARE_MESSAGE_MAP()
 
-    INT_PTR DoModal() override { return CStandAloneDialog::DoModal(); }
+    INT_PTR      DoModal() override { return CStandAloneDialog::DoModal(); }
     afx_msg void OnBnClickedProprecursive();
     afx_msg void OnBnClickedHelp();
 
 private:
-    void    AddSpacedWord(std::string& str, const std::string& word);
+    static void AddSpacedWord(std::string& str, const std::string& word);
 
 private:
     BOOL m_bAuthor;

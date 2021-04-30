@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013, 2016 - TortoiseSVN
+// Copyright (C) 2011, 2013, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,23 +17,18 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "resource.h"
-#include "TortoiseProc.h"
 #include "EditPropUserMultiLine.h"
-#include <afxdialogex.h>
 #include "AppUtils.h"
 #include "UnicodeUtils.h"
-
 
 // EditPropUserMultiLine dialog
 
 IMPLEMENT_DYNAMIC(EditPropUserMultiLine, CStandAloneDialog)
 
-    EditPropUserMultiLine::EditPropUserMultiLine(CWnd* pParent, const UserProp * p)
+EditPropUserMultiLine::EditPropUserMultiLine(CWnd* pParent, const UserProp* p)
     : CStandAloneDialog(EditPropUserMultiLine::IDD, pParent)
-    , m_userprop(p)
+    , m_userProp(p)
 {
-
 }
 
 EditPropUserMultiLine::~EditPropUserMultiLine()
@@ -48,13 +43,10 @@ void EditPropUserMultiLine::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 
-
 BEGIN_MESSAGE_MAP(EditPropUserMultiLine, CStandAloneDialog)
 END_MESSAGE_MAP()
 
-
 // EditPropUserMultiLine message handlers
-
 
 BOOL EditPropUserMultiLine::OnInitDialog()
 {
@@ -64,17 +56,17 @@ BOOL EditPropUserMultiLine::OnInitDialog()
 
     AdjustControlSize(IDC_PROPRECURSIVE);
 
-    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(!m_bFolder || m_bMultiple || (m_bFolder && !m_userprop->file));
+    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(!m_bFolder || m_bMultiple || (m_bFolder && !m_userProp->file));
     GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps || (!m_bFolder && !m_bMultiple) || m_bRemote ? SW_HIDE : SW_SHOW);
 
-    m_sLabel = m_userprop->labelText;
-    m_sLine = CUnicodeUtils::GetUnicode(m_PropValue.c_str());
+    m_sLabel = m_userProp->labelText;
+    m_sLine  = CUnicodeUtils::GetUnicode(m_propValue.c_str());
     m_sLine.Replace(L"\n", L"\r\n");
 
-    CString sWindowTitle = m_userprop->propName;
+    CString sWindowTitle = m_userProp->propName;
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
-    if (m_bFolder && m_userprop->file)
+    if (m_bFolder && m_userProp->file)
     {
         // for folders, the file properties can only be set recursively
         m_bRecursive = TRUE;
@@ -85,7 +77,6 @@ BOOL EditPropUserMultiLine::OnInitDialog()
     return TRUE;
 }
 
-
 void EditPropUserMultiLine::OnOK()
 {
     UpdateData();
@@ -95,8 +86,8 @@ void EditPropUserMultiLine::OnOK()
     bool validated = true;
     try
     {
-        std::wregex regCheck = std::wregex (m_userprop->validationRegex);
-        std::wstring s = m_sLine;
+        std::wregex  regCheck = std::wregex(m_userProp->validationRegex);
+        std::wstring s        = static_cast<LPCWSTR>(m_sLine);
         if (!std::regex_match(s, regCheck))
             validated = false;
     }
@@ -110,7 +101,7 @@ void EditPropUserMultiLine::OnOK()
         return;
     }
 
-    m_PropValue = CUnicodeUtils::GetUTF8(m_sLine);
+    m_propValue = CUnicodeUtils::GetUTF8(m_sLine);
 
     m_bChanged = true;
 

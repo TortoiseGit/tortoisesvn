@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011 - TortoiseSVN
+// Copyright (C) 2011, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,18 +28,21 @@ class CBugtraqRegexTestDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CBugtraqRegexTestDlg)
 
 public:
-    CBugtraqRegexTestDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CBugtraqRegexTestDlg();
+    CBugtraqRegexTestDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CBugtraqRegexTestDlg() override;
 
     // Dialog Data
-    enum { IDD = IDD_BUGTRAQREGEXTESTER };
+    enum
+    {
+        IDD = IDD_BUGTRAQREGEXTESTER
+    };
 
-    CString     m_sBugtraqRegex1;
-    CString     m_sBugtraqRegex2;
+    CString m_sBugtraqRegex1;
+    CString m_sBugtraqRegex2;
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
 
     DECLARE_MESSAGE_MAP()
 
@@ -47,9 +50,10 @@ protected:
     afx_msg void OnEnChangeBugtraqlogregex2();
 
 private:
-    void        UpdateLogControl();
+    void UpdateLogControl();
+
 private:
-    CRegexEdit  m_BugtraqRegex1;
-    CRegexEdit  m_BugtraqRegex2;
-    CSciEdit    m_cLogMessage;
+    CRegexEdit m_bugtraqRegex1;
+    CRegexEdit m_bugtraqRegex2;
+    CSciEdit   m_cLogMessage;
 };

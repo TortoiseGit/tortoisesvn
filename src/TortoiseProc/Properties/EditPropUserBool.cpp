@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2011, 2013-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,9 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropUserBool.h"
-#include <afxdialogex.h>
 #include "AppUtils.h"
 #include "UnicodeUtils.h"
 
@@ -27,13 +25,12 @@
 
 IMPLEMENT_DYNAMIC(EditPropUserBool, CStandAloneDialog)
 
-EditPropUserBool::EditPropUserBool(CWnd* pParent, const UserProp * p)
+EditPropUserBool::EditPropUserBool(CWnd* pParent, const UserProp* p)
     : CStandAloneDialog(EditPropUserBool::IDD, pParent)
     , EditPropBase()
     , m_bChecked(FALSE)
-    , m_userprop(p)
+    , m_userProp(p)
 {
-
 }
 
 EditPropUserBool::~EditPropUserBool()
@@ -49,13 +46,10 @@ void EditPropUserBool::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 
-
 BEGIN_MESSAGE_MAP(EditPropUserBool, CStandAloneDialog)
 END_MESSAGE_MAP()
 
-
 // EditPropUserBool message handlers
-
 
 BOOL EditPropUserBool::OnInitDialog()
 {
@@ -64,17 +58,17 @@ BOOL EditPropUserBool::OnInitDialog()
 
     AdjustControlSize(IDC_PROPRECURSIVE);
 
-    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(!m_bFolder || m_bMultiple || (m_bFolder && !m_userprop->file));
+    GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(!m_bFolder || m_bMultiple || (m_bFolder && !m_userProp->file));
     GetDlgItem(IDC_PROPRECURSIVE)->ShowWindow(m_bRevProps || (!m_bFolder && !m_bMultiple) || m_bRemote ? SW_HIDE : SW_SHOW);
 
-    m_bChecked = m_PropValue.compare(CUnicodeUtils::GetUTF8(m_userprop->boolYes))==0;
-    m_sLabel = m_userprop->labelText;
-    m_sCheck = m_userprop->boolCheckText;
+    m_bChecked = m_propValue.compare(CUnicodeUtils::GetUTF8(m_userProp->boolYes)) == 0;
+    m_sLabel   = m_userProp->labelText;
+    m_sCheck   = m_userProp->boolCheckText;
 
-    CString sWindowTitle = m_userprop->propName;
+    CString sWindowTitle = m_userProp->propName;
     CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
-    if (m_bFolder && m_userprop->file)
+    if (m_bFolder && m_userProp->file)
     {
         // for folders, the file properties can only be set recursively
         m_bRecursive = TRUE;
@@ -93,9 +87,9 @@ void EditPropUserBool::OnOK()
     bool bSet = !!m_bChecked;
 
     if (bSet)
-        m_PropValue = CUnicodeUtils::GetUTF8(m_userprop->boolYes);
+        m_propValue = CUnicodeUtils::GetUTF8(m_userProp->boolYes);
     else
-        m_PropValue = CUnicodeUtils::GetUTF8(m_userprop->boolNo);
+        m_propValue = CUnicodeUtils::GetUTF8(m_userProp->boolNo);
     m_bChanged = true;
 
     CStandAloneDialog::OnOK();

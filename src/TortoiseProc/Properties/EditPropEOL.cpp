@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013, 2016-2017 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013, 2016-2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,11 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropEOL.h"
 #include "AppUtils.h"
 #include <cctype>
-
 
 // CEditPropEOL dialog
 
@@ -31,7 +29,6 @@ CEditPropEOL::CEditPropEOL(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CEditPropEOL::IDD, pParent)
     , EditPropBase()
 {
-
 }
 
 CEditPropEOL::~CEditPropEOL()
@@ -44,12 +41,10 @@ void CEditPropEOL::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 
-
 BEGIN_MESSAGE_MAP(CEditPropEOL, CStandAloneDialog)
     ON_BN_CLICKED(IDC_PROPRECURSIVE, &CEditPropEOL::OnBnClickedProprecursive)
     ON_BN_CLICKED(IDHELP, &CEditPropEOL::OnBnClickedHelp)
 END_MESSAGE_MAP()
-
 
 BOOL CEditPropEOL::OnInitDialog()
 {
@@ -60,18 +55,18 @@ BOOL CEditPropEOL::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_PROPRECURSIVE);
     m_aeroControls.SubclassOkCancelHelp(this);
 
-    std::transform(m_PropValue.begin(), m_PropValue.end(), m_PropValue.begin(),
-                   [](wint_t i) { return (char)towlower(i); });
+    std::transform(m_propValue.begin(), m_propValue.end(), m_propValue.begin(),
+                   [](wint_t i) { return static_cast<char>(towlower(i)); });
 
     CheckRadioButton(IDC_RADIONOEOL, IDC_RADIOCR, IDC_RADIONOEOL);
 
-    if (m_PropValue.compare("native") == 0)
+    if (m_propValue.compare("native") == 0)
         CheckRadioButton(IDC_RADIONOEOL, IDC_RADIOCR, IDC_RADIONATIVE);
-    else if (m_PropValue.compare("crlf") == 0)
+    else if (m_propValue.compare("crlf") == 0)
         CheckRadioButton(IDC_RADIONOEOL, IDC_RADIOCR, IDC_RADIOCRLF);
-    else if (m_PropValue.compare("lf") == 0)
+    else if (m_propValue.compare("lf") == 0)
         CheckRadioButton(IDC_RADIONOEOL, IDC_RADIOCR, IDC_RADIOLF);
-    else if (m_PropValue.compare("cr") == 0)
+    else if (m_propValue.compare("cr") == 0)
         CheckRadioButton(IDC_RADIONOEOL, IDC_RADIOCR, IDC_RADIOCR);
 
     GetDlgItem(IDC_PROPRECURSIVE)->EnableWindow(!m_bFolder || m_bMultiple);
@@ -105,21 +100,21 @@ void CEditPropEOL::OnOK()
     int checked = GetCheckedRadioButton(IDC_RADIONOEOL, IDC_RADIOCR);
     switch (checked)
     {
-    case IDC_RADIONOEOL:
-        m_PropValue = "";
-        break;
-    case IDC_RADIONATIVE:
-        m_PropValue = "native";
-        break;
-    case IDC_RADIOCRLF:
-        m_PropValue = "CRLF";
-        break;
-    case IDC_RADIOLF:
-        m_PropValue = "LF";
-        break;
-    case IDC_RADIOCR:
-        m_PropValue = "CR";
-        break;
+        case IDC_RADIONOEOL:
+            m_propValue = "";
+            break;
+        case IDC_RADIONATIVE:
+            m_propValue = "native";
+            break;
+        case IDC_RADIOCRLF:
+            m_propValue = "CRLF";
+            break;
+        case IDC_RADIOLF:
+            m_propValue = "LF";
+            break;
+        case IDC_RADIOCR:
+            m_propValue = "CR";
+            break;
     }
     m_bChanged = true;
 

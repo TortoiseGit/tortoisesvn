@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2011, 2013-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,9 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "BugtraqRegexTestDlg.h"
-#include <afxdialogex.h>
 #include "AppUtils.h"
 #include "ProjectProperties.h"
 
@@ -41,8 +39,8 @@ void CBugtraqRegexTestDlg::DoDataExchange(CDataExchange* pDX)
     CResizableStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_BUGTRAQLOGREGEX1, m_sBugtraqRegex1);
     DDX_Text(pDX, IDC_BUGTRAQLOGREGEX2, m_sBugtraqRegex2);
-    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX1, m_BugtraqRegex1);
-    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX2, m_BugtraqRegex2);
+    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX1, m_bugtraqRegex1);
+    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX2, m_bugtraqRegex2);
     DDX_Control(pDX, IDC_LOGMESSAGE, m_cLogMessage);
 }
 
@@ -51,12 +49,10 @@ BEGIN_MESSAGE_MAP(CBugtraqRegexTestDlg, CResizableStandAloneDialog)
     ON_EN_CHANGE(IDC_BUGTRAQLOGREGEX2, &CBugtraqRegexTestDlg::OnEnChangeBugtraqlogregex2)
 END_MESSAGE_MAP()
 
-
 void CBugtraqRegexTestDlg::OnEnChangeBugtraqlogregex1()
 {
     UpdateLogControl();
 }
-
 
 void CBugtraqRegexTestDlg::OnEnChangeBugtraqlogregex2()
 {
@@ -100,7 +96,7 @@ BOOL CBugtraqRegexTestDlg::OnInitDialog()
 
 void CBugtraqRegexTestDlg::UpdateLogControl()
 {
-    if (m_BugtraqRegex1.IsValidRegex() && m_BugtraqRegex2.IsValidRegex())
+    if (m_bugtraqRegex1.IsValidRegex() && m_bugtraqRegex2.IsValidRegex())
     {
         UpdateData();
         ProjectProperties projectprops;

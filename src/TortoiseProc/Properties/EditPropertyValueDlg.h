@@ -46,11 +46,11 @@ public:
     void SetPropertyValue(const std::string& sValue) override;
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
+    void         OnCancel() override;
+    BOOL         PreTranslateMessage(MSG* pMsg) override;
     afx_msg void OnBnClickedHelp();
     afx_msg void OnBnClickedLoadprop();
     afx_msg void OnEnChangePropvalue();

@@ -115,17 +115,17 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDHELP);
 
     // fill in the path edit control
-    if (m_pathlist.GetCount() == 1)
+    if (m_pathList.GetCount() == 1)
     {
-        if (m_pathlist[0].IsUrl())
+        if (m_pathList[0].IsUrl())
         {
-            SetDlgItemText(IDC_PROPPATH, m_pathlist[0].GetSVNPathString());
+            SetDlgItemText(IDC_PROPPATH, m_pathList[0].GetSVNPathString());
             if (!m_revision.IsValid())
                 m_revision = SVNRev::REV_HEAD;
         }
         else
         {
-            SetDlgItemText(IDC_PROPPATH, m_pathlist[0].GetWinPathString());
+            SetDlgItemText(IDC_PROPPATH, m_pathList[0].GetWinPathString());
             if (!m_revision.IsValid())
                 m_revision = SVNRev::REV_WC;
         }
@@ -133,12 +133,12 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     else
     {
         CString sTemp;
-        sTemp.Format(IDS_EDITPROPS_NUMPATHS, m_pathlist.GetCount());
+        sTemp.Format(IDS_EDITPROPS_NUMPATHS, m_pathList.GetCount());
         SetDlgItemText(IDC_PROPPATH, sTemp);
         if (!m_revision.IsValid())
         {
             m_revision = SVNRev::REV_WC;
-            if ((m_pathlist.GetCount() > 0) && (m_pathlist[0].IsUrl()))
+            if ((m_pathList.GetCount() > 0) && (m_pathList[0].IsUrl()))
                 m_revision = SVNRev::REV_HEAD;
         }
     }
@@ -199,9 +199,9 @@ BOOL CEditPropertiesDlg::OnInitDialog()
     int  menuID  = 50000;
     bool bFolder = true;
     bool bFile   = true;
-    if (m_pathlist.GetCount() == 1)
+    if (m_pathList.GetCount() == 1)
     {
-        if (PathIsDirectory(m_pathlist[0].GetWinPath()))
+        if (PathIsDirectory(m_pathList[0].GetWinPath()))
         {
             bFolder = true;
             bFile   = false;
@@ -211,7 +211,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
             bFolder = false;
             bFile   = true;
         }
-        if (m_pathlist[0].IsUrl())
+        if (m_pathList[0].IsUrl())
         {
             if (m_bUrlIsFolder)
             {
@@ -252,7 +252,7 @@ BOOL CEditPropertiesDlg::OnInitDialog()
 
     CString sWindowTitle;
     GetWindowText(sWindowTitle);
-    CAppUtils::SetWindowTitle(m_hWnd, m_pathlist.GetCommonRoot().GetUIPathString(), sWindowTitle);
+    CAppUtils::SetWindowTitle(m_hWnd, m_pathList.GetCommonRoot().GetUIPathString(), sWindowTitle);
 
     AddAnchor(IDC_GROUP, TOP_LEFT, BOTTOM_RIGHT);
     AddAnchor(IDC_PROPPATH, TOP_LEFT, TOP_RIGHT);
@@ -293,7 +293,7 @@ void CEditPropertiesDlg::Refresh()
 
 UINT CEditPropertiesDlg::PropsThreadEntry(LPVOID pVoid)
 {
-    CCrashReportThread crashthread;
+    CCrashReportThread crashThread;
     return static_cast<CEditPropertiesDlg*>(pVoid)->PropsThread();
 }
 
@@ -303,7 +303,7 @@ void CEditPropertiesDlg::ReadProperties(int first, int last)
     props.m_bCancelled = &m_bCancelled;
     for (int i = first; i < last; ++i)
     {
-        props.SetFilePath(m_pathlist[i]);
+        props.SetFilePath(m_pathList[i]);
         for (int p = 0; p < props.GetCount(); ++p)
         {
             std::string propStr   = props.GetItemName(p);
@@ -316,33 +316,33 @@ void CEditPropertiesDlg::ReadProperties(int first, int last)
             {
                 it->second.count++;
                 if (it->second.value.compare(propValue) != 0)
-                    it->second.allthesamevalue = false;
+                    it->second.allTheSameValue = false;
             }
             else
             {
                 it               = m_properties.emplace_hint(it, propStr, PropValue());
                 tstring value    = CUnicodeUtils::StdGetUnicode(propValue);
                 it->second.value = propValue;
-                CString stemp    = value.c_str();
-                stemp.Replace('\n', ' ');
-                stemp.Remove('\r');
-                it->second.value_without_newlines = tstring(stemp);
+                CString sTemp    = value.c_str();
+                sTemp.Replace('\n', ' ');
+                sTemp.Remove('\r');
+                it->second.valueWithoutNewlines = tstring(sTemp);
                 it->second.count                  = 1;
-                it->second.allthesamevalue        = true;
+                it->second.allTheSameValue        = true;
                 if (SVNProperties::IsBinary(propValue))
-                    it->second.isbinary = true;
+                    it->second.isBinary = true;
             }
         }
     }
-    if (m_pathlist.GetCount() == 1)
+    if (m_pathList.GetCount() == 1)
     {
         // if there's only one path, read the inherited properties as well
-        SVNProperties propsinh(m_pathlist[0], m_revision, m_bRevProps, true);
-        auto          inheritedprops = propsinh.GetInheritedProperties();
-        for (auto itup : inheritedprops)
+        SVNProperties propsInh(m_pathList[0], m_revision, m_bRevProps, true);
+        auto          inheritedProps = propsInh.GetInheritedProperties();
+        for (auto itup : inheritedProps)
         {
-            auto propmap = std::get<1>(itup);
-            for (auto inp : propmap)
+            auto propMap = std::get<1>(itup);
+            for (auto inp : propMap)
             {
                 std::string propStr   = inp.first;
                 std::string propValue = inp.second;
@@ -355,13 +355,13 @@ void CEditPropertiesDlg::ReadProperties(int first, int last)
                 CString stemp    = value.c_str();
                 stemp.Replace('\n', ' ');
                 stemp.Remove('\r');
-                it->second.value_without_newlines = tstring(stemp);
+                it->second.valueWithoutNewlines = tstring(stemp);
                 it->second.count                  = 1;
-                it->second.allthesamevalue        = true;
-                it->second.isinherited            = true;
+                it->second.allTheSameValue        = true;
+                it->second.isInherited            = true;
                 if (SVNProperties::IsBinary(propValue))
-                    it->second.isbinary = true;
-                it->second.inheritedfrom = CUnicodeUtils::StdGetUnicode(std::get<0>(itup));
+                    it->second.isBinary = true;
+                it->second.inheritedFrom = CUnicodeUtils::StdGetUnicode(std::get<0>(itup));
             }
         }
     }
@@ -381,15 +381,15 @@ UINT CEditPropertiesDlg::PropsThread()
         async::CCriticalSectionLock lock(m_mutex);
         m_properties.clear();
     }
-    for (int i = 0; i < m_pathlist.GetCount(); i += CHUNK_SIZE)
-        new async::CAsyncCall(this, &CEditPropertiesDlg::ReadProperties, i, min(m_pathlist.GetCount(), i + CHUNK_SIZE), &jobs);
+    for (int i = 0; i < m_pathList.GetCount(); i += CHUNK_SIZE)
+        new async::CAsyncCall(this, &CEditPropertiesDlg::ReadProperties, i, min(m_pathList.GetCount(), i + CHUNK_SIZE), &jobs);
 
     jobs.WaitForEmptyQueue();
 
     // fill the property list control with the gathered information
     async::CCriticalSectionLock lock(m_mutex);
     FillListControl();
-    if (!PathIsDirectory(m_pathlist[0].GetWinPath()) && !m_bUrlIsFolder)
+    if (!PathIsDirectory(m_pathList[0].GetWinPath()) && !m_bUrlIsFolder)
     {
         // properties for one or more files:
         // remove the menu entries which are only useful for folders
@@ -435,19 +435,19 @@ void CEditPropertiesDlg::OnNMCustomdrawEditproplist(NMHDR* pNMHDR, LRESULT* pRes
         COLORREF   crText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT);
         PropValue* pProp  = reinterpret_cast<PropValue*>(m_propList.GetItemData(static_cast<int>(pLVCD->nmcd.dwItemSpec)));
 
-        if (pProp->isbinary)
+        if (pProp->isBinary)
         {
             crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
-        else if (pProp->count != m_pathlist.GetCount())
+        else if (pProp->count != m_pathList.GetCount())
         {
             // if the property values are the same for all paths they're set
             // but they're not set for *all* paths, then we show the entry grayed out
             crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
-        else if (pProp->allthesamevalue)
+        else if (pProp->allTheSameValue)
         {
-            if (pProp->isinherited)
+            if (pProp->isInherited)
                 crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_GRAYTEXT));
         }
         else
@@ -661,24 +661,24 @@ void CEditPropertiesDlg::FillListControl()
     for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
     {
         m_propList.InsertItem(index, CUnicodeUtils::StdGetUnicode(it->first).c_str());
-        m_propList.SetItemText(index, 2, it->second.inheritedfrom.c_str());
+        m_propList.SetItemText(index, 2, it->second.inheritedFrom.c_str());
         m_propList.SetItemData(index, reinterpret_cast<LPARAM>(&it->second));
 
-        if (it->second.isbinary)
+        if (it->second.isBinary)
         {
             m_propList.SetItemText(index, 1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_BINVALUE)));
         }
-        else if (it->second.count != m_pathlist.GetCount())
+        else if (it->second.count != m_pathList.GetCount())
         {
             // if the property values are the same for all paths they're set
             // but they're not set for *all* paths, then we show the entry grayed out
-            m_propList.SetItemText(index, 1, it->second.value_without_newlines.c_str());
+            m_propList.SetItemText(index, 1, it->second.valueWithoutNewlines.c_str());
         }
-        else if (it->second.allthesamevalue)
+        else if (it->second.allTheSameValue)
         {
             // if the property values are the same for all paths,
             // we show the value
-            m_propList.SetItemText(index, 1, it->second.value_without_newlines.c_str());
+            m_propList.SetItemText(index, 1, it->second.valueWithoutNewlines.c_str());
         }
         else
         {
@@ -696,16 +696,16 @@ void CEditPropertiesDlg::FillListControl()
         index++;
     }
 
-    int maxcol = m_propList.GetHeaderCtrl()->GetItemCount() - 1;
-    for (int col = 0; col <= maxcol; col++)
+    int maxCol = m_propList.GetHeaderCtrl()->GetItemCount() - 1;
+    for (int col = 0; col <= maxCol; col++)
     {
         m_propList.SetColumnWidth(col, LVSCW_AUTOSIZE);
     }
     // resize the middle column so that all columns fit into the client area
     RECT rc;
     m_propList.GetClientRect(&rc);
-    const int bordersize = 20;
-    m_propList.SetColumnWidth(1, rc.right - m_propList.GetColumnWidth(0) - m_propList.GetColumnWidth(2) - bordersize);
+    const int borderSize = 20;
+    m_propList.SetColumnWidth(1, rc.right - m_propList.GetColumnWidth(0) - m_propList.GetColumnWidth(2) - borderSize);
 
     InterlockedExchange(&m_bThreadRunning, FALSE);
     m_propList.SetRedraw(TRUE);
@@ -728,9 +728,9 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         PropValue* prop = reinterpret_cast<PropValue*>(m_propList.GetItemData(selIndex));
 
         dlg->SetPropertyName(sName);
-        if (prop->allthesamevalue && !prop->isinherited)
+        if (prop->allTheSameValue && !prop->isInherited)
             dlg->SetPropertyValue(prop->value);
-        dlg->SetPathList(m_pathlist);
+        dlg->SetPathList(m_pathList);
         dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_EDITTITLE)));
     }
     else
@@ -739,7 +739,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         dlg->SetProperties(m_properties);
         if (propName.size())
             dlg->SetPropertyName(sName);
-        dlg->SetPathList(m_pathlist);
+        dlg->SetPathList(m_pathList);
         auto foundIt = m_properties.find(sName);
         if (foundIt != m_properties.end())
         {
@@ -750,17 +750,17 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
             else
                 prop = &foundIt->second;
             dlg->SetPropertyName(sName);
-            if (prop->allthesamevalue && !prop->isinherited)
+            if (prop->allTheSameValue && !prop->isInherited)
                 dlg->SetPropertyValue(prop->value);
         }
         dlg->SetDialogTitle(CString(MAKEINTRESOURCE(IDS_EDITPROPS_ADDTITLE)));
     }
 
-    if (m_pathlist.GetCount() > 1)
+    if (m_pathList.GetCount() > 1)
         dlg->SetMultiple();
-    else if (m_pathlist.GetCount() == 1)
+    else if (m_pathList.GetCount() == 1)
     {
-        if (m_pathlist[0].IsUrl())
+        if (m_pathList[0].IsUrl())
         {
             if (m_bUrlIsFolder)
             {
@@ -769,7 +769,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         }
         else
         {
-            if (PathIsDirectory(m_pathlist[0].GetWinPath()))
+            if (PathIsDirectory(m_pathList[0].GetWinPath()))
             {
                 dlg->SetFolder();
             }
@@ -782,18 +782,18 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
         if (dlg->IsChanged() || dlg->GetRecursive())
         {
             sName                = dlg->GetPropertyName();
-            TProperties dlgprops = dlg->GetProperties();
-            if (!sName.empty() || (dlg->HasMultipleProperties() && !dlgprops.empty()))
+            TProperties dlgProps = dlg->GetProperties();
+            if (!sName.empty() || (dlg->HasMultipleProperties() && !dlgProps.empty()))
             {
                 CString sMsg;
                 bool    bDoIt = true;
-                if (!m_bRevProps && (m_pathlist.GetCount()) && (m_pathlist[0].IsUrl()))
+                if (!m_bRevProps && (m_pathList.GetCount()) && (m_pathList[0].IsUrl()))
                 {
                     CInputLogDlg input(this);
                     input.SetUUID(m_sUuid);
                     input.SetProjectProperties(m_pProjectProperties, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
                     CString sHint;
-                    sHint.FormatMessage(IDS_INPUT_EDITPROP, sName.c_str(), static_cast<LPCWSTR>(m_pathlist[0].GetSVNPathString()));
+                    sHint.FormatMessage(IDS_INPUT_EDITPROP, sName.c_str(), static_cast<LPCWSTR>(m_pathList[0].GetSVNPathString()));
                     input.SetActionText(sHint);
                     if (input.DoModal() == IDOK)
                     {
@@ -813,14 +813,14 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
                     prog.SetTime(TRUE);
                     prog.SetShowProgressBar(TRUE);
                     prog.ShowModeless(m_hWnd);
-                    for (int i = 0; i < m_pathlist.GetCount(); ++i)
+                    for (int i = 0; i < m_pathList.GetCount(); ++i)
                     {
-                        prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-                        SVNProperties props(m_pathlist[i], m_revision, m_bRevProps, false);
+                        prog.SetLine(1, m_pathList[i].GetWinPath(), true);
+                        SVNProperties props(m_pathList[i], m_revision, m_bRevProps, false);
                         props.SetProgressDlg(&prog);
                         if (dlg->HasMultipleProperties())
                         {
-                            for (auto propsit = dlgprops.begin(); propsit != dlgprops.end(); ++propsit)
+                            for (auto propsit = dlgProps.begin(); propsit != dlgProps.end(); ++propsit)
                             {
                                 if (dlg->IsFolderOnlyProperty())
                                     props.AddFolderPropName(propsit->first);
@@ -942,13 +942,13 @@ void CEditPropertiesDlg::RemoveProps()
         bool        bRecurse = false;
         std::string sName    = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_propList.GetItemText(selIndex, 0)));
         tstring     sUName   = CUnicodeUtils::StdGetUnicode(sName);
-        if (m_pathlist[0].IsUrl())
+        if (m_pathList[0].IsUrl())
         {
             CInputLogDlg input(this);
             input.SetUUID(m_sUuid);
             input.SetProjectProperties(m_pProjectProperties, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
             CString sHint;
-            sHint.FormatMessage(IDS_INPUT_REMOVEPROP, sName.c_str(), static_cast<LPCWSTR>(m_pathlist[0].GetSVNPathString()));
+            sHint.FormatMessage(IDS_INPUT_REMOVEPROP, sName.c_str(), static_cast<LPCWSTR>(m_pathList[0].GetSVNPathString()));
             input.SetActionText(sHint);
             if (input.DoModal() != IDOK)
                 return;
@@ -956,26 +956,26 @@ void CEditPropertiesDlg::RemoveProps()
             defaultRet = IDCUSTOM2;
         }
         UINT ret = defaultRet;
-        if ((ret == 0) && ((m_pathlist.GetCount() > 1) || ((m_pathlist.GetCount() == 1) && (PathIsDirectory(m_pathlist[0].GetWinPath())))))
+        if ((ret == 0) && ((m_pathList.GetCount() > 1) || ((m_pathList.GetCount() == 1) && (PathIsDirectory(m_pathList[0].GetWinPath())))))
         {
             CString sQuestion;
             sQuestion.Format(IDS_EDITPROPS_RECURSIVEREMOVEQUESTION, sUName.c_str());
 
-            CTaskDialog taskdlg(sQuestion,
+            CTaskDialog taskDlg(sQuestion,
                                 CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            taskdlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)));
-            taskdlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(IDCUSTOM1);
-            if ((m_pathlist.GetCount() > 1) || (selCount > 1))
-                taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK6)));
-            ret = static_cast<UINT>(taskdlg.DoModal(GetSafeHwnd()));
-            if ((m_pathlist.GetCount() > 1) || (selCount > 1))
+            taskDlg.AddCommandControl(IDCUSTOM1, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK3)));
+            taskDlg.AddCommandControl(IDCUSTOM2, CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK4)));
+            taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskDlg.SetDefaultCommandControl(IDCUSTOM1);
+            if ((m_pathList.GetCount() > 1) || (selCount > 1))
+                taskDlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_EDITPROPS_RECURSIVEREMOVE_TASK6)));
+            ret = static_cast<UINT>(taskDlg.DoModal(GetSafeHwnd()));
+            if ((m_pathList.GetCount() > 1) || (selCount > 1))
             {
-                if (taskdlg.GetVerificationCheckboxState())
+                if (taskDlg.GetVerificationCheckboxState())
                     defaultRet = ret;
             }
         }
@@ -998,10 +998,10 @@ void CEditPropertiesDlg::RemoveProps()
         prog.SetTime(TRUE);
         prog.SetShowProgressBar(TRUE);
         prog.ShowModeless(m_hWnd);
-        for (int i = 0; i < m_pathlist.GetCount(); ++i)
+        for (int i = 0; i < m_pathList.GetCount(); ++i)
         {
-            prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-            SVNProperties props(m_pathlist[i], m_revision, m_bRevProps, false);
+            prog.SetLine(1, m_pathList[i].GetWinPath(), true);
+            SVNProperties props(m_pathList[i], m_revision, m_bRevProps, false);
             props.SetProgressDlg(&prog);
             if (!props.Remove(sName, bRecurse ? svn_depth_infinity : svn_depth_empty, sLogMsg))
             {
@@ -1077,13 +1077,13 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
     {
         async::CCriticalSectionLock lock(m_mutex);
         PropValue*                  prop = reinterpret_cast<PropValue*>(m_propList.GetItemData(selIndex));
-        if (prop->allthesamevalue)
+        if (prop->allTheSameValue)
         {
             CString savePath;
             if (!CAppUtils::FileOpenSave(savePath, nullptr, IDS_REPOBROWSE_SAVEAS, 0, false, CString(), m_hWnd))
                 return;
 
-            FILE*   stream;
+            FILE*   stream=nullptr;
             errno_t err = 0;
             if ((err = _tfopen_s(&stream, savePath, L"wbS")) == 0)
             {
@@ -1205,13 +1205,13 @@ void CEditPropertiesDlg::OnBnClickedImport()
                             std::string propertyvalue;
                             propertyvalue.assign(reinterpret_cast<const char*>(pValueBuf.get()), nValueBytes);
                             CString sMsg;
-                            if (m_pathlist[0].IsUrl())
+                            if (m_pathList[0].IsUrl())
                             {
                                 CInputLogDlg input(this);
                                 input.SetUUID(m_sUuid);
                                 input.SetProjectProperties(m_pProjectProperties, PROJECTPROPNAME_LOGTEMPLATEPROPSET);
                                 CString sHint;
-                                sHint.FormatMessage(IDS_INPUT_SETPROP, sUName.c_str(), static_cast<LPCWSTR>(m_pathlist[0].GetSVNPathString()));
+                                sHint.FormatMessage(IDS_INPUT_SETPROP, sUName.c_str(), static_cast<LPCWSTR>(m_pathList[0].GetSVNPathString()));
                                 input.SetActionText(sHint);
                                 if (input.DoModal() == IDOK)
                                 {
@@ -1221,10 +1221,10 @@ void CEditPropertiesDlg::OnBnClickedImport()
                                     bFailed = true;
                             }
 
-                            for (int i = 0; i < m_pathlist.GetCount() && !bFailed; ++i)
+                            for (int i = 0; i < m_pathList.GetCount() && !bFailed; ++i)
                             {
-                                prog.SetLine(1, m_pathlist[i].GetWinPath(), true);
-                                SVNProperties props(m_pathlist[i], m_revision, m_bRevProps, false);
+                                prog.SetLine(1, m_pathList[i].GetWinPath(), true);
+                                SVNProperties props(m_pathList[i], m_revision, m_bRevProps, false);
                                 if (!props.Add(sName, propertyvalue, false, svn_depth_empty, sMsg))
                                 {
                                     prog.Stop();
@@ -1380,10 +1380,10 @@ int CALLBACK CEditPropertiesDlg::SortCompare(LPARAM lParam1, LPARAM lParam2, LPA
             result = sName1.compare(sName2);
             break;
         case 1: // property value column
-            result = prop1->value_without_newlines.compare(prop2->value_without_newlines);
+            result = prop1->valueWithoutNewlines.compare(prop2->valueWithoutNewlines);
             break;
         case 2: // property inherited column
-            result = prop1->inheritedfrom.compare(prop2->inheritedfrom);
+            result = prop1->inheritedFrom.compare(prop2->inheritedFrom);
             break;
         default:
             break;

@@ -37,9 +37,9 @@ class CEditPropertiesDlg : public CResizableStandAloneDialog
 
 public:
     CEditPropertiesDlg(CWnd* pParent = nullptr); // standard constructor
-    virtual ~CEditPropertiesDlg();
+    ~CEditPropertiesDlg() override;
 
-    void SetPathList(const CTSVNPathList& pathlist) { m_pathlist = pathlist; }
+    void SetPathList(const CTSVNPathList& pathlist) { m_pathList = pathlist; }
     void SetRevision(const SVNRev& rev) { m_revision = rev; }
     void Refresh();
     bool HasChanged() const { return m_bChanged; }
@@ -56,11 +56,11 @@ public:
     };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
+    void         OnCancel() override;
+    BOOL         PreTranslateMessage(MSG* pMsg) override;
     afx_msg void OnBnClickedHelp();
     afx_msg void OnNMCustomdrawEditproplist(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnBnClickedRemoveProps();
@@ -91,7 +91,7 @@ private:
 
 protected:
     async::CCriticalSection m_mutex;
-    CTSVNPathList           m_pathlist;
+    CTSVNPathList           m_pathList;
     CHintCtrl<CListCtrl>    m_propList;
     BOOL                    m_bRecursive;
     bool                    m_bChanged;

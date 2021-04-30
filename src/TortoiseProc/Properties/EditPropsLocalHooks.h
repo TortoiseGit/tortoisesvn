@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012, 2015 - TortoiseSVN
+// Copyright (C) 2011-2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,39 +20,42 @@
 #include "EditPropBase.h"
 #include "StandAloneDlg.h"
 #include "ProjectProperties.h"
-#include "Hooks.h"
-
 
 // CEditPropsLocalHooks dialog
 
-class CEditPropsLocalHooks : public CResizableStandAloneDialog, public EditPropBase
+class CEditPropsLocalHooks : public CResizableStandAloneDialog
+    , public EditPropBase
 {
     DECLARE_DYNAMIC(CEditPropsLocalHooks)
 
 public:
-    CEditPropsLocalHooks(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CEditPropsLocalHooks();
+    CEditPropsLocalHooks(CWnd* pParent = nullptr); // standard constructor
+    ~CEditPropsLocalHooks() override;
 
     // Dialog Data
-    enum { IDD = IDD_EDITPROPLOCALHOOKS };
+    enum
+    {
+        IDD = IDD_EDITPROPLOCALHOOKS
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
+    void         OnCancel() override;
     afx_msg void OnBnClickedHelp();
 
     DECLARE_MESSAGE_MAP()
 
-    void CheckRecursive();
     INT_PTR DoModal() override { return CResizableStandAloneDialog::DoModal(); }
+
 protected:
-    ProjectProperties   m_ProjectProperties;
-    CString             m_sCommandLine;
-    BOOL                m_bWait;
-    BOOL                m_bHide;
-    BOOL                m_bEnforce;
-    CComboBox           m_cHookTypeCombo;
+    ProjectProperties m_projectProperties;
+    CString           m_sCommandLine;
+    BOOL              m_bWait;
+    BOOL              m_bHide;
+    BOOL              m_bEnforce;
+    CComboBox         m_cHookTypeCombo;
+
 public:
 };

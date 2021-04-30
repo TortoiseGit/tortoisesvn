@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012, 2015 - TortoiseSVN
+// Copyright (C) 2010-2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,21 +21,26 @@
 #include "StandAloneDlg.h"
 #include "RegexEdit.h"
 
-class CEditPropBugtraq : public CResizableStandAloneDialog, public EditPropBase
+class CEditPropBugtraq : public CResizableStandAloneDialog
+    , public EditPropBase
 {
     DECLARE_DYNAMIC(CEditPropBugtraq)
 
 public:
-    CEditPropBugtraq(CWnd* pParent = NULL);
-    virtual ~CEditPropBugtraq();
+    CEditPropBugtraq(CWnd* pParent = nullptr);
+    ~CEditPropBugtraq() override;
 
-    enum { IDD = IDD_EDITPROPBUGTRAQ };
+    enum
+    {
+        IDD = IDD_EDITPROPBUGTRAQ
+    };
 
-    virtual bool            HasMultipleProperties() override { return true; }
+    bool HasMultipleProperties() override { return true; }
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);
-    virtual void OnOK();
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override;
+    void         OnOK() override;
+    BOOL         OnInitDialog() override;
     afx_msg void OnBnClickedHelp();
     afx_msg void OnBnClickedTestregex();
 
@@ -44,16 +49,16 @@ protected:
     INT_PTR DoModal() override { return CResizableStandAloneDialog::DoModal(); }
 
 private:
-    BOOL        m_bWarnIfNoIssue;
-    CString     m_sBugtraqUrl;
-    CString     m_sBugtraqMessage;
-    CString     m_sBugtraqLabel;
-    CString     m_sBugtraqRegex1;
-    CString     m_sBugtraqRegex2;
-    CString     m_sProviderUUID;
-    CString     m_sProviderUUID64;
-    CString     m_sProviderParams;
+    BOOL    m_bWarnIfNoIssue;
+    CString m_sBugtraqUrl;
+    CString m_sBugtraqMessage;
+    CString m_sBugtraqLabel;
+    CString m_sBugtraqRegex1;
+    CString m_sBugtraqRegex2;
+    CString m_sProviderUuid;
+    CString m_sProviderUuid64;
+    CString m_sProviderParams;
 
-    CRegexEdit  m_BugtraqRegex1;
-    CRegexEdit  m_BugtraqRegex2;
+    CRegexEdit m_bugtraqRegex1;
+    CRegexEdit m_bugtraqRegex2;
 };

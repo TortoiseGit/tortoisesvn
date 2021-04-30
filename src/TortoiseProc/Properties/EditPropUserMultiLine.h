@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012 - TortoiseSVN
+// Copyright (C) 2011-2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,33 +22,37 @@
 #include "StandAloneDlg.h"
 #include "UserProperties.h"
 
-
 // EditPropUserMultiLine dialog
 
-class EditPropUserMultiLine : public CStandAloneDialog, public EditPropBase
+class EditPropUserMultiLine : public CStandAloneDialog
+    , public EditPropBase
 {
     DECLARE_DYNAMIC(EditPropUserMultiLine)
 
 public:
-    EditPropUserMultiLine(CWnd* pParent, const UserProp * p);   // standard constructor
-    virtual ~EditPropUserMultiLine();
+    EditPropUserMultiLine(CWnd* pParent, const UserProp* p); // standard constructor
+    ~EditPropUserMultiLine() override;
 
-    virtual bool IsFolderOnlyProperty() override { return !m_userprop->file; }
-    void SetUserProp(UserProp * p) {m_userprop = p;}
+    bool IsFolderOnlyProperty() override { return !m_userProp->file; }
+    void SetUserProp(UserProp* p) { m_userProp = p; }
 
     // Dialog Data
-    enum { IDD = IDD_EDITPROPUSERMULTILINE };
+    enum
+    {
+        IDD = IDD_EDITPROPUSERMULTILINE
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
 
     DECLARE_MESSAGE_MAP()
 
     INT_PTR DoModal() override { return CStandAloneDialog::DoModal(); }
+
 private:
-    CString             m_sLine;
-    CString             m_sLabel;
-    const UserProp *    m_userprop;
+    CString         m_sLine;
+    CString         m_sLabel;
+    const UserProp* m_userProp;
 };

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012 - TortoiseSVN
+// Copyright (C) 2010, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,20 +20,24 @@
 #include "EditPropBase.h"
 #include "StandAloneDlg.h"
 
-class CEditPropMimeType : public CStandAloneDialog, public EditPropBase
+class CEditPropMimeType : public CStandAloneDialog
+    , public EditPropBase
 {
     DECLARE_DYNAMIC(CEditPropMimeType)
 
 public:
-    CEditPropMimeType(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CEditPropMimeType();
+    CEditPropMimeType(CWnd* pParent = nullptr); // standard constructor
+    ~CEditPropMimeType() override;
 
-    enum { IDD = IDD_EDITPROPMIMETYPE };
+    enum
+    {
+        IDD = IDD_EDITPROPMIMETYPE
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
 
     afx_msg void OnBnClickedType();
     afx_msg void OnBnClickedProprecursive();
@@ -44,5 +48,5 @@ protected:
     INT_PTR DoModal() override { return CStandAloneDialog::DoModal(); }
 
 private:
-    CString             m_sCustomMimeType;
+    CString m_sCustomMimeType;
 };

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012-2015 - TortoiseSVN
+// Copyright (C) 2012-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,11 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropMergeLogTemplate.h"
 #include "UnicodeUtils.h"
 #include "AppUtils.h"
-
 
 // CEditPropMergeLogTemplate dialog
 
@@ -30,7 +28,6 @@ IMPLEMENT_DYNAMIC(CEditPropMergeLogTemplate, CResizableStandAloneDialog)
 CEditPropMergeLogTemplate::CEditPropMergeLogTemplate(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CEditPropMergeLogTemplate::IDD, pParent)
 {
-
 }
 
 CEditPropMergeLogTemplate::~CEditPropMergeLogTemplate()
@@ -43,14 +40,11 @@ void CEditPropMergeLogTemplate::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PROPRECURSIVE, m_bRecursive);
 }
 
-
 BEGIN_MESSAGE_MAP(CEditPropMergeLogTemplate, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CEditPropMergeLogTemplate::OnBnClickedHelp)
 END_MESSAGE_MAP()
 
-
 // CEditPropMergeLogTemplate message handlers
-
 
 BOOL CEditPropMergeLogTemplate::OnInitDialog()
 {
@@ -66,10 +60,9 @@ BOOL CEditPropMergeLogTemplate::OnInitDialog()
     SetDlgItemText(IDC_TITLEHINTREVERSE, CString(MAKEINTRESOURCE(IDS_EDITPROPS_MERGETITLEHINTREVERSE)));
     SetDlgItemText(IDC_MSGHINT, CString(MAKEINTRESOURCE(IDS_EDITPROPS_MERGEMSGHINT)));
 
-
     for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
     {
-        if (it->second.isinherited)
+        if (it->second.isInherited)
             continue;
         if (it->first.compare(PROJECTPROPNAME_MERGELOGTEMPLATETITLE) == 0)
         {
@@ -125,39 +118,38 @@ BOOL CEditPropMergeLogTemplate::OnInitDialog()
     return FALSE;
 }
 
-
 void CEditPropMergeLogTemplate::OnOK()
 {
     TProperties newProps;
-    PropValue pVal;
+    PropValue   pVal;
 
     CString sText;
     GetDlgItemText(IDC_TITLE, sText);
     CStringA propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
-    pVal.value = propVal;
+    pVal.value  = propVal;
     pVal.remove = (pVal.value.empty());
     newProps.emplace(PROJECTPROPNAME_MERGELOGTEMPLATETITLE, pVal);
 
     GetDlgItemText(IDC_TITLEREVERSE, sText);
     propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
-    pVal.value = propVal;
+    pVal.value  = propVal;
     pVal.remove = (pVal.value.empty());
     newProps.emplace(PROJECTPROPNAME_MERGELOGTEMPLATEREVERSETITLE, pVal);
 
     GetDlgItemText(IDC_MSG, sText);
     propVal = CUnicodeUtils::GetUTF8(sText);
     propVal.Replace("\r\n", "\n");
-    pVal.value = propVal;
+    pVal.value  = propVal;
     pVal.remove = (pVal.value.empty());
     newProps.emplace(PROJECTPROPNAME_MERGELOGTEMPLATEMSG, pVal);
 
-    pVal.value = IsDlgButtonChecked(IDC_TITLEBOTTOM) ? "yes" : "";
+    pVal.value  = IsDlgButtonChecked(IDC_TITLEBOTTOM) ? "yes" : "";
     pVal.remove = (pVal.value.empty());
     newProps.emplace(PROJECTPROPNAME_MERGELOGTEMPLATETITLEBOTTOM, pVal);
 
-    m_bChanged = true;
+    m_bChanged   = true;
     m_properties = newProps;
 
     __super::OnOK();

@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SVNProperties.h"
 #include "UnicodeUtils.h"
 #include "AppUtils.h"
@@ -145,9 +144,9 @@ BOOL CEditPropertyValueDlg::OnInitDialog()
 
                 while (!resToken.IsEmpty())
                 {
-                    int equalpos = resToken.Find('=');
-                    if (equalpos >= 0)
-                        resToken = resToken.Left(equalpos);
+                    int equalPos = resToken.Find('=');
+                    if (equalPos >= 0)
+                        resToken = resToken.Left(equalPos);
                     m_propNames.AddString(resToken);
                     resToken = m_projectProperties.m_sDpPath.Tokenize(L"\n", curPos);
                 }
@@ -247,14 +246,14 @@ void CEditPropertyValueDlg::OnOK()
 {
     UpdateData();
     m_propNames.GetWindowText(m_sPropName);
-    m_PropName                = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_sPropName));
-    svn_boolean_t is_svn_prop = svn_prop_needs_translation(m_PropName.c_str());
+    m_propName              = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_sPropName));
+    svn_boolean_t isSVNProp = svn_prop_needs_translation(m_propName.c_str());
 
-    if (!m_bIsBinary || is_svn_prop)
+    if (!m_bIsBinary || isSVNProp)
     {
         m_sPropValue.Replace(L"\r\n", L"\n");
         m_sPropValue.Replace(L"\n\n", L"\n");
-        m_PropValue = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_sPropValue));
+        m_propValue = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_sPropValue));
     }
     CDialog::OnOK();
 }
@@ -418,17 +417,17 @@ void CEditPropertyValueDlg::OnBnClickedLoadprop()
     CAutoFile hFile = CreateFile(openPath, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
     if (hFile)
     {
-        DWORD size = GetFileSize(hFile, nullptr);
-        FILE* stream;
+        DWORD size   = GetFileSize(hFile, nullptr);
+        FILE* stream = nullptr;
         _tfopen_s(&stream, openPath, L"rbS");
         std::unique_ptr<char[]> buf(new char[size]);
         if (fread(buf.get(), sizeof(char), size, stream) == size)
         {
-            m_PropValue.assign(buf.get(), size);
+            m_propValue.assign(buf.get(), size);
         }
         fclose(stream);
         // see if the loaded file contents are binary
-        SetPropertyValue(m_PropValue);
+        SetPropertyValue(m_propValue);
         UpdateData(FALSE);
         m_bChanged = true;
     }
@@ -443,7 +442,7 @@ void CEditPropertyValueDlg::OnEnChangePropvalue()
     if ((m_bIsBinary) && (m_sPropValue.CompareNoCase(sTemp) != 0))
     {
         m_sPropValue.Empty();
-        m_PropValue.clear();
+        m_propValue.clear();
         UpdateData(FALSE);
         m_bIsBinary = false;
     }

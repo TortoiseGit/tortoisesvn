@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013-2017 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropBugtraq.h"
 #include "UnicodeUtils.h"
 #include "AppUtils.h"
@@ -32,7 +31,6 @@ CEditPropBugtraq::CEditPropBugtraq(CWnd* pParent /*=NULL*/)
     , EditPropBase()
     , m_bWarnIfNoIssue(FALSE)
 {
-
 }
 
 CEditPropBugtraq::~CEditPropBugtraq()
@@ -49,19 +47,17 @@ void CEditPropBugtraq::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_BUGTRAQLABEL, m_sBugtraqLabel);
     DDX_Text(pDX, IDC_BUGTRAQLOGREGEX1, m_sBugtraqRegex1);
     DDX_Text(pDX, IDC_BUGTRAQLOGREGEX2, m_sBugtraqRegex2);
-    DDX_Text(pDX, IDC_UUID32, m_sProviderUUID);
-    DDX_Text(pDX, IDC_UUID64, m_sProviderUUID64);
+    DDX_Text(pDX, IDC_UUID32, m_sProviderUuid);
+    DDX_Text(pDX, IDC_UUID64, m_sProviderUuid64);
     DDX_Text(pDX, IDC_PARAMS, m_sProviderParams);
-    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX1, m_BugtraqRegex1);
-    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX2, m_BugtraqRegex2);
+    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX1, m_bugtraqRegex1);
+    DDX_Control(pDX, IDC_BUGTRAQLOGREGEX2, m_bugtraqRegex2);
 }
-
 
 BEGIN_MESSAGE_MAP(CEditPropBugtraq, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CEditPropBugtraq::OnBnClickedHelp)
     ON_BN_CLICKED(IDC_TESTREGEX, &CEditPropBugtraq::OnBnClickedTestregex)
 END_MESSAGE_MAP()
-
 
 // CEditPropBugtraq message handlers
 
@@ -80,7 +76,7 @@ BOOL CEditPropBugtraq::OnInitDialog()
 
     for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
     {
-        if (it->second.isinherited)
+        if (it->second.isInherited)
             continue;
         if (it->first.compare(BUGTRAQPROPNAME_URL) == 0)
         {
@@ -96,11 +92,11 @@ BOOL CEditPropBugtraq::OnInitDialog()
         }
         else if (it->first.compare(BUGTRAQPROPNAME_PROVIDERUUID) == 0)
         {
-            m_sProviderUUID = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
+            m_sProviderUuid = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
         }
         else if (it->first.compare(BUGTRAQPROPNAME_PROVIDERUUID64) == 0)
         {
-            m_sProviderUUID64 = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
+            m_sProviderUuid64 = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
         }
         else if (it->first.compare(BUGTRAQPROPNAME_PROVIDERPARAMS) == 0)
         {
@@ -109,10 +105,10 @@ BOOL CEditPropBugtraq::OnInitDialog()
         else if (it->first.compare(BUGTRAQPROPNAME_LOGREGEX) == 0)
         {
             CString sRegex = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
-            int nl = sRegex.Find('\n');
+            int     nl     = sRegex.Find('\n');
             if (nl >= 0)
             {
-                m_sBugtraqRegex1 = sRegex.Mid(nl+1);
+                m_sBugtraqRegex1 = sRegex.Mid(nl + 1);
                 m_sBugtraqRegex2 = sRegex.Left(nl);
             }
             else
@@ -120,19 +116,19 @@ BOOL CEditPropBugtraq::OnInitDialog()
         }
         else if (it->first.compare(BUGTRAQPROPNAME_WARNIFNOISSUE) == 0)
         {
-            CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
-            m_bWarnIfNoIssue = ((sYesNo.CompareNoCase(L"yes") == 0)||((sYesNo.CompareNoCase(L"true") == 0)));
+            CString sYesNo   = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
+            m_bWarnIfNoIssue = ((sYesNo.CompareNoCase(L"yes") == 0) || ((sYesNo.CompareNoCase(L"true") == 0)));
         }
         else if (it->first.compare(BUGTRAQPROPNAME_APPEND) == 0)
         {
             CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
-            if ((sYesNo.CompareNoCase(L"no") == 0)||((sYesNo.CompareNoCase(L"false") == 0)))
+            if ((sYesNo.CompareNoCase(L"no") == 0) || ((sYesNo.CompareNoCase(L"false") == 0)))
                 CheckRadioButton(IDC_TOPRADIO, IDC_BOTTOMRADIO, IDC_TOPRADIO);
         }
         else if (it->first.compare(BUGTRAQPROPNAME_NUMBER) == 0)
         {
             CString sYesNo = CUnicodeUtils::StdGetUnicode(it->second.value).c_str();
-            if ((sYesNo.CompareNoCase(L"no") == 0)||((sYesNo.CompareNoCase(L"false") == 0)))
+            if ((sYesNo.CompareNoCase(L"no") == 0) || ((sYesNo.CompareNoCase(L"false") == 0)))
                 CheckRadioButton(IDC_TEXTRADIO, IDC_NUMERICRADIO, IDC_TEXTRADIO);
         }
     }
@@ -198,7 +194,7 @@ BOOL CEditPropBugtraq::OnInitDialog()
 
 void CEditPropBugtraq::OnOK()
 {
-    m_tooltips.Pop();   // hide the tooltips
+    m_tooltips.Pop(); // hide the tooltips
     UpdateData();
 
     // check whether the entered regex strings are valid
@@ -223,14 +219,13 @@ void CEditPropBugtraq::OnOK()
         return;
     }
 
-
     TProperties newProps;
-    PropValue pVal;
+    PropValue   pVal;
 
     // bugtraq:url
-    std::string propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqUrl);
-    pVal.value = propVal;
-    pVal.remove = (pVal.value.empty());
+    std::string propVal = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_sBugtraqUrl));
+    pVal.value          = propVal;
+    pVal.remove         = (pVal.value.empty());
     newProps.emplace(BUGTRAQPROPNAME_URL, pVal);
 
     // bugtraq:warnifnoissue
@@ -242,14 +237,14 @@ void CEditPropBugtraq::OnOK()
     newProps.emplace(BUGTRAQPROPNAME_WARNIFNOISSUE, pVal);
 
     // bugtraq:message
-    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqMessage);
-    pVal.value = propVal;
+    propVal     = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_sBugtraqMessage));
+    pVal.value  = propVal;
     pVal.remove = (pVal.value.empty());
     newProps.emplace(BUGTRAQPROPNAME_MESSAGE, pVal);
 
     // bugtraq:label
-    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sBugtraqLabel);
-    pVal.value = propVal;
+    propVal     = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_sBugtraqLabel));
+    pVal.value  = propVal;
     pVal.remove = (pVal.value.empty());
     newProps.emplace(BUGTRAQPROPNAME_LABEL, pVal);
 
@@ -279,26 +274,26 @@ void CEditPropBugtraq::OnOK()
         sLogRegex = m_sBugtraqRegex1;
     if (m_sBugtraqRegex1.IsEmpty() && !m_sBugtraqRegex2.IsEmpty())
         sLogRegex = m_sBugtraqRegex2;
-    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)sLogRegex);
-    pVal.value = propVal;
+    propVal     = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(sLogRegex));
+    pVal.value  = propVal;
     pVal.remove = (pVal.value.empty());
     newProps.emplace(BUGTRAQPROPNAME_LOGREGEX, pVal);
 
     // bugtraq:providerparams
-    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderParams);
-    pVal.value = propVal;
+    propVal     = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_sProviderParams));
+    pVal.value  = propVal;
     pVal.remove = (pVal.value.empty());
     newProps.emplace(BUGTRAQPROPNAME_PROVIDERPARAMS, pVal);
 
     // bugtraq:provideruuid
-    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderUUID);
-    pVal.value = propVal;
+    propVal     = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_sProviderUuid));
+    pVal.value  = propVal;
     pVal.remove = (pVal.value.empty());
     newProps.emplace(BUGTRAQPROPNAME_PROVIDERUUID, pVal);
 
     // bugtraq:provideruuid64
-    propVal = CUnicodeUtils::StdGetUTF8((LPCTSTR)m_sProviderUUID64);
-    pVal.value = propVal;
+    propVal     = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_sProviderUuid64));
+    pVal.value  = propVal;
     pVal.remove = (pVal.value.empty());
     newProps.emplace(BUGTRAQPROPNAME_PROVIDERUUID64, pVal);
 
@@ -316,7 +311,7 @@ void CEditPropBugtraq::OnBnClickedHelp()
 
 void CEditPropBugtraq::OnBnClickedTestregex()
 {
-    m_tooltips.Pop();   // hide the tooltips
+    m_tooltips.Pop(); // hide the tooltips
     CBugtraqRegexTestDlg dlg(this);
     dlg.m_sBugtraqRegex1 = m_sBugtraqRegex1;
     dlg.m_sBugtraqRegex2 = m_sBugtraqRegex2;
@@ -327,4 +322,3 @@ void CEditPropBugtraq::OnBnClickedTestregex()
         UpdateData(FALSE);
     }
 }
-

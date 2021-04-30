@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -16,12 +16,10 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "EditPropTSVNLang.h"
 #include "AppUtils.h"
 
-
-CComboBox    CEditPropTSVNLang::m_langCombo;
+CComboBox CEditPropTSVNLang::m_langCombo;
 
 IMPLEMENT_DYNAMIC(CEditPropTSVNLang, CStandAloneDialog)
 
@@ -29,7 +27,6 @@ CEditPropTSVNLang::CEditPropTSVNLang(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CEditPropTSVNLang::IDD, pParent)
     , m_bKeepEnglish(TRUE)
 {
-
 }
 
 CEditPropTSVNLang::~CEditPropTSVNLang()
@@ -44,11 +41,9 @@ void CEditPropTSVNLang::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_LANGCOMBO, m_langCombo);
 }
 
-
 BEGIN_MESSAGE_MAP(CEditPropTSVNLang, CStandAloneDialog)
     ON_BN_CLICKED(IDHELP, &CEditPropTSVNLang::OnBnClickedHelp)
 END_MESSAGE_MAP()
-
 
 // CEditPropTSVNLang message handlers
 
@@ -73,7 +68,7 @@ BOOL CEditPropTSVNLang::OnInitDialog()
     DWORD projLang = 0;
     for (auto it = m_properties.begin(); it != m_properties.end(); ++it)
     {
-        if (it->second.isinherited)
+        if (it->second.isInherited)
             continue;
         if (it->first.compare(PROJECTPROPNAME_LOGFILELISTLANG) == 0)
         {
@@ -111,19 +106,19 @@ void CEditPropTSVNLang::OnOK()
     UpdateData();
 
     TProperties newProps;
-    PropValue pVal;
+    PropValue   pVal;
 
-    char numBuf[20] = { 0 };
+    char numBuf[20] = {0};
     sprintf_s(numBuf, "%Id", m_langCombo.GetItemData(m_langCombo.GetCurSel()));
-    pVal.value = numBuf;
+    pVal.value  = numBuf;
     pVal.remove = (m_langCombo.GetItemData(m_langCombo.GetCurSel()) == 0);
     newProps.emplace(PROJECTPROPNAME_PROJECTLANGUAGE, pVal);
 
-    pVal.value = m_bKeepEnglish ? "" : "false";
+    pVal.value  = m_bKeepEnglish ? "" : "false";
     pVal.remove = !!m_bKeepEnglish;
     newProps.emplace(PROJECTPROPNAME_LOGFILELISTLANG, pVal);
 
-    m_bChanged = true;
+    m_bChanged   = true;
     m_properties = newProps;
 
     CStandAloneDialog::OnOK();
@@ -131,7 +126,7 @@ void CEditPropTSVNLang::OnOK()
 
 BOOL CEditPropTSVNLang::EnumLocalesProc(LPTSTR lpLocaleString)
 {
-    DWORD langID = wcstol(lpLocaleString, NULL, 16);
+    DWORD langID = wcstol(lpLocaleString, nullptr, 16);
 
     TCHAR buf[MAX_PATH] = {0};
     GetLocaleInfo(langID, LOCALE_SNATIVELANGNAME, buf, _countof(buf));

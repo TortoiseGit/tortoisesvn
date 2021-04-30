@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2013, 2015, 2017 - TortoiseSVN
+// Copyright (C) 2010-2013, 2015, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,21 +23,24 @@
 #include "SVNExternals.h"
 #include "HintCtrl.h"
 
-
-class CEditPropExternals : public CResizableStandAloneDialog, public EditPropBase
+class CEditPropExternals : public CResizableStandAloneDialog
+    , public EditPropBase
 {
     DECLARE_DYNAMIC(CEditPropExternals)
 
 public:
-    CEditPropExternals(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CEditPropExternals();
+    CEditPropExternals(CWnd *pParent = nullptr); // standard constructor
+    ~CEditPropExternals() override;
 
-    enum { IDD = IDD_EDITPROPEXTERNALS };
+    enum
+    {
+        IDD = IDD_EDITPROPEXTERNALS
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange *pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
 
     afx_msg void OnBnClickedAdd();
     afx_msg void OnBnClickedEdit();
@@ -47,21 +50,21 @@ protected:
     afx_msg void OnLvnItemchangedExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnHdnItemclickExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnNMDblclkExternalslist(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnContextMenu(CWnd* pWnd, CPoint point);
+    afx_msg void OnContextMenu(CWnd *pWnd, CPoint point);
     afx_msg void OnBnClickedHelp();
 
     DECLARE_MESSAGE_MAP()
 
     INT_PTR DoModal() override { return CResizableStandAloneDialog::DoModal(); }
 
-    static bool SortCompare(const SVNExternal& Data1, const SVNExternal& Data2);
+    static bool SortCompare(const SVNExternal &data1, const SVNExternal &data2);
 
 private:
-    CHintCtrl<CListCtrl>    m_ExtList;
-    SVNExternals            m_externals;
-    TCHAR                   m_columnbuf[MAX_PATH];
-    CTSVNPath               m_url;
-    CTSVNPath               m_repoRoot;
-    static int              m_nSortedColumn;
-    static bool             m_bAscending;
+    CHintCtrl<CListCtrl> m_extList;
+    SVNExternals         m_externals;
+    TCHAR                m_columnBuf[MAX_PATH];
+    CTSVNPath            m_url;
+    CTSVNPath            m_repoRoot;
+    static int           m_nSortedColumn;
+    static bool          m_bAscending;
 };

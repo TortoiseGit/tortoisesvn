@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012 - TortoiseSVN
+// Copyright (C) 2010, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,21 +20,24 @@
 #include "EditPropBase.h"
 #include "StandAloneDlg.h"
 
-
-class CEditPropExecutable : public CStandAloneDialog, public EditPropBase
+class CEditPropExecutable : public CStandAloneDialog
+    , public EditPropBase
 {
     DECLARE_DYNAMIC(CEditPropExecutable)
 
 public:
-    CEditPropExecutable(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CEditPropExecutable();
+    CEditPropExecutable(CWnd* pParent = nullptr); // standard constructor
+    ~CEditPropExecutable() override;
 
-    enum { IDD = IDD_EDITPROPEXECUTABLE };
+    enum
+    {
+        IDD = IDD_EDITPROPEXECUTABLE
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
     afx_msg void OnBnClickedProprecursive();
     afx_msg void OnBnClickedHelp();
 

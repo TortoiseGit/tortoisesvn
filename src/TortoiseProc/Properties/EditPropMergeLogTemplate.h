@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012-2013 - TortoiseSVN
+// Copyright (C) 2012-2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,28 +20,29 @@
 #include "EditPropBase.h"
 #include "StandAloneDlg.h"
 
-
 // CEditPropMergeLogTemplate dialog
 
-class CEditPropMergeLogTemplate : public CResizableStandAloneDialog, public EditPropBase
+class CEditPropMergeLogTemplate : public CResizableStandAloneDialog
+    , public EditPropBase
 {
     DECLARE_DYNAMIC(CEditPropMergeLogTemplate)
 
 public:
-    CEditPropMergeLogTemplate(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CEditPropMergeLogTemplate();
+    CEditPropMergeLogTemplate(CWnd* pParent = nullptr); // standard constructor
+    ~CEditPropMergeLogTemplate() override;
 
-    virtual bool            HasMultipleProperties() override { return true; }
-    virtual bool            IsFolderOnlyProperty() override { return true; }
+    bool HasMultipleProperties() override { return true; }
+    bool IsFolderOnlyProperty() override { return true; }
 
-
-    enum { IDD = IDD_EDITPROPMERGELOGTEMPLATE };
-
+    enum
+    {
+        IDD = IDD_EDITPROPMERGELOGTEMPLATE
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
     afx_msg void OnBnClickedHelp();
 
     DECLARE_MESSAGE_MAP()
