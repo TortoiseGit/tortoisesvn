@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010-2011, 2014 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "RebuildIconCacheCommand.h"
 
 #include "ShellUpdater.h"
-#include "AppUtils.h"
 
 bool RebuildIconCacheCommand::Execute()
 {
@@ -28,12 +27,12 @@ bool RebuildIconCacheCommand::Execute()
     if (CShellUpdater::RebuildIcons())
     {
         if (!bQuiet)
-            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SUCCESS), MAKEINTRESOURCE(IDS_PROC_ICONCACHEREBUILT), TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
+            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SUCCESS), MAKEINTRESOURCE(IDS_PROC_ICONCACHEREBUILT), TDCBF_OK_BUTTON, TD_INFORMATION_ICON, nullptr);
     }
     else
     {
         if (!bQuiet)
-            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_PROC_ICONCACHENOTREBUILT), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
+            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_PROC_ICONCACHENOTREBUILT), TDCBF_OK_BUTTON, TD_ERROR_ICON, nullptr);
     }
     return true;
 }

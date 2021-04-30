@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010, 2014, 2018 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2014, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,20 +24,20 @@
 
 bool CatCommand::Execute()
 {
-    auto savepath = CPathUtils::GetLongPathname(parser.GetVal(L"savepath"));
-    CString revision = parser.GetVal(L"revision");
-    CString pegrevision = parser.GetVal(L"pegrevision");
-    SVNRev rev = SVNRev(revision);
+    auto    savePath    = CPathUtils::GetLongPathname(parser.GetVal(L"savepath"));
+    CString revision    = parser.GetVal(L"revision");
+    CString pegRevision = parser.GetVal(L"pegrevision");
+    SVNRev  rev         = SVNRev(revision);
     if (!rev.IsValid())
         rev = SVNRev::REV_HEAD;
-    SVNRev pegrev = SVNRev(pegrevision);
-    if (!pegrev.IsValid())
-        pegrev = SVNRev::REV_HEAD;
+    SVNRev pegTev = SVNRev(pegRevision);
+    if (!pegTev.IsValid())
+        pegTev = SVNRev::REV_HEAD;
     SVN svn;
-    if (!svn.Cat(cmdLinePath, pegrev, rev, CTSVNPath(savepath.c_str())))
+    if (!svn.Cat(cmdLinePath, pegTev, rev, CTSVNPath(savePath.c_str())))
     {
         svn.ShowErrorDialog(GetExplorerHWND(), cmdLinePath);
-        ::DeleteFile(savepath.c_str());
+        ::DeleteFile(savePath.c_str());
         return false;
     }
     return true;

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007, 2010-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,25 +30,23 @@ public:
     /**
      * Executes the command.
      */
-    virtual bool            Execute() override
+    bool Execute() override
     {
         // If the user tries to start TortoiseProc from the link in the programs start menu
         // show an explanation about what TSVN is (shell extension) and open up an explorer window
-        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INFORMATION), MAKEINTRESOURCE(IDS_PROC_RTFM), TDCBF_OK_BUTTON, TD_WARNING_ICON, NULL);
+        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INFORMATION), MAKEINTRESOURCE(IDS_PROC_RTFM), TDCBF_OK_BUTTON, TD_WARNING_ICON, nullptr);
 
-        PWSTR pszPath = NULL;
-        if (SHGetKnownFolderPath(FOLDERID_Documents, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)
+        PWSTR pszPath = nullptr;
+        if (SHGetKnownFolderPath(FOLDERID_Documents, KF_FLAG_CREATE, nullptr, &pszPath) == S_OK)
         {
             CString path = pszPath;
             CoTaskMemFree(pszPath);
-            ShellExecute(0, L"explore", path, NULL, NULL, SW_SHOWNORMAL);
+            ShellExecute(nullptr, L"explore", path, nullptr, nullptr, SW_SHOWNORMAL);
         }
         else
-            ShellExecute(0, L"explore", L"", NULL, NULL, SW_SHOWNORMAL);
+            ShellExecute(nullptr, L"explore", L"", nullptr, nullptr, SW_SHOWNORMAL);
 
         return true;
     }
-    virtual bool            CheckPaths() override {return true;}
+    bool CheckPaths() override { return true; }
 };
-
-

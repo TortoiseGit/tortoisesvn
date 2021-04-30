@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2013, 2020 - TortoiseSVN
+// Copyright (C) 2009, 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,23 +28,26 @@ class CAutoTextTestDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CAutoTextTestDlg)
 
 public:
-    CAutoTextTestDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CAutoTextTestDlg();
+    CAutoTextTestDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CAutoTextTestDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_AUTOTEXTTESTDLG };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_AUTOTEXTTESTDLG
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
     afx_msg void OnBnClickedAutotextscan();
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    CString m_sContent;
-    CString m_sRegex;
-    CString m_sResult;
-    CString m_sTimingLabel;
+    CString       m_sContent;
+    CString       m_sRegex;
+    CString       m_sResult;
+    CString       m_sTimingLabel;
     CRichEditCtrl m_cContent;
 };
