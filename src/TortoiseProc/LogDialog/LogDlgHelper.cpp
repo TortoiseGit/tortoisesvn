@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2007, 2009-2016, 2021 - TortoiseSVN
 
@@ -65,17 +65,17 @@ void CStoreSelection::AddSelections()
         m_setSelectedRevisions.erase(pLogEntry->GetRevision());
     }
 
-    POSITION pos = m_logDlg->m_LogList.GetFirstSelectedItemPosition();
+    POSITION pos = m_logDlg->m_logList.GetFirstSelectedItemPosition();
     if (pos)
     {
-        int nIndex = m_logDlg->m_LogList.GetNextSelectedItem(pos);
+        int nIndex = m_logDlg->m_logList.GetNextSelectedItem(pos);
         if (nIndex != -1 && nIndex < shownRows)
         {
             PLOGENTRYDATA pLogEntry = m_logDlg->m_logEntries.GetVisible(nIndex);
             m_setSelectedRevisions.insert(pLogEntry->GetRevision());
             while (pos)
             {
-                nIndex = m_logDlg->m_LogList.GetNextSelectedItem(pos);
+                nIndex = m_logDlg->m_logList.GetNextSelectedItem(pos);
                 if (nIndex != -1 && nIndex < shownRows)
                 {
                     pLogEntry = m_logDlg->m_logEntries.GetVisible(nIndex);
@@ -103,8 +103,8 @@ void CStoreSelection::RestoreSelection()
             LONG nRevision = pLogEntry ? pLogEntry->GetRevision() : 0;
             if (m_setSelectedRevisions.find(nRevision) != m_setSelectedRevisions.end())
             {
-                m_logDlg->m_LogList.SetSelectionMark(i);
-                m_logDlg->m_LogList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
+                m_logDlg->m_logList.SetSelectionMark(i);
+                m_logDlg->m_logList.SetItemState(i, LVIS_SELECTED, LVIS_SELECTED);
 
                 // record range of selected items.
                 // We must not call EnsureVisible here because it will scroll
@@ -120,8 +120,8 @@ void CStoreSelection::RestoreSelection()
 
         if (lastSelected != INT_MIN)
         {
-            m_logDlg->m_LogList.EnsureVisible(lastSelected, FALSE);
-            m_logDlg->m_LogList.EnsureVisible(firstSelected, FALSE);
+            m_logDlg->m_logList.EnsureVisible(lastSelected, FALSE);
+            m_logDlg->m_logList.EnsureVisible(firstSelected, FALSE);
         }
 
         // UI updates are allowed, again
@@ -132,7 +132,7 @@ void CStoreSelection::RestoreSelection()
 
         m_logDlg->FillLogMessageCtrl(false);
         m_logDlg->UpdateLogInfoLabel();
-        m_logDlg->m_LogList.Invalidate();
+        m_logDlg->m_logList.Invalidate();
     }
 }
 

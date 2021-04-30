@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2017, 2019 - TortoiseSVN
+// Copyright (C) 2009-2017, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,90 +24,87 @@
 
 namespace
 {
-    static BOOL sse2supported = ::IsProcessorFeaturePresent( PF_XMMI64_INSTRUCTIONS_AVAILABLE );
+BOOL sse2Supported = ::IsProcessorFeaturePresent(PF_XMMI64_INSTRUCTIONS_AVAILABLE);
 
-    // case-sensitivity optimization functions
+// case-sensitivity optimization functions
 
-    bool IsAllASCII7 (const CString& s)
+bool IsAllASCII7(const CString& s)
+{
+    for (int i = 0, count = s.GetLength(); i < count; ++i)
+        if (s[i] >= 0x80)
+            return false;
+
+    return true;
+}
+
+void FastLowerCaseConversion(char* s, size_t size)
+{
+    // most of our strings will be tens of bytes long
+    // -> afford some minor overhead to handle the main part very fast
+
+    if (sse2Supported)
     {
-        for (int i = 0, count = s.GetLength(); i < count; ++i)
-            if (s[i] >= 0x80)
-                return false;
+        __m128i zero  = _mm_setzero_si128();
+        __m128i aMask = _mm_set_epi8('@', '@', '@', '@', '@', '@', '@', '@',
+                                     '@', '@', '@', '@', '@', '@', '@', '@');
+        __m128i zMask = _mm_set_epi8('[', '[', '[', '[', '[', '[', '[', '[',
+                                     '[', '[', '[', '[', '[', '[', '[', '[');
+        __m128i diff  = _mm_set_epi8(32, 32, 32, 32, 32, 32, 32, 32,
+                                    32, 32, 32, 32, 32, 32, 32, 32);
 
-        return true;
-    }
-
-    void FastLowerCaseConversion (char* s, size_t size)
-    {
-        // most of our strings will be tens of bytes long
-        // -> afford some minor overhead to handle the main part very fast
-
-        if (sse2supported)
+        char* end = s + size;
+        for (; s + sizeof(zero) <= end; s += sizeof(zero))
         {
-            __m128i zero = _mm_setzero_si128();
-            __m128i A_mask = _mm_set_epi8 ('@', '@', '@', '@', '@', '@', '@', '@',
-                                           '@', '@', '@', '@', '@', '@', '@', '@');
-            __m128i Z_mask = _mm_set_epi8 ('[', '[', '[', '[', '[', '[', '[', '[',
-                                           '[', '[', '[', '[', '[', '[', '[', '[');
-            __m128i diff   = _mm_set_epi8 (32, 32, 32, 32, 32, 32, 32, 32,
-                                           32, 32, 32, 32, 32, 32, 32, 32);
+            // fetch the next 16 bytes from the source
 
-            char* end = s + size;
-            for ( ; s + sizeof (zero) <= end; s += sizeof (zero))
-            {
-                // fetch the next 16 bytes from the source
+            __m128i chunk = _mm_loadu_si128(reinterpret_cast<const __m128i*>(s));
 
-                __m128i chunk = _mm_loadu_si128 ((const __m128i*)s);
+            // check for string end
 
-                // check for string end
+            if (_mm_movemask_epi8(_mm_cmpeq_epi8(chunk, zero)) != 0)
+                break;
 
-                if (_mm_movemask_epi8 (_mm_cmpeq_epi8 (chunk, zero)) != 0)
-                    break;
+            // identify chars that need correction
 
-                // identify chars that need correction
+            __m128i aOrLarger   = _mm_cmpgt_epi8(chunk, aMask);
+            __m128i zOrSmaller  = _mm_cmplt_epi8(chunk, zMask);
+            __m128i isUpperCase = _mm_and_si128(aOrLarger, zOrSmaller);
 
-                __m128i A_or_larger = _mm_cmpgt_epi8 (chunk, A_mask);
-                __m128i Z_or_smaller = _mm_cmplt_epi8 (chunk, Z_mask);
-                __m128i is_upper_case = _mm_and_si128 (A_or_larger, Z_or_smaller);
+            // apply the diff only where identified previously
 
-                // apply the diff only where identified previously
+            __m128i correction = _mm_and_si128(isUpperCase, diff);
+            chunk              = _mm_add_epi8(chunk, correction);
 
-                __m128i correction = _mm_and_si128 (is_upper_case, diff);
-                chunk = _mm_add_epi8 (chunk, correction);
+            // store the updated data
 
-                // store the updated data
-
-                _mm_storeu_si128 ((__m128i*)s, chunk);
-            };
-        }
-
-        for (char c = *s; c != 0; c = *++s)
-            if ((c <= 'Z') && (c >= 'A'))
-                *s += 'a' - 'A';
+            _mm_storeu_si128(reinterpret_cast<__m128i*>(s), chunk);
+        };
     }
 
-    // translate positions within a UTF8 string to the position these
-    // characters would have in an UTF16 string. Advance utf8Pos until
-    // target has been reached. Update utf16Pos accordingly.
+    for (char c = *s; c != 0; c = *++s)
+        if ((c <= 'Z') && (c >= 'A'))
+            *s += 'a' - 'A';
+}
 
-    void AdvanceUnicodePos ( const std::string& textUTF8
-                           , size_t& utf8Pos
-                           , size_t& utf16Pos
-                           , size_t target)
+// translate positions within a UTF8 string to the position these
+// characters would have in an UTF16 string. Advance utf8Pos until
+// target has been reached. Update utf16Pos accordingly.
+
+void AdvanceUnicodePos(const std::string& textUTF8, size_t& utf8Pos, size_t& utf16Pos, size_t target)
+{
+    for (; utf8Pos < target; ++utf8Pos)
     {
-        for (; utf8Pos < target; ++utf8Pos)
-        {
-            unsigned char c = textUTF8[utf8Pos];
-            if ((c < 0x80) || (c >= 0xc0))
-                ++utf16Pos;
-        }
+        unsigned char c = textUTF8[utf8Pos];
+        if ((c < 0x80) || (c >= 0xc0))
+            ++utf16Pos;
     }
+}
 
-};
+}; // namespace
 
 // filter utility method
 
-bool CLogDlgFilter::Match (char* text, size_t size) const
+bool CLogDlgFilter::Match(char* text, size_t size) const
 {
     // empty text does not match
 
@@ -120,7 +117,7 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
 
         if (!caseSensitive)
             if (fastLowerCase)
-                FastLowerCaseConversion (text, size);
+                FastLowerCaseConversion(text, size);
             else
             {
                 // all these strings are in utf-8, which means all the
@@ -128,48 +125,48 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
                 // lowercase won't work: we first have to convert
                 // the string to wide-char. Very very slow, but unavoidable
                 // if we want to make this work right.
-                CStringA as = CStringA(text, (int)size);
-                CString s = CUnicodeUtils::GetUnicode(as);
+                CStringA as = CStringA(text, static_cast<int>(size));
+                CString  s  = CUnicodeUtils::GetUnicode(as);
                 s.MakeLower();
                 as = CUnicodeUtils::GetUTF8(s);
-                strncpy_s(text, size+1, as, size);
+                strncpy_s(text, size + 1, as, size);
             }
 
         // require all strings to be present
 
-        bool current_value = true;
+        bool currentValue = true;
         for (size_t i = 0, count = subStringConditions.size(); i < count; ++i)
         {
-            const SCondition& condition = subStringConditions[i];
-            bool found = strstr (text, condition.subString.c_str()) != NULL;
-            switch (condition.prefix)
+            const auto& [subString, prefix, nextOrIndex] = subStringConditions[i];
+            bool found                                   = strstr(text, subString.c_str()) != nullptr;
+            switch (prefix)
             {
-                case and_not:
+                case Prefix::AndNot:
                     found = !found;
-                    // fallthrough
-                case and:
+                    [[fallthrough]];
+                case Prefix::And:
                     if (!found)
                     {
                         // not a match, so skip to the next "+"-prefixed item
 
-                        if (condition.nextOrIndex == 0)
+                        if (nextOrIndex == 0)
                             return false;
 
-                        current_value = false;
-                        i = condition.nextOrIndex-1;
+                        currentValue = false;
+                        i            = nextOrIndex - 1;
                     }
                     break;
 
-                case or:
-                    current_value |= found;
-                    if (!current_value)
+                case Prefix::Or:
+                    currentValue |= found;
+                    if (!currentValue)
                     {
                         // not a match, so skip to the next "+"-prefixed item
 
-                        if (condition.nextOrIndex == 0)
+                        if (nextOrIndex == 0)
                             return false;
 
-                        i = condition.nextOrIndex-1;
+                        i = nextOrIndex - 1;
                     }
                     break;
             }
@@ -177,13 +174,11 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
     }
     else
     {
-        for ( std::vector<std::regex>::const_iterator it = patterns.begin()
-            ; it != patterns.end()
-            ; ++it)
+        for (const auto& pattern : patterns)
         {
             try
             {
-                if (!regex_search(text, text + size, *it, std::regex_constants::match_any))
+                if (!regex_search(text, text + size, pattern, std::regex_constants::match_any))
                     return false;
             }
             catch (std::exception& /*e*/)
@@ -196,51 +191,48 @@ bool CLogDlgFilter::Match (char* text, size_t size) const
     return true;
 }
 
-std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (std::wstring& textUTF16) const
+std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges(std::wstring& textUTF16) const
 {
     std::vector<CHARRANGE> ranges;
 
     // normalize to lower case
 
     if (!caseSensitive && !textUTF16.empty())
-        _wcslwr_s (&textUTF16.at(0), textUTF16.length()+1);
-    std::string textUTF8 = CUnicodeUtils::StdGetUTF8 (textUTF16);
+        _wcslwr_s(&textUTF16.at(0), textUTF16.length() + 1);
+    std::string textUTF8 = CUnicodeUtils::StdGetUTF8(textUTF16);
 
     if (patterns.empty())
     {
         // require all strings to be present
 
         const char* toScan = textUTF8.c_str();
-        for ( auto iter = subStringConditions.begin()
-            , end = subStringConditions.end()
-            ; iter != end
-            ; ++iter)
+        for (auto iter = subStringConditions.begin(), end = subStringConditions.end(); iter != end; ++iter)
         {
-            if (iter->prefix != and_not)
+            if (iter->prefix != Prefix::AndNot)
             {
-                const char * toFind = iter->subString.c_str();
-                size_t toFindLength = iter->subString.length();
-                const char * pFound = strstr (toScan, toFind);
+                const char* toFind       = iter->subString.c_str();
+                size_t      toFindLength = iter->subString.length();
+                const char* pFound       = strstr(toScan, toFind);
                 while (pFound)
                 {
                     CHARRANGE range;
-                    range.cpMin = (LONG)(pFound - toScan);
-                    range.cpMax = (LONG)(range.cpMin + toFindLength);
+                    range.cpMin = static_cast<LONG>(pFound - toScan);
+                    range.cpMax = static_cast<LONG>(range.cpMin + toFindLength);
                     ranges.push_back(range);
-                    pFound = strstr (pFound+1, toFind);
+                    pFound = strstr(pFound + 1, toFind);
                 }
             }
         }
     }
     else
     {
-        for (std::vector<std::regex>::const_iterator it = patterns.begin(); it != patterns.end(); ++it)
+        for (const auto& pattern : patterns)
         {
             const std::sregex_iterator end;
-            for (std::sregex_iterator it2(textUTF8.begin(), textUTF8.end(), *it); it2 != end; ++it2)
+            for (std::sregex_iterator it2(textUTF8.begin(), textUTF8.end(), pattern); it2 != end; ++it2)
             {
-                ptrdiff_t matchposID = it2->position(0);
-                CHARRANGE range = {(LONG)(matchposID), (LONG)(matchposID+(*it2)[0].str().size())};
+                ptrdiff_t matchPosId = it2->position(0);
+                CHARRANGE range      = {static_cast<LONG>(matchPosId), static_cast<LONG>(matchPosId + (*it2)[0].str().size())};
                 ranges.push_back(range);
             }
         }
@@ -252,12 +244,10 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (std::wstring& textUTF16) c
     if (ranges.size() > 1)
     {
         auto begin = ranges.begin();
-        auto end = ranges.end();
+        auto end   = ranges.end();
 
         std::sort(begin, end,
-                    [] (const CHARRANGE& lhs, const CHARRANGE& rhs) -> bool
-                        {return lhs.cpMin < rhs.cpMin;}
-                 );
+                  [](const CHARRANGE& lhs, const CHARRANGE& rhs) -> bool { return lhs.cpMin < rhs.cpMin; });
 
         // once we are at it, merge adjacent and / or overlapping ranges
 
@@ -266,23 +256,21 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (std::wstring& textUTF16) c
             if (target->cpMax < source->cpMin)
                 *(++target) = *source;
             else
-                target->cpMax = max (target->cpMax, source->cpMax);
+                target->cpMax = max(target->cpMax, source->cpMax);
 
-        ranges.erase (++target, end);
+        ranges.erase(++target, end);
     }
 
     // translate UTF8 ranges to UTF16 ranges
 
-    size_t utf8Pos = 0;
+    size_t utf8Pos  = 0;
     size_t utf16Pos = 0;
-    for ( auto iter = ranges.begin(), end = ranges.end()
-        ; iter != end
-        ; ++iter)
+    for (auto iter = ranges.begin(), end = ranges.end(); iter != end; ++iter)
     {
-        AdvanceUnicodePos (textUTF8, utf8Pos, utf16Pos, iter->cpMin);
-        iter->cpMin = (LONG)utf16Pos;
-        AdvanceUnicodePos (textUTF8, utf8Pos, utf16Pos, iter->cpMax);
-        iter->cpMax = (LONG)utf16Pos;
+        AdvanceUnicodePos(textUTF8, utf8Pos, utf16Pos, iter->cpMin);
+        iter->cpMin = static_cast<LONG>(utf16Pos);
+        AdvanceUnicodePos(textUTF8, utf8Pos, utf16Pos, iter->cpMax);
+        iter->cpMax = static_cast<LONG>(utf16Pos);
     }
 
     return ranges;
@@ -290,27 +278,27 @@ std::vector<CHARRANGE> CLogDlgFilter::GetMatchRanges (std::wstring& textUTF16) c
 
 // called to parse a (potentially incorrect) regex spec
 
-bool CLogDlgFilter::ValidateRegexp (const char* regexp_str, std::vector<std::regex>& pattrns)
+bool CLogDlgFilter::ValidateRegexp(const char* regexpStr, std::vector<std::regex>& pattrns) const
 {
     try
     {
-        std::regex pat;
-        std::regex_constants::syntax_option_type type
-            = caseSensitive
-            ? std::regex_constants::ECMAScript
-            : std::regex_constants::ECMAScript | std::regex_constants::icase;
+        std::regex_constants::syntax_option_type type = caseSensitive
+                                                            ? std::regex_constants::ECMAScript
+                                                            : std::regex_constants::ECMAScript | std::regex_constants::icase;
 
-        pat = std::regex(regexp_str, type);
+        std::regex pat = std::regex(regexpStr, type);
         pattrns.push_back(pat);
         return true;
     }
-    catch (std::exception&) {}
+    catch (std::exception&)
+    {
+    }
     return false;
 }
 
 // construction utility
 
-void CLogDlgFilter::AddSubString (CString token, Prefix prefix)
+void CLogDlgFilter::AddSubString(CString token, Prefix prefix)
 {
     if (token.IsEmpty())
         return;
@@ -325,90 +313,86 @@ void CLogDlgFilter::AddSubString (CString token, Prefix prefix)
         // to lowercase -> uppercase conversion or they map
         // their lowercase chars beyond U+0x80.
 
-        fastLowerCase &= IsAllASCII7 (token);
+        fastLowerCase &= IsAllASCII7(token);
     }
 
     // add condition to list
 
-    SCondition condition = { (const char*)CUnicodeUtils::GetUTF8(token), prefix, 0 };
-    subStringConditions.push_back (condition);
+    SCondition condition = {static_cast<const char*>(CUnicodeUtils::GetUTF8(token)), prefix, 0};
+    subStringConditions.push_back(condition);
 
     // update previous conditions
 
     size_t newPos = subStringConditions.size() - 1;
-    if (prefix == or)
+    if (prefix == Prefix::Or)
         for (size_t i = newPos; i > 0; --i)
         {
-            if (subStringConditions[i-1].nextOrIndex > 0)
+            if (subStringConditions[i - 1].nextOrIndex > 0)
                 break;
 
-            subStringConditions[i-1].nextOrIndex = newPos;
+            subStringConditions[i - 1].nextOrIndex = newPos;
         }
 }
 
 // construction
 
 CLogDlgFilter::CLogDlgFilter()
-    : attributeSelector(UINT_MAX)
+    : negate(false)
+    , attributeSelector(UINT_MAX)
     , caseSensitive(false)
+    , fastLowerCase(false)
     , from(0)
     , to(0)
     , scanRelevantPathsOnly(false)
     , revToKeep(0)
-    , negate(false)
-    , fastLowerCase(false)
+    , scratch(0xfff0)
+    , mergedRevs(nullptr)
     , hideNonMergeable(false)
-    , mergedrevs(nullptr)
-    , minrev(0)
-    , scratch (0xfff0)
+    , minRev(0)
 {
 }
 
-CLogDlgFilter::CLogDlgFilter (const CLogDlgFilter& rhs)
+CLogDlgFilter::CLogDlgFilter(const CLogDlgFilter& rhs)
 {
     operator=(rhs);
 }
 
-CLogDlgFilter::CLogDlgFilter
-    ( const CString& filter
-    , bool filterWithRegex
-    , DWORD selectedFilter
-    , bool caseSensitive
-    , __time64_t from
-    , __time64_t to
-    , bool scanRelevantPathsOnly
-    , std::set<svn_revnum_t> * mergedrevs
-    , bool hideNonMergeable
-    , svn_revnum_t minrev
-    , svn_revnum_t revToKeep)
-
-    : negate (false)
-    , attributeSelector ( selectedFilter )
-    , caseSensitive (caseSensitive)
-    , fastLowerCase (false)
-    , from (from)
-    , to (to)
-    , scanRelevantPathsOnly (scanRelevantPathsOnly)
-    , mergedrevs(mergedrevs)
+CLogDlgFilter::CLogDlgFilter(const CString& filter,
+                             bool           filterWithRegex,
+                             DWORD          selectedFilter,
+                             bool           caseSensitive,
+                             __time64_t from, __time64_t to,
+                             bool                    scanRelevantPathsOnly,
+                             std::set<svn_revnum_t>* mergedRevs,
+                             bool                    hideNonMergeable,
+                             svn_revnum_t minRev, svn_revnum_t revToKeep)
+    : negate(false)
+    , attributeSelector(selectedFilter)
+    , caseSensitive(caseSensitive)
+    , fastLowerCase(false)
+    , from(from)
+    , to(to)
+    , scanRelevantPathsOnly(scanRelevantPathsOnly)
+    , revToKeep(revToKeep)
+    , scratch(0xfff0)
+    , mergedRevs(mergedRevs)
     , hideNonMergeable(hideNonMergeable)
-    , revToKeep (revToKeep)
-    , minrev(minrev)
-    , scratch (0xfff0)
+    , minRev(minRev)
 {
     // decode string matching spec
 
-    bool useRegex = filterWithRegex && !filter.IsEmpty();
+    bool    useRegex   = filterWithRegex && !filter.IsEmpty();
     CString filterText = filter;
 
     // if the first char is '!', negate the filter
     if (filter.GetLength() && filter[0] == '!')
     {
-        negate = true;
+        negate     = true;
         filterText = filterText.Mid(1);
     }
 
     if (useRegex)
-        useRegex = ValidateRegexp (CUnicodeUtils::GetUTF8 (filterText), patterns);
+        useRegex = ValidateRegexp(CUnicodeUtils::GetUTF8(filterText), patterns);
 
     if (!useRegex)
     {
@@ -429,17 +413,17 @@ CLogDlgFilter::CLogDlgFilter
 
             // has it a prefix?
 
-            Prefix prefix = and;
+            Prefix prefix = Prefix::And;
             if (curPos < length)
                 switch (filterText[curPos])
                 {
-                    case '-' :
-                        prefix = and_not;
+                    case '-':
+                        prefix = Prefix::AndNot;
                         ++curPos;
                         break;
 
-                    case '+' :
-                        prefix = or;
+                    case '+':
+                        prefix = Prefix::Or;
                         ++curPos;
                         break;
                 }
@@ -459,7 +443,7 @@ CLogDlgFilter::CLogDlgFilter
                         {
                             // keep one and continue within sub-string
 
-                            subString.AppendChar ('"');
+                            subString.AppendChar('"');
                         }
                         else
                         {
@@ -473,64 +457,62 @@ CLogDlgFilter::CLogDlgFilter
                             {
                                 // add to sub-string & continue within it
 
-                                subString.AppendChar ('"');
-                                subString.AppendChar (filterText[curPos]);
+                                subString.AppendChar('"');
+                                subString.AppendChar(filterText[curPos]);
                             }
                         }
                     }
                     else
                     {
-                        subString.AppendChar (filterText[curPos]);
+                        subString.AppendChar(filterText[curPos]);
                     }
                 }
 
-                AddSubString (subString, prefix);
+                AddSubString(subString, prefix);
                 ++curPos;
                 continue;
             }
 
             // ordinary sub-string
 
-            AddSubString (filterText.Tokenize (L" ", curPos), prefix);
+            AddSubString(filterText.Tokenize(L" ", curPos), prefix);
         }
     }
 }
 
- // apply filter
+// apply filter
 
 namespace
 {
-    // concatenate strings
+// concatenate strings
 
-    void AppendString (CStringBuffer& target, const std::string& toAppend)
-    {
-        target.Append (' ');
-        target.Append (toAppend);
-    }
-
-    // convert path objects
-
-    void GetPath
-        ( const LogCache::CDictionaryBasedPath& path
-        , CStringBuffer& target)
-    {
-        target.Append ('|');
-        char* buffer = target.GetBuffer (MAX_PATH + 16);
-        size_t size = path.GetPath (buffer, MAX_PATH) - buffer;
-        SecureZeroMemory (buffer + size, 16);
-
-        // relative path strings are never empty
-
-        if (CPathUtils::ContainsEscapedChars (buffer, APR_ALIGN(size, 16)))
-            size = CPathUtils::Unescape (buffer) - buffer;
-
-        // mark buffer as used
-
-        target.AddSize (size);
-    }
+void AppendString(CStringBuffer& target, const std::string& toAppend)
+{
+    target.Append(' ');
+    target.Append(toAppend);
 }
 
-bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
+// convert path objects
+
+void GetPath(const LogCache::CDictionaryBasedPath& path, CStringBuffer& target)
+{
+    target.Append('|');
+    char*  buffer = target.GetBuffer(MAX_PATH + 16);
+    size_t size   = path.GetPath(buffer, MAX_PATH) - buffer;
+    SecureZeroMemory(buffer + size, 16);
+
+    // relative path strings are never empty
+
+    if (CPathUtils::ContainsEscapedChars(buffer, APR_ALIGN(size, 16)))
+        size = CPathUtils::Unescape(buffer) - buffer;
+
+    // mark buffer as used
+
+    target.AddSize(size);
+}
+} // namespace
+
+bool CLogDlgFilter::operator()(const CLogEntryData& entry) const
 {
     // quick checks
 
@@ -544,11 +526,11 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
             return false;
     }
 
-    if (hideNonMergeable && mergedrevs && !mergedrevs->empty())
+    if (hideNonMergeable && mergedRevs && !mergedRevs->empty())
     {
-        if (mergedrevs->find(entry.GetRevision()) != mergedrevs->end())
+        if (mergedRevs->find(entry.GetRevision()) != mergedRevs->end())
             return false;
-        if (entry.GetRevision() < minrev)
+        if (entry.GetRevision() < minRev)
             return false;
     }
     if (patterns.empty() && subStringConditions.empty() && !hideNonMergeable)
@@ -557,75 +539,73 @@ bool CLogDlgFilter::operator() (const CLogEntryData& entry) const
 
     scratch.Clear();
     if (attributeSelector & LOGFILTER_BUGID)
-        AppendString (scratch, entry.GetBugIDs());
+        AppendString(scratch, entry.GetBugIDs());
 
     if (attributeSelector & LOGFILTER_MESSAGES)
-        AppendString (scratch, entry.GetMessage());
+        AppendString(scratch, entry.GetMessage());
 
     if (attributeSelector & LOGFILTER_PATHS)
     {
         const CLogChangedPathArray& paths = entry.GetChangedPaths();
-        for ( size_t cpPathIndex = 0, pathCount = paths.GetCount()
-            ; cpPathIndex < pathCount
-            ; ++cpPathIndex)
+        for (size_t cpPathIndex = 0, pathCount = paths.GetCount(); cpPathIndex < pathCount; ++cpPathIndex)
         {
-            const CLogChangedPath& cpath = paths[cpPathIndex];
-            if (!scanRelevantPathsOnly || cpath.IsRelevantForStartPath())
+            const CLogChangedPath& cPath = paths[cpPathIndex];
+            if (!scanRelevantPathsOnly || cPath.IsRelevantForStartPath())
             {
-                GetPath (cpath.GetCachedPath(), scratch);
-                scratch.Append ('|');
-                scratch.Append (cpath.GetActionString());
+                GetPath(cPath.GetCachedPath(), scratch);
+                scratch.Append('|');
+                scratch.Append(cPath.GetActionString());
 
-                if (cpath.GetCopyFromRev() > 0)
+                if (cPath.GetCopyFromRev() > 0)
                 {
-                    GetPath (cpath.GetCachedCopyFromPath(), scratch);
+                    GetPath(cPath.GetCachedCopyFromPath(), scratch);
 
-                    scratch.Append ('|');
+                    scratch.Append('|');
 
-                    char buffer[10] = { 0 };
-                    _itoa_s (cpath.GetCopyFromRev(), buffer, 10);
-                    scratch.Append (buffer);
+                    char buffer[10] = {0};
+                    _itoa_s(cPath.GetCopyFromRev(), buffer, 10);
+                    scratch.Append(buffer);
                 }
             }
         }
     }
 
     if (attributeSelector & LOGFILTER_AUTHORS)
-        AppendString (scratch, entry.GetAuthor());
+        AppendString(scratch, entry.GetAuthor());
     if (attributeSelector & LOGFILTER_DATE)
-        AppendString (scratch, entry.GetDateString());
+        AppendString(scratch, entry.GetDateString());
 
     if (attributeSelector & LOGFILTER_REVS)
     {
-        scratch.Append (' ');
+        scratch.Append(' ');
 
-        char buffer[10] = { 0 };
-        _itoa_s (entry.GetRevision(), buffer, 10);
-        scratch.Append (buffer);
+        char buffer[10] = {0};
+        _itoa_s(entry.GetRevision(), buffer, 10);
+        scratch.Append(buffer);
     }
 
-    return Match (scratch, scratch.GetSize()) ^ negate;
+    return Match(scratch, scratch.GetSize()) ^ negate;
 }
 
-CLogDlgFilter& CLogDlgFilter::operator= (const CLogDlgFilter& rhs)
+CLogDlgFilter& CLogDlgFilter::operator=(const CLogDlgFilter& rhs)
 {
     if (this != &rhs)
     {
-        attributeSelector = rhs.attributeSelector;
-        caseSensitive = rhs.caseSensitive;
-        from = rhs.from;
-        to = rhs.to;
+        attributeSelector     = rhs.attributeSelector;
+        caseSensitive         = rhs.caseSensitive;
+        from                  = rhs.from;
+        to                    = rhs.to;
         scanRelevantPathsOnly = rhs.scanRelevantPathsOnly;
-        revToKeep = rhs.revToKeep;
-        negate = rhs.negate;
-        fastLowerCase = rhs.fastLowerCase;
+        revToKeep             = rhs.revToKeep;
+        negate                = rhs.negate;
+        fastLowerCase         = rhs.fastLowerCase;
 
         subStringConditions = rhs.subStringConditions;
-        patterns = rhs.patterns;
+        patterns            = rhs.patterns;
 
         hideNonMergeable = rhs.hideNonMergeable;
-        mergedrevs = rhs.mergedrevs;
-        minrev = rhs.minrev;
+        mergedRevs       = rhs.mergedRevs;
+        minRev           = rhs.minRev;
 
         scratch.Clear();
     }
@@ -633,7 +613,7 @@ CLogDlgFilter& CLogDlgFilter::operator= (const CLogDlgFilter& rhs)
     return *this;
 }
 
-bool CLogDlgFilter::operator== (const CLogDlgFilter& rhs) const
+bool CLogDlgFilter::operator==(const CLogDlgFilter& rhs) const
 {
     if (this == &rhs)
         return true;
@@ -645,14 +625,14 @@ bool CLogDlgFilter::operator== (const CLogDlgFilter& rhs) const
 
     // compare global flags
 
-    if (   negate != rhs.negate
-        || attributeSelector != rhs.attributeSelector
-        || caseSensitive != rhs.caseSensitive
-        || from != rhs.from
-        || to != rhs.to
-        || scanRelevantPathsOnly != rhs.scanRelevantPathsOnly
-        || hideNonMergeable != rhs.hideNonMergeable
-        || revToKeep != rhs.revToKeep)
+    if (negate != rhs.negate ||
+        attributeSelector != rhs.attributeSelector ||
+        caseSensitive != rhs.caseSensitive ||
+        from != rhs.from ||
+        to != rhs.to ||
+        scanRelevantPathsOnly != rhs.scanRelevantPathsOnly ||
+        hideNonMergeable != rhs.hideNonMergeable ||
+        revToKeep != rhs.revToKeep)
         return false;
 
     // compare sub-string defs
@@ -660,15 +640,9 @@ bool CLogDlgFilter::operator== (const CLogDlgFilter& rhs) const
     if (subStringConditions.size() != rhs.subStringConditions.size())
         return false;
 
-    for ( auto lhsIt = subStringConditions.begin()
-        , lhsEnd  = subStringConditions.end()
-        , rhsIt  = rhs.subStringConditions.begin()
-        ; lhsIt != lhsEnd
-        ; ++rhsIt, ++lhsIt)
+    for (auto lhsIt = subStringConditions.begin(), lhsEnd = subStringConditions.end(), rhsIt = rhs.subStringConditions.begin(); lhsIt != lhsEnd; ++rhsIt, ++lhsIt)
     {
-        if (   lhsIt->subString != rhsIt->subString
-            || lhsIt->prefix != rhsIt->prefix
-            || lhsIt->nextOrIndex != rhsIt->nextOrIndex)
+        if (lhsIt->subString != rhsIt->subString || lhsIt->prefix != rhsIt->prefix || lhsIt->nextOrIndex != rhsIt->nextOrIndex)
             return false;
     }
 
@@ -677,7 +651,7 @@ bool CLogDlgFilter::operator== (const CLogDlgFilter& rhs) const
     return true;
 }
 
-bool CLogDlgFilter::operator!= (const CLogDlgFilter& rhs) const
+bool CLogDlgFilter::operator!=(const CLogDlgFilter& rhs) const
 {
     return !operator==(rhs);
 }

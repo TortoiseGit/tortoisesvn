@@ -31,10 +31,9 @@ class CLogDlgFilter;
 class CLogChangedPath
 {
 private:
-
     CDictionaryBasedPath path;
     CDictionaryBasedPath copyFromPath;
-    svn_revnum_t copyFromRev;
+    svn_revnum_t         copyFromRev;
 
     /// since we may have north of 10 mio instances
     /// of this class, use bit stuffing to minimize
@@ -45,12 +44,12 @@ private:
         // note on bitfields: we have to use 'unsigned' and not the
         // real enum types, because the highest bit will be otherwise
         // treated as the sign bit, which then leads to wrong values
-        unsigned nodeKind:3;
-        DWORD action:8;
-        unsigned textModifies:2;
-        unsigned propsModifies:2;
-        int relevantForStartPath:1;     // we can't use bool here
-                                        // (takes an additional 4 bytes)
+        unsigned nodeKind             : 3;
+        DWORD    action               : 8;
+        unsigned textModifies         : 2;
+        unsigned propsModifies        : 2;
+        int      relevantForStartPath : 1; // we can't use bool here
+                                           // (takes an additional 4 bytes)
     } flags;
 
     /// true, if it affects the content of the path that
@@ -58,35 +57,32 @@ private:
 
     // conversion utility
 
-    CString GetUIPath (const CDictionaryBasedPath& p) const;
+    static CString GetUIPath(const CDictionaryBasedPath& p);
 
 public:
-
     /// construction
 
-    CLogChangedPath
-        ( const CRevisionInfoContainer::CChangesIterator& iter
-        , const CDictionaryBasedTempPath& logPath);
+    CLogChangedPath(const CRevisionInfoContainer::CChangesIterator& iter, const CDictionaryBasedTempPath& logPath);
 
     /// r/o data access
 
-    const CDictionaryBasedPath& GetCachedPath() const {return path;}
-    const CDictionaryBasedPath& GetCachedCopyFromPath() const {return copyFromPath;}
+    const CDictionaryBasedPath& GetCachedPath() const { return path; }
+    const CDictionaryBasedPath& GetCachedCopyFromPath() const { return copyFromPath; }
 
-    CString GetPath() const;
-    CString GetCopyFromPath() const;
-    svn_revnum_t GetCopyFromRev() const {return copyFromRev;}
-    svn_node_kind_t GetNodeKind() const {return (svn_node_kind_t)flags.nodeKind;}
-    DWORD GetAction() const {return flags.action;}
-    svn_tristate_t GetTextModifies() const {return (svn_tristate_t)flags.textModifies;}
-    svn_tristate_t GetPropsModifies() const {return (svn_tristate_t)flags.propsModifies;}
+    CString         GetPath() const;
+    CString         GetCopyFromPath() const;
+    svn_revnum_t    GetCopyFromRev() const { return copyFromRev; }
+    svn_node_kind_t GetNodeKind() const { return static_cast<svn_node_kind_t>(flags.nodeKind); }
+    DWORD           GetAction() const { return flags.action; }
+    svn_tristate_t  GetTextModifies() const { return static_cast<svn_tristate_t>(flags.textModifies); }
+    svn_tristate_t  GetPropsModifies() const { return static_cast<svn_tristate_t>(flags.propsModifies); }
 
-    bool IsRelevantForStartPath() const {return flags.relevantForStartPath != 0;}
+    bool IsRelevantForStartPath() const { return flags.relevantForStartPath != 0; }
 
     /// returns the action as a string
 
-    static const std::string& GetActionString (DWORD action);
-    const std::string& GetActionString() const;
+    static const std::string& GetActionString(DWORD action);
+    const std::string&        GetActionString() const;
 };
 
 /**
@@ -97,7 +93,6 @@ public:
 class CLogChangedPathArray : private std::vector<CLogChangedPath>
 {
 private:
-
     /// \ref MarkRelevantChanges found that the log path
     /// has been copied in this revision
 
@@ -108,36 +103,31 @@ private:
     mutable DWORD actions;
 
 public:
-
     /// construction
 
     CLogChangedPathArray();
 
     /// modification
 
-    void Add
-        ( CRevisionInfoContainer::CChangesIterator& first
-        , const CRevisionInfoContainer::CChangesIterator& last
-        , CDictionaryBasedTempPath& logPath);
+    void Add(CRevisionInfoContainer::CChangesIterator& first, const CRevisionInfoContainer::CChangesIterator& last, CDictionaryBasedTempPath& logPath);
 
-    void Add
-        ( const CLogChangedPath& item);
+    void Add(const CLogChangedPath& item);
 
     void RemoveAll();
     void RemoveIrrelevantPaths();
 
-    void Sort (int column, bool ascending);
+    void Sort(int column, bool ascending);
 
     /// data access
 
-    size_t GetCount() const {return size();}
-    const CLogChangedPath& operator[] (size_t index) const {return at (index);}
-    bool ContainsSelfCopy() const {return copiedSelf;}
+    size_t                 GetCount() const { return size(); }
+    const CLogChangedPath& operator[](size_t index) const { return at(index); }
+    bool                   ContainsSelfCopy() const { return copiedSelf; }
 
     /// derived information
 
     DWORD GetActions() const;
-    bool ContainsCopies() const;
+    bool  ContainsCopies() const;
 };
 
 /**
@@ -148,7 +138,6 @@ public:
 class CLogEntryData
 {
 private:
-
     /// encapsulate data
 
     CLogChangedPathArray changedPaths;
@@ -156,10 +145,10 @@ private:
     mutable std::string sDate;
     mutable std::string sBugIDs;
 
-    std::string sAuthor;
-    std::string sMessage;
+    std::string  sAuthor;
+    std::string  sMessage;
     svn_revnum_t revision;
-    __time64_t tmDate;
+    __time64_t   tmDate;
 
     CLogEntryData* parent;
 
@@ -167,19 +156,19 @@ private:
 
     struct
     {
-        unsigned childStackDepth:24;
-        unsigned int checked:1;
-        unsigned int hasParent:1;
-        unsigned int hasChildren:1;
-        unsigned int nonInheritable:1;
-        unsigned int subtractiveMerge:1;
-        unsigned int unread:1;
-        mutable unsigned int bugIDsPending:1;
+        unsigned             childStackDepth  : 24;
+        unsigned int         checked          : 1;
+        unsigned int         hasParent        : 1;
+        unsigned int         hasChildren      : 1;
+        unsigned int         nonInheritable   : 1;
+        unsigned int         subtractiveMerge : 1;
+        unsigned int         unread           : 1;
+        mutable unsigned int bugIDsPending    : 1;
     };
 
     /// no copy support
 
-    CLogEntryData (const CLogEntryData&) = delete;
+    CLogEntryData(const CLogEntryData&) = delete;
     CLogEntryData& operator=(const CLogEntryData&) = delete;
 
     /// initialization utility
@@ -187,16 +176,11 @@ private:
     void InitBugIDs() const;
 
 public:
-
     /// initialization
 
-    CLogEntryData ( CLogEntryData* parent
-                  , svn_revnum_t revision
-                  , __time64_t tmDate
-                  , const std::string& sAuthor
-                  , const std::string& sMessage
-                  , ProjectProperties* projectProperties
-                  , const MergeInfo* mergeInfo );
+    CLogEntryData(CLogEntryData* parent, svn_revnum_t revision, __time64_t tmDate,
+                  const std::string& sAuthor, const std::string& sMessage,
+                  ProjectProperties* projectProperties, const MergeInfo* mergeInfo);
 
     /// destruction
 
@@ -204,41 +188,36 @@ public:
 
     /// modification
 
-    void SetAuthor
-        ( const std::string& author);
-    void SetMessage
-        ( const std::string& message);
-    void SetChecked
-        ( bool newState);
+    void SetAuthor(const std::string& author);
+    void SetMessage(const std::string& message);
+    void SetChecked(bool newState);
 
     /// finalization (call this once the cache is available)
 
-    void Finalize
-        ( const CCachedLogInfo* cache
-        , CDictionaryBasedTempPath& logPath);
+    void Finalize(const CCachedLogInfo* cache, CDictionaryBasedTempPath& logPath);
 
     /// r/o access to the data
 
-    CLogEntryData* GetParent() {return parent;}
-    const CLogEntryData* GetParent() const {return parent;}
-    bool HasParent() const { return hasParent != FALSE; }
-    bool HasChildren() const {return hasChildren != FALSE;}
-    bool IsNonInheritable() const {return nonInheritable != FALSE;}
-    bool IsSubtractiveMerge() const {return subtractiveMerge != FALSE;}
-    DWORD GetDepth() const {return childStackDepth;}
+    CLogEntryData*       GetParent() { return parent; }
+    const CLogEntryData* GetParent() const { return parent; }
+    bool                 HasParent() const { return hasParent != FALSE; }
+    bool                 HasChildren() const { return hasChildren != FALSE; }
+    bool                 IsNonInheritable() const { return nonInheritable != FALSE; }
+    bool                 IsSubtractiveMerge() const { return subtractiveMerge != FALSE; }
+    DWORD                GetDepth() const { return childStackDepth; }
 
-    svn_revnum_t GetRevision() const {return revision;}
-    __time64_t GetDate() const {return tmDate;}
+    svn_revnum_t GetRevision() const { return revision; }
+    __time64_t   GetDate() const { return tmDate; }
 
     const std::string& GetDateString() const;
-    const std::string& GetAuthor() const {return sAuthor;}
-    const std::string& GetMessage() const {return sMessage;}
+    const std::string& GetAuthor() const { return sAuthor; }
+    const std::string& GetMessage() const { return sMessage; }
     const std::string& GetBugIDs() const;
-    CString GetShortMessageUTF16() const;
+    CString            GetShortMessageUTF16() const;
 
-    const CLogChangedPathArray& GetChangedPaths() const {return changedPaths;}
+    const CLogChangedPathArray& GetChangedPaths() const { return changedPaths; }
 
-    bool GetChecked() const {return checked != FALSE;}
+    bool GetChecked() const { return checked != FALSE; }
 
     bool GetUnread() const { return unread != FALSE; }
     void SetUnread(bool ur) { unread = ur; }
@@ -254,9 +233,6 @@ typedef CLogEntryData LOGENTRYDATA, *PLOGENTRYDATA;
 class CLogDataVector : private std::vector<PLOGENTRYDATA>
 {
 private:
-
-    typedef std::vector<PLOGENTRYDATA> inherited;
-
     /// indices of visible entries
 
     std::vector<size_t> visible;
@@ -281,21 +257,17 @@ private:
 
     /// filter utility method
 
-    std::vector<size_t> FilterRange
-        ( const CLogDlgFilter* filter
-        , size_t first
-        , size_t last);
+    std::vector<size_t> FilterRange(const CLogDlgFilter* filter, size_t first, size_t last);
 
     /// returns true if the result vector already contains a parent entry
 
-    template<class T>
-    bool contains(std::vector<T> const &v, T const &x)
+    template <class T>
+    bool contains(std::vector<T> const& v, T const& x)
     {
         return std::find(v.begin(), v.end(), x) != v.end();
     }
 
 public:
-
     /// construction
 
     CLogDataVector();
@@ -306,37 +278,32 @@ public:
 
     /// add / remove items
 
-    void Add ( svn_revnum_t revision
-             , __time64_t tmDate
-             , const std::string& author
-             , const std::string& message
-             , ProjectProperties* projectProperties
-             , const MergeInfo* mergeInfo );
+    void Add(svn_revnum_t revision, __time64_t tmDate,
+             const std::string& author, const std::string& message,
+             ProjectProperties* projectProperties, const MergeInfo* mergeInfo);
 
-    void AddSorted ( PLOGENTRYDATA item
-                   , ProjectProperties* projectProperties);
+    void AddSorted(PLOGENTRYDATA item, ProjectProperties* projectProperties);
     void RemoveLast();
 
     /// finalization (call this after receiving all log entries)
 
-    void Finalize ( std::unique_ptr<const CCacheLogQuery> aQuery
-                  , const CString& startLogPath, bool bMerge);
+    void Finalize(std::unique_ptr<const CCacheLogQuery> aQuery, const CString& startLogPath, bool bMerge);
 
     /// access to unfiltered info
 
-    size_t size() const {return inherited::size();}
-    PLOGENTRYDATA operator[](size_t index) const {return at (index);}
+    size_t        size() const { return __super::size(); }
+    PLOGENTRYDATA operator[](size_t index) const { return at(index); }
 
-    DWORD GetMaxDepth() const {return maxDepth;}
-    __time64_t GetMinDate() const {return minDate;}
-    __time64_t GetMaxDate() const {return maxDate;}
-    svn_revnum_t GetMinRevision() const {return minRevision;}
-    svn_revnum_t GetMaxRevision() const {return maxRevision;}
+    DWORD        GetMaxDepth() const { return maxDepth; }
+    __time64_t   GetMinDate() const { return minDate; }
+    __time64_t   GetMaxDate() const { return maxDate; }
+    svn_revnum_t GetMinRevision() const { return minRevision; }
+    svn_revnum_t GetMaxRevision() const { return maxRevision; }
 
     /// access to the filtered info
 
-    size_t GetVisibleCount() const;
-    PLOGENTRYDATA GetVisible (size_t index) const;
+    size_t        GetVisibleCount() const;
+    PLOGENTRYDATA GetVisible(size_t index) const;
 
     /// encapsulate sorting
 
@@ -350,12 +317,12 @@ public:
         MessageCol
     };
 
-    void Sort (SortColumn column, bool ascending);
+    void Sort(SortColumn column, bool ascending);
 
     /// filter support
 
-    void Filter (const CLogDlgFilter& filter);
-    void Filter (__time64_t from, __time64_t to, bool includeMergedRevs, std::set<svn_revnum_t> * mergedrevs, svn_revnum_t minrev);
+    void Filter(const CLogDlgFilter& filter);
+    void Filter(__time64_t from, __time64_t to, bool includeMergedRevs, std::set<svn_revnum_t>* mergedRevs, svn_revnum_t minRev);
 
-    void ClearFilter(bool includeMergedRevs, std::set<svn_revnum_t> * mergedrevs, svn_revnum_t minrev);
+    void ClearFilter(bool includeMergedRevs, std::set<svn_revnum_t>* mergedRevs, svn_revnum_t minRev);
 };

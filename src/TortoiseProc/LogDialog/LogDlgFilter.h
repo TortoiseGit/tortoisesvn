@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2011, 2013, 2015, 2017, 2019 - TortoiseSVN
+// Copyright (C) 2009-2011, 2013, 2015, 2017, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,18 +32,17 @@ class CLogEntryData;
 class CLogDlgFilter
 {
 private:
-
     /// if empty, use sub-string matching
 
     std::vector<std::regex> patterns;
 
     /// sub-string matching info
 
-    enum Prefix
+    enum class Prefix
     {
-        and,
-        or,
-        and_not
+        And,
+        Or,
+        AndNot
     };
 
     struct SCondition
@@ -108,63 +107,57 @@ private:
 
     /// a set of already merged revisions
 
-    std::set<svn_revnum_t> * mergedrevs;
+    std::set<svn_revnum_t>* mergedRevs;
 
     /// whether to filter out revisions that can't be merged
 
     bool hideNonMergeable;
 
     /// the lowest revision to keep, revisions below that are filtered out
-    svn_revnum_t minrev;
+    svn_revnum_t minRev;
 
-    bool ValidateRegexp
-        ( const char* regexp_str
-        , std::vector<std::regex>& pattrns);
+    bool ValidateRegexp(const char* regexpStr, std::vector<std::regex>& pattrns) const;
 
     // construction utility
 
-    void AddSubString (CString token, Prefix prefix);
+    void AddSubString(CString token, Prefix prefix);
 
 public:
-
     /// construction
 
     CLogDlgFilter();
     CLogDlgFilter(const CLogDlgFilter& rhs);
-    CLogDlgFilter
-        ( const CString& filter
-        , bool filterWithRegex
-        , DWORD selectedFilter
-        , bool caseSensitive
-        , __time64_t from
-        , __time64_t to
-        , bool scanRelevantPathsOnly
-        , std::set<svn_revnum_t> * mergedrevs
-        , bool hideNonMergeable
-        , svn_revnum_t minrev
-        , svn_revnum_t revToKeep);
+    CLogDlgFilter(const CString& filter,
+                  bool           filterWithRegex,
+                  DWORD          selectedFilter,
+                  bool           caseSensitive,
+                  __time64_t from, __time64_t to,
+                  bool                    scanRelevantPathsOnly,
+                  std::set<svn_revnum_t>* mergedRevs,
+                  bool                    hideNonMergeable,
+                  svn_revnum_t minRev, svn_revnum_t revToKeep);
 
     /// apply filter
 
-    bool operator() (const CLogEntryData& entry) const;
+    bool operator()(const CLogEntryData& entry) const;
 
     /// returns a vector with all the ranges where a match
     /// was found.
 
-    std::vector<CHARRANGE> GetMatchRanges (std::wstring& text) const;
+    std::vector<CHARRANGE> GetMatchRanges(std::wstring& text) const;
 
     /// filter utility method
 
-    bool Match (char* text, size_t size) const;
+    bool Match(char* text, size_t size) const;
 
     /// assignment operator
 
-    CLogDlgFilter& operator= (const CLogDlgFilter& rhs);
+    CLogDlgFilter& operator=(const CLogDlgFilter& rhs);
 
     /// compare filter specs
 
-    bool operator== (const CLogDlgFilter& rhs) const;
-    bool operator!= (const CLogDlgFilter& rhs) const;
+    bool operator==(const CLogDlgFilter& rhs) const;
+    bool operator!=(const CLogDlgFilter& rhs) const;
 
     /// std::regex is very slow when running concurrently
     /// in multiple threads. Empty filters don't need MT as well.

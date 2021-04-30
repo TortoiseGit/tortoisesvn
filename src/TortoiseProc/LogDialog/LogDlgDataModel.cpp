@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "LogDlgDataModel.h"
 #include "LogDlg.h"
 #include "LogDlgFilter.h"
-#include "ProfilingInfo.h"
 #include "Future.h"
 #include "StringUtils.h"
 #include "CachedLogInfo.h"
@@ -34,41 +33,39 @@
 
 // conversion utility
 
-CString CLogChangedPath::GetUIPath (const CDictionaryBasedPath& p) const
+CString CLogChangedPath::GetUIPath(const CDictionaryBasedPath& p)
 {
     std::string utf8Path = p.GetPath();
 
     // we don't need to adjust the path length as
     // the conversion will automatically stop at \0.
 
-    return CUnicodeUtils::UTF8ToUTF16 (utf8Path);
+    return CUnicodeUtils::UTF8ToUTF16(utf8Path);
 }
 
 // construction
 
-CLogChangedPath::CLogChangedPath
-    ( const CRevisionInfoContainer::CChangesIterator& iter
-    , const CDictionaryBasedTempPath& logPath)
-    : path (iter.GetPath())
-    , copyFromPath (NULL, (index_t)NO_INDEX)
-    , copyFromRev (0)
+CLogChangedPath::CLogChangedPath(const CRevisionInfoContainer::CChangesIterator& iter,
+                                 const CDictionaryBasedTempPath&                 logPath)
+    : path(iter.GetPath())
+    , copyFromPath(nullptr, static_cast<index_t>(NO_INDEX))
+    , copyFromRev(0)
 {
-    flags.nodeKind = static_cast<svn_node_kind_t>(iter->GetPathType());
-    flags.action = (DWORD)iter.GetAction() / 4;
-    flags.textModifies = static_cast<svn_tristate_t>(iter->GetTextModifies());
+    flags.nodeKind      = static_cast<svn_node_kind_t>(iter->GetPathType());
+    flags.action        = static_cast<DWORD>(iter.GetAction()) / 4;
+    flags.textModifies  = static_cast<svn_tristate_t>(iter->GetTextModifies());
     flags.propsModifies = static_cast<svn_tristate_t>(iter->GetPropsModifies());
 
     // check relevance for log path
 
-    flags.relevantForStartPath = logPath.IsSameOrParentOf (path)
-                              || logPath.IsSameOrChildOf (path);
+    flags.relevantForStartPath = logPath.IsSameOrParentOf(path) || logPath.IsSameOrChildOf(path);
 
     // set copy-from info, if available
 
     if (iter.HasFromPath() && (iter.GetFromRevision() != NO_REVISION))
     {
         copyFromPath = iter.GetFromPath();
-        copyFromRev = iter.GetFromRevision();
+        copyFromRev  = iter.GetFromRevision();
     }
 }
 
@@ -76,29 +73,29 @@ CLogChangedPath::CLogChangedPath
 
 CString CLogChangedPath::GetPath() const
 {
-    return GetUIPath (path);
+    return GetUIPath(path);
 }
 
 CString CLogChangedPath::GetCopyFromPath() const
 {
     return copyFromPath.IsValid()
-        ? GetUIPath (copyFromPath)
-        : CString();
+               ? GetUIPath(copyFromPath)
+               : CString();
 }
 
 // convenience method
 
 namespace
 {
-    void LoadString (std::string& s, UINT id)
-    {
-        CString temp;
-        temp.LoadString (id);
-        s = CUnicodeUtils::StdGetUTF8 ((LPCTSTR)temp);
-    }
+void LoadString(std::string& s, UINT id)
+{
+    CString temp;
+    temp.LoadString(id);
+    s = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(temp));
 }
+} // namespace
 
-const std::string& CLogChangedPath::GetActionString (DWORD action)
+const std::string& CLogChangedPath::GetActionString(DWORD action)
 {
     static std::string addActionString;
     static std::string deleteActionString;
@@ -110,46 +107,45 @@ const std::string& CLogChangedPath::GetActionString (DWORD action)
 
     switch (action)
     {
-    case LOGACTIONS_MODIFIED:
-        if (modifiedActionString.empty())
-            LoadString (modifiedActionString, IDS_SVNACTION_MODIFIED);
+        case LOGACTIONS_MODIFIED:
+            if (modifiedActionString.empty())
+                LoadString(modifiedActionString, IDS_SVNACTION_MODIFIED);
 
-        return modifiedActionString;
+            return modifiedActionString;
 
-    case LOGACTIONS_ADDED:
-        if (addActionString.empty())
-            LoadString (addActionString, IDS_SVNACTION_ADD);
+        case LOGACTIONS_ADDED:
+            if (addActionString.empty())
+                LoadString(addActionString, IDS_SVNACTION_ADD);
 
-        return addActionString;
+            return addActionString;
 
-    case LOGACTIONS_DELETED:
-        if (deleteActionString.empty())
-            LoadString (deleteActionString, IDS_SVNACTION_DELETE);
+        case LOGACTIONS_DELETED:
+            if (deleteActionString.empty())
+                LoadString(deleteActionString, IDS_SVNACTION_DELETE);
 
-        return deleteActionString;
+            return deleteActionString;
 
-    case LOGACTIONS_REPLACED:
-        if (replacedActionString.empty())
-            LoadString (replacedActionString, IDS_SVNACTION_REPLACED);
+        case LOGACTIONS_REPLACED:
+            if (replacedActionString.empty())
+                LoadString(replacedActionString, IDS_SVNACTION_REPLACED);
 
-        return replacedActionString;
+            return replacedActionString;
 
-    case LOGACTIONS_MOVED:
-        if (movedActionString.empty())
-            LoadString(movedActionString, IDS_SVNACTION_MOVED);
+        case LOGACTIONS_MOVED:
+            if (movedActionString.empty())
+                LoadString(movedActionString, IDS_SVNACTION_MOVED);
 
-        return movedActionString;
+            return movedActionString;
 
-    case LOGACTIONS_MOVEREPLACED:
-        if (movereplacedActionString.empty())
-            LoadString(movereplacedActionString, IDS_SVNACTION_MOVEREPLACED);
+        case LOGACTIONS_MOVEREPLACED:
+            if (movereplacedActionString.empty())
+                LoadString(movereplacedActionString, IDS_SVNACTION_MOVEREPLACED);
 
-        return movereplacedActionString;
+            return movereplacedActionString;
 
-    default:
-        // there should always be an action
-        assert (0);
-
+        default:
+            // there should always be an action
+            assert(0);
     }
 
     return empty;
@@ -157,25 +153,24 @@ const std::string& CLogChangedPath::GetActionString (DWORD action)
 
 const std::string& CLogChangedPath::GetActionString() const
 {
-    return GetActionString (flags.action);
+    return GetActionString(flags.action);
 }
 
 // construction
 
 CLogChangedPathArray::CLogChangedPathArray()
-    : actions (0)
-    , copiedSelf (false)
+    : copiedSelf(false)
+    , actions(0)
 {
 }
 
 // modification
 
-void CLogChangedPathArray::Add
-    ( CRevisionInfoContainer::CChangesIterator& first
-    , const CRevisionInfoContainer::CChangesIterator& last
-    , CDictionaryBasedTempPath& logPath)
+void CLogChangedPathArray::Add(CRevisionInfoContainer::CChangesIterator&       first,
+                               const CRevisionInfoContainer::CChangesIterator& last,
+                               CDictionaryBasedTempPath&                       logPath)
 {
-    reserve (last - first);
+    reserve(last - first);
     for (; first != last; ++first)
         emplace_back(first, logPath);
 
@@ -185,21 +180,17 @@ void CLogChangedPathArray::Add
 
     for (size_t i = size(); i > 0; --i)
     {
-        CLogChangedPath& change = at(i-1);
+        CLogChangedPath& change = at(i - 1);
 
         // relevant for this path and
         // has the log path be renamed?
 
-        if (   change.IsRelevantForStartPath()
-            && (change.GetCopyFromRev() > 0)
-            && logPath.IsSameOrChildOf (change.GetCachedPath()))
+        if (change.IsRelevantForStartPath() && (change.GetCopyFromRev() > 0) && logPath.IsSameOrChildOf(change.GetCachedPath()))
         {
             // note: this only works if the log is fetched top-to-bottom
             // but since we do that, it shouldn't be a problem
 
-            logPath = logPath.ReplaceParent
-                         ( change.GetCachedPath()
-                         , change.GetCachedCopyFromPath());
+            logPath    = logPath.ReplaceParent(change.GetCachedPath(), change.GetCachedCopyFromPath());
             copiedSelf = true;
 
             return;
@@ -209,9 +200,9 @@ void CLogChangedPathArray::Add
     actions = 0;
 }
 
-void CLogChangedPathArray::Add (const CLogChangedPath& item)
+void CLogChangedPathArray::Add(const CLogChangedPath& item)
 {
-    push_back (item);
+    push_back(item);
     actions = 0;
 }
 
@@ -232,62 +223,59 @@ void CLogChangedPathArray::RemoveIrrelevantPaths()
     };
 
     iterator first = begin();
-    iterator last = end();
-    erase (std::remove_copy_if (first, last, first, IsRelevant()), last);
+    iterator last  = end();
+    erase(std::remove_copy_if(first, last, first, IsRelevant()), last);
 
     actions = 0;
 }
 
-void CLogChangedPathArray::Sort (int column, bool ascending)
+void CLogChangedPathArray::Sort(int column, bool ascending)
 {
     struct Order
     {
     private:
-
-        int column;
+        int  column;
         bool ascending;
 
     public:
-
-        Order (int column, bool ascending)
-            : column (column)
-            , ascending (ascending)
+        Order(int column, bool ascending)
+            : column(column)
+            , ascending(ascending)
         {
         }
 
         bool operator()(const CLogChangedPath& lhs, const CLogChangedPath& rhs) const
         {
-            const CLogChangedPath* cpath1 = ascending ? &lhs : &rhs;
-            const CLogChangedPath* cpath2 = ascending ? &rhs : &lhs;
+            const CLogChangedPath* cPath1 = ascending ? &lhs : &rhs;
+            const CLogChangedPath* cPath2 = ascending ? &rhs : &lhs;
 
             int cmp = 0;
             switch (column)
             {
-            case 0: // path
-                    cmp = cpath2->GetPath().CompareNoCase (cpath1->GetPath());
+                case 0: // path
+                    cmp = cPath2->GetPath().CompareNoCase(cPath1->GetPath());
                     if (cmp)
                         return cmp > 0;
-                    // fall through
-            case 1: // action
-                    cmp = strcmp ( cpath2->GetActionString().c_str()
-                                 , cpath1->GetActionString().c_str());
+                    [[fallthrough]];
+                case 1: // action
+                    cmp = strcmp(cPath2->GetActionString().c_str(), cPath1->GetActionString().c_str());
                     if (cmp)
                         return cmp > 0;
-                    // fall through
-            case 2: // copy from path
-                    cmp = cpath2->GetCopyFromPath().CompareNoCase (cpath1->GetCopyFromPath());
+                    [[fallthrough]];
+                case 2: // copy from path
+                    cmp = cPath2->GetCopyFromPath().CompareNoCase(cPath1->GetCopyFromPath());
                     if (cmp)
                         return cmp > 0;
-                    // fall through
-            case 3: // copy from revision
-                    return cpath2->GetCopyFromRev() > cpath1->GetCopyFromRev();
+                    [[fallthrough]];
+                case 3: // copy from revision
+                    return cPath2->GetCopyFromRev() > cPath1->GetCopyFromRev();
             }
 
             return false;
         }
     };
 
-    std::sort (begin(), end(), Order (column, ascending));
+    std::sort(begin(), end(), Order(column, ascending));
 }
 
 // derived information
@@ -310,38 +298,37 @@ bool CLogChangedPathArray::ContainsCopies() const
     return false;
 }
 
-CLogEntryData::CLogEntryData
-    ( CLogEntryData* parent
-    , svn_revnum_t revision
-    , __time64_t tmDate
-    , const std::string& author
-    , const std::string& message
-    , ProjectProperties* projectProperties
-    , const MergeInfo* mergeInfo)
-    : parent (parent)
+CLogEntryData::CLogEntryData(CLogEntryData*     parent,
+                             svn_revnum_t       revision,
+                             __time64_t         tmDate,
+                             const std::string& author,
+                             const std::string& message,
+                             ProjectProperties* projectProperties,
+                             const MergeInfo*   mergeInfo)
+    : sAuthor(author)
+    , revision(revision)
+    , tmDate(tmDate) // we don't read that from the "mergesFollow" flag
+                     // (just to be sure that we actually have sub-nodes)
+    , parent(parent)
+    , projectProperties(projectProperties)
+    , childStackDepth(parent == nullptr ? 0 : parent->childStackDepth + 1)
+    , checked(false)
     , hasParent(false)
-    , hasChildren (false)   // we don't read that from the "mergesFollow" flag
-                            // (just to be sure that we actually have sub-nodes)
-    , nonInheritable (mergeInfo && mergeInfo->nonInheritable)
-    , subtractiveMerge (mergeInfo && mergeInfo->subtractiveMerge)
-    , childStackDepth (parent == NULL ? 0 : parent->childStackDepth+1)
-    , revision (revision)
-    , tmDate (tmDate)
-    , sAuthor (author)
-    , projectProperties (projectProperties)
-    , checked (false)
-    , bugIDsPending (true)
+    , hasChildren(false)
+    , nonInheritable(mergeInfo && mergeInfo->nonInheritable)
+    , subtractiveMerge(mergeInfo && mergeInfo->subtractiveMerge)
     , unread(false)
+    , bugIDsPending(true)
 {
     // derived header info
 
-    SetMessage (message);
+    SetMessage(message);
 
     // update nesting info
 
     if (parent)
     {
-        hasParent = true;
+        hasParent           = true;
         parent->hasChildren = true;
     }
 }
@@ -350,21 +337,20 @@ CLogEntryData::~CLogEntryData()
 {
 }
 
-void CLogEntryData::SetAuthor
-    ( const std::string& author)
+void CLogEntryData::SetAuthor(const std::string& author)
 {
     sAuthor = author;
 }
 
 namespace
 {
-    bool IsNotCR (char c)
-    {
-        return c != '\r';
-    }
+bool IsNotCR(char c)
+{
+    return c != '\r';
 }
+} // namespace
 
-void CLogEntryData::SetMessage (const std::string& message)
+void CLogEntryData::SetMessage(const std::string& message)
 {
     // split multi line log entries and concatenate them
     // again but this time with \r\n as line separators
@@ -373,16 +359,12 @@ void CLogEntryData::SetMessage (const std::string& message)
     sMessage = message;
     if (!sMessage.empty())
     {
-        if (sMessage.find ('\r') != std::string::npos)
+        if (sMessage.find('\r') != std::string::npos)
         {
-            sMessage.erase ( std::copy_if ( sMessage.begin()
-                                          , sMessage.end()
-                                          , sMessage.begin()
-                                          , IsNotCR)
-                           , sMessage.end());
+            sMessage.erase(std::copy_if(sMessage.begin(), sMessage.end(), sMessage.begin(), IsNotCR), sMessage.end());
         }
         if (!sMessage.empty() && sMessage[0] == '\n')
-            sMessage.erase (0, 1);
+            sMessage.erase(0, 1);
     }
 
     // derived data
@@ -390,29 +372,26 @@ void CLogEntryData::SetMessage (const std::string& message)
     bugIDsPending = true;
 }
 
-void CLogEntryData::SetChecked
-    ( bool newState)
+void CLogEntryData::SetChecked(bool newState)
 {
     checked = newState;
 }
 
 /// finalization (call this once the cache is available)
 
-void CLogEntryData::Finalize
-    ( const CCachedLogInfo* cache
-    , CDictionaryBasedTempPath& logPath)
+void CLogEntryData::Finalize(const CCachedLogInfo* cache, CDictionaryBasedTempPath& logPath)
 {
     // don't finalize twice
 
     if (changedPaths.GetCount() == 0)
     {
-        index_t index = cache->GetRevisions()[revision];
-        const CRevisionInfoContainer& info = cache->GetLogInfo();
+        index_t                       index = cache->GetRevisions()[revision];
+        const CRevisionInfoContainer& info  = cache->GetLogInfo();
 
-        CRevisionInfoContainer::CChangesIterator first = info.GetChangesBegin (index);
-        CRevisionInfoContainer::CChangesIterator last = info.GetChangesEnd (index);
+        CRevisionInfoContainer::CChangesIterator first = info.GetChangesBegin(index);
+        CRevisionInfoContainer::CChangesIterator last  = info.GetChangesEnd(index);
 
-        changedPaths.Add (first, last, logPath);
+        changedPaths.Add(first, last, logPath);
     }
 }
 
@@ -426,22 +405,22 @@ void CLogEntryData::InitDateStrings() const
     }
     else
     {
-        TCHAR date_native[SVN_DATE_BUFFER] = {0};
-        FILETIME ft = {0};
-        AprTimeToFileTime (&ft, tmDate * 1000000L);
-        SVN::formatDate (date_native, ft);
+        wchar_t  dateNative[SVN_DATE_BUFFER] = {0};
+        FILETIME ft                          = {0};
+        AprTimeToFileTime(&ft, tmDate * 1000000L);
+        SVN::formatDate(dateNative, ft);
 
-        sDate = CUnicodeUtils::StdGetUTF8 (date_native);
+        sDate = CUnicodeUtils::StdGetUTF8(dateNative);
     }
 }
 
 void CLogEntryData::InitBugIDs() const
 {
-    if (projectProperties && projectProperties->MightContainABugID ())
+    if (projectProperties && projectProperties->MightContainABugID())
     {
-        CString unicodeMessage = CUnicodeUtils::GetUnicode (sMessage.c_str());
-        CString unicodeBugIDs = projectProperties->FindBugID (unicodeMessage);
-        sBugIDs = (const char*)CUnicodeUtils::GetUTF8 (unicodeBugIDs);
+        CString unicodeMessage = CUnicodeUtils::GetUnicode(sMessage.c_str());
+        CString unicodeBugIDs  = projectProperties->FindBugID(unicodeMessage);
+        sBugIDs                = static_cast<const char*>(CUnicodeUtils::GetUTF8(unicodeBugIDs));
     }
     else
     {
@@ -470,19 +449,18 @@ const std::string& CLogEntryData::GetBugIDs() const
 CString CLogEntryData::GetShortMessageUTF16() const
 {
     return projectProperties
-        ? projectProperties->MakeShortMessage
-            (CUnicodeUtils::GetUnicode (sMessage.c_str()))
-        : CString();
+               ? projectProperties->MakeShortMessage(CUnicodeUtils::GetUnicode(sMessage.c_str()))
+               : CString();
 }
 
 // construction
 
 CLogDataVector::CLogDataVector()
-    : maxDepth (0)
-    , maxDate (0)
-    , minDate (LLONG_MAX)
-    , minRevision (INT_MAX)
-    , maxRevision (-1)
+    : maxDepth(0)
+    , minDate(LLONG_MAX)
+    , maxDate(0)
+    , minRevision(INT_MAX)
+    , maxRevision(-1)
 {
 }
 
@@ -492,7 +470,7 @@ void CLogDataVector::ClearAll()
 {
     if (!empty())
     {
-        for(iterator it=begin(); it!=end(); ++it)
+        for (iterator it = begin(); it != end(); ++it)
             delete *it;
 
         clear();
@@ -501,9 +479,9 @@ void CLogDataVector::ClearAll()
 
         query.reset();
 
-        maxDepth = 0;
-        maxDate = 0;
-        minDate = LLONG_MAX;
+        maxDepth    = 0;
+        maxDate     = 0;
+        minDate     = LLONG_MAX;
         maxRevision = -1;
         minRevision = INT_MAX;
     }
@@ -511,12 +489,9 @@ void CLogDataVector::ClearAll()
 
 // add items
 
-void CLogDataVector::Add ( svn_revnum_t revision
-                         , __time64_t tmDate
-                         , const std::string& author
-                         , const std::string& message
-                         , ProjectProperties* projectProperties
-                         , const MergeInfo* mergeInfo)
+void CLogDataVector::Add(svn_revnum_t revision, __time64_t tmDate,
+                         const std::string& author, const std::string& message,
+                         ProjectProperties* projectProperties, const MergeInfo* mergeInfo)
 {
     // end of child list?
 
@@ -528,39 +503,30 @@ void CLogDataVector::Add ( svn_revnum_t revision
 
     // add ordinary entry
 
-    CLogEntryData* item
-        = new CLogEntryData
-            ( logParents.empty() ? NULL : logParents.back()
-            , revision
-            , tmDate
-            , author
-            , message
-            , projectProperties
-            , mergeInfo
-            );
+    CLogEntryData* item = new CLogEntryData(logParents.empty() ? nullptr : logParents.back(),
+                                            revision, tmDate, author, message,
+                                            projectProperties, mergeInfo);
 
-    visible.push_back (size());
-    push_back (item);
+    visible.push_back(size());
+    push_back(item);
 
     // update min / max values
 
-    maxDepth = max (maxDepth, item->GetDepth());
+    maxDepth = max(maxDepth, item->GetDepth());
 
-    maxDate = max (maxDate, tmDate);
-    minDate = min (minDate, tmDate);
+    maxDate = max(maxDate, tmDate);
+    minDate = min(minDate, tmDate);
 
-    minRevision = min (minRevision, revision);
-    maxRevision = max (maxRevision, revision);
+    minRevision = min(minRevision, revision);
+    maxRevision = max(maxRevision, revision);
 
     // update parent info
 
     if (mergeInfo && mergeInfo->mergesFollow)
-        logParents.push_back (item);
+        logParents.push_back(item);
 }
 
-void CLogDataVector::AddSorted
-    ( PLOGENTRYDATA item
-    , ProjectProperties* projectProperties)
+void CLogDataVector::AddSorted(PLOGENTRYDATA item, ProjectProperties* projectProperties)
 {
     svn_revnum_t revision = item->GetRevision();
     for (iterator iter = begin(), last = end(); iter != last; ++iter)
@@ -574,7 +540,7 @@ void CLogDataVector::AddSorted
         }
         if (diff > 0)
         {
-            insert (iter, item);
+            insert(iter, item);
             visible.clear();
 
             return;
@@ -583,12 +549,7 @@ void CLogDataVector::AddSorted
 
     // append entry
 
-    Add ( item->GetRevision()
-        , item->GetDate()
-        , item->GetAuthor()
-        , item->GetMessage()
-        , projectProperties
-        , NULL);
+    Add(item->GetRevision(), item->GetDate(), item->GetAuthor(), item->GetMessage(), projectProperties, nullptr);
 }
 
 void CLogDataVector::RemoveLast()
@@ -598,13 +559,11 @@ void CLogDataVector::RemoveLast()
     visible.clear();
 }
 
-void CLogDataVector::Finalize
-    ( std::unique_ptr<const CCacheLogQuery> aQuery
-    , const CString& startLogPath, bool bMerge)
+void CLogDataVector::Finalize(std::unique_ptr<const CCacheLogQuery> aQuery, const CString& startLogPath, bool bMerge)
 {
-    if ((bMerge)&&(query.get()))
+    if ((bMerge) && (query.get()))
     {
-        CCacheLogQuery * tempQuery = const_cast<CCacheLogQuery *>(query.get());
+        CCacheLogQuery* tempQuery = const_cast<CCacheLogQuery*>(query.get());
         aQuery->UpdateCache(tempQuery);
     }
     else
@@ -618,17 +577,17 @@ void CLogDataVector::Finalize
 
     // construct an object for the path that 'log' was called for
 
-    CStringA utf8Path = CUnicodeUtils::GetUTF8 (startLogPath);
-    CStringA relPath = CPathUtils::PathUnescape (utf8Path);
+    CStringA utf8Path = CUnicodeUtils::GetUTF8(startLogPath);
+    CStringA relPath  = CPathUtils::PathUnescape(utf8Path);
 
-    const CCachedLogInfo* cache = query->GetCache();
-    const CPathDictionary* paths = &cache->GetLogInfo().GetPaths();
-    CDictionaryBasedTempPath logPath (paths, (const char*)relPath);
+    const CCachedLogInfo*    cache = query->GetCache();
+    const CPathDictionary*   paths = &cache->GetLogInfo().GetPaths();
+    CDictionaryBasedTempPath logPath(paths, static_cast<const char*>(relPath));
 
     // finalize all data
 
     for (size_t i = 0, count = size(); i < count; ++i)
-        inherited::operator[](i)->Finalize (cache, logPath);
+        __super::operator[](i)->Finalize(cache, logPath);
 }
 
 size_t CLogDataVector::GetVisibleCount() const
@@ -636,20 +595,19 @@ size_t CLogDataVector::GetVisibleCount() const
     return visible.size();
 }
 
-PLOGENTRYDATA CLogDataVector::GetVisible (size_t index) const
+PLOGENTRYDATA CLogDataVector::GetVisible(size_t index) const
 {
     if (index < visible.size())
     {
-        size_t i = visible.at (index);
+        size_t i = visible.at(index);
         if (i < size())
-            return at (i);
+            return at(i);
     }
-    return NULL;
+    return nullptr;
 }
 
 namespace
 {
-
 /**
  * Wrapper around a stateless predicate.
  *
@@ -660,11 +618,10 @@ namespace
  * (i.e. to act like operator< ).
  */
 
-template<class ColumnCond>
+template <class ColumnCond>
 class ColumnSort
 {
 private:
-
     /// swap parameters, if not set
 
     bool ascending;
@@ -673,7 +630,7 @@ private:
     /// - (ascending) order according to \ref ColumnSort
     /// - put merged revisions below merge target revision
 
-    bool InternalCompare (PLOGENTRYDATA pStart, PLOGENTRYDATA pEnd)
+    bool InternalCompare(PLOGENTRYDATA pStart, PLOGENTRYDATA pEnd) const
     {
         // are both entry sibblings on the same node level?
         // (root -> both have NULL as parent)
@@ -691,45 +648,44 @@ private:
 
         // find the closed pair of parents that is related
 
-        assert ((pStart->GetDepth() == 0) || (pStart->GetParent() != NULL));
-        assert ((pEnd->GetDepth() == 0) || (pEnd->GetParent() != NULL));
+        assert((pStart->GetDepth() == 0) || (pStart->GetParent() != NULL));
+        assert((pEnd->GetDepth() == 0) || (pEnd->GetParent() != NULL));
 
         if (pStart->GetDepth() == pEnd->GetDepth())
-            return InternalCompare (pStart->GetParent(), pEnd->GetParent());
+            return InternalCompare(pStart->GetParent(), pEnd->GetParent());
 
         if (pStart->GetDepth() < pEnd->GetDepth())
-            return InternalCompare (pStart, pEnd->GetParent());
+            return InternalCompare(pStart, pEnd->GetParent());
         else
-            return InternalCompare (pStart->GetParent(), pEnd);
+            return InternalCompare(pStart->GetParent(), pEnd);
     }
 
 public:
-
     /// one class for both sort directions
 
     ColumnSort(bool ascending)
-        : ascending (ascending)
+        : ascending(ascending)
     {
     }
 
     /// asjust parameter order according to sort order
 
-    bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+    bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd) const
     {
         return ascending
-            ? InternalCompare (pStart, pEnd)
-            : InternalCompare (pEnd, pStart);
+                   ? InternalCompare(pStart, pEnd)
+                   : InternalCompare(pEnd, pStart);
     }
 };
 
-}
+} // namespace
 
-void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
+void CLogDataVector::Sort(CLogDataVector::SortColumn column, bool ascending)
 {
     /// Ascending date sorting.
     struct DateSort
     {
-        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd) const
         {
             return pStart->GetDate() < pEnd->GetDate();
         }
@@ -738,7 +694,7 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
     /// Ascending revision sorting.
     struct RevSort
     {
-        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd) const
         {
             return pStart->GetRevision() < pEnd->GetRevision();
         }
@@ -747,46 +703,42 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
     /// Ascending author sorting.
     struct AuthorSort
     {
-        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd) const
         {
-            int ret = _stricmp ( pStart->GetAuthor().c_str()
-                               , pEnd->GetAuthor().c_str());
+            int ret = _stricmp(pStart->GetAuthor().c_str(), pEnd->GetAuthor().c_str());
             if (ret == 0)
                 return pStart->GetRevision() < pEnd->GetRevision();
-            return ret<0;
+            return ret < 0;
         }
     };
 
     /// Ascending bugID sorting.
     struct BugIDSort
     {
-        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd) const
         {
-            int ret = _stricmp ( pStart->GetBugIDs().c_str()
-                               , pEnd->GetBugIDs().c_str());
+            int ret = _stricmp(pStart->GetBugIDs().c_str(), pEnd->GetBugIDs().c_str());
             if (ret == 0)
                 return pStart->GetRevision() < pEnd->GetRevision();
-            return ret<0;
+            return ret < 0;
         }
     };
 
     /// Ascending message sorting.
     struct MessageSort
     {
-        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd) const
         {
-            return _stricmp ( pStart->GetMessage().c_str()
-                            , pEnd->GetMessage().c_str()) < 0;
+            return _stricmp(pStart->GetMessage().c_str(), pEnd->GetMessage().c_str()) < 0;
         }
     };
 
     /// Ascending action sorting
     struct ActionSort
     {
-        bool operator() (PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd)
+        bool operator()(PLOGENTRYDATA& pStart, PLOGENTRYDATA& pEnd) const
         {
-            int diff = pStart->GetChangedPaths().GetActions()
-                     - pEnd->GetChangedPaths().GetActions();
+            int diff = pStart->GetChangedPaths().GetActions() - pEnd->GetChangedPaths().GetActions();
 
             if (diff == 0)
                 return pStart->GetRevision() < pEnd->GetRevision();
@@ -795,46 +747,43 @@ void CLogDataVector::Sort (CLogDataVector::SortColumn column, bool ascending)
         }
     };
 
-    switch(column)
+    switch (column)
     {
-    case RevisionCol: // Revision
-            std::sort (begin(), end(), ColumnSort<RevSort>(ascending));
+        case RevisionCol: // Revision
+            std::sort(begin(), end(), ColumnSort<RevSort>(ascending));
             break;
-    case ActionCol: // action
-            std::sort (begin(), end(), ColumnSort<ActionSort>(ascending));
+        case ActionCol: // action
+            std::sort(begin(), end(), ColumnSort<ActionSort>(ascending));
             break;
-    case AuthorCol: // Author
-            std::sort (begin(), end(), ColumnSort<AuthorSort>(ascending));
+        case AuthorCol: // Author
+            std::sort(begin(), end(), ColumnSort<AuthorSort>(ascending));
             break;
-    case DateCol: // Date
-            std::sort (begin(), end(), ColumnSort<DateSort>(ascending));
+        case DateCol: // Date
+            std::sort(begin(), end(), ColumnSort<DateSort>(ascending));
             break;
-    case BugTraqCol: // Message or bug id
-            std::sort (begin(), end(), ColumnSort<BugIDSort>(ascending));
+        case BugTraqCol: // Message or bug id
+            std::sort(begin(), end(), ColumnSort<BugIDSort>(ascending));
             break;
-    case MessageCol: // Message
-            std::sort (begin(), end(), ColumnSort<MessageSort>(ascending));
+        case MessageCol: // Message
+            std::sort(begin(), end(), ColumnSort<MessageSort>(ascending));
             break;
     }
 }
 
 std::vector<size_t>
-CLogDataVector::FilterRange
-    ( const CLogDlgFilter* filter
-    , size_t first
-    , size_t last)
+    CLogDataVector::FilterRange(const CLogDlgFilter* filter, size_t first, size_t last)
 {
     std::vector<size_t> result;
-    result.reserve (last - first);
+    result.reserve(last - first);
 
-    CLogDlgFilter privateFilter (*filter);
+    CLogDlgFilter privateFilter(*filter);
 
     size_t parentEntry = first;
     for (size_t i = first; i < last; ++i)
     {
-        if (privateFilter(*inherited::operator[](i)))
+        if (privateFilter(*__super::operator[](i)))
         {
-            if (inherited::operator[](i)->HasParent() && !contains(result, parentEntry))
+            if (__super::operator[](i)->HasParent() && !contains(result, parentEntry))
             {
                 // Filter didn't match the parent, but it matched it's child,
                 // so still show the child's parent as well
@@ -844,7 +793,7 @@ CLogDataVector::FilterRange
             result.push_back(i);
         }
 
-        if (!inherited::operator[](i)->HasParent())
+        if (!__super::operator[](i)->HasParent())
         {
             parentEntry = i; // remember parent's position
         }
@@ -853,40 +802,34 @@ CLogDataVector::FilterRange
     return result;
 }
 
-void CLogDataVector::Filter (const CLogDlgFilter& filter)
+void CLogDataVector::Filter(const CLogDlgFilter& filter)
 {
     size_t count = size();
 
     visible.clear();
-    visible.reserve (count);
+    visible.reserve(count);
 
     if (filter.BenefitsFromMT())
     {
         // run approx. 4 jobs per core / HW thread to even out
         // changed commit policies. Don't make the jobs too small, though.
 
-        size_t itemsPerJob
-            = max ( 1 + count / (4 * async::CJobScheduler::GetSharedThreadCount())
-                  , (size_t)1000);
+        size_t itemsPerJob = max(1 + count / (4 * async::CJobScheduler::GetSharedThreadCount()), static_cast<size_t>(1000));
 
         // start jobs
 
-        typedef async::CFuture<vector<size_t> > TFuture;
-        vector<TFuture*> jobs;
+        typedef async::CFuture<vector<size_t>> TFuture;
+        vector<TFuture*>                       jobs;
 
         for (size_t i = 0; i < count; i += itemsPerJob)
-            jobs.push_back (new TFuture ( this
-                                        , &CLogDataVector::FilterRange
-                                        , &filter
-                                        , i
-                                        , min (i + itemsPerJob, count)));
+            jobs.push_back(new TFuture(this, &CLogDataVector::FilterRange, &filter, i, min(i + itemsPerJob, count)));
 
         // collect results
 
         for (size_t i = 0; i < jobs.size(); ++i)
         {
             const vector<size_t> result = jobs[i]->GetResult();
-            visible.insert (visible.end(), result.begin(), result.end());
+            visible.insert(visible.end(), result.begin(), result.end());
 
             delete jobs[i];
         }
@@ -895,46 +838,45 @@ void CLogDataVector::Filter (const CLogDlgFilter& filter)
     {
         // execute in this thread directly
 
-        visible = FilterRange (&filter, 0, count);
+        visible = FilterRange(&filter, 0, count);
     }
 }
 
-void CLogDataVector::Filter (__time64_t from, __time64_t to, bool hideNonMergeable, std::set<svn_revnum_t> * mergedrevs, svn_revnum_t minrev)
+void CLogDataVector::Filter(__time64_t from, __time64_t to, bool hideNonMergeable, std::set<svn_revnum_t>* mergedRevs, svn_revnum_t minRev)
 {
     visible.clear();
-    for (size_t i=0, count = size(); i < count; ++i)
+    for (size_t i = 0, count = size(); i < count; ++i)
     {
-        const PLOGENTRYDATA entry = inherited::operator[](i);
-        __time64_t date = entry->GetDate();
+        const PLOGENTRYDATA entry                   = __super::operator[](i);
+        __time64_t                             date = entry->GetDate();
 
         if ((date >= from) && (date <= to))
         {
-            if (hideNonMergeable && mergedrevs && !mergedrevs->empty())
+            if (hideNonMergeable && mergedRevs && !mergedRevs->empty())
             {
-                if ((mergedrevs->find(entry->GetRevision()) == mergedrevs->end()) && (entry->GetRevision() >= minrev))
-                    visible.push_back (i);
+                if ((mergedRevs->find(entry->GetRevision()) == mergedRevs->end()) && (entry->GetRevision() >= minRev))
+                    visible.push_back(i);
             }
             else
-                visible.push_back (i);
+                visible.push_back(i);
         }
     }
 }
 
-void CLogDataVector::ClearFilter(bool hideNonMergeables, std::set<svn_revnum_t> * mergedrevs, svn_revnum_t minrev)
+void CLogDataVector::ClearFilter(bool hideNonMergeables, std::set<svn_revnum_t>* mergedRevs, svn_revnum_t minRev)
 {
     visible.clear();
-    visible.reserve (size());
+    visible.reserve(size());
 
-    for (size_t i=0, count = size(); i < count; ++i)
+    for (size_t i = 0, count = size(); i < count; ++i)
     {
-        if (hideNonMergeables && mergedrevs && !mergedrevs->empty())
+        if (hideNonMergeables && mergedRevs && !mergedRevs->empty())
         {
-            svn_revnum_t r = inherited::operator[](i)->GetRevision();
-            if ((r >= minrev) && (mergedrevs->find(r) == mergedrevs->end()))
-                visible.push_back (i);
+            svn_revnum_t r = __super::operator[](i)->GetRevision();
+            if ((r >= minRev) && (mergedRevs->find(r) == mergedRevs->end()))
+                visible.push_back(i);
         }
         else
-            visible.push_back (i);
+            visible.push_back(i);
     }
 }
-
