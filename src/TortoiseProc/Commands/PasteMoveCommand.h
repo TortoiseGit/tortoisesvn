@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2010, 2012 - TortoiseSVN
+// Copyright (C) 2008, 2010, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,17 +24,16 @@
  * \ingroup TortoiseProc
  * Moves pasted items.
  */
-class PasteMoveCommand : public Command, public IInputValidator
+class PasteMoveCommand : public Command
+    , public IInputValidator
 {
 public:
     /**
      * Executes the command.
      */
-    virtual bool            Execute() override;
-    virtual CString         Validate(const int nID, const CString& input) override;
+    bool    Execute() override;
+    CString Validate(const int nID, const CString& input) override;
 
 private:
-    CTSVNPath               m_renPath;
+    CTSVNPath m_renPath;
 };
-
-

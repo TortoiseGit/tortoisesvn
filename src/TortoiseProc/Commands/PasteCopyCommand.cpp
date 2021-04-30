@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2010-2011, 2014 - TortoiseSVN
+// Copyright (C) 2008, 2010-2011, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,22 +29,22 @@
 
 bool PasteCopyCommand::Execute()
 {
-    CString sDroppath = parser.GetVal(L"droptarget");
-    CTSVNPath dropPath(sDroppath);
+    CString           sDroppath = parser.GetVal(L"droptarget");
+    CTSVNPath         dropPath(sDroppath);
     ProjectProperties props;
     props.ReadProps(dropPath);
     if (dropPath.IsAdminDir())
         return FALSE;
-    SVN svn;
-    SVNStatus status;
+    SVN           svn;
+    SVNStatus     status;
     unsigned long count = 0;
-    CString sNewName;
+    CString       sNewName;
     pathList.RemoveAdminPaths();
     CProgressDlg progress;
     progress.SetTitle(IDS_PROC_COPYING);
     progress.SetTime(true);
     progress.ShowModeless(CWnd::FromHandle(GetExplorerHWND()));
-    for(int nPath = 0; nPath < pathList.GetCount(); nPath++)
+    for (int nPath = 0; nPath < pathList.GetCount(); nPath++)
     {
         const CTSVNPath& sourcePath = pathList[nPath];
 
@@ -63,7 +63,7 @@ bool PasteCopyCommand::Execute()
             dlg.SetFileSystemAutoComplete();
             dlg.SetInputValidator(this);
             m_renPath = sourcePath;
-            dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, (LPCTSTR)sourcePath.GetUIFileOrDirectoryName());
+            dlg.m_windowtitle.Format(IDS_PROC_NEWNAMECOPY, static_cast<LPCWSTR>(sourcePath.GetUIFileOrDirectoryName()));
             if (dlg.DoModal() != IDOK)
             {
                 return FALSE;
@@ -80,14 +80,14 @@ bool PasteCopyCommand::Execute()
         }
 
         svn_wc_status_kind s = status.GetAllStatus(sourcePath);
-        if ((s == svn_wc_status_none)||(s == svn_wc_status_unversioned)||(s == svn_wc_status_ignored))
+        if ((s == svn_wc_status_none) || (s == svn_wc_status_unversioned) || (s == svn_wc_status_ignored))
         {
             // source file is unversioned: move the file to the target, then add it
             CopyFile(sourcePath.GetWinPath(), fullDropPath.GetWinPath(), FALSE);
             if (!svn.Add(CTSVNPathList(fullDropPath), &props, svn_depth_infinity, true, true, false, true))
             {
                 svn.ShowErrorDialog(GetExplorerHWND(), fullDropPath);
-                return FALSE;       //get out of here
+                return FALSE; //get out of here
             }
             else
                 CShellUpdater::Instance().AddPathForUpdate(fullDropPath);
@@ -97,7 +97,7 @@ bool PasteCopyCommand::Execute()
             if (!svn.Copy(CTSVNPathList(sourcePath), fullDropPath, SVNRev::REV_WC, SVNRev()))
             {
                 svn.ShowErrorDialog(GetExplorerHWND(), sourcePath);
-                return FALSE;       //get out of here
+                return FALSE; //get out of here
             }
             else
                 CShellUpdater::Instance().AddPathForUpdate(fullDropPath);
@@ -109,16 +109,16 @@ bool PasteCopyCommand::Execute()
             progress.FormatPathLine(2, IDS_PROC_CPYMVPROG2, fullDropPath.GetWinPath());
             progress.SetProgress(count, pathList.GetCount());
         }
-        if ((progress.IsValid())&&(progress.HasUserCancelled()))
+        if ((progress.IsValid()) && (progress.HasUserCancelled()))
         {
-            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SVN_USERCANCELLED), NULL, TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
+            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SVN_USERCANCELLED), nullptr, TDCBF_OK_BUTTON, TD_INFORMATION_ICON, nullptr);
             return false;
         }
     }
     return true;
 }
 
-CString PasteCopyCommand::Validate( const int /*nID*/, const CString& input )
+CString PasteCopyCommand::Validate(const int /*nID*/, const CString& input)
 {
     CString sError;
 
