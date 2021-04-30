@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2013-2014 - TortoiseSVN
+// Copyright (C) 2010-2011, 2013-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,21 +17,16 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "RepoCreationFinished.h"
-#include <afxdialogex.h>
 #include "TempFile.h"
 #include "SVN.h"
 #include "AppUtils.h"
-#include "PathUtils.h"
-
 
 IMPLEMENT_DYNAMIC(CRepoCreationFinished, CStandAloneDialog)
 
-    CRepoCreationFinished::CRepoCreationFinished(CWnd* pParent /*=NULL*/)
+CRepoCreationFinished::CRepoCreationFinished(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CRepoCreationFinished::IDD, pParent)
 {
-
 }
 
 CRepoCreationFinished::~CRepoCreationFinished()
@@ -41,16 +36,13 @@ CRepoCreationFinished::~CRepoCreationFinished()
 void CRepoCreationFinished::DoDataExchange(CDataExchange* pDX)
 {
     CStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_URL, m_RepoUrl);
+    DDX_Control(pDX, IDC_URL, m_repoUrl);
 }
-
 
 BEGIN_MESSAGE_MAP(CRepoCreationFinished, CStandAloneDialog)
     ON_BN_CLICKED(IDC_CREATEFOLDERS, &CRepoCreationFinished::OnBnClickedCreatefolders)
     ON_BN_CLICKED(IDC_REPOBROWSER, &CRepoCreationFinished::OnBnClickedRepobrowser)
 END_MESSAGE_MAP()
-
-
 
 void CRepoCreationFinished::OnBnClickedCreatefolders()
 {
@@ -63,27 +55,27 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
     }
     CTSVNPath tempDirSub = tempDir;
     tempDirSub.AppendPathString(L"trunk");
-    CreateDirectory(tempDirSub.GetWinPath(), NULL);
+    CreateDirectory(tempDirSub.GetWinPath(), nullptr);
     tempDirSub = tempDir;
     tempDirSub.AppendPathString(L"branches");
-    CreateDirectory(tempDirSub.GetWinPath(), NULL);
+    CreateDirectory(tempDirSub.GetWinPath(), nullptr);
     tempDirSub = tempDir;
     tempDirSub.AppendPathString(L"tags");
-    CreateDirectory(tempDirSub.GetWinPath(), NULL);
+    CreateDirectory(tempDirSub.GetWinPath(), nullptr);
 
     CString url;
-    if (m_RepoPath.GetWinPathString().GetAt(0) == '\\')    // starts with '\' means an UNC path
+    if (m_repoPath.GetWinPathString().GetAt(0) == '\\') // starts with '\' means an UNC path
     {
-        CString p = m_RepoPath.GetWinPathString();
+        CString p = m_repoPath.GetWinPathString();
         p.TrimLeft('\\');
-        url = L"file://"+p;
+        url = L"file://" + p;
     }
     else
-        url = L"file:///"+m_RepoPath.GetWinPathString();
+        url = L"file:///" + m_repoPath.GetWinPathString();
 
     // import the folder structure into the new repository
     SVN svn;
-    if (!svn.Import(tempDir, CTSVNPath(url), CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTURE)), NULL, svn_depth_infinity, true, true, false))
+    if (!svn.Import(tempDir, CTSVNPath(url), CString(MAKEINTRESOURCE(IDS_MSG_IMPORTEDSTRUCTURE)), nullptr, svn_depth_infinity, true, true, false))
     {
         svn.ShowErrorDialog(m_hWnd);
         return;
@@ -92,16 +84,15 @@ void CRepoCreationFinished::OnBnClickedCreatefolders()
     DialogEnableWindow(IDC_CREATEFOLDERS, FALSE);
 }
 
-
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CRepoCreationFinished::OnBnClickedRepobrowser()
 {
     CString sCmd;
     sCmd.Format(L"/command:repobrowser /path:\"%s\"",
-        (LPCTSTR)m_RepoPath.GetWinPath());
+                static_cast<LPCWSTR>(m_repoPath.GetWinPath()));
 
     CAppUtils::RunTortoiseProc(sCmd);
 }
-
 
 BOOL CRepoCreationFinished::OnInitDialog()
 {
@@ -109,17 +100,17 @@ BOOL CRepoCreationFinished::OnInitDialog()
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
     CString url;
-    if (m_RepoPath.GetWinPathString().GetAt(0) == '\\')    // starts with '\' means an UNC path
+    if (m_repoPath.GetWinPathString().GetAt(0) == '\\') // starts with '\' means an UNC path
     {
-        CString p = m_RepoPath.GetWinPathString();
+        CString p = m_repoPath.GetWinPathString();
         p.TrimLeft('\\');
-        url = L"file://"+p;
+        url = L"file://" + p;
     }
     else
-        url = L"file:///"+m_RepoPath.GetWinPathString();
+        url = L"file:///" + m_repoPath.GetWinPathString();
 
-    m_RepoUrl.SetWindowText(url);
+    m_repoUrl.SetWindowText(url);
 
-    return TRUE;  // return TRUE unless you set the focus to a control
+    return TRUE; // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
 }

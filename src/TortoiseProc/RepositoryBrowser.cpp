@@ -5419,7 +5419,7 @@ void CRepositoryBrowser::SaveBookmarks()
     }
 }
 
-CString CRepositoryBrowser::GetUrlWebViewerRev(CRepositoryBrowserSelection& selection)
+CString CRepositoryBrowser::GetUrlWebViewerRev(CRepositoryBrowserSelection& selection) const
 {
     const SRepositoryInfo& repository = selection.GetRepository(0);
     CString                webUrl     = m_projectProperties.sWebViewerRev;
@@ -5429,7 +5429,7 @@ CString CRepositoryBrowser::GetUrlWebViewerRev(CRepositoryBrowserSelection& sele
     return webUrl;
 }
 
-CString CRepositoryBrowser::GetUrlWebViewerPathRev(CRepositoryBrowserSelection& selection)
+CString CRepositoryBrowser::GetUrlWebViewerPathRev(CRepositoryBrowserSelection& selection) const
 {
     const SRepositoryInfo& repository = selection.GetRepository(0);
     CString                relUrl     = selection.GetURLEscaped(0, 0).GetSVNPathString();

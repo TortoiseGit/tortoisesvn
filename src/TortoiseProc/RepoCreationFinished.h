@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011 - TortoiseSVN
+// Copyright (C) 2010-2011, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,29 +21,31 @@
 #include "PathEdit.h"
 #include "StandAloneDlg.h"
 
-
 class CRepoCreationFinished : public CStandAloneDialog
 {
     DECLARE_DYNAMIC(CRepoCreationFinished)
 
 public:
-    CRepoCreationFinished(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CRepoCreationFinished();
+    CRepoCreationFinished(CWnd* pParent = nullptr); // standard constructor
+    ~CRepoCreationFinished() override;
 
-    void SetRepoPath(const CTSVNPath& repoPath) { m_RepoPath = repoPath; }
+    void SetRepoPath(const CTSVNPath& repoPath) { m_repoPath = repoPath; }
 
     // Dialog Data
-    enum { IDD = IDD_REPOCREATEFINISHED };
+    enum
+    {
+        IDD = IDD_REPOCREATEFINISHED
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
     afx_msg void OnBnClickedCreatefolders();
     afx_msg void OnBnClickedRepobrowser();
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    CTSVNPath       m_RepoPath;
-    CPathEdit       m_RepoUrl;
+    CTSVNPath m_repoPath;
+    CPathEdit m_repoUrl;
 };

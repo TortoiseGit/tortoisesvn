@@ -312,8 +312,8 @@ protected:
     void      SaveBookmarks();
     HTREEITEM FindBookmarkRoot() const;
     void      RefreshBookmarks();
-    CString   GetUrlWebViewerRev(CRepositoryBrowserSelection& selection);
-    CString   GetUrlWebViewerPathRev(CRepositoryBrowserSelection& selection);
+    CString   GetUrlWebViewerRev(CRepositoryBrowserSelection& selection) const;
+    CString   GetUrlWebViewerPathRev(CRepositoryBrowserSelection& selection) const;
 
 protected:
     bool              m_bInitDone;
