@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010 - TortoiseSVN
+// Copyright (C) 2003-2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,20 +31,23 @@ class CCheckForUpdatesDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CCheckForUpdatesDlg)
 
 public:
-    CCheckForUpdatesDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CCheckForUpdatesDlg();
+    CCheckForUpdatesDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CCheckForUpdatesDlg() override;
 
-    enum { IDD = IDD_CHECKFORUPDATES };
+    enum
+    {
+        IDD = IDD_CHECKFORUPDATES
+    };
 
 protected:
     afx_msg void OnStnClickedCheckresult();
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg void OnWindowPosChanging(WINDOWPOS* lpwndpos);
     afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
+    void         OnCancel() override;
 
     DECLARE_MESSAGE_MAP()
 
@@ -53,12 +56,11 @@ private:
     UINT        CheckThread();
 
 public:
-    BOOL        m_bThreadRunning;
-    BOOL        m_bShowInfo;
-    BOOL        m_bVisible;
+    BOOL m_bThreadRunning;
+    BOOL m_bShowInfo;
+    BOOL m_bVisible;
 
 private:
-    CString     m_sUpdateDownloadLink;          ///< Where to send a user looking to download a update
-    CHyperLink  m_link;
+    CString    m_sUpdateDownloadLink; ///< Where to send a user looking to download a update
+    CHyperLink m_link;
 };
-
