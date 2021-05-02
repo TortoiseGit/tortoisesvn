@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2020 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,8 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-
-#include "TortoiseProc.h"
 #include "URLDlg.h"
 #include "ControlsBridge.h"
 #include "AppUtils.h"
@@ -36,13 +34,11 @@ CURLDlg::~CURLDlg()
 void CURLDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_URLCOMBO, m_URLCombo);
+    DDX_Control(pDX, IDC_URLCOMBO, m_urlCombo);
 }
-
 
 BEGIN_MESSAGE_MAP(CURLDlg, CResizableStandAloneDialog)
 END_MESSAGE_MAP()
-
 
 BOOL CURLDlg::OnInitDialog()
 {
@@ -53,8 +49,8 @@ BOOL CURLDlg::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_DWM);
     m_aeroControls.SubclassOkCancel(this);
 
-    m_URLCombo.SetURLHistory(true, false);
-    m_URLCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
+    m_urlCombo.SetURLHistory(true, false);
+    m_urlCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS", L"url");
 
     CControlsBridge::AlignHorizontally(this, IDC_LABEL, IDC_URLCOMBO);
 
@@ -68,27 +64,25 @@ BOOL CURLDlg::OnInitDialog()
     // put focus into it so that if the text was too wide to be displayed with
     // the original size but it fits into the restored size it is no longer scrolled
     // in the edit box of the combo.
-    m_URLCombo.SetCurSel(0);
-    m_URLCombo.SetFocus();
+    m_urlCombo.SetCurSel(0);
+    m_urlCombo.SetFocus();
 
     SetTheme(CTheme::Instance().IsDarkTheme());
 
     // if there is an url on the clipboard, use that url as the default.
-    CAppUtils::AddClipboardUrlToWindow(m_URLCombo.GetSafeHwnd());
+    CAppUtils::AddClipboardUrlToWindow(m_urlCombo.GetSafeHwnd());
 
     return FALSE;
 }
 
 void CURLDlg::OnOK()
 {
-    if (m_URLCombo.IsWindowEnabled())
+    if (m_urlCombo.IsWindowEnabled())
     {
-        m_URLCombo.SaveHistory();
-        m_url = m_URLCombo.GetString();
+        m_urlCombo.SaveHistory();
+        m_url = m_urlCombo.GetString();
         UpdateData();
     }
 
     CResizableStandAloneDialog::OnOK();
 }
-
-

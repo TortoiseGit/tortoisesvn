@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,23 +32,27 @@ class CPromptDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CPromptDlg)
 
 public:
-    CPromptDlg(CWnd* pParent = NULL);
-    virtual ~CPromptDlg();
+    CPromptDlg(CWnd* pParent = nullptr);
+    ~CPromptDlg() override;
 
-    void    SetHide(BOOL hide);
+    void SetHide(BOOL hide);
 
-    enum { IDD = IDD_PROMPT };
+    enum
+    {
+        IDD = IDD_PROMPT
+    };
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
 
     DECLARE_MESSAGE_MAP()
 
 public:
-    CString     m_info;
-    CString     m_sPass;
-    CEdit       m_pass;
-    BOOL        m_hide;
-    BOOL        m_saveCheck;
-    HWND        m_hParentWnd;
+    CString m_info;
+    CString m_sPass;
+    CEdit   m_pass;
+    BOOL    m_hide;
+    BOOL    m_saveCheck;
+    HWND    m_hParentWnd;
 };

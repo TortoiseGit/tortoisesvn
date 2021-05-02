@@ -170,7 +170,7 @@ bool SyncCommand::Execute()
                             CPasswordDlg passDlg(CWnd::FromHandle(GetExplorerHWND()));
                             passDlg.m_bForSave = !!parser.HasKey(L"save");
                             dlgRet             = passDlg.DoModal();
-                            password           = passDlg.m_sPW1;
+                            password           = passDlg.m_sPw1;
                             if ((dlgRet == IDOK) && (parser.HasKey(L"load")))
                             {
                                 std::string passworda = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(password));
@@ -608,7 +608,7 @@ bool SyncCommand::Execute()
             passDlg.m_bForSave = true;
             if (passDlg.DoModal() != IDOK)
                 return false;
-            password = passDlg.m_sPW1;
+            password = passDlg.m_sPw1;
         }
         else
         {

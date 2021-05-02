@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2010, 2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 
-
 #include "StandAloneDlg.h"
 #include "HistoryCombo.h"
 
@@ -31,18 +30,22 @@ class CURLDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CURLDlg)
 
 public:
-    CURLDlg(CWnd* pParent = NULL);
-    virtual ~CURLDlg();
+    CURLDlg(CWnd* pParent = nullptr);
+    ~CURLDlg() override;
 
     CString m_url;
 
-    enum { IDD = IDD_URL };
+    enum
+    {
+        IDD = IDD_URL
+    };
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override;
+    BOOL OnInitDialog() override;
+    void OnOK() override;
 
     DECLARE_MESSAGE_MAP()
 
-    CHistoryCombo   m_URLCombo;
+    CHistoryCombo m_urlCombo;
 };

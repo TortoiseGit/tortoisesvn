@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "InputLogDlg.h"
-#include "registry.h"
 #include "HistoryDlg.h"
 #include "RegHistory.h"
 #include "AppUtils.h"
@@ -33,11 +32,10 @@ IMPLEMENT_DYNAMIC(CInputLogDlg, CResizableStandAloneDialog)
 
 CInputLogDlg::CInputLogDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CInputLogDlg::IDD, pParent)
-    , m_pProjectProperties(NULL)
+    , m_pProjectProperties(nullptr)
     , m_iCheck(0)
     , m_bLock(false)
 {
-
 }
 
 CInputLogDlg::~CInputLogDlg()
@@ -52,13 +50,11 @@ void CInputLogDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_BUGID, m_sBugID);
 }
 
-
 BEGIN_MESSAGE_MAP(CInputLogDlg, CResizableStandAloneDialog)
     ON_EN_CHANGE(IDC_INPUTTEXT, OnEnChangeLogmessage)
     ON_BN_CLICKED(IDC_HISTORY, &CInputLogDlg::OnBnClickedHistory)
     ON_BN_CLICKED(IDC_BUGTRAQBUTTON, &CInputLogDlg::OnBnClickedBugtraqbutton)
 END_MESSAGE_MAP()
-
 
 BOOL CInputLogDlg::OnInitDialog()
 {
@@ -70,7 +66,7 @@ BOOL CInputLogDlg::OnInitDialog()
     m_aeroControls.SubclassOkCancel(this);
 
 #ifdef DEBUG
-    if (m_pProjectProperties == NULL)
+    if (m_pProjectProperties == nullptr)
         TRACE("InputLogDlg: project properties not set\n");
     if (m_sActionText.IsEmpty())
         TRACE("InputLogDlg: action text not set\n");
@@ -123,17 +119,17 @@ BOOL CInputLogDlg::OnInitDialog()
 
     if (m_pProjectProperties && (!m_rootpath.IsEmpty() || m_pathlist.GetCount()))
     {
-        CBugTraqAssociations bugtraq_associations;
-        bugtraq_associations.Load(m_pProjectProperties->GetProviderUUID(), m_pProjectProperties->sProviderParams);
+        CBugTraqAssociations bugtraqAssociations;
+        bugtraqAssociations.Load(m_pProjectProperties->GetProviderUUID(), m_pProjectProperties->sProviderParams);
 
         bool bExtendUrlControl = true;
-        bool bFound = bugtraq_associations.FindProvider(m_pathlist, &m_bugtraq_association);
+        bool bFound            = bugtraqAssociations.FindProvider(m_pathlist, &m_bugtraq_association);
         if (!bFound)
-            bFound = bugtraq_associations.FindProvider(CTSVNPathList(m_rootpath), &m_bugtraq_association);
+            bFound = bugtraqAssociations.FindProvider(CTSVNPathList(m_rootpath), &m_bugtraq_association);
         if (bFound)
         {
             CComPtr<IBugTraqProvider> pProvider;
-            HRESULT hr = pProvider.CoCreateInstance(m_bugtraq_association.GetProviderClass());
+            HRESULT                   hr = pProvider.CoCreateInstance(m_bugtraq_association.GetProviderClass());
             if (SUCCEEDED(hr))
             {
                 m_BugTraqProvider = pProvider;
@@ -182,7 +178,7 @@ BOOL CInputLogDlg::OnInitDialog()
         m_cInput.SetFocus();
     }
 
-    m_bLock = m_sSVNAction.Compare(PROJECTPROPNAME_LOGTEMPLATELOCK)==0;
+    m_bLock = m_sSVNAction.Compare(PROJECTPROPNAME_LOGTEMPLATELOCK) == 0;
 
     AddAnchor(IDC_ACTIONLABEL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
@@ -195,8 +191,8 @@ BOOL CInputLogDlg::OnInitDialog()
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
     EnableSaveRestore(L"InputLogDlg");
-    if (FindParentWindow(0))
-        CenterWindow(CWnd::FromHandle(FindParentWindow(0)));
+    if (FindParentWindow(nullptr))
+        CenterWindow(CWnd::FromHandle(FindParentWindow(nullptr)));
 
     m_cInput.SetFocus();
     return FALSE;
@@ -219,17 +215,17 @@ void CInputLogDlg::OnOK()
         }
         if (!m_bLock && (m_pProjectProperties->bWarnIfNoIssue) && (id.IsEmpty() && !m_pProjectProperties->HasBugID(m_sLogMsg)))
         {
-            CTaskDialog taskdlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK1)),
+            CTaskDialog taskDlg(CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK1)),
                                 CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK2)),
                                 L"TortoiseSVN",
                                 0,
                                 TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
-            taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
-            taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskdlg.SetDefaultCommandControl(2);
-            taskdlg.SetMainIcon(TD_WARNING_ICON);
-            if (taskdlg.DoModal(m_hWnd) != 100)
+            taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
+            taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
+            taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetMainIcon(TD_WARNING_ICON);
+            if (taskDlg.DoModal(m_hWnd) != 100)
                 return;
         }
         m_sBugID.Trim();
@@ -249,14 +245,14 @@ void CInputLogDlg::OnOK()
         if (!m_bLock)
         {
             // now let the bugtraq plugin check the commit message
-            CComPtr<IBugTraqProvider2> pProvider2 = NULL;
+            CComPtr<IBugTraqProvider2> pProvider2 = nullptr;
             if (m_BugTraqProvider)
             {
                 HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
                 if (SUCCEEDED(hr))
                 {
                     ATL::CComBSTR temp;
-                    CString common = m_rootpath.GetSVNPathString();
+                    CString       common = m_rootpath.GetSVNPathString();
                     ATL::CComBSTR repositoryRoot;
                     repositoryRoot.Attach(common.AllocSysString());
                     ATL::CComBSTR parameters;
@@ -276,7 +272,7 @@ void CInputLogDlg::OnOK()
                     }
                     else
                     {
-                        CString sError = temp == 0 ? L"" : temp;
+                        CString sError = temp == 0 ? L"" : static_cast<LPCWSTR>(temp);
                         if (!sError.IsEmpty())
                         {
                             CAppUtils::ReportFailedHook(m_hWnd, sError);
@@ -288,7 +284,7 @@ void CInputLogDlg::OnOK()
 
             CTSVNPathList checkedItems;
             checkedItems.AddPath(m_rootpath);
-            DWORD exitcode = 0;
+            DWORD   exitcode = 0;
             CString error;
             CHooks::Instance().SetProjectProperties(m_rootpath, *m_pProjectProperties);
             if (CHooks::Instance().CheckCommit(m_hWnd, checkedItems, m_sLogMsg, exitcode, error))
@@ -296,18 +292,18 @@ void CInputLogDlg::OnOK()
                 if (exitcode)
                 {
                     CString sErrorMsg;
-                    sErrorMsg.Format(IDS_HOOK_ERRORMSG, (LPCWSTR)error);
+                    sErrorMsg.Format(IDS_HOOK_ERRORMSG, static_cast<LPCWSTR>(error));
 
-                    CTaskDialog taskdlg(sErrorMsg,
+                    CTaskDialog taskDlg(sErrorMsg,
                                         CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK2)),
                                         L"TortoiseSVN",
                                         0,
                                         TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                    taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
-                    taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
-                    taskdlg.SetDefaultCommandControl(1);
-                    taskdlg.SetMainIcon(TD_ERROR_ICON);
-                    bool retry = (taskdlg.DoModal(GetSafeHwnd()) == 100);
+                    taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
+                    taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
+                    taskDlg.SetDefaultCommandControl(1);
+                    taskDlg.SetMainIcon(TD_ERROR_ICON);
+                    bool retry = (taskDlg.DoModal(GetSafeHwnd()) == 100);
 
                     if (retry)
                         return;
@@ -317,7 +313,7 @@ void CInputLogDlg::OnOK()
     }
 
     CString reg;
-    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", (LPCTSTR)m_sUUID);
+    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", static_cast<LPCWSTR>(m_sUUID));
 
     CRegHistory history;
     history.Load(reg, L"logmsgs");
@@ -331,12 +327,12 @@ void CInputLogDlg::OnBnClickedBugtraqbutton()
 {
     CString sMsg = m_cInput.GetText();
 
-    if (m_BugTraqProvider == NULL)
+    if (m_BugTraqProvider == nullptr)
         return;
 
     ATL::CComBSTR parameters;
     parameters.Attach(m_bugtraq_association.GetParameters().AllocSysString());
-    ATL::CComBSTR commonRoot(m_rootpath.GetSVNPathString());
+    ATL::CComBSTR   commonRoot(m_rootpath.GetSVNPathString());
     CBstrSafeVector pathList(m_pathlist.GetCount());
 
     for (LONG index = 0; index < m_pathlist.GetCount(); ++index)
@@ -348,12 +344,12 @@ void CInputLogDlg::OnBnClickedBugtraqbutton()
     m_revProps.clear();
 
     // first try the IBugTraqProvider2 interface
-    CComPtr<IBugTraqProvider2> pProvider2 = NULL;
-    HRESULT hr = m_BugTraqProvider.QueryInterface(&pProvider2);
-    bool bugIdOutSet = false;
+    CComPtr<IBugTraqProvider2> pProvider2  = nullptr;
+    HRESULT                    hr          = m_BugTraqProvider.QueryInterface(&pProvider2);
+    bool                       bugIdOutSet = false;
     if (SUCCEEDED(hr))
     {
-        CString common = m_rootpath.GetSVNPathString();
+        CString       common = m_rootpath.GetSVNPathString();
         ATL::CComBSTR repositoryRoot;
         repositoryRoot.Attach(common.AllocSysString());
         ATL::CComBSTR bugIDOut;
@@ -371,17 +367,17 @@ void CInputLogDlg::OnBnClickedBugtraqbutton()
             if (bugIDOut)
             {
                 bugIdOutSet = true;
-                m_sBugID = bugIDOut;
+                m_sBugID    = bugIDOut;
                 SetDlgItemText(IDC_BUGID, m_sBugID);
             }
-            m_cInput.SetText((LPCTSTR)temp);
-            BSTR HUGEP *pbRevNames;
-            BSTR HUGEP *pbRevValues;
+            m_cInput.SetText(static_cast<LPCWSTR>(temp));
+            BSTR* pbRevNames  = nullptr;
+            BSTR* pbRevValues = nullptr;
 
-            HRESULT hr1 = SafeArrayAccessData(revPropNames, (void HUGEP**)&pbRevNames);
+            HRESULT hr1 = SafeArrayAccessData(revPropNames, reinterpret_cast<void**>(&pbRevNames));
             if (SUCCEEDED(hr1))
             {
-                HRESULT hr2 = SafeArrayAccessData(revPropValues, (void HUGEP**)&pbRevValues);
+                HRESULT hr2 = SafeArrayAccessData(revPropValues, reinterpret_cast<void**>(&pbRevValues));
                 if (SUCCEEDED(hr2))
                 {
                     if (revPropNames->rgsabound->cElements == revPropValues->rgsabound->cElements)
@@ -400,8 +396,8 @@ void CInputLogDlg::OnBnClickedBugtraqbutton()
     else
     {
         // if IBugTraqProvider2 failed, try IBugTraqProvider
-        CComPtr<IBugTraqProvider> pProvider = NULL;
-        hr = m_BugTraqProvider.QueryInterface(&pProvider);
+        CComPtr<IBugTraqProvider> pProvider = nullptr;
+        hr                                  = m_BugTraqProvider.QueryInterface(&pProvider);
         if (FAILED(hr))
         {
             OnComError(hr);
@@ -413,7 +409,7 @@ void CInputLogDlg::OnBnClickedBugtraqbutton()
             OnComError(hr);
         }
         else
-            m_cInput.SetText((LPCTSTR)temp);
+            m_cInput.SetText(static_cast<LPCWSTR>(temp));
     }
     m_sLogMsg = m_cInput.GetText();
     if (!m_pProjectProperties->sMessage.IsEmpty())
@@ -428,17 +424,16 @@ void CInputLogDlg::OnBnClickedBugtraqbutton()
     m_cInput.SetFocus();
 }
 
-
 BOOL CInputLogDlg::PreTranslateMessage(MSG* pMsg)
 {
     if (pMsg->message == WM_KEYDOWN)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if (OnEnterPressed())
-                return TRUE;
-            break;
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
+                break;
         }
     }
 
@@ -452,11 +447,11 @@ void CInputLogDlg::OnEnChangeLogmessage()
 
 void CInputLogDlg::UpdateOKButton()
 {
-    CString sTemp = m_cInput.GetText();
-    int minsize = 0;
+    CString sTemp   = m_cInput.GetText();
+    int     minSize = 0;
     if (m_pProjectProperties)
-        minsize = m_bLock ? m_pProjectProperties->nMinLockMsgSize : m_pProjectProperties->nMinLogSize;
-    if (sTemp.GetLength() >= minsize)
+        minSize = m_bLock ? m_pProjectProperties->nMinLockMsgSize : m_pProjectProperties->nMinLogSize;
+    if (sTemp.GetLength() >= minSize)
     {
         DialogEnableWindow(IDOK, TRUE);
     }
@@ -469,22 +464,22 @@ void CInputLogDlg::UpdateOKButton()
 void CInputLogDlg::OnBnClickedHistory()
 {
     CString reg;
-    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", (LPCTSTR)m_sUUID);
+    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", static_cast<LPCWSTR>(m_sUUID));
     CRegHistory history;
     history.Load(reg, L"logmsgs");
-    CHistoryDlg HistoryDlg;
-    HistoryDlg.SetHistory(history);
-    if (HistoryDlg.DoModal()==IDOK)
+    CHistoryDlg historyDlg;
+    historyDlg.SetHistory(history);
+    if (historyDlg.DoModal() == IDOK)
     {
-        CString sMsg = HistoryDlg.GetSelectedText();
-        if (sMsg.Compare(m_cInput.GetText().Left(sMsg.GetLength()))!=0)
+        CString sMsg = historyDlg.GetSelectedText();
+        if (sMsg.Compare(m_cInput.GetText().Left(sMsg.GetLength())) != 0)
         {
             CString sBugID = m_pProjectProperties != nullptr ? m_pProjectProperties->FindBugID(sMsg) : L"";
             if ((!sBugID.IsEmpty()) && ((GetDlgItem(IDC_BUGID)->IsWindowVisible())))
             {
                 SetDlgItemText(IDC_BUGID, sBugID);
             }
-            if ((m_pProjectProperties)&&(m_pProjectProperties->GetLogMsgTemplate(m_sSVNAction).Compare(m_cInput.GetText())!=0))
+            if ((m_pProjectProperties) && (m_pProjectProperties->GetLogMsgTemplate(m_sSVNAction).Compare(m_cInput.GetText()) != 0))
                 m_cInput.InsertText(sMsg, !m_cInput.GetText().IsEmpty());
             else
                 m_cInput.SetText(sMsg);
@@ -495,22 +490,20 @@ void CInputLogDlg::OnBnClickedHistory()
     }
 }
 
-void CInputLogDlg::OnComError( HRESULT hr )
+void CInputLogDlg::OnComError(HRESULT hr) const
 {
     COMError ce(hr);
-    CString sErr;
-    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, (LPCWSTR)m_bugtraq_association.GetProviderName(), ce.GetMessageAndDescription().c_str());
+    CString  sErr;
+    sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, static_cast<LPCWSTR>(m_bugtraq_association.GetProviderName()), ce.GetMessageAndDescription().c_str());
     ::MessageBox(m_hWnd, sErr, L"TortoiseSVN", MB_ICONERROR);
 }
-
-
 
 void CInputLogDlg::OnCancel()
 {
     UpdateData();
     m_sLogMsg = m_cInput.GetText();
     CString reg;
-    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", (LPCTSTR)m_sUUID);
+    reg.Format(L"Software\\TortoiseSVN\\History\\commit%s", static_cast<LPCWSTR>(m_sUUID));
 
     CRegHistory history;
     history.Load(reg, L"logmsgs");

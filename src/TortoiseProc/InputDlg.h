@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 
 #include "StandAloneDlg.h"
 #include "SciEdit.h"
-#include "ProjectProperties.h"
 
 /**
  * \ingroup TortoiseProc
@@ -31,25 +30,28 @@ class CInputDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CInputDlg)
 
 public:
-    CInputDlg(CWnd* pParent = NULL);
-    virtual ~CInputDlg();
+    CInputDlg(CWnd* pParent = nullptr);
+    ~CInputDlg() override;
 
-    enum { IDD = IDD_INPUTDLG };
+    enum
+    {
+        IDD = IDD_INPUTDLG
+    };
 
 protected:
-    CFont           m_logFont;
+    CFont m_logFont;
 
-    virtual void DoDataExchange(CDataExchange* pDX);
-    virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override;
+    BOOL OnInitDialog() override;
+    BOOL PreTranslateMessage(MSG* pMsg) override;
+    void OnOK() override;
 
     DECLARE_MESSAGE_MAP()
 public:
-    CString             m_sInputText;
-    CString             m_sHintText;
-    CString             m_sTitle;
-    CString             m_sCheckText;
-    int                 m_iCheck;
-    CSciEdit            m_cInput;
+    CString  m_sInputText;
+    CString  m_sHintText;
+    CString  m_sTitle;
+    CString  m_sCheckText;
+    int      m_iCheck;
+    CSciEdit m_cInput;
 };

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,64 +30,68 @@ class CRevisionRangeDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CRevisionRangeDlg)
 
 public:
-    CRevisionRangeDlg(CWnd* pParent = NULL);
-    virtual ~CRevisionRangeDlg();
+    CRevisionRangeDlg(CWnd* pParent = nullptr);
+    ~CRevisionRangeDlg() override;
 
-    enum { IDD = IDD_REVISIONRANGE };
+    enum
+    {
+        IDD = IDD_REVISIONRANGE
+    };
 
     /**
      * Returns the string entered in the start revision edit box.
      */
-    CString GetEnteredStartRevisionString() const {return m_sStartRevision;}
+    CString GetEnteredStartRevisionString() const { return m_sStartRevision; }
 
     /**
      * Returns the string entered in the end revision edit box.
      */
-    CString GetEnteredEndRevisionString() const {return m_sEndRevision;}
+    CString GetEnteredEndRevisionString() const { return m_sEndRevision; }
 
     /**
      * Returns the entered start revision.
      */
-    SVNRev GetStartRevision() const {return m_StartRev;}
+    SVNRev GetStartRevision() const { return m_startRev; }
 
     /**
      * Returns the entered end revision.
      */
-    SVNRev GetEndRevision() const {return m_EndRev;}
+    SVNRev GetEndRevision() const { return m_endRev; }
 
     /**
      * Sets the start revision to fill in when the dialog shows up.
      */
-    void SetStartRevision(const SVNRev& rev) {m_StartRev = rev;}
+    void SetStartRevision(const SVNRev& rev) { m_startRev = rev; }
 
     /**
      * Sets the end revision to fill in when the dialog shows up.
      */
-    void SetEndRevision(const SVNRev& rev) {m_EndRev = rev;}
+    void SetEndRevision(const SVNRev& rev) { m_endRev = rev; }
 
     /**
      * If set to \a true, then working copy revisions like BASE, WC, PREV are allowed.
      * Otherwise, an error balloon is shown when the user tries to enter such revisions.
      */
-    void AllowWCRevs(bool bAllowWCRevs = true) {m_bAllowWCRevs = bAllowWCRevs;}
+    void AllowWCRevs(bool bAllowWCRevs = true) { m_bAllowWCRevs = bAllowWCRevs; }
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
     afx_msg void OnEnChangeRevnum();
     afx_msg void OnEnChangeRevnum2();
-    afx_msg void OnDtnDatetimechangeDateto(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnDtnDatetimechangeDatefrom(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnDtnDatetimechangeDateto(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnDtnDatetimechangeDatefrom(NMHDR* pNMHDR, LRESULT* pResult);
 
     DECLARE_MESSAGE_MAP()
 
 protected:
-    CString             m_sStartRevision;
-    CString             m_sEndRevision;
-    SVNRev              m_StartRev;
-    SVNRev              m_EndRev;
-    bool                m_bAllowWCRevs;
+    CString m_sStartRevision;
+    CString m_sEndRevision;
+    SVNRev  m_startRev;
+    SVNRev  m_endRev;
+    bool    m_bAllowWCRevs;
 
-    CDateTimeCtrl       m_DateFrom;
-    CDateTimeCtrl       m_DateTo;
+    CDateTimeCtrl m_dateFrom;
+    CDateTimeCtrl m_dateTo;
 };

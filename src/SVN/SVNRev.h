@@ -52,7 +52,8 @@ public:
         rev.kind   = svn_opt_revision_unspecified;
         m_bIsValid = FALSE;
     }
-    ~SVNRev();
+
+    virtual ~SVNRev();
 
     /// returns TRUE if the revision is valid (i.e. not unspecified)
     BOOL IsValid() const { return m_bIsValid; }

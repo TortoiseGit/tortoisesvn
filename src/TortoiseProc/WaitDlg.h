@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012, 2020 - TortoiseSVN
+// Copyright (C) 2012, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 
-
 // CWaitDlg dialog
 
 class CWaitDlg : public CStandAloneDialog
@@ -27,24 +26,27 @@ class CWaitDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CWaitDlg)
 
 public:
-    CWaitDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CWaitDlg();
+    CWaitDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CWaitDlg() override;
 
     void SetTitle(const CString& s) { m_title = s; }
     void SetInfo(const CString& s) { m_info = s; }
 
     // Dialog Data
-    enum { IDD = IDD_PLEASEWAIT };
+    enum
+    {
+        IDD = IDD_PLEASEWAIT
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnCancel();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnCancel() override;
+    void OnOK() override;
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    CString         m_title;
-    CString         m_info;
+    CString m_title;
+    CString m_info;
 };

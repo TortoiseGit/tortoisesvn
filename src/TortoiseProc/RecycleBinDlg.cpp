@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2014 - TortoiseSVN
+// Copyright (C) 2011-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,10 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "RecycleBinDlg.h"
-#include <afxdialogex.h>
-
 
 // CRecycleBinDlg dialog
 
@@ -28,11 +25,10 @@ IMPLEMENT_DYNAMIC(CRecycleBinDlg, CStandAloneDialog)
 
 CRecycleBinDlg::CRecycleBinDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CRecycleBinDlg::IDD, pParent)
+    , m_startTicks(0)
     , m_regDontDoAgain(L"Software\\TortoiseSVN\\RecycleBinSlowDontAskAgain")
     , m_bDontAskAgain(FALSE)
-    , m_startTicks(0)
 {
-
 }
 
 CRecycleBinDlg::~CRecycleBinDlg()
@@ -46,15 +42,12 @@ void CRecycleBinDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_DONTASKAGAIN, m_bDontAskAgain);
 }
 
-
 BEGIN_MESSAGE_MAP(CRecycleBinDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDC_EMPTYBIN, &CRecycleBinDlg::OnBnClickedEmptybin)
     ON_BN_CLICKED(IDC_DONTUSEBIN, &CRecycleBinDlg::OnBnClickedDontusebin)
 END_MESSAGE_MAP()
 
-
 // CRecycleBinDlg message handlers
-
 
 BOOL CRecycleBinDlg::OnInitDialog()
 {
@@ -73,33 +66,31 @@ ULONGLONG CRecycleBinDlg::StartTime()
     return m_startTicks;
 }
 
-void CRecycleBinDlg::EndTime(int filecount)
+void CRecycleBinDlg::EndTime(int fileCount)
 {
     bool tooSlow = false;
-    if (((GetTickCount64() - m_startTicks)/1000) > (5UL+filecount))
+    if (((GetTickCount64() - m_startTicks) / 1000) > (5UL + fileCount))
         tooSlow = true;
 
-    if ((tooSlow)&&(DWORD(m_regDontDoAgain)==0))
+    if ((tooSlow) && (static_cast<DWORD>(m_regDontDoAgain) == 0))
     {
-        SHQUERYRBINFO SHQueryRBInfo = {sizeof(SHQUERYRBINFO)};
-        if (SHQueryRecycleBin(NULL, &SHQueryRBInfo)==S_OK)
+        SHQUERYRBINFO shQueryRbInfo = {sizeof(SHQUERYRBINFO)};
+        if (SHQueryRecycleBin(nullptr, &shQueryRbInfo) == S_OK)
         {
-            if (SHQueryRBInfo.i64NumItems > 200)
+            if (shQueryRbInfo.i64NumItems > 200)
             {
-                m_sLabel.FormatMessage(IDS_RECYCLEBINSLOWDOWN, (unsigned long)filecount, (unsigned long)SHQueryRBInfo.i64NumItems);
+                m_sLabel.FormatMessage(IDS_RECYCLEBINSLOWDOWN, static_cast<unsigned long>(fileCount), static_cast<unsigned long>(shQueryRbInfo.i64NumItems));
                 DoModal();
             }
         }
     }
 }
 
-
 void CRecycleBinDlg::OnBnClickedEmptybin()
 {
-    SHEmptyRecycleBin(m_hWnd, NULL, SHERB_NOCONFIRMATION);
+    SHEmptyRecycleBin(m_hWnd, nullptr, SHERB_NOCONFIRMATION);
     CStandAloneDialog::OnCancel();
 }
-
 
 void CRecycleBinDlg::OnBnClickedDontusebin()
 {
@@ -107,7 +98,6 @@ void CRecycleBinDlg::OnBnClickedDontusebin()
     reg = FALSE;
     CStandAloneDialog::OnCancel();
 }
-
 
 void CRecycleBinDlg::OnCancel()
 {

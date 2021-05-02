@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012, 2013, 2020 - TortoiseSVN
+// Copyright (C) 2012, 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,10 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "WaitDlg.h"
-#include <afxdialogex.h>
-
 
 // CWaitDlg dialog
 
@@ -40,13 +37,10 @@ void CWaitDlg::DoDataExchange(CDataExchange* pDX)
     CStandAloneDialog::DoDataExchange(pDX);
 }
 
-
 BEGIN_MESSAGE_MAP(CWaitDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
-
 // CWaitDlg message handlers
-
 
 BOOL CWaitDlg::OnInitDialog()
 {
@@ -56,7 +50,7 @@ BOOL CWaitDlg::OnInitDialog()
         SetWindowText(m_title);
     SetDlgItemText(IDC_INFO, m_info);
 
-    return TRUE;  // return TRUE unless you set the focus to a control
+    return TRUE; // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
 }
 

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,10 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "PasswordDlg.h"
-#include "afxdialogex.h"
-
 
 // CPasswordDlg dialog
 
@@ -28,11 +25,10 @@ IMPLEMENT_DYNAMIC(CPasswordDlg, CStandAloneDialog)
 
 CPasswordDlg::CPasswordDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CPasswordDlg::IDD, pParent)
-    , m_sPW1(_T(""))
-    , m_sPW2(_T(""))
+    , m_sPw1(_T(""))
+    , m_sPw2(_T(""))
     , m_bForSave(false)
 {
-
 }
 
 CPasswordDlg::~CPasswordDlg()
@@ -42,17 +38,14 @@ CPasswordDlg::~CPasswordDlg()
 void CPasswordDlg::DoDataExchange(CDataExchange* pDX)
 {
     CStandAloneDialog::DoDataExchange(pDX);
-    DDX_Text(pDX, IDC_PW1, m_sPW1);
-    DDX_Text(pDX, IDC_PW2, m_sPW2);
+    DDX_Text(pDX, IDC_PW1, m_sPw1);
+    DDX_Text(pDX, IDC_PW2, m_sPw2);
 }
-
 
 BEGIN_MESSAGE_MAP(CPasswordDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
-
 // CPasswordDlg message handlers
-
 
 BOOL CPasswordDlg::OnInitDialog()
 {
@@ -62,15 +55,14 @@ BOOL CPasswordDlg::OnInitDialog()
         GetDlgItem(IDC_PW2)->ShowWindow(SW_SHOW);
 
     GetDlgItem(IDC_PW1)->SetFocus();
-    return FALSE;  // return TRUE unless you set the focus to a control
+    return FALSE; // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
 }
-
 
 void CPasswordDlg::OnOK()
 {
     UpdateData(TRUE);
-    if (m_bForSave && (m_sPW1 != m_sPW2))
+    if (m_bForSave && (m_sPw1 != m_sPw2))
     {
         // passwords don't match
         ShowEditBalloon(IDC_PW1, IDS_ERR_SYNCPW_NOMATCH, IDS_ERR_ERROR, TTI_ERROR);

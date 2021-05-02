@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,19 +17,16 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SVNProperties.h"
 #include "UnicodeUtils.h"
 #include "PropDlg.h"
-#include "registry.h"
 #include "AppUtils.h"
-
 
 IMPLEMENT_DYNAMIC(CPropDlg, CResizableStandAloneDialog)
 CPropDlg::CPropDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CPropDlg::IDD, pParent)
     , m_rev(SVNRev::REV_WC)
-    , m_hThread(NULL)
+    , m_hThread(nullptr)
 {
 }
 
@@ -40,9 +37,8 @@ CPropDlg::~CPropDlg()
 void CPropDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_PROPERTYLIST, m_proplist);
+    DDX_Control(pDX, IDC_PROPERTYLIST, m_propList);
 }
-
 
 BEGIN_MESSAGE_MAP(CPropDlg, CResizableStandAloneDialog)
     ON_WM_SETCURSOR()
@@ -56,23 +52,23 @@ BOOL CPropDlg::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_PROPERTYLIST, IDC_PROPERTYLIST, IDC_PROPERTYLIST, IDC_PROPERTYLIST);
     m_aeroControls.SubclassControl(this, IDOK);
 
-    m_proplist.SetExtendedStyle ( LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER );
+    m_propList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
-    m_proplist.DeleteAllItems();
-    int c = m_proplist.GetHeaderCtrl()->GetItemCount()-1;
-    while (c>=0)
-        m_proplist.DeleteColumn(c--);
+    m_propList.DeleteAllItems();
+    int c = m_propList.GetHeaderCtrl()->GetItemCount() - 1;
+    while (c >= 0)
+        m_propList.DeleteColumn(c--);
     CString temp;
     temp.LoadString(IDS_PROPPROPERTY);
-    m_proplist.InsertColumn(0, temp);
+    m_propList.InsertColumn(0, temp);
     temp.LoadString(IDS_PROPVALUE);
-    m_proplist.InsertColumn(1, temp);
-    m_proplist.SetRedraw(false);
+    m_propList.InsertColumn(1, temp);
+    m_propList.SetRedraw(false);
     setProplistColumnWidth();
-    m_proplist.SetRedraw(false);
+    m_propList.SetRedraw(false);
 
     DialogEnableWindow(IDOK, FALSE);
-    if (AfxBeginThread(PropThreadEntry, this)==NULL)
+    if (AfxBeginThread(PropThreadEntry, this) == nullptr)
     {
         OnCantStartThread();
     }
@@ -97,17 +93,17 @@ void CPropDlg::OnOK()
 
 UINT CPropDlg::PropThreadEntry(LPVOID pVoid)
 {
-    CCrashReportThread crashthread;
-    return ((CPropDlg*)pVoid)->PropThread();
+    CCrashReportThread crashThread;
+    return static_cast<CPropDlg*>(pVoid)->PropThread();
 }
 
 UINT CPropDlg::PropThread()
 {
-    SVNProperties props(m_Path, m_rev, false, false);
+    SVNProperties props(m_path, m_rev, false, false);
 
-    m_proplist.SetRedraw(false);
+    m_propList.SetRedraw(false);
     int row = 0;
-    for (int i=0; i<props.GetCount(); ++i)
+    for (int i = 0; i < props.GetCount(); ++i)
     {
         CString name = CUnicodeUtils::StdGetUnicode(props.GetItemName(i)).c_str();
         CString val;
@@ -117,41 +113,41 @@ UINT CPropDlg::PropThread()
         do
         {
             nFound = val.FindOneOf(L"\r\n");
-            m_proplist.InsertItem(row, name);
+            m_propList.InsertItem(row, name);
             if (nFound >= 0)
-                m_proplist.SetItemText(row++, 1, val.Left(nFound));
+                m_propList.SetItemText(row++, 1, val.Left(nFound));
             else
-                m_proplist.SetItemText(row++, 1, val);
+                m_propList.SetItemText(row++, 1, val);
             val = val.Mid(nFound);
             val.Trim();
             name.Empty();
-        } while (!val.IsEmpty()&&(nFound>=0));
+        } while (!val.IsEmpty() && (nFound >= 0));
     }
     setProplistColumnWidth();
 
-    m_proplist.SetRedraw(true);
+    m_propList.SetRedraw(true);
     DialogEnableWindow(IDOK, TRUE);
     return 0;
 }
 
 BOOL CPropDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
-    if ((GetDlgItem(IDOK)->IsWindowEnabled())||(IsCursorOverWindowBorder()))
+    if ((GetDlgItem(IDOK)->IsWindowEnabled()) || (IsCursorOverWindowBorder()))
     {
-        HCURSOR hCur = LoadCursor(NULL, IDC_ARROW);
+        HCURSOR hCur = LoadCursor(nullptr, IDC_ARROW);
         SetCursor(hCur);
         return CResizableStandAloneDialog::OnSetCursor(pWnd, nHitTest, message);
     }
-    HCURSOR hCur = LoadCursor(NULL, IDC_WAIT);
+    HCURSOR hCur = LoadCursor(nullptr, IDC_WAIT);
     SetCursor(hCur);
     return TRUE;
 }
 
 void CPropDlg::setProplistColumnWidth()
 {
-    const int maxcol = m_proplist.GetHeaderCtrl()->GetItemCount()-1;
-    for (int col = 0; col <= maxcol; col++)
+    const int maxCol = m_propList.GetHeaderCtrl()->GetItemCount() - 1;
+    for (int col = 0; col <= maxCol; col++)
     {
-        m_proplist.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+        m_propList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
     }
 }

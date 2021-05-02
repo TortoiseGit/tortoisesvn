@@ -4264,7 +4264,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 {
                     CPropDlg dlg(this);
                     dlg.m_rev  = revision;
-                    dlg.m_Path = selection.GetURLEscaped(0, 0);
+                    dlg.m_path = selection.GetURLEscaped(0, 0);
                     dlg.DoModal();
                 }
             }

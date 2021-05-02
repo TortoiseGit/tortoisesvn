@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2010, 2013, 2017 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010, 2013, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,25 +26,29 @@
  * \ingroup TortoiseProc
  * Dialog showing the log message history.
  */
-class CHistoryDlg : public CResizableStandAloneDialog, IFilterEditValidator
+class CHistoryDlg : public CResizableStandAloneDialog
+    , IFilterEditValidator
 {
     DECLARE_DYNAMIC(CHistoryDlg)
 public:
-    CHistoryDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CHistoryDlg();
+    CHistoryDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CHistoryDlg() override;
 
     /// Returns the text of the selected entry.
-    CString GetSelectedText() const {return m_SelectedText;}
+    CString GetSelectedText() const { return m_selectedText; }
     /// Sets the history object to use
-    void SetHistory(CRegHistory& history) {m_history = &history;}
+    void SetHistory(CRegHistory& history) { m_history = &history; }
     // Dialog Data
-    enum { IDD = IDD_HISTORYDLG };
+    enum
+    {
+        IDD = IDD_HISTORYDLG
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual bool Validate( LPCTSTR string );
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    BOOL PreTranslateMessage(MSG* pMsg) override;
+    bool Validate(LPCWSTR string) override;
 
     afx_msg void OnBnClickedOk();
     afx_msg void OnLbnDblclkHistorylist();
@@ -57,8 +61,8 @@ protected:
     void UpdateMessageList();
 
 private:
-    CHintCtrl<CListBox> m_List;
-    CString             m_SelectedText;
+    CHintCtrl<CListBox> m_list;
+    CString             m_selectedText;
     CRegHistory*        m_history;
     CFilterEdit         m_cFilter;
 };

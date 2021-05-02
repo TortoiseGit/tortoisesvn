@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "RevisionDlg.h"
-#include "PathUtils.h"
 #include "AppUtils.h"
 #include "LogDialog/LogDlg.h"
 
@@ -40,7 +39,6 @@ void CRevisionDlg::DoDataExchange(CDataExchange* pDX)
     CStandAloneDialog::DoDataExchange(pDX);
     DDX_Text(pDX, IDC_REVNUM, m_sRevision);
 }
-
 
 BEGIN_MESSAGE_MAP(CRevisionDlg, CStandAloneDialog)
     ON_EN_CHANGE(IDC_REVNUM, OnEnChangeRevnum)
@@ -67,13 +65,13 @@ BOOL CRevisionDlg::OnInitDialog()
         if (IsDate())
             sRev = GetDateString();
         else
-            sRev.Format(L"%ld", (LONG)(*this));
+            sRev.Format(L"%ld", static_cast<LONG>(*this));
         SetDlgItemText(IDC_REVNUM, sRev);
     }
     if (!m_logPath.IsEmpty())
         GetDlgItem(IDC_LOG)->ShowWindow(SW_SHOW);
 
-    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+    if ((m_pParentWnd == nullptr) && (GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     GetDlgItem(IDC_REVNUM)->SetFocus();
     return FALSE;
@@ -91,7 +89,7 @@ void CRevisionDlg::OnOK()
         SVNRev::Create(L"HEAD");
         m_sRevision = L"HEAD";
     }
-    if ((!IsValid())||((!m_bAllowWCRevs)&&(IsPrev() || IsCommitted() || IsBase())))
+    if ((!IsValid()) || ((!m_bAllowWCRevs) && (IsPrev() || IsCommitted() || IsBase())))
     {
         ShowEditBalloon(IDC_REVNUM, m_bAllowWCRevs ? IDS_ERR_INVALIDREV : IDS_ERR_INVALIDREVNOWC, IDS_ERR_ERROR, TTI_ERROR);
         return;
@@ -119,21 +117,22 @@ void CRevisionDlg::OnEnChangeRevnum()
 void CRevisionDlg::SetLogPath(const CTSVNPath& path, const SVNRev& r /* = SVNRev::REV_HEAD */)
 {
     m_logPath = path;
-    m_logRev = r;
+    m_logRev  = r;
 }
 
 void CRevisionDlg::OnBnClickedLog()
 {
     CLogDlg dlg;
-    dlg.SetParams (m_logPath, SVNRev::REV_HEAD, m_logRev, 1);
-    dlg.SetSelect (true);
+    dlg.SetParams(m_logPath, SVNRev::REV_HEAD, m_logRev, 1);
+    dlg.SetSelect(true);
     if (dlg.DoModal() == IDOK)
     {
         m_logRev = dlg.GetSelectedRevRanges().GetHighestRevision();
-        SetDlgItemText (IDC_REVNUM, m_logRev.ToString());
+        SetDlgItemText(IDC_REVNUM, m_logRev.ToString());
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CRevisionDlg::OnBnClickedRevisionN()
 {
     GetDlgItem(IDC_REVNUM)->SetFocus();

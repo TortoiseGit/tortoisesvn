@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2016, 2018 - TortoiseSVN
+// Copyright (C) 2011, 2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,20 +28,23 @@ class CDiffOptionsDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CDiffOptionsDlg)
 
 public:
-    CDiffOptionsDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CDiffOptionsDlg();
+    CDiffOptionsDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CDiffOptionsDlg() override;
 
-    enum { IDD = IDD_DIFFOPTIONS };
+    enum
+    {
+        IDD = IDD_DIFFOPTIONS
+    };
 
-    void SetDiffOptions(const SVNDiffOptions & opts);
-    void SetPrettyPrint(bool prettyprint) { m_bPrettyPrint = prettyprint; }
-    SVNDiffOptions GetDiffOptions();
-    CString GetDiffOptionsString() { return GetDiffOptions().GetOptionsString(); }
-    bool GetPrettyPrint() const { return !!m_bPrettyPrint; }
+    void           SetDiffOptions(const SVNDiffOptions& opts);
+    void           SetPrettyPrint(bool prettyprint) { m_bPrettyPrint = prettyprint; }
+    SVNDiffOptions GetDiffOptions() const;
+    CString        GetDiffOptionsString() const { return GetDiffOptions().GetOptionsString(); }
+    bool           GetPrettyPrint() const { return !!m_bPrettyPrint; }
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
 
     DECLARE_MESSAGE_MAP()
 

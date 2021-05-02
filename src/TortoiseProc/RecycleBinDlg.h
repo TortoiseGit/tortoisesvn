@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2014 - TortoiseSVN
+// Copyright (C) 2011, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 
-
 // CRecycleBinDlg dialog
 
 class CRecycleBinDlg : public CStandAloneDialog
@@ -27,26 +26,30 @@ class CRecycleBinDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CRecycleBinDlg)
 
 public:
-    CRecycleBinDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CRecycleBinDlg();
+    CRecycleBinDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CRecycleBinDlg() override;
 
     // Dialog Data
-    enum { IDD = IDD_RECYCLEBIN };
+    enum
+    {
+        IDD = IDD_RECYCLEBIN
+    };
 
-    ULONGLONG   StartTime();
-    void        EndTime(int filecount);
+    ULONGLONG StartTime();
+    void      EndTime(int fileCount);
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnCancel();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnCancel() override;
 
     afx_msg void OnBnClickedEmptybin();
     afx_msg void OnBnClickedDontusebin();
     DECLARE_MESSAGE_MAP()
 
 private:
-    ULONGLONG   m_startTicks;
-    CRegDWORD   m_regDontDoAgain;
-    CString     m_sLabel;
-    BOOL        m_bDontAskAgain;
+    ULONGLONG m_startTicks;
+    CRegDWORD m_regDontDoAgain;
+    CString   m_sLabel;
+    BOOL      m_bDontAskAgain;
 };

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,28 +25,29 @@
 
 namespace LogCache
 {
-    struct CLogCacheStatisticsData;
+struct CLogCacheStatisticsData;
 }
-
 
 class CLogCacheStatisticsDlg : public CStandAloneDialog
 {
     DECLARE_DYNAMIC(CLogCacheStatisticsDlg)
 
 public:
-    CLogCacheStatisticsDlg (const LogCache::CLogCacheStatisticsData& data, CWnd * pParentWnd = NULL);
-    virtual ~CLogCacheStatisticsDlg();
+    CLogCacheStatisticsDlg(const LogCache::CLogCacheStatisticsData& data, CWnd* pParentWnd = nullptr);
+    ~CLogCacheStatisticsDlg() override;
 
-    enum { IDD = IDD_LOGCACHESTATISTICS };
+    enum
+    {
+        IDD = IDD_LOGCACHESTATISTICS
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);
-    virtual BOOL OnInitDialog();
+    void DoDataExchange(CDataExchange* pDX) override;
+    BOOL OnInitDialog() override;
 
     DECLARE_MESSAGE_MAP()
 
 private:
-
     CString sizeRAM;
     CString sizeDisk;
     CString connectionState;
@@ -73,6 +74,6 @@ private:
     CString userRevpropsRevisions;
     CString userRevpropsMissing;
 
-    CString DateToString (__time64_t time);
-    CString ToString (__int64 value);
+    CString        DateToString(__time64_t time) const;
+    static CString ToString(__int64 value);
 };

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2012, 2014 - TortoiseSVN
+// Copyright (C) 2003-2012, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,9 +19,7 @@
 #include "stdafx.h"
 #include "TortoiseProc.h"
 #include "InputDlg.h"
-#include "registry.h"
 #include "AppUtils.h"
-
 
 IMPLEMENT_DYNAMIC(CInputDlg, CResizableStandAloneDialog)
 CInputDlg::CInputDlg(CWnd* pParent /*=NULL*/)
@@ -40,7 +38,6 @@ void CInputDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_INPUTTEXT, m_cInput);
     DDX_Check(pDX, IDC_CHECKBOX, m_iCheck);
 }
-
 
 BEGIN_MESSAGE_MAP(CInputDlg, CResizableStandAloneDialog)
 END_MESSAGE_MAP()
@@ -94,7 +91,7 @@ BOOL CInputDlg::OnInitDialog()
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
     GetDlgItem(IDC_INPUTTEXT)->SetFocus();
     // clear the selection
-    m_cInput.Call(SCI_SETSEL, (WPARAM)-1, (LPARAM)-1);
+    m_cInput.Call(SCI_SETSEL, static_cast<WPARAM>(-1), static_cast<LPARAM>(-1));
     return FALSE;
 }
 
@@ -111,13 +108,12 @@ BOOL CInputDlg::PreTranslateMessage(MSG* pMsg)
     {
         switch (pMsg->wParam)
         {
-        case VK_RETURN:
-            if (OnEnterPressed())
-                return TRUE;
-            break;
+            case VK_RETURN:
+                if (OnEnterPressed())
+                    return TRUE;
+                break;
         }
     }
 
     return CResizableStandAloneDialog::PreTranslateMessage(pMsg);
 }
-

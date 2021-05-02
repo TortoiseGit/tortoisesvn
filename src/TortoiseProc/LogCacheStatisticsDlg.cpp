@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "LogCacheStatisticsDlg.h"
 #include "LogCacheStatistics.h"
 #include "ConnectionState.h"
@@ -27,51 +26,50 @@
 
 IMPLEMENT_DYNAMIC(CLogCacheStatisticsDlg, CStandAloneDialog)
 
-CLogCacheStatisticsDlg::CLogCacheStatisticsDlg
-    ( const LogCache::CLogCacheStatisticsData& data, CWnd * pParentWnd)
+CLogCacheStatisticsDlg::CLogCacheStatisticsDlg(const LogCache::CLogCacheStatisticsData& data, CWnd* pParentWnd)
     : CStandAloneDialog(CLogCacheStatisticsDlg::IDD, pParentWnd)
 {
-    sizeRAM = ToString (data.ramSize / 1024);
-    sizeDisk = ToString (data.fileSize / 1024);
+    sizeRAM  = ToString(data.ramSize / 1024);
+    sizeDisk = ToString(data.fileSize / 1024);
 
     switch (data.connectionState)
     {
-    case LogCache::online:
-        connectionState.LoadString (IDS_CONNECTIONSTATE_ONLINE);
-        break;
-    case LogCache::tempOffline:
-        connectionState.LoadString (IDS_CONNECTIONSTATE_TEMPOFFLINE);
-        break;
-    case LogCache::offline:
-        connectionState.LoadString (IDS_CONNECTIONSTATE_OFFLINE);
-        break;
+        case LogCache::online:
+            connectionState.LoadString(IDS_CONNECTIONSTATE_ONLINE);
+            break;
+        case LogCache::tempOffline:
+            connectionState.LoadString(IDS_CONNECTIONSTATE_TEMPOFFLINE);
+            break;
+        case LogCache::offline:
+            connectionState.LoadString(IDS_CONNECTIONSTATE_OFFLINE);
+            break;
     }
 
-    lastRead = DateToString (data.lastReadAccess);
-    lastWrite = DateToString (data.lastWriteAccess);
-    lastHeadUpdate = DateToString (data.headTimeStamp);
+    lastRead       = DateToString(data.lastReadAccess);
+    lastWrite      = DateToString(data.lastWriteAccess);
+    lastHeadUpdate = DateToString(data.headTimeStamp);
 
-    authors = ToString (data.authorCount);
-    paths = ToString (data.pathCount);
-    pathElements = ToString (data.pathElementCount);
-    skipRanges = ToString (data.skipDeltaCount);
-    wordTokens = ToString (data.wordTokenCount);
-    pairTokens = ToString (data.pairTokenCount);
-    textSize = ToString (data.textSize);
-    uncompressedSize = ToString (data.uncompressedSize);
+    authors          = ToString(data.authorCount);
+    paths            = ToString(data.pathCount);
+    pathElements     = ToString(data.pathElementCount);
+    skipRanges       = ToString(data.skipDeltaCount);
+    wordTokens       = ToString(data.wordTokenCount);
+    pairTokens       = ToString(data.pairTokenCount);
+    textSize         = ToString(data.textSize);
+    uncompressedSize = ToString(data.uncompressedSize);
 
-    maxRevision = ToString (data.maxRevision);
-    revisionCount = ToString (data.revisionCount);
+    maxRevision   = ToString(data.maxRevision);
+    revisionCount = ToString(data.revisionCount);
 
-    changesTotal = ToString (data.changesCount);
-    changedRevisions = ToString (data.changesRevisionCount);
-    changesMissing = ToString (data.changesMissingRevisionCount);
-    mergesTotal = ToString (data.mergeInfoCount);
-    mergesRevisions = ToString (data.mergeInfoRevisionCount);
-    mergesMissing = ToString (data.mergeInfoMissingRevisionCount);
-    userRevpropsTotal = ToString (data.userRevPropCount);
-    userRevpropsRevisions = ToString (data.userRevPropRevisionCount);
-    userRevpropsMissing = ToString (data.userRevPropMissingRevisionCount);
+    changesTotal          = ToString(data.changesCount);
+    changedRevisions      = ToString(data.changesRevisionCount);
+    changesMissing        = ToString(data.changesMissingRevisionCount);
+    mergesTotal           = ToString(data.mergeInfoCount);
+    mergesRevisions       = ToString(data.mergeInfoRevisionCount);
+    mergesMissing         = ToString(data.mergeInfoMissingRevisionCount);
+    userRevpropsTotal     = ToString(data.userRevPropCount);
+    userRevpropsRevisions = ToString(data.userRevPropRevisionCount);
+    userRevpropsMissing   = ToString(data.userRevPropMissingRevisionCount);
 }
 
 CLogCacheStatisticsDlg::~CLogCacheStatisticsDlg()
@@ -108,29 +106,28 @@ void CLogCacheStatisticsDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_USERREVPROPSMISSING, userRevpropsMissing);
 }
 
-
 BEGIN_MESSAGE_MAP(CLogCacheStatisticsDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
-CString CLogCacheStatisticsDlg::DateToString (__time64_t time)
+CString CLogCacheStatisticsDlg::DateToString(__time64_t time) const
 {
     // transform to 1-second base
 
-    __time64_t systime = time / 1000000L;
-    __time64_t now = CTime::GetCurrentTime().GetTime();
+    __time64_t sysTime = time / 1000000L;
+    __time64_t now     = CTime::GetCurrentTime().GetTime();
 
     // return time when younger than 1 day
     // return date otherwise
 
-    return (now - systime >= 0) && (now - systime < 86400)
-        ? SVN::formatTime (time)
-        : SVN::formatDate (time);
+    return (now - sysTime >= 0) && (now - sysTime < 86400)
+               ? SVN::formatTime(time)
+               : SVN::formatDate(time);
 }
 
-CString CLogCacheStatisticsDlg::ToString (__int64 value)
+CString CLogCacheStatisticsDlg::ToString(__int64 value)
 {
-    TCHAR buffer[20] = { 0 };
-    _i64tot_s (value, buffer, _countof (buffer), 10);
+    wchar_t buffer[20] = {0};
+    _i64tot_s(value, buffer, _countof(buffer), 10);
     return buffer;
 }
 BOOL CLogCacheStatisticsDlg::OnInitDialog()
@@ -163,7 +160,5 @@ BOOL CLogCacheStatisticsDlg::OnInitDialog()
     m_tooltips.AddTool(IDC_USERREVPROPSREVISISONS, IDS_SETTINGS_LOGCACHESTATS_USERREVPROPSREVISIONS);
     m_tooltips.AddTool(IDC_USERREVPROPSMISSING, IDS_SETTINGS_LOGCACHESTATS_USERREVPROPSMISSING);
 
-
     return TRUE;
 }
-

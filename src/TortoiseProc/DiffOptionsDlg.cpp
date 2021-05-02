@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013, 2016, 2018 - TortoiseSVN
+// Copyright (C) 2011, 2013, 2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,9 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "DiffOptionsDlg.h"
-#include <afxdialogex.h>
 #include "SVN.h"
 
 // CDiffOptionsDlg dialog
@@ -33,7 +31,6 @@ CDiffOptionsDlg::CDiffOptionsDlg(CWnd* pParent /*=NULL*/)
     , m_bIgnoreAllWhitespaces(FALSE)
     , m_bPrettyPrint(TRUE)
 {
-
 }
 
 CDiffOptionsDlg::~CDiffOptionsDlg()
@@ -49,33 +46,32 @@ void CDiffOptionsDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_PRETTYPRINT, m_bPrettyPrint);
 }
 
-
 BEGIN_MESSAGE_MAP(CDiffOptionsDlg, CStandAloneDialog)
 END_MESSAGE_MAP()
 
-void CDiffOptionsDlg::SetDiffOptions(const SVNDiffOptions & opts)
+void CDiffOptionsDlg::SetDiffOptions(const SVNDiffOptions& opts)
 {
     m_bIgnoreEOLs = opts.GetIgnoreEOL();
-    switch(opts.GetIgnoreSpace())
+    switch (opts.GetIgnoreSpace())
     {
-    case svn_diff_file_ignore_space_none:
-        m_bIgnoreWhitespaces = FALSE;
-        m_bIgnoreAllWhitespaces = FALSE;
-        break;
+        case svn_diff_file_ignore_space_none:
+            m_bIgnoreWhitespaces    = FALSE;
+            m_bIgnoreAllWhitespaces = FALSE;
+            break;
 
-    case svn_diff_file_ignore_space_change:
-        m_bIgnoreWhitespaces = TRUE;
-        m_bIgnoreAllWhitespaces = FALSE;
-        break;
+        case svn_diff_file_ignore_space_change:
+            m_bIgnoreWhitespaces    = TRUE;
+            m_bIgnoreAllWhitespaces = FALSE;
+            break;
 
-    case svn_diff_file_ignore_space_all:
-        m_bIgnoreWhitespaces = FALSE;
-        m_bIgnoreAllWhitespaces = TRUE;
-        break;
+        case svn_diff_file_ignore_space_all:
+            m_bIgnoreWhitespaces    = FALSE;
+            m_bIgnoreAllWhitespaces = TRUE;
+            break;
     }
 }
 
-SVNDiffOptions CDiffOptionsDlg::GetDiffOptions()
+SVNDiffOptions CDiffOptionsDlg::GetDiffOptions() const
 {
     SVNDiffOptions result;
 
@@ -95,7 +91,7 @@ BOOL CDiffOptionsDlg::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
 
-    ExtendFrameIntoClientArea(0,0,0,0);
+    ExtendFrameIntoClientArea(0, 0, 0, 0);
     m_aeroControls.SubclassControl(this, IDC_IGNOREEOL);
     m_aeroControls.SubclassControl(this, IDC_IGNOREWHITESPACE);
     m_aeroControls.SubclassControl(this, IDC_IGNOREALLWHITESPACE);

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2020 - TortoiseSVN
+// Copyright (C) 2003-2008, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "StandAloneDlg.h"
 
-
 /**
  * \ingroup TortoiseProc
  * Helper dialog to get the name of a change list.
@@ -29,14 +28,17 @@ class CCreateChangelistDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CCreateChangelistDlg)
 
 public:
-    CCreateChangelistDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CCreateChangelistDlg();
+    CCreateChangelistDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CCreateChangelistDlg() override;
 
-    enum { IDD = IDD_CREATECHANGELIST };
+    enum
+    {
+        IDD = IDD_CREATECHANGELIST
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
     afx_msg void OnEnChangeName();
 
     DECLARE_MESSAGE_MAP()

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2012, 2014-2015, 2017 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2012, 2014-2015, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,7 +25,7 @@ IMPLEMENT_DYNAMIC(CSimplePrompt, CStandAloneDialog)
 CSimplePrompt::CSimplePrompt(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CSimplePrompt::IDD, pParent)
     , m_bSaveAuthentication(FALSE)
-    , m_hParentWnd(NULL)
+    , m_hParentWnd(nullptr)
     , m_bHideAuthSaveCheck(false)
 {
 }
@@ -43,7 +43,6 @@ void CSimplePrompt::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_REALM, m_sRealm);
 }
 
-
 BEGIN_MESSAGE_MAP(CSimplePrompt, CStandAloneDialog)
 END_MESSAGE_MAP()
 
@@ -55,7 +54,7 @@ BOOL CSimplePrompt::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_SAVECHECK);
     m_aeroControls.SubclassOkCancel(this);
 
-    BOOL bAllowAuthSave = (BOOL)(DWORD)CRegDWORD(L"Software\\TortoiseSVN\\AllowAuthSave", TRUE);
+    BOOL bAllowAuthSave = static_cast<BOOL>(static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\AllowAuthSave", TRUE)));
     DialogEnableWindow(IDC_SAVECHECK, bAllowAuthSave);
     if (bAllowAuthSave)
     {
@@ -66,7 +65,7 @@ BOOL CSimplePrompt::OnInitDialog()
         GetDlgItem(IDC_SAVECHECK)->ShowWindow(SW_HIDE);
 
     GetDlgItem(IDC_USEREDIT)->SetFocus();
-    if ((m_hParentWnd==NULL)&&(GetExplorerHWND()))
+    if ((m_hParentWnd == nullptr) && (GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(m_hParentWnd));
     return FALSE;
 }

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2017 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,26 +30,29 @@ class CSimplePrompt : public CStandAloneDialog
     DECLARE_DYNAMIC(CSimplePrompt)
 
 public:
-    CSimplePrompt(CWnd* pParent = NULL);
-    virtual ~CSimplePrompt();
+    CSimplePrompt(CWnd* pParent = nullptr);
+    ~CSimplePrompt() override;
 
     void HideAuthSaveCheckbox(bool b) { m_bHideAuthSaveCheck = b; }
 
-    enum { IDD = IDD_SIMPLEPROMPT };
+    enum
+    {
+        IDD = IDD_SIMPLEPROMPT
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);
-    virtual BOOL OnInitDialog();
+    void DoDataExchange(CDataExchange* pDX) override;
+    BOOL OnInitDialog() override;
 
     DECLARE_MESSAGE_MAP()
 
 public:
-    CString     m_sUsername;
-    CString     m_sPassword;
-    CString     m_sRealm;
-    BOOL        m_bSaveAuthentication;
-    HWND        m_hParentWnd;
+    CString m_sUsername;
+    CString m_sPassword;
+    CString m_sRealm;
+    BOOL    m_bSaveAuthentication;
+    HWND    m_hParentWnd;
 
 private:
-    bool        m_bHideAuthSaveCheck;
+    bool m_bHideAuthSaveCheck;
 };

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2017 - TortoiseSVN
+// Copyright (C) 2003-2014, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,15 +18,12 @@
 //
 
 #include "stdafx.h"
-#include "TortoiseProc.h"
-#include "registry.h"
 #include "HistoryDlg.h"
-
 
 IMPLEMENT_DYNAMIC(CHistoryDlg, CResizableStandAloneDialog)
 CHistoryDlg::CHistoryDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CHistoryDlg::IDD, pParent)
-    , m_history(NULL)
+    , m_history(nullptr)
 {
 }
 
@@ -37,10 +34,9 @@ CHistoryDlg::~CHistoryDlg()
 void CHistoryDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_HISTORYLIST, m_List);
+    DDX_Control(pDX, IDC_HISTORYLIST, m_list);
     DDX_Control(pDX, IDC_SEARCHEDIT, m_cFilter);
 }
-
 
 BEGIN_MESSAGE_MAP(CHistoryDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDOK, OnBnClickedOk)
@@ -50,17 +46,16 @@ BEGIN_MESSAGE_MAP(CHistoryDlg, CResizableStandAloneDialog)
     ON_REGISTERED_MESSAGE(CFilterEdit::WM_FILTEREDIT_CANCELCLICKED, &CHistoryDlg::OnClickedCancelFilter)
 END_MESSAGE_MAP()
 
-
 void CHistoryDlg::OnBnClickedOk()
 {
-    int pos = m_List.GetCurSel();
+    int pos = m_list.GetCurSel();
     if (pos != LB_ERR)
     {
-        int index = (int)m_List.GetItemData(pos);
-        m_SelectedText = m_history->GetEntry(index);
+        int index      = static_cast<int>(m_list.GetItemData(pos));
+        m_selectedText = m_history->GetEntry(index);
     }
     else
-        m_SelectedText.Empty();
+        m_selectedText.Empty();
     OnOK();
 }
 
@@ -79,41 +74,41 @@ BOOL CHistoryDlg::OnInitDialog()
     AddAnchor(IDOK, BOTTOM_RIGHT);
     AddAnchor(IDCANCEL, BOTTOM_RIGHT);
     EnableSaveRestore(L"HistoryDlg");
-    m_List.SetFocus();
+    m_list.SetFocus();
     return FALSE;
 }
 
 void CHistoryDlg::OnLbnDblclkHistorylist()
 {
-    int pos = m_List.GetCurSel();
+    int pos = m_list.GetCurSel();
     if (pos != LB_ERR)
     {
-        int index = (int)m_List.GetItemData(pos);
-        m_SelectedText = m_history->GetEntry(index);
+        int index      = static_cast<int>(m_list.GetItemData(pos));
+        m_selectedText = m_history->GetEntry(index);
         OnOK();
     }
     else
-        m_SelectedText.Empty();
+        m_selectedText.Empty();
 }
 
 BOOL CHistoryDlg::PreTranslateMessage(MSG* pMsg)
 {
     if ((pMsg->message == WM_KEYDOWN) && (pMsg->wParam == VK_DELETE))
     {
-        int pos = m_List.GetCurSel();
+        int pos = m_list.GetCurSel();
         if (pos != LB_ERR)
         {
-            int index = (int)m_List.GetItemData(pos);
-            m_List.DeleteString(pos);
-            m_List.SetCurSel(min(pos, m_List.GetCount() - 1));
+            int index = static_cast<int>(m_list.GetItemData(pos));
+            m_list.DeleteString(pos);
+            m_list.SetCurSel(min(pos, m_list.GetCount() - 1));
             m_history->RemoveEntry(index);
             m_history->Save();
             // adjust the indexes
-            for (int i = 0; i < m_List.GetCount(); ++i)
+            for (int i = 0; i < m_list.GetCount(); ++i)
             {
-                int ni = (int)m_List.GetItemData(i);
+                int ni = static_cast<int>(m_list.GetItemData(i));
                 if (ni > index)
-                    m_List.SetItemData(i, ni - 1);
+                    m_list.SetItemData(i, ni - 1LL);
             }
             return TRUE;
         }
@@ -132,28 +127,26 @@ void CHistoryDlg::UpdateMessageList()
     CString sFilter;
     GetDlgItemText(IDC_SEARCHEDIT, sFilter);
     sFilter.MakeLower();
-    int pos = 0;
-    CString temp;
+    int                  pos = 0;
     std::vector<CString> tokens;
-    for(;;)
+    for (;;)
     {
-        temp = sFilter.Tokenize(L" ", pos);
-        if(temp.IsEmpty())
+        CString temp = sFilter.Tokenize(L" ", pos);
+        if (temp.IsEmpty())
         {
             break;
         }
         tokens.push_back(temp);
     }
 
-    m_List.ResetContent();
+    m_list.ResetContent();
 
     // calculate and set listbox width
-    CDC* pDC=m_List.GetDC();
-    CSize itemExtent;
-    int horizExtent = 1;
+    CDC* pDC         = m_list.GetDC();
+    int  horizExtent = 1;
     for (size_t i = 0; i < m_history->GetCount(); ++i)
     {
-        CString sEntry = m_history->GetEntry(i);
+        CString sEntry      = m_history->GetEntry(i);
         CString sLowerEntry = sEntry;
         sLowerEntry.MakeLower();
         bool match = true;
@@ -169,17 +162,17 @@ void CHistoryDlg::UpdateMessageList()
         {
             sEntry.Remove('\r');
             sEntry.Replace('\n', ' ');
-            int index = m_List.AddString(sEntry);
-            m_List.SetItemData(index, i);
-            itemExtent = pDC->GetTextExtent(sEntry);
-            horizExtent = max(horizExtent, (int)itemExtent.cx + 5);
+            int index = m_list.AddString(sEntry);
+            m_list.SetItemData(index, i);
+            CSize itemExtent = pDC->GetTextExtent(sEntry);
+            horizExtent      = max(horizExtent, static_cast<int>(itemExtent.cx) + 5);
         }
     }
-    m_List.SetHorizontalExtent(horizExtent);
+    m_list.SetHorizontalExtent(horizExtent);
     ReleaseDC(pDC);
 }
 
-bool CHistoryDlg::Validate( LPCTSTR /*string*/ )
+bool CHistoryDlg::Validate(LPCWSTR /*string*/)
 {
     return true;
 }

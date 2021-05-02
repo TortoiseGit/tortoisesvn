@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,20 +26,23 @@ class CPasswordDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CPasswordDlg)
 
 public:
-    CPasswordDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CPasswordDlg();
+    CPasswordDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CPasswordDlg() override;
 
-    CString m_sPW1;
-    CString m_sPW2;
-    bool m_bForSave;
+    CString m_sPw1;
+    CString m_sPw2;
+    bool    m_bForSave;
 
-// Dialog Data
-    enum { IDD = IDD_PASSWORD };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_PASSWORD
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
 
     DECLARE_MESSAGE_MAP()
 };

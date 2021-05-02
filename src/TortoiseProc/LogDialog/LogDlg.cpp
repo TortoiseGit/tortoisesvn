@@ -7673,7 +7673,7 @@ void CLogDlg::ExecuteShowPropertiesChangedPaths(ContextMenuInfoForChangedPathsPt
     }
     CPropDlg dlg;
     dlg.m_rev  = pCmi->rev1;
-    dlg.m_Path = CTSVNPath(pCmi->fileUrl);
+    dlg.m_path = CTSVNPath(pCmi->fileUrl);
     dlg.DoModal();
 }
 

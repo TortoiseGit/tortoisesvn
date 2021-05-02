@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2010, 2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2010, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 
-
 // For base class
 #include "SVNRev.h"
 #include "TSVNPath.h"
@@ -28,31 +27,36 @@
  * \ingroup TortoiseProc
  * A simple dialog box asking the user for a revision number.
  */
-class CRevisionDlg : public CStandAloneDialog, public SVNRev
+class CRevisionDlg : public CStandAloneDialog
+    , public SVNRev
 {
     DECLARE_DYNAMIC(CRevisionDlg)
 
 public:
-    CRevisionDlg(CWnd* pParent = NULL);
-    virtual ~CRevisionDlg();
+    CRevisionDlg(CWnd* pParent = nullptr);
+    ~CRevisionDlg() override;
 
-    enum { IDD = IDD_REVISION };
+    enum
+    {
+        IDD = IDD_REVISION
+    };
 
-    CString GetEnteredRevisionString() {return m_sRevision;}
-    void    AllowWCRevs(bool bAllowWCRevs = true) {m_bAllowWCRevs = bAllowWCRevs;}
+    CString GetEnteredRevisionString() const { return m_sRevision; }
+    void    AllowWCRevs(bool bAllowWCRevs = true) { m_bAllowWCRevs = bAllowWCRevs; }
     void    SetLogPath(const CTSVNPath& path, const SVNRev& r = SVNRev::REV_HEAD);
+
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
     afx_msg void OnEnChangeRevnum();
     afx_msg void OnBnClickedLog();
     afx_msg void OnBnClickedRevisionN();
 
     DECLARE_MESSAGE_MAP()
 
-    CString         m_sRevision;
-    CTSVNPath       m_logPath;
-    SVNRev          m_logRev;
-    bool            m_bAllowWCRevs;
+    CString   m_sRevision;
+    CTSVNPath m_logPath;
+    SVNRev    m_logRev;
+    bool      m_bAllowWCRevs;
 };
