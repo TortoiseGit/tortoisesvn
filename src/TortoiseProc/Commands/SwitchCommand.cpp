@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,11 +28,11 @@ bool SwitchCommand::Execute()
     dlg.m_path = cmdLinePath.GetWinPathString();
     if (parser.HasKey(L"url"))
     {
-        dlg.m_URL = parser.GetVal(L"url");
+        dlg.m_url = parser.GetVal(L"url");
     }
     if (parser.HasVal(L"rev"))
     {
-        dlg.Revision = SVNRev(parser.GetVal(L"rev"));
+        dlg.m_revision = SVNRev(parser.GetVal(L"rev"));
     }
 
     if (dlg.DoModal() == IDOK)
@@ -53,10 +53,10 @@ bool SwitchCommand::Execute()
         CSVNProgressDlg progDlg;
         theApp.m_pMainWnd = &progDlg;
         progDlg.SetCommand(CSVNProgressDlg::SVNProgress_Switch);
-        progDlg.SetAutoClose (parser);
+        progDlg.SetAutoClose(parser);
         progDlg.SetPathList(CTSVNPathList(cmdLinePath));
-        progDlg.SetUrl(dlg.m_URL);
-        progDlg.SetRevision(dlg.Revision);
+        progDlg.SetUrl(dlg.m_url);
+        progDlg.SetRevision(dlg.m_revision);
         progDlg.SetDepth(dlg.m_depth);
         progDlg.SetOptions(options);
         progDlg.DoModal();

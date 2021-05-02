@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2012, 2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -38,47 +38,49 @@ class CSwitchDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CSwitchDlg)
 
 public:
-    CSwitchDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CSwitchDlg();
+    CSwitchDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CSwitchDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_SWITCH };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SWITCH
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
-    afx_msg void OnBnClickedBrowse();
-    afx_msg void OnBnClickedHelp();
-    afx_msg void OnEnChangeRevisionNum();
-    afx_msg void OnBnClickedLog();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    void            OnOK() override;
+    void            OnCancel() override;
+    afx_msg void    OnBnClickedBrowse();
+    afx_msg void    OnBnClickedHelp();
+    afx_msg void    OnEnChangeRevisionNum();
+    afx_msg void    OnBnClickedLog();
     afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
-    afx_msg void OnCbnEditchangeUrlcombo();
+    afx_msg void    OnCbnEditchangeUrlcombo();
 
-    void        SetRevision(const SVNRev& rev);
+    void SetRevision(const SVNRev& rev);
 
     DECLARE_MESSAGE_MAP()
 
-    CString         m_rev;
-    CHistoryCombo   m_URLCombo;
-    BOOL            m_bFolder;
-    CString         m_sTitle;
-    CString         m_repoRoot;
-    CLogDlg *       m_pLogDlg;
-    CComboBox       m_depthCombo;
-    CPathEdit       m_SwitchPath;
-    CPathEdit       m_DestUrl;
-    CPathEdit       m_SrcUrl;
-    CString         m_sUUID;
+    CString       m_rev;
+    CHistoryCombo m_urlCombo;
+    BOOL          m_bFolder;
+    CString       m_sTitle;
+    CString       m_repoRoot;
+    CLogDlg*      m_pLogDlg;
+    CComboBox     m_depthCombo;
+    CPathEdit     m_switchPath;
+    CPathEdit     m_destUrl;
+    CPathEdit     m_srcUrl;
+    CString       m_sUuid;
 
 public:
-    CString         m_path;
-    CString         m_URL;
-    SVNRev          Revision;
-    BOOL            m_bNoExternals;
-    BOOL            m_bStickyDepth;
-    BOOL            m_bIgnoreAncestry;
-    svn_depth_t     m_depth;
+    CString     m_path;
+    CString     m_url;
+    SVNRev      m_revision;
+    BOOL        m_bNoExternals;
+    BOOL        m_bStickyDepth;
+    BOOL        m_bIgnoreAncestry;
+    svn_depth_t m_depth;
 };
