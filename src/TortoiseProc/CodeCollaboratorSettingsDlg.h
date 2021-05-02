@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013, 2020 - TortoiseSVN
+// Copyright (C) 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,28 +26,32 @@ class CodeCollaboratorSettingsDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CodeCollaboratorSettingsDlg)
 
 public:
-    CodeCollaboratorSettingsDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CodeCollaboratorSettingsDlg();
+    CodeCollaboratorSettingsDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CodeCollaboratorSettingsDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_COLLABORATORSETTINGS };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_COLLABORATORSETTINGS
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    CString         m_svnUser;
-    CString         m_svnPassword;
-    CString         m_collabUser;
-    CString         m_collabPassword;
+    CString m_svnUser;
+    CString m_svnPassword;
+    CString m_collabUser;
+    CString m_collabPassword;
 
-    CRegString      m_regSvnUser;
-    CRegString      m_regSvnPassword;
-    CRegString      m_regCollabUser;
-    CRegString      m_regCollabPassword;
+    CRegString m_regSvnUser;
+    CRegString m_regSvnPassword;
+    CRegString m_regCollabUser;
+    CRegString m_regCollabPassword;
+
 public:
     afx_msg void OnBnClickedOk();
 };

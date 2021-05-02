@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,18 +26,18 @@ class CodeCollaboratorInfo
 {
 public:
     CodeCollaboratorInfo(CString revisions, CString urlOfTrunk);
-    static bool IsInstalled();
+    static bool    IsInstalled();
     static CString GetPathToCollabGuiExe();
-    CString GetCommandLine();
-    bool IsUserInfoSet();
+    CString        GetCommandLine();
+    bool           IsUserInfoSet();
 
 private:
-    CString m_Revisions;
-public:
-    CRegString CollabUser;
-    CRegString CollabPassword;
-    CRegString SvnPassword;
-    CRegString SvnUser;
-    CString RepoUrl;
-};
+    CString m_revisions;
 
+public:
+    CRegString m_collabUser;
+    CRegString m_collabPassword;
+    CRegString m_svnPassword;
+    CRegString m_svnUser;
+    CString    m_repoUrl;
+};

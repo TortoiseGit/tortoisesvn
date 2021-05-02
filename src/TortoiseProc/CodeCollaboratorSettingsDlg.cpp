@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013, 2015, 2020 - TortoiseSVN
+// Copyright (C) 2013, 2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "CodeCollaboratorSettingsDlg.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
@@ -52,36 +51,34 @@ BEGIN_MESSAGE_MAP(CodeCollaboratorSettingsDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDOK, &CodeCollaboratorSettingsDlg::OnBnClickedOk)
 END_MESSAGE_MAP()
 
-
 BOOL CodeCollaboratorSettingsDlg::OnInitDialog()
 {
     CStandAloneDialog::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
-    m_collabUser = (CString)m_regCollabUser;
-    m_svnUser = (CString)m_regSvnUser;
+    m_collabUser = static_cast<CString>(m_regCollabUser);
+    m_svnUser    = static_cast<CString>(m_regSvnUser);
 
     UpdateData(FALSE);
     return TRUE;
 }
-
 
 void CodeCollaboratorSettingsDlg::OnBnClickedOk()
 {
     UpdateData();
     if (!m_svnPassword.IsEmpty())
     {
-        m_regSvnPassword = CStringUtils::Encrypt((LPCWSTR)m_svnPassword);
+        m_regSvnPassword = CStringUtils::Encrypt(static_cast<LPCWSTR>(m_svnPassword));
         m_regSvnPassword.write();
     }
     if (!m_collabPassword.IsEmpty())
     {
-        m_regCollabPassword = CStringUtils::Encrypt((LPCWSTR)m_collabPassword);
+        m_regCollabPassword = CStringUtils::Encrypt(static_cast<LPCWSTR>(m_collabPassword));
         m_regCollabPassword.write();
     }
-    m_regSvnUser = (CString)m_svnUser;
+    m_regSvnUser = static_cast<CString>(m_svnUser);
     m_regSvnUser.write();
-    m_regCollabUser = (CString)m_collabUser;
+    m_regCollabUser = static_cast<CString>(m_collabUser);
     m_regCollabUser.write();
 
     CStandAloneDialog::OnOK();

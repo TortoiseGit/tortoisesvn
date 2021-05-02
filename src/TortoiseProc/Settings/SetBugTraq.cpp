@@ -83,7 +83,7 @@ void CSetBugTraq::RebuildBugTraqList()
     m_cBugTraqList.DeleteAllItems();
 
     // fill the list control with all the hooks
-    for (CBugTraqAssociations::const_iterator it = m_associations.begin(); it != m_associations.end(); ++it)
+    for (auto it = m_associations.begin(); it != m_associations.end(); ++it)
     {
         int pos = m_cBugTraqList.InsertItem(m_cBugTraqList.GetItemCount(), (*it)->GetPath().GetWinPathString());
         m_cBugTraqList.SetItemText(pos, 1, (*it)->GetProviderName());
@@ -151,6 +151,7 @@ void CSetBugTraq::OnBnClickedAddbutton()
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CSetBugTraq::OnLvnItemchangedBugTraqlist(NMHDR * /*pNMHDR*/, LRESULT *pResult)
 {
     UINT count = m_cBugTraqList.GetSelectedCount();

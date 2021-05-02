@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017 - TortoiseSVN
+// Copyright (C) 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,13 +20,13 @@
 #include "AutoComplete.h"
 
 CAutoComplete::CAutoComplete()
-    : m_pcacs(NULL)
-    , m_pac(NULL)
-    , m_pdrop(NULL)
+    : m_pcacs(nullptr)
+    , m_pac(nullptr)
+    , m_pdrop(nullptr)
 {
 }
 
-CAutoComplete::~CAutoComplete(void)
+CAutoComplete::~CAutoComplete()
 {
     if (m_pac)
         m_pac->Release();
@@ -43,27 +43,27 @@ bool CAutoComplete::Init(HWND hEdit)
     if (m_pdrop)
         m_pdrop->Release();
     if (CoCreateInstance(CLSID_AutoComplete,
-        NULL,
-        CLSCTX_INPROC_SERVER,
-        IID_IAutoComplete2,
-        (LPVOID*)&m_pac) == S_OK)
+                         nullptr,
+                         CLSCTX_INPROC_SERVER,
+                         IID_IAutoComplete2,
+                         reinterpret_cast<LPVOID*>(&m_pac)) == S_OK)
     {
-        IUnknown *punkSource;
+        IUnknown* punkSource;
 
         if (m_pcacs)
             delete m_pcacs;
         m_pcacs = new CAutoCompleteEnum(m_arEntries);
 
         if (m_pcacs->QueryInterface(IID_IUnknown,
-            (void **) &punkSource) == S_OK)
+                                    reinterpret_cast<void**>(&punkSource)) == S_OK)
         {
-            if (m_pac->Init(hEdit, punkSource, NULL, NULL) == S_OK)
+            if (m_pac->Init(hEdit, punkSource, nullptr, nullptr) == S_OK)
             {
                 m_pac->Enable(TRUE);
-                m_pac->SetOptions(ACO_UPDOWNKEYDROPSLIST|ACO_AUTOSUGGEST);
-                if (m_pac->QueryInterface(IID_IAutoCompleteDropDown, (void **)&m_pdrop) != S_OK)
+                m_pac->SetOptions(ACO_UPDOWNKEYDROPSLIST | ACO_AUTOSUGGEST);
+                if (m_pac->QueryInterface(IID_IAutoCompleteDropDown, reinterpret_cast<void**>(&m_pdrop)) != S_OK)
                 {
-                    m_pdrop = NULL;
+                    m_pdrop = nullptr;
                 }
                 return true;
             }
@@ -71,14 +71,14 @@ bool CAutoComplete::Init(HWND hEdit)
         else
         {
             delete m_pcacs;
-            m_pcacs = NULL;
+            m_pcacs = nullptr;
         }
     }
 
     return false;
 }
 
-bool CAutoComplete::Enable(bool bEnable)
+bool CAutoComplete::Enable(bool bEnable) const
 {
     if (m_pac)
     {
@@ -88,7 +88,7 @@ bool CAutoComplete::Enable(bool bEnable)
     return false;
 }
 
-bool CAutoComplete::AddEntry(LPCTSTR szText)
+bool CAutoComplete::AddEntry(LPCWSTR szText)
 {
     bool bRet = CRegHistory::AddEntry(szText);
     if (m_pcacs)
@@ -100,13 +100,13 @@ bool CAutoComplete::AddEntry(LPCTSTR szText)
 
 bool CAutoComplete::RemoveSelected()
 {
-    if (m_pdrop == NULL)
+    if (m_pdrop == nullptr)
         return false;
-    if (m_pcacs == NULL)
+    if (m_pcacs == nullptr)
         return false;
 
-    DWORD flags;
-    LPWSTR string = 0;
+    DWORD  flags;
+    LPWSTR string = nullptr;
     if (m_pdrop->GetDropDownStatus(&flags, &string) == S_OK)
     {
         if (flags & ACDD_VISIBLE)
@@ -131,7 +131,7 @@ bool CAutoComplete::RemoveSelected()
     return true;
 }
 
-void CAutoComplete::SetOptions( DWORD dwFlags )
+void CAutoComplete::SetOptions(DWORD dwFlags) const
 {
     if (m_pac)
     {
@@ -180,27 +180,26 @@ void CAutoCompleteEnum::Init(const std::vector<std::wstring*>& vec)
         m_vecStrings.push_back(*vec[i]);
 }
 
-
-STDMETHODIMP  CAutoCompleteEnum::QueryInterface(REFIID refiid, void** ppv)
+HRESULT STDMETHODCALLTYPE CAutoCompleteEnum::QueryInterface(REFIID refiid, void** ppv)
 {
-    *ppv = NULL;
+    *ppv = nullptr;
     if (IID_IUnknown == refiid || IID_IEnumString == refiid)
-        *ppv=this;
+        *ppv = this;
 
-    if (*ppv != NULL)
+    if (*ppv != nullptr)
     {
-        ((LPUNKNOWN)*ppv)->AddRef();
+        static_cast<LPUNKNOWN>(*ppv)->AddRef();
         return S_OK;
     }
     return E_NOINTERFACE;
 }
 
-STDMETHODIMP_(ULONG) CAutoCompleteEnum::AddRef(void)
+ULONG STDMETHODCALLTYPE CAutoCompleteEnum::AddRef()
 {
     return ++m_cRefCount;
 }
 
-STDMETHODIMP_(ULONG) CAutoCompleteEnum::Release(void)
+ULONG STDMETHODCALLTYPE CAutoCompleteEnum::Release()
 {
     --m_cRefCount;
     if (m_cRefCount == 0)
@@ -211,7 +210,7 @@ STDMETHODIMP_(ULONG) CAutoCompleteEnum::Release(void)
     return m_cRefCount;
 }
 
-STDMETHODIMP CAutoCompleteEnum::Next(ULONG celt, LPOLESTR* rgelt, ULONG* pceltFetched)
+HRESULT STDMETHODCALLTYPE CAutoCompleteEnum::Next(ULONG celt, LPOLESTR* rgelt, ULONG* pceltFetched)
 {
     HRESULT hr = S_FALSE;
 
@@ -219,12 +218,12 @@ STDMETHODIMP CAutoCompleteEnum::Next(ULONG celt, LPOLESTR* rgelt, ULONG* pceltFe
         celt = 1;
 
     ULONG i = 0;
-    for ( ; i < celt; i++)
+    for (; i < celt; i++)
     {
-        if (m_iCur == (ULONG)m_vecStrings.size())
+        if (m_iCur == static_cast<ULONG>(m_vecStrings.size()))
             break;
 
-        rgelt[i] = (LPWSTR)::CoTaskMemAlloc((ULONG) sizeof(WCHAR) * (m_vecStrings[m_iCur].size() + 1));
+        rgelt[i] = static_cast<LPWSTR>(::CoTaskMemAlloc(static_cast<ULONG>(sizeof(WCHAR)) * (m_vecStrings[m_iCur].size() + 1)));
         wcscpy_s(rgelt[i], m_vecStrings[m_iCur].size() + 1, m_vecStrings[m_iCur].c_str());
 
         if (pceltFetched)
@@ -239,32 +238,32 @@ STDMETHODIMP CAutoCompleteEnum::Next(ULONG celt, LPOLESTR* rgelt, ULONG* pceltFe
     return hr;
 }
 
-STDMETHODIMP CAutoCompleteEnum::Skip(ULONG celt)
+HRESULT STDMETHODCALLTYPE CAutoCompleteEnum::Skip(ULONG celt)
 {
-    if ((m_iCur + int(celt)) >= m_vecStrings.size())
+    if ((m_iCur + static_cast<int>(celt)) >= m_vecStrings.size())
         return S_FALSE;
     m_iCur += celt;
     return S_OK;
 }
 
-STDMETHODIMP CAutoCompleteEnum::Reset(void)
+HRESULT STDMETHODCALLTYPE CAutoCompleteEnum::Reset()
 {
     m_iCur = 0;
     return S_OK;
 }
 
-STDMETHODIMP CAutoCompleteEnum::Clone(IEnumString** ppenum)
+HRESULT STDMETHODCALLTYPE CAutoCompleteEnum::Clone(IEnumString** ppenum)
 {
-    if (ppenum == NULL)
+    if (ppenum == nullptr)
         return E_POINTER;
 
     try
     {
-        CAutoCompleteEnum *newEnum = new CAutoCompleteEnum(m_vecStrings);
+        CAutoCompleteEnum* newEnum = new CAutoCompleteEnum(m_vecStrings);
 
         newEnum->AddRef();
         newEnum->m_iCur = m_iCur;
-        *ppenum = newEnum;
+        *ppenum         = newEnum;
     }
     catch (const std::bad_alloc&)
     {

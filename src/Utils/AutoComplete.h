@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017 - TortoiseSVN
+// Copyright (C) 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,13 +20,10 @@
 
 #include <string>
 #include <vector>
-#include <set>
 #include <ShlDisp.h>
-#include <ShlGuid.h>
-#include <ShObjIdl.h >
+#include <ShObjIdl.h>
 
 #include "RegHistory.h"
-
 
 /**
 * Helper class for the CAutoComplete class: implements the string enumerator.
@@ -36,58 +33,62 @@ class CAutoCompleteEnum : public IEnumString
 public:
     CAutoCompleteEnum(const std::vector<std::wstring*>& vec);
     CAutoCompleteEnum(const std::vector<std::wstring>& vec);
-    ~CAutoCompleteEnum() {}
+    virtual ~CAutoCompleteEnum() {}
     //IUnknown members
-    STDMETHOD(QueryInterface)(REFIID, void**);
-    STDMETHOD_(ULONG, AddRef)(void);
-    STDMETHOD_(ULONG, Release)(void);
+    HRESULT STDMETHODCALLTYPE QueryInterface(REFIID, void**) override;
+    ULONG STDMETHODCALLTYPE   AddRef() override;
+    ULONG STDMETHODCALLTYPE   Release() override;
 
     //IEnumString members
-    STDMETHOD(Next)(ULONG, LPOLESTR*, ULONG*);
-    STDMETHOD(Skip)(ULONG);
-    STDMETHOD(Reset)(void);
-    STDMETHOD(Clone)(IEnumString**);
+    HRESULT STDMETHODCALLTYPE Next(ULONG, LPOLESTR*, ULONG*) override;
+    HRESULT STDMETHODCALLTYPE Skip(ULONG) override;
+    HRESULT STDMETHODCALLTYPE Reset() override;
+    HRESULT STDMETHODCALLTYPE Clone(IEnumString**) override;
 
     void Init(const std::vector<std::wstring*>& vec);
     void Init(const std::vector<std::wstring>& vec);
+
 private:
-    std::vector<std::wstring>   m_vecStrings;
-    ULONG                       m_cRefCount;
-    size_t                      m_iCur;
+    std::vector<std::wstring> m_vecStrings;
+    ULONG                     m_cRefCount;
+    size_t                    m_iCur;
 };
-
-
 
 class CAutoComplete : public CRegHistory
 {
 public:
     CAutoComplete();
-    ~CAutoComplete(void);
+    ~CAutoComplete() override;
 
-    bool        Init(HWND hEdit);
-    bool        Enable(bool bEnable);
-    bool        AddEntry(LPCTSTR szText);
-    template<typename T> void SetEntries(T t);
-    template<typename T> void AddEntries(T t);
+    bool Init(HWND hEdit);
+    bool Enable(bool bEnable) const;
+    bool AddEntry(LPCWSTR szText) override;
 
-    bool        RemoveSelected();
-    void        SetOptions(DWORD dwFlags);
-    DWORD       GetOptions() const;
+    template <typename T>
+    void SetEntries(T t);
+
+    template <typename T>
+    void AddEntries(T t);
+
+    bool  RemoveSelected();
+    void  SetOptions(DWORD dwFlags) const;
+    DWORD GetOptions() const;
+
 private:
-    CAutoCompleteEnum *         m_pcacs;
-    IAutoComplete2 *            m_pac;
-    IAutoCompleteDropDown *     m_pdrop;
+    CAutoCompleteEnum*     m_pcacs;
+    IAutoComplete2*        m_pac;
+    IAutoCompleteDropDown* m_pdrop;
 };
 
-template<typename T>
-inline void CAutoComplete::SetEntries(T t)
+template <typename T>
+void CAutoComplete::SetEntries(T t)
 {
     m_arEntries.clear();
     AddEntries(t);
 }
 
-template<typename T>
-inline void CAutoComplete::AddEntries(T t)
+template <typename T>
+void CAutoComplete::AddEntries(T t)
 {
     m_arEntries.insert(m_arEntries.begin(), t.begin(), t.end());
     if (m_pcacs)

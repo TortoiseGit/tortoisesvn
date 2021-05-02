@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2012, 2014 - TortoiseSVN
+// Copyright (C) 2012, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,13 +19,11 @@
 #include "stdafx.h"
 #include "Callback.h"
 
-#include <urlmon.h>
-#include <shlwapi.h>                    // for StrFormatByteSize()
-
 #ifdef _DEBUG
-#undef THIS_FILE
-static char THIS_FILE[]=__FILE__;
-#define new DEBUG_NEW
+#    undef THIS_FILE
+static char THIS_FILE[] = __FILE__;
+// ReSharper disable once CppInconsistentNaming
+#    define new DEBUG_NEW
 #endif
 
 //////////////////////////////////////////////////////////////////////
@@ -34,7 +32,7 @@ static char THIS_FILE[]=__FILE__;
 
 CCallback::CCallback()
     : m_cRef(0)
-    , m_hWnd(NULL)
+    , m_hWnd(nullptr)
 {
 }
 
@@ -42,31 +40,30 @@ CCallback::~CCallback()
 {
 }
 
-STDMETHODIMP CCallback::Authenticate( HWND * phwnd, LPWSTR * pszUsername, LPWSTR * pszPassword)
+STDMETHODIMP CCallback::Authenticate(HWND* phwnd, LPWSTR* pszUsername, LPWSTR* pszPassword)
 {
     *phwnd = m_hWnd;
     if (m_username.size())
     {
         if (pszUsername == nullptr)
             return E_INVALIDARG;
-        *pszUsername = (LPWSTR)CoTaskMemAlloc((m_username.size() + 1) * 2);
+        *pszUsername = static_cast<LPWSTR>(CoTaskMemAlloc((m_username.size() + 1) * 2));
         if (*pszUsername == nullptr)
             return E_OUTOFMEMORY;
         wcscpy_s(*pszUsername, m_username.size() + 1, m_username.c_str());
     }
     else
-        pszUsername = NULL;
+        pszUsername = nullptr;
     if (m_password.size())
     {
         if (pszPassword == nullptr)
             return E_INVALIDARG;
-        *pszPassword = (LPWSTR)CoTaskMemAlloc((m_password.size() + 1) * 2);
+        *pszPassword = static_cast<LPWSTR>(CoTaskMemAlloc((m_password.size() + 1) * 2));
         if (*pszPassword == nullptr)
             return E_OUTOFMEMORY;
-        wcscpy_s(*pszPassword, m_password.size()+1, m_password.c_str());
+        wcscpy_s(*pszPassword, m_password.size() + 1, m_password.c_str());
     }
     else
-        pszPassword = NULL;
+        pszPassword = nullptr;
     return S_OK;
 }
-

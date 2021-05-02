@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2014, 2016-2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2014, 2016-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,11 +40,33 @@ public:
         bool bReadOnly;
         bool bAlternativeTool; // If true, invert selection of TortoiseMerge vs. external diff tool
 
-        DiffFlags(): bWait(false), bBlame(false), bReadOnly(false), bAlternativeTool(false) {}
-        DiffFlags& Wait(bool b = true) { bWait = b; return *this; }
-        DiffFlags& Blame(bool b = true) { bBlame = b; return *this; }
-        DiffFlags& ReadOnly(bool b = true) { bReadOnly = b; return *this; }
-        DiffFlags& AlternativeTool(bool b = true) { bAlternativeTool = b; return *this; }
+        DiffFlags()
+            : bWait(false)
+            , bBlame(false)
+            , bReadOnly(false)
+            , bAlternativeTool(false)
+        {
+        }
+        DiffFlags& Wait(bool b = true)
+        {
+            bWait = b;
+            return *this;
+        }
+        DiffFlags& Blame(bool b = true)
+        {
+            bBlame = b;
+            return *this;
+        }
+        DiffFlags& ReadOnly(bool b = true)
+        {
+            bReadOnly = b;
+            return *this;
+        }
+        DiffFlags& AlternativeTool(bool b = true)
+        {
+            bAlternativeTool = b;
+            return *this;
+        }
     };
 
     struct MergeFlags
@@ -54,11 +76,33 @@ public:
         bool bAlternativeTool; // If true, invert selection of TortoiseMerge vs. external merge tool
         bool bPreventSVNResolve;
 
-        MergeFlags(): bWait(false), bReadOnly(false), bAlternativeTool(false), bPreventSVNResolve(false)   {}
-        MergeFlags& Wait(bool b = true) { bWait = b; return *this; }
-        MergeFlags& ReadOnly(bool b = true) { bReadOnly = b; return *this; }
-        MergeFlags& AlternativeTool(bool b = true) { bAlternativeTool = b; return *this; }
-        MergeFlags& PreventSVNResolve(bool b = true) { bPreventSVNResolve = b; return *this; }
+        MergeFlags()
+            : bWait(false)
+            , bReadOnly(false)
+            , bAlternativeTool(false)
+            , bPreventSVNResolve(false)
+        {
+        }
+        MergeFlags& Wait(bool b = true)
+        {
+            bWait = b;
+            return *this;
+        }
+        MergeFlags& ReadOnly(bool b = true)
+        {
+            bReadOnly = b;
+            return *this;
+        }
+        MergeFlags& AlternativeTool(bool b = true)
+        {
+            bAlternativeTool = b;
+            return *this;
+        }
+        MergeFlags& PreventSVNResolve(bool b = true)
+        {
+            bPreventSVNResolve = b;
+            return *this;
+        }
     };
 
     /**
@@ -66,17 +110,17 @@ public:
      * \return TRUE if the program could be started
      */
     static BOOL StartExtMerge(const MergeFlags& flags,
-        const CTSVNPath& basefile, const CTSVNPath& theirfile, const CTSVNPath& yourfile, const CTSVNPath& mergedfile,
-        bool bSaveRequired,
-        const CString& basename = CString(), const CString& theirname = CString(), const CString& yourname = CString(),
-        const CString& mergedname = CString(), const CString& filename = CString());
+                              const CTSVNPath& baseFile, const CTSVNPath& theirFile, const CTSVNPath& yourFile, const CTSVNPath& mergedFile,
+                              bool           bSaveRequired,
+                              const CString& baseName = CString(), const CString& theirName = CString(), const CString& yourName = CString(),
+                              const CString& mergedName = CString(), const CString& fileName = CString());
 
     /**
      * Starts the external patch program (currently always TortoiseMerge)
      */
-    static BOOL StartExtPatch(const CTSVNPath& patchfile, const CTSVNPath& dir,
-            const CString& sOriginalDescription = CString(), const CString& sPatchedDescription = CString(),
-            BOOL bReversed = FALSE, BOOL bWait = FALSE);
+    static BOOL StartExtPatch(const CTSVNPath& patchFile, const CTSVNPath& dir,
+                              const CString& sOriginalDescription = CString(), const CString& sPatchedDescription = CString(),
+                              BOOL bReversed = FALSE, BOOL bWait = FALSE);
 
     /**
      * Starts the external diff application
@@ -101,8 +145,8 @@ public:
      * Starts the external diff application for properties
      */
     static BOOL StartExtDiffProps(const CTSVNPath& file1, const CTSVNPath& file2,
-            const CString& sName1 = CString(), const CString& sName2 = CString(),
-            BOOL bWait = FALSE, BOOL bReadOnly = FALSE);
+                                  const CString& sName1 = CString(), const CString& sName2 = CString(),
+                                  BOOL bWait = FALSE, BOOL bReadOnly = FALSE);
 
     /**
      * Checks if the given file has a size of less than four, which means
@@ -130,7 +174,7 @@ public:
     */
     static bool LaunchTortoiseBlame(
         const CString& sBlameFile, const CString& sOriginalFile, const CString& sParams,
-        const SVNRev& startrev, const SVNRev& endrev, const SVNRev& pegrev);
+        const SVNRev& startRev, const SVNRev& endRev, const SVNRev& pegRev);
 
     /**
      * Formats text in a rich edit control (version 2).
@@ -138,37 +182,37 @@ public:
      * text in between ^ chars is formatted italic
      * text in between _ chars is underlined
      */
-    static bool FormatTextInRichEditControl(CWnd * pWnd);
+    static bool FormatTextInRichEditControl(CWnd* pWnd);
 
-    static std::vector<CHARRANGE> FindRegexMatches (const std::wstring& text, const CString& matchstring, const CString& matchsubstring = L".*");
+    static std::vector<CHARRANGE> FindRegexMatches(const std::wstring& text, const CString& matchString, const CString& matchSubString = L".*");
 
     /**
      * implements URL searching with the same logic as CSciEdit::StyleURLs
      */
-    static std::vector<CHARRANGE> FindURLMatches (const CString& msg);
+    static std::vector<CHARRANGE> FindURLMatches(const CString& msg);
 
-    static bool FindStyleChars(const CString& sText, TCHAR stylechar, int& start, int& end);
+    static bool FindStyleChars(const CString& sText, wchar_t stylechar, int& start, int& end);
 
-    static bool BrowseRepository(CHistoryCombo& combo, CWnd * pParent, SVNRev& rev, bool multiSelection = false, const CString& root = CString(), const CString& selUrl = CString());
-    static bool BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, CWnd * pParent, SVNRev& rev);
+    static bool BrowseRepository(CHistoryCombo& combo, CWnd* pParent, SVNRev& rev, bool multiSelection = false, const CString& root = CString(), const CString& selUrl = CString());
+    static bool BrowseRepository(const CString& repoRoot, CHistoryCombo& combo, CWnd* pParent, SVNRev& rev);
 
     /**
      * guesses a name of the project from a repository URL
      */
-    static  CString GetProjectNameFromURL(CString url);
+    static CString GetProjectNameFromURL(CString url);
 
     /**
      * Replacement for SVNDiff::ShowUnifiedDiff(), but started as a separate process.
      */
     static bool StartShowUnifiedDiff(HWND hWnd, const CTSVNPath& url1, const SVNRev& rev1,
-                                    const CTSVNPath& url2, const SVNRev& rev2,
-                                    const SVNRev& peg, const SVNRev& headpeg,
-                                    bool prettyprint,
-                                    const CString& options,
-                                    bool bAlternateDiff = false,
-                                    bool bIgnoreAncestry = false,
-                                    bool  blame  = false,
-                                    bool bIgnoreProperties = true);
+                                     const CTSVNPath& url2, const SVNRev& rev2,
+                                     const SVNRev& peg, const SVNRev& headPeg,
+                                     bool           prettyPrint,
+                                     const CString& options,
+                                     bool           bAlternateDiff    = false,
+                                     bool           bIgnoreAncestry   = false,
+                                     bool           blame             = false,
+                                     bool           bIgnoreProperties = true);
 
     /**
      * Replacement for SVNDiff::ShowCompare(), but started as a separate process.
@@ -193,10 +237,7 @@ public:
      * for all char ranges given in @a positions to the
      * @a window text.
      */
-    static void SetCharFormat ( CWnd* window
-                              , DWORD mask
-                              , DWORD effects
-                              , const std::vector<CHARRANGE>& positions);
+    static void SetCharFormat(CWnd* window, DWORD mask, DWORD effects, const std::vector<CHARRANGE>& positions);
 
     static bool AskToUpdate(HWND hParent, LPCWSTR error);
 
@@ -204,10 +245,11 @@ public:
 
     static bool HasMimeTool();
     static bool GetMimeType(const CTSVNPath& file, CString& mimetype, const SVNRev& rev = SVNRev::REV_WC);
+
 private:
     static CString PickDiffTool(const CTSVNPath& file1, const CTSVNPath& file2, const CString& mimetype);
 
-    static void SetCharFormat(CWnd* window, DWORD mask, DWORD effects );
-    CAppUtils(void);
-    ~CAppUtils(void);
+    static void SetCharFormat(CWnd* window, DWORD mask, DWORD effects);
+    CAppUtils();
+    ~CAppUtils();
 };

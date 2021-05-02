@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010 - TortoiseSVN
+// Copyright (C) 2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,19 +18,23 @@
 //
 #pragma once
 
-class CBstrSafeVector {
+class CBstrSafeVector
+{
 public:
-    CBstrSafeVector() : controlled( 0 ) {}
-    CBstrSafeVector( ULONG count );
+    CBstrSafeVector()
+        : controlled(0)
+    {
+    }
+    CBstrSafeVector(ULONG count);
     ~CBstrSafeVector() { release(); }
 
-    const SAFEARRAY* operator ->() { return controlled; }
-    operator SAFEARRAY*() { return controlled; }
-    operator const SAFEARRAY*() const { return controlled; }
+    const SAFEARRAY* operator->() const { return controlled; }
+                     operator SAFEARRAY*() const { return controlled; }
+                     operator const SAFEARRAY*() const { return controlled; }
 
     SAFEARRAY** operator&();
 
-    HRESULT PutElement( LONG index, const CString& value );
+    HRESULT PutElement(LONG index, const CString& value) const;
 
 private:
     SAFEARRAY* controlled;
@@ -38,7 +42,7 @@ private:
     void release();
 };
 
-inline CBstrSafeVector::CBstrSafeVector( ULONG count )
+inline CBstrSafeVector::CBstrSafeVector(ULONG count)
 {
     controlled = SafeArrayCreateVector(VT_BSTR, 0, count);
 }
@@ -49,17 +53,17 @@ inline SAFEARRAY** CBstrSafeVector::operator&()
     return &controlled;
 }
 
-inline HRESULT CBstrSafeVector::PutElement( LONG index, const CString& value )
+inline HRESULT CBstrSafeVector::PutElement(LONG index, const CString& value) const
 {
     ATL::CComBSTR valueBstr;
-    valueBstr.Attach( value.AllocSysString() );
+    valueBstr.Attach(value.AllocSysString());
     return SafeArrayPutElement(controlled, &index, valueBstr);
 }
 
 inline void CBstrSafeVector::release()
 {
-    if(controlled == 0)
+    if (controlled == nullptr)
         return;
     SafeArrayDestroy(controlled);
-    controlled = 0;
+    controlled = nullptr;
 }

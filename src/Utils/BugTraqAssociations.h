@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008 - TortoiseSVN
+// Copyright (C) 2008, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,48 +21,46 @@
 
 struct CBugTraqProvider
 {
-    CLSID clsid;
+    CLSID   clsid;
     CString name;
 };
 
-/* TODO: It's less of an association and more of a "token" or "memento".
- */
 class CBugTraqAssociation
 {
-    CTSVNPath m_path;
+    CTSVNPath        m_path;
     CBugTraqProvider m_provider;
-    CString m_parameters;
+    CString          m_parameters;
 
 public:
     CBugTraqAssociation()
     {
-         m_provider.clsid = GUID_NULL;
+        m_provider.clsid = GUID_NULL;
     }
 
-    CBugTraqAssociation(LPCTSTR szWorkingCopy, const CLSID &provider_clsid, LPCTSTR szProviderName, LPCTSTR szParameters)
-        : m_path(szWorkingCopy), m_parameters(szParameters)
+    CBugTraqAssociation(LPCWSTR szWorkingCopy, const CLSID &providerClsid, LPCWSTR szProviderName, LPCWSTR szParameters)
+        : m_path(szWorkingCopy)
+        , m_parameters(szParameters)
     {
-        m_provider.clsid = provider_clsid;
-        m_provider.name = szProviderName;
+        m_provider.clsid = providerClsid;
+        m_provider.name  = szProviderName;
     }
 
     const CTSVNPath &GetPath() const { return m_path; }
-    CString GetProviderName() const { return m_provider.name; }
-    CLSID GetProviderClass() const { return m_provider.clsid; }
-    CString GetProviderClassAsString() const;
-    CString GetParameters() const { return m_parameters; }
+    CString          GetProviderName() const { return m_provider.name; }
+    CLSID            GetProviderClass() const { return m_provider.clsid; }
+    CString          GetProviderClassAsString() const;
+    CString          GetParameters() const { return m_parameters; }
 };
 
 class CBugTraqAssociations
 {
-    typedef std::vector< CBugTraqAssociation * > inner_t;
-    inner_t m_inner;
+    std::vector<CBugTraqAssociation *> m_inner;
 
 public:
     CBugTraqAssociations();
     ~CBugTraqAssociations();
 
-    void Load(LPCTSTR uuid = NULL, LPCTSTR params = NULL);
+    void Load(LPCWSTR uuid = nullptr, LPCWSTR params = nullptr);
     void Save() const;
 
     void Add(const CBugTraqAssociation &assoc);
@@ -70,12 +68,11 @@ public:
 
     bool FindProvider(const CTSVNPathList &pathList, CBugTraqAssociation *assoc);
 
-    typedef inner_t::const_iterator const_iterator;
-    const_iterator begin() const { return m_inner.begin(); }
-    const_iterator end() const { return m_inner.end(); }
+    std::vector<CBugTraqAssociation *>::const_iterator begin() const { return m_inner.begin(); }
+    std::vector<CBugTraqAssociation *>::const_iterator end() const { return m_inner.end(); }
 
     static std::vector<CBugTraqProvider> GetAvailableProviders();
-    static CString LookupProviderName(const CLSID &provider_clsid);
+    static CString                       LookupProviderName(const CLSID &providerClsid);
 
 private:
     bool FindProviderForPathList(const CTSVNPathList &pathList, CBugTraqAssociation *assoc) const;
@@ -86,14 +83,16 @@ private:
         const CTSVNPath &m_path;
 
         FindByPathPred(const CTSVNPath &path)
-            : m_path(path) { }
+            : m_path(path)
+        {
+        }
 
-        bool operator() (const CBugTraqAssociation *assoc) const
+        bool operator()(const CBugTraqAssociation *assoc) const
         {
             return (assoc->GetPath().IsEquivalentToWithoutCase(m_path));
         }
     };
-    CString         providerUUID;
-    CString         providerParams;
-    CBugTraqAssociation * pProjectProvider;
+    CString              m_providerUuid;
+    CString              providerParams;
+    CBugTraqAssociation *pProjectProvider;
 };

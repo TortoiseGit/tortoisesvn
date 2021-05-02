@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2020 - TortoiseSVN
+// Copyright (C) 2003-2010, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,10 +22,14 @@
 class CClipboardHelper
 {
 public:
-    CClipboardHelper() : bClipBoardOpen(false) {}
+    CClipboardHelper()
+        : bClipBoardOpen(false)
+    {
+    }
     ~CClipboardHelper();
-    bool Open(HWND hOwningWnd);
+    bool           Open(HWND hOwningWnd);
     static HGLOBAL GlobalAlloc(SIZE_T dwBytes);
+
 private:
     bool bClipBoardOpen;
 };
@@ -58,7 +62,7 @@ inline bool CClipboardHelper::Open(HWND hOwningWnd)
     return false;
 }
 
-inline HGLOBAL CClipboardHelper::GlobalAlloc(SIZE_T dwBytes)
+inline HGLOBAL CClipboardHelper::GlobalAlloc(size_t dwBytes)
 {
     return ::GlobalAlloc(GMEM_MOVEABLE, dwBytes);
 }
