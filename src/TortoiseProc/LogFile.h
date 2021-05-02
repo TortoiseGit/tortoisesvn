@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,37 +31,36 @@
 class CLogFile
 {
 public:
-    CLogFile(void);
-    ~CLogFile(void);
+    CLogFile();
+    ~CLogFile();
 
     /**
      * Opens the log file and reads its contents
      */
-    bool    Open(const CTSVNPath& logfile);
+    bool Open(const CTSVNPath& logfile);
     /**
      * Opens the default log file for TortoiseSVN and reads its contents
      */
-    bool    Open();
+    bool Open();
     /**
      * Adds one line to the log file. The file is \b not yet written back to disk.
      */
-    bool    AddLine(const CString& line);
+    bool AddLine(const CString& line);
     /**
      * Writes the contents to the disk.
      */
-    bool    Close();
+    bool Close();
 
     /**
      * Inserts a line with the current time and date to the log file.
      */
-    bool    AddTimeLine();
+    bool AddTimeLine();
 
 protected:
-
-    void    TrimFile (DWORD maxLines);
+    void TrimFile(DWORD maxLines) const;
 
 private:
-    CRegStdDWORD            m_maxlines;
-    CTSVNPath               m_logfile;
-    std::deque<CString>     m_newLines;
+    CRegStdDWORD        m_maxLines;
+    CTSVNPath           m_logFile;
+    std::deque<CString> m_newLines;
 };

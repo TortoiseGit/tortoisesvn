@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2012 - TortoiseSVN
+// Copyright (C) 2009-2010, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,6 +26,7 @@
 class ListViewAccProvider
 {
 public:
+    virtual ~ListViewAccProvider() = default;
     /**
      * Called to retrieve the help string text.
      * \param hControl the HWND of the list view control
@@ -40,35 +41,35 @@ public:
  * Use ListViewAccServer::CreateProvider() to create start the
  * callback.
  */
-class ListViewAccServer: public IAccPropServer
+class ListViewAccServer : public IAccPropServer
 {
 public:
-    ListViewAccServer(IAccPropServices * pAccPropSvc)
-        : m_Ref( 1 )
-        , m_pAccPropSvc( pAccPropSvc )
-        , m_pAccProvider( NULL )
+    ListViewAccServer(IAccPropServices* pAccPropSvc)
+        : m_ref(1)
+        , m_pAccPropSvc(pAccPropSvc)
+        , m_pAccProvider(nullptr)
     {
         m_pAccPropSvc->AddRef();
     }
 
-    ~ListViewAccServer()
+    virtual ~ListViewAccServer()
     {
         m_pAccPropSvc->Release();
     }
 
-    static ListViewAccServer * CreateProvider(HWND hControl, ListViewAccProvider * provider);
+    static ListViewAccServer* CreateProvider(HWND hControl, ListViewAccProvider* provider);
     /// must be called in the WM_DESTROY handler!
     static void ClearProvider(HWND hControl);
 
-    HRESULT STDMETHODCALLTYPE GetPropValue(const BYTE * pIDString, DWORD dwIDStringLen, MSAAPROPID idProp, VARIANT * pvarValue, BOOL * pfGotProp);
+    HRESULT STDMETHODCALLTYPE GetPropValue(const BYTE* pIDString, DWORD dwIDStringLen, MSAAPROPID idProp, VARIANT* pvarValue, BOOL* pfGotProp) override;
 
     // IUnknown
-    virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void** ppvObject);
-    virtual ULONG STDMETHODCALLTYPE AddRef(void);
-    virtual ULONG STDMETHODCALLTYPE Release(void);
+    HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void** ppvObject) override;
+    ULONG STDMETHODCALLTYPE   AddRef() override;
+    ULONG STDMETHODCALLTYPE   Release() override;
 
 private:
-    ULONG                   m_Ref;
-    IAccPropServices *      m_pAccPropSvc;
-    ListViewAccProvider *   m_pAccProvider;
+    ULONG                m_ref;
+    IAccPropServices*    m_pAccPropSvc;
+    ListViewAccProvider* m_pAccProvider;
 };

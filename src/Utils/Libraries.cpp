@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2016 - TortoiseSVN
+// Copyright (C) 2010-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,23 +20,22 @@
 #include "Libraries.h"
 #include "PathUtils.h"
 #include "resource.h"
-#include "SmartHandle.h"
 #include <initguid.h>
-#include <propkeydef.h>
 #include <VersionHelpers.h>
 
-
 #ifdef _WIN64
-DEFINE_GUID(FOLDERTYPEID_SVNWC,       0xC1D29ED1, 0xCC8B, 0x4790, 0xA3, 0x45, 0xEC, 0x87, 0xDE, 0x96, 0xE9, 0x76);
-DEFINE_GUID(FOLDERTYPEID_SVNWC32,     0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x1C, 0x19, 0x49, 0x76, 0x83, 0x37);
+DEFINE_GUID(FOLDERTYPEID_SVNWC, 0xC1D29ED1, 0xCC8B, 0x4790, 0xA3, 0x45, 0xEC, 0x87, 0xDE, 0x96, 0xE9, 0x76);
+DEFINE_GUID(FOLDERTYPEID_SVNWC32, 0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x1C, 0x19, 0x49, 0x76, 0x83, 0x37);
 #else
-DEFINE_GUID(FOLDERTYPEID_SVNWC,       0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x1C, 0x19, 0x49, 0x76, 0x83, 0x37);
+DEFINE_GUID(FOLDERTYPEID_SVNWC, 0x72949A62, 0x135C, 0x4681, 0x88, 0x7C, 0x1C, 0x19, 0x49, 0x76, 0x83, 0x37);
 #endif
 #ifndef _WIN32_WINNT_WIN10
-#define _WIN32_WINNT_WIN10 0x0A00
+#    define _WIN32_WINNT_WIN10 0x0A00
 #endif
-bool IsWin10OrLater() { return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0); }
-
+bool IsWin10OrLater()
+{
+    return IsWindowsVersionOrGreater(HIBYTE(_WIN32_WINNT_WIN10), LOBYTE(_WIN32_WINNT_WIN10), 0);
+}
 
 /**
  * Makes sure a library named "Subversion" exists and has our template
@@ -54,7 +53,7 @@ void EnsureSVNLibrary(bool bCreate /* = true*/)
     if (bIsWow64)
         return;
 
-    CComPtr<IShellLibrary> pLibrary = NULL;
+    CComPtr<IShellLibrary> pLibrary = nullptr;
     if (FAILED(OpenShellLibrary(L"Subversion", &pLibrary)))
     {
         if (!bCreate)
@@ -63,7 +62,7 @@ void EnsureSVNLibrary(bool bCreate /* = true*/)
             return;
 
         // Save the new library under the user's Libraries folder.
-        CComPtr<IShellItem> pSavedTo = NULL;
+        CComPtr<IShellItem> pSavedTo = nullptr;
         if (FAILED(pLibrary->SaveInKnownFolder(FOLDERID_UsersLibraries, L"Subversion", LSF_OVERRIDEEXISTING, &pSavedTo)))
             return;
     }
@@ -75,12 +74,12 @@ void EnsureSVNLibrary(bool bCreate /* = true*/)
         CString appDir = CPathUtils::GetAppDirectory();
         if (appDir.GetLength() < MAX_PATH)
         {
-            TCHAR buf[MAX_PATH] = {0};
-            PathCanonicalize(buf, (LPCTSTR)appDir);
+            wchar_t buf[MAX_PATH] = {0};
+            PathCanonicalize(buf, static_cast<LPCWSTR>(appDir));
             appDir = buf;
         }
-        path.Format(L"%s%s,-%d", (LPCTSTR)appDir, L"TortoiseProc.exe", IsWin10OrLater() ? IDI_LIBRARY_WIN10 : IDI_LIBRARY);
-        pLibrary->SetIcon((LPCTSTR)path);
+        path.Format(L"%s%s,-%d", static_cast<LPCWSTR>(appDir), L"TortoiseProc.exe", IsWin10OrLater() ? IDI_LIBRARY_WIN10 : IDI_LIBRARY);
+        pLibrary->SetIcon(static_cast<LPCWSTR>(path));
         pLibrary->Commit();
     }
 }
@@ -100,11 +99,10 @@ void EnsureSVNLibrary(bool bCreate /* = true*/)
  */
 HRESULT OpenShellLibrary(LPWSTR pwszLibraryName, IShellLibrary** ppShellLib)
 {
-    HRESULT hr;
-    *ppShellLib = NULL;
+    *ppShellLib = nullptr;
 
-    CComPtr<IShellItem2> pShellItem = NULL;
-    hr = GetShellLibraryItem(pwszLibraryName, &pShellItem);
+    CComPtr<IShellItem2> pShellItem = nullptr;
+    HRESULT              hr         = GetShellLibraryItem(pwszLibraryName, &pShellItem);
     if (FAILED(hr))
         return hr;
 
@@ -128,11 +126,11 @@ HRESULT OpenShellLibrary(LPWSTR pwszLibraryName, IShellLibrary** ppShellLib)
  */
 HRESULT GetShellLibraryItem(LPWSTR pwszLibraryName, IShellItem2** ppShellItem)
 {
-    HRESULT hr = E_NOINTERFACE;
-    *ppShellItem = NULL;
+    HRESULT hr   = E_NOINTERFACE;
+    *ppShellItem = nullptr;
 
     // Create the real library file name
-    WCHAR wszRealLibraryName[MAX_PATH] = { 0 };
+    WCHAR wszRealLibraryName[MAX_PATH] = {0};
     swprintf_s(wszRealLibraryName, L"%s%s", pwszLibraryName, L".library-ms");
 
     hr = SHCreateItemInKnownFolder(FOLDERID_UsersLibraries, KF_FLAG_DEFAULT_PATH | KF_FLAG_NO_ALIAS, wszRealLibraryName, IID_PPV_ARGS(ppShellItem));

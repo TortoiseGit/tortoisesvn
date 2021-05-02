@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2010-2012, 2014-2015, 2021 - TortoiseSVN
 // Copyright (C) 2018 - Sven Strickroth <email@cs-ware.de>
-// Copyright (C) 2010-2012, 2014-2015 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,103 +21,102 @@
 #include "IconExtractor.h"
 #include "SmartHandle.h"
 
-#define WIDTHBYTES(bits)      ((((bits) + 31)>>5)<<2)
+#define WIDTHBYTES(bits) ((((bits) + 31) >> 5) << 2)
 
 CIconExtractor::CIconExtractor()
 {
 }
 
-DWORD CIconExtractor::ExtractIcon(HINSTANCE hResource, LPCTSTR id, LPCTSTR TargetICON)
+DWORD CIconExtractor::ExtractIcon(HINSTANCE hResource, LPCTSTR id, LPCTSTR targetIcon)
 {
-    LPICONRESOURCE      lpIR    = NULL;
-    HRSRC               hRsrc   = NULL;
-    HGLOBAL             hGlobal = NULL;
-    LPMEMICONDIR        lpIcon  = NULL;
+    LPICONRESOURCE lpIr    = nullptr;
+    HRSRC          hRsrc   = nullptr;
+    HGLOBAL        hGlobal = nullptr;
+    LPMEMICONDIR   lpIcon  = nullptr;
 
     // Find the group icon resource
     hRsrc = FindResource(hResource, id, RT_GROUP_ICON);
 
-    if (hRsrc == NULL)
+    if (hRsrc == nullptr)
         return GetLastError();
 
-    if ((hGlobal = LoadResource(hResource, hRsrc)) == NULL)
+    if ((hGlobal = LoadResource(hResource, hRsrc)) == nullptr)
         return GetLastError();
 
-    if ((lpIcon = (LPMEMICONDIR)LockResource(hGlobal)) == NULL)
+    if ((lpIcon = static_cast<LPMEMICONDIR>(LockResource(hGlobal))) == nullptr)
         return GetLastError();
 
-    if ((lpIR = (LPICONRESOURCE) malloc(sizeof(ICONRESOURCE) + ((lpIcon->idCount-1) * sizeof(ICONIMAGE)))) == NULL)
+    if ((lpIr = static_cast<LPICONRESOURCE>(malloc(sizeof(ICONRESOURCE) + ((lpIcon->idCount - 1) * sizeof(ICONIMAGE))))) == nullptr)
         return GetLastError();
-    SecureZeroMemory(lpIR, sizeof(ICONRESOURCE) + ((lpIcon->idCount - 1) * sizeof(ICONIMAGE)));
-    lpIR->nNumImages = lpIcon->idCount;
+    SecureZeroMemory(lpIr, sizeof(ICONRESOURCE) + ((lpIcon->idCount - 1) * sizeof(ICONIMAGE)));
+    lpIr->nNumImages = lpIcon->idCount;
     OnOutOfScope(
-        for (UINT i = 0; i < lpIR->nNumImages; ++i)
-            free(lpIR->IconImages[i].lpBits);
-        free(lpIR);
-    );
+        for (UINT i = 0; i < lpIr->nNumImages; ++i)
+            free(lpIr->IconImages[i].lpBits);
+        free(lpIr););
 
     // Go through all the icons
-    for (UINT i = 0; i < lpIR->nNumImages; ++i)
+    for (UINT i = 0; i < lpIr->nNumImages; ++i)
     {
         // Get the individual icon
-        if ((hRsrc = FindResource(hResource, MAKEINTRESOURCE(lpIcon->idEntries[i].nID), RT_ICON )) == NULL)
+        if ((hRsrc = FindResource(hResource, MAKEINTRESOURCE(lpIcon->idEntries[i].nID), RT_ICON)) == nullptr)
             return GetLastError();
 
-        if ((hGlobal = LoadResource(hResource, hRsrc )) == NULL)
+        if ((hGlobal = LoadResource(hResource, hRsrc)) == nullptr)
             return GetLastError();
 
         // Store a copy of the resource locally
-        lpIR->IconImages[i].dwNumBytes = SizeofResource(hResource, hRsrc);
-        lpIR->IconImages[i].lpBits =(LPBYTE) malloc(lpIR->IconImages[i].dwNumBytes);
-        if (lpIR->IconImages[i].lpBits == NULL)
+        lpIr->IconImages[i].dwNumBytes = SizeofResource(hResource, hRsrc);
+        lpIr->IconImages[i].lpBits     = static_cast<LPBYTE>(malloc(lpIr->IconImages[i].dwNumBytes));
+        if (lpIr->IconImages[i].lpBits == nullptr)
             return GetLastError();
 
-        memcpy(lpIR->IconImages[i].lpBits, LockResource(hGlobal), lpIR->IconImages[i].dwNumBytes);
+        memcpy(lpIr->IconImages[i].lpBits, LockResource(hGlobal), lpIr->IconImages[i].dwNumBytes);
 
         // Adjust internal pointers
-        if (!AdjustIconImagePointers(&(lpIR->IconImages[i])))
+        if (!AdjustIconImagePointers(&(lpIr->IconImages[i])))
             return GetLastError();
     }
 
-    return WriteIconToICOFile(lpIR,TargetICON);
+    return WriteIconToICOFile(lpIr, targetIcon);
 }
 
-DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName)
+DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIr, LPCTSTR szFileName)
 {
-    DWORD       dwBytesWritten  = 0;
+    DWORD dwBytesWritten = 0;
 
-    CAutoFile hFile = CreateFile(szFileName, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    CAutoFile hFile = CreateFile(szFileName, GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
     // open the file
     if (!hFile)
         return GetLastError();
 
     // Write the header
-    if (WriteICOHeader(hFile, lpIR->nNumImages))
+    if (WriteICOHeader(hFile, lpIr->nNumImages))
         return GetLastError();
 
     // Write the ICONDIRENTRY's
-    for (UINT i = 0; i < lpIR->nNumImages; ++i)
+    for (UINT i = 0; i < lpIr->nNumImages; ++i)
     {
-        ICONDIRENTRY    ide;
+        ICONDIRENTRY ide;
 
         // Convert internal format to ICONDIRENTRY
-        ide.bWidth      = (BYTE)lpIR->IconImages[i].Width;
-        ide.bHeight     = (BYTE)lpIR->IconImages[i].Height;
+        ide.bWidth  = static_cast<BYTE>(lpIr->IconImages[i].Width);
+        ide.bHeight = static_cast<BYTE>(lpIr->IconImages[i].Height);
         if (ide.bHeight == 0) // 256x256 icon, both width and height must be 0
-            ide.bWidth  = 0;
-        ide.bReserved   = 0;
-        ide.wPlanes     = lpIR->IconImages[i].lpbi->bmiHeader.biPlanes;
-        ide.wBitCount   = lpIR->IconImages[i].lpbi->bmiHeader.biBitCount;
+            ide.bWidth = 0;
+        ide.bReserved = 0;
+        ide.wPlanes   = lpIr->IconImages[i].lpbi->bmiHeader.biPlanes;
+        ide.wBitCount = lpIr->IconImages[i].lpbi->bmiHeader.biBitCount;
 
         if ((ide.wPlanes * ide.wBitCount) >= 8)
             ide.bColorCount = 0;
         else
             ide.bColorCount = 1 << (ide.wPlanes * ide.wBitCount);
-        ide.dwBytesInRes = lpIR->IconImages[i].dwNumBytes;
-        ide.dwImageOffset = CalculateImageOffset( lpIR, i );
+        ide.dwBytesInRes  = lpIr->IconImages[i].dwNumBytes;
+        ide.dwImageOffset = CalculateImageOffset(lpIr, i);
 
         // Write the ICONDIRENTRY to disk
-        if (!WriteFile(hFile, &ide, sizeof(ICONDIRENTRY), &dwBytesWritten, NULL))
+        if (!WriteFile(hFile, &ide, sizeof(ICONDIRENTRY), &dwBytesWritten, nullptr))
             return GetLastError();
 
         if (dwBytesWritten != sizeof(ICONDIRENTRY))
@@ -125,64 +124,62 @@ DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIR, LPCTSTR szFileName
     }
 
     // Write the image bits for each image
-    for (UINT i = 0; i < lpIR->nNumImages; ++i)
+    for (UINT i = 0; i < lpIr->nNumImages; ++i)
     {
-        DWORD dwTemp = lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage;
-        bool bError = false; // fix size even on error
+        DWORD dwTemp = lpIr->IconImages[i].lpbi->bmiHeader.biSizeImage;
+        bool  bError = false; // fix size even on error
 
         // Set the sizeimage member to zero, but not if the icon is PNG
-        if (lpIR->IconImages[i].lpbi->bmiHeader.biCompression != 65536)
-            lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage = 0;
-        if (!WriteFile( hFile, lpIR->IconImages[i].lpBits, lpIR->IconImages[i].dwNumBytes, &dwBytesWritten, NULL))
+        if (lpIr->IconImages[i].lpbi->bmiHeader.biCompression != 65536)
+            lpIr->IconImages[i].lpbi->bmiHeader.biSizeImage = 0;
+        if (!WriteFile(hFile, lpIr->IconImages[i].lpBits, lpIr->IconImages[i].dwNumBytes, &dwBytesWritten, nullptr))
             bError = true;
 
-        if (dwBytesWritten != lpIR->IconImages[i].dwNumBytes)
+        if (dwBytesWritten != lpIr->IconImages[i].dwNumBytes)
             bError = true;
 
         // set it back
-        lpIR->IconImages[i].lpbi->bmiHeader.biSizeImage = dwTemp;
+        lpIr->IconImages[i].lpbi->bmiHeader.biSizeImage = dwTemp;
         if (bError)
             return GetLastError();
     }
     return NO_ERROR;
 }
 
-DWORD CIconExtractor::CalculateImageOffset(LPICONRESOURCE lpIR, UINT nIndex) const
+DWORD CIconExtractor::CalculateImageOffset(LPICONRESOURCE lpIr, UINT nIndex)
 {
-    DWORD   dwSize;
-
     // Calculate the ICO header size
-    dwSize = 3 * sizeof(WORD);
+    DWORD dwSize = 3 * sizeof(WORD);
     // Add the ICONDIRENTRY's
-    dwSize += lpIR->nNumImages * sizeof(ICONDIRENTRY);
+    dwSize += lpIr->nNumImages * sizeof(ICONDIRENTRY);
     // Add the sizes of the previous images
-    for(UINT i = 0; i < nIndex; ++i)
-        dwSize += lpIR->IconImages[i].dwNumBytes;
+    for (UINT i = 0; i < nIndex; ++i)
+        dwSize += lpIr->IconImages[i].dwNumBytes;
 
     return dwSize;
 }
 
-DWORD CIconExtractor::WriteICOHeader(HANDLE hFile, UINT nNumEntries) const
+DWORD CIconExtractor::WriteICOHeader(HANDLE hFile, UINT nNumEntries)
 {
-    WORD    Output          = 0;
-    DWORD   dwBytesWritten  = 0;
+    WORD  output         = 0;
+    DWORD dwBytesWritten = 0;
 
     // Write 'reserved' WORD
-    if (!WriteFile( hFile, &Output, sizeof(WORD), &dwBytesWritten, NULL))
+    if (!WriteFile(hFile, &output, sizeof(WORD), &dwBytesWritten, nullptr))
         return GetLastError();
     // Did we write a WORD?
     if (dwBytesWritten != sizeof(WORD))
         return GetLastError();
     // Write 'type' WORD (1)
-    Output = 1;
-    if (!WriteFile( hFile, &Output, sizeof(WORD), &dwBytesWritten, NULL))
+    output = 1;
+    if (!WriteFile(hFile, &output, sizeof(WORD), &dwBytesWritten, nullptr))
         return GetLastError();
     // Did we write a WORD?
     if (dwBytesWritten != sizeof(WORD))
         return GetLastError();
     // Write Number of Entries
-    Output = (WORD)nNumEntries;
-    if (!WriteFile(hFile, &Output, sizeof(WORD), &dwBytesWritten, NULL))
+    output = static_cast<WORD>(nNumEntries);
+    if (!WriteFile(hFile, &output, sizeof(WORD), &dwBytesWritten, nullptr))
         return GetLastError();
     // Did we write a WORD?
     if (dwBytesWritten != sizeof(WORD))
@@ -193,28 +190,28 @@ DWORD CIconExtractor::WriteICOHeader(HANDLE hFile, UINT nNumEntries) const
 
 BOOL CIconExtractor::AdjustIconImagePointers(LPICONIMAGE lpImage)
 {
-    if (lpImage == NULL)
+    if (lpImage == nullptr)
         return FALSE;
 
     // BITMAPINFO is at beginning of bits
-    lpImage->lpbi = (LPBITMAPINFO)lpImage->lpBits;
+    lpImage->lpbi = reinterpret_cast<LPBITMAPINFO>(lpImage->lpBits);
     // Width - simple enough
     lpImage->Width = lpImage->lpbi->bmiHeader.biWidth;
     // Icons are stored in funky format where height is doubled - account for it
-    lpImage->Height = (lpImage->lpbi->bmiHeader.biHeight)/2;
+    lpImage->Height = (lpImage->lpbi->bmiHeader.biHeight) / 2;
     // How many colors?
     lpImage->Colors = lpImage->lpbi->bmiHeader.biPlanes * lpImage->lpbi->bmiHeader.biBitCount;
     // XOR bits follow the header and color table
-    lpImage->lpXOR = (PBYTE)FindDIBBits((LPSTR)lpImage->lpbi);
+    lpImage->lpXOR = reinterpret_cast<PBYTE>(FindDIBBits(reinterpret_cast<LPSTR>(lpImage->lpbi)));
     // AND bits follow the XOR bits
-    lpImage->lpAND = lpImage->lpXOR + (lpImage->Height*BytesPerLine((LPBITMAPINFOHEADER)(lpImage->lpbi)));
+    lpImage->lpAND = lpImage->lpXOR + (lpImage->Height * BytesPerLine(reinterpret_cast<LPBITMAPINFOHEADER>(lpImage->lpbi)));
 
     return TRUE;
 }
 
 LPSTR CIconExtractor::FindDIBBits(LPSTR lpbi)
 {
-   return (lpbi + *(LPDWORD)lpbi + PaletteSize(lpbi));
+    return (lpbi + *reinterpret_cast<LPDWORD>(lpbi) + PaletteSize(lpbi));
 }
 
 WORD CIconExtractor::PaletteSize(LPSTR lpbi)
@@ -222,30 +219,30 @@ WORD CIconExtractor::PaletteSize(LPSTR lpbi)
     return (DIBNumColors(lpbi) * sizeof(RGBQUAD));
 }
 
-DWORD CIconExtractor::BytesPerLine(LPBITMAPINFOHEADER lpBMIH) const
+DWORD CIconExtractor::BytesPerLine(LPBITMAPINFOHEADER lpBmih)
 {
-    return WIDTHBYTES(lpBMIH->biWidth * lpBMIH->biPlanes * lpBMIH->biBitCount);
+    return WIDTHBYTES(lpBmih->biWidth * lpBmih->biPlanes * lpBmih->biBitCount);
 }
 
-WORD CIconExtractor::DIBNumColors(LPSTR lpbi) const
+WORD CIconExtractor::DIBNumColors(LPSTR lpbi)
 {
-    WORD wBitCount;
-    DWORD dwClrUsed;
-
-    dwClrUsed = ((LPBITMAPINFOHEADER) lpbi)->biClrUsed;
+    DWORD dwClrUsed = reinterpret_cast<LPBITMAPINFOHEADER>(lpbi)->biClrUsed;
 
     if (dwClrUsed)
-        return (WORD) dwClrUsed;
+        return static_cast<WORD>(dwClrUsed);
 
-    wBitCount = ((LPBITMAPINFOHEADER) lpbi)->biBitCount;
+    WORD wBitCount = reinterpret_cast<LPBITMAPINFOHEADER>(lpbi)->biBitCount;
 
     switch (wBitCount)
     {
-        case 1: return 2;
-        case 4: return 16;
-        case 8: return 256;
-        default:return 0;
+        case 1:
+            return 2;
+        case 4:
+            return 16;
+        case 8:
+            return 256;
+        default:
+            return 0;
     }
     //return 0;
 }
-

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+ï»¿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2013, 2015 - TortoiseSVN
+// Copyright (C) 2009-2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,11 +21,11 @@
 
 STDMETHODIMP ListViewAccServer::QueryInterface(REFIID riid, void** ppvObject)
 {
-    if (ppvObject == 0)
+    if (ppvObject == nullptr)
         return E_POINTER;
-    *ppvObject = NULL;
+    *ppvObject = nullptr;
     if (IsEqualIID(IID_IUnknown, riid) || IsEqualIID(IID_IAccPropServer, riid))
-        *ppvObject=static_cast<IAccPropServer*>(this);
+        *ppvObject = static_cast<IAccPropServer*>(this);
     else
         return E_NOINTERFACE;
 
@@ -33,42 +33,44 @@ STDMETHODIMP ListViewAccServer::QueryInterface(REFIID riid, void** ppvObject)
     return S_OK;
 }
 
-STDMETHODIMP_(ULONG) ListViewAccServer::AddRef(void)
+STDMETHODIMP_(ULONG)
+ListViewAccServer::AddRef()
 {
-    return ++m_Ref;
+    return ++m_ref;
 }
 
-STDMETHODIMP_(ULONG) ListViewAccServer::Release(void)
+STDMETHODIMP_(ULONG)
+ListViewAccServer::Release()
 {
-    --m_Ref;
-    return m_Ref;
+    --m_ref;
+    return m_ref;
 }
 
 HRESULT STDMETHODCALLTYPE ListViewAccServer::GetPropValue(
-    const BYTE *    pIDString,
-    DWORD           dwIDStringLen,
-    MSAAPROPID      /*idProp*/,
-    VARIANT *       pvarValue,
-    BOOL *          pfGotProp )
+    const BYTE* pIDString,
+    DWORD       dwIDStringLen,
+    MSAAPROPID /*idProp*/,
+    VARIANT* pvarValue,
+    BOOL*    pfGotProp)
 {
-    if(pfGotProp == 0)
+    if (pfGotProp == nullptr)
         return E_POINTER;
 
-    // Default return values, in case we need to bail out…
-    *pfGotProp = FALSE;
+    // Default return values, in case we need to bail outâ€¦
+    *pfGotProp    = FALSE;
     pvarValue->vt = VT_EMPTY;
-    // Extract the idChild from the identity string…
-    DWORD idObject, idChild;
-    HWND dwHcontrol;
-    HRESULT hr = m_pAccPropSvc->DecomposeHwndIdentityString(pIDString, dwIDStringLen, &dwHcontrol, &idObject, &idChild);
+    // Extract the idChild from the identity stringâ€¦
+    DWORD   idObject = 0, idChild = 0;
+    HWND    dwHcontrol = nullptr;
+    HRESULT hr         = m_pAccPropSvc->DecomposeHwndIdentityString(pIDString, dwIDStringLen, &dwHcontrol, &idObject, &idChild);
     if (hr != S_OK)
     {
         return S_OK;
     }
 
-    HWND Hwnd = dwHcontrol;
+    HWND hwnd = dwHcontrol;
     // Only supply help string for child elements, not the
-    // listview itself…
+    // listview itselfâ€¦
     if (idChild == CHILDID_SELF)
     {
         return S_OK;
@@ -76,46 +78,46 @@ HRESULT STDMETHODCALLTYPE ListViewAccServer::GetPropValue(
 
     // GetHelpString returns a UNICODE string corresponding to
     // the index it is passed.
-    CString sHelpString = m_pAccProvider->GetListviewHelpString(Hwnd, idChild - 1);
+    CString sHelpString = m_pAccProvider->GetListviewHelpString(hwnd, idChild - 1);
     if (sHelpString.IsEmpty())
     {
         return S_OK;
     }
 
-    BSTR bstr = SysAllocString((LPCTSTR)sHelpString);
-    pvarValue->vt = VT_BSTR;
-    pvarValue->bstrVal = bstr;
-    *pfGotProp = TRUE;
+    BSTR bStr          = SysAllocString(static_cast<LPCWSTR>(sHelpString));
+    pvarValue->vt      = VT_BSTR;
+    pvarValue->bstrVal = bStr;
+    *pfGotProp         = TRUE;
     return S_OK;
 }
 
-ListViewAccServer * ListViewAccServer::CreateProvider(HWND hControl, ListViewAccProvider * provider)
+ListViewAccServer* ListViewAccServer::CreateProvider(HWND hControl, ListViewAccProvider* provider)
 {
     ATL::CComPtr<IAccPropServices> pAccPropSvc;
-    HRESULT hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER);
+    HRESULT                        hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, nullptr, CLSCTX_SERVER);
     if (hr == S_OK && pAccPropSvc)
     {
-        ListViewAccServer * pLVServer = new (std::nothrow) ListViewAccServer(pAccPropSvc);
+        ListViewAccServer* pLVServer = new (std::nothrow) ListViewAccServer(pAccPropSvc);
         if (pLVServer)
         {
             pLVServer->m_pAccProvider = provider;
 
             MSAAPROPID propid = PROPID_ACC_HELP;
-            pAccPropSvc->SetHwndPropServer(hControl, (DWORD)OBJID_CLIENT, CHILDID_SELF, &propid, 1, pLVServer, ANNO_CONTAINER);
+            pAccPropSvc->SetHwndPropServer(hControl, static_cast<DWORD>(OBJID_CLIENT), CHILDID_SELF, &propid, 1, pLVServer, ANNO_CONTAINER);
             pLVServer->Release();
         }
         return pLVServer;
     }
-    return NULL;
+    return nullptr;
 }
 
-void ListViewAccServer::ClearProvider( HWND hControl )
+void ListViewAccServer::ClearProvider(HWND hControl)
 {
     ATL::CComPtr<IAccPropServices> pAccPropSvc;
-    HRESULT hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, NULL, CLSCTX_SERVER);
+    HRESULT                        hr = pAccPropSvc.CoCreateInstance(CLSID_AccPropServices, nullptr, CLSCTX_SERVER);
     if (hr == S_OK && pAccPropSvc)
     {
-        MSAAPROPID propid = PROPID_ACC_HELP;
-        pAccPropSvc->ClearHwndProps(hControl, (DWORD)OBJID_CLIENT, CHILDID_SELF, &propid, 1);
+        MSAAPROPID propId = PROPID_ACC_HELP;
+        pAccPropSvc->ClearHwndProps(hControl, static_cast<DWORD>(OBJID_CLIENT), CHILDID_SELF, &propId, 1);
     }
 }

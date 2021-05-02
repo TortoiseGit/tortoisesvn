@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016 - TortoiseSVN
+// Copyright (C) 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,7 @@
 #include <unordered_map>
 #include <list>
 
-template<typename key_t, typename value_t>
+template <typename KeyT, typename ValueT>
 class LruCache
 {
 public:
@@ -31,14 +31,14 @@ public:
     {
     }
 
-    void insert_or_assign(const key_t & key, const value_t & val)
+    void insert_or_assign(const KeyT& key, const ValueT& val)
     {
-        ItemsMap::iterator mapIt = itemsMap.find(key);
+        auto mapIt = itemsMap.find(key);
         if (mapIt == itemsMap.end())
         {
             evict(maxSize - 1);
 
-            ItemsList::iterator listIt = itemsList.insert(itemsList.cend(), ListItem(key, val));
+            auto listIt = itemsList.insert(itemsList.cend(), ListItem(key, val));
             itemsMap.insert(std::make_pair(key, listIt));
         }
         else
@@ -47,9 +47,9 @@ public:
         }
     }
 
-    const value_t * try_get(const key_t & key)
+    const ValueT* try_get(const KeyT& key)
     {
-        ItemsMap::const_iterator it = itemsMap.find(key);
+        auto it = itemsMap.find(key);
         if (it == itemsMap.end())
             return nullptr;
 
@@ -72,32 +72,31 @@ public:
         itemsMap.clear();
         itemsList.clear();
     }
+
 protected:
     void evict(size_t itemsToKeep)
     {
-        for(ItemsList::iterator it = itemsList.begin();
-            itemsList.size() > itemsToKeep && it != itemsList.end();)
+        for (auto it = itemsList.begin(); itemsList.size() > itemsToKeep && it != itemsList.end();)
         {
             itemsMap.erase(it->key);
             it = itemsList.erase(it);
         }
     }
+
 private:
     struct ListItem
     {
-        ListItem(const key_t & key, const value_t & val)
-            : key(key), val(val)
+        ListItem(const KeyT& key, const ValueT& val)
+            : key(key)
+            , val(val)
         {
         }
 
-        key_t key;
-        value_t val;
+        KeyT   key;
+        ValueT val;
     };
 
-    typedef std::list<ListItem> ItemsList;
-    typedef std::unordered_map<key_t, typename ItemsList::iterator> ItemsMap;
-
-    size_t maxSize;
-    ItemsMap itemsMap;
-    ItemsList itemsList;
+    size_t                                                           maxSize;
+    std::unordered_map<KeyT, typename std::list<ListItem>::iterator> itemsMap;
+    std::list<ListItem>                                              itemsList;
 };

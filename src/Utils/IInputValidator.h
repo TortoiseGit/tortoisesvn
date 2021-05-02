@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2013 - TortoiseSVN
+// Copyright (C) 2010, 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,10 +18,10 @@
 //
 #pragma once
 
-
 class IInputValidator
 {
 public:
+    virtual ~IInputValidator() = default;
     /**
      * Method is called to validate the user input, usually an edit control.
      * Return an empty string if the input is valid. If the input is not valid,

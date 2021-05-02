@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016 - TortoiseSVN
+// Copyright (C) 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,7 @@
 #include "LruCache.h"
 
 #if defined(_DEBUG)
-static class LruCacheTest
+[[maybe_unused]] static class LruCacheTest
 {
 public:
     LruCacheTest()
@@ -67,13 +67,14 @@ public:
             ATLASSERT(*cache.try_get(3) == 300);
         }
 
-        {   // Test empty cache behavior
+        { // Test empty cache behavior
             LruCache<int, int> cache(5);
             ATLASSERT(cache.try_get(1) == nullptr);
             ATLASSERT(cache.try_get(2) == nullptr);
             ATLASSERT(cache.try_get(3) == nullptr);
         }
     }
+    // ReSharper disable once CppInconsistentNaming
 } LruCacheTest;
 
 #endif

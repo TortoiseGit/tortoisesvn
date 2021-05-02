@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010-2011, 2014-2016 - TortoiseSVN
+// Copyright (C) 2007, 2010-2011, 2014-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,12 +23,12 @@
 #include "Streams/MappedInFile.h"
 #include "Streams/StreamException.h"
 
-CLogFile::CLogFile(void)
+CLogFile::CLogFile()
 {
-    m_maxlines = CRegStdDWORD(L"Software\\TortoiseSVN\\MaxLinesInLogfile", 4000);
+    m_maxLines = CRegStdDWORD(L"Software\\TortoiseSVN\\MaxLinesInLogfile", 4000);
 }
 
-CLogFile::~CLogFile(void)
+CLogFile::~CLogFile()
 {
 }
 
@@ -40,10 +40,10 @@ bool CLogFile::Open()
 
 bool CLogFile::Open(const CTSVNPath& logfile)
 {
-    if (m_maxlines == 0)
-        return false;   // do nothing if no log lines should be used.
+    if (m_maxLines == 0)
+        return false; // do nothing if no log lines should be used.
     m_newLines.clear();
-    m_logfile = logfile;
+    m_logFile = logfile;
     if (!logfile.Exists())
     {
         CPathUtils::MakeSureDirectoryPathExists(logfile.GetContainingDirectory().GetWinPath());
@@ -64,23 +64,23 @@ bool CLogFile::Close()
     {
         // limit log file growth
 
-        size_t maxLines = (DWORD)m_maxlines;
+        size_t maxLines = static_cast<DWORD>(m_maxLines);
         size_t newLines = m_newLines.size();
-        TrimFile (DWORD(max (maxLines, newLines) - newLines));
+        TrimFile(static_cast<DWORD>(max(maxLines, newLines) - newLines));
 
         // append new info
 
         CStdioFile file;
 
-        int retrycounter = 10;
+        int retryCounter = 10;
         // try to open the file for about two seconds - some other TSVN process might be
         // writing to the file and we just wait a little for this to finish
-        while (!file.Open(m_logfile.GetWinPath(), CFile::typeText | CFile::modeReadWrite | CFile::modeCreate | CFile::modeNoTruncate) && retrycounter)
+        while (!file.Open(m_logFile.GetWinPath(), CFile::typeText | CFile::modeReadWrite | CFile::modeCreate | CFile::modeNoTruncate) && retryCounter)
         {
-            retrycounter--;
+            retryCounter--;
             Sleep(200);
         }
-        if (retrycounter == 0)
+        if (retryCounter == 0)
             return false;
 
         file.SeekToEnd();
@@ -106,19 +106,19 @@ bool CLogFile::AddTimeLine()
     // first add an empty line as a separator
     m_newLines.push_back(sLine);
     // now add the time string
-    TCHAR datebuf[4096] = {0};
-    GetDateFormat(LOCALE_USER_DEFAULT, DATE_SHORTDATE, NULL, NULL, datebuf, 4096);
-    sLine = datebuf;
-    GetTimeFormat(LOCALE_USER_DEFAULT, 0, NULL, NULL, datebuf, 4096);
+    TCHAR dateBuf[4096] = {0};
+    GetDateFormat(LOCALE_USER_DEFAULT, DATE_SHORTDATE, nullptr, nullptr, dateBuf, 4096);
+    sLine = dateBuf;
+    GetTimeFormat(LOCALE_USER_DEFAULT, 0, nullptr, nullptr, dateBuf, 4096);
     sLine += L" - ";
-    sLine += datebuf;
+    sLine += dateBuf;
     m_newLines.push_back(sLine);
     return true;
 }
 
-void CLogFile::TrimFile (DWORD maxLines)
+void CLogFile::TrimFile(DWORD maxLines) const
 {
-    if (!PathFileExists (m_logfile.GetWinPath()))
+    if (!PathFileExists(m_logFile.GetWinPath()))
         return;
 
     // find the start of the maxLines-th last line
@@ -126,10 +126,10 @@ void CLogFile::TrimFile (DWORD maxLines)
 
     try
     {
-        CMappedInFile file (m_logfile.GetWinPath(), true);
+        CMappedInFile file(m_logFile.GetWinPath(), true);
 
         unsigned char* begin = file.GetWritableBuffer();
-        unsigned char* end = begin + file.GetSize();
+        unsigned char* end   = begin + file.GetSize();
 
         if (begin <= (end - 2))
             return;
@@ -157,12 +157,11 @@ void CLogFile::TrimFile (DWORD maxLines)
         // remove data
 
         size_t newSize = end - trimPos;
-        memmove (begin, trimPos, newSize);
-        file.Close (newSize);
+        memmove(begin, trimPos, newSize);
+        file.Close(newSize);
     }
     catch (CStreamException&)
     {
         // can't trim the file right now
     }
 }
-
