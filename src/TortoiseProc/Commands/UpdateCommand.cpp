@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,37 +25,36 @@
 
 bool UpdateCommand::Execute()
 {
-    CRegDWORD updateExternals(L"Software\\TortoiseSVN\\IncludeExternals", true);
-    SVNRev rev = SVNRev(L"HEAD");
-    int options = DWORD(updateExternals) ? 0 : ProgOptIgnoreExternals;
-    svn_depth_t depth = svn_depth_unknown;
-    DWORD exitcode = 0;
-    CString error;
+    CRegDWORD   updateExternals(L"Software\\TortoiseSVN\\IncludeExternals", true);
+    SVNRev      rev      = SVNRev(L"HEAD");
+    int         options  = static_cast<DWORD>(updateExternals) ? 0 : ProgOptIgnoreExternals;
+    svn_depth_t depth    = svn_depth_unknown;
+    DWORD       exitCode = 0;
     if (pathList.GetCount() == 0)
         return false;
     ProjectProperties props;
     props.ReadPropsPathList(pathList);
     CHooks::Instance().SetProjectProperties(pathList.GetCommonRoot(), props);
-    if (CHooks::Instance().StartUpdate(GetExplorerHWND(), pathList, exitcode, error))
+    if (CString error; CHooks::Instance().StartUpdate(GetExplorerHWND(), pathList, exitCode, error))
     {
-        if (exitcode)
+        if (exitCode)
         {
             CString temp;
-            temp.Format(IDS_ERR_HOOKFAILED, (LPCTSTR)error);
+            temp.Format(IDS_ERR_HOOKFAILED, static_cast<LPCWSTR>(error));
             ::MessageBox(GetExplorerHWND(), temp, L"TortoiseSVN", MB_ICONERROR);
             return FALSE;
         }
     }
-    std::map<CString,svn_depth_t> checkoutDepths;
-    CSVNProgressDlg::Command cmd = CSVNProgressDlg::SVNProgress_Update;
-    if ((parser.HasKey(L"rev"))&&(!parser.HasVal(L"rev")))
+    std::map<CString, svn_depth_t> checkoutDepths;
+    CSVNProgressDlg::Command       cmd = CSVNProgressDlg::SVNProgress_Update;
+    if ((parser.HasKey(L"rev")) && (!parser.HasVal(L"rev")))
     {
         CUpdateDlg dlg;
-        if (pathList.GetCount()>0)
+        if (pathList.GetCount() > 0)
             dlg.m_wcPath = pathList[0];
         if (dlg.DoModal() == IDOK)
         {
-            rev = dlg.Revision;
+            rev   = dlg.m_revision;
             depth = dlg.m_depth;
             if (dlg.m_bNoExternals)
                 options |= ProgOptIgnoreExternals;
@@ -69,7 +68,7 @@ bool UpdateCommand::Execute()
             if (dlg.m_checkoutDepths.size())
             {
                 checkoutDepths = dlg.m_checkoutDepths;
-                cmd = CSVNProgressDlg::SVNProgress_SparseCheckout;
+                cmd            = CSVNProgressDlg::SVNProgress_SparseCheckout;
             }
         }
         else
@@ -94,7 +93,7 @@ bool UpdateCommand::Execute()
     CSVNProgressDlg progDlg;
     theApp.m_pMainWnd = &progDlg;
     progDlg.SetCommand(cmd);
-    progDlg.SetAutoClose (parser);
+    progDlg.SetAutoClose(parser);
     progDlg.SetOptions(options);
     progDlg.SetPathList(pathList);
     progDlg.SetRevision(rev);

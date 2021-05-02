@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2009-2012, 2015 - TortoiseSVN
+// Copyright (C) 2003-2006, 2009-2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,34 +36,37 @@ class CUpdateDlg : public CStateStandAloneDialog
     DECLARE_DYNAMIC(CUpdateDlg)
 
 public:
-    CUpdateDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CUpdateDlg();
+    CUpdateDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CUpdateDlg() override;
 
-// Dialog Data
-    enum { IDD = IDD_UPDATE };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_UPDATE
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
-    virtual void OnCancel();
-    afx_msg void OnBnClickedShowLog();
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    void            OnOK() override;
+    void            OnCancel() override;
+    afx_msg void    OnBnClickedShowLog();
     afx_msg LRESULT OnRevSelected(WPARAM wParam, LPARAM lParam);
-    afx_msg void OnEnChangeRevnum();
-    afx_msg void OnCbnSelchangeDepth();
-    afx_msg void OnBnClickedSparse();
+    afx_msg void    OnEnChangeRevnum();
+    afx_msg void    OnCbnSelchangeDepth();
+    afx_msg void    OnBnClickedSparse();
 
     DECLARE_MESSAGE_MAP()
 
-    CLogDlg *   m_pLogDlg;
-    CString     m_sRevision;
-    CComboBox   m_depthCombo;
+    CLogDlg*  m_pLogDlg;
+    CString   m_sRevision;
+    CComboBox m_depthCombo;
 
 public:
-    SVNRev      Revision;
-    CTSVNPath   m_wcPath;
-    BOOL        m_bNoExternals;
-    BOOL        m_bStickyDepth;
-    std::map<CString,svn_depth_t> m_checkoutDepths;
-    svn_depth_t m_depth;
+    SVNRev                         m_revision;
+    CTSVNPath                      m_wcPath;
+    BOOL                           m_bNoExternals;
+    BOOL                           m_bStickyDepth;
+    std::map<CString, svn_depth_t> m_checkoutDepths;
+    svn_depth_t                    m_depth;
 };

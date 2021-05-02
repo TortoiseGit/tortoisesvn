@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,10 +27,10 @@
 IMPLEMENT_DYNAMIC(CUpdateDlg, CStateStandAloneDialog)
 CUpdateDlg::CUpdateDlg(CWnd* pParent /*=NULL*/)
     : CStateStandAloneDialog(CUpdateDlg::IDD, pParent)
-    , Revision(L"HEAD")
+    , m_pLogDlg(nullptr)
+    , m_revision(L"HEAD")
     , m_bNoExternals(CRegDWORD(L"Software\\TortoiseSVN\\noext"))
     , m_bStickyDepth(TRUE)
-    , m_pLogDlg(NULL)
     , m_depth(svn_depth_unknown)
 {
 }
@@ -48,7 +48,6 @@ void CUpdateDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_STICKYDEPTH, m_bStickyDepth);
     DDX_Control(pDX, IDC_DEPTH, m_depthCombo);
 }
-
 
 BEGIN_MESSAGE_MAP(CUpdateDlg, CStateStandAloneDialog)
     ON_BN_CLICKED(IDC_LOG, OnBnClickedShowLog)
@@ -88,7 +87,7 @@ BOOL CUpdateDlg::OnInitDialog()
     DialogEnableWindow(IDC_SPARSE, m_wcPath.Exists() && m_wcPath.IsDirectory());
 
     GetDlgItem(IDC_REVNUM)->SetFocus();
-    if ((m_pParentWnd==NULL)&&(GetExplorerHWND()))
+    if ((m_pParentWnd == nullptr) && (GetExplorerHWND()))
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
 
     EnableSaveRestore(L"UpdateDlg");
@@ -98,7 +97,7 @@ BOOL CUpdateDlg::OnInitDialog()
 
 void CUpdateDlg::OnCancel()
 {
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return;
@@ -112,51 +111,51 @@ void CUpdateDlg::OnOK()
     if (!UpdateData(TRUE))
         return; // don't dismiss dialog (error message already shown by MFC framework)
 
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
     {
         m_pLogDlg->SendMessage(WM_CLOSE);
         return;
     }
 
-    Revision = SVNRev(m_sRevision);
+    m_revision = SVNRev(m_sRevision);
     if (GetCheckedRadioButton(IDC_REVISION_HEAD, IDC_REVISION_N) == IDC_REVISION_HEAD)
     {
-        Revision = SVNRev(L"HEAD");
+        m_revision = SVNRev(L"HEAD");
     }
-    if (!Revision.IsValid())
+    if (!m_revision.IsValid())
     {
         ShowEditBalloon(IDC_REVNUM, IDS_ERR_INVALIDREV, IDS_ERR_ERROR, TTI_ERROR);
         return;
     }
     switch (m_depthCombo.GetCurSel())
     {
-    case 0:
-        m_depth = svn_depth_unknown;
-        m_checkoutDepths.clear();
-        break;
-    case 1:
-        m_depth = svn_depth_infinity;
-        m_checkoutDepths.clear();
-        break;
-    case 2:
-        m_depth = svn_depth_immediates;
-        m_checkoutDepths.clear();
-        break;
-    case 3:
-        m_depth = svn_depth_files;
-        m_checkoutDepths.clear();
-        break;
-    case 4:
-        m_depth = svn_depth_empty;
-        m_checkoutDepths.clear();
-        break;
-    case 5:
-        m_depth = svn_depth_exclude;
-        m_checkoutDepths.clear();
-        break;
-    default:
-        m_depth = svn_depth_empty;
-        break;
+        case 0:
+            m_depth = svn_depth_unknown;
+            m_checkoutDepths.clear();
+            break;
+        case 1:
+            m_depth = svn_depth_infinity;
+            m_checkoutDepths.clear();
+            break;
+        case 2:
+            m_depth = svn_depth_immediates;
+            m_checkoutDepths.clear();
+            break;
+        case 3:
+            m_depth = svn_depth_files;
+            m_checkoutDepths.clear();
+            break;
+        case 4:
+            m_depth = svn_depth_empty;
+            m_checkoutDepths.clear();
+            break;
+        case 5:
+            m_depth = svn_depth_exclude;
+            m_checkoutDepths.clear();
+            break;
+        default:
+            m_depth = svn_depth_empty;
+            break;
     }
 
     UpdateData(FALSE);
@@ -170,7 +169,7 @@ void CUpdateDlg::OnOK()
 void CUpdateDlg::OnBnClickedShowLog()
 {
     UpdateData(TRUE);
-    if (::IsWindow(m_pLogDlg->GetSafeHwnd())&&(m_pLogDlg->IsWindowVisible()))
+    if (::IsWindow(m_pLogDlg->GetSafeHwnd()) && (m_pLogDlg->IsWindowVisible()))
         return;
     if (!m_wcPath.IsEmpty())
     {
@@ -178,7 +177,7 @@ void CUpdateDlg::OnBnClickedShowLog()
         m_pLogDlg = new CLogDlg();
         m_pLogDlg->SetSelect(true);
         m_pLogDlg->m_pNotifyWindow = this;
-        m_pLogDlg->m_wParam = 0;
+        m_pLogDlg->m_wParam        = 0;
         m_pLogDlg->SetParams(m_wcPath, SVNRev::REV_HEAD, SVNRev::REV_HEAD, 1, TRUE);
         m_pLogDlg->ContinuousSelection(true);
         m_pLogDlg->Create(IDD_LOGMESSAGE, this);
@@ -207,7 +206,7 @@ void CUpdateDlg::OnEnChangeRevnum()
 
 void CUpdateDlg::OnCbnSelchangeDepth()
 {
-    if (m_depthCombo.GetCurSel() == 5)  // svn_depth_exclude
+    if (m_depthCombo.GetCurSel() == 5) // svn_depth_exclude
     {
         // for exclude depths, the update must be sticky or it will fail
         // because it would be a no-op.
@@ -216,26 +215,25 @@ void CUpdateDlg::OnCbnSelchangeDepth()
     }
 }
 
-
 void CUpdateDlg::OnBnClickedSparse()
 {
     UpdateData();
 
-    CString strURLs;
+    CString strUrLs;
 
     CTSVNPathList paths;
-    paths.LoadFromAsteriskSeparatedString (strURLs);
+    paths.LoadFromAsteriskSeparatedString(strUrLs);
 
-    SVN svn;
+    SVN     svn;
     CString strUrl = svn.GetURLFromPath(m_wcPath);
 
     CRepositoryBrowser browser(strUrl, SVNRev::REV_HEAD, this);
     browser.SetSparseCheckoutMode(m_wcPath);
     if (browser.DoModal() == IDOK)
     {
-        m_checkoutDepths = browser.GetUpdateDepths();
+        m_checkoutDepths     = browser.GetUpdateDepths();
         CString sCustomDepth = CString(MAKEINTRESOURCE(IDS_SVN_DEPTH_CUSTOM));
-        int customIndex = m_depthCombo.FindStringExact(-1, sCustomDepth);
+        int     customIndex  = m_depthCombo.FindStringExact(-1, sCustomDepth);
         if (customIndex == CB_ERR)
         {
             customIndex = m_depthCombo.AddString(sCustomDepth);
