@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2011-2012, 2015 - TortoiseSVN
+// Copyright (C) 2007-2009, 2011-2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "SettingsPropPage.h"
-#include "registry.h"
 #include "ILogReceiver.h"
 
 class CProgressDlg;
@@ -35,59 +34,54 @@ class CSettingsLogCaches
 
 public:
     CSettingsLogCaches();
-    virtual ~CSettingsLogCaches();
+    ~CSettingsLogCaches() override;
 
-    UINT GetIconID() override {return IDI_CACHELIST;}
+    UINT GetIconID() override { return IDI_CACHELIST; }
 
     // update cache list
 
-    virtual BOOL OnSetActive();
+    BOOL OnSetActive() override;
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSLOGCACHELIST };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSLOGCACHELIST
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual BOOL OnKillActive();
-    virtual BOOL OnQueryCancel();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    BOOL PreTranslateMessage(MSG* pMsg) override;
+    BOOL OnKillActive() override;
+    BOOL OnQueryCancel() override;
 
     afx_msg void OnBnClickedDetails();
     afx_msg void OnBnClickedUpdate();
     afx_msg void OnBnClickedExport();
     afx_msg void OnBnClickedDelete();
 
-    afx_msg LRESULT OnRefeshRepositoryList (WPARAM wParam, LPARAM lParam);
-    afx_msg void OnNMDblclkRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnLvnItemchangedRepositorylist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg LRESULT OnRefeshRepositoryList(WPARAM wParam, LPARAM lParam);
+    afx_msg void    OnNMDblclkRepositorylist(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void    OnLvnItemchangedRepositorylist(NMHDR* pNMHDR, LRESULT* pResult);
 
     DECLARE_MESSAGE_MAP()
 private:
-    CListCtrl       m_cRepositoryList;
+    CListCtrl m_cRepositoryList;
 
     /// current repository list
 
-    typedef std::multimap<CString, CString> TRepos;
-    typedef TRepos::value_type TRepo;
-    typedef TRepos::const_iterator IT;
-    TRepos          repos;
-
-    TRepo GetSelectedRepo();
-    void FillRepositoryList();
+    std::multimap<CString, CString>             repos;
+    std::multimap<CString, CString>::value_type GetSelectedRepo();
+    void                                        FillRepositoryList();
 
     static UINT WorkerThread(LPVOID pVoid);
 
-    volatile LONG   m_bThreadRunning;
+    volatile LONG m_bThreadRunning;
 
     /// used by cache update
 
-    CProgressDlg*   progress;
-    svn_revnum_t    headRevision;
+    CProgressDlg* progress;
+    svn_revnum_t  headRevision;
 
-    void ReceiveLog ( TChangedPaths* changes
-                    , svn_revnum_t rev
-                    , const StandardRevProps* stdRevProps
-                    , UserRevPropArray* userRevProps
-                    , const MergeInfo* mergeInfo) override;
+    void ReceiveLog(TChangedPaths* changes, svn_revnum_t rev, const StandardRevProps* stdRevProps, UserRevPropArray* userRevProps, const MergeInfo* mergeInfo) override;
 };

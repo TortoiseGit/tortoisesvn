@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012-2013, 2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012-2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,31 +30,33 @@ class CSettingsRevisionGraphColors : public ISettingsPropPage
 
 public:
     CSettingsRevisionGraphColors();
-    virtual ~CSettingsRevisionGraphColors();
+    ~CSettingsRevisionGraphColors() override;
 
-    UINT GetIconID() override {return IDI_LOOKANDFEEL;}
+    UINT GetIconID() override { return IDI_LOOKANDFEEL; }
 
-    enum { IDD = IDD_SETTINGSREVGRAPHCOLORS };
+    enum
+    {
+        IDD = IDD_SETTINGSREVGRAPHCOLORS
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnBnClickedColor();
     afx_msg void OnBnClickedRestore();
-    virtual BOOL OnApply();
 
     DECLARE_MESSAGE_MAP()
 private:
-
     // utility methods
 
-    void InitColorPicker (CMFCColorButton& button, CColors::GDIPlusColor color);
-    void ResetColor (CMFCColorButton& button, CColors::GDIPlusColor color);
-    void ApplyColor (CMFCColorButton& button, CColors::GDIPlusColor color, DWORD alpha = 255);
+    void InitColorPicker(CMFCColorButton& button, CColors::GDIPlusColor color);
+    void ResetColor(CMFCColorButton& button, CColors::GDIPlusColor color);
+    void ApplyColor(CMFCColorButton& button, CColors::GDIPlusColor color, DWORD alpha = 255);
 
-    void InitColorPicker (CMFCColorButton& button, CColors::GDIPlusColorTable table, int index);
-    void ResetColor (CMFCColorButton& button, CColors::GDIPlusColorTable table, int index);
-    void ApplyColor (CMFCColorButton& button, CColors::GDIPlusColorTable table, int index);
+    void InitColorPicker(CMFCColorButton& button, CColors::GDIPlusColorTable table, int index);
+    void ResetColor(CMFCColorButton& button, CColors::GDIPlusColorTable table, int index);
+    void ApplyColor(CMFCColorButton& button, CColors::GDIPlusColorTable table, int index);
 
     // controls
 
@@ -79,5 +81,5 @@ private:
     BYTE m_sStripeAlpha1;
     BYTE m_sStripeAlpha2;
 
-    CColors         m_Colors;
+    CColors m_colors;
 };

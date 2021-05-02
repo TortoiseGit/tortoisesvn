@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2012-2013, 2015, 2017 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2012-2013, 2015, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,50 +32,53 @@ class CSetOverlayPage : public ISettingsPropPage
 
 public:
     CSetOverlayPage();
-    virtual ~CSetOverlayPage();
+    ~CSetOverlayPage() override;
 
-    UINT GetIconID() override {return IDI_SET_OVERLAYS;}
+    UINT GetIconID() override { return IDI_SET_OVERLAYS; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSOVERLAY };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSOVERLAY
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnChange();
-    virtual BOOL OnApply();
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    BOOL            m_bOnlyExplorer;
-    BOOL            m_bOnlyNonElevated;
-    BOOL            m_bRemovable;
-    BOOL            m_bFloppy;
-    BOOL            m_bNetwork;
-    BOOL            m_bFixed;
-    BOOL            m_bCDROM;
-    BOOL            m_bRAM;
-    BOOL            m_bUnknown;
-    BOOL            m_bUnversionedAsModified;
-    BOOL            m_bIgnoreOnCommitIgnored;
-    BOOL            m_bShowExcludedAsNormal;
-    CRegDWORD       m_regOnlyExplorer;
-    CRegDWORD       m_regOnlyNonElevated;
-    CRegDWORD       m_regDriveMaskRemovable;
-    CRegDWORD       m_regDriveMaskFloppy;
-    CRegDWORD       m_regDriveMaskRemote;
-    CRegDWORD       m_regDriveMaskFixed;
-    CRegDWORD       m_regDriveMaskCDROM;
-    CRegDWORD       m_regDriveMaskRAM;
-    CRegDWORD       m_regDriveMaskUnknown;
-    CRegDWORD       m_regUnversionedAsModified;
-    CRegDWORD       m_regIgnoreOnCommitIgnored;
-    CRegDWORD       m_regShowExcludedAsNormal;
-    CRegString      m_regExcludePaths;
-    CString         m_sExcludePaths;
-    CRegString      m_regIncludePaths;
-    CString         m_sIncludePaths;
-    CRegDWORD       m_regCacheType;
-    DWORD           m_dwCacheType;
+    BOOL       m_bOnlyExplorer;
+    BOOL       m_bOnlyNonElevated;
+    BOOL       m_bRemovable;
+    BOOL       m_bFloppy;
+    BOOL       m_bNetwork;
+    BOOL       m_bFixed;
+    BOOL       m_bCDROM;
+    BOOL       m_bRAM;
+    BOOL       m_bUnknown;
+    BOOL       m_bUnversionedAsModified;
+    BOOL       m_bIgnoreOnCommitIgnored;
+    BOOL       m_bShowExcludedAsNormal;
+    CRegDWORD  m_regOnlyExplorer;
+    CRegDWORD  m_regOnlyNonElevated;
+    CRegDWORD  m_regDriveMaskRemovable;
+    CRegDWORD  m_regDriveMaskFloppy;
+    CRegDWORD  m_regDriveMaskRemote;
+    CRegDWORD  m_regDriveMaskFixed;
+    CRegDWORD  m_regDriveMaskCDROM;
+    CRegDWORD  m_regDriveMaskRAM;
+    CRegDWORD  m_regDriveMaskUnknown;
+    CRegDWORD  m_regUnversionedAsModified;
+    CRegDWORD  m_regIgnoreOnCommitIgnored;
+    CRegDWORD  m_regShowExcludedAsNormal;
+    CRegString m_regExcludePaths;
+    CString    m_sExcludePaths;
+    CRegString m_regIncludePaths;
+    CString    m_sIncludePaths;
+    CRegDWORD  m_regCacheType;
+    DWORD      m_dwCacheType;
 };

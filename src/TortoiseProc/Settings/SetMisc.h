@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011-2013, 2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011-2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,37 +30,40 @@ class CSetMisc : public ISettingsPropPage
 
 public:
     CSetMisc();
-    virtual ~CSetMisc();
+    ~CSetMisc() override;
 
-    UINT GetIconID() override {return IDI_DIALOGS;}
+    UINT GetIconID() override { return IDI_DIALOGS; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSMISC };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSMISC
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnChanged();
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
 
     DECLARE_MESSAGE_MAP()
 private:
-    CRegDWORD       m_regUnversionedRecurse;
-    BOOL            m_bUnversionedRecurse;
-    CRegDWORD       m_regAutocompletion;
-    BOOL            m_bAutocompletion;
-    CRegDWORD       m_regAutocompletionTimeout;
-    DWORD           m_dwAutocompletionTimeout;
-    CRegDWORD       m_regSpell;
-    BOOL            m_bSpell;
-    CRegDWORD       m_regCheckRepo;
-    BOOL            m_bCheckRepo;
-    CRegDWORD       m_regMaxHistory;
-    DWORD           m_dwMaxHistory;
-    CRegDWORD       m_regShowLockDlg;
-    BOOL            m_bShowLockDlg;
-    CRegDWORD       m_regAutoSelect;
-    BOOL            m_bAutoSelect;
-    CRegDWORD       m_regIncompleteReopen;
-    BOOL            m_bIncompleteReopen;
+    CRegDWORD m_regUnversionedRecurse;
+    BOOL      m_bUnversionedRecurse;
+    CRegDWORD m_regAutocompletion;
+    BOOL      m_bAutocompletion;
+    CRegDWORD m_regAutocompletionTimeout;
+    DWORD     m_dwAutocompletionTimeout;
+    CRegDWORD m_regSpell;
+    BOOL      m_bSpell;
+    CRegDWORD m_regCheckRepo;
+    BOOL      m_bCheckRepo;
+    CRegDWORD m_regMaxHistory;
+    DWORD     m_dwMaxHistory;
+    CRegDWORD m_regShowLockDlg;
+    BOOL      m_bShowLockDlg;
+    CRegDWORD m_regAutoSelect;
+    BOOL      m_bAutoSelect;
+    CRegDWORD m_regIncompleteReopen;
+    BOOL      m_bIncompleteReopen;
 };

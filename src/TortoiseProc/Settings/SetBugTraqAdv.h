@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010, 2013, 2015 - TortoiseSVN
+// Copyright (C) 2008-2010, 2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,20 +32,23 @@ class CSetBugTraqAdv : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CSetBugTraqAdv)
 
 public:
-    CSetBugTraqAdv(CWnd* pParent = NULL);
-    CSetBugTraqAdv(const CBugTraqAssociation &assoc, CWnd* pParent = NULL);
-    virtual ~CSetBugTraqAdv();
+    CSetBugTraqAdv(CWnd* pParent = nullptr);
+    CSetBugTraqAdv(const CBugTraqAssociation& assoc, CWnd* pParent = nullptr);
+    ~CSetBugTraqAdv() override;
 
     CBugTraqAssociation GetAssociation() const;
-    void SetAssociations(CBugTraqAssociations * as) { m_pAssociations = as; }
+    void                SetAssociations(CBugTraqAssociations* as) { m_pAssociations = as; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSBUGTRAQADV };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSBUGTRAQADV
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
     afx_msg void OnDestroy();
     afx_msg void OnBnClickedBugTraqbrowse();
     afx_msg void OnBnClickedHelp();
@@ -57,9 +60,9 @@ protected:
     void CheckHasOptions();
 
 protected:
-    CString                 m_sPath;
-    CLSID                   m_provider_clsid;
-    CString                 m_sParameters;
-    CComboBox               m_cProviderCombo;
-    CBugTraqAssociations *  m_pAssociations;
+    CString               m_sPath;
+    CLSID                 m_providerClsid;
+    CString               m_sParameters;
+    CComboBox             m_cProviderCombo;
+    CBugTraqAssociations* m_pAssociations;
 };

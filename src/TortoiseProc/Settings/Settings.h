@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2015, 2020 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 
-#include "SettingsPropPage.h"
 #include "SetMainPage.h"
 #include "SetProxyPage.h"
 #include "SetOverlayPage.h"
@@ -68,7 +67,7 @@ private:
     /**
      * Removes the pages and frees up memory.
      */
-    void RemovePropPages();
+    void RemovePropPages() const;
 
 private:
     CSetMainPage*                 m_pMainPage;
@@ -99,19 +98,19 @@ private:
     AeroControlBase m_aeroControls;
 
 public:
-    CSettings(UINT nIDCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
-    virtual ~CSettings();
+    CSettings(UINT nIDCaption, CWnd* pParentWnd = nullptr, UINT iSelectPage = 0);
+    ~CSettings() override;
 
-    void SetTheme(bool bDark);
+    void SetTheme(bool bDark) override;
 
     /**
      * Calls the SaveData()-methods of each of the settings pages.
      */
-    void HandleRestart();
+    void HandleRestart() const;
 
 protected:
     DECLARE_MESSAGE_MAP()
-    virtual BOOL    OnInitDialog();
+    BOOL            OnInitDialog() override;
     afx_msg void    OnPaint();
     afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
     afx_msg HCURSOR OnQueryDragIcon();

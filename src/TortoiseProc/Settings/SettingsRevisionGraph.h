@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2012, 2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,6 @@
 #pragma once
 #include "SettingsPropPage.h"
 #include "registry.h"
-#include "ILogReceiver.h"
 
 class CProgressDlg;
 
@@ -34,33 +33,36 @@ class CSettingsRevisionGraph
 
 public:
     CSettingsRevisionGraph();
-    virtual ~CSettingsRevisionGraph();
+    ~CSettingsRevisionGraph() override;
 
-    UINT GetIconID() override {return IDI_SETTINGSREVGRAPH;}
+    UINT GetIconID() override { return IDI_SETTINGSREVGRAPH; }
 
-    virtual BOOL OnApply();
+    BOOL OnApply() override;
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSREVGRAPH };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSREVGRAPH
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
 
     afx_msg void OnChanged();
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    CRegString      regTrunkPattern;
-    CRegString      regBranchesPattern;
-    CRegString      regTagsPattern;
-    CRegDWORD       regTweakTrunkColors;
-    CRegDWORD       regTweakTagsColors;
+    CRegString regTrunkPattern;
+    CRegString regBranchesPattern;
+    CRegString regTagsPattern;
+    CRegDWORD  regTweakTrunkColors;
+    CRegDWORD  regTweakTagsColors;
 
-    CString         trunkPattern;
-    CString         branchesPattern;
-    CString         tagsPattern;
-    BOOL            tweakTrunkColors;
-    BOOL            tweakTagsColors;
+    CString trunkPattern;
+    CString branchesPattern;
+    CString tagsPattern;
+    BOOL    tweakTrunkColors;
+    BOOL    tweakTagsColors;
 };

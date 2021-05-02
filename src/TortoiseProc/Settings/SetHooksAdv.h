@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012, 2015 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,19 +29,22 @@ class CSetHooksAdv : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CSetHooksAdv)
 
 public:
-    CSetHooksAdv(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CSetHooksAdv();
+    CSetHooksAdv(CWnd* pParent = nullptr); // standard constructor
+    ~CSetHooksAdv() override;
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSHOOKCONFIG };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSHOOKCONFIG
+    };
 
     hookkey key;
     hookcmd cmd;
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    void         OnOK() override;
     afx_msg void OnBnClickedHookbrowse();
     afx_msg void OnBnClickedHookcommandbrowse();
     afx_msg void OnBnClickedHelp();
@@ -49,10 +52,10 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 protected:
-    CString         m_sPath;
-    CString         m_sCommandLine;
-    BOOL            m_bWait;
-    BOOL            m_bHide;
-    BOOL            m_bEnforce;
-    CComboBox       m_cHookTypeCombo;
+    CString   m_sPath;
+    CString   m_sCommandLine;
+    BOOL      m_bWait;
+    BOOL      m_bHide;
+    BOOL      m_bEnforce;
+    CComboBox m_cHookTypeCombo;
 };

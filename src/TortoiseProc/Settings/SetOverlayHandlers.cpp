@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2010, 2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,9 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SetOverlayHandlers.h"
-
 
 IMPLEMENT_DYNAMIC(CSetOverlayHandlers, ISettingsPropPage)
 CSetOverlayHandlers::CSetOverlayHandlers()
@@ -38,12 +36,12 @@ CSetOverlayHandlers::CSetOverlayHandlers()
     m_regShowReadonlyOverlay    = CRegDWORD(L"Software\\TortoiseOverlays\\ShowReadonlyOverlay", TRUE);
     m_regShowDeletedOverlay     = CRegDWORD(L"Software\\TortoiseOverlays\\ShowDeletedOverlay", TRUE);
 
-    m_bShowIgnoredOverlay       = m_regShowIgnoredOverlay;
-    m_bShowUnversionedOverlay   = m_regShowUnversionedOverlay;
-    m_bShowAddedOverlay         = m_regShowAddedOverlay;
-    m_bShowLockedOverlay        = m_regShowLockedOverlay;
-    m_bShowReadonlyOverlay      = m_regShowReadonlyOverlay;
-    m_bShowDeletedOverlay       = m_regShowDeletedOverlay;
+    m_bShowIgnoredOverlay     = m_regShowIgnoredOverlay;
+    m_bShowUnversionedOverlay = m_regShowUnversionedOverlay;
+    m_bShowAddedOverlay       = m_regShowAddedOverlay;
+    m_bShowLockedOverlay      = m_regShowLockedOverlay;
+    m_bShowReadonlyOverlay    = m_regShowReadonlyOverlay;
+    m_bShowDeletedOverlay     = m_regShowDeletedOverlay;
 }
 
 CSetOverlayHandlers::~CSetOverlayHandlers()
@@ -92,83 +90,82 @@ BOOL CSetOverlayHandlers::OnApply()
 {
     UpdateData();
 
-    if (DWORD(m_regShowIgnoredOverlay) != DWORD(m_bShowIgnoredOverlay))
+    if (static_cast<DWORD>(m_regShowIgnoredOverlay) != static_cast<DWORD>(m_bShowIgnoredOverlay))
         m_restart = Restart_System;
-    Store (m_bShowIgnoredOverlay, m_regShowIgnoredOverlay);
+    Store(m_bShowIgnoredOverlay, m_regShowIgnoredOverlay);
 
-    if (DWORD(m_regShowUnversionedOverlay) != DWORD(m_bShowUnversionedOverlay))
+    if (static_cast<DWORD>(m_regShowUnversionedOverlay) != static_cast<DWORD>(m_bShowUnversionedOverlay))
         m_restart = Restart_System;
-    Store (m_bShowUnversionedOverlay, m_regShowUnversionedOverlay);
+    Store(m_bShowUnversionedOverlay, m_regShowUnversionedOverlay);
 
-    if (DWORD(m_regShowAddedOverlay) != DWORD(m_bShowAddedOverlay))
+    if (static_cast<DWORD>(m_regShowAddedOverlay) != static_cast<DWORD>(m_bShowAddedOverlay))
         m_restart = Restart_System;
-    Store (m_bShowAddedOverlay, m_regShowAddedOverlay);
+    Store(m_bShowAddedOverlay, m_regShowAddedOverlay);
 
-    if (DWORD(m_regShowLockedOverlay) != DWORD(m_bShowLockedOverlay))
+    if (static_cast<DWORD>(m_regShowLockedOverlay) != static_cast<DWORD>(m_bShowLockedOverlay))
         m_restart = Restart_System;
-    Store (m_bShowLockedOverlay, m_regShowLockedOverlay);
+    Store(m_bShowLockedOverlay, m_regShowLockedOverlay);
 
-    if (DWORD(m_regShowReadonlyOverlay) != DWORD(m_bShowReadonlyOverlay))
+    if (static_cast<DWORD>(m_regShowReadonlyOverlay) != static_cast<DWORD>(m_bShowReadonlyOverlay))
         m_restart = Restart_System;
-    Store (m_bShowReadonlyOverlay, m_regShowReadonlyOverlay);
+    Store(m_bShowReadonlyOverlay, m_regShowReadonlyOverlay);
 
-    if (DWORD(m_regShowDeletedOverlay) != DWORD(m_bShowDeletedOverlay))
+    if (static_cast<DWORD>(m_regShowDeletedOverlay) != static_cast<DWORD>(m_bShowDeletedOverlay))
         m_restart = Restart_System;
-    Store (m_bShowDeletedOverlay, m_regShowDeletedOverlay);
-
+    Store(m_bShowDeletedOverlay, m_regShowDeletedOverlay);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
 }
 
-int CSetOverlayHandlers::GetInstalledOverlays()
+int CSetOverlayHandlers::GetInstalledOverlays() const
 {
     // if there are more than 12 overlay handlers installed, then that means not all
     // of the overlay handlers can be shown. Windows chooses the ones first
     // returned by RegEnumKeyEx() and just drops the ones that come last in
     // that enumeration.
-    int nInstalledOverlayhandlers = 0;
+    int nInstalledOverlayHandlers = 0;
     // scan the registry for installed overlay handlers
-    HKEY hKey;
+    HKEY hKey{};
     if (RegOpenKeyEx(HKEY_LOCAL_MACHINE,
-        L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers",
-        0, KEY_ENUMERATE_SUB_KEYS, &hKey)==ERROR_SUCCESS)
+                     L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers",
+                     0, KEY_ENUMERATE_SUB_KEYS, &hKey) == ERROR_SUCCESS)
     {
-        TCHAR value[2048] = { 0 };
-        TCHAR keystring[2048] = { 0 };
+        wchar_t value[2048]     = {0};
+        wchar_t keyString[2048] = {0};
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
-            DWORD size = _countof(value);
-            FILETIME last_write_time;
-            rc = RegEnumKeyEx(hKey, i, value, &size, NULL, NULL, NULL, &last_write_time);
+            DWORD    size = _countof(value);
+            FILETIME lastWriteTime{};
+            rc = RegEnumKeyEx(hKey, i, value, &size, nullptr, nullptr, nullptr, &lastWriteTime);
             if (rc == ERROR_SUCCESS)
             {
                 for (int j = 0; value[j]; ++j)
                 {
-                    value[j] = (wchar_t)tolower(value[j]);
+                    value[j] = static_cast<wchar_t>(tolower(value[j]));
                 }
-                if (wcsstr(&value[0], L"tortoise") == 0)
+                if (wcsstr(&value[0], L"tortoise") == nullptr)
                 {
                     // check if there's a 'default' entry with a guid
-                    wcscpy_s(keystring, L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\");
-                    wcscat_s(keystring, value);
+                    wcscpy_s(keyString, L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers\\");
+                    wcscat_s(keyString, value);
                     DWORD dwType = 0;
                     DWORD dwSize = _countof(value); // the API docs only specify "The size of the destination data buffer",
                     // but better be safe than sorry using _countof instead of sizeof
                     if (SHGetValue(HKEY_LOCAL_MACHINE,
-                        keystring,
-                        NULL,
-                        &dwType, value, &dwSize) == ERROR_SUCCESS)
+                                   keyString,
+                                   nullptr,
+                                   &dwType, value, &dwSize) == ERROR_SUCCESS)
                     {
-                        if ((dwSize > 10)&&(value[0] == '{'))
-                            nInstalledOverlayhandlers++;
+                        if ((dwSize > 10) && (value[0] == '{'))
+                            nInstalledOverlayHandlers++;
                     }
                 }
             }
         }
         RegCloseKey(hKey);
     }
-    return nInstalledOverlayhandlers;
+    return nInstalledOverlayHandlers;
 }
 
 void CSetOverlayHandlers::UpdateInfoLabel()
@@ -179,7 +176,7 @@ void CSetOverlayHandlers::UpdateInfoLabel()
     GetDlgItemText(IDC_SHOWIGNOREDOVERLAY, sIgnored);
     GetDlgItemText(IDC_SHOWLOCKEDOVERLAY, sLocked);
 
-    int nInstalledOverlays = GetInstalledOverlays();
+    int     nInstalledOverlays = GetInstalledOverlays();
     CString sInfo;
     sInfo.Format(IDS_SETTINGS_OVERLAYINFO, nInstalledOverlays);
 
@@ -189,11 +186,11 @@ void CSetOverlayHandlers::UpdateInfoLabel()
     // max + 2 registered: drop the locked, ignored and readonly overlay
     // max + 3 or more registered: drop the locked, ignored, readonly and unversioned overlay
     CString sInfo2;
-    if (nInstalledOverlays > nOverlayLimit+3)
+    if (nInstalledOverlays > nOverlayLimit + 3)
         sInfo2 += L", " + sUnversioned;
-    if (nInstalledOverlays > nOverlayLimit+2)
+    if (nInstalledOverlays > nOverlayLimit + 2)
         sInfo2 += L", " + sNeedslock;
-    if (nInstalledOverlays > nOverlayLimit+1)
+    if (nInstalledOverlays > nOverlayLimit + 1)
         sInfo2 += L", " + sIgnored;
     if (nInstalledOverlays > nOverlayLimit)
         sInfo2 += L", " + sLocked;
@@ -202,16 +199,17 @@ void CSetOverlayHandlers::UpdateInfoLabel()
     if (!sInfo2.IsEmpty())
     {
         CString sTemp;
-        sTemp.Format(IDS_SETTINGS_OVERLAYINFO2, (LPCWSTR)sInfo2);
+        sTemp.Format(IDS_SETTINGS_OVERLAYINFO2, static_cast<LPCWSTR>(sInfo2));
         sInfo += L"\n" + sTemp;
     }
     SetDlgItemText(IDC_HANDLERHINT, sInfo);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CSetOverlayHandlers::OnBnClickedRegedt()
 {
-    PWSTR pszPath = NULL;
-    if (SHGetKnownFolderPath(FOLDERID_Windows, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)
+    PWSTR pszPath = nullptr;
+    if (SHGetKnownFolderPath(FOLDERID_Windows, KF_FLAG_CREATE, nullptr, &pszPath) == S_OK)
     {
         CString path = pszPath;
         CoTaskMemFree(pszPath);
@@ -225,11 +223,11 @@ void CSetOverlayHandlers::OnBnClickedRegedt()
         CRegString regLastKey(L"Software\\Microsoft\\Windows\\CurrentVersion\\Applets\\Regedit\\LastKey");
         regLastKey = L"HKEY_Local_Machine\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers";
 
-        SHELLEXECUTEINFO si = { sizeof(SHELLEXECUTEINFO) };
-        si.hwnd = GetSafeHwnd();
-        si.lpVerb = L"open";
-        si.lpFile = path;
-        si.nShow = SW_SHOW;
+        SHELLEXECUTEINFO si = {sizeof(SHELLEXECUTEINFO)};
+        si.hwnd             = GetSafeHwnd();
+        si.lpVerb           = L"open";
+        si.lpFile           = path;
+        si.nShow            = SW_SHOW;
         ShellExecuteEx(&si);
     }
 }

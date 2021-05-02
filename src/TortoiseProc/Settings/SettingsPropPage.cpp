@@ -1,6 +1,7 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2015 - TortoiseSVN
+// Copyright (C) 2007, 2015, 2021 - TortoiseSVN
+
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
 // as published by the Free Software Foundation; either version 2
@@ -20,36 +21,36 @@
 
 IMPLEMENT_DYNAMIC(ISettingsPropPage, CPropertyPage)
 
-ISettingsPropPage::ISettingsPropPage() : CPropertyPage()
+ISettingsPropPage::ISettingsPropPage()
+    : CPropertyPage()
     , m_restart(Restart_None)
 {
 }
 
 ISettingsPropPage::ISettingsPropPage(LPCTSTR lpszTemplateName, UINT nIDCaption, UINT nIDHeaderTitle, UINT nIDHeaderSubTitle /* = 0 */, DWORD dwSize /* = sizeof */)
-: CPropertyPage(lpszTemplateName, nIDCaption, nIDHeaderTitle, nIDHeaderSubTitle, dwSize)
-, m_restart(Restart_None)
+    : CPropertyPage(lpszTemplateName, nIDCaption, nIDHeaderTitle, nIDHeaderSubTitle, dwSize)
+    , m_restart(Restart_None)
 {
 }
 
 ISettingsPropPage::ISettingsPropPage(UINT nIDTemplate, UINT nIDCaption, UINT nIDHeaderTitle, UINT nIDHeaderSubTitle /* = 0 */, DWORD dwSize /* = sizeof */)
-: CPropertyPage(nIDTemplate, nIDCaption, nIDHeaderTitle, nIDHeaderSubTitle, dwSize)
-, m_restart(Restart_None)
+    : CPropertyPage(nIDTemplate, nIDCaption, nIDHeaderTitle, nIDHeaderSubTitle, dwSize)
+    , m_restart(Restart_None)
 {
 }
 
 ISettingsPropPage::ISettingsPropPage(LPCTSTR lpszTemplateName, UINT nIDCaption /* = 0 */, DWORD dwSize /* = sizeof */)
-: CPropertyPage(lpszTemplateName, nIDCaption, dwSize)
-, m_restart(Restart_None)
+    : CPropertyPage(lpszTemplateName, nIDCaption, dwSize)
+    , m_restart(Restart_None)
 {
 }
 
 ISettingsPropPage::ISettingsPropPage(UINT nIDTemplate, UINT nIDCaption /* = 0 */, DWORD dwSize /* = sizeof */)
-: CPropertyPage(nIDTemplate, nIDCaption, dwSize)
-, m_restart(Restart_None)
+    : CPropertyPage(nIDTemplate, nIDCaption, dwSize)
+    , m_restart(Restart_None)
 {
 }
 
 ISettingsPropPage::~ISettingsPropPage()
 {
 }
-

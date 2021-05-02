@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010, 2012-2015 - TortoiseSVN
+// Copyright (C) 2008-2010, 2012-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,15 +27,15 @@ IMPLEMENT_DYNAMIC(CSetBugTraqAdv, CResizableStandAloneDialog)
 
 CSetBugTraqAdv::CSetBugTraqAdv(CWnd* pParent /*= NULL*/)
     : CResizableStandAloneDialog(CSetBugTraqAdv::IDD, pParent)
-    , m_provider_clsid(GUID_NULL)
+    , m_providerClsid(GUID_NULL)
     , m_pAssociations(nullptr)
 {
 }
 
-CSetBugTraqAdv::CSetBugTraqAdv(const CBugTraqAssociation &assoc, CWnd* pParent /*= NULL*/)
+CSetBugTraqAdv::CSetBugTraqAdv(const CBugTraqAssociation& assoc, CWnd* pParent /*= NULL*/)
     : CResizableStandAloneDialog(CSetBugTraqAdv::IDD, pParent)
     , m_sPath(assoc.GetPath().GetWinPathString())
-    , m_provider_clsid(assoc.GetProviderClass())
+    , m_providerClsid(assoc.GetProviderClass())
     , m_sParameters(assoc.GetParameters())
     , m_pAssociations(nullptr)
 {
@@ -84,13 +84,13 @@ BOOL CSetBugTraqAdv::OnInitDialog()
 
     // preselect the right provider in the combo; we can't do this above, because the
     // combo will sort the entries.
-    if (m_provider_clsid == GUID_NULL)
+    if (m_providerClsid == GUID_NULL)
         m_cProviderCombo.SetCurSel(0);
 
     for (int i = 0; i < m_cProviderCombo.GetCount(); ++i)
     {
-        CBugTraqProvider *p = (CBugTraqProvider *)m_cProviderCombo.GetItemDataPtr(i);
-        if (p->clsid == m_provider_clsid)
+        CBugTraqProvider* p = static_cast<CBugTraqProvider*>(m_cProviderCombo.GetItemDataPtr(i));
+        if (p->clsid == m_providerClsid)
         {
             m_cProviderCombo.SetCurSel(i);
             break;
@@ -119,7 +119,7 @@ BOOL CSetBugTraqAdv::OnInitDialog()
 void CSetBugTraqAdv::OnDestroy()
 {
     for (int i = 0; i < m_cProviderCombo.GetCount(); ++i)
-        delete (CBugTraqProvider *)m_cProviderCombo.GetItemDataPtr(i);
+        delete static_cast<CBugTraqProvider*>(m_cProviderCombo.GetItemDataPtr(i));
 
     CResizableStandAloneDialog::OnDestroy();
 }
@@ -128,17 +128,17 @@ void CSetBugTraqAdv::OnOK()
 {
     UpdateData();
 
-    m_provider_clsid = GUID_NULL;
+    m_providerClsid = GUID_NULL;
 
     int index = m_cProviderCombo.GetCurSel();
     if (index != CB_ERR)
     {
-        CBugTraqProvider *provider = (CBugTraqProvider *)m_cProviderCombo.GetItemDataPtr(index);
-        m_provider_clsid = provider->clsid;
+        CBugTraqProvider* provider = static_cast<CBugTraqProvider*>(m_cProviderCombo.GetItemDataPtr(index));
+        m_providerClsid            = provider->clsid;
     }
 
     CComPtr<IBugTraqProvider> pProvider;
-    HRESULT hr = pProvider.CoCreateInstance(m_provider_clsid);
+    HRESULT                   hr = pProvider.CoCreateInstance(m_providerClsid);
 
     if (FAILED(hr))
     {
@@ -146,7 +146,7 @@ void CSetBugTraqAdv::OnOK()
         return;
     }
 
-    VARIANT_BOOL valid;
+    VARIANT_BOOL  valid;
     ATL::CComBSTR parameters;
     parameters.Attach(m_sParameters.AllocSysString());
     hr = pProvider->ValidateParameters(GetSafeHwnd(), parameters, &valid);
@@ -161,10 +161,10 @@ void CSetBugTraqAdv::OnOK()
 
     if (m_pAssociations)
     {
-        CBugTraqAssociation bugtraq_association;
-        if (m_pAssociations->FindProvider(CTSVNPathList(CTSVNPath(m_sPath)), &bugtraq_association))
+        CBugTraqAssociation bugtraqAssociation;
+        if (m_pAssociations->FindProvider(CTSVNPathList(CTSVNPath(m_sPath)), &bugtraqAssociation))
         {
-            if (bugtraq_association.GetPath().IsEquivalentToWithoutCase(CTSVNPath(m_sPath)))
+            if (bugtraqAssociation.GetPath().IsEquivalentToWithoutCase(CTSVNPath(m_sPath)))
             {
                 ShowEditBalloon(IDC_BUGTRAQPATH, IDS_ERR_PROVIDER_PATH_ALREADY_CONFIGURED, IDS_ERR_ERROR, TTI_ERROR);
                 return;
@@ -178,7 +178,7 @@ void CSetBugTraqAdv::OnOK()
 void CSetBugTraqAdv::OnBnClickedBugTraqbrowse()
 {
     CBrowseFolder browser;
-    CString sPath;
+    CString       sPath;
     GetDlgItemText(IDC_BUGTRAQPATH, sPath);
     browser.SetInfo(CString(MAKEINTRESOURCE(IDS_SETTINGS_BUGTRAQ_SELECTFOLDERPATH)));
     browser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
@@ -193,27 +193,27 @@ void CSetBugTraqAdv::OnBnClickedHelp()
 
 CBugTraqAssociation CSetBugTraqAdv::GetAssociation() const
 {
-    return CBugTraqAssociation(m_sPath, m_provider_clsid, CBugTraqAssociations::LookupProviderName(m_provider_clsid), m_sParameters);
+    return CBugTraqAssociation(m_sPath, m_providerClsid, CBugTraqAssociations::LookupProviderName(m_providerClsid), m_sParameters);
 }
 
 void CSetBugTraqAdv::CheckHasOptions()
 {
-    m_provider_clsid = GUID_NULL;
+    m_providerClsid = GUID_NULL;
 
     int index = m_cProviderCombo.GetCurSel();
     if (index != CB_ERR)
     {
-        CBugTraqProvider *provider = (CBugTraqProvider *)m_cProviderCombo.GetItemDataPtr(index);
-        m_provider_clsid = provider->clsid;
+        CBugTraqProvider* provider = static_cast<CBugTraqProvider*>(m_cProviderCombo.GetItemDataPtr(index));
+        m_providerClsid            = provider->clsid;
     }
 
     CComPtr<IBugTraqProvider2> pProvider;
-    HRESULT hr = pProvider.CoCreateInstance(m_provider_clsid);
+    HRESULT                    hr = pProvider.CoCreateInstance(m_providerClsid);
 
     if (SUCCEEDED(hr))
     {
         VARIANT_BOOL hasOptions = VARIANT_FALSE;
-        hr = pProvider->HasOptions(&hasOptions);
+        hr                      = pProvider->HasOptions(&hasOptions);
         if (SUCCEEDED(hr))
         {
             if (hasOptions != VARIANT_FALSE)
@@ -234,22 +234,22 @@ void CSetBugTraqAdv::OnCbnSelchangeBugtraqprovidercombo()
 
 void CSetBugTraqAdv::OnBnClickedOptions()
 {
-    m_provider_clsid = GUID_NULL;
+    m_providerClsid = GUID_NULL;
 
     int index = m_cProviderCombo.GetCurSel();
     if (index != CB_ERR)
     {
-        CBugTraqProvider *provider = (CBugTraqProvider *)m_cProviderCombo.GetItemDataPtr(index);
-        m_provider_clsid = provider->clsid;
+        CBugTraqProvider* provider = static_cast<CBugTraqProvider*>(m_cProviderCombo.GetItemDataPtr(index));
+        m_providerClsid            = provider->clsid;
     }
 
     CComPtr<IBugTraqProvider2> pProvider;
-    HRESULT hr = pProvider.CoCreateInstance(m_provider_clsid);
+    HRESULT                    hr = pProvider.CoCreateInstance(m_providerClsid);
 
     if (SUCCEEDED(hr))
     {
         ATL::CComBSTR temp;
-        CString p;
+        CString       p;
         GetDlgItemText(IDC_BUGTRAQPARAMETERS, p);
         ATL::CComBSTR params;
         params.Attach(p.AllocSysString());
@@ -261,10 +261,9 @@ void CSetBugTraqAdv::OnBnClickedOptions()
         else
         {
             COMError ce(hr);
-            CString sErr;
+            CString  sErr;
             sErr.FormatMessage(IDS_ERR_FAILEDISSUETRACKERCOM, ce.GetSource().c_str(), ce.GetMessageAndDescription().c_str());
             ::MessageBox(m_hWnd, sErr, L"TortoiseSVN", MB_ICONERROR);
         }
     }
 }
-

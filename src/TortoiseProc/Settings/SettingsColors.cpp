@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2013, 2020 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SettingsColors.h"
 #include "Theme.h"
 #include "DarkModeHelper.h"
@@ -62,30 +61,30 @@ BOOL CSettingsColors::OnInitDialog()
     ISettingsPropPage::OnInitDialog();
 
     m_chkUseDarkMode.EnableWindow(CTheme::Instance().IsDarkModeAllowed());
-    m_chkUseDarkMode.SetCheck(DWORD(m_regUseDarkMode) != 0 ? BST_CHECKED : BST_UNCHECKED);
+    m_chkUseDarkMode.SetCheck(static_cast<DWORD>(m_regUseDarkMode) != 0 ? BST_CHECKED : BST_UNCHECKED);
     GetDlgItem(IDC_DARKTHEMEINFO)->ShowWindow(CTheme::Instance().IsDarkModeAllowed() ? SW_HIDE : SW_SHOW);
 
-    m_cAdded.SetColor(m_Colors.GetColor(CColors::Added));
-    m_cDeleted.SetColor(m_Colors.GetColor(CColors::Deleted));
-    m_cMerged.SetColor(m_Colors.GetColor(CColors::Merged));
-    m_cModified.SetColor(m_Colors.GetColor(CColors::Modified));
-    m_cConflict.SetColor(m_Colors.GetColor(CColors::Conflict));
-    m_cFilterMatch.SetColor(m_Colors.GetColor(CColors::FilterMatch));
+    m_cAdded.SetColor(m_colors.GetColor(CColors::Added));
+    m_cDeleted.SetColor(m_colors.GetColor(CColors::Deleted));
+    m_cMerged.SetColor(m_colors.GetColor(CColors::Merged));
+    m_cModified.SetColor(m_colors.GetColor(CColors::Modified));
+    m_cConflict.SetColor(m_colors.GetColor(CColors::Conflict));
+    m_cFilterMatch.SetColor(m_colors.GetColor(CColors::FilterMatch));
 
     CString sDefaultText, sCustomText;
     sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
     sCustomText.LoadString(IDS_COLOURPICKER_CUSTOMTEXT);
-    m_cAdded.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Added, true));
+    m_cAdded.EnableAutomaticButton(sDefaultText, m_colors.GetColor(CColors::Added, true));
     m_cAdded.EnableOtherButton(sCustomText);
-    m_cDeleted.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Deleted, true));
+    m_cDeleted.EnableAutomaticButton(sDefaultText, m_colors.GetColor(CColors::Deleted, true));
     m_cDeleted.EnableOtherButton(sCustomText);
-    m_cMerged.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Merged, true));
+    m_cMerged.EnableAutomaticButton(sDefaultText, m_colors.GetColor(CColors::Merged, true));
     m_cMerged.EnableOtherButton(sCustomText);
-    m_cModified.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Modified, true));
+    m_cModified.EnableAutomaticButton(sDefaultText, m_colors.GetColor(CColors::Modified, true));
     m_cModified.EnableOtherButton(sCustomText);
-    m_cConflict.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::Conflict, true));
+    m_cConflict.EnableAutomaticButton(sDefaultText, m_colors.GetColor(CColors::Conflict, true));
     m_cConflict.EnableOtherButton(sCustomText);
-    m_cFilterMatch.EnableAutomaticButton(sDefaultText, m_Colors.GetColor(CColors::FilterMatch, true));
+    m_cFilterMatch.EnableAutomaticButton(sDefaultText, m_colors.GetColor(CColors::FilterMatch, true));
     m_cFilterMatch.EnableOtherButton(sCustomText);
 
     return TRUE;
@@ -93,24 +92,24 @@ BOOL CSettingsColors::OnInitDialog()
 
 void CSettingsColors::OnBnClickedRestore()
 {
-    m_cAdded.SetColor(m_Colors.GetColor(CColors::Added, true));
-    m_cDeleted.SetColor(m_Colors.GetColor(CColors::Deleted, true));
-    m_cMerged.SetColor(m_Colors.GetColor(CColors::Merged, true));
-    m_cModified.SetColor(m_Colors.GetColor(CColors::Modified, true));
-    m_cConflict.SetColor(m_Colors.GetColor(CColors::Conflict, true));
-    m_cFilterMatch.SetColor(m_Colors.GetColor(CColors::FilterMatch, true));
+    m_cAdded.SetColor(m_colors.GetColor(CColors::Added, true));
+    m_cDeleted.SetColor(m_colors.GetColor(CColors::Deleted, true));
+    m_cMerged.SetColor(m_colors.GetColor(CColors::Merged, true));
+    m_cModified.SetColor(m_colors.GetColor(CColors::Modified, true));
+    m_cConflict.SetColor(m_colors.GetColor(CColors::Conflict, true));
+    m_cFilterMatch.SetColor(m_colors.GetColor(CColors::FilterMatch, true));
     SetModified(TRUE);
 }
 
 BOOL CSettingsColors::OnApply()
 {
-    m_Colors.SetColor(CColors::Added, m_cAdded.GetColor() == -1 ? m_cAdded.GetAutomaticColor() : m_cAdded.GetColor());
-    m_Colors.SetColor(CColors::Deleted, m_cDeleted.GetColor() == -1 ? m_cDeleted.GetAutomaticColor() : m_cDeleted.GetColor());
-    m_Colors.SetColor(CColors::Merged, m_cMerged.GetColor() == -1 ? m_cMerged.GetAutomaticColor() : m_cMerged.GetColor());
-    m_Colors.SetColor(CColors::Modified, m_cModified.GetColor() == -1 ? m_cModified.GetAutomaticColor() : m_cModified.GetColor());
-    m_Colors.SetColor(CColors::Conflict, m_cConflict.GetColor() == -1 ? m_cConflict.GetAutomaticColor() : m_cConflict.GetColor());
-    m_Colors.SetColor(CColors::PropertyChanged, m_cModified.GetColor() == -1 ? m_cModified.GetAutomaticColor() : m_cModified.GetColor());
-    m_Colors.SetColor(CColors::FilterMatch, m_cFilterMatch.GetColor() == -1 ? m_cFilterMatch.GetAutomaticColor() : m_cFilterMatch.GetColor());
+    m_colors.SetColor(CColors::Added, m_cAdded.GetColor() == -1 ? m_cAdded.GetAutomaticColor() : m_cAdded.GetColor());
+    m_colors.SetColor(CColors::Deleted, m_cDeleted.GetColor() == -1 ? m_cDeleted.GetAutomaticColor() : m_cDeleted.GetColor());
+    m_colors.SetColor(CColors::Merged, m_cMerged.GetColor() == -1 ? m_cMerged.GetAutomaticColor() : m_cMerged.GetColor());
+    m_colors.SetColor(CColors::Modified, m_cModified.GetColor() == -1 ? m_cModified.GetAutomaticColor() : m_cModified.GetColor());
+    m_colors.SetColor(CColors::Conflict, m_cConflict.GetColor() == -1 ? m_cConflict.GetAutomaticColor() : m_cConflict.GetColor());
+    m_colors.SetColor(CColors::PropertyChanged, m_cModified.GetColor() == -1 ? m_cModified.GetAutomaticColor() : m_cModified.GetColor());
+    m_colors.SetColor(CColors::FilterMatch, m_cFilterMatch.GetColor() == -1 ? m_cFilterMatch.GetAutomaticColor() : m_cFilterMatch.GetColor());
 
     m_regUseDarkMode = ((m_chkUseDarkMode.GetCheck() == BST_CHECKED) && CTheme::Instance().IsDarkModeAllowed()) ? 1 : 0;
 

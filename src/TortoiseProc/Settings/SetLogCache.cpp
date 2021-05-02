@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011, 2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,32 +17,26 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SetLogCache.h"
 #include "SVN.h"
-#include "SVNError.h"
 #include "LogCacheSettings.h"
-#include "LogCachePool.h"
 #include "LogCacheStatistics.h"
 #include "LogCacheStatisticsDlg.h"
-#include "ProgressDlg.h"
 #include "SVNLogQuery.h"
-#include "CacheLogQuery.h"
-#include "Access/CSVWriter.h"
 
 using namespace LogCache;
 
 IMPLEMENT_DYNAMIC(CSetLogCache, ISettingsPropPage)
 
 CSetLogCache::CSetLogCache()
-    : ISettingsPropPage (CSetLogCache::IDD)
-    , m_bEnableLogCaching (CSettings::GetEnabled())
-    , m_bSupportAmbiguousURL (CSettings::GetAllowAmbiguousURL())
-    , m_bSupportAmbiguousUUID (CSettings::GetAllowAmbiguousUUID())
-    , m_dwMaxHeadAge (CSettings::GetMaxHeadAge())
-    , m_dwCacheDropAge (CSettings::GetCacheDropAge())
-    , m_dwCacheDropMaxSize (CSettings::GetCacheDropMaxSize())
-    , m_dwMaxFailuresUntilDrop (CSettings::GetMaxFailuresUntilDrop())
+    : ISettingsPropPage(CSetLogCache::IDD)
+    , m_bEnableLogCaching(CSettings::GetEnabled())
+    , m_bSupportAmbiguousURL(CSettings::GetAllowAmbiguousURL())
+    , m_bSupportAmbiguousUuid(CSettings::GetAllowAmbiguousUUID())
+    , m_dwMaxHeadAge(CSettings::GetMaxHeadAge())
+    , m_dwCacheDropAge(CSettings::GetCacheDropAge())
+    , m_dwCacheDropMaxSize(CSettings::GetCacheDropMaxSize())
+    , m_dwMaxFailuresUntilDrop(CSettings::GetMaxFailuresUntilDrop())
 {
 }
 
@@ -55,7 +49,7 @@ void CSetLogCache::DoDataExchange(CDataExchange* pDX)
     ISettingsPropPage::DoDataExchange(pDX);
     DDX_Check(pDX, IDC_ENABLELOGCACHING, m_bEnableLogCaching);
     DDX_Check(pDX, IDC_SUPPORTAMBIGUOUSURL, m_bSupportAmbiguousURL);
-    DDX_Check(pDX, IDC_SUPPORTAMBIGUOUSUUID, m_bSupportAmbiguousUUID);
+    DDX_Check(pDX, IDC_SUPPORTAMBIGUOUSUUID, m_bSupportAmbiguousUuid);
 
     DDX_Control(pDX, IDC_GOOFFLINESETTING, m_cDefaultConnectionState);
 
@@ -65,7 +59,6 @@ void CSetLogCache::DoDataExchange(CDataExchange* pDX)
 
     DDX_Text(pDX, IDC_MAXFAILUESUNTILDROP, m_dwMaxFailuresUntilDrop);
 }
-
 
 BEGIN_MESSAGE_MAP(CSetLogCache, ISettingsPropPage)
     ON_BN_CLICKED(IDC_ENABLELOGCACHING, OnChanged)
@@ -87,58 +80,56 @@ void CSetLogCache::OnChanged()
 
 void CSetLogCache::OnStandardDefaults()
 {
-    m_bEnableLogCaching = TRUE;
-    m_bSupportAmbiguousURL = TRUE;
-    m_bSupportAmbiguousUUID = TRUE;
+    m_bEnableLogCaching     = TRUE;
+    m_bSupportAmbiguousURL  = TRUE;
+    m_bSupportAmbiguousUuid = TRUE;
 
     m_cDefaultConnectionState.SetCurSel(0);
 
-    m_dwMaxHeadAge = 0;
-    m_dwCacheDropAge = 10;
+    m_dwMaxHeadAge       = 0;
+    m_dwCacheDropAge     = 10;
     m_dwCacheDropMaxSize = 200;
 
     m_dwMaxFailuresUntilDrop = 0;
 
     SetModified();
-    UpdateData (FALSE);
+    UpdateData(FALSE);
 }
 
 void CSetLogCache::OnPowerDefaults()
 {
-    m_bEnableLogCaching = TRUE;
-    m_bSupportAmbiguousURL = FALSE;
-    m_bSupportAmbiguousUUID = FALSE;
+    m_bEnableLogCaching     = TRUE;
+    m_bSupportAmbiguousURL  = FALSE;
+    m_bSupportAmbiguousUuid = FALSE;
 
     m_cDefaultConnectionState.SetCurSel(1);
 
-    m_dwMaxHeadAge = 300;
-    m_dwCacheDropAge = 10;
+    m_dwMaxHeadAge       = 300;
+    m_dwCacheDropAge     = 10;
     m_dwCacheDropMaxSize = 0;
 
     m_dwMaxFailuresUntilDrop = 20;
 
     SetModified();
-    UpdateData (FALSE);
+    UpdateData(FALSE);
 }
 
 BOOL CSetLogCache::OnApply()
 {
     UpdateData();
 
-    CSettings::SetEnabled (m_bEnableLogCaching != FALSE);
-    CSettings::SetAllowAmbiguousURL (m_bSupportAmbiguousURL != FALSE);
-    CSettings::SetAllowAmbiguousUUID (m_bSupportAmbiguousUUID != FALSE);
+    CSettings::SetEnabled(m_bEnableLogCaching != FALSE);
+    CSettings::SetAllowAmbiguousURL(m_bSupportAmbiguousURL != FALSE);
+    CSettings::SetAllowAmbiguousUUID(m_bSupportAmbiguousUuid != FALSE);
 
-    ConnectionState state
-        = static_cast<ConnectionState>
-            (m_cDefaultConnectionState.GetCurSel());
-    CSettings::SetDefaultConnectionState (state);
+    ConnectionState state = static_cast<ConnectionState>(m_cDefaultConnectionState.GetCurSel());
+    CSettings::SetDefaultConnectionState(state);
 
-    CSettings::SetMaxHeadAge (m_dwMaxHeadAge);
-    CSettings::SetCacheDropAge (m_dwCacheDropAge);
-    CSettings::SetCacheDropMaxSize (m_dwCacheDropMaxSize);
+    CSettings::SetMaxHeadAge(m_dwMaxHeadAge);
+    CSettings::SetCacheDropAge(m_dwCacheDropAge);
+    CSettings::SetCacheDropMaxSize(m_dwCacheDropMaxSize);
 
-    CSettings::SetMaxFailuresUntilDrop (m_dwMaxFailuresUntilDrop);
+    CSettings::SetMaxFailuresUntilDrop(m_dwMaxFailuresUntilDrop);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
@@ -151,17 +142,17 @@ BOOL CSetLogCache::OnInitDialog()
     // connectivity combobox
 
     while (m_cDefaultConnectionState.GetCount() > 0)
-        m_cDefaultConnectionState.DeleteItem(0);
+        m_cDefaultConnectionState.DeleteItem(nullptr);
 
     CString temp;
     temp.LoadString(IDS_SETTINGS_CONNECTIVITY_ASKUSER);
-    m_cDefaultConnectionState.AddString (temp);
+    m_cDefaultConnectionState.AddString(temp);
     temp.LoadString(IDS_SETTINGS_CONNECTIVITY_OFFLINENOW);
-    m_cDefaultConnectionState.AddString (temp);
+    m_cDefaultConnectionState.AddString(temp);
     temp.LoadString(IDS_SETTINGS_CONNECTIVITY_OFFLINEFOREVER);
-    m_cDefaultConnectionState.AddString (temp);
+    m_cDefaultConnectionState.AddString(temp);
 
-    m_cDefaultConnectionState.SetCurSel (CSettings::GetDefaultConnectionState());
+    m_cDefaultConnectionState.SetCurSel(CSettings::GetDefaultConnectionState());
 
     // tooltips
 

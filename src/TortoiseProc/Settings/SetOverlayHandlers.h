@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012, 2015 - TortoiseSVN
+// Copyright (C) 2010, 2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,36 +32,39 @@ class CSetOverlayHandlers : public ISettingsPropPage
 
 public:
     CSetOverlayHandlers();
-    virtual ~CSetOverlayHandlers();
+    ~CSetOverlayHandlers() override;
 
-    UINT GetIconID() override {return IDI_SET_OVERLAYS;}
+    UINT GetIconID() override { return IDI_SET_OVERLAYS; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSOVERLAYHANDLERS };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSOVERLAYHANDLERS
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnChange();
     afx_msg void OnBnClickedRegedt();
 
     DECLARE_MESSAGE_MAP()
 
-    int         GetInstalledOverlays();
-    void        UpdateInfoLabel();
+    int  GetInstalledOverlays() const;
+    void UpdateInfoLabel();
 
 private:
-    BOOL            m_bShowIgnoredOverlay;
-    BOOL            m_bShowUnversionedOverlay;
-    BOOL            m_bShowAddedOverlay;
-    BOOL            m_bShowLockedOverlay;
-    BOOL            m_bShowReadonlyOverlay;
-    BOOL            m_bShowDeletedOverlay;
-    CRegDWORD       m_regShowIgnoredOverlay;
-    CRegDWORD       m_regShowUnversionedOverlay;
-    CRegDWORD       m_regShowAddedOverlay;
-    CRegDWORD       m_regShowLockedOverlay;
-    CRegDWORD       m_regShowReadonlyOverlay;
-    CRegDWORD       m_regShowDeletedOverlay;
+    BOOL      m_bShowIgnoredOverlay;
+    BOOL      m_bShowUnversionedOverlay;
+    BOOL      m_bShowAddedOverlay;
+    BOOL      m_bShowLockedOverlay;
+    BOOL      m_bShowReadonlyOverlay;
+    BOOL      m_bShowDeletedOverlay;
+    CRegDWORD m_regShowIgnoredOverlay;
+    CRegDWORD m_regShowUnversionedOverlay;
+    CRegDWORD m_regShowAddedOverlay;
+    CRegDWORD m_regShowLockedOverlay;
+    CRegDWORD m_regShowReadonlyOverlay;
+    CRegDWORD m_regShowDeletedOverlay;
 };

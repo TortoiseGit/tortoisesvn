@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009, 2012-2013, 2015 - TortoiseSVN
+// Copyright (C) 2003-2009, 2012-2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "SettingsPropPage.h"
 #include "registry.h"
 
-
 /**
  * \ingroup TortoiseProc
  * Settings page responsible for dialog settings.
@@ -31,17 +30,20 @@ class CSetDialogs : public ISettingsPropPage
 
 public:
     CSetDialogs();
-    virtual ~CSetDialogs();
+    ~CSetDialogs() override;
 
-    UINT GetIconID() override {return IDI_DIALOGS;}
+    UINT GetIconID() override { return IDI_DIALOGS; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSDIALOGS };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSDIALOGS
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnChange();
     afx_msg void OnCbnSelchangeAutoclosecombo();
     afx_msg void OnBnClickedBrowsecheckoutpath();
@@ -49,31 +51,31 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    BOOL            m_bShortDateFormat;
-    CRegDWORD       m_regShortDateFormat;
-    BOOL            m_bUseSystemLocaleForDates;
-    CRegDWORD       m_regUseSystemLocaleForDates;
-    CRegDWORD       m_regAutoClose;
-    DWORD           m_dwAutoClose;
-    CRegDWORD       m_regAutoCloseLocal;
-    BOOL            m_bAutoCloseLocal;
-    CRegDWORD       m_regDefaultLogs;
-    CString         m_sDefaultLogs;
-    CMFCFontComboBox    m_cFontNames;
-    CComboBox       m_cFontSizes;
-    CRegDWORD       m_regFontSize;
-    DWORD           m_dwFontSize;
-    CRegString      m_regFontName;
-    CString         m_sFontName;
-    CComboBox       m_cAutoClose;
-    CRegDWORD       m_regUseWCURL;
-    BOOL            m_bUseWCURL;
-    CRegString      m_regDefaultCheckoutPath;
-    CString         m_sDefaultCheckoutPath;
-    CRegString      m_regDefaultCheckoutUrl;
-    CString         m_sDefaultCheckoutUrl;
-    CRegDWORD       m_regDiffByDoubleClick;
-    BOOL            m_bDiffByDoubleClick;
-    CRegDWORD       m_regUseRecycleBin;
-    BOOL            m_bUseRecycleBin;
+    BOOL             m_bShortDateFormat;
+    CRegDWORD        m_regShortDateFormat;
+    BOOL             m_bUseSystemLocaleForDates;
+    CRegDWORD        m_regUseSystemLocaleForDates;
+    CRegDWORD        m_regAutoClose;
+    DWORD            m_dwAutoClose;
+    CRegDWORD        m_regAutoCloseLocal;
+    BOOL             m_bAutoCloseLocal;
+    CRegDWORD        m_regDefaultLogs;
+    CString          m_sDefaultLogs;
+    CMFCFontComboBox m_cFontNames;
+    CComboBox        m_cFontSizes;
+    CRegDWORD        m_regFontSize;
+    DWORD            m_dwFontSize;
+    CRegString       m_regFontName;
+    CString          m_sFontName;
+    CComboBox        m_cAutoClose;
+    CRegDWORD        m_regUseWcUrl;
+    BOOL             m_bUseWcUrl;
+    CRegString       m_regDefaultCheckoutPath;
+    CString          m_sDefaultCheckoutPath;
+    CRegString       m_regDefaultCheckoutUrl;
+    CString          m_sDefaultCheckoutUrl;
+    CRegDWORD        m_regDiffByDoubleClick;
+    BOOL             m_bDiffByDoubleClick;
+    CRegDWORD        m_regUseRecycleBin;
+    BOOL             m_bUseRecycleBin;
 };

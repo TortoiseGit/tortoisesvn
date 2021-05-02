@@ -202,7 +202,7 @@ public:
     /**
      set the dark theme mode
      */
-    void SetTheme(bool bDark);
+    virtual void SetTheme(bool bDark);
 // Public helpers
 public:
     //@{

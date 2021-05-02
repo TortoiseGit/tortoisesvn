@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2020 - TortoiseSVN
+// Copyright (C) 2003-2008, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,24 +29,26 @@ class CToolAssocDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CToolAssocDlg)
 
 public:
-    CToolAssocDlg(const CString& type, bool add, CWnd* pParent = NULL);
-    virtual ~CToolAssocDlg();
+    CToolAssocDlg(const CString& type, bool add, CWnd* pParent = nullptr);
+    ~CToolAssocDlg() override;
 
-    enum { IDD = IDD_TOOLASSOC };
+    enum
+    {
+        IDD = IDD_TOOLASSOC
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         PreTranslateMessage(MSG* pMsg) override;
     afx_msg void OnBnClickedToolbrowse();
 
     DECLARE_MESSAGE_MAP()
 
 public:
-    CString     m_sType;
-    bool        m_bAdd;
-    CString     m_sExtension;
-    CString     m_sTool;
-    CToolTips   m_tooltips;
+    CString   m_sType;
+    bool      m_bAdd;
+    CString   m_sExtension;
+    CString   m_sTool;
+    CToolTips m_tooltips;
 };
-

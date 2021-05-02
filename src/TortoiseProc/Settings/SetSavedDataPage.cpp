@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015 - TortoiseSVN
+// Copyright (C) 2003-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "registry.h"
 #include "PathUtils.h"
 #include "AppUtils.h"
@@ -33,7 +32,7 @@ CSetSavedDataPage::CSetSavedDataPage()
     , m_maxLines(0)
 {
     m_regMaxLines = CRegDWORD(L"Software\\TortoiseSVN\\MaxLinesInLogfile", 4000);
-    m_maxLines = m_regMaxLines;
+    m_maxLines    = m_regMaxLines;
 }
 
 CSetSavedDataPage::~CSetSavedDataPage()
@@ -60,89 +59,89 @@ BOOL CSetSavedDataPage::OnInitDialog()
     ISettingsPropPage::OnInitDialog();
 
     // find out how many log messages and URLs we've stored
-    int nLogHistWC = 0;
-    INT_PTR nLogHistMsg = 0;
-    int nUrlHistWC = 0;
-    INT_PTR nUrlHistItems = 0;
-    int nLogHistRepo = 0;
-    CRegistryKey regloghist(L"Software\\TortoiseSVN\\History");
-    CStringList loghistlist;
-    regloghist.getSubKeys(loghistlist);
-    for (POSITION pos = loghistlist.GetHeadPosition(); pos != NULL; )
+    int          nLogHistWC    = 0;
+    INT_PTR      nLogHistMsg   = 0;
+    int          nUrlHistWC    = 0;
+    INT_PTR      nUrlHistItems = 0;
+    int          nLogHistRepo  = 0;
+    CRegistryKey regLogHist(L"Software\\TortoiseSVN\\History");
+    CStringList  logHistList;
+    regLogHist.getSubKeys(logHistList);
+    for (POSITION pos = logHistList.GetHeadPosition(); pos != nullptr;)
     {
-        CString sHistName = loghistlist.GetNext(pos);
-        if (sHistName.Left(6).CompareNoCase(L"commit")==0)
+        CString sHistName = logHistList.GetNext(pos);
+        if (sHistName.Left(6).CompareNoCase(L"commit") == 0)
         {
             nLogHistWC++;
-            CRegistryKey regloghistwc(L"Software\\TortoiseSVN\\History\\"+sHistName);
-            CStringList loghistlistwc;
-            regloghistwc.getValues(loghistlistwc);
-            nLogHistMsg += loghistlistwc.GetCount();
+            CRegistryKey regLogHistWc(L"Software\\TortoiseSVN\\History\\" + sHistName);
+            CStringList  logHistListWc;
+            regLogHistWc.getValues(logHistListWc);
+            nLogHistMsg += logHistListWc.GetCount();
         }
         else
         {
             // repoURLs
-            CStringList urlhistlistmain;
-            CStringList urlhistlistmainvalues;
-            CRegistryKey regurlhistlist(L"Software\\TortoiseSVN\\History\\repoURLS");
-            regurlhistlist.getSubKeys(urlhistlistmain);
-            regurlhistlist.getValues(urlhistlistmainvalues);
-            nUrlHistItems += urlhistlistmainvalues.GetCount();
-            for (POSITION urlpos = urlhistlistmain.GetHeadPosition(); urlpos != NULL; )
+            CStringList  urlHistListMain;
+            CStringList  urlHistListMainValues;
+            CRegistryKey regUrlHistList(L"Software\\TortoiseSVN\\History\\repoURLS");
+            regUrlHistList.getSubKeys(urlHistListMain);
+            regUrlHistList.getValues(urlHistListMainValues);
+            nUrlHistItems += urlHistListMainValues.GetCount();
+            for (POSITION urlPos = urlHistListMain.GetHeadPosition(); urlPos != nullptr;)
             {
-                CString sWCUID = urlhistlistmain.GetNext(urlpos);
+                CString sWcUid = urlHistListMain.GetNext(urlPos);
                 nUrlHistWC++;
-                CStringList urlhistlistwc;
-                CRegistryKey regurlhistlistwc(L"Software\\TortoiseSVN\\History\\repoURLS\\"+sWCUID);
-                regurlhistlistwc.getValues(urlhistlistwc);
-                nUrlHistItems += urlhistlistwc.GetCount();
+                CStringList  urlHistListWc;
+                CRegistryKey regUrlHistListWc(L"Software\\TortoiseSVN\\History\\repoURLS\\" + sWcUid);
+                regUrlHistListWc.getValues(urlHistListWc);
+                nUrlHistItems += urlHistListWc.GetCount();
             }
         }
     }
 
     // find out how many dialog sizes / positions we've stored
-    INT_PTR nResizableDialogs = 0;
+    INT_PTR      nResizableDialogs = 0;
     CRegistryKey regResizable(L"Software\\TortoiseSVN\\TortoiseProc\\ResizableState");
-    CStringList resizablelist;
-    regResizable.getValues(resizablelist);
-    nResizableDialogs += resizablelist.GetCount();
+    CStringList  resizableList;
+    regResizable.getValues(resizableList);
+    nResizableDialogs += resizableList.GetCount();
 
     // find out how many auth data we've stored
-    int nSimple = 0;
-    int nSSL = 0;
+    int nSimple   = 0;
+    int nSSL      = 0;
     int nUsername = 0;
 
     CString sFile;
-    bool bIsDir = false;
+    bool    bIsDir = false;
 
-    PWSTR pszPath = NULL;
-    if (SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)
+    PWSTR pszPath = nullptr;
+    if (SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_CREATE, nullptr, &pszPath) == S_OK)
     {
         CString path = pszPath;
         CoTaskMemFree(pszPath);
 
         path += L"\\Subversion\\auth\\";
 
-        CString sSimple = path + L"svn.simple";
-        CString sSSL = path + L"svn.ssl.server";
-        CString sUsername = path + L"svn.username";
-        CDirFileEnum simpleenum(sSimple);
-        while (simpleenum.NextFile(sFile, &bIsDir))
+        CString      sSimple   = path + L"svn.simple";
+        CString      sSSL      = path + L"svn.ssl.server";
+        CString      sUsername = path + L"svn.username";
+        CDirFileEnum simpleEnum(sSimple);
+        while (simpleEnum.NextFile(sFile, &bIsDir))
             nSimple++;
-        CDirFileEnum sslenum(sSSL);
-        while (sslenum.NextFile(sFile, &bIsDir))
+        CDirFileEnum sslEnum(sSSL);
+        while (sslEnum.NextFile(sFile, &bIsDir))
             nSSL++;
-        CDirFileEnum userenum(sUsername);
-        while (userenum.NextFile(sFile, &bIsDir))
+        CDirFileEnum userEnum(sUsername);
+        while (userEnum.NextFile(sFile, &bIsDir))
             nUsername++;
     }
 
     CRegistryKey regCerts(L"Software\\TortoiseSVN\\CAPIAuthz");
-    CStringList certList;
+    CStringList  certList;
     regCerts.getValues(certList);
-    int nCapi = (int)certList.GetCount();
+    int nCapi = static_cast<int>(certList.GetCount());
 
-    CDirFileEnum logenum(CPathUtils::GetAppDataDirectory()+L"logcache");
+    CDirFileEnum logenum(CPathUtils::GetAppDataDirectory() + L"logcache");
     while (logenum.NextFile(sFile, &bIsDir))
         nLogHistRepo++;
     // the "Repositories.dat" is not a cache file
@@ -150,12 +149,11 @@ BOOL CSetSavedDataPage::OnInitDialog()
 
     BOOL bActionLog = PathFileExists(CPathUtils::GetLocalAppDataDirectory() + L"logfile.txt");
 
-    INT_PTR nHooks = 0;
+    INT_PTR      nHooks = 0;
     CRegistryKey regHooks(L"Software\\TortoiseSVN\\approvedhooks");
-    CStringList hookslist;
-    regHooks.getValues(hookslist);
-    nHooks += hookslist.GetCount();
-
+    CStringList  hooksList;
+    regHooks.getValues(hooksList);
+    nHooks += hooksList.GetCount();
 
     DialogEnableWindow(&m_btnLogHistClear, nLogHistMsg || nLogHistWC);
     DialogEnableWindow(&m_btnUrlHistClear, nUrlHistItems || nUrlHistWC);
@@ -179,7 +177,7 @@ BOOL CSetSavedDataPage::OnInitDialog()
     sTT.Format(IDS_SETTINGS_SAVEDDATA_RESIZABLE_TT, nResizableDialogs);
     m_tooltips.AddTool(IDC_RESIZABLEHISTORY, sTT);
     m_tooltips.AddTool(IDC_RESIZABLEHISTCLEAR, sTT);
-    sTT.FormatMessage(IDS_SETTINGS_SAVEDDATA_AUTH_TT, nSimple, nSSL+nCapi, nUsername);
+    sTT.FormatMessage(IDS_SETTINGS_SAVEDDATA_AUTH_TT, nSimple, nSSL + nCapi, nUsername);
     m_tooltips.AddTool(IDC_AUTHHISTORY, sTT);
     m_tooltips.AddTool(IDC_AUTHHISTCLEAR, sTT);
     sTT.Format(IDS_SETTINGS_SAVEDDATA_REPOLOGHIST_TT, nLogHistRepo);
@@ -222,15 +220,15 @@ void CSetSavedDataPage::OnBnClickedUrlhistclear()
 void CSetSavedDataPage::OnBnClickedLoghistclear()
 {
     CRegistryKey reg(L"Software\\TortoiseSVN\\History");
-    CStringList histlist;
-    reg.getSubKeys(histlist);
-    for (POSITION pos = histlist.GetHeadPosition(); pos != NULL; )
+    CStringList  histList;
+    reg.getSubKeys(histList);
+    for (POSITION pos = histList.GetHeadPosition(); pos != nullptr;)
     {
-        CString sHist = histlist.GetNext(pos);
-        if (sHist.Left(6).CompareNoCase(L"commit")==0)
+        CString sHist = histList.GetNext(pos);
+        if (sHist.Left(6).CompareNoCase(L"commit") == 0)
         {
-            CRegistryKey regkey(L"Software\\TortoiseSVN\\History\\"+sHist);
-            regkey.removeKey();
+            CRegistryKey regKey(L"Software\\TortoiseSVN\\History\\" + sHist);
+            regKey.removeKey();
         }
     }
 
@@ -257,14 +255,13 @@ void CSetSavedDataPage::OnBnClickedHookclear()
     m_tooltips.DelTool(GetDlgItem(IDC_HOOKS));
 }
 
-
 void CSetSavedDataPage::OnBnClickedAuthhistclear()
 {
     CRegStdString auth = CRegStdString(L"Software\\TortoiseSVN\\Auth\\");
     auth.removeKey();
 
-    PWSTR pszPath = NULL;
-    if (SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)
+    PWSTR pszPath = nullptr;
+    if (SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_CREATE, nullptr, &pszPath) == S_OK)
     {
         CString path = pszPath;
         CoTaskMemFree(pszPath);
@@ -280,10 +277,10 @@ void CSetSavedDataPage::OnBnClickedAuthhistclear()
 
 void CSetSavedDataPage::OnBnClickedRepologclear()
 {
-    CString path = CPathUtils::GetAppDataDirectory()+L"logcache";
-    TCHAR pathbuf[MAX_PATH] = {0};
-    wcscpy_s(pathbuf, (LPCTSTR)path);
-    pathbuf[wcslen(pathbuf)+1] = 0;
+    CString path              = CPathUtils::GetAppDataDirectory() + L"logcache";
+    TCHAR   pathbuf[MAX_PATH] = {0};
+    wcscpy_s(pathbuf, static_cast<LPCWSTR>(path));
+    pathbuf[wcslen(pathbuf) + 1] = 0;
 
     DeleteViaShell(pathbuf, IDS_SETTINGS_DELCACHE);
 
@@ -292,6 +289,7 @@ void CSetSavedDataPage::OnBnClickedRepologclear()
     m_tooltips.DelTool(GetDlgItem(IDC_REPOLOGCLEAR));
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CSetSavedDataPage::OnBnClickedActionlogshow()
 {
     CString logfile = CPathUtils::GetLocalAppDataDirectory() + L"logfile.txt";
@@ -313,30 +311,31 @@ void CSetSavedDataPage::OnModified()
 
 BOOL CSetSavedDataPage::OnApply()
 {
-    Store (m_maxLines,  m_regMaxLines);
+    Store(m_maxLines, m_regMaxLines);
     return ISettingsPropPage::OnApply();
 }
 
-void CSetSavedDataPage::DeleteViaShell(LPCTSTR path, UINT progressText)
+void CSetSavedDataPage::DeleteViaShell(LPCWSTR path, UINT progressText) const
 {
     CString p(path);
     p += L"||";
-    int len = p.GetLength();
-    auto buf = std::make_unique<TCHAR[]>(len + 2);
-    wcscpy_s(buf.get(), len+2, p);
+    int  len = p.GetLength();
+    auto buf = std::make_unique<wchar_t[]>(len + 2LL);
+    wcscpy_s(buf.get(), len + 2LL, p);
     CStringUtils::PipesToNulls(buf.get(), len);
 
-    CString progText(MAKEINTRESOURCE(progressText));
-    SHFILEOPSTRUCT fileop;
-    fileop.hwnd = m_hWnd;
-    fileop.wFunc = FO_DELETE;
-    fileop.pFrom = buf.get();
-    fileop.pTo = NULL;
-    fileop.fFlags = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;
-    fileop.lpszProgressTitle = progText;
-    SHFileOperation(&fileop);
+    CString        progText(MAKEINTRESOURCE(progressText));
+    SHFILEOPSTRUCT fileOp;
+    fileOp.hwnd              = m_hWnd;
+    fileOp.wFunc             = FO_DELETE;
+    fileOp.pFrom             = buf.get();
+    fileOp.pTo               = nullptr;
+    fileOp.fFlags            = FOF_NO_CONNECTED_ELEMENTS | FOF_NOCONFIRMATION;
+    fileOp.lpszProgressTitle = progText;
+    SHFileOperation(&fileOp);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CSetSavedDataPage::OnBnClickedAuthhistclearselect()
 {
     CSettingsClearAuth dlg;

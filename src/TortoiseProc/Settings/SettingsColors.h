@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010, 2012, 2020 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010, 2012, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,7 +30,7 @@ class CSettingsColors : public ISettingsPropPage
 
 public:
     CSettingsColors();
-    virtual ~CSettingsColors();
+    ~CSettingsColors() override;
 
     UINT GetIconID() override { return IDI_LOOKANDFEEL; }
 
@@ -40,12 +40,12 @@ public:
     };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX); // DDX/DDV support
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnBnClickedColor();
     afx_msg void OnBnClickedTheme();
     afx_msg void OnBnClickedRestore();
-    virtual BOOL OnApply();
 
     DECLARE_MESSAGE_MAP()
 private:
@@ -55,7 +55,7 @@ private:
     CMFCColorButton m_cMerged;
     CMFCColorButton m_cModified;
     CMFCColorButton m_cFilterMatch;
-    CColors         m_Colors;
+    CColors         m_colors;
     CRegDWORD       m_regUseDarkMode;
     CButton         m_chkUseDarkMode;
 };

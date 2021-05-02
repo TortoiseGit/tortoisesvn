@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 #include "SettingsPropPage.h"
-#include "StandAloneDlg.h"
 #include "registry.h"
 
 /**
@@ -31,52 +30,55 @@ class CSetOverlayIcons : public ISettingsPropPage
 
 public:
     CSetOverlayIcons();
-    virtual ~CSetOverlayIcons();
+    ~CSetOverlayIcons() override;
 
-    UINT GetIconID() override {return IDI_ICONSET;}
+    UINT GetIconID() override { return IDI_ICONSET; }
 
-// Dialog Data
-    enum { IDD = IDD_OVERLAYICONS };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_OVERLAYICONS
+    };
 
 protected:
-    virtual void            DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL            OnInitDialog();
-    virtual BOOL            OnApply();
-    afx_msg void            OnBnClickedListradio();
-    afx_msg void            OnBnClickedSymbolradio();
-    afx_msg void            OnCbnSelchangeIconsetcombo();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
+    afx_msg void OnBnClickedListradio();
+    afx_msg void OnBnClickedSymbolradio();
+    afx_msg void OnCbnSelchangeIconsetcombo();
 
-    void                    ShowIconSet(bool bSmallIcons);
-    void                    AddFileTypeGroup(CString sFileType, bool bSmallIcons);
-    HICON                   GetFileIcon(LPCTSTR fileType, bool smallIcons, DWORD attributes);
+    void         ShowIconSet(bool bSmallIcons);
+    void         AddFileTypeGroup(CString sFileType, bool bSmallIcons);
+    static HICON GetFileIcon(LPCWSTR fileType, bool smallIcons, DWORD attributes);
     DECLARE_MESSAGE_MAP()
 protected:
-    int             m_selIndex;
-    CString         m_sIconSet;
-    CComboBox       m_cIconSet;
-    CListCtrl       m_cIconList;
+    int       m_selIndex;
+    CString   m_sIconSet;
+    CComboBox m_cIconSet;
+    CListCtrl m_cIconList;
 
-    CString         m_sIconPath;
-    CString         m_sOriginalIconSet;
-    CString         m_sNormal;
-    CString         m_sModified;
-    CString         m_sConflicted;
-    CString         m_sReadOnly;
-    CString         m_sDeleted;
-    CString         m_sAdded;
-    CString         m_sLocked;
-    CString         m_sIgnored;
-    CString         m_sUnversioned;
-    CImageList      m_ImageList;
-    CImageList      m_ImageListBig;
+    CString    m_sIconPath;
+    CString    m_sOriginalIconSet;
+    CString    m_sNormal;
+    CString    m_sModified;
+    CString    m_sConflicted;
+    CString    m_sReadOnly;
+    CString    m_sDeleted;
+    CString    m_sAdded;
+    CString    m_sLocked;
+    CString    m_sIgnored;
+    CString    m_sUnversioned;
+    CImageList m_imageList;
+    CImageList m_imageListBig;
 
-    CRegString      m_regNormal;
-    CRegString      m_regModified;
-    CRegString      m_regConflicted;
-    CRegString      m_regReadOnly;
-    CRegString      m_regDeleted;
-    CRegString      m_regLocked;
-    CRegString      m_regAdded;
-    CRegString      m_regIgnored;
-    CRegString      m_regUnversioned;
+    CRegString m_regNormal;
+    CRegString m_regModified;
+    CRegString m_regConflicted;
+    CRegString m_regReadOnly;
+    CRegString m_regDeleted;
+    CRegString m_regLocked;
+    CRegString m_regAdded;
+    CRegString m_regIgnored;
+    CRegString m_regUnversioned;
 };

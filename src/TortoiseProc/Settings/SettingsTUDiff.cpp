@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014, 2016, 2018 - TortoiseSVN
+// Copyright (C) 2014, 2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,8 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SettingsTUDiff.h"
+#include "../../TortoiseUDiff/UDiffColors.h"
 
 // CSettingsUDiff dialog
 
@@ -45,7 +45,7 @@ CSettingsUDiff::CSettingsUDiff()
 
     m_regFontName = CRegString(L"Software\\TortoiseSVN\\UDiffFontName", L"Consolas");
     m_regFontSize = CRegDWORD(L"Software\\TortoiseSVN\\UDiffFontSize", 10);
-    m_regTabSize = CRegDWORD(L"Software\\TortoiseSVN\\UDiffTabSize", 4);
+    m_regTabSize  = CRegDWORD(L"Software\\TortoiseSVN\\UDiffTabSize", 4);
 }
 
 CSettingsUDiff::~CSettingsUDiff()
@@ -70,8 +70,8 @@ void CSettingsUDiff::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_BACKREMOVEDCOLOR, m_cBackRemovedColor);
 
     DDX_Control(pDX, IDC_FONTSIZES, m_cFontSizes);
-    m_dwFontSize = (DWORD)m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel());
-    if ((m_dwFontSize==0)||(m_dwFontSize == -1))
+    m_dwFontSize = static_cast<DWORD>(m_cFontSizes.GetItemData(m_cFontSizes.GetCurSel()));
+    if ((m_dwFontSize == 0) || (m_dwFontSize == -1))
     {
         CString t;
         m_cFontSizes.GetWindowText(t);
@@ -80,7 +80,6 @@ void CSettingsUDiff::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_FONTNAMES, m_cFontNames);
     DDX_Text(pDX, IDC_TABSIZE, m_dwTabSize);
 }
-
 
 BEGIN_MESSAGE_MAP(CSettingsUDiff, ISettingsPropPage)
     ON_BN_CLICKED(IDC_RESTORE, &CSettingsUDiff::OnBnClickedRestore)
@@ -101,7 +100,6 @@ BEGIN_MESSAGE_MAP(CSettingsUDiff, ISettingsPropPage)
     ON_BN_CLICKED(IDC_BACKREMOVEDCOLOR, &CSettingsUDiff::OnBnClickedColor)
 END_MESSAGE_MAP()
 
-
 // CSettingsUDiff message handlers
 
 BOOL CSettingsUDiff::OnInitDialog()
@@ -110,20 +108,19 @@ BOOL CSettingsUDiff::OnInitDialog()
 
     ISettingsPropPage::OnInitDialog();
 
+    m_cForeCommandColor.SetColor(static_cast<DWORD>(m_regForeCommandColor));
+    m_cForePositionColor.SetColor(static_cast<DWORD>(m_regForePositionColor));
+    m_cForeHeaderColor.SetColor(static_cast<DWORD>(m_regForeHeaderColor));
+    m_cForeCommentColor.SetColor(static_cast<DWORD>(m_regForeCommentColor));
+    m_cForeAddedColor.SetColor(static_cast<DWORD>(m_regForeAddedColor));
+    m_cForeRemovedColor.SetColor(static_cast<DWORD>(m_regForeRemovedColor));
 
-    m_cForeCommandColor  .SetColor((DWORD)m_regForeCommandColor);
-    m_cForePositionColor .SetColor((DWORD)m_regForePositionColor);
-    m_cForeHeaderColor   .SetColor((DWORD)m_regForeHeaderColor);
-    m_cForeCommentColor  .SetColor((DWORD)m_regForeCommentColor);
-    m_cForeAddedColor    .SetColor((DWORD)m_regForeAddedColor);
-    m_cForeRemovedColor  .SetColor((DWORD)m_regForeRemovedColor);
-
-    m_cBackCommandColor  .SetColor((DWORD)m_regBackCommandColor);
-    m_cBackPositionColor .SetColor((DWORD)m_regBackPositionColor);
-    m_cBackHeaderColor   .SetColor((DWORD)m_regBackHeaderColor);
-    m_cBackCommentColor  .SetColor((DWORD)m_regBackCommentColor);
-    m_cBackAddedColor    .SetColor((DWORD)m_regBackAddedColor);
-    m_cBackRemovedColor  .SetColor((DWORD)m_regBackRemovedColor);
+    m_cBackCommandColor.SetColor(static_cast<DWORD>(m_regBackCommandColor));
+    m_cBackPositionColor.SetColor(static_cast<DWORD>(m_regBackPositionColor));
+    m_cBackHeaderColor.SetColor(static_cast<DWORD>(m_regBackHeaderColor));
+    m_cBackCommentColor.SetColor(static_cast<DWORD>(m_regBackCommentColor));
+    m_cBackAddedColor.SetColor(static_cast<DWORD>(m_regBackAddedColor));
+    m_cBackRemovedColor.SetColor(static_cast<DWORD>(m_regBackRemovedColor));
 
     CString sDefaultText, sCustomText;
     sDefaultText.LoadString(IDS_COLOURPICKER_DEFAULTTEXT);
@@ -154,34 +151,34 @@ BOOL CSettingsUDiff::OnInitDialog()
     m_cBackRemovedColor.EnableAutomaticButton(sDefaultText, UDIFF_COLORBACKREMOVED);
     m_cBackRemovedColor.EnableOtherButton(sCustomText);
 
-    m_dwTabSize = m_regTabSize;
-    m_sFontName = m_regFontName;
-    m_dwFontSize = m_regFontSize;
-    int count = 0;
+    m_dwTabSize   = m_regTabSize;
+    m_sFontName   = m_regFontName;
+    m_dwFontSize  = m_regFontSize;
+    int     count = 0;
     CString temp;
-    for (int i=6; i<32; i=i+2)
+    for (int i = 6; i < 32; i = i + 2)
     {
         temp.Format(L"%d", i);
         m_cFontSizes.AddString(temp);
         m_cFontSizes.SetItemData(count++, i);
     }
-    BOOL foundfont = FALSE;
-    for (int i=0; i<m_cFontSizes.GetCount(); i++)
+    BOOL foundFont = FALSE;
+    for (int i = 0; i < m_cFontSizes.GetCount(); i++)
     {
         if (m_cFontSizes.GetItemData(i) == m_dwFontSize)
         {
             m_cFontSizes.SetCurSel(i);
-            foundfont = TRUE;
+            foundFont = TRUE;
         }
     }
-    if (!foundfont)
+    if (!foundFont)
     {
         temp.Format(L"%lu", m_dwFontSize);
         m_cFontSizes.SetWindowText(temp);
     }
-    m_cFontNames.Setup(DEVICE_FONTTYPE|RASTER_FONTTYPE|TRUETYPE_FONTTYPE, 1, FIXED_PITCH);
+    m_cFontNames.Setup(DEVICE_FONTTYPE | RASTER_FONTTYPE | TRUETYPE_FONTTYPE, 1, FIXED_PITCH);
     m_cFontNames.SelectFont(m_sFontName);
-    m_cFontNames.SendMessage(CB_SETITEMHEIGHT, (WPARAM)-1, m_cFontSizes.GetItemHeight(-1));
+    m_cFontNames.SendMessage(CB_SETITEMHEIGHT, static_cast<WPARAM>(-1), m_cFontSizes.GetItemHeight(-1));
 
     UpdateData(FALSE);
     return TRUE;
@@ -219,23 +216,23 @@ BOOL CSettingsUDiff::OnApply()
     else
         m_sFontName = m_regFontName;
 
-    Store((m_cForeCommandColor.GetColor()  == -1 ? m_cForeCommandColor.GetAutomaticColor()  : m_cForeCommandColor.GetColor()),  m_regForeCommandColor);
+    Store((m_cForeCommandColor.GetColor() == -1 ? m_cForeCommandColor.GetAutomaticColor() : m_cForeCommandColor.GetColor()), m_regForeCommandColor);
     Store((m_cForePositionColor.GetColor() == -1 ? m_cForePositionColor.GetAutomaticColor() : m_cForePositionColor.GetColor()), m_regForePositionColor);
-    Store((m_cForeHeaderColor.GetColor()   == -1 ? m_cForeHeaderColor.GetAutomaticColor()   : m_cForeHeaderColor.GetColor()),   m_regForeHeaderColor);
-    Store((m_cForeCommentColor.GetColor()  == -1 ? m_cForeCommentColor.GetAutomaticColor()  : m_cForeCommentColor.GetColor()),  m_regForeCommentColor);
-    Store((m_cForeAddedColor.GetColor()    == -1 ? m_cForeAddedColor.GetAutomaticColor()    : m_cForeAddedColor.GetColor()),    m_regForeAddedColor);
-    Store((m_cForeRemovedColor.GetColor()  == -1 ? m_cForeRemovedColor.GetAutomaticColor()  : m_cForeRemovedColor.GetColor()),  m_regForeRemovedColor);
+    Store((m_cForeHeaderColor.GetColor() == -1 ? m_cForeHeaderColor.GetAutomaticColor() : m_cForeHeaderColor.GetColor()), m_regForeHeaderColor);
+    Store((m_cForeCommentColor.GetColor() == -1 ? m_cForeCommentColor.GetAutomaticColor() : m_cForeCommentColor.GetColor()), m_regForeCommentColor);
+    Store((m_cForeAddedColor.GetColor() == -1 ? m_cForeAddedColor.GetAutomaticColor() : m_cForeAddedColor.GetColor()), m_regForeAddedColor);
+    Store((m_cForeRemovedColor.GetColor() == -1 ? m_cForeRemovedColor.GetAutomaticColor() : m_cForeRemovedColor.GetColor()), m_regForeRemovedColor);
 
-    Store((m_cBackCommandColor.GetColor()  == -1 ? m_cBackCommandColor.GetAutomaticColor()  : m_cBackCommandColor.GetColor()),  m_regBackCommandColor);
+    Store((m_cBackCommandColor.GetColor() == -1 ? m_cBackCommandColor.GetAutomaticColor() : m_cBackCommandColor.GetColor()), m_regBackCommandColor);
     Store((m_cBackPositionColor.GetColor() == -1 ? m_cBackPositionColor.GetAutomaticColor() : m_cBackPositionColor.GetColor()), m_regBackPositionColor);
-    Store((m_cBackHeaderColor.GetColor()   == -1 ? m_cBackHeaderColor.GetAutomaticColor()   : m_cBackHeaderColor.GetColor()),   m_regBackHeaderColor);
-    Store((m_cBackCommentColor.GetColor()  == -1 ? m_cBackCommentColor.GetAutomaticColor()  : m_cBackCommentColor.GetColor()),  m_regBackCommentColor);
-    Store((m_cBackAddedColor.GetColor()    == -1 ? m_cBackAddedColor.GetAutomaticColor()    : m_cBackAddedColor.GetColor()),    m_regBackAddedColor);
-    Store((m_cBackRemovedColor.GetColor()  == -1 ? m_cBackRemovedColor.GetAutomaticColor()  : m_cBackRemovedColor.GetColor()),  m_regBackRemovedColor);
+    Store((m_cBackHeaderColor.GetColor() == -1 ? m_cBackHeaderColor.GetAutomaticColor() : m_cBackHeaderColor.GetColor()), m_regBackHeaderColor);
+    Store((m_cBackCommentColor.GetColor() == -1 ? m_cBackCommentColor.GetAutomaticColor() : m_cBackCommentColor.GetColor()), m_regBackCommentColor);
+    Store((m_cBackAddedColor.GetColor() == -1 ? m_cBackAddedColor.GetAutomaticColor() : m_cBackAddedColor.GetColor()), m_regBackAddedColor);
+    Store((m_cBackRemovedColor.GetColor() == -1 ? m_cBackRemovedColor.GetAutomaticColor() : m_cBackRemovedColor.GetColor()), m_regBackRemovedColor);
 
-    Store ((LPCTSTR)m_sFontName, m_regFontName);
-    Store (m_dwFontSize, m_regFontSize);
-    Store (m_dwTabSize, m_regTabSize);
+    Store(static_cast<LPCWSTR>(m_sFontName), m_regFontName);
+    Store(m_dwFontSize, m_regFontSize);
+    Store(m_dwTabSize, m_regTabSize);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();

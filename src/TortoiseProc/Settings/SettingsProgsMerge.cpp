@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2013-2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2013-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,11 +17,9 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "SettingsProgsMerge.h"
-
 
 IMPLEMENT_DYNAMIC(CSettingsProgsMerge, ISettingsPropPage)
 CSettingsProgsMerge::CSettingsProgsMerge()
@@ -47,7 +45,6 @@ void CSettingsProgsMerge::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_EXTMERGE, m_cMergeEdit);
 }
 
-
 BEGIN_MESSAGE_MAP(CSettingsProgsMerge, ISettingsPropPage)
     ON_BN_CLICKED(IDC_EXTMERGE_OFF, OnBnClickedExtmergeOff)
     ON_BN_CLICKED(IDC_EXTMERGE_ON, OnBnClickedExtmergeOn)
@@ -56,7 +53,6 @@ BEGIN_MESSAGE_MAP(CSettingsProgsMerge, ISettingsPropPage)
     ON_EN_CHANGE(IDC_EXTMERGE, OnEnChangeExtmerge)
 END_MESSAGE_MAP()
 
-
 BOOL CSettingsProgsMerge::OnInitDialog()
 {
     ISettingsPropPage::OnInitDialog();
@@ -64,7 +60,7 @@ BOOL CSettingsProgsMerge::OnInitDialog()
     EnableToolTips();
 
     m_sMergePath = m_regMergePath;
-    m_iExtMerge = IsExternal(m_sMergePath);
+    m_iExtMerge  = IsExternal(m_sMergePath);
 
     SHAutoComplete(::GetDlgItem(m_hWnd, IDC_EXTMERGE), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 
@@ -113,7 +109,7 @@ void CSettingsProgsMerge::OnEnChangeExtmerge()
 
 void CSettingsProgsMerge::OnBnClickedExtmergebrowse()
 {
-    if (CAppUtils::FileOpenSave(m_sMergePath, NULL, IDS_SETTINGS_SELECTMERGE, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
+    if (CAppUtils::FileOpenSave(m_sMergePath, nullptr, IDS_SETTINGS_SELECTMERGE, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
     {
         UpdateData(FALSE);
         SetModified();

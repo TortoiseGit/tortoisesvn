@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2012 - TortoiseSVN
+// Copyright (C) 2003-2007, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,28 +28,32 @@ class CSetHooks : public ISettingsPropPage
     DECLARE_DYNAMIC(CSetHooks)
 
 public:
-    CSetHooks();   // standard constructor
-    virtual ~CSetHooks();
+    CSetHooks(); // standard constructor
+    ~CSetHooks() override;
 
-    UINT GetIconID() override {return IDI_HOOK;}
+    UINT GetIconID() override { return IDI_HOOK; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSHOOKS };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSHOOKS
+    };
 
 protected:
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
     afx_msg void OnBnClickedRemovebutton();
     afx_msg void OnBnClickedEditbutton();
     afx_msg void OnBnClickedAddbutton();
-    afx_msg void OnLvnItemchangedHooklist(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnNMDblclkHooklist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnLvnItemchangedHooklist(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnNMDblclkHooklist(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnBnClickedHookcopybutton();
 
     DECLARE_MESSAGE_MAP()
 
-    void            RebuildHookList();
+    void RebuildHookList();
+
 protected:
     CListCtrl m_cHookList;
 };

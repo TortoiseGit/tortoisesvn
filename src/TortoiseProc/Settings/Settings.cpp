@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2020 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,7 +28,7 @@
 
 IMPLEMENT_DYNAMIC(CSettings, CTreePropSheet)
 CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
-    :CTreePropSheet(nIDCaption, pParentWnd, iSelectPage)
+    : CTreePropSheet(nIDCaption, pParentWnd, iSelectPage)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
     AddPropPages();
@@ -53,29 +53,29 @@ void CSettings::SetTheme(bool bDark)
 
 void CSettings::AddPropPages()
 {
-    m_pMainPage = new CSetMainPage();
-    m_pOverlayPage = new CSetOverlayPage();
-    m_pOverlaysPage = new CSetOverlayIcons();
-    m_pOverlayHandlersPage = new CSetOverlayHandlers();
-    m_pProxyPage = new CSetProxyPage();
-    m_pProgsDiffPage = new CSettingsProgsDiff();
-    m_pProgsMergePage = new CSettingsProgsMerge();
-    m_pLookAndFeelPage = new CSetLookAndFeelPage();
-    m_pDialogsPage = new CSetDialogs();
-    m_pMiscPage = new CSetMisc();
-    m_pDialogs3Page = new SettingsDialogs3();
-    m_pRevisionGraphPage = new CSettingsRevisionGraph();
+    m_pMainPage                = new CSetMainPage();
+    m_pOverlayPage             = new CSetOverlayPage();
+    m_pOverlaysPage            = new CSetOverlayIcons();
+    m_pOverlayHandlersPage     = new CSetOverlayHandlers();
+    m_pProxyPage               = new CSetProxyPage();
+    m_pProgsDiffPage           = new CSettingsProgsDiff();
+    m_pProgsMergePage          = new CSettingsProgsMerge();
+    m_pLookAndFeelPage         = new CSetLookAndFeelPage();
+    m_pDialogsPage             = new CSetDialogs();
+    m_pMiscPage                = new CSetMisc();
+    m_pDialogs3Page            = new SettingsDialogs3();
+    m_pRevisionGraphPage       = new CSettingsRevisionGraph();
     m_pRevisionGraphColorsPage = new CSettingsRevisionGraphColors();
-    m_pLogCachePage = new CSetLogCache();
-    m_pLogCacheListPage = new CSettingsLogCaches();
-    m_pColorsPage = new CSettingsColors();
-    m_pSavedPage = new CSetSavedDataPage();
-    m_pHooksPage = new CSetHooks();
-    m_pBugTraqPage = new CSetBugTraq();
-    m_pTBlamePage = new CSettingsTBlame();
-    m_pAdvanced = new CSettingsAdvanced();
-    m_pSyncPage = new CSettingsSync();
-    m_pUDiffPage = new CSettingsUDiff();
+    m_pLogCachePage            = new CSetLogCache();
+    m_pLogCacheListPage        = new CSettingsLogCaches();
+    m_pColorsPage              = new CSettingsColors();
+    m_pSavedPage               = new CSetSavedDataPage();
+    m_pHooksPage               = new CSetHooks();
+    m_pBugTraqPage             = new CSetBugTraq();
+    m_pTBlamePage              = new CSettingsTBlame();
+    m_pAdvanced                = new CSettingsAdvanced();
+    m_pSyncPage                = new CSettingsSync();
+    m_pUDiffPage               = new CSettingsUDiff();
 
     SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
     SetPageIcon(m_pOverlayPage, m_pOverlayPage->GetIconID());
@@ -128,7 +128,7 @@ void CSettings::AddPropPages()
     AddPage(m_pAdvanced);
 }
 
-void CSettings::RemovePropPages()
+void CSettings::RemovePropPages() const
 {
     delete m_pMainPage;
     delete m_pOverlayPage;
@@ -155,7 +155,7 @@ void CSettings::RemovePropPages()
     delete m_pAdvanced;
 }
 
-void CSettings::HandleRestart()
+void CSettings::HandleRestart() const
 {
     int restart = ISettingsPropPage::Restart_None;
     restart |= m_pMainPage->GetRestart();
@@ -184,7 +184,7 @@ void CSettings::HandleRestart()
     {
         DWORD_PTR res = 0;
         ::SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, 0, SMTO_ABORTIFHUNG, 20, &res);
-        TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SETTINGS_RESTARTSYSTEM), NULL, TDCBF_OK_BUTTON, TD_INFORMATION_ICON, NULL);
+        TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_SETTINGS_RESTARTSYSTEM), nullptr, TDCBF_OK_BUTTON, TD_INFORMATION_ICON, nullptr);
     }
     if (restart & ISettingsPropPage::Restart_Cache)
     {
@@ -206,18 +206,18 @@ BOOL CSettings::OnInitDialog()
     BOOL bResult = CTreePropSheet::OnInitDialog();
     CAppUtils::MarkWindowAsUnpinnable(m_hWnd);
 
-    SetIcon(m_hIcon, TRUE);         // Set big icon
-    SetIcon(m_hIcon, FALSE);        // Set small icon
+    SetIcon(m_hIcon, TRUE);  // Set big icon
+    SetIcon(m_hIcon, FALSE); // Set small icon
 
-    MARGINS margs;
-    margs.cxLeftWidth = 0;
-    margs.cyTopHeight = 0;
-    margs.cxRightWidth = 0;
-    margs.cyBottomHeight = BOTTOMMARG;
+    MARGINS mArgs;
+    mArgs.cxLeftWidth    = 0;
+    mArgs.cyTopHeight    = 0;
+    mArgs.cxRightWidth   = 0;
+    mArgs.cyBottomHeight = BOTTOMMARG;
 
     if (m_aeroControls.AeroDialogsEnabled())
     {
-        DwmExtendFrameIntoClientArea(m_hWnd, &margs);
+        DwmExtendFrameIntoClientArea(m_hWnd, &mArgs);
         m_aeroControls.SubclassOkCancelHelp(this);
         m_aeroControls.SubclassControl(this, ID_APPLY_NOW);
     }
@@ -239,8 +239,8 @@ void CSettings::OnPaint()
         SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
         // Center icon in client rectangle
-        int cxIcon = GetSystemMetrics(SM_CXICON);
-        int cyIcon = GetSystemMetrics(SM_CYICON);
+        int   cxIcon = GetSystemMetrics(SM_CXICON);
+        int   cyIcon = GetSystemMetrics(SM_CYICON);
         CRect rect;
         GetClientRect(&rect);
         int x = (rect.Width() - cxIcon + 1) / 2;
@@ -255,6 +255,7 @@ void CSettings::OnPaint()
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 HCURSOR CSettings::OnQueryDragIcon()
 {
     return static_cast<HCURSOR>(m_hIcon);

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015 - TortoiseSVN
+// Copyright (C) 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,8 +19,6 @@
 #pragma once
 #include "SettingsPropPage.h"
 #include "registry.h"
-#include "../../TortoiseBlame/BlameIndexColors.h"
-
 
 /**
  * \ingroup TortoiseProc
@@ -32,18 +30,21 @@ class CSettingsSync : public ISettingsPropPage
 
 public:
     CSettingsSync();
-    virtual ~CSettingsSync();
+    ~CSettingsSync() override;
 
-    UINT GetIconID() override {return IDI_SYNC;}
+    UINT GetIconID() override { return IDI_SYNC; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSSYNC };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSSYNC
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
-    virtual BOOL OnKillActive();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    BOOL OnApply() override;
+    BOOL OnKillActive() override;
 
     BOOL ValidateInput();
 
@@ -57,14 +58,14 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 
-
     CString GetHWndParam() const;
+
 private:
-    CString         m_sPW1;
-    CString         m_sPW2;
-    CString         m_sSyncPath;
-    CRegString      m_regSyncPath;
-    CRegString      m_regSyncPW;
-    CRegDWORD       m_regSyncAuth;
-    BOOL            m_bSyncAuth;
+    CString    m_sPw1;
+    CString    m_sPw2;
+    CString    m_sSyncPath;
+    CRegString m_regSyncPath;
+    CRegString m_regSyncPw;
+    CRegDWORD  m_regSyncAuth;
+    BOOL       m_bSyncAuth;
 };

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2014-2015, 2020 - TortoiseSVN
+// Copyright (C) 2007-2011, 2014-2015, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,17 +35,17 @@ public:
 
     // extended construction
     ISettingsPropPage(UINT nIDTemplate, UINT nIDCaption,
-        UINT nIDHeaderTitle, UINT nIDHeaderSubTitle = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
+                      UINT nIDHeaderTitle, UINT nIDHeaderSubTitle = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
     ISettingsPropPage(LPCTSTR lpszTemplateName, UINT nIDCaption,
-        UINT nIDHeaderTitle, UINT nIDHeaderSubTitle = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
+                      UINT nIDHeaderTitle, UINT nIDHeaderSubTitle = 0, DWORD dwSize = sizeof(PROPSHEETPAGE));
 
-    virtual ~ISettingsPropPage();
+    ~ISettingsPropPage() override;
 
     enum SettingsRestart
     {
-        Restart_None = 0,
+        Restart_None   = 0,
         Restart_System = 1,
-        Restart_Cache = 2
+        Restart_Cache  = 2
     };
 
     /**
@@ -56,10 +56,9 @@ public:
     /**
      * Returns the restart code
      */
-    virtual SettingsRestart GetRestart() {return m_restart;}
+    virtual SettingsRestart GetRestart() { return m_restart; }
 
 protected:
-
     SettingsRestart m_restart;
     CToolTips       m_tooltips;
 
@@ -69,12 +68,12 @@ protected:
      * respective CRegDWORD etc. and check for success.
      */
 
-    template<class T, class Reg>
-    void Store (const T& value, Reg& registryKey)
+    template <class T, class Reg>
+    void Store(const T& value, Reg& registryKey)
     {
         registryKey = value;
         if (registryKey.GetLastError() != ERROR_SUCCESS)
-            TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), registryKey.getErrorString(), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
+            TaskDialog(GetSafeHwnd(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), registryKey.getErrorString(), TDCBF_OK_BUTTON, TD_ERROR_ICON, nullptr);
     }
 
     /**
@@ -82,9 +81,9 @@ protected:
      * makes sure that a control that has the focus is not disabled
      * before the focus is passed on to the next control.
      */
-    BOOL DialogEnableWindow(UINT nID, BOOL bEnable)
+    BOOL DialogEnableWindow(UINT nID, BOOL bEnable) const
     {
-        CWnd * pwndDlgItem = GetDlgItem(nID);
+        CWnd* pwndDlgItem = GetDlgItem(nID);
         return DialogEnableWindow(pwndDlgItem, bEnable);
     }
     /**
@@ -92,9 +91,9 @@ protected:
      * makes sure that a control that has the focus is not disabled
      * before the focus is passed on to the next control.
      */
-    BOOL DialogEnableWindow(CWnd * pwndDlgItem, BOOL bEnable)
+    BOOL DialogEnableWindow(CWnd* pwndDlgItem, BOOL bEnable) const
     {
-        if (pwndDlgItem == NULL)
+        if (pwndDlgItem == nullptr)
             return FALSE;
         if (bEnable)
             return pwndDlgItem->EnableWindow(bEnable);
@@ -117,12 +116,13 @@ protected:
     {
         EDITBALLOONTIP bt;
         bt.cbStruct = sizeof(bt);
-        bt.pszText = text;
+        bt.pszText  = text;
         bt.pszTitle = title;
-        bt.ttiIcon = nIcon;
-        SendDlgItemMessage(nIdControl, EM_SHOWBALLOONTIP, 0, (LPARAM)&bt);
+        bt.ttiIcon  = nIcon;
+        SendDlgItemMessage(nIdControl, EM_SHOWBALLOONTIP, 0, reinterpret_cast<LPARAM>(&bt));
     }
-    virtual BOOL OnInitDialog()
+
+    BOOL OnInitDialog() override
     {
         CPropertyPage::OnInitDialog();
         m_tooltips.Create(this);
@@ -130,10 +130,10 @@ protected:
 
         return FALSE;
     }
-    virtual BOOL PreTranslateMessage(MSG* pMsg)
+
+    BOOL PreTranslateMessage(MSG* pMsg) override
     {
         m_tooltips.RelayEvent(pMsg, this);
         return CPropertyPage::PreTranslateMessage(pMsg);
     }
-
 };

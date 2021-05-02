@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,32 +31,36 @@ class CSettingsProgsMerge : public ISettingsPropPage
 
 public:
     CSettingsProgsMerge();
-    virtual ~CSettingsProgsMerge();
+    ~CSettingsProgsMerge() override;
 
-    UINT GetIconID() override {return IDI_MERGE;}
-// Dialog Data
-    enum { IDD = IDD_SETTINGSPROGSMERGE };
+    UINT GetIconID() override { return IDI_MERGE; }
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSPROGSMERGE
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
 
     DECLARE_MESSAGE_MAP()
 public:
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnBnClickedExtmergeOff();
     afx_msg void OnBnClickedExtmergeOn();
     afx_msg void OnBnClickedExtmergebrowse();
     afx_msg void OnBnClickedExtmergeadvanced();
     afx_msg void OnEnChangeExtmerge();
+
 private:
-    bool IsExternal(const CString& path) const { return !path.IsEmpty() && path.Left(1) != L"#"; }
-    void CheckProgComment();
+    static bool IsExternal(const CString& path) { return !path.IsEmpty() && path.Left(1) != L"#"; }
+    void        CheckProgComment();
+
 private:
     CString         m_sMergePath;
     CRegString      m_regMergePath;
     int             m_iExtMerge;
     CSetProgsAdvDlg m_dlgAdvMerge;
-
     CFileDropEdit   m_cMergeEdit;
 };

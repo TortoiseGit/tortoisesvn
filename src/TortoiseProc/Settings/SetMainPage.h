@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013, 2015 - TortoiseSVN
+// Copyright (C) 2003-2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "SettingsPropPage.h"
 #include "registry.h"
 
-
 /**
  * \ingroup TortoiseProc
  * This is the main page of the settings. It contains all the most important
@@ -32,16 +31,19 @@ class CSetMainPage : public ISettingsPropPage
 
 public:
     CSetMainPage();
-    virtual ~CSetMainPage();
+    ~CSetMainPage() override;
 
-    UINT GetIconID() override {return IDI_GENERAL;}
+    UINT GetIconID() override { return IDI_GENERAL; }
 
-    enum { IDD = IDD_SETTINGSMAIN };
+    enum
+    {
+        IDD = IDD_SETTINGSMAIN
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnModified();
     afx_msg void OnBnClickedEditconfig();
     afx_msg void OnBnClickedChecknewerbutton();
@@ -51,13 +53,13 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    CRegString      m_regExtensions;
-    CString         m_sTempExtensions;
-    CComboBox       m_LanguageCombo;
-    CRegDWORD       m_regLanguage;
-    DWORD           m_dwLanguage;
-    CRegString      m_regLastCommitTime;
-    BOOL            m_bLastCommitTime;
-    CRegDWORD       m_regUseAero;
-    BOOL            m_bUseAero;
+    CRegString m_regExtensions;
+    CString    m_sTempExtensions;
+    CComboBox  m_languageCombo;
+    CRegDWORD  m_regLanguage;
+    DWORD      m_dwLanguage;
+    CRegString m_regLastCommitTime;
+    BOOL       m_bLastCommitTime;
+    CRegDWORD  m_regUseAero;
+    BOOL       m_bUseAero;
 };

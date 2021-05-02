@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2013, 2015 - TortoiseSVN
+// Copyright (C) 2011-2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include "SettingsPropPage.h"
 #include "registry.h"
 
-
 // SettingsDialogs3 dialog
 
 class SettingsDialogs3 : public ISettingsPropPage
@@ -29,25 +28,28 @@ class SettingsDialogs3 : public ISettingsPropPage
 
 public:
     SettingsDialogs3();
-    virtual ~SettingsDialogs3();
+    ~SettingsDialogs3() override;
 
-    UINT GetIconID() override {return IDI_DIALOGS;}
+    UINT GetIconID() override { return IDI_DIALOGS; }
 
     // Dialog Data
-    enum { IDD = IDD_SETTINGSDIALOGS3 };
+    enum
+    {
+        IDD = IDD_SETTINGSDIALOGS3
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnBnClicked();
 
     DECLARE_MESSAGE_MAP()
 private:
-    CRegDWORD       m_regPreFetch;
-    BOOL            m_bPreFetch;
-    CRegDWORD       m_regIncludeExternals;
-    BOOL            m_bIncludeExternals;
-    CRegDWORD       m_regIncludeLocks;
-    BOOL            m_bIncludeLocks;
+    CRegDWORD m_regPreFetch;
+    BOOL      m_bPreFetch;
+    CRegDWORD m_regIncludeExternals;
+    BOOL      m_bIncludeExternals;
+    CRegDWORD m_regIncludeLocks;
+    BOOL      m_bIncludeLocks;
 };

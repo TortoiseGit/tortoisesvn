@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,8 +30,8 @@ class CSetProgsAdvDlg : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CSetProgsAdvDlg)
 
 public:
-    CSetProgsAdvDlg(const CString& type, CWnd* pParent = NULL);
-    virtual ~CSetProgsAdvDlg();
+    CSetProgsAdvDlg(const CString& type, CWnd* pParent = nullptr);
+    ~CSetProgsAdvDlg() override;
     /**
      * Loads the tools from the registry.
      */
@@ -45,30 +45,32 @@ public:
      */
     int SaveData();
 
-    int AddExtension(const CString& ext, const CString& tool);
-    int FindExtension(const CString& ext);
-    void EnableBtns();
+    int  AddExtension(const CString& ext, const CString& tool);
+    int  FindExtension(const CString& ext) const;
+    void EnableBtns() const;
 
-    enum { IDD = IDD_SETTINGSPROGSADV };
+    enum
+    {
+        IDD = IDD_SETTINGSPROGSADV
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override;
+    BOOL         OnInitDialog() override;
     afx_msg void OnBnClickedAddtool();
     afx_msg void OnBnClickedEdittool();
     afx_msg void OnBnClickedRemovetool();
-    afx_msg void OnNMDblclkToollistctrl(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnLvnItemchangedToollistctrl(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMDblclkToollistctrl(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnLvnItemchangedToollistctrl(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnBnClickedRestoredefaults();
 
     DECLARE_MESSAGE_MAP()
 
 private:
-    CString         m_sType;                ///< tool type ("Diff" or "Merge")
-    CRegistryKey    m_regToolKey;           ///< registry key where the tools are stored
-    CListCtrl       m_ToolListCtrl;         ///< list control used for viewing and editing
+    CString      m_sType;        ///< tool type ("Diff" or "Merge")
+    CRegistryKey m_regToolKey;   ///< registry key where the tools are stored
+    CListCtrl    m_toolListCtrl; ///< list control used for viewing and editing
 
-    typedef std::map<CString,CString> TOOL_MAP;
-    TOOL_MAP        m_Tools;                ///< internal storage of all tools
-    bool            m_ToolsValid;           ///< true if m_Tools was ever read
+    std::map<CString, CString> m_tools;      ///< internal storage of all tools
+    bool                       m_toolsValid; ///< true if m_Tools was ever read
 };

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2013-2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2013-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,24 +17,22 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
 #include "SettingsProgsDiff.h"
 
-
 IMPLEMENT_DYNAMIC(CSettingsProgsDiff, ISettingsPropPage)
 CSettingsProgsDiff::CSettingsProgsDiff()
     : ISettingsPropPage(CSettingsProgsDiff::IDD)
-    , m_dlgAdvDiff(L"Diff")
     , m_iExtDiff(0)
     , m_iExtDiffProps(0)
+    , m_dlgAdvDiff(L"Diff")
     , m_regConvertBase(L"Software\\TortoiseSVN\\ConvertBase", TRUE)
     , m_bConvertBase(false)
     , m_iDiffViewer(0)
 {
-    m_regDiffPath = CRegString(L"Software\\TortoiseSVN\\Diff");
-    m_regDiffPropsPath = CRegString(L"Software\\TortoiseSVN\\DiffProps");
+    m_regDiffPath       = CRegString(L"Software\\TortoiseSVN\\Diff");
+    m_regDiffPropsPath  = CRegString(L"Software\\TortoiseSVN\\DiffProps");
     m_regDiffViewerPath = CRegString(L"Software\\TortoiseSVN\\DiffViewer");
 }
 
@@ -66,7 +64,6 @@ void CSettingsProgsDiff::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_DIFFVIEWER, m_cUnifiedDiffEdit);
 }
 
-
 BEGIN_MESSAGE_MAP(CSettingsProgsDiff, ISettingsPropPage)
     ON_BN_CLICKED(IDC_EXTDIFF_OFF, OnBnClickedExtdiffOff)
     ON_BN_CLICKED(IDC_EXTDIFF_ON, OnBnClickedExtdiffOn)
@@ -85,23 +82,22 @@ BEGIN_MESSAGE_MAP(CSettingsProgsDiff, ISettingsPropPage)
     ON_EN_CHANGE(IDC_DIFFVIEWER, OnEnChangeDiffviewer)
 END_MESSAGE_MAP()
 
-
 BOOL CSettingsProgsDiff::OnInitDialog()
 {
     ISettingsPropPage::OnInitDialog();
 
     m_sDiffPath = m_regDiffPath;
-    m_iExtDiff = IsExternal(m_sDiffPath);
+    m_iExtDiff  = IsExternal(m_sDiffPath);
 
     m_sDiffPropsPath = m_regDiffPropsPath;
-    m_iExtDiffProps = IsExternal(m_sDiffPropsPath);
+    m_iExtDiffProps  = IsExternal(m_sDiffPropsPath);
 
     SHAutoComplete(::GetDlgItem(m_hWnd, IDC_EXTDIFF), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 
     m_bConvertBase = m_regConvertBase;
 
     m_sDiffViewerPath = m_regDiffViewerPath;
-    m_iDiffViewer = IsExternal(m_sDiffViewerPath);
+    m_iDiffViewer     = IsExternal(m_sDiffViewerPath);
 
     SHAutoComplete(::GetDlgItem(m_hWnd, IDC_DIFFVIEWER), SHACF_FILESYSTEM | SHACF_FILESYS_ONLY);
 
@@ -180,7 +176,7 @@ void CSettingsProgsDiff::OnBnClickedExtdiffpropsOn()
 
 void CSettingsProgsDiff::OnBnClickedExtdiffbrowse()
 {
-    if (CAppUtils::FileOpenSave(m_sDiffPath, NULL, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
+    if (CAppUtils::FileOpenSave(m_sDiffPath, nullptr, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
     {
         UpdateData(FALSE);
         SetModified();
@@ -189,7 +185,7 @@ void CSettingsProgsDiff::OnBnClickedExtdiffbrowse()
 
 void CSettingsProgsDiff::OnBnClickedExtdiffpropsbrowse()
 {
-    if (CAppUtils::FileOpenSave(m_sDiffPropsPath, NULL, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
+    if (CAppUtils::FileOpenSave(m_sDiffPropsPath, nullptr, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
     {
         UpdateData(FALSE);
         SetModified();
@@ -268,7 +264,7 @@ void CSettingsProgsDiff::OnEnChangeDiffviewer()
 
 void CSettingsProgsDiff::OnBnClickedDiffviewerbrowse()
 {
-    if (CAppUtils::FileOpenSave(m_sDiffViewerPath, NULL, IDS_SETTINGS_SELECTDIFFVIEWER, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
+    if (CAppUtils::FileOpenSave(m_sDiffViewerPath, nullptr, IDS_SETTINGS_SELECTDIFFVIEWER, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
     {
         UpdateData(FALSE);
         SetModified();

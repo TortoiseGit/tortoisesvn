@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012, 2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,7 +22,6 @@
 #include "registry.h"
 #include "FileDropEdit.h"
 
-
 /**
  * \ingroup TortoiseProc
  * This is the Proxy page of the settings dialog. It gives the user the
@@ -34,16 +33,19 @@ class CSetProxyPage : public ISettingsPropPage
 
 public:
     CSetProxyPage();
-    virtual ~CSetProxyPage();
+    ~CSetProxyPage() override;
 
-    UINT GetIconID() override {return IDI_PROXY;}
+    UINT GetIconID() override { return IDI_PROXY; }
 
-    enum { IDD = IDD_SETTINGSPROXY };
+    enum
+    {
+        IDD = IDD_SETTINGSPROXY
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnApply();
-    virtual BOOL OnInitDialog();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnApply() override;
+    BOOL         OnInitDialog() override;
     afx_msg void OnChange();
     afx_msg void OnBnClickedEnable();
     afx_msg void OnBnClickedSshbrowse();
@@ -53,26 +55,26 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 private:
-    CString     m_serveraddress;
-    CRegString  m_regServeraddress;
-    CRegString  m_regServeraddress_copy;
-    UINT        m_serverport;
-    CRegString  m_regServerport;
-    CRegString  m_regServerport_copy;
-    CString     m_username;
-    CRegString  m_regUsername;
-    CRegString  m_regUsername_copy;
-    CString     m_password;
-    CRegString  m_regPassword;
-    CRegString  m_regPassword_copy;
-    UINT        m_timeout;
-    CRegString  m_regTimeout;
-    CRegString  m_regTimeout_copy;
-    BOOL        m_isEnabled;
-    CRegString  m_regSSHClient;
-    CString     m_SSHClient;
-    CRegString  m_regExceptions;
-    CRegString  m_regExceptions_copy;
-    CString     m_Exceptions;
+    CString       m_serverAddress;
+    CRegString    m_regServerAddress;
+    CRegString    m_regServerAddressCopy;
+    UINT          m_serverport;
+    CRegString    m_regServerport;
+    CRegString    m_regServerportCopy;
+    CString       m_username;
+    CRegString    m_regUsername;
+    CRegString    m_regUsernameCopy;
+    CString       m_password;
+    CRegString    m_regPassword;
+    CRegString    m_regPasswordCopy;
+    UINT          m_timeout;
+    CRegString    m_regTimeout;
+    CRegString    m_regTimeoutCopy;
+    BOOL          m_isEnabled;
+    CRegString    m_regSSHClient;
+    CString       m_sshClient;
+    CRegString    m_regExceptions;
+    CRegString    m_regExceptionsCopy;
+    CString       m_exceptions;
     CFileDropEdit m_cSSHClientEdit;
 };

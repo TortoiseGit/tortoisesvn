@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2010, 2013, 2015 - TortoiseSVN
+// Copyright (C) 2008-2010, 2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,12 +31,11 @@ CSetBugTraq::~CSetBugTraq()
 {
 }
 
-void CSetBugTraq::DoDataExchange(CDataExchange* pDX)
+void CSetBugTraq::DoDataExchange(CDataExchange *pDX)
 {
     ISettingsPropPage::DoDataExchange(pDX);
     DDX_Control(pDX, IDC_BUGTRAQLIST, m_cBugTraqList);
 }
-
 
 BEGIN_MESSAGE_MAP(CSetBugTraq, ISettingsPropPage)
     ON_BN_CLICKED(IDC_BUGTRAQREMOVEBUTTON, &CSetBugTraq::OnBnClickedRemovebutton)
@@ -57,8 +56,8 @@ BOOL CSetBugTraq::OnInitDialog()
 
     // clear all previously set header columns
     m_cBugTraqList.DeleteAllItems();
-    int c = m_cBugTraqList.GetHeaderCtrl()->GetItemCount()-1;
-    while (c>=0)
+    int c = m_cBugTraqList.GetHeaderCtrl()->GetItemCount() - 1;
+    while (c >= 0)
         m_cBugTraqList.DeleteColumn(c--);
 
     // now set up the requested columns
@@ -71,7 +70,7 @@ BOOL CSetBugTraq::OnInitDialog()
     temp.LoadString(IDS_SETTINGS_BUGTRAQ_PARAMETERSCOL);
     m_cBugTraqList.InsertColumn(2, temp);
 
-    SetWindowTheme(m_cBugTraqList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_cBugTraqList.GetSafeHwnd(), L"Explorer", nullptr);
 
     RebuildBugTraqList();
 
@@ -89,11 +88,11 @@ void CSetBugTraq::RebuildBugTraqList()
         int pos = m_cBugTraqList.InsertItem(m_cBugTraqList.GetItemCount(), (*it)->GetPath().GetWinPathString());
         m_cBugTraqList.SetItemText(pos, 1, (*it)->GetProviderName());
         m_cBugTraqList.SetItemText(pos, 2, (*it)->GetParameters());
-        m_cBugTraqList.SetItemData(pos, (DWORD_PTR)*it);
+        m_cBugTraqList.SetItemData(pos, reinterpret_cast<DWORD_PTR>(*it));
     }
 
-    int maxcol = m_cBugTraqList.GetHeaderCtrl()->GetItemCount()-1;
-    for (int col = 0; col <= maxcol; col++)
+    int maxCol = m_cBugTraqList.GetHeaderCtrl()->GetItemCount() - 1;
+    for (int col = 0; col <= maxCol; col++)
     {
         m_cBugTraqList.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
     }
@@ -103,7 +102,7 @@ void CSetBugTraq::RebuildBugTraqList()
 void CSetBugTraq::OnBnClickedRemovebutton()
 {
     // traversing from the end to the beginning so that the indices are not skipped
-    int index = m_cBugTraqList.GetItemCount()-1;
+    int index = m_cBugTraqList.GetItemCount() - 1;
     while (index >= 0)
     {
         if (m_cBugTraqList.GetItemState(index, LVIS_SELECTED) & LVIS_SELECTED)
@@ -126,7 +125,7 @@ void CSetBugTraq::OnBnClickedEditbutton()
     if (index == -1)
         return;
 
-    CBugTraqAssociation *assoc = (CBugTraqAssociation *)m_cBugTraqList.GetItemData(index);
+    CBugTraqAssociation *assoc = reinterpret_cast<CBugTraqAssociation *>(m_cBugTraqList.GetItemData(index));
     if (!assoc)
         return;
 
@@ -184,7 +183,7 @@ void CSetBugTraq::OnBnClickedBugTraqcopybutton()
     if (index == -1)
         return;
 
-    CBugTraqAssociation *assoc = (CBugTraqAssociation *)m_cBugTraqList.GetItemData(index);
+    CBugTraqAssociation *assoc = reinterpret_cast<CBugTraqAssociation *>(m_cBugTraqList.GetItemData(index));
     if (!assoc)
         return;
 

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2013, 2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,14 +31,17 @@ class CSetSavedDataPage : public ISettingsPropPage
 
 public:
     CSetSavedDataPage();
-    virtual ~CSetSavedDataPage();
+    ~CSetSavedDataPage() override;
 
-    UINT GetIconID() override {return IDI_SAVEDDATA;}
+    UINT GetIconID() override { return IDI_SAVEDDATA; }
 
-    enum { IDD = IDD_SETTINGSSAVEDDATA };
+    enum
+    {
+        IDD = IDD_SETTINGSSAVEDDATA
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
 
     DECLARE_MESSAGE_MAP()
 
@@ -53,19 +56,20 @@ protected:
     afx_msg void OnBnClickedHookclear();
     afx_msg void OnModified();
 
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
-    void DeleteViaShell(LPCTSTR path, UINT progressText);
+    BOOL OnInitDialog() override;
+    BOOL OnApply() override;
+    void DeleteViaShell(LPCWSTR path, UINT progressText) const;
+
 private:
-    CButton         m_btnUrlHistClear;
-    CButton         m_btnLogHistClear;
-    CButton         m_btnResizableHistClear;
-    CButton         m_btnAuthHistClear;
-    CButton         m_btnAuthHistClearSelect;
-    CButton         m_btnRepoLogClear;
-    CButton         m_btnActionLogShow;
-    CButton         m_btnActionLogClear;
-    CButton         m_btnHookClear;
-    DWORD           m_maxLines;
-    CRegDWORD       m_regMaxLines;
+    CButton   m_btnUrlHistClear;
+    CButton   m_btnLogHistClear;
+    CButton   m_btnResizableHistClear;
+    CButton   m_btnAuthHistClear;
+    CButton   m_btnAuthHistClearSelect;
+    CButton   m_btnRepoLogClear;
+    CButton   m_btnActionLogShow;
+    CButton   m_btnActionLogClear;
+    CButton   m_btnHookClear;
+    DWORD     m_maxLines;
+    CRegDWORD m_regMaxLines;
 };

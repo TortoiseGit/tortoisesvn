@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,45 +31,48 @@ class CSetLookAndFeelPage : public ISettingsPropPage
 
 public:
     CSetLookAndFeelPage();
-    virtual ~CSetLookAndFeelPage();
+    ~CSetLookAndFeelPage() override;
 
-    UINT GetIconID() override {return IDI_MISC;}
+    UINT GetIconID() override { return IDI_MISC; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSLOOKANDFEEL };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSLOOKANDFEEL
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnApply();
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnApply() override;
     afx_msg void OnBnClickedOnlyexplorer();
-    afx_msg void OnLvnItemchangedMenulist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnLvnItemchangedMenulist(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnChange();
     afx_msg void OnEnChangeNocontextpaths();
 
     DECLARE_MESSAGE_MAP()
 public:
-    virtual BOOL OnInitDialog();
+    BOOL OnInitDialog() override;
 
 private:
     void InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags, int iconWidth, int iconHeight);
 
-    CRegDWORD           m_regTopmenu;
-    CRegDWORD           m_regTopmenuhigh;
+    CRegDWORD m_regTopMenu;
+    CRegDWORD m_regTopMenuHigh;
 
-    CImageList          m_imgList;
-    CListCtrl           m_cMenuList;
-    BOOL                m_bModified;
-    unsigned __int64    m_topmenu;
-    bool                m_bBlock;
+    CImageList       m_imgList;
+    CListCtrl        m_cMenuList;
+    BOOL             m_bModified;
+    unsigned __int64 m_topMenu;
+    bool             m_bBlock;
 
-    CRegDWORD           m_regGetLockTop;
-    BOOL                m_bGetLockTop;
-    CRegDWORD           m_regHideMenus;
-    BOOL                m_bHideMenus;
+    CRegDWORD m_regGetLockTop;
+    BOOL      m_bGetLockTop;
+    CRegDWORD m_regHideMenus;
+    BOOL      m_bHideMenus;
 
-    CString             m_sNoContextPaths;
-    CRegString          m_regNoContextPaths;
+    CString    m_sNoContextPaths;
+    CRegString m_regNoContextPaths;
 
-    CRegDWORD           m_regEnableDragContextMenu;
-    BOOL                m_bEnableDragContextMenu;
+    CRegDWORD m_regEnableDragContextMenu;
+    BOOL      m_bEnableDragContextMenu;
 };

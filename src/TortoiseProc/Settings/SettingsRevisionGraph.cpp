@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2011, 2014-2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2011, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,23 +17,22 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SettingsRevisionGraph.h"
 
 IMPLEMENT_DYNAMIC(CSettingsRevisionGraph, ISettingsPropPage)
 
 CSettingsRevisionGraph::CSettingsRevisionGraph()
     : ISettingsPropPage(CSettingsRevisionGraph::IDD)
-    , regTrunkPattern (L"Software\\TortoiseSVN\\RevisionGraph\\TrunkPattern", L"trunk")
-    , regBranchesPattern (L"Software\\TortoiseSVN\\RevisionGraph\\BranchPattern", L"branches")
-    , regTagsPattern (L"Software\\TortoiseSVN\\RevisionGraph\\TagsPattern", L"tags")
-    , regTweakTrunkColors (L"Software\\TortoiseSVN\\RevisionGraph\\TweakTrunkColors", TRUE)
-    , regTweakTagsColors (L"Software\\TortoiseSVN\\RevisionGraph\\TweakTagsColors", TRUE)
-    , trunkPattern (regTrunkPattern)
-    , branchesPattern (regBranchesPattern)
-    , tagsPattern (regTagsPattern)
-    , tweakTrunkColors (regTweakTrunkColors)
-    , tweakTagsColors (regTweakTagsColors)
+    , regTrunkPattern(L"Software\\TortoiseSVN\\RevisionGraph\\TrunkPattern", L"trunk")
+    , regBranchesPattern(L"Software\\TortoiseSVN\\RevisionGraph\\BranchPattern", L"branches")
+    , regTagsPattern(L"Software\\TortoiseSVN\\RevisionGraph\\TagsPattern", L"tags")
+    , regTweakTrunkColors(L"Software\\TortoiseSVN\\RevisionGraph\\TweakTrunkColors", TRUE)
+    , regTweakTagsColors(L"Software\\TortoiseSVN\\RevisionGraph\\TweakTagsColors", TRUE)
+    , trunkPattern(regTrunkPattern)
+    , branchesPattern(regBranchesPattern)
+    , tagsPattern(regTagsPattern)
+    , tweakTrunkColors(regTweakTrunkColors)
+    , tweakTagsColors(regTweakTagsColors)
 {
 }
 
@@ -55,7 +54,6 @@ void CSettingsRevisionGraph::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_TWEAKTAGSCOLORS, tweakTagsColors);
 }
 
-
 BEGIN_MESSAGE_MAP(CSettingsRevisionGraph, ISettingsPropPage)
     ON_EN_CHANGE(IDC_TRUNKPATTERN, OnChanged)
     ON_EN_CHANGE(IDC_BRANCHESPATTERN, OnChanged)
@@ -74,11 +72,11 @@ BOOL CSettingsRevisionGraph::OnApply()
 {
     UpdateData();
 
-    Store (trunkPattern, regTrunkPattern);
-    Store (branchesPattern, regBranchesPattern);
-    Store (tagsPattern, regTagsPattern);
-    Store (tweakTrunkColors, regTweakTrunkColors);
-    Store (tweakTagsColors, regTweakTagsColors);
+    Store(trunkPattern, regTrunkPattern);
+    Store(branchesPattern, regBranchesPattern);
+    Store(tagsPattern, regTagsPattern);
+    Store(tweakTrunkColors, regTweakTrunkColors);
+    Store(tweakTagsColors, regTweakTagsColors);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
@@ -91,14 +89,14 @@ BOOL CSettingsRevisionGraph::OnInitDialog()
     // tooltips
 
     CString patternInfo;
-    patternInfo.LoadString (IDS_SETTINGS_PATTERN_INFO);
+    patternInfo.LoadString(IDS_SETTINGS_PATTERN_INFO);
 
     CString trunkTipText;
-    trunkTipText.LoadString (IDS_SETTINGS_TRUNKPATTERN);
+    trunkTipText.LoadString(IDS_SETTINGS_TRUNKPATTERN);
     CString branchTipText;
-    branchTipText.LoadString (IDS_SETTINGS_BRANCHESPATTERN);
+    branchTipText.LoadString(IDS_SETTINGS_BRANCHESPATTERN);
     CString tagTipText;
-    tagTipText.LoadString (IDS_SETTINGS_TAGSPATTERN);
+    tagTipText.LoadString(IDS_SETTINGS_TAGSPATTERN);
 
     m_tooltips.AddTool(IDC_TRUNKPATTERN, trunkTipText + patternInfo);
     m_tooltips.AddTool(IDC_BRANCHESPATTERN, branchTipText + patternInfo);
@@ -109,4 +107,3 @@ BOOL CSettingsRevisionGraph::OnInitDialog()
 
     return TRUE;
 }
-

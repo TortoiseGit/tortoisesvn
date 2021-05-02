@@ -17,14 +17,12 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SetMainPage.h"
 #include "AppUtils.h"
 #include "PathUtils.h"
 #include "DirFileEnum.h"
 #include "SVNProgressDlg.h"
 #include "../version.h"
-#include "SetMainPage.h"
 #include "SVN.h"
 #include "Libraries.h"
 #include "CreateProcessHelper.h"
@@ -32,15 +30,15 @@
 IMPLEMENT_DYNAMIC(CSetMainPage, ISettingsPropPage)
 CSetMainPage::CSetMainPage()
     : ISettingsPropPage(CSetMainPage::IDD)
+    , m_dwLanguage(0)
     , m_bLastCommitTime(FALSE)
     , m_bUseAero(TRUE)
-    , m_dwLanguage(0)
 {
     m_regLanguage = CRegDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
     CString temp(SVN_CONFIG_DEFAULT_GLOBAL_IGNORES);
-    m_regExtensions = CRegString(L"Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores", temp);
+    m_regExtensions     = CRegString(L"Software\\Tigris.org\\Subversion\\Config\\miscellany\\global-ignores", temp);
     m_regLastCommitTime = CRegString(L"Software\\Tigris.org\\Subversion\\Config\\miscellany\\use-commit-times", L"");
-    m_regUseAero = CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE);
+    m_regUseAero        = CRegDWORD(L"Software\\TortoiseSVN\\EnableDWMFrame", TRUE);
 }
 
 CSetMainPage::~CSetMainPage()
@@ -50,13 +48,12 @@ CSetMainPage::~CSetMainPage()
 void CSetMainPage::DoDataExchange(CDataExchange* pDX)
 {
     ISettingsPropPage::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_LANGUAGECOMBO, m_LanguageCombo);
-    m_dwLanguage = (DWORD)m_LanguageCombo.GetItemData(m_LanguageCombo.GetCurSel());
+    DDX_Control(pDX, IDC_LANGUAGECOMBO, m_languageCombo);
+    m_dwLanguage = static_cast<DWORD>(m_languageCombo.GetItemData(m_languageCombo.GetCurSel()));
     DDX_Text(pDX, IDC_TEMPEXTENSIONS, m_sTempExtensions);
     DDX_Check(pDX, IDC_COMMITFILETIMES, m_bLastCommitTime);
     DDX_Check(pDX, IDC_AERODWM, m_bUseAero);
 }
-
 
 BEGIN_MESSAGE_MAP(CSetMainPage, ISettingsPropPage)
     ON_CBN_SELCHANGE(IDC_LANGUAGECOMBO, OnModified)
@@ -77,17 +74,16 @@ BOOL CSetMainPage::OnInitDialog()
     EnableToolTips();
 
     m_sTempExtensions = m_regExtensions;
-    m_dwLanguage = m_regLanguage;
-    m_bUseAero = m_regUseAero;
-    HIGHCONTRAST hc = { sizeof(HIGHCONTRAST) };
+    m_dwLanguage      = m_regLanguage;
+    m_bUseAero        = m_regUseAero;
+    HIGHCONTRAST hc   = {sizeof(HIGHCONTRAST)};
     SystemParametersInfo(SPI_GETHIGHCONTRAST, sizeof(HIGHCONTRAST), &hc, FALSE);
     BOOL bEnabled = FALSE;
     DialogEnableWindow(IDC_AERODWM, ((hc.dwFlags & HCF_HIGHCONTRASTON) == 0) && SUCCEEDED(DwmIsCompositionEnabled(&bEnabled)) && bEnabled);
     if (IsWindows10OrGreater())
         GetDlgItem(IDC_AERODWM)->ShowWindow(SW_HIDE);
-    CString temp;
-    temp = m_regLastCommitTime;
-    m_bLastCommitTime = (temp.CompareNoCase(L"yes")==0);
+    CString temp      = m_regLastCommitTime;
+    m_bLastCommitTime = (temp.CompareNoCase(L"yes") == 0);
 
     m_tooltips.AddTool(IDC_TEMPEXTENSIONSLABEL, IDS_SETTINGS_TEMPEXTENSIONS_TT);
     m_tooltips.AddTool(IDC_TEMPEXTENSIONS, IDS_SETTINGS_TEMPEXTENSIONS_TT);
@@ -97,29 +93,29 @@ BOOL CSetMainPage::OnInitDialog()
     DialogEnableWindow(IDC_CREATELIB, TRUE);
 
     // set up the language selecting combobox
-    TCHAR buf[MAX_PATH] = { 0 };
+    TCHAR buf[MAX_PATH] = {0};
     GetLocaleInfo(1033, LOCALE_SNATIVELANGNAME, buf, _countof(buf));
-    m_LanguageCombo.AddString(buf);
-    m_LanguageCombo.SetItemData(0, 1033);
+    m_languageCombo.AddString(buf);
+    m_languageCombo.SetItemData(0, 1033);
     CString path = CPathUtils::GetAppParentDirectory();
-    path = path + L"Languages\\";
+    path         = path + L"Languages\\";
     CSimpleFileFind finder(path, L"*.dll");
-    int langcount = 1;
+    int             langCount = 1;
     while (finder.FindNextFileNoDirectories())
     {
-        CString file = finder.GetFilePath();
+        CString file     = finder.GetFilePath();
         CString filename = finder.GetFileName();
-        if (filename.Left(12).CompareNoCase(L"TortoiseProc")==0)
+        if (filename.Left(12).CompareNoCase(L"TortoiseProc") == 0)
         {
-            CString sVer = _T(STRPRODUCTVER);
-            sVer = sVer.Left(sVer.ReverseFind('.'));
+            CString sVer     = _T(STRPRODUCTVER);
+            sVer             = sVer.Left(sVer.ReverseFind('.'));
             CString sFileVer = CPathUtils::GetVersionFromFile(file).c_str();
-            sFileVer = sFileVer.Left(sFileVer.ReverseFind('.'));
-            if (sFileVer.Compare(sVer)!=0)
+            sFileVer         = sFileVer.Left(sFileVer.ReverseFind('.'));
+            if (sFileVer.Compare(sVer) != 0)
                 continue;
             CString sLoc = filename.Mid(12);
-            sLoc = sLoc.Left(sLoc.GetLength()-4);   // cut off ".dll"
-            if ((sLoc.Left(2) == L"32")&&(sLoc.GetLength() > 5))
+            sLoc         = sLoc.Left(sLoc.GetLength() - 4); // cut off ".dll"
+            if ((sLoc.Left(2) == L"32") && (sLoc.GetLength() > 5))
                 continue;
             DWORD loc = _tstoi(filename.Mid(12));
             GetLocaleInfo(loc, LOCALE_SNATIVELANGNAME, buf, _countof(buf));
@@ -131,15 +127,15 @@ BOOL CSetMainPage::OnInitDialog()
                 sLang += buf;
                 sLang += L")";
             }
-            m_LanguageCombo.AddString(sLang);
-            m_LanguageCombo.SetItemData(langcount++, loc);
+            m_languageCombo.AddString(sLang);
+            m_languageCombo.SetItemData(langCount++, loc);
         }
     }
 
-    for (int i=0; i<m_LanguageCombo.GetCount(); i++)
+    for (int i = 0; i < m_languageCombo.GetCount(); i++)
     {
-        if (m_LanguageCombo.GetItemData(i) == m_dwLanguage)
-            m_LanguageCombo.SetCurSel(i);
+        if (m_languageCombo.GetItemData(i) == m_dwLanguage)
+            m_languageCombo.SetCurSel(i);
     }
 
     UpdateData(FALSE);
@@ -154,25 +150,26 @@ void CSetMainPage::OnModified()
 BOOL CSetMainPage::OnApply()
 {
     UpdateData();
-    Store (m_dwLanguage, m_regLanguage);
+    Store(m_dwLanguage, m_regLanguage);
     if (m_sTempExtensions.Compare(CString(m_regExtensions)))
     {
-        Store (m_sTempExtensions, m_regExtensions);
+        Store(m_sTempExtensions, m_regExtensions);
         m_restart = Restart_Cache;
     }
-    Store ((m_bLastCommitTime ? L"yes" : L"no"), m_regLastCommitTime);
-    Store (m_bUseAero, m_regUseAero);
+    Store((m_bLastCommitTime ? L"yes" : L"no"), m_regLastCommitTime);
+    Store(m_bUseAero, m_regUseAero);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CSetMainPage::OnBnClickedEditconfig()
 {
     SVN::EnsureConfigFile();
 
-    PWSTR pszPath = NULL;
-    if (SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_CREATE, NULL, &pszPath) == S_OK)
+    PWSTR pszPath = nullptr;
+    if (SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_CREATE, nullptr, &pszPath) == S_OK)
     {
         CString path = pszPath;
         CoTaskMemFree(pszPath);
@@ -182,23 +179,25 @@ void CSetMainPage::OnBnClickedEditconfig()
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CSetMainPage::OnBnClickedChecknewerbutton()
 {
-    TCHAR com[MAX_PATH + 100] = { 0 };
-    GetModuleFileName(NULL, com, MAX_PATH);
+    TCHAR com[MAX_PATH + 100] = {0};
+    GetModuleFileName(nullptr, com, MAX_PATH);
 
     CCreateProcessHelper::CreateProcessDetached(com, L" /command:updatecheck /visible");
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CSetMainPage::OnBnClickedSounds()
 {
     CAppUtils::LaunchApplication(L"RUNDLL32 Shell32,Control_RunDLL mmsys.cpl,,2", NULL, false);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeStatic
 void CSetMainPage::OnBnClickedCreatelib()
 {
-    CoInitialize(NULL);
+    CoInitialize(nullptr);
     EnsureSVNLibrary();
     CoUninitialize();
 }
-

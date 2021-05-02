@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2012 - TortoiseSVN
+// Copyright (C) 2008, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,30 +30,33 @@ class CSetBugTraq : public ISettingsPropPage
     DECLARE_DYNAMIC(CSetBugTraq)
 
 public:
-    CSetBugTraq();   // standard constructor
-    virtual ~CSetBugTraq();
+    CSetBugTraq(); // standard constructor
+    ~CSetBugTraq() override;
 
-    UINT GetIconID() override {return IDI_BUGTRAQ;}
+    UINT GetIconID() override { return IDI_BUGTRAQ; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSBUGTRAQ };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSBUGTRAQ
+    };
 
 protected:
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
     afx_msg void OnBnClickedRemovebutton();
     afx_msg void OnBnClickedEditbutton();
     afx_msg void OnBnClickedAddbutton();
-    afx_msg void OnLvnItemchangedBugTraqlist(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnNMDblclkBugTraqlist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnLvnItemchangedBugTraqlist(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnNMDblclkBugTraqlist(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnBnClickedBugTraqcopybutton();
 
     DECLARE_MESSAGE_MAP()
 
-    void            RebuildBugTraqList();
+    void RebuildBugTraqList();
 
 protected:
     CBugTraqAssociations m_associations;
-    CListCtrl m_cBugTraqList;
+    CListCtrl            m_cBugTraqList;
 };

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2011, 2014, 2020 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2011, 2014, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "ToolAssocDlg.h"
 #include "AppUtils.h"
 #include "StringUtils.h"
@@ -42,13 +41,12 @@ void CToolAssocDlg::DoDataExchange(CDataExchange* pDX)
 
     if (pDX->m_bSaveAndValidate)
     {
-        if (m_sExtension.Find('/')<0)
+        if (m_sExtension.Find('/') < 0)
         {
             m_sExtension.TrimLeft(L"*");
         }
     }
 }
-
 
 BEGIN_MESSAGE_MAP(CToolAssocDlg, CStandAloneDialog)
     ON_BN_CLICKED(IDC_TOOLBROWSE, OnBnClickedToolbrowse)
@@ -89,7 +87,7 @@ BOOL CToolAssocDlg::PreTranslateMessage(MSG* pMsg)
 void CToolAssocDlg::OnBnClickedToolbrowse()
 {
     UpdateData(TRUE);
-    if (CAppUtils::FileOpenSave(m_sTool, NULL, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
+    if (CAppUtils::FileOpenSave(m_sTool, nullptr, IDS_SETTINGS_SELECTDIFF, IDS_PROGRAMSFILEFILTER, true, CString(), m_hWnd))
     {
         UpdateData(FALSE);
     }

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2012-2013, 2015, 2018, 2020 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012-2013, 2015, 2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,7 +29,7 @@ bool SettingsCommand::Execute()
     dlg.SetTreeViewMode(TRUE, TRUE, TRUE);
 
     int dpiX = CDPIAware::Instance().GetDPI(nullptr);
-    dlg.SetTreeWidth(220 * dpiX / 96);  // need to adjust manually if text gets longer
+    dlg.SetTreeWidth(220 * dpiX / 96); // need to adjust manually if text gets longer
     long page = parser.GetLongVal(L"page");
     dlg.SetActivePage(page);
     dlg.DoModal();

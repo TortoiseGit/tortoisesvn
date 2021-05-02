@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2014-2015 - TortoiseSVN
+// Copyright (C) 2003-2011, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "ToolAssocDlg.h"
 #include "SetProgsAdvDlg.h"
 #include "AppUtils.h"
@@ -27,7 +26,7 @@ CSetProgsAdvDlg::CSetProgsAdvDlg(const CString& type, CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CSetProgsAdvDlg::IDD, pParent)
     , m_sType(type)
     , m_regToolKey(L"Software\\TortoiseSVN\\" + type + L"Tools")
-    , m_ToolsValid(false)
+    , m_toolsValid(false)
 {
 }
 
@@ -37,51 +36,51 @@ CSetProgsAdvDlg::~CSetProgsAdvDlg()
 
 void CSetProgsAdvDlg::LoadData()
 {
-    if (!m_ToolsValid)
+    if (!m_toolsValid)
     {
-        m_Tools.clear();
+        m_tools.clear();
 
         CStringList values;
         if (m_regToolKey.getValues(values))
         {
-            for (POSITION pos = values.GetHeadPosition(); pos != NULL; )
+            for (POSITION pos = values.GetHeadPosition(); pos != nullptr;)
             {
-                CString ext = values.GetNext(pos);
-                m_Tools[ext] = CRegString(m_regToolKey.m_path + L"\\" + ext);
+                CString ext  = values.GetNext(pos);
+                m_tools[ext] = CRegString(m_regToolKey.m_path + L"\\" + ext);
             }
         }
 
-        m_ToolsValid = true;
+        m_toolsValid = true;
     }
 }
 
 int CSetProgsAdvDlg::SaveData()
 {
-    if (m_ToolsValid)
+    if (m_toolsValid)
     {
         // Remove all registry values which are no longer in the list
         CStringList values;
         if (m_regToolKey.getValues(values))
         {
-            for (POSITION pos = values.GetHeadPosition(); pos != NULL; )
+            for (POSITION pos = values.GetHeadPosition(); pos != nullptr;)
             {
                 CString ext = values.GetNext(pos);
-                if (m_Tools.find(ext) == m_Tools.end())
+                if (m_tools.find(ext) == m_tools.end())
                 {
-                    CRegString to_remove(m_regToolKey.m_path + L"\\" + ext);
-                    to_remove.removeValue();
+                    CRegString toRemove(m_regToolKey.m_path + L"\\" + ext);
+                    toRemove.removeValue();
                 }
             }
         }
 
         // Add or update new or changed values
-        for (TOOL_MAP::iterator it = m_Tools.begin(); it != m_Tools.end() ; ++it)
+        for (auto it = m_tools.begin(); it != m_tools.end(); ++it)
         {
-            CString ext = it->first;
-            CString new_value = it->second;
-            CRegString reg_value(m_regToolKey.m_path + L"\\" + ext);
-            if (reg_value != new_value)
-                reg_value = new_value;
+            CString    ext      = it->first;
+            CString    newValue = it->second;
+            CRegString regValue(m_regToolKey.m_path + L"\\" + ext);
+            if (regValue != newValue)
+                regValue = newValue;
         }
     }
     return 0;
@@ -90,31 +89,30 @@ int CSetProgsAdvDlg::SaveData()
 void CSetProgsAdvDlg::DoDataExchange(CDataExchange* pDX)
 {
     CResizableStandAloneDialog::DoDataExchange(pDX);
-    DDX_Control(pDX, IDC_TOOLLISTCTRL, m_ToolListCtrl);
+    DDX_Control(pDX, IDC_TOOLLISTCTRL, m_toolListCtrl);
 
     if (pDX->m_bSaveAndValidate)
     {
-        m_Tools.clear();
-        int count = m_ToolListCtrl.GetItemCount();
+        m_tools.clear();
+        int count = m_toolListCtrl.GetItemCount();
         for (int i = 0; i < count; i++)
         {
-            CString ext = m_ToolListCtrl.GetItemText(i, 0);
-            CString value = m_ToolListCtrl.GetItemText(i, 1);
-            m_Tools[ext] = value;
+            CString ext   = m_toolListCtrl.GetItemText(i, 0);
+            CString value = m_toolListCtrl.GetItemText(i, 1);
+            m_tools[ext]  = value;
         }
     }
     else
     {
-        m_ToolListCtrl.DeleteAllItems();
-        for (TOOL_MAP::iterator it = m_Tools.begin(); it != m_Tools.end() ; ++it)
+        m_toolListCtrl.DeleteAllItems();
+        for (auto it = m_tools.begin(); it != m_tools.end(); ++it)
         {
-            CString ext = it->first;
+            CString ext   = it->first;
             CString value = it->second;
             AddExtension(ext, value);
         }
     }
 }
-
 
 BEGIN_MESSAGE_MAP(CSetProgsAdvDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_ADDTOOL, OnBnClickedAddtool)
@@ -125,7 +123,6 @@ BEGIN_MESSAGE_MAP(CSetProgsAdvDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_RESTOREDEFAULTS, &CSetProgsAdvDlg::OnBnClickedRestoredefaults)
 END_MESSAGE_MAP()
 
-
 BOOL CSetProgsAdvDlg::OnInitDialog()
 {
     CResizableStandAloneDialog::OnInitDialog();
@@ -133,30 +130,29 @@ BOOL CSetProgsAdvDlg::OnInitDialog()
     ExtendFrameIntoClientArea(IDC_GROUP);
     m_aeroControls.SubclassOkCancel(this);
 
-    m_ToolListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
+    m_toolListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER);
 
-    m_ToolListCtrl.DeleteAllItems();
-    int c = m_ToolListCtrl.GetHeaderCtrl()->GetItemCount()-1;
-    while (c>=0)
-        m_ToolListCtrl.DeleteColumn(c--);
+    m_toolListCtrl.DeleteAllItems();
+    int c = m_toolListCtrl.GetHeaderCtrl()->GetItemCount() - 1;
+    while (c >= 0)
+        m_toolListCtrl.DeleteColumn(c--);
 
-    SetWindowTheme(m_ToolListCtrl.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_toolListCtrl.GetSafeHwnd(), L"Explorer", nullptr);
 
     CString temp;
     temp.LoadString(IDS_PROGS_EXTCOL);
-    m_ToolListCtrl.InsertColumn(0, temp);
+    m_toolListCtrl.InsertColumn(0, temp);
     temp.LoadString(IDS_PROGS_TOOLCOL);
-    m_ToolListCtrl.InsertColumn(1, temp);
+    m_toolListCtrl.InsertColumn(1, temp);
 
-    m_ToolListCtrl.SetRedraw(FALSE);
-    int mincol = 0;
-    int maxcol = m_ToolListCtrl.GetHeaderCtrl()->GetItemCount()-1;
-    int col;
-    for (col = mincol; col <= maxcol; col++)
+    m_toolListCtrl.SetRedraw(FALSE);
+    int minCol = 0;
+    int maxCol = m_toolListCtrl.GetHeaderCtrl()->GetItemCount() - 1;
+    for (int col = minCol; col <= maxCol; col++)
     {
-        m_ToolListCtrl.SetColumnWidth(col,LVSCW_AUTOSIZE_USEHEADER);
+        m_toolListCtrl.SetColumnWidth(col, LVSCW_AUTOSIZE_USEHEADER);
     }
-    m_ToolListCtrl.SetRedraw(TRUE);
+    m_toolListCtrl.SetRedraw(TRUE);
 
     temp.LoadString(m_sType == L"Diff" ? IDS_DLGTITLE_ADV_DIFF : IDS_DLGTITLE_ADV_MERGE);
     SetWindowText(temp);
@@ -180,34 +176,33 @@ BOOL CSetProgsAdvDlg::OnInitDialog()
 int CSetProgsAdvDlg::AddExtension(const CString& ext, const CString& tool)
 {
     // Note: list control automatically sorts entries
-    int index = m_ToolListCtrl.InsertItem(0, ext);
+    int index = m_toolListCtrl.InsertItem(0, ext);
     if (index >= 0)
     {
-        m_ToolListCtrl.SetItemText(index, 1, tool);
+        m_toolListCtrl.SetItemText(index, 1, tool);
     }
     return index;
 }
 
-int CSetProgsAdvDlg::FindExtension(const CString& ext)
+int CSetProgsAdvDlg::FindExtension(const CString& ext) const
 {
-    int count = m_ToolListCtrl.GetItemCount();
+    int count = m_toolListCtrl.GetItemCount();
 
     for (int i = 0; i < count; i++)
     {
-        if (m_ToolListCtrl.GetItemText(i, 0) == ext)
+        if (m_toolListCtrl.GetItemText(i, 0) == ext)
             return i;
     }
 
     return -1;
 }
 
-void CSetProgsAdvDlg::EnableBtns()
+void CSetProgsAdvDlg::EnableBtns() const
 {
-    bool enable_btns = m_ToolListCtrl.GetSelectedCount() > 0;
-    GetDlgItem(IDC_EDITTOOL)->EnableWindow(enable_btns);
-    GetDlgItem(IDC_REMOVETOOL)->EnableWindow(enable_btns);
+    bool enableBtns = m_toolListCtrl.GetSelectedCount() > 0;
+    GetDlgItem(IDC_EDITTOOL)->EnableWindow(enableBtns);
+    GetDlgItem(IDC_REMOVETOOL)->EnableWindow(enableBtns);
 }
-
 
 // CSetProgsPage message handlers
 
@@ -217,67 +212,68 @@ void CSetProgsAdvDlg::OnBnClickedAddtool()
     if (dlg.DoModal() == IDOK)
     {
         int index = AddExtension(dlg.m_sExtension, dlg.m_sTool);
-        m_ToolListCtrl.SetItemState(index, UINT(-1), LVIS_SELECTED|LVIS_FOCUSED);
-        m_ToolListCtrl.SetSelectionMark(index);
+        m_toolListCtrl.SetItemState(index, static_cast<UINT>(-1), LVIS_SELECTED | LVIS_FOCUSED);
+        m_toolListCtrl.SetSelectionMark(index);
     }
 
     EnableBtns();
-    m_ToolListCtrl.SetFocus();
+    m_toolListCtrl.SetFocus();
 }
 
 void CSetProgsAdvDlg::OnBnClickedEdittool()
 {
-    int selected = m_ToolListCtrl.GetSelectionMark();
+    int selected = m_toolListCtrl.GetSelectionMark();
     if (selected >= 0)
     {
         CToolAssocDlg dlg(m_sType, false);
-        dlg.m_sExtension = m_ToolListCtrl.GetItemText(selected, 0);
-        dlg.m_sTool = m_ToolListCtrl.GetItemText(selected, 1);
+        dlg.m_sExtension = m_toolListCtrl.GetItemText(selected, 0);
+        dlg.m_sTool      = m_toolListCtrl.GetItemText(selected, 1);
         if (dlg.DoModal() == IDOK)
         {
-            if (m_ToolListCtrl.DeleteItem(selected))
+            if (m_toolListCtrl.DeleteItem(selected))
             {
                 selected = AddExtension(dlg.m_sExtension, dlg.m_sTool);
-                m_ToolListCtrl.SetItemState(selected, UINT(-1), LVIS_SELECTED|LVIS_FOCUSED);
-                m_ToolListCtrl.SetSelectionMark(selected);
+                m_toolListCtrl.SetItemState(selected, static_cast<UINT>(-1), LVIS_SELECTED | LVIS_FOCUSED);
+                m_toolListCtrl.SetSelectionMark(selected);
             }
         }
     }
 
     EnableBtns();
-    m_ToolListCtrl.SetFocus();
+    m_toolListCtrl.SetFocus();
 }
 
 void CSetProgsAdvDlg::OnBnClickedRemovetool()
 {
-    int selected = m_ToolListCtrl.GetSelectionMark();
+    int selected = m_toolListCtrl.GetSelectionMark();
     if (selected >= 0)
     {
-        m_ToolListCtrl.SetRedraw(FALSE);
-        if (m_ToolListCtrl.DeleteItem(selected))
+        m_toolListCtrl.SetRedraw(FALSE);
+        if (m_toolListCtrl.DeleteItem(selected))
         {
-            if (m_ToolListCtrl.GetItemCount() <= selected)
+            if (m_toolListCtrl.GetItemCount() <= selected)
                 --selected;
             if (selected >= 0)
             {
-                m_ToolListCtrl.SetItemState(selected, UINT(-1), LVIS_SELECTED|LVIS_FOCUSED);
-                m_ToolListCtrl.SetSelectionMark(selected);
+                m_toolListCtrl.SetItemState(selected, static_cast<UINT>(-1), LVIS_SELECTED | LVIS_FOCUSED);
+                m_toolListCtrl.SetSelectionMark(selected);
             }
         }
-        m_ToolListCtrl.SetRedraw(TRUE);
+        m_toolListCtrl.SetRedraw(TRUE);
     }
 
     EnableBtns();
-    m_ToolListCtrl.SetFocus();
+    m_toolListCtrl.SetFocus();
 }
 
-void CSetProgsAdvDlg::OnNMDblclkToollistctrl(NMHDR * /* pNMHDR */, LRESULT *pResult)
+void CSetProgsAdvDlg::OnNMDblclkToollistctrl(NMHDR* /* pNMHDR */, LRESULT* pResult)
 {
     OnBnClickedEdittool();
     *pResult = 0;
 }
 
-void CSetProgsAdvDlg::OnLvnItemchangedToollistctrl(NMHDR * /* pNMHDR */, LRESULT *pResult)
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CSetProgsAdvDlg::OnLvnItemchangedToollistctrl(NMHDR* /* pNMHDR */, LRESULT* pResult)
 {
     EnableBtns();
 
@@ -287,7 +283,7 @@ void CSetProgsAdvDlg::OnLvnItemchangedToollistctrl(NMHDR * /* pNMHDR */, LRESULT
 void CSetProgsAdvDlg::OnBnClickedRestoredefaults()
 {
     CAppUtils::SetupDiffScripts(true, m_sType);
-    m_ToolsValid = FALSE;
+    m_toolsValid = FALSE;
     LoadData();
     UpdateData(FALSE);
     EnableBtns();

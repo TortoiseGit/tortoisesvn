@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009, 2011, 2013-2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009, 2011, 2013-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SetMisc.h"
 
 IMPLEMENT_DYNAMIC(CSetMisc, ISettingsPropPage)
@@ -34,24 +33,24 @@ CSetMisc::CSetMisc()
     , m_bAutoSelect(TRUE)
     , m_bIncompleteReopen(FALSE)
 {
-    m_regUnversionedRecurse = CRegDWORD(L"Software\\TortoiseSVN\\UnversionedRecurse", TRUE);
-    m_bUnversionedRecurse = (DWORD)m_regUnversionedRecurse;
-    m_regAutocompletion = CRegDWORD(L"Software\\TortoiseSVN\\Autocompletion", TRUE);
-    m_bAutocompletion = (DWORD)m_regAutocompletion;
+    m_regUnversionedRecurse    = CRegDWORD(L"Software\\TortoiseSVN\\UnversionedRecurse", TRUE);
+    m_bUnversionedRecurse      = static_cast<DWORD>(m_regUnversionedRecurse);
+    m_regAutocompletion        = CRegDWORD(L"Software\\TortoiseSVN\\Autocompletion", TRUE);
+    m_bAutocompletion          = static_cast<DWORD>(m_regAutocompletion);
     m_regAutocompletionTimeout = CRegDWORD(L"Software\\TortoiseSVN\\AutocompleteParseTimeout", 5);
-    m_dwAutocompletionTimeout = (DWORD)m_regAutocompletionTimeout;
-    m_regSpell = CRegDWORD(L"Software\\TortoiseSVN\\Spellchecker", FALSE);
-    m_bSpell = (DWORD)m_regSpell;
-    m_regCheckRepo = CRegDWORD(L"Software\\TortoiseSVN\\CheckRepo", FALSE);
-    m_bCheckRepo = (DWORD)m_regCheckRepo;
-    m_regMaxHistory = CRegDWORD(L"Software\\TortoiseSVN\\MaxHistoryItems", 25);
-    m_dwMaxHistory = (DWORD)m_regMaxHistory;
-    m_regShowLockDlg = CRegDWORD(L"Software\\TortoiseSVN\\ShowLockDlg", TRUE);
-    m_bShowLockDlg = (BOOL)(DWORD)m_regShowLockDlg;
-    m_regAutoSelect = CRegDWORD(L"Software\\TortoiseSVN\\SelectFilesForCommit", TRUE);
-    m_bAutoSelect = (BOOL)(DWORD)m_regAutoSelect;
-    m_regIncompleteReopen = CRegDWORD(L"Software\\TortoiseSVN\\IncompleteReopen", FALSE);
-    m_bIncompleteReopen = (BOOL)(DWORD)m_regIncompleteReopen;
+    m_dwAutocompletionTimeout  = static_cast<DWORD>(m_regAutocompletionTimeout);
+    m_regSpell                 = CRegDWORD(L"Software\\TortoiseSVN\\Spellchecker", FALSE);
+    m_bSpell                   = static_cast<DWORD>(m_regSpell);
+    m_regCheckRepo             = CRegDWORD(L"Software\\TortoiseSVN\\CheckRepo", FALSE);
+    m_bCheckRepo               = static_cast<DWORD>(m_regCheckRepo);
+    m_regMaxHistory            = CRegDWORD(L"Software\\TortoiseSVN\\MaxHistoryItems", 25);
+    m_dwMaxHistory             = static_cast<DWORD>(m_regMaxHistory);
+    m_regShowLockDlg           = CRegDWORD(L"Software\\TortoiseSVN\\ShowLockDlg", TRUE);
+    m_bShowLockDlg             = static_cast<BOOL>(static_cast<DWORD>(m_regShowLockDlg));
+    m_regAutoSelect            = CRegDWORD(L"Software\\TortoiseSVN\\SelectFilesForCommit", TRUE);
+    m_bAutoSelect              = static_cast<BOOL>(static_cast<DWORD>(m_regAutoSelect));
+    m_regIncompleteReopen      = CRegDWORD(L"Software\\TortoiseSVN\\IncompleteReopen", FALSE);
+    m_bIncompleteReopen        = static_cast<BOOL>(static_cast<DWORD>(m_regIncompleteReopen));
 }
 
 CSetMisc::~CSetMisc()
@@ -73,7 +72,6 @@ void CSetMisc::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_SELECTFILESONCOMMIT, m_bAutoSelect);
     DDX_Check(pDX, IDC_INCOMPLETEREOPEN, m_bIncompleteReopen);
 }
-
 
 BEGIN_MESSAGE_MAP(CSetMisc, ISettingsPropPage)
     ON_BN_CLICKED(IDC_UNVERSIONEDRECURSE, &CSetMisc::OnChanged)
@@ -97,15 +95,15 @@ BOOL CSetMisc::OnApply()
 {
     UpdateData();
 
-    Store (m_bUnversionedRecurse, m_regUnversionedRecurse);
-    Store (m_bAutocompletion, m_regAutocompletion);
-    Store (m_dwAutocompletionTimeout, m_regAutocompletionTimeout);
-    Store (m_bSpell, m_regSpell);
-    Store (m_bCheckRepo, m_regCheckRepo);
-    Store (m_dwMaxHistory, m_regMaxHistory);
-    Store (m_bShowLockDlg, m_regShowLockDlg);
-    Store (m_bAutoSelect, m_regAutoSelect);
-    Store (m_bIncompleteReopen, m_regIncompleteReopen);
+    Store(m_bUnversionedRecurse, m_regUnversionedRecurse);
+    Store(m_bAutocompletion, m_regAutocompletion);
+    Store(m_dwAutocompletionTimeout, m_regAutocompletionTimeout);
+    Store(m_bSpell, m_regSpell);
+    Store(m_bCheckRepo, m_regCheckRepo);
+    Store(m_dwMaxHistory, m_regMaxHistory);
+    Store(m_bShowLockDlg, m_regShowLockDlg);
+    Store(m_bAutoSelect, m_regAutoSelect);
+    Store(m_bIncompleteReopen, m_regIncompleteReopen);
 
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
@@ -128,4 +126,3 @@ BOOL CSetMisc::OnInitDialog()
     m_tooltips.AddTool(IDC_INCOMPLETEREOPEN, IDS_SETTINGS_INCOMPLETEREOPEN_TT);
     return TRUE;
 }
-

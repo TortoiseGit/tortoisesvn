@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2012, 2015 - TortoiseSVN
+// Copyright (C) 2007-2008, 2012, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,8 +18,6 @@
 //
 #pragma once
 #include "SettingsPropPage.h"
-#include "registry.h"
-#include "ILogReceiver.h"
 
 class CProgressDlg;
 
@@ -34,32 +32,35 @@ class CSetLogCache
 
 public:
     CSetLogCache();
-    virtual ~CSetLogCache();
+    ~CSetLogCache() override;
 
-    UINT GetIconID() override {return IDI_CACHE;}
+    UINT GetIconID() override { return IDI_CACHE; }
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGSLOGCACHE };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGSLOGCACHE
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+    void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL         OnInitDialog() override;
+    BOOL         OnApply() override;
     afx_msg void OnChanged();
     afx_msg void OnStandardDefaults();
     afx_msg void OnPowerDefaults();
-    virtual BOOL OnInitDialog();
-    virtual BOOL OnApply();
 
     DECLARE_MESSAGE_MAP()
 private:
-    BOOL            m_bEnableLogCaching;
-    BOOL            m_bSupportAmbiguousURL;
-    BOOL            m_bSupportAmbiguousUUID;
+    BOOL m_bEnableLogCaching;
+    BOOL m_bSupportAmbiguousURL;
+    BOOL m_bSupportAmbiguousUuid;
 
-    CComboBox       m_cDefaultConnectionState;
+    CComboBox m_cDefaultConnectionState;
 
-    DWORD           m_dwMaxHeadAge;
-    DWORD           m_dwCacheDropAge;
-    DWORD           m_dwCacheDropMaxSize;
+    DWORD m_dwMaxHeadAge;
+    DWORD m_dwCacheDropAge;
+    DWORD m_dwCacheDropMaxSize;
 
-    DWORD           m_dwMaxFailuresUntilDrop;
+    DWORD m_dwMaxFailuresUntilDrop;
 };

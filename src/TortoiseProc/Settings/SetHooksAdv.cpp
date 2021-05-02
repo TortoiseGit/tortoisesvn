@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2016 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,16 +17,16 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SetHooksAdv.h"
 #include "BrowseFolder.h"
 #include "AppUtils.h"
-
 
 IMPLEMENT_DYNAMIC(CSetHooksAdv, CResizableStandAloneDialog)
 
 CSetHooksAdv::CSetHooksAdv(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CSetHooksAdv::IDD, pParent)
+    , key()
+    , cmd()
     , m_bWait(FALSE)
     , m_bHide(FALSE)
     , m_bEnforce(FALSE)
@@ -47,7 +47,6 @@ void CSetHooksAdv::DoDataExchange(CDataExchange* pDX)
     DDX_Check(pDX, IDC_ENFORCECHECK, m_bEnforce);
     DDX_Control(pDX, IDC_HOOKTYPECOMBO, m_cHookTypeCombo);
 }
-
 
 BEGIN_MESSAGE_MAP(CSetHooksAdv, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_HOOKBROWSE, &CSetHooksAdv::OnBnClickedHookbrowse)
@@ -89,9 +88,9 @@ BOOL CSetHooksAdv::OnInitDialog()
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTLOCK)));
     m_cHookTypeCombo.SetItemData(index, post_lock_hook);
     // preselect the right hook type in the combobox
-    for (int i=0; i<m_cHookTypeCombo.GetCount(); ++i)
+    for (int i = 0; i < m_cHookTypeCombo.GetCount(); ++i)
     {
-        hooktype ht = (hooktype)m_cHookTypeCombo.GetItemData(i);
+        hooktype ht = static_cast<hooktype>(m_cHookTypeCombo.GetItemData(i));
         if (ht == key.htype)
         {
             CString str;
@@ -101,11 +100,11 @@ BOOL CSetHooksAdv::OnInitDialog()
         }
     }
 
-    m_sPath = key.path.GetWinPathString();
+    m_sPath        = key.path.GetWinPathString();
     m_sCommandLine = cmd.commandline;
-    m_bWait = cmd.bWait;
-    m_bHide = !cmd.bShow;
-    m_bEnforce = cmd.bEnforce;
+    m_bWait        = cmd.bWait;
+    m_bHide        = !cmd.bShow;
+    m_bEnforce     = cmd.bEnforce;
     UpdateData(FALSE);
 
     AddAnchor(IDC_HOOKTYPELABEL, TOP_LEFT, TOP_RIGHT);
@@ -130,16 +129,16 @@ BOOL CSetHooksAdv::OnInitDialog()
 void CSetHooksAdv::OnOK()
 {
     UpdateData();
-    int cursel = m_cHookTypeCombo.GetCurSel();
-    key.htype = unknown_hook;
-    if (cursel != CB_ERR)
+    int curSel = m_cHookTypeCombo.GetCurSel();
+    key.htype  = unknown_hook;
+    if (curSel != CB_ERR)
     {
-        key.htype = (hooktype)m_cHookTypeCombo.GetItemData(cursel);
-        key.path = CTSVNPath(m_sPath);
+        key.htype       = static_cast<hooktype>(m_cHookTypeCombo.GetItemData(curSel));
+        key.path        = CTSVNPath(m_sPath);
         cmd.commandline = m_sCommandLine;
-        cmd.bWait = !!m_bWait;
-        cmd.bShow = !m_bHide;
-        cmd.bEnforce = !!m_bEnforce;
+        cmd.bWait       = !!m_bWait;
+        cmd.bShow       = !m_bHide;
+        cmd.bEnforce    = !!m_bEnforce;
     }
     if (key.htype == unknown_hook)
     {
@@ -163,7 +162,7 @@ void CSetHooksAdv::OnBnClickedHookbrowse()
 {
     UpdateData();
     CBrowseFolder browser;
-    CString sPath;
+    CString       sPath;
     browser.SetInfo(CString(MAKEINTRESOURCE(IDS_SETTINGS_HOOKS_SELECTFOLDERPATH)));
     browser.m_style = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS;
     if (browser.Show(m_hWnd, sPath) == CBrowseFolder::OK)
@@ -180,7 +179,7 @@ void CSetHooksAdv::OnBnClickedHookcommandbrowse()
     if (!PathFileExists(sCmdLine))
         sCmdLine.Empty();
     // Display the Open dialog box.
-    if (CAppUtils::FileOpenSave(sCmdLine, NULL, IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE, IDS_COMMONFILEFILTER, true, CString(), m_hWnd))
+    if (CAppUtils::FileOpenSave(sCmdLine, nullptr, IDS_SETTINGS_HOOKS_SELECTSCRIPTFILE, IDS_COMMONFILEFILTER, true, CString(), m_hWnd))
     {
         m_sCommandLine = sCmdLine;
         UpdateData(FALSE);
@@ -191,4 +190,3 @@ void CSetHooksAdv::OnBnClickedHelp()
 {
     OnHelp();
 }
-

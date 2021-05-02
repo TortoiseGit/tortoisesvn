@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013, 2015 - TortoiseSVN
+// Copyright (C) 2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,7 +20,6 @@
 #include <afxcmn.h>
 #include "StandAloneDlg.h"
 
-
 // CSettingsClearAuth dialog
 
 class CSettingsClearAuth : public CResizableStandAloneDialog
@@ -28,24 +27,28 @@ class CSettingsClearAuth : public CResizableStandAloneDialog
     DECLARE_DYNAMIC(CSettingsClearAuth)
 
 public:
-    CSettingsClearAuth(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CSettingsClearAuth();
+    CSettingsClearAuth(CWnd* pParent = nullptr); // standard constructor
+    ~CSettingsClearAuth() override;
 
-// Dialog Data
-    enum { IDD = IDD_SETTINGS_CLEARAUTH };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_SETTINGS_CLEARAUTH
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
 
     DECLARE_MESSAGE_MAP()
 private:
     void FillAuthListControl();
 
 private:
-    CListCtrl   m_cAuthList;
-    bool        m_bShowPasswords;
+    CListCtrl m_cAuthList;
+    bool      m_bShowPasswords;
+
 public:
-    afx_msg void OnNMDblclkAuthdatalist(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnNMDblclkAuthdatalist(NMHDR* pNMHDR, LRESULT* pResult);
 };

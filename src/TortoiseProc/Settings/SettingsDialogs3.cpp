@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013-2016, 2020 - TortoiseSVN
+// Copyright (C) 2011, 2013-2016, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,9 +17,7 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "SettingsDialogs3.h"
-#include <afxdialogex.h>
 
 // SettingsDialogs3 dialog
 
@@ -95,10 +93,10 @@ BOOL SettingsDialogs3::OnApply()
     Store(m_bIncludeExternals, m_regIncludeExternals);
     Store(m_bIncludeLocks, m_regIncludeLocks);
 
-    char* pValue = nullptr;
-    size_t  len = 0;
-    errno_t err = _dupenv_s(&pValue, &len, "SVN_EXPERIMENTAL_COMMANDS");
-    auto    wasV3 = ((err == 0) && pValue && strstr(pValue, "shelf3"));
+    char*   pValue = nullptr;
+    size_t  len    = 0;
+    errno_t err    = _dupenv_s(&pValue, &len, "SVN_EXPERIMENTAL_COMMANDS");
+    auto    wasV3  = ((err == 0) && pValue && strstr(pValue, "shelf3"));
     free(pValue);
 
     auto       isV3     = IsDlgButtonChecked(IDC_SHELF_V3) != FALSE;
@@ -106,7 +104,7 @@ BOOL SettingsDialogs3::OnApply()
     regShelf            = isV3 ? L"shelf3" : L"shelf2";
     if (isV3 != wasV3)
     {
-        SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, (LPARAM)L"Environment", SMTO_ABORTIFHUNG, 5000, NULL);
+        SendMessageTimeout(HWND_BROADCAST, WM_SETTINGCHANGE, 0, reinterpret_cast<LPARAM>(L"Environment"), SMTO_ABORTIFHUNG, 5000, nullptr);
         m_restart = Restart_System;
     }
     SetModified(FALSE);

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2014, 2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2014, 2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,28 +17,26 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "DirFileEnum.h"
 #include "SetOverlayIcons.h"
 #include "SVNStatus.h"
-#include "AppUtils.h"
 #include "PathUtils.h"
-#include "ShellUpdater.h"
 #include "SmartHandle.h"
+#include "LoadIconEx.h"
 
 IMPLEMENT_DYNAMIC(CSetOverlayIcons, ISettingsPropPage)
 CSetOverlayIcons::CSetOverlayIcons()
     : ISettingsPropPage(CSetOverlayIcons::IDD)
     , m_selIndex(0)
 {
-    m_regNormal = CRegString(L"Software\\TortoiseOverlays\\NormalIcon");
-    m_regModified = CRegString(L"Software\\TortoiseOverlays\\ModifiedIcon");
-    m_regConflicted = CRegString(L"Software\\TortoiseOverlays\\ConflictIcon");
-    m_regReadOnly = CRegString(L"Software\\TortoiseOverlays\\ReadOnlyIcon");
-    m_regDeleted = CRegString(L"Software\\TortoiseOverlays\\DeletedIcon");
-    m_regLocked = CRegString(L"Software\\TortoiseOverlays\\LockedIcon");
-    m_regAdded = CRegString(L"Software\\TortoiseOverlays\\AddedIcon");
-    m_regIgnored = CRegString(L"Software\\TortoiseOverlays\\IgnoredIcon");
+    m_regNormal      = CRegString(L"Software\\TortoiseOverlays\\NormalIcon");
+    m_regModified    = CRegString(L"Software\\TortoiseOverlays\\ModifiedIcon");
+    m_regConflicted  = CRegString(L"Software\\TortoiseOverlays\\ConflictIcon");
+    m_regReadOnly    = CRegString(L"Software\\TortoiseOverlays\\ReadOnlyIcon");
+    m_regDeleted     = CRegString(L"Software\\TortoiseOverlays\\DeletedIcon");
+    m_regLocked      = CRegString(L"Software\\TortoiseOverlays\\LockedIcon");
+    m_regAdded       = CRegString(L"Software\\TortoiseOverlays\\AddedIcon");
+    m_regIgnored     = CRegString(L"Software\\TortoiseOverlays\\IgnoredIcon");
     m_regUnversioned = CRegString(L"Software\\TortoiseOverlays\\UnversionedIcon");
 }
 
@@ -53,7 +51,6 @@ void CSetOverlayIcons::DoDataExchange(CDataExchange* pDX)
     DDX_Control(pDX, IDC_ICONLIST, m_cIconList);
 }
 
-
 BEGIN_MESSAGE_MAP(CSetOverlayIcons, ISettingsPropPage)
     ON_BN_CLICKED(IDC_LISTRADIO, OnBnClickedListradio)
     ON_BN_CLICKED(IDC_SYMBOLRADIO, OnBnClickedSymbolradio)
@@ -66,15 +63,15 @@ BOOL CSetOverlayIcons::OnInitDialog()
 
     m_cIconList.SetExtendedStyle(LVS_EX_FULLROWSELECT | LVS_EX_DOUBLEBUFFER | LVS_EX_INFOTIP | LVS_EX_SUBITEMIMAGES);
     // get the path to our icon sets
-    TCHAR buf[MAX_PATH] = {0};
+    wchar_t buf[MAX_PATH] = {0};
     SHGetSpecialFolderPath(m_hWnd, buf, CSIDL_PROGRAM_FILES_COMMON, true);
     m_sIconPath = buf;
     m_sIconPath += L"\\TortoiseOverlays\\Icons";
     // list all the icon sets
-    CDirFileEnum filefinder(m_sIconPath);
-    bool isDir = false;
-    CString item;
-    while (filefinder.NextFile(item, &isDir))
+    CDirFileEnum fileFinder(m_sIconPath);
+    bool         isDir = false;
+    CString      item;
+    while (fileFinder.NextFile(item, &isDir))
     {
         if (!isDir)
             continue;
@@ -87,45 +84,45 @@ BOOL CSetOverlayIcons::OnInitDialog()
         // no custom icon set, use the default
         sModifiedIcon = m_sIconPath + L"\\XPStyle\\ModifiedIcon.ico";
     }
-    if (sModifiedIcon.Left(m_sIconPath.GetLength()).CompareNoCase(m_sIconPath)!=0)
+    if (sModifiedIcon.Left(m_sIconPath.GetLength()).CompareNoCase(m_sIconPath) != 0)
     {
         // an icon set outside our own installation? We don't support that,
         // so fall back to the default!
         sModifiedIcon = m_sIconPath + L"\\XPStyle\\ModifiedIcon.ico";
     }
     // the name of the icon set is the folder of the icon location
-    m_sOriginalIconSet = sModifiedIcon.Mid(m_sIconPath.GetLength()+1);
+    m_sOriginalIconSet = sModifiedIcon.Mid(m_sIconPath.GetLength() + 1);
     m_sOriginalIconSet = m_sOriginalIconSet.Left(m_sOriginalIconSet.ReverseFind('\\'));
     // now we have the name of the icon set. Set the combobox to show
     // that as selected
     CString ComboItem;
-    for (int i=0; i<m_cIconSet.GetCount(); ++i)
+    for (int i = 0; i < m_cIconSet.GetCount(); ++i)
     {
         m_cIconSet.GetLBText(i, ComboItem);
-        if (ComboItem.CompareNoCase(m_sOriginalIconSet)==0)
+        if (ComboItem.CompareNoCase(m_sOriginalIconSet) == 0)
             m_cIconSet.SetCurSel(i);
     }
-    WORD langID = (WORD)(DWORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", GetUserDefaultLangID());
-    TCHAR statustext[MAX_STATUS_STRING_LENGTH] = { 0 };
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, statustext, _countof(statustext), langID);
-    m_sNormal = statustext;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_modified, statustext, _countof(statustext), langID);
-    m_sModified = statustext;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_conflicted, statustext, _countof(statustext), langID);
-    m_sConflicted = statustext;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_deleted, statustext, _countof(statustext), langID);
-    m_sDeleted = statustext;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_added, statustext, _countof(statustext), langID);
-    m_sAdded = statustext;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_ignored, statustext, _countof(statustext), langID);
-    m_sIgnored = statustext;
-    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_unversioned, statustext, _countof(statustext), langID);
-    m_sUnversioned = statustext;
+    WORD  langID                               = static_cast<WORD>(static_cast<DWORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", GetUserDefaultLangID())));
+    TCHAR statusText[MAX_STATUS_STRING_LENGTH] = {0};
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, statusText, _countof(statusText), langID);
+    m_sNormal = statusText;
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_modified, statusText, _countof(statusText), langID);
+    m_sModified = statusText;
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_conflicted, statusText, _countof(statusText), langID);
+    m_sConflicted = statusText;
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_deleted, statusText, _countof(statusText), langID);
+    m_sDeleted = statusText;
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_added, statusText, _countof(statusText), langID);
+    m_sAdded = statusText;
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_ignored, statusText, _countof(statusText), langID);
+    m_sIgnored = statusText;
+    SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_unversioned, statusText, _countof(statusText), langID);
+    m_sUnversioned = statusText;
 
     m_sReadOnly.LoadString(IDS_SETTINGS_READONLYNAME);
     m_sLocked.LoadString(IDS_SETTINGS_LOCKEDNAME);
 
-    SetWindowTheme(m_cIconList.GetSafeHwnd(), L"Explorer", NULL);
+    SetWindowTheme(m_cIconList.GetSafeHwnd(), L"Explorer", nullptr);
 
     ShowIconSet(true);
 
@@ -136,20 +133,20 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
 {
     m_cIconList.SetRedraw(FALSE);
     m_cIconList.DeleteAllItems();
-    m_ImageList.DeleteImageList();
-    m_ImageListBig.DeleteImageList();
-    int smallIconWidth = GetSystemMetrics(SM_CXSMICON);
-    int smallIconHeight = GetSystemMetrics(SM_CYSMICON);
-    int normalIconWidth = GetSystemMetrics(SM_CXICON);
+    m_imageList.DeleteImageList();
+    m_imageListBig.DeleteImageList();
+    int smallIconWidth   = GetSystemMetrics(SM_CXSMICON);
+    int smallIconHeight  = GetSystemMetrics(SM_CYSMICON);
+    int normalIconWidth  = GetSystemMetrics(SM_CXICON);
     int normalIconHeight = GetSystemMetrics(SM_CYICON);
-    m_ImageList.Create(smallIconWidth, smallIconHeight, ILC_COLOR32 | ILC_MASK | ILC_HIGHQUALITYSCALE, 20, 10);
-    m_ImageListBig.Create(normalIconWidth, normalIconHeight, ILC_COLOR32 | ILC_MASK | ILC_HIGHQUALITYSCALE, 20, 10);
-    m_cIconList.SetImageList(&m_ImageList, LVSIL_SMALL);
-    m_cIconList.SetImageList(&m_ImageListBig, LVSIL_NORMAL);
+    m_imageList.Create(smallIconWidth, smallIconHeight, ILC_COLOR32 | ILC_MASK | ILC_HIGHQUALITYSCALE, 20, 10);
+    m_imageListBig.Create(normalIconWidth, normalIconHeight, ILC_COLOR32 | ILC_MASK | ILC_HIGHQUALITYSCALE, 20, 10);
+    m_cIconList.SetImageList(&m_imageList, LVSIL_SMALL);
+    m_cIconList.SetImageList(&m_imageListBig, LVSIL_NORMAL);
 
     // find all the icons of the selected icon set
     CString sIconSet;
-    int index = m_cIconSet.GetCurSel();
+    int     index = m_cIconSet.GetCurSel();
     if (index == CB_ERR)
     {
         // nothing selected. Shouldn't happen!
@@ -158,41 +155,40 @@ void CSetOverlayIcons::ShowIconSet(bool bSmallIcons)
     m_cIconSet.GetLBText(index, sIconSet);
     CString sIconSetPath = m_sIconPath + L"\\" + sIconSet;
 
-    CImageList * pImageList = bSmallIcons ? &m_ImageList : &m_ImageListBig;
-    int iconWidth = (bSmallIcons ? smallIconWidth : normalIconWidth);
-    int iconHeight = (bSmallIcons ? smallIconHeight : normalIconHeight);
-    CAutoIcon hNormalOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\NormalIcon.ico", iconWidth, iconHeight);
-    index = pImageList->Add(hNormalOverlay);
+    CImageList* pImageList     = bSmallIcons ? &m_imageList : &m_imageListBig;
+    int         iconWidth      = (bSmallIcons ? smallIconWidth : normalIconWidth);
+    int         iconHeight     = (bSmallIcons ? smallIconHeight : normalIconHeight);
+    CAutoIcon   hNormalOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\NormalIcon.ico", iconWidth, iconHeight);
+    index                      = pImageList->Add(hNormalOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 1));
     CAutoIcon hModifiedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\ModifiedIcon.ico", iconWidth, iconHeight);
-    index = pImageList->Add(hModifiedOverlay);
+    index                      = pImageList->Add(hModifiedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 2));
     CAutoIcon hConflictedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\ConflictIcon.ico", iconWidth, iconHeight);
-    index = pImageList->Add(hConflictedOverlay);
+    index                        = pImageList->Add(hConflictedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 3));
     CAutoIcon hReadOnlyOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\ReadOnlyIcon.ico", iconWidth, iconHeight);
-    index = pImageList->Add(hReadOnlyOverlay);
+    index                      = pImageList->Add(hReadOnlyOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 4));
     CAutoIcon hDeletedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\DeletedIcon.ico", iconWidth, iconHeight);
-    index = pImageList->Add(hDeletedOverlay);
+    index                     = pImageList->Add(hDeletedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 5));
     CAutoIcon hLockedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\LockedIcon.ico", iconWidth, iconHeight);
-    index = pImageList->Add(hLockedOverlay);
+    index                    = pImageList->Add(hLockedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 6));
     CAutoIcon hAddedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\AddedIcon.ico", iconWidth, iconHeight);
-    index = pImageList->Add(hAddedOverlay);
+    index                   = pImageList->Add(hAddedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 7));
     CAutoIcon hIgnoredOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\IgnoredIcon.ico", iconWidth, iconHeight);
-    index = pImageList->Add(hIgnoredOverlay);
+    index                     = pImageList->Add(hIgnoredOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 8));
     CAutoIcon hUnversionedOverlay = LoadIconEx(nullptr, sIconSetPath + L"\\UnversionedIcon.ico", iconWidth, iconHeight);
-    index = pImageList->Add(hUnversionedOverlay);
+    index                         = pImageList->Add(hUnversionedOverlay);
     VERIFY(pImageList->SetOverlayImage(index, 9));
 
-
     // create an image list with different file icons
-    CAutoIcon hIcon = GetFileIcon(L"Doesn't matter", bSmallIcons, FILE_ATTRIBUTE_DIRECTORY);
-    int folderindex = pImageList->Add(hIcon);   //folder
+    CAutoIcon hIcon       = GetFileIcon(L"Doesn't matter", bSmallIcons, FILE_ATTRIBUTE_DIRECTORY);
+    int       folderindex = pImageList->Add(hIcon); //folder
 
     //folders
     index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sNormal, folderindex);
@@ -247,30 +243,30 @@ void CSetOverlayIcons::AddFileTypeGroup(CString sFileType, bool bSmallIcons)
 {
     CAutoIcon hIcon = GetFileIcon(sFileType, bSmallIcons, FILE_ATTRIBUTE_NORMAL);
 
-    int imageindex = 0;
+    int imageIndex = 0;
     if (bSmallIcons)
-        imageindex = m_ImageList.Add(hIcon);
+        imageIndex = m_imageList.Add(hIcon);
     else
-        imageindex = m_ImageListBig.Add(hIcon);
+        imageIndex = m_imageListBig.Add(hIcon);
 
     int index = 0;
-    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sNormal+sFileType, imageindex);
+    index     = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sNormal + sFileType, imageIndex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(1), TVIS_OVERLAYMASK);
-    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sModified+sFileType, imageindex);
+    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sModified + sFileType, imageIndex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(2), TVIS_OVERLAYMASK);
-    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sConflicted+sFileType, imageindex);
+    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sConflicted + sFileType, imageIndex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(3), TVIS_OVERLAYMASK);
-    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sReadOnly+sFileType, imageindex);
+    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sReadOnly + sFileType, imageIndex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(4), TVIS_OVERLAYMASK);
-    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sDeleted+sFileType, imageindex);
+    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sDeleted + sFileType, imageIndex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(5), TVIS_OVERLAYMASK);
-    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sLocked+sFileType, imageindex);
+    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sLocked + sFileType, imageIndex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(6), TVIS_OVERLAYMASK);
-    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sAdded+sFileType, imageindex);
+    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sAdded + sFileType, imageIndex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(7), TVIS_OVERLAYMASK);
-    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sIgnored+sFileType, imageindex);
+    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sIgnored + sFileType, imageIndex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(8), TVIS_OVERLAYMASK);
-    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sUnversioned+sFileType, imageindex);
+    index = m_cIconList.InsertItem(m_cIconList.GetItemCount(), m_sUnversioned + sFileType, imageIndex);
     m_cIconList.SetItemState(index, INDEXTOOVERLAYMASK(9), TVIS_OVERLAYMASK);
 }
 
@@ -295,7 +291,7 @@ void CSetOverlayIcons::OnCbnSelchangeIconsetcombo()
     {
         m_cIconSet.GetLBText(m_selIndex, m_sIconSet);
     }
-    if (m_sIconSet.CompareNoCase(m_sOriginalIconSet)!=0)
+    if (m_sIconSet.CompareNoCase(m_sOriginalIconSet) != 0)
         SetModified();
 }
 
@@ -303,29 +299,29 @@ BOOL CSetOverlayIcons::OnApply()
 {
     UpdateData();
 
-    if ((!m_sIconSet.IsEmpty())&&(m_sIconSet.CompareNoCase(m_sOriginalIconSet)!=0))
+    if ((!m_sIconSet.IsEmpty()) && (m_sIconSet.CompareNoCase(m_sOriginalIconSet) != 0))
     {
         // the selected icon set has changed.
-        Store (m_sIconPath + L"\\" + m_sIconSet + L"\\NormalIcon.ico", m_regNormal);
-        Store (m_sIconPath + L"\\" + m_sIconSet + L"\\ModifiedIcon.ico", m_regModified);
-        Store (m_sIconPath + L"\\" + m_sIconSet + L"\\ConflictIcon.ico", m_regConflicted);
-        Store (m_sIconPath + L"\\" + m_sIconSet + L"\\ReadOnlyIcon.ico", m_regReadOnly);
-        Store (m_sIconPath + L"\\" + m_sIconSet + L"\\DeletedIcon.ico", m_regDeleted);
-        Store (m_sIconPath + L"\\" + m_sIconSet + L"\\LockedIcon.ico", m_regLocked);
-        Store (m_sIconPath + L"\\" + m_sIconSet + L"\\AddedIcon.ico", m_regAdded);
-        Store (m_sIconPath + L"\\" + m_sIconSet + L"\\IgnoredIcon.ico", m_regIgnored);
-        Store (m_sIconPath + L"\\" + m_sIconSet + L"\\UnversionedIcon.ico", m_regUnversioned);
+        Store(m_sIconPath + L"\\" + m_sIconSet + L"\\NormalIcon.ico", m_regNormal);
+        Store(m_sIconPath + L"\\" + m_sIconSet + L"\\ModifiedIcon.ico", m_regModified);
+        Store(m_sIconPath + L"\\" + m_sIconSet + L"\\ConflictIcon.ico", m_regConflicted);
+        Store(m_sIconPath + L"\\" + m_sIconSet + L"\\ReadOnlyIcon.ico", m_regReadOnly);
+        Store(m_sIconPath + L"\\" + m_sIconSet + L"\\DeletedIcon.ico", m_regDeleted);
+        Store(m_sIconPath + L"\\" + m_sIconSet + L"\\LockedIcon.ico", m_regLocked);
+        Store(m_sIconPath + L"\\" + m_sIconSet + L"\\AddedIcon.ico", m_regAdded);
+        Store(m_sIconPath + L"\\" + m_sIconSet + L"\\IgnoredIcon.ico", m_regIgnored);
+        Store(m_sIconPath + L"\\" + m_sIconSet + L"\\UnversionedIcon.ico", m_regUnversioned);
 
-        m_restart = Restart_System;
+        m_restart          = Restart_System;
         m_sOriginalIconSet = m_sIconSet;
     }
     SetModified(FALSE);
     return ISettingsPropPage::OnApply();
 }
 
-HICON CSetOverlayIcons::GetFileIcon(LPCTSTR fileType, bool bSmallIcons, DWORD attributes)
+HICON CSetOverlayIcons::GetFileIcon(LPCWSTR fileType, bool bSmallIcons, DWORD attributes)
 {
-    SHFILEINFO sfi = {0};
+    SHFILEINFO sfi = {nullptr};
 
     UINT flags = SHGFI_ICON | SHGFI_USEFILEATTRIBUTES;
     if (bSmallIcons)
