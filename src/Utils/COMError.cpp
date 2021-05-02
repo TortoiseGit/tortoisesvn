@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009 - TortoiseSVN
+// Copyright (C) 2009, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,30 +23,30 @@
 
 COMError::COMError(HRESULT hr)
 {
-    _com_error e(hr);
-    IErrorInfo *pIErrorInfo = NULL;
+    _com_error  e(hr);
+    IErrorInfo *pIErrorInfo = nullptr;
     GetErrorInfo(0, &pIErrorInfo);
 
-    if (pIErrorInfo == NULL)
+    if (pIErrorInfo == nullptr)
     {
-        e = _com_error(hr);
+        e       = _com_error(hr);
         message = e.ErrorMessage();
     }
     else
     {
-        e = _com_error(hr, pIErrorInfo);
-        message = e.ErrorMessage();
+        e                         = _com_error(hr, pIErrorInfo);
+        message                   = e.ErrorMessage();
         IErrorInfo *ptrIErrorInfo = e.ErrorInfo();
-        if (ptrIErrorInfo != NULL)
+        if (ptrIErrorInfo != nullptr)
         {
             // IErrorInfo Interface located
-            description = (WCHAR *)e.Description();
-            source = (WCHAR *)e.Source();
-            GUID tmpGuid = e.GUID();
-            RPC_WSTR guidStr = NULL;
+            description      = static_cast<wchar_t *>(e.Description());
+            source           = static_cast<wchar_t *>(e.Source());
+            GUID     tmpGuid = e.GUID();
+            RPC_WSTR guidStr = nullptr;
             // must link in Rpcrt4.lib for UuidToString
             UuidToString(&tmpGuid, &guidStr);
-            uuid = (WCHAR*)guidStr;
+            uuid = reinterpret_cast<wchar_t *>(guidStr);
             RpcStringFree(&guidStr);
 
             ptrIErrorInfo->Release();
@@ -56,5 +56,4 @@ COMError::COMError(HRESULT hr)
 
 COMError::~COMError()
 {
-
 }

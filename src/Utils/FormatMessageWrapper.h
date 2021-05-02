@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2014 - TortoiseSVN
+// Copyright (C) 2009-2010, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,17 +27,27 @@ class CFormatMessageWrapper
 {
 private:
     LPTSTR buffer;
-    DWORD result;
-    void release();
-    void obtainMessage() { obtainMessage(::GetLastError()); }
-    void obtainMessage(DWORD errorCode);
+    DWORD  result;
+    void   release();
+    void   obtainMessage() { obtainMessage(::GetLastError()); }
+    void   obtainMessage(DWORD errorCode);
 
 public:
-    CFormatMessageWrapper() : buffer(0), result(0) {obtainMessage();}
-    CFormatMessageWrapper(DWORD lastError) : buffer(0), result(0) {obtainMessage(lastError);}
+    CFormatMessageWrapper()
+        : buffer(nullptr)
+        , result(0)
+    {
+        obtainMessage();
+    }
+    CFormatMessageWrapper(DWORD lastError)
+        : buffer(nullptr)
+        , result(0)
+    {
+        obtainMessage(lastError);
+    }
     ~CFormatMessageWrapper() { release(); }
-    operator LPCTSTR() const { return buffer; }
-    operator bool() const { return result != 0; }
+         operator LPCWSTR() const { return buffer; }
+         operator bool() const { return result != 0; }
     bool operator!() const { return result == 0; }
 };
 
@@ -46,24 +56,23 @@ inline void CFormatMessageWrapper::obtainMessage(DWORD errorCode)
     // First of all release the buffer to make it possible to call this
     // method more than once on the same object.
     release();
-    result = FormatMessage (FORMAT_MESSAGE_ALLOCATE_BUFFER |
-                            FORMAT_MESSAGE_FROM_SYSTEM |
-                            FORMAT_MESSAGE_IGNORE_INSERTS,
-                            NULL,
-                            errorCode,
-                            MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
-                            (LPTSTR) &buffer,
-                            0,
-                            NULL
-                            );
+    result = FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER |
+                               FORMAT_MESSAGE_FROM_SYSTEM |
+                               FORMAT_MESSAGE_IGNORE_INSERTS,
+                           nullptr,
+                           errorCode,
+                           MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), // Default language
+                           reinterpret_cast<LPWSTR>(&buffer),
+                           0,
+                           nullptr);
 }
 
 inline void CFormatMessageWrapper::release()
 {
-    if(buffer != 0)
+    if (buffer != nullptr)
     {
         LocalFree(buffer);
-        buffer = 0;
+        buffer = nullptr;
     }
 
     result = 0;

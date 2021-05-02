@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007 - TortoiseSVN
+// Copyright (C) 2007-2007, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@
 // CHighResClock
 //
 //      high resolution clock for performance measurement.
-//      Depending on the hardware it will provide �sec
+//      Depending on the hardware it will provide µsec
 //      resolution and accuracy.
 //
 //      May not be available on all machines.
@@ -33,12 +33,10 @@
 class CHighResClock
 {
 private:
-
     LARGE_INTEGER start;
     LARGE_INTEGER taken;
 
 public:
-
     // construction (starts measurement) / destruction
 
     CHighResClock()
@@ -72,6 +70,6 @@ public:
     {
         LARGE_INTEGER frequency;
         QueryPerformanceFrequency(&frequency);
-        return (DWORD)((taken.QuadPart * 1000000) / frequency.QuadPart);
+        return static_cast<DWORD>((taken.QuadPart * 1000000) / frequency.QuadPart);
     }
 };

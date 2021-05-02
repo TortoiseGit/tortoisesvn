@@ -664,7 +664,7 @@ void CRevisionGraphWnd::DrawMarker(GraphicsDevice& graphics, const RectF& nodere
 
     // color
 
-    Color lightColor(CTheme::Instance().GetThemeColor(m_colors.GetColor(CColors::ctMarkers, colorIndex), true));
+    Color lightColor(CTheme::Instance().GetThemeColor(m_colors.GetColor(CColors::CtMarkers, colorIndex), true));
     Color darkColor(Darken(lightColor));
     Color borderColor(0x80000000);
 

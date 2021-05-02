@@ -89,9 +89,9 @@ void CSetHooks::RebuildHookList()
     // fill the list control with all the hooks
     if (CHooks::Instance().size())
     {
-        for (hookiterator it = CHooks::Instance().begin(); it != CHooks::Instance().end(); ++it)
+        for (auto it = CHooks::Instance().begin(); it != CHooks::Instance().end(); ++it)
         {
-            int pos = m_cHookList.InsertItem(m_cHookList.GetItemCount(), CHooks::Instance().GetHookTypeString(it->first.htype));
+            int pos = m_cHookList.InsertItem(m_cHookList.GetItemCount(), CHooks::Instance().GetHookTypeString(it->first.hType));
             m_cHookList.SetItemText(pos, 1, it->first.path.GetWinPathString());
             m_cHookList.SetItemText(pos, 2, it->second.commandline);
             m_cHookList.SetItemText(pos, 3, (it->second.bWait ? L"true" : L"false"));
@@ -116,8 +116,8 @@ void CSetHooks::OnBnClickedRemovebutton()
     {
         if (m_cHookList.GetItemState(index, LVIS_SELECTED) & LVIS_SELECTED)
         {
-            hookkey key;
-            key.htype = CHooks::GetHookType(static_cast<LPCWSTR>(m_cHookList.GetItemText(index, 0)));
+            HookKey key;
+            key.hType = CHooks::GetHookType(static_cast<LPCWSTR>(m_cHookList.GetItemText(index, 0)));
             key.path  = CTSVNPath(m_cHookList.GetItemText(index, 1));
             CHooks::Instance().Remove(key);
             m_cHookList.DeleteItem(index);
@@ -136,17 +136,17 @@ void CSetHooks::OnBnClickedEditbutton()
     {
         CSetHooksAdv dlg;
         int          index  = m_cHookList.GetNextSelectedItem(pos);
-        dlg.key.htype       = CHooks::GetHookType(static_cast<LPCWSTR>(m_cHookList.GetItemText(index, 0)));
+        dlg.key.hType       = CHooks::GetHookType(static_cast<LPCWSTR>(m_cHookList.GetItemText(index, 0)));
         dlg.key.path        = CTSVNPath(m_cHookList.GetItemText(index, 1));
         dlg.cmd.commandline = m_cHookList.GetItemText(index, 2);
         dlg.cmd.bWait       = (m_cHookList.GetItemText(index, 3).Compare(L"true") == 0);
         dlg.cmd.bShow       = (m_cHookList.GetItemText(index, 4).Compare(L"show") == 0);
         dlg.cmd.bEnforce    = (m_cHookList.GetItemText(index, 5).Compare(L"true") == 0);
-        hookkey key         = dlg.key;
+        HookKey key         = dlg.key;
         if (dlg.DoModal() == IDOK)
         {
             CHooks::Instance().Remove(key);
-            CHooks::Instance().Add(dlg.key.htype, dlg.key.path, dlg.cmd.commandline,
+            CHooks::Instance().Add(dlg.key.hType, dlg.key.path, dlg.cmd.commandline,
                                    dlg.cmd.bWait, dlg.cmd.bShow, dlg.cmd.bEnforce);
             RebuildHookList();
             SetModified();
@@ -159,7 +159,7 @@ void CSetHooks::OnBnClickedAddbutton()
     CSetHooksAdv dlg;
     if (dlg.DoModal() == IDOK)
     {
-        CHooks::Instance().Add(dlg.key.htype, dlg.key.path, dlg.cmd.commandline,
+        CHooks::Instance().Add(dlg.key.hType, dlg.key.path, dlg.cmd.commandline,
                                dlg.cmd.bWait, dlg.cmd.bShow, dlg.cmd.bEnforce);
         RebuildHookList();
         SetModified();
@@ -198,15 +198,15 @@ void CSetHooks::OnBnClickedHookcopybutton()
     {
         CSetHooksAdv dlg;
         int          index  = m_cHookList.GetNextSelectedItem(pos);
-        dlg.key.htype       = CHooks::GetHookType(static_cast<LPCWSTR>(m_cHookList.GetItemText(index, 0)));
+        dlg.key.hType       = CHooks::GetHookType(static_cast<LPCWSTR>(m_cHookList.GetItemText(index, 0)));
         dlg.cmd.commandline = m_cHookList.GetItemText(index, 2);
         dlg.cmd.bWait       = (m_cHookList.GetItemText(index, 3).Compare(L"true") == 0);
         dlg.cmd.bShow       = (m_cHookList.GetItemText(index, 4).Compare(L"show") == 0);
         dlg.cmd.bEnforce    = (m_cHookList.GetItemText(index, 5).Compare(L"true") == 0);
-        hookkey key         = dlg.key;
+        HookKey key         = dlg.key;
         if (dlg.DoModal() == IDOK)
         {
-            CHooks::Instance().Add(dlg.key.htype, dlg.key.path, dlg.cmd.commandline,
+            CHooks::Instance().Add(dlg.key.hType, dlg.key.path, dlg.cmd.commandline,
                                    dlg.cmd.bWait, dlg.cmd.bShow, dlg.cmd.bEnforce);
             RebuildHookList();
             SetModified();

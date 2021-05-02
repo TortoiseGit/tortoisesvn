@@ -1273,7 +1273,7 @@ void CSVNProgressDlg::ReportError(const CString& sError)
     m_bErrorsOccurred = true;
 }
 
-void CSVNProgressDlg::ReportHookFailed(hooktype t, const CTSVNPathList& pathList, const CString& error)
+void CSVNProgressDlg::ReportHookFailed(HookType t, const CTSVNPathList& pathList, const CString& error)
 {
     CString temp;
     temp.Format(IDS_ERR_HOOKFAILED, static_cast<LPCTSTR>(error));
@@ -2455,23 +2455,23 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             bOpenWith = true;
             [[fallthrough]];
         case ID_OPEN:
+        {
+            if (data == nullptr)
+                break;
+            CString sWinPath = GetPathFromColumnText(data->sPathColumnText);
+            if (!bOpenWith)
             {
-                if (data == nullptr)
-                    break;
-                CString sWinPath = GetPathFromColumnText(data->sPathColumnText);
-                if (!bOpenWith)
+                const INT_PTR ret = reinterpret_cast<INT_PTR>(ShellExecute(this->m_hWnd, nullptr, static_cast<LPCTSTR>(sWinPath), nullptr, nullptr, SW_SHOWNORMAL));
+                if ((ret <= HINSTANCE_ERROR) || bOpenWith)
                 {
-                    const INT_PTR ret = reinterpret_cast<INT_PTR>(ShellExecute(this->m_hWnd, nullptr, static_cast<LPCTSTR>(sWinPath), nullptr, nullptr, SW_SHOWNORMAL));
-                    if ((ret <= HINSTANCE_ERROR) || bOpenWith)
-                    {
-                        OPENASINFO oi  = {nullptr};
-                        oi.pcszFile    = sWinPath;
-                        oi.oaifInFlags = OAIF_EXEC;
-                        SHOpenWithDialog(GetSafeHwnd(), &oi);
-                    }
+                    OPENASINFO oi  = {nullptr};
+                    oi.pcszFile    = sWinPath;
+                    oi.oaifInFlags = OAIF_EXEC;
+                    SHOpenWithDialog(GetSafeHwnd(), &oi);
                 }
             }
-            break;
+        }
+        break;
     }
     DialogEnableWindow(IDOK, TRUE);
     theApp.DoWaitCursor(-1);
@@ -2568,7 +2568,7 @@ void CSVNProgressDlg::OnCommitFinished()
     if (SUCCEEDED(hr))
         return;
 
-    CString sErr = temp;
+    CString sErr = static_cast<LPCWSTR>(temp);
     if (!sErr.IsEmpty())
     {
         ReportError(sErr);
@@ -2653,7 +2653,7 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
     {
         if (exitCode)
         {
-            ReportHookFailed(post_update_hook, m_targetPathList, error);
+            ReportHookFailed(Post_Update_Hook, m_targetPathList, error);
             return false;
         }
     }
@@ -2777,7 +2777,7 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
     {
         if (exitCode)
         {
-            ReportHookFailed(post_update_hook, m_targetPathList, error);
+            ReportHookFailed(Post_Update_Hook, m_targetPathList, error);
             return false;
         }
     }
@@ -2886,7 +2886,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(pre_commit_hook, m_selectedPaths, error);
+            ReportHookFailed(Pre_Commit_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -2937,7 +2937,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(post_commit_hook, m_selectedPaths, error);
+            ReportHookFailed(Post_Commit_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3050,7 +3050,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(pre_commit_hook, m_selectedPaths, error);
+            ReportHookFailed(Pre_Commit_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3140,7 +3140,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitcode)
         {
-            ReportHookFailed(post_commit_hook, m_selectedPaths, error);
+            ReportHookFailed(Post_Commit_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3191,7 +3191,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(pre_commit_hook, m_selectedPaths, error);
+            ReportHookFailed(Pre_Commit_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3212,7 +3212,7 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(post_commit_hook, m_selectedPaths, error);
+            ReportHookFailed(Post_Commit_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3234,7 +3234,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(pre_lock_hook, m_selectedPaths, error);
+            ReportHookFailed(Pre_Lock_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3272,7 +3272,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
             {
                 if (exitCode)
                 {
-                    ReportHookFailed(pre_lock_hook, m_selectedPaths, error);
+                    ReportHookFailed(Pre_Lock_Hook, m_selectedPaths, error);
                     return false;
                 }
             }
@@ -3299,7 +3299,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(post_lock_hook, m_selectedPaths, error);
+            ReportHookFailed(Post_Lock_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3684,7 +3684,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(pre_update_hook, m_targetPathList, error);
+            ReportHookFailed(Pre_Update_Hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3702,7 +3702,7 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(post_update_hook, m_targetPathList, error);
+            ReportHookFailed(Post_Update_Hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3728,7 +3728,7 @@ bool CSVNProgressDlg::CmdSwitchBackToParent(CString& sWindowTitle, bool& /*local
     {
         if (exitCode)
         {
-            ReportHookFailed(pre_update_hook, m_targetPathList, error);
+            ReportHookFailed(Pre_Update_Hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3772,7 +3772,7 @@ bool CSVNProgressDlg::CmdSwitchBackToParent(CString& sWindowTitle, bool& /*local
     {
         if (exitCode)
         {
-            ReportHookFailed(post_update_hook, m_targetPathList, error);
+            ReportHookFailed(Post_Update_Hook, m_targetPathList, error);
             return false;
         }
     }
@@ -3792,7 +3792,7 @@ bool CSVNProgressDlg::CmdUnlock(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(pre_lock_hook, m_selectedPaths, error);
+            ReportHookFailed(Pre_Lock_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3805,7 +3805,7 @@ bool CSVNProgressDlg::CmdUnlock(CString& sWindowTitle, bool& /*localoperation*/)
     {
         if (exitCode)
         {
-            ReportHookFailed(post_lock_hook, m_selectedPaths, error);
+            ReportHookFailed(Post_Lock_Hook, m_selectedPaths, error);
             return false;
         }
     }
@@ -3873,7 +3873,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         // hook
         if (m_revision.IsHead() && !multipleUuiDs &&
             (wcRoots.size() > 1 ||
-             CHooks::Instance().IsHookPresent(pre_update_hook, m_targetPathList)))
+             CHooks::Instance().IsHookPresent(Pre_Update_Hook, m_targetPathList)))
         {
             // don't use the cache to fetch the HEAD here, we need the current HEAD
             m_revision = GetHEADRevision(m_targetPathList[0], false);
@@ -3888,7 +3888,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
         {
             if (exitCode)
             {
-                ReportHookFailed(pre_update_hook, m_targetPathList, error);
+                ReportHookFailed(Pre_Update_Hook, m_targetPathList, error);
                 return false;
             }
         }
@@ -3908,7 +3908,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             {
                 if (exitCode)
                 {
-                    ReportHookFailed(pre_update_hook, pl, error);
+                    ReportHookFailed(Pre_Update_Hook, pl, error);
                     return false;
                 }
             }
@@ -3933,7 +3933,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
             {
                 if (exitCode)
                 {
-                    ReportHookFailed(post_update_hook, m_targetPathList, error);
+                    ReportHookFailed(Post_Update_Hook, m_targetPathList, error);
                     return false;
                 }
             }
@@ -3957,7 +3957,7 @@ bool CSVNProgressDlg::CmdUpdate(CString& sWindowTitle, bool& /*localoperation*/)
                 {
                     if (exitCode)
                     {
-                        ReportHookFailed(post_update_hook, pl, error);
+                        ReportHookFailed(Post_Update_Hook, pl, error);
                         return false;
                     }
                 }
@@ -4428,7 +4428,7 @@ CTSVNPathList CSVNProgressDlg::GetPathsForUpdateHook(const CTSVNPathList& pathLi
     CTSVNPathList updatedList;
     if (!m_bNoHooks)
     {
-        if (CHooks::Instance().IsHookPresent(post_update_hook, pathList))
+        if (CHooks::Instance().IsHookPresent(Post_Update_Hook, pathList))
         {
             for (const auto& n : m_arData)
             {

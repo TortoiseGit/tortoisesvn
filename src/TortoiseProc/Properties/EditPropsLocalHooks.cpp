@@ -61,37 +61,37 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
     SetDlgItemText(IDC_HOOKCMLABEL, CString(MAKEINTRESOURCE(IDS_EDITPROPS_LOCALHOOK_CMDLINELABEL)));
     // initialize the combo box with all the hook types we have
     int index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_STARTCOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, start_commit_hook);
+    m_cHookTypeCombo.SetItemData(index, Start_Commit_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_CHECKCOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, check_commit_hook);
+    m_cHookTypeCombo.SetItemData(index, Check_Commit_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRECOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, pre_commit_hook);
+    m_cHookTypeCombo.SetItemData(index, Pre_Commit_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_MANUALPRECOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, manual_precommit);
+    m_cHookTypeCombo.SetItemData(index, Manual_Precommit);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTCOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, post_commit_hook);
+    m_cHookTypeCombo.SetItemData(index, Post_Commit_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_STARTUPDATE)));
-    m_cHookTypeCombo.SetItemData(index, start_update_hook);
+    m_cHookTypeCombo.SetItemData(index, Start_Update_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PREUPDATE)));
-    m_cHookTypeCombo.SetItemData(index, pre_update_hook);
+    m_cHookTypeCombo.SetItemData(index, Pre_Update_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTUPDATE)));
-    m_cHookTypeCombo.SetItemData(index, post_update_hook);
+    m_cHookTypeCombo.SetItemData(index, Post_Update_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRELOCK)));
-    m_cHookTypeCombo.SetItemData(index, pre_lock_hook);
+    m_cHookTypeCombo.SetItemData(index, Pre_Lock_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTLOCK)));
-    m_cHookTypeCombo.SetItemData(index, post_lock_hook);
+    m_cHookTypeCombo.SetItemData(index, Post_Lock_Hook);
 
     // the string consists of multiple lines, where one hook script is defined
     // as three lines:
     // line 1: command line to execute
     // line 2: 'true' or 'false' for waiting for the script to finish
     // line 3: 'show' or 'hide' on how to start the hook script
-    hookcmd cmd;
+    HookCmd cmd;
     cmd.bShow        = false;
     cmd.bWait        = false;
     cmd.bEnforce     = false;
     cmd.bApproved    = false;
-    hooktype hType   = unknown_hook;
+    HookType hType   = Unknown_Hook;
     CString  strHook = CUnicodeUtils::GetUnicode(m_propValue.c_str());
     if (!strHook.IsEmpty())
     {
@@ -118,34 +118,34 @@ BOOL CEditPropsLocalHooks::OnInitDialog()
         }
     }
 
-    if (hType == unknown_hook)
+    if (hType == Unknown_Hook)
     {
         if (m_propName.compare(PROJECTPROPNAME_STARTCOMMITHOOK) == 0)
-            hType = start_commit_hook;
+            hType = Start_Commit_Hook;
         if (m_propName.compare(PROJECTPROPNAME_CHECKCOMMITHOOK) == 0)
-            hType = pre_commit_hook;
+            hType = Pre_Commit_Hook;
         if (m_propName.compare(PROJECTPROPNAME_PRECOMMITHOOK) == 0)
-            hType = pre_commit_hook;
+            hType = Pre_Commit_Hook;
         if (m_propName.compare(PROJECTPROPNAME_MANUALPRECOMMITHOOK) == 0)
-            hType = manual_precommit;
+            hType = Manual_Precommit;
         if (m_propName.compare(PROJECTPROPNAME_POSTCOMMITHOOK) == 0)
-            hType = post_commit_hook;
+            hType = Post_Commit_Hook;
         if (m_propName.compare(PROJECTPROPNAME_STARTUPDATEHOOK) == 0)
-            hType = start_update_hook;
+            hType = Start_Update_Hook;
         if (m_propName.compare(PROJECTPROPNAME_PREUPDATEHOOK) == 0)
-            hType = pre_update_hook;
+            hType = Pre_Update_Hook;
         if (m_propName.compare(PROJECTPROPNAME_POSTUPDATEHOOK) == 0)
-            hType = post_update_hook;
+            hType = Post_Update_Hook;
         if (m_propName.compare(PROJECTPROPNAME_PRELOCKHOOK) == 0)
-            hType = pre_lock_hook;
+            hType = Pre_Lock_Hook;
         if (m_propName.compare(PROJECTPROPNAME_POSTLOCKHOOK) == 0)
-            hType = post_lock_hook;
+            hType = Post_Lock_Hook;
     }
 
     // preselect the right hook type in the combobox
     for (int i = 0; i < m_cHookTypeCombo.GetCount(); ++i)
     {
-        hooktype ht = static_cast<hooktype>(m_cHookTypeCombo.GetItemData(i));
+        auto ht = static_cast<HookType>(m_cHookTypeCombo.GetItemData(i));
         if (ht == hType)
         {
             CString str;
@@ -194,12 +194,12 @@ void CEditPropsLocalHooks::OnOK()
 {
     UpdateData();
     int      curSel = m_cHookTypeCombo.GetCurSel();
-    hooktype hType  = unknown_hook;
+    HookType hType  = Unknown_Hook;
     if (curSel != CB_ERR)
     {
-        hType = static_cast<hooktype>(m_cHookTypeCombo.GetItemData(curSel));
+        hType = static_cast<HookType>(m_cHookTypeCombo.GetItemData(curSel));
     }
-    if (hType == unknown_hook)
+    if (hType == Unknown_Hook)
     {
         m_tooltips.ShowBalloon(IDC_HOOKTYPECOMBO, IDS_ERR_NOHOOKTYPESPECIFIED, IDS_ERR_ERROR, TTI_ERROR);
         return;
@@ -219,39 +219,39 @@ void CEditPropsLocalHooks::OnOK()
 
     switch (hType)
     {
-        case start_commit_hook:
+        case Start_Commit_Hook:
             m_propName = PROJECTPROPNAME_STARTCOMMITHOOK;
             break;
-        case check_commit_hook:
+        case Check_Commit_Hook:
             m_propName = PROJECTPROPNAME_CHECKCOMMITHOOK;
             break;
-        case pre_commit_hook:
+        case Pre_Commit_Hook:
             m_propName = PROJECTPROPNAME_PRECOMMITHOOK;
             break;
-        case manual_precommit:
+        case Manual_Precommit:
             m_propName = PROJECTPROPNAME_MANUALPRECOMMITHOOK;
             break;
-        case post_commit_hook:
+        case Post_Commit_Hook:
             m_propName = PROJECTPROPNAME_POSTCOMMITHOOK;
             break;
-        case start_update_hook:
+        case Start_Update_Hook:
             m_propName = PROJECTPROPNAME_STARTUPDATEHOOK;
             break;
-        case pre_update_hook:
+        case Pre_Update_Hook:
             m_propName = PROJECTPROPNAME_PREUPDATEHOOK;
             break;
-        case post_update_hook:
+        case Post_Update_Hook:
             m_propName = PROJECTPROPNAME_POSTUPDATEHOOK;
             break;
-        case pre_lock_hook:
+        case Pre_Lock_Hook:
             m_propName = PROJECTPROPNAME_PRELOCKHOOK;
             break;
-        case post_lock_hook:
+        case Post_Lock_Hook:
             m_propName = PROJECTPROPNAME_POSTLOCKHOOK;
             break;
-        case unknown_hook:
+        case Unknown_Hook:
             break;
-        case pre_connect_hook:
+        case Pre_Connect_Hook:
             break;
         default:
             break;

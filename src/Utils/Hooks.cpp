@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2018 - TortoiseSVN
+// Copyright (C) 2007-2018, 2021 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -27,24 +27,22 @@
 #include "SVNHelpers.h"
 #include "SmartHandle.h"
 
-CHooks* CHooks::m_pInstance = NULL;
+CHooks* CHooks::m_pInstance = nullptr;
 
 CHooks::CHooks()
     : m_lastPreConnectTicks(0)
-    , m_PathsConvertedToUrls(false)
+    , m_pathsConvertedToUrls(false)
 {
 }
 
-CHooks::~CHooks()
-{
-};
+CHooks::~CHooks(){};
 
 bool CHooks::Create()
 {
-    if (m_pInstance == NULL)
+    if (m_pInstance == nullptr)
         m_pInstance = new CHooks();
-    CRegString reghooks = CRegString(L"Software\\TortoiseSVN\\hooks");
-    CString strhooks = reghooks;
+    CRegString regHooks = CRegString(L"Software\\TortoiseSVN\\hooks");
+    CString    strHooks = regHooks;
     // now fill the map with all the hooks defined in the string
     // the string consists of multiple lines, where one hook script is defined
     // as six lines:
@@ -54,93 +52,93 @@ bool CHooks::Create()
     // line 4: 'true' or 'false' for waiting for the script to finish
     // line 5: 'show' or 'hide' on how to start the hook script
     // line 6: 'enforce' on whether to ask the user for permission (optional)
-    hookkey key;
-    int pos = 0;
-    hookcmd cmd;
-    while ((pos = strhooks.Find('\n')) >= 0)
+    HookKey key{};
+    int     pos = 0;
+    HookCmd cmd{};
+    while ((pos = strHooks.Find('\n')) >= 0)
     {
         // line 1
-        key.htype = GetHookType(strhooks.Mid(0, pos));
-        if (pos+1 < strhooks.GetLength())
-            strhooks = strhooks.Mid(pos+1);
+        key.hType = GetHookType(strHooks.Mid(0, pos));
+        if (pos + 1 < strHooks.GetLength())
+            strHooks = strHooks.Mid(pos + 1);
         else
-            strhooks.Empty();
+            strHooks.Empty();
         bool bComplete = false;
-        if ((pos = strhooks.Find('\n')) >= 0)
+        if ((pos = strHooks.Find('\n')) >= 0)
         {
             // line 2
-            key.path = CTSVNPath(strhooks.Mid(0, pos));
-            if (pos+1 < strhooks.GetLength())
-                strhooks = strhooks.Mid(pos+1);
+            key.path = CTSVNPath(strHooks.Mid(0, pos));
+            if (pos + 1 < strHooks.GetLength())
+                strHooks = strHooks.Mid(pos + 1);
             else
-                strhooks.Empty();
-            if ((pos = strhooks.Find('\n')) >= 0)
+                strHooks.Empty();
+            if ((pos = strHooks.Find('\n')) >= 0)
             {
                 // line 3
-                cmd.commandline = strhooks.Mid(0, pos);
-                if (pos+1 < strhooks.GetLength())
-                    strhooks = strhooks.Mid(pos+1);
+                cmd.commandline = strHooks.Mid(0, pos);
+                if (pos + 1 < strHooks.GetLength())
+                    strHooks = strHooks.Mid(pos + 1);
                 else
-                    strhooks.Empty();
+                    strHooks.Empty();
 
-                if ((pos = strhooks.Find('\n')) >= 0)
+                if ((pos = strHooks.Find('\n')) >= 0)
                 {
                     // line 4
-                    cmd.bWait = (strhooks.Mid(0, pos).CompareNoCase(L"true")==0);
-                    if (pos+1 < strhooks.GetLength())
-                        strhooks = strhooks.Mid(pos+1);
+                    cmd.bWait = (strHooks.Mid(0, pos).CompareNoCase(L"true") == 0);
+                    if (pos + 1 < strHooks.GetLength())
+                        strHooks = strHooks.Mid(pos + 1);
                     else
-                        strhooks.Empty();
-                    if ((pos = strhooks.Find('\n')) >= 0)
+                        strHooks.Empty();
+                    if ((pos = strHooks.Find('\n')) >= 0)
                     {
                         // line 5
-                        cmd.bShow = (strhooks.Mid(0, pos).CompareNoCase(L"show")==0);
-                        if (pos+1 < strhooks.GetLength())
-                            strhooks = strhooks.Mid(pos+1);
+                        cmd.bShow = (strHooks.Mid(0, pos).CompareNoCase(L"show") == 0);
+                        if (pos + 1 < strHooks.GetLength())
+                            strHooks = strHooks.Mid(pos + 1);
                         else
-                            strhooks.Empty();
+                            strHooks.Empty();
 
                         cmd.bEnforce = false;
-                        if ((pos = strhooks.Find('\n')) >= 0)
+                        if ((pos = strHooks.Find('\n')) >= 0)
                         {
                             // line 6 (optional)
-                            if (GetHookType(strhooks.Mid(0, pos)) == unknown_hook)
+                            if (GetHookType(strHooks.Mid(0, pos)) == Unknown_Hook)
                             {
-                                cmd.bEnforce = (strhooks.Mid(0, pos).CompareNoCase(L"enforce")==0);
-                                if (pos+1 < strhooks.GetLength())
-                                    strhooks = strhooks.Mid(pos+1);
+                                cmd.bEnforce = (strHooks.Mid(0, pos).CompareNoCase(L"enforce") == 0);
+                                if (pos + 1 < strHooks.GetLength())
+                                    strHooks = strHooks.Mid(pos + 1);
                                 else
-                                    strhooks.Empty();
+                                    strHooks.Empty();
                             }
                         }
-                        cmd.bApproved = true;   // user configured scripts are pre-approved
-                        bComplete = true;
+                        cmd.bApproved = true; // user configured scripts are pre-approved
+                        bComplete     = true;
                     }
                 }
             }
         }
         if (bComplete)
         {
-            m_pInstance->insert(std::pair<hookkey, hookcmd>(key, cmd));
+            m_pInstance->insert(std::pair<HookKey, HookCmd>(key, cmd));
         }
     }
     return true;
 }
 
-void CHooks::SetProjectProperties( const CTSVNPath& wcRootPath, const ProjectProperties& pp )
+void CHooks::SetProjectProperties(const CTSVNPath& wcRootPath, const ProjectProperties& pp)
 {
-    m_wcRootPath = wcRootPath;
+    m_wcRootPath   = wcRootPath;
     auto propsPath = pp.GetPropsPath().GetWinPathString();
-    ParseAndInsertProjectProperty(check_commit_hook, pp.sCheckCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(pre_commit_hook, pp.sPreCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(start_commit_hook, pp.sStartCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(post_commit_hook, pp.sPostCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(pre_update_hook, pp.sPreUpdateHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(start_update_hook, pp.sStartUpdateHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(post_update_hook, pp.sPostUpdateHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(manual_precommit, pp.sManualPreCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(pre_lock_hook, pp.sPreLockHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
-    ParseAndInsertProjectProperty(post_lock_hook, pp.sPostLockHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Check_Commit_Hook, pp.sCheckCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Pre_Commit_Hook, pp.sPreCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Start_Commit_Hook, pp.sStartCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Post_Commit_Hook, pp.sPostCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Pre_Update_Hook, pp.sPreUpdateHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Start_Update_Hook, pp.sStartUpdateHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Post_Update_Hook, pp.sPostUpdateHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Manual_Precommit, pp.sManualPreCommitHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Pre_Lock_Hook, pp.sPreLockHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
+    ParseAndInsertProjectProperty(Post_Lock_Hook, pp.sPostLockHook, wcRootPath, propsPath, pp.sRepositoryPathUrl, pp.sRepositoryRootUrl);
 }
 
 CHooks& CHooks::Instance()
@@ -155,111 +153,115 @@ void CHooks::Destroy()
 
 bool CHooks::Save()
 {
-    CString strhooks;
-    for (hookiterator it = begin(); it != end(); ++it)
+    CString strHooks;
+    for (auto it = begin(); it != end(); ++it)
     {
-        strhooks += GetHookTypeString(it->first.htype);
-        strhooks += '\n';
-        strhooks += it->first.path.GetWinPathString();
-        strhooks += '\n';
-        strhooks += it->second.commandline;
-        strhooks += '\n';
-        strhooks += (it->second.bWait ? L"true" : L"false");
-        strhooks += '\n';
-        strhooks += (it->second.bShow ? L"show" : L"hide");
-        strhooks += '\n';
-        strhooks += (it->second.bEnforce ? L"enforce" : L"ask");
-        strhooks += '\n';
+        strHooks += GetHookTypeString(it->first.hType);
+        strHooks += '\n';
+        strHooks += it->first.path.GetWinPathString();
+        strHooks += '\n';
+        strHooks += it->second.commandline;
+        strHooks += '\n';
+        strHooks += (it->second.bWait ? L"true" : L"false");
+        strHooks += '\n';
+        strHooks += (it->second.bShow ? L"show" : L"hide");
+        strHooks += '\n';
+        strHooks += (it->second.bEnforce ? L"enforce" : L"ask");
+        strHooks += '\n';
     }
 
-    CRegString reghooks(L"Software\\TortoiseSVN\\hooks");
-    reghooks = strhooks;
-    if (reghooks.GetLastError() != ERROR_SUCCESS)
+    CRegString regHooks(L"Software\\TortoiseSVN\\hooks");
+    regHooks = strHooks;
+    if (regHooks.GetLastError() != ERROR_SUCCESS)
         return false;
 
     return true;
 }
 
-bool CHooks::Remove(const hookkey& key)
+bool CHooks::Remove(const HookKey& key)
 {
     return (erase(key) > 0);
 }
 
-void CHooks::Add(hooktype ht, const CTSVNPath& Path, LPCTSTR szCmd,
+void CHooks::Add(HookType ht, const CTSVNPath& path, LPCWSTR szCmd,
                  bool bWait, bool bShow, bool bEnforce)
 {
-    hookkey key;
-    key.htype = ht;
-    key.path = Path;
-    hookiterator it = find(key);
-    if (it!=end())
+    HookKey key;
+    key.hType = ht;
+    key.path  = path;
+    auto it   = find(key);
+    if (it != end())
         erase(it);
 
-    hookcmd cmd;
+    HookCmd cmd;
     cmd.commandline = szCmd;
-    cmd.bWait = bWait;
-    cmd.bShow = bShow;
-    cmd.bEnforce = bEnforce;
-    cmd.bApproved = bEnforce;
+    cmd.bWait       = bWait;
+    cmd.bShow       = bShow;
+    cmd.bEnforce    = bEnforce;
+    cmd.bApproved   = bEnforce;
 
-    insert(std::pair<hookkey, hookcmd>(key, cmd));
+    insert(std::pair<HookKey, HookCmd>(key, cmd));
 }
 
-CString CHooks::GetHookTypeString(hooktype t)
+CString CHooks::GetHookTypeString(HookType t)
 {
     switch (t)
     {
-    case start_commit_hook:
-        return L"start_commit_hook";
-    case check_commit_hook:
-        return L"check_commit_hook";
-    case pre_commit_hook:
-        return L"pre_commit_hook";
-    case post_commit_hook:
-        return L"post_commit_hook";
-    case start_update_hook:
-        return L"start_update_hook";
-    case pre_update_hook:
-        return L"pre_update_hook";
-    case post_update_hook:
-        return L"post_update_hook";
-    case pre_connect_hook:
-        return L"pre_connect_hook";
-    case manual_precommit:
-        return L"manual_precommit_hook";
-    case pre_lock_hook:
-        return L"pre_lock_hook";
-    case post_lock_hook:
-        return L"post_lock_hook";
+        case Start_Commit_Hook:
+            return L"start_commit_hook";
+        case Check_Commit_Hook:
+            return L"check_commit_hook";
+        case Pre_Commit_Hook:
+            return L"pre_commit_hook";
+        case Post_Commit_Hook:
+            return L"post_commit_hook";
+        case Start_Update_Hook:
+            return L"start_update_hook";
+        case Pre_Update_Hook:
+            return L"pre_update_hook";
+        case Post_Update_Hook:
+            return L"post_update_hook";
+        case Pre_Connect_Hook:
+            return L"pre_connect_hook";
+        case Manual_Precommit:
+            return L"manual_precommit_hook";
+        case Pre_Lock_Hook:
+            return L"pre_lock_hook";
+        case Post_Lock_Hook:
+            return L"post_lock_hook";
+        case Unknown_Hook:
+            break;
+        default:
+            break;
     }
     return L"";
 }
 
-hooktype CHooks::GetHookType(const CString& s)
+HookType CHooks::GetHookType(const CString& s)
 {
-    if (s.Compare(L"start_commit_hook")==0)
-        return start_commit_hook;
-    if (s.Compare(L"check_commit_hook")==0)
-        return check_commit_hook;
-    if (s.Compare(L"pre_commit_hook")==0)
-        return pre_commit_hook;
-    if (s.Compare(L"post_commit_hook")==0)
-        return post_commit_hook;
-    if (s.Compare(L"start_update_hook")==0)
-        return start_update_hook;
-    if (s.Compare(L"pre_update_hook")==0)
-        return pre_update_hook;
-    if (s.Compare(L"post_update_hook")==0)
-        return post_update_hook;
-    if (s.Compare(L"pre_connect_hook")==0)
-        return pre_connect_hook;
-    if (s.Compare(L"manual_precommit_hook")==0)
-        return manual_precommit;
+    if (s.Compare(L"start_commit_hook") == 0)
+        return Start_Commit_Hook;
+    if (s.Compare(L"check_commit_hook") == 0)
+        return Check_Commit_Hook;
+    if (s.Compare(L"pre_commit_hook") == 0)
+        return Pre_Commit_Hook;
+    if (s.Compare(L"post_commit_hook") == 0)
+        return Post_Commit_Hook;
+    if (s.Compare(L"start_update_hook") == 0)
+        return Start_Update_Hook;
+    if (s.Compare(L"pre_update_hook") == 0)
+        return Pre_Update_Hook;
+    if (s.Compare(L"post_update_hook") == 0)
+        return Post_Update_Hook;
+    if (s.Compare(L"pre_connect_hook") == 0)
+        return Pre_Connect_Hook;
+    if (s.Compare(L"manual_precommit_hook") == 0)
+        return Manual_Precommit;
     if (s.Compare(L"pre_lock_hook") == 0)
-        return pre_lock_hook;
+        return Pre_Lock_Hook;
     if (s.Compare(L"post_lock_hook") == 0)
-        return post_lock_hook;
-    return unknown_hook;
+        return Post_Lock_Hook;
+    return Unknown_Hook;
 }
 
 void CHooks::AddParam(CString& sCmd, const CString& param)
@@ -271,9 +273,9 @@ void CHooks::AddParam(CString& sCmd, const CString& param)
 
 void CHooks::AddPathParam(CString& sCmd, const CTSVNPathList& pathList)
 {
-    CTSVNPath temppath = CTempFiles::Instance().GetTempFilePath(true);
-    pathList.WriteToFile(temppath.GetWinPathString(), true);
-    AddParam(sCmd, temppath.GetWinPathString());
+    CTSVNPath tempPath = CTempFiles::Instance().GetTempFilePath(true);
+    pathList.WriteToFile(tempPath.GetWinPathString(), true);
+    AddParam(sCmd, tempPath.GetWinPathString());
 }
 
 void CHooks::AddCWDParam(CString& sCmd, const CTSVNPathList& pathList)
@@ -292,32 +294,30 @@ void CHooks::AddDepthParam(CString& sCmd, svn_depth_t depth)
     AddParam(sCmd, sTemp);
 }
 
-void CHooks::AddErrorParam(CString& sCmd, const CString& error)
+void CHooks::AddErrorParam(CString& sCmd, const CString& error) const
 {
-    CTSVNPath tempPath;
-    tempPath = CTempFiles::Instance().GetTempFilePath(true);
-    CStringUtils::WriteStringToTextFile(tempPath.GetWinPath(), (LPCTSTR)error);
+    CTSVNPath tempPath = CTempFiles::Instance().GetTempFilePath(true);
+    CStringUtils::WriteStringToTextFile(tempPath.GetWinPath(), static_cast<LPCWSTR>(error));
     AddParam(sCmd, tempPath.GetWinPathString());
 }
 
-CTSVNPath CHooks::AddMessageFileParam(CString& sCmd, const CString& message)
+CTSVNPath CHooks::AddMessageFileParam(CString& sCmd, const CString& message) const
 {
-    CTSVNPath tempPath;
-    tempPath = CTempFiles::Instance().GetTempFilePath(true);
-    CStringUtils::WriteStringToTextFile(tempPath.GetWinPath(), (LPCTSTR)message);
+    CTSVNPath tempPath = CTempFiles::Instance().GetTempFilePath(true);
+    CStringUtils::WriteStringToTextFile(tempPath.GetWinPath(), static_cast<LPCWSTR>(message));
     AddParam(sCmd, tempPath.GetWinPathString());
     return tempPath;
 }
 
-bool CHooks::StartCommit(HWND hWnd, const CTSVNPathList& pathList, CString& message, DWORD& exitcode, CString& error)
+bool CHooks::StartCommit(HWND hWnd, const CTSVNPathList& pathList, CString& message, DWORD& exitCode, CString& error)
 {
-    exitcode = 0;
-    hookiterator it = FindItem(start_commit_hook, pathList);
+    exitCode = 0;
+    auto it  = FindItem(Start_Commit_Hook, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -325,25 +325,25 @@ bool CHooks::StartCommit(HWND hWnd, const CTSVNPathList& pathList, CString& mess
     }
     CString sCmd = it->second.commandline;
     AddPathParam(sCmd, pathList);
-    CTSVNPath temppath = AddMessageFileParam(sCmd, message);
+    CTSVNPath tempPath = AddMessageFileParam(sCmd, message);
     AddCWDParam(sCmd, pathList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
-    if (!exitcode && !temppath.IsEmpty())
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    if (!exitCode && !tempPath.IsEmpty())
     {
-        CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
+        CStringUtils::ReadStringFromTextFile(tempPath.GetWinPathString(), message);
     }
     return true;
 }
 
-bool CHooks::CheckCommit(HWND hWnd, const CTSVNPathList& pathList, CString& message, DWORD& exitcode, CString& error)
+bool CHooks::CheckCommit(HWND hWnd, const CTSVNPathList& pathList, CString& message, DWORD& exitCode, CString& error)
 {
-    exitcode = 0;
-    hookiterator it = FindItem(check_commit_hook, pathList);
+    exitCode = 0;
+    auto it  = FindItem(Check_Commit_Hook, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -351,24 +351,24 @@ bool CHooks::CheckCommit(HWND hWnd, const CTSVNPathList& pathList, CString& mess
     }
     CString sCmd = it->second.commandline;
     AddPathParam(sCmd, pathList);
-    CTSVNPath temppath = AddMessageFileParam(sCmd, message);
+    CTSVNPath tempPath = AddMessageFileParam(sCmd, message);
     AddCWDParam(sCmd, pathList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
-    if (!exitcode && !temppath.IsEmpty())
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    if (!exitCode && !tempPath.IsEmpty())
     {
-        CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
+        CStringUtils::ReadStringFromTextFile(tempPath.GetWinPathString(), message);
     }
     return true;
 }
 
-bool CHooks::PreCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, CString& message, DWORD& exitcode, CString& error)
+bool CHooks::PreCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, CString& message, DWORD& exitCode, CString& error)
 {
-    hookiterator it = FindItem(pre_commit_hook, pathList);
+    auto it = FindItem(Pre_Commit_Hook, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -377,24 +377,24 @@ bool CHooks::PreCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t dep
     CString sCmd = it->second.commandline;
     AddPathParam(sCmd, pathList);
     AddDepthParam(sCmd, depth);
-    CTSVNPath temppath = AddMessageFileParam(sCmd, message);
+    CTSVNPath tempPath = AddMessageFileParam(sCmd, message);
     AddCWDParam(sCmd, pathList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
-    if (!exitcode && !temppath.IsEmpty())
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    if (!exitCode && !tempPath.IsEmpty())
     {
-        CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
+        CStringUtils::ReadStringFromTextFile(tempPath.GetWinPathString(), message);
     }
     return true;
 }
 
-bool CHooks::ManualPreCommit( HWND hWnd, const CTSVNPathList& pathList, CString& message, DWORD& exitcode, CString& error )
+bool CHooks::ManualPreCommit(HWND hWnd, const CTSVNPathList& pathList, CString& message, DWORD& exitCode, CString& error)
 {
-    hookiterator it = FindItem(manual_precommit, pathList);
+    auto it = FindItem(Manual_Precommit, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -404,23 +404,22 @@ bool CHooks::ManualPreCommit( HWND hWnd, const CTSVNPathList& pathList, CString&
     AddPathParam(sCmd, pathList);
     CTSVNPath temppath = AddMessageFileParam(sCmd, message);
     AddCWDParam(sCmd, pathList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
-    if (!exitcode && !temppath.IsEmpty())
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    if (!exitCode && !temppath.IsEmpty())
     {
         CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
     }
     return true;
 }
 
-
-bool CHooks::PostCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, const SVNRev& rev, const CString& message, DWORD& exitcode, CString& error)
+bool CHooks::PostCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, const SVNRev& rev, const CString& message, DWORD& exitCode, CString& error)
 {
-    hookiterator it = FindItem(post_commit_hook, pathList);
+    auto it = FindItem(Post_Commit_Hook, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -433,18 +432,18 @@ bool CHooks::PostCommit(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t de
     AddParam(sCmd, rev.ToString());
     AddErrorParam(sCmd, error);
     AddCWDParam(sCmd, pathList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
     return true;
 }
 
-bool CHooks::StartUpdate(HWND hWnd, const CTSVNPathList& pathList, DWORD& exitcode, CString& error)
+bool CHooks::StartUpdate(HWND hWnd, const CTSVNPathList& pathList, DWORD& exitCode, CString& error)
 {
-    hookiterator it = FindItem(start_update_hook, pathList);
+    auto it = FindItem(Start_Update_Hook, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -453,18 +452,18 @@ bool CHooks::StartUpdate(HWND hWnd, const CTSVNPathList& pathList, DWORD& exitco
     CString sCmd = it->second.commandline;
     AddPathParam(sCmd, pathList);
     AddCWDParam(sCmd, pathList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
     return true;
 }
 
-bool CHooks::PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, const SVNRev& rev, DWORD& exitcode, CString& error)
+bool CHooks::PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, const SVNRev& rev, DWORD& exitCode, CString& error)
 {
-    hookiterator it = FindItem(pre_update_hook, pathList);
+    auto it = FindItem(Pre_Update_Hook, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -475,18 +474,18 @@ bool CHooks::PreUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t dep
     AddDepthParam(sCmd, depth);
     AddParam(sCmd, rev.ToString());
     AddCWDParam(sCmd, pathList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
     return true;
 }
 
-bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, const SVNRev& rev, const CTSVNPathList& updatedList, DWORD& exitcode, CString& error)
+bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t depth, const SVNRev& rev, const CTSVNPathList& updatedList, DWORD& exitCode, CString& error)
 {
-    hookiterator it = FindItem(post_update_hook, pathList);
+    auto it = FindItem(Post_Update_Hook, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -499,33 +498,33 @@ bool CHooks::PostUpdate(HWND hWnd, const CTSVNPathList& pathList, svn_depth_t de
     AddErrorParam(sCmd, error);
     AddCWDParam(sCmd, pathList);
     AddPathParam(sCmd, updatedList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
     return true;
 }
 
 bool CHooks::PreConnect(const CTSVNPathList& pathList)
 {
-    if ((m_lastPreConnectTicks == 0) || ((GetTickCount64() - m_lastPreConnectTicks) > 5*60*1000))
+    if ((m_lastPreConnectTicks == 0) || ((GetTickCount64() - m_lastPreConnectTicks) > 5 * 60 * 1000))
     {
-        hookiterator it = FindItem(pre_connect_hook, pathList);
+        auto it = FindItem(Pre_Connect_Hook, pathList);
         if (it == end())
         {
-            if (!m_PathsConvertedToUrls && pathList.GetCount() && pathList[0].IsUrl())
+            if (!m_pathsConvertedToUrls && pathList.GetCount() && pathList[0].IsUrl())
             {
                 SVN svn;
-                for (hookiterator ith = begin(); ith != end(); ++ith)
+                for (auto ith = begin(); ith != end(); ++ith)
                 {
-                    if (ith->first.htype == pre_connect_hook)
+                    if (ith->first.hType == Pre_Connect_Hook)
                     {
                         CString sUrl = svn.GetURLFromPath(ith->first.path);
-                        hookkey hk;
-                        hk.htype = pre_connect_hook;
-                        hk.path = CTSVNPath(sUrl);
-                        insert(std::pair<hookkey, hookcmd>(hk, ith->second));
+                        HookKey hk;
+                        hk.hType = Pre_Connect_Hook;
+                        hk.path  = CTSVNPath(sUrl);
+                        insert(std::pair<HookKey, HookCmd>(hk, ith->second));
                     }
                 }
-                m_PathsConvertedToUrls = true;
-                it = FindItem(pre_connect_hook, pathList);
+                m_pathsConvertedToUrls = true;
+                it                     = FindItem(Pre_Connect_Hook, pathList);
                 if (it == end())
                     return false;
             }
@@ -541,14 +540,14 @@ bool CHooks::PreConnect(const CTSVNPathList& pathList)
     return false;
 }
 
-bool CHooks::PreLock(HWND hWnd, const CTSVNPathList & pathList,bool lock, bool steal, CString & message, DWORD & exitcode, CString & error)
+bool CHooks::PreLock(HWND hWnd, const CTSVNPathList& pathList, bool lock, bool steal, CString& message, DWORD& exitCode, CString& error)
 {
-    hookiterator it = FindItem(pre_lock_hook, pathList);
+    auto it = FindItem(Pre_Lock_Hook, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -558,24 +557,24 @@ bool CHooks::PreLock(HWND hWnd, const CTSVNPathList & pathList,bool lock, bool s
     AddPathParam(sCmd, pathList);
     AddParam(sCmd, lock ? L"true" : L"false");
     AddParam(sCmd, steal ? L"true" : L"false");
-    CTSVNPath temppath = AddMessageFileParam(sCmd, message);
+    CTSVNPath tempPath = AddMessageFileParam(sCmd, message);
     AddCWDParam(sCmd, pathList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
-    if (!exitcode && !temppath.IsEmpty())
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    if (!exitCode && !tempPath.IsEmpty())
     {
-        CStringUtils::ReadStringFromTextFile(temppath.GetWinPathString(), message);
+        CStringUtils::ReadStringFromTextFile(tempPath.GetWinPathString(), message);
     }
     return true;
 }
 
-bool CHooks::PostLock(HWND hWnd, const CTSVNPathList & pathList, bool lock, bool steal, const CString & message, DWORD & exitcode, CString & error)
+bool CHooks::PostLock(HWND hWnd, const CTSVNPathList& pathList, bool lock, bool steal, const CString& message, DWORD& exitCode, CString& error)
 {
-    hookiterator it = FindItem(post_lock_hook, pathList);
+    auto it = FindItem(Post_Lock_Hook, pathList);
     if (it == end())
         return false;
-    if (!ApproveHook(hWnd, it, exitcode))
+    if (!ApproveHook(hWnd, it, exitCode))
     {
-        if (exitcode == 1)
+        if (exitCode == 1)
             error.LoadString(IDS_SVN_USERCANCELLED);
         else
             error.LoadString(IDS_ERR_HOOKNOTAPPROVED);
@@ -588,54 +587,54 @@ bool CHooks::PostLock(HWND hWnd, const CTSVNPathList & pathList, bool lock, bool
     AddMessageFileParam(sCmd, message);
     AddErrorParam(sCmd, error);
     AddCWDParam(sCmd, pathList);
-    exitcode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
+    exitCode = RunScript(sCmd, pathList, error, it->second.bWait, it->second.bShow);
     return true;
 }
 
-bool CHooks::IsHookExecutionEnforced(hooktype t, const CTSVNPathList& pathList)
+bool CHooks::IsHookExecutionEnforced(HookType t, const CTSVNPathList& pathList)
 {
-    hookiterator it = FindItem(t, pathList);
+    auto it = FindItem(t, pathList);
     return it != end() && it->second.bEnforce;
 }
 
-bool CHooks::IsHookPresent( hooktype t, const CTSVNPathList& pathList )
+bool CHooks::IsHookPresent(HookType t, const CTSVNPathList& pathList)
 {
-    hookiterator it = FindItem(t, pathList);
+    auto it = FindItem(t, pathList);
     return it != end();
 }
 
-hookiterator CHooks::FindItem(hooktype t, const CTSVNPathList& pathList)
+std::map<HookKey, HookCmd>::iterator CHooks::FindItem(HookType t, const CTSVNPathList& pathList)
 {
-    hookkey key;
-    for (int i=0; i<pathList.GetCount(); ++i)
+    HookKey key;
+    for (int i = 0; i < pathList.GetCount(); ++i)
     {
         CTSVNPath path = pathList[i];
         do
         {
-            key.htype = t;
-            key.path = path;
-            hookiterator it = find(key);
+            key.hType = t;
+            key.path  = path;
+            auto it   = find(key);
             if (it != end())
             {
                 return it;
             }
             path = path.GetContainingDirectory();
-        } while(!path.IsEmpty());
+        } while (!path.IsEmpty());
     }
 
     // try the wc root path
-    key.htype = t;
-    key.path = m_wcRootPath;
-    hookiterator it = find(key);
+    key.hType = t;
+    key.path  = m_wcRootPath;
+    auto it   = find(key);
     if (it != end())
     {
         return it;
     }
 
     // look for a script with a path as '*'
-    key.htype = t;
-    key.path = CTSVNPath(L"*");
-    it = find(key);
+    key.hType = t;
+    key.path  = CTSVNPath(L"*");
+    it        = find(key);
     if (it != end())
     {
         return it;
@@ -646,10 +645,10 @@ hookiterator CHooks::FindItem(hooktype t, const CTSVNPathList& pathList)
 
 DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error, bool bWait, bool bShow)
 {
-    DWORD exitcode = 0;
-    SECURITY_ATTRIBUTES sa = {0};
-    sa.nLength = sizeof(sa);
-    sa.bInheritHandle = TRUE;
+    DWORD               exitCode = 0;
+    SECURITY_ATTRIBUTES sa       = {0};
+    sa.nLength                   = sizeof(sa);
+    sa.bInheritHandle            = TRUE;
 
     CTSVNPath curDir = paths.GetCommonRoot().GetDirectory();
     while (!curDir.IsEmpty() && !curDir.Exists())
@@ -661,7 +660,7 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
         curDir.SetFromWin(buf, true);
     }
 
-    CAutoFile hOut ;
+    CAutoFile hOut;
     CAutoFile hRedir;
     CAutoFile hErr;
 
@@ -669,57 +668,57 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     error.Empty();
 
     // Create Temp File for redirection
-    TCHAR szTempPath[MAX_PATH] = { 0 };
-    TCHAR szOutput[MAX_PATH] = { 0 };
-    TCHAR szErr[MAX_PATH] = { 0 };
-    GetTempPath(_countof(szTempPath),szTempPath);
+    TCHAR szTempPath[MAX_PATH] = {0};
+    TCHAR szOutput[MAX_PATH]   = {0};
+    TCHAR szErr[MAX_PATH]      = {0};
+    GetTempPath(_countof(szTempPath), szTempPath);
     GetTempFileName(szTempPath, L"svn", 0, szErr);
 
     // setup redirection handles
     // output handle must be WRITE mode, share READ
     // redirect handle must be READ mode, share WRITE
-    hErr   = CreateFile(szErr, GENERIC_WRITE, FILE_SHARE_READ, &sa, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY,    0);
+    hErr = CreateFile(szErr, GENERIC_WRITE, FILE_SHARE_READ, &sa, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, nullptr);
 
     if (!hErr)
     {
         error = CFormatMessageWrapper();
-        return (DWORD)-1;
+        return static_cast<DWORD>(-1);
     }
 
-    hRedir = CreateFile(szErr, GENERIC_READ, FILE_SHARE_WRITE, 0, OPEN_EXISTING, 0, 0);
+    hRedir = CreateFile(szErr, GENERIC_READ, FILE_SHARE_WRITE, nullptr, OPEN_EXISTING, 0, nullptr);
 
     if (!hRedir)
     {
         error = CFormatMessageWrapper();
-        return (DWORD)-1;
+        return static_cast<DWORD>(-1);
     }
 
     GetTempFileName(szTempPath, L"svn", 0, szOutput);
-    hOut   = CreateFile(szOutput, GENERIC_WRITE, FILE_SHARE_READ, &sa, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, 0);
+    hOut = CreateFile(szOutput, GENERIC_WRITE, FILE_SHARE_READ, &sa, CREATE_ALWAYS, FILE_ATTRIBUTE_TEMPORARY, nullptr);
 
     if (!hOut)
     {
         error = CFormatMessageWrapper();
-        return (DWORD)-1;
+        return static_cast<DWORD>(-1);
     }
 
     // setup startup info, set std out/err handles
     // hide window
     STARTUPINFO si = {0};
-    si.cb = sizeof(si);
+    si.cb          = sizeof(si);
     si.dwFlags     = STARTF_USESTDHANDLES | STARTF_USESHOWWINDOW;
     si.hStdOutput  = hOut;
     si.hStdError   = hErr;
     si.wShowWindow = bShow ? SW_SHOW : SW_HIDE;
 
-    PROCESS_INFORMATION pi = {0};
-    if (!CreateProcess(NULL, cmd.GetBuffer(), NULL, NULL, TRUE, 0, NULL, curDir.IsEmpty() ? NULL : curDir.GetWinPath(), &si, &pi))
+    PROCESS_INFORMATION pi = {nullptr};
+    if (!CreateProcess(nullptr, cmd.GetBuffer(), nullptr, nullptr, TRUE, 0, nullptr, curDir.IsEmpty() ? nullptr : curDir.GetWinPath(), &si, &pi))
     {
-        const DWORD err = GetLastError();  // preserve the CreateProcess error
-        error = CFormatMessageWrapper(err);
+        const DWORD err = GetLastError(); // preserve the CreateProcess error
+        error           = CFormatMessageWrapper(err);
         SetLastError(err);
         cmd.ReleaseBuffer();
-        return (DWORD)-1;
+        return static_cast<DWORD>(-1);
     }
     cmd.ReleaseBuffer();
 
@@ -729,40 +728,40 @@ DWORD CHooks::RunScript(CString cmd, const CTSVNPathList& paths, CString& error,
     // send it to the parent window/console
     if (bWait)
     {
-        DWORD dw;
-        char buf[10*1024];
+        DWORD dw = 0;
+        char  buf[10 * 1024]{};
         do
         {
-            SecureZeroMemory(&buf,sizeof(buf));
-            while (ReadFile(hRedir, &buf, sizeof(buf)-1, &dw, NULL))
+            SecureZeroMemory(&buf, sizeof(buf));
+            while (ReadFile(hRedir, &buf, sizeof(buf) - 1, &dw, nullptr))
             {
                 if (dw == 0)
                     break;
-                error += CString(CStringA(buf,dw));
-                SecureZeroMemory(&buf,sizeof(buf));
+                error += CString(CStringA(buf, dw));
+                SecureZeroMemory(&buf, sizeof(buf));
             }
         } while (WaitForSingleObject(pi.hProcess, 100) != WAIT_OBJECT_0);
 
         // perform any final flushing
-        while (ReadFile(hRedir, &buf, sizeof(buf)-1, &dw, NULL))
+        while (ReadFile(hRedir, &buf, sizeof(buf) - 1, &dw, nullptr))
         {
             if (dw == 0)
                 break;
 
             error += CString(CStringA(buf, dw));
-            SecureZeroMemory(&buf,sizeof(buf));
+            SecureZeroMemory(&buf, sizeof(buf));
         }
         WaitForSingleObject(pi.hProcess, INFINITE);
-        GetExitCodeProcess(pi.hProcess, &exitcode);
+        GetExitCodeProcess(pi.hProcess, &exitCode);
     }
     CloseHandle(pi.hProcess);
     DeleteFile(szOutput);
     DeleteFile(szErr);
 
-    return exitcode;
+    return exitCode;
 }
 
-bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, const CTSVNPath& wcRootPath, const CString& rootPath, const CString& rootUrl, const CString& repoRootUrl )
+bool CHooks::ParseAndInsertProjectProperty(HookType t, const CString& strhook, const CTSVNPath& wcRootPath, const CString& rootPath, const CString& rootUrl, const CString& repoRootUrl)
 {
     if (strhook.IsEmpty())
         return false;
@@ -772,13 +771,13 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
     // line 2: 'true' or 'false' for waiting for the script to finish
     // line 3: 'show' or 'hide' on how to start the hook script
     // line 4: 'force' on whether to ask the user for permission
-    hookkey key;
-    hookcmd cmd;
+    HookKey key{};
+    HookCmd cmd{};
 
-    key.htype = t;
-    key.path = wcRootPath;
+    key.hType = t;
+    key.path  = wcRootPath;
 
-    int pos = 0;
+    int     pos = 0;
     CString temp;
 
     temp = strhook.Tokenize(L"\n", pos);
@@ -788,25 +787,25 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
         temp = strhook.Tokenize(L"\n", pos);
         if (!temp.IsEmpty())
         {
-            int urlstart = temp.Find(L"%REPOROOT%");
-            if (urlstart >= 0)
+            int urlStart = temp.Find(L"%REPOROOT%");
+            if (urlStart >= 0)
             {
                 temp.Replace(L"%REPOROOT%", repoRootUrl);
-                CString fullUrl = temp.Mid(urlstart);
-                int urlend = -1;
-                if ((urlstart > 0)&&(temp[urlstart-1]=='\"'))
-                    urlend = temp.Find('\"', urlstart);
+                CString fullUrl = temp.Mid(urlStart);
+                int     urlEnd  = -1;
+                if ((urlStart > 0) && (temp[urlStart - 1] == '\"'))
+                    urlEnd = temp.Find('\"', urlStart);
                 else
-                    urlend = temp.Find(' ', urlstart);
-                if (urlend < 0)
-                    urlend = temp.GetLength();
-                fullUrl = temp.Mid(urlstart, urlend-urlstart);
+                    urlEnd = temp.Find(' ', urlStart);
+                if (urlEnd < 0)
+                    urlEnd = temp.GetLength();
+                fullUrl = temp.Mid(urlStart, urlEnd - urlStart);
                 fullUrl.Replace('\\', '/');
                 // now we have the full url of the script, e.g.
                 // https://svn.osdn.net/svnroot/tortoisesvn/trunk/contrib/hook-scripts/client-side/checkyear.js
 
                 CString sLocalPathUrl = rootUrl;
-                CString sLocalPath = rootPath;
+                CString sLocalPath    = rootPath;
                 // find the lowest common ancestor of the local path url and the script url
                 while (fullUrl.Left(sLocalPathUrl.GetLength()).Compare(sLocalPathUrl))
                 {
@@ -838,17 +837,17 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                 // now replace the full url in the command line with the local path
                 temp.Replace(fullUrl, sLocalPath);
             }
-            urlstart = temp.Find(L"%REPOROOT+%");
-            if (urlstart >= 0)
+            urlStart = temp.Find(L"%REPOROOT+%");
+            if (urlStart >= 0)
             {
                 CString temp2 = temp;
-                CString sExt = rootUrl.Mid(repoRootUrl.GetLength());
+                CString sExt  = rootUrl.Mid(repoRootUrl.GetLength());
                 CString sLocalPath;
                 do
                 {
-                    temp = temp2;
+                    temp                   = temp2;
                     CString repoRootUrlExt = repoRootUrl + sExt;
-                    int slp = sExt.ReverseFind('/');
+                    int     slp            = sExt.ReverseFind('/');
                     if (slp >= 0)
                         sExt = sExt.Left(sExt.ReverseFind('/'));
                     else if (sExt.IsEmpty())
@@ -856,21 +855,21 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                     else
                         sExt.Empty();
                     temp.Replace(L"%REPOROOT+%", repoRootUrlExt);
-                    CString fullUrl = temp.Mid(urlstart);
-                    int urlend = -1;
-                    if ((urlstart > 0)&&(temp[urlstart-1]=='\"'))
-                        urlend = temp.Find('\"', urlstart);
+                    CString fullUrl = temp.Mid(urlStart);
+                    int     urlend  = -1;
+                    if ((urlStart > 0) && (temp[urlStart - 1] == '\"'))
+                        urlend = temp.Find('\"', urlStart);
                     else
-                        urlend = temp.Find(' ', urlstart);
+                        urlend = temp.Find(' ', urlStart);
                     if (urlend < 0)
                         urlend = temp.GetLength();
-                    fullUrl = temp.Mid(urlstart, urlend-urlstart);
+                    fullUrl = temp.Mid(urlStart, urlend - urlStart);
                     fullUrl.Replace('\\', '/');
                     // now we have the full url of the script, e.g.
                     // https://svn.osdn.net/svnroot/tortoisesvn/trunk/contrib/hook-scripts/client-side/checkyear.js
 
                     CString sLocalPathUrl = rootUrl;
-                    sLocalPath = rootPath;
+                    sLocalPath            = rootPath;
                     // find the lowest common ancestor of the local path url and the script url
                     while (fullUrl.Left(sLocalPathUrl.GetLength()).Compare(sLocalPathUrl))
                     {
@@ -898,28 +897,28 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
                 } while (!PathFileExists(sLocalPath));
             }
             cmd.commandline = temp;
-            temp = strhook.Tokenize(L"\n", pos);
+            temp            = strhook.Tokenize(L"\n", pos);
             if (!temp.IsEmpty())
             {
-                cmd.bWait = (temp.CompareNoCase(L"true")==0);
-                temp = strhook.Tokenize(L"\n", pos);
+                cmd.bWait = (temp.CompareNoCase(L"true") == 0);
+                temp      = strhook.Tokenize(L"\n", pos);
                 if (!temp.IsEmpty())
                 {
-                    cmd.bShow = (temp.CompareNoCase(L"show")==0);
+                    cmd.bShow = (temp.CompareNoCase(L"show") == 0);
 
-                    temp.Format(L"%d%s", (int)key.htype, (LPCTSTR)cmd.commandline);
+                    temp.Format(L"%d%s", static_cast<int>(key.hType), static_cast<LPCWSTR>(cmd.commandline));
                     SVNPool pool;
                     cmd.sRegKey = L"Software\\TortoiseSVN\\approvedhooks\\" + SVN::GetChecksumString(svn_checksum_sha1, temp, pool);
                     CRegDWORD reg(cmd.sRegKey, 0);
-                    cmd.bApproved = (DWORD(reg) != 0);
-                    cmd.bStored = reg.exists();
+                    cmd.bApproved = (static_cast<DWORD>(reg) != 0);
+                    cmd.bStored   = reg.exists();
 
-                    temp = strhook.Tokenize(L"\n", pos);
-                    cmd.bEnforce = temp.CompareNoCase(L"enforce")==0;
+                    temp         = strhook.Tokenize(L"\n", pos);
+                    cmd.bEnforce = temp.CompareNoCase(L"enforce") == 0;
 
                     if (find(key) == end())
                     {
-                        m_pInstance->insert(std::pair<hookkey, hookcmd>(key, cmd));
+                        m_pInstance->insert(std::pair<HookKey, HookCmd>(key, cmd));
                         return true;
                     }
                 }
@@ -929,36 +928,36 @@ bool CHooks::ParseAndInsertProjectProperty( hooktype t, const CString& strhook, 
     return false;
 }
 
-bool CHooks::ApproveHook(HWND hWnd, hookiterator it, DWORD& exitcode)
+bool CHooks::ApproveHook(HWND hWnd, std::map<HookKey, HookCmd>::iterator it, DWORD& exitCode)
 {
     if (it->second.bApproved || it->second.bStored)
     {
-        exitcode = 0;
+        exitCode = 0;
         return it->second.bApproved;
     }
 
     CString sQuestion;
-    sQuestion.Format(IDS_HOOKS_APPROVE_TASK1, (LPCWSTR)it->second.commandline);
-    CTaskDialog taskdlg(sQuestion,
+    sQuestion.Format(IDS_HOOKS_APPROVE_TASK1, static_cast<LPCWSTR>(it->second.commandline));
+    CTaskDialog taskDlg(sQuestion,
                         CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK2)),
                         L"TortoiseSVN",
                         0,
                         TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-    taskdlg.AddCommandControl(101, CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK3)));
-    taskdlg.AddCommandControl(102, CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK4)));
-    taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-    taskdlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK5)));
-    taskdlg.SetVerificationCheckbox(false);
-    taskdlg.SetDefaultCommandControl(2);
-    taskdlg.SetMainIcon(TD_WARNING_ICON);
-    auto ret = taskdlg.DoModal(hWnd);
+    taskDlg.AddCommandControl(101, CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK3)));
+    taskDlg.AddCommandControl(102, CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK4)));
+    taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
+    taskDlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK5)));
+    taskDlg.SetVerificationCheckbox(false);
+    taskDlg.SetDefaultCommandControl(2);
+    taskDlg.SetMainIcon(TD_WARNING_ICON);
+    auto ret = taskDlg.DoModal(hWnd);
     if (ret == IDCANCEL)
     {
-        exitcode = 1;
+        exitCode = 1;
         return false;
     }
     bool bApproved      = (ret == 101);
-    bool bDoNotAskAgain = !!taskdlg.GetVerificationCheckboxState();
+    bool bDoNotAskAgain = !!taskDlg.GetVerificationCheckboxState();
 
     if (bDoNotAskAgain)
     {
@@ -967,7 +966,6 @@ bool CHooks::ApproveHook(HWND hWnd, hookiterator it, DWORD& exitcode)
         it->second.bStored   = true;
         it->second.bApproved = bApproved;
     }
-    exitcode = 0;
+    exitCode = 0;
     return bApproved;
 }
-

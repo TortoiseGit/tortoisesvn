@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2018, 2020 - TortoiseSVN
+// Copyright (C) 2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,16 +22,18 @@ class CDPIAware
 {
 private:
     CDPIAware()
-        : m_fInitialized(false)
-        , m_dpi(96)
-        , pfnGetDpiForWindow(nullptr)
+        : pfnGetDpiForWindow(nullptr)
         , pfnGetDpiForSystem(nullptr)
         , pfnGetSystemMetricsForDpi(nullptr)
         , pfnSystemParametersInfoForDpi(nullptr)
-    {}
+        , m_fInitialized(false)
+        , m_dpi(96)
+    {
+    }
     ~CDPIAware() {}
+
 public:
-    static CDPIAware&   Instance()
+    static CDPIAware &Instance()
     {
         static CDPIAware instance;
         return instance;
@@ -48,10 +50,10 @@ public:
         return m_dpi;
     }
     // Convert between raw pixels and relative pixels.
-    int Scale(HWND hWnd, int x) { return MulDiv(x, GetDPI(hWnd), 96); }
+    int   Scale(HWND hWnd, int x) { return MulDiv(x, GetDPI(hWnd), 96); }
     float ScaleFactor(HWND hWnd) { return GetDPI(hWnd) / 96.0f; }
-    float ScaleFactorSystemToWindow(HWND hWnd) { return (float)GetDPI(hWnd) / (float)m_dpi; }
-    int Unscale(HWND hWnd, int x) { return MulDiv(x, 96, GetDPI(hWnd)); }
+    float ScaleFactorSystemToWindow(HWND hWnd) { return static_cast<float>(GetDPI(hWnd)) / static_cast<float>(m_dpi); }
+    int   Unscale(HWND hWnd, int x) { return MulDiv(x, 96, GetDPI(hWnd)); }
 
     // Determine the screen dimensions in relative pixels.
     int ScaledScreenWidth() { return _ScaledSystemMetric(SM_CXSCREEN); }
@@ -60,9 +62,9 @@ public:
     // Scale rectangle from raw pixels to relative pixels.
     void ScaleRect(HWND hWnd, __inout RECT *pRect)
     {
-        pRect->left = Scale(hWnd, pRect->left);
-        pRect->right = Scale(hWnd, pRect->right);
-        pRect->top = Scale(hWnd, pRect->top);
+        pRect->left   = Scale(hWnd, pRect->left);
+        pRect->right  = Scale(hWnd, pRect->right);
+        pRect->top    = Scale(hWnd, pRect->top);
         pRect->bottom = Scale(hWnd, pRect->bottom);
     }
 
@@ -111,7 +113,6 @@ public:
     void Invalidate() { m_fInitialized = false; }
 
 private:
-
     // This function initializes the CDPIAware Class
     void _Init()
     {
@@ -120,10 +121,10 @@ private:
             auto hUser = ::GetModuleHandle(L"user32.dll");
             if (hUser)
             {
-                pfnGetDpiForWindow = (GetDpiForWindowFN *)GetProcAddress(hUser, "GetDpiForWindow");
-                pfnGetDpiForSystem = (GetDpiForSystemFN *)GetProcAddress(hUser, "GetDpiForSystem");
-                pfnGetSystemMetricsForDpi = (GetSystemMetricsForDpiFN *)GetProcAddress(hUser, "GetSystemMetricsForDpi");
-                pfnSystemParametersInfoForDpi = (SystemParametersInfoForDpiFN *)GetProcAddress(hUser, "SystemParametersInfoForDpi");
+                pfnGetDpiForWindow            = reinterpret_cast<GetDpiForWindowFn *>(GetProcAddress(hUser, "GetDpiForWindow"));
+                pfnGetDpiForSystem            = reinterpret_cast<GetDpiForSystemFn *>(GetProcAddress(hUser, "GetDpiForSystem"));
+                pfnGetSystemMetricsForDpi     = reinterpret_cast<GetSystemMetricsForDpiFn *>(GetProcAddress(hUser, "GetSystemMetricsForDpi"));
+                pfnSystemParametersInfoForDpi = reinterpret_cast<SystemParametersInfoForDpiFn *>(GetProcAddress(hUser, "SystemParametersInfoForDpi"));
             }
 
             if (pfnGetDpiForSystem)
@@ -159,18 +160,17 @@ private:
     }
 
 private:
-    typedef UINT STDAPICALLTYPE GetDpiForWindowFN(HWND hWnd);
-    typedef UINT STDAPICALLTYPE GetDpiForSystemFN();
-    typedef UINT STDAPICALLTYPE GetSystemMetricsForDpiFN(int nIndex, UINT dpi);
-    typedef UINT STDAPICALLTYPE SystemParametersInfoForDpiFN(UINT uiAction,UINT uiParam, PVOID pvParam, UINT fWinIni, UINT dpi);
+    using GetDpiForWindowFn            = UINT            STDAPICALLTYPE(HWND hWnd);
+    using GetDpiForSystemFn            = UINT            STDAPICALLTYPE();
+    using GetSystemMetricsForDpiFn     = UINT     STDAPICALLTYPE(int nIndex, UINT dpi);
+    using SystemParametersInfoForDpiFn = UINT STDAPICALLTYPE(UINT uiAction, UINT uiParam, PVOID pvParam, UINT fWinIni, UINT dpi);
 
-    GetDpiForWindowFN * pfnGetDpiForWindow;
-    GetDpiForSystemFN * pfnGetDpiForSystem;
-    GetSystemMetricsForDpiFN * pfnGetSystemMetricsForDpi;
-    SystemParametersInfoForDpiFN * pfnSystemParametersInfoForDpi;
+    GetDpiForWindowFn *           pfnGetDpiForWindow;
+    GetDpiForSystemFn *           pfnGetDpiForSystem;
+    GetSystemMetricsForDpiFn *    pfnGetSystemMetricsForDpi;
+    SystemParametersInfoForDpiFn *pfnSystemParametersInfoForDpi;
 
     // Member variable indicating whether the class has been initialized
     bool m_fInitialized;
-
-    int m_dpi;
+    int  m_dpi;
 };

@@ -142,7 +142,7 @@ BOOL CCommitDlg::OnInitDialog()
     AddDirectoriesToPathWatcher();
     StartStatusThread();
     ShowBalloonInCaseOfError();
-    GetDlgItem(IDC_RUNHOOK)->ShowWindow(CHooks::Instance().IsHookPresent(manual_precommit, m_pathList) ? SW_SHOW : SW_HIDE);
+    GetDlgItem(IDC_RUNHOOK)->ShowWindow(CHooks::Instance().IsHookPresent(Manual_Precommit, m_pathList) ? SW_SHOW : SW_HIDE);
     return FALSE; // return TRUE unless you set the focus to a control
     // EXCEPTION: OCX Property Pages should return FALSE
 }

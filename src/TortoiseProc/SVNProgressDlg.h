@@ -122,8 +122,8 @@ public:
     void SetOptions(DWORD opts) { m_options = opts; }
     void SetPathList(const CTSVNPathList& pathList) { m_targetPathList = pathList; }
     void SetOrigPathList(const CTSVNPathList& oritList) { m_origPathList = oritList; }
-    void SetUrl(const CString& url) { m_url.SetFromUnknown(url); }
-    void SetSecondUrl(const CString& url) { m_url2.SetFromUnknown(url); }
+    void SetUrl(const CString& url) const { m_url.SetFromUnknown(url); }
+    void SetSecondUrl(const CString& url) const { m_url2.SetFromUnknown(url); }
     void SetCommitMessage(const CString& msg) { m_sMessage = msg; }
     void SetExternals(const SVNExternals& ext) { m_externals = ext; }
     void SetPathDepths(const std::map<CString, svn_depth_t>& pathmap) { m_pathDepths = pathmap; }
@@ -224,16 +224,16 @@ private:
 
 protected:
     //implement the virtual methods from SVN base class
-    virtual BOOL Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
-                        svn_node_kind_t kind, const CString& mimeType,
-                        svn_wc_notify_state_t contentState,
-                        svn_wc_notify_state_t propState, LONG rev,
-                        const svn_lock_t* lock, svn_wc_notify_lock_state_t lockState,
-                        const CString&     changeListName,
-                        const CString&     propertyName,
-                        svn_merge_range_t* range,
-                        svn_error_t* err, apr_pool_t* pool) override;
-    virtual BOOL Cancel() override;
+    BOOL Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc_notify_action_t action,
+                svn_node_kind_t kind, const CString& mimeType,
+                svn_wc_notify_state_t contentState,
+                svn_wc_notify_state_t propState, LONG rev,
+                const svn_lock_t* lock, svn_wc_notify_lock_state_t lockState,
+                const CString&     changeListName,
+                const CString&     propertyName,
+                svn_merge_range_t* range,
+                svn_error_t* err, apr_pool_t* pool) override;
+    BOOL Cancel() override;
 
     BOOL OnInitDialog() override;
     void OnCancel() override;
@@ -276,10 +276,10 @@ protected:
 private:
     static UINT   ProgressThreadEntry(LPVOID pVoid);
     UINT          ProgressThread();
-    virtual void  OnOK();
+    void          OnOK() override;
     void          ReportSVNError();
     void          ReportError(const CString& sError);
-    void          ReportHookFailed(hooktype t, const CTSVNPathList& pathList, const CString& error);
+    void          ReportHookFailed(HookType t, const CTSVNPathList& pathList, const CString& error);
     void          ReportWarning(const CString& sWarning);
     void          ReportNotification(const CString& sNotification);
     void          ReportCmd(const CString& sCmd);

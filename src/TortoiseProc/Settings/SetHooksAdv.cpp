@@ -66,32 +66,32 @@ BOOL CSetHooksAdv::OnInitDialog()
 
     // initialize the combo box with all the hook types we have
     int index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_STARTCOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, start_commit_hook);
+    m_cHookTypeCombo.SetItemData(index, Start_Commit_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_CHECKCOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, check_commit_hook);
+    m_cHookTypeCombo.SetItemData(index, Check_Commit_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRECOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, pre_commit_hook);
+    m_cHookTypeCombo.SetItemData(index, Pre_Commit_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_MANUALPRECOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, manual_precommit);
+    m_cHookTypeCombo.SetItemData(index, Manual_Precommit);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTCOMMIT)));
-    m_cHookTypeCombo.SetItemData(index, post_commit_hook);
+    m_cHookTypeCombo.SetItemData(index, Post_Commit_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_STARTUPDATE)));
-    m_cHookTypeCombo.SetItemData(index, start_update_hook);
+    m_cHookTypeCombo.SetItemData(index, Start_Update_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PREUPDATE)));
-    m_cHookTypeCombo.SetItemData(index, pre_update_hook);
+    m_cHookTypeCombo.SetItemData(index, Pre_Update_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTUPDATE)));
-    m_cHookTypeCombo.SetItemData(index, post_update_hook);
+    m_cHookTypeCombo.SetItemData(index, Post_Update_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRECONNECT)));
-    m_cHookTypeCombo.SetItemData(index, pre_connect_hook);
+    m_cHookTypeCombo.SetItemData(index, Pre_Connect_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_PRELOCK)));
-    m_cHookTypeCombo.SetItemData(index, pre_lock_hook);
+    m_cHookTypeCombo.SetItemData(index, Pre_Lock_Hook);
     index = m_cHookTypeCombo.AddString(CString(MAKEINTRESOURCE(IDS_HOOKTYPE_POSTLOCK)));
-    m_cHookTypeCombo.SetItemData(index, post_lock_hook);
+    m_cHookTypeCombo.SetItemData(index, Post_Lock_Hook);
     // preselect the right hook type in the combobox
     for (int i = 0; i < m_cHookTypeCombo.GetCount(); ++i)
     {
-        hooktype ht = static_cast<hooktype>(m_cHookTypeCombo.GetItemData(i));
-        if (ht == key.htype)
+        HookType ht = static_cast<HookType>(m_cHookTypeCombo.GetItemData(i));
+        if (ht == key.hType)
         {
             CString str;
             m_cHookTypeCombo.GetLBText(i, str);
@@ -130,17 +130,17 @@ void CSetHooksAdv::OnOK()
 {
     UpdateData();
     int curSel = m_cHookTypeCombo.GetCurSel();
-    key.htype  = unknown_hook;
+    key.hType  = Unknown_Hook;
     if (curSel != CB_ERR)
     {
-        key.htype       = static_cast<hooktype>(m_cHookTypeCombo.GetItemData(curSel));
+        key.hType       = static_cast<HookType>(m_cHookTypeCombo.GetItemData(curSel));
         key.path        = CTSVNPath(m_sPath);
         cmd.commandline = m_sCommandLine;
         cmd.bWait       = !!m_bWait;
         cmd.bShow       = !m_bHide;
         cmd.bEnforce    = !!m_bEnforce;
     }
-    if (key.htype == unknown_hook)
+    if (key.hType == Unknown_Hook)
     {
         m_tooltips.ShowBalloon(IDC_HOOKTYPECOMBO, IDS_ERR_NOHOOKTYPESPECIFIED, IDS_ERR_ERROR, TTI_ERROR);
         return;

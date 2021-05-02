@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2010, 2015 - TortoiseSVN
+// Copyright (C) 2003-2007, 2010, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 #pragma once
 #include "registry.h"
 #pragma warning(push)
-#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#pragma warning(disable : 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
 #pragma warning(pop)
 
@@ -30,60 +30,62 @@
 class CColors
 {
 public:
-    CColors(void);
-    ~CColors(void);
+    CColors();
+    ~CColors();
 
     enum Colors
     {
-        Cmd = 0,
-        Conflict = 1,
-        Modified = 2,
-        Merged = 3,
-        Deleted = 4,
-        Added = 5,
-        LastCommit = 6,
-        DeletedNode = 7,
-        AddedNode = 8,
-        ReplacedNode = 9,
-        RenamedNode = 10,
-        LastCommitNode = 11,
+        Cmd             = 0,
+        Conflict        = 1,
+        Modified        = 2,
+        Merged          = 3,
+        Deleted         = 4,
+        Added           = 5,
+        LastCommit      = 6,
+        DeletedNode     = 7,
+        AddedNode       = 8,
+        ReplacedNode    = 9,
+        RenamedNode     = 10,
+        LastCommitNode  = 11,
         PropertyChanged = 12,
-        FilterMatch = 13,
+        FilterMatch     = 13,
         DryRunConflict,
     };
 
     enum GDIPlusColor
     {
-        gdpDeletedNode = 7,
-        gdpAddedNode = 8,
-        gdpRenamedNode = 10,
+        // ReSharper disable CppInconsistentNaming
+        gdpDeletedNode    = 7,
+        gdpAddedNode      = 8,
+        gdpRenamedNode    = 10,
         gdpLastCommitNode = 11,
 
-        gdpModifiedNode = 13,
-        gdpWCNode = 14,
+        gdpModifiedNode  = 13,
+        gdpWCNode        = 14,
         gdpUnchangedNode = 15,
-        gdpTagOverlay = 16,
-        gdpTrunkOverlay = 17,
+        gdpTagOverlay    = 16,
+        gdpTrunkOverlay  = 17,
 
         gdpStripeColor1 = 18,
         gdpStripeColor2 = 19,
 
         gdpWCNodeBorder = 20
+        // ReSharper restore CppInconsistentNaming
     };
 
     enum GDIPlusColorTable
     {
-        ctMarkers = 0
+        CtMarkers = 0
     };
 
-    COLORREF GetColor (Colors col, bool bDefault = false);
-    void SetColor(Colors col, COLORREF cr);
+    COLORREF GetColor(Colors col, bool bDefault = false);
+    void     SetColor(Colors col, COLORREF cr);
 
-    Gdiplus::Color GetColor (GDIPlusColor id, bool bDefault = false);
-    void SetColor (GDIPlusColor id, Gdiplus::Color color);
+    Gdiplus::Color GetColor(GDIPlusColor id, bool bDefault = false);
+    void           SetColor(GDIPlusColor id, Gdiplus::Color color);
 
-    Gdiplus::Color GetColor (GDIPlusColorTable id, int index, bool bDefault = false);
-    void SetColor (GDIPlusColorTable id, int index, Gdiplus::Color color);
+    Gdiplus::Color GetColor(GDIPlusColorTable id, int index, bool bDefault = false);
+    void           SetColor(GDIPlusColorTable id, int index, Gdiplus::Color color);
 
 private:
     CRegDWORD m_regCmd;
@@ -106,20 +108,20 @@ private:
     CRegDWORD m_regGDPRenamedNode;
     CRegDWORD m_regGDPLastCommit;
     CRegDWORD m_regGDPModifiedNode;
-    CRegDWORD m_regGDPWCNode;
+    CRegDWORD m_regGDPWcNode;
     CRegDWORD m_regGDPUnchangedNode;
     CRegDWORD m_regGDPTagOverlay;
     CRegDWORD m_regGDPTrunkOverlay;
     CRegDWORD m_regGDPStripeColor1;
     CRegDWORD m_regGDPStripeColor2;
-    CRegDWORD m_regGDPWCNodeBorder;
+    CRegDWORD m_regGDPWcNodeBorder;
 
-    CRegDWORDList m_regCTMarkers;
+    CRegDWORDList m_regCtMarkers;
 
     // utilities
 
-    CRegDWORD* GetRegistrySetting (Colors id);
-    CRegDWORD* GetRegistrySetting (GDIPlusColor id);
-    CRegDWORDList* GetRegistrySetting (GDIPlusColorTable id);
-    CRegDWORD* GetLegacyRegistrySetting (GDIPlusColor id);
+    CRegDWORD*     GetRegistrySetting(Colors id);
+    CRegDWORD*     GetRegistrySetting(GDIPlusColor id);
+    CRegDWORDList* GetRegistrySetting(GDIPlusColorTable id);
+    CRegDWORD*     GetLegacyRegistrySetting(GDIPlusColor id);
 };

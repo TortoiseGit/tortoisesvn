@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2011, 2013-2015, 2017 - TortoiseSVN
+// Copyright (C) 2009, 2011, 2013-2015, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,13 +19,12 @@
 #pragma once
 #include "registry.h"
 
-
 class CTraceToOutputDebugString
 {
 public:
     static CTraceToOutputDebugString& Instance()
     {
-        if (m_pInstance == NULL)
+        if (m_pInstance == nullptr)
             m_pInstance = new CTraceToOutputDebugString;
         return *m_pInstance;
     }
@@ -42,7 +41,7 @@ public:
         {
             va_list ptr;
             va_start(ptr, pszFormat);
-            TraceV(pszFormat,ptr);
+            TraceV(pszFormat, ptr);
             va_end(ptr);
         }
     }
@@ -54,7 +53,7 @@ public:
         {
             va_list ptr;
             va_start(ptr, pszFormat);
-            TraceV(pszFormat,ptr);
+            TraceV(pszFormat, ptr);
             va_end(ptr);
         }
     }
@@ -62,24 +61,24 @@ public:
 private:
     CTraceToOutputDebugString()
     {
-        m_LastTick = GetTickCount64();
-        m_bActive = !!CRegStdDWORD(L"Software\\TortoiseSVN\\DebugOutputString", FALSE);
+        m_lastTick = GetTickCount64();
+        m_bActive  = !!CRegStdDWORD(L"Software\\TortoiseSVN\\DebugOutputString", FALSE);
     }
     ~CTraceToOutputDebugString()
     {
         delete m_pInstance;
     }
 
-    ULONGLONG m_LastTick;
-    bool    m_bActive;
-    static CTraceToOutputDebugString * m_pInstance;
+    ULONGLONG                         m_lastTick;
+    bool                              m_bActive;
+    static CTraceToOutputDebugString* m_pInstance;
 
     // Non Unicode output helper
     void TraceV(PCSTR pszFormat, va_list args) const
     {
         // Format the output buffer
         char szBuffer[1024];
-        _vsnprintf_s(szBuffer, _countof(szBuffer), _countof(szBuffer)-1, pszFormat, args);
+        _vsnprintf_s(szBuffer, _countof(szBuffer), _countof(szBuffer) - 1, pszFormat, args);
         OutputDebugStringA(szBuffer);
     }
 
@@ -87,10 +86,11 @@ private:
     void TraceV(PCWSTR pszFormat, va_list args) const
     {
         wchar_t szBuffer[1024];
-        _vsnwprintf_s(szBuffer, _countof(szBuffer), _countof(szBuffer)-1, pszFormat, args);
+        _vsnwprintf_s(szBuffer, _countof(szBuffer), _countof(szBuffer) - 1, pszFormat, args);
         OutputDebugStringW(szBuffer);
     }
 
+    // ReSharper disable once CppMemberFunctionMayBeStatic
     bool IsActive()
     {
 #ifdef DEBUG
@@ -99,7 +99,7 @@ private:
         if (GetTickCount64() - m_LastTick > 10000)
         {
             m_LastTick = GetTickCount64();
-            m_bActive = !!CRegStdDWORD(L"Software\\TortoiseSVN\\DebugOutputString", FALSE);
+            m_bActive  = !!CRegStdDWORD(L"Software\\TortoiseSVN\\DebugOutputString", FALSE);
         }
         return m_bActive;
 #endif
@@ -118,16 +118,16 @@ public:
     {
         LARGE_INTEGER endTime;
         QueryPerformanceCounter(&endTime);
-        LARGE_INTEGER Frequency;
-        QueryPerformanceFrequency(&Frequency);
+        LARGE_INTEGER frequency;
+        QueryPerformanceFrequency(&frequency);
         LARGE_INTEGER milliseconds;
         milliseconds.QuadPart = endTime.QuadPart - startTime.QuadPart;
         milliseconds.QuadPart *= 1000;
-        milliseconds.QuadPart /= Frequency.QuadPart;
+        milliseconds.QuadPart /= frequency.QuadPart;
         CTraceToOutputDebugString::Instance()(L"%s : %lld ms\n", info.c_str(), milliseconds.QuadPart);
     }
 
 private:
-    LARGE_INTEGER   startTime;
-    std::wstring    info;
+    LARGE_INTEGER startTime;
+    std::wstring  info;
 };

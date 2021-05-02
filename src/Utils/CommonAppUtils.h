@@ -110,7 +110,7 @@ public:
 
     static void ExtendControlOverHiddenControl(CWnd* parent, UINT controlToExtend, UINT hiddenControl);
 
-    static bool FileOpenSave(CString& path, int* filterindex, UINT title, UINT filter, bool bOpen, const CString& initialDir = CString(), HWND hwndOwner = NULL);
+    static bool FileOpenSave(CString& path, int* filterindex, UINT title, UINT filter, bool bOpen, const CString& initialDir = CString(), HWND hwndOwner = nullptr);
 
     static bool AddClipboardUrlToWindow(HWND hWnd);
 

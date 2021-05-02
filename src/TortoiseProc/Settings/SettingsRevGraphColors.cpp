@@ -121,8 +121,8 @@ BOOL CSettingsRevisionGraphColors::OnInitDialog()
     InitColorPicker(m_cTagOverlay, CColors::gdpTagOverlay);
     InitColorPicker(m_cTrunkOverlay, CColors::gdpTrunkOverlay);
 
-    InitColorPicker(m_cTagMarker, CColors::ctMarkers, 0);
-    InitColorPicker(m_cTrunkMarker, CColors::ctMarkers, 1);
+    InitColorPicker(m_cTagMarker, CColors::CtMarkers, 0);
+    InitColorPicker(m_cTrunkMarker, CColors::CtMarkers, 1);
 
     InitColorPicker(m_cStripeColor1, CColors::gdpStripeColor1);
     InitColorPicker(m_cStripeColor2, CColors::gdpStripeColor2);
@@ -163,8 +163,8 @@ void CSettingsRevisionGraphColors::OnBnClickedRestore()
     ResetColor(m_cTagOverlay, CColors::gdpTagOverlay);
     ResetColor(m_cTrunkOverlay, CColors::gdpTrunkOverlay);
 
-    ResetColor(m_cTagMarker, CColors::ctMarkers, 0);
-    ResetColor(m_cTrunkMarker, CColors::ctMarkers, 1);
+    ResetColor(m_cTagMarker, CColors::CtMarkers, 0);
+    ResetColor(m_cTrunkMarker, CColors::CtMarkers, 1);
 
     ResetColor(m_cStripeColor1, CColors::gdpStripeColor1);
     ResetColor(m_cStripeColor2, CColors::gdpStripeColor2);
@@ -215,8 +215,8 @@ BOOL CSettingsRevisionGraphColors::OnApply()
     ApplyColor(m_cTagOverlay, CColors::gdpTagOverlay, 0x80);
     ApplyColor(m_cTrunkOverlay, CColors::gdpTrunkOverlay, 0x40);
 
-    ApplyColor(m_cTagMarker, CColors::ctMarkers, 0);
-    ApplyColor(m_cTrunkMarker, CColors::ctMarkers, 1);
+    ApplyColor(m_cTagMarker, CColors::CtMarkers, 0);
+    ApplyColor(m_cTrunkMarker, CColors::CtMarkers, 1);
 
     ApplyColor(m_cStripeColor1, CColors::gdpStripeColor1, m_sStripeAlpha1);
     ApplyColor(m_cStripeColor2, CColors::gdpStripeColor2, m_sStripeAlpha2);

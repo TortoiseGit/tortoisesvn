@@ -30,9 +30,9 @@
 #include "DPIAware.h"
 #include "LoadIconEx.h"
 #include "IconMenu.h"
-#include <WinInet.h>
 #include <oleacc.h>
-//#include <initguid.h>
+// ReSharper disable once CppUnusedIncludeDirective
+#include <WinInet.h>
 #include <regex>
 #include <propkey.h>
 
@@ -486,11 +486,10 @@ void CCommonAppUtils::ExtendControlOverHiddenControl(CWnd* parent, UINT controlT
 
 bool CCommonAppUtils::FileOpenSave(CString& path, int* filterindex, UINT title, UINT filterId, bool bOpen, const CString& initialDir, HWND hwndOwner)
 {
-    HRESULT hr;
     // Create a new common save file dialog
     CComPtr<IFileDialog> pfd = nullptr;
 
-    hr = pfd.CoCreateInstance(bOpen ? CLSID_FileOpenDialog : CLSID_FileSaveDialog, nullptr, CLSCTX_INPROC_SERVER);
+    HRESULT hr = pfd.CoCreateInstance(bOpen ? CLSID_FileOpenDialog : CLSID_FileSaveDialog, nullptr, CLSCTX_INPROC_SERVER);
     if (SUCCEEDED(hr))
     {
         // Set the dialog options

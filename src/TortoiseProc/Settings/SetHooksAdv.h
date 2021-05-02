@@ -38,8 +38,8 @@ public:
         IDD = IDD_SETTINGSHOOKCONFIG
     };
 
-    hookkey key;
-    hookcmd cmd;
+    HookKey key;
+    HookCmd cmd;
 
 protected:
     void         DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
