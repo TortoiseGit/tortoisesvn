@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2009, 2011, 2013, 2016, 2020 - TortoiseSVN
+// Copyright (C) 2003-2009, 2011, 2013, 2016, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,10 +19,8 @@
 #pragma once
 #include "StandAloneDlg.h"
 #include "RevisionGraph/AllGraphOptions.h"
-#include "ProgressDlg.h"
 #include "Colors.h"
 #include "RevisionGraphWnd.h"
-#include "StandAloneDlg.h"
 
 /**
  * \ingroup TortoiseProc
@@ -32,7 +30,7 @@
 class CRevGraphToolBar : public CToolBar
 {
 public:
-    CComboBoxEx     m_ZoomCombo;
+    CComboBoxEx m_zoomCombo;
 };
 
 /**
@@ -47,39 +45,41 @@ class CRevisionGraphDlg : public CResizableStandAloneDialog
 {
     DECLARE_DYNAMIC(CRevisionGraphDlg)
 public:
-    CRevisionGraphDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CRevisionGraphDlg();
-    enum { IDD = IDD_REVISIONGRAPH };
+    CRevisionGraphDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CRevisionGraphDlg() override;
+    enum
+    {
+        IDD = IDD_REVISIONGRAPH
+    };
 
+    void SetPath(const CString& sPath) { m_graph.m_sPath = sPath; }
+    void SetPegRevision(const SVNRev& revision) { m_graph.m_pegRev = revision; }
+    void DoZoom(float factor);
 
-    void            SetPath(const CString& sPath) {m_Graph.m_sPath = sPath;}
-    void            SetPegRevision(const SVNRev& revision) {m_Graph.m_pegRev = revision;}
-    void            DoZoom (float factor);
+    void UpdateFullHistory();
+    void StartWorkerThread();
 
-    void            UpdateFullHistory();
-    void            StartWorkerThread();
-
-    void            StartHidden() { m_bVisible = false; }
-    void            SetOutputFile(const CString& path) { m_outputPath = path; }
-    CString         GetOutputFile() const { return m_outputPath; }
-    void            SetOptions(DWORD options) { m_Graph.m_state.GetOptions()->SetRegistryFlags(options, 0x407fbf); }
+    void    StartHidden() { m_bVisible = false; }
+    void    SetOutputFile(const CString& path) { m_outputPath = path; }
+    CString GetOutputFile() const { return m_outputPath; }
+    void    SetOptions(DWORD options) { m_graph.m_state.GetOptions()->SetRegistryFlags(options, 0x407fbf); }
 
 protected:
-    bool            m_bFetchLogs;
-    char            m_szTip[MAX_TT_LENGTH+1];
-    wchar_t         m_wszTip[MAX_TT_LENGTH+1];
+    bool    m_bFetchLogs;
+    char    m_szTip[MAX_TT_LENGTH + 1];
+    wchar_t m_wszTip[MAX_TT_LENGTH + 1];
 
-    CString         m_sFilter;
+    CString m_sFilter;
 
-    HACCEL          m_hAccel;
+    HACCEL m_hAccel;
 
-    BOOL            InitializeToolbar();
+    BOOL InitializeToolbar();
 
-    virtual void    DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL    OnInitDialog();
-    virtual void    OnCancel();
-    virtual void    OnOK();
-    virtual BOOL    PreTranslateMessage(MSG* pMsg);
+    void            DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL            OnInitDialog() override;
+    void            OnCancel() override;
+    void            OnOK() override;
+    BOOL            PreTranslateMessage(MSG* pMsg) override;
     afx_msg void    OnSize(UINT nType, int cx, int cy);
     afx_msg void    OnViewFilter();
     afx_msg void    OnViewZoomin();
@@ -97,36 +97,36 @@ protected:
     afx_msg void    OnMenuexit();
     afx_msg void    OnMenuhelp();
     afx_msg void    OnChangeZoom();
-    afx_msg BOOL    OnToggleOption (UINT controlID);
-    afx_msg BOOL    OnToggleReloadOption (UINT controlID);
-    afx_msg BOOL    OnToggleRedrawOption (UINT controlID);
-    afx_msg BOOL    OnToolTipNotify (UINT id, NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg BOOL    OnToggleOption(UINT controlID);
+    afx_msg BOOL    OnToggleReloadOption(UINT controlID);
+    afx_msg BOOL    OnToggleRedrawOption(UINT controlID);
+    afx_msg BOOL    OnToolTipNotify(UINT id, NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void    OnWindowPosChanging(WINDOWPOS* lpwndpos);
     afx_msg LRESULT OnDPIChanged(WPARAM, LPARAM lParam);
 
     DECLARE_MESSAGE_MAP()
 
-    BOOL            ToggleOption (UINT controlID);
-    void            SetOption (UINT controlID);
+    BOOL ToggleOption(UINT controlID);
+    void SetOption(UINT controlID);
 
-    CRect           GetGraphRect();
-    void            UpdateStatusBar();
+    CRect GetGraphRect() const;
+    void  UpdateStatusBar();
 
 private:
-    void            UpdateZoomBox();
-    void            UpdateOptionAvailability (UINT id, bool available);
-    void            UpdateOptionAvailability();
+    void UpdateZoomBox() const;
+    void UpdateOptionAvailability(UINT id, bool available) const;
+    void UpdateOptionAvailability() const;
 
-    bool            UpdateData();
-    void            SetTheme(bool bDark);
+    bool UpdateData();
+    void SetTheme(bool bDark) const;
 
-    float                       m_fZoomFactor;
-    CRevisionGraphWnd           m_Graph;
-    CStatusBarCtrl              m_StatusBar;
-    CRevGraphToolBar            m_ToolBar;
-    bool                        m_bVisible;
-    CString                     m_outputPath;
-    ULONG_PTR                   m_gdiPlusToken;
-    CComPtr<ITaskbarList3>      m_pTaskbarList;
-    int                         m_themeCallbackId;
+    float                  m_fZoomFactor;
+    CRevisionGraphWnd      m_graph;
+    CStatusBarCtrl         m_statusBar;
+    CRevGraphToolBar       m_toolBar;
+    bool                   m_bVisible;
+    CString                m_outputPath;
+    ULONG_PTR              m_gdiPlusToken;
+    CComPtr<ITaskbarList3> m_pTaskbarList;
+    int                    m_themeCallbackId;
 };

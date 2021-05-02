@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2013, 2020 - TortoiseSVN
+// Copyright (C) 2003-2006, 2013, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,37 +29,40 @@ class CRevGraphFilterDlg : public CStandAloneDialog
     DECLARE_DYNAMIC(CRevGraphFilterDlg)
 
 public:
-    CRevGraphFilterDlg(CWnd* pParent = NULL);   // standard constructor
-    virtual ~CRevGraphFilterDlg();
+    CRevGraphFilterDlg(CWnd* pParent = nullptr); // standard constructor
+    ~CRevGraphFilterDlg() override;
 
-    void    SetMaxRevision (svn_revnum_t rev) {m_HeadRev = rev;}
-    void    GetRevisionRange (svn_revnum_t& minrev, svn_revnum_t& maxrev);
-    void    SetRevisionRange (svn_revnum_t minrev, svn_revnum_t maxrev);
-    CString GetFilterString() {return m_sFilterPaths;}
-    void    SetFilterString (const CString& str) {m_sFilterPaths = str;}
-    bool    GetRemoveSubTrees() {return m_removeSubTree != FALSE;}
-    void    SetRemoveSubTrees (bool value) {m_removeSubTree = value ? TRUE : FALSE;}
+    void    SetMaxRevision(svn_revnum_t rev) { m_headRev = rev; }
+    void    GetRevisionRange(svn_revnum_t& minrev, svn_revnum_t& maxrev) const;
+    void    SetRevisionRange(svn_revnum_t minrev, svn_revnum_t maxrev);
+    CString GetFilterString() const { return m_sFilterPaths; }
+    void    SetFilterString(const CString& str) { m_sFilterPaths = str; }
+    bool    GetRemoveSubTrees() const { return m_removeSubTree != FALSE; }
+    void    SetRemoveSubTrees(bool value) { m_removeSubTree = value ? TRUE : FALSE; }
 
-// Dialog Data
-    enum { IDD = IDD_REVGRAPHFILTER };
+    // Dialog Data
+    enum
+    {
+        IDD = IDD_REVGRAPHFILTER
+    };
 
 protected:
-    virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-    virtual BOOL OnInitDialog();
-    virtual void OnOK();
+    void DoDataExchange(CDataExchange* pDX) override; // DDX/DDV support
+    BOOL OnInitDialog() override;
+    void OnOK() override;
 
-    afx_msg void OnDeltaposFromspin(NMHDR *pNMHDR, LRESULT *pResult);
-    afx_msg void OnDeltaposTospin(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnDeltaposFromspin(NMHDR* pNMHDR, LRESULT* pResult);
+    afx_msg void OnDeltaposTospin(NMHDR* pNMHDR, LRESULT* pResult);
 
     DECLARE_MESSAGE_MAP()
 protected:
-    CString             m_sFilterPaths;
-    BOOL                m_removeSubTree;
-    CSpinButtonCtrl     m_cFromSpin;
-    CSpinButtonCtrl     m_cToSpin;
-    CString             m_sFromRev;
-    CString             m_sToRev;
-    svn_revnum_t        m_HeadRev;
-    svn_revnum_t        m_minrev;
-    svn_revnum_t        m_maxrev;
+    CString         m_sFilterPaths;
+    BOOL            m_removeSubTree;
+    CSpinButtonCtrl m_cFromSpin;
+    CSpinButtonCtrl m_cToSpin;
+    CString         m_sFromRev;
+    CString         m_sToRev;
+    svn_revnum_t    m_headRev;
+    svn_revnum_t    m_minRev;
+    svn_revnum_t    m_maxRev;
 };

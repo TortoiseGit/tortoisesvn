@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2015, 2020 - TortoiseSVN
+// Copyright (C) 2009, 2015, 2020, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -26,7 +26,7 @@
 #include "RevisionGraph/AllGraphOptions.h"
 
 #pragma warning(push)
-#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#pragma warning(disable : 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
 #pragma warning(pop)
 
@@ -39,33 +39,31 @@ using namespace Gdiplus;
  * alongside with the pointer.
  */
 
-template<class T>
+template <class T>
 class CSyncPointer
 {
 public:
-
     /// RAII
 
-    CSyncPointer (CSyncObject* mutex, T* ptr, bool ownsPtr);
-    CSyncPointer (const CSyncPointer<T>& rhs);
+    CSyncPointer(CSyncObject* mutex, T* ptr, bool ownsPtr);
+    CSyncPointer(const CSyncPointer<T>& rhs);
     ~CSyncPointer();
 
-    CSyncPointer<T>& operator= (const CSyncPointer<T>& rhs);
+    CSyncPointer<T>& operator=(const CSyncPointer<T>& rhs);
 
     /// data access
 
-    T* operator->() const;
-    T& operator*() const;
+    T*   operator->() const;
+    T&   operator*() const;
     bool operator!() const;
 
     T* get() const;
 
 private:
-
     /// the synchronization objects
 
     CSyncObject* mutex;
-    CSingleLock lock;
+    CSingleLock  lock;
 
     /// the actual data
 
@@ -76,24 +74,23 @@ private:
     mutable bool ownsPtr;
 };
 
-
 // RAII
 
 template <class T>
-CSyncPointer<T>::CSyncPointer (CSyncObject* mutex, T* ptr, bool ownsPtr)
-    : mutex (mutex)
-    , lock (mutex)
-    , ptr (ptr)
-    , ownsPtr (ownsPtr)
+CSyncPointer<T>::CSyncPointer(CSyncObject* mutex, T* ptr, bool ownsPtr)
+    : mutex(mutex)
+    , lock(mutex)
+    , ptr(ptr)
+    , ownsPtr(ownsPtr)
 {
 }
 
 template <class T>
-CSyncPointer<T>::CSyncPointer (const CSyncPointer<T>& rhs)
-    : mutex (rhs.mutex)
-    , lock (rhs.mutex)
-    , rhs.ptr (rhs.ptr)
-    , ownsPtr (rhs.ownsPtr)
+CSyncPointer<T>::CSyncPointer(const CSyncPointer<T>& rhs)
+    : mutex(rhs.mutex)
+    , lock(rhs.mutex)
+    , rhs.ptr(rhs.ptr)
+    , ownsPtr(rhs.ownsPtr)
 {
     rhs.ownsPtr = false;
 }
@@ -106,19 +103,19 @@ CSyncPointer<T>::~CSyncPointer()
 }
 
 template <class T>
-CSyncPointer<T>& CSyncPointer<T>::operator= (const CSyncPointer<T>& rhs)
+CSyncPointer<T>& CSyncPointer<T>::operator=(const CSyncPointer<T>& rhs)
 {
     if (this != *rhs)
     {
         CSyncObject* oldMutex = mutex;
-        mutex = rhs.mutex;
+        mutex                 = rhs.mutex;
         mutex->Lock();
 
         if (ownsPtr)
             delete ptr;
 
-        ptr = rhs.ptr;
-        ownsPtr = rhs.ownsPtr;
+        ptr         = rhs.ptr;
+        ownsPtr     = rhs.ownsPtr;
         rhs.ownsPtr = false;
 
         lock = rhs.lock;
@@ -146,7 +143,7 @@ T& CSyncPointer<T>::operator*() const
 template <class T>
 bool CSyncPointer<T>::operator!() const
 {
-    return ptr == NULL;
+    return ptr == nullptr;
 }
 
 template <class T>
@@ -165,17 +162,18 @@ T* CSyncPointer<T>::get() const
 class CRevisionGraphState
 {
 public:
-
     /// when glyphs are shown, this will contain the list of all
 
     struct SVisibleGlyph
     {
-        DWORD state;
-        PointF leftTop;
+        DWORD                    state;
+        PointF                   leftTop;
         const CVisibleGraphNode* node;
 
-        SVisibleGlyph (DWORD state, const PointF& leftTop, const CVisibleGraphNode* node)
-            : state (state), leftTop (leftTop), node (node)
+        SVisibleGlyph(DWORD state, const PointF& leftTop, const CVisibleGraphNode* node)
+            : state(state)
+            , leftTop(leftTop)
+            , node(node)
         {
         }
     };
@@ -208,39 +206,35 @@ public:
     CSyncPointer<CAllRevisionGraphOptions> GetOptions();
     CSyncPointer<CGraphNodeStates>         GetNodeStates();
     CSyncPointer<TVisibleGlyphs>           GetVisibleGlyphs();
-    CSyncPointer<SVN>                      GetSVN();
+    CSyncPointer<SVN>                      GetSVN() const;
 
     /// basic, synchronized data write access
 
-    void SetQueryResult ( std::unique_ptr<CFullHistory>& newHistory
-                        , std::unique_ptr<CFullGraph>& newFullGraph
-                        , bool newFetchedWCState);
-    void SetAnalysisResult ( std::unique_ptr<CVisibleGraph>& newVisibleGraph
-                           , std::unique_ptr<CStandardLayout>& newLayout);
+    void SetQueryResult(std::unique_ptr<CFullHistory>& newHistory, std::unique_ptr<CFullGraph>& newFullGraph, bool newFetchedWCState);
+    void SetAnalysisResult(std::unique_ptr<CVisibleGraph>& newVisibleGraph, std::unique_ptr<CStandardLayout>& newLayout);
 
-    void SetLastErrorMessage (const CString& message);
+    void SetLastErrorMessage(const CString& message);
 
     /// convenience methods
 
-    CRect        GetGraphRect();
-    int          GetNodeCount();
+    CRect GetGraphRect() const;
+    int   GetNodeCount() const;
 
     svn_revnum_t GetHeadRevision() const;
     CString      GetRepositoryRoot() const;
     CString      GetRepositoryUUID() const;
     size_t       GetTreeCount() const;
 
-    bool         PromptShown() const;
+    bool PromptShown() const;
 
 private:
-
     /// sync object
 
     mutable CCriticalSection mutex;
 
     /// status info
 
-    bool fetchedWCState;
+    bool    fetchedWCState;
     CString lastErrorMessage;
 
     /// revision graph option setting
@@ -249,14 +243,13 @@ private:
 
     /// internal revision graph data
 
-    std::unique_ptr<CFullHistory> fullHistory;
-    std::unique_ptr<CFullGraph> fullGraph;
-    std::unique_ptr<CVisibleGraph> visibleGraph;
+    std::unique_ptr<CFullHistory>         fullHistory;
+    std::unique_ptr<CFullGraph>           fullGraph;
+    std::unique_ptr<CVisibleGraph>        visibleGraph;
     std::unique_ptr<IRevisionGraphLayout> layout;
 
     /// revision graph UI data
 
     CGraphNodeStates nodeStates;
-    TVisibleGlyphs visibleGlyphs;
-
+    TVisibleGlyphs   visibleGlyphs;
 };

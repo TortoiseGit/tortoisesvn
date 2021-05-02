@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013-2015, 2018, 2020 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013-2015, 2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,13 +17,11 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "RevisionGraphDlg.h"
 #include "SVN.h"
 #include "TempFile.h"
 #include "UnicodeUtils.h"
 #include "TSVNPath.h"
-#include "SVNInfo.h"
 #include "RevisionGraphWnd.h"
 #include "CachedLogInfo.h"
 #include "RevisionGraph/IRevisionGraphLayout.h"
@@ -34,15 +32,18 @@
 #include "RevisionGraph/ShowWC.h"
 #include "RevisionGraph/ShowWCModification.h"
 #include "DPIAware.h"
+#include "AppUtils.h"
 
 #pragma warning(push)
-#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#pragma warning(disable : 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
+
 #pragma warning(pop)
 
 #ifdef _DEBUG
-#define new DEBUG_NEW
-#undef THIS_FILE
+// ReSharper disable once CppInconsistentNaming
+#    define new DEBUG_NEW
+#    undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
 
@@ -57,7 +58,7 @@ void CRevisionGraphWnd::InitView()
 
 void CRevisionGraphWnd::BuildPreview()
 {
-    m_Preview.DeleteObject();
+    m_preview.DeleteObject();
     if (!m_bShowOverview)
         return;
 
@@ -70,136 +71,129 @@ void CRevisionGraphWnd::BuildPreview()
     float origZoom = m_fZoomFactor;
 
     CRect clientRect = GetClientRect();
-    CSize preViewSize (max (CDPIAware::Instance().Scale(GetSafeHwnd(), REVGRAPH_PREVIEW_WIDTH), clientRect.Width() / 4)
-                      ,max (CDPIAware::Instance().Scale(GetSafeHwnd(), REVGRAPH_PREVIEW_HEIGHT), clientRect.Height() / 4));
+    CSize preViewSize(max(CDPIAware::Instance().Scale(GetSafeHwnd(), REVGRAPH_PREVIEW_WIDTH), clientRect.Width() / 4), max(CDPIAware::Instance().Scale(GetSafeHwnd(), REVGRAPH_PREVIEW_HEIGHT), clientRect.Height() / 4));
 
     // zoom the graph so that it is completely visible in the window
     CRect graphRect = GetGraphRect();
-    float horzfact = float(graphRect.Width())/float(preViewSize.cx);
-    float vertfact = float(graphRect.Height())/float(preViewSize.cy);
-    m_previewZoom = min (DEFAULT_ZOOM, 1.0f/(max(horzfact, vertfact)));
+    float horzFact  = static_cast<float>(graphRect.Width()) / static_cast<float>(preViewSize.cx);
+    float vertFact  = static_cast<float>(graphRect.Height()) / static_cast<float>(preViewSize.cy);
+    m_previewZoom   = min(DEFAULT_ZOOM, 1.0f / (max(horzFact, vertFact)));
 
     // make sure the preview window has a minimal size
 
-    m_previewWidth  = min((int)max(graphRect.Width() * m_previewZoom, 30.0f), (int)preViewSize.cx);
-    m_previewHeight = min((int)max(graphRect.Height() * m_previewZoom, 30.0f), (int)preViewSize.cy);
+    m_previewWidth  = min(static_cast<int>(max(graphRect.Width() * m_previewZoom, 30.0f)), static_cast<int>(preViewSize.cx));
+    m_previewHeight = min(static_cast<int>(max(graphRect.Height() * m_previewZoom, 30.0f)), static_cast<int>(preViewSize.cy));
 
     CClientDC ddc(this);
-    CDC dc;
+    CDC       dc;
     if (!dc.CreateCompatibleDC(&ddc))
         return;
 
-    m_Preview.CreateCompatibleBitmap(&ddc, m_previewWidth, m_previewHeight);
-    HBITMAP oldbm = (HBITMAP)dc.SelectObject (m_Preview);
+    m_preview.CreateCompatibleBitmap(&ddc, m_previewWidth, m_previewHeight);
+    HBITMAP oldBm = static_cast<HBITMAP>(dc.SelectObject(m_preview));
 
     // paint the whole graph
-    DoZoom (m_previewZoom, false);
-    CRect rect (0, 0, m_previewWidth, m_previewHeight);
+    DoZoom(m_previewZoom, false);
+    CRect          rect(0, 0, m_previewWidth, m_previewHeight);
     GraphicsDevice dev;
     dev.pDC = &dc;
     DrawGraph(dev, rect, 0, 0, true);
 
     // now we have a bitmap the size of the preview window
-    dc.SelectObject(oldbm);
+    dc.SelectObject(oldBm);
     dc.DeleteDC();
 
-    DoZoom (origZoom, false);
+    DoZoom(origZoom, false);
 }
 
-void CRevisionGraphWnd::SetScrollbar (int bar, int newPos, int clientMax, int graphMax)
+void CRevisionGraphWnd::SetScrollbar(int bar, int newPos, int clientMax, int graphMax)
 {
-    SCROLLINFO ScrollInfo = {sizeof(SCROLLINFO), SIF_ALL};
-    GetScrollInfo (bar, &ScrollInfo);
+    SCROLLINFO scrollInfo = {sizeof(SCROLLINFO), SIF_ALL};
+    GetScrollInfo(bar, &scrollInfo);
 
-    clientMax = max(1, clientMax);
-    int oldHeight = ScrollInfo.nMax <= 0 ? clientMax : ScrollInfo.nMax;
+    clientMax     = max(1, clientMax);
+    int oldHeight = scrollInfo.nMax <= 0 ? clientMax : scrollInfo.nMax;
     int newHeight = static_cast<int>(graphMax * m_fZoomFactor);
-    int maxPos = max (0, newHeight - clientMax);
-    int pos = min (maxPos, newPos >= 0
-                         ? newPos
-                         : ScrollInfo.nPos * newHeight / oldHeight);
+    int maxPos    = max(0, newHeight - clientMax);
+    int pos       = min(maxPos, newPos >= 0
+                                    ? newPos
+                                    : scrollInfo.nPos * newHeight / oldHeight);
 
-    ScrollInfo.nPos = pos;
-    ScrollInfo.nMin = 0;
-    ScrollInfo.nMax = newHeight;
-    ScrollInfo.nPage = clientMax;
-    ScrollInfo.nTrackPos = pos;
+    scrollInfo.nPos      = pos;
+    scrollInfo.nMin      = 0;
+    scrollInfo.nMax      = newHeight;
+    scrollInfo.nPage     = clientMax;
+    scrollInfo.nTrackPos = pos;
 
-    SetScrollInfo(bar, &ScrollInfo);
+    SetScrollInfo(bar, &scrollInfo);
 }
 
-void CRevisionGraphWnd::SetScrollbars (int nVert, int nHorz)
+void CRevisionGraphWnd::SetScrollbars(int nVert, int nHorz)
 {
-    CRect clientrect = GetClientRect();
-    const CRect& pRect = GetGraphRect();
+    CRect        clientRect = GetClientRect();
+    const CRect& pRect      = GetGraphRect();
 
-    SetScrollbar (SB_VERT, nVert, clientrect.Height(), pRect.Height());
-    SetScrollbar (SB_HORZ, nHorz, clientrect.Width(), pRect.Width());
+    SetScrollbar(SB_VERT, nVert, clientRect.Height(), pRect.Height());
+    SetScrollbar(SB_HORZ, nHorz, clientRect.Width(), pRect.Width());
 }
 
-CRect CRevisionGraphWnd::GetGraphRect()
+CRect CRevisionGraphWnd::GetGraphRect() const
 {
     return m_state.GetGraphRect();
 }
 
-CRect CRevisionGraphWnd::GetClientRect()
+CRect CRevisionGraphWnd::GetClientRect() const
 {
     CRect clientRect;
-    CWnd::GetClientRect (&clientRect);
+    CWnd::GetClientRect(&clientRect);
     return clientRect;
 }
 
-CRect CRevisionGraphWnd::GetWindowRect()
+CRect CRevisionGraphWnd::GetWindowRect() const
 {
     CRect windowRect;
-    CWnd::GetWindowRect (&windowRect);
+    CWnd::GetWindowRect(&windowRect);
     return windowRect;
 }
 
-CRect CRevisionGraphWnd::GetViewRect()
+CRect CRevisionGraphWnd::GetViewRect() const
 {
     CRect result;
-    result.UnionRect (GetClientRect(), GetGraphRect());
+    result.UnionRect(GetClientRect(), GetGraphRect());
     return result;
 }
 
 int CRevisionGraphWnd::GetEncoderClsid(const WCHAR* format, CLSID* pClsid)
 {
-    UINT num = 0;          // number of image encoders
-    UINT size = 0;         // size of the image encoder array in bytes
+    UINT num  = 0; // number of image encoders
+    UINT size = 0; // size of the image encoder array in bytes
 
-    if (GetImageEncodersSize(&num, &size)!=Ok)
+    if (GetImageEncodersSize(&num, &size) != Ok)
         return -1;
-    if(size == 0)
-        return -1;  // Failure
+    if (size == 0)
+        return -1; // Failure
 
-    ImageCodecInfo* pImageCodecInfo = (ImageCodecInfo*)(malloc(size));
-    if(pImageCodecInfo == NULL)
-        return -1;  // Failure
+    ImageCodecInfo* pImageCodecInfo = static_cast<ImageCodecInfo*>(malloc(size));
+    if (pImageCodecInfo == nullptr)
+        return -1; // Failure
 
-    if (GetImageEncoders(num, size, pImageCodecInfo)==Ok)
+    if (GetImageEncoders(num, size, pImageCodecInfo) == Ok)
     {
-        for(UINT j = 0; j < num; ++j)
+        for (UINT j = 0; j < num; ++j)
         {
-            if( wcscmp(pImageCodecInfo[j].MimeType, format) == 0 )
+            if (wcscmp(pImageCodecInfo[j].MimeType, format) == 0)
             {
                 *pClsid = pImageCodecInfo[j].Clsid;
                 free(pImageCodecInfo);
-                return j;  // Success
+                return j; // Success
             }
         }
-
     }
     free(pImageCodecInfo);
-    return -1;  // Failure
+    return -1; // Failure
 }
 
-bool CRevisionGraphWnd::FetchRevisionData
-    ( const CString& path
-    , SVNRev pegRevision
-    , CProgressDlg* progress
-    , ITaskbarList3 * pTaskbarList
-    , HWND hWnd)
+bool CRevisionGraphWnd::FetchRevisionData(const CString& path, SVNRev pegRevision, CProgressDlg* progress, ITaskbarList3* pTaskbarList, HWND hWnd)
 {
     // (re-)fetch the data
     SVN svn;
@@ -209,35 +203,31 @@ bool CRevisionGraphWnd::FetchRevisionData
         return false;
     }
 
-    std::unique_ptr<CFullHistory> newFullHistory (new CFullHistory());
+    std::unique_ptr<CFullHistory> newFullHistory(new CFullHistory());
 
-    bool showWCRev
-        = m_state.GetOptions()->GetOption<CShowWC>()->IsSelected();
-    bool showWCModification
-        = m_state.GetOptions()->GetOption<CShowWCModification>()->IsSelected();
-    bool result = newFullHistory->FetchRevisionData ( path
-                                                    , pegRevision
-                                                    , showWCRev
-                                                    , showWCModification
-                                                    , progress
-                                                    , pTaskbarList
-                                                    , hWnd);
+    bool showWCRev          = m_state.GetOptions()->GetOption<CShowWC>()->IsSelected();
+    bool showWCModification = m_state.GetOptions()->GetOption<CShowWCModification>()->IsSelected();
+    bool result             = newFullHistory->FetchRevisionData(path,
+                                                    pegRevision,
+                                                    showWCRev,
+                                                    showWCModification,
+                                                    progress,
+                                                    pTaskbarList,
+                                                    hWnd);
 
-    m_state.SetLastErrorMessage (newFullHistory->GetLastErrorMessage());
+    m_state.SetLastErrorMessage(newFullHistory->GetLastErrorMessage());
 
     if (result)
     {
-        std::unique_ptr<CFullGraph> newFullGraph (new CFullGraph());
+        std::unique_ptr<CFullGraph> newFullGraph(new CFullGraph());
 
-        CFullGraphBuilder builder (*newFullHistory, *newFullGraph);
+        CFullGraphBuilder builder(*newFullHistory, *newFullGraph);
         builder.Run();
 
-        CFullGraphFinalizer finalizer (*newFullHistory, *newFullGraph);
+        CFullGraphFinalizer finalizer(*newFullHistory, *newFullGraph);
         finalizer.Run();
 
-        m_state.SetQueryResult ( newFullHistory
-                               , newFullGraph
-                               , showWCRev || showWCModification);
+        m_state.SetQueryResult(newFullHistory, newFullGraph, showWCRev || showWCModification);
     }
 
     return result;
@@ -245,45 +235,40 @@ bool CRevisionGraphWnd::FetchRevisionData
 
 bool CRevisionGraphWnd::AnalyzeRevisionData()
 {
-    CSyncPointer<const CFullGraph> fullGraph (m_state.GetFullGraph());
-    if ((fullGraph.get() != NULL) && (fullGraph->GetNodeCount() > 0))
+    CSyncPointer<const CFullGraph> fullGraph(m_state.GetFullGraph());
+    if ((fullGraph.get() != nullptr) && (fullGraph->GetNodeCount() > 0))
     {
         // filter graph
 
-        CSyncPointer<CAllRevisionGraphOptions> options (m_state.GetOptions());
+        CSyncPointer<CAllRevisionGraphOptions> options(m_state.GetOptions());
         options->Prepare();
 
-        std::unique_ptr<CVisibleGraph> visibleGraph (new CVisibleGraph());
-        CVisibleGraphBuilder builder ( *fullGraph
-                                     , *visibleGraph
-                                     , options->GetCopyFilterOptions());
+        auto                 visibleGraph = std::make_unique<CVisibleGraph>();
+        CVisibleGraphBuilder builder(*fullGraph, *visibleGraph, options->GetCopyFilterOptions());
         builder.Run();
-        options->GetModificationOptions().Apply (visibleGraph.get());
+        options->GetModificationOptions().Apply(visibleGraph.get());
 
         index_t index = 0;
         for (size_t i = 0, count = visibleGraph->GetRootCount(); i < count; ++i)
-            index = visibleGraph->GetRoot (i)->InitIndex (index);
+            index = visibleGraph->GetRoot(i)->InitIndex(index);
 
         // layout nodes
 
-        std::unique_ptr<CStandardLayout> newLayout
-            ( new CStandardLayout ( m_state.GetFullHistory()->GetCache()
-                                  , visibleGraph.get()
-                                  , m_state.GetFullHistory()->GetWCInfo()));
-        options->GetLayoutOptions().Apply (newLayout.get(), GetSafeHwnd());
+        std::unique_ptr<CStandardLayout> newLayout(new CStandardLayout(m_state.GetFullHistory()->GetCache(), visibleGraph.get(), m_state.GetFullHistory()->GetWCInfo()));
+        options->GetLayoutOptions().Apply(newLayout.get(), GetSafeHwnd());
         newLayout->Finalize();
 
         // switch state
 
-        m_state.SetAnalysisResult (visibleGraph, newLayout);
+        m_state.SetAnalysisResult(visibleGraph, newLayout);
     }
 
-    return m_state.GetNodes().get() != NULL;
+    return m_state.GetNodes().get() != nullptr;
 }
 
 bool CRevisionGraphWnd::IsUpdateJobRunning() const
 {
-    return (updateJob.get() != NULL) && !updateJob->IsDone();
+    return (updateJob.get() != nullptr) && !updateJob->IsDone();
 }
 
 bool CRevisionGraphWnd::GetShowOverview() const
@@ -291,38 +276,33 @@ bool CRevisionGraphWnd::GetShowOverview() const
     return m_bShowOverview;
 }
 
-void CRevisionGraphWnd::SetShowOverview (bool value)
+void CRevisionGraphWnd::SetShowOverview(bool value)
 {
     m_bShowOverview = value;
     if (m_bShowOverview)
         BuildPreview();
 }
 
-void CRevisionGraphWnd::GetSelected
-    ( const CVisibleGraphNode* node
-    , bool head
-    , CTSVNPath& path
-    , SVNRev& rev
-    , SVNRev& peg)
+void CRevisionGraphWnd::GetSelected(const CVisibleGraphNode* node, bool head, CTSVNPath& path, SVNRev& rev, SVNRev& peg) const
 {
     CString repoRoot = m_state.GetRepositoryRoot();
 
     // get path and revision
 
-    path.SetFromSVN (repoRoot + CUnicodeUtils::GetUnicode (node->GetPath().GetPath().c_str()));
+    path.SetFromSVN(repoRoot + CUnicodeUtils::GetUnicode(node->GetPath().GetPath().c_str()));
     rev = head ? SVNRev::REV_HEAD : node->GetRevision();
 
     // handle 'modified WC' node
 
-    if (node->GetClassification().Is (CNodeClassification::IS_MODIFIED_WC))
+    if (node->GetClassification().Is(CNodeClassification::IS_MODIFIED_WC))
     {
-        path.SetFromUnknown (m_sPath);
+        path.SetFromUnknown(m_sPath);
         rev = SVNRev::REV_WC;
 
         // don't set peg, if we aren't the first node
         // (i.e. would not be valid for node1)
 
-        if (node == m_SelectedEntry1)
+        if (node == m_selectedEntry1)
             peg = SVNRev::REV_WC;
     }
     else
@@ -334,84 +314,84 @@ void CRevisionGraphWnd::GetSelected
     }
 }
 
-void CRevisionGraphWnd::CompareRevs(bool bHead)
+void CRevisionGraphWnd::CompareRevs(bool bHead) const
 {
-    ASSERT(m_SelectedEntry1 != NULL);
-    ASSERT(m_SelectedEntry2 != NULL);
+    ASSERT(m_selectedEntry1 != NULL);
+    ASSERT(m_selectedEntry2 != NULL);
 
-    CSyncPointer<SVN> svn (m_state.GetSVN());
+    CSyncPointer<SVN> svn(m_state.GetSVN());
 
     CTSVNPath url1;
     CTSVNPath url2;
-    SVNRev rev1;
-    SVNRev rev2;
-    SVNRev peg;
+    SVNRev    rev1;
+    SVNRev    rev2;
+    SVNRev    peg;
 
-    GetSelected (m_SelectedEntry1, bHead, url1, rev1, peg);
-    GetSelected (m_SelectedEntry2, bHead, url2, rev2, peg);
+    GetSelected(m_selectedEntry1, bHead, url1, rev1, peg);
+    GetSelected(m_selectedEntry2, bHead, url2, rev2, peg);
 
     bool alternativeTool = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
     if (m_state.PromptShown())
     {
-        SVNDiff diff (svn.get(), this->m_hWnd);
-        diff.SetAlternativeTool (alternativeTool);
-        diff.ShowCompare (url1, rev1, url2, rev2, peg, false, true, L"");
+        SVNDiff diff(svn.get(), this->m_hWnd);
+        diff.SetAlternativeTool(alternativeTool);
+        diff.ShowCompare(url1, rev1, url2, rev2, peg, false, true, L"");
     }
     else
     {
-        CAppUtils::StartShowCompare (m_hWnd, url1, rev1,
-            url2, rev2, peg, SVNRev(), false, true, L"", alternativeTool);
+        CAppUtils::StartShowCompare(m_hWnd, url1, rev1,
+                                    url2, rev2, peg, SVNRev(), false, true, L"", alternativeTool);
     }
 }
 
-void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead)
+void CRevisionGraphWnd::UnifiedDiffRevs(bool bHead) const
 {
-    ASSERT(m_SelectedEntry1 != NULL);
-    ASSERT(m_SelectedEntry2 != NULL);
+    ASSERT(m_selectedEntry1 != NULL);
+    ASSERT(m_selectedEntry2 != NULL);
 
-    CSyncPointer<SVN> svn (m_state.GetSVN());
+    CSyncPointer<SVN> svn(m_state.GetSVN());
 
     CTSVNPath url1;
     CTSVNPath url2;
-    SVNRev rev1;
-    SVNRev rev2;
-    SVNRev peg;
+    SVNRev    rev1;
+    SVNRev    rev2;
+    SVNRev    peg;
 
-    GetSelected (m_SelectedEntry1, bHead, url1, rev1, peg);
-    GetSelected (m_SelectedEntry2, bHead, url2, rev2, peg);
+    GetSelected(m_selectedEntry1, bHead, url1, rev1, peg);
+    GetSelected(m_selectedEntry2, bHead, url2, rev2, peg);
 
     bool alternativeTool = !!(GetAsyncKeyState(VK_SHIFT) & 0x8000);
     if (m_state.PromptShown())
     {
-        SVNDiff diff (svn.get(), this->m_hWnd);
-        diff.SetAlternativeTool (alternativeTool);
-        diff.ShowUnifiedDiff (url1, rev1, url2, rev2, peg, true, L"", false, false, false);
+        SVNDiff diff(svn.get(), this->m_hWnd);
+        diff.SetAlternativeTool(alternativeTool);
+        diff.ShowUnifiedDiff(url1, rev1, url2, rev2, peg, true, L"", false, false, false);
     }
     else
     {
         CAppUtils::StartShowUnifiedDiff(m_hWnd, url1, rev1,
-            url2, rev2, peg,
-            SVNRev(), true, L"", alternativeTool, false, false, false);
+                                        url2, rev2, peg,
+                                        SVNRev(), true, L"", alternativeTool, false, false, false);
     }
 }
 
-void CRevisionGraphWnd::DoZoom (float fZoomFactor, bool updateScrollbars)
+void CRevisionGraphWnd::DoZoom(float fZoomFactor, bool updateScrollbars)
 {
     float oldzoom = m_fZoomFactor;
     m_fZoomFactor = fZoomFactor;
 
-    m_nFontSize = max(1, int(DEFAULT_ZOOM_FONT * fZoomFactor));
+    m_nFontSize = max(1, static_cast<int>(DEFAULT_ZOOM_FONT * fZoomFactor));
     if (m_nFontSize < SMALL_ZOOM_FONT_THRESHOLD)
-        m_nFontSize = min((int)SMALL_ZOOM_FONT_THRESHOLD, int(SMALL_ZOOM_FONT * fZoomFactor));
+        m_nFontSize = min(static_cast<int>(SMALL_ZOOM_FONT_THRESHOLD), static_cast<int>(SMALL_ZOOM_FONT * fZoomFactor));
 
-    for (int i=0; i<MAXFONTS; i++)
+    for (int i = 0; i < MAXFONTS; i++)
     {
-        if (m_apFonts[i] != NULL)
+        if (m_apFonts[i] != nullptr)
         {
             m_apFonts[i]->DeleteObject();
             delete m_apFonts[i];
         }
-        m_apFonts[i] = NULL;
+        m_apFonts[i] = nullptr;
     }
 
     if (updateScrollbars)
@@ -423,11 +403,11 @@ void CRevisionGraphWnd::DoZoom (float fZoomFactor, bool updateScrollbars)
 
         InitView();
 
-        si1.nPos = int(float(si1.nPos)*m_fZoomFactor/oldzoom);
-        si2.nPos = int(float(si2.nPos)*m_fZoomFactor/oldzoom);
-        SetScrollPos (SB_VERT, si1.nPos);
-        SetScrollPos (SB_HORZ, si2.nPos);
+        si1.nPos = static_cast<int>(static_cast<float>(si1.nPos) * m_fZoomFactor / oldzoom);
+        si2.nPos = static_cast<int>(static_cast<float>(si2.nPos) * m_fZoomFactor / oldzoom);
+        SetScrollPos(SB_VERT, si1.nPos);
+        SetScrollPos(SB_HORZ, si2.nPos);
     }
 
-    Invalidate (FALSE);
+    Invalidate(FALSE);
 }

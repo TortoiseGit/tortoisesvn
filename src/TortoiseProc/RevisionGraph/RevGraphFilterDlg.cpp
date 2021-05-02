@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2012, 2014, 2020 - TortoiseSVN
+// Copyright (C) 2003-2006, 2012, 2014, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,20 +17,17 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "RevGraphFilterDlg.h"
-
 
 IMPLEMENT_DYNAMIC(CRevGraphFilterDlg, CStandAloneDialog)
 
 CRevGraphFilterDlg::CRevGraphFilterDlg(CWnd* pParent /*=NULL*/)
     : CStandAloneDialog(CRevGraphFilterDlg::IDD, pParent)
-    , m_removeSubTree (FALSE)
-    , m_minrev (1)
-    , m_maxrev (1)
-    , m_HeadRev(-1)
+    , m_removeSubTree(FALSE)
+    , m_headRev(-1)
+    , m_minRev(1)
+    , m_maxRev(1)
 {
-
 }
 
 CRevGraphFilterDlg::~CRevGraphFilterDlg()
@@ -48,7 +45,6 @@ void CRevGraphFilterDlg::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_TOREV, m_sToRev);
 }
 
-
 BEGIN_MESSAGE_MAP(CRevGraphFilterDlg, CStandAloneDialog)
     ON_NOTIFY(UDN_DELTAPOS, IDC_FROMSPIN, &CRevGraphFilterDlg::OnDeltaposFromspin)
     ON_NOTIFY(UDN_DELTAPOS, IDC_TOSPIN, &CRevGraphFilterDlg::OnDeltaposTospin)
@@ -59,17 +55,18 @@ BOOL CRevGraphFilterDlg::OnInitDialog()
     CStandAloneDialog::OnInitDialog();
 
     m_cFromSpin.SetBuddy(GetDlgItem(IDC_FROMREV));
-    m_cFromSpin.SetRange32(1, m_HeadRev);
-    m_cFromSpin.SetPos32(m_minrev);
+    m_cFromSpin.SetRange32(1, m_headRev);
+    m_cFromSpin.SetPos32(m_minRev);
 
     m_cToSpin.SetBuddy(GetDlgItem(IDC_TOREV));
-    m_cToSpin.SetRange32(1, m_HeadRev);
-    m_cToSpin.SetPos32(m_maxrev);
+    m_cToSpin.SetRange32(1, m_headRev);
+    m_cToSpin.SetPos32(m_maxRev);
 
     return TRUE;
 }
 
-void CRevGraphFilterDlg::OnDeltaposFromspin(NMHDR *pNMHDR, LRESULT *pResult)
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CRevGraphFilterDlg::OnDeltaposFromspin(NMHDR* pNMHDR, LRESULT* pResult)
 {
     LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
 
@@ -84,7 +81,8 @@ void CRevGraphFilterDlg::OnDeltaposFromspin(NMHDR *pNMHDR, LRESULT *pResult)
     *pResult = 0;
 }
 
-void CRevGraphFilterDlg::OnDeltaposTospin(NMHDR *pNMHDR, LRESULT *pResult)
+// ReSharper disable once CppMemberFunctionMayBeConst
+void CRevGraphFilterDlg::OnDeltaposTospin(NMHDR* pNMHDR, LRESULT* pResult)
 {
     LPNMUPDOWN pNMUpDown = reinterpret_cast<LPNMUPDOWN>(pNMHDR);
 
@@ -99,21 +97,21 @@ void CRevGraphFilterDlg::OnDeltaposTospin(NMHDR *pNMHDR, LRESULT *pResult)
     *pResult = 0;
 }
 
-void CRevGraphFilterDlg::GetRevisionRange(svn_revnum_t& minrev, svn_revnum_t& maxrev)
+void CRevGraphFilterDlg::GetRevisionRange(svn_revnum_t& minrev, svn_revnum_t& maxrev) const
 {
-    minrev = m_minrev;
-    maxrev = m_maxrev;
+    minrev = m_minRev;
+    maxrev = m_maxRev;
 }
 
-void CRevGraphFilterDlg::SetRevisionRange (svn_revnum_t minrev, svn_revnum_t maxrev)
+void CRevGraphFilterDlg::SetRevisionRange(svn_revnum_t minrev, svn_revnum_t maxrev)
 {
-    m_minrev = minrev;
-    m_maxrev = maxrev;
+    m_minRev = minrev;
+    m_maxRev = maxrev;
 }
 
 void CRevGraphFilterDlg::OnOK()
 {
-    m_minrev = m_cFromSpin.GetPos32();
-    m_maxrev = m_cToSpin.GetPos32();
+    m_minRev = m_cFromSpin.GetPos32();
+    m_maxRev = m_cToSpin.GetPos32();
     CStandAloneDialog::OnOK();
 }
