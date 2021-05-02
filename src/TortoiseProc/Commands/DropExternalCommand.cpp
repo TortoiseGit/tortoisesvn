@@ -22,6 +22,7 @@
 #include "SVNProperties.h"
 #include "SVNStatus.h"
 #include "SVNProgressDlg.h"
+#include "TortoiseProc.h"
 
 bool DropExternalCommand::Execute()
 {

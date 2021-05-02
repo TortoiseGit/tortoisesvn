@@ -21,6 +21,7 @@
 
 #include "ResolveDlg.h"
 #include "SVNProgressDlg.h"
+#include "TortoiseProc.h"
 
 bool ResolveCommand::Execute()
 {

@@ -27,6 +27,7 @@
 #include "CommitCommand.h"
 #include "LockCommand.h"
 #include "AppUtils.h"
+#include "TortoiseProc.h"
 
 // status check
 

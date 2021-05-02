@@ -22,6 +22,7 @@
 #include "UpdateDlg.h"
 #include "SVNProgressDlg.h"
 #include "Hooks.h"
+#include "TortoiseProc.h"
 
 bool UpdateCommand::Execute()
 {

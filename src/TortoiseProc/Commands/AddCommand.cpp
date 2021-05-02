@@ -23,6 +23,7 @@
 #include "SVNProgressDlg.h"
 #include "ShellUpdater.h"
 #include "SVNStatus.h"
+#include "TortoiseProc.h"
 
 #define IDCUSTOM1 23
 #define IDCUSTOM2 24

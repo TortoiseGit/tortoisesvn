@@ -21,6 +21,7 @@
 #include "FormatMessageWrapper.h"
 #include "SVNProgressDlg.h"
 #include "StringUtils.h"
+#include "TortoiseProc.h"
 
 bool DropCopyAddCommand::Execute()
 {

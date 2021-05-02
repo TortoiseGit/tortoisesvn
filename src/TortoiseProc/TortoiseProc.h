@@ -51,7 +51,7 @@ public:
     void        InitializeJumpList(const CString& appid);
     static void DoInitializeJumpList(const CString& appid);
 
-    HWND GetExplorerHWND() { return (::IsWindow(hWndExplorer) ? hWndExplorer : nullptr); }
+    HWND GetExplorerHWND() const { return (::IsWindow(hWndExplorer) ? hWndExplorer : nullptr); }
 
     // Implementation
 
@@ -68,5 +68,6 @@ private:
 extern CTortoiseProcApp theApp;
 extern CString          sOrigCwd;
 extern CString          g_sGroupingUuid;
-HWND                    GetExplorerHWND();
-HWND                    FindParentWindow(HWND hWnd);
+// ReSharper disable once CppInconsistentNaming
+HWND GetExplorerHWND();
+HWND FindParentWindow(HWND hWnd);

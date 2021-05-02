@@ -20,6 +20,7 @@
 #include "LogCommand.h"
 #include "LogDialog/LogDlg.h"
 #include "StringUtils.h"
+#include "TortoiseProc.h"
 
 bool LogCommand::Execute()
 {

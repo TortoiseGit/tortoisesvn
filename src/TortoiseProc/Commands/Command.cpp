@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2008, 2010-2011, 2013-2014, 2017 - TortoiseSVN
+// Copyright (C) 2007-2008, 2010-2011, 2013-2014, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -78,9 +78,9 @@
 #include "UrlDiffCommand.h"
 #include "WcUpgradeCommand.h"
 
-
 typedef enum
 {
+    // ReSharper disable CppInconsistentNaming
     cmdAbout,
     cmdAdd,
     cmdAutoTextTest,
@@ -139,81 +139,79 @@ typedef enum
     cmdUpdateCheck,
     cmdUrlDiff,
     cmdWcUpgrade,
+    // ReSharper restore CppInconsistentNaming
 } TSVNCommand;
 
 static const struct CommandInfo
 {
     TSVNCommand command;
-    LPCTSTR pCommandName;
+    LPCWSTR     pCommandName;
 } commandInfo[] =
-{
-    {   cmdAbout,           L"about"             },
-    {   cmdAdd,             L"add"               },
-    {   cmdAutoTextTest,    L"autotexttest"      },
-    {   cmdBlame,           L"blame"             },
-    {   cmdCat,             L"cat"               },
-    {   cmdCheckout,        L"checkout"          },
-    {   cmdCleanup,         L"cleanup"           },
-    {   cmdCommit,          L"commit"            },
-    {   cmdConflictEditor,  L"conflicteditor"    },
-    {   cmdCopy,            L"copy"              },
-    {   cmdCopyUrls,        L"copyurls"          },
-    {   cmdCrash,           L"crash"             },
-    {   cmdCreatePatch,     L"createpatch"       },
-    {   cmdDelUnversioned,  L"delunversioned"    },
-    {   cmdDiff,            L"diff"              },
-    {   cmdDropCopy,        L"dropcopy"          },
-    {   cmdDropCopyAdd,     L"dropcopyadd"       },
-    {   cmdDropExport,      L"dropexport"        },
-    {   cmdDropExternals,   L"dropexternals"     },
-    {   cmdDropMove,        L"dropmove"          },
-    {   cmdDropVendor,      L"dropvendor"        },
-    {   cmdEditFile,        L"editfile"          },
-    {   cmdExport,          L"export"            },
-    {   cmdHelp,            L"help"              },
-    {   cmdIgnore,          L"ignore"            },
-    {   cmdImport,          L"import"            },
-    {   cmdLock,            L"lock"              },
-    {   cmdLog,             L"log"               },
-    {   cmdMerge,           L"merge"             },
-    {   cmdMergeAll,        L"mergeall"          },
-    {   cmdMonitor,         L"monitor"           },
-    {   cmdPasteCopy,       L"pastecopy"         },
-    {   cmdPasteMove,       L"pastemove"         },
-    {   cmdPrevDiff,        L"prevdiff"          },
-    {   cmdProperties,      L"properties"        },
-    {   cmdRTFM,            L"rtfm"              },
-    {   cmdRebuildIconCache,L"rebuildiconcache"  },
-    {   cmdRelocate,        L"relocate"          },
-    {   cmdRemove,          L"remove"            },
-    {   cmdRename,          L"rename"            },
-    {   cmdRepoBrowser,     L"repobrowser"       },
-    {   cmdRepoCreate,      L"repocreate"        },
-    {   cmdRepoStatus,      L"repostatus"        },
-    {   cmdResolve,         L"resolve"           },
-    {   cmdRevert,          L"revert"            },
-    {   cmdRevisionGraph,   L"revisiongraph"     },
-    {   cmdSettings,        L"settings"          },
-    {   cmdShelve,          L"shelve"            },
-    {   cmdShowCompare,     L"showcompare"       },
-    {   cmdSwitch,          L"switch"            },
-    {   cmdSync,            L"sync"              },
-    {   cmdUnIgnore,        L"unignore"          },
-    {   cmdUnlock,          L"unlock"            },
-    {   cmdUnshelve,        L"unshelve"          },
-    {   cmdUpdate,          L"update"            },
-    {   cmdUpdateCheck,     L"updatecheck"       },
-    {   cmdUrlDiff,         L"urldiff"           },
-    {   cmdWcUpgrade,       L"wcupgrade"         },
+    {
+        {cmdAbout, L"about"},
+        {cmdAdd, L"add"},
+        {cmdAutoTextTest, L"autotexttest"},
+        {cmdBlame, L"blame"},
+        {cmdCat, L"cat"},
+        {cmdCheckout, L"checkout"},
+        {cmdCleanup, L"cleanup"},
+        {cmdCommit, L"commit"},
+        {cmdConflictEditor, L"conflicteditor"},
+        {cmdCopy, L"copy"},
+        {cmdCopyUrls, L"copyurls"},
+        {cmdCrash, L"crash"},
+        {cmdCreatePatch, L"createpatch"},
+        {cmdDelUnversioned, L"delunversioned"},
+        {cmdDiff, L"diff"},
+        {cmdDropCopy, L"dropcopy"},
+        {cmdDropCopyAdd, L"dropcopyadd"},
+        {cmdDropExport, L"dropexport"},
+        {cmdDropExternals, L"dropexternals"},
+        {cmdDropMove, L"dropmove"},
+        {cmdDropVendor, L"dropvendor"},
+        {cmdEditFile, L"editfile"},
+        {cmdExport, L"export"},
+        {cmdHelp, L"help"},
+        {cmdIgnore, L"ignore"},
+        {cmdImport, L"import"},
+        {cmdLock, L"lock"},
+        {cmdLog, L"log"},
+        {cmdMerge, L"merge"},
+        {cmdMergeAll, L"mergeall"},
+        {cmdMonitor, L"monitor"},
+        {cmdPasteCopy, L"pastecopy"},
+        {cmdPasteMove, L"pastemove"},
+        {cmdPrevDiff, L"prevdiff"},
+        {cmdProperties, L"properties"},
+        {cmdRTFM, L"rtfm"},
+        {cmdRebuildIconCache, L"rebuildiconcache"},
+        {cmdRelocate, L"relocate"},
+        {cmdRemove, L"remove"},
+        {cmdRename, L"rename"},
+        {cmdRepoBrowser, L"repobrowser"},
+        {cmdRepoCreate, L"repocreate"},
+        {cmdRepoStatus, L"repostatus"},
+        {cmdResolve, L"resolve"},
+        {cmdRevert, L"revert"},
+        {cmdRevisionGraph, L"revisiongraph"},
+        {cmdSettings, L"settings"},
+        {cmdShelve, L"shelve"},
+        {cmdShowCompare, L"showcompare"},
+        {cmdSwitch, L"switch"},
+        {cmdSync, L"sync"},
+        {cmdUnIgnore, L"unignore"},
+        {cmdUnlock, L"unlock"},
+        {cmdUnshelve, L"unshelve"},
+        {cmdUpdate, L"update"},
+        {cmdUpdateCheck, L"updatecheck"},
+        {cmdUrlDiff, L"urldiff"},
+        {cmdWcUpgrade, L"wcupgrade"},
 };
 
-
-
-
-Command * CommandServer::GetCommand(const CString& sCmd)
+Command* CommandServer::GetCommand(const CString& sCmd)
 {
     // Look up the command
-    TSVNCommand command = cmdMonitor;   // Start the commit monitor if TortoiseProc is started without a command parameter
+    TSVNCommand command = cmdMonitor; // Start the commit monitor if TortoiseProc is started without a command parameter
     for (int nCommand = 0; nCommand < _countof(commandInfo); nCommand++)
     {
         if (sCmd.Compare(commandInfo[nCommand].pCommandName) == 0)
@@ -221,12 +219,10 @@ Command * CommandServer::GetCommand(const CString& sCmd)
             // We've found the command
             command = commandInfo[nCommand].command;
             // If this fires, you've let the enum get out of sync with the commandInfo array
-            ASSERT((int)command == nCommand);
+            ASSERT(static_cast<int>(command) == nCommand);
             break;
         }
     }
-
-
 
     switch (command)
     {
@@ -356,7 +352,7 @@ bool Command::CheckPaths()
 {
     if ((pathList.GetCount() == 0) && (cmdLinePath.IsEmpty()))
     {
-        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INVALIDPARAMS), MAKEINTRESOURCE(IDS_ERR_PATHPARAMMISSING), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
+        TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_INVALIDPARAMS), MAKEINTRESOURCE(IDS_ERR_PATHPARAMMISSING), TDCBF_OK_BUTTON, TD_ERROR_ICON, nullptr);
         return false;
     }
 

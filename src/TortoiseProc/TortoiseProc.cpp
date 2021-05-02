@@ -53,6 +53,7 @@
 #include "sasl.h"
 
 #ifdef _DEBUG
+// ReSharper disable once CppInconsistentNaming
 #    define new DEBUG_NEW
 #endif
 
@@ -103,7 +104,8 @@ CTortoiseProcApp::~CTortoiseProcApp()
 CTortoiseProcApp theApp;
 CString          sOrigCwd;
 CString          g_sGroupingUuid;
-HWND             GetExplorerHWND()
+// ReSharper disable once CppInconsistentNaming
+HWND GetExplorerHWND()
 {
     return theApp.GetExplorerHWND();
 }
@@ -167,7 +169,7 @@ BOOL CTortoiseProcApp::InitInstance()
                 langId = 0;
         }
     } while ((hInst == nullptr) && (langId != 0));
-    TCHAR buf[6] = {0};
+    wchar_t buf[6] = {0};
     wcscpy_s(buf, L"en");
     langId = loc;
     CString sHelpPath;
@@ -293,7 +295,6 @@ BOOL CTortoiseProcApp::InitInstance()
         if (SVNConfig::Instance().GetError())
         {
             CString      msg;
-            CString      temp;
             svn_error_t* errPtr = SVNConfig::Instance().GetError();
             msg                 = CUnicodeUtils::GetUnicode(errPtr->message);
             while (errPtr->child)
@@ -301,10 +302,6 @@ BOOL CTortoiseProcApp::InitInstance()
                 errPtr = errPtr->child;
                 msg += L"\n";
                 msg += CUnicodeUtils::GetUnicode(errPtr->message);
-            }
-            if (!temp.IsEmpty())
-            {
-                msg += L"\n" + temp;
             }
 
             ::MessageBox(hWndExplorer, msg, L"TortoiseSVN", MB_ICONERROR);
@@ -460,7 +457,7 @@ BOOL CTortoiseProcApp::InitInstance()
     // Note that SASL doesn't have to be initialized yet for this to work
     sasl_set_path(SASL_PATH_TYPE_PLUGIN, const_cast<LPSTR>(static_cast<LPCSTR>(CUnicodeUtils::GetUTF8(CPathUtils::GetAppDirectory().TrimRight('\\')))));
 
-    CAutoGeneralHandle TSVNMutex = ::CreateMutex(nullptr, FALSE, L"TortoiseProc.exe");
+    CAutoGeneralHandle tsvnMutex = ::CreateMutex(nullptr, FALSE, L"TortoiseProc.exe");
 
     // execute the requested command
     CommandServer server;
@@ -617,12 +614,14 @@ void CTortoiseProcApp::CheckForNewerVersion() const
     if (CRegDWORD(L"Software\\TortoiseSVN\\VersionCheck", TRUE) == FALSE)
         return;
 
-    time_t now;
+    time_t now = 0;
     time(&now);
     if (now == 0)
         return;
 
-    struct tm ptm;
+    struct tm ptm
+    {
+    };
     if (localtime_s(&ptm, &now) != 0)
         return;
 
@@ -640,16 +639,16 @@ void CTortoiseProcApp::CheckForNewerVersion() const
     // that's not needed.
     int week = (ptm.tm_yday + CRegDWORD(_T("Software\\TortoiseSVN\\CheckNewerWeekDay"), 0)) / 7;
 
-    CRegDWORD oldweek = CRegDWORD(L"Software\\TortoiseSVN\\CheckNewerWeek", static_cast<DWORD>(-1));
-    if (static_cast<DWORD>(oldweek) == -1)
+    CRegDWORD oldWeek = CRegDWORD(L"Software\\TortoiseSVN\\CheckNewerWeek", static_cast<DWORD>(-1));
+    if (static_cast<DWORD>(oldWeek) == -1)
     {
-        oldweek = week; // first start of TortoiseProc, no update check needed
+        oldWeek = week; // first start of TortoiseProc, no update check needed
         return;
     }
-    if (static_cast<DWORD>(week) == oldweek)
+    if (static_cast<DWORD>(week) == oldWeek)
         return;
 
-    oldweek = week;
+    oldWeek = week;
 
     TCHAR com[MAX_PATH + 100] = {0};
     GetModuleFileName(nullptr, com, MAX_PATH);
@@ -659,7 +658,7 @@ void CTortoiseProcApp::CheckForNewerVersion() const
 
 void CTortoiseProcApp::Sync()
 {
-    time_t now;
+    time_t now = 0;
     time(&now);
     if (now == 0)
         return;

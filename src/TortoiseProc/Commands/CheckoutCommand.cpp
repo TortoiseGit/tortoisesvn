@@ -22,6 +22,7 @@
 #include "CheckoutDlg.h"
 #include "SVNProgressDlg.h"
 #include "StringUtils.h"
+#include "TortoiseProc.h"
 
 bool CheckoutCommand::Execute()
 {

@@ -21,6 +21,7 @@
 #include "SVN.h"
 #include "InputLogDlg.h"
 #include "ShellUpdater.h"
+#include "TortoiseProc.h"
 
 #define IDYESTOALL 19
 

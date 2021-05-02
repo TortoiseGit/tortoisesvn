@@ -18,6 +18,7 @@
 //
 #pragma once
 #include "Command.h"
+#include "TortoiseProc.h"
 
 /**
  * \ingroup TortoiseProc

@@ -27,6 +27,7 @@
 #include "DirFileEnum.h"
 #include "SVNStatus.h"
 #include "SVN.h"
+#include "TortoiseProc.h"
 
 bool ExportCommand::Execute()
 {

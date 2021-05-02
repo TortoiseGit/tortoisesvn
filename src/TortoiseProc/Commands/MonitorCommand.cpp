@@ -21,6 +21,7 @@
 #include "LogDialog/LogDlg.h"
 #include "StringUtils.h"
 #include "SmartHandle.h"
+#include "TortoiseProc.h"
 
 static CString GetMonitorID()
 {

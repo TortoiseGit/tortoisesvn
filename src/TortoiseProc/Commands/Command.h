@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2011-2012 - TortoiseSVN
+// Copyright (C) 2007, 2011-2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,12 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #pragma once
-#include "TortoiseProc.h"
 #include "CmdLineParser.h"
 #include "TSVNPath.h"
-
-
-
 
 /**
  * \ingroup TortoiseProc
@@ -32,27 +28,33 @@ class Command
 {
 public:
     Command()
-        : hwndExplorer(NULL)
+        : hwndExplorer(nullptr)
     {
     }
     /// allow sub-classes to execute code during destruction
-    virtual ~Command() {};
+    virtual ~Command(){};
     /**
      * Executes the command.
      */
-    virtual bool            Execute() = 0;
-    virtual bool            CheckPaths();
+    virtual bool Execute() = 0;
+    virtual bool CheckPaths();
 
-    void                    SetParser(const CCmdLineParser& p) {parser = p;}
-    void                    SetPaths(const CTSVNPathList& plist, const CTSVNPath& path) {pathList = plist; cmdLinePath = path;}
-    void                    SetExplorerHwnd(HWND hWnd) {hwndExplorer = hWnd;}
-    HWND                    GetExplorerHWND() const { return (::IsWindow(hwndExplorer) ? hwndExplorer : NULL); }
+    void SetParser(const CCmdLineParser& p) { parser = p; }
+    void SetPaths(const CTSVNPathList& plist, const CTSVNPath& path)
+    {
+        pathList    = plist;
+        cmdLinePath = path;
+    }
+    void SetExplorerHwnd(HWND hWnd) { hwndExplorer = hWnd; }
+    HWND GetExplorerHWND() const { return (::IsWindow(hwndExplorer) ? hwndExplorer : nullptr); }
+
 protected:
-    CCmdLineParser          parser;
-    CTSVNPathList           pathList;
-    CTSVNPath               cmdLinePath;
+    CCmdLineParser parser;
+    CTSVNPathList  pathList;
+    CTSVNPath      cmdLinePath;
+
 private:
-    HWND                    hwndExplorer;
+    HWND hwndExplorer;
 };
 
 /**
@@ -63,6 +65,5 @@ private:
 class CommandServer
 {
 public:
-
-    Command *               GetCommand(const CString& sCmd);
+    static Command* GetCommand(const CString& sCmd);
 };
