@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,13 +30,11 @@ public:
     /**
      * Executes the command.
      */
-    virtual bool            Execute() override;
+    bool Execute() override;
 
+    bool CheckPaths() override { return true; }
 
-    virtual bool            CheckPaths() override { return true; }
 private:
-    bool                    HandleRegistryKey(const CString& regname, CSimpleIni& iniFile, bool bCloudIsNewer);
-    bool                    FileOpenSave(CString& path, BOOL& bWithLocals, bool bOpen, HWND hwndOwner);
+    bool        HandleRegistryKey(const CString& regName, CSimpleIni& iniFile, bool bCloudIsNewer) const;
+    static bool FileOpenSave(CString& path, BOOL& bWithLocals, bool bOpen, HWND hwndOwner);
 };
-
-

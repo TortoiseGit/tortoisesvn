@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2016 - TortoiseSVN
+// Copyright (C) 2014-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,8 +32,8 @@
 #include "ProjectProperties.h"
 #include "SVNAuthData.h"
 
-#define TSVN_SYNC_VERSION       1
-#define TSVN_SYNC_VERSION_STR   L"1"
+#define TSVN_SYNC_VERSION     1
+#define TSVN_SYNC_VERSION_STR L"1"
 
 // registry entries
 std::vector<CString> regUseArray = {
@@ -98,13 +98,13 @@ std::vector<CString> regBlockLocalArray = {
 
 bool SyncCommand::Execute()
 {
-    bool bRet = false;
+    bool       bRet = false;
     CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
-    CTSVNPath syncPath = CTSVNPath(CString(rSyncPath));
-    CTSVNPath syncFolder = syncPath;
-    CRegDWORD regCount(L"Software\\TortoiseSVN\\SyncCounter");
-    CRegDWORD regSyncAuth(L"Software\\TortoiseSVN\\SyncAuth");
-    bool bSyncAuth = DWORD(regSyncAuth) != 0;
+    CTSVNPath  syncPath   = CTSVNPath(CString(rSyncPath));
+    CTSVNPath  syncFolder = syncPath;
+    CRegDWORD  regCount(L"Software\\TortoiseSVN\\SyncCounter");
+    CRegDWORD  regSyncAuth(L"Software\\TortoiseSVN\\SyncAuth");
+    bool       bSyncAuth = static_cast<DWORD>(regSyncAuth) != 0;
     if (!cmdLinePath.IsEmpty())
         syncPath = cmdLinePath;
     if (syncPath.IsEmpty() && !parser.HasKey(L"askforpath"))
@@ -119,7 +119,7 @@ bool SyncCommand::Execute()
         // ask for the path first, then for the password
         // this is used for a manual import/export
         CString path;
-        bool bGotPath = FileOpenSave(path, bWithLocals, !!parser.HasKey(L"load"), GetExplorerHWND());
+        bool    bGotPath = FileOpenSave(path, bWithLocals, !!parser.HasKey(L"load"), GetExplorerHWND());
         if (bGotPath)
         {
             syncPath = CTSVNPath(path);
@@ -130,64 +130,63 @@ bool SyncCommand::Execute()
             return false;
     }
 
-
     CSimpleIni iniFile;
     iniFile.SetMultiLine(true);
     SVNAuthData authData;
 
     CAutoRegKey hMainKey;
     RegOpenKeyEx(HKEY_CURRENT_USER, L"Software\\TortoiseSVN", 0, KEY_READ, hMainKey.GetPointer());
-    FILETIME filetime = { 0 };
-    RegQueryInfoKey(hMainKey, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, &filetime);
+    FILETIME fileTime = {0};
+    RegQueryInfoKey(hMainKey, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, nullptr, &fileTime);
 
     bool bCloudIsNewer = false;
     if (!parser.HasKey(L"save"))
     {
         // open the file in read mode
-        CAutoFile hFile = CreateFile(syncPath.GetWinPathString(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+        CAutoFile hFile = CreateFile(syncPath.GetWinPathString(), GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
         if (hFile.IsValid())
         {
             // load the file
-            LARGE_INTEGER fsize = { 0 };
-            if (GetFileSizeEx(hFile, &fsize))
+            LARGE_INTEGER fSize = {0};
+            if (GetFileSizeEx(hFile, &fSize))
             {
-                auto filebuf = std::make_unique<char[]>(DWORD(fsize.QuadPart));
-                DWORD bytesread = 0;
-                if (ReadFile(hFile, filebuf.get(), DWORD(fsize.QuadPart), &bytesread, NULL))
+                auto  fileBuf   = std::make_unique<char[]>(static_cast<DWORD>(fSize.QuadPart));
+                DWORD bytesRead = 0;
+                if (ReadFile(hFile, fileBuf.get(), static_cast<DWORD>(fSize.QuadPart), &bytesRead, nullptr))
                 {
                     // decrypt the file contents
                     std::string encrypted;
-                    if (bytesread > 0)
-                        encrypted = std::string(filebuf.get(), bytesread);
-                    CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
-                    CString password;
+                    if (bytesRead > 0)
+                        encrypted = std::string(fileBuf.get(), bytesRead);
+                    CRegString regPw(L"Software\\TortoiseSVN\\SyncPW");
+                    CString    password;
                     if (parser.HasKey(L"askforpath") && parser.HasKey(L"load"))
                     {
-                        INT_PTR dlgret = 0;
-                        bool bPasswordMatches = true;
+                        INT_PTR dlgRet           = 0;
+                        bool    bPasswordMatches = true;
                         do
                         {
                             bPasswordMatches = true;
                             CPasswordDlg passDlg(CWnd::FromHandle(GetExplorerHWND()));
                             passDlg.m_bForSave = !!parser.HasKey(L"save");
-                            dlgret = passDlg.DoModal();
-                            password = passDlg.m_sPW1;
-                            if ((dlgret == IDOK) && (parser.HasKey(L"load")))
+                            dlgRet             = passDlg.DoModal();
+                            password           = passDlg.m_sPW1;
+                            if ((dlgRet == IDOK) && (parser.HasKey(L"load")))
                             {
-                                std::string passworda = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
+                                std::string passworda = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(password));
                                 std::string decrypted = CStringUtils::Decrypt(encrypted, passworda);
                                 if ((decrypted.size() < 3) || (decrypted.substr(0, 3) != "***"))
                                 {
                                     bPasswordMatches = false;
                                 }
                             }
-                        } while ((dlgret == IDOK) && !bPasswordMatches);
-                        if (dlgret != IDOK)
+                        } while ((dlgRet == IDOK) && !bPasswordMatches);
+                        if (dlgRet != IDOK)
                             return false;
                     }
                     else
                     {
-                        auto passwordbuf = CStringUtils::Decrypt(CString(regPW));
+                        auto passwordbuf = CStringUtils::Decrypt(CString(regPw));
                         if (passwordbuf.get())
                         {
                             password = passwordbuf.get();
@@ -197,13 +196,13 @@ bool SyncCommand::Execute()
                             // password does not match or it couldn't be read from
                             // the registry!
                             //
-                            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_SYNC_WRONGPASSWORD), TDCBF_OK_BUTTON, TD_ERROR_ICON, NULL);
+                            TaskDialog(GetExplorerHWND(), AfxGetResourceHandle(), MAKEINTRESOURCE(IDS_APPNAME), MAKEINTRESOURCE(IDS_ERR_ERROROCCURED), MAKEINTRESOURCE(IDS_SYNC_WRONGPASSWORD), TDCBF_OK_BUTTON, TD_ERROR_ICON, nullptr);
                             CString sCmd = L" /command:settings /page:21";
                             CAppUtils::RunTortoiseProc(sCmd);
                             return false;
                         }
                     }
-                    std::string passworda = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
+                    std::string passworda = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(password));
                     std::string decrypted = CStringUtils::Decrypt(encrypted, passworda);
                     if (decrypted.size() >= 3)
                     {
@@ -215,10 +214,10 @@ bool SyncCommand::Execute()
                             int inicount = _wtoi(iniFile.GetValue(L"sync", L"synccounter", L""));
                             if (inicount != 0)
                             {
-                                if (int(DWORD(regCount)) < inicount)
+                                if (static_cast<int>(static_cast<DWORD>(regCount)) < inicount)
                                 {
                                     bCloudIsNewer = true;
-                                    regCount = inicount;
+                                    regCount      = inicount;
                                 }
                             }
 
@@ -228,7 +227,7 @@ bool SyncCommand::Execute()
                         }
                         else
                         {
-                            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error decrypting, password may be wrong\n");
+                            CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error decrypting, password may be wrong\n");
                             return false;
                         }
                     }
@@ -237,7 +236,7 @@ bool SyncCommand::Execute()
         }
         else
         {
-            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error opening file %s, Error %u\n", syncPath.GetWinPath(), GetLastError());
+            CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error opening file %s, Error %u\n", syncPath.GetWinPath(), GetLastError());
             auto lasterr = GetLastError();
             if ((lasterr != ERROR_FILE_NOT_FOUND) && (lasterr != ERROR_PATH_NOT_FOUND))
                 return false;
@@ -264,26 +263,26 @@ bool SyncCommand::Execute()
     for (const auto& regname : regUseArray)
     {
         bool bChanges = HandleRegistryKey(regname, iniFile, bCloudIsNewer);
-        bHaveChanges = bHaveChanges || bChanges;
+        bHaveChanges  = bHaveChanges || bChanges;
     }
     if (bWithLocals || parser.HasKey(L"local"))
     {
         for (const auto& regname : regUseLocalArray)
         {
             bool bChanges = HandleRegistryKey(regname, iniFile, bCloudIsNewer);
-            bHaveChanges = bHaveChanges || bChanges;
+            bHaveChanges  = bHaveChanges || bChanges;
         }
     }
 
     if (bCloudIsNewer)
     {
-        CString regpath = L"Software\\";
+        CString regPath = L"Software\\";
 
         CSimpleIni::TNamesDepend keys;
         iniFile.GetAllKeys(L"registry_dword", keys);
         for (const auto& k : keys)
         {
-            CRegDWORD reg(regpath + k);
+            CRegDWORD reg(regPath + k);
             reg = _wtol(iniFile.GetValue(L"registry_dword", k, L""));
         }
 
@@ -291,7 +290,7 @@ bool SyncCommand::Execute()
         iniFile.GetAllKeys(L"registry_qword", keys);
         for (const auto& k : keys)
         {
-            CRegQWORD reg(regpath + k);
+            CRegQWORD reg(regPath + k);
             reg = _wtoi64(iniFile.GetValue(L"registry_qword", k, L""));
         }
 
@@ -299,7 +298,7 @@ bool SyncCommand::Execute()
         iniFile.GetAllKeys(L"registry_string", keys);
         for (const auto& k : keys)
         {
-            CRegString reg(regpath + k);
+            CRegString reg(regPath + k);
             reg = CString(iniFile.GetValue(L"registry_string", k, L""));
         }
     }
@@ -319,9 +318,9 @@ bool SyncCommand::Execute()
             iniFile.GetAllKeys(L"ini_monitor", keys);
             for (const auto& k : keys)
             {
-                CString sKey = k;
+                CString sKey     = k;
                 CString sSection = sKey.Left(sKey.Find('.'));
-                sKey = sKey.Mid(sKey.Find('.') + 1);
+                sKey             = sKey.Mid(sKey.Find('.') + 1);
                 if (sKey.CompareNoCase(L"name") == 0)
                 {
                     // make sure the non-synced values are still used
@@ -339,10 +338,10 @@ bool SyncCommand::Execute()
                 }
                 monitorIni.SetValue(sSection, sKey, sValue);
             }
-            FILE * pFile = NULL;
-            errno_t err = 0;
-            int retrycount = 5;
-            CString sTempfile = CTempFiles::Instance().GetTempFilePathString();
+            FILE*   pFile      = nullptr;
+            errno_t err        = 0;
+            int     retryCount = 5;
+            CString sTempfile  = CTempFiles::Instance().GetTempFilePathString();
             do
             {
                 err = _tfopen_s(&pFile, sTempfile, L"wb");
@@ -353,20 +352,20 @@ bool SyncCommand::Execute()
                 }
                 if (err)
                 {
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error saving %s, retrycount %d\n", (LPCWSTR)sTempfile, retrycount);
+                    CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error saving %s, retrycount %d\n", static_cast<LPCWSTR>(sTempfile), retryCount);
                     Sleep(500);
                 }
-            } while (err && retrycount--);
+            } while (err && retryCount--);
             if (err == 0)
             {
                 if (!CopyFile(sTempfile, sDataFilePath, FALSE))
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error copying %s to %s, Error %u\n", (LPCWSTR)sTempfile, (LPCWSTR)sDataFilePath, GetLastError());
+                    CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error copying %s to %s, Error %u\n", static_cast<LPCWSTR>(sTempfile), static_cast<LPCWSTR>(sDataFilePath), GetLastError());
                 else
                 {
                     // now send a message to a possible running monitor to force it
                     // to reload the ini file. Otherwise it would overwrite the ini
                     // file without using the synced data!
-                    HWND hWnd = FindWindow(NULL, CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
+                    HWND hWnd = FindWindow(nullptr, CString(MAKEINTRESOURCE(IDS_MONITOR_DLGTITLE)));
                     if (hWnd)
                     {
                         UINT TSVN_COMMITMONITOR_RELOADINI = RegisterWindowMessage(L"TSVNCommitMonitor_ReloadIni");
@@ -380,17 +379,17 @@ bool SyncCommand::Execute()
             CSimpleIni::TNamesDepend mitems;
             if (PathFileExists(sDataFilePath))
             {
-                int retrycount = 5;
-                SI_Error err = SI_OK;
+                int      retryCount = 5;
+                SI_Error err        = SI_OK;
                 do
                 {
                     err = monitorIni.LoadFile(sDataFilePath);
                     if (err == SI_FILE)
                     {
-                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", (LPCWSTR)sDataFilePath, retrycount);
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", static_cast<LPCWSTR>(sDataFilePath), retryCount);
                         Sleep(500);
                     }
-                } while ((err == SI_FILE) && retrycount--);
+                } while ((err == SI_FILE) && retryCount--);
 
                 if (err == SI_FILE)
                 {
@@ -402,79 +401,79 @@ bool SyncCommand::Execute()
             for (const auto& mitem : mitems)
             {
                 CString sSection = mitem;
-                CString Name = monitorIni.GetValue(mitem, L"Name", L"");
+                CString Name     = monitorIni.GetValue(mitem, L"Name", L"");
                 if (!Name.IsEmpty())
                 {
-                    CString newval = monitorIni.GetValue(mitem, L"WCPathOrUrl", L"");
+                    CString newVal = monitorIni.GetValue(mitem, L"WCPathOrUrl", L"");
                     iniFile.SetValue(L"ini_monitor", sSection + L".Name", Name);
-                    CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".WCPathOrUrl", L"");
-                    bHaveChanges |= ((newval != oldval) && (!oldval.IsEmpty()));
+                    CString oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".WCPathOrUrl", L"");
+                    bHaveChanges |= ((newVal != oldVal) && (!oldVal.IsEmpty()));
                     // only save monitored working copies if local settings are included, or
                     // if the monitored path is an url.
                     // Don't save paths to working copies for non-local stores
-                    if (bWithLocals || newval.IsEmpty() || !PathIsDirectory(newval))
-                        iniFile.SetValue(L"ini_monitor", sSection + L".WCPathOrUrl", newval);
+                    if (bWithLocals || newVal.IsEmpty() || !PathIsDirectory(newVal))
+                        iniFile.SetValue(L"ini_monitor", sSection + L".WCPathOrUrl", newVal);
 
-                    newval = monitorIni.GetValue(mitem, L"interval", L"5");
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".interval", L"0");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".interval", newval);
+                    newVal = monitorIni.GetValue(mitem, L"interval", L"5");
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".interval", L"0");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".interval", newVal);
 
-                    newval = monitorIni.GetValue(mitem, L"minminutesinterval", L"0");
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".minminutesinterval", L"0");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".minminutesinterval", newval);
+                    newVal = monitorIni.GetValue(mitem, L"minminutesinterval", L"0");
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".minminutesinterval", L"0");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".minminutesinterval", newVal);
 
-                    newval = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"username", L"")).get();
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".username", L"");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".username", newval);
+                    newVal = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"username", L"")).get();
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".username", L"");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".username", newVal);
 
-                    newval = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"password", L"")).get();
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".password", L"");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".password", newval);
+                    newVal = CStringUtils::Decrypt(monitorIni.GetValue(mitem, L"password", L"")).get();
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".password", L"");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".password", newVal);
 
-                    newval = monitorIni.GetValue(mitem, L"MsgRegex", L"");
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".MsgRegex", L"");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".MsgRegex", newval);
+                    newVal = monitorIni.GetValue(mitem, L"MsgRegex", L"");
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".MsgRegex", L"");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".MsgRegex", newVal);
 
-                    newval = monitorIni.GetValue(mitem, L"ignoreauthors", L"");
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".ignoreauthors", L"");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".ignoreauthors", newval);
+                    newVal = monitorIni.GetValue(mitem, L"ignoreauthors", L"");
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".ignoreauthors", L"");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".ignoreauthors", newVal);
 
-                    newval = monitorIni.GetValue(mitem, L"parentTreePath", L"");
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".parentTreePath", L"");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".parentTreePath", newval);
+                    newVal = monitorIni.GetValue(mitem, L"parentTreePath", L"");
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".parentTreePath", L"");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".parentTreePath", newVal);
 
-                    newval = monitorIni.GetValue(mitem, L"uuid", L"");
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".uuid", L"");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".uuid", newval);
+                    newVal = monitorIni.GetValue(mitem, L"uuid", L"");
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".uuid", L"");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".uuid", newVal);
 
-                    newval = monitorIni.GetValue(mitem, L"root", L"");
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".root", L"");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".root", newval);
+                    newVal = monitorIni.GetValue(mitem, L"root", L"");
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".root", L"");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".root", newVal);
 
-                    ProjectProperties ProjProps;
-                    ProjProps.LoadFromIni(monitorIni, sSection);
-                    ProjProps.SaveToIni(iniFile, L"ini_monitor", sSection + L".pp_");
+                    ProjectProperties projProps;
+                    projProps.LoadFromIni(monitorIni, sSection);
+                    projProps.SaveToIni(iniFile, L"ini_monitor", sSection + L".pp_");
                 }
                 else if (sSection.CompareNoCase(L"global") == 0)
                 {
-                    CString newval = monitorIni.GetValue(mitem, L"PlaySound", L"1");
-                    CString oldval = iniFile.GetValue(L"ini_monitor", sSection + L".PlaySound", L"1");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".PlaySound", newval);
+                    CString newVal = monitorIni.GetValue(mitem, L"PlaySound", L"1");
+                    CString oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".PlaySound", L"1");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".PlaySound", newVal);
 
-                    newval = monitorIni.GetValue(mitem, L"ShowNotifications", L"1");
-                    oldval = iniFile.GetValue(L"ini_monitor", sSection + L".ShowNotifications", L"1");
-                    bHaveChanges |= newval != oldval;
-                    iniFile.SetValue(L"ini_monitor", sSection + L".ShowNotifications", newval);
+                    newVal = monitorIni.GetValue(mitem, L"ShowNotifications", L"1");
+                    oldVal = iniFile.GetValue(L"ini_monitor", sSection + L".ShowNotifications", L"1");
+                    bHaveChanges |= newVal != oldVal;
+                    iniFile.SetValue(L"ini_monitor", sSection + L".ShowNotifications", newVal);
                 }
             }
         }
@@ -493,17 +492,17 @@ bool SyncCommand::Execute()
 
             if (PathFileExists(sDataFilePath))
             {
-                int retrycount = 5;
-                SI_Error err = SI_OK;
+                int      retryCount = 5;
+                SI_Error err        = SI_OK;
                 do
                 {
                     err = origRegexIni.LoadFile(sDataFilePath);
                     if (err == SI_FILE)
                     {
-                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", (LPCWSTR)sDataFilePath, retrycount);
+                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", static_cast<LPCWSTR>(sDataFilePath), retryCount);
                         Sleep(500);
                     }
-                } while ((err == SI_FILE) && retrycount--);
+                } while ((err == SI_FILE) && retryCount--);
 
                 if (err == SI_FILE)
                 {
@@ -515,16 +514,16 @@ bool SyncCommand::Execute()
             iniFile.GetAllKeys(L"ini_tmergeregex", keys);
             for (const auto& k : keys)
             {
-                CString sKey = k;
+                CString sKey     = k;
                 CString sSection = sKey.Left(sKey.Find('.'));
-                sKey = sKey.Mid(sKey.Find('.') + 1);
-                CString sValue = CString(iniFile.GetValue(L"ini_tmergeregex", k, L""));
+                sKey             = sKey.Mid(sKey.Find('.') + 1);
+                CString sValue   = CString(iniFile.GetValue(L"ini_tmergeregex", k, L""));
                 regexIni.SetValue(sSection, sKey, sValue);
             }
-            FILE * pFile = NULL;
-            errno_t err = 0;
-            int retrycount = 5;
-            CString sTempfile = CTempFiles::Instance().GetTempFilePathString();
+            FILE*   pFile      = nullptr;
+            errno_t err        = 0;
+            int     retryCount = 5;
+            CString sTempfile  = CTempFiles::Instance().GetTempFilePathString();
             do
             {
                 err = _tfopen_s(&pFile, sTempfile, L"wb");
@@ -535,31 +534,31 @@ bool SyncCommand::Execute()
                 }
                 if (err)
                 {
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error saving %s, retrycount %d\n", (LPCWSTR)sTempfile, retrycount);
+                    CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error saving %s, retrycount %d\n", static_cast<LPCWSTR>(sTempfile), retryCount);
                     Sleep(500);
                 }
-            } while (err && retrycount--);
+            } while (err && retryCount--);
             if (err == 0)
             {
                 if (!CopyFile(sTempfile, sDataFilePath, FALSE))
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error copying %s to %s, Error: %u\n", (LPCWSTR)sTempfile, (LPCWSTR)sDataFilePath, GetLastError());
+                    CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error copying %s to %s, Error: %u\n", static_cast<LPCWSTR>(sTempfile), static_cast<LPCWSTR>(sDataFilePath), GetLastError());
             }
         }
         else
         {
             if (PathFileExists(sDataFilePath))
             {
-                int retrycount = 5;
-                SI_Error err = SI_OK;
+                int      retryCount = 5;
+                SI_Error err        = SI_OK;
                 do
                 {
                     err = regexIni.LoadFile(sDataFilePath);
                     if (err == SI_FILE)
                     {
-                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error loading %s, retrycount %d\n", (LPCWSTR)sDataFilePath, retrycount);
+                        CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error loading %s, retrycount %d\n", static_cast<LPCWSTR>(sDataFilePath), retryCount);
                         Sleep(500);
                     }
-                } while ((err == SI_FILE) && retrycount--);
+                } while ((err == SI_FILE) && retryCount--);
 
                 if (err == SI_FILE)
                 {
@@ -567,25 +566,24 @@ bool SyncCommand::Execute()
                 }
             }
 
-            CSimpleIni::TNamesDepend mitems;
-            regexIni.GetAllSections(mitems);
-            for (const auto& mitem : mitems)
+            CSimpleIni::TNamesDepend mItems;
+            regexIni.GetAllSections(mItems);
+            for (const auto& mItem : mItems)
             {
-                CString sSection = mitem;
+                CString sSection = mItem;
 
-                CString newval = regexIni.GetValue(mitem, L"regex", L"");
-                CString oldval = iniFile.GetValue(L"ini_tmergeregex", sSection + L".regex", L"");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_tmergeregex", sSection + L".regex", newval);
+                CString newVal = regexIni.GetValue(mItem, L"regex", L"");
+                CString oldVal = iniFile.GetValue(L"ini_tmergeregex", sSection + L".regex", L"");
+                bHaveChanges |= newVal != oldVal;
+                iniFile.SetValue(L"ini_tmergeregex", sSection + L".regex", newVal);
 
-                newval = regexIni.GetValue(mitem, L"replace", L"5");
-                oldval = iniFile.GetValue(L"ini_tmergeregex", sSection + L".replace", L"0");
-                bHaveChanges |= newval != oldval;
-                iniFile.SetValue(L"ini_tmergeregex", sSection + L".replace", newval);
+                newVal = regexIni.GetValue(mItem, L"replace", L"5");
+                oldVal = iniFile.GetValue(L"ini_tmergeregex", sSection + L".replace", L"0");
+                bHaveChanges |= newVal != oldVal;
+                iniFile.SetValue(L"ini_tmergeregex", sSection + L".replace", newVal);
             }
         }
     }
-
 
     if (bHaveChanges)
     {
@@ -614,42 +612,42 @@ bool SyncCommand::Execute()
         }
         else
         {
-            CRegString regPW(L"Software\\TortoiseSVN\\SyncPW");
-            auto passwordbuf = CStringUtils::Decrypt(CString(regPW));
-            if (passwordbuf.get())
+            CRegString regPw(L"Software\\TortoiseSVN\\SyncPW");
+            auto       passwordBuf = CStringUtils::Decrypt(CString(regPw));
+            if (passwordBuf.get())
             {
-                password = passwordbuf.get();
+                password = passwordBuf.get();
             }
         }
 
-        std::string passworda = CUnicodeUtils::StdGetUTF8((LPCWSTR)password);
+        std::string passworda = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(password));
 
         std::string encrypted = CStringUtils::Encrypt(iniData, passworda);
         CPathUtils::MakeSureDirectoryPathExists(syncPath.GetContainingDirectory().GetWinPathString());
-        CString sTempfile = CTempFiles::Instance().GetTempFilePathString();
-        CAutoFile hFile = CreateFile(sTempfile, GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+        CString   sTempfile = CTempFiles::Instance().GetTempFilePathString();
+        CAutoFile hFile     = CreateFile(sTempfile, GENERIC_WRITE, FILE_SHARE_READ, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
         if (hFile.IsValid())
         {
             DWORD written = 0;
-            if (WriteFile(hFile, encrypted.c_str(), DWORD(encrypted.size()), &written, NULL))
+            if (WriteFile(hFile, encrypted.c_str(), static_cast<DWORD>(encrypted.size()), &written, nullptr))
             {
                 if (hFile.CloseHandle())
                 {
                     if (!CopyFile(sTempfile, syncPath.GetWinPath(), FALSE))
                     {
-                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error copying %s to %s, Error: %u\n", (LPCWSTR)sTempfile, syncPath.GetWinPath(), GetLastError());
+                        CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error copying %s to %s, Error: %u\n", static_cast<LPCWSTR>(sTempfile), syncPath.GetWinPath(), GetLastError());
                     }
                     else
                         bRet = true;
                 }
                 else
-                    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error closing file %s, Error: %u\n", (LPCWSTR)sTempfile, GetLastError());
+                    CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error closing file %s, Error: %u\n", static_cast<LPCWSTR>(sTempfile), GetLastError());
             }
             else
-                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error writing to file %s, Error: %u\n", (LPCWSTR)sTempfile, GetLastError());
+                CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error writing to file %s, Error: %u\n", static_cast<LPCWSTR>(sTempfile), GetLastError());
         }
         else
-            CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error creating file %s for writing, Error: %u\n", (LPCWSTR)sTempfile, GetLastError());
+            CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Error creating file %s for writing, Error: %u\n", static_cast<LPCWSTR>(sTempfile), GetLastError());
 
         if (bSyncAuth)
         {
@@ -663,59 +661,58 @@ bool SyncCommand::Execute()
         }
     }
 
-
     return bRet;
 }
 
-bool SyncCommand::HandleRegistryKey(const CString& regname, CSimpleIni& iniFile, bool bCloudIsNewer)
+bool SyncCommand::HandleRegistryKey(const CString& regName, CSimpleIni& iniFile, bool bCloudIsNewer) const
 {
     CAutoRegKey hKey;
     CAutoRegKey hKeyKey;
-    DWORD regtype = 0;
-    DWORD regsize = 0;
-    CString sKeyPath = L"Software";
-    CString sValuePath = regname;
-    CString sIniKeyName = regname;
-    CString sRegname = regname;
-    CString sValue;
-    bool bHaveChanges = false;
-    if (regname.Find('\\') >= 0)
+    DWORD       regType     = 0;
+    DWORD       regSize     = 0;
+    CString     sKeyPath    = L"Software";
+    CString     sValuePath  = regName;
+    CString     sIniKeyName = regName;
+    CString     sRegname    = regName;
+    CString     sValue;
+    bool        bHaveChanges = false;
+    if (regName.Find('\\') >= 0)
     {
         // handle values in sub-keys
-        sKeyPath = L"Software\\" + regname.Left(regname.ReverseFind('\\'));
-        sValuePath = regname.Mid(regname.ReverseFind('\\') + 1);
+        sKeyPath   = L"Software\\" + regName.Left(regName.ReverseFind('\\'));
+        sValuePath = regName.Mid(regName.ReverseFind('\\') + 1);
     }
     if (RegOpenKeyEx(HKEY_CURRENT_USER, sKeyPath, 0, KEY_READ, hKey.GetPointer()) == ERROR_SUCCESS)
     {
-        bool bEnum = false;
+        bool bEnum     = false;
         bool bEnumKeys = false;
-        int index = 0;
-        int keyindex = 0;
+        int  index     = 0;
+        int  keyIndex  = 0;
         // an asterisk means: use all values inside the specified key
         if (sValuePath == L"*")
             bEnum = true;
         if (sValuePath == L"**")
         {
             bEnumKeys = true;
-            bEnum = true;
+            bEnum     = true;
             RegOpenKeyEx(HKEY_CURRENT_USER, sKeyPath, 0, KEY_READ, hKeyKey.GetPointer());
         }
         do
         {
             if (bEnumKeys)
             {
-                bEnum = true;
-                index = 0;
-                wchar_t cKeyName[MAX_PATH] = { 0 };
-                DWORD cLen = _countof(cKeyName);
-                if (RegEnumKeyEx(hKeyKey, keyindex, cKeyName, &cLen, NULL, NULL, NULL, NULL) != ERROR_SUCCESS)
+                bEnum                      = true;
+                index                      = 0;
+                wchar_t cKeyName[MAX_PATH] = {0};
+                DWORD   cLen               = _countof(cKeyName);
+                if (RegEnumKeyEx(hKeyKey, keyIndex, cKeyName, &cLen, nullptr, nullptr, nullptr, nullptr) != ERROR_SUCCESS)
                 {
                     bEnumKeys = false;
                     break;
                 }
-                ++keyindex;
-                sKeyPath = L"Software\\" + regname.Left(regname.ReverseFind('\\')) + L"\\" + cKeyName + L"\\";
-                sRegname = regname.Left(regname.ReverseFind('\\')) + L"\\" + cKeyName + L"\\";
+                ++keyIndex;
+                sKeyPath = L"Software\\" + regName.Left(regName.ReverseFind('\\')) + L"\\" + cKeyName + L"\\";
+                sRegname = regName.Left(regName.ReverseFind('\\')) + L"\\" + cKeyName + L"\\";
                 hKey.CloseHandle();
                 if (RegOpenKeyEx(HKEY_CURRENT_USER, sKeyPath, 0, KEY_READ, hKey.GetPointer()) != ERROR_SUCCESS)
                 {
@@ -728,15 +725,15 @@ bool SyncCommand::HandleRegistryKey(const CString& regname, CSimpleIni& iniFile,
                 if (bEnum)
                 {
                     // start enumerating all values
-                    wchar_t cValueName[MAX_PATH] = { 0 };
-                    DWORD cLen = _countof(cValueName);
-                    if (RegEnumValue(hKey, index, cValueName, &cLen, NULL, NULL, NULL, NULL) != ERROR_SUCCESS)
+                    wchar_t cValueName[MAX_PATH] = {0};
+                    DWORD   cLen                 = _countof(cValueName);
+                    if (RegEnumValue(hKey, index, cValueName, &cLen, nullptr, nullptr, nullptr, nullptr) != ERROR_SUCCESS)
                     {
                         bEnum = false;
                         break;
                     }
                     ++index;
-                    sValuePath = cValueName;
+                    sValuePath          = cValueName;
                     CString sValueLower = sValuePath;
                     sValueLower.MakeLower();
                     bool bIgnore = false;
@@ -756,25 +753,25 @@ bool SyncCommand::HandleRegistryKey(const CString& regname, CSimpleIni& iniFile,
                     else
                         sIniKeyName += L"\\" + sValuePath;
                 }
-                if (RegQueryValueEx(hKey, sValuePath, NULL, &regtype, NULL, &regsize) == ERROR_SUCCESS)
+                if (RegQueryValueEx(hKey, sValuePath, nullptr, &regType, nullptr, &regSize) == ERROR_SUCCESS)
                 {
-                    if (regtype != 0)
+                    if (regType != 0)
                     {
-                        auto regbuf = std::make_unique<BYTE[]>(regsize);
-                        if (RegQueryValueEx(hKey, sValuePath, NULL, &regtype, regbuf.get(), &regsize) == ERROR_SUCCESS)
+                        auto regBuf = std::make_unique<BYTE[]>(regSize);
+                        if (RegQueryValueEx(hKey, sValuePath, nullptr, &regType, regBuf.get(), &regSize) == ERROR_SUCCESS)
                         {
-                            switch (regtype)
+                            switch (regType)
                             {
                                 case REG_DWORD:
                                 {
-                                    DWORD value = *(DWORD*)regbuf.get();
-                                    sValue = iniFile.GetValue(L"registry_dword", sIniKeyName);
-                                    DWORD nValue = DWORD(_wtol(sValue));
+                                    DWORD value  = *reinterpret_cast<DWORD*>(regBuf.get());
+                                    sValue       = iniFile.GetValue(L"registry_dword", sIniKeyName);
+                                    DWORD nValue = static_cast<DWORD>(_wtol(sValue));
                                     if (nValue != value)
                                     {
                                         if (bCloudIsNewer)
                                         {
-                                            RegSetValueEx(hKey, sValuePath, NULL, regtype, (BYTE *)&nValue, sizeof(nValue));
+                                            RegSetValueEx(hKey, sValuePath, NULL, regType, reinterpret_cast<BYTE*>(&nValue), sizeof(nValue));
                                         }
                                         else
                                         {
@@ -786,17 +783,17 @@ bool SyncCommand::HandleRegistryKey(const CString& regname, CSimpleIni& iniFile,
                                     if (bCloudIsNewer)
                                         iniFile.Delete(L"registry_dword", sIniKeyName);
                                 }
-                                    break;
+                                break;
                                 case REG_QWORD:
                                 {
-                                    QWORD value = *(QWORD*)regbuf.get();
-                                    sValue = iniFile.GetValue(L"registry_qword", sIniKeyName);
-                                    QWORD nValue = QWORD(_wtoi64(sValue));
+                                    QWORD value  = *reinterpret_cast<QWORD*>(regBuf.get());
+                                    sValue       = iniFile.GetValue(L"registry_qword", sIniKeyName);
+                                    QWORD nValue = static_cast<QWORD>(_wtoi64(sValue));
                                     if (nValue != value)
                                     {
                                         if (bCloudIsNewer)
                                         {
-                                            RegSetValueEx(hKey, sValuePath, NULL, regtype, (BYTE *)&nValue, sizeof(nValue));
+                                            RegSetValueEx(hKey, sValuePath, NULL, regType, reinterpret_cast<BYTE*>(&nValue), sizeof(nValue));
                                         }
                                         else
                                         {
@@ -808,18 +805,18 @@ bool SyncCommand::HandleRegistryKey(const CString& regname, CSimpleIni& iniFile,
                                     if (bCloudIsNewer)
                                         iniFile.Delete(L"registry_qword", sIniKeyName);
                                 }
-                                    break;
+                                break;
                                 case REG_EXPAND_SZ:
                                 case REG_MULTI_SZ:
                                 case REG_SZ:
                                 {
-                                    sValue = (LPCWSTR)regbuf.get();
+                                    sValue           = reinterpret_cast<LPCWSTR>(regBuf.get());
                                     CString iniValue = iniFile.GetValue(L"registry_string", sIniKeyName);
                                     if (iniValue != sValue)
                                     {
                                         if (bCloudIsNewer)
                                         {
-                                            RegSetValueEx(hKey, sValuePath, NULL, regtype, (BYTE *)(LPCWSTR)iniValue, (iniValue.GetLength() + 1)*sizeof(WCHAR));
+                                            RegSetValueEx(hKey, sValuePath, NULL, regType, reinterpret_cast<BYTE*>(const_cast<LPWSTR>(static_cast<LPCWSTR>(iniValue))), (iniValue.GetLength() + 1) * sizeof(WCHAR));
                                         }
                                         else
                                         {
@@ -830,7 +827,7 @@ bool SyncCommand::HandleRegistryKey(const CString& regname, CSimpleIni& iniFile,
                                     if (bCloudIsNewer)
                                         iniFile.Delete(L"registry_string", sIniKeyName);
                                 }
-                                    break;
+                                break;
                             }
                         }
                     }
@@ -843,12 +840,11 @@ bool SyncCommand::HandleRegistryKey(const CString& regname, CSimpleIni& iniFile,
 
 bool SyncCommand::FileOpenSave(CString& path, BOOL& bWithLocals, bool bOpen, HWND hwndOwner)
 {
-    HRESULT hr;
     bWithLocals = FALSE;
     // Create a new common save file dialog
-    CComPtr<IFileDialog> pfd = NULL;
+    CComPtr<IFileDialog> pfd = nullptr;
 
-    hr = pfd.CoCreateInstance(bOpen ? CLSID_FileOpenDialog : CLSID_FileSaveDialog, NULL, CLSCTX_INPROC_SERVER);
+    HRESULT hr = pfd.CoCreateInstance(bOpen ? CLSID_FileOpenDialog : CLSID_FileSaveDialog, nullptr, CLSCTX_INPROC_SERVER);
     if (SUCCEEDED(hr))
     {
         // Set the dialog options
@@ -890,12 +886,12 @@ bool SyncCommand::FileOpenSave(CString& path, BOOL& bWithLocals, bool bOpen, HWN
         if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(hwndOwner)))
         {
             // Get the selection from the user
-            CComPtr<IShellItem> psiResult = NULL;
-            hr = pfd->GetResult(&psiResult);
+            CComPtr<IShellItem> psiResult = nullptr;
+            hr                            = pfd->GetResult(&psiResult);
             if (SUCCEEDED(hr))
             {
-                PWSTR pszPath = NULL;
-                hr = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
+                PWSTR pszPath = nullptr;
+                hr            = psiResult->GetDisplayName(SIGDN_FILESYSPATH, &pszPath);
                 if (SUCCEEDED(hr))
                 {
                     path = CString(pszPath);
