@@ -133,7 +133,7 @@ void CUtils::Error()
 {
     CFormatMessageWrapper errorDetails;
     if (errorDetails)
-        _ftprintf(stderr, L"%s\n", static_cast<LPCWSTR>(errorDetails));
+        fwprintf(stderr, L"%s\n", static_cast<LPCWSTR>(errorDetails));
 }
 
 void CUtils::SearchReplace(std::wstring& str, const std::wstring& toReplace, const std::wstring& replaceWith)

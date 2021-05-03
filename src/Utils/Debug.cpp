@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2007, 2012 - TortoiseSVN
 
@@ -17,23 +17,24 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "Debug.h"
-#include <tchar.h>
+#include <stdio.h>
 
 #if defined(_DEBUG) || defined(DEBUG)
-#include <stdlib.h>
 #include <stdarg.h>
-void TRACE(LPCTSTR str, ...)
+
+// ReSharper disable once CppInconsistentNaming
+void TRACE(LPCWSTR str, ...)
 {
-    static TCHAR buf[20*1024];
+    static wchar_t buf[20 * 1024];
 
     va_list ap;
     va_start(ap, str);
 
-    _vstprintf_s(buf, 20*1024, str, ap);
+    vswprintf_s(buf, 20*1024, str, ap);
     OutputDebugString(buf);
     va_end(ap);
 
 };
 #else
-void TRACE(LPCTSTR str, ...) {UNREFERENCED_PARAMETER(str);}
+void TRACE(LPCWSTR str, ...) {UNREFERENCED_PARAMETER(str);}
 #endif

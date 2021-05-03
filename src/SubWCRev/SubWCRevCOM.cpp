@@ -35,7 +35,6 @@
 #include "UnicodeUtils.h"
 #include <atlbase.h>
 
-#include <tchar.h>
 #include <windows.h>
 #include <shlwapi.h>
 #include <Shellapi.h>

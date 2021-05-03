@@ -23,7 +23,6 @@ using std::min;
 #include <shlobj.h>
 #pragma warning(pop)
 #include <Shlwapi.h>
-#include <tchar.h>
 #include <wininet.h>
 #include <Aclapi.h>
 

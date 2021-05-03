@@ -1,4 +1,4 @@
-// TortoiseOverlays - an overlay handler for Tortoise clients
+﻿// TortoiseOverlays - an overlay handler for Tortoise clients
 // Copyright (C) 2007-2008, 2012-2013, 2015 - TortoiseSVN
 
 #pragma once
@@ -29,7 +29,6 @@
 #include <shlobj.h>
 #pragma warning(pop)
 #include <Shlwapi.h>
-#include <tchar.h>
 
 #include <string>
 #include <vector>

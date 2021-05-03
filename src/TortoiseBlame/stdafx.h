@@ -24,7 +24,6 @@ using std::min;
 #include <stdlib.h>
 #include <malloc.h>
 #include <memory.h>
-#include <tchar.h>
 #include <shlwapi.h>
 #include <richedit.h>
 #include <commctrl.h>

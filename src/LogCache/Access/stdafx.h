@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2007-2008, 2010, 2014 - TortoiseSVN
 
@@ -67,8 +67,6 @@
 #include <iostream>
 #include <fstream>
 #include <memory>
-
-#include "tstring.h"
 
 // Commonly used log cache streams
 // (others may be included locally)

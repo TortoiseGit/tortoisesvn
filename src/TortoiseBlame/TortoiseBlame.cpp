@@ -263,7 +263,7 @@ BOOL TortoiseBlame::OpenFile(const wchar_t* fileName)
     int   retrycount = 10;
     while (retrycount)
     {
-        _tfopen_s(&file, fileName, L"rbS");
+        _wfopen_s(&file, fileName, L"rbS");
         if (file == nullptr)
         {
             Sleep(500);
@@ -1895,7 +1895,7 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
     app.hInstance = hInstance;
 
     SetDllDirectory(L"");
-    CCrashReportTSVN crasher(L"TortoiseBlame " _T(APP_X64_STRING));
+    CCrashReportTSVN crasher(L"TortoiseBlame " TEXT(APP_X64_STRING));
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
 
     Gdiplus::GdiplusStartupInput gdiplusStartupInput;

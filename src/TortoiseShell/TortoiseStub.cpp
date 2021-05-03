@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include <Windows.h>
-#include <tchar.h>
 #include "Debug.h"
 
 const HINSTANCE NIL = reinterpret_cast<HINSTANCE>(static_cast<char *>(nullptr) - 1);

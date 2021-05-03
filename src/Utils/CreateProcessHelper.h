@@ -62,7 +62,7 @@ inline bool CCreateProcessHelper::CreateProcess(LPCWSTR applicationName,
     LPWSTR commandLineBuf;
     if (commandLine)
     {
-        commandLineBuf = _tcsdup(commandLine);
+        commandLineBuf = _wcsdup(commandLine);
     }
     else
     {

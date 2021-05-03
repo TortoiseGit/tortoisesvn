@@ -61,7 +61,7 @@ BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
         LPCWSTR sArg = wcspbrk(sCurrent, m_sDelims);
         if (!sArg)
             break; // no (more) delimiters found
-        sArg = _wcsinc(sArg);
+        ++sArg;
 
         if (sArg[0] == 0)
             break; // ends with delim
@@ -83,11 +83,11 @@ BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
             if (sVal[0] != 0)
             {
                 if (sVal[0] != ' ')
-                    sVal = _wcsinc(sVal);
+                    ++sVal;
                 else
                 {
                     while (sVal[0] == ' ')
-                        sVal = _wcsinc(sVal);
+                        ++sVal;
                 }
 
                 LPCWSTR nextArg = wcspbrk(sVal, m_sDelims);
@@ -112,7 +112,7 @@ BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
                     if (sQuote == sVal)
                     {
                         // string with quotes (defined in m_sQuotes, e.g. '")
-                        sQuote    = _wcsinc(sVal);
+                        sQuote    = sVal + 1;
                         sEndQuote = wcspbrk(sQuote, m_sQuotes);
                     }
                     else
@@ -141,7 +141,7 @@ BOOL CCmdLineParser::Parse(LPCWSTR sCmdLine)
                     std::wstring csVal(sQuote, static_cast<int>(sEndQuote - sQuote));
                     m_valueMap.insert(CValsMap::value_type(sKey, csVal));
                 }
-                sCurrent = _wcsinc(sEndQuote);
+                sCurrent = sEndQuote + 1;
                 continue;
             }
         }
@@ -188,7 +188,7 @@ LONG CCmdLineParser::GetLongVal(LPCWSTR sKey) const
     CValsMap::const_iterator it = findKey(sKey);
     if (it == m_valueMap.end())
         return 0;
-    return _tstol(it->second.c_str());
+    return _wtol(it->second.c_str());
 }
 
 __int64 CCmdLineParser::GetLongLongVal(LPCWSTR sKey) const

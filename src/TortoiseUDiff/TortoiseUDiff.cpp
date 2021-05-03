@@ -45,7 +45,7 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
     MSG    msg;
     HACCEL hAccelTable;
 
-    CCrashReportTSVN crasher(L"TortoiseUDiff " _T(APP_X64_STRING));
+    CCrashReportTSVN crasher(L"TortoiseUDiff " TEXT(APP_X64_STRING));
     CCrashReport::Instance().AddUserInfoToReport(L"CommandLine", GetCommandLine());
     CRegStdDWORD loc    = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
     long         langId = loc;
