@@ -19,7 +19,6 @@
 #include "stdafx.h"
 #include "resource.h"
 #include "StandAloneDlg.h"
-#include "Monitor.h"
 
 #pragma comment(lib, "Dwmapi.lib")
 
@@ -336,7 +335,7 @@ bool CResizableStandAloneDialog::OnEnterPressed()
     {
         CWnd* pOkBtn = GetDlgItem(IDOK);
 #ifdef ID_OK
-        if (pOkBtn == NULL)
+        if (pOkBtn == nullptr)
             pOkBtn = GetDlgItem(ID_OK);
 #endif
         if (pOkBtn && pOkBtn->IsWindowEnabled())

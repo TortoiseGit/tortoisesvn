@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2017 - TortoiseSVN
+// Copyright (C) 2009-2010, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,23 +32,23 @@ class CPathEdit : public CEdit
 
 public:
     CPathEdit();
-    virtual ~CPathEdit();
-    void    SetBold();
+    ~CPathEdit() override;
+    void SetBold();
 
 protected:
     DECLARE_MESSAGE_MAP()
 public:
-    virtual LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam);
-    virtual BOOL PreTranslateMessage(MSG* pMsg);
-    virtual ULONG GetGestureStatus(CPoint ptTouch) override;
+    LRESULT DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam) override;
+    BOOL    PreTranslateMessage(MSG* pMsg) override;
+    ULONG   GetGestureStatus(CPoint ptTouch) override;
 
 private:
-    CString     m_sRealText;
-    CString     m_sFitText;
-    bool        m_bInternalCall;
-    bool        m_bBold;
-    CFont       m_boldFont;
-    void        FitPathToWidth(CString& path);
-    CFont *     GetFont();
-    CToolTips   m_tooltips;
+    CString   m_sRealText;
+    CString   m_sFitText;
+    bool      m_bInternalCall;
+    bool      m_bBold;
+    CFont     m_boldFont;
+    void      FitPathToWidth(CString& path);
+    CFont*    GetFont();
+    CToolTips m_tooltips;
 };

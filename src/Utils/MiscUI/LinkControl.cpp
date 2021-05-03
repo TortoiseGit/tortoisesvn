@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012-2016, 2018 - TortoiseSVN
+// Copyright (C) 2009, 2012-2016, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,23 +20,22 @@
 #include "LinkControl.h"
 #include "CommonAppUtils.h"
 
-const UINT CLinkControl::LK_LINKITEMCLICKED
-= ::RegisterWindowMessage(L"LK_LINKITEMCLICKED");
+const UINT CLinkControl::LK_LINKITEMCLICKED = ::RegisterWindowMessage(L"LK_LINKITEMCLICKED");
 
-CLinkControl::CLinkControl(void)
-    : m_bOverControl(false)
-    , m_hLinkCursor(nullptr)
+CLinkControl::CLinkControl()
+    : m_hLinkCursor(nullptr)
+    , m_bOverControl(false)
 {
 }
 
-CLinkControl::~CLinkControl(void)
+CLinkControl::~CLinkControl()
 {
     /*
     * No need to call DestroyCursor() for cursors acquired through
     * LoadCursor().
     */
-    m_NormalFont.DeleteObject();
-    m_UnderlineFont.DeleteObject();
+    m_normalFont.DeleteObject();
+    m_underlineFont.DeleteObject();
 }
 
 void CLinkControl::PreSubclassWindow()
@@ -45,32 +44,32 @@ void CLinkControl::PreSubclassWindow()
 
     ModifyStyle(0, SS_NOTIFY);
 
-    m_hLinkCursor = ::LoadCursor(NULL, IDC_HAND); // Load Windows' hand cursor
-    if (!m_hLinkCursor)    // if not available, use the standard Arrow cursor
+    m_hLinkCursor = ::LoadCursor(nullptr, IDC_HAND); // Load Windows' hand cursor
+    if (!m_hLinkCursor)                              // if not available, use the standard Arrow cursor
     {
-        m_hLinkCursor = ::LoadCursor(NULL, IDC_ARROW);
+        m_hLinkCursor = ::LoadCursor(nullptr, IDC_ARROW);
     }
 
     // Create an updated font by adding an underline.
     LOGFONT lf;
-    CFont* pFont = GetFont();
+    CFont*  pFont = GetFont();
     if (pFont)
         pFont->GetObject(sizeof(lf), &lf);
     else
     {
-        NONCLIENTMETRICS metrics = { 0 };
-        metrics.cbSize = sizeof(NONCLIENTMETRICS);
+        NONCLIENTMETRICS metrics = {0};
+        metrics.cbSize           = sizeof(NONCLIENTMETRICS);
         SystemParametersInfo(SPI_GETNONCLIENTMETRICS, 0, &metrics, FALSE);
         memcpy_s(&lf, sizeof(LOGFONT), &metrics.lfMessageFont, sizeof(LOGFONT));
     }
 
     lf.lfWeight = FW_BOLD;
-    m_NormalFont.CreateFontIndirect(&lf);
+    m_normalFont.CreateFontIndirect(&lf);
 
     lf.lfUnderline = TRUE;
-    m_UnderlineFont.CreateFontIndirect(&lf);
+    m_underlineFont.CreateFontIndirect(&lf);
 
-    SetFont(&m_NormalFont, FALSE);
+    SetFont(&m_normalFont, FALSE);
 
     CCommonAppUtils::SetAccProperty(GetSafeHwnd(), PROPID_ACC_ROLE, ROLE_SYSTEM_LINK);
     UpdateAccState();
@@ -102,23 +101,24 @@ void CLinkControl::OnMouseMove(UINT /*nFlags*/, CPoint pt)
     else
     {
         m_bOverControl = TRUE;
-        SetFont(&m_UnderlineFont, FALSE);
-        InvalidateRect(NULL, FALSE);
+        SetFont(&m_underlineFont, FALSE);
+        InvalidateRect(nullptr, FALSE);
         SetCapture();
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 BOOL CLinkControl::OnSetCursor(CWnd* /*pWnd*/, UINT /*nHitTest*/, UINT /*message*/)
 {
     ::SetCursor(m_hLinkCursor);
     return TRUE;
 }
 
-void CLinkControl::OnCaptureChanged(CWnd * /*pWnd*/)
+void CLinkControl::OnCaptureChanged(CWnd* /*pWnd*/)
 {
     m_bOverControl = FALSE;
-    SetFont(&m_NormalFont, FALSE);
-    InvalidateRect(NULL, FALSE);
+    SetFont(&m_normalFont, FALSE);
+    InvalidateRect(nullptr, FALSE);
 }
 
 void CLinkControl::OnSetFocus(CWnd* pOldWnd)
@@ -133,9 +133,9 @@ void CLinkControl::OnKillFocus(CWnd* pOldWnd)
     __super::OnKillFocus(pOldWnd);
 }
 
-void CLinkControl::DrawFocusRect()
+void CLinkControl::DrawFocusRect() const
 {
-    CWnd *parent = GetParent();
+    CWnd* parent = GetParent();
 
     if (parent)
     {
@@ -143,7 +143,7 @@ void CLinkControl::DrawFocusRect()
         RECT rc;
         GetWindowRect(&rc);
 
-        InflateRect(&rc, 1, 1);                  // add one pixel all around
+        InflateRect(&rc, 1, 1); // add one pixel all around
         parent->ScreenToClient(&rc);
 
         CClientDC dcParent(parent);
@@ -151,9 +151,9 @@ void CLinkControl::DrawFocusRect()
     }
 }
 
-void CLinkControl::ClearFocusRect()
+void CLinkControl::ClearFocusRect() const
 {
-    CWnd *parent = GetParent();
+    CWnd* parent = GetParent();
 
     if (parent)
     {
@@ -161,14 +161,14 @@ void CLinkControl::ClearFocusRect()
         RECT rc;
         GetWindowRect(&rc);
 
-        InflateRect(&rc, 1, 1);                  // add one pixel all around
+        InflateRect(&rc, 1, 1); // add one pixel all around
         parent->ScreenToClient(&rc);
         // Ask parent to redraw area where we rendered focus rect before.
         parent->InvalidateRect(&rc);
     }
 }
 
-void CLinkControl::UpdateAccState()
+void CLinkControl::UpdateAccState() const
 {
     DWORD state = STATE_SYSTEM_READONLY;
     if (!IsWindowEnabled())
@@ -177,15 +177,15 @@ void CLinkControl::UpdateAccState()
     CCommonAppUtils::SetAccProperty(GetSafeHwnd(), PROPID_ACC_STATE, state);
 }
 
-void CLinkControl::NotifyParent(UINT msg)
+void CLinkControl::NotifyParent(UINT msg) const
 {
-    ::PostMessage(GetParent()->GetSafeHwnd(), msg, (WPARAM)GetSafeHwnd(), (LPARAM) 0);
+    ::PostMessage(GetParent()->GetSafeHwnd(), msg, reinterpret_cast<WPARAM>(GetSafeHwnd()), static_cast<LPARAM>(0));
 }
 
 UINT CLinkControl::OnGetDlgCode()
 {
-    UINT dlgCode = CStatic::OnGetDlgCode();
-    const MSG *pMsg = CWnd::GetCurrentMessage();
+    UINT       dlgCode = CStatic::OnGetDlgCode();
+    const MSG* pMsg    = CWnd::GetCurrentMessage();
 
     // we want all keys to get the return key
     dlgCode |= DLGC_WANTALLKEYS;
@@ -196,8 +196,8 @@ UINT CLinkControl::OnGetDlgCode()
     dlgCode &= ~DLGC_STATIC;
 
     if (pMsg->lParam &&
-        ((MSG *)pMsg->lParam)->message == WM_KEYDOWN &&
-        ((MSG *)pMsg->lParam)->wParam == VK_TAB)
+        reinterpret_cast<MSG*>(pMsg->lParam)->message == WM_KEYDOWN &&
+        reinterpret_cast<MSG*>(pMsg->lParam)->wParam == VK_TAB)
     {
         dlgCode &= ~DLGC_WANTMESSAGE;
     }
@@ -205,6 +205,7 @@ UINT CLinkControl::OnGetDlgCode()
     return dlgCode;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CLinkControl::OnKeyDown(UINT nChar, UINT /*nRepCnt*/, UINT /*nFlags*/)
 {
     if (nChar == VK_SPACE || nChar == VK_RETURN)
@@ -213,6 +214,7 @@ void CLinkControl::OnKeyDown(UINT nChar, UINT /*nRepCnt*/, UINT /*nFlags*/)
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CLinkControl::OnClicked()
 {
     NotifyParent(LK_LINKITEMCLICKED);
@@ -230,8 +232,8 @@ BOOL CLinkControl::OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT*
     switch (message)
     {
         case BM_CLICK:
-        NotifyParent(LK_LINKITEMCLICKED);
-        break;
+            NotifyParent(LK_LINKITEMCLICKED);
+            break;
     }
 
     return CStatic::OnWndMsg(message, wParam, lParam, pResult);

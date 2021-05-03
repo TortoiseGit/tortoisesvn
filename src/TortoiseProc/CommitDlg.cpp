@@ -586,7 +586,7 @@ void CCommitDlg::SaveSplitterPos() const
 
 UINT CCommitDlg::StatusThreadEntry(LPVOID pVoid)
 {
-    CCrashReportThread crashthread;
+    CCrashReportThread crashThread;
     return static_cast<CCommitDlg*>(pVoid)->StatusThread();
 }
 
@@ -1519,7 +1519,7 @@ LRESULT CCommitDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
         case WM_NOTIFY:
             if (wParam == IDC_SPLITTER)
             {
-                SPC_NMHDR* pHdr = reinterpret_cast<SPC_NMHDR*>(lParam);
+                SpcNMHDR* pHdr = reinterpret_cast<SpcNMHDR*>(lParam);
                 DoSize(pHdr->delta);
             }
             break;

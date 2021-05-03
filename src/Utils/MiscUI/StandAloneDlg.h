@@ -77,7 +77,7 @@ protected:
 
         SetBackgroundIcon(IDI_AEROBACKGROUND, 256, 256);
     }
-    ~CStandAloneDialogTmpl()
+    ~CStandAloneDialogTmpl() override
     {
         CTheme::Instance().RemoveRegisteredCallback(m_themeCallbackId);
         if (m_hBkgndIcon)
@@ -105,9 +105,9 @@ protected:
         m_tooltips.Create(this);
         SetTheme(CTheme::Instance().IsDarkTheme());
 
-        auto CustomBreak = static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\UseCustomWordBreak", 2));
-        if (CustomBreak)
-            SetUrlWordBreakProcToChildWindows(GetSafeHwnd(), CustomBreak == 2);
+        auto customBreak = static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\UseCustomWordBreak", 2));
+        if (customBreak)
+            SetUrlWordBreakProcToChildWindows(GetSafeHwnd(), customBreak == 2);
 
         m_dpi = CDPIAware::Instance().GetDPI(GetSafeHwnd());
 

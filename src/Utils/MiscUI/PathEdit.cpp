@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009-2010, 2014, 2017 - TortoiseSVN
+// Copyright (C) 2009-2010, 2014, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseProc.h"
 #include "PathEdit.h"
 #include "StringUtils.h"
 
@@ -34,7 +33,7 @@ CPathEdit::CPathEdit()
 
 CPathEdit::~CPathEdit()
 {
-    if ((HFONT)m_boldFont)
+    if (static_cast<HFONT>(m_boldFont))
         m_boldFont.DeleteObject();
 }
 
@@ -50,63 +49,58 @@ LRESULT CPathEdit::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 
     switch (message)
     {
-    case WM_SIZE:
+        case WM_SIZE:
         {
             CString path = m_sRealText;
             FitPathToWidth(path);
             m_bInternalCall = true;
-            CEdit::SendMessage(WM_SETTEXT, 0, (LPARAM)(LPCTSTR)path);
+            CEdit::SendMessage(WM_SETTEXT, 0, reinterpret_cast<LPARAM>(static_cast<LPCWSTR>(path)));
             m_bInternalCall = false;
             return CEdit::DefWindowProc(message, wParam, lParam);
         }
-        break;
-    case WM_SETTEXT:
+        case WM_SETTEXT:
         {
-            m_sRealText = (LPCTSTR)lParam;
+            m_sRealText = reinterpret_cast<LPCWSTR>(lParam);
             m_tooltips.AddTool(this, m_sRealText);
             CString path = m_sRealText;
             FitPathToWidth(path);
-            lParam = (LPARAM)(LPCTSTR)path;
+            lParam      = reinterpret_cast<LPARAM>(static_cast<LPCWSTR>(path));
             LRESULT ret = CEdit::DefWindowProc(message, wParam, lParam);
             return ret;
         }
-        break;
-    case WM_GETTEXT:
+        case WM_GETTEXT:
         {
             // return the real text
-            wcsncpy_s((TCHAR*)lParam, wParam, (LPCTSTR)m_sRealText, _TRUNCATE);
-            return wcslen((TCHAR*)lParam);
+            wcsncpy_s(reinterpret_cast<wchar_t*>(lParam), wParam, static_cast<LPCWSTR>(m_sRealText), _TRUNCATE);
+            return wcslen(reinterpret_cast<wchar_t*>(lParam));
         }
-        break;
-    case WM_GETTEXTLENGTH:
+        case WM_GETTEXTLENGTH:
         {
             return m_sRealText.GetLength();
         }
-        break;
-    case WM_COPY:
+        case WM_COPY:
         {
             int start, end;
             m_bInternalCall = true;
             CEdit::GetSel(start, end);
             m_bInternalCall = false;
-            CString selText = m_sFitText.Mid(start, end-start);
-            if (m_sFitText.Find(L"..")<0)
+            CString selText = m_sFitText.Mid(start, end - start);
+            if (m_sFitText.Find(L"..") < 0)
                 return CStringUtils::WriteAsciiStringToClipboard(selText, m_hWnd);
-            if (selText.Find(L"...")>=0)
+            if (selText.Find(L"...") >= 0)
             {
-                int dotLength = m_sRealText.GetLength()-m_sFitText.GetLength();
-                selText = m_sRealText.Mid(start, end-start+dotLength);
+                int dotLength = m_sRealText.GetLength() - m_sFitText.GetLength();
+                selText       = m_sRealText.Mid(start, end - start + dotLength);
                 return CStringUtils::WriteAsciiStringToClipboard(selText, m_hWnd);
             }
-            if ((m_sFitText.Left(start).Find(L"...")>=0) ||
-                (m_sFitText.Mid(end).Find(L"...")>=0))
+            if ((m_sFitText.Left(start).Find(L"...") >= 0) ||
+                (m_sFitText.Mid(end).Find(L"...") >= 0))
             {
                 return CStringUtils::WriteAsciiStringToClipboard(selText, m_hWnd);
             }
             // we shouldn't get here, but just in case: copy *all* the text, not just the selected text
             return CStringUtils::WriteAsciiStringToClipboard(m_sRealText, m_hWnd);
         }
-        break;
     }
 
     return CEdit::DefWindowProc(message, wParam, lParam);
@@ -116,13 +110,13 @@ void CPathEdit::FitPathToWidth(CString& path)
 {
     CRect rect;
     GetClientRect(&rect);
-    rect.right -= 5;    // assume a border size of 5 pixels
+    rect.right -= 5; // assume a border size of 5 pixels
 
-    CDC * pDC = GetDC();
+    CDC* pDC = GetDC();
     if (pDC)
     {
         CFont* previousFont = pDC->SelectObject(GetFont());
-        path = path.Left(MAX_PATH - 1);
+        path                = path.Left(MAX_PATH - 1);
         PathCompactPath(pDC->m_hDC, path.GetBuffer(MAX_PATH), rect.Width());
         path.ReleaseBuffer();
         m_sFitText = path;
@@ -138,15 +132,15 @@ void CPathEdit::SetBold()
     SetFont(GetFont());
 }
 
-CFont * CPathEdit::GetFont()
+CFont* CPathEdit::GetFont()
 {
     if (!m_bBold)
         return __super::GetFont();
 
-    if ((HFONT)m_boldFont == NULL)
+    if (static_cast<HFONT>(m_boldFont) == nullptr)
     {
-        HFONT hFont = (HFONT)SendMessage(WM_GETFONT);
-        LOGFONT lf = {0};
+        HFONT   hFont = reinterpret_cast<HFONT>(SendMessage(WM_GETFONT));
+        LOGFONT lf    = {0};
         GetObject(hFont, sizeof(LOGFONT), &lf);
         lf.lfWeight = FW_BOLD;
         m_boldFont.CreateFontIndirect(&lf);

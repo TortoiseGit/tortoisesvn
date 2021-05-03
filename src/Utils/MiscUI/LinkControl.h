@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2009, 2012, 2015-2016 - TortoiseSVN
+// Copyright (C) 2009, 2012, 2015-2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,30 +22,30 @@
 class CLinkControl : public CStatic
 {
 public:
-    CLinkControl(void);
-    virtual ~CLinkControl(void);
+    CLinkControl();
+    ~CLinkControl() override;
 
     static const UINT LK_LINKITEMCLICKED;
 
 protected:
-    virtual void PreSubclassWindow();
-    virtual BOOL OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult);
+    void PreSubclassWindow() override;
+    BOOL OnWndMsg(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pResult) override;
 
 private:
-    HCURSOR         m_hLinkCursor;                  // Cursor for hyperlink
-    CFont           m_UnderlineFont;                // Font for underline display
-    CFont           m_NormalFont;                   // Font for default display
-    bool            m_bOverControl;                 // cursor over control?
+    HCURSOR m_hLinkCursor;   // Cursor for hyperlink
+    CFont   m_underlineFont; // Font for underline display
+    CFont   m_normalFont;    // Font for default display
+    bool    m_bOverControl;  // cursor over control?
 
-    void DrawFocusRect();
-    void ClearFocusRect();
-    void UpdateAccState();
-    void NotifyParent(UINT msg);
+    void DrawFocusRect() const;
+    void ClearFocusRect() const;
+    void UpdateAccState() const;
+    void NotifyParent(UINT msg) const;
 
 protected:
     afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);
-    afx_msg void OnCaptureChanged(CWnd *pWnd);
+    afx_msg void OnCaptureChanged(CWnd* pWnd);
     afx_msg void OnSetFocus(CWnd* pOldWnd);
     afx_msg void OnKillFocus(CWnd* pNewWnd);
     afx_msg UINT OnGetDlgCode();
@@ -55,4 +55,3 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 };
-

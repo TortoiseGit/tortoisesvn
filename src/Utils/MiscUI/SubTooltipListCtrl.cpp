@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011-2012, 2014, 2017 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011-2012, 2014, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,8 +28,9 @@ END_MESSAGE_MAP()
 
 IMPLEMENT_DYNAMIC(CSubTooltipListCtrl, CListCtrl)
 
-CSubTooltipListCtrl::CSubTooltipListCtrl() : CListCtrl()
-    , pProvider(NULL)
+CSubTooltipListCtrl::CSubTooltipListCtrl()
+    : CListCtrl()
+    , pProvider(nullptr)
 {
 }
 
@@ -37,21 +38,21 @@ CSubTooltipListCtrl::~CSubTooltipListCtrl()
 {
 }
 
-INT_PTR CSubTooltipListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
+INT_PTR CSubTooltipListCtrl::OnToolHitTest(CPoint point, TOOLINFO* pTi) const
 {
-    if (pProvider == NULL)
+    if (pProvider == nullptr)
         return -1;
 
     LVHITTESTINFO lvhitTestInfo;
 
-    lvhitTestInfo.pt    = point;
+    lvhitTestInfo.pt = point;
 
     int nItem = ListView_SubItemHitTest(
         this->m_hWnd,
         &lvhitTestInfo);
     int nSubItem = lvhitTestInfo.iSubItem;
 
-    UINT nFlags =   lvhitTestInfo.flags;
+    UINT nFlags = lvhitTestInfo.flags;
 
     //nFlags is 0 if the SubItemHitTest fails
     //Therefore, 0 & <anything> will equal false
@@ -63,15 +64,15 @@ INT_PTR CSubTooltipListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
 
         //Get the client (area occupied by this control
         RECT rcClient;
-        GetClientRect( &rcClient );
+        GetClientRect(&rcClient);
 
         //Fill in the TOOLINFO structure
-        pTI->hwnd = m_hWnd;
-        pTI->uId = (UINT_PTR)((UINT_PTR(nItem)<<10)+(UINT_PTR(nSubItem)&0x3ff)+1);
-        pTI->lpszText = LPSTR_TEXTCALLBACK;
-        pTI->rect = rcClient;
+        pTi->hwnd     = m_hWnd;
+        pTi->uId      = static_cast<UINT_PTR>((static_cast<UINT_PTR>(nItem) << 10) + (static_cast<UINT_PTR>(nSubItem) & 0x3ff) + 1);
+        pTi->lpszText = LPSTR_TEXTCALLBACK;
+        pTi->rect     = rcClient;
 
-        return pTI->uId; //By returning a unique value per listItem,
+        return pTi->uId; //By returning a unique value per listItem,
         //we ensure that when the mouse moves over another list item,
         //the tooltip will change
     }
@@ -82,18 +83,18 @@ INT_PTR CSubTooltipListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
     }
 }
 
-BOOL CSubTooltipListCtrl::OnToolTipText(UINT /*id*/, NMHDR * pNMHDR, LRESULT * pResult)
+BOOL CSubTooltipListCtrl::OnToolTipText(UINT /*id*/, NMHDR* pNMHDR, LRESULT* pResult)
 {
-    if (pProvider == NULL)
+    if (pProvider == nullptr)
         return FALSE;
 
-    TOOLTIPTEXTA* pTTTA = (TOOLTIPTEXTA*)pNMHDR;
-    TOOLTIPTEXTW* pTTTW = (TOOLTIPTEXTW*)pNMHDR;
+    TOOLTIPTEXTA* pTTTA = reinterpret_cast<NMTTDISPINFOA*>(pNMHDR);
+    TOOLTIPTEXTW* pTTTW = reinterpret_cast<NMTTDISPINFOW*>(pNMHDR);
 
     // Ignore messages from the built in tooltip, we are processing them internally
-    if( (pNMHDR->idFrom == (UINT_PTR)m_hWnd) &&
-        ( ((pNMHDR->code == TTN_NEEDTEXTA) && (pTTTA->uFlags & TTF_IDISHWND)) ||
-        ((pNMHDR->code == TTN_NEEDTEXTW) && (pTTTW->uFlags & TTF_IDISHWND)) ) )
+    if ((pNMHDR->idFrom == reinterpret_cast<UINT_PTR>(m_hWnd)) &&
+        (((pNMHDR->code == TTN_NEEDTEXTA) && (pTTTA->uFlags & TTF_IDISHWND)) ||
+         ((pNMHDR->code == TTN_NEEDTEXTW) && (pTTTW->uFlags & TTF_IDISHWND))))
     {
         return FALSE;
     }
@@ -131,7 +132,7 @@ BOOL CSubTooltipListCtrl::OnToolTipText(UINT /*id*/, NMHDR * pNMHDR, LRESULT * p
         else
             StringCchCopy(pTTTW->szText, _countof(pTTTW->szText), strTipText);
 #endif
-        return TRUE;    //We found a tool tip,
+        return TRUE; //We found a tool tip,
         //tell the framework this message has been handled
     }
 

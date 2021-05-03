@@ -4259,17 +4259,17 @@ LRESULT CLogDlg::DefWindowProc(UINT message, WPARAM wParam, LPARAM lParam)
         case WM_NOTIFY:
             if (wParam == IDC_SPLITTERTOP)
             {
-                SPC_NMHDR* pHdr = reinterpret_cast<SPC_NMHDR*>(lParam);
+                SpcNMHDR* pHdr = reinterpret_cast<SpcNMHDR*>(lParam);
                 DoSizeV1(pHdr->delta);
             }
             else if (wParam == IDC_SPLITTERBOTTOM)
             {
-                SPC_NMHDR* pHdr = reinterpret_cast<SPC_NMHDR*>(lParam);
+                SpcNMHDR* pHdr = reinterpret_cast<SpcNMHDR*>(lParam);
                 DoSizeV2(pHdr->delta);
             }
             else if (wParam == IDC_SPLITTERLEFT)
             {
-                SPC_NMHDR* pHdr = reinterpret_cast<SPC_NMHDR*>(lParam);
+                SpcNMHDR* pHdr = reinterpret_cast<SpcNMHDR*>(lParam);
                 DoSizeV3(pHdr->delta);
             }
             else

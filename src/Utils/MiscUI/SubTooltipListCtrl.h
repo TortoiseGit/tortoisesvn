@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2011 - TortoiseSVN
+// Copyright (C) 2003-2008, 2011, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,6 +21,7 @@
 class IListCtrlTooltipProvider
 {
 public:
+    virtual ~IListCtrlTooltipProvider()                     = default;
     virtual CString GetToolTipText(int nItem, int nSubItem) = 0;
 };
 
@@ -32,17 +33,17 @@ class CSubTooltipListCtrl : public CListCtrl
 {
 public:
     CSubTooltipListCtrl();
-    ~CSubTooltipListCtrl();
+    ~CSubTooltipListCtrl() override;
 
-    void SetTooltipProvider(IListCtrlTooltipProvider * provider) {pProvider = provider;}
+    void SetTooltipProvider(IListCtrlTooltipProvider* provider) { pProvider = provider; }
 
     DECLARE_DYNAMIC(CSubTooltipListCtrl)
 
 protected:
     DECLARE_MESSAGE_MAP()
-    virtual afx_msg BOOL OnToolTipText(UINT id, NMHDR * pNMHDR, LRESULT * pResult);
-    virtual INT_PTR OnToolHitTest(CPoint point, TOOLINFO * pTI) const;
+    virtual afx_msg BOOL OnToolTipText(UINT id, NMHDR* pNMHDR, LRESULT* pResult);
+    INT_PTR              OnToolHitTest(CPoint point, TOOLINFO* pTi) const override;
 
 private:
-    IListCtrlTooltipProvider * pProvider;
+    IListCtrlTooltipProvider* pProvider;
 };

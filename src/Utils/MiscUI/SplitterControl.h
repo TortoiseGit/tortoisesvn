@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006. 2011, 2017 - TortoiseSVN
+// Copyright (C) 2003-2006. 2011, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,44 +19,39 @@
 #pragma once
 #include "AnimationManager.h"
 
-#pragma warning(push)
-#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
-#include <gdiplus.h>
-#pragma warning(pop)
-
 /////////////////////////////////////////////////////////////////////////////
 // CSplitterControl window
 
-#define SPN_SIZED WM_USER + 1
-#define CW_LEFTALIGN 1
-#define CW_RIGHTALIGN 2
-#define CW_TOPALIGN 3
+#define SPN_SIZED      WM_USER + 1
+#define CW_LEFTALIGN   1
+#define CW_RIGHTALIGN  2
+#define CW_TOPALIGN    3
 #define CW_BOTTOMALIGN 4
-#define SPS_VERTICAL 1
+#define SPS_VERTICAL   1
 #define SPS_HORIZONTAL 2
-typedef struct SPC_NMHDR
+struct SpcNMHDR
 {
     NMHDR hdr;
-    int delta;
-} SPC_NMHDR;
+    int   delta;
+};
 
 class CSplitterControl : public CStatic
 {
-// Construction
+    // Construction
 public:
     CSplitterControl();
-    virtual     ~CSplitterControl();
+    ~CSplitterControl() override;
 
     static HDWP ChangeRect(HDWP hdwp, CWnd* pWnd, int dleft, int dtop, int dright, int dbottom);
     void        SetRange(int nMin, int nMax);
     void        SetRange(int nSubtraction, int nAddition, int nRoot);
 
-    int         GetSplitterStyle();
-    int         SetSplitterStyle(int nStyle = SPS_VERTICAL);
+    int GetSplitterStyle() const;
+    int SetSplitterStyle(int nStyle = SPS_VERTICAL);
 
 protected:
     void            MoveWindowTo(CPoint pt);
-    virtual void    PreSubclassWindow();
+    void            PreSubclassWindow() override;
     afx_msg void    OnPaint();
     afx_msg void    OnMouseMove(UINT nFlags, CPoint point);
     afx_msg BOOL    OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
@@ -67,12 +62,12 @@ protected:
     DECLARE_MESSAGE_MAP()
 
 private:
-    bool        m_bIsPressed;
-    int         m_nType;
-    int         m_nX, m_nY;
-    int         m_nMin, m_nMax;
-    int         m_nSavePos;
-    bool        m_bMouseOverControl;
-    ULONG_PTR   m_gdiPlusToken;
-    IUIAnimationVariablePtr m_AnimVarHot;
+    bool                    m_bIsPressed;
+    int                     m_nType;
+    int                     m_nX, m_nY;
+    int                     m_nMin, m_nMax;
+    int                     m_nSavePos;
+    bool                    m_bMouseOverControl;
+    ULONG_PTR               m_gdiPlusToken;
+    IUIAnimationVariablePtr m_animVarHot;
 };

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012, 2016 - TortoiseSVN
+// Copyright (C) 2011-2012, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,11 +32,9 @@ CRegexEdit::~CRegexEdit()
 {
 }
 
-
 BEGIN_MESSAGE_MAP(CRegexEdit, CEdit)
     ON_WM_CTLCOLOR_REFLECT()
 END_MESSAGE_MAP()
-
 
 HBRUSH CRegexEdit::CtlColor(CDC* pDC, UINT /*nCtlColor*/)
 {
@@ -55,12 +53,11 @@ HBRUSH CRegexEdit::CtlColor(CDC* pDC, UINT /*nCtlColor*/)
 
     if (!m_bValid)
     {
-        pDC->SetBkColor(GetSysColor(COLOR_3DFACE) - RGB(0,20,20));
-        if (m_invalidBkgnd.GetSafeHandle() == NULL)
-            m_invalidBkgnd.CreateSolidBrush(GetSysColor(COLOR_3DFACE) - RGB(0,20,20));
-        return (HBRUSH)m_invalidBkgnd.GetSafeHandle();
+        pDC->SetBkColor(GetSysColor(COLOR_3DFACE) - RGB(0, 20, 20));
+        if (m_invalidBkgnd.GetSafeHandle() == nullptr)
+            m_invalidBkgnd.CreateSolidBrush(GetSysColor(COLOR_3DFACE) - RGB(0, 20, 20));
+        return static_cast<HBRUSH>(m_invalidBkgnd.GetSafeHandle());
     }
 
-    return NULL;
+    return nullptr;
 }
-

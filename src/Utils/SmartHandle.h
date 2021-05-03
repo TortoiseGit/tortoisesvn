@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2015, 2017 - TortoiseSVN
+// Copyright (C) 2011, 2015, 2017, 2021 - TortoiseSVN
 // Copyright (C) 2015, 2019-2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -20,10 +20,10 @@
 #pragma once
 #include <Uxtheme.h>
 
-template <typename type>
+template <typename Type>
 struct CDefaultHandleNull
 {
-    static constexpr type DefaultHandle()
+    static constexpr Type DefaultHandle()
     {
         return nullptr;
     }
@@ -42,13 +42,13 @@ struct CDefaultHandleInvalid
  * Helper classes for handles.
  */
 template <typename HandleType,
-    template <class> class CloseFunction,
-    typename NullType = CDefaultHandleNull<HandleType>>
+          template <class> class CloseFunction,
+          typename NullType = CDefaultHandleNull<HandleType>>
 class CSmartHandle
 {
 public:
     CSmartHandle()
-    : m_Handle(NullType::DefaultHandle())
+        : m_handle(NullType::DefaultHandle())
     {
     }
 
@@ -56,36 +56,36 @@ public:
     // Handles must be copied only using DuplicateHandle(). But we leave
     // that to an explicit call.
     // See compiler tests at the bottom
-    CSmartHandle(const HandleType& h) = delete;
+    CSmartHandle(const HandleType& h)   = delete;
     CSmartHandle(const CSmartHandle& h) = delete;
-    HandleType& operator=(const HandleType& h) = delete;
+    HandleType&   operator=(const HandleType& h) = delete;
     CSmartHandle& operator=(const CSmartHandle& h) = delete;
 
-    CSmartHandle(HandleType && h)
+    CSmartHandle(HandleType&& h)
     {
-        m_Handle = h;
+        m_handle = h;
     }
 
-    CSmartHandle(CSmartHandle && h)
+    CSmartHandle(CSmartHandle&& h)
     {
-        m_Handle = h.Detach();
+        m_handle = h.Detach();
     }
 
-    CSmartHandle& operator=(CSmartHandle && h)
+    CSmartHandle& operator=(CSmartHandle&& h)
     {
         *this = h.Detach();
         return *this;
     }
 
-    HandleType& operator=(HandleType && h)
+    HandleType& operator=(HandleType&& h)
     {
-        if (m_Handle != h)
+        if (m_handle != h)
         {
             CleanUp();
-            m_Handle = h;
+            m_handle = h;
         }
 
-        return m_Handle;
+        return m_handle;
     }
 
     bool CloseHandle()
@@ -95,20 +95,20 @@ public:
 
     HandleType Detach()
     {
-        HandleType p = m_Handle;
-        m_Handle = NullType::DefaultHandle();
+        HandleType p = m_handle;
+        m_handle     = NullType::DefaultHandle();
 
         return p;
     }
 
     operator HandleType() const
     {
-        return m_Handle;
+        return m_handle;
     }
 
-    HandleType * GetPointer()
+    HandleType* GetPointer()
     {
-        return &m_Handle;
+        return &m_handle;
     }
 
     operator bool() const
@@ -118,14 +118,14 @@ public:
 
     bool IsValid() const
     {
-        return m_Handle != NullType::DefaultHandle();
+        return m_handle != NullType::DefaultHandle();
     }
 
     HandleType Duplicate() const
     {
         HandleType hDup = NullType::DefaultHandle();
         if (DuplicateHandle(GetCurrentProcess(),
-                            (HANDLE)m_Handle,
+                            static_cast<HANDLE>(m_handle),
                             GetCurrentProcess(),
                             &hDup,
                             0,
@@ -142,21 +142,19 @@ public:
         CleanUp();
     }
 
-
 protected:
     bool CleanUp()
     {
-        if (m_Handle != NullType::DefaultHandle())
+        if (m_handle != NullType::DefaultHandle())
         {
-            const bool b = CloseFunction<HandleType>::Close(m_Handle);
-            m_Handle = NullType::DefaultHandle();
+            const bool b = CloseFunction<HandleType>::Close(m_handle);
+            m_handle     = NullType::DefaultHandle();
             return b;
         }
         return false;
     }
 
-
-    HandleType m_Handle;
+    HandleType m_handle;
 };
 
 template <typename T>
@@ -168,8 +166,6 @@ struct CCloseHandle
     }
 };
 
-
-
 template <typename T>
 struct CCloseRegKey
 {
@@ -179,7 +175,6 @@ struct CCloseRegKey
     }
 };
 
-
 template <typename T>
 struct CCloseLibrary
 {
@@ -188,7 +183,6 @@ struct CCloseLibrary
         return !!::FreeLibrary(handle);
     }
 };
-
 
 template <typename T>
 struct CCloseViewOfFile
@@ -227,14 +221,14 @@ struct CCloseIcon
 };
 
 // Client code (definitions of standard Windows handles).
-typedef CSmartHandle<HANDLE,  CCloseHandle>                                         CAutoGeneralHandle;
-typedef CSmartHandle<HKEY,    CCloseRegKey>                                         CAutoRegKey;
-typedef CSmartHandle<PVOID,   CCloseViewOfFile>                                     CAutoViewOfFile;
-typedef CSmartHandle<HMODULE, CCloseLibrary>                                        CAutoLibrary;
-typedef CSmartHandle<HANDLE,  CCloseHandle, CDefaultHandleInvalid>                  CAutoFile;
-typedef CSmartHandle<HANDLE,  CCloseFindFile, CDefaultHandleInvalid>                CAutoFindFile;
-typedef CSmartHandle<HTHEME, CCloseThemeData>                                       CAutoThemeData;
-typedef CSmartHandle<HICON,  CCloseIcon>                                            CAutoIcon;
+typedef CSmartHandle<HANDLE, CCloseHandle>                          CAutoGeneralHandle;
+typedef CSmartHandle<HKEY, CCloseRegKey>                            CAutoRegKey;
+typedef CSmartHandle<PVOID, CCloseViewOfFile>                       CAutoViewOfFile;
+typedef CSmartHandle<HMODULE, CCloseLibrary>                        CAutoLibrary;
+typedef CSmartHandle<HANDLE, CCloseHandle, CDefaultHandleInvalid>   CAutoFile;
+typedef CSmartHandle<HANDLE, CCloseFindFile, CDefaultHandleInvalid> CAutoFindFile;
+typedef CSmartHandle<HTHEME, CCloseThemeData>                       CAutoThemeData;
+typedef CSmartHandle<HICON, CCloseIcon>                             CAutoIcon;
 
 /*
 void CompilerTests()
