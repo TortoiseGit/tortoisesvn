@@ -46,7 +46,7 @@ protected:
 
     INT_PTR DoModal() override { return CStandAloneDialog::DoModal(); }
 
-    static BOOL CALLBACK EnumLocalesProc(LPTSTR lpLocaleString);
+    static BOOL CALLBACK EnumLocalesProc(LPWSTR lpLocaleString);
 
 private:
     BOOL             m_bKeepEnglish;

@@ -2182,7 +2182,7 @@ void CBaseView::ExpandChars(const CString& sLine, int nOffset, int nCount, CStri
             nTabCount++;
     }
 
-    LPTSTR pszBuf  = line.GetBuffer(nLength + nTabCount * (nTabSize - 1) + 1);
+    LPWSTR pszBuf  = line.GetBuffer(nLength + nTabCount * (nTabSize - 1) + 1);
     int    nCurPos = 0;
     if (nTabCount > 0 || m_bViewWhitespace)
     {

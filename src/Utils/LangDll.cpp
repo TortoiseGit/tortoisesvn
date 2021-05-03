@@ -97,7 +97,7 @@ bool CLangDll::DoVersionStringsMatch(LPCWSTR sVer, LPCWSTR langDll) const
     };
 
     DWORD dwReserved   = 0;
-    DWORD dwBufferSize = GetFileVersionInfoSize(const_cast<LPTSTR>(langDll), &dwReserved);
+    DWORD dwBufferSize = GetFileVersionInfoSize(const_cast<LPWSTR>(langDll), &dwReserved);
     if (dwBufferSize == 0)
         return false;
 
@@ -112,7 +112,7 @@ bool CLangDll::DoVersionStringsMatch(LPCWSTR sVer, LPCWSTR langDll) const
     Transarray* lpTransArray                    = nullptr;
     TCHAR       strLangProductVersion[MAX_PATH] = {0};
 
-    if (!GetFileVersionInfo(const_cast<LPTSTR>(langDll), dwReserved, dwBufferSize, pBuffer.get()))
+    if (!GetFileVersionInfo(const_cast<LPWSTR>(langDll), dwReserved, dwBufferSize, pBuffer.get()))
         return false;
 
     VerQueryValue(pBuffer.get(), L"\\VarFileInfo\\Translation", &lpFixedPointer, &nFixedLength);
@@ -120,7 +120,7 @@ bool CLangDll::DoVersionStringsMatch(LPCWSTR sVer, LPCWSTR langDll) const
 
     swprintf_s(strLangProductVersion, L"\\StringFileInfo\\%04x%04x\\ProductVersion", lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
-    VerQueryValue(pBuffer.get(), static_cast<LPTSTR>(strLangProductVersion), reinterpret_cast<LPVOID*>(&lpVersion), &nInfoSize);
+    VerQueryValue(pBuffer.get(), static_cast<LPWSTR>(strLangProductVersion), reinterpret_cast<LPVOID*>(&lpVersion), &nInfoSize);
     if (lpVersion && nInfoSize)
         return (wcscmp(sVer, reinterpret_cast<LPCWSTR>(lpVersion)) == 0);
     return false;

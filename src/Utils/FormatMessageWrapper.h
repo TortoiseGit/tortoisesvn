@@ -26,7 +26,7 @@
 class CFormatMessageWrapper
 {
 private:
-    LPTSTR buffer;
+    LPWSTR buffer;
     DWORD  result;
     void   release();
     void   obtainMessage() { obtainMessage(::GetLastError()); }

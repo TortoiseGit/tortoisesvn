@@ -1437,7 +1437,7 @@ BOOL CRevisionGraphWnd::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 {
     CRect viewRect = GetViewRect();
 
-    LPTSTR    cursorID       = IDC_ARROW;
+    LPWSTR    cursorID       = IDC_ARROW;
     HINSTANCE resourceHandle = nullptr;
 
     if ((nHitTest == HTCLIENT) && (pWnd == this) && (viewRect.Width()) && (viewRect.Height()) && (message))

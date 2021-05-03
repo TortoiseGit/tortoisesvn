@@ -233,6 +233,6 @@ private:
     };
 #pragma warning(pop) // C4200
 
-    static int          LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage);
+    static int          LoadStringEx(HINSTANCE hInstance, UINT uID, LPWSTR lpBuffer, int nBufferMax, WORD wLanguage);
     static svn_error_t *cancel(void *baton);
 };

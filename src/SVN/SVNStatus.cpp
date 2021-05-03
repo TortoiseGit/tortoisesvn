@@ -588,7 +588,7 @@ void SVNStatus::GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR* string
     }
 }
 
-int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPTSTR lpBuffer, int nBufferMax, WORD wLanguage)
+int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPWSTR lpBuffer, int nBufferMax, WORD wLanguage)
 {
     const STRINGRESOURCEIMAGE* pImage        = nullptr;
     const STRINGRESOURCEIMAGE* pImageEnd     = nullptr;

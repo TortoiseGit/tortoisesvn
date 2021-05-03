@@ -123,7 +123,7 @@ int CHistoryCombo::AddString(CString str, INT_PTR pos)
     CString combostring = str;
     combostring.Replace('\r', ' ');
     combostring.Replace('\n', ' ');
-    cbei.pszText = const_cast<LPTSTR>(combostring.GetString());
+    cbei.pszText = const_cast<LPWSTR>(combostring.GetString());
 
 #ifdef HISTORYCOMBO_WITH_SYSIMAGELIST
     if (m_bURLHistory)

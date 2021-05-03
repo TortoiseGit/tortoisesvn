@@ -97,9 +97,9 @@ public:
     void SetAdjustEOLs(bool bAdjustEOLs = true) { m_bAdjustEOLs = bAdjustEOLs; }
 
 private:
-    static BOOL CALLBACK EnumResNameCallback(HMODULE hModule, LPCWSTR lpszType, LPTSTR lpszName, LONG_PTR lParam);
-    static BOOL CALLBACK EnumResNameWriteCallback(HMODULE hModule, LPCWSTR lpszType, LPTSTR lpszName, LONG_PTR lParam);
-    static BOOL CALLBACK EnumResWriteLangCallback(HMODULE hModule, LPCWSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG_PTR lParam);
+    static BOOL CALLBACK EnumResNameCallback(HMODULE hModule, LPCWSTR lpszType, LPWSTR lpszName, LONG_PTR lParam);
+    static BOOL CALLBACK EnumResNameWriteCallback(HMODULE hModule, LPCWSTR lpszType, LPWSTR lpszName, LONG_PTR lParam);
+    static BOOL CALLBACK EnumResWriteLangCallback(HMODULE hModule, LPCWSTR lpszType, LPWSTR lpszName, WORD wLanguage, LONG_PTR lParam);
     BOOL                 ExtractString(LPCWSTR lpszType);
     BOOL                 ExtractDialog(LPCWSTR lpszType);
     BOOL                 ExtractMenu(LPCWSTR lpszType);

@@ -403,7 +403,7 @@ HRESULT LoadTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex, BSTR* pbstrPath
         return HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER);
 
     // get the extension pointer in case of fail
-    LPTSTR lpszExt = ::PathFindExtension(szModule);
+    LPWSTR lpszExt = ::PathFindExtension(szModule);
 
     if (lpszIndex != NULL)
         lstrcat(szModule, OLE2CT(lpszIndex));

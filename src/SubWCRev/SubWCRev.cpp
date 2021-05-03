@@ -970,7 +970,7 @@ int wmain(int argc, wchar_t *argv[])
         svn_handle_error2(svnErr, stdout, FALSE, "SubWCRev : ");
     }
     wchar_t wcFullPathBuf[MAX_PATH] = {0};
-    LPTSTR  dummy;
+    LPWSTR  dummy;
     GetFullPathName(wc, MAX_PATH, wcFullPathBuf, &dummy);
     apr_status_t e = 0;
     if (svnErr)

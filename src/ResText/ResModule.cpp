@@ -2054,7 +2054,7 @@ std::wstring CResModule::ReplaceWithRegex(std::wstring& s)
     return s;
 }
 
-BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCWSTR lpszType, LPTSTR lpszName, LONG_PTR lParam)
+BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCWSTR lpszType, LPWSTR lpszName, LONG_PTR lParam)
 {
     auto lpResModule = reinterpret_cast<CResModule*>(lParam);
 
@@ -2102,13 +2102,13 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCWSTR lpszT
     return TRUE;
 }
 
-BOOL CALLBACK CResModule::EnumResNameWriteCallback(HMODULE hModule, LPCWSTR lpszType, LPTSTR lpszName, LONG_PTR lParam)
+BOOL CALLBACK CResModule::EnumResNameWriteCallback(HMODULE hModule, LPCWSTR lpszType, LPWSTR lpszName, LONG_PTR lParam)
 {
     auto lpResModule = reinterpret_cast<CResModule*>(lParam);
     return EnumResourceLanguages(hModule, lpszType, lpszName, reinterpret_cast<ENUMRESLANGPROCW>(&lpResModule->EnumResWriteLangCallback), lParam);
 }
 
-BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCWSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG_PTR lParam)
+BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCWSTR lpszType, LPWSTR lpszName, WORD wLanguage, LONG_PTR lParam)
 {
     BOOL bRes        = FALSE;
     auto lpResModule = reinterpret_cast<CResModule*>(lParam);

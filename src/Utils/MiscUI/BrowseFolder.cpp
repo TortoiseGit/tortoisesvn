@@ -65,7 +65,7 @@ CBrowseFolder::~CBrowseFolder()
 }
 
 //show the dialog
-CBrowseFolder::RetVal CBrowseFolder::Show(HWND parent, LPTSTR path, size_t pathlen, LPCWSTR szDefaultPath /* = NULL */)
+CBrowseFolder::RetVal CBrowseFolder::Show(HWND parent, LPWSTR path, size_t pathlen, LPCWSTR szDefaultPath /* = NULL */)
 {
     CString temp = path;
     CString sDefault;

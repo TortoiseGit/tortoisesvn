@@ -124,7 +124,7 @@ void CEditPropTSVNLang::OnOK()
     CStandAloneDialog::OnOK();
 }
 
-BOOL CEditPropTSVNLang::EnumLocalesProc(LPTSTR lpLocaleString)
+BOOL CEditPropTSVNLang::EnumLocalesProc(LPWSTR lpLocaleString)
 {
     DWORD langID = wcstol(lpLocaleString, nullptr, 16);
 

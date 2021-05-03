@@ -447,7 +447,7 @@ const char uri_autoescape_chars[256] = {
     0,
 };
 
-void CPathUtils::ConvertToBackslash(LPTSTR dest, LPCWSTR src, size_t len)
+void CPathUtils::ConvertToBackslash(LPWSTR dest, LPCWSTR src, size_t len)
 {
     wcscpy_s(dest, len, src);
     auto* p = dest;

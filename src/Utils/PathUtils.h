@@ -31,7 +31,7 @@ class CPathUtils
 {
 public:
     static BOOL MakeSureDirectoryPathExists(LPCWSTR path);
-    static void ConvertToBackslash(LPTSTR dest, LPCWSTR src, size_t len);
+    static void ConvertToBackslash(LPWSTR dest, LPCWSTR src, size_t len);
 
     /**
      * Returns false if calling \ref Unescape is not necessary.

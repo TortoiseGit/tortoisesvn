@@ -520,7 +520,7 @@ CString CTSVNPath::GetRootPathString() const
 {
     EnsureBackslashPathSet();
     CString workingPath = m_sBackslashPath;
-    LPTSTR  pPath       = workingPath.GetBuffer(MAX_PATH); // MAX_PATH ok here.
+    LPWSTR  pPath       = workingPath.GetBuffer(MAX_PATH); // MAX_PATH ok here.
     ATLVERIFY(::PathStripToRoot(pPath));
     workingPath.ReleaseBuffer();
     return workingPath;

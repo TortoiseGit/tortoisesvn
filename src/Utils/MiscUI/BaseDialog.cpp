@@ -124,7 +124,7 @@ void CDialog::InitDialog(HWND hwndDlg, UINT iconID) const
     ::SendMessage(hwndDlg, WM_SETICON, ICON_SMALL, reinterpret_cast<LPARAM>(hIcon));
 }
 
-void CDialog::AddToolTip(UINT ctrlID, LPTSTR text) const
+void CDialog::AddToolTip(UINT ctrlID, LPWSTR text) const
 {
     TOOLINFO tt;
     tt.cbSize   = sizeof(TOOLINFO);
