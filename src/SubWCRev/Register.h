@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2010, 2012 - TortoiseSVN
+// Copyright (C) 2007, 2010, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,29 +25,26 @@
 
 // This function will register a component in the Registry.
 // The component calls this function from its DllRegisterServer function.
-HRESULT RegisterServer(HMODULE hModule,
-                       const CLSID& clsid,
-                       const TCHAR* szFriendlyName,
-                       const TCHAR* szVerIndProgID,
-                       const TCHAR* szProgID,
-                       const CLSID& libid) ;
+HRESULT RegisterServer(HMODULE        hModule,
+                       const CLSID&   clsid,
+                       const wchar_t* szFriendlyName,
+                       const wchar_t* szVerIndProgID,
+                       const wchar_t* szProgID,
+                       const CLSID&   libid);
 
 // This function will unregister a component.  Components
 // call this function from their DllUnregisterServer function.
-HRESULT UnregisterServer(const CLSID& clsid,
-                         const TCHAR* szVerIndProgID,
-                         const TCHAR* szProgID,
-                         const CLSID& libid) ;
+HRESULT UnregisterServer(const CLSID&   clsid,
+                         const wchar_t* szVerIndProgID,
+                         const wchar_t* szProgID,
+                         const CLSID&   libid);
 
-
-void RegisterInterface(HMODULE hModule,            // DLL module handle
-                       const CLSID& clsid,         // Class ID
-                       const TCHAR* szFriendlyName, // Friendly Name
-                       const CLSID &libid,
-                       const IID &iid);
-void UnregisterInterface(const IID &iid);
-
+void RegisterInterface(HMODULE        hModule,        // DLL module handle
+                       const CLSID&   clsid,          // Class ID
+                       const wchar_t* szFriendlyName, // Friendly Name
+                       const CLSID&   libid,
+                       const IID&     iid);
+void UnregisterInterface(const IID& iid);
 
 HRESULT RegisterTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex);
 HRESULT UnRegisterTypeLib(HINSTANCE hInstTypeLib, LPCOLESTR lpszIndex);
-
