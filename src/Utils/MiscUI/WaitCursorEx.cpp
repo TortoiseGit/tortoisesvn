@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - TortoiseSVN
+// Copyright (C) 2003-2006, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,11 +20,10 @@
 #include "WaitCursorEx.h"
 #include "TortoiseProc.h"
 
-
-CWaitCursorEx::CWaitCursorEx(bool start_visible) :
-    m_bVisible(start_visible)
+CWaitCursorEx::CWaitCursorEx(bool startVisible)
+    : m_bVisible(startVisible)
 {
-    if (start_visible)
+    if (startVisible)
         theApp.DoWaitCursor(1);
 }
 

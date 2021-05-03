@@ -123,7 +123,7 @@ void CAboutDlg::OnTimer(UINT_PTR nIDEvent)
         r.top    = CDPIAware::Instance().Scale(GetSafeHwnd(), 20);
         r.right  = r.left + m_renderSrc.GetWidth();
         r.bottom = r.top + m_renderSrc.GetHeight();
-        m_waterEffect.Blob(random(r.left, r.right), random(r.top, r.bottom), 5, 800, m_waterEffect.m_iHpage);
+        m_waterEffect.Blob(RANDOM(r.left, r.right), RANDOM(r.top, r.bottom), 5, 800, m_waterEffect.m_iHpage);
     }
     CStandAloneDialog::OnTimer(nIDEvent);
 }

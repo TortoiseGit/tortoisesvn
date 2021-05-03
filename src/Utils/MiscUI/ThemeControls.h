@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2020 - TortoiseSVN
+// Copyright (C) 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,9 +27,9 @@ public:
     {
     }
 
-    virtual void OnDraw(CDC* pDC, const CRect& rect, UINT uiState) override;
-    virtual void OnFillBackground(CDC* pDC, const CRect& rectClient) override;
-    virtual void OnDrawBorder(CDC* pDC, CRect& rectClient, UINT uiState) override;
+    void OnDraw(CDC* pDC, const CRect& rect, UINT uiState) override;
+    void OnFillBackground(CDC* pDC, const CRect& rectClient) override;
+    void OnDrawBorder(CDC* pDC, CRect& rectClient, UINT uiState) override;
 };
 
 /// a CThemeMFCMenuButton which draws properly in dark mode
@@ -40,9 +40,10 @@ public:
         : CMFCMenuButton()
     {
     }
-    virtual void OnDraw(CDC* pDC, const CRect& rect, UINT uiState) override;
-    virtual void OnDrawFocusRect(CDC* pDC, const CRect& rectClient) override;
-    virtual void OnDrawBorder(CDC* pDC, CRect& rectClient, UINT uiState) override;
 
-    void         OnButtonDraw(CDC* pDC, const CRect& rect, UINT uiState);
+    void OnDraw(CDC* pDC, const CRect& rect, UINT uiState) override;
+    void OnDrawFocusRect(CDC* pDC, const CRect& rectClient) override;
+    void OnDrawBorder(CDC* pDC, CRect& rectClient, UINT uiState) override;
+
+    void OnButtonDraw(CDC* pDC, const CRect& rect, UINT uiState);
 };

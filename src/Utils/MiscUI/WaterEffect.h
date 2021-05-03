@@ -18,7 +18,7 @@
 //
 #pragma once
 
-#define random(min, max) ((rand() % (int)(((max) + 1) - (min))) + (min))
+#define RANDOM(min, max) ((rand() % (int)(((max) + 1) - (min))) + (min))
 
 /**
  * \ingroup Utils
@@ -138,8 +138,8 @@ private:
     /**
      * Converts the colors of the source picture (perhaps with color tables) to true color values.
      */
-    COLORREF   GetShiftedColor(COLORREF color, int shift) const;
-    static int NormalizeColor(long color);
+    static COLORREF GetShiftedColor(COLORREF color, int shift);
+    static int      NormalizeColor(long color);
 
     int m_iLightModifier;
     int m_iWidth;

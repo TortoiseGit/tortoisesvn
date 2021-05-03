@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2015 - TortoiseSVN
+// Copyright (C) 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,17 +21,14 @@
 
 #include "StringReferenceWrapper.h"
 
-
 ToastEventHandler::ToastEventHandler(_In_ HWND hMainWnd)
-    : _ref(1)
+    : m_ref(1)
     , m_hMainWnd(hMainWnd)
 {
-
 }
 
 ToastEventHandler::~ToastEventHandler()
 {
-
 }
 
 // DesktopToastActivatedEventHandler
@@ -46,7 +43,7 @@ IFACEMETHODIMP ToastEventHandler::Invoke(_In_ ABI::Windows::UI::Notifications::I
 IFACEMETHODIMP ToastEventHandler::Invoke(_In_ ABI::Windows::UI::Notifications::IToastNotification* /* sender */, _In_ ABI::Windows::UI::Notifications::IToastDismissedEventArgs* e)
 {
     ABI::Windows::UI::Notifications::ToastDismissalReason tdr;
-    HRESULT hr = e->get_Reason(&tdr);
+    HRESULT                                               hr = e->get_Reason(&tdr);
 
     if (SUCCEEDED(hr))
     {
@@ -54,24 +51,24 @@ IFACEMETHODIMP ToastEventHandler::Invoke(_In_ ABI::Windows::UI::Notifications::I
         switch (tdr)
         {
             case ABI::Windows::UI::Notifications::ToastDismissalReason_ApplicationHidden:
-            action = ToastNotificationAction::Dismiss_ApplicationHidden;
-            break;
+                action = ToastNotificationAction::Dismiss_ApplicationHidden;
+                break;
 
             case ABI::Windows::UI::Notifications::ToastDismissalReason_UserCanceled:
-            action = ToastNotificationAction::Dismiss_UserCanceled;
-            break;
+                action = ToastNotificationAction::Dismiss_UserCanceled;
+                break;
 
             case ABI::Windows::UI::Notifications::ToastDismissalReason_TimedOut:
-            action = ToastNotificationAction::Dismiss_TimedOut;
-            break;
+                action = ToastNotificationAction::Dismiss_TimedOut;
+                break;
 
             default:
-            action = ToastNotificationAction::Dismiss_NotActivated;
-            break;
+                action = ToastNotificationAction::Dismiss_NotActivated;
+                break;
         }
 
         LRESULT result = SendMessage(m_hMainWnd, WM_TOASTNOTIFICATION, action, NULL);
-        hr = result ? S_OK : E_FAIL;
+        hr             = result ? S_OK : E_FAIL;
     }
     return hr;
 }
@@ -83,14 +80,14 @@ IFACEMETHODIMP ToastEventHandler::Invoke(_In_ ABI::Windows::UI::Notifications::I
     return result ? S_OK : E_FAIL;
 }
 
-HRESULT ToastNotifications::ShowToast(HWND hMainWnd, LPCWSTR appID, LPCWSTR iconpath, const std::vector<std::wstring>& lines)
+HRESULT ToastNotifications::ShowToast(HWND hMainWnd, LPCWSTR appID, LPCWSTR iconpath, const std::vector<std::wstring>& lines) const
 {
-    typedef HRESULT(FAR STDAPICALLTYPE *f_roGetActivationFactory)(_In_ HSTRING activatableClassId, _In_ REFIID iid, _COM_Outptr_ void ** factory);
-    f_roGetActivationFactory roGetActivationFactory = 0;
-    auto hLib = LoadLibrary(L"COMBASE.DLL");
-    if (hLib == NULL)
+    using FRoGetActivationFactory                  = HRESULT(FAR STDAPICALLTYPE*)(_In_ HSTRING activatableClassId, _In_ REFIID iid, _COM_Outptr_ void** factory);
+    FRoGetActivationFactory roGetActivationFactory = nullptr;
+    auto                    hLib                   = LoadLibrary(L"COMBASE.DLL");
+    if (hLib == nullptr)
         return E_FAIL;
-    roGetActivationFactory = (f_roGetActivationFactory)GetProcAddress(hLib, "RoGetActivationFactory");
+    roGetActivationFactory = reinterpret_cast<FRoGetActivationFactory>(GetProcAddress(hLib, "RoGetActivationFactory"));
     if (roGetActivationFactory == nullptr)
     {
         FreeLibrary(hLib);
@@ -98,7 +95,7 @@ HRESULT ToastNotifications::ShowToast(HWND hMainWnd, LPCWSTR appID, LPCWSTR icon
     }
 
     Microsoft::WRL::ComPtr<ABI::Windows::UI::Notifications::IToastNotificationManagerStatics> toastStatics;
-    HRESULT hr = roGetActivationFactory(StringReferenceWrapper(RuntimeClass_Windows_UI_Notifications_ToastNotificationManager).Get(), IID_INS_ARGS(&toastStatics));
+    HRESULT                                                                                   hr = roGetActivationFactory(StringReferenceWrapper(RuntimeClass_Windows_UI_Notifications_ToastNotificationManager).Get(), IID_INS_ARGS(&toastStatics));
 
     if (SUCCEEDED(hr))
     {
@@ -132,8 +129,6 @@ HRESULT ToastNotifications::ShowToast(HWND hMainWnd, LPCWSTR appID, LPCWSTR icon
                 }
             }
 
-
-
             if (SUCCEEDED(hr))
             {
                 hr = !lines.empty() ? S_OK : E_INVALIDARG;
@@ -166,7 +161,6 @@ HRESULT ToastNotifications::ShowToast(HWND hMainWnd, LPCWSTR appID, LPCWSTR icon
             }
         }
 
-
         if (SUCCEEDED(hr))
         {
             //hr = CreateToast(toastStatics.Get(), toastXml.Get());
@@ -183,7 +177,7 @@ HRESULT ToastNotifications::ShowToast(HWND hMainWnd, LPCWSTR appID, LPCWSTR icon
                     if (SUCCEEDED(hr))
                     {
                         // Register the event handlers
-                        EventRegistrationToken activatedToken, dismissedToken, failedToken;
+                        EventRegistrationToken                    activatedToken, dismissedToken, failedToken;
                         Microsoft::WRL::ComPtr<ToastEventHandler> eventHandler(new ToastEventHandler(hMainWnd));
 
                         hr = toast->add_Activated(eventHandler.Get(), &activatedToken);
@@ -208,7 +202,7 @@ HRESULT ToastNotifications::ShowToast(HWND hMainWnd, LPCWSTR appID, LPCWSTR icon
     return hr;
 }
 
-HRESULT ToastNotifications::SetNodeValueString(HSTRING inputString, ABI::Windows::Data::Xml::Dom::IXmlNode * node, ABI::Windows::Data::Xml::Dom::IXmlDocument * xml)
+HRESULT ToastNotifications::SetNodeValueString(HSTRING inputString, ABI::Windows::Data::Xml::Dom::IXmlNode* node, ABI::Windows::Data::Xml::Dom::IXmlDocument* xml)
 {
     Microsoft::WRL::ComPtr<ABI::Windows::Data::Xml::Dom::IXmlText> inputText;
 

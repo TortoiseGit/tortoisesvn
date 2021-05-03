@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006 - TortoiseSVN
+// Copyright (C) 2003-2006, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -16,9 +16,6 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-#ifndef __WaitCursorEx_h
-#define __WaitCursorEx_h
-
 #pragma once
 
 /**
@@ -34,14 +31,12 @@
 class CWaitCursorEx
 {
 public:
-    CWaitCursorEx(bool start_visible = true);
+    CWaitCursorEx(bool startVisible = true);
     ~CWaitCursorEx();
 
-    void Show();    //!< Show the hourglass cursor if not already visible
-    void Hide();    //!< Hide the hourglass cursor if not already hidden
+    void Show(); //!< Show the hourglass cursor if not already visible
+    void Hide(); //!< Hide the hourglass cursor if not already hidden
 
 private:
     bool m_bVisible;
 };
-
-#endif /*__WaitCursorEx_h*/

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2011, 2014 - TortoiseSVN
+// Copyright (C) 2010-2011, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,11 +30,10 @@ SVG::~SVG()
 {
 }
 
-
-bool SVG::Save( const CString& path )
+bool SVG::Save(const CString& path)
 {
-    DWORD dwWritten = 0;
-    CAutoFile hFile = CreateFile(path, GENERIC_WRITE, FILE_SHARE_DELETE, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
+    DWORD     dwWritten = 0;
+    CAutoFile hFile     = CreateFile(path, GENERIC_WRITE, FILE_SHARE_DELETE, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
     if (!hFile)
         return false;
 
@@ -42,51 +41,50 @@ bool SVG::Save( const CString& path )
     header.Format("<svg xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" width=\"%d\" height=\"%d\" viewBox=\"0 0 %d %d\">\r\n", viewportWidth, viewportHeight, viewportWidth, viewportHeight);
     CStringA footer = "\r\n</svg>";
 
-    if (!WriteFile(hFile, header, (DWORD)header.GetLength(), &dwWritten, NULL))
+    if (!WriteFile(hFile, header, static_cast<DWORD>(header.GetLength()), &dwWritten, nullptr))
         return false;
 
     for (std::vector<CStringA>::const_iterator it = objects.begin(); it != objects.end(); ++it)
     {
-        if (!WriteFile(hFile, *it, (DWORD)it->GetLength(), &dwWritten, NULL))
+        if (!WriteFile(hFile, *it, static_cast<DWORD>(it->GetLength()), &dwWritten, nullptr))
             return false;
-        if (!WriteFile(hFile, "\r\n", (DWORD)2, &dwWritten, NULL))
+        if (!WriteFile(hFile, "\r\n", static_cast<DWORD>(2), &dwWritten, nullptr))
             return false;
     }
-    if (!WriteFile(hFile, footer, (DWORD)footer.GetLength(), &dwWritten, NULL))
+    if (!WriteFile(hFile, footer, static_cast<DWORD>(footer.GetLength()), &dwWritten, nullptr))
         return false;
 
     return true;
 }
 
-
-void SVG::RoundedRectangle( int x, int y, int width, int height, Gdiplus::Color stroke, int penWidth, Gdiplus::Color fill, int radius /*= 0*/ )
+void SVG::RoundedRectangle(int x, int y, int width, int height, Gdiplus::Color stroke, int penWidth, Gdiplus::Color fill, int radius /*= 0*/)
 {
     CStringA sObj;
     sObj.Format("<rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" rx=\"%d\" ry=\"%d\" style=\"stroke:#%06lx; stroke-width:%d; fill: #%06lx\"/>",
-        x, y, height, width, radius, radius, GetColor(stroke), penWidth, GetColor(fill));
+                x, y, height, width, radius, radius, GetColor(stroke), penWidth, GetColor(fill));
 
     objects.push_back(sObj);
 }
 
-void SVG::Polygon( const Gdiplus::PointF * points, int numPoints, Gdiplus::Color stroke, int penWidth,  Gdiplus::Color fill )
+void SVG::Polygon(const Gdiplus::PointF* points, int numPoints, Gdiplus::Color stroke, int penWidth, Gdiplus::Color fill)
 {
     CStringA pointstring;
     CStringA sTemp;
     for (int i = 0; i < numPoints; ++i)
     {
-        sTemp.Format("%d,%d ", (int)points[i].X, (int)points[i].Y);
+        sTemp.Format("%d,%d ", static_cast<int>(points[i].X), static_cast<int>(points[i].Y));
         pointstring += sTemp;
     }
     pointstring.TrimRight();
 
     CStringA sObj;
     sObj.Format("<polygon points=\"%s\" style=\"stroke:#%06lx; stroke-width:%d; fill:#%06lx;\"/>",
-        (LPCSTR)pointstring, GetColor(stroke), penWidth, GetColor(fill));
+                static_cast<LPCSTR>(pointstring), GetColor(stroke), penWidth, GetColor(fill));
 
     objects.push_back(sObj);
 }
 
-void SVG::GradientRectangle( int x, int y, int width, int height, Gdiplus::Color topColor, Gdiplus::Color bottomColor, Gdiplus::Color stroke )
+void SVG::GradientRectangle(int x, int y, int width, int height, Gdiplus::Color topColor, Gdiplus::Color bottomColor, Gdiplus::Color stroke)
 {
     CStringA sObj;
     sObj.Format(
@@ -102,49 +100,49 @@ spreadMethod=\"pad\">\
 </defs>\
 <rect x=\"%d\" y=\"%d\" height=\"%d\" width=\"%d\" style=\"stroke:#%06lx; fill::url(#linearGradient%d)\"/>\
 </g>",
-        (int)objects.size(), GetColor(topColor), GetColor(bottomColor), x, y, height, width, GetColor(stroke), (int)objects.size());
+        static_cast<int>(objects.size()), GetColor(topColor), GetColor(bottomColor), x, y, height, width, GetColor(stroke), static_cast<int>(objects.size()));
 
     objects.push_back(sObj);
 }
 
-void SVG::PolyBezier( const POINT * points, int numPoints, Gdiplus::Color stroke )
+void SVG::PolyBezier(const POINT* points, int numPoints, Gdiplus::Color stroke)
 {
     if (numPoints == 0)
         return;
 
-    CStringA pointstring;
+    CStringA pointString;
     CStringA sTemp;
     sTemp.Format("M%d,%d ", points[0].x, points[0].y);
-    pointstring += sTemp;
+    pointString += sTemp;
 
     for (int i = 1; i < numPoints; i += 3)
     {
-        sTemp.Format("C%d,%d %d,%d %d,%d", points[i].x, points[i].y, points[i+1].x, points[i+1].y, points[i+2].x, points[i+2].y);
-        pointstring += sTemp;
+        sTemp.Format("C%d,%d %d,%d %d,%d", points[i].x, points[i].y, points[i + 1].x, points[i + 1].y, points[i + 2].x, points[i + 2].y);
+        pointString += sTemp;
     }
-    pointstring.TrimRight();
+    pointString.TrimRight();
 
     CStringA sObj;
     sObj.Format("<path d=\"%s\" style=\"stroke:#%06lx; fill:none;\"/>",
-        (LPCSTR)pointstring, GetColor(stroke));
+                static_cast<LPCSTR>(pointString), GetColor(stroke));
 
     objects.push_back(sObj);
 }
 
-void SVG::Ellipse( int x, int y, int width, int height, Gdiplus::Color stroke, int penWidth, Gdiplus::Color fill )
+void SVG::Ellipse(int x, int y, int width, int height, Gdiplus::Color stroke, int penWidth, Gdiplus::Color fill)
 {
-    int cx = x + width/2;
-    int cy = y + height/2;
-    int rx = width/2;
-    int ry = height/2;
+    int      cx = x + width / 2;
+    int      cy = y + height / 2;
+    int      rx = width / 2;
+    int      ry = height / 2;
     CStringA sObj;
     sObj.Format("<ellipse  cx=\"%d\" cy=\"%d\" rx=\"%d\" ry=\"%d\" style=\"stroke:#%06lx; stroke-width:%d; fill: #%06lx\"/>",
-        cx, cy, rx, ry, GetColor(stroke), penWidth, GetColor(fill));
+                cx, cy, rx, ry, GetColor(stroke), penWidth, GetColor(fill));
 
     objects.push_back(sObj);
 }
 
-void SVG::CenteredText( int x, int y, LPCSTR font, int fontsize, bool italic, bool bold, Gdiplus::Color color, LPCSTR text )
+void SVG::CenteredText(int x, int y, LPCSTR font, int fontsize, bool italic, bool bold, Gdiplus::Color color, LPCSTR text)
 {
     CStringA sObj;
     sObj.Format("<text x=\"%d\"  y=\"%d\" \
@@ -155,13 +153,12 @@ font-weight:%s;\
 stroke:none;\
 text-anchor: middle;\
 fill:#%06lx;\"><![CDATA[%s]]></text>",
-        x, y, font, fontsize, italic ? "italic" : "none", bold ? "bold" : "none", GetColor(color), text);
+                x, y, font, fontsize, italic ? "italic" : "none", bold ? "bold" : "none", GetColor(color), text);
 
     objects.push_back(sObj);
 }
 
-DWORD SVG::GetColor( Gdiplus::Color c ) const
+DWORD SVG::GetColor(Gdiplus::Color c)
 {
-    return ((DWORD)c.GetRed() << 16) | ((DWORD)c.GetGreen() << 8) | ((DWORD)c.GetBlue());
+    return (static_cast<DWORD>(c.GetRed()) << 16) | (static_cast<DWORD>(c.GetGreen()) << 8) | static_cast<DWORD>(c.GetBlue());
 }
-

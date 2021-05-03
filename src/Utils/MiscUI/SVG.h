@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2014-2015 - TortoiseSVN
+// Copyright (C) 2010, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,7 +19,7 @@
 #pragma once
 #include <vector>
 #pragma warning(push)
-#pragma warning(disable: 4458) // declaration of 'xxx' hides class member
+#pragma warning(disable : 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
 #pragma warning(pop)
 
@@ -42,17 +42,22 @@ public:
 
     void StartGroup() { objects.push_back("<g>"); }
     void EndGroup() { objects.push_back("</g>"); }
-    void SetViewSize(int w, int h) { viewportWidth = w; viewportHeight = h; }
+    void SetViewSize(int w, int h)
+    {
+        viewportWidth  = w;
+        viewportHeight = h;
+    }
     void RoundedRectangle(int x, int y, int width, int height, Gdiplus::Color stroke, int penWidth, Gdiplus::Color fill, int radius = 0);
-    void Polygon(const Gdiplus::PointF * points, int numPoints, Gdiplus::Color stroke, int penWidth, Gdiplus::Color fill);
+    void Polygon(const Gdiplus::PointF* points, int numPoints, Gdiplus::Color stroke, int penWidth, Gdiplus::Color fill);
     void GradientRectangle(int x, int y, int width, int height, Gdiplus::Color topColor, Gdiplus::Color bottomColor, Gdiplus::Color stroke);
-    void PolyBezier(const POINT * points, int numPoints, Gdiplus::Color stroke);
+    void PolyBezier(const POINT* points, int numPoints, Gdiplus::Color stroke);
     void Ellipse(int x, int y, int width, int height, Gdiplus::Color stroke, int penWidth, Gdiplus::Color fill);
     void CenteredText(int x, int y, LPCSTR font, int fontsize, bool italic, bool bold, Gdiplus::Color color, LPCSTR text);
-private:
-    DWORD GetColor(Gdiplus::Color c) const;
 
-    std::vector<CStringA>   objects;
-    int                     viewportWidth;
-    int                     viewportHeight;
+private:
+    static DWORD GetColor(Gdiplus::Color c);
+
+    std::vector<CStringA> objects;
+    int                   viewportWidth;
+    int                   viewportHeight;
 };

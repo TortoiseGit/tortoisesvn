@@ -218,7 +218,7 @@ void CWaterEffect::DrawWater(int /*page*/, int /*LightModifier*/, DWORD *pSrcIma
     }
 }
 
-COLORREF CWaterEffect::GetShiftedColor(COLORREF color, int shift) const
+COLORREF CWaterEffect::GetShiftedColor(COLORREF color, int shift)
 {
     const long R = GetRValue(color) - shift;
     const long G = GetGValue(color) - shift;

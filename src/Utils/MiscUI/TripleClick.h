@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011-2012, 2014 - TortoiseSVN
+// Copyright (C) 2011-2012, 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,7 +18,6 @@
 //
 #pragma once
 
-
 /**
  * \ingroup Utils
  * Helper to catch tripple mouse clicks.
@@ -27,8 +26,8 @@ class CTripleClick
 {
 public:
     CTripleClick()
-        : m_LastDblClickMsg(0)
-        , m_LastDblClickTime(0)
+        : m_lastDblClickMsg(0)
+        , m_lastDblClickTime(0)
     {
     }
     virtual ~CTripleClick() {}
@@ -39,44 +38,44 @@ public:
 
     BOOL RelayTrippleClick(MSG* pMsg)
     {
-        if ( (pMsg->message == WM_LBUTTONDBLCLK) ||
-             (pMsg->message == WM_MBUTTONDBLCLK) ||
-             (pMsg->message == WM_RBUTTONDBLCLK))
+        if ((pMsg->message == WM_LBUTTONDBLCLK) ||
+            (pMsg->message == WM_MBUTTONDBLCLK) ||
+            (pMsg->message == WM_RBUTTONDBLCLK))
         {
-            m_LastDblClickMsg = pMsg->message;
-            m_LastDblClickTime = GetTickCount64();
+            m_lastDblClickMsg  = pMsg->message;
+            m_lastDblClickTime = GetTickCount64();
         }
         else if (
-                    ((pMsg->message == WM_LBUTTONDOWN)&&(m_LastDblClickMsg == WM_LBUTTONDBLCLK)) ||
-                    ((pMsg->message == WM_MBUTTONDOWN)&&(m_LastDblClickMsg == WM_MBUTTONDBLCLK)) ||
-                    ((pMsg->message == WM_RBUTTONDOWN)&&(m_LastDblClickMsg == WM_RBUTTONDBLCLK))
-                )
+            ((pMsg->message == WM_LBUTTONDOWN) && (m_lastDblClickMsg == WM_LBUTTONDBLCLK)) ||
+            ((pMsg->message == WM_MBUTTONDOWN) && (m_lastDblClickMsg == WM_MBUTTONDBLCLK)) ||
+            ((pMsg->message == WM_RBUTTONDOWN) && (m_lastDblClickMsg == WM_RBUTTONDBLCLK)))
         {
-            if ((GetTickCount64() - GetDoubleClickTime()) < m_LastDblClickTime)
+            if ((GetTickCount64() - GetDoubleClickTime()) < m_lastDblClickTime)
             {
-                m_LastDblClickTime = 0;
-                m_LastDblClickMsg = 0;
+                m_lastDblClickTime = 0;
+                m_lastDblClickMsg  = 0;
                 CPoint pt;
                 pt.x = GET_X_LPARAM(pMsg->lParam);
                 pt.y = GET_Y_LPARAM(pMsg->lParam);
                 switch (pMsg->message)
                 {
-                case WM_LBUTTONDOWN:
-                    OnLButtonTrippleClick((UINT)pMsg->wParam, pt);
-                    break;
-                case WM_MBUTTONDOWN:
-                    OnMButtonTrippleClick((UINT)pMsg->wParam, pt);
-                    break;
-                case WM_RBUTTONDOWN:
-                    OnRButtonTrippleClick((UINT)pMsg->wParam, pt);
-                    break;
+                    case WM_LBUTTONDOWN:
+                        OnLButtonTrippleClick(static_cast<UINT>(pMsg->wParam), pt);
+                        break;
+                    case WM_MBUTTONDOWN:
+                        OnMButtonTrippleClick(static_cast<UINT>(pMsg->wParam), pt);
+                        break;
+                    case WM_RBUTTONDOWN:
+                        OnRButtonTrippleClick(static_cast<UINT>(pMsg->wParam), pt);
+                        break;
                 }
                 return TRUE;
             }
         }
         return FALSE;
     }
+
 private:
-    UINT        m_LastDblClickMsg;
-    ULONGLONG   m_LastDblClickTime;
+    UINT      m_lastDblClickMsg;
+    ULONGLONG m_lastDblClickTime;
 };

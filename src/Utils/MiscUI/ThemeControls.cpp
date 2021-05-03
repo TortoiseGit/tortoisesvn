@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2020 - TortoiseSVN
+// Copyright (C) 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,8 +22,7 @@
 #include "DPIAware.h"
 
 static const int      nImageHorzMargin = 10;
-static const int      nVertMargin      = 5;
-static const COLORREF clrDefault       = (COLORREF)-1;
+static const COLORREF clrDefault       = static_cast<COLORREF>(-1);
 
 void CThemeMFCButton::OnFillBackground(CDC* pDC, const CRect& rectClient)
 {
@@ -117,12 +116,12 @@ void CThemeMFCButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
         clrText = m_clrHover;
     }
 
-    UINT uiDTFlags     = DT_END_ELLIPSIS;
+    UINT uiDtFlags     = DT_END_ELLIPSIS;
     BOOL bIsSingleLine = FALSE;
 
     if (strText.Find(_T('\n')) < 0)
     {
-        uiDTFlags |= DT_VCENTER | DT_SINGLELINE;
+        uiDtFlags |= DT_VCENTER | DT_SINGLELINE;
         bIsSingleLine = TRUE;
     }
     else
@@ -133,22 +132,22 @@ void CThemeMFCButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
     switch (m_nAlignStyle)
     {
         case ALIGN_LEFT:
-            uiDTFlags |= DT_LEFT;
+            uiDtFlags |= DT_LEFT;
             rectText.left += GetImageHorzMargin() / 2;
             break;
 
         case ALIGN_RIGHT:
-            uiDTFlags |= DT_RIGHT;
+            uiDtFlags |= DT_RIGHT;
             rectText.right -= GetImageHorzMargin() / 2;
             break;
 
         case ALIGN_CENTER:
-            uiDTFlags |= DT_CENTER;
+            uiDtFlags |= DT_CENTER;
     }
 
     if (GetExStyle() & WS_EX_LAYOUTRTL)
     {
-        uiDTFlags |= DT_RTLREADING;
+        uiDtFlags |= DT_RTLREADING;
     }
 
     if ((uiState & ODS_DISABLED) && m_bGrayDisabled)
@@ -157,7 +156,7 @@ void CThemeMFCButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
 
         CRect rectShft = rectText;
         rectShft.OffsetRect(1, 1);
-        OnDrawText(pDC, rectShft, strText, uiDTFlags, uiState);
+        OnDrawText(pDC, rectShft, strText, uiDtFlags, uiState);
 
         clrText = GetGlobalData()->clrGrayedText;
     }
@@ -168,16 +167,16 @@ void CThemeMFCButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
     if (m_bDelayFullTextTooltipSet)
     {
         BOOL bIsFullText = pDC->GetTextExtent(strText).cx <= rectText.Width();
-        SetTooltip(bIsFullText || !bIsSingleLine ? NULL : (LPCTSTR)strText);
+        SetTooltip(bIsFullText || !bIsSingleLine ? nullptr : static_cast<LPCWSTR>(strText));
         m_bDelayFullTextTooltipSet = FALSE;
     }
 
-    OnDrawText(pDC, rectText, strText, uiDTFlags, uiState);
+    OnDrawText(pDC, rectText, strText, uiDtFlags, uiState);
 
     // Draw image:
     if (!rectImage.IsRectEmpty())
     {
-        if (m_nStdImageId != (CMenuImages::IMAGES_IDS)-1)
+        if (m_nStdImageId != static_cast<CMenuImages::IMAGES_IDS>(-1))
         {
             CMenuImages::IMAGES_IDS id = m_nStdImageId;
 
@@ -192,9 +191,11 @@ void CThemeMFCButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
         {
             BOOL bIsDisabled = (uiState & ODS_DISABLED) && m_bGrayDisabled;
 
-            CMFCToolBarImages& imageChecked = (bIsDisabled && m_ImageCheckedDisabled.GetCount() != 0) ? m_ImageCheckedDisabled : (m_bHighlighted && m_ImageCheckedHot.GetCount() != 0) ? m_ImageCheckedHot : m_ImageChecked;
+            CMFCToolBarImages& imageChecked = (bIsDisabled && m_ImageCheckedDisabled.GetCount() != 0) ? m_ImageCheckedDisabled : (m_bHighlighted && m_ImageCheckedHot.GetCount() != 0) ? m_ImageCheckedHot
+                                                                                                                                                                                       : m_ImageChecked;
 
-            CMFCToolBarImages& image = (bIsDisabled && m_ImageDisabled.GetCount() != 0) ? m_ImageDisabled : (m_bHighlighted && m_ImageHot.GetCount() != 0) ? m_ImageHot : m_Image;
+            CMFCToolBarImages& image = (bIsDisabled && m_ImageDisabled.GetCount() != 0) ? m_ImageDisabled : (m_bHighlighted && m_ImageHot.GetCount() != 0) ? m_ImageHot
+                                                                                                                                                           : m_Image;
 
             if (m_bChecked && imageChecked.GetCount() != 0)
             {
@@ -247,20 +248,20 @@ void CThemeMFCMenuButton::OnDraw(CDC* pDC, const CRect& rect, UINT uiState)
         auto hBrush    = CreateSolidBrush(RGB(255, 255, 255));
         auto hOldBrush = pDC->SelectObject(hBrush);
 
-        auto  vmargin    = CDPIAware::Instance().Scale(GetSafeHwnd(), 6);
-        auto  hmargin    = CDPIAware::Instance().Scale(GetSafeHwnd(), 3);
+        auto vMargin = CDPIAware::Instance().Scale(GetSafeHwnd(), 6);
+        auto hMargin = CDPIAware::Instance().Scale(GetSafeHwnd(), 3);
         if (m_bRightArrow)
         {
-            POINT vertices[] = { { rectArrow.left + hmargin, rectArrow.bottom - vmargin },
-                                 { rectArrow.left + hmargin, rectArrow.top + vmargin },
-                                 { rectArrow.right - hmargin, (rectArrow.top + rectArrow.bottom) / 2 } };
+            POINT vertices[] = {{rectArrow.left + hMargin, rectArrow.bottom - vMargin},
+                                {rectArrow.left + hMargin, rectArrow.top + vMargin},
+                                {rectArrow.right - hMargin, (rectArrow.top + rectArrow.bottom) / 2}};
             pDC->Polygon(vertices, _countof(vertices));
         }
         else
         {
-            POINT vertices[] = { { rectArrow.left + hmargin, rectArrow.top + vmargin },
-                                 { rectArrow.right - hmargin, rectArrow.top + vmargin },
-                                 { (rectArrow.left + rectArrow.right) / 2, rectArrow.bottom - vmargin } };
+            POINT vertices[] = {{rectArrow.left + hMargin, rectArrow.top + vMargin},
+                                {rectArrow.right - hMargin, rectArrow.top + vMargin},
+                                {(rectArrow.left + rectArrow.right) / 2, rectArrow.bottom - vMargin}};
             pDC->Polygon(vertices, _countof(vertices));
         }
 
@@ -375,12 +376,12 @@ void CThemeMFCMenuButton::OnButtonDraw(CDC* pDC, const CRect& rect, UINT uiState
         clrText = m_clrHover;
     }
 
-    UINT uiDTFlags     = DT_END_ELLIPSIS;
+    UINT uiDtFlags     = DT_END_ELLIPSIS;
     BOOL bIsSingleLine = FALSE;
 
     if (strText.Find(_T('\n')) < 0)
     {
-        uiDTFlags |= DT_VCENTER | DT_SINGLELINE;
+        uiDtFlags |= DT_VCENTER | DT_SINGLELINE;
         bIsSingleLine = TRUE;
     }
     else
@@ -391,22 +392,22 @@ void CThemeMFCMenuButton::OnButtonDraw(CDC* pDC, const CRect& rect, UINT uiState
     switch (m_nAlignStyle)
     {
         case ALIGN_LEFT:
-            uiDTFlags |= DT_LEFT;
+            uiDtFlags |= DT_LEFT;
             rectText.left += GetImageHorzMargin() / 2;
             break;
 
         case ALIGN_RIGHT:
-            uiDTFlags |= DT_RIGHT;
+            uiDtFlags |= DT_RIGHT;
             rectText.right -= GetImageHorzMargin() / 2;
             break;
 
         case ALIGN_CENTER:
-            uiDTFlags |= DT_CENTER;
+            uiDtFlags |= DT_CENTER;
     }
 
     if (GetExStyle() & WS_EX_LAYOUTRTL)
     {
-        uiDTFlags |= DT_RTLREADING;
+        uiDtFlags |= DT_RTLREADING;
     }
 
     if ((uiState & ODS_DISABLED) && m_bGrayDisabled)
@@ -415,7 +416,7 @@ void CThemeMFCMenuButton::OnButtonDraw(CDC* pDC, const CRect& rect, UINT uiState
 
         CRect rectShft = rectText;
         rectShft.OffsetRect(1, 1);
-        OnDrawText(pDC, rectShft, strText, uiDTFlags, uiState);
+        OnDrawText(pDC, rectShft, strText, uiDtFlags, uiState);
 
         clrText = GetGlobalData()->clrGrayedText;
     }
@@ -426,16 +427,16 @@ void CThemeMFCMenuButton::OnButtonDraw(CDC* pDC, const CRect& rect, UINT uiState
     if (m_bDelayFullTextTooltipSet)
     {
         BOOL bIsFullText = pDC->GetTextExtent(strText).cx <= rectText.Width();
-        SetTooltip(bIsFullText || !bIsSingleLine ? NULL : (LPCTSTR)strText);
+        SetTooltip(bIsFullText || !bIsSingleLine ? nullptr : static_cast<LPCWSTR>(strText));
         m_bDelayFullTextTooltipSet = FALSE;
     }
 
-    OnDrawText(pDC, rectText, strText, uiDTFlags, uiState);
+    OnDrawText(pDC, rectText, strText, uiDtFlags, uiState);
 
     // Draw image:
     if (!rectImage.IsRectEmpty())
     {
-        if (m_nStdImageId != (CMenuImages::IMAGES_IDS)-1)
+        if (m_nStdImageId != static_cast<CMenuImages::IMAGES_IDS>(-1))
         {
             CMenuImages::IMAGES_IDS id = m_nStdImageId;
 
@@ -450,9 +451,11 @@ void CThemeMFCMenuButton::OnButtonDraw(CDC* pDC, const CRect& rect, UINT uiState
         {
             BOOL bIsDisabled = (uiState & ODS_DISABLED) && m_bGrayDisabled;
 
-            CMFCToolBarImages& imageChecked = (bIsDisabled && m_ImageCheckedDisabled.GetCount() != 0) ? m_ImageCheckedDisabled : (m_bHighlighted && m_ImageCheckedHot.GetCount() != 0) ? m_ImageCheckedHot : m_ImageChecked;
+            CMFCToolBarImages& imageChecked = (bIsDisabled && m_ImageCheckedDisabled.GetCount() != 0) ? m_ImageCheckedDisabled : (m_bHighlighted && m_ImageCheckedHot.GetCount() != 0) ? m_ImageCheckedHot
+                                                                                                                                                                                       : m_ImageChecked;
 
-            CMFCToolBarImages& image = (bIsDisabled && m_ImageDisabled.GetCount() != 0) ? m_ImageDisabled : (m_bHighlighted && m_ImageHot.GetCount() != 0) ? m_ImageHot : m_Image;
+            CMFCToolBarImages& image = (bIsDisabled && m_ImageDisabled.GetCount() != 0) ? m_ImageDisabled : (m_bHighlighted && m_ImageHot.GetCount() != 0) ? m_ImageHot
+                                                                                                                                                           : m_Image;
 
             if (m_bChecked && imageChecked.GetCount() != 0)
             {
