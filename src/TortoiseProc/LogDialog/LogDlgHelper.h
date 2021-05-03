@@ -179,7 +179,7 @@ public:
     bool                      OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium, DWORD* pdwEffect, POINTL pt) override;
     HRESULT STDMETHODCALLTYPE DragEnter(IDataObject __RPC_FAR* pDataObj, DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR* pdwEffect) override;
     HRESULT STDMETHODCALLTYPE DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR* pdwEffect) override;
-    HRESULT STDMETHODCALLTYPE DragLeave(void) override;
+    HRESULT STDMETHODCALLTYPE DragLeave() override;
 
 protected:
     CLogDlg*  m_pLogDlg;

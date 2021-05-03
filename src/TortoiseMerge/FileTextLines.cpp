@@ -49,7 +49,7 @@ UINT64 inline DwordSwapBytes(UINT64 nValue)
     return nRet;
 }
 
-CFileTextLines::CFileTextLines(void)
+CFileTextLines::CFileTextLines()
     : m_bNeedsConversion(false)
     , m_bKeepEncoding(false)
 {
@@ -57,7 +57,7 @@ CFileTextLines::CFileTextLines(void)
     m_saveParams.lineEndings = EOL_AUTOLINE;
 }
 
-CFileTextLines::~CFileTextLines(void)
+CFileTextLines::~CFileTextLines()
 {
 }
 

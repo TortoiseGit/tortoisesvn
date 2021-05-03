@@ -78,7 +78,7 @@ SVNStatus::SVNStatus(bool* pbCancelled, bool)
 #endif
 }
 
-SVNStatus::~SVNStatus(void)
+SVNStatus::~SVNStatus()
 {
     svn_error_clear(m_err);
     svn_pool_destroy(m_pool); // free the allocated memory

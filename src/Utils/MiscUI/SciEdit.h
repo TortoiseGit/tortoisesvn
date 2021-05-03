@@ -107,7 +107,7 @@ public:
     /**
      * Retrieves the text in the scintilla control.
      */
-    CString GetText(void) const;
+    CString GetText() const;
     /**
      * Sets the font for the control.
      */
@@ -163,7 +163,7 @@ protected:
     BOOL          PreTranslateMessage(MSG* pMsg) override;
     virtual ULONG GetGestureStatus(CPoint ptTouch) override;
     void          CheckSpelling(Sci_Position startpos, Sci_Position endpos);
-    void          SuggestSpellingAlternatives(void) const;
+    void          SuggestSpellingAlternatives() const;
     void          DoAutoCompletion(Sci_Position nMinPrefixLength);
     BOOL          LoadDictionaries(LONG lLanguageID);
     BOOL          MarkEnteredBugID(Sci_Position startstylepos, Sci_Position endstylepos) const;

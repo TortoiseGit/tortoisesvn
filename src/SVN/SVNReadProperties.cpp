@@ -245,7 +245,7 @@ SVNReadProperties::SVNReadProperties(const CTSVNPath &filepath, SVNRev pegRev, S
 }
 #endif
 
-SVNReadProperties::~SVNReadProperties(void)
+SVNReadProperties::~SVNReadProperties()
 {
     svn_error_clear(m_err);
     svn_pool_destroy(m_pool); // free the allocated memory

@@ -375,7 +375,7 @@ HRESULT CMonitorTreeTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_F
     return CIDropTarget::DragOver(grfKeyState, pt, pdwEffect);
 }
 
-HRESULT CMonitorTreeTarget::DragLeave(void)
+HRESULT CMonitorTreeTarget::DragLeave()
 {
     TreeView_SelectDropTarget(m_hTargetWnd, NULL);
     SetDropDescription(DROPIMAGE_INVALID, nullptr, nullptr);

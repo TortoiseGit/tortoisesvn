@@ -39,7 +39,7 @@ struct NumCompare
     }
 };
 
-ProjectProperties::ProjectProperties(void)
+ProjectProperties::ProjectProperties()
     : bNumber(TRUE)
     , bWarnIfNoIssue(FALSE)
     , bAppend(TRUE)
@@ -56,7 +56,7 @@ ProjectProperties::ProjectProperties(void)
 {
 }
 
-ProjectProperties::~ProjectProperties(void)
+ProjectProperties::~ProjectProperties()
 {
 }
 

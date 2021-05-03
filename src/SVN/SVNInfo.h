@@ -129,7 +129,7 @@ public:
     SVNInfo(const SVNInfo&) = delete;
     SVNInfo& operator=(SVNInfo&) = delete;
     SVNInfo(bool suppressUI = false);
-    ~SVNInfo(void);
+    ~SVNInfo();
 
     /**
      * returns the info for the \a path.

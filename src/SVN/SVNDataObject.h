@@ -122,7 +122,7 @@ public:
     //IEnumFORMATETC members
     HRESULT STDMETHODCALLTYPE Next(ULONG, LPFORMATETC, ULONG*) override;
     HRESULT STDMETHODCALLTYPE Skip(ULONG) override;
-    HRESULT STDMETHODCALLTYPE Reset(void) override;
+    HRESULT STDMETHODCALLTYPE Reset() override;
     HRESULT STDMETHODCALLTYPE Clone(IEnumFORMATETC**) override;
 
 private:

@@ -553,7 +553,7 @@ private:
     void InternalWrite(HKEY hKey, const DWORD& value) override;
 
 public:
-    CRegDWORDCommon(void);
+    CRegDWORDCommon();
     /**
      * Constructor.
      * \param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
@@ -585,7 +585,7 @@ public:
 // implement CRegDWORDCommon<> methods
 
 template <class Base>
-CRegDWORDCommon<Base>::CRegDWORDCommon(void)
+CRegDWORDCommon<Base>::CRegDWORDCommon()
     : CRegTypedBase<DWORD, Base>(0)
 {
 }
@@ -631,7 +631,7 @@ private:
     void InternalWrite(HKEY hKey, const QWORD& value) override;
 
 public:
-    CRegQWORDCommon(void);
+    CRegQWORDCommon();
     /**
     * Constructor.
     * \param key the path to the key, including the key. example: "Software\\Company\\SubKey\\MyValue"
@@ -663,7 +663,7 @@ public:
 // implement CRegQWORDCommon<> methods
 
 template <class Base>
-CRegQWORDCommon<Base>::CRegQWORDCommon(void)
+CRegQWORDCommon<Base>::CRegQWORDCommon()
     : CRegTypedBase<QWORD, Base>(0)
 {
 }

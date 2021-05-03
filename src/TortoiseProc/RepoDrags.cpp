@@ -164,7 +164,7 @@ HRESULT CTreeDropTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR*
     return CIDropTarget::DragOver(grfKeyState, pt, pdwEffect);
 }
 
-HRESULT CTreeDropTarget::DragLeave(void)
+HRESULT CTreeDropTarget::DragLeave()
 {
     TreeView_SelectDropTarget(m_hTargetWnd, NULL);
     SetDropDescription(DROPIMAGE_INVALID, nullptr, nullptr);

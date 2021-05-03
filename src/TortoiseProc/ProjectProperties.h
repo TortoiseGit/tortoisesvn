@@ -88,8 +88,8 @@ struct svn_config_t;
 class ProjectProperties
 {
 public:
-    ProjectProperties(void);
-    ~ProjectProperties(void);
+    ProjectProperties();
+    ~ProjectProperties();
 
     /**
      * Reads the properties from a path. If the path is a file
