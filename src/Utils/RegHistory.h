@@ -18,8 +18,6 @@
 //
 #pragma once
 
-#include "tstring.h"
-
 /**
  * \ingroup TortoiseProc
  * Maintains a list of X string items in the registry and provides methods
@@ -35,24 +33,24 @@ public:
     /// \param lpszSection the section in the registry, e.g., "Software\\CompanyName\\History"
     /// \param lpszKeyPrefix the name of the registry values, e.g., "historyItem"
     /// \return the number of history items loaded
-    size_t Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix);
+    size_t Load(LPCWSTR lpszSection, LPCWSTR lpszKeyPrefix);
     /// Saves the history.
     bool Save() const;
     /// Adds a new string to the history list.
-    virtual bool AddEntry(LPCTSTR szText);
+    virtual bool AddEntry(LPCWSTR szText);
     /// Removes the entry at index \c pos.
     void RemoveEntry(int pos);
-    void RemoveEntry(LPCTSTR str);
-        /// Sets the maximum number of items in the history. Default is 25.
-    void SetMaxHistoryItems(int nMax) {m_nMaxHistoryItems = nMax;}
+    void RemoveEntry(LPCWSTR str);
+    /// Sets the maximum number of items in the history. Default is 25.
+    void SetMaxHistoryItems(int nMax) { m_nMaxHistoryItems = nMax; }
     /// Returns the number of items in the history.
-    size_t GetCount() const {return m_arEntries.size(); }
+    size_t GetCount() const { return m_arEntries.size(); }
     /// Returns the entry at index \c pos
-    LPCTSTR GetEntry(size_t pos) {return m_arEntries[pos].c_str();}
+    LPCWSTR GetEntry(size_t pos) { return m_arEntries[pos].c_str(); }
 
 protected:
-    tstring m_sSection;
-    tstring m_sKeyPrefix;
-    std::vector<tstring> m_arEntries;
-    int m_nMaxHistoryItems;
+    std::wstring              m_sSection;
+    std::wstring              m_sKeyPrefix;
+    std::vector<std::wstring> m_arEntries;
+    int                       m_nMaxHistoryItems;
 };

@@ -234,7 +234,7 @@ private:
     bool         ShouldEnableMenu(const YesNoPair& pair) const;
     void         GetColumnInfo(SHCOLUMNINFO* to, DWORD index, UINT charactersCount, UINT titleId, UINT descriptionId);
     static void  TweakMenu(HMENU menu);
-    static void  ExtractProperty(const wchar_t* path, const char* propertyName, tstring& to);
+    static void  ExtractProperty(const wchar_t* path, const char* propertyName, std::wstring& to);
     void         AddPathCommand(std::wstring& svnCmd, LPCWSTR command, bool bFilesAllowed);
     void         AddPathFileCommand(std::wstring& svnCmd, LPCWSTR command);
     void         AddPathFileDropCommand(std::wstring& svnCmd, LPCWSTR command);

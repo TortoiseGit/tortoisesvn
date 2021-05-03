@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,8 +19,7 @@
 #pragma once
 #include <afxwin.h>
 
-class CBufferDC :
-    public CPaintDC
+class CBufferDC : public CPaintDC
 {
     DECLARE_DYNAMIC(CBufferDC)
 
@@ -29,21 +28,22 @@ private:
     HDC m_hAttributeDC;
     HDC m_hMemoryDC;
 
-    HBITMAP  m_hPaintBitmap;
-    HBITMAP  m_hOldBitmap;
+    HBITMAP m_hPaintBitmap;
+    HBITMAP m_hOldBitmap;
 
-    RECT m_ClientRect;
+    RECT m_clientRect;
 
     BOOL m_bBoundsUpdated;
 
 public:
     CBufferDC(CWnd* pWnd);
-    ~CBufferDC(void);
+    ~CBufferDC() override;
 
 private:
-    void Flush();
+    void Flush() const;
 
 public:
+    // ReSharper disable once CppHidingFunction
     UINT SetBoundsRect(LPCRECT lpRectBounds, UINT flags);
-    virtual BOOL RestoreDC(int nSavedDC);
+    BOOL RestoreDC(int nSavedDC) override;
 };

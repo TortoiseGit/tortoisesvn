@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008, 2010 - TortoiseSVN
+// Copyright (C) 2008, 2010, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,19 +19,17 @@
 #pragma once
 #include <mlang.h>
 
-
 // these functions are taken from an article of the 'old new thing' blog:
 // http://blogs.msdn.com/oldnewthing/archive/2004/07/16/185261.aspx
 
-
-HRESULT TextOutFL(HDC hdc, int x, int y, LPCWSTR psz, int cch)
+inline HRESULT textOutFl(HDC hdc, int x, int y, LPCWSTR psz, int cch)
 {
     ATL::CComPtr<IMLangFontLink2> pfl;
-    HRESULT hr = pfl.CoCreateInstance(CLSID_CMultiLanguage, NULL, CLSCTX_ALL);
+    HRESULT                       hr = pfl.CoCreateInstance(CLSID_CMultiLanguage, nullptr, CLSCTX_ALL);
     if (FAILED(hr))
         return hr;
 
-    HFONT hfOrig = (HFONT)GetCurrentObject(hdc, OBJ_FONT);
+    HFONT hfOrig = static_cast<HFONT>(GetCurrentObject(hdc, OBJ_FONT));
     POINT ptOrig;
     DWORD dwAlignOrig = GetTextAlign(hdc);
     if (!(dwAlignOrig & TA_UPDATECP))
@@ -40,13 +38,13 @@ HRESULT TextOutFL(HDC hdc, int x, int y, LPCWSTR psz, int cch)
     }
     MoveToEx(hdc, x, y, &ptOrig);
     DWORD dwFontCodePages = 0;
-    hr = pfl->GetFontCodePages(hdc, hfOrig, &dwFontCodePages);
+    hr                    = pfl->GetFontCodePages(hdc, hfOrig, &dwFontCodePages);
     if (SUCCEEDED(hr))
     {
         while (cch > 0)
         {
             DWORD dwActualCodePages;
-            long cchActual;
+            long  cchActual;
             hr = pfl->GetStrCodePages(psz, cch, dwFontCodePages, &dwActualCodePages, &cchActual);
             if (FAILED(hr))
             {
@@ -64,9 +62,9 @@ HRESULT TextOutFL(HDC hdc, int x, int y, LPCWSTR psz, int cch)
                 {
                     break;
                 }
-                SelectObject(hdc, (HGDIOBJ)(HFONT)hfLinked);
+                SelectObject(hdc, static_cast<HGDIOBJ>(hfLinked));
                 TextOut(hdc, 0, 0, psz, cchActual);
-                SelectObject(hdc, (HGDIOBJ)(HFONT)hfOrig);
+                SelectObject(hdc, static_cast<HGDIOBJ>(hfOrig));
                 pfl->ReleaseFont(hfLinked);
             }
             psz += cchActual;
@@ -86,17 +84,16 @@ HRESULT TextOutFL(HDC hdc, int x, int y, LPCWSTR psz, int cch)
     if (!(dwAlignOrig & TA_UPDATECP))
     {
         SetTextAlign(hdc, dwAlignOrig);
-        MoveToEx(hdc, ptOrig.x, ptOrig.y, NULL);
+        MoveToEx(hdc, ptOrig.x, ptOrig.y, nullptr);
     }
 
     return hr;
 }
 
-void TextOutTryFL(HDC hdc, int x, int y, LPCWSTR psz, int cch)
+inline void textOutTryFl(HDC hdc, int x, int y, LPCWSTR psz, int cch)
 {
-    if (FAILED(TextOutFL(hdc, x, y, psz, cch)))
+    if (FAILED(textOutFl(hdc, x, y, psz, cch)))
     {
         TextOut(hdc, x, y, psz, cch);
     }
 }
-

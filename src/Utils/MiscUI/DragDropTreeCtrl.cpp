@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2015, 2017, 2020 - TortoiseSVN
+// Copyright (C) 2014-2015, 2017, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,26 +20,27 @@
 #include "DragDropTreeCtrl.h"
 
 #ifdef _DEBUG
-#define new DEBUG_NEW
-#undef THIS_FILE
+// ReSharper disable once CppInconsistentNaming
+#    define new DEBUG_NEW
+#    undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
 
 CDragDropTreeCtrl::CDragDropTreeCtrl()
 {
-    m_hDragItem = NULL;
-    m_pImageList = NULL;
-    m_bDragging = FALSE;
-    m_nDelayInterval = 500;     // Default delay interval = 500 milliseconds
-    m_nScrollInterval = 200;    // Default scroll interval = 200 milliseconds
-    m_nScrollMargin = 10;       // Default scroll margin = 10 pixels
-    m_WMOnDropped = 0;
+    m_hDragItem       = nullptr;
+    m_pImageList      = nullptr;
+    m_bDragging       = FALSE;
+    m_nDelayInterval  = 500; // Default delay interval = 500 milliseconds
+    m_nScrollInterval = 200; // Default scroll interval = 200 milliseconds
+    m_nScrollMargin   = 10;  // Default scroll margin = 10 pixels
+    m_wmOnDropped     = 0;
 }
 
 CDragDropTreeCtrl::~CDragDropTreeCtrl()
 {
     // Delete the image list created by CreateDragImage.
-    if (m_pImageList != NULL)
+    if (m_pImageList != nullptr)
         delete m_pImageList;
 }
 
@@ -65,8 +66,8 @@ BOOL CDragDropTreeCtrl::PreCreateWindow(CREATESTRUCT& cs)
 
 void CDragDropTreeCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
 {
-    *pResult = 0;
-    NM_TREEVIEW* pNMTreeView = (NM_TREEVIEW*)pNMHDR;
+    *pResult                 = 0;
+    NM_TREEVIEW* pNMTreeView = reinterpret_cast<NMTREEVIEWW*>(pNMHDR);
 
     HTREEITEM hItem = pNMTreeView->itemNew.hItem;
 
@@ -75,9 +76,9 @@ void CDragDropTreeCtrl::OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult)
     // DragImage will not work if the control hasn't been assigned an
     // image list!
     m_pImageList = CreateDragImage(hItem);
-    ASSERT(m_pImageList != NULL);
+    ASSERT(m_pImageList != nullptr);
 
-    if (m_pImageList != NULL)
+    if (m_pImageList != nullptr)
     {
         // Compute the coordinates of the "hot spot"--the location of the
         // cursor relative to the upper left corner of the item rectangle.
@@ -109,7 +110,7 @@ void CDragDropTreeCtrl::OnMouseMove(UINT nFlags, CPoint point)
 {
     CTreeCtrl::OnMouseMove(nFlags, point);
 
-    if (m_bDragging && m_pImageList != NULL)
+    if (m_bDragging && m_pImageList != nullptr)
     {
         // Stop the scroll timer if it's running.
         KillTimer(1);
@@ -122,7 +123,7 @@ void CDragDropTreeCtrl::OnMouseMove(UINT nFlags, CPoint point)
 
         // Modify the cursor to provide visual feedback to the user.
         // Note: It's important to do this AFTER the call to DragMove.
-        ::SetCursor((HCURSOR) ::GetClassLongPtr(m_hWnd, GCLP_HCURSOR));
+        ::SetCursor(reinterpret_cast<HCURSOR>(::GetClassLongPtr(m_hWnd, GCLP_HCURSOR)));
 
         // Set a timer if the cursor is at the top or bottom of the window,
         // or if it's over a collapsed item.
@@ -132,10 +133,10 @@ void CDragDropTreeCtrl::OnMouseMove(UINT nFlags, CPoint point)
 
         if ((point.y >= 0 && point.y <= m_nScrollMargin) ||
             (point.y >= cy - m_nScrollMargin && point.y <= cy) ||
-            (hItem != NULL && ItemHasChildren(hItem) &&
-            !IsItemExpanded(hItem)))
+            (hItem != nullptr && ItemHasChildren(hItem) &&
+             !IsItemExpanded(hItem)))
 
-            SetTimer(1, m_nDelayInterval, NULL);
+            SetTimer(1, m_nDelayInterval, nullptr);
     }
 }
 
@@ -143,7 +144,7 @@ void CDragDropTreeCtrl::OnLButtonUp(UINT nFlags, CPoint point)
 {
     CTreeCtrl::OnLButtonUp(nFlags, point);
 
-    if (m_bDragging && m_pImageList != NULL)
+    if (m_bDragging && m_pImageList != nullptr)
     {
         // Stop the scroll timer if it's running.
         KillTimer(1);
@@ -153,16 +154,16 @@ void CDragDropTreeCtrl::OnLButtonUp(UINT nFlags, CPoint point)
         m_pImageList->EndDrag();
         ::ReleaseCapture();
         m_bDragging = FALSE;
-        SelectDropTarget(NULL);
+        SelectDropTarget(nullptr);
 
         // Delete the image list created by CreateDragImage.
         delete m_pImageList;
-        m_pImageList = NULL;
+        m_pImageList = nullptr;
 
         // Get the HTREEITEM of the drop target and exit now if it's NULL.
-        UINT nHitFlags;
+        UINT      nHitFlags;
         HTREEITEM hItem = HitTest(point, &nHitFlags);
-        if (hItem == NULL)
+        if (hItem == nullptr)
             hItem = TVI_ROOT;
 
         if (hItem == m_hDragItem)
@@ -177,14 +178,14 @@ void CDragDropTreeCtrl::OnLButtonUp(UINT nFlags, CPoint point)
 
         // Mark the item as having children
         TVITEM tvItem;
-        tvItem.mask = TVIF_CHILDREN | TVIF_HANDLE;
+        tvItem.mask      = TVIF_CHILDREN | TVIF_HANDLE;
         tvItem.cChildren = 1;
-        tvItem.hItem = hItem;
+        tvItem.hItem     = hItem;
         SetItem(&tvItem);
 
-        m_hDragItem = NULL;
-        if (m_WMOnDropped)
-            GetParent()->SendMessage(m_WMOnDropped, (WPARAM)hItem);
+        m_hDragItem = nullptr;
+        if (m_wmOnDropped)
+            GetParent()->SendMessage(m_wmOnDropped, reinterpret_cast<WPARAM>(hItem));
     }
 }
 
@@ -193,10 +194,10 @@ void CDragDropTreeCtrl::OnTimer(UINT_PTR nIDEvent)
     CTreeCtrl::OnTimer(nIDEvent);
 
     // Reset the timer.
-    SetTimer(1, m_nScrollInterval, NULL);
+    SetTimer(1, m_nScrollInterval, nullptr);
 
     // Get the current cursor position and window height.
-    DWORD dwPos = ::GetMessagePos();
+    DWORD  dwPos = ::GetMessagePos();
     CPoint point(LOWORD(dwPos), HIWORD(dwPos));
     ScreenToClient(&point);
 
@@ -241,10 +242,10 @@ void CDragDropTreeCtrl::OnTimer(UINT_PTR nIDEvent)
     }
 
     // If the cursor is hovering over a collapsed item, expand the tree.
-    UINT nFlags;
-    HTREEITEM hItem = HitTest(point, &nFlags);
+    UINT      nFlags = 0;
+    HTREEITEM hItem  = HitTest(point, &nFlags);
 
-    if (hItem != NULL && ItemHasChildren(hItem) && !IsItemExpanded(hItem))
+    if (hItem != nullptr && ItemHasChildren(hItem) && !IsItemExpanded(hItem))
     {
         m_pImageList->DragShowNolock(FALSE);
         Expand(hItem, TVE_EXPAND);
@@ -254,10 +255,10 @@ void CDragDropTreeCtrl::OnTimer(UINT_PTR nIDEvent)
     }
 }
 
-BOOL CDragDropTreeCtrl::IsChildOf(HTREEITEM hItem1, HTREEITEM hItem2)
+BOOL CDragDropTreeCtrl::IsChildOf(HTREEITEM hItem1, HTREEITEM hItem2) const
 {
     HTREEITEM hParent = hItem1;
-    while ((hParent = GetParentItem(hParent)) != NULL)
+    while ((hParent = GetParentItem(hParent)) != nullptr)
     {
         if (hParent == hItem2)
             return TRUE;
@@ -274,21 +275,21 @@ void CDragDropTreeCtrl::MoveTree(HTREEITEM hDest, HTREEITEM hSrc)
 void CDragDropTreeCtrl::CopyTree(HTREEITEM hDest, HTREEITEM hSrc)
 {
     // Get the attributes of item to be copied.
-    wchar_t textbuf[1024] = { 0 };
-    TVITEMEX tvItem = { 0 };
-    tvItem.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
-    tvItem.hItem = hSrc;
-    tvItem.cchTextMax = _countof(textbuf);
-    tvItem.pszText = textbuf;
-    GetItem((TVITEM*)&tvItem);
+    wchar_t  textBuf[1024] = {0};
+    TVITEMEX tvItem        = {0};
+    tvItem.mask            = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
+    tvItem.hItem           = hSrc;
+    tvItem.cchTextMax      = _countof(textBuf);
+    tvItem.pszText         = textBuf;
+    GetItem(reinterpret_cast<TVITEMW*>(&tvItem));
 
     // Create an exact copy of the item at the destination.
-    TVINSERTSTRUCT tvInsertItem = { 0 };
-    tvInsertItem.itemex = tvItem;
-    tvInsertItem.itemex.hItem = 0;
-    tvInsertItem.hInsertAfter = TVI_SORT;
-    tvInsertItem.hParent = hDest;
-    HTREEITEM hNewItem = InsertItem(&tvInsertItem);
+    TVINSERTSTRUCT tvInsertItem = {nullptr};
+    tvInsertItem.itemex         = tvItem;
+    tvInsertItem.itemex.hItem   = nullptr;
+    tvInsertItem.hInsertAfter   = TVI_SORT;
+    tvInsertItem.hParent        = hDest;
+    HTREEITEM hNewItem          = InsertItem(&tvInsertItem);
 
     // If the item has subitems, copy them, too.
     if (GetChildItem(hSrc))
@@ -302,48 +303,48 @@ void CDragDropTreeCtrl::CopyChildren(HTREEITEM hDest, HTREEITEM hSrc)
 {
     // Get the first subitem.
     HTREEITEM hItem = GetChildItem(hSrc);
-    if (hItem == NULL)
+    if (hItem == nullptr)
         return; // item has no children
 
     // Create a copy of it at the destination.
-    wchar_t textbuf[1024] = { 0 };
-    TVITEMEX tvItem = { 0 };
-    tvItem.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
-    tvItem.hItem = hItem;
-    tvItem.cchTextMax = _countof(textbuf);
-    tvItem.pszText = textbuf;
-    GetItem((TVITEM*)&tvItem);
+    wchar_t  textBuf[1024] = {0};
+    TVITEMEX tvItem        = {0};
+    tvItem.mask            = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
+    tvItem.hItem           = hItem;
+    tvItem.cchTextMax      = _countof(textBuf);
+    tvItem.pszText         = textBuf;
+    GetItem(reinterpret_cast<TVITEMW*>(&tvItem));
 
-    TVINSERTSTRUCT tvInsertItem = { 0 };
-    tvInsertItem.itemex = tvItem;
-    tvInsertItem.itemex.hItem = 0;
-    tvInsertItem.hInsertAfter = TVI_SORT;
-    tvInsertItem.hParent = hDest;
-    HTREEITEM hNewItem = InsertItem(&tvInsertItem);
+    TVINSERTSTRUCT tvInsertItem = {nullptr};
+    tvInsertItem.itemex         = tvItem;
+    tvInsertItem.itemex.hItem   = nullptr;
+    tvInsertItem.hInsertAfter   = TVI_SORT;
+    tvInsertItem.hParent        = hDest;
+    HTREEITEM hNewItem          = InsertItem(&tvInsertItem);
 
     // If the subitem has subitems, copy them, too.
     if (ItemHasChildren(hItem))
         CopyChildren(hNewItem, hItem);
 
     // Do the same for other subitems of hSrc.
-    while ((hItem = GetNextSiblingItem(hItem)) != NULL)
+    while ((hItem = GetNextSiblingItem(hItem)) != nullptr)
     {
-        tvItem.mask = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
-        tvItem.hItem = hItem;
-        tvItem.cchTextMax = _countof(textbuf);
-        tvItem.pszText = textbuf;
-        GetItem((TVITEM*)&tvItem);
-        tvInsertItem.itemex = tvItem;
-        tvInsertItem.itemex.hItem = 0;
+        tvItem.mask       = TVIF_CHILDREN | TVIF_DI_SETITEM | TVIF_EXPANDEDIMAGE | TVIF_HANDLE | TVIF_IMAGE | TVIF_INTEGRAL | TVIF_PARAM | TVIF_SELECTEDIMAGE | TVIF_STATE | TVIF_STATEEX | TVIF_TEXT;
+        tvItem.hItem      = hItem;
+        tvItem.cchTextMax = _countof(textBuf);
+        tvItem.pszText    = textBuf;
+        GetItem(reinterpret_cast<TVITEMW*>(&tvItem));
+        tvInsertItem.itemex       = tvItem;
+        tvInsertItem.itemex.hItem = nullptr;
         tvInsertItem.hInsertAfter = TVI_SORT;
-        tvInsertItem.hParent = hDest;
-        hNewItem = InsertItem(&tvInsertItem);
+        tvInsertItem.hParent      = hDest;
+        hNewItem                  = InsertItem(&tvInsertItem);
         if (ItemHasChildren(hItem))
             CopyChildren(hNewItem, hItem);
     }
 }
 
-BOOL CDragDropTreeCtrl::IsItemExpanded(HTREEITEM hItem)
+BOOL CDragDropTreeCtrl::IsItemExpanded(HTREEITEM hItem) const
 {
     return GetItemState(hItem, TVIS_EXPANDED) & TVIS_EXPANDED;
 }
@@ -351,8 +352,8 @@ BOOL CDragDropTreeCtrl::IsItemExpanded(HTREEITEM hItem)
 HTREEITEM CDragDropTreeCtrl::HighlightDropTarget(CPoint point)
 {
     // Find out which item (if any) the cursor is over.
-    UINT nFlags;
-    HTREEITEM hItem = HitTest(point, &nFlags);
+    UINT      nFlags = 0;
+    HTREEITEM hItem  = HitTest(point, &nFlags);
 
     // Highlight the item, or unhighlight all items if the cursor isn't
     // over an item.

@@ -194,18 +194,18 @@ void LoadLangDll()
     } // if (g_langId != g_ShellCache.GetLangID())
 }
 
-tstring GetAppDirectory()
+std::wstring GetAppDirectory()
 {
-    tstring path;
+    std::wstring path;
     DWORD   len       = 0;
-    DWORD   bufferlen = MAX_PATH; // MAX_PATH is not the limit here!
+    DWORD   bufferLen = MAX_PATH; // MAX_PATH is not the limit here!
     do
     {
-        bufferlen += MAX_PATH; // MAX_PATH is not the limit here!
-        std::unique_ptr<TCHAR[]> pBuf(new TCHAR[bufferlen]);
-        len  = GetModuleFileName(g_hModThisDll, pBuf.get(), bufferlen);
-        path = tstring(pBuf.get(), len);
-    } while (len == bufferlen);
+        bufferLen += MAX_PATH; // MAX_PATH is not the limit here!
+        std::unique_ptr<TCHAR[]> pBuf(new TCHAR[bufferLen]);
+        len  = GetModuleFileName(g_hModThisDll, pBuf.get(), bufferLen);
+        path = std::wstring(pBuf.get(), len);
+    } while (len == bufferLen);
     path = path.substr(0, path.rfind('\\') + 1);
 
     return path;

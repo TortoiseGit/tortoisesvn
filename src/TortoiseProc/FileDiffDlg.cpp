@@ -408,7 +408,7 @@ void CFileDiffDlg::DiffProps(int selIndex)
     {
         const std::string& url1Name = *iter;
 
-        tstring url1Value = L""; // CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
+        std::wstring url1Value = L""; // CUnicodeUtils::StdGetUnicode((char *)propsurl1.GetItemValue(wcindex).c_str());
         for (int url1Index = 0; url1Index < propsUrl1.GetCount(); ++url1Index)
         {
             if (propsUrl1.GetItemName(url1Index).compare(url1Name) == 0)

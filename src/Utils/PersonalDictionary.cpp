@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008, 2010, 2014, 2016, 2019 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008, 2010, 2014, 2016, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -24,8 +24,8 @@
 #include "PathUtils.h"
 #include "UnicodeUtils.h"
 
-CPersonalDictionary::CPersonalDictionary(LONG lLanguage /* = 0*/) :
-    m_bLoaded(false)
+CPersonalDictionary::CPersonalDictionary(LONG lLanguage /* = 0*/)
+    : m_bLoaded(false)
 {
     m_lLanguage = lLanguage;
 }
@@ -36,38 +36,37 @@ CPersonalDictionary::~CPersonalDictionary()
 
 bool CPersonalDictionary::Load()
 {
-    CString sWord;
-    char line[PDICT_MAX_WORD_LENGTH + 1];
+    char line[PDICT_MAX_WORD_LENGTH + 1]{};
 
     if (m_bLoaded)
         return true;
-    TCHAR path[MAX_PATH] = { 0 };       //MAX_PATH ok here.
-    wcscpy_s (path, CPathUtils::GetAppDataDirectory());
+    wchar_t path[MAX_PATH] = {0}; //MAX_PATH ok here.
+    wcscpy_s(path, CPathUtils::GetAppDataDirectory());
 
-    if (m_lLanguage==0)
+    if (m_lLanguage == 0)
         m_lLanguage = GetUserDefaultLCID();
 
-    TCHAR sLang[10] = { 0 };
+    wchar_t sLang[10] = {0};
     swprintf_s(sLang, L"%ld", m_lLanguage);
     wcscat_s(path, sLang);
     wcscat_s(path, L".dic");
 
-    std::ifstream File;
-    char filepath[MAX_PATH + 1] = { 0 };
-    WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
-    File.open(filepath);
-    if (!File.good())
+    std::ifstream file;
+    char          filepath[MAX_PATH + 1] = {0};
+    WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath) - 1, nullptr, nullptr);
+    file.open(filepath);
+    if (!file.good())
     {
         return false;
     }
     do
     {
-        File.getline(line, _countof(line));
-        sWord = CUnicodeUtils::GetUnicode(line);
+        file.getline(line, _countof(line));
+        CString sWord = CUnicodeUtils::GetUnicode(line);
         if (!sWord.IsEmpty())
             dict.insert(sWord);
-    } while (File.gcount() > 0);
-    File.close();
+    } while (file.gcount() > 0);
+    file.close();
     m_bLoaded = true;
     return true;
 }
@@ -89,8 +88,7 @@ bool CPersonalDictionary::FindWord(const CString& sWord)
     // even if the load failed for some reason, we mark it as loaded
     // and just assume an empty personal dictionary
     m_bLoaded = true;
-    std::set<CString>::iterator it;
-    it = dict.find(sWord);
+    auto it   = dict.find(sWord);
     return (it != dict.end());
 }
 
@@ -98,26 +96,26 @@ bool CPersonalDictionary::Save()
 {
     if (!m_bLoaded)
         return false;
-    TCHAR path[MAX_PATH] = { 0 };       //MAX_PATH ok here.
-    wcscpy_s (path, CPathUtils::GetAppDataDirectory());
+    wchar_t path[MAX_PATH] = {0}; //MAX_PATH ok here.
+    wcscpy_s(path, CPathUtils::GetAppDataDirectory());
 
-    if (m_lLanguage==0)
+    if (m_lLanguage == 0)
         m_lLanguage = GetUserDefaultLCID();
 
-    TCHAR sLang[10] = { 0 };
+    wchar_t sLang[10] = {0};
     swprintf_s(sLang, L"%ld", m_lLanguage);
     wcscat_s(path, sLang);
     wcscat_s(path, L".dic");
 
-    std::ofstream File;
-    char filepath[MAX_PATH + 1] = { 0 };
-    WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath)-1, NULL, NULL);
-    File.open(filepath, std::ios_base::binary);
+    std::ofstream file;
+    char          filepath[MAX_PATH + 1] = {0};
+    WideCharToMultiByte(CP_ACP, NULL, path, -1, filepath, _countof(filepath) - 1, nullptr, nullptr);
+    file.open(filepath, std::ios_base::binary);
     for (std::set<CString>::iterator it = dict.begin(); it != dict.end(); ++it)
     {
         if (!it->IsEmpty())
-            File << CUnicodeUtils::StdGetUTF8((LPCWSTR)*it).c_str() << "\n";
+            file << CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(*it)).c_str() << "\n";
     }
-    File.close();
+    file.close();
     return true;
 }

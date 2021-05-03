@@ -36,7 +36,7 @@ UINT CALLBACK PropPageCallbackProc(HWND hwnd, UINT uMsg, LPPROPSHEETPAGE ppsp);
 // CShellExt member functions (needed for IShellPropSheetExt)
 HRESULT STDMETHODCALLTYPE CShellExt::AddPages(LPFNADDPROPSHEETPAGE lpfnAddPage, LPARAM lParam)
 {
-    for (std::vector<tstring>::iterator I = m_files.begin(); I != m_files.end(); ++I)
+    for (auto I = m_files.begin(); I != m_files.end(); ++I)
     {
         SVNStatus svn;
         if (svn.GetStatus(CTSVNPath(I->c_str())) == (-2))
@@ -126,7 +126,7 @@ UINT CALLBACK PropPageCallbackProc(HWND /*hwnd*/, UINT uMsg, LPPROPSHEETPAGE pps
 
 // *********************** CSVNPropertyPage *************************
 
-CSVNPropertyPage::CSVNPropertyPage(const std::vector<tstring>& newFilenames)
+CSVNPropertyPage::CSVNPropertyPage(const std::vector<std::wstring>& newFilenames)
     : m_hwnd(nullptr)
     , fileNames(newFilenames)
 {
@@ -178,7 +178,7 @@ void CSVNPropertyPage::PageProcOnCommand(WPARAM wParam)
 
     if (LOWORD(wParam) == IDC_SHOWLOG)
     {
-        tstring svnCmd = L" /command:";
+        std::wstring svnCmd = L" /command:";
         svnCmd += L"log /path:\"";
         svnCmd += fileNames.front().c_str();
         svnCmd += L"\"";
@@ -191,7 +191,7 @@ void CSVNPropertyPage::PageProcOnCommand(WPARAM wParam)
         auto  tempFile   = std::make_unique<wchar_t[]>(pathLength + 100);
         GetTempPath(pathLength + 1, path.get());
         GetTempFileName(path.get(), L"svn", 0, tempFile.get());
-        tstring retFilePath = tstring(tempFile.get());
+        std::wstring retFilePath = std::wstring(tempFile.get());
 
         CAutoFile file = ::CreateFile(tempFile.get(),
                                       GENERIC_WRITE,
@@ -210,7 +210,7 @@ void CSVNPropertyPage::PageProcOnCommand(WPARAM wParam)
                 ::WriteFile(file, L"\n", 2, &written, nullptr);
             }
 
-            tstring svnCmd = L" /command:";
+            std::wstring svnCmd = L" /command:";
             svnCmd += L"properties /pathfile:\"";
             svnCmd += retFilePath.c_str();
             svnCmd += L"\"";
@@ -243,13 +243,13 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, wchar_t* buf, size_t 
         sysTime.wSecond                    = static_cast<WORD>(newTime.tm_sec);
         sysTime.wYear                      = static_cast<WORD>(newTime.tm_year) + 1900;
         int     ret                        = 0;
-        wchar_t datebuf[MAX_STRING_LENGTH] = {0};
+        wchar_t dateBuf[MAX_STRING_LENGTH] = {0};
         if (CRegStdDWORD(L"Software\\TortoiseSVN\\LogDateFormat") == 1)
-            ret = GetDateFormat(locale, DATE_SHORTDATE, &sysTime, nullptr, datebuf, MAX_STRING_LENGTH);
+            ret = GetDateFormat(locale, DATE_SHORTDATE, &sysTime, nullptr, dateBuf, MAX_STRING_LENGTH);
         else
-            ret = GetDateFormat(locale, DATE_LONGDATE, &sysTime, nullptr, datebuf, MAX_STRING_LENGTH);
+            ret = GetDateFormat(locale, DATE_LONGDATE, &sysTime, nullptr, dateBuf, MAX_STRING_LENGTH);
         if (ret == 0)
-            datebuf[0] = '\0';
+            dateBuf[0] = '\0';
         wchar_t timeBuf[MAX_STRING_LENGTH] = {0};
         ret                                = GetTimeFormat(locale, 0, &sysTime, nullptr, timeBuf, MAX_STRING_LENGTH);
         if (ret == 0)
@@ -257,7 +257,7 @@ void CSVNPropertyPage::Time64ToTimeString(__time64_t time, wchar_t* buf, size_t 
         *buf = '\0';
         wcsncat_s(buf, buflen, timeBuf, MAX_STRING_LENGTH - 1);
         wcsncat_s(buf, buflen, L", ", MAX_STRING_LENGTH - 1);
-        wcsncat_s(buf, buflen, datebuf, MAX_STRING_LENGTH - 1);
+        wcsncat_s(buf, buflen, dateBuf, MAX_STRING_LENGTH - 1);
     }
 }
 
@@ -438,8 +438,8 @@ void CSVNPropertyPage::InitWorkfileView()
     }
 }
 
-void CSVNPropertyPage::RunCommand(const tstring& command)
+void CSVNPropertyPage::RunCommand(const std::wstring& command)
 {
-    tstring tortoiseProcPath = GetAppDirectory() + L"TortoiseProc.exe";
+    std::wstring tortoiseProcPath = GetAppDirectory() + L"TortoiseProc.exe";
     CCreateProcessHelper::CreateProcessDetached(tortoiseProcPath.c_str(), command.c_str());
 }

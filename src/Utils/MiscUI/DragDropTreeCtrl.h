@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014 - TortoiseSVN
+// Copyright (C) 2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -18,29 +18,29 @@
 //
 #pragma once
 
-
 class CDragDropTreeCtrl : public CTreeCtrl
 {
 public:
     CDragDropTreeCtrl();
-    virtual ~CDragDropTreeCtrl();
+    ~CDragDropTreeCtrl() override;
 
-    void SetDroppedMessage(UINT msg) { m_WMOnDropped = msg; }
+    void SetDroppedMessage(UINT msg) { m_wmOnDropped = msg; }
+
 protected:
-    virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
-    HTREEITEM HighlightDropTarget(CPoint point);
-    int m_nDelayInterval;
-    BOOL IsItemExpanded(HTREEITEM hItem);
-    int m_nScrollMargin;
-    int m_nScrollInterval;
-    void CopyChildren(HTREEITEM hDest, HTREEITEM hSrc);
-    void CopyTree(HTREEITEM hDest, HTREEITEM hSrc);
-    void MoveTree(HTREEITEM hDest, HTREEITEM hSrc);
-    BOOL IsChildOf(HTREEITEM hItem1, HTREEITEM hItem2);
-    BOOL m_bDragging;
+    BOOL        PreCreateWindow(CREATESTRUCT& cs) override;
+    HTREEITEM   HighlightDropTarget(CPoint point);
+    int         m_nDelayInterval;
+    BOOL        IsItemExpanded(HTREEITEM hItem) const;
+    int         m_nScrollMargin;
+    int         m_nScrollInterval;
+    void        CopyChildren(HTREEITEM hDest, HTREEITEM hSrc);
+    void        CopyTree(HTREEITEM hDest, HTREEITEM hSrc);
+    void        MoveTree(HTREEITEM hDest, HTREEITEM hSrc);
+    BOOL        IsChildOf(HTREEITEM hItem1, HTREEITEM hItem2) const;
+    BOOL        m_bDragging;
     CImageList* m_pImageList;
-    HTREEITEM m_hDragItem;
-    UINT m_WMOnDropped;
+    HTREEITEM   m_hDragItem;
+    UINT        m_wmOnDropped;
 
     afx_msg void OnBeginDrag(NMHDR* pNMHDR, LRESULT* pResult);
     afx_msg void OnMouseMove(UINT nFlags, CPoint point);
@@ -49,4 +49,3 @@ protected:
 
     DECLARE_MESSAGE_MAP()
 };
-

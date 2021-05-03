@@ -20,7 +20,6 @@
 #include "stdafx.h"
 #include <windowsx.h>
 #include "BrowseFolder.h"
-#include "PathUtils.h"
 #include "OnOutOfScope.h"
 #include "FileDlgEventHandler.h"
 #include <strsafe.h>

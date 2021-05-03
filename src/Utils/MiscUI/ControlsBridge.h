@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,13 +19,14 @@
 #pragma once
 #include <afxwin.h>
 
-class CControlsBridge {
+class CControlsBridge
+{
 public:
     static void AlignHorizontally(CWnd* parent, int labelId, int controlId);
 
 private:
     CControlsBridge();
-    ~CControlsBridge();
+    ~CControlsBridge() = default;
 };
 
 inline void CControlsBridge::AlignHorizontally(CWnd* parent, int labelId, int controlId)
@@ -33,15 +34,15 @@ inline void CControlsBridge::AlignHorizontally(CWnd* parent, int labelId, int co
     CString labelText;
     parent->GetDlgItemText(labelId, labelText);
 
-    CDC * pParentDC = parent->GetDC();
-    CDC dc;
+    CDC* pParentDC = parent->GetDC();
+    CDC  dc;
     dc.CreateCompatibleDC(pParentDC);
     parent->ReleaseDC(pParentDC);
     dc.SelectObject(parent->GetDlgItem(labelId)->GetFont());
     CSize textSize(dc.GetTextExtent(labelText));
 
     CRect labelRect;
-    parent->GetDlgItem(labelId )->GetWindowRect(labelRect);
+    parent->GetDlgItem(labelId)->GetWindowRect(labelRect);
     parent->ScreenToClient(labelRect);
     labelRect.right = labelRect.left + textSize.cx + 2;
     parent->GetDlgItem(labelId)->MoveWindow(labelRect);

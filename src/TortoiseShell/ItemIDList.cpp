@@ -81,11 +81,11 @@ LPCSHITEMID ItemIDList::get(int index) const
     return ptr;
 }
 
-tstring ItemIDList::toString(bool resolveLibraries /*= true*/) const
+std::wstring ItemIDList::toString(bool resolveLibraries /*= true*/) const
 {
     CComPtr<IShellFolder> shellFolder;
     CComPtr<IShellFolder> parentFolder;
-    tstring               ret;
+    std::wstring          ret;
 
     if (FAILED(::SHGetDesktopFolder(&shellFolder)))
         return ret;

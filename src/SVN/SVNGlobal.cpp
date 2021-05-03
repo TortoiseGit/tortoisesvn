@@ -27,7 +27,7 @@ SVNGlobal g_SVNGlobal;
 SVNGlobal::SVNGlobal()
 {
     CRegStdString regConfigDir = CRegStdString(L"Software\\TortoiseSVN\\ConfigDir");
-    tstring       sConfigDir   = regConfigDir;
+    std::wstring  sConfigDir   = regConfigDir;
     if (!sConfigDir.empty())
     {
         g_pConfigDir = StrDupA(CUnicodeUtils::StdGetUTF8(sConfigDir).c_str());

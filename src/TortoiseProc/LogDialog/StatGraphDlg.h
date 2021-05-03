@@ -132,7 +132,7 @@ protected:
     /// Parses the data given to the dialog and generates mappings with statistical data.
     void GatherData();
     /// Populates the lists passed as arguments based on the commit threshold set with the skipper.
-    void FilterSkippedAuthors(std::list<tstring>& includedAuthors, std::list<tstring>& skippedAuthors);
+    void FilterSkippedAuthors(std::list<std::wstring>& includedAuthors, std::list<std::wstring>& skippedAuthors);
     /// Shows the graph Percentage Of Authorship
     void ShowPercentageOfAuthorship();
     /// Shows the graph with commit counts per author.
@@ -151,7 +151,7 @@ protected:
 
     // If we have other authors, count them and their commits.
     template <class Map>
-    void DrawOthers(const std::list<tstring>& others, MyGraphSeries* graphData, Map& map);
+    void DrawOthers(const std::list<std::wstring>& others, MyGraphSeries* graphData, Map& map);
 
     /// Called when user checks/unchecks the "Authors case sensitive" checkbox.
     /// Recalculates statistical data because the number and names of authors
@@ -231,21 +231,21 @@ protected:
     /// The total number of file changes.
     LONG m_nTotalFileChanges;
     /// Holds the number of commits per unit and author.
-    std::map<int, std::map<tstring, LONG>> m_commitsPerUnitAndAuthor;
+    std::map<int, std::map<std::wstring, LONG>> m_commitsPerUnitAndAuthor;
     /// Holds the number of file changes per unit and author.
-    std::map<int, std::map<tstring, LONG>> m_filechangesPerUnitAndAuthor;
+    std::map<int, std::map<std::wstring, LONG>> m_filechangesPerUnitAndAuthor;
     /// First interval number (key) in the mappings.
     int m_firstInterval;
     /// Last interval number (key) in the mappings.
     int m_lastInterval;
     /// Mapping of total commits per author, access data via
-    std::map<tstring, LONG> m_commitsPerAuthor;
+    std::map<std::wstring, LONG> m_commitsPerAuthor;
     /// Mapping of Percentage Of Authorship per author
-    std::map<tstring, double> m_percentageOfAuthorship;
+    std::map<std::wstring, double> m_percentageOfAuthorship;
 
     /// The list of author names sorted based on commit count
     /// (author with most commits is first in list).
-    std::list<tstring> m_authorNames;
+    std::list<std::wstring> m_authorNames;
     /// unit names by week/month/quarter
-    std::map<LONG, tstring> m_unitNames;
+    std::map<LONG, std::wstring> m_unitNames;
 };

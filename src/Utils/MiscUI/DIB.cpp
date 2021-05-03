@@ -140,7 +140,7 @@ BOOL CDib::SetBitmap(const LPBITMAPINFO lpBitmapInfo, const LPVOID lpBits)
     return TRUE;
 }
 
-BOOL CDib::Draw(CDC* pDC, CPoint ptDest)
+BOOL CDib::Draw(CDC* pDC, CPoint ptDest) const
 {
     if (!m_hBitmap)
         return FALSE;

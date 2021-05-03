@@ -325,7 +325,7 @@ LRESULT CMainWindow::DoCommand(int id)
             break;
         case ID_FILE_SETTINGS:
         {
-            tstring svnCmd = L" /command:settings /page:20";
+            std::wstring svnCmd = L" /command:settings /page:20";
             RunCommand(svnCmd);
         }
         break;
@@ -613,7 +613,7 @@ std::wstring CMainWindow::GetAppDirectory() const
 
 void CMainWindow::RunCommand(const std::wstring& command) const
 {
-    tstring tortoiseProcPath = GetAppDirectory() + L"TortoiseProc.exe";
+    std::wstring tortoiseProcPath = GetAppDirectory() + L"TortoiseProc.exe";
     CCreateProcessHelper::CreateProcessDetached(tortoiseProcPath.c_str(), command.c_str());
 }
 

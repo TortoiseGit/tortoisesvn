@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2012, 2014, 2017 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2012, 2014, 2017, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,8 +21,8 @@
 #include "registry.h"
 #include "RegHistory.h"
 
-
-CRegHistory::CRegHistory() : m_nMaxHistoryItems(25)
+CRegHistory::CRegHistory()
+    : m_nMaxHistoryItems(25)
 {
 }
 
@@ -30,20 +30,20 @@ CRegHistory::~CRegHistory()
 {
 }
 
-bool CRegHistory::AddEntry(LPCTSTR szText)
+bool CRegHistory::AddEntry(LPCWSTR szText)
 {
     if (szText[0] == 0)
         return false;
 
-    if ((!m_sSection.empty())&&(!m_sKeyPrefix.empty()))
+    if ((!m_sSection.empty()) && (!m_sKeyPrefix.empty()))
     {
         // refresh the history from the registry
         Load(m_sSection.c_str(), m_sKeyPrefix.c_str());
     }
 
-    for (size_t i=0; i<m_arEntries.size(); ++i)
+    for (size_t i = 0; i < m_arEntries.size(); ++i)
     {
-        if (wcscmp(szText, m_arEntries[i].c_str())==0)
+        if (wcscmp(szText, m_arEntries[i].c_str()) == 0)
         {
             m_arEntries.erase(m_arEntries.begin() + i);
             m_arEntries.insert(m_arEntries.begin(), szText);
@@ -59,9 +59,9 @@ void CRegHistory::RemoveEntry(int pos)
     m_arEntries.erase(m_arEntries.begin() + pos);
 }
 
-void CRegHistory::RemoveEntry(LPCTSTR str)
+void CRegHistory::RemoveEntry(LPCWSTR str)
 {
-    if (str == NULL)
+    if (str == nullptr)
         return;
     for (std::vector<std::wstring>::iterator it = m_arEntries.begin(); it != m_arEntries.end(); ++it)
     {
@@ -73,18 +73,18 @@ void CRegHistory::RemoveEntry(LPCTSTR str)
     }
 }
 
-size_t CRegHistory::Load(LPCTSTR lpszSection, LPCTSTR lpszKeyPrefix)
+size_t CRegHistory::Load(LPCWSTR lpszSection, LPCWSTR lpszKeyPrefix)
 {
-    if (lpszSection == NULL || lpszKeyPrefix == NULL || *lpszSection == '\0')
-        return (size_t)(-1);
+    if (lpszSection == nullptr || lpszKeyPrefix == nullptr || *lpszSection == '\0')
+        return static_cast<size_t>(-1);
 
     m_arEntries.clear();
 
-    m_sSection = lpszSection;
+    m_sSection   = lpszSection;
     m_sKeyPrefix = lpszKeyPrefix;
 
-    int n = 0;
-    tstring sText;
+    int          n = 0;
+    std::wstring sText;
     do
     {
         //keys are of form <lpszKeyPrefix><entrynumber>
@@ -106,24 +106,23 @@ bool CRegHistory::Save() const
         return false;
 
     // save history to registry
-    int nMax = min((int)m_arEntries.size(), m_nMaxHistoryItems + 1);
-    for (int n = 0; n < (int)m_arEntries.size(); n++)
+    int nMax = min(static_cast<int>(m_arEntries.size()), m_nMaxHistoryItems + 1);
+    for (int n = 0; n < static_cast<int>(m_arEntries.size()); n++)
     {
-        TCHAR sKey[4096] = {0};
+        wchar_t sKey[4096] = {0};
         swprintf_s(sKey, L"%s\\%s%d", m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
-        CRegStdString regkey(sKey);
-        regkey = m_arEntries[n];
+        CRegStdString regKey(sKey);
+        regKey = m_arEntries[n];
     }
     // remove items exceeding the max number of history items
-    for (int n = nMax; ; n++)
+    for (int n = nMax;; n++)
     {
-        TCHAR sKey[4096] = {0};
+        wchar_t sKey[4096] = {0};
         swprintf_s(sKey, L"%s\\%s%d", m_sSection.c_str(), m_sKeyPrefix.c_str(), n);
-        CRegStdString regkey = CRegStdString(sKey);
-        if (((tstring)regkey).empty())
+        CRegStdString regKey = CRegStdString(sKey);
+        if (static_cast<std::wstring>(regKey).empty())
             break;
-        regkey.removeValue(); // remove entry
+        regKey.removeValue(); // remove entry
     }
     return true;
 }
-

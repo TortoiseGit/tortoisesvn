@@ -32,7 +32,7 @@ public:
     int         size() const;
     LPCSHITEMID get(int index) const;
 
-    tstring toString(bool resolveLibraries = true) const;
+    std::wstring toString(bool resolveLibraries = true) const;
 
     PCUITEMID_CHILD operator&() const;
 

@@ -56,7 +56,7 @@
 class CSVNPropertyPage
 {
 public:
-    CSVNPropertyPage(const std::vector<tstring> &filenames);
+    CSVNPropertyPage(const std::vector<std::wstring> &filenames);
     virtual ~CSVNPropertyPage();
 
     /**
@@ -76,17 +76,17 @@ protected:
      */
     virtual void InitWorkfileView();
     void         Time64ToTimeString(__time64_t time, TCHAR *buf, size_t buflen) const;
-    static void  RunCommand(const tstring &command);
+    static void  RunCommand(const std::wstring &command);
     void         PageProcOnCommand(WPARAM wParam);
 
     struct Listproperty
     {
-        tstring     name;
-        std::string value;
-        int         count;
+        std::wstring name;
+        std::string  value;
+        int          count;
     };
-    HWND                           m_hwnd;
-    std::vector<tstring>           fileNames;
-    std::map<tstring, std::string> propMap;
-    TCHAR                          stringTableBuffer[255];
+    HWND                                m_hwnd;
+    std::vector<std::wstring>           fileNames;
+    std::map<std::wstring, std::string> propMap;
+    TCHAR                               stringTableBuffer[255];
 };

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011, 2013, 2015, 2017-2018, 2020 - TortoiseSVN
+// Copyright (C) 2011, 2013, 2015, 2017-2018, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -32,7 +32,7 @@ class CHintCtrl : public BaseType
 public:
     CHintCtrl()
         : BaseType()
-        , m_uiFont(0)
+        , m_uiFont(nullptr)
     {
         NONCLIENTMETRICS metrics = {0};
         metrics.cbSize           = sizeof(NONCLIENTMETRICS);
@@ -71,7 +71,7 @@ public:
 protected:
     afx_msg void CHintCtrl::OnPaint()
     {
-        LRESULT defres = Default();
+        LRESULT defRes = Default();
         if (!m_sText.IsEmpty())
         {
             COLORREF clrText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : ::GetSysColor(COLOR_WINDOWTEXT);
@@ -89,7 +89,7 @@ protected:
             {
                 CHeaderCtrl* pHC;
                 pHC = pListCtrl->GetHeaderCtrl();
-                if (pHC != NULL)
+                if (pHC != nullptr)
                 {
                     CRect rcH;
                     rcH.SetRectEmpty();
@@ -119,7 +119,7 @@ protected:
             }
             ReleaseDC(pDC);
         }
-        if (defres)
+        if (defRes)
         {
             // the Default() call did not process the WM_PAINT message!
             // Validate the update region ourselves to avoid

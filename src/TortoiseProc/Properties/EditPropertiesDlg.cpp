@@ -320,15 +320,15 @@ void CEditPropertiesDlg::ReadProperties(int first, int last)
             }
             else
             {
-                it               = m_properties.emplace_hint(it, propStr, PropValue());
-                tstring value    = CUnicodeUtils::StdGetUnicode(propValue);
-                it->second.value = propValue;
-                CString sTemp    = value.c_str();
+                it                 = m_properties.emplace_hint(it, propStr, PropValue());
+                std::wstring value = CUnicodeUtils::StdGetUnicode(propValue);
+                it->second.value   = propValue;
+                CString sTemp      = value.c_str();
                 sTemp.Replace('\n', ' ');
                 sTemp.Remove('\r');
-                it->second.valueWithoutNewlines = tstring(sTemp);
-                it->second.count                  = 1;
-                it->second.allTheSameValue        = true;
+                it->second.valueWithoutNewlines = std::wstring(sTemp);
+                it->second.count                = 1;
+                it->second.allTheSameValue      = true;
                 if (SVNProperties::IsBinary(propValue))
                     it->second.isBinary = true;
             }
@@ -349,16 +349,16 @@ void CEditPropertiesDlg::ReadProperties(int first, int last)
 
                 async::CCriticalSectionLock lock(m_mutex);
 
-                auto    it       = m_properties.emplace(propStr, PropValue());
-                tstring value    = CUnicodeUtils::StdGetUnicode(propValue);
-                it->second.value = propValue;
-                CString stemp    = value.c_str();
+                auto         it    = m_properties.emplace(propStr, PropValue());
+                std::wstring value = CUnicodeUtils::StdGetUnicode(propValue);
+                it->second.value   = propValue;
+                CString stemp      = value.c_str();
                 stemp.Replace('\n', ' ');
                 stemp.Remove('\r');
-                it->second.valueWithoutNewlines = tstring(stemp);
-                it->second.count                  = 1;
-                it->second.allTheSameValue        = true;
-                it->second.isInherited            = true;
+                it->second.valueWithoutNewlines = std::wstring(stemp);
+                it->second.count                = 1;
+                it->second.allTheSameValue      = true;
+                it->second.isInherited          = true;
                 if (SVNProperties::IsBinary(propValue))
                     it->second.isBinary = true;
                 it->second.inheritedFrom = CUnicodeUtils::StdGetUnicode(std::get<0>(itup));
@@ -939,9 +939,9 @@ void CEditPropertiesDlg::RemoveProps()
     {
         int selIndex = m_propList.GetNextSelectedItem(pos);
 
-        bool        bRecurse = false;
-        std::string sName    = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_propList.GetItemText(selIndex, 0)));
-        tstring     sUName   = CUnicodeUtils::StdGetUnicode(sName);
+        bool         bRecurse = false;
+        std::string  sName    = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_propList.GetItemText(selIndex, 0)));
+        std::wstring sUName   = CUnicodeUtils::StdGetUnicode(sName);
         if (m_pathList[0].IsUrl())
         {
             CInputLogDlg input(this);
@@ -1083,8 +1083,8 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
             if (!CAppUtils::FileOpenSave(savePath, nullptr, IDS_REPOBROWSE_SAVEAS, 0, false, CString(), m_hWnd))
                 return;
 
-            FILE*   stream=nullptr;
-            errno_t err = 0;
+            FILE*   stream = nullptr;
+            errno_t err    = 0;
             if ((err = _tfopen_s(&stream, savePath, L"wbS")) == 0)
             {
                 fwrite(prop->value.c_str(), sizeof(char), prop->value.size(), stream);
@@ -1194,9 +1194,9 @@ void CEditPropertiesDlg::OnBnClickedImport()
                 std::unique_ptr<TCHAR[]> pNameBuf(new TCHAR[nNameBytes / sizeof(TCHAR)]);
                 if (fread(pNameBuf.get(), 1, nNameBytes, stream) == static_cast<size_t>(nNameBytes))
                 {
-                    std::string sName       = CUnicodeUtils::StdGetUTF8(tstring(pNameBuf.get(), nNameBytes / sizeof(TCHAR)));
-                    tstring     sUName      = CUnicodeUtils::StdGetUnicode(sName);
-                    int         nValueBytes = 0;
+                    std::string  sName       = CUnicodeUtils::StdGetUTF8(std::wstring(pNameBuf.get(), nNameBytes / sizeof(TCHAR)));
+                    std::wstring sUName      = CUnicodeUtils::StdGetUnicode(sName);
+                    int          nValueBytes = 0;
                     if (fread(&nValueBytes, sizeof(int), 1, stream) == 1)
                     {
                         std::unique_ptr<BYTE[]> pValueBuf(new BYTE[nValueBytes]);

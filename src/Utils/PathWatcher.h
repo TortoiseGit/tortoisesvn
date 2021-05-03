@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// External Cache Copyright (C) 2007-2008, 2012 - TortoiseSVN
+// External Cache Copyright (C) 2007-2008, 2012, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,7 +21,7 @@
 #include "SmartHandle.h"
 
 #define READ_DIR_CHANGE_BUFFER_SIZE 4096
-#define MAX_CHANGED_PATHS  4000
+#define MAX_CHANGED_PATHS           4000
 
 typedef CComCritSecLock<CComCriticalSection> AutoLocker;
 
@@ -39,8 +39,8 @@ typedef CComCritSecLock<CComCriticalSection> AutoLocker;
 class CPathWatcher
 {
 public:
-    CPathWatcher(void);
-    ~CPathWatcher(void);
+    CPathWatcher();
+    ~CPathWatcher();
 
     /**
      * Adds a new path to be watched. The path \b must point to a directory.
@@ -57,7 +57,7 @@ public:
     /**
      * Returns the number of recursively watched paths.
      */
-    int GetNumberOfWatchedPaths() {return watchedPaths.GetCount();}
+    int GetNumberOfWatchedPaths() const { return watchedPaths.GetCount(); }
 
     /**
      * Stops the watching thread.
@@ -67,18 +67,30 @@ public:
     /**
      * Returns the number of changed paths up to now.
      */
-    int GetNumberOfChangedPaths() { AutoLocker lock(m_critSec); return m_changedPaths.GetCount(); }
+    int GetNumberOfChangedPaths()
+    {
+        AutoLocker lock(m_critSec);
+        return m_changedPaths.GetCount();
+    }
 
     /**
      * Returns the list of paths which maybe got changed, i.e., for which
      * a change notification was received.
      */
-    CTSVNPathList GetChangedPaths() {AutoLocker lock(m_critSec); return m_changedPaths; }
+    CTSVNPathList GetChangedPaths()
+    {
+        AutoLocker lock(m_critSec);
+        return m_changedPaths;
+    }
 
     /**
      * Clears the list of changed paths
      */
-    void ClearChangedPaths() { AutoLocker lock(m_critSec); m_changedPaths.Clear(); }
+    void ClearChangedPaths()
+    {
+        AutoLocker lock(m_critSec);
+        m_changedPaths.Clear();
+    }
 
     /**
      * If the limit of changed paths has been reached, returns true.
@@ -98,9 +110,9 @@ private:
     CAutoGeneralHandle      m_hCompPort;
     volatile LONG           m_bRunning;
 
-    CTSVNPathList           watchedPaths;   ///< list of watched paths.
-    CTSVNPathList           m_changedPaths; ///< list of paths which got changed
-    bool                    m_bLimitReached;
+    CTSVNPathList watchedPaths;   ///< list of watched paths.
+    CTSVNPathList m_changedPaths; ///< list of paths which got changed
+    bool          m_bLimitReached;
 
     /**
      * Helper class: provides information about watched directories.
@@ -108,26 +120,25 @@ private:
     class CDirWatchInfo
     {
     private:
-        CDirWatchInfo() = delete;
-        CDirWatchInfo & operator=(const CDirWatchInfo & rhs) = delete;  //so that they're aren't accidentally used. -- you'll get a linker error
+        CDirWatchInfo()        = delete;
+        CDirWatchInfo& operator=(const CDirWatchInfo& rhs) = delete; //so that they're aren't accidentally used. -- you'll get a linker error
     public:
-        CDirWatchInfo(CAutoFile && hDir, const CTSVNPath& DirectoryName);
+        CDirWatchInfo(CAutoFile&& hDir, const CTSVNPath& directoryName);
         ~CDirWatchInfo();
 
     protected:
     public:
-        bool        CloseDirectoryHandle();
+        bool CloseDirectoryHandle();
 
-        CAutoFile   m_hDir;         ///< handle to the directory that we're watching
-        CTSVNPath   m_DirName;      ///< the directory that we're watching
-        CHAR        m_Buffer[READ_DIR_CHANGE_BUFFER_SIZE]; ///< buffer for ReadDirectoryChangesW
-        OVERLAPPED  m_Overlapped;
-        CString     m_DirPath;      ///< the directory name we're watching with a backslash at the end
+        CAutoFile  m_hDir;                                ///< handle to the directory that we're watching
+        CTSVNPath  m_dirName;                             ///< the directory that we're watching
+        CHAR       m_buffer[READ_DIR_CHANGE_BUFFER_SIZE]; ///< buffer for ReadDirectoryChangesW
+        OVERLAPPED m_overlapped;
+        CString    m_dirPath; ///< the directory name we're watching with a backslash at the end
         //HDEVNOTIFY    m_hDevNotify;   ///< Notification handle
     };
 
-    std::map<HANDLE, CDirWatchInfo *> watchInfoMap;
+    std::map<HANDLE, CDirWatchInfo*> watchInfoMap;
 
-    HDEVNOTIFY      m_hdev;
-
+    HDEVNOTIFY m_hDev;
 };

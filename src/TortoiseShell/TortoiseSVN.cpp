@@ -31,7 +31,7 @@ ShellCache         g_shellCache; ///< caching of registry entries, ...
 DWORD              g_langId;
 ULONGLONG          g_langTimeout = 0;
 HINSTANCE          g_hResInst    = nullptr;
-tstring            g_filePath;
+std::wstring       g_filePath;
 svn_wc_status_kind g_fileStatus      = svn_wc_status_none; ///< holds the corresponding status to the file/dir above
 bool               g_readOnlyOverlay = false;
 bool               g_lockedOverlay   = false;

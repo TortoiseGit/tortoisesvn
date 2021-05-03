@@ -800,7 +800,7 @@ void CStatGraphDlg::ShowCommitsByDate()
     FilterSkippedAuthors(authors, others);
 
     // Add a graph series for each author.
-    std::map<tstring, LONG> authorGraphMap;
+    std::map<std::wstring, LONG> authorGraphMap;
     for (std::list<std::wstring>::iterator it = authors.begin(); it != authors.end(); ++it)
         authorGraphMap[*it] = m_graph.AppendGroup(it->c_str());
     // If we have skipped authors, add a graph series for all those.
@@ -815,7 +815,7 @@ void CStatGraphDlg::ShowCommitsByDate()
     }
 
     // Mapping to collect commit counts in each interval
-    std::map<tstring, LONG> commitCount;
+    std::map<std::wstring, LONG> commitCount;
 
     // Loop over all intervals/weeks and collect filtered data.
     // Sum up data in each interval until the time unit changes.

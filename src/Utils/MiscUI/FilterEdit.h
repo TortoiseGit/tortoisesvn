@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012, 2014, 2017, 2020 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012, 2014, 2017, 2020-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,7 @@
 class IFilterEditValidator
 {
 public:
+    virtual ~IFilterEditValidator()       = default;
     virtual bool Validate(LPCTSTR string) = 0;
 };
 
@@ -64,7 +65,7 @@ class CFilterEdit : public CEdit
     DECLARE_DYNAMIC(CFilterEdit)
 public:
     CFilterEdit();
-    virtual ~CFilterEdit();
+    ~CFilterEdit() override;
 
     static const UINT WM_FILTEREDIT_INFOCLICKED;
     static const UINT WM_FILTEREDIT_CANCELCLICKED;
@@ -114,9 +115,9 @@ public:
     void Redraw() { ResizeWindow(); }
 
 protected:
-    virtual void  PreSubclassWindow();
-    virtual BOOL  PreTranslateMessage(MSG* pMsg);
-    virtual ULONG GetGestureStatus(CPoint ptTouch) override;
+    void  PreSubclassWindow() override;
+    BOOL  PreTranslateMessage(MSG* pMsg) override;
+    ULONG GetGestureStatus(CPoint ptTouch) override;
 
     afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
     afx_msg void    OnLButtonUp(UINT nFlags, CPoint point);
@@ -134,12 +135,13 @@ protected:
     afx_msg LRESULT OnPaste(WPARAM wParam, LPARAM lParam);
     DECLARE_MESSAGE_MAP()
 
-    void  ResizeWindow();
-    CSize GetIconSize(HICON hIcon);
-    void  Validate();
-    void  DrawDimText();
-    HICON LoadDpiScaledIcon(UINT resourceId, int cx96dpi, int cy96dpi);
-    void SetTheme(bool bDark);
+    void         ResizeWindow();
+    static CSize GetIconSize(HICON hIcon);
+    void         Validate();
+    void         DrawDimText();
+    HICON        LoadDpiScaledIcon(UINT resourceId, int cx96dpi, int cy96dpi);
+    void         SetTheme(bool bDark);
+
 protected:
     HICON                 m_hIconCancelNormal;
     HICON                 m_hIconCancelPressed;

@@ -45,7 +45,7 @@ public:
     const char* GetString(const char* value);
 
     /**
-     * invalidates all strings returned by GetString()
+     * invalidates all strings returned by Gestd::wstring()
      * frees all internal data
      */
     void clear();
@@ -131,13 +131,13 @@ private:
     static CTSVNPath            folderPath;
     void                        ClearCache();
 
-    int                                             m_nCounter;
-    typedef std::map<tstring, FileStatusCacheEntry> FileStatusMap;
-    FileStatusMap                                   m_cache;
-    ULONGLONG                                       m_timeStamp;
-    FileStatusCacheEntry                            dirStat;
-    const svn_client_status_t*                      dirStatus;
-    apr_pool_t*                                     rootPool;
+    int                                                  m_nCounter;
+    typedef std::map<std::wstring, FileStatusCacheEntry> FileStatusMap;
+    FileStatusMap                                        m_cache;
+    ULONGLONG                                            m_timeStamp;
+    FileStatusCacheEntry                                 dirStat;
+    const svn_client_status_t*                           dirStatus;
+    apr_pool_t*                                          rootPool;
 
     // merging these pools won't save memory
     // but access will become slower
@@ -147,7 +147,7 @@ private:
     StringPool owners;
     char       emptyString[1];
 
-    tstring sCacheKey;
+    std::wstring sCacheKey;
 
     CAutoGeneralHandle m_hInvalidationEvent;
 

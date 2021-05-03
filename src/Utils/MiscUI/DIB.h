@@ -78,14 +78,13 @@ public:
      */
     BOOL SetBitmap(const LPBITMAPINFO lpBitmapInfo, const LPVOID lpBits);
 
-public:
     /**
      * Draws the image on the specified device context at the specified point.
      * No stretching is done!
      * \param pDC the device context to draw on
      * \param ptDest the upper left corner to where the picture should be drawn to
      */
-    BOOL Draw(CDC* pDC, CPoint ptDest);
+    BOOL Draw(CDC* pDC, CPoint ptDest) const;
 
 protected:
     HBITMAP    m_hBitmap;

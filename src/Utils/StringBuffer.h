@@ -27,13 +27,15 @@
 class CStringBuffer
 {
 private:
-
     /** Align our buffer to SSE data boundaries and
      * over-allocate by the same amount to allow for
      * fast (aligned) and sloppy (copying a bit too much)
      * data access.
      */
-    enum {ALIGNMENT = sizeof (__m128)};
+    enum
+    {
+        ALIGNMENT = sizeof(__m128)
+    };
 
     /// the buffer that was allocated
     char* memory;
@@ -49,41 +51,40 @@ private:
 
     // (re-)size management
 
-    void Reserve (size_t newCapacity);
-    void Append (const char* string, size_t length);
+    void Reserve(size_t newCapacity);
+    void Append(const char* string, size_t length);
 
     // copying is not supported
 
-    CStringBuffer (const CStringBuffer&) = delete;
+    CStringBuffer(const CStringBuffer&) = delete;
     CStringBuffer& operator=(const CStringBuffer&) = delete;
 
 public:
-
     /// construction
-    CStringBuffer (size_t initialCapacity = 0);
+    CStringBuffer(size_t initialCapacity = 0);
 
     /// destruction
     ~CStringBuffer();
 
     /// data access
-    operator char*() const;
+           operator char*() const;
     size_t GetSize() const;
 
     /// Get the first unused element in the buffer.
     /// Guarantee at least minFree bytes of addressible memory.
-    char* GetBuffer (size_t minFree);
+    char* GetBuffer(size_t minFree);
 
     /// mark additional size bytes of the buffer as used.
     /// (usually called after GetBuffer())
-    void AddSize (size_t s);
+    void AddSize(size_t s);
 
     /// Set total size to 0. Keep internal buffer.
     void Clear();
 
     /// add data to buffer.
-    void Append (char c);
-    void Append (const std::string& s);
-    void Append (const char* s);
+    void Append(char c);
+    void Append(const std::string& s);
+    void Append(const char* s);
 };
 
 inline CStringBuffer::operator char*() const
@@ -96,32 +97,32 @@ inline size_t CStringBuffer::GetSize() const
     return size;
 }
 
-inline char* CStringBuffer::GetBuffer (size_t minFree)
+inline char* CStringBuffer::GetBuffer(size_t minFree)
 {
     if (size + minFree >= capacity)
-        Reserve (2 * max (minFree, capacity));
+        Reserve(2 * max(minFree, capacity));
 
     return buffer + size;
 }
 
-inline void CStringBuffer::AddSize (size_t s)
+inline void CStringBuffer::AddSize(size_t s)
 {
-    assert (s + this->size < capacity);
+    assert(s + this->size < capacity);
     this->size += s;
     buffer[this->size] = 0;
 }
 
 inline void CStringBuffer::Clear()
 {
-    size = 0;
+    size      = 0;
     buffer[0] = 0;
 }
 
-inline void CStringBuffer::Append (char c)
+inline void CStringBuffer::Append(char c)
 {
     if (size + 1 >= capacity)
-        Reserve(2 * max((size_t)ALIGNMENT, capacity));
+        Reserve(2 * max(static_cast<size_t>(ALIGNMENT), capacity));
 
-    buffer[size] = c;
+    buffer[size]   = c;
     buffer[++size] = 0;
 }

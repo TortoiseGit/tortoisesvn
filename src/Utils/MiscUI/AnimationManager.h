@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2018 - TortoiseSVN
+// Copyright (C) 2017-2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -16,7 +16,6 @@
 // along with this program; if not, write to the Free Software Foundation,
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
-
 
 /**
  * \brief helper class for the Windows Animation Manager.
@@ -59,9 +58,6 @@
 #pragma once
 #include <UIAnimation.h>
 #include <functional>
-#include <vector>
-#include <comip.h>
-#include <comdefsp.h>
 
 _COM_SMARTPTR_TYPEDEF(IUIAnimationStoryboard, __uuidof(IUIAnimationStoryboard));
 _COM_SMARTPTR_TYPEDEF(IUIAnimationVariable, __uuidof(IUIAnimationVariable));
@@ -85,31 +81,31 @@ public:
     Animator(const Animator&) = delete;
     Animator& operator=(const Animator&) = delete;
 
+    IUIAnimationVariablePtr CreateAnimationVariable(double start) const;
+    static INT32            GetIntegerValue(IUIAnimationVariablePtr var);
+    static double           GetValue(IUIAnimationVariablePtr var);
 
-    IUIAnimationVariablePtr CreateAnimationVariable(double start);
-    static INT32 GetIntegerValue(IUIAnimationVariablePtr var);
-    static double GetValue(IUIAnimationVariablePtr var);
+    IUIAnimationTransitionPtr CreateAccelerateDecelerateTransition(UI_ANIMATION_SECONDS duration, double finalValue, double accelerationRatio = 0.4, double decelerationRatio = 0.4) const;
+    IUIAnimationTransitionPtr CreateSmoothStopTransition(UI_ANIMATION_SECONDS duration, double finalValue) const;
+    IUIAnimationTransitionPtr CreateParabolicTransitionFromAcceleration(double finalValue, double finalVelocity, double acceleration) const;
+    IUIAnimationTransitionPtr CreateCubicTransition(UI_ANIMATION_SECONDS maximumDuration, double finalValue, double finalVelocity) const;
+    IUIAnimationTransitionPtr CreateReversalTransition(UI_ANIMATION_SECONDS duration) const;
+    IUIAnimationTransitionPtr CreateSinusoidalTransitionFromRange(UI_ANIMATION_SECONDS duration, double minimumValue, double maximumValue, UI_ANIMATION_SECONDS period, UI_ANIMATION_SLOPE slope) const;
+    IUIAnimationTransitionPtr CreateSinusoidalTransitionFromVelocity(UI_ANIMATION_SECONDS duration, UI_ANIMATION_SECONDS period) const;
+    IUIAnimationTransitionPtr CreateLinearTransitionFromSpeed(double speed, double finalValue) const;
+    IUIAnimationTransitionPtr CreateLinearTransition(UI_ANIMATION_SECONDS duration, double finalValue) const;
+    IUIAnimationTransitionPtr CreateDiscreteTransition(UI_ANIMATION_SECONDS delay, double finalValue, UI_ANIMATION_SECONDS hold) const;
+    IUIAnimationTransitionPtr CreateConstantTransition(UI_ANIMATION_SECONDS duration) const;
+    IUIAnimationTransitionPtr CreateInstantaneousTransition(double finalValue) const;
 
-    IUIAnimationTransitionPtr CreateAccelerateDecelerateTransition(UI_ANIMATION_SECONDS duration, double finalValue, double accelerationRatio = 0.4, double decelerationRatio = 0.4);
-    IUIAnimationTransitionPtr CreateSmoothStopTransition(UI_ANIMATION_SECONDS duration, double finalValue);
-    IUIAnimationTransitionPtr CreateParabolicTransitionFromAcceleration(double finalValue, double finalVelocity, double acceleration);
-    IUIAnimationTransitionPtr CreateCubicTransition(UI_ANIMATION_SECONDS maximumDuration, double finalValue, double finalVelocity);
-    IUIAnimationTransitionPtr CreateReversalTransition(UI_ANIMATION_SECONDS duration);
-    IUIAnimationTransitionPtr CreateSinusoidalTransitionFromRange(UI_ANIMATION_SECONDS duration, double minimumValue, double maximumValue, UI_ANIMATION_SECONDS period, UI_ANIMATION_SLOPE slope);
-    IUIAnimationTransitionPtr CreateSinusoidalTransitionFromVelocity(UI_ANIMATION_SECONDS duration, UI_ANIMATION_SECONDS period);
-    IUIAnimationTransitionPtr CreateLinearTransitionFromSpeed(double speed, double finalValue);
-    IUIAnimationTransitionPtr CreateLinearTransition(UI_ANIMATION_SECONDS duration, double finalValue);
-    IUIAnimationTransitionPtr CreateDiscreteTransition(UI_ANIMATION_SECONDS delay, double finalValue, UI_ANIMATION_SECONDS hold);
-    IUIAnimationTransitionPtr CreateConstantTransition(UI_ANIMATION_SECONDS duration);
-    IUIAnimationTransitionPtr CreateInstantaneousTransition(double finalValue);
+    IUIAnimationStoryboardPtr CreateStoryBoard() const;
 
-    IUIAnimationStoryboardPtr CreateStoryBoard();
+    HRESULT RunStoryBoard(IUIAnimationStoryboardPtr storyBoard, std::function<void()> callback) const;
 
-    HRESULT RunStoryBoard(IUIAnimationStoryboardPtr storyBoard, std::function<void()> callback);
-
-    HRESULT AbandonAllStoryBoards();
+    HRESULT AbandonAllStoryBoards() const;
 
     virtual ~Animator();
+
 private:
     Animator();
 
@@ -121,5 +117,5 @@ private:
     /// The holder of the UITransitionLibrary
     IUIAnimationTransitionLibraryPtr pTransLib;
     /// the timer callback object
-    CTimerEventHandler * timerEventHandler;
+    CTimerEventHandler* timerEventHandler;
 };

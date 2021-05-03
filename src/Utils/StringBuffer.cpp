@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2011 - TortoiseSVN
+// Copyright (C) 2011, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -19,20 +19,20 @@
 #include "stdafx.h"
 #include "StringBuffer.h"
 
-void CStringBuffer::Reserve (size_t newCapacity)
+void CStringBuffer::Reserve(size_t newCapacity)
 {
-    assert (newCapacity >= capacity);
+    assert(newCapacity >= capacity);
 
     // allocate new buffer and align it.
     // Add one ALIGNMENT for the start address alignment
     // plus one for the sloppy copies beyond newCapacity.
 
-    char *newMemory = new char[newCapacity + 2 * ALIGNMENT];
-    char *newBuffer = (char*)(APR_ALIGN((size_t)newMemory, ALIGNMENT));
+    char* newMemory = new char[newCapacity + 2 * ALIGNMENT];
+    char* newBuffer = reinterpret_cast<char*>((APR_ALIGN(reinterpret_cast<size_t>(newMemory), ALIGNMENT)));
 
     // replace buffers
     if (buffer)
-        memcpy (newBuffer, buffer, APR_ALIGN(size + 1, ALIGNMENT));
+        memcpy(newBuffer, buffer, APR_ALIGN(size + 1, ALIGNMENT));
 
     delete[] memory;
     memory = newMemory;
@@ -41,13 +41,13 @@ void CStringBuffer::Reserve (size_t newCapacity)
     capacity = newCapacity;
 }
 
-CStringBuffer::CStringBuffer (size_t initialCapacity)
-    : buffer (NULL)
-    , memory (NULL)
-    , capacity (0)
-    , size (0)
+CStringBuffer::CStringBuffer(size_t initialCapacity)
+    : memory(nullptr)
+    , buffer(nullptr)
+    , size(0)
+    , capacity(0)
 {
-    Reserve (initialCapacity);
+    Reserve(initialCapacity);
     buffer[0] = 0;
 }
 
@@ -56,21 +56,21 @@ CStringBuffer::~CStringBuffer()
     delete[] memory;
 }
 
-void CStringBuffer::Append (const std::string& s)
+void CStringBuffer::Append(const std::string& s)
 {
-    Append (s.c_str(), s.size());
+    Append(s.c_str(), s.size());
 }
 
-void CStringBuffer::Append (const char* s)
+void CStringBuffer::Append(const char* s)
 {
-    Append (s, strlen (s));
+    Append(s, strlen(s));
 }
 
-void CStringBuffer::Append (const char* string, size_t length)
+void CStringBuffer::Append(const char* string, size_t length)
 {
     if (size + length >= capacity)
-        Reserve (2 * max (length, capacity));
+        Reserve(2 * max(length, capacity));
 
-    memcpy (buffer + size, string, length+1);
+    memcpy(buffer + size, string, length + 1);
     size += length;
 }

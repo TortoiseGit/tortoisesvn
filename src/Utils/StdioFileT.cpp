@@ -19,7 +19,8 @@
 #include "stdafx.h"
 #include "StdioFileT.h"
 
-CStdioFileT::CStdioFileT() : CStdioFile()
+CStdioFileT::CStdioFileT()
+    : CStdioFile()
 {
 }
 
@@ -33,13 +34,12 @@ CStdioFileT::CStdioFileT(LPCTSTR lpszFileName, UINT nOpenFlags)
         AfxThrowFileException(e.m_cause, e.m_lOsError, e.m_strFileName);
 }
 
-
-void CStdioFileT::WriteString(LPCSTR lpsz)
+void CStdioFileT::WriteString(LPCSTR lpsz) const
 {
-    ASSERT(lpsz != NULL);
-    ASSERT(m_pStream != NULL);
+    ASSERT(lpsz != nullptr);
+    ASSERT(m_pStream != nullptr);
 
-    if (lpsz == NULL)
+    if (lpsz == nullptr)
     {
         AfxThrowInvalidArgException();
     }
@@ -48,13 +48,12 @@ void CStdioFileT::WriteString(LPCSTR lpsz)
         AfxThrowFileException(CFileException::diskFull, _doserrno, m_strFileName);
 }
 
-
 void CStdioFileT::WriteString(LPCWSTR lpsz)
 {
-    ASSERT(lpsz != NULL);
-    ASSERT(m_pStream != NULL);
+    ASSERT(lpsz != nullptr);
+    ASSERT(m_pStream != nullptr);
 
-    if (lpsz == NULL)
+    if (lpsz == nullptr)
     {
         AfxThrowInvalidArgException();
     }

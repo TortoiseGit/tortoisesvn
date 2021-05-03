@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007 - TortoiseSVN
+// Copyright (C) 2003-2007, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,11 +35,13 @@ public:
     bool AddWord(const CString& sWord);
     bool FindWord(const CString& sWord);
     bool Save();
-    void Init(LONG lLanguage = 0) {m_lLanguage = lLanguage;}
+    void Init(LONG lLanguage = 0) { m_lLanguage = lLanguage; }
+
 private:
     bool Load();
+
 private:
-    LONG m_lLanguage;
-    bool m_bLoaded;
+    LONG              m_lLanguage;
+    bool              m_bLoaded;
     std::set<CString> dict;
 };

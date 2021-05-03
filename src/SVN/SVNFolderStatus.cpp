@@ -404,7 +404,7 @@ svn_error_t* SVNFolderStatus::fillStatusMap(void* baton, const char* path, const
         s.lock         = status->repos_lock;
         s.treeConflict = (status->conflicted != 0);
     }
-    tstring str;
+    std::wstring str;
     if (path)
     {
         str = CUnicodeUtils::StdGetUnicode(path);

@@ -1,7 +1,7 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
+// Copyright (C) 2017, 2021 - TortoiseSVN
 // Copyright (C) 2017, 2019 - TortoiseGit
-// Copyright (C) 2017 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -20,13 +20,13 @@
 
 #include "stdafx.h"
 #include "AnimationManager.h"
-#include <algorithm>
-#include <vector>
 
 /// Object to handle the timer callback.
 class CTimerEventHandler : public IUIAnimationTimerEventHandler
 {
 public:
+    virtual ~CTimerEventHandler() = default;
+
     CTimerEventHandler()
         : ref(0)
     {
@@ -60,7 +60,7 @@ public:
     }
 
     /// Inherited via IUIAnimationTimerEventHandler
-    virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void ** ppvObject) override
+    HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void** ppvObject) override
     {
         if (ppvObject == nullptr)
             return E_POINTER;
@@ -77,12 +77,12 @@ public:
         return E_NOINTERFACE;
     }
 
-    virtual ULONG STDMETHODCALLTYPE AddRef(void) override
+    ULONG STDMETHODCALLTYPE AddRef() override
     {
         return ++ref;
     }
 
-    virtual ULONG STDMETHODCALLTYPE Release(void) override
+    ULONG STDMETHODCALLTYPE Release() override
     {
         if (--ref == 0)
         {
@@ -93,27 +93,26 @@ public:
         return ref;
     }
 
-
-    virtual HRESULT STDMETHODCALLTYPE OnPreUpdate(void) override
+    HRESULT STDMETHODCALLTYPE OnPreUpdate() override
     {
         return S_OK;
     }
 
-    virtual HRESULT STDMETHODCALLTYPE OnPostUpdate(void) override
+    HRESULT STDMETHODCALLTYPE OnPostUpdate() override
     {
         for (const auto& callback : callbacks)
             callback.second();
         return S_OK;
     }
 
-    virtual HRESULT STDMETHODCALLTYPE OnRenderingTooSlow(UINT32 /*framesPerSecond*/) override
+    HRESULT STDMETHODCALLTYPE OnRenderingTooSlow(UINT32 /*framesPerSecond*/) override
     {
         return S_OK;
     }
 
 private:
-    std::map<IUIAnimationStoryboard *, std::function<void()>> callbacks;
-    unsigned long ref;
+    std::map<IUIAnimationStoryboard*, std::function<void()>> callbacks;
+    unsigned long                                            ref;
 };
 
 /// object to handle StoryBoard events
@@ -122,19 +121,19 @@ class NotificationAnimationEventHandler : public IUIAnimationStoryboardEventHand
 public:
     /// Constructor
     NotificationAnimationEventHandler()
-        : ref(0)
-        , timerEventHandler(nullptr)
+        : timerEventHandler(nullptr)
+        , ref(0)
     {
     }
 
-    ~NotificationAnimationEventHandler()
+    virtual ~NotificationAnimationEventHandler()
     {
         if (timerEventHandler)
             timerEventHandler->Release();
     }
 
     /// Sets the timer object event handler
-    void SetTimerObj(CTimerEventHandler * handler)
+    void SetTimerObj(CTimerEventHandler* handler)
     {
         if (timerEventHandler)
             timerEventHandler->Release();
@@ -144,7 +143,7 @@ public:
     }
 
     /// Inherited via IUIAnimationStoryboardEventHandler
-    virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void ** ppvObject) override
+    HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void** ppvObject) override
     {
         if (ppvObject == nullptr)
             return E_POINTER;
@@ -161,12 +160,12 @@ public:
         return E_NOINTERFACE;
     }
 
-    virtual ULONG STDMETHODCALLTYPE AddRef(void) override
+    ULONG STDMETHODCALLTYPE AddRef() override
     {
         return ++ref;
     }
 
-    virtual ULONG STDMETHODCALLTYPE Release(void) override
+    ULONG STDMETHODCALLTYPE Release() override
     {
         if (--ref == 0)
         {
@@ -177,9 +176,8 @@ public:
         return ref;
     }
 
-
     /// IUIAnimationStoryboardEventHandler Interface implementation
-    HRESULT STDMETHODCALLTYPE OnStoryboardStatusChanged(IUIAnimationStoryboard* storyboard,
+    HRESULT STDMETHODCALLTYPE OnStoryboardStatusChanged(IUIAnimationStoryboard*        storyboard,
                                                         UI_ANIMATION_STORYBOARD_STATUS newStatus,
                                                         UI_ANIMATION_STORYBOARD_STATUS previousStatus) override
     {
@@ -202,14 +200,12 @@ public:
         return S_OK;
     }
 
-
 private:
-    CTimerEventHandler * timerEventHandler;
-    unsigned long ref;
+    CTimerEventHandler* timerEventHandler;
+    unsigned long       ref;
 };
 
-
-IUIAnimationVariablePtr Animator::CreateAnimationVariable(double start)
+IUIAnimationVariablePtr Animator::CreateAnimationVariable(double start) const
 {
     IUIAnimationVariablePtr pAnimVar = nullptr;
     if (pAnimMgr && SUCCEEDED(pAnimMgr->CreateAnimationVariable(start, &pAnimVar)))
@@ -233,7 +229,7 @@ double Animator::GetValue(IUIAnimationVariablePtr var)
     return val;
 }
 
-IUIAnimationTransitionPtr Animator::CreateAccelerateDecelerateTransition(UI_ANIMATION_SECONDS duration, double finalValue, double accelerationRatio, double decelerationRatio)
+IUIAnimationTransitionPtr Animator::CreateAccelerateDecelerateTransition(UI_ANIMATION_SECONDS duration, double finalValue, double accelerationRatio, double decelerationRatio) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateAccelerateDecelerateTransition(duration, finalValue, accelerationRatio, decelerationRatio, &trans)))
@@ -241,7 +237,7 @@ IUIAnimationTransitionPtr Animator::CreateAccelerateDecelerateTransition(UI_ANIM
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateSmoothStopTransition(UI_ANIMATION_SECONDS duration, double finalValue)
+IUIAnimationTransitionPtr Animator::CreateSmoothStopTransition(UI_ANIMATION_SECONDS duration, double finalValue) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateSmoothStopTransition(duration, finalValue, &trans)))
@@ -249,7 +245,7 @@ IUIAnimationTransitionPtr Animator::CreateSmoothStopTransition(UI_ANIMATION_SECO
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateParabolicTransitionFromAcceleration(double finalValue, double finalVelocity, double acceleration)
+IUIAnimationTransitionPtr Animator::CreateParabolicTransitionFromAcceleration(double finalValue, double finalVelocity, double acceleration) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateParabolicTransitionFromAcceleration(finalValue, finalVelocity, acceleration, &trans)))
@@ -257,7 +253,7 @@ IUIAnimationTransitionPtr Animator::CreateParabolicTransitionFromAcceleration(do
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateCubicTransition(UI_ANIMATION_SECONDS maximumDuration, double finalValue, double finalVelocity)
+IUIAnimationTransitionPtr Animator::CreateCubicTransition(UI_ANIMATION_SECONDS maximumDuration, double finalValue, double finalVelocity) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateCubicTransition(maximumDuration, finalValue, finalVelocity, &trans)))
@@ -265,7 +261,7 @@ IUIAnimationTransitionPtr Animator::CreateCubicTransition(UI_ANIMATION_SECONDS m
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateReversalTransition(UI_ANIMATION_SECONDS duration)
+IUIAnimationTransitionPtr Animator::CreateReversalTransition(UI_ANIMATION_SECONDS duration) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateReversalTransition(duration, &trans)))
@@ -274,10 +270,10 @@ IUIAnimationTransitionPtr Animator::CreateReversalTransition(UI_ANIMATION_SECOND
 }
 
 IUIAnimationTransitionPtr Animator::CreateSinusoidalTransitionFromRange(UI_ANIMATION_SECONDS duration,
-                                                                        double minimumValue,
-                                                                        double maximumValue,
+                                                                        double               minimumValue,
+                                                                        double               maximumValue,
                                                                         UI_ANIMATION_SECONDS period,
-                                                                        UI_ANIMATION_SLOPE slope)
+                                                                        UI_ANIMATION_SLOPE   slope) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateSinusoidalTransitionFromRange(duration, minimumValue, maximumValue, period, slope, &trans)))
@@ -285,7 +281,7 @@ IUIAnimationTransitionPtr Animator::CreateSinusoidalTransitionFromRange(UI_ANIMA
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateSinusoidalTransitionFromVelocity(UI_ANIMATION_SECONDS duration, UI_ANIMATION_SECONDS period)
+IUIAnimationTransitionPtr Animator::CreateSinusoidalTransitionFromVelocity(UI_ANIMATION_SECONDS duration, UI_ANIMATION_SECONDS period) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateSinusoidalTransitionFromVelocity(duration, period, &trans)))
@@ -293,7 +289,7 @@ IUIAnimationTransitionPtr Animator::CreateSinusoidalTransitionFromVelocity(UI_AN
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateLinearTransitionFromSpeed(double speed, double finalValue)
+IUIAnimationTransitionPtr Animator::CreateLinearTransitionFromSpeed(double speed, double finalValue) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateLinearTransitionFromSpeed(speed, finalValue, &trans)))
@@ -301,7 +297,7 @@ IUIAnimationTransitionPtr Animator::CreateLinearTransitionFromSpeed(double speed
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateLinearTransition(UI_ANIMATION_SECONDS duration, double finalValue)
+IUIAnimationTransitionPtr Animator::CreateLinearTransition(UI_ANIMATION_SECONDS duration, double finalValue) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateLinearTransition(duration, finalValue, &trans)))
@@ -309,7 +305,7 @@ IUIAnimationTransitionPtr Animator::CreateLinearTransition(UI_ANIMATION_SECONDS 
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateDiscreteTransition(UI_ANIMATION_SECONDS delay, double finalValue, UI_ANIMATION_SECONDS hold)
+IUIAnimationTransitionPtr Animator::CreateDiscreteTransition(UI_ANIMATION_SECONDS delay, double finalValue, UI_ANIMATION_SECONDS hold) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateDiscreteTransition(delay, finalValue, hold, &trans)))
@@ -317,7 +313,7 @@ IUIAnimationTransitionPtr Animator::CreateDiscreteTransition(UI_ANIMATION_SECOND
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateConstantTransition(UI_ANIMATION_SECONDS duration)
+IUIAnimationTransitionPtr Animator::CreateConstantTransition(UI_ANIMATION_SECONDS duration) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateConstantTransition(duration, &trans)))
@@ -325,7 +321,7 @@ IUIAnimationTransitionPtr Animator::CreateConstantTransition(UI_ANIMATION_SECOND
     return nullptr;
 }
 
-IUIAnimationTransitionPtr Animator::CreateInstantaneousTransition(double finalValue)
+IUIAnimationTransitionPtr Animator::CreateInstantaneousTransition(double finalValue) const
 {
     IUIAnimationTransitionPtr trans;
     if (pTransLib && SUCCEEDED(pTransLib->CreateInstantaneousTransition(finalValue, &trans)))
@@ -333,7 +329,7 @@ IUIAnimationTransitionPtr Animator::CreateInstantaneousTransition(double finalVa
     return nullptr;
 }
 
-IUIAnimationStoryboardPtr Animator::CreateStoryBoard()
+IUIAnimationStoryboardPtr Animator::CreateStoryBoard() const
 {
     IUIAnimationStoryboardPtr storyBoard;
     if (pAnimMgr && SUCCEEDED(pAnimMgr->CreateStoryboard(&storyBoard)))
@@ -341,7 +337,7 @@ IUIAnimationStoryboardPtr Animator::CreateStoryBoard()
     return nullptr;
 }
 
-HRESULT Animator::RunStoryBoard(IUIAnimationStoryboardPtr storyBoard, std::function<void()> callback)
+HRESULT Animator::RunStoryBoard(IUIAnimationStoryboardPtr storyBoard, std::function<void()> callback) const
 {
     if (!storyBoard || !pAnimTmr)
         return E_POINTER;
@@ -365,7 +361,7 @@ HRESULT Animator::RunStoryBoard(IUIAnimationStoryboardPtr storyBoard, std::funct
     return hr;
 }
 
-HRESULT Animator::AbandonAllStoryBoards()
+HRESULT Animator::AbandonAllStoryBoards() const
 {
     return pAnimMgr->AbandonAllStoryboards();
 }
@@ -374,14 +370,14 @@ Animator::Animator()
     : timerEventHandler(nullptr)
 {
     // Create the IUIAnimationManager.
-    if (FAILED(pAnimMgr.CreateInstance(CLSID_UIAnimationManager, 0, CLSCTX_INPROC_SERVER)))
+    if (FAILED(pAnimMgr.CreateInstance(CLSID_UIAnimationManager, nullptr, CLSCTX_INPROC_SERVER)))
         return;
 
     if (FAILED(pAnimMgr->SetDefaultLongestAcceptableDelay(0.0)))
         return;
 
     // Create the IUIAnimationTimer.
-    if (FAILED(pAnimTmr.CreateInstance(CLSID_UIAnimationTimer, 0, CLSCTX_INPROC_SERVER)))
+    if (FAILED(pAnimTmr.CreateInstance(CLSID_UIAnimationTimer, nullptr, CLSCTX_INPROC_SERVER)))
         return;
 
     // Attach the timer to the manager by calling IUIAnimationManager::SetTimerUpdateHandler(),
@@ -399,7 +395,7 @@ Animator::Animator()
     pAnimTmr->SetTimerEventHandler(timerEventHandler); // timerEventHandler is AddRef'ed here
 
     // Create the IUIAnimationTransitionLibrary.
-    if (FAILED(pTransLib.CreateInstance(CLSID_UIAnimationTransitionLibrary, 0, CLSCTX_INPROC_SERVER)))
+    if (FAILED(pTransLib.CreateInstance(CLSID_UIAnimationTransitionLibrary, nullptr, CLSCTX_INPROC_SERVER)))
         return;
 }
 
@@ -413,7 +409,7 @@ Animator::~Animator()
         pAnimMgr->Shutdown();
 }
 
-Animator & Animator::Instance()
+Animator& Animator::Instance()
 {
     if (instance == nullptr)
         instance.reset(new Animator());

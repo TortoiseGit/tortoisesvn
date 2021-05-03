@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013 - TortoiseSVN
+// Copyright (C) 2013, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -21,24 +21,25 @@
 
 IMPLEMENT_DYNAMIC(CBufferDC, CPaintDC)
 
-CBufferDC::CBufferDC(CWnd* pWnd) : CPaintDC(pWnd)
+CBufferDC::CBufferDC(CWnd* pWnd)
+    : CPaintDC(pWnd)
 {
-    if (pWnd != NULL && CPaintDC::m_hDC != NULL)
+    if (pWnd != nullptr && CPaintDC::m_hDC != nullptr)
     {
         m_hOutputDC    = CPaintDC::m_hDC;
         m_hAttributeDC = CPaintDC::m_hAttribDC;
 
-        pWnd->GetClientRect(&m_ClientRect);
+        pWnd->GetClientRect(&m_clientRect);
 
         m_hMemoryDC = ::CreateCompatibleDC(m_hOutputDC);
 
         m_hPaintBitmap =
             ::CreateCompatibleBitmap(
-                    m_hOutputDC,
-                    m_ClientRect.right  - m_ClientRect.left,
-                    m_ClientRect.bottom - m_ClientRect.top);
+                m_hOutputDC,
+                m_clientRect.right - m_clientRect.left,
+                m_clientRect.bottom - m_clientRect.top);
 
-        m_hOldBitmap = (HBITMAP)::SelectObject(m_hMemoryDC, m_hPaintBitmap);
+        m_hOldBitmap = static_cast<HBITMAP>(::SelectObject(m_hMemoryDC, m_hPaintBitmap));
 
         CPaintDC::m_hDC       = m_hMemoryDC;
         CPaintDC::m_hAttribDC = m_hMemoryDC;
@@ -47,7 +48,7 @@ CBufferDC::CBufferDC(CWnd* pWnd) : CPaintDC(pWnd)
     m_bBoundsUpdated = FALSE;
 }
 
-CBufferDC::~CBufferDC(void)
+CBufferDC::~CBufferDC()
 {
     Flush();
 
@@ -60,43 +61,43 @@ CBufferDC::~CBufferDC(void)
     ::DeleteDC(m_hMemoryDC);
 }
 
-void CBufferDC::Flush()
+void CBufferDC::Flush() const
 {
     ::BitBlt(
         m_hOutputDC,
-        m_ClientRect.left, m_ClientRect.top,
-        m_ClientRect.right  - m_ClientRect.left,
-        m_ClientRect.bottom - m_ClientRect.top,
+        m_clientRect.left, m_clientRect.top,
+        m_clientRect.right - m_clientRect.left,
+        m_clientRect.bottom - m_clientRect.top,
         m_hMemoryDC,
         0, 0,
         SRCCOPY);
 }
 
-UINT CBufferDC::SetBoundsRect( LPCRECT lpRectBounds, UINT flags )
+UINT CBufferDC::SetBoundsRect(LPCRECT lpRectBounds, UINT flags)
 {
-    if (lpRectBounds != NULL)
+    if (lpRectBounds != nullptr)
     {
-        if (m_ClientRect.right  - m_ClientRect.left > lpRectBounds->right  - lpRectBounds->left ||
-            m_ClientRect.bottom - m_ClientRect.top  > lpRectBounds->bottom - lpRectBounds->top)
+        if (m_clientRect.right - m_clientRect.left > lpRectBounds->right - lpRectBounds->left ||
+            m_clientRect.bottom - m_clientRect.top > lpRectBounds->bottom - lpRectBounds->top)
         {
-            lpRectBounds = &m_ClientRect;
+            lpRectBounds = &m_clientRect;
         }
 
         HBITMAP bmp =
             ::CreateCompatibleBitmap(
-                    m_hOutputDC,
-                    lpRectBounds->right - lpRectBounds->left,
-                    lpRectBounds->bottom - lpRectBounds->top);
+                m_hOutputDC,
+                lpRectBounds->right - lpRectBounds->left,
+                lpRectBounds->bottom - lpRectBounds->top);
 
-        HDC tmpDC  = ::CreateCompatibleDC(m_hOutputDC);
+        HDC tmpDC = ::CreateCompatibleDC(m_hOutputDC);
 
-        HBITMAP oldBmp = (HBITMAP)::SelectObject(tmpDC, bmp);
+        HBITMAP oldBmp = static_cast<HBITMAP>(::SelectObject(tmpDC, bmp));
 
         ::BitBlt(
             tmpDC,
-            m_ClientRect.left, m_ClientRect.top,
-            m_ClientRect.right  - m_ClientRect.left,
-            m_ClientRect.bottom - m_ClientRect.top,
+            m_clientRect.left, m_clientRect.top,
+            m_clientRect.right - m_clientRect.left,
+            m_clientRect.bottom - m_clientRect.top,
             m_hMemoryDC,
             0, 0,
             SRCCOPY);
@@ -104,28 +105,28 @@ UINT CBufferDC::SetBoundsRect( LPCRECT lpRectBounds, UINT flags )
         ::SelectObject(tmpDC, oldBmp);
         ::DeleteDC(tmpDC);
 
-        HBITMAP old = (HBITMAP)::SelectObject(m_hMemoryDC, bmp);
+        HBITMAP old = static_cast<HBITMAP>(::SelectObject(m_hMemoryDC, bmp));
 
-        if (old != NULL && old != m_hPaintBitmap)
+        if (old != nullptr && old != m_hPaintBitmap)
         {
             ::DeleteObject(old);
         }
 
-        if (m_hPaintBitmap != NULL)
+        if (m_hPaintBitmap != nullptr)
         {
             ::DeleteObject(m_hPaintBitmap);
         }
 
         m_hPaintBitmap = bmp;
 
-        m_ClientRect = *lpRectBounds;
+        m_clientRect     = *lpRectBounds;
         m_bBoundsUpdated = TRUE;
     }
 
     return CPaintDC::SetBoundsRect(lpRectBounds, flags);
 }
 
-BOOL CBufferDC::RestoreDC( int nSavedDC )
+BOOL CBufferDC::RestoreDC(int nSavedDC)
 {
     BOOL ret = CPaintDC::RestoreDC(nSavedDC);
 
