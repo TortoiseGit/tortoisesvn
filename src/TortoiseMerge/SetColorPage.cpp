@@ -18,7 +18,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseMerge.h"
 #include "SetColorPage.h"
 #include "DiffColors.h"
 #include "Theme.h"

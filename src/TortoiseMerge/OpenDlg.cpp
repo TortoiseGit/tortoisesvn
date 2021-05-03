@@ -17,7 +17,6 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //
 #include "stdafx.h"
-#include "TortoiseMerge.h"
 #include "BrowseFolder.h"
 #include "OpenDlg.h"
 #include "CommonAppUtils.h"

@@ -20,7 +20,6 @@
 
 #include "stdafx.h"
 #include "registry.h"
-#include "TortoiseMerge.h"
 #include "MainFrm.h"
 #include "BaseView.h"
 #include "DiffColors.h"
