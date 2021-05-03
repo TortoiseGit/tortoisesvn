@@ -212,7 +212,7 @@ public:
         m_bCheckChanged = TRUE;
     }
 
-    void SetText(LPCTSTR lpszText) override
+    void SetText(LPCWSTR lpszText) override
     {
         m_text = lpszText;
     }

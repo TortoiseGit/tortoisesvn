@@ -46,7 +46,7 @@ public:
     union DefaultValue
     {
         bool    b;
-        LPCTSTR s;
+        LPCWSTR s;
         DWORD   l;
     };
 

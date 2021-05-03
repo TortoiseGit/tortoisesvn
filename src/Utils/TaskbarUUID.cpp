@@ -49,7 +49,7 @@ void setTaskIDPerUuid()
     }
 }
 
-std::wstring getTaskIDPerUuid(LPCTSTR uuid /*= NULL */)
+std::wstring getTaskIDPerUuid(LPCWSTR uuid /*= NULL */)
 {
     CRegStdDWORD r  = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3);
     std::wstring id = APPID;

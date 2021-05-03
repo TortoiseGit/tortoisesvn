@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Module ID: hyperlink.h
  * Title    : CHyperLink Declaration.
  *
@@ -29,11 +29,11 @@ public:
     CHyperLink(void);
     virtual ~CHyperLink(void);
 
-    BOOL ConvertStaticToHyperlink(HWND hwndCtl, LPCTSTR strURL);
-    BOOL ConvertStaticToHyperlink(HWND hwndParent, UINT uiCtlId, LPCTSTR strURL);
+    BOOL ConvertStaticToHyperlink(HWND hwndCtl, LPCWSTR strURL);
+    BOOL ConvertStaticToHyperlink(HWND hwndParent, UINT uiCtlId, LPCWSTR strURL);
 
-    BOOL setURL( LPCTSTR strURL);
-    LPCTSTR getURL(void) const { return m_strURL; }
+    BOOL setURL( LPCWSTR strURL);
+    LPCWSTR getURL(void) const { return m_strURL; }
 
 protected:
     /*

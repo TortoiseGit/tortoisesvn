@@ -220,7 +220,7 @@ int SVNBase::ShowErrorDialog(HWND hParent, const CTSVNPath& wcPath, const CStrin
     tConfig.pszWindowTitle     = L"TortoiseSVN";
     tConfig.pszMainIcon        = TD_ERROR_ICON;
     tConfig.pszMainInstruction = sInstruction;
-    tConfig.pszContent         = static_cast<LPCTSTR>(sError);
+    tConfig.pszContent         = static_cast<LPCWSTR>(sError);
 #    ifdef HAVE_APPUTILS
     TASKDIALOG_BUTTON aCustomButtons[2];
     aCustomButtons[0].nButtonID     = 1000;

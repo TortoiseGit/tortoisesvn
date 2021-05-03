@@ -142,7 +142,7 @@ void CShellUpdater::WorkerThread()
                 // the folder notification. Since we only know for sure that the subversion admin
                 // dir is present, we send a notification for that folder.
                 CString admindir = workingPath.GetWinPathString() + L"\\" + g_SVNAdminDir.GetAdminDirName();
-                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, static_cast<LPCTSTR>(admindir), nullptr);
+                SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, static_cast<LPCWSTR>(admindir), nullptr);
                 SHChangeNotify(SHCNE_UPDATEITEM, SHCNF_PATH | SHCNF_FLUSHNOWAIT, workingPath.GetWinPath(), nullptr);
                 // Sending an UPDATEDIR notification somehow overwrites/deletes the UPDATEITEM message. And without
                 // that message, the folder overlays in the current view don't get updated without hitting F5.

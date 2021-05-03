@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2009, 2012, 2014, 2018 - TortoiseSVN
+// Copyright (C) 2007-2009, 2012, 2014, 2018, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,6 +29,7 @@
 // forward declarations
 ///////////////////////////////////////////////////////////////
 
+// ReSharper disable once CppInconsistentNaming
 struct svn_error_t;
 
 class CTSVNPath;
@@ -36,7 +37,7 @@ class SVN;
 
 namespace async
 {
-    class CCriticalSection;
+class CCriticalSection;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -45,7 +46,6 @@ namespace async
 
 namespace LogCache
 {
-
 /**
  * Cache for frequently needed repository properties such as root URL
  * and UUID. Also, cache the last known head revision.
@@ -66,7 +66,6 @@ namespace LogCache
 class CRepositoryInfo
 {
 private:
-
     /**
      * Contains all "header" data for a repository.
      */
@@ -105,20 +104,19 @@ private:
     class CData
     {
     private:
-
         /// per-repository properties
 
         typedef std::vector<SPerRepositoryInfo*> TData;
-        TData data;
+        TData                                    data;
 
         /// several indices for faster access
 
         typedef std::multimap<CString, SPerRepositoryInfo*> TPartialIndex;
-        TPartialIndex uuidIndex;
-        TPartialIndex urlIndex;
+        TPartialIndex                                       uuidIndex;
+        TPartialIndex                                       urlIndex;
 
         typedef std::map<std::pair<CString, CString>, SPerRepositoryInfo*> TFullIndex;
-        TFullIndex fullIndex;
+        TFullIndex                                                         fullIndex;
 
         /**
          * File version identifiers.
@@ -126,20 +124,16 @@ private:
 
         enum
         {
-            VERSION = 20081023,
-            MIN_FILENAME_VERSION = VERSION,
+            VERSION                = 20081023,
+            MIN_FILENAME_VERSION   = VERSION,
             MIN_COMPATIBLE_VERSION = 20071023
         };
 
         // a lookup utility that scans an index range
 
-        CString FindRoot
-            ( TPartialIndex::const_iterator begin
-            , TPartialIndex::const_iterator end
-            , const CString& url) const;
+        static CString FindRoot(TPartialIndex::const_iterator begin, TPartialIndex::const_iterator end, const CString& url);
 
     public:
-
         /// construction / destruction
 
         CData();
@@ -148,20 +142,20 @@ private:
         /// lookup (using current rules setting);
         /// pass empty strings for unknown values.
 
-        CString FindRoot (const CString& uuid, const CString& url) const;
-        SPerRepositoryInfo* Lookup (const CString& uuid, const CString& root) const;
+        CString             FindRoot(const CString& uuid, const CString& url) const;
+        SPerRepositoryInfo* Lookup(const CString& uuid, const CString& root) const;
 
         /// modification
 
-        SPerRepositoryInfo* AutoInsert (const CString& uuid, const CString& root);
-        void Add (const SPerRepositoryInfo& info);
-        void Add (const CString& uuid, const CString& root);
-        void Remove (SPerRepositoryInfo* info);
+        SPerRepositoryInfo* AutoInsert(const CString& uuid, const CString& root);
+        void                Add(const SPerRepositoryInfo& info);
+        void                Add(const CString& uuid, const CString& root);
+        void                Remove(SPerRepositoryInfo* info);
 
         /// read / write file
 
-        void Load (const CString& fileName);
-        void Save (const CString& fileName) const;
+        void Load(const CString& fileName);
+        void Save(const CString& fileName) const;
         void Clear();
 
         /// status info
@@ -170,7 +164,7 @@ private:
 
         /// data access
 
-        size_t size() const;
+        size_t                    size() const;
         const SPerRepositoryInfo* operator[](size_t index) const;
     };
 
@@ -192,7 +186,7 @@ private:
 
     /// used to sync access to the global "data"
 
-    async::CCriticalSection& GetDataMutex();
+    static async::CCriticalSection& GetDataMutex();
 
     /// read the dump file
 
@@ -200,46 +194,45 @@ private:
 
     /// does the user want to be this repository off-line?
 
-    bool IsOffline (SPerRepositoryInfo* info, const CString& sErr, bool& doRetry) const;
+    bool IsOffline(SPerRepositoryInfo* info, const CString& sErr, bool& doRetry) const;
 
     /// try to get the HEAD revision from the log cache
 
-    void SetHeadFromCache (SPerRepositoryInfo* iter);
+    static void SetHeadFromCache(SPerRepositoryInfo* iter);
 
 public:
-
     /// construction / destruction: auto-load and save
 
-    CRepositoryInfo (SVN& svn, const CString& cacheFolderPath);
+    CRepositoryInfo(SVN& svn, const CString& cacheFolderPath);
     ~CRepositoryInfo();
 
     /// look-up and ask SVN if the info is not in cache.
     /// cache the result.
 
-    CString GetRepositoryRoot (const CTSVNPath& url);
-    CString GetRepositoryUUID (const CTSVNPath& url);
-    CString GetRepositoryRootAndUUID (const CTSVNPath& url, CString& uuid);
+    CString GetRepositoryRoot(const CTSVNPath& url) const;
+    CString GetRepositoryUUID(const CTSVNPath& url) const;
+    CString GetRepositoryRootAndUUID(const CTSVNPath& url, CString& uuid) const;
 
-    revision_t GetHeadRevision (CString uuid, const CTSVNPath& url);
+    revision_t GetHeadRevision(CString uuid, const CTSVNPath& url);
 
     /// make sure, we will ask the repository for the HEAD
 
-    void ResetHeadRevision (const CString& uuid, const CString& root);
+    static void ResetHeadRevision(const CString& uuid, const CString& root);
 
     /// is the repository offline?
     /// Don't modify the state if autoSet is false.
 
-    bool IsOffline (const CString& uuid, const CString& url, bool autoSet, const CString& sErr, bool& doRetry);
+    bool IsOffline(const CString& uuid, const CString& url, bool autoSet, const CString& sErr, bool& doRetry) const;
 
     /// get the connection state (uninterpreted)
 
-    ConnectionState GetConnectionState (const CString& uuid, const CString& url);
+    static ConnectionState GetConnectionState(const CString& uuid, const CString& url);
 
     /// remove a specific entry.
     /// Parameters must be copied because they may stem from the
     /// info object being deleted.
 
-    void DropEntry (CString uuid, CString url);
+    void DropEntry(CString uuid, CString url);
 
     /// write all changes to disk
 
@@ -247,7 +240,7 @@ public:
 
     /// clear cache
 
-    void Clear();
+    static void Clear();
 
     /// get the owning SVN instance
 
@@ -271,5 +264,4 @@ public:
 // end namespace LogCache
 ///////////////////////////////////////////////////////////////
 
-}
-
+} // namespace LogCache

@@ -25,7 +25,7 @@
 #pragma comment(lib, "shlwapi.lib")
 
 bool CWindow::RegisterWindow(UINT style, HICON hIcon, HCURSOR hCursor, HBRUSH hbrBackground,
-                             LPCTSTR lpszMenuName, LPCTSTR lpszClassName, HICON hIconSm)
+                             LPCWSTR lpszMenuName, LPCWSTR lpszClassName, HICON hIconSm)
 {
     WNDCLASSEX wcx;
 
@@ -128,7 +128,7 @@ bool CWindow::Create(DWORD dwStyles, HWND hParent /* = NULL */, RECT* rect /* = 
     return CreateEx(0, dwStyles, hParent, rect);
 }
 
-bool CWindow::CreateEx(DWORD dwExStyles, DWORD dwStyles, HWND hParent /* = NULL */, RECT* rect /* = NULL */, LPCTSTR classname /* = NULL */)
+bool CWindow::CreateEx(DWORD dwExStyles, DWORD dwStyles, HWND hParent /* = NULL */, RECT* rect /* = NULL */, LPCWSTR classname /* = NULL */)
 {
     // send the this pointer as the window creation parameter
     if (rect == nullptr)

@@ -384,8 +384,8 @@ int CStringUtils::GetMatchingLength(const CString& lhs, const CString& rhs)
     int rhsLength = rhs.GetLength();
     int maxResult = min(lhsLength, rhsLength);
 
-    LPCTSTR pLhs = lhs;
-    LPCTSTR pRhs = rhs;
+    LPCWSTR pLhs = lhs;
+    LPCWSTR pRhs = rhs;
 
     for (int i = 0; i < maxResult; ++i)
         if (pLhs[i] != pRhs[i])

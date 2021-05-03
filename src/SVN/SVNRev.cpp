@@ -435,9 +435,9 @@ bool SVNRevRangeArray::FromListString(const CString& string)
 
     if (string.GetLength())
     {
-        const TCHAR* str    = static_cast<LPCTSTR>(string);
-        const TCHAR* result = wcspbrk(static_cast<LPCTSTR>(string), L",-");
-        SVNRev       prevRev;
+        const wchar_t* str    = static_cast<LPCWSTR>(string);
+        const wchar_t* result = wcspbrk(static_cast<LPCWSTR>(string), L",-");
+        SVNRev         prevRev;
         while (result)
         {
             if (*result == ',')
@@ -540,7 +540,7 @@ public:
         array.AddRevRange(SVNRev(26), SVNRev(30));
         array.AddRevision(SVNRev(4896), false);
         array.AddRevRange(SVNRev(4898), SVNRev(4900));
-        ATLASSERT(wcscmp(static_cast<LPCTSTR>(array.ToListString()), L"1,3-5,7-9,20,25-30,4896,4898-4900") == 0);
+        ATLASSERT(wcscmp(static_cast<LPCWSTR>(array.ToListString()), L"1,3-5,7-9,20,25-30,4896,4898-4900") == 0);
         SVNRevRangeArray array2;
         array2.FromListString(array.ToListString());
         ATLASSERT(array2.GetCount() == 7);
@@ -554,9 +554,9 @@ public:
         ATLASSERT(array.GetCount() == 8);
         SVNRevRangeArray revarray;
         ATLASSERT(revarray.AddRevRange(25, 24) == 1);
-        ATLASSERT(wcscmp(static_cast<LPCTSTR>(revarray.ToListString(true)), L"25-24") == 0);
+        ATLASSERT(wcscmp(static_cast<LPCWSTR>(revarray.ToListString(true)), L"25-24") == 0);
         revarray.AdjustForMerge(true);
-        ATLASSERT(wcscmp(static_cast<LPCTSTR>(revarray.ToListString(true)), L"25-23") == 0);
+        ATLASSERT(wcscmp(static_cast<LPCWSTR>(revarray.ToListString(true)), L"25-23") == 0);
 
         array.FromListString(L"r1,r3-5,r10");
         ATLASSERT(array.GetCount() == 3);

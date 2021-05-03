@@ -26,7 +26,7 @@ class IFilterEditValidator
 {
 public:
     virtual ~IFilterEditValidator()       = default;
-    virtual bool Validate(LPCTSTR string) = 0;
+    virtual bool Validate(LPCWSTR string) = 0;
 };
 
 /**

@@ -364,14 +364,14 @@ void CSVNPropertyPage::InitWorkfileView()
                     SetDlgItemText(m_hwnd, IDC_LOCKDATE, buf);
                 }
                 if (infoData)
-                    SetDlgItemText(m_hwnd, IDC_REPOUUID, static_cast<LPCTSTR>(infoData->reposUuid));
+                    SetDlgItemText(m_hwnd, IDC_REPOUUID, static_cast<LPCWSTR>(infoData->reposUuid));
                 if (svn.status->changelist)
                     SetDlgItemText(m_hwnd, IDC_CHANGELIST, CUnicodeUtils::StdGetUnicode(svn.status->changelist).c_str());
                 SVNStatus::GetDepthString(g_hResInst, infoData ? infoData->depth : svn_depth_unknown, buf, sizeof(buf) / sizeof(wchar_t), static_cast<WORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT))));
                 SetDlgItemText(m_hwnd, IDC_DEPTHEDIT, buf);
 
                 if (infoData)
-                    SetDlgItemText(m_hwnd, IDC_CHECKSUM, static_cast<LPCTSTR>(infoData->checksum));
+                    SetDlgItemText(m_hwnd, IDC_CHECKSUM, static_cast<LPCWSTR>(infoData->checksum));
 
                 if (svn.status->wc_is_locked)
                     MAKESTRING(IDS_YES);

@@ -188,9 +188,9 @@ public: // methods
         m_sMarkedWord = word;
         BuildMarkedWordArray();
     }
-    LPCTSTR GetMarkedWord() const { return static_cast<LPCTSTR>(m_sMarkedWord); }
+    LPCWSTR GetMarkedWord() const { return static_cast<LPCWSTR>(m_sMarkedWord); }
     int     GetMarkedWordCount() const { return m_markedWordCount; }
-    LPCTSTR GetFindString() const { return static_cast<LPCTSTR>(m_sFindText); }
+    LPCWSTR GetFindString() const { return static_cast<LPCWSTR>(m_sFindText); }
 
     // Selection methods; all public methods dealing with selection go here
     static void ClearSelection();

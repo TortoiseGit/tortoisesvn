@@ -27,7 +27,7 @@ CIconExtractor::CIconExtractor()
 {
 }
 
-DWORD CIconExtractor::ExtractIcon(HINSTANCE hResource, LPCTSTR id, LPCTSTR targetIcon)
+DWORD CIconExtractor::ExtractIcon(HINSTANCE hResource, LPCWSTR id, LPCWSTR targetIcon)
 {
     LPICONRESOURCE lpIr    = nullptr;
     HRSRC          hRsrc   = nullptr;
@@ -81,7 +81,7 @@ DWORD CIconExtractor::ExtractIcon(HINSTANCE hResource, LPCTSTR id, LPCTSTR targe
     return WriteIconToICOFile(lpIr, targetIcon);
 }
 
-DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIr, LPCTSTR szFileName)
+DWORD CIconExtractor::WriteIconToICOFile(LPICONRESOURCE lpIr, LPCWSTR szFileName)
 {
     DWORD dwBytesWritten = 0;
 

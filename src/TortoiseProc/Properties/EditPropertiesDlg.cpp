@@ -722,7 +722,7 @@ void CEditPropertiesDlg::EditProps(bool bDefault, const std::string& propName /*
 
     if ((!bAdd) && (selIndex >= 0) && (m_propList.GetSelectedCount()))
     {
-        sName = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_propList.GetItemText(selIndex, 0)));
+        sName = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_propList.GetItemText(selIndex, 0)));
         dlg   = GetPropDialog(bDefault, sName);
         dlg->SetProperties(m_properties);
         PropValue* prop = reinterpret_cast<PropValue*>(m_propList.GetItemData(selIndex));
@@ -940,7 +940,7 @@ void CEditPropertiesDlg::RemoveProps()
         int selIndex = m_propList.GetNextSelectedItem(pos);
 
         bool         bRecurse = false;
-        std::string  sName    = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_propList.GetItemText(selIndex, 0)));
+        std::string  sName    = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_propList.GetItemText(selIndex, 0)));
         std::wstring sUName   = CUnicodeUtils::StdGetUnicode(sName);
         if (m_pathList[0].IsUrl())
         {
@@ -1368,9 +1368,9 @@ int CALLBACK CEditPropertiesDlg::SortCompare(LPARAM lParam1, LPARAM lParam2, LPA
 {
     CEditPropertiesDlg* pDlg = reinterpret_cast<CEditPropertiesDlg*>(lParamSort);
 
-    auto       sName1 = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(pDlg->m_propList.GetItemText(static_cast<int>(lParam1), 0)));
+    auto       sName1 = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(pDlg->m_propList.GetItemText(static_cast<int>(lParam1), 0)));
     PropValue* prop1  = reinterpret_cast<PropValue*>(pDlg->m_propList.GetItemData(static_cast<int>(lParam1)));
-    auto       sName2 = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(pDlg->m_propList.GetItemText(static_cast<int>(lParam2), 0)));
+    auto       sName2 = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(pDlg->m_propList.GetItemText(static_cast<int>(lParam2), 0)));
     PropValue* prop2  = reinterpret_cast<PropValue*>(pDlg->m_propList.GetItemData(static_cast<int>(lParam2)));
 
     int result = 0;

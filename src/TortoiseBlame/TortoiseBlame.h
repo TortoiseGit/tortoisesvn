@@ -141,7 +141,7 @@ public:
     BOOL                             m_ttVisible;
 
 protected:
-    void                SetupLexer(LPCTSTR fileName) const;
+    void                SetupLexer(LPCWSTR fileName) const;
     void                SetupCppLexer() const;
     static COLORREF     InterColor(COLORREF c1, COLORREF c2, int slider);
     COLORREF            GetLineColor(Sci_Position line, bool bLocatorBar);

@@ -19,6 +19,7 @@
 #pragma once
 
 #include "RepositoryInfo.h"
+#include "resource.h"
 
 // CGoOffline dialog
 

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2012, 2014-2015, 2018-2019 - TortoiseSVN
+// Copyright (C) 2007-2012, 2014-2015, 2018-2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,12 +22,9 @@
 #include "Containers/CachedLogInfo.h"
 #include "LogCacheSettings.h"
 
-#include "svn_client.h"
-
 #include "SVN.h"
 #include "TSVNPath.h"
 #include "PathUtils.h"
-#include "resource.h"
 #include "GoOffline.h"
 
 #include "CriticalSection.h"
@@ -36,46 +33,39 @@
 
 namespace LogCache
 {
-
 // checking prefixes is not that simple ..
 
-bool IsParentDirectory (const CString& parent, const CString& dir)
+bool IsParentDirectory(const CString& parent, const CString& dir)
 {
-    return (parent == dir)
-        || (   (dir.GetLength() > parent.GetLength())
-            && (dir.GetAt (parent.GetLength()) == '/'));
+    return (parent == dir) || ((dir.GetLength() > parent.GetLength()) && (dir.GetAt(parent.GetLength()) == '/'));
 }
 
-CString UniqueFileName (const CString& fileName)
+CString UniqueFileName(const CString& fileName)
 {
     CString base = fileName;
     for (int i = 0, count = base.GetLength(); i < count; ++i)
     {
         TCHAR c = base[i];
         if ((c == '?') || (c == '/') || (c == '\\') || (c == ':'))
-            base.SetAt (i, '_');
+            base.SetAt(i, '_');
     }
 
-    int num = 0;
+    int     num    = 0;
     CString result = base;
-    while (GetFileAttributes (result) != INVALID_FILE_ATTRIBUTES)
-        result.Format (L"%s(%d)", (LPCTSTR)result, ++num);
+    while (GetFileAttributes(result) != INVALID_FILE_ATTRIBUTES)
+        result.Format(L"%s(%d)", static_cast<LPCWSTR>(result), ++num);
 
     return result.MakeLower();
 }
 
 // a lookup utility that scans an index range
 
-CString CRepositoryInfo::CData::FindRoot
-    ( TPartialIndex::const_iterator begin
-    , TPartialIndex::const_iterator end
-    , const CString& url) const
+CString CRepositoryInfo::CData::FindRoot(TPartialIndex::const_iterator begin, TPartialIndex::const_iterator end, const CString& url)
 {
     for (TPartialIndex::const_iterator iter = begin; iter != end; ++iter)
     {
         const CString& root = iter->second->root;
-        if (   (root == url.Left (root.GetLength())
-            && IsParentDirectory (root, url)))
+        if ((root == url.Left(root.GetLength()) && IsParentDirectory(root, url)))
         {
             return root;
         }
@@ -98,13 +88,13 @@ CRepositoryInfo::CData::~CData()
 // lookup (using current rules setting);
 // pass empty strings for unknown values.
 
-CString CRepositoryInfo::CData::FindRoot (const CString& uuid, const CString& url) const
+CString CRepositoryInfo::CData::FindRoot(const CString& uuid, const CString& url) const
 {
     // lookup by UUID, if allowed
     // or if url is already a root
 
-    CRepositoryInfo::SPerRepositoryInfo* info = Lookup (uuid, url);
-    if (info != NULL)
+    CRepositoryInfo::SPerRepositoryInfo* info = Lookup(uuid, url);
+    if (info != nullptr)
         return info->root;
 
     // UUID missing?
@@ -114,30 +104,25 @@ CString CRepositoryInfo::CData::FindRoot (const CString& uuid, const CString& ur
         // URLs must be unique
 
         return CSettings::GetAllowAmbiguousURL()
-            ? CString()
-            : FindRoot ( urlIndex.begin()
-                       , urlIndex.lower_bound (url)
-                       , url);
+                   ? CString()
+                   : FindRoot(urlIndex.begin(), urlIndex.lower_bound(url), url);
     }
     else
     {
         // if URL is empty here, then lookup by UUID alone was not successful
         // -> it will fail here as well
 
-        return FindRoot ( uuidIndex.lower_bound (uuid)
-                        , uuidIndex.upper_bound (uuid)
-                        , url);
+        return FindRoot(uuidIndex.lower_bound(uuid), uuidIndex.upper_bound(uuid), url);
     }
 }
 
 CRepositoryInfo::SPerRepositoryInfo*
-CRepositoryInfo::CData::Lookup (const CString& uuid, const CString& root) const
+    CRepositoryInfo::CData::Lookup(const CString& uuid, const CString& root) const
 {
     // the full index will only match if uuid and url are both given.
     // That repo info will be valid even if ambiguities are not allowed.
 
-    TFullIndex::const_iterator iter
-        = fullIndex.find (std::make_pair (uuid, root));
+    TFullIndex::const_iterator iter = fullIndex.find(std::make_pair(uuid, root));
     if (iter != fullIndex.end())
         return iter->second;
 
@@ -146,7 +131,7 @@ CRepositoryInfo::CData::Lookup (const CString& uuid, const CString& root) const
 
     if (!CSettings::GetAllowAmbiguousUUID())
     {
-        TPartialIndex::const_iterator iter2 = uuidIndex.find (uuid);
+        TPartialIndex::const_iterator iter2 = uuidIndex.find(uuid);
         if (iter2 != uuidIndex.end())
             return iter2->second;
     }
@@ -156,93 +141,87 @@ CRepositoryInfo::CData::Lookup (const CString& uuid, const CString& root) const
 
     if (!CSettings::GetAllowAmbiguousURL())
     {
-        TPartialIndex::const_iterator iter2 = urlIndex.find (root);
+        TPartialIndex::const_iterator iter2 = urlIndex.find(root);
         if (iter2 != urlIndex.end())
             return iter2->second;
     }
 
     // not found
 
-    return NULL;
+    return nullptr;
 }
 
 // modification
 
 CRepositoryInfo::SPerRepositoryInfo*
-CRepositoryInfo::CData::AutoInsert (const CString& uuid, const CString& root)
+    CRepositoryInfo::CData::AutoInsert(const CString& uuid, const CString& root)
 {
     // do we already have a suitable entry?
 
-    CRepositoryInfo::SPerRepositoryInfo* result = Lookup (uuid, root);
-    if (result != NULL)
+    CRepositoryInfo::SPerRepositoryInfo* result = Lookup(uuid, root);
+    if (result != nullptr)
         return result;
 
     // no -> add one & return it
 
-    Add (uuid, root);
-    return Lookup (uuid, root);
+    Add(uuid, root);
+    return Lookup(uuid, root);
 }
 
-void CRepositoryInfo::CData::Add (const SPerRepositoryInfo& info)
+void CRepositoryInfo::CData::Add(const SPerRepositoryInfo& info)
 {
-    SPerRepositoryInfo* newInfo = new SPerRepositoryInfo (info);
-    data.push_back (newInfo);
+    SPerRepositoryInfo* newInfo = new SPerRepositoryInfo(info);
+    data.push_back(newInfo);
 
     urlIndex.emplace(newInfo->root, newInfo);
     uuidIndex.emplace(newInfo->uuid, newInfo);
     fullIndex.emplace(std::make_pair(newInfo->uuid, newInfo->root), newInfo);
 }
 
-void CRepositoryInfo::CData::Add (const CString& uuid, const CString& root)
+void CRepositoryInfo::CData::Add(const CString& uuid, const CString& root)
 {
     SPerRepositoryInfo info;
-    info.headRevision = (revision_t)NO_REVISION;
-    info.headLookupTime = -1;
+    info.headRevision    = static_cast<revision_t>(NO_REVISION);
+    info.headLookupTime  = -1;
     info.connectionState = online;
-    info.root = root;
-    info.uuid = uuid;
-    info.fileName = UniqueFileName (info.root.Left (60) + info.uuid);
+    info.root            = root;
+    info.uuid            = uuid;
+    info.fileName        = UniqueFileName(info.root.Left(60) + info.uuid);
 
-    Add (info);
+    Add(info);
 }
 
-void CRepositoryInfo::CData::Remove (SPerRepositoryInfo* info)
+void CRepositoryInfo::CData::Remove(SPerRepositoryInfo* info)
 {
     // remove info from the list
 
-    TData::iterator iter = std::find (data.begin(), data.end(), info);
-    assert (iter != data.end());
+    TData::iterator iter = std::find(data.begin(), data.end(), info);
+    assert(iter != data.end());
 
     *iter = data.back();
     data.pop_back();
 
     // remove it from the indices
 
-    for ( TPartialIndex::iterator iter2 = urlIndex.lower_bound (info->root)
-        , end = urlIndex.upper_bound (info->root)
-        ; iter2 != end
-        ; ++iter2)
+    for (TPartialIndex::iterator iter2 = urlIndex.lower_bound(info->root), end = urlIndex.upper_bound(info->root); iter2 != end; ++iter2)
     {
         if (iter2->second == info)
         {
-            urlIndex.erase (iter2);
+            urlIndex.erase(iter2);
             break;
         }
     }
 
-    for ( TPartialIndex::iterator iter2 = uuidIndex.lower_bound (info->uuid)
-        , end = uuidIndex.upper_bound (info->uuid)
-        ; iter2 != end
-        ; ++iter2)
+    for (TPartialIndex::iterator iter2 = uuidIndex.lower_bound(info->uuid), end = uuidIndex.upper_bound(info->uuid); iter2 != end; ++iter2)
     {
         if (iter2->second == info)
         {
-            uuidIndex.erase (iter2);
+            uuidIndex.erase(iter2);
             break;
         }
     }
 
-    fullIndex.erase (std::make_pair (info->uuid, info->root));
+    fullIndex.erase(std::make_pair(info->uuid, info->root));
 
     // finally, free the memory
 
@@ -251,15 +230,15 @@ void CRepositoryInfo::CData::Remove (SPerRepositoryInfo* info)
 
 // read / write file
 
-void CRepositoryInfo::CData::Load (const CString& fileName)
+void CRepositoryInfo::CData::Load(const CString& fileName)
 {
     CFile file;
-    if (!file.Open (fileName, CFile::modeRead | CFile::shareDenyWrite))
+    if (!file.Open(fileName, CFile::modeRead | CFile::shareDenyWrite))
         return;
 
     try
     {
-        CArchive stream (&file, CArchive::load);
+        CArchive stream(&file, CArchive::load);
 
         // format ID
 
@@ -287,11 +266,7 @@ void CRepositoryInfo::CData::Load (const CString& fileName)
             int connectionState = online;
 
             SPerRepositoryInfo info;
-            stream >> info.root
-                   >> info.uuid
-                   >> info.headURL
-                   >> info.headRevision
-                   >> info.headLookupTime;
+            stream >> info.root >> info.uuid >> info.headURL >> info.headRevision >> info.headLookupTime;
 
             if (version >= MIN_COMPATIBLE_VERSION)
                 stream >> connectionState;
@@ -306,10 +281,9 @@ void CRepositoryInfo::CData::Load (const CString& fileName)
             // caches from 1.5.x may have a number of alias entries
             // -> use at most one
 
-            if (   (version >= MIN_FILENAME_VERSION)
-                || (uuidIndex.find (info.uuid) == uuidIndex.end()))
+            if ((version >= MIN_FILENAME_VERSION) || (uuidIndex.find(info.uuid) == uuidIndex.end()))
             {
-                Add (info);
+                Add(info);
             }
         }
     }
@@ -319,22 +293,21 @@ void CRepositoryInfo::CData::Load (const CString& fileName)
     }
 }
 
-void CRepositoryInfo::CData::Save (const CString& fileName) const
+void CRepositoryInfo::CData::Save(const CString& fileName) const
 {
-    CFile file (fileName, CFile::modeWrite | CFile::modeCreate);
-    CArchive stream (&file, CArchive::store);
+    CFile    file(fileName, CFile::modeWrite | CFile::modeCreate);
+    CArchive stream(&file, CArchive::store);
 
     stream << static_cast<int>(VERSION);
     stream << static_cast<int>(data.size());
 
-    for ( size_t i = 0, count = data.size(); i < count; ++i)
+    for (size_t i = 0, count = data.size(); i < count; ++i)
     {
         SPerRepositoryInfo* info = data[i];
 
         // temp offline -> be online the next time
 
-        ConnectionState connectionState
-            = static_cast<ConnectionState>(info->connectionState & offline);
+        ConnectionState connectionState = static_cast<ConnectionState>(info->connectionState & offline);
 
         stream << info->root
                << info->uuid
@@ -373,7 +346,7 @@ size_t CRepositoryInfo::CData::size() const
 }
 
 const CRepositoryInfo::SPerRepositoryInfo*
-CRepositoryInfo::CData::operator[](size_t index) const
+    CRepositoryInfo::CData::operator[](size_t index) const
 {
     return data[index];
 }
@@ -406,15 +379,15 @@ void CRepositoryInfo::Load()
 
     // any cached info at all?
 
-    if (GetFileAttributes (GetFileName()) == INVALID_FILE_ATTRIBUTES)
+    if (GetFileAttributes(GetFileName()) == INVALID_FILE_ATTRIBUTES)
         return;
 
-    data.Load (GetFileName());
+    data.Load(GetFileName());
 }
 
 // does the user want to be this repository off-line?
 
-bool CRepositoryInfo::IsOffline (SPerRepositoryInfo* info, const CString& sErr, bool& doRetry) const
+bool CRepositoryInfo::IsOffline(SPerRepositoryInfo* info, const CString& sErr, bool& doRetry) const
 {
     // is this repository already off-line?
 
@@ -432,7 +405,7 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo* info, const CString& sErr, 
         dialog.DoModal();
         doRetry = dialog.doRetry;
         if (dialog.asDefault)
-            CSettings::SetDefaultConnectionState (dialog.selection);
+            CSettings::SetDefaultConnectionState(dialog.selection);
 
         info->connectionState = dialog.selection;
         return info->connectionState != online;
@@ -448,13 +421,13 @@ bool CRepositoryInfo::IsOffline (SPerRepositoryInfo* info, const CString& sErr, 
 
 // try to get the HEAD revision from the log cache
 
-void CRepositoryInfo::SetHeadFromCache (SPerRepositoryInfo* info)
+void CRepositoryInfo::SetHeadFromCache(SPerRepositoryInfo* info)
 {
-    SVN _svn;
-    CCachedLogInfo* cache = _svn.GetLogCachePool()->GetCache (info->uuid, info->root);
-    info->headRevision = cache != NULL
-        ? cache->GetRevisions().GetLastCachedRevision()-1
-        : NO_REVISION;
+    SVN             svn;
+    CCachedLogInfo* cache = svn.GetLogCachePool()->GetCache(info->uuid, info->root);
+    info->headRevision    = cache != nullptr
+                                ? cache->GetRevisions().GetLastCachedRevision() - 1
+                                : NO_REVISION;
 
     // HEAD info is outdated
 
@@ -463,61 +436,60 @@ void CRepositoryInfo::SetHeadFromCache (SPerRepositoryInfo* info)
 
 // construction / destruction: auto-load and save
 
-CRepositoryInfo::CRepositoryInfo (SVN& svn, const CString& cacheFolderPath)
-    : cacheFolder (cacheFolderPath)
-    , modified (false)
-    , svn (svn)
+CRepositoryInfo::CRepositoryInfo(SVN& svn, const CString& cacheFolderPath)
+    : modified(false)
+    , cacheFolder(cacheFolderPath)
+    , svn(svn)
 {
     // load the list only if the URL->UUID,head etc. mapping cache shall be used
 
-    async::CCriticalSectionLock lock (GetDataMutex());
+    async::CCriticalSectionLock lock(GetDataMutex());
 
     if (data.empty())
         Load();
 }
 
-CRepositoryInfo::~CRepositoryInfo(void)
+CRepositoryInfo::~CRepositoryInfo()
 {
 }
 
 // look-up and ask SVN if the info is not in cache.
 // cache the result.
 
-CString CRepositoryInfo::GetRepositoryRoot (const CTSVNPath& url)
+CString CRepositoryInfo::GetRepositoryRoot(const CTSVNPath& url) const
 {
     CString uuid;
-    return GetRepositoryRootAndUUID (url, uuid);
+    return GetRepositoryRootAndUUID(url, uuid);
 }
 
-CString CRepositoryInfo::GetRepositoryUUID (const CTSVNPath& url)
+CString CRepositoryInfo::GetRepositoryUUID(const CTSVNPath& url) const
 {
     CString uuid;
-    GetRepositoryRootAndUUID (url, uuid);
+    GetRepositoryRootAndUUID(url, uuid);
     return uuid;
 }
 
-CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
-                                                  , CString& uuid)
+CString CRepositoryInfo::GetRepositoryRootAndUUID(const CTSVNPath& url, CString& uuid) const
 {
     // reset (potentially) outdated info to prevent it from being
     // the basis for FindRoot / Lookup.
 
     uuid.Empty();
 
-    async::CCriticalSectionLock lock (GetDataMutex());
+    async::CCriticalSectionLock lock(GetDataMutex());
 
-    CString sURL = url.GetSVNPathString();
-    CString root = data.FindRoot (uuid, sURL);
+    CString             sURL = url.GetSVNPathString();
+    CString             root = data.FindRoot(uuid, sURL);
     SPerRepositoryInfo* info = root.IsEmpty()
-                             ? NULL
-                             : data.Lookup (uuid, root);
+                                   ? nullptr
+                                   : data.Lookup(uuid, root);
 
     // complete data, if lookup failed with the provided data
 
-    if (info == NULL)
+    if (info == nullptr)
     {
-        root = svn.GetRepositoryRootAndUUID (url, false, uuid);
-        info = data.Lookup (uuid, root);
+        root = svn.GetRepositoryRootAndUUID(url, false, uuid);
+        info = data.Lookup(uuid, root);
     }
     else
     {
@@ -526,29 +498,29 @@ CString CRepositoryInfo::GetRepositoryRootAndUUID ( const CTSVNPath& url
 
     // add new cache entry if none is available, yet
 
-    if ((svn.GetSVNError() == NULL) && (info == NULL))
-        data.Add (uuid, root);
+    if ((svn.GetSVNError() == nullptr) && (info == nullptr))
+        data.Add(uuid, root);
 
     // done
 
     return root;
 }
 
-revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
+revision_t CRepositoryInfo::GetHeadRevision(CString uuid, const CTSVNPath& url)
 {
-    async::CCriticalSectionLock lock (GetDataMutex());
+    async::CCriticalSectionLock lock(GetDataMutex());
 
     // get the entry for that repository
 
-    CString sURL = url.GetSVNPathString();
-    CString root = GetRepositoryRootAndUUID (url, uuid);
-    SPerRepositoryInfo* info = data.Lookup (uuid, root);
+    CString             sURL = url.GetSVNPathString();
+    CString             root = GetRepositoryRootAndUUID(url, uuid);
+    SPerRepositoryInfo* info = data.Lookup(uuid, root);
 
-    if (info == NULL)
+    if (info == nullptr)
     {
         // there was some problem connecting to the repository
 
-        return (revision_t)NO_REVISION;
+        return static_cast<revision_t>(NO_REVISION);
     }
 
     // get time stamps and maximum head info age (default: 0 mins)
@@ -559,33 +531,29 @@ revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
     // (and don't try to update the info if we are off-line,
     //  as long as we have at least *some* HEAD info).
 
-    bool outdated = info->connectionState == online
-        ? now - info->headLookupTime > CSettings::GetMaxHeadAge()
-        : false;
+    bool outDated = info->connectionState == online
+                        ? now - info->headLookupTime > CSettings::GetMaxHeadAge()
+                        : false;
 
     // is there a valid cached entry?
 
-    if (   outdated
-        || !IsParentDirectory (info->headURL, sURL)
-        || (info->headRevision == NO_REVISION))
+    if (outDated || !IsParentDirectory(info->headURL, sURL) || (info->headRevision == NO_REVISION))
     {
         // entry outdated or for not valid for this path
 
         info->headLookupTime = now;
-        info->headURL = sURL;
-        bool doRetry = false;
+        info->headURL        = sURL;
+        bool doRetry         = false;
         do
         {
-            doRetry = false;
+            doRetry            = false;
             info->headRevision = svn.GetHEADRevision(url, false);
 
             // if we couldn't connect to the server, ask the user
 
             bool cancelled = svn.GetSVNError() && (svn.GetSVNError()->apr_err == SVN_ERR_CANCELLED);
 
-            if (!svn.IsSuppressedUI() && !cancelled
-                && (info->headRevision == NO_REVISION)
-                && IsOffline(info, svn.GetLastErrorMessage(), doRetry))
+            if (!svn.IsSuppressedUI() && !cancelled && (info->headRevision == NO_REVISION) && IsOffline(info, svn.GetLastErrorMessage(), doRetry))
             {
                 // user wants to go off-line
 
@@ -607,21 +575,21 @@ revision_t CRepositoryInfo::GetHeadRevision (CString uuid, const CTSVNPath& url)
 
 // make sure, we will ask the repository for the HEAD
 
-void CRepositoryInfo::ResetHeadRevision (const CString& uuid, const CString& root)
+void CRepositoryInfo::ResetHeadRevision(const CString& uuid, const CString& root)
 {
-    async::CCriticalSectionLock lock (GetDataMutex());
+    async::CCriticalSectionLock lock(GetDataMutex());
 
     // get the entry for that repository
 
-    SPerRepositoryInfo* info = data.Lookup (uuid, root);
-    if (info != NULL)
+    SPerRepositoryInfo* info = data.Lookup(uuid, root);
+    if (info != nullptr)
     {
         // there is actually a cache for this URL.
         // Invalidate the HEAD info and make sure we will
         // connect the server for an update the next time
         // we want to get connect.
 
-        info->headLookupTime = 0;
+        info->headLookupTime  = 0;
         info->connectionState = online;
     }
 }
@@ -629,17 +597,17 @@ void CRepositoryInfo::ResetHeadRevision (const CString& uuid, const CString& roo
 // is the repository offline?
 // Don't modify the state if autoSet is false.
 
-bool CRepositoryInfo::IsOffline (const CString& uuid, const CString& root, bool autoSet, const CString& sErr, bool& doRetry)
+bool CRepositoryInfo::IsOffline(const CString& uuid, const CString& root, bool autoSet, const CString& sErr, bool& doRetry) const
 {
-    async::CCriticalSectionLock lock (GetDataMutex());
+    async::CCriticalSectionLock lock(GetDataMutex());
 
     // find the info
 
-    SPerRepositoryInfo* info = data.Lookup (uuid, root);
+    SPerRepositoryInfo* info = data.Lookup(uuid, root);
 
     // no info -> assume online (i.e. just try to reach the server)
 
-    if (info == NULL)
+    if (info == nullptr)
         return false;
 
     // update the online/offline state by contacting the user?
@@ -647,7 +615,7 @@ bool CRepositoryInfo::IsOffline (const CString& uuid, const CString& root, bool 
     // offline-defaults have been set)
 
     if (autoSet)
-        IsOffline (info, sErr, doRetry);
+        IsOffline(info, sErr, doRetry);
 
     // return state
 
@@ -657,32 +625,30 @@ bool CRepositoryInfo::IsOffline (const CString& uuid, const CString& root, bool 
 // get the connection state (uninterpreted)
 
 ConnectionState
-CRepositoryInfo::GetConnectionState (const CString& uuid, const CString& url)
+    CRepositoryInfo::GetConnectionState(const CString& uuid, const CString& url)
 {
-    async::CCriticalSectionLock lock (GetDataMutex());
+    async::CCriticalSectionLock lock(GetDataMutex());
 
     // find the info
 
-    SPerRepositoryInfo* info = data.Lookup (uuid, url);
+    SPerRepositoryInfo* info = data.Lookup(uuid, url);
 
     // no info -> assume online (i.e. just try to reach the server)
 
-    return info == NULL
-        ? online
-        : info->connectionState;
+    return info == nullptr
+               ? online
+               : info->connectionState;
 }
 
 // remove a specific entry
 
-void CRepositoryInfo::DropEntry (CString uuid, CString url)
+void CRepositoryInfo::DropEntry(CString uuid, CString url)
 {
-    async::CCriticalSectionLock lock (GetDataMutex());
+    async::CCriticalSectionLock lock(GetDataMutex());
 
-    for ( SPerRepositoryInfo* info = data.Lookup (uuid, url)
-        ; info != NULL
-        ; info = data.Lookup (uuid, url))
+    for (SPerRepositoryInfo* info = data.Lookup(uuid, url); info != nullptr; info = data.Lookup(uuid, url))
     {
-        data.Remove (info);
+        data.Remove(info);
         modified = true;
     }
 }
@@ -694,13 +660,13 @@ void CRepositoryInfo::Flush()
     if (!modified)
         return;
 
-    async::CCriticalSectionLock lock (GetDataMutex());
+    async::CCriticalSectionLock lock(GetDataMutex());
 
     CString fileName = GetFileName();
-    CPathUtils::MakeSureDirectoryPathExists (fileName.Left (fileName.ReverseFind ('\\')));
+    CPathUtils::MakeSureDirectoryPathExists(fileName.Left(fileName.ReverseFind('\\')));
     try
     {
-        data.Save (fileName);
+        data.Save(fileName);
         modified = false;
     }
     catch (CException* e)
@@ -713,7 +679,7 @@ void CRepositoryInfo::Flush()
 
 void CRepositoryInfo::Clear()
 {
-    async::CCriticalSectionLock lock (GetDataMutex());
+    async::CCriticalSectionLock lock(GetDataMutex());
 
     data.Clear();
 }
@@ -734,4 +700,4 @@ const svn_error_t* CRepositoryInfo::GetLastError() const
 
 // end namespace LogCache
 
-}
+} // namespace LogCache

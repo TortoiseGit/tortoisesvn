@@ -248,7 +248,7 @@ protected:
     /// Moves the alpha slider trackbar to the correct position
     void PositionTrackBar() const;
     /// creates the info string used in the info box and the tooltips
-    void BuildInfoString(wchar_t* buf, int size, bool bTooltip);
+    void BuildInfoString(wchar_t* buf, int size, bool bTooltip) const;
     /// adjusts the zoom to fit the specified width
     void SetZoomToWidth(long width);
     /// adjusts the zoom to fit the specified height

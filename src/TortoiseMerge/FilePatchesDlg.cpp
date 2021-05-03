@@ -227,7 +227,7 @@ void CFilePatchesDlg::OnLvnGetInfoTipFilelist(NMHDR *pNMHDR, LRESULT *pResult)
         if (m_arFileStates.GetAt(pGetInfoTip->iItem) == 0)
             temp = GetFullPath(pGetInfoTip->iItem);
         else
-            temp.Format(IDS_PATCH_ITEMTT, static_cast<LPCTSTR>(GetFullPath(pGetInfoTip->iItem)), m_arFileStates.GetAt(pGetInfoTip->iItem));
+            temp.Format(IDS_PATCH_ITEMTT, static_cast<LPCWSTR>(GetFullPath(pGetInfoTip->iItem)), m_arFileStates.GetAt(pGetInfoTip->iItem));
         wcsncpy_s(pGetInfoTip->pszText, pGetInfoTip->cchTextMax, temp, pGetInfoTip->cchTextMax - 1LL);
     }
     else

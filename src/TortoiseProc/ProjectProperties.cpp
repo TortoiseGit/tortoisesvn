@@ -593,7 +593,7 @@ BOOL ProjectProperties::HasBugID(const CString& sMsg)
         try
         {
             AutoUpdateRegex();
-            return std::regex_search(static_cast<LPCTSTR>(sMsg), regCheck);
+            return std::regex_search(static_cast<LPCWSTR>(sMsg), regCheck);
         }
         catch (std::exception&)
         {

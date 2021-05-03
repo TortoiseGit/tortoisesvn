@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2007, 2013-2014 - TortoiseSVN
+// Copyright (C) 2007-2007, 2013-2014, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,7 +30,6 @@ class SVN;
 
 namespace LogCache
 {
-
 ///////////////////////////////////////////////////////////////
 // forward declarations
 ///////////////////////////////////////////////////////////////
@@ -51,7 +50,6 @@ class CRepositoryInfo;
 class CLogCachePool
 {
 private:
-
     /// where the log cache files are stored
 
     CString cacheFolderPath;
@@ -63,46 +61,46 @@ private:
     /// cache per repository (file name)
 
     typedef std::map<CString, CCachedLogInfo*> TCaches;
-    static TCaches caches;
-    static long instanceCount;
+    static TCaches                             caches;
+    static long                                instanceCount;
 
     /// utility
 
-    static bool FileExists (const std::wstring& filePath);
+    static bool FileExists(const std::wstring& filePath);
 
     /// minimize memory usage
 
-    void Clear();
+    void Clear() const;
 
     /// remove small, unused caches
 
-    void AutoRemoveUnused();
+    void AutoRemoveUnused() const;
 
-    CLogCachePool() {}
+    CLogCachePool() = delete;
+
 public:
-
     /// construction / destruction
     /// (Flush() on destruction)
 
-    CLogCachePool (SVN& svn, const CString& cacheFolderPath);
+    CLogCachePool(SVN& svn, const CString& cacheFolderPath);
     virtual ~CLogCachePool(void);
 
     /// auto-create and return cache for given repository
 
-    CCachedLogInfo* GetCache (const CString& uuid, const CString& root);
+    CCachedLogInfo* GetCache(const CString& uuid, const CString& root) const;
 
     /// cached repository info
 
-    CRepositoryInfo& GetRepositoryInfo();
+    CRepositoryInfo& GetRepositoryInfo() const;
 
     /// return the size of the repository cache file
     /// (returns 0 for new files)
 
-    size_t FileSize (const CString& uuid, const CString& root);
+    size_t FileSize(const CString& uuid, const CString& root) const;
 
     /// delete a cache along with all file(s)
 
-    void DropCache (const CString& uuid, const CString& root);
+    void DropCache(const CString& uuid, const CString& root) const;
 
     /// other data access
 
@@ -116,11 +114,11 @@ public:
 
     /// write all changes to disk
 
-    void Flush();
+    void Flush() const;
 
     /// has log caching been enabled?
 
-    bool IsEnabled() const;
+    static bool IsEnabled();
 };
 
 ///////////////////////////////////////////////////////////////
@@ -136,5 +134,4 @@ inline const CString& CLogCachePool::GetCacheFolderPath() const
 // end namespace LogCache
 ///////////////////////////////////////////////////////////////
 
-}
-
+} // namespace LogCache

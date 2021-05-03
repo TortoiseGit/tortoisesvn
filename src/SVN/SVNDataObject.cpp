@@ -244,7 +244,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
                     temp += L".url";
             }
             if (temp.GetLength() < MAX_PATH)
-                wcscpy_s(files->fgd[index].cFileName, static_cast<LPCTSTR>(temp));
+                wcscpy_s(files->fgd[index].cFileName, static_cast<LPCWSTR>(temp));
             else
             {
                 files->cItems--;
@@ -368,7 +368,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
         if (pMedium->hGlobal)
         {
             TCHAR* pMem = static_cast<TCHAR*>(GlobalLock(pMedium->hGlobal));
-            wcscpy_s(pMem, text.GetLength() + 1, static_cast<LPCTSTR>(text));
+            wcscpy_s(pMem, text.GetLength() + 1, static_cast<LPCWSTR>(text));
             GlobalUnlock(pMedium->hGlobal);
         }
         pMedium->pUnkForRelease = nullptr;
@@ -400,7 +400,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
         if (pMedium->hGlobal)
         {
             TCHAR* pMem = static_cast<TCHAR*>(GlobalLock(pMedium->hGlobal));
-            wcscpy_s(pMem, text.GetLength() + 1, static_cast<LPCTSTR>(text));
+            wcscpy_s(pMem, text.GetLength() + 1, static_cast<LPCWSTR>(text));
             GlobalUnlock(pMedium->hGlobal);
         }
         pMedium->pUnkForRelease = nullptr;
@@ -726,7 +726,7 @@ HRESULT STDMETHODCALLTYPE SVNDataObject::EndOperation(HRESULT /*hResult*/, IBind
     return S_OK;
 }
 
-HRESULT SVNDataObject::SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LPCTSTR insert)
+HRESULT SVNDataObject::SetDropDescription(DROPIMAGETYPE image, LPCWSTR format, LPCWSTR insert)
 {
     if (format == nullptr || insert == nullptr)
         return E_INVALIDARG;

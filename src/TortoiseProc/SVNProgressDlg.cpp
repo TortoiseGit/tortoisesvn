@@ -330,7 +330,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->color         = m_colors.GetColor(((m_options & ProgOptDryRun) != 0) ? CColors::DryRunConflict : CColors::Conflict);
                 data->colorIsDirect = true;
                 if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
-                    PlaySound(reinterpret_cast<LPCTSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
+                    PlaySound(reinterpret_cast<LPCWSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
                 m_bWarningShown = true;
             }
         }
@@ -442,7 +442,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->color         = m_colors.GetColor(((m_options & ProgOptDryRun) != 0) ? CColors::DryRunConflict : CColors::Conflict);
                 data->colorIsDirect = true;
                 if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
-                    PlaySound(reinterpret_cast<LPCTSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
+                    PlaySound(reinterpret_cast<LPCWSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
 
                 m_bWarningShown = true;
             }
@@ -586,7 +586,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->colorIsDirect    = true;
                 data->bConflictSummary = true;
                 if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
-                    PlaySound(reinterpret_cast<LPCTSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
+                    PlaySound(reinterpret_cast<LPCWSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
                 m_bConflictWarningShown = true;
                 m_nConflicts            = 0;
                 // This item will now be added after the switch statement
@@ -609,7 +609,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                     break;
                 }
                 CString sExtPath = m_extStack.RemoveHead();
-                data->sPathColumnText.FormatMessage(IDS_PROGRS_PATHATREV, static_cast<LPCTSTR>(sExtPath), rev);
+                data->sPathColumnText.FormatMessage(IDS_PROGRS_PATHATREV, static_cast<LPCWSTR>(sExtPath), rev);
                 if (!m_arData.empty() && !m_bExtDataAdded)
                 {
                     NotificationData* pOldData = m_arData[m_arData.size() - 1];
@@ -645,7 +645,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 data->colorIsDirect    = true;
                 data->bConflictSummary = true;
                 if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
-                    PlaySound(reinterpret_cast<LPCTSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
+                    PlaySound(reinterpret_cast<LPCWSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
                 m_bConflictWarningShown = true;
                 m_nConflicts            = 0;
                 // This item will now be added after the switch statement
@@ -698,7 +698,7 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             break;
         case svn_wc_notify_locked:
             if ((lock) && (lock->owner))
-                data->sActionColumnText.Format(IDS_SVNACTION_LOCKEDBY, static_cast<LPCTSTR>(data->owner));
+                data->sActionColumnText.Format(IDS_SVNACTION_LOCKEDBY, static_cast<LPCWSTR>(data->owner));
             break;
         case svn_wc_notify_unlocked:
             data->sActionColumnText.LoadString(IDS_SVNACTION_UNLOCKED);
@@ -733,13 +733,13 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
                 m_bLockWarning = true;
             break;
         case svn_wc_notify_changelist_set:
-            data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTSET, static_cast<LPCTSTR>(data->changeListName));
+            data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTSET, static_cast<LPCWSTR>(data->changeListName));
             break;
         case svn_wc_notify_changelist_clear:
             data->sActionColumnText.LoadString(IDS_SVNACTION_CHANGELISTCLEAR);
             break;
         case svn_wc_notify_changelist_moved:
-            data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTMOVED, static_cast<LPCTSTR>(data->changeListName));
+            data->sActionColumnText.Format(IDS_SVNACTION_CHANGELISTMOVED, static_cast<LPCWSTR>(data->changeListName));
             break;
         case svn_wc_notify_foreign_merge_begin:
         case svn_wc_notify_merge_begin:
@@ -769,17 +769,17 @@ BOOL CSVNProgressDlg::Notify(const CTSVNPath& path, const CTSVNPath& url, svn_wc
             break;
         case svn_wc_notify_property_added:
         case svn_wc_notify_property_modified:
-            data->sActionColumnText.Format(IDS_SVNACTION_PROPSET, static_cast<LPCTSTR>(data->propertyName));
+            data->sActionColumnText.Format(IDS_SVNACTION_PROPSET, static_cast<LPCWSTR>(data->propertyName));
             break;
         case svn_wc_notify_property_deleted:
         case svn_wc_notify_property_deleted_nonexistent:
-            data->sActionColumnText.Format(IDS_SVNACTION_PROPDEL, static_cast<LPCTSTR>(data->propertyName));
+            data->sActionColumnText.Format(IDS_SVNACTION_PROPDEL, static_cast<LPCWSTR>(data->propertyName));
             break;
         case svn_wc_notify_revprop_set:
-            data->sActionColumnText.Format(IDS_SVNACTION_PROPSET, static_cast<LPCTSTR>(data->propertyName));
+            data->sActionColumnText.Format(IDS_SVNACTION_PROPSET, static_cast<LPCWSTR>(data->propertyName));
             break;
         case svn_wc_notify_revprop_deleted:
-            data->sActionColumnText.Format(IDS_SVNACTION_PROPDEL, static_cast<LPCTSTR>(data->propertyName));
+            data->sActionColumnText.Format(IDS_SVNACTION_PROPDEL, static_cast<LPCWSTR>(data->propertyName));
             break;
         case svn_wc_notify_update_skip_obstruction:
             data->sActionColumnText.LoadString(IDS_SVNACTION_OBSTRUCTED);
@@ -1268,7 +1268,7 @@ void CSVNProgressDlg::ReportSVNError()
 void CSVNProgressDlg::ReportError(const CString& sError)
 {
     if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
-        PlaySound(reinterpret_cast<LPCTSTR>(SND_ALIAS_SYSTEMEXCLAMATION), nullptr, SND_ALIAS_ID | SND_ASYNC);
+        PlaySound(reinterpret_cast<LPCWSTR>(SND_ALIAS_SYSTEMEXCLAMATION), nullptr, SND_ALIAS_ID | SND_ASYNC);
     ReportString(sError, CString(MAKEINTRESOURCE(IDS_ERR_ERROR)), m_colors.GetColor(CColors::Conflict));
     m_bErrorsOccurred = true;
 }
@@ -1276,7 +1276,7 @@ void CSVNProgressDlg::ReportError(const CString& sError)
 void CSVNProgressDlg::ReportHookFailed(HookType t, const CTSVNPathList& pathList, const CString& error)
 {
     CString temp;
-    temp.Format(IDS_ERR_HOOKFAILED, static_cast<LPCTSTR>(error));
+    temp.Format(IDS_ERR_HOOKFAILED, static_cast<LPCWSTR>(error));
     ReportError(temp);
     m_bHookError        = true;
     m_bHooksAreOptional = !CHooks::Instance().IsHookExecutionEnforced(t, pathList);
@@ -1285,14 +1285,14 @@ void CSVNProgressDlg::ReportHookFailed(HookType t, const CTSVNPathList& pathList
 void CSVNProgressDlg::ReportWarning(const CString& sWarning)
 {
     if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
-        PlaySound(reinterpret_cast<LPCTSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
+        PlaySound(reinterpret_cast<LPCWSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
     ReportString(sWarning, CString(MAKEINTRESOURCE(IDS_WARN_WARNING)), true, m_colors.GetColor(CColors::Conflict));
 }
 
 void CSVNProgressDlg::ReportNotification(const CString& sNotification)
 {
     if (CRegDWORD(L"Software\\TortoiseSVN\\PlaySound", TRUE) != 0)
-        PlaySound(reinterpret_cast<LPCTSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
+        PlaySound(reinterpret_cast<LPCWSTR>(SND_ALIAS_SYSTEMDEFAULT), nullptr, SND_ALIAS_ID | SND_ASYNC);
     ReportString(sNotification, CString(MAKEINTRESOURCE(IDS_WARN_NOTE)), false);
 }
 
@@ -1450,7 +1450,7 @@ UINT CSVNProgressDlg::ProgressThread()
     {
         CTimeSpan time = CTime::GetCurrentTime() - startTime;
         temp.FormatMessage(IDS_PROGRS_TIME, static_cast<LONG>(time.GetTotalMinutes()), static_cast<LONG>(time.GetSeconds()));
-        sFinalInfo.FormatMessage(IDS_PROGRS_FINALINFO, static_cast<LPCWSTR>(m_sTotalBytesTransferred), static_cast<LPCTSTR>(temp));
+        sFinalInfo.FormatMessage(IDS_PROGRS_FINALINFO, static_cast<LPCWSTR>(m_sTotalBytesTransferred), static_cast<LPCWSTR>(temp));
         SetDlgItemText(IDC_PROGRESSLABEL, sFinalInfo);
     }
     else
@@ -1478,7 +1478,7 @@ UINT CSVNProgressDlg::ProgressThread()
         logfile.AddTimeLine();
         for (const auto& data : m_arData)
         {
-            temp.Format(L"%-20s : %s", static_cast<LPCTSTR>(data->sActionColumnText), static_cast<LPCTSTR>(data->sPathColumnText));
+            temp.Format(L"%-20s : %s", static_cast<LPCWSTR>(data->sActionColumnText), static_cast<LPCWSTR>(data->sPathColumnText));
             logfile.AddLine(temp);
         }
         if (!sFinalInfo.IsEmpty())
@@ -1616,7 +1616,7 @@ void CSVNProgressDlg::OnBnClickedLogbutton()
         SVNRev  endRev(rev);
         CString sCmd;
         sCmd.Format(L"/command:log /path:\"%s\" /endrev:%s",
-                    m_targetPathList[0].GetWinPath(), static_cast<LPCTSTR>(endRev.ToString()));
+                    m_targetPathList[0].GetWinPath(), static_cast<LPCWSTR>(endRev.ToString()));
         CAppUtils::RunTortoiseProc(sCmd);
     }
 }
@@ -1906,7 +1906,7 @@ void CSVNProgressDlg::OnNMDblclkSvnprogress(NMHDR* pNMHDR, LRESULT* pResult)
         // We've double-clicked on a conflicted item - do a three-way merge on it
         CString sCmd;
         sCmd.Format(L"/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d",
-                    static_cast<LPCTSTR>(data->path.GetWinPath()), reinterpret_cast<long long>(GetSafeHwnd()), static_cast<long long>(data->id));
+                    static_cast<LPCWSTR>(data->path.GetWinPath()), reinterpret_cast<long long>(GetSafeHwnd()), static_cast<long long>(data->id));
         if (!data->path.IsUrl())
         {
             sCmd += L" /propspath:\"";
@@ -2001,7 +2001,7 @@ LRESULT CSVNProgressDlg::OnSVNProgress(WPARAM /*wParam*/, LPARAM lParam)
         m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALTRANSFERRED, pProgressData->overallTotal / 1024);
     else
         m_sTotalBytesTransferred.Format(IDS_SVN_PROGRESS_TOTALMBTRANSFERRED, static_cast<double>(static_cast<double>(pProgressData->overallTotal) / 1024000.0));
-    progText.FormatMessage(L"%1!s!, %2!s!", static_cast<LPCTSTR>(m_sTotalBytesTransferred), static_cast<LPCTSTR>(pProgressData->speedString));
+    progText.FormatMessage(L"%1!s!, %2!s!", static_cast<LPCWSTR>(m_sTotalBytesTransferred), static_cast<LPCWSTR>(pProgressData->speedString));
     SetDlgItemText(IDC_PROGRESSLABEL, progText);
     return 0;
 }
@@ -2013,7 +2013,7 @@ void CSVNProgressDlg::OnTimer(UINT_PTR nIDEvent)
         CString progText;
         CString progSpeed;
         progSpeed.Format(IDS_SVN_PROGRESS_BYTES_SEC, 0i64);
-        progText.FormatMessage(IDS_SVN_PROGRESS_TOTALANDSPEED, static_cast<LPCTSTR>(m_sTotalBytesTransferred), static_cast<LPCTSTR>(progSpeed));
+        progText.FormatMessage(IDS_SVN_PROGRESS_TOTALANDSPEED, static_cast<LPCWSTR>(m_sTotalBytesTransferred), static_cast<LPCWSTR>(progSpeed));
         SetDlgItemText(IDC_PROGRESSLABEL, progText);
         KillTimer(TRANSFERTIMER);
     }
@@ -2180,7 +2180,7 @@ BOOL CSVNProgressDlg::PreTranslateMessage(MSG* pMsg)
                             CString sMime   = m_progList.GetItemText(nItem, 2);
                             CString sLogCopyText;
                             sLogCopyText.Format(L"%s: %s  %s\r\n",
-                                                static_cast<LPCTSTR>(sAction), static_cast<LPCTSTR>(sPath), static_cast<LPCTSTR>(sMime));
+                                                static_cast<LPCWSTR>(sAction), static_cast<LPCWSTR>(sPath), static_cast<LPCWSTR>(sMime));
                             sClipdata += sLogCopyText;
                         }
                         CStringUtils::WriteAsciiStringToClipboard(sClipdata);
@@ -2356,7 +2356,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
             CString sCmd;
             sCmd.Format(L"/command:conflicteditor /path:\"%s\" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d",
-                        static_cast<LPCTSTR>(sPath), reinterpret_cast<long long>(GetSafeHwnd()), static_cast<long long>(data->id));
+                        static_cast<LPCWSTR>(sPath), reinterpret_cast<long long>(GetSafeHwnd()), static_cast<long long>(data->id));
             CAppUtils::RunTortoiseProc(sCmd);
         }
         break;
@@ -2431,7 +2431,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             if (!sResolvedPaths.IsEmpty())
             {
                 CString msg;
-                msg.Format(IDS_SVNPROGRESS_RESOLVED, static_cast<LPCTSTR>(sResolvedPaths));
+                msg.Format(IDS_SVNPROGRESS_RESOLVED, static_cast<LPCWSTR>(sResolvedPaths));
                 ::MessageBox(m_hWnd, msg, L"TortoiseSVN", MB_OK | MB_ICONINFORMATION);
             }
         }
@@ -2446,7 +2446,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             CString sPath = GetPathFromColumnText(data->sPathColumnText);
             CString sCmd;
             sCmd.Format(L"/command:log /path:\"%s\"",
-                        static_cast<LPCTSTR>(sPath));
+                        static_cast<LPCWSTR>(sPath));
 
             CAppUtils::RunTortoiseProc(sCmd);
         }
@@ -2461,7 +2461,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
             CString sWinPath = GetPathFromColumnText(data->sPathColumnText);
             if (!bOpenWith)
             {
-                const INT_PTR ret = reinterpret_cast<INT_PTR>(ShellExecute(this->m_hWnd, nullptr, static_cast<LPCTSTR>(sWinPath), nullptr, nullptr, SW_SHOWNORMAL));
+                const INT_PTR ret = reinterpret_cast<INT_PTR>(ShellExecute(this->m_hWnd, nullptr, static_cast<LPCWSTR>(sWinPath), nullptr, nullptr, SW_SHOWNORMAL));
                 if ((ret <= HINSTANCE_ERROR) || bOpenWith)
                 {
                     OPENASINFO oi  = {nullptr};
@@ -2617,9 +2617,9 @@ bool CSVNProgressDlg::CmdCheckout(CString& sWindowTitle, bool& /*localoperation*
         }
         CString sCmdInfo;
         sCmdInfo.FormatMessage(IDS_PROGRS_CMD_CHECKOUT,
-                               static_cast<LPCTSTR>(urls[i].GetSVNPathString()), static_cast<LPCTSTR>(m_revision.ToString()),
-                               static_cast<LPCTSTR>(SVNStatus::GetDepthString(m_depth)),
-                               (m_options & ProgOptIgnoreExternals) ? static_cast<LPCTSTR>(sExtExcluded) : static_cast<LPCTSTR>(sExtIncluded));
+                               static_cast<LPCWSTR>(urls[i].GetSVNPathString()), static_cast<LPCWSTR>(m_revision.ToString()),
+                               static_cast<LPCWSTR>(SVNStatus::GetDepthString(m_depth)),
+                               (m_options & ProgOptIgnoreExternals) ? static_cast<LPCWSTR>(sExtExcluded) : static_cast<LPCWSTR>(sExtIncluded));
         ReportCmd(sCmdInfo);
 
         CBlockCacheForPath cacheBlock(checkoutDir.GetWinPath());
@@ -2697,15 +2697,15 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
         CAppUtils::SetWindowTitle(m_hWnd, url.GetUIFileOrDirectoryName(), sWindowTitle);
         if ((index >= 1) || (SVNHelper::IsVersioned(checkoutDir, false)))
         {
-            sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SPARSEUPDATE, static_cast<LPCTSTR>(fileOrDir), static_cast<LPCTSTR>(SVNStatus::GetDepthString(it->second)));
+            sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SPARSEUPDATE, static_cast<LPCWSTR>(fileOrDir), static_cast<LPCWSTR>(SVNStatus::GetDepthString(it->second)));
             ReportCmd(sCmdInfo);
         }
         else
         {
             sCmdInfo.FormatMessage(IDS_PROGRS_CMD_CHECKOUT,
-                                   static_cast<LPCTSTR>(url.GetSVNPathString()), static_cast<LPCTSTR>(m_revision.ToString()),
-                                   static_cast<LPCTSTR>(SVNStatus::GetDepthString(m_depth)),
-                                   (m_options & ProgOptIgnoreExternals) ? static_cast<LPCTSTR>(sExtExcluded) : static_cast<LPCTSTR>(sExtIncluded));
+                                   static_cast<LPCWSTR>(url.GetSVNPathString()), static_cast<LPCWSTR>(m_revision.ToString()),
+                                   static_cast<LPCWSTR>(SVNStatus::GetDepthString(m_depth)),
+                                   (m_options & ProgOptIgnoreExternals) ? static_cast<LPCWSTR>(sExtExcluded) : static_cast<LPCWSTR>(sExtIncluded));
             ReportCmd(sCmdInfo);
         }
 
@@ -2758,7 +2758,7 @@ bool CSVNProgressDlg::CmdSparseCheckout(CString& sWindowTitle, bool& /*localoper
         }
 
         CAppUtils::SetWindowTitle(m_hWnd, url.GetUIFileOrDirectoryName(), sWindowTitle);
-        sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SPARSEUPDATE, static_cast<LPCTSTR>(dir), static_cast<LPCTSTR>(SVNStatus::GetDepthString(svn_depth_unknown)));
+        sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SPARSEUPDATE, static_cast<LPCWSTR>(dir), static_cast<LPCWSTR>(SVNStatus::GetDepthString(svn_depth_unknown)));
         ReportCmd(sCmdInfo);
 
         CBlockCacheForPath cacheBlock(checkoutdir.GetWinPath());
@@ -3056,12 +3056,12 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     }
 
     CString sCmdInfo;
-    CString sUrl = m_targetPathList[0].IsUrl() ? static_cast<LPCTSTR>(m_targetPathList[0].GetSVNPathString()) : m_targetPathList[0].GetWinPath();
+    CString sUrl = m_targetPathList[0].IsUrl() ? static_cast<LPCWSTR>(m_targetPathList[0].GetSVNPathString()) : m_targetPathList[0].GetWinPath();
     if (m_targetPathList[0].IsUrl() && m_pegRev.IsValid())
         sUrl += L"@" + m_pegRev.ToString();
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_COPY,
-                           static_cast<LPCTSTR>(sUrl),
-                           static_cast<LPCTSTR>(m_url.GetSVNPathString()), static_cast<LPCTSTR>(m_revision.ToString()));
+                           static_cast<LPCWSTR>(sUrl),
+                           static_cast<LPCWSTR>(m_url.GetSVNPathString()), static_cast<LPCWSTR>(m_revision.ToString()));
     ReportCmd(sCmdInfo);
 
     bool makeParents = (m_options & ProgOptMakeParents) != 0;
@@ -3080,7 +3080,7 @@ bool CSVNProgressDlg::CmdCopy(CString& sWindowTitle, bool& /*localoperation*/)
     {
         sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SWITCH,
                                m_targetPathList[0].GetWinPath(),
-                               static_cast<LPCTSTR>(m_url.GetSVNPathString()), static_cast<LPCTSTR>(m_revision.ToString()));
+                               static_cast<LPCWSTR>(m_url.GetSVNPathString()), static_cast<LPCWSTR>(m_revision.ToString()));
         ReportCmd(sCmdInfo);
         int retryCounter = 0;
         do
@@ -3198,8 +3198,8 @@ bool CSVNProgressDlg::CmdImport(CString& sWindowTitle, bool& /*localoperation*/)
 
     CString sCmdInfo;
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_IMPORT,
-                           m_targetPathList[0].GetWinPath(), static_cast<LPCTSTR>(m_url.GetSVNPathString()),
-                           (m_options & ProgOptIncludeIgnored) ? static_cast<LPCTSTR>(L", " + sIgnoredIncluded) : L"");
+                           m_targetPathList[0].GetWinPath(), static_cast<LPCWSTR>(m_url.GetSVNPathString()),
+                           (m_options & ProgOptIncludeIgnored) ? static_cast<LPCWSTR>(L", " + sIgnoredIncluded) : L"");
     ReportCmd(sCmdInfo);
     if (!Import(m_targetPathList[0], m_url, m_sMessage, &m_projectProperties, svn_depth_infinity, (m_options & ProgOptUseAutoprops) != 0, (m_options & ProgOptIncludeIgnored) ? true : false, false, m_revProps))
     {
@@ -3335,12 +3335,12 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
             sReportUrl = sReportUrl + L"@" + m_pegRev.ToString();
         CString sCmdInfo;
         sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEPEG,
-                               static_cast<LPCTSTR>(m_revisionArray.ToListString()),
-                               static_cast<LPCTSTR>(sReportUrl),
+                               static_cast<LPCWSTR>(m_revisionArray.ToListString()),
+                               static_cast<LPCWSTR>(sReportUrl),
                                m_targetPathList[0].GetWinPath(),
-                               (m_options & ProgOptIgnoreAncestry) ? static_cast<LPCTSTR>(sIgnoreAncestry) : static_cast<LPCTSTR>(sRespectAncestry),
-                               (m_options & ProgOptDryRun) ? static_cast<LPCTSTR>(L", " + sDryRun) : L"",
-                               (m_options & ProgOptForce) ? static_cast<LPCTSTR>(L", " + sForce) : L"");
+                               (m_options & ProgOptIgnoreAncestry) ? static_cast<LPCWSTR>(sIgnoreAncestry) : static_cast<LPCWSTR>(sRespectAncestry),
+                               (m_options & ProgOptDryRun) ? static_cast<LPCWSTR>(L", " + sDryRun) : L"",
+                               (m_options & ProgOptForce) ? static_cast<LPCWSTR>(L", " + sForce) : L"");
         ReportCmd(sCmdInfo);
 
         SVNRev firstRevOfRange;
@@ -3373,12 +3373,12 @@ bool CSVNProgressDlg::CmdMerge(CString& sWindowTitle, bool& /*localoperation*/)
     {
         CString sCmdInfo;
         sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEURL,
-                               static_cast<LPCTSTR>(m_url.GetSVNPathString()), static_cast<LPCTSTR>(m_revision.ToString()),
-                               static_cast<LPCTSTR>(m_url2.GetSVNPathString()), static_cast<LPCTSTR>(m_revisionEnd.ToString()),
+                               static_cast<LPCWSTR>(m_url.GetSVNPathString()), static_cast<LPCWSTR>(m_revision.ToString()),
+                               static_cast<LPCWSTR>(m_url2.GetSVNPathString()), static_cast<LPCWSTR>(m_revisionEnd.ToString()),
                                m_targetPathList[0].GetWinPath(),
-                               (m_options & ProgOptIgnoreAncestry) ? static_cast<LPCTSTR>(sIgnoreAncestry) : static_cast<LPCTSTR>(sRespectAncestry),
-                               (m_options & ProgOptDryRun) ? static_cast<LPCTSTR>(L", " + sDryRun) : L"",
-                               (m_options & ProgOptForce) ? static_cast<LPCTSTR>(L", " + sForce) : L"");
+                               (m_options & ProgOptIgnoreAncestry) ? static_cast<LPCWSTR>(sIgnoreAncestry) : static_cast<LPCWSTR>(sRespectAncestry),
+                               (m_options & ProgOptDryRun) ? static_cast<LPCWSTR>(L", " + sDryRun) : L"",
+                               (m_options & ProgOptForce) ? static_cast<LPCWSTR>(L", " + sForce) : L"");
         ReportCmd(sCmdInfo);
 
         if (!Merge(m_url, m_revision, m_url2, m_revisionEnd, m_targetPathList[0],
@@ -3427,10 +3427,10 @@ bool CSVNProgressDlg::CmdMergeAll(CString& sWindowTitle, bool& /*localoperation*
         return false;
     }
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEALL,
-                           static_cast<LPCTSTR>(suggestedSources[0].GetSVNPathString()),
+                           static_cast<LPCWSTR>(suggestedSources[0].GetSVNPathString()),
                            m_targetPathList[0].GetWinPath(),
-                           (m_options & ProgOptIgnoreAncestry) ? static_cast<LPCTSTR>(sIgnoreAncestry) : static_cast<LPCTSTR>(sRespectAncestry),
-                           (m_options & ProgOptForce) ? static_cast<LPCTSTR>(L", " + sForce) : L"");
+                           (m_options & ProgOptIgnoreAncestry) ? static_cast<LPCWSTR>(sIgnoreAncestry) : static_cast<LPCWSTR>(sRespectAncestry),
+                           (m_options & ProgOptForce) ? static_cast<LPCWSTR>(L", " + sForce) : L"");
     ReportCmd(sCmdInfo);
 
     SVNRevRangeArray   revArray;
@@ -3465,7 +3465,7 @@ bool CSVNProgressDlg::CmdMergeReintegrate(CString& sWindowTitle, bool& /*localop
 
     CString sCmdInfo;
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEAUTOMATIC,
-                           static_cast<LPCTSTR>(m_url.GetSVNPathString()),
+                           static_cast<LPCWSTR>(m_url.GetSVNPathString()),
                            m_targetPathList[0].GetWinPath());
     ReportCmd(sCmdInfo);
 
@@ -3509,7 +3509,7 @@ bool CSVNProgressDlg::CmdMergeReintegrateOldStyle(CString& sWindowTitle, bool& /
 
     CString sCmdInfo;
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_MERGEREINTEGRATE,
-                           static_cast<LPCTSTR>(m_url.GetSVNPathString()),
+                           static_cast<LPCWSTR>(m_url.GetSVNPathString()),
                            m_targetPathList[0].GetWinPath());
     ReportCmd(sCmdInfo);
 
@@ -3673,8 +3673,8 @@ bool CSVNProgressDlg::CmdSwitch(CString& sWindowTitle, bool& /*localoperation*/)
 
     CString sCmdInfo;
     sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SWITCH,
-                           m_targetPathList[0].GetWinPath(), static_cast<LPCTSTR>(m_url.GetSVNPathString()),
-                           static_cast<LPCTSTR>(m_revision.ToString()));
+                           m_targetPathList[0].GetWinPath(), static_cast<LPCWSTR>(m_url.GetSVNPathString()),
+                           static_cast<LPCWSTR>(m_revision.ToString()));
     ReportCmd(sCmdInfo);
 
     DWORD   exitCode = 0;
@@ -3747,8 +3747,8 @@ bool CSVNProgressDlg::CmdSwitchBackToParent(CString& sWindowTitle, bool& /*local
             switchUrl.AppendPathString(m_targetPathList[i].GetFileOrDirectoryName());
             CString sCmdInfo;
             sCmdInfo.FormatMessage(IDS_PROGRS_CMD_SWITCH,
-                                   m_targetPathList[i].GetWinPath(), static_cast<LPCTSTR>(switchUrl.GetSVNPathString()),
-                                   static_cast<LPCTSTR>(m_revision.ToString()));
+                                   m_targetPathList[i].GetWinPath(), static_cast<LPCWSTR>(switchUrl.GetSVNPathString()),
+                                   static_cast<LPCWSTR>(m_revision.ToString()));
             ReportCmd(sCmdInfo);
 
             if (!Switch(m_targetPathList[i], switchUrl, s->revision, s->revision, svn_depth_unknown, false, true, true, true))
@@ -4153,7 +4153,7 @@ void CSVNProgressDlg::MergeAfterCommit()
             if (bModified)
             {
                 CString sTask1;
-                sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, static_cast<LPCTSTR>(path));
+                sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, static_cast<LPCWSTR>(path));
                 CTaskDialog taskDlg(sTask1,
                                     CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK2)),
                                     L"TortoiseSVN",
@@ -4349,9 +4349,9 @@ void CSVNProgressDlg::CompareWithWC(NotificationData* data)
         SetFileAttributes(basefile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 
         CString revName, wcName, baseName;
-        revName.Format(L"%s Revision %ld", static_cast<LPCTSTR>(data->path.GetUIFileOrDirectoryName()), rev);
-        wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(data->path.GetUIFileOrDirectoryName()));
-        baseName.Format(IDS_DIFF_BASENAME, static_cast<LPCTSTR>(data->path.GetUIFileOrDirectoryName()));
+        revName.Format(L"%s Revision %ld", static_cast<LPCWSTR>(data->path.GetUIFileOrDirectoryName()), rev);
+        wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCWSTR>(data->path.GetUIFileOrDirectoryName()));
+        baseName.Format(IDS_DIFF_BASENAME, static_cast<LPCWSTR>(data->path.GetUIFileOrDirectoryName()));
         CAppUtils::MergeFlags flags;
         flags.bAlternativeTool = (GetKeyState(VK_SHIFT) & 0x8000) != 0;
         flags.bReadOnly        = true;
@@ -4369,8 +4369,8 @@ void CSVNProgressDlg::CompareWithWC(NotificationData* data)
         }
         SetFileAttributes(tempFile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
         CString revName, wcName;
-        revName.Format(L"%s Revision %ld", static_cast<LPCTSTR>(data->path.GetUIFileOrDirectoryName()), rev);
-        wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(data->path.GetUIFileOrDirectoryName()));
+        revName.Format(L"%s Revision %ld", static_cast<LPCWSTR>(data->path.GetUIFileOrDirectoryName()), rev);
+        wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCWSTR>(data->path.GetUIFileOrDirectoryName()));
         CAppUtils::StartExtDiff(
             tempFile, data->path, revName, wcName, data->url, data->url, rev, SVNRev::REV_WC, SVNRev::REV_WC,
             CAppUtils::DiffFlags().AlternativeTool(!!(GetAsyncKeyState(VK_SHIFT) & 0x8000)), 0,

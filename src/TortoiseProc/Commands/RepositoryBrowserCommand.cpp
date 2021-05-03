@@ -127,7 +127,7 @@ bool RepositoryBrowserCommand::Execute()
             sText += L"\n";
             sText += dlg.GetRevision().ToString();
         }
-        CStringUtils::WriteStringToTextFile(parser.GetVal(L"outfile"), (LPCTSTR)sText, true);
+        CStringUtils::WriteStringToTextFile(parser.GetVal(L"outfile"), (LPCWSTR)sText, true);
     }
     return true;
 }

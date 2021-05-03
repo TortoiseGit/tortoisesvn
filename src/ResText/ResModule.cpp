@@ -84,7 +84,7 @@ CResModule::~CResModule()
 {
 }
 
-BOOL CResModule::ExtractResources(const std::vector<std::wstring>& fileList, LPCTSTR lpszPoFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile)
+BOOL CResModule::ExtractResources(const std::vector<std::wstring>& fileList, LPCWSTR lpszPoFilePath, BOOL bNoUpdate, LPCWSTR lpszHeaderFile)
 {
     for (auto I = fileList.cbegin(); I != fileList.cend(); ++I)
     {
@@ -153,7 +153,7 @@ BOOL CResModule::ExtractResources(const std::vector<std::wstring>& fileList, LPC
     return m_stringEntries.SaveFile(lpszPoFilePath, lpszHeaderFile);
 }
 
-BOOL CResModule::ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPoFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile)
+BOOL CResModule::ExtractResources(LPCWSTR lpszSrcLangDllPath, LPCWSTR lpszPoFilePath, BOOL bNoUpdate, LPCWSTR lpszHeaderFile)
 {
     m_hResDll = LoadLibraryEx(lpszSrcLangDllPath, nullptr, LOAD_LIBRARY_AS_IMAGE_RESOURCE | LOAD_LIBRARY_AS_DATAFILE);
     if (!m_hResDll)
@@ -207,7 +207,7 @@ DONE_ERROR:
     return FALSE;
 }
 
-BOOL CResModule::CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszDestLangDllPath, LPCTSTR lpszPoFilePath)
+BOOL CResModule::CreateTranslatedResources(LPCWSTR lpszSrcLangDllPath, LPCWSTR lpszDestLangDllPath, LPCWSTR lpszPoFilePath)
 {
     if (!CopyFile(lpszSrcLangDllPath, lpszDestLangDllPath, FALSE))
         MYERROR;
@@ -297,7 +297,7 @@ DONE_ERROR:
     return FALSE;
 }
 
-void CResModule::RemoveSignatures(LPCTSTR lpszDestLangDllPath)
+void CResModule::RemoveSignatures(LPCWSTR lpszDestLangDllPath)
 {
     // Remove any signatures in the file:
     // if we don't remove it here, the signature will be invalid after
@@ -314,7 +314,7 @@ void CResModule::RemoveSignatures(LPCTSTR lpszDestLangDllPath)
     CloseHandle(hFile);
 }
 
-BOOL CResModule::ExtractString(LPCTSTR lpszType)
+BOOL CResModule::ExtractString(LPCWSTR lpszType)
 {
     HRSRC   hrsrc          = FindResource(m_hResDll, lpszType, RT_STRING);
     HGLOBAL hglStringTable = nullptr;
@@ -367,7 +367,7 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ReplaceString(LPCTSTR lpszType, WORD wLanguage)
+BOOL CResModule::ReplaceString(LPCWSTR lpszType, WORD wLanguage)
 {
     HRSRC   hrsrc          = FindResourceEx(m_hResDll, RT_STRING, lpszType, wLanguage);
     HGLOBAL hglStringTable = nullptr;
@@ -476,7 +476,7 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ExtractMenu(LPCTSTR lpszType)
+BOOL CResModule::ExtractMenu(LPCWSTR lpszType)
 {
     HRSRC       hrsrc           = FindResource(m_hResDll, lpszType, RT_MENU);
     HGLOBAL     hglMenuTemplate = nullptr;
@@ -547,7 +547,7 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ReplaceMenu(LPCTSTR lpszType, WORD wLanguage)
+BOOL CResModule::ReplaceMenu(LPCWSTR lpszType, WORD wLanguage)
 {
     HRSRC   hrsrc           = FindResourceEx(m_hResDll, RT_MENU, lpszType, wLanguage);
     HGLOBAL hglMenuTemplate = nullptr;
@@ -952,7 +952,7 @@ const WORD* CResModule::CountMemReplaceMenuExResource(const WORD* res, size_t* w
     return res;
 }
 
-BOOL CResModule::ExtractAccelerator(LPCTSTR lpszType)
+BOOL CResModule::ExtractAccelerator(LPCWSTR lpszType)
 {
     HRSRC       hrsrc       = FindResource(m_hResDll, lpszType, RT_ACCELERATOR);
     HGLOBAL     hglAccTable = nullptr;
@@ -1075,7 +1075,7 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ReplaceAccelerator(LPCTSTR lpszType, WORD wLanguage)
+BOOL CResModule::ReplaceAccelerator(LPCWSTR lpszType, WORD wLanguage)
 {
     LPACCEL     lpaccelNew     = nullptr; // pointer to new accelerator table
     HACCEL      haccelOld      = nullptr; // handle to old accelerator table
@@ -1215,7 +1215,7 @@ DONE_ERROR:
     MYERROR;
 }
 
-BOOL CResModule::ExtractDialog(LPCTSTR lpszType)
+BOOL CResModule::ExtractDialog(LPCWSTR lpszType)
 {
     const WORD* lpDlg     = nullptr;
     const WORD* lpDlgItem = nullptr;
@@ -1282,7 +1282,7 @@ BOOL CResModule::ExtractDialog(LPCTSTR lpszType)
     return (TRUE);
 }
 
-BOOL CResModule::ReplaceDialog(LPCTSTR lpszType, WORD wLanguage)
+BOOL CResModule::ReplaceDialog(LPCWSTR lpszType, WORD wLanguage)
 {
     const WORD* lpDlg            = nullptr;
     HRSRC       hrsrc            = nullptr;
@@ -1389,11 +1389,11 @@ const WORD* CResModule::GetDialogInfo(const WORD* pTemplate, LPDIALOGINFO lpDlgI
             p++;
             break;
         case 0xffff:
-            lpDlgInfo->menuName = reinterpret_cast<LPCTSTR>(static_cast<WORD>(GET_WORD(p + 1)));
+            lpDlgInfo->menuName = reinterpret_cast<LPCWSTR>(static_cast<WORD>(GET_WORD(p + 1)));
             p += 2;
             break;
         default:
-            lpDlgInfo->menuName = reinterpret_cast<LPCTSTR>(p);
+            lpDlgInfo->menuName = reinterpret_cast<LPCWSTR>(p);
             p += wcslen(reinterpret_cast<LPCWSTR>(p)) + 1;
             break;
     }
@@ -1403,22 +1403,22 @@ const WORD* CResModule::GetDialogInfo(const WORD* pTemplate, LPDIALOGINFO lpDlgI
     switch (GET_WORD(p))
     {
         case 0x0000:
-            lpDlgInfo->className = static_cast<LPCTSTR>(MAKEINTATOM(32770));
+            lpDlgInfo->className = static_cast<LPCWSTR>(MAKEINTATOM(32770));
             p++;
             break;
         case 0xffff:
-            lpDlgInfo->className = reinterpret_cast<LPCTSTR>(static_cast<WORD>(GET_WORD(p + 1)));
+            lpDlgInfo->className = reinterpret_cast<LPCWSTR>(static_cast<WORD>(GET_WORD(p + 1)));
             p += 2;
             break;
         default:
-            lpDlgInfo->className = reinterpret_cast<LPCTSTR>(p);
-            p += wcslen(reinterpret_cast<LPCTSTR>(p)) + 1;
+            lpDlgInfo->className = reinterpret_cast<LPCWSTR>(p);
+            p += wcslen(reinterpret_cast<LPCWSTR>(p)) + 1;
             break;
     }
 
     // Get the window caption
 
-    lpDlgInfo->caption = reinterpret_cast<LPCTSTR>(p);
+    lpDlgInfo->caption = reinterpret_cast<LPCWSTR>(p);
     p += wcslen(reinterpret_cast<LPCWSTR>(p)) + 1;
 
     // Get the font name
@@ -1441,7 +1441,7 @@ const WORD* CResModule::GetDialogInfo(const WORD* pTemplate, LPDIALOGINFO lpDlgI
             lpDlgInfo->italic = FALSE;
         }
 
-        lpDlgInfo->faceName = reinterpret_cast<LPCTSTR>(p);
+        lpDlgInfo->faceName = reinterpret_cast<LPCWSTR>(p);
         p += wcslen(reinterpret_cast<LPCWSTR>(p)) + 1;
     }
     // First control is on DWORD boundary
@@ -1502,20 +1502,20 @@ const WORD* CResModule::GetControlInfo(const WORD* p, LPDLGITEMINFO lpDlgItemInf
     }
     else
     {
-        lpDlgItemInfo->className = reinterpret_cast<LPCTSTR>(p);
+        lpDlgItemInfo->className = reinterpret_cast<LPCWSTR>(p);
         p += wcslen(reinterpret_cast<LPCWSTR>(p)) + 1;
     }
 
     if (GET_WORD(p) == 0xffff) // an integer ID?
     {
         *bIsID                    = TRUE;
-        lpDlgItemInfo->windowName = reinterpret_cast<LPCTSTR>(static_cast<UINT_PTR>(GET_WORD(p + 1)));
+        lpDlgItemInfo->windowName = reinterpret_cast<LPCWSTR>(static_cast<UINT_PTR>(GET_WORD(p + 1)));
         p += 2;
     }
     else
     {
         *bIsID                    = FALSE;
-        lpDlgItemInfo->windowName = reinterpret_cast<LPCTSTR>(p);
+        lpDlgItemInfo->windowName = reinterpret_cast<LPCWSTR>(p);
         p += wcslen(reinterpret_cast<LPCWSTR>(p)) + 1;
     }
 
@@ -1857,7 +1857,7 @@ const WORD* CResModule::ReplaceControlInfo(const WORD* res, size_t* wordCount, W
     return res;
 }
 
-BOOL CResModule::ExtractRibbon(LPCTSTR lpszType)
+BOOL CResModule::ExtractRibbon(LPCWSTR lpszType)
 {
     HRSRC       hrsrc = FindResource(m_hResDll, lpszType, RT_RIBBON);
     HGLOBAL     hglRibbonTemplate;
@@ -1922,7 +1922,7 @@ BOOL CResModule::ExtractRibbon(LPCTSTR lpszType)
     return TRUE;
 }
 
-BOOL CResModule::ReplaceRibbon(LPCTSTR lpszType, WORD wLanguage)
+BOOL CResModule::ReplaceRibbon(LPCWSTR lpszType, WORD wLanguage)
 {
     HRSRC       hrsrc = FindResource(m_hResDll, lpszType, RT_RIBBON);
     HGLOBAL     hglRibbonTemplate;
@@ -2054,7 +2054,7 @@ std::wstring CResModule::ReplaceWithRegex(std::wstring& s)
     return s;
 }
 
-BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam)
+BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCWSTR lpszType, LPTSTR lpszName, LONG_PTR lParam)
 {
     auto lpResModule = reinterpret_cast<CResModule*>(lParam);
 
@@ -2102,13 +2102,13 @@ BOOL CALLBACK CResModule::EnumResNameCallback(HMODULE /*hModule*/, LPCTSTR lpszT
     return TRUE;
 }
 
-BOOL CALLBACK CResModule::EnumResNameWriteCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam)
+BOOL CALLBACK CResModule::EnumResNameWriteCallback(HMODULE hModule, LPCWSTR lpszType, LPTSTR lpszName, LONG_PTR lParam)
 {
     auto lpResModule = reinterpret_cast<CResModule*>(lParam);
     return EnumResourceLanguages(hModule, lpszType, lpszName, reinterpret_cast<ENUMRESLANGPROCW>(&lpResModule->EnumResWriteLangCallback), lParam);
 }
 
-BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG_PTR lParam)
+BOOL CALLBACK CResModule::EnumResWriteLangCallback(HMODULE /*hModule*/, LPCWSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG_PTR lParam)
 {
     BOOL bRes        = FALSE;
     auto lpResModule = reinterpret_cast<CResModule*>(lParam);

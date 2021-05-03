@@ -359,9 +359,9 @@ public:
         {
             return copied;
         }
-        LPCTSTR GetDisplayName() const
+        LPCWSTR GetDisplayName() const
         {
-            LPCTSTR chopped = path.GetDisplayString(&basePath);
+            LPCWSTR chopped = path.GetDisplayString(&basePath);
             if (*chopped != 0)
             {
                 return chopped;
@@ -370,7 +370,7 @@ public:
             {
                 // "Display name" must not be empty.
                 const CString& winPath = path.GetWinPathString();
-                return static_cast<LPCTSTR>(winPath) + winPath.ReverseFind('\\') + 1;
+                return static_cast<LPCWSTR>(winPath) + winPath.ReverseFind('\\') + 1;
             }
         }
         CString GetChangeList() const
@@ -1138,7 +1138,7 @@ private:
     CSVNStatusListCtrl* m_pSVNStatusListCtrl;
 
     void    OnDrop(HDROP hDrop, POINTL pt) const;
-    void    SendAddFile(LPCTSTR filename) const;
+    void    SendAddFile(LPCWSTR filename) const;
     CString GetChangelistName(LONG_PTR nGroup) const;
     void    DoDragOver(POINTL pt, DWORD __RPC_FAR* pdwEffect);
     void    SetDropDescriptionCopy();

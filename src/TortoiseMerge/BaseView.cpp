@@ -517,7 +517,7 @@ CFont* CBaseView::GetFont(BOOL bItalic /*= FALSE*/, BOOL bBold /*= FALSE*/)
         m_lfBaseFont.lfWeight  = bBold ? FW_BOLD : FW_NORMAL;
         m_lfBaseFont.lfItalic  = static_cast<BYTE>(bItalic);
         m_lfBaseFont.lfHeight  = -CDPIAware::Instance().PointsToPixels(GetSafeHwnd(), static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseMerge\\FontSize", 10)));
-        wcsncpy_s(m_lfBaseFont.lfFaceName, static_cast<LPCTSTR>(static_cast<CString>(CRegString(L"Software\\TortoiseMerge\\FontName", L"Consolas"))), _countof(m_lfBaseFont.lfFaceName) - 1);
+        wcsncpy_s(m_lfBaseFont.lfFaceName, static_cast<LPCWSTR>(static_cast<CString>(CRegString(L"Software\\TortoiseMerge\\FontName", L"Consolas"))), _countof(m_lfBaseFont.lfFaceName) - 1);
         if (!m_apFonts[nIndex]->CreateFontIndirect(&m_lfBaseFont))
         {
             delete m_apFonts[nIndex];
@@ -1940,7 +1940,7 @@ void CBaseView::DrawTextLine(
     CString sLine       = GetLineChars(nLineIndex);
     int     nLineLength = sLine.GetLength();
     CString sLineExp    = ExpandChars(sLine);
-    LPCTSTR textExp     = sLineExp;
+    LPCWSTR textExp     = sLineExp;
     //int nLineLengthExp = sLineExp.GetLength();
     int nStartExp = 0;
     int nLeft     = coords.x;
@@ -1962,7 +1962,7 @@ void CBaseView::DrawTextLine(
             pDC->SetTextColor(second.text);
             int     nEndExp     = CountExpandedChars(sLine, nEnd);
             int     nTextLength = nEndExp - nStartExp;
-            LPCTSTR pZBlockText = textExp + nStartExp;
+            LPCWSTR pZBlockText = textExp + nStartExp;
             SIZE    size{};
             GetTextExtentPoint32(pDC->GetSafeHdc(), pZBlockText, nTextLength, &size); // falls time-2-tme
             int nRight = nLeft + size.cx;
@@ -2090,12 +2090,12 @@ void CBaseView::DrawSingleLine(CDC* pDC, const CRect& rc, int nLineIndex)
         pDC->FillSolidRect(fRect, crBkgnd);
 
     // draw the whitespace chars
-    LPCTSTR pszChars = static_cast<LPCWSTR>(sLine);
+    LPCWSTR pszChars = static_cast<LPCWSTR>(sLine);
     if (m_bViewWhitespace)
     {
         int     xPos       = 0;
         int     nChars     = 0;
-        LPCTSTR pLastSpace = pszChars;
+        LPCWSTR pLastSpace = pszChars;
         int     y          = rc.top + (rc.bottom - rc.top) / 2;
         xPos -= m_nOffsetChar * GetCharWidth();
 
@@ -2171,7 +2171,7 @@ void CBaseView::ExpandChars(const CString& sLine, int nOffset, int nCount, CStri
 
     int nActualOffset = CountExpandedChars(sLine, nOffset);
 
-    LPCTSTR pszChars = static_cast<LPCWSTR>(sLine);
+    LPCWSTR pszChars = static_cast<LPCWSTR>(sLine);
     pszChars += nOffset;
     int nLength = nCount;
 
@@ -3481,7 +3481,7 @@ void CBaseView::OnLButtonTrippleClick(UINT /*nFlags*/, CPoint point)
     {
         if (!m_sConvertedFilePath.IsEmpty() && (GetKeyState(VK_CONTROL) & 0x8000))
         {
-            PCIDLIST_ABSOLUTE __unaligned pidl = ILCreateFromPath(static_cast<LPCTSTR>(m_sConvertedFilePath));
+            PCIDLIST_ABSOLUTE __unaligned pidl = ILCreateFromPath(static_cast<LPCWSTR>(m_sConvertedFilePath));
             if (pidl)
             {
                 SHOpenFolderAndSelectItems(pidl, 0, nullptr, 0);
@@ -4231,7 +4231,7 @@ void CBaseView::PasteText()
     hglb = GetClipboardData(CF_UNICODETEXT);
     if (hglb)
     {
-        LPCTSTR lpstr  = static_cast<LPCTSTR>(GlobalLock(hglb));
+        LPCWSTR lpstr  = static_cast<LPCWSTR>(GlobalLock(hglb));
         sClipboardText = lpstr;
         GlobalUnlock(hglb);
     }

@@ -28,7 +28,7 @@ class CStdioFileT : public CStdioFile
 {
 public:
     CStdioFileT();
-    CStdioFileT(LPCTSTR lpszFileName, UINT nOpenFlags);
+    CStdioFileT(LPCWSTR lpszFileName, UINT nOpenFlags);
 
     BOOL ReadString(CString& rString) override { return CStdioFile::ReadString(rString); }
 

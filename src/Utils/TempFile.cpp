@@ -73,11 +73,11 @@ CTSVNPath CTempFiles::ConstructTempPath(const CTSVNPath& path, const SVNRev& rev
             {
                 if (revision.IsValid())
                 {
-                    possibleTempFile.Format(L"%s%s-rev%s.svn%3.3x.tmp%s", tempPath.get(), static_cast<LPCTSTR>(filename), static_cast<LPCTSTR>(revision.ToString()), i, static_cast<LPCTSTR>(path.GetFileExtension()));
+                    possibleTempFile.Format(L"%s%s-rev%s.svn%3.3x.tmp%s", tempPath.get(), static_cast<LPCWSTR>(filename), static_cast<LPCWSTR>(revision.ToString()), i, static_cast<LPCWSTR>(path.GetFileExtension()));
                 }
                 else
                 {
-                    possibleTempFile.Format(L"%s%s.svn%3.3x.tmp%s", tempPath.get(), static_cast<LPCTSTR>(filename), i, static_cast<LPCTSTR>(path.GetFileExtension()));
+                    possibleTempFile.Format(L"%s%s.svn%3.3x.tmp%s", tempPath.get(), static_cast<LPCWSTR>(filename), i, static_cast<LPCWSTR>(path.GetFileExtension()));
                 }
                 tempFile.SetFromWin(possibleTempFile);
                 filename = filename.Left(filename.GetLength() - 1);
@@ -165,7 +165,7 @@ CTSVNPath CTempFiles::GetTempDirPath(bool bRemoveAtEnd, const CTSVNPath& path /*
     return CreateTempPath(bRemoveAtEnd, path, revision, true);
 }
 
-void CTempFiles::DeleteOldTempFiles(LPCTSTR wildCard)
+void CTempFiles::DeleteOldTempFiles(LPCWSTR wildCard)
 {
     DWORD len  = ::GetTempPath(0, nullptr);
     auto  path = std::make_unique<wchar_t[]>(len + 100LL);

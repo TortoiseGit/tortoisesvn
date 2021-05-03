@@ -1,4 +1,4 @@
-// TortoiseOverlays - an overlay handler for Tortoise clients
+﻿// TortoiseOverlays - an overlay handler for Tortoise clients
 // Copyright (C) 2007, 2009-2011, 2013-2015 - TortoiseSVN
 #include "stdafx.h"
 #include "ShellExt.h"
@@ -97,7 +97,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     if ((m_State == FileStateLocked)&&(nInstalledOverlays > nOverlayLimit))
         return S_FALSE;     // don't show the 'locked' overlay
 
-    const TCHAR* iconName = 0;
+    const wchar_t *iconName = 0;
 
     switch (m_State)
     {
@@ -116,7 +116,7 @@ STDMETHODIMP CShellExt::GetOverlayInfo(LPWSTR pwszIconFile, int cchMax, int *pIn
     // Get folder icons from registry
     // Default icons are stored in LOCAL MACHINE
     // User selected icons are stored in CURRENT USER
-    TCHAR regVal[1024] = { 0 };
+    wchar_t regVal[1024] = {0};
 
     std::wstring icon;
     HKEY hkeys [] = { HKEY_CURRENT_USER, HKEY_LOCAL_MACHINE };
@@ -237,8 +237,8 @@ int CShellExt::GetInstalledOverlays()
         L"Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\ShellIconOverlayIdentifiers",
         0, KEY_ENUMERATE_SUB_KEYS, &hKey)==ERROR_SUCCESS)
     {
-        TCHAR value[2048] = { 0 };
-        TCHAR keystring[2048] = { 0 };
+        wchar_t value[2048]     = {0};
+        wchar_t keystring[2048] = {0};
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
             DWORD size = _countof(value);
@@ -269,7 +269,7 @@ int CShellExt::GetInstalledOverlays()
 
 void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
-    const TCHAR* name = 0;
+    const wchar_t *name = 0;
     switch (m_State)
     {
     case FileStateNormal        : name = L"Software\\TortoiseOverlays\\Normal"; break;
@@ -291,15 +291,15 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
     {
         for (int i = 0, rc = ERROR_SUCCESS; rc == ERROR_SUCCESS; i++)
         {
-            TCHAR k[MAX_PATH] = { 0 };
-            TCHAR value[MAX_PATH] = { 0 };
+            wchar_t k[MAX_PATH]     = {0};
+            wchar_t value[MAX_PATH] = {0};
             DWORD sizek = _countof(k);
             DWORD sizev = _countof(value);
             rc = RegEnumValue(hKey, i, k, &sizek, NULL, NULL, (LPBYTE)value, &sizev);
             if (rc == ERROR_SUCCESS)
             {
-                TCHAR comobj[MAX_PATH] = { 0 };
-                TCHAR modpath[MAX_PATH] = { 0 };
+                wchar_t comobj[MAX_PATH]  = {0};
+                wchar_t modpath[MAX_PATH] = {0};
                 wcscpy_s(comobj, L"CLSID\\");
                 wcscat_s(comobj, value);
                 wcscat_s(comobj, L"\\InprocServer32");
@@ -313,7 +313,7 @@ void CShellExt::LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD
     }
 }
 
-void CShellExt::LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR classIdString, LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
+void CShellExt::LoadRealLibrary(LPCWSTR ModuleName, LPCWSTR classIdString, LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags)
 {
     static const char GetClassObject[] = "DllGetClassObject";
     static const char CanUnloadNow[] = "DllCanUnloadNow";

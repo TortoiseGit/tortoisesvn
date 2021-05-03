@@ -123,7 +123,7 @@ bool SVNDiff::DiffWCFile(const CTSVNPath&   filePath,
         progDlg.SetTime(false);
         m_pSVN->SetAndClearProgressInfo(&progDlg, true); // activate progress bar
         progDlg.ShowModeless(GetHWND());
-        progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, static_cast<LPCTSTR>(filePath.GetUIFileOrDirectoryName()));
+        progDlg.FormatPathLine(1, IDS_PROGRESSGETFILE, static_cast<LPCWSTR>(filePath.GetUIFileOrDirectoryName()));
         remoteRev = SVNRev::REV_HEAD;
         if (!m_pSVN->Export(filePath, remotePath, remoteRev, remoteRev))
         {
@@ -139,12 +139,12 @@ bool SVNDiff::DiffWCFile(const CTSVNPath&   filePath,
 
     CString name = filePath.GetUIFileOrDirectoryName();
     CString n1, n2, n3;
-    n1.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(name));
+    n1.Format(IDS_DIFF_WCNAME, static_cast<LPCWSTR>(name));
     if (baseRev)
-        n2.FormatMessage(IDS_DIFF_BASENAMEREV, static_cast<LPCTSTR>(name), baseRev);
+        n2.FormatMessage(IDS_DIFF_BASENAMEREV, static_cast<LPCWSTR>(name), baseRev);
     else
-        n2.Format(IDS_DIFF_BASENAME, static_cast<LPCTSTR>(name));
-    n3.Format(IDS_DIFF_REMOTENAME, static_cast<LPCTSTR>(name));
+        n2.Format(IDS_DIFF_BASENAME, static_cast<LPCWSTR>(name));
+    n3.Format(IDS_DIFF_REMOTENAME, static_cast<LPCWSTR>(name));
 
     if ((textStatus <= svn_wc_status_normal) && (propStatus <= svn_wc_status_normal) && (status <= svn_wc_status_normal))
     {
@@ -235,11 +235,11 @@ bool SVNDiff::DiffFileAgainstBase(const CTSVNPath& filePath, svn_revnum_t& baseR
             SetFileAttributes(wcFilePath.GetWinPath(), FILE_ATTRIBUTE_READONLY);
         }
         CString n1, n2;
-        n1.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(name));
+        n1.Format(IDS_DIFF_WCNAME, static_cast<LPCWSTR>(name));
         if (baseRev)
-            n2.FormatMessage(IDS_DIFF_BASENAMEREV, static_cast<LPCTSTR>(name), baseRev);
+            n2.FormatMessage(IDS_DIFF_BASENAMEREV, static_cast<LPCWSTR>(name), baseRev);
         else
-            n2.Format(IDS_DIFF_BASENAME, static_cast<LPCTSTR>(name));
+            n2.Format(IDS_DIFF_BASENAME, static_cast<LPCWSTR>(name));
         retValue = CAppUtils::StartExtDiff(
             basePath, wcFilePath, n2, n1,
             filePath, filePath, SVNRev::REV_BASE, SVNRev::REV_WC, SVNRev::REV_BASE,
@@ -330,13 +330,13 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
         list.AddPath(url1);
         list.AddPath(url2);
         if (url1.IsEquivalentTo(url2))
-            title.FormatMessage(IDS_SVNDIFF_ONEURL, static_cast<LPCTSTR>(rev1.ToString()), static_cast<LPCTSTR>(rev2.ToString()), static_cast<LPCTSTR>(url1.GetUIFileOrDirectoryName()));
+            title.FormatMessage(IDS_SVNDIFF_ONEURL, static_cast<LPCWSTR>(rev1.ToString()), static_cast<LPCWSTR>(rev2.ToString()), static_cast<LPCWSTR>(url1.GetUIFileOrDirectoryName()));
         else
         {
             CTSVNPath root = list.GetCommonRoot();
             CString   u1   = url1.GetUIPathString().Mid(root.GetUIPathString().GetLength());
             CString   u2   = url2.GetUIPathString().Mid(root.GetUIPathString().GetLength());
-            title.FormatMessage(IDS_SVNDIFF_TWOURLS, static_cast<LPCTSTR>(rev1.ToString()), static_cast<LPCTSTR>(u1), static_cast<LPCTSTR>(rev2.ToString()), static_cast<LPCTSTR>(u2));
+            title.FormatMessage(IDS_SVNDIFF_TWOURLS, static_cast<LPCWSTR>(rev1.ToString()), static_cast<LPCWSTR>(u1), static_cast<LPCWSTR>(rev2.ToString()), static_cast<LPCWSTR>(u2));
         }
         return !!CAppUtils::StartUnifiedDiffViewer(tempFile.GetWinPathString(), title);
     }
@@ -449,7 +449,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVN
             CTSVNPath tempFile2 = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, blame ? CTSVNPath() : url2, rev2);
 
             m_pSVN->SetAndClearProgressInfo(&progDlg, true); // activate progress bar
-            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, static_cast<LPCTSTR>(url1.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev1.ToString()));
+            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, static_cast<LPCWSTR>(url1.GetUIFileOrDirectoryName()), static_cast<LPCWSTR>(rev1.ToString()));
             CAppUtils::GetMimeType(url1, mimeType, rev1);
             CBlame blamer;
             blamer.SetAndClearProgressInfo(&progDlg, true);
@@ -508,7 +508,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVN
             }
             SetFileAttributes(tempFile1.GetWinPath(), FILE_ATTRIBUTE_READONLY);
 
-            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, static_cast<LPCTSTR>(url2.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev2.ToString()));
+            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, static_cast<LPCWSTR>(url2.GetUIFileOrDirectoryName()), static_cast<LPCWSTR>(rev2.ToString()));
             progDlg.SetProgress(50, 100);
             if (blame)
             {
@@ -565,27 +565,27 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVN
             CString revName1, revName2, fName;
             if (url1.IsEquivalentTo(url2))
             {
-                revName1.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev1.ToString()));
-                revName2.Format(L"%s Revision %s", static_cast<LPCTSTR>(url2.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev2.ToString()));
+                revName1.Format(L"%s Revision %s", static_cast<LPCWSTR>(url1.GetUIFileOrDirectoryName()), static_cast<LPCWSTR>(rev1.ToString()));
+                revName2.Format(L"%s Revision %s", static_cast<LPCWSTR>(url2.GetUIFileOrDirectoryName()), static_cast<LPCWSTR>(rev2.ToString()));
                 fName = url1.GetUIFileOrDirectoryName();
             }
             else
             {
                 if (sRepoRoot.IsEmpty())
                 {
-                    revName1.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetSVNPathString()), static_cast<LPCTSTR>(rev1.ToString()));
-                    revName2.Format(L"%s Revision %s", static_cast<LPCTSTR>(url2.GetSVNPathString()), static_cast<LPCTSTR>(rev2.ToString()));
+                    revName1.Format(L"%s Revision %s", static_cast<LPCWSTR>(url1.GetSVNPathString()), static_cast<LPCWSTR>(rev1.ToString()));
+                    revName2.Format(L"%s Revision %s", static_cast<LPCWSTR>(url2.GetSVNPathString()), static_cast<LPCWSTR>(rev2.ToString()));
                 }
                 else
                 {
                     if (url1.IsUrl())
-                        revName1.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetSVNPathString().Mid(sRepoRoot.GetLength())), static_cast<LPCTSTR>(rev1.ToString()));
+                        revName1.Format(L"%s Revision %s", static_cast<LPCWSTR>(url1.GetSVNPathString().Mid(sRepoRoot.GetLength())), static_cast<LPCWSTR>(rev1.ToString()));
                     else
-                        revName1.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetSVNPathString()), static_cast<LPCTSTR>(rev1.ToString()));
+                        revName1.Format(L"%s Revision %s", static_cast<LPCWSTR>(url1.GetSVNPathString()), static_cast<LPCWSTR>(rev1.ToString()));
                     if (url2.IsUrl() && (url2.GetSVNPathString().Left(sRepoRoot.GetLength()).Compare(sRepoRoot) == 0))
-                        revName2.Format(L"%s Revision %s", static_cast<LPCTSTR>(url2.GetSVNPathString().Mid(sRepoRoot.GetLength())), static_cast<LPCTSTR>(rev2.ToString()));
+                        revName2.Format(L"%s Revision %s", static_cast<LPCWSTR>(url2.GetSVNPathString().Mid(sRepoRoot.GetLength())), static_cast<LPCWSTR>(rev2.ToString()));
                     else
-                        revName2.Format(L"%s Revision %s", static_cast<LPCTSTR>(url2.GetSVNPathString()), static_cast<LPCTSTR>(rev2.ToString()));
+                        revName2.Format(L"%s Revision %s", static_cast<LPCWSTR>(url2.GetSVNPathString()), static_cast<LPCWSTR>(rev2.ToString()));
                 }
             }
             return CAppUtils::StartExtDiff(tempFile1, tempFile2, revName1, revName2, url1, url2, rev1, rev2, peg, diffFlags.Blame(blame), m_jumpLine, fName, mimeType);
@@ -618,7 +618,7 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVN
 
             m_pSVN->SetAndClearProgressInfo(&progDlg, true); // activate progress bar
             progDlg.ShowModeless(GetHWND());
-            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, static_cast<LPCTSTR>(url1.GetUIFileOrDirectoryName()), static_cast<LPCTSTR>(rev2.ToString()));
+            progDlg.FormatPathLine(1, IDS_PROGRESSGETFILEREVISION, static_cast<LPCWSTR>(url1.GetUIFileOrDirectoryName()), static_cast<LPCWSTR>(rev2.ToString()));
 
             tempFile = CTempFiles::Instance().GetTempFilePath(m_bRemoveTempFiles, url1, rev2);
             if (blame)
@@ -656,8 +656,8 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVN
                     return false;
                 }
                 CString revName, wcName;
-                revName.Format(L"%s Revision %ld", static_cast<LPCTSTR>(url1.GetFilename()), static_cast<LONG>(rev2));
-                wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(url1.GetFilename()));
+                revName.Format(L"%s Revision %ld", static_cast<LPCWSTR>(url1.GetFilename()), static_cast<LONG>(rev2));
+                wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCWSTR>(url1.GetFilename()));
                 m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                 return CAppUtils::StartExtDiff(tempFile, tempFile2, revName, wcName, url1, url2, rev1, rev2, peg, diffFlags, m_jumpLine, url1.GetFileOrDirectoryName(), L"");
             }
@@ -687,8 +687,8 @@ bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVN
                 m_pSVN->SetAndClearProgressInfo(static_cast<HWND>(nullptr));
                 SetFileAttributes(tempFile.GetWinPath(), FILE_ATTRIBUTE_READONLY);
                 CString revName, wcName;
-                revName.Format(L"%s Revision %s", static_cast<LPCTSTR>(url1.GetFilename()), static_cast<LPCTSTR>(rev2.ToString()));
-                wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCTSTR>(url1.GetFilename()));
+                revName.Format(L"%s Revision %s", static_cast<LPCWSTR>(url1.GetFilename()), static_cast<LPCWSTR>(rev2.ToString()));
+                wcName.Format(IDS_DIFF_WCNAME, static_cast<LPCWSTR>(url1.GetFilename()));
                 return CAppUtils::StartExtDiff(tempFile, url1, revName, wcName, url1, url1, rev2, rev1, peg, diffFlags, m_jumpLine, url1.GetFileOrDirectoryName(), L"");
             }
         }
@@ -732,7 +732,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
     {
         std::string  baseName  = propsBase.GetItemName(baseindex);
         std::wstring baseNameU = CUnicodeUtils::StdGetUnicode(baseName);
-        std::wstring baseValue = static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(propsBase.GetItemValue(baseindex).c_str()));
+        std::wstring baseValue = static_cast<LPCWSTR>(CUnicodeUtils::GetUnicode(propsBase.GetItemValue(baseindex).c_str()));
         bool         bFound    = false;
         for (int wcIndex = 0; wcIndex < propsWc.GetCount(); ++wcIndex)
         {
@@ -829,7 +829,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
     {
         std::string  wcName  = propsWc.GetItemName(wcindex);
         std::wstring wcNameU = CUnicodeUtils::StdGetUnicode(wcName);
-        std::wstring wcValue = static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(propsWc.GetItemValue(wcindex).c_str()));
+        std::wstring wcValue = static_cast<LPCWSTR>(CUnicodeUtils::GetUnicode(propsWc.GetItemValue(wcindex).c_str()));
         std::wstring baseValue;
         bool         bDiffRequired = true;
         for (int baseIndex = 0; baseIndex < propsBase.GetCount(); ++baseIndex)
@@ -878,7 +878,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
             if (rev1.IsHead())
                 n1.Format(IDS_DIFF_REMOTENAME, wcNameU.c_str());
             if (n1.IsEmpty())
-                n1.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcNameU.c_str(), static_cast<LPCTSTR>(rev1.ToString()));
+                n1.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcNameU.c_str(), static_cast<LPCWSTR>(rev1.ToString()));
             else
                 n1 = CString(pathBuf1) + L" - " + n1;
             if (rev2.IsWorking())
@@ -888,7 +888,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
             if (rev2.IsHead())
                 n2.Format(IDS_DIFF_REMOTENAME, wcNameU.c_str());
             if (n2.IsEmpty())
-                n2.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcNameU.c_str(), static_cast<LPCTSTR>(rev2.ToString()));
+                n2.FormatMessage(IDS_DIFF_PROP_REVISIONNAME, wcNameU.c_str(), static_cast<LPCWSTR>(rev2.ToString()));
             else
                 n2 = CString(pathBuf1) + L" - " + n2;
             retValue = !!CAppUtils::StartExtDiffProps(basePropFile, wcPropFile, n2, n1, TRUE, TRUE);

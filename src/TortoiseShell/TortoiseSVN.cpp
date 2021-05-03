@@ -47,7 +47,7 @@ bool                g_ignoredOvlLoaded     = false;
 bool                g_unversionedOvlLoaded = false;
 CComCriticalSection g_csGlobalComGuard;
 
-LPCTSTR g_menuIDString = L"TortoiseSVN";
+LPCWSTR g_menuIDString = L"TortoiseSVN";
 
 ShellObjects g_shellObjects;
 

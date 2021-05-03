@@ -52,6 +52,6 @@ void SVNError::ThrowLastError(DWORD lastError)
     // get formatted system error message
 
     CFormatMessageWrapper errorMessage(lastError);
-    CStringA              errorText(static_cast<LPCTSTR>(errorMessage));
+    CStringA              errorText(static_cast<LPCWSTR>(errorMessage));
     throw SVNError(SVN_ERR_BASE, errorText);
 }

@@ -92,7 +92,7 @@ void SVNPatch::notify(void* baton, const svn_wc_notify_t* notify, apr_pool_t* /*
 
         if (((notify->action == svn_wc_notify_patch) || (notify->action == svn_wc_notify_add)) && (pThis->m_pProgDlg))
         {
-            pThis->m_pProgDlg->FormatPathLine(2, IDS_PATCH_PATHINGFILE, static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(notify->path)));
+            pThis->m_pProgDlg->FormatPathLine(2, IDS_PATCH_PATHINGFILE, static_cast<LPCWSTR>(CUnicodeUtils::GetUnicode(notify->path)));
         }
     }
 }

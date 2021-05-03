@@ -142,7 +142,7 @@ BOOL CTortoiseProcApp::InitInstance()
     HINSTANCE hInst = nullptr;
     do
     {
-        langDll.Format(L"%sLanguages\\TortoiseProc%ld.dll", static_cast<LPCTSTR>(CPathUtils::GetAppParentDirectory()), langId);
+        langDll.Format(L"%sLanguages\\TortoiseProc%ld.dll", static_cast<LPCWSTR>(CPathUtils::GetAppParentDirectory()), langId);
 
         hInst = LoadLibrary(langDll);
 
@@ -576,7 +576,7 @@ void CTortoiseProcApp::DoInitializeJumpList(const CString& appid)
     CStringUtils::RemoveAccelerators(sTemp);
 
     ATL::CComPtr<IShellLink> psl;
-    hr = CreateShellLink(L"/command:settings", static_cast<LPCTSTR>(sTemp), 19, &psl);
+    hr = CreateShellLink(L"/command:settings", static_cast<LPCWSTR>(sTemp), 19, &psl);
     if (SUCCEEDED(hr))
     {
         poc->AddObject(psl);
@@ -584,7 +584,7 @@ void CTortoiseProcApp::DoInitializeJumpList(const CString& appid)
     sTemp = CString(MAKEINTRESOURCE(IDS_MENUHELP));
     CStringUtils::RemoveAccelerators(sTemp);
     psl.Release(); // Need to release the object before calling operator&()
-    hr = CreateShellLink(L"/command:help", static_cast<LPCTSTR>(sTemp), 18, &psl);
+    hr = CreateShellLink(L"/command:help", static_cast<LPCWSTR>(sTemp), 18, &psl);
     if (SUCCEEDED(hr))
     {
         poc->AddObject(psl);
@@ -594,7 +594,7 @@ void CTortoiseProcApp::DoInitializeJumpList(const CString& appid)
     hr = poc.QueryInterface(&poa);
     if (SUCCEEDED(hr))
     {
-        pcdl->AppendCategory(static_cast<LPCTSTR>(CString(MAKEINTRESOURCE(IDS_PROC_TASKS))), poa);
+        pcdl->AppendCategory(static_cast<LPCWSTR>(CString(MAKEINTRESOURCE(IDS_PROC_TASKS))), poa);
         pcdl->CommitList();
     }
 }

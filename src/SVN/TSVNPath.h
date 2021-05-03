@@ -48,9 +48,9 @@ public:
     /**
      * Set the path as UNICODE with backslashes
      */
-    void SetFromWin(LPCTSTR pPath) const;
+    void SetFromWin(LPCWSTR pPath) const;
     void SetFromWin(const CString& sPath) const;
-    void SetFromWin(LPCTSTR pPath, bool bIsDirectory) const;
+    void SetFromWin(LPCWSTR pPath, bool bIsDirectory) const;
     void SetFromWin(const CString& sPath, bool bIsDirectory) const;
     /**
      * Set the path from an unknown source.
@@ -59,7 +59,7 @@ public:
     /**
      * Returns the path in Windows format, i.e. with backslashes
      */
-    LPCTSTR GetWinPath() const;
+    LPCWSTR GetWinPath() const;
     /**
      * Returns the path in Windows format, i.e. with backslashes
      */
@@ -158,7 +158,7 @@ public:
      * section stripped off the front
      * Returns a string with fwdslash paths
      */
-    LPCTSTR GetDisplayString(const CTSVNPath* pOptionalBasePath = nullptr) const;
+    LPCWSTR GetDisplayString(const CTSVNPath* pOptionalBasePath = nullptr) const;
     /**
      * Compares two paths, case insensitive. Slash format is irrelevant.
      */
@@ -381,7 +381,7 @@ public:
     /** Convert into the SVN API parameter format */
     apr_array_header_t* MakePathArray(apr_pool_t* pool) const;
 
-    static bool DeleteViaShell(LPCTSTR path, bool useTrashbin, HWND hErrorWnd);
+    static bool DeleteViaShell(LPCWSTR path, bool useTrashbin, HWND hErrorWnd);
 
 private:
     typedef std::vector<CTSVNPath> PathVector;

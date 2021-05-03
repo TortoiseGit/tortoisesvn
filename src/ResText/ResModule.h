@@ -39,8 +39,8 @@ typedef struct TagDlgItemInfo
     short   cx;
     short   cy;
     WORD    id;
-    LPCTSTR className;
-    LPCTSTR windowName;
+    LPCWSTR className;
+    LPCWSTR windowName;
     LPVOID  data;
 } DLGITEMINFO, *LPDLGITEMINFO;
 
@@ -55,13 +55,13 @@ typedef struct TagDialogInfo
     short   y;
     short   cx;
     short   cy;
-    LPCTSTR menuName;
-    LPCTSTR className;
-    LPCTSTR caption;
+    LPCWSTR menuName;
+    LPCWSTR className;
+    LPCWSTR caption;
     WORD    pointSize;
     WORD    weight;
     BOOL    italic;
-    LPCTSTR faceName;
+    LPCWSTR faceName;
     BOOL    dialogEx;
 } DIALOGINFO, *LPDIALOGINFO;
 // MENU resource
@@ -84,9 +84,9 @@ public:
     CResModule();
     ~CResModule();
 
-    BOOL ExtractResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszPOFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile);
-    BOOL ExtractResources(const std::vector<std::wstring>& fileList, LPCTSTR lpszPoFilePath, BOOL bNoUpdate, LPCTSTR lpszHeaderFile);
-    BOOL CreateTranslatedResources(LPCTSTR lpszSrcLangDllPath, LPCTSTR lpszDestLangDllPath, LPCTSTR lpszPoFilePath);
+    BOOL ExtractResources(LPCWSTR lpszSrcLangDllPath, LPCWSTR lpszPOFilePath, BOOL bNoUpdate, LPCWSTR lpszHeaderFile);
+    BOOL ExtractResources(const std::vector<std::wstring>& fileList, LPCWSTR lpszPoFilePath, BOOL bNoUpdate, LPCWSTR lpszHeaderFile);
+    BOOL CreateTranslatedResources(LPCWSTR lpszSrcLangDllPath, LPCWSTR lpszDestLangDllPath, LPCWSTR lpszPoFilePath);
     void SetQuiet(BOOL bQuiet = TRUE)
     {
         m_bQuiet = bQuiet;
@@ -97,19 +97,19 @@ public:
     void SetAdjustEOLs(bool bAdjustEOLs = true) { m_bAdjustEOLs = bAdjustEOLs; }
 
 private:
-    static BOOL CALLBACK EnumResNameCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam);
-    static BOOL CALLBACK EnumResNameWriteCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, LONG_PTR lParam);
-    static BOOL CALLBACK EnumResWriteLangCallback(HMODULE hModule, LPCTSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG_PTR lParam);
-    BOOL                 ExtractString(LPCTSTR lpszType);
-    BOOL                 ExtractDialog(LPCTSTR lpszType);
-    BOOL                 ExtractMenu(LPCTSTR lpszType);
-    BOOL                 ExtractRibbon(LPCTSTR lpszType);
-    BOOL                 ReplaceString(LPCTSTR lpszType, WORD wLanguage);
-    BOOL                 ReplaceDialog(LPCTSTR lpszType, WORD wLanguage);
-    BOOL                 ReplaceMenu(LPCTSTR lpszType, WORD wLanguage);
-    BOOL                 ExtractAccelerator(LPCTSTR lpszType);
-    BOOL                 ReplaceAccelerator(LPCTSTR lpszType, WORD wLanguage);
-    BOOL                 ReplaceRibbon(LPCTSTR lpszType, WORD wLanguage);
+    static BOOL CALLBACK EnumResNameCallback(HMODULE hModule, LPCWSTR lpszType, LPTSTR lpszName, LONG_PTR lParam);
+    static BOOL CALLBACK EnumResNameWriteCallback(HMODULE hModule, LPCWSTR lpszType, LPTSTR lpszName, LONG_PTR lParam);
+    static BOOL CALLBACK EnumResWriteLangCallback(HMODULE hModule, LPCWSTR lpszType, LPTSTR lpszName, WORD wLanguage, LONG_PTR lParam);
+    BOOL                 ExtractString(LPCWSTR lpszType);
+    BOOL                 ExtractDialog(LPCWSTR lpszType);
+    BOOL                 ExtractMenu(LPCWSTR lpszType);
+    BOOL                 ExtractRibbon(LPCWSTR lpszType);
+    BOOL                 ReplaceString(LPCWSTR lpszType, WORD wLanguage);
+    BOOL                 ReplaceDialog(LPCWSTR lpszType, WORD wLanguage);
+    BOOL                 ReplaceMenu(LPCWSTR lpszType, WORD wLanguage);
+    BOOL                 ExtractAccelerator(LPCWSTR lpszType);
+    BOOL                 ReplaceAccelerator(LPCWSTR lpszType, WORD wLanguage);
+    BOOL                 ReplaceRibbon(LPCWSTR lpszType, WORD wLanguage);
 
     template <size_t Size>
     inline std::wstring ReplaceWithRegex(WCHAR (&pBuf)[Size])
@@ -133,7 +133,7 @@ private:
     size_t      ScanHeaderFile(const std::wstring& filepath);
     void        InsertResourceIDs(LPCWSTR lpType, INT_PTR mainId, RESOURCEENTRY& entry, INT_PTR id, LPCWSTR infoText);
     static bool AdjustCheckSum(const std::wstring& resFile);
-    static void RemoveSignatures(LPCTSTR lpszDestLangDllPath);
+    static void RemoveSignatures(LPCWSTR lpszDestLangDllPath);
 
     HMODULE                         m_hResDll;
     HANDLE                          m_hUpdateRes;

@@ -246,14 +246,14 @@ void CEditPropertyValueDlg::OnOK()
 {
     UpdateData();
     m_propNames.GetWindowText(m_sPropName);
-    m_propName              = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_sPropName));
+    m_propName              = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_sPropName));
     svn_boolean_t isSVNProp = svn_prop_needs_translation(m_propName.c_str());
 
     if (!m_bIsBinary || isSVNProp)
     {
         m_sPropValue.Replace(L"\r\n", L"\n");
         m_sPropValue.Replace(L"\n\n", L"\n");
-        m_propValue = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(m_sPropValue));
+        m_propValue = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(m_sPropValue));
     }
     CDialog::OnOK();
 }
@@ -272,7 +272,7 @@ void CEditPropertyValueDlg::CheckRecursive()
     {
         CString sName;
         m_propNames.GetLBText(idx, sName);
-        std::string nameUTF8 = CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(sName));
+        std::string nameUTF8 = CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(sName));
         if ((m_bFolder) || (m_bMultiple))
         {
             // folder or multiple, now check for file-only props

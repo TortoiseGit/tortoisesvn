@@ -20,6 +20,7 @@
 
 #pragma warning(push)
 #include "svn_wc.h"
+#include "svn_client.h"
 #pragma warning(pop)
 #include "SVNBase.h"
 #include "SVNPrompt.h"

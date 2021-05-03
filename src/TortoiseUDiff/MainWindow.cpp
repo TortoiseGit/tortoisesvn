@@ -182,7 +182,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
             SendEditor(SCI_CHARRIGHT);
             SendEditor(SCI_SEARCHANCHOR);
             m_bMatchCase = !!wParam;
-            m_findText   = reinterpret_cast<LPCTSTR>(lParam);
+            m_findText   = reinterpret_cast<LPCWSTR>(lParam);
             if (SendEditor(SCI_SEARCHNEXT, m_bMatchCase ? SCFIND_MATCHCASE : 0, reinterpret_cast<LPARAM>(CUnicodeUtils::StdGetUTF8(m_findText).c_str())) == -1)
             {
                 FLASHWINFO fwi;
@@ -200,7 +200,7 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
         {
             SendEditor(SCI_SEARCHANCHOR);
             m_bMatchCase = !!wParam;
-            m_findText   = reinterpret_cast<LPCTSTR>(lParam);
+            m_findText   = reinterpret_cast<LPCWSTR>(lParam);
             if (SendEditor(SCI_SEARCHPREV, m_bMatchCase ? SCFIND_MATCHCASE : 0, reinterpret_cast<LPARAM>(CUnicodeUtils::StdGetUTF8(m_findText).c_str())) == -1)
             {
                 FLASHWINFO fwi;
@@ -856,7 +856,7 @@ bool CMainWindow::LoadFile(HANDLE hFile) const
     return true;
 }
 
-bool CMainWindow::LoadFile(LPCTSTR filename)
+bool CMainWindow::LoadFile(LPCWSTR filename)
 {
     InitEditor();
     FILE* fp = nullptr;
@@ -903,7 +903,7 @@ void CMainWindow::SetupWindow(bool bUTF8) const
     ::ShowWindow(m_hWndEdit, SW_SHOW);
 }
 
-bool CMainWindow::SaveFile(LPCTSTR filename) const
+bool CMainWindow::SaveFile(LPCWSTR filename) const
 {
     FILE* fp = nullptr;
     _wfopen_s(&fp, filename, L"w+b");
@@ -912,7 +912,7 @@ bool CMainWindow::SaveFile(LPCTSTR filename) const
         TCHAR fmt[1024] = {0};
         LoadString(hResource, IDS_ERRORSAVE, fmt, _countof(fmt));
         TCHAR error[1024] = {0};
-        _snwprintf_s(error, _countof(error), fmt, filename, static_cast<LPCTSTR>(CFormatMessageWrapper()));
+        _snwprintf_s(error, _countof(error), fmt, filename, static_cast<LPCWSTR>(CFormatMessageWrapper()));
         MessageBox(*this, error, L"TortoiseUDiff", MB_OK);
         return false;
     }
@@ -928,7 +928,7 @@ bool CMainWindow::SaveFile(LPCTSTR filename) const
     return true;
 }
 
-void CMainWindow::SetTitle(LPCTSTR title)
+void CMainWindow::SetTitle(LPCWSTR title)
 {
     size_t len  = wcslen(title);
     auto   pBuf = std::make_unique<TCHAR[]>(len + 40);

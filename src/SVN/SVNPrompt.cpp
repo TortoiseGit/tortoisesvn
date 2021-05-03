@@ -228,12 +228,12 @@ svn_error_t *SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **credP
     BOOL prev = FALSE;
 
     CString msg;
-    msg.Format(IDS_ERR_SSL_VALIDATE, static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(realm)));
+    msg.Format(IDS_ERR_SSL_VALIDATE, static_cast<LPCWSTR>(CUnicodeUtils::GetUnicode(realm)));
     msg += L"\n";
     CString temp;
     if (failures & SVN_AUTH_SSL_UNKNOWNCA)
     {
-        temp.FormatMessage(IDS_ERR_SSL_UNKNOWNCA, static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(certInfo->fingerprint)), static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(certInfo->issuer_dname)));
+        temp.FormatMessage(IDS_ERR_SSL_UNKNOWNCA, static_cast<LPCWSTR>(CUnicodeUtils::GetUnicode(certInfo->fingerprint)), static_cast<LPCWSTR>(CUnicodeUtils::GetUnicode(certInfo->issuer_dname)));
         msg += temp;
         prev = TRUE;
     }
@@ -241,7 +241,7 @@ svn_error_t *SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **credP
     {
         if (prev)
             msg += L"\n";
-        temp.Format(IDS_ERR_SSL_CNMISMATCH, static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(certInfo->hostname)));
+        temp.Format(IDS_ERR_SSL_CNMISMATCH, static_cast<LPCWSTR>(CUnicodeUtils::GetUnicode(certInfo->hostname)));
         msg += temp;
         prev = TRUE;
     }
@@ -249,7 +249,7 @@ svn_error_t *SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **credP
     {
         if (prev)
             msg += L"\n";
-        temp.Format(IDS_ERR_SSL_NOTYETVALID, static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(certInfo->valid_from)));
+        temp.Format(IDS_ERR_SSL_NOTYETVALID, static_cast<LPCWSTR>(CUnicodeUtils::GetUnicode(certInfo->valid_from)));
         msg += temp;
         prev = TRUE;
     }
@@ -257,7 +257,7 @@ svn_error_t *SVNPrompt::sslserverprompt(svn_auth_cred_ssl_server_trust_t **credP
     {
         if (prev)
             msg += L"\n";
-        temp.Format(IDS_ERR_SSL_EXPIRED, static_cast<LPCTSTR>(CUnicodeUtils::GetUnicode(certInfo->valid_until)));
+        temp.Format(IDS_ERR_SSL_EXPIRED, static_cast<LPCWSTR>(CUnicodeUtils::GetUnicode(certInfo->valid_until)));
         msg += temp;
         prev = TRUE;
     }
@@ -489,7 +489,7 @@ UINT_PTR CALLBACK SVNPrompt::OFNHookProc(HWND hDlg, UINT uiMsg, WPARAM /*wParam*
             if (lpofn->hdr.code == CDN_INITDONE)
             {
                 temp.LoadString(IDS_SSL_SAVE_CERTPATH);
-                SendMessage(::GetParent(hDlg), CDM_SETCONTROLTEXT, chx1, reinterpret_cast<LPARAM>(static_cast<LPCTSTR>(temp)));
+                SendMessage(::GetParent(hDlg), CDM_SETCONTROLTEXT, chx1, reinterpret_cast<LPARAM>(static_cast<LPCWSTR>(temp)));
                 return TRUE;
             }
     }

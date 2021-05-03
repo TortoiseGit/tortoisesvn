@@ -119,7 +119,7 @@ void CScrollTool::Clear()
     m_bInitCalled = false;
 }
 
-LONG CScrollTool::GetTextWidth(LPCTSTR szText)
+LONG CScrollTool::GetTextWidth(LPCWSTR szText)
 {
     CDC * pDC      = GetDC();
     CSize textSize = pDC->GetTextExtent(szText, static_cast<int>(wcslen(szText)));

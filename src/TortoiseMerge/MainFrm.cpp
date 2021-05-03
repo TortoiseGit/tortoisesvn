@@ -551,10 +551,10 @@ BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropM
     {
         m_data.m_baseFile.SetFileName(sTempFile);
         CString temp;
-        temp.Format(L"%s %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCTSTR>(m_data.m_sPatchPatched));
+        temp.Format(L"%s %s", static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCWSTR>(m_data.m_sPatchPatched));
         m_data.m_baseFile.SetDescriptiveName(temp);
         m_data.m_yourFile.SetFileName(sFilePath);
-        temp.Format(L"%s %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCTSTR>(m_data.m_sPatchOriginal));
+        temp.Format(L"%s %s", static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCWSTR>(m_data.m_sPatchOriginal));
         m_data.m_yourFile.SetDescriptiveName(temp);
         m_data.m_theirFile.SetOutOfUse();
         m_data.m_mergedFile.SetOutOfUse();
@@ -571,24 +571,24 @@ BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropM
             m_data.m_baseFile.SetFileName(sFilePath);
         }
         CString sDescription;
-        sDescription.Format(L"%s %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCTSTR>(m_data.m_sPatchOriginal));
+        sDescription.Format(L"%s %s", static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCWSTR>(m_data.m_sPatchOriginal));
         m_data.m_baseFile.SetDescriptiveName(sDescription);
         m_data.m_yourFile.SetFileName(sTempFile);
         CString temp;
-        temp.Format(L"%s %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCTSTR>(m_data.m_sPatchPatched));
+        temp.Format(L"%s %s", static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(sFilePath)), static_cast<LPCWSTR>(m_data.m_sPatchPatched));
         m_data.m_yourFile.SetDescriptiveName(temp);
         m_data.m_theirFile.SetOutOfUse();
         m_data.m_mergedFile.SetFileName(sFilePath);
         m_data.m_bPatchRequired = bPropMods;
     }
-    TRACE(L"comparing %s\nwith the patched result %s\n", static_cast<LPCTSTR>(sFilePath), static_cast<LPCTSTR>(sTempFile));
+    TRACE(L"comparing %s\nwith the patched result %s\n", static_cast<LPCWSTR>(sFilePath), static_cast<LPCWSTR>(sTempFile));
 
     LoadViews();
     if (!sRejectedFile.IsEmpty())
     {
         // start TortoiseUDiff with the rejected hunks
         CString sTitle;
-        sTitle.Format(IDS_TITLE_REJECTEDHUNKS, static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sFilePath)));
+        sTitle.Format(IDS_TITLE_REJECTEDHUNKS, static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(sFilePath)));
         CAppUtils::StartUnifiedDiffViewer(sRejectedFile, sTitle);
     }
     if (bAutoPatch)
@@ -608,7 +608,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 
     CString sTemp;
     CProgressDlg progDlg;
-    sTemp.Format(IDS_GETVERSIONOFFILE, static_cast<LPCTSTR>(sRev1));
+    sTemp.Format(IDS_GETVERSIONOFFILE, static_cast<LPCWSTR>(sRev1));
     progDlg.SetLine(1, sTemp, true);
     progDlg.SetLine(2, sURL1, true);
     sTemp.LoadString(IDS_GETVERSIONOFFILETITLE);
@@ -621,11 +621,11 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
     {
         progDlg.Stop();
         CString sErrMsg;
-        sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, static_cast<LPCTSTR>(sRev1), static_cast<LPCTSTR>(sURL1));
+        sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, static_cast<LPCWSTR>(sRev1), static_cast<LPCWSTR>(sURL1));
         MessageBox(sErrMsg, nullptr, MB_ICONERROR);
         return FALSE;
     }
-    sTemp.Format(IDS_GETVERSIONOFFILE, static_cast<LPCTSTR>(sRev2));
+    sTemp.Format(IDS_GETVERSIONOFFILE, static_cast<LPCWSTR>(sRev2));
     progDlg.SetLine(1, sTemp, true);
     progDlg.SetLine(2, sURL2, true);
     progDlg.SetProgress(50, 100);
@@ -633,17 +633,17 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
     {
         progDlg.Stop();
         CString sErrMsg;
-        sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, static_cast<LPCTSTR>(sRev2), static_cast<LPCTSTR>(sURL2));
+        sErrMsg.FormatMessage(IDS_ERR_MAINFRAME_FILEVERSIONNOTFOUND, static_cast<LPCWSTR>(sRev2), static_cast<LPCWSTR>(sURL2));
         MessageBox(sErrMsg, nullptr, MB_ICONERROR);
         return FALSE;
     }
     progDlg.SetProgress(100,100);
     progDlg.Stop();
     CString temp;
-    temp.Format(L"%s Revision %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sURL1)), static_cast<LPCTSTR>(sRev1));
+    temp.Format(L"%s Revision %s", static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(sURL1)), static_cast<LPCWSTR>(sRev1));
     m_data.m_baseFile.SetFileName(tempfile1);
     m_data.m_baseFile.SetDescriptiveName(temp);
-    temp.Format(L"%s Revision %s", static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(sURL2)), static_cast<LPCTSTR>(sRev2));
+    temp.Format(L"%s Revision %s", static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(sURL2)), static_cast<LPCWSTR>(sRev2));
     m_data.m_yourFile.SetFileName(tempfile2);
     m_data.m_yourFile.SetDescriptiveName(temp);
 
@@ -670,8 +670,8 @@ void CMainFrame::OnFileOpen(bool fillyours)
     }
     m_dlgFilePatches.ShowWindow(SW_HIDE);
     m_dlgFilePatches.Init(nullptr, nullptr, CString(), nullptr);
-    TRACE(L"got the files:\n   %s\n   %s\n   %s\n   %s\n   %s\n", static_cast<LPCTSTR>(dlg.m_sBaseFile), static_cast<LPCTSTR>(dlg.m_sTheirFile), static_cast<LPCTSTR>(dlg.m_sYourFile),
-          static_cast<LPCTSTR>(dlg.m_sUnifiedDiffFile), static_cast<LPCTSTR>(dlg.m_sPatchDirectory));
+    TRACE(L"got the files:\n   %s\n   %s\n   %s\n   %s\n   %s\n", static_cast<LPCWSTR>(dlg.m_sBaseFile), static_cast<LPCWSTR>(dlg.m_sTheirFile), static_cast<LPCWSTR>(dlg.m_sYourFile),
+          static_cast<LPCWSTR>(dlg.m_sUnifiedDiffFile), static_cast<LPCWSTR>(dlg.m_sPatchDirectory));
     m_data.m_baseFile.SetFileName(dlg.m_sBaseFile);
     m_data.m_theirFile.SetFileName(dlg.m_sTheirFile);
     m_data.m_yourFile.SetFileName(dlg.m_sYourFile);
@@ -797,7 +797,7 @@ bool CMainFrame::LoadViews(int line)
             {
                 progDlg.Stop();
                 CString msg;
-                msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, static_cast<LPCTSTR>(m_data.m_sPatchPath), static_cast<LPCTSTR>(betterpatchpath));
+                msg.FormatMessage(IDS_WARNBETTERPATCHPATHFOUND, static_cast<LPCWSTR>(m_data.m_sPatchPath), static_cast<LPCWSTR>(betterpatchpath));
                 CTaskDialog taskdlg(msg,
                                     CString(MAKEINTRESOURCE(IDS_WARNBETTERPATCHPATHFOUND_TASK2)),
                                     L"TortoiseMerge",
@@ -1542,7 +1542,7 @@ void CMainFrame::OnFileSave()
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             CString sTaskTemp;
             if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
-                sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, static_cast<LPCTSTR>(m_pwndLeftView->m_pWorkingFile->GetFilename()));
+                sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, static_cast<LPCWSTR>(m_pwndLeftView->m_pWorkingFile->GetFilename()));
             else
                 sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVELEFTAS));
             taskDlg.AddCommandControl(201, sTaskTemp, bLeftIsModified);// left
@@ -1551,7 +1551,7 @@ void CMainFrame::OnFileSave()
                 taskDlg.SetDefaultCommandControl(201);
             }
             if (m_pwndRightView->m_pWorkingFile->InUse() && !m_pwndRightView->m_pWorkingFile->IsReadonly())
-                sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, static_cast<LPCTSTR>(m_pwndRightView->m_pWorkingFile->GetFilename()));
+                sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, static_cast<LPCWSTR>(m_pwndRightView->m_pWorkingFile->GetFilename()));
             else
                 sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVERIGHTAS));
             taskDlg.AddCommandControl(202, sTaskTemp, bRightIsModified); // right
@@ -1683,7 +1683,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         // file was saved with 0 lines!
         // ask the user if the file should be deleted
         CString msg;
-        msg.Format(IDS_DELETEWHENEMPTY, static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(m_data.m_mergedFile.GetFilename())));
+        msg.Format(IDS_DELETEWHENEMPTY, static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(m_data.m_mergedFile.GetFilename())));
         CTaskDialog taskDlg(msg,
                             CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK2)),
                             CString(MAKEINTRESOURCE(IDS_APPNAME)),
@@ -1735,7 +1735,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
             if ((!err) && (statusKind == svn_wc_status_conflicted))
             {
                 CString msg;
-                msg.Format(IDS_MARKASRESOLVED, static_cast<LPCTSTR>(CPathUtils::GetFileNameFromPath(m_data.m_mergedFile.GetFilename())));
+                msg.Format(IDS_MARKASRESOLVED, static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(m_data.m_mergedFile.GetFilename())));
                 CTaskDialog taskDlg(msg,
                                     CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK2)),
                                     CString(MAKEINTRESOURCE(IDS_APPNAME)),
@@ -2668,7 +2668,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             CString sTaskTemp;
             if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
-                sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, static_cast<LPCTSTR>(m_pwndLeftView->m_pWorkingFile->GetFilename()));
+                sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, static_cast<LPCWSTR>(m_pwndLeftView->m_pWorkingFile->GetFilename()));
             else
                 sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVELEFTAS));
             taskDlg.AddCommandControl(201, sTaskTemp); // left
@@ -2676,7 +2676,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
             if (HasUnsavedEdits(m_pwndRightView))
             {
                 if (m_pwndRightView->m_pWorkingFile->InUse() && !m_pwndRightView->m_pWorkingFile->IsReadonly())
-                    sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, static_cast<LPCTSTR>(m_pwndRightView->m_pWorkingFile->GetFilename()));
+                    sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, static_cast<LPCWSTR>(m_pwndRightView->m_pWorkingFile->GetFilename()));
                 else
                     sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVERIGHTAS));
                 taskDlg.AddCommandControl(202, sTaskTemp); // right
@@ -2721,7 +2721,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             CString sTask3;
             if (m_data.m_mergedFile.InUse())
-                sTask3.Format(IDS_ASKFORSAVE_TASK3, static_cast<LPCTSTR>(m_data.m_mergedFile.GetFilename()));
+                sTask3.Format(IDS_ASKFORSAVE_TASK3, static_cast<LPCWSTR>(m_data.m_mergedFile.GetFilename()));
             else
                 sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
             taskDlg.AddCommandControl(IDYES, sTask3);
@@ -2756,7 +2756,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
         CString sTask3;
         if (m_data.m_mergedFile.InUse())
-            sTask3.Format(IDS_ASKFORSAVE_TASK3, static_cast<LPCTSTR>(m_data.m_mergedFile.GetFilename()));
+            sTask3.Format(IDS_ASKFORSAVE_TASK3, static_cast<LPCWSTR>(m_data.m_mergedFile.GetFilename()));
         else
             sTask3.LoadString(IDS_ASKFORSAVE_TASK6);
         taskDlg.AddCommandControl(IDYES, sTask3);
@@ -3870,7 +3870,7 @@ void CMainFrame::OnUpdateRegexNoFilter(CCmdUI *pCmdUI)
     pCmdUI->SetCheck(m_regexIndex < 0);
 }
 
-void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
+void CMainFrame::OnSettingChange(UINT uFlags, LPCWSTR lpszSection)
 {
     __super::OnSettingChange(uFlags, lpszSection);
 

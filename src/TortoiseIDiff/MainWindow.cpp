@@ -66,7 +66,7 @@ CMainWindow::CMainWindow(HINSTANCE hInstance, const WNDCLASSEX* wcx)
     , m_bFitHeights(false)
     , m_blendType(CPicWindow::BLEND_ALPHA)
 {
-    SetWindowTitle(static_cast<LPCTSTR>(ResString(hResource, IDS_APP_TITLE)));
+    SetWindowTitle(static_cast<LPCWSTR>(ResString(hResource, IDS_APP_TITLE)));
 }
 
 bool CMainWindow::RegisterAndCreateWindow()
@@ -1252,7 +1252,7 @@ bool CMainWindow::CreateToolbar()
 
     m_hwndTb = CreateWindowEx(TBSTYLE_EX_DOUBLEBUFFER,
                               TOOLBARCLASSNAME,
-                              static_cast<LPCTSTR>(nullptr),
+                              static_cast<LPCWSTR>(nullptr),
                               WS_CHILD | WS_BORDER | WS_VISIBLE | TBSTYLE_FLAT | TBSTYLE_TOOLTIPS,
                               0, 0, 0, 0,
                               *this,

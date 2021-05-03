@@ -23,7 +23,7 @@
 #include "TortoiseBlame.h"
 #include "SciLexer.h"
 
-void TortoiseBlame::SetupLexer(LPCTSTR filename) const
+void TortoiseBlame::SetupLexer(LPCWSTR filename) const
 {
     const TCHAR* linePtr = wcsrchr(filename, '.');
 

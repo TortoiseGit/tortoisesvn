@@ -1,4 +1,4 @@
-// TortoiseOverlays - an overlay handler for Tortoise clients
+﻿// TortoiseOverlays - an overlay handler for Tortoise clients
 // Copyright (C) 2007, 2010-2011, 2013 - TortoiseSVN
 
 #pragma once
@@ -53,7 +53,7 @@ protected:
 
 private:
     int             GetInstalledOverlays(void);     ///< returns the maximum number of overlays TSVN shall use
-    void            LoadRealLibrary(LPCTSTR ModuleName, LPCTSTR clsid, LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
+    void            LoadRealLibrary(LPCWSTR ModuleName, LPCWSTR clsid, LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
     void            LoadHandlers(LPWSTR pwszIconFile, int cchMax, int *pIndex, DWORD *pdwFlags);
     bool            DropHandler(LPCWSTR registryKey);
 public:

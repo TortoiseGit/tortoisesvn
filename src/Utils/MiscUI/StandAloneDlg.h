@@ -449,7 +449,7 @@ public:
         , m_bRectOnly(false)
     {
     }
-    CStateDialog(LPCTSTR lpszTemplateName, CWnd* pParentWnd = nullptr)
+    CStateDialog(LPCWSTR lpszTemplateName, CWnd* pParentWnd = nullptr)
         : CDialog(lpszTemplateName, pParentWnd)
         , m_bEnableSaveRestore(false)
         , m_bRectOnly(false)

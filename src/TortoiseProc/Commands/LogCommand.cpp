@@ -92,7 +92,7 @@ bool LogCommand::Execute()
     if (parser.HasVal(L"outfile"))
     {
         CString sText = dlg.GetSelectedRevRanges().ToListString();
-        CStringUtils::WriteStringToTextFile(parser.GetVal(L"outfile"), static_cast<LPCTSTR>(sText), true);
+        CStringUtils::WriteStringToTextFile(parser.GetVal(L"outfile"), static_cast<LPCWSTR>(sText), true);
     }
     return true;
 }

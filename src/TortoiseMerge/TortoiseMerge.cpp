@@ -103,7 +103,7 @@ BOOL CTortoiseMergeApp::InitInstance()
     HINSTANCE hInst = nullptr;
     do
     {
-        langDll.Format(L"%sLanguages\\TortoiseMerge%ld.dll", static_cast<LPCTSTR>(CPathUtils::GetAppParentDirectory()), langId);
+        langDll.Format(L"%sLanguages\\TortoiseMerge%ld.dll", static_cast<LPCWSTR>(CPathUtils::GetAppParentDirectory()), langId);
 
         hInst            = LoadLibrary(langDll);
         CString sVer     = _T(STRPRODUCTVER);

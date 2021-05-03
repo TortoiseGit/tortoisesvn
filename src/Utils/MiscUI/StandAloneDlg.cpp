@@ -326,7 +326,7 @@ void CResizableStandAloneDialog::OnNcRButtonUp(UINT nHitTest, CPoint point)
 
 void CResizableStandAloneDialog::OnCantStartThread() const
 {
-    ::MessageBox(this->m_hWnd, static_cast<LPCTSTR>(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED))), static_cast<LPCTSTR>(CString(MAKEINTRESOURCE(IDS_APPNAME))), MB_OK | MB_ICONERROR);
+    ::MessageBox(this->m_hWnd, static_cast<LPCWSTR>(CString(MAKEINTRESOURCE(IDS_ERR_THREADSTARTFAILED))), static_cast<LPCWSTR>(CString(MAKEINTRESOURCE(IDS_APPNAME))), MB_OK | MB_ICONERROR);
 }
 
 bool CResizableStandAloneDialog::OnEnterPressed()

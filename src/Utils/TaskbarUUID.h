@@ -48,7 +48,7 @@ void setTaskIDPerUuid();
 /**
  * Returns the App ID string. See \ref SetTaskIDPerUUID() for details.
  */
-std::wstring getTaskIDPerUuid(LPCTSTR uuid = nullptr);
+std::wstring getTaskIDPerUuid(LPCWSTR uuid = nullptr);
 
 /**
  * Sets a different overlay icon for the taskbar icon on Win7 for each

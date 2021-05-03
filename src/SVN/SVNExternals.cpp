@@ -372,16 +372,16 @@ bool SVNExternals::TagExternals(bool bRemote, const CString &message, svn_revnum
 
         CString temp;
         if (it->adjust && !rev.IsHead())
-            temp.Format(L"-r %s %s%s %s", static_cast<LPCWSTR>(rev.ToString()), static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
+            temp.Format(L"-r %s %s%s %s", static_cast<LPCWSTR>(rev.ToString()), static_cast<LPCWSTR>(it->url), static_cast<LPCWSTR>(peg), static_cast<LPCWSTR>(targetDir));
         else if (origRev.IsValid() && !origRev.IsHead())
-            temp.Format(L"-r %s %s%s %s", static_cast<LPCWSTR>(origRev.ToString()), static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
+            temp.Format(L"-r %s %s%s %s", static_cast<LPCWSTR>(origRev.ToString()), static_cast<LPCWSTR>(it->url), static_cast<LPCWSTR>(peg), static_cast<LPCWSTR>(targetDir));
         else
-            temp.Format(L"%s%s %s", static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
+            temp.Format(L"%s%s %s", static_cast<LPCWSTR>(it->url), static_cast<LPCWSTR>(peg), static_cast<LPCWSTR>(targetDir));
 
         Sb val = externals[it->path];
         if (!val.extValue.empty())
             val.extValue += "\n";
-        val.extValue += CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(temp));
+        val.extValue += CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(temp));
         val.adjust          = val.adjust || it->adjust;
         val.pathUrl         = it->pathUrl;
         externals[it->path] = val;
@@ -456,12 +456,12 @@ std::string SVNExternals::GetValue(const CTSVNPath &path) const
                 targetDir = L"'" + targetDir + L"'";
             CString temp;
             if (rev.IsValid() && !rev.IsHead() && (!rev.IsEqual(pegrev)))
-                temp.Format(L"-r %s %s%s %s", static_cast<LPCWSTR>(rev.ToString()), static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
+                temp.Format(L"-r %s %s%s %s", static_cast<LPCWSTR>(rev.ToString()), static_cast<LPCWSTR>(it->url), static_cast<LPCWSTR>(peg), static_cast<LPCWSTR>(targetDir));
             else
-                temp.Format(L"%s%s %s", static_cast<LPCWSTR>(it->url), static_cast<LPCTSTR>(peg), static_cast<LPCWSTR>(targetDir));
+                temp.Format(L"%s%s %s", static_cast<LPCWSTR>(it->url), static_cast<LPCWSTR>(peg), static_cast<LPCWSTR>(targetDir));
             if (ret.size())
                 ret += "\n";
-            ret += CUnicodeUtils::StdGetUTF8(static_cast<LPCTSTR>(temp));
+            ret += CUnicodeUtils::StdGetUTF8(static_cast<LPCWSTR>(temp));
         }
     }
 

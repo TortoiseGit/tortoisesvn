@@ -48,7 +48,7 @@ public:
         , m_bThreadRunning(FALSE)
     {
     }
-    explicit CMergeWizardBasePage(LPCTSTR lpszTemplateName, UINT nIDCaption = 0)
+    explicit CMergeWizardBasePage(LPCWSTR lpszTemplateName, UINT nIDCaption = 0)
         : CResizablePageEx(lpszTemplateName, nIDCaption, 0)
         , CommonDialogFunctions(this)
         , m_bCancelled(FALSE)

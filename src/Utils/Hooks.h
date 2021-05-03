@@ -118,7 +118,7 @@ public:
     /**
      * Adds a new hook script. To make the change persistent, call Save().
      */
-    void Add(HookType ht, const CTSVNPath& path, LPCTSTR szCmd,
+    void Add(HookType ht, const CTSVNPath& path, LPCWSTR szCmd,
              bool bWait, bool bShow, bool bEnforce);
 
     /// returns the string representation of the hook type.

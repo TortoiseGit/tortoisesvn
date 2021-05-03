@@ -106,7 +106,7 @@ CHyperLink::~CHyperLink(void)
 /*
  * Function CHyperLink::ConvertStaticToHyperlink
  */
-BOOL CHyperLink::ConvertStaticToHyperlink(HWND hwndCtl, LPCTSTR strURL)
+BOOL CHyperLink::ConvertStaticToHyperlink(HWND hwndCtl, LPCWSTR strURL)
 {
     if( !(setURL(strURL)) )
         return FALSE;
@@ -152,7 +152,7 @@ BOOL CHyperLink::ConvertStaticToHyperlink(HWND hwndCtl, LPCTSTR strURL)
  * Function CHyperLink::ConvertStaticToHyperlink
  */
 BOOL CHyperLink::ConvertStaticToHyperlink(HWND hwndParent, UINT uiCtlId,
-                                          LPCTSTR strURL)
+                                          LPCWSTR strURL)
 {
     return ConvertStaticToHyperlink(GetDlgItem(hwndParent, uiCtlId), strURL);
 }
@@ -160,7 +160,7 @@ BOOL CHyperLink::ConvertStaticToHyperlink(HWND hwndParent, UINT uiCtlId,
 /*
  * Function CHyperLink::setURL
  */
-BOOL CHyperLink::setURL(LPCTSTR strURL)
+BOOL CHyperLink::setURL(LPCWSTR strURL)
 {
     delete [] m_strURL;
     if( (m_strURL = new TCHAR[lstrlen(strURL)+1])==0 )

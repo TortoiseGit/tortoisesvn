@@ -24,7 +24,7 @@ CStdioFileT::CStdioFileT()
 {
 }
 
-CStdioFileT::CStdioFileT(LPCTSTR lpszFileName, UINT nOpenFlags)
+CStdioFileT::CStdioFileT(LPCWSTR lpszFileName, UINT nOpenFlags)
 {
     ASSERT(lpszFileName != NULL);
     ASSERT(AfxIsValidString(lpszFileName));

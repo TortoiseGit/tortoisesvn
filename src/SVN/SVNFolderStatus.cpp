@@ -283,7 +283,7 @@ const FileStatusCacheEntry* SVNFolderStatus::BuildCache(const CTSVNPath& filePat
         // drive to get the context menu
         if (wcslen(filePath.GetWinPath()) == 3)
         {
-            if ((iter = m_cache.find(static_cast<LPCTSTR>(filePath.GetWinPathString().Left(2)))) != m_cache.end())
+            if ((iter = m_cache.find(static_cast<LPCWSTR>(filePath.GetWinPathString().Left(2)))) != m_cache.end())
             {
                 ret                = &iter->second;
                 m_mostRecentPath   = filePath;

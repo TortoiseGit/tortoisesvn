@@ -65,7 +65,7 @@ BOOL CIconMenu::SetMenuStyle()
     return TRUE;
 }
 
-BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCTSTR lpszNewItem, UINT uIcon /* = 0 */)
+BOOL CIconMenu::AppendMenuIcon(UINT_PTR nIDNewItem, LPCWSTR lpszNewItem, UINT uIcon /* = 0 */)
 {
     TCHAR menuTextBuffer[255] = {0};
     wcscpy_s(menuTextBuffer, lpszNewItem);

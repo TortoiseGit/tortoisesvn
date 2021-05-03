@@ -201,7 +201,7 @@ bool CSVNStatusCache::SaveCache()
                 WRITEVALUETOFILE(value);
                 if (value)
                 {
-                    if (fwrite(static_cast<LPCTSTR>(key), sizeof(TCHAR), value, pFile) != value)
+                    if (fwrite(static_cast<LPCWSTR>(key), sizeof(TCHAR), value, pFile) != value)
                         goto error;
                     if (!I->second->SaveToDisk(pFile))
                         goto error;

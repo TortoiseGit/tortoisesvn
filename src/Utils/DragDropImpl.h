@@ -1,4 +1,4 @@
-// IDataObjectImpl.h: interface for the CIDataObjectImpl class.
+﻿// IDataObjectImpl.h: interface for the CIDataObjectImpl class.
 /**************************************************************************
    THIS CODE AND INFORMATION IS PROVIDED 'AS IS' WITHOUT WARRANTY OF
    ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
@@ -241,7 +241,7 @@ public:
 
 
     // helper function
-    HRESULT SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LPCTSTR insert);
+    HRESULT SetDropDescription(DROPIMAGETYPE image, LPCWSTR format, LPCWSTR insert);
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -288,7 +288,7 @@ public:
         /* [out][in] */ DWORD __RPC_FAR *pdwEffect);
 
     // helper function
-    HRESULT SetDropDescription(DROPIMAGETYPE image, LPCTSTR format, LPCTSTR insert);
+    HRESULT SetDropDescription(DROPIMAGETYPE image, LPCWSTR format, LPCWSTR insert);
 };
 
 class CDragSourceHelper

@@ -35,7 +35,7 @@ CLangDll::~CLangDll()
 {
 }
 
-HINSTANCE CLangDll::Init(LPCTSTR appName, unsigned long langID)
+HINSTANCE CLangDll::Init(LPCWSTR appName, unsigned long langID)
 {
     TCHAR langPath[MAX_PATH] = {0};
     TCHAR sVer[MAX_PATH]     = {0};
@@ -88,7 +88,7 @@ void CLangDll::Close()
     m_hInstance = nullptr;
 }
 
-bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll) const
+bool CLangDll::DoVersionStringsMatch(LPCWSTR sVer, LPCWSTR langDll) const
 {
     struct Transarray
     {
@@ -122,6 +122,6 @@ bool CLangDll::DoVersionStringsMatch(LPCTSTR sVer, LPCTSTR langDll) const
 
     VerQueryValue(pBuffer.get(), static_cast<LPTSTR>(strLangProductVersion), reinterpret_cast<LPVOID*>(&lpVersion), &nInfoSize);
     if (lpVersion && nInfoSize)
-        return (wcscmp(sVer, reinterpret_cast<LPCTSTR>(lpVersion)) == 0);
+        return (wcscmp(sVer, reinterpret_cast<LPCWSTR>(lpVersion)) == 0);
     return false;
 }

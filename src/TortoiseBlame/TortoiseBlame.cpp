@@ -1991,7 +1991,7 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
         app.GotoLine(parser.GetLongVal(L"line"));
     }
 
-    HACCEL hAccelTable = LoadAccelerators(app.hResource, reinterpret_cast<LPCTSTR>(IDC_TORTOISEBLAME));
+    HACCEL hAccelTable = LoadAccelerators(app.hResource, reinterpret_cast<LPCWSTR>(IDC_TORTOISEBLAME));
     MSG    msg         = {};
     while (GetMessage(&msg, nullptr, 0, 0) > 0)
     {
@@ -2026,9 +2026,9 @@ ATOM MyRegisterClass(HINSTANCE hResource)
     wcEx.hIcon         = LoadIconEx(hResource, MAKEINTRESOURCE(IDI_TORTOISEBLAME), GetSystemMetrics(SM_CXICON), GetSystemMetrics(SM_CYICON));
     wcEx.hCursor       = LoadCursor(nullptr, IDC_ARROW);
     wcEx.hbrBackground = reinterpret_cast<HBRUSH>((COLOR_WINDOW + 1));
-    wcEx.lpszMenuName  = reinterpret_cast<LPCTSTR>(IDC_TORTOISEBLAME);
+    wcEx.lpszMenuName  = reinterpret_cast<LPCWSTR>(IDC_TORTOISEBLAME);
     wcEx.lpszClassName = szWindowClass;
-    wcEx.hIconSm       = LoadIconEx(wcEx.hInstance, reinterpret_cast<LPCTSTR>(IDI_TORTOISEBLAME));
+    wcEx.hIconSm       = LoadIconEx(wcEx.hInstance, reinterpret_cast<LPCWSTR>(IDI_TORTOISEBLAME));
 
     return RegisterClassEx(&wcEx);
 }
@@ -2049,7 +2049,7 @@ ATOM MyRegisterBlameClass(HINSTANCE hResource)
     wcEx.hbrBackground = reinterpret_cast<HBRUSH>((COLOR_WINDOW + 1));
     wcEx.lpszMenuName  = nullptr;
     wcEx.lpszClassName = L"TortoiseBlameBlame";
-    wcEx.hIconSm       = LoadIconEx(wcEx.hInstance, reinterpret_cast<LPCTSTR>(IDI_TORTOISEBLAME));
+    wcEx.hIconSm       = LoadIconEx(wcEx.hInstance, reinterpret_cast<LPCWSTR>(IDI_TORTOISEBLAME));
 
     return RegisterClassEx(&wcEx);
 }
@@ -2070,7 +2070,7 @@ ATOM MyRegisterHeaderClass(HINSTANCE hResource)
     wcEx.hbrBackground = reinterpret_cast<HBRUSH>((COLOR_BTNFACE + 1));
     wcEx.lpszMenuName  = nullptr;
     wcEx.lpszClassName = L"TortoiseBlameHeader";
-    wcEx.hIconSm       = LoadIconEx(wcEx.hInstance, reinterpret_cast<LPCTSTR>(IDI_TORTOISEBLAME));
+    wcEx.hIconSm       = LoadIconEx(wcEx.hInstance, reinterpret_cast<LPCWSTR>(IDI_TORTOISEBLAME));
 
     return RegisterClassEx(&wcEx);
 }
@@ -2091,7 +2091,7 @@ ATOM MyRegisterLocatorClass(HINSTANCE hResource)
     wcEx.hbrBackground = reinterpret_cast<HBRUSH>((COLOR_WINDOW + 1));
     wcEx.lpszMenuName  = nullptr;
     wcEx.lpszClassName = L"TortoiseBlameLocator";
-    wcEx.hIconSm       = LoadIconEx(wcEx.hInstance, reinterpret_cast<LPCTSTR>(IDI_TORTOISEBLAME));
+    wcEx.hIconSm       = LoadIconEx(wcEx.hInstance, reinterpret_cast<LPCWSTR>(IDI_TORTOISEBLAME));
 
     return RegisterClassEx(&wcEx);
 }

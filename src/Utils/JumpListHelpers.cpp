@@ -23,7 +23,7 @@
 #include <propsys.h>
 #include <propkey.h>
 
-HRESULT SetAppID(LPCTSTR appID)
+HRESULT SetAppID(LPCWSTR appID)
 {
     HRESULT                                                   hRes   = S_FALSE;
     using SetCurrentProcessExplicitAppUserModelIdfn                  = HRESULT STDAPICALLTYPE(PCWSTR appId);
@@ -130,7 +130,7 @@ bool IsItemInArray(IShellItem *psi, IObjectArray *poaRemoved)
     return fRet;
 }
 
-void DeleteJumpList(LPCTSTR appID)
+void DeleteJumpList(LPCWSTR appID)
 {
     ATL::CComPtr<ICustomDestinationList> pcdl;
     HRESULT                              hr = pcdl.CoCreateInstance(CLSID_DestinationList, nullptr, CLSCTX_INPROC_SERVER);

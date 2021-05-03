@@ -51,7 +51,7 @@ bool CProgressDlg::EnsureValid()
     return (SUCCEEDED(hr));
 }
 
-void CProgressDlg::SetTitle(LPCTSTR szTitle) const
+void CProgressDlg::SetTitle(LPCWSTR szTitle) const
 {
     USES_CONVERSION;
     if (IsValid())
@@ -64,7 +64,7 @@ void CProgressDlg::SetTitle(UINT idTitle) const
     SetTitle(CString(MAKEINTRESOURCE(idTitle)));
 }
 
-void CProgressDlg::SetLine(DWORD dwLine, LPCTSTR szText, bool bCompactPath /* = false */) const
+void CProgressDlg::SetLine(DWORD dwLine, LPCWSTR szText, bool bCompactPath /* = false */) const
 {
     USES_CONVERSION;
     if (IsValid())
@@ -80,7 +80,7 @@ void CProgressDlg::SetCancelMsg(UINT idMessage) const
 }
 #endif // _MFC_VER
 
-void CProgressDlg::SetCancelMsg(LPCTSTR szMessage) const
+void CProgressDlg::SetCancelMsg(LPCWSTR szMessage) const
 {
     USES_CONVERSION;
     if (IsValid())

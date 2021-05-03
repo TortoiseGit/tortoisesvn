@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2010, 2014 - TortoiseSVN
 
@@ -106,7 +106,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
     {
         strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP_WC
                                   , revision-1
-                                  , (LPCTSTR)path);
+                                  , (LPCWSTR)path);
         return strTipText;
     }
 
@@ -194,7 +194,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 
         // complete line
 
-        workingCopyLine.Format (IDS_REVGRAPH_NODEWC_LINE, (LPCTSTR)status);
+        workingCopyLine.Format (IDS_REVGRAPH_NODEWC_LINE, (LPCWSTR)status);
     }
 
     // copy-from info, if available
@@ -209,7 +209,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
         revision_t copyFromRevision = copySource->GetRevision();
 
         copyFromLine.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP_COPYSOURCE
-                                    , (LPCTSTR)copyFromPath
+                                    , (LPCWSTR)copyFromPath
                                     , copyFromRevision);
     }
 
@@ -219,9 +219,9 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
     if (node->GetFirstTag() == NULL)
     {
         strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP
-                                  , revision, (LPCTSTR)revisionDescription
-                                  , (LPCTSTR)path, (LPCTSTR)additionalInfo
-                                  , (LPCTSTR)author, date, (LPCTSTR)comment);
+                                  , revision, (LPCWSTR)revisionDescription
+                                  , (LPCWSTR)path, (LPCWSTR)additionalInfo
+                                  , (LPCWSTR)author, date, (LPCWSTR)comment);
     }
     else
     {
@@ -262,7 +262,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
                 tagInfo.FormatMessage (   tag->IsAlias()
                                         ? IDS_REVGRAPH_TAGALIASATTRIBUTED
                                         : IDS_REVGRAPH_TAGATTRIBUTED
-                                        , (LPCTSTR)attributes
+                                        , (LPCWSTR)attributes
                                         , CUnicodeUtils::StdGetUnicode (tagPath).c_str());
             }
 
@@ -272,10 +272,10 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
         }
 
         strTipText.FormatMessage ( IDS_REVGRAPH_BOXTOOLTIP_TAGGED
-                                  , revision, (LPCTSTR)revisionDescription
-                                  , (LPCTSTR)path, (LPCTSTR)additionalInfo
-                                  , (LPCTSTR)author, date, tagCount, (LPCTSTR)tags
-                                  , (LPCTSTR)comment);
+                                  , revision, (LPCWSTR)revisionDescription
+                                  , (LPCWSTR)path, (LPCWSTR)additionalInfo
+                                  , (LPCWSTR)author, date, tagCount, (LPCWSTR)tags
+                                  , (LPCWSTR)comment);
     }
 
     // ready
