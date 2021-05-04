@@ -45,8 +45,8 @@ LRESULT CAboutDlg::DlgFunc(HWND hwndDlg, UINT uMsg, WPARAM wParam, LPARAM lParam
             InitDialog(hwndDlg, IDI_TORTOISEIDIFF);
             // initialize the controls
             m_link.ConvertStaticToHyperlink(hwndDlg, IDC_WEBLINK, L"https://tortoisesvn.net");
-            TCHAR verBuf[1024]  = {0};
-            TCHAR maskBuf[1024] = {0};
+            wchar_t verBuf[1024]  = {0};
+            wchar_t maskBuf[1024] = {0};
             if (!::LoadString(hResource, IDS_VERSION, maskBuf, _countof(maskBuf)))
             {
                 SecureZeroMemory(maskBuf, sizeof(maskBuf));

@@ -331,7 +331,7 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
                 {
                     if (((!PathIsFileSpec(longLine)) && longLine.Find(':') < 3) || (PathIsURL(longLine) || (longLine.Find('^') < 3)))
                     {
-                        TCHAR buf[MAX_PATH] = {0};
+                        wchar_t buf[MAX_PATH] = {0};
                         PathCompactPathEx(buf, longLine, limit + 1, 0);
                         longLine  = buf;
                         compacted = true;
@@ -366,7 +366,7 @@ CString CStringUtils::WordWrap(const CString& longstring, int limit, bool bCompa
         {
             if (((!PathIsFileSpec(longLine)) && longLine.Find(':') < 3) || (PathIsURL(longLine)))
             {
-                TCHAR buf[MAX_PATH] = {0};
+                wchar_t buf[MAX_PATH] = {0};
                 PathCompactPathEx(buf, longLine, limit + 1, 0);
                 longLine = buf;
             }
@@ -514,15 +514,15 @@ bool CStringUtils::ValidateFormatString(LPCWSTR pszFormat, ...)
 
 #endif // #if defined(CSTRING_AVAILABLE) || defined(_MFC_VER)
 
-inline static void PipeToNull(TCHAR* ptr)
+inline static void PipeToNull(wchar_t* ptr)
 {
     if (*ptr == '|')
         *ptr = '\0';
 }
 
-void CStringUtils::PipesToNulls(TCHAR* buffer, size_t length)
+void CStringUtils::PipesToNulls(wchar_t* buffer, size_t length)
 {
-    TCHAR* ptr = buffer + length;
+    wchar_t* ptr = buffer + length;
     while (ptr != buffer)
     {
         PipeToNull(ptr);
@@ -530,9 +530,9 @@ void CStringUtils::PipesToNulls(TCHAR* buffer, size_t length)
     }
 }
 
-void CStringUtils::PipesToNulls(TCHAR* buffer)
+void CStringUtils::PipesToNulls(wchar_t* buffer)
 {
-    TCHAR* ptr = buffer;
+    wchar_t* ptr = buffer;
     while (*ptr != 0)
     {
         PipeToNull(ptr);

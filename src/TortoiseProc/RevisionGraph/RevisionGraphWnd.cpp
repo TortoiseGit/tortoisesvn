@@ -910,7 +910,7 @@ void CRevisionGraphWnd::SaveGraphAs(CString sSavePath)
         }
         catch (CException* pE)
         {
-            TCHAR szErrorMsg[2048] = {0};
+            wchar_t szErrorMsg[2048] = {0};
             pE->GetErrorMessage(szErrorMsg, 2048);
             pE->Delete();
             ::MessageBox(m_hWnd, szErrorMsg, L"TortoiseSVN", MB_ICONERROR);

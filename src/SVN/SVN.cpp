@@ -2134,8 +2134,8 @@ svn_error_t* SVN::blameReceiver(void*               baton,
     CStringA     logMsg;
     CStringA     mergedLogMsg;
     CStringA     lineNative;
-    TCHAR        dateNative[SVN_DATE_BUFFER]       = {0};
-    TCHAR        mergedDateNative[SVN_DATE_BUFFER] = {0};
+    wchar_t      dateNative[SVN_DATE_BUFFER]       = {0};
+    wchar_t      mergedDateNative[SVN_DATE_BUFFER] = {0};
 
     SVN* svn = static_cast<SVN*>(baton);
 
@@ -3007,7 +3007,7 @@ bool SVN::PathIsURL(const CTSVNPath& path)
     return !!svn_path_is_url(CUnicodeUtils::GetUTF8(path.GetSVNPathString()));
 }
 
-void SVN::formatDate(TCHAR dateNative[], apr_time_t dateSvn, bool forceShortFmt)
+void SVN::formatDate(wchar_t dateNative[], apr_time_t dateSvn, bool forceShortFmt)
 {
     if (dateSvn == 0)
     {
@@ -3020,7 +3020,7 @@ void SVN::formatDate(TCHAR dateNative[], apr_time_t dateSvn, bool forceShortFmt)
     formatDate(dateNative, ft, forceShortFmt);
 }
 
-void SVN::formatDate(TCHAR dateNative[], FILETIME& fileTime, bool forceShortFmt)
+void SVN::formatDate(wchar_t dateNative[], FILETIME& fileTime, bool forceShortFmt)
 {
     enum
     {
@@ -3028,7 +3028,7 @@ void SVN::formatDate(TCHAR dateNative[], FILETIME& fileTime, bool forceShortFmt)
     };
     static async::CCriticalSection mutex;
     static FILETIME                lastTime[CACHE_SIZE] = {{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}};
-    static TCHAR                   lastResult[CACHE_SIZE][SVN_DATE_BUFFER];
+    static wchar_t                 lastResult[CACHE_SIZE][SVN_DATE_BUFFER];
     static bool                    formats[CACHE_SIZE];
 
     // we have to serialize access to the cache
@@ -3037,7 +3037,7 @@ void SVN::formatDate(TCHAR dateNative[], FILETIME& fileTime, bool forceShortFmt)
 
     // cache lookup
 
-    TCHAR* result = nullptr;
+    wchar_t* result = nullptr;
     for (size_t i = 0; i < CACHE_SIZE; ++i)
         if ((lastTime[i].dwHighDateTime == fileTime.dwHighDateTime) && (lastTime[i].dwLowDateTime == fileTime.dwLowDateTime) && (formats[i] == forceShortFmt))
         {
@@ -3071,8 +3071,8 @@ void SVN::formatDate(TCHAR dateNative[], FILETIME& fileTime, bool forceShortFmt)
         SYSTEMTIME localSystime = {};
         VERIFY(SystemTimeToTzSpecificLocalTime(&timeZone, &systemTime, &localSystime));
 
-        TCHAR timeBuf[SVN_DATE_BUFFER] = {0};
-        TCHAR dateBuf[SVN_DATE_BUFFER] = {0};
+        wchar_t timeBuf[SVN_DATE_BUFFER] = {0};
+        wchar_t dateBuf[SVN_DATE_BUFFER] = {0};
 
         LCID locale = m_sUseSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : m_sLocale;
 
@@ -3119,7 +3119,7 @@ CString SVN::formatDate(apr_time_t dateSvn)
     apr_time_exp_t explodedTime = {0};
 
     SYSTEMTIME sysTime                  = {0, 0, 0, 0, 0, 0, 0, 0};
-    TCHAR      dateBuf[SVN_DATE_BUFFER] = {0};
+    wchar_t    dateBuf[SVN_DATE_BUFFER] = {0};
 
     LCID locale = m_sUseSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : m_sLocale;
 
@@ -3141,7 +3141,7 @@ CString SVN::formatTime(apr_time_t dateSvn)
     apr_time_exp_t explodedTime = {0};
 
     SYSTEMTIME sysTime                  = {0, 0, 0, 0, 0, 0, 0, 0};
-    TCHAR      timeBuf[SVN_DATE_BUFFER] = {0};
+    wchar_t    timeBuf[SVN_DATE_BUFFER] = {0};
 
     LCID locale = m_sUseSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : m_sLocale;
 

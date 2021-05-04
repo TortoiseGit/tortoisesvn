@@ -373,7 +373,7 @@ private:
     StringRevMap m_updateStartRevMap;
     StringRevMap m_finishedRevMap;
 
-    TCHAR m_columnBuf[MAX_PATH];
+    wchar_t m_columnBuf[MAX_PATH];
 
     BOOL m_bCancelled;
     int  m_nConflicts;

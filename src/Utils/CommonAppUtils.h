@@ -104,7 +104,7 @@ public:
     /**
      * finds the accelerator char from a dialog control
      */
-    static TCHAR FindAcceleratorKey(CWnd* pWnd, UINT id);
+    static wchar_t FindAcceleratorKey(CWnd* pWnd, UINT id);
 
     static CString GetAbsoluteUrlFromRelativeUrl(const CString& root, const CString& url);
 

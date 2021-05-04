@@ -574,7 +574,7 @@ BOOL ProjectProperties::CheckBugID(const CString& sID) const
         int len = sID.GetLength();
         for (int i = 0; i < len; ++i)
         {
-            TCHAR c = sID.GetAt(i);
+            wchar_t c = sID.GetAt(i);
             if ((c < '0') && (c != ',') && (c != ' '))
             {
                 return FALSE;

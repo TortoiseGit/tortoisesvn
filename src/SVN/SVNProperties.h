@@ -62,7 +62,7 @@ public:
      * \param message an optional commit message if the property is set directly on the repository
      * \return TRUE if the property is added successfully
      */
-    BOOL Add(const std::string& name, const std::string& value, bool force = false, svn_depth_t depth = svn_depth_empty, const TCHAR* message = nullptr);
+    BOOL Add(const std::string& name, const std::string& value, bool force = false, svn_depth_t depth = svn_depth_empty, const wchar_t* message = nullptr);
     /**
      * Removes an existing property from the file/directory specified in the constructor.
      * \remark After using this method the indexes of the properties may change! Call Refresh() if you want to access other properties again.
@@ -71,7 +71,7 @@ public:
      * \param message an optional commit message if the property is removed directly from the repository
      * \return TRUE if the property is removed successfully
      */
-    BOOL Remove(const std::string& name, svn_depth_t depth = svn_depth_empty, const TCHAR* message = nullptr);
+    BOOL Remove(const std::string& name, svn_depth_t depth = svn_depth_empty, const wchar_t* message = nullptr);
 
     /**
      * Clear current content and read properties from
@@ -83,7 +83,7 @@ public:
     svn_revnum_t GetCommitRev() const { return m_revSet; }
 
 private:
-    void                PrepareMsgForUrl(const TCHAR* message, SVNPool& subPool) const;
+    void                PrepareMsgForUrl(const wchar_t* message, SVNPool& subPool) const;
     static svn_error_t* CommitCallback(const svn_commit_info_t* commitInfo, void* baton, apr_pool_t* pool);
 
     svn_revnum_t m_revSet;

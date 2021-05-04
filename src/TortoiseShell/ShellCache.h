@@ -213,10 +213,10 @@ private:
     ULONGLONG                           driveTypeTicker;
     ULONGLONG                           columnRevTormatTicker;
     UINT                                driveTypeCache[27];
-    TCHAR                               driveTypePathCache[MAX_PATH]; // MAX_PATH ok.
+    wchar_t                             driveTypePathCache[MAX_PATH]; // MAX_PATH ok.
     NUMBERFMT                           columnrevformat;
-    TCHAR                               szDecSep[5];
-    TCHAR                               szThousandsSep[5];
+    wchar_t                             szDecSep[5];
+    wchar_t                             szThousandsSep[5];
     std::map<std::wstring, BoolTimeout> adminDirCache;
     CRegStdString                       noContextPaths;
     std::wstring                        excludeContextStr;

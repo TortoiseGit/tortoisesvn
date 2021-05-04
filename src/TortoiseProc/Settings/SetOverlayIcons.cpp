@@ -102,8 +102,8 @@ BOOL CSetOverlayIcons::OnInitDialog()
         if (ComboItem.CompareNoCase(m_sOriginalIconSet) == 0)
             m_cIconSet.SetCurSel(i);
     }
-    WORD  langID                               = static_cast<WORD>(static_cast<DWORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", GetUserDefaultLangID())));
-    TCHAR statusText[MAX_STATUS_STRING_LENGTH] = {0};
+    WORD    langID                               = static_cast<WORD>(static_cast<DWORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", GetUserDefaultLangID())));
+    wchar_t statusText[MAX_STATUS_STRING_LENGTH] = {0};
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, statusText, _countof(statusText), langID);
     m_sNormal = statusText;
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_modified, statusText, _countof(statusText), langID);

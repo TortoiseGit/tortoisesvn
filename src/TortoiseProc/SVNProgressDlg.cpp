@@ -1083,7 +1083,7 @@ void CSVNProgressDlg::ResizeColumns()
 {
     m_progList.SetRedraw(FALSE);
 
-    TCHAR textBuf[MAX_PATH] = {0};
+    wchar_t textBuf[MAX_PATH] = {0};
 
     CHeaderCtrl* pHeaderCtrl = m_progList.GetHeaderCtrl();
     if (pHeaderCtrl)

@@ -62,7 +62,7 @@ protected:
 private:
     CHintCtrl<CListCtrl> m_extList;
     SVNExternals         m_externals;
-    TCHAR                m_columnBuf[MAX_PATH];
+    wchar_t              m_columnBuf[MAX_PATH];
     CTSVNPath            m_url;
     CTSVNPath            m_repoRoot;
     static int           m_nSortedColumn;

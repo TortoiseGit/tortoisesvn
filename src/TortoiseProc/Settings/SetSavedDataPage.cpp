@@ -278,7 +278,7 @@ void CSetSavedDataPage::OnBnClickedAuthhistclear()
 void CSetSavedDataPage::OnBnClickedRepologclear()
 {
     CString path              = CPathUtils::GetAppDataDirectory() + L"logcache";
-    TCHAR   pathbuf[MAX_PATH] = {0};
+    wchar_t pathbuf[MAX_PATH] = {0};
     wcscpy_s(pathbuf, static_cast<LPCWSTR>(path));
     pathbuf[wcslen(pathbuf) + 1] = 0;
 

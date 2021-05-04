@@ -89,10 +89,10 @@ bool ExportCommand::Execute()
         folderBrowser.DisableCheckBox2WhenCheckbox1IsEnabled(true);
         CRegDWORD regExtended   = CRegDWORD(L"Software\\TortoiseSVN\\ExportExtended", FALSE);
         CBrowseFolder::m_bCheck = regExtended;
-        TCHAR saveto[MAX_PATH]  = {0};
-        if (folderBrowser.Show(GetExplorerHWND(), saveto, _countof(saveto)) == CBrowseFolder::OK)
+        wchar_t saveTo[MAX_PATH] = {0};
+        if (folderBrowser.Show(GetExplorerHWND(), saveTo, _countof(saveTo)) == CBrowseFolder::OK)
         {
-            CString saveplace = CString(saveto);
+            CString saveplace = CString(saveTo);
 
             if (cmdLinePath.IsEquivalentTo(CTSVNPath(saveplace)))
             {
@@ -147,7 +147,7 @@ bool ExportCommand::Execute()
             }
             else
             {
-                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": export %s to %s\n", static_cast<LPCWSTR>(cmdLinePath.GetUIPathString()), static_cast<LPCWSTR>(saveto));
+                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": export %s to %s\n", static_cast<LPCWSTR>(cmdLinePath.GetUIPathString()), static_cast<LPCWSTR>(saveTo));
                 SVN svn;
                 if (!svn.Export(cmdLinePath, CTSVNPath(saveplace), SVNRev::REV_WC,
                                 SVNRev::REV_WC, false, !!folderBrowser.m_bCheck2, false, svn_depth_infinity,

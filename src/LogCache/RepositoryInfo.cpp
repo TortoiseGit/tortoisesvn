@@ -45,7 +45,7 @@ CString UniqueFileName(const CString& fileName)
     CString base = fileName;
     for (int i = 0, count = base.GetLength(); i < count; ++i)
     {
-        TCHAR c = base[i];
+        wchar_t c = base[i];
         if ((c == '?') || (c == '/') || (c == '\\') || (c == ':'))
             base.SetAt(i, '_');
     }

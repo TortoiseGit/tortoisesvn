@@ -298,8 +298,8 @@ BOOL CStatGraphDlg::OnInitDialog()
     bool bUseSystemLocale = !!static_cast<DWORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\UseSystemLocaleForDates", TRUE));
     locale                = bUseSystemLocale ? MAKELCID(MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), SORT_DEFAULT) : locale;
 
-    TCHAR l[2] = {0};
-    GetLocaleInfo(locale, LOCALE_IDATE, l, sizeof(TCHAR));
+    wchar_t l[2] = {0};
+    GetLocaleInfo(locale, LOCALE_IDATE, l, sizeof(wchar_t));
 
     m_langOrder = (l[0] > 0) ? l[0] - '0' : -1;
 
@@ -411,10 +411,10 @@ int CStatGraphDlg::GetCalendarWeek(const CTime& time)
     // that information (only Vista has such a function: GetTimeZoneInformationForYear() )
     int iWeekOfYear = 0;
 
-    int   iYear            = time.GetYear();
-    int   iFirstDayOfWeek  = 0;
-    int   iFirstWeekOfYear = 0;
-    TCHAR loc[2]           = {0};
+    int     iYear            = time.GetYear();
+    int     iFirstDayOfWeek  = 0;
+    int     iFirstWeekOfYear = 0;
+    wchar_t loc[2]           = {0};
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTDAYOFWEEK, loc, _countof(loc));
     iFirstDayOfWeek = static_cast<int>(loc[0] - '0');
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IFIRSTWEEKOFYEAR, loc, _countof(loc));
@@ -1479,7 +1479,7 @@ void CStatGraphDlg::SaveGraph(CString sFilename)
         }
         catch (CException* pE)
         {
-            TCHAR szErrorMsg[2048] = {0};
+            wchar_t szErrorMsg[2048] = {0};
             pE->GetErrorMessage(szErrorMsg, 2048);
             pE->Delete();
             ::MessageBox(m_hWnd, szErrorMsg, L"TortoiseSVN", MB_ICONERROR);

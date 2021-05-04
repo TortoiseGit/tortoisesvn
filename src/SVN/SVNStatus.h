@@ -93,8 +93,8 @@ public:
      * \param bufLen
      * \param string a string representation
      */
-    static void GetStatusString(svn_wc_status_kind status, size_t bufLen, TCHAR *string);
-    static void GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR *string, int size, WORD lang);
+    static void GetStatusString(svn_wc_status_kind status, size_t bufLen, wchar_t *string);
+    static void GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, wchar_t *string, int size, WORD lang);
 
     /**
      * Returns the string representation of a depth.
@@ -102,7 +102,7 @@ public:
 #ifdef _MFC_VER
     static const CString &GetDepthString(svn_depth_t depth);
 #endif
-    static void GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR *string, int size, WORD lang);
+    static void GetDepthString(HINSTANCE hInst, svn_depth_t depth, wchar_t *string, int size, WORD lang);
 
     /**
      * Returns the status of the first file of the given path. Use GetNextFileStatus() to obtain

@@ -60,7 +60,7 @@ private:
     ShelfInfo     m_currentShelfInfo;
     CTSVNPathList m_currentFiles;
     int           m_nIconFolder;
-    TCHAR         m_columnBuf[MAX_PATH];
+    wchar_t       m_columnBuf[MAX_PATH];
 
 public:
     CString       m_sShelveName;

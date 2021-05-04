@@ -89,8 +89,8 @@ bool DropCopyAddCommand::Execute()
             {
                 CString fromPath = pathList[nPath].GetWinPathString() + L"||";
                 CString toPath   = dropPath + L"\\" + name + L"||";
-                auto    fromBuf  = std::make_unique<TCHAR[]>(fromPath.GetLength() + 2LL);
-                auto    toBuf    = std::make_unique<TCHAR[]>(toPath.GetLength() + 2LL);
+                auto    fromBuf  = std::make_unique<wchar_t[]>(fromPath.GetLength() + 2LL);
+                auto    toBuf    = std::make_unique<wchar_t[]>(toPath.GetLength() + 2LL);
                 wcscpy_s(fromBuf.get(), fromPath.GetLength() + 2LL, fromPath);
                 wcscpy_s(toBuf.get(), toPath.GetLength() + 2LL, toPath);
                 CStringUtils::PipesToNulls(fromBuf.get(), fromPath.GetLength() + 2LL);

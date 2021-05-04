@@ -76,7 +76,7 @@ void CBugTraqAssociations::Load(LPCWSTR uuid /* = NULL */, LPCWSTR params /* = N
 
             DWORD cbParameters = 0;
             RegQueryValueEx(hk2, L"Parameters", nullptr, nullptr, static_cast<LPBYTE>(nullptr), &cbParameters);
-            auto szParameters = std::make_unique<TCHAR[]>(cbParameters + 1LL);
+            auto szParameters = std::make_unique<wchar_t[]>(cbParameters + 1LL);
             RegQueryValueEx(hk2, L"Parameters", nullptr, nullptr, reinterpret_cast<LPBYTE>(szParameters.get()), &cbParameters);
             szParameters[cbParameters] = 0;
             m_inner.push_back(new CBugTraqAssociation(szWorkingCopy, providerClsid, LookupProviderName(providerClsid), szParameters.get()));
@@ -167,8 +167,8 @@ CString CBugTraqAssociations::LookupProviderName(const CLSID &providerClsid)
     HKEY hk;
     if (RegOpenKeyEx(HKEY_CLASSES_ROOT, szSubKey, 0, KEY_READ, &hk) == ERROR_SUCCESS)
     {
-        TCHAR szClassName[MAX_PATH] = {0};
-        DWORD cbClassName           = sizeof(szClassName);
+        wchar_t szClassName[MAX_PATH] = {0};
+        DWORD   cbClassName           = sizeof(szClassName);
 
         if (RegQueryValueEx(hk, nullptr, nullptr, nullptr, reinterpret_cast<LPBYTE>(szClassName), &cbClassName) == ERROR_SUCCESS)
             providerName = CString(szClassName);
@@ -197,7 +197,7 @@ void CBugTraqAssociations::Save() const
     DWORD dwIndex = 0;
     for (auto it = begin(); it != end(); ++it)
     {
-        TCHAR szSubKey[MAX_PATH] = {0};
+        wchar_t szSubKey[MAX_PATH] = {0};
         swprintf_s(szSubKey, L"%lu", dwIndex);
 
         HKEY hk2;

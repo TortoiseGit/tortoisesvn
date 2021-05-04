@@ -69,16 +69,16 @@ void LoadLangDll()
     {
         g_langId                        = g_shellCache.GetLangID();
         DWORD     langId                = g_langId;
-        TCHAR     langDll[MAX_PATH * 4] = {0};
+        wchar_t   langDll[MAX_PATH * 4] = {0};
         HINSTANCE hInst                 = nullptr;
-        TCHAR     langDir[MAX_PATH]     = {0};
+        wchar_t   langDir[MAX_PATH]     = {0};
         char      langDirA[MAX_PATH]    = {0};
         if (GetModuleFileName(g_hModThisDll, langDir, _countof(langDir)) == 0)
             return;
         if (GetModuleFileNameA(g_hModThisDll, langDirA, _countof(langDirA)) == 0)
             return;
-        TCHAR* dirpoint  = wcsrchr(langDir, '\\');
-        char*  dirpointA = strrchr(langDirA, '\\');
+        wchar_t* dirpoint  = wcsrchr(langDir, '\\');
+        char*    dirpointA = strrchr(langDirA, '\\');
         if (dirpoint)
             *dirpoint = 0;
         if (dirpointA)
@@ -137,7 +137,7 @@ void LoadLangDll()
                         {
                             Transarray* lpTransArray = static_cast<Transarray*>(lpFixedPointer);
 
-                            TCHAR strLangProductVersion[MAX_PATH];
+                            wchar_t strLangProductVersion[MAX_PATH];
                             swprintf_s(strLangProductVersion, L"\\StringFileInfo\\%04x%04x\\ProductVersion",
                                        lpTransArray[0].wLanguageID, lpTransArray[0].wCharacterSet);
 
@@ -197,12 +197,12 @@ void LoadLangDll()
 std::wstring GetAppDirectory()
 {
     std::wstring path;
-    DWORD   len       = 0;
-    DWORD   bufferLen = MAX_PATH; // MAX_PATH is not the limit here!
+    DWORD        len       = 0;
+    DWORD        bufferLen = MAX_PATH; // MAX_PATH is not the limit here!
     do
     {
         bufferLen += MAX_PATH; // MAX_PATH is not the limit here!
-        std::unique_ptr<TCHAR[]> pBuf(new TCHAR[bufferLen]);
+        std::unique_ptr<wchar_t[]> pBuf(new wchar_t[bufferLen]);
         len  = GetModuleFileName(g_hModThisDll, pBuf.get(), bufferLen);
         path = std::wstring(pBuf.get(), len);
     } while (len == bufferLen);

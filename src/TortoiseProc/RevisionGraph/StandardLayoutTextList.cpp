@@ -122,7 +122,7 @@ CStandardLayoutTextList::GetText (index_t index, HWND hWnd) const
         }
         else
         {
-            TCHAR buffer[20] = { 0 };
+            wchar_t buffer[20] = {0};
             _itot_s (nodeInfo.node->GetRevision(), buffer, 10);
             text = buffer;
         }

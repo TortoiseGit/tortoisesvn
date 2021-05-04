@@ -71,7 +71,7 @@ public:
 
 protected:
     static CString m_sDefaultPath;
-    TCHAR          m_title[200];
+    wchar_t        m_title[200];
     CString        m_checkText;
     CString        m_checkText2;
     bool           m_disableCheckbox2WhenCheckbox1IsChecked;

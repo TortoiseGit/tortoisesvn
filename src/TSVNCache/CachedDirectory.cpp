@@ -26,7 +26,6 @@
 #include "SVNAdminDir.h"
 #include <set>
 
-
 #define CACHEDIRECTORYDISKVERSION 3
 
 CCachedDirectory::CCachedDirectory()
@@ -100,7 +99,7 @@ BOOL CCachedDirectory::SaveToDisk(FILE* pFile)
     WRITEVALUETOFILE(value);
     if (value)
     {
-        if (fwrite(m_directoryPath.GetWinPath(), sizeof(TCHAR), value, pFile) != value)
+        if (fwrite(m_directoryPath.GetWinPath(), sizeof(wchar_t), value, pFile) != value)
             return false;
     }
     if (!m_ownStatus.SaveToDisk(pFile))
@@ -172,7 +171,7 @@ BOOL CCachedDirectory::LoadFromDisk(FILE* pFile)
         if (value)
         {
             CString sPath;
-            if (fread(sPath.GetBuffer(value + 1), sizeof(TCHAR), value, pFile) != value)
+            if (fread(sPath.GetBuffer(value + 1), sizeof(wchar_t), value, pFile) != value)
             {
                 sPath.ReleaseBuffer(0);
                 return false;

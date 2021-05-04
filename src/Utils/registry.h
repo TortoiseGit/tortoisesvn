@@ -816,7 +816,7 @@ void CRegStringCommon<Base>::InternalRead(HKEY hKey, typename Base::StringT& val
 template <class Base>
 void CRegStringCommon<Base>::InternalWrite(HKEY hKey, const typename Base::StringT& value)
 {
-    m_lastError = RegSetValueEx(hKey, GetPlainString(m_key), 0, REG_SZ, reinterpret_cast<BYTE*>(const_cast<LPWSTR>(GetPlainString(value))), (GetLength(value) + 1) * sizeof(TCHAR));
+    m_lastError = RegSetValueEx(hKey, GetPlainString(m_key), 0, REG_SZ, reinterpret_cast<BYTE*>(const_cast<LPWSTR>(GetPlainString(value))), (GetLength(value) + 1) * sizeof(wchar_t));
 }
 
 /**
@@ -1120,7 +1120,7 @@ T& CKeyList<T>::GetAt(int index) const
     TElements::iterator iter = elements.find(index);
     if (iter == elements.end())
     {
-        TCHAR buffer[10];
+        wchar_t buffer[10];
         _itot_s(index, buffer, 10);
         typename T::StringT indexKey = key + _T('\\') + buffer;
 

@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013, 2015 - TortoiseSVN
+// Copyright (C) 2013, 2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -27,23 +27,23 @@
 class ResString
 {
 public:
-    ResString (HINSTANCE hInstance, int resId)
+    ResString(HINSTANCE hInstance, int resId)
     {
-        int bufsize = 1024;
+        int bufSize = 1024;
         str.clear();
         do
         {
-            auto buf = std::make_unique<wchar_t[]>(bufsize);
-            int ret = ::LoadString(hInstance, resId, buf.get(), bufsize);
-            if (ret == (bufsize-1))
-                bufsize *= 2;
+            auto buf = std::make_unique<wchar_t[]>(bufSize);
+            int  ret = ::LoadString(hInstance, resId, buf.get(), bufSize);
+            if (ret == (bufSize - 1))
+                bufSize *= 2;
             else
                 str = buf.get();
         } while (str.empty());
     }
-    operator TCHAR const * () const { return str.c_str(); }
-    operator std::wstring () const { return str; }
+    operator wchar_t const *() const { return str.c_str(); }
+    operator std::wstring() const { return str; }
+
 private:
     std::wstring str;
 };
-

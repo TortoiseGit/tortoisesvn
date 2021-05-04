@@ -110,7 +110,7 @@ void CSVNStatusCache::Create()
                     if (value)
                     {
                         CString sKey;
-                        if (fread(sKey.GetBuffer(value + 1), sizeof(TCHAR), value, pFile) != value)
+                        if (fread(sKey.GetBuffer(value + 1), sizeof(wchar_t), value, pFile) != value)
                         {
                             sKey.ReleaseBuffer(0);
                             goto error;
@@ -201,7 +201,7 @@ bool CSVNStatusCache::SaveCache()
                 WRITEVALUETOFILE(value);
                 if (value)
                 {
-                    if (fwrite(static_cast<LPCWSTR>(key), sizeof(TCHAR), value, pFile) != value)
+                    if (fwrite(static_cast<LPCWSTR>(key), sizeof(wchar_t), value, pFile) != value)
                         goto error;
                     if (!I->second->SaveToDisk(pFile))
                         goto error;

@@ -720,7 +720,7 @@ const WORD* CResModule::ParseMenuResource(const WORD* res)
             RESOURCEENTRY entry = m_stringEntries[wStr];
             InsertResourceIDs(RT_MENU, 0, entry, id, L" - Menu");
 
-            TCHAR szTempBuf[1024] = {0};
+            wchar_t szTempBuf[1024] = {0};
             swprintf_s(szTempBuf, L"#: MenuEntry; ID:%u", id);
             MENUENTRY menuEntry;
             menuEntry.wID       = id;
@@ -841,7 +841,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD* res)
             res += 2;
 
             InsertResourceIDs(RT_MENU, 0, entry, menuId, L" - PopupMenuEx");
-            TCHAR szTempBuf[1024] = {0};
+            wchar_t szTempBuf[1024] = {0};
             swprintf_s(szTempBuf, L"#: MenuExPopupEntry; ID:%lu", menuId);
             MENUENTRY menuEntry;
             menuEntry.wID                            = static_cast<WORD>(menuId);
@@ -863,7 +863,7 @@ const WORD* CResModule::ParseMenuExResource(const WORD* res)
             RESOURCEENTRY entry = m_stringEntries[wStr];
             InsertResourceIDs(RT_MENU, 0, entry, menuId, L" - MenuEx");
 
-            TCHAR szTempBuf[1024] = {0};
+            wchar_t szTempBuf[1024] = {0};
             swprintf_s(szTempBuf, L"#: MenuExEntry; ID:%lu", menuId);
             MENUENTRY menuEntry;
             menuEntry.wID                            = static_cast<WORD>(menuId);
@@ -1052,7 +1052,7 @@ BOOL CResModule::ExtractAccelerator(LPCWSTR lpszType)
         std::wstring  wStr      = std::wstring(buf2);
         RESOURCEENTRY aKeyEntry = m_stringEntries[wStr];
 
-        TCHAR        szTempBuf[1024] = {0};
+        wchar_t      szTempBuf[1024] = {0};
         std::wstring wMenu;
         auto         iter = m_menuEntries.find(wID);
         if (iter != m_menuEntries.end())
@@ -1257,8 +1257,8 @@ BOOL CResModule::ExtractDialog(LPCWSTR lpszType)
 
     while (bNumControls-- != 0)
     {
-        TCHAR szTitle[500] = {0};
-        BOOL  bCode;
+        wchar_t szTitle[500] = {0};
+        BOOL    bCode;
 
         lpDlgItem = GetControlInfo(const_cast<WORD*>(lpDlgItem), &dlgItem, dlg.dialogEx, &bCode);
 
@@ -2192,7 +2192,7 @@ size_t CResModule::ScanHeaderFile(const std::wstring& filepath)
 
     // open the file and read the contents
     DWORD reqLen     = GetFullPathName(filepath.c_str(), 0, nullptr, nullptr);
-    auto  wcfullPath = std::make_unique<TCHAR[]>(reqLen + 1LL);
+    auto  wcfullPath = std::make_unique<wchar_t[]>(reqLen + 1LL);
     GetFullPathName(filepath.c_str(), reqLen, wcfullPath.get(), nullptr);
     std::wstring fullpath = wcfullPath.get();
 

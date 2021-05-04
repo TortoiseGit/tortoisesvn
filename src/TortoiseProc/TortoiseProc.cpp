@@ -437,14 +437,14 @@ BOOL CTortoiseProcApp::InitInstance()
         DWORD len = GetCurrentDirectory(0, nullptr);
         if (len)
         {
-            auto originalCurrentDirectory = std::make_unique<TCHAR[]>(len);
+            auto originalCurrentDirectory = std::make_unique<wchar_t[]>(len);
             if (GetCurrentDirectory(len, originalCurrentDirectory.get()))
             {
                 sOrigCwd = originalCurrentDirectory.get();
                 sOrigCwd = CPathUtils::GetLongPathname(static_cast<LPCWSTR>(sOrigCwd)).c_str();
             }
         }
-        TCHAR pathBuf[MAX_PATH] = {0};
+        wchar_t pathBuf[MAX_PATH] = {0};
         GetTempPath(_countof(pathBuf), pathBuf);
         SetCurrentDirectory(pathBuf);
     }
@@ -625,8 +625,8 @@ void CTortoiseProcApp::CheckForNewerVersion() const
     if (localtime_s(&ptm, &now) != 0)
         return;
 
-    DWORD count              = MAX_PATH;
-    TCHAR username[MAX_PATH] = {0};
+    DWORD   count              = MAX_PATH;
+    wchar_t username[MAX_PATH] = {0};
     GetUserName(username, &count);
     // add a user specific diff to the current day count
     // so that the update check triggers for different users
@@ -650,7 +650,7 @@ void CTortoiseProcApp::CheckForNewerVersion() const
 
     oldWeek = week;
 
-    TCHAR com[MAX_PATH + 100] = {0};
+    wchar_t com[MAX_PATH + 100] = {0};
     GetModuleFileName(nullptr, com, MAX_PATH);
 
     CCreateProcessHelper::CreateProcessDetached(com, L" /command:updatecheck");

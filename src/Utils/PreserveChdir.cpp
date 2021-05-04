@@ -21,7 +21,7 @@
 
 PreserveChdir::PreserveChdir()
     : m_size(GetCurrentDirectory(0, nullptr))
-    , m_originalCurrentDirectory(new TCHAR[m_size])
+    , m_originalCurrentDirectory(new wchar_t[m_size])
 {
     if (m_size > 0)
         if (GetCurrentDirectory(static_cast<DWORD>(m_size), m_originalCurrentDirectory.get()) != 0)
@@ -41,7 +41,7 @@ PreserveChdir::~PreserveChdir()
     if (len == m_size)
     {
         // same size, must check contents
-        auto currentDirectory = std::make_unique<TCHAR[]>(len);
+        auto currentDirectory = std::make_unique<wchar_t[]>(len);
         if (GetCurrentDirectory(len, currentDirectory.get()) != 0)
             if (wcscmp(currentDirectory.get(), m_originalCurrentDirectory.get()) == 0)
                 return; // no change required, reset of no use as dtor is called exactly once

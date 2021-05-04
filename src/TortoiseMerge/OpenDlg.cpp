@@ -232,8 +232,8 @@ void COpenDlg::OnOK()
             LPCSTR  lpStr = static_cast<LPCSTR>(GlobalLock(hGlb));
 
             DWORD len   = GetTempPath(0, nullptr);
-            auto  path  = std::make_unique<TCHAR[]>(len + 1LL);
-            auto  tempF = std::make_unique<TCHAR[]>(len + 100LL);
+            auto  path  = std::make_unique<wchar_t[]>(len + 1LL);
+            auto  tempF = std::make_unique<wchar_t[]>(len + 100LL);
             GetTempPath(len + 1, path.get());
             GetTempFileName(path.get(), L"tsm", 0, tempF.get());
             CString sTempFile = CString(tempF.get());

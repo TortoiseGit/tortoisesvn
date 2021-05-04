@@ -72,7 +72,7 @@ bool AeroControlBase::SubclassControl(HWND hControl)
     bool bRet = false;
     if (!AeroDialogsEnabled())
         return bRet;
-    TCHAR szWndClassName[MAX_PATH] = {0};
+    wchar_t szWndClassName[MAX_PATH] = {0};
     if (GetClassName(hControl, szWndClassName, _countof(szWndClassName)))
     {
         if (!wcscmp(szWndClassName, L"Static"))

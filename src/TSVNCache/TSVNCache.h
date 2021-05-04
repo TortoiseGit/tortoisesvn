@@ -18,17 +18,16 @@
 //
 #pragma once
 
-#define BUFSIZE 4096
-#define MAX_CRAWLEDPATHS 15
+#define BUFSIZE             4096
+#define MAX_CRAWLEDPATHS    15
 #define MAX_CRAWLEDPATHSLEN (MAX_PATH * 2)
 
-extern HWND             hWndHidden;
-extern TCHAR            szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
+extern HWND    hWndHidden;
+extern wchar_t szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
 
-extern int nCurrentCrawledpathIndex;
+extern int                     nCurrentCrawledpathIndex;
 extern CComAutoCriticalSection critSec;
 
-#define TRAY_CALLBACK   (WM_APP + 1)
-#define TRAYPOP_EXIT    (WM_APP + 1)
-#define TRAY_ID         101
-
+#define TRAY_CALLBACK (WM_APP + 1)
+#define TRAYPOP_EXIT  (WM_APP + 1)
+#define TRAY_ID       101

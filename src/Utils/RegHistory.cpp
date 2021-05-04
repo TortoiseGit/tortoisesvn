@@ -88,7 +88,7 @@ size_t CRegHistory::Load(LPCWSTR lpszSection, LPCWSTR lpszKeyPrefix)
     do
     {
         //keys are of form <lpszKeyPrefix><entrynumber>
-        TCHAR sKey[4096] = {0};
+        wchar_t sKey[4096] = {0};
         swprintf_s(sKey, L"%s\\%s%d", lpszSection, lpszKeyPrefix, n++);
         sText = CRegStdString(sKey);
         if (!sText.empty())

@@ -429,17 +429,17 @@ void CDirectoryWatcher::WorkerThread()
 
                             nOffset = pnotify->NextEntryOffset;
 
-                            if (pnotify->FileNameLength >= (READ_DIR_CHANGE_BUFFER_SIZE * sizeof(TCHAR)))
+                            if (pnotify->FileNameLength >= (READ_DIR_CHANGE_BUFFER_SIZE * sizeof(wchar_t)))
                                 continue;
 
-                            SecureZeroMemory(buf, READ_DIR_CHANGE_BUFFER_SIZE * sizeof(TCHAR));
+                            SecureZeroMemory(buf, READ_DIR_CHANGE_BUFFER_SIZE * sizeof(wchar_t));
                             wcsncpy_s(buf, pdi->m_dirPath, _countof(buf) - 1);
-                            errno_t err = wcsncat_s(buf + pdi->m_dirPath.GetLength(), READ_DIR_CHANGE_BUFFER_SIZE - pdi->m_dirPath.GetLength(), pnotify->FileName, min(READ_DIR_CHANGE_BUFFER_SIZE - pdi->m_dirPath.GetLength(), static_cast<int>(pnotify->FileNameLength / sizeof(TCHAR))));
+                            errno_t err = wcsncat_s(buf + pdi->m_dirPath.GetLength(), READ_DIR_CHANGE_BUFFER_SIZE - pdi->m_dirPath.GetLength(), pnotify->FileName, min(READ_DIR_CHANGE_BUFFER_SIZE - pdi->m_dirPath.GetLength(), static_cast<int>(pnotify->FileNameLength / sizeof(wchar_t))));
                             if (err == STRUNCATE)
                             {
                                 continue;
                             }
-                            buf[(pnotify->FileNameLength / sizeof(TCHAR)) + pdi->m_dirPath.GetLength()] = 0;
+                            buf[(pnotify->FileNameLength / sizeof(wchar_t)) + pdi->m_dirPath.GetLength()] = 0;
 
                             if (m_folderCrawler)
                             {

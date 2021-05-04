@@ -116,7 +116,7 @@ private:
     CPathEdit                 m_fromUrl;
     CPathEdit                 m_destUrl;
     CHintCtrl<CListCtrl>      m_extList;
-    TCHAR                     m_columnBuf[MAX_PATH];
+    wchar_t                   m_columnBuf[MAX_PATH];
     CBugTraqAssociation       m_bugtraqAssociation;
     CComPtr<IBugTraqProvider> m_bugTraqProvider;
 

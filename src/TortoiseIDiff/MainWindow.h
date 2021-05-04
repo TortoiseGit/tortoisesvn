@@ -88,7 +88,7 @@ protected:
     /// Shows the "Open images" dialog where the user can select the images to diff
     bool                 OpenDialog() const;
     static BOOL CALLBACK OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam, LPARAM lParam);
-    static bool          AskForFile(HWND owner, TCHAR* path);
+    static bool          AskForFile(HWND owner, wchar_t* path);
 
     // splitter methods
     static void DrawXorBar(HDC hdc, int x1, int y1, int width, int height);

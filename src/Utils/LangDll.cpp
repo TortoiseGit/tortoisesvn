@@ -37,11 +37,11 @@ CLangDll::~CLangDll()
 
 HINSTANCE CLangDll::Init(LPCWSTR appName, unsigned long langID)
 {
-    TCHAR langPath[MAX_PATH] = {0};
-    TCHAR sVer[MAX_PATH]     = {0};
+    wchar_t langPath[MAX_PATH] = {0};
+    wchar_t sVer[MAX_PATH]     = {0};
     wcscpy_s(sVer, TEXT(STRPRODUCTVER));
     GetModuleFileName(nullptr, langPath, _countof(langPath));
-    TCHAR* pSlash = wcsrchr(langPath, '\\');
+    wchar_t* pSlash = wcsrchr(langPath, '\\');
     if (!pSlash)
         return m_hInstance;
 
@@ -55,7 +55,7 @@ HINSTANCE CLangDll::Init(LPCWSTR appName, unsigned long langID)
     assert(m_hInstance == NULL);
     do
     {
-        TCHAR langDllPath[MAX_PATH] = {0};
+        wchar_t langDllPath[MAX_PATH] = {0};
         swprintf_s(langDllPath, L"%s%s%lu.dll", langPath, appName, langID);
 
         m_hInstance = LoadLibrary(langDllPath);
@@ -110,7 +110,7 @@ bool CLangDll::DoVersionStringsMatch(LPCWSTR sVer, LPCWSTR langDll) const
     LPSTR       lpVersion                       = nullptr;
     VOID*       lpFixedPointer                  = nullptr;
     Transarray* lpTransArray                    = nullptr;
-    TCHAR       strLangProductVersion[MAX_PATH] = {0};
+    wchar_t     strLangProductVersion[MAX_PATH] = {0};
 
     if (!GetFileVersionInfo(const_cast<LPWSTR>(langDll), dwReserved, dwBufferSize, pBuffer.get()))
         return false;

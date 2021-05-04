@@ -1092,7 +1092,7 @@ void CEditPropertiesDlg::OnBnClickedSaveprop()
             }
             else
             {
-                TCHAR strErr[4096] = {0};
+                wchar_t strErr[4096] = {0};
                 _wcserror_s(strErr, 4096, err);
                 ::MessageBox(m_hWnd, strErr, L"TortoiseSVN", MB_ICONERROR);
             }
@@ -1133,9 +1133,9 @@ void CEditPropertiesDlg::OnBnClickedExport()
             sName     = m_propList.GetItemText(index, 0);
             async::CCriticalSectionLock lock(m_mutex);
             PropValue*                  prop = reinterpret_cast<PropValue*>(m_propList.GetItemData(index));
-            len                              = sName.GetLength() * sizeof(TCHAR);
-            fwrite(&len, sizeof(int), 1, stream);                    // length of property name in bytes
-            fwrite(sName, sizeof(TCHAR), sName.GetLength(), stream); // property name
+            len                              = sName.GetLength() * sizeof(wchar_t);
+            fwrite(&len, sizeof(int), 1, stream);                      // length of property name in bytes
+            fwrite(sName, sizeof(wchar_t), sName.GetLength(), stream); // property name
             len = static_cast<int>(prop->value.size());
             fwrite(&len, sizeof(int), 1, stream);                                  // length of property value in bytes
             fwrite(prop->value.c_str(), sizeof(char), prop->value.size(), stream); // property value
@@ -1144,7 +1144,7 @@ void CEditPropertiesDlg::OnBnClickedExport()
     }
     else
     {
-        TCHAR strErr[4096] = {0};
+        wchar_t strErr[4096] = {0};
         _wcserror_s(strErr, 4096, err);
         ::MessageBox(m_hWnd, strErr, L"TortoiseSVN", MB_ICONERROR);
     }
@@ -1191,10 +1191,10 @@ void CEditPropertiesDlg::OnBnClickedImport()
                     bFailed = true;
                     continue;
                 }
-                std::unique_ptr<TCHAR[]> pNameBuf(new TCHAR[nNameBytes / sizeof(TCHAR)]);
+                std::unique_ptr<wchar_t[]> pNameBuf(new wchar_t[nNameBytes / sizeof(wchar_t)]);
                 if (fread(pNameBuf.get(), 1, nNameBytes, stream) == static_cast<size_t>(nNameBytes))
                 {
-                    std::string  sName       = CUnicodeUtils::StdGetUTF8(std::wstring(pNameBuf.get(), nNameBytes / sizeof(TCHAR)));
+                    std::string  sName       = CUnicodeUtils::StdGetUTF8(std::wstring(pNameBuf.get(), nNameBytes / sizeof(wchar_t)));
                     std::wstring sUName      = CUnicodeUtils::StdGetUnicode(sName);
                     int          nValueBytes = 0;
                     if (fread(&nValueBytes, sizeof(int), 1, stream) == 1)

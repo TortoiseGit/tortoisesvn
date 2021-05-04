@@ -115,7 +115,7 @@ private:
     CThemeMFCButton            m_switchButton;
     CColors                    m_colors;
     CHintCtrl<CListCtrl>       m_cFileList;
-    TCHAR                      m_columnBuf[MAX_PATH];
+    wchar_t                    m_columnBuf[MAX_PATH];
     bool                       m_bBlame;
     CBlame                     m_blamer;
     std::vector<FileDiff>      m_arFileList;

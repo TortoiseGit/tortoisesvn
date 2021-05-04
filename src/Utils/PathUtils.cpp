@@ -43,9 +43,9 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCWSTR path)
 {
     const size_t        len             = wcslen(path);
     const size_t        fullLen         = len + 10;
-    auto                buf             = std::make_unique<TCHAR[]>(fullLen);
-    auto                internalPathBuf = std::make_unique<TCHAR[]>(fullLen);
-    TCHAR*              pPath           = internalPathBuf.get();
+    auto                buf             = std::make_unique<wchar_t[]>(fullLen);
+    auto                internalPathBuf = std::make_unique<wchar_t[]>(fullLen);
+    wchar_t*            pPath           = internalPathBuf.get();
     SECURITY_ATTRIBUTES attribs         = {0};
 
     attribs.nLength        = sizeof(SECURITY_ATTRIBUTES);
@@ -56,8 +56,8 @@ BOOL CPathUtils::MakeSureDirectoryPathExists(LPCWSTR path)
         pPath += 4;
     do
     {
-        SecureZeroMemory(buf.get(), fullLen * sizeof(TCHAR));
-        TCHAR* slashPos = wcschr(pPath, '\\');
+        SecureZeroMemory(buf.get(), fullLen * sizeof(wchar_t));
+        wchar_t* slashPos = wcschr(pPath, '\\');
         if (slashPos)
             wcsncpy_s(buf.get(), fullLen, internalPathBuf.get(), slashPos - internalPathBuf.get());
         else
@@ -465,14 +465,14 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
 {
     if (path.empty())
         return path;
-    TCHAR pathBufCanonicalized[MAX_PATH] = {0}; // MAX_PATH ok.
-    DWORD ret                            = 0;
+    wchar_t pathBufCanonicalized[MAX_PATH] = {0}; // MAX_PATH ok.
+    DWORD   ret                            = 0;
     if (!PathIsURL(path.c_str()) && PathIsRelative(path.c_str()))
     {
         ret = GetFullPathName(path.c_str(), 0, nullptr, nullptr);
         if (ret)
         {
-            auto pathbuf = std::make_unique<TCHAR[]>(ret + 1);
+            auto pathbuf = std::make_unique<wchar_t[]>(ret + 1);
             if ((ret = GetFullPathName(path.c_str(), ret, pathbuf.get(), nullptr)) != 0)
                 return std::wstring(pathbuf.get(), ret);
         }
@@ -482,7 +482,7 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
         ret = ::GetLongPathName(pathBufCanonicalized, nullptr, 0);
         if (ret == 0)
             return path;
-        auto pathbuf = std::make_unique<TCHAR[]>(ret + 2);
+        auto pathbuf = std::make_unique<wchar_t[]>(ret + 2);
         ret          = ::GetLongPathName(pathBufCanonicalized, pathbuf.get(), ret + 1);
         // GetFullPathName() sometimes returns the full path with the wrong
         // case. This is not a problem on Windows since its file system is
@@ -494,7 +494,7 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
         int shortret = ::GetShortPathName(pathbuf.get(), nullptr, 0);
         if (shortret)
         {
-            auto shortpath = std::make_unique<TCHAR[]>(shortret + 2);
+            auto shortpath = std::make_unique<wchar_t[]>(shortret + 2);
             if (::GetShortPathName(pathbuf.get(), shortpath.get(), shortret + 1))
             {
                 int ret2 = ::GetLongPathName(shortpath.get(), pathbuf.get(), ret + 1);
@@ -508,13 +508,13 @@ std::wstring CPathUtils::GetLongPathname(const std::wstring& path)
         ret = ::GetLongPathName(path.c_str(), nullptr, 0);
         if (ret == 0)
             return path;
-        auto pathbuf = std::make_unique<TCHAR[]>(ret + 2);
+        auto pathbuf = std::make_unique<wchar_t[]>(ret + 2LL);
         ret          = ::GetLongPathName(path.c_str(), pathbuf.get(), ret + 1);
         // fix the wrong casing of the path. See above for details.
         int shortret = ::GetShortPathName(pathbuf.get(), nullptr, 0);
         if (shortret)
         {
-            auto shortpath = std::make_unique<TCHAR[]>(shortret + 2);
+            auto shortpath = std::make_unique<wchar_t[]>(shortret + 2LL);
             if (::GetShortPathName(pathbuf.get(), shortpath.get(), shortret + 1))
             {
                 int ret2 = ::GetLongPathName(shortpath.get(), pathbuf.get(), ret + 1);

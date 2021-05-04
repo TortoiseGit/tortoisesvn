@@ -188,7 +188,7 @@ void CPathWatcher::WorkerThread()
     CDirWatchInfo* pdi             = nullptr;
     LPOVERLAPPED   lpOverlapped    = nullptr;
     const int      bufferSize      = MAX_PATH * 4;
-    TCHAR          buf[bufferSize] = {0};
+    wchar_t        buf[bufferSize] = {0};
     while (m_bRunning)
     {
         if (watchedPaths.GetCount())
@@ -291,7 +291,7 @@ void CPathWatcher::WorkerThread()
                         nOffset = pNotify->NextEntryOffset;
                         SecureZeroMemory(buf, bufferSize * sizeof(wchar_t));
                         wcsncpy_s(buf, bufferSize, pdi->m_dirPath, bufferSize - 1);
-                        errno_t err = wcsncat_s(buf + pdi->m_dirPath.GetLength(), bufferSize - pdi->m_dirPath.GetLength(), pNotify->FileName, min(bufferSize - pdi->m_dirPath.GetLength(), static_cast<int>(pNotify->FileNameLength / sizeof(TCHAR))));
+                        errno_t err = wcsncat_s(buf + pdi->m_dirPath.GetLength(), bufferSize - pdi->m_dirPath.GetLength(), pNotify->FileName, min(bufferSize - pdi->m_dirPath.GetLength(), static_cast<int>(pNotify->FileNameLength / sizeof(wchar_t))));
                         if (err == STRUNCATE)
                         {
                             pNotify = reinterpret_cast<PFILE_NOTIFY_INFORMATION>(reinterpret_cast<LPBYTE>(pNotify) + nOffset);

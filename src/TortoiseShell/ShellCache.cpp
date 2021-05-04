@@ -60,7 +60,7 @@ ShellCache::ShellCache()
         driveTypeCache[0] = DRIVE_REMOVABLE;
         driveTypeCache[1] = DRIVE_REMOVABLE;
     }
-    TCHAR szBuffer[5] = {0};
+    wchar_t szBuffer[5] = {0};
     SecureZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], _countof(szDecSep));
     GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_STHOUSAND, &szThousandsSep[0], _countof(szThousandsSep));
@@ -334,8 +334,8 @@ BOOL ShellCache::IsPathAllowed(LPCWSTR path)
                 driveTypeCache[driveNumber] = DRIVE_REMOVABLE;
             else
             {
-                driveTypeTicker             = GetTickCount64();
-                TCHAR pathbuf[MAX_PATH + 4] = {0}; // MAX_PATH ok here. PathStripToRoot works with partial paths too.
+                driveTypeTicker               = GetTickCount64();
+                wchar_t pathbuf[MAX_PATH + 4] = {0}; // MAX_PATH ok here. PathStripToRoot works with partial paths too.
                 wcsncpy_s(pathbuf, path, _countof(pathbuf) - 1);
                 PathStripToRoot(pathbuf);
                 PathAddBackslash(pathbuf);
@@ -347,7 +347,7 @@ BOOL ShellCache::IsPathAllowed(LPCWSTR path)
     }
     else
     {
-        TCHAR pathBuf[MAX_PATH + 4] = {0}; // MAX_PATH ok here. PathIsUNCServer works with partial paths too.
+        wchar_t pathBuf[MAX_PATH + 4] = {0}; // MAX_PATH ok here. PathIsUNCServer works with partial paths too.
         wcsncpy_s(pathBuf, path, _countof(pathBuf) - 1);
         if (PathIsUNCServer(pathBuf))
             driveType = DRIVE_REMOTE;
@@ -394,7 +394,7 @@ NUMBERFMT* ShellCache::GetNumberFmt()
 {
     if ((GetTickCount64() - columnRevTormatTicker) > NUMBERFMTTIMEOUT)
     {
-        TCHAR szBuffer[5]     = {0};
+        wchar_t szBuffer[5]   = {0};
         columnRevTormatTicker = GetTickCount64();
         SecureZeroMemory(&columnrevformat, sizeof(NUMBERFMT));
         GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_SDECIMAL, &szDecSep[0], _countof(szDecSep));
@@ -481,7 +481,7 @@ void ShellCache::CPathFilter::AddEntry(const std::wstring& s, bool include)
     if (s.empty())
         return;
 
-    TCHAR lastChar = *s.rbegin();
+    wchar_t lastChar = *s.rbegin();
 
     SEntry entry;
     entry.hasSubFolderEntries = false;

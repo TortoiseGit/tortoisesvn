@@ -190,14 +190,14 @@ HRESULT STDMETHODCALLTYPE CIShellFolderHook::GetUIObjectOf(HWND hwndOwner, UINT 
             nLength += static_cast<int>(it->size());
             nLength += 1; // '\0' separator
         }
-        int  nBufferSize = sizeof(DROPFILES) + ((nLength + 5) * sizeof(TCHAR));
+        int  nBufferSize = sizeof(DROPFILES) + ((nLength + 5) * sizeof(wchar_t));
         auto pBuffer     = std::make_unique<char[]>(nBufferSize);
         SecureZeroMemory(pBuffer.get(), nBufferSize);
         DROPFILES* df           = reinterpret_cast<DROPFILES*>(pBuffer.get());
         df->pFiles              = sizeof(DROPFILES);
         df->fWide               = 1;
-        TCHAR* pFileNames       = reinterpret_cast<TCHAR*>(reinterpret_cast<BYTE*>(pBuffer.get()) + sizeof(DROPFILES));
-        TCHAR* pCurrentFilename = pFileNames;
+        wchar_t* pFileNames       = reinterpret_cast<wchar_t*>(reinterpret_cast<BYTE*>(pBuffer.get()) + sizeof(DROPFILES));
+        wchar_t* pCurrentFilename = pFileNames;
 
         for (auto it = sortedPaths.cbegin(); it != sortedPaths.cend(); ++it)
         {
@@ -1645,7 +1645,7 @@ CString CSVNStatusListCtrl::GetCellText(int listIndex, int column)
     static WORD          langID = static_cast<WORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", GetUserDefaultLangID()));
 
     CAutoReadLock    locker(m_guard);
-    TCHAR            buf[SVN_DATE_BUFFER] = {0};
+    wchar_t          buf[SVN_DATE_BUFFER] = {0};
     const FileEntry* entry                = GetListEntry(listIndex);
     if (entry == nullptr)
         return empty;
@@ -2758,7 +2758,7 @@ void CSVNStatusListCtrl::Delete(const CTSVNPath& filepath, int selIndex)
     }
     filelist += L"|";
     int  len = filelist.GetLength();
-    auto buf = std::make_unique<TCHAR[]>(len + 2);
+    auto buf = std::make_unique<wchar_t[]>(len + 2);
     wcscpy_s(buf.get(), len + 2, filelist);
     CStringUtils::PipesToNulls(buf.get(), len);
     SHFILEOPSTRUCT fileOp;
@@ -3723,10 +3723,10 @@ void CSVNStatusListCtrl::OnContextMenuList(CWnd* pWnd, CPoint point)
                     strTemp.LoadString(IDS_PROC_EXPORT_1);
                     folderBrowser.SetInfo(strTemp);
                     folderBrowser.m_style  = BIF_NEWDIALOGSTYLE | BIF_RETURNFSANCESTORS | BIF_RETURNONLYFSDIRS | BIF_VALIDATE | BIF_EDITBOX;
-                    TCHAR saveto[MAX_PATH] = {0};
-                    if (folderBrowser.Show(m_hWnd, saveto, _countof(saveto)) == CBrowseFolder::OK)
+                    wchar_t saveTo[MAX_PATH] = {0};
+                    if (folderBrowser.Show(m_hWnd, saveTo, _countof(saveTo)) == CBrowseFolder::OK)
                     {
-                        CString savePlace = CString(saveto);
+                        CString savePlace = CString(saveTo);
 
                         CProgressDlg progress;
                         progress.SetTitle(IDS_PROC_EXPORT_3);
@@ -4387,7 +4387,7 @@ void CSVNStatusListCtrl::CreateChangeList(const CString& name)
     SVN svn;
     if (svn.AddToChangeList(changelistItems, name, svn_depth_empty))
     {
-        TCHAR groupName[1024] = {0};
+        wchar_t groupName[1024] = {0};
         wcsncpy_s(groupName, name, _countof(groupName) - 1);
         auto size           = static_cast<int>(m_changelists.size());
         m_changelists[name] = static_cast<int>(DoInsertGroup(groupName, size, -1));
@@ -4589,7 +4589,7 @@ void CSVNStatusListCtrl::AddPropsPath(const CTSVNPath& filePath, CString& comman
 CString CSVNStatusListCtrl::GetStatisticsString() const
 {
     WORD  langID                        = static_cast<WORD>(static_cast<DWORD>(CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", GetUserDefaultLangID())));
-    TCHAR buf[MAX_STATUS_STRING_LENGTH] = {0};
+    wchar_t buf[MAX_STATUS_STRING_LENGTH] = {0};
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_normal, buf, _countof(buf), langID);
     CString sNormal = buf;
     SVNStatus::GetStatusString(AfxGetResourceHandle(), svn_wc_status_added, buf, _countof(buf), langID);
@@ -5771,7 +5771,7 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
     RemoveAllGroups();
     EnableGroupView(bHasGroups);
 
-    TCHAR groupname[1024] = {0};
+    wchar_t groupName[1024] = {0};
 
     m_bHasIgnoreGroup = false;
 
@@ -5782,14 +5782,14 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
     if (bHasChangelistGroups)
     {
         CString sUnassignedName(MAKEINTRESOURCE(IDS_STATUSLIST_UNASSIGNED_CHANGESET));
-        wcsncpy_s(groupname, static_cast<LPCWSTR>(sUnassignedName), _countof(groupname) - 1);
+        wcsncpy_s(groupName, static_cast<LPCWSTR>(sUnassignedName), _countof(groupName) - 1);
     }
     else
     {
         CString sNoExternalGroup(MAKEINTRESOURCE(IDS_STATUSLIST_NOEXTERNAL_GROUP));
-        wcsncpy_s(groupname, static_cast<LPCWSTR>(sNoExternalGroup), _countof(groupname) - 1);
+        wcsncpy_s(groupName, static_cast<LPCWSTR>(sNoExternalGroup), _countof(groupName) - 1);
     }
-    DoInsertGroup(groupname, groupindex++);
+    DoInsertGroup(groupName, groupindex++);
 
     m_bExternalsGroups = false;
     if (bHasChangelistGroups)
@@ -5798,8 +5798,8 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
         {
             if (it->first.Compare(SVNSLC_IGNORECHANGELIST) != 0)
             {
-                wcsncpy_s(groupname, static_cast<LPCWSTR>(it->first), _countof(groupname) - 1);
-                it->second = static_cast<int>(DoInsertGroup(groupname, groupindex++));
+                wcsncpy_s(groupName, static_cast<LPCWSTR>(it->first), _countof(groupName) - 1);
+                it->second = static_cast<int>(DoInsertGroup(groupName, groupindex++));
             }
             else
                 m_bHasIgnoreGroup = true;
@@ -5809,10 +5809,10 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
     {
         for (std::set<CTSVNPath>::iterator it = m_externalSet.begin(); it != m_externalSet.end(); ++it)
         {
-            wcsncpy_s(groupname, static_cast<LPCWSTR>(CString(MAKEINTRESOURCE(IDS_STATUSLIST_EXTERNAL_GROUP))), _countof(groupname) - 1);
-            wcsncat_s(groupname, L" ", _countof(groupname) - 1);
-            wcsncat_s(groupname, static_cast<LPCWSTR>(it->GetFileOrDirectoryName()), _countof(groupname) - 1);
-            DoInsertGroup(groupname, groupindex++);
+            wcsncpy_s(groupName, static_cast<LPCWSTR>(CString(MAKEINTRESOURCE(IDS_STATUSLIST_EXTERNAL_GROUP))), _countof(groupName) - 1);
+            wcsncat_s(groupName, L" ", _countof(groupName) - 1);
+            wcsncat_s(groupName, static_cast<LPCWSTR>(it->GetFileOrDirectoryName()), _countof(groupName) - 1);
+            DoInsertGroup(groupName, groupindex++);
             m_bExternalsGroups = true;
         }
     }
@@ -5823,8 +5823,8 @@ bool CSVNStatusListCtrl::PrepareGroups(bool bForce /* = false */)
         std::map<CString, int>::iterator it = m_changelists.find(SVNSLC_IGNORECHANGELIST);
         if (it != m_changelists.end())
         {
-            wcsncpy_s(groupname, _countof(groupname), SVNSLC_IGNORECHANGELIST, _countof(groupname) - 1);
-            it->second = static_cast<int>(DoInsertGroup(groupname, groupindex));
+            wcsncpy_s(groupName, _countof(groupName), SVNSLC_IGNORECHANGELIST, _countof(groupName) - 1);
+            it->second = static_cast<int>(DoInsertGroup(groupName, groupindex));
         }
     }
 
@@ -6550,7 +6550,7 @@ bool CSVNStatusListCtrlDropTarget::OnDrop(FORMATETC* pFmtEtc, STGMEDIUM& medium,
 
 void CSVNStatusListCtrlDropTarget::OnDrop(HDROP hDrop, POINTL pt) const
 {
-    TCHAR szFileName[MAX_PATH] = {0};
+    wchar_t szFileName[MAX_PATH] = {0};
 
     const UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
 

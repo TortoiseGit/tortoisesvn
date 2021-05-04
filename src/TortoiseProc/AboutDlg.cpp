@@ -156,7 +156,7 @@ void CAboutDlg::OnMouseMove(UINT nFlags, CPoint point)
 // ReSharper disable once CppMemberFunctionMayBeConst
 void CAboutDlg::OnBnClickedUpdate()
 {
-    TCHAR com[MAX_PATH + 100] = {0};
+    wchar_t com[MAX_PATH + 100] = {0};
     GetModuleFileName(nullptr, com, MAX_PATH);
 
     CCreateProcessHelper::CreateProcessDetached(com, L" /command:updatecheck /visible");

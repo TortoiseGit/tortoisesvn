@@ -121,7 +121,7 @@ CString CStandardLayoutNodeList::GetToolTip (index_t index) const
 
     // get standard revprops
 
-    TCHAR date[SVN_DATE_BUFFER] = { 0 };
+    wchar_t    date[SVN_DATE_BUFFER] = {0};
     apr_time_t timeStamp = revisionInfo.GetTimeStamp (revisionIndex);
     SVN::formatDate(date, timeStamp);
 

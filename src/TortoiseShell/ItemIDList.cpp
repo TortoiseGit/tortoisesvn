@@ -92,8 +92,8 @@ std::wstring ItemIDList::toString(bool resolveLibraries /*= true*/) const
     if (!m_parent || FAILED(shellFolder->BindToObject(m_parent, nullptr, IID_IShellFolder, reinterpret_cast<void**>(&parentFolder))))
         parentFolder = shellFolder;
 
-    STRRET name;
-    TCHAR* szDisplayName = nullptr;
+    STRRET   name;
+    wchar_t* szDisplayName = nullptr;
     if ((parentFolder != nullptr) && (m_item != nullptr))
     {
         if (FAILED(parentFolder->GetDisplayNameOf(m_item, SHGDN_NORMAL | SHGDN_FORPARSING, &name)))

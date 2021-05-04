@@ -242,13 +242,13 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 
     // fill the combo box
 
-    TCHAR* texts[] = {L"5%", L"10%", L"20%", L"40%", L"50%", L"75%", L"100%", L"200%",
-                      nullptr};
+    wchar_t* texts[] = {L"5%", L"10%", L"20%", L"40%", L"50%", L"75%", L"100%", L"200%",
+                        nullptr};
 
     COMBOBOXEXITEM cbei = {0};
     cbei.mask           = CBEIF_TEXT;
 
-    for (TCHAR** text = texts; *text != nullptr; ++text)
+    for (wchar_t** text = texts; *text != nullptr; ++text)
     {
         cbei.pszText = *text;
         m_toolBar.m_zoomCombo.InsertItem(&cbei);

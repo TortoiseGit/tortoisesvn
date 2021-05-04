@@ -253,9 +253,9 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD reason, LPVOID reserved)
     // If no debugger is present, then don't load the dll.
     // This prevents other apps from loading the dll and locking it.
 
-    BOOL  bInShellTest      = FALSE;
-    TCHAR buf[MAX_PATH + 1] = {0}; // MAX_PATH ok, the test really is for debugging anyway.
-    DWORD pathLength        = GetModuleFileName(nullptr, buf, MAX_PATH);
+    BOOL    bInShellTest      = FALSE;
+    wchar_t buf[MAX_PATH + 1] = {0}; // MAX_PATH ok, the test really is for debugging anyway.
+    DWORD   pathLength        = GetModuleFileName(nullptr, buf, MAX_PATH);
 
     UNREFERENCED_PARAMETER(reserved);
 

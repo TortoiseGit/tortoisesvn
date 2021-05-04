@@ -25,11 +25,11 @@
 
 void TortoiseBlame::SetupLexer(LPCWSTR filename) const
 {
-    const TCHAR* linePtr = wcsrchr(filename, '.');
+    const wchar_t* linePtr = wcsrchr(filename, '.');
 
     if (linePtr)
     {
-        TCHAR line[20] = {0};
+        wchar_t line[20] = {0};
         wcscpy_s(line, linePtr + 1);
         _wcslwr_s(line);
         if ((wcscmp(line, L"py") == 0) ||

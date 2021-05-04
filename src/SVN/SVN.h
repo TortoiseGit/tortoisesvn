@@ -952,12 +952,12 @@ public:
      * Returns a string in \c date_native[] representing the date in the OS local
      * format.
      */
-    static void formatDate(TCHAR dateNative[], apr_time_t dateSvn, bool forceShortFmt = false);
+    static void formatDate(wchar_t dateNative[], apr_time_t dateSvn, bool forceShortFmt = false);
     /**
      * Returns a string in \c date_native[] representing the date in the OS local
      * format.
      */
-    static void formatDate(TCHAR dateNative[], FILETIME& date, bool forceShortFmt = false);
+    static void formatDate(wchar_t dateNative[], FILETIME& date, bool forceShortFmt = false);
     /**
      * Returns a string representing the date w/o time in the OS local format.
      */

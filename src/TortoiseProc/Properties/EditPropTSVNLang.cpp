@@ -128,7 +128,7 @@ BOOL CEditPropTSVNLang::EnumLocalesProc(LPWSTR lpLocaleString)
 {
     DWORD langID = wcstol(lpLocaleString, nullptr, 16);
 
-    TCHAR buf[MAX_PATH] = {0};
+    wchar_t buf[MAX_PATH] = {0};
     GetLocaleInfo(langID, LOCALE_SNATIVELANGNAME, buf, _countof(buf));
     CString sLang = buf;
     GetLocaleInfo(langID, LOCALE_SNATIVECTRYNAME, buf, _countof(buf));

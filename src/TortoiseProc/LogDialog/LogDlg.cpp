@@ -4537,9 +4537,9 @@ void CLogDlg::OnLvnGetdispinfoLoglist(NMHDR* pNMHDR, LRESULT* pResult)
                 {
                     swprintf_s(pItem->pszText, pItem->cchTextMax, L"%ld", pLogEntry->GetRevision());
                     // to make the child entries indented, add spaces
-                    size_t len     = wcslen(pItem->pszText);
-                    TCHAR* pBuf    = pItem->pszText + len;
-                    DWORD  nSpaces = m_logEntries.GetMaxDepth() - pLogEntry->GetDepth();
+                    size_t   len     = wcslen(pItem->pszText);
+                    wchar_t* pBuf    = pItem->pszText + len;
+                    DWORD    nSpaces = m_logEntries.GetMaxDepth() - pLogEntry->GetDepth();
                     while ((pItem->cchTextMax > static_cast<int>(len)) && (nSpaces))
                     {
                         *pBuf = L' ';
@@ -5078,11 +5078,11 @@ void CLogDlg::ResizeAllListCtrlCols(bool bOnlyVisible)
     }
     for (int col = 0; col <= maxCol; col++)
     {
-        TCHAR  textBuf[MAX_PATH + 1] = {0};
-        HDITEM hdi                   = {0};
-        hdi.mask                     = HDI_TEXT;
-        hdi.pszText                  = textBuf;
-        hdi.cchTextMax               = _countof(textBuf) - 1;
+        wchar_t textBuf[MAX_PATH + 1] = {0};
+        HDITEM  hdi                   = {0};
+        hdi.mask                      = HDI_TEXT;
+        hdi.pszText                   = textBuf;
+        hdi.cchTextMax                = _countof(textBuf) - 1;
         pHdrCtrl->GetItem(col, &hdi);
         int cx = m_logList.GetStringWidth(textBuf) + CDPIAware::Instance().Scale(GetSafeHwnd(), 20); // 20 pixels for col separator and margin
         for (size_t index = startRow; index < endRow; ++index)
@@ -10146,7 +10146,7 @@ auto CLogDlg::RegisterSnarl() const -> void
     g_snarlGlobalMsg = Snarl::V42::SnarlInterface::Broadcast();
     if (Snarl::V42::SnarlInterface::IsSnarlRunning())
     {
-        TCHAR com[MAX_PATH + 100] = {0};
+        wchar_t com[MAX_PATH + 100] = {0};
         GetModuleFileName(nullptr, com, MAX_PATH);
 
         CString sIconPath = com;

@@ -362,7 +362,7 @@ void CSciEdit::SetIcon(const std::map<int, UINT>& icons) const
 BOOL CSciEdit::LoadDictionaries(LONG lLanguageID)
 {
     // Setup the spell checker
-    TCHAR   buf[6]         = {0};
+    wchar_t buf[6]         = {0};
     CString sFolderUp      = CPathUtils::GetAppParentDirectory();
     CString sFolderAppData = CPathUtils::GetAppDataDirectory();
 
@@ -548,7 +548,7 @@ void CSciEdit::SetFont(CString sFontName, int iFontSizeInPoints) const
     Call(SCI_SETHOTSPOTACTIVEUNDERLINE, static_cast<LPARAM>(TRUE));
 }
 
-void CSciEdit::SetAutoCompletionList(std::map<CString, int>&& list, TCHAR separator, TCHAR typeSeparator)
+void CSciEdit::SetAutoCompletionList(std::map<CString, int>&& list, wchar_t separator, wchar_t typeSeparator)
 {
     //copy the auto completion list.
 
@@ -995,7 +995,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                     {
                         // URL is relative to the repository root
                         CString url1                         = m_sRepositoryRoot + url.Mid(1);
-                        TCHAR   buf[INTERNET_MAX_URL_LENGTH] = {0};
+                        wchar_t buf[INTERNET_MAX_URL_LENGTH] = {0};
                         DWORD   len                          = url.GetLength();
                         if (UrlCanonicalize(static_cast<LPCWSTR>(url1), buf, &len, 0) == S_OK)
                             url = CString(buf, len);
@@ -1012,7 +1012,7 @@ BOOL CSciEdit::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT
                         {
                             sHost                                = m_sRepositoryRoot.Left(m_sRepositoryRoot.Find('/', schemePos + 3));
                             CString url1                         = sHost + url;
-                            TCHAR   buf[INTERNET_MAX_URL_LENGTH] = {0};
+                            wchar_t buf[INTERNET_MAX_URL_LENGTH] = {0};
                             DWORD   len                          = url.GetLength();
                             if (UrlCanonicalize(static_cast<LPCWSTR>(url), buf, &len, 0) == S_OK)
                                 url = CString(buf, len);

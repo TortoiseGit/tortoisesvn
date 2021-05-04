@@ -219,8 +219,8 @@ void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium
 {
     if (((pFmtEtc->cfFormat == CF_UNICODETEXT) || (pFmtEtc->cfFormat == CF_INETURL) || (pFmtEtc->cfFormat == CF_SHELLURL)) && medium.tymed == TYMED_HGLOBAL)
     {
-        TCHAR*  pStr = static_cast<TCHAR*>(GlobalLock(medium.hGlobal));
-        CString urls;
+        wchar_t* pStr = static_cast<wchar_t*>(GlobalLock(medium.hGlobal));
+        CString  urls;
         if (pStr != nullptr)
         {
             urls = pStr;
@@ -235,8 +235,8 @@ void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium
 
     if (pFmtEtc->cfFormat == CF_SVNURL && medium.tymed == TYMED_HGLOBAL)
     {
-        TCHAR*  pStr = static_cast<TCHAR*>(GlobalLock(medium.hGlobal));
-        CString urls;
+        wchar_t* pStr = static_cast<wchar_t*>(GlobalLock(medium.hGlobal));
+        CString  urls;
         if (pStr != nullptr)
         {
             urls = pStr;
@@ -269,7 +269,7 @@ void CMonitorTreeTarget::HandleDropFormats(FORMATETC* pFmtEtc, STGMEDIUM& medium
         if (hDrop != nullptr)
         {
             CTSVNPathList urlList;
-            TCHAR         szFileName[MAX_PATH] = {0};
+            wchar_t       szFileName[MAX_PATH] = {0};
 
             UINT cFiles = DragQueryFile(hDrop, 0xFFFFFFFF, nullptr, 0);
             for (UINT i = 0; i < cFiles; ++i)
@@ -309,7 +309,7 @@ HRESULT CMonitorTreeTarget::DragEnter(IDataObject __RPC_FAR* pDataObj, DWORD grf
 
 HRESULT CMonitorTreeTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR* pdwEffect)
 {
-    TCHAR         targetName[MAX_PATH] = {0};
+    wchar_t       targetName[MAX_PATH] = {0};
     TVHITTESTINFO hit;
     hit.pt = reinterpret_cast<POINT&>(pt);
     ScreenToClient(m_hTargetWnd, &hit.pt);

@@ -393,9 +393,9 @@ void SVNStatus::GetExternals(std::set<CTSVNPath>& externals) const
     }
 }
 
-void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t bufLen, TCHAR* string)
+void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t bufLen, wchar_t* string)
 {
-    TCHAR* buf;
+    wchar_t* buf=nullptr;
     switch (status)
     {
         case svn_wc_status_none:
@@ -447,7 +447,7 @@ void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t bufLen, TCHAR*
     swprintf_s(string, bufLen, L"%s", buf);
 }
 
-void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHAR* string, int size, WORD lang)
+void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, wchar_t* string, int size, WORD lang)
 {
     enum
     {
@@ -456,7 +456,7 @@ void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, TCHA
 
     struct SCacheEntry
     {
-        TCHAR buffer[MAX_STATUS_LENGTH];
+        wchar_t buffer[MAX_STATUS_LENGTH];
 
         HINSTANCE          hInst;
         svn_wc_status_kind status;
@@ -563,7 +563,7 @@ const CString& SVNStatus::GetDepthString(svn_depth_t depth)
 }
 #endif
 
-void SVNStatus::GetDepthString(HINSTANCE hInst, svn_depth_t depth, TCHAR* string, int size, WORD lang)
+void SVNStatus::GetDepthString(HINSTANCE hInst, svn_depth_t depth, wchar_t* string, int size, WORD lang)
 {
     switch (depth)
     {

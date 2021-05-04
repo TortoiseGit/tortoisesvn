@@ -364,10 +364,10 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
             }
         }
         pMedium->tymed   = TYMED_HGLOBAL;
-        pMedium->hGlobal = GlobalAlloc(GHND, (text.GetLength() + 1) * sizeof(TCHAR));
+        pMedium->hGlobal = GlobalAlloc(GHND, (text.GetLength() + 1) * sizeof(wchar_t));
         if (pMedium->hGlobal)
         {
-            TCHAR* pMem = static_cast<TCHAR*>(GlobalLock(pMedium->hGlobal));
+            wchar_t* pMem = static_cast<wchar_t*>(GlobalLock(pMedium->hGlobal));
             wcscpy_s(pMem, text.GetLength() + 1, static_cast<LPCWSTR>(text));
             GlobalUnlock(pMedium->hGlobal);
         }
@@ -396,10 +396,10 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
             }
         }
         pMedium->tymed   = TYMED_HGLOBAL;
-        pMedium->hGlobal = GlobalAlloc(GHND, (text.GetLength() + 1) * sizeof(TCHAR));
+        pMedium->hGlobal = GlobalAlloc(GHND, (text.GetLength() + 1) * sizeof(wchar_t));
         if (pMedium->hGlobal)
         {
-            TCHAR* pMem = static_cast<TCHAR*>(GlobalLock(pMedium->hGlobal));
+            wchar_t* pMem = static_cast<wchar_t*>(GlobalLock(pMedium->hGlobal));
             wcscpy_s(pMem, text.GetLength() + 1, static_cast<LPCWSTR>(text));
             GlobalUnlock(pMedium->hGlobal);
         }
@@ -416,7 +416,7 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
             nLength += 1; // '\0' separator
         }
 
-        int                     nBufferSize = sizeof(DROPFILES) + (nLength + 1) * sizeof(TCHAR);
+        int                     nBufferSize = sizeof(DROPFILES) + (nLength + 1LL) * sizeof(wchar_t);
         std::unique_ptr<char[]> pBuffer(new char[nBufferSize]);
 
         SecureZeroMemory(pBuffer.get(), nBufferSize);
@@ -425,8 +425,8 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
         df->pFiles    = sizeof(DROPFILES);
         df->fWide     = 1;
 
-        TCHAR* pFilenames       = reinterpret_cast<TCHAR*>(pBuffer.get() + sizeof(DROPFILES));
-        TCHAR* pCurrentFilename = pFilenames;
+        wchar_t* pFilenames       = reinterpret_cast<wchar_t*>(pBuffer.get() + sizeof(DROPFILES));
+        wchar_t* pCurrentFilename = pFilenames;
 
         for (int i = 0; i < m_svnPaths.GetCount(); i++)
         {

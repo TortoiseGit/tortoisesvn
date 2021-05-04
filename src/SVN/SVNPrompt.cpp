@@ -406,7 +406,7 @@ svn_error_t *SVNPrompt::sslclientprompt(svn_auth_cred_ssl_client_cert_t **cred, 
         else
         {
             OPENFILENAME ofn              = {0}; // common dialog box structure
-            TCHAR        szFile[MAX_PATH] = {0}; // buffer for file name
+            wchar_t      szFile[MAX_PATH] = {0}; // buffer for file name
             // Initialize OPENFILENAME
             ofn.lStructSize = sizeof(OPENFILENAME);
             ofn.hwndOwner   = svn->m_hParentWnd;

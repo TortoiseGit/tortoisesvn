@@ -54,7 +54,7 @@ bool                    bRun = true;
 NOTIFYICONDATA          niData;
 HWND                    hWndHidden;
 HWND                    hTrayWnd;
-TCHAR                   szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
+wchar_t                 szCurrentCrawledPath[MAX_CRAWLEDPATHS][MAX_CRAWLEDPATHSLEN];
 int                     nCurrentCrawledpathIndex = 0;
 CComAutoCriticalSection critSec;
 
@@ -102,7 +102,7 @@ svn_error_t* svnErrorHandleMalfunction(svn_boolean_t canReturn,
 
 static HWND CreateHiddenWindow(HINSTANCE hInstance)
 {
-    TCHAR szWindowClass[] = {TSVN_CACHE_WINDOW_NAME};
+    wchar_t szWindowClass[] = {TSVN_CACHE_WINDOW_NAME};
 
     WNDCLASSEX wcex    = {};
     wcex.cbSize        = sizeof(WNDCLASSEX);
@@ -127,7 +127,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPSTR /*
     }
 
     // set the current directory to the users temp dir
-    TCHAR pathbuf[MAX_PATH] = {0};
+    wchar_t pathbuf[MAX_PATH] = {0};
     GetTempPath(_countof(pathbuf), pathbuf);
     SetCurrentDirectory(pathbuf);
 
@@ -366,7 +366,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                         {
                             if (pVolume->dbcv_unitmask & (1 << i))
                             {
-                                TCHAR   driveLetter = 'A' + i;
+                                wchar_t driveLetter = 'A' + i;
                                 CString drive       = CString(driveLetter);
                                 drive += L":\\";
                                 CSVNStatusCache::Instance().CloseWatcherHandles(CTSVNPath(drive));
@@ -606,7 +606,7 @@ unsigned int __stdcall InstanceThread(LPVOID lpvParam)
             request.path[i - 1] = 0;
 
         size_t pathLength = wcslen(request.path);
-        SecureZeroMemory(request.path + pathLength, sizeof(request.path) - pathLength * sizeof(TCHAR));
+        SecureZeroMemory(request.path + pathLength, sizeof(request.path) - pathLength * sizeof(wchar_t));
 
         request.flags &= TSVNCACHE_FLAGS_MASK;
 
@@ -679,7 +679,7 @@ unsigned int __stdcall CommandThread(LPVOID lpvParam)
             command.path[i - 1] = 0;
 
         size_t pathLength = wcslen(command.path);
-        SecureZeroMemory(command.path + pathLength, sizeof(command.path) - pathLength * sizeof(TCHAR));
+        SecureZeroMemory(command.path + pathLength, sizeof(command.path) - pathLength * sizeof(wchar_t));
 
         // process request
         switch (command.command)

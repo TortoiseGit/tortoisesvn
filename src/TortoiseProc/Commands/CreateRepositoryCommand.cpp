@@ -44,7 +44,7 @@ bool CreateRepositoryCommand::Execute()
             if (hFile)
             {
                 CString sIni = L"[.ShellClassInfo]\nConfirmFileOp=0\nIconFile=svn.ico\nIconIndex=0\nInfoTip=Subversion Repository\n";
-                WriteFile(hFile, static_cast<LPCWSTR>(sIni), sIni.GetLength() * sizeof(TCHAR), &dwWritten, nullptr);
+                WriteFile(hFile, static_cast<LPCWSTR>(sIni), sIni.GetLength() * sizeof(wchar_t), &dwWritten, nullptr);
             }
             PathMakeSystemFolder(cmdLinePath.GetWinPath());
         }

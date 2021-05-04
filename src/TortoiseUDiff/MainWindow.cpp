@@ -340,7 +340,7 @@ LRESULT CMainWindow::DoCommand(int id)
         break;
         case ID_FILE_PAGESETUP:
         {
-            TCHAR localeInfo[3] = {0};
+            wchar_t localeInfo[3] = {0};
             GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IMEASURE, localeInfo, 3);
             // Metric system. '1' is US System
             int defaultMargin = localeInfo[0] == '0' ? 2540 : 1000;
@@ -442,7 +442,7 @@ LRESULT CMainWindow::DoCommand(int id)
                                      - GetDeviceCaps(hdc, VERTRES) // printable height
                                      - rectPhysMargins.top;        // right unprintable margin
 
-            TCHAR localeInfo[3] = {0};
+            wchar_t localeInfo[3] = {0};
             GetLocaleInfo(LOCALE_USER_DEFAULT, LOCALE_IMEASURE, localeInfo, 3);
             // Metric system. '1' is US System
             int          defaultMargin = localeInfo[0] == '0' ? 2540 : 1000;
@@ -602,7 +602,7 @@ std::wstring CMainWindow::GetAppDirectory() const
     do
     {
         bufferLen += MAX_PATH; // MAX_PATH is not the limit here!
-        auto pBuf = std::make_unique<TCHAR[]>(bufferLen);
+        auto pBuf = std::make_unique<wchar_t[]>(bufferLen);
         len       = GetModuleFileName(nullptr, pBuf.get(), bufferLen);
         path      = std::wstring(pBuf.get(), len);
     } while (len == bufferLen);
@@ -909,9 +909,9 @@ bool CMainWindow::SaveFile(LPCWSTR filename) const
     _wfopen_s(&fp, filename, L"w+b");
     if (!fp)
     {
-        TCHAR fmt[1024] = {0};
+        wchar_t fmt[1024] = {0};
         LoadString(hResource, IDS_ERRORSAVE, fmt, _countof(fmt));
-        TCHAR error[1024] = {0};
+        wchar_t error[1024] = {0};
         _snwprintf_s(error, _countof(error), fmt, filename, static_cast<LPCWSTR>(CFormatMessageWrapper()));
         MessageBox(*this, error, L"TortoiseUDiff", MB_OK);
         return false;
@@ -931,7 +931,7 @@ bool CMainWindow::SaveFile(LPCWSTR filename) const
 void CMainWindow::SetTitle(LPCWSTR title)
 {
     size_t len  = wcslen(title);
-    auto   pBuf = std::make_unique<TCHAR[]>(len + 40);
+    auto   pBuf = std::make_unique<wchar_t[]>(len + 40);
     swprintf_s(pBuf.get(), len + 40, L"%s - TortoiseUDiff", title);
     SetWindowTitle(std::wstring(pBuf.get()));
 }
@@ -1030,23 +1030,23 @@ bool CMainWindow::IsUTF8(LPVOID pBuffer, size_t cb)
 void CMainWindow::loadOrSaveFile(bool doLoad, const std::wstring& filename /* = L"" */)
 {
     OPENFILENAME ofn              = {0}; // common dialog box structure
-    TCHAR        szFile[MAX_PATH] = {0}; // buffer for file name
+    wchar_t      szFile[MAX_PATH] = {0}; // buffer for file name
     // Initialize OPENFILENAME
-    ofn.lStructSize    = sizeof(OPENFILENAME);
-    ofn.hwndOwner      = *this;
-    ofn.lpstrFile      = szFile;
-    ofn.nMaxFile       = sizeof(szFile) / sizeof(TCHAR);
-    TCHAR filter[1024] = {0};
-    LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter) / sizeof(TCHAR));
+    ofn.lStructSize      = sizeof(OPENFILENAME);
+    ofn.hwndOwner        = *this;
+    ofn.lpstrFile        = szFile;
+    ofn.nMaxFile         = sizeof(szFile) / sizeof(wchar_t);
+    wchar_t filter[1024] = {0};
+    LoadString(hResource, IDS_PATCHFILEFILTER, filter, sizeof(filter) / sizeof(wchar_t));
     CStringUtils::PipesToNulls(filter);
-    ofn.lpstrFilter       = filter;
-    ofn.nFilterIndex      = 1;
-    ofn.lpstrFileTitle    = nullptr;
-    ofn.lpstrDefExt       = L"diff";
-    ofn.nMaxFileTitle     = 0;
-    ofn.lpstrInitialDir   = nullptr;
-    TCHAR fileTitle[1024] = {0};
-    LoadString(hResource, doLoad ? IDS_OPENPATCH : IDS_SAVEPATCH, fileTitle, sizeof(fileTitle) / sizeof(TCHAR));
+    ofn.lpstrFilter         = filter;
+    ofn.nFilterIndex        = 1;
+    ofn.lpstrFileTitle      = nullptr;
+    ofn.lpstrDefExt         = L"diff";
+    ofn.nMaxFileTitle       = 0;
+    ofn.lpstrInitialDir     = nullptr;
+    wchar_t fileTitle[1024] = {0};
+    LoadString(hResource, doLoad ? IDS_OPENPATCH : IDS_SAVEPATCH, fileTitle, sizeof(fileTitle) / sizeof(wchar_t));
     ofn.lpstrTitle = fileTitle;
     ofn.Flags      = OFN_ENABLESIZING | OFN_EXPLORER;
     if (doLoad)

@@ -804,7 +804,7 @@ bool CUtf16LeFilter::Decode(/*in out*/ CBuffer& /*data*/)
 
 const CBuffer& CUtf16LeFilter::Encode(const CString& s)
 {
-    int nNeedBytes = s.GetLength() * sizeof(TCHAR);
+    int nNeedBytes = s.GetLength() * sizeof(wchar_t);
     m_oBuffer.SetLength(nNeedBytes);
     memcpy(static_cast<void*>(m_oBuffer), static_cast<LPCWSTR>(s), nNeedBytes);
     return m_oBuffer;
@@ -831,7 +831,7 @@ bool CUtf16BeFilter::Decode(/*in out*/ CBuffer& data)
 
 const CBuffer& CUtf16BeFilter::Encode(const CString& s)
 {
-    int nNeedBytes = s.GetLength() * sizeof(TCHAR);
+    int nNeedBytes = s.GetLength() * sizeof(wchar_t);
     m_oBuffer.SetLength(nNeedBytes);
     // copy swaping BYTE order in WORDs
     const UINT64* pQwIn   = reinterpret_cast<const UINT64*>(static_cast<LPCWSTR>(s));

@@ -361,8 +361,8 @@ void CSettingsAdvanced::OnLvnEndlabeledit(NMHDR *pNMHDR, LRESULT *pResult)
         break;
         case SettingTypeNumber:
         {
-            TCHAR *pChar = pDispInfo->item.pszText;
-            allowEdit    = true;
+            wchar_t *pChar = pDispInfo->item.pszText;
+            allowEdit      = true;
             while (*pChar)
             {
                 if (!_istdigit(*pChar))

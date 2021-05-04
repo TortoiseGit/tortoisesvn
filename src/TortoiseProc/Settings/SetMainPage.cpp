@@ -93,7 +93,7 @@ BOOL CSetMainPage::OnInitDialog()
     DialogEnableWindow(IDC_CREATELIB, TRUE);
 
     // set up the language selecting combobox
-    TCHAR buf[MAX_PATH] = {0};
+    wchar_t buf[MAX_PATH] = {0};
     GetLocaleInfo(1033, LOCALE_SNATIVELANGNAME, buf, _countof(buf));
     m_languageCombo.AddString(buf);
     m_languageCombo.SetItemData(0, 1033);
@@ -182,7 +182,7 @@ void CSetMainPage::OnBnClickedEditconfig()
 // ReSharper disable once CppMemberFunctionMayBeConst
 void CSetMainPage::OnBnClickedChecknewerbutton()
 {
-    TCHAR com[MAX_PATH + 100] = {0};
+    wchar_t com[MAX_PATH + 100] = {0};
     GetModuleFileName(nullptr, com, MAX_PATH);
 
     CCreateProcessHelper::CreateProcessDetached(com, L" /command:updatecheck /visible");

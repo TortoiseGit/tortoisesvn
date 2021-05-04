@@ -163,7 +163,7 @@ BOOL CHyperLink::ConvertStaticToHyperlink(HWND hwndParent, UINT uiCtlId,
 BOOL CHyperLink::setURL(LPCWSTR strURL)
 {
     delete [] m_strURL;
-    if( (m_strURL = new TCHAR[lstrlen(strURL)+1])==0 )
+    if ((m_strURL = new wchar_t[lstrlen(strURL) + 1]) == 0)
     {
         return FALSE;
     }

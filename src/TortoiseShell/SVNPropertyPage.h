@@ -30,7 +30,7 @@
             nLen += 2;                                                                                                 \
             _ms_lvi.cchTextMax = nLen;                                                                                 \
             delete[] __buf;                                                                                            \
-            __buf           = new TCHAR[nLen];                                                                         \
+            __buf           = new wchar_t[nLen];                                                                       \
             _ms_lvi.pszText = __buf;                                                                                   \
             nRes            = (int)::SendMessage((hwndLV), LVM_GETITEMTEXT, (WPARAM)(i), (LPARAM)(LV_ITEM *)&_ms_lvi); \
         } while (nRes == nLen - 1);                                                                                    \
@@ -43,7 +43,7 @@
         {                                                      \
             nLen *= 2;                                         \
             delete[] __buf;                                    \
-            __buf = new TCHAR[nLen];                           \
+            __buf = new wchar_t[nLen];                         \
             nRes  = GetDlgItemText(hwndDlg, _id, __buf, nLen); \
         } while (nRes == nLen - 1);                            \
     }
@@ -75,7 +75,7 @@ protected:
      * Initializes the property page.
      */
     virtual void InitWorkfileView();
-    void         Time64ToTimeString(__time64_t time, TCHAR *buf, size_t buflen) const;
+    void         Time64ToTimeString(__time64_t time, wchar_t *buf, size_t buflen) const;
     static void  RunCommand(const std::wstring &command);
     void         PageProcOnCommand(WPARAM wParam);
 
@@ -88,5 +88,5 @@ protected:
     HWND                                m_hwnd;
     std::vector<std::wstring>           fileNames;
     std::map<std::wstring, std::string> propMap;
-    TCHAR                               stringTableBuffer[255];
+    wchar_t                             stringTableBuffer[255];
 };

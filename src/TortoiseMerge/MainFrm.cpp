@@ -2183,7 +2183,7 @@ void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp) const
 {
     auto       monHash = GetMonitorSetupHash();
     CRegString placement(CString(L"Software\\TortoiseMerge\\WindowPos_") + monHash.c_str());
-    TCHAR      szBuffer[_countof("-32767") * 8 + sizeof("65535") * 2];
+    wchar_t    szBuffer[_countof("-32767") * 8 + sizeof("65535") * 2];
 
     swprintf_s(szBuffer, L"%u,%u,%d,%d,%d,%d,%d,%d,%d,%d",
             pwp->flags, pwp->showCmd,

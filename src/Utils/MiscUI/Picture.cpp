@@ -92,7 +92,7 @@ static FARPROC sGetProcAddressEx(HMODULE hDll, const char* procName, bool& valid
 
 std::wstring CPicture::GetFileSizeAsText(bool bAbbrev /* = true */) const
 {
-    TCHAR buf[100] = {0};
+    wchar_t buf[100] = {0};
     if (bAbbrev)
         StrFormatByteSize(m_nSize, buf, _countof(buf));
     else
@@ -237,9 +237,9 @@ bool CPicture::TryLoadFreeImage(const std::wstring& sFilePathName)
 
     // FreeImage DLL functions
     using FreeImageGetVersionT         = const char*(__stdcall*)();
-    using FreeImageGetFileTypeT        = int(__stdcall*)(const TCHAR* filename, int size);
-    using FreeImageGetFifFromFilenameT = int(__stdcall*)(const TCHAR* filename);
-    using FreeImageLoadT               = void*(__stdcall*)(int format, const TCHAR* filename, int flags);
+    using FreeImageGetFileTypeT        = int(__stdcall*)(const wchar_t* filename, int size);
+    using FreeImageGetFifFromFilenameT = int(__stdcall*)(const wchar_t* filename);
+    using FreeImageLoadT               = void*(__stdcall*)(int format, const wchar_t* filename, int flags);
     using FreeImageUnloadT             = void(__stdcall*)(void* dib);
     using FreeImageGetColorTypeT       = int(__stdcall*)(void* dib);
     using FreeImageGetWidthT           = unsigned(__stdcall*)(void* dib);

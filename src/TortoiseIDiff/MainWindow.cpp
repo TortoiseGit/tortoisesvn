@@ -432,14 +432,14 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
 
                 // Specify the resource identifier of the descriptive
                 // text for the given button.
-                TCHAR        stringbuf[MAX_PATH] = {0};
+                wchar_t      stringBuf[MAX_PATH] = {0};
                 MENUITEMINFO mii;
                 mii.cbSize     = sizeof(MENUITEMINFO);
                 mii.fMask      = MIIM_TYPE;
-                mii.dwTypeData = stringbuf;
-                mii.cch        = _countof(stringbuf);
+                mii.dwTypeData = stringBuf;
+                mii.cch        = _countof(stringBuf);
                 GetMenuItemInfo(GetMenu(*this), static_cast<UINT>(lpttt->hdr.idFrom), FALSE, &mii);
-                wcscpy_s(lpttt->lpszText, 80, stringbuf);
+                wcscpy_s(lpttt->lpszText, 80, stringBuf);
             }
         }
         break;
@@ -1183,7 +1183,7 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
             {
                 case IDC_LEFTBROWSE:
                 {
-                    TCHAR path[MAX_PATH] = {0};
+                    wchar_t path[MAX_PATH] = {0};
                     if (AskForFile(hwndDlg, path))
                     {
                         SetDlgItemText(hwndDlg, IDC_LEFTIMAGE, path);
@@ -1192,7 +1192,7 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
                 break;
                 case IDC_RIGHTBROWSE:
                 {
-                    TCHAR path[MAX_PATH] = {0};
+                    wchar_t path[MAX_PATH] = {0};
                     if (AskForFile(hwndDlg, path))
                     {
                         SetDlgItemText(hwndDlg, IDC_RIGHTIMAGE, path);
@@ -1201,7 +1201,7 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
                 break;
                 case IDOK:
                 {
-                    TCHAR path[MAX_PATH] = {0};
+                    wchar_t path[MAX_PATH] = {0};
                     if (!GetDlgItemText(hwndDlg, IDC_LEFTIMAGE, path, _countof(path)))
                         *path = 0;
                     m_sLeftPicPath = path;
@@ -1209,7 +1209,7 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
                         *path = 0;
                     m_sRightPicPath = path;
                 }
-                    // Fall through.
+                    [[fallthrough]];
                 case IDCANCEL:
                     CTheme::Instance().SetThemeForDialog(hwndDlg, false);
                     EndDialog(hwndDlg, wParam);
@@ -1219,7 +1219,7 @@ BOOL CALLBACK CMainWindow::OpenDlgProc(HWND hwndDlg, UINT message, WPARAM wParam
     return FALSE;
 }
 
-bool CMainWindow::AskForFile(HWND owner, TCHAR* path)
+bool CMainWindow::AskForFile(HWND owner, wchar_t* path)
 {
     OPENFILENAME ofn = {0}; // common dialog box structure
     // Initialize OPENFILENAME
@@ -1228,12 +1228,12 @@ bool CMainWindow::AskForFile(HWND owner, TCHAR* path)
     ofn.lpstrFile   = path;
     ofn.nMaxFile    = MAX_PATH;
     ResString sTitle(::hResource, IDS_OPENIMAGEFILE);
-    ofn.lpstrTitle   = sTitle;
-    ofn.Flags        = OFN_DONTADDTORECENT | OFN_FILEMUSTEXIST | OFN_EXPLORER;
-    ofn.hInstance    = ::hResource;
-    TCHAR filters[]  = L"Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico;*.dib;*.emf;*.webp\0All (*.*)\0*.*\0\0";
-    ofn.lpstrFilter  = filters;
-    ofn.nFilterIndex = 1;
+    ofn.lpstrTitle    = sTitle;
+    ofn.Flags         = OFN_DONTADDTORECENT | OFN_FILEMUSTEXIST | OFN_EXPLORER;
+    ofn.hInstance     = ::hResource;
+    wchar_t filters[] = L"Images\0*.wmf;*.jpg;*jpeg;*.bmp;*.gif;*.png;*.ico;*.dib;*.emf;*.webp\0All (*.*)\0*.*\0\0";
+    ofn.lpstrFilter   = filters;
+    ofn.nFilterIndex  = 1;
     // Display the Open dialog box.
     if (GetOpenFileName(&ofn) == FALSE)
     {
