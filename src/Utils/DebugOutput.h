@@ -96,9 +96,9 @@ private:
 #ifdef DEBUG
         return true;
 #else
-        if (GetTickCount64() - m_LastTick > 10000)
+        if (GetTickCount64() - m_lastTick > 10000)
         {
-            m_LastTick = GetTickCount64();
+            m_lastTick = GetTickCount64();
             m_bActive  = !!CRegStdDWORD(L"Software\\TortoiseSVN\\DebugOutputString", FALSE);
         }
         return m_bActive;
