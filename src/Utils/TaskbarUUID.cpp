@@ -36,8 +36,8 @@
 
 void setTaskIDPerUuid()
 {
-    typedef HRESULT STDAPICALLTYPE SetCurrentProcessExplicitAppUserModelIdfn(PCWSTR appID);
-    CAutoLibrary                   hShell = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
+    using SetCurrentProcessExplicitAppUserModelIdfn                  = HRESULT STDAPICALLTYPE(PCWSTR appID);
+    CAutoLibrary                                              hShell = AtlLoadSystemLibraryUsingFullPath(L"shell32.dll");
     if (hShell)
     {
         SetCurrentProcessExplicitAppUserModelIdfn *pfnSetCurrentProcessExplicitAppUserModelID = reinterpret_cast<SetCurrentProcessExplicitAppUserModelIdfn *>(GetProcAddress(hShell, "SetCurrentProcessExplicitAppUserModelID"));

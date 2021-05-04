@@ -384,8 +384,7 @@ public:
     static bool DeleteViaShell(LPCWSTR path, bool useTrashbin, HWND hErrorWnd);
 
 private:
-    typedef std::vector<CTSVNPath> PathVector;
-    PathVector                     m_paths;
+    std::vector<CTSVNPath> m_paths;
     // If the list contains just files in one directory, then
     // this contains the directory name
     mutable CTSVNPath m_commonBaseDirectory;

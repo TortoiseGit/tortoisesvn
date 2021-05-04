@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -22,27 +22,22 @@
 
 // construction
 
-CCopyFilterOptions::CCopyFilterOptions
-    ( const std::vector<ICopyFilterOption*>& options)
-    : options (options)
+CCopyFilterOptions::CCopyFilterOptions(const std::vector<ICopyFilterOption*>& options)
+    : options(options)
 {
 }
 
 // apply all filters
 
 ICopyFilterOption::EResult
-CCopyFilterOptions::ShallRemove (const CFullGraphNode* node) const
+    CCopyFilterOptions::ShallRemove(const CFullGraphNode* node) const
 {
-    typedef std::vector<ICopyFilterOption*>::const_iterator IT;
     ICopyFilterOption::EResult result = ICopyFilterOption::KEEP_NODE;
 
-    for ( IT iter = options.begin(), end = options.end()
-        ; (iter != end) && (result == ICopyFilterOption::KEEP_NODE)
-        ; ++iter)
+    for (const auto& option : options)
     {
-        result = (*iter)->ShallRemove (node);
+        result = option->ShallRemove(node);
     }
 
     return result;
 };
-

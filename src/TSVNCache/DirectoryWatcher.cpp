@@ -523,7 +523,7 @@ void CDirectoryWatcher::CloseWatchHandles()
 {
     AutoLocker lock(m_critSec);
 
-    for (TInfoMap::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+    for (auto I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
         I->second->CloseDirectoryHandle();
 
     CloseCompletionPort();
@@ -535,7 +535,7 @@ void CDirectoryWatcher::ClearInfoMap()
     if (!watchInfoMap.empty())
     {
         AutoLocker lock(m_critSec);
-        for (TInfoMap::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+        for (auto I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
         {
             auto info = I->second;
             I->second = nullptr;
@@ -561,7 +561,7 @@ CTSVNPath CDirectoryWatcher::CloseInfoMap(HANDLE hDir)
     if (watchInfoMap.empty())
         return path;
 
-    for (TInfoMap::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+    for (auto I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
     {
         auto info = I->second;
 
@@ -580,7 +580,7 @@ bool CDirectoryWatcher::CloseHandlesForPath(const CTSVNPath& path)
     if (watchInfoMap.empty())
         return false;
 
-    for (TInfoMap::iterator I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
+    for (auto I = watchInfoMap.begin(); I != watchInfoMap.end(); ++I)
     {
         CDirectoryWatcher::CDirWatchInfo* info = I->second;
         I->second                              = nullptr;

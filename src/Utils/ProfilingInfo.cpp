@@ -164,7 +164,7 @@ std::string CProfilingInfo::GetReport() const
 
     const char* const format = "%15s%17s%17s%17s%17s\n";
 
-    for (TRecords::const_iterator iter = records.begin(), end = records.end(); iter != end; ++iter)
+    for (auto iter = records.begin(), end = records.end(); iter != end; ++iter)
     {
         size_t nCount = (*iter)->GetCount();
         sprintf_s(lineBuffer, "%7sx %s\n%s:%s\n", IntToStr(nCount).c_str(), (*iter)->GetName(), (*iter)->GetFile(), IntToStr((*iter)->GetLine()).c_str());

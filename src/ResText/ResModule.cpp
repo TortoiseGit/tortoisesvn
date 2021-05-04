@@ -349,8 +349,8 @@ BOOL CResModule::ExtractString(LPCWSTR lpszType)
 
         if (buf[0])
         {
-            std::wstring  str   = std::wstring(buf);
-            RESOURCEENTRY entry = m_stringEntries[str];
+            std::wstring str   = std::wstring(buf);
+            auto         entry = m_stringEntries[str];
             InsertResourceIDs(RT_STRING, 0, entry, (reinterpret_cast<INT_PTR>(lpszType) - 1) * 16 + i, L"");
             if (wcschr(str.c_str(), '%'))
                 entry.flag = L"#, c-format";
@@ -403,8 +403,7 @@ BOOL CResModule::ReplaceString(LPCWSTR lpszType, WORD wLanguage)
         CUtils::StringExtend(buf);
         msgid = std::wstring(buf);
 
-        RESOURCEENTRY resEntry;
-        resEntry = m_stringEntries[msgid];
+        auto resEntry = m_stringEntries[msgid];
         wcscpy_s(buf, resEntry.msgStr.empty() ? msgid.c_str() : resEntry.msgStr.c_str());
         ReplaceWithRegex(buf);
         CUtils::StringCollapse(buf);
@@ -430,8 +429,7 @@ BOOL CResModule::ReplaceString(LPCWSTR lpszType, WORD wLanguage)
         CUtils::StringExtend(buf);
         msgId = std::wstring(buf);
 
-        RESOURCEENTRY resEntry;
-        resEntry = m_stringEntries[msgId];
+        auto resEntry = m_stringEntries[msgId];
         wcscpy_s(buf, resEntry.msgStr.empty() ? msgId.c_str() : resEntry.msgStr.c_str());
         ReplaceWithRegex(buf);
         CUtils::StringCollapse(buf);
@@ -700,8 +698,8 @@ const WORD* CResModule::ParseMenuResource(const WORD* res)
             wcscpy_s(buf, str);
             CUtils::StringExtend(buf);
 
-            std::wstring  wStr  = std::wstring(buf);
-            RESOURCEENTRY entry = m_stringEntries[wStr];
+            std::wstring wStr  = std::wstring(buf);
+            auto         entry = m_stringEntries[wStr];
             if (id)
                 InsertResourceIDs(RT_MENU, 0, entry, id, L" - PopupMenu");
 
@@ -716,8 +714,8 @@ const WORD* CResModule::ParseMenuResource(const WORD* res)
             wcscpy_s(buf, str);
             CUtils::StringExtend(buf);
 
-            std::wstring  wStr  = std::wstring(buf);
-            RESOURCEENTRY entry = m_stringEntries[wStr];
+            std::wstring wStr  = std::wstring(buf);
+            auto         entry = m_stringEntries[wStr];
             InsertResourceIDs(RT_MENU, 0, entry, id, L" - Menu");
 
             wchar_t szTempBuf[1024] = {0};
@@ -835,8 +833,8 @@ const WORD* CResModule::ParseMenuExResource(const WORD* res)
             wcscpy_s(buf, str);
             CUtils::StringExtend(buf);
 
-            std::wstring  wstr  = std::wstring(buf);
-            RESOURCEENTRY entry = m_stringEntries[wstr];
+            std::wstring wstr  = std::wstring(buf);
+            auto         entry = m_stringEntries[wstr];
             // Popup has a DWORD help entry on a DWORD boundary - skip over it
             res += 2;
 
@@ -859,8 +857,8 @@ const WORD* CResModule::ParseMenuExResource(const WORD* res)
             wcscpy_s(buf, str);
             CUtils::StringExtend(buf);
 
-            std::wstring  wStr  = std::wstring(buf);
-            RESOURCEENTRY entry = m_stringEntries[wStr];
+            std::wstring wStr  = std::wstring(buf);
+            auto         entry = m_stringEntries[wStr];
             InsertResourceIDs(RT_MENU, 0, entry, menuId, L" - MenuEx");
 
             wchar_t szTempBuf[1024] = {0};
@@ -1049,8 +1047,8 @@ BOOL CResModule::ExtractAccelerator(LPCWSTR lpszType)
 
         swprintf_s(buf2, L"%s+%c", buf, wAnsi);
 
-        std::wstring  wStr      = std::wstring(buf2);
-        RESOURCEENTRY aKeyEntry = m_stringEntries[wStr];
+        std::wstring wStr      = std::wstring(buf2);
+        auto         aKeyEntry = m_stringEntries[wStr];
 
         wchar_t      szTempBuf[1024] = {0};
         std::wstring wMenu;
@@ -1140,7 +1138,7 @@ BOOL CResModule::ReplaceAccelerator(LPCWSTR lpszType, WORD wLanguage)
         swprintf_s(buf2, L"%s+%c", buf, lpaccelNew[i].key);
 
         // Is it there?
-        std::map<std::wstring, RESOURCEENTRY>::iterator pAkIter = m_stringEntries.find(buf2);
+        auto pAkIter = m_stringEntries.find(buf2);
         if (pAkIter != m_stringEntries.end())
         {
             m_bTranslatedAcceleratorStrings++;
@@ -1248,8 +1246,8 @@ BOOL CResModule::ExtractDialog(LPCWSTR lpszType)
         wcscpy_s(buf, dlg.caption);
         CUtils::StringExtend(buf);
 
-        std::wstring  wStr  = std::wstring(buf);
-        RESOURCEENTRY entry = m_stringEntries[wStr];
+        std::wstring wStr  = std::wstring(buf);
+        auto         entry = m_stringEntries[wStr];
         InsertResourceIDs(RT_DIALOG, reinterpret_cast<INT_PTR>(lpszType), entry, reinterpret_cast<INT_PTR>(lpszType), L"");
 
         m_stringEntries[wStr] = entry;
@@ -1269,8 +1267,8 @@ BOOL CResModule::ExtractDialog(LPCWSTR lpszType)
         {
             CUtils::StringExtend(szTitle);
 
-            std::wstring  wstr  = std::wstring(szTitle);
-            RESOURCEENTRY entry = m_stringEntries[wstr];
+            std::wstring wstr  = std::wstring(szTitle);
+            auto         entry = m_stringEntries[wstr];
             InsertResourceIDs(RT_DIALOG, reinterpret_cast<INT_PTR>(lpszType), entry, dlgItem.id, L"");
 
             m_stringEntries[wstr] = entry;
@@ -1895,7 +1893,7 @@ BOOL CResModule::ExtractRibbon(LPCWSTR lpszType)
 
         std::wstring str = CUnicodeUtils::StdGetUnicode((*it)[3].str());
 
-        RESOURCEENTRY entry = m_stringEntries[str];
+        auto entry = m_stringEntries[str];
         InsertResourceIDs(RT_RIBBON, 0, entry, std::stoi(strIdVal), strIdNameVal.c_str());
         if (wcschr(str.c_str(), '%'))
             entry.flag = L"#, c-format";
@@ -1908,8 +1906,8 @@ BOOL CResModule::ExtractRibbon(LPCWSTR lpszType)
     const std::regex regRevMatchName("</ELEMENT_NAME><NAME>([^<]+)</NAME>");
     for (std::sregex_iterator it(ss.cbegin(), ss.cend(), regRevMatchName); it != end; ++it)
     {
-        std::wstring  ret   = CUnicodeUtils::StdGetUnicode((*it)[1].str());
-        RESOURCEENTRY entry = m_stringEntries[ret];
+        std::wstring ret   = CUnicodeUtils::StdGetUnicode((*it)[1].str());
+        auto         entry = m_stringEntries[ret];
         InsertResourceIDs(RT_RIBBON, 0, entry, reinterpret_cast<INT_PTR>(lpszType), L" - Ribbon element");
         if (wcschr(ret.c_str(), '%'))
             entry.flag = L"#, c-format";
@@ -1952,8 +1950,8 @@ BOOL CResModule::ReplaceRibbon(LPCWSTR lpszType, WORD wLanguage)
     {
         std::wstring ret = CUnicodeUtils::StdGetUnicode((*it)[1].str());
 
-        RESOURCEENTRY entry = m_stringEntries[ret];
-        ret                 = L"<TEXT>" + ret + L"</TEXT>";
+        auto entry = m_stringEntries[ret];
+        ret        = L"<TEXT>" + ret + L"</TEXT>";
 
         if (entry.msgStr.size())
         {
@@ -1977,8 +1975,8 @@ BOOL CResModule::ReplaceRibbon(LPCWSTR lpszType, WORD wLanguage)
     {
         std::wstring ret = CUnicodeUtils::StdGetUnicode((*it)[1].str());
 
-        RESOURCEENTRY entry = m_stringEntries[ret];
-        ret                 = L"</ELEMENT_NAME><NAME>" + ret + L"</NAME>";
+        auto entry = m_stringEntries[ret];
+        ret        = L"</ELEMENT_NAME><NAME>" + ret + L"</NAME>";
 
         if (entry.msgStr.size())
         {
@@ -2145,7 +2143,7 @@ void CResModule::ReplaceStr(LPCWSTR src, WORD* dest, size_t* count, int* transla
 
     std::wstring wStr = std::wstring(buf);
     ReplaceWithRegex(buf);
-    RESOURCEENTRY entry = m_stringEntries[wStr];
+    auto entry = m_stringEntries[wStr];
     if (!entry.msgStr.empty())
     {
         wcscpy_s(buf, entry.msgStr.c_str());
@@ -2304,7 +2302,7 @@ size_t CResModule::ScanHeaderFile(const std::wstring& filepath)
     return count;
 }
 
-void CResModule::InsertResourceIDs(LPCWSTR lpType, INT_PTR mainId, RESOURCEENTRY& entry, INT_PTR id, LPCWSTR infoText)
+void CResModule::InsertResourceIDs(LPCWSTR lpType, INT_PTR mainId, TagResourceEntry& entry, INT_PTR id, LPCWSTR infoText)
 {
     if (lpType == RT_DIALOG)
     {

@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2007-2008, 2015 - TortoiseSVN
 
@@ -33,11 +33,9 @@
 class CPathClassificator
 {
 private:
-
     class CWildCardPattern
     {
     private:
-
         /// pattern to match against
 
         std::string pattern;
@@ -48,22 +46,21 @@ private:
 
         /// different matching algorithms
 
-        bool WildCardMatch (const char* s, const char* patt) const;
-        bool StraightMatch (const char* s, size_t length) const;
+        static bool WildCardMatch(const char* s, const char* patt);
+        bool        StraightMatch(const char* s, size_t length) const;
 
         /// construction utility
 
         void NormalizePattern();
 
     public:
-
         /// construction
 
-        CWildCardPattern (const std::string& pattern);
+        CWildCardPattern(const std::string& pattern);
 
         /// match s against the pattern
 
-        bool Match (const char* s, size_t length) const;
+        bool Match(const char* s, size_t length) const;
     };
 
     /// the patterns to detect trunk, branches and tags
@@ -81,53 +78,44 @@ private:
 
     /// construction utilities
 
-    TPatterns ParsePatterns (const std::string& patterns) const;
+    static TPatterns ParsePatterns(const std::string& patterns);
 
-    bool Matches ( TPatterns::const_iterator firstPattern
-                 , TPatterns::const_iterator lastPattern
-                 , const char* element
-                 , size_t length) const;
-    void ClassifyPathElements ( const LogCache::CStringDictionary& elements
-                              , const TPatterns& patterns
-                              , unsigned char classification);
-    void ClassifyPathElements (const LogCache::CStringDictionary& elements);
-    void ClassifyPaths (const LogCache::CPathDictionary& paths);
+    static bool Matches(TPatterns::const_iterator firstPattern, TPatterns::const_iterator lastPattern, const char* element, size_t length);
+    void        ClassifyPathElements(const LogCache::CStringDictionary& elements, const TPatterns& patterns, unsigned char classification);
+    void        ClassifyPathElements(const LogCache::CStringDictionary& elements);
+    void        ClassifyPaths(const LogCache::CPathDictionary& paths);
 
 public:
-
     /// construction / destruction
 
-    CPathClassificator ( const LogCache::CPathDictionary& paths
-                       , const std::string& trunkPatterns = "trunk"
-                       , const std::string& branchesPatterns = "branches"
-                       , const std::string& tagsPatterns = "tags");
-    ~CPathClassificator(void);
+    CPathClassificator(const LogCache::CPathDictionary& paths, const std::string& trunkPatterns = "trunk", const std::string& branchesPatterns = "branches", const std::string& tagsPatterns = "tags");
+    ~CPathClassificator();
 
     /// get the classification for a given path
 
-    unsigned char GetClassification (const LogCache::index_t pathID) const;
+    unsigned char GetClassification(const LogCache::index_t pathID) const;
     unsigned char operator[](const LogCache::CDictionaryBasedPath& path) const;
 
-    unsigned char GetClassification (const LogCache::CDictionaryBasedTempPath& path) const;
+    unsigned char GetClassification(const LogCache::CDictionaryBasedTempPath& path) const;
     unsigned char operator[](const LogCache::CDictionaryBasedTempPath& path) const;
 };
 
 /// get the classification for a given path
 
 inline unsigned char
-CPathClassificator::GetClassification (const LogCache::index_t pathID) const
+    CPathClassificator::GetClassification(const LogCache::index_t pathID) const
 {
     return pathClassification[pathID];
 }
 
 inline unsigned char
-CPathClassificator::operator[](const LogCache::CDictionaryBasedPath& path) const
+    CPathClassificator::operator[](const LogCache::CDictionaryBasedPath& path) const
 {
-    return GetClassification (path.GetIndex());
+    return GetClassification(path.GetIndex());
 }
 
 inline unsigned char
-CPathClassificator::operator[](const LogCache::CDictionaryBasedTempPath& path) const
+    CPathClassificator::operator[](const LogCache::CDictionaryBasedTempPath& path) const
 {
-    return GetClassification (path);
+    return GetClassification(path);
 }

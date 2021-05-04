@@ -53,8 +53,8 @@ using std::map;
 class CCmdLineParser
 {
 public:
-    typedef map<std::wstring, std::wstring> CValsMap;
-    typedef CValsMap::const_iterator        ITERPOS;
+    using CValsMap = map<std::wstring, std::wstring>;
+    using ITERPOS  = CValsMap::const_iterator;
 
 public:
     /**

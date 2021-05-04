@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2014, 2016 - TortoiseSVN
+// Copyright (C) 2003-2008, 2014, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,61 +25,57 @@
 #include "FullGraph.h"
 
 #ifdef _DEBUG
-#define new DEBUG_NEW
-#undef THIS_FILE
+// ReSharper disable once CppInconsistentNaming
+#    define new DEBUG_NEW
+#    undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
 
-CFullGraphBuilder::CFullGraphBuilder (const CFullHistory& history, CFullGraph& graph)
-    : history (history)
-    , graph (graph)
+CFullGraphBuilder::CFullGraphBuilder(const CFullHistory& history, CFullGraph& graph)
+    : m_history(history)
+    , m_graph(graph)
 {
 }
 
-CFullGraphBuilder::~CFullGraphBuilder(void)
+CFullGraphBuilder::~CFullGraphBuilder()
 {
 }
 
-void CFullGraphBuilder::Run()
+void CFullGraphBuilder::Run() const
 {
     // special cases:
     // * empty log
     // * no history for that path (e.g. added but not yet committed)
 
-    if (    (history.GetHeadRevision() == NO_REVISION)
-         || !history.GetStartPath()->IsValid())
+    if ((m_history.GetHeadRevision() == NO_REVISION) || !m_history.GetStartPath()->IsValid())
         return;
 
     // frequently used objects
 
-    const CCachedLogInfo* cache = history.GetCache();
-    const CRevisionIndex& revisions = cache->GetRevisions();
+    const CCachedLogInfo*         cache        = m_history.GetCache();
+    const CRevisionIndex&         revisions    = cache->GetRevisions();
     const CRevisionInfoContainer& revisionInfo = cache->GetLogInfo();
 
     // initialize the paths we have to search for
 
-    std::unique_ptr<CSearchPathTree> searchTree
-        (new CSearchPathTree (&revisionInfo.GetPaths()));
-    searchTree->Insert (*history.GetStartPath(), history.GetStartRevision());
+    std::unique_ptr<CSearchPathTree> searchTree(new CSearchPathTree(&revisionInfo.GetPaths()));
+    searchTree->Insert(*m_history.GetStartPath(), m_history.GetStartRevision());
 
     // the range of copy-to info that applies to the current revision
 
-    SCopyInfo** lastFromCopy = history.GetFirstCopyFrom();
-    SCopyInfo** lastToCopy = history.GetFirstCopyTo();
+    SCopyInfo** lastFromCopy = m_history.GetFirstCopyFrom();
+    SCopyInfo** lastToCopy   = m_history.GetFirstCopyTo();
 
     // collect nodes to draw ... revision by revision
 
-    for ( revision_t revision = history.GetStartRevision()
-        , head = history.GetHeadRevision()
-        ; revision <= head
-        ; ++revision)
+    for (revision_t revision = m_history.GetStartRevision(), head = m_history.GetHeadRevision(); revision <= head; ++revision)
     {
         // any known changes in this revision?
 
-        index_t index = revisions[revision];
+        index_t              index    = revisions[revision];
         CDictionaryBasedPath basePath = index == NO_INDEX
-                                      ? CDictionaryBasedPath (NULL, index)
-                                      : revisionInfo.GetRootPath (index);
+                                            ? CDictionaryBasedPath(nullptr, index)
+                                            : revisionInfo.GetRootPath(index);
 
         if (basePath.IsValid())
         {
@@ -92,19 +88,13 @@ void CFullGraphBuilder::Run()
             // we must delete the old branches first and *then* add (some of) these
             // again in the same revision
 
-            if ((   revisionInfo.GetSumChanges (index)
-                  & (CRevisionInfoContainer::ACTION_REPLACED | CRevisionInfoContainer::ACTION_MOVEREPLACED)) != 0)
+            if ((revisionInfo.GetSumChanges(index) & (CRevisionInfoContainer::ACTION_REPLACED | CRevisionInfoContainer::ACTION_MOVEREPLACED)) != 0)
             {
-                CSearchPathTree* startNode
-                    = searchTree->FindCommonParent (basePath.GetIndex());
+                CSearchPathTree* startNode = searchTree->FindCommonParent(basePath.GetIndex());
 
                 // crawl (possibly) affected sub-tree
 
-                AnalyzeReplacements ( revision
-                                    , revisionInfo.GetChangesBegin (index)
-                                    , revisionInfo.GetChangesEnd (index)
-                                    , startNode
-                                    , toRemove);
+                AnalyzeReplacements(revision, revisionInfo.GetChangesBegin(index), revisionInfo.GetChangesEnd(index), startNode, toRemove);
 
                 // remove deleted search paths
 
@@ -117,62 +107,49 @@ void CFullGraphBuilder::Run()
             // handle remaining copy-to entries
             // (some may have a fromRevision that does not touch the fromPath)
 
-            AddCopiedPaths ( revision
-                           , searchTree.get()
-                           , lastToCopy);
+            AddCopiedPaths(revision, searchTree.get(), lastToCopy);
 
             // we are looking for search paths that (may) overlap
             // with the revisions' changes
 
             // pre-order search-tree traversal
 
-            CSearchPathTree* startNode
-                = searchTree->FindCommonParent (basePath.GetIndex());
+            CSearchPathTree* startNode = searchTree->FindCommonParent(basePath.GetIndex());
 
-            if (startNode->GetPath().IsSameOrChildOf (basePath))
+            if (startNode->GetPath().IsSameOrChildOf(basePath))
             {
                 CSearchPathTree* searchNode = startNode;
 
-                AnalyzeRevisions ( revision
-                                 , revisionInfo.GetChangesBegin (index)
-                                 , revisionInfo.GetChangesEnd (index)
-                                 , searchNode
-                                 , toRemove);
+                AnalyzeRevisions(revision, revisionInfo.GetChangesBegin(index), revisionInfo.GetChangesEnd(index), searchNode, toRemove);
 
                 startNode = startNode->GetParent();
             }
             else
             {
-                CDictionaryBasedPath commonRoot
-                    = basePath.GetCommonRoot (startNode->GetPath().GetBasePath());
-                startNode = searchTree->FindCommonParent (commonRoot.GetIndex());
+                CDictionaryBasedPath commonRoot = basePath.GetCommonRoot(startNode->GetPath().GetBasePath());
+                startNode                       = searchTree->FindCommonParent(commonRoot.GetIndex());
             }
 
-        #ifdef _DEBUG
-            if (startNode != NULL)
+#ifdef _DEBUG
+            if (startNode != nullptr)
             {
                 // only valid for parents of the uppermost modified path
 
-                for (CRevisionInfoContainer::CChangesIterator iter = revisionInfo.GetChangesBegin (index)
-                    , last = revisionInfo.GetChangesEnd (index)
-                    ; iter != last
-                    ; ++iter)
+                for (CRevisionInfoContainer::CChangesIterator iter = revisionInfo.GetChangesBegin(index), last = revisionInfo.GetChangesEnd(index); iter != last; ++iter)
                 {
-                    assert (startNode->GetPath().IsSameOrParentOf (iter->GetPathID()));
+                    assert(startNode->GetPath().IsSameOrParentOf(iter->GetPathID()));
                 }
             }
-        #endif
+#endif
 
             // mark changes on parent search nodes
 
-            assert (revisionInfo.GetChangesBegin (index) != revisionInfo.GetChangesEnd (index));
+            assert(revisionInfo.GetChangesBegin(index) != revisionInfo.GetChangesEnd(index));
 
-            for ( CSearchPathTree* searchNode = startNode
-                ; searchNode != NULL
-                ; searchNode = searchNode->GetParent())
+            for (CSearchPathTree* searchNode = startNode; searchNode != nullptr; searchNode = searchNode->GetParent())
             {
                 if (searchNode->IsActive())
-                    AnalyzeAsChanges (revision, searchNode);
+                    AnalyzeAsChanges(revision, searchNode);
             }
 
             // remove deleted search paths
@@ -186,20 +163,12 @@ void CFullGraphBuilder::Run()
         // We must execute that even if there is no info for this revision
         // (it may still be the copy-from-rev of some add).
 
-        FillCopyTargets ( revision
-                        , searchTree.get()
-                        , lastFromCopy);
+        FillCopyTargets(revision, searchTree.get(), lastFromCopy);
     }
 }
 
-void CFullGraphBuilder::AnalyzeReplacements ( revision_t revision
-                                              , const CRevisionInfoContainer::CChangesIterator& first
-                                              , const CRevisionInfoContainer::CChangesIterator& last
-                                              , CSearchPathTree* startNode
-                                              , std::vector<CSearchPathTree*>& toRemove)
+void CFullGraphBuilder::AnalyzeReplacements(revision_t revision, const CRevisionInfoContainer::CChangesIterator& first, const CRevisionInfoContainer::CChangesIterator& last, CSearchPathTree* startNode, std::vector<CSearchPathTree*>& toRemove) const
 {
-    typedef CRevisionInfoContainer::CChangesIterator IT;
-
     CSearchPathTree* searchNode = startNode;
     do
     {
@@ -216,30 +185,25 @@ void CFullGraphBuilder::AnalyzeReplacements ( revision_t revision
         {
             // looking for the closet change that affected the path
 
-            for (IT iter = first; iter != last; ++iter)
+            for (auto iter = first; iter != last; ++iter)
             {
                 index_t changePathID = iter->GetPathID();
 
-                if (((iter->GetAction() == CRevisionInfoContainer::ACTION_REPLACED) || (iter->GetAction() == CRevisionInfoContainer::ACTION_MOVEREPLACED))
-                    && (path.GetBasePath().IsSameOrChildOf (changePathID)))
+                if (((iter->GetAction() == CRevisionInfoContainer::ACTION_REPLACED) || (iter->GetAction() == CRevisionInfoContainer::ACTION_MOVEREPLACED)) && (path.GetBasePath().IsSameOrChildOf(changePathID)))
                 {
                     skipSubTree = false;
 
                     // create & init the new graph node
 
-                    CFullGraphNode* newNode
-                        = graph.Add ( path
-                                    , revision
-                                    , CNodeClassification::IS_DELETED
-                                    , searchNode->GetLastEntry());
+                    CFullGraphNode* newNode = m_graph.Add(path, revision, CNodeClassification::IS_DELETED, searchNode->GetLastEntry());
 
                     // link entries for the same search path
 
-                    searchNode->ChainEntries (newNode);
+                    searchNode->ChainEntries(newNode);
 
                     // end of path
 
-                    toRemove.push_back (searchNode);
+                    toRemove.push_back(searchNode);
 
                     // we will create at most one node per path and revision
 
@@ -251,9 +215,9 @@ void CFullGraphBuilder::AnalyzeReplacements ( revision_t revision
         {
             // can we skip the whole sub-tree?
 
-            for (IT iter = first; iter != last; ++iter)
+            for (auto iter = first; iter != last; ++iter)
             {
-                if (path.IsSameOrParentOf (iter->GetPathID()))
+                if (path.IsSameOrParentOf(iter->GetPathID()))
                 {
                     skipSubTree = false;
                     break;
@@ -264,18 +228,12 @@ void CFullGraphBuilder::AnalyzeReplacements ( revision_t revision
         // to the next node
 
         searchNode = skipSubTree
-                   ? searchNode->GetSkipSubTreeNext (startNode)
-                   : searchNode->GetPreOrderNext (startNode);
-    }
-    while (searchNode != startNode);
-
+                         ? searchNode->GetSkipSubTreeNext(startNode)
+                         : searchNode->GetPreOrderNext(startNode);
+    } while (searchNode != startNode);
 }
 
-void CFullGraphBuilder::AnalyzeRevisions ( revision_t revision
-                                      , const CRevisionInfoContainer::CChangesIterator& first
-                                      , const CRevisionInfoContainer::CChangesIterator& last
-                                      , CSearchPathTree* startNode
-                                      , std::vector<CSearchPathTree*>& toRemove)
+void CFullGraphBuilder::AnalyzeRevisions(revision_t revision, const CRevisionInfoContainer::CChangesIterator& first, const CRevisionInfoContainer::CChangesIterator& last, CSearchPathTree* startNode, std::vector<CSearchPathTree*>& toRemove) const
 {
     typedef CRevisionInfoContainer::CChangesIterator IT;
 
@@ -299,9 +257,7 @@ void CFullGraphBuilder::AnalyzeRevisions ( revision_t revision
             {
                 index_t changePathID = iter->GetPathID();
 
-                if (   (path.IsSameOrParentOf (changePathID))
-                    || (  (iter->GetAction() != CRevisionInfoContainer::ACTION_CHANGED)
-                       && path.GetBasePath().IsSameOrChildOf (changePathID)))
+                if ((path.IsSameOrParentOf(changePathID)) || ((iter->GetAction() != CRevisionInfoContainer::ACTION_CHANGED) && path.GetBasePath().IsSameOrChildOf(changePathID)))
                 {
                     skipSubTree = false;
 
@@ -312,45 +268,37 @@ void CFullGraphBuilder::AnalyzeRevisions ( revision_t revision
                     // show modifications within the sub-tree as "modified"
                     // (otherwise, deletions would terminate the path)
 
-                    CNodeClassification classification
-                        = CNodeClassification::IS_MODIFIED;
+                    CNodeClassification classification = CNodeClassification::IS_MODIFIED;
                     if (path.GetBasePath().GetIndex() >= changePath.GetIndex())
                     {
                         switch (iter->GetRawChange())
                         {
-                        case CRevisionInfoContainer::ACTION_CHANGED:
-                            break;
+                            case CRevisionInfoContainer::ACTION_CHANGED:
+                                break;
 
-                        case CRevisionInfoContainer::ACTION_DELETED:
-                            classification = CNodeClassification::IS_DELETED;
-                            break;
+                            case CRevisionInfoContainer::ACTION_DELETED:
+                                classification = CNodeClassification::IS_DELETED;
+                                break;
 
-                            case  CRevisionInfoContainer::ACTION_ADDED
-                                + CRevisionInfoContainer::HAS_COPY_FROM:
-                            case  CRevisionInfoContainer::ACTION_REPLACED
-                                + CRevisionInfoContainer::HAS_COPY_FROM:
-                            case  CRevisionInfoContainer::ACTION_MOVED
-                                + CRevisionInfoContainer::HAS_COPY_FROM:
-                            case  CRevisionInfoContainer::ACTION_MOVEREPLACED
-                                + CRevisionInfoContainer::HAS_COPY_FROM:
-                                                            classification = CNodeClassification::IS_ADDED
-                                           + CNodeClassification::IS_COPY_TARGET;
-                            break;
+                            case CRevisionInfoContainer::ACTION_ADDED + CRevisionInfoContainer::HAS_COPY_FROM:
+                            case CRevisionInfoContainer::ACTION_REPLACED + CRevisionInfoContainer::HAS_COPY_FROM:
+                            case CRevisionInfoContainer::ACTION_MOVED + CRevisionInfoContainer::HAS_COPY_FROM:
+                            case CRevisionInfoContainer::ACTION_MOVEREPLACED + CRevisionInfoContainer::HAS_COPY_FROM:
+                                classification = CNodeClassification::IS_ADDED + CNodeClassification::IS_COPY_TARGET;
+                                break;
 
-                        case CRevisionInfoContainer::ACTION_ADDED:
-                        case CRevisionInfoContainer::ACTION_REPLACED:
-                        case CRevisionInfoContainer::ACTION_MOVED:
-                        case CRevisionInfoContainer::ACTION_MOVEREPLACED:
-                            classification = CNodeClassification::IS_ADDED;
-                            break;
+                            case CRevisionInfoContainer::ACTION_ADDED:
+                            case CRevisionInfoContainer::ACTION_REPLACED:
+                            case CRevisionInfoContainer::ACTION_MOVED:
+                            case CRevisionInfoContainer::ACTION_MOVEREPLACED:
+                                classification = CNodeClassification::IS_ADDED;
+                                break;
                         }
                     }
 
                     // handle copy-from special case:
 
-                    if (   (classification.Is (CNodeClassification::IS_ADDED))
-                        && (searchNode->GetLastEntry() != NULL)
-                        && !iter->HasFromPath())
+                    if ((classification.Is(CNodeClassification::IS_ADDED)) && (searchNode->GetLastEntry() != nullptr) && !iter->HasFromPath())
                     {
                         // we may not add paths that already exist:
                         // D /trunk/OldSub
@@ -363,17 +311,16 @@ void CFullGraphBuilder::AnalyzeRevisions ( revision_t revision
 
                     // create & init the new graph node
 
-                    CFullGraphNode* newNode
-                        = graph.Add (path, revision, classification, searchNode->GetLastEntry());
+                    CFullGraphNode* newNode = m_graph.Add(path, revision, classification, searchNode->GetLastEntry());
 
                     // link entries for the same search path
 
-                    searchNode->ChainEntries (newNode);
+                    searchNode->ChainEntries(newNode);
 
                     // end of path?
 
-                    if (classification.Is (CNodeClassification::IS_DELETED))
-                        toRemove.push_back (searchNode);
+                    if (classification.Is(CNodeClassification::IS_DELETED))
+                        toRemove.push_back(searchNode);
 
                     // we will create at most one node per path and revision
 
@@ -389,9 +336,7 @@ void CFullGraphBuilder::AnalyzeRevisions ( revision_t revision
             {
                 index_t changePathID = iter->GetPathID();
 
-                if (   path.IsSameOrParentOf (changePathID)
-                    || (  (iter->GetAction() != CRevisionInfoContainer::ACTION_CHANGED)
-                       && path.GetBasePath().IsSameOrChildOf (changePathID)))
+                if (path.IsSameOrParentOf(changePathID) || ((iter->GetAction() != CRevisionInfoContainer::ACTION_CHANGED) && path.GetBasePath().IsSameOrChildOf(changePathID)))
                 {
                     skipSubTree = false;
                     break;
@@ -402,36 +347,28 @@ void CFullGraphBuilder::AnalyzeRevisions ( revision_t revision
         // to the next node
 
         searchNode = skipSubTree
-                   ? searchNode->GetSkipSubTreeNext (startNode)
-                   : searchNode->GetPreOrderNext (startNode);
-    }
-    while (searchNode != startNode);
-
+                         ? searchNode->GetSkipSubTreeNext(startNode)
+                         : searchNode->GetPreOrderNext(startNode);
+    } while (searchNode != startNode);
 }
 
-void CFullGraphBuilder::AnalyzeAsChanges ( revision_t revision
-                                         , CSearchPathTree* searchNode)
+void CFullGraphBuilder::AnalyzeAsChanges(revision_t revision, CSearchPathTree* searchNode) const
 {
     // create & init the new graph node
 
-    CFullGraphNode* newNode = graph.Add ( searchNode->GetPath()
-                                        , revision
-                                        , CNodeClassification::IS_MODIFIED
-                                        , searchNode->GetLastEntry());
+    CFullGraphNode* newNode = m_graph.Add(searchNode->GetPath(), revision, CNodeClassification::IS_MODIFIED, searchNode->GetLastEntry());
 
     // link entries for the same search path
 
-    searchNode->ChainEntries (newNode);
+    searchNode->ChainEntries(newNode);
 }
 
-void CFullGraphBuilder::AddCopiedPaths ( revision_t revision
-                                         , CSearchPathTree* rootNode
-                                         , SCopyInfo**& lastToCopy) const
+void CFullGraphBuilder::AddCopiedPaths(revision_t revision, CSearchPathTree* rootNode, SCopyInfo**& lastToCopy) const
 {
     // find range of copies that point to this revision
 
     SCopyInfo** firstToCopy = lastToCopy;
-    history.GetCopyToRange (firstToCopy, lastToCopy, revision);
+    m_history.GetCopyToRange(firstToCopy, lastToCopy, revision);
 
     // create search paths for all *relevant* paths added in this revision
 
@@ -441,47 +378,43 @@ void CFullGraphBuilder::AddCopiedPaths ( revision_t revision
         for (size_t i = 0, count = targets.size(); i < count; ++i)
         {
             const SCopyInfo::STarget& target = targets[i];
-            CSearchPathTree* node = rootNode->Insert (target.path, revision);
-            node->ChainEntries (target.source);
+            CSearchPathTree*          node   = rootNode->Insert(target.path, revision);
+            node->ChainEntries(target.source);
         }
     }
 }
 
-void CFullGraphBuilder::FillCopyTargets ( revision_t revision
-                                          , CSearchPathTree* rootNode
-                                          , SCopyInfo**& lastFromCopy)
+void CFullGraphBuilder::FillCopyTargets(revision_t revision, CSearchPathTree* rootNode, SCopyInfo**& lastFromCopy) const
 {
     // find range of copies that start from this revision
 
     SCopyInfo** firstFromCopy = lastFromCopy;
-    history.GetCopyFromRange (firstFromCopy, lastFromCopy, revision);
+    m_history.GetCopyFromRange(firstFromCopy, lastFromCopy, revision);
 
     // create search paths for all *relevant* paths added in this revision
 
     for (SCopyInfo** iter = firstFromCopy; iter != lastFromCopy; ++iter)
     {
-        SCopyInfo* copy = *iter;
+        SCopyInfo*                       copy    = *iter;
         std::vector<SCopyInfo::STarget>& targets = copy->targets;
 
         // crawl the whole sub-tree for path matches
 
-        CSearchPathTree* startNode
-            = rootNode->FindCommonParent (copy->fromPathIndex);
-        if (!startNode->GetPath().IsSameOrChildOf (copy->fromPathIndex))
+        CSearchPathTree* startNode = rootNode->FindCommonParent(copy->fromPathIndex);
+        if (!startNode->GetPath().IsSameOrChildOf(copy->fromPathIndex))
             continue;
 
         CSearchPathTree* searchNode = startNode;
         do
         {
             const CDictionaryBasedTempPath& path = searchNode->GetPath();
-            assert (path.IsSameOrChildOf (copy->fromPathIndex));
+            assert(path.IsSameOrChildOf(copy->fromPathIndex));
 
             // got this path copied?
 
             if (searchNode->IsActive())
             {
-                CDictionaryBasedPath fromPath ( path.GetDictionary()
-                                              , copy->fromPathIndex);
+                CDictionaryBasedPath fromPath(path.GetDictionary(), copy->fromPathIndex);
 
                 // is there a better match in that target revision?
                 // example log @r106:
@@ -489,60 +422,47 @@ void CFullGraphBuilder::FillCopyTargets ( revision_t revision
                 // R /trunk/F/a  /trunk/branches/b/F/a  105
                 // -> don't copy from r100 but from r105
 
-                if (IsLatestCopySource ( revision
-                                       , copy->toRevision
-                                       , fromPath
-                                       , path))
+                if (IsLatestCopySource(revision, copy->toRevision, fromPath, path))
                 {
                     // check for another special case:
                     // A /branches/b    /trunk 100
                     // D /branches/b/a
                     // -> don't add a path if we are following /trunk/a
 
-                    CDictionaryBasedTempPath targetPath
-                        = path.ReplaceParent ( fromPath
-                                             , CDictionaryBasedPath ( path.GetDictionary()
-                                                                    , copy->toPathIndex));
+                    CDictionaryBasedTempPath targetPath = path.ReplaceParent(fromPath, CDictionaryBasedPath(path.GetDictionary(), copy->toPathIndex));
 
-                    if (TargetPathExists (copy->toRevision, targetPath.GetBasePath()))
+                    if (TargetPathExists(copy->toRevision, targetPath.GetBasePath()))
                     {
                         // o.k. this is actual a copy we have to add to the tree
 
                         CFullGraphNode* entry = searchNode->GetLastEntry();
-                        if ((entry == NULL) || (entry->GetRevision() < revision))
+                        if ((entry == nullptr) || (entry->GetRevision() < revision))
                         {
                             // the copy source graph node has yet to be created
 
-                            entry = graph.Add ( path
-                                              , revision
-                                              , CNodeClassification::IS_COPY_SOURCE
-                                              , entry);
+                            entry = m_graph.Add(path, revision, CNodeClassification::IS_COPY_SOURCE, entry);
 
                             // link entries for the same search path
 
-                            searchNode->ChainEntries (entry);
+                            searchNode->ChainEntries(entry);
                         }
 
                         // add & schedule the new search path
 
-                        SCopyInfo::STarget target (entry, targetPath);
-                        targets.push_back (target);
+                        SCopyInfo::STarget target(entry, targetPath);
+                        targets.push_back(target);
                     }
                 }
             }
 
             // select next node
 
-            searchNode = searchNode->GetPreOrderNext (startNode);
-        }
-        while (searchNode != startNode);
+            searchNode = searchNode->GetPreOrderNext(startNode);
+        } while (searchNode != startNode);
     }
 }
 
-bool CFullGraphBuilder::IsLatestCopySource ( revision_t fromRevision
-                                             , revision_t toRevision
-                                             , const CDictionaryBasedPath& fromPath
-                                             , const CDictionaryBasedTempPath& currentPath) const
+bool CFullGraphBuilder::IsLatestCopySource(revision_t fromRevision, revision_t toRevision, const CDictionaryBasedPath& fromPath, const CDictionaryBasedTempPath& currentPath) const
 {
     // try to find a "later" / "closer" copy source
 
@@ -551,22 +471,20 @@ bool CFullGraphBuilder::IsLatestCopySource ( revision_t fromRevision
     // R /trunk/F/a  /trunk/branches/b/F/a  105
     // -> return r105
 
-    const CCachedLogInfo* cache = history.GetCache();
+    const CCachedLogInfo*         cache   = m_history.GetCache();
     const CRevisionInfoContainer& logInfo = cache->GetLogInfo();
-    index_t index = cache->GetRevisions()[toRevision];
+    index_t                       index   = cache->GetRevisions()[toRevision];
 
     // search it
 
-    for ( CRevisionInfoContainer::CChangesIterator
-          iter = logInfo.GetChangesBegin (index)
-        , end = logInfo.GetChangesEnd (index)
-        ; iter != end
-        ; ++iter)
+    for (CRevisionInfoContainer::CChangesIterator
+             iter = logInfo.GetChangesBegin(index),
+             end  = logInfo.GetChangesEnd(index);
+         iter != end; ++iter)
     {
         // is this a copy of the current path?
 
-        if (   iter->HasFromPath()
-            && currentPath.IsSameOrChildOf (iter->GetFromPathID()))
+        if (iter->HasFromPath() && currentPath.IsSameOrChildOf(iter->GetFromPathID()))
         {
             // a later change?
 
@@ -585,8 +503,7 @@ bool CFullGraphBuilder::IsLatestCopySource ( revision_t fromRevision
     return true;
 }
 
-bool CFullGraphBuilder::TargetPathExists ( revision_t revision
-                                         , const CDictionaryBasedPath& path) const
+bool CFullGraphBuilder::TargetPathExists(revision_t revision, const CDictionaryBasedPath& path) const
 {
     // follow additions and deletions to determine whether the path exists
     // after the given revision
@@ -595,67 +512,61 @@ bool CFullGraphBuilder::TargetPathExists ( revision_t revision
     // D /branches/b/a
     // -> /branches/b/a does not exist
 
-    const CCachedLogInfo* cache = history.GetCache();
+    const CCachedLogInfo*         cache   = m_history.GetCache();
     const CRevisionInfoContainer& logInfo = cache->GetLogInfo();
-    index_t index = cache->GetRevisions()[revision];
+    index_t                       index   = cache->GetRevisions()[revision];
 
     // short-cut: if there are no deletions, we should be fine
 
-    if (!(logInfo.GetSumChanges (index) & CRevisionInfoContainer::ACTION_DELETED))
+    if (!(logInfo.GetSumChanges(index) & CRevisionInfoContainer::ACTION_DELETED))
         return true;
 
     // crawl changes and update this flag:
 
     bool exists = false;
-    for ( CRevisionInfoContainer::CChangesIterator
-          iter = logInfo.GetChangesBegin (index)
-        , end = logInfo.GetChangesEnd (index)
-        ; iter != end
-        ; ++iter)
+    for (CRevisionInfoContainer::CChangesIterator
+             iter = logInfo.GetChangesBegin(index),
+             end  = logInfo.GetChangesEnd(index);
+         iter != end; ++iter)
     {
         // does this change affect the path?
 
-        if (path.IsSameOrChildOf (iter->GetPathID()))
+        if (path.IsSameOrChildOf(iter->GetPathID()))
         {
             switch (iter->GetRawChange())
             {
-            case CRevisionInfoContainer::ACTION_DELETED :
-                // deletion? -> does not exist
+                case CRevisionInfoContainer::ACTION_DELETED:
+                    // deletion? -> does not exist
 
-                exists = false;
-                break;
+                    exists = false;
+                    break;
 
-            case CRevisionInfoContainer::ACTION_ADDED
-               + CRevisionInfoContainer::HAS_COPY_FROM:
-            case CRevisionInfoContainer::ACTION_REPLACED
-               + CRevisionInfoContainer::HAS_COPY_FROM:
-            case CRevisionInfoContainer::ACTION_MOVED
-               + CRevisionInfoContainer::HAS_COPY_FROM:
-            case CRevisionInfoContainer::ACTION_MOVEREPLACED
-               + CRevisionInfoContainer::HAS_COPY_FROM:
-                           // copy? -> does exist
+                case CRevisionInfoContainer::ACTION_ADDED + CRevisionInfoContainer::HAS_COPY_FROM:
+                case CRevisionInfoContainer::ACTION_REPLACED + CRevisionInfoContainer::HAS_COPY_FROM:
+                case CRevisionInfoContainer::ACTION_MOVED + CRevisionInfoContainer::HAS_COPY_FROM:
+                case CRevisionInfoContainer::ACTION_MOVEREPLACED + CRevisionInfoContainer::HAS_COPY_FROM:
+                    // copy? -> does exist
 
-                // We can safely assume here, that the source tree
-                // contains the path in question as this is why we
-                // called this function at all.
+                    // We can safely assume here, that the source tree
+                    // contains the path in question as this is why we
+                    // called this function at all.
 
-                exists = true;
-                break;
-
-            case CRevisionInfoContainer::ACTION_ADDED:
-            case CRevisionInfoContainer::ACTION_REPLACED:
-            case CRevisionInfoContainer::ACTION_MOVED:
-            case CRevisionInfoContainer::ACTION_MOVEREPLACED:
-                // exact addition? -> does exist
-
-                if (iter->GetPathID() == path.GetIndex())
                     exists = true;
+                    break;
 
-                break;
+                case CRevisionInfoContainer::ACTION_ADDED:
+                case CRevisionInfoContainer::ACTION_REPLACED:
+                case CRevisionInfoContainer::ACTION_MOVED:
+                case CRevisionInfoContainer::ACTION_MOVEREPLACED:
+                    // exact addition? -> does exist
+
+                    if (iter->GetPathID() == path.GetIndex())
+                        exists = true;
+
+                    break;
             }
         }
     }
 
     return exists;
 }
-

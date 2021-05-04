@@ -41,8 +41,7 @@ template <class DataType>
 class MoreCommitsThan
 {
 public:
-    typedef std::map<std::wstring, DataType> MapType;
-    MoreCommitsThan(MapType& authorCommits)
+    MoreCommitsThan(std::map<std::wstring, DataType>& authorCommits)
         : m_authorCommits(authorCommits)
     {
     }
@@ -53,7 +52,7 @@ public:
     }
 
 private:
-    MapType& m_authorCommits;
+    std::map<std::wstring, DataType>& m_authorCommits;
 };
 
 IMPLEMENT_DYNAMIC(CStatGraphDlg, CResizableStandAloneDialog)

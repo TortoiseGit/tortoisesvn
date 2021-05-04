@@ -82,7 +82,7 @@ BOOL CPOFile::ParseFile(LPCWSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
         if (line.get()[0] == 0)
         {
             //empty line means end of entry!
-            RESOURCEENTRY resEntry = {0};
+            TagResourceEntry resEntry = {0};
             std::wstring  msgid;
             std::wstring  regexSearch, regexReplace;
             int           type = 0;
@@ -182,8 +182,8 @@ BOOL CPOFile::ParseFile(LPCWSTR szPath, BOOL bUpdateExisting, bool bAdjustEOLs)
     } while (file.gcount() > 0);
     printf("%s", file.getloc().name().c_str());
     file.close();
-    RESOURCEENTRY emptyentry   = {0};
-    (*this)[std::wstring(L"")] = emptyentry;
+    TagResourceEntry emptyEntry = {0};
+    (*this)[std::wstring(L"")] = emptyEntry;
     if (!m_bQuiet)
         fwprintf(stdout, L"%d Entries found, %d were already translated and %d got deleted\n", nEntries, nTranslated, nDeleted);
     return TRUE;
@@ -258,7 +258,7 @@ BOOL CPOFile::SaveFile(LPCWSTR szPath, LPCWSTR lpszHeaderFile)
         if (s.empty())
             continue;
 
-        RESOURCEENTRY entry = I->second;
+        TagResourceEntry entry = I->second;
         for (auto II = entry.automaticComments.cbegin(); II != entry.automaticComments.cend(); ++II)
         {
             file << II->c_str() << L"\n";

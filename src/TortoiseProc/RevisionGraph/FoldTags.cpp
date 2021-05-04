@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2008 - TortoiseSVN
 
@@ -34,7 +34,7 @@ bool CFoldTags::CopyTargetsVisibile (const CVisibleGraphNode* node) const
 // construction
 
 CFoldTags::CFoldTags (CRevisionGraphOptionList& list)
-    : inherited (list)
+    : Inherited (list)
 {
 }
 

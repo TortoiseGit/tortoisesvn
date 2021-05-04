@@ -40,7 +40,7 @@ public:
     std::wstring inheritedFrom;
 };
 
-typedef std::multimap<std::string, PropValue> TProperties;
+using TProperties = std::multimap<std::string, PropValue>;
 
 /**
  * \ingroup TortoiseProc

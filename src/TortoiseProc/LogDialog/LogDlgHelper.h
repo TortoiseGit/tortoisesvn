@@ -116,8 +116,6 @@ public:
     CString                    pathURL;
 };
 
-// get an alias to a shared automatic pointer
-typedef std::shared_ptr<CContextMenuInfoForRevisions> ContextMenuInfoForRevisionsPtr;
 
 /**
  * \ingroup TortoiseProc

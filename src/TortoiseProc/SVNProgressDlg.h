@@ -31,13 +31,13 @@
 
 class CCmdLineParser;
 
-typedef int(__cdecl* GENERICCOMPAREFN)(const void* elem1, const void* elem2);
+using GENERICCOMPAREFN = int(__cdecl*)(const void* elem1, const void* elem2);
 
 /**
  * \ingroup TortoiseProc
  * Options which can be used to configure the way the dialog box works
  */
-typedef enum
+enum ProgressOptions
 {
     ProgOptNone              = 0,
     ProgOptRecursive         = 0x01,
@@ -62,16 +62,16 @@ typedef enum
     ProgOptAllowMixedRev     = 0x80000,
     ProgOptSkipPreChecks     = 0x100000,
     ProgOptClearChangeLists  = 0x200000,
-} ProgressOptions;
+};
 
-typedef enum
+enum ProgressCloseOptions
 {
     CLOSE_MANUAL = 0,
     CLOSE_NOERRORS,
     CLOSE_NOCONFLICTS,
     CLOSE_NOMERGES,
     CLOSE_LOCAL
-} ProgressCloseOptions;
+};
 
 /**
  * \ingroup TortoiseProc
@@ -83,7 +83,7 @@ class CSVNProgressDlg : public CResizableStandAloneDialog
     , public SVN
 {
 public:
-    typedef enum
+    enum Command
     {
         SVNProgress_None,
         SVNProgress_Add,
@@ -106,7 +106,7 @@ public:
         SVNProgress_SwitchBackToParent,
         SVNProgress_Unlock,
         SVNProgress_Update,
-    } Command;
+    };
 
     DECLARE_DYNAMIC(CSVNProgressDlg)
 
@@ -330,9 +330,9 @@ private:
     bool CmdUpdate(CString& sWindowTitle, bool& localoperation);
 
 private:
-    typedef std::map<CStringA, svn_revnum_t> StringRevMap;
-    typedef std::map<CString, svn_revnum_t>  StringWRevMap;
-    typedef std::deque<NotificationData*>    NotificationDataDeck;
+    using StringRevMap         = std::map<CStringA, svn_revnum_t>;
+    using StringWRevMap        = std::map<CString, svn_revnum_t>;
+    using NotificationDataDeck = std::deque<NotificationData*>;
 
     CString              m_mergedfile;
     NotificationDataDeck m_arData;

@@ -158,8 +158,8 @@ class CSVNStatusListCtrlDropTarget;
 
 #define SVNSLC_MAXUSERPROPLENGTH 0x70
 
-typedef int(__cdecl* GENERICCOMPAREFN)(const void* elem1, const void* elem2);
-typedef CComCritSecLock<CComCriticalSection> Locker;
+using GENERICCOMPAREFN = int(__cdecl* )(const void* elem1, const void* elem2);
+using Locker = CComCritSecLock<CComCriticalSection>;
 
 #define OVL_EXTERNAL        1
 #define OVL_NESTED          2
@@ -876,7 +876,7 @@ public:
     CString m_sRepositoryRoot; ///< The repository root of the first item which has one, or an empty string
     DECLARE_MESSAGE_MAP()
 
-    typedef std::vector<FileEntry*> FileEntryVector;
+    using FileEntryVector = std::vector<FileEntry*>;
 
 private:
     void        SaveColumnWidths(bool bSaveToRegistry = false);

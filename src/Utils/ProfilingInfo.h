@@ -210,8 +210,7 @@ inline void CRecordProfileEvent::Stop()
 class CProfilingInfo
 {
 private:
-    typedef std::vector<CProfilingRecord*> TRecords;
-    TRecords                               records;
+    std::vector<CProfilingRecord*> records;
 
     /// construction / destruction
 

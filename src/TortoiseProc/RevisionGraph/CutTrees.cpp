@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2003-2008 - TortoiseSVN
 
@@ -26,7 +26,7 @@
 CCutTrees::CCutTrees
     ( CRevisionGraphOptionList& list
     , const CGraphNodeStates* nodeStates)
-    : inherited (list)
+    : Inherited (list)
     , nodeStates (nodeStates)
 {
 }

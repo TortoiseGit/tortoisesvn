@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2012, 2019 - TortoiseSVN
+// Copyright (C) 2003-2008, 2012, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -31,7 +31,6 @@
 class IModificationOption : public IOrderedTraversalOption
 {
 public:
-
     /// If true, the option shall be applied with all other
     /// clyclic options more than once until the graph is stable.
 
@@ -39,47 +38,40 @@ public:
 
     /// Apply / execute the filter.
 
-    virtual void Apply (CVisibleGraph* graph, CVisibleGraphNode* node) = 0;
+    virtual void Apply(CVisibleGraph* graph, CVisibleGraphNode* node) = 0;
 
     /// will be called after each tree traversal.
     /// Use this to modify the tree is a way that interferes
     /// with the standard traversal, for instance.
 
-    virtual void PostFilter (CVisibleGraph* graph) = 0;
+    virtual void PostFilter(CVisibleGraph* graph) = 0;
 };
 
 /**
  * Standard implementation of IModificationOption.
  */
 
-template<class Base, int Prio, UINT ID, bool CopyiesFirst, bool RootFirst, bool Cyclic>
+template <class Base, int Prio, UINT ID, bool CopyiesFirst, bool RootFirst, bool Cyclic>
 class CModificationOptionImpl
     : public COrderedTraversalOptionImpl<Base, Prio, ID, CopyiesFirst, RootFirst>
 {
 protected:
-
     /// for simplied construction by the _derived_ class
 
-    typedef typename CModificationOptionImpl< Base
-                                            , Prio
-                                            , ID
-                                            , CopyiesFirst
-                                            , RootFirst
-                                            , Cyclic> inherited;
+    using Inherited = typename CModificationOptionImpl<Base, Prio, ID, CopyiesFirst, RootFirst, Cyclic>;
 
 public:
-
     /// construction / destruction
 
-    CModificationOptionImpl (CRevisionGraphOptionList& list)
+    CModificationOptionImpl(CRevisionGraphOptionList& list)
         : COrderedTraversalOptionImpl<Base, Prio, ID, CopyiesFirst, RootFirst>(list)
     {
     }
 
     /// implement IModificationOption
 
-    virtual bool IsCyclic() const override {return Cyclic;}
-    virtual void PostFilter (CVisibleGraph*) override {};
+    virtual bool IsCyclic() const override { return Cyclic; }
+    virtual void PostFilter(CVisibleGraph*) override{};
 };
 
 /**
@@ -93,34 +85,23 @@ public:
 class CModificationOptions : public CRevisionGraphOptionList
 {
 private:
-
     std::vector<IModificationOption*> options;
 
     /// apply a filter using different traversal orders
 
-    void TraverseFromRootCopiesFirst ( IModificationOption* option
-                                     , CVisibleGraph* graph
-                                     , CVisibleGraphNode* node);
-    void TraverseToRootCopiesFirst ( IModificationOption* option
-                                   , CVisibleGraph* graph
-                                   , CVisibleGraphNode* node);
-    void TraverseFromRootCopiesLast ( IModificationOption* option
-                                    , CVisibleGraph* graph
-                                    , CVisibleGraphNode* node);
-    void TraverseToRootCopiesLast ( IModificationOption* option
-                                  , CVisibleGraph* graph
-                                  , CVisibleGraphNode* node);
-    void InternalApply (CVisibleGraph* graph, bool cyclicFilters);
+    static void TraverseFromRootCopiesFirst(IModificationOption* option, CVisibleGraph* graph, CVisibleGraphNode* node);
+    static void TraverseToRootCopiesFirst(IModificationOption* option, CVisibleGraph* graph, CVisibleGraphNode* node);
+    static void TraverseFromRootCopiesLast(IModificationOption* option, CVisibleGraph* graph, CVisibleGraphNode* node);
+    static void TraverseToRootCopiesLast(IModificationOption* option, CVisibleGraph* graph, CVisibleGraphNode* node);
+    void        InternalApply(CVisibleGraph* graph, bool cyclicFilters);
 
 public:
-
     /// construction / destruction
 
-    CModificationOptions (const std::vector<IModificationOption*>& options);
-    virtual ~CModificationOptions() {}
+    CModificationOptions(const std::vector<IModificationOption*>& options);
+    ~CModificationOptions() override {}
 
     /// apply all filters
 
-    void Apply (CVisibleGraph* graph);
+    void Apply(CVisibleGraph* graph);
 };
-

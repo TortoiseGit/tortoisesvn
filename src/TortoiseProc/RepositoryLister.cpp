@@ -636,12 +636,11 @@ CString CRepositoryLister::AddSubTreeExternals(const CString& url, const SVNRev&
 
     // add unfiltered externals?
 
-    typedef std::deque<CItem>::const_iterator TI;
-    TI                                        begin = query->GetSubPathExternals().begin();
-    TI                                        end   = query->GetSubPathExternals().end();
+    auto begin = query->GetSubPathExternals().begin();
+    auto end   = query->GetSubPathExternals().end();
 
     int levels = CItem::Levels(externalsRelPath);
-    for (TI iter = begin; iter != end; ++iter)
+    for (auto iter = begin; iter != end; ++iter)
     {
         if ((iter->m_externalPosition == levels) && (iter->m_externalRelPath.Find(externalsRelPath) == 0))
         {

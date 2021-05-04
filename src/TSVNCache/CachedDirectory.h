@@ -29,7 +29,7 @@
 class CCachedDirectory
 {
 public:
-    using CachedDirMap = std::map<CTSVNPath, CCachedDirectory *>;
+    using CachedDirMap = std::map<CTSVNPath, CCachedDirectory*>;
 
     CCachedDirectory();
     CCachedDirectory(const CTSVNPath& directoryPath);
@@ -67,12 +67,12 @@ private:
 
     volatile LONG m_fetchingStatus;
     // The cache of files and directories within this directory
-    typedef std::map<CStringA, CStatusCacheEntry> CacheEntryMap;
-    CacheEntryMap                                 m_entryCache;
+    using CacheEntryMap = std::map<CStringA, CStatusCacheEntry>;
+    CacheEntryMap m_entryCache;
 
     /// A vector if iterators to child directories - used to put-together recursive status
-    typedef std::map<CStringA, svn_wc_status_kind> ChildDirStatus;
-    ChildDirStatus                                 m_childDirectories;
+    using ChildDirStatus = std::map<CStringA, svn_wc_status_kind>;
+    ChildDirStatus m_childDirectories;
 
     // The timestamp of the .SVN\wc.db file. For an unversioned directory, this will be zero
     __int64 m_wcDbFileTime;

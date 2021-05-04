@@ -131,13 +131,13 @@ private:
     static CTSVNPath            folderPath;
     void                        ClearCache();
 
-    int                                                  m_nCounter;
-    typedef std::map<std::wstring, FileStatusCacheEntry> FileStatusMap;
-    FileStatusMap                                        m_cache;
-    ULONGLONG                                            m_timeStamp;
-    FileStatusCacheEntry                                 dirStat;
-    const svn_client_status_t*                           dirStatus;
-    apr_pool_t*                                          rootPool;
+    int m_nCounter;
+    using FileStatusMap = std::map<std::wstring, FileStatusCacheEntry>;
+    FileStatusMap              m_cache;
+    ULONGLONG                  m_timeStamp;
+    FileStatusCacheEntry       dirStat;
+    const svn_client_status_t* dirStatus;
+    apr_pool_t*                rootPool;
 
     // merging these pools won't save memory
     // but access will become slower

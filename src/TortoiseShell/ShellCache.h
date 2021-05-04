@@ -27,7 +27,7 @@
 #define DRIVETYPETIMEOUT 300000 // 5 min
 #define NUMBERFMTTIMEOUT 300000
 
-typedef CComCritSecLock<CComCriticalSection> Locker;
+using Locker = CComCritSecLock<CComCriticalSection>;
 
 struct BoolTimeout
 {

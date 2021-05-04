@@ -22,7 +22,7 @@
 #include <vector>
 #include <tuple>
 
-typedef struct TagResourceEntry
+struct TagResourceEntry
 {
     WORD                      menuID;
     std::vector<std::wstring> translatorComments;
@@ -31,7 +31,7 @@ typedef struct TagResourceEntry
     std::wstring              flag;
     std::wstring              msgStr;
     std::wstring              headerFile;
-} RESOURCEENTRY, *LPRESOURCEENTRY;
+};
 
 /**
  * \ingroup ResText
@@ -41,7 +41,7 @@ typedef struct TagResourceEntry
  * Provides methods to load and save a po-file with the translation information
  * we need for ResText.
  */
-class CPOFile : public std::map<std::wstring, RESOURCEENTRY>
+class CPOFile : public std::map<std::wstring, TagResourceEntry>
 {
 public:
     CPOFile();

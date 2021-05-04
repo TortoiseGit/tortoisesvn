@@ -18,9 +18,9 @@
 //
 #pragma once
 
-typedef HRESULT(FAR STDAPICALLTYPE *FWindowsCreateStringReference)(_In_reads_opt_(length + 1) PCWSTR sourceString, UINT32 length, _Out_ HSTRING_HEADER *hstringHeader, _Outptr_result_maybenull_ _Result_nullonfailure_ HSTRING *string);
+using FWindowsCreateStringReference = HRESULT(FAR STDAPICALLTYPE *)(_In_reads_opt_(length + 1) PCWSTR sourceString, UINT32 length, _Out_ HSTRING_HEADER *hstringHeader, _Outptr_result_maybenull_ _Result_nullonfailure_ HSTRING *string);
 
-typedef HRESULT(FAR STDAPICALLTYPE *FWindowsDeleteString)(_In_opt_ HSTRING string);
+using FWindowsDeleteString = HRESULT(FAR STDAPICALLTYPE *)(_In_opt_ HSTRING string);
 
 class StringReferenceWrapperDynamicLoader
 {

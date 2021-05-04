@@ -818,11 +818,10 @@ void CLogDataVector::Filter(const CLogDlgFilter& filter)
 
         // start jobs
 
-        typedef async::CFuture<vector<size_t>> TFuture;
-        vector<TFuture*>                       jobs;
+        vector<async::CFuture<vector<size_t>>*> jobs;
 
         for (size_t i = 0; i < count; i += itemsPerJob)
-            jobs.push_back(new TFuture(this, &CLogDataVector::FilterRange, &filter, i, min(i + itemsPerJob, count)));
+            jobs.push_back(new async::CFuture<vector<size_t>>(this, &CLogDataVector::FilterRange, &filter, i, min(i + itemsPerJob, count)));
 
         // collect results
 
@@ -847,8 +846,8 @@ void CLogDataVector::Filter(__time64_t from, __time64_t to, bool hideNonMergeabl
     visible.clear();
     for (size_t i = 0, count = size(); i < count; ++i)
     {
-        const PLOGENTRYDATA entry                   = __super::operator[](i);
-        __time64_t                             date = entry->GetDate();
+        const PLOGENTRYDATA entry                 = __super::operator[](i);
+        __time64_t                           date = entry->GetDate();
 
         if ((date >= from) && (date <= to))
         {

@@ -905,22 +905,20 @@ bool CTSVNPathList::WriteToFile(const CString& sFilename, bool bUTF8 /* = false 
     {
         if (bUTF8)
         {
-            CStdioFile                 file(sFilename, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate);
-            PathVector::const_iterator it;
-            for (it = m_paths.begin(); it != m_paths.end(); ++it)
+            CStdioFile file(sFilename, CFile::typeText | CFile::modeReadWrite | CFile::modeCreate);
+            for (const auto& path : m_paths)
             {
-                CStringA line = CUnicodeUtils::GetUTF8(it->GetSVNPathString()) + '\n';
+                CStringA line = CUnicodeUtils::GetUTF8(path.GetSVNPathString()) + '\n';
                 file.Write(line, line.GetLength());
             }
             file.Close();
         }
         else
         {
-            CStdioFile                 file(sFilename, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
-            PathVector::const_iterator it;
-            for (it = m_paths.begin(); it != m_paths.end(); ++it)
+            CStdioFile file(sFilename, CFile::typeBinary | CFile::modeReadWrite | CFile::modeCreate);
+            for (const auto& path : m_paths)
             {
-                file.WriteString(it->GetSVNPathString() + L"\n");
+                file.WriteString(path.GetSVNPathString() + L"\n");
             }
             file.Close();
         }

@@ -52,7 +52,7 @@ svn_error_t* svnClGetLogMessage(const char**              logMsg,
 #define SVN_PROGRESS_QUEUE_SIZE 10
 #define SVN_DATE_BUFFER         260
 
-typedef std::map<CString, CString> RevPropHash;
+using RevPropHash = std::map<CString, CString>;
 
 class ShelfInfo
 {

@@ -131,7 +131,7 @@ private:
     void ReplaceStr(LPCWSTR src, WORD* dest, size_t* count, int* translated, int* def);
 
     size_t      ScanHeaderFile(const std::wstring& filepath);
-    void        InsertResourceIDs(LPCWSTR lpType, INT_PTR mainId, RESOURCEENTRY& entry, INT_PTR id, LPCWSTR infoText);
+    void        InsertResourceIDs(LPCWSTR lpType, INT_PTR mainId, TagResourceEntry& entry, INT_PTR id, LPCWSTR infoText);
     static bool AdjustCheckSum(const std::wstring& resFile);
     static void RemoveSignatures(LPCWSTR lpszDestLangDllPath);
 

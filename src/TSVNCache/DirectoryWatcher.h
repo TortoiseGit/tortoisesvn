@@ -140,8 +140,7 @@ private:
         HDEVNOTIFY m_hDevNotify; ///< Notification handle
     };
 
-    typedef std::map<HANDLE, CDirWatchInfo*> TInfoMap;
-    TInfoMap                                 watchInfoMap;
+    std::map<HANDLE, CDirWatchInfo*> watchInfoMap;
 
     HDEVNOTIFY m_hDev;
 

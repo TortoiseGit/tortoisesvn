@@ -165,19 +165,19 @@ public:
 protected:
     apr_pool_t *m_pool; ///< the memory pool
 private:
-    typedef struct SortItem
+    struct SortItem
     {
         const void *key;
         apr_ssize_t kLen;
         void *      value;
-    } SortItem;
+    };
 
-    typedef struct HashbatonT
+    struct HashbatonT
     {
         SVNStatus * pThis;
         apr_hash_t *hash;
         apr_hash_t *extHash;
-    } HashBatonT;
+    };
 
     svn_wc_status_kind m_allstatus; ///< used by GetAllStatus and GetAllStatusRecursive
 

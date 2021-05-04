@@ -1,4 +1,4 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
 // Copyright (C) 2010 - TortoiseSVN
 
@@ -24,7 +24,7 @@
 // construction
 
 CRemoveTags::CRemoveTags (CRevisionGraphOptionList& list)
-    : inherited (list)
+    : Inherited (list)
 {
 }
 

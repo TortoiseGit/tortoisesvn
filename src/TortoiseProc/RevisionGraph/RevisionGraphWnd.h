@@ -306,19 +306,19 @@ private:
 
     void ClearVisibleGlyphs(const CRect& rect);
 
-    typedef PointF TCutRectangle[8];
-    static void    CutawayPoints(const RectF& rect, float cutLen, TCutRectangle& result);
-    void           DrawRoundedRect(GraphicsDevice& graphics, const Color& penColor, int penWidth, const Pen* pen, const Color& fillColor, const Brush* brush, const RectF& rect) const;
-    void           DrawOctangle(GraphicsDevice& graphics, const Color& penColor, int penWidth, const Pen* pen, const Color& fillColor, const Brush* brush, const RectF& rect) const;
-    void           DrawShape(GraphicsDevice& graphics, const Color& penColor, int penWidth, const Pen* pen, const Color& fillColor, const Brush* brush, const RectF& rect, NodeShape shape) const;
-    void           DrawShadow(GraphicsDevice& graphics, const RectF& rect,
-                              Color shadowColor, NodeShape shape) const;
-    void           DrawNode(GraphicsDevice& graphics, const RectF& rect,
-                            Color contour, Color overlayColor,
-                            const CVisibleGraphNode* node, NodeShape shape);
-    RectF          TransformRectToScreen(const CRect& rect, const CSize& offset) const;
-    RectF          GetNodeRect(const ILayoutNodeList::SNode& node, const CSize& offset) const;
-    RectF          GetBranchCover(const ILayoutNodeList* nodeList, index_t nodeIndex, bool upward, const CSize& offset) const;
+    using TCutRectangle = PointF[8];
+    static void CutawayPoints(const RectF& rect, float cutLen, TCutRectangle& result);
+    void        DrawRoundedRect(GraphicsDevice& graphics, const Color& penColor, int penWidth, const Pen* pen, const Color& fillColor, const Brush* brush, const RectF& rect) const;
+    void        DrawOctangle(GraphicsDevice& graphics, const Color& penColor, int penWidth, const Pen* pen, const Color& fillColor, const Brush* brush, const RectF& rect) const;
+    void        DrawShape(GraphicsDevice& graphics, const Color& penColor, int penWidth, const Pen* pen, const Color& fillColor, const Brush* brush, const RectF& rect, NodeShape shape) const;
+    void        DrawShadow(GraphicsDevice& graphics, const RectF& rect,
+                           Color shadowColor, NodeShape shape) const;
+    void        DrawNode(GraphicsDevice& graphics, const RectF& rect,
+                         Color contour, Color overlayColor,
+                         const CVisibleGraphNode* node, NodeShape shape);
+    RectF       TransformRectToScreen(const CRect& rect, const CSize& offset) const;
+    RectF       GetNodeRect(const ILayoutNodeList::SNode& node, const CSize& offset) const;
+    RectF       GetBranchCover(const ILayoutNodeList* nodeList, index_t nodeIndex, bool upward, const CSize& offset) const;
 
     void DrawSquare(GraphicsDevice& graphics, const PointF& leftTop,
                     const Color& lightColor, const Color& darkColor, const Color& penColor) const;

@@ -17,7 +17,7 @@ using std::min;
 
 #include <SDKDDKVer.h>
 
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS  // some CString constructors will be explicit
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS // some CString constructors will be explicit
 
 #include <WinSock2.h>
 #include <Ws2tcpip.h>
@@ -29,7 +29,6 @@ using std::min;
 #include <conio.h>
 
 #define CSTRING_AVAILABLE
-
 
 using namespace ATL;
 
@@ -50,12 +49,12 @@ using namespace ATL;
 #include "DebugOutput.h"
 #include "OnOutOfScope.h"
 
-typedef CComCritSecLock<CComAutoCriticalSection> AutoLocker;
+using AutoLocker = CComCritSecLock<CComAutoCriticalSection>;
 
 #ifdef _WIN64
-#   define APP_X64_STRING   "x64"
+#    define APP_X64_STRING "x64"
 #else
-#   define APP_X64_STRING   ""
+#    define APP_X64_STRING ""
 #endif
 
 #include "ProfilingInfo.h"

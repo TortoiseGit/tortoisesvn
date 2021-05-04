@@ -78,7 +78,7 @@
 #include "UrlDiffCommand.h"
 #include "WcUpgradeCommand.h"
 
-typedef enum
+enum TSVNCommand
 {
     // ReSharper disable CppInconsistentNaming
     cmdAbout,
@@ -140,7 +140,7 @@ typedef enum
     cmdUrlDiff,
     cmdWcUpgrade,
     // ReSharper restore CppInconsistentNaming
-} TSVNCommand;
+};
 
 static const struct CommandInfo
 {

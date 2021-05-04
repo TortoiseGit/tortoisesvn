@@ -48,12 +48,12 @@ extern bool    g_ignoredOvlLoaded;
 extern bool    g_unversionedOvlLoaded;
 extern LPCWSTR g_menuIDString;
 
-extern void                                  LoadLangDll();
-extern std::wstring                          GetAppDirectory();
-extern CComCriticalSection                   g_csGlobalComGuard;
-typedef CComCritSecLock<CComCriticalSection> AutoLocker;
+extern void                LoadLangDll();
+extern std::wstring        GetAppDirectory();
+extern CComCriticalSection g_csGlobalComGuard;
+using AutoLocker = CComCritSecLock<CComCriticalSection>;
 
-typedef DWORD ARGB;
+using ARGB = DWORD;
 
 // The actual OLE Shell context menu handler
 /**

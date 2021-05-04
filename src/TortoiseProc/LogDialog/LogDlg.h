@@ -62,7 +62,7 @@
 #define MONITOR_TIMER       102
 #define MONITOR_POPUP_TIMER 103
 
-typedef int(__cdecl* GENERICCOMPAREFN)(const void* elem1, const void* elem2);
+using GENERICCOMPAREFN = int(__cdecl*)(const void* elem1, const void* elem2);
 
 enum RefreshEnum
 {
@@ -354,34 +354,34 @@ private:
     void ResizeAllListCtrlCols(bool bOnlyVisible);
 
     void        ShowContextMenuForRevisions(CWnd* pWnd, CPoint point);
-    void        PopulateContextMenuForRevisions(ContextMenuInfoForRevisionsPtr& pCmi, CIconMenu& popup, CIconMenu& clipSubMenu);
-    bool        GetContextMenuInfoForRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
+    void        PopulateContextMenuForRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi, CIconMenu& popup, CIconMenu& clipSubMenu);
+    bool        GetContextMenuInfoForRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
     static void AdjustContextMenuAnchorPointIfKeyboardInvoked(CPoint& point, int selIndex, CListCtrl& listControl);
     bool        VerifyContextMenuForRevisionsAllowed(int selIndex) const;
-    void        ExecuteGnuDiff1MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteGnuDiff2MenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteRevertRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi) const;
-    void        ExecuteMergeRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteRevertToRevisionMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi) const;
-    void        ExecuteCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteCompareWithWorkingCopyMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteCompareTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteCompareWithPreviousMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteBlameCompareMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteBlameTwoMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteWithPreviousMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteSaveAsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteOpenMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi, bool bOpenWith);
-    void        ExecuteBlameMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteUpdateMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi) const;
+    void        ExecuteGnuDiff1MenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteGnuDiff2MenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteRevertRevisionMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi) const;
+    void        ExecuteMergeRevisionMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteRevertToRevisionMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi) const;
+    void        ExecuteCopyMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteCompareWithWorkingCopyMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteCompareTwoMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteCompareWithPreviousMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteBlameCompareMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteBlameTwoMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteWithPreviousMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteSaveAsMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteOpenMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi, bool bOpenWith);
+    void        ExecuteBlameMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteUpdateMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi) const;
     void        ExecuteFindEntryMenuRevisions();
-    void        ExecuteRepoBrowseMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi) const;
-    void        ExecuteRevisionPropsMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    static void ExecuteExportMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    static void ExecuteCheckoutMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteViewRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi) const;
-    void        ExecuteViewPathRevMenuRevisions(ContextMenuInfoForRevisionsPtr& pCmi);
-    void        ExecuteGetMergeLogs(ContextMenuInfoForRevisionsPtr& pCmi);
+    void        ExecuteRepoBrowseMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi) const;
+    void        ExecuteRevisionPropsMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    static void ExecuteExportMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    static void ExecuteCheckoutMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteViewRevMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi) const;
+    void        ExecuteViewPathRevMenuRevisions(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
+    void        ExecuteGetMergeLogs(std::shared_ptr<CContextMenuInfoForRevisions>& pCmi);
     void        ExecuteAddCodeCollaboratorReview();
     CString     GetSpaceSeparatedSelectedRevisions() const;
     CString     GetUrlOfTrunk();
