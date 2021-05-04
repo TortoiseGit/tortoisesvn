@@ -764,10 +764,10 @@ std::string CStringUtils::Decrypt(const std::string& s, const std::string& passw
                 // Create block cipher session key based on hash of the password.
                 if (CryptDeriveKey(hProv, CALG_AES_256, hHash, CRYPT_EXPORTABLE, &hKey))
                 {
-                    dwLength = static_cast<DWORD>(s.size() + 1024); // 1024 bytes should be enough for padding
-                    std::unique_ptr<BYTE[]> buffer(new BYTE[dwLength]);
+                    dwLength    = static_cast<DWORD>(s.size() + 1024); // 1024 bytes should be enough for padding
+                    auto buffer = std::make_unique<BYTE[]>(dwLength);
 
-                    std::unique_ptr<BYTE[]> strIn(new BYTE[s.size() + 1]);
+                    auto strIn = std::make_unique<BYTE[]>(s.size() + 1);
                     if (buffer && strIn)
                     {
                         if (CStringUtils::FromHexString(s, strIn.get()))

@@ -58,7 +58,7 @@ void CFullGraphBuilder::Run() const
 
     // initialize the paths we have to search for
 
-    std::unique_ptr<CSearchPathTree> searchTree(new CSearchPathTree(&revisionInfo.GetPaths()));
+    auto searchTree = std::make_unique<CSearchPathTree>(&revisionInfo.GetPaths());
     searchTree->Insert(*m_history.GetStartPath(), m_history.GetStartRevision());
 
     // the range of copy-to info that applies to the current revision

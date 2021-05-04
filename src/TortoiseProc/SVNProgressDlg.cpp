@@ -2505,10 +2505,10 @@ void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* pNMHDR, LRESULT* pResult)
         return;
     }
 
-    std::unique_ptr<CIDropSource> pdsrc(new CIDropSource);
-    if (pdsrc == nullptr)
+    auto pdSrc = std::make_unique<CIDropSource>();
+    if (pdSrc == nullptr)
         return;
-    pdsrc->AddRef();
+    pdSrc->AddRef();
 
     SVNDataObject* pdobj = new SVNDataObject(pathList, SVNRev::REV_WC, SVNRev::REV_WC);
     if (pdobj == nullptr)
@@ -2521,14 +2521,14 @@ void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* pNMHDR, LRESULT* pResult)
 
     dragsrchelper.InitializeFromWindow(m_progList.GetSafeHwnd(), pNMLV->ptAction, pdobj);
 
-    pdsrc->m_pIDataObj = pdobj;
-    pdsrc->m_pIDataObj->AddRef();
+    pdSrc->m_pIDataObj = pdobj;
+    pdSrc->m_pIDataObj->AddRef();
 
     // Initiate the Drag & Drop
     DWORD dwEffect;
-    ::DoDragDrop(pdobj, pdsrc.get(), DROPEFFECT_MOVE | DROPEFFECT_COPY, &dwEffect);
-    pdsrc->Release();
-    pdsrc.release();
+    ::DoDragDrop(pdobj, pdSrc.get(), DROPEFFECT_MOVE | DROPEFFECT_COPY, &dwEffect);
+    pdSrc->Release();
+    pdSrc.release();
     pdobj->Release();
 }
 

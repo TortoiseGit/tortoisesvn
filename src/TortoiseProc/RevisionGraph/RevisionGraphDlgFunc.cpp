@@ -203,7 +203,7 @@ bool CRevisionGraphWnd::FetchRevisionData(const CString& path, SVNRev pegRevisio
         return false;
     }
 
-    std::unique_ptr<CFullHistory> newFullHistory(new CFullHistory());
+    auto newFullHistory = std::make_unique<CFullHistory>();
 
     bool showWCRev          = m_state.GetOptions()->GetOption<CShowWC>()->IsSelected();
     bool showWCModification = m_state.GetOptions()->GetOption<CShowWCModification>()->IsSelected();
@@ -219,7 +219,7 @@ bool CRevisionGraphWnd::FetchRevisionData(const CString& path, SVNRev pegRevisio
 
     if (result)
     {
-        std::unique_ptr<CFullGraph> newFullGraph(new CFullGraph());
+        auto newFullGraph = std::make_unique<CFullGraph>();
 
         CFullGraphBuilder builder(*newFullHistory, *newFullGraph);
         builder.Run();
@@ -254,7 +254,7 @@ bool CRevisionGraphWnd::AnalyzeRevisionData()
 
         // layout nodes
 
-        std::unique_ptr<CStandardLayout> newLayout(new CStandardLayout(m_state.GetFullHistory()->GetCache(), visibleGraph.get(), m_state.GetFullHistory()->GetWCInfo()));
+        auto newLayout = std::make_unique<CStandardLayout>(m_state.GetFullHistory()->GetCache(), visibleGraph.get(), m_state.GetFullHistory()->GetWCInfo());
         options->GetLayoutOptions().Apply(newLayout.get(), GetSafeHwnd());
         newLayout->Finalize();
 

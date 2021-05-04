@@ -687,12 +687,12 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                             GetEditBorderColor(hWnd, &cr);
                             cr |= 0xff000000;
 
-                            std::unique_ptr<Gdiplus::Pen>      myPen(new Gdiplus::Pen(Gdiplus::Color(cr), 1));
-                            std::unique_ptr<Gdiplus::Graphics> myGraphics(new Gdiplus::Graphics(hdcPaint));
-                            int                                iY = RECTHEIGHT(rcDraw) / 2;
-                            Gdiplus::Rect                      rr = Gdiplus::Rect(rcClient.left, rcClient.top + iY,
+                            auto                  myPen      = std::make_unique<Gdiplus::Pen>(Gdiplus::Color(cr));
+                            auto                  myGraphics = std::make_unique<Gdiplus::Graphics>(hdcPaint);
+                            int                   iY         = RECTHEIGHT(rcDraw) / 2;
+                            Gdiplus::Rect         rr         = Gdiplus::Rect(rcClient.left, rcClient.top + iY,
                                                              RECTWIDTH(rcClient), RECTHEIGHT(rcClient) - iY - 1);
-                            Gdiplus::GraphicsPath              path;
+                            Gdiplus::GraphicsPath path;
                             GetRoundRectPath(&path, rr, 5);
                             myGraphics->DrawPath(myPen.get(), &path);
                             myGraphics.reset();
@@ -1287,9 +1287,9 @@ void GetRoundRectPath(Gdiplus::GraphicsPath* pPath, const Gdiplus::Rect& r, int 
 
 void DrawRect(LPRECT prc, HDC hdcPaint, Gdiplus::DashStyle dashStyle, Gdiplus::Color clr, Gdiplus::REAL width)
 {
-    std::unique_ptr<Gdiplus::Pen> myPen(new Gdiplus::Pen(clr, width));
+    auto myPen = std::make_unique<Gdiplus::Pen>(clr, width);
     myPen->SetDashStyle(dashStyle);
-    std::unique_ptr<Gdiplus::Graphics> myGraphics(new Gdiplus::Graphics(hdcPaint));
+    auto myGraphics = std::make_unique<Gdiplus::Graphics>(hdcPaint);
 
     myGraphics->DrawRectangle(myPen.get(), prc->left, prc->top,
                               prc->right - 1 - prc->left, prc->bottom - 1 - prc->top);

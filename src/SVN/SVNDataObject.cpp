@@ -416,8 +416,8 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
             nLength += 1; // '\0' separator
         }
 
-        int                     nBufferSize = sizeof(DROPFILES) + (nLength + 1LL) * sizeof(wchar_t);
-        std::unique_ptr<char[]> pBuffer(new char[nBufferSize]);
+        int  nBufferSize = sizeof(DROPFILES) + (nLength + 1LL) * sizeof(wchar_t);
+        auto pBuffer     = std::make_unique<char[]>(nBufferSize);
 
         SecureZeroMemory(pBuffer.get(), nBufferSize);
 
@@ -452,8 +452,8 @@ STDMETHODIMP SVNDataObject::GetData(FORMATETC* pformatetcIn, STGMEDIUM* pMedium)
     }
     else if ((pformatetcIn->tymed & TYMED_HGLOBAL) && (pformatetcIn->dwAspect == DVASPECT_CONTENT) && (pformatetcIn->cfFormat == CF_FILE_ATTRIBUTES_ARRAY))
     {
-        int                     nBufferSize = sizeof(FILE_ATTRIBUTES_ARRAY) + m_svnPaths.GetCount() * sizeof(DWORD);
-        std::unique_ptr<char[]> pBuffer(new char[nBufferSize]);
+        int  nBufferSize = sizeof(FILE_ATTRIBUTES_ARRAY) + m_svnPaths.GetCount() * sizeof(DWORD);
+        auto pBuffer     = std::make_unique<char[]>(nBufferSize);
 
         SecureZeroMemory(pBuffer.get(), nBufferSize);
 

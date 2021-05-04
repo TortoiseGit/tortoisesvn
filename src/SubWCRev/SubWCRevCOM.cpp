@@ -316,9 +316,9 @@ HRESULT SubWCRev::Utf8StringToVariant(const char* string, VARIANT* result)
     if (result == nullptr)
         return E_POINTER;
 
-    result->vt                   = VT_BSTR;
-    const size_t             len = strlen(string);
-    std::unique_ptr<WCHAR[]> buf(new WCHAR[len * 4 + 1]);
+    result->vt       = VT_BSTR;
+    const size_t len = strlen(string);
+    auto         buf = std::make_unique<wchar_t[]>(len * 4 + 1);
     SecureZeroMemory(buf.get(), (len * 4 + 1) * sizeof(WCHAR));
     MultiByteToWideChar(CP_UTF8, 0, string, -1, buf.get(), static_cast<int>(len) * 4);
     result->bstrVal = SysAllocString(buf.get());
@@ -431,7 +431,7 @@ HRESULT __stdcall SubWCRev::get_LockOwner(/*[out, retval]*/ VARIANT* owner)
         result = S_OK;
     }
 
-    std::unique_ptr<WCHAR[]> buf(new WCHAR[len * 4 + 1]);
+    auto buf = std::make_unique<wchar_t[]>(len * 4 + 1);
     SecureZeroMemory(buf.get(), (len * 4 + 1) * sizeof(WCHAR));
 
     if (TRUE == m_subStat.lockData.needsLocks)
@@ -464,7 +464,7 @@ HRESULT __stdcall SubWCRev::get_LockComment(/*[out, retval]*/ VARIANT* comment)
         result = S_OK;
     }
 
-    std::unique_ptr<WCHAR[]> buf(new WCHAR[len * 4 + 1]);
+    auto buf = std::make_unique<wchar_t[]>(len * 4 + 1);
     SecureZeroMemory(buf.get(), (len * 4 + 1) * sizeof(WCHAR));
 
     if (TRUE == m_subStat.lockData.needsLocks)

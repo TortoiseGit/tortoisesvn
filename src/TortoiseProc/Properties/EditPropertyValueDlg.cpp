@@ -420,7 +420,7 @@ void CEditPropertyValueDlg::OnBnClickedLoadprop()
         DWORD size   = GetFileSize(hFile, nullptr);
         FILE* stream = nullptr;
         _tfopen_s(&stream, openPath, L"rbS");
-        std::unique_ptr<char[]> buf(new char[size]);
+        auto buf = std::make_unique<char[]>(size);
         if (fread(buf.get(), sizeof(char), size, stream) == size)
         {
             m_propValue.assign(buf.get(), size);

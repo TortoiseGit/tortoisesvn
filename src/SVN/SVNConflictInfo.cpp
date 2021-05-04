@@ -454,16 +454,14 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions &result)
                 label       = svn_client_conflict_option_get_label(opt, scratchPool);
                 description = svn_client_conflict_option_get_description(opt, scratchPool);
 
-                result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                                                                                          CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), j, -1)));
+                result.push_back(std::make_unique<SVNConflictOption>(opt, id, CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), j, -1));
                 bResultAdded = true;
             }
         }
 
         if (!bResultAdded)
         {
-            result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                                                                                      CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
+            result.push_back(std::make_unique<SVNConflictOption>(opt, id, CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description)));
         }
     }
 
@@ -493,8 +491,7 @@ bool SVNConflictInfo::GetTextResolutionOptions(SVNConflictOptions &result)
         const char *                    label       = svn_client_conflict_option_get_label(opt, scratchPool);
         const char *                    description = svn_client_conflict_option_get_description(opt, scratchPool);
 
-        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                                                                                  CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
+        result.push_back(std::make_unique<SVNConflictOption>(opt, id, CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description)));
     }
 
     return true;
@@ -523,8 +520,7 @@ bool SVNConflictInfo::GetPropResolutionOptions(SVNConflictOptions &result)
         const char *                    label       = svn_client_conflict_option_get_label(opt, scratchPool);
         const char *                    description = svn_client_conflict_option_get_description(opt, scratchPool);
 
-        result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                                                                                  CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description))));
+        result.push_back(std::make_unique<SVNConflictOption>(opt, id, CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description)));
     }
 
     return true;

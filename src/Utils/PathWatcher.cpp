@@ -234,8 +234,8 @@ void CPathWatcher::WorkerThread()
                         break;
                     }
 
-                    std::unique_ptr<CDirWatchInfo> pDirInfo(new CDirWatchInfo(std::move(hDir), watchedPaths[i])); // the new CDirWatchInfo object owns the handle now
-                    m_hCompPort = CreateIoCompletionPort(pDirInfo->m_hDir, m_hCompPort, reinterpret_cast<ULONG_PTR>(pDirInfo.get()), 0);
+                    auto pDirInfo = std::make_unique<CDirWatchInfo>(std::move(hDir), watchedPaths[i]); // the new CDirWatchInfo object owns the handle now
+                    m_hCompPort   = CreateIoCompletionPort(pDirInfo->m_hDir, m_hCompPort, reinterpret_cast<ULONG_PTR>(pDirInfo.get()), 0);
                     if (m_hCompPort == NULL)
                     {
                         AutoLocker lock(m_critSec);

@@ -295,12 +295,12 @@ void CSVNPropertyPage::InitWorkfileView()
                 {
                     size_t len = strlen(svn.status->repos_relpath) + strlen(svn.status->repos_root_url);
                     len += 2;
-                    std::unique_ptr<char[]> url(new char[len * 4]);
+                    auto url = std::make_unique<char[]>(len * 4);
                     strcpy_s(url.get(), len * 4, svn.status->repos_root_url);
                     strcat_s(url.get(), len * 4, "/");
                     strcat_s(url.get(), len * 4, svn.status->repos_relpath);
 
-                    std::unique_ptr<char[]> unescapedurl(new char[len]);
+                    auto unescapedurl = std::make_unique<char[]>(len);
                     strcpy_s(unescapedurl.get(), len, url.get());
                     CStringA escapedurl = CPathUtils::PathEscape(url.get());
                     CPathUtils::Unescape(unescapedurl.get());

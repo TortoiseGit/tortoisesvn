@@ -1929,11 +1929,11 @@ std::unique_ptr<const CCacheLogQuery>
         // cached-based queries.
         // Use & update existing cache
 
-        std::unique_ptr<CCacheLogQuery> cacheQuery(new CCacheLogQuery(GetLogCachePool(), &svnQuery));
+        auto cacheQuery = std::make_unique<CCacheLogQuery>(GetLogCachePool(), &svnQuery);
 
         // run query through SVN but collect results in a temporary cache
 
-        std::unique_ptr<CCacheLogQuery> tempQuery(new CCacheLogQuery(*this, &svnQuery));
+        auto tempQuery = std::make_unique<CCacheLogQuery>(*this, &svnQuery);
 
         // select query and run it
 

@@ -49,7 +49,6 @@ public:
     void         SetMergedPropVal(const svn_string_t *propVal) const;
     svn_error_t *SetMergedPropValFile(const CTSVNPath &filePath, apr_pool_t *pool) const;
 
-protected:
     SVNConflictOption(svn_client_conflict_option_t *  option,
                       svn_client_conflict_option_id_t id,
                       const CString &                 label,

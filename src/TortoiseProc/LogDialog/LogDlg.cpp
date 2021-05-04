@@ -9312,8 +9312,8 @@ void CLogDlg::MonitorThread()
                     sRootRobotsURL += _T("/svnrobots.txt");
                 CTSVNPath sFile = CTempFiles::Instance().GetTempFilePath(true);
                 OnOutOfScope(DeleteFile(sFile.GetWinPath()));
-                std::string                in;
-                std::unique_ptr<CCallback> callback(new CCallback);
+                std::string in;
+                auto        callback = std::make_unique<CCallback>();
                 if (callback == nullptr)
                     continue;
                 {

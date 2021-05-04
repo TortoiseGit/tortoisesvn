@@ -1,4 +1,4 @@
-// Copyright (C) 2007, 2010-2012 - TortoiseSVN
+﻿// Copyright (C) 2007, 2010-2012, 2021 - TortoiseSVN
 
 // this program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -17,35 +17,35 @@
 #include "UnicodeUtils.h"
 #include <memory>
 
-char * AnsiToUtf8(const char * pszAnsi, apr_pool_t *pool)
+char *AnsiToUtf8(const char *pszAnsi, apr_pool_t *pool)
 {
     // convert ANSI --> UTF16
-    int utf16_count = MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, NULL, 0);
-    std::unique_ptr<WCHAR[]> pwc(new WCHAR[utf16_count]);
-    MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, pwc.get(), utf16_count);
+    int  utf16Count = MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, nullptr, 0);
+    auto pwc        = std::make_unique<wchar_t[]>(utf16Count);
+    MultiByteToWideChar(CP_ACP, 0, pszAnsi, -1, pwc.get(), utf16Count);
 
     // and now from URF16 --> UTF-8
-    int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pwc.get(), utf16_count, NULL, 0, NULL, NULL);
-    char * pch = (char*) apr_palloc(pool, utf8_count);
-    WideCharToMultiByte(CP_UTF8, 0, pwc.get(), utf16_count, pch, utf8_count, NULL, NULL);
+    int   utf8Count = WideCharToMultiByte(CP_UTF8, 0, pwc.get(), utf16Count, nullptr, 0, nullptr, nullptr);
+    char *pch       = static_cast<char *>(apr_palloc(pool, utf8Count));
+    WideCharToMultiByte(CP_UTF8, 0, pwc.get(), utf16Count, pch, utf8Count, nullptr, nullptr);
     return pch;
 }
 
-char * Utf16ToUtf8(const WCHAR *pszUtf16, apr_pool_t *pool)
+char *Utf16ToUtf8(const wchar_t *pszUtf16, apr_pool_t *pool)
 {
     // from URF16 --> UTF-8
-    int utf8_count = WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, NULL, 0, NULL, NULL);
-    char * pch = (char*) apr_palloc(pool, utf8_count);
-    WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, pch, utf8_count, NULL, NULL);
+    int   utf8Count = WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, nullptr, 0, nullptr, nullptr);
+    char *pch       = static_cast<char *>(apr_palloc(pool, utf8Count));
+    WideCharToMultiByte(CP_UTF8, 0, pszUtf16, -1, pch, utf8Count, nullptr, nullptr);
     return pch;
 }
 
-std::wstring Utf8ToWide(const std::string& string)
+std::wstring Utf8ToWide(const std::string &string)
 {
     const size_t len = string.size();
-    std::unique_ptr<WCHAR[]> buf(new WCHAR[len*4 + 1]);
-    SecureZeroMemory(buf.get(), (len*4 + 1)*sizeof(WCHAR));
-    MultiByteToWideChar(CP_UTF8, 0, string.c_str(), -1, buf.get(), (int)len*4);
+    auto         buf = std::make_unique<wchar_t[]>(len * 4 + 1);
+    SecureZeroMemory(buf.get(), (len * 4 + 1) * sizeof(wchar_t));
+    MultiByteToWideChar(CP_UTF8, 0, string.c_str(), -1, buf.get(), static_cast<int>(len) * 4);
     std::wstring ret = std::wstring(buf.get());
     return ret;
 }

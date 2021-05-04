@@ -1191,7 +1191,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
                     bFailed = true;
                     continue;
                 }
-                std::unique_ptr<wchar_t[]> pNameBuf(new wchar_t[nNameBytes / sizeof(wchar_t)]);
+                auto pNameBuf = std::make_unique<wchar_t[]>(nNameBytes / sizeof(wchar_t));
                 if (fread(pNameBuf.get(), 1, nNameBytes, stream) == static_cast<size_t>(nNameBytes))
                 {
                     std::string  sName       = CUnicodeUtils::StdGetUTF8(std::wstring(pNameBuf.get(), nNameBytes / sizeof(wchar_t)));
@@ -1199,7 +1199,7 @@ void CEditPropertiesDlg::OnBnClickedImport()
                     int          nValueBytes = 0;
                     if (fread(&nValueBytes, sizeof(int), 1, stream) == 1)
                     {
-                        std::unique_ptr<BYTE[]> pValueBuf(new BYTE[nValueBytes]);
+                        auto pValueBuf = std::make_unique<BYTE[]>(nValueBytes);
                         if (fread(pValueBuf.get(), sizeof(char), nValueBytes, stream) == static_cast<size_t>(nValueBytes))
                         {
                             std::string propertyvalue;

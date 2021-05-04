@@ -28,7 +28,6 @@
 #include "RepositoryBrowser.h"
 #include "BrowseFolder.h"
 #include "RenameDlg.h"
-#include "RevisionGraph/RevisionGraphDlg.h"
 #include "ExportDlg.h"
 #include "SVNProgressDlg.h"
 #include "AppUtils.h"
@@ -2028,6 +2027,7 @@ void CRepositoryBrowser::OnGoUp()
     m_barRepository.OnGoUp();
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CRepositoryBrowser::OnUrlFocus()
 {
     m_barRepository.SetFocusToURL();
@@ -2686,7 +2686,7 @@ void CRepositoryBrowser::OnTvnEndlabeleditRepotree(NMHDR* pNMHDR, LRESULT* pResu
 void CRepositoryBrowser::OnCbenDragbeginUrlcombo(NMHDR* /*pNMHDR*/, LRESULT* pResult)
 {
     // build copy source / content
-    std::unique_ptr<CIDropSource> pdSrc(new CIDropSource);
+    auto pdSrc = std::make_unique<CIDropSource>();
     if (pdSrc == nullptr)
         return;
 
@@ -3771,7 +3771,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
             case ID_EXPORT:
             {
                 CExportDlg dlg(this);
-                dlg.m_url    = selection.GetURL(0, 0).GetSVNPathString();
+                dlg.m_url      = selection.GetURL(0, 0).GetSVNPathString();
                 dlg.m_revision = selection.GetRepository(0).revision;
                 if (dlg.DoModal() == IDOK)
                 {
@@ -5043,7 +5043,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
     CTSVNPath tempfile = CTempFiles::Instance().GetTempFilePath(true);
     // custom callback object required to bypass invalid SSL certificates
     // and handle possible authentication dialogs
-    std::unique_ptr<CCallback> callback(new CCallback());
+    auto callback = std::make_unique<CCallback>();
     callback->SetAuthParentWindow(GetSafeHwnd());
 
     // since html pages returned by SVNParentPath contain the listed repository
@@ -5062,7 +5062,7 @@ bool CRepositoryBrowser::TrySVNParentPath()
         // set up the SVNParentPath url as the repo root, even though it isn't a real repo root
         m_repository.root            = m_initialUrl;
         m_repository.revision        = SVNRev::REV_HEAD;
-        m_repository.pegRevision    = SVNRev::REV_HEAD;
+        m_repository.pegRevision     = SVNRev::REV_HEAD;
         m_repository.isSVNParentPath = true;
 
         // insert our pseudo repo root into the tree view.
@@ -5144,10 +5144,10 @@ bool CRepositoryBrowser::TrySVNParentPath()
                 item.m_kind         = svn_node_dir;
                 item.m_path         = sMatch;
                 SRepositoryInfo repoInfo;
-                repoInfo.root         = url;
-                repoInfo.revision     = SVNRev::REV_HEAD;
+                repoInfo.root        = url;
+                repoInfo.revision    = SVNRev::REV_HEAD;
                 repoInfo.pegRevision = SVNRev::REV_HEAD;
-                item.m_repository       = repoInfo;
+                item.m_repository    = repoInfo;
                 AutoInsert(hRoot, item);
                 ++nCountNewEntries;
             }
@@ -5170,10 +5170,10 @@ bool CRepositoryBrowser::TrySVNParentPath()
                 item.m_kind         = svn_node_dir;
                 item.m_path         = sMatch;
                 SRepositoryInfo repoInfo;
-                repoInfo.root         = url;
-                repoInfo.revision     = SVNRev::REV_HEAD;
+                repoInfo.root        = url;
+                repoInfo.revision    = SVNRev::REV_HEAD;
                 repoInfo.pegRevision = SVNRev::REV_HEAD;
-                item.m_repository       = repoInfo;
+                item.m_repository    = repoInfo;
                 AutoInsert(hRoot, item);
                 ++nCountNewEntries;
             }

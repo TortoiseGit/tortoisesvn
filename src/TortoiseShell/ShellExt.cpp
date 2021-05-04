@@ -115,7 +115,7 @@ void LoadLangDll()
 
             if (dwBufferSize > 0)
             {
-                std::unique_ptr<char[]> buffer(new char[dwBufferSize]);
+                auto buffer = std::make_unique<char[]>(dwBufferSize);
 
                 if (buffer.get() != nullptr)
                 {
@@ -202,9 +202,9 @@ std::wstring GetAppDirectory()
     do
     {
         bufferLen += MAX_PATH; // MAX_PATH is not the limit here!
-        std::unique_ptr<wchar_t[]> pBuf(new wchar_t[bufferLen]);
-        len  = GetModuleFileName(g_hModThisDll, pBuf.get(), bufferLen);
-        path = std::wstring(pBuf.get(), len);
+        auto pBuf = std::make_unique<wchar_t[]>(bufferLen);
+        len       = GetModuleFileName(g_hModThisDll, pBuf.get(), bufferLen);
+        path      = std::wstring(pBuf.get(), len);
     } while (len == bufferLen);
     path = path.substr(0, path.rfind('\\') + 1);
 
