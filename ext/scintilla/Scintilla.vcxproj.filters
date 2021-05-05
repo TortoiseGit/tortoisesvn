@@ -25,6 +25,9 @@
     <Filter Include="Lexilla\lexlib">
       <UniqueIdentifier>{ed81b7dc-6072-4031-a33c-19788ebe0f20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lexilla\src">
+      <UniqueIdentifier>{a030745c-280f-4b19-8cb2-a386cbeef11a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Sci_Position.h">
@@ -720,6 +723,9 @@
     </ClCompile>
     <ClCompile Include="src\CharacterSet.cxx">
       <Filter>Scintilla\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lexilla\src\Lexilla.cxx">
+      <Filter>Lexilla\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

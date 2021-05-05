@@ -27,7 +27,6 @@
 #include "OnOutOfScope.h"
 #include "LoadIconEx.h"
 #include "Theme.h"
-#include "SciLexer.h"
 
 void CSciEditContextMenuInterface::InsertMenuItems(CMenu&, int&) { return; }
 bool CSciEditContextMenuInterface::HandleMenuItemClick(int, CSciEdit*) { return false; }
@@ -163,7 +162,7 @@ void CSciEdit::Init(LONG lLanguage)
     Call(SCI_SETUSETABS, 0); //pressing TAB inserts spaces
     Call(SCI_SETWRAPVISUALFLAGS, SC_WRAPVISUALFLAG_END);
     Call(SCI_AUTOCSETIGNORECASE, 1);
-    Call(SCI_SETLEXER, SCLEX_CONTAINER);
+    Call(SCI_SETILEXER, 0, reinterpret_cast<sptr_t>(nullptr));
     Call(SCI_SETCODEPAGE, SC_CP_UTF8);
     Call(SCI_AUTOCSETFILLUPS, 0, reinterpret_cast<LPARAM>("\t(["));
     Call(SCI_AUTOCSETMAXWIDTH, 0);

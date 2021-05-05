@@ -17,6 +17,8 @@
 // 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #pragma once
 
+// ReSharper disable once CppUnusedIncludeDirective
+#include "ILexer.h"
 #include "Scintilla.h"
 #include "registry.h"
 

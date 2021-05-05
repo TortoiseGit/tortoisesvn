@@ -19,6 +19,8 @@
 //
 #pragma once
 #include "BaseWindow.h"
+// ReSharper disable once CppUnusedIncludeDirective
+#include "ILexer.h"
 #include "Scintilla.h"
 #include "FindBar.h"
 #include <string>

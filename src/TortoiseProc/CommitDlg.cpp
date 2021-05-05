@@ -659,18 +659,19 @@ UINT CCommitDlg::StatusThread()
             // a commit to a branch
             CRegString branchesPattern(L"Software\\TortoiseSVN\\RevisionGraph\\BranchPattern", L"branches");
             CString    sBranches = branchesPattern;
+            int        pos       = 0;
             bool       bFound    = false;
             while (!bFound)
             {
-                int     pos  = 0;
                 CString temp = sBranches.Tokenize(L";", pos);
                 if (temp.IsEmpty())
                     break;
 
-                for (CString temp2;;)
+                int     urlPos = 0;
+                CString temp2;
+                for (;;)
                 {
-                    int urlPos = 0;
-                    temp2      = m_listCtrl.m_sURL.Tokenize(L"/", urlPos);
+                    temp2 = m_listCtrl.m_sURL.Tokenize(L"/", urlPos);
                     if (temp2.IsEmpty())
                         break;
 

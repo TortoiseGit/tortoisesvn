@@ -32,6 +32,7 @@
 #include "DarkModeHelper.h"
 #include "ResString.h"
 #include "SciLexer.h"
+#include "Lexilla.h"
 
 const UINT TaskBarButtonCreated = RegisterWindowMessage(L"TaskbarButtonCreated");
 
@@ -814,14 +815,14 @@ void CMainWindow::SetTheme(bool bDark) const
     if (CTheme::Instance().IsHighContrastMode() && curLexer != SCLEX_NULL)
     {
         SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
-        SendEditor(SCI_SETLEXER, SCLEX_NULL);
+        SendEditor(SCI_SETILEXER, 0, reinterpret_cast<sptr_t>(nullptr));
         SendEditor(SCI_COLOURISE, 0, -1);
     }
     else if (!CTheme::Instance().IsHighContrastMode() && curLexer != SCLEX_DIFF)
     {
         SendEditor(SCI_CLEARDOCUMENTSTYLE, 0, 0);
         SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);
-        SendEditor(SCI_SETLEXER, SCLEX_DIFF);
+        SendEditor(SCI_SETILEXER, 0, reinterpret_cast<sptr_t>(CreateLexer("diff")));
         SendEditor(SCI_STYLESETBOLD, SCE_DIFF_COMMENT, TRUE);
         SendEditor(SCI_SETKEYWORDS, 0, reinterpret_cast<LPARAM>("revision"));
         SendEditor(SCI_COLOURISE, 0, -1);
