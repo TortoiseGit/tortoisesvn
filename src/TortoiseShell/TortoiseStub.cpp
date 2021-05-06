@@ -277,7 +277,7 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD reason, LPVOID reserved)
         return FALSE;
     }
 #else
-    UNREFERENCED_PARAMETER(Reserved);
+    UNREFERENCED_PARAMETER(reserved);
 #endif
 
     switch (reason)
