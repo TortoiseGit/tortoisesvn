@@ -62,7 +62,7 @@ inline bool CClipboardHelper::Open(HWND hOwningWnd)
     return false;
 }
 
-inline HGLOBAL CClipboardHelper::GlobalAlloc(size_t dwBytes)
+inline HGLOBAL CClipboardHelper::GlobalAlloc(SIZE_T dwBytes)
 {
     return ::GlobalAlloc(GMEM_MOVEABLE, dwBytes);
 }
