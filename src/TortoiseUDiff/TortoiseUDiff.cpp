@@ -70,10 +70,6 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
         ICC_STANDARD_CLASSES | ICC_BAR_CLASSES};
     InitCommonControlsEx(&used);
 
-    HMODULE hSciLexerDll = ::LoadLibrary(L"SciLexer.DLL");
-    if (!hSciLexerDll)
-        return FALSE;
-
     CMainWindow mainWindow(hResource);
     auto        monHash = GetMonitorSetupHash();
     mainWindow.SetRegistryPath(L"Software\\TortoiseSVN\\UDiffViewerWindowPos_" + monHash);
@@ -95,10 +91,7 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
     }
 
     if (!mainWindow.RegisterAndCreateWindow())
-    {
-        FreeLibrary(hSciLexerDll);
         return 0;
-    }
 
     bool bLoadedSuccessfully = false;
     if ((lpCmdLine[0] == L'\0') || (parser.HasKey(L"p")))
@@ -122,10 +115,7 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
     }
 
     if (!bLoadedSuccessfully)
-    {
-        FreeLibrary(hSciLexerDll);
         return 0;
-    }
 
     ::ShowWindow(mainWindow.GetHWNDEdit(), SW_SHOW);
     ::SetFocus(mainWindow.GetHWNDEdit());
@@ -142,6 +132,5 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
         }
     }
 
-    FreeLibrary(hSciLexerDll);
     return static_cast<int>(msg.wParam);
 }
