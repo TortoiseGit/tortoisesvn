@@ -199,7 +199,7 @@ static void LoadRealLibrary()
 #ifdef _WIN64
     lstrcat(moduleName, L"\\TortoiseSVN.dll");
 #else
-    lstrcat(ModuleName, L"\\TortoiseSVN32.dll");
+    lstrcat(moduleName, L"\\TortoiseSVN32.dll");
 #endif
     if (debugDllPath[0])
         lstrcpy(moduleName, debugDllPath);
