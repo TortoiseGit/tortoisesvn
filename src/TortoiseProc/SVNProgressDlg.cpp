@@ -3166,7 +3166,7 @@ bool CSVNProgressDlg::CmdExport(CString& sWindowTitle, bool& /*localoperation*/)
 
     CTSVNPath targetPath = m_targetPathList[0];
     if (SVNInfo::IsFile(m_url, m_revision))
-        targetPath.AppendPathString(m_url.GetFilename());
+        targetPath.AppendPathString(m_url.GetUIFileOrDirectoryName());
 
     CBlockCacheForPath cacheBlock(targetPath.GetWinPath());
     if (!Export(m_url, targetPath, m_revision, m_revision, true, (m_options & ProgOptIgnoreExternals) != 0, (m_options & ProgOptIgnoreKeywords) != 0, m_depth, nullptr, SVNExportNormal, eol))
