@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\be_misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\callback.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\conf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\console.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\errsock.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\logging.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\marshal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\memory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\nocproxy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\norand.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\portfwd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\proxy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\psocks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\sshutils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\stripctrl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\time.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\timing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\tree234.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\utils.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\version.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\..\wcwidth.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\wincliloop.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\wincons.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winhandl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winhsock.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winmisc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winmiscs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winnet.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winnohlp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winproxy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winselcli.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>    <ClCompile Include="..\..\winsocks.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\charset\charset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\console.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\empty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\marshal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\network.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\proxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\psocks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\putty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\puttymem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\puttyps.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\ssh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshchan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshsignals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\sshttymodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\storage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\terminal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\tree234.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\unix\unix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\..\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\winhelp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>    <ClInclude Include="..\..\winstuff.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{cbddcf51-a122-4b3b-9666-3c7319e4236d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f6732610-4305-4bfe-9c1b-f63396c38c4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{e639ecc0-211b-4aaa-9fca-83ad6cda2ba7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

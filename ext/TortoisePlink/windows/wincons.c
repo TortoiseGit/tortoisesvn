@@ -5,19 +5,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdarg.h>
 
 #include "putty.h"
 #include "storage.h"
 #include "ssh.h"
+#include "console.h"
 
-#include "LoginDialog.h"
-
-bool console_batch_mode = false;
-
-/*
- * Clean up and exit.
- */
 void cleanup_exit(int code)
 {
     /*
@@ -30,103 +23,26 @@ void cleanup_exit(int code)
     exit(code);
 }
 
-/*
- * Various error message and/or fatal exit functions.
- */
-void modalfatalbox(const char *fmt, ...)
+void console_print_error_msg(const char *prefix, const char *msg)
 {
-    va_list ap;
-    char *stuff, morestuff[100];
-    va_start(ap, fmt);
-    stuff = dupvprintf(fmt, ap);
-    va_end(ap);
-    sprintf(morestuff, "%.70s Fatal Error", appname);
-    MessageBox(GetParentHwnd(), stuff, morestuff, MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
-    sfree(stuff);
-    cleanup_exit(1);
-}
-
-void nonfatal(const char *fmt, ...)
-{
-    va_list ap;
-    char *stuff, morestuff[100];
-    va_start(ap, fmt);
-    stuff = dupvprintf(fmt, ap);
-    va_end(ap);
-    sprintf(morestuff, "%.70s Error", appname);
-    MessageBox(GetParentHwnd(), stuff, morestuff, MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
-    sfree(stuff);
-}
-
-void console_connection_fatal(Seat *seat, const char *msg)
-{
-    char morestuff[100];
-    sprintf(morestuff, "%.70s Fatal Error", appname);
-    MessageBox(GetParentHwnd(), msg, morestuff, MB_SYSTEMMODAL | MB_ICONERROR | MB_OK);
-    cleanup_exit(1);
-}
-
-void timer_change_notify(unsigned long next)
-{
+    fputs(prefix, stderr);
+    fputs(": ", stderr);
+    fputs(msg, stderr);
+    fputc('\n', stderr);
+    fflush(stderr);
 }
 
 int console_verify_ssh_host_key(
-    Seat *seat, const char *host, int port,
-    const char *keytype, char *keystr, char *fingerprint,
+    Seat *seat, const char *host, int port, const char *keytype,
+    char *keystr, const char *keydisp, char **fingerprints,
     void (*callback)(void *ctx, int result), void *ctx)
 {
     int ret;
+    HANDLE hin;
+    DWORD savemode, i;
+    const char *common_fmt, *intro, *prompt;
 
-    static const char absentmsg_batch[] =
-        "The server's host key is not cached in the registry. You\n"
-        "have no guarantee that the server is the computer you\n"
-        "think it is.\n"
-        "The server's %s key fingerprint is:\n"
-        "%s\n"
-        "Connection abandoned.\n";
-    static const char absentmsg[] =
-        "The server's host key is not cached in the registry. You\n"
-        "have no guarantee that the server is the computer you\n"
-        "think it is.\n"
-        "The server's %s key fingerprint is:\n"
-        "%s\n"
-        "If you trust this host, hit Yes to add the key to\n"
-        "PuTTY's cache and carry on connecting.\n"
-        "If you want to carry on connecting just once, without\n"
-        "adding the key to the cache, hit No.\n"
-        "If you do not trust this host, hit Cancel to abandon the\n"
-        "connection.\n";
-
-    static const char wrongmsg_batch[] =
-        "WARNING - POTENTIAL SECURITY BREACH!\n"
-        "The server's host key does not match the one PuTTY has\n"
-        "cached in the registry. This means that either the\n"
-        "server administrator has changed the host key, or you\n"
-        "have actually connected to another computer pretending\n"
-        "to be the server.\n"
-        "The new %s key fingerprint is:\n"
-        "%s\n"
-        "Connection abandoned.\n";
-    static const char wrongmsg[] =
-        "WARNING - POTENTIAL SECURITY BREACH!\n"
-        "\n"
-        "The server's host key does not match the one PuTTY has\n"
-        "cached in the registry. This means that either the\n"
-        "server administrator has changed the host key, or you\n"
-        "have actually connected to another computer pretending\n"
-        "to be the server.\n"
-        "The new %s key fingerprint is:\n"
-        "%s\n"
-        "If you were expecting this change and trust the new key,\n"
-        "hit Yes to update PuTTY's cache and continue connecting.\n"
-        "If you want to carry on connecting but without updating\n"
-        "the cache, hit No.\n"
-        "If you want to abandon the connection completely, hit\n"
-        "Cancel. Hitting Cancel is the ONLY guaranteed safe choice.\n";
-
-    static const char abandoned[] = "Connection abandoned.\n";
-
-    static const char mbtitle[] = "%s Security Alert";
+    char line[32];
 
     /*
      * Verify the key against the registry.
@@ -137,69 +53,96 @@ int console_verify_ssh_host_key(
         return 1;
 
     if (ret == 2) {                    /* key was different */
-        int mbret;
-        char *message, *title;
-        message = dupprintf(wrongmsg, keytype, fingerprint);
-        title = dupprintf(mbtitle, appname);
-        mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-        sfree(message);
-        sfree(title);
-        if (mbret == IDYES) {
-            store_host_key(host, port, keytype, keystr);
-            return 1;
-        } else if (mbret == IDNO) {
-            return 1;
+        common_fmt = hk_wrongmsg_common_fmt;
+        intro = hk_wrongmsg_interactive_intro;
+        prompt = hk_wrongmsg_interactive_prompt;
+    } else {                           /* key was absent */
+        common_fmt = hk_absentmsg_common_fmt;
+        intro = hk_absentmsg_interactive_intro;
+        prompt = hk_absentmsg_interactive_prompt;
+    }
+
+    FingerprintType fptype_default =
+        ssh2_pick_default_fingerprint(fingerprints);
+
+    fprintf(stderr, common_fmt, keytype, fingerprints[fptype_default]);
+    if (console_batch_mode) {
+        fputs(console_abandoned_msg, stderr);
+        return 0;
+    }
+
+    fputs(intro, stderr);
+    fflush(stderr);
+
+    while (true) {
+        fputs(prompt, stderr);
+        fflush(stderr);
+
+        line[0] = '\0';    /* fail safe if ReadFile returns no data */
+
+        hin = GetStdHandle(STD_INPUT_HANDLE);
+        GetConsoleMode(hin, &savemode);
+        SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+                             ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+        ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+        SetConsoleMode(hin, savemode);
+
+        if (line[0] == 'i' || line[0] == 'I') {
+            fprintf(stderr, "Full public key:\n%s\n", keydisp);
+            if (fingerprints[SSH_FPTYPE_SHA256])
+                fprintf(stderr, "SHA256 key fingerprint:\n%s\n",
+                        fingerprints[SSH_FPTYPE_SHA256]);
+            if (fingerprints[SSH_FPTYPE_MD5])
+                fprintf(stderr, "MD5 key fingerprint:\n%s\n",
+                        fingerprints[SSH_FPTYPE_MD5]);
         } else {
-            return 0;
+            break;
         }
     }
-    if (ret == 1) {                    /* key was absent */
-        int mbret;
-        char *message, *title;
-        message = dupprintf(absentmsg, keytype, fingerprint);
-        title = dupprintf(mbtitle, appname);
-        mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-        sfree(message);
-        sfree(title);
-        if (mbret == IDYES) {
+
+    /* In case of misplaced reflexes from another program, also recognise 'q'
+     * as 'abandon connection rather than trust this key' */
+    if (line[0] != '\0' && line[0] != '\r' && line[0] != '\n' &&
+        line[0] != 'q' && line[0] != 'Q') {
+        if (line[0] == 'y' || line[0] == 'Y')
             store_host_key(host, port, keytype, keystr);
-            return 1;
-        } else if (mbret == IDNO) {
-            return 1;
-        } else {
-            return 0;
-        }
+        return 1;
+    } else {
+        fputs(console_abandoned_msg, stderr);
+        return 0;
     }
-    return 0;
 }
 
 int console_confirm_weak_crypto_primitive(
     Seat *seat, const char *algtype, const char *algname,
     void (*callback)(void *ctx, int result), void *ctx)
 {
-    static const char msg[] =
-        "The first %s supported by the server is\n"
-        "%s, which is below the configured warning threshold.\n"
-        "Continue with connection? (y/n) ";
-    static const char msg_batch[] =
-        "The first %s supported by the server is\n"
-        "%s, which is below the configured warning threshold.\n"
-        "Connection abandoned.\n";
-    static const char abandoned[] = "Connection abandoned.\n";
+    HANDLE hin;
+    DWORD savemode, i;
 
-    int mbret;
-    char *message, *title;
-    static const char mbtitle[] = "%s Security Alert";
+    char line[32];
 
-    message = dupprintf(msg, algtype, algname);
-    title = dupprintf(mbtitle, appname);
+    fprintf(stderr, weakcrypto_msg_common_fmt, algtype, algname);
 
-    mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_YESNO | MB_DEFBUTTON2);
-    sfree(message);
-    sfree(title);
-    if (mbret == IDYES) {
+    if (console_batch_mode) {
+        fputs(console_abandoned_msg, stderr);
+        return 0;
+    }
+
+    fputs(console_continue_prompt, stderr);
+    fflush(stderr);
+
+    hin = GetStdHandle(STD_INPUT_HANDLE);
+    GetConsoleMode(hin, &savemode);
+    SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+                         ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+    ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+    SetConsoleMode(hin, savemode);
+
+    if (line[0] == 'y' || line[0] == 'Y') {
         return 1;
     } else {
+        fputs(console_abandoned_msg, stderr);
         return 0;
     }
 }
@@ -211,36 +154,29 @@ int console_confirm_weak_cached_hostkey(
     HANDLE hin;
     DWORD savemode, i;
 
-    static const char msg[] =
-        "The first host key type we have stored for this server\n"
-        "is %s, which is below the configured warning threshold.\n"
-        "The server also provides the following types of host key\n"
-        "above the threshold, which we do not have stored:\n"
-        "%s\n"
-        "Continue with connection? (y/n) ";
-    static const char msg_batch[] =
-        "The first host key type we have stored for this server\n"
-        "is %s, which is below the configured warning threshold.\n"
-        "The server also provides the following types of host key\n"
-        "above the threshold, which we do not have stored:\n"
-        "%s\n"
-        "Connection abandoned.\n";
-    static const char abandoned[] = "Connection abandoned.\n";
+    char line[32];
 
-    int mbret;
-    char *message, *title;
-    static const char mbtitle[] = "%s Security Alert";
+    fprintf(stderr, weakhk_msg_common_fmt, algname, betteralgs);
 
-    message = dupprintf(msg, algname, betteralgs);
-    title = dupprintf(mbtitle, appname);
+    if (console_batch_mode) {
+        fputs(console_abandoned_msg, stderr);
+        return 0;
+    }
 
-    mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-    sfree(message);
-    sfree(title);
+    fputs(console_continue_prompt, stderr);
+    fflush(stderr);
 
-    if (mbret == IDYES) {
+    hin = GetStdHandle(STD_INPUT_HANDLE);
+    GetConsoleMode(hin, &savemode);
+    SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+                         ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+    ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+    SetConsoleMode(hin, savemode);
+
+    if (line[0] == 'y' || line[0] == 'Y') {
         return 1;
     } else {
+        fputs(console_abandoned_msg, stderr);
         return 0;
     }
 }
@@ -277,9 +213,8 @@ bool console_set_trust_status(Seat *seat, bool trusted)
  * Ask whether to wipe a session log file before writing to it.
  * Returns 2 for wipe, 1 for append, 0 for cancel (don't log).
  */
-static int console_askappend(LogPolicy *lp, Filename *filename,
-                             void (*callback)(void *ctx, int result),
-                             void *ctx)
+int console_askappend(LogPolicy *lp, Filename *filename,
+                      void (*callback)(void *ctx, int result), void *ctx)
 {
     HANDLE hin;
     DWORD savemode, i;
@@ -289,28 +224,34 @@ static int console_askappend(LogPolicy *lp, Filename *filename,
         "You can overwrite it with a new session log,\n"
         "append your session log to the end of it,\n"
         "or disable session logging for this session.\n"
-        "Hit Yes to wipe the file, hit No to append to it,\n"
-        "or just press Cancel to disable logging.\n"
-        "Wipe the log file?";
+        "Enter \"y\" to wipe the file, \"n\" to append to it,\n"
+        "or just press Return to disable logging.\n"
+        "Wipe the log file? (y/n, Return cancels logging) ";
 
     static const char msgtemplate_batch[] =
         "The session log file \"%.*s\" already exists.\n"
         "Logging will not be enabled.\n";
 
-    int mbret;
-    char *message, *title;
-    static const char mbtitle[] = "%s Session log";
+    char line[32];
 
-    message = dupprintf(msgtemplate, FILENAME_MAX, filename->path);
-    title = dupprintf(mbtitle, appname);
+    if (console_batch_mode) {
+        fprintf(stderr, msgtemplate_batch, FILENAME_MAX, filename->path);
+        fflush(stderr);
+        return 0;
+    }
+    fprintf(stderr, msgtemplate, FILENAME_MAX, filename->path);
+    fflush(stderr);
 
-    mbret = MessageBox(GetParentHwnd(), message, title, MB_ICONWARNING | MB_YESNOCANCEL | MB_DEFBUTTON3);
-    sfree(message);
-    sfree(title);
+    hin = GetStdHandle(STD_INPUT_HANDLE);
+    GetConsoleMode(hin, &savemode);
+    SetConsoleMode(hin, (savemode | ENABLE_ECHO_INPUT |
+                         ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT));
+    ReadFile(hin, line, sizeof(line) - 1, &i, NULL);
+    SetConsoleMode(hin, savemode);
 
-    if (mbret == IDYES)
+    if (line[0] == 'y' || line[0] == 'Y')
         return 2;
-    else if (mbret == IDNO)
+    else if (line[0] == 'n' || line[0] == 'N')
         return 1;
     else
         return 0;
@@ -360,7 +301,7 @@ void pgp_fingerprints(void)
           "  " PGP_PREV_MASTER_KEY_FP "\n", stdout);
 }
 
-static void console_logging_error(LogPolicy *lp, const char *string)
+void console_logging_error(LogPolicy *lp, const char *string)
 {
     /* Ordinary Event Log entries are displayed in the same way as
      * logging errors, but only in verbose mode */
@@ -368,11 +309,11 @@ static void console_logging_error(LogPolicy *lp, const char *string)
     fflush(stderr);
 }
 
-static void console_eventlog(LogPolicy *lp, const char *string)
+void console_eventlog(LogPolicy *lp, const char *string)
 {
     /* Ordinary Event Log entries are displayed in the same way as
      * logging errors, but only in verbose mode */
-    if (flags & FLAG_VERBOSE)
+    if (lp_verbose(lp))
         console_logging_error(lp, string);
 }
 
@@ -390,6 +331,7 @@ static void console_write(HANDLE hout, ptrlen data)
 
 int console_get_userpass_input(prompts_t *p)
 {
+    HANDLE hin = INVALID_HANDLE_VALUE, hout = INVALID_HANDLE_VALUE;
     size_t curr_prompt;
 
     /*
@@ -401,24 +343,110 @@ int console_get_userpass_input(prompts_t *p)
             prompt_set_result(p->prompts[i], "");
     }
 
-    if (console_batch_mode)
-        return 0;
+    /*
+     * The prompts_t might contain a message to be displayed but no
+     * actual prompt. More usually, though, it will contain
+     * questions that the user needs to answer, in which case we
+     * need to ensure that we're able to get the answers.
+     */
+    if (p->n_prompts) {
+        if (console_batch_mode)
+            return 0;
+        hin = GetStdHandle(STD_INPUT_HANDLE);
+        if (hin == INVALID_HANDLE_VALUE) {
+            fprintf(stderr, "Cannot get standard input handle\n");
+            cleanup_exit(1);
+        }
+    }
+
+    /*
+     * And if we have anything to print, we need standard output.
+     */
+    if ((p->name_reqd && p->name) || p->instruction || p->n_prompts) {
+        hout = GetStdHandle(STD_OUTPUT_HANDLE);
+        if (hout == INVALID_HANDLE_VALUE) {
+            fprintf(stderr, "Cannot get standard output handle\n");
+            cleanup_exit(1);
+        }
+    }
+
+    /*
+     * Preamble.
+     */
+    /* We only print the `name' caption if we have to... */
+    if (p->name_reqd && p->name) {
+        ptrlen plname = ptrlen_from_asciz(p->name);
+        console_write(hout, plname);
+        if (!ptrlen_endswith(plname, PTRLEN_LITERAL("\n"), NULL))
+            console_write(hout, PTRLEN_LITERAL("\n"));
+    }
+    /* ...but we always print any `instruction'. */
+    if (p->instruction) {
+        ptrlen plinst = ptrlen_from_asciz(p->instruction);
+        console_write(hout, plinst);
+        if (!ptrlen_endswith(plinst, PTRLEN_LITERAL("\n"), NULL))
+            console_write(hout, PTRLEN_LITERAL("\n"));
+    }
 
     for (curr_prompt = 0; curr_prompt < p->n_prompts; curr_prompt++) {
+
+        DWORD savemode, newmode;
         prompt_t *pr = p->prompts[curr_prompt];
-        char result[MAX_LENGTH_PASSWORD] = { 0 };
-        if (!DoLoginDialog(result, sizeof(result), pr->prompt))
-            return 0;
-        prompt_set_result(pr, result);
-        SecureZeroMemory(&result, sizeof(result));
+
+        GetConsoleMode(hin, &savemode);
+        newmode = savemode | ENABLE_PROCESSED_INPUT | ENABLE_LINE_INPUT;
+        if (!pr->echo)
+            newmode &= ~ENABLE_ECHO_INPUT;
+        else
+            newmode |= ENABLE_ECHO_INPUT;
+        SetConsoleMode(hin, newmode);
+
+        console_write(hout, ptrlen_from_asciz(pr->prompt));
+
+        bool failed = false;
+        while (1) {
+            /*
+             * Amount of data to try to read from the console in one
+             * go. This isn't completely arbitrary: a user reported
+             * that trying to read more than 31366 bytes at a time
+             * would fail with ERROR_NOT_ENOUGH_MEMORY on Windows 7,
+             * and Ruby's Win32 support module has evidence of a
+             * similar workaround:
+             *
+             * https://github.com/ruby/ruby/blob/0aa5195262d4193d3accf3e6b9bad236238b816b/win32/win32.c#L6842
+             *
+             * To keep things simple, I stick with a nice round power
+             * of 2 rather than trying to go to the very limit of that
+             * bug. (We're typically reading user passphrases and the
+             * like here, so even this much is overkill really.)
+             */
+            DWORD toread = 16384;
+
+            size_t prev_result_len = pr->result->len;
+            void *ptr = strbuf_append(pr->result, toread);
+
+            DWORD ret = 0;
+            if (!ReadFile(hin, ptr, toread, &ret, NULL) || ret == 0) {
+                failed = true;
+                break;
+            }
+
+            strbuf_shrink_to(pr->result, prev_result_len + ret);
+            if (strbuf_chomp(pr->result, '\n')) {
+                strbuf_chomp(pr->result, '\r');
+                break;
+            }
+        }
+
+        SetConsoleMode(hin, savemode);
+
+        if (!pr->echo)
+            console_write(hout, PTRLEN_LITERAL("\r\n"));
+
+        if (failed) {
+            return 0;                  /* failure due to read error */
+        }
     }
 
     return 1; /* success */
 }
-
-static const LogPolicyVtable default_logpolicy_vt = {
-    console_eventlog,
-    console_askappend,
-    console_logging_error,
-};
-LogPolicy default_logpolicy[1] = {{ &default_logpolicy_vt }};

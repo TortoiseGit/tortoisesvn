@@ -128,8 +128,10 @@
     <ClCompile Include="..\..\be_all_s.c" />
     <ClCompile Include="..\..\be_misc.c" />
     <ClCompile Include="..\..\callback.c" />
+    <ClCompile Include="..\..\clicons.c" />
     <ClCompile Include="..\..\cmdline.c" />
     <ClCompile Include="..\..\conf.c" />
+    <ClCompile Include="..\..\console.c" />
     <ClCompile Include="..\..\cproxy.c" />
     <ClCompile Include="..\..\ecc.c" />
     <ClCompile Include="..\..\errsock.c" />
@@ -170,8 +172,10 @@
     <ClCompile Include="..\..\ssh2userauth.c" />
     <ClCompile Include="..\..\sshaes.c" />
     <ClCompile Include="..\..\ssharcf.c" />
+    <ClCompile Include="..\..\sshargon2.c" />
     <ClCompile Include="..\..\sshauxcrypt.c" />
     <ClCompile Include="..\..\sshbcrypt.c" />
+    <ClCompile Include="..\..\sshblake2.c" />
     <ClCompile Include="..\..\sshblowf.c" />
     <ClCompile Include="..\..\sshccp.c" />
     <ClCompile Include="..\..\sshcommon.c" />
@@ -180,26 +184,25 @@
     <ClCompile Include="..\..\sshdes.c" />
     <ClCompile Include="..\..\sshdh.c" />
     <ClCompile Include="..\..\sshdss.c" />
-    <ClCompile Include="..\..\sshdssg.c" />
     <ClCompile Include="..\..\sshecc.c" />
-    <ClCompile Include="..\..\sshecdsag.c" />
     <ClCompile Include="..\..\sshgssc.c" />
     <ClCompile Include="..\..\sshhmac.c" />
     <ClCompile Include="..\..\sshmac.c" />
     <ClCompile Include="..\..\sshmd5.c" />
-    <ClCompile Include="..\..\sshprime.c" />
     <ClCompile Include="..\..\sshprng.c" />
     <ClCompile Include="..\..\sshpubk.c" />
     <ClCompile Include="..\..\sshrand.c" />
     <ClCompile Include="..\..\sshrsa.c" />
-    <ClCompile Include="..\..\sshrsag.c" />
     <ClCompile Include="..\..\sshsh256.c" />
     <ClCompile Include="..\..\sshsh512.c" />
     <ClCompile Include="..\..\sshsha.c" />
+    <ClCompile Include="..\..\sshsha3.c" />
     <ClCompile Include="..\..\sshshare.c" />
+    <ClCompile Include="..\..\sshutils.c" />
     <ClCompile Include="..\..\sshverstring.c" />
     <ClCompile Include="..\..\sshzlib.c" />
     <ClCompile Include="..\..\stripctrl.c" />
+    <ClCompile Include="..\..\supdup.c" />
     <ClCompile Include="..\..\telnet.c" />
     <ClCompile Include="..\..\timing.c" />
     <ClCompile Include="..\..\tree234.c" />
@@ -208,6 +211,7 @@
     <ClCompile Include="..\..\wcwidth.c" />
     <ClCompile Include="..\..\wildcard.c" />
     <ClCompile Include="..\wincapi.c" />
+    <ClCompile Include="..\wincliloop.c" />
     <ClCompile Include="..\wincons.c" />
     <ClCompile Include="..\windefs.c" />
     <ClCompile Include="..\wingss.c" />
@@ -225,6 +229,7 @@
     <ClCompile Include="..\winplink.c" />
     <ClCompile Include="..\winproxy.c" />
     <ClCompile Include="..\winsecur.c" />
+    <ClCompile Include="..\winselcli.c" />
     <ClCompile Include="..\winser.c" />
     <ClCompile Include="..\winshare.c" />
     <ClCompile Include="..\winstore.c" />
@@ -237,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\charset\charset.h" />
+    <ClInclude Include="..\..\console.h" />
     <ClInclude Include="..\..\defs.h" />
     <ClInclude Include="..\..\ecc.h" />
     <ClInclude Include="..\..\ldisc.h" />
@@ -244,10 +250,12 @@
     <ClInclude Include="..\..\misc.h" />
     <ClInclude Include="..\..\mpint.h" />
     <ClInclude Include="..\..\mpint_i.h" />
+    <ClInclude Include="..\..\mpunsafe.h" />
     <ClInclude Include="..\..\network.h" />
     <ClInclude Include="..\..\pageant.h" />
     <ClInclude Include="..\..\pgssapi.h" />
     <ClInclude Include="..\..\proxy.h" />
+    <ClInclude Include="..\..\psocks.h" />
     <ClInclude Include="..\..\putty.h" />
     <ClInclude Include="..\..\puttymem.h" />
     <ClInclude Include="..\..\puttyps.h" />
@@ -261,6 +269,7 @@
     <ClInclude Include="..\..\sshgss.h" />
     <ClInclude Include="..\..\sshgssc.h" />
     <ClInclude Include="..\..\ssh.h" />
+    <ClInclude Include="..\..\sshkeygen.h" />
     <ClInclude Include="..\..\sshppl.h" />
     <ClInclude Include="..\..\sshserver.h" />
     <ClInclude Include="..\..\sshsignals.h" />
@@ -269,8 +278,11 @@
     <ClInclude Include="..\..\terminal.h" />
     <ClInclude Include="..\..\tree234.h" />
     <ClInclude Include="..\..\version.h" />
+    <ClInclude Include="..\pageant-rc.h" />
+    <ClInclude Include="..\puttygen-rc.h" />
     <ClInclude Include="..\wincapi.h" />
     <ClInclude Include="..\winhelp.h" />
+    <ClInclude Include="..\winseat.h" />
     <ClInclude Include="..\winsecur.h" />
     <ClInclude Include="..\winstuff.h" />
     <ClInclude Include="LoginDialog.h" />
