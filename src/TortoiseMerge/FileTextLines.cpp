@@ -463,7 +463,7 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8 /*= false *
                           ,
                           const CString& blockEnd /*= CString()*/
                           ,
-                          const std::wregex& rx /*= std::wregex(L"")*/
+                          const std::wregex& rx /*= std::wregex()*/
                           ,
                           const std::wstring& replacement /*=L""*/)
 {
