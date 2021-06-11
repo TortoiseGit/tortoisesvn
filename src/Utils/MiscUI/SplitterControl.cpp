@@ -95,7 +95,7 @@ void CSplitterControl::OnPaint()
         Gdiplus::Graphics g(dcReal);
 
         Gdiplus::Color c1;
-        c1.SetFromCOLORREF(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_3DFACE)));
+        c1.SetFromCOLORREF(CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : GetSysColor(COLOR_3DFACE));
         Gdiplus::Color c2;
         c2.SetFromCOLORREF(CTheme::Instance().GetThemeColor(GetSysColor(COLOR_BTNSHADOW)));
 
