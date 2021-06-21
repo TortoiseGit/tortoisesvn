@@ -2575,7 +2575,8 @@ void CLogDlg::OnOK()
 {
     if (m_bMonitoringMode)
     {
-        MonitorHideDlg();
+        if (m_sFilterText.IsEmpty())
+            MonitorHideDlg();
         return;
     }
     // since the log dialog is also used to select revisions for other
