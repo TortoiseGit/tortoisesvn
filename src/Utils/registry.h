@@ -151,7 +151,9 @@ DWORD CRegBaseCommon<S>::removeKey()
 
     HKEY hKey = nullptr;
     RegOpenKeyEx(m_base, GetPlainString(m_path), 0, KEY_WRITE | m_sam, &hKey);
-    return SHDeleteKey(m_base, GetPlainString(m_path));
+    auto ret = SHDeleteKey(m_base, GetPlainString(m_path));
+    RegCloseKey(hKey);
+    return ret;
 }
 
 template <class S>
@@ -162,7 +164,9 @@ LONG CRegBaseCommon<S>::removeValue()
 
     HKEY hKey = nullptr;
     RegOpenKeyEx(m_base, GetPlainString(m_path), 0, KEY_WRITE | m_sam, &hKey);
-    return RegDeleteValue(hKey, GetPlainString(m_key));
+    auto ret = RegDeleteValue(hKey, GetPlainString(m_key));
+    RegCloseKey(hKey);
+    return ret;
 }
 
 /**
