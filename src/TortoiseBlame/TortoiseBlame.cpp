@@ -1715,7 +1715,18 @@ void TortoiseBlame::DrawHeader(HDC hDC) const
     ::SetTextColor(hDC, CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : GetSysColor(COLOR_WINDOWTEXT));
     RECT edgeRc   = rc;
     edgeRc.bottom = edgeRc.top + CDPIAware::Instance().Scale(wHeader, HEADER_HEIGHT) / 2;
-    DrawEdge(hDC, &edgeRc, EDGE_BUMP, BF_FLAT | BF_RECT | BF_ADJUST);
+    if (!CTheme::Instance().IsDarkTheme())
+        DrawEdge(hDC, &edgeRc, EDGE_BUMP, BF_FLAT | BF_RECT | BF_ADJUST);
+    else
+    {
+        auto hPen     = CreatePen(PS_SOLID, 1, RGB(128, 128, 128));
+        auto oldPen   = SelectObject(hDC, hPen);
+        auto oldBrush = SelectObject(hDC, GetStockObject(NULL_BRUSH));
+        Rectangle(hDC, edgeRc.left, edgeRc.top, edgeRc.right, edgeRc.bottom);
+        SelectObject(hDC, oldBrush);
+        SelectObject(hDC, oldPen);
+        DeleteObject(hPen);
+    }
 
     // draw the path first
     WCHAR pathBuf[MAX_PATH] = {0};
@@ -1738,7 +1749,18 @@ void TortoiseBlame::DrawHeader(HDC hDC) const
     DrawText(hDC, pathBuf, -1, &edgeRc, DT_SINGLELINE | DT_VCENTER);
 
     rc.top = rc.top + CDPIAware::Instance().Scale(wHeader, HEADER_HEIGHT) / 2;
-    DrawEdge(hDC, &rc, EDGE_BUMP, BF_FLAT | BF_RECT | BF_ADJUST);
+    if (!CTheme::Instance().IsDarkTheme())
+        DrawEdge(hDC, &rc, EDGE_BUMP, BF_FLAT | BF_RECT | BF_ADJUST);
+    else
+    {
+        auto hPen     = CreatePen(PS_SOLID, 1, RGB(128, 128, 128));
+        auto oldPen   = SelectObject(hDC, hPen);
+        auto oldBrush = SelectObject(hDC, GetStockObject(NULL_BRUSH));
+        Rectangle(hDC, edgeRc.left, edgeRc.top, edgeRc.right, edgeRc.bottom);
+        SelectObject(hDC, oldBrush);
+        SelectObject(hDC, oldPen);
+        DeleteObject(hPen);
+    }
 
     RECT drawRc = rc;
 
