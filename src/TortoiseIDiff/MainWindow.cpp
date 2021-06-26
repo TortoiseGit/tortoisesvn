@@ -206,6 +206,9 @@ LRESULT CALLBACK CMainWindow::WinMsgHandler(HWND hwnd, UINT uMsg, WPARAM wParam,
     {
         setUuidOverlayIcon(hwnd);
     }
+    auto optRet = CTheme::HandleMenuBar(hwnd, uMsg, wParam, lParam);
+    if (optRet.has_value())
+        return optRet.value();
     switch (uMsg)
     {
         case WM_CREATE:
