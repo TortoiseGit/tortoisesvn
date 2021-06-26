@@ -20,6 +20,7 @@
 #include "registry.h"
 #include <unordered_map>
 #include <functional>
+#include <optional>
 #pragma warning(push)
 #pragma warning(disable : 4458) // declaration of 'xxx' hides class member
 #include <gdiplus.h>
@@ -43,6 +44,7 @@ public:
 
     // ReSharper disable CppInconsistentNaming
     static const COLORREF darkBkColor           = 0x202020;
+    static const COLORREF darkBkHotColor        = 0x404040;
     static const COLORREF darkTextColor         = 0xDDDDDD;
     static const COLORREF darkDisabledTextColor = 0x808080;
     // ReSharper restore CppInconsistentNaming
@@ -80,6 +82,8 @@ public:
     static void     RGBtoHSL(COLORREF color, float& h, float& s, float& l);
     static COLORREF HSLtoRGB(float h, float s, float l);
 
+    static std::optional<LRESULT> HandleMenuBar(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 private:
     void                    Load();
     static BOOL CALLBACK    AdjustThemeForChildrenProc(HWND hwnd, LPARAM lParam);
@@ -99,4 +103,5 @@ private:
     int                                          m_lastThemeChangeCallbackId;
     CRegStdDWORD                                 m_regDarkTheme;
     static HBRUSH                                m_sBackBrush;
+    static HBRUSH                                m_sBackHotBrush;
 };

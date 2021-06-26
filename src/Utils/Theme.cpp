@@ -33,6 +33,58 @@
 #pragma warning(pop)
 #include "SmartHandle.h"
 
+#define WM_MENUBAR_DRAWMENU     0x0091 // lParam is MENUBAR_MENU
+#define WM_MENUBAR_DRAWMENUITEM 0x0092 // lParam is MENUBAR_DRAWMENUITEM
+
+// describes the sizes of the menu bar or menu item
+union MenubarMenuitemmetrics
+{
+    struct
+    {
+        DWORD cx;
+        DWORD cy;
+    } rgSizeBar[2];
+    struct
+    {
+        DWORD cx;
+        DWORD cy;
+    } rgSizePopup[4];
+};
+
+struct MenubarMenupopupmetrics
+{
+    DWORD rgCx[4];
+    DWORD fUpdateMaxWidths : 2;
+};
+
+struct MenubarMenu
+{
+    HMENU hMenu; // main window menu
+    HDC   hdc;
+    DWORD dwFlags;
+};
+
+struct MenubarMenuitem
+{
+    int                     iPosition; // 0-based position
+    MenubarMenuitemmetrics  umIm;
+    MenubarMenupopupmetrics umpm;
+};
+
+struct MenubarDrawmenuitem
+{
+    DRAWITEMSTRUCT  dis; // itemID looks uninitialized
+    MenubarMenu     um;
+    MenubarMenuitem umi;
+};
+
+struct MenubarMeasuremenuitem
+{
+    MEASUREITEMSTRUCT mis;
+    MenubarMenu       um;
+    MenubarMenuitem   umi;
+};
+
 constexpr auto SubclassID = 1234;
 
 static int  GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture);
@@ -43,7 +95,8 @@ static void PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBorder);
 static BOOL DetermineGlowSize(int* piSize, LPCWSTR pszClassIdList = nullptr);
 static BOOL GetEditBorderColor(HWND hWnd, COLORREF* pClr);
 
-HBRUSH CTheme::m_sBackBrush = nullptr;
+HBRUSH CTheme::m_sBackBrush    = nullptr;
+HBRUSH CTheme::m_sBackHotBrush = nullptr;
 
 CTheme::CTheme()
     : m_bLoaded(false)
@@ -60,6 +113,8 @@ CTheme::~CTheme()
 {
     if (m_sBackBrush)
         DeleteObject(m_sBackBrush);
+    if (m_sBackHotBrush)
+        DeleteObject(m_sBackHotBrush);
 }
 
 CTheme& CTheme::Instance()
@@ -557,6 +612,8 @@ LRESULT CTheme::MainSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPa
         case WM_NCDESTROY:
             RemoveWindowSubclass(hWnd, MainSubclassProc, SubclassID);
             break;
+        default:
+            break;
     }
     return DefSubclassProc(hWnd, uMsg, wParam, lParam);
 }
@@ -749,7 +806,7 @@ LRESULT CTheme::ButtonSubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
                         BP_PAINTPARAMS params       = {sizeof(BP_PAINTPARAMS)};
                         params.dwFlags              = BPPF_ERASE;
                         HPAINTBUFFER hBufferedPaint = BeginBufferedPaint(hdc, &rcClient, BPBF_TOPDOWNDIB, &params, &hdcPaint);
-                        if (hdcPaint)
+                        if (hdcPaint && hBufferedPaint)
                         {
                             ::SetBkColor(hdcPaint, darkBkColor);
                             ::ExtTextOut(hdcPaint, 0, 0, ETO_OPAQUE, &rcClient, nullptr, 0, nullptr);
@@ -1158,6 +1215,128 @@ COLORREF CTheme::HSLtoRGB(float h, float s, float l)
     return RGB(r, g, b);
 }
 
+std::optional<LRESULT> CTheme::HandleMenuBar(HWND hWnd, UINT msg, WPARAM /*wParam*/, LPARAM lParam)
+{
+    static CAutoThemeData sMenuTheme = OpenThemeData(hWnd, L"Menu");
+
+    if (!CTheme::Instance().IsDarkTheme())
+        return {};
+    switch (msg)
+    {
+        case WM_MENUBAR_DRAWMENU:
+        {
+            auto* pMbm = reinterpret_cast<MenubarMenu*>(lParam);
+            RECT  rc   = {0};
+
+            // get the menubar rect
+            MENUBARINFO mbi = {sizeof(mbi)};
+            GetMenuBarInfo(hWnd, OBJID_MENU, 0, &mbi);
+
+            RECT rcWindow;
+            GetWindowRect(hWnd, &rcWindow);
+
+            // the rcBar is offset by the window rect
+            rc = mbi.rcBar;
+            OffsetRect(&rc, -rcWindow.left, -rcWindow.top);
+            if (!m_sBackBrush)
+                m_sBackBrush = CreateSolidBrush(darkBkColor);
+
+            FillRect(pMbm->hdc, &rc, m_sBackBrush);
+
+            return FALSE;
+        }
+        case WM_MENUBAR_DRAWMENUITEM:
+        {
+            if (!m_sBackBrush)
+                m_sBackBrush = CreateSolidBrush(darkBkColor);
+            if (!m_sBackHotBrush)
+                m_sBackHotBrush = CreateSolidBrush(darkBkHotColor);
+
+            auto* pMdi = reinterpret_cast<MenubarDrawmenuitem*>(lParam);
+
+            // get the menu item string
+            wchar_t      menuString[256] = {0};
+            MENUITEMINFO mii             = {sizeof(mii), MIIM_STRING};
+            {
+                mii.dwTypeData = menuString;
+                mii.cch        = (sizeof(menuString) / 2) - 1;
+
+                GetMenuItemInfo(pMdi->um.hMenu, pMdi->umi.iPosition, TRUE, &mii);
+            }
+
+            // get the item state for drawing
+
+            DWORD dwFlags = DT_CENTER | DT_SINGLELINE | DT_VCENTER;
+
+            int iTextStateID       = MPI_NORMAL;
+            int iBackgroundStateID = MPI_NORMAL;
+            {
+                if ((pMdi->dis.itemState & ODS_INACTIVE) | (pMdi->dis.itemState & ODS_DEFAULT))
+                {
+                    // normal display
+                    iTextStateID       = MPI_NORMAL;
+                    iBackgroundStateID = MPI_NORMAL;
+                }
+                if (pMdi->dis.itemState & ODS_HOTLIGHT)
+                {
+                    // hot tracking
+                    iTextStateID       = MPI_HOT;
+                    iBackgroundStateID = MPI_HOT;
+                }
+                if (pMdi->dis.itemState & ODS_SELECTED)
+                {
+                    // clicked
+                    iTextStateID       = MPI_HOT;
+                    iBackgroundStateID = MPI_HOT;
+                }
+                if ((pMdi->dis.itemState & ODS_GRAYED) || (pMdi->dis.itemState & ODS_DISABLED))
+                {
+                    // disabled / grey text
+                    iTextStateID       = MPI_DISABLED;
+                    iBackgroundStateID = MPI_DISABLED;
+                }
+                if (pMdi->dis.itemState & ODS_NOACCEL)
+                {
+                    dwFlags |= DT_HIDEPREFIX;
+                }
+            }
+
+            if (!sMenuTheme)
+            {
+                sMenuTheme = OpenThemeData(hWnd, L"Menu");
+            }
+
+            if (iBackgroundStateID == MPI_NORMAL || iBackgroundStateID == MPI_DISABLED)
+            {
+                FillRect(pMdi->um.hdc, &pMdi->dis.rcItem, m_sBackBrush);
+            }
+            else if (iBackgroundStateID == MPI_HOT || iBackgroundStateID == MPI_DISABLEDHOT)
+            {
+                FillRect(pMdi->um.hdc, &pMdi->dis.rcItem, m_sBackHotBrush);
+            }
+            else
+            {
+                DrawThemeBackground(sMenuTheme, pMdi->um.hdc, MENU_POPUPITEM, iBackgroundStateID, &pMdi->dis.rcItem, nullptr);
+            }
+            DTTOPTS dttopts = {sizeof(dttopts)};
+            if (iTextStateID == MPI_NORMAL || iTextStateID == MPI_HOT)
+            {
+                dttopts.dwFlags |= DTT_TEXTCOLOR;
+                dttopts.crText = CTheme::Instance().GetThemeColor(GetSysColor(COLOR_WINDOWTEXT));
+            }
+            DrawThemeTextEx(sMenuTheme, pMdi->um.hdc, MENU_POPUPITEM, iTextStateID, menuString, mii.cch, dwFlags, &pMdi->dis.rcItem, &dttopts);
+
+            return TRUE;
+        }
+        case WM_THEMECHANGED:
+        {
+            sMenuTheme = OpenThemeData(hWnd, L"Menu");
+        }
+        break;
+    }
+    return {};
+}
+
 int GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture)
 {
     int iState = 0;
@@ -1308,7 +1487,7 @@ void PaintControl(HWND hWnd, HDC hdc, RECT* prc, bool bDrawBorder)
     if (bDrawBorder)
         InflateRect(prc, 1, 1);
     HPAINTBUFFER hBufferedPaint = BeginBufferedPaint(hdc, prc, BPBF_TOPDOWNDIB, nullptr, &hdcPaint);
-    if (hdcPaint)
+    if (hdcPaint && hBufferedPaint)
     {
         RECT rc;
         GetWindowRect(hWnd, &rc);
