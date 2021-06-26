@@ -2338,6 +2338,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
         setUuidOverlayIcon(hWnd);
     }
+    auto optRet = CTheme::HandleMenuBar(hWnd, message, wParam, lParam);
+    if (optRet.has_value())
+        return optRet.value();
     switch (message)
     {
         case WM_CREATE:
