@@ -31,6 +31,11 @@
 #include <commctrl.h>
 #pragma comment(lib, "comctl32.lib")
 
+#pragma warning(push)
+#pragma warning(disable : 4458) // declaration of 'xxx' hides class member
+#include <gdiplus.h>
+#pragma warning(pop)
+
 #pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 HINSTANCE hResource; // the resource dll
@@ -50,6 +55,10 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
     CRegStdDWORD loc    = CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", 1033);
     long         langId = loc;
     CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED);
+
+    Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+    ULONG_PTR                    gdiplusToken;
+    Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
 
     CLangDll langDll;
     hResource = langDll.Init(L"TortoiseUDiff", langId);
@@ -131,6 +140,8 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
             DispatchMessage(&msg);
         }
     }
+
+    Gdiplus::GdiplusShutdown(gdiplusToken);
 
     return static_cast<int>(msg.wParam);
 }
