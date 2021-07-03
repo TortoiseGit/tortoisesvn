@@ -13,6 +13,7 @@
 #include <assert.h>
 
 #include <string>
+#include <string_view>
 #include <vector>
 #include <map>
 
@@ -31,6 +32,7 @@
 #include "DefaultLexer.h"
 
 using namespace Scintilla;
+using namespace Lexilla;
 
 #define HERE_DELIM_MAX			256
 

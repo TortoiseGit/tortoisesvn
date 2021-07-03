@@ -21,6 +21,7 @@
 #endif
 
 #include <string>
+#include <string_view>
 #include <vector>
 #include <map>
 #include <algorithm>
@@ -42,7 +43,7 @@
 #define SET_UPPER "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #define SET_DIGITS "0123456789"
 
-using namespace Scintilla;
+using namespace Lexilla;
 
 static bool IsSpaceEquiv(int state) {
 	switch (state) {

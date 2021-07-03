@@ -15,6 +15,7 @@
 #include <ctype.h>
 
 #include <string>
+#include <string_view>
 #include <map>
 
 #include "ILexer.h"
@@ -32,6 +33,7 @@
 #include "DefaultLexer.h"
 
 using namespace Scintilla;
+using namespace Lexilla;
 
 static const int NUM_RUST_KEYWORD_LISTS = 7;
 static const int MAX_RUST_IDENT_CHARS = 1023;

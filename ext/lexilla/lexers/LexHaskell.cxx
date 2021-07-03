@@ -26,6 +26,7 @@
 #include <ctype.h>
 
 #include <string>
+#include <string_view>
 #include <vector>
 #include <map>
 
@@ -45,6 +46,7 @@
 #include "DefaultLexer.h"
 
 using namespace Scintilla;
+using namespace Lexilla;
 
 // See https://github.com/ghc/ghc/blob/master/compiler/parser/Lexer.x#L1682
 // Note, letter modifiers are prohibited.

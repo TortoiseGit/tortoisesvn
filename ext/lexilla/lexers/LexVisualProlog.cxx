@@ -23,6 +23,7 @@
 #endif
 
 #include <string>
+#include <string_view>
 #include <vector>
 #include <map>
 #include <algorithm>
@@ -42,6 +43,7 @@
 #include "DefaultLexer.h"
 
 using namespace Scintilla;
+using namespace Lexilla;
 
 // Options used for LexerVisualProlog
 struct OptionsVisualProlog {

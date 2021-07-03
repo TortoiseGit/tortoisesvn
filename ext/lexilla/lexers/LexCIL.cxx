@@ -15,6 +15,7 @@
 #include <ctype.h>
 
 #include <string>
+#include <string_view>
 #include <map>
 #include <algorithm>
 
@@ -33,6 +34,7 @@
 #include "DefaultLexer.h"
 
 using namespace Scintilla;
+using namespace Lexilla;
 
 namespace {
     // Use an unnamed namespace to protect the functions and classes from name conflicts

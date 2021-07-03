@@ -40,6 +40,9 @@
 #include <stdarg.h>
 #include <assert.h>
 
+#include <string>
+#include <string_view>
+
 #include "ILexer.h"
 #include "Scintilla.h"
 #include "SciLexer.h"
@@ -51,7 +54,7 @@
 #include "CharacterSet.h"
 #include "LexerModule.h"
 
-using namespace Scintilla;
+using namespace Lexilla;
 
 static inline bool IsNewline(const int ch) {
     return (ch == '\n' || ch == '\r');
@@ -103,9 +106,10 @@ static bool HasPrevLineContent(StyleContext &sc) {
     while ((--i + (Sci_Position)sc.currentPos) >= 0 && !IsNewline(sc.GetRelative(i)))
         ;
     while ((--i + (Sci_Position)sc.currentPos) >= 0) {
-        if (IsNewline(sc.GetRelative(i)))
+        const int ch = sc.GetRelative(i);
+        if (ch == '\n')
             break;
-        if (!IsASpaceOrTab(sc.GetRelative(i)))
+        if (!((ch == '\r' || IsASpaceOrTab(ch))))
             return true;
     }
     return false;
@@ -368,11 +372,10 @@ static void ColorizeMarkdownDoc(Sci_PositionU startPos, Sci_Position length, int
             // Links and Images
             if (sc.Match("![")) {
               sc.SetState(SCE_MARKDOWN_LINK);
-              sc.Forward(2);
+              sc.Forward(1);
             }
             else if (sc.ch == '[' && sc.GetRelative(-1) != '\\') {
               sc.SetState(SCE_MARKDOWN_LINK);
-              sc.Forward();
             }
             // Code - also a special case for alternate inside spacing
             else if (sc.Match("``") && sc.GetRelative(3) != ' ' && AtTermStart(sc)) {
