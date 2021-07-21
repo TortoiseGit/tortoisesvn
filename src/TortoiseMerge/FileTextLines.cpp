@@ -319,7 +319,12 @@ BOOL CFileTextLines::Load(const CString& sFilePath, int /*lengthHint*/ /* = 0*/)
     int      nReadChars = oFile.GetLength() / sizeof(wchar_t);
     wchar_t* pTextBuf   = static_cast<wchar_t*>(oFile);
     wchar_t* pLineStart = pTextBuf;
-    if ((m_saveParams.unicodeType == UTF8BOM) || (m_saveParams.unicodeType == UTF16_LEBOM) || (m_saveParams.unicodeType == UTF16_BEBOM) || (m_saveParams.unicodeType == UTF32_LE) || (m_saveParams.unicodeType == UTF32_BE))
+    if (nReadChars &&
+        ((m_saveParams.unicodeType == UTF8BOM) ||
+         (m_saveParams.unicodeType == UTF16_LEBOM) ||
+         (m_saveParams.unicodeType == UTF16_BEBOM) ||
+         (m_saveParams.unicodeType == UTF32_LE) ||
+         (m_saveParams.unicodeType == UTF32_BE)))
     {
         // ignore the BOM
         ++pTextBuf;
@@ -604,7 +609,8 @@ BOOL CFileTextLines::Save(const CString& sFilePath, bool bSaveAsUTF8 /*= false *
 
 void CFileTextLines::SetErrorString()
 {
-    m_sErrorString = CFormatMessageWrapper();
+    LPCWSTR szError = CFormatMessageWrapper();
+    m_sErrorString  = szError;
 }
 
 void CFileTextLines::CopySettings(CFileTextLines* pFileToCopySettingsTo) const
@@ -769,6 +775,8 @@ bool CBaseFilter::Decode(/*in out*/ CBuffer& data)
     int nFlags = (m_nCodePage == CP_ACP) ? MB_PRECOMPOSED : 0;
     // dry decode is around 8 times faster then real one, alternatively we can set buffer to max length
     int nReadChars = MultiByteToWideChar(m_nCodePage, nFlags, static_cast<LPCSTR>(data), data.GetLength(), nullptr, 0);
+    if (!nReadChars)
+        return FALSE;
     m_oBuffer.SetLength(nReadChars * sizeof(wchar_t));
     int ret2 = MultiByteToWideChar(m_nCodePage, nFlags, static_cast<LPCSTR>(data), data.GetLength(), static_cast<LPWSTR>(static_cast<void*>(m_oBuffer)), nReadChars);
     if (ret2 != nReadChars)
@@ -790,7 +798,7 @@ const CBuffer& CBaseFilter::Encode(const CString& s)
 ///< write preencoded internal buffer
 
 // ReSharper disable once CppMemberFunctionMayBeConst
-void CBaseFilter::Write(const CBuffer& buffer) 
+void CBaseFilter::Write(const CBuffer& buffer)
 {
     if (buffer.GetLength())
         m_pFile->Write(static_cast<void*>(buffer), buffer.GetLength());
