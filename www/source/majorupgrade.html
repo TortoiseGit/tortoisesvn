@@ -51,7 +51,7 @@ lang: en
         <p>When upgrading, MSI doesn't just upgrade unconditionally
         but first checks whether a component actually needs upgrading.
         To help MSI check whether an upgrade is necessary, each component
-        has a <a href="http://robmensching.com/blog/posts/2003/10/4/Windows-Installer-Components-Introduction">keypath</a>.
+        has a <a href="https://robmensching.com/blog/posts/2003/10/4/Windows-Installer-Components-Introduction">keypath</a>.
         A keypath is usually a file or a registry key. In case of a
         file, MSI uses the file's version info and/or the filedate
         to determine whether to upgrade or not and whether the
@@ -104,7 +104,7 @@ lang: en
         that get installed in the <a href="https://msdn.microsoft.com/en-us/library/aa376307%28VS.85%29.aspx">SxS</a>
         cache. TortoiseSVN uses the C-runtime and MFC components of
         Visual Studio which happen to be such components, the
-        problem described in <a href="http://support.microsoft.com/kb/905238">kb905238</a>
+        problem described in <a href="https://support.microsoft.com/kb/905238">kb905238</a>
         happened. It's a long read but worth it if you're interested.
         Short version: such components get removed but not installed
         again, so they're missing after the installation.</p>
@@ -123,7 +123,7 @@ lang: en
         and always installs the new version. And of course I've
         rescheduled the <a href="https://msdn.microsoft.com/en-us/library/aa371197%28VS.85%29.aspx">RemoveExistingProducts</a>
         action to run after the InstallFinalize action to avoid the
-        problem described in <a href="http://support.microsoft.com/kb/905238">kb905238</a>.
+        problem described in <a href="https://support.microsoft.com/kb/905238">kb905238</a>.
         So after you've installed the next version of TortoiseSVN
         (will be version 1.6.10), upgrading to newer versions
         (>= 1.6.11) should work properly again.</p>
@@ -144,7 +144,7 @@ lang: en
         1.6.10 installed, upgrades to higher versions will work
         again properly.</p>
         <h2>Update:</h2>
-        <p>Ivan Zhakov <a href="http://tortoisesvn.tigris.org/ds/viewMessage.do?dsForumId=757&amp;dsMessageId=2646381">suggested</a>
+        <p>Ivan Zhakov <a href="https://tortoisesvn.tigris.org/ds/viewMessage.do?dsForumId=757&amp;dsMessageId=2646381">suggested</a>
         a solution that could have worked better: mark the
         registry-only components to use the parent folder as the
         keypath. To do this just add KeyPath='yes' to the Component

@@ -60,17 +60,17 @@ includeBaguetteBox: true
         provide that information.</p>
 
         <p>For example, a URL like
-        <code>http://example.com/svn/trunk</code>
+        <code>https://example.com/svn/trunk</code>
         would clearly indicate that the repository is located
-        at <code>http://example.com/svn</code>. Because we can assume
+        at <code>https://example.com/svn</code>. Because we can assume
         that 'svn' is not a project name.</p>
 
-        <p>But a URL like <code>http://example.com/svn/project/trunk</code>
+        <p>But a URL like <code>https://example.com/svn/project/trunk</code>
         could mean that it points to a repository for 'project',
         but it could also mean that there's only one repository at
         'svn' and 'project' is just a folder inside that repository.
-        So the two URLs <code>http://example.com/svn/project/trunk</code>
-        and <code>http://example.com/svn/otherproject/trunk</code>
+        So the two URLs <code>https://example.com/svn/project/trunk</code>
+        and <code>https://example.com/svn/otherproject/trunk</code>
         could be pointing to the same repository, or to two
         different repositories.</p>
 
@@ -107,16 +107,16 @@ includeBaguetteBox: true
         strings) is much faster than asking the repository or
         the working copy for the repository UUID. So the cache
         uses URLs too if possible. For example, if the cache knows
-        that the URL <code>http://example.com/svn/project/trunk</code>
+        that the URL <code>https://example.com/svn/project/trunk</code>
         points to a specific repository, it also knows that the
-        URL <code>http://example.com/svn/project/trunk/subfolder</code>
+        URL <code>https://example.com/svn/project/trunk/subfolder</code>
         points to the very same repository, since it's not possible
         to have a repository inside a repository.</p>
         <p>The option "Allow ambiguous URLs" is for situations where
         the same URL is used for different repositories - those
         situations are very rare of course. One situation we ran
         into problems was with
-        <a href="http://codeplex.com/SvnBridge">svnbrigde</a>.
+        <a href="https://codeplex.com/SvnBridge">svnbrigde</a>.
         That's a nice tool which allows you to access Microsoft Team System
         repositories with an SVN client. But older versions of that
         tool made all repositories accessible for SVN clients at the

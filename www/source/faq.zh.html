@@ -10,7 +10,7 @@ lang: zh
 
 <div class="post">
     <h1 class="title">TortoiseSVN FAQ</h1>
-    <p>感谢<a href="http://www.subversion.org.cn">Subversion中文站</a>的中文化翻译小组翻译本页。</p>
+    <p>感谢<a href="https://www.subversion.org.cn">Subversion中文站</a>的中文化翻译小组翻译本页。</p>
     <div class="entry">
 
         <h2>目录</h2>
@@ -138,7 +138,7 @@ lang: zh
             <ul>
                 <li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> 这是说你试图将64位的TortoiseSVN安装到32位的操作系统上。你需要下载和使用正确的MSI文件。对于32位的操作系统，请确定MSI文件名里没有<em>x64</em>。</li>
                 <li><em>&quot;The installer was interrupted beforeTortoiseSVNcould be installed. You need to restart the installer to try again&quot;</em>然后用户在 MSI 文件的位置就丢掉正确的读和运行的权限。也不能把 MSI 文件移动到其他的地方或者给用户SYSTEM 读和运行的权限</li>
-                <li><em>&quot;The Windows installer service could not be accessed&quot;</em> 这个可能在你运行 Windows 安全模式的时候出现，或者说 Windows installer 没有被正确的安装。对于这种类型的错误信息，请核实 Microsoft Knowledgebase 的文章 <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (基本上确定 MSI 文件夹没有加密或者被压缩即可)</li>
+                <li><em>&quot;The Windows installer service could not be accessed&quot;</em> 这个可能在你运行 Windows 安全模式的时候出现，或者说 Windows installer 没有被正确的安装。对于这种类型的错误信息，请核实 Microsoft Knowledgebase 的文章 <a href="https://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a> (基本上确定 MSI 文件夹没有加密或者被压缩即可)</li>
                 <li><em>&quot;The system can not open the device of file specified&quot;</em>, 紧接着通常是 <em>&quot;The installer has encountered an unexpected error installing this package. This may indicate a problem with this package. The error code is 2755&quot;</em>. 出现这种错误信息需要:
                     <ul>
                         <li>安装程序没有权限访问临时文件夹，或者系统设定的临时文件夹没有清理，或者说没有足够的空间来完成安装。</li>
@@ -216,8 +216,8 @@ lang: zh
             <h3>为什么图标覆盖有时会变成一个随机图案？</h3>
             <p>Windows图标缓存有很多bug。可以使用下面的方法解决这个问题：</p>
             <ul>
-                <li>安装Microsoft的<a href="http://windows.microsoft.com/en-US/windows/xp-downloads#2TC=featured">TweakUI</a> 通过选项来重新创建图标。</li>
-                <li>或者增加图标缓存。到<code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> 增加一个新的字符串 <code>Max Cached Icons</code>。他的默认值为500 - 尝试增加到2048（见微软知识库的<a href="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132668</a>）。 </li>
+                <li>安装Microsoft的<a href="https://windows.microsoft.com/en-US/windows/xp-downloads#2TC=featured">TweakUI</a> 通过选项来重新创建图标。</li>
+                <li>或者增加图标缓存。到<code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> 增加一个新的字符串 <code>Max Cached Icons</code>。他的默认值为500 - 尝试增加到2048（见微软知识库的<a href="https://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132668</a>）。 </li>
                 <li>或者在Windows目录下删除ShellIconCache文件，然后重启计算机。</li>
                 <li>TortoiseSVN 1.3.0以后的版本，你可以在命令行调用TortoiseProc重建图标缓存，<code>TortoiseProc.exe /command:rebuildiconcache</code></li>
             </ul>
@@ -282,7 +282,7 @@ lang: zh
                 <li>你不得不设置正确的访问权限，SAMBA 在这一点上特别难以满足。</li>
             </ol>
             <p>更好的办法是创建一个真正的服务器进程（像Apache，svnserve），存储版本库到当地的文件系统上，使版本库服务器可以在网络上有效，可以被访问。这也许会比你想的要简单。Subversion书中
-            <a title="第6章 服务器配置" href="http://www.subversion.org.cn/svnbook/1.4/svn.serverconfig.html">第6章 服务器配置</a> 有详细的方法说明。</p>
+            <a title="第6章 服务器配置" href="https://www.subversion.org.cn/svnbook/1.4/svn.serverconfig.html">第6章 服务器配置</a> 有详细的方法说明。</p>
             </div>
 
             <div class="h3" id="multiclients">
@@ -294,7 +294,7 @@ lang: zh
 
             <div class="eol" id="eol">
             <h3>TortoiseSVN能实时自动转换文本文件中的换行符吗？</h3>
-            <p>请到查看Subversion书中关于<a title="svn:eol-style" href="http://www.subversion.org.cn/svnbook/1.4/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style">svn:eol-style</a>属性的内容。
+            <p>请到查看Subversion书中关于<a title="svn:eol-style" href="https://www.subversion.org.cn/svnbook/1.4/svn.advanced.props.file-portability.html#svn.advanced.props.special.eol-style">svn:eol-style</a>属性的内容。
             比如说，如果你将此属性设置为‘native’，在 Linux 下它就会以LF作为换行符， Windows 下则是 CRLF。想了解如何通过TortoiseSVN设置这些属性，请到 <a title="setting properties" href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">这里</a> 阅读我们的文档。</p>
             </div>
 
@@ -321,7 +321,7 @@ lang: zh
 
             <div class="h3" id="sharedfiles">
             <h3>能不能像 Visual Source Safe 一样使用‘共享文件’？</h3>
-            <p>Subversion中不能共享一个文件，但可以共享一个文件夹。请查看 <a href="http://svnbook.red-bean.com/">Subversion Book</a>中<a href="http://www.subversion.org.cn/svnbook/1.4/svn.advanced.externals.html">外部定义</a>一章。
+            <p>Subversion中不能共享一个文件，但可以共享一个文件夹。请查看 <a href="https://svnbook.red-bean.com/">Subversion Book</a>中<a href="https://www.subversion.org.cn/svnbook/1.4/svn.advanced.externals.html">外部定义</a>一章。
             </p>
             </div>
 
@@ -381,7 +381,7 @@ lang: zh
             <h3>日期变成乱码了，甚至在签出/更新时会崩溃！</h3>
             <p>这通常在安装 XP SP3 后发生，按下面的步骤修正：</p>
             <ol>
-                <li>从 <a href="http://support.microsoft.com/kb/914387">http://support.microsoft.com/kb/914387</a>下载tzedit.exe</li>
+                <li>从 <a href="https://support.microsoft.com/kb/914387">https://support.microsoft.com/kb/914387</a>下载tzedit.exe</li>
                 <li>运行 tzedit.exe</li>
                 <li>从列表中选择你的时区（我收到的所有崩溃报告都是来自“耶路撒冷”时区的，大概你会选这个吧）</li>
                 <li>点击“编辑”</li>
@@ -396,7 +396,7 @@ lang: zh
 
             <div class="h3" id="keywords">
             <h3>……为我的文件添加关键字信息，比如作者、版本、日期、提交日期？</h3>
-            <p>请阅读Subversion书中关于<a href="http://www.subversion.org.cn/svnbook/1.4/svn.advanced.props.special.keywords.html">svn:keywords</a>属性的说明。</p>
+            <p>请阅读Subversion书中关于<a href="https://www.subversion.org.cn/svnbook/1.4/svn.advanced.props.special.keywords.html">svn:keywords</a>属性的说明。</p>
             <p>在TortoiseSVN中，<a href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">这样</a> 设置。</p>
             </div>
 

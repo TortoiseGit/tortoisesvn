@@ -155,7 +155,7 @@ lang: de
             <ul>
                 <li><em>&quot;This installation package is not supported by this processor type. Contact your product vendor.&quot;</em> Dies bedeutet dass die 64-bit Version von TortoiseSVN auf einem 32-bit Betriebssystem installiert wird. Für ein 32-bit Betriebssystem muss die 32-bit Version von TortoiseSVN installiert werden. Der 32-bit Installer von TortoiseSVN hat nicht ein 'x64' im Dateinamen!</li>
                 <li><em>&quot;The installer was interrupted before TortoiseSVN could be installed. You need to restart the installer to try again&quot;</em> Der Account SYSTEM hat keine Lese/Ausführrechte für den Ordner, wo der MSI Installer liegt. Entweder verschieben Sie die MSI Datei an einen anderen Ort und versuchen Sie die Installation erneut, oder fügen Sie den Account SYSTEM mit Lese- und Ausführrechten dem Ordner hinzu.</li>
-                <li><em>&quot;The Windows installer service could not be accessed&quot;</em> Dies kann vorkommen wenn Windows im abgesicherten Modus ausgeführt wird oder der Installer-Service selbst nicht korrekt installiert ist. Für diesen Fehler lesen Sie den Microsoft Knowledgebase Artikel: <a href="http://support.microsoft.com/default.aspx?scid=kb;en-us;q315346">Q315346</a>. Kurz: Der Ordner wo die MSI-Datei liegt darf nicht komprimiert oder verschlüsselt sein.</li>
+                <li><em>&quot;The Windows installer service could not be accessed&quot;</em> Dies kann vorkommen wenn Windows im abgesicherten Modus ausgeführt wird oder der Installer-Service selbst nicht korrekt installiert ist. Kurz: Der Ordner wo die MSI-Datei liegt darf nicht komprimiert oder verschlüsselt sein.</li>
                 <li><em>&quot;The system can not open the device of file specified&quot;</em>, normalerweise gefolgt von <em>&quot;The installer has encountered an unexpected error installing this package. This may indicate a problem with this package. The error code is 2755&quot;</em>. Dies kann auftreten wenn:
                 <ul>
                     <li>Die Installation hat keinen Zugriff auf das Temp-Verzeichnis oder wenn das Standard Temp-Verzeichnis des Computers nicht genug Platz hat.</li>
@@ -163,14 +163,7 @@ lang: de
                     <li>Die Installation hat keine Schreibrechte auf das Installationsverzeichnis von Windows.</li>
                     <li>Das Temp-Verzeichnis oder die MSI-Datei ist verschlüsselt/komprimiert.</li>
                 </ul>
-                    Um dises Problem zu lösen, Verschieben Sie die MSI Datei auf ein lokales Laufwerk wo der Account SYSTEM volle Rechte hat, und räumen Sie das Temp-Verzeichnis auf. Die folgenden Knowledgebase-Artikel könnten hilfreich sein:
-                <ul>
-                    <li><a href="http://support.microsoft.com/default.aspx?scid=kb;de-de;220780">220780</a> OFF2000: Setup Error 2755</li>
-                    <li><a href="http://support.microsoft.com/default.aspx?scid=kb;de-de;217714">217714</a> OFF2000: Setup scheint zu hängen, gefolgt von internen Fehlern</li>
-                    <li><a href="http://support.microsoft.com/default.aspx?scid=kb;de-de;254841">254841</a> Ein "Interner Fehler 2755" Fehlermeldung angezeigt, wenn Sie versuchen, Office 2000 von einem Remoteclient Windows Terminalserver zu installieren</li>
-                    <li><a href="http://support.microsoft.com/default.aspx?scid=kb;de-de;305640">305640</a> PRJ2000: Fehler 2381 oder interne Fehler 2755 bei Installation von Microsoft Project</li>
-                    <li><a href="http://support.microsoft.com/default.aspx?scid=kb;de-de;318080">318080</a> "Das System kann nicht das Gerät oder die angegebene Datei öffnen" Fehlermeldung tritt beim .NET Framework installieren</li>
-                </ul>
+                    Um dises Problem zu lösen, Verschieben Sie die MSI Datei auf ein lokales Laufwerk wo der Account SYSTEM volle Rechte hat, und räumen Sie das Temp-Verzeichnis auf.
                 </li>
             </ul>
             </div>
@@ -313,8 +306,7 @@ lang: de
             Windows hat einen Icon-Cache, welcher nicht sehr stabil
             ist. Dieses Problem lässt sich folgendermassen lösen:</p>
             <ul>
-                <li>Installieren Sie Microsoft's <a href="http://windows.microsoft.com/en-US/windows/xp-downloads#2TC=featured">TweakUI</a> und führen Sie die Option aus um den Icon-Cache neu zu erstellen</li>
-                <li>Oder erhöhen Sie die Grösse des Icon-Caches. Gehen Sie zu <code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> und fügen Sie einen neuen String-Wert ein mit Namen <code>Max Cached Icons</code>. Der Default-Wert ist 500 - erhöhen Sie den Wert auf 2048 (Siehe auch <a href="http://support.microsoft.com/support/kb/articles/Q132/6/68.asp">Q132668</a> für weitere Information).</li>
+                <li>Erhöhen Sie die Grösse des Icon-Caches. Gehen Sie zu <code>HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer</code> und fügen Sie einen neuen String-Wert ein mit Namen <code>Max Cached Icons</code>. Der Default-Wert ist 500 - erhöhen Sie den Wert auf 2048.</li>
                 <li>Oder löschen Sie die Datei "ShellIconCache" im Windows-Verzeichnis und starten Sie den Rechner neu.</li>
                 <li>Mit TortoiseSVN 1.3.0 oder neuer können Sie auch TortoiseProc.exe ausführen: <code>TortoiseProc.exe /command:rebuildiconcache</code></li>
             </ul>
@@ -405,7 +397,7 @@ lang: de
             Die Installation eines solchen Servers ist einfacher
             als Sie vielleicht denken. Das Subversion Buch behandelt
             dies ausführlich:
-            <a title="Chapter 6. Server Configuration" href="http://svnbook.red-bean.com/nightly/de/svn.serverconfig.html">Kapitel 6. Die Administration eines Subversion-Servers</a>.
+            <a title="Chapter 6. Server Configuration" href="https://svnbook.red-bean.com/nightly/de/svn.serverconfig.html">Kapitel 6. Die Administration eines Subversion-Servers</a>.
             Wir haben ebenfalls ein Kapitel in unserer Doku über
             dieses Thema:
             <a title="Setting up a server" href="/docs/release/TortoiseSVN_de/tsvn-serversetup.html">Zugriff auf das Projektarchiv</a>.
@@ -414,9 +406,7 @@ lang: de
             Subversion-Server ohne Konfiguration automatisch installieren
             und aufsetzen:</p>
             <ul>
-                <li><a title="CollabNet server download" href="http://www.collab.net/downloads/subversion/" rel="nofollow">CollabNet Subversion Edge</a></li>
-                <li><a title="uberSVN" href="http://www.ubersvn.com/" rel="nofollow">uberSVN</a></li>
-                <li><a title="VisualSVN" href="http://www.visualsvn.com/server/" rel="nofollow">VisualSVN</a></li>
+                <li><a title="VisualSVN" href="https://www.visualsvn.com/server/" rel="nofollow">VisualSVN</a></li>
             </ul>
             </div>
 
@@ -465,8 +455,8 @@ lang: de
             <div class="h3" id="sharedfiles">
             <h3>Ist etwas wie "Shared Files" von Visual Source Safe möglich?</h3>
             <p>Ja, das ist möglich. Lesen Sie dazu das Kapitel
-            <a href="http://svnbook.red-bean.com/nightly/de/svn.advanced.externals.html">External Definitions</a>
-            im <a href="http://svnbook.red-bean.com/index.de.html">Subversion Buch</a>.
+            <a href="https://svnbook.red-bean.com/nightly/de/svn.advanced.externals.html">External Definitions</a>
+            im <a href="https://svnbook.red-bean.com/index.de.html">Subversion Buch</a>.
             </p>
             </div>
 
@@ -655,7 +645,7 @@ lang: de
             <div class="h3" id="keywords">
             <h3>... Informationen wie Autor, Revision und Commit-Daten in Dateien einfügen?</h3>
             <p>Read about the Subversion property
-            <a href="http://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.keywords.html">svn:keywords</a>
+            <a href="https://svnbook.red-bean.com/en/1.4/svn.advanced.props.special.keywords.html">svn:keywords</a>
             in the Subversion book.</p>
             <p>With TortoiseSVN, set the properties as described
             <a href="/docs/release/TortoiseSVN_en/tsvn-dug-propertypage.html#tsvn-dug-propertypage-props">here</a>.</p>
