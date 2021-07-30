@@ -1012,7 +1012,7 @@ bool CMainFrame::LoadViews(int line)
         if (n >= 0)
         {
             n = m_pwndRightView->m_pViewData->FindLineNumber(n);
-            if (m_bCollapsed)
+            if (m_bCollapsed && line >= 0)
             {
                 // adjust the goto-line position if we're collapsed
                 int step = m_pwndRightView->m_nTopLine > n ? -1 : 1;

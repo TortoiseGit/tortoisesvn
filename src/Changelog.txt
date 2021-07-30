@@ -5,6 +5,9 @@
 - BUG: When line-wrapping is on in TMerge and
        the window is resized, the current line
        was not kept in the view. (Stefan)
+- BUG: reload in TMerge with collapsed lines
+       moved the view, the top line was not
+       kept in place. (Stefan)
 
 Version 1.14.1
 - BUG: TortoiseMerge crashed if configured to
