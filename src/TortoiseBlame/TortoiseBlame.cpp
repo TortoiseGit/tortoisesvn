@@ -853,6 +853,8 @@ bool TortoiseBlame::DoSearch(LPWSTR what, DWORD flags)
     int     i            = 0;
     int     lineBufSize  = 4096;
     auto    lineBuf      = std::make_unique<char[]>(lineBufSize + 1);
+    if (line == m_revs.size())
+        --line;
     for (i = line; (bSearchDown ? (i < static_cast<int>(m_authors.size())) : (i >= 0)) && (!bFound); bSearchDown ? ++i : --i)
     {
         const int bufsize = static_cast<int>(SendEditor(SCI_GETLINE, i));

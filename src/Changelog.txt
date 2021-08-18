@@ -8,6 +8,8 @@
 - BUG: reload in TMerge with collapsed lines
        moved the view, the top line was not
        kept in place. (Stefan)
+- BUG: TortoiseBlame crashed when searching
+       upwards from the last line. (Stefan)
 
 Version 1.14.1
 - BUG: TortoiseMerge crashed if configured to
