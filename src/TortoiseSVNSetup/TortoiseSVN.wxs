@@ -67,6 +67,8 @@
         <CustomAction Id="ShowDonatePage" BinaryKey="CustomActionsDLL" DllEntry="OpenDonatePage" />
         <CustomAction Id="KillCache" BinaryKey="CustomActionsDLL" DllEntry="TerminateCache" />
         <Binary Id="CustomActionsDLL" SourceFile="..\..\bin\$(var.ReleasePath)\bin\CustomActions.dll" />
+        <CustomAction Id="RegisterSparsePackage" BinaryKey="CustomActionsDLL" DllEntry="RegisterSparsePackage"/>
+        <CustomAction Id="UnregisterSparsePackage" BinaryKey="CustomActionsDLL" DllEntry="UnregisterSparsePackage"/>
 
         <!-- Unsafe-check properties and custom actions .......................................................................... -->
         <Property Id="VSDUIANDADVERTISED" Secure="yes">This advertised application will not be installed because it might be unsafe. Contact your administrator to change the installation user interface option of the package to basic.</Property>
@@ -89,6 +91,20 @@
             <RegistrySearch Key="SOFTWARE\[Manufacturer]" Root="HKLM" Type="raw" Id="LANGUAGEFOLDER_REGSEARCH" Name="LanguageFolderPath" Win64="$(var.Win64YesNo)"/>
         </Property>
 
+        <!-- msiexec does not have a manifest, so it always reports the version of system dlls as
+         for Win7 (6.3.x.x). So we check for 6.3 but use the build number to actually check
+         for Win11 -->
+        <Property Id="WIN11FOUND" Secure="yes">
+            <DirectorySearch Id="searchSystem" Path="[System64Folder]" AssignToProperty="yes">
+                <FileSearch Id="searchFile" Name="shell32.dll" MinVersion="6.3.21999.0"/>
+            </DirectorySearch>
+        </Property>
+
+        <!-- properties for the custom actions to (un)register the sparse package -->
+        <Property Id="SPARSEPACKAGEFILE" Value="package.msix"  Secure="yes"/>
+        <Property Id="SPARSEPACKAGENAME" Value="3A48D7FC-AEE2-4CBC-91D1-0007951B8006"  Secure="yes"/>
+
+
         <!-- Specify the REINSTALLMODE property to allow proper installation of downgraded components. -->
         <Property Id="REINSTALLMODE" Value="dmus" />
 
@@ -106,6 +122,10 @@
             <LaunchConditions After="AppSearch" />
             <Custom Action="DefaultTargetDir" After="LaunchConditions">INSTALLDIR=""</Custom>
             <Custom Action="KillCache" After="ValidateProductID">Installed OR REMOVE</Custom>
+            <?if $(env.HasSparse) = "yes" ?>
+              <Custom Action="RegisterSparsePackage" After="InstallFinalize">NOT (REMOVE~="ALL") AND (NOT WIN11FOUND="")</Custom>
+              <Custom Action="UnregisterSparsePackage" Before="RemoveFiles">(REMOVE~="ALL") AND (NOT WIN11FOUND="")</Custom>
+            <?endif ?>
         </InstallExecuteSequence>
 
         <!-- UI Sequencing ...................................................................................................... -->

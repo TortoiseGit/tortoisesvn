@@ -141,6 +141,9 @@
               <File Id="F__TortoiseStub" Name="TortoiseStub.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseStub.dll" />
               <File Id="F__TortoiseShell32" Name="TortoiseSVN32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\TortoiseSVN32_static.dll" />
               <File Id="F__libsvn" Name="libsvn_tsvn.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\libsvn_tsvn.dll" />
+              <?if $(env.HasSparse) = "yes" ?>
+              <File Id="F__packagemsix" Name="package.msix" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\package.msix" />
+              <?endif ?>
               <?endif ?>
               <File Id="F__TortoisePlink" Name="TortoisePlink.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoisePlink.exe" />
               <File Id="F__TSVNCache" Name="TSVNCache.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TSVNCache.exe" />
