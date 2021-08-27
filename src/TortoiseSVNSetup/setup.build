@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <project name="Setup" default="setup" basedir=".">
 
   <target name="versioninfo">
@@ -22,6 +22,21 @@
     <property name="svnverstring" value="${environment::get-variable('SVNMajorVersion')}.${environment::get-variable('SVNMinorVersion')}.${environment::get-variable('SVNMicroVersion')}" />
     <property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-${platform}-svn-${svnverstring}" if="${ipv6 == ''}" />
     <property name="msifilename" value="TortoiseSVN-${verstring}${devrelease}-${platform}-ipv6-svn-${svnverstring}" if="${ipv6 == 'enabled'}" />
+    <property name="publisher" value="Publisher" />
+    <if test="${file::exists('..\..\signpublisher.txt')}">
+      <!-- the file "signpublisher.txt" in the root dir must contain the publisher string of the certificate
+           that's used to sign the binaries. Also the string must be xml escaped. -->
+      <loadfile file="..\..\signpublisher.txt" property="publisher" encoding="utf-8"/>
+    </if>
+    <loadfile file="AppXManifest.xml.in" property="appxmanifest64" encoding="utf-8">
+      <filterchain>
+        <replacetokens begintoken="$" endtoken="$">
+          <token key="Publisher" value="${publisher}" />
+            <token key="Version" value="${verstring}" />
+          </replacetokens>
+      </filterchain>
+    </loadfile>
+    <echo file="x64\AppxManifest.xml" message="${appxmanifest64}" encoding="utf-8"/>
   </target>
 
   <target name="setup" depends="versioninfo">
@@ -68,6 +83,33 @@
       <setenv>
         <variable name="MergeModules" value="${mergemodulepath}" />
       </setenv>
+      <setenv>
+        <variable name="HasSparse" value="no" />
+      </setenv>
+
+      <exec program="MakeAppX.exe" if="${platform == 'x64' and configuration == 'release' and file::exists('..\..\signpublisher.txt')}">
+        <arg value="pack" />
+        <arg value="/o" />
+        <arg value="/d" />
+        <arg value="x64" />
+        <arg value="-p" />
+        <arg value="..\..\bin\release64\bin\package.msix" />
+        <arg value="/nv" />
+      </exec>
+      <if test="${file::exists('..\..\signinfo.txt') and file::exists('..\..\signpublisher.txt') and platform == 'x64' and configuration == 'release'}">
+        <exec program="${signtool}">
+          <arg value="sign" />
+          <arg value="${signinfo}" />
+          <arg value="..\..\bin\release64\bin\package.msix" />
+        </exec>
+        <setenv>
+          <!-- set the env variable so Wix includes the custom actions to register the package.
+               we don't want the custom actions to fail if the package is not signed properly'
+          -->
+          <variable name="HasSparse" value="yes" />
+        </setenv>
+      </if>
+      <echo message="TortoiseSVN will be built without support for the Windows 11 context menu" level="Warning" if="${not file::exists('..\..\signinfo.txt') or not file::exists('..\..\signpublisher.txt')}"/>
 
       <!-- sign all binaries -->
       <if test="${file::exists('..\..\signinfo.txt')}">

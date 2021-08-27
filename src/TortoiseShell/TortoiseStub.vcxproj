@@ -144,6 +144,7 @@
     <Manifest Include="..\compatibility.manifest">
       <SubType>Designer</SubType>
     </Manifest>
+    <Manifest Include="..\identity.manifest" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

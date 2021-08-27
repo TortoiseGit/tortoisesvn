@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <project name="TortoiseSVN" default="all">
 
   <property name="solutionname" value="TortoiseSVN.sln" />
@@ -57,6 +57,20 @@
   </target>
 
   <target name="TortoiseSVN" depends="clean,versioninfo">
+    <property name="publisher" value="TortoiseSVN" />
+    <if test="${file::exists('..\signpublisher.txt')}">
+        <!-- the file "signpublisher.txt" in the root dir must contain the publisher string of the certificate
+           that's used to sign the binaries. Also the string must be xml escaped. -->
+        <loadfile file="..\signpublisher.txt" property="publisher" encoding="utf-8"/>
+    </if>
+    <loadfile file="identity.manifest.in" property="identitymanifest64" encoding="utf-8">
+        <filterchain>
+            <replacetokens begintoken="$" endtoken="$">
+                <token key="Publisher" value="${publisher}" />
+            </replacetokens>
+        </filterchain>
+    </loadfile>
+    <echo file="identity.manifest" message="${identitymanifest64}" encoding="utf-8"/>
     <echo message="building the static shell extension dll" if="${configuration == 'release' and platform == 'win32'}" />
     <exec program="msbuild.exe" if="${configuration == 'release' and platform == 'win32'}">
       <arg value="TortoiseShell\TortoiseShell.vcxproj" />
