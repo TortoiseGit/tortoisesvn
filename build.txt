@@ -69,6 +69,32 @@ Now you're almost ready. Only a few more steps to do:
   You will need them only if you are building the respective language packs.
 - run 'nant init' to fetch and unzip the required tools. Note: you need to call vcvars32.bat first.
 
+\section digitally signing the binaries and installers
+
+The build scripts will automatically sign all necessary files digitally using a specified
+certificate. A digitally signed installer for example won't trigger a warning when the user
+tries to install it.
+
+To set up the signing process, you have to create a text file named "signinfo.txt" in the root directory.
+That file must contain the command line arguments that you would pass to the signtool.exe command if
+you would sign the files manually. So for example, the file content of signinfo.txt could look like this:
+\verbatim
+/I "Code Signing CA SHA2" /fd SHA256 /a /t "http://time.certificate.com/" /d "TortoiseSVN" /du "https://tortoisesvn.net" /q
+\endverbatim
+make sure you pass "/fd SHA256"!
+You can omit the timestamp server (the /t param) if you don't need it.
+
+For Windows 11 TortoiseSVN also uses a sparse package to get a Windows identity. To get that, another file
+named "signpublisher.txt" must be created. This file must contain the publisher string of your signing certificate.
+The one currently used to sign the official TortoiseSVN binaries is
+\verbatim
+E=tortoisesvn@gmail.com, CN=&quot;Open Source Developer, Stefan KUENG&quot;, O=Open Source Developer, L=Altstätten, C=CH
+\endverbatim
+so the signpublisher.txt file contains exactly that string. Note the "&quot;" in the string: the string must be escaped to be used in an xml file.
+
+If you've created these two files with your certificate info, then the build scripts will do the rest and
+sign all necessary files.
+
 
 \section build32 Building 32 bit packages
 
