@@ -288,7 +288,7 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                     UINT len = DragQueryFile(drop, i, nullptr, 0);
                     if (len == 0)
                         continue;
-                    auto szFileName = std::make_unique<wchar_t[]>(len + 1);
+                    auto szFileName = std::make_unique<wchar_t[]>(len + 1LL);
                     if (0 == DragQueryFile(drop, i, szFileName.get(), len + 1))
                     {
                         continue;
@@ -810,7 +810,7 @@ void CShellExt::InsertSVNMenu(BOOL isTop, HMENU menu, UINT pos, UINT_PTR id, UIN
         mySubMenuMap[pos] = com;
 }
 
-bool CShellExt::WriteClipboardPathsToTempFile(std::wstring& tempFile) const
+bool CShellExt::WriteClipboardPathsToTempFile(std::wstring& tempFile)
 {
     tempFile = std::wstring();
     //write all selected files and paths to a temporary file
@@ -867,7 +867,7 @@ bool CShellExt::WriteClipboardPathsToTempFile(std::wstring& tempFile) const
     return bRet;
 }
 
-std::wstring CShellExt::WriteFileListToTempFile()
+std::wstring CShellExt::WriteFileListToTempFile(const std::vector<std::wstring>& files, const std::wstring folder)
 {
     //write all selected files and paths to a temporary file
     //for TortoiseProc.exe to read out again.
@@ -890,13 +890,13 @@ std::wstring CShellExt::WriteFileListToTempFile()
         return std::wstring();
 
     DWORD written = 0;
-    if (m_files.empty())
+    if (files.empty())
     {
-        ::WriteFile(file, m_folder.c_str(), static_cast<DWORD>(m_folder.size()) * sizeof(wchar_t), &written, nullptr);
+        ::WriteFile(file, folder.c_str(), static_cast<DWORD>(folder.size()) * sizeof(wchar_t), &written, nullptr);
         ::WriteFile(file, L"\n", 2, &written, nullptr);
     }
 
-    for (auto I = m_files.begin(); I != m_files.end(); ++I)
+    for (auto I = files.begin(); I != files.end(); ++I)
     {
         ::WriteFile(file, I->c_str(), static_cast<DWORD>(I->size()) * sizeof(wchar_t), &written, nullptr);
         ::WriteFile(file, L"\n", 2, &written, nullptr);
@@ -1271,20 +1271,20 @@ void CShellExt::TweakMenu(HMENU hMenu)
     SetMenuInfo(hMenu, &mInfo);
 }
 
-void CShellExt::AddPathCommand(std::wstring& svnCmd, LPCWSTR command, bool bFilesAllowed)
+void CShellExt::AddPathCommand(std::wstring& svnCmd, LPCWSTR command, bool bFilesAllowed, const std::vector<std::wstring>& files, const std::wstring folder)
 {
     svnCmd += command;
     svnCmd += L" /path:\"";
-    if ((bFilesAllowed) && !m_files.empty())
-        svnCmd += m_files.front();
+    if ((bFilesAllowed) && !files.empty())
+        svnCmd += files.front();
     else
-        svnCmd += m_folder;
+        svnCmd += folder;
     svnCmd += L"\"";
 }
 
-void CShellExt::AddPathFileCommand(std::wstring& svnCmd, LPCWSTR command)
+void CShellExt::AddPathFileCommand(std::wstring& svnCmd, LPCWSTR command, const std::vector<std::wstring>& files, const std::wstring folder)
 {
-    std::wstring tempFile = WriteFileListToTempFile();
+    std::wstring tempFile = WriteFileListToTempFile(files, folder);
     svnCmd += command;
     svnCmd += L" /pathfile:\"";
     svnCmd += tempFile;
@@ -1292,16 +1292,16 @@ void CShellExt::AddPathFileCommand(std::wstring& svnCmd, LPCWSTR command)
     svnCmd += L" /deletepathfile";
 }
 
-void CShellExt::AddPathFileDropCommand(std::wstring& svnCmd, LPCWSTR command)
+void CShellExt::AddPathFileDropCommand(std::wstring& svnCmd, LPCWSTR command, const std::vector<std::wstring>& files, const std::wstring folder)
 {
-    std::wstring tempFile = WriteFileListToTempFile();
+    std::wstring tempFile = WriteFileListToTempFile(files, folder);
     svnCmd += command;
     svnCmd += L" /pathfile:\"";
     svnCmd += tempFile;
     svnCmd += L"\"";
     svnCmd += L" /deletepathfile";
     svnCmd += L" /droptarget:\"";
-    svnCmd += m_folder;
+    svnCmd += folder;
     svnCmd += L"\"";
 }
 
@@ -1351,409 +1351,350 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
             }
         }
 
-        //TortoiseProc expects a command line of the form:
-        //"/command:<commandname> /pathfile:<path> /startrev:<startrevision> /endrev:<endrevision> /deletepathfile
-        // or
-        //"/command:<commandname> /path:<path> /startrev:<startrevision> /endrev:<endrevision>
-        //
-        //* path is a path to a single file/directory for commands which only act on single items (log, checkout, ...)
-        //* pathfile is a path to a temporary file which contains a list of file paths
-        std::wstring svnCmd = L" /command:";
-        switch (idIt->second)
-        {
-            case ShellMenuUpgradeWC:
-                AddPathFileCommand(svnCmd, L"wcupgrade");
-                break;
-            case ShellMenuCheckout:
-                AddPathCommand(svnCmd, L"checkout", false);
-                break;
-            case ShellMenuUpdate:
-                AddPathFileCommand(svnCmd, L"update");
-                break;
-            case ShellMenuUpdateExt:
-                AddPathFileCommand(svnCmd, L"update");
-                svnCmd += L" /rev";
-                break;
-            case ShellMenuCommit:
-                AddPathFileCommand(svnCmd, L"commit");
-                break;
-            case ShellMenuAdd:
-            case ShellMenuAddAsReplacement:
-                AddPathFileCommand(svnCmd, L"add");
-                break;
-            case ShellMenuIgnore:
-                AddPathFileCommand(svnCmd, L"ignore");
-                break;
-            case ShellMenuIgnoreGlobal:
-                AddPathFileCommand(svnCmd, L"ignore");
-                svnCmd += L" /recursive";
-                break;
-            case ShellMenuIgnoreCaseSensitive:
-                AddPathFileCommand(svnCmd, L"ignore");
-                svnCmd += L" /onlymask";
-                break;
-            case ShellMenuIgnoreCaseSensitiveGlobal:
-                AddPathFileCommand(svnCmd, L"ignore");
-                svnCmd += L" /onlymask /recursive";
-                break;
-            case ShellMenuDeleteIgnore:
-                AddPathFileCommand(svnCmd, L"ignore");
-                svnCmd += L" /delete";
-                break;
-            case ShellMenuDeleteIgnoreGlobal:
-                AddPathFileCommand(svnCmd, L"ignore");
-                svnCmd += L" /delete /recursive";
-                break;
-            case ShellMenuDeleteIgnoreCaseSensitive:
-                AddPathFileCommand(svnCmd, L"ignore");
-                svnCmd += L" /delete";
-                svnCmd += L" /onlymask";
-                break;
-            case ShellMenuDeleteIgnoreCaseSensitiveGlobal:
-                AddPathFileCommand(svnCmd, L"ignore");
-                svnCmd += L" /delete";
-                svnCmd += L" /onlymask";
-                svnCmd += L" /recursive";
-                break;
-            case ShellMenuUnIgnore:
-                AddPathFileCommand(svnCmd, L"unignore");
-                break;
-            case ShellMenuUnIgnoreGlobal:
-                AddPathFileCommand(svnCmd, L"unignore");
-                svnCmd += L" /recursive";
-                break;
-            case ShellMenuUnIgnoreCaseSensitive:
-                AddPathFileCommand(svnCmd, L"unignore");
-                svnCmd += L" /onlymask";
-                break;
-            case ShellMenuUnIgnoreCaseSensitiveGlobal:
-                AddPathFileCommand(svnCmd, L"unignore");
-                svnCmd += L" /onlymask /recursive";
-                break;
-            case ShellMenuRevert:
-                AddPathFileCommand(svnCmd, L"revert");
-                break;
-            case ShellMenuDelUnversioned:
-                AddPathFileCommand(svnCmd, L"delunversioned");
-                break;
-            case ShellMenuCleanup:
-                AddPathFileCommand(svnCmd, L"cleanup");
-                break;
-            case ShellMenuResolve:
-                AddPathFileCommand(svnCmd, L"resolve");
-                break;
-            case ShellMenuSwitch:
-                AddPathCommand(svnCmd, L"switch", true);
-                break;
-            case ShellMenuImport:
-                AddPathCommand(svnCmd, L"import", false);
-                break;
-            case ShellMenuExport:
-                AddPathCommand(svnCmd, L"export", false);
-                break;
-            case ShellMenuAbout:
-                svnCmd += L"about";
-                break;
-            case ShellMenuCreateRepos:
-                AddPathCommand(svnCmd, L"repocreate", false);
-                break;
-            case ShellMenuMerge:
-                AddPathCommand(svnCmd, L"merge", true);
-                break;
-            case ShellMenuMergeAll:
-                AddPathCommand(svnCmd, L"mergeall", true);
-                break;
-            case ShellMenuCopy:
-                AddPathCommand(svnCmd, L"copy", true);
-                break;
-            case ShellMenuSettings:
-                svnCmd += L"settings";
-                break;
-            case ShellMenuHelp:
-                svnCmd += L"help";
-                break;
-            case ShellMenuRename:
-                AddPathCommand(svnCmd, L"rename", true);
-                break;
-            case ShellMenuRemove:
-                AddPathFileCommand(svnCmd, L"remove");
-                break;
-            case ShellMenuRemoveKeep:
-                AddPathFileCommand(svnCmd, L"remove");
-                svnCmd += L" /keep";
-                break;
-            case ShellMenuDiff:
-                svnCmd += L"diff /path:\"";
-                if (m_files.size() == 1)
-                    svnCmd += m_files.front();
-                else if (m_files.size() == 2)
-                {
-                    std::vector<std::wstring>::iterator I = m_files.begin();
-                    svnCmd += *I;
-                    ++I;
-                    svnCmd += L"\" /path2:\"";
-                    svnCmd += *I;
-                }
-                else
-                    svnCmd += m_folder;
-                svnCmd += L"\"";
-                if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
-                    svnCmd += L" /alternative";
-                break;
-            case ShellMenuDiffLater:
-                svnCmd.clear();
-                if (lpcmi->fMask & CMIC_MASK_CONTROL_DOWN)
-                {
-                    regDiffLater.removeValue();
-                }
-                else if (m_files.size() == 1)
-                {
-                    regDiffLater = m_files[0];
-                }
-                break;
-            case ShellMenuDiffNow:
-                AddPathCommand(svnCmd, L"diff", true);
-                svnCmd += L"\" /path2:\"";
-                svnCmd += std::wstring(regDiffLater);
-                svnCmd += L"\"";
-                if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
-                    svnCmd += L" /alternative";
-                break;
-            case ShellMenuPrevDiff:
-                AddPathCommand(svnCmd, L"prevdiff", true);
-                if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
-                    svnCmd += L" /alternative";
-                break;
-            case ShellMenuUrlDiff:
-                AddPathCommand(svnCmd, L"urldiff", true);
-                break;
-            case ShellMenuUnifiedDiff:
-                AddPathCommand(svnCmd, L"diff", true);
-                svnCmd += L" /unified";
-                break;
-            case ShellMenuDropCopyAdd:
-                AddPathFileDropCommand(svnCmd, L"dropcopyadd");
-                break;
-            case ShellMenuDropCopy:
-                AddPathFileDropCommand(svnCmd, L"dropcopy");
-                break;
-            case ShellMenuDropCopyRename:
-                AddPathFileDropCommand(svnCmd, L"dropcopy");
-                svnCmd += L" /rename";
-                break;
-            case ShellMenuDropMove:
-                AddPathFileDropCommand(svnCmd, L"dropmove");
-                break;
-            case ShellMenuDropMoveRename:
-                AddPathFileDropCommand(svnCmd, L"dropmove");
-                svnCmd += L" /rename";
-                break;
-            case ShellMenuDropExport:
-                AddPathFileDropCommand(svnCmd, L"dropexport");
-                break;
-            case ShellMenuDropExportExtended:
-                AddPathFileDropCommand(svnCmd, L"dropexport");
-                svnCmd += L" /extended:unversioned";
-                break;
-            case ShellMenuDropExportChanged:
-                AddPathFileDropCommand(svnCmd, L"dropexport");
-                svnCmd += L" /extended:localchanges";
-                break;
-            case ShellMenuDropExternals:
-                AddPathFileDropCommand(svnCmd, L"dropexternals");
-                break;
-            case ShellMenuDropVendor:
-                AddPathFileDropCommand(svnCmd, L"dropvendor");
-                break;
-            case ShellMenuLog:
-                AddPathCommand(svnCmd, L"log", true);
-                break;
-            case ShellMenuConflictEditor:
-                AddPathCommand(svnCmd, L"conflicteditor", true);
-                break;
-            case ShellMenuRelocate:
-                AddPathCommand(svnCmd, L"relocate", false);
-                break;
-            case ShellMenuShowChanged:
-                if (m_files.size() > 1)
-                {
-                    AddPathFileCommand(svnCmd, L"repostatus");
-                }
-                else
-                {
-                    AddPathCommand(svnCmd, L"repostatus", true);
-                }
-                break;
-            case ShellMenuRepoBrowse:
-                AddPathCommand(svnCmd, L"repobrowser", true);
-                break;
-            case ShellMenuBlame:
-                AddPathCommand(svnCmd, L"blame", true);
-                break;
-            case ShellMenuCopyUrl:
-                AddPathFileCommand(svnCmd, L"copyurls");
-                break;
-            case ShellMenuShelve:
-                AddPathFileCommand(svnCmd, L"shelve");
-                break;
-            case ShellMenuUnshelve:
-                AddPathFileCommand(svnCmd, L"unshelve");
-                break;
-            case ShellMenuCreatePatch:
-                AddPathFileCommand(svnCmd, L"createpatch");
-                break;
-            case ShellMenuApplyPatch:
-                if ((itemStates & ITEMIS_PATCHINCLIPBOARD) && ((~itemStates) & ITEMIS_PATCHFILE))
-                {
-                    // if there's a patch file in the clipboard, we save it
-                    // to a temporary file and tell TortoiseMerge to use that one
-                    UINT cFormat = RegisterClipboardFormat(L"TSVN_UNIFIEDDIFF");
-                    if ((cFormat) && (OpenClipboard(nullptr)))
-                    {
-                        HGLOBAL hGlb  = GetClipboardData(cFormat);
-                        LPCSTR  lpStr = static_cast<LPCSTR>(GlobalLock(hGlb));
+        InvokeCommand(static_cast<SVNCommands>(idIt->second),
+                      cwdFolder,
+                      GetAppDirectory(),
+                      uuidSource,
+                      lpcmi->hwnd,
+                      itemStates,
+                      itemStatesFolder,
+                      m_files,
+                      m_folder,
+                      regDiffLater);
+        myIDMap.clear();
+        myVerbsIDMap.clear();
+        myVerbsMap.clear();
 
-                        DWORD len   = GetTempPath(0, nullptr);
-                        auto  path  = std::make_unique<wchar_t[]>(len + 1LL);
-                        auto  tempF = std::make_unique<wchar_t[]>(len + 100LL);
-                        GetTempPath(len + 1, path.get());
-                        GetTempFileName(path.get(), L"svn", 0, tempF.get());
-                        std::wstring sTempFile = std::wstring(tempF.get());
+        return S_OK;
+    }
+    return hr;
+}
 
-                        FILE*  outFile;
-                        size_t patchLen = strlen(lpStr);
-                        _tfopen_s(&outFile, sTempFile.c_str(), L"wb");
-                        if (outFile)
-                        {
-                            size_t size = fwrite(lpStr, sizeof(char), patchLen, outFile);
-                            if (size == patchLen)
-                            {
-                                itemStates |= ITEMIS_PATCHFILE;
-                                if ((m_folder.empty()) && (!m_files.empty()))
-                                {
-                                    m_folder = m_files[0];
-                                }
-                                itemStatesFolder |= ITEMIS_FOLDERINSVN;
-                                m_files.clear();
-                                m_files.push_back(sTempFile);
-                            }
-                            fclose(outFile);
-                        }
-                        GlobalUnlock(hGlb);
-                        CloseClipboard();
-                    }
-                }
-                if (itemStates & ITEMIS_PATCHFILE)
-                {
-                    svnCmd = L" /diff:\"";
-                    if (!m_files.empty())
-                    {
-                        svnCmd += m_files.front();
-                        if (itemStatesFolder & ITEMIS_FOLDERINSVN)
-                        {
-                            svnCmd += L"\" /patchpath:\"";
-                            svnCmd += m_folder;
-                        }
-                    }
-                    else
-                        svnCmd += m_folder;
-                    if (itemStates & ITEMIS_INVERSIONEDFOLDER)
-                        svnCmd += L"\" /wc";
-                    else
-                        svnCmd += L"\"";
-                }
-                else
-                {
-                    svnCmd = L" /patchpath:\"";
-                    if (!m_files.empty())
-                        svnCmd += m_files.front();
-                    else
-                        svnCmd += m_folder;
-                    svnCmd += L"\"";
-                }
-                if (!uuidSource.empty())
-                {
-                    CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
-                    switch (static_cast<DWORD>(groupSetting))
-                    {
-                        case 1:
-                        case 2:
-                        {
-                            svnCmd += L" /groupuuid:";
-                            svnCmd += uuidSource;
-                        }
-                        break;
-                    }
-                }
-                myIDMap.clear();
-                myVerbsIDMap.clear();
-                myVerbsMap.clear();
-                RunCommand(tortoiseMergePath, svnCmd, cwdFolder, L"TortoiseMerge launch failed");
-                return S_OK;
-            case ShellMenuRevisionGraph:
-                AddPathCommand(svnCmd, L"revisiongraph", true);
-                break;
-            case ShellMenuLock:
-                AddPathFileCommand(svnCmd, L"lock");
-                break;
-            case ShellMenuUnlock:
-                AddPathFileCommand(svnCmd, L"unlock");
-                break;
-            case ShellMenuUnlockForce:
-                AddPathFileCommand(svnCmd, L"unlock");
-                svnCmd += L" /force";
-                break;
-            case ShellMenuProperties:
-                AddPathFileCommand(svnCmd, L"properties");
-                break;
-            case ShellMenuClipPaste:
+void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstring& appDir, const std::wstring uuidSource, HWND hParent, DWORD itemStates, DWORD itemStatesFolder, const std::vector<std::wstring>& paths, const std::wstring& folder, CRegStdString& regDiffLater)
+{
+    //TortoiseProc expects a command line of the form:
+    //"/command:<commandname> /pathfile:<path> /startrev:<startrevision> /endrev:<endrevision> /deletepathfile
+    // or
+    //"/command:<commandname> /path:<path> /startrev:<startrevision> /endrev:<endrevision>
+    //
+    //* path is a path to a single file/directory for commands which only act on single items (log, checkout, ...)
+    //* pathfile is a path to a temporary file which contains a list of file paths
+    std::wstring svnCmd = L" /command:";
+    switch (cmd)
+    {
+        case ShellMenuUpgradeWC:
+            AddPathFileCommand(svnCmd, L"wcupgrade", paths, folder);
+            break;
+        case ShellMenuCheckout:
+            AddPathCommand(svnCmd, L"checkout", false, paths, folder);
+            break;
+        case ShellMenuUpdate:
+            AddPathFileCommand(svnCmd, L"update", paths, folder);
+            break;
+        case ShellMenuUpdateExt:
+            AddPathFileCommand(svnCmd, L"update", paths, folder);
+            svnCmd += L" /rev";
+            break;
+        case ShellMenuCommit:
+            AddPathFileCommand(svnCmd, L"commit", paths, folder);
+            break;
+        case ShellMenuAdd:
+        case ShellMenuAddAsReplacement:
+            AddPathFileCommand(svnCmd, L"add", paths, folder);
+            break;
+        case ShellMenuIgnore:
+            AddPathFileCommand(svnCmd, L"ignore", paths, folder);
+            break;
+        case ShellMenuIgnoreGlobal:
+            AddPathFileCommand(svnCmd, L"ignore", paths, folder);
+            svnCmd += L" /recursive";
+            break;
+        case ShellMenuIgnoreCaseSensitive:
+            AddPathFileCommand(svnCmd, L"ignore", paths, folder);
+            svnCmd += L" /onlymask";
+            break;
+        case ShellMenuIgnoreCaseSensitiveGlobal:
+            AddPathFileCommand(svnCmd, L"ignore", paths, folder);
+            svnCmd += L" /onlymask /recursive";
+            break;
+        case ShellMenuDeleteIgnore:
+            AddPathFileCommand(svnCmd, L"ignore", paths, folder);
+            svnCmd += L" /delete";
+            break;
+        case ShellMenuDeleteIgnoreGlobal:
+            AddPathFileCommand(svnCmd, L"ignore", paths, folder);
+            svnCmd += L" /delete /recursive";
+            break;
+        case ShellMenuDeleteIgnoreCaseSensitive:
+            AddPathFileCommand(svnCmd, L"ignore", paths, folder);
+            svnCmd += L" /delete";
+            svnCmd += L" /onlymask";
+            break;
+        case ShellMenuDeleteIgnoreCaseSensitiveGlobal:
+            AddPathFileCommand(svnCmd, L"ignore", paths, folder);
+            svnCmd += L" /delete";
+            svnCmd += L" /onlymask";
+            svnCmd += L" /recursive";
+            break;
+        case ShellMenuUnIgnore:
+            AddPathFileCommand(svnCmd, L"unignore", paths, folder);
+            break;
+        case ShellMenuUnIgnoreGlobal:
+            AddPathFileCommand(svnCmd, L"unignore", paths, folder);
+            svnCmd += L" /recursive";
+            break;
+        case ShellMenuUnIgnoreCaseSensitive:
+            AddPathFileCommand(svnCmd, L"unignore", paths, folder);
+            svnCmd += L" /onlymask";
+            break;
+        case ShellMenuUnIgnoreCaseSensitiveGlobal:
+            AddPathFileCommand(svnCmd, L"unignore", paths, folder);
+            svnCmd += L" /onlymask /recursive";
+            break;
+        case ShellMenuRevert:
+            AddPathFileCommand(svnCmd, L"revert", paths, folder);
+            break;
+        case ShellMenuDelUnversioned:
+            AddPathFileCommand(svnCmd, L"delunversioned", paths, folder);
+            break;
+        case ShellMenuCleanup:
+            AddPathFileCommand(svnCmd, L"cleanup", paths, folder);
+            break;
+        case ShellMenuResolve:
+            AddPathFileCommand(svnCmd, L"resolve", paths, folder);
+            break;
+        case ShellMenuSwitch:
+            AddPathCommand(svnCmd, L"switch", true, paths, folder);
+            break;
+        case ShellMenuImport:
+            AddPathCommand(svnCmd, L"import", false, paths, folder);
+            break;
+        case ShellMenuExport:
+            AddPathCommand(svnCmd, L"export", false, paths, folder);
+            break;
+        case ShellMenuAbout:
+            svnCmd += L"about";
+            break;
+        case ShellMenuCreateRepos:
+            AddPathCommand(svnCmd, L"repocreate", false, paths, folder);
+            break;
+        case ShellMenuMerge:
+            AddPathCommand(svnCmd, L"merge", true, paths, folder);
+            break;
+        case ShellMenuMergeAll:
+            AddPathCommand(svnCmd, L"mergeall", true, paths, folder);
+            break;
+        case ShellMenuCopy:
+            AddPathCommand(svnCmd, L"copy", true, paths, folder);
+            break;
+        case ShellMenuSettings:
+            svnCmd += L"settings";
+            break;
+        case ShellMenuHelp:
+            svnCmd += L"help";
+            break;
+        case ShellMenuRename:
+            AddPathCommand(svnCmd, L"rename", true, paths, folder);
+            break;
+        case ShellMenuRemove:
+            AddPathFileCommand(svnCmd, L"remove", paths, folder);
+            break;
+        case ShellMenuRemoveKeep:
+            AddPathFileCommand(svnCmd, L"remove", paths, folder);
+            svnCmd += L" /keep";
+            break;
+        case ShellMenuDiff:
+            svnCmd += L"diff /path:\"";
+            if (paths.size() == 1)
+                svnCmd += paths.front();
+            else if (paths.size() == 2)
             {
-                std::wstring tempFile;
-                if (WriteClipboardPathsToTempFile(tempFile))
-                {
-                    bool bCopy           = true;
-                    UINT cPrefDropFormat = RegisterClipboardFormat(L"Preferred DropEffect");
-                    if (cPrefDropFormat)
-                    {
-                        if (OpenClipboard(lpcmi->hwnd))
-                        {
-                            HGLOBAL hGlb = GetClipboardData(cPrefDropFormat);
-                            if (hGlb)
-                            {
-                                DWORD* effect = static_cast<DWORD*>(GlobalLock(hGlb));
-                                if (*effect == DROPEFFECT_MOVE)
-                                    bCopy = false;
-                                GlobalUnlock(hGlb);
-                            }
-                            CloseClipboard();
-                        }
-                    }
-
-                    if (bCopy)
-                        svnCmd += L"pastecopy /pathfile:\"";
-                    else
-                        svnCmd += L"pastemove /pathfile:\"";
-                    svnCmd += tempFile;
-                    svnCmd += L"\"";
-                    svnCmd += L" /deletepathfile";
-                    svnCmd += L" /droptarget:\"";
-                    svnCmd += m_folder;
-                    svnCmd += L"\"";
-                }
-                else
-                    return S_OK;
+                auto I = paths.cbegin();
+                svnCmd += *I;
+                ++I;
+                svnCmd += L"\" /path2:\"";
+                svnCmd += *I;
+            }
+            else
+                svnCmd += folder;
+            svnCmd += L"\"";
+            if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                svnCmd += L" /alternative";
+            break;
+        case ShellMenuDiffLater:
+            svnCmd.clear();
+            if (GetAsyncKeyState(VK_CONTROL) & 0x8000)
+            {
+                regDiffLater.removeValue();
+            }
+            else if (paths.size() == 1)
+            {
+                regDiffLater = paths[0];
             }
             break;
-            default:
-                break;
-                //#endregion
-        } // switch (id_it->second)
-        if (!svnCmd.empty())
+        case ShellMenuDiffNow:
+            AddPathCommand(svnCmd, L"diff", true, paths, folder);
+            svnCmd += L"\" /path2:\"";
+            svnCmd += std::wstring(regDiffLater);
+            svnCmd += L"\"";
+            if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                svnCmd += L" /alternative";
+            break;
+        case ShellMenuPrevDiff:
+            AddPathCommand(svnCmd, L"prevdiff", true, paths, folder);
+            if (GetAsyncKeyState(VK_SHIFT) & 0x8000)
+                svnCmd += L" /alternative";
+            break;
+        case ShellMenuUrlDiff:
+            AddPathCommand(svnCmd, L"urldiff", true, paths, folder);
+            break;
+        case ShellMenuUnifiedDiff:
+            AddPathCommand(svnCmd, L"diff", true, paths, folder);
+            svnCmd += L" /unified";
+            break;
+        case ShellMenuDropCopyAdd:
+            AddPathFileDropCommand(svnCmd, L"dropcopyadd", paths, folder);
+            break;
+        case ShellMenuDropCopy:
+            AddPathFileDropCommand(svnCmd, L"dropcopy", paths, folder);
+            break;
+        case ShellMenuDropCopyRename:
+            AddPathFileDropCommand(svnCmd, L"dropcopy", paths, folder);
+            svnCmd += L" /rename";
+            break;
+        case ShellMenuDropMove:
+            AddPathFileDropCommand(svnCmd, L"dropmove", paths, folder);
+            break;
+        case ShellMenuDropMoveRename:
+            AddPathFileDropCommand(svnCmd, L"dropmove", paths, folder);
+            svnCmd += L" /rename";
+            break;
+        case ShellMenuDropExport:
+            AddPathFileDropCommand(svnCmd, L"dropexport", paths, folder);
+            break;
+        case ShellMenuDropExportExtended:
+            AddPathFileDropCommand(svnCmd, L"dropexport", paths, folder);
+            svnCmd += L" /extended:unversioned";
+            break;
+        case ShellMenuDropExportChanged:
+            AddPathFileDropCommand(svnCmd, L"dropexport", paths, folder);
+            svnCmd += L" /extended:localchanges";
+            break;
+        case ShellMenuDropExternals:
+            AddPathFileDropCommand(svnCmd, L"dropexternals", paths, folder);
+            break;
+        case ShellMenuDropVendor:
+            AddPathFileDropCommand(svnCmd, L"dropvendor", paths, folder);
+            break;
+        case ShellMenuLog:
+            AddPathCommand(svnCmd, L"log", true, paths, folder);
+            break;
+        case ShellMenuConflictEditor:
+            AddPathCommand(svnCmd, L"conflicteditor", true, paths, folder);
+            break;
+        case ShellMenuRelocate:
+            AddPathCommand(svnCmd, L"relocate", false, paths, folder);
+            break;
+        case ShellMenuShowChanged:
+            if (paths.size() > 1)
+            {
+                AddPathFileCommand(svnCmd, L"repostatus", paths, folder);
+            }
+            else
+            {
+                AddPathCommand(svnCmd, L"repostatus", true, paths, folder);
+            }
+            break;
+        case ShellMenuRepoBrowse:
+            AddPathCommand(svnCmd, L"repobrowser", true, paths, folder);
+            break;
+        case ShellMenuBlame:
+            AddPathCommand(svnCmd, L"blame", true, paths, folder);
+            break;
+        case ShellMenuCopyUrl:
+            AddPathFileCommand(svnCmd, L"copyurls", paths, folder);
+            break;
+        case ShellMenuShelve:
+            AddPathFileCommand(svnCmd, L"shelve", paths, folder);
+            break;
+        case ShellMenuUnshelve:
+            AddPathFileCommand(svnCmd, L"unshelve", paths, folder);
+            break;
+        case ShellMenuCreatePatch:
+            AddPathFileCommand(svnCmd, L"createpatch", paths, folder);
+            break;
+        case ShellMenuApplyPatch:
         {
-            svnCmd += L" /hwnd:";
-            wchar_t buf[30] = {0};
-            swprintf_s(buf, L"%p", static_cast<void*>(lpcmi->hwnd));
-            svnCmd += buf;
+            auto localPaths  = paths;
+            auto localFolder = folder;
+            if ((itemStates & ITEMIS_PATCHINCLIPBOARD) && ((~itemStates) & ITEMIS_PATCHFILE))
+            {
+                // if there's a patch file in the clipboard, we save it
+                // to a temporary file and tell TortoiseMerge to use that one
+                UINT cFormat = RegisterClipboardFormat(L"TSVN_UNIFIEDDIFF");
+                if ((cFormat) && (OpenClipboard(nullptr)))
+                {
+                    HGLOBAL hGlb  = GetClipboardData(cFormat);
+                    LPCSTR  lpStr = static_cast<LPCSTR>(GlobalLock(hGlb));
+
+                    DWORD len   = GetTempPath(0, nullptr);
+                    auto  path  = std::make_unique<wchar_t[]>(len + 1LL);
+                    auto  tempF = std::make_unique<wchar_t[]>(len + 100LL);
+                    GetTempPath(len + 1, path.get());
+                    GetTempFileName(path.get(), L"svn", 0, tempF.get());
+                    std::wstring sTempFile = std::wstring(tempF.get());
+
+                    FILE*  outFile;
+                    size_t patchLen = strlen(lpStr);
+                    _tfopen_s(&outFile, sTempFile.c_str(), L"wb");
+                    if (outFile)
+                    {
+                        size_t size = fwrite(lpStr, sizeof(char), patchLen, outFile);
+                        if (size == patchLen)
+                        {
+                            itemStates |= ITEMIS_PATCHFILE;
+                            if ((folder.empty()) && (!paths.empty()))
+                            {
+                                localFolder = paths[0];
+                            }
+                            itemStatesFolder |= ITEMIS_FOLDERINSVN;
+                            localPaths.clear();
+                            localPaths.push_back(sTempFile);
+                        }
+                        fclose(outFile);
+                    }
+                    GlobalUnlock(hGlb);
+                    CloseClipboard();
+                }
+            }
+            if (itemStates & ITEMIS_PATCHFILE)
+            {
+                svnCmd = L" /diff:\"";
+                if (!localPaths.empty())
+                {
+                    svnCmd += localPaths.front();
+                    if (itemStatesFolder & ITEMIS_FOLDERINSVN)
+                    {
+                        svnCmd += L"\" /patchpath:\"";
+                        svnCmd += localFolder;
+                    }
+                }
+                else
+                    svnCmd += localFolder;
+                if (itemStates & ITEMIS_INVERSIONEDFOLDER)
+                    svnCmd += L"\" /wc";
+                else
+                    svnCmd += L"\"";
+            }
+            else
+            {
+                svnCmd = L" /patchpath:\"";
+                if (!localPaths.empty())
+                    svnCmd += localPaths.front();
+                else
+                    svnCmd += localFolder;
+                svnCmd += L"\"";
+            }
             if (!uuidSource.empty())
             {
                 CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
@@ -1768,14 +1709,89 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
                     break;
                 }
             }
-            myIDMap.clear();
-            myVerbsIDMap.clear();
-            myVerbsMap.clear();
-            RunCommand(tortoiseProcPath, svnCmd, cwdFolder, L"TortoiseProc Launch failed");
+            RunCommand(appDir + L"TortoiseMerge.exe", svnCmd, cwd, L"TortoiseMerge launch failed");
         }
-        return S_OK;
-    } // if (id_it != myIDMap.end() && id_it->first == idCmd)
-    return hr;
+            return;
+        case ShellMenuRevisionGraph:
+            AddPathCommand(svnCmd, L"revisiongraph", true, paths, folder);
+            break;
+        case ShellMenuLock:
+            AddPathFileCommand(svnCmd, L"lock", paths, folder);
+            break;
+        case ShellMenuUnlock:
+            AddPathFileCommand(svnCmd, L"unlock", paths, folder);
+            break;
+        case ShellMenuUnlockForce:
+            AddPathFileCommand(svnCmd, L"unlock", paths, folder);
+            svnCmd += L" /force";
+            break;
+        case ShellMenuProperties:
+            AddPathFileCommand(svnCmd, L"properties", paths, folder);
+            break;
+        case ShellMenuClipPaste:
+        {
+            std::wstring tempFile;
+            if (WriteClipboardPathsToTempFile(tempFile))
+            {
+                bool bCopy           = true;
+                UINT cPrefDropFormat = RegisterClipboardFormat(L"Preferred DropEffect");
+                if (cPrefDropFormat)
+                {
+                    if (OpenClipboard(hParent))
+                    {
+                        HGLOBAL hGlb = GetClipboardData(cPrefDropFormat);
+                        if (hGlb)
+                        {
+                            DWORD* effect = static_cast<DWORD*>(GlobalLock(hGlb));
+                            if (*effect == DROPEFFECT_MOVE)
+                                bCopy = false;
+                            GlobalUnlock(hGlb);
+                        }
+                        CloseClipboard();
+                    }
+                }
+
+                if (bCopy)
+                    svnCmd += L"pastecopy /pathfile:\"";
+                else
+                    svnCmd += L"pastemove /pathfile:\"";
+                svnCmd += tempFile;
+                svnCmd += L"\"";
+                svnCmd += L" /deletepathfile";
+                svnCmd += L" /droptarget:\"";
+                svnCmd += folder;
+                svnCmd += L"\"";
+            }
+            else
+                return;
+        }
+        break;
+        default:
+            break;
+            //#endregion
+    } // switch (id_it->second)
+    if (!svnCmd.empty())
+    {
+        svnCmd += L" /hwnd:";
+        wchar_t buf[30] = {0};
+        swprintf_s(buf, L"%p", static_cast<void*>(hParent));
+        svnCmd += buf;
+        if (!uuidSource.empty())
+        {
+            CRegStdDWORD groupSetting = CRegStdDWORD(L"Software\\TortoiseSVN\\GroupTaskbarIconsPerRepo", 3, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+            switch (static_cast<DWORD>(groupSetting))
+            {
+                case 1:
+                case 2:
+                {
+                    svnCmd += L" /groupuuid:";
+                    svnCmd += uuidSource;
+                }
+                break;
+            }
+        }
+        RunCommand(appDir + L"TortoiseProc.exe", svnCmd, cwd, L"TortoiseProc Launch failed");
+    }
 }
 
 // This is for the status bar and things like that:
@@ -2060,11 +2076,11 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                                      unsigned __int64 topMenu,
                                      bool             bShowIcons)
 {
-    HMENU   ignoreSubMenu        = nullptr;
-    int     indexIgnoreSub       = 0;
-    bool    bShowIgnoreMenu      = false;
-    wchar_t maskBuf[MAX_PATH]    = {0}; // MAX_PATH is ok, since this only holds a filename
-    wchar_t ignorePath[MAX_PATH] = {0}; // MAX_PATH is ok, since this only holds a filename
+    HMENU                         ignoreSubMenu        = nullptr;
+    int                           indexIgnoreSub       = 0;
+    bool                          bShowIgnoreMenu      = false;
+    wchar_t                       maskBuf[MAX_PATH]    = {0}; // MAX_PATH is ok, since this only holds a filename
+    wchar_t                       ignorePath[MAX_PATH] = {0}; // MAX_PATH is ok, since this only holds a filename
     if (m_files.empty())
         return;
     UINT icon = bShowIcons ? IDI_IGNORE : 0;

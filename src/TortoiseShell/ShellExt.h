@@ -219,25 +219,26 @@ protected:
 
 #define MAKESTRING(ID) LoadStringEx(g_hResInst, ID, stringTableBuffer, _countof(stringTableBuffer), (WORD)CRegStdDWORD(L"Software\\TortoiseSVN\\LanguageID", MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT)))
 private:
-    void         InsertSVNMenu(BOOL isTop, HMENU menu, UINT pos, UINT_PTR id, UINT stringId, UINT icon, UINT idCmdFirst, SVNCommands com, const std::wstring& verb);
-    void         InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst, HMENU hMenu, HMENU subMenu, UINT& indexMenu, int& indexSubMenu, unsigned __int64 topMenu, bool bShowIcons);
-    std::wstring WriteFileListToTempFile();
-    bool         WriteClipboardPathsToTempFile(std::wstring& tempFile) const;
-    LPCWSTR      GetMenuTextFromResource(int id);
-    void         SetExtraColumnStatus(const wchar_t* path, const FileStatusCacheEntry* status);
-    void         GetExtraColumnStatus(const wchar_t* path, BOOL bIsDir);
-    void         GetMainColumnStatus(const wchar_t* path, BOOL bIsDir);
-    STDMETHODIMP QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT& indexMenu);
-    static bool  IsIllegalFolder(const std::wstring& folder, int* csidlarray);
-    static void  RunCommand(const std::wstring& path, const std::wstring& command, const std::wstring& folder, LPCWSTR errorMessage);
-    bool         ShouldInsertItem(const MenuInfo& pair) const;
-    bool         ShouldEnableMenu(const YesNoPair& pair) const;
-    void         GetColumnInfo(SHCOLUMNINFO* to, DWORD index, UINT charactersCount, UINT titleId, UINT descriptionId);
-    static void  TweakMenu(HMENU menu);
-    static void  ExtractProperty(const wchar_t* path, const char* propertyName, std::wstring& to);
-    void         AddPathCommand(std::wstring& svnCmd, LPCWSTR command, bool bFilesAllowed);
-    void         AddPathFileCommand(std::wstring& svnCmd, LPCWSTR command);
-    void         AddPathFileDropCommand(std::wstring& svnCmd, LPCWSTR command);
+    void                InsertSVNMenu(BOOL isTop, HMENU menu, UINT pos, UINT_PTR id, UINT stringId, UINT icon, UINT idCmdFirst, SVNCommands com, const std::wstring& verb);
+    void                InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst, HMENU hMenu, HMENU subMenu, UINT& indexMenu, int& indexSubMenu, unsigned __int64 topMenu, bool bShowIcons);
+    static std::wstring WriteFileListToTempFile(const std::vector<std::wstring>& files, const std::wstring folder);
+    static bool         WriteClipboardPathsToTempFile(std::wstring& tempFile);
+    LPCWSTR             GetMenuTextFromResource(int id);
+    UINT                IconIdForCommand(int id);
+    void                SetExtraColumnStatus(const wchar_t* path, const FileStatusCacheEntry* status);
+    void                GetExtraColumnStatus(const wchar_t* path, BOOL bIsDir);
+    void                GetMainColumnStatus(const wchar_t* path, BOOL bIsDir);
+    STDMETHODIMP        QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT& indexMenu);
+    static bool         IsIllegalFolder(const std::wstring& folder, int* csidlarray);
+    static void         RunCommand(const std::wstring& path, const std::wstring& command, const std::wstring& folder, LPCWSTR errorMessage);
+    bool                ShouldInsertItem(const MenuInfo& pair) const;
+    bool                ShouldEnableMenu(const YesNoPair& pair) const;
+    void                GetColumnInfo(SHCOLUMNINFO* to, DWORD index, UINT charactersCount, UINT titleId, UINT descriptionId);
+    static void         TweakMenu(HMENU menu);
+    static void         ExtractProperty(const wchar_t* path, const char* propertyName, std::wstring& to);
+    static void         AddPathCommand(std::wstring& svnCmd, LPCWSTR command, bool bFilesAllowed, const std::vector<std::wstring>& files, const std::wstring folder);
+    static void         AddPathFileCommand(std::wstring& svnCmd, LPCWSTR command, const std::vector<std::wstring>& files, const std::wstring folder);
+    static void         AddPathFileDropCommand(std::wstring& svnCmd, LPCWSTR command, const std::vector<std::wstring>& files, const std::wstring folder);
 
 public:
     explicit CShellExt(FileState state);
