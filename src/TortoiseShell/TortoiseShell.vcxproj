@@ -246,6 +246,7 @@
     <ClCompile Include="..\Utils\UnicodeUtils.cpp" />
     <ClCompile Include="ColumnProvider.cpp" />
     <ClCompile Include="ContextMenu.cpp" />
+    <ClCompile Include="ExplorerCommand.cpp" />
     <ClCompile Include="IconOverlay.cpp" />
     <ClCompile Include="ItemIDList.cpp" />
     <ClCompile Include="PIDL.cpp" />
@@ -326,6 +327,7 @@
     <ClInclude Include="..\Utils\registry.h" />
     <ClInclude Include="..\Utils\SVNTrace.h" />
     <ClInclude Include="..\Utils\UnicodeUtils.h" />
+    <ClInclude Include="ExplorerCommand.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Guids.h" />
     <ClInclude Include="ItemIDList.h" />

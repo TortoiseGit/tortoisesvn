@@ -119,6 +119,8 @@ STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID *ppvOut)
         state = FileStateIgnoredOverlay;
     else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_UNVERSIONED))
         state = FileStateUnversionedOverlay;
+    else if (IsEqualIID(rclsid, CLSID_TortoiseSVN_EXPLORERCOMMAND))
+        state = FileStateVersioned;
 
     if (state != FileStateInvalid)
     {
