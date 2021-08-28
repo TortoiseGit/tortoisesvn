@@ -330,7 +330,7 @@ bool CUndo::Redo(CBaseView* pLeft, CBaseView* pRight, CBaseView* pBottom)
             if (!bModified)
             {
                 std::list<AllViewState>::iterator i = m_redoViewStates.begin();
-                std::advance(i, m_originalStateBottom);
+                std::advance(i, m_originalStateRight);
                 for (; i != m_redoViewStates.end(); ++i)
                 {
                     if (!i->bottom.modifies)
