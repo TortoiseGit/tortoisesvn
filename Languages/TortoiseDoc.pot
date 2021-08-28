@@ -8919,7 +8919,7 @@ msgid "Allow ambiguous URLs"
 msgstr ""
 
 #. (para)
-msgid "Occasionally you may have to connect to a server which uses the same URL for all repositories. Older versions of <literal>svnbridge</literal> would do this. If you need to access such repositories you will have to check this option. If you don't, leave it unchecked to improve performance."
+msgid "Occasionally you may have to connect to a server which uses the same URL for all repositories. Older versions of <literal>svnbridge</literal> would do this. If you need to access such repositories you will have to check this option. If you don't, unchecked it to improve performance."
 msgstr ""
 
 #. (term)
@@ -8927,7 +8927,7 @@ msgid "Allow ambiguous UUIDs"
 msgstr ""
 
 #. (para)
-msgid "Some hosting services give all their repositories the same UUID. You may even have done this yourself by copying a repository folder to create a new one. For all sorts of reasons this is a bad idea - a UUID should be <emphasis>unique</emphasis>. However, the log cache will still work in this situation if you check this box. If you don't need it, leave it unchecked to improve performance."
+msgid "Some hosting services give all their repositories the same UUID. You may even have done this yourself by copying a repository folder to create a new one. For all sorts of reasons this is a bad idea - a UUID should be <emphasis>unique</emphasis>. However, the log cache will still work in this situation if you check this box. If you don't need it, unchecked it to improve performance."
 msgstr ""
 
 #. (term)
