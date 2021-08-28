@@ -302,14 +302,14 @@ bool CUndo::Redo(CBaseView* pLeft, CBaseView* pRight, CBaseView* pBottom)
         }
         if (pLeft)
         {
-            bool bModified = (m_originalStateLeft == static_cast<size_t>(-1));
+            bool bModified = (m_originalStateLeft != static_cast<size_t>(-1));
             if (!bModified)
             {
                 std::list<AllViewState>::iterator i = m_redoViewStates.begin();
                 std::advance(i, m_originalStateLeft);
                 for (; i != m_redoViewStates.end(); ++i)
                 {
-                    if (i->left.modifies)
+                    if (!i->left.modifies)
                     {
                         bModified = true;
                         break;
@@ -326,15 +326,19 @@ bool CUndo::Redo(CBaseView* pLeft, CBaseView* pRight, CBaseView* pBottom)
         }
         if (pRight)
         {
-            bool bModified = (m_originalStateRight == static_cast<size_t>(-1));
+            bool bModified = (m_originalStateRight != static_cast<size_t>(-1));
             if (!bModified)
             {
                 std::list<AllViewState>::iterator i = m_redoViewStates.begin();
-                std::advance(i, m_originalStateRight);
-                // ReSharper disable once CppPossiblyErroneousEmptyStatements
-                for (; i != m_redoViewStates.end() && !i->right.modifies; ++i)
-                    ;
-                bModified = i != m_redoViewStates.end();
+                std::advance(i, m_originalStateBottom);
+                for (; i != m_redoViewStates.end(); ++i)
+                {
+                    if (!i->bottom.modifies)
+                    {
+                        bModified = true;
+                        break;
+                    }
+                }
             }
             pRight->SetModified(bModified);
             pRight->ClearStepModifiedMark();
@@ -346,14 +350,14 @@ bool CUndo::Redo(CBaseView* pLeft, CBaseView* pRight, CBaseView* pBottom)
         }
         if (pBottom)
         {
-            bool bModified = (m_originalStateBottom == static_cast<size_t>(-1));
+            bool bModified = (m_originalStateBottom != static_cast<size_t>(-1));
             if (!bModified)
             {
                 std::list<AllViewState>::iterator i = m_redoViewStates.begin();
                 std::advance(i, m_originalStateBottom);
                 for (; i != m_redoViewStates.end(); ++i)
                 {
-                    if (i->bottom.modifies)
+                    if (!i->bottom.modifies)
                     {
                         bModified = true;
                         break;
