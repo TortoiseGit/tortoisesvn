@@ -395,7 +395,7 @@ void SVNStatus::GetExternals(std::set<CTSVNPath>& externals) const
 
 void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t bufLen, wchar_t* string)
 {
-    wchar_t* buf=nullptr;
+    wchar_t* buf = nullptr;
     switch (status)
     {
         case svn_wc_status_none:
@@ -613,12 +613,12 @@ int SVNStatus::LoadStringEx(HINSTANCE hInstance, UINT uID, LPWSTR lpBuffer, int 
         return 0;
 
     nResourceSize = ::SizeofResource(hInstance, hResource);
-    pImageEnd     = reinterpret_cast<const STRINGRESOURCEIMAGE*>(reinterpret_cast<LPBYTE>(const_cast<STRINGRESOURCEIMAGE*>(pImage)) + nResourceSize);
+    pImageEnd     = reinterpret_cast<const STRINGRESOURCEIMAGE*>((reinterpret_cast<LPBYTE>(const_cast<STRINGRESOURCEIMAGE*>(pImage)) + nResourceSize));
     iIndex        = uID & 0x000f;
 
     while ((iIndex > 0) && (pImage < pImageEnd))
     {
-        pImage = reinterpret_cast<const STRINGRESOURCEIMAGE*>((reinterpret_cast<LPBYTE>(const_cast<STRINGRESOURCEIMAGE*>(pImage) + (sizeof(STRINGRESOURCEIMAGE) + (pImage->nLength * sizeof(WCHAR))))));
+        pImage = reinterpret_cast<const STRINGRESOURCEIMAGE*>((reinterpret_cast<LPBYTE>(const_cast<STRINGRESOURCEIMAGE*>(pImage)) + (sizeof(STRINGRESOURCEIMAGE) + (pImage->nLength * sizeof(WCHAR)))));
         iIndex--;
     }
     if (pImage >= pImageEnd)
