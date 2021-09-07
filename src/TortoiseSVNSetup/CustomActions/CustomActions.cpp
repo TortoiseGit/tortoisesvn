@@ -30,7 +30,6 @@
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.ApplicationModel.h>
 
-#pragma comment(lib, "windowsapp.lib")
 #pragma comment(lib, "shlwapi")
 #pragma comment(lib, "shell32")
 
@@ -97,66 +96,3 @@ UINT __stdcall SetLanguage(MSIHANDLE hModule)
     return ERROR_SUCCESS;
 }
 
-UINT __stdcall RegisterSparsePackage(MSIHANDLE hModule)
-{
-    DWORD len = 0;
-    MsiGetPropertyW(hModule, L"INSTALLDIR", L"", &len);
-    auto sparseExtPath = std::make_unique<wchar_t[]>(len + 1LL);
-    len += 1;
-    MsiGetPropertyW(hModule, L"INSTALLDIR", sparseExtPath.get(), &len);
-
-    len = 0;
-    MsiGetPropertyW(hModule, L"SPARSEPACKAGEFILE", L"", &len);
-    auto sparsePackageFile = std::make_unique<wchar_t[]>(len + 1LL);
-    len += 1;
-    MsiGetPropertyW(hModule, L"SPARSEPACKAGEFILE", sparsePackageFile.get(), &len);
-
-    std::wstring sSparsePackagePath = sparseExtPath.get();
-    sSparsePackagePath += L"\\bin\\";
-    sSparsePackagePath += sparsePackageFile.get();
-
-    PackageManager    manager;
-    AddPackageOptions options;
-    Uri               externalUri(sparseExtPath.get());
-    Uri               packageUri(sSparsePackagePath.c_str());
-    options.ExternalLocationUri(externalUri);
-    auto deploymentOperation = manager.AddPackageByUriAsync(packageUri, options);
-
-    auto deployResult = deploymentOperation.get();
-
-    if (!SUCCEEDED(deployResult.ExtendedErrorCode()))
-    {
-        // Deployment failed
-        return deployResult.ExtendedErrorCode();
-    }
-    return ERROR_SUCCESS;
-}
-
-UINT __stdcall UnregisterSparsePackage(MSIHANDLE hModule)
-{
-    DWORD len = 0;
-    MsiGetPropertyW(hModule, L"SPARSEPACKAGENAME", L"", &len);
-    auto sparsePackageName = std::make_unique<wchar_t[]>(len + 1LL);
-    len += 1;
-    MsiGetPropertyW(hModule, L"SPARSEPACKAGENAME", sparsePackageName.get(), &len);
-
-    PackageManager packageManager;
-
-    auto           packages = packageManager.FindPackages();
-    winrt::hstring fullName = sparsePackageName.get();
-    for (const auto& package : packages)
-    {
-        if (package.Id().Name() == sparsePackageName.get())
-            fullName = package.Id().FullName();
-    }
-
-    auto deploymentOperation = packageManager.RemovePackageAsync(fullName, RemovalOptions::None);
-    auto deployResult        = deploymentOperation.get();
-    if (!SUCCEEDED(deployResult.ExtendedErrorCode()))
-    {
-        // Deployment failed
-        return deployResult.ExtendedErrorCode();
-    }
-
-    return ERROR_SUCCESS;
-}
