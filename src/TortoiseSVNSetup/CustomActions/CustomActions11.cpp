@@ -34,7 +34,6 @@
 using namespace winrt::Windows::Foundation;
 using namespace winrt::Windows::Management::Deployment;
 
-
 BOOL APIENTRY DllMain(HANDLE /*hModule*/,
                       DWORD /*ul_reason_for_call*/,
                       LPVOID /*lpReserved*/
@@ -93,15 +92,16 @@ UINT __stdcall UnregisterSparsePackage(MSIHANDLE hModule)
     for (const auto& package : packages)
     {
         if (package.Id().Name() == sparsePackageName.get())
-            fullName = package.Id().FullName();
-    }
-
-    auto deploymentOperation = packageManager.RemovePackageAsync(fullName, RemovalOptions::None);
-    auto deployResult        = deploymentOperation.get();
-    if (!SUCCEEDED(deployResult.ExtendedErrorCode()))
-    {
-        // Deployment failed
-        return deployResult.ExtendedErrorCode();
+        {
+            fullName                 = package.Id().FullName();
+            auto deploymentOperation = packageManager.RemovePackageAsync(fullName, RemovalOptions::None);
+            auto deployResult        = deploymentOperation.get();
+            if (!SUCCEEDED(deployResult.ExtendedErrorCode()))
+            {
+                // Deployment failed
+                return deployResult.ExtendedErrorCode();
+            }
+        }
     }
 
     return ERROR_SUCCESS;
