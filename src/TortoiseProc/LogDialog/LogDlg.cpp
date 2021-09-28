@@ -9556,10 +9556,9 @@ void CLogDlg::OnMonitorThreadFinished()
     if (!m_sMonitorNotificationTitle.IsEmpty() && !m_sMonitorNotificationText.IsEmpty())
     {
         SetTimer(MONITOR_POPUP_TIMER, 10, nullptr);
-        SaveMonitorProjects(true);
     }
-    else
-        SaveMonitorProjects(hasNewChildren);
+    SaveMonitorProjects(true);
+
     if (hasNewChildren)
         RefreshMonitorProjTree();
 
@@ -9902,6 +9901,7 @@ void CLogDlg::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 
 LRESULT CLogDlg::OnTaskbarCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
+    SaveMonitorProjects(false);
     RefreshMonitorProjTree();
     return 0;
 }
@@ -10071,6 +10071,7 @@ BOOL CLogDlg::OnQueryEndSession()
 
 LRESULT CLogDlg::OnReloadIniMsg(WPARAM /*wParam*/, LPARAM /*lParam*/)
 {
+    SaveMonitorProjects(false);
     InitMonitorProjTree();
     return 0;
 }
@@ -10233,6 +10234,7 @@ LRESULT CLogDlg::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
     setUuidOverlayIcon(m_hWnd);
     if (m_bMonitoringMode)
     {
+        SaveMonitorProjects(true);
         RefreshMonitorProjTree();
         // find the first project with unread items
         HTREEITEM hUnreadItem = nullptr;
