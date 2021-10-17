@@ -95,6 +95,10 @@ so the signpublisher.txt file contains exactly that string. Note the "&quot;" in
 If you've created these two files with your certificate info, then the build scripts will do the rest and
 sign all necessary files.
 
+If you don't have an official digital certificate and want to use a self-signed
+certificate, please note that such a certificate also has to be created a certain
+way. Here's how to create a self-signed certificate that will work:
+https://docs.microsoft.com/en-us/windows/win32/appxpkg/how-to-create-a-package-signing-certificate
 
 \section build32 Building 32 bit packages
 
