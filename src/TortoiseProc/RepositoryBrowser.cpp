@@ -1960,6 +1960,8 @@ void CRepositoryBrowser::OnDelete()
             absPath.Replace(L"\\", L"%5C");
             urlList.AddPath(CTSVNPath(EscapeUrl(CTSVNPath(absPath))));
             repositories.push_back(pItem->m_repository);
+            if (pItem->m_kind == svn_node_dir)
+                bTreeItem = true;
         }
         if ((urlList.GetCount() == 0))
         {
@@ -3847,6 +3849,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                 input.SetActionText(hint);
                 if (input.DoModal() == IDOK)
                 {
+                    auto hasFolder = selection.HasFolder();
                     sLogMsg = input.GetLogMessage();
                     if (!RunPreCommit(selection.GetURLsEscaped(0, false), svn_depth_unknown, sLogMsg))
                         break;
@@ -3860,7 +3863,7 @@ void CRepositoryBrowser::OnContextMenu(CWnd* pWnd, CPoint point)
                             break;
                     }
                     m_barRepository.SetHeadRevision(GetCommitRevision());
-                    if (hChosenTreeItem)
+                    if (hChosenTreeItem || hasFolder)
                     {
                         // do a full refresh: just refreshing the parent of the
                         // deleted tree node won't work if the list view

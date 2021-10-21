@@ -165,6 +165,19 @@ bool CRepositoryBrowserSelection::Contains(const CTSVNPath& url) const
     return FindURL(url).first != static_cast<size_t>(-1);
 }
 
+bool CRepositoryBrowserSelection::HasFolder() const
+{
+    for (const auto& repo : repositories)
+    {
+        for (const auto& item : repo.paths)
+        {
+            if (item.isFolder)
+                return true;
+        }
+    }
+    return false;
+}
+
 // access repository bucket properties
 
 const SRepositoryInfo& CRepositoryBrowserSelection::GetRepository(size_t repositoryIndex) const

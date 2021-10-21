@@ -78,6 +78,7 @@ public:
 
     std::pair<size_t, size_t> FindURL(const CTSVNPath& url) const;
     bool                      Contains(const CTSVNPath& url) const;
+    bool                      HasFolder() const;
 
     /// access repository bucket properties
 
