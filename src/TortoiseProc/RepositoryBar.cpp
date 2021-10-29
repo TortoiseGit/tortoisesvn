@@ -109,7 +109,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool inDialog)
         m_btnBack.SetImage(CCommonAppUtils::LoadIconEx(IDI_BACKWARD, iconSize, iconSize));
         m_btnBack.SetWindowText(L"");
         m_btnBack.Invalidate();
-        rbBi.lpText     = L"";
+        rbBi.lpText     = const_cast<wchar_t*>(L"");
         rbBi.hwndChild  = m_btnBack.m_hWnd;
         rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
         rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
@@ -124,7 +124,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool inDialog)
         m_btnForward.SetImage(CCommonAppUtils::LoadIconEx(IDI_FORWARD, iconSize, iconSize));
         m_btnForward.SetWindowText(L"");
         m_btnForward.Invalidate();
-        rbBi.lpText     = L"";
+        rbBi.lpText     = const_cast<wchar_t*>(L"");
         rbBi.hwndChild  = m_btnForward.m_hWnd;
         rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
         rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
@@ -161,7 +161,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool inDialog)
         m_btnUp.SetImage(CCommonAppUtils::LoadIconEx(IDI_UP, iconSize, iconSize));
         m_btnUp.SetWindowText(L"");
         m_btnUp.Invalidate();
-        rbBi.lpText     = L"";
+        rbBi.lpText = const_cast<wchar_t*>(L"");
         rbBi.hwndChild  = m_btnUp.m_hWnd;
         rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
         rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
@@ -177,7 +177,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool inDialog)
             temp.LoadString(IDS_REPO_BROWSEREV);
             m_revText.Create(temp, WS_CHILD | SS_RIGHT | SS_CENTERIMAGE, rect, this, IDC_REVISION_LABEL);
             m_revText.SetFont(font);
-            rbBi.lpText     = L"";
+            rbBi.lpText     = const_cast<wchar_t*>(L"");
             rbBi.hwndChild  = m_revText.m_hWnd;
             rbBi.clrFore    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_WINDOWTEXT));
             rbBi.clrBack    = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_BTNFACE));
@@ -194,7 +194,7 @@ bool CRepositoryBar::Create(CWnd* parent, UINT id, bool inDialog)
         m_btnRevision.SetFont(font);
         temp.LoadString(IDS_REPO_BROWSEREV);
         if (CTheme::Instance().IsDarkTheme())
-            rbBi.lpText = L"";
+            rbBi.lpText = const_cast<wchar_t*>(L"");
         else
             rbBi.lpText = temp.GetBuffer();
         rbBi.hwndChild  = m_btnRevision.m_hWnd;

@@ -5508,7 +5508,7 @@ void CBaseView::OnEditFind()
     m_pFindDialog = new CFindDlg(this);
     m_pFindDialog->Create(this, id);
 
-    m_pFindDialog->SetFindString(HasTextSelection() ? GetSelectedText() : L"");
+    m_pFindDialog->SetFindString(HasTextSelection() ? GetSelectedText() : CString());
     m_pFindDialog->SetReadonly(m_bReadonly);
 }
 
@@ -6415,7 +6415,7 @@ void CBaseView::AddIndentationForSelectedBlock()
         // add tab to line start (alternatively m_nTabSize spaces can be used)
         CString tabStr;
         int     indentChars = GetIndentCharsForLine(0, nViewLine);
-        tabStr              = indentChars > 0 ? CString(' ', indentChars) : L"\t";
+        tabStr              = indentChars > 0 ? CString(' ', indentChars) : CString(L"\t");
         SetViewLine(nViewLine, tabStr + sLine);
         bModified = true;
     }

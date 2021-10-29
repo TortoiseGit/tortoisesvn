@@ -54,7 +54,7 @@ void EnsureSVNLibrary(bool bCreate /* = true*/)
         return;
 
     CComPtr<IShellLibrary> pLibrary = nullptr;
-    if (FAILED(OpenShellLibrary(L"Subversion", &pLibrary)))
+    if (FAILED(OpenShellLibrary(const_cast<LPWSTR>(L"Subversion"), &pLibrary)))
     {
         if (!bCreate)
             return;

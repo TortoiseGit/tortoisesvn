@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008 - TortoiseSVN
+// Copyright (C) 2003-2008, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -41,8 +41,8 @@ void CExactCopyFroms::Apply (CVisibleGraph* graph, CVisibleGraphNode* node)
 {
     // remove node, if it is neither "M", "A", "D" nor "R"
 
-    const DWORD forbiddenMask = DWORD(CNodeClassification::IS_OPERATION_MASK
-                              | CNodeClassification::MUST_BE_PRESERVED);
+    const DWORD forbiddenMask = DWORD(CNodeClassification::IS_OPERATION_MASK)
+                              | DWORD(CNodeClassification::MUST_BE_PRESERVED);
 
     if (node->GetClassification().Matches (0, forbiddenMask))
     {

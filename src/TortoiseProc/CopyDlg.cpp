@@ -197,7 +197,7 @@ BOOL CCopyDlg::OnInitDialog()
             hr = pProvider->GetLinkText(GetSafeHwnd(), parameters, &temp);
             if (SUCCEEDED(hr))
             {
-                SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? L"" : temp);
+                SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? L"" : static_cast<LPCWSTR>(temp));
                 GetDlgItem(IDC_BUGTRAQBUTTON)->EnableWindow(TRUE);
                 GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_SHOW);
             }

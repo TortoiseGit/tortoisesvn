@@ -1,6 +1,6 @@
-// TortoiseSVN - a Windows shell extension for easy version control
+﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2011, 2013, 2016 - TortoiseSVN
+// Copyright (C) 2007-2011, 2013, 2016, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -650,7 +650,7 @@ void CTokenizedStringContainer::GetAt (index_t index, std::string& result) const
         length += GetTokenLength (*iter);
 
     result.resize (length);
-    char* buffer = "";
+    char* buffer = const_cast<char*>("");
 
     if (length)
         buffer = &result[0];

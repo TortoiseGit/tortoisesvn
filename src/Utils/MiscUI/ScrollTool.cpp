@@ -58,7 +58,7 @@ bool CScrollTool::Init(LPPOINT pos, bool bRightAligned /* = false */)
         ti.hwnd     = nullptr;
         ti.hinst    = nullptr;
         ti.uId      = 0;
-        ti.lpszText = L" ";
+        ti.lpszText = const_cast<wchar_t *>(L" ");
 
         // ToolTip control will cover the whole window
         ti.rect.left   = 0;

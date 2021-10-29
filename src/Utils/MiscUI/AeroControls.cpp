@@ -882,8 +882,9 @@ void AeroControlBase::FillRect(LPRECT prc, HDC hdcPaint, Color clr)
     std::unique_ptr<SolidBrush> pBrush(new SolidBrush(clr));
     std::unique_ptr<Graphics>   myGraphics(new Graphics(hdcPaint));
 
-    myGraphics->FillRectangle(pBrush.get(), prc->left, prc->top,
-                              prc->right - 1 - prc->left, prc->bottom - 1 - prc->top);
+    myGraphics->FillRectangle(pBrush.get(),
+                              static_cast<INT>(prc->left), static_cast<INT>(prc->top),
+                              static_cast<INT>(prc->right - 1 - prc->left), static_cast<INT>(prc->bottom - 1 - prc->top));
 }
 
 int AeroControlBase::GetStateFromBtnState(LONG_PTR dwStyle, BOOL bHot, BOOL bFocus, LRESULT dwCheckState, int iPartId, BOOL bHasMouseCapture)
@@ -986,8 +987,9 @@ void AeroControlBase::DrawRect(LPRECT prc, HDC hdcPaint, DashStyle dashStyle, Co
     myPen->SetDashStyle(dashStyle);
     std::unique_ptr<Graphics> myGraphics(new Graphics(hdcPaint));
 
-    myGraphics->DrawRectangle(myPen.get(), prc->left, prc->top,
-                              prc->right - 1 - prc->left, prc->bottom - 1 - prc->top);
+    myGraphics->DrawRectangle(myPen.get(),
+                              static_cast<INT>(prc->left), static_cast<INT>(prc->top),
+                              static_cast<INT>(prc->right - 1 - prc->left), static_cast<INT>(prc->bottom - 1 - prc->top));
 }
 
 void AeroControlBase::DrawFocusRect(LPRECT prcFocus, HDC hdcPaint)

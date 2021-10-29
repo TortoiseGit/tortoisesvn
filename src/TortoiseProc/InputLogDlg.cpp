@@ -139,7 +139,7 @@ BOOL CInputLogDlg::OnInitDialog()
                 hr = pProvider->GetLinkText(GetSafeHwnd(), parameters, &temp);
                 if (SUCCEEDED(hr))
                 {
-                    SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? L"" : temp);
+                    SetDlgItemText(IDC_BUGTRAQBUTTON, temp == 0 ? L"" : static_cast<LPCWSTR>(temp));
                     GetDlgItem(IDC_BUGTRAQBUTTON)->ShowWindow(SW_SHOW);
                     bExtendUrlControl = false;
                 }
@@ -474,7 +474,7 @@ void CInputLogDlg::OnBnClickedHistory()
         CString sMsg = historyDlg.GetSelectedText();
         if (sMsg.Compare(m_cInput.GetText().Left(sMsg.GetLength())) != 0)
         {
-            CString sBugID = m_pProjectProperties != nullptr ? m_pProjectProperties->FindBugID(sMsg) : L"";
+            CString sBugID = m_pProjectProperties != nullptr ? m_pProjectProperties->FindBugID(sMsg) : CString();
             if ((!sBugID.IsEmpty()) && ((GetDlgItem(IDC_BUGID)->IsWindowVisible())))
             {
                 SetDlgItemText(IDC_BUGID, sBugID);

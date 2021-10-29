@@ -242,15 +242,15 @@ BOOL CRevisionGraphDlg::InitializeToolbar()
 
     // fill the combo box
 
-    wchar_t* texts[] = {L"5%", L"10%", L"20%", L"40%", L"50%", L"75%", L"100%", L"200%",
-                        nullptr};
+    const wchar_t* texts[] = {L"5%", L"10%", L"20%", L"40%", L"50%", L"75%", L"100%", L"200%",
+                              nullptr};
 
     COMBOBOXEXITEM cbei = {0};
     cbei.mask           = CBEIF_TEXT;
 
-    for (wchar_t** text = texts; *text != nullptr; ++text)
+    for (const wchar_t** text = texts; *text != nullptr; ++text)
     {
-        cbei.pszText = *text;
+        cbei.pszText = const_cast<wchar_t*>(*text);
         m_toolBar.m_zoomCombo.InsertItem(&cbei);
     }
 

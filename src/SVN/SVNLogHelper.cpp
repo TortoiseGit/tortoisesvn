@@ -81,7 +81,7 @@ std::vector<std::pair<CTSVNPath, SVNRev>>
     std::vector<std::pair<CTSVNPath, SVNRev>> result;
 
     CTSVNPath path = url;
-    SVNRev    rev  = pegRev.IsHead() ? GetHEADRevision(url) : pegRev;
+    SVNRev    rev  = pegRev.IsHead() ? static_cast<SVNRev>(GetHEADRevision(url)) : pegRev;
 
     while (rev.IsNumber() && !path.IsEmpty())
     {
