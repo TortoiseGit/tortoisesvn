@@ -59,7 +59,7 @@ bool DropExportCommand::Execute()
         taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK3)));
         taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetDefaultCommandControl(1);
+        taskdlg.SetDefaultCommandControl(100);
         taskdlg.SetMainIcon(TD_WARNING_ICON);
         if (taskdlg.DoModal(GetExplorerHWND()) != 100)
             return false;

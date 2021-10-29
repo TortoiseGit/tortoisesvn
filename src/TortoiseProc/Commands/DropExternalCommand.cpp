@@ -124,7 +124,7 @@ bool DropExternalCommand::Execute()
             taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK3)));
             taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_DROPEXT_UPDATE_TASK4)));
             taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetDefaultCommandControl(200);
             taskDlg.SetMainIcon(TD_WARNING_ICON);
             bool doUpdate = (taskDlg.DoModal(GetExplorerHWND()) == 100);
             if (doUpdate)

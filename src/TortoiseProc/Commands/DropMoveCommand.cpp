@@ -115,7 +115,7 @@ bool DropMoveCommand::Execute()
                     taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                     taskDlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK5)));
                     taskDlg.SetVerificationCheckbox(false);
-                    taskDlg.SetDefaultCommandControl(2);
+                    taskDlg.SetDefaultCommandControl(200);
                     taskDlg.SetMainIcon(TD_WARNING_ICON);
                     INT_PTR ret = taskDlg.DoModal(GetExplorerHWND());
                     if (ret == 100) // replace

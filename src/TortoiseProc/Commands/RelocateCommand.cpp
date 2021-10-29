@@ -134,7 +134,7 @@ bool RelocateCommand::Execute()
             taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK4)));
             taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskDlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_RELOCATEREALLY_TASK5)));
-            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetDefaultCommandControl(200);
             taskDlg.SetMainIcon(TD_WARNING_ICON);
             if (taskDlg.DoModal(GetExplorerHWND()) == 100)
                 bPossibleSwitch = false;

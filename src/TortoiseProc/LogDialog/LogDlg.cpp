@@ -5865,7 +5865,7 @@ void CLogDlg::ExecuteMergeRevisionMenuRevisions(std::shared_ptr<CContextMenuInfo
                 taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
                 taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
                 taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskDlg.SetDefaultCommandControl(2);
+                taskDlg.SetDefaultCommandControl(200);
                 taskDlg.SetMainIcon(TD_WARNING_ICON);
                 if (taskDlg.DoModal(m_hWnd) != 100)
                     return;
@@ -6945,7 +6945,7 @@ bool CLogDlg::ConfirmRevert(const CString& path, bool bToRev /*= false*/) const
     taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK4)));
     taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
     taskDlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_LOG_REVERT_CONFIRM_TASK5)));
-    taskDlg.SetDefaultCommandControl(2);
+    taskDlg.SetDefaultCommandControl(200);
     taskDlg.SetMainIcon(TD_INFORMATION_ICON);
     return (taskDlg.DoModal(m_hWnd) == 100);
 }
@@ -7488,7 +7488,7 @@ bool CLogDlg::CheckMultipleDiffs(UINT selCount) const
         taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
         taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
         taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskDlg.SetDefaultCommandControl(2);
+        taskDlg.SetDefaultCommandControl(200);
         taskDlg.SetMainIcon(TD_WARNING_ICON);
         bool doIt = (taskDlg.DoModal(m_hWnd) == 100);
         return doIt;
@@ -8710,7 +8710,7 @@ void CLogDlg::OnMonitorRemoveProject()
             taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK3)));
             taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MONITOR_DELETE_TASK4)));
             taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetDefaultCommandControl(200);
             taskDlg.SetMainIcon(TD_WARNING_ICON);
             if (taskDlg.DoModal(m_hWnd) != 100)
                 return;

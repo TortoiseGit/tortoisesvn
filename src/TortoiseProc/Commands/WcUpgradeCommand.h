@@ -45,7 +45,7 @@ public:
         taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK4)));
         taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
         taskDlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_PROC_UPGRADECONFIRMATION_TASK5)));
-        taskDlg.SetDefaultCommandControl(2);
+        taskDlg.SetDefaultCommandControl(200);
         taskDlg.SetMainIcon(TD_WARNING_ICON);
         if (taskDlg.DoModal(GetExplorerHWND()) == 100)
             bUpgrade = true;

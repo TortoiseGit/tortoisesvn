@@ -223,7 +223,7 @@ void CInputLogDlg::OnOK()
             taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK3)));
             taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_COMMITDLG_WARNNOISSUE_TASK4)));
             taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetDefaultCommandControl(200);
             taskDlg.SetMainIcon(TD_WARNING_ICON);
             if (taskDlg.DoModal(m_hWnd) != 100)
                 return;
@@ -301,7 +301,7 @@ void CInputLogDlg::OnOK()
                                         TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
                     taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
                     taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
-                    taskDlg.SetDefaultCommandControl(1);
+                    taskDlg.SetDefaultCommandControl(100);
                     taskDlg.SetMainIcon(TD_ERROR_ICON);
                     bool retry = (taskDlg.DoModal(GetSafeHwnd()) == 100);
 

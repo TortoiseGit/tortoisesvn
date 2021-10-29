@@ -251,7 +251,7 @@ bool RenameCommand::RenameWithReplace(HWND hWnd, const CTSVNPathList &srcPathLis
         taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK3)));
         taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_REPLACEEXISTING_TASK4)));
         taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskDlg.SetDefaultCommandControl(2);
+        taskDlg.SetDefaultCommandControl(200);
         taskDlg.SetMainIcon(TD_WARNING_ICON);
         INT_PTR ret = taskDlg.DoModal(hWnd);
         if (ret == 100) // replace

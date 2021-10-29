@@ -185,7 +185,7 @@ void CSettingsLogCaches::OnBnClickedDelete()
     taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK3)));
     taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_SETTINGS_CACHEDELETEQUESTION_TASK4)));
     taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-    taskdlg.SetDefaultCommandControl(2);
+    taskdlg.SetDefaultCommandControl(200);
     taskdlg.SetMainIcon(TD_WARNING_ICON);
     bool bDelete = (taskdlg.DoModal(m_hWnd) == 100);
 

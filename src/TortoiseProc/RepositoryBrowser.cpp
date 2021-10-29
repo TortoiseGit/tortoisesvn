@@ -2908,7 +2908,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
                 taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK3)));
                 taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_CONFIRM_MOVE_SPECIAL_DIRECTORY_TASK4)));
                 taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskDlg.SetDefaultCommandControl(2);
+                taskDlg.SetDefaultCommandControl(200);
                 taskDlg.SetMainIcon(TD_WARNING_ICON);
                 if (taskDlg.DoModal(m_hWnd) != 100)
                     return false;
@@ -3044,7 +3044,7 @@ bool CRepositoryBrowser::OnDrop(const CTSVNPath& target, const CString& root, co
             taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK3)));
             taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_REPOBROWSE_MULTIIMPORT_TASK4)));
             taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetDefaultCommandControl(200);
             taskDlg.SetMainIcon(TD_WARNING_ICON);
             if (taskDlg.DoModal(m_hWnd) != 100)
                 return false;
@@ -4798,7 +4798,7 @@ bool CRepositoryBrowser::CheckAndConfirmPath(const CTSVNPath& targetUrl)
     taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK4)));
     taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
     taskDlg.SetExpansionArea(CString(MAKEINTRESOURCE(IDS_WARN_NOVALIDPATH_TASK5)));
-    taskDlg.SetDefaultCommandControl(2);
+    taskDlg.SetDefaultCommandControl(200);
     taskDlg.SetMainIcon(TD_WARNING_ICON);
     return (taskDlg.DoModal(GetExplorerHWND()) == 100);
 }
@@ -5265,7 +5265,7 @@ bool CRepositoryBrowser::RunStartCommit(const CTSVNPathList& pathlist, CString& 
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
             taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
-            taskDlg.SetDefaultCommandControl(1);
+            taskDlg.SetDefaultCommandControl(100);
             taskDlg.SetMainIcon(TD_ERROR_ICON);
             return (taskDlg.DoModal(GetSafeHwnd()) == 200);
         }
@@ -5292,7 +5292,7 @@ bool CRepositoryBrowser::RunPreCommit(const CTSVNPathList& pathlist, svn_depth_t
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
             taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK3)));
             taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_HOOKFAILED_TASK4)));
-            taskDlg.SetDefaultCommandControl(1);
+            taskDlg.SetDefaultCommandControl(100);
             taskDlg.SetMainIcon(TD_ERROR_ICON);
             return (taskDlg.DoModal(GetSafeHwnd()) == 100);
         }

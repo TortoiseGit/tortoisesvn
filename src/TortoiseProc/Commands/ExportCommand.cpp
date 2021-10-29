@@ -108,7 +108,7 @@ bool ExportCommand::Execute()
                 taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK3)));
                 taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_EXPORTUNVERSION_TASK4)));
                 taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskDlg.SetDefaultCommandControl(1);
+                taskDlg.SetDefaultCommandControl(100);
                 taskDlg.SetMainIcon(TD_WARNING_ICON);
                 bool bUnversion = (taskDlg.DoModal(GetExplorerHWND()) == 100);
                 if (bUnversion)

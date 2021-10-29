@@ -2664,7 +2664,7 @@ void CSVNStatusListCtrl::Remove(const CTSVNPath& filepath, bool bKeepLocal)
             taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK3)));
             taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_REMOVEFORCE_TASK4)));
             taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetDefaultCommandControl(200);
             taskDlg.SetMainIcon(TD_ERROR_ICON);
             bool bForce = (taskDlg.DoModal(m_hWnd) == 100);
 
@@ -2900,7 +2900,7 @@ void CSVNStatusListCtrl::Revert(const CTSVNPath& filepath)
         taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK3)));
         taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_WARNREVERT_TASK4)));
         taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskDlg.SetDefaultCommandControl(2);
+        taskDlg.SetDefaultCommandControl(200);
         taskDlg.SetMainIcon(TD_WARNING_ICON);
         bDoRevert = (taskDlg.DoModal(m_hWnd) == 100);
     }
@@ -6078,7 +6078,7 @@ void CSVNStatusListCtrl::OnResolve(svn_wc_conflict_choice_t resolveStrategy)
     taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK3)));
     taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROC_RESOLVE_TASK4)));
     taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-    taskDlg.SetDefaultCommandControl(2);
+    taskDlg.SetDefaultCommandControl(200);
     taskDlg.SetMainIcon(TD_WARNING_ICON);
     bool doResolve = (taskDlg.DoModal(m_hWnd) == 100);
 
@@ -6524,7 +6524,7 @@ bool CSVNStatusListCtrl::CheckMultipleDiffs() const
         taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK3)));
         taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_STATUSLIST_WARN_MAXDIFF_TASK4)));
         taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskDlg.SetDefaultCommandControl(2);
+        taskDlg.SetDefaultCommandControl(200);
         taskDlg.SetMainIcon(TD_WARNING_ICON);
         bool doIt = (taskDlg.DoModal(GetSafeHwnd()) == 100);
         return doIt;

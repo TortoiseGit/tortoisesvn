@@ -2874,7 +2874,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
         taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK3)));
         taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_PROGRS_COMMITT_TRUNK_TASK4)));
         taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskDlg.SetDefaultCommandControl(2);
+        taskDlg.SetDefaultCommandControl(200);
         taskDlg.SetMainIcon(TD_WARNING_ICON);
         if (taskDlg.DoModal(m_hWnd) != 100)
             return false;
@@ -3017,7 +3017,7 @@ bool CSVNProgressDlg::CmdCommit(CString& sWindowTitle, bool& /*localoperation*/)
                 taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK3)));
                 taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_ADJUST_EXTERNAL_AFTER_COMMIT_TASK4)));
                 taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskDlg.SetDefaultCommandControl(2);
+                taskDlg.SetDefaultCommandControl(200);
                 taskDlg.SetMainIcon(TD_INFORMATION_ICON);
                 if (taskDlg.DoModal(GetExplorerHWND()) == 100)
                     bTag = true;
@@ -3256,7 +3256,7 @@ bool CSVNProgressDlg::CmdLock(CString& sWindowTitle, bool& /*localoperation*/)
         taskdlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK3)));
         taskdlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_LOCKOUTDATED_TASK4)));
         taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskdlg.SetDefaultCommandControl(2);
+        taskdlg.SetDefaultCommandControl(200);
         taskdlg.SetMainIcon(TD_WARNING_ICON);
         bool bDoIt = (taskdlg.DoModal(m_hWnd) == 100);
 
@@ -4162,7 +4162,7 @@ void CSVNProgressDlg::MergeAfterCommit()
                 taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK3)));
                 taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MERGE_WCDIRTYASK_TASK4)));
                 taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskDlg.SetDefaultCommandControl(2);
+                taskDlg.SetDefaultCommandControl(200);
                 taskDlg.SetMainIcon(TD_WARNING_ICON);
                 if (taskDlg.DoModal(m_hWnd) != 100)
                     return;

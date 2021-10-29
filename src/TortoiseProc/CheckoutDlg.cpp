@@ -381,7 +381,7 @@ void CCheckoutDlg::OnOK()
                 taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3)));
                 taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
                 taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskDlg.SetDefaultCommandControl(2);
+                taskDlg.SetDefaultCommandControl(200);
                 taskDlg.SetMainIcon(TD_WARNING_ICON);
                 bool doIt = (taskDlg.DoModal(GetExplorerHWND()) == 100);
 
@@ -415,7 +415,7 @@ void CCheckoutDlg::OnOK()
             taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK3)));
             taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_WARN_FOLDERNOTEMPTY_TASK4)));
             taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-            taskDlg.SetDefaultCommandControl(2);
+            taskDlg.SetDefaultCommandControl(200);
             taskDlg.SetMainIcon(TD_WARNING_ICON);
             bool doIt = (taskDlg.DoModal(GetExplorerHWND()) == 100);
 

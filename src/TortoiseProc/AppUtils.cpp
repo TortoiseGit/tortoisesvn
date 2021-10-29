@@ -1306,7 +1306,7 @@ bool CAppUtils::AskToUpdate(HWND hParent, LPCWSTR error)
     taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK3)));
     taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MSG_NEEDSUPDATE_TASK4)));
     taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-    taskDlg.SetDefaultCommandControl(1);
+    taskDlg.SetDefaultCommandControl(100);
     CString details;
     details.Format(IDS_MSG_NEEDSUPDATE_ERRORDETAILS, error);
     taskDlg.SetExpansionArea(details);

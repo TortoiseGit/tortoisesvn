@@ -815,7 +815,7 @@ bool CMainFrame::LoadViews(int line)
                 PathCompactPathEx(t4, cp, 50, 0);
                 task4.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK4, t4);
                 taskdlg.AddCommandControl(200, task4);
-                taskdlg.SetDefaultCommandControl(1);
+                taskdlg.SetDefaultCommandControl(100);
                 taskdlg.SetMainIcon(TD_INFORMATION_ICON);
                 taskdlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
                 if (taskdlg.DoModal(m_hWnd) == 100)
@@ -1692,7 +1692,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK3)));
         taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_DELETEWHENEMPTY_TASK4)));
         taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-        taskDlg.SetDefaultCommandControl(1);
+        taskDlg.SetDefaultCommandControl(100);
         taskDlg.SetMainIcon(TD_WARNING_ICON);
         bool bDelete = (taskDlg.DoModal(m_hWnd) == 100);
         if (bDelete)
@@ -1744,7 +1744,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
                 taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK3)));
                 taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_MARKASRESOLVED_TASK4)));
                 taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-                taskDlg.SetDefaultCommandControl(1);
+                taskDlg.SetDefaultCommandControl(100);
                 taskDlg.SetMainIcon(TD_WARNING_ICON);
                 bool bResolve = (taskDlg.DoModal(m_hWnd) == 100);
                 if (bResolve)
@@ -3072,7 +3072,7 @@ bool CMainFrame::HasConflictsWontKeep()
     taskDlg.AddCommandControl(100, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK3)));
     taskDlg.AddCommandControl(200, CString(MAKEINTRESOURCE(IDS_ERR_MAINFRAME_FILEHASCONFLICTS_TASK4)));
     taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
-    taskDlg.SetDefaultCommandControl(2);
+    taskDlg.SetDefaultCommandControl(200);
     taskDlg.SetMainIcon(TD_ERROR_ICON);
     bool bSave = (taskDlg.DoModal(m_hWnd) == 100);
 
