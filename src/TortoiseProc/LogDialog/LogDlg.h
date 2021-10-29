@@ -40,7 +40,10 @@
 #include "ThemeControls.h"
 
 // import EnvDTE for opening files in Visual Studio through COM
+#pragma warning(push)
+#pragma warning(disable : 4471)
 #include "dte80a.tlh"
+#pragma warning(pop)
 
 #define MERGE_REVSELECTSTART    1
 #define MERGE_REVSELECTEND      2
