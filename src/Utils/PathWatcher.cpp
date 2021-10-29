@@ -278,43 +278,42 @@ void CPathWatcher::WorkerThread()
                 // changes in the file system!
                 if (pdi)
                 {
-                    if (numBytes == 0)
+                    if (numBytes != 0)
                     {
-                        goto continuewatching;
+                        PFILE_NOTIFY_INFORMATION pNotify = reinterpret_cast<PFILE_NOTIFY_INFORMATION>(pdi->m_buffer);
+                        if (reinterpret_cast<ULONG_PTR>(pNotify) - reinterpret_cast<ULONG_PTR>(pdi->m_buffer) <= bufferSize)
+                        {
+                            DWORD nOffset = pNotify->NextEntryOffset;
+                            do
+                            {
+                                nOffset = pNotify->NextEntryOffset;
+                                SecureZeroMemory(buf, bufferSize * sizeof(wchar_t));
+                                wcsncpy_s(buf, bufferSize, pdi->m_dirPath, bufferSize - 1);
+                                errno_t err = wcsncat_s(buf + pdi->m_dirPath.GetLength(), bufferSize - pdi->m_dirPath.GetLength(), pNotify->FileName, min(bufferSize - pdi->m_dirPath.GetLength(), static_cast<int>(pNotify->FileNameLength / sizeof(wchar_t))));
+                                if (err == STRUNCATE)
+                                {
+                                    pNotify = reinterpret_cast<PFILE_NOTIFY_INFORMATION>(reinterpret_cast<LPBYTE>(pNotify) + nOffset);
+                                    continue;
+                                }
+                                buf[min(static_cast<decltype((pNotify->FileNameLength / sizeof(wchar_t)))>(bufferSize) - 1, pdi->m_dirPath.GetLength() + (pNotify->FileNameLength / sizeof(WCHAR)))] = L'\0';
+                                pNotify                                                                                                                                                              = reinterpret_cast<PFILE_NOTIFY_INFORMATION>(reinterpret_cast<LPBYTE>(pNotify) + nOffset);
+                                CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": change notification: %s\n", buf);
+                                {
+                                    AutoLocker lock(m_critSec);
+                                    if (m_changedPaths.GetCount() < MAX_CHANGED_PATHS)
+                                        m_changedPaths.AddPath(CTSVNPath(buf));
+                                    else
+                                        m_bLimitReached = true;
+                                }
+                                if (reinterpret_cast<ULONG_PTR>(pNotify) - reinterpret_cast<ULONG_PTR>(pdi->m_buffer) > bufferSize)
+                                    break;
+                            } while (nOffset);
+                        }
                     }
-                    PFILE_NOTIFY_INFORMATION pNotify = reinterpret_cast<PFILE_NOTIFY_INFORMATION>(pdi->m_buffer);
-                    if (reinterpret_cast<ULONG_PTR>(pNotify) - reinterpret_cast<ULONG_PTR>(pdi->m_buffer) > bufferSize)
-                        goto continuewatching;
-                    DWORD nOffset = pNotify->NextEntryOffset;
-                    do
                     {
-                        nOffset = pNotify->NextEntryOffset;
-                        SecureZeroMemory(buf, bufferSize * sizeof(wchar_t));
-                        wcsncpy_s(buf, bufferSize, pdi->m_dirPath, bufferSize - 1);
-                        errno_t err = wcsncat_s(buf + pdi->m_dirPath.GetLength(), bufferSize - pdi->m_dirPath.GetLength(), pNotify->FileName, min(bufferSize - pdi->m_dirPath.GetLength(), static_cast<int>(pNotify->FileNameLength / sizeof(wchar_t))));
-                        if (err == STRUNCATE)
-                        {
-                            pNotify = reinterpret_cast<PFILE_NOTIFY_INFORMATION>(reinterpret_cast<LPBYTE>(pNotify) + nOffset);
-                            continue;
-                        }
-                        buf[min(static_cast<decltype((pNotify->FileNameLength / sizeof(wchar_t)))>(bufferSize) - 1, pdi->m_dirPath.GetLength() + (pNotify->FileNameLength / sizeof(WCHAR)))] = L'\0';
-                        pNotify                                                                                                                                                              = reinterpret_cast<PFILE_NOTIFY_INFORMATION>(reinterpret_cast<LPBYTE>(pNotify) + nOffset);
-                        CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": change notification: %s\n", buf);
-                        {
-                            AutoLocker lock(m_critSec);
-                            if (m_changedPaths.GetCount() < MAX_CHANGED_PATHS)
-                                m_changedPaths.AddPath(CTSVNPath(buf));
-                            else
-                                m_bLimitReached = true;
-                        }
-                        if (reinterpret_cast<ULONG_PTR>(pNotify) - reinterpret_cast<ULONG_PTR>(pdi->m_buffer) > bufferSize)
-                            break;
-                    } while (nOffset);
-                continuewatching:
-                {
-                    AutoLocker lock(m_critSec);
-                    m_changedPaths.RemoveDuplicates();
-                }
+                        AutoLocker lock(m_critSec);
+                        m_changedPaths.RemoveDuplicates();
+                    }
                     SecureZeroMemory(pdi->m_buffer, sizeof(pdi->m_buffer));
                     SecureZeroMemory(&pdi->m_overlapped, sizeof(OVERLAPPED));
                     if (!ReadDirectoryChangesW(pdi->m_hDir,

@@ -20,6 +20,7 @@
 #include "Utils.h"
 #include "UnicodeUtils.h"
 #include "ResModule.h"
+#include "OnOutOfScope.h"
 #include <regex>
 #include <memory>
 #include <fstream>
@@ -32,6 +33,7 @@
 #pragma warning(push)
 #pragma warning(disable : 4091) // 'typedef ': ignored on left of '' when no variable is declared
 #include <Imagehlp.h>
+
 #pragma warning(pop)
 
 #pragma comment(lib, "Imagehlp.lib")
@@ -226,11 +228,15 @@ BOOL CResModule::CreateTranslatedResources(LPCWSTR lpszSrcLangDllPath, LPCWSTR l
     if (!m_hResDll)
         MYERROR;
 
-    sDestFile = std::wstring(lpszDestLangDllPath);
+    OnOutOfScope(
+        if (m_hResDll)
+            FreeLibrary(m_hResDll);)
+
+        sDestFile = std::wstring(lpszDestLangDllPath);
 
     // get all translated strings
     if (!m_stringEntries.ParseFile(lpszPoFilePath, FALSE, m_bAdjustEOLs))
-        goto DONE_ERROR;
+        MYERROR;
     m_bTranslatedStrings            = 0;
     m_bDefaultStrings               = 0;
     m_bTranslatedDialogStrings      = 0;
@@ -286,15 +292,9 @@ BOOL CResModule::CreateTranslatedResources(LPCWSTR lpszSrcLangDllPath, LPCWSTR l
     if (!EndUpdateResource(m_hUpdateRes, !bRes))
         MYERROR;
 
-    FreeLibrary(m_hResDll);
-
     AdjustCheckSum(sDestFile);
 
     return TRUE;
-DONE_ERROR:
-    if (m_hResDll)
-        FreeLibrary(m_hResDll);
-    return FALSE;
 }
 
 void CResModule::RemoveSignatures(LPCWSTR lpszDestLangDllPath)
@@ -324,12 +324,16 @@ BOOL CResModule::ExtractString(LPCWSTR lpszType)
         MYERROR;
     hglStringTable = LoadResource(m_hResDll, hrsrc);
 
+    OnOutOfScope(
+        UnlockResource(hglStringTable);
+        FreeResource(hglStringTable););
+
     if (!hglStringTable)
-        goto DONE_ERROR;
+        MYERROR;
     p = static_cast<LPWSTR>(LockResource(hglStringTable));
 
     if (!p)
-        goto DONE_ERROR;
+        MYERROR;
     /*  [Block of 16 strings.  The strings are Pascal style with a WORD
     length preceding the string.  16 strings are always written, even
     if not all slots are full.  Any slots in the block with no string
@@ -361,10 +365,6 @@ BOOL CResModule::ExtractString(LPCWSTR lpszType)
     UnlockResource(hglStringTable);
     FreeResource(hglStringTable);
     return TRUE;
-DONE_ERROR:
-    UnlockResource(hglStringTable);
-    FreeResource(hglStringTable);
-    MYERROR;
 }
 
 BOOL CResModule::ReplaceString(LPCWSTR lpszType, WORD wLanguage)
@@ -377,12 +377,16 @@ BOOL CResModule::ReplaceString(LPCWSTR lpszType, WORD wLanguage)
         MYERROR;
     hglStringTable = LoadResource(m_hResDll, hrsrc);
 
+    OnOutOfScope(
+        UnlockResource(hglStringTable);
+        FreeResource(hglStringTable););
+
     if (!hglStringTable)
-        goto DONE_ERROR;
+        MYERROR;
     p = static_cast<LPWSTR>(LockResource(hglStringTable));
 
     if (!p)
-        goto DONE_ERROR;
+        MYERROR;
     /*  [Block of 16 strings.  The strings are Pascal style with a WORD
     length preceding the string.  16 strings are always written, even
     if not all slots are full.  Any slots in the block with no string
@@ -456,22 +460,16 @@ BOOL CResModule::ReplaceString(LPCWSTR lpszType, WORD wLanguage)
     if (!UpdateResource(m_hUpdateRes, RT_STRING, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newTable, static_cast<DWORD>(nMem + (nMem % 2)) * 2))
     {
         delete[] newTable;
-        goto DONE_ERROR;
+        MYERROR;
     }
 
     if (m_wTargetLang && (!UpdateResource(m_hUpdateRes, RT_STRING, lpszType, wLanguage, nullptr, 0)))
     {
         delete[] newTable;
-        goto DONE_ERROR;
+        MYERROR;
     }
     delete[] newTable;
-    UnlockResource(hglStringTable);
-    FreeResource(hglStringTable);
     return TRUE;
-DONE_ERROR:
-    UnlockResource(hglStringTable);
-    FreeResource(hglStringTable);
-    MYERROR;
 }
 
 BOOL CResModule::ExtractMenu(LPCWSTR lpszType)
@@ -1298,13 +1296,17 @@ BOOL CResModule::ReplaceDialog(LPCWSTR lpszType, WORD wLanguage)
 
     lpDlg = static_cast<WORD*>(LockResource(hGlblDlgTemplate));
 
+    OnOutOfScope(
+        UnlockResource(hGlblDlgTemplate);
+        FreeResource(hGlblDlgTemplate););
+
     if (!lpDlg)
         MYERROR;
 
     size_t      nMem = 0;
     const WORD* p    = lpDlg;
     if (!CountMemReplaceDialogResource(p, &nMem, nullptr))
-        goto DONE_ERROR;
+        MYERROR;
     WORD* newDialog = new WORD[nMem + (nMem % 2)];
     SecureZeroMemory(newDialog, (nMem + (nMem % 2)) * 2);
 
@@ -1312,30 +1314,23 @@ BOOL CResModule::ReplaceDialog(LPCWSTR lpszType, WORD wLanguage)
     if (!CountMemReplaceDialogResource(lpDlg, &index, newDialog))
     {
         delete[] newDialog;
-        goto DONE_ERROR;
+        MYERROR;
     }
 
     if (!UpdateResource(m_hUpdateRes, RT_DIALOG, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newDialog, static_cast<DWORD>(nMem + (nMem % 2)) * 2))
     {
         delete[] newDialog;
-        goto DONE_ERROR;
+        MYERROR;
     }
 
     if (m_wTargetLang && (!UpdateResource(m_hUpdateRes, RT_DIALOG, lpszType, wLanguage, nullptr, 0)))
     {
         delete[] newDialog;
-        goto DONE_ERROR;
+        MYERROR;
     }
 
     delete[] newDialog;
-    UnlockResource(hGlblDlgTemplate);
-    FreeResource(hGlblDlgTemplate);
     return TRUE;
-
-DONE_ERROR:
-    UnlockResource(hGlblDlgTemplate);
-    FreeResource(hGlblDlgTemplate);
-    MYERROR;
 }
 
 const WORD* CResModule::GetDialogInfo(const WORD* pTemplate, LPDIALOGINFO lpDlgInfo)
