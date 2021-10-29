@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2016, 2018-2020 - TortoiseSVN
+// Copyright (C) 2007-2016, 2018-2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -477,7 +477,7 @@ void CCacheLogQuery::CLogFiller::ReceiveLog
         receiverError = true;
         throw;
     }
-    if (mergeInfo->mergesFollow)
+    if (mergeInfo && mergeInfo->mergesFollow)
         ++depth;
 }
 
@@ -1052,7 +1052,7 @@ void CCacheLogQuery::InternalLog ( revision_t startRevision
 
             revision_t revision = iterator->GetRevision();
             if (revision < lastReported)
-                SendToReceiver (revision, options, false);
+                SendToReceiver (revision, options, nullptr);
 
             // enough?
 
