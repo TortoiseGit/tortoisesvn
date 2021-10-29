@@ -169,7 +169,7 @@ $WCISLOCKED$    True if the item is locked\n"
 // Value for apr_time_t to signify "now"
 #define USE_TIME_NOW -2 // 0 and -1 might already be significant.
 
-bool FindPlaceholder(char *def, char *pBuf, size_t &index, size_t filelength)
+bool FindPlaceholder(const char *def, char *pBuf, size_t &index, size_t filelength)
 {
     size_t defLen = strlen(def);
     while (index + defLen <= filelength)
@@ -180,7 +180,7 @@ bool FindPlaceholder(char *def, char *pBuf, size_t &index, size_t filelength)
     }
     return false;
 }
-bool FindPlaceholderW(wchar_t *def, wchar_t *pBuf, size_t &index, size_t filelength)
+bool FindPlaceholderW(const wchar_t *def, wchar_t *pBuf, size_t &index, size_t filelength)
 {
     size_t defLen = wcslen(def);
     while ((index + defLen) * sizeof(wchar_t) <= filelength)
@@ -193,7 +193,7 @@ bool FindPlaceholderW(wchar_t *def, wchar_t *pBuf, size_t &index, size_t filelen
     return false;
 }
 
-bool InsertRevision(char *def, char *pBuf, size_t &index,
+bool InsertRevision(const char *def, char *pBuf, size_t &index,
                     size_t &fileLength, size_t maxLength,
                     long minRev, long maxRev, SubWCRevT *subStat)
 {
@@ -280,7 +280,7 @@ bool InsertRevision(char *def, char *pBuf, size_t &index,
     fileLength += expansion;
     return true;
 }
-bool InsertRevisionW(wchar_t *def, wchar_t *pBuf, size_t &index,
+bool InsertRevisionW(const wchar_t *def, wchar_t *pBuf, size_t &index,
                      size_t &fileLength, size_t maxLength,
                      long minRev, long maxRev, SubWCRevT *subStat)
 {
@@ -381,7 +381,7 @@ void invalidParameterDonothing(
     // do nothing
 }
 
-bool InsertDate(char *def, char *pBuf, size_t &index,
+bool InsertDate(const char *def, char *pBuf, size_t &index,
                 size_t &fileLength, size_t maxLength,
                 apr_time_t dateSVN)
 {
@@ -475,7 +475,7 @@ bool InsertDate(char *def, char *pBuf, size_t &index,
     fileLength += expansion;
     return true;
 }
-bool InsertDateW(wchar_t *def, wchar_t *pBuf, size_t &index,
+bool InsertDateW(const wchar_t *def, wchar_t *pBuf, size_t &index,
                  size_t &fileLength, size_t maxLength,
                  apr_time_t dateSVN)
 {
@@ -571,7 +571,7 @@ bool InsertDateW(wchar_t *def, wchar_t *pBuf, size_t &index,
     return true;
 }
 
-bool InsertUrl(char *def, char *pBuf, size_t &index,
+bool InsertUrl(const char *def, char *pBuf, size_t &index,
                size_t &fileLength, size_t maxLength,
                char *pUrl)
 {
@@ -599,7 +599,7 @@ bool InsertUrl(char *def, char *pBuf, size_t &index,
     fileLength += expansion;
     return true;
 }
-bool InsertUrlW(wchar_t *def, wchar_t *pBuf, size_t &index,
+bool InsertUrlW(const wchar_t *def, wchar_t *pBuf, size_t &index,
                 size_t &fileLength, size_t maxLength,
                 const wchar_t *pUrl)
 {
@@ -628,7 +628,7 @@ bool InsertUrlW(wchar_t *def, wchar_t *pBuf, size_t &index,
     return true;
 }
 
-int InsertBoolean(char *def, char *pBuf, size_t &index, size_t &fileLength, BOOL isTrue)
+int InsertBoolean(const char *def, char *pBuf, size_t &index, size_t &fileLength, BOOL isTrue)
 {
     // Search for first occurrence of def in the buffer, starting at index.
     if (!FindPlaceholder(def, pBuf, index, fileLength))
@@ -678,7 +678,7 @@ int InsertBoolean(char *def, char *pBuf, size_t &index, size_t &fileLength, BOOL
     }
     return true;
 }
-bool InsertBooleanW(wchar_t *def, wchar_t *pBuf, size_t &index, size_t &fileLength, BOOL isTrue)
+bool InsertBooleanW(const wchar_t *def, wchar_t *pBuf, size_t &index, size_t &fileLength, BOOL isTrue)
 {
     // Search for first occurrence of def in the buffer, starting at index.
     if (!FindPlaceholderW(def, pBuf, index, fileLength))
