@@ -39,32 +39,29 @@ enum
 
 #define REVGRAPH_MIN_NODE_HIGHT (0.5f)
 
-enum
-{
-    // size of the node marker
+// size of the node marker
 
-    MARKER_SIZE = 11,
+constexpr int MARKER_SIZE = 11;
 
-    // radius of the rounded / slanted box corners  of the expand / collapse / split / join square gylphs
+// radius of the rounded / slanted box corners  of the expand / collapse / split / join square gylphs
 
-    CORNER_SIZE = 12,
+constexpr int CORNER_SIZE = 12;
 
-    // font sizes
+// font sizes
 
-    DEFAULT_ZOOM_FONT         = 9,  // default font size
-    SMALL_ZOOM_FONT           = 11, // rel. larger font size for small zoom factors
-    SMALL_ZOOM_FONT_THRESHOLD = 6,  // max. "small zoom" font size after scaling
+constexpr int DEFAULT_ZOOM_FONT         = 9;  // default font size
+constexpr int SMALL_ZOOM_FONT           = 11; // rel. larger font size for small zoom factors
+constexpr int SMALL_ZOOM_FONT_THRESHOLD = 6;  // max. "small zoom" font size after scaling
 
-    // size of the expand / collapse / split / join square gylphs
+// size of the expand / collapse / split / join square gylphs
 
-    GLYPH_BITMAP_SIZE = 16,
-    GLYPH_SIZE        = 12,
+constexpr int GLYPH_BITMAP_SIZE = 16;
+constexpr int GLYPH_SIZE        = 12;
 
-    // glyph display delay definitions
+// glyph display delay definitions
 
-    GLYPH_HOVER_EVENT = 10,  // timer ID for the glyph display delay
-    GLYPH_HOVER_DELAY = 250, // delay until the glyphs are shown [ms]
-};
+constexpr int GLYPH_HOVER_EVENT = 10;  // timer ID for the glyph display delay
+constexpr int GLYPH_HOVER_DELAY = 250; // delay until the glyphs are shown [ms]
 
 // zoom control
 

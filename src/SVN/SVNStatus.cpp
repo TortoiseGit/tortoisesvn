@@ -395,56 +395,54 @@ void SVNStatus::GetExternals(std::set<CTSVNPath>& externals) const
 
 void SVNStatus::GetStatusString(svn_wc_status_kind status, size_t bufLen, wchar_t* string)
 {
-    wchar_t* buf = nullptr;
+    wcsncpy_s(string, bufLen, L"\0", bufLen);
     switch (status)
     {
         case svn_wc_status_none:
-            buf = L"none\0";
+            wcsncpy_s(string, bufLen, L"none\0", bufLen);
             break;
         case svn_wc_status_unversioned:
-            buf = L"unversioned\0";
+            wcsncpy_s(string, bufLen, L"unversioned\0", bufLen);
             break;
         case svn_wc_status_normal:
-            buf = L"normal\0";
+            wcsncpy_s(string, bufLen, L"normal\0", bufLen);
             break;
         case svn_wc_status_added:
-            buf = L"added\0";
+            wcsncpy_s(string, bufLen, L"added\0", bufLen);
             break;
         case svn_wc_status_missing:
-            buf = L"missing\0";
+            wcsncpy_s(string, bufLen, L"missing\0", bufLen);
             break;
         case svn_wc_status_deleted:
-            buf = L"deleted\0";
+            wcsncpy_s(string, bufLen, L"deleted\0", bufLen);
             break;
         case svn_wc_status_replaced:
-            buf = L"replaced\0";
+            wcsncpy_s(string, bufLen, L"replaced\0", bufLen);
             break;
         case svn_wc_status_modified:
-            buf = L"modified\0";
+            wcsncpy_s(string, bufLen, L"modified\0", bufLen);
             break;
         case svn_wc_status_merged:
-            buf = L"merged\0";
+            wcsncpy_s(string, bufLen, L"merged\0", bufLen);
             break;
         case svn_wc_status_conflicted:
-            buf = L"conflicted\0";
+            wcsncpy_s(string, bufLen, L"conflicted\0", bufLen);
             break;
         case svn_wc_status_obstructed:
-            buf = L"obstructed\0";
+            wcsncpy_s(string, bufLen, L"obstructed\0", bufLen);
             break;
         case svn_wc_status_ignored:
-            buf = L"ignored";
+            wcsncpy_s(string, bufLen, L"ignored\0", bufLen);
             break;
         case svn_wc_status_external:
-            buf = L"external";
+            wcsncpy_s(string, bufLen, L"external\0", bufLen);
             break;
         case svn_wc_status_incomplete:
-            buf = L"incomplete\0";
+            wcsncpy_s(string, bufLen, L"incomplete\0", bufLen);
             break;
         default:
-            buf = L"\0";
             break;
     }
-    swprintf_s(string, bufLen, L"%s", buf);
 }
 
 void SVNStatus::GetStatusString(HINSTANCE hInst, svn_wc_status_kind status, wchar_t* string, int size, WORD lang)
