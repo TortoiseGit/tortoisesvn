@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2012, 2014-2015 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014-2015, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -76,12 +76,12 @@ UniqueQueue<T>::~UniqueQueue()
 template <class T>
 size_t UniqueQueue<T>::Push( T value )
 {
-    std::map<T, size_t>::iterator it = m_QueueTMap.find(value);
+    auto it = m_QueueTMap.find(value);
     if (it != m_QueueTMap.end())
     {
         // value is already in the queue: we don't allow duplicates
         // so just move the existing value to the end of the queue
-        for (std::deque<UniqueQueueStruct>::iterator qIt = m_Queue.begin(); qIt != m_Queue.end(); ++qIt)
+        for (auto qIt = m_Queue.begin(); qIt != m_Queue.end(); ++qIt)
         {
             if (qIt->priority == it->second)
             {
@@ -110,7 +110,7 @@ size_t UniqueQueue<T>::Push( T value )
             m_QueueTMap.clear();
             m_Queue.clear();
 
-            for (std::map<T, size_t>::const_iterator tempIt = tempQueue.begin(); tempIt != tempQueue.end(); ++tempIt)
+            for (auto tempIt = tempQueue.begin(); tempIt != tempQueue.end(); ++tempIt)
             {
                 m_QueueTMap.insert(m_QueueTMap.end(), std::map<T, size_t>::value_type(tempIt->first, m_highestValue));
                 UniqueQueueStruct s2;
@@ -143,10 +143,10 @@ T UniqueQueue<T>::Pop()
 template <class T>
 size_t UniqueQueue<T>::erase( T value )
 {
-    std::map<T, size_t>::iterator it = m_QueueTMap.find(value);
+    auto it = m_QueueTMap.find(value);
     if (it != m_QueueTMap.end())
     {
-        for (std::deque<UniqueQueueStruct>::iterator qIt = m_Queue.begin(); qIt != m_Queue.end(); ++qIt)
+        for (auto qIt = m_Queue.begin(); qIt != m_Queue.end(); ++qIt)
         {
             if (qIt->priority == it->second)
             {
