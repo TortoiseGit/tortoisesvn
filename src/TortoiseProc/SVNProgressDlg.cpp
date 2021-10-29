@@ -4500,7 +4500,7 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                         return;
                     }
 
-                    if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+                    if (dlg.GetResult() == svn_client_conflict_option_postpone)
                         continue;
 
                     // Update conflict information.
@@ -4523,7 +4523,7 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                         return;
                     }
 
-                    if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+                    if (dlg.GetResult() == svn_client_conflict_option_postpone)
                         continue;
 
                     // Update conflict information.
@@ -4548,7 +4548,7 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                             return;
                         }
 
-                        if (dlg.GetResult() == svn_wc_conflict_choose_postpone)
+                        if (dlg.GetResult() == svn_client_conflict_option_postpone)
                             continue;
                     }
                 }
