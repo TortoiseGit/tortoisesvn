@@ -376,12 +376,12 @@ public:
 template <class T, class Base>
 void CRegTypedBase<T, Base>::HandleAutoRefresh()
 {
-    if (m_read && (lookupInterval != static_cast<DWORD>(-1)))
+    if (Base::m_read && (lookupInterval != static_cast<DWORD>(-1)))
     {
         ULONGLONG currentTime = GetTickCount64();
         if ((currentTime < lastRead) || (currentTime > lastRead + lookupInterval))
         {
-            m_read = false;
+            Base::m_read = false;
         }
     }
 }
@@ -419,24 +419,24 @@ template <class T, class Base>
 void CRegTypedBase<T, Base>::read()
 {
     m_value  = m_defaultvalue;
-    m_exists = false;
+    Base::m_exists = false;
 
     HKEY hKey = nullptr;
-    if ((m_lastError = RegOpenKeyEx(m_base, GetPlainString(m_path), 0, STANDARD_RIGHTS_READ | KEY_QUERY_VALUE | m_sam, &hKey)) == ERROR_SUCCESS)
+    if ((Base::m_lastError = RegOpenKeyEx(Base::m_base, Base::GetPlainString(Base::m_path), 0, STANDARD_RIGHTS_READ | KEY_QUERY_VALUE | Base::m_sam, &hKey)) == ERROR_SUCCESS)
     {
         T value = m_defaultvalue;
         InternalRead(hKey, value);
 
-        if (m_lastError == ERROR_SUCCESS)
+        if (Base::m_lastError == ERROR_SUCCESS)
         {
-            m_exists = true;
+            Base::m_exists = true;
             m_value  = value;
         }
 
-        m_lastError = RegCloseKey(hKey);
+        Base::m_lastError = RegCloseKey(hKey);
     }
 
-    m_read   = true;
+    Base::m_read = true;
     lastRead = GetTickCount64();
 }
 
@@ -446,18 +446,18 @@ void CRegTypedBase<T, Base>::write()
     HKEY hKey = nullptr;
 
     DWORD disp = 0;
-    if ((m_lastError = RegCreateKeyEx(m_base, GetPlainString(m_path), 0, L"", REG_OPTION_NON_VOLATILE, KEY_WRITE | m_sam, NULL, &hKey, &disp)) != ERROR_SUCCESS)
+    if ((Base::m_lastError = RegCreateKeyEx(Base::m_base, Base::GetPlainString(Base::m_path), 0, nullptr, REG_OPTION_NON_VOLATILE, KEY_WRITE | Base::m_sam, NULL, &hKey, &disp)) != ERROR_SUCCESS)
     {
         return;
     }
 
     InternalWrite(hKey, m_value);
-    if (m_lastError == ERROR_SUCCESS)
+    if (Base::m_lastError == ERROR_SUCCESS)
     {
-        m_read   = true;
-        m_exists = true;
+        Base::m_read = true;
+        Base::m_exists = true;
     }
-    m_lastError = RegCloseKey(hKey);
+    Base::m_lastError = RegCloseKey(hKey);
 
     lastRead = GetTickCount64();
 }
@@ -465,10 +465,10 @@ void CRegTypedBase<T, Base>::write()
 template <class T, class Base>
 bool CRegTypedBase<T, Base>::exists()
 {
-    if (!m_read && (m_lastError == ERROR_SUCCESS))
+    if (!Base::m_read && (Base::m_lastError == ERROR_SUCCESS))
         read();
 
-    return m_exists;
+    return Base::m_exists;
 }
 
 template <class T, class Base>
@@ -481,9 +481,9 @@ template <class T, class Base>
 CRegTypedBase<T, Base>::operator const T&()
 {
     HandleAutoRefresh();
-    if ((m_read) && (!m_force))
+    if ((Base::m_read) && (!Base::m_force))
     {
-        m_lastError = ERROR_SUCCESS;
+        Base::m_lastError = ERROR_SUCCESS;
     }
     else
     {
@@ -496,10 +496,10 @@ CRegTypedBase<T, Base>::operator const T&()
 template <class T, class Base>
 CRegTypedBase<T, Base>& CRegTypedBase<T, Base>::operator=(const T& d)
 {
-    if (m_read && (d == m_value) && !m_force)
+    if (Base::m_read && (d == m_value) && !Base::m_force)
     {
         //no write to the registry required, its the same value
-        m_lastError = ERROR_SUCCESS;
+        Base::m_lastError = ERROR_SUCCESS;
         return *this;
     }
     m_value = d;
@@ -611,7 +611,7 @@ void CRegDWORDCommon<Base>::InternalRead(HKEY hKey, DWORD& value)
 {
     DWORD size = sizeof(value);
     DWORD type = 0;
-    if ((m_lastError = RegQueryValueEx(hKey, GetPlainString(m_key), nullptr, &type, reinterpret_cast<BYTE*>(&value), &size)) == ERROR_SUCCESS)
+    if ((Base::m_lastError = RegQueryValueEx(hKey, Base::GetPlainString(Base::m_key), nullptr, &type, reinterpret_cast<BYTE*>(&value), &size)) == ERROR_SUCCESS)
     {
         ASSERT(type == REG_DWORD);
     }
@@ -620,7 +620,7 @@ void CRegDWORDCommon<Base>::InternalRead(HKEY hKey, DWORD& value)
 template <class Base>
 void CRegDWORDCommon<Base>::InternalWrite(HKEY hKey, const DWORD& value)
 {
-    m_lastError = RegSetValueEx(hKey, GetPlainString(m_key), 0, REG_DWORD, reinterpret_cast<const BYTE*>(&value), sizeof(value));
+    Base::m_lastError = RegSetValueEx(hKey, Base::GetPlainString(Base::m_key), 0, REG_DWORD, reinterpret_cast<const BYTE*>(&value), sizeof(value));
 }
 
 template <class Base>
@@ -689,7 +689,7 @@ void CRegQWORDCommon<Base>::InternalRead(HKEY hKey, QWORD& value)
 {
     DWORD size = sizeof(value);
     DWORD type = 0;
-    if ((m_lastError = RegQueryValueEx(hKey, GetPlainString(m_key), nullptr, &type, reinterpret_cast<BYTE*>(&value), &size)) == ERROR_SUCCESS)
+    if ((Base::m_lastError = RegQueryValueEx(hKey, Base::GetPlainString(Base::m_key), nullptr, &type, reinterpret_cast<BYTE*>(&value), &size)) == ERROR_SUCCESS)
     {
         ASSERT(type == REG_QWORD);
     }
@@ -698,7 +698,7 @@ void CRegQWORDCommon<Base>::InternalRead(HKEY hKey, QWORD& value)
 template <class Base>
 void CRegQWORDCommon<Base>::InternalWrite(HKEY hKey, const QWORD& value)
 {
-    m_lastError = RegSetValueEx(hKey, GetPlainString(m_key), 0, REG_QWORD, reinterpret_cast<const BYTE*>(&value), sizeof(value));
+    Base::m_lastError = RegSetValueEx(hKey, Base::GetPlainString(Base::m_key), 0, REG_QWORD, reinterpret_cast<const BYTE*>(&value), sizeof(value));
 }
 
 /**
@@ -773,7 +773,7 @@ public:
 
     CRegStringCommon& operator=(const typename Base::StringT& rhs)
     {
-        CRegTypedBase<StringT, Base>::operator=(rhs);
+        CRegTypedBase<Base::StringT, Base>::operator=(rhs);
         return *this;
     }
     CRegStringCommon& operator+=(const typename Base::StringT& s) { return *this = (typename Base::StringT) * this + s; }
@@ -804,15 +804,15 @@ void CRegStringCommon<Base>::InternalRead(HKEY hKey, typename Base::StringT& val
 {
     DWORD size  = 0;
     DWORD type  = 0;
-    m_lastError = RegQueryValueEx(hKey, GetPlainString(m_key), nullptr, &type, nullptr, &size);
+    Base::m_lastError = RegQueryValueEx(hKey, Base::GetPlainString(Base::m_key), nullptr, &type, nullptr, &size);
 
-    if (m_lastError == ERROR_SUCCESS)
+    if (Base::m_lastError == ERROR_SUCCESS)
     {
         auto pStr = std::make_unique<wchar_t[]>(size);
-        if ((m_lastError = RegQueryValueEx(hKey, GetPlainString(m_key), nullptr, &type, reinterpret_cast<BYTE*>(pStr.get()), &size)) == ERROR_SUCCESS)
+        if ((Base::m_lastError = RegQueryValueEx(hKey, Base::GetPlainString(Base::m_key), nullptr, &type, reinterpret_cast<BYTE*>(pStr.get()), &size)) == ERROR_SUCCESS)
         {
             ASSERT(type == REG_SZ || type == REG_EXPAND_SZ);
-            value = StringT(pStr.get());
+            value = Base::StringT(pStr.get());
         }
     }
 }
@@ -820,7 +820,7 @@ void CRegStringCommon<Base>::InternalRead(HKEY hKey, typename Base::StringT& val
 template <class Base>
 void CRegStringCommon<Base>::InternalWrite(HKEY hKey, const typename Base::StringT& value)
 {
-    m_lastError = RegSetValueEx(hKey, GetPlainString(m_key), 0, REG_SZ, reinterpret_cast<BYTE*>(const_cast<LPWSTR>(GetPlainString(value))), (GetLength(value) + 1) * sizeof(wchar_t));
+    Base::m_lastError = RegSetValueEx(hKey, Base::GetPlainString(Base::m_key), 0, REG_SZ, reinterpret_cast<BYTE*>(const_cast<LPWSTR>(Base::GetPlainString(value))), (Base::GetLength(value) + 1) * sizeof(wchar_t));
 }
 
 /**
@@ -1075,7 +1075,7 @@ public:
 
     ~CKeyList()
     {
-        for (TElements::iterator iter = elements.begin(), end = elements.end(); iter != end; ++iter)
+        for (auto iter = elements.begin(), end = elements.end(); iter != end; ++iter)
         {
             delete iter->second;
         }
@@ -1114,19 +1114,19 @@ public:
 template <class T>
 const typename T::ValueT& CKeyList<T>::GetDefault(int index) const
 {
-    TDefaults::const_iterator iter = defaults.find(index);
+    auto iter = defaults.find(index);
     return iter == defaults.end() ? defaultValue : iter->second;
 }
 
 template <class T>
 T& CKeyList<T>::GetAt(int index) const
 {
-    TElements::iterator iter = elements.find(index);
+    auto iter = elements.find(index);
     if (iter == elements.end())
     {
         wchar_t buffer[10];
-        _itot_s(index, buffer, 10);
-        typename T::StringT indexKey = key + _T('\\') + buffer;
+        _itow_s(index, buffer, 10);
+        typename T::StringT indexKey = key + L'\\' + buffer;
 
         T* newElement = new T(indexKey, GetDefault(index), false, base);
         iter          = elements.emplace(index, newElement).first;

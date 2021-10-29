@@ -30,6 +30,7 @@
 #include "Theme.h"
 #include "DarkModeHelper.h"
 #include "DPIAware.h"
+#include "resource.h"
 #include <Dwmapi.h>
 #pragma comment(lib, "Dwmapi.lib")
 #pragma comment(lib, "htmlhelp.lib")
@@ -59,7 +60,7 @@ class CStandAloneDialogTmpl : public BaseType
 protected:
     CStandAloneDialogTmpl(UINT nIDTemplate, CWnd* pParentWnd = nullptr)
         : BaseType(nIDTemplate, pParentWnd)
-        , CommonDialogFunctions(this)
+        , CommonDialogFunctions<BaseType>(this)
     {
         m_hIcon                  = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
         m_margins.cxLeftWidth    = 0;
@@ -94,22 +95,22 @@ protected:
 
         // Set the icon for this dialog.  The framework does this automatically
         //  when the application's main window is not a dialog
-        SetIcon(m_hIcon, TRUE);  // Set big icon
-        SetIcon(m_hIcon, FALSE); // Set small icon
+        BaseType::SetIcon(m_hIcon, TRUE);  // Set big icon
+        BaseType::SetIcon(m_hIcon, FALSE); // Set small icon
 
         RECT rect;
-        GetWindowRect(&rect);
+        BaseType::GetWindowRect(&rect);
         m_height = rect.bottom - rect.top;
         m_width  = rect.right - rect.left;
-        EnableToolTips();
+        BaseType::EnableToolTips();
         m_tooltips.Create(this);
         SetTheme(CTheme::Instance().IsDarkTheme());
 
         auto customBreak = static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\UseCustomWordBreak", 2));
         if (customBreak)
-            SetUrlWordBreakProcToChildWindows(GetSafeHwnd(), customBreak == 2);
+            SetUrlWordBreakProcToChildWindows(BaseType::GetSafeHwnd(), customBreak == 2);
 
-        m_dpi = CDPIAware::Instance().GetDPI(GetSafeHwnd());
+        m_dpi = CDPIAware::Instance().GetDPI(BaseType::GetSafeHwnd());
 
         return FALSE;
     }
@@ -146,17 +147,17 @@ protected:
 
     afx_msg void OnPaint()
     {
-        if (IsIconic())
+        if (BaseType::IsIconic())
         {
             CPaintDC dc(this); // device context for painting
 
-            SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
+            BaseType::SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
             // Center icon in client rectangle
             int   cxIcon = GetSystemMetrics(SM_CXICON);
             int   cyIcon = GetSystemMetrics(SM_CYICON);
             CRect rect;
-            GetClientRect(&rect);
+            BaseType::GetClientRect(&rect);
             int x = (rect.Width() - cxIcon + 1) / 2;
             int y = (rect.Height() - cyIcon + 1) / 2;
 
@@ -176,7 +177,7 @@ protected:
         {
             // draw the frame margins in black
             CRect rc;
-            GetClientRect(&rc);
+            BaseType::GetClientRect(&rc);
             if (m_margins.cxLeftWidth < 0)
             {
                 pDC->FillSolidRect(rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top, RGB(0, 0, 0));
@@ -212,8 +213,8 @@ protected:
         if (m_aeroControls.AeroDialogsEnabled())
         {
             CRect rc;
-            GetClientRect(&rc);
-            ClientToScreen(&rc);
+            BaseType::GetClientRect(&rc);
+            BaseType::ClientToScreen(&rc);
 
             if (m_margins.cxLeftWidth < 0)
             {
@@ -242,14 +243,14 @@ protected:
         if (!m_aeroControls.AeroDialogsEnabled())
             return;
         RECT rc, rc2;
-        GetWindowRect(&rc);
-        GetClientRect(&rc2);
-        ClientToScreen(&rc2);
+        BaseType::GetWindowRect(&rc);
+        BaseType::GetClientRect(&rc2);
+        BaseType::ClientToScreen(&rc2);
 
         RECT rcControl;
         if (leftControl)
         {
-            HWND hw = GetDlgItem(leftControl)->GetSafeHwnd();
+            HWND hw = BaseType::GetDlgItem(leftControl)->GetSafeHwnd();
             if (hw == nullptr)
                 return;
             ::GetWindowRect(hw, &rcControl);
@@ -261,7 +262,7 @@ protected:
 
         if (topControl)
         {
-            HWND hw = GetDlgItem(topControl)->GetSafeHwnd();
+            HWND hw = BaseType::GetDlgItem(topControl)->GetSafeHwnd();
             if (hw == nullptr)
                 return;
             ::GetWindowRect(hw, &rcControl);
@@ -273,7 +274,7 @@ protected:
 
         if (rightControl)
         {
-            HWND hw = GetDlgItem(rightControl)->GetSafeHwnd();
+            HWND hw = BaseType::GetDlgItem(rightControl)->GetSafeHwnd();
             if (hw == nullptr)
                 return;
             ::GetWindowRect(hw, &rcControl);
@@ -285,7 +286,7 @@ protected:
 
         if (botomControl)
         {
-            HWND hw = GetDlgItem(botomControl)->GetSafeHwnd();
+            HWND hw = BaseType::GetDlgItem(botomControl)->GetSafeHwnd();
             if (hw == nullptr)
                 return;
             ::GetWindowRect(hw, &rcControl);
@@ -305,7 +306,7 @@ protected:
             m_margins.cxRightWidth   = -1;
             m_margins.cyBottomHeight = -1;
         }
-        DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
+        DwmExtendFrameIntoClientArea(BaseType::m_hWnd, &m_margins);
     }
 
     /**
@@ -315,14 +316,14 @@ protected:
      */
     BOOL DialogEnableWindow(UINT nID, BOOL bEnable)
     {
-        CWnd* pwndDlgItem = GetDlgItem(nID);
+        CWnd* pwndDlgItem = BaseType::GetDlgItem(nID);
         if (pwndDlgItem == nullptr)
             return FALSE;
         if (bEnable)
             return pwndDlgItem->EnableWindow(bEnable);
-        if (GetFocus() == pwndDlgItem)
+        if (BaseType::GetFocus() == pwndDlgItem)
         {
-            SendMessage(WM_NEXTDLGCTL, 0, FALSE);
+            BaseType::SendMessage(WM_NEXTDLGCTL, 0, FALSE);
         }
         return pwndDlgItem->EnableWindow(bEnable);
     }
@@ -340,9 +341,9 @@ protected:
     bool IsCursorOverWindowBorder()
     {
         RECT wRc{}, cRc{};
-        this->GetWindowRect(&wRc);
-        this->GetClientRect(&cRc);
-        ClientToScreen(&cRc);
+        BaseType::GetWindowRect(&wRc);
+        BaseType::GetClientRect(&cRc);
+        BaseType::ClientToScreen(&cRc);
         DWORD pos = GetMessagePos();
         POINT pt;
         pt.x = GET_X_LPARAM(pos);
@@ -406,14 +407,14 @@ protected:
     {
         if (m_aeroControls.AeroDialogsEnabled())
         {
-            DwmExtendFrameIntoClientArea(m_hWnd, &m_margins);
+            DwmExtendFrameIntoClientArea(BaseType::m_hWnd, &m_margins);
         }
         BaseType::OnCompositionChanged();
     }
 
     afx_msg LRESULT OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
     {
-        setUuidOverlayIcon(m_hWnd);
+        setUuidOverlayIcon(BaseType::m_hWnd);
         return 0;
     }
 
@@ -470,8 +471,8 @@ protected:
     // overloaded method, but since this dialog class is for non-resizable dialogs,
     // the bHorzResize and bVertResize params are ignored and passed as false
     // to the base method.
-    void          EnableSaveRestore(LPCWSTR pszSection, bool bRectOnly = FALSE, BOOL bHorzResize = TRUE, BOOL bVertResize = TRUE);
-    virtual ULONG GetGestureStatus(CPoint /*ptTouch*/) override
+    void  EnableSaveRestore(LPCWSTR pszSection, bool bRectOnly = FALSE, BOOL bHorzResize = TRUE, BOOL bVertResize = TRUE);
+    ULONG GetGestureStatus(CPoint /*ptTouch*/) override
     {
         return 0;
     }
@@ -495,7 +496,7 @@ protected:
 class CResizableStandAloneDialog : public CStandAloneDialogTmpl<CResizableDialog>
 {
 public:
-    CResizableStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd = NULL);
+    CResizableStandAloneDialog(UINT nIDTemplate, CWnd* pParentWnd = nullptr);
 
 private:
     DECLARE_DYNAMIC(CResizableStandAloneDialog)

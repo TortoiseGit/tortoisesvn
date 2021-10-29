@@ -53,15 +53,15 @@ public:
     void ShowText(const CString& sText, bool forceupdate = false)
     {
         m_sText = sText;
-        Invalidate();
+        BaseType::Invalidate();
         if (forceupdate)
-            UpdateWindow();
+            BaseType::UpdateWindow();
     }
 
     void ClearText()
     {
         m_sText.Empty();
-        Invalidate();
+        BaseType::Invalidate();
     }
 
     bool HasText() const { return !m_sText.IsEmpty(); }
@@ -69,26 +69,25 @@ public:
     DECLARE_MESSAGE_MAP()
 
 protected:
-    afx_msg void CHintCtrl::OnPaint()
+    afx_msg void OnPaint()
     {
-        LRESULT defRes = Default();
+        LRESULT defRes = BaseType::Default();
         if (!m_sText.IsEmpty())
         {
             COLORREF clrText = CTheme::Instance().IsDarkTheme() ? CTheme::darkTextColor : ::GetSysColor(COLOR_WINDOWTEXT);
             COLORREF clrTextBk;
-            if (IsWindowEnabled())
+            if (BaseType::IsWindowEnabled())
                 clrTextBk = CTheme::Instance().IsDarkTheme() ? CTheme::darkBkColor : ::GetSysColor(COLOR_WINDOW);
             else
                 clrTextBk = CTheme::Instance().GetThemeColor(::GetSysColor(COLOR_3DFACE));
 
             CRect rc;
-            GetClientRect(&rc);
+            BaseType::GetClientRect(&rc);
             bool       bIsEmpty  = false;
             CListCtrl* pListCtrl = dynamic_cast<CListCtrl*>(this);
             if (pListCtrl)
             {
-                CHeaderCtrl* pHC;
-                pHC = pListCtrl->GetHeaderCtrl();
+                CHeaderCtrl* pHC = pListCtrl->GetHeaderCtrl();
                 if (pHC != nullptr)
                 {
                     CRect rcH;
@@ -98,7 +97,7 @@ protected:
                 }
                 bIsEmpty = pListCtrl->GetItemCount() == 0;
             }
-            CDC* pDC = GetDC();
+            CDC* pDC = BaseType::GetDC();
             {
                 pDC->SetBkMode(TRANSPARENT);
                 pDC->SetTextColor(clrText);
@@ -117,7 +116,7 @@ protected:
                 memDC.DrawText(m_sText, rc, DT_CENTER | DT_VCENTER | DT_WORDBREAK | DT_NOPREFIX | DT_NOCLIP);
                 memDC.SelectObject(oldfont);
             }
-            ReleaseDC(pDC);
+            BaseType::ReleaseDC(pDC);
         }
         if (defRes)
         {
@@ -125,9 +124,9 @@ protected:
             // Validate the update region ourselves to avoid
             // an endless loop repainting
             CRect rc;
-            GetUpdateRect(&rc, FALSE);
+            BaseType::GetUpdateRect(&rc, FALSE);
             if (!rc.IsRectEmpty())
-                ValidateRect(rc);
+                BaseType::ValidateRect(rc);
         }
     }
 

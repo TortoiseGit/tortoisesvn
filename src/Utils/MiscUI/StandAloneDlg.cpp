@@ -354,33 +354,33 @@ void CStandAloneDialogTmpl<BaseType>::SetTheme(bool bDark)
     if (bDark)
     {
         DarkModeHelper::Instance().AllowDarkModeForApp(TRUE);
-        DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), TRUE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(BaseType::GetSafeHwnd(), TRUE);
         DarkModeHelper::Instance().AllowDarkModeForWindow(m_tooltips.GetSafeHwnd(), TRUE);
         SetWindowTheme(m_tooltips.GetSafeHwnd(), L"Explorer", nullptr);
-        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetStockObject(BLACK_BRUSH)));
+        SetClassLongPtr(BaseType::GetSafeHwnd(), GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetStockObject(BLACK_BRUSH)));
         BOOL                                        darkFlag = TRUE;
         DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data     = {DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag)};
-        DarkModeHelper::Instance().SetWindowCompositionAttribute(GetSafeHwnd(), &data);
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(BaseType::GetSafeHwnd(), &data);
         DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
         BOOL dark = TRUE;
-        DwmSetWindowAttribute(GetSafeHwnd(), 19, &dark, sizeof(dark));
+        DwmSetWindowAttribute(BaseType::GetSafeHwnd(), 19, &dark, sizeof(dark));
     }
     else
     {
-        DarkModeHelper::Instance().AllowDarkModeForWindow(GetSafeHwnd(), FALSE);
+        DarkModeHelper::Instance().AllowDarkModeForWindow(BaseType::GetSafeHwnd(), FALSE);
         DarkModeHelper::Instance().AllowDarkModeForWindow(m_tooltips.GetSafeHwnd(), FALSE);
         SetWindowTheme(m_tooltips.GetSafeHwnd(), L"Explorer", nullptr);
         BOOL                                        darkFlag = FALSE;
         DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data     = {DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag)};
-        DarkModeHelper::Instance().SetWindowCompositionAttribute(GetSafeHwnd(), &data);
+        DarkModeHelper::Instance().SetWindowCompositionAttribute(BaseType::GetSafeHwnd(), &data);
         DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
         DarkModeHelper::Instance().AllowDarkModeForApp(FALSE);
-        SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetSysColorBrush(COLOR_3DFACE)));
+        SetClassLongPtr(BaseType::GetSafeHwnd(), GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetSysColorBrush(COLOR_3DFACE)));
     }
-    CTheme::Instance().SetThemeForDialog(GetSafeHwnd(), bDark);
-    ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+    CTheme::Instance().SetThemeForDialog(BaseType::GetSafeHwnd(), bDark);
+    ::RedrawWindow(BaseType::GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
 
 template <typename BaseType>
@@ -397,33 +397,33 @@ LRESULT CStandAloneDialogTmpl<BaseType>::OnDPIChanged(WPARAM wParam, LPARAM lPar
     }
     double zoom = (static_cast<double>(newDpi) / (static_cast<double>(m_dpi) / 100.0)) / 100.0;
 
-    DpiAdjustData data = {GetSafeHwnd(), zoom};
+    DpiAdjustData data = {BaseType::GetSafeHwnd(), zoom};
     if constexpr (std::is_same_v<BaseType, CResizableDialog>)
     {
-        auto anchors = GetAllAnchors();
-        RemoveAllAnchors();
+        auto anchors = BaseType::GetAllAnchors();
+        BaseType::RemoveAllAnchors();
 
-        auto minTrackSize = GetMinTrackSize();
+        auto minTrackSize = BaseType::GetMinTrackSize();
         minTrackSize.cx   = static_cast<LONG>(minTrackSize.cx * zoom);
         minTrackSize.cy   = static_cast<LONG>(minTrackSize.cy * zoom);
-        SetMinTrackSize(minTrackSize);
+        BaseType::SetMinTrackSize(minTrackSize);
 
-        SetWindowPos(nullptr, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
-        ::EnumChildWindows(GetSafeHwnd(), dpiAdjustChildren, reinterpret_cast<LPARAM>(&data));
+        BaseType::SetWindowPos(nullptr, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+        ::EnumChildWindows(BaseType::GetSafeHwnd(), dpiAdjustChildren, reinterpret_cast<LPARAM>(&data));
 
-        AddAllAnchors(anchors);
+        BaseType::AddAllAnchors(anchors);
     }
     else
     {
-        SetWindowPos(nullptr, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
-        ::EnumChildWindows(GetSafeHwnd(), dpiAdjustChildren, reinterpret_cast<LPARAM>(&data));
+        BaseType::SetWindowPos(nullptr, rect->left, rect->top, rect->right - rect->left, rect->bottom - rect->top, SWP_NOZORDER | SWP_NOACTIVATE);
+        ::EnumChildWindows(BaseType::GetSafeHwnd(), dpiAdjustChildren, reinterpret_cast<LPARAM>(&data));
     }
 
     m_dpi    = newDpi;
     m_height = rect->bottom - rect->top;
     m_width  = rect->right - rect->left;
 
-    ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
+    ::RedrawWindow(BaseType::GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
     return 1; // let MFC handle this message as well
 }
 
