@@ -89,7 +89,7 @@ template <class T>
 CSyncPointer<T>::CSyncPointer(const CSyncPointer<T>& rhs)
     : mutex(rhs.mutex)
     , lock(rhs.mutex)
-    , rhs.ptr(rhs.ptr)
+    , ptr(rhs.ptr)
     , ownsPtr(rhs.ownsPtr)
 {
     rhs.ownsPtr = false;
