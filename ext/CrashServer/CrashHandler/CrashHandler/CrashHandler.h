@@ -32,19 +32,6 @@
 #       endif // !_DEBUG
 #endif // CRASHHANDLER_ENABLE_RELEASE_ASSERTS
 
-namespace {
-
-    // This template should be in anonymous namespace since __COUNTER__ is unique only for a single translation unit (as anonymous namespace items)
-    template<unsigned uniqueAssertId>
-    __forceinline static void SkipDoctorDump_ReportAssertionViolation(LPCSTR dumpGroup)
-    {
-        static LONG volatile isAlreadyReported = FALSE;
-        if (TRUE == InterlockedCompareExchange(&isAlreadyReported, TRUE, FALSE))
-            return;
-        ::RaiseException(CrashHandler::ExceptionAssertionViolated, 0, 1, reinterpret_cast<ULONG_PTR*>(&dumpGroup));
-    }
-
-} // namespace {
 
 //! Contains data that identifies your application.
 struct ApplicationInfo
@@ -500,5 +487,19 @@ private:
     pfnGetVersionFromApp m_GetVersionFromApp;
     pfnGetVersionFromFile m_GetVersionFromFile;
 };
+
+namespace
+{
+// This template should be in anonymous namespace since __COUNTER__ is unique only for a single translation unit (as anonymous namespace items)
+template <unsigned uniqueAssertId>
+__forceinline static void SkipDoctorDump_ReportAssertionViolation(LPCSTR dumpGroup)
+{
+    static LONG volatile isAlreadyReported = FALSE;
+    if (TRUE == InterlockedCompareExchange(&isAlreadyReported, TRUE, FALSE))
+        return;
+    ::RaiseException(CrashHandler::ExceptionAssertionViolated, 0, 1, reinterpret_cast<ULONG_PTR*>(&dumpGroup));
+}
+
+} // namespace
 
 #endif // __CRASH_HANDLER_H__
