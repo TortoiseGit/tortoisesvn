@@ -20,6 +20,7 @@
 
 #include "SettingsPropPage.h"
 #include "registry.h"
+#include "Globals.h"
 
 /**
  * \ingroup TortoiseProc
@@ -54,16 +55,16 @@ public:
     BOOL OnInitDialog() override;
 
 private:
-    void InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags, int iconWidth, int iconHeight);
+    void InsertItem(UINT nTextID, UINT nIconID, TSVNContextMenuEntries dwFlags, int iconWidth, int iconHeight);
 
     CRegDWORD m_regTopMenu;
     CRegDWORD m_regTopMenuHigh;
 
-    CImageList       m_imgList;
-    CListCtrl        m_cMenuList;
-    BOOL             m_bModified;
-    unsigned __int64 m_topMenu;
-    bool             m_bBlock;
+    CImageList             m_imgList;
+    CListCtrl              m_cMenuList;
+    BOOL                   m_bModified;
+    TSVNContextMenuEntries m_topMenu;
+    bool                   m_bBlock;
 
     CRegDWORD m_regGetLockTop;
     BOOL      m_bGetLockTop;

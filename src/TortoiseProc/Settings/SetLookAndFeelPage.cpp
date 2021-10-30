@@ -30,11 +30,11 @@ CSetLookAndFeelPage::CSetLookAndFeelPage()
     , m_bGetLockTop(FALSE)
     , m_bHideMenus(false)
 {
-    m_regTopMenu     = CRegDWORD(L"Software\\TortoiseSVN\\ContextMenuEntries", MENUCHECKOUT | MENUUPDATE | MENUCOMMIT);
+    m_regTopMenu     = CRegDWORD(L"Software\\TortoiseSVN\\ContextMenuEntries", static_cast<DWORD>(TSVNContextMenuEntries::Checkout | TSVNContextMenuEntries::Update | TSVNContextMenuEntries::Commit));
     m_regTopMenuHigh = CRegDWORD(L"Software\\TortoiseSVN\\ContextMenuEntrieshigh", 0);
 
-    m_topMenu = static_cast<unsigned long long>(static_cast<DWORD>(m_regTopMenuHigh)) << 32;
-    m_topMenu |= static_cast<unsigned long long>(static_cast<DWORD>(m_regTopMenu));
+    m_topMenu = static_cast<TSVNContextMenuEntries>(static_cast<unsigned long long>(static_cast<DWORD>(m_regTopMenuHigh)) << 32);
+    m_topMenu |= static_cast<TSVNContextMenuEntries>(static_cast<unsigned long long>(static_cast<DWORD>(m_regTopMenu)));
 
     m_regGetLockTop = CRegDWORD(L"Software\\TortoiseSVN\\GetLockTop", TRUE);
     m_bGetLockTop   = m_regGetLockTop;
@@ -99,46 +99,11 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 
     m_bBlock = true;
 
-    InsertItem(IDS_MENUCHECKOUT, IDI_CHECKOUT, MENUCHECKOUT, iconWidth, iconHeight);
-    InsertItem(IDS_MENUUPDATE, IDI_UPDATE, MENUUPDATE, iconWidth, iconHeight);
-    InsertItem(IDS_MENUCOMMIT, IDI_COMMIT, MENUCOMMIT, iconWidth, iconHeight);
-    InsertItem(IDS_MENUDIFF, IDI_DIFF, MENUDIFF, iconWidth, iconHeight);
-    InsertItem(IDS_MENUDIFFLATER, IDI_DIFF, MENUDIFFLATER, iconWidth, iconHeight);
-    InsertItem(IDS_MENUDIFFNOW, IDI_DIFF, MENUDIFFNOW, iconWidth, iconHeight);
-    InsertItem(IDS_MENUPREVDIFF, IDI_DIFF, MENUPREVDIFF, iconWidth, iconHeight);
-    InsertItem(IDS_MENUURLDIFF, IDI_DIFF, MENUURLDIFF, iconWidth, iconHeight);
-    InsertItem(IDS_MENULOG, IDI_LOG, MENULOG, iconWidth, iconHeight);
-    InsertItem(IDS_MENUREPOBROWSE, IDI_REPOBROWSE, MENUREPOBROWSE, iconWidth, iconHeight);
-    InsertItem(IDS_MENUSHOWCHANGED, IDI_SHOWCHANGED, MENUSHOWCHANGED, iconWidth, iconHeight);
-    InsertItem(IDS_MENUREVISIONGRAPH, IDI_REVISIONGRAPH, MENUREVISIONGRAPH, iconWidth, iconHeight);
-    InsertItem(IDS_MENUCONFLICT, IDI_CONFLICT, MENUCONFLICTEDITOR, iconWidth, iconHeight);
-    InsertItem(IDS_MENURESOLVE, IDI_RESOLVE, MENURESOLVE, iconWidth, iconHeight);
-    InsertItem(IDS_MENUUPDATEEXT, IDI_UPDATE, MENUUPDATEEXT, iconWidth, iconHeight);
-    InsertItem(IDS_MENURENAME, IDI_RENAME, MENURENAME, iconWidth, iconHeight);
-    InsertItem(IDS_MENUREMOVE, IDI_DELETE, MENUREMOVE, iconWidth, iconHeight);
-    InsertItem(IDS_MENUREVERT, IDI_REVERT, MENUREVERT, iconWidth, iconHeight);
-    InsertItem(IDS_MENUDELUNVERSIONED, IDI_DELUNVERSIONED, MENUDELUNVERSIONED, iconWidth, iconHeight);
-    InsertItem(IDS_MENUCLEANUP, IDI_CLEANUP, MENUCLEANUP, iconWidth, iconHeight);
-    InsertItem(IDS_MENU_LOCK, IDI_LOCK, MENULOCK, iconWidth, iconHeight);
-    InsertItem(IDS_MENU_UNLOCK, IDI_UNLOCK, MENUUNLOCK, iconWidth, iconHeight);
-    InsertItem(IDS_MENUBRANCH, IDI_COPY, MENUCOPY, iconWidth, iconHeight);
-    InsertItem(IDS_MENUSWITCH, IDI_SWITCH, MENUSWITCH, iconWidth, iconHeight);
-    InsertItem(IDS_MENUMERGE, IDI_MERGE, MENUMERGE, iconWidth, iconHeight);
-    InsertItem(IDS_MENUMERGEALL, IDI_MERGE, MENUMERGEALL, iconWidth, iconHeight);
-    InsertItem(IDS_MENUEXPORT, IDI_EXPORT, MENUEXPORT, iconWidth, iconHeight);
-    InsertItem(IDS_MENURELOCATE, IDI_RELOCATE, MENURELOCATE, iconWidth, iconHeight);
-    InsertItem(IDS_MENUCREATEREPOS, IDI_CREATEREPOS, MENUCREATEREPOS, iconWidth, iconHeight);
-    InsertItem(IDS_MENUADD, IDI_ADD, MENUADD, iconWidth, iconHeight);
-    InsertItem(IDS_MENUIMPORT, IDI_IMPORT, MENUIMPORT, iconWidth, iconHeight);
-    InsertItem(IDS_MENUBLAME, IDI_BLAME, MENUBLAME, iconWidth, iconHeight);
-    InsertItem(IDS_MENUCOPYURL, IDI_COPYURL, MENUCOPYURL, iconWidth, iconHeight);
-    InsertItem(IDS_MENUIGNORE, IDI_IGNORE, MENUIGNORE, iconWidth, iconHeight);
-    InsertItem(IDS_MENUSHELVE, IDI_SHELVE, MENUSHELVE, iconWidth, iconHeight);
-    InsertItem(IDS_MENUUNSHELVE, IDI_UNSHELVE, MENUUNSHELVE, iconWidth, iconHeight);
-    InsertItem(IDS_MENUCREATEPATCH, IDI_CREATEPATCH, MENUCREATEPATCH, iconWidth, iconHeight);
-    InsertItem(IDS_MENUAPPLYPATCH, IDI_PATCH, MENUAPPLYPATCH, iconWidth, iconHeight);
-    InsertItem(IDS_MENUPROPERTIES, IDI_PROPERTIES, MENUPROPERTIES, iconWidth, iconHeight);
-    InsertItem(IDS_MENUCLIPPASTE, IDI_CLIPPASTE, MENUCLIPPASTE, iconWidth, iconHeight);
+    for (const auto& [menu, name, icon] : TSVNContextMenuEntriesVec)
+    {
+        InsertItem(name, icon, menu, iconWidth, iconHeight);
+    }
+
     m_bBlock = false;
 
     m_cMenuList.SetImageList(&m_imgList, LVSIL_SMALL);
@@ -158,8 +123,8 @@ BOOL CSetLookAndFeelPage::OnInitDialog()
 BOOL CSetLookAndFeelPage::OnApply()
 {
     UpdateData();
-    Store(static_cast<DWORD>(m_topMenu & 0xFFFFFFFF), m_regTopMenu);
-    Store(static_cast<DWORD>(m_topMenu >> 32), m_regTopMenuHigh);
+    Store(static_cast<DWORD>(static_cast<QWORD>(m_topMenu) & 0xFFFFFFFF), m_regTopMenu);
+    Store(static_cast<DWORD>(static_cast<QWORD>(m_topMenu) >> 32), m_regTopMenuHigh);
     Store(m_bGetLockTop, m_regGetLockTop);
     Store(m_bHideMenus, m_regHideMenus);
     Store(m_bEnableDragContextMenu, m_regEnableDragContextMenu);
@@ -175,7 +140,7 @@ BOOL CSetLookAndFeelPage::OnApply()
     return ISettingsPropPage::OnApply();
 }
 
-void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, unsigned __int64 dwFlags, int iconWidth, int iconHeight)
+void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, TSVNContextMenuEntries dwFlags, int iconWidth, int iconHeight)
 {
     auto    hIcon  = LoadIconEx(AfxGetResourceHandle(), MAKEINTRESOURCE(nIconID), iconWidth, iconHeight);
     int     nImage = m_imgList.Add(hIcon);
@@ -184,7 +149,7 @@ void CSetLookAndFeelPage::InsertItem(UINT nTextID, UINT nIconID, unsigned __int6
     CStringUtils::RemoveAccelerators(temp);
     int nIndex = m_cMenuList.GetItemCount();
     m_cMenuList.InsertItem(nIndex, temp, nImage);
-    m_cMenuList.SetCheck(nIndex, !!(m_topMenu & dwFlags));
+    m_cMenuList.SetCheck(nIndex, (m_topMenu & dwFlags) != TSVNContextMenuEntries::None);
 }
 
 void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR* /*pNMHDR*/, LRESULT* pResult)
@@ -195,47 +160,11 @@ void CSetLookAndFeelPage::OnLvnItemchangedMenulist(NMHDR* /*pNMHDR*/, LRESULT* p
     if (m_cMenuList.GetItemCount() > 0)
     {
         int i     = 0;
-        m_topMenu = 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUCHECKOUT : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUUPDATE : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUCOMMIT : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUDIFF : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUDIFFLATER : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUDIFFNOW : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUPREVDIFF : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUURLDIFF : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENULOG : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUREPOBROWSE : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUSHOWCHANGED : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUREVISIONGRAPH : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUCONFLICTEDITOR : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENURESOLVE : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUUPDATEEXT : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENURENAME : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUREMOVE : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUREVERT : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUDELUNVERSIONED : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUCLEANUP : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENULOCK : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUUNLOCK : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUCOPY : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUSWITCH : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUMERGE : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUMERGEALL : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUEXPORT : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENURELOCATE : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEREPOS : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUADD : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUIMPORT : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUBLAME : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUCOPYURL : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUIGNORE : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUSHELVE : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUUNSHELVE : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUCREATEPATCH : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUAPPLYPATCH : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUPROPERTIES : 0;
-        m_topMenu |= m_cMenuList.GetCheck(i++) ? MENUCLIPPASTE : 0;
+        m_topMenu = TSVNContextMenuEntries::None;
+        for (const auto& [menu, name, icon] : TSVNContextMenuEntriesVec)
+        {
+            m_topMenu |= m_cMenuList.GetCheck(i++) ? menu : TSVNContextMenuEntries::None;
+        }
     }
     *pResult = 0;
 }
