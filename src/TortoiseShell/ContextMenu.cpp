@@ -2692,6 +2692,13 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
         if ((itemStates & (ITEMIS_INSVN | ITEMIS_INVERSIONEDFOLDER | ITEMIS_FOLDERINSVN)) == 0)
             *pCmdState = ECS_HIDDEN;
     }
+    if (*pCmdState != ECS_HIDDEN)
+    {
+        m_explorerCommands.clear();
+        QueryContextMenu(nullptr, 0, 0, 0, CMF_EXTENDEDVERBS | CMF_NORMAL);
+        if (m_explorerCommands.empty())
+            *pCmdState = ECS_HIDDEN;
+    }
 
     return S_OK;
 }
