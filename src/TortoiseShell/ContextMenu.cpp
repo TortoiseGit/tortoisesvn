@@ -1131,8 +1131,9 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     HMENU subMenu      = hMenu ? CreateMenu() : nullptr;
     int   indexSubMenu = 0;
 
-    unsigned __int64 topMenu  = g_shellCache.GetMenuLayout();
-    unsigned __int64 menuMask = g_shellCache.GetMenuMask();
+    TSVNContextMenuEntries topMenu11 = g_shellCache.GetMenuLayout11();
+    unsigned __int64       topMenu   = g_shellCache.GetMenuLayout();
+    unsigned __int64       menuMask  = g_shellCache.GetMenuMask();
 
     bool bAddSeparator   = false;
     bool bMenuEntryAdded = false;
@@ -1173,13 +1174,17 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
             idCmd++;
         }
 
+            bool isMenu11 = (topMenu11 & menuItem.menuID) != TSVNContextMenuEntries::None;
         // handle special cases (sub menus)
         if ((menuItem.command == ShellMenuIgnoreSub) ||
             (menuItem.command == ShellMenuDeleteIgnoreSub) ||
             (menuItem.command == ShellMenuUnIgnoreSub))
         {
-            InsertIgnoreSubmenus(idCmd, idCmdFirst, hMenu, subMenu, indexMenu, indexSubMenu, topMenu, bShowIcons);
-            bMenuEntryAdded = true;
+            if (hMenu || isMenu11)
+            {
+                InsertIgnoreSubmenus(idCmd, idCmdFirst, hMenu, subMenu, indexMenu, indexSubMenu, topMenu, bShowIcons);
+                bMenuEntryAdded = true;
+            }
         }
         else
         {
@@ -1192,19 +1197,25 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
             }
             // the 'upgrade wc' command always has to on the top menu
             if (menuItem.command == ShellMenuUpgradeWC)
+            {
                 bIsTop = true;
-            // insert the menu entry
-            InsertSVNMenu(bIsTop,
-                          bIsTop ? hMenu : subMenu,
-                          bIsTop ? indexMenu++ : indexSubMenu++,
-                          idCmd++,
-                          menuItem.menuTextID,
-                          bShowIcons ? menuItem.iconID : 0,
-                          idCmdFirst,
-                          menuItem.command,
-                          menuItem.verb);
-            if (!bIsTop)
-                bMenuEntryAdded = true;
+                isMenu11 = true;
+            }
+            if (hMenu || isMenu11)
+            {
+                // insert the menu entry
+                InsertSVNMenu(bIsTop,
+                              bIsTop ? hMenu : subMenu,
+                              bIsTop ? indexMenu++ : indexSubMenu++,
+                              idCmd++,
+                              menuItem.menuTextID,
+                              bShowIcons ? menuItem.iconID : 0,
+                              idCmdFirst,
+                              menuItem.command,
+                              menuItem.verb);
+                if (!bIsTop)
+                    bMenuEntryAdded = true;
+            }
         }
     }
 

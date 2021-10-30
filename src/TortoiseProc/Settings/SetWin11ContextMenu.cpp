@@ -28,10 +28,7 @@ CSetWin11ContextMenu::CSetWin11ContextMenu()
     , m_bModified(false)
     , m_bBlock(false)
 {
-    m_regTopMenu = CRegQWORD(L"Software\\TortoiseSVN\\ContextMenu11Entries",
-                             static_cast<QWORD>(TSVNContextMenuEntries::Checkout |
-                                                TSVNContextMenuEntries::Update |
-                                                TSVNContextMenuEntries::Commit));
+    m_regTopMenu = CRegQWORD(L"Software\\TortoiseSVN\\ContextMenu11Entries", static_cast<QWORD>(defaultWin11TopMenuEntries));
     m_topMenu    = static_cast<TSVNContextMenuEntries>(static_cast<QWORD>(m_regTopMenu));
 }
 

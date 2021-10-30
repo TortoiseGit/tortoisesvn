@@ -86,6 +86,24 @@ inline TSVNContextMenuEntries &operator|=(TSVNContextMenuEntries &self, TSVNCont
     return self;
 }
 
+constexpr TSVNContextMenuEntries defaultWin11TopMenuEntries = TSVNContextMenuEntries::Checkout |
+                                                              TSVNContextMenuEntries::Update |
+                                                              TSVNContextMenuEntries::Commit |
+                                                              TSVNContextMenuEntries::Diff |
+                                                              TSVNContextMenuEntries::Revert |
+                                                              TSVNContextMenuEntries::Log |
+                                                              TSVNContextMenuEntries::Rename |
+                                                              TSVNContextMenuEntries::Switch |
+                                                              TSVNContextMenuEntries::Copy |
+                                                              TSVNContextMenuEntries::Conflicteditor |
+                                                              TSVNContextMenuEntries::Repobrowse |
+                                                              TSVNContextMenuEntries::Showchanged |
+                                                              TSVNContextMenuEntries::Blame |
+                                                              TSVNContextMenuEntries::Properties |
+                                                              TSVNContextMenuEntries::Revisiongraph |
+                                                              TSVNContextMenuEntries::Merge |
+                                                              TSVNContextMenuEntries::Settings;
+
 const std::vector<std::tuple<TSVNContextMenuEntries, UINT, UINT>> TSVNContextMenuEntriesVec{
     {TSVNContextMenuEntries::Checkout, IDS_MENUCHECKOUT, IDI_CHECKOUT},
     {TSVNContextMenuEntries::Update, IDS_MENUUPDATE, IDI_UPDATE},

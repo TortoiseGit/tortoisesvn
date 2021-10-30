@@ -44,6 +44,7 @@ ShellCache::ShellCache()
     excludedAsNormal             = CRegStdDWORD(L"Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     alwaysExtended               = CRegStdDWORD(L"Software\\TortoiseSVN\\AlwaysExtendedMenu", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     driveTypeTicker              = 0;
+    menuLayout11                 = CRegStdQWORD(L"Software\\TortoiseSVN\\ContextMenu11Entries", static_cast<QWORD>(defaultWin11TopMenuEntries), false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     menuLayoutLow                = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntries", static_cast<DWORD>(TSVNContextMenuEntries::Checkout | TSVNContextMenuEntries::Update | TSVNContextMenuEntries::Commit), false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     menuLayoutHigh               = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntrieshigh", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     menuMaskLowLm                = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskLow", 0, FALSE, HKEY_LOCAL_MACHINE, KEY_WOW64_64KEY);
@@ -147,6 +148,7 @@ bool ShellCache::RefreshIfNeeded()
     excludedAsNormal.read();
     alwaysExtended.read();
     hideMenusForUnversionedItems.read();
+    menuLayout11.read();
     menuLayoutLow.read();
     menuLayoutHigh.read();
     langId.read();
@@ -174,6 +176,12 @@ DWORD ShellCache::BlockStatus()
 {
     RefreshIfNeeded();
     return (blockStatus);
+}
+
+TSVNContextMenuEntries ShellCache::GetMenuLayout11()
+{
+    RefreshIfNeeded();
+    return static_cast<TSVNContextMenuEntries>(static_cast<QWORD>(menuLayout11));
 }
 
 unsigned __int64 ShellCache::GetMenuLayout()
