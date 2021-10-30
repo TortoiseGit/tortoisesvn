@@ -47,186 +47,186 @@ int g_shellIdList = RegisterClipboardFormat(CFSTR_SHELLIDLIST);
 // (all flags set) && (none of the flags set) || (all flags set) && (none of the flags set) || ...
 CShellExt::MenuInfo CShellExt::menuInfo[] =
 {
-    { ShellMenuCheckout,                    MENUCHECKOUT,       IDI_CHECKOUT,           IDS_MENUCHECKOUT,           IDS_MENUDESCCHECKOUT,
+    { ShellMenuCheckout,                    TSVNContextMenuEntries::Checkout,       IDI_CHECKOUT,           IDS_MENUCHECKOUT,           IDS_MENUDESCCHECKOUT,
     { ITEMIS_FOLDER | ITEMIS_ONLYONE, ITEMIS_INSVN | ITEMIS_FOLDERINSVN }, { ITEMIS_FOLDER | ITEMIS_ONLYONE | ITEMIS_EXTENDED | ITEMIS_INSVN | ITEMIS_FOLDERINSVN, 0 }, { 0, 0 }, { 0, 0 }, L"tsvn_checkout" },
 
-    { ShellMenuUpgradeWC,                       MENUUPGRADE,    IDI_CLEANUP,            IDS_MENUUPGRADE,            IDS_MENUDESCUPGRADE,
+    { ShellMenuUpgradeWC,                   TSVNContextMenuEntries::Upgrade,        IDI_CLEANUP,            IDS_MENUUPGRADE,            IDS_MENUDESCUPGRADE,
         {ITEMIS_UNSUPPORTEDFORMAT, 0}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_upgradewc" },
 
-    { ShellMenuUpdate,                      MENUUPDATE,         IDI_UPDATE,             IDS_MENUUPDATE,             IDS_MENUDESCUPDATE,
+    { ShellMenuUpdate,                      TSVNContextMenuEntries::Update,         IDI_UPDATE,             IDS_MENUUPDATE,             IDS_MENUDESCUPDATE,
         {ITEMIS_INSVN,  ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_update" },
 
-    { ShellMenuCommit,                      MENUCOMMIT,         IDI_COMMIT,             IDS_MENUCOMMIT,             IDS_MENUDESCCOMMIT,
+    { ShellMenuCommit,                      TSVNContextMenuEntries::Commit,         IDI_COMMIT,             IDS_MENUCOMMIT,             IDS_MENUDESCCOMMIT,
         {ITEMIS_INSVN, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_commit" },
 
-    { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
+    { ShellSeparator, TSVNContextMenuEntries::None, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}},
 
-    { ShellMenuDiff,                        MENUDIFF,           IDI_DIFF,               IDS_MENUDIFF,               IDS_MENUDESCDIFF,
+    { ShellMenuDiff,                        TSVNContextMenuEntries::Diff,           IDI_DIFF,               IDS_MENUDIFF,               IDS_MENUDESCDIFF,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_FOLDER|ITEMIS_NORMAL|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_TWO, 0}, {ITEMIS_PROPMODIFIED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, L"tsvn_diff" },
 
-    { ShellMenuDiffLater,                   MENUDIFFLATER,      IDI_DIFF,               IDS_MENUDIFFLATER,          IDS_MENUDESCDIFFLATER,
+    { ShellMenuDiffLater,                   TSVNContextMenuEntries::Difflater,      IDI_DIFF,               IDS_MENUDIFFLATER,          IDS_MENUDESCDIFFLATER,
         {ITEMIS_ONLYONE, ITEMIS_FOLDER}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_difflater" },
 
-    { ShellMenuDiffNow,                     MENUDIFFNOW,        IDI_DIFF,               IDS_MENUDIFFNOW,            IDS_MENUDESCDIFFNOW,
+    { ShellMenuDiffNow,                     TSVNContextMenuEntries::Diffnow,        IDI_DIFF,               IDS_MENUDIFFNOW,            IDS_MENUDESCDIFFNOW,
         {ITEMIS_ONLYONE|ITEMIS_HASDIFFLATER, ITEMIS_FOLDER}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_diffnow" },
 
-    { ShellMenuPrevDiff,                    MENUPREVDIFF,           IDI_DIFF,               IDS_MENUPREVDIFF,           IDS_MENUDESCPREVDIFF,
+    { ShellMenuPrevDiff,                    TSVNContextMenuEntries::Prevdiff,       IDI_DIFF,               IDS_MENUPREVDIFF,           IDS_MENUDESCPREVDIFF,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_FOLDER|ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_prevdiff" },
 
-    { ShellMenuUrlDiff,                     MENUURLDIFF,        IDI_DIFF,               IDS_MENUURLDIFF,            IDS_MENUDESCURLDIFF,
+    { ShellMenuUrlDiff,                     TSVNContextMenuEntries::Urldiff,        IDI_DIFF,               IDS_MENUURLDIFF,            IDS_MENUDESCURLDIFF,
         {ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_EXTENDED|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_urldiff" },
 
-    { ShellMenuUnifiedDiff,                 MENUUNIDIFF,        IDI_DIFF,               IDS_MENUUNIDIFF,            IDS_MENUUNIDESCDIFF,
+    { ShellMenuUnifiedDiff,                 TSVNContextMenuEntries::Unidiff,        IDI_DIFF,               IDS_MENUUNIDIFF,            IDS_MENUUNIDESCDIFF,
         {ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_unifieddiff" },
 
-    { ShellMenuLog,                         MENULOG,            IDI_LOG,                IDS_MENULOG,                IDS_MENUDESCLOG,
+    { ShellMenuLog,                         TSVNContextMenuEntries::Log,            IDI_LOG,                IDS_MENULOG,                IDS_MENUDESCLOG,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_ADDEDWITHHISTORY|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, L"tsvn_log" },
 
-    { ShellMenuRepoBrowse,                  MENUREPOBROWSE,     IDI_REPOBROWSE,         IDS_MENUREPOBROWSE,         IDS_MENUDESCREPOBROWSE,
+    { ShellMenuRepoBrowse,                  TSVNContextMenuEntries::Repobrowse,     IDI_REPOBROWSE,         IDS_MENUREPOBROWSE,         IDS_MENUDESCREPOBROWSE,
         {ITEMIS_ONLYONE, 0}, {ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_repobrowse" },
 
-    { ShellMenuShowChanged,                 MENUSHOWCHANGED,    IDI_SHOWCHANGED,        IDS_MENUSHOWCHANGED,        IDS_MENUDESCSHOWCHANGED,
+    { ShellMenuShowChanged,                 TSVNContextMenuEntries::Showchanged,    IDI_SHOWCHANGED,        IDS_MENUSHOWCHANGED,        IDS_MENUDESCSHOWCHANGED,
         {ITEMIS_INSVN, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDER|ITEMIS_FOLDERINSVN, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_showchanged"},
 
-    { ShellMenuRevisionGraph,               MENUREVISIONGRAPH,  IDI_REVISIONGRAPH,      IDS_MENUREVISIONGRAPH,      IDS_MENUDESCREVISIONGRAPH,
+    { ShellMenuRevisionGraph,               TSVNContextMenuEntries::Revisiongraph,  IDI_REVISIONGRAPH,      IDS_MENUREVISIONGRAPH,      IDS_MENUDESCREVISIONGRAPH,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_revisiongraph"},
 
-    { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
+    { ShellSeparator, TSVNContextMenuEntries::None, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
 
-    { ShellMenuConflictEditor,              MENUCONFLICTEDITOR, IDI_CONFLICT,           IDS_MENUCONFLICT,           IDS_MENUDESCCONFLICT,
+    { ShellMenuConflictEditor,              TSVNContextMenuEntries::Conflicteditor, IDI_CONFLICT,           IDS_MENUCONFLICT,           IDS_MENUDESCCONFLICT,
         {ITEMIS_CONFLICTED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_conflicteditor" },
 
-    { ShellMenuResolve,                     MENURESOLVE,        IDI_RESOLVE,            IDS_MENURESOLVE,            IDS_MENUDESCRESOLVE,
+    { ShellMenuResolve,                     TSVNContextMenuEntries::Resolve,        IDI_RESOLVE,            IDS_MENURESOLVE,            IDS_MENUDESCRESOLVE,
         {ITEMIS_CONFLICTED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_resolve" },
 
-    { ShellMenuUpdateExt,                   MENUUPDATEEXT,      IDI_UPDATE,             IDS_MENUUPDATEEXT,          IDS_MENUDESCUPDATEEXT,
+    { ShellMenuUpdateExt,                   TSVNContextMenuEntries::Updateext,      IDI_UPDATE,             IDS_MENUUPDATEEXT,          IDS_MENUDESCUPDATEEXT,
         {ITEMIS_INSVN, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_updateext" },
 
-    { ShellMenuRename,                      MENURENAME,         IDI_RENAME,             IDS_MENURENAME,             IDS_MENUDESCRENAME,
+    { ShellMenuRename,                      TSVNContextMenuEntries::Rename,         IDI_RENAME,             IDS_MENURENAME,             IDS_MENUDESCRENAME,
         {ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_INVERSIONEDFOLDER, ITEMIS_FILEEXTERNAL|ITEMIS_WCROOT|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_rename" },
 
-    { ShellMenuRemove,                      MENUREMOVE,         IDI_DELETE,             IDS_MENUREMOVE,             IDS_MENUDESCREMOVE,
+    { ShellMenuRemove,                      TSVNContextMenuEntries::Remove,         IDI_DELETE,             IDS_MENUREMOVE,             IDS_MENUDESCREMOVE,
         {ITEMIS_INSVN|ITEMIS_INVERSIONEDFOLDER, ITEMIS_ADDED|ITEMIS_FILEEXTERNAL|ITEMIS_WCROOT|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_remove" },
 
-    { ShellMenuRemoveKeep,                  MENUREMOVE,         IDI_DELETE,             IDS_MENUREMOVEKEEP,         IDS_MENUDESCREMOVEKEEP,
+    { ShellMenuRemoveKeep,                  TSVNContextMenuEntries::Remove,         IDI_DELETE,             IDS_MENUREMOVEKEEP,         IDS_MENUDESCREMOVEKEEP,
         {ITEMIS_INSVN|ITEMIS_INVERSIONEDFOLDER|ITEMIS_EXTENDED, ITEMIS_ADDED|ITEMIS_WCROOT|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_removekeep" },
 
-    { ShellMenuRevert,                      MENUREVERT,         IDI_REVERT,             IDS_MENUREVERT,             IDS_MENUDESCREVERT,
+    { ShellMenuRevert,                      TSVNContextMenuEntries::Revert,         IDI_REVERT,             IDS_MENUREVERT,             IDS_MENUDESCREVERT,
         {ITEMIS_INSVN, ITEMIS_NORMAL|ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_revert" },
 
-    { ShellMenuRevert,                      MENUREVERT,         IDI_REVERT,             IDS_MENUUNDOADD,            IDS_MENUDESCUNDOADD,
+    { ShellMenuRevert,                      TSVNContextMenuEntries::Revert,         IDI_REVERT,             IDS_MENUUNDOADD,            IDS_MENUDESCUNDOADD,
         {ITEMIS_ADDED, ITEMIS_NORMAL|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_ADDED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_revert" },
 
-    { ShellMenuDelUnversioned,              MENUDELUNVERSIONED, IDI_DELUNVERSIONED,     IDS_MENUDELUNVERSIONED,     IDS_MENUDESCDELUNVERSIONED,
+    { ShellMenuDelUnversioned,              TSVNContextMenuEntries::Delunversioned, IDI_DELUNVERSIONED,     IDS_MENUDELUNVERSIONED,     IDS_MENUDESCDELUNVERSIONED,
         {ITEMIS_FOLDER|ITEMIS_INSVN|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_delunversioned" },
 
-    { ShellMenuCleanup,                     MENUCLEANUP,        IDI_CLEANUP,            IDS_MENUCLEANUP,            IDS_MENUDESCCLEANUP,
+    { ShellMenuCleanup,                     TSVNContextMenuEntries::Cleanup,        IDI_CLEANUP,            IDS_MENUCLEANUP,            IDS_MENUDESCCLEANUP,
         {ITEMIS_INSVN|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_cleanup" },
 
-    { ShellMenuLock,                        MENULOCK,           IDI_LOCK,               IDS_MENU_LOCK,              IDS_MENUDESC_LOCK,
+    { ShellMenuLock,                        TSVNContextMenuEntries::Lock,           IDI_LOCK,               IDS_MENU_LOCK,              IDS_MENUDESC_LOCK,
         {ITEMIS_INSVN, ITEMIS_LOCKED|ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_LOCKED|ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_lock" },
 
-    { ShellMenuUnlock,                      MENUUNLOCK,         IDI_UNLOCK,             IDS_MENU_UNLOCK,            IDS_MENUDESC_UNLOCK,
+    { ShellMenuUnlock,                      TSVNContextMenuEntries::Unlock,         IDI_UNLOCK,             IDS_MENU_UNLOCK,            IDS_MENUDESC_UNLOCK,
         {ITEMIS_INSVN|ITEMIS_LOCKED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDER|ITEMIS_INSVN, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, L"tsvn_unlock" },
 
-    { ShellMenuUnlockForce,                 MENUUNLOCK,         IDI_UNLOCK,             IDS_MENU_UNLOCKFORCE,       IDS_MENUDESC_UNLOCKFORCE,
+    { ShellMenuUnlockForce,                 TSVNContextMenuEntries::Unlock,         IDI_UNLOCK,             IDS_MENU_UNLOCKFORCE,       IDS_MENUDESC_UNLOCKFORCE,
         {ITEMIS_INSVN|ITEMIS_LOCKED|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDER|ITEMIS_INSVN|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_unlockforce" },
 
-    { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
+    { ShellSeparator, TSVNContextMenuEntries::None, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
 
-    { ShellMenuCopy,                        MENUCOPY,           IDI_COPY,               IDS_MENUBRANCH,             IDS_MENUDESCCOPY,
+    { ShellMenuCopy,                        TSVNContextMenuEntries::Copy,           IDI_COPY,               IDS_MENUBRANCH,             IDS_MENUDESCCOPY,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_copy" },
 
-    { ShellMenuSwitch,                      MENUSWITCH,         IDI_SWITCH,             IDS_MENUSWITCH,             IDS_MENUDESCSWITCH,
+    { ShellMenuSwitch,                      TSVNContextMenuEntries::Switch,         IDI_SWITCH,             IDS_MENUSWITCH,             IDS_MENUDESCSWITCH,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_switch" },
 
-    { ShellMenuMerge,                       MENUMERGE,          IDI_MERGE,              IDS_MENUMERGE,              IDS_MENUDESCMERGE,
+    { ShellMenuMerge,                       TSVNContextMenuEntries::Merge,          IDI_MERGE,              IDS_MENUMERGE,              IDS_MENUDESCMERGE,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_merge" },
-    { ShellMenuMergeAll,                    MENUMERGEALL,       IDI_MERGE,              IDS_MENUMERGEALL,           IDS_MENUDESCMERGEALL,
+    { ShellMenuMergeAll,                    TSVNContextMenuEntries::Mergeall,       IDI_MERGE,              IDS_MENUMERGEALL,           IDS_MENUDESCMERGEALL,
         {ITEMIS_INSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE|ITEMIS_EXTENDED, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_mergeall" },
 
-    { ShellMenuExport,                      MENUEXPORT,         IDI_EXPORT,             IDS_MENUEXPORT,             IDS_MENUDESCEXPORT,
+    { ShellMenuExport,                      TSVNContextMenuEntries::Export,         IDI_EXPORT,             IDS_MENUEXPORT,             IDS_MENUDESCEXPORT,
         {ITEMIS_FOLDER|ITEMIS_ONLYONE, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_export" },
 
-    { ShellMenuRelocate,                    MENURELOCATE,       IDI_RELOCATE,           IDS_MENURELOCATE,           IDS_MENUDESCRELOCATE,
+    { ShellMenuRelocate,                    TSVNContextMenuEntries::Relocate,       IDI_RELOCATE,           IDS_MENURELOCATE,           IDS_MENUDESCRELOCATE,
         {ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE|ITEMIS_WCROOT, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN|ITEMIS_ONLYONE|ITEMIS_WCROOT, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_relocate" },
 
-    { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
+    { ShellSeparator, TSVNContextMenuEntries::None, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
 
-    { ShellMenuCreateRepos,                 MENUCREATEREPOS,    IDI_CREATEREPOS,        IDS_MENUCREATEREPOS,        IDS_MENUDESCCREATEREPOS,
+    { ShellMenuCreateRepos,                 TSVNContextMenuEntries::Createrepos,    IDI_CREATEREPOS,        IDS_MENUCREATEREPOS,        IDS_MENUDESCCREATEREPOS,
         {ITEMIS_FOLDER|ITEMIS_ONLYONE, ITEMIS_INSVN|ITEMIS_FOLDERINSVN}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_createrepo" },
 
-    { ShellMenuAdd,                         MENUADD,            IDI_ADD,                IDS_MENUADD,                IDS_MENUDESCADD,
+    { ShellMenuAdd,                         TSVNContextMenuEntries::Add,            IDI_ADD,                IDS_MENUADD,                IDS_MENUDESCADD,
         {ITEMIS_INVERSIONEDFOLDER|ITEMIS_FOLDER, ITEMIS_INSVN|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_INSVN|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_IGNORED|ITEMIS_FOLDER, ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_DELETED, ITEMIS_FOLDER|ITEMIS_ONLYONE|ITEMIS_UNSUPPORTEDFORMAT}, L"tsvn_add" },
 
-    { ShellMenuAdd,                         MENUADD,            IDI_ADD,                IDS_MENUADDIMMEDIATE,       IDS_MENUDESCADD,
+    { ShellMenuAdd,                         TSVNContextMenuEntries::Add,            IDI_ADD,                IDS_MENUADDIMMEDIATE,       IDS_MENUDESCADD,
         {ITEMIS_INVERSIONEDFOLDER, ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {ITEMIS_IGNORED, ITEMIS_FOLDER|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_DELETED, ITEMIS_FOLDER|ITEMIS_ONLYONE|ITEMIS_UNSUPPORTEDFORMAT}, L"tsvn_add" },
 
-    { ShellMenuAddAsReplacement,            MENUADD,            IDI_ADD,                IDS_MENUADDASREPLACEMENT,   IDS_MENUADDASREPLACEMENT,
+    { ShellMenuAddAsReplacement,            TSVNContextMenuEntries::Add,            IDI_ADD,                IDS_MENUADDASREPLACEMENT,   IDS_MENUADDASREPLACEMENT,
         {ITEMIS_DELETED|ITEMIS_ONLYONE, ITEMIS_FOLDER|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_addasreplacement" },
 
-    { ShellMenuImport,                      MENUIMPORT,         IDI_IMPORT,             IDS_MENUIMPORT,             IDS_MENUDESCIMPORT,
+    { ShellMenuImport,                      TSVNContextMenuEntries::Import,         IDI_IMPORT,             IDS_MENUIMPORT,             IDS_MENUDESCIMPORT,
         {ITEMIS_FOLDER, ITEMIS_INSVN}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_import" },
 
-    { ShellMenuBlame,                       MENUBLAME,          IDI_BLAME,              IDS_MENUBLAME,              IDS_MENUDESCBLAME,
+    { ShellMenuBlame,                       TSVNContextMenuEntries::Blame,          IDI_BLAME,              IDS_MENUBLAME,              IDS_MENUDESCBLAME,
         {ITEMIS_INSVN|ITEMIS_ONLYONE, ITEMIS_FOLDER|ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_blame" },
 
-    { ShellMenuCopyUrl,                     MENUCOPYURL,        IDI_COPYURL,            IDS_MENUCOPYURL,            IDS_MENUDESCCOPYURL,
+    { ShellMenuCopyUrl,                     TSVNContextMenuEntries::Copyurl,        IDI_COPYURL,            IDS_MENUCOPYURL,            IDS_MENUDESCCOPYURL,
         { ITEMIS_INSVN, ITEMIS_UNSUPPORTEDFORMAT }, { 0, 0 }, { 0, 0 }, { 0, 0 }, L"tsvn_copyurl" },
 
-    { ShellMenuIgnoreSub,                   MENUIGNORE,         IDI_IGNORE,             IDS_MENUIGNORE,             IDS_MENUDESCIGNORE,
+    { ShellMenuIgnoreSub,                   TSVNContextMenuEntries::Ignore,         IDI_IGNORE,             IDS_MENUIGNORE,             IDS_MENUDESCIGNORE,
         {ITEMIS_INVERSIONEDFOLDER, ITEMIS_IGNORED|ITEMIS_INSVN|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_ignoresub" },
 
-    { ShellMenuDeleteIgnoreSub,             MENUIGNORE,         IDI_IGNORE,             IDS_MENUDELETEIGNORE,       IDS_MENUDESCDELETEIGNORE,
+    { ShellMenuDeleteIgnoreSub,             TSVNContextMenuEntries::Ignore,         IDI_IGNORE,             IDS_MENUDELETEIGNORE,       IDS_MENUDESCDELETEIGNORE,
         {ITEMIS_INVERSIONEDFOLDER|ITEMIS_INSVN, ITEMIS_IGNORED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_deleteignoresub" },
 
-    { ShellMenuUnIgnoreSub,                 MENUIGNORE,         IDI_IGNORE,             IDS_MENUUNIGNORE,           IDS_MENUDESCUNIGNORE,
+    { ShellMenuUnIgnoreSub,                 TSVNContextMenuEntries::Ignore,         IDI_IGNORE,             IDS_MENUUNIGNORE,           IDS_MENUDESCUNIGNORE,
         {ITEMIS_IGNORED, 0}, {0, 0}, {0, 0}, {0, 0} , L"tsvn_unignoresub"},
 
-    { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
+    { ShellSeparator, TSVNContextMenuEntries::None, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
 
-    { ShellMenuShelve,                      MENUSHELVE,         IDI_SHELVE,             IDS_MENUSHELVE,             IDS_MENUDESCSHELVE,
+    { ShellMenuShelve,                      TSVNContextMenuEntries::Shelve,         IDI_SHELVE,             IDS_MENUSHELVE,             IDS_MENUDESCSHELVE,
         {ITEMIS_INSVN, ITEMIS_NORMAL|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_shelve" },
 
-    { ShellMenuUnshelve,                    MENUUNSHELVE,       IDI_UNSHELVE,           IDS_MENUUNSHELVE,           IDS_MENUDESCUNSHELVE,
+    { ShellMenuUnshelve,                    TSVNContextMenuEntries::Unshelve,       IDI_UNSHELVE,           IDS_MENUUNSHELVE,           IDS_MENUDESCUNSHELVE,
         {ITEMIS_INSVN, 0}, { 0, 0 }, { 0, 0 }, {0, 0}, L"tsvn_unshelve" },
 
-    { ShellMenuCreatePatch,                 MENUCREATEPATCH,    IDI_CREATEPATCH,        IDS_MENUCREATEPATCH,        IDS_MENUDESCCREATEPATCH,
+    { ShellMenuCreatePatch,                 TSVNContextMenuEntries::Createpatch,    IDI_CREATEPATCH,        IDS_MENUCREATEPATCH,        IDS_MENUDESCCREATEPATCH,
         {ITEMIS_INSVN, ITEMIS_NORMAL|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_FOLDERINSVN, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, L"tsvn_createpatch" },
 
-    { ShellMenuApplyPatch,                  MENUAPPLYPATCH,     IDI_PATCH,              IDS_MENUAPPLYPATCH,         IDS_MENUDESCAPPLYPATCH,
+    { ShellMenuApplyPatch,                  TSVNContextMenuEntries::Applypatch,     IDI_PATCH,              IDS_MENUAPPLYPATCH,         IDS_MENUDESCAPPLYPATCH,
         {ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_FOLDERINSVN, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {ITEMIS_ONLYONE|ITEMIS_PATCHFILE, 0}, {ITEMIS_FOLDERINSVN, ITEMIS_ADDED|ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, L"tsvn_applypatch" },
 
-    { ShellMenuProperties,                  MENUPROPERTIES,     IDI_PROPERTIES,         IDS_MENUPROPERTIES,         IDS_MENUDESCPROPERTIES,
+    { ShellMenuProperties,                  TSVNContextMenuEntries::Properties,     IDI_PROPERTIES,         IDS_MENUPROPERTIES,         IDS_MENUDESCPROPERTIES,
         {ITEMIS_INSVN, 0}, {ITEMIS_FOLDERINSVN, 0}, {0, 0}, {0, 0}, L"tsvn_properties" },
 
-    { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
-    { ShellMenuClipPaste,                   MENUCLIPPASTE,      IDI_CLIPPASTE,          IDS_MENUCLIPPASTE,          IDS_MENUDESCCLIPPASTE,
+    { ShellSeparator, TSVNContextMenuEntries::None, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
+    { ShellMenuClipPaste,                   TSVNContextMenuEntries::Clippaste,      IDI_CLIPPASTE,          IDS_MENUCLIPPASTE,          IDS_MENUDESCCLIPPASTE,
         {ITEMIS_INSVN|ITEMIS_FOLDER|ITEMIS_PATHINCLIPBOARD, ITEMIS_UNSUPPORTEDFORMAT}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_clippaste" },
 
-    { ShellSeparator, 0, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
+    { ShellSeparator, TSVNContextMenuEntries::None, 0, 0, 0, {0, 0}, {0, 0}, {0, 0}, {0, 0}, L""},
 
-    { ShellMenuSettings,                    MENUSETTINGS,       IDI_SETTINGS,           IDS_MENUSETTINGS,           IDS_MENUDESCSETTINGS,
+    { ShellMenuSettings,                    TSVNContextMenuEntries::Settings,       IDI_SETTINGS,           IDS_MENUSETTINGS,           IDS_MENUDESCSETTINGS,
         {ITEMIS_FOLDER, 0}, {0, ITEMIS_FOLDER}, {0, 0}, {0, 0}, L"tsvn_settings" },
-    { ShellMenuHelp,                        MENUHELP,           IDI_HELP,               IDS_MENUHELP,               IDS_MENUDESCHELP,
+    { ShellMenuHelp,                        TSVNContextMenuEntries::Help,           IDI_HELP,               IDS_MENUHELP,               IDS_MENUDESCHELP,
         {ITEMIS_FOLDER, 0}, {0, ITEMIS_FOLDER}, {0, 0}, {0, 0}, L"tsvn_help" },
-    { ShellMenuAbout,                       MENUABOUT,          IDI_ABOUT,              IDS_MENUABOUT,              IDS_MENUDESCABOUT,
+    { ShellMenuAbout,                       TSVNContextMenuEntries::About,          IDI_ABOUT,              IDS_MENUABOUT,              IDS_MENUDESCABOUT,
         {ITEMIS_FOLDER, 0}, {0, ITEMIS_FOLDER}, {0, 0}, {0, 0}, L"tsvn_about" },
 
     // the sub menus - they're not added like the the commands, therefore the menu ID is zero
     // but they still need to be in here, because we use the icon and string information anyway.
-    { ShellSubMenu,                         NULL,               IDI_APP,                IDS_MENUSUBMENU,            0,
+    { ShellSubMenu,                         TSVNContextMenuEntries::None,           IDI_APP,                IDS_MENUSUBMENU,            0,
         {0, 0}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_submenu" },
-    { ShellSubMenuFile,                     NULL,               IDI_MENUFILE,           IDS_MENUSUBMENU,            0,
+    { ShellSubMenuFile,                     TSVNContextMenuEntries::None,           IDI_MENUFILE,           IDS_MENUSUBMENU,            0,
         {0, 0}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_submenufile" },
-    { ShellSubMenuFolder,                   NULL,               IDI_MENUFOLDER,         IDS_MENUSUBMENU,            0,
+    { ShellSubMenuFolder,                   TSVNContextMenuEntries::None,           IDI_MENUFOLDER,         IDS_MENUSUBMENU,            0,
         {0, 0}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_submenufolder" },
-    { ShellSubMenuLink,                     NULL,               IDI_MENULINK,           IDS_MENUSUBMENU,            0,
+    { ShellSubMenuLink,                     TSVNContextMenuEntries::None,           IDI_MENULINK,           IDS_MENUSUBMENU,            0,
         {0, 0}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_submenulink" },
-    { ShellSubMenuMultiple,                 NULL,               IDI_MENUMULTIPLE,       IDS_MENUSUBMENU,            0,
+    { ShellSubMenuMultiple,                 TSVNContextMenuEntries::None,           IDI_MENUMULTIPLE,       IDS_MENUSUBMENU,            0,
         {0, 0}, {0, 0}, {0, 0}, {0, 0}, L"tsvn_submenumultiple" },
     // mark the last entry to tell the loop where to stop iterating over this array
-    { ShellMenuLastEntry,                   0,                  0,                      0,                          0,
+    { ShellMenuLastEntry,                   TSVNContextMenuEntries::None,           0,                      0,                          0,
         {0, 0}, {0, 0}, {0, 0}, {0, 0}, L"" },
 };
 // clang-format on
@@ -1155,7 +1155,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
             continue;
         }
         // check the conditions whether to show the menu entry or not
-        if ((menuItem.menuID & (~menuMask)) == 0)
+        if ((static_cast<QWORD>(menuItem.menuID) & (~menuMask)) == 0)
             continue;
 
         const bool bInsertMenu = ShouldInsertItem(menuItem);
@@ -1184,7 +1184,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         else
         {
             // the 'get lock' command is special
-            bool bIsTop = ((topMenu & menuItem.menuID) != 0);
+            bool bIsTop = ((topMenu & static_cast<QWORD>(menuItem.menuID)) != 0);
             if (menuItem.command == ShellMenuLock)
             {
                 if ((itemStates & ITEMIS_NEEDSLOCK) && g_shellCache.IsGetLockTop())
@@ -2030,7 +2030,7 @@ LPCWSTR CShellExt::GetMenuTextFromResource(int id)
             {
                 // menu lock is special because it can be set to the top
                 // with a separate option in the registry
-                const bool lock = (layout & MENULOCK) || ((itemStates & ITEMIS_NEEDSLOCK) && g_shellCache.IsGetLockTop());
+                const bool lock = (layout & static_cast<QWORD>(TSVNContextMenuEntries::Lock)) || ((itemStates & ITEMIS_NEEDSLOCK) && g_shellCache.IsGetLockTop());
                 space           = lock ? 0 : 6;
                 if (lock)
                 {
@@ -2049,8 +2049,8 @@ LPCWSTR CShellExt::GetMenuTextFromResource(int id)
                 space = 0;
                 break;
             default:
-                space = (layout & menuItem.menuID) ? 0 : 6;
-                if (layout & menuItem.menuID)
+                space = (layout & static_cast<QWORD>(menuItem.menuID)) ? 0 : 6;
+                if (layout & static_cast<QWORD>(menuItem.menuID))
                 {
                     wcscpy_s(textBuf, L"SVN ");
                     wcscat_s(textBuf, stringTableBuffer);
@@ -2523,7 +2523,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
         menuiteminfo.cch        = static_cast<UINT>(std::min(static_cast<UINT>(wcslen(menuiteminfo.dwTypeData)), UINT_MAX));
         if (hMenu)
         {
-            InsertMenuItem((topMenu & MENUIGNORE) ? hMenu : subMenu, (topMenu & MENUIGNORE) ? indexMenu++ : indexSubMenu++, TRUE, &menuiteminfo);
+            InsertMenuItem((topMenu & static_cast<QWORD>(TSVNContextMenuEntries::Ignore)) ? hMenu : subMenu, (topMenu & static_cast<QWORD>(TSVNContextMenuEntries::Ignore)) ? indexMenu++ : indexSubMenu++, TRUE, &menuiteminfo);
         }
         else
         {

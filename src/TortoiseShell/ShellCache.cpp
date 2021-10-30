@@ -44,7 +44,7 @@ ShellCache::ShellCache()
     excludedAsNormal             = CRegStdDWORD(L"Software\\TortoiseSVN\\ShowExcludedFoldersAsNormal", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     alwaysExtended               = CRegStdDWORD(L"Software\\TortoiseSVN\\AlwaysExtendedMenu", FALSE, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     driveTypeTicker              = 0;
-    menuLayoutLow                = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntries", MENUCHECKOUT | MENUUPDATE | MENUCOMMIT, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
+    menuLayoutLow                = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntries", static_cast<DWORD>(TSVNContextMenuEntries::Checkout | TSVNContextMenuEntries::Update | TSVNContextMenuEntries::Commit), false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     menuLayoutHigh               = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntrieshigh", 0, false, HKEY_CURRENT_USER, KEY_WOW64_64KEY);
     menuMaskLowLm                = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskLow", 0, FALSE, HKEY_LOCAL_MACHINE, KEY_WOW64_64KEY);
     menuMaskHighLm               = CRegStdDWORD(L"Software\\TortoiseSVN\\ContextMenuEntriesMaskHigh", 0, FALSE, HKEY_LOCAL_MACHINE, KEY_WOW64_64KEY);

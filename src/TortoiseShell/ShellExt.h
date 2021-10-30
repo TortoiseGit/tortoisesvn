@@ -171,11 +171,11 @@ protected:
     };
     struct MenuInfo
     {
-        SVNCommands      command;    ///< the command which gets executed for this menu entry
-        unsigned __int64 menuID;     ///< the menu ID to recognize the entry. NULL if it shouldn't be added to the context menu automatically
-        UINT             iconID;     ///< the icon to show for the menu entry
-        UINT             menuTextID; ///< the text of the menu entry
-        UINT             menuDescID; ///< the description text for the menu entry
+        SVNCommands            command;    ///< the command which gets executed for this menu entry
+        TSVNContextMenuEntries menuID;     ///< the menu ID to recognize the entry. NULL if it shouldn't be added to the context menu automatically
+        UINT                   iconID;     ///< the icon to show for the menu entry
+        UINT                   menuTextID; ///< the text of the menu entry
+        UINT                   menuDescID; ///< the description text for the menu entry
         /// the following 8 params are for checking whether the menu entry should
         /// be added automatically, based on states of the selected item(s).
         /// The 'yes' states must be set, the 'no' states must not be set
