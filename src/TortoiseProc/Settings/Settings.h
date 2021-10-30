@@ -26,6 +26,7 @@
 #include "SettingsProgsDiff.h"
 #include "SettingsProgsMerge.h"
 #include "SetLookAndFeelPage.h"
+#include "SetWin11ContextMenu.h"
 #include "SetDialogs.h"
 #include "SettingsColors.h"
 #include "SetMisc.h"
@@ -78,6 +79,7 @@ private:
     CSettingsProgsDiff*           m_pProgsDiffPage;
     CSettingsProgsMerge*          m_pProgsMergePage;
     CSetLookAndFeelPage*          m_pLookAndFeelPage;
+    CSetWin11ContextMenu*         m_pWin11ContextMenu;
     CSetDialogs*                  m_pDialogsPage;
     CSettingsRevisionGraph*       m_pRevisionGraphPage;
     CSettingsRevisionGraphColors* m_pRevisionGraphColorsPage;

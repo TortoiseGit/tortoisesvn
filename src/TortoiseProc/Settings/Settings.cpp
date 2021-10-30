@@ -23,6 +23,8 @@
 #include "../../TSVNCache/CacheInterface.h"
 #include "Theme.h"
 #include "DarkModeHelper.h"
+#include "../../Utils/PathUtils.h"
+#include "../../Utils/StringUtils.h"
 
 #define BOTTOMMARG 32
 
@@ -32,7 +34,7 @@ CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 {
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
     AddPropPages();
-    SetTheme(CTheme::Instance().IsDarkTheme());
+    CSettings::SetTheme(CTheme::Instance().IsDarkTheme());
 }
 
 CSettings::~CSettings()
@@ -53,14 +55,27 @@ void CSettings::SetTheme(bool bDark)
 
 void CSettings::AddPropPages()
 {
-    m_pMainPage                = new CSetMainPage();
-    m_pOverlayPage             = new CSetOverlayPage();
-    m_pOverlaysPage            = new CSetOverlayIcons();
-    m_pOverlayHandlersPage     = new CSetOverlayHandlers();
-    m_pProxyPage               = new CSetProxyPage();
-    m_pProgsDiffPage           = new CSettingsProgsDiff();
-    m_pProgsMergePage          = new CSettingsProgsMerge();
-    m_pLookAndFeelPage         = new CSetLookAndFeelPage();
+    PWSTR   pszPath = nullptr;
+    CString sysPath;
+    if (SHGetKnownFolderPath(FOLDERID_System, KF_FLAG_CREATE, nullptr, &pszPath) == S_OK)
+    {
+        sysPath = pszPath;
+        CoTaskMemFree(pszPath);
+    }
+    auto             explorerVersion = CPathUtils::GetVersionFromFile(sysPath + L"\\shell32.dll");
+    std::vector<int> versions;
+    stringtok(versions, explorerVersion, true, L".");
+    bool isWin11OrLater    = versions.size() > 3 && versions[2] >= 22000;
+    m_pMainPage            = new CSetMainPage();
+    m_pOverlayPage         = new CSetOverlayPage();
+    m_pOverlaysPage        = new CSetOverlayIcons();
+    m_pOverlayHandlersPage = new CSetOverlayHandlers();
+    m_pProxyPage           = new CSetProxyPage();
+    m_pProgsDiffPage       = new CSettingsProgsDiff();
+    m_pProgsMergePage      = new CSettingsProgsMerge();
+    m_pLookAndFeelPage     = new CSetLookAndFeelPage();
+    if (isWin11OrLater)
+        m_pWin11ContextMenu = new CSetWin11ContextMenu();
     m_pDialogsPage             = new CSetDialogs();
     m_pMiscPage                = new CSetMisc();
     m_pDialogs3Page            = new SettingsDialogs3();
@@ -85,6 +100,8 @@ void CSettings::AddPropPages()
     SetPageIcon(m_pProgsDiffPage, m_pProgsDiffPage->GetIconID());
     SetPageIcon(m_pProgsMergePage, m_pProgsMergePage->GetIconID());
     SetPageIcon(m_pLookAndFeelPage, m_pLookAndFeelPage->GetIconID());
+    if (IsWindows10OrGreater())
+        SetPageIcon(m_pWin11ContextMenu, m_pWin11ContextMenu->GetIconID());
     SetPageIcon(m_pDialogsPage, m_pDialogsPage->GetIconID());
     SetPageIcon(m_pRevisionGraphPage, m_pRevisionGraphPage->GetIconID());
     SetPageIcon(m_pRevisionGraphColorsPage, m_pRevisionGraphColorsPage->GetIconID());
@@ -113,6 +130,7 @@ void CSettings::AddPropPages()
     AddPage(m_pProgsDiffPage);
     AddPage(m_pProgsMergePage);
     AddPage(m_pLookAndFeelPage);
+    AddPage(m_pWin11ContextMenu);
     AddPage(m_pDialogsPage);
     AddPage(m_pMiscPage);
     AddPage(m_pDialogs3Page);
@@ -138,6 +156,7 @@ void CSettings::RemovePropPages() const
     delete m_pProgsDiffPage;
     delete m_pProgsMergePage;
     delete m_pLookAndFeelPage;
+    delete m_pWin11ContextMenu;
     delete m_pDialogsPage;
     delete m_pRevisionGraphColorsPage;
     delete m_pRevisionGraphPage;
@@ -166,6 +185,7 @@ void CSettings::HandleRestart() const
     restart |= m_pProgsDiffPage->GetRestart();
     restart |= m_pProgsMergePage->GetRestart();
     restart |= m_pLookAndFeelPage->GetRestart();
+    restart |= m_pWin11ContextMenu->GetRestart();
     restart |= m_pDialogsPage->GetRestart();
     restart |= m_pRevisionGraphPage->GetRestart();
     restart |= m_pMiscPage->GetRestart();
