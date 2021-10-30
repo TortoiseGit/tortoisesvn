@@ -73,7 +73,16 @@ UINT __stdcall RegisterSparsePackage(MSIHANDLE hModule)
     if (!SUCCEEDED(deployResult.ExtendedErrorCode()))
     {
         // Deployment failed
-        return deployResult.ExtendedErrorCode();
+        PMSIHANDLE   hRecord = MsiCreateRecord(0);
+        std::wstring error   = L"AddPackageByUriAsync failed (Errorcode: ";
+        error += std::to_wstring(deployResult.ExtendedErrorCode());
+        error += L"):\n";
+        error += deployResult.ErrorText();
+        MsiRecordSetStringW(hRecord, 0, error.c_str());
+        MsiProcessMessage(hModule, INSTALLMESSAGE_ERROR, hRecord);
+        MsiCloseHandle(hRecord);
+
+        return ERROR_INSTALL_FAILURE;
     }
     return ERROR_SUCCESS;
 }
