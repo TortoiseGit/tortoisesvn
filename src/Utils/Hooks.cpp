@@ -948,7 +948,7 @@ bool CHooks::ApproveHook(HWND hWnd, std::map<HookKey, HookCmd>::iterator it, DWO
     taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
     taskDlg.SetVerificationCheckboxText(CString(MAKEINTRESOURCE(IDS_HOOKS_APPROVE_TASK5)));
     taskDlg.SetVerificationCheckbox(false);
-    taskDlg.SetDefaultCommandControl(200);
+    taskDlg.SetDefaultCommandControl(102);
     taskDlg.SetMainIcon(TD_WARNING_ICON);
     auto ret = taskDlg.DoModal(hWnd);
     if (ret == IDCANCEL)
