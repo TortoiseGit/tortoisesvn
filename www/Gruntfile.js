@@ -273,13 +273,6 @@ module.exports = function(grunt) {
             }
         },
 
-        csslint: {
-            options: {
-                csslintrc: '.csslintrc'
-            },
-            src: '<%= dirs.src %>/assets/css/style.css'
-        },
-
         jshint: {
             options: {
                 jshintrc: '.jshintrc'
@@ -337,7 +330,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test', [
         'build',
-        'csslint',
         'jshint',
         'htmllint',
         'connect:linkChecker',
