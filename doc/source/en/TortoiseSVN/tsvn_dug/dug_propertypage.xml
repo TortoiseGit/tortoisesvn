@@ -9,6 +9,7 @@
     </indexterm>
     <?dbhh topicname="HIDD_EDITPROPERTIES"?>
     <?dbhh topicname="HIDD_EDITPROPERTYVALUE"?>
+    <?dbhh topicname="HIDD_PROPERTIES"?>
     <para>
       <figure id="tsvn-dug-propertypage-dia-2">
         <title>Subversion property page</title>
@@ -155,7 +156,6 @@
       </para>
       <tip>
         <title>Edit properties at HEAD revision</title>
-        <?dbhh topicname="HIDD_PROPERTIES"?>
         <para>
           Because properties are versioned, you cannot edit the properties
           of previous revisions. If you look at properties from the log
