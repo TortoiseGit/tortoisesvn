@@ -273,6 +273,38 @@ All user/site specific configuration is stored in doc.build.user.
           </filterchain>
         </move>
       </if>
+      <property name="lang.target" value="en" />
+      <property name="lang.target.code" value="1033" />
+      <property name="languagebuildfile" value="${path.user.xsl}/${lang.target}/lang.build" />
+      <if test="${file::exists(languagebuildfile)}">
+          <include buildfile="${languagebuildfile}" />
+      </if>
+      <foreach item="String" in="${applications}" delim="," property="app">
+          <property name="doc.source.file" value="source/${lang.base}/${app}.xml" />
+          <property name="doc.base.name" value="${app}_${lang.base}" />
+          <property name="doc.base.work" value="output/${doc.base.name}" />
+
+          <property name="doc.target.name" value="${app}_${lang.target}" />
+          <property name="doc.target.work" value="output/${doc.target.name}" />
+          <property name="doc.target.source" value="source/${lang.target}/${app}/${app}.xml" />
+          <property name="lang.pofile" value="../Languages/${lang.target}/TortoiseDoc.po" />
+
+          <echo message="------------------------------------------------------------" />
+          <echo message="Creating '${doc.target.name}' documentation" />
+          <delete file="${doc.target.work}.chm" />
+          <delete file="${doc.target.work}.chm" />
+
+          <if test="${file::exists(lang.pofile)}">
+              <call target="translate" unless="${lang.base==lang.target}" />
+          </if>
+          <if test="${lang.base==lang.target or file::exists(lang.pofile)}">
+              <property name="xslt.source" value="${doc.target.source}" />
+              <call target="copyimages"/>
+              <call target="chm" />
+              <delete file="${doc.target.work}.chm" />
+              <delete file="${doc.target.work}.chm" />
+          </if>
+      </foreach>
 
     </foreach>
 
@@ -519,6 +551,15 @@ All user/site specific configuration is stored in doc.build.user.
             timeout="600000" />
 
       <copy file="${doc.target.work}/htmlhelp.chm" tofile="${file.target}" />
+
+      <if test="${doc.target.name == 'TortoiseSVN_en'}">
+        <copy file="${doc.target.work}/alias.h" tofile="..\src\Resources\TSVNHelpAlias.h" />
+        <copy file="${doc.target.work}/context.h" tofile="..\src\Resources\TSVNHelpContext.h" />
+      </if>
+      <if test="${doc.target.name == 'TortoiseMerge_en'}">
+        <copy file="${doc.target.work}/alias.h" tofile="..\src\Resources\TMergeHelpAlias.h" />
+        <copy file="${doc.target.work}/context.h" tofile="..\src\Resources\TMergeHelpContext.h" />
+      </if>
     </if>
     <delete>
       <fileset>
