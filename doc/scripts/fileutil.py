@@ -24,6 +24,8 @@ HASHFILE = '.hashes'
 # Exceptions
 #
 
+def cmp(a, b):
+    return (a > b) - (a < b) 
 
 class FileutilError(Exception):
     '''
@@ -307,10 +309,10 @@ class SimpleFileWalker(FileWalker):
     '''
 
     def onProcessDir(self, dirpath, dir):
-        print "DIR: <%r> <%r>" % (dirpath, dir)
+        print ("DIR: <%r> <%r>" % (dirpath, dir))
 
     def onProcessFile(self, dirpath, file):
-        print "FILE: <%r> <%r>" % (dirpath, file)
+        print ("FILE: <%r> <%r>" % (dirpath, file))
 
 # ---------------------------------------------------------
 #  Utility Functions
@@ -330,7 +332,7 @@ def isotime(timestamp):
 
 def __test_walk(dirs):
     for dir in dirs:
-        print 'SimpleFileWalker(%r):' % (dir, )
+        print ('SimpleFileWalker(%r):' % (dir, ))
         w = SimpleFileWalker(dir)
         w.walk()
 

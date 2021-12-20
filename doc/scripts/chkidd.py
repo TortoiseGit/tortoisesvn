@@ -63,7 +63,7 @@ class XMLFileWalker(fileutil.FileWalker):
     def onProcessFile(self, dirpath, file):
         fullfile = os.path.join(dirpath, file)
         if self.verbose > 1:
-            print fullfile
+            print (fullfile)
         elif self.verbose > 0:
             sys.stdout.write('.')
         self.grepHIDD(fullfile)
@@ -78,9 +78,9 @@ class XMLFileWalker(fileutil.FileWalker):
                 ref = "%s:%s:%s" % (fileinput.filename(),
                                     fileinput.lineno(),
                                     m.span()[0])
-                hidd = unicode(m.groups()[0])
+                hidd = str(m.groups()[0])
                 if self.verbose > 1:
-                    print "%s %s" % (ref, hidd)
+                    print( "%s %s" % (ref, hidd))
                 HIDDs.setdefault(hidd, []).append(ref)
 
 
@@ -121,16 +121,16 @@ def find_IDDs(rcfile, ignore, xmldir):
     # Report for this file
     i = set(IDDs.keys()) - set(Ignores.keys())
     h = set(HIDDs.keys())
-    print "# IDD/HIDD cross check report for %s" % rcfile
-    print "# XML source tree in %s" % xmldir
-    print "# IDDs found in resource file and missing in XML files"
+    print ("# IDD/HIDD cross check report for %s" % rcfile)
+    print ("# XML source tree in %s" % xmldir)
+    print ("# IDDs found in resource file and missing in XML files")
     for idds in sorted(i - h):
-        print "%s: IDD_%s" % (IDDs[idds][0], idds)
+        print ("%s: IDD_%s" % (IDDs[idds][0], idds))
 
     print
-    print "# HIDDs found in XML files but not defined in resource file"
+    print ("# HIDDs found in XML files but not defined in resource file")
     for hidds in sorted(h - i):
-        print "%s: HIDD_%s" % (HIDDs[hidds][0], hidds)
+        print ("%s: HIDD_%s" % (HIDDs[hidds][0], hidds))
     print
 
 
@@ -142,14 +142,14 @@ def find_HIDDs(xmldir):
     try:
         xw = XMLFileWalker(xmldir)
         xw.walk()
-    except IOError, e:
-        print e
+    except IOError as e:
+        print (e)
         sys.exit(1)
 
 
 def main():
     if len(sys.argv) < 3:
-        print "Usage: xmldir rcfile [ ignorefile ]"
+        print ("Usage: xmldir rcfile [ ignorefile ]")
         sys.exit(0)
 
     xmldir = sys.argv[1]
