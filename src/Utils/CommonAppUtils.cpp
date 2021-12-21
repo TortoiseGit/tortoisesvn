@@ -36,10 +36,12 @@
 #include <regex>
 #include <propkey.h>
 
+#include "UnicodeUtils.h"
+
 extern CString sOrigCwd;
 extern CString g_sGroupingUuid;
 
-BOOL CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CString& title, BOOL bWait)
+BOOL           CCommonAppUtils::StartUnifiedDiffViewer(const CString& patchfile, const CString& title, BOOL bWait)
 {
     CRegString v      = CRegString(L"Software\\TortoiseSVN\\DiffViewer");
     CString    viewer = v;
@@ -107,9 +109,9 @@ CString CCommonAppUtils::GetAppForFile(const CString& fileName,
 
     // registry lookup
 
-    CString extensionToUse = extension.IsEmpty()
-                                 ? CPathUtils::GetFileExtFromPath(fullFileName)
-                                 : extension;
+    CString extensionToUse     = extension.IsEmpty()
+                                     ? CPathUtils::GetFileExtFromPath(fullFileName)
+                                     : extension;
 
     if (!extensionToUse.IsEmpty())
     {
@@ -123,8 +125,8 @@ CString CCommonAppUtils::GetAppForFile(const CString& fileName,
         {
             documentClass = CRegString(extensionToUse + L"\\", L"", FALSE, HKEY_CLASSES_ROOT);
 
-            CString key = documentClass + L"\\Shell\\" + verb + L"\\Command\\";
-            application = CRegString(key, L"", FALSE, HKEY_CLASSES_ROOT);
+            CString key   = documentClass + L"\\Shell\\" + verb + L"\\Command\\";
+            application   = CRegString(key, L"", FALSE, HKEY_CLASSES_ROOT);
         }
         else
         {
@@ -322,7 +324,7 @@ bool CCommonAppUtils::SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int w
     IconBitmapUtils iutils;
     auto            bmp = iutils.IconToBitmapPARGB32(hIcon, width, height);
 
-    LVBKIMAGE lv;
+    LVBKIMAGE       lv;
     lv.ulFlags        = LVBKIF_TYPE_WATERMARK | LVBKIF_FLAG_ALPHABLEND;
     lv.hbm            = bmp;
     lv.xOffsetPercent = 100;
@@ -379,7 +381,7 @@ HRESULT CCommonAppUtils::CreateShortcutToURL(LPCWSTR pszURL, LPCWSTR pszLinkFile
 {
     CComPtr<IUniformResourceLocator> pURL;
     // Create an IUniformResourceLocator object
-    HRESULT hRes = pURL.CoCreateInstance(CLSID_InternetShortcut, nullptr, CLSCTX_INPROC_SERVER);
+    HRESULT                          hRes = pURL.CoCreateInstance(CLSID_InternetShortcut, nullptr, CLSCTX_INPROC_SERVER);
     if (FAILED(hRes))
         return hRes;
 
@@ -489,7 +491,7 @@ bool CCommonAppUtils::FileOpenSave(CString& path, int* filterindex, UINT title, 
     // Create a new common save file dialog
     CComPtr<IFileDialog> pfd = nullptr;
 
-    HRESULT hr = pfd.CoCreateInstance(bOpen ? CLSID_FileOpenDialog : CLSID_FileSaveDialog, nullptr, CLSCTX_INPROC_SERVER);
+    HRESULT              hr  = pfd.CoCreateInstance(bOpen ? CLSID_FileOpenDialog : CLSID_FileSaveDialog, nullptr, CLSCTX_INPROC_SERVER);
     if (SUCCEEDED(hr))
     {
         // Set the dialog options
@@ -633,7 +635,7 @@ void CCommonAppUtils::SetWindowTitle(HWND hWnd, const CString& urlOrPath, const 
 
 void CCommonAppUtils::MarkWindowAsUnpinnable(HWND hWnd)
 {
-    using SHGPSFW = HRESULT(WINAPI*)(HWND hwnd, REFIID riid, void** ppv);
+    using SHGPSFW       = HRESULT(WINAPI*)(HWND hwnd, REFIID riid, void** ppv);
 
     CAutoLibrary hShell = AtlLoadSystemLibraryUsingFullPath(L"Shell32.dll");
 
@@ -721,8 +723,101 @@ HICON CCommonAppUtils::LoadIconEx(UINT resourceId, UINT cx, UINT cy)
                         cx, cy);
 }
 
+const char* CCommonAppUtils::GetResourceData(const wchar_t* resName, int id, DWORD& resLen)
+{
+    resLen         = 0;
+    auto hResource = FindResource(nullptr, MAKEINTRESOURCE(id), resName);
+    if (!hResource)
+        return nullptr;
+    auto hResourceLoaded = LoadResource(nullptr, hResource);
+    if (!hResourceLoaded)
+        return nullptr;
+    auto lpResLock = static_cast<const char*>(LockResource(hResourceLoaded));
+    resLen         = SizeofResource(nullptr, hResource);
+    return lpResLock;
+}
+
 bool CCommonAppUtils::StartHtmlHelp(DWORD_PTR id)
 {
+    static std::map<DWORD_PTR, std::wstring> idMap;
+
+#if defined(IDR_HELPCONTEXT) && defined(IDR_HELPALIAS) && defined(IDS_APPNAME) && defined(IDS_HELPURLPART)
+    if (idMap.empty())
+    {
+        std::map<std::string, DWORD_PTR> contextMap;
+        DWORD                            resSize = 0;
+        const char*                      resData = GetResourceData(L"help", IDR_HELPCONTEXT, resSize);
+        if (resData != nullptr)
+        {
+            auto                     resString = std::string(resData, resSize);
+            std::vector<std::string> lines;
+            stringtok(lines, resString, true, "\r\n");
+            for (const auto& line : lines)
+            {
+                if (line.starts_with("//"))
+                    continue;
+                if (line.empty())
+                    continue;
+                std::vector<std::string> lineParts;
+                stringtok(lineParts, line, true, " ");
+                if (lineParts.size() == 3)
+                {
+                    contextMap[lineParts[1]] = std::stoi(lineParts[2], nullptr, 0);
+                }
+            }
+        }
+        std::map<std::string, std::string> aliasMap;
+        resSize = 0;
+        resData = GetResourceData(L"help", IDR_HELPALIAS, resSize);
+        if (resData != nullptr)
+        {
+            auto                     resString = std::string(resData, resSize);
+            std::vector<std::string> lines;
+            stringtok(lines, resString, true, "\r\n");
+            for (const auto& line : lines)
+            {
+                if (line.empty())
+                    continue;
+                std::vector<std::string> lineParts;
+                stringtok(lineParts, line, true, "=");
+                if (lineParts.size() == 2)
+                {
+                    aliasMap[lineParts[0]] = lineParts[1];
+                }
+            }
+        }
+        for (const auto& [textId, link] : aliasMap)
+        {
+            if (contextMap.contains(textId))
+            {
+                auto numId   = contextMap.find(textId)->second;
+                idMap[numId] = CUnicodeUtils::StdGetUnicode(link);
+            }
+        }
+    }
+
+    std::wstring baseUrl = L"https://tortoisesvn.net/docs/release/";
+    CString      appName(MAKEINTRESOURCE(IDS_APPNAME));
+    CString      langPart(MAKEINTRESOURCE(IDS_HELPURLPART));
+    if (langPart.IsEmpty())
+        langPart = L"en";
+
+    CString page = L"index.html";
+    if (idMap.contains(id))
+    {
+        page = idMap[id].c_str();
+        page.Replace(L"@", L"%40");
+    }
+
+    baseUrl += appName;
+    baseUrl += L"_";
+    baseUrl += langPart;
+    baseUrl += L"/";
+    baseUrl += page;
+
+    ShellExecute(nullptr, L"open", baseUrl.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+    return true;
+#else
     CWinApp* pApp = AfxGetApp();
     ASSERT_VALID(pApp);
     ASSERT(pApp->m_pszHelpFilePath != NULL);
@@ -734,4 +829,5 @@ bool CCommonAppUtils::StartHtmlHelp(DWORD_PTR id)
     cmd.Format(L"HH.exe -mapid %Iu \"%s\"", id, pApp->m_pszHelpFilePath);
 
     return CCreateProcessHelper::CreateProcessDetached(nullptr, cmd);
+#endif
 }

@@ -29,14 +29,14 @@ public:
      * Starts the external unified diff viewer (the app associated with *.diff or *.patch files).
      * If no app is associated with those file types, the default text editor is used.
      */
-    static BOOL StartUnifiedDiffViewer(const CString& patchfile, const CString& title, BOOL bWait = FALSE);
+    static BOOL        StartUnifiedDiffViewer(const CString& patchfile, const CString& title, BOOL bWait = FALSE);
 
     /**
      * Replaces shell variables (like %SOMENAME%) in \ref s with
      * their respective values. If the replacements should fail,
      * the string will be returned unaltered.
      */
-    static CString ExpandEnvironmentStrings(const CString& s);
+    static CString     ExpandEnvironmentStrings(const CString& s);
 
     /**
      * Finds the standard application to open / process the given file
@@ -52,45 +52,45 @@ public:
      * \return application command line to execute. An empty string,
      *         if lookup failed.
      */
-    static CString GetAppForFile(const CString& fileName, const CString& extension, const CString& verb, bool applySecurityHeuristics);
+    static CString     GetAppForFile(const CString& fileName, const CString& extension, const CString& verb, bool applySecurityHeuristics);
 
     /**
      * Launches the standard text viewer/editor application which is associated
      * with txt files.
      * \return TRUE if the program could be started.
      */
-    static BOOL StartTextViewer(CString file);
+    static BOOL        StartTextViewer(CString file);
 
     /**
     * Launch an external application (usually the diff viewer)
     */
-    static bool LaunchApplication(const CString& sCommandLine,
-                                  UINT           idErrMessageFormat,
-                                  bool           bWaitForStartup,
-                                  bool           bWaitForExit = false,
-                                  HANDLE         hWaitHandle  = nullptr);
+    static bool        LaunchApplication(const CString& sCommandLine,
+                                         UINT           idErrMessageFormat,
+                                         bool           bWaitForStartup,
+                                         bool           bWaitForExit = false,
+                                         HANDLE         hWaitHandle  = nullptr);
 
-    static bool RunTortoiseProc(const CString& sCommandLine);
+    static bool        RunTortoiseProc(const CString& sCommandLine);
 
     /**
      * Resizes all columns in a list control. Considers also icons in columns
      * with no text.
      */
-    static void ResizeAllListCtrlCols(CListCtrl* pListCtrl);
+    static void        ResizeAllListCtrlCols(CListCtrl* pListCtrl);
 
-    static bool SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID);
-    static bool SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width, int height);
+    static bool        SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID);
+    static bool        SetListCtrlBackgroundImage(HWND hListCtrl, UINT nID, int width, int height);
 
     /**
      * Creates a .lnk file (a windows shortcut file)
      */
-    static HRESULT CreateShortCut(LPCWSTR pszTargetfile, LPCWSTR pszTargetargs,
-                                  LPCWSTR pszLinkfile, LPCWSTR pszDescription,
-                                  int iShowmode, LPCWSTR pszCurdir, LPCWSTR pszIconfile, int iIconIndex);
+    static HRESULT     CreateShortCut(LPCWSTR pszTargetfile, LPCWSTR pszTargetargs,
+                                      LPCWSTR pszLinkfile, LPCWSTR pszDescription,
+                                      int iShowmode, LPCWSTR pszCurdir, LPCWSTR pszIconfile, int iIconIndex);
     /**
      * Creates an url shortcut file (.url)
      */
-    static HRESULT CreateShortcutToURL(LPCWSTR pszUrl, LPCWSTR pszLinkFile);
+    static HRESULT     CreateShortcutToURL(LPCWSTR pszUrl, LPCWSTR pszLinkFile);
 
     /**
      * Sets the Accessibility property for the specified window.
@@ -98,33 +98,35 @@ public:
      * \param propId the id of the property to set, e.g., PROPID_ACC_DESCRIPTION
      * \param text the text for the property
      */
-    static bool SetAccProperty(HWND hWnd, const MSAAPROPID& propId, const CString& text);
-    static bool SetAccProperty(HWND hWnd, const MSAAPROPID& propId, long value);
+    static bool        SetAccProperty(HWND hWnd, const MSAAPROPID& propId, const CString& text);
+    static bool        SetAccProperty(HWND hWnd, const MSAAPROPID& propId, long value);
 
     /**
      * finds the accelerator char from a dialog control
      */
-    static wchar_t FindAcceleratorKey(CWnd* pWnd, UINT id);
+    static wchar_t     FindAcceleratorKey(CWnd* pWnd, UINT id);
 
-    static CString GetAbsoluteUrlFromRelativeUrl(const CString& root, const CString& url);
+    static CString     GetAbsoluteUrlFromRelativeUrl(const CString& root, const CString& url);
 
-    static void ExtendControlOverHiddenControl(CWnd* parent, UINT controlToExtend, UINT hiddenControl);
+    static void        ExtendControlOverHiddenControl(CWnd* parent, UINT controlToExtend, UINT hiddenControl);
 
-    static bool FileOpenSave(CString& path, int* filterindex, UINT title, UINT filter, bool bOpen, const CString& initialDir = CString(), HWND hwndOwner = nullptr);
+    static bool        FileOpenSave(CString& path, int* filterindex, UINT title, UINT filter, bool bOpen, const CString& initialDir = CString(), HWND hwndOwner = nullptr);
 
-    static bool AddClipboardUrlToWindow(HWND hWnd);
+    static bool        AddClipboardUrlToWindow(HWND hWnd);
 
-    static CString FormatWindowTitle(const CString& urlOrPath, const CString& dialogName);
-    static void    SetWindowTitle(HWND hWnd, const CString& urlOrPath, const CString& dialogName);
+    static CString     FormatWindowTitle(const CString& urlOrPath, const CString& dialogName);
+    static void        SetWindowTitle(HWND hWnd, const CString& urlOrPath, const CString& dialogName);
 
-    static void MarkWindowAsUnpinnable(HWND hWnd);
+    static void        MarkWindowAsUnpinnable(HWND hWnd);
 
-    static HRESULT EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorkingDirectory = nullptr, AUTOCOMPLETELISTOPTIONS acloOptions = ACLO_NONE, AUTOCOMPLETEOPTIONS acoOptions = ACO_AUTOSUGGEST, REFCLSID clsid = CLSID_ACListISF);
+    static HRESULT     EnableAutoComplete(HWND hWndEdit, LPWSTR szCurrentWorkingDirectory = nullptr, AUTOCOMPLETELISTOPTIONS acloOptions = ACLO_NONE, AUTOCOMPLETEOPTIONS acoOptions = ACO_AUTOSUGGEST, REFCLSID clsid = CLSID_ACListISF);
 
     // Wrapper for LoadImage(IMAGE_ICON)
-    static HICON LoadIconEx(UINT resourceId, UINT cx, UINT cy);
+    static HICON       LoadIconEx(UINT resourceId, UINT cx, UINT cy);
 
-    static bool StartHtmlHelp(DWORD_PTR id);
+    static const char* GetResourceData(const wchar_t* resName, int id, DWORD& resLen);
+
+    static bool        StartHtmlHelp(DWORD_PTR id);
 
 protected:
     CCommonAppUtils(){};
