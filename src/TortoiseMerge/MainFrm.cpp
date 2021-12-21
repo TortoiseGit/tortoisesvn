@@ -40,7 +40,7 @@
 #include "ThemeMFCVisualManager.h"
 
 #ifdef _DEBUG
-#define new DEBUG_NEW
+#    define new DEBUG_NEW
 #endif
 
 // CMainFrame
@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_WM_CREATE()
     ON_WM_DESTROY()
     // Global help commands
+    ON_WM_HELPINFO()
     ON_COMMAND(ID_HELP_FINDER, CFrameWndEx::OnHelpFinder)
     ON_COMMAND(ID_HELP, CFrameWndEx::OnHelp)
     ON_COMMAND(ID_CONTEXT_HELP, CFrameWndEx::OnContextHelp)
@@ -137,7 +138,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_NAVIGATE_PREVINLINEDIFF, &CMainFrame::OnUpdateNavigatePrevinlinediff)
     ON_COMMAND(ID_VIEW_WRAPLONGLINES, &CMainFrame::OnViewWraplonglines)
     ON_UPDATE_COMMAND_UI(ID_VIEW_WRAPLONGLINES, &CMainFrame::OnUpdateViewWraplonglines)
-    ON_REGISTERED_MESSAGE( TaskBarButtonCreated, CMainFrame::OnTaskbarButtonCreated )
+    ON_REGISTERED_MESSAGE(TaskBarButtonCreated, CMainFrame::OnTaskbarButtonCreated)
     ON_UPDATE_COMMAND_UI(ID_EDIT_PASTE, &CMainFrame::OnUpdateEditPaste)
     ON_COMMAND(ID_INDICATOR_LEFTVIEW, &CMainFrame::OnIndicatorLeftview)
     ON_COMMAND(ID_INDICATOR_RIGHTVIEW, &CMainFrame::OnIndicatorRightview)
@@ -145,8 +146,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_WM_TIMER()
     ON_COMMAND(ID_VIEW_IGNORECOMMENTS, &CMainFrame::OnViewIgnorecomments)
     ON_UPDATE_COMMAND_UI(ID_VIEW_IGNORECOMMENTS, &CMainFrame::OnUpdateViewIgnorecomments)
-    ON_COMMAND_RANGE(ID_REGEXFILTER, ID_REGEXFILTER+400, &CMainFrame::OnRegexfilter)
-    ON_UPDATE_COMMAND_UI_RANGE(ID_REGEXFILTER, ID_REGEXFILTER+400, &CMainFrame::OnUpdateViewRegexFilter)
+    ON_COMMAND_RANGE(ID_REGEXFILTER, ID_REGEXFILTER + 400, &CMainFrame::OnRegexfilter)
+    ON_UPDATE_COMMAND_UI_RANGE(ID_REGEXFILTER, ID_REGEXFILTER + 400, &CMainFrame::OnUpdateViewRegexFilter)
     ON_COMMAND(ID_REGEX_NO_FILTER, &CMainFrame::OnRegexNoFilter)
     ON_UPDATE_COMMAND_UI(ID_REGEX_NO_FILTER, &CMainFrame::OnUpdateRegexNoFilter)
     ON_COMMAND(ID_INDICATOR_LEFTVIEWCOMBOENCODING, &CMainFrame::OnDummyEnabled)
@@ -163,21 +164,21 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
     ON_UPDATE_COMMAND_UI(ID_INDICATOR_MARKEDWORDS, &CMainFrame::OnUpdateMarkedWords)
     ON_UPDATE_COMMAND_UI(ID_EDIT_FINDNEXTSTART, &CMainFrame::OnUpdateEnableIfSelection)
     ON_UPDATE_COMMAND_UI(ID_EDIT_FINDPREVSTART, &CMainFrame::OnUpdateEnableIfSelection)
-    ON_COMMAND_RANGE(ID_INDICATOR_LEFTENCODINGSTART, ID_INDICATOR_LEFTENCODINGSTART+19, &CMainFrame::OnEncodingLeft)
-    ON_COMMAND_RANGE(ID_INDICATOR_RIGHTENCODINGSTART, ID_INDICATOR_RIGHTENCODINGSTART+19, &CMainFrame::OnEncodingRight)
-    ON_COMMAND_RANGE(ID_INDICATOR_BOTTOMENCODINGSTART, ID_INDICATOR_BOTTOMENCODINGSTART+19, &CMainFrame::OnEncodingBottom)
-    ON_COMMAND_RANGE(ID_INDICATOR_LEFTEOLSTART, ID_INDICATOR_LEFTEOLSTART+19, &CMainFrame::OnEOLLeft)
-    ON_COMMAND_RANGE(ID_INDICATOR_RIGHTEOLSTART, ID_INDICATOR_RIGHTEOLSTART+19, &CMainFrame::OnEOLRight)
-    ON_COMMAND_RANGE(ID_INDICATOR_BOTTOMEOLSTART, ID_INDICATOR_BOTTOMEOLSTART+19, &CMainFrame::OnEOLBottom)
+    ON_COMMAND_RANGE(ID_INDICATOR_LEFTENCODINGSTART, ID_INDICATOR_LEFTENCODINGSTART + 19, &CMainFrame::OnEncodingLeft)
+    ON_COMMAND_RANGE(ID_INDICATOR_RIGHTENCODINGSTART, ID_INDICATOR_RIGHTENCODINGSTART + 19, &CMainFrame::OnEncodingRight)
+    ON_COMMAND_RANGE(ID_INDICATOR_BOTTOMENCODINGSTART, ID_INDICATOR_BOTTOMENCODINGSTART + 19, &CMainFrame::OnEncodingBottom)
+    ON_COMMAND_RANGE(ID_INDICATOR_LEFTEOLSTART, ID_INDICATOR_LEFTEOLSTART + 19, &CMainFrame::OnEOLLeft)
+    ON_COMMAND_RANGE(ID_INDICATOR_RIGHTEOLSTART, ID_INDICATOR_RIGHTEOLSTART + 19, &CMainFrame::OnEOLRight)
+    ON_COMMAND_RANGE(ID_INDICATOR_BOTTOMEOLSTART, ID_INDICATOR_BOTTOMEOLSTART + 19, &CMainFrame::OnEOLBottom)
     ON_COMMAND_RANGE(ID_INDICATOR_LEFTTABMODESTART, ID_INDICATOR_LEFTTABMODESTART + 19, &CMainFrame::OnTabModeLeft)
     ON_COMMAND_RANGE(ID_INDICATOR_RIGHTTABMODESTART, ID_INDICATOR_RIGHTTABMODESTART + 19, &CMainFrame::OnTabModeRight)
     ON_COMMAND_RANGE(ID_INDICATOR_BOTTOMTABMODESTART, ID_INDICATOR_BOTTOMTABMODESTART + 19, &CMainFrame::OnTabModeBottom)
-    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_LEFTENCODINGSTART, ID_INDICATOR_LEFTENCODINGSTART+19, &CMainFrame::OnUpdateEncodingLeft)
-    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_RIGHTENCODINGSTART, ID_INDICATOR_RIGHTENCODINGSTART+19, &CMainFrame::OnUpdateEncodingRight)
-    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_BOTTOMENCODINGSTART, ID_INDICATOR_BOTTOMENCODINGSTART+19, &CMainFrame::OnUpdateEncodingBottom)
-    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_LEFTEOLSTART, ID_INDICATOR_LEFTEOLSTART+19, &CMainFrame::OnUpdateEOLLeft)
-    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_RIGHTEOLSTART, ID_INDICATOR_RIGHTEOLSTART+19, &CMainFrame::OnUpdateEOLRight)
-    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_BOTTOMEOLSTART, ID_INDICATOR_BOTTOMEOLSTART+19, &CMainFrame::OnUpdateEOLBottom)
+    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_LEFTENCODINGSTART, ID_INDICATOR_LEFTENCODINGSTART + 19, &CMainFrame::OnUpdateEncodingLeft)
+    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_RIGHTENCODINGSTART, ID_INDICATOR_RIGHTENCODINGSTART + 19, &CMainFrame::OnUpdateEncodingRight)
+    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_BOTTOMENCODINGSTART, ID_INDICATOR_BOTTOMENCODINGSTART + 19, &CMainFrame::OnUpdateEncodingBottom)
+    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_LEFTEOLSTART, ID_INDICATOR_LEFTEOLSTART + 19, &CMainFrame::OnUpdateEOLLeft)
+    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_RIGHTEOLSTART, ID_INDICATOR_RIGHTEOLSTART + 19, &CMainFrame::OnUpdateEOLRight)
+    ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_BOTTOMEOLSTART, ID_INDICATOR_BOTTOMEOLSTART + 19, &CMainFrame::OnUpdateEOLBottom)
     ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_LEFTTABMODESTART, ID_INDICATOR_LEFTTABMODESTART + 19, &CMainFrame::OnUpdateTabModeLeft)
     ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_RIGHTTABMODESTART, ID_INDICATOR_RIGHTTABMODESTART + 19, &CMainFrame::OnUpdateTabModeRight)
     ON_UPDATE_COMMAND_UI_RANGE(ID_INDICATOR_BOTTOMTABMODESTART, ID_INDICATOR_BOTTOMTABMODESTART + 19, &CMainFrame::OnUpdateTabModeBottom)
@@ -187,16 +188,14 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
-{
-    ID_SEPARATOR,           // status line indicator
-    ID_INDICATOR_LEFTVIEW,
-    ID_INDICATOR_RIGHTVIEW,
-    ID_INDICATOR_BOTTOMVIEW,
-    ID_INDICATOR_CAPS,
-    ID_INDICATOR_NUM,
-    ID_INDICATOR_SCRL
-};
-
+    {
+        ID_SEPARATOR, // status line indicator
+        ID_INDICATOR_LEFTVIEW,
+        ID_INDICATOR_RIGHTVIEW,
+        ID_INDICATOR_BOTTOMVIEW,
+        ID_INDICATOR_CAPS,
+        ID_INDICATOR_NUM,
+        ID_INDICATOR_SCRL};
 
 // CMainFrame construction/destruction
 
@@ -250,7 +249,6 @@ LRESULT CMainFrame::OnTaskbarButtonCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
     return 0;
 }
 
-
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
     if (CFrameWndEx::OnCreate(lpCreateStruct) == -1)
@@ -283,8 +281,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         }
 
         m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
-            [this]()
-            {
+            [this]() {
                 SetTheme(CTheme::Instance().IsDarkTheme());
             });
         SetTheme(CTheme::Instance().IsDarkTheme());
@@ -309,10 +306,10 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         columnPaneMw->SetAlmostLargeText(L"Marked words: l: XXXX | r: XXXX | b: XXXX");
 
         CString sTooltip(MAKEINTRESOURCE(IDS_ENCODING_COMBO_TOOLTIP));
-        auto apBtnGroupLeft = std::make_unique<CMFCRibbonButtonsGroup>();
+        auto    apBtnGroupLeft = std::make_unique<CMFCRibbonButtonsGroup>();
         apBtnGroupLeft->SetID(ID_INDICATOR_LEFTVIEW);
-        apBtnGroupLeft->AddButton(new CMFCRibbonStatusBarPane(ID_SEPARATOR,   CString(MAKEINTRESOURCE(IDS_STATUSBAR_LEFTVIEW)), TRUE));
-        CMFCRibbonButton * pButton = new CMFCRibbonButton(ID_INDICATOR_LEFTVIEWCOMBOENCODING, L"");
+        apBtnGroupLeft->AddButton(new CMFCRibbonStatusBarPane(ID_SEPARATOR, CString(MAKEINTRESOURCE(IDS_STATUSBAR_LEFTVIEW)), TRUE));
+        CMFCRibbonButton *pButton = new CMFCRibbonButton(ID_INDICATOR_LEFTVIEWCOMBOENCODING, L"");
         pButton->SetToolTipText(sTooltip);
         FillEncodingButton(pButton, ID_INDICATOR_LEFTENCODINGSTART);
         apBtnGroupLeft->AddButton(pButton);
@@ -322,12 +319,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         pButton = new CMFCRibbonButton(ID_INDICATOR_LEFTVIEWCOMBOTABMODE, L"");
         FillTabModeButton(pButton, ID_INDICATOR_LEFTTABMODESTART);
         apBtnGroupLeft->AddButton(pButton);
-        apBtnGroupLeft->AddButton(new CMFCRibbonStatusBarPane(ID_INDICATOR_LEFTVIEW,   L"", TRUE));
+        apBtnGroupLeft->AddButton(new CMFCRibbonStatusBarPane(ID_INDICATOR_LEFTVIEW, L"", TRUE));
         m_wndRibbonStatusBar.AddExtendedElement(apBtnGroupLeft.release(), L"");
 
         auto apBtnGroupRight = std::make_unique<CMFCRibbonButtonsGroup>();
         apBtnGroupRight->SetID(ID_INDICATOR_RIGHTVIEW);
-        apBtnGroupRight->AddButton(new CMFCRibbonStatusBarPane(ID_SEPARATOR,   CString(MAKEINTRESOURCE(IDS_STATUSBAR_RIGHTVIEW)), TRUE));
+        apBtnGroupRight->AddButton(new CMFCRibbonStatusBarPane(ID_SEPARATOR, CString(MAKEINTRESOURCE(IDS_STATUSBAR_RIGHTVIEW)), TRUE));
         pButton = new CMFCRibbonButton(ID_INDICATOR_RIGHTVIEWCOMBOENCODING, L"");
         pButton->SetToolTipText(sTooltip);
         FillEncodingButton(pButton, ID_INDICATOR_RIGHTENCODINGSTART);
@@ -338,7 +335,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         pButton = new CMFCRibbonButton(ID_INDICATOR_RIGHTVIEWCOMBOTABMODE, L"");
         FillTabModeButton(pButton, ID_INDICATOR_RIGHTTABMODESTART);
         apBtnGroupRight->AddButton(pButton);
-        apBtnGroupRight->AddButton(new CMFCRibbonStatusBarPane(ID_INDICATOR_RIGHTVIEW,  L"", TRUE));
+        apBtnGroupRight->AddButton(new CMFCRibbonStatusBarPane(ID_INDICATOR_RIGHTVIEW, L"", TRUE));
         m_wndRibbonStatusBar.AddExtendedElement(apBtnGroupRight.release(), L"");
     }
     else
@@ -360,10 +357,10 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
         m_wndToolBar.SetWindowText(L"Main");
         if (!m_wndStatusBar.Create(this) ||
             !m_wndStatusBar.SetIndicators(indicators,
-            _countof(indicators)))
+                                          _countof(indicators)))
         {
             TRACE0("Failed to create status bar\n");
-            return -1;      // fail to create
+            return -1; // fail to create
         }
         m_wndStatusBar.EnablePaneDoubleClick();
 
@@ -375,18 +372,18 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
     }
 
     if (!m_wndLocatorBar.Create(this, IDD_DIFFLOCATOR,
-        CBRS_ALIGN_LEFT | CBRS_SIZE_FIXED, ID_VIEW_LOCATORBAR))
+                                CBRS_ALIGN_LEFT | CBRS_SIZE_FIXED, ID_VIEW_LOCATORBAR))
     {
         TRACE0("Failed to create dialogbar\n");
-        return -1;      // fail to create
+        return -1; // fail to create
     }
     if (!m_wndLineDiffBar.Create(this, IDD_LINEDIFF,
-        CBRS_ALIGN_BOTTOM | CBRS_SIZE_FIXED, ID_VIEW_LINEDIFFBAR))
+                                 CBRS_ALIGN_BOTTOM | CBRS_SIZE_FIXED, ID_VIEW_LINEDIFFBAR))
     {
         TRACE0("Failed to create dialogbar\n");
-        return -1;      // fail to create
+        return -1; // fail to create
     }
-    m_wndLocatorBar.m_pMainFrm = this;
+    m_wndLocatorBar.m_pMainFrm  = this;
     m_wndLineDiffBar.m_pMainFrm = this;
 
     EnableDocking(CBRS_ALIGN_ANY);
@@ -419,13 +416,12 @@ void CMainFrame::OnDestroy()
     CFrameWndEx::OnDestroy();
 }
 
-BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
+BOOL CMainFrame::PreCreateWindow(CREATESTRUCT &cs)
 {
-    if( !CFrameWndEx::PreCreateWindow(cs) )
+    if (!CFrameWndEx::PreCreateWindow(cs))
         return FALSE;
     return TRUE;
 }
-
 
 // CMainFrame diagnostics
 
@@ -435,22 +431,19 @@ void CMainFrame::AssertValid() const
     CFrameWndEx::AssertValid();
 }
 
-void CMainFrame::Dump(CDumpContext& dc) const
+void CMainFrame::Dump(CDumpContext &dc) const
 {
     CFrameWndEx::Dump(dc);
 }
 
 #endif //_DEBUG
 
-
 // CMainFrame message handlers
 
-
-BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContext)
+BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext *pContext)
 {
     CRect cr;
-    GetClientRect( &cr);
-
+    GetClientRect(&cr);
 
     // split into three panes:
     //        -------------
@@ -470,24 +463,24 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
 
     // add the second splitter pane - which is a nested splitter with 2 columns
     if (!m_wndSplitter2.CreateStatic(
-        &m_wndSplitter, // our parent window is the first splitter
-        1, 2, // the new splitter is 1 row, 2 columns
-        WS_CHILD | WS_VISIBLE | WS_BORDER, // style, WS_BORDER is needed
-        m_wndSplitter.IdFromRowCol(0, 0)
-        // new splitter is in the first row, 1st column of first splitter
-        ))
+            &m_wndSplitter,                    // our parent window is the first splitter
+            1, 2,                              // the new splitter is 1 row, 2 columns
+            WS_CHILD | WS_VISIBLE | WS_BORDER, // style, WS_BORDER is needed
+            m_wndSplitter.IdFromRowCol(0, 0)
+            // new splitter is in the first row, 1st column of first splitter
+            ))
     {
         TRACE0("Failed to create nested splitter\n");
         return FALSE;
     }
     // add the first splitter pane - the default view in row 0
     if (!m_wndSplitter.CreateView(1, 0,
-        RUNTIME_CLASS(CBottomView), CSize(cr.Width(), cr.Height()), pContext))
+                                  RUNTIME_CLASS(CBottomView), CSize(cr.Width(), cr.Height()), pContext))
     {
         TRACE0("Failed to create first pane\n");
         return FALSE;
     }
-    m_pwndBottomView                    = static_cast<CBottomView*>(m_wndSplitter.GetPane(1, 0));
+    m_pwndBottomView                    = static_cast<CBottomView *>(m_wndSplitter.GetPane(1, 0));
     m_pwndBottomView->m_pwndLocator     = &m_wndLocatorBar;
     m_pwndBottomView->m_pwndLineDiffBar = &m_wndLineDiffBar;
     if (m_bUseRibbons)
@@ -499,12 +492,12 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
     // now create the two views inside the nested splitter
 
     if (!m_wndSplitter2.CreateView(0, 0,
-        RUNTIME_CLASS(CLeftView), CSize(cr.Width()/2, cr.Height()/2), pContext))
+                                   RUNTIME_CLASS(CLeftView), CSize(cr.Width() / 2, cr.Height() / 2), pContext))
     {
         TRACE0("Failed to create second pane\n");
         return FALSE;
     }
-    m_pwndLeftView                    = static_cast<CLeftView*>(m_wndSplitter2.GetPane(0, 0));
+    m_pwndLeftView                    = static_cast<CLeftView *>(m_wndSplitter2.GetPane(0, 0));
     m_pwndLeftView->m_pwndLocator     = &m_wndLocatorBar;
     m_pwndLeftView->m_pwndLineDiffBar = &m_wndLineDiffBar;
     if (m_bUseRibbons)
@@ -514,12 +507,12 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
     m_pwndLeftView->m_pMainFrame = this;
 
     if (!m_wndSplitter2.CreateView(0, 1,
-        RUNTIME_CLASS(CRightView), CSize(cr.Width()/2, cr.Height()/2), pContext))
+                                   RUNTIME_CLASS(CRightView), CSize(cr.Width() / 2, cr.Height() / 2), pContext))
     {
         TRACE0("Failed to create third pane\n");
         return FALSE;
     }
-    m_pwndRightView                    = static_cast<CRightView*>(m_wndSplitter2.GetPane(0, 1));
+    m_pwndRightView                    = static_cast<CRightView *>(m_wndSplitter2.GetPane(0, 1));
     m_pwndRightView->m_pwndLocator     = &m_wndLocatorBar;
     m_pwndRightView->m_pwndLineDiffBar = &m_wndLineDiffBar;
     if (m_bUseRibbons)
@@ -527,7 +520,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT /*lpcs*/, CCreateContext* pContex
     else
         m_pwndRightView->m_pwndStatusBar = &m_wndStatusBar;
     m_pwndRightView->m_pMainFrame = this;
-    m_bInitSplitter = TRUE;
+    m_bInitSplitter               = TRUE;
 
     m_dlgFilePatches.Create(IDD_FILEPATCHES, this);
     UpdateLayout();
@@ -561,7 +554,7 @@ BOOL CMainFrame::PatchFile(CString sFilePath, bool /*bContentMods*/, bool bPropM
     }
     else
     {
-        if ((!PathFileExists(sFilePath))||(PathIsDirectory(sFilePath)))
+        if ((!PathFileExists(sFilePath)) || (PathIsDirectory(sFilePath)))
         {
             m_data.m_baseFile.SetFileName(CTempFiles::Instance().GetTempFilePathString());
             m_data.m_baseFile.CreateEmptyFile();
@@ -606,7 +599,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 
     ASSERT(tempfile1.Compare(tempfile2));
 
-    CString sTemp;
+    CString      sTemp;
     CProgressDlg progDlg;
     sTemp.Format(IDS_GETVERSIONOFFILE, static_cast<LPCWSTR>(sRev1));
     progDlg.SetLine(1, sTemp, true);
@@ -615,7 +608,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
     progDlg.SetTitle(sTemp);
     progDlg.SetShowProgressBar(true);
     progDlg.SetTime(FALSE);
-    progDlg.SetProgress(1,100);
+    progDlg.SetProgress(1, 100);
     progDlg.ShowModeless(this);
     if (!CAppUtils::GetVersionedFile(sURL1, sRev1, tempfile1, &progDlg, m_hWnd))
     {
@@ -637,7 +630,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
         MessageBox(sErrMsg, nullptr, MB_ICONERROR);
         return FALSE;
     }
-    progDlg.SetProgress(100,100);
+    progDlg.SetProgress(100, 100);
     progDlg.Stop();
     CString temp;
     temp.Format(L"%s Revision %s", static_cast<LPCWSTR>(CPathUtils::GetFileNameFromPath(sURL1)), static_cast<LPCWSTR>(sRev1));
@@ -654,7 +647,7 @@ BOOL CMainFrame::DiffFiles(CString sURL1, CString sRev1, CString sURL2, CString 
 
 void CMainFrame::OnFileOpen()
 {
-    if (CheckForSave(CHFSR_OPEN)==IDCANCEL)
+    if (CheckForSave(CHFSR_OPEN) == IDCANCEL)
         return;
     return OnFileOpen(false);
 }
@@ -675,7 +668,7 @@ void CMainFrame::OnFileOpen(bool fillyours)
     m_data.m_baseFile.SetFileName(dlg.m_sBaseFile);
     m_data.m_theirFile.SetFileName(dlg.m_sTheirFile);
     m_data.m_yourFile.SetFileName(dlg.m_sYourFile);
-    m_data.m_sDiffFile = dlg.m_sUnifiedDiffFile;
+    m_data.m_sDiffFile  = dlg.m_sUnifiedDiffFile;
     m_data.m_sPatchPath = dlg.m_sPatchDirectory;
     m_data.m_mergedFile.SetOutOfUse();
     CCrashReport::Instance().AddFile2(dlg.m_sBaseFile, nullptr, L"Basefile", CR_AF_MAKE_FILE_COPY);
@@ -716,12 +709,11 @@ bool CMainFrame::LoadViews(int line)
     LoadIgnoreCommentData();
     m_data.SetBlame(m_bBlame);
     m_data.SetMovedBlocks(m_bViewMovedBlocks);
-    m_bHasConflicts = false;
-    CBaseView* pwndActiveView = m_pwndLeftView;
-    int nOldLine = m_pwndRightView ? m_pwndRightView->m_nTopLine : -1;
-    int nOldLineNumber =
-        m_pwndRightView && m_pwndRightView->m_pViewData ?
-        m_pwndRightView->m_pViewData->GetLineNumber(m_pwndRightView->m_nTopLine) : -1;
+    m_bHasConflicts           = false;
+    CBaseView *pwndActiveView = m_pwndLeftView;
+    int        nOldLine       = m_pwndRightView ? m_pwndRightView->m_nTopLine : -1;
+    int        nOldLineNumber =
+        m_pwndRightView && m_pwndRightView->m_pViewData ? m_pwndRightView->m_pViewData->GetLineNumber(m_pwndRightView->m_nTopLine) : -1;
     POINT ptOldCaretPos = {-1, -1};
     if (m_pwndRightView && m_pwndRightView->IsTarget())
         ptOldCaretPos = m_pwndRightView->GetCaretPosition();
@@ -733,11 +725,11 @@ bool CMainFrame::LoadViews(int line)
     if (sC == m_ignoreCommentsMap.end())
     {
         sExt = CPathUtils::GetFileExtFromPath(m_data.m_yourFile.GetFilename()).MakeLower();
-        sC = m_ignoreCommentsMap.find(sExt);
+        sC   = m_ignoreCommentsMap.find(sExt);
         if (sC == m_ignoreCommentsMap.end())
         {
             sExt = CPathUtils::GetFileExtFromPath(m_data.m_theirFile.GetFilename()).MakeLower();
-            sC = m_ignoreCommentsMap.find(sExt);
+            sC   = m_ignoreCommentsMap.find(sExt);
         }
     }
     if (sC != m_ignoreCommentsMap.end())
@@ -782,7 +774,7 @@ bool CMainFrame::LoadViews(int line)
         {
             m_data.m_baseFile.TransferDetailsFrom(m_data.m_theirFile);
         }
-        else if ((!m_data.m_sDiffFile.IsEmpty())&&(!m_patch.Init(m_data.m_sDiffFile, m_data.m_sPatchPath, &progDlg)))
+        else if ((!m_data.m_sDiffFile.IsEmpty()) && (!m_patch.Init(m_data.m_sDiffFile, m_data.m_sPatchPath, &progDlg)))
         {
             progDlg.Stop();
             ClearViewNamesAndPaths();
@@ -793,7 +785,7 @@ bool CMainFrame::LoadViews(int line)
         if (m_patch.GetNumberOfFiles() > 0)
         {
             CString betterpatchpath = m_patch.CheckPatchPath(m_data.m_sPatchPath);
-            if (betterpatchpath.CompareNoCase(m_data.m_sPatchPath)!=0)
+            if (betterpatchpath.CompareNoCase(m_data.m_sPatchPath) != 0)
             {
                 progDlg.Stop();
                 CString msg;
@@ -803,15 +795,15 @@ bool CMainFrame::LoadViews(int line)
                                     L"TortoiseMerge",
                                     0,
                                     TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-                CString task3;
-                WCHAR t3[MAX_PATH] = { 0 };
-                CString cp = betterpatchpath.Left(MAX_PATH - 1);
+                CString     task3;
+                WCHAR       t3[MAX_PATH] = {0};
+                CString     cp           = betterpatchpath.Left(MAX_PATH - 1);
                 PathCompactPathEx(t3, cp, 50, 0);
                 task3.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK3, t3);
                 taskdlg.AddCommandControl(100, task3);
                 CString task4;
-                WCHAR t4[MAX_PATH] = { 0 };
-                cp = m_data.m_sPatchPath.Left(MAX_PATH - 1);
+                WCHAR   t4[MAX_PATH] = {0};
+                cp                   = m_data.m_sPatchPath.Left(MAX_PATH - 1);
                 PathCompactPathEx(t4, cp, 50, 0);
                 task4.Format(IDS_WARNBETTERPATCHPATHFOUND_TASK4, t4);
                 taskdlg.AddCommandControl(200, task4);
@@ -851,16 +843,16 @@ bool CMainFrame::LoadViews(int line)
             m_pwndLeftView->m_pViewData = &m_data.m_yourBaseBoth;
             m_pwndLeftView->SetTextType(m_data.m_arYourFile.GetUnicodeType());
             m_pwndLeftView->SetLineEndingStyle(m_data.m_arYourFile.GetLineEndings());
-            m_pwndLeftView->m_sWindowName = m_data.m_baseFile.GetWindowName() + L" - " + m_data.m_yourFile.GetWindowName();
-            m_pwndLeftView->m_sFullFilePath = m_data.m_baseFile.GetFilename() + L" - " + m_data.m_yourFile.GetFilename();
+            m_pwndLeftView->m_sWindowName    = m_data.m_baseFile.GetWindowName() + L" - " + m_data.m_yourFile.GetWindowName();
+            m_pwndLeftView->m_sFullFilePath  = m_data.m_baseFile.GetFilename() + L" - " + m_data.m_yourFile.GetFilename();
             m_pwndLeftView->m_sReflectedName = m_data.m_yourFile.GetReflectedName();
-            m_pwndLeftView->m_pWorkingFile = &m_data.m_yourFile;
+            m_pwndLeftView->m_pWorkingFile   = &m_data.m_yourFile;
             m_pwndLeftView->SetTarget();
             m_pwndLeftView->SetWritableIsChangable(true);
 
-            m_pwndRightView->m_pViewData = nullptr;
-            m_pwndRightView->m_pWorkingFile = nullptr;
-            m_pwndBottomView->m_pViewData = nullptr;
+            m_pwndRightView->m_pViewData     = nullptr;
+            m_pwndRightView->m_pWorkingFile  = nullptr;
+            m_pwndBottomView->m_pViewData    = nullptr;
             m_pwndBottomView->m_pWorkingFile = nullptr;
 
             if (!m_wndSplitter.IsRowHidden(1))
@@ -879,25 +871,25 @@ bool CMainFrame::LoadViews(int line)
             m_pwndLeftView->m_pViewData = &m_data.m_yourBaseLeft;
             m_pwndLeftView->SetTextType(m_data.m_arBaseFile.GetUnicodeType());
             m_pwndLeftView->SetLineEndingStyle(m_data.m_arBaseFile.GetLineEndings());
-            m_pwndLeftView->m_sWindowName = m_data.m_baseFile.GetWindowName();
-            m_pwndLeftView->m_sFullFilePath = m_data.m_baseFile.GetFilename();
+            m_pwndLeftView->m_sWindowName        = m_data.m_baseFile.GetWindowName();
+            m_pwndLeftView->m_sFullFilePath      = m_data.m_baseFile.GetFilename();
             m_pwndLeftView->m_sConvertedFilePath = m_data.m_baseFile.GetConvertedFileName();
-            m_pwndLeftView->m_sReflectedName = m_data.m_baseFile.GetReflectedName();
-            m_pwndLeftView->m_pWorkingFile = &m_data.m_baseFile;
+            m_pwndLeftView->m_sReflectedName     = m_data.m_baseFile.GetReflectedName();
+            m_pwndLeftView->m_pWorkingFile       = &m_data.m_baseFile;
             m_pwndLeftView->SetWritableIsChangable(true);
 
             m_pwndRightView->m_pViewData = &m_data.m_yourBaseRight;
             m_pwndRightView->SetTextType(m_data.m_arYourFile.GetUnicodeType());
             m_pwndRightView->SetLineEndingStyle(m_data.m_arYourFile.GetLineEndings());
-            m_pwndRightView->m_sWindowName = m_data.m_yourFile.GetWindowName();
-            m_pwndRightView->m_sFullFilePath = m_data.m_yourFile.GetFilename();
+            m_pwndRightView->m_sWindowName        = m_data.m_yourFile.GetWindowName();
+            m_pwndRightView->m_sFullFilePath      = m_data.m_yourFile.GetFilename();
             m_pwndRightView->m_sConvertedFilePath = m_data.m_yourFile.GetConvertedFileName();
-            m_pwndRightView->m_sReflectedName = m_data.m_yourFile.GetReflectedName();
-            m_pwndRightView->m_pWorkingFile = &m_data.m_yourFile;
+            m_pwndRightView->m_sReflectedName     = m_data.m_yourFile.GetReflectedName();
+            m_pwndRightView->m_pWorkingFile       = &m_data.m_yourFile;
             m_pwndRightView->SetWritable();
             m_pwndRightView->SetTarget();
 
-            m_pwndBottomView->m_pViewData = nullptr;
+            m_pwndBottomView->m_pViewData    = nullptr;
             m_pwndBottomView->m_pWorkingFile = nullptr;
 
             if (!m_wndSplitter.IsRowHidden(1))
@@ -913,7 +905,7 @@ bool CMainFrame::LoadViews(int line)
             // files appear identical, show a dialog informing the user that there are or might
             // be other differences
             bool hasEncodingDiff = m_data.m_arBaseFile.GetUnicodeType() != m_data.m_arYourFile.GetUnicodeType();
-            bool hasEOLDiff = m_data.m_arBaseFile.GetLineEndings() != m_data.m_arYourFile.GetLineEndings();
+            bool hasEOLDiff      = m_data.m_arBaseFile.GetLineEndings() != m_data.m_arYourFile.GetLineEndings();
             if (hasWhitespaceMods || hasEncodingDiff || hasEOLDiff)
             {
                 // text is identical, but the files do not match
@@ -950,37 +942,37 @@ bool CMainFrame::LoadViews(int line)
         //diff between THEIR, YOUR and BASE
         m_pwndBottomView->SetWritable();
         m_pwndBottomView->SetTarget();
-        pwndActiveView = m_pwndBottomView;
+        pwndActiveView              = m_pwndBottomView;
 
         m_pwndLeftView->m_pViewData = &m_data.m_theirBaseBoth;
         m_pwndLeftView->SetTextType(m_data.m_arTheirFile.GetUnicodeType());
         m_pwndLeftView->SetLineEndingStyle(m_data.m_arTheirFile.GetLineEndings());
         m_pwndLeftView->m_sWindowName.LoadString(IDS_VIEWTITLE_THEIRS);
         m_pwndLeftView->m_sWindowName += L" - " + m_data.m_theirFile.GetWindowName();
-        m_pwndLeftView->m_sFullFilePath = m_data.m_theirFile.GetFilename();
+        m_pwndLeftView->m_sFullFilePath      = m_data.m_theirFile.GetFilename();
         m_pwndLeftView->m_sConvertedFilePath = m_data.m_theirFile.GetConvertedFileName();
-        m_pwndLeftView->m_sReflectedName = m_data.m_theirFile.GetReflectedName();
-        m_pwndLeftView->m_pWorkingFile = &m_data.m_theirFile;
+        m_pwndLeftView->m_sReflectedName     = m_data.m_theirFile.GetReflectedName();
+        m_pwndLeftView->m_pWorkingFile       = &m_data.m_theirFile;
 
-        m_pwndRightView->m_pViewData = &m_data.m_yourBaseBoth;
+        m_pwndRightView->m_pViewData         = &m_data.m_yourBaseBoth;
         m_pwndRightView->SetTextType(m_data.m_arYourFile.GetUnicodeType());
         m_pwndRightView->SetLineEndingStyle(m_data.m_arYourFile.GetLineEndings());
         m_pwndRightView->m_sWindowName.LoadString(IDS_VIEWTITLE_MINE);
         m_pwndRightView->m_sWindowName += L" - " + m_data.m_yourFile.GetWindowName();
-        m_pwndRightView->m_sFullFilePath = m_data.m_yourFile.GetFilename();
+        m_pwndRightView->m_sFullFilePath      = m_data.m_yourFile.GetFilename();
         m_pwndRightView->m_sConvertedFilePath = m_data.m_yourFile.GetConvertedFileName();
-        m_pwndRightView->m_sReflectedName = m_data.m_yourFile.GetReflectedName();
-        m_pwndRightView->m_pWorkingFile = &m_data.m_yourFile;
+        m_pwndRightView->m_sReflectedName     = m_data.m_yourFile.GetReflectedName();
+        m_pwndRightView->m_pWorkingFile       = &m_data.m_yourFile;
 
-        m_pwndBottomView->m_pViewData = &m_data.m_diff3;
+        m_pwndBottomView->m_pViewData         = &m_data.m_diff3;
         m_pwndBottomView->SetTextType(m_data.m_arTheirFile.GetUnicodeType());
         m_pwndBottomView->SetLineEndingStyle(m_data.m_arTheirFile.GetLineEndings());
         m_pwndBottomView->m_sWindowName.LoadString(IDS_VIEWTITLE_MERGED);
         m_pwndBottomView->m_sWindowName += L" - " + m_data.m_mergedFile.GetWindowName();
-        m_pwndBottomView->m_sFullFilePath = m_data.m_mergedFile.GetFilename();
+        m_pwndBottomView->m_sFullFilePath      = m_data.m_mergedFile.GetFilename();
         m_pwndBottomView->m_sConvertedFilePath = m_data.m_mergedFile.GetConvertedFileName();
-        m_pwndBottomView->m_sReflectedName = m_data.m_mergedFile.GetReflectedName();
-        m_pwndBottomView->m_pWorkingFile = &m_data.m_mergedFile;
+        m_pwndBottomView->m_sReflectedName     = m_data.m_mergedFile.GetReflectedName();
+        m_pwndBottomView->m_pWorkingFile       = &m_data.m_mergedFile;
 
         if (m_wndSplitter2.IsColumnHidden(1))
             m_wndSplitter2.ShowColumn();
@@ -1008,7 +1000,7 @@ bool CMainFrame::LoadViews(int line)
 
     if ((line >= -1) && m_pwndRightView->m_pViewData)
     {
-        int n = line == -1 ? min( nOldLineNumber, nOldLine ) : line;
+        int n = line == -1 ? min(nOldLineNumber, nOldLine) : line;
         if (n >= 0)
         {
             n = m_pwndRightView->m_pViewData->FindLineNumber(n);
@@ -1027,7 +1019,7 @@ bool CMainFrame::LoadViews(int line)
                     OnViewTextFoldUnfold();
                 }
                 else
-                    n = n + (skip*step*-1);
+                    n = n + (skip * step * -1);
             }
         }
         if (n < 0)
@@ -1052,7 +1044,7 @@ bool CMainFrame::LoadViews(int line)
         CRegDWORD regFirstConflict = CRegDWORD(L"Software\\TortoiseMerge\\FirstConflictOnLoad", TRUE);
         bool      bGoFirstDiff     = (0 != static_cast<DWORD>(regFirstDiff));
         bool      bGoFirstConflict = (0 != static_cast<DWORD>(regFirstConflict));
-        if (bGoFirstConflict && (CheckResolved()>=0))
+        if (bGoFirstConflict && (CheckResolved() >= 0))
         {
             pwndActiveView->GoToFirstConflict();
             // Ignore the first few Mouse Move messages, so that the line diff stays on
@@ -1079,6 +1071,21 @@ bool CMainFrame::LoadViews(int line)
         m_bSaveRequired = false;
     CUndo::GetInstance().Clear();
     return true;
+}
+
+void CMainFrame::HtmlHelp(DWORD_PTR dwData, UINT nCmd)
+{
+    UNREFERENCED_PARAMETER(nCmd);
+
+    if (!CCommonAppUtils::StartHtmlHelp(dwData))
+    {
+        AfxMessageBox(AFX_IDP_FAILED_TO_LAUNCH_HELP);
+    }
+}
+
+BOOL CMainFrame::OnHelpInfo(HELPINFO * /*pHelpInfo*/)
+{
+    return FALSE;
 }
 
 void CMainFrame::UpdateLayout()
@@ -1140,7 +1147,7 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
             }
         }
     }
-    if ((nType == SIZE_RESTORED)&&m_bCheckReload)
+    if ((nType == SIZE_RESTORED) && m_bCheckReload)
     {
         m_bCheckReload = false;
         CheckForReload();
@@ -1151,11 +1158,11 @@ void CMainFrame::OnSize(UINT nType, int cx, int cy)
 void CMainFrame::OnViewWhitespaces()
 {
     CRegDWORD regViewWhitespaces = CRegDWORD(L"Software\\TortoiseMerge\\ViewWhitespaces", 1);
-    BOOL bViewWhitespaces = regViewWhitespaces;
+    BOOL      bViewWhitespaces   = regViewWhitespaces;
     if (m_pwndLeftView)
         bViewWhitespaces = m_pwndLeftView->m_bViewWhitespace;
 
-    bViewWhitespaces = !bViewWhitespaces;
+    bViewWhitespaces   = !bViewWhitespaces;
     regViewWhitespaces = bViewWhitespaces;
     if (m_pwndLeftView)
     {
@@ -1201,9 +1208,12 @@ void CMainFrame::OnViewWraplonglines()
     m_bWrapLines   = !static_cast<DWORD>(m_regWrapLines);
     m_regWrapLines = m_bWrapLines;
 
-    if (m_pwndLeftView)   m_pwndLeftView  ->WrapChanged();
-    if (m_pwndRightView)  m_pwndRightView ->WrapChanged();
-    if (m_pwndBottomView) m_pwndBottomView->WrapChanged();
+    if (m_pwndLeftView)
+        m_pwndLeftView->WrapChanged();
+    if (m_pwndRightView)
+        m_pwndRightView->WrapChanged();
+    if (m_pwndBottomView)
+        m_pwndBottomView->WrapChanged();
     OnViewTextFoldUnfold();
     m_wndLocatorBar.DocumentUpdated();
 }
@@ -1216,7 +1226,7 @@ void CMainFrame::OnViewTextFoldUnfold()
 }
 
 // ReSharper disable once CppMemberFunctionMayBeStatic
-void CMainFrame::OnViewTextFoldUnfold(CBaseView* view)
+void CMainFrame::OnViewTextFoldUnfold(CBaseView *view)
 {
     if (view == nullptr)
         return;
@@ -1234,9 +1244,9 @@ void CMainFrame::OnUpdateViewWraplonglines(CCmdUI *pCmdUI)
 
 void CMainFrame::OnViewOnewaydiff()
 {
-    if (CheckForSave(CHFSR_RELOAD)==IDCANCEL)
+    if (CheckForSave(CHFSR_RELOAD) == IDCANCEL)
         return;
-    m_bOneWay = !m_bOneWay;
+    m_bOneWay   = !m_bOneWay;
     m_regOneWay = m_bOneWay;
     ShowDiffBar(!m_bOneWay);
     LoadViews(-1);
@@ -1270,9 +1280,9 @@ void CMainFrame::DiffRightToBase() const
     DiffTwo(m_data.m_baseFile, m_data.m_yourFile);
 }
 
-void CMainFrame::DiffTwo(const CWorkingFile& file1, const CWorkingFile& file2)
+void CMainFrame::DiffTwo(const CWorkingFile &file1, const CWorkingFile &file2)
 {
-    wchar_t ownPath[MAX_PATH] = { 0 };
+    wchar_t ownPath[MAX_PATH] = {0};
     GetModuleFileName(nullptr, ownPath, MAX_PATH);
     CString sCmd;
     sCmd.Format(L"\"%s\"", ownPath);
@@ -1316,8 +1326,8 @@ void CMainFrame::SetTheme(bool bDark) const
             spPropertyStore->Commit();
         }
         SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetStockObject(BLACK_BRUSH)));
-        BOOL darkFlag = TRUE;
-        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        BOOL                                        darkFlag = TRUE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data     = {DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag)};
         DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
         DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
@@ -1336,8 +1346,8 @@ void CMainFrame::SetTheme(bool bDark) const
             spPropertyStore->Commit();
         }
         SetClassLongPtr(GetSafeHwnd(), GCLP_HBRBACKGROUND, reinterpret_cast<LONG_PTR>(GetSysColorBrush(COLOR_3DFACE)));
-        BOOL darkFlag = FALSE;
-        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data = { DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag) };
+        BOOL                                        darkFlag = FALSE;
+        DarkModeHelper::WINDOWCOMPOSITIONATTRIBDATA data     = {DarkModeHelper::WINDOWCOMPOSITIONATTRIB::WCA_USEDARKMODECOLORS, &darkFlag, sizeof(darkFlag)};
         DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
         DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
@@ -1359,7 +1369,7 @@ void CMainFrame::SetAccentColor() const
         {
             BYTE h, s, b;
             CTheme::RGBToHSB(accentColor.accent, h, s, b);
-            UI_HSBCOLOR aColor = UI_HSB(h, s, b);
+            UI_HSBCOLOR             aColor = UI_HSB(h, s, b);
 
             CComPtr<IPropertyStore> spPropertyStore;
             HRESULT                 hr = m_pRibbonFramework->QueryInterface(&spPropertyStore);
@@ -1380,13 +1390,13 @@ int CMainFrame::CheckResolved()
     m_bHasConflicts = true;
     if (IsViewGood(m_pwndBottomView))
     {
-        CViewData* viewData = m_pwndBottomView->m_pViewData;
+        CViewData *viewData = m_pwndBottomView->m_pViewData;
         if (viewData)
         {
-            for (int i=0; i<viewData->GetCount(); i++)
+            for (int i = 0; i < viewData->GetCount(); i++)
             {
                 const DiffStates state = viewData->GetState(i);
-                if ((DIFFSTATE_CONFLICTED == state)||(DIFFSTATE_CONFLICTED_IGNORED == state))
+                if ((DIFFSTATE_CONFLICTED == state) || (DIFFSTATE_CONFLICTED_IGNORED == state))
                     return i;
             }
         }
@@ -1395,19 +1405,19 @@ int CMainFrame::CheckResolved()
     return -1;
 }
 
-int CMainFrame::SaveFile(const CString& sFilePath)
+int CMainFrame::SaveFile(const CString &sFilePath)
 {
-    CBaseView* pView = nullptr;
-    CViewData* pViewData = nullptr;
-    CFileTextLines * pOriginFile = &m_data.m_arBaseFile;
+    CBaseView *     pView       = nullptr;
+    CViewData *     pViewData   = nullptr;
+    CFileTextLines *pOriginFile = &m_data.m_arBaseFile;
     if (IsViewGood(m_pwndBottomView))
     {
-        pView = m_pwndBottomView;
+        pView     = m_pwndBottomView;
         pViewData = m_pwndBottomView->m_pViewData;
     }
     else if (IsViewGood(m_pwndRightView))
     {
-        pView = m_pwndRightView;
+        pView     = m_pwndRightView;
         pViewData = m_pwndRightView->m_pViewData;
         if (m_data.IsYourFileInUse())
             pOriginFile = &m_data.m_arYourFile;
@@ -1420,7 +1430,7 @@ int CMainFrame::SaveFile(const CString& sFilePath)
         return 1;
     }
     Invalidate();
-    if ((pViewData)&&(pOriginFile))
+    if ((pViewData) && (pOriginFile))
     {
         CFileTextLines file;
         pOriginFile->CopySettings(&file);
@@ -1428,47 +1438,47 @@ int CMainFrame::SaveFile(const CString& sFilePath)
         saveParams.lineEndings = pView->GetLineEndings();
         saveParams.unicodeType = pView->GetTextType();
         file.SetSaveParams(saveParams);
-        for (int i=0; i<pViewData->GetCount(); i++)
+        for (int i = 0; i < pViewData->GetCount(); i++)
         {
             //only copy non-removed lines
             DiffStates state = pViewData->GetState(i);
             switch (state)
             {
-            case DIFFSTATE_CONFLICTED:
-            case DIFFSTATE_CONFLICTED_IGNORED:
+                case DIFFSTATE_CONFLICTED:
+                case DIFFSTATE_CONFLICTED_IGNORED:
                 {
                     int first = i;
-                    int last = i;
+                    int last  = i;
                     do
                     {
                         last++;
-                    } while((last<pViewData->GetCount()) && ((pViewData->GetState(last)==DIFFSTATE_CONFLICTED)||(pViewData->GetState(last)==DIFFSTATE_CONFLICTED_IGNORED)));
+                    } while ((last < pViewData->GetCount()) && ((pViewData->GetState(last) == DIFFSTATE_CONFLICTED) || (pViewData->GetState(last) == DIFFSTATE_CONFLICTED_IGNORED)));
                     file.Add(L"<<<<<<< .mine", EOL_NOENDING);
-                    for (int j=first; j<last; j++)
+                    for (int j = first; j < last; j++)
                     {
                         file.Add(m_pwndRightView->m_pViewData->GetLine(j), m_pwndRightView->m_pViewData->GetLineEnding(j));
                     }
                     file.Add(L"=======", EOL_NOENDING);
-                    for (int j=first; j<last; j++)
+                    for (int j = first; j < last; j++)
                     {
                         file.Add(m_pwndLeftView->m_pViewData->GetLine(j), m_pwndLeftView->m_pViewData->GetLineEnding(j));
                     }
                     file.Add(L">>>>>>> .theirs", EOL_NOENDING);
-                    i = last-1;
+                    i = last - 1;
                 }
                 break;
-            case DIFFSTATE_EMPTY:
-            case DIFFSTATE_CONFLICTEMPTY:
-            case DIFFSTATE_IDENTICALREMOVED:
-            case DIFFSTATE_REMOVED:
-            case DIFFSTATE_THEIRSREMOVED:
-            case DIFFSTATE_YOURSREMOVED:
-            case DIFFSTATE_CONFLICTRESOLVEDEMPTY:
-                // do not save removed lines
-                break;
-            default:
-                file.Add(pViewData->GetLine(i), pViewData->GetLineEnding(i));
-                break;
+                case DIFFSTATE_EMPTY:
+                case DIFFSTATE_CONFLICTEMPTY:
+                case DIFFSTATE_IDENTICALREMOVED:
+                case DIFFSTATE_REMOVED:
+                case DIFFSTATE_THEIRSREMOVED:
+                case DIFFSTATE_YOURSREMOVED:
+                case DIFFSTATE_CONFLICTRESOLVEDEMPTY:
+                    // do not save removed lines
+                    break;
+                default:
+                    file.Add(pViewData->GetLine(i), pViewData->GetLineEnding(i));
+                    break;
             }
         }
         if (!file.Save(sFilePath, false, false))
@@ -1498,9 +1508,9 @@ int CMainFrame::SaveFile(const CString& sFilePath)
         else if (IsViewGood(m_pwndRightView))
             m_pwndRightView->SetModified(FALSE);
         CUndo::GetInstance().MarkAsOriginalState(
-                false,
-                IsViewGood(m_pwndRightView) && (pViewData == m_pwndRightView->m_pViewData),
-                IsViewGood(m_pwndBottomView) && (pViewData == m_pwndBottomView->m_pViewData));
+            false,
+            IsViewGood(m_pwndRightView) && (pViewData == m_pwndRightView->m_pViewData),
+            IsViewGood(m_pwndBottomView) && (pViewData == m_pwndBottomView->m_pViewData));
         if (file.GetCount() == 1 && file.GetAt(0).IsEmpty() && file.GetLineEnding(0) == EOL_NOENDING)
             return 0;
         return file.GetCount();
@@ -1512,17 +1522,13 @@ void CMainFrame::OnFileSave()
 {
     // when multiple files are set as writable we have to ask what file to save
     int nEditableViewCount =
-            (CBaseView::IsViewGood(m_pwndLeftView) && m_pwndLeftView->IsWritable() ? 1 : 0)
-            + (CBaseView::IsViewGood(m_pwndRightView) && m_pwndRightView->IsWritable() ? 1 : 0)
-            + (CBaseView::IsViewGood(m_pwndBottomView) && m_pwndBottomView->IsWritable() ? 1 : 0);
-    bool bLeftIsModified = CBaseView::IsViewGood(m_pwndLeftView) && m_pwndLeftView->IsModified();
-    bool bRightIsModified = CBaseView::IsViewGood(m_pwndRightView) && m_pwndRightView->IsModified();
+        (CBaseView::IsViewGood(m_pwndLeftView) && m_pwndLeftView->IsWritable() ? 1 : 0) + (CBaseView::IsViewGood(m_pwndRightView) && m_pwndRightView->IsWritable() ? 1 : 0) + (CBaseView::IsViewGood(m_pwndBottomView) && m_pwndBottomView->IsWritable() ? 1 : 0);
+    bool bLeftIsModified   = CBaseView::IsViewGood(m_pwndLeftView) && m_pwndLeftView->IsModified();
+    bool bRightIsModified  = CBaseView::IsViewGood(m_pwndRightView) && m_pwndRightView->IsModified();
     bool bBottomIsModified = CBaseView::IsViewGood(m_pwndBottomView) && m_pwndBottomView->IsModified();
-    int nModifiedViewCount =
-            (bLeftIsModified ? 1 : 0)
-            + (bRightIsModified ? 1 : 0)
-            + (bBottomIsModified ? 1 : 0);
-    if (nEditableViewCount>1)
+    int  nModifiedViewCount =
+        (bLeftIsModified ? 1 : 0) + (bRightIsModified ? 1 : 0) + (bBottomIsModified ? 1 : 0);
+    if (nEditableViewCount > 1)
     {
         if (nModifiedViewCount == 1)
         {
@@ -1531,21 +1537,21 @@ void CMainFrame::OnFileSave()
             else
                 FileSave();
         }
-        else if (nModifiedViewCount>0)
+        else if (nModifiedViewCount > 0)
         {
             // both views
-            UINT ret = IDNO;
+            UINT        ret = IDNO;
             CTaskDialog taskDlg(CString(MAKEINTRESOURCE(IDS_SAVE_MORE)),
                                 CString(MAKEINTRESOURCE(IDS_SAVE)),
                                 CString(MAKEINTRESOURCE(IDS_APPNAME)),
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            CString sTaskTemp;
+            CString     sTaskTemp;
             if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
                 sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, static_cast<LPCWSTR>(m_pwndLeftView->m_pWorkingFile->GetFilename()));
             else
                 sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVELEFTAS));
-            taskDlg.AddCommandControl(201, sTaskTemp, bLeftIsModified);// left
+            taskDlg.AddCommandControl(201, sTaskTemp, bLeftIsModified); // left
             if (bLeftIsModified)
             {
                 taskDlg.SetDefaultCommandControl(201);
@@ -1598,7 +1604,7 @@ void CMainFrame::PatchSave()
     if (!PathIsDirectory(m_data.m_mergedFile.GetFilename()))
     {
         int saveRet = SaveFile(m_data.m_mergedFile.GetFilename());
-        if (saveRet==0)
+        if (saveRet == 0)
         {
             // file was saved with 0 lines, remove it.
             m_patch.RemoveFile(m_data.m_mergedFile.GetFilename());
@@ -1608,7 +1614,7 @@ void CMainFrame::PatchSave()
         m_data.m_mergedFile.StoreFileAttributes();
         if (m_data.m_mergedFile.GetFilename() == m_data.m_yourFile.GetFilename())
             m_data.m_yourFile.StoreFileAttributes();
-        if ((bDoesNotExist)&&static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE)))
+        if ((bDoesNotExist) && static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE)))
         {
             // call TortoiseProc to add the new file to version control
             CString cmd = L"/command:add /noui /path:\"";
@@ -1618,10 +1624,10 @@ void CMainFrame::PatchSave()
     }
 }
 
-svn_error_t * CMainFrame::getallstatus(void * baton, const char * /*path*/, const svn_client_status_t * status, apr_pool_t * /*pool*/)
+svn_error_t *CMainFrame::getallstatus(void *baton, const char * /*path*/, const svn_client_status_t *status, apr_pool_t * /*pool*/)
 {
-    svn_wc_status_kind * s = static_cast<svn_wc_status_kind*>(baton);
-    *s                     = status->node_status;
+    svn_wc_status_kind *s = static_cast<svn_wc_status_kind *>(baton);
+    *s                    = status->node_status;
     return nullptr;
 }
 
@@ -1629,9 +1635,9 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 {
     if (HasMarkedBlocks())
     {
-        CString sTitle(MAKEINTRESOURCE(IDS_WARNMARKEDBLOCKS));
-        CString sSubTitle(MAKEINTRESOURCE(IDS_ASKFORSAVE_MARKEDBLOCKS));
-        CString sAppName(MAKEINTRESOURCE(IDS_APPNAME));
+        CString     sTitle(MAKEINTRESOURCE(IDS_WARNMARKEDBLOCKS));
+        CString     sSubTitle(MAKEINTRESOURCE(IDS_ASKFORSAVE_MARKEDBLOCKS));
+        CString     sAppName(MAKEINTRESOURCE(IDS_APPNAME));
         CTaskDialog taskDlg(sTitle,
                             sSubTitle,
                             sAppName,
@@ -1658,9 +1664,9 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     if (!m_data.m_mergedFile.InUse())
         return FileSaveAs(bCheckResolved);
     // check if the file has the readonly attribute set
-    bool bDoesNotExist = false;
-    DWORD fAttribs = GetFileAttributes(m_data.m_mergedFile.GetFilename());
-    if ((fAttribs != INVALID_FILE_ATTRIBUTES)&&(fAttribs & FILE_ATTRIBUTE_READONLY))
+    bool  bDoesNotExist = false;
+    DWORD fAttribs      = GetFileAttributes(m_data.m_mergedFile.GetFilename());
+    if ((fAttribs != INVALID_FILE_ATTRIBUTES) && (fAttribs & FILE_ATTRIBUTE_READONLY))
         return FileSaveAs(bCheckResolved);
     if (fAttribs == INVALID_FILE_ATTRIBUTES)
     {
@@ -1678,7 +1684,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         m_patch.PatchPath(m_data.m_mergedFile.GetFilename());
     }
     int saveret = SaveFile(m_data.m_mergedFile.GetFilename());
-    if (saveret==0)
+    if (saveret == 0)
     {
         // file was saved with 0 lines!
         // ask the user if the file should be deleted
@@ -1714,24 +1720,24 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
         CTSVNPath svnPath = CTSVNPath(m_data.m_mergedFile.GetFilename());
         if (m_bAskToMarkAsResolved && SVNHelper::IsVersioned(svnPath, true))
         {
-            SVNPool pool;
+            SVNPool            pool;
             svn_opt_revision_t rev;
-            rev.kind = svn_opt_revision_unspecified;
+            rev.kind                      = svn_opt_revision_unspecified;
             svn_wc_status_kind statusKind = svn_wc_status_none;
-            svn_client_ctx_t* ctx = nullptr;
+            svn_client_ctx_t * ctx        = nullptr;
             svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
-            svn_error_t* err = svn_client_status6(nullptr, ctx, svnPath.GetSVNApiPath(pool), &rev,
-                                                   svn_depth_empty,
-                                                   true,
-                                                   false,
-                                                   true,
-                                                   true,
-                                                   true,
-                                                   false,
-                                                   nullptr,
-                                                   getallstatus,
-                                                   &statusKind,
-                                                   pool);
+            svn_error_t *err = svn_client_status6(nullptr, ctx, svnPath.GetSVNApiPath(pool), &rev,
+                                                  svn_depth_empty,
+                                                  true,
+                                                  false,
+                                                  true,
+                                                  true,
+                                                  true,
+                                                  false,
+                                                  nullptr,
+                                                  getallstatus,
+                                                  &statusKind,
+                                                  pool);
             if ((!err) && (statusKind == svn_wc_status_conflicted))
             {
                 CString msg;
@@ -1759,12 +1765,12 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
     m_bSaveRequired = false;
     m_data.m_mergedFile.StoreFileAttributes();
 
-    if ((bDoesNotExist)&&static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE)))
+    if ((bDoesNotExist) && static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE)))
     {
         // call TortoiseProc to add the new file to version control
         CString cmd = L"/command:add /noui /path:\"";
         cmd += m_data.m_mergedFile.GetFilename() + L"\"";
-        if(!CAppUtils::RunTortoiseProc(cmd))
+        if (!CAppUtils::RunTortoiseProc(cmd))
             return false;
     }
     return true;
@@ -1773,7 +1779,7 @@ bool CMainFrame::FileSave(bool bCheckResolved /*=true*/)
 void CMainFrame::OnFileSaveAs()
 {
     // ask what file to save as
-    bool bHaveConflict = (CheckResolved() >= 0);
+    bool        bHaveConflict = (CheckResolved() >= 0);
     CTaskDialog taskdlg(
         CString(MAKEINTRESOURCE(bHaveConflict ? IDS_ASKFORSAVEAS_MORECONFLICT : IDS_ASKFORSAVEAS_MORE)),
         CString(MAKEINTRESOURCE(IDS_ASKFORSAVEAS)),
@@ -1838,7 +1844,7 @@ bool CMainFrame::FileSaveAs(bool bCheckResolved /*=true*/)
         return false;
 
     CString fileName;
-    if(!TryGetFileName(fileName))
+    if (!TryGetFileName(fileName))
         return false;
 
     SaveFile(fileName);
@@ -1851,14 +1857,12 @@ void CMainFrame::OnUpdateFileSave(CCmdUI *pCmdUI)
     BOOL bEnable = FALSE;
     if (m_data.m_mergedFile.InUse())
     {
-        if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
+        if (IsViewGood(m_pwndBottomView) && (m_pwndBottomView->m_pViewData))
             bEnable = TRUE;
-        else if ( (IsViewGood(m_pwndRightView)&&(m_pwndRightView->m_pViewData)) &&
-                  (m_pwndRightView->IsModified() || (m_data.m_yourFile.GetWindowName().Right(9).Compare(L": patched")==0)) )
+        else if ((IsViewGood(m_pwndRightView) && (m_pwndRightView->m_pViewData)) &&
+                 (m_pwndRightView->IsModified() || (m_data.m_yourFile.GetWindowName().Right(9).Compare(L": patched") == 0)))
             bEnable = TRUE;
-        else if (IsViewGood(m_pwndLeftView)
-                && (m_pwndLeftView->m_pViewData)
-                && (m_pwndLeftView->IsModified()))
+        else if (IsViewGood(m_pwndLeftView) && (m_pwndLeftView->m_pViewData) && (m_pwndLeftView->IsModified()))
             bEnable = TRUE;
     }
     pCmdUI->Enable(bEnable);
@@ -1869,11 +1873,11 @@ void CMainFrame::OnUpdateFileSaveAs(CCmdUI *pCmdUI)
 {
     // any file is open we can save it as
     BOOL bEnable = FALSE;
-    if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
+    if (IsViewGood(m_pwndBottomView) && (m_pwndBottomView->m_pViewData))
         bEnable = TRUE;
-    else if (IsViewGood(m_pwndRightView)&&(m_pwndRightView->m_pViewData))
+    else if (IsViewGood(m_pwndRightView) && (m_pwndRightView->m_pViewData))
         bEnable = TRUE;
-    else if (IsViewGood(m_pwndLeftView)&&(m_pwndLeftView->m_pViewData))
+    else if (IsViewGood(m_pwndLeftView) && (m_pwndLeftView->m_pViewData))
         bEnable = TRUE;
     pCmdUI->Enable(bEnable);
 }
@@ -1899,7 +1903,7 @@ void CMainFrame::OnViewOptions()
     CTheme::Instance().SetDarkTheme(dlg.IsDarkMode());
     if (dlg.IsReloadNeeded())
     {
-        if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+        if (CheckForSave(CHFSR_OPTIONS) == IDCANCEL)
             return;
         CDiffColors::GetInstance().LoadRegistry();
         LoadViews();
@@ -1918,23 +1922,22 @@ void CMainFrame::OnClose()
 {
     if (!IsWindowEnabled())
         return; // just in case someone sends a WM_CLOSE to the main window while another window (dialog,...) is open
-    if (CheckForSave(CHFSR_CLOSE)!=IDCANCEL)
+    if (CheckForSave(CHFSR_CLOSE) != IDCANCEL)
     {
-        WINDOWPLACEMENT    wp;
+        WINDOWPLACEMENT wp;
 
         // before it is destroyed, save the position of the window
         wp.length = sizeof wp;
 
         if (GetWindowPlacement(&wp))
         {
-
             if (IsIconic())
                 // never restore to Iconic state
-                wp.showCmd = SW_SHOW ;
+                wp.showCmd = SW_SHOW;
 
             if ((wp.flags & WPF_RESTORETOMAXIMIZED) != 0)
                 // if maximized and maybe iconic restore maximized state
-                wp.showCmd = SW_SHOWMAXIMIZED ;
+                wp.showCmd = SW_SHOWMAXIMIZED;
 
             // and write it
             WriteWindowPlacement(&wp);
@@ -1943,7 +1946,7 @@ void CMainFrame::OnClose()
     }
 }
 
-void CMainFrame::OnActivate(UINT nValue, CWnd* /*pwnd*/, BOOL /*bActivated?*/)
+void CMainFrame::OnActivate(UINT nValue, CWnd * /*pwnd*/, BOOL /*bActivated?*/)
 {
     if (nValue != 0) // activated
     {
@@ -1976,11 +1979,11 @@ void CMainFrame::OnViewLineup()
 void CMainFrame::OnViewLineUpDown(int direction)
 {
     if (m_pwndLeftView)
-        m_pwndLeftView->ScrollToLine(m_pwndLeftView->m_nTopLine+direction);
+        m_pwndLeftView->ScrollToLine(m_pwndLeftView->m_nTopLine + direction);
     if (m_pwndRightView)
-        m_pwndRightView->ScrollToLine(m_pwndRightView->m_nTopLine+direction);
+        m_pwndRightView->ScrollToLine(m_pwndRightView->m_nTopLine + direction);
     if (m_pwndBottomView)
-        m_pwndBottomView->ScrollToLine(m_pwndBottomView->m_nTopLine+direction);
+        m_pwndBottomView->ScrollToLine(m_pwndBottomView->m_nTopLine + direction);
     m_wndLocatorBar.Invalidate();
     m_nMoveMovesToIgnore = MOVESTOIGNORE;
 }
@@ -2115,7 +2118,7 @@ void CMainFrame::OnUpdateEditUseblockfromrightbeforeleft(CCmdUI *pCmdUI)
 
 void CMainFrame::OnFileReload()
 {
-    if (CheckForSave(CHFSR_RELOAD)==IDCANCEL)
+    if (CheckForSave(CHFSR_RELOAD) == IDCANCEL)
         return;
     CDiffColors::GetInstance().LoadRegistry();
     LoadViews(-1);
@@ -2141,13 +2144,13 @@ void CMainFrame::ActivateFrame(int nCmdShow)
         // show the window as specified
         WINDOWPLACEMENT wp;
 
-        if ( !ReadWindowPlacement(&wp) )
+        if (!ReadWindowPlacement(&wp))
         {
             ShowWindow(nCmdShow);
         }
         else
         {
-            if ( nCmdShow != SW_SHOWNORMAL )
+            if (nCmdShow != SW_SHOWNORMAL)
                 wp.showCmd = nCmdShow;
 
             SetWindowPlacement(&wp);
@@ -2159,7 +2162,7 @@ void CMainFrame::ActivateFrame(int nCmdShow)
     CTheme::Instance().SetDarkTheme(CTheme::Instance().IsDarkTheme());
 }
 
-BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
+BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT *pwp)
 {
     auto       monHash    = GetMonitorSetupHash();
     CRegString placement  = CRegString(CString(L"Software\\TortoiseMerge\\WindowPos_") + monHash.c_str());
@@ -2167,30 +2170,30 @@ BOOL CMainFrame::ReadWindowPlacement(WINDOWPLACEMENT * pwp)
     if (sPlacement.IsEmpty())
         return FALSE;
     int nRead = _stscanf_s(sPlacement, L"%u,%u,%d,%d,%d,%d,%d,%d,%d,%d",
-                &pwp->flags, &pwp->showCmd,
-                &pwp->ptMinPosition.x, &pwp->ptMinPosition.y,
-                &pwp->ptMaxPosition.x, &pwp->ptMaxPosition.y,
-                &pwp->rcNormalPosition.left,  &pwp->rcNormalPosition.top,
-                &pwp->rcNormalPosition.right, &pwp->rcNormalPosition.bottom);
-    if ( nRead != 10 )
+                           &pwp->flags, &pwp->showCmd,
+                           &pwp->ptMinPosition.x, &pwp->ptMinPosition.y,
+                           &pwp->ptMaxPosition.x, &pwp->ptMaxPosition.y,
+                           &pwp->rcNormalPosition.left, &pwp->rcNormalPosition.top,
+                           &pwp->rcNormalPosition.right, &pwp->rcNormalPosition.bottom);
+    if (nRead != 10)
         return FALSE;
     pwp->length = sizeof(WINDOWPLACEMENT);
 
     return TRUE;
 }
 
-void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT * pwp) const
+void CMainFrame::WriteWindowPlacement(WINDOWPLACEMENT *pwp) const
 {
     auto       monHash = GetMonitorSetupHash();
     CRegString placement(CString(L"Software\\TortoiseMerge\\WindowPos_") + monHash.c_str());
     wchar_t    szBuffer[_countof("-32767") * 8 + sizeof("65535") * 2];
 
     swprintf_s(szBuffer, L"%u,%u,%d,%d,%d,%d,%d,%d,%d,%d",
-            pwp->flags, pwp->showCmd,
-            pwp->ptMinPosition.x, pwp->ptMinPosition.y,
-            pwp->ptMaxPosition.x, pwp->ptMaxPosition.y,
-            pwp->rcNormalPosition.left, pwp->rcNormalPosition.top,
-            pwp->rcNormalPosition.right, pwp->rcNormalPosition.bottom);
+               pwp->flags, pwp->showCmd,
+               pwp->ptMinPosition.x, pwp->ptMinPosition.y,
+               pwp->ptMaxPosition.x, pwp->ptMaxPosition.y,
+               pwp->rcNormalPosition.left, pwp->rcNormalPosition.top,
+               pwp->rcNormalPosition.right, pwp->rcNormalPosition.bottom);
     placement = szBuffer;
 }
 
@@ -2200,9 +2203,9 @@ void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
     if (!pCmdUI)
         return;
     BOOL bEnable = FALSE;
-    if ((!m_bReadOnly)&&(m_data.m_mergedFile.InUse()))
+    if ((!m_bReadOnly) && (m_data.m_mergedFile.InUse()))
     {
-        if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
+        if (IsViewGood(m_pwndBottomView) && (m_pwndBottomView->m_pViewData))
         {
             bEnable = TRUE;
         }
@@ -2212,13 +2215,13 @@ void CMainFrame::OnUpdateMergeMarkasresolved(CCmdUI *pCmdUI)
 
 void CMainFrame::OnMergeMarkasresolved()
 {
-    if(HasConflictsWontKeep())
+    if (HasConflictsWontKeep())
         return;
 
     // now check if the file has already been saved and if not, save it.
     if (m_data.m_mergedFile.InUse())
     {
-        if (IsViewGood(m_pwndBottomView)&&(m_pwndBottomView->m_pViewData))
+        if (IsViewGood(m_pwndBottomView) && (m_pwndBottomView->m_pViewData))
         {
             if (!FileSave(false))
                 return;
@@ -2240,7 +2243,7 @@ BOOL CMainFrame::MarkAsResolved()
     cmd += L"\" /closeonend:1 /noquestion /skipcheck /silent";
     if (resolveMsgWnd)
         cmd.AppendFormat(L" /resolvemsghwnd:%I64d /resolvemsgwparam:%I64d /resolvemsglparam:%I64d", reinterpret_cast<long long>(resolveMsgWnd), static_cast<long long>(resolveMsgWParam), static_cast<long long>(resolveMsgLParam));
-    if(!CAppUtils::RunTortoiseProc(cmd))
+    if (!CAppUtils::RunTortoiseProc(cmd))
         return FALSE;
     m_bSaveRequired = false;
     return TRUE;
@@ -2259,7 +2262,7 @@ void CMainFrame::OnUpdateMergeNextconflict(CCmdUI *pCmdUI)
     pCmdUI->Enable(bShow);
 }
 
-bool CMainFrame::HasNextConflict(CBaseView* view)
+bool CMainFrame::HasNextConflict(CBaseView *view)
 {
     if (view == nullptr)
         return false;
@@ -2281,7 +2284,7 @@ void CMainFrame::OnUpdateMergePreviousconflict(CCmdUI *pCmdUI)
     pCmdUI->Enable(bShow);
 }
 
-bool CMainFrame::HasPrevConflict(CBaseView* view)
+bool CMainFrame::HasPrevConflict(CBaseView *view)
 {
     if (view == nullptr)
         return false;
@@ -2293,8 +2296,8 @@ bool CMainFrame::HasPrevConflict(CBaseView* view)
 // ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateNavigateNextdifference(CCmdUI *pCmdUI)
 {
-    CBaseView* baseView = GetActiveBaseView();
-    BOOL bShow = FALSE;
+    CBaseView *baseView = GetActiveBaseView();
+    BOOL       bShow    = FALSE;
     if (baseView != nullptr)
         bShow = baseView->HasNextDiff();
     pCmdUI->Enable(bShow);
@@ -2303,8 +2306,8 @@ void CMainFrame::OnUpdateNavigateNextdifference(CCmdUI *pCmdUI)
 // ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateNavigatePreviousdifference(CCmdUI *pCmdUI)
 {
-    CBaseView* baseView = GetActiveBaseView();
-    BOOL bShow = FALSE;
+    CBaseView *baseView = GetActiveBaseView();
+    BOOL       bShow    = FALSE;
     if (baseView != nullptr)
         bShow = baseView->HasPrevDiff();
     pCmdUI->Enable(bShow);
@@ -2323,7 +2326,7 @@ void CMainFrame::OnUpdateNavigateNextinlinediff(CCmdUI *pCmdUI)
     pCmdUI->Enable(bShow);
 }
 
-bool CMainFrame::HasNextInlineDiff(CBaseView* view)
+bool CMainFrame::HasNextInlineDiff(CBaseView *view)
 {
     if (view == nullptr)
         return false;
@@ -2345,7 +2348,7 @@ void CMainFrame::OnUpdateNavigatePrevinlinediff(CCmdUI *pCmdUI)
     pCmdUI->Enable(bShow);
 }
 
-bool CMainFrame::HasPrevInlineDiff(CBaseView* view)
+bool CMainFrame::HasPrevInlineDiff(CBaseView *view)
 {
     if (view == nullptr)
         return false;
@@ -2369,7 +2372,7 @@ void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
             if (patchRect.right == thisRect.left)
             {
                 m_dlgFilePatches.SetWindowPos(nullptr, patchRect.left - (thisRect.left - pRect->left), patchRect.top - (thisRect.top - pRect->top),
-                    0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOSIZE | SWP_NOZORDER);
+                                              0, 0, SWP_NOACTIVATE | SWP_NOOWNERZORDER | SWP_NOSIZE | SWP_NOZORDER);
             }
         }
     }
@@ -2380,11 +2383,11 @@ void CMainFrame::OnMoving(UINT fwSide, LPRECT pRect)
 void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
 {
     BOOL bShow = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->HasSelection()))
+    if ((m_pwndBottomView) && (m_pwndBottomView->HasSelection()))
         bShow = TRUE;
-    else if ((m_pwndRightView)&&(m_pwndRightView->HasSelection()))
+    else if ((m_pwndRightView) && (m_pwndRightView->HasSelection()))
         bShow = TRUE;
-    else if ((m_pwndLeftView)&&(m_pwndLeftView->HasSelection()))
+    else if ((m_pwndLeftView) && (m_pwndLeftView->HasSelection()))
         bShow = TRUE;
     pCmdUI->Enable(bShow);
 }
@@ -2393,27 +2396,27 @@ void CMainFrame::OnUpdateEditCopy(CCmdUI *pCmdUI)
 void CMainFrame::OnUpdateEditPaste(CCmdUI *pCmdUI)
 {
     BOOL bWritable = FALSE;
-    if ((m_pwndBottomView)&&(m_pwndBottomView->IsWritable()))
+    if ((m_pwndBottomView) && (m_pwndBottomView->IsWritable()))
         bWritable = TRUE;
-    else if ((m_pwndRightView)&&(m_pwndRightView->IsWritable()))
+    else if ((m_pwndRightView) && (m_pwndRightView->IsWritable()))
         bWritable = TRUE;
-    else if ((m_pwndLeftView)&&(m_pwndLeftView->IsWritable()))
+    else if ((m_pwndLeftView) && (m_pwndLeftView->IsWritable()))
         bWritable = TRUE;
     pCmdUI->Enable(bWritable && ::IsClipboardFormatAvailable(CF_TEXT));
 }
 
 void CMainFrame::OnViewSwitchleft()
 {
-    if (CheckForSave(CHFSR_SWITCH)!=IDCANCEL)
+    if (CheckForSave(CHFSR_SWITCH) != IDCANCEL)
     {
         CWorkingFile file = m_data.m_baseFile;
         m_data.m_baseFile = m_data.m_yourFile;
         m_data.m_yourFile = file;
-        if (m_data.m_mergedFile.GetFilename().CompareNoCase(m_data.m_yourFile.GetFilename())==0)
+        if (m_data.m_mergedFile.GetFilename().CompareNoCase(m_data.m_yourFile.GetFilename()) == 0)
         {
             m_data.m_mergedFile = m_data.m_baseFile;
         }
-        else if (m_data.m_mergedFile.GetFilename().CompareNoCase(m_data.m_baseFile.GetFilename())==0)
+        else if (m_data.m_mergedFile.GetFilename().CompareNoCase(m_data.m_baseFile.GetFilename()) == 0)
         {
             m_data.m_mergedFile = m_data.m_yourFile;
         }
@@ -2474,7 +2477,7 @@ void CMainFrame::OnUpdateEditRedo(CCmdUI *pCmdUI)
 // ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnEditEnable()
 {
-    CBaseView * pView = GetActiveBaseView();
+    CBaseView *pView = GetActiveBaseView();
     if (pView && pView->IsReadonlyChangable())
     {
         bool isReadOnly = pView->IsReadonly();
@@ -2485,7 +2488,7 @@ void CMainFrame::OnEditEnable()
 // ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateEditEnable(CCmdUI *pCmdUI)
 {
-    CBaseView * pView = GetActiveBaseView();
+    CBaseView *pView = GetActiveBaseView();
     if (pView)
     {
         pCmdUI->Enable(pView->IsReadonlyChangable() || !pView->IsReadonly());
@@ -2539,23 +2542,21 @@ int CMainFrame::CheckForReload()
     }
     bLock = true;
     bool bSourceChanged =
-            m_data.m_baseFile.HasSourceFileChanged()
-            || m_data.m_yourFile.HasSourceFileChanged()
-            || m_data.m_theirFile.HasSourceFileChanged()
-            /*|| m_Data.m_mergedFile.HasSourceFileChanged()*/;
+        m_data.m_baseFile.HasSourceFileChanged() || m_data.m_yourFile.HasSourceFileChanged() || m_data.m_theirFile.HasSourceFileChanged()
+        /*|| m_Data.m_mergedFile.HasSourceFileChanged()*/;
     if (!bSourceChanged)
     {
         bLock = false;
         return IDNO;
     }
 
-    CString msg = HasUnsavedEdits() ? CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDELOOSECHANGES)) : CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE));
+    CString     msg = HasUnsavedEdits() ? CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDELOOSECHANGES)) : CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE));
     CTaskDialog taskDlg(msg,
                         CString(MAKEINTRESOURCE(IDS_WARNMODIFIEDOUTSIDE_TASK2)),
                         L"TortoiseMerge",
                         0,
                         TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-    CString sTask3;
+    CString     sTask3;
     if (HasUnsavedEdits())
         sTask3.LoadString(IDS_WARNMODIFIEDOUTSIDE_TASK3);
     else
@@ -2610,36 +2611,36 @@ int CMainFrame::CheckForReload()
 
 int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
 {
-    int idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
-    int idNoSave = IDS_ASKFORSAVE_TASK7;
+    int idTitle        = IDS_WARNMODIFIEDLOOSECHANGES;
+    int idNoSave       = IDS_ASKFORSAVE_TASK7;
     int idCancelAction = IDS_ASKFORSAVE_CANCEL_OPEN;
     switch (eReason)
     {
-    case CHFSR_CLOSE:
-        //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
-        idNoSave = IDS_ASKFORSAVE_TASK4;
-        idCancelAction = IDS_ASKFORSAVE_TASK5;
-        break;
-    case CHFSR_SWITCH:
-        //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
-        //idNoSave = IDS_ASKFORSAVE_TASK7;
-        idCancelAction = IDS_ASKFORSAVE_TASK8;
-        break;
-    case CHFSR_RELOAD:
-        //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
-        //idNoSave = IDS_ASKFORSAVE_TASK7;
-        idCancelAction = IDS_ASKFORSAVE_CANCEL_OPEN;
-        break;
-    case CHFSR_OPTIONS:
-        idTitle = IDS_WARNMODIFIEDLOOSECHANGESOPTIONS;
-        //idNoSave = IDS_ASKFORSAVE_TASK7;
-        idCancelAction = IDS_ASKFORSAVE_CANCEL_OPTIONS;
-        break;
-    case CHFSR_OPEN:
-        //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
-        idNoSave = IDS_ASKFORSAVE_NOSAVE_OPEN;
-        idCancelAction = IDS_ASKFORSAVE_CANCEL_OPEN;
-        break;
+        case CHFSR_CLOSE:
+            //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
+            idNoSave       = IDS_ASKFORSAVE_TASK4;
+            idCancelAction = IDS_ASKFORSAVE_TASK5;
+            break;
+        case CHFSR_SWITCH:
+            //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
+            //idNoSave = IDS_ASKFORSAVE_TASK7;
+            idCancelAction = IDS_ASKFORSAVE_TASK8;
+            break;
+        case CHFSR_RELOAD:
+            //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
+            //idNoSave = IDS_ASKFORSAVE_TASK7;
+            idCancelAction = IDS_ASKFORSAVE_CANCEL_OPEN;
+            break;
+        case CHFSR_OPTIONS:
+            idTitle        = IDS_WARNMODIFIEDLOOSECHANGESOPTIONS;
+            //idNoSave = IDS_ASKFORSAVE_TASK7;
+            idCancelAction = IDS_ASKFORSAVE_CANCEL_OPTIONS;
+            break;
+        case CHFSR_OPEN:
+            //idTitle = IDS_WARNMODIFIEDLOOSECHANGES;
+            idNoSave       = IDS_ASKFORSAVE_NOSAVE_OPEN;
+            idCancelAction = IDS_ASKFORSAVE_CANCEL_OPEN;
+            break;
     }
 
     CString sTitle(MAKEINTRESOURCE(idTitle));
@@ -2666,7 +2667,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                                 sAppName,
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            CString sTaskTemp;
+            CString     sTaskTemp;
             if (m_pwndLeftView->m_pWorkingFile->InUse() && !m_pwndLeftView->m_pWorkingFile->IsReadonly())
                 sTaskTemp.Format(IDS_ASKFORSAVE_SAVELEFT, static_cast<LPCWSTR>(m_pwndLeftView->m_pWorkingFile->GetFilename()));
             else
@@ -2679,11 +2680,11 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                     sTaskTemp.Format(IDS_ASKFORSAVE_SAVERIGHT, static_cast<LPCWSTR>(m_pwndRightView->m_pWorkingFile->GetFilename()));
                 else
                     sTaskTemp = CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVERIGHTAS));
-                taskDlg.AddCommandControl(202, sTaskTemp); // right
+                taskDlg.AddCommandControl(202, sTaskTemp);                                         // right
                 taskDlg.AddCommandControl(203, CString(MAKEINTRESOURCE(IDS_ASKFORSAVE_SAVEALL2))); // both
                 taskDlg.SetDefaultCommandControl(203);
             }
-            taskDlg.AddCommandControl(IDNO, sNoSave); // none
+            taskDlg.AddCommandControl(IDNO, sNoSave);           // none
             taskDlg.AddCommandControl(IDCANCEL, sCancelAction); // cancel
             taskDlg.SetCommonButtons(TDCBF_CANCEL_BUTTON);
             taskDlg.SetMainIcon(TD_WARNING_ICON);
@@ -2719,7 +2720,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                                 sAppName,
                                 0,
                                 TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-            CString sTask3;
+            CString     sTask3;
             if (m_data.m_mergedFile.InUse())
                 sTask3.Format(IDS_ASKFORSAVE_TASK3, static_cast<LPCWSTR>(m_data.m_mergedFile.GetFilename()));
             else
@@ -2734,7 +2735,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
 
             if (ret == IDYES)
             {
-                if (m_pwndLeftView->SaveFile()<0)
+                if (m_pwndLeftView->SaveFile() < 0)
                     return IDCANCEL;
             }
         }
@@ -2754,7 +2755,7 @@ int CMainFrame::CheckForSave(ECheckForSaveReason eReason)
                             sAppName,
                             0,
                             TDF_ENABLE_HYPERLINKS | TDF_USE_COMMAND_LINKS | TDF_ALLOW_DIALOG_CANCELLATION | TDF_POSITION_RELATIVE_TO_WINDOW | TDF_SIZE_TO_CONTENT);
-        CString sTask3;
+        CString     sTask3;
         if (m_data.m_mergedFile.InUse())
             sTask3.Format(IDS_ASKFORSAVE_TASK3, static_cast<LPCWSTR>(m_data.m_mergedFile.GetFilename()));
         else
@@ -2781,7 +2782,7 @@ bool CMainFrame::HasUnsavedEdits() const
     return HasUnsavedEdits(m_pwndBottomView) || HasUnsavedEdits(m_pwndRightView) || m_bSaveRequired;
 }
 
-bool CMainFrame::HasUnsavedEdits(const CBaseView* view)
+bool CMainFrame::HasUnsavedEdits(const CBaseView *view)
 {
     if (!CBaseView::IsViewGood(view))
         return false;
@@ -2793,7 +2794,7 @@ bool CMainFrame::HasMarkedBlocks() const
     return CBaseView::IsViewGood(m_pwndRightView) && m_pwndRightView->HasMarkedBlocks();
 }
 
-bool CMainFrame::IsViewGood(const CBaseView* view)
+bool CMainFrame::IsViewGood(const CBaseView *view)
 {
     return CBaseView::IsViewGood(view);
 }
@@ -2887,13 +2888,12 @@ void CMainFrame::OnEditCreateunifieddifffile()
     if (origFile.IsEmpty() || modifiedFile.IsEmpty())
         return;
 
-
-    CString outputFile;
-    bool ignoreEOL = true;
+    CString              outputFile;
+    bool                 ignoreEOL = true;
     // Create a new common save file dialog
-    CComPtr<IFileDialog> pfd = nullptr;
+    CComPtr<IFileDialog> pfd       = nullptr;
 
-    auto hr = pfd.CoCreateInstance(CLSID_FileSaveDialog, nullptr, CLSCTX_INPROC_SERVER);
+    auto                 hr        = pfd.CoCreateInstance(CLSID_FileSaveDialog, nullptr, CLSCTX_INPROC_SERVER);
     if (SUCCEEDED(hr))
     {
         // Set the dialog options
@@ -2909,7 +2909,6 @@ void CMainFrame::OnEditCreateunifieddifffile()
         {
             pfdCustomize->AddCheckButton(101, CString(MAKEINTRESOURCE(IDS_DIFF_IGNORE_EOL)), TRUE);
         }
-
 
         // Show the save/open file dialog
         if (SUCCEEDED(hr) && SUCCEEDED(hr = pfd->Show(GetSafeHwnd())))
@@ -2939,7 +2938,6 @@ void CMainFrame::OnEditCreateunifieddifffile()
         else
             return; // user cancelled
     }
-
 
     CRegStdDWORD regContextLines(L"Software\\TortoiseMerge\\ContextLines", 0);
     CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, regContextLines, ignoreEOL, true);
@@ -2986,7 +2984,7 @@ void CMainFrame::OnViewLocatorbar()
 
 void CMainFrame::OnViewComparewhitespaces()
 {
-    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+    if (CheckForSave(CHFSR_OPTIONS) == IDCANCEL)
         return;
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
     regIgnoreWS = static_cast<int>(IgnoreWS::None);
@@ -2997,13 +2995,13 @@ void CMainFrame::OnViewComparewhitespaces()
 void CMainFrame::OnUpdateViewComparewhitespaces(CCmdUI *pCmdUI)
 {
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
-    IgnoreWS ignoreWs = static_cast<IgnoreWS>(static_cast<DWORD>(regIgnoreWS));
+    IgnoreWS  ignoreWs = static_cast<IgnoreWS>(static_cast<DWORD>(regIgnoreWS));
     pCmdUI->SetCheck(ignoreWs == IgnoreWS::None);
 }
 
 void CMainFrame::OnViewIgnorewhitespacechanges()
 {
-    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+    if (CheckForSave(CHFSR_OPTIONS) == IDCANCEL)
         return;
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
     regIgnoreWS = static_cast<int>(IgnoreWS::WhiteSpaces);
@@ -3014,13 +3012,13 @@ void CMainFrame::OnViewIgnorewhitespacechanges()
 void CMainFrame::OnUpdateViewIgnorewhitespacechanges(CCmdUI *pCmdUI)
 {
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
-    IgnoreWS ignoreWs = static_cast<IgnoreWS>(static_cast<DWORD>(regIgnoreWS));
+    IgnoreWS  ignoreWs = static_cast<IgnoreWS>(static_cast<DWORD>(regIgnoreWS));
     pCmdUI->SetCheck(ignoreWs == IgnoreWS::WhiteSpaces);
 }
 
 void CMainFrame::OnViewIgnoreallwhitespacechanges()
 {
-    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+    if (CheckForSave(CHFSR_OPTIONS) == IDCANCEL)
         return;
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
     regIgnoreWS = static_cast<int>(IgnoreWS::AllWhiteSpaces);
@@ -3031,7 +3029,7 @@ void CMainFrame::OnViewIgnoreallwhitespacechanges()
 void CMainFrame::OnUpdateViewIgnoreallwhitespacechanges(CCmdUI *pCmdUI)
 {
     CRegDWORD regIgnoreWS(L"Software\\TortoiseMerge\\IgnoreWS");
-    IgnoreWS ignoreWs = static_cast<IgnoreWS>(static_cast<DWORD>(regIgnoreWS));
+    IgnoreWS  ignoreWs = static_cast<IgnoreWS>(static_cast<DWORD>(regIgnoreWS));
     pCmdUI->SetCheck(ignoreWs == IgnoreWS::AllWhiteSpaces);
 }
 
@@ -3083,15 +3081,15 @@ bool CMainFrame::HasConflictsWontKeep()
     return true;
 }
 
-bool CMainFrame::TryGetFileName(CString& result) const
+bool CMainFrame::TryGetFileName(CString &result) const
 {
     return CCommonAppUtils::FileOpenSave(result, nullptr, IDS_SAVEASTITLE, IDS_COMMONFILEFILTER, false, CString(), m_hWnd);
 }
 
-CBaseView* CMainFrame::GetActiveBaseView() const
+CBaseView *CMainFrame::GetActiveBaseView() const
 {
-    CView* activeView = GetActiveView();
-    CBaseView* activeBase = dynamic_cast<CBaseView*>( activeView );
+    CView *    activeView = GetActiveView();
+    CBaseView *activeBase = dynamic_cast<CBaseView *>(activeView);
     return activeBase;
 }
 
@@ -3099,24 +3097,24 @@ void CMainFrame::SetWindowTitle()
 {
     // try to find a suitable window title
     CString sYour = m_data.m_yourFile.GetDescriptiveName();
-    if (sYour.Find(L" - ")>=0)
+    if (sYour.Find(L" - ") >= 0)
         sYour = sYour.Left(sYour.Find(L" - "));
-    if (sYour.Find(L" : ")>=0)
+    if (sYour.Find(L" : ") >= 0)
         sYour = sYour.Left(sYour.Find(L" : "));
     CString sTheir = m_data.m_theirFile.GetDescriptiveName();
     if (sTheir.IsEmpty())
         sTheir = m_data.m_baseFile.GetDescriptiveName();
-    if (sTheir.Find(L" - ")>=0)
+    if (sTheir.Find(L" - ") >= 0)
         sTheir = sTheir.Left(sTheir.Find(L" - "));
-    if (sTheir.Find(L" : ")>=0)
+    if (sTheir.Find(L" : ") >= 0)
         sTheir = sTheir.Left(sTheir.Find(L" : "));
 
     if (!sYour.IsEmpty() && !sTheir.IsEmpty())
     {
-        if (sYour.CompareNoCase(sTheir)==0)
+        if (sYour.CompareNoCase(sTheir) == 0)
             SetWindowText(sYour + L" - TortoiseMerge");
         else if ((sYour.GetLength() < 10) &&
-            (sTheir.GetLength() < 10))
+                 (sTheir.GetLength() < 10))
             SetWindowText(sYour + L" - " + sTheir + L" - TortoiseMerge");
         else
         {
@@ -3139,10 +3137,10 @@ void CMainFrame::OnTimer(UINT_PTR nIDEvent)
 {
     switch (nIDEvent)
     {
-    case IDT_RELOADCHECKTIMER:
-        KillTimer(nIDEvent);
-        CheckForReload();
-        break;
+        case IDT_RELOADCHECKTIMER:
+            KillTimer(nIDEvent);
+            CheckForReload();
+            break;
     }
 
     __super::OnTimer(nIDEvent);
@@ -3163,8 +3161,8 @@ void CMainFrame::LoadIgnoreCommentData()
             HGLOBAL hResourceLoaded = LoadResource(nullptr, hRes);
             if (hResourceLoaded)
             {
-                char * lpResLock = static_cast<char*>(LockResource(hResourceLoaded));
-                DWORD  dwSizeRes = SizeofResource(nullptr, hRes);
+                char *lpResLock = static_cast<char *>(LockResource(hResourceLoaded));
+                DWORD dwSizeRes = SizeofResource(nullptr, hRes);
                 if (lpResLock)
                 {
                     HANDLE hFile = CreateFile(sPath, GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
@@ -3190,23 +3188,23 @@ void CMainFrame::LoadIgnoreCommentData()
                 int eqpos = sLine.Find('=');
                 if (eqpos >= 0)
                 {
-                    CString sExts = sLine.Left(eqpos);
-                    CString sComments = sLine.Mid(eqpos+1);
+                    CString sExts        = sLine.Left(eqpos);
+                    CString sComments    = sLine.Mid(eqpos + 1);
 
-                    int pos = sComments.Find(',');
-                    CString sLineStart = sComments.Left(pos);
-                    pos = sComments.Find(',', pos);
-                    int pos2 = sComments.Find(',', pos+1);
-                    CString sBlockStart = sComments.Mid(pos+1, pos2-pos-1);
-                    CString sBlockEnd = sComments.Mid(pos2+1);
+                    int     pos          = sComments.Find(',');
+                    CString sLineStart   = sComments.Left(pos);
+                    pos                  = sComments.Find(',', pos);
+                    int     pos2         = sComments.Find(',', pos + 1);
+                    CString sBlockStart  = sComments.Mid(pos + 1, pos2 - pos - 1);
+                    CString sBlockEnd    = sComments.Mid(pos2 + 1);
 
-                    auto commentTuple = std::make_tuple(sLineStart, sBlockStart, sBlockEnd);
+                    auto    commentTuple = std::make_tuple(sLineStart, sBlockStart, sBlockEnd);
 
-                    pos = 0;
+                    pos                  = 0;
                     CString temp;
                     for (;;)
                     {
-                        temp = sExts.Tokenize(L",",pos);
+                        temp = sExts.Tokenize(L",", pos);
                         if (temp.IsEmpty())
                         {
                             break;
@@ -3218,7 +3216,7 @@ void CMainFrame::LoadIgnoreCommentData()
             }
         }
     }
-    catch (CFileException* e)
+    catch (CFileException *e)
     {
         e->Delete();
     }
@@ -3227,7 +3225,7 @@ void CMainFrame::LoadIgnoreCommentData()
 
 void CMainFrame::OnViewIgnorecomments()
 {
-    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+    if (CheckForSave(CHFSR_OPTIONS) == IDCANCEL)
         return;
     m_regIgnoreComments = !static_cast<DWORD>(m_regIgnoreComments);
     LoadViews(-1);
@@ -3256,16 +3254,15 @@ void CMainFrame::OnUpdateViewIgnorecomments(CCmdUI *pCmdUI)
     pCmdUI->SetCheck(static_cast<DWORD>(m_regIgnoreComments) != 0);
 }
 
-
 void CMainFrame::OnRegexfilter(UINT cmd)
 {
-    if ((cmd == ID_REGEXFILTER)||(cmd == (ID_REGEXFILTER+1)))
+    if ((cmd == ID_REGEXFILTER) || (cmd == (ID_REGEXFILTER + 1)))
     {
         CRegexFiltersDlg dlg(this);
         dlg.SetIniFile(&m_regexIni);
         if (dlg.DoModal() == IDOK)
         {
-            FILE* pFile = nullptr;
+            FILE *pFile = nullptr;
             _tfopen_s(&pFile, CPathUtils::GetAppDataDirectory() + L"regexfilters.ini", L"wb");
             m_regexIni.SaveFile(pFile);
             fclose(pFile);
@@ -3276,7 +3273,7 @@ void CMainFrame::OnRegexfilter(UINT cmd)
     {
         if (cmd == static_cast<UINT>(m_regexIndex) && !m_bUseRibbons)
         {
-            if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+            if (CheckForSave(CHFSR_OPTIONS) == IDCANCEL)
                 return;
             m_data.SetRegexTokens(std::wregex(), L"");
             m_regexIndex = -1;
@@ -3286,13 +3283,13 @@ void CMainFrame::OnRegexfilter(UINT cmd)
         {
             CSimpleIni::TNamesDepend sections;
             m_regexIni.GetAllSections(sections);
-            int index = ID_REGEXFILTER + 2;
+            int index    = ID_REGEXFILTER + 2;
             m_regexIndex = -1;
-            for (const auto& section : sections)
+            for (const auto &section : sections)
             {
                 if (cmd == static_cast<UINT>(index))
                 {
-                    if (CheckForSave(CHFSR_OPTIONS)==IDCANCEL)
+                    if (CheckForSave(CHFSR_OPTIONS) == IDCANCEL)
                         break;
                     try
                     {
@@ -3308,7 +3305,7 @@ void CMainFrame::OnRegexfilter(UINT cmd)
                     {
                         LoadViews(-1);
                     }
-                    catch (const std::regex_error& ex)
+                    catch (const std::regex_error &ex)
                     {
                         CString sErr;
                         sErr.Format(IDS_ERR_REGEX_INVALIDRETRY, ex.what());
@@ -3332,7 +3329,7 @@ void CMainFrame::OnUpdateViewRegexFilter(CCmdUI *pCmdUI)
     pCmdUI->SetCheck(pCmdUI->m_nID == static_cast<UINT>(m_regexIndex));
 }
 
-void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
+void CMainFrame::BuildRegexSubitems(CMFCPopupMenu *pMenuPopup)
 {
     CString sIniPath = CPathUtils::GetAppDataDirectory() + L"regexfilters.ini";
     if (!PathFileExists(sIniPath))
@@ -3344,8 +3341,8 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
             HGLOBAL hResourceLoaded = LoadResource(nullptr, hRes);
             if (hResourceLoaded)
             {
-                char * lpResLock = static_cast<char*>(LockResource(hResourceLoaded));
-                DWORD  dwSizeRes = SizeofResource(nullptr, hRes);
+                char *lpResLock = static_cast<char *>(LockResource(hResourceLoaded));
+                DWORD dwSizeRes = SizeofResource(nullptr, hRes);
                 if (lpResLock)
                 {
                     HANDLE hFile = CreateFile(sIniPath, GENERIC_WRITE, 0, nullptr, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, nullptr);
@@ -3367,9 +3364,9 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
     if (m_bUseRibbons)
     {
         std::list<CNativeRibbonDynamicItemInfo> items;
-        int cmdIndex = 2;
+        int                                     cmdIndex = 2;
         items.push_back(CNativeRibbonDynamicItemInfo(ID_REGEX_NO_FILTER, CString(MAKEINTRESOURCE(ID_REGEX_NO_FILTER)), IDB_REGEX_FILTER));
-        for (const auto& section : sections)
+        for (const auto &section : sections)
         {
             items.push_back(CNativeRibbonDynamicItemInfo(ID_REGEXFILTER + cmdIndex, section, IDB_REGEX_FILTER));
             cmdIndex++;
@@ -3386,7 +3383,7 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
             if (!sections.empty())
                 pMenuPopup->InsertSeparator(iIndex + 1); // insert the separator at the end
             int cmdIndex = 2;
-            for (const auto& section : sections)
+            for (const auto &section : sections)
             {
                 pMenuPopup->InsertItem(CMFCToolBarMenuButton(ID_REGEXFILTER + cmdIndex, nullptr, -1, static_cast<LPCWSTR>(section)), iIndex + cmdIndex);
                 cmdIndex++;
@@ -3395,36 +3392,36 @@ void CMainFrame::BuildRegexSubitems(CMFCPopupMenu* pMenuPopup)
     }
 }
 
-void CMainFrame::FillEncodingButton( CMFCRibbonButton * pButton, int start )
+void CMainFrame::FillEncodingButton(CMFCRibbonButton *pButton, int start)
 {
     pButton->SetDefaultCommand(FALSE);
-    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::ASCII,       L"ASCII"       ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::BINARY,      L"BINARY"      ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF16_LE,    L"UTF-16LE"    ));
+    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::ASCII, L"ASCII"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::BINARY, L"BINARY"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF16_LE, L"UTF-16LE"));
     pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF16_LEBOM, L"UTF-16LE BOM"));
-    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF16_BE,    L"UTF-16BE"    ));
+    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF16_BE, L"UTF-16BE"));
     pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF16_BEBOM, L"UTF-16BE BOM"));
-    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF32_LE,    L"UTF-32LE"    ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF32_BE,    L"UTF-32BE"    ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF8,        L"UTF-8"       ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF8BOM,     L"UTF-8 BOM"   ));
+    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF32_LE, L"UTF-32LE"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF32_BE, L"UTF-32BE"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF8, L"UTF-8"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + CFileTextLines::UnicodeType::UTF8BOM, L"UTF-8 BOM"));
 }
 
-void CMainFrame::FillEOLButton( CMFCRibbonButton * pButton, int start )
+void CMainFrame::FillEOLButton(CMFCRibbonButton *pButton, int start)
 {
     pButton->SetDefaultCommand(FALSE);
-    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_LF  , L"LF"  ));
+    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_LF, L"LF"));
     pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_CRLF, L"CRLF"));
     pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_LFCR, L"LRCR"));
-    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_CR  , L"CR"  ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_VT  , L"VT"  ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_FF  , L"FF"  ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_NEL , L"NEL" ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_LS  , L"LS"  ));
-    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_PS  , L"PS"  ));
+    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_CR, L"CR"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_VT, L"VT"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_FF, L"FF"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_NEL, L"NEL"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_LS, L"LS"));
+    pButton->AddSubItem(new CMFCRibbonButton(start + EOL::EOL_PS, L"PS"));
 }
 
-void CMainFrame::FillTabModeButton(CMFCRibbonButton * pButton, int start)
+void CMainFrame::FillTabModeButton(CMFCRibbonButton *pButton, int start)
 {
     pButton->SetDefaultCommand(FALSE);
     pButton->AddSubItem(new CMFCRibbonButton(start + TABMODE_NONE, L"Tab"));
@@ -3440,13 +3437,13 @@ void CMainFrame::FillTabModeButton(CMFCRibbonButton * pButton, int start)
     pButton->AddSubItem(new CMFCRibbonButton(start + ENABLEEDITORCONFIG, L"EditorConfig"));
 }
 
-bool CMainFrame::AdjustUnicodeTypeForLoad(CFileTextLines::UnicodeType& type)
+bool CMainFrame::AdjustUnicodeTypeForLoad(CFileTextLines::UnicodeType &type)
 {
     switch (type)
     {
         case CFileTextLines::UnicodeType::AUTOTYPE:
         case CFileTextLines::UnicodeType::BINARY:
-        return false;
+            return false;
 
         case CFileTextLines::UnicodeType::ASCII:
         case CFileTextLines::UnicodeType::UTF16_LE:
@@ -3454,31 +3451,31 @@ bool CMainFrame::AdjustUnicodeTypeForLoad(CFileTextLines::UnicodeType& type)
         case CFileTextLines::UnicodeType::UTF32_LE:
         case CFileTextLines::UnicodeType::UTF32_BE:
         case CFileTextLines::UnicodeType::UTF8:
-        return true;
+            return true;
 
         case CFileTextLines::UnicodeType::UTF16_LEBOM:
-        type = CFileTextLines::UnicodeType::UTF16_LE;
-        return true;
+            type = CFileTextLines::UnicodeType::UTF16_LE;
+            return true;
 
         case CFileTextLines::UnicodeType::UTF16_BEBOM:
-        type = CFileTextLines::UnicodeType::UTF16_BE;
-        return true;
+            type = CFileTextLines::UnicodeType::UTF16_BE;
+            return true;
 
         case CFileTextLines::UnicodeType::UTF8BOM:
-        type = CFileTextLines::UnicodeType::UTF8;
-        return true;
+            type = CFileTextLines::UnicodeType::UTF8;
+            return true;
     }
     return false;
 }
 
-void CMainFrame::OnEncodingLeft( UINT cmd )
+void CMainFrame::OnEncodingLeft(UINT cmd)
 {
     if (m_pwndLeftView)
     {
         if (GetKeyState(VK_CONTROL) & 0x8000)
         {
             // reload with selected encoding
-            auto saveParams = m_data.m_arBaseFile.GetSaveParams();
+            auto saveParams        = m_data.m_arBaseFile.GetSaveParams();
             saveParams.unicodeType = static_cast<CFileTextLines::UnicodeType>(cmd - ID_INDICATOR_LEFTENCODINGSTART);
             if (AdjustUnicodeTypeForLoad(saveParams.unicodeType))
             {
@@ -3495,14 +3492,14 @@ void CMainFrame::OnEncodingLeft( UINT cmd )
     }
 }
 
-void CMainFrame::OnEncodingRight( UINT cmd )
+void CMainFrame::OnEncodingRight(UINT cmd)
 {
     if (m_pwndRightView)
     {
         if (GetKeyState(VK_CONTROL) & 0x8000)
         {
             // reload with selected encoding
-            auto saveParams = m_data.m_arYourFile.GetSaveParams();
+            auto saveParams        = m_data.m_arYourFile.GetSaveParams();
             saveParams.unicodeType = static_cast<CFileTextLines::UnicodeType>(cmd - ID_INDICATOR_RIGHTENCODINGSTART);
             if (AdjustUnicodeTypeForLoad(saveParams.unicodeType))
             {
@@ -3519,14 +3516,14 @@ void CMainFrame::OnEncodingRight( UINT cmd )
     }
 }
 
-void CMainFrame::OnEncodingBottom( UINT cmd )
+void CMainFrame::OnEncodingBottom(UINT cmd)
 {
     if (m_pwndBottomView)
     {
         if (GetKeyState(VK_CONTROL) & 0x8000)
         {
             // reload with selected encoding
-            auto saveParams = m_data.m_arTheirFile.GetSaveParams();
+            auto saveParams        = m_data.m_arTheirFile.GetSaveParams();
             saveParams.unicodeType = static_cast<CFileTextLines::UnicodeType>(cmd - ID_INDICATOR_BOTTOMENCODINGSTART);
             if (AdjustUnicodeTypeForLoad(saveParams.unicodeType))
             {
@@ -3619,7 +3616,7 @@ void CMainFrame::OnUpdateEncodingLeft(CCmdUI *pCmdUI)
     if (m_pwndLeftView)
     {
         pCmdUI->SetCheck(static_cast<CFileTextLines::UnicodeType>(pCmdUI->m_nID - ID_INDICATOR_LEFTENCODINGSTART) == m_pwndLeftView->GetTextType());
-        pCmdUI->Enable(m_pwndLeftView->IsWritable() || (GetKeyState(VK_CONTROL)&0x8000));
+        pCmdUI->Enable(m_pwndLeftView->IsWritable() || (GetKeyState(VK_CONTROL) & 0x8000));
     }
     else
         pCmdUI->Enable(FALSE);
@@ -3732,8 +3729,7 @@ void CMainFrame::OnUpdateTabMode(CBaseView *view, CCmdUI *pCmdUI, int startid)
         pCmdUI->Enable(FALSE);
 }
 
-
-BOOL CMainFrame::OnShowPopupMenu(CMFCPopupMenu* pMenuPopup)
+BOOL CMainFrame::OnShowPopupMenu(CMFCPopupMenu *pMenuPopup)
 {
     __super::OnShowPopupMenu(pMenuPopup);
 
@@ -3786,7 +3782,7 @@ void CMainFrame::OnUpdateThreeWayActions(CCmdUI *pCmdUI)
 // ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateColumnStatusBar(CCmdUI *pCmdUI)
 {
-    int column = 0;
+    int  column        = 0;
     auto pWndWithFocus = GetFocus();
     if (pWndWithFocus)
     {
@@ -3841,7 +3837,7 @@ void CMainFrame::OnUpdateMarkedWords(CCmdUI *pCmdUI)
 // ReSharper disable once CppMemberFunctionMayBeConst
 void CMainFrame::OnUpdateEnableIfSelection(CCmdUI *pCmdUI)
 {
-    bool bEnabled = false;
+    bool bEnabled      = false;
     auto pWndWithFocus = GetFocus();
     if (pWndWithFocus)
     {
