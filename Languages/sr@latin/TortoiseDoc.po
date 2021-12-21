@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-16 09:36+0000\n"
+"PO-Revision-Date: 2021-08-28 09:24+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/luebbe/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
@@ -1187,13 +1187,13 @@ msgid ""
 "the same project, copied from the repository. They work concurrently, and "
 "make changes to the same file <filename>A</filename> within their copies. "
 "Sally saves her changes to the repository first. When Harry attempts to save"
-" his changes later, the repository informs him that his file A is <firstterm"
-">out-of-date</firstterm>. In other words, that file A in the repository has "
-"somehow changed since he last copied it. So Harry asks his client to "
-"<firstterm>merge</firstterm> any new changes from the repository into his "
-"working copy of file A. Chances are that Sally's changes don't overlap with "
-"his own; so once he has both sets of changes integrated, he saves his "
-"working copy back to the repository."
+" his changes later, the repository informs him that his file A is "
+"<firstterm>out-of-date</firstterm>. In other words, that file A in the "
+"repository has somehow changed since he last copied it. So Harry asks his "
+"client to <firstterm>merge</firstterm> any new changes from the repository "
+"into his working copy of file A. Chances are that Sally's changes don't "
+"overlap with his own; so once he has both sets of changes integrated, he "
+"saves his working copy back to the repository."
 msgstr "Evo primera. Recimo da Hari i Sali kreiraju radne kopije istog projekta, kopiranjem iz spremišta. Oni rade istovremeno, i prave izmene na istom fajlu <filename>A</filename> u okviru svojih kopija. Sali sačuva svoje izmene u spremište prva. Kada Hari pokuša da sačuva svoje izmene kasnije, spremište ga informiše da je njegov fajl A <firstterm>zastareo</firstterm>. Drugim rečima, fajl A u spremištu ima nečije izmene od zadnjeg kopiranja. Tako Hari pita svog klijenta da <firstterm>stopi</firstterm> bilo koje nove izmene iz spremišta u njegovu radnu kopiju fajla A. Postoji šansa da Saline izmene ne prekrivaju njegove; tako da će imati oba skupa izmena integrisano, on sačuva svoju radnu kopiju nazad u spremište. "
 
 #. (title)
@@ -1866,8 +1866,8 @@ msgstr "Spremište će biti kreirano unutar novog foldera. <emphasis>Nemojte ure
 #. (para)
 msgid ""
 "You will also be asked whether you want to create a directory structure "
-"within the repository. Find out about layout options in <xref linkend"
-"=\"tsvn-repository-layout\"/>."
+"within the repository. Find out about layout options in <xref "
+"linkend=\"tsvn-repository-layout\"/>."
 msgstr "Takođe ćete biti pitani gde želite da kreirate imeničku strukturu unutar spremišta. Pogledajte opcije o položaju u <xref linkend=\"tsvn-repository-layout\"/>."
 
 #. (para)
@@ -1962,8 +1962,9 @@ msgid ""
 "<literal>file://</literal> access is intended for local, single-user access "
 "only, particularly testing and debugging. When you want to share the "
 "repository you <emphasis>really</emphasis> need to set up a proper server, "
-"and it is not nearly as difficult as you might think. Read <xref linkend"
-"=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
+"and it is not nearly as difficult as you might think. Read <xref "
+"linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a "
+"server."
 msgstr "<literal>file://</literal> pristup je planiran za lokalni, samo jedan-korisnik pristup, partikularno testiranje i debagovanje. Kada želite deljenje spremišta vi <emphasis>stvarno</emphasis> treba da podesite odgovarajući server, i to nije skoro tako teško kako se može pomisliti. Pročitajte  <xref linkend=\"tsvn-serversetup\"/> za vodič kako izabrati i podesiti server."
 
 #. (title)
@@ -2474,8 +2475,8 @@ msgstr "Pretraživač prikazuje prekrivne ikone"
 msgid ""
 "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon"
 " overlays which appear on files in your working copy. These show you at a "
-"glance which of your files have been modified. Refer to <xref linkend"
-"=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
+"glance which of your files have been modified. Refer to <xref "
+"linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
 "represent."
 msgstr "<placeholder-1/> Jedna od najvidljivijih osobina TortoiseSVN su prekrivne ikone koje se pojavljuju na fajlovima u vašoj radnoj kopiji. One vam pokazuju, savršeno, koji je od vaših fajlova izmenjen. Uporedite sa <xref linkend=\"tsvn-dug-wcstatus-1\"/> da nađete šta različiti prekrivači pokazuju."
 
@@ -3380,8 +3381,8 @@ msgid ""
 "<filename>branches</filename> and <filename>tags</filename> to mark the "
 "three main areas. In case the setup is different, the detection of what is a"
 " tag/branch/trunk (also known as <literal>classification "
-"patterns</literal>), can be configured in the settings dialog: <xref linkend"
-"=\"tsvn-dug-settings-revgraph\"/>"
+"patterns</literal>), can be configured in the settings dialog: <xref "
+"linkend=\"tsvn-dug-settings-revgraph\"/>"
 msgstr "Međutim, ova provera radi samo ako je smeštaj spremišta  u jednom od preporučenih opcija, znači da koristi imena <filename>deblo</filename>, <filename>grane</filename> i <filename>znaci</filename>  da označi tri glavne površine. U slučaju da je setap različit, detekcija šta je znak/grana/deblo (takođe poznato kao <literal>klasifikacija modela</literal>), može biti konfigurisasan u dijalogu podešavanja: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
@@ -3575,8 +3576,8 @@ msgid ""
 "of TortoiseSVN. If you are unfamiliar with regular expressions, take a look "
 "at the introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "Prozor sa porukom dnevnika takođe uključuje ime fajla i automatsko kompletiranje. To koristi regularne izraze da se izdvoje klase i imena funkcija iz (tekst) fajlova koje ste urezali, kao i imena fajlova. Ako reč koju  ukucate liči na nešto iz liste (posle otkucavanje najmanje tri karaktera, ili pritiskom  <keycap>Ctrl+Space</keycap>), padajući se pojavljuje omogućavajući vam da izaberete puno ime. Regularni izrazi snabdeveni sa TortoiseSVN drže se u TortiseSVN instalacionom <filename>bin</filename> folderu.Možete takođe definisati vaše lične regegzes i smestiti ih  u <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>.  Svakako, vaša privatna autolista neće biti prepisana kada uskladite vašu instalaciju TortoiseSVN. Ako niste familijarni sa regularnim izrazima pogledajte uvodnik u <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, i onlajn dokumentaciju i tutorijal na <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
@@ -4894,10 +4895,10 @@ msgstr "<placeholder-1/> U dijalogu urezivanja možete videti ove iste fajlove, 
 
 #. (para)
 msgid ""
-"TortoiseSVN reserves one changelist name for its own use, namely <literal"
-">ignore-on-commit</literal>. This is used to mark versioned files which you "
-"almost never want to commit even though they have local changes. This "
-"feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
+"TortoiseSVN reserves one changelist name for its own use, namely "
+"<literal>ignore-on-commit</literal>. This is used to mark versioned files "
+"which you almost never want to commit even though they have local changes. "
+"This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr "TortoiseSVN rezerviše jedno ime liste izmena za sopstveno korišćenje, imenom <literal>zanemari-pri-urezivanju</literal>. Ovo se koristi da se označe verzionisani fajlovi koji skoro nikad ne želite da urežete čak i kada imaju lokalne izmene. Osobina je opisana u <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
@@ -5613,8 +5614,8 @@ msgstr "Okrivi  promene"
 #. (para)
 msgid ""
 "Blame the selected revision and the previous revision for the selected file,"
-" and compare the blame reports using a visual diff tool. Read <xref linkend"
-"=\"tsvn-dug-blame-diffs\"/> for more detail."
+" and compare the blame reports using a visual diff tool. Read <xref "
+"linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Okrivljavanje izabrane revizije i prethodne revizije za izabrane fajlove, i poređenje izveštaja okrivljavanja koristeći vizualni alat razlike. Pročitajte <xref linkend=\"tsvn-dug-blame-diffs\"/> za više detalja."
 
 #. (term)
@@ -6464,8 +6465,9 @@ msgstr "Razlike između foldera"
 msgid ""
 "The built-in tools supplied with TortoiseSVN do not support viewing "
 "differences between directory hierarchies. But if you have an external tool "
-"which does support that feature, you can use that instead. In <xref linkend"
-"=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
+"which does support that feature, you can use that instead. In <xref "
+"linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have"
+" used."
 msgstr "Ugrađeni alat koji daje TortoiseSVN ne podržava viđene razlike između hijerarhije foldera. Alo ako imate spoljašnji alat koji podržava te osobine možete ga koristiti umesto toga. U <xref linkend=\"tsvn-dug-diff-tools\"/> mi vam kažemo o nekim alatima koji su korišćeni."
 
 #. (para)
@@ -6978,8 +6980,8 @@ msgid ""
 "You can locate an older version of a file or folder in the log dialog and "
 "copy it to a new location in the repository directly from the log dialog "
 "using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create "
-"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend"
-"=\"tsvn-dug-showlog-2\"/> to find out more."
+"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref "
+"linkend=\"tsvn-dug-showlog-2\"/> to find out more."
 msgstr "Možete locirati stariju verziju fajla ili foldera u dnevnik dijalogu i kopirati ih na novu lokaciju u folderu spremišta direktno iz dnevnik dijaloga koristeći <menuchoice><guimenu>Kontekst meni</guimenu><guimenuitem>Kreiraj grana/oznaka iz revizije</guimenuitem></menuchoice>. Uporedi sa <xref linkend=\"tsvn-dug-showlog-2\"/> za više detalja. "
 
 #. (para)
@@ -7402,9 +7404,9 @@ msgstr "Preduprediti dva fajla sa istim imeno"
 msgid ""
 "There is a server hook script available at: <ulink "
 "url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
-"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
-"/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
-"in case conflicts."
+"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
+"scripts/</citetitle></ulink> that will prevent checkins which result in case"
+" conflicts."
 msgstr "Postoji server zakačiva skripta dostupna na: <ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink> koji će preduprediti proveru koji rezultati su u konfliktu."
 
 #. (title)
@@ -8431,8 +8433,8 @@ msgstr "TortoiseSVN ima neke svoje specijalne osobine, i one počinju sa <litera
 #. (para)
 msgid ""
 "TortoiseSVN can integrate with some bug tracking tools. This uses project "
-"properties that start with <literal>bugtraq:</literal>. Read <xref linkend"
-"=\"tsvn-dug-bugtracker\"/> for further information."
+"properties that start with <literal>bugtraq:</literal>. Read <xref "
+"linkend=\"tsvn-dug-bugtracker\"/> for further information."
 msgstr "TortoiseSVN može se integrisati sa nekim alatima za bag praćenje. Ovo koristi osobine projekata koja počinje sa <literal>bugtraq:</literal>. Pročitajte <xref linkend=\"tsvn-dug-bugtracker\"/> za dodatne informacije."
 
 #. (para)
@@ -10435,12 +10437,12 @@ msgstr "Pravljenje nezaključanih fajlova samo za čitanje"
 #. (para)
 msgid ""
 "As mentioned above, the most effective way to use locking is to set the "
-"<literal>svn:needs-lock</literal> property on files. Refer to <xref linkend"
-"=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. "
-"Files with this property set will always be checked out and updated with the"
-" read-only flag set unless your working copy holds a lock. <graphic "
-"fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a "
-"special overlay to indicate this."
+"<literal>svn:needs-lock</literal> property on files. Refer to <xref "
+"linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
+"properties. Files with this property set will always be checked out and "
+"updated with the read-only flag set unless your working copy holds a lock. "
+"<graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN"
+" uses a special overlay to indicate this."
 msgstr "Kako je napomenuto gore, mnogo efektivniji način za korišćenje zaključavanja je podešavanjem <literal>svn:needs-lock</literal> osobine na fajlu. Uporedite sa <xref linkend=\"tsvn-dug-propertypage\"/> za instrukcije kako podesiti te osobine. Fajlovi sa tim osobinama podešenim će uvek biti preuzimani i obnovljeni sa setovanim flegom samo-za-čitanje osim ako vaša kopija drži katanac. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Kao podsetnik, TortoiseSVN koristi specijalni prekrivač da označi to."
 
 #. (para)
@@ -10465,12 +10467,12 @@ msgstr "Kada kreirate novo spremište sa Subverzijom 1.2 ili višom, četiri ša
 
 #. (para)
 msgid ""
-"It is a good idea to install a <literal>post-lock</literal> and <literal"
-">post-unlock</literal> hook script on the server which sends out an email "
-"indicating the file which has been locked. With such a script in place, all "
-"your users can be notified if someone locks/unlocks a file. You can find an "
-"example hook script <filename>hooks/post-lock.tmpl</filename> in your "
-"repository folder."
+"It is a good idea to install a <literal>post-lock</literal> and "
+"<literal>post-unlock</literal> hook script on the server which sends out an "
+"email indicating the file which has been locked. With such a script in "
+"place, all your users can be notified if someone locks/unlocks a file. You "
+"can find an example hook script <filename>hooks/post-lock.tmpl</filename> in"
+" your repository folder."
 msgstr "Dobra je ideja da se instalira <literal>post-zaključavanja</literal> and <literal>post-otključavanjak</literal> zakačiva skripta na serveru koja šalje epoštu označivši fajl koji je zaključan. Sa takvom skriptom svi vaši korisnici mogu biti obavešteni ako neko zaključa/otključa fajl. Možete naći primer zakačive skripte <filename>hooks/post-lock.tmpl</filename> u vašem folderu spremišta"
 
 #. (para)
@@ -11767,8 +11769,8 @@ msgid ""
 "TortoiseSVN will assume that the selected folder is the target, and open a "
 "dialog for you to enter the URL and revision to export from. This dialog has"
 " options to export only the top level folder, to omit external references, "
-"and to override the line end style for files which have the <literal>svn"
-":eol-style</literal> property set."
+"and to override the line end style for files which have the "
+"<literal>svn:eol-style</literal> property set."
 msgstr "<placeholder-1/> Ako izvršite ovu komandu na neverzionisani folder, TortoiseSVN će uzeti da je izabrani folder cilj, i otvoriće dijalog da unesete URL i reviziju da izvezete iz njega. Ovaj dijalog ima opcije da izveze samo folder vršnog nivoa, da se izbegnu spoljašne reference, i da prekrije linije i stil za fajlove koji imaju <literal>svn:eol-style</literal> podešenu osobinu."
 
 #. (para)
@@ -11840,8 +11842,8 @@ msgstr "Izvoz Stabla Izmena"
 msgid ""
 "If you want to export a copy of your project tree structure but containing "
 "only the files which have changed in a particular revision, or between any "
-"two revisions, use the compare revisions feature described in <xref linkend"
-"=\"tsvn-dug-compare-revs\"/>."
+"two revisions, use the compare revisions feature described in <xref "
+"linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr "Ako želite da izvezete kopiju strukture vašeg stabla projekta ali koje sadrži samo fajlove koji su izmenjeni u posebnoj reviziji, ili između bilo koje dve revizije, koristi poređenje osobina revizija opisanih u <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (para)
@@ -12045,8 +12047,8 @@ msgstr "Dodavanje Problem Brojeva u Dnevnik Poruka"
 msgid ""
 "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do "
 "this, you have to define some properties, which start with "
-"<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
-"=\"tsvn-dug-propertypage\"/>)"
+"<literal>bugtraq:</literal>. They must be set on Folders: (<xref "
+"linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr "Možete integrisati alat praćenja bagova po vašem izboru u TortoiseSVN. Da to uradite, imate da definišete neke osobine, što se pokreće sa <literal>bugtraq:</literal>. To mora biti podešeno na Imenicima: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (title)
@@ -12231,8 +12233,8 @@ msgid ""
 "If you are unfamiliar with regular expressions, take a look at the "
 "introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "Ako niste familijarni sa regeks izrazima pogledajte u uvod na <ulink url=\"http://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, i onlajn dokumentaciju i tutorijal na <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
@@ -12462,8 +12464,8 @@ msgid ""
 " In case the domain name ever changes, you don't have to adjust the "
 "<literal>webviewer:revision</literal> and "
 "<literal>webviewer:pathrevision</literal> property. The format is the same "
-"as for the <literal>bugtraq:url</literal> property. See <xref linkend"
-"=\"tsvn-dug-bugtracker\"/>."
+"as for the <literal>bugtraq:url</literal> property. See <xref "
+"linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "Možete takođe da koristite URL umesto apsolutnih. Ovo je korisno u slučaju da je vaš veb pregledač na istom domen/serveru kao vaše izvorno spremište. U slučaju da se ime domena ikad promeni, vi nemate da podesite <literal>webviewer:revision</literal>i <literal>webviewer:pathrevision</literal> osobinu. Format je isti kao za <literal>bugtraq:url</literal> osobinu. Vidite <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (para)
@@ -12693,12 +12695,12 @@ msgstr "<placeholder-1/> Ova strana omogućava da odredite koji od TortoiseSVN k
 msgid ""
 "There is a special case for <guilabel>Get Lock</guilabel>. You can of course"
 " promote it to the top level using the list above, but as most files don't "
-"need locking this just adds clutter. However, a file with the <literal>svn"
-":needs-lock</literal> property needs this action every time it is edited, so"
-" in that case it is very useful to have at the top level. Checking the box "
-"here means that when a file is selected which has the <literal>svn:needs-"
-"lock</literal> property set, <guilabel>Get Lock</guilabel> will always "
-"appear at the top level."
+"need locking this just adds clutter. However, a file with the "
+"<literal>svn:needs-lock</literal> property needs this action every time it "
+"is edited, so in that case it is very useful to have at the top level. "
+"Checking the box here means that when a file is selected which has the "
+"<literal>svn:needs-lock</literal> property set, <guilabel>Get "
+"Lock</guilabel> will always appear at the top level."
 msgstr "Postoji poseban slučaj za <guilabel>Uzmi Katanac</guilabel>. Možete, svakako, pogurati to na vršni nivo koristeći gornju listu, ali kako većina fajlova ne zahteva zaključavanje samo dodaje gužvu. Međutim, fajl sa <literal>svn:needs-lock</literal> osobinom zahteva ovu akciju svaki put kada se uređuje, tako da u tom slučaju to je veoma korisno imati ga na gornjem nivou. Čekiranjem boksa ovde znači to da kada je fajl izabran koji ima <literal>svn:needs-lock</literal> osobinu izabranu, <guilabel>Nabavi Katanac</guilabel> će se uvek pojaviti u gornjem nivou."
 
 #. (para)
@@ -14248,8 +14250,8 @@ msgid ""
 "Occasionally you may have to connect to a server which uses the same URL for"
 " all repositories. Older versions of <literal>svnbridge</literal> would do "
 "this. If you need to access such repositories you will have to check this "
-"option. If you don't, leave it unchecked to improve performance."
-msgstr "Ponekad će vam biti potrebno da se spojite na server koji koristi iste URL za sva spremišta. Starija verzija <literal>svnbridge</literal> će to uraditi. Ako je potrebno da pristupite takvim spremištima morate čekirati ovu opciju. Ako ne, ostavite je ne čekiranu da poboljšate performanse."
+"option. If you don't, unchecked it to improve performance."
+msgstr ""
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
@@ -14261,9 +14263,9 @@ msgid ""
 "even have done this yourself by copying a repository folder to create a new "
 "one. For all sorts of reasons this is a bad idea - a UUID should be "
 "<emphasis>unique</emphasis>. However, the log cache will still work in this "
-"situation if you check this box. If you don't need it, leave it unchecked to"
-" improve performance."
-msgstr "Neki servisi domaćina daju svim svojim spremištima isti UUID. Možete čak to uraditi sami kopiranjem foldera spremišta da kreirate novi. Za sve vrste razloga ovo je loša ideja - UUID treba da bude <emphasis>jedinstven</emphasis>. Međutim, keš dnevnika će još uvek raditi u ovoj situaciji ako čekirate ovaj boks. Ako vam to nije potrebno, ostavite nečekirano da poboljšate performanse. "
+"situation if you check this box. If you don't need it, unchecked it to "
+"improve performance."
+msgstr ""
 
 #. (term)
 msgid "If the repository cannot be contacted"
@@ -19338,8 +19340,8 @@ msgstr "Dubina kombo boks stavki zavisi od <literal>-depth</literal> argumenta."
 #. (para)
 #. (para)
 msgid ""
-"If <guilabel>Omit externals</guilabel> is checked, use the <literal"
-">--ignore-externals</literal> switch."
+"If <guilabel>Omit externals</guilabel> is checked, use the "
+"<literal>--ignore-externals</literal> switch."
 msgstr "Ako je <guilabel>Izostavi spoljašnje</guilabel>  čekirano, koristite <literal>--ignore-externals</literal> prekidač."
 
 #. (para)
@@ -19509,8 +19511,8 @@ msgstr "Podrazumevano, TortoiseSVN pokušava da nađe 100 dnevnik poruka koriste
 
 #. (para)
 msgid ""
-"If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal"
-">--stop-on-copy</literal> switch."
+"If <guilabel>Stop on copy/rename</guilabel> is checked, use the "
+"<literal>--stop-on-copy</literal> switch."
 msgstr "Ako je <guilabel>Stop na kopiraj/preimenuj</guilabel> čekirano, koristite <literal>--stop-on-copy</literal> prekidač."
 
 #. (screen)
@@ -19940,8 +19942,8 @@ msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> <emphasis>U Subverzij
 #. (para)
 msgid ""
 "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs "
-"Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
-":needs-lock</literal> property set."
+"Lock</emphasis> overlay is used to indicate when a file has the "
+"<literal>svn:needs-lock</literal> property set."
 msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/>  <emphasis>Traži zaključavanje</emphasis> prekrivač se koristi kada lokalna radna kopija ima <literal>svn:needs-lock</literal> podešenu osobinu."
 
 #. (para)

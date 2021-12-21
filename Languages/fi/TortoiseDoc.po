@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2018,2020
+# Kari Granö <kari.grano@gmail.com>, 2011-2018,2020-2021
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 msgid ""
@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-16 09:36+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-05 13:44+0000\n"
+"Last-Translator: Kari Granö <kari.grano@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -292,7 +292,7 @@ msgid ""
 "url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr ""
+msgstr "Vaikka useimmat ihmiset noutavat vain asennusohjelman, voit myös vapaasti tutkia itse ohjelmatekstiä. Lähdekoodi on saatavissa osoitteesta <ulink url=\"http://code.google.com/p/tortoisesvn/source/browse/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. Viimeisin kehitysversio sijaitsee hakemistossa <filename>/trunk/</filename>.  Julkaistut versiot sijaitsevat puolestaan hakemistossa <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
@@ -1184,13 +1184,13 @@ msgid ""
 "the same project, copied from the repository. They work concurrently, and "
 "make changes to the same file <filename>A</filename> within their copies. "
 "Sally saves her changes to the repository first. When Harry attempts to save"
-" his changes later, the repository informs him that his file A is <firstterm"
-">out-of-date</firstterm>. In other words, that file A in the repository has "
-"somehow changed since he last copied it. So Harry asks his client to "
-"<firstterm>merge</firstterm> any new changes from the repository into his "
-"working copy of file A. Chances are that Sally's changes don't overlap with "
-"his own; so once he has both sets of changes integrated, he saves his "
-"working copy back to the repository."
+" his changes later, the repository informs him that his file A is "
+"<firstterm>out-of-date</firstterm>. In other words, that file A in the "
+"repository has somehow changed since he last copied it. So Harry asks his "
+"client to <firstterm>merge</firstterm> any new changes from the repository "
+"into his working copy of file A. Chances are that Sally's changes don't "
+"overlap with his own; so once he has both sets of changes integrated, he "
+"saves his working copy back to the repository."
 msgstr "Esimerkki. Oletetaan, että Harry ja Sally luovat kumpikin työkopion samasta projektista kopioimalla sen arkistosta. He työskentelevät yhtä aikaa, ja tekevät muutoksia samaan tiedostoon <filename>A</filename> työkopioissaan. Sally tallettaa muutoksensa arkistoon ensin. Kun Harry yrittää tallettaa muutoksensa myöhemmin, arkisto kertoo hänelle, että hänen tiedostonsa A on <firstterm>vanhentunut</firstterm>. Toisin sanoen tiedosto A on jotenkin muuttunut arkistossa sen jälkeen, kun hän viimeksi kopioi sen. Joten Harry pyytää asiakasohjelmaansa <firstterm>yhdistämään</firstterm> uudet muutokset arkistosta oman työkopionsa tiedostoon A. Sallyn tekemät muutokset eivät mene päällekkäin hänen omien muutostensa kanssa, joten saatuaan muutokset yhdistettyä hän voi tallettaa työkopionsa takaisin arkistoon."
 
 #. (title)
@@ -1863,8 +1863,8 @@ msgstr "Tämä luo arkiston uuden kansion sisälle. <emphasis>Älä muokkaa arki
 #. (para)
 msgid ""
 "You will also be asked whether you want to create a directory structure "
-"within the repository. Find out about layout options in <xref linkend"
-"=\"tsvn-repository-layout\"/>."
+"within the repository. Find out about layout options in <xref "
+"linkend=\"tsvn-repository-layout\"/>."
 msgstr "Sinulta kysytään myös, haluatko luoda arkistoon kansiorakenteen. Lisätieto mahdollisuuksista on luvussa n <xref linkend=\"tsvn-repository-layout\"/>."
 
 #. (para)
@@ -1959,8 +1959,9 @@ msgid ""
 "<literal>file://</literal> access is intended for local, single-user access "
 "only, particularly testing and debugging. When you want to share the "
 "repository you <emphasis>really</emphasis> need to set up a proper server, "
-"and it is not nearly as difficult as you might think. Read <xref linkend"
-"=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
+"and it is not nearly as difficult as you might think. Read <xref "
+"linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a "
+"server."
 msgstr "<literal>file://</literal> -yhteyskäytäntö on tarkoitettu paikallisille yhden käyttäjän arkistoille, erityisesti testaamiseen ja virheiden etsintään. Kun haluat jakaa arkiston, sinun on <emphasis>todella</emphasis> asennettava oikea palvelin, eikä se ole läheskään niin vaikeaa kuin saatat kuvitella. Luku <xref linkend=\"tsvn-serversetup\"/> sisältää vinkkejä palvelimen valintaan ja asentamiseen."
 
 #. (title)
@@ -2471,8 +2472,8 @@ msgstr "Resurssienhallinnan kuvakepäällykset"
 msgid ""
 "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon"
 " overlays which appear on files in your working copy. These show you at a "
-"glance which of your files have been modified. Refer to <xref linkend"
-"=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
+"glance which of your files have been modified. Refer to <xref "
+"linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
 "represent."
 msgstr "<placeholder-1/> Yksi TortoiseSVN:n näkyvimmistä ominaisuuksista ovat kuvakepäällykset, jotka näkyvät työkopiosi tiedostoille. Niiden avulla näet yhdellä silmäyksellä, mitkä tiedostoistasi ovat muuttuneet. Katso luvusta <xref linkend=\"tsvn-dug-wcstatus-1\"/> mitä eri päällykset merkitsevät."
 
@@ -3377,8 +3378,8 @@ msgid ""
 "<filename>branches</filename> and <filename>tags</filename> to mark the "
 "three main areas. In case the setup is different, the detection of what is a"
 " tag/branch/trunk (also known as <literal>classification "
-"patterns</literal>), can be configured in the settings dialog: <xref linkend"
-"=\"tsvn-dug-settings-revgraph\"/>"
+"patterns</literal>), can be configured in the settings dialog: <xref "
+"linkend=\"tsvn-dug-settings-revgraph\"/>"
 msgstr "Tämä tarkistus toimii vain, mikäli arkiston rakenne vastaa suositusta, ts. se käyttää nimiä  <filename>trunk</filename>, <filename>branches</filename> ja  <filename>tags</filename> erottaakseen kolme pääaluetta. Mikäli rakenne on erilainen, päähaaran, sivuhaarojen ja merkittyjen versioiden rakenne (ns.  <literal>luokittelusäännöt</literal>) voidaan määritellä asetusikkunassa:  <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
@@ -3572,8 +3573,8 @@ msgid ""
 "of TortoiseSVN. If you are unfamiliar with regular expressions, take a look "
 "at the introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "Lokiviesti-ikkunassa on myös tiedosto- ja funktionimien automaattinen täydennys. Työkalu käyttää säännöllisiä lausekkeita hakeakseen luokkien ja funktioiden nimiä niistä tekstitiedostoista, joita olet toimittamassa arkistoon. Jos sana, jota olet kirjoittamassa, täsmää minkään listalla olevan kanssa (kirjoitettuasi vähintään kolme merkkiä tai painettuasi <keycap>Ctrl+Välilyönti</keycap>), näkyviin ilmestyy pudotusvalikko, josta voit valita koko nimen. TortoiseSVN:n mukana tulevat säännölliset lausekkeet sijaitsevat TortoiseSVN-asennuksen <filename>bin</filename>-hakemistossa. Voit määritellä omia lausekkeitasi ja tallettaa ne tiedostoon <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Tämä tiedosto ei häviä, jos päivität TortoiseSVN-asennuksen. Jos et tunne säännöllisiä lausekkeita, tutustu niihin osoitteessa <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>. Käyttöohjeen ja aloittelijan oppaan löydät osoitteesta <ulink url=\"https://www.regular-expressions.info/\"><citetitle>https://www.regular-expressions.info/</citetitle></ulink>. "
 
@@ -4599,7 +4600,7 @@ msgstr "muutokset"
 
 #. (primary)
 msgid "(+)"
-msgstr ""
+msgstr "(+)"
 
 #. (title)
 #. (title)
@@ -4638,7 +4639,7 @@ msgid ""
 "if unchanged files are inside a directory that's been moved, the status will"
 " show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
 " and it will be colored in blue as well."
-msgstr ""
+msgstr "Jos ei-muuttuneet tiedostot ovat hakemistossa, joka on siirretty,  <guilabel>tilasarakkeessa</guilabel> on <literal>+</literal> -merkki sinisellä pohjalla."
 
 #. (para)
 msgid ""
@@ -4891,10 +4892,10 @@ msgstr "<placeholder-1/> Toimitusikkunassa näet samat tiedostot ryhmiteltyinä 
 
 #. (para)
 msgid ""
-"TortoiseSVN reserves one changelist name for its own use, namely <literal"
-">ignore-on-commit</literal>. This is used to mark versioned files which you "
-"almost never want to commit even though they have local changes. This "
-"feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
+"TortoiseSVN reserves one changelist name for its own use, namely "
+"<literal>ignore-on-commit</literal>. This is used to mark versioned files "
+"which you almost never want to commit even though they have local changes. "
+"This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr "TortoiseSVN varaa yhden muutoslistan omaan käyttöönsä: <literal>ignore-on-commit</literal>. Listaa käytetään merkitsemään versioidut tiedostot, joita et useimmiten halua toimittaa arkistoon, vaikka niissä olisi paikallisia muutoksia. Ominaisuus on kuvattu luvussa <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
@@ -5610,8 +5611,8 @@ msgstr "Selvitä muutosten tekijät"
 #. (para)
 msgid ""
 "Blame the selected revision and the previous revision for the selected file,"
-" and compare the blame reports using a visual diff tool. Read <xref linkend"
-"=\"tsvn-dug-blame-diffs\"/> for more detail."
+" and compare the blame reports using a visual diff tool. Read <xref "
+"linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Selvitä tekijät valitun tiedostoversion ja sen edeltäjän välillä sekä näytä tulokset. Lue lisätietoja luvusta  <xref linkend=\"tsvn-dug-blame-diffs\"/>."
 
 #. (term)
@@ -6461,8 +6462,9 @@ msgstr "Erot kansioiden välillä"
 msgid ""
 "The built-in tools supplied with TortoiseSVN do not support viewing "
 "differences between directory hierarchies. But if you have an external tool "
-"which does support that feature, you can use that instead. In <xref linkend"
-"=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
+"which does support that feature, you can use that instead. In <xref "
+"linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have"
+" used."
 msgstr "TortoiseSVN:n mukana tulevat työkalut eivät tue kansiohierarkioiden välisten erojen vertailua. Jos sinulla kuitenkin on työkalu, joka tukee tällaista, voit käyttää sitä sen sijaan. Luvussa <xref linkend=\"tsvn-dug-diff-tools\"/> kerromme muutamista käyttämistämme työkaluista."
 
 #. (para)
@@ -6738,7 +6740,7 @@ msgstr "WinMerge"
 msgid ""
 "<ulink url=\"https://winmerge.org/\"><citetitle>WinMerge</citetitle></ulink>"
 " is a great open-source diff tool which can also handle directories."
-msgstr ""
+msgstr "<ulink url=\"https://winmerge.org/\"></citetitle>WinMerge</citetitle></ulink> on näppärä avoimeen lähdekoodiin perustuva vertailutyökalu, joka osaa käsitellä myös hakemistoja."
 
 #. (term)
 msgid "Perforce Merge"
@@ -6975,8 +6977,8 @@ msgid ""
 "You can locate an older version of a file or folder in the log dialog and "
 "copy it to a new location in the repository directly from the log dialog "
 "using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create "
-"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend"
-"=\"tsvn-dug-showlog-2\"/> to find out more."
+"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref "
+"linkend=\"tsvn-dug-showlog-2\"/> to find out more."
 msgstr "Voit etsiä lokista tiedoston tai kansion vanhemman version, ja kopioida sen uuteen paikkaan arkistossa suoraan loki-ikkunasta komennolla <menuchoice><guimenu>Kontekstivalikko</guimenu><guimenuitem>Luo versiosta haara / merkitty versio</guimenuitem></menuchoice>. Katso lisää luvusta <xref linkend=\"tsvn-dug-showlog-2\"/>."
 
 #. (para)
@@ -7399,9 +7401,9 @@ msgstr "Samojen tiedostonimien ongelman ennaltaehkäisy"
 msgid ""
 "There is a server hook script available at: <ulink "
 "url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
-"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
-"/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
-"in case conflicts."
+"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
+"scripts/</citetitle></ulink> that will prevent checkins which result in case"
+" conflicts."
 msgstr "Paikantimessa <ulink url=\"https://svn.collab.net/repos/svn/trunk/contrib/hook-scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink> on saatavana palvelimen toimintokomento, joka estää toimitukset, joista seuraisi merkkitaso-ongelmia."
 
 #. (title)
@@ -8428,8 +8430,8 @@ msgstr "TortoiseSVN sisältää muutamia ominaisuuksia, joilla on erityismerkity
 #. (para)
 msgid ""
 "TortoiseSVN can integrate with some bug tracking tools. This uses project "
-"properties that start with <literal>bugtraq:</literal>. Read <xref linkend"
-"=\"tsvn-dug-bugtracker\"/> for further information."
+"properties that start with <literal>bugtraq:</literal>. Read <xref "
+"linkend=\"tsvn-dug-bugtracker\"/> for further information."
 msgstr "TortoiseSVN osaa integroitua joidenkin vikaseurantatyökalujen kanssa. Integrointi perustuu erityisiin projektiominaisuuksiin, jotka alkavat etuliitteellä <literal>bugtraq:</literal>. Lue lisää luvusta <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (para)
@@ -10432,12 +10434,12 @@ msgstr "Lukitsemattomien tiedostojen pakottaminen kirjoitussuojatuiksi"
 #. (para)
 msgid ""
 "As mentioned above, the most effective way to use locking is to set the "
-"<literal>svn:needs-lock</literal> property on files. Refer to <xref linkend"
-"=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. "
-"Files with this property set will always be checked out and updated with the"
-" read-only flag set unless your working copy holds a lock. <graphic "
-"fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a "
-"special overlay to indicate this."
+"<literal>svn:needs-lock</literal> property on files. Refer to <xref "
+"linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
+"properties. Files with this property set will always be checked out and "
+"updated with the read-only flag set unless your working copy holds a lock. "
+"<graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN"
+" uses a special overlay to indicate this."
 msgstr "Kuten edellä on kuvattu, tehokkain tapa käyttää lukitusta on asettaa <literal>svn:needs-lock</literal> -ominaisuus tiedostoille. Katso ohjeet ominaisuuksien asettamiseen luvusta <xref linkend=\"tsvn-dug-propertypage\"/>. Tiedostot, joilla on tämä ominaisuus, ovat aina kirjoitussuojattuja työkopiossasi, ellet ole lukinnut niitä. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> TortoiseSVN käyttää erityistä kuvakepäällystä muistuttamaan tästä."
 
 #. (para)
@@ -10462,12 +10464,12 @@ msgstr "Kun luot uuden arkiston, niin Subversion-versiosta 1.2 alkaen  arkiston 
 
 #. (para)
 msgid ""
-"It is a good idea to install a <literal>post-lock</literal> and <literal"
-">post-unlock</literal> hook script on the server which sends out an email "
-"indicating the file which has been locked. With such a script in place, all "
-"your users can be notified if someone locks/unlocks a file. You can find an "
-"example hook script <filename>hooks/post-lock.tmpl</filename> in your "
-"repository folder."
+"It is a good idea to install a <literal>post-lock</literal> and "
+"<literal>post-unlock</literal> hook script on the server which sends out an "
+"email indicating the file which has been locked. With such a script in "
+"place, all your users can be notified if someone locks/unlocks a file. You "
+"can find an example hook script <filename>hooks/post-lock.tmpl</filename> in"
+" your repository folder."
 msgstr "Saattaa olla kannattavaa asentaa palvelimelle sellaiset <literal>post-lock</literal> ja <literal>post-unlock</literal> -komentojonot, jotka lähettävät sähköpostia, joka kertoo, mikä tiedosto lukittiin/vapautettiin. Tällöin kaikki kehittäjät saavat tiedon, jos joku lukitsee tiedoston tai vapauttaa lukon. Löydät esimerkin komentojonosta arkistokansiosta <filename>hooks/post-lock.tmpl</filename>."
 
 #. (para)
@@ -11764,8 +11766,8 @@ msgid ""
 "TortoiseSVN will assume that the selected folder is the target, and open a "
 "dialog for you to enter the URL and revision to export from. This dialog has"
 " options to export only the top level folder, to omit external references, "
-"and to override the line end style for files which have the <literal>svn"
-":eol-style</literal> property set."
+"and to override the line end style for files which have the "
+"<literal>svn:eol-style</literal> property set."
 msgstr "<placeholder-1/> Jos suoritat komennon versioimattomalle kansiolle, TortoiseSVN olettaa, että valittu kansio on kohde ja avaa ikkunan, johon voit syöttää paikantimen ja version, josta vienti tapahtuu. Ikkunassa on valintoja vain ylimmän kansiotason viemiseksi, ulkoisten viitteiden ohittamiseksi ja rivinlopputyylin pakottamiseksi tiedostoille, joilla on ominaisuus <literal>svn:eol-style</literal> asetettuna."
 
 #. (para)
@@ -11837,8 +11839,8 @@ msgstr "Muutetun tiedostopuun vienti"
 msgid ""
 "If you want to export a copy of your project tree structure but containing "
 "only the files which have changed in a particular revision, or between any "
-"two revisions, use the compare revisions feature described in <xref linkend"
-"=\"tsvn-dug-compare-revs\"/>."
+"two revisions, use the compare revisions feature described in <xref "
+"linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr "Jos haluat tuottaa kopion puurakenteesta, joka sisältää projektisi jossain tietyssä versiossa (tai tietyllä versiovälillä) muuttuneet tiedostot, käytä luvussa <xref linkend=\"tsvn-dug-compare-revs\"/> kuvattua versioiden vertailutoimintoa."
 
 #. (para)
@@ -12042,8 +12044,8 @@ msgstr "Vikanumeroiden lisääminen lokiviesteihin"
 msgid ""
 "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do "
 "this, you have to define some properties, which start with "
-"<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
-"=\"tsvn-dug-propertypage\"/>)"
+"<literal>bugtraq:</literal>. They must be set on Folders: (<xref "
+"linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr "Voit integroida haluamasi vikaseurantatyökalun TortoiseSVN:ään. Tehdäksesi tämän sinun on määriteltävä muutamia ominaisuuksia, jotka kaikki alkavat etuliitteellä <literal>bugtraq:</literal>. Ne on asetettava kansioille: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (title)
@@ -12228,8 +12230,8 @@ msgid ""
 "If you are unfamiliar with regular expressions, take a look at the "
 "introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "Jos et ole perehtynyt säännöllisiin lausekkeisiin, katso johdanto osoitteesta <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, sekä muita dokumentteja osoitteesta <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
@@ -12418,7 +12420,7 @@ msgid ""
 "<ulink "
 "url=\"https://websvnphp.github.io/\"><citetitle>WebSVN</citetitle></ulink>. "
 "TortoiseSVN provides a means to link with these viewers."
-msgstr ""
+msgstr "Subversionin yhteyteen on saatavilla useita web-pohjaisia arkistoselaimia, esim. <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> ja <ulink url=\"https://websvnphp.github.io/\"></citetitle>WebSVN</citetitle></ulink>. TortoiseSVN tukee kytkeytymistä näihin selaimiin."
 
 #. (para)
 msgid ""
@@ -12459,8 +12461,8 @@ msgid ""
 " In case the domain name ever changes, you don't have to adjust the "
 "<literal>webviewer:revision</literal> and "
 "<literal>webviewer:pathrevision</literal> property. The format is the same "
-"as for the <literal>bugtraq:url</literal> property. See <xref linkend"
-"=\"tsvn-dug-bugtracker\"/>."
+"as for the <literal>bugtraq:url</literal> property. See <xref "
+"linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "Voit myös käyttää suhteellisia paikantimia absoluuttisten sijaan. Tästä on hyötyä, mikäli selaimesi on samassa nimialueessa / palvelimella kuin arkistosi. Jos nimialue joskus muuttuu, et joudu muuttamaan <literal>webviewer:revision</literal> ja <literal>webviewer:pathrevision</literal> -ominausuuksia. Muoto on sama kuin ominaisuudella <literal>bugtraq:url</literal>, ks. luku <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (para)
@@ -12690,12 +12692,12 @@ msgstr "<placeholder-1/> Tällä sivulla voit määritellä, mitkä TortoiseSVN:
 msgid ""
 "There is a special case for <guilabel>Get Lock</guilabel>. You can of course"
 " promote it to the top level using the list above, but as most files don't "
-"need locking this just adds clutter. However, a file with the <literal>svn"
-":needs-lock</literal> property needs this action every time it is edited, so"
-" in that case it is very useful to have at the top level. Checking the box "
-"here means that when a file is selected which has the <literal>svn:needs-"
-"lock</literal> property set, <guilabel>Get Lock</guilabel> will always "
-"appear at the top level."
+"need locking this just adds clutter. However, a file with the "
+"<literal>svn:needs-lock</literal> property needs this action every time it "
+"is edited, so in that case it is very useful to have at the top level. "
+"Checking the box here means that when a file is selected which has the "
+"<literal>svn:needs-lock</literal> property set, <guilabel>Get "
+"Lock</guilabel> will always appear at the top level."
 msgstr "Komento <guilabel>Lukitse</guilabel> on erikoistapaus. Voit tietysti nostaa sen päätasolle, mutta koska useimmat tiedostot eivät tarvitse lukitusta, se vain sekavoittaa päätasoa. Kuitenkin tiedosto, jolla on ominaisuus  <literal>svn:needs-lock</literal>, tarvitsee tätä toimenpidettä joka kerta kun sitä muokataan, joten tällöin on kätevää pitää se päätasolla. Valintalaatikon ruksaaminen tässä tapauksessa tarkoittaa, että kun tiedostolla on ominaisuus <literal>svn:needs-lock</literal>, komento <guilabel>Lukitse</guilabel> on aina päätasolla."
 
 #. (para)
@@ -13071,47 +13073,47 @@ msgstr "Kuten yllä kuvattu ennalta haku -ominaisuus, tämäkin toiminto voi oll
 
 #. (para)
 msgid "Settings for the repository browser: <placeholder-1/>"
-msgstr ""
+msgstr "Arkistoselaimen asetukset: <placeholder-1/>"
 
 #. (term)
 msgid "V2"
-msgstr ""
+msgstr "V2"
 
 #. (para)
 msgid ""
 "this version is much faster than <literal>V3</literal> and is the "
 "recommended version to use."
-msgstr ""
+msgstr "tämä versio on nopeampi kuin <literal>V3</literal> ja suositeltava käytettäväksi."
 
 #. (para)
 msgid ""
 "However, the speed comes at a prize: <literal>V2</literal> does not handle "
 "directory changes, and can't handle copies and moves of files."
-msgstr ""
+msgstr "Nopeudella on kuitenkin hintansa: <literal>V2</literal> ei käsittele hakemistomuutoksia, eikä osaa käsitellä tiedostojen kopioita ja siirtoja."
 
 #. (term)
 msgid "V3"
-msgstr ""
+msgstr "V3"
 
 #. (para)
 msgid ""
 "this is the latest version of the shelfing feature. It can handle changes to"
 " directories as well as file moves/copies."
-msgstr ""
+msgstr "tämä on hyllytystoiminnon viimeisin version. Se pystyy käsittelemään hakemistomuutokset sekä tiedostojen siirrot/kopiot."
 
 #. (para)
 msgid ""
 "However, <literal>V3</literal> is much slower than <literal>V2</literal> and"
 " can be unusably slow for big repositories or if you have a slow connection "
 "to the repository."
-msgstr ""
+msgstr "Versio <literal>V3</literal> on kuitenkin paljon hitaampi kuin <literal>V2</literal> ja voi olla siten käyttökelvoton suurille arkistoille tai hitaan yhteyden ylitse."
 
 #. (para)
 msgid ""
 "There are two versions of shelfing implemented in SVN. Here you can select "
 "which version you want to use. Note that changing this setting might require"
 " an OS restart to take effect. <placeholder-1/>"
-msgstr ""
+msgstr "Hyllytystoiminnosta on kaksi eri versiota. Täällä voit valita, kumpaa haluat käyttää. Huomaa, että asetuksen muutos voi vaatia tietokoneen uudelleen käynnistämisen. <placeholder-1/>"
 
 #. (title)
 msgid "TortoiseSVN Colour Settings"
@@ -13228,22 +13230,22 @@ msgstr "Kun loki-ikkunassa käytetään suodatusta, suodatustermit korostetaan t
 
 #. (term)
 msgid "Dark theme"
-msgstr ""
+msgstr "Tumma teema"
 
 #. (para)
 msgid ""
 "The dialogs in TortoiseSVN can be shown in a dark mode on Windows 10 1809 "
 "and later. This feature also requires that dark mode for applications is "
 "enabled in the Windows 10 settings."
-msgstr ""
+msgstr "TortoiseSVN-ikkunat voidaan näyttää tummalla pohjalla Windows 10 -versiosta 1809 eteenpäin. Ominaisuus vaatii, että tumma tila on kytketty päälle Windows 10 -asetuksista."
 
 #. (para)
 msgid "Note that not all controls in all dialogs are shown in a dark theme."
-msgstr ""
+msgstr "Huomaa, että kaikkia kontrolleja ei näytetä tummalla teemalla."
 
 #. (para)
 msgid "other settings: <placeholder-1/>"
-msgstr ""
+msgstr "muut asetukset: <placeholder-1/>"
 
 #. (title)
 msgid "Revision Graph Settings"
@@ -14245,8 +14247,8 @@ msgid ""
 "Occasionally you may have to connect to a server which uses the same URL for"
 " all repositories. Older versions of <literal>svnbridge</literal> would do "
 "this. If you need to access such repositories you will have to check this "
-"option. If you don't, leave it unchecked to improve performance."
-msgstr "Joskus joudut kytkeytymään palvelimeen, joka käyttää samaa paikanninta kaikille arkistoille. Esimerkiksi <literal>svnbridge</literal>-ohjelman vanhemmat versiot tapasivat tehdä näin. Jotta voisit käyttää tällaisia arkistoja, on asetus kytkettävä päälle. Muussa tapauksessa jätä se kytkemättä (parantaa suorituskykyä)."
+"option. If you don't, unchecked it to improve performance."
+msgstr "Joskus saatat käyttää palvelinta, joka käyttää samaa paikanninta kaikille arkistoille. Esimerkiksi <literal>svnbridge</literal>-sovelluksen vanhemmat versiot tapasivat tehdä näin. Jotta voit käyttää tällaisia arkistoja, on asetus kytkettävä päälle. Muussa tapauksessa jätä se kytkemättä suorituskyvyn parantamiseksi."
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
@@ -14258,9 +14260,9 @@ msgid ""
 "even have done this yourself by copying a repository folder to create a new "
 "one. For all sorts of reasons this is a bad idea - a UUID should be "
 "<emphasis>unique</emphasis>. However, the log cache will still work in this "
-"situation if you check this box. If you don't need it, leave it unchecked to"
-" improve performance."
-msgstr "Jotkut verkkopalvelut antavat kaikille arkistoilleen saman UUID-arvon. Saatat olla tehnyt näin itsekin, jos olet kopioinut arkistokansion luodaksesi uuden arkiston. Tämä on huono idea monestakin syystä - UUID-arvon tulisi olla <emphasis>ainutkertainen</emphasis>. Lokivälimuisti toimii kuitenkin yhä tässä tilanteessa, jos asetus kytketään päälle.  Muussa tapauksessa jätä se kytkemättä (parantaa suorituskykyä)."
+"situation if you check this box. If you don't need it, unchecked it to "
+"improve performance."
+msgstr "Jotkut verkkopalvelut antavat kaikille arkistoilleen saman UUID-arvon. Saatat olla tehnyt näin itsekin, jos olet kopioinut arkistokansion luodaksesi uuden arkiston. Tämä ei ole hyvä  idea, koska UUID-arvon tulisi olla <emphasis>yksikäsitteinen</emphasis>. Lokivälimuisti toimii kuitenkin yhä, vaikka asetus kytketään päälle.  Jos et tarvitse sitä, jätä se kytkemättä suorituskyvyn parantamiseksi."
 
 #. (term)
 msgid "If the repository cannot be contacted"
@@ -14782,16 +14784,16 @@ msgid ""
 "<guilabel>Hide the script while running</guilabel> is checked by default. "
 "Also you need to check this if your hook script might return an error that "
 "should stop the operation."
-msgstr ""
+msgstr "Tavallisesti DOS-ikkuna on syytä piilottaa komentojonoa suoritettaessa, joten <guilabel>Piilota komentojono suorituksen aikana</guilabel> on oletusarvoisesti valittuna. Asetus tarvitaan myös, jos komentojono voi palauttaa virheen, jonka tulee keskeyttää operaatio."
 
 #. (literal)
 #. (literal)
 msgid "force"
-msgstr ""
+msgstr "pakottaa"
 
 #. (guibutton)
 msgid "Retry without hooks"
-msgstr ""
+msgstr "Yritä uudelleen ilman toimintokomentoja"
 
 #. (para)
 msgid ""
@@ -14888,7 +14890,7 @@ msgid ""
 "id=\"tsvn-dug-settings-hooks-issuetracker\"><placeholder-23/><?dbhh "
 "topicname=\"HIDD_SETTINGSBUGTRAQ\"?><?dbhh "
 "topicname=\"HIDD_SETTINGSBUGTRAQADV\"?><placeholder-24/><placeholder-25/><placeholder-26/></sect3>"
-msgstr ""
+msgstr "<placeholder-1/><?dbhh topicname=\"HIDD_SETTINGSHOOKS\"?><?dbhh topicname=\"HIDD_SETTINGSHOOKCONFIG\"?><indexterm significance=\"normal\"><placeholder-2/></indexterm><indexterm significance=\"normal\"><placeholder-3/></indexterm><placeholder-4/><placeholder-5/><placeholder-6/><placeholder-7/><placeholder-8/><placeholder-9/><placeholder-10/><placeholder-11/><placeholder-12/><placeholder-13/><placeholder-14/><placeholder-15/> Asetus <placeholder-16/> voidaan kytkeä päälle, jos käyttäjä ei saa jatkaa toimintoa ajamatta komentojonoa, ts. komentojono pitää aina suorittaa.  Mikäli asetus <placeholder-17/> ei ole valittu, käyttäjällä on mahdollisuus käyttää painiketta  <placeholder-18/> toiminnon suorittamiseen ilman komentojonon suorittamista. <placeholder-19/><placeholder-20/><placeholder-21/><placeholder-22/><sect3 id=\"tsvn-dug-settings-hooks-issuetracker\"><placeholder-23/><?dbhh topicname=\"HIDD_SETTINGSBUGTRAQ\"?><?dbhh topicname=\"HIDD_SETTINGSBUGTRAQADV\"?><placeholder-24/><placeholder-25/><placeholder-26/></sect3>"
 
 #. (title)
 msgid "TortoiseBlame Settings"
@@ -15604,7 +15606,7 @@ msgid ""
 "bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink>"
 " directive, enter the root Url for your repositories and check the box "
 "<literal>Url points to SVNParentPath list</literal>."
-msgstr ""
+msgstr "Mikäli haluat seurata kaikkia arkistoja, jotka ovat käytettävissä <ulink url=\"http://svnbook.red-bean.com/en/1.8/svn.serverconfig.httpd.html#svn.serverconfig.httpd.basic\"><citetitle>SVNParentPath</citetitle></ulink> direktiivin kautta, syötä arkistojesi juuripaikannin ja valitse asetus<literal>Paikannin viittaa SVNParentPath-listaan</literal>."
 
 #. (para)
 msgid ""
@@ -17119,14 +17121,14 @@ msgid ""
 " and <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev</citetitle></ulink>"
-msgstr ""
+msgstr "Koska TortoiseSVN kehittyy jatkuvasti, käyttöohjeet eivät aina ole täysin ajan tasalla. Pidämme yllä <ulink url=\"https://tortoisesvn.net/faq.html\"><citetitle>FAQ-sivua</citetitle></ulink> (englanninkielinen), joka sisältää valikoiman TortoiseSVN-postituslistoilla <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> ja  <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink> usein kysyttyjä kysymyksiä."
 
 #. (para)
 msgid ""
 "<ulink "
 "url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink>"
 " is the one to use if you have questions about using TortoiseSVN."
-msgstr ""
+msgstr "<ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn</citetitle></ulink> on oikea kohde, mikäli sinulla on kysymyksiä TortoiseSVN-käyttöön liittyen."
 
 #. (para)
 msgid ""
@@ -17135,7 +17137,7 @@ msgid ""
 "url=\"https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-"
 "dev</citetitle></ulink>"
-msgstr ""
+msgstr "Mikäli haluat auttaa TortoiseSVN-ohjelman kehittämisessä, liity keskusteluihin osoitteessa <ulink url=\"https://groups.google.com/forum/#!forum/tortoisesvn-dev\"><citetitle>https://groups.google.com/forum/#!forum/tortoisesvn-dev</citetitle></ulink>"
 
 #. (para)
 msgid ""
@@ -17188,7 +17190,7 @@ msgstr "Suositeltu tapa on <action>oikea-raahata</action> tiedostot uuteen paikk
 
 #. (title)
 msgid "The TortoiseSVN right drag context menu for moving files"
-msgstr ""
+msgstr "TortoiseSVN raahaa-oikealla kontekstivalikko tiedostojen siirtämiseen"
 
 #. (title)
 msgid "Force users to enter a log message"
@@ -18362,14 +18364,14 @@ msgid ""
 "If you specify the key <option>/blockpathadjustments</option>, the automatic"
 " checkout path adjustments are blocked. The <option>/revision:XXX</option> "
 "specifies the revision to check out."
-msgstr ""
+msgstr "Avaa työkopion noutoikkunan. Valitsin <option>/path</option> määrittää kohdehakemiston ja <option>/url</option> paikantimen, josta työkopio haetaan. Jos annat valitsimen <option>/blockpathadjustments</option>, polkujen automaattinen korjaus estetään. Valitsin <option>/revision:XXX</option> määrittää noudettavan version."
 
 #. (para)
 msgid ""
 "If you specify <option>/outfile:\"path/to/file\"</option> the specified file"
 " will contain three lines after a checkout. The first line is the checkout "
 "path, the second line the url and the third the revision."
-msgstr ""
+msgstr "Mikäli annat valitsimen <option>/outfile:\"polku/tiedostoon\"</option>,  tiedostoon lisätään työkopion haun jälkeen kolme riviä: työkopion polku, paikannin ja versio."
 
 #. (option)
 #. (option)
@@ -19335,8 +19337,8 @@ msgstr "Syvyys-pudotusvalikon alkiot vastaavat <literal>-depth</literal> -valits
 #. (para)
 #. (para)
 msgid ""
-"If <guilabel>Omit externals</guilabel> is checked, use the <literal"
-">--ignore-externals</literal> switch."
+"If <guilabel>Omit externals</guilabel> is checked, use the "
+"<literal>--ignore-externals</literal> switch."
 msgstr "Jos <guilabel>Ohita ulkoiset polut</guilabel> on valittu, käytä valitsinta <literal>--ignore-externals</literal>."
 
 #. (para)
@@ -19506,8 +19508,8 @@ msgstr "Oletusarvoisesti TortoiseSVN yritää hakea sata lokiviestiä käyttäm�
 
 #. (para)
 msgid ""
-"If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal"
-">--stop-on-copy</literal> switch."
+"If <guilabel>Stop on copy/rename</guilabel> is checked, use the "
+"<literal>--stop-on-copy</literal> switch."
 msgstr "Jos <guilabel>Pysähdy kopion/uudelleen nimennän kohdalla</guilabel> on valittu, käytä valitsinta <literal>--stop-on-copy</literal>."
 
 #. (screen)
@@ -19937,8 +19939,8 @@ msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> Kuvakepäällystä <e
 #. (para)
 msgid ""
 "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs "
-"Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
-":needs-lock</literal> property set."
+"Lock</emphasis> overlay is used to indicate when a file has the "
+"<literal>svn:needs-lock</literal> property set."
 msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> Kuvakepäällystä <emphasis>Tarvitsee lukon</emphasis> käytetään, kun tiedoston <literal>svn:needs-lock</literal> -ominaisuus on asetettu."
 
 #. (para)
@@ -20602,7 +20604,7 @@ msgid ""
 " The most recent version (where we're currently working) is located under "
 "<filename>/trunk/</filename>, and the released versions are located under "
 "<filename>/tags/</filename>."
-msgstr ""
+msgstr "TortoiseMerge on avoimen lähdekoodin projekti, johon voi perehtyä osoitteessa <ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>projektit. Pääkehityshaara sijaitsee hakemistossa <filename>/trunk/</filename> ja julkaistut versiot hakemistossa <filename>/tags/</filename>."
 
 #. (para)
 msgid "for the hard work on TortoiseMerge"
@@ -21395,7 +21397,7 @@ msgstr "Asettaa käyttöliittymän tumman tilan. Tämä vaatii vähintään Wind
 #. (title)
 #. (title)
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Pikanäppäimet"
 
 #. (para)
 msgid "List of keyboard shortcuts and commands."
@@ -21471,7 +21473,7 @@ msgstr "Talleta nimellä..."
 
 #. (term)
 msgid "F7, Ctrl-Down"
-msgstr ""
+msgstr "F7, Ctrl-Alas"
 
 #. (para)
 msgid "Go to next difference"
@@ -21479,7 +21481,7 @@ msgstr "Siirry seuraavaan eroon"
 
 #. (term)
 msgid "Shift-F7, Ctrl-Up"
-msgstr ""
+msgstr "Shift-F7, Ctrl-Ylös"
 
 #. (para)
 msgid "Go to previous difference"
@@ -21579,11 +21581,11 @@ msgstr "Vaihda oikean/vasemman/alanäkymän välillä"
 
 #. (term)
 msgid "Ctrl-M"
-msgstr ""
+msgstr "Ctrl-M"
 
 #. (para)
 msgid "Toggles between marking the selected change"
-msgstr ""
+msgstr "Vaihtaa muutoksen valinnan"
 
 #. (title)
 msgid "Automating TortoiseMerge"

@@ -13,13 +13,14 @@
 # Dimitar Tsonev <dimitar.tsonev@gmail.com>, 2015
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # petkovmt <petkovmt@gmail.com>, 2011
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:04+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/luebbe/tortoisesvn/language/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2055,6 +2056,10 @@ msgstr "Позволява различни хранилища да използ
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Позволява различни хранилища да използват един и същ уникален идентификатор (UUID), например копирани хранилища"
+
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -4968,6 +4973,10 @@ msgstr "Общи::Диалогови прозорци 2"
 
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
+msgstr ""
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
 msgstr ""
 
 #. Resource IDs: (2301)
@@ -10086,6 +10095,10 @@ msgstr "За да присвоите заключване, щракнете с �
 msgid "To:"
 msgstr "До:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10121,7 +10134,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: програма за сравняване на изображения за TortoiseSVN\n\nНаличните параметри на командния ред са:\n/left:'път до лявото изображение'\n/lefttitle:'заглавие за лявото изображение'\n/right:'път до дясното изображение'\n/righttitle:'заглавие за дясното изображение'\n/overlay\t\tза включване не режим с припокриване\n/fit\t\tза напасване на размера на изображенията\n/showinfo\t\tза показване на полетата с информация за изображенията"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10377,6 +10390,11 @@ msgstr "Непроменен възел"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Премахване на отметка"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11399,6 +11417,10 @@ msgstr "изтрит"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "диск [kB]: "
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "en"
 
 #. Resource IDs: (1342)
 msgid "eol style"

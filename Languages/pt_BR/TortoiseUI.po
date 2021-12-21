@@ -19,6 +19,7 @@
 # FelipeL <felipe.idj@hotmail.com>, 2014
 # FelipeL <felipe.idj@hotmail.com>, 2014
 # Hugo Rossi <hugo.hrossi@gmail.com>, 2015
+# Igor Rückert, 2021
 # Igor Rückert, 2011-2012
 # Jonas Ricardo Rossi Cardoso <jrrossicardoso@gmail.com>, 2015
 # Leandro Hermes Neto <leandro@leandrohermes.net>, 2015
@@ -35,13 +36,14 @@
 # Ricardo Souza (RCDMK) <rcdmk@hotmail.com>, 2012
 # Rodrigo Monte <rodrigo.monte86@gmail.com>, 2014
 # Rui <xymarior@yandex.com>, 2019
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:12+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/luebbe/tortoisesvn/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2078,6 +2080,10 @@ msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Permitir que repositórios diferentes usem o mesmo UUID, ex. repositórios copiados"
 
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr "Permitir revisões mistas (não recomendado)"
+
 #. Resource IDs: (1896)
 msgid "Already merged"
 msgstr "Já combinado"
@@ -2439,7 +2445,7 @@ msgstr "Bug-IDs"
 
 #. Resource IDs: (385)
 msgid "Bug-Urls"
-msgstr ""
+msgstr "Bug-URLs"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -3590,13 +3596,13 @@ msgstr "D&etalhes"
 
 #. Resource IDs: (1682)
 msgid "Dark theme"
-msgstr ""
+msgstr "Tema escuro"
 
 #. Resource IDs: (1683)
 msgid ""
 "Dark theme requires at least Win10 1803, and it must be enabled in the "
 "Windows system settings."
-msgstr ""
+msgstr "O tema escuro requer pelo menos o Windows 10 1803, e precisa estar habilitado nas configurações do sistema do Windows."
 
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
@@ -4991,6 +4997,10 @@ msgstr "Geral::Janelas 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "Geral::Janela 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr "Geral::Menu de Contexto do Windows 11'"
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -8059,7 +8069,7 @@ msgstr "Resolver conflito usando 'deles'"
 
 #. Resource IDs: (3681)
 msgid "Resolve conflicts"
-msgstr ""
+msgstr "Resolver conflitos"
 
 #. Resource IDs: (1168, 3332)
 msgid "Resolved"
@@ -10108,6 +10118,10 @@ msgstr "Para roubar o bloqueio, clique com o botão direito sobre o diretório-p
 msgid "To:"
 msgstr "Para:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr "Menu de contexto superior no Windows 11"
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10143,7 +10157,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: o visualizador para comparação entre imagens para TortoiseSVN\n\nParâmetros disponíveis por linha de comando são:\n/left:\"caminho para a figura da esquerda\"\n/lefttitle:\"titulo para a figura da esquerda\"\n/right:\"caminho para a figura da direita\"\n/righttitle:\"titulo para a figura da direita\"\n/overlay\t\tpara ativar o modo de sobreposição\n/fit\t\tpara ajustar o tamanho das imagens\n/showinfo\t\tpara mostrar as caixas de informações das imagens"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10328,15 +10342,15 @@ msgstr "URL: "
 
 #. Resource IDs: (383)
 msgid "URLs to TortoiseSvn compare"
-msgstr ""
+msgstr "URLs para o TortoiseSvn comparar"
 
 #. Resource IDs: (382)
 msgid "URLs to view revision for path in webviewer"
-msgstr ""
+msgstr "URLs para visualizar a revisão do caminho no webviewer"
 
 #. Resource IDs: (381)
 msgid "URLs to view revision in webviewer"
-msgstr ""
+msgstr "URLs para visualizar a revisão no webviewer"
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
@@ -10399,6 +10413,11 @@ msgstr "Nó não alterado"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Desmarcar"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr "Itens desmarcados não são exibidos no menu superior, mas somente no menu original"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -10594,7 +10613,7 @@ msgstr "Atualizando '%1!ls!'"
 
 #. Resource IDs: (1684)
 msgid "Url points to SVNParentPath list"
-msgstr ""
+msgstr "O URL aponta para uma lista SVNParentList"
 
 #. Resource IDs: (1843)
 msgid "Urls"
@@ -11421,6 +11440,10 @@ msgstr "excluído"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "disco [kB]: "
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "pt_BR"
 
 #. Resource IDs: (1342)
 msgid "eol style"

@@ -22,7 +22,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-16 09:36+0000\n"
+"PO-Revision-Date: 2021-08-28 09:24+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Polish (http://www.transifex.com/luebbe/tortoisesvn/language/pl/)\n"
 "MIME-Version: 1.0\n"
@@ -1188,13 +1188,13 @@ msgid ""
 "the same project, copied from the repository. They work concurrently, and "
 "make changes to the same file <filename>A</filename> within their copies. "
 "Sally saves her changes to the repository first. When Harry attempts to save"
-" his changes later, the repository informs him that his file A is <firstterm"
-">out-of-date</firstterm>. In other words, that file A in the repository has "
-"somehow changed since he last copied it. So Harry asks his client to "
-"<firstterm>merge</firstterm> any new changes from the repository into his "
-"working copy of file A. Chances are that Sally's changes don't overlap with "
-"his own; so once he has both sets of changes integrated, he saves his "
-"working copy back to the repository."
+" his changes later, the repository informs him that his file A is "
+"<firstterm>out-of-date</firstterm>. In other words, that file A in the "
+"repository has somehow changed since he last copied it. So Harry asks his "
+"client to <firstterm>merge</firstterm> any new changes from the repository "
+"into his working copy of file A. Chances are that Sally's changes don't "
+"overlap with his own; so once he has both sets of changes integrated, he "
+"saves his working copy back to the repository."
 msgstr "Oto przykład. Powiedzmy, że oboje Jacek i Agatka tworzą kopie robocze tego samego projektu, pobrane z repozytorium. Pracują jednocześnie, i wprowadzają zmiany w tym samym pliku <filename>A</filename> w swoich kopiach. Agatka zapisuje swoje zmiany do repozytorium pierwsza. Kiedy Jacek później próbuje zapisać swoje zmiany, repozytorium informuje go, że jego plik A jest <firstterm>nieaktualny</firstterm>. Innymi słowy, że plik w repozytorium został w jakiś sposób zmieniony odkąd ostatni Jacek skopiował go ostatnio. Tak więc Jacek prosi swojego klienta by <firstterm>scalić</firstterm> nowe zmiany z repozytorium do swojej kopii roboczej pliku A. Jest możliwe, że zmiany Agatki nie pokrywają się z jego własnymi i gdy już oba zestawy zmian zostaną zintegrowane, będzie mógł zapisać swoją kopię roboczą z powrotem do repozytorium."
 
 #. (title)
@@ -1867,8 +1867,8 @@ msgstr "Repozytorium jest tworzone wewnątrz nowego folderu. <emphasis>Nie wolno
 #. (para)
 msgid ""
 "You will also be asked whether you want to create a directory structure "
-"within the repository. Find out about layout options in <xref linkend"
-"=\"tsvn-repository-layout\"/>."
+"within the repository. Find out about layout options in <xref "
+"linkend=\"tsvn-repository-layout\"/>."
 msgstr "Zostaniecie również zapytani, czy chcesz utworzyć strukturę katalogów w repozytorium. Dowiedzcie się więcej o opcjach układu katalogów przez link <xref linkend=\"tsvn-repository-layout\"/>."
 
 #. (para)
@@ -1963,8 +1963,9 @@ msgid ""
 "<literal>file://</literal> access is intended for local, single-user access "
 "only, particularly testing and debugging. When you want to share the "
 "repository you <emphasis>really</emphasis> need to set up a proper server, "
-"and it is not nearly as difficult as you might think. Read <xref linkend"
-"=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
+"and it is not nearly as difficult as you might think. Read <xref "
+"linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a "
+"server."
 msgstr "Dostęp przez <literal>file://</literal> jest przeznaczony dla lokalnego dostępu jednego użytkownika tylko, w szczególności podczas testowania i debugowania. Jeśli chcesz udostępnić repozytorium, <emphasis>naprawdę</emphasis> konieczne jest postawienie odpowiedniego serwera, a to nie jest tak trudne, jak mogłoby się wydawać. Czytajcie <xref linkend=\"tsvn-serversetup\"/> by uzyskać wytyczne dotyczące wyboru i konfiguracji serwera."
 
 #. (title)
@@ -2475,8 +2476,8 @@ msgstr "Eksplorator pokazuje nakładki ikon"
 msgid ""
 "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon"
 " overlays which appear on files in your working copy. These show you at a "
-"glance which of your files have been modified. Refer to <xref linkend"
-"=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
+"glance which of your files have been modified. Refer to <xref "
+"linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
 "represent."
 msgstr "<placeholder-1/> Jedną z najbardziej widocznych cech TortoiseSVN są nakładki ikon, które znajdują się na plikach w kopii roboczej. Uwidaczniają one na pierwszy rzut oka, które z Waszych plików zostały zmodyfikowane. Zapoznajcie się z <xref linkend=\"tsvn-dug-wcstatus-1\"/> by dowiedzieć się, co reprezentują różne nakładki."
 
@@ -3381,8 +3382,8 @@ msgid ""
 "<filename>branches</filename> and <filename>tags</filename> to mark the "
 "three main areas. In case the setup is different, the detection of what is a"
 " tag/branch/trunk (also known as <literal>classification "
-"patterns</literal>), can be configured in the settings dialog: <xref linkend"
-"=\"tsvn-dug-settings-revgraph\"/>"
+"patterns</literal>), can be configured in the settings dialog: <xref "
+"linkend=\"tsvn-dug-settings-revgraph\"/>"
 msgstr "Jednak takie sprawdzenie działa tylko wtedy, gdy układ repozytorium jest jednym z sugerowanych, to jest używane są w nim nazwy <filename>trunk</filename>, <filename>branches</filename> i <filename>tags</filename> by wskazać podstawowe trzy obszary. W przypadku innej konfiguracji, wykrywanie co jest etykietą/gałęzią/linią główną (zwane również <literal>wzorcami klasyfikacji</literal>), może być skonfigurowane w oknie ustawień: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
@@ -3576,8 +3577,8 @@ msgid ""
 "of TortoiseSVN. If you are unfamiliar with regular expressions, take a look "
 "at the introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "Okno opisu zmiany posiada także usprawnienie automatycznego uzupełniania nazwy pliku i funkcji. Używa wyrażeń regularnych aby wyodrębnić nazwy klas i funkcji z (tekstowych) plików, które są zatwierdzane, jak również nazwy ich samych. Jeśli wpisywane słowo pasuje do jakiegoś wpisu z listy (po wpisaniu co najmniej 3 znaków, lub wciśnięciu <keycap>Ctrl+Spacja</keycap>), pojawia się menu rozwijane pozwalając wybrać pełną nazwę. Wyrażenia regularne dostarczane z TortoiseSVN znajdują się się w folderze instalacjyjnym TortoiseSVN <filename>bin</filename>. Można również zdefiniować własne regeksy i przechowywać je w <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Oczywiście prywatna autolista nie zostanie nadpisana podczas aktualizacji instalacji TortoiseSVN. Jeśli nie jesteście zaznajomieni z wyrażeniami regularnymi, rzućcie okiem na wprowadzenie pod adresem <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>, lub dokumentację online i samouczek pod <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
@@ -4895,10 +4896,10 @@ msgstr "<placeholder-1/> W oknie dialogowym zatwierdzenia można zobaczyć te sa
 
 #. (para)
 msgid ""
-"TortoiseSVN reserves one changelist name for its own use, namely <literal"
-">ignore-on-commit</literal>. This is used to mark versioned files which you "
-"almost never want to commit even though they have local changes. This "
-"feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
+"TortoiseSVN reserves one changelist name for its own use, namely "
+"<literal>ignore-on-commit</literal>. This is used to mark versioned files "
+"which you almost never want to commit even though they have local changes. "
+"This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr "TortoiseSVN rezerwuje jedną nazwę listy zmian na własny użytek, a mianowicie <literal>ignore-on-commit</literal>. Jest ona używana do oznaczania wersjonowanych plików, których prawie nigdy nie macie zamiaru zatwierdzić mimo że są zmieniane lokalnie. Funkcja ta jest opisana w <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
@@ -5614,8 +5615,8 @@ msgstr "Adnotuj zmiany"
 #. (para)
 msgid ""
 "Blame the selected revision and the previous revision for the selected file,"
-" and compare the blame reports using a visual diff tool. Read <xref linkend"
-"=\"tsvn-dug-blame-diffs\"/> for more detail."
+" and compare the blame reports using a visual diff tool. Read <xref "
+"linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Adnotuje wersje wybraną i poprzednią dla wybranego pliku i porównuje raporty adnotacji za pomocą wizualnego narzędzia porównywania. Czytaj <xref linkend=\"tsvn-dug-blame-diffs\"/> by uzyskać więcej szczegółów."
 
 #. (term)
@@ -6465,8 +6466,9 @@ msgstr "Różnice między folderami"
 msgid ""
 "The built-in tools supplied with TortoiseSVN do not support viewing "
 "differences between directory hierarchies. But if you have an external tool "
-"which does support that feature, you can use that instead. In <xref linkend"
-"=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
+"which does support that feature, you can use that instead. In <xref "
+"linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have"
+" used."
 msgstr "Wbudowane narzędzia dostarczane z TortoiseSVN nie obsługują wyświetlania różnic między hierarchiami katalogów. Ale jeśli macie zewnętrzne narzędzie, które ma takie możliwości, możecie go użyć w tym miejscu. W <xref linkend=\"tsvn-dug-diff-tools\"/> mówimy o kilku narzędziach, których używaliśmy."
 
 #. (para)
@@ -6979,8 +6981,8 @@ msgid ""
 "You can locate an older version of a file or folder in the log dialog and "
 "copy it to a new location in the repository directly from the log dialog "
 "using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create "
-"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend"
-"=\"tsvn-dug-showlog-2\"/> to find out more."
+"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref "
+"linkend=\"tsvn-dug-showlog-2\"/> to find out more."
 msgstr "Można znaleźć starszą wersję pliku lub folderu w oknie dziennika i skopiować ją do nowej lokalizacji w repozytorium bezpośrednio z okna dziennika przy użyciu <menuchoice><guimenu>Menu kontekstowego</guimenu><guimenuitem>Utwórz gałąź/etykietę z wersji</guimenuitem></menuchoice>. Zapoznajcie się z <xref linkend=\"tsvn-dug-showlog-2\"/> by dowiedzieć się więcej."
 
 #. (para)
@@ -7403,9 +7405,9 @@ msgstr "Zapobieganie podwójnym plikom o tej samej nazwie"
 msgid ""
 "There is a server hook script available at: <ulink "
 "url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
-"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
-"/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
-"in case conflicts."
+"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
+"scripts/</citetitle></ulink> that will prevent checkins which result in case"
+" conflicts."
 msgstr "Istnieje skrypt przechwytujący serwera dostępny pod adresem: <ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink>, który zapobiega pobraniom, w wyniku których powstaną konflikty wielkości liter."
 
 #. (title)
@@ -8432,8 +8434,8 @@ msgstr "TortoiseSVN ma kilka specjalnych atrybutów, a ich nazwy zaczynają się
 #. (para)
 msgid ""
 "TortoiseSVN can integrate with some bug tracking tools. This uses project "
-"properties that start with <literal>bugtraq:</literal>. Read <xref linkend"
-"=\"tsvn-dug-bugtracker\"/> for further information."
+"properties that start with <literal>bugtraq:</literal>. Read <xref "
+"linkend=\"tsvn-dug-bugtracker\"/> for further information."
 msgstr "TortoiseSVN można zintegrować z niektórymi narzędziami śledzenia błędów. Używa się do tego celu atrybutów projektu, które zaczynają się od <literal>bugtraq:</literal>. Czytajcie <xref linkend=\"tsvn-dug-bugtracker\"/> dla dokładniejszych informacji."
 
 #. (para)
@@ -10436,12 +10438,12 @@ msgstr "Oznaczanie nieblokowanych plików jako tylko do odczytu"
 #. (para)
 msgid ""
 "As mentioned above, the most effective way to use locking is to set the "
-"<literal>svn:needs-lock</literal> property on files. Refer to <xref linkend"
-"=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. "
-"Files with this property set will always be checked out and updated with the"
-" read-only flag set unless your working copy holds a lock. <graphic "
-"fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a "
-"special overlay to indicate this."
+"<literal>svn:needs-lock</literal> property on files. Refer to <xref "
+"linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
+"properties. Files with this property set will always be checked out and "
+"updated with the read-only flag set unless your working copy holds a lock. "
+"<graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN"
+" uses a special overlay to indicate this."
 msgstr "Jak wspomniano powyżej, najbardziej efektywnym sposobem na używania blokad jest ustawianie atrybutu <literal>svn:needs-lock</literal> na plikach. Zapoznajcie się z <xref linkend=\"tsvn-dug-propertypage\"/> by uzyskać instrukcje dotyczące ustawiania atrybutów. Pliki z tym atrybutem zawsze będą pobierane i uaktualniane z właściwością tylko do odczytu, chyba, że kopia robocza trzyma blokadę. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Przypominamy, TortoiseSVN używa w tym celu specjalnej nakładki na ikonę."
 
 #. (para)
@@ -10466,12 +10468,12 @@ msgstr "Po utworzeniu nowego repozytorium przez Subversion 1.2 lub nowsze, czter
 
 #. (para)
 msgid ""
-"It is a good idea to install a <literal>post-lock</literal> and <literal"
-">post-unlock</literal> hook script on the server which sends out an email "
-"indicating the file which has been locked. With such a script in place, all "
-"your users can be notified if someone locks/unlocks a file. You can find an "
-"example hook script <filename>hooks/post-lock.tmpl</filename> in your "
-"repository folder."
+"It is a good idea to install a <literal>post-lock</literal> and "
+"<literal>post-unlock</literal> hook script on the server which sends out an "
+"email indicating the file which has been locked. With such a script in "
+"place, all your users can be notified if someone locks/unlocks a file. You "
+"can find an example hook script <filename>hooks/post-lock.tmpl</filename> in"
+" your repository folder."
 msgstr "Jest to dobry pomysł, aby zainstalować na serwerze skrypty przechwytujące <literal>post-lock</literal> i <literal>post-unlock</literal>, wysyłające e-mail wskazujący plik, który został zablokowany. Przy pomocy działania takiego skryptu, wszyscy użytkownicy zostaną powiadomieni, jeśli ktoś zablokuje/odblokowuje plik. Możeszcie znaleźć przykład skryptu przechwytującego <filename>hooks/post-lock.tmpl</filename> w folderze repozytorium."
 
 #. (para)
@@ -11768,8 +11770,8 @@ msgid ""
 "TortoiseSVN will assume that the selected folder is the target, and open a "
 "dialog for you to enter the URL and revision to export from. This dialog has"
 " options to export only the top level folder, to omit external references, "
-"and to override the line end style for files which have the <literal>svn"
-":eol-style</literal> property set."
+"and to override the line end style for files which have the "
+"<literal>svn:eol-style</literal> property set."
 msgstr "<placeholder-1/> Podczas wykonania tego polecenia w folderze bez informacji o wersji, TortoiseSVN zakłada, że ​​w wybrany folder jest celem, i otwiera okno na wpisanie adresu URL i wersji jako źródła eksportu. To okno posiada opcje eksportu tylko katalogu najwyższego poziomu, pominięcia odnośników zewnętrznych i zastąpienia stylu końca linii dla plików, które mają ustawiony atrybut <literal>svn:eol-style</literal>."
 
 #. (para)
@@ -11841,8 +11843,8 @@ msgstr "Eksportowanie drzewa zmian"
 msgid ""
 "If you want to export a copy of your project tree structure but containing "
 "only the files which have changed in a particular revision, or between any "
-"two revisions, use the compare revisions feature described in <xref linkend"
-"=\"tsvn-dug-compare-revs\"/>."
+"two revisions, use the compare revisions feature described in <xref "
+"linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr "Jeśli chcecie wyeksportować kopię struktury drzewa projektu, ale zawierającą tylko pliki, które uległy zmianie w szczególnej wersji, lub pomiędzy dwiema wersjami, użyjcie funkcji porównania wersji opisanej w <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (para)
@@ -12046,8 +12048,8 @@ msgstr "Dodawanie numerów wydań do opisów zmian"
 msgid ""
 "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do "
 "this, you have to define some properties, which start with "
-"<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
-"=\"tsvn-dug-propertypage\"/>)"
+"<literal>bugtraq:</literal>. They must be set on Folders: (<xref "
+"linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr "Możecie zintegrować wybrane narzędzie śledzenia błędów w TortoiseSVN. Aby to zrobić, musicie zdefiniować kilka właściwości, które zaczynają się <literal>bugtraq:</literal>. Muszą one być ustawione na folderach: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (title)
@@ -12232,8 +12234,8 @@ msgid ""
 "If you are unfamiliar with regular expressions, take a look at the "
 "introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "Jeśli nie jesteście zaznajomieni z wyrażeniami regularnymi, prosimy spojrzeć na wprowadzenie na <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink> oraz dokumentację online i samouczek na <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
@@ -12463,8 +12465,8 @@ msgid ""
 " In case the domain name ever changes, you don't have to adjust the "
 "<literal>webviewer:revision</literal> and "
 "<literal>webviewer:pathrevision</literal> property. The format is the same "
-"as for the <literal>bugtraq:url</literal> property. See <xref linkend"
-"=\"tsvn-dug-bugtracker\"/>."
+"as for the <literal>bugtraq:url</literal> property. See <xref "
+"linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "Można również używać względnych adresów URL zamiast bezwzględnych. Jest to przydatne w przypadku, gdy przeglądarka internetowa jest w tej samej domenie/serwerze co repozytorium źródłowe. W przypadku, gdy nazwa domeny zmienia się kiedykolwiek, nie musisz dostosować atrybutów <literal>webviewer:revision</literal> ani <literal>webviewer:pathrevision</literal>. Format jest taki sam jak dla atrybutu <literal>bugtraq:url</literal>. Zobacz <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (para)
@@ -12694,12 +12696,12 @@ msgstr "<placeholder-1/> Strona ta umożliwia określenie, które z wpisów menu
 msgid ""
 "There is a special case for <guilabel>Get Lock</guilabel>. You can of course"
 " promote it to the top level using the list above, but as most files don't "
-"need locking this just adds clutter. However, a file with the <literal>svn"
-":needs-lock</literal> property needs this action every time it is edited, so"
-" in that case it is very useful to have at the top level. Checking the box "
-"here means that when a file is selected which has the <literal>svn:needs-"
-"lock</literal> property set, <guilabel>Get Lock</guilabel> will always "
-"appear at the top level."
+"need locking this just adds clutter. However, a file with the "
+"<literal>svn:needs-lock</literal> property needs this action every time it "
+"is edited, so in that case it is very useful to have at the top level. "
+"Checking the box here means that when a file is selected which has the "
+"<literal>svn:needs-lock</literal> property set, <guilabel>Get "
+"Lock</guilabel> will always appear at the top level."
 msgstr "Występuje tu przypadek szczególny dla <guilabel>Zablokuj</guilabel>. Można oczywiście promować go do najwyższego poziomu korzystając z listy powyżej, ale ponieważ większość plików nie ma potrzeby blokowania to tylko powoduje bałagan. Jednak plik z atrybutem <literal>svn:needs-lock</literal> potrzebuje tego działania za każdym razem przy edycji, więc w tym przypadku jest on bardzo przydatny na najwyższym poziomie. Zaznaczenie pola tutaj oznacza, że ​​jeśli jest zaznaczony plik, który ma ustawiony atrybut <literal>svn:needs-lock</literal>, <guilabel>Zablokuj</guilabel> pojawi się zawsze na najwyższym poziomie."
 
 #. (para)
@@ -14249,8 +14251,8 @@ msgid ""
 "Occasionally you may have to connect to a server which uses the same URL for"
 " all repositories. Older versions of <literal>svnbridge</literal> would do "
 "this. If you need to access such repositories you will have to check this "
-"option. If you don't, leave it unchecked to improve performance."
-msgstr "Czasami może być potrzebne połączenie z serwerem, które używa tego samego adresu URL dla wszystkich repozytoriów. Starsze wersje <literal>svnbridge</literal> poradziłyby sobie z tym. Jeśli potrzebny jest dostęp do takich repozytoriów trzeba zaznaczyć tę opcję. Jeśli nie, lepiej zostawić to pole puste w celu zwiększenia wydajności."
+"option. If you don't, unchecked it to improve performance."
+msgstr ""
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
@@ -14262,9 +14264,9 @@ msgid ""
 "even have done this yourself by copying a repository folder to create a new "
 "one. For all sorts of reasons this is a bad idea - a UUID should be "
 "<emphasis>unique</emphasis>. However, the log cache will still work in this "
-"situation if you check this box. If you don't need it, leave it unchecked to"
-" improve performance."
-msgstr "Niektóre usługi hostingowe nadają wszystkim repozytoriom ten sam UUID. Można nawet zrobić to samemu, kopiując folder repozytorium, aby utworzyć nowe. Z różnych powodów jest to zły pomysł - UUID musi być <emphasis>unikalny</emphasis>. Jednak bufor dziennika będzie nadal działać w tej sytuacji, jeśli zaznaczycie to pole. Jeśli nie potrzebujecie, zostawcie to pole niezaznaczone dla poprawy wydajności."
+"situation if you check this box. If you don't need it, unchecked it to "
+"improve performance."
+msgstr ""
 
 #. (term)
 msgid "If the repository cannot be contacted"
@@ -19339,8 +19341,8 @@ msgstr "Elementy menu rozwijalnego głębokość odnoszą się do argumentu <lit
 #. (para)
 #. (para)
 msgid ""
-"If <guilabel>Omit externals</guilabel> is checked, use the <literal"
-">--ignore-externals</literal> switch."
+"If <guilabel>Omit externals</guilabel> is checked, use the "
+"<literal>--ignore-externals</literal> switch."
 msgstr "Jeśli <guilabel>Pomiń zewnętrzne</guilabel> jest zaznaczony, należy użyć przełącznika <literal>--ignore-externals</literal>."
 
 #. (para)
@@ -19510,8 +19512,8 @@ msgstr "Domyślnie TortoiseSVN próbuje pobrać 100 opisów zmian za pomocą met
 
 #. (para)
 msgid ""
-"If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal"
-">--stop-on-copy</literal> switch."
+"If <guilabel>Stop on copy/rename</guilabel> is checked, use the "
+"<literal>--stop-on-copy</literal> switch."
 msgstr "Jeśli <guilabel>Zatrzymaj na kopii/zmianie nazwy</guilabel> jest zaznaczony, należy użyć przełącznika <literal>--stop-on-copy</literal>."
 
 #. (screen)
@@ -19941,8 +19943,8 @@ msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> Nakładka <emphasis>w
 #. (para)
 msgid ""
 "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs "
-"Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
-":needs-lock</literal> property set."
+"Lock</emphasis> overlay is used to indicate when a file has the "
+"<literal>svn:needs-lock</literal> property set."
 msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> Nakładka <emphasis>wymaga blokady</emphasis> jest używana do wskazania, kiedy plik ma ustalony atrybut <literal>svn:needs-lock</literal>."
 
 #. (para)

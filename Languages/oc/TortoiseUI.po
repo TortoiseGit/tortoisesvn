@@ -12,13 +12,14 @@
 # Translators:
 # Cédric Valmary <cvalmary@yahoo.fr>, 2016
 # Cédric Valmary <cvalmary@yahoo.fr>, 2016
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:11+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Occitan (post 1500) (http://www.transifex.com/luebbe/tortoisesvn/language/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2054,6 +2055,10 @@ msgstr "Autorizar diferents depauses a utilizar la meteissa URL, ex. http ://loc
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Autorizar mantun depaus a utilizar lo meteis UUID, per exemple las còpias de depauses"
+
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -4968,6 +4973,10 @@ msgstr "General::Bóstia de Dialòg 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "General::Dialògs 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -10085,6 +10094,10 @@ msgstr "Per panar lo verrolh, fasètz un clic-dreit sul repertòri parent e sele
 msgid "To:"
 msgstr "Au :"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10120,7 +10133,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff : la visionadoira de diferéncias d'imatge per TortoiseSVN\n\nLos paramètres de linha de comandas disponibles son :\n/left :\"camin de l'imatge d'esquèrra\"\n/lefttitle :\"títol d'afichar per l'imatge d'esquèrra\"\n/right :\"camin de l'imatge de dreita\"\n/righttitle :\"títol d'afichar per l'imatge de dreita\"\n/overlay\t\tActivar lo mòde overlay\n/fit\t\tAdaptar las talhas dels imatges\n/showinfo\t\tAfichar las bóstias d'informacion dels imatges"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10376,6 +10389,11 @@ msgstr "Nosèl pas modificat"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Anullar seleccion"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11398,6 +11416,10 @@ msgstr "escafat"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "disc [ko] :"
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "en"
 
 #. Resource IDs: (1342)
 msgid "eol style"

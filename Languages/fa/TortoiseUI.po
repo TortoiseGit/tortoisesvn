@@ -11,20 +11,21 @@
 # Authors:
 # Translators:
 # A.Mehraban <Mehr.Ban@chmail.ir>, 2020
-# Ebrahim Byagowi, 2012
+# ebraminio, 2012
 # Ehsan Alimohammadi <alimohamadi.eh@gmail.com>, 2016
 # Emad Farrokhi <emadfh@gmail.com>, 2015
 # Hossein Montazeri <hm.webmaster@gmail.com>, 2012
 # Mohammad Zare <mohammad.zr90@gmail.com>, 2013,2019
 # mohsensajjadi <mohsensajjadi@yahoo.com>, 2013
 # mohsensajjadi <mohsensajjadi@yahoo.com>, 2011
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:12+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Persian (http://www.transifex.com/luebbe/tortoisesvn/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2060,6 +2061,10 @@ msgstr "http://localhost/myrepos/ یکسان، مثال:  URL اجازهٔ اس�
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "اجازهٔ استفاده مخزن‌های مختلف از UUIDهای یکسان، مثال مخزن‌های کپی شده"
+
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -4974,6 +4979,10 @@ msgstr "عمومی::دیالوگ 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "General::Dialogs 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -10091,6 +10100,10 @@ msgstr "To steal the lock, right-click on the parent folder of this item and sel
 msgid "To:"
 msgstr "به:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10126,7 +10139,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: ابزار مشاهده کننده اختلافات تصویر برای TortoiseSVN\n\nپارامترهای خط فرمانی موجود عبارتند از:\n/left:\"مسیر تصویر سمت چپ\"\n/lefttitle:\"عنوان تصویر سمت چپ\"\n/right:\"مسیر تصویر سمت راست\"\n/righttitle:\"عنوان تصویر سمت راست\"\n/overlay\t\tto enable overlay mode\n/fit\t\tto fit the images sizes\n/showinfo\t\tto show the image info boxes"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10382,6 +10395,11 @@ msgstr "گره فاقد تغییر"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "برداشتن تیک"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11404,6 +11422,10 @@ msgstr "حذف شده"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "دیسک [kB]: "
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "en"
 
 #. Resource IDs: (1342)
 msgid "eol style"

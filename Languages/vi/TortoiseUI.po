@@ -12,13 +12,14 @@
 # Translators:
 # Khoa Dang <dndk82@yahoo.com>, 2011-2012
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:17+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/luebbe/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2054,6 +2055,10 @@ msgstr "Cho phép các kho chứa khác nhau dùng cùng một URL, ví dụ: ht
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Cho phép các kho chứa khác nhau dùng cùng một UUID, ví dụ: sao chép kho chứa"
+
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -4968,6 +4973,10 @@ msgstr "Tổng quát::Hộp thoại 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "General::Dialogs 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -10085,6 +10094,10 @@ msgstr "Để đánh cắp khóa, nhấn chuột phải trên thư mục cha c�
 msgid "To:"
 msgstr "Đến:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10120,7 +10133,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: Chương trình xem khác biệt ảnh cho TortoiseSVN\n\nCác tham số dòng lệnh có được:\n/left:\"đường dẫn tới ảnh bên trái\"\n/lefttitle:\"tiêu đề để thể hiện cho ảnh bên trái\"\n/right:\"đường dẫn tới ảnh bên phải\"\n/righttitle:\"tiêu đề để thể hiện cho ảnh bên phải\"\n/overlay\t\tđể cho phép chế độ nạp chồng\n/fit\t\tđể vừa với các kích thước ảnh\n/showinfo\t\tđể hiện hộp thông tin ảnh"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10376,6 +10389,11 @@ msgstr "Nút không đổi"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Bỏ chọn"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11398,6 +11416,10 @@ msgstr "đã xóa"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "ổ đĩa [kB]: "
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "vi"
 
 #. Resource IDs: (1342)
 msgid "eol style"

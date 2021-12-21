@@ -21,14 +21,15 @@
 # Magnus Österlund, 2013
 # Magnus Österlund, 2013,2020
 #   <pojk3n@gmail.com>, 2011
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 # Stig Nordlander <stig@nordlander.eu>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:16+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Swedish (http://www.transifex.com/luebbe/tortoisesvn/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2065,6 +2066,10 @@ msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Tillåt olika arkiv att använda samma UUID. Tex http://localhost/myrepos/"
 
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
+
 #. Resource IDs: (1896)
 msgid "Already merged"
 msgstr "Redan förenade"
@@ -3291,7 +3296,7 @@ msgstr "Kopierar..."
 #. Resource IDs: (1292)
 #, c-format
 msgid "Could not add %ls to the ignore list!"
-msgstr "Kunde inte lägga till %ls på undtantagslistan!"
+msgstr "Kunde inte lägga till %ls på undantagslistan!"
 
 #. Resource IDs: (9300)
 #, c-format
@@ -4121,11 +4126,11 @@ msgstr "Editera egenskaper"
 
 #. Resource IDs: (2322)
 msgid "Edit Property Conflicts"
-msgstr ""
+msgstr "Redigera egenskapskonflikter"
 
 #. Resource IDs: (2321)
 msgid "Edit Text Conflicts"
-msgstr ""
+msgstr "Redigera textkonflikt"
 
 #. Resource IDs: (2318)
 msgid "Edit Tree Conflicts"
@@ -4174,13 +4179,13 @@ msgstr "Redigera..."
 msgid ""
 "Edit\n"
 "Edit text conflicts"
-msgstr ""
+msgstr "Redigera\nRedigera textkonflikt"
 
 #. Resource IDs: (1049)
 msgid ""
 "Edit\n"
 "change merged property value in editor"
-msgstr ""
+msgstr "Redigera\nÄndra sammanslagna egenskapsvärden"
 
 #. Resource IDs: (9295)
 msgid "Edits the selected property value"
@@ -4978,6 +4983,10 @@ msgstr "Allmänt::Dialoger 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "Allmänt:Dialoger 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -10095,6 +10104,10 @@ msgstr "För ett stjäla låset, högerklicka på mappen objektet ligger i och v
 msgid "To:"
 msgstr "Till:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10130,7 +10143,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: visar skillnader mellan bilder för TortoiseSVN\n\nFöljande kommandoradsparametrar är tillgängliga:\n/left:\"sökväg till den vänstra bilden\"\n/lefttitle:\"titel för den vänstra bilden\"\n/right:\"sökväg till den högra bilden\"\n/righttitle:\"titel för den högra bilden\"\n/overlay\t\tslår på överlagrinsläget\n/fit\t\tanpassa bildstorlekarna\n/showinfo\t\tvisa bildinformation"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10386,6 +10399,11 @@ msgstr "Ej modifierad nod"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Avmarkera"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11408,6 +11426,10 @@ msgstr "borttagen"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "disk [kB]:"
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "en"
 
 #. Resource IDs: (1342)
 msgid "eol style"

@@ -48,15 +48,16 @@
 # LoubiTek, 2018
 # ShevAbam, 2015
 # ShevAbam, 2015-2016
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 # 4a14a73d523224463300dea5e0502458_3dab472, 2012
 # Stéphane Aulery <saulery@legtux.org>, 2020
-# Thomas Lemoine, 2019-2020
+# Thomas Lemoine, 2019-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-16 09:36+0000\n"
+"PO-Revision-Date: 2021-08-28 09:24+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +136,7 @@ msgid ""
 " examine the history of how and when your data changed, and who changed it. "
 "This is why many people think of Subversion and version control systems in "
 "general as a sort of <quote>time machine</quote>."
-msgstr "TortoiseSVN est un client Windows open-source gratuit pour le système de contrôle de version <firstterm>Apache™ Subversion®</firstterm>. TortoiseSVN gère des fichiers et répertoires dans le temps. Les fichiers sont stockés dans un <firstterm>dépôt</ firstterm> central. Le dépôt est un peu comme un serveur de fichiers ordinaire, sauf qu'il se rappelle chaque changement fait à vos fichiers et répertoires. Cela vous permet de récupérer les anciennes versions de vos fichiers et examiner l'histoire de comment et quand vos données ont changé, et qui les a changé. C'est pourquoi beaucoup de gens voient Subversion et des systèmes de contrôle de versions en général, comme d'une sorte de <quote>machine à remonter le temps</ quote>."
+msgstr "TortoiseSVN est un client Windows open-source gratuit pour le système de contrôle de version <firstterm>Apache™ Subversion®</firstterm>. TortoiseSVN gère des fichiers et répertoires dans le temps. Les fichiers sont stockés dans un <firstterm>dépôt</firstterm> central. Le dépôt est un peu comme un serveur de fichiers ordinaire, sauf qu'il se rappelle chaque changement fait à vos fichiers et répertoires. Cela vous permet de récupérer les anciennes versions de vos fichiers et examiner l'histoire de comment et quand vos données ont changé, et qui les a changé. C'est pourquoi beaucoup de gens voient Subversion et des systèmes de contrôle de versions en général, comme d'une sorte de <quote>machine à remonter le temps</quote>."
 
 #. (para)
 msgid ""
@@ -330,7 +331,7 @@ msgid ""
 "url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>."
 " The current development line is located under <filename>/trunk/</filename>,"
 " and the released versions are located under <filename>/tags/</filename>."
-msgstr "Bien que la plûpart des utilisateurs téléchargent l'installateur, vous avez également accès à l'intégralité du code source du logiciel. Vous pouvez y naviguer en suivant le lien<ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. La version actuelle de développement se trouve sous <filename>/trunk/</filename> et les versions publiées sous <filename>/tags/</filename>."
+msgstr "Bien que la plupart des utilisateurs téléchargent l'installateur, vous avez également accès à l'intégralité du code source du logiciel. Vous pouvez y naviguer en suivant le lien<ulink url=\"https://osdn.net/projects/tortoisesvn/scm/svn/\"><citetitle>https://osdn.net/projects/tortoisesvn/scm/svn/</citetitle></ulink>. La version actuelle de développement se trouve sous <filename>/trunk/</filename> et les versions publiées sous <filename>/tags/</filename>."
 
 #. (title)
 msgid "Development"
@@ -596,7 +597,7 @@ msgid ""
 "press the <keycap>A</keycap>-Key as well. <action>Right drag</action>: press"
 " the right mouse button and while holding it down <emphasis>drag</emphasis> "
 "the items to the new location."
-msgstr "Les actions utilisateur sont mises en évidence en gras. <keycap>Alt+A</keycap> : appuyez sur la touche <keycap>Alt</keycap>-de votre clavier et appuyez en même temps sur la touche <keycap>A</keycap>. <action>Glisser avec le bouton droit</action> : appuyez sur le bouton droit de la souris et, en gardant le bouton appuyé, faites <emphasis>glisser</emphasis> les éléments à leur nouvel emplacement."
+msgstr "Les actions utilisateur sont mises en évidence en gras. <keycap>Alt+A</keycap> : appuyez sur la touche <keycap>Alt</keycap> de votre clavier et appuyez en même temps sur la touche <keycap>A</keycap>. <action>Glisser avec le bouton droit</action> : appuyez sur le bouton droit de la souris et, en gardant le bouton appuyé, faites <emphasis>glisser</emphasis> les éléments à leur nouvel emplacement."
 
 #. (para)
 msgid ""
@@ -831,7 +832,7 @@ msgid ""
 "we add our own project name <filename>Widget1</filename>. Note that there "
 "are 3 slashes after <filename>file:</filename> and that forward slashes are "
 "used throughout."
-msgstr "Nous avons à présent un référentiel, mais il est complètement vide pour le moment. Supposons que j'aie un ensemble de fichiers dans <filename>C:\\Projets\\Widget1</filename> que je voudrais ajouter. Accédez au répertoire <filename>Widget1</filename> dans l'explorateur et faites un clic droit dessus. Maintenant, sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem> Importer...</guimenuitem></menuchoice> qui ouvre une boîte de dialogue <placeholder-1/>. Un dépôt Subversion est référencé par une URL, ce qui permet de le spécifier de manière univoque partout sur Internet. Dans notre exemple, nous avons besoin de pointer sur notre propre dépôt local qui a une URL du type <filename>file:///c:/svn_repos/trunk</filename>, auquel nous allons ajouter notre nom de projet <filename>Widget1</filename>. Notez qu'il y a 3 barres obliques après <filename>file:</filename> et que ce sont des barres obliques (et non inverses) qui sont utilisées ensuite."
+msgstr "Nous avons à présent un référentiel, mais il est complètement vide pour le moment. Supposons que j'aie un ensemble de fichiers dans <filename>C:\\Projets\\Widget1</filename> que je voudrais ajouter. Accédez au répertoire <filename>Widget1</filename> dans l'explorateur et faites un clic droit dessus. Maintenant, sélectionnez <menuchoice><guimenu>TortoiseSVN</guimenu><guimenuitem> Importer...</guimenuitem></menuchoice> qui ouvre une boîte de dialogue. <placeholder-1/> Un dépôt Subversion est référencé par une URL, ce qui permet de le spécifier de manière univoque partout sur Internet. Dans notre exemple, nous avons besoin de pointer sur notre propre dépôt local qui a une URL du type <filename>file:///c:/svn_repos/trunk</filename>, auquel nous allons ajouter notre nom de projet <filename>Widget1</filename>. Notez qu'il y a 3 barres obliques après <filename>file:</filename> et que ce sont des barres obliques (et non inverses) qui sont utilisées ensuite."
 
 #. (para)
 msgid ""
@@ -842,7 +843,7 @@ msgid ""
 " In this case we can say something simple like <quote>Import the Widget1 "
 "project</quote>. Click on <guibutton>OK</guibutton> and the folder is added "
 "to your repository."
-msgstr "L'autre caractéristique importante de cette boîte de dialogue est la partie <guilabel>Message important</guilabel> qui vous permet d'écrire un message décrivant ce que vous faites. Quand vous regardez votre historique de projet, ces messages de livraison sont un guide précieux pour savoir quelles modifications ont été faites et pourquoi. Dans notre exemple, on peut écrire quelque chose de simple comme <quote>Importer le projet Widget1 </quote>. Cliquez sur <guibutton>OK</guibutton> et le dossier est ajouté à votre dépôt."
+msgstr "L'autre caractéristique importante de cette boîte de dialogue est la partie <guilabel>Commentaire de l'import</guilabel> qui vous permet d'écrire un message décrivant ce que vous faites. Quand vous regardez votre historique de projet, ces commentaires de livraison sont un guide précieux pour savoir quelles modifications ont été faites et pourquoi. Dans notre exemple, on peut écrire quelque chose de simple comme <quote>Importation du projet Widget1 </quote>. Cliquez sur <guibutton>OK</guibutton> et le dossier est ajouté à votre dépôt."
 
 #. (title)
 msgid "Checking out a Working Copy"
@@ -1222,13 +1223,13 @@ msgid ""
 "the same project, copied from the repository. They work concurrently, and "
 "make changes to the same file <filename>A</filename> within their copies. "
 "Sally saves her changes to the repository first. When Harry attempts to save"
-" his changes later, the repository informs him that his file A is <firstterm"
-">out-of-date</firstterm>. In other words, that file A in the repository has "
-"somehow changed since he last copied it. So Harry asks his client to "
-"<firstterm>merge</firstterm> any new changes from the repository into his "
-"working copy of file A. Chances are that Sally's changes don't overlap with "
-"his own; so once he has both sets of changes integrated, he saves his "
-"working copy back to the repository."
+" his changes later, the repository informs him that his file A is "
+"<firstterm>out-of-date</firstterm>. In other words, that file A in the "
+"repository has somehow changed since he last copied it. So Harry asks his "
+"client to <firstterm>merge</firstterm> any new changes from the repository "
+"into his working copy of file A. Chances are that Sally's changes don't "
+"overlap with his own; so once he has both sets of changes integrated, he "
+"saves his working copy back to the repository."
 msgstr "Voici un exemple. Disons qu'Harry et Sally ont chacun une copie de travail du même projet, extrait du dépôt. Ils travaillent en même temps et modifient localement le même fichier <filename>A</filename>. Sally sauvegarde ses changements dans le dépôt d'abord. Quand Harry essaie de sauvegarder ses changements, le dépôt l'informe que son fichier A est <firstterm>périmé</firstterm>. Autrement dit, dans le dépôt, ce fichier A a été modifié depuis qu'il a été extrait. Donc Harry demande à son client de <firstterm>fusionner</firstterm> les nouveaux changements du fichier A du dépôt avec sa copie de travail. Il y a des chances que les changements de Sally ne se chevauchent pas avec les siens ; ainsi une fois qu'il a les deux changements intégrés, il sauvegarde sa copie de travail sur le dépôt."
 
 #. (title)
@@ -1901,8 +1902,8 @@ msgstr "Un dépôt est alors créé à l'intérieur du nouveau dossier. <emphasi
 #. (para)
 msgid ""
 "You will also be asked whether you want to create a directory structure "
-"within the repository. Find out about layout options in <xref linkend"
-"=\"tsvn-repository-layout\"/>."
+"within the repository. Find out about layout options in <xref "
+"linkend=\"tsvn-repository-layout\"/>."
 msgstr "Il vous sera également demandé si vous souhaitez créer une structure de répertoire dans le dépôt. Renseignez-vous sur les options de structuration ici : <xref linkend=\"tsvn-repository-layout\"/>."
 
 #. (para)
@@ -1997,8 +1998,9 @@ msgid ""
 "<literal>file://</literal> access is intended for local, single-user access "
 "only, particularly testing and debugging. When you want to share the "
 "repository you <emphasis>really</emphasis> need to set up a proper server, "
-"and it is not nearly as difficult as you might think. Read <xref linkend"
-"=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
+"and it is not nearly as difficult as you might think. Read <xref "
+"linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a "
+"server."
 msgstr "Les accès de type <literal>file://</literal> sont uniquement prévus pour une utilisation locale et mono-utilisateur, en particulier à des fins de test et de debug. Lorsque vous voulez partager votre dépôt, vous devez <emphasis>vraiment</emphasis> mettre en place un vrai serveur, et c'est loin d'être aussi compliqué qu'il y parait. Lisez <xref linkend=\"tsvn-serversetup\"/> pour obtenir des conseils sur le choix et l'installation d'un serveur."
 
 #. (title)
@@ -2509,8 +2511,8 @@ msgstr "L'explorateur affichant des icônes superposées"
 msgid ""
 "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon"
 " overlays which appear on files in your working copy. These show you at a "
-"glance which of your files have been modified. Refer to <xref linkend"
-"=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
+"glance which of your files have been modified. Refer to <xref "
+"linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
 "represent."
 msgstr "<placeholder-1/> Une des fonctionnalités les plus visibles de TortoiseSVN est la superposition d'icônes qui apparaissent sur les fichiers de votre copie de travail. Cela vous permet de voir au premier coup d'œil quels fichiers ont été modifiés. Référez-vous à <xref linkend=\"tsvn-dug-wcstatus-1\"/> pour découvrir que représentent les différentes icônes."
 
@@ -3415,8 +3417,8 @@ msgid ""
 "<filename>branches</filename> and <filename>tags</filename> to mark the "
 "three main areas. In case the setup is different, the detection of what is a"
 " tag/branch/trunk (also known as <literal>classification "
-"patterns</literal>), can be configured in the settings dialog: <xref linkend"
-"=\"tsvn-dug-settings-revgraph\"/>"
+"patterns</literal>), can be configured in the settings dialog: <xref "
+"linkend=\"tsvn-dug-settings-revgraph\"/>"
 msgstr "Cependant, cette vérification ne fonctionne que si la disposition du dépôt est une de celles recommandées, c'est-à-dire qu'elle utilise les noms <filename>trunk</filename>, <filename>branches</filename> et <filename>tags</filename> pour marquer les trois zones principales. Si votre disposition est différente, la détection de ce qui est une étiquette, une branche ou la branche principale (qu'on appelle aussi les <literal>tests de classification</literal>) peut se paramétrer dans la boîte de dialogue de configuration : <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
@@ -3610,8 +3612,8 @@ msgid ""
 "of TortoiseSVN. If you are unfamiliar with regular expressions, take a look "
 "at the introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "La fenêtre de commentaire comprend aussi une fonctionnalité de complétion automatique de noms de fichier et de fonction. Elle utilise des expressions régulières pour extraire les noms de classe et de fonction des fichiers (texte) que vous livrez, ainsi que les noms de fichiers eux-mêmes. Si un mot que vous tapez correspond à quelque chose dans la liste (une fois que vous avez tapé au moins 3 caractères ou appuyé sur <keycap>Ctrl+Espace</keycap>), une liste déroulante apparaît pour vous permettre de sélectionner le nom complet. Les expressions régulières fournies avec TortoiseSVN sont contenues dans le dossier <filename>bin</filename> de l'installation de TortoiseSVN. Vous pouvez également définir vos propres expressions régulières et les stocker dans <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Naturellement, votre fichier autolist privé ne sera pas écrasé lors d'une mise à jour de votre installation de TortoiseSVN. Si vous n'êtes pas à l'aise avec les expressions régulières, jetez un œil à l'introduction à <ulink url=\"https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re\"><citetitle>https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re</citetitle></ulink>. Vous pouvez également accéder à de la documentation en ligne et un tutoriel en anglais à <ulink url=\"https://www.regular-expressions.info/\"><citetitle>https://www.regular-expressions.info/</citetitle></ulink>."
 
@@ -4637,7 +4639,7 @@ msgstr "modifications"
 
 #. (primary)
 msgid "(+)"
-msgstr ""
+msgstr "(+)"
 
 #. (title)
 #. (title)
@@ -4676,7 +4678,7 @@ msgid ""
 "if unchanged files are inside a directory that's been moved, the status will"
 " show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
 " and it will be colored in blue as well."
-msgstr ""
+msgstr "Si des fichiers non modifiés se trouvent dans un répertoire qui a été déplacé, le statut affichera un signe <literal>+</literal> dans la colonne <guilabel>statut</guilabel>, et il sera également coloré en bleu."
 
 #. (para)
 msgid ""
@@ -4929,10 +4931,10 @@ msgstr "<placeholder-1/> Dans la boîte de dialogue de livraison vous pouvez voi
 
 #. (para)
 msgid ""
-"TortoiseSVN reserves one changelist name for its own use, namely <literal"
-">ignore-on-commit</literal>. This is used to mark versioned files which you "
-"almost never want to commit even though they have local changes. This "
-"feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
+"TortoiseSVN reserves one changelist name for its own use, namely "
+"<literal>ignore-on-commit</literal>. This is used to mark versioned files "
+"which you almost never want to commit even though they have local changes. "
+"This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr "TortoiseSVN se réserve pour son propre usage une liste de changements, appelée <literal>ignore-on-commit</literal>. Elle est utilisée pour marquer les fichiers versionnés que vous souhaitez rarement livrer même si vous les avez modifiés en local. Cette fonctionnalité est décrite dans <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 
 #. (para)
@@ -5648,8 +5650,8 @@ msgstr "Annoter les modifications"
 #. (para)
 msgid ""
 "Blame the selected revision and the previous revision for the selected file,"
-" and compare the blame reports using a visual diff tool. Read <xref linkend"
-"=\"tsvn-dug-blame-diffs\"/> for more detail."
+" and compare the blame reports using a visual diff tool. Read <xref "
+"linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Annote la révision sélectionnée et la révision précédente du fichier choisi et compare les rapports d'annotation en utilisant un outil de différenciation visuel. Lisez <xref linkend=\"tsvn-dug-blame-diffs\"/> pour plus de détails."
 
 #. (term)
@@ -6499,8 +6501,9 @@ msgstr "Comparaison entre répertoires"
 msgid ""
 "The built-in tools supplied with TortoiseSVN do not support viewing "
 "differences between directory hierarchies. But if you have an external tool "
-"which does support that feature, you can use that instead. In <xref linkend"
-"=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
+"which does support that feature, you can use that instead. In <xref "
+"linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have"
+" used."
 msgstr "Les outils intégrés fournis avec TortoiseSVN ne supportent pas la visualisation de différences entre les hiérarchies de répertoire. Mais si vous avez un outil externe qui, lui, supporte cette fonctionnalité, vous pouvez l'utiliser à la place. Dans <xref linkend=\"tsvn-dug-diff-tools\"/> nous vous parlerons de quelques outils que nous avons utilisés."
 
 #. (para)
@@ -6776,7 +6779,7 @@ msgstr "WinMerge"
 msgid ""
 "<ulink url=\"https://winmerge.org/\"><citetitle>WinMerge</citetitle></ulink>"
 " is a great open-source diff tool which can also handle directories."
-msgstr ""
+msgstr "<ulink url=\"https://winmerge.org/\"><citetitle>WinMerge</citetitle></ulink> est un excellent outil de comparaison open source qui sait aussi manipuler les répertoires."
 
 #. (term)
 msgid "Perforce Merge"
@@ -7013,8 +7016,8 @@ msgid ""
 "You can locate an older version of a file or folder in the log dialog and "
 "copy it to a new location in the repository directly from the log dialog "
 "using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create "
-"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend"
-"=\"tsvn-dug-showlog-2\"/> to find out more."
+"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref "
+"linkend=\"tsvn-dug-showlog-2\"/> to find out more."
 msgstr "Vous pouvez localiser une ancienne version d'un fichier ou d'un répertoire dans la boîte de dialogue de journal et la copier directement à un autre endroit du dépôt en utilisant <menuchoice><guimenu>Menu contextuel</guimenu><guimenuitem>Créer une branche/étiquette depuis la révision</guimenuitem></menuchoice>. Lisez <xref linkend=\"tsvn-dug-showlog-2\"/> pour plus d'informations."
 
 #. (para)
@@ -7437,9 +7440,9 @@ msgstr "Éviter que deux fichiers aient le même nom"
 msgid ""
 "There is a server hook script available at: <ulink "
 "url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
-"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
-"/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
-"in case conflicts."
+"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
+"scripts/</citetitle></ulink> that will prevent checkins which result in case"
+" conflicts."
 msgstr "Il y a un script hook serveur disponible à l'adresse : <ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink> qui bloque les livraisons qui créeraient des conflits de casse."
 
 #. (title)
@@ -8466,8 +8469,8 @@ msgstr "TortoiseSVN a quelques propriétés spéciales de son cru et elles comme
 #. (para)
 msgid ""
 "TortoiseSVN can integrate with some bug tracking tools. This uses project "
-"properties that start with <literal>bugtraq:</literal>. Read <xref linkend"
-"=\"tsvn-dug-bugtracker\"/> for further information."
+"properties that start with <literal>bugtraq:</literal>. Read <xref "
+"linkend=\"tsvn-dug-bugtracker\"/> for further information."
 msgstr "TortoiseSVN peut s'intégrer avec certains outils de suivi de bogue. Cela utilise des propriétés qui commencent par <literal>bugtraq:</literal>. Lisez <xref linkend=\"tsvn-dug-bugtracker\"/> pour plus d'informations."
 
 #. (para)
@@ -10470,12 +10473,12 @@ msgstr "Mettre les fichiers non verrouillés en lecture seule"
 #. (para)
 msgid ""
 "As mentioned above, the most effective way to use locking is to set the "
-"<literal>svn:needs-lock</literal> property on files. Refer to <xref linkend"
-"=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. "
-"Files with this property set will always be checked out and updated with the"
-" read-only flag set unless your working copy holds a lock. <graphic "
-"fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a "
-"special overlay to indicate this."
+"<literal>svn:needs-lock</literal> property on files. Refer to <xref "
+"linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
+"properties. Files with this property set will always be checked out and "
+"updated with the read-only flag set unless your working copy holds a lock. "
+"<graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN"
+" uses a special overlay to indicate this."
 msgstr "Comme mentionné ci-dessus, la façon la plus efficace d'utiliser le verrouillage est de mettre la propriété <literal>svn:needs-lock</literal> sur les fichiers. Référez-vous à <xref linkend=\"tsvn-dug-propertypage\"/> pour les instructions sur le mode d'activation des propriétés. Les fichiers avec cette propriété activée seront toujours extraits et mis à jour avec l'attribut Lecture seule activé à moins que votre copie de travaill ne détienne un verrou. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Pour vous le rappeler, TortoiseSVN utilise une coloration spéciale pour l'indiquer."
 
 #. (para)
@@ -10500,12 +10503,12 @@ msgstr "Quand vous créez un nouveau dépôt avec Subversion 1.2 ou supérieur, 
 
 #. (para)
 msgid ""
-"It is a good idea to install a <literal>post-lock</literal> and <literal"
-">post-unlock</literal> hook script on the server which sends out an email "
-"indicating the file which has been locked. With such a script in place, all "
-"your users can be notified if someone locks/unlocks a file. You can find an "
-"example hook script <filename>hooks/post-lock.tmpl</filename> in your "
-"repository folder."
+"It is a good idea to install a <literal>post-lock</literal> and "
+"<literal>post-unlock</literal> hook script on the server which sends out an "
+"email indicating the file which has been locked. With such a script in "
+"place, all your users can be notified if someone locks/unlocks a file. You "
+"can find an example hook script <filename>hooks/post-lock.tmpl</filename> in"
+" your repository folder."
 msgstr "C'est une bonne idée d'installer un script hook <literal>post-lock</literal> et <literal>post-unlock</literal> sur le serveur qui envoie un e-mail indiquant que le fichier a été verrouillé. Avec une tel script d'installé, tous vos utilisateurs peuvent être informés si quelqu'un verrouille/déverrouille un fichier. Vous pouvez trouver un script hook d'exemple <filename>hooks/post-lock.tmpl</filename> dans le dossier de votre dépôt."
 
 #. (para)
@@ -11802,8 +11805,8 @@ msgid ""
 "TortoiseSVN will assume that the selected folder is the target, and open a "
 "dialog for you to enter the URL and revision to export from. This dialog has"
 " options to export only the top level folder, to omit external references, "
-"and to override the line end style for files which have the <literal>svn"
-":eol-style</literal> property set."
+"and to override the line end style for files which have the "
+"<literal>svn:eol-style</literal> property set."
 msgstr "<placeholder-1/> Si vous exécutez cette commande sur un dossier non versionné, TortoiseSVN va supposer que le dossier sélectionné est la cible, et va ouvrir une boîte de dialogue pour que vous entriez l'URL et la révision vers lesquelles exporter. Cette boîte de dialogue a des options pour exporter seulement le dossier de niveau supérieur, pour omettre des références externes et pour remplacer le style de fin de ligne pour les fichiers pour lesquels <literal>svn:eol-style</literal> est activé."
 
 #. (para)
@@ -11875,8 +11878,8 @@ msgstr "Exporter une arborescence des modifications"
 msgid ""
 "If you want to export a copy of your project tree structure but containing "
 "only the files which have changed in a particular revision, or between any "
-"two revisions, use the compare revisions feature described in <xref linkend"
-"=\"tsvn-dug-compare-revs\"/>."
+"two revisions, use the compare revisions feature described in <xref "
+"linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr "Si vous voulez exporter une copie de votre arborescence de projet mais ne contenant que les fichiers qui ont changé dans une révision particulière, ou entre deux révisions, utilisez la fonctionnalité de comparaison de révisions décrite dans <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (para)
@@ -12080,8 +12083,8 @@ msgstr "Ajouter des numéros d'incidents aux messages de log"
 msgid ""
 "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do "
 "this, you have to define some properties, which start with "
-"<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
-"=\"tsvn-dug-propertypage\"/>)"
+"<literal>bugtraq:</literal>. They must be set on Folders: (<xref "
+"linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr "Vous pouvez intégrer le traqueur de bugs de votre choix dans TortoiseSVN. Pour ce faire, vous devez définir quelques propriétés, qui commencent par <literal>bugtraq:</literal>. Elles doivent être définies sur les dossiers :  (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (title)
@@ -12266,8 +12269,8 @@ msgid ""
 "If you are unfamiliar with regular expressions, take a look at the "
 "introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "Si les expressions régulières ne vous sont pas familières, vous pouvez consulter une introduction sur <ulink url=\"https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re\"><citetitle>https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re</citetitle></ulink>, et de la documentation en ligne et un tutoriel sur <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
@@ -12410,7 +12413,7 @@ msgid ""
 " which implements the required COM interface to interact with the <ulink "
 "url=\"http://code.google.com/hosting/\"><citetitle>Google "
 "Code</citetitle></ulink> issue tracker."
-msgstr "Toute interface de ce type est évidemment extrêmement spécifique à votre système de gestion d'incidents, ce qui fait que nous ne pouvons pas en fournir, et décrire comment créer un tel logiciel dépasse le cadre de ce manuel. La définition d'interface et les exemples de plugin en C# et C++/ATL sont disponibles dans le dossier <literal>contrib</literal> du <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-tracker-plugins\"><citetitle>dépôt TortoiseSVN</citetitle></ulink>. (La <xref linkend=\"tsvn-preface-source\"/> détaille comment accéder au dépôt.) Un résumé de l'API est également fourni en <xref linkend=\"tsvn-ibugtraqprovider\"/>. Un autre exemple (fonctionnel) de plugin en C# est <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, qui implémente l'interface COM requise pour interagir avec le gestionnaire d'incidents de <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
+msgstr "Toute interface de ce type est évidemment extrêmement spécifique à votre système de gestion d'incidents, ce qui fait que nous ne pouvons pas en fournir, et décrire comment créer un tel logiciel dépasse le cadre de ce manuel. La définition d'interface et les exemples de plugin en C# et C++/ATL sont disponibles dans le dossier <literal>contrib</literal> du <ulink url=\"https://svn.code.sf.net/p/tortoisesvn/code/trunk/contrib/issue-tracker-plugins\"><citetitle>dépôt TortoiseSVN</citetitle></ulink>. (La <xref linkend=\"tsvn-preface-source\"/> détaille comment accéder au dépôt.) Un résumé de l'API est également fourni au <xref linkend=\"tsvn-ibugtraqprovider\"/>. Un autre exemple (fonctionnel) de plugin en C# est <ulink url=\"http://code.google.com/p/gurtle/\"><citetitle>Gurtle</citetitle></ulink>, qui implémente l'interface COM requise pour interagir avec le gestionnaire d'incidents de <ulink url=\"http://code.google.com/hosting/\"><citetitle>Google Code</citetitle></ulink>."
 
 #. (title)
 msgid "Example issue tracker query dialog"
@@ -12456,7 +12459,7 @@ msgid ""
 "<ulink "
 "url=\"https://websvnphp.github.io/\"><citetitle>WebSVN</citetitle></ulink>. "
 "TortoiseSVN provides a means to link with these viewers."
-msgstr ""
+msgstr "Il existe plusieurs visionneuses de dépôt web compatibles avec Subversion, comme <ulink url=\"http://www.viewvc.org/\"><citetitle>ViewVC</citetitle></ulink> et <ulink url=\"https://websvnphp.github.io/\"><citetitle>WebSVN</citetitle></ulink>. TortoiseSVN vous fournit le moyen de vous relier à ces visionneuses."
 
 #. (para)
 msgid ""
@@ -12497,8 +12500,8 @@ msgid ""
 " In case the domain name ever changes, you don't have to adjust the "
 "<literal>webviewer:revision</literal> and "
 "<literal>webviewer:pathrevision</literal> property. The format is the same "
-"as for the <literal>bugtraq:url</literal> property. See <xref linkend"
-"=\"tsvn-dug-bugtracker\"/>."
+"as for the <literal>bugtraq:url</literal> property. See <xref "
+"linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "Vous pouvez utiliser des URLs relatives à la place des URLs absolues. Cela peut être utile quand votre visionneuse est sur le même serveur que votre dépôt. Ainsi, si vous changez de nom de domaine, vous n'aurez pas à modifier les propriétés <literal>webviewer:revision</literal> et <literal>webviewer:pathrevision</literal>. Le format est le même que pour la propriété <literal>bugtraq:url</literal>. Voir <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (para)
@@ -12728,12 +12731,12 @@ msgstr "<placeholder-1/> Cette page vous permet de spécifier quelles entrées d
 msgid ""
 "There is a special case for <guilabel>Get Lock</guilabel>. You can of course"
 " promote it to the top level using the list above, but as most files don't "
-"need locking this just adds clutter. However, a file with the <literal>svn"
-":needs-lock</literal> property needs this action every time it is edited, so"
-" in that case it is very useful to have at the top level. Checking the box "
-"here means that when a file is selected which has the <literal>svn:needs-"
-"lock</literal> property set, <guilabel>Get Lock</guilabel> will always "
-"appear at the top level."
+"need locking this just adds clutter. However, a file with the "
+"<literal>svn:needs-lock</literal> property needs this action every time it "
+"is edited, so in that case it is very useful to have at the top level. "
+"Checking the box here means that when a file is selected which has the "
+"<literal>svn:needs-lock</literal> property set, <guilabel>Get "
+"Lock</guilabel> will always appear at the top level."
 msgstr "Il existe un cas spécial pour <guilabel>Obtenir un verrou</guilabel>. Vous pouvez bien sûr le promouvoir au niveau supérieur en utilisant la liste ci-dessus mais puisque la plupart des fichiers n'ont pas besoin du verrouillage, cela ajoute juste du désordre. Cependant, un fichier avec la propriété <literal>svn:needs-lock</literal> nécessite cette action à chaque fois qu'il est modifié, donc dans ce cas, il est très utile de l'avoir au premier niveau. Ici, cocher la case signifie que lorsqu'un fichier ayant la propriété <literal>svn:needs-lock</literal> est sélectionné, <guilabel>Obtenir un verrou</guilabel> apparaitra toujours au premier niveau."
 
 #. (para)
@@ -12806,7 +12809,7 @@ msgstr "Si les longs messages standards prennent trop place sur votre écran, ut
 
 #. (term)
 msgid "Can double click in log list to compare with previous revision"
-msgstr "Double-cliquer dans la liste des journaux pour comparer avec la révision précédente"
+msgstr "Double-cliquer dans la liste du journal pour comparer avec la révision précédente"
 
 #. (para)
 msgid ""
@@ -12815,7 +12818,7 @@ msgid ""
 " is not enabled by default because fetching the diff is often a long "
 "process, and many people prefer to avoid the wait after an accidental double"
 " click, which is why this option is not enabled by default."
-msgstr ""
+msgstr "Si vous devez fréquemment comparer des révisions dans le panneau du haut de la boîte de dialogue du journal, vous pouvez utiliser cette option pour autoriser cette action sur un double clic. Elle n'est pas activée par défaut parce que récupérer le diff est souvent un processus long, et les gens préfèrent souvent éviter de devoir attendre après un double clic accidentel."
 
 #. (term)
 msgid "Auto-close"
@@ -14283,8 +14286,8 @@ msgid ""
 "Occasionally you may have to connect to a server which uses the same URL for"
 " all repositories. Older versions of <literal>svnbridge</literal> would do "
 "this. If you need to access such repositories you will have to check this "
-"option. If you don't, leave it unchecked to improve performance."
-msgstr "Parfois vous pouvez avoir à vous connecter à un serveur qui utilise la même URL pour tous les dépôts. Les anciennes versions de <literal>svnbridge</literal> devrait le faire. Si vous avez besoin d'accéder à ces dépôts, vous devez cocher cette option. Sinon, ne la cochez pas pour améliorer les performances."
+"option. If you don't, unchecked it to improve performance."
+msgstr ""
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
@@ -14296,9 +14299,9 @@ msgid ""
 "even have done this yourself by copying a repository folder to create a new "
 "one. For all sorts of reasons this is a bad idea - a UUID should be "
 "<emphasis>unique</emphasis>. However, the log cache will still work in this "
-"situation if you check this box. If you don't need it, leave it unchecked to"
-" improve performance."
-msgstr "Certains services d'hébergement donnent à tous leurs dépôts le même UUID. Vous pouvez même le faire vous-même en copiant un dossier de dépôt pour en créer un nouveau. Pour toutes sortes de raisons, cela est une mauvaise idée - un UUID doit être <emphasis>unique</emphasis>. Toutefois, le cache de log continue de fonctionner dans un tel cas si vous cochez cette case. Si vous n'en avez pas besoin, laissez décochée pour améliorer les performances."
+"situation if you check this box. If you don't need it, unchecked it to "
+"improve performance."
+msgstr ""
 
 #. (term)
 msgid "If the repository cannot be contacted"
@@ -19373,8 +19376,8 @@ msgstr "Les éléments de profondeur de la zone de liste déroulante se rapporte
 #. (para)
 #. (para)
 msgid ""
-"If <guilabel>Omit externals</guilabel> is checked, use the <literal"
-">--ignore-externals</literal> switch."
+"If <guilabel>Omit externals</guilabel> is checked, use the "
+"<literal>--ignore-externals</literal> switch."
 msgstr "Si <guilabel>Omettre les références externes</guilabel> est coché, utilisez le commutateur <literal>--ignore-externals</literal>."
 
 #. (para)
@@ -19544,8 +19547,8 @@ msgstr "Par défaut, TortoiseSVN essaye de récupérer 100 commentaires en utili
 
 #. (para)
 msgid ""
-"If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal"
-">--stop-on-copy</literal> switch."
+"If <guilabel>Stop on copy/rename</guilabel> is checked, use the "
+"<literal>--stop-on-copy</literal> switch."
 msgstr "Si <guilabel>Arrêt à la copie/renommage</guilabel> est coché, utilisez le commutateur <literal>--stop-on-copy</literal>."
 
 #. (screen)
@@ -19975,8 +19978,8 @@ msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> L'icone de recouvreme
 #. (para)
 msgid ""
 "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs "
-"Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
-":needs-lock</literal> property set."
+"Lock</emphasis> overlay is used to indicate when a file has the "
+"<literal>svn:needs-lock</literal> property set."
 msgstr ""
 
 #. (para)

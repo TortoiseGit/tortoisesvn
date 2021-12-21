@@ -26,7 +26,7 @@
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2012-2015
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2018-2019
 # Michael Tatarski <agentmoe@yahoo.de>, 2020
-# Mr.Update, 2019-2020
+# Mr.Update, 2019-2021
 # peu <peu@rekoba.de>, 2013
 # peu <peu@rekoba.de>, 2013
 # Stefan Kueng <tortoisesvn@gmail.com>, 2014,2019-2021
@@ -36,7 +36,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-02-08 19:21+0000\n"
+"PO-Revision-Date: 2021-12-21 17:01+0000\n"
 "Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2074,6 +2074,10 @@ msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Erlaubt es, verschiedenen Projektarchiven dieselbe UUID zu verwenden, z.B. kopierten Projektarchiven"
 
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr "Erlaube gemischte Revisionen (nicht empfohlen)"
+
 #. Resource IDs: (1896)
 msgid "Already merged"
 msgstr "Bereits zusammengeführt"
@@ -2435,7 +2439,7 @@ msgstr "Ticket-IDs"
 
 #. Resource IDs: (385)
 msgid "Bug-Urls"
-msgstr "Bug-Urls"
+msgstr "Bug-URLs"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -3968,7 +3972,7 @@ msgstr "Möchten Sie fortfahren?"
 
 #. Resource IDs: (62182)
 msgid "Do you want to recover these auto-saved documents?"
-msgstr "Wollen Sie die autmatisch gespeicherten Dokumente wiederherstellen?"
+msgstr "Wollen Sie die automatisch gespeicherten Dokumente wiederherstellen?"
 
 #. Resource IDs: (IDS_WARNMODIFIEDLOOSECHANGESOPTIONS)
 msgid ""
@@ -4068,7 +4072,7 @@ msgstr "E"
 
 #. Resource IDs: (32816 - Menu)
 msgid "E&xact copy sources"
-msgstr "E&xakte Kopiequellen"
+msgstr "E&xakte Kopierquellen"
 
 #. Resource IDs: (1518)
 msgid "E&xclude paths:"
@@ -4988,6 +4992,10 @@ msgstr "Allgemein::Dialoge 2"
 msgid "General::Dialogs 3"
 msgstr "Allgemein::Dialoge 3"
 
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr "Allgemein::Win11 Kontextmenu"
+
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Erzeuge Patchdatei..."
@@ -5475,7 +5483,7 @@ msgstr "Aktivieren Sie diese Option, damit das Projektarchiv beim Start des Dial
 msgid ""
 "If enabled, working copy folders which are excluded from\n"
 "showing overlays still show the overlay for status 'normal'"
-msgstr "Für Ordner innerhalb von Arbeitskopien, die aufgrund eines Ausschlußpfades\nkeine überlagerten Symbole erhalten, wird das Statussymbol 'Normal' angezeigt."
+msgstr "Für Ordner innerhalb von Arbeitskopien, die aufgrund eines Ausschlusspfades\nkeine überlagerten Symbole erhalten, wird das Statussymbol 'Normal' angezeigt."
 
 #. Resource IDs: (3106)
 msgid ""
@@ -5854,7 +5862,7 @@ msgid ""
 "To: %2!ls!\n"
 "\n"
 "Improper use of relocate will corrupt your working copy!"
-msgstr "Es scheint, als versuchten Sie, Ihre Arbeitskopie in einen anderen Pfad innerhalb des selben Projektarchivs zu verlegen.\nVon: %1!ls!\nNach: %2!ls!\n\nEin unsachgemäßes Umplatzieren wird Ihre Arbeitskopie beschädigen!"
+msgstr "Es scheint, als versuchten Sie, Ihre Arbeitskopie in einen anderen Pfad innerhalb desselben Projektarchivs zu verlegen.\nVon: %1!ls!\nNach: %2!ls!\n\nEin unsachgemäßes Umplatzieren wird Ihre Arbeitskopie beschädigen!"
 
 #. Resource IDs: (1480)
 msgid "Items in &externals"
@@ -7721,7 +7729,7 @@ msgstr "RegEx-Fehler gefunden!\r\n%S\r\nZurückgesetzt, um weitermachen zu könn
 
 #. Resource IDs: (IDS_ERR_REGEX_INVALID)
 msgid "Regex is invalid!"
-msgstr "RegEx ist ungülig!"
+msgstr "RegEx ist ungültig!"
 
 #. Resource IDs: (65535)
 msgid "Regex matching message:"
@@ -9060,7 +9068,7 @@ msgstr "Zeigt den Wert der Zeilenende-Eigenschaft"
 msgid ""
 "Shows the lock owner of locked files. Disable this to improve performance "
 "with older servers."
-msgstr "Zeigt den Eigner einer Dateisperre. Deaktivieren Sie diese Option, um die Leistung ältere Server zu verbessern."
+msgstr "Zeigt den Eigner einer Dateisperre. Deaktivieren Sie diese Option, um die Leistung älterer Server zu verbessern."
 
 #. Resource IDs: (181)
 msgid "Shows the log for the selected file / folder"
@@ -9142,7 +9150,7 @@ msgstr "Einige Dateien wurden außerhalb von TortoiseMerge geändert.\nWollen Si
 
 #. Resource IDs: (1341)
 msgid "Something went wrong"
-msgstr "Etwas ist schief gegangen"
+msgstr "Etwas ist schief gegangen!"
 
 #. Resource IDs: (1126)
 msgid "Sort by commit count"
@@ -10104,6 +10112,10 @@ msgstr "Um die Sperre zu stehlen, machen Sie einen Rechtsklick auf den Elternord
 msgid "To:"
 msgstr "Bis:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr "Kontextmenu in Windows 11"
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10139,7 +10151,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: Das Programm zum Vergleichen von Bildern\n\nKommandozeilenparameter sind:\n/left:\"Pfad zum linken Bild\"\n/lefttitle:\"Titel für linkes Bild\"\n/right:\"Pfad zum rechten Bild\"\n/righttitle:\"Titel für rechtes Bild\"\n/overlay\tAktiviert die Überlagerung\n/fit\tGleicht die Bildgrößen an\n/showinfo\tZeigt die Bildinformationen an"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10328,11 +10340,11 @@ msgstr "URLs für TortoiseSVN-Vergleich"
 
 #. Resource IDs: (382)
 msgid "URLs to view revision for path in webviewer"
-msgstr "URLs um Pfad-Revision im Webviewer anzeigen"
+msgstr "URLs, um Pfad-Revision im Webviewer anzuzeigen"
 
 #. Resource IDs: (381)
 msgid "URLs to view revision in webviewer"
-msgstr "URLS um Revisionen im Webviewer anzuzeigen"
+msgstr "URLs, um Revision im Webviewer anzuzeigen"
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
@@ -10395,6 +10407,11 @@ msgstr "Unveränderter Knoten"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Abwählen"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr "Nicht ausgewählte Einträge werden nicht im Kontextmenu von Win11 angezeigt"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -10644,7 +10661,7 @@ msgstr "Bänder verwenden"
 
 #. Resource IDs: (1230)
 msgid "Use URL of &WC as the default \"From:\" URL"
-msgstr "Nutze die URL der &Arbeitskopie als \"Von:\"-URL"
+msgstr "Verwende die URL der &Arbeitskopie als \"Von:\"-URL"
 
 #. Resource IDs: (Dialog IDD_OPENDLG: Control id 1064)
 msgid "Use Unified Diff from &clipboard"
@@ -11418,6 +11435,10 @@ msgstr "Gelöscht"
 msgid "disk [kB]: "
 msgstr "Platte [kB]: "
 
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "de"
+
 #. Resource IDs: (1342)
 msgid "eol style"
 msgstr "Zeilenende:"
@@ -12020,7 +12041,7 @@ msgid ""
 "URL pointing to the web viewer for the repository for a specific file and revision.\r\n"
 "The string %REVISION% in the URL is replaced with the revision number,\r\n"
 "the string %PATH% is replaced with the path to the file relative to the repository root."
-msgstr "webviewer:pathrevision\r\nURL eines Webbetrachters, die auf eine Datei des Projektarchivs in einer spezifischen Revision zeigt.\r\nDer Platzhalter %REVISION% in der URL wird durch die Revisionsnummer ersetzt.\r\nDer Platzhalter %PATH% wird durch den Pfad relativ zur Basis des Projektarchivs ersetzt."
+msgstr "webviewer:pathrevision\r\nURL eines Webviewers, die auf eine Datei des Projektarchivs in einer spezifischen Revision zeigt.\r\nDer Platzhalter %REVISION% in der URL wird durch die Revisionsnummer ersetzt.\r\nDer Platzhalter %PATH% wird durch den Pfad relativ zur Basis des Projektarchivs ersetzt."
 
 #. Resource IDs: (9260)
 #, c-format
@@ -12028,7 +12049,7 @@ msgid ""
 "webviewer:revision\r\n"
 "URL pointing to the web viewer for the repository for a specific revision.\r\n"
 "The string %REVISION% in that URL is replaced with the revision number."
-msgstr "webviewer:revision\r\nURL eines Webbetrachters, die auf das Projektarchiv in einer spezifischen Revision zeigt.\r\nDer Platzhalter %REVISION% in der URL wird durch die Revisionsnummer ersetzt."
+msgstr "webviewer:revision\r\nURL eines Webviewers, die auf das Projektarchiv in einer spezifischen Revision zeigt.\r\nDer Platzhalter %REVISION% in der URL wird durch die Revisionsnummer ersetzt."
 
 #. Resource IDs: (3909)
 msgid "week"

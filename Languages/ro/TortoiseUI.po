@@ -17,14 +17,15 @@
 # Ioan-Paul Pirau <ioanpaulpirau@gmail.com>, 2013
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Raul Opruta <raul.opruta@roedu.net>, 2020
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 # zveriu <zveriu@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:13+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Romanian (http://www.transifex.com/luebbe/tortoisesvn/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2060,6 +2061,10 @@ msgstr "Permite depozite diferite să folosească acelaşi URL, ex. http://local
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Permite depozite diferite să folosească acelaşi UUID, ex. depozite copiate"
+
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -4974,6 +4979,10 @@ msgstr "General::Dialoguri 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "General::Dialoguri 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -10091,6 +10100,10 @@ msgstr "Pentru a fura o blocare, click-dreapta pe dosarul parinte al obiectului 
 msgid "To:"
 msgstr "Până la:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10126,7 +10139,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: Vizualizatorul de diferenţiere de imagini pentru TortoiseSVN\n\nParametrii disponibili la linia de comandă sunt:\n/left:\"calea imaginii de pe stângă\"\n/lefttitle:\"titlul afişat pentru imaginea de pe stângă\"\n/right:\"calea imaginii de pe stângă\"\n/righttitle:\"titlul afişat pentru imaginea de pe dreaptă\"\n/overlay\t\tpentru a activa modul de suprapunere\n/fit\t\tpentru a potrivi dimensiunile imaginilor\n/showinfo\t\tpentru a afişa căsuţe cu informaţia imaginilor"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10382,6 +10395,11 @@ msgstr "Nod neschimbat"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Debifează"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11404,6 +11422,10 @@ msgstr "şters"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "disc [kB]: "
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "en"
 
 #. Resource IDs: (1342)
 msgid "eol style"

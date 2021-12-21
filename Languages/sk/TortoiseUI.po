@@ -16,13 +16,14 @@
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011,2013
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2013
 # Oto BREZINA <otik@e-posta.sk>, 2011-2015
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-21 14:52+0000\n"
-"Last-Translator: Jozef Matta <jozef.m923@gmail.com>\n"
+"PO-Revision-Date: 2021-12-21 17:15+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/luebbe/tortoisesvn/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2059,6 +2060,10 @@ msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Povoliť rozdielnym úložiskám použiť rovnaké UUID, napr. kopírované úložiská"
 
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr "Povoliť zmiešané revízie (nedoporučené) "
+
 #. Resource IDs: (1896)
 msgid "Already merged"
 msgstr "Už zlúčené"
@@ -2715,7 +2720,7 @@ msgstr "Overiť"
 
 #. Resource IDs: (1074)
 msgid "Checkout &directory:"
-msgstr "Overený &priečinok:"
+msgstr "&Priečinok overenia:"
 
 #. Resource IDs: (1377)
 msgid "Checkout D&epth"
@@ -4014,7 +4019,7 @@ msgid ""
 "Instead, all URLs get checked out into a separate\n"
 "working copies next to each other.\n"
 "This works for directory URLs only."
-msgstr "Nerobte z kontrolného priečinka roztrúsenú pracovnú kópiu.\nNamiesto toho sú všetky adresy URL kontrolované v samostatných\npracovných kópiách skoro navzájom .\nToto funguje iba pre priečinky adries URL."
+msgstr "Nerobte z priečinka overenia roztrúsenú pracovnú kópiu.\nNamiesto toho sú všetky adresy URL overrované v samostatných\npracovných kópiách skoro navzájom .\nToto funguje iba pre priečinky adries URL."
 
 #. Resource IDs: (62185)
 msgid ""
@@ -4972,6 +4977,10 @@ msgstr "Všeobecné::Dialógové okno 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "Všeobecné::Dialógové okno 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr "Všeobecné::Kontextová ponuka Win 11"
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -9560,11 +9569,11 @@ msgstr "Farba uzlov vytvárania, kopírovania a premenovania kmeňa bude posunut
 
 #. Resource IDs: (3136)
 msgid "The default URL to checkout from if nothing else is specified"
-msgstr "Predvolená adresa URL, z ktorej sa má uskutočniť kontrola, ak nie je nič iné určené"
+msgstr "Predvolená adresa URL, z ktorej sa má uskutočniť overenie, ak nie je nič iné určené"
 
 #. Resource IDs: (3135)
 msgid "The default path to checkout to if nothing else is specified"
-msgstr "Predvolená cesta ku kontrole, ak nie je nič iné určené"
+msgstr "Predvolená cesta na overenie, ak nie je nič iné určené"
 
 #. Resource IDs: (3610)
 #, c-format
@@ -9828,7 +9837,7 @@ msgid ""
 "%ls\n"
 "is not empty!\n"
 "Are you sure you want to checkout/export into that folder?"
-msgstr "Cieľový priečinok\n%ls\nnie je prázdny!\nNaozaj chcete kontrolovať/exportovať v tomto priečinku?"
+msgstr "Cieľový priečinok\n%ls\nnie je prázdny!\nNaozaj chcete overovať/exportovať v tomto priečinku?"
 
 #. Resource IDs: (4459)
 msgid "The target has local modifications"
@@ -10089,6 +10098,10 @@ msgstr "Ak chcete zámok ukradnúť, kliknite pravým tlačidlom myši na nadrad
 msgid "To:"
 msgstr "Do:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr "Vrcholová kontextová ponuka Windows 11"
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10124,7 +10137,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: prehliadač odlišností obrázku pre TortoiseSVN\n\nDostupné voľby príkazového riadku sú:\n/left:\"cesta k ľavému obrázku\"\n/lefttitle:\"titulok zobrazený v ľavom obrázku\"\n/right:\"cesta k pravému obrázku\"\n/righttitle:\"titulok zobrazený v pravom obrázku\"\n/overlay\t\tpre povolenie režimu prekrytie\n/fit\t\tpre prispôsobenie veľkosti obrázka\n/showinfo\t\tpre zobrazenie informačného okienka obrázka"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10269,7 +10282,7 @@ msgstr "Uzly kmeňa"
 
 #. Resource IDs: (4003)
 msgid "Try a 'Cleanup'. If that doesn't work you need to do a fresh checkout."
-msgstr "Skúste 'Vyčistiť'. Keď to nepomôže je nutné vykonať novú kontrolu."
+msgstr "Skúste 'Vyčistiť'. Keď to nepomôže je nutné vykonať nové overenie."
 
 #. Resource IDs: (4011)
 msgid "Try enabling the \"Break write locks\" option for the cleanup."
@@ -10380,6 +10393,11 @@ msgstr "Nezmenený uzol"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Zrušiť označenie"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr "Neškrtnuté položky sa nezobrazujú vo vrcholovej ponuke, ale iba v pôvodnej ponuke"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11402,6 +11420,10 @@ msgstr "odstránené"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "disk [kB]: "
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "sk"
 
 #. Resource IDs: (1342)
 msgid "eol style"

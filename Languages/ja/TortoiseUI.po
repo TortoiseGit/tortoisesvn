@@ -18,28 +18,29 @@
 # Ilias-Dimitrios Vrachnis, 2013
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
 # Makoto Sakaguchi <ycco34vx@gmail.com>, 2020
-# 藤本理弘 <mfujimot@gmail.com>, 2011-2015
-# 藤本理弘 <mfujimot@gmail.com>, 2013
-# 藤本理弘 <mfujimot@gmail.com>, 2016-2017
+# Masahiro FUJIMOTO <mfujimot@gmail.com>, 2011-2015
+# Masahiro FUJIMOTO <mfujimot@gmail.com>, 2013
+# Masahiro FUJIMOTO <mfujimot@gmail.com>, 2016-2017
 # Nozomu Kaneko <nozom.kaneko@gmail.com>, 2013
 # Osamu NAKAMURA, 2013
 # タカハシ, 2013
 # Ratnadeep Debnath <rtnpro@transifex.com>, 2012
 # Shinya Okano <tokibito@gmail.com>, 2011
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 # Tadashi Jokagi <elf@elf.no-ip.org>, 2011
 # Tetsuya Morimoto <tetsuya.morimoto@gmail.com>, 2011
-# 大川剛 <tu44okawa3@gmail.com>, 2016
+# Tsuyoshi Okawa <tu44okawa3@gmail.com>, 2016
 # Yoshitaka Yamashita <drum@magic-touch.org>, 2013
 # youten, 2011
-# 藤本理弘 <mfujimot@gmail.com>, 2017-2019
-# carrotsoft <www.carrotsoft@gmail.com>, 2012
+# Masahiro FUJIMOTO <mfujimot@gmail.com>, 2017-2019
+# b8b89a28076decde757efbd7cbc96056_a4e3beb, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:10+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/luebbe/tortoisesvn/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2075,6 +2076,10 @@ msgstr "異なるリポジトリで同じURLを用いることを許す。例: h
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "異なるリポジトリで同じUUIDを用いることを許す。例: コピーしたリポジトリ"
+
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -4989,6 +4994,10 @@ msgstr "全般::ダイアログ2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "全般::ダイアログ3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -10106,6 +10115,10 @@ msgstr "ロックを横取りするには、この項目の親フォルダーを
 msgid "To:"
 msgstr "終了:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10141,7 +10154,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: TortoiseSVN用の画像差分ビューアー\n\n使用可能なコマンドラインパラメーター:\n/left:\"左側の画像のパス\"\n/lefttitle:\"左側の画像のタイトル\"\n/right:\"右側の画像のパス\"\n/righttitle:\"右側の画像のタイトル\"\n/overlay\t\tオーバーレイモードを有効にする\n/fit\t\t画像サイズを合わせる\n/showinfo\t\t画像情報ボックスを表示する"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10397,6 +10410,11 @@ msgstr "未変更のノード"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "未チェック"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11419,6 +11437,10 @@ msgstr "削除"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "ディスク [KB]: "
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "ja"
 
 #. Resource IDs: (1342)
 msgid "eol style"

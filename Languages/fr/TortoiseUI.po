@@ -48,17 +48,18 @@
 # Philippe <kissifrot@gmail.com>, 2012
 # LoubiTek, 2018
 # ShevAbam, 2015
-# Stéphane Aulery <saulery@legtux.org>, 2019-2020
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
+# Stéphane Aulery <saulery@legtux.org>, 2019-2021
 # 556b8933f5444413a6e3eb8ce0499357_237b366 <dc7a580f2694f34a68331c39892a2ae0_170598>, 2014
-# Thomas Lemoine, 2019-2020
+# Thomas Lemoine, 2019-2021
 # BASLEY Nicolas <basleynicolas@hotmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:08+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2095,6 +2096,10 @@ msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Autoriser plusieurs dépôts à utiliser le same UUID, par exemple les copies de dépôts"
 
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr "Autoriser les révisions mélangées (non recommandé)"
+
 #. Resource IDs: (1896)
 msgid "Already merged"
 msgstr "Déjà fusionné"
@@ -2456,7 +2461,7 @@ msgstr "Bug-IDs"
 
 #. Resource IDs: (385)
 msgid "Bug-Urls"
-msgstr ""
+msgstr "Bogue-Urls"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -2508,7 +2513,7 @@ msgstr "Dépôts Mis en Cache"
 
 #. Resource IDs: (1127)
 msgid "Can double-click in log list to compare with previous revision"
-msgstr "Peut double-cliquer dans la liste du journal pour comparer avec avec la révision précédente"
+msgstr "Double-cliquer dans la liste du journal pour comparer avec la révision précédente"
 
 #. Resource IDs: (61824)
 msgid "Can not activate a static ActiveX object."
@@ -5009,6 +5014,10 @@ msgstr "Général::Boîtes de dialogue 2"
 msgid "General::Dialogs 3"
 msgstr "Général::Boîtes de dialogue 3"
 
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr "Général::Menu contextuel Win 11"
+
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Génération fichier patch..."
@@ -6159,11 +6168,11 @@ msgstr "Statistiques du Cache du Journal"
 
 #. Resource IDs: (281)
 msgid "Log Caching"
-msgstr "Mise en Cache du Journal"
+msgstr "Mise en cache du journal"
 
 #. Resource IDs: (295)
 msgid "Log Caching::Cached Repositories"
-msgstr "Mise en cache::Dépôts Mis en Cache"
+msgstr "Mise en cache du journal::Dépôts mis en cache"
 
 #. Resource IDs: (211)
 msgid "Log History"
@@ -8076,7 +8085,7 @@ msgstr "Résoudre le conflit en utilisant 'le leur'"
 
 #. Resource IDs: (3681)
 msgid "Resolve conflicts"
-msgstr ""
+msgstr "Résoudre les conflits"
 
 #. Resource IDs: (1168, 3332)
 msgid "Resolved"
@@ -8183,7 +8192,7 @@ msgstr "&Graphique de révision "
 
 #. Resource IDs: (182, 296)
 msgid "Revision Graph"
-msgstr "Graphique de révision "
+msgstr "Graphique de révision"
 
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
@@ -10125,6 +10134,10 @@ msgstr "Pour voler le verrou, faites un click-droit sur le répertoire parent et
 msgid "To:"
 msgstr "Au :"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr "Menu contextuel supérieur de Windows 11"
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10160,7 +10173,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff : la visionneuse de différences d'image pour TortoiseSVN\n\nLes paramètres de ligne de commandes disponibles sont :\n/left:\"chemin de l'image de gauche\"\n/lefttitle:\"titre à afficher pour l'image de gauche\"\n/right:\"chemin de l'image de droite\"\n/righttitle:\"titre à afficher pour l'image de droite\"\n/overlay\t\tActiver le mode overlay\n/fit\t\tAdapter les tailles des images\n/showinfo\t\tAfficher les boîtes d'information des images"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10345,15 +10358,15 @@ msgstr "URL : "
 
 #. Resource IDs: (383)
 msgid "URLs to TortoiseSvn compare"
-msgstr ""
+msgstr "URLs du comparateur TortoiseSvn"
 
 #. Resource IDs: (382)
 msgid "URLs to view revision for path in webviewer"
-msgstr ""
+msgstr "URLs de consultation de révision pour le chemin dans un navigateur"
 
 #. Resource IDs: (381)
 msgid "URLs to view revision in webviewer"
-msgstr ""
+msgstr "URLs de consultation de révision dans un navigateur"
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
@@ -10416,6 +10429,11 @@ msgstr "Noeud non modifié"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Annuler sélection"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr "Les éléments non cochés ne sont pas affichés dans le menu supérieur mais seulement dans le menu d'origine."
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11438,6 +11456,10 @@ msgstr "effacé"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "disque [ko]:"
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "fr"
 
 #. Resource IDs: (1342)
 msgid "eol style"

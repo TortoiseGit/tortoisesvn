@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Jozef Matta <jozef.m923@gmail.com>, 2020
+# Jozef Matta <jozef.m923@gmail.com>, 2020-2021
 # Michal Nosál <a2.nosal@gmail.com>, 2011
 # otik <otik@printflow.eu>, 2012
 # Oto BREZINA <otik@e-posta.sk>, 2011-2013
@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-28 09:28+0000\n"
+"PO-Revision-Date: 2021-09-24 09:24+0000\n"
 "Last-Translator: Jozef Matta <jozef.m923@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/luebbe/tortoisesvn/language/sk/)\n"
 "MIME-Version: 1.0\n"
@@ -63,7 +63,7 @@ msgstr "Simon"
 
 #. (surname)
 msgid "Large"
-msgstr "Large\nSlovenský preklad pripravil: Jozef Matta"
+msgstr "Large"
 
 #. (title)
 msgid "Preface"
@@ -1185,13 +1185,13 @@ msgid ""
 "the same project, copied from the repository. They work concurrently, and "
 "make changes to the same file <filename>A</filename> within their copies. "
 "Sally saves her changes to the repository first. When Harry attempts to save"
-" his changes later, the repository informs him that his file A is <firstterm"
-">out-of-date</firstterm>. In other words, that file A in the repository has "
-"somehow changed since he last copied it. So Harry asks his client to "
-"<firstterm>merge</firstterm> any new changes from the repository into his "
-"working copy of file A. Chances are that Sally's changes don't overlap with "
-"his own; so once he has both sets of changes integrated, he saves his "
-"working copy back to the repository."
+" his changes later, the repository informs him that his file A is "
+"<firstterm>out-of-date</firstterm>. In other words, that file A in the "
+"repository has somehow changed since he last copied it. So Harry asks his "
+"client to <firstterm>merge</firstterm> any new changes from the repository "
+"into his working copy of file A. Chances are that Sally's changes don't "
+"overlap with his own; so once he has both sets of changes integrated, he "
+"saves his working copy back to the repository."
 msgstr "Tu je príklad. Povedzme, že Harry a Sally vytvoria pracovné kópie toho istého projektu skopírované z úložiska. Pracujú súčasne a vykonávajú zmeny v rovnakom súbore <filename> A</filename> v rámci svojich kópií. Sally najskôr uloží svoje zmeny do úložiska. Keď sa Harry pokúsi svoje zmeny uložiť neskôr, úložisko ho informuje, že jeho súbor A je <firstterm> zastaralý</firstterm>. Inými slovami, tento súbor A v úložisku sa od posledného skopírovania nejako zmenil. Harry teda požiada svojho klienta o <firstterm>zlúčenie</firstterm> akékoľvek nových zmien z úložiska do jeho pracovnej kópie súboru A. Je pravdepodobné, že sa zmeny Sally nekryjú s tými jeho; takže akonáhle má obe sústavy zmien integrované, uloží svoju pracovnú kópiu späť do úložiska."
 
 #. (title)
@@ -1864,8 +1864,8 @@ msgstr "Vo vnútri nového priečinka sa potom vytvorí úložisko. <emphasis>Ti
 #. (para)
 msgid ""
 "You will also be asked whether you want to create a directory structure "
-"within the repository. Find out about layout options in <xref linkend"
-"=\"tsvn-repository-layout\"/>."
+"within the repository. Find out about layout options in <xref "
+"linkend=\"tsvn-repository-layout\"/>."
 msgstr "Tiež sa vás opýta, či chcete v úložisku vytvoriť štruktúru priečinkov. Informácie o možnostiach rozvrhnutia nájdete v <xref linkend=\"tsvn-repository-layout\"/> ."
 
 #. (para)
@@ -1960,8 +1960,9 @@ msgid ""
 "<literal>file://</literal> access is intended for local, single-user access "
 "only, particularly testing and debugging. When you want to share the "
 "repository you <emphasis>really</emphasis> need to set up a proper server, "
-"and it is not nearly as difficult as you might think. Read <xref linkend"
-"=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
+"and it is not nearly as difficult as you might think. Read <xref "
+"linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a "
+"server."
 msgstr "Prístup <literal>file://</literal> je určený iba pre lokálny prístup samostatného užívateľa, najmä na testovanie a ladenie. Keď chcete <emphasis>skutočne</emphasis> zdieľať úložisko musíte nastaviť správny server a nie je to ani zďaleka také ťažké, ako si myslíte. Prečítaním <xref linkend=\"tsvn-serversetup\"/> nájdete pokyny pre výber a nastavenie servera."
 
 #. (title)
@@ -2472,8 +2473,8 @@ msgstr "Prekrytie ikon zobrazované v Prieskumníkovi"
 msgid ""
 "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon"
 " overlays which appear on files in your working copy. These show you at a "
-"glance which of your files have been modified. Refer to <xref linkend"
-"=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
+"glance which of your files have been modified. Refer to <xref "
+"linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
 "represent."
 msgstr "<placeholder-1/> Jedna z najviditeľnejších vlastností TortoiseSVN sú prekrytia ikon, ktoré sa objavia na súboroch vašej pracovnej kópie. Tieto vám ukazujú, ktoré súbory boli zmenené. Pozrite si <xref linkend=\"tsvn-dug-wcstatus-1\"/>, aby ste mali prehľad čo rôzne prekrytia znamenajú."
 
@@ -3378,8 +3379,8 @@ msgid ""
 "<filename>branches</filename> and <filename>tags</filename> to mark the "
 "three main areas. In case the setup is different, the detection of what is a"
 " tag/branch/trunk (also known as <literal>classification "
-"patterns</literal>), can be configured in the settings dialog: <xref linkend"
-"=\"tsvn-dug-settings-revgraph\"/>"
+"patterns</literal>), can be configured in the settings dialog: <xref "
+"linkend=\"tsvn-dug-settings-revgraph\"/>"
 msgstr "Táto kontrola však funguje, iba ak je rozloženie úložiska jedno z odporúčaných, čo znamená, že používa názvy <filename>trunk</filename>, <filename>branches</filename> a <filename>tags</filename> na označenie troch hlavných oblastí. V prípade, že sa nastavenie líši, zistenie čo je príznak/vetva/kmeň (tiež známe ako <literal>klasifikačné vzory</literal> ), je možné nakonfigurovať v dialógovom okne nastavení: <xref linkend=\"tsvn-dug-settings-revgraph\"/>"
 
 #. (para)
@@ -3573,8 +3574,8 @@ msgid ""
 "of TortoiseSVN. If you are unfamiliar with regular expressions, take a look "
 "at the introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "Okno správy záznamu obsahuje tiež názov a funkciu automatického dokončovania funkcií. Toto používa regulárne výrazy na extrahovanie názvov tried a funkcií z (textových) súborov, ktoré odovzdávate, ako aj samotných názvov súborov. Ak slovo, ktoré píšete, sa zhoduje s čímkoľvek v zozname (po napísaní minimálne 3 znakov alebo stlačení <keycap>Ctrl+medzerník</keycap>) sa zobrazí rozvinovacia ponuka, ktorá vám umožní vybrať si celý názov. Regulárne výrazy dodávané s TortoiseSVN sa nachádzajú v priečinku <filename>bin</filename> pri inštalácii TortoiseSVN. Môžete tiež definovať svoje vlastné regulárne výrazy a uložiť ich do <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename>. Váš súkromný automatický zoznam samozrejme nebude prepísaný pri aktualizácii svojej inštalácie TortoiseSVN. Ak vám regulárne výrazy nie sú známe, pozrite sa na úvod na <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink> a online dokumentáciu a manuál na stránke <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>."
 
@@ -4892,10 +4893,10 @@ msgstr "<placeholder-1/> V dialógovom okne odovzdania môžete vidieť tie ist�
 
 #. (para)
 msgid ""
-"TortoiseSVN reserves one changelist name for its own use, namely <literal"
-">ignore-on-commit</literal>. This is used to mark versioned files which you "
-"almost never want to commit even though they have local changes. This "
-"feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
+"TortoiseSVN reserves one changelist name for its own use, namely "
+"<literal>ignore-on-commit</literal>. This is used to mark versioned files "
+"which you almost never want to commit even though they have local changes. "
+"This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr "TortoiseSVN si vyhradzuje pre vlastnú potrebu jeden názov zoznamu zmien, menovite <literal>ignore-on-commit</literal> (ignorovať pri odovzdaní). Používa sa na označenie verziových súborov, ktoré takmer nikdy nechcete odovzdať, aj keď majú lokálne zmeny. Táto vlastnosť je popísaná v <xref linkend=\"tsvn-dug-commit-ignore\"/> ."
 
 #. (para)
@@ -5611,8 +5612,8 @@ msgstr "Vyvodiť zodpovednosť za zmeny"
 #. (para)
 msgid ""
 "Blame the selected revision and the previous revision for the selected file,"
-" and compare the blame reports using a visual diff tool. Read <xref linkend"
-"=\"tsvn-dug-blame-diffs\"/> for more detail."
+" and compare the blame reports using a visual diff tool. Read <xref "
+"linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Vyvodí zodpovednosť za vybranú revíziu a predošlú revíziu pre vybraný súbor a porovná správy o zodpovednosti nástroja vizuálneho porovnania odlišností. Pre viac detailov si prečítajte <xref linkend=\"tsvn-dug-blame-diffs\"/>."
 
 #. (term)
@@ -6462,8 +6463,9 @@ msgstr "Porovnanie odlišností medzi priečinkami"
 msgid ""
 "The built-in tools supplied with TortoiseSVN do not support viewing "
 "differences between directory hierarchies. But if you have an external tool "
-"which does support that feature, you can use that instead. In <xref linkend"
-"=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
+"which does support that feature, you can use that instead. In <xref "
+"linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have"
+" used."
 msgstr "Vstavané nástroje dodávané s TortoiseSVN nepodporujú zobrazovanie rozdielov medzi hierarchiami priečinkov. Ale ak máte externý nástroj, ktorý túto funkciu podporuje, môžete ho namiesto toho použiť. V časti <xref linkend=\"tsvn-dug-diff-tools\"/> vám povieme o niektorých nástrojoch, ktoré sme použili."
 
 #. (para)
@@ -6976,8 +6978,8 @@ msgid ""
 "You can locate an older version of a file or folder in the log dialog and "
 "copy it to a new location in the repository directly from the log dialog "
 "using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create "
-"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend"
-"=\"tsvn-dug-showlog-2\"/> to find out more."
+"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref "
+"linkend=\"tsvn-dug-showlog-2\"/> to find out more."
 msgstr "V dialógovom okne záznamu môžete vyhľadať staršiu verziu súboru alebo priečinka a skopírovať ju na nové miesto v úložisku priamo z dialógového okna protokolu použitím <menuchoice><guimenu>kontextovej ponuky</guimenu><guimenuitem>Vytvoriť vetvu/príznak z revízie</guimenuitem></menuchoice>. Viac nájdete v časti <xref linkend=\"tsvn-dug-showlog-2\"/>."
 
 #. (para)
@@ -7400,9 +7402,9 @@ msgstr "Zabránenie vzniku dvoch súborov s rovnakým názvom"
 msgid ""
 "There is a server hook script available at: <ulink "
 "url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
-"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
-"/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
-"in case conflicts."
+"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
+"scripts/</citetitle></ulink> that will prevent checkins which result in case"
+" conflicts."
 msgstr "K dispozícii je skript háku servera na adrese: <ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"><citetitle> https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink>, ktorý preventívne overí následok konfliktov veľkosti písma."
 
 #. (title)
@@ -8429,8 +8431,8 @@ msgstr "TortoiseSVN má niekoľko vlastných zvláštnych vlastností, ktoré za
 #. (para)
 msgid ""
 "TortoiseSVN can integrate with some bug tracking tools. This uses project "
-"properties that start with <literal>bugtraq:</literal>. Read <xref linkend"
-"=\"tsvn-dug-bugtracker\"/> for further information."
+"properties that start with <literal>bugtraq:</literal>. Read <xref "
+"linkend=\"tsvn-dug-bugtracker\"/> for further information."
 msgstr "TortoiseSVN sa dá integrovať s niektorými nástrojmi na sledovanie chýb. Toto používa vlastnosti projektu, ktoré začínajú na <literal>bugtraq:</literal>. Pre ďalšie informácie si prečítajte <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (para)
@@ -10433,12 +10435,12 @@ msgstr "Vytváranie nezamknutých súborov iba na čítanie"
 #. (para)
 msgid ""
 "As mentioned above, the most effective way to use locking is to set the "
-"<literal>svn:needs-lock</literal> property on files. Refer to <xref linkend"
-"=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. "
-"Files with this property set will always be checked out and updated with the"
-" read-only flag set unless your working copy holds a lock. <graphic "
-"fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a "
-"special overlay to indicate this."
+"<literal>svn:needs-lock</literal> property on files. Refer to <xref "
+"linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
+"properties. Files with this property set will always be checked out and "
+"updated with the read-only flag set unless your working copy holds a lock. "
+"<graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN"
+" uses a special overlay to indicate this."
 msgstr "Ako už bolo spomenuté vyššie, najefektívnejším spôsobom použitia zamknutia je nastavenie vlastnosti <literal>svn:needs-lock</literal> na súboroch. Pokyny na nastavenie vlastností sú v časti <xref linkend=\"tsvn-dug-propertypage\"/>. Súbory s týmto nastavením vlastnosti budú vždy kontrolované a aktualizované so nastavením príznaku iba na čítanie, pokiaľ vaša pracovná kópia neobsahuje zámok. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Pripomíname, že TortoiseSVN to označuje špeciálnym prekrytím."
 
 #. (para)
@@ -10463,12 +10465,12 @@ msgstr "Keď vytvoríte nové úložisko so Subversion 1.2 alebo vyšším, v pr
 
 #. (para)
 msgid ""
-"It is a good idea to install a <literal>post-lock</literal> and <literal"
-">post-unlock</literal> hook script on the server which sends out an email "
-"indicating the file which has been locked. With such a script in place, all "
-"your users can be notified if someone locks/unlocks a file. You can find an "
-"example hook script <filename>hooks/post-lock.tmpl</filename> in your "
-"repository folder."
+"It is a good idea to install a <literal>post-lock</literal> and "
+"<literal>post-unlock</literal> hook script on the server which sends out an "
+"email indicating the file which has been locked. With such a script in "
+"place, all your users can be notified if someone locks/unlocks a file. You "
+"can find an example hook script <filename>hooks/post-lock.tmpl</filename> in"
+" your repository folder."
 msgstr "Je dobrý nápad nainštalovať skripty háku <literal>pred zamknutím</literal> a <literal>po odomknutí</literal> na serveri, ktorý odošle e-mail s oznámením o zamknutom súbore. Po zavedení takého skriptu môžu byť všetci vaši používatelia upozornení, ak niekto uzamkne/odomkne súbor. Nájdete ukážkový skript háku v priečinku <filename>hooks/post-lock.tmpl</filename> vo vašom úložisku."
 
 #. (para)
@@ -11765,8 +11767,8 @@ msgid ""
 "TortoiseSVN will assume that the selected folder is the target, and open a "
 "dialog for you to enter the URL and revision to export from. This dialog has"
 " options to export only the top level folder, to omit external references, "
-"and to override the line end style for files which have the <literal>svn"
-":eol-style</literal> property set."
+"and to override the line end style for files which have the "
+"<literal>svn:eol-style</literal> property set."
 msgstr "<placeholder-1/> Ak vykonáte tento príkaz na bezverziovom priečinku, TortoiseSVN bude predpokladať, že vybraný priečinok je cieľový a otvorí dialógové okno na zadanie adresy URL a revízie, z ktorej sa má exportovať. V tomto dialógovom okne je možné exportovať iba priečinok najvyššej úrovne, vynechať externé odkazy a prepísať štýl konca riadku pre súbory, ktoré majú nastavenú vlastnosť <literal>svn:eol-style</literal>."
 
 #. (para)
@@ -11838,8 +11840,8 @@ msgstr "Export zmien stromu"
 msgid ""
 "If you want to export a copy of your project tree structure but containing "
 "only the files which have changed in a particular revision, or between any "
-"two revisions, use the compare revisions feature described in <xref linkend"
-"=\"tsvn-dug-compare-revs\"/>."
+"two revisions, use the compare revisions feature described in <xref "
+"linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr "Ak chcete exportovať kópiu stromovej štruktúry projektu, ktorá obsahuje iba súbory, ktoré sa zmenili v konkrétnej revízii alebo medzi ľubovoľnými dvoma revíziami, použite funkciu porovnania revízií popísanú v časti <xref linkend=\"tsvn-dug-compare-revs\"/>."
 
 #. (para)
@@ -12043,8 +12045,8 @@ msgstr "Pridávanie čísla problémov do správ záznamu"
 msgid ""
 "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do "
 "this, you have to define some properties, which start with "
-"<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
-"=\"tsvn-dug-propertypage\"/>)"
+"<literal>bugtraq:</literal>. They must be set on Folders: (<xref "
+"linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr "V TortoiseSVN si môžete integrovať nástroj na sledovanie chýb podľa svojho výberu. Aby ste to dosiahli, musíte definovať niektoré vlastnosti, ktoré sa musia začínať <literal>bugtraq:</literal>. Tie musia byť nastavené v priečinkoch: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (title)
@@ -12229,8 +12231,8 @@ msgid ""
 "If you are unfamiliar with regular expressions, take a look at the "
 "introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "Ak vám regulárne výrazy nie sú známe, pozrite sa časť v úvode <ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle> https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink> a online dokumentáciu a návod na stránke <ulink url=\"http://www.regular-expressions.info/\"><citetitle> http://www.regular-expressions.info/</citetitle></ulink> ."
 
@@ -12460,8 +12462,8 @@ msgid ""
 " In case the domain name ever changes, you don't have to adjust the "
 "<literal>webviewer:revision</literal> and "
 "<literal>webviewer:pathrevision</literal> property. The format is the same "
-"as for the <literal>bugtraq:url</literal> property. See <xref linkend"
-"=\"tsvn-dug-bugtracker\"/>."
+"as for the <literal>bugtraq:url</literal> property. See <xref "
+"linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "Môžete tiež použiť relatívne adresy URL namiesto absolútnych. Je to užitočné v prípade, že sa váš web prehliadač nachádza na rovnakej doméne/serveri ako zdrojové úložisko. V prípade, že sa názov domény niekedy zmení, nemusíte upravovať vlastnosť <literal>webviewer:revision</literal> a <literal> webviever:pathrevision</literal>. Formát je rovnaký ako pre vlastnosť <literal>bugtraq:url</literal>. Pozrite si časť <xref linkend=\"tsvn-dug-bugtracker\"/>."
 
 #. (para)
@@ -12691,12 +12693,12 @@ msgstr "<placeholder-1/> Táto stránka vám umožní určiť, ktoré z položie
 msgid ""
 "There is a special case for <guilabel>Get Lock</guilabel>. You can of course"
 " promote it to the top level using the list above, but as most files don't "
-"need locking this just adds clutter. However, a file with the <literal>svn"
-":needs-lock</literal> property needs this action every time it is edited, so"
-" in that case it is very useful to have at the top level. Checking the box "
-"here means that when a file is selected which has the <literal>svn:needs-"
-"lock</literal> property set, <guilabel>Get Lock</guilabel> will always "
-"appear at the top level."
+"need locking this just adds clutter. However, a file with the "
+"<literal>svn:needs-lock</literal> property needs this action every time it "
+"is edited, so in that case it is very useful to have at the top level. "
+"Checking the box here means that when a file is selected which has the "
+"<literal>svn:needs-lock</literal> property set, <guilabel>Get "
+"Lock</guilabel> will always appear at the top level."
 msgstr "Existuje špeciálny prípad pre <guilabel>Získať zámok</guilabel>. Môžete ho samozrejme povýšiť na najvyššiu úroveň použitím vyššie uvedeného zoznamu, ale pretože väčšina súborov sa nemusí uzamykať, iba to pridá neporiadok. Avšak súbor s vlastnosťou <literal>svn:needs-lock</literal> potrebuje túto akciu pri každej úprave, takže v takom prípade je veľmi užitočné mať túto funkciu na najvyššej úrovni. Zaškrtnutie tohto políčka znamená, že keď je vybratý súbor, ktorý má nastavenú vlastnosť <literal>svn:needs-lock</literal>, <guilabel>Získať zámok</guilabel> sa vždy zobrazí na najvyššej úrovni."
 
 #. (para)
@@ -14246,7 +14248,7 @@ msgid ""
 "Occasionally you may have to connect to a server which uses the same URL for"
 " all repositories. Older versions of <literal>svnbridge</literal> would do "
 "this. If you need to access such repositories you will have to check this "
-"option. If you don't, leave it unchecked to improve performance."
+"option. If you don't, unchecked it to improve performance."
 msgstr "Možno sa niekedy budete musieť pripojiť k serveru, ktorý používa rovnakú adresu URL pre všetky úložiská. Staršie verzie servera <literal>svnbridge</literal> by to urobili. Ak potrebujete prístup do týchto úložísk, budete musieť zaškrtnúť túto možnosť. Ak to nechcete, nechajte to nezaškrtnuté pre zlepšenie výkonu."
 
 #. (term)
@@ -14259,9 +14261,9 @@ msgid ""
 "even have done this yourself by copying a repository folder to create a new "
 "one. For all sorts of reasons this is a bad idea - a UUID should be "
 "<emphasis>unique</emphasis>. However, the log cache will still work in this "
-"situation if you check this box. If you don't need it, leave it unchecked to"
-" improve performance."
-msgstr "Niektoré hostiteľské služby poskytujú všetkým svojim úložiskám rovnaké UUID. Môžete to urobiť sami skopírovaním priečinka úložiska na vytvorenie nového. Z najrôznejších dôvodov je to zlý nápad - UUID by mal byť <emphasis>jedinečný</emphasis>. Ak zaškrtnete toto políčko, zásobník záznamov bude v tejto situácii fungovať. Ak to nepotrebujete, nechajte ho nezaškrtnuté pre zlepšenie výkonu."
+"situation if you check this box. If you don't need it, unchecked it to "
+"improve performance."
+msgstr "Niektoré hostiteľské služby prideľujú všetkým svojim úložiskám rovnaký UUID. Možno ste to dokonca urobili sami skopírovaním priečinka úložiska a vytvorením nového. Z rôznych dôvodov je to zlý nápad - UUID by malo byť <emphasis>jedinečné</emphasis>. Ak však toto políčko zaškrtnete, zásobník záznamu bude v tejto situácii stále fungovať. Ak ho nepotrebujete, zrušte jeho zaškrtnutie, aby ste zlepšili výkon."
 
 #. (term)
 msgid "If the repository cannot be contacted"
@@ -19336,8 +19338,8 @@ msgstr "Položky rozvinovacieho textového poľa s hĺbkou sa vzťahujú na argu
 #. (para)
 #. (para)
 msgid ""
-"If <guilabel>Omit externals</guilabel> is checked, use the <literal"
-">--ignore-externals</literal> switch."
+"If <guilabel>Omit externals</guilabel> is checked, use the "
+"<literal>--ignore-externals</literal> switch."
 msgstr "Ak je zaškrtnuté políčko <guilabel>Vynechať externé</guilabel>, použite prepínač <literal>--ignore-externals</literal>."
 
 #. (para)
@@ -19507,8 +19509,8 @@ msgstr "V predvolenom nastavení sa TortoiseSVN pokúša načítať 100 správ z
 
 #. (para)
 msgid ""
-"If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal"
-">--stop-on-copy</literal> switch."
+"If <guilabel>Stop on copy/rename</guilabel> is checked, use the "
+"<literal>--stop-on-copy</literal> switch."
 msgstr "Ak je zaškrtnuté políčko <guilabel>Zastaviť kopírovanie/premenovanie</guilabel>, použije sa prepínač <literal>--stop-on-copy</literal>."
 
 #. (screen)
@@ -19938,8 +19940,8 @@ msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> Prekrytie <emphasis> 
 #. (para)
 msgid ""
 "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs "
-"Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
-":needs-lock</literal> property set."
+"Lock</emphasis> overlay is used to indicate when a file has the "
+"<literal>svn:needs-lock</literal> property set."
 msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> Prekrytie <emphasis>Potrebný zámok</emphasis> sa používa na označenie, kedy má súbor nastavenú vlastnosť <literal>svn:needs-lock</literal>."
 
 #. (para)

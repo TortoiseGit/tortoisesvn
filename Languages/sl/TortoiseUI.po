@@ -13,14 +13,15 @@
 # Erik Ušaj <erikusaj@gmail.com>, 2013
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Sebastien <sebastien.janez@free.fr>, 2014
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 # 901efdb0bee100f33f3cae3d9bfcb998, 2011-2012
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:15+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/luebbe/tortoisesvn/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2056,6 +2057,10 @@ msgstr "Dovoli uporabo različnih skladišč z istim naslovom URL, na primer htt
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Dovoli uporabo različnih skladišč z istim UUID, na primer kopirana skladišča"
+
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -4970,6 +4975,10 @@ msgstr "Splošno::Pogovorna okna 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "Splošno::dialogi 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -10087,6 +10096,10 @@ msgstr "Za krajo zaklepa desno-kliknite na nadrejeno mapo te datoteke in iz kont
 msgid "To:"
 msgstr "Do:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10122,7 +10135,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: orodje za primerjanje slik za TortoiseSVN\n\nParametri ukazne vrstice:\n/left:\"pot do leve slike\"\n/lefttitle:\"naslov leve slike\"\n/right:\"pot do desne slike\"\n/righttitle:\"naslov desne slike\"\n/overlay\t\tprekrivni način\n/fit\t\tprilagajanje velikosti slike\n/showinfo\t\tprikaz informacij o slikah"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10378,6 +10391,11 @@ msgstr "Nespremenjeno vozlišče"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Izključi"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11400,6 +11418,10 @@ msgstr "izbrisano"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "disk [kB]: "
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "sl"
 
 #. Resource IDs: (1342)
 msgid "eol style"

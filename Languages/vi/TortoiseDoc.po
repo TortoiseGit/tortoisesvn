@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-16 09:36+0000\n"
+"PO-Revision-Date: 2021-08-28 09:24+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/luebbe/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
@@ -1183,13 +1183,13 @@ msgid ""
 "the same project, copied from the repository. They work concurrently, and "
 "make changes to the same file <filename>A</filename> within their copies. "
 "Sally saves her changes to the repository first. When Harry attempts to save"
-" his changes later, the repository informs him that his file A is <firstterm"
-">out-of-date</firstterm>. In other words, that file A in the repository has "
-"somehow changed since he last copied it. So Harry asks his client to "
-"<firstterm>merge</firstterm> any new changes from the repository into his "
-"working copy of file A. Chances are that Sally's changes don't overlap with "
-"his own; so once he has both sets of changes integrated, he saves his "
-"working copy back to the repository."
+" his changes later, the repository informs him that his file A is "
+"<firstterm>out-of-date</firstterm>. In other words, that file A in the "
+"repository has somehow changed since he last copied it. So Harry asks his "
+"client to <firstterm>merge</firstterm> any new changes from the repository "
+"into his working copy of file A. Chances are that Sally's changes don't "
+"overlap with his own; so once he has both sets of changes integrated, he "
+"saves his working copy back to the repository."
 msgstr "Dưới đây là một ví dụ. Hãy nói rằng Harry và Sally đều tạo ra các bản sao làm việc cùng một dự án, sao chép từ kho. Họ làm việc đồng thời, và thay đổi cùng một tập tin <filename> A </filename> trong bản sao của họ. Sally lưu thay đổi của mình vào kho lưu trữ đầu tiên. Khi Harry cố gắng để lưu các thay đổi của ông sau đó, kho lưu trữ thông báo cho ông rằng tập tin của mình <firstterm> quá cũ </firstterm> . Nói cách khác, tập tin A đó trong kho lưu trữ bằng cách nào đó thay đổi kể từ khi ông mới sao chép nó. Vì vậy, Harry yêu cầu khách hàng của mình để <firstterm> hợp nhất </firstterm> bất kỳ thay đổi mới nhất từ ​​kho vào bản sao hoạt động của tập tin A. Có thể là những thay đổi của Sally không chồng chéo lên nhau với bản của riêng ông ta, do đó, một khi ông có cả bộ những thay đổi tích hợp, ông lưu bản sao làm việc của mình trở lại vào kho."
 
 #. (title)
@@ -1862,8 +1862,8 @@ msgstr "Kho lưu trữ sau đó được tạo ra bên trong thư mục mới. <
 #. (para)
 msgid ""
 "You will also be asked whether you want to create a directory structure "
-"within the repository. Find out about layout options in <xref linkend"
-"=\"tsvn-repository-layout\"/>."
+"within the repository. Find out about layout options in <xref "
+"linkend=\"tsvn-repository-layout\"/>."
 msgstr "Bạn cũng sẽ được hỏi xem bạn có muốn tạo ra một cấu trúc thư mục trong kho. Tìm hiểu về các lựa chọn bố trí ở <xref linkend=\"tsvn-repository-layout\"/> ."
 
 #. (para)
@@ -1958,8 +1958,9 @@ msgid ""
 "<literal>file://</literal> access is intended for local, single-user access "
 "only, particularly testing and debugging. When you want to share the "
 "repository you <emphasis>really</emphasis> need to set up a proper server, "
-"and it is not nearly as difficult as you might think. Read <xref linkend"
-"=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
+"and it is not nearly as difficult as you might think. Read <xref "
+"linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a "
+"server."
 msgstr "truy cập <literal>file://</literal> chỉ là để dành cho truy cập người sử dụng duy nhất của địa phương, đặc biệt là kiểm tra và gỡ lỗi. Khi bạn muốn chia sẻ các kho lưu trữ, bạn <emphasis>thực sự</emphasis> cần lập một máy chủ thích hợp, và nó gần như không khó khăn như bạn nghĩ. Đọc <xref linkend=\"tsvn-serversetup\"/> để được hướng dẫn về lựa chọn và thiết lập một máy chủ."
 
 #. (title)
@@ -2470,8 +2471,8 @@ msgstr "Explorer hiển thị lớp phủ biểu tượng"
 msgid ""
 "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon"
 " overlays which appear on files in your working copy. These show you at a "
-"glance which of your files have been modified. Refer to <xref linkend"
-"=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
+"glance which of your files have been modified. Refer to <xref "
+"linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
 "represent."
 msgstr "<placeholder-1/> Một trong các tính năng dễ thấy nhất của TortoiseSVN là các lớp phủ biểu tượng xuất hiện trên các tập tin trong bản sao làm việc của bạn. Những cái này chỉ cho bạn trong nháy mắt các tập tin của bạn đã được sửa đổi. Tham khảo <xref linkend=\"tsvn-dug-wcstatus-1\"/> để tìm hiểu các lớp phủ khác nhau đại diện những gì."
 
@@ -3376,8 +3377,8 @@ msgid ""
 "<filename>branches</filename> and <filename>tags</filename> to mark the "
 "three main areas. In case the setup is different, the detection of what is a"
 " tag/branch/trunk (also known as <literal>classification "
-"patterns</literal>), can be configured in the settings dialog: <xref linkend"
-"=\"tsvn-dug-settings-revgraph\"/>"
+"patterns</literal>), can be configured in the settings dialog: <xref "
+"linkend=\"tsvn-dug-settings-revgraph\"/>"
 msgstr ""
 
 #. (para)
@@ -3571,8 +3572,8 @@ msgid ""
 "of TortoiseSVN. If you are unfamiliar with regular expressions, take a look "
 "at the introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr ""
 
@@ -4890,10 +4891,10 @@ msgstr "<placeholder-1/> Trong hộp thoại cam kết, bạn có thể nhìn th
 
 #. (para)
 msgid ""
-"TortoiseSVN reserves one changelist name for its own use, namely <literal"
-">ignore-on-commit</literal>. This is used to mark versioned files which you "
-"almost never want to commit even though they have local changes. This "
-"feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
+"TortoiseSVN reserves one changelist name for its own use, namely "
+"<literal>ignore-on-commit</literal>. This is used to mark versioned files "
+"which you almost never want to commit even though they have local changes. "
+"This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr "TortoiseSVN để dành một tên danh sách thay đổi để sử dụng riêng của nó, cụ thể là <literal> bỏ qua lúc cam kết </literal> . Điều này được sử dụng để đánh dấu các tập tin là phiên bản mà bạn gần như không bao giờ muốn cam kết mặc dù chúng có thay đổi cục bộ. Tính năng này được mô tả trong <xref linkend=\"tsvn-dug-commit-ignore\"/> ."
 
 #. (para)
@@ -5609,8 +5610,8 @@ msgstr "Đổ lỗi cho sự thay đổi"
 #. (para)
 msgid ""
 "Blame the selected revision and the previous revision for the selected file,"
-" and compare the blame reports using a visual diff tool. Read <xref linkend"
-"=\"tsvn-dug-blame-diffs\"/> for more detail."
+" and compare the blame reports using a visual diff tool. Read <xref "
+"linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "Đổ lỗi cho bản sửa đổi được lựa chọn và bản sửa đổi trước cho các tập tin được lựa chọn, và so sánh các báo cáo đổ lỗi bằng cách sử dụng một công cụ tìm khác biệt trực quan khác. Đọc <xref linkend=\"tsvn-dug-blame-diffs\"/> để biết thêm chi tiết."
 
 #. (term)
@@ -6460,8 +6461,9 @@ msgstr "Sự khác nhau giữa các thư mục"
 msgid ""
 "The built-in tools supplied with TortoiseSVN do not support viewing "
 "differences between directory hierarchies. But if you have an external tool "
-"which does support that feature, you can use that instead. In <xref linkend"
-"=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
+"which does support that feature, you can use that instead. In <xref "
+"linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have"
+" used."
 msgstr "Các công cụ được xây dựng sẵn cung cấp với TortoiseSVN không hỗ trợ xem sự khác biệt giữa các hệ thống phân cấp thư mục. Nhưng nếu bạn có một công cụ bên ngoài mà hỗ trợ tính năng đó, bạn có thể sử dụng thay vào. Trong <xref linkend=\"tsvn-dug-diff-tools\"/> chúng tôi cho bạn biết về một số công cụ mà chúng tôi đã sử dụng."
 
 #. (para)
@@ -6974,8 +6976,8 @@ msgid ""
 "You can locate an older version of a file or folder in the log dialog and "
 "copy it to a new location in the repository directly from the log dialog "
 "using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create "
-"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend"
-"=\"tsvn-dug-showlog-2\"/> to find out more."
+"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref "
+"linkend=\"tsvn-dug-showlog-2\"/> to find out more."
 msgstr "Bạn có thể xác định vị trí một phiên bản cũ của một tập tin hoặc thư mục trong hộp thoại tường trình và sao chép nó vào một vị trí mới trong kho lưu trữ trực tiếp từ hộp thoại tường trình sử dụng <menuchoice><guimenu> Trình đơn ngữ cảnh </guimenu><guimenuitem> Tạo chi nhánh / thẻ từ sửa đổi </guimenuitem></menuchoice> . Tham khảo <xref linkend=\"tsvn-dug-showlog-2\"/> để tìm hiểu thêm."
 
 #. (para)
@@ -7398,9 +7400,9 @@ msgstr "Ngăn chặn hai tập tin có cùng tên"
 msgid ""
 "There is a server hook script available at: <ulink "
 "url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
-"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
-"/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
-"in case conflicts."
+"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
+"scripts/</citetitle></ulink> that will prevent checkins which result in case"
+" conflicts."
 msgstr ""
 
 #. (title)
@@ -8427,8 +8429,8 @@ msgstr "TortoiseSVN có một vài thuộc tính đặc biệt của riêng mìn
 #. (para)
 msgid ""
 "TortoiseSVN can integrate with some bug tracking tools. This uses project "
-"properties that start with <literal>bugtraq:</literal>. Read <xref linkend"
-"=\"tsvn-dug-bugtracker\"/> for further information."
+"properties that start with <literal>bugtraq:</literal>. Read <xref "
+"linkend=\"tsvn-dug-bugtracker\"/> for further information."
 msgstr "TortoiseSVN có thể tích hợp với một số công cụ theo dõi lỗi. Điều này sử dụng các thuộc tính dự án bắt đầu bằng <literal> bugtraq: </literal> . Đọc <xref linkend=\"tsvn-dug-bugtracker\"/> để biết thêm thông tin."
 
 #. (para)
@@ -10431,12 +10433,12 @@ msgstr "Làm các Tập tin không bị Khóa Chỉ đọc"
 #. (para)
 msgid ""
 "As mentioned above, the most effective way to use locking is to set the "
-"<literal>svn:needs-lock</literal> property on files. Refer to <xref linkend"
-"=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. "
-"Files with this property set will always be checked out and updated with the"
-" read-only flag set unless your working copy holds a lock. <graphic "
-"fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a "
-"special overlay to indicate this."
+"<literal>svn:needs-lock</literal> property on files. Refer to <xref "
+"linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
+"properties. Files with this property set will always be checked out and "
+"updated with the read-only flag set unless your working copy holds a lock. "
+"<graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN"
+" uses a special overlay to indicate this."
 msgstr "Như đã đề cập ở trên, cách hiệu quả nhất để sử dụng khóa là bật thuộc tính <literal> svn:needs-lock </literal> trên các tập tin. Tham khảo <xref linkend=\"tsvn-dug-propertypage\"/> để được hướng dẫn làm thế nào để bật các thuộc tính. Tập tin với thuộc tính này được bật sẽ luôn luôn được kiểm tra và cập nhật với cờ chỉ đọc trừ khi bản sao của bạn làm việc nắm giữ một khóa. <graphic fileref=\"../images/ReadOnlyIcon.png\"/> Xin nhắc lại, TortoiseSVN sử dụng một lớp phủ đặc biệt để cho biết điều này."
 
 #. (para)
@@ -10461,12 +10463,12 @@ msgstr "Khi bạn tạo một kho lưu trữ mới với Subversion 1.2 hoặc c
 
 #. (para)
 msgid ""
-"It is a good idea to install a <literal>post-lock</literal> and <literal"
-">post-unlock</literal> hook script on the server which sends out an email "
-"indicating the file which has been locked. With such a script in place, all "
-"your users can be notified if someone locks/unlocks a file. You can find an "
-"example hook script <filename>hooks/post-lock.tmpl</filename> in your "
-"repository folder."
+"It is a good idea to install a <literal>post-lock</literal> and "
+"<literal>post-unlock</literal> hook script on the server which sends out an "
+"email indicating the file which has been locked. With such a script in "
+"place, all your users can be notified if someone locks/unlocks a file. You "
+"can find an example hook script <filename>hooks/post-lock.tmpl</filename> in"
+" your repository folder."
 msgstr "Đó là một ý tưởng tốt để cài đặt một kịch bản hook <literal> sau-khóa </literal> và <literal> sau-mở khóa </literal> trên máy chủ mà sẽ gửi email cho thấy các tập tin đã bị khóa. Với một kịch bản tại chỗ, tất cả người dùng của bạn có thể được thông báo nếu ai đó khóa / mở khóa một tập tin. Bạn có thể tìm thấy một kịch bản móc ví dụ tại <filename> hooks/post-lock.tmpl </filename> trong thư mục kho lưu trữ của bạn."
 
 #. (para)
@@ -11763,8 +11765,8 @@ msgid ""
 "TortoiseSVN will assume that the selected folder is the target, and open a "
 "dialog for you to enter the URL and revision to export from. This dialog has"
 " options to export only the top level folder, to omit external references, "
-"and to override the line end style for files which have the <literal>svn"
-":eol-style</literal> property set."
+"and to override the line end style for files which have the "
+"<literal>svn:eol-style</literal> property set."
 msgstr "<placeholder-1/> Nếu bạn thực hiện lệnh này trên một thư mục chưa phiên bản, TortoiseSVN sẽ giả định rằng thư mục được chọn là mục tiêu, và mở một hộp thoại cho bạn nhập URL và bản sửa đổi để xuất khẩu. Hộp thoại này có các tùy chọn để chỉ xuất khẩu các thư mục cấp cao nhất, bỏ qua các tham chiếu bên ngoài, và để ghi đè lên phong cách cuối dòng cho các tập tin có thuộc tính <literal> svn:eol-style</literal> được thiết lập."
 
 #. (para)
@@ -11836,8 +11838,8 @@ msgstr "Xuất khẩu một Cây Biến đổi"
 msgid ""
 "If you want to export a copy of your project tree structure but containing "
 "only the files which have changed in a particular revision, or between any "
-"two revisions, use the compare revisions feature described in <xref linkend"
-"=\"tsvn-dug-compare-revs\"/>."
+"two revisions, use the compare revisions feature described in <xref "
+"linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr "Nếu bạn muốn xuất khẩu một bản sao của cấu trúc cây dự án của bạn nhưng chỉ chứa các tập tin đã thay đổi trong một phiên bản cụ thể, hoặc giữa bất kỳ hai phiên bản, sử dụng tính năng so sánh các bản sửa đổi được mô tả trong <xref linkend=\"tsvn-dug-compare-revs\"/> ."
 
 #. (para)
@@ -12041,8 +12043,8 @@ msgstr "Thêm số Vấn đề vào Thông điệp Tường tr"
 msgid ""
 "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do "
 "this, you have to define some properties, which start with "
-"<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
-"=\"tsvn-dug-propertypage\"/>)"
+"<literal>bugtraq:</literal>. They must be set on Folders: (<xref "
+"linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr "Bạn có thể tích hợp một công cụ theo dõi lỗi do bạn chọn trong TortoiseSVN. Để làm điều này, bạn phải xác định một số thuộc tính, bắt đầu với <literal> bugtraq: </literal>. Chúng phải được thiết lập trên thư mục: ( <xref linkend=\"tsvn-dug-propertypage\"/> )"
 
 #. (title)
@@ -12227,8 +12229,8 @@ msgid ""
 "If you are unfamiliar with regular expressions, take a look at the "
 "introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr ""
 
@@ -12458,8 +12460,8 @@ msgid ""
 " In case the domain name ever changes, you don't have to adjust the "
 "<literal>webviewer:revision</literal> and "
 "<literal>webviewer:pathrevision</literal> property. The format is the same "
-"as for the <literal>bugtraq:url</literal> property. See <xref linkend"
-"=\"tsvn-dug-bugtracker\"/>."
+"as for the <literal>bugtraq:url</literal> property. See <xref "
+"linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "Bạn cũng có thể sử dụng các URL tương đối thay vì tuyệt đối. Điều này rất hữu ích trong trường hợp trình xem web của bạn là trên cùng một tên miền / máy chủ như là kho lưu trữ nguồn của bạn. Trong trường hợp tên miền có thay đổi, bạn không phải điều chỉnh thuộc tính <literal> webviewer:revision </literal> và <literal> webviewer:pathrevision </literal>. Định dạng tương tự như đối với các thuộc tính <literal> bugtraq:url </literal>. Xem <xref linkend=\"tsvn-dug-bugtracker\"/> ."
 
 #. (para)
@@ -12689,12 +12691,12 @@ msgstr "<placeholder-1/> Trang này cho phép bạn xác định các mục menu
 msgid ""
 "There is a special case for <guilabel>Get Lock</guilabel>. You can of course"
 " promote it to the top level using the list above, but as most files don't "
-"need locking this just adds clutter. However, a file with the <literal>svn"
-":needs-lock</literal> property needs this action every time it is edited, so"
-" in that case it is very useful to have at the top level. Checking the box "
-"here means that when a file is selected which has the <literal>svn:needs-"
-"lock</literal> property set, <guilabel>Get Lock</guilabel> will always "
-"appear at the top level."
+"need locking this just adds clutter. However, a file with the "
+"<literal>svn:needs-lock</literal> property needs this action every time it "
+"is edited, so in that case it is very useful to have at the top level. "
+"Checking the box here means that when a file is selected which has the "
+"<literal>svn:needs-lock</literal> property set, <guilabel>Get "
+"Lock</guilabel> will always appear at the top level."
 msgstr "Có một trường hợp đặc biệt cho <guilabel> Nhận Khóa </guilabel>. Tất nhiên bạn có thể thúc đẩy nó đến cấp cao nhất bằng cách sử dụng danh sách kể trên, nhưng hầu hết các tập tin không cần khóa việc này chỉ thêm lộn xộn. Tuy nhiên, một tập tin với thuộc tính <literal> svn:needs-lock </literal> cần hành động này mỗi khi nó được biên tập, vì vậy trong trường hợp đó là rất hữu ích để có ở cấp cao nhất. Đánh dấu chọn hộp ở đây có nghĩa là khi một tập tin được chọn có các thuộc tính <literal> svn:needs-lock </literal> được thiết lập, <guilabel> Nhận Khóa </guilabel> sẽ luôn luôn xuất hiện ở cấp cao nhất."
 
 #. (para)
@@ -14244,8 +14246,8 @@ msgid ""
 "Occasionally you may have to connect to a server which uses the same URL for"
 " all repositories. Older versions of <literal>svnbridge</literal> would do "
 "this. If you need to access such repositories you will have to check this "
-"option. If you don't, leave it unchecked to improve performance."
-msgstr "Đôi khi bạn có thể kết nối với một máy chủ mà sử dụng cùng một URL cho tất cả các kho. Các phiên bản cũ của <literal> svnbridge </literal> sẽ làm điều này. Nếu bạn cần truy cập vào kho như vậy, bạn sẽ phải duyệt tùy chọn này. Nếu bạn không muốn, hãy để nó không được duyệt để cải thiện hiệu suất."
+"option. If you don't, unchecked it to improve performance."
+msgstr ""
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
@@ -14257,9 +14259,9 @@ msgid ""
 "even have done this yourself by copying a repository folder to create a new "
 "one. For all sorts of reasons this is a bad idea - a UUID should be "
 "<emphasis>unique</emphasis>. However, the log cache will still work in this "
-"situation if you check this box. If you don't need it, leave it unchecked to"
-" improve performance."
-msgstr "Một số dịch vụ lưu trữ cung cấp cho tất cả các kho chứa của chúng cùng một UUID. Bạn thậm chí có thể đã làm điều này bằng cách sao chép một thư mục kho lưu trữ để tạo cái mới. Đối với tất cả các loại lý do đây là một ý tưởng tồi - một UUID nên là <emphasis> duy nhất </emphasis> . Tuy nhiên, bộ nhớ đệm tường trình vẫn sẽ làm việc trong tình huống này nếu bạn chọn hộp kiểm này. Nếu bạn không cần nó, để nó không được chọn để cải thiện hiệu suất."
+"situation if you check this box. If you don't need it, unchecked it to "
+"improve performance."
+msgstr ""
 
 #. (term)
 msgid "If the repository cannot be contacted"
@@ -19334,8 +19336,8 @@ msgstr "Các mục của hộp combo cho chiều sâu liên quan đến thông s
 #. (para)
 #. (para)
 msgid ""
-"If <guilabel>Omit externals</guilabel> is checked, use the <literal"
-">--ignore-externals</literal> switch."
+"If <guilabel>Omit externals</guilabel> is checked, use the "
+"<literal>--ignore-externals</literal> switch."
 msgstr "Nếu <guilabel> Bỏ qua các phần bên ngoài </guilabel> được chọn, sử dụng chuyển đổi <literal> --ignore-externals </literal>."
 
 #. (para)
@@ -19505,8 +19507,8 @@ msgstr "Theo mặc định, TortoiseSVN cố gắng để lấy 100 thông đi�
 
 #. (para)
 msgid ""
-"If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal"
-">--stop-on-copy</literal> switch."
+"If <guilabel>Stop on copy/rename</guilabel> is checked, use the "
+"<literal>--stop-on-copy</literal> switch."
 msgstr "Nếu <guilabel> Dừng trên bản sao/đổi tên </guilabel> được duyệt, sử dụng chuyển đổi <literal> --stop-on-copy </literal>."
 
 #. (screen)
@@ -19936,8 +19938,8 @@ msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/> Lớp phủ <emphasis
 #. (para)
 msgid ""
 "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs "
-"Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
-":needs-lock</literal> property set."
+"Lock</emphasis> overlay is used to indicate when a file has the "
+"<literal>svn:needs-lock</literal> property set."
 msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/> Lớp phủ<emphasis> Cần Khóa </emphasis> được sử dụng để chỉ ra khi một tập tin có thuộc tính <literal> svn:needs-lock </literal> được thiết lập."
 
 #. (para)

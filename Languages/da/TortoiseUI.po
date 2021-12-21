@@ -15,13 +15,14 @@
 # MrBigBoy <m-b-p@live.dk>, 2014
 # Mikkel Elmholdt <mikkel@elmholdt.dk>, 2011-2013
 # Rene Dahl <aquadk@gmail.com>, 2015
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:34+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/luebbe/tortoisesvn/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2057,6 +2058,10 @@ msgstr "Tillad flere forskellige versionsarkiver at benytte samme URL, f.eks. ht
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Tillad flere forskellige versionsarkiver at benytte samme UUID, f.eks. http://localhost/mitversionsarkiv/"
+
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -4971,6 +4976,10 @@ msgstr "Tema::Dialoger 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "Generelt::Dialoger 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -10088,6 +10097,10 @@ msgstr "For at stjæle låsen skal du højreklikke på mappen over emnet og væl
 msgid "To:"
 msgstr "Til:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10123,7 +10136,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: Billeddifferens-viseren for TortoiseSVN\n\nTilgængelige kommandolinjeparametre::\n/left:\"sti til venstre billede\"\n/lefttitle:\"titel til venstre billede\"\n/right:\"sti til højre billede\"\n/righttitle:\"titel til højre billede\"\"\n/overlay\t\tfor at slå \"overlay mode\" til\n/fit\t\tfor at tilpasse billedernes størrelser\n/showinfo\t\tfor at vise billedinfo-boksene"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10379,6 +10392,11 @@ msgstr "Uændret knude"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Fravælg"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11401,6 +11419,10 @@ msgstr "slettet"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "disk [kB]:"
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "en"
 
 #. Resource IDs: (1342)
 msgid "eol style"

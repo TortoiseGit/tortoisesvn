@@ -10,18 +10,19 @@
 # 
 # Authors:
 # Translators:
-# Kari Granö <kari.grano@gmail.com>, 2011-2018
+# Kari Granö <kari.grano@gmail.com>, 2011-2018,2021
 # Kari Granö <kari.grano@gmail.com>, 2013
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Lübbe  <luebbe.tortoisesvn@googlemail.com>, 2012
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 # Tommi Niinimäki <xbluevirux@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:08+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -637,11 +638,11 @@ msgstr "&Mukautettu"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode"
-msgstr ""
+msgstr "&Tumma teema"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode\t(D)"
-msgstr ""
+msgstr "&Tumma teema\t(T)"
 
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
@@ -2058,6 +2059,10 @@ msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Salli eri arkistojen käyttää samaa UUID:ta, esim. kopioidut arkistot."
 
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr "Salli useat versiot (ei suositella)"
+
 #. Resource IDs: (1896)
 msgid "Already merged"
 msgstr "Yhdistetty aiemmin"
@@ -2419,7 +2424,7 @@ msgstr "Vikatunnukset"
 
 #. Resource IDs: (385)
 msgid "Bug-Urls"
-msgstr ""
+msgstr "Vikapaikantimet"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -2903,7 +2908,7 @@ msgstr "Värit"
 #. Resource IDs: (IDS_INDICATOR_COLUMN)
 #, c-format
 msgid "Column: %d"
-msgstr ""
+msgstr "Sarake: %d"
 
 #. Resource IDs: (3506)
 msgid "Command"
@@ -3146,7 +3151,7 @@ msgstr "Paikkojen kontekstirivit"
 
 #. Resource IDs: (1543)
 msgid "Continue &Merge"
-msgstr ""
+msgstr "Jatka &yhdistämistä"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3570,13 +3575,13 @@ msgstr "&Yksityiskohdat"
 
 #. Resource IDs: (1682)
 msgid "Dark theme"
-msgstr ""
+msgstr "Tumma teema"
 
 #. Resource IDs: (1683)
 msgid ""
 "Dark theme requires at least Win10 1803, and it must be enabled in the "
 "Windows system settings."
-msgstr ""
+msgstr "Tumma teema vaatii vähintään Windows 10 version 1803, ja se on kytkettävä päälle Windows-asetuksista."
 
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
@@ -4809,23 +4814,23 @@ msgstr "Etsi HEAD-versioita"
 
 #. Resource IDs: (cmdFindNext_LabelTitle_RESID)
 msgid "Find Next"
-msgstr ""
+msgstr "Etsi seuraava"
 
 #. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
 msgid "Find Previous"
-msgstr ""
+msgstr "Etsi edellinen"
 
 #. Resource IDs: (cmdFindPrev)
 msgid ""
 "Find the last occurrence of the selected text\n"
 "Search Previous"
-msgstr ""
+msgstr "Etsi valitun tekstin edellinen esiintymä\nEtsi edellinen"
 
 #. Resource IDs: (cmdFindNext)
 msgid ""
 "Find the next occurrence of the selected text\n"
 "Search Next"
-msgstr ""
+msgstr "Etsi valitun tekstin seuraava esiintymä\nEtsi seuraava"
 
 #. Resource IDs: (cmdFind)
 msgid ""
@@ -4971,6 +4976,10 @@ msgstr "Yleinen::Ikkunat 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "Yleinen::Ikkunat 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr "Yleiset::Windows 11 kontekstivalikko"
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -5289,7 +5298,7 @@ msgstr "ID:32817:V +K"
 
 #. Accelerator Entry for Menu ID:32819; '&Dark Mode\t(D)'
 msgid "ID:32819:V   +D"
-msgstr ""
+msgstr "ID:32819:V   +T"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -6240,7 +6249,7 @@ msgstr "Merkityt lohkot"
 #. Resource IDs: (IDS_INDICATOR_MARKEDWORDCOUNT)
 #, c-format
 msgid "Marked words: %s"
-msgstr ""
+msgstr "Merkityt sanat: %s"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -8039,7 +8048,7 @@ msgstr "Ratkaise riistiriita käyttämällä 'heidän' versiotaan"
 
 #. Resource IDs: (3681)
 msgid "Resolve conflicts"
-msgstr ""
+msgstr "Ratkaise ristiriidat"
 
 #. Resource IDs: (1168, 3332)
 msgid "Resolved"
@@ -8732,11 +8741,11 @@ msgstr "Hyllystä \"%s\" on %ld versiota"
 
 #. Resource IDs: (1345)
 msgid "Shelf name can not be empty!"
-msgstr ""
+msgstr "Hyllyn nimi ei voi olla tyhjä!"
 
 #. Resource IDs: (65535)
 msgid "Shelfing"
-msgstr ""
+msgstr "Hyllylle laittaminen"
 
 #. Resource IDs: (1270, 3349)
 msgid "Shell"
@@ -10088,6 +10097,10 @@ msgstr "Varastaaksesi lukon, napsauta hiiren oikeaa painiketta tämän kohteen y
 msgid "To:"
 msgstr "Mihin:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr "Windows 11 -pääkontekstivalikko"
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10123,7 +10136,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: Kuvien vertailutyökalu TortoiseSVN:lle\n\nKomentoriviparametrit:\n/left:\"polku vasempaan kuvaan\"\n/lefttitle:\"otsikko vasemmalle kuvalle\"\n/right:\"polku oikeaan kuvaan\"\n/righttitle:\"otsikko oikealle kuvalle\"/overlay\t\tnäyttää kuvat päällekkäin\n/fit\t\tsovittaa kuvien koot\n/showinfo\t\tnäyttää numerotietoa kuvista"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10308,15 +10321,15 @@ msgstr "Paikannin:"
 
 #. Resource IDs: (383)
 msgid "URLs to TortoiseSvn compare"
-msgstr ""
+msgstr "TortoiseSVN -vertailupaikantimet"
 
 #. Resource IDs: (382)
 msgid "URLs to view revision for path in webviewer"
-msgstr ""
+msgstr "Paikantimet, joiden polkuversioita voi tarkastella web-selaimessa"
 
 #. Resource IDs: (381)
 msgid "URLs to view revision in webviewer"
-msgstr ""
+msgstr "Paikantimet, joiden versioita voi tarkastella web-selaimessa"
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
@@ -10379,6 +10392,11 @@ msgstr "Muuttumaton solmu"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Poista valinta"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr "Ei-valittuja kohteita ei näytetä päävalikossa, vain alkuperäisessä valikossa"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -10574,7 +10592,7 @@ msgstr "Päivitetään '%1!ls!'"
 
 #. Resource IDs: (1684)
 msgid "Url points to SVNParentPath list"
-msgstr ""
+msgstr "Paikannin viittää SVNParentPath -listaan"
 
 #. Resource IDs: (1843)
 msgid "Urls"
@@ -10820,11 +10838,11 @@ msgstr "V"
 
 #. Resource IDs: (1680)
 msgid "V2: Faster, no server connection required (recommended)"
-msgstr ""
+msgstr "V2: Nopeampi, ei vaadi palvelinyhteyttä (suositeltu)"
 
 #. Resource IDs: (1681)
 msgid "V3: Slower, requires server connection."
-msgstr ""
+msgstr "V3: Hitaampi, vaatii palvelinyhteyden"
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
@@ -11402,6 +11420,10 @@ msgstr "poistettu"
 msgid "disk [kB]: "
 msgstr "levy [kt]:"
 
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "fi"
+
 #. Resource IDs: (1342)
 msgid "eol style"
 msgstr "rivinvaihtotyyli"
@@ -11690,7 +11712,7 @@ msgstr "ohitettuja välejä:"
 
 #. Resource IDs: (1619)
 msgid "specific r&ange"
-msgstr "ertyinen &väli"
+msgstr "erityinen &väli"
 
 #. Resource IDs: (9298)
 msgid ""

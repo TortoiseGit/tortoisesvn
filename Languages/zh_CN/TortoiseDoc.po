@@ -25,6 +25,7 @@
 # Jerlin Liu <1351567568@qq.com>, 2020
 # Jim Yao <yaoxu12345@gmail.com>, 2018
 # Thomas ZHANG <zjbthomas@gmail.com>, 2016
+# junjie li <1105690843@qq.com>, 2021
 # Gones <liejie050911@163.com>, 2013-2014
 # shuyu liu <liushuyu011@gmail.com>, 2014
 # shuyu liu <liushuyu011@gmail.com>, 2016
@@ -57,7 +58,7 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-16 09:36+0000\n"
+"PO-Revision-Date: 2021-08-28 09:24+0000\n"
 "Last-Translator: Transifex Bot <>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -1223,13 +1224,13 @@ msgid ""
 "the same project, copied from the repository. They work concurrently, and "
 "make changes to the same file <filename>A</filename> within their copies. "
 "Sally saves her changes to the repository first. When Harry attempts to save"
-" his changes later, the repository informs him that his file A is <firstterm"
-">out-of-date</firstterm>. In other words, that file A in the repository has "
-"somehow changed since he last copied it. So Harry asks his client to "
-"<firstterm>merge</firstterm> any new changes from the repository into his "
-"working copy of file A. Chances are that Sally's changes don't overlap with "
-"his own; so once he has both sets of changes integrated, he saves his "
-"working copy back to the repository."
+" his changes later, the repository informs him that his file A is "
+"<firstterm>out-of-date</firstterm>. In other words, that file A in the "
+"repository has somehow changed since he last copied it. So Harry asks his "
+"client to <firstterm>merge</firstterm> any new changes from the repository "
+"into his working copy of file A. Chances are that Sally's changes don't "
+"overlap with his own; so once he has both sets of changes integrated, he "
+"saves his working copy back to the repository."
 msgstr "这儿有一个例子。比如说 Harry 和 Sally 参加同一个项目每人都有各自的工作副本，从同一个版本库复制出来的。他们同时工作，在自己的副本中修改同一个文件 <filename>A</filename>。Sally 先将她的更改保存到版本库中。 稍后，当 Harry 尝试提交他的更改时，版本库提示他的文件 A 已经<firstterm>过时</firstterm>。换句话说，自从他上次复制文件后，无论如何版本库中的文件 A 已经被修改了。所以 Harry 要用客户端程序将版本库中文件 A 的新更改 <firstterm>合并</firstterm> 到他的工作副本中。碰巧的是 Sally 的更改和他的不重合; 所以一旦他整合了两人的更改，他就可以把他的工作副本复制回版本库。"
 
 #. (title)
@@ -1902,8 +1903,8 @@ msgstr "然后就会在新文件夹创建一个版本库，<emphasis>不要手�
 #. (para)
 msgid ""
 "You will also be asked whether you want to create a directory structure "
-"within the repository. Find out about layout options in <xref linkend"
-"=\"tsvn-repository-layout\"/>."
+"within the repository. Find out about layout options in <xref "
+"linkend=\"tsvn-repository-layout\"/>."
 msgstr "你会被询问是否要在版本库中创建目录结构。要获得关于目录结构的选项情参阅 <xref linkend=\"tsvn-repository-layout\"/>。"
 
 #. (para)
@@ -1998,8 +1999,9 @@ msgid ""
 "<literal>file://</literal> access is intended for local, single-user access "
 "only, particularly testing and debugging. When you want to share the "
 "repository you <emphasis>really</emphasis> need to set up a proper server, "
-"and it is not nearly as difficult as you might think. Read <xref linkend"
-"=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a server."
+"and it is not nearly as difficult as you might think. Read <xref "
+"linkend=\"tsvn-serversetup\"/> for guidelines on choosing and setting up a "
+"server."
 msgstr "<literal>file://</literal> 访问是为本机工作而准备的，只能单用户访问，特别是测试和调试。当你打算共享版本库的时候，你<emphasis>真的</emphasis>需要设置一个适当的服务器，而且它并不像你想象的那样困难。阅读<xref linkend=\"tsvn-serversetup\"/>获得选择指南，并配置服务器。"
 
 #. (title)
@@ -2510,8 +2512,8 @@ msgstr "显示重载图标的资源管理器"
 msgid ""
 "<placeholder-1/> One of the most visible features of TortoiseSVN is the icon"
 " overlays which appear on files in your working copy. These show you at a "
-"glance which of your files have been modified. Refer to <xref linkend"
-"=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
+"glance which of your files have been modified. Refer to <xref "
+"linkend=\"tsvn-dug-wcstatus-1\"/> to find out what the different overlays "
 "represent."
 msgstr "<placeholder-1/> TortoiseSVN 最明显的特性之一就是图标重载，重载的图标显示在你的工作副本文件上。你一眼就可以看到文件被修改过了。参考 <xref linkend=\"tsvn-dug-wcstatus-1\"/> 查阅不同的重载图标含义。"
 
@@ -3416,8 +3418,8 @@ msgid ""
 "<filename>branches</filename> and <filename>tags</filename> to mark the "
 "three main areas. In case the setup is different, the detection of what is a"
 " tag/branch/trunk (also known as <literal>classification "
-"patterns</literal>), can be configured in the settings dialog: <xref linkend"
-"=\"tsvn-dug-settings-revgraph\"/>"
+"patterns</literal>), can be configured in the settings dialog: <xref "
+"linkend=\"tsvn-dug-settings-revgraph\"/>"
 msgstr "然而，只有在版本库布局是推荐布局的情况下，这个检出才有效。这意味着它使用了名字<filename>主干</filename>，<filename>分支</filename>和<filename>标签</filename>来标记三个主要区域。以防设置不同，可以在设置对话框<xref linkend=\"tsvn-dug-settings-revgraph\"/>中设置检测什么是标签/分支/主干（同样也称为分类参数<literal>）"
 
 #. (para)
@@ -3611,8 +3613,8 @@ msgid ""
 "of TortoiseSVN. If you are unfamiliar with regular expressions, take a look "
 "at the introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr "日志消息窗口同时也含有文件名和函数自动完成的功能。它使用正则表达式从本次提交的(文本)文件中抽取类和函数的名称，以及被提交文件的文件名。如果你输入的单词与列表中的内容匹配(至少键入 3 个字符，或者按 <keycap>Crtl+空格</keycap>)，就会显示一个下拉列表让你选择完整的名字。TortoiseSVN 支持的正则表达式位于 TortoiseSVN 安装文件夹下的 <filename>bin</filename> 文件夹中。你可以自定义匹配规则然后将其保存在文件 <filename>%APPDATA%\\TortoiseSVN\\autolist.txt</filename> 中。当然，在升级新版本的 TortoiseSVN 时你个人的自动匹配规则列表不会被覆盖。如果你不熟悉正则表达式，可以看一下介绍:<ulink url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>http://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F</citetitle></ulink>，以及在线文档和教程: <ulink url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-expressions.info/</citetitle></ulink>。"
 
@@ -4677,7 +4679,7 @@ msgid ""
 "if unchanged files are inside a directory that's been moved, the status will"
 " show a <literal>+</literal> sign in the <guilabel>status</guilabel> column,"
 " and it will be colored in blue as well."
-msgstr ""
+msgstr "如果未更改的文件位于已改变的目录中，<guilabel>状态栏</guilabel>将显示一个<literal>+</literal>号，并将显示为蓝色。"
 
 #. (para)
 msgid ""
@@ -4930,10 +4932,10 @@ msgstr "<placeholder-1/> 在提交对话框中可以看到被修改列表分组�
 
 #. (para)
 msgid ""
-"TortoiseSVN reserves one changelist name for its own use, namely <literal"
-">ignore-on-commit</literal>. This is used to mark versioned files which you "
-"almost never want to commit even though they have local changes. This "
-"feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
+"TortoiseSVN reserves one changelist name for its own use, namely "
+"<literal>ignore-on-commit</literal>. This is used to mark versioned files "
+"which you almost never want to commit even though they have local changes. "
+"This feature is described in <xref linkend=\"tsvn-dug-commit-ignore\"/>."
 msgstr "TortoiseSVN 保留了一个它自己使用的修改列表名称--<literal>ignore-on-commit</literal>。这个列表用于标记某些版本控制的文件，它们在本地被修改你却不打算提交他们。这个特性在 <xref linkend=\"tsvn-dug-commit-ignore\"/> 中有描述。"
 
 #. (para)
@@ -5649,8 +5651,8 @@ msgstr "追溯改变"
 #. (para)
 msgid ""
 "Blame the selected revision and the previous revision for the selected file,"
-" and compare the blame reports using a visual diff tool. Read <xref linkend"
-"=\"tsvn-dug-blame-diffs\"/> for more detail."
+" and compare the blame reports using a visual diff tool. Read <xref "
+"linkend=\"tsvn-dug-blame-diffs\"/> for more detail."
 msgstr "追溯选中文件的选中版本与前一个版本，使用可视化差异工具显示差异。详情请参阅<xref linkend=\"tsvn-dug-blame-diffs\"/> 。"
 
 #. (term)
@@ -6500,8 +6502,9 @@ msgstr "比较文件夹差异"
 msgid ""
 "The built-in tools supplied with TortoiseSVN do not support viewing "
 "differences between directory hierarchies. But if you have an external tool "
-"which does support that feature, you can use that instead. In <xref linkend"
-"=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have used."
+"which does support that feature, you can use that instead. In <xref "
+"linkend=\"tsvn-dug-diff-tools\"/> we tell you about some tools which we have"
+" used."
 msgstr "TortoiseSVN 自带的内置工具不支持查看多级目录之间的差异，但你可以使用支持该功能的外置工具来替代。在 <xref linkend=\"tsvn-dug-diff-tools\"/> 介绍了一些我们使用过的工具。"
 
 #. (para)
@@ -7014,8 +7017,8 @@ msgid ""
 "You can locate an older version of a file or folder in the log dialog and "
 "copy it to a new location in the repository directly from the log dialog "
 "using <menuchoice><guimenu>Context menu</guimenu><guimenuitem>Create "
-"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref linkend"
-"=\"tsvn-dug-showlog-2\"/> to find out more."
+"branch/tag from revision</guimenuitem></menuchoice>. Refer to <xref "
+"linkend=\"tsvn-dug-showlog-2\"/> to find out more."
 msgstr "你可以直接在日志对话框中定位一个文件或文件夹的旧版本并使用<menuchoice><guimenu>右键菜单</guimenu><guimenuitem>从版本创建分支/标记</guimenuitem></menuchoice>将其复制到版本库中的新位置。参看 <xref linkend=\"tsvn-dug-showlog-2\"/> 获得更多信息。"
 
 #. (para)
@@ -7438,9 +7441,9 @@ msgstr "防止两个文件名字相同"
 msgid ""
 "There is a server hook script available at: <ulink "
 "url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
-"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib"
-"/hook-scripts/</citetitle></ulink> that will prevent checkins which result "
-"in case conflicts."
+"scripts/\"><citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-"
+"scripts/</citetitle></ulink> that will prevent checkins which result in case"
+" conflicts."
 msgstr "在<ulink url=\"https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/\"></citetitle>https://svn.apache.org/repos/asf/subversion/trunk/contrib/hook-scripts/</citetitle></ulink>有一个有用的服务器端脚本,它能防止大小写冲突的检入。"
 
 #. (title)
@@ -8376,7 +8379,7 @@ msgstr ""
 
 #. (title)
 msgid "Property dialog state user types"
-msgstr ""
+msgstr "属性对话框显示用户类型"
 
 #. (para)
 msgid ""
@@ -8467,8 +8470,8 @@ msgstr "TortoiseSVN 有自己专用的几个属性，它们都有<literal>tsvn:<
 #. (para)
 msgid ""
 "TortoiseSVN can integrate with some bug tracking tools. This uses project "
-"properties that start with <literal>bugtraq:</literal>. Read <xref linkend"
-"=\"tsvn-dug-bugtracker\"/> for further information."
+"properties that start with <literal>bugtraq:</literal>. Read <xref "
+"linkend=\"tsvn-dug-bugtracker\"/> for further information."
 msgstr "TortoiseSVN 可以与一些 BUG 跟踪工具集成。它使用 <literal>bugtraq:</literal> 开始的项目属性。阅读<xref linkend=\"tsvn-dug-bugtracker\"/>以获得更多信息。"
 
 #. (para)
@@ -10471,12 +10474,12 @@ msgstr "让非锁定的文件变成只读"
 #. (para)
 msgid ""
 "As mentioned above, the most effective way to use locking is to set the "
-"<literal>svn:needs-lock</literal> property on files. Refer to <xref linkend"
-"=\"tsvn-dug-propertypage\"/> for instructions on how to set properties. "
-"Files with this property set will always be checked out and updated with the"
-" read-only flag set unless your working copy holds a lock. <graphic "
-"fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN uses a "
-"special overlay to indicate this."
+"<literal>svn:needs-lock</literal> property on files. Refer to <xref "
+"linkend=\"tsvn-dug-propertypage\"/> for instructions on how to set "
+"properties. Files with this property set will always be checked out and "
+"updated with the read-only flag set unless your working copy holds a lock. "
+"<graphic fileref=\"../images/ReadOnlyIcon.png\"/> As a reminder, TortoiseSVN"
+" uses a special overlay to indicate this."
 msgstr "正如上面提到的，最有效的使用锁的方式是对一个文件设置<literal>svn:needs-lock</literal>属性。参考<xref linkend=\"tsvn-dug-propertypage\"/>如何设置属性。带有此属性的文件将总被按只读的方式检出和更新(除非你的工作副本拥有锁定)。<graphic fileref=\"../images/ReadOnlyIcon.png\"/>作为提醒的方式之一，TortoiseSVN使用一个特殊的图标表示。"
 
 #. (para)
@@ -10501,12 +10504,12 @@ msgstr "当你使用Suversion1.2或更新的版本建立新的版本库的时候
 
 #. (para)
 msgid ""
-"It is a good idea to install a <literal>post-lock</literal> and <literal"
-">post-unlock</literal> hook script on the server which sends out an email "
-"indicating the file which has been locked. With such a script in place, all "
-"your users can be notified if someone locks/unlocks a file. You can find an "
-"example hook script <filename>hooks/post-lock.tmpl</filename> in your "
-"repository folder."
+"It is a good idea to install a <literal>post-lock</literal> and "
+"<literal>post-unlock</literal> hook script on the server which sends out an "
+"email indicating the file which has been locked. With such a script in "
+"place, all your users can be notified if someone locks/unlocks a file. You "
+"can find an example hook script <filename>hooks/post-lock.tmpl</filename> in"
+" your repository folder."
 msgstr "安装一个 <literal>post-lock</literal>和<literal>post-unlock</literal>钩子，在钩子中为锁定和解锁事件发送邮件，是个好主意 。有了这种脚本，你的所有用户都会在一个文件被锁定/解锁的时候被通知。在你的版本库文件夹下，你可以找到一个示例钩子脚本<filename>hooks/post-lock.tmpl</filename>。"
 
 #. (para)
@@ -11803,8 +11806,8 @@ msgid ""
 "TortoiseSVN will assume that the selected folder is the target, and open a "
 "dialog for you to enter the URL and revision to export from. This dialog has"
 " options to export only the top level folder, to omit external references, "
-"and to override the line end style for files which have the <literal>svn"
-":eol-style</literal> property set."
+"and to override the line end style for files which have the "
+"<literal>svn:eol-style</literal> property set."
 msgstr "<placeholder-1/> 如果你在未版本控制的目录执行此命令，TortoiseSVN会假定此目录是目标，弹出对话框让你输入要导出的URL和版本。这个对话框有只导出顶级目录，省略外部引用，以及不管<literal>svn:eol-style</literal>的取值，重新设置行结束样式等选项。"
 
 #. (para)
@@ -11876,8 +11879,8 @@ msgstr "导出更改树"
 msgid ""
 "If you want to export a copy of your project tree structure but containing "
 "only the files which have changed in a particular revision, or between any "
-"two revisions, use the compare revisions feature described in <xref linkend"
-"=\"tsvn-dug-compare-revs\"/>."
+"two revisions, use the compare revisions feature described in <xref "
+"linkend=\"tsvn-dug-compare-revs\"/>."
 msgstr "如果您想导出项目树结构的副本，但只包含在某特定修订版本中或任意两个修订版本之间发生更改的文件，请使用在 <xref linkend=\"tsvn-dug-compare-revs\"/> 中所描述的版本比较功能。"
 
 #. (para)
@@ -12081,8 +12084,8 @@ msgstr "在日志消息中增加问题号"
 msgid ""
 "You can integrate a bug tracking tool of your choice in TortoiseSVN. To do "
 "this, you have to define some properties, which start with "
-"<literal>bugtraq:</literal>. They must be set on Folders: (<xref linkend"
-"=\"tsvn-dug-propertypage\"/>)"
+"<literal>bugtraq:</literal>. They must be set on Folders: (<xref "
+"linkend=\"tsvn-dug-propertypage\"/>)"
 msgstr "您可以在 TortoiseSVN 中为您的选择集成一个错误跟踪工具。为此，您必须定义一些属性，用 <literal>bugtraq:</literal> 开头。它们必须设置于文件夹: (<xref linkend=\"tsvn-dug-propertypage\"/>)"
 
 #. (title)
@@ -12267,8 +12270,8 @@ msgid ""
 "If you are unfamiliar with regular expressions, take a look at the "
 "introduction at <ulink "
 "url=\"https://en.wikipedia.org/wiki/Regular_expression\"><citetitle>https://en.wikipedia.org/wiki/Regular_expression</citetitle></ulink>,"
-" and the online documentation and tutorial at <ulink url=\"http://www"
-".regular-expressions.info/\"><citetitle>http://www.regular-"
+" and the online documentation and tutorial at <ulink "
+"url=\"http://www.regular-expressions.info/\"><citetitle>http://www.regular-"
 "expressions.info/</citetitle></ulink>."
 msgstr ""
 
@@ -12498,8 +12501,8 @@ msgid ""
 " In case the domain name ever changes, you don't have to adjust the "
 "<literal>webviewer:revision</literal> and "
 "<literal>webviewer:pathrevision</literal> property. The format is the same "
-"as for the <literal>bugtraq:url</literal> property. See <xref linkend"
-"=\"tsvn-dug-bugtracker\"/>."
+"as for the <literal>bugtraq:url</literal> property. See <xref "
+"linkend=\"tsvn-dug-bugtracker\"/>."
 msgstr "您也可以使用相对地址来代替绝对地址。当您的网络查看器和源版本库在同一域/服务器上时，这非常有用。即使在域名称发生更改的情况下，您也不必调整 <literal>webviewer:revision</literal> 和 <literal>webviewer:pathrevision</literal> 属性。地址格式与 <literal>bugtraq:url</literal> 属性的一样，请查 <xref linkend=\"tsvn-dug-bugtracker\"/>。"
 
 #. (para)
@@ -12729,12 +12732,12 @@ msgstr "<placeholder-1/> 该页面允许你指定: 在TortoiseSVN的主上下文
 msgid ""
 "There is a special case for <guilabel>Get Lock</guilabel>. You can of course"
 " promote it to the top level using the list above, but as most files don't "
-"need locking this just adds clutter. However, a file with the <literal>svn"
-":needs-lock</literal> property needs this action every time it is edited, so"
-" in that case it is very useful to have at the top level. Checking the box "
-"here means that when a file is selected which has the <literal>svn:needs-"
-"lock</literal> property set, <guilabel>Get Lock</guilabel> will always "
-"appear at the top level."
+"need locking this just adds clutter. However, a file with the "
+"<literal>svn:needs-lock</literal> property needs this action every time it "
+"is edited, so in that case it is very useful to have at the top level. "
+"Checking the box here means that when a file is selected which has the "
+"<literal>svn:needs-lock</literal> property set, <guilabel>Get "
+"Lock</guilabel> will always appear at the top level."
 msgstr "<guilabel>获得锁</guilabel>会有一个特别的情况，你可以将其提升到顶级带但，但是大多数文件不需要锁定，这样做只是添加了混乱。然而，一个标记为<literal>svn:needs-lock</literal>属性的文件每次编辑前都需要那个操作，所以这个菜单会进入顶级菜单会比较方便。选定这个选项，会使设置<literal>svn:needs-lock</literal>属性的文件的<guilabel>Get Lock</guilabel>出现在顶级菜单中。"
 
 #. (para)
@@ -14284,8 +14287,8 @@ msgid ""
 "Occasionally you may have to connect to a server which uses the same URL for"
 " all repositories. Older versions of <literal>svnbridge</literal> would do "
 "this. If you need to access such repositories you will have to check this "
-"option. If you don't, leave it unchecked to improve performance."
-msgstr "有时您可能必须连接到一个为所有版本库使用同一 URL 的服务器。<literal>svnbridge</literal> 的旧版本就会这样做。如果您需要访问此类版本库，就必须选中此选项。如果不需要，则不用选择以便提高性能。"
+"option. If you don't, unchecked it to improve performance."
+msgstr ""
 
 #. (term)
 msgid "Allow ambiguous UUIDs"
@@ -14297,9 +14300,9 @@ msgid ""
 "even have done this yourself by copying a repository folder to create a new "
 "one. For all sorts of reasons this is a bad idea - a UUID should be "
 "<emphasis>unique</emphasis>. However, the log cache will still work in this "
-"situation if you check this box. If you don't need it, leave it unchecked to"
-" improve performance."
-msgstr "某些主机服务会为其所有版本库给予相同的 UUID。您甚至可能也这样做过，当通过复制一个版本库文件夹来创建一个新的版本库时。出于各种原因，这不是个好主意 - UUID 应该是<emphasis>唯一的</emphasis>。然而，如果选中此复选框，日志缓存仍然会在这种情况下工作。如果不需要它，请不要选择以提高性能。"
+"situation if you check this box. If you don't need it, unchecked it to "
+"improve performance."
+msgstr ""
 
 #. (term)
 msgid "If the repository cannot be contacted"
@@ -19091,7 +19094,7 @@ msgstr "如果路径通过<option>/path</option>传递，则路径会被用于�
 msgid ""
 "The parameter <option>/askforpath</option> will show a file open/save dialog"
 " for the user to chose the export/import path."
-msgstr ""
+msgstr "<option>/askforpath</option>参数是显示一个文件打开/保存对话框，供用户选择导出/导入路径。"
 
 #. (para)
 msgid ""
@@ -19374,8 +19377,8 @@ msgstr "深度选项框跟<literal>-depth</literal>参数相关"
 #. (para)
 #. (para)
 msgid ""
-"If <guilabel>Omit externals</guilabel> is checked, use the <literal"
-">--ignore-externals</literal> switch."
+"If <guilabel>Omit externals</guilabel> is checked, use the "
+"<literal>--ignore-externals</literal> switch."
 msgstr "如果希望<guilabel>忽略外部</guilabel>被选中，使用<literal>--ignore-externals</literal>选型。"
 
 #. (para)
@@ -19545,8 +19548,8 @@ msgstr "默认情况下，TortoiseSVN尝试用--limit方法取得100个日志消
 
 #. (para)
 msgid ""
-"If <guilabel>Stop on copy/rename</guilabel> is checked, use the <literal"
-">--stop-on-copy</literal> switch."
+"If <guilabel>Stop on copy/rename</guilabel> is checked, use the "
+"<literal>--stop-on-copy</literal> switch."
 msgstr "如果选择了<guilabel>停止于复制/改名</guilabel>，就使用<literal>--stop-on-copy</literal>开关。"
 
 #. (screen)
@@ -19976,8 +19979,8 @@ msgstr "<graphic fileref=\"images/InSubVersionIcon.png\"/><emphasis>在Subversio
 #. (para)
 msgid ""
 "<graphic fileref=\"images/ReadOnlyIcon.png\"/> The <emphasis>Needs "
-"Lock</emphasis> overlay is used to indicate when a file has the <literal>svn"
-":needs-lock</literal> property set."
+"Lock</emphasis> overlay is used to indicate when a file has the "
+"<literal>svn:needs-lock</literal> property set."
 msgstr "<graphic fileref=\"images/ReadOnlyIcon.png\"/><emphasis>需要锁定</emphasis>覆盖指明文件具有<literal>svn:needs-lock</literal>属性"
 
 #. (para)

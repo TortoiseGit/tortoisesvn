@@ -22,14 +22,15 @@
 # Peter Wokke <peter@woksoft.nl>, 2020
 # Sander Boele <sander@addtest.nl>, 2018
 # Sander Boele <sboele@hotmail.com>, 2014
+# Stefan Kueng <tortoisesvn@gmail.com>, 2021
 # W VB <vanbeirendonck.willem@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-01-11 19:31+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2021-12-21 17:42+0000\n"
+"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2065,6 +2066,10 @@ msgstr "Sta toe dat verschillende archieven dezelfde URL gebruiken, bijvoorbeeld
 msgid ""
 "Allow different repositories to use the same UUID, e.g. copied repositories"
 msgstr "Sta toe dat verschillende archieven dezelfde UUID gebruiken, bijvoorbeeld gekopieerde archieven"
+
+#. Resource IDs: (1481)
+msgid "Allow mixed revisions (not recommended)"
+msgstr ""
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -4979,6 +4984,10 @@ msgstr "Algemeen::Dialogen 2"
 #. Resource IDs: (332)
 msgid "General::Dialogs 3"
 msgstr "Algemeen::Dialogen 3"
+
+#. Resource IDs: (197)
+msgid "General::Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -10096,6 +10105,10 @@ msgstr "Om de blokkade te breken moet u rechts-klikken op de bovenliggende map e
 msgid "To:"
 msgstr "Tot:"
 
+#. Resource IDs: (65535)
+msgid "Top context menu on Windows 11"
+msgstr ""
+
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
 msgstr "TortoiseBlame"
@@ -10131,7 +10144,7 @@ msgid ""
 "/showinfo\t\tto show the image info boxes"
 msgstr "TortoiseIDiff: de afbeelding vergelijker voor TortoiseSVN\n\nBeschikbare parameters zijn:\n/left:\"pad naar linker afbeelding\"\n/lefttitle:\"titel voor linker afbeelding\"\n/right:\"pad naar rechter afbeelding\"\n/righttitle:\"titel voor rechter afbeelding\"\n/overlay\t\tactiveert overlay modus\n/fit\t\t\tpast afbeeldingen op elkaar\n/showinfo\t\ttoont afbeeldingsinformatie"
 
-#. Resource IDs: (100, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
+#. Resource IDs: (1, 32897, 57344, Dialog IDD_OPENDLG: Control id 130,
 #. IDS_APPNAME)
 msgid "TortoiseMerge"
 msgstr "TortoiseMerge"
@@ -10387,6 +10400,11 @@ msgstr "Ongewijzigde knoop"
 #. Resource IDs: (62177)
 msgid "Uncheck"
 msgstr "Niet markeren"
+
+#. Resource IDs: (65535)
+msgid ""
+"Unchecked items are not shown in the top menu but only in the original menu"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11409,6 +11427,10 @@ msgstr "verwijderd"
 #. Resource IDs: (65535)
 msgid "disk [kB]: "
 msgstr "schijf [kB]: "
+
+#. Resource IDs: (386, IDS_HELPURLPART)
+msgid "en"
+msgstr "en"
 
 #. Resource IDs: (1342)
 msgid "eol style"
