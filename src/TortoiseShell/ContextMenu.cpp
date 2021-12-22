@@ -40,7 +40,7 @@
 #define GetPIDLItem(pida, i) (PCUITEMID_CHILD)(((LPBYTE)pida) + (pida)->aoffset[i + 1])
 // ReSharper restore CppInconsistentNaming
 
-int g_shellIdList = RegisterClipboardFormat(CFSTR_SHELLIDLIST);
+int          g_shellIdList = RegisterClipboardFormat(CFSTR_SHELLIDLIST);
 
 // clang-format off
 // conditions:
@@ -395,8 +395,8 @@ STDMETHODIMP CShellExt::Initialize(PCIDLIST_ABSOLUTE pIDFolder,
                 CIDA*      cida = static_cast<CIDA*>(GlobalLock(medium.hGlobal));
                 ItemIDList parent(GetPIDLFolder(cida));
 
-                int  count       = cida->cidl;
-                BOOL statFetched = FALSE;
+                int        count       = cida->cidl;
+                BOOL       statFetched = FALSE;
                 for (int i = 0; i < count; ++i)
                 {
                     ItemIDList child(GetPIDLItem(cida, i), &parent);
@@ -812,15 +812,15 @@ void CShellExt::InsertSVNMenu(BOOL isTop, HMENU menu, UINT pos, UINT_PTR id, UIN
     myVerbsIDMap[id]              = verb;
     // We store the relative and absolute diameter
     // (drawitem callback uses absolute, others relative)
-    myIDMap[id - idCmdFirst] = com;
-    myIDMap[id]              = com;
+    myIDMap[id - idCmdFirst]      = com;
+    myIDMap[id]                   = com;
     if (!isTop)
         mySubMenuMap[pos] = com;
 }
 
 bool CShellExt::WriteClipboardPathsToTempFile(std::wstring& tempFile)
 {
-    tempFile = std::wstring();
+    tempFile          = std::wstring();
     //write all selected files and paths to a temporary file
     //for TortoiseProc.exe to read out again.
     DWORD pathLength  = GetTempPath(0, nullptr);
@@ -828,7 +828,7 @@ bool CShellExt::WriteClipboardPathsToTempFile(std::wstring& tempFile)
     auto  tempFileBuf = std::make_unique<wchar_t[]>(pathLength + 100LL);
     GetTempPath(pathLength + 1, path.get());
     GetTempFileName(path.get(), L"svn", 0, tempFileBuf.get());
-    tempFile = std::wstring(tempFileBuf.get());
+    tempFile       = std::wstring(tempFileBuf.get());
 
     CAutoFile file = ::CreateFile(tempFileBuf.get(),
                                   GENERIC_WRITE,
@@ -886,7 +886,7 @@ std::wstring CShellExt::WriteFileListToTempFile(const std::vector<std::wstring>&
     GetTempFileName(path.get(), L"svn", 0, tempFile.get());
     std::wstring retFilePath = std::wstring(tempFile.get());
 
-    CAutoFile file = ::CreateFile(tempFile.get(),
+    CAutoFile    file        = ::CreateFile(tempFile.get(),
                                   GENERIC_WRITE,
                                   FILE_SHARE_READ,
                                   nullptr,
@@ -936,7 +936,7 @@ STDMETHODIMP CShellExt::QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMe
     //to the new location or they can be moved with a rename,
     //if they are unversioned then they can be added to the working copy
     //if they are versioned, they also can be exported to an unversioned location
-    UINT idCmd = idCmdFirst;
+    UINT idCmd                              = idCmdFirst;
 
     // SVN move here
     // available if source is versioned, target is versioned, source and target from same repository or target folder is added
@@ -1125,18 +1125,18 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     }
 
     LoadLangDll();
-    UINT idCmd = idCmdFirst;
+    UINT                   idCmd           = idCmdFirst;
 
     //create the sub menu
-    HMENU subMenu      = hMenu ? CreateMenu() : nullptr;
-    int   indexSubMenu = 0;
+    HMENU                  subMenu         = hMenu ? CreateMenu() : nullptr;
+    int                    indexSubMenu    = 0;
 
-    TSVNContextMenuEntries topMenu11 = g_shellCache.GetMenuLayout11();
-    unsigned __int64       topMenu   = g_shellCache.GetMenuLayout();
-    unsigned __int64       menuMask  = g_shellCache.GetMenuMask();
+    TSVNContextMenuEntries topMenu11       = g_shellCache.GetMenuLayout11();
+    unsigned __int64       topMenu         = g_shellCache.GetMenuLayout();
+    unsigned __int64       menuMask        = g_shellCache.GetMenuMask();
 
-    bool bAddSeparator   = false;
-    bool bMenuEntryAdded = false;
+    bool                   bAddSeparator   = false;
+    bool                   bMenuEntryAdded = false;
     // insert separator at start
     if (hMenu)
         InsertMenu(hMenu, indexMenu++, MF_SEPARATOR | MF_BYPOSITION, 0, nullptr);
@@ -1174,7 +1174,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
             idCmd++;
         }
 
-            bool isMenu11 = (topMenu11 & menuItem.menuID) != TSVNContextMenuEntries::None;
+        bool isMenu11 = (topMenu11 & menuItem.menuID) != TSVNContextMenuEntries::None;
         // handle special cases (sub menus)
         if ((menuItem.command == ShellMenuIgnoreSub) ||
             (menuItem.command == ShellMenuDeleteIgnoreSub) ||
@@ -1198,7 +1198,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
             // the 'upgrade wc' command always has to on the top menu
             if (menuItem.command == ShellMenuUpgradeWC)
             {
-                bIsTop = true;
+                bIsTop   = true;
                 isMenu11 = true;
             }
             if (hMenu || isMenu11)
@@ -1235,7 +1235,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
     menuItemInfo.fType        = MFT_STRING;
     menuItemInfo.dwTypeData   = stringTableBuffer;
 
-    UINT uIcon = bShowIcons ? IDI_APP : 0;
+    UINT uIcon                = bShowIcons ? IDI_APP : 0;
     if (m_folder.size())
     {
         uIcon                       = bShowIcons ? IDI_MENUFOLDER : 0;
@@ -1266,7 +1266,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
         myIDMap[idCmd - idCmdFirst] = ShellSubMenu;
         myIDMap[idCmd]              = ShellSubMenu;
     }
-    HBITMAP bmp = nullptr;
+    HBITMAP bmp        = nullptr;
 
     menuItemInfo.fMask = MIIM_FTYPE | MIIM_ID | MIIM_SUBMENU | MIIM_DATA | MIIM_BITMAP | MIIM_STRING;
     if (bShowIcons)
@@ -1665,15 +1665,15 @@ void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstri
                     HGLOBAL hGlb  = GetClipboardData(cFormat);
                     LPCSTR  lpStr = static_cast<LPCSTR>(GlobalLock(hGlb));
 
-                    DWORD len   = GetTempPath(0, nullptr);
-                    auto  path  = std::make_unique<wchar_t[]>(len + 1LL);
-                    auto  tempF = std::make_unique<wchar_t[]>(len + 100LL);
+                    DWORD   len   = GetTempPath(0, nullptr);
+                    auto    path  = std::make_unique<wchar_t[]>(len + 1LL);
+                    auto    tempF = std::make_unique<wchar_t[]>(len + 100LL);
                     GetTempPath(len + 1, path.get());
                     GetTempFileName(path.get(), L"svn", 0, tempF.get());
                     std::wstring sTempFile = std::wstring(tempF.get());
 
-                    FILE*  outFile;
-                    size_t patchLen = strlen(lpStr);
+                    FILE*        outFile;
+                    size_t       patchLen = strlen(lpStr);
                     _tfopen_s(&outFile, sTempFile.c_str(), L"wb");
                     if (outFile)
                     {
@@ -1831,7 +1831,7 @@ STDMETHODIMP CShellExt::GetCommandString(UINT_PTR idCmd,
 {
     PreserveChdir preserveChdir;
     //do we know the id?
-    auto idIt = myIDMap.lower_bound(idCmd);
+    auto          idIt = myIDMap.lower_bound(idCmd);
     if (idIt == myIDMap.end() || idIt->first != idCmd)
     {
         return E_INVALIDARG; //no, we don't
@@ -1904,7 +1904,7 @@ STDMETHODIMP CShellExt::HandleMenuMsg2(UINT uMsg, WPARAM wParam, LPARAM lParam, 
 {
     PreserveChdir preserveChdir;
 
-    LRESULT res;
+    LRESULT       res;
     if (pResult == nullptr)
         pResult = &res;
     *pResult = FALSE;
@@ -2126,9 +2126,9 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
 
     if (m_files.empty())
         return;
-    UINT icon = bShowIcons ? IDI_IGNORE : 0;
+    UINT                                icon = bShowIcons ? IDI_IGNORE : 0;
 
-    std::vector<std::wstring>::iterator I = m_files.begin();
+    std::vector<std::wstring>::iterator I    = m_files.begin();
     if (wcsrchr(I->c_str(), '\\'))
         wcscpy_s(ignorePath, wcsrchr(I->c_str(), '\\') + 1);
     else
@@ -2638,10 +2638,23 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
         m_site.As(&oleWindow);
         if (oleWindow)
         {
-            // in Win11, the "main" context menu does not provide an IOleWindow,
-            // so this is for the old context menu, and there we don't show this menu
-            *pCmdState = ECS_HIDDEN;
-            return S_OK;
+            // We don't want to show the menu on the classic context menu.
+            // The classic menu provides an IOleWindow, but the main context
+            // menu of the left treeview in explorer does too.
+            // So we check the window class name: if it's "NamespaceTreeControl",
+            // then we're dealing with the main context menu of the tree view.
+            // If it's not, then we're dealing with the classic context menu
+            // and there we hide this menu entry.
+            HWND hWnd = nullptr;
+            oleWindow->GetWindow(&hWnd);
+            wchar_t szWndClassName[MAX_PATH] = {0};
+            GetClassName(hWnd, szWndClassName, _countof(szWndClassName));
+            if (wcscmp(szWndClassName, L"NamespaceTreeControl"))
+            {
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: GetState - hidden\n");
+                *pCmdState = ECS_HIDDEN;
+                return S_OK;
+            }
         }
     }
 
@@ -2728,7 +2741,7 @@ HRESULT __stdcall CShellExt::EnumSubCommands(IEnumExplorerCommand** ppEnum)
 std::wstring CShellExt::ExplorerViewPath()
 {
     std::wstring path;
-    HRESULT      hr = NOERROR;
+    HRESULT      hr   = NOERROR;
 
     // the top context menu in Win11 does not
     // provide an IOleWindow with the SetSite() object,
@@ -2736,7 +2749,7 @@ std::wstring CShellExt::ExplorerViewPath()
     // context menu must always be the top window, we
     // just grab the foreground window and assume that
     // this is the explorer window.
-    auto hwnd = ::GetForegroundWindow();
+    auto         hwnd = ::GetForegroundWindow();
     if (hwnd == nullptr)
         return path;
 
