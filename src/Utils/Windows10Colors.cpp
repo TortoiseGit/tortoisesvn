@@ -18,6 +18,7 @@
 //
 #include "stdafx.h"
 #include "Windows10Colors.h"
+#include <VersionHelpers.h>
 
 #pragma comment(lib, "dwmapi.lib")
 #pragma comment(lib, "ntdll.lib")
@@ -66,7 +67,9 @@ Win10Colors::Win10Colors()
     if (!m_modulesLoaded)
     {
         m_modulesLoaded = true;
-        m_winRt         = LoadLibraryW(L"api-ms-win-core-winrt-l1-1-0.dll");
+        if (!IsWindows8OrGreater())
+            return;
+        m_winRt = LoadLibraryW(L"api-ms-win-core-winrt-l1-1-0.dll");
         if (m_winRt)
         {
             pRoActivateInstance = reinterpret_cast<PfnRoActivateInstance>(
