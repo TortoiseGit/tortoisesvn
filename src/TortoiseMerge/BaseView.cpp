@@ -4962,19 +4962,14 @@ int CBaseView::CountMultiLines(int nViewLine)
         return static_cast<int>(m_screenedViewLine[nViewLine].m_subLines.size());
     }
 
-    CString multiline = CStringUtils::WordWrap(m_pViewData->GetLine(nViewLine), GetScreenChars() - 1, false, true, GetTabSize()); // GetMultiLine(nLine);
+    auto multiLines = CStringUtils::WordWrap(m_pViewData->GetLine(nViewLine), GetScreenChars() - 1, GetTabSize());
 
     TScreenedViewLine oScreenedLine;
-    // tokenize string
-    int prevpos = 0;
-    int pos     = 0;
-    while ((pos = multiline.Find('\n', pos)) >= 0)
+
+    for (const auto& line : multiLines)
     {
-        oScreenedLine.m_subLines.push_back(multiline.Mid(prevpos, pos - prevpos)); // WordWrap could return vector/list of lines instead of string
-        pos++;
-        prevpos = pos;
+        oScreenedLine.m_subLines.push_back(line);
     }
-    oScreenedLine.m_subLines.push_back(multiline.Mid(prevpos));
     oScreenedLine.bSublinesSet    = true;
     m_screenedViewLine[nViewLine] = oScreenedLine;
 
