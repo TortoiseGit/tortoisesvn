@@ -4962,15 +4962,44 @@ int CBaseView::CountMultiLines(int nViewLine)
         return static_cast<int>(m_screenedViewLine[nViewLine].m_subLines.size());
     }
 
-    auto multiLines = CStringUtils::WordWrap(m_pViewData->GetLine(nViewLine), GetScreenChars() - 1, GetTabSize());
+    auto              multiLines = CStringUtils::WordWrap(m_pViewData->GetLine(nViewLine), GetScreenChars() - 1, GetTabSize());
 
     TScreenedViewLine oScreenedLine;
-
-    for (const auto& line : multiLines)
+    bool              subLinesSet = true;
+    if (m_pMainFrame->m_bWrapLines)
     {
-        oScreenedLine.m_subLines.push_back(line);
+        CDC*   pDC      = GetDC();
+        CFont* pOldFont = pDC->SelectObject(GetFont());
+
+        for (const auto& line : multiLines)
+        {
+            if (line.GetLength())
+            {
+                // we use the 'X' char to determine the char width,
+                // but e.g. chinese chars are much wider. To make sure
+                // that we wrap correctly, we calculate the average char width
+                // here by using the real line text
+                const CSize szCharExt = pDC->GetTextExtent(line);
+                if (szCharExt.cx / line.GetLength() > m_nCharWidth)
+                {
+                    m_nCharWidth = szCharExt.cx / line.GetLength();
+                    subLinesSet  = false;
+                }
+            }
+            oScreenedLine.m_subLines.push_back(line);
+        }
+        pDC->SelectObject(pOldFont);
+        ReleaseDC(pDC);
     }
-    oScreenedLine.bSublinesSet    = true;
+    else
+    {
+        for (const auto& line : multiLines)
+        {
+            oScreenedLine.m_subLines.push_back(line);
+        }
+    }
+
+    oScreenedLine.bSublinesSet    = subLinesSet;
     m_screenedViewLine[nViewLine] = oScreenedLine;
 
     return CountMultiLines(nViewLine);
