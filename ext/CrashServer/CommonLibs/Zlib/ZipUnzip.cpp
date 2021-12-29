@@ -203,7 +203,7 @@ std::vector<CStringW> Unzip::Extract(LPCWSTR pszFilename, LPCWSTR pszFolder, std
     {
         if (uf != NULL)
             unzClose(uf);
-        for each (auto file in result)
+        for (auto file : result)
             DeleteFileW(file);
         throw;
     }
