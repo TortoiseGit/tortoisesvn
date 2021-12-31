@@ -307,6 +307,7 @@ public:
     BOOL                              m_bReversedPatch;
     CDiffData                         m_data;
     bool                              m_bReadOnly;
+    bool                              m_bMarkedAsResolvedWasDone;
     bool                              m_bBlame;
     int                               m_nMoveMovesToIgnore;
     bool                              m_bCollapsed;
