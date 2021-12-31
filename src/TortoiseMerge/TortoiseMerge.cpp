@@ -65,6 +65,7 @@ public:
 };
 
 CTortoiseMergeApp::CTortoiseMergeApp()
+    : m_hasConflicts(false)
 {
     EnableHtmlHelp();
 }
@@ -498,7 +499,17 @@ int CTortoiseMergeApp::ExitInstance()
     // remove them. But only delete 'old' files
     CTempFiles::DeleteOldTempFiles(L"*svn*.*");
 
-    return CWinAppEx::ExitInstance();
+    CWinAppEx::ExitInstance();
+    return m_hasConflicts ? 1 : 0;
+}
+
+void CTortoiseMergeApp::OnClosingMainFrame(CFrameImpl* pFrameImpl)
+{
+    if (auto pFrame = dynamic_cast<CMainFrame*>(m_pMainWnd))
+    {
+        if (pFrame->CheckResolved() >= 0)
+            m_hasConflicts = true;
+    }
 }
 
 bool CTortoiseMergeApp::HasClipboardPatch()

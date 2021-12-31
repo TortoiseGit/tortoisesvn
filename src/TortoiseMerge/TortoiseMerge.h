@@ -35,6 +35,7 @@ public:
 public:
     BOOL InitInstance() override;
     int  ExitInstance() override;
+    void OnClosingMainFrame(CFrameImpl* pFrameImpl) override;
 
 protected:
     afx_msg void OnAppAbout();
@@ -42,6 +43,7 @@ protected:
 private:
     static bool HasClipboardPatch();
     static bool TrySavePatchFromClipboard(std::wstring& resultFile);
+    bool        m_hasConflicts;
 };
 
 extern CTortoiseMergeApp theApp;
