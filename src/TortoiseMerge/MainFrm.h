@@ -56,6 +56,8 @@ public:
     CMainFrame();
     ~CMainFrame() override;
 
+    int  InitRibbon();
+
     void ShowDiffBar(bool bShow);
     void DiffLeftToBase() const;
     void DiffRightToBase() const;
