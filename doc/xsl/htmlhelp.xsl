@@ -12,9 +12,10 @@
 <xsl:param name="htmlhelp.hhc.folders.instead.books" select="1"></xsl:param>
 <xsl:param name="htmlhelp.hhc.binary" select="0"></xsl:param>
 <xsl:param name="htmlhelp.use.hhk" select="1"></xsl:param>
+<xsl:param name="ulink.target">_blank</xsl:param>
 
 <xsl:template name="user.footer.navigation">
- <center><p><a href="https://tortoisesvn.net">TortoiseSVN homepage</a></p></center>
+ <center><p><a href="https://tortoisesvn.net" target="_blank">TortoiseSVN homepage</a></p></center>
 </xsl:template>
 
 </xsl:stylesheet>
