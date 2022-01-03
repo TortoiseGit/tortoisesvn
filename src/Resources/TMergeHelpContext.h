@@ -86,6 +86,9 @@
 #define HIDR_REGEXFILTERINI                     0x200A6
 #define HIDR_CONFIG2                            0x200A7
 #define HIDR_IGNORECOMMENTSTXT                  0x200A9
+#define HIDR_HELPALIAS                          0x200AE
+#define HIDR_HELP1                              0x200AF
+#define HIDR_HELPCONTEXT                        0x200AF
 // Dialogs (IDD_*)
 #define HIDD_SETMAINPAGE                        0x2006B
 #define HIDD_OPENDLG                            0x20082

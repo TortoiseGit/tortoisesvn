@@ -85,6 +85,8 @@
 #define HIDR_PROPNEWMENU                        0x20136
 #define HIDR_PROPEDITMENU                       0x20137
 #define HIDR_MONITORTRAY                        0x2016D
+#define HIDR_HELPALIAS                          0x2018C
+#define HIDR_HELPCONTEXT                        0x2018D
 // Dialogs (IDD_*)
 #define HIDD_SETTINGSPROXY                      0x20066
 #define HIDD_SETTINGSHOOKS                      0x20067
@@ -127,8 +129,8 @@
 #define HIDD_SETTINGSPROGSDIFF                  0x200C0
 #define HIDD_SETTINGSPROGSMERGE                 0x200C1
 #define HIDD_SETTINGSLOOKANDFEEL                0x200C3
-#define HIDD_SETTINGSWIN11CONTEXTMENU           0x200C5
 #define HIDD_SETTINGSDIALOGS                    0x200C4
+#define HIDD_SETTINGSWIN11CONTEXTMENU           0x200C5
 #define HIDD_DIFFFILES                          0x200C7
 #define HIDD_SHELVE                             0x200CD
 #define HIDD_UNSHELVE                           0x200CE
