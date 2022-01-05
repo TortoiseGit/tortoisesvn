@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2010-2018, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -827,11 +827,15 @@ bool CCommonAppUtils::StartHtmlHelp(DWORD_PTR id)
         return false;
 
     wchar_t windir[MAX_PATH] = {0};
-    if (!GetWindowsDirectory(windir, _countof(windir))) // MAX_PATH ok.
+    if (!GetWindowsDirectory(windir, _countof(windir)))
         return false;
 
+   	CString mapID;
+    if (id)
+        mapID.Format(L" -mapid %Iu", id);
+
     CString cmd;
-    cmd.Format(L"%s\\HH.exe -mapid %Iu \"%s\"", windir, id, pApp->m_pszHelpFilePath);
+    cmd.Format(L"%s\\HH.exe%s \"%s\"", windir, static_cast<LPCWSTR>(mapID), static_cast<LPCWSTR>(helpFile));
 
     return CCreateProcessHelper::CreateProcessDetached(nullptr, cmd);
 #endif
