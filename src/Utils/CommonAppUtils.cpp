@@ -826,8 +826,12 @@ bool CCommonAppUtils::StartHtmlHelp(DWORD_PTR id)
     if (helpFile.IsEmpty() || !PathFileExists(helpFile))
         return false;
 
+    wchar_t windir[MAX_PATH] = {0};
+    if (!GetWindowsDirectory(windir, _countof(windir))) // MAX_PATH ok.
+        return false;
+
     CString cmd;
-    cmd.Format(L"HH.exe -mapid %Iu \"%s\"", id, pApp->m_pszHelpFilePath);
+    cmd.Format(L"%s\\HH.exe -mapid %Iu \"%s\"", windir, id, pApp->m_pszHelpFilePath);
 
     return CCreateProcessHelper::CreateProcessDetached(nullptr, cmd);
 #endif
