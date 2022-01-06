@@ -19,12 +19,10 @@ You need to perform most steps only once.
 
 \subsection Requirements1 First, you need to install the compiler package.
 
--# You need VS2019 to allow building of the full TortoiseSVN package.
+-# You need VS2022 to allow building of the full TortoiseSVN package.
    If you don't have Visual Studio yet, you can download and install
-   the community edition for free. Make sure to leave the checkbox for
-   "Microsoft Foundation library" checked in the first installer dialog.
-   If you want to build the msi make sure the "Tools for Redistributing
-   Applications" are installed.
+   the community edition for free. When you install Visual Studio, you have
+   to select the "MFC", "ATL" packages and the "MSM redistributable" as well.
 
 \subsection Requirements2 Next you need to install some utilities/programs.
 - Java runtime                      https://www.java.com
