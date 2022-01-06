@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2014, 2016-2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2006-2014, 2016-2018, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -505,7 +505,7 @@ int CTortoiseMergeApp::ExitInstance()
     return m_hasConflicts ? 1 : 0;
 }
 
-void CTortoiseMergeApp::OnClosingMainFrame(CFrameImpl* pFrameImpl)
+void CTortoiseMergeApp::OnClosingMainFrame(CFrameImpl* /*pFrameImpl*/)
 {
     if (auto pFrame = dynamic_cast<CMainFrame*>(m_pMainWnd))
     {
