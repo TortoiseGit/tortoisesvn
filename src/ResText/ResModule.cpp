@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2015-2019 - TortoiseGit
+// Copyright (C) 2015-2019, 2022 - TortoiseGit
 // Copyright (C) 2003-2008, 2010-2017, 2019, 2021 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
@@ -160,6 +160,9 @@ BOOL CResModule::ExtractResources(LPCWSTR lpszSrcLangDllPath, LPCWSTR lpszPoFile
     m_hResDll = LoadLibraryEx(lpszSrcLangDllPath, nullptr, LOAD_LIBRARY_AS_IMAGE_RESOURCE | LOAD_LIBRARY_AS_DATAFILE);
     if (!m_hResDll)
         MYERROR;
+    OnOutOfScope(
+        if (m_hResDll)
+            FreeLibrary(m_hResDll);)
 
     size_t nEntries = 0;
     // fill in the std::map with all translatable entries
@@ -198,15 +201,9 @@ BOOL CResModule::ExtractResources(LPCWSTR lpszSrcLangDllPath, LPCWSTR lpszPoFile
 
     // at last, save the new file
     if (!m_stringEntries.SaveFile(lpszPoFilePath, lpszHeaderFile))
-        goto DONE_ERROR;
+        return FALSE;
 
-    FreeLibrary(m_hResDll);
     return TRUE;
-
-DONE_ERROR:
-    if (m_hResDll)
-        FreeLibrary(m_hResDll);
-    return FALSE;
 }
 
 BOOL CResModule::CreateTranslatedResources(LPCWSTR lpszSrcLangDllPath, LPCWSTR lpszDestLangDllPath, LPCWSTR lpszPoFilePath)
@@ -419,8 +416,8 @@ BOOL CResModule::ReplaceString(LPCWSTR lpszType, WORD wLanguage)
         pp += len;
     }
 
-    WORD* newTable = new WORD[nMem + (nMem % 2)];
-    SecureZeroMemory(newTable, (nMem + (nMem % 2)) * 2);
+    auto newTable = std::make_unique<WORD[]>(nMem + (nMem % 2));
+    ZeroMemory(newTable.get(), (nMem + (nMem % 2)) * sizeof(WORD));
 
     size_t index = 0;
     for (int i = 0; i < 16; ++i)
@@ -440,16 +437,16 @@ BOOL CResModule::ReplaceString(LPCWSTR lpszType, WORD wLanguage)
         size_t newlen = wcslen(buf);
         if (newlen)
         {
-            newTable[index++] = static_cast<WORD>(newlen);
-            wcsncpy(reinterpret_cast<wchar_t*>(&newTable[index]), buf, newlen);
+            newTable.get()[index++] = static_cast<WORD>(newlen);
+            wcsncpy(reinterpret_cast<wchar_t*>(&newTable.get()[index]), buf, newlen);
             index += newlen;
             m_bTranslatedStrings++;
         }
         else
         {
-            newTable[index++] = static_cast<WORD>(len);
+            newTable.get()[index++] = static_cast<WORD>(len);
             if (len)
-                wcsncpy(reinterpret_cast<wchar_t*>(&newTable[index]), p, len);
+                wcsncpy(reinterpret_cast<wchar_t*>(&newTable.get()[index]), p, len);
             index += len;
             if (len)
                 m_bDefaultStrings++;
@@ -457,18 +454,12 @@ BOOL CResModule::ReplaceString(LPCWSTR lpszType, WORD wLanguage)
         p += len;
     }
 
-    if (!UpdateResource(m_hUpdateRes, RT_STRING, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newTable, static_cast<DWORD>(nMem + (nMem % 2)) * 2))
-    {
-        delete[] newTable;
+    if (!UpdateResource(m_hUpdateRes, RT_STRING, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newTable.get(), static_cast<DWORD>(nMem + (nMem % 2)) * sizeof(WORD)))
         MYERROR;
-    }
 
     if (m_wTargetLang && (!UpdateResource(m_hUpdateRes, RT_STRING, lpszType, wLanguage, nullptr, 0)))
-    {
-        delete[] newTable;
         MYERROR;
-    }
-    delete[] newTable;
+
     return TRUE;
 }
 
@@ -486,12 +477,13 @@ BOOL CResModule::ExtractMenu(LPCWSTR lpszType)
 
     if (!hglMenuTemplate)
         MYERROR;
+    OnOutOfScope(FreeResource(hglMenuTemplate);)
 
     p = static_cast<const WORD*>(LockResource(hglMenuTemplate));
 
     if (!p)
         MYERROR;
-
+    OnOutOfScope(UnlockResource(hglMenuTemplate);)
     // Standard MENU resource
     //struct MenuHeader {
     //  WORD   wVersion;           // Currently zero
@@ -517,7 +509,7 @@ BOOL CResModule::ExtractMenu(LPCWSTR lpszType)
             p += offset;
             p++;
             if (!ParseMenuResource(p))
-                goto DONE_ERROR;
+                MYERROR;
         }
         break;
         case 1:
@@ -526,21 +518,14 @@ BOOL CResModule::ExtractMenu(LPCWSTR lpszType)
             p++;
             //dwHelpId = GET_DWORD(p);
             if (!ParseMenuExResource(p0 + offset))
-                goto DONE_ERROR;
+                MYERROR;
         }
         break;
         default:
-            goto DONE_ERROR;
+            MYERROR;
     }
 
-    UnlockResource(hglMenuTemplate);
-    FreeResource(hglMenuTemplate);
     return TRUE;
-
-DONE_ERROR:
-    UnlockResource(hglMenuTemplate);
-    FreeResource(hglMenuTemplate);
-    MYERROR;
 }
 
 BOOL CResModule::ReplaceMenu(LPCWSTR lpszType, WORD wLanguage)
@@ -589,28 +574,18 @@ BOOL CResModule::ReplaceMenu(LPCWSTR lpszType, WORD wLanguage)
             p++;
             size_t nMem = 0;
             if (!CountMemReplaceMenuResource(reinterpret_cast<WORD*>(p), &nMem, nullptr))
-                goto DONE_ERROR;
-            WORD* newMenu = new WORD[nMem + (nMem % 2) + 2];
-            SecureZeroMemory(newMenu, (nMem + (nMem % 2) + 2) * 2);
+                MYERROR;
+            auto newMenu = std::make_unique<WORD[]>(nMem + (nMem % 2) + 2);
+            ZeroMemory(newMenu.get(), (nMem + (nMem % 2) + 2) * sizeof(WORD));
             size_t index = 2; // MenuHeader has 2 WORDs zero
-            if (!CountMemReplaceMenuResource(reinterpret_cast<WORD*>(p), &index, newMenu))
-            {
-                delete[] newMenu;
-                goto DONE_ERROR;
-            }
+            if (!CountMemReplaceMenuResource(reinterpret_cast<WORD*>(p), &index, newMenu.get()))
+                MYERROR;
 
-            if (!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu, static_cast<DWORD>(nMem + (nMem % 2) + 2) * 2))
-            {
-                delete[] newMenu;
-                goto DONE_ERROR;
-            }
+            if (!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu.get(), static_cast<DWORD>(nMem + (nMem % 2) + 2) * sizeof(WORD)))
+                MYERROR;
 
             if (m_wTargetLang && (!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, wLanguage, nullptr, 0)))
-            {
-                delete[] newMenu;
-                goto DONE_ERROR;
-            }
-            delete[] newMenu;
+                MYERROR;
         }
         break;
         case 1:
@@ -619,44 +594,27 @@ BOOL CResModule::ReplaceMenu(LPCWSTR lpszType, WORD wLanguage)
             p++;
             //dwHelpId = GET_DWORD(p);
             size_t nMem = 0;
-            if (!CountMemReplaceMenuExResource(static_cast<WORD*>(p0 + offset), &nMem, nullptr))
-                goto DONE_ERROR;
-            WORD* newMenu = new WORD[nMem + (nMem % 2) + 4];
-            SecureZeroMemory(newMenu, (nMem + (nMem % 2) + 4) * 2);
-            CopyMemory(newMenu, p0, 2 * sizeof(WORD) + sizeof(DWORD));
+            if (!CountMemReplaceMenuExResource(reinterpret_cast<WORD*>(p0 + offset), &nMem, nullptr))
+                MYERROR;
+            auto newMenu = std::make_unique<WORD[]>(nMem + (nMem % 2) + 4);
+            ZeroMemory(newMenu.get(), (nMem + (nMem % 2) + 4) * sizeof(WORD));
+            CopyMemory(newMenu.get(), p0, 2 * sizeof(WORD) + sizeof(DWORD));
             size_t index = 4; // MenuExHeader has 2 x WORD + 1 x DWORD
-            if (!CountMemReplaceMenuExResource(static_cast<WORD*>(p0 + offset), &index, newMenu))
-            {
-                delete[] newMenu;
-                goto DONE_ERROR;
-            }
+            if (!CountMemReplaceMenuExResource(reinterpret_cast<WORD*>(p0 + offset), &index, newMenu.get()))
+                MYERROR;
 
-            if (!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu, static_cast<DWORD>(nMem + (nMem % 2) + 4) * 2))
-            {
-                delete[] newMenu;
-                goto DONE_ERROR;
-            }
+            if (!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newMenu.get(), static_cast<DWORD>(nMem + (nMem % 2) + 4) * sizeof(DWORD)))
+                MYERROR;
 
             if (m_wTargetLang && (!UpdateResource(m_hUpdateRes, RT_MENU, lpszType, wLanguage, nullptr, 0)))
-            {
-                delete[] newMenu;
-                goto DONE_ERROR;
-            }
-            delete[] newMenu;
+                MYERROR;
         }
         break;
         default:
-            goto DONE_ERROR;
+            MYERROR;
     }
 
-    UnlockResource(hglMenuTemplate);
-    FreeResource(hglMenuTemplate);
     return TRUE;
-
-DONE_ERROR:
-    UnlockResource(hglMenuTemplate);
-    FreeResource(hglMenuTemplate);
-    MYERROR;
 }
 
 const WORD* CResModule::ParseMenuResource(const WORD* res)
@@ -962,13 +920,14 @@ BOOL CResModule::ExtractAccelerator(LPCWSTR lpszType)
     hglAccTable = LoadResource(m_hResDll, hrsrc);
 
     if (!hglAccTable)
-        goto DONE_ERROR;
+        MYERROR;
+    OnOutOfScope(FreeResource(hglAccTable);)
 
     p = static_cast<const WORD*>(LockResource(hglAccTable));
 
     if (!p)
         MYERROR;
-
+    OnOutOfScope(UnlockResource(hglAccTable);)
     /*
     struct ACCELTABLEENTRY
     {
@@ -1061,14 +1020,7 @@ BOOL CResModule::ExtractAccelerator(LPCWSTR lpszType)
         m_stringEntries[wStr] = aKeyEntry;
     } while (!bEnd);
 
-    UnlockResource(hglAccTable);
-    FreeResource(hglAccTable);
     return TRUE;
-
-DONE_ERROR:
-    UnlockResource(hglAccTable);
-    FreeResource(hglAccTable);
-    MYERROR;
 }
 
 BOOL CResModule::ReplaceAccelerator(LPCWSTR lpszType, WORD wLanguage)
@@ -1091,6 +1043,7 @@ BOOL CResModule::ReplaceAccelerator(LPCWSTR lpszType, WORD wLanguage)
 
     if (!lpaccelNew)
         MYERROR;
+    OnOutOfScope(LocalFree(lpaccelNew););
 
     CopyAcceleratorTable(haccelOld, lpaccelNew, cAccelerators);
 
@@ -1176,7 +1129,8 @@ BOOL CResModule::ReplaceAccelerator(LPCWSTR lpszType, WORD wLanguage)
     // Create the new accelerator table
     hglAccTableNew = LocalAlloc(LPTR, cAccelerators * 4LL * sizeof(WORD));
     if (!hglAccTableNew)
-        goto DONE_ERROR;
+        MYERROR;
+    OnOutOfScope(LocalFree(hglAccTableNew););
     p = static_cast<WORD*>(hglAccTableNew);
     lpaccelNew[cAccelerators - 1].fVirt |= 0x80;
     for (i = 0; i < cAccelerators; i++)
@@ -1193,22 +1147,15 @@ BOOL CResModule::ReplaceAccelerator(LPCWSTR lpszType, WORD wLanguage)
     if (!UpdateResource(m_hUpdateRes, RT_ACCELERATOR, lpszType,
                         (m_wTargetLang ? m_wTargetLang : wLanguage), hglAccTableNew /* haccelNew*/, cAccelerators * 4 * sizeof(WORD)))
     {
-        goto DONE_ERROR;
+        MYERROR;
     }
 
     if (m_wTargetLang && (!UpdateResource(m_hUpdateRes, RT_ACCELERATOR, lpszType, wLanguage, nullptr, 0)))
     {
-        goto DONE_ERROR;
+        MYERROR;
     }
 
-    LocalFree(hglAccTableNew);
-    LocalFree(lpaccelNew);
     return TRUE;
-
-DONE_ERROR:
-    LocalFree(hglAccTableNew);
-    LocalFree(lpaccelNew);
-    MYERROR;
 }
 
 BOOL CResModule::ExtractDialog(LPCWSTR lpszType)
@@ -1307,29 +1254,19 @@ BOOL CResModule::ReplaceDialog(LPCWSTR lpszType, WORD wLanguage)
     const WORD* p    = lpDlg;
     if (!CountMemReplaceDialogResource(p, &nMem, nullptr))
         MYERROR;
-    WORD* newDialog = new WORD[nMem + (nMem % 2)];
-    SecureZeroMemory(newDialog, (nMem + (nMem % 2)) * 2);
+    auto newDialog = std::make_unique<WORD[]>(nMem + (nMem % 2));
+    ZeroMemory(newDialog.get(), (nMem + (nMem % 2)) * sizeof(WORD));
 
     size_t index = 0;
-    if (!CountMemReplaceDialogResource(lpDlg, &index, newDialog))
-    {
-        delete[] newDialog;
+    if (!CountMemReplaceDialogResource(lpDlg, &index, newDialog.get()))
         MYERROR;
-    }
 
-    if (!UpdateResource(m_hUpdateRes, RT_DIALOG, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newDialog, static_cast<DWORD>(nMem + (nMem % 2)) * 2))
-    {
-        delete[] newDialog;
+    if (!UpdateResource(m_hUpdateRes, RT_DIALOG, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), newDialog.get(), static_cast<DWORD>(nMem + (nMem % 2)) * sizeof(WORD)))
         MYERROR;
-    }
 
     if (m_wTargetLang && (!UpdateResource(m_hUpdateRes, RT_DIALOG, lpszType, wLanguage, nullptr, 0)))
-    {
-        delete[] newDialog;
         MYERROR;
-    }
 
-    delete[] newDialog;
     return TRUE;
 }
 
@@ -1860,6 +1797,9 @@ BOOL CResModule::ExtractRibbon(LPCWSTR lpszType)
         MYERROR;
 
     hglRibbonTemplate = LoadResource(m_hResDll, hrsrc);
+    if (!hglRibbonTemplate)
+        MYERROR;
+    OnOutOfScope(FreeResource(hglRibbonTemplate);)
 
     DWORD sizeres = SizeofResource(m_hResDll, hrsrc);
 
@@ -1870,6 +1810,7 @@ BOOL CResModule::ExtractRibbon(LPCWSTR lpszType)
 
     if (!p)
         MYERROR;
+    OnOutOfScope(UnlockResource(hglRibbonTemplate);)
 
     // Resource consists of one single string
     // that is XML.
@@ -1910,8 +1851,6 @@ BOOL CResModule::ExtractRibbon(LPCWSTR lpszType)
         m_bDefaultRibbonTexts++;
     }
 
-    UnlockResource(hglRibbonTemplate);
-    FreeResource(hglRibbonTemplate);
     return TRUE;
 }
 
@@ -1926,15 +1865,17 @@ BOOL CResModule::ReplaceRibbon(LPCWSTR lpszType, WORD wLanguage)
 
     hglRibbonTemplate = LoadResource(m_hResDll, hrsrc);
 
-    DWORD sizeres = SizeofResource(m_hResDll, hrsrc);
-
     if (!hglRibbonTemplate)
         MYERROR;
+    OnOutOfScope(FreeResource(hglRibbonTemplate);)
+
+    DWORD sizeres = SizeofResource(m_hResDll, hrsrc);
 
     p = static_cast<const BYTE*>(LockResource(hglRibbonTemplate));
 
     if (!p)
         MYERROR;
+    OnOutOfScope(UnlockResource(hglRibbonTemplate);)
 
     std::string  ss  = std::string(reinterpret_cast<const char*>(p), sizeres);
     std::wstring ssw = CUnicodeUtils::StdGetUnicode(ss);
@@ -1994,23 +1935,12 @@ BOOL CResModule::ReplaceRibbon(LPCWSTR lpszType, WORD wLanguage)
     int  lengthIncTerminator = WideCharToMultiByte(CP_UTF8, 0, ssw.c_str(), -1, buf.get(), static_cast<int>(ssw.size()) * 4, nullptr, nullptr); //
 
     if (!UpdateResource(m_hUpdateRes, RT_RIBBON, lpszType, (m_wTargetLang ? m_wTargetLang : wLanguage), buf.get(), lengthIncTerminator - 1))
-    {
-        goto DONE_ERROR;
-    }
+        MYERROR;
 
     if (m_wTargetLang && (!UpdateResource(m_hUpdateRes, RT_RIBBON, lpszType, wLanguage, nullptr, 0)))
-    {
-        goto DONE_ERROR;
-    }
+        MYERROR;
 
-    UnlockResource(hglRibbonTemplate);
-    FreeResource(hglRibbonTemplate);
     return TRUE;
-
-DONE_ERROR:
-    UnlockResource(hglRibbonTemplate);
-    FreeResource(hglRibbonTemplate);
-    MYERROR;
 }
 
 std::wstring CResModule::ReplaceWithRegex(WCHAR* pBuf, size_t bufferSize)
