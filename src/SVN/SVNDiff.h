@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2011, 2013-2014, 2016, 2018, 2021 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2011, 2013-2014, 2016, 2018, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -90,7 +90,7 @@ public:
      * In case \a url1 is an URL and not a local path, then the file diff dialog
      * is used to show the diff.
      */
-    bool ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg, bool ignoreProps, bool prettyPrint, const CString& options, bool ignoreAncestry = false, bool blame = false, svn_node_kind_t nodeKind = svn_node_unknown);
+    bool ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg, bool ignoreProps, bool prettyPrint, const CString& options, bool ignoreAncestry = false, bool blame = false, svn_node_kind_t nodeKind = svn_node_unknown) const;
 
     bool DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVNRev& rev2, svn_revnum_t& baseRev) const;
 

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -286,7 +286,7 @@ private:
     void          ReportString(CString sMessage, const CString& sMsgKind, bool colorIsDirect, COLORREF color = ::GetSysColor(COLOR_WINDOWTEXT));
     void          AddItemToList(NotificationData* data);
     void          RemoveItemFromList(size_t index);
-    CString       BuildInfoString();
+    CString       BuildInfoString() const;
     CString       GetPathFromColumnText(const CString& sColumnText) const;
     bool          IsCommittingToTag(CString& url);
     void          OnCommitFinished();
@@ -296,7 +296,7 @@ private:
     void          GenerateMergeLogMessage();
     static bool   IsRevisionRelatedToMerge(const CDictionaryBasedTempPath& basePath, PLOGENTRYDATA pLogItem);
     void          CompareWithWC(NotificationData* data);
-    CTSVNPathList GetPathsForUpdateHook(const CTSVNPathList& pathList);
+    CTSVNPathList GetPathsForUpdateHook(const CTSVNPathList& pathList) const;
     void          ResolvePostOperationConflicts();
 
     /**

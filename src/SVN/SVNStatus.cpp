@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2021 - TortoiseSVN
+// Copyright (C) 2003-2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -102,7 +102,7 @@ svn_wc_status_kind SVNStatus::GetAllStatus(const CTSVNPath& path, svn_depth_t de
     svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(pool), pool));
 
     svn_revnum_t       youngest = SVN_INVALID_REVNUM;
-    svn_opt_revision_t rev;
+    svn_opt_revision_t rev{};
     rev.kind   = svn_opt_revision_unspecified;
     statusKind = svn_wc_status_none;
 
@@ -199,9 +199,9 @@ svn_revnum_t SVNStatus::GetStatus(const CTSVNPath& path, bool update /* = false 
     statusHash                  = apr_hash_make(m_pool);
     extHash                     = apr_hash_make(m_pool);
     svn_revnum_t       youngest = SVN_INVALID_REVNUM;
-    svn_opt_revision_t rev;
+    svn_opt_revision_t rev{};
     rev.kind = svn_opt_revision_unspecified;
-    struct HashbatonT hashBaton;
+    HashbatonT hashBaton{};
     hashBaton.hash    = statusHash;
     hashBaton.extHash = extHash;
     hashBaton.pThis   = this;
@@ -264,9 +264,9 @@ svn_client_status_t* SVNStatus::GetFirstFileStatus(const CTSVNPath& path, CTSVNP
     m_statusHash   = apr_hash_make(m_pool);
     m_externalHash = apr_hash_make(m_pool);
     headrev        = SVN_INVALID_REVNUM;
-    svn_opt_revision_t rev;
+    svn_opt_revision_t rev{};
     rev.kind = svn_opt_revision_unspecified;
-    struct HashbatonT hashBaton;
+    HashbatonT hashBaton{};
     hashBaton.hash    = m_statusHash;
     hashBaton.extHash = m_externalHash;
     hashBaton.pThis   = this;
@@ -362,7 +362,7 @@ bool SVNStatus::IsInExternal(const CTSVNPath& path) const
 
     SVNPool           localPool(m_pool);
     apr_hash_index_t* hi = nullptr;
-    const char*       key;
+    const char*       key = nullptr;
     for (hi = apr_hash_first(localPool, m_externalHash); hi; hi = apr_hash_next(hi))
     {
         apr_hash_this(hi, reinterpret_cast<const void**>(&key), nullptr, nullptr);
@@ -382,7 +382,7 @@ void SVNStatus::GetExternals(std::set<CTSVNPath>& externals) const
 
     SVNPool           localPool(m_pool);
     apr_hash_index_t* hi = nullptr;
-    const char*       key;
+    const char*       key = nullptr;
     for (hi = apr_hash_first(localPool, m_externalHash); hi; hi = apr_hash_next(hi))
     {
         apr_hash_this(hi, reinterpret_cast<const void**>(&key), nullptr, nullptr);

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2021 - TortoiseSVN
+// Copyright (C) 2003-2018, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -632,7 +632,7 @@ void CStatGraphDlg::FilterSkippedAuthors(std::list<std::wstring>& includedAuthor
 
     unsigned int includedAuthorsCount = m_skipper.GetPos();
     // if we only leave out one author, still include him with his name
-    if (includedAuthorsCount + 1 == m_authorNames.size())
+    if (includedAuthorsCount + 1LL == m_authorNames.size())
         ++includedAuthorsCount;
 
     // add the included authors first

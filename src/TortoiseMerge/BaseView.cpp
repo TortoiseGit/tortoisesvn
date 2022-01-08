@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2021 - TortoiseSVN
+// Copyright (C) 2003-2022 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -1616,14 +1616,14 @@ bool CBaseView::IsViewLineRemoved(int nViewLine) const
     return IsStateRemoved(state);
 }
 
-COLORREF CBaseView::InlineDiffColor(int nLineIndex)
+COLORREF CBaseView::InlineDiffColor(int nLineIndex) const
 {
     if (m_bDark)
         return IsLineRemoved(nLineIndex) ? m_inlineRemovedDarkBk : m_inlineAddedDarkBk;
     return IsLineRemoved(nLineIndex) ? m_inlineRemovedBk : m_inlineAddedBk;
 }
 
-COLORREF CBaseView::InlineViewLineDiffColor(int nViewLine)
+COLORREF CBaseView::InlineViewLineDiffColor(int nViewLine) const
 {
     if (m_bDark)
         return IsViewLineRemoved(nViewLine) ? m_inlineRemovedDarkBk : m_inlineAddedDarkBk;

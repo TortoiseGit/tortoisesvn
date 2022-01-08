@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017-2021 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -753,7 +753,7 @@ public:
      * \remark Since an item can only be checked if it is visible/shown in the list control
      *         bShownOnly is automatically set to true if bCheckedOnly is true
      */
-    void GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax, bool bShownOnly, bool bCheckedOnly);
+    void GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax, bool bShownOnly, bool bCheckedOnly) const;
 
     /**
      * Returns the parent directory of all entries in the control.
@@ -821,7 +821,7 @@ public:
     /**
      * Checks if the path already exists in the list.
      */
-    bool HasPath(const CTSVNPath& path);
+    bool HasPath(const CTSVNPath& path) const;
     /**
      * Checks if the path is shown/visible in the list control.
      */

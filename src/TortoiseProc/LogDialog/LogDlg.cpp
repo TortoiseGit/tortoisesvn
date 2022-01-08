@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2021 - TortoiseSVN
+// Copyright (C) 2003-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -3905,8 +3905,8 @@ void CLogDlg::OnNMCustomdrawChangedFileList(NMHDR* pNMHDR, LRESULT* pResult)
     }
 }
 
-CRect CLogDlg::DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pLVCD,
-                                        PLOGENTRYDATA pLogEntry)
+CRect CLogDlg::DrawListColumnBackground(const CListCtrl& listCtrl, const NMLVCUSTOMDRAW* pLVCD,
+                                        PLOGENTRYDATA pLogEntry) const
 {
     // Get the selected state of the
     // item being drawn.
@@ -8568,7 +8568,7 @@ HTREEITEM CLogDlg::RecurseMonitorTree(HTREEITEM hItem, MonitorItemHandler handle
     return nullptr;
 }
 
-HTREEITEM CLogDlg::FindMonitorParent(const CString& parentTreePath)
+HTREEITEM CLogDlg::FindMonitorParent(const CString& parentTreePath) const
 {
     if (parentTreePath.IsEmpty())
         return TVI_ROOT;
@@ -8603,7 +8603,7 @@ CString CLogDlg::GetTreePath(HTREEITEM hItem) const
     return path;
 }
 
-HTREEITEM CLogDlg::FindMonitorItem(const CString& wcpathorurl)
+HTREEITEM CLogDlg::FindMonitorItem(const CString& wcpathorurl) const
 {
     HTREEITEM hRetItem = nullptr;
     RecurseMonitorTree(TVI_ROOT, [&](HTREEITEM hItem) -> bool {
@@ -10168,6 +10168,7 @@ void CLogDlg::UnRegisterSnarl()
     g_snarlGlobalMsg = 0;
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CLogDlg::OnMonitorUpdateAll()
 {
     // find all working copy paths, write them to a temp file

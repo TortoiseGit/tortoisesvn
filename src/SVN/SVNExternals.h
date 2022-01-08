@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010, 2012-2013, 2015, 2021 - TortoiseSVN
+// Copyright (C) 2010, 2012-2013, 2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -89,7 +89,7 @@ public:
     CString GetLastErrorString() const { return m_sError; }
 
     /// return a hash with all the externals that are used for tagging to be used in svn_client_copy7
-    apr_hash_t* GetHash(bool bLocal, apr_pool_t* pool);
+    apr_hash_t* GetHash(bool bLocal, apr_pool_t* pool) const;
 
     /// returns true if any of the externals are marked to be tagged
     bool NeedsTagging() const;

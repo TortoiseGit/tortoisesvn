@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2016-2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2016-2018, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -436,8 +436,8 @@ bool SVNConflictInfo::GetTreeResolutionOptions(SVNConflictOptions &result)
                 label       = svn_client_conflict_option_get_label(opt, scratchPool);
                 description = svn_client_conflict_option_get_description(opt, scratchPool);
 
-                result.push_back(std::unique_ptr<SVNConflictOption>(new SVNConflictOption(opt, id,
-                                                                                          CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), -1, j)));
+                result.push_back(std::make_unique<SVNConflictOption>(opt, id,
+                                                                     CUnicodeUtils::GetUnicode(label), CUnicodeUtils::GetUnicode(description), -1, j));
                 bResultAdded = true;
             }
         }

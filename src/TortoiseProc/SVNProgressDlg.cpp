@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2021 - TortoiseSVN
+// Copyright (C) 2003-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -970,7 +970,7 @@ static void BuildInfoSubstring(CString& str, UINT nID, int count)
     str.AppendFormat(L":%d", count);
 }
 
-CString CSVNProgressDlg::BuildInfoString()
+CString CSVNProgressDlg::BuildInfoString() const
 {
     CString infoText;
     int     added      = 0;
@@ -1112,7 +1112,7 @@ void CSVNProgressDlg::ResizeColumns()
                 }
 
                 // get the width of the string and add 14 pixels for the column separator and margins
-#define SEPANDMARG 14
+constexpr auto SEPANDMARG = 14;
                 int lineWidth = cx;
                 switch (col)
                 {
@@ -1843,6 +1843,7 @@ void CSVNProgressDlg::OnLvnGetdispinfoSvnprogress(NMHDR* pNMHDR, LRESULT* pResul
     }
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CSVNProgressDlg::OnNMCustomdrawSvnprogress(NMHDR* pNMHDR, LRESULT* pResult)
 {
     NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>(pNMHDR);
@@ -2477,6 +2478,7 @@ void CSVNProgressDlg::OnContextMenu(CWnd* pWnd, CPoint point)
     theApp.DoWaitCursor(-1);
 }
 
+// ReSharper disable once CppMemberFunctionMayBeConst
 void CSVNProgressDlg::OnLvnBegindragSvnprogress(NMHDR* pNMHDR, LRESULT* pResult)
 {
     LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR);
@@ -4423,7 +4425,7 @@ LRESULT CSVNProgressDlg::OnCheck(WPARAM wnd, LPARAM)
     return 0;
 }
 
-CTSVNPathList CSVNProgressDlg::GetPathsForUpdateHook(const CTSVNPathList& pathList)
+CTSVNPathList CSVNProgressDlg::GetPathsForUpdateHook(const CTSVNPathList& pathList) const
 {
     CTSVNPathList updatedList;
     if (!m_bNoHooks)

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -323,7 +323,7 @@ private:
     void          AdjustDateFilterVisibility();
     void          ReportNoUrlOfFile(const CString& filepath) const;
     void          ReportNoUrlOfFile(LPCWSTR filepath) const;
-    CRect         DrawListColumnBackground(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pLVCD, PLOGENTRYDATA pLogEntry);
+    CRect         DrawListColumnBackground(const CListCtrl& listCtrl, const NMLVCUSTOMDRAW* pLVCD, PLOGENTRYDATA pLogEntry) const;
     LRESULT       DrawListItemWithMatches(CListCtrl& listCtrl, NMLVCUSTOMDRAW* pLVCD, PLOGENTRYDATA pLogEntry);
 
     // extracted from OnInitDialog()...
@@ -453,8 +453,8 @@ private:
     void MonitorEditProject(MonitorItem* pProject, const CString& sParentPath = CString());
 
     HTREEITEM           InsertMonitorItem(MonitorItem* pMonitorItem, const CString& sParentPath = CString());
-    HTREEITEM           FindMonitorParent(const CString& parentTreePath);
-    HTREEITEM           FindMonitorItem(const CString& wcpathorurl);
+    HTREEITEM           FindMonitorParent(const CString& parentTreePath) const;
+    HTREEITEM           FindMonitorItem(const CString& wcpathorurl) const;
     HTREEITEM           RecurseMonitorTree(HTREEITEM hItem, MonitorItemHandler handler) const;
     void                SaveMonitorProjects(bool todisk);
     void                MonitorTimer();

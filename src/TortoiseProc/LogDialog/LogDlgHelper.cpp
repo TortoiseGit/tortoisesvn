@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2016, 2021 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2016, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -310,7 +310,7 @@ HRESULT CMonitorTreeTarget::DragEnter(IDataObject __RPC_FAR* pDataObj, DWORD grf
 HRESULT CMonitorTreeTarget::DragOver(DWORD grfKeyState, POINTL pt, DWORD __RPC_FAR* pdwEffect)
 {
     wchar_t       targetName[MAX_PATH] = {0};
-    TVHITTESTINFO hit;
+    TVHITTESTINFO hit{};
     hit.pt = reinterpret_cast<POINT&>(pt);
     ScreenToClient(m_hTargetWnd, &hit.pt);
     hit.flags       = TVHT_ONITEM;

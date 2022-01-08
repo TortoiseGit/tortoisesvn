@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2010-2015, 2019, 2021 - TortoiseSVN
+// Copyright (C) 2010-2015, 2019, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -488,7 +488,7 @@ CString SVNExternals::GetFullExternalUrl(const CString &extUrl, const CString &r
     return url;
 }
 
-apr_hash_t *SVNExternals::GetHash(bool bLocal, apr_pool_t *pool)
+apr_hash_t *SVNExternals::GetHash(bool bLocal, apr_pool_t *pool) const
 {
     apr_hash_t *externalsToPin = nullptr;
     if (!empty())

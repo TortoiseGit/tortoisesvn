@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016, 2018, 2021 - TortoiseSVN
+// Copyright (C) 2003-2016, 2018, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -343,7 +343,7 @@ bool SVNDiff::ShowUnifiedDiff(const CTSVNPath& url1, const SVNRev& rev1,
     return false;
 }
 
-bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg, bool ignoreProps, bool prettyPrint, const CString& options, bool ignoreAncestry /*= false*/, bool blame /*= false*/, svn_node_kind_t nodeKind /*= svn_node_unknown*/)
+bool SVNDiff::ShowCompare(const CTSVNPath& url1, const SVNRev& rev1, const CTSVNPath& url2, const SVNRev& rev2, SVNRev peg, bool ignoreProps, bool prettyPrint, const CString& options, bool ignoreAncestry /*= false*/, bool blame /*= false*/, svn_node_kind_t nodeKind /*= svn_node_unknown*/) const
 {
     CTSVNPath    tempFile;
     CString      mimeType;
@@ -704,7 +704,7 @@ bool SVNDiff::DiffProps(const CTSVNPath& filePath, const SVNRev& rev1, const SVN
     SVNProperties propsWc(filePath, rev1, false, false);
     SVNProperties propsBase(filePath, rev2, false, false);
 
-#define MAX_PATH_LENGTH 80
+constexpr auto MAX_PATH_LENGTH = 80;
     WCHAR pathBuf1[MAX_PATH] = {0};
     if (filePath.GetWinPathString().GetLength() >= MAX_PATH)
     {

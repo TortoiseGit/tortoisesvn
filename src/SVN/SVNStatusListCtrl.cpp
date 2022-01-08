@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1634,7 +1634,7 @@ void CSVNStatusListCtrl::Show(DWORD dwShow, const CTSVNPathList& checkedList, DW
 
 CString CSVNStatusListCtrl::GetCellText(int listIndex, int column)
 {
-#define UNKNOWN_DATA L"???"
+constexpr auto UNKNOWN_DATA = L"???";
 
     static const CString pOnly(MAKEINTRESOURCE(IDS_STATUSLIST_PROPONLY));
     static const CString treeConflict(MAKEINTRESOURCE(IDS_STATUSLIST_TREECONFLICT));
@@ -2473,7 +2473,7 @@ bool CSVNStatusListCtrl::BuildStatistics(bool repairCaseRenames)
     return !bRefetchStatus;
 }
 
-void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax, bool bShownOnly, bool bCheckedOnly)
+void CSVNStatusListCtrl::GetMinMaxRevisions(svn_revnum_t& rMin, svn_revnum_t& rMax, bool bShownOnly, bool bCheckedOnly) const
 {
     CAutoReadLock locker(m_guard);
     rMin = LONG_MAX;
@@ -2761,7 +2761,7 @@ void CSVNStatusListCtrl::Delete(const CTSVNPath& filepath, int selIndex)
     auto buf = std::make_unique<wchar_t[]>(len + 2);
     wcscpy_s(buf.get(), len + 2, filelist);
     CStringUtils::PipesToNulls(buf.get(), len);
-    SHFILEOPSTRUCT fileOp;
+    SHFILEOPSTRUCT fileOp{};
     fileOp.hwnd                  = this->m_hWnd;
     fileOp.wFunc                 = FO_DELETE;
     fileOp.pFrom                 = buf.get();
@@ -5571,7 +5571,7 @@ bool CSVNStatusListCtrl::EnableFileDrop()
     return true;
 }
 
-bool CSVNStatusListCtrl::HasPath(const CTSVNPath& path)
+bool CSVNStatusListCtrl::HasPath(const CTSVNPath& path) const
 {
     CAutoReadLock locker(m_guard);
     for (size_t i = 0; i < m_arStatusArray.size(); i++)

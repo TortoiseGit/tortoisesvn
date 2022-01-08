@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2003-2015, 2017-2021 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -446,8 +446,8 @@ protected: // methods
     CFont*      GetFont(BOOL bItalic = FALSE, BOOL bBold = FALSE);
     int         GetLineFromPoint(CPoint point);
     int         GetMarginWidth();
-    COLORREF    InlineDiffColor(int nLineIndex);
-    COLORREF    InlineViewLineDiffColor(int nLineIndex);
+    COLORREF    InlineDiffColor(int nLineIndex) const;
+    COLORREF    InlineViewLineDiffColor(int nLineIndex) const;
     bool        GetInlineDiffPositions(int lineIndex, std::vector<InlineDiffPos>& positions);
     void        CheckOtherView();
     static void GetWhitespaceBlock(CViewData* viewData, int nLineIndex, int& nStartBlock, int& nEndBlock);

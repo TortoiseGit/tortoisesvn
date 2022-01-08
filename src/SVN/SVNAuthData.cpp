@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2013-2015, 2020-2021 - TortoiseSVN
+// Copyright (C) 2013-2015, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -60,14 +60,14 @@ SVNAuthData::~SVNAuthData()
     svn_pool_destroy(m_pool); // free the allocated memory
 }
 
-static const WCHAR  description[] = L"auth_svn.simple.wincrypt";
+static constexpr WCHAR  description[] = L"auth_svn.simple.wincrypt";
 const svn_string_t *SVNAuthData::decrypt_data(const svn_string_t *crypted, apr_pool_t *pool)
 {
     crypted = svn_base64_decode_string(crypted, pool);
 
-    DATA_BLOB           blobin;
-    DATA_BLOB           blobout;
-    LPWSTR              descr;
+    DATA_BLOB           blobin{};
+    DATA_BLOB           blobout{};
+    LPWSTR              descr{};
     const svn_string_t *orig = nullptr;
 
     blobin.cbData = static_cast<DWORD>(crypted->len);
@@ -84,8 +84,8 @@ const svn_string_t *SVNAuthData::decrypt_data(const svn_string_t *crypted, apr_p
 
 const svn_string_t *SVNAuthData::encrypt_data(const svn_string_t *orig, apr_pool_t *pool)
 {
-    DATA_BLOB           blobIn;
-    DATA_BLOB           blobOut;
+    DATA_BLOB           blobIn{};
+    DATA_BLOB           blobOut{};
     const svn_string_t *crypted = nullptr;
 
     blobIn.cbData = static_cast<DWORD>(orig->len);
@@ -234,7 +234,7 @@ svn_error_t *SVNAuthData::cleanup_callback(svn_boolean_t *deleteCred, void *clea
         }
     }
 
-    for (auto it : delList)
+    for (auto& it : delList)
     {
         if ((s1.Compare(std::get<0>(it)) == 0) &&
             (s2.Compare(std::get<1>(it)) == 0))
