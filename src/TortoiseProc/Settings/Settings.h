@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012-2015, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012-2015, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -70,6 +70,8 @@ private:
      */
     void RemovePropPages() const;
 
+    void AddPropPage(ISettingsPropPage* page);
+
 private:
     CSetMainPage*                 m_pMainPage;
     CSetProxyPage*                m_pProxyPage;
@@ -96,8 +98,8 @@ private:
     CSettingsSync*                m_pSyncPage;
     CSettingsUDiff*               m_pUDiffPage;
 
-    HICON           m_hIcon;
-    AeroControlBase m_aeroControls;
+    HICON                         m_hIcon;
+    AeroControlBase               m_aeroControls;
 
 public:
     CSettings(UINT nIDCaption, CWnd* pParentWnd = nullptr, UINT iSelectPage = 0);

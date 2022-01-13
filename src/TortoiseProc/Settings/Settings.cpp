@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2015, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -53,6 +53,12 @@ void CSettings::SetTheme(bool bDark)
     }
 }
 
+void CSettings::AddPropPage(ISettingsPropPage* page)
+{
+    AddPage(page);
+    SetPageIcon(page, page->GetIconID());
+}
+
 void CSettings::AddPropPages()
 {
     PWSTR   pszPath = nullptr;
@@ -91,59 +97,34 @@ void CSettings::AddPropPages()
     m_pAdvanced                = new CSettingsAdvanced();
     m_pSyncPage                = new CSettingsSync();
     m_pUDiffPage               = new CSettingsUDiff();
-
-    SetPageIcon(m_pMainPage, m_pMainPage->GetIconID());
-    SetPageIcon(m_pOverlayPage, m_pOverlayPage->GetIconID());
-    SetPageIcon(m_pOverlaysPage, m_pOverlaysPage->GetIconID());
-    SetPageIcon(m_pOverlayHandlersPage, m_pOverlayHandlersPage->GetIconID());
-    SetPageIcon(m_pProxyPage, m_pProxyPage->GetIconID());
-    SetPageIcon(m_pProgsDiffPage, m_pProgsDiffPage->GetIconID());
-    SetPageIcon(m_pProgsMergePage, m_pProgsMergePage->GetIconID());
-    SetPageIcon(m_pLookAndFeelPage, m_pLookAndFeelPage->GetIconID());
-    if (IsWindows10OrGreater())
-        SetPageIcon(m_pWin11ContextMenu, m_pWin11ContextMenu->GetIconID());
-    SetPageIcon(m_pDialogsPage, m_pDialogsPage->GetIconID());
-    SetPageIcon(m_pRevisionGraphPage, m_pRevisionGraphPage->GetIconID());
-    SetPageIcon(m_pRevisionGraphColorsPage, m_pRevisionGraphColorsPage->GetIconID());
-    SetPageIcon(m_pMiscPage, m_pMiscPage->GetIconID());
-    SetPageIcon(m_pDialogs3Page, m_pDialogs3Page->GetIconID());
-    SetPageIcon(m_pLogCachePage, m_pLogCachePage->GetIconID());
-    SetPageIcon(m_pLogCacheListPage, m_pLogCacheListPage->GetIconID());
-    SetPageIcon(m_pColorsPage, m_pColorsPage->GetIconID());
-    SetPageIcon(m_pSavedPage, m_pSavedPage->GetIconID());
-    SetPageIcon(m_pHooksPage, m_pHooksPage->GetIconID());
-    SetPageIcon(m_pBugTraqPage, m_pBugTraqPage->GetIconID());
-    SetPageIcon(m_pTBlamePage, m_pTBlamePage->GetIconID());
-    SetPageIcon(m_pAdvanced, m_pAdvanced->GetIconID());
-    SetPageIcon(m_pSyncPage, m_pSyncPage->GetIconID());
-    SetPageIcon(m_pUDiffPage, m_pUDiffPage->GetIconID());
-
+    
     // don't change the order here, since the
     // page number can be passed on the command line!
-    AddPage(m_pMainPage);
-    AddPage(m_pRevisionGraphPage);
-    AddPage(m_pRevisionGraphColorsPage);
-    AddPage(m_pOverlayPage);
-    AddPage(m_pOverlaysPage);
-    AddPage(m_pOverlayHandlersPage);
-    AddPage(m_pProxyPage);
-    AddPage(m_pProgsDiffPage);
-    AddPage(m_pProgsMergePage);
-    AddPage(m_pLookAndFeelPage);
-    AddPage(m_pWin11ContextMenu);
-    AddPage(m_pDialogsPage);
-    AddPage(m_pMiscPage);
-    AddPage(m_pDialogs3Page);
-    AddPage(m_pColorsPage);
-    AddPage(m_pSavedPage);
-    AddPage(m_pLogCachePage);
-    AddPage(m_pLogCacheListPage);
-    AddPage(m_pHooksPage);
-    AddPage(m_pBugTraqPage);
-    AddPage(m_pTBlamePage);
-    AddPage(m_pUDiffPage);
-    AddPage(m_pSyncPage);
-    AddPage(m_pAdvanced);
+    AddPropPage(m_pMainPage);
+    AddPropPage(m_pRevisionGraphPage);
+    AddPropPage(m_pRevisionGraphColorsPage);
+    AddPropPage(m_pOverlayPage);
+    AddPropPage(m_pOverlaysPage);
+    AddPropPage(m_pOverlayHandlersPage);
+    AddPropPage(m_pProxyPage);
+    AddPropPage(m_pProgsDiffPage);
+    AddPropPage(m_pProgsMergePage);
+    AddPropPage(m_pLookAndFeelPage);
+    if (IsWindows10OrGreater())
+        AddPropPage(m_pWin11ContextMenu);
+    AddPropPage(m_pDialogsPage);
+    AddPropPage(m_pMiscPage);
+    AddPropPage(m_pDialogs3Page);
+    AddPropPage(m_pColorsPage);
+    AddPropPage(m_pSavedPage);
+    AddPropPage(m_pLogCachePage);
+    AddPropPage(m_pLogCacheListPage);
+    AddPropPage(m_pHooksPage);
+    AddPropPage(m_pBugTraqPage);
+    AddPropPage(m_pTBlamePage);
+    AddPropPage(m_pUDiffPage);
+    AddPropPage(m_pSyncPage);
+    AddPropPage(m_pAdvanced);
 }
 
 void CSettings::RemovePropPages() const
