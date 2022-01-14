@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2021 - TortoiseSVN
+// Copyright (C) 2003-2018, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -2654,6 +2654,17 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
                 CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: GetState - hidden\n");
                 *pCmdState = ECS_HIDDEN;
                 return S_OK;
+            }
+            else
+            {
+                // tree view
+                if (psiItemArray == nullptr)
+                {
+                    // just in case Win11 one day provides us with the item that's right-clicked on...
+                    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: GetState - hidden\n");
+                    *pCmdState = ECS_HIDDEN;
+                    return S_OK;
+                }
             }
         }
     }
