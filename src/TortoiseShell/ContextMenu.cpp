@@ -19,6 +19,7 @@
 #include "stdafx.h"
 
 #include <comutil.h>
+#include <windowsx.h>
 #include <winrt/base.h>
 #include <wrl/client.h>
 
@@ -2632,6 +2633,7 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
 {
     CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: GetState\n");
     *pCmdState = ECS_ENABLED;
+    Microsoft::WRL::ComPtr<IShellItemArray> ownItemArray;
     if (m_site)
     {
         Microsoft::WRL::ComPtr<IOleWindow> oleWindow;
@@ -2640,7 +2642,7 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
         {
             // We don't want to show the menu on the classic context menu.
             // The classic menu provides an IOleWindow, but the main context
-            // menu of the left treeview in explorer does too.
+            // menu in Win11 does not, except on the left tree view.
             // So we check the window class name: if it's "NamespaceTreeControl",
             // then we're dealing with the main context menu of the tree view.
             // If it's not, then we're dealing with the classic context menu
@@ -2660,10 +2662,45 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
                 // tree view
                 if (psiItemArray == nullptr)
                 {
-                    // just in case Win11 one day provides us with the item that's right-clicked on...
-                    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: GetState - hidden\n");
-                    *pCmdState = ECS_HIDDEN;
-                    return S_OK;
+                    // the shell disables dpi awareness for extensions, so enable them explicitly
+                    auto                                          context = SetThreadDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE);
+                    Microsoft::WRL::ComPtr<INameSpaceTreeControl> nameSpaceTreeCtrl;
+                    oleWindow.As(&nameSpaceTreeCtrl);
+                    if (nameSpaceTreeCtrl)
+                    {
+                        // we do a hit test on the tree view to get the right-clicked item.
+                        // however this only works if the menu shows up due to a right-click.
+                        // if the menu is shown because of a key press (right windows key),
+                        // then this will get the wrong item if the mouse pointer is somewhere
+                        // over the tree view while the key is clicked!
+                        // if the mouse pointer is NOT over the tree view when the menu is brought up
+                        // via keyboard, then this works fine.
+                        auto  msgPos = GetMessagePos();
+                        POINT msgPoint{};
+                        msgPoint.x = GET_X_LPARAM(msgPos);
+                        msgPoint.y = GET_Y_LPARAM(msgPos);
+                        POINT pt   = msgPoint;
+                        ScreenToClient(hWnd, &pt);
+                        Microsoft::WRL::ComPtr<IShellItem> shellItem;
+
+                        if (psiItemArray == nullptr)
+                        {
+                            nameSpaceTreeCtrl->HitTest(&pt, &shellItem);
+                            if (shellItem)
+                                SHCreateShellItemArrayFromShellItem(shellItem.Get(), IID_IShellItemArray, &ownItemArray);
+                            else
+                                nameSpaceTreeCtrl->GetSelectedItems(&ownItemArray);
+                        }
+                    }
+                    SetThreadDpiAwarenessContext(context);
+                    if (!ownItemArray)
+                    {
+                        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": Shell :: GetState - hidden\n");
+                        *pCmdState = ECS_HIDDEN;
+                        return S_OK;
+                    }
+                    else
+                        psiItemArray = ownItemArray.Get();
                 }
             }
         }
@@ -2673,7 +2710,6 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
         return E_PENDING;
 
     Initialize(nullptr, nullptr, nullptr);
-    Microsoft::WRL::ComPtr<IShellItemArray> itemArray;
     if (psiItemArray == nullptr)
     {
         // context menu for a folder background (no selection),
@@ -2687,11 +2723,11 @@ HRESULT __stdcall CShellExt::GetState(IShellItemArray* psiItemArray, BOOL fOkToB
         PIDLIST_ABSOLUTE pidl{};
         if (SUCCEEDED(SHParseDisplayName(path.c_str(), nullptr, &pidl, 0, nullptr)))
         {
-            if (SUCCEEDED(SHCreateShellItemArrayFromIDLists(1, &pidl, itemArray.GetAddressOf())))
+            if (SUCCEEDED(SHCreateShellItemArrayFromIDLists(1, &pidl, ownItemArray.GetAddressOf())))
             {
-                if (itemArray)
+                if (ownItemArray)
                 {
-                    psiItemArray = itemArray.Get();
+                    psiItemArray = ownItemArray.Get();
                 }
             }
         }
