@@ -465,7 +465,7 @@ protected: // methods
     static bool IsBottomViewGood() { return IsViewGood(m_pwndBottom); }
 
     int   CalculateActualOffset(const POINT& point);
-    int   CalculateCharIndex(int nLineIndex, int nActualOffset);
+    int   CalculateCharIndex(int nLineIndex, int nActualOffset, bool allowEOL);
     int   CalcColFromPoint(int xpos, int lineIndex);
     POINT TextToClient(const POINT& point);
     void  DrawTextLine(CDC* pDC, const CRect& rc, int nLineIndex, POINT& coords);
