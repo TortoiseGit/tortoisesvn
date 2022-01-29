@@ -315,6 +315,33 @@ void CTreePropSheet::MoveChildWindows(int nDx, int nDy)
     }
 }
 
+void CTreePropSheet::SetParentPage(CPropertyPage *pParentPage, CPropertyPage *pPage)
+{
+    ASSERT(pPage != pParentPage && "page can't be its own parent");
+    m_parentsMap.insert({pPage, pParentPage});
+}
+
+HTREEITEM CTreePropSheet::RecurseTree(HTREEITEM hItem, ItemHandler handler)
+{
+    HTREEITEM hFound = hItem;
+    while (hFound)
+    {
+        if (hFound == TVI_ROOT)
+            hFound = m_pwndPageTree->GetNextItem(TVI_ROOT, TVGN_ROOT);
+        HTREEITEM hNext = m_pwndPageTree->GetNextItem(hFound, TVGN_NEXT);
+        if (hFound && handler(hFound))
+            return hFound;
+        HTREEITEM hChild = m_pwndPageTree->GetChildItem(hFound);
+        if (hChild)
+        {
+            hChild = RecurseTree(hChild, handler);
+            if (hChild)
+                return hChild;
+        }
+        hFound = hNext;
+    }
+    return nullptr;
+}
 
 void CTreePropSheet::RefillPageTree()
 {
@@ -389,7 +416,36 @@ void CTreePropSheet::RefillPageTree()
         strPagePath.ReleaseBuffer();
 
         // Create an item in the tree for the page
-        HTREEITEM   hItem = CreatePageTreeItem(ti.pszText);
+        HTREEITEM hItem = nullptr;
+        if (!m_parentsMap.empty())
+        {
+            HTREEITEM hParent  = TVI_ROOT;
+            int       parentId = -1;
+            if (auto parent = m_parentsMap.find(GetPage(nPage)); parent != m_parentsMap.end())
+            {
+                for (int i = 0; i < nPage; ++i)
+                {
+                    if (parent->second == GetPage(i))
+                    {
+                        parentId = i;
+                        break;
+                    }
+                }
+                ASSERT(parentId >= 0 && "page should have a parent, but parent not found in tree before current page");
+            }
+
+            auto hChild = RecurseTree(hParent, [&](HTREEITEM hItem) -> bool {
+                if (m_pwndPageTree->GetItemData(hItem) == parentId)
+                {
+                    return true;
+                }
+                return false;
+            });
+            hItem       = m_pwndPageTree->InsertItem(strPagePath, hChild);
+        }
+        else
+            hItem = CreatePageTreeItem(ti.pszText);
+
         ASSERT(hItem);
         if (hItem)
         {

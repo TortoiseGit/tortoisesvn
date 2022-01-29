@@ -18,32 +18,8 @@
 //
 #pragma once
 
-#include "SetMainPage.h"
-#include "SetProxyPage.h"
-#include "SetOverlayPage.h"
-#include "SetOverlayIcons.h"
-#include "SetOverlayHandlers.h"
-#include "SettingsProgsDiff.h"
-#include "SettingsProgsMerge.h"
-#include "SetLookAndFeelPage.h"
-#include "SetWin11ContextMenu.h"
-#include "SetDialogs.h"
-#include "SettingsColors.h"
-#include "SetMisc.h"
-#include "SetLogCache.h"
-#include "SettingsLogCaches.h"
-#include "SetSavedDataPage.h"
-#include "SetHooks.h"
-#include "SetBugTraq.h"
-#include "SettingsTBlame.h"
-#include "SettingsRevisionGraph.h"
-#include "SettingsRevGraphColors.h"
 #include "TreePropSheet.h"
-#include "SettingsAdvanced.h"
-#include "SettingsDialogs3.h"
-#include "SettingsSync.h"
-#include "SettingsTUDiff.h"
-
+#include "SettingsPropPage.h"
 #include "AeroControls.h"
 
 using namespace TreePropSheet;
@@ -65,38 +41,11 @@ private:
      * Adds all pages to this Settings-Dialog.
      */
     void AddPropPages();
-    /**
-     * Removes the pages and frees up memory.
-     */
-    void RemovePropPages() const;
 
-    void AddPropPage(ISettingsPropPage* page);
+    ISettingsPropPage* AddPropPage(std::unique_ptr<ISettingsPropPage> page);
+    ISettingsPropPage* AddPropPage(std::unique_ptr<ISettingsPropPage> page, CPropertyPage* parentPage);
 
 private:
-    CSetMainPage*                 m_pMainPage;
-    CSetProxyPage*                m_pProxyPage;
-    CSetOverlayPage*              m_pOverlayPage;
-    CSetOverlayIcons*             m_pOverlaysPage;
-    CSetOverlayHandlers*          m_pOverlayHandlersPage;
-    CSettingsProgsDiff*           m_pProgsDiffPage;
-    CSettingsProgsMerge*          m_pProgsMergePage;
-    CSetLookAndFeelPage*          m_pLookAndFeelPage;
-    CSetWin11ContextMenu*         m_pWin11ContextMenu;
-    CSetDialogs*                  m_pDialogsPage;
-    CSettingsRevisionGraph*       m_pRevisionGraphPage;
-    CSettingsRevisionGraphColors* m_pRevisionGraphColorsPage;
-    CSettingsColors*              m_pColorsPage;
-    CSetMisc*                     m_pMiscPage;
-    CSetLogCache*                 m_pLogCachePage;
-    CSettingsLogCaches*           m_pLogCacheListPage;
-    CSetSavedDataPage*            m_pSavedPage;
-    CSetHooks*                    m_pHooksPage;
-    CSetBugTraq*                  m_pBugTraqPage;
-    CSettingsTBlame*              m_pTBlamePage;
-    CSettingsAdvanced*            m_pAdvanced;
-    SettingsDialogs3*             m_pDialogs3Page;
-    CSettingsSync*                m_pSyncPage;
-    CSettingsUDiff*               m_pUDiffPage;
 
     HICON                         m_hIcon;
     AeroControlBase               m_aeroControls;
@@ -118,4 +67,7 @@ protected:
     afx_msg void    OnPaint();
     afx_msg BOOL    OnEraseBkgnd(CDC* pDC);
     afx_msg HCURSOR OnQueryDragIcon();
+
+private:
+    std::vector<std::unique_ptr<ISettingsPropPage>> m_pPages;
 };

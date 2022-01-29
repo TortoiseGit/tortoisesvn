@@ -30,6 +30,8 @@
 #include <afxdlgs.h>    // Needed for CPropertySheet
 #include <afxcmn.h>     // Needed for CTreeCtrl
 #include <afxpriv.h>
+#include <map>
+#include <functional>
 
 namespace TreePropSheet
 {
@@ -133,6 +135,11 @@ public:
         created).
     */
     BOOL SetTreeWidth(int nWidth);
+
+    /**
+     * \brief sets the parent page explicitly
+     */
+    void SetParentPage(CPropertyPage *pParentPage, CPropertyPage *pPage);
 
     /**
     Specifies the text to be drawn on empty pages (pages for tree view
@@ -446,7 +453,10 @@ protected:
     }
     //}}AFX_VIRTUAL
 
-// Message handlers
+    using ItemHandler = std::function<bool(HTREEITEM)>;
+    HTREEITEM RecurseTree(HTREEITEM hItem, ItemHandler handler);
+
+        // Message handlers
 protected:
     //{{AFX_MSG(CTreePropSheet)
     afx_msg void OnDestroy();
@@ -471,6 +481,9 @@ private:
 
     /** The frame around the pages */
     CPropPageFrame *m_pFrame;
+
+    /** map to determine parent<->child relations */
+    std::map<const CPropertyPage*, CPropertyPage*> m_parentsMap;
 
     /**
     TRUE, if a tree item selection by OnPageTreeSelChanged() is

@@ -26,6 +26,31 @@
 #include "../../Utils/PathUtils.h"
 #include "../../Utils/StringUtils.h"
 
+#include "SetMainPage.h"
+#include "SetProxyPage.h"
+#include "SetOverlayPage.h"
+#include "SetOverlayIcons.h"
+#include "SetOverlayHandlers.h"
+#include "SettingsProgsDiff.h"
+#include "SettingsProgsMerge.h"
+#include "SetLookAndFeelPage.h"
+#include "SetWin11ContextMenu.h"
+#include "SetDialogs.h"
+#include "SettingsColors.h"
+#include "SetMisc.h"
+#include "SetLogCache.h"
+#include "SettingsLogCaches.h"
+#include "SetSavedDataPage.h"
+#include "SetHooks.h"
+#include "SetBugTraq.h"
+#include "SettingsTBlame.h"
+#include "SettingsRevisionGraph.h"
+#include "SettingsRevGraphColors.h"
+#include "SettingsAdvanced.h"
+#include "SettingsDialogs3.h"
+#include "SettingsSync.h"
+#include "SettingsTUDiff.h"
+
 #define BOTTOMMARG 32
 
 IMPLEMENT_DYNAMIC(CSettings, CTreePropSheet)
@@ -39,7 +64,7 @@ CSettings::CSettings(UINT nIDCaption, CWnd* pParentWnd, UINT iSelectPage)
 
 CSettings::~CSettings()
 {
-    RemovePropPages();
+    m_pPages.clear();
 }
 
 void CSettings::SetTheme(bool bDark)
@@ -53,10 +78,20 @@ void CSettings::SetTheme(bool bDark)
     }
 }
 
-void CSettings::AddPropPage(ISettingsPropPage* page)
+ISettingsPropPage* CSettings::AddPropPage(std::unique_ptr<ISettingsPropPage> page)
 {
-    AddPage(page);
-    SetPageIcon(page, page->GetIconID());
+    auto pagePtr = page.get();
+    AddPage(pagePtr);
+    SetPageIcon(pagePtr, page->GetIconID());
+    m_pPages.push_back(std::move(page));
+    return pagePtr;
+}
+
+ISettingsPropPage* CSettings::AddPropPage(std::unique_ptr<ISettingsPropPage> page, CPropertyPage* parentPage)
+{
+    auto pagePtr = AddPropPage(std::move(page));
+    SetParentPage(parentPage, pagePtr);
+    return pagePtr;
 }
 
 void CSettings::AddPropPages()
@@ -71,116 +106,44 @@ void CSettings::AddPropPages()
     auto             explorerVersion = CPathUtils::GetVersionFromFile(sysPath + L"\\shell32.dll");
     std::vector<int> versions;
     stringtok(versions, explorerVersion, true, L".");
-    bool isWin11OrLater    = versions.size() > 3 && versions[2] >= 22000;
-    m_pMainPage            = new CSetMainPage();
-    m_pOverlayPage         = new CSetOverlayPage();
-    m_pOverlaysPage        = new CSetOverlayIcons();
-    m_pOverlayHandlersPage = new CSetOverlayHandlers();
-    m_pProxyPage           = new CSetProxyPage();
-    m_pProgsDiffPage       = new CSettingsProgsDiff();
-    m_pProgsMergePage      = new CSettingsProgsMerge();
-    m_pLookAndFeelPage     = new CSetLookAndFeelPage();
-    if (isWin11OrLater)
-        m_pWin11ContextMenu = new CSetWin11ContextMenu();
-    m_pDialogsPage             = new CSetDialogs();
-    m_pMiscPage                = new CSetMisc();
-    m_pDialogs3Page            = new SettingsDialogs3();
-    m_pRevisionGraphPage       = new CSettingsRevisionGraph();
-    m_pRevisionGraphColorsPage = new CSettingsRevisionGraphColors();
-    m_pLogCachePage            = new CSetLogCache();
-    m_pLogCacheListPage        = new CSettingsLogCaches();
-    m_pColorsPage              = new CSettingsColors();
-    m_pSavedPage               = new CSetSavedDataPage();
-    m_pHooksPage               = new CSetHooks();
-    m_pBugTraqPage             = new CSetBugTraq();
-    m_pTBlamePage              = new CSettingsTBlame();
-    m_pAdvanced                = new CSettingsAdvanced();
-    m_pSyncPage                = new CSettingsSync();
-    m_pUDiffPage               = new CSettingsUDiff();
-    
+    bool isWin11OrLater = versions.size() > 3 && versions[2] >= 22000;
+
     // don't change the order here, since the
     // page number can be passed on the command line!
-    AddPropPage(m_pMainPage);
-    AddPropPage(m_pRevisionGraphPage);
-    AddPropPage(m_pRevisionGraphColorsPage);
-    AddPropPage(m_pOverlayPage);
-    AddPropPage(m_pOverlaysPage);
-    AddPropPage(m_pOverlayHandlersPage);
-    AddPropPage(m_pProxyPage);
-    AddPropPage(m_pProgsDiffPage);
-    AddPropPage(m_pProgsMergePage);
-    AddPropPage(m_pLookAndFeelPage);
-    if (IsWindows10OrGreater())
-        AddPropPage(m_pWin11ContextMenu);
-    AddPropPage(m_pDialogsPage);
-    AddPropPage(m_pMiscPage);
-    AddPropPage(m_pDialogs3Page);
-    AddPropPage(m_pColorsPage);
-    AddPropPage(m_pSavedPage);
-    AddPropPage(m_pLogCachePage);
-    AddPropPage(m_pLogCacheListPage);
-    AddPropPage(m_pHooksPage);
-    AddPropPage(m_pBugTraqPage);
-    AddPropPage(m_pTBlamePage);
-    AddPropPage(m_pUDiffPage);
-    AddPropPage(m_pSyncPage);
-    AddPropPage(m_pAdvanced);
-}
-
-void CSettings::RemovePropPages() const
-{
-    delete m_pMainPage;
-    delete m_pOverlayPage;
-    delete m_pOverlaysPage;
-    delete m_pOverlayHandlersPage;
-    delete m_pProxyPage;
-    delete m_pProgsDiffPage;
-    delete m_pProgsMergePage;
-    delete m_pLookAndFeelPage;
-    delete m_pWin11ContextMenu;
-    delete m_pDialogsPage;
-    delete m_pRevisionGraphColorsPage;
-    delete m_pRevisionGraphPage;
-    delete m_pMiscPage;
-    delete m_pDialogs3Page;
-    delete m_pLogCachePage;
-    delete m_pLogCacheListPage;
-    delete m_pColorsPage;
-    delete m_pSavedPage;
-    delete m_pHooksPage;
-    delete m_pBugTraqPage;
-    delete m_pTBlamePage;
-    delete m_pUDiffPage;
-    delete m_pSyncPage;
-    delete m_pAdvanced;
+    auto pMainPage      = AddPropPage(std::make_unique<CSetMainPage>());
+    auto pRevGraphPage  = AddPropPage(std::make_unique<CSettingsRevisionGraph>());
+    AddPropPage(std::make_unique<CSettingsRevisionGraphColors>(), pRevGraphPage);
+    auto pOverlayPage = AddPropPage(std::make_unique<CSetOverlayPage>());
+    AddPropPage(std::make_unique<CSetOverlayIcons>(), pOverlayPage);
+    AddPropPage(std::make_unique<CSetOverlayHandlers>(), pOverlayPage);
+    AddPropPage(std::make_unique<CSetProxyPage>());
+    auto pDiffPage = AddPropPage(std::make_unique<CSettingsProgsDiff>());
+    AddPropPage(std::make_unique<CSettingsProgsMerge>(), pDiffPage);
+    auto pContextMenuPage = AddPropPage(std::make_unique<CSetLookAndFeelPage>(), pMainPage);
+    AddPropPage(std::make_unique<CSetDialogs>(), pMainPage);
+    AddPropPage(std::make_unique<CSetMisc>(), pMainPage);
+    AddPropPage(std::make_unique<SettingsDialogs3>(), pMainPage);
+    AddPropPage(std::make_unique<CSettingsColors>(), pMainPage);
+    AddPropPage(std::make_unique<CSetSavedDataPage>());
+    auto pLogCachePage = AddPropPage(std::make_unique<CSetLogCache>());
+    AddPropPage(std::make_unique<CSettingsLogCaches>(), pLogCachePage);
+    auto pHookPage = AddPropPage(std::make_unique<CSetHooks>());
+    AddPropPage(std::make_unique<CSetBugTraq>(), pHookPage);
+    AddPropPage(std::make_unique<CSettingsTBlame>());
+    AddPropPage(std::make_unique<CSettingsUDiff>());
+    AddPropPage(std::make_unique<CSettingsSync>());
+    AddPropPage(std::make_unique<CSettingsAdvanced>());
+    if (isWin11OrLater)
+        AddPropPage(std::make_unique<CSetWin11ContextMenu>(), pContextMenuPage);
 }
 
 void CSettings::HandleRestart() const
 {
     int restart = ISettingsPropPage::Restart_None;
-    restart |= m_pMainPage->GetRestart();
-    restart |= m_pOverlayPage->GetRestart();
-    restart |= m_pOverlaysPage->GetRestart();
-    restart |= m_pOverlayHandlersPage->GetRestart();
-    restart |= m_pProxyPage->GetRestart();
-    restart |= m_pProgsDiffPage->GetRestart();
-    restart |= m_pProgsMergePage->GetRestart();
-    restart |= m_pLookAndFeelPage->GetRestart();
-    restart |= m_pWin11ContextMenu->GetRestart();
-    restart |= m_pDialogsPage->GetRestart();
-    restart |= m_pRevisionGraphPage->GetRestart();
-    restart |= m_pMiscPage->GetRestart();
-    restart |= m_pDialogs3Page->GetRestart();
-    restart |= m_pLogCachePage->GetRestart();
-    restart |= m_pLogCacheListPage->GetRestart();
-    restart |= m_pColorsPage->GetRestart();
-    restart |= m_pSavedPage->GetRestart();
-    restart |= m_pHooksPage->GetRestart();
-    restart |= m_pBugTraqPage->GetRestart();
-    restart |= m_pTBlamePage->GetRestart();
-    restart |= m_pUDiffPage->GetRestart();
-    restart |= m_pSyncPage->GetRestart();
-    restart |= m_pAdvanced->GetRestart();
+    for (const auto& page : m_pPages)
+    {
+        restart |= page->GetRestart();
+    }
     if (restart & ISettingsPropPage::Restart_System)
     {
         DWORD_PTR res = 0;
