@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2015, 2017, 2019, 2021 - TortoiseSVN
+// Copyright (C) 2010-2015, 2017, 2019, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -317,7 +317,7 @@ bool SVNPatch::PatchPath(const CString& path)
     svn_error_clear(svn_client_create_context2(&ctx, SVNConfig::Instance().GetConfig(m_pool), scratchPool));
 
     const char* patchAbspath = nullptr;
-    err                      = svn_uri_canonicalize_safe(&patchAbspath, nullptr,
+    err                      = svn_dirent_canonicalize_safe(&patchAbspath, nullptr,
                                     CUnicodeUtils::GetUTF8(m_patchFile),
                                     scratchPool, scratchPool);
     if (err)
@@ -329,7 +329,7 @@ bool SVNPatch::PatchPath(const CString& path)
     }
 
     const char* localAbspath = nullptr;
-    err                      = svn_uri_canonicalize_safe(&localAbspath, nullptr,
+    err                      = svn_dirent_canonicalize_safe(&localAbspath, nullptr,
                                     CUnicodeUtils::GetUTF8(m_targetPath),
                                     scratchPool, scratchPool);
     if (err)
@@ -587,7 +587,7 @@ bool SVNPatch::RemoveFile(const CString& path) const
     apr_array_header_t* targets = apr_array_make(scratchPool, 1, sizeof(const char*));
 
     const char* canonicalizedPath = nullptr;
-    svn_error_clear(svn_uri_canonicalize_safe(&canonicalizedPath, nullptr, CUnicodeUtils::GetUTF8(path), scratchPool, scratchPool));
+    svn_error_clear(svn_dirent_canonicalize_safe(&canonicalizedPath, nullptr, CUnicodeUtils::GetUTF8(path), scratchPool, scratchPool));
     if (canonicalizedPath == nullptr)
     {
         apr_pool_destroy(scratchPool);
