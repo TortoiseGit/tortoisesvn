@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2021 - TortoiseSVN
+// Copyright (C) 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -79,7 +79,8 @@ HRESULT __stdcall CExplorerCommandEnum::Next(ULONG celt, IExplorerCommand **rgel
                                         m_vecCommands[m_iCur].m_itemStates,
                                         m_vecCommands[m_iCur].m_itemStatesFolder,
                                         m_vecCommands[m_iCur].m_paths,
-                                        m_vecCommands[m_iCur].m_subItems);
+                                        m_vecCommands[m_iCur].m_subItems,
+                                        m_vecCommands[m_iCur].m_site);
         rgelt[i]->AddRef();
 
         if (pceltFetched)
@@ -129,13 +130,14 @@ HRESULT __stdcall CExplorerCommandEnum::Clone(IEnumExplorerCommand **ppenum)
 }
 
 CExplorerCommand::CExplorerCommand(const std::wstring &title, UINT iconId,
-                                   int                           cmd,
-                                   const std::wstring &          appDir,
-                                   const std::wstring &          uuidSource,
-                                   DWORD                         itemStates,
-                                   DWORD                         itemStatesFolder,
-                                   std::vector<std::wstring>     paths,
-                                   std::vector<CExplorerCommand> subItems)
+                                   int                              cmd,
+                                   const std::wstring &             appDir,
+                                   const std::wstring &             uuidSource,
+                                   DWORD                            itemStates,
+                                   DWORD                            itemStatesFolder,
+                                   std::vector<std::wstring>        paths,
+                                   std::vector<CExplorerCommand>    subItems,
+                                   Microsoft::WRL::ComPtr<IUnknown> site)
     : m_cRefCount(0)
     , m_title(title)
     , m_iconId(iconId)
@@ -147,6 +149,7 @@ CExplorerCommand::CExplorerCommand(const std::wstring &title, UINT iconId,
     , m_paths(paths)
     , m_subItems(subItems)
     , m_regDiffLater(L"Software\\TortoiseMerge\\DiffLater", L"")
+    , m_site(site)
 {
 }
 
@@ -245,7 +248,7 @@ HRESULT __stdcall CExplorerCommand::Invoke(IShellItemArray * /*psiItemArray*/, I
     CShellExt::InvokeCommand(m_cmd, cwdFolder, m_appDir, m_uuidSource,
                              GetForegroundWindow(), m_itemStates, m_itemStatesFolder, m_paths,
                              m_paths.empty() ? L"" : m_paths[0],
-                             m_regDiffLater);
+                             m_regDiffLater, m_site);
     return S_OK;
 }
 
@@ -268,12 +271,13 @@ HRESULT __stdcall CExplorerCommand::EnumSubCommands(IEnumExplorerCommand **ppEnu
     return S_OK;
 }
 
-HRESULT __stdcall CExplorerCommand::SetSite(IUnknown * /*pUnkSite*/)
+HRESULT __stdcall CExplorerCommand::SetSite(IUnknown *pUnkSite)
 {
-    return E_NOTIMPL;
+    m_site = pUnkSite;
+    return S_OK;
 }
 
-HRESULT __stdcall CExplorerCommand::GetSite(REFIID /*riid*/, void ** /*ppvSite*/)
+HRESULT __stdcall CExplorerCommand::GetSite(REFIID riid, void **ppvSite)
 {
-    return E_NOTIMPL;
+    return m_site.CopyTo(riid, ppvSite);
 }

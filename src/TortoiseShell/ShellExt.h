@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2021 - TortoiseSVN
+// Copyright (C) 2003-2018, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -29,34 +29,34 @@
 #include "ExplorerCommand.h"
 
 class CExplorerCommand;
-extern volatile LONG      g_cRefThisDll; // Reference count of this DLL.
-extern HINSTANCE          g_hModThisDll; // Instance handle for this DLL
-extern ShellCache         g_shellCache;  // caching of registry entries, ...
-extern DWORD              g_langId;
-extern ULONGLONG          g_langTimeout;
-extern HINSTANCE          g_hResInst;
-extern std::wstring       g_filePath;
-extern svn_wc_status_kind g_fileStatus;      ///< holds the corresponding status to the file/dir above
-extern bool               g_readOnlyOverlay; ///< whether to show the read only overlay or not
-extern bool               g_lockedOverlay;   ///< whether to show the locked overlay or not
+extern volatile LONG       g_cRefThisDll; // Reference count of this DLL.
+extern HINSTANCE           g_hModThisDll; // Instance handle for this DLL
+extern ShellCache          g_shellCache;  // caching of registry entries, ...
+extern DWORD               g_langId;
+extern ULONGLONG           g_langTimeout;
+extern HINSTANCE           g_hResInst;
+extern std::wstring        g_filePath;
+extern svn_wc_status_kind  g_fileStatus;      ///< holds the corresponding status to the file/dir above
+extern bool                g_readOnlyOverlay; ///< whether to show the read only overlay or not
+extern bool                g_lockedOverlay;   ///< whether to show the locked overlay or not
 
-extern bool    g_normalOvlLoaded;
-extern bool    g_modifiedOvlLoaded;
-extern bool    g_conflictedOvlLoaded;
-extern bool    g_readonlyOvlLoaded;
-extern bool    g_deletedOvlLoaded;
-extern bool    g_lockedOvlLoaded;
-extern bool    g_addedOvlLoaded;
-extern bool    g_ignoredOvlLoaded;
-extern bool    g_unversionedOvlLoaded;
-extern LPCWSTR g_menuIDString;
+extern bool                g_normalOvlLoaded;
+extern bool                g_modifiedOvlLoaded;
+extern bool                g_conflictedOvlLoaded;
+extern bool                g_readonlyOvlLoaded;
+extern bool                g_deletedOvlLoaded;
+extern bool                g_lockedOvlLoaded;
+extern bool                g_addedOvlLoaded;
+extern bool                g_ignoredOvlLoaded;
+extern bool                g_unversionedOvlLoaded;
+extern LPCWSTR             g_menuIDString;
 
 extern void                LoadLangDll();
 extern std::wstring        GetAppDirectory();
 extern CComCriticalSection g_csGlobalComGuard;
 using AutoLocker = CComCritSecLock<CComCriticalSection>;
 
-using ARGB = DWORD;
+using ARGB       = DWORD;
 
 // The actual OLE Shell context menu handler
 /**
@@ -180,46 +180,46 @@ protected:
         /// be added automatically, based on states of the selected item(s).
         /// The 'yes' states must be set, the 'no' states must not be set
         /// the four pairs are OR'ed together, the 'yes'/'no' states are AND'ed together.
-        YesNoPair    first;
-        YesNoPair    second;
-        YesNoPair    third;
-        YesNoPair    fourth;
-        std::wstring verb;
+        YesNoPair              first;
+        YesNoPair              second;
+        YesNoPair              third;
+        YesNoPair              fourth;
+        std::wstring           verb;
     };
 
-    static MenuInfo menuInfo[];
-    FileState       m_state;
-    volatile ULONG  m_cRef;
+    static MenuInfo                                   menuInfo[];
+    FileState                                         m_state;
+    volatile ULONG                                    m_cRef;
     //std::map<int,std::string> verbMap;
-    std::map<UINT_PTR, UINT_PTR>     myIDMap;
-    std::map<UINT_PTR, UINT_PTR>     mySubMenuMap;
-    std::map<std::wstring, UINT_PTR> myVerbsMap;
-    std::map<UINT_PTR, std::wstring> myVerbsIDMap;
-    std::wstring                     m_folder;
-    std::vector<std::wstring>        m_files;
-    std::vector<std::wstring>        m_urls;
-    DWORD                            itemStates;       ///< see the globals.h file for the ITEMIS_* defines
-    DWORD                            itemStatesFolder; ///< used for states of the folder_ (folder background and/or drop target folder)
-    std::wstring                     uuidSource;
-    std::wstring                     uuidTarget;
-    int                              space;
-    wchar_t                          stringTableBuffer[255];
-    std::wstring                     mainColumnFilePath;  ///< holds the last file/dir path for the column provider
-    std::wstring                     extraColumnFilePath; ///< holds the last file/dir path for the column provider
-    std::wstring                     columnAuthor;        ///< holds the corresponding author of the file/dir above
-    std::wstring                     itemUrl;
-    std::wstring                     itemShortUrl;
-    std::wstring                     ignoredProps;
-    std::wstring                     ignoredGlobalProps;
-    std::wstring                     owner;
-    svn_revnum_t                     columnRev; ///< holds the corresponding revision to the file/dir above
-    svn_wc_status_kind               fileStatus;
-    CRegStdString                    regDiffLater;
-    Microsoft::WRL::ComPtr<IUnknown> m_site;
+    std::map<UINT_PTR, UINT_PTR>                      myIDMap;
+    std::map<UINT_PTR, UINT_PTR>                      mySubMenuMap;
+    std::map<std::wstring, UINT_PTR>                  myVerbsMap;
+    std::map<UINT_PTR, std::wstring>                  myVerbsIDMap;
+    std::wstring                                      m_folder;
+    std::vector<std::wstring>                         m_files;
+    std::vector<std::wstring>                         m_urls;
+    DWORD                                             itemStates;       ///< see the globals.h file for the ITEMIS_* defines
+    DWORD                                             itemStatesFolder; ///< used for states of the folder_ (folder background and/or drop target folder)
+    std::wstring                                      uuidSource;
+    std::wstring                                      uuidTarget;
+    int                                               space;
+    wchar_t                                           stringTableBuffer[255];
+    std::wstring                                      mainColumnFilePath;  ///< holds the last file/dir path for the column provider
+    std::wstring                                      extraColumnFilePath; ///< holds the last file/dir path for the column provider
+    std::wstring                                      columnAuthor;        ///< holds the corresponding author of the file/dir above
+    std::wstring                                      itemUrl;
+    std::wstring                                      itemShortUrl;
+    std::wstring                                      ignoredProps;
+    std::wstring                                      ignoredGlobalProps;
+    std::wstring                                      owner;
+    svn_revnum_t                                      columnRev; ///< holds the corresponding revision to the file/dir above
+    svn_wc_status_kind                                fileStatus;
+    CRegStdString                                     regDiffLater;
+    Microsoft::WRL::ComPtr<IUnknown>                  m_site;
 
-    SVNFolderStatus  m_cachedStatus; // status cache
-    CRemoteCacheLink m_remoteCacheLink;
-    IconBitmapUtils  m_iconBitmapUtils;
+    SVNFolderStatus                                   m_cachedStatus; // status cache
+    CRemoteCacheLink                                  m_remoteCacheLink;
+    IconBitmapUtils                                   m_iconBitmapUtils;
 
     CString                                           columnFolder;    ///< current folder of ColumnProvider
     std::vector<std::pair<std::wstring, std::string>> columnUserProps; ///< user properties of ColumnProvider
@@ -238,7 +238,7 @@ private:
     void                GetMainColumnStatus(const wchar_t* path, BOOL bIsDir);
     STDMETHODIMP        QueryDropContext(UINT uFlags, UINT idCmdFirst, HMENU hMenu, UINT& indexMenu);
     static bool         IsIllegalFolder(const std::wstring& folder, int* csidlarray);
-    static void         RunCommand(const std::wstring& path, const std::wstring& command, const std::wstring& folder, LPCWSTR errorMessage);
+    static void         RunCommand(const std::wstring& path, const std::wstring& command, const std::wstring& folder, LPCWSTR errorMessage, Microsoft::WRL::ComPtr<IUnknown> site);
     bool                ShouldInsertItem(const MenuInfo& pair) const;
     bool                ShouldEnableMenu(const YesNoPair& pair) const;
     void                GetColumnInfo(SHCOLUMNINFO* to, DWORD index, UINT charactersCount, UINT titleId, UINT descriptionId);
@@ -292,7 +292,7 @@ public:
      * IShellExtInit methods
      */
     //@{
-    STDMETHODIMP Initialize(PCIDLIST_ABSOLUTE pIDFolder, LPDATAOBJECT pDataObj, HKEY hKeyID) override;
+    STDMETHODIMP              Initialize(PCIDLIST_ABSOLUTE pIDFolder, LPDATAOBJECT pDataObj, HKEY hKeyID) override;
     //@}
 
     /** \name IPersistFile
@@ -328,7 +328,7 @@ public:
      * ICopyHook members
      */
     //@{
-    UINT STDMETHODCALLTYPE CopyCallback(HWND hWnd, UINT wFunc, UINT wFlags, LPCWSTR pszSrcFile, DWORD dwSrcAttribs, LPCWSTR pszDestFile, DWORD dwDestAttribs) override;
+    UINT STDMETHODCALLTYPE    CopyCallback(HWND hWnd, UINT wFunc, UINT wFlags, LPCWSTR pszSrcFile, DWORD dwSrcAttribs, LPCWSTR pszDestFile, DWORD dwDestAttribs) override;
     //@}
 
     /** \name IExplorerCommand
@@ -353,13 +353,14 @@ public:
     HRESULT STDMETHODCALLTYPE GetSite(REFIID riid, void** ppvSite) override;
     //@}
 
-    static void InvokeCommand(int                 cmd,
-                              const std::wstring& cwd,
-                              const std::wstring& appDir,
-                              const std::wstring  uuidSource,
-                              HWND                hParent,
-                              DWORD itemStates, DWORD itemStatesFolder,
-                              const std::vector<std::wstring>& paths,
-                              const std::wstring&              folder,
-                              CRegStdString&                   regDiffLater);
+    static void               InvokeCommand(int                 cmd,
+                                            const std::wstring& cwd,
+                                            const std::wstring& appDir,
+                                            const std::wstring  uuidSource,
+                                            HWND                hParent,
+                                            DWORD itemStates, DWORD itemStatesFolder,
+                                            const std::vector<std::wstring>& paths,
+                                            const std::wstring&              folder,
+                                            CRegStdString&                   regDiffLater,
+                                            Microsoft::WRL::ComPtr<IUnknown> site);
 };

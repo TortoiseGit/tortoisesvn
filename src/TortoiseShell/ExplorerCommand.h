@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2021 - TortoiseSVN
+// Copyright (C) 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -52,13 +52,14 @@ class CExplorerCommand : public IExplorerCommand
 
 public:
     explicit CExplorerCommand(const std::wstring& title, UINT iconId,
-                              int                           cmd,
-                              const std::wstring&           appDir,
-                              const std::wstring&           uuidSource,
-                              DWORD                         itemStates,
-                              DWORD                         itemStatesFolder,
-                              std::vector<std::wstring>     paths,
-                              std::vector<CExplorerCommand> subItems);
+                              int                              cmd,
+                              const std::wstring&              appDir,
+                              const std::wstring&              uuidSource,
+                              DWORD                            itemStates,
+                              DWORD                            itemStatesFolder,
+                              std::vector<std::wstring>        paths,
+                              std::vector<CExplorerCommand>    subItems,
+                              Microsoft::WRL::ComPtr<IUnknown> site);
 
     virtual ~CExplorerCommand() = default;
     void PrependTitleWith(const std::wstring& prep) { m_title = prep + m_title; }
@@ -83,16 +84,17 @@ public:
     HRESULT __stdcall GetSite(REFIID riid, void** ppvSite) override;
 
 private:
-    ULONG m_cRefCount;
+    ULONG                            m_cRefCount;
 
-    std::wstring                  m_title;
-    UINT                          m_iconId = 0;
-    int                           m_cmd    = 0;
-    std::wstring                  m_appDir;
-    std::wstring                  m_uuidSource;
-    DWORD                         m_itemStates       = 0;
-    DWORD                         m_itemStatesFolder = 0;
-    std::vector<std::wstring>     m_paths;
-    std::vector<CExplorerCommand> m_subItems;
-    CRegStdString                 m_regDiffLater;
+    std::wstring                     m_title;
+    UINT                             m_iconId = 0;
+    int                              m_cmd    = 0;
+    std::wstring                     m_appDir;
+    std::wstring                     m_uuidSource;
+    DWORD                            m_itemStates       = 0;
+    DWORD                            m_itemStatesFolder = 0;
+    std::vector<std::wstring>        m_paths;
+    std::vector<CExplorerCommand>    m_subItems;
+    CRegStdString                    m_regDiffLater;
+    Microsoft::WRL::ComPtr<IUnknown> m_site;
 };

@@ -36,6 +36,8 @@
 #include "LoadIconEx.h"
 #include "resource.h"
 
+#pragma comment(lib, "comsupp.lib")
+
 // ReSharper disable CppInconsistentNaming
 #define GetPIDLFolder(pida)  (PIDLIST_ABSOLUTE)(((LPBYTE)pida) + (pida)->aoffset[0])
 #define GetPIDLItem(pida, i) (PCUITEMID_CHILD)(((LPBYTE)pida) + (pida)->aoffset[i + 1])
@@ -805,7 +807,7 @@ void CShellExt::InsertSVNMenu(BOOL isTop, HMENU menu, UINT pos, UINT_PTR id, UIN
     if (menu)
         InsertMenuItem(menu, pos, TRUE, &menuItemInfo);
     else
-        m_explorerCommands.push_back(CExplorerCommand(menuTextBuffer, icon, com, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+        m_explorerCommands.push_back(CExplorerCommand(menuTextBuffer, icon, com, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
 
     myVerbsMap[verb]              = id - idCmdFirst;
     myVerbsMap[verb]              = id;
@@ -1171,7 +1173,7 @@ STDMETHODIMP CShellExt::QueryContextMenu(HMENU hMenu,
             if (subMenu)
                 InsertMenu(subMenu, indexSubMenu++, MF_SEPARATOR | MF_BYPOSITION, 0, nullptr);
             else
-                m_explorerCommands.push_back(CExplorerCommand(L"", 0, 0, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                m_explorerCommands.push_back(CExplorerCommand(L"", 0, 0, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
             idCmd++;
         }
 
@@ -1389,7 +1391,8 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
                       itemStatesFolder,
                       m_files,
                       m_folder,
-                      regDiffLater);
+                      regDiffLater,
+                      nullptr);
         myIDMap.clear();
         myVerbsIDMap.clear();
         myVerbsMap.clear();
@@ -1399,7 +1402,7 @@ STDMETHODIMP CShellExt::InvokeCommand(LPCMINVOKECOMMANDINFO lpcmi)
     return hr;
 }
 
-void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstring& appDir, const std::wstring uuidSource, HWND hParent, DWORD itemStates, DWORD itemStatesFolder, const std::vector<std::wstring>& paths, const std::wstring& folder, CRegStdString& regDiffLater)
+void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstring& appDir, const std::wstring uuidSource, HWND hParent, DWORD itemStates, DWORD itemStatesFolder, const std::vector<std::wstring>& paths, const std::wstring& folder, CRegStdString& regDiffLater, Microsoft::WRL::ComPtr<IUnknown> site)
 {
     //TortoiseProc expects a command line of the form:
     //"/command:<commandname> /pathfile:<path> /startrev:<startrevision> /endrev:<endrevision> /deletepathfile
@@ -1738,7 +1741,7 @@ void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstri
                     break;
                 }
             }
-            RunCommand(appDir + L"TortoiseMerge.exe", svnCmd, cwd, L"TortoiseMerge launch failed");
+            RunCommand(appDir + L"TortoiseMerge.exe", svnCmd, cwd, L"TortoiseMerge launch failed", site);
         }
             return;
         case ShellMenuRevisionGraph:
@@ -1819,7 +1822,7 @@ void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstri
                 break;
             }
         }
-        RunCommand(appDir + L"TortoiseProc.exe", svnCmd, cwd, L"TortoiseProc Launch failed");
+        RunCommand(appDir + L"TortoiseProc.exe", svnCmd, cwd, L"TortoiseProc Launch failed", site);
     }
 }
 
@@ -2158,7 +2161,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, ignorePath);
             }
             else
-                exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuUnIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuUnIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
             std::wstring verb                = L"tsvn_" + std::wstring(ignorePath);
             myVerbsMap[verb]                 = idCmd - idCmdFirst;
             myVerbsMap[verb]                 = idCmd;
@@ -2189,7 +2192,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
             if (hMenu)
                 InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, temp);
             else
-                exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuUnIgnoreGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuUnIgnoreGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
             std::wstring verb                = L"tsvn_" + std::wstring(temp);
             myVerbsMap[verb]                 = idCmd - idCmdFirst;
             myVerbsMap[verb]                 = idCmd;
@@ -2214,7 +2217,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, maskBuf);
                 }
                 else
-                    exCmds.push_back(CExplorerCommand(maskBuf, 0, ShellMenuUnIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(maskBuf, 0, ShellMenuUnIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 std::wstring verb                = L"tsvn_" + std::wstring(maskBuf);
                 myVerbsMap[verb]                 = idCmd - idCmdFirst;
                 myVerbsMap[verb]                 = idCmd;
@@ -2236,7 +2239,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, temp);
                 else
-                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuUnIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuUnIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 std::wstring verb                = L"tsvn_" + std::wstring(temp);
                 myVerbsMap[verb]                 = idCmd - idCmdFirst;
                 myVerbsMap[verb]                 = idCmd;
@@ -2259,7 +2262,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, ignorePath);
                 else
-                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuDeleteIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuDeleteIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnore;
                 myIDMap[idCmd++]            = ShellMenuDeleteIgnore;
 
@@ -2270,7 +2273,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                     if (hMenu)
                         InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, maskBuf);
                     else
-                        exCmds.push_back(CExplorerCommand(maskBuf, 0, ShellMenuDeleteIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                        exCmds.push_back(CExplorerCommand(maskBuf, 0, ShellMenuDeleteIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                     std::wstring verb                = L"tsvn_" + std::wstring(maskBuf);
                     myVerbsMap[verb]                 = idCmd - idCmdFirst;
                     myVerbsMap[verb]                 = idCmd;
@@ -2285,7 +2288,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, temp);
                 else
-                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuDeleteIgnoreGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuDeleteIgnoreGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
 
                 myIDMap[idCmd - idCmdFirst] = ShellMenuDeleteIgnoreGlobal;
                 myIDMap[idCmd++]            = ShellMenuDeleteIgnoreGlobal;
@@ -2298,7 +2301,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                     if (hMenu)
                         InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, temp);
                     else
-                        exCmds.push_back(CExplorerCommand(maskBuf, 0, ShellMenuDeleteIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                        exCmds.push_back(CExplorerCommand(maskBuf, 0, ShellMenuDeleteIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                     std::wstring verb                = L"tsvn_" + std::wstring(temp);
                     myVerbsMap[verb]                 = idCmd - idCmdFirst;
                     myVerbsMap[verb]                 = idCmd;
@@ -2313,7 +2316,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, ignorePath);
                 else
-                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 myIDMap[idCmd - idCmdFirst] = ShellMenuIgnore;
                 myIDMap[idCmd++]            = ShellMenuIgnore;
 
@@ -2324,7 +2327,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                     if (hMenu)
                         InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, maskBuf);
                     else
-                        exCmds.push_back(CExplorerCommand(maskBuf, 0, ShellMenuIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                        exCmds.push_back(CExplorerCommand(maskBuf, 0, ShellMenuIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                     std::wstring verb                = L"tsvn_" + std::wstring(maskBuf);
                     myVerbsMap[verb]                 = idCmd - idCmdFirst;
                     myVerbsMap[verb]                 = idCmd;
@@ -2339,7 +2342,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, temp);
                 else
-                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuIgnoreGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuIgnoreGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 myIDMap[idCmd - idCmdFirst] = ShellMenuIgnoreGlobal;
                 myIDMap[idCmd++]            = ShellMenuIgnoreGlobal;
 
@@ -2351,7 +2354,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                     if (hMenu)
                         InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, temp);
                     else
-                        exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                        exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                     std::wstring verb                = L"tsvn_" + std::wstring(temp);
                     myVerbsMap[verb]                 = idCmd - idCmdFirst;
                     myVerbsMap[verb]                 = idCmd;
@@ -2383,7 +2386,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, ignorePath);
                 else
-                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuDeleteIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuDeleteIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 std::wstring verb                = L"tsvn_" + std::wstring(ignorePath);
                 myVerbsMap[verb]                 = idCmd - idCmdFirst;
                 myVerbsMap[verb]                 = idCmd;
@@ -2405,7 +2408,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, ignorePath);
                 else
-                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuDeleteIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuDeleteIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 verb                             = std::wstring(ignorePath);
                 myVerbsMap[verb]                 = idCmd - idCmdFirst;
                 myVerbsMap[verb]                 = idCmd;
@@ -2429,7 +2432,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, temp);
                 else
-                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuDeleteIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuDeleteIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 verb                             = std::wstring(temp);
                 myVerbsMap[verb]                 = idCmd - idCmdFirst;
                 myVerbsMap[verb]                 = idCmd;
@@ -2453,7 +2456,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, ignorePath);
                 else
-                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuIgnore, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 std::wstring verb                = L"tsvn_" + std::wstring(ignorePath);
                 myVerbsMap[verb]                 = idCmd - idCmdFirst;
                 myVerbsMap[verb]                 = idCmd;
@@ -2475,7 +2478,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, ignorePath);
                 else
-                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(ignorePath, 0, ShellMenuIgnoreCaseSensitive, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 verb                             = std::wstring(ignorePath);
                 myVerbsMap[verb]                 = idCmd - idCmdFirst;
                 myVerbsMap[verb]                 = idCmd;
@@ -2499,7 +2502,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
                 if (hMenu)
                     InsertMenu(ignoreSubMenu, indexIgnoreSub++, MF_BYPOSITION | MF_STRING, idCmd, temp);
                 else
-                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+                    exCmds.push_back(CExplorerCommand(static_cast<LPCWSTR>(temp), 0, ShellMenuIgnoreCaseSensitiveGlobal, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
                 verb                             = std::wstring(temp);
                 myVerbsMap[verb]                 = idCmd - idCmdFirst;
                 myVerbsMap[verb]                 = idCmd;
@@ -2539,7 +2542,7 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
         }
         else
         {
-            m_explorerCommands.push_back(CExplorerCommand(L"", 0, ShellSeparator, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}));
+            m_explorerCommands.push_back(CExplorerCommand(L"", 0, ShellSeparator, GetAppDirectory(), uuidSource, itemStates, itemStatesFolder, m_files, {}, m_site));
             for (const auto& cmd : exCmds)
             {
                 m_explorerCommands.push_back(cmd);
@@ -2565,8 +2568,55 @@ void CShellExt::InsertIgnoreSubmenus(UINT& idCmd, UINT idCmdFirst,
 }
 
 void CShellExt::RunCommand(const std::wstring& path, const std::wstring& command,
-                           const std::wstring& folder, LPCWSTR errorMessage)
+                           const std::wstring& folder, LPCWSTR errorMessage, Microsoft::WRL::ComPtr<IUnknown> site)
 {
+    if (site)
+    {
+        Microsoft::WRL::ComPtr<IServiceProvider> serviceProvider;
+        if (SUCCEEDED(site.As(&serviceProvider)))
+        {
+            OutputDebugString(L"got IServiceProvider");
+            Microsoft::WRL::ComPtr<IShellBrowser> shellBrowser;
+            if (SUCCEEDED(serviceProvider->QueryService(SID_SShellBrowser, IID_IShellBrowser, &shellBrowser)))
+            {
+                OutputDebugString(L"got IShellBrowser");
+                Microsoft::WRL::ComPtr<IShellView> shellView;
+                if (SUCCEEDED(shellBrowser->QueryActiveShellView(&shellView)))
+                {
+                    OutputDebugString(L"got IShellView");
+                    Microsoft::WRL::ComPtr<IDispatch> spdispView;
+                    if (SUCCEEDED(shellView->GetItemObject(SVGIO_BACKGROUND, IID_PPV_ARGS(&spdispView))))
+                    {
+                        OutputDebugString(L"got IDispatch");
+                        Microsoft::WRL::ComPtr<IShellFolderViewDual> spFolderView;
+                        if (SUCCEEDED(spdispView.As(&spFolderView)))
+                        {
+                            OutputDebugString(L"got IShellFolderViewDual");
+                            Microsoft::WRL::ComPtr<IDispatch> spdispShell;
+                            if (SUCCEEDED(spFolderView->get_Application(&spdispShell)))
+                            {
+                                Microsoft::WRL::ComPtr<IShellDispatch2> spdispShell2;
+                                if (SUCCEEDED(spdispShell.As(&spdispShell2)))
+                                {
+                                    // without this, the launched app is not moved to the foreground
+                                    AllowSetForegroundWindow(ASFW_ANY);
+
+                                    if (SUCCEEDED(spdispShell2->ShellExecute(_bstr_t{path.c_str()},
+                                                                             _variant_t{command.c_str()},
+                                                                             _variant_t{folder.c_str()},
+                                                                             _variant_t{L"open"},
+                                                                             _variant_t{SW_NORMAL})))
+                                    {
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     if (CCreateProcessHelper::CreateProcessDetached(path.c_str(),
                                                     command.c_str(), folder.c_str()))
     {
