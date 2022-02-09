@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2014-2016, 2021 - TortoiseSVN
+// Copyright (C) 2014-2016, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -98,6 +98,7 @@ std::vector<CString> regBlockLocalArray = {
 
 bool SyncCommand::Execute()
 {
+    ProfileTimer profiler(L"sync");
     bool       bRet = false;
     CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
     CTSVNPath  syncPath   = CTSVNPath(CString(rSyncPath));

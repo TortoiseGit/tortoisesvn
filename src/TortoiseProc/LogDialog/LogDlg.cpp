@@ -73,6 +73,7 @@
 #include <sstream>
 
 #include "../LogCache/Streams/StreamException.h"
+#include <Commands/SyncCommand.h>
 
 #define ICONITEMBORDER      5
 #define MIN_CTRL_HEIGHT     (CDPIAware::Instance().Scale(GetSafeHwnd(), 20))
@@ -8906,6 +8907,8 @@ void CLogDlg::SaveMonitorProjects(bool todisk)
         }
         else
             CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Error saving %s - saving failed\n", static_cast<LPCWSTR>(sTempfile));
+        SyncCommand syncCmd;
+        syncCmd.Execute();
     }
 }
 
