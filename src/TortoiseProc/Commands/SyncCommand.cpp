@@ -98,7 +98,6 @@ std::vector<CString> regBlockLocalArray = {
 
 bool SyncCommand::Execute()
 {
-    ProfileTimer profiler(L"sync");
     bool       bRet = false;
     CRegString rSyncPath(L"Software\\TortoiseSVN\\SyncPath");
     CTSVNPath  syncPath   = CTSVNPath(CString(rSyncPath));
