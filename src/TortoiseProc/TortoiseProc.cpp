@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -45,6 +45,7 @@
 #include "CreateProcessHelper.h"
 #include "SVNConfig.h"
 #include "AnimationManager.h"
+#include "Commands/SyncCommand.h"
 #include "resource.h"
 #include "../TortoiseShell/resource.h"
 #include <random>
@@ -668,8 +669,8 @@ void CTortoiseProcApp::Sync()
 
     if ((now - static_cast<QWORD>(lastSync)) > SYNC_INTERVAL)
     {
-        CString sCmd = L" /command:sync";
-        CAppUtils::RunTortoiseProc(sCmd);
+        SyncCommand syncCmd;
+        syncCmd.Execute();
         lastSync = now;
     }
 }
