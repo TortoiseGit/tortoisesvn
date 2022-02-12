@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2010-2012, 2014-2015, 2021 - TortoiseSVN
+// Copyright (C) 2010-2012, 2014-2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -35,7 +35,7 @@ public:
      * Does a dry run of the patching, fills in all the arrays.
      * Call this function first.
      * The progress dialog is used to show progress info if the initialization takes a long time.
-     * \return the number of files affected by the patchfile, 0 in case of an error
+     * \return the number of files affected by the patchfile, -1 in case of an error
      */
     int Init(const CString& patchFile, const CString& targetPath, CProgressDlg* pPprogDlg);
 

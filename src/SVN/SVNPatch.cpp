@@ -157,7 +157,7 @@ int SVNPatch::Init(const CString& patchFile, const CString& targetPath, CProgres
     if (patchFile.IsEmpty() || targetPath.IsEmpty() || !svn_dirent_is_absolute(target.GetSVNApiPath(m_pool)))
     {
         m_errorStr.LoadString(IDS_ERR_PATCHPATHS);
-        return 0;
+        return -1;
     }
     svn_error_t*      err         = nullptr;
     apr_pool_t*       scratchpool = nullptr;
@@ -233,7 +233,7 @@ int SVNPatch::Init(const CString& patchFile, const CString& targetPath, CProgres
         m_errorStr = GetErrorMessage(err);
         m_filePaths.clear();
         svn_error_clear(err);
-        return 0;
+        return -1;
     }
 
     if ((m_nRejected > (static_cast<int>(m_filePaths.size()) / 3)) && !m_testPath.IsEmpty())
@@ -293,6 +293,7 @@ int SVNPatch::Init(const CString& patchFile, const CString& targetPath, CProgres
             m_errorStr = GetErrorMessage(err);
             m_filePaths.clear();
             svn_error_clear(err);
+            return -1;
         }
     }
 

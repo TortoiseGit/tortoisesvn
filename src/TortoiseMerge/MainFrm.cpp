@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2004-2021 - TortoiseSVN
+// Copyright (C) 2004-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -779,7 +779,7 @@ bool CMainFrame::LoadViews(int line)
         {
             m_data.m_baseFile.TransferDetailsFrom(m_data.m_theirFile);
         }
-        else if ((!m_data.m_sDiffFile.IsEmpty()) && (!m_patch.Init(m_data.m_sDiffFile, m_data.m_sPatchPath, &progDlg)))
+        else if ((!m_data.m_sDiffFile.IsEmpty()) && (m_patch.Init(m_data.m_sDiffFile, m_data.m_sPatchPath, &progDlg) < 0))
         {
             progDlg.Stop();
             ClearViewNamesAndPaths();
