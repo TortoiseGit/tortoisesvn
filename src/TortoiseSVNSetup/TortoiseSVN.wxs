@@ -31,6 +31,7 @@
         <!-- Launch Condition related properties ................................................................................. -->
         <Property Id="ALLUSERS" Secure="yes">1</Property>
 
+        <Condition Message="[ProductName] requires Windows 7 or later."><![CDATA[(VersionNT >= 601)]]></Condition>
         <?if $(env.Platform) = "win32" ?>
         <Condition Message="You are attempting to run the 32-bit installer on a 64-bit version of Windows. Please install the 64-bit version of TortoiseSVN instead.">NOT Msix64</Condition>
         <?endif ?>
@@ -42,15 +43,8 @@
         <Condition Message="Please uninstall all 32-bit versions of TortoiseSVN before installing [ProductName].">NOT WIN32TSVNFOUND</Condition>
         <?endif ?>
 
-        <Property Id="WIN10FOUND">
-            <DirectorySearch Id="searchSystem10" Path="[SystemFolder]" Depth="0">
-                <FileSearch Id="searchFile10" Name="shell32.dll" MinVersion="6.3.10000.0"/>
-            </DirectorySearch>
-        </Property>
-        <Condition Message="[ProductName] requires Windows 10 or later."><![CDATA[(NOT WIN10FOUND="")]]></Condition>
-
         <!-- test for the universal CRT -->
-        <!--<Property Id="UCRTVERSION" Secure="yes">
+        <Property Id="UCRTVERSION" Secure="yes">
             <?if $(env.Platform) = "x64" ?>
             <DirectorySearch Id="SystemFolder64V" Path="[System64Folder]">
                 <FileSearch Name="ucrtbase.dll" MinVersion="0.0.0.0"/>
@@ -61,7 +55,7 @@
             </DirectorySearch>
             <?endif?>
         </Property>
-        <Condition Message="Please install the Universal CRT first. You can install it via Windows-Update (kb2999226). Or you can manually download it from Microsoft by doing a search for 'vcredist 2019 download'">UCRTVERSION</Condition>-->
+        <Condition Message="Please install the Universal CRT first. You can install it via Windows-Update (kb2999226). Or you can manually download it from Microsoft by doing a search for 'vcredist 2019 download'">UCRTVERSION</Condition>
 
         <!-- Show/Don't-show changelog related properties and custom actions ..................................................... -->
         <Property Id="TEXTEDITOR" Secure="yes">
@@ -108,7 +102,7 @@
                 <FileSearch Id="searchFile" Name="shell32.dll" MinVersion="6.3.21999.0"/>
             </DirectorySearch>
         </Property>
-        
+
         <!-- properties for the custom actions to (un)register the sparse package -->
         <Property Id="SPARSEPACKAGEFILE" Value="package.msix"  Secure="yes"/>
         <Property Id="SPARSEPACKAGENAME" Value="3A48D7FC-AEE2-4CBC-91D1-0007951B8006"  Secure="yes"/>
