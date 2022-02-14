@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007, 2009, 2011-2015, 2017-2021 - TortoiseSVN
+// Copyright (C) 2007, 2009, 2011-2015, 2017-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -458,10 +458,21 @@ LRESULT CFilterEdit::OnPaste(WPARAM, LPARAM)
 {
     if (OpenClipboard())
     {
-        HANDLE  hData = GetClipboardData(CF_TEXT);
-        CString toInsert(static_cast<const char*>(GlobalLock(hData)));
-        GlobalUnlock(hData);
-        CloseClipboard();
+        CString toInsert;
+        HGLOBAL hglb = GetClipboardData(CF_TEXT);
+        if (hglb)
+        {
+            LPCSTR lpstr = static_cast<LPCSTR>(GlobalLock(hglb));
+            toInsert     = CString(lpstr);
+            GlobalUnlock(hglb);
+        }
+        hglb = GetClipboardData(CF_UNICODETEXT);
+        if (hglb)
+        {
+            LPCWSTR lpstr = static_cast<LPCWSTR>(GlobalLock(hglb));
+            toInsert      = lpstr;
+            GlobalUnlock(hglb);
+        }
 
         // elimate control chars, especially newlines
 
