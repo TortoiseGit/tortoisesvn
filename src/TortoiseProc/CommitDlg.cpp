@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2018, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1852,18 +1852,18 @@ void CCommitDlg::AdjustControlSizes()
 void CCommitDlg::LineupControlsAndAdjustSizes()
 {
     // line up all controls and adjust their sizes.
-#define LINKSPACING 9
+constexpr auto linksSpacing = 9;
     RECT rc = AdjustControlSize(IDC_SELECTLABEL);
     rc.right -= 15; // AdjustControlSize() adds 20 pixels for the checkbox/radio button bitmap, but this is a label...
-    rc = AdjustStaticSize(IDC_CHECKALL, rc, LINKSPACING);
-    rc = AdjustStaticSize(IDC_CHECKNONE, rc, LINKSPACING);
-    rc = AdjustStaticSize(IDC_CHECKUNVERSIONED, rc, LINKSPACING);
-    rc = AdjustStaticSize(IDC_CHECKVERSIONED, rc, LINKSPACING);
-    rc = AdjustStaticSize(IDC_CHECKADDED, rc, LINKSPACING);
-    rc = AdjustStaticSize(IDC_CHECKDELETED, rc, LINKSPACING);
-    rc = AdjustStaticSize(IDC_CHECKMODIFIED, rc, LINKSPACING);
-    rc = AdjustStaticSize(IDC_CHECKFILES, rc, LINKSPACING);
-    rc = AdjustStaticSize(IDC_CHECKDIRECTORIES, rc, LINKSPACING);
+    rc = AdjustStaticSize(IDC_CHECKALL, rc, linksSpacing);
+    rc = AdjustStaticSize(IDC_CHECKNONE, rc, linksSpacing);
+    rc = AdjustStaticSize(IDC_CHECKUNVERSIONED, rc, linksSpacing);
+    rc = AdjustStaticSize(IDC_CHECKVERSIONED, rc, linksSpacing);
+    rc = AdjustStaticSize(IDC_CHECKADDED, rc, linksSpacing);
+    rc = AdjustStaticSize(IDC_CHECKDELETED, rc, linksSpacing);
+    rc = AdjustStaticSize(IDC_CHECKMODIFIED, rc, linksSpacing);
+    rc = AdjustStaticSize(IDC_CHECKFILES, rc, linksSpacing);
+    rc = AdjustStaticSize(IDC_CHECKDIRECTORIES, rc, linksSpacing);
 }
 
 void CCommitDlg::AddAnchorsToFacilitateResizing()
