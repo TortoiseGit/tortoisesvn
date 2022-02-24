@@ -1040,7 +1040,7 @@ CSVNStatusListCtrl::FileEntry*
 
     if (pSVNStatus->repos_relpath)
     {
-        entry->url = CPathUtils::PathUnescape(pSVNStatus->repos_relpath);
+        entry->url = CUnicodeUtils::GetUnicode(pSVNStatus->repos_relpath);
     }
 
     entry->kind = pSVNStatus->kind;
