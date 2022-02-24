@@ -632,7 +632,7 @@ void CStatGraphDlg::FilterSkippedAuthors(std::list<std::wstring>& includedAuthor
 
     unsigned int includedAuthorsCount = m_skipper.GetPos();
     // if we only leave out one author, still include him with his name
-    if (includedAuthorsCount + 1LL == m_authorNames.size())
+    if (includedAuthorsCount + 1ULL == m_authorNames.size())
         ++includedAuthorsCount;
 
     // add the included authors first
