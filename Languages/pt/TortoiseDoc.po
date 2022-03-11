@@ -28,8 +28,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-08-28 09:24+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2022-03-11 20:32+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Portuguese (http://www.transifex.com/luebbe/tortoisesvn/language/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -803,7 +803,7 @@ msgid ""
 "we add our own project name <filename>Widget1</filename>. Note that there "
 "are 3 slashes after <filename>file:</filename> and that forward slashes are "
 "used throughout."
-msgstr ""
+msgstr "Na caixa de diálogo limpar, existem também outra opções úteis para colocar a cópia de trabalho num estado mais <literal>limpo</literal>. <placeholder-1/>"
 
 #. (para)
 msgid ""
@@ -835,7 +835,7 @@ msgid ""
 "<filename>file:///c:/svn_repos/trunk/Widget1</filename> and click on "
 "<guibutton>OK</guibutton>. Our development folder is then populated with "
 "files from the repository."
-msgstr ""
+msgstr "Agora que há um projeto em nosso repositório, precisamos criar uma cópia de trabalho para usar nas tarefas do dia-a-dia. Note que o ato de importar uma pasta não a transforma automaticamente em uma cópia de trabalho. O termo do Subversion para criar uma nova cópia de trabalho é <literal>Checkout</literal>. Vamos fazer o checkout da pasta Widget1 do nosso repositório para uma pasta de desenvolvimento chamada C:\\Projects\\Widget1-Dev. Crie essa pasta, depois clique com o botão direito do mouse sobre ela e selecione TortoiseSVN<guimenuitem>Checkout...</guimenuitem><menuchoice>. Depois, insira a URL para checkout, neste caso, <filename>file:///c:/svn_repos/trunk/Widget1, e clique em <guibutton>OK</guibutton>. A nossa pasta de desenvolvimento passa a ser carregada com arquivos do repositório."
 
 #. (para)
 #. (para)
@@ -844,7 +844,7 @@ msgid ""
 "TortoiseSVN submenu but is shown at the top explorer menu. TortoiseSVN "
 "commands that are not in the submenu have <literal>SVN</literal> prepended: "
 "<menuchoice><guimenuitem>SVN Checkout...</guimenuitem></menuchoice>"
-msgstr ""
+msgstr "Na configuração padrão, o item Obter do menu não está localizado no submenu do TortoiseSVN, contudo, é mostrado no menu superior do explorador. Os comandos do TortoiseSVN que não estão no submenu têm o <literal>SVN</literal> agregado em: <menuchoice><guimenuitem>Obter SVN...</guimenuitem></menuchoice>"
 
 #. (para)
 msgid ""
@@ -866,7 +866,7 @@ msgid ""
 " and <filename>ReadMe.txt</filename>. Notice that the icon overlays on these"
 " files have now changed to red, indicating that changes have been made "
 "locally."
-msgstr ""
+msgstr "Hora de trabalhar. Digamos que os arquivos <filename>2Componente1.c2</filename> e <filename>3ReadMe.txt3</filename>da pasta <filename>Componente1-Dev</filename> foram editados. Note que a sobreposição de ícones nestes arquivos estão agora em cor vermelha, indicando que há alterações locais nos mesmos."
 
 #. (title)
 msgid "File Difference Viewer"
@@ -934,7 +934,7 @@ msgid ""
 "enter a commit message as suggested? If not, now you see why this is "
 "important). <placeholder-1/> OK, so I cheated a little here and used a "
 "screenshot from the TortoiseSVN repository."
-msgstr ""
+msgstr "Uma das características mais úteis do TortoiseSVN é a janela de Auditoria. A janela mostra a você a lista de todos os commits feitos para um arquivo ou diretório, e mostra detalhadamente as mensagens que você digitou (você <emphasis>digitou</emphasis> uma mensagem para o commit como sugerido? Se não, agora você vê porque isso é importante). <placeholder-1/> Bem, então eu manipulei um pouco aqui e usei uma imagem do repositório do TortoiseSVN."
 
 #. (para)
 msgid ""
@@ -1510,7 +1510,7 @@ msgid ""
 "file:///X|/path/to/repos\n"
 "...\n"
 "      "
-msgstr ""
+msgstr "\nfile:///X:/path/to/repos\n...\nfile:///X|/path/to/repos\n...\n      "
 
 #. (para)
 msgid ""
@@ -1522,13 +1522,13 @@ msgstr "Observa que o URL usa barras comuns, mesmo que a forma nativa de um cami
 msgid ""
 "You can access a FSFS repository via a network share, but this is "
 "<emphasis>not</emphasis> recommended for various reasons:"
-msgstr ""
+msgstr "Você pode acessar um repositorio FSFS via uma rede compartilhada, mas isso  <emphasis>não</emphasis> é recomendado por várias razões:"
 
 #. (para)
 msgid ""
 "You are giving direct write access to all users, so they could accidentally "
 "delete or corrupt the repository file system."
-msgstr ""
+msgstr "Você está concedendo permissão de escrita para todos os usuários, assim, eles podem acidentalmente excluir arquivos ou corromper o sistema de arquivos do repositório."
 
 #. (para)
 msgid ""
@@ -1541,7 +1541,7 @@ msgstr ""
 msgid ""
 "You have to set the access permissions in just the right way. SAMBA is "
 "particularly difficult in this respect."
-msgstr ""
+msgstr "Você precisa definir as permissões de acesso da maneira correta. SAMBA é particularmente difícil neste quesito."
 
 #. (para)
 #. (para)
@@ -1549,7 +1549,7 @@ msgid ""
 "If one person installs a newer version of the client which upgrades the "
 "repository format, then everyone else will be unable to access the "
 "repository until they also upgrade to the new client version."
-msgstr ""
+msgstr "Se uma pessoa instala uma versão mais recente do cliente que atualiza o formato do repositório, todos os demais serão impossibilitados de acessar o repositório até que também tenham atualizado para a nova versão do cliente."
 
 #. (title)
 msgid "Revisions"
@@ -1627,7 +1627,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:4\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:4\n      "
 
 #. (para)
 msgid ""
@@ -1646,7 +1646,7 @@ msgid ""
 "integer.c:4\n"
 "button.c:5\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:4\ninteger.c:4\nbutton.c:5\n      "
 
 #. (para)
 msgid ""
@@ -1664,7 +1664,7 @@ msgid ""
 "integer.c:6\n"
 "button.c:6\n"
 "      "
-msgstr ""
+msgstr "\ncalc/Makefile:6\ninteger.c:6\nbutton.c:6\n      "
 
 #. (para)
 msgid ""
@@ -1889,7 +1889,7 @@ msgid ""
 "We also recommend that you don't use <literal>file://</literal> access at "
 "all, apart from local testing purposes. Using a server is more secure and "
 "more reliable for all but single-developer use."
-msgstr ""
+msgstr "Também recomendamos que você não use <literal>file://</literal> por qualquer razão que não sejam apenas testes locais. Usar um servidor é mais seguro e mais confiável para todos, a não ser para o uso de um único desenvolvedor."
 
 #. (title)
 msgid "Local Access to the Repository"
@@ -2003,7 +2003,7 @@ msgid ""
 "/branches\n"
 "/tags\n"
 "    "
-msgstr ""
+msgstr "\n/trunk\n/branches\n/tags\n    "
 
 #. (para)
 msgid ""
@@ -2029,7 +2029,7 @@ msgid ""
 "/tags/paint\n"
 "/tags/calc\n"
 "    "
-msgstr ""
+msgstr "\n/trunk/paint\n/trunk/calc\n/branches/paint\n/branches/calc\n/tags/paint\n/tags/calc\n    "
 
 #. (para)
 msgid "...or by project:"
@@ -2046,7 +2046,7 @@ msgid ""
 "/calc/branches\n"
 "/calc/tags\n"
 "    "
-msgstr ""
+msgstr "\n/paint/trunk\n/paint/branches\n/paint/tags\n/calc/trunk\n/calc/branches\n/calc/tags\n    "
 
 #. (para)
 msgid ""
@@ -3366,7 +3366,7 @@ msgstr "Por defeito ao submeteres as tuas alterações, são libertados automati
 
 #. (title)
 msgid "Warning when committing to a tag"
-msgstr ""
+msgstr "Advertência ao submeter a tag"
 
 #. (para)
 msgid ""
@@ -5112,7 +5112,7 @@ msgstr "A partir da caixa de diálogo de Progresso, após o fim de uma actualiza
 
 #. (para)
 msgid "From the repository browser"
-msgstr ""
+msgstr "A partir do navegador do repositório"
 
 #. (para)
 msgid ""
@@ -5499,7 +5499,7 @@ msgstr "Pesquisar mensagens de registo com o texto que inseriste. É feita a pes
 
 #. (term)
 msgid "Create code collaborator review..."
-msgstr ""
+msgstr "Criar análise do código colaborativo"
 
 #. (para)
 msgid ""
@@ -5515,7 +5515,7 @@ msgstr ""
 
 #. (title)
 msgid "The Code Collaborator Settings Dialog"
-msgstr ""
+msgstr "A Janela de Configurações do Colaborador de Código"
 
 #. (para)
 msgid ""
@@ -9057,7 +9057,7 @@ msgstr "Um ficheiro externo comporta-se apenas como qualquer outro ficheiro vers
 
 #. (title)
 msgid "Creating externals via drag and drop"
-msgstr ""
+msgstr "Criando externos via drag e drop"
 
 #. (para)
 msgid ""
@@ -9251,11 +9251,11 @@ msgstr ""
 #. (title)
 #. (entry)
 msgid "Pinned Revision"
-msgstr ""
+msgstr "Revisãio Pinado"
 
 #. (entry)
 msgid "Copy Source"
-msgstr ""
+msgstr "Copiar Fonte"
 
 #. (entry)
 #. (entry)
@@ -10574,15 +10574,15 @@ msgstr "Grava apenas o ficheiro usando um nome da tua escolha. Ficheiros de corr
 
 #. (filename)
 msgid ".txt"
-msgstr ""
+msgstr ".txt"
 
 #. (filename)
 msgid ".patch"
-msgstr ""
+msgstr ".patch"
 
 #. (filename)
 msgid ".diff"
-msgstr ""
+msgstr ".diff"
 
 #. (tip)
 msgid ""
@@ -13878,7 +13878,7 @@ msgstr "O URL do ficheiro original, se disponível"
 
 #. (para)
 msgid "The URL of the original file, if available, without quotes"
-msgstr ""
+msgstr "A URL do arquivo original, se disponível, sem citações"
 
 #. (para)
 msgid "The URL of the second file, if available"
@@ -13894,7 +13894,7 @@ msgstr "A revisão do ficheiro original, se disponível"
 
 #. (para)
 msgid "The revision of the original file, if available, without quotes"
-msgstr ""
+msgstr "A revisão do arquivo original, se diponivel, sem citações"
 
 #. (para)
 msgid "The revision of the second file, if available"
@@ -13902,7 +13902,7 @@ msgstr "A revisão do segundo ficheiro, se disponível"
 
 #. (para)
 msgid "The revision of the second file, if available, without quotes"
-msgstr ""
+msgstr "A revisão do segundo arquivo, se disponivel, sem citações"
 
 #. (para)
 msgid "The peg revision, if available"
@@ -13916,11 +13916,11 @@ msgstr ""
 msgid ""
 "The name of the file. This is an empty string if two different files are "
 "diffed instead of two states of the same file."
-msgstr ""
+msgstr "O nome do arquivo. Esta é uma string vazia se dois diferentes arquivos são diffed ao invés de dois estados do mesmo arquivo."
 
 #. (para)
 msgid "The name of the file, without quotes"
-msgstr ""
+msgstr "O nome do arquivo, sem citação."
 
 #. (para)
 msgid ""
@@ -14030,7 +14030,7 @@ msgstr "O titulo da janela para o ficheiro no repositório"
 
 #. (para)
 msgid "The window title for the file in the repository, without quotes"
-msgstr ""
+msgstr "O título da janela para o arquivo dentro do repositório, sem citações"
 
 #. (para)
 msgid "the conflicted file, the result of the merge operation"
@@ -14042,15 +14042,15 @@ msgstr "O titulo da janela para o ficheiro integrado"
 
 #. (para)
 msgid "The window title for the merged file, without quotes"
-msgstr ""
+msgstr "A janela do título do arquivo fundido, sem citações"
 
 #. (para)
 msgid "The name of the conflicted file"
-msgstr ""
+msgstr "O nome dos arquivos conflitantes."
 
 #. (para)
 msgid "The name of the conflicted file, without quotes"
-msgstr ""
+msgstr "O nome dos arquivos conflitantes, sem citação."
 
 #. (para)
 msgid ""
@@ -14542,7 +14542,7 @@ msgstr "Chamado antes de aparecer a caixa de diálogo submeter. Poderás querer 
 #. (term)
 #. (term)
 msgid "Manual Pre-commit"
-msgstr ""
+msgstr "Manual Pre-commit"
 
 #. (para)
 msgid ""
@@ -15302,7 +15302,7 @@ msgid ""
 "revisions are shown in gray, but revisions beyond the point where the branch"
 " was created are also shown. These revisions are shown in black because "
 "those can't be merged."
-msgstr ""
+msgstr "Quando é arrancada a caixa de diálogo de registo a partir do wizard de integração, são mostradas a cinzento as revisões já integradas, mas revisões para além  do ponto de criação do ramo também são mostradas. Essas revisões são mostradas a preto porque não podem ser integradas."
 
 #. (para)
 msgid ""
@@ -15313,7 +15313,7 @@ msgid ""
 "SVN servers (e.g., Google Code Hosting, see <ulink "
 "url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue"
 " #5471</citetitle></ulink>)."
-msgstr ""
+msgstr "SE está opção está configurada a <literal>true</literal>, então o TortoiseSVN tenta encontrar a revisão onde foi criado o ramo e esconder todas as revisões que estão além dessa revisão. Visto que isto pode demorar algum tempo, esta opção está desactivada por defeito. Esta opçao também não funciona com alguns servidores SVN (e.g., Google Code Hosting, ver <ulink url=\"http://code.google.com/p/support/issues/detail?id=5471\"><citetitle>issue #5471</citetitle></ulink>)."
 
 #. (para)
 msgid ""
@@ -15323,11 +15323,11 @@ msgstr ""
 
 #. (listitem)
 msgid "gets replaced with the revision number text"
-msgstr ""
+msgstr "é substituído com o número da revisão"
 
 #. (listitem)
 msgid "gets replaced with the short log message of the revision"
-msgstr ""
+msgstr "é substituído com a mensagem de log curta da revisão"
 
 #. (para)
 msgid ""
@@ -15677,7 +15677,7 @@ msgstr ""
 
 #. (title)
 msgid "Main operations"
-msgstr ""
+msgstr "Principais operações"
 
 #. (para)
 msgid ""
@@ -15687,7 +15687,7 @@ msgstr ""
 
 #. (term)
 msgid "Check Now"
-msgstr ""
+msgstr "Checar agora"
 
 #. (para)
 msgid ""
@@ -15699,7 +15699,7 @@ msgstr ""
 
 #. (term)
 msgid "Add Project"
-msgstr ""
+msgstr "Adicionar projeto"
 
 #. (para)
 msgid "Opens a new dialog to set up a new project for monitoring."
@@ -15995,12 +15995,12 @@ msgstr "Erro de sintaxe. Um ou mais parâmetros da linha de comando são inváli
 
 #. (entry)
 msgid "The file or folder specified on the command line was not found."
-msgstr ""
+msgstr "O arquivo ou pasta especificada na linha de comando não foi encontrado."
 
 #. (entry)
 msgid ""
 "The input file could not be opened, or the target file could not be created."
-msgstr ""
+msgstr "O arquivo de entrada não pôde ser aberto, ou o arquivo de destino não pode ser criado."
 
 #. (entry)
 msgid ""
@@ -16010,7 +16010,7 @@ msgstr ""
 
 #. (entry)
 msgid "The source file can not be scanned properly."
-msgstr ""
+msgstr "O arquivo fonte não pode ser escaneado apropriadamente."
 
 #. (entry)
 msgid ""
@@ -16049,7 +16049,7 @@ msgstr ""
 
 #. (entry)
 msgid "The specified path is not a working copy or part or one."
-msgstr ""
+msgstr "O caminho especificado não é uma cópia de trabalho ou parte de uma."
 
 #. (literal)
 msgid "-N"
@@ -16508,7 +16508,7 @@ msgstr "True se existem modificações locais"
 
 #. (entry)
 msgid "True if there are unversioned items"
-msgstr ""
+msgstr "Verdadeiro se existirem itens não versionados."
 
 #. (literal)
 msgid "GetWCInfo"
@@ -17514,7 +17514,7 @@ msgstr "projectos proprietários"
 msgid ""
 "Sometimes you will want to include another project within your working copy,"
 " perhaps some library code. There are at least 4 ways of dealing with this."
-msgstr ""
+msgstr "Às vezes você vai querer incluir outro projeto dentro de sua cópia de trabalho, talvez alguma biblioteca de código . Há pelo menos 4 maneiras de lidar com isso."
 
 #. (title)
 msgid "Use svn:externals"
@@ -18082,7 +18082,7 @@ msgstr "Diff mais tarde"
 
 #. (entry)
 msgid "Diff with 'filename'"
-msgstr ""
+msgstr "Comparar com 'filename'"
 
 #. (entry)
 msgid "Unified diff"
@@ -18256,11 +18256,11 @@ msgstr "Mosta a caixa de diálogo Sobre. Esta é também mostrada se não é dad
 
 #. (para)
 msgid "<option>/startrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/startrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/endrev:xxx</option>,"
-msgstr ""
+msgstr "<option>/endrev:xxx</option>,"
 
 #. (para)
 msgid "<option>/limit:xxx</option> limits the amount of fetched messages"
@@ -18753,7 +18753,7 @@ msgstr "/path2"
 
 #. (option)
 msgid "/ignoreprops"
-msgstr ""
+msgstr "/ignoreprops"
 
 #. (option)
 msgid "/startrev:xxx"
@@ -18966,7 +18966,7 @@ msgstr "Guarda um ficheiro de um URL ou cópia de trabalho dada em <placeholder-
 
 #. (option)
 msgid "/noview"
-msgstr ""
+msgstr "/noview"
 
 #. (option)
 msgid "prettyprint"
@@ -19243,7 +19243,7 @@ msgstr "Exemplo (que deverá ser introduzido numa linha só): <screen>\nTortoise
 
 #. (title)
 msgid "TortoiseUDiff Commands"
-msgstr ""
+msgstr "Comandos TortoiseUDiff"
 
 #. (para)
 msgid "The unified diff viewer has only two command line options:"
@@ -19336,7 +19336,7 @@ msgid ""
 "\n"
 "svn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn checkout [-depth ARG] [--ignore-externals] [-r rev] URL PATH\n      "
 
 #. (para)
 #. (para)
@@ -19364,7 +19364,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] PATH\n      "
 
 #. (para)
 msgid ""
@@ -19398,7 +19398,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn update [-r rev] [-depth ARG] [--ignore-externals] PATH\n      "
 
 #. (para)
 msgid ""
@@ -19416,7 +19416,7 @@ msgid ""
 "\n"
 "svn status -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\n      "
 
 #. (para)
 #. (para)
@@ -19441,7 +19441,7 @@ msgid ""
 "\n"
 "svn add PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn add PATH...\n      "
 
 #. (para)
 msgid ""
@@ -19458,7 +19458,7 @@ msgid ""
 "\n"
 "svn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn commit -m \"LogMessage\" [-depth ARG] [--no-unlock] PATH...\n      "
 
 #. (para)
 #. (para)
@@ -19480,7 +19480,7 @@ msgid ""
 "\n"
 "svn diff PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff PATH\n      "
 
 #. (para)
 msgid ""
@@ -19507,7 +19507,7 @@ msgid ""
 "or\n"
 "svn log -v -r M:N [--stop-on-copy] PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn log -v -r 0:N --limit 100 [--stop-on-copy] PATH\nor\nsvn log -v -r M:N [--stop-on-copy] PATH\n      "
 
 #. (para)
 msgid ""
@@ -19530,7 +19530,7 @@ msgid ""
 "or\n"
 "svn status -u -v PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn status -v PATH\nor\nsvn status -u -v PATH\n      "
 
 #. (para)
 msgid ""
@@ -19569,7 +19569,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn list [-r rev] -v URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn list [-r rev] -v URL\n      "
 
 #. (para)
 msgid ""
@@ -19602,7 +19602,7 @@ msgid ""
 "\n"
 "svn resolved PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn resolved PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19610,7 +19610,7 @@ msgid ""
 "\n"
 "svn rename CURR_PATH NEW_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn rename CURR_PATH NEW_PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19618,7 +19618,7 @@ msgid ""
 "\n"
 "svn delete PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn delete PATH\n      "
 
 #. (para)
 msgid ""
@@ -19642,7 +19642,7 @@ msgid ""
 "\n"
 "svn revert [-R] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn revert [-R] PATH...\n      "
 
 #. (screen)
 #, no-wrap
@@ -19650,7 +19650,7 @@ msgid ""
 "\n"
 "svn cleanup PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn cleanup PATH\n      "
 
 #. (title)
 msgid "Get Lock"
@@ -19669,7 +19669,7 @@ msgid ""
 "\n"
 "svn lock -m \"LockMessage\" [--force] PATH...\n"
 "      "
-msgstr ""
+msgstr "\nsvn lock -m \"Mensagem de bloqueio\" [--force] PATH...\n      "
 
 #. (para)
 msgid ""
@@ -19693,7 +19693,7 @@ msgid ""
 "\n"
 "svn unlock PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn unlock PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19721,7 +19721,7 @@ msgid ""
 "svn info URL_of_WC\n"
 "svn switch [-r rev] URL PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn info URL_of_WC\nsvn switch [-r rev] URL PATH\n      "
 
 #. (screen)
 #, no-wrap
@@ -19729,7 +19729,7 @@ msgid ""
 "\n"
 "svn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn merge [--dry-run] --force From_URL@revN To_URL@revM PATH\n      "
 
 #. (para)
 msgid ""
@@ -19743,7 +19743,7 @@ msgid ""
 "\n"
 "svn diff From_URL@revN To_URL@revM\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff From_URL@revN To_URL@revM\n      "
 
 #. (para)
 msgid ""
@@ -19757,7 +19757,7 @@ msgid ""
 "\n"
 "svn export [-r rev] [--ignore-externals] URL Export_PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn export [-r rev] [--ignore-externals] URL Export_PATH\n      "
 
 #. (para)
 msgid ""
@@ -19790,7 +19790,7 @@ msgid ""
 "\n"
 "svn switch --relocate From_URL To_URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn switch --relocate From_URL To_URL\n      "
 
 #. (title)
 msgid "Create Repository Here"
@@ -19802,7 +19802,7 @@ msgid ""
 "\n"
 "svnadmin create --fs-type fsfs PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvnadmin create --fs-type fsfs PATH\n      "
 
 #. (para)
 msgid ""
@@ -19816,7 +19816,7 @@ msgid ""
 "\n"
 "svn import -m LogMessage PATH URL\n"
 "      "
-msgstr ""
+msgstr "\nsvn import -m LogMessage PATH URL\n      "
 
 #. (screen)
 #, no-wrap
@@ -19825,7 +19825,7 @@ msgid ""
 "svn blame -r N:M -v PATH\n"
 "svn log -r N:M PATH\n"
 "      "
-msgstr ""
+msgstr "\nsvn blame -r N:M -v PATH\nsvn log -r N:M PATH\n      "
 
 #. (para)
 msgid ""
@@ -19861,7 +19861,7 @@ msgid ""
 "\n"
 "svn diff PATH &gt; patch-file\n"
 "      "
-msgstr ""
+msgstr "\nsvn diff PATH &gt; patch-file\n      "
 
 #. (para)
 msgid ""
@@ -20738,7 +20738,7 @@ msgstr "A editart os conflitos entre as mudanças locais e as mudanças no repos
 
 #. (para)
 msgid "Applying patch files and reviewing them."
-msgstr ""
+msgstr "Aplicando arquivos de patch e revisando-os."
 
 #. (para)
 msgid "TortoiseMerge has several different uses: <placeholder-1/>"
@@ -21654,7 +21654,7 @@ msgstr "O nome do ficheiro base. Este é visualizado no título da vista em vez 
 #. (entry)
 #. (entry)
 msgid "The name to use for editorconfig templates."
-msgstr ""
+msgstr "O nome para usar rno templates editorconfig."
 
 #. (emphasis)
 msgid "theirs"
