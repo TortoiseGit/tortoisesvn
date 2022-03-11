@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:11+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Macedonian (http://www.transifex.com/luebbe/tortoisesvn/language/mk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2467,7 +2467,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Големина на кеш [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Кеширани магацини"
 
@@ -2898,7 +2898,7 @@ msgstr ""
 msgid "Color by au&thor"
 msgstr ""
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Бои"
 
@@ -3141,6 +3141,10 @@ msgstr "Поврзи се со серверот со магацините и с�
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Големини на контејнерите"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3743,6 +3747,18 @@ msgstr "Device Independent Bitmap\na device independent bitmap"
 msgid "Dialog sizes and positions"
 msgstr "Големина и позиција на прозорците"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr ""
@@ -3757,10 +3773,6 @@ msgstr ""
 
 #. Resource IDs: (192)
 msgid "Diff Viewer"
-msgstr ""
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -4954,30 +4966,6 @@ msgstr "Собирам информации. Ве молам причекајт�
 msgid "General"
 msgstr "Општо"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Општо::Бои"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "General::Context Menu"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Општо::Дијалози 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Општо::Дијалози 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr ""
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Генерирај датотека со закрпи..."
@@ -5170,10 +5158,6 @@ msgstr "Најголема бројка на ревизија во кешот"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Hook скрипти"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Hook Scripts::Issue Tracker Integration"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5396,11 +5380,7 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Преклопување на икони / Статусни колони"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Преклопени Икони::Множество икони"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
+msgid "Icon Set"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
@@ -5832,6 +5812,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Невалиден опсег!\nВалидни ревизии се HEAD, одделени со запирки.\nОпсег може да е дефиниран со црта.\nНа пример: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr ""
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr ""
@@ -6130,10 +6114,6 @@ msgstr "Статистики за кеширан лог"
 msgid "Log Caching"
 msgstr "Кеширање на лог"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Log Caching::Cached Repositories"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Историја на логот"
@@ -6309,6 +6289,10 @@ msgstr ""
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Реинтегрирај спојување"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr ""
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7090,6 +7074,10 @@ msgstr "Програмот остана без меморија."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8157,10 +8145,6 @@ msgstr "Графикон на ревизијата"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Филтер за графиконот"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Revision Graph::Colors"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11007,6 +10991,10 @@ msgstr ""
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Празнини"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

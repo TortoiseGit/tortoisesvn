@@ -11,7 +11,7 @@
 # Authors:
 # Translators:
 # szkingrose <1072258106@qq.com>, 2014
-# ᴄʜʀɪsᴛᴏᴘʜᴇʀ ᴍᴇɴɢ <i@cicku.me>, 2012-2013
+# ᴄʜʀɪsᴛᴏᴘʜᴇʀ ᴍᴇɴɢ, 2012-2013
 # Entong Shen <dexter_shen@hotmail.com>, 2011
 # fang zheng <fz0000@sina.com>, 2011-2012,2021
 # flypopo <flypopo.reg@qq.com>, 2015
@@ -41,14 +41,14 @@
 # loveyu <yuht@qq.com>, 2012
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 # Gang Dong, 2021
-# 子毅 陈 <Iwonnasnow@outlook.com>, 2020
+# 子毅 陈 <Iwonnasnow@outlook.com>, 2020-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:05+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2496,7 +2496,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "缓存大小[kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "缓存的版本库"
 
@@ -2701,7 +2701,7 @@ msgstr "请检查你输入的路径或 URL。"
 msgid ""
 "Check those menu entries you want to appear in the top context menu instead "
 "of the TortoiseSVN submenu"
-msgstr "选中你希望出现在右键菜单，二不是 TortoiseSVN 子菜单中的菜单项"
+msgstr "勾选你希望直接出现在上下文菜单，而非 TortoiseSVN 子菜单中的项目"
 
 #. Resource IDs: (1279)
 msgid "Check to use a less verbose date and time format in log messages"
@@ -2927,7 +2927,7 @@ msgstr "按时间显示着色(&c) 连续"
 msgid "Color by au&thor"
 msgstr "按作者显示着色(&c) 连续"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "颜色"
 
@@ -3170,6 +3170,10 @@ msgstr "连接版本库服务器下载缺少的日志数据"
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "容器大小"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3772,6 +3776,18 @@ msgstr "设备中立位图\n一种设备中立的位图"
 msgid "Dialog sizes and positions"
 msgstr "窗口大小及位置"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "差异"
@@ -3787,10 +3803,6 @@ msgstr "差异 选项"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "差异查看器"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "差异查看/合并工具"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4983,30 +4995,6 @@ msgstr "正在获取信息。请等待..."
 msgid "General"
 msgstr "常规设置"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "常规::颜色"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "常规::上下文菜单"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "常规::对话框组一"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "常规::对话框组二"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "通用::对话框 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "正在生成补丁文件..."
@@ -5199,10 +5187,6 @@ msgstr "最高版本号在缓存中"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "钩子脚本"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "钩子脚本::问题跟踪器集成"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5425,12 +5409,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "图标覆盖/状态栏"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "图标覆盖::图标集"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "图标覆盖::覆盖程序"
+msgid "Icon Set"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5861,6 +5841,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "非法版本范围！\n合法版本是数字和 HEAD，用逗号隔开。\n范围用减号指定。\n例如: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "问题跟踪器集成"
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "问题跟踪器"
@@ -6159,10 +6143,6 @@ msgstr "日志缓存统计"
 msgid "Log Caching"
 msgstr "日志缓存"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "日志缓存::缓存的版本库"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "历史记录"
@@ -6338,6 +6318,10 @@ msgstr "合并日志模板"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "合并复兴分支"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "合并工具"
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7119,6 +7103,10 @@ msgstr "内存不足。"
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8187,10 +8175,6 @@ msgstr "版本分支图"
 msgid "Revision Graph Filter"
 msgstr "版本分支图过滤器"
 
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "版本图::颜色"
-
 #. Resource IDs: (228)
 msgid "Revision Range"
 msgstr "版本范围: "
@@ -8767,11 +8751,11 @@ msgstr "贮藏%s有 %ld 版本"
 
 #. Resource IDs: (1345)
 msgid "Shelf name can not be empty!"
-msgstr ""
+msgstr "贮藏名称不得为空！"
 
 #. Resource IDs: (65535)
 msgid "Shelfing"
-msgstr ""
+msgstr "正在贮藏"
 
 #. Resource IDs: (1270, 3349)
 msgid "Shell"
@@ -10125,7 +10109,7 @@ msgstr "结束: "
 
 #. Resource IDs: (65535)
 msgid "Top context menu on Windows 11"
-msgstr ""
+msgstr "Windows 11 的上下文菜单"
 
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -10351,11 +10335,11 @@ msgstr ""
 
 #. Resource IDs: (382)
 msgid "URLs to view revision for path in webviewer"
-msgstr ""
+msgstr "用于在Web浏览器中查看该修订版本号路径的网址"
 
 #. Resource IDs: (381)
 msgid "URLs to view revision in webviewer"
-msgstr ""
+msgstr "用于在Web浏览器中查看该修订版本号内容的网址"
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
@@ -10422,7 +10406,7 @@ msgstr "取消选中"
 #. Resource IDs: (65535)
 msgid ""
 "Unchecked items are not shown in the top menu but only in the original menu"
-msgstr ""
+msgstr "未勾选的项目将不会显示在主要上下文菜单中，而是只在原生上下文菜单中显示。"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -11036,6 +11020,10 @@ msgstr "空白的变化（制表符、空格）"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "空白字符"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

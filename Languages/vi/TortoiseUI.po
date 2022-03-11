@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:17+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-03-11 20:32+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Vietnamese (http://www.transifex.com/luebbe/tortoisesvn/language/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1926,7 +1926,7 @@ msgstr ""
 #. Resource IDs: (9804)
 #, c-format
 msgid "Add to %1"
-msgstr ""
+msgstr "Thêm vào %1"
 
 #. Resource IDs: (194)
 msgid "Add to &ignore list"
@@ -2467,7 +2467,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Kích thước bộ nhớ tạm [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Các kho chứa trong bộ nhớ tạm"
 
@@ -2898,7 +2898,7 @@ msgstr "Tô màu theo tuổi, &liên tục"
 msgid "Color by au&thor"
 msgstr "Tô màu theo &tác giả"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Các màu"
 
@@ -3142,6 +3142,10 @@ msgstr "trình còn thiếu"
 msgid "Container sizes"
 msgstr "Kích thước đồ chứa"
 
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr ""
@@ -3249,7 +3253,7 @@ msgstr "Sao chép lựa chọn và đặt nó vào bảng kẹp tạm\nSao chép
 #. Resource IDs: (9802)
 #, c-format
 msgid "Copy to %1"
-msgstr ""
+msgstr "Sao chép vào %1"
 
 #. Resource IDs: (1809)
 msgid "Copy to clipboard"
@@ -3743,6 +3747,18 @@ msgstr "Ảnh độc lập với thiết bị\nmột ảnh độc lập với th
 msgid "Dialog sizes and positions"
 msgstr "Kích thước và vị trí của hộp thoại"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Tìm Khác Biệt"
@@ -3758,10 +3774,6 @@ msgstr "Tùy chọn khác biệt"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Trình xem Khác biệt"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "Trình Xem Khác Biệt::Công Cụ Hợp Nhất"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4954,30 +4966,6 @@ msgstr "Đang thu thập thông tin. Vui lòng chờ..."
 msgid "General"
 msgstr "Tổng quát"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Tổng quát::Màu"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Tổng quát::Thực đơn ngữ cảnh"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Tổng quát::Hộp thoại 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Tổng quát::Hộp thoại 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "General::Dialogs 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Đang sinh tập tin vá..."
@@ -5170,10 +5158,6 @@ msgstr "Số chỉnh sửa cao nhất trong bộ lưu trữ"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Kịch bản móc "
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Kịch bản móc::Tích hợp bộ theo dõi vấn đề"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5396,12 +5380,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Biểu tượng nạp chồng / Cột trạng thái"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Biểu tượng nạp chồng::Tập hợp biểu tượng"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "Biểu tượng nạp chồng::Xử lý nạp chồng"
+msgid "Icon Set"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5671,7 +5651,7 @@ msgstr "Nhập thư mục %1!ls!\nsang %2!ls!"
 #. Resource IDs: (9801)
 #, c-format
 msgid "Import to %1"
-msgstr ""
+msgstr "Nhập sang %1"
 
 #. Resource IDs: (1265)
 msgid "Imported folder structure"
@@ -5831,6 +5811,10 @@ msgid ""
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Phạm vi chỉnh sửa không hợp lệ!\nBản chỉnh sửa hợp lệ là các số và HEAD, ngăn cách bởi dấu phẩy.\nPhạm vi có thể được chỉ ra với dấu gạch ngang.\nVí dụ: 2-5,7,10,44-70,300-HEAD"
+
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Tích hợp bộ theo dõi lỗi"
 
 #. Resource IDs: (1571)
 msgid "Issue tracker"
@@ -6130,10 +6114,6 @@ msgstr "Số liệu tường trình lưu trữ"
 msgid "Log Caching"
 msgstr "Lưu trữ tường trình"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Lưu trữ tường trình::Lưu kho chứa"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Lịch sử tường trình"
@@ -6309,6 +6289,10 @@ msgstr ""
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Tái tích hợp cho hợp nhật"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "Công Cụ Hợp Nhất"
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -6537,7 +6521,7 @@ msgstr "Di chuyển tập tin hay thư mục đặc biệt"
 #. Resource IDs: (9803)
 #, c-format
 msgid "Move to %1"
-msgstr ""
+msgstr "Chuyển đến %1"
 
 #. Resource IDs: (3340)
 msgid "Move to changelist"
@@ -7090,6 +7074,10 @@ msgstr "Hết bộ nhớ"
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.pm"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8157,10 +8145,6 @@ msgstr "Biểu đồ bản chỉnh sửa"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Lọc biểu đồ bản chỉnh sửa"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Biểu đồ bản chỉnh sửa::Màu"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11007,6 +10991,10 @@ msgstr ""
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Khoảng trắng"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

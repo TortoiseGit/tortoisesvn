@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:11+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/luebbe/tortoisesvn/language/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2473,7 +2473,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Plass til mellomlager [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Mellomlagrede Depoter"
 
@@ -2904,7 +2904,7 @@ msgstr "Gi farge etter alder, &kontinuerlig"
 msgid "Color by au&thor"
 msgstr "Gi farge etter &forfatter"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Farger"
 
@@ -3147,6 +3147,10 @@ msgstr "Kontakt depot-tjeneren og last ned manglende loggdata"
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Beholder-størrelser"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3749,6 +3753,18 @@ msgstr "Enhetsuavhengig Bitmap\net enhetsuavhengig bitmap"
 msgid "Dialog sizes and positions"
 msgstr "Størrelse og posisjon for dialogvinduer"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Diff"
@@ -3764,10 +3780,6 @@ msgstr "Forskjellsopsjoner"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Diff-viser"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "Diff-viser::Fletteverktøy"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4960,30 +4972,6 @@ msgstr "Samler informasjon. Vennligst vent..."
 msgid "General"
 msgstr "Generelt"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Generelt::Farger"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Generelt::Sammenhengsmeny"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Generelt::Dialoger 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Generelt::Dialoger 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "Generelt::Dialoger 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Genererer korreksjonsfil..."
@@ -5176,10 +5164,6 @@ msgstr "Høyste revisjonsnummer i mellomlageret"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Påhakingsskript"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Påhakingsskript::Integrasjon med Saksporingssystem"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5402,12 +5386,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Ikonlag / Statuskolonner"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Ikonlag::Ikonsett"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "Ikonlag::Aktiverte ikoner"
+msgid "Icon Set"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5838,6 +5818,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Ugyldig revisjonsintervall!\nGyldige revisjoner er tall og HEAD, delt med komma.\nEt intervall kan angis med en bindestrek.\nEksempel: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr ""
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Saksporer"
@@ -6136,10 +6120,6 @@ msgstr "Statistikk Loggmellomlager"
 msgid "Log Caching"
 msgstr "Loggmellomlagring"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Loggmellomlagring::Mellomlagrede Depoter"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Logghistorikk"
@@ -6315,6 +6295,10 @@ msgstr "Mønstre For Flettelogg"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Flett Reintegrering"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr ""
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7096,6 +7080,10 @@ msgstr "Ikke mer minne."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8163,10 +8151,6 @@ msgstr "Revisjonsgraf"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Revisjonsgraf-filter"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Revisjonsgraf::Farger"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11013,6 +10997,10 @@ msgstr "Endringer i blanktegn (tab, mellomrom)"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr " Blanktegn"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

@@ -29,8 +29,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:05+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-03-11 20:32+0000\n"
+"Last-Translator: xiaobing chen <olivetchan@qq.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,7 +129,7 @@ msgstr "%1!ls! : 工作基礎, 修訂 %2!ld!"
 #. Resource IDs: (3667)
 #, c-format
 msgid "%1!ls! from %2!ls!"
-msgstr ""
+msgstr "%1!ls! 来自 %2!ls!"
 
 #. Resource IDs: (3603)
 #, c-format
@@ -566,7 +566,7 @@ msgstr "取消(&C)\n保留現有的格式."
 
 #. Resource IDs: (1678)
 msgid "&Checkpoint"
-msgstr ""
+msgstr "检查点(&C)"
 
 #. Resource IDs: (1606)
 msgid "&Choose items..."
@@ -650,7 +650,7 @@ msgstr "黑暗模式(&D)"
 
 #. Resource IDs: (ID_VIEW_DARKMODE - Menu)
 msgid "&Dark Mode\t(D)"
-msgstr ""
+msgstr "暗色模式(&D)\t(D)"
 
 #. Resource IDs: (1638, 1641)
 msgid "&Date"
@@ -984,7 +984,7 @@ msgstr "記錄檔大小(&L)"
 
 #. Resource IDs: (1673)
 msgid "&Log message:"
-msgstr ""
+msgstr "日志消息(&L)："
 
 #. Resource IDs: (1591)
 msgid "&Mac (CR)"
@@ -1175,7 +1175,7 @@ msgstr "預先取得資料夾以加速瀏覽(&P)"
 
 #. Resource IDs: (1676)
 msgid "&Pretty print"
-msgstr ""
+msgstr "美观输出(&P)"
 
 #. Resource IDs: (58116)
 msgid "&Print..."
@@ -1302,7 +1302,7 @@ msgstr "還原預設值(&R)"
 
 #. Resource IDs: (1542)
 msgid "&Retry"
-msgstr ""
+msgstr "重试(&R)"
 
 #. Resource IDs: (1545)
 msgid "&Retry as different user"
@@ -1374,7 +1374,7 @@ msgstr "設定(&S)"
 
 #. Resource IDs: (1)
 msgid "&Shelve"
-msgstr ""
+msgstr "贮藏(&S)"
 
 #. Resource IDs: (32815 - Menu)
 msgid "&Show HEAD revisions"
@@ -1572,7 +1572,7 @@ msgstr "清理原件備份(&V)"
 
 #. Resource IDs: (1674)
 msgid "&Version"
-msgstr ""
+msgstr "版本(&V)"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "&View"
@@ -1738,7 +1738,7 @@ msgstr "... 正在準備工作複本狀態"
 #. Resource IDs: (1057)
 #, c-format
 msgid "...and %d more paths."
-msgstr ""
+msgstr "...和%d更多路径"
 
 #. Resource IDs: (2403)
 #, c-format
@@ -1761,7 +1761,7 @@ msgstr "<新變更清單>"
 msgid ""
 "=&Check Now=&Add Project=E&dit=&Remove=&Mark all as read=&Clear "
 "errors=&Update all=&Options=="
-msgstr ""
+msgstr "=立即检查(&C)=添加项目(&A)=编辑(&D)=移除(&R)=全部标记为已读(&M)=清除错误(&C)=全部更新(&U)=选项(&O)=="
 
 #. Resource IDs: (ID_ABOUT - Menu)
 msgid "?"
@@ -2024,7 +2024,7 @@ msgstr "進階合併設定"
 
 #. Resource IDs: (1675)
 msgid "Affected &files:"
-msgstr ""
+msgstr "影响的文件(&F)："
 
 #. Resource IDs: (65535)
 msgid "Age"
@@ -2069,7 +2069,7 @@ msgstr "允許不同檔案庫使用相同 UUID, 例如複製的檔案庫"
 
 #. Resource IDs: (1481)
 msgid "Allow mixed revisions (not recommended)"
-msgstr ""
+msgstr "允许混合修订 (不推荐)"
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -2136,7 +2136,7 @@ msgstr "存取 %1 時發生不明錯誤."
 #. Resource IDs: (IDS_ERR_PATCH_UNKOWNLINETYPE)
 #, c-format
 msgid "An unknown line type was found in line %d!"
-msgstr ""
+msgstr "在行 %d 找到一个未知的行类型！"
 
 #. Resource IDs: (4010)
 msgid ""
@@ -2478,7 +2478,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "快取大小 [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "快取中的檔案庫"
 
@@ -2909,14 +2909,14 @@ msgstr "依照時間上色(&C)"
 msgid "Color by au&thor"
 msgstr "依照作者上色 (&T)"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "色彩"
 
 #. Resource IDs: (IDS_INDICATOR_COLUMN)
 #, c-format
 msgid "Column: %d"
-msgstr ""
+msgstr "列: %d"
 
 #. Resource IDs: (3506)
 msgid "Command"
@@ -2964,7 +2964,7 @@ msgstr "送交"
 #. Resource IDs: (3658)
 #, c-format
 msgid "Commit to %1!ls!"
-msgstr ""
+msgstr "提交到 %1!ls!"
 
 #. Resource IDs: (1110)
 msgid "Commit to:"
@@ -3153,13 +3153,17 @@ msgstr "連線至檔案庫並下載缺少的記錄訊息資料"
 msgid "Container sizes"
 msgstr "容器大小"
 
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
+
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr "修補的內文"
 
 #. Resource IDs: (1543)
 msgid "Continue &Merge"
-msgstr ""
+msgstr "继续合并(&M)"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3479,7 +3483,7 @@ msgstr "建立修補"
 msgid ""
 "Create a checkpoint.\n"
 "The selected modifications are saved to a shelf, but the local modifications are kept."
-msgstr ""
+msgstr "创建一个检查点。\n选定的修改将保存到工具架，但会保留本地修改。"
 
 #. Resource IDs: (1015)
 msgid "Create code collaborator revie&w..."
@@ -3539,7 +3543,7 @@ msgstr "建立包含您所有修改的 Unified 差異檔"
 #. Resource IDs: (1060)
 #, c-format
 msgid "Creating checkpoint \"%s\""
-msgstr ""
+msgstr "创建检查点“%s”"
 
 #. Resource IDs: (65535)
 msgid "Credits:"
@@ -3583,13 +3587,13 @@ msgstr "細節(&E)"
 
 #. Resource IDs: (1682)
 msgid "Dark theme"
-msgstr ""
+msgstr "深色主题"
 
 #. Resource IDs: (1683)
 msgid ""
 "Dark theme requires at least Win10 1803, and it must be enabled in the "
 "Windows system settings."
-msgstr ""
+msgstr "深色主题至少需要Windows 10 1803版本，并且需要在Windows设置中将默认应用模式切换为“深色”。"
 
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
@@ -3754,6 +3758,18 @@ msgstr "裝置無關點陣圖\n與裝置無關的點陣圖"
 msgid "Dialog sizes and positions"
 msgstr "視窗大小與位置"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "比對差異"
@@ -3769,10 +3785,6 @@ msgstr "比對差異選項"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "差異檢視程式"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "差異檢視程式::合併工具"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -3845,7 +3857,7 @@ msgstr "目錄:"
 
 #. Resource IDs: (1529)
 msgid "Disable status cache for elevated processes"
-msgstr ""
+msgstr "高权限进程禁用状态缓存"
 
 #. Resource IDs: (9521)
 msgid "Discards local changes upon incoming deletes"
@@ -4127,11 +4139,11 @@ msgstr "編輯屬性"
 
 #. Resource IDs: (2322)
 msgid "Edit Property Conflicts"
-msgstr ""
+msgstr "编辑属性冲突"
 
 #. Resource IDs: (2321)
 msgid "Edit Text Conflicts"
-msgstr ""
+msgstr "编辑文本冲突"
 
 #. Resource IDs: (2318)
 msgid "Edit Tree Conflicts"
@@ -4180,7 +4192,7 @@ msgstr "編輯..."
 msgid ""
 "Edit\n"
 "Edit text conflicts"
-msgstr ""
+msgstr "编辑\n编辑文本冲突"
 
 #. Resource IDs: (1049)
 msgid ""
@@ -4467,7 +4479,7 @@ msgstr "匯出檔 (*.tsex)|*.tsex|所有檔案 (*.*)|*.*||"
 #. Resource IDs: (3659)
 #, c-format
 msgid "Export from %1!ls!"
-msgstr ""
+msgstr "从 %1!ls! 导出"
 
 #. Resource IDs: (1667)
 msgid "Export settings to file..."
@@ -4805,7 +4817,7 @@ msgstr "過濾條件:"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 65535)
 msgid "Filtered"
-msgstr ""
+msgstr "已过滤"
 
 #. Resource IDs: (Dialog IDD_FIND: Control id 139, ID_EDIT_FIND - Menu,
 #. cmdFind_LabelTitle_RESID)
@@ -4822,23 +4834,23 @@ msgstr "尋找 HEAD 修訂"
 
 #. Resource IDs: (cmdFindNext_LabelTitle_RESID)
 msgid "Find Next"
-msgstr ""
+msgstr "查找下一个"
 
 #. Resource IDs: (cmdFindPrev_LabelTitle_RESID)
 msgid "Find Previous"
-msgstr ""
+msgstr "查找上一个"
 
 #. Resource IDs: (cmdFindPrev)
 msgid ""
 "Find the last occurrence of the selected text\n"
 "Search Previous"
-msgstr ""
+msgstr "查找选中文本上次出现的位置\n查找上一个"
 
 #. Resource IDs: (cmdFindNext)
 msgid ""
 "Find the next occurrence of the selected text\n"
 "Search Next"
-msgstr ""
+msgstr "查找选中文本下次出现的位置\n查找下一个"
 
 #. Resource IDs: (cmdFind)
 msgid ""
@@ -4964,30 +4976,6 @@ msgstr "正在取得資訊. 請稍候..."
 #. Resource IDs: (143, Dialog IDD_SETMAINPAGE: Control id 107)
 msgid "General"
 msgstr "一般設定"
-
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "一般::顏色"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "一般::快顯式選單"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "一般::視窗 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "一般::視窗 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "一般::視窗 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -5182,10 +5170,6 @@ msgstr "快取中的最後修訂編號"
 msgid "Hook Scripts"
 msgstr "掛勾指令檔"
 
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "掛勾指令檔::問題追踪整合"
-
 #. Resource IDs: (3152)
 msgid "Hook Type"
 msgstr "掛勾類型"
@@ -5306,7 +5290,7 @@ msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32819; '&Dark Mode\t(D)'
 msgid "ID:32819:V   +D"
-msgstr ""
+msgstr "ID:32819:V   +D"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -5407,12 +5391,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "圖示覆蓋 / 狀態列"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "圖示覆蓋::圖示集"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "圖示覆蓋::圖示覆蓋處理程式"
+msgid "Icon Set"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5552,7 +5532,7 @@ msgstr "忽略註解"
 
 #. Resource IDs: (IDS_DIFF_IGNORE_EOL)
 msgid "Ignore EOL changes"
-msgstr ""
+msgstr "忽略 EOL 变化"
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
 #. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
@@ -5842,6 +5822,10 @@ msgid ""
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "修訂範圍錯誤!\n正確的修訂包括數字或 HEAD, 以逗號分隔.\n可以使用 - 號來表示範圍.\n例如: 2-5,7,10,44-70,300-HEAD"
+
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "问题跟踪器集成"
 
 #. Resource IDs: (1571)
 msgid "Issue tracker"
@@ -6141,10 +6125,6 @@ msgstr "記錄訊息快取統計"
 msgid "Log Caching"
 msgstr "記錄訊息快取"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "記錄訊息快取::快取的檔案庫"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "歷史記錄"
@@ -6215,7 +6195,7 @@ msgstr "選擇了多個要顯示差異的項目"
 
 #. Resource IDs: (1039)
 msgid "Mark all projects as read"
-msgstr ""
+msgstr "将所有项目标为已读"
 
 #. Resource IDs: (3608)
 msgid ""
@@ -6257,7 +6237,7 @@ msgstr "標記的區塊"
 #. Resource IDs: (IDS_INDICATOR_MARKEDWORDCOUNT)
 #, c-format
 msgid "Marked words: %s"
-msgstr ""
+msgstr "标记的词: %s"
 
 #. Resource IDs: (65535)
 msgid "Markers"
@@ -6320,6 +6300,10 @@ msgstr "合併紀錄樣版"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "合併-重新整合"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "合并工具"
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -6620,15 +6604,15 @@ msgstr "我的檔案:"
 
 #. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
 msgid "NC"
-msgstr ""
+msgstr "NC"
 
 #. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
 msgid "ND"
-msgstr ""
+msgstr "ND"
 
 #. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #. Resource IDs: (59138)
 msgid "NUM"
@@ -6734,7 +6718,7 @@ msgstr "找不到外部連結"
 msgid ""
 "No externals: For URLs, no externals are gathered.\n"
 "If you want to tag externals, start the command directly from a working copy."
-msgstr ""
+msgstr "没有外部定义: 对于 URL 链接并不会获取外部定义。\n如果你想要 Tag 外部定义, 请直接从一个工作副本使用此指令。"
 
 #. Resource IDs: (3810)
 msgid ""
@@ -6777,7 +6761,7 @@ msgstr "參數未指定路徑或檔案!"
 
 #. Resource IDs: (1058)
 msgid "No path was shelved."
-msgstr ""
+msgstr "没有贮藏的路径。"
 
 #. Resource IDs: (3125)
 msgid ""
@@ -6854,7 +6838,7 @@ msgstr "沒有選擇要送交的項目!"
 
 #. Resource IDs: (1052)
 msgid "Nothing is shelved!"
-msgstr ""
+msgstr "没什么可贮藏！"
 
 #. Resource IDs: (1406)
 msgid "Notice"
@@ -6978,7 +6962,7 @@ msgid ""
 "One or more paths could not be shelved.\n"
 "The following paths failed:\n"
 "%s"
-msgstr ""
+msgstr "一条或多条路径无法贮藏。\n以下路径失败：\n%s"
 
 #. Resource IDs: (1023)
 msgid "One project has updates:"
@@ -7102,6 +7086,10 @@ msgstr "記憶體不足."
 msgid "Output.prn"
 msgstr "Output.prn"
 
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Overlays"
 msgstr "覆蓋"
@@ -7120,15 +7108,15 @@ msgstr "覆寫\n取代現有設定"
 
 #. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
 msgid "PC"
-msgstr ""
+msgstr "PC"
 
 #. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
 msgid "PD"
-msgstr ""
+msgstr "PD"
 
 #. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
 msgid "PI"
-msgstr ""
+msgstr "PI"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7328,7 +7316,7 @@ msgstr "送交後掛勾"
 
 #. Resource IDs: (9110)
 msgid "Post-Lock Hook"
-msgstr ""
+msgstr "加锁操作钩子"
 
 #. Resource IDs: (9105)
 msgid "Post-Update Hook"
@@ -7348,7 +7336,7 @@ msgstr "連線前掛鉤"
 
 #. Resource IDs: (9109)
 msgid "Pre-Lock Hook"
-msgstr ""
+msgstr "加锁前操作钩子"
 
 #. Resource IDs: (9104)
 msgid "Pre-Update Hook"
@@ -7546,7 +7534,7 @@ msgstr "有設定 svn:needs-lock 屬性時, 將「取得鎖定」放在上層選
 
 #. Resource IDs: (288)
 msgid "Puts all changes you made onto a shelf"
-msgstr ""
+msgstr "搁置所有修改"
 
 #. Resource IDs: (cmdExit)
 msgid ""
@@ -7718,7 +7706,7 @@ msgid ""
 "Regex error caught!\r\n"
 "%S\r\n"
 "Trying to recover by unsetting it again."
-msgstr ""
+msgstr "正则表达式有错误！\r\n%S\r\n尝试重新设置解决此问题。"
 
 #. Resource IDs: (IDS_ERR_REGEX_INVALID)
 msgid "Regex is invalid!"
@@ -8056,7 +8044,7 @@ msgstr "使用遠端解決衝突"
 
 #. Resource IDs: (3681)
 msgid "Resolve conflicts"
-msgstr ""
+msgstr "解决冲突"
 
 #. Resource IDs: (1168, 3332)
 msgid "Resolved"
@@ -8168,10 +8156,6 @@ msgstr "修訂圖"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "修訂圖過濾條件"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "修訂圖::顏色"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -8579,7 +8563,7 @@ msgstr "請選擇按鈕."
 msgid ""
 "Select an existing shelf to create a new version, or enter a new name to "
 "create a new shelf"
-msgstr ""
+msgstr "选择现有工具架以创建新版本，或输入新名称以创建新工具架"
 
 #. Resource IDs: (57346)
 msgid "Select an object on which to get Help"
@@ -8745,15 +8729,15 @@ msgstr "是否要更新工作複本然後再試一次?"
 #. Resource IDs: (1053)
 #, c-format
 msgid "Shelf \"%s\" has %ld version(s)"
-msgstr ""
+msgstr "贮藏%s有 %ld 版本"
 
 #. Resource IDs: (1345)
 msgid "Shelf name can not be empty!"
-msgstr ""
+msgstr "贮藏名称不得为空！"
 
 #. Resource IDs: (65535)
 msgid "Shelfing"
-msgstr ""
+msgstr "正在贮藏"
 
 #. Resource IDs: (1270, 3349)
 msgid "Shell"
@@ -8765,20 +8749,20 @@ msgstr "重新建立圖示快取!"
 
 #. Resource IDs: (205)
 msgid "Shelve"
-msgstr ""
+msgstr "贮藏"
 
 #. Resource IDs: (1054)
 msgid "Shelve the selected files and revert the changes."
-msgstr ""
+msgstr "贮藏选中的文件并还原更改。"
 
 #. Resource IDs: (286)
 msgid "Shelve..."
-msgstr ""
+msgstr "贮藏..."
 
 #. Resource IDs: (1059)
 #, c-format
 msgid "Shelving to \"%s\""
-msgstr ""
+msgstr "贮藏到“%s”"
 
 #. Resource IDs: (32822)
 msgid ""
@@ -8904,7 +8888,7 @@ msgstr "顯示變更為 Unified 差異(&U)"
 
 #. Resource IDs: (IDS_HEADER_DIFFLEFTTOBASE, IDS_HEADER_DIFFRIGHTTOBASE)
 msgid "Show diff separately"
-msgstr ""
+msgstr "分别显示差异"
 
 #. Resource IDs: (1802)
 msgid "Show differences as &unified diff"
@@ -9698,7 +9682,7 @@ msgstr "項目 '%ls' 有屬性衝突:\n%ls"
 #. Resource IDs: (IDS_ERR_PATCH_NOEQUATIONCHARLINE)
 #, c-format
 msgid "The line '====' was expected in line %d!"
-msgstr ""
+msgstr "预期在 %d 行找到 '====' 行！"
 
 #. Resource IDs: (IDS_ERR_PATCH_NOINDEX)
 msgid ""
@@ -9709,7 +9693,7 @@ msgstr "找不到 'Index: ' 行!\n這可能不是差異檔, 或是沒有差異."
 #. Resource IDs: (IDS_ERR_PATCH_NOADDFILELINE)
 #, c-format
 msgid "The line indicating the new file was expected in line %d!"
-msgstr ""
+msgstr "代表新文件的行应该位于%d行！"
 
 #. Resource IDs: (IDS_GOTO_OUTOFRANGE)
 #, c-format
@@ -9943,7 +9927,7 @@ msgid ""
 "incomplete or even misleading due to incomplete history data.\n"
 "\n"
 "The error was:"
-msgstr ""
+msgstr "联系服务器时出现问题\n您想要查看缓存的数据吗？\n\n请明白这些是不完整的历史数据，\n缓存的数据可能已过时，不完整甚至是令人误解的。\n\n错误是："
 
 #. Resource IDs: (1306)
 msgid ""
@@ -10107,7 +10091,7 @@ msgstr "到:"
 
 #. Resource IDs: (65535)
 msgid "Top context menu on Windows 11"
-msgstr ""
+msgstr "Windows 11 的上下文菜单"
 
 #. Resource IDs: (244, IDS_APP_TITLE)
 msgid "TortoiseBlame"
@@ -10333,15 +10317,15 @@ msgstr ""
 
 #. Resource IDs: (382)
 msgid "URLs to view revision for path in webviewer"
-msgstr ""
+msgstr "用于在Web浏览器中查看该修订版本号路径的网址"
 
 #. Resource IDs: (381)
 msgid "URLs to view revision in webviewer"
-msgstr ""
+msgstr "用于在Web浏览器中查看该修订版本号内容的网址"
 
 #. Resource IDs: (1847)
 msgid "URLs with revision"
-msgstr ""
+msgstr "带修订版的网址"
 
 #. Resource IDs: (1209)
 msgid "Un&modified"
@@ -10404,7 +10388,7 @@ msgstr "取消勾選"
 #. Resource IDs: (65535)
 msgid ""
 "Unchecked items are not shown in the top menu but only in the original menu"
-msgstr ""
+msgstr "未勾选的项目将不会显示在主要上下文菜单中，而是只在原生上下文菜单中显示。"
 
 #. Resource IDs: (65535)
 msgid ""
@@ -10486,11 +10470,11 @@ msgstr "已解決的衝突！"
 
 #. Resource IDs: (206)
 msgid "Unshelve"
-msgstr ""
+msgstr "取消贮藏"
 
 #. Resource IDs: (287)
 msgid "Unshelve..."
-msgstr ""
+msgstr "取消贮藏..."
 
 #. Resource IDs: (61443)
 msgid "Untitled"
@@ -10698,7 +10682,7 @@ msgstr "使用兩個文字區塊(最後使用本區塊)"
 
 #. Resource IDs: (Dialog IDD_SETCOLORPAGE: Control id 1513)
 msgid "Use dark mode"
-msgstr ""
+msgstr "使用暗黑模式"
 
 #. Resource IDs: (ID_EDIT_USELEFTBLOCK - Menu,
 #. cmdUseLeftBlock_LabelTitle_RESID)
@@ -10838,7 +10822,7 @@ msgstr "忽略的使用者:"
 
 #. Resource IDs: (3105)
 msgid "Uses the status cache type 'none' for elevated processes"
-msgstr ""
+msgstr "高权限进程的状态缓存类型使用 \"none\""
 
 #. Resource IDs: (cmdPaste_Keytip_RESID)
 msgid "V"
@@ -10846,11 +10830,11 @@ msgstr "V"
 
 #. Resource IDs: (1680)
 msgid "V2: Faster, no server connection required (recommended)"
-msgstr ""
+msgstr "V2：速度更快，无需连接到服务器（推荐）"
 
 #. Resource IDs: (1681)
 msgid "V3: Slower, requires server connection."
-msgstr ""
+msgstr "V3：速度较慢，需要连接到服务器"
 
 #. Resource IDs: (IDS_COMMANDLINEHELP)
 msgid ""
@@ -10891,7 +10875,7 @@ msgstr "版本"
 #. Resource IDs: (1061)
 #, c-format
 msgid "Version %d - %s"
-msgstr ""
+msgstr "版本 %d - %s"
 
 #. Resource IDs: (IDS_VERSION)
 #, c-format
@@ -11018,6 +11002,10 @@ msgstr "空白字元變更 (Tab 或空白)"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "空白字元"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"
@@ -11613,7 +11601,7 @@ msgstr "一般"
 
 #. Resource IDs: (cmdOpen_Keytip_RESID)
 msgid "o1"
-msgstr ""
+msgstr "o1"
 
 #. Resource IDs: (162)
 msgid "obstructed"

@@ -26,8 +26,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:17+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/luebbe/tortoisesvn/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2475,7 +2475,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Розмір кеша [кБ]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Кешовані репозиторії"
 
@@ -2906,7 +2906,7 @@ msgstr ""
 msgid "Color by au&thor"
 msgstr ""
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Кольори"
 
@@ -3149,6 +3149,10 @@ msgstr "З'єднатися з сервером сховища та завант
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Розміри контейнерів"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3751,6 +3755,18 @@ msgstr "Растр незалежний від пристрою\nнезалеж�
 msgid "Dialog sizes and positions"
 msgstr "Розміри та розташування діалогів"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Відмінності"
@@ -3766,10 +3782,6 @@ msgstr "Параметри Diff"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Переглядач Diff"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4962,30 +4974,6 @@ msgstr "Збирається інформація. Зачекайте..."
 msgid "General"
 msgstr "Загальне"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Загальне::Кольори"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Загальне::Контекстне меню"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Загальне::Діалоги 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Загальне::Діалоги 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr ""
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Генерується файл-латка..."
@@ -5178,10 +5166,6 @@ msgstr "Найбільший номер модифікації у кеші"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Скрипти зачіпки"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Скрипти зачіпок::Інтеграція проблемобліку"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5404,11 +5388,7 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Перекривання піктограм / Стовпці стану"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Перекривання піктограм::Набір піктограм"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
+msgid "Icon Set"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
@@ -5840,6 +5820,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Некоректний діапазон модифікацій!\nКоректні модифікації - це числа та HEAD, розділені комами.\nДіапазон можна вказати рискою.\nПриклад: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr ""
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr ""
@@ -6138,10 +6122,6 @@ msgstr "Статистика логового кешу"
 msgid "Log Caching"
 msgstr "Логове кешування"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Кешування логу::Кешовані репозиторії"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Логова історія"
@@ -6317,6 +6297,10 @@ msgstr ""
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Злити переінтегрування"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr ""
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7098,6 +7082,10 @@ msgstr "Не вистарчає пам`яті."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8165,10 +8153,6 @@ msgstr "Граф модифікацій"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Фільтр графу модифікацій"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Граф модифікацій::Кольори"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11015,6 +10999,10 @@ msgstr ""
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Пробіли"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

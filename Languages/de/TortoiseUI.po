@@ -29,14 +29,14 @@
 # Mr.Update, 2019-2021
 # peu <peu@rekoba.de>, 2013
 # peu <peu@rekoba.de>, 2013
-# Stefan Kueng <tortoisesvn@gmail.com>, 2014,2019-2021
+# Stefan Kueng <tortoisesvn@gmail.com>, 2014,2019-2022
 # Sven Strickroth <sstrickroth@googlemail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:01+0000\n"
+"PO-Revision-Date: 2022-02-08 17:31+0000\n"
 "Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/luebbe/tortoisesvn/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2485,7 +2485,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Pufferspeicher [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Gepufferte Projektarchive"
 
@@ -2916,7 +2916,7 @@ msgstr "Nach Alter einfärben, &kontinuierlich"
 msgid "Color by au&thor"
 msgstr "Nach A&utor einfärben"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Farben"
 
@@ -3159,6 +3159,10 @@ msgstr "Mit dem Projektarchiv verbinden und die fehlenden Logdaten herunterladen
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Containergrößen"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr "Kontextmenü"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3761,6 +3765,18 @@ msgstr "Geräteunabhängiges Bitmap\nEin geräteunabhängiges Bild"
 msgid "Dialog sizes and positions"
 msgstr "Dialoggrößen und -positionen"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr "Dialoge 1"
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr "Dialoge 2"
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr "Dialoge 3"
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Vergleich"
@@ -3776,10 +3792,6 @@ msgstr "Vergleichsoptionen"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Vergleichsprogramm"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "Vergleichsprogramm::Zusammenführen"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4972,30 +4984,6 @@ msgstr "Sammle Informationen. Bitte warten..."
 msgid "General"
 msgstr "Allgemein"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Allgemein::Farben"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Allgemein::Kontextmenü"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Allgemein::Dialoge 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Allgemein::Dialoge 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "Allgemein::Dialoge 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr "Allgemein::Win11 Kontextmenu"
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Erzeuge Patchdatei..."
@@ -5188,10 +5176,6 @@ msgstr "Höchste Revisionsnummer im Puffer"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Aktionsskripte"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Aktionsskripte::Integration des Fehlerverfolgungssystems"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5414,12 +5398,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Überlagerte Symbole / Statusspalten"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Überlagerte Symbole::Auswahl"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "Überlagerte Symbole::Aktivieren"
+msgid "Icon Set"
+msgstr "Symbol-Set"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5850,6 +5830,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Ungültiger Revisionsbereich!\nGültige Revisionen sind durch Komma getrennte Zahlen und HEAD.\nEin Bereich wird durch einen Bindestrich angegeben.\nBeispiel: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Integration mit Fehlerverfolgungssystemen"
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Fehlerverfolgungssystem"
@@ -6148,10 +6132,6 @@ msgstr "Log-Puffer-Statistiken"
 msgid "Log Caching"
 msgstr "Log-Puffer"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Log-Puffer::Gepufferte Projektarchive"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Letzte Logmeldungen"
@@ -6327,6 +6307,10 @@ msgstr "Log-Vorlagen für das Zusammenführen"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Wiedereingliedern"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "Konflikteditor"
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7108,6 +7092,10 @@ msgstr "Zu wenig Speicher."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Ausgabe.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr "Overlay Handlers"
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8175,10 +8163,6 @@ msgstr "Revisionsgraph"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Revisionsgraph filtern"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Revisionsgraph::Farben"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11025,6 +11009,10 @@ msgstr "Whitespace-Änderungen (Tabs, Leerzeichen)"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Leerzeichen"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr "Win 11 Kontextmenü"
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

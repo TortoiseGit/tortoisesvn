@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:14+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Serbian (Latin) (http://www.transifex.com/luebbe/tortoisesvn/language/sr@latin/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2469,7 +2469,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Veličina keša [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Keširano Spremište"
 
@@ -2900,7 +2900,7 @@ msgstr "Boje po starosti, &kontinualno"
 msgid "Color by au&thor"
 msgstr "Boje po au&toru"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Boje"
 
@@ -3143,6 +3143,10 @@ msgstr "Spoji se sa serverom spremišta i skini podatke dnevnika koji nedostaju"
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Veličine kontejnera"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3745,6 +3749,18 @@ msgstr "Bitmapa nezavisna od uređaja\nbitmapa nezavisna od uređaja"
 msgid "Dialog sizes and positions"
 msgstr "Dijalog veličina i pozicije"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Razl"
@@ -3760,10 +3776,6 @@ msgstr "Dif opcije"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Dif pregledač"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "Dif pregledač::alat stapanja"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4956,30 +4968,6 @@ msgstr "Sakupljanje informacija. Molim sačekajte..."
 msgid "General"
 msgstr "Uopšteno"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Uopšteno::Boje"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Uopšteno::Kontekst meni"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Uopšteno::Dijalozi 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Uopšteno::Dijalozi 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "Generalno::dijalozi 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Izrađujem fajl zakrpa..."
@@ -5172,10 +5160,6 @@ msgstr "Najviša revizija u kešu"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Zakačive Skripte"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Zakačive Skripte::Problem tragač integracija"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5398,12 +5382,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Preklapanje ikona / Kolone statusa"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Prekrivne ikone::Skup ikona"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "Prekrivne ikone::Rukovaoci ikona"
+msgid "Icon Set"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5834,6 +5814,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Neispravan raspon revizija!\nIspravne revizije su brojevi i GLAVNA, odvojeni zarezima.\nRaspon može biti napisan pomoću crtice.\nNa primer: 2-5,7,10,44-70,300-GLAVNA"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Integracija problem tragača"
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Problemt tragač"
@@ -6132,10 +6116,6 @@ msgstr "Statistika keša  dnevnika"
 msgid "Log Caching"
 msgstr "Keš dnevnika"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Dnevnik keširanja::Keširana spremišta"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Istorija dnevnika"
@@ -6311,6 +6291,10 @@ msgstr "Stapi Dnevnik Šablona"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Stopi Reintegriraj (!?)"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "Alat spajanja"
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7092,6 +7076,10 @@ msgstr "Program je ostao bez memorije."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8159,10 +8147,6 @@ msgstr "Revizioni graf"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Filter revizionog grafa"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Revizioni graf::Boje"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11009,6 +10993,10 @@ msgstr "Beline su izmenjene (tabovi, razmaci)"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Beline"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

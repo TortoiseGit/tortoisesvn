@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:08+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Greek (http://www.transifex.com/luebbe/tortoisesvn/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2471,7 +2471,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Mέγεθος της κρυφής μνήμης [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Αποθήκες στην cache"
 
@@ -2902,7 +2902,7 @@ msgstr ""
 msgid "Color by au&thor"
 msgstr ""
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Χρώματα"
 
@@ -3145,6 +3145,10 @@ msgstr "Σύνδεηση στο διακομιστή αποθηκών και λ�
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Μεγέθη δοχείων"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3747,6 +3751,18 @@ msgstr ""
 msgid "Dialog sizes and positions"
 msgstr "Θέσεις και μεγέθη διαλόγων"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr ""
@@ -3761,10 +3777,6 @@ msgstr ""
 
 #. Resource IDs: (192)
 msgid "Diff Viewer"
-msgstr ""
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
 msgstr ""
 
 #. Resource IDs: (65535)
@@ -4958,30 +4970,6 @@ msgstr "Λήψη πληροφοριών. Παρακαλώ περιμένετε..
 msgid "General"
 msgstr "Γενικά"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Γενικά::Χρώματα"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Γενικά::Μενού Πλαίσιο"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Γενικά::Διάλογοι 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Γενικά::Διάλογοι 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "Γενικά::Διάλογοι 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Δημηουργείται το αρχείων διαφορών..."
@@ -5174,10 +5162,6 @@ msgstr "Υψηλότερος αριθμός έκδοσης στην κρυφή �
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Γάντζωμα αρχείων"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Γαντζώμα αρχείων::Ενσωμάτοση ανίχνευσης σφαλμάτων "
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5400,11 +5384,7 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Επικαλύψεις εικονιδίων / Στήλες καταστάσεως"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Επικαλύψεις εικονιδίων::Σύνολο εικονιδίων"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
+msgid "Icon Set"
 msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
@@ -5836,6 +5816,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Λάθος έυρως έκδοσεων!\nΕπιτρεπτές εκδόσεις είναι οι αριθμοί και ΚΕΦΑΛΗ, διαχωρισμένοι με κόμμα.\nΤο έυρως μπορεί να προσδιοριστεί με μία πάυλα.\nΠαράδειγμα: 2-5,7,10,44-70,300-HEAD "
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr ""
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr ""
@@ -6134,10 +6118,6 @@ msgstr "Καταγραφή των στατιστικών cache"
 msgid "Log Caching"
 msgstr "Αποθήκευση ιστορικού στην κρυφή μνήμη"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr ""
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Ιστορική Αναδρομή:"
@@ -6313,6 +6293,10 @@ msgstr ""
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Επανένταξη συγχώνευσης"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr ""
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7094,6 +7078,10 @@ msgstr "Δεν ειπάρχει άλλη μνήμη."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8161,10 +8149,6 @@ msgstr "Γράφημα Αναθεώρησης"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Φίλτρο γραφήματος αναθεώρησης"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Γράφημα αναθεώρησης::Χρώματα"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11011,6 +10995,10 @@ msgstr "Αλλαγές λευκών διαστημάτων (στηλοθετήσ
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Κενά"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

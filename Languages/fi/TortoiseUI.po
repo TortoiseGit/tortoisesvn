@@ -21,8 +21,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:08+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/luebbe/tortoisesvn/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2470,7 +2470,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Koko [kt]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Välimuistissa olevat arkistot"
 
@@ -2901,7 +2901,7 @@ msgstr "Väritä iän mukaan, &jatkuvana"
 msgid "Color by au&thor"
 msgstr "Väritä &tekijän mukaan"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Värit"
 
@@ -3144,6 +3144,10 @@ msgstr "Kytkeydy arkistopalvelimelle ja nouda puuttuvat lokitiedot"
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Säiliöiden koot"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3746,6 +3750,18 @@ msgstr "Laiteriippumaton bittikartta\nlaiteriippumaton bittikartta"
 msgid "Dialog sizes and positions"
 msgstr "Ikkunoiden koot ja paikat"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Vertaa"
@@ -3761,10 +3777,6 @@ msgstr "Vertailuasetukset"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Vertailutyökalu"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "Vertailutyökalu::Yhdistämistyökalu"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4957,30 +4969,6 @@ msgstr "Haetaan tietoja. Odota hetki..."
 msgid "General"
 msgstr "Yleiset"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Yleinen::Värit"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Yleinen::Kontekstivalikko"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Yleinen::Ikkunat 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Yleinen::Ikkunat 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "Yleinen::Ikkunat 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr "Yleiset::Windows 11 kontekstivalikko"
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Luodaan paikkatiedostoa..."
@@ -5173,10 +5161,6 @@ msgstr "Välimuistin suurin versionumero"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Toimintokomennot"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Toimintokomennot::Integrointi vikaseurantaohjelmiin"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5399,12 +5383,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Kuvakepäällykset / Tilasarakkeet"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Kuvakepäällykset::Kuvakejoukko"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "Kuvakepäällykset::Kuvakekäsittelijät"
+msgid "Icon Set"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5835,6 +5815,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Laiton versioväli!\nSallittuja versioita ovat numerot ja HEAD, pilkuilla erotettuina.\nVäli määritellään väliviivan avulla.\nEsimerkki: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Kytkeytyminen vikaseurantaohjelmiin"
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Vikaseurantaohjelma"
@@ -6133,10 +6117,6 @@ msgstr "Lokiviestien talletuksen tilastot"
 msgid "Log Caching"
 msgstr "Lokiviestien talletus"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Lokiviestien talletus::Välimuistissa olevat arkistot"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Viimeisimmät viestit"
@@ -6312,6 +6292,10 @@ msgstr "Yhdistä lokikaavaimet"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Yhdistä takaisin"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "Yhdistämistyökalu"
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7093,6 +7077,10 @@ msgstr "Muisti loppui."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8160,10 +8148,6 @@ msgstr "Versiograafi"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Versiograafisuodatin"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Versiograafi::Värit"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11010,6 +10994,10 @@ msgstr "Tyhjämerkkimuutokset (välilyönnit, tabulaattorit)"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Tyhjämerkit"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

@@ -24,7 +24,7 @@
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Mandy Cho <chohy@yahoo.com>, 2013
 # zzskm <rennintherynn@gmail.com>, 2019
-# Seongki Shin <skshin@gmail.com>, 2011-2013,2015,2017
+# Seongki Shin <skshin@gmail.com>, 2011-2013,2015,2017,2022
 # Stefan Kueng <tortoisesvn@gmail.com>, 2021
 # TaeDong Kim <fly1004@gmail.com>, 2011,2013-2016
 # 조우혁 <whyeok15@gmail.com>, 2019
@@ -33,8 +33,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:10+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-02-01 15:27+0000\n"
+"Last-Translator: Seongki Shin <skshin@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/luebbe/tortoisesvn/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2073,7 +2073,7 @@ msgstr "다른 저장소들에 대해서 같은 UUID를 사용하는 것을 허�
 
 #. Resource IDs: (1481)
 msgid "Allow mixed revisions (not recommended)"
-msgstr ""
+msgstr "혼합된 리비전 허용 (권장하지 않음)"
 
 #. Resource IDs: (1896)
 msgid "Already merged"
@@ -2436,7 +2436,7 @@ msgstr "버그 ID"
 
 #. Resource IDs: (385)
 msgid "Bug-Urls"
-msgstr ""
+msgstr "버그 URL"
 
 #. Resource IDs: (327)
 msgid "Bugtraq Regex Tester - TortoiseSVN"
@@ -2482,7 +2482,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "캐시 크기 [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "캐시된 저장소"
 
@@ -2913,14 +2913,14 @@ msgstr "시기별 색상(연속(&C))"
 msgid "Color by au&thor"
 msgstr "편집자(&T)에 의한 색상"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "색상"
 
 #. Resource IDs: (IDS_INDICATOR_COLUMN)
 #, c-format
 msgid "Column: %d"
-msgstr ""
+msgstr "열: %d"
 
 #. Resource IDs: (3506)
 msgid "Command"
@@ -3157,13 +3157,17 @@ msgstr "저장소 서버에 접속해서 존재하지 않는 로그 데이타를
 msgid "Container sizes"
 msgstr "컨테이너 크기"
 
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr "문맥 메뉴"
+
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
 msgstr "패치를위한 컨텍스트 라인"
 
 #. Resource IDs: (1543)
 msgid "Continue &Merge"
-msgstr ""
+msgstr "머지 계속하기(&M)"
 
 #. Resource IDs: (IDS_EDIT_SPACE2TAB)
 msgid "Convert spaces to tabs"
@@ -3593,7 +3597,7 @@ msgstr "어두운 테마"
 msgid ""
 "Dark theme requires at least Win10 1803, and it must be enabled in the "
 "Windows system settings."
-msgstr ""
+msgstr "어두운 테마는 Win10 1803이후에서, 윈도우 환경설정에서 옵션을 활성화했을 때에만 사용가능합니다."
 
 #. Resource IDs: (1210, 1529, 3312, IDS_HEADER_DATE)
 msgid "Date"
@@ -3758,6 +3762,18 @@ msgstr "디바이스에 독립적인 비트맵\n디바이스에 독립적인 비
 msgid "Dialog sizes and positions"
 msgstr "대화상자의 크기와 위치"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr "다이얼로그 1"
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr "다이얼로그 2"
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr "다이얼로그 3"
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "비교 사항"
@@ -3773,10 +3789,6 @@ msgstr "비교 사항 옵션"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "비교 사항(Diff) 뷰어"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "비교 사항(Diff) 뷰어::병합 도구"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4836,13 +4848,13 @@ msgstr "이전 찾기"
 msgid ""
 "Find the last occurrence of the selected text\n"
 "Search Previous"
-msgstr ""
+msgstr "선택된 문자열을 역방향으로 찾습니다\n이전 찾기"
 
 #. Resource IDs: (cmdFindNext)
 msgid ""
 "Find the next occurrence of the selected text\n"
 "Search Next"
-msgstr ""
+msgstr "선택된 문자열을 순방향으로 찾습니다\n다음 찾기"
 
 #. Resource IDs: (cmdFind)
 msgid ""
@@ -4968,30 +4980,6 @@ msgstr "정보 얻는 중, 기다리세요..."
 #. Resource IDs: (143, Dialog IDD_SETMAINPAGE: Control id 107)
 msgid "General"
 msgstr "일반"
-
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "일반::색깔"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "일반::컨텍스트 메뉴"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "일반::대화상자 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "일반::대화상자 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "일반::대화상자3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -5186,10 +5174,6 @@ msgstr "캐시에서 가장 높은 리비전 번호"
 msgid "Hook Scripts"
 msgstr "훅 스크립트"
 
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "훅 스크립트::이슈 트래커 통합"
-
 #. Resource IDs: (3152)
 msgid "Hook Type"
 msgstr "훅 종류"
@@ -5310,7 +5294,7 @@ msgstr "ID:32818:V   +H"
 
 #. Accelerator Entry for Menu ID:32819; '&Dark Mode\t(D)'
 msgid "ID:32819:V   +D"
-msgstr ""
+msgstr "ID:32819:V   +D"
 
 #. Accelerator Entry for Menu ID:32824; ''
 msgid "ID:32824:V C +F"
@@ -5411,12 +5395,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "아이콘 오버레이 / 상태 컬럼"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "아이콘 오버레이::아이콘 모음"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "아이콘 오버레이::아이콘 핸들"
+msgid "Icon Set"
+msgstr "아이콘 모음"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5847,6 +5827,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "잘못된 리비전 구간입니다\n가능한 리비전은 쉼표(,)로 구분된 숫자 혹은 HEAD입니다.\n또한 구간은 대시(-)로 표현될 수 있습니다.\n예: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "이슈 트래커 연동"
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "이슈 트래커"
@@ -6145,10 +6129,6 @@ msgstr "로그 캐시 통계정보"
 msgid "Log Caching"
 msgstr "로그 캐싱"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "로그 캐싱::캐시된 저장소"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "사용되었던 로그"
@@ -6324,6 +6304,10 @@ msgstr "병합 로그 템플릿"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "재통합 병합"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr ""
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7105,6 +7089,10 @@ msgstr "메모리 부족."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8172,10 +8160,6 @@ msgstr "리비전 그래프"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "리비전 그래프 필터"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "리비전 그래프::색깔"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11022,6 +11006,10 @@ msgstr ""
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "공백문자들"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

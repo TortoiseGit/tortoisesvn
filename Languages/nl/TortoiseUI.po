@@ -29,8 +29,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:42+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/luebbe/tortoisesvn/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2478,7 +2478,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Cache grootte [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Archieven in de cache"
 
@@ -2909,7 +2909,7 @@ msgstr "Kleur op leeftijd, &continu"
 msgid "Color by au&thor"
 msgstr "Kleur per au&teur"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Kleuren"
 
@@ -3152,6 +3152,10 @@ msgstr "Haal ontbrekende log data op uit het archief"
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Container formaten"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3754,6 +3758,18 @@ msgstr "Device onafhankelijke bitmap\neen device onafhankelijke bitmap"
 msgid "Dialog sizes and positions"
 msgstr "Venster afmetingen en posities"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Verschil"
@@ -3769,10 +3785,6 @@ msgstr "Opties voor Verschillen"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Diff-viewer"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "Diff-viewer::Samenvoeg gereedschap"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4965,30 +4977,6 @@ msgstr "Informatie ophalen..."
 msgid "General"
 msgstr "Algemeen"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Algemeen::Kleuren"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Algemeen::Contextmenu"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Algemeen::Dialogen 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Algemeen::Dialogen 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "Algemeen::Dialogen 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Patchfile maken..."
@@ -5181,10 +5169,6 @@ msgstr "Hoogste revisienummer in de cache"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Hook-scripts"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Hook-scripts::Issue Tracker Integratie"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5407,12 +5391,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Overlays voor Pictogrammen / Status Kolommen"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Overlay iconen::Iconen set"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "Overlay iconen::Overlay handlers"
+msgid "Icon Set"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5843,6 +5823,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Ongeldig revisie-bereik!\nGeldige revisies zijn nummers en HEAD, gescheiden door kommas.\nEen reeks kan met een streepje worden opgegeven.\nVoorbeeld: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Issue Tracker Integratie"
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Issue tracker"
@@ -6141,10 +6125,6 @@ msgstr "Log cache statistieken"
 msgid "Log Caching"
 msgstr "Log caching"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Log caching::Archieven in de cache"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Logboek geschiedenis"
@@ -6320,6 +6300,10 @@ msgstr "Samenvoegen log sjablonen"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Reïntegratie samenvoeging"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "Merge Tool"
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7101,6 +7085,10 @@ msgstr "Geen geheugen beschikbaar."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8168,10 +8156,6 @@ msgstr "Revisie schema"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Revisie schema filter"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Revisie schema::Kleuren"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11018,6 +11002,10 @@ msgstr "Witruimte wijzigingen (tabs, spaties)"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Spaties en lege regels"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

@@ -36,7 +36,7 @@
 # Mark O'Neill <phoenixteam1@gmail.com>, 2011
 # pascow <clogaffo@gmail.com>, 2011
 # RGomez, 2013
-# Roberto Gómez, 2013-2016
+# Roberto Gómez, 2013-2016,2022
 # Stefan Kueng <tortoisesvn@gmail.com>, 2021
 # Thomas Armstrong <thomas.armstrong.k@gmail.com>, 2013
 # Thomas Armstrong <thomas.armstrong.k@gmail.com>, 2013
@@ -46,8 +46,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:03+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/luebbe/tortoisesvn/language/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1856,7 +1856,7 @@ msgstr "Abortar"
 
 #. Resource IDs: (cmdAbout_LabelTitle_RESID)
 msgid "Abou&t TortoiseMerge"
-msgstr ""
+msgstr "&Acerca de TortoiseMerge..."
 
 #. Resource IDs: (134)
 msgid "About"
@@ -2495,7 +2495,7 @@ msgstr "MAY"
 msgid "Cache size [kB]"
 msgstr "Tamaño de caché [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Repositorios cacheados"
 
@@ -2926,7 +2926,7 @@ msgstr "Color por edad, &continuo"
 msgid "Color by au&thor"
 msgstr "Color por au&tor"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Colores"
 
@@ -3169,6 +3169,10 @@ msgstr "Conectar al servidor de repositorios y descargar los datos de registro f
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Tamaños de contenedores"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3771,6 +3775,18 @@ msgstr "Bitmap independiente del dispositivo\nun mapa de bits independiente del 
 msgid "Dialog sizes and positions"
 msgstr "Tamaños y posiciones de los diálogos"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Diff"
@@ -3786,10 +3802,6 @@ msgstr "Opciones de Diff"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Visor de Diff"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "Visor de Diff::Herramienta de Merge"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4849,13 +4861,13 @@ msgstr "Buscar anterior"
 msgid ""
 "Find the last occurrence of the selected text\n"
 "Search Previous"
-msgstr ""
+msgstr "Encontrar la última ocurrencia del texto seleccionado\nBuscar Anterior"
 
 #. Resource IDs: (cmdFindNext)
 msgid ""
 "Find the next occurrence of the selected text\n"
 "Search Next"
-msgstr ""
+msgstr "Encontrar la siguiente ocurrencia del texto seleccionado\nBuscar Siguiente"
 
 #. Resource IDs: (cmdFind)
 msgid ""
@@ -4981,30 +4993,6 @@ msgstr "Obteniendo información. Por favor, espere..."
 #. Resource IDs: (143, Dialog IDD_SETMAINPAGE: Control id 107)
 msgid "General"
 msgstr "General"
-
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "General::Colores"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "General::Menú Contextual"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "General::Diálogos 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "General::Diálogos 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "General::Díalogos 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr ""
 
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
@@ -5198,10 +5186,6 @@ msgstr "Número de revisión más alto en la caché"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Scripts gancho"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Scripts gancho::Integración con control de incidentes"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5424,12 +5408,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Superposición de iconos / Columnas de estado"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Superposición de Iconos::Iconos"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "Superposición de Iconos::Controladores"
+msgid "Icon Set"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5569,7 +5549,7 @@ msgstr "Ignora comentarios"
 
 #. Resource IDs: (IDS_DIFF_IGNORE_EOL)
 msgid "Ignore EOL changes"
-msgstr ""
+msgstr "Ignorar cambio en saltos de línea"
 
 #. Resource IDs: (ID_VIEW_IGNOREALLWHITESPACECHANGES - Menu,
 #. cmdIgnoreAllWhitespaceChanges_LabelTitle_RESID)
@@ -5859,6 +5839,10 @@ msgid ""
 "A range can be specified with a dash.\n"
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "¡Rango de revisiones no válido!\nLas revisiones válidas son números y HEAD, separados por comas.\nSe pueden especificar rangos mediante un guión.\nEjemplo: 2-5,7,10,44-70,300-HEAD"
+
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Integración con el gestor de incidencias"
 
 #. Resource IDs: (1571)
 msgid "Issue tracker"
@@ -6158,10 +6142,6 @@ msgstr "Estadísticas de la caché de registro"
 msgid "Log Caching"
 msgstr "Caché de registro"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Caché de registro::Repositorios cacheados"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Historial de Mensajes"
@@ -6338,6 +6318,10 @@ msgstr "Fusionar Plantillas de Registro"
 msgid "Merge Reintegrate"
 msgstr "Fusionar reintegración"
 
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "Herramienta de fusión"
+
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
 msgstr "Fusionar un &rango de revisiones"
@@ -6357,12 +6341,12 @@ msgstr "Fusionar los cambios en la copia de trabajo"
 #. Resource IDs: (1050)
 #, c-format
 msgid "Merge conflict discovered in binary file %s"
-msgstr ""
+msgstr "Conflicto de fusión en el fichero binario %s"
 
 #. Resource IDs: (1051)
 #, c-format
 msgid "Merge conflict discovered in file %s"
-msgstr ""
+msgstr "Conflicto de fusión en el fichero %s"
 
 #. Resource IDs: (1487, 1534, 9516)
 msgid "Merge options"
@@ -6637,15 +6621,15 @@ msgstr "Mi archivo:"
 
 #. Resource IDs: (cmdNavigateNextConflict_Keytip_RESID)
 msgid "NC"
-msgstr ""
+msgstr "NC"
 
 #. Resource IDs: (cmdNavigateNextDifference_Keytip_RESID)
 msgid "ND"
-msgstr ""
+msgstr "ND"
 
 #. Resource IDs: (cmdNavigateNextInlineDiff_Keytip_RESID)
 msgid "NI"
-msgstr ""
+msgstr "NI"
 
 #. Resource IDs: (59138)
 msgid "NUM"
@@ -7119,6 +7103,10 @@ msgstr "No hay memoria."
 msgid "Output.prn"
 msgstr "Output.prn"
 
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
+
 #. Resource IDs: (65535)
 msgid "Overlays"
 msgstr "Sobreimpresiones"
@@ -7137,15 +7125,15 @@ msgstr "Sobreescribir\nLas configuraciones serán sobreescritas"
 
 #. Resource IDs: (cmdNavigatePreviousConflict_Keytip_RESID)
 msgid "PC"
-msgstr ""
+msgstr "PC"
 
 #. Resource IDs: (cmdNavigatePreviousDifference_Keytip_RESID)
 msgid "PD"
-msgstr ""
+msgstr "PD"
 
 #. Resource IDs: (cmdNavigatePreviousInlineDiff_Keytip_RESID)
 msgid "PI"
-msgstr ""
+msgstr "PI"
 
 #. Resource IDs: (65535 - PopupMenu)
 msgid "POPUP"
@@ -7739,7 +7727,7 @@ msgstr ""
 
 #. Resource IDs: (IDS_ERR_REGEX_INVALID)
 msgid "Regex is invalid!"
-msgstr ""
+msgstr "¡Expresión Regex inválida!"
 
 #. Resource IDs: (65535)
 msgid "Regex matching message:"
@@ -8185,10 +8173,6 @@ msgstr "Gráfico de Revisiones"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Filtro de Gráfico de Revisiones"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Gráfico de Revisiones::Colores"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11035,6 +11019,10 @@ msgstr "Cambios en espacios (tabuladores o espacios)"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Espacios en blanco"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

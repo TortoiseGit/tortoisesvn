@@ -58,8 +58,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:08+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-01-29 10:23+0000\n"
+"Last-Translator: Lübbe Onken <luebbe.opensource@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/luebbe/tortoisesvn/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2507,7 +2507,7 @@ msgstr "MAJ"
 msgid "Cache size [kB]"
 msgstr "Taille du cache [ko]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Dépôts Mis en Cache"
 
@@ -2938,7 +2938,7 @@ msgstr "Couleur selon l'âge, &continue"
 msgid "Color by au&thor"
 msgstr "Couleur par au&teur"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Couleurs"
 
@@ -3181,6 +3181,10 @@ msgstr "Se connecter au serveur du dépôt et télécharger les données du jour
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Taille des conteneurs"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3783,6 +3787,18 @@ msgstr "Bitmap Indépendant du Périphérique\nun bitmap indépendant du périph
 msgid "Dialog sizes and positions"
 msgstr "Tailles et positions des boîtes de dialogue"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr ""
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr ""
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr ""
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Voir les différences"
@@ -3798,10 +3814,6 @@ msgstr "Options de Diff"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Visualiseur de différences"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "Visualiseur de différences::Outil de fusion"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4994,30 +5006,6 @@ msgstr "Obtention d'informations. Veuillez patienter..."
 msgid "General"
 msgstr "Général"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Général::Couleurs"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Général::Menu contextuel"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Général::Boîtes de dialogue 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Général::Boîtes de dialogue 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "Général::Boîtes de dialogue 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr "Général::Menu contextuel Win 11"
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Génération fichier patch..."
@@ -5210,10 +5198,6 @@ msgstr "Numéro de révision le plus haut dans le cache"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Scripts associés"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Scripts associés::Intégration du système de suivi d'incidents"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5436,12 +5420,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Recouvrements d'icône / Colonnes de statut"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Recouvrements d'icône::Jeu d'icônes"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "Recouvrements d'icône::Gestionnaires de Recouvrement"
+msgid "Icon Set"
+msgstr ""
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5872,6 +5852,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Plage de révision invalide !\nLes révisions valides sont des nombres et HEAD, séparées par des virgules.\nUne plage peut être spécifiée avec un tiret.\nExemple: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Intégration d'un gestionnaire d'incidents"
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Traqueur de bug"
@@ -6170,10 +6154,6 @@ msgstr "Statistiques du Cache du Journal"
 msgid "Log Caching"
 msgstr "Mise en cache du journal"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Mise en cache du journal::Dépôts mis en cache"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "Historique de journal"
@@ -6349,6 +6329,10 @@ msgstr "Fusionner les Modèles de Journaux"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Fusionner Réintégrer"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "Outil de fusion"
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7130,6 +7114,10 @@ msgstr "Plus de mémoire."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr ""
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8197,10 +8185,6 @@ msgstr "Graphique de révision"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Filtre du graphique de révision "
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Graphique de révision::Couleurs"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11047,6 +11031,10 @@ msgstr "Changements d'espaces blancs (tabulations, espaces)"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Espacements"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr ""
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"

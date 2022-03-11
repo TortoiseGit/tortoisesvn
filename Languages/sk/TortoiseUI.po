@@ -10,7 +10,7 @@
 # 
 # Authors:
 # Translators:
-# Jozef Matta <jozef.m923@gmail.com>, 2020-2021
+# Jozef Matta <jozef.m923@gmail.com>, 2020-2022
 # Jozef Matta <jozef.m923@gmail.com>, 2020
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011
 # Lübbe Onken <luebbe.opensource@gmail.com>, 2011,2013
@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2021-12-21 17:15+0000\n"
-"Last-Translator: Stefan Kueng <tortoisesvn@gmail.com>\n"
+"PO-Revision-Date: 2022-02-08 14:44+0000\n"
+"Last-Translator: Jozef Matta <jozef.m923@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/luebbe/tortoisesvn/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2471,7 +2471,7 @@ msgstr "CAP"
 msgid "Cache size [kB]"
 msgstr "Veľkosť zásobníka [kB]"
 
-#. Resource IDs: (1440)
+#. Resource IDs: (1440, 295)
 msgid "Cached Repositories"
 msgstr "Úložiská v zásobníku"
 
@@ -2902,7 +2902,7 @@ msgstr "Farby podľa veku - &kontinuálne"
 msgid "Color by au&thor"
 msgstr "Farby podľa &autora"
 
-#. Resource IDs: (65535, Dialog IDD_SETCOLORPAGE: Control id 138)
+#. Resource IDs: (212, 299, 65535, Dialog IDD_SETCOLORPAGE: Control id 138)
 msgid "Colors"
 msgstr "Farby"
 
@@ -3145,6 +3145,10 @@ msgstr "Pripojiť sa ku serveru úložiska a stiahnuť chýbajúce údaje"
 #. Resource IDs: (65535)
 msgid "Container sizes"
 msgstr "Veľkosť kontajneru"
+
+#. Resource IDs: (195)
+msgid "Context Menu"
+msgstr "Kontextová ponuka"
 
 #. Resource IDs: (Dialog IDD_SETMAINPAGE: Control id 65535)
 msgid "Context lines for patches"
@@ -3747,6 +3751,18 @@ msgstr "Bitmapa nezávislá na zariadení\nbitmapa nezávislá od zariadenia"
 msgid "Dialog sizes and positions"
 msgstr "Veľkosť a poloha dialógových okien"
 
+#. Resource IDs: (196)
+msgid "Dialogs 1"
+msgstr "Dialóg 1"
+
+#. Resource IDs: (213)
+msgid "Dialogs 2"
+msgstr "Dialóg 2"
+
+#. Resource IDs: (332)
+msgid "Dialogs 3"
+msgstr "Dialóg 3"
+
 #. Resource IDs: (cmdGroupDiff_LabelTitle_RESID)
 msgid "Diff"
 msgstr "Porovnať odlišnosti"
@@ -3762,10 +3778,6 @@ msgstr "Možnosti porovnania odlišností"
 #. Resource IDs: (192)
 msgid "Diff Viewer"
 msgstr "Prezerač odlišností"
-
-#. Resource IDs: (193)
-msgid "Diff Viewer::Merge Tool"
-msgstr "Prezerač odlišností::Nástroj na zlúčenie"
 
 #. Resource IDs: (65535)
 msgid "Diff added lines"
@@ -4958,30 +4970,6 @@ msgstr "Zber informácií. Čakajte prosím..."
 msgid "General"
 msgstr "Všeobecné"
 
-#. Resource IDs: (212)
-msgid "General::Colors"
-msgstr "Všeobecné::Farby"
-
-#. Resource IDs: (195)
-msgid "General::Context Menu"
-msgstr "Všeobecné::Kontextová ponuka"
-
-#. Resource IDs: (196)
-msgid "General::Dialogs 1"
-msgstr "Všeobecné::Dialógové okno 1"
-
-#. Resource IDs: (213)
-msgid "General::Dialogs 2"
-msgstr "Všeobecné::Dialógové okno 2"
-
-#. Resource IDs: (332)
-msgid "General::Dialogs 3"
-msgstr "Všeobecné::Dialógové okno 3"
-
-#. Resource IDs: (197)
-msgid "General::Win 11 Context Menu"
-msgstr "Všeobecné::Kontextová ponuka Win 11"
-
 #. Resource IDs: (2301)
 msgid "Generating patchfile..."
 msgstr "Generovanie súboru opravnej záplaty..."
@@ -5174,10 +5162,6 @@ msgstr "Najvyššie číslo revízie v zásobníku"
 #. Resource IDs: (103)
 msgid "Hook Scripts"
 msgstr "Skripty háku"
-
-#. Resource IDs: (283)
-msgid "Hook Scripts::Issue Tracker Integration"
-msgstr "Skripty háku::Integrácia so sledovačom problémov"
 
 #. Resource IDs: (3152)
 msgid "Hook Type"
@@ -5400,12 +5384,8 @@ msgid "Icon Overlays / Status Columns"
 msgstr "Prekrytia ikon / stĺpec stavu"
 
 #. Resource IDs: (184)
-msgid "Icon Overlays::Icon Set"
-msgstr "Prekrytia ikon::Sústava ikon"
-
-#. Resource IDs: (308)
-msgid "Icon Overlays::Overlay Handlers"
-msgstr "Prekrytia ikon::Manipulátory prekrytia"
+msgid "Icon Set"
+msgstr "Sústava ikon"
 
 #. Resource IDs: (Dialog IDD_ABOUT: Control id 65535)
 msgid "Icons/Design/Code:\t\tLuebbe Onken"
@@ -5836,6 +5816,10 @@ msgid ""
 "Example: 2-5,7,10,44-70,300-HEAD"
 msgstr "Neplatný rozsah revízií!\nPlatné revízie sú čísla a HEAD, oddelené čiarkami.\nRozsah je možné určiť pomlčkou.\nPríklad: 2-5,7,10,44-70,300-HEAD"
 
+#. Resource IDs: (283)
+msgid "Issue Tracker Integration"
+msgstr "Integrácia sledovača problémov"
+
 #. Resource IDs: (1571)
 msgid "Issue tracker"
 msgstr "Sledovač prípadov"
@@ -6134,10 +6118,6 @@ msgstr "Štatistiky zásobníka záznamu"
 msgid "Log Caching"
 msgstr "Uchovanie záznamu"
 
-#. Resource IDs: (295)
-msgid "Log Caching::Cached Repositories"
-msgstr "Uchovanie záznamu::Uchované úložiská"
-
 #. Resource IDs: (211)
 msgid "Log History"
 msgstr "História záznamu"
@@ -6313,6 +6293,10 @@ msgstr "Vzory záznamov zlúčenia"
 #. Resource IDs: (3533)
 msgid "Merge Reintegrate"
 msgstr "Opätovná integrácia zlúčenia"
+
+#. Resource IDs: (193)
+msgid "Merge Tool"
+msgstr "Nástroj na zlúčenie"
 
 #. Resource IDs: (1468)
 msgid "Merge a &range of revisions"
@@ -7094,6 +7078,10 @@ msgstr "Nedostatok pamäte."
 #. Resource IDs: (61510)
 msgid "Output.prn"
 msgstr "Output.prn"
+
+#. Resource IDs: (308)
+msgid "Overlay Handlers"
+msgstr "Manipulátory prekrytia"
 
 #. Resource IDs: (65535)
 msgid "Overlays"
@@ -8161,10 +8149,6 @@ msgstr "Graf revízií"
 #. Resource IDs: (239)
 msgid "Revision Graph Filter"
 msgstr "Filter grafu revízií"
-
-#. Resource IDs: (299)
-msgid "Revision Graph::Colors"
-msgstr "Graf revízií::Farby"
 
 #. Resource IDs: (228)
 msgid "Revision Range"
@@ -11011,6 +10995,10 @@ msgstr "Biele znaky (tabelátory, medzery)"
 #. cmdGroupWhitespaces_LabelTitle_RESID)
 msgid "Whitespaces"
 msgstr "Biele znaky"
+
+#. Resource IDs: (197)
+msgid "Win 11 Context Menu"
+msgstr "Kontextová ponuka Win 11"
 
 #. Resource IDs: (1493, 1496, 158)
 msgid "Working Copy"
