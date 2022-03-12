@@ -12,6 +12,12 @@
        upwards from the last line. (Stefan)
 - BUG: Redo in TMerge failed to mark the document
        as modified. (Stefan)
+- BUG: race condition when syncing settings. (Stefan)
+- NEW: integration for context menu in
+       Windows 11. (Stefan)
+- CHG: F1 opens help online. (Stefan)
+- BUG: menu bars in dark mode were
+       not really dark. (Stefan)
 
 Version 1.14.1
 - BUG: TortoiseMerge crashed if configured to
