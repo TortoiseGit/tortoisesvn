@@ -122,13 +122,7 @@
               <File Id="F__dbghelp" Name="dbghelp.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\dbghelp.dll" />
             </Component>
             <?endif ?>
-
-            <Component Id="C__help_en" Guid="$(var.GuidHelpEN)" Win64="$(var.Win64YesNo)">
-              <File Id="F_TortoiseSVN_en" Name="TortoiseSVN_en.chm" DiskId="1" Source="..\..\doc\output\TortoiseSVN_en.chm" KeyPath="yes" />
-              <File Id="F__TortoiseMerge_en" Name="TortoiseMerge_en.chm" DiskId="1" Source="..\..\doc\output\TortoiseMerge_en.chm" />
-              <RemoveFile Id="F__Tortoise_lang" Name="*.chm" On="uninstall" />
-            </Component>
-
+            
             <Component Id="C__TortoiseSVN" Guid="$(var.GuidTortoiseSVN)" Win64="$(var.Win64YesNo)">
               <File Id="F__TortoiseProc" Name="TortoiseProc.exe" DiskId="1" Source="..\..\bin\$(var.ReleasePath)\bin\TortoiseProc.exe" KeyPath="yes" />
               <File Id="F__TortoiseStub32" Name="TortoiseStub32.dll" DiskId="1" Source="..\..\bin\$(var.ReleasePath32)\bin\TortoiseStub32.dll" />
