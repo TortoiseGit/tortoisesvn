@@ -1,4 +1,25 @@
-﻿Version 1.14.1
+﻿Version 1.14.2
+- BUG: when starting a log dialog from an existing
+       log dialog, the project properties were
+       not read anymore. (Stefan)
+- BUG: When line-wrapping is on in TMerge and
+       the window is resized, the current line
+       was not kept in the view. (Stefan)
+- BUG: reload in TMerge with collapsed lines
+       moved the view, the top line was not
+       kept in place. (Stefan)
+- BUG: TortoiseBlame crashed when searching
+       upwards from the last line. (Stefan)
+- BUG: Redo in TMerge failed to mark the document
+       as modified. (Stefan)
+- BUG: race condition when syncing settings. (Stefan)
+- NEW: integration for context menu in
+       Windows 11. (Stefan)
+- CHG: F1 opens help online. (Stefan)
+- BUG: menu bars in dark mode were
+       not really dark. (Stefan)
+
+Version 1.14.1
 - BUG: TortoiseMerge crashed if configured to
        not use Ribbons. (Stefan)
 - BUG: Bugtraq links in log dialog didn't
