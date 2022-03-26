@@ -20,6 +20,7 @@
 #include "FilterEdit.h"
 #include "LoadIconEx.h"
 #include "Theme.h"
+#include "ClipboardHelper.h"
 
 const UINT CFilterEdit::WM_FILTEREDIT_INFOCLICKED   = ::RegisterWindowMessage(L"TSVNWM_FILTEREDIT_INFOCLICKED");
 const UINT CFilterEdit::WM_FILTEREDIT_CANCELCLICKED = ::RegisterWindowMessage(L"TSVNWM_FILTEREDIT_CANCELCLICKED");
@@ -456,7 +457,8 @@ void CFilterEdit::OnEnSetfocus()
 
 LRESULT CFilterEdit::OnPaste(WPARAM, LPARAM)
 {
-    if (OpenClipboard())
+    CClipboardHelper clipBoard;
+    if (clipBoard.Open(m_hWnd))
     {
         CString toInsert;
         HGLOBAL hglb = GetClipboardData(CF_TEXT);
