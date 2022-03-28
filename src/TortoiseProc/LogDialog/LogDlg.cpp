@@ -5804,9 +5804,9 @@ void CLogDlg::ExecuteMergeRevisionMenuRevisions(std::shared_ptr<CContextMenuInfo
         bool         bModified = false;
         bool         bSparse   = false;
 
-        if (GetWCRevisionStatus(CTSVNPath(path), true, minRev = 0, maxRev, bSwitched, bModified = false, bSparse))
+        if (GetWCRevisionStatus(CTSVNPath(path), true, minRev, maxRev, bSwitched, bModified, bSparse))
         {
-            if (bModified == false)
+            if (bModified)
             {
                 CString sTask1;
                 sTask1.Format(IDS_MERGE_WCDIRTYASK_TASK1, static_cast<LPCWSTR>(path));
