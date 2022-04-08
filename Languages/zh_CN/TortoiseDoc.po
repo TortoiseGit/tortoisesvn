@@ -51,15 +51,15 @@
 # yu zhang <zy102600@163.com>, 2019
 # zhang chuan <zhangchuan.cn@gmail.com>, 2011
 # ced773123cfad7b4e8b79ca80f736af9, 2011
-# 子毅 陈 <Iwonnasnow@outlook.com>, 2019-2020
+# 子毅 陈 <Iwonnasnow@outlook.com>, 2019-2020,2022
 # 清燕 北门 <qq88268459@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: TortoiseSVN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 1900-01-01 00:00+0000\n"
-"PO-Revision-Date: 2022-03-11 20:31+0000\n"
-"Last-Translator: Chien Wei Lin <cwlin0416@gmail.com>\n"
+"PO-Revision-Date: 2010-11-30 05:04+0000\n"
+"Last-Translator: 子毅 陈 <Iwonnasnow@outlook.com>, 2019-2020,2022\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/luebbe/tortoisesvn/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6750,7 +6750,7 @@ msgid ""
 " Script Host something like this: <quote>ActiveX component can't create "
 "object: word.Application</quote>. It seems you have to use the MSI-based "
 "version of Office to get the diff functionality."
-msgstr ""
+msgstr "如果你安装了<emphasis>即点即用（Click-to-Run）</emphasis>版本的Office 2010，那么你在尝试使用比较差异功能时，可能会收到来自Windows Script Host的错误提示：<quote>ActiveX 不能创建对象： word.Application</quote>。这种情况下你可能需要采用“MSI安装方式”，才能使用比较差异功能。"
 
 #. (title)
 msgid "External Diff/Merge Tools"
@@ -7683,7 +7683,7 @@ msgid ""
 "of the explorer don't show the current status, or the status cache failed to"
 " recognize changes. In this situation, you can use this command to force a "
 "refresh."
-msgstr ""
+msgstr "有时，图标覆盖，尤其是文件资源管理器左侧的树状图中的图标不会显示其当前状态，或者图标缓存未能正确识别文件变动。此时，你可以使用此命令来进行一次强制刷新。"
 
 #. (term)
 msgid "Include externals"
