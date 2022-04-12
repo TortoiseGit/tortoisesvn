@@ -1,4 +1,10 @@
-﻿Version 1.14.2
+﻿Version 1.14.3
+- BUG: clipboard wasn't closed after pasting into
+       the filter control in the log dialog. (Stefan)
+- BUG: when merging via log dialog, a warning was falsely
+        shown "The target has local modifications". (Stefan)
+
+Version 1.14.2
 - BUG: when starting a log dialog from an existing
        log dialog, the project properties were
        not read anymore. (Stefan)
