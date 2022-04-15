@@ -1,4 +1,8 @@
-﻿Version 1.14.3
+﻿Version 1.14.4
+- BUG: revisions entered in the merge dialog were
+       not selected anymore in the log dialog. (Stefan)
+
+Version 1.14.3
 - BUG: clipboard wasn't closed after pasting into
        the filter control in the log dialog. (Stefan)
 - BUG: when merging via log dialog, a warning was falsely

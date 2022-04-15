@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2010, 2012,2013-2016, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2010, 2012,2013-2016, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -40,6 +40,7 @@ public:
 protected:
     CLogDlg*       m_logDlg;
     std::set<long> m_setSelectedRevisions;
+    bool           m_keepWhenAdding;
 };
 
 /**

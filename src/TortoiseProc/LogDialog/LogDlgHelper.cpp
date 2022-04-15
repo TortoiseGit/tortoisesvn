@@ -26,14 +26,16 @@
 #include "SVNDataObject.h"
 
 CStoreSelection::CStoreSelection(CLogDlg* dlg)
+    : m_logDlg(dlg)
+    , m_keepWhenAdding(false)
 {
-    m_logDlg = dlg;
     AddSelections();
 }
 
 CStoreSelection::CStoreSelection(CLogDlg* dlg, const SVNRevRangeArray& revRange)
+    : m_logDlg(dlg)
+    , m_keepWhenAdding(true)
 {
-    m_logDlg = dlg;
 
     for (int i = 0; i < revRange.GetCount(); ++i)
     {
@@ -59,10 +61,13 @@ void CStoreSelection::AddSelections()
 {
     int shownRows = static_cast<int>(m_logDlg->m_logEntries.GetVisibleCount());
 
-    for (int i = 0, count = static_cast<int>(m_logDlg->m_logEntries.GetVisibleCount()); i < count; ++i)
+    if (!m_keepWhenAdding)
     {
-        auto* pLogEntry = m_logDlg->m_logEntries.GetVisible(i);
-        m_setSelectedRevisions.erase(pLogEntry->GetRevision());
+        for (int i = 0, count = static_cast<int>(m_logDlg->m_logEntries.GetVisibleCount()); i < count; ++i)
+        {
+            auto* pLogEntry = m_logDlg->m_logEntries.GetVisible(i);
+            m_setSelectedRevisions.erase(pLogEntry->GetRevision());
+        }
     }
 
     POSITION pos = m_logDlg->m_logList.GetFirstSelectedItemPosition();
