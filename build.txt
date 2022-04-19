@@ -101,7 +101,7 @@ https://docs.microsoft.com/en-us/windows/win32/appxpkg/how-to-create-a-package-s
 \section build32 Building 32 bit packages
 
   Hint: before you can start building TortoiseSVN, you need to call the vcvars32.bat
-  file which is located in C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build.
+  file which is located in C:\Program Files (x86)\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build.
 
   Now, if you got some time left you can run the build script to compile
   TortoiseSVN. Grab a cup of coffee, depending on how fast your computer is!
@@ -140,8 +140,8 @@ https://docs.microsoft.com/en-us/windows/win32/appxpkg/how-to-create-a-package-s
 
   First, we build some 32-bit SVN utilities you will need later
   during the build process. Follow the instructions above or just
-  open "Microsoft Visual Studio 2019" -> "Visual Studio Tools" ->
-  "Visual Studio 2019 Command Prompt", change to the TortoiseSVN source
+  open "Microsoft Visual Studio 2022" -> "Visual Studio Tools" ->
+  "Visual Studio 2022 Command Prompt", change to the TortoiseSVN source
   directory and run
 
 \verbatim
@@ -149,8 +149,8 @@ https://docs.microsoft.com/en-us/windows/win32/appxpkg/how-to-create-a-package-s
 \endverbatim
 
   Now, build the x64 packages: Open
-  "Microsoft Visual Studio 2019" -> "Visual Studio Tools" ->
-  "Visual Studio 2019 x64 Cross Tools Command Prompt", change to the
+  "Microsoft Visual Studio 2022" -> "Visual Studio Tools" ->
+  "Visual Studio 2022 x64 Cross Tools Command Prompt", change to the
   TortoiseSVN source directory and run
 
 \verbatim
@@ -162,8 +162,8 @@ https://docs.microsoft.com/en-us/windows/win32/appxpkg/how-to-create-a-package-s
 \section build64 Building 64 bit packages on x64
 
   To build native packages on your 64 bit Windows, just open
-  "Microsoft Visual Studio 2019" -> "Visual Studio Tools" ->
-  "Visual Studio 2019 Win64 Command Prompt", change to the
+  "Microsoft Visual Studio 2022" -> "Visual Studio Tools" ->
+  "Visual Studio 2022 Win64 Command Prompt", change to the
   TortoiseSVN source directory and run
   
   Note that to build the x64 msi file, you also have to build the
