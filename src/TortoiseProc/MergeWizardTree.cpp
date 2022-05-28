@@ -202,6 +202,7 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
     }
 
     CString sUrl;
+
     m_urlCombo.GetWindowText(sUrl);
     auto newlinePos = sUrl.FindOneOf(L"\r\n");
     if (newlinePos >= 0)
@@ -212,6 +213,10 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
         ShowComboBalloon(&m_urlCombo, IDS_ERR_MUSTBEURL, IDS_ERR_ERROR, TTI_ERROR);
         return FALSE;
     }
+
+    m_urlCombo.SaveHistory();
+    m_urlFrom = sUrl;
+
     m_urlCombo2.GetWindowText(sUrl);
     newlinePos = sUrl.FindOneOf(L"\r\n");
     if (newlinePos >= 0)
@@ -223,11 +228,8 @@ BOOL CMergeWizardTree::CheckData(bool bShowErrors /* = true */)
         return FALSE;
     }
 
-    m_urlCombo.SaveHistory();
-    m_urlFrom = m_urlCombo.GetString();
-
     m_urlCombo2.SaveHistory();
-    m_urlTo = m_urlCombo2.GetString();
+    m_urlTo = sUrl;
 
     CString    sRegKeyFrom = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLForFrom" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
     CRegString regMergeUrlForWCFrom(sRegKeyFrom);
