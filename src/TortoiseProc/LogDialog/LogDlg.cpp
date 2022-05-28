@@ -5761,7 +5761,7 @@ void CLogDlg::ExecuteRevertRevisionMenuRevisions(std::shared_ptr<CContextMenuInf
     {
         CSVNProgressDlg dlg;
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
-        dlg.SetOptions(ProgOptIgnoreAncestry);
+        dlg.SetOptions(ProgOptIgnoreAncestry | ProgOptAllowMixedRev);
         dlg.SetPathList(CTSVNPathList(m_path));
         dlg.SetUrl(pCmi->pathURL);
         dlg.SetSecondUrl(pCmi->pathURL);
@@ -5825,6 +5825,7 @@ void CLogDlg::ExecuteMergeRevisionMenuRevisions(std::shared_ptr<CContextMenuInfo
         }
         CSVNProgressDlg dlg;
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
+        dlg.SetOptions(ProgOptIgnoreAncestry | ProgOptAllowMixedRev);
         dlg.SetPathList(CTSVNPathList(CTSVNPath(path)));
         dlg.SetUrl(pCmi->pathURL);
         dlg.SetSecondUrl(pCmi->pathURL);
@@ -5848,7 +5849,7 @@ void CLogDlg::ExecuteRevertToRevisionMenuRevisions(std::shared_ptr<CContextMenuI
     {
         CSVNProgressDlg dlg;
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
-        dlg.SetOptions(ProgOptIgnoreAncestry);
+        dlg.SetOptions(ProgOptIgnoreAncestry | ProgOptAllowMixedRev);
         dlg.SetPathList(CTSVNPathList(m_path));
         dlg.SetUrl(pCmi->pathURL);
         dlg.SetSecondUrl(pCmi->pathURL);
@@ -7599,7 +7600,7 @@ void CLogDlg::ExecuteRevertChangedPaths(ContextMenuInfoForChangedPathsPtr pCmi, 
             return; //exit
         }
         dlg.SetCommand(CSVNProgressDlg::SVNProgress_Merge);
-        dlg.SetOptions(ProgOptIgnoreAncestry);
+        dlg.SetOptions(ProgOptIgnoreAncestry | ProgOptAllowMixedRev);
         dlg.SetPathList(CTSVNPathList(CTSVNPath(pCmi->wcPath)));
         dlg.SetUrl(pCmi->fileUrl);
         dlg.SetSecondUrl(pCmi->fileUrl);
