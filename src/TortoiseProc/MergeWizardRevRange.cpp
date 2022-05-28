@@ -102,7 +102,11 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
         return -1;
     }
 
-    auto sUrl = m_urlCombo.GetString();
+    CString sUrl;
+    m_urlCombo.GetWindowText(sUrl);
+    auto newlinePos = sUrl.FindOneOf(L"\r\n");
+    if (newlinePos >= 0)
+        sUrl = sUrl.Left(newlinePos);
     // check if the url has a revision appended to it and remove it if there is one
     auto atposurl = sUrl.ReverseFind('@');
     if (atposurl >= 0)
@@ -126,7 +130,7 @@ LRESULT CMergeWizardRevRange::OnWizardNext()
 
     CString    sRegKey = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
     CRegString regMergeUrlForWC(sRegKey);
-    regMergeUrlForWC = sUrl;
+    regMergeUrlForWC                                = sUrl;
 
     static_cast<CMergeWizard*>(GetParent())->m_url1 = sUrl;
     static_cast<CMergeWizard*>(GetParent())->m_url2 = sUrl;
@@ -165,12 +169,12 @@ BOOL CMergeWizardRevRange::OnInitDialog()
 {
     CMergeWizardBasePage::OnInitDialog();
 
-    CMergeWizard* pWizard = static_cast<CMergeWizard*>(GetParent());
+    CMergeWizard* pWizard        = static_cast<CMergeWizard*>(GetParent());
 
-    CString sRegKey        = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
-    CString sMergeUrlForWC = CRegString(sRegKey);
+    CString       sRegKey        = L"Software\\TortoiseSVN\\History\\repoURLS\\MergeURLFor" + static_cast<CMergeWizard*>(GetParent())->m_wcPath.GetSVNPathString();
+    CString       sMergeUrlForWC = CRegString(sRegKey);
 
-    CString sUuid = pWizard->m_sUuid;
+    CString       sUuid          = pWizard->m_sUuid;
     m_urlCombo.SetURLHistory(true, false);
     m_urlCombo.LoadHistory(L"Software\\TortoiseSVN\\History\\repoURLS\\" + sUuid, L"url");
     if (!static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\MergeWCURL", FALSE)))
@@ -230,11 +234,14 @@ void CMergeWizardRevRange::OnBnClickedShowlog()
 
     CString sUrl;
     m_urlCombo.GetWindowText(sUrl);
+    auto newlinePos = sUrl.FindOneOf(L"\r\n");
+    if (newlinePos >= 0)
+        sUrl = sUrl.Left(newlinePos);
 
     SVNRev rev(SVNRev::REV_HEAD);
 
     // check if the url has a revision appended to it
-    auto atPosUrl = sUrl.ReverseFind('@');
+    auto   atPosUrl = sUrl.ReverseFind('@');
     if (atPosUrl >= 0)
     {
         CString sRev = sUrl.Mid(atPosUrl + 1);
@@ -307,7 +314,7 @@ LPARAM CMergeWizardRevRange::OnRevSelected(WPARAM wParam, LPARAM lParam)
 
 LPARAM CMergeWizardRevRange::OnRevSelectedOneRange(WPARAM /*wParam*/, LPARAM lParam)
 {
-    ((CMergeWizard*)GetParent())->m_revRangeArray.Clear();
+    static_cast<CMergeWizard*>(GetParent())->m_revRangeArray.Clear();
 
     // lParam is a pointer to an SVNRevList
     if ((lParam))
@@ -333,6 +340,9 @@ void CMergeWizardRevRange::OnBnClickedBrowse()
     {
         CString sUrl;
         m_urlCombo.GetWindowText(sUrl);
+        auto newlinePos = sUrl.FindOneOf(L"\r\n");
+        if (newlinePos >= 0)
+            sUrl = sUrl.Left(newlinePos);
 
         m_urlCombo.SetWindowText(CPathUtils::PathUnescape(sUrl + L"@" + rev.ToString()));
     }
