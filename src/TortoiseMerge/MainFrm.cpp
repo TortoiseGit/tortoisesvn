@@ -2947,7 +2947,7 @@ void CMainFrame::OnEditCreateunifieddifffile()
             return; // user cancelled
     }
 
-    CRegStdDWORD regContextLines(L"Software\\TortoiseMerge\\ContextLines", 0);
+    CRegStdDWORD regContextLines(L"Software\\TortoiseMerge\\ContextLines", 3);
     CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outputFile, regContextLines, ignoreEOL, true);
     CAppUtils::StartUnifiedDiffViewer(outputFile, CPathUtils::GetFileNameFromPath(outputFile));
 }

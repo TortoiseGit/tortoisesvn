@@ -454,7 +454,7 @@ BOOL CTortoiseMergeApp::InitInstance()
             }
             if (!outfile.IsEmpty())
             {
-                CRegStdDWORD regContextLines(L"Software\\TortoiseMerge\\ContextLines", 0);
+                CRegStdDWORD regContextLines(L"Software\\TortoiseMerge\\ContextLines", 3);
                 CAppUtils::CreateUnifiedDiff(origFile, modifiedFile, outfile, regContextLines, true, false);
                 return FALSE;
             }

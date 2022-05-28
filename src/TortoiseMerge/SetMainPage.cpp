@@ -1,6 +1,6 @@
 ﻿// TortoiseMerge - a Diff/Patch program
 
-// Copyright (C) 2006-2010, 2012-2014, 2016, 2018, 2020-2021 - TortoiseSVN
+// Copyright (C) 2006-2010, 2012-2014, 2016, 2018, 2020-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,7 @@ CSetMainPage::CSetMainPage()
     , m_bSmartTabChar(FALSE)
     , m_nTabSize(0)
     , m_bEnableEditorConfig(FALSE)
-    , m_nContextLines(0)
+    , m_nContextLines(3)
     , m_bIgnoreEOL(FALSE)
     , m_bOnePane(FALSE)
     , m_bViewLinenumbers(FALSE)
@@ -63,7 +63,7 @@ CSetMainPage::CSetMainPage()
     m_regAutoAdd             = CRegDWORD(L"Software\\TortoiseMerge\\AutoAdd", TRUE);
     m_regMaxInline           = CRegDWORD(L"Software\\TortoiseMerge\\InlineDiffMaxLineLength", 3000);
     m_regUseRibbons          = CRegDWORD(L"Software\\TortoiseMerge\\UseRibbons", TRUE);
-    m_regContextLines        = CRegDWORD(L"Software\\TortoiseMerge\\ContextLines", 0);
+    m_regContextLines        = CRegDWORD(L"Software\\TortoiseMerge\\ContextLines", 3);
 
     m_bBackup              = m_regBackup;
     m_bFirstDiffOnLoad     = m_regFirstDiffOnLoad;
