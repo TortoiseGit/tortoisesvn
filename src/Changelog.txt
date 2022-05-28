@@ -1,6 +1,8 @@
 ﻿Version 1.14.4
 - BUG: revisions entered in the merge dialog were
        not selected anymore in the log dialog. (Stefan)
+- BUG: urls pated in merge dialog could have newlines
+       at the end. (Daniel Sahlberg)
 
 Version 1.14.3
 - BUG: clipboard wasn't closed after pasting into
