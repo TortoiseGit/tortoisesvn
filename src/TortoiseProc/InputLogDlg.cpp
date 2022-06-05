@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2015, 2017-2018, 2021 - TortoiseSVN
+// Copyright (C) 2003-2015, 2017-2018, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -25,6 +25,7 @@
 #include "BstrSafeVector.h"
 #include "COMError.h"
 #include "Hooks.h"
+#include <PathUtils.h>
 
 // CInputLogDlg dialog
 
@@ -35,6 +36,7 @@ CInputLogDlg::CInputLogDlg(CWnd* pParent /*=NULL*/)
     , m_pProjectProperties(nullptr)
     , m_iCheck(0)
     , m_bLock(false)
+    , m_nPopupPasteListCmd(0)
 {
 }
 
@@ -78,6 +80,15 @@ BOOL CInputLogDlg::OnInitDialog()
         m_cInput.Init(*m_pProjectProperties);
     else
         m_cInput.Init();
+    
+    m_cInput.RegisterContextMenuHandler(this);
+    
+    std::map<int, UINT> icons;
+    icons[AUTOCOMPLETE_SPELLING]    = IDI_SPELL;
+    icons[AUTOCOMPLETE_FILENAME]    = IDI_FILE;
+    icons[AUTOCOMPLETE_PROGRAMCODE] = IDI_CODE;
+    icons[AUTOCOMPLETE_SNIPPET]     = IDI_SNIPPET;
+    m_cInput.SetIcon(icons);
 
     m_cInput.SetFont(CAppUtils::GetLogFontName(), CAppUtils::GetLogFontSize());
 
@@ -180,6 +191,13 @@ BOOL CInputLogDlg::OnInitDialog()
 
     m_bLock = m_sSVNAction.Compare(PROJECTPROPNAME_LOGTEMPLATELOCK) == 0;
 
+    if (static_cast<DWORD>(CRegDWORD(L"Software\\TortoiseSVN\\Autocompletion", TRUE)) == TRUE)
+    {
+        std::map<CString, int> autolist;
+        GetAutocompletionList(autolist);
+        m_cInput.SetAutoCompletionList(std::move(autolist), '*');
+    }
+
     AddAnchor(IDC_ACTIONLABEL, TOP_LEFT, TOP_RIGHT);
     AddAnchor(IDC_BUGIDLABEL, TOP_RIGHT);
     AddAnchor(IDC_BUGID, TOP_RIGHT);
@@ -196,6 +214,130 @@ BOOL CInputLogDlg::OnInitDialog()
 
     m_cInput.SetFocus();
     return FALSE;
+}
+
+void CInputLogDlg::ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet) const
+{
+    try
+    {
+        CString    strLine;
+        CStdioFile file(sFile, CFile::typeText | CFile::modeRead | CFile::shareDenyWrite);
+        while (file.ReadString(strLine))
+        {
+            if (strLine.IsEmpty())
+                continue;
+            if (strLine.Left(1) == _T('#')) // comment char
+                continue;
+            int     eqPos = strLine.Find('=');
+            CString key   = strLine.Left(eqPos);
+            CString value = strLine.Mid(eqPos + 1);
+            value.Replace(_T("\\\t"), _T("\t"));
+            value.Replace(_T("\\\r"), _T("\r"));
+            value.Replace(_T("\\\n"), _T("\n"));
+            value.Replace(_T("\\\\"), _T("\\"));
+            mapSnippet[key] = value;
+        }
+        file.Close();
+    }
+    catch (CFileException* pE)
+    {
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException loading snippet file\n");
+        pE->Delete();
+    }
+}
+
+void CInputLogDlg::GetAutocompletionList(std::map<CString, int>& autolist)
+{
+    // the auto completion list is made snippets from snippet.txt
+    // and the path/filename(s) of the selected files
+
+    autolist.clear();
+    CRegDWORD                  regTimeout   = CRegDWORD(L"Software\\TortoiseSVN\\AutocompleteParseTimeout", 5);
+    ULONGLONG                  timeoutValue = static_cast<ULONGLONG>(static_cast<DWORD>(regTimeout)) * 1000UL;
+    if (timeoutValue == 0)
+        return;
+
+    m_snippet.clear();
+    CString sSnippetFile = CPathUtils::GetAppDirectory();
+    sSnippetFile += _T("snippet.txt");
+    ParseSnippetFile(sSnippetFile, m_snippet);
+    sSnippetFile = CPathUtils::GetAppDataDirectory();
+    sSnippetFile += _T("snippet.txt");
+    if (PathFileExists(sSnippetFile))
+        ParseSnippetFile(sSnippetFile, m_snippet);
+    for (auto snip : m_snippet)
+        autolist.emplace(snip.first, AUTOCOMPLETE_SNIPPET);
+
+    ULONGLONG startTime  = GetTickCount64();
+
+    // go over all selected files and add to the auto complete list
+    int       nListItems = m_pathlist.GetCount();
+    CRegDWORD removedExtension(L"Software\\TortoiseSVN\\AutocompleteRemovesExtensions", FALSE);
+    for (int i = 0; i < nListItems; ++i)
+    {
+        // stop parsing after timeout
+        if (GetTickCount64() - startTime > timeoutValue)
+            return;
+            
+        // add the path parts to the auto completion list too
+        CString sPartPath = m_pathlist[i].GetUIPathString();
+        autolist.emplace(sPartPath, AUTOCOMPLETE_FILENAME);
+
+        int pos     = 0;
+        int lastPos = 0;
+        while ((pos = sPartPath.Find('/', pos)) >= 0)
+        {
+            pos++;
+            lastPos = pos;
+            autolist.emplace(sPartPath.Mid(pos), AUTOCOMPLETE_FILENAME);
+        }
+
+        // Last inserted entry is a file name.
+        // Some users prefer to also list file name without extension.
+        if (static_cast<DWORD>(removedExtension))
+        {
+            int dotPos = sPartPath.ReverseFind('.');
+            if ((dotPos >= 0) && (dotPos > lastPos))
+                autolist.emplace(sPartPath.Mid(lastPos, dotPos - lastPos), AUTOCOMPLETE_FILENAME);
+        }
+    }
+    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Auto completion list loaded in %d msec\n", GetTickCount64() - startTime);
+}
+
+// CSciEditContextMenuInterface
+void CInputLogDlg::InsertMenuItems(CMenu& mPopup, int& nCmd)
+{
+    CString sMenuItemText(MAKEINTRESOURCE(IDS_COMMITDLG_POPUP_PASTEFILELIST));
+    m_nPopupPasteListCmd = nCmd++;
+    mPopup.AppendMenu(MF_STRING | MF_ENABLED, m_nPopupPasteListCmd, sMenuItemText);
+}
+
+bool CInputLogDlg::HandleMenuItemClick(int cmd, CSciEdit* pSciEdit)
+{
+    if (cmd == m_nPopupPasteListCmd)
+    {
+        CString logMsg;
+        int     nListItems = m_pathlist.GetCount();
+        for (int i = 0; i < nListItems; ++i)
+        {
+            CString line;
+            line.Format(L" %s\r\n", m_pathlist[i].GetUIPathString());
+            logMsg += line;
+        }
+        pSciEdit->InsertText(logMsg);
+        return true;
+    }
+    return false;
+}
+
+void CInputLogDlg::HandleSnippet(int type, const CString& text, CSciEdit* pSciEdit)
+{
+    if (type == AUTOCOMPLETE_SNIPPET)
+    {
+        CString target = m_snippet[text];
+        pSciEdit->GetWordUnderCursor(true);
+        pSciEdit->InsertText(target, false);
+    }
 }
 
 void CInputLogDlg::OnOK()

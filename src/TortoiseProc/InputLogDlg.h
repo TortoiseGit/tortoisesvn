@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2007, 2009-2010, 2013-2014, 2021 - TortoiseSVN
+// Copyright (C) 2003-2007, 2009-2010, 2013-2014, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -28,6 +28,7 @@
  * Helper dialog to let the user enter a log/commit message.
  */
 class CInputLogDlg : public CResizableStandAloneDialog
+    , public CSciEditContextMenuInterface
 {
     DECLARE_DYNAMIC(CInputLogDlg)
 
@@ -48,8 +49,15 @@ public:
 
     std::map<CString, CString> m_revProps;
 
+    // CSciEditContextMenuInterface
+    void InsertMenuItems(CMenu& mPopup, int& nCmd) override;
+    bool HandleMenuItemClick(int cmd, CSciEdit* pSciEdit) override;
+    void HandleSnippet(int type, const CString& text, CSciEdit* pSciEdit) override;
+
 protected:
     virtual BOOL OnInitDialog();
+    virtual void ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet) const;
+    virtual void GetAutocompletionList(std::map<CString, int>& autolist);
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual void OnOK();
     virtual void OnCancel();
@@ -84,5 +92,7 @@ private:
     CString             m_sTitleText;
     CString             m_sCheckText;
     int                 m_iCheck;
+    int                 m_nPopupPasteListCmd;
     bool                m_bLock;
+    std::map<CString, CString> m_snippet;
 };
