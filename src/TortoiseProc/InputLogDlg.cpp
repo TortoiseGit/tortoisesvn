@@ -216,36 +216,6 @@ BOOL CInputLogDlg::OnInitDialog()
     return FALSE;
 }
 
-void CInputLogDlg::ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet) const
-{
-    try
-    {
-        CString    strLine;
-        CStdioFile file(sFile, CFile::typeText | CFile::modeRead | CFile::shareDenyWrite);
-        while (file.ReadString(strLine))
-        {
-            if (strLine.IsEmpty())
-                continue;
-            if (strLine.Left(1) == _T('#')) // comment char
-                continue;
-            int     eqPos = strLine.Find('=');
-            CString key   = strLine.Left(eqPos);
-            CString value = strLine.Mid(eqPos + 1);
-            value.Replace(_T("\\\t"), _T("\t"));
-            value.Replace(_T("\\\r"), _T("\r"));
-            value.Replace(_T("\\\n"), _T("\n"));
-            value.Replace(_T("\\\\"), _T("\\"));
-            mapSnippet[key] = value;
-        }
-        file.Close();
-    }
-    catch (CFileException* pE)
-    {
-        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException loading snippet file\n");
-        pE->Delete();
-    }
-}
-
 void CInputLogDlg::GetAutocompletionList(std::map<CString, int>& autolist)
 {
     // the auto completion list is made snippets from snippet.txt

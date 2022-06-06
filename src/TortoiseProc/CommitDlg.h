@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2013, 2015, 2021 - TortoiseSVN
+// Copyright (C) 2003-2013, 2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -123,7 +123,6 @@ protected:
     void            SetSplitterRange();
     void            SaveSplitterPos() const;
     void            ParseRegexFile(const CString& sFile, std::map<CString, CString>& mapRegex) const;
-    void            ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet) const;
     void            UpdateCheckLinks();
     void            VersionCheck();
 

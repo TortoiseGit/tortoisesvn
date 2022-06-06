@@ -56,7 +56,6 @@ public:
 
 protected:
     virtual BOOL OnInitDialog();
-    virtual void ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet) const;
     virtual void GetAutocompletionList(std::map<CString, int>& autolist);
     virtual BOOL PreTranslateMessage(MSG* pMsg);
     virtual void OnOK();

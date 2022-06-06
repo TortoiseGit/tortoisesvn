@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2021 - TortoiseSVN
+// Copyright (C) 2003-2022 - TortoiseSVN
 // Copyright (C) 2015-2020 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -1784,4 +1784,34 @@ BOOL CSciEdit::AdjustThemeProc(HWND hwnd, LPARAM /*lParam*/)
     }
 
     return TRUE;
+}
+
+void ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet)
+{
+    try
+    {
+        CString    strLine;
+        CStdioFile file(sFile, CFile::typeText | CFile::modeRead | CFile::shareDenyWrite);
+        while (file.ReadString(strLine))
+        {
+            if (strLine.IsEmpty())
+                continue;
+            if (strLine.Left(1) == _T('#')) // comment char
+                continue;
+            int     eqPos = strLine.Find('=');
+            CString key   = strLine.Left(eqPos);
+            CString value = strLine.Mid(eqPos + 1);
+            value.Replace(_T("\\\t"), _T("\t"));
+            value.Replace(_T("\\\r"), _T("\r"));
+            value.Replace(_T("\\\n"), _T("\n"));
+            value.Replace(_T("\\\\"), _T("\\"));
+            mapSnippet[key] = value;
+        }
+        file.Close();
+    }
+    catch (CFileException* pE)
+    {
+        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException loading snippet file\n");
+        pE->Delete();
+    }
 }
