@@ -228,14 +228,15 @@ void CInputLogDlg::GetAutocompletionList(std::map<CString, int>& autolist)
         return;
 
     m_snippet.clear();
-    CString sSnippetFile = CPathUtils::GetAppDirectory();
-    sSnippetFile += _T("snippet.txt");
+    CString appDir       = CPathUtils::GetAppDirectory();
+    CString sSnippetFile = appDir;
+    sSnippetFile += L"snippet.txt";
     ParseSnippetFile(sSnippetFile, m_snippet);
-    sSnippetFile = CPathUtils::GetAppDataDirectory();
-    sSnippetFile += _T("snippet.txt");
+    sSnippetFile = appDir;
+    sSnippetFile += L"snippet.txt";
     if (PathFileExists(sSnippetFile))
         ParseSnippetFile(sSnippetFile, m_snippet);
-    for (auto snip : m_snippet)
+    for (const auto& snip : m_snippet)
         autolist.emplace(snip.first, AUTOCOMPLETE_SNIPPET);
 
     ULONGLONG startTime  = GetTickCount64();
@@ -271,7 +272,7 @@ void CInputLogDlg::GetAutocompletionList(std::map<CString, int>& autolist)
                 autolist.emplace(sPartPath.Mid(lastPos, dotPos - lastPos), AUTOCOMPLETE_FILENAME);
         }
     }
-    CTraceToOutputDebugString::Instance()(_T(__FUNCTION__) L": Auto completion list loaded in %d msec\n", GetTickCount64() - startTime);
+    CTraceToOutputDebugString::Instance()(TEXT(__FUNCTION__) L": Auto completion list loaded in %d msec\n", GetTickCount64() - startTime);
 }
 
 // CSciEditContextMenuInterface
