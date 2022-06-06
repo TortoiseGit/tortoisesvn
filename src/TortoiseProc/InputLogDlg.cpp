@@ -228,11 +228,10 @@ void CInputLogDlg::GetAutocompletionList(std::map<CString, int>& autolist)
         return;
 
     m_snippet.clear();
-    CString appDir       = CPathUtils::GetAppDirectory();
-    CString sSnippetFile = appDir;
+    CString sSnippetFile = CPathUtils::GetAppDirectory();
     sSnippetFile += L"snippet.txt";
     ParseSnippetFile(sSnippetFile, m_snippet);
-    sSnippetFile = appDir;
+    sSnippetFile = CPathUtils::GetAppDataDirectory();
     sSnippetFile += L"snippet.txt";
     if (PathFileExists(sSnippetFile))
         ParseSnippetFile(sSnippetFile, m_snippet);

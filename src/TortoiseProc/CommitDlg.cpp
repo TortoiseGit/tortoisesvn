@@ -1036,13 +1036,13 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
 
     m_snippet.clear();
     CString sSnippetFile = CPathUtils::GetAppDirectory();
-    sSnippetFile += _T("snippet.txt");
+    sSnippetFile += L"snippet.txt";
     ParseSnippetFile(sSnippetFile, m_snippet);
     sSnippetFile = CPathUtils::GetAppDataDirectory();
-    sSnippetFile += _T("snippet.txt");
+    sSnippetFile += L"snippet.txt";
     if (PathFileExists(sSnippetFile))
         ParseSnippetFile(sSnippetFile, m_snippet);
-    for (auto snip : m_snippet)
+    for (const auto& snip : m_snippet)
         autolist.emplace(snip.first, AUTOCOMPLETE_SNIPPET);
 
     ULONGLONG startTime = GetTickCount64();
