@@ -1006,36 +1006,6 @@ void CCommitDlg::ParseRegexFile(const CString& sFile, std::map<CString, CString>
     }
 }
 
-void CCommitDlg::ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet) const
-{
-    try
-    {
-        CString    strLine;
-        CStdioFile file(sFile, CFile::typeText | CFile::modeRead | CFile::shareDenyWrite);
-        while (m_bRunThread && !m_bCancelled && file.ReadString(strLine))
-        {
-            if (strLine.IsEmpty())
-                continue;
-            if (strLine.Left(1) == _T('#')) // comment char
-                continue;
-            int     eqPos = strLine.Find('=');
-            CString key   = strLine.Left(eqPos);
-            CString value = strLine.Mid(eqPos + 1);
-            value.Replace(_T("\\\t"), _T("\t"));
-            value.Replace(_T("\\\r"), _T("\r"));
-            value.Replace(_T("\\\n"), _T("\n"));
-            value.Replace(_T("\\\\"), _T("\\"));
-            mapSnippet[key] = value;
-        }
-        file.Close();
-    }
-    catch (CFileException* pE)
-    {
-        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": CFileException loading snippet file\n");
-        pE->Delete();
-    }
-}
-
 void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
 {
     // the auto completion list is made of strings from each selected files.
@@ -1066,13 +1036,13 @@ void CCommitDlg::GetAutocompletionList(std::map<CString, int>& autolist)
 
     m_snippet.clear();
     CString sSnippetFile = CPathUtils::GetAppDirectory();
-    sSnippetFile += _T("snippet.txt");
+    sSnippetFile += L"snippet.txt";
     ParseSnippetFile(sSnippetFile, m_snippet);
     sSnippetFile = CPathUtils::GetAppDataDirectory();
-    sSnippetFile += _T("snippet.txt");
+    sSnippetFile += L"snippet.txt";
     if (PathFileExists(sSnippetFile))
         ParseSnippetFile(sSnippetFile, m_snippet);
-    for (auto snip : m_snippet)
+    for (const auto& snip : m_snippet)
         autolist.emplace(snip.first, AUTOCOMPLETE_SNIPPET);
 
     ULONGLONG startTime = GetTickCount64();

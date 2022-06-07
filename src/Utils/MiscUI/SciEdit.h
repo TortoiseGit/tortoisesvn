@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2011, 2013, 2015-2021 - TortoiseSVN
+// Copyright (C) 2003-2011, 2013, 2015-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -187,3 +187,6 @@ protected:
     afx_msg void OnSysColorChange();
     DECLARE_MESSAGE_MAP()
 };
+
+// helper function to load and parse a snippet file
+void ParseSnippetFile(const CString& sFile, std::map<CString, CString>& mapSnippet);
