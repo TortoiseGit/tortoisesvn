@@ -4493,17 +4493,47 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
                     progressDlg.Stop();
                     conflict.SetProgressDlg(nullptr);
 
-                    CTreeConflictEditorDlg dlg;
-                    dlg.SetConflictInfo(&conflict);
-                    dlg.SetSVNContext(this);
-                    dlg.DoModal(m_hWnd);
-                    if (dlg.IsCancelled())
+                    svn_client_conflict_option_id_t recommendedOptionId = conflict.GetRecommendedOptionId();
+                    bool                            bAutoResolved       = false;
+
+                    if (recommendedOptionId != svn_client_conflict_option_unspecified)
                     {
-                        return;
+                        if (ResolveTreeConflictById(conflict, recommendedOptionId))
+                        {
+                            bAutoResolved = true;
+                        }
+                        else
+                        {
+                            apr_status_t rootCause = svn_error_root_cause(const_cast<svn_error_t*>(GetSVNError()))->apr_err;
+                            if (rootCause == SVN_ERR_WC_CONFLICT_RESOLVER_FAILURE ||
+                                rootCause == SVN_ERR_WC_OBSTRUCTED_UPDATE ||
+                                rootCause == SVN_ERR_WC_FOUND_CONFLICT)
+                            {
+                                ClearSVNError();
+                            }
+                            else
+                            {
+                                ShowErrorDialog(m_hWnd);
+                                continue;
+                            }
+                        }
                     }
 
-                    if (dlg.GetResult() == svn_client_conflict_option_postpone)
-                        continue;
+                    // If auto resolution is not available, try to resolve manually.
+                    if (!bAutoResolved)
+                    {
+                        CTreeConflictEditorDlg dlg;
+                        dlg.SetConflictInfo(&conflict);
+                        dlg.SetSVNContext(this);
+                        dlg.DoModal(m_hWnd);
+                        if (dlg.IsCancelled())
+                        {
+                            return;
+                        }
+
+                        if (dlg.GetResult() == svn_client_conflict_option_postpone)
+                            continue;
+                    }
 
                     // Update conflict information.
                     if (!conflict.Get(path))
@@ -4571,6 +4601,79 @@ void CSVNProgressDlg::ResolvePostOperationConflicts()
             GetDlgItem(IDC_RETRYMERGE)->ShowWindow(SW_HIDE);
         }
     }
+    // Try to automatically resolve tree conflicts for Switch and Update commands.
+    else if ((m_command == SVNProgress_Switch) || (m_command == SVNProgress_SwitchBackToParent) ||
+             (m_command == SVNProgress_Update))
+    {
+        for (int i = 0; i < static_cast<int>(m_arData.size()); ++i)
+        {
+            CString info = BuildInfoString();
+            SetDlgItemText(IDC_INFOTEXT, info);
+
+            NotificationData* data = m_arData[i];
+            if (data->bConflictedActionItem)
+            {
+                // Make a copy of NotificationData::path because it data pointer
+                // may become invalid during processing conflict resolution callbacks.
+                CTSVNPath path = data->path;
+
+                SVNConflictInfo conflict;
+                if (!conflict.Get(path))
+                {
+                    conflict.ShowErrorDialog(m_hWnd);
+                    return;
+                }
+
+                if (conflict.HasTreeConflict())
+                {
+                    m_progList.SetItemState(-1, 0, LVIS_SELECTED);
+                    m_progList.SetItemState(i, LVIS_SELECTED | LVIS_FOCUSED, LVIS_SELECTED | LVIS_FOCUSED);
+                    m_progList.EnsureVisible(i, FALSE);
+                    m_progList.SetFocus();
+                    m_progList.SetSelectionMark(i);
+
+                    CProgressDlg progressDlg;
+                    progressDlg.SetTitle(IDS_PROC_EDIT_TREE_CONFLICTS);
+                    CString sProgressLine;
+                    sProgressLine.LoadString(IDS_PROGRS_FETCHING_TREE_CONFLICT_INFO);
+                    progressDlg.SetLine(1, sProgressLine);
+                    progressDlg.SetShowProgressBar(false);
+                    progressDlg.ShowModal(m_hWnd, FALSE);
+                    conflict.SetProgressDlg(&progressDlg);
+                    if (!conflict.FetchTreeDetails())
+                    {
+                        conflict.ShowErrorDialog(m_hWnd);
+                        progressDlg.Stop();
+                        continue;
+                    }
+                    progressDlg.Stop();
+                    conflict.SetProgressDlg(nullptr);
+
+                    svn_client_conflict_option_id_t recommendedOptionId = conflict.GetRecommendedOptionId();
+
+                    if (recommendedOptionId != svn_client_conflict_option_unspecified)
+                    {
+                        if (!ResolveTreeConflictById(conflict, recommendedOptionId))
+                        {
+                            apr_status_t rootCause = svn_error_root_cause(const_cast<svn_error_t*>(GetSVNError()))->apr_err;
+                            if (rootCause == SVN_ERR_WC_CONFLICT_RESOLVER_FAILURE ||
+                                rootCause == SVN_ERR_WC_OBSTRUCTED_UPDATE ||
+                                rootCause == SVN_ERR_WC_FOUND_CONFLICT)
+                            {
+                                ClearSVNError();
+                            }
+                            else
+                            {
+                                ShowErrorDialog(m_hWnd);
+                                continue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     CString info = BuildInfoString();
     SetDlgItemText(IDC_INFOTEXT, info);
 }

@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2008-2014, 2017-2018, 2021 - TortoiseSVN
+// Copyright (C) 2008-2014, 2017-2018, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -30,6 +30,7 @@ bool ConflictEditorCommand::Execute()
     CTSVNPath directory        = merge.GetDirectory();
     bool      bRet             = false;
     bool      bAlternativeTool = !!parser.HasKey(L"alternative");
+    SVN       svn;
 
     // Use Subversion 1.10 API to resolve possible tree conlifcts.
     SVNConflictInfo conflict;
@@ -58,15 +59,45 @@ bool ConflictEditorCommand::Execute()
         progressDlg.Stop();
         conflict.SetProgressDlg(nullptr);
 
-        CTreeConflictEditorDlg dlg;
-        dlg.SetConflictInfo(&conflict);
+        svn_client_conflict_option_id_t recommendedOptionId = conflict.GetRecommendedOptionId();
+        bool                            bAutoResolved       = false;
 
-        dlg.DoModal(GetExplorerHWND());
-        if (dlg.IsCancelled())
-            return false;
+        if (recommendedOptionId != svn_client_conflict_option_unspecified)
+        {
+            if (svn.ResolveTreeConflictById(conflict, recommendedOptionId))
+            {
+                bAutoResolved = true;
+            }
+            else
+            {
+                apr_status_t rootCause = svn_error_root_cause(const_cast<svn_error_t*>(svn.GetSVNError()))->apr_err;
+                if (rootCause == SVN_ERR_WC_CONFLICT_RESOLVER_FAILURE ||
+                    rootCause == SVN_ERR_WC_OBSTRUCTED_UPDATE ||
+                    rootCause == SVN_ERR_WC_FOUND_CONFLICT)
+                {
+                    svn.ClearSVNError();
+                }
+                else
+                {
+                    svn.ShowErrorDialog(GetExplorerHWND());
+                    return false;
+                }
+            }
+        }
 
-        if (dlg.GetResult() == svn_client_conflict_option_postpone)
-            return false;
+        // If auto resolution is not available, try to resolve manually.
+        if (!bAutoResolved)
+        {
+            CTreeConflictEditorDlg dlg;
+            dlg.SetConflictInfo(&conflict);
+            dlg.SetSVNContext(&svn);
+            dlg.DoModal(GetExplorerHWND());
+            if (dlg.IsCancelled())
+                return false;
+
+            if (dlg.GetResult() == svn_client_conflict_option_postpone)
+                return false;
+        }
 
         // Send notififcation that status may be changed. We cannot use
         // '/resolvemsghwnd' here because satus of multiple files may be changed
@@ -107,7 +138,7 @@ bool ConflictEditorCommand::Execute()
     {
         CPropConflictEditorDlg dlg;
         dlg.SetConflictInfo(&conflict);
-
+        dlg.SetSVNContext(&svn);
         dlg.DoModal(GetExplorerHWND(), i);
         if (dlg.IsCancelled())
             return false;

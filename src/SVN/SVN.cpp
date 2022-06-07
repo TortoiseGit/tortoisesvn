@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2021 - TortoiseSVN
+// Copyright (C) 2003-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -1196,6 +1196,20 @@ bool SVN::ResolveTreeConflict(svn_client_conflict_t* conflict, svn_client_confli
 
     SVNTRACE(
         m_err = svn_client_conflict_tree_resolve(conflict, option, m_pCtx, scratchPool),
+        svnPath);
+
+    return (m_err == nullptr);
+}
+
+bool SVN::ResolveTreeConflictById(svn_client_conflict_t* conflict, svn_client_conflict_option_id_t optionId)
+{
+    SVNPool scratchPool(m_pool);
+    Prepare();
+
+    const char* svnPath = svn_client_conflict_get_local_abspath(conflict);
+
+    SVNTRACE(
+        m_err = svn_client_conflict_tree_resolve_by_id(conflict, optionId, m_pCtx, scratchPool),
         svnPath);
 
     return (m_err == nullptr);
