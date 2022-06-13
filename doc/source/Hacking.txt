@@ -4,7 +4,7 @@ Hacking the Docs
 While you are working on the docs, please oberve the following rules for your markup.
 The markup is processed by XSL Transformations, FO Processors and the like. Always
 remember that you define the structure and leave the formatting to the processors
-For more information about tags in docbook read http://www.docbook.org/tdg/index.html.
+For more information about tags in docbook read https://www.docbook.org/tdg/index.html.
 If you want to translate the German or French docs you have to enable UTF-8 BOM's in
 your editor.
 
@@ -102,7 +102,7 @@ Require valid-user
   Use this <xref linkend="tsvn-DUG-import-4"/> to reference internal sections.
   Use ulink for external links. This should be formatted as
   as shown below:
-  <ulink url="http://svnbook.red-bean.com/">
+  <ulink url="https://svnbook.red-bean.com/">
       <citetitle>SVN book</citetitle>
   </ulink>.
 
