@@ -26,6 +26,8 @@ Options:
                       email address.
 """
 
+from __future__ import print_function
+
 import sys
 import getopt
 import os
@@ -55,9 +57,9 @@ def usage_and_exit(errmsg=None):
         stream = sys.stdout
     else:
         stream = sys.stderr
-    print >> stream, __doc__
+    print(__doc__, file=stream)
     if errmsg:
-        print >> stream, '\nError: %s' % (errmsg)
+        print('\nError: %s' % (errmsg), file=stream)
         sys.exit(2)
     sys.exit(0)
 
@@ -73,10 +75,13 @@ class transReport:
         self.from_email_id = '<dev@tortoisesvn.tigris.org>'
 
     def safe_command(self, cmd_and_args, cmd_in=''):
+        cmd_in = cmd_in.encode(sys.stdin.encoding)
         [stdout, stderr] = subprocess.Popen(cmd_and_args,
                                             stdin=subprocess.PIPE,
                                             stdout=subprocess.PIPE,
                                             stderr=subprocess.PIPE).communicate(input=cmd_in)
+        stdout = stdout.decode(sys.stdout.encoding)
+        stderr = stderr.decode(sys.stdout.encoding)
         return stdout, stderr
 
     def match(self, pattern, string):
@@ -192,6 +197,7 @@ class transReport:
                         percent = 99
                     else:
                         percent = 100 * (trans) / total
+                    percent = round(percent, 1)
 
                     if checkAccel:
 #                return '%2s%% (%s/%s/%s)' % (percent, untrans, fuzzy, accel)
@@ -201,7 +207,7 @@ class transReport:
                         return '%2s%% (%s)' % (percent, untrans)
 
     def printStatLine(self, Lang, Gui, Doc):
-        print '%-33s: %-19s: %-19s' % (Lang, Gui, Doc)
+        print('%-33s: %-19s: %-19s' % (Lang, Gui, Doc))
 
     def checkTranslation(self, wrkDir):
 
@@ -209,13 +215,13 @@ class transReport:
         [totDoc, tsDoc] = self.getTotal(wrkDir, fileDoc)
 
         firstline = '==== Translation of %s %s' % (urlTrunk, Sep75)
-        print ''
-        print firstline[0:75]
+        print('')
+        print(firstline[0:75])
         self.printStatLine('', 'User interface', 'Manuals')
         self.printStatLine('Total strings', totGui, totDoc)
 #        self.printStatLine('Language', 'Status (un/fu/ma)', 'Status (un/fu)')
         self.printStatLine('Language', 'Status (un/ma)', 'Status (un)')
-        print Sep75
+        print(Sep75)
 
         csvReader = csv.DictReader(
             open(langList), langFields, delimiter=';', quotechar='"')
@@ -232,7 +238,7 @@ class transReport:
                 statusDoc = self.checkStatus(
                     wrkDir, langCC, fileDoc, totDoc, False)
 
-                if statusGui != 'NONE' or statusDoc != 'NONE':
+                if statusGui != '---' or statusDoc != '----':
                     langName = row['LangName'].strip()
                     langName = langName + ' (' + langCC + ')'
                     self.printStatLine(langName, statusGui, statusDoc)
@@ -242,7 +248,7 @@ class transReport:
     def createReport(self):
         [info_out, info_err] = self.safe_command(['svn', 'info'])
         if info_err:
-            print >> sys.stderr, '\nError: %s' % (info_err)
+            print('\nError: %s' % (info_err), file=sys.stderr)
             sys.exit(0)
 
         # Try different matches for older and newer svn clients
@@ -257,10 +263,10 @@ class transReport:
 
         self.checkTranslation(wrkDir)
 
-        print Sep75
-#        print 'Status: fu=fuzzy - un=untranslated - ma=missing accelerator keys'
-        print 'Status: un=untranslated - ma=missing accelerator keys'
-        print Sep75
+        print(Sep75)
+#        print('Status: fu=fuzzy - un=untranslated - ma=missing accelerator keys')
+        print('Status: un=untranslated - ma=missing accelerator keys')
+        print(Sep75)
 
         # Clean up the tmp folder
         for root, dirs, files in os.walk('tmp', topdown=False):
@@ -279,7 +285,7 @@ def main():
                                        ['help',
                                         'to-email-id=',
                                         ])
-    except getopt.GetoptError, msg:
+    except getopt.GetoptError as msg:
         usage_and_exit(msg)
 
     to_email_id = None
@@ -293,13 +299,13 @@ def main():
 
     [info_out, info_err] = report.safe_command(['svnversion', wrkDir])
     if info_err:
-        print >> sys.stderr, '\nError: %s' % (info_err)
+        print('\nError: %s' % (info_err), file=sys.stderr)
         sys.exit(0)
 
     wcrev = re.sub('[MS]', '', info_out).strip()
 
     subject = 'TortoiseSVN translation status report for r%s' % (wcrev)
-    print subject
+    print(subject)
 
     report.createReport()
 
