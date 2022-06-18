@@ -20,6 +20,8 @@
 
 # slightly modified to work on Windows for TortoiseSVN.
 
+from __future__ import print_function
+
 # xml2po -- translate XML documents
 VERSION = "1.0.5"
 
@@ -32,8 +34,6 @@ VERSION = "1.0.5"
 #   2.2 second stable release (release 2), and 2.2.* bugfix releases
 #   ...
 #
-
-from __future__ import print_function
 
 import sys
 import libxml2
