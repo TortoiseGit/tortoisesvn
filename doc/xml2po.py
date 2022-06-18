@@ -32,6 +32,9 @@ VERSION = "1.0.5"
 #   2.2 second stable release (release 2), and 2.2.* bugfix releases
 #   ...
 #
+
+from __future__ import print_function
+
 import sys
 import libxml2
 import gettext
@@ -98,7 +101,7 @@ msgstr ""
 
 """ % (tstamp)
 
-        out.write(tmp.encode('utf-8'))
+        out.write(tmp)
 
     def outputAll(self, out):
         self.outputHeader(out)
@@ -159,7 +162,7 @@ def normalizeString(text, ignorewhitespace = 1):
         tree = ctxt.doc()
         newnode = tree.getRootElement()
     except:
-        print >> sys.stderr, """Error while normalizing string as XML:\n"%s"\n""" % (text)
+        print("""Error while normalizing string as XML:\n"%s"\n""" % (text), file=sys.stderr)
         return text
 
     normalizeNode(newnode)
@@ -340,7 +343,7 @@ def replaceNodeContentsWithText(node,text):
             ctxt.parseDocument()
             newnode = ctxt.doc()
         except:
-            print >> sys.stderr, """Error while parsing translation as XML:\n"%s"\n""" % (text.encode('utf-8'))
+            print("""Error while parsing translation as XML:\n"%s"\n""" % (text.encode('utf-8')), file=sys.stderr)
             return
 
         newelem = newnode.getRootElement()
@@ -448,7 +451,7 @@ def isExternalGeneralParsedEntity(node):
     if (node and node.type=='entity_ref'):
         try:
             # it would be nice if debugDumpNode could use StringIO, but it apparently cannot
-            tmp = file(".xml2po-entitychecking","w+")
+            tmp = open(".xml2po-entitychecking","w+")
             node.debugDumpNode(tmp,0)
             tmp.seek(0)
             tmpstr = tmp.read()
@@ -536,7 +539,7 @@ def tryToUpdate(allargs, lang):
             sys.stderr.write("Error: Option '-o' is not yet supported when updating translations directly.\n")
             sys.exit(8)
         elif opt in ('-v', '--version'):
-            print VERSION
+            print(VERSION)
             sys.exit(0)
         elif opt in ('-h', '--help'):
             sys.stderr.write("Error: If you want help, please use `%s --help' without '-u' option.\n" % (allargs[0]))
@@ -590,7 +593,7 @@ def timetick(messg):
     global t1
     t2 = datetime.now()
     tdelta = t2 - t1
-    print >> sys.stderr, messg," (",tdelta.seconds, ",", tdelta.microseconds,")"
+    print(messg," (",tdelta.seconds, ",", tdelta.microseconds,")", file=sys.stderr)
 
 # timetick( "xml2po started")
 
@@ -618,9 +621,9 @@ output  = '-' # this means to stdout
 import getopt, fileinput
 
 def usage (with_help = False):
-    print >> sys.stderr, "Usage:  %s [OPTIONS] [XMLFILE]..." % (sys.argv[0])
+    print("Usage:  %s [OPTIONS] [XMLFILE]..." % (sys.argv[0]), file=sys.stderr)
     if (with_help):
-        print >> sys.stderr, """
+        print("""
 OPTIONS may be some of:
     -a    --automatic-tags     Automatically decides if tags are to be considered
                                  "final" or not
@@ -646,7 +649,7 @@ EXAMPLES:
     using -p option for each XML file:
         %s -p de.po chapter1.xml > chapter1.de.xml
         %s -p de.po chapter2.xml > chapter2.de.xml
-""" % (sys.argv[0], sys.argv[0], sys.argv[0])
+""" % (sys.argv[0], sys.argv[0], sys.argv[0]), file=sys.stderr)
     sys.exit(0)
 
 if len(sys.argv) < 2: usage()
@@ -683,7 +686,7 @@ for opt, arg in opts:
     elif opt in ('-o', '--output'):
         output = arg
     elif opt in ('-v', '--version'):
-        print VERSION
+        print(VERSION)
         sys.exit(0)
     elif opt in ('-h', '--help'):
         usage(True)
@@ -693,18 +696,18 @@ while args:
     filenames.append(args.pop())
 
 if len(filenames) > 1 and mode=='merge':
-    print  >> sys.stderr, "Error: You can merge translations with only one XML file at a time."
+    print("Error: You can merge translations with only one XML file at a time.", file=sys.stderr)
     sys.exit(2)
 
 try:
     CurrentXmlMode = load_mode(default_mode)()
 except:
     CurrentXmlMode = None
-    print >> sys.stderr, "Warning: cannot load module '%s', using automatic detection (-a)." % (default_mode)
+    print("Warning: cannot load module '%s', using automatic detection (-a)." % (default_mode), file=sys.stderr)
     automatic = 1
 
 if mode=='merge' and mofile=='':
-    print >> sys.stderr, "Error: You must specify MO file when merging translations."
+    print("Error: You must specify MO file when merging translations.", file=sys.stderr)
     sys.exit(3)
 
 ultimate_tags = read_finaltags(ultimate)
@@ -736,7 +739,7 @@ for filename in filenames:
         # timetick( "document parsed")
         doc = ctxt.doc()
     except:
-        print >> sys.stderr, "Error: cannot open file '%s'." % (filename)
+        print("Error: cannot open file '%s'." % (filename), file=sys.stderr)
         sys.exit(1)
 
     msg.setFilename(filename)
@@ -752,9 +755,9 @@ if output == '-':
     out = sys.stdout
 else:
     try:
-        out = file(output, 'w')
+        out = open(output, 'w')
     except:
-        print >> sys.stderr, "Error: cannot open file %s for writing." % (output)
+        print("Error: cannot open file %s for writing." % (output), file=sys.stderr)
         sys.exit(5)
 
 if mode != 'merge':

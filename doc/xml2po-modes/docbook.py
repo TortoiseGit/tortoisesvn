@@ -33,6 +33,9 @@
 #     it is also not necessary until we start supporting extracting strings from more
 #     than one document type at the same time
 #
+
+from __future__ import print_function
+
 import re
 import libxml2
 import os
@@ -133,7 +136,7 @@ class docbookXmlMode:
                     hash = self._md5_for_file(fullpath)
                 else:
                     hash = "THIS FILE DOESN'T EXIST"
-                    print >>sys.stderr, "Warning: image file '%s' not found." % fullpath
+                    print("Warning: image file '%s' not found." % fullpath, file=sys.stderr)
                     
                 msg.outputMessage("@@image: '%s'; md5=%s" % (attr, hash), node.lineNo(),
                                   "When image changes, this message will be marked fuzzy or untranslated for you.\n"+
@@ -201,13 +204,13 @@ class docbookXmlMode:
 # Perform some tests when ran standalone
 if __name__ == '__main__':
     test = docbookXmlMode()
-    print "Ignored tags       : " + repr(test.getIgnoredTags())
-    print "Final tags         : " + repr(test.getFinalTags())
-    print "Space-preserve tags: " + repr(test.getSpacePreserveTags())
+    print("Ignored tags       : " + repr(test.getIgnoredTags()))
+    print("Final tags         : " + repr(test.getFinalTags()))
+    print("Space-preserve tags: " + repr(test.getSpacePreserveTags()))
 
-    print "Credits from string: '%s'" % test.getStringForTranslators()
-    print "Explanation for credits:\n\t'%s'" % test.getCommentForTranslators()
+    print("Credits from string: '%s'" % test.getStringForTranslators())
+    print("Explanation for credits:\n\t'%s'" % test.getCommentForTranslators())
     
-    print "String for translation: '%s'" % test.getStringForTranslation()
-    print "Explanation for translation:\n\t'%s'" % test.getCommentForTranslation()
+    print("String for translation: '%s'" % test.getStringForTranslation())
+    print("Explanation for translation:\n\t'%s'" % test.getCommentForTranslation())
     
