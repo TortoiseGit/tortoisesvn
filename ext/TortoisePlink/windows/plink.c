@@ -1,4 +1,4 @@
-/*
+﻿/*
  * PLink - a Windows command-line (stdin/stdout) variant of PuTTY.
  */
 
@@ -12,12 +12,22 @@
 #include "tree234.h"
 #include "security-api.h"
 
+extern HWND GetParentHwnd();
+
+#include <commctrl.h>
+#pragma comment(lib, "comctl32.lib")
+#pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+
 void cmdline_error(const char *fmt, ...)
 {
     va_list ap;
+    char *stuff, morestuff[100];
     va_start(ap, fmt);
-    console_print_error_msg_fmt_v("plink", fmt, ap);
+    stuff = dupvprintf(fmt, ap);
     va_end(ap);
+    sprintf(morestuff, "%.70s Command Line Error", appname);
+    MessageBox(GetParentHwnd(), stuff, morestuff, MB_ICONERROR | MB_OK);
+    sfree(stuff);
     exit(1);
 }
 
@@ -124,76 +134,81 @@ static DWORD main_thread_id;
  */
 static void usage(void)
 {
-    printf("Plink: command-line connection utility\n");
-    printf("%s\n", ver);
-    printf("Usage: plink [options] [user@]host [command]\n");
-    printf("       (\"host\" can also be a PuTTY saved session name)\n");
-    printf("Options:\n");
-    printf("  -V        print version information and exit\n");
-    printf("  -pgpfp    print PGP key fingerprints and exit\n");
-    printf("  -v        show verbose messages\n");
-    printf("  -load sessname  Load settings from saved session\n");
-    printf("  -ssh -telnet -rlogin -raw -serial\n");
-    printf("            force use of a particular protocol\n");
-    printf("  -ssh-connection\n");
-    printf("            force use of the bare ssh-connection protocol\n");
-    printf("  -P port   connect to specified port\n");
-    printf("  -l user   connect with specified username\n");
-    printf("  -batch    disable all interactive prompts\n");
-    printf("  -proxycmd command\n");
-    printf("            use 'command' as local proxy\n");
-    printf("  -sercfg configuration-string (e.g. 19200,8,n,1,X)\n");
-    printf("            Specify the serial configuration (serial only)\n");
-    printf("The following options only apply to SSH connections:\n");
-    printf("  -pwfile file   login with password read from specified file\n");
-    printf("  -D [listen-IP:]listen-port\n");
-    printf("            Dynamic SOCKS-based port forwarding\n");
-    printf("  -L [listen-IP:]listen-port:host:port\n");
-    printf("            Forward local port to remote address\n");
-    printf("  -R [listen-IP:]listen-port:host:port\n");
-    printf("            Forward remote port to local address\n");
-    printf("  -X -x     enable / disable X11 forwarding\n");
-    printf("  -A -a     enable / disable agent forwarding\n");
-    printf("  -t -T     enable / disable pty allocation\n");
-    printf("  -1 -2     force use of particular SSH protocol version\n");
-    printf("  -4 -6     force use of IPv4 or IPv6\n");
-    printf("  -C        enable compression\n");
-    printf("  -i key    private key file for user authentication\n");
-    printf("  -noagent  disable use of Pageant\n");
-    printf("  -agent    enable use of Pageant\n");
-    printf("  -no-trivial-auth\n");
-    printf("            disconnect if SSH authentication succeeds trivially\n");
-    printf("  -noshare  disable use of connection sharing\n");
-    printf("  -share    enable use of connection sharing\n");
-    printf("  -hostkey keyid\n");
-    printf("            manually specify a host key (may be repeated)\n");
-    printf("  -sanitise-stderr, -sanitise-stdout, "
-           "-no-sanitise-stderr, -no-sanitise-stdout\n");
-    printf("            do/don't strip control chars from standard "
-           "output/error\n");
-    printf("  -no-antispoof   omit anti-spoofing prompt after "
-           "authentication\n");
-    printf("  -m file   read remote command(s) from file\n");
-    printf("  -s        remote command is an SSH subsystem (SSH-2 only)\n");
-    printf("  -N        don't start a shell/command (SSH-2 only)\n");
-    printf("  -nc host:port\n");
-    printf("            open tunnel in place of session (SSH-2 only)\n");
-    printf("  -sshlog file\n");
-    printf("  -sshrawlog file\n");
-    printf("            log protocol details to a file\n");
-    printf("  -logoverwrite\n");
-    printf("  -logappend\n");
-    printf("            control what happens when a log file already exists\n");
-    printf("  -shareexists\n");
-    printf("            test whether a connection-sharing upstream exists\n");
+    char buf[10000];
+    int j = 0;
+    j += sprintf(buf + j, "TortoisePlink: command-line connection utility (based on PuTTY Plink)\n");
+    j += sprintf(buf + j, "%s\n", ver);
+    j += sprintf(buf + j, "Usage: plink [options] [user@]host [command]\n");
+    j += sprintf(buf + j, "       (\"host\" can also be a PuTTY saved session name)\n");
+    j += sprintf(buf + j, "Options:\n");
+    j += sprintf(buf + j, "  -V        print version information and exit\n");
+    j += sprintf(buf + j, "  -pgpfp    print PGP key fingerprints and exit\n");
+    j += sprintf(buf + j, "  -v        show verbose messages\n");
+    j += sprintf(buf + j, "  -load sessname  Load settings from saved session\n");
+    j += sprintf(buf + j, "  -ssh -telnet -rlogin -raw -serial\n");
+    j += sprintf(buf + j, "            force use of a particular protocol\n");
+    j += sprintf(buf + j, "  -ssh-connection\n");
+    j += sprintf(buf + j, "            force use of the bare ssh-connection protocol\n");
+    j += sprintf(buf + j, "  -P port   connect to specified port\n");
+    j += sprintf(buf + j, "  -l user   connect with specified username\n");
+    j += sprintf(buf + j, "  -batch    disable all interactive prompts\n");
+    j += sprintf(buf + j, "  -proxycmd command\n");
+    j += sprintf(buf + j, "            use 'command' as local proxy\n");
+    j += sprintf(buf + j, "  -sercfg configuration-string (e.g. 19200,8,n,1,X)\n");
+    j += sprintf(buf + j, "            Specify the serial configuration (serial only)\n");
+    j += sprintf(buf + j, "The following options only apply to SSH connections:\n");
+    j += sprintf(buf + j, "  -pwfile file   login with password read from specified file\n");
+    j += sprintf(buf + j, "  -D [listen-IP:]listen-port\n");
+    j += sprintf(buf + j, "            Dynamic SOCKS-based port forwarding\n");
+    j += sprintf(buf + j, "  -L [listen-IP:]listen-port:host:port\n");
+    j += sprintf(buf + j, "            Forward local port to remote address\n");
+    j += sprintf(buf + j, "  -R [listen-IP:]listen-port:host:port\n");
+    j += sprintf(buf + j, "            Forward remote port to local address\n");
+    j += sprintf(buf + j, "  -X -x     enable / disable X11 forwarding\n");
+    j += sprintf(buf + j, "  -A -a     enable / disable agent forwarding\n");
+    j += sprintf(buf + j, "  -t -T     enable / disable pty allocation\n");
+    j += sprintf(buf + j, "  -1 -2     force use of particular SSH protocol version\n");
+    j += sprintf(buf + j, "  -4 -6     force use of IPv4 or IPv6\n");
+    j += sprintf(buf + j, "  -C        enable compression\n");
+    j += sprintf(buf + j, "  -i key    private key file for user authentication\n");
+    j += sprintf(buf + j, "  -noagent  disable use of Pageant\n");
+    j += sprintf(buf + j, "  -agent    enable use of Pageant\n");
+    j += sprintf(buf + j, "  -no-trivial-auth\n");
+    j += sprintf(buf + j, "            disconnect if SSH authentication succeeds trivially\n");
+    j += sprintf(buf + j, "  -noshare  disable use of connection sharing\n");
+    j += sprintf(buf + j, "  -share    enable use of connection sharing\n");
+    j += sprintf(buf + j, "  -hostkey keyid\n");
+    j += sprintf(buf + j, "            manually specify a host key (may be repeated)\n");
+	j += sprintf(buf + j, "  -sanitise-stderr, -sanitise-stdout, ");
+    j += sprintf(buf + j, "-no-sanitise-stderr, -no-sanitise-stdout\n");
+	j += sprintf(buf + j, "            do/don't strip control chars from standard ");
+    j += sprintf(buf + j, "output/error\n");
+	j += sprintf(buf + j, "  -no-antispoof   omit anti-spoofing prompt after ");
+    j += sprintf(buf + j, "authentication\n");
+    j += sprintf(buf + j, "  -m file   read remote command(s) from file\n");
+    j += sprintf(buf + j, "  -s        remote command is an SSH subsystem (SSH-2 only)\n");
+    j += sprintf(buf + j, "  -N        don't start a shell/command (SSH-2 only)\n");
+    j += sprintf(buf + j, "  -nc host:port\n");
+    j += sprintf(buf + j, "            open tunnel in place of session (SSH-2 only)\n");
+    j += sprintf(buf + j, "  -sshlog file\n");
+    j += sprintf(buf + j, "  -sshrawlog file\n");
+    j += sprintf(buf + j, "            log protocol details to a file\n");
+    j += sprintf(buf + j, "  -logoverwrite\n");
+    j += sprintf(buf + j, "  -logappend\n");
+    j += sprintf(buf + j, "            control what happens when a log file already exists\n");
+    j += sprintf(buf + j, "  -shareexists\n");
+    j += sprintf(buf + j, "            test whether a connection-sharing upstream exists\n");
+    MessageBox(NULL, buf, "TortoisePlink", MB_ICONINFORMATION);
     exit(1);
 }
 
 static void version(void)
 {
-    char *buildinfo_text = buildinfo("\n");
-    printf("plink: %s\n%s\n", ver, buildinfo_text);
+    char buf[1000];
+    char* buildinfo_text = buildinfo("\n");
+    sprintf(buf, "TortoisePlink: %s\n%s\n", ver, buildinfo_text);
     sfree(buildinfo_text);
+    MessageBox(NULL, buf, "TortoisePlink", MB_ICONINFORMATION);
     exit(0);
 }
 
@@ -295,6 +310,7 @@ int main(int argc, char **argv)
 
     dll_hijacking_protection();
 
+    InitCommonControls();
     /*
      * Initialise port and protocol to sensible defaults. (These
      * will be overridden by more or less anything.)
@@ -307,65 +323,57 @@ int main(int argc, char **argv)
      */
     conf = conf_new();
     do_defaults(NULL, conf);
-    settings_set_default_protocol(conf_get_int(conf, CONF_protocol));
-    settings_set_default_port(conf_get_int(conf, CONF_port));
+    settings_set_default_protocol(PROT_SSH);
+    settings_set_default_port(22);
     errors = false;
-    {
-        /*
-         * Override the default protocol if PLINK_PROTOCOL is set.
-         */
-        char *p = getenv("PLINK_PROTOCOL");
-        if (p) {
-            const struct BackendVtable *vt = backend_vt_from_name(p);
-            if (vt) {
-                settings_set_default_protocol(vt->protocol);
-                settings_set_default_port(vt->default_port);
-                conf_set_int(conf, CONF_protocol, vt->protocol);
-                conf_set_int(conf, CONF_port, vt->default_port);
-            }
-        }
-    }
+    conf_set_bool(conf, CONF_agentfwd, FALSE);
+    conf_set_bool(conf, CONF_x11_forward, FALSE);
+    bool skipFurtherParameters = false;
     while (--argc) {
         char *p = *++argv;
+        if (p && !strcmp(p, "--")) {
+            skipFurtherParameters = true;
+            continue;
+        }
         int ret = cmdline_process_param(p, (argc > 1 ? argv[1] : NULL),
-                                        1, conf);
+                                        1, conf, skipFurtherParameters);
         if (ret == -2) {
             fprintf(stderr,
-                    "plink: option \"%s\" requires an argument\n", p);
+                    "TortoisePlink: option \"%s\" requires an argument\n", p);
             errors = true;
         } else if (ret == 2) {
             --argc, ++argv;
         } else if (ret == 1) {
             continue;
-        } else if (!strcmp(p, "-batch")) {
-            console_batch_mode = true;
-        } else if (!strcmp(p, "-s")) {
+        } else if (!strcmp(p, "-batch") && !skipFurtherParameters) {
+            // ignore and do not print an error message
+        } else if (!strcmp(p, "-s") && !skipFurtherParameters) {
             /* Save status to write to conf later. */
             use_subsystem = true;
-        } else if (!strcmp(p, "-V") || !strcmp(p, "--version")) {
+        } else if ((!strcmp(p, "-V") || !strcmp(p, "--version")) && !skipFurtherParameters) {
             version();
-        } else if (!strcmp(p, "--help")) {
+        } else if (!strcmp(p, "--help") && !skipFurtherParameters) {
             usage();
-        } else if (!strcmp(p, "-pgpfp")) {
+        } else if (!strcmp(p, "-pgpfp") && !skipFurtherParameters) {
             pgp_fingerprints();
             exit(1);
-        } else if (!strcmp(p, "-shareexists")) {
+        } else if (!strcmp(p, "-shareexists") && !skipFurtherParameters) {
             just_test_share_exists = true;
-        } else if (!strcmp(p, "-sanitise-stdout") ||
-                   !strcmp(p, "-sanitize-stdout")) {
+        } else if ((!strcmp(p, "-sanitise-stdout") ||
+                   !strcmp(p, "-sanitize-stdout")) && !skipFurtherParameters) {
             sanitise_stdout = FORCE_ON;
-        } else if (!strcmp(p, "-no-sanitise-stdout") ||
-                   !strcmp(p, "-no-sanitize-stdout")) {
+        } else if ((!strcmp(p, "-no-sanitise-stdout") ||
+                   !strcmp(p, "-no-sanitize-stdout"))  && !skipFurtherParameters) {
             sanitise_stdout = FORCE_OFF;
-        } else if (!strcmp(p, "-sanitise-stderr") ||
-                   !strcmp(p, "-sanitize-stderr")) {
+        } else if ((!strcmp(p, "-sanitise-stderr") ||
+                   !strcmp(p, "-sanitize-stderr")) && !skipFurtherParameters) {
             sanitise_stderr = FORCE_ON;
-        } else if (!strcmp(p, "-no-sanitise-stderr") ||
-                   !strcmp(p, "-no-sanitize-stderr")) {
+        } else if ((!strcmp(p, "-no-sanitise-stderr") ||
+                   !strcmp(p, "-no-sanitize-stderr")) && !skipFurtherParameters) {
             sanitise_stderr = FORCE_OFF;
-        } else if (!strcmp(p, "-no-antispoof")) {
+        } else if (!strcmp(p, "-no-antispoof") && !skipFurtherParameters) {
             console_antispoof_prompt = false;
-        } else if (*p != '-') {
+        } else if (*p != '-' || skipFurtherParameters) {
             strbuf *cmdbuf = strbuf_new();
 
             while (argc > 0) {
@@ -383,7 +391,7 @@ int main(int argc, char **argv)
             strbuf_free(cmdbuf);
             break;                     /* done with cmdline */
         } else {
-            fprintf(stderr, "plink: unknown option \"%s\"\n", p);
+            fprintf(stderr, "TortoisePlink: unknown option \"%s\"\n", p);
             errors = true;
         }
     }
@@ -421,14 +429,14 @@ int main(int argc, char **argv)
 
     if (vt->flags & BACKEND_NEEDS_TERMINAL) {
         fprintf(stderr,
-                "Plink doesn't support %s, which needs terminal emulation\n",
+                "TortoisePlink doesn't support %s, which needs terminal emulation\n",
                 vt->displayname_lc);
         return 1;
     }
 
     sk_init();
     if (p_WSAEventSelect == NULL) {
-        fprintf(stderr, "Plink requires WinSock 2\n");
+        fprintf(stderr, "TortoisePlink requires WinSock 2\n");
         return 1;
     }
 
@@ -551,4 +559,9 @@ int main(int argc, char **argv)
     }
     cleanup_exit(exitcode);
     return 0;                          /* placate compiler warning */
+}
+
+int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
+{
+    main(__argc, __argv);
 }
