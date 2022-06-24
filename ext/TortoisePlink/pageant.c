@@ -836,6 +836,7 @@ static PageantAsyncOp *pageant_make_op(
         so->pao.info = pc->info;
         so->pao.cr.prev = pc->info->head.prev;
         so->pao.cr.next = &pc->info->head;
+        so->pao.cr.prev->next = so->pao.cr.next->prev = &so->pao.cr;
         so->pao.reqid = reqid;
         so->pk = pk;
         so->pkr.prev = so->pkr.next = NULL;
@@ -1353,6 +1354,7 @@ static PageantAsyncOp *pageant_make_op(
     io->pao.info = pc->info;
     io->pao.cr.prev = pc->info->head.prev;
     io->pao.cr.next = &pc->info->head;
+    io->pao.cr.prev->next = io->pao.cr.next->prev = &io->pao.cr;
     io->pao.reqid = reqid;
     io->response = sb;
     io->crLine = 0;
@@ -1461,12 +1463,12 @@ struct pageant_conn_state {
     Plug plug;
 };
 
-static void pageant_conn_closing(Plug *plug, const char *error_msg,
-                                 int error_code, bool calling_back)
+static void pageant_conn_closing(Plug *plug, PlugCloseType type,
+                                 const char *error_msg)
 {
     struct pageant_conn_state *pc = container_of(
         plug, struct pageant_conn_state, plug);
-    if (error_msg)
+    if (type != PLUGCLOSE_NORMAL)
         pageant_listener_client_log(pc->plc, "c#%"SIZEu": error: %s",
                                     pc->conn_index, error_msg);
     else
@@ -1608,12 +1610,12 @@ struct pageant_listen_state {
     Plug plug;
 };
 
-static void pageant_listen_closing(Plug *plug, const char *error_msg,
-                                   int error_code, bool calling_back)
+static void pageant_listen_closing(Plug *plug, PlugCloseType type,
+                                   const char *error_msg)
 {
     struct pageant_listen_state *pl = container_of(
         plug, struct pageant_listen_state, plug);
-    if (error_msg)
+    if (type != PLUGCLOSE_NORMAL)
         pageant_listener_client_log(pl->plc, "listening socket: error: %s",
                                     error_msg);
     sk_close(pl->listensock);
@@ -1624,6 +1626,7 @@ static const PlugVtable pageant_connection_plugvt = {
     .closing = pageant_conn_closing,
     .receive = pageant_conn_receive,
     .sent = pageant_conn_sent,
+    .log = nullplug_log,
 };
 
 static int pageant_listen_accepting(Plug *plug,
@@ -1672,6 +1675,7 @@ static int pageant_listen_accepting(Plug *plug,
 static const PlugVtable pageant_listener_plugvt = {
     .closing = pageant_listen_closing,
     .accepting = pageant_listen_accepting,
+    .log = nullplug_log,
 };
 
 struct pageant_listen_state *pageant_listener_new(

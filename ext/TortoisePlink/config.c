@@ -312,7 +312,7 @@ static void config_protocols_handler(union control *ctrl, dlgparam *dlg,
             for (size_t i = n_ui_backends;
                  i < PROTOCOL_LIMIT && backends[i]; i++) {
                 dlg_listbox_addwithid(ctrl, dlg,
-                                      backends[i]->displayname,
+                                      backends[i]->displayname_tc,
                                       backends[i]->protocol);
                 if (backends[i]->protocol == curproto)
                     curentry = i - n_ui_backends;
@@ -729,6 +729,37 @@ static void sshbug_handler(union control *ctrl, dlgparam *dlg,
         int i = dlg_listbox_index(ctrl, dlg);
         if (i < 0)
             i = AUTO;
+        else
+            i = dlg_listbox_getid(ctrl, dlg, i);
+        conf_set_int(conf, ctrl->listbox.context.i, i);
+    }
+}
+
+static void sshbug_handler_manual_only(union control *ctrl, dlgparam *dlg,
+                                       void *data, int event)
+{
+    /*
+     * This is just like sshbug_handler, except that there's no 'Auto'
+     * option. Used for bug workaround flags that can't be
+     * autodetected, and have to be manually enabled if they're to be
+     * used at all.
+     */
+    Conf *conf = (Conf *)data;
+    if (event == EVENT_REFRESH) {
+        int oldconf = conf_get_int(conf, ctrl->listbox.context.i);
+        dlg_update_start(ctrl, dlg);
+        dlg_listbox_clear(ctrl, dlg);
+        dlg_listbox_addwithid(ctrl, dlg, "Off", FORCE_OFF);
+        dlg_listbox_addwithid(ctrl, dlg, "On", FORCE_ON);
+        switch (oldconf) {
+          case FORCE_OFF: dlg_listbox_select(ctrl, dlg, 0); break;
+          case FORCE_ON:  dlg_listbox_select(ctrl, dlg, 1); break;
+        }
+        dlg_update_done(ctrl, dlg);
+    } else if (event == EVENT_SELCHANGE) {
+        int i = dlg_listbox_index(ctrl, dlg);
+        if (i < 0)
+            i = FORCE_OFF;
         else
             i = dlg_listbox_getid(ctrl, dlg, i);
         conf_set_int(conf, ctrl->listbox.context.i, i);
@@ -1762,7 +1793,7 @@ void setup_config_box(struct controlbox *b, bool midsession,
         for (size_t i = 0; i < n_ui_backends; i++) {
             assert(backends[i]);
             c->radio.buttons[c->radio.nbuttons] =
-                dupstr(backends[i]->displayname);
+                dupstr(backends[i]->displayname_tc);
             c->radio.shortcuts[c->radio.nbuttons] =
                 (backends[i]->protocol == PROT_SSH ? 's' :
                  backends[i]->protocol == PROT_SERIAL ? 'r' :
@@ -1979,12 +2010,24 @@ void setup_config_box(struct controlbox *b, bool midsession,
                       conf_radiobutton_bool_handler,
                       I(CONF_rxvt_homeend),
                       "Standard", I(false), "rxvt", I(true), NULL);
-    ctrl_radiobuttons(s, "The Function keys and keypad", 'f', 3,
+    ctrl_radiobuttons(s, "The Function keys and keypad", 'f', 4,
                       HELPCTX(keyboard_funkeys),
                       conf_radiobutton_handler,
                       I(CONF_funky_type),
-                      "ESC[n~", I(0), "Linux", I(1), "Xterm R6", I(2),
-                      "VT400", I(3), "VT100+", I(4), "SCO", I(5), NULL);
+                      "ESC[n~", I(FUNKY_TILDE),
+                      "Linux", I(FUNKY_LINUX),
+                      "Xterm R6", I(FUNKY_XTERM),
+                      "VT400", I(FUNKY_VT400),
+                      "VT100+", I(FUNKY_VT100P),
+                      "SCO", I(FUNKY_SCO),
+                      "Xterm 216+", I(FUNKY_XTERM_216),
+                      NULL);
+    ctrl_radiobuttons(s, "Shift/Ctrl/Alt with the arrow keys", 'w', 2,
+                      HELPCTX(keyboard_sharrow),
+                      conf_radiobutton_handler,
+                      I(CONF_sharrow_type),
+                      "Ctrl toggles app mode", I(SHARROW_APPLICATION),
+                      "xterm-style bitmap", I(SHARROW_BITMAP), NULL);
 
     s = ctrl_getset(b, "Terminal/Keyboard", "appkeypad",
                     "Application keypad settings:");
@@ -2477,16 +2520,26 @@ void setup_config_box(struct controlbox *b, bool midsession,
                       "Options controlling proxy usage");
 
         s = ctrl_getset(b, "Connection/Proxy", "basics", NULL);
-        ctrl_radiobuttons(s, "Proxy type:", 't', 3,
-                          HELPCTX(proxy_type),
-                          conf_radiobutton_handler,
-                          I(CONF_proxy_type),
-                          "None", I(PROXY_NONE),
-                          "SOCKS 4", I(PROXY_SOCKS4),
-                          "SOCKS 5", I(PROXY_SOCKS5),
-                          "HTTP", I(PROXY_HTTP),
-                          "Telnet", I(PROXY_TELNET),
-                          NULL);
+        c = ctrl_radiobuttons(s, "Proxy type:", 't', 3,
+                              HELPCTX(proxy_type),
+                              conf_radiobutton_handler,
+                              I(CONF_proxy_type),
+                              "None", I(PROXY_NONE),
+                              "SOCKS 4", I(PROXY_SOCKS4),
+                              "SOCKS 5", I(PROXY_SOCKS5),
+                              "HTTP", I(PROXY_HTTP),
+                              "Telnet", I(PROXY_TELNET),
+                              NULL);
+        if (ssh_proxy_supported) {
+            /* Add an extra radio button to the above list. */
+            c->radio.nbuttons++;
+            c->radio.buttons =
+                sresize(c->radio.buttons, c->radio.nbuttons, char *);
+            c->radio.buttons[c->radio.nbuttons-1] = dupstr("SSH");
+            c->radio.buttondata =
+                sresize(c->radio.buttondata, c->radio.nbuttons, intorptr);
+            c->radio.buttondata[c->radio.nbuttons-1] = I(PROXY_SSH);
+        }
         ctrl_columns(s, 2, 80, 20);
         c = ctrl_editbox(s, "Proxy hostname", 'y', 100,
                          HELPCTX(proxy_main),
@@ -2772,6 +2825,10 @@ void setup_config_box(struct controlbox *b, bool midsession,
                           HELPCTX(ssh_auth_bypass),
                           conf_checkbox_handler,
                           I(CONF_ssh_no_userauth));
+            ctrl_checkbox(s, "Disconnect if authentication succeeds trivially",
+                          'n', HELPCTX(ssh_no_trivial_userauth),
+                          conf_checkbox_handler,
+                          I(CONF_ssh_no_trivial_userauth));
 
             s = ctrl_getset(b, "Connection/SSH/Auth", "methods",
                             "Authentication methods");
@@ -3034,6 +3091,13 @@ void setup_config_box(struct controlbox *b, bool midsession,
             ctrl_droplist(s, "Ignores SSH-2 maximum packet size", 'x', 20,
                           HELPCTX(ssh_bugs_maxpkt2),
                           sshbug_handler, I(CONF_sshbug_maxpkt2));
+
+            s = ctrl_getset(b, "Connection/SSH/Bugs", "manual",
+                            "Manually enabled workarounds");
+            ctrl_droplist(s, "Discards data sent before its greeting", 'd', 20,
+                          HELPCTX(ssh_bugs_dropstart),
+                          sshbug_handler_manual_only,
+                          I(CONF_sshbug_dropstart));
 
             ctrl_settitle(b, "Connection/SSH/More bugs",
                           "Further workarounds for SSH server bugs");
