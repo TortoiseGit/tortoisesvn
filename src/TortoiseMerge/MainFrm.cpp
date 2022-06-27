@@ -255,6 +255,11 @@ int CMainFrame::InitRibbon()
     if (!m_bUseRibbons)
         return 0;
 
+    if (CTheme::Instance().IsDarkTheme())
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CThemeMFCVisualManager));
+    else
+        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
+
     if (HRESULT hr = m_pRibbonFramework.CoCreateInstance(__uuidof(UIRibbonFramework)); FAILED(hr))
     {
         TRACE(L"Failed to create ribbon framework (%08x)\n", hr);
@@ -278,6 +283,10 @@ int CMainFrame::InitRibbon()
 
     m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
         [this]() {
+            if (CTheme::Instance().IsDarkTheme())
+                CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CThemeMFCVisualManager));
+            else
+                CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
             SetTheme(CTheme::Instance().IsDarkTheme());
         });
     SetTheme(CTheme::Instance().IsDarkTheme());
@@ -370,9 +379,17 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
         m_themeCallbackId = CTheme::Instance().RegisterThemeChangeCallback(
             [this]() {
+                if (CTheme::Instance().IsDarkTheme())
+                    CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CThemeMFCVisualManager));
+                else
+                    CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
                 SetTheme(CTheme::Instance().IsDarkTheme());
             });
         SetTheme(CTheme::Instance().IsDarkTheme());
+        if (CTheme::Instance().IsDarkTheme())
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CThemeMFCVisualManager));
+        else
+            CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
     }
 
     if (!m_wndLocatorBar.Create(this, IDD_DIFFLOCATOR,
@@ -1336,7 +1353,6 @@ void CMainFrame::SetTheme(bool bDark) const
         DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
         DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CThemeMFCVisualManager));
     }
     else
     {
@@ -1356,7 +1372,6 @@ void CMainFrame::SetTheme(bool bDark) const
         DarkModeHelper::Instance().SetWindowCompositionAttribute(*this, &data);
         DarkModeHelper::Instance().FlushMenuThemes();
         DarkModeHelper::Instance().RefreshImmersiveColorPolicyState();
-        CMFCVisualManager::SetDefaultManager(RUNTIME_CLASS(CMFCVisualManagerWindows));
     }
     ::RedrawWindow(GetSafeHwnd(), nullptr, nullptr, RDW_FRAME | RDW_INVALIDATE | RDW_ERASE | RDW_INTERNALPAINT | RDW_ALLCHILDREN | RDW_UPDATENOW);
 }
