@@ -642,6 +642,9 @@ Make sure to also check the [changelog of Subversion](https://svn.apache.org/rep
       cpush TortoiseSVN-x.x.x.nupkg
     </echo>
   </target>
+  
+  <target name="ipv6" />	<!-- deprecated, only here so old build scripts won't fail -->
+
   <!-- ====================================================================== -->
   <!-- Help target                                                            -->
   <!-- ====================================================================== -->
