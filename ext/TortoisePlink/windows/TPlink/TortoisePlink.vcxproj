@@ -89,7 +89,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>..\..\.\;..\..\charset\;..\..\windows\;..\..\windows\TPlink;..\..\unix\;..\..\mac\;..\..\macosx\;..\..\terminal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>SSH;HAVE_AES_NI;HAVE_SHA_NI;NO_HTMLHELP;HAVE_GETNAMEDPIPECLIENTPROCESSID;HAVE_ADDDLLDIRECTORY;HAVE_SETDEFAULTDLLDIRECTORIES;HAVE_STRTOUMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SSH;HAVE_AES_NI;HAVE_SHA_NI;NO_HTMLHELP;HAVE_GETNAMEDPIPECLIENTPROCESSID;HAVE_ADDDLLDIRECTORY;HAVE_SETDEFAULTDLLDIRECTORIES;HAVE_STRTOUMAX;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;SECURITY_WIN32;_WIN64;WIN64;_WINDOWS;WINDOWS;STRICT_TYPED_ITEMIDS</PreprocessorDefinitions>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>

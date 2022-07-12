@@ -918,12 +918,3 @@ Index: ext/TortoisePlink/windows/plink.c
          return 1;
      }
  
-@@ -552,3 +560,8 @@
-     cleanup_exit(exitcode);
-     return 0;                          /* placate compiler warning */
- }
-+
-+int WinMain(hInstance, hPrevInstance, lpCmdLine, nCmdShow)
-+{
-+    main(__argc, __argv);
-+}
