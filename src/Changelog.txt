@@ -6,6 +6,9 @@
 - NEW: add autocomplete functionality in the log dialog 
        used in Repository browser. (Daniel Sahlberg)
 - BUG: Crash in TMerge when doing Redo after saving. (Stefan)
+- BUG: hook scripts specified with %REPOROOT% were not
+       executed correctly for paths more than two
+       levels down the root. (Stefan)
 
 Version 1.14.3
 - BUG: clipboard wasn't closed after pasting into

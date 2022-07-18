@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2007-2018, 2021 - TortoiseSVN
+// Copyright (C) 2007-2018, 2021-2022 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -807,19 +807,22 @@ bool CHooks::ParseAndInsertProjectProperty(HookType t, const CString& strhook, c
                 CString sLocalPathUrl = rootUrl;
                 CString sLocalPath    = rootPath;
                 // find the lowest common ancestor of the local path url and the script url
+                int     stripCount    = 0;
                 while (fullUrl.Left(sLocalPathUrl.GetLength()).Compare(sLocalPathUrl))
                 {
                     int sp = sLocalPathUrl.ReverseFind('/');
                     if (sp < 0)
                         return false;
                     sLocalPathUrl = sLocalPathUrl.Left(sp);
-
+                    ++stripCount;
                     do
                     {
                         sp = sLocalPath.ReverseFind('\\');
                         if (sp < 0)
                         {
                             sLocalPath = rootPath;
+                            for (int j = 0; j < stripCount; ++j)
+                                sLocalPath = sLocalPath.Left(sLocalPath.ReverseFind('\\'));
                             break;
                         }
                         sLocalPath = sLocalPath.Left(sp);
