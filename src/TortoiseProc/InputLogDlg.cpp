@@ -35,8 +35,8 @@ CInputLogDlg::CInputLogDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CInputLogDlg::IDD, pParent)
     , m_pProjectProperties(nullptr)
     , m_iCheck(0)
-    , m_bLock(false)
     , m_nPopupPasteListCmd(0)
+    , m_bLock(false)
 {
 }
 
@@ -291,7 +291,7 @@ bool CInputLogDlg::HandleMenuItemClick(int cmd, CSciEdit* pSciEdit)
         for (int i = 0; i < nListItems; ++i)
         {
             CString line;
-            line.Format(L" %s\r\n", m_pathlist[i].GetUIPathString());
+            line.Format(L" %s\r\n", static_cast<LPCWSTR>(m_pathlist[i].GetUIPathString()));
             logMsg += line;
         }
         pSciEdit->InsertText(logMsg);
