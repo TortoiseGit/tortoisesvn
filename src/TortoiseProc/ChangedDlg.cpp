@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2016, 2021 - TortoiseSVN
+// Copyright (C) 2003-2016, 2021-2022 - TortoiseSVN
 // Copyright (C) 2019 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -21,8 +21,10 @@
 #include "TortoiseProc.h"
 #include "ChangedDlg.h"
 #include "AppUtils.h"
+#include "Commands/CommitCommand.h"
 
 IMPLEMENT_DYNAMIC(CChangedDlg, CResizableStandAloneDialog)
+
 CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
     : CResizableStandAloneDialog(CChangedDlg::IDD, pParent)
     , m_bRemote(false)
@@ -37,6 +39,7 @@ CChangedDlg::CChangedDlg(CWnd* pParent /*=NULL*/)
     , m_bShowFiles(TRUE)
     , m_bDepthInfinity(false)
     , m_bContactRepository(false)
+    , m_bShowCommitBtn(false)
     , m_bShowPropertiesClicked(false)
 {
 }
@@ -71,6 +74,7 @@ BEGIN_MESSAGE_MAP(CChangedDlg, CResizableStandAloneDialog)
     ON_BN_CLICKED(IDC_SHOWFOLDERS, &CChangedDlg::OnBnClickedShowfolders)
     ON_BN_CLICKED(IDC_SHOWFILES, &CChangedDlg::OnBnClickedShowfiles)
     ON_WM_SETCURSOR()
+    ON_BN_CLICKED(IDC_COMMIT, &CChangedDlg::OnBnClickedCommit)
 END_MESSAGE_MAP()
 
 BOOL CChangedDlg::OnInitDialog()
@@ -89,6 +93,7 @@ BOOL CChangedDlg::OnInitDialog()
     m_aeroControls.SubclassControl(this, IDC_SHOWEXTERNALS);
     m_aeroControls.SubclassControl(this, IDC_INFOLABEL);
     m_aeroControls.SubclassControl(this, IDC_SUMMARYTEXT);
+    m_aeroControls.SubclassControl(this, IDC_COMMIT);
     m_aeroControls.SubclassControl(this, IDC_REFRESH);
     m_aeroControls.SubclassControl(this, IDC_CHECKREPO);
     m_aeroControls.SubclassControl(this, IDOK);
@@ -133,9 +138,18 @@ BOOL CChangedDlg::OnInitDialog()
     AddAnchor(IDC_SHOWUSERPROPS, BOTTOM_LEFT);
     AddAnchor(IDC_SHOWFILES, BOTTOM_LEFT);
     AddAnchor(IDC_SHOWFOLDERS, BOTTOM_LEFT);
+    AddAnchor(IDC_COMMIT, BOTTOM_RIGHT);
     AddAnchor(IDC_REFRESH, BOTTOM_RIGHT);
     AddAnchor(IDC_CHECKREPO, BOTTOM_RIGHT);
     AddAnchor(IDOK, BOTTOM_RIGHT);
+    if (m_bShowCommitBtn)
+    {
+        // only show the commit button if we're showing status for a single path and
+        // that path is a directory
+        if (m_pathList.GetCount() == 1 && m_pathList[0].IsDirectory())
+           GetDlgItem(IDC_COMMIT)->ShowWindow(SW_SHOW);
+    }
+
     SetPromptParentWindow(m_hWnd);
     if (GetExplorerHWND())
         CenterWindow(CWnd::FromHandle(GetExplorerHWND()));
@@ -397,4 +411,15 @@ BOOL CChangedDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
     HCURSOR hCur = LoadCursor(nullptr, IDC_ARROW);
     SetCursor(hCur);
     return __super::OnSetCursor(pWnd, nHitTest, message);
+}
+
+void CChangedDlg::OnBnClickedCommit()
+{
+    CommitCommand commitCmd;
+    CCmdLineParser parser;
+    commitCmd.SetExplorerHwnd(GetSafeHwnd());
+    commitCmd.SetParser(parser);
+    commitCmd.SetPaths(m_pathList, {});
+    commitCmd.Execute();
+    OnBnClickedRefresh();
 }

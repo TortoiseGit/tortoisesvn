@@ -9,6 +9,8 @@
 - BUG: hook scripts specified with %REPOROOT% were not
        executed correctly for paths more than two
        levels down the root. (Stefan)
+- NEW: Commit button in Changed-for-modifications
+       dialog. (Stefan)
 
 Version 1.14.3
 - BUG: clipboard wasn't closed after pasting into

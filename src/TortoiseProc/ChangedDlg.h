@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2006, 2008-2012, 2015, 2021 - TortoiseSVN
+// Copyright (C) 2003-2006, 2008-2012, 2015, 2021-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,6 +36,7 @@ public:
     CChangedDlg(CWnd* pParent = nullptr); // standard constructor
     ~CChangedDlg() override;
     void ContactRepository(bool bContact) { m_bContactRepository = bContact; }
+    void showCommitButton(bool show) { m_bShowCommitBtn = show; }
 
     // Dialog Data
     enum
@@ -58,6 +59,7 @@ protected:
     afx_msg void    OnBnClickedShowUserProps();
     afx_msg void    OnBnClickedShowfolders();
     afx_msg void    OnBnClickedShowfiles();
+    afx_msg void    OnBnClickedCommit();
     afx_msg BOOL    OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
     afx_msg LRESULT OnSVNStatusListCtrlNeedsRefresh(WPARAM, LPARAM);
     afx_msg LRESULT OnSVNStatusListCtrlItemCountChanged(WPARAM, LPARAM);
@@ -90,6 +92,7 @@ private:
     BOOL               m_bShowFiles;
     bool               m_bDepthInfinity;
     bool               m_bContactRepository;
+    bool               m_bShowCommitBtn;
 
     /// temp. set when the "Properties" was clicked last
     bool m_bShowPropertiesClicked;
