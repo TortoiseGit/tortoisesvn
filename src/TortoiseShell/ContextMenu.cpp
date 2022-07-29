@@ -1412,6 +1412,8 @@ void CShellExt::InvokeCommand(int cmd, const std::wstring& cwd, const std::wstri
     //* path is a path to a single file/directory for commands which only act on single items (log, checkout, ...)
     //* pathfile is a path to a temporary file which contains a list of file paths
     std::wstring svnCmd = L" /command:";
+    CTraceToOutputDebugString::Instance()(__FUNCTION__ );
+
     switch (cmd)
     {
         case ShellMenuUpgradeWC:
@@ -2575,29 +2577,31 @@ void CShellExt::RunCommand(const std::wstring& path, const std::wstring& command
         Microsoft::WRL::ComPtr<IServiceProvider> serviceProvider;
         if (SUCCEEDED(site.As(&serviceProvider)))
         {
-            OutputDebugString(L"got IServiceProvider");
+            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IServiceProvider\n");
             Microsoft::WRL::ComPtr<IShellBrowser> shellBrowser;
             if (SUCCEEDED(serviceProvider->QueryService(SID_SShellBrowser, IID_IShellBrowser, &shellBrowser)))
             {
-                OutputDebugString(L"got IShellBrowser");
+                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IShellBrowser\n");
                 Microsoft::WRL::ComPtr<IShellView> shellView;
                 if (SUCCEEDED(shellBrowser->QueryActiveShellView(&shellView)))
                 {
-                    OutputDebugString(L"got IShellView");
+                    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IShellView\n");
                     Microsoft::WRL::ComPtr<IDispatch> spdispView;
                     if (SUCCEEDED(shellView->GetItemObject(SVGIO_BACKGROUND, IID_PPV_ARGS(&spdispView))))
                     {
-                        OutputDebugString(L"got IDispatch");
+                        CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IDispatch\n");
                         Microsoft::WRL::ComPtr<IShellFolderViewDual> spFolderView;
                         if (SUCCEEDED(spdispView.As(&spFolderView)))
                         {
-                            OutputDebugString(L"got IShellFolderViewDual");
+                            CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IShellFolderViewDual\n");
                             Microsoft::WRL::ComPtr<IDispatch> spdispShell;
                             if (SUCCEEDED(spFolderView->get_Application(&spdispShell)))
                             {
+                                CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got Application IDispatch\n");
                                 Microsoft::WRL::ComPtr<IShellDispatch2> spdispShell2;
                                 if (SUCCEEDED(spdispShell.As(&spdispShell2)))
                                 {
+                                    CTraceToOutputDebugString::Instance()(__FUNCTION__ ": got IShellDispatch2\n");
                                     // without this, the launched app is not moved to the foreground
                                     AllowSetForegroundWindow(ASFW_ANY);
 
