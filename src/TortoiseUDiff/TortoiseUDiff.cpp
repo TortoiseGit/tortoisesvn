@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2003-2008, 2010-2012, 2014-2015, 2020-2021 - TortoiseSVN
+// Copyright (C) 2003-2008, 2010-2012, 2014-2015, 2020-2022 - TortoiseSVN
 // Copyright (C) 2011-2016 - TortoiseGit
 
 // This program is free software; you can redistribute it and/or
@@ -27,6 +27,7 @@
 #include "../Utils/CrashReport.h"
 #include "ResString.h"
 #include "registry.h"
+#include "SmartHandle.h"
 
 #include <commctrl.h>
 #pragma comment(lib, "comctl32.lib")
@@ -59,6 +60,10 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
     Gdiplus::GdiplusStartupInput gdiplusStartupInput;
     ULONG_PTR                    gdiplusToken;
     Gdiplus::GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, nullptr);
+
+    CAutoLibrary hSciLexerDll = ::LoadLibrary(L"SciLexer.DLL");
+    if (hSciLexerDll == nullptr)
+        return FALSE;
 
     CLangDll langDll;
     hResource = langDll.Init(L"TortoiseUDiff", langId);
