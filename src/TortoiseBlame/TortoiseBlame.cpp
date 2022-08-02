@@ -1,6 +1,6 @@
 ﻿// TortoiseBlame - a Viewer for Subversion Blames
 
-// Copyright (C) 2003-2021 - TortoiseSVN
+// Copyright (C) 2003-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -36,7 +36,6 @@
 #include "resource.h"
 
 #include <algorithm>
-#include <cctype>
 #include <regex>
 #include <strsafe.h>
 #include <dwmapi.h>
@@ -1587,7 +1586,7 @@ void TortoiseBlame::CreateFont(int fontSize)
     ReleaseDC(wBlame, hDC);
 }
 
-void TortoiseBlame::DrawBlame(HDC hDC)
+void TortoiseBlame::DrawBlame(HDC hDC) const
 {
     if (hDC == nullptr)
         return;
