@@ -1,6 +1,6 @@
 ﻿// TortoiseSVN - a Windows shell extension for easy version control
 
-// Copyright (C) 2017-2021 - TortoiseSVN
+// Copyright (C) 2017-2022 - TortoiseSVN
 
 // This program is free software; you can redistribute it and/or
 // modify it under the terms of the GNU General Public License
@@ -177,9 +177,16 @@ void CUnshelve::OnCbnSelchangeShelvename()
         }
         m_cVersionCombo.SetCurSel(v - 1);
         OnCbnSelchangeVersioncombo();
+        DialogEnableWindow(IDOK, TRUE);
     }
     else
+    {
         m_currentShelfInfo = ShelfInfo();
+        m_cLogMessage.SetText(L"");
+        m_cVersionCombo.ResetContent();
+        OnCbnSelchangeVersioncombo();
+        DialogEnableWindow(IDOK, FALSE);
+    }
 }
 
 void CUnshelve::OnCbnSelchangeVersioncombo()
