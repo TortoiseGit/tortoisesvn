@@ -1,10 +1,13 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include Includes.wxi?>
   <?if $(env.Platform) = "win32" ?>
   <?define cf="CommonFilesFolder" ?>
   <?endif ?>
   <?if $(env.Platform) = "x64" ?>
+  <?define cf="CommonFiles64Folder" ?>
+  <?endif ?>
+  <?if $(env.Platform) = "arm64" ?>
   <?define cf="CommonFiles64Folder" ?>
   <?endif ?>
   <Product
@@ -43,6 +46,9 @@
             <?include TortoiseOverlaysDir.wxi?>
             <?endif ?>
             <?if $(env.Platform) = "x64" ?>
+            <?include TortoiseOverlaysDirx64.wxi?>
+            <?endif ?>
+            <?if $(env.Platform) = "arm64" ?>
             <?include TortoiseOverlaysDirx64.wxi?>
             <?endif ?>
           </Component>

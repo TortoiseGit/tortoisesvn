@@ -15,6 +15,12 @@
   <?define PlatformPathExtension="x64" ?>
   <?define PackagePlatforms="x64" ?>
   <?define PlatformUserVisible="(64 bit)" ?>
+  <?elseif $(env.Platform) = "arm64" ?>
+  <?define Win64YesNo="yes" ?>
+  <?define ReleasePath="ReleaseARM64" ?>
+  <?define PlatformPathExtension="ARM64" ?>
+  <?define PackagePlatforms="arm64" ?>
+  <?define PlatformUserVisible="(64 bit)" ?>
   <?else?>
   <?define Win64YesNo="no" ?>
   <?define ReleasePath="Release" ?>
@@ -27,6 +33,8 @@
 
   <?if $(env.Platform) = "x64" ?>
   <?define UpgradeGuid="3C89127D-F335-46eb-8720-CAFE0C0FEB7E" ?>
+  <?elseif $(env.Platform) = "arm64"?>
+  <?define UpgradeGuid="B1102906-D679-4BF1-85A4-BA0E75483147" ?>
   <?else?>
   <?define UpgradeGuid="9D3DBC93-494B-45a8-88D7-430AB5568B0F" ?>
   <?endif?>
@@ -47,6 +55,11 @@
 
   <?define OverlayDll="BC54248D-096E-4EF0-A072-EE0C3113DB93"?>
   <?define GuidIconsXPStyle="5FDADF3B-9541-4bc1-8B4E-EA345CDBBFA4"?>
+
+  <?elseif $(env.Platform) = "arm64" ?>
+  
+  <?define OverlayDll="75D594B8-91AC-4300-B387-E4D34FDC344B"?>
+  <?define GuidIconsXPStyle="B1322B65-73CB-4515-9378-7AF2BA0C985E"?>
 
   <?else?>
 
